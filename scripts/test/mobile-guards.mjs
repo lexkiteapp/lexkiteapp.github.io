@@ -8,8 +8,11 @@ const pf = (app.match(/App\.prefetchAll = [^\n]+/) || [''])[0];
 ok(/let inflight = 0/.test(app) && /inflight\+\+/.test(app) && /finally\(\(\) => \{ inflight--; \}\)/.test(app), 'đếm số gói đang tải (need1)');
 ok(/inflight \|\| document\.readyState !== 'complete'/.test(pf), 'tải sẵn chỉ bắt đầu khi trang đã load và không còn gói đang tải (không giành băng thông 4G với trang đang mở → LCP)');
 ok(/l\.onload = l\.onerror = next/.test(pf) && /for \(let i = 0; i < 3; i\+\+\) next\(\)/.test(pf) && !/\.forEach\(f => \{ const l = document\.createElement\('link'\)/.test(pf), 'tải sẵn xếp hàng 3 file một lúc (không đổ 200+ <link prefetch> cùng lúc)');
-const css = rd('web/css/style.css');
+const css = rd('web/css/style.css') + rd('web/css/lazy-ui.css'); // luật trang lười ở lazy-ui.css (scripts/test/css-lazy.mjs)
 ok(/\.top-stats #installBtn \{[^}]*min-width: 44px[^}]*min-height: 44px/.test(css), 'nút cài app ở thanh trên ≥ 44×44 (360 px từng là 38×35)');
+const appSrc = fs.readFileSync('web/js/app.js', 'utf8'), bip = appSrc.slice(appSrc.indexOf("addEventListener('beforeinstallprompt'")).split('\n')[0];
+ok(/addEventListener\('hashchange', showInstallBtn, \{ once: true \}\)/.test(bip) && !/\bshowInstallBtn\(\)/.test(bip), 'beforeinstallprompt không chèn nút ngay: thanh trên không xê dịch khi đang đọc (CLS, J8)');
+ok(/\[data-go\]'\)\.onclick = \(\) => \{ n\.remove\(\); showInstallBtn\(\);/.test(appSrc), 'gợi ý cài app vẫn mở được khi nút chưa được chèn');
 const rt = app.slice(app.indexOf('const b = [].concat(ROUTE_BUNDLE[name]'), app.indexOf('await App.need(...b)'));
 ok(/document\.body\.classList\.toggle\('focus'/.test(rt) && (app.match(/classList\.toggle\('focus'/g) || []).length === 1, 'chế độ tập trung (ẩn thanh trên) bật NGAY đầu route, trước khi đợi tải gói (CLS 0,07–0,09 khi vào ôn/luyện)');
 ok(/const mo = new MutationObserver\(crumb\); mo\.observe\(view, \{ childList: true \}\)/.test(app) && /finally \{ mo\.disconnect\(\); \}/.test(app), 'breadcrumb chèn ngay khi trang vẽ .page-head (không đợi dữ liệu → CLS từ điển 0,04–0,05)');
@@ -33,9 +36,14 @@ ok(/notesMem\.get\(w\)/.test(app) && /await Promise\.race\(\[App\.notesReady\(fu
     'thanh tab Stitch: tab đang chọn MỘT khối nền (viên nền icon/nhãn của thanh cũ không lọt vào .st-nav; .st-tabi không nền riêng) – từng thành 2–3 khối chồng nhau ở tab Luyện');
   ok(/^html \{ scroll-padding-top: calc\(72px \+ env\(safe-area-inset-top, 0px\)\); \}/m.test(css), 'focus/anchor/scrollIntoView dừng dưới thanh trên dính (tiêu đề thẻ không bị che)'); }
 // Màn Stitch v2 (ux1 train): đầu trang dính có vùng an toàn (pt-safe/pb-safe phải được định nghĩa) + ::after mở vùng chạm có min ≥ 44 px (cổng mobile-qa đo min-width/min-height)
-{ const sv = rd('web/css/st-v2-practice.css'), sh = rd('web/js/st/v2/shell.js');
+{ const sv = rd('web/css/st-v2-ux1-pre.css'), sh = rd('web/js/st/v2/shell.js'); // tiền tố chung gói ux1 (build-stitch-css SHARED) – practice.css trỏ về nó
+  ok(/tiền tố chung: css\/st-v2-ux1-pre\.css/.test(rd('web/css/st-v2-practice.css')) && /'css\/st-v2-ux1-pre\.css', 'css\/st-v2-path\.css'/.test(rd('web/js/app.js')), 'gói ux1 nạp tiền tố chung st-v2-ux1-pre.css trước các màn v2');
   ok(!/pt-safe/.test(sh) || /\.st \.pt-safe\{padding-top:env\(safe-area-inset-top/.test(sv), 'lớp pt-safe của đầu trang Stitch có luật env(safe-area-inset-top)');
   ok(/\.st \.pb-safe\{padding-bottom:env\(safe-area-inset-bottom/.test(sv), 'lớp pb-safe có luật env(safe-area-inset-bottom)');
   ok(/:is\(a,button\)\[class\*="after:absolute"\]::after\{min-width:44px;min-height:44px\}/.test(sv), 'liên kết/nút mở vùng chạm bằng ::after có min 44 × 44 px'); }
+// Một nút đổi ngôn ngữ (đo render thật: topbar-lang.mjs): khung máy tính không tự vẽ viên thứ hai cạnh #langBtn; viên thanh trên cùng một token cao, viên chuỗi không nền/viền riêng
+{ const sv = rd('web/css/st-v2-ux1-pre.css');
+  ok(!/data-act="\$\{e\('lang'\)\}"/.test(rd('web/js/st/v2/today-desk.js')), 'today-desk không có nút ngôn ngữ riêng (thanh trên đã có #langBtn)');
+  ok(/body\.ux1 \.topbar \.icon-btn,body\.ux1 \.topbar \.avatar\{width:var\(--tap,44px\);height:var\(--tap,44px\)/.test(sv) && !/\.topbar \.pill\.fire\{border-color/.test(sv), 'viên thanh trên cùng token --tap; viên chuỗi không viền riêng'); }
 if (fail) { console.error(`✗ mobile-guards: ${fail} lỗi`); process.exit(1); }
 console.log('✓ mobile-guards: đạt');

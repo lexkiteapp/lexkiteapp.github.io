@@ -43,43 +43,68 @@
       "video_clip": "ga11_talk",
       "clips": {
         "talk": {
-          "src": "ga11_talk"
+          "src": "ga11_talk",
+          "still_frame": 48
         },
         "listen": {
-          "src": "ga11_listen_2"
+          "src": "ga11_listen_2",
+          "still_frame": 47
         },
         "explain": {
-          "src": "ga11_explain"
+          "src": "ga11_explain",
+          "still_frame": 50
         },
         "happy": {
-          "src": "ga11_happy"
+          "src": "ga11_happy",
+          "still_frame": 48
         },
         "encourage": {
-          "src": "ga11_encourage"
+          "src": "ga11_encourage",
+          "still_frame": 48
         },
         "thinking": {
-          "src": "ga11_thinking"
+          "src": "ga11_thinking",
+          "still_frame": 48
         },
         "laugh": {
-          "src": "ga11_laugh"
+          "src": "ga11_laugh",
+          "still_frame": 12
         },
         "wave": {
-          "src": "ga11_wave"
+          "src": "ga11_wave",
+          "still_frame": 48
         },
         "cheer": {
-          "src": "ga11_cheer"
+          "src": "ga11_cheer",
+          "still_frame": 48
         },
         "concern": {
-          "src": "ga11_concern_2"
+          "src": "ga11_concern_2",
+          "still_frame": 55
         },
         "surprise": {
-          "src": "ga11_surprise_3"
+          "src": "ga11_surprise_3",
+          "still_frame": 42
         },
         "point": {
-          "src": "ga11_point"
+          "src": "ga11_point",
+          "still_frame": 55
         },
         "empathy": {
-          "src": "ga11_empathy"
+          "src": "ga11_empathy",
+          "still_frame": 74
+        }
+      },
+      "eye_ref": 0.0458,
+      "poster_frame": 0,
+      "stills": {
+        "thumbs_up": {
+          "src": "cine/teachers/green/ga11_thumbs_up_still.png",
+          "note": "dịch phải 57 px về khung khoá, 0 cr (05/11)"
+        },
+        "clap": {
+          "src": "cine/teachers/green/ga11_clap_still.png",
+          "note": "05/11"
         }
       }
     },
@@ -100,46 +125,71 @@
       "video_clip": "gc11_talk",
       "clips": {
         "talk": {
-          "src": "gc11_talk"
+          "src": "gc11_talk",
+          "still_frame": 48
         },
         "listen": {
-          "src": "gc11_listen"
+          "src": "gc11_listen",
+          "still_frame": 34
         },
         "explain": {
-          "src": "gc11_explain"
+          "src": "gc11_explain",
+          "still_frame": 48
         },
         "happy": {
-          "src": "gc11_happy"
+          "src": "gc11_happy",
+          "still_frame": 48
         },
         "encourage": {
           "src": "gc11_happy",
-          "note": "thay bằng happy (chủ duyệt 29/10)"
+          "note": "thay bằng happy (chủ duyệt 29/10)",
+          "still_frame": 48
         },
         "thinking": {
-          "src": "gc11_thinking"
+          "src": "gc11_thinking",
+          "still_frame": 48
         },
         "laugh": {
-          "src": "gc11_laugh"
+          "src": "gc11_laugh",
+          "still_frame": 81
         },
         "wave": {
-          "src": "gc11_wave_2"
+          "src": "gc11_wave_2",
+          "still_frame": 48
         },
         "cheer": {
-          "src": "gc11_cheer"
+          "src": "gc11_cheer",
+          "still_frame": 23
         },
         "concern": {
           "src": "gc11_empathy",
-          "note": "thay bằng empathy (chủ duyệt 29/10)"
+          "note": "thay bằng empathy (chủ duyệt 29/10)",
+          "still_frame": 38
         },
         "surprise": {
-          "src": "gc11_surprise_2"
+          "src": "gc11_surprise_2",
+          "still_frame": 48
         },
         "point": {
           "src": "gc11_explain",
-          "note": "thay bằng explain (chủ duyệt 29/10)"
+          "note": "thay bằng explain (chủ duyệt 29/10)",
+          "still_frame": 48
         },
         "empathy": {
-          "src": "gc11_empathy"
+          "src": "gc11_empathy",
+          "still_frame": 38
+        }
+      },
+      "eye_ref": 0.0227,
+      "poster_frame": 0,
+      "stills": {
+        "thumbs_up": {
+          "src": "cine/teachers/green/gc11_thumbs_up_still.png",
+          "note": "ảnh chuẩn Kling 2K, qc_green + soát mắt (05/11)"
+        },
+        "hold_card": {
+          "src": "cine/teachers/green/gc11_hold_card_still.png",
+          "note": "thẻ trắng trơn (05/11)"
         }
       }
     }
@@ -177,6 +227,30 @@
       "sha256": "0a51af9e2361806aa42051e3f57e43ca737c425481fb27b391acb1f4f3fa6eff",
       "bytes": 149699
     },
+    "ama/head-bare-2x.webp": {
+      "sha256": "464bc8eebd4b21dafb7dce772e90c520d2967aa412a65546bb5f7f27cab5bfc8",
+      "bytes": 26694
+    },
+    "ama/head-bare.webp": {
+      "sha256": "2bf1d4a0b2658642c9131016eae288aecd1293ff1e0d95a845625eb5d3faa616",
+      "bytes": 13892
+    },
+    "ama/idle-poster.webp": {
+      "sha256": "f9be201160a88559771db128d57eac5ecfd0f8343467ac2fd12a679c8406b385",
+      "bytes": 15562
+    },
+    "ama/idle.mp4": {
+      "sha256": "e36987d389726a327f31339e01450decf5bd62ea0463973d39daef517b1ee9a7",
+      "bytes": 40082
+    },
+    "ama/idle.webm": {
+      "sha256": "b1f8cc0c97c14e35d62dbf74c01578e8ab260c23d1beaaebf9e8df04f81cf5a2",
+      "bytes": 95072
+    },
+    "ama/idle.webp": {
+      "sha256": "7e18dce9c2c90ae469e7c88c5b0de8cc6b3950a23a65f8d8b12c0afa96e9fe20",
+      "bytes": 465990
+    },
     "ama/laugh.mp4": {
       "sha256": "ca24680ac5e18c55da62b7b02adb53bf2328bc36a1a82ceee60bc956bde903bf",
       "bytes": 127583
@@ -205,41 +279,45 @@
       "sha256": "a87843fdad0868ae5d39fda01ca72240bc8a99fd7287b0812175c09f446eb470",
       "bytes": 35092
     },
+    "ama/still-clap.webp": {
+      "sha256": "3d86e6f6d8b5c077a8f768e98539b45519c7eafe06b40f9fe9931a3eee278fbb",
+      "bytes": 43336
+    },
     "ama/still-concern.webp": {
-      "sha256": "8b73c688b3ad9a030294d4879c31a420b3a34d41132dac4d75bb3f17b1735d97",
-      "bytes": 28920
+      "sha256": "ef3eac59f58a4712fc71bbbd5b48abd1120402c59f3a8c437b83552fd8cf57d1",
+      "bytes": 30714
     },
     "ama/still-empathy.webp": {
-      "sha256": "455f6837e0237c3356af27d6cc7dd3e6202f71c2280510262b8f98b4c9c074ed",
-      "bytes": 31528
+      "sha256": "f60f4a09447a8dcc00c770368f26d64e2ca52a3b0a1461b696783e63d5c016ca",
+      "bytes": 33026
     },
     "ama/still-encourage.webp": {
       "sha256": "70c9a68731802189ee7b593aae97c4e88084bd50b1281810c395bcc311c3fa31",
       "bytes": 37976
     },
     "ama/still-explain.webp": {
-      "sha256": "e25dd8d37a34c1b86bc618cf6c19cecfa1fe11166e5eb2019de5675a31d3ad60",
-      "bytes": 34528
+      "sha256": "2ebf150a1438cc6236d209461f71839638a92a2a31b9a2dd725df2f3c82386d0",
+      "bytes": 34978
     },
     "ama/still-happy.webp": {
       "sha256": "4c62dd7d6bed7189f00e757bb86b1f1ac82f3c720851dad6dbe93e3d05c263ad",
       "bytes": 31542
     },
     "ama/still-laugh.webp": {
-      "sha256": "a03ea93479e8852c5ceb9244330283c4b3e26ebb0e1df050ac99ae56f98a63d4",
-      "bytes": 29640
+      "sha256": "17e4e29b9ed3c54604ed04df9b38721de60fedc7e6434a2755a8e0be05be00e4",
+      "bytes": 29986
     },
     "ama/still-listen.webp": {
-      "sha256": "c631d37d25bcb7f21f0c0aed7a13eb36306e90f6867e4d40e279ea7060c70cf0",
-      "bytes": 31176
+      "sha256": "0a4c47443c6e8bf75866ab0ce488547948ac34f23872217b7f26e5e6cc8ff78f",
+      "bytes": 31676
     },
     "ama/still-point.webp": {
-      "sha256": "d1103de515266582b4872e123ad03df3a557c3c3f0ab858c49b5f3849bb5e4cb",
-      "bytes": 35962
+      "sha256": "124139df25f97bd0ce2555e64f0b435952df37bc5eac97f21a1c266d375f09bf",
+      "bytes": 38672
     },
     "ama/still-surprise.webp": {
-      "sha256": "5ea5ff5853a92bec8ed50e3cdc0681ea5463d0d9998418f61ff5dc590256a57d",
-      "bytes": 30050
+      "sha256": "5c583de4dd7e021c142a7f067208c13d99ce424f6c9569ae7bf6b74ed6a6dd77",
+      "bytes": 31492
     },
     "ama/still-talk.webp": {
       "sha256": "15507a8dd0983f2553b3b4efc1137b78ae50e89579e26231e480a5d2c7e91547",
@@ -248,6 +326,10 @@
     "ama/still-thinking.webp": {
       "sha256": "fe20d66abe40242449debdbe3c83ac91105d9e16a50ca21c0d4d5817c8b9701e",
       "bytes": 30894
+    },
+    "ama/still-thumbs_up.webp": {
+      "sha256": "67b9ff2fb5993ddc0f09e2ed42516197356d46e153656a54fbd45f3f7f29d22b",
+      "bytes": 45564
     },
     "ama/still-wave.webp": {
       "sha256": "bdab0f2a56e30d3d6eaa4344b32aef407c3ff7aab3b86a89200c7b1c5cf06172",
@@ -305,6 +387,30 @@
       "sha256": "70b408a5c91527d59ce94a837eb49945708b55a859679e4759f28c33a849b4b1",
       "bytes": 147267
     },
+    "carlos/head-bare-2x.webp": {
+      "sha256": "7d351d7179513d5639e3dbdf19ccad99871e1f3b4b914436ff15204e7011c769",
+      "bytes": 30034
+    },
+    "carlos/head-bare.webp": {
+      "sha256": "99237c27562afe2546926075f73eb8c067dc6ad01f541721a4441f8f716da6a4",
+      "bytes": 18036
+    },
+    "carlos/idle-poster.webp": {
+      "sha256": "8b7c7cc4de240b12c9c6221d30b80549a326f0635b29c531f7e7d0b83e565a8b",
+      "bytes": 20172
+    },
+    "carlos/idle.mp4": {
+      "sha256": "02ee9db4af963f322d4d539b2052a460bbf792dc3f94b6ede3a1a714486ce143",
+      "bytes": 31627
+    },
+    "carlos/idle.webm": {
+      "sha256": "1691bd19f57f22f4078661957cd385c95bb337f13a4c0deed951fe4ff74bdb7a",
+      "bytes": 115306
+    },
+    "carlos/idle.webp": {
+      "sha256": "126a141f212798528cece12a060692caeb91253d77f6d0e9e9b8f7d53f3f86cd",
+      "bytes": 528392
+    },
     "carlos/laugh.mp4": {
       "sha256": "aee800b0f0fd2edb5289d61ed3642a96632ec64ec7e323b60f08c7ad2884358e",
       "bytes": 119649
@@ -330,16 +436,16 @@
       "bytes": 14774
     },
     "carlos/still-cheer.webp": {
-      "sha256": "2f0d533c1ea679e5edb41b54551f879465bf9f1dc0e22e0f8d0bf35d919cdfd8",
-      "bytes": 40922
+      "sha256": "0780dbb1522f1cca85ce3ef7eaceec1a2e7f087dbb3b7a4f664d531cf09766f1",
+      "bytes": 43366
     },
     "carlos/still-concern.webp": {
-      "sha256": "e85b67590163d840fa39e58f2a25e00412692858a6338f2d7b3a215e1569f9ea",
-      "bytes": 41384
+      "sha256": "7b44aa4d881175f22410f34ed14248a1bab7294f4597ee32d97673305d149ec9",
+      "bytes": 42336
     },
     "carlos/still-empathy.webp": {
-      "sha256": "e85b67590163d840fa39e58f2a25e00412692858a6338f2d7b3a215e1569f9ea",
-      "bytes": 41384
+      "sha256": "7b44aa4d881175f22410f34ed14248a1bab7294f4597ee32d97673305d149ec9",
+      "bytes": 42336
     },
     "carlos/still-encourage.webp": {
       "sha256": "91e3d214de592894839137133b97a4f694e6d5df22ab242706d888499008ce01",
@@ -353,13 +459,17 @@
       "sha256": "91e3d214de592894839137133b97a4f694e6d5df22ab242706d888499008ce01",
       "bytes": 35590
     },
+    "carlos/still-hold_card.webp": {
+      "sha256": "974c6058eb0949b77bf554fda363602195dcc0b57c932cf09339b37c6dadd19f",
+      "bytes": 47554
+    },
     "carlos/still-laugh.webp": {
-      "sha256": "b20756076f7eeb3a322131c94f4f81fd59c432abb95bb4356cd492aba3038964",
-      "bytes": 36504
+      "sha256": "b4a94a23b5a5eec33793d989eb460eb8f51db84da3702e2d5d3915d782e18ff3",
+      "bytes": 36174
     },
     "carlos/still-listen.webp": {
-      "sha256": "1b8f50caeead1883fd2242d34924885f0b03a1f1444f3e3f4177dd6e247af201",
-      "bytes": 35876
+      "sha256": "3ed2ca3f3203dc398742aaa425f9b03d522db49220860d78597b71c603873c81",
+      "bytes": 37290
     },
     "carlos/still-point.webp": {
       "sha256": "0a0ebc8364ff664b50a00deb718f7d6168f5c668c2d75ae197bcfbac2b474d11",
@@ -376,6 +486,10 @@
     "carlos/still-thinking.webp": {
       "sha256": "7e8a5cf613f751c248d99d3db0b4c85816449c79ef3663b0216cf9227f586dfd",
       "bytes": 38728
+    },
+    "carlos/still-thumbs_up.webp": {
+      "sha256": "370338a4ae91d7bad666c67ff768d441a3f7fc46b880e952b3e9b3578748014b",
+      "bytes": 47174
     },
     "carlos/still-wave.webp": {
       "sha256": "06b25177d8cbb85a969a4148d00448309a59de8d0e1f6b16553c97ede78a6341",
@@ -401,5 +515,85 @@
       "sha256": "9f806ac765f7234218a097fbbd86bf246205f31c93d6abefe89e9dd9b75c27e0",
       "bytes": 226045
     }
-  }
+  },
+  "idle": {
+    "_note": "Vòng nghỉ 1–3 s (Home/lộ trình, chủ 3/11) dựng bởi scripts/teach/idle.py từ clip tư thế đã có – 0 credit. out = meta do script ghi (đừng sửa tay). closed_ok = ảnh tĩnh được phép nhắm mắt có chủ đích: head-bare(-2x) = lớp NỀN mặt vẽ đã xóa mắt/mày/miệng (mắt do web/js/call/face.js vẽ lên, #293), không bao giờ hiện một mình.",
+    "closed_ok": [
+      "ama/head-bare.webp",
+      "ama/head-bare-2x.webp",
+      "carlos/head-bare.webp",
+      "carlos/head-bare-2x.webp"
+    ],
+    "people": {
+      "ama": {
+        "pose": "happy",
+        "min_s": 1.5,
+        "max_s": 3,
+        "out": {
+          "src": "ama/happy.mp4",
+          "src_sha256": "0a51af9e2361806aa42051e3f57e43ca737c425481fb27b391acb1f4f3fa6eff",
+          "frame": [
+            26,
+            82
+          ],
+          "kind": "seam",
+          "frames": 56,
+          "seconds": 2.33,
+          "webm_crf": 30,
+          "mp4_crf": 26,
+          "seam": 1.36,
+          "blinks": 2,
+          "webm": {
+            "bytes": 95072,
+            "sha256": "b1f8cc0c97c14e35d62dbf74c01578e8ab260c23d1beaaebf9e8df04f81cf5a2"
+          },
+          "mp4": {
+            "bytes": 40082,
+            "sha256": "e36987d389726a327f31339e01450decf5bd62ea0463973d39daef517b1ee9a7"
+          },
+          "poster": {
+            "bytes": 15562,
+            "sha256": "f9be201160a88559771db128d57eac5ecfd0f8343467ac2fd12a679c8406b385"
+          }
+        }
+      },
+      "carlos": {
+        "pose": "happy",
+        "min_s": 1.5,
+        "max_s": 3,
+        "out": {
+          "src": "carlos/happy.mp4",
+          "src_sha256": "70b408a5c91527d59ce94a837eb49945708b55a859679e4759f28c33a849b4b1",
+          "frame": [
+            36,
+            80
+          ],
+          "kind": "seam",
+          "frames": 44,
+          "seconds": 1.83,
+          "webm_crf": 30,
+          "mp4_crf": 26,
+          "seam": 1.6,
+          "blinks": 0,
+          "webm": {
+            "bytes": 115306,
+            "sha256": "1691bd19f57f22f4078661957cd385c95bb337f13a4c0deed951fe4ff74bdb7a"
+          },
+          "mp4": {
+            "bytes": 31627,
+            "sha256": "02ee9db4af963f322d4d539b2052a460bbf792dc3f94b6ede3a1a714486ce143"
+          },
+          "poster": {
+            "bytes": 20172,
+            "sha256": "8b7c7cc4de240b12c9c6221d30b80549a326f0635b29c531f7e7d0b83e565a8b"
+          }
+        }
+      }
+    }
+  },
+  "still_poses": [
+    "thumbs_up",
+    "clap",
+    "hold_card"
+  ]
 }

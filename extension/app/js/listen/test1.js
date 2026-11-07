@@ -1,5 +1,15 @@
 /* IELTS Listening – Test 1 (tự biên soạn) */
 (function (g) {
+/* Chuỗi dài dùng chung của cả bộ đề (viết một lần; các đề khác tham chiếu g.LTI[n]) – nạp test1.js trước. Test: scripts/test/readtest-dedupe.mjs */
+g.LTI = [
+'Choose the correct letter, A, B or C.',
+'Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.',
+'Complete the notes below. Write ONE WORD ONLY for each answer.',
+'Before you hear the rest of the conversation, you have some time to look at questions 7 to 10.',
+'Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.',
+'Now look at questions 15 to 20.',
+'Now look at questions 16 to 20.',
+];
 const L = g.LISTENING = g.LISTENING || [];
 
 /* ---------------- Part 1 ---------------- */
@@ -60,7 +70,7 @@ script: [
 { s: 'A', t: 'My pleasure. See you on the 15th.' },
 ],
 groups: [
-{ type: 'form', title: 'Ashcombe Community Sports Centre – Membership form', instr: 'Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
+{ type: 'form', title: 'Ashcombe Community Sports Centre – Membership form', instr: g.LTI[1], limit: 2,
 items: [
 { n: 1, text: 'Name: Joanna ___', a: ['Caulfield'], cue: 'C, A, U, L, F, I, E, L, D', explain: 'Joanna đánh vần họ của mình: “C, A, U, L, F, I, E, L, D”. Cần nghe kỹ từng chữ cái, dễ viết nhầm thành “Colfield” hoặc “Caufield”.' },
 { n: 2, text: 'Address: 42 ___ Road, Ashcombe', a: ['Linnet'], cue: 'L, I, N, N, E, T', explain: 'Địa chỉ là “42 Linnet Road”, được đánh vần “L, I, N, N, E, T” (giống tên loài chim). Lưu ý có hai chữ N; số 42 đã cho sẵn.' },
@@ -71,7 +81,7 @@ items: [
 { n: 7, text: 'Main activity of interest: ___', a: ['badminton'], cue: "it's mainly badminton", explain: 'Bẫy: cô “used to swim a lot” (trước đây), còn hiện nay “it\'s mainly badminton”. “Main activity” được diễn đạt lại bằng “mainly”.' },
 { n: 8, text: 'Heard about the centre from a ___', a: ['leaflet'], cue: 'put a leaflet through my door', explain: 'Nhân viên hỏi có phải biết qua mạng (“online”) không; cô phủ nhận và nói “Someone put a leaflet through my door”. Đáp án là leaflet.' },
 ] },
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 9, q: 'What must Joanna bring on her first visit?', options: ['a bank statement', 'a photograph', 'her bank card'], a: 1, cue: 'a passport-sized photo', explain: 'Đáp án B: “we do need a passport-sized photo” (= a photograph). A sai vì “bank statement” là giấy chứng minh địa chỉ, nhân viên nói “We don\'t need that”; C (thẻ ngân hàng) không được nhắc đến.' },
 { n: 10, q: "What does Daniel recommend for Joanna's son?", options: ['the junior swimming course', 'a climbing session', 'the summer football camp'], a: 1, cue: 'free taster session for under-fourteens', explain: 'Đáp án B: Daniel nói về “a free taster session for under-fourteens” ở tường leo núi và “I\'d really recommend that”. A sai vì khóa bơi “full until the summer”; C sai vì trại hè bóng đá “don\'t open until May”.' },
@@ -117,7 +127,7 @@ script: [
 { s: 'A', t: "There's a ramp to the right of the entrance that you can use instead." },
 { s: 'A', t: 'The tiles were made in a local factory that closed long ago, so if one breaks, we simply cannot replace it.' },
 { pause: 1.5 },
-{ say: 'Now look at questions 15 to 20.' }, { pause: 3 },
+{ say: g.LTI[5] }, { pause: 3 },
 { s: 'A', t: "OK, so let me tell you about the different parts of the hall and what's on offer." },
 { s: 'A', t: 'First, the clock tower. You can climb right to the top, and the view across the river is wonderful on a clear day.' },
 { s: 'A', t: "But the staircase is narrow, so we only take groups of eight, and you'll need to reserve a place at the information desk beforehand." },
@@ -136,7 +146,7 @@ script: [
 { s: 'A', t: "Oh, and one last thing – the gift shop by the exit sells wool from local farms, which seems fitting, given the history of the place." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 11, q: 'The market hall was originally built for', options: ['selling fish.', 'trading wool.', 'selling farm animals.'], a: 1, cue: 'it was built for the wool trade', explain: 'Đáp án B: “it was built for the wool trade” (= trading wool). A là bẫy: nhiều người tưởng là chợ cá, nhưng cá chỉ được bán “later” ở một góc. C không được nhắc đến (nông dân mang lông cừu, không phải gia súc).' },
 { n: 12, q: 'How long did the restoration take?', options: ['three years', 'five years', 'twenty years'], a: 1, cue: 'it ended up taking five', explain: 'Đáp án B: kế hoạch ban đầu là “three years” nhưng “it ended up taking five”. C sai vì “nearly twenty years” là thời gian tòa nhà bị đóng cửa, không phải thời gian trùng tu.' },
@@ -226,7 +236,7 @@ script: [
 { s: 'B', t: "OK, that's really helpful. We'll get started on those changes this week." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 21, q: 'Why did the students choose university canteens as their topic?', options: ['Maya had worked in a canteen.', 'Their tutor recommended it.', 'Little research had been done on it.'], a: 2, cue: 'hardly any studies of student canteens', explain: 'Đáp án C: Oliver nói lý do chính là “there was almost nothing on universities… hardly any studies of student canteens” (= little research). A là bẫy: Maya từng làm ở căng tin, nhưng đó chỉ là “part of it”; B không được nhắc đến.' },
 { n: 22, q: 'What surprised the students about the waste audit?', options: ['Meat was the most wasted food.', 'Vegetables were wasted more than other food.', 'Bread was hardly wasted at all.'], a: 1, cue: 'it was actually the vegetable side dishes', explain: 'Đáp án B: “it was actually the vegetable side dishes”, lượng lãng phí lớn nhất “by quite a long way”. A là điều Oliver “assumed” nhưng sai, thịt “only third”; C sai vì bánh mì đứng thứ hai.' },
@@ -307,7 +317,7 @@ script: [
 { s: 'A', t: "In our next session, we'll look at some of the policies cities have introduced to overcome these problems." },
 ],
 groups: [
-{ type: 'note', title: 'Green roofs', instr: 'Complete the notes below. Write ONE WORD ONLY for each answer.', limit: 1,
+{ type: 'note', title: 'Green roofs', instr: g.LTI[2], limit: 1,
 items: [
 { n: 31, text: 'Structure: plants grown above a waterproof ___ that protects the building', a: ['membrane'], cue: 'waterproof membrane', explain: 'Giảng viên nói lớp quan trọng nhất là “a waterproof membrane, which protects the structure underneath”. “Structure underneath” được diễn đạt lại thành “protects the building”.' },
 { n: 32, text: 'Extensive roofs: thin soil; usually planted with ___', a: ['sedum'], cue: "they're usually planted with sedum", explain: 'Mái mở rộng (extensive) có đất mỏng nên “they\'re usually planted with sedum”. Bẫy: “Grasses” đôi khi cũng được dùng nhưng không phải loại thường gặp.' },

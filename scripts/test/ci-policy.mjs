@@ -5,6 +5,25 @@
 //     (mỗi lượt khác input, nhóm chung sẽ HUỶ lượt chờ = mất việc – docs/CI-RUNNERS.md) ghi rõ: `# ci-policy: no-concurrency – <lý do>`.
 //  3) push / pull_request có phạm vi: `paths`/`paths-ignore`, hoặc push chỉ trên nhánh thử riêng (không có main), hoặc lý do:
 //     `# ci-policy: all-paths – <lý do>` (vd. check bắt buộc phải chạy mọi PR).
+//  4) Workflow chạy trên PR (pull_request/_target – kết quả job = check của PR): job có `needs:` không dùng `always()` trần: `always()` vẫn chạy khi CẢ lượt đã bị huỷ (huỷ tay/concurrency/giải phóng runner)
+//     → job tải artifact của job bị huỷ đỏ "Artifact not found" và nhuộm đỏ PR (3/11: before-after đỏ ở #311 #323 #325 #326 #331 vì bot bị huỷ).
+//     Dùng `!cancelled()` (chạy cả khi job trước đỏ, không chạy khi lượt bị huỷ), hoặc có chặn rõ `needs.<job>.result != 'cancelled'`.
+//  5) (3/11 – sự cố required-gate: workflow_run ×38 → ~20 runner/commit, 66 % lượt CI) workflow nghe workflow_run / check_suite / check_run:
+//     (a) mọi job có `if:` mức job (hoặc `needs:` job đã có if) – lượt không cần là skipped, không chiếm runner; danh sách workflow_run
+//         > 5 workflow thì `if:` của job gốc phải lọc theo chính sự kiện (github.event.workflow_run / check_suite / check_run);
+//     (b) concurrency có cancel-in-progress: true, hoặc dòng `# ci-policy: queue – <lý do>` (việc tuần tự không được huỷ, vd. deploy);
+//     (c) không vòng workflow_run (A → B → A) – kiểm trên toàn bộ .github/workflows.
+//  6) Bước đẩy kết quả lên nhánh mà `git pull --rebase` phải chịu được cây làm việc bẩn: build/script hay sửa tệp đã theo dõi mà không add
+//     → "cannot pull with rebase: You have unstaged changes" (i18n 23/10, world-scorecard 2/11 đỏ 2 lượt liền). Dùng `--autostash`,
+//     hoặc cất phần còn sót trước đó trong cùng job (`git stash push` / `git reset --hard`).
+//  7) (3/11 – #553 gộp xanh mà main đỏ vì tsc chỉ có trong ci.yml, ci.yml không chạy trên PR): mọi lệnh kiểm trong ci.yml phải có trong scripts/test/suite.txt
+//     (npm test = cổng PR), nếu không PR xanh vẫn làm main đỏ.
+//  8) (05/11 – Font audit 7 job/commit, 6 job < 90 s = 20 % số job PR khởi động, hàng chờ 102 job / 40 runner): workflow chạy trên PR có matrix
+//     tĩnh > MATRIX_MAX nhánh (tích các mảng; trong biểu thức ${{ }} lấy mảng lớn nhất) phải gộp phần nhỏ chạy nối tiếp trong 1 job, hoặc ghi lý do
+//     `# ci-policy: matrix – <lý do>` (vd. đo hiệu năng từng máy phải tách runner). Mỗi nhánh = 1 lượt xin runner + setup ~40 s trong hàng chờ.
+//  9) (05/11 – e2e webkit / ux1 bị huỷ sau 20–40 phút vì `playwright install --with-deps` / `apt-get install` treo trên runner, #760): mọi lệnh
+//     cài Playwright/apt phải có giới hạn thời gian: bước CHỈ cài có `timeout-minutes` mức bước; bước vừa cài vừa chạy việc dài (render, e2e) bọc
+//     riêng lệnh cài bằng `timeout <giây>` (không giới hạn nhầm phần việc chính). Treo → bước đỏ rõ ràng sau vài phút thay vì job bị huỷ.
 // Không có danh sách miễn trừ ngầm: ngoại lệ nằm ngay trong file workflow, kèm lý do. Chạy: node scripts/test/ci-policy.mjs
 import fs from 'node:fs';
 import path from 'node:path';
@@ -12,6 +31,17 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const WF = path.join(ROOT, '.github/workflows');
+
+/** Lệnh kiểm của ci.yml thiếu trong suite.txt (thuần): so theo script node; `node --check`, `tsc -p` viết trần trong ci.yml luôn bị báo (suite chỉ nhận `node …`, suite-guard) → bọc thành script. */
+export function ciParity(ciYml, suite) {
+  const need = new Set();
+  for (const m of String(ciYml).matchAll(/^\s*(?:-\s*)?(?:run:\s*)?(.*)$/gm)) {
+    for (const x of m[1].matchAll(/node (scripts\/[\w./-]+)/g)) need.add(x[1]);
+    if (/node --check/.test(m[1])) need.add('node --check');
+    if (/\btsc -p /.test(m[1])) need.add('tsc -p');
+  }
+  return [...need].filter(k => !String(suite).includes(k));
+}
 
 /** Khối `on:` (thuần) → { events: Set, push: text, pull_request: text }. Hỗ trợ dạng khối (repo không dùng `on: [..]`). */
 export function triggers(src) {
@@ -27,8 +57,48 @@ export function jobs(src) {
   const body = m[1], heads = [...body.matchAll(/^  ([\w-]+):[ \t]*(?:#.*)?\n/gm)];
   return heads.map((h, i) => ({ id: h[1], text: body.slice(h.index, i + 1 < heads.length ? heads[i + 1].index : undefined) }));
 }
-const AUTO = ['push', 'pull_request', 'pull_request_target', 'schedule', 'workflow_run', 'check_suite'];
+const AUTO = ['push', 'pull_request', 'pull_request_target', 'schedule', 'workflow_run', 'check_suite', 'check_run'];
+const CHAIN = ['workflow_run', 'check_suite', 'check_run'];
 const reason = (src, k) => new RegExp(`^#\\s*ci-policy:\\s*${k}\\s*[–-]\\s*\\S.{8,}`, 'm').test(src);
+export const MATRIX_MAX = 4;
+/** Số nhánh matrix TĨNH của 1 job (thuần): tích độ dài các mảng ngoài ${{ }}; mỗi biểu thức ${{ }} lấy mảng literal lớn nhất (nhánh || thay thế nhau). Matrix động (output job khác) = 0. */
+export function matrixLegs(jobText) {
+  const m = String(jobText).match(/^\s*(?:strategy:.*?\bmatrix:|matrix:)([\s\S]*?)(?=^    \S|^      steps:|$(?![\s\S]))/m);
+  if (!m) return 0;
+  let blk = m[1].replace(/\s+#.*$/gm, ''), legs = 1, any = false;
+  const count = a => { try { const v = JSON.parse(a); if (Array.isArray(v)) return v.length; } catch (e) { /* không phải JSON */ } return a.slice(1, -1).trim() ? a.slice(1, -1).split(',').length : 0; };
+  blk = blk.replace(/\$\{\{(.*)\}\}/g, (_, e) => { const arrs = [...e.matchAll(/'(\[[\s\S]*?\])'/g)].map(x => count(x[1])); if (arrs.length) { legs *= Math.max(...arrs); any = true; } return ''; });
+  for (const a of blk.matchAll(/:\s*(\[[^\[\]]*\])/g)) { legs *= count(a[1]); any = true; }
+  return any ? legs : 0;
+}
+// 9) Lệnh cài Playwright/apt (thuần, có test): mỗi bước → { start, insertAt, keyIndent, jobTimeout, installLines, installOnly, bounded }
+const INSTALL_RE = [/\bapt(?:-get)?\s(?:[^\n;&|#]*?\s)?(?:install|update)\b/g, /(?:npx\s+(?:--yes\s+)?playwright(?:@[\w.]+)?|node\s+\S*playwright[\w-]*\/cli\.js)\s+install\b/g];
+const SETUP_LINE = /^(npm (i|ci|install)\b|(timeout \d+ )?npx (--yes )?playwright\S* install|(sudo )?(timeout \d+ )?apt(-get)?\b|sudo |pip3? install|python3? -m pip|echo |fc-cache|for i in|if timeout|then\b|fi\b|done\b|do\b|else\b|\[ |google-chrome --version|export |mkdir |corepack|node --version|[{}]|run:\s*\|?\s*$)/;
+const installCmds = line => /^\s*#/.test(line) ? [] : INSTALL_RE.flatMap(re => [...line.matchAll(re)]);
+const boundedCmd = (line, m) => /timeout\s+(?:-\S+\s+)*\d+[smh]?\s+$/.test(line.slice(0, m.index));
+export function installSteps(src) {
+  const L = String(src).split('\n'), out = [];
+  for (let i = 0; i < L.length; i++) {
+    const sm = L[i].match(/^(\s*)steps:\s*(#.*)?$/); if (!sm) continue;
+    const si = sm[1].length, ind = l => l.match(/^\s*/)[0].length;
+    let jobTimeout = 360; for (let k = i - 1; k >= 0 && !/^  [\w-]+:\s*(#.*)?$/.test(L[k]); k--) { const m = L[k].match(/^(\s*)timeout-minutes:\s*(\d+)/); if (m && m[1].length === si) { jobTimeout = +m[2]; break; } }
+    let j = i + 1; const items = [];
+    for (; j < L.length; j++) { const l = L[j]; if (l.trim() && ind(l) <= si && !/^\s*#/.test(l)) break; const m = l.match(/^(\s*)- /); if (m && m[1].length > si && (!items.length || m[1].length === items[0].ind)) items.push({ start: j, ind: m[1].length }); }
+    items.forEach((it, a) => { it.end = a + 1 < items.length ? items[a + 1].start : j; });
+    for (const it of items) {
+      const lines = L.slice(it.start, it.end), installLines = [];
+      lines.forEach((l, k) => { if (installCmds(l).length) installLines.push(it.start + k); });
+      if (!installLines.length) continue;
+      const keyIndent = it.ind + 2, body = lines.join('\n');
+      const stepTimeout = new RegExp('^ {' + keyIndent + '}timeout-minutes:|^\\s*- \\{.*\\btimeout-minutes:', 'm').test(body);
+      const cmds = lines.map(l => l.replace(/^\s*(- )?(name|uses|with|env|if|id|shell|working-directory|continue-on-error):.*$/, '').replace(/^\s*(- )?(run:\s*\|?)?\s*/, '').trim()).filter(c => c && !c.startsWith('#'));
+      const installOnly = cmds.every(c => SETUP_LINE.test(c) || installCmds(c).length);
+      const bounded = stepTimeout || installLines.every(n => installCmds(L[n]).every(m => boundedCmd(L[n], m)));
+      out.push({ start: it.start, insertAt: /^\s*- name:/.test(L[it.start]) ? it.start + 1 : it.end, keyIndent, jobTimeout, installLines, installOnly, bounded });
+    }
+  }
+  return out;
+}
 /** Lỗi chính sách của 1 workflow (thuần, có test) → [chuỗi]. */
 export function violations(file, src) {
   const out = [], t = triggers(src);
@@ -39,7 +109,47 @@ export function violations(file, src) {
   else if (!hasConc && !reason(src, 'no-concurrency')) out.push(`${file}: thiếu concurrency (hoặc dòng "# ci-policy: no-concurrency – <lý do>")`);
   const scoped = ev => /^\s*paths(-ignore)?:/m.test(t[ev]) || (ev === 'push' && /^\s*branches:/m.test(t.push) && !/\bmain\b/.test((t.push.match(/^\s*branches:([^\n]*)/m) || [])[1] || ''));
   for (const ev of ['push', 'pull_request']) if (t.events.has(ev) && !scoped(ev) && !reason(src, 'all-paths')) out.push(`${file}: ${ev} không có paths (hoặc dòng "# ci-policy: all-paths – <lý do>")`);
+  if (t.events.has('pull_request') || t.events.has('pull_request_target')) for (const j of jobs(src)) { const c = (j.text.match(/^    if:([^\n]*)/m) || [])[1] || '';
+    if (/^    needs:/m.test(j.text) && /\balways\(\)/.test(c) && !/!=\s*'cancelled'/.test(c)) out.push(`${file}: job "${j.id}" có needs + if: always() – lượt bị huỷ vẫn chạy rồi đỏ; dùng !cancelled()`); }
+  for (const j of jobs(src)) for (const m of j.text.matchAll(/^.*\bgit\b[^\n]*\bpull\b[^\n]*--rebase\b.*$/gm)) {
+    const before = j.text.slice(0, m.index);
+    if (!/--autostash\b/.test(m[0]) && !/\bgit\b[^\n]*\b(stash push|reset (-q )?--hard)\b/.test(before)) out.push(`${file}: job "${j.id}" có git pull --rebase không --autostash (cây bẩn → "cannot pull with rebase")`);
+  }
+  const chain = CHAIN.filter(e => t.events.has(e));
+  if (chain.length) {
+    const js = jobs(src), gated = new Set(js.filter(j => /^    if:/m.test(j.text)).map(j => j.id));
+    const needsOf = j => { const m = j.text.match(/^    needs:\s*(\[[^\]]*\]|[\w-]+)/m); return m ? m[1].replace(/[[\]\s]/g, '').split(',').filter(Boolean) : []; };
+    for (const j of js) if (!gated.has(j.id) && !needsOf(j).some(n => gated.has(n))) out.push(`${file}: nghe ${chain.join('/')} mà job "${j.id}" thiếu if: mức job (lượt không cần phải skipped, không chiếm runner)`);
+    const list = workflowRunList(src);
+    if (list.length > 5) for (const j of js) if (!needsOf(j).length && !/^    if:.*github\.event\.(workflow_run|check_suite|check_run)/m.test(j.text)) out.push(`${file}: workflow_run nghe ${list.length} workflow (> 5) mà job "${j.id}" không có cổng skip theo github.event.workflow_run`);
+    if (!/cancel-in-progress:\s*true/.test(src) && !reason(src, 'queue')) out.push(`${file}: nghe ${chain.join('/')} cần concurrency cancel-in-progress: true (hoặc dòng "# ci-policy: queue – <lý do>")`);
+  }
+  if ((t.events.has('pull_request') || t.events.has('pull_request_target')) && !reason(src, 'matrix'))
+    for (const j of jobs(src)) { const n = matrixLegs(j.text); if (n > MATRIX_MAX) out.push(`${file}: job "${j.id}" chạy trên PR với matrix ${n} nhánh (> ${MATRIX_MAX}) – gộp phần nhỏ nối tiếp trong 1 job (mỗi nhánh = 1 lượt xin runner + setup), hoặc dòng "# ci-policy: matrix – <lý do>"`); }
+  // 10) (06/11 – stitch-web đỏ vì `timeout 600 npx playwright install --with-deps` treo apt hết 600 s, #780): cài Playwright qua scripts/ci/pw-install.sh
+  //     (mỗi lượt ≤ 4 phút, thử lại 3 lượt, giết apt treo) – một lượt treo không còn làm đỏ job. Trừ mobile-qa.yml (nội dung bị mqa-parity khoá) và vòng thử lại tự viết.
+  if (!/(^|\/)mobile-qa\.yml$/.test(file)) String(src).split('\n').forEach((l, n) => { if (!/^\s*#/.test(l) && /npx\s+(?:--yes\s+)?playwright(?:@[\w.]+)?\s+install\b/.test(l) && !/\bif timeout \d+ npx/.test(l)) out.push(`${file}:${n + 1}: cài Playwright trần – dùng \`bash scripts/ci/pw-install.sh [--with-deps] <trình duyệt>\` (trần + thử lại, luật 10)`); });
+  for (const st of installSteps(src)) if (!st.bounded) out.push(`${file}:${st.start + 1}: bước cài Playwright/apt không giới hạn thời gian – bước chỉ cài: thêm timeout-minutes; bước còn việc khác: bọc lệnh cài bằng \`timeout 600 …\` (luật 9)`);
   return out;
+}
+/** Tên các workflow trong workflow_run.workflows (dạng [a, b] hoặc danh sách - 'a'). */
+export function workflowRunList(src) {
+  const b = (String(src).match(/^  workflow_run:[^\n]*\n((?:    [^\n]*\n|\s*\n)*)/m) || [, ''])[1];
+  const inl = b.match(/^    workflows:\s*\[([^\]]*)\]/m);
+  if (inl) return inl[1].split(',').map(x => x.trim().replace(/^['"]|['"]$/g, '')).filter(Boolean);
+  const blk = b.match(/^    workflows:\s*\n((?:      - [^\n]*\n)*)/m);
+  return blk ? [...blk[1].matchAll(/^      - ['"]?([^'"\n#]+?)['"]?\s*(?:#.*)?$/gm)].map(x => x[1].trim()) : [];
+}
+/** Vòng workflow_run trên cả thư mục: files = [[file, src]] → ['A → B → A', …]. */
+export function chainCycles(files) {
+  const name = (f, s) => ((s.match(/^name:\s*(.+)$/m) || [])[1] || f).trim().replace(/^['"]|['"]$/g, '');
+  const edges = new Map();   // workflow nguồn → workflow bị kích hoạt
+  for (const [f, s] of files) for (const src of workflowRunList(s)) { if (!edges.has(src)) edges.set(src, new Set()); edges.get(src).add(name(f, s)); }
+  const out = new Set(), path = [], on = new Set(), done = new Set();
+  const dfs = n => { if (on.has(n)) { const i = path.indexOf(n); out.add([...path.slice(i), n].join(' → ')); return; } if (done.has(n)) return;
+    on.add(n); path.push(n); for (const m of edges.get(n) || []) dfs(m); path.pop(); on.delete(n); done.add(n); };
+  for (const n of edges.keys()) dfs(n);
+  return [...out];
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
@@ -58,9 +168,65 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   ok(violations('d.yml', disp).some(v => /no-concurrency/.test(v)), 'dispatch không concurrency, không lý do → lỗi');
   ok(violations('d.yml', '# ci-policy: no-concurrency – mỗi lượt khác input, nhóm chung huỷ lượt chờ\n' + disp).length === 0, 'dispatch có lý do → đạt');
   ok(violations('d.yml', '# ci-policy: no-concurrency – x\n' + disp).length === 1, 'lý do quá ngắn không tính');
+  const pr = base.replace('  push:\n    branches: [main]\n', '  pull_request:\n');
+  const nd = pr.replace('    runs-on: ubuntu-latest\n', "    needs: b\n    if: always() && github.event_name == 'pull_request'\n    runs-on: ubuntu-latest\n");
+  ok(violations('x.yml', nd).some(v => /always\(\)/.test(v)), 'job needs + always() trần → lỗi (before-after đỏ khi bot bị huỷ)');
+  ok(violations('x.yml', nd.replace('always()', '!cancelled()')).length === 0, 'job needs + !cancelled() → đạt');
+  ok(violations('x.yml', nd.replace("&& github.event_name == 'pull_request'", "&& needs.b.result != 'cancelled'")).length === 0, "always() + chặn != 'cancelled' → đạt");
+  ok(violations('x.yml', nd.replace('  pull_request:\n', '  push:\n    branches: [main]\n')).length === 0, 'workflow không chạy trên PR: chưa áp luật 5');
+  ok(violations('x.yml', pr.replace('    timeout-minutes: 5\n', "    timeout-minutes: 5\n    steps:\n      - if: always()\n        run: x\n").replace('    steps: []\n', '')).length === 0, 'always() mức bước (upload artifact) không bị chặn');
+  const push = base.replace('    steps: []\n', "    steps:\n      - run: |\n          git commit -qm x\n          git pull -q --rebase origin main && git push\n");
+  ok(violations('x.yml', push).some(v => /autostash/.test(v)), 'pull --rebase không autostash → lỗi (world-scorecard 2/11)');
+  ok(violations('x.yml', push.replace('--rebase', '--rebase --autostash')).length === 0, 'pull --rebase --autostash → đạt');
+  ok(violations('x.yml', push.replace('git commit -qm x', 'git commit -qm x; git stash push -q -u || true')).length === 0, 'cất phần sót trước khi pull → đạt (i18n)');
+  // --- 5) workflow_run / check_suite / check_run (hồi quy sự cố required-gate 3/11 – fixture vi phạm phải đỏ)
+  const wr = (list, job = "    if: github.event.workflow_run.conclusion == 'success'\n", conc = "concurrency: { group: w-${{ github.event.workflow_run.head_sha }}, cancel-in-progress: true }\n") =>
+    `name: w\non:\n  workflow_run:\n    types: [completed]\n    workflows: [${list.join(', ')}]\n${conc}jobs:\n  a:\n${job}    runs-on: ubuntu-latest\n    timeout-minutes: 3\n    steps: []\n`;
+  ok(violations('w.yml', wr(['A'])).length === 0, 'workflow_run có if + cancel → đạt');
+  ok(violations('w.yml', wr(['A'], '')).some(v => /thiếu if/.test(v)), 'workflow_run job thiếu if → lỗi');
+  ok(violations('w.yml', wr(['A']).replace('steps: []\n', 'steps: []\n  b:\n    needs: a\n    runs-on: ubuntu-latest\n    timeout-minutes: 3\n    steps: []\n')).length === 0, 'job needs job đã có if → đạt (skipped lan theo needs)');
+  ok(violations('w.yml', wr(['A'], '', '').replace('jobs:\n  a:\n', 'jobs:\n  a:\n    if: always()\n')).some(v => /concurrency/.test(v)), 'workflow_run thiếu concurrency → lỗi');
+  ok(violations('w.yml', wr(['A'], undefined, 'concurrency: { group: w, cancel-in-progress: false }\n')).some(v => /cancel-in-progress/.test(v)), 'workflow_run cancel-in-progress false không lý do → lỗi');
+  ok(violations('w.yml', '# ci-policy: queue – deploy tuần tự, huỷ là mất bản phát hành\n' + wr(['A'], undefined, 'concurrency: { group: w, cancel-in-progress: false }\n')).length === 0, 'queue có lý do → đạt');
+  const six = ['A', 'B', 'C', 'D', 'E', 'F'];
+  ok(violations('w.yml', wr(six, '    if: always()\n')).some(v => /> 5/.test(v)), 'danh sách workflow_run > 5 mà if không lọc theo sự kiện → lỗi (kiểu required-gate cũ)');
+  ok(violations('w.yml', wr(six)).length === 0, 'danh sách > 5 có cổng skip theo github.event.workflow_run → đạt');
+  { const pr = m => `name: m\non:\n  pull_request:\n    paths: ['a/**']\nconcurrency: { group: m, cancel-in-progress: true }\njobs:\n  a:\n    runs-on: ubuntu-latest\n    timeout-minutes: 5\n    strategy:\n      fail-fast: false\n      matrix:\n${m}\n    steps: []\n`;
+    ok(matrixLegs(pr('        device: [phone, desktop, webkit]\n        theme: [light, dark]')) === 6, 'matrix tích 3×2 = 6');
+    ok(matrixLegs(pr(`        part: \${{ fromJSON(inputs.p && format('["{0}"]', inputs.p) || '["static","landing","legal","app","admin","blog","ext"]') }}`)) === 7, 'fromJSON literal: lấy nhánh lớn nhất (7)');
+    ok(matrixLegs(pr(`        group: \${{ fromJSON(inputs.p && format('[{{"name":"{0}","parts":"{0}"}}]', inputs.p) || '[{"name":"site","parts":"a b"},{"name":"app","parts":"app"}]') }}`)) === 2, 'mảng object JSON đếm theo phần tử (2)');
+    ok(matrixLegs("  a:\n    strategy: { fail-fast: false, matrix: { ep: '${{ fromJSON(needs.p.outputs.list) }}' } }\n    steps: []\n") === 0, 'matrix động (output job) không tính');
+    ok(violations('m.yml', pr('        device: [phone, desktop, webkit]\n        theme: [light, dark]')).some(v => /matrix 6 nhánh/.test(v)), 'PR + matrix 6 nhánh, không lý do → lỗi');
+    ok(violations('m.yml', '# ci-policy: matrix – đo hiệu năng từng máy phải tách runner\n' + pr('        device: [phone, desktop, webkit]\n        theme: [light, dark]')).length === 0, 'có lý do → đạt');
+    ok(violations('m.yml', pr('        lang: [vi, en, ar]')).length === 0, 'matrix 3 nhánh → đạt');
+    ok(violations('m.yml', pr('        device: [phone, desktop, webkit]\n        theme: [light, dark]').replace("  pull_request:\n    paths: ['a/**']", '  workflow_dispatch:')).length === 0, 'chỉ dispatch → không áp luật matrix'); }
+  ok(violations('c.yml', "name: c\non:\n  check_suite:\n    types: [completed]\nconcurrency: { group: c, cancel-in-progress: true }\njobs:\n  a:\n    runs-on: ubuntu-latest\n    timeout-minutes: 3\n    steps: []\n").some(v => /thiếu if/.test(v)), 'check_suite job thiếu if → lỗi');
+  ok(workflowRunList("on:\n  workflow_run:\n    workflows:\n      - 'Một'\n      - Hai # x\n    types: [completed]\n").join() === 'Một,Hai', 'đọc danh sách workflow_run dạng khối');
+  ok(chainCycles([['a.yml', wr(['B']).replace('name: w', 'name: A')], ['b.yml', wr(['A']).replace('name: w', 'name: B')]]).length === 1, 'vòng A → B → A → lỗi');
+  ok(chainCycles([['a.yml', wr(['A']).replace('name: w', 'name: A')]]).length === 1, 'tự kích hoạt A → A → lỗi');
+  ok(chainCycles([['a.yml', wr(['B']).replace('name: w', 'name: A')], ['c.yml', wr(['A']).replace('name: w', 'name: C')]]).length === 0, 'chuỗi B → A → C không vòng → đạt');
+  { // 9) bước cài có giới hạn thời gian
+    const job = (step) => 'name: i\non:\n  workflow_dispatch:\nconcurrency: { group: i }\njobs:\n  a:\n    runs-on: ubuntu-latest\n    timeout-minutes: 20\n    steps:\n' + step + '      - run: echo xong\n';
+    const v = st => violations('i.yml', job(st)).filter(x => /luật 9/.test(x)).length;
+    ok(v('      - name: Cài\n        run: |\n          npm i playwright@1.48.2\n          npx playwright install --with-deps chromium\n') === 1, 'luật 9: bước cài Playwright không timeout → lỗi');
+    ok(v('      - name: Cài\n        timeout-minutes: 12\n        run: |\n          npx playwright install --with-deps chromium\n') === 0, 'luật 9: bước chỉ cài có timeout-minutes → đạt');
+    ok(v('      - run: sudo apt-get update -qq && sudo apt-get install -y x && node render.mjs\n') === 1, 'luật 9: apt-get trong bước có việc khác, không bọc timeout → lỗi');
+    ok(v('      - run: sudo timeout 600 apt-get update -qq && sudo timeout 600 apt-get install -y x && node render.mjs\n') === 0, 'luật 9: lệnh cài bọc timeout → đạt');
+    ok(v('      - run: |\n          # npx playwright install chromium\n          node a.mjs\n') === 0, 'luật 9: dòng chú thích không tính');
+    const st = installSteps(job('      - name: Cài\n        run: npx playwright install chromium\n'))[0];
+    ok(st && st.installOnly && st.jobTimeout === 20 && st.keyIndent === 8, 'luật 9: installSteps nhận bước chỉ cài + timeout của job');
+    const v10 = st => violations('i.yml', job(st)).filter(x => /luật 10/.test(x)).length;
+    ok(v10('      - timeout-minutes: 12\n        run: timeout 600 npx playwright install --with-deps chromium\n') === 1, 'luật 10: cài Playwright trần (kể cả bọc timeout) → lỗi');
+    ok(v10('      - timeout-minutes: 14\n        run: bash scripts/ci/pw-install.sh --with-deps chromium\n') === 0, 'luật 10: qua pw-install.sh → đạt');
+    ok(v10('      - run: |\n          for i in 1 2 3; do\n            if timeout 240 npx playwright install chromium; then break; fi\n          done\n') === 0, 'luật 10: vòng thử lại tự viết → đạt');
+    ok(!violations('mobile-qa.yml', job('      - timeout-minutes: 12\n        run: npx playwright install chromium\n')).some(x => /luật 10/.test(x)), 'luật 10: mobile-qa.yml được miễn');
+  }
   // --- quét repo
-  const files = fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f));
-  for (const f of files) for (const v of violations(f, fs.readFileSync(path.join(WF, f), 'utf8'))) ok(false, v);
-  console.log(fails ? `ci-policy: ${fails} lỗi` : `✓ ci-policy: ${files.length} workflow đạt (timeout + concurrency + phạm vi)`);
+  const files = fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f)), srcs = files.map(f => [f, fs.readFileSync(path.join(WF, f), 'utf8')]);
+  for (const [f, s] of srcs) for (const v of violations(f, s)) ok(false, v);
+  for (const c of chainCycles(srcs)) ok(false, `vòng workflow_run: ${c}`);
+  for (const k of ciParity(fs.readFileSync(path.join(WF, 'ci.yml'), 'utf8'), fs.readFileSync(path.join(ROOT, 'scripts/test/suite.txt'), 'utf8'))) ok(false, `ci.yml chạy "${k}" nhưng suite.txt (cổng PR) không có → PR xanh vẫn làm main đỏ`);
+  ok(ciParity('run: node scripts/a.mjs\n- run: npx tsc -p x.json', 'node scripts/a.mjs').join() === 'tsc -p', 'ciParity bắt lệnh thiếu');
+  console.log(fails ? `ci-policy: ${fails} lỗi` : `✓ ci-policy: ${files.length} workflow đạt (timeout + concurrency + phạm vi + workflow_run có cổng skip, không vòng)`);
   process.exit(fails ? 1 : 0);
 }

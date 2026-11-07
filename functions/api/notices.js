@@ -5,6 +5,7 @@
  *      { id: 'n_xxx', act: 'read' | 'click' }
  *      → ghi nhận đã đọc hoặc đã nhấp CTA vào D1 notice_reads.
  */
+import { shedRead } from './_d1guard.js';
 import { claims, limit } from './sync.js';
 import { once } from './_schema.js';
 
@@ -71,6 +72,8 @@ export async function onRequestGet({ request, env }) {
   const ip = ipOf(request);
   const wait = await limit(`notices-get:${ip}`, 120, 60);
   if (wait) return json(request, 429, { error: 'too-fast', wait });
+  // D1 ≥ 85 % hạn mức ngày (_d1guard.js shedRead): thông báo không thiết yếu → danh sách rỗng 200 (app không báo lỗi), không đọc D1
+  if (shedRead(env, (st, d) => json(request, st, d))) return json(request, 200, { ok: true, notices: [], unread_count: 0, shed: 1 });
 
   const authHeader = (request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '');
   const who = authHeader ? await claims(authHeader).catch(() => null) : null;

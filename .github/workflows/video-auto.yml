@@ -24,7 +24,15 @@ jobs:
       - name: Kiểm kho kịch bản (cổng tĩnh)
         continue-on-error: true
         run: node scripts/video/auto.mjs --check | tail -40
+      - name: video.yml còn bật? (tắt tay → bỏ qua TRUNG TÍNH, không đỏ mỗi sáng vô ích)
+        id: on
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          st=$(curl -fsS -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/${{ github.repository }}/actions/workflows/video.yml" | python3 -c 'import json,sys;print(json.load(sys.stdin)["state"])') || st=unknown
+          echo "state=$st" >> "$GITHUB_OUTPUT"
+          [ "$st" = active ] || echo "::notice::video.yml đang '$st' (GrabCast tạm tắt, docs/VIDEO-PIPELINE.md) → hôm nay không tạo job Studio"
       - name: Tạo job Studio + gọi dựng
+        if: steps.on.outputs.state == 'active'
         env:
           STUDIO_CALLBACK_SECRET: ${{ secrets.STUDIO_CALLBACK_SECRET }}
           GITHUB_TOKEN: ${{ github.token }}

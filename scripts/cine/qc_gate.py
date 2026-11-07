@@ -15,6 +15,8 @@ def gate(name, ok, detail='', w=10): G[name] = dict(ok=bool(ok), detail=detail i
 # --- script
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import script_rules as SR
 ri = SR.check(sp, L); gate('script_rules', not ri, ri[:5], 10)
+import publish_meta as PM
+pe = PM.validate(sp.get('publish')); gate('publish_meta', not pe, pe, 6)  # tiêu đề, mô tả, hashtag phải có từ lúc sản xuất
 J = Q.get('judge') or {}; gate('ai_script_judge', J.get('ok') is True, (J.get('judge') or {}).get('issues') or J.get('error') or 'missing', 10)
 # --- scene
 P = Q.get('placement') or {}; gate('scene_placement', P.get('ok') is True, {k: P.get(k) for k in ('bg', 'eye_dev', 'cam_ty', 'host_dy')}, 8)
@@ -30,8 +32,8 @@ for s in tl['shots']:
     for ln in s['lines']: spoken.append((s['t0'] + ln['at'], ln['id'], L.get(ln['id'], {}).get('text', '')))
 spoken.sort(); script = ' '.join(t for _, _, t in spoken); norm = lambda t: re.findall(r"[a-z0-9']+", t.lower().replace('’', "'"))
 try:
-    from faster_whisper import WhisperModel
-    M = WhisperModel('base.en', device='cpu', compute_type='int8'); segs, _ = M.transcribe(mp4, language='en', word_timestamps=False, initial_prompt=None)
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from whisper_det import load, DECODE
+    M = load('base.en'); segs, _ = M.transcribe(mp4, language='en', word_timestamps=False, initial_prompt=None, **DECODE)
     asr = ' '.join(s.text for s in segs); a, b = norm(script), norm(asr); sm = difflib.SequenceMatcher(None, a, b, autojunk=False); ratio = sm.ratio()
     got = set(b); key = [w for w in norm(sp.get('key_line', '')) if len(w) > 2]; miss = [w for w in key if w not in got]
     gate('asr_vs_script', ratio >= 0.85 and not miss, dict(similarity=round(ratio, 3), key_missed=miss), 8)

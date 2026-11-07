@@ -14,18 +14,44 @@ const sha = f => crypto.createHash('sha256').update(fs.readFileSync(f)).digest('
 // ---------- 1) registry ----------
 if (IDS.join() !== 'ama,carlos') errs.push(`registry phải đúng 2 người ama,carlos – đang: ${IDS}`);
 const g = {}; new Function('self', fs.readFileSync('web/js/characters.js', 'utf8'))(g); const C = g.Chars;
+{ const h = {}, src = fs.readFileSync('web/js/characters.js', 'utf8'); new Function('self', src)(h); h.Chars.slot = () => 'x'; new Function('self', src)(h); // gói lười 'pas' nạp lại characters.js
+  if (typeof h.Chars.slot !== 'function') errs.push('characters.js nạp lại xoá mất Chars.slot (teacher-slot.js) – phải Object.assign(g.Chars || {}, …)'); }
+{ const h = {}; new Function('self', fs.readFileSync('web/js/characters.js', 'utf8'))(h); new Function('self', fs.readFileSync('web/js/teacher-slot.js', 'utf8'))(h); // vòng nghỉ trong chỗ giáo viên (Home "Hôm nay", spec home-upgrade L2)
+  const I = h.Chars.idle('ama'), s = h.Chars.slot('ama', { size: 'm', idle: true }), w = h.Chars.slot('ama', { pose: 'wave', size: 'm', clip: true, loop: 6000 });
+  if (!s.includes(`data-clip="${I.mp4}"`) || !s.includes(`data-webm="${I.webm}"`) || !s.includes('data-loop="0"') || !s.includes('data-pose="happy"') || !/still-happy/.test(s)) errs.push('Chars.slot({idle:true}) phải gắn idle.mp4 (WebGL) + idle.webm (VP9α) lặp liền (data-loop="0"), tư thế happy, ảnh tĩnh happy bên dưới: ' + s.slice(0, 160));
+  if (!w.includes(`data-clip="${h.Chars.clip('ama', 'wave')}"`) || !w.includes('data-loop="6000"') || /data-webm/.test(w)) errs.push('Chars.slot clip tư thế: phải giữ clip + nghỉ 6 s, không gắn vòng nghỉ: ' + w.slice(0, 160)); }
 if (C.ids.join() !== IDS.join()) errs.push(`Chars.ids ${C.ids} ≠ characters.json ${IDS}`);
 for (const who of IDS) if (C.voice(who) !== ((R.people[who].voice || {}).app)) errs.push(`Chars.voice(${who}) ${C.voice(who)} ≠ characters.json voice.app ${(R.people[who].voice || {}).app}`);
 if (C.poses.join() !== R.poses.join()) errs.push(`Chars.poses ≠ characters.json poses`);
 const want = new Set();
 for (const who of IDS) {
   want.add(`${who}/poster.webp`).add(`${who}/avatar.webp`).add(`${who}/poster-2x.webp`).add(`${who}/avatar-2x.webp`);
+  want.add(`${who}/head-bare.webp`).add(`${who}/head-bare-2x.webp`); // đầu trơn cho mặt VẼ khớp miệng (scripts/lipsync/head_bare.py, Chars.img kind "head-bare")
   for (const p of R.poses) {
     const c = R.people[who].clips[p]; if (!c) { errs.push(`${who}: thiếu tư thế ${p}`); continue; }
     const pend = C.clip(who, p) !== `teach/${who}/${p}.mp4`;
     if (!!c.pending !== pend) errs.push(`${who}/${p}: pending trong JSON (${!!c.pending}) ≠ Chars (${pend})`);
     if (!c.pending) { want.add(`${who}/${p}.mp4`).add(`${who}/still-${p}.webp`); if (p === 'talk' || p === 'listen') want.add(`${who}/${p}-hd.mp4`); }
   }
+}
+// tư thế chỉ-ảnh (scripts/teach/still_img.py, gesture bank ảnh chuẩn): JSON people.<who>.stills = Chars.stills(who), mỗi mục 1 ảnh có sha, không trùng tư thế clip
+for (const who of IDS) {
+  const js = (C.stills ? C.stills(who) : []).slice().sort().join(), json = Object.keys(R.people[who].stills || {}).sort().join();
+  if (js !== json) errs.push(`Chars.stills(${who}) [${js}] ≠ characters.json people.${who}.stills [${json}]`);
+  for (const p of Object.keys(R.people[who].stills || {})) {
+    if (R.poses.includes(p)) errs.push(`${who}/stills.${p}: trùng tư thế clip – chỉ-ảnh dùng tên riêng`);
+    if (!(R.still_poses || []).includes(p)) errs.push(`${who}/stills.${p}: không có trong characters.json still_poses`);
+    if (!/^cine\/teachers\/green\/[\w-]+\.png$/.test(R.people[who].stills[p].src || '')) errs.push(`${who}/stills.${p}: src phải là ảnh chuẩn cine/teachers/green/*.png`);
+    if (C.still(who, p) !== `teach/${who}/still-${p}.webp` || !C.has(who, p)) errs.push(`Chars.still/has(${who}, ${p}) sai`);
+    want.add(`${who}/still-${p}.webp`);
+  }
+}
+// vòng nghỉ 1–3 s (scripts/teach/idle.py): VP9 alpha + H.264 xếp chồng + poster mắt mở – định dạng/cỡ/mắt kiểm ở idle.py --check (characters-shots.yml)
+for (const who of Object.keys((R.idle || {}).people || {})) {
+  if (!IDS.includes(who)) { errs.push(`idle.people.${who}: không thuộc registry`); continue; }
+  for (const n of ['idle.webm', 'idle.mp4', 'idle-poster.webp']) want.add(`${who}/${n}`);
+  const I = C.idle && C.idle(who);
+  if (!I || I.webm !== `teach/${who}/idle.webm` || I.mp4 !== `teach/${who}/idle.mp4` || I.poster !== `teach/${who}/idle-poster.webp`) errs.push(`Chars.idle(${who}) ≠ teach/${who}/idle.{webm,mp4} + idle-poster.webp`);
 }
 for (const f of want) {
   const p = `web/teach/${f}`, h = R.files[f];
@@ -38,16 +64,19 @@ for (const d of fs.readdirSync('web/teach')) if (!IDS.includes(d) && d !== 'char
 const REF = /(?<![\w-])(?:teach\/(?:ama|carlos|\$\{)|img\/teach\/|img\/call\/|cine\/teachers|teachers3d|sprite\.json|mouths\.webp|(?:teach|chars)\/[\w-]*poster\.jpe?g|brand\/characters\/(?!_candidates\/rooms\/))/g;
 const OTHER = /(?<![a-z])(?:mia|jake|leo|diane|daniel|mei|kai|ruth|priya)[\w-]*\.(?:png|jpe?g|webp|avif|gif|mp4|webm|mov)\b/gi;
 const ALLOW = new Set(['web/js/characters.js', 'scripts/teach/build.py', 'scripts/teach/sheet.py', 'scripts/build-extension.sh', 'scripts/test/characters-gate.mjs', 'scripts/test/characters-shots.mjs']);
+const LANDING = /^web\/(?:[a-z]{2}\/)?index\.html$/; // web/index.html + web/<lang>/index.html (scripts/build-landing.mjs fileOf)
 const WAIVE = {}; // miễn trừ tạm (có hạn): { 'tệp': [regex, 'PR thay'] } – hết tham chiếu → cổng đỏ "miễn trừ cũ" → xoá mục. Call (Mia) đã xong #194: KHÔNG thêm lại.
 const ROOTS = ['web', 'extension', 'functions', 'workers', 'store', 'mobile/www', 'brand/social/templates/templates.json', 'scripts/build-social-templates.mjs', 'scripts/build-social-kit.mjs', 'scripts/video/render.mjs', 'scripts/video/tpl/tokens.py'];
 const SKIP = /(^|\/)(node_modules|\.git|archive|i18n|data|lib|packs|dict|blog|audio)(\/|$)|\.min\.js$/;
 const walk = p => !fs.existsSync(p) ? [] : fs.statSync(p).isDirectory() ? fs.readdirSync(p).flatMap(f => SKIP.test(f) ? [] : walk(path.join(p, f))) : [p];
 const used = {};
 for (const f of ROOTS.flatMap(walk)) {
-  if (!/\.(m?js|html|css|json|ts|tsx|py|sh|svg|xml|webmanifest)$/.test(f) || f.startsWith('web/teach/') || ALLOW.has(f)) continue;
+  if (!/\.(m?js|html|css|json|ts|tsx|py|sh|svg|xml|webmanifest)$/.test(f) || f.startsWith('web/teach/') || f.startsWith('extension/app/teach/') || ALLOW.has(f)) continue; // extension/app/teach = bản chép y hệt web/teach (build-extension.sh, ext-sync kiểm khớp)
   const s = fs.readFileSync(f, 'utf8'); if (s.length > 4e6) continue;
   for (const m of [...s.matchAll(REF), ...s.matchAll(OTHER)]) {
     const w = WAIVE[f]; if (w && w[0].test(m[0])) { used[f] = 1; continue; }
+    // trang giới thiệu DỰNG SẴN (build-landing → scripts/lib/st-web.mjs teacher/teacherIdle gọi Chars.* lúc build): chỉ nhận đường dẫn file nhân vật CÓ THẬT trong web/teach
+    if (LANDING.test(f) && m[0].startsWith('teach/')) { const full = (s.slice(m.index).match(/^teach\/(?:ama|carlos)\/[\w.-]+/) || [''])[0]; if (full && fs.existsSync('web/' + full)) continue; }
     errs.push(`${f}: "${m[0]}" – ảnh/clip nhân vật chỉ được lấy qua Chars (web/js/characters.js) / registry`);
   }
   // tên nhân vật cũ trên giao diện: chuỗi t('…') ở mọi tệp, mọi chữ ở màn Call (call.js, call/*.js) – Mia… chỉ còn được là tên người trong bài đọc/hội thoại nội dung

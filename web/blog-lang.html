@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8"><script data-lkt>function lkT(){try{var s=localStorage,t=s.getItem('lk.theme'),p;try{p=JSON.parse(s.getItem('ielts.settings')||'0')}catch(e){}if(p&&p.theme&&+s.getItem('ielts.settingsAt')>(+s.getItem('lk.themeAt')||0))t=p.theme;return t=='light'||t=='dark'?t:''}catch(e){return''}}lkT()&&document.documentElement.setAttribute('data-theme',lkT())</script><meta name="theme-color" media="(prefers-color-scheme:light)" content="#FBF7F1"><meta name="theme-color" media="(prefers-color-scheme:dark)" content="#0E191C"><meta name="copyright" content="© Lexkite"><meta name="tdm-reservation" content="1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, follow">
   <meta name="color-scheme" content="light dark">
   <title>Lexkite Blog</title>
   <link rel="canonical" href="https://lexkite.com/en/blog/">
-  <link rel="icon" href="/icons/icon.svg?v=2">
+  <link rel="icon" href="/icons/icon.svg?v=3">
   <script>
   /* /blog → blog đúng ngôn ngữ người dùng (lựa chọn trong app → trình duyệt), ngôn ngữ chưa có bài → tiếng Anh. Không đoán theo IP để giữ chuẩn SEO.
      LIVE = danh sách ngôn ngữ đã có bài, build-blog.mjs ghi thẳng vào bản dist → chuyển NGAY, không chờ mạng. Bản web/ thô (LIVE = null) mới dò rss từng ngôn ngữ. */
@@ -34,7 +34,7 @@
   <noscript><meta http-equiv="refresh" content="0; url=/en/blog/"></noscript>
   <style>
     :root { --bg: #f6f4ef; --card: #fff; --text: #1d2a2b; --muted: #5d6b6c; --line: #e3ded3; --primary: #1F7A72; }
-    @media (prefers-color-scheme: dark) { :root { --bg: #0f1a1c; --card: #172427; --text: #e7eeee; --muted: #9db0b1; --line: #27393c; --primary: #3fb3a6; } }
+    @media (prefers-color-scheme: dark) {:root:not([data-theme=light]){ --bg: #0f1a1c; --card: #172427; --text: #e7eeee; --muted: #9db0b1; --line: #27393c; --primary: #3fb3a6; }}:root[data-theme=dark]{ --bg: #0f1a1c; --card: #172427; --text: #e7eeee; --muted: #9db0b1; --line: #27393c; --primary: #3fb3a6; }
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body { margin: 0; display: grid; place-items: center; padding: 16px; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
@@ -48,11 +48,11 @@
     @keyframes rot { to { transform: rotate(1turn); } }
     @keyframes show { to { opacity: 1; } }
     @media (prefers-reduced-motion: reduce) { .spin { animation-duration: 2.4s; } .box { animation-delay: .4s; animation-duration: 0s; } }
-  </style>
+  :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}</style>
 </head>
 <body>
   <main class="box" aria-busy="true">
-    <img class="logo" src="/icons/icon.svg?v=2" alt="" width="48" height="48">
+    <img class="logo" src="/icons/icon.svg?v=3" alt="" width="48" height="48">
     <p class="name">Lexkite Blog</p>
     <div class="spin" role="status" aria-label="Loading"></div>
     <a class="go" href="/en/blog/">Lexkite Blog →</a>

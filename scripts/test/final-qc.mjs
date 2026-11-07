@@ -7,7 +7,7 @@
 // Dùng: node scripts/test/final-qc.mjs [web] [out/stitch-diff] [out/final-qc]   (ảnh mẫu: STITCH_V2_PNG=out/stitch-v2/png)
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright';
-import { SCREENS, DRIVE, DRIVEN, SEED, SEED_STREAK, FIX_CLOCK, SEED_LEAGUE, FINAL, serve } from './stitch-screens.mjs';
+import { SCREENS, DRIVE, DRIVEN, SEED, SEED_STREAK, FIX_CLOCK, SEED_LEAGUE, SEED_SCREEN, FINAL, serve } from './stitch-screens.mjs';
 const [ROOT = 'web', SD = 'out/stitch-diff', OUT = 'out/final-qc'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const REF = process.env.STITCH_V2_PNG || 'out/stitch-v2/png', LIM = JSON.parse(fs.readFileSync('scripts/test/stitch-diff.json', 'utf8'));
 const S = fs.existsSync(path.join(SD, 'scores.json')) ? JSON.parse(fs.readFileSync(path.join(SD, 'scores.json'), 'utf8')) : null;
@@ -50,20 +50,23 @@ const HOOK = () => {
 // Giáo viên trên màn: ảnh/clip Chars (teach/<who>/…) + kiểm "dán đè" + toàn thân + bóng chân. Chạy trong trang.
 const TEACH = async () => {
   const out = [], vh = innerHeight;
-  const els = [...document.querySelectorAll('#view img[src*="teach/"], #view canvas.tch-cv, #view video[src*="teach/"]')].filter(e => { const r = e.getBoundingClientRect(); const cs = getComputedStyle(e); return r.width > 8 && r.height > 8 && cs.visibility !== 'hidden' && +cs.opacity > 0.05; });
+  const els = [...document.querySelectorAll('#view img[src*="teach/"], #view canvas.tch-cv, #view canvas.tch-face, #view canvas.tslot-img, #view video[src*="teach/"]')].filter(e => { const r = e.getBoundingClientRect(); const cs = getComputedStyle(e); return r.width > 8 && r.height > 8 && cs.visibility !== 'hidden' && +cs.opacity > 0.05; });
+  // đo "cái gì nằm trên cùng" theo HÌNH: chỗ giáo viên (.tslot, bệ) và lớp trang trí có pointer-events:none – elementFromPoint bỏ qua chúng → bệ che hông không bao giờ được thấy
+  const pe = document.createElement('style'); pe.textContent = '#view, #view *{pointer-events:auto!important}'; document.head.appendChild(pe);
   for (const e of els) {
     // clip sống (canvas/video trong .tch): tư thế = nói/nghe theo vòng đang chạy; khung hình đo trên ảnh poster cùng khung của clip
-    const tch = e.closest('.tch'), live = e.tagName !== 'IMG' || !!(tch && /poster/.test(e.getAttribute('src') || '')), // poster của .tch = giáo viên sống khi máy không phát được clip (Chromium CI không có H.264) → tư thế theo vòng nói/nghe
-      pimg = live ? tch && tch.querySelector('img[src*="teach/"]') : e, src = (pimg && pimg.getAttribute('src')) || e.getAttribute('src') || '';
-    if (e.tagName === 'IMG' && tch && tch.querySelector('canvas.tch-cv')) continue; // poster dưới clip đang chạy: đã tính qua canvas
-    const m = src.match(/teach\/(ama|carlos)\/(?:still-)?([a-z]+)/) || [], who = m[1] || '?', kind = live ? (tch && tch.classList.contains('speaking') ? 'talk' : 'listen') : /avatar/.test(src) ? 'avatar' : /poster/.test(src) ? 'poster' : (m[2] || '?');
+    // chỗ giáo viên chung (Chars.slot): tư thế = data-pose của khung (clip/vòng nghỉ sống chạy đúng tư thế đó), khung hình đo trên ảnh tĩnh cùng khung
+    const slot = e.closest('.tslot'), tch = e.closest('.tch'), live = !slot && (e.tagName !== 'IMG' || !!(tch && /poster/.test(e.getAttribute('src') || ''))), // poster của .tch = giáo viên sống khi máy không phát được clip (Chromium CI không có H.264) → tư thế theo vòng nói/nghe
+      pimg = slot ? slot.querySelector('img.tslot-img') : live ? tch && tch.querySelector('img[src*="teach/"]') : e, src = (pimg && pimg.getAttribute('src')) || e.getAttribute('src') || '';
+    if (e.tagName === 'IMG' && tch && (tch.querySelector('canvas.tch-cv') || (/poster/.test(e.getAttribute('src') || '') && tch.querySelector('canvas.tch-face')))) continue; // poster dưới clip / dưới mặt vẽ khớp miệng (canvas.tch-face, teacher.js): đã tính qua canvas; ảnh tư thế vẫn tính
+    const m = src.match(/teach\/(ama|carlos)\/(?:still-)?([a-z]+)/) || [], who = m[1] || '?', kind = slot ? slot.dataset.pose || '?' : live ? (e.classList.contains('tch-face') && e.parentElement.dataset.pose ? e.parentElement.dataset.pose : tch && tch.classList.contains('speaking') ? 'talk' : 'listen') /* mặt vẽ: tư thế = biểu cảm đang thể hiện (data-pose, teacher.js react/pose) */ : /avatar/.test(src) ? 'avatar' : /poster/.test(src) ? 'poster' : (m[2] || '?');
     e.scrollIntoView({ block: 'center' }); await new Promise(res => setTimeout(res, 60));
     const r = e.getBoundingClientRect(), bad = [], cut = []; let visBottom = r.bottom; // cut = nửa người/mờ/cắt: ĐẠT nếu khuất hẳn sau 1 mặt đục của Stitch (thẻ/bàn/bảng che đường hông, kiểu Duolingo)
     // vòng tròn / hào quang / khung: chính nó hoặc 3 tổ tiên gần bo tròn ≥ 40 % cạnh ngắn có nền/viền/bóng, hoặc cắt tràn
     for (let q = e, i = 0; q && i < 4 && q.id !== 'view'; q = q.parentElement, i++) { const cs = getComputedStyle(q), qr = q.getBoundingClientRect(), br = parseFloat(cs.borderTopLeftRadius) || 0;
       if (br >= 0.4 * Math.min(qr.width, qr.height) && (cs.overflow !== 'visible' || cs.backgroundColor !== 'rgba(0, 0, 0, 0)' || cs.backgroundImage !== 'none' || cs.borderTopWidth !== '0px' || cs.boxShadow !== 'none')) bad.push('vòng tròn/hào quang');
       if (cs.maskImage && cs.maskImage !== 'none' || cs.webkitMaskImage && cs.webkitMaskImage !== 'none' || cs.clipPath && cs.clipPath !== 'none') bad.push('mặt nạ/clip-path');
-      if (i && cs.overflow !== 'visible') { if (r.top < qr.top - 1 || r.left < qr.left - 1 || r.right > qr.right + 1) bad.push('đường cắt (khung cắt đầu/tay)'); if (r.bottom > qr.bottom + 1) { cut.push('đường cắt ngang thân'); visBottom = Math.min(visBottom, qr.bottom); } } }
+      if (i && cs.overflow !== 'visible') { if (r.top < qr.top - 1 || r.left < qr.left - 1 || r.right > qr.right + 1) bad.push(`đường cắt (khung cắt đầu/tay: ${String(q.className).split(' ')[0] || q.tagName} lố trên ${Math.round(qr.top - r.top)} trái ${Math.round(qr.left - r.left)} phải ${Math.round(r.right - qr.right)} px, ảnh ${Math.round(r.width)}×${Math.round(r.height)}, khung ${Math.round(qr.width)}×${Math.round(qr.height)})`); if (r.bottom > qr.bottom + 1) { cut.push('đường cắt ngang thân'); visBottom = Math.min(visBottom, qr.bottom); } } }
     if (kind === 'avatar') bad.push('ảnh avatar (chỉ đầu – không phải người đứng)'); if (kind === 'poster') cut.push('ảnh nửa người');
     // toàn thân: ảnh gốc không chạm mép dưới & không mờ dần ở đáy (đo kênh alpha)
     let body = null;
@@ -78,10 +81,13 @@ const TEACH = async () => {
     // khuất sau mặt đục? lưới điểm trong dải đáy hình (15 % dưới của người → đáy thấy được): điểm trên cùng phải là phần tử KHÁC, nền đục (alpha ≥ .95)
     const pg = (getComputedStyle(document.querySelector('#view > *') || document.body).backgroundColor.match(/[\d.]+/g) || []).slice(0, 3).join(), // mặt che phải là MẶT STITCH thấy được (khác màu nền trang): tấm cùng màu nền trang không che gì (thân vẫn như bị cắt ngang)
       opaque = h => { for (let q = h, i = 0; q && i < 4 && !q.contains(e); q = q.parentElement, i++) { const c = getComputedStyle(q).backgroundColor.match(/[\d.]+/g) || []; if (c.length >= 3 && (c[3] == null ? 1 : +c[3]) >= 0.95 && c.slice(0, 3).join() !== pg) return true; } return false; };
-    let occluded = false; if (cut.length) { const y0 = r.top + (body && body.tail != null ? body.tail : 0.8) * r.height, y1 = visBottom - 1, pts = [];
+    let occluded = false, dbg = ''; if (cut.length) { const y1 = visBottom - 1, y0 = Math.min(r.top + (body && body.tail != null ? body.tail : 0.8) * r.height, visBottom - Math.max(6, 0.08 * r.height)), pts = []; // khung cắt đáy (overflow, vd. .tslot-fig) cao hơn dải đáy người → đo dải NGAY TRÊN đường cắt (phải nằm sau mặt che), không bỏ trống dải (y1 < y0 = luôn 'trôi nổi')
       for (let yi = 0; yi < 4; yi++) for (let xi = 0; xi < 5; xi++) pts.push([r.left + r.width * (0.3 + xi * 0.1), y0 + (y1 - y0) * (yi / 3)]);
-      occluded = y1 > y0 && pts.every(([x, y]) => { if (y < 0 || y >= innerHeight) return false; const h = document.elementFromPoint(x, y); return h && h !== e && !e.contains(h) && !(tch && tch.contains(h)) && opaque(h); }); }
-    if (cut.length && !occluded) bad.push(...cut.map(x => x + ' – lộ ra, không khuất sau mặt Stitch'));
+      const miss = pts.filter(([x, y]) => { if (y < 0 || y >= innerHeight) return true; const h = document.elementFromPoint(x, y); return !(h && h !== e && !e.contains(h) && !(tch && tch.contains(h)) && opaque(h)); });
+      occluded = y1 > y0 && !miss.length;
+      if (!occluded) { const h = miss[0] && document.elementFromPoint(miss[0][0], miss[0][1]); const fg = slot && slot.querySelector('.tslot-fig'), fr = fg && fg.getBoundingClientRect(), sr = slot && slot.getBoundingClientRect(), ic = getComputedStyle(e);
+        dbg = ` (dải ${Math.round(y0 - r.top)}–${Math.round(y1 - r.top)}/${Math.round(r.height)} px, ${miss.length}/20 điểm lộ${h ? ', trên cùng: ' + (h === e ? 'chính ảnh' : h.tagName.toLowerCase() + '.' + String(h.className).split(' ')[0]) : ''}${fr ? `; ảnh y ${Math.round(r.top)}–${Math.round(r.bottom)} (lúc đo dải ${Math.round(e.getBoundingClientRect().top)}) tải ${e.complete ? e.naturalWidth : "chưa"} pos ${ic.position} bottom ${ic.bottom} · khung y ${Math.round(fr.top)}–${Math.round(fr.bottom)} overflow ${getComputedStyle(fg).overflow} · slot y ${Math.round(sr.top)}–${Math.round(sr.bottom)} h ${getComputedStyle(slot).getPropertyValue('--h')}` : ''})`; } } // chẩn đoán: sửa đúng chỗ, không đoán
+    if (cut.length && !occluded) bad.push(...cut.map(x => x + ' – lộ ra, không khuất sau mặt Stitch' + dbg));
     // bóng chân: phần tử/::before/::after có radial-gradient hoặc blur nằm sát đáy hình (±28 px), chồng giữa hình
     const near = [...document.querySelectorAll('#view *')].some(q => { if (q === e) return false; const qr = q.getBoundingClientRect(), cx = r.left + r.width / 2;
       const hit = qr.width > 6 && qr.height > 1 && qr.height < 40 && Math.abs(qr.top + qr.height / 2 - r.bottom) < 28 && qr.left < cx && qr.right > cx;
@@ -91,7 +97,7 @@ const TEACH = async () => {
     const sc = r.height / vh; if (sc < 0.12) bad.push(`quá nhỏ (${Math.round(sc * 100)} % cao màn)`); if (sc > 0.8) bad.push(`quá to (${Math.round(sc * 100)} %)`);
     out.push({ who, pose: kind, h: Math.round(r.height), bad: [...new Set(bad)], body, occluded });
   }
-  return out;
+  pe.remove(); return out;
 };
 const RM = () => (document.getAnimations ? document.getAnimations() : []).filter(a => { const t = a.effect && a.effect.getTiming ? a.effect.getTiming() : {}; const el = a.effect && a.effect.target;
   return a.playState === 'running' && el && el.closest && el.closest('#view') && (t.iterations === Infinity || (+t.duration || 0) > 200); }).map(a => (a.animationName || a.transitionProperty || 'anim') + '@' + ((a.effect.target.className || a.effect.target.tagName) + '').slice(0, 30));
@@ -108,7 +114,7 @@ const browser = await chromium.launch(); const url = (h, hl) => `https://lk.test
 async function visit(page, k, errs) {
   await page.goto(url(SCREENS[k], page.__hl), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1600);
   { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); }
-  if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); }
+  if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); } await SEED_SCREEN(page, k);
   if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message));
   await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {}); // như stitch-diff: thông báo sandbox không che ảnh/đo
   await page.waitForTimeout(400);
@@ -134,7 +140,7 @@ for (const f of FINAL.filter(x => x.k)) {
   // Giảm chuyển động + giáo viên + giọng + khớp miệng + âm hiệu ứng (tiếng Anh, sáng)
   for (const rm of [true, false]) { const { ctx, page, errs } = await session({ scheme: 'light', hl: 'en', rm });
     await visit(page, k, errs); await page.waitForTimeout(rm ? 900 : 2600);
-    if (f.ready) put(f.stitch, 'port', !!(await page.$(f.ready)), `chưa tới trạng thái ${f.ready}`);
+    if (f.ready) put(f.stitch, 'port', !!(await page.waitForSelector(f.ready, { state: 'attached', timeout: 6000 }).catch(() => null)), `chưa tới trạng thái ${f.ready}`); // chờ trạng thái (màn async), không ngủ cố định
     if (rm) { const a = await page.evaluate(RM).catch(() => []); put(f.stitch, 'reduced-motion', !a.length, a.slice(0, 3).join(' · ')); }
     else {
       if (f.speaks) await page.waitForFunction(() => { const t = (window.__qc || {}).talk || []; return t.some(x => x.on) && !document.querySelector('.tch.speaking'); }, null, { timeout: 8000 }).catch(() => {}); // câu đầu nói xong (≤ 8 s)

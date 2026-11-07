@@ -1,10 +1,11 @@
 // 🌍 Ngôn ngữ đích (docs/specs/target-language.md) – chạy MÃ THẬT web/js/target.js + core.js + audio.js:
-// cờ bật/tắt · bảng giọng/lang ('en' = y hệt cũ) · không gian khóa thẻ (cùng chữ en/pt không đè) · hàng ôn/Sổ từ lọc theo tl · bộ từ mẫu đúng schema + bản sao app khớp.
+// cờ bật/tắt (riêng từng ngôn ngữ: pt_pilot, es_course) · bảng giọng/lang ('en' = y hệt cũ) · không gian khóa thẻ (cùng chữ en/pt không đè) · hàng ôn/Sổ từ lọc theo tl · bộ từ mẫu đúng schema + bản sao app khớp.
 // Chạy: node scripts/test/target-lang.mjs
 import fs from 'node:fs';
 import vm from 'node:vm';
 import { execFileSync } from 'node:child_process';
-import { validate, readJSON, seedPath, imgKeys, MEAN_LANGS } from '../target/lib.mjs';
+import path from 'node:path';
+import { validate, readJSON, seedPath, imgKeys, MEAN_LANGS, TL_RULES, coreFiles, nextCoreFile } from '../target/lib.mjs';
 
 let n = 0, fails = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const rd = f => fs.readFileSync(f, 'utf8');
@@ -35,6 +36,19 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   T.set('pt'); ok(sb.events.at(-1) === 'pt', 'đổi ngôn ngữ → sự kiện lk:tl');
   ok(/'pt_pilot'/.test(rd('functions/api/config.js')) && /'pt_pilot'/.test(rd('functions/api/admin.js')), 'pt_pilot có trong PUBLIC_KEYS + CONFIG_KEYS');
 }
+// ---------- 1b) es: cờ es_course RIÊNG, mặc định tắt (docs/specs/spanish-course.md W0) ----------
+{
+  const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = sb.Target;
+  ok(T.LANGS.join() === 'en,pt,es' && !T.enabled('es') && T.avail().join() === 'en', 'es: mặc định tắt, chỉ chọn được en');
+  T.set('es'); ok(T.cur() === 'en', 'cờ es tắt: chọn es vẫn ra en');
+  ls.set('lk.pt', '1'); ok(T.cur() === 'en' && !T.enabled('es') && T.avail().join() === 'en,pt', 'bật pt KHÔNG bật es');
+  ls.set('lk.es', '1'); ok(T.cur() === 'es' && T.avail().join() === 'en,pt,es', 'lk.es=1 → es');
+  ls.delete('lk.es'); ls.delete('lk.pt'); ls.set('lk.cfg', JSON.stringify({ v: { es_course: true } })); ok(T.enabled() && T.enabled('es') && !T.enabled('pt') && T.cur() === 'es', 'cờ máy chủ es_course → es');
+  ls.set('lk.cfg', JSON.stringify({ v: { es_course: '0', pt_pilot: '1' } })); ok(T.cur() === 'en' && T.enabled() && !T.enabled('es'), 'es_course=0 → es tắt (pt vẫn bật)');
+  ok(/'es_course'/.test(rd('functions/api/config.js')) && /'es_course'/.test(rd('functions/api/admin.js')), 'es_course có trong PUBLIC_KEYS + CONFIG_KEYS');
+  // một bảng, không nhánh code: không còn so sánh trực tiếp với 'pt'/'es' trong target.js + settings.js
+  for (const f of ['web/js/target.js', 'web/js/settings.js']) ok(!/[!=]==?\s*'(pt|es)'|'(pt|es)'\s*[!=]==?|lk\.pt'|pt_pilot\b(?!',)/.test(rd(f).replace(/^\s*(\/\/|\*|\/\*).*$/gm, '').replace(/const TABLE = \{[\s\S]*?\n {2}\};/, '') /* dữ liệu bảng được phép */), f + ': không còn nhánh if (pt) – tra bảng');
+}
 
 // ---------- 2) bảng giọng/lang: 'en' tái tạo đúng hành vi cũ ----------
 {
@@ -54,6 +68,14 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   const en = LA.rank(voices, 'en-GB').map(v => v.name), pt = LA.rank(voices, 'pt-BR').map(v => v.name);
   ok(en[0] === 'Daniel' && en.length === 2, 'audio: en-GB chỉ giọng en (như cũ): ' + en);
   ok(pt[0] === 'Luciana' && pt.includes('Joana') && !pt.includes('Daniel'), 'audio: pt-BR chỉ giọng pt, pt-BR trước: ' + pt);
+  // es: es-419 → dự phòng es-MX → es-US trước es-ES; không lẫn giọng khác tiếng
+  ok(T.speechLang('es') === 'es-419' && T.speechLangs('es').join() === 'es-419,es-MX,es-US' && T.speechLangs('en').length === 0 && T.recLang('es', 'en-GB') === 'es-MX', 'es: es-419, dự phòng es-MX/es-US, nhận giọng es-MX');
+  ok(T.kokoroVoice('es-419') === 'ef_dora' && T.teacherVoice('ama', 'es') === 'ef_dora' && T.teacherVoice('carlos', 'es') === 'em_alex' && T.wordVoice('es-419') === '' && T.prefixFor('es-MX') === 'es', 'es: Kokoro ef_dora (Ama) / em_alex (Carlos), chưa có file từ');
+  const ev = [V('Jorge', 'es-ES'), V('Paulina', 'es-MX'), V('Ana', 'es-US'), V('Daniel', 'en-GB'), V('Luciana', 'pt-BR')];
+  const es1 = LA.rank(ev, 'es-419').map(v => v.name), es2 = LA.rank([...ev, V('Sabina', 'es-419')], 'es-419').map(v => v.name);
+  ok(es1.join() === 'Paulina,Ana,Jorge', 'audio: es-419 thiếu → es-MX, es-US, rồi es-ES: ' + es1);
+  ok(es2[0] === 'Sabina' && !es2.includes('Daniel') && !es2.includes('Luciana'), 'audio: có es-419 → chọn trước, không lẫn en/pt: ' + es2);
+  ok(LA.rank(ev, 'en-GB').map(v => v.name).join() === 'Daniel', 'audio: en-GB không đổi khi có giọng es');
 }
 
 // ---------- 3) thẻ: không gian khóa, lọc theo tl, tiếng Anh không đổi ----------
@@ -105,6 +127,40 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ok(e2.length >= 5, 'cổng bắt đủ 5 lỗi cài sẵn: ' + e2.length);
   const sch = readJSON('content/target/pt/schema.json'); ok(sch.properties.words.items.required.join() === 'word,pos,ipa,gl,ex', 'schema.json khớp');
   try { execFileSync(process.execPath, ['scripts/target/build.mjs', 'pt', '--check'], { stdio: 'pipe' }); ok(true); } catch (e) { ok(false, 'web/js/target-pt-seed.json lệch seed.json: ' + String(e.stdout || e.stderr)); }
+}
+
+// ---------- 4b) bộ từ mẫu es (W0): giống, số nhiều, IPA es-419 seseo, nghĩa 15 ngôn ngữ, ví dụ es+en ----------
+{
+  const deck = readJSON(seedPath('es')), err = validate(deck, { img: imgKeys() });
+  ok(!err.length, 'seed es đúng schema + cổng: ' + err.slice(0, 5).join(' | '));
+  ok(deck.words.length === 30 && deck.tl === 'es' && deck.variant === 'es-419', 'seed es = 30 từ, es-419');
+  ok(deck.words.every(w => MEAN_LANGS.every(L => w.gl[L]) && w.gl.es === w.word && w.ex.es && w.ex.en), 'es: đủ nghĩa 15 ngôn ngữ, gl.es = từ, ví dụ es+en');
+  ok(deck.words.every(w => w.pos !== 'n' || (w.gender && w.plural)), 'es: danh từ có giống + số nhiều');
+  ok(deck.words.every(w => !/θ/.test(w.ipa)) && /^ˈsjelo$/.test(deck.words.find(w => w.word === 'cielo').ipa) && /^saˈpato$/.test(deck.words.find(w => w.word === 'zapato').ipa), 'es: seseo (cielo/zapato = /s/)');
+  ok(deck.words.slice(0, 20).some(w => w.word === 'cielo') && deck.words.slice(0, 20).some(w => w.word === 'zapato'), 'es: cielo + zapato trong 20 từ lượt mẫu giọng');
+  ok(TL_RULES.es.plural && TL_RULES.es.seseo && !TL_RULES.pt, 'luật riêng theo bảng TL_RULES');
+  const bad = structuredClone(deck); delete bad.words[0].plural; bad.words[1].ipa = 'ˈθjelo'; bad.words[2].ex = { pt: 'O céu.', en: 'The sky.' }; bad.words[8].plural = 'comeres'; bad.words[3].ex.es = 'Sin la palabra.';
+  const e2 = validate(bad, { img: imgKeys() });
+  ok(e2.length >= 5 && e2.some(e => /plural/.test(e)) && e2.some(e => /θ/.test(e)), 'cổng es bắt đủ 5 lỗi cài sẵn: ' + e2.length);
+  const sch = readJSON('content/target/es/schema.json'); ok(sch.properties.words.items.properties.plural && sch.properties.words.items.properties.ex.required.join() === 'es,en', 'schema es có plural + ex.es');
+  try { execFileSync(process.execPath, ['scripts/target/build.mjs', 'es', '--check'], { stdio: 'pipe' }); ok(true); } catch (e) { ok(false, 'web/js/target-es-seed.json lệch seed.json: ' + String(e.stdout || e.stderr)); }
+  // W1: lint chuẩn Mỹ Latinh trung tính (§8) – bắt vosotros/os/-áis/-éis/coger/từ chỉ TBN, KHÔNG bắt ustedes/país
+  const lintE = sent => validate({ v: 1, tl: 'es', words: [{ ...deck.words[0], ex: { es: sent, en: 'x' } }] }).filter(e => /lệch chuẩn/.test(e)).length;
+  ok(['¿Vosotros tenéis una casa?', 'Os doy la casa.', 'Habláis en casa.', 'Voy a coger la casa.', 'Mi casa tiene un ordenador.'].every(x => lintE(x) === 1), 'lint es bắt vosotros/os/-áis/coger/ordenador');
+  ok(['Ustedes tienen una casa.', 'La casa del país.', 'Tomo el carro a casa.'].every(x => lintE(x) === 0), 'lint es không bắt nhầm ustedes/país/carro');
+  // W1: sinh theo bảng TL_GEN (không nhánh/chuỗi pt cứng trong gen.mjs), lô core-NN, cổng LanguageTool + IPA espeak + Wiktionary nối trong workflow
+  const { TL_GEN } = await import('../target/tl-gen.mjs');
+  ok(TL_GEN.es.variant === 'es-419' && TL_GEN.pt.variant === readJSON(seedPath('pt')).variant && TL_GEN.es.lt === 'es' && TL_GEN.es.kaikki === 'Spanish' && /es_50k/.test(TL_GEN.es.source.url), 'tl-gen.mjs: dòng es (es-419, LanguageTool, kaikki, FrequencyWords es)');
+  const gsrc = rd('scripts/target/gen.mjs'); ok(!/Brazilian|pt-BR'|pt_br/.test(gsrc) && /TL_GEN\[TL\]/.test(gsrc) && /LT_URL/.test(gsrc) && /nextCoreFile/.test(gsrc), 'gen.mjs: chỉ đọc bảng TL_GEN, cổng LanguageTool bắt buộc, ghi lô core-NN');
+  ok(/^core-01\.json$/.test(path.basename(nextCoreFile('es'))) || coreFiles('es').length > 0, 'nextCoreFile es');
+  const sc = structuredClone(deck); sc.words[0].gl.ja = 'casa'; sc.words[1].gl.vi = sc.words[1].word; const e3 = validate(sc);
+  ok(e3.some(e => /ja sai chữ viết/.test(e)) && e3.some(e => /nghĩa vi = nguyên từ/.test(e)), 'cổng bắt nghĩa sai chữ viết + vi = nguyên từ');
+  ok(/lexai: 0/.test(gsrc), 'gen.mjs không đi tuyến /api/lexai (chế độ cùng tên = lời nhắc tiếng Anh)');
+  const tc = rd('.github/workflows/target-content.yml'); ok(!/git push/.test(tc) && ['tl_ipa_fill.py', 'wikt-check.mjs', 'conj-check.mjs', 'lt-up.sh', 'actions/bot-output', 'timeout-minutes', 'concurrency'].every(k => tc.includes(k)) && rd('scripts/ci/lt-up.sh').includes('languagetool'), 'target-content.yml: LT (lt-up.sh) + IPA espeak + Wiktionary + chia động từ + lô ra bot-output, không git push');
+  // bảng giọng lượt mẫu: es = ef_dora/em_alex, espeak es-419, Whisper small, seseo; workflow chung có nhãn word-audio-es
+  const V = readJSON('scripts/word-audio/tl-voices.json');
+  ok(V.es.voices.join() === 'ef_dora,em_alex' && V.es.espeak === 'es-419' && V.es.asrModel === 'small' && V.es.seseo && /^es_MX-/.test(V.es.piper.name) && V.pt.voices.join() === 'pf_dora,pm_alex', 'tl-voices.json: es + pt');
+  const wf = rd('.github/workflows/word-audio-tl.yml'); ok(/word-audio-es/.test(wf) && /timeout-minutes/.test(wf) && /concurrency/.test(wf) && /paths:/.test(wf), 'word-audio-tl.yml: nhãn es + timeout/concurrency/paths');
 }
 
 // ---------- 5) nối dây: shell nạp target.js trước core.js; package test ----------

@@ -1,0 +1,59 @@
+# Ảnh chụp báo lỗi trên R2 (docs/REPORTS.md § Ảnh chụp).
+#  · bench (PR đổi web/js/report.js / script đo; hoặc chạy tay): đo trần nén bằng OCR – scripts/report-shot-bench.mjs (150 KB/1280 px so với 300 KB/1600 px).
+#  · setup (chạy tay): tạo bucket RIÊNG TƯ lexkite-report-shots (idempotent) – sau đó bỏ dấu # khối [[r2_buckets]] REPORT_SHOTS trong wrangler.toml.
+#  · migrate (chạy tay + thứ Hai 04:41 UTC): op shots-migrate theo lô 20 (dọn ảnh hết hạn 60 ngày, chuyển ảnh D1 → R2, hết thì VACUUM). Thiếu secret/binding → cảnh báo, xanh.
+name: Ảnh báo lỗi R2 (report-shots)
+on:
+  pull_request:
+    paths: ['web/js/report.js', 'scripts/report-shot-bench.mjs', '.github/workflows/report-shots.yml']
+  schedule:
+    - cron: '41 4 * * 1'
+  workflow_dispatch:
+    inputs:
+      action: { description: 'bench | setup | migrate', type: choice, options: [bench, setup, migrate], default: migrate }
+permissions:
+  contents: read
+concurrency:
+  group: report-shots-${{ github.event_name == 'pull_request' && github.head_ref || inputs.action || 'migrate' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}   # lượt PR cũ bỏ; migrate/setup xếp hàng (không mất lô)
+jobs:
+  bench:
+    if: github.event_name == 'pull_request' || inputs.action == 'bench'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: "web/js\nscripts\nstore/chrome/screenshots", sparse-checkout-cone-mode: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 tesseract.js@5.1.1
+          bash scripts/ci/pw-install.sh --with-deps chromium
+        timeout-minutes: 12
+      - run: node scripts/report-shot-bench.mjs
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with: { name: shot-bench, path: out/shot-bench.json, retention-days: 14 }
+  setup:
+    if: inputs.action == 'setup'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: e34e14b7ab35eaf2b3d9d84fcce011f7
+    steps:
+      - run: |
+          [ -n "$CLOUDFLARE_API_TOKEN" ] || { echo "::warning::Thiếu secret CLOUDFLARE_API_TOKEN"; exit 0; }
+          out=$(npx -y wrangler@3.114.0 r2 bucket create lexkite-report-shots 2>&1) || echo "$out" | grep -qi "already exists" || { echo "$out" | tail -5; echo "::error::Không tạo được bucket (token cần quyền R2 Edit)"; exit 1; }
+          echo "✓ bucket lexkite-report-shots (riêng tư, không tên miền công khai) – giờ bỏ dấu # [[r2_buckets]] REPORT_SHOTS trong wrangler.toml"
+  migrate:
+    if: github.event_name == 'schedule' || inputs.action == 'migrate'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: scripts, sparse-checkout-cone-mode: false }
+      - env: { LEXKITE_REPORT_CLI_KEY: '${{ secrets.LEXKITE_REPORT_CLI_KEY }}' }
+        run: |
+          [ -n "$LEXKITE_REPORT_CLI_KEY" ] || { echo "::warning::Thiếu secret LEXKITE_REPORT_CLI_KEY – chưa chuyển ảnh"; exit 0; }
+          node scripts/report-cli.mjs shots-migrate --all

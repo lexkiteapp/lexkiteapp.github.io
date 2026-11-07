@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite Review States (Tactile Night Mobile)</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="custom-theme-variables">
+    :root {
+      --bg-canvas: #091518;
+      --card-bg: #121d20;
+      --card-border: #2a3d42;
+      --ink-primary: #E8F1F0;
+      --ink-secondary: #A9BDBB;
+      --ink-muted: #94A3B8;
+      --accent-mint: #2DD4BF;
+      --accent-mint-light: #5EEAD4;
+    }
+    
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--ink-primary);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .phone-container {
+      width: 100%;
+      max-width: 390px;
+      min-height: 100vh;
+      background-color: var(--bg-canvas);
+      overflow-x: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+<style data-purpose="tactile-elevation">
+    /* Tactile 3D Buttons & Elements */
+    .btn-tactile-neutral {
+      background-color: #1a282c;
+      border: 1px solid #33484e;
+      box-shadow: 0 3px 0 0 #0f191b;
+      transition: transform 0.05s ease, box-shadow 0.05s ease;
+    }
+    .btn-tactile-neutral:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #0f191b;
+    }
+
+    .btn-tactile-danger {
+      background-color: #DC2626;
+      border: 1px solid #EF4444;
+      box-shadow: 0 3px 0 0 #991B1B;
+      transition: transform 0.05s ease, box-shadow 0.05s ease;
+    }
+    .btn-tactile-danger:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #991B1B;
+    }
+
+    .btn-tactile-amber {
+      background-color: #F59E0B;
+      border: 1px solid #FBBF24;
+      box-shadow: 0 3px 0 0 #B45309;
+      transition: transform 0.05s ease, box-shadow 0.05s ease;
+    }
+    .btn-tactile-amber:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #B45309;
+    }
+
+    .card-shell {
+      background-color: #121d20;
+      border: 1.5px solid #2a3d42;
+      border-radius: 1.25rem;
+    }
+  </style>
+</head>
+<body class="bg-[#091518]">
+<div class="phone-container pb-28">
+<!-- BEGIN: TopAppBar -->
+<header class="w-full px-4 pt-4 pb-3 flex items-center justify-between border-b border-[#1b2b2f]/60 sticky top-0 bg-[#091518]/95 backdrop-blur-md z-30" data-purpose="hub-header">
+<!-- Left: Logo & Brand -->
+<div class="flex items-center space-x-2.5">
+<div class="w-9 h-9 rounded-xl bg-[#162e30] border border-[#2dd4bf]/40 flex items-center justify-center shadow-inner">
+<!-- Kite Vector SVG -->
+<svg class="w-5 h-5 text-[#2DD4BF]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M12 2L20 10L12 22L4 10L12 2Z"></path>
+<path d="M12 2V22"></path>
+<path d="M4 10H20"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="text-base font-bold tracking-tight text-[#E8F1F0] leading-none">Lexkite</span>
+<span class="text-[10px] font-semibold tracking-wider text-[#5EEAD4] mt-0.5">IELTS PREP</span>
+</div>
+</div>
+<!-- Right: Gamification Badges -->
+<div class="flex items-center space-x-2">
+<!-- Streak Badge -->
+<div class="flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-[#291a0c] border border-[#d97706]/30">
+<svg class="w-3.5 h-3.5 text-[#F59E0B]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12.9 2.1c-.4-.5-1.1-.6-1.5-.1C8.7 4.7 6 8.5 6 12.3c0 3.7 2.8 6.7 6.4 6.7 3.5 0 6.6-2.9 6.6-6.6 0-3.3-2.1-6.7-6.1-10.3zm-1 14.8c-2.3 0-4-1.8-4-4.2 0-2.2 1.5-4.7 3.5-6.8 1.9 2.5 3.5 4.9 3.5 6.8 0 2.4-1.5 4.2-3 4.2z"></path>
+</svg>
+<span class="text-xs font-bold text-[#F59E0B]">14</span>
+</div>
+<!-- XP Badge -->
+<div class="flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-[#291a0c] border border-[#d97706]/30">
+<svg class="w-3.5 h-3.5 text-[#FBBF24]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+</svg>
+<span class="text-xs font-bold text-[#FBBF24]">820 XP</span>
+</div>
+</div>
+</header>
+<!-- END: TopAppBar -->
+<!-- BEGIN: MainContent -->
+<main class="px-4 py-4 space-y-3.5 flex-1">
+<!-- BEGIN: ConfirmationCard -->
+<!-- Remove word from deck? Confirmation Dialog Card -->
+<section class="card-shell p-4 bg-[#121d20]" data-purpose="dialog-card">
+<div class="flex items-center space-x-3 mb-3">
+<div class="w-9 h-9 rounded-xl bg-[#3b1418] border border-[#ef4444]/30 flex items-center justify-center shrink-0">
+<!-- Trash Icon SVG -->
+<svg class="w-4 h-4 text-[#F87171]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<polyline points="3 6 5 6 21 6"></polyline>
+<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+<line x1="10" x2="10" y1="11" y2="17"></line>
+<line x1="14" x2="14" y1="11" y2="17"></line>
+</svg>
+</div>
+<span class="text-[11px] font-bold tracking-wider text-[#F87171] uppercase">DECK MANAGEMENT</span>
+</div>
+<h2 class="text-lg font-bold text-[#E8F1F0] tracking-tight leading-snug">Remove word from deck?</h2>
+<p class="text-xs leading-relaxed text-[#A9BDBB] mt-1.5">
+          You will lose spaced repetition intervals for <span class="font-bold text-[#E8F1F0]">"meticulous"</span>. You can rediscover and re-add this IELTS item anytime.
+        </p>
+<!-- Actions -->
+<div class="grid grid-cols-2 gap-3 mt-4">
+<button class="btn-tactile-neutral py-2.5 px-3 rounded-xl text-xs font-bold text-[#E8F1F0] flex items-center justify-center" type="button">
+            Keep Word
+          </button>
+<button class="btn-tactile-danger py-2.5 px-3 rounded-xl text-xs font-bold text-white flex items-center justify-center" type="button">
+            Remove
+          </button>
+</div>
+</section>
+<!-- END: ConfirmationCard -->
+<!-- BEGIN: ToastBanner -->
+<!-- Saved to My Deck Notification Banner -->
+<section class="rounded-xl p-3 bg-[#0d2b27] border border-[#115e59] flex items-center justify-between shadow-sm" data-purpose="status-toast">
+<div class="flex items-center space-x-2.5">
+<div class="w-6 h-6 rounded-full bg-[#10b981]/20 border border-[#10b981]/60 flex items-center justify-center shrink-0">
+<svg class="w-3.5 h-3.5 text-[#34D399]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8" viewbox="0 0 24 24">
+<polyline points="20 6 9 17 4 12"></polyline>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-[#A7F3D0] leading-tight">Saved to My Deck</span>
+<span class="text-[11px] text-[#5EEAD4] font-medium leading-tight">"ubiquitous"</span>
+</div>
+</div>
+<button class="px-3.5 py-1.5 bg-[#134e48] border border-[#2dd4bf]/40 rounded-lg text-xs font-bold text-[#E8F1F0] hover:bg-[#155b54] active:scale-95 transition-all" type="button">
+          Undo
+        </button>
+</section>
+<!-- END: ToastBanner -->
+<!-- BEGIN: WordCardsReview -->
+<!-- Card 1: Ubiquitous -->
+<article class="card-shell p-4 bg-[#121d20] relative" data-purpose="word-preview-card">
+<div class="flex justify-between items-start mb-1">
+<div>
+<h3 class="text-xl font-bold tracking-tight text-[#E8F1F0]">ubiquitous</h3>
+<p class="text-xs text-[#A9BDBB] mt-0.5 font-mono">
+              /juːˈbɪk.wɪ.təs/ <span class="italic text-[#829997] font-sans">• adj</span>
+</p>
+</div>
+<div class="flex items-center space-x-1 text-[#CBD5E1] text-[11px] font-medium bg-[#1a282c] px-2 py-0.5 rounded-md border border-[#2a3d42]">
+<svg class="w-3 h-3 text-[#94A3B8]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+<span>Tomorrow</span>
+</div>
+</div>
+<p class="text-xs text-[#A9BDBB] leading-relaxed mt-2.5">
+          Present, appearing, or found everywhere; essential for environmental and tech topics.
+        </p>
+<div class="border-t border-[#1e2f33] mt-3.5 pt-3 flex items-center justify-between text-xs">
+<span class="text-[#CBD5E1] font-normal">Repetition: <span class="font-bold text-[#E8F1F0]">Level 4</span></span>
+<span class="text-[#5EEAD4] font-bold">Accuracy: 92%</span>
+</div>
+</article>
+<!-- Card 2: Pragmatic -->
+<article class="card-shell p-4 bg-[#121d20]" data-purpose="word-preview-card-compact">
+<div class="flex justify-between items-center mb-1">
+<h3 class="text-lg font-bold tracking-tight text-[#E8F1F0]">pragmatic</h3>
+<span class="text-[11px] font-medium text-[#CBD5E1] bg-[#1a282c] px-2 py-0.5 rounded-md border border-[#2a3d42]">In 3d</span>
+</div>
+<p class="text-xs text-[#A9BDBB] leading-relaxed">
+          Solving problems in a sensible, realistic way.
+        </p>
+</article>
+<!-- END: WordCardsReview -->
+<!-- BEGIN: HighContrastTutorFeedbackSlot -->
+<!-- High Contrast Accessible Slot with clear mint-cyan border & text -->
+<section class="teacher-slot w-full py-3 px-4 rounded-xl border border-dashed border-[#2DD4BF] bg-[#0f272a] flex items-center justify-center space-x-2 text-center shadow-sm" data-purpose="tutor-slot-indicator">
+<svg class="w-4 h-4 text-[#5EEAD4] shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+<line x1="8" x2="8.01" y1="10" y2="10"></line>
+<line x1="12" x2="12.01" y1="10" y2="10"></line>
+<line x1="16" x2="16.01" y1="10" y2="10"></line>
+</svg>
+<span class="text-xs font-bold tracking-wider text-[#5EEAD4] uppercase">TUTOR FEEDBACK SLOT (READY)</span>
+</section>
+<!-- END: HighContrastTutorFeedbackSlot -->
+<!-- BEGIN: CookieConsentCard -->
+<section class="card-shell p-4 bg-[#121d20] border-[#2a3d42]" data-purpose="cookie-consent-card">
+<div class="flex items-start space-x-3 mb-3">
+<div class="w-9 h-9 rounded-full bg-[#33200a] border border-[#f59e0b]/30 flex items-center justify-center shrink-0">
+<!-- Cookie SVG Vector Icon (No Emoji) -->
+<svg class="w-5 h-5 text-[#F59E0B]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M21.598 11.064a1.006 1.006 0 0 0-.854-.172A3.993 3.993 0 0 1 15.8 5.952c.036-.312-.083-.623-.312-.835-.23-.213-.553-.284-.852-.187A10.007 10.007 0 0 0 2 12c0 5.514 4.486 10 10 10 5.185 0 9.449-3.955 9.947-9.083.029-.304-.1-.6-.349-.853zM8.5 7a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-2 7a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm7.5 4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm2-6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path>
+</svg>
+</div>
+<div>
+<h4 class="text-sm font-bold text-[#E8F1F0]">We use essential cookies</h4>
+<p class="text-xs text-[#A9BDBB] mt-1 leading-relaxed">
+              To keep your streak data and sync spaced repetition progress across devices.
+            </p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 mt-3.5">
+<button class="btn-tactile-neutral py-2.5 px-3 rounded-xl text-xs font-bold text-[#E8F1F0]" type="button">
+            Settings
+          </button>
+<!-- Primary warm orange with high contrast deep brown-black typography -->
+<button class="btn-tactile-amber py-2.5 px-3 rounded-xl text-xs font-extrabold text-[#1A0D00]" type="button">
+            Got it
+          </button>
+</div>
+</section>
+<!-- END: CookieConsentCard -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: BottomNavigation -->
+<nav class="fixed bottom-0 w-full max-w-[390px] bg-[#091518]/95 backdrop-blur-md border-t border-[#1c2d31] px-3 py-2 flex items-center justify-around z-40" data-purpose="tab-navigation">
+<!-- Tab 1: Today -->
+<button class="flex flex-col items-center justify-center py-1 px-2.5 text-[#94A3B8] hover:text-[#E8F1F0] transition-colors" type="button">
+<svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect>
+<line x1="16" x2="16" y1="2" y2="6"></line>
+<line x1="8" x2="8" y1="2" y2="6"></line>
+<line x1="3" x2="21" y1="10" y2="10"></line>
+</svg>
+<span class="text-[10px] font-semibold">Today</span>
+</button>
+<!-- Tab 2: Vocab (Active) -->
+<button class="flex flex-col items-center justify-center py-1 px-4 rounded-xl bg-[#132d2f] text-[#2DD4BF] border border-[#2dd4bf]/25 transition-all" type="button">
+<svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+</svg>
+<span class="text-[10px] font-bold text-[#2DD4BF]">Vocab</span>
+</button>
+<!-- Tab 3: Skills -->
+<button class="flex flex-col items-center justify-center py-1 px-2.5 text-[#94A3B8] hover:text-[#E8F1F0] transition-colors" type="button">
+<svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+</svg>
+<span class="text-[10px] font-semibold">Skills</span>
+</button>
+<!-- Tab 4: Tests -->
+<button class="flex flex-col items-center justify-center py-1 px-2.5 text-[#94A3B8] hover:text-[#E8F1F0] transition-colors" type="button">
+<svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 11l3 3L22 4"></path>
+<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+</svg>
+<span class="text-[10px] font-semibold">Tests</span>
+</button>
+<!-- Tab 5: Me -->
+<button class="flex flex-col items-center justify-center py-1 px-2.5 text-[#94A3B8] hover:text-[#E8F1F0] transition-colors" type="button">
+<svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+<circle cx="12" cy="7" r="4"></circle>
+</svg>
+<span class="text-[10px] font-semibold">Me</span>
+</button>
+</nav>
+<!-- END: BottomNavigation -->
+</div>
+</body></html>

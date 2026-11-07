@@ -23,6 +23,10 @@ Artikel ini membagi perjalanan dari nol sampai band 6.5+ menjadi empat tahap. Du
 
 Kesalahan paling umum adalah memilih materi berdasarkan perasaan. Ada yang masih kesulitan menyusun kalimat sederhana tetapi langsung membeli buku kumpulan soal tebal. Ada juga yang sebenarnya sudah di level menengah tetapi mengulang materi SMP dari awal karena merasa "belum siap". Dua-duanya membuang waktu.
 
+Kalau ingin melanjutkan, lihat juga [strategi manajemen waktu IELTS Reading 60 menit](/id/blog/manajemen-waktu-ielts-reading-strategi-60-menit/).
+
+Artikel terkait: [panduan format baru TOEFL iBT 2026](/id/blog/format-baru-toefl-ibt-2026-panduan/).
+
 Kerjakan tes penempatan singkat tentang kosakata dan tata bahasa untuk mengetahui apakah kamu berada di sekitar A2, B1, atau B2. Setelah itu, tetapkan tiga angka:
 
 1. **Skor target**, misalnya 6.5 overall dengan tidak ada skill di bawah 6.0. Jika targetmu beasiswa atau kampus tertentu, cek syarat terbarunya langsung di situs resmi lembaga tersebut, karena ketentuannya bisa berubah.

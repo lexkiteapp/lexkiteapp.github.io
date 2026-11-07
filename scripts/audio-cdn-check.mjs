@@ -7,6 +7,7 @@
 //     --base mặc định https://audio.lexkite.com/audio/l/ ; gốc Pages kho m2: https://lexkiteapp.github.io/lexkite-media-2/audio/l/
 //     --sample N: kiểm N file ngẫu nhiên (mặc định: tất cả)
 // Thoát mã 1 nếu có file thiếu (sau khi thử lại --retries lần, cách nhau 30 s – chờ Pages lan truyền).
+import { pagesPending, MAX_MIN } from './lib/pages-lag.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -77,9 +78,13 @@ for (let r = 0; r < retries && res.nf.length + res.other.length; r++) {
   res = await run([...res.nf, ...res.other.map(s => s.split(':')[0])]);
   okAll.push(...res.ok);
 }
+// --pages-repo owner/repo: Pages của kho đang dựng bản mới (lô đẩy gần đây) → file 404 là "chờ lan truyền", không đỏ (quá 90 phút/dựng xong vẫn 404 → đỏ). Cây kho đã được bước --media xác nhận đủ file.
+let pend = null;
+{ const pr = opt('pages-repo', ''); if (pr && res.nf.length) { try { const h = { accept: 'application/vnd.github+json', ...(process.env.GITHUB_TOKEN ? { authorization: 'Bearer ' + process.env.GITHUB_TOKEN } : {}) }; const j = await (await fetch(`https://api.github.com/repos/${pr}/pages/builds?per_page=1`, { headers: h })).json(); const p = pagesPending(j); if (p.pending) pend = p; } catch {} } }
 console.log(`audio-cdn-check ${base}: tổng ${total}, OK ${okAll.length}, 404 ${res.nf.length}, khác ${res.other.length}`);
 if (res.nf.length) console.log('404:', res.nf.slice(0, 30).join(' ') + (res.nf.length > 30 ? ' …' : ''));
 if (res.other.length) console.log('khác:', res.other.slice(0, 30).join(' '));
 const out = opt('out', '');
 if (out) fs.writeFileSync(out, JSON.stringify({ base, total, ok: okAll.length, missing: res.nf, other: res.other }, null, 1));
+if (pend && !res.other.length) { console.log(`⏳ ${res.nf.length} file chờ Pages kho dựng xong (bản dựng đang chạy ${pend.ageMin} phút ≤ ${MAX_MIN}) – không tính lỗi; lượt sau kiểm lại`); process.exit(0); }
 process.exit(res.nf.length + res.other.length ? 1 : 0);

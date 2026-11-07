@@ -1,3 +1,2 @@
-/* UI id – ads (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["id"] = Object.assign(D["id"] || {}, {"Hết lượt hôm nay? Xem 1 video ngắn để nhận thêm {n} lượt.":"Jatah gratis hari ini habis? Tonton video singkat untuk mendapat {n} lagi.","Xem video":"Tonton video","Đã cộng thêm lượt – thử lại sau vài giây.":"Jatah tambahan sudah ditambahkan – coba lagi dalam beberapa detik."});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/id/ads.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.id=Object.assign(D.id||{},{_ape0:"Jatah gratis hari ini habis? Tonton video singkat untuk mendapat {n} lagi.",_dcji:"Tonton video",_iq0k:"Jatah tambahan sudah ditambahkan – coba lagi dalam beberapa detik.",_8kw8:"Ulas 10 kartu untuk membuka {n} giliran lagi – gratis.",_9lrf:"Ulas sekarang",_a5k9:"Berkat ulasanmu, kamu mendapat {n} giliran lagi.",_3iid:"Hari ini sudah mengulas {r}/{need} kartu – ulas lagi untuk dapat giliran."});})(typeof self!=='undefined'?self:this);

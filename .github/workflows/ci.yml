@@ -4,7 +4,7 @@ name: Kiểm thử tự động
 on:
   push:
     branches: [main]
-    paths: ['web/**', 'scripts/**', '.github/workflows/ci.yml']
+    paths: ['web/**', 'scripts/**', 'functions/**', 'types/**', 'tsconfig.check.json', '.github/workflows/ci.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -24,9 +24,11 @@ jobs:
       - name: Cài thư viện kiểm thử (package.json gốc)
         run: npm ci --no-audit --no-fund
       - name: Kiểm tra kiểu (TypeScript, chế độ JSDoc) cho phần lõi
-        run: npx -y -p typescript@5.6.3 tsc -p tsconfig.check.json
+        run: node scripts/test/tsc-check.mjs
       - name: Test riêng FSRS & API đồng bộ
         run: node scripts/test/unit.mjs
+      - name: Test lõi Truyện & podcast + nội dung mẫu (docs/STORIES.md)
+        run: node scripts/test/stories.mjs
       - name: Chính tả tiếng Việt
         run: node scripts/vi-lint.mjs
       - name: ci-triage + bỏ qua hạn mức D1 + workflow youtube/i18n
@@ -38,7 +40,7 @@ jobs:
       - name: Chất lượng bản dịch 13 ngôn ngữ (báo cáo)
         run: node scripts/i18n-qa.mjs
       - name: Cú pháp script build
-        run: for f in scripts/*.mjs scripts/lib/*.mjs; do node --check "$f" || exit 1; done
+        run: node scripts/test/syntax-check.mjs
       - name: Blog – cổng chất lượng (SEO on-page, chính tả, trùng lặp, điểm ≥ 90)
         run: node scripts/blog-pipeline.mjs gate
       - name: Chất lượng nội dung học (đáp án, lời giải, kho từ)

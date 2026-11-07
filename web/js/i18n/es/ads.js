@@ -1,3 +1,2 @@
-/* UI es – ads (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["es"] = Object.assign(D["es"] || {}, {"Hết lượt hôm nay? Xem 1 video ngắn để nhận thêm {n} lượt.":"¿Sin turnos gratis hoy? Mira un video corto para conseguir {n} más.","Xem video":"Ver video","Đã cộng thêm lượt – thử lại sau vài giây.":"Turnos extra añadidos: vuelve a intentarlo en unos segundos."});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/es/ads.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.es=Object.assign(D.es||{},{_ape0:"¿Sin turnos gratis hoy? Mira un video corto para conseguir {n} más.",_dcji:"Ver video",_iq0k:"Turnos extra añadidos: vuelve a intentarlo en unos segundos.",_8kw8:"Repasa 10 tarjetas para desbloquear {n} turnos más, gratis.",_9lrf:"Repasar ahora",_a5k9:"Gracias a tu repaso, tienes {n} turnos más.",_3iid:"Hoy has repasado {r}/{need} tarjetas: repasa más para ganar turnos."});})(typeof self!=='undefined'?self:this);

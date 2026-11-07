@@ -6,7 +6,7 @@
  * VÀ bề mặt hiển thị rộng hơn 192 px CSS. <picture> AVIF → WebP, <img lazy async crossorigin> trong hộp CỐ ĐỊNH (vuông, rộng theo bề mặt) → CLS = 0.
  * Hộp chỉ được chèn khi chỉ mục ĐÃ về (VImg.ready()) và nghĩa có ảnh – slot() đồng bộ, không bao giờ chèn hộp rỗng rồi đổi cỡ.
  * Quy tắc tích hợp (docs/LEXICON.md § Quy tắc tích hợp hình): cỡ theo VAI bề mặt (SIZE), hiện sau decode() + mờ dần 150 ms (giảm chuyển động → không mờ),
- * tệp CDN thiếu → hộp ẩn (giữ chỗ: CLS 0, không icon vỡ), chế độ tối chỉ hiện ảnh nền trong suốt (a) hoặc ảnh chụp, ảnh CẢNH luôn kèm câu ví dụ (s), tiết kiệm dữ liệu/2g → tắt,
+ * tệp CDN thiếu → hộp ẩn (giữ chỗ: CLS 0, không icon vỡ), chế độ tối chỉ hiện ảnh nền trong suốt (a) hoặc ảnh chụp (ảnh ẩn/lỗi → câu chú thích ẩn theo, không để câu lạc lõng; mọi bề mặt có chú thích đều có khối ví dụ riêng), ảnh CẢNH luôn kèm câu ví dụ (s), tiết kiệm dữ liệu/2g → tắt,
  * máy yếu (≤ 2 GB) → không @2x, tải trước ảnh 3 thẻ kế lúc rảnh (prefetch). SW lưu khi xem (lk-vimg, LRU 800). alt = từ + nghĩa theo ngôn ngữ giao diện (người gọi truyền gloss đã dịch – từ gói nghĩa 15 ngôn ngữ). */
 (function (g) {
   // cùng quy tắc normPos của scripts/lexicon/lib.mjs (+ tên loại từ tiếng Việt của thẻ người dùng)
@@ -90,7 +90,7 @@
   const altOf = (word, gloss) => (gloss ? `${word} – ${gloss}` : String(word));
   /** Đồng bộ: '' khi cờ tắt / chỉ mục chưa về / nghĩa không có ảnh (đúng từ#loại – không lấy ảnh của loại từ khác).
    *  w = px CSS, vai (SIZE) hoặc {w, photo}: photo = true CHỈ ở trang từ điển (tra từ) – ưu tiên ảnh Wikimedia (p) rồi mới tới icon/minh họa (m); thẻ học không bao giờ lấy p.
-   *  ex = câu ví dụ của NGHĨA đang dạy: ảnh CẢNH (khóa trong s) chỉ hiện khi có câu (luôn hiện câu dưới ảnh), không có câu → không hộp. */
+   *  ex = câu ví dụ của NGHĨA đang dạy: ảnh CẢNH (khóa trong s) chỉ hiện khi có câu (hiện câu dưới ảnh), không có câu → không hộp; o.capt = false: bề mặt tự hiện câu trong cột nội dung (trang từ điển), không chép dưới ảnh. */
   function slot(word, pos, gloss, w, ex) {
     if (!idx || !enabled()) return '';
     if (!loaded(word)) { need([word]); return ''; }   // mảnh chưa về: không chèn hộp rỗng (CLS 0); lần vẽ sau có ảnh
@@ -98,7 +98,7 @@
     if (ph) return pic(idx.base, ph, false, altOf(word, gloss), o.w, idx.pw.has(k), { a: true });
     const h = idx.m[k]; if (!h) return '';
     const scene = idx.s.has(k); if (scene && !ex) return '';
-    return pic(idx.base, h, idx.x.has(k), altOf(word, gloss), o.w, idx.w.has(k), { a: idx.a.has(k), ex: scene ? String(ex) : '' });
+    return pic(idx.base, h, idx.x.has(k), altOf(word, gloss), o.w, idx.w.has(k), { a: idx.a.has(k), ex: scene && o.capt !== false ? String(ex) : '' });
   }
   /** tải trước ảnh của vài thẻ kế tiếp lúc RẢNH (không chặn tương tác): list = [[từ, loại], …] (≤ 3) */
   function prefetch(list) {
@@ -113,9 +113,9 @@
     D.__vimg = 1;
     try {
       const st = D.createElement('style');
-      st.textContent = '.vimg-js .vimg img{opacity:0;transition:opacity .15s ease}.vimg-js .vimg img.on{opacity:1}.vimg.gone{visibility:hidden}'
+      st.textContent = '.vimg-js .vimg img{opacity:0;transition:opacity .15s ease}.vimg-js .vimg img.on{opacity:1}.vimg.gone{visibility:hidden}.vimg.gone+.vimg-ex{display:none!important}'
         + '@media (prefers-reduced-motion:reduce){.vimg-js .vimg img{transition:none}}'
-        + ':root[data-theme="dark"] .vimg:not([data-a]){display:none!important}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .vimg:not([data-a]){display:none!important}}';
+        + ':root[data-theme="dark"] .vimg:not([data-a]),:root[data-theme="dark"] .vimg:not([data-a])+.vimg-ex{display:none!important}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .vimg:not([data-a]),:root:not([data-theme="light"]) .vimg:not([data-a])+.vimg-ex{display:none!important}}';
       (D.head || D.documentElement).appendChild(st); D.documentElement.classList.add('vimg-js');
     } catch (e) { /* bỏ qua */ }
     const show = i => { i.classList.add('on'); };

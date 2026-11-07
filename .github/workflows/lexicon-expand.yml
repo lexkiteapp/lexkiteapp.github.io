@@ -53,6 +53,10 @@ jobs:
           # lớp L2 (31/10 snail "We were late going to look for snails." – chủ không bản ngữ): CHỈ câu của người tự khai eng cấp 5 (tatoeba-native.mjs); tải lỗi = không có Tatoeba (không dùng câu chưa lọc)
           curl -sfL https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences_detailed.tsv.bz2 | bunzip2 > "$RUNNER_TEMP/tatoeba-all.tsv" && curl -sfL https://downloads.tatoeba.org/exports/user_languages.tar.bz2 | tar xj -C "$RUNNER_TEMP" \
             && node scripts/lexicon/expand/tatoeba-native.mjs --sentences "$RUNNER_TEMP/tatoeba-all.tsv" --langs "$RUNNER_TEMP/user_languages.csv" --out "$RUNNER_TEMP/tatoeba.tsv" || rm -f "$RUNNER_TEMP/tatoeba.tsv"
+          # 04/11 (exShort 389/600 → yield 0,022): nguồn câu NGƯỜI VIẾT thứ 3 = Simple English Wikipedia (CC BY-SA 4.0), simplewiki.py lọc hình thức → ghép vào cùng TSV; nghĩa vẫn do 3 giám khảo lxsrc + lxwsd quyết. Tải/đọc lỗi = như cũ (không có nguồn này).
+          { curl -sfL --retry 2 -o "$RUNNER_TEMP/sw.xml.bz2" https://dumps.wikimedia.org/simplewiki/latest/simplewiki-latest-pages-articles.xml.bz2 && python3 scripts/lexicon/expand/simplewiki.py --dump "$RUNNER_TEMP/sw.xml.bz2" --out "$RUNNER_TEMP/simplewiki.tsv" && cat "$RUNNER_TEMP/simplewiki.tsv" >> "$RUNNER_TEMP/tatoeba.tsv"; } || echo '::warning::Simple Wikipedia không dùng được lượt này'; rm -f "$RUNNER_TEMP/sw.xml.bz2" "$RUNNER_TEMP/simplewiki.tsv"
+          # 05/11 (pilot Simple Wiki: exShort 389→329/600, yield 0,022→0,037, vẫn thiếu câu): nguồn thứ 4 = kho câu Common Voice en (CC0, ~100 MB câu Wikipedia + người dùng), commonvoice.py lọc hình thức + dễ → ghép vào cùng TSV. Tải/đọc lỗi = như cũ.
+          { mkdir -p "$RUNNER_TEMP/cv" && for f in wiki.en.txt wiki.en.rerun-2021-11.txt sentence-collector.txt; do curl -sfL --retry 2 -o "$RUNNER_TEMP/cv/$f" "https://raw.githubusercontent.com/common-voice/common-voice/main/server/data/en/$f" || exit 1; done && python3 scripts/lexicon/expand/commonvoice.py --out "$RUNNER_TEMP/cv.tsv" "$RUNNER_TEMP"/cv/*.txt && cat "$RUNNER_TEMP/cv.tsv" >> "$RUNNER_TEMP/tatoeba.tsv"; } || echo '::warning::Common Voice không dùng được lượt này'; rm -rf "$RUNNER_TEMP/cv" "$RUNNER_TEMP/cv.tsv"
           # vi do AI lấp chỉ nhận phương án có trong Viet74K (duyet/vietnamese-wordlist, GPL-2.0 – CHỈ để kiểm trong CI, không phân phối)
           curl -sfL -o "$RUNNER_TEMP/viet74k.txt" https://raw.githubusercontent.com/duyet/vietnamese-wordlist/master/Viet74K.txt || true
           curl -sfL -o "$RUNNER_TEMP/cmu.dict" https://raw.githubusercontent.com/cmusphinx/cmudict/master/cmudict.dict
@@ -141,10 +145,11 @@ jobs:
           [ "$LX_RUN_PILOT" = 1 ] && { echo "pilot → không nối (chờ soát 50 mẫu, rồi đặt LX_PILOT=0)"; exit 0; }
           [ -s reports/lexicon-expand.json ] || { echo "không có báo cáo → dừng chuỗi"; exit 0; }
           # nối khi: lượt có mục đạt, ≤ 50 % bỏ qua hạ tầng (kho CF còn neuron), và còn đủ ứng viên (n ≥ 90 % N)
+          # 03/11: đo trên mục MỚI (yieldFresh) khi ≥ 50 mục mới – mục retry là phần còn lại khó (hạn ngạch ≤ 25 % N, lib.mjs mixPool) không được kéo cầu dao chuỗi.
           # QUALITY-PIPELINE bước 5: sản lượng (đạt / mục không hạ tầng) tụt dưới MỘT NỬA mức pilot đã duyệt (content/lexicon/expand/pilot/yield.json) → dừng chuỗi
-          GO=$(node -p "const fs=require('fs'), r=require('./reports/lexicon-expand.json'), inf=(r.why||{}).infra||0, py=fs.existsSync('content/lexicon/expand/pilot/yield.json')?require('./content/lexicon/expand/pilot/yield.json').yield:0, low=py&&(r.n-inf)>=50&&r.yield<py/2; if(low) console.error('⏹ sản lượng '+r.yield+' < '+(py/2)+' (nửa mức pilot '+py+')'); (r.pass>0 && !low && inf<=r.n*0.5 && r.n>=0.9*(+process.env.LX_RUN_N||2400)) ? 1 : 0")
+          GO=$(node -p "const fs=require('fs'), r=require('./reports/lexicon-expand.json'), inf=(r.why||{}).infra||0, py=fs.existsSync('content/lexicon/expand/pilot/yield.json')?require('./content/lexicon/expand/pilot/yield.json').yield:0, yy=(r.nFresh||0)>=50?r.yieldFresh:r.yield, low=py&&(r.n-inf)>=50&&yy<py/2; if(low) console.error('⏹ sản lượng '+(yy===r.yield?'':'(mục mới) ')+yy+' < '+(py/2)+' (nửa mức pilot '+py+')'); (r.pass>0 && !low && inf<=r.n*0.5 && r.n>=0.9*(+process.env.LX_RUN_N||2400)) ? 1 : 0")
           [ "$GO" = 1 ] || { echo "⏹ dừng chuỗi: hết neuron kho CF (4006) / hết ứng viên / 0 mục đạt / sản lượng < nửa pilot – lượt cron tiếp"; echo "::warning::lexicon-expand dừng chuỗi (xem log bước này)"; exit 0; }
-          gh workflow run lexicon-expand.yml -R ${{ github.repository }} --ref main
+          bash scripts/ci/gh-retry.sh gh workflow run lexicon-expand.yml -R ${{ github.repository }} --ref main
           echo "↻ đã gọi lượt lexicon-expand kế tiếp"
       - name: Trả thuê
         if: ${{ always() && steps.lease.outputs.skip != '1' }}

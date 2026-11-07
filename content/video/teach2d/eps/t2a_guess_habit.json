@@ -1,0 +1,77 @@
+{
+ "id": "t2a_guess_habit",
+ "template": "guess",
+ "series": "Guess the Word",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess the word in three clues!",
+   "pause": 0.42
+  },
+  {
+   "id": "c1",
+   "text": "Clue one: the usual way of behaving.",
+   "pause": 0.42
+  },
+  {
+   "id": "c2",
+   "text": "Clue two: it has five letters.",
+   "pause": 0.42
+  },
+  {
+   "id": "c3",
+   "text": "Clue three: it starts with H.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Got it? Comment your guess!",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Habit! Reading before bed is a good habit.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "habit",
+  "ipa": "/ˈhæbət/",
+  "clue": "The usual way of behaving.",
+  "n": 5,
+  "img": "habit#n",
+  "ex": "Reading before bed is a good habit."
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/habit",
+  "link": "https://lexkite.com/app/#/dict/habit",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess the word!"
+ },
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ }
+}
