@@ -51,7 +51,7 @@ jobs:
         if: ${{ !cancelled() }}
         run: |
           curl -sf -o /dev/null http://localhost:8080/app/ || { (node scripts/test/serve-web.mjs out/site 8080 >/dev/null 2>&1 &) ; sleep 1; }
-          npx playwright install --with-deps webkit >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps webkit
           MNAV_BROWSERS=chromium,webkit node scripts/test/mobile-nav.mjs http://localhost:8080 out/mobile-qa/nav
       - if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
