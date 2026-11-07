@@ -20,9 +20,10 @@ jobs:
       - name: Tĩnh
         run: node scripts/test/story-stage.mjs --out out/story-stage
       - name: Playwright
+        timeout-minutes: 15
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium webkit
+          bash scripts/ci/pw-install.sh --with-deps chromium webkit
       - name: Trình duyệt – sân khấu, bài tập, hiệu năng
         run: node scripts/test/story-stage.mjs --browser --out out/story-stage
       - name: Tóm tắt
