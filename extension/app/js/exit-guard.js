@@ -187,8 +187,8 @@
   hist.push(location.hash);
   // Màn vẽ lại đầu trang (câu kế tiếp…) → gắn lại nút thoát, đồng bộ tiến độ; gom theo khung hình
   let raf = 0;
-  const reMark = () => { raf = 0; const v = view(); if (!cur || !v) return; if (!v.querySelector('[data-exit]')) setup(...parse(cur)); syncBar(); };
-  if (g.MutationObserver) document.addEventListener('DOMContentLoaded', () => { const v = view(); if (v) new MutationObserver(() => { if (cur && !raf) raf = requestAnimationFrame(reMark); }).observe(v, { childList: true, subtree: true }); });
+  const reMark = () => { raf = 0; const v = view(); if (!cur || !v || parse(location.hash)[0] !== parse(cur)[0]) return; /* cur còn là màn học cũ khi đã sang trang khác (đua điều hướng): không gắn thanh thoát vào trang mới */ if (!v.querySelector('[data-exit]')) setup(...parse(cur)); syncBar(); };
+  if (g.MutationObserver) document.addEventListener('DOMContentLoaded', () => { const v = view(); if (v) new MutationObserver(() => { if (!cur) return; if (!v.querySelector('[data-exit]')) return reMark(); /* gắn thanh trước khi vẽ: gắn sau đẩy cả màn 64 px (CLS) */ if (!raf) raf = requestAnimationFrame(reMark); }).observe(v, { childList: true, subtree: true }); });
 
   // Mỗi lượt vẽ trang (App.afterRoute, gọi từ app.js)
   function after(name) {
@@ -210,7 +210,7 @@
   const F = document.fonts; if (F && F.addEventListener) { F.addEventListener('loadingdone', regrow); if (F.ready) F.ready.then(regrow, () => {}); }
 
   g.ExitGuard = {
-    isLearn, ALWAYS, WITH_ARG, NOT_LEARN,
+    isLearn, ALWAYS, WITH_ARG, NOT_LEARN, focusHash: h => flagOn() && learnHash(h),
     focusFor: (n, a, q) => flagOn() && isLearn(n, a, q), // route() đặt khung FOCUS ngay lúc chạm (after() chỉ còn là chốt)
     learn: name => extra.add(name),
     onSave: fn => saves.push(fn), // màn lưu được tiến độ → hộp hỏi báo "đã lưu"

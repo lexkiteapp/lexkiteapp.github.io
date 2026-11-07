@@ -2,15 +2,15 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 51.2 / 100**
+**Tổng: 51.4 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **51** | 45.2 | 51% | 100% | 0 |
+| Kho từ | **51.1** | 45.2 | 51.1% | 100% | 0 |
 | Ngữ pháp | **53.7** | 53.7 | 53.7% | 100% | 0 |
 | Giao tiếp | **31.7** | 14.1 | 31.7% | 100% | 0 |
 | 4 kỹ năng | **49.2** | 48.2 | 49.2% | 100% | 0 |
-| Đề thi | **30.4** | 30.4 | 30.4% | 100% | 0 |
+| Đề thi | **31.7** | 30.4 | 31.7% | 100% | 0 |
 | Khung Can-do | **80** | 79.3 | 80% | 100% | 0 |
 | i18n | **62.7** | 62.7 | 62.7% | 100% | 0 |
 
@@ -23,7 +23,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | collocation | 4696 / 20000 | 23% | 12 |
 | đồng nghĩa | 2776 / 20000 | 14% | 8 |
 | IPA Mỹ | 6140 / 20000 | 31% | 5 |
-| ảnh theo nghĩa | 6956 / 20000 | 35% | 15 |
+| ảnh theo nghĩa | 7066 / 20000 | 35% | 15 |
 | C2 | 440 / 1000 | 44% | 10 |
 | A1 | 858 / 1000 | 86% | 5 |
 
@@ -85,7 +85,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | TOEFL Listening | 200 / 400 | 50% | 5 |
 | TOEFL Writing | 100 / 200 | 50% | 5 |
 | TOEFL Speaking | 150 / 300 | 50% | 5 |
-| Cambridge A2 (chưa làm) | 0 / 6 | 0% | 8 |
+| Cambridge A2 (chưa làm) | 1 / 6 | 17% | 8 |
 | Cambridge B1 (chưa làm) | 0 / 6 | 0% | 8 |
 | Cambridge B2 (chưa làm) | 0 / 6 | 0% | 8 |
 | Cambridge C1 (chưa làm) | 0 / 6 | 0% | 8 |

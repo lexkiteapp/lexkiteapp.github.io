@@ -83,6 +83,7 @@ node scripts/test/call-engine.mjs
 node scripts/test/feedback-eval.mjs
 node scripts/test/route-race.mjs
 node scripts/test/exit-guard.mjs
+node scripts/test/focus-early.mjs
 node scripts/test/review-done.mjs
 node scripts/test/league.mjs
 node scripts/test/speak-ipa.mjs
@@ -216,6 +217,7 @@ node scripts/test/inline-box.mjs
 node scripts/test/st2-href.mjs
 node scripts/test/card-actions.mjs
 node scripts/test/mobile-guards.mjs
+node scripts/test/late-insert.mjs
 node scripts/build-landing.mjs --check
 node scripts/test/landing-routing.mjs
 node scripts/test/landing-v3.mjs
@@ -287,6 +289,8 @@ node scripts/test/logic-invariants.mjs
 node scripts/test/top1-score.mjs
 node scripts/test/vocab-img-judge-budget.mjs
 node scripts/test/lastmod.mjs
+node scripts/test/today-debt.mjs
+node scripts/test/ci-shards-busy.mjs
 node scripts/test/brand-logo-stitch.mjs
 node scripts/test/today-mobile-actions.mjs
 node scripts/test/root-lang.mjs
@@ -335,4 +339,7 @@ node scripts/test/ci-queue-gate.mjs
 node scripts/test/android-xml-comments.mjs
 node scripts/test/retry5xx.mjs
 node scripts/test/sparse-imports.mjs
+node scripts/test/is-main-guard.mjs
+node scripts/test/big-data.mjs
 node scripts/test/heavy-rerun.mjs
+node scripts/test/json-dupkeys.mjs

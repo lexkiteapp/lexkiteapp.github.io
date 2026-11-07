@@ -78,6 +78,8 @@ async function open(o = {}) {
   await ctx.route(BASE + '**', serve);
   // tiếng: KHÔNG gọi kho media/audio thật trên CI – o.audio: tiếng GIẢ đúng độ dài + độ lớn của mốc CI (fixtureAudio) → mặt vẽ chạy chế độ pre như máy thật
   await ctx.route(/audio\.lexkite\.com|github\.io\/(lexkite-media|audio)|lexkite-media/, r => o.audio ? fixtureAudio(r) : r.abort());
+  // welcome.js/hubs.js dò blog theo ngôn ngữ (App.blogLive) qua https://lexkite.com/blog-langs.json: KHÔNG chạm prod (thật thì trả không có CORS → console lỗi CORS, đỏ giả)
+  await ctx.route('https://lexkite.com/blog-langs.json', r => r.fulfill({ status: 200, contentType: 'application/json', headers: { 'Access-Control-Allow-Origin': '*' }, body: '["en","vi"]' }));
   await ctx.route('https://lexkite.com/api/**', r => r.request().method() === 'OPTIONS' ? r.fulfill({ status: 204, headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*' } })
     : r.fulfill({ status: 200, contentType: 'application/json', headers: { 'Access-Control-Allow-Origin': '*' }, body: JSON.stringify({ ok: true, notices: [], unread_count: 0 }) }));
   const page = await ctx.newPage(), errs = [];
