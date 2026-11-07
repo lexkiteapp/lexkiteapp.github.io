@@ -217,6 +217,7 @@ node scripts/test/inline-box.mjs
 node scripts/test/st2-href.mjs
 node scripts/test/card-actions.mjs
 node scripts/test/mobile-guards.mjs
+node scripts/test/late-insert.mjs
 node scripts/build-landing.mjs --check
 node scripts/test/landing-routing.mjs
 node scripts/test/landing-v3.mjs
