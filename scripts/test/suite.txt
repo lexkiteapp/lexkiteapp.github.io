@@ -52,6 +52,7 @@ node scripts/test/criteria.mjs
 node scripts/test/quiz.mjs
 node scripts/test/notices.mjs
 node scripts/test/classroom.mjs
+node scripts/test/community-api.mjs
 node scripts/test/user-mgmt.mjs
 node scripts/test/users-bulk.mjs
 node scripts/test/account-delete.mjs
