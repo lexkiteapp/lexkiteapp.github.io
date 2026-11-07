@@ -152,7 +152,7 @@
   // 🎮 Lớp "game feel" (docs/GAME-FEEL.md, docs/specs/play-learn.md): BẬT mặc định từ 3/11; tắt bằng công tắc Cài đặt hoặc ?feel=0, nhớ trong vb.feel.
   // Sfx.feel() → đang bật? · Sfx.feel(true|false) → lưu + bật/tắt ngay (không cần tải lại). Không có localStorage → vẫn bật (âm vẫn theo settings.sfx).
   const feelGet = () => { try { return g.localStorage.getItem('vb.feel') !== '0'; } catch (e) { return true; } };
-  const feelLoad = () => { if (g.Feel || !g.document || g.document.getElementById('feelJs')) return; const s = g.document.createElement('script'), me = g.document.querySelector('script[src*="js/game.js"]'); s.id = 'feelJs'; s.src = (me ? me.getAttribute('src').replace(/game\.js.*$/, '') : 'js/') + 'feel.js'; s.defer = true; g.document.head.appendChild(s); };
+  const feelLoad = () => { if (g.Feel || !g.document || !g.document.createElement || !g.document.head || !g.document.getElementById || g.document.getElementById('feelJs')) return; const s = g.document.createElement('script'), me = g.document.querySelector('script[src*="js/game.js"]'); s.id = 'feelJs'; s.src = (me ? me.getAttribute('src').replace(/game\.js.*$/, '') : 'js/') + 'feel.js'; s.defer = true; g.document.head.appendChild(s); };
   Sfx.feel = on => {
     if (on === undefined) return feelGet();
     try { g.localStorage.setItem('vb.feel', on ? '1' : '0'); } catch (e) { /* bỏ qua */ }
