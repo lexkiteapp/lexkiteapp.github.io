@@ -1336,7 +1336,7 @@ body:has(.sheet) .view { padding-bottom: calc(18rem + env(safe-area-inset-bottom
 .pill.xp .i { color: var(--gold); fill: currentColor; fill-opacity: .9; }
 .pill .pill-sub { display: inline-flex; align-items: center; gap: 2px; margin-inline-start: var(--sp-1); color: var(--accent-text); }
 /* lượt đóng băng điền SAU khi nạp dữ liệu (App.updateChrome): huy hiệu nổi ở góc pill chuỗi – không đổi bề rộng hàng chỉ số (CLS top-stats 0,041, mqa #/home 360 07/11); min-width làm ô tra từ < 44 px */
-.top-stats .pill.fire { position: relative; } .top-stats .pill.fire .pill-sub { position: absolute; top: -.45rem; inset-inline-end: -.3rem; margin: 0; padding: 0 .3rem; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: .65rem; line-height: 1.3; }
+.top-stats .pill.fire { position: relative; } .top-stats .pill.fire .pill-sub { position: absolute; top: calc(-1 * var(--sp-2)); inset-inline-end: calc(-1 * var(--sp-1)); margin: 0; padding: 0 var(--sp-1); border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: var(--fs-xs); line-height: 1.3; }
 .pill.fire i.flame-icon { display: inline-grid; place-items: center; font-style: normal; }
 .set-h .i, .set-nav .i { width: 1.15em; height: 1.15em; vertical-align: -.2em; }
 .set-h .i { width: 1.35em; height: 1.35em; color: var(--accent-text); }
