@@ -72,6 +72,14 @@ jobs:
           if [ "$MODE" = pilot ] && { [ "$PROBE_ALIVE" -lt $NA ] || [ "$PROBE_HEAD" -lt $NH ] || [ "$PROBE_TAIL" -lt $NT ]; }; then echo "::warning::kho CF còn $PROBE_ALIVE/121 tài khoản có neuron (phần đầu $PROBE_HEAD, phần đuôi $PROBE_TAIL) – pilot bỏ lượt (cần đầu ≥ $NH, đuôi ≥ $NT)"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
           # 04/11 gốc hàng chờ lượt 41821221567: 10 việc × ~2 giờ mà max-parallel 3 ban ngày → 4 đợt, lượt kéo dài >6 giờ và giữ nhóm concurrency (lịch 3 giờ bị dồn/huỷ). Việc bị trần bởi KHO/thời gian máy chứ không bởi số việc → mặc định số việc = số máy song song (par): cùng giờ-máy, lượt xong ≤ ~2,2 giờ, không đợt chờ
           if [ "$MODE" = fill ]; then n=${{ github.event.inputs.shards || (github.event.inputs.judge_run != '' && '6' || '$par') }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1; fi
+          # 07/11 (06/11: 7 lượt × 10 máy cài giám khảo cho 1 nghĩa/việc → 91 ảnh/ngày): số việc theo số nghĩa CÓ THỂ vẽ (≥ 40 nghĩa/việc), 0 nghĩa → bỏ lượt
+          if [ "$MODE" = fill ] && [ -z "${{ github.event.inputs.judge_run }}" ]; then
+            { node scripts/build-lexicon.mjs --write >/dev/null || [ -s dist/lexicon.json ]; }
+            G=$(node scripts/vocab-img/scene.mjs --gaps 1000000 --shard 0/1 | node -p "JSON.parse(require('fs').readFileSync(0,'utf8')).items.length")
+            echo "nghĩa cảnh thiếu ảnh có thể vẽ (không trong hàng chờ / thẻ đang nghỉ): $G"
+            [ "$G" -gt 0 ] || { echo "✓ không còn nghĩa để vẽ – bỏ lượt"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; }
+            m=$(( (G + 39) / 40 )); [ "$n" -gt "$m" ] && n=$m
+          fi
           echo "shards=$(node -e "console.log(JSON.stringify([...Array($n).keys()]))")" >> $GITHUB_OUTPUT
           G='${{ github.event.inputs.max_gc }}'; [ -z "$G" ] && { [ "$MODE" = fill ] && G=6000 || G=400; }
           echo "per=$(( G / n ))" >> $GITHUB_OUTPUT
@@ -85,6 +93,8 @@ jobs:
       # 26/10: GrabCast 500 cho 700/700 ảnh → mặc định cf (Workers AI thẳng); lịch (fill) dùng vars.VIMG_PROVIDER
       GRABCAST_AI_KEY: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'grabcast' && secrets.GRABCAST_AI_KEY || '' }}
       CF_POOL: ${{ secrets.CF_POOL }}
+      GROQ_POOL: ${{ secrets.GROQ_POOL }}       # 07/11: thẻ cảnh văn bản qua kho Groq/Gemini miễn phí (scene.mjs CARD_CHAIN) – neuron CF chỉ để VẼ
+      GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
@@ -166,6 +176,8 @@ jobs:
       # 26/10: GrabCast 500 cho 700/700 ảnh → mặc định cf (Workers AI thẳng); lịch (fill) dùng vars.VIMG_PROVIDER
       GRABCAST_AI_KEY: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'grabcast' && secrets.GRABCAST_AI_KEY || '' }}
       CF_POOL: ${{ secrets.CF_POOL }}
+      GROQ_POOL: ${{ secrets.GROQ_POOL }}       # 07/11: thẻ cảnh văn bản qua kho Groq/Gemini miễn phí (scene.mjs CARD_CHAIN) – neuron CF chỉ để VẼ
+      GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
@@ -266,6 +278,8 @@ jobs:
       # 26/10: GrabCast 500 cho 700/700 ảnh → mặc định cf (Workers AI thẳng); lịch (fill) dùng vars.VIMG_PROVIDER
       GRABCAST_AI_KEY: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'grabcast' && secrets.GRABCAST_AI_KEY || '' }}
       CF_POOL: ${{ secrets.CF_POOL }}
+      GROQ_POOL: ${{ secrets.GROQ_POOL }}       # 07/11: thẻ cảnh văn bản qua kho Groq/Gemini miễn phí (scene.mjs CARD_CHAIN) – neuron CF chỉ để VẼ
+      GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
@@ -483,6 +497,8 @@ jobs:
       # 26/10: GrabCast 500 cho 700/700 ảnh → mặc định cf (Workers AI thẳng); lịch (fill) dùng vars.VIMG_PROVIDER
       GRABCAST_AI_KEY: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'grabcast' && secrets.GRABCAST_AI_KEY || '' }}
       CF_POOL: ${{ secrets.CF_POOL }}
+      GROQ_POOL: ${{ secrets.GROQ_POOL }}       # 07/11: thẻ cảnh văn bản qua kho Groq/Gemini miễn phí (scene.mjs CARD_CHAIN) – neuron CF chỉ để VẼ
+      GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
