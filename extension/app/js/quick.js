@@ -392,7 +392,7 @@
       view.innerHTML = `
         <div class="qk-wrap">
           <div class="qk-top">
-            <a class="icon-btn" href="#/home" aria-label="${t('Thoát')}" title="${t('Thoát')}">✕</a>
+            <a class="icon-btn" href="${App.homeHref()}" aria-label="${t('Thoát')}" title="${t('Thoát')}">✕</a>
             <div class="qk-progress-wrap" role="progressbar" aria-label="${t('Phong cách tiếng Anh của bạn')}" aria-valuemin="0" aria-valuemax="${QUESTIONS.length}" aria-valuenow="${currentQ}">
               <div class="qk-progress-bar" style="width:${progressPct}%"></div>
             </div>

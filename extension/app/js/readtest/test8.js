@@ -17,7 +17,7 @@ paras: [
 ],
 groups: [
 { type: 'tfng',
-instr: 'Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+instr: g.RTI[1],
 items: [
 { n: 1, text: 'In the past, the value of coins depended partly on the metal from which they were made.', a: 'TRUE', cue: 'valued, at least in part, for the metal they contained' },
 { n: 2, text: "The certificates used in the 'flying money' system were commonly used to buy goods.", a: 'FALSE', cue: 'the certificates were not used to buy goods' },
@@ -27,7 +27,7 @@ items: [
 { n: 6, text: 'The Stockholm bank that issued the first European banknotes remained in business for several decades.', a: 'FALSE', cue: 'within a few years it had collapsed' },
 ] },
 { type: 'summary', title: 'Paper money in Europe',
-instr: 'Complete the summary below. Choose ONE WORD ONLY from the passage for each answer.', limit: 1,
+instr: g.RTI[19], limit: 1,
 items: [
 { n: 7, text: 'In seventeenth-century London, people who left their gold with ___ were given a written receipt, which was later used in payment.', a: ['goldsmiths'], cue: 'wealthy people often left their gold with goldsmiths for safekeeping' },
 { n: 8, text: 'In Sweden, the money used by the state took the form of heavy copper ___.', a: ['plates'], cue: 'the state had adopted large copper plates as money' },
@@ -35,7 +35,7 @@ items: [
 { n: 10, text: 'However, critics said it prevented governments from dealing effectively with economic ___.', a: ['crises'], cue: 'it made it difficult for governments to respond to economic crises' },
 ] },
 { type: 'match',
-instr: 'Reading Passage 1 has seven paragraphs, A–G. Which paragraph contains the following information? NB You may use any letter more than once.',
+instr: g.RTI[5],
 options: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
 items: [
 { n: 11, text: 'an explanation of how printing too much money caused prices to rise', a: 'D', cue: 'As the quantity of notes grew, each one bought less, and prices rose sharply' },
@@ -74,7 +74,7 @@ paras: [
 ],
 groups: [
 { type: 'match',
-instr: 'Reading Passage 2 has six paragraphs, A–F. Choose the correct heading for each paragraph from the list of headings below.',
+instr: g.RTI[9],
 options: [
 'i Where am I? A question still without a clear answer',
 'ii The physical cost of flying without a break',
@@ -95,7 +95,7 @@ items: [
 { n: 19, text: 'Paragraph F', a: 'i', cue: 'The map sense remains far less well understood' },
 ] },
 { type: 'match',
-instr: 'Look at the following statements (Questions 20–23) and the list of researchers below. Match each statement with the correct researcher, A–D.',
+instr: g.RTI[12],
 options: [
 'A Clara Hoffmann',
 'B Paul Lindqvist',
@@ -109,7 +109,7 @@ items: [
 { n: 23, text: 'One important part of how birds sense the magnetic field has still not been explained.', a: 'B', cue: 'nobody has yet traced the full path of the signal from the retina to the brain' },
 ] },
 { type: 'sentence',
-instr: 'Complete the sentences below. Choose NO MORE THAN TWO WORDS from the passage for each answer.', limit: 2,
+instr: g.RTI[8], limit: 2,
 items: [
 { n: 24, text: 'To use the sun as a compass, a bird must have an accurate ___.', a: ['internal clock'], cue: 'using it as a compass requires an accurate internal clock' },
 { n: 25, text: 'Young night-flying birds kept in a ___ learned to locate north from the rotation of the stars.', a: ['planetarium'], cue: 'Young birds raised under the artificial sky of a planetarium' },
@@ -148,7 +148,7 @@ paras: [
 { k: 'G', t: "What, then, should governments do? Some have offered generous subsidies to vertical farming companies on the grounds that they represent the future of food. I believe this is a mistake. Public money would be better spent on research, particularly into more efficient lighting and into crop varieties bred specifically for indoor conditions, since almost all existing varieties were developed for growing outdoors. Nor should we dismiss the technology because of a wave of bankruptcies; many industries that are now taken for granted, from railways to aviation, went through similar periods of collapse before they matured. The vertical farm is neither a solution to world hunger nor a passing fashion. It is a useful but expensive tool, and the sensible question is not whether it will replace the field, but where it can complement it." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 27, q: 'What is the writer’s main purpose in paragraph A?',
 options: ['to explain why investors lost interest in vertical farming', 'to suggest that both optimistic and pessimistic views of vertical farming are mistaken', 'to describe how the first vertical farms were developed', 'to compare the yields of different types of indoor crop'],
@@ -164,7 +164,7 @@ options: ['It is the main source of carbon emissions in the food system.', 'Its 
 a: 1, cue: 'may therefore have a larger carbon footprint than one carried hundreds of kilometres by lorry from a field' },
 ] },
 { type: 'ynng',
-instr: 'Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+instr: g.RTI[0],
 items: [
 { n: 31, text: 'LED lamps have now reached the limit of their possible efficiency.', a: 'NO', cue: 'further gains are possible' },
 { n: 32, text: 'Leafy greens are well suited to being grown in vertical farms.', a: 'YES', cue: 'Leafy greens and herbs suit the system well' },
@@ -185,7 +185,7 @@ options: [
 a: ['B', 'D'],
 cue: 'which reduces waste, and growers can choose varieties for their flavour' },
 { type: 'match',
-instr: 'Complete each sentence with the correct ending, A–F, below.',
+instr: g.RTI[17],
 options: [
 'A might reduce labour costs but would require further investment.',
 'B has already made indoor produce cheaper than field-grown produce.',

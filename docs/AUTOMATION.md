@@ -8,7 +8,7 @@ Một đường ống, chạy trên GitHub Actions + Cloudflare (0 đồng), m�
 | # | Bước | Kích hoạt | Đầu ra | Cổng / chặn |
 |---|---|---|---|---|
 | 1 | Chọn điểm học | cron hằng ngày | điểm học mới từ lexicon × tình huống × kỳ thi (VIDEO-SCALE-PLAN §7) | không trùng mãi mãi; trộn độ khó 40/40/20 |
-| 2 | Soạn kịch bản | sau 1 | script + hook + "Teacher's tip" + câu đố | AI judge: đúng, dễ hiểu ≤ B1, ✗/✓ đúng, trung tính văn hoá |
+| 2 | Soạn kịch bản | sau 1 | script + hook + "Teacher's tip" + câu đố + **khối `publish`** (tiêu đề ≤ 60, từ khóa, dòng giá trị, 3–5 hashtag; `scripts/cine/publish_meta.py`, `qc_gate` chặn thiếu, tiêu đề cụt/mẫu/id) | AI judge: đúng, dễ hiểu ≤ B1, ✗/✓ đúng, trung tính văn hoá |
 | 3 | Chọn tổ hợp | sau 2 | template, nền (1 địa điểm), người dẫn/trang phục/clip, kiểu quay, màu, hook | sổ đa dạng 7 trục + chữ ký dựng ≠ 30 clip gần nhất; bối cảnh có zones |
 | 4 | Giọng + timing | sau 3 | TTS (IPA Mỹ), word timings | LUFS, ASR khớp kịch bản |
 | 5 | Dựng | sau 4 | master 1080×1920 + công thức (recipe) | — |
