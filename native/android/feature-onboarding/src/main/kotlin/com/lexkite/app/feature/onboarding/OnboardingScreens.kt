@@ -54,6 +54,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
@@ -253,7 +254,7 @@ private fun ChoiceCard(on: Boolean, tag: String, icon: ImageVector?, title: Stri
     val c = LocalLKColors.current
     Box(Modifier.fillMaxWidth().testTag(tag).semantics { selected = on }.tactile(onClick, role = Role.RadioButton)) {
         Box(Modifier.matchParentSize().offset(y = 3.dp).background(if (on) c.secondary else c.outlineVariant, CardShape))
-        Row(Modifier.fillMaxWidth().heightIn(min = 64.dp).clip(CardShape).background(if (on) c.secondaryContainer else c.card).border(2.dp, if (on) c.secondary else c.outlineVariant, CardShape).padding(LKSpacing.spaceSm),
+        Row(Modifier.fillMaxWidth().heightIn(min = 64.dp).clip(CardShape).background(c.card).background(if (on) c.secondary.copy(alpha = 0.16f) else Color.Transparent).border(2.dp, if (on) c.secondary else c.outlineVariant, CardShape).padding(LKSpacing.spaceSm),
             verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
             if (lead != null) lead() else if (icon != null) Box(Modifier.size(48.dp).clip(CardShape).background(c.secondaryContainer), contentAlignment = Alignment.Center) { Icon(icon, null, tint = c.onSecondaryContainer) }
             Column(Modifier.weight(1f)) {

@@ -137,7 +137,7 @@ private fun Stats(s: TodaySummary, onOpen: (String) -> Unit) {
         Tile(Icons.Filled.TrackChanges, c.primary, s.target.ifEmpty { "–" }, if (s.target.isEmpty()) t(L10nKey.todaySetGoal) else t(L10nKey.todayTarget), Modifier.weight(1f)) { onOpen(TodayRoutes.GOAL) }
         Tile(Icons.Filled.LocalFireDepartment, c.primaryContainer, t.num(s.streak), t(L10nKey.todayStreakDays), Modifier.weight(1f)) { onOpen(TodayRoutes.STREAK) }
         Tile(Icons.Filled.Star, c.star, t.num(s.xp), t(L10nKey.todayXp), Modifier.weight(1f)) { onOpen(TodayRoutes.STATS) }
-        Tile(Icons.Filled.Bolt, c.secondary, "${t.num(minOf(s.reviewedToday, s.dailyGoal))}/${t.num(s.dailyGoal)}", t(L10nKey.todayGoalShort), Modifier.weight(1f)) { onOpen(TodayRoutes.REVIEW) }
+        Tile(Icons.Filled.Bolt, c.secondary, "${t.num(minOf(s.reviewedToday, s.dailyGoal))}/${t.num(s.dailyGoal)}", t(L10nKey.todayDailyGoal), Modifier.weight(1f)) { onOpen(TodayRoutes.REVIEW) }
     }
 }
 
