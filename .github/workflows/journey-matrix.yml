@@ -32,8 +32,8 @@ jobs:
       - name: Cài Playwright
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
-          npx playwright install --with-deps chromium >/dev/null
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          timeout 300 sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
       - name: Ma trận ${{ matrix.shard }}
         run: node scripts/test/journey-matrix.mjs --root dist --shard ${{ matrix.shard }} --out jm-out
       - name: Tóm tắt
