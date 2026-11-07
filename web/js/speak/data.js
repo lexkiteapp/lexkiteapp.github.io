@@ -1,5 +1,5 @@
 /* TỰ SINH bởi scripts/speak/build.mjs từ content/situations/*.json – KHÔNG sửa tay. */
-self.SPK_IDX = {"cafe":{"g":"food","c":"A2","l":"vi es pt fr de id th zh ja ko hi ar ru tr"}};
+self.SPK_IDX = {"airport-checkin":{"g":"transport","c":"B1","l":"vi es pt fr de id th zh ja ko hi ar ru tr"},"bus-ticket":{"g":"transport","c":"A2","l":"vi es pt fr de id th zh ja ko hi ar ru tr"},"cafe":{"g":"food","c":"A2","l":"vi es pt fr de id th zh ja ko hi ar ru tr"},"car-rental":{"g":"transport","c":"B1","l":"vi es pt fr de id th zh ja ko hi ar ru tr"},"laundry":{"g":"services","c":"A2","l":"vi es pt fr de id th zh ja ko hi ar ru tr"},"train-station":{"g":"transport","c":"A2","l":"vi es pt fr de id th zh ja ko hi ar ru tr"}};
 self.SPK_fill = function SPK_fill(base, arr, lang) {
   let i = 0;
   const w = o => {

@@ -99,6 +99,11 @@
    "r-morning": "L.A2p.01"
   },
   "situation": {
+   "bus-ticket": ["I.A1.09", "I.A2.03"],
+   "train-station": ["I.A2.03", "I.A1.09"],
+   "airport-checkin": ["I.B1.05", "I.A2.06"],
+   "car-rental": ["I.B1.05", "I.B1p.01"],
+   "laundry": ["I.A2.03", "I.A2.06"],
    "cafe": ["I.A1.03", "I.A2.06"]
   },
   "call": {
