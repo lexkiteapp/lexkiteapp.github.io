@@ -26,7 +26,7 @@ jobs:
       - name: Playwright matrix
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
           B="${{ github.event.inputs.base }}"; [ "$B" = dist ] && B=http://localhost:8080
           node scripts/test/ux-public.mjs "$B" ux-out
       - name: App pattern sweep (every route, 1280/375, light/dark)

@@ -1,8 +1,9 @@
 /* New Academic Word List 1.2 © Browne, Culligan & Phillips (newgeneralservicelist.com), CC BY-SA 4.0. Phiên âm: Wiktionary (CC BY-SA); định nghĩa tiếng Anh, câu ví dụ, nghĩa tiếng Việt: Lexkite tự biên soạn (content/wordlists/<id>.edit.json).
 * FILE SINH TỰ ĐỘNG bởi scripts/gen-wordlist.mjs – đừng sửa tay. Row: [word, ipa, pos, vi, def, ex, col, syn, level, emoji] */
 (function (g) {
+const _ds = ['New Academic Word List: từ học thuật hay gặp trong IELTS Academic & TOEFL (ngoài AWL)'];
 const add = g.IELTS_DATA.add;
-add('nawl1', 'NAWL 1–100', '🎓', 'New Academic Word List: từ học thuật hay gặp trong IELTS Academic & TOEFL (ngoài AWL)', [
+add('nawl1', 'NAWL 1–100', '🎓', _ds[0], [
 ['amongst', '/əˈmʌŋst/', 'prep', 'trong số', 'among; in or between members of a group', 'The decision caused disagreement amongst the members of the committee.', '', '', 'C1', ''],
 ['backward', '/ˈbækwəd/', 'adj', 'lạc hậu', 'less developed or modern than others', 'The village was once seen as backward, but it now has fast internet.', '', '', 'C1', '', '/ˈbækwərd/'],
 ['bodily', '/ˈbɒdɪli/', 'adv', 'thân thể', 'relating to the human body', 'Regular exercise helps to prevent many bodily aches and pains.', '', '', 'C1', '', '/ˈbɑːdəli/'],
@@ -104,7 +105,7 @@ add('nawl1', 'NAWL 1–100', '🎓', 'New Academic Word List: từ học thuật
 ['variant', '/ˈveəriənt/', 'adj', 'khác nhau', 'different from the usual form of something', 'Scientists are tracking a new variant form of the virus.', '', '', 'C1', '', '/ˈveriənt/'],
 ['wisdom', '/ˈwɪzdəm/', 'n', 'sự khôn ngoan', 'the ability to make good decisions based on knowledge and experience', 'My grandfather is a man of great wisdom.', '', '', 'B2', ''],
 ], 'nawl');
-add('nawl2', 'NAWL 101–200', '🎓', 'New Academic Word List: từ học thuật hay gặp trong IELTS Academic & TOEFL (ngoài AWL)', [
+add('nawl2', 'NAWL 101–200', '🎓', _ds[0], [
 ['absorption', '/əbˈzɔːpʃn/', 'n', 'sự hấp thụ', 'the process of taking in liquid, energy or information', 'The absorption of water by the soil reduces the risk of flooding.', '', '', 'C1', '', '/əbˈzɔːrpʃn/'],
 ['accelerate', '/əkˈseləˌreɪt/', 'v', 'tăng tốc', 'to happen or make something happen faster', 'The new policy is designed to accelerate the development of renewable energy.', '', '', 'C1', '', '/ækˈseləreɪt/'],
 ['acceleration', '/əkˌseləˈreɪʃən/', 'n', 'tăng tốc', 'an increase in speed or rate', 'The study measured the acceleration of the car over the first ten seconds.', '', '', 'C1', '', '/ˌækˌseləˈreɪʃn/'],
@@ -206,7 +207,7 @@ add('nawl2', 'NAWL 101–200', '🎓', 'New Academic Word List: từ học thu�
 ['rejection', '/rɪˈdʒekʃən/', 'n', 'sự từ chối', 'the act of refusing to accept something or someone', 'He felt hurt by the rejection of his application.', '', '', 'C1', '', '/rɪˈdʒekʃn/'],
 ['render', '/ˈrendə/', 'v', 'khiến cho, làm cho; cung cấp', 'to cause something to be in a particular state; to give or provide', 'The flood rendered the road impossible to use.', '', '', 'C1', '', '/ˈrendər/'],
 ], 'nawl');
-add('nawl3', 'NAWL 201–300', '🎓', 'New Academic Word List: từ học thuật hay gặp trong IELTS Academic & TOEFL (ngoài AWL)', [
+add('nawl3', 'NAWL 201–300', '🎓', _ds[0], [
 ['reproduction', '/ˌriːprəˈdʌkʃən/', 'n', 'sinh sản', 'the process of producing young; also a copy of something', 'The biology course covers plant reproduction and the growth of seeds.', '', '', 'C1', '', '/ˌriːprəˈdʌkʃn/'],
 ['republic', '/rɪˈpʌblɪk/', 'n', 'nước cộng hòa', 'a country ruled by an elected government with no king or queen', 'France became a republic after the revolution at the end of the eighteenth century.', '', '', 'C1', '', '/rɪˈpʌblək/'],
 ['revolutionary', '/ˌrevəˈluːʃənri/', 'adj', 'mang tính cách mạng', 'completely new and causing great change', 'The smartphone was a revolutionary invention that changed how people communicate.', '', '', 'C1', '', '/ˌrevəˈluːʃəneri/'],
@@ -308,7 +309,7 @@ add('nawl3', 'NAWL 201–300', '🎓', 'New Academic Word List: từ học thu�
 ['obscure', '/əbˈskjʊə/', 'adj', 'mơ hồ', 'not well known or not easy to understand', 'The poem is full of obscure references that most modern readers will not recognise.', '', '', 'C1', '', '/əbˈskjʊr/'],
 ['optical', '/ˈɒptɪkəl/', 'adj', 'quang học', 'relating to sight or light', 'Glasses and contact lenses can correct many common optical problems such as short sight.', '', '', 'C1', '', '/ˈɑːptɪkl/'],
 ], 'nawl');
-add('nawl4', 'NAWL 301–400', '🎓', 'New Academic Word List: từ học thuật hay gặp trong IELTS Academic & TOEFL (ngoài AWL)', [
+add('nawl4', 'NAWL 301–400', '🎓', _ds[0], [
 ['oxygen', '/ˈɒksɪdʒən/', 'n', 'ôxy', 'a gas in the air that people and animals need to breathe', 'Plants produce oxygen during the day through the process of photosynthesis.', '', '', 'B2', '', '/ˈɑːksədʒn/'],
 ['paradox', '/ˈpærəˌdɒks/', 'n', 'nghịch lý', 'a situation or statement that seems impossible because it contains two opposite facts', 'It is a paradox that we have more ways to communicate but feel more alone.', '', '', 'C1', '', '/ˈperədɑːks/'],
 ['particle', '/ˈpɑːtɪkl/', 'n', 'hạt', 'a very small piece of something', 'Fine dust particles from traffic can damage the lungs.', '', '', 'C1', '', '/ˈpɑːrtəkl/'],
@@ -410,7 +411,7 @@ add('nawl4', 'NAWL 301–400', '🎓', 'New Academic Word List: từ học thu�
 ['temporal', '/ˈtempərəl/', 'adj', 'thời gian', 'relating to time', 'The study examined temporal changes in rainfall over fifty years.', '', '', 'C1', '', '/ˈtempərl/'],
 ['thermal', '/ˈθɜːməl/', 'adj', 'nhiệt', 'relating to heat', 'Thermal clothing keeps you warm in very cold weather.', '', '', 'C1', '', '/ˈθɜːrml/'],
 ], 'nawl');
-add('nawl5', 'NAWL 401–500', '🎓', 'New Academic Word List: từ học thuật hay gặp trong IELTS Academic & TOEFL (ngoài AWL)', [
+add('nawl5', 'NAWL 401–500', '🎓', _ds[0], [
 ['tract', '/trækt/', 'n', 'vùng, dải đất; đường (tiêu hóa, hô hấp)', 'a large area of land; also a system of connected tubes in the body', 'Large tracts of forest have been cleared for farming.', '', '', 'C1', ''],
 ['trivial', '/ˈtrɪviəl/', 'adj', 'tầm thường', 'small and not important', 'The manager told the team not to worry about trivial details at this stage.', '', '', 'C1', ''],
 ['turbulent', '/ˈtɜːbjələnt/', 'adj', 'hỗn loạn', 'full of sudden change, conflict or confusion', 'The country went through a turbulent period in the 1980s.', '', '', 'C1', '', '/ˈtɜːrbjələnt/'],

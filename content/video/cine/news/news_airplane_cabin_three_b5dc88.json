@@ -86,5 +86,17 @@
  "link": "https://lexkite.com/app/#/phrases",
  "cta": "Save useful phrases on lexkite.com",
  "est": 24.0,
- "end_alt": "n_b5dc88_e2"
+ "end_alt": "n_b5dc88_e2",
+ "publish": {
+  "title": "Useful English phrases on the plane",
+  "keyword": "on the plane",
+  "value": "\"Could I get...\", asking to switch seats, and the overhead bin.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#a2english"
+  ],
+  "first_comment": "One more for your next flight: \"Could I get a blanket, please?\" works for almost anything you need on board. Practice all the plane phrases here: {link}"
+ }
 }

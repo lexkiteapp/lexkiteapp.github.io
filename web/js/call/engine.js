@@ -37,27 +37,39 @@
   const PAST = { go: 'went', have: 'had', eat: 'ate', buy: 'bought', see: 'saw', do: 'did', make: 'made', take: 'took', get: 'got', meet: 'met', come: 'came', drink: 'drank', swim: 'swam', run: 'ran', sleep: 'slept', leave: 'left', spend: 'spent', watch: 'watched', visit: 'visited', play: 'played', cook: 'cooked', clean: 'cleaned', work: 'worked', walk: 'walked', stay: 'stayed', finish: 'finished', fix: 'fixed', call: 'called', study: 'studied', try: 'tried', relax: 'relaxed' };
   const S3 = { go: 'goes', do: 'does', have: 'has', work: 'works', like: 'likes', want: 'wants', need: 'needs', live: 'lives', watch: 'watches', study: 'studies', play: 'plays', make: 'makes', know: 'knows', think: 'thinks' };
   const MODAL = /\b(to|will|would|can|could|should|must|might|may|did|didn'?t|does|doesn'?t|do|don'?t|let'?s|let|make|help)\s+$/i;
+  const UNC = '(information|advice|furniture|equipment|homework|luggage|knowledge|baggage)';
+  const V3TO2 = { seen: 'saw', done: 'did', gone: 'went', eaten: 'ate', taken: 'took', given: 'gave', written: 'wrote', made: 'made', had: 'had', bought: 'bought', met: 'met', drunk: 'drank', slept: 'slept', left: 'left', spent: 'spent', got: 'got', gotten: 'got', found: 'found', heard: 'heard', read: 'read', lost: 'lost', paid: 'paid', told: 'told', sent: 'sent', built: 'built', won: 'won', flown: 'flew', driven: 'drove', ridden: 'rode', swum: 'swam' };
+  const V3P = "[a-z]+ed|been|" + Object.keys(V3TO2).join('|');
+  const PERF_AUX = new RegExp('^\\s+(?:' + V3P + ')\\b', 'i'); // "have" trợ động từ (have done) – không đổi thành "had"
+  const PAST3 = { goes: 'went', has: 'had', does: 'did', rains: 'rained', snows: 'snowed', works: 'worked', likes: 'liked', wants: 'wanted', needs: 'needed', lives: 'lived', watches: 'watched', studies: 'studied', plays: 'played', makes: 'made', comes: 'came', eats: 'ate', buys: 'bought', sees: 'saw', takes: 'took', gets: 'got', visits: 'visited', calls: 'called', says: 'said', tells: 'told' };
   const keepCase = (from, to) => (/^[A-Z]/.test(from) ? to[0].toUpperCase() + to.slice(1) : to);
   const RULES = [
     { why: () => t('“Agree” đã là động từ – không cần “am/is/are” đứng trước.'), fix: s => s.replace(/\b(I|we|they|you)\s+(am|are|'m|'re)\s+agree\b/i, (m, p) => p + ' agree') },
     { why: () => t('Với he/she/it, phủ định dùng “doesn’t”, không dùng “don’t”.'), fix: s => s.replace(/\b(he|she|it)\s+don'?t\b/i, (m, p) => p + " doesn't") },
     { why: () => t('Sau can/could/should/will không dùng “to”.'), fix: s => s.replace(/\b(can|could|should|will|must)\s+to\s+(\w+)/i, '$1 $2') },
     { why: () => t('Từ so sánh hơn như “better” đã mang nghĩa “hơn” – bỏ “more”.'), fix: s => s.replace(/\bmore\s+(better|easier|faster|bigger|cheaper|closer|worse)\b/i, '$1') },
-    { why: () => t('Danh từ không đếm được (information, advice…) không thêm -s.'), fix: s => s.replace(/\b(information|advice|furniture|equipment|homework|luggage)s\b/i, '$1') },
+    { why: () => t('Danh từ không đếm được (information, advice…) không thêm -s.'), fix: s => s.replace(new RegExp('\\b(?:(too|so|how)\\s+many|(many)|(an?))\\s+' + UNC + 's?\\b|\\b' + UNC + 's\\b', 'gi'), (m, q, many, a, u1, u2) => (q ? q + ' much ' + u1 : many ? keepCase(many, 'a lot of') + ' ' + u1 : a ? u1 : u2)) },
     { why: () => t('“Very” không đứng trước động từ – dùng “really” hoặc “very much” ở cuối câu.'), fix: s => s.replace(/\bI\s+very\s+(like|love|want|enjoy)\b/i, 'I really $1') },
     { why: () => t('Sau want/need/would like, động từ tiếp theo cần “to”.'), fix: s => s.replace(/\b(want|need|would like|'d like)\s+(go|eat|buy|see|try|have|book|make|visit|ask|join|pay|come)\b/i, '$1 to $2') },
     { why: () => t('Trước nghề nghiệp số ít cần mạo từ “a/an”.'), fix: s => s.replace(/\b(I'm|I am)\s+(engineer|teacher|student|developer|designer|manager|doctor|nurse|accountant|intern)\b/i, (m, p, w) => p + (/^[aeiou]/i.test(w) ? ' an ' : ' a ') + w) },
     { why: () => t('Với he/she/it ở thì hiện tại đơn, động từ thêm -s/-es.'), fix: s => s.replace(/\b(he|she)\s+(go|do|have|work|like|want|need|live|watch|study|play|make|know|think)\b/gi, (m, p, v, off, str) => (MODAL.test(str.slice(0, off)) ? m : p + ' ' + keepCase(v, S3[v.toLowerCase()]))) },
-    { past: true, why: () => t('Chuyện đã xảy ra (hôm qua, cuối tuần trước…) dùng động từ ở thì quá khứ.'), fix: s => s.replace(new RegExp('\\b(I|we|they|he|she)\\s+(' + Object.keys(PAST).join('|') + ')\\b', 'gi'), (m, p, v, off, str) => (MODAL.test(str.slice(0, off)) ? m : p + ' ' + keepCase(v, PAST[v.toLowerCase()]))) },
+    { past: true, own: true, why: () => t('Có mốc thời gian đã qua (hôm qua, năm ngoái…) thì dùng quá khứ đơn, không dùng “have + V3”.'), fix: s => s.replace(new RegExp("\\b(I|we|they|you|he|she|it)(?:\\s+(have|has)|'ve)\\s+(" + V3P + ')\\b', 'gi'), (m, p, h, v) => p + ' ' + (v.toLowerCase() === 'been' ? (/^(I|he|she|it)$/i.test(p) ? 'was' : 'were') : V3TO2[v.toLowerCase()] || v)) },
+    { past: true, why: () => t('Chuyện đã xảy ra (hôm qua, cuối tuần trước…) dùng động từ ở thì quá khứ.'), fix: s => s.replace(new RegExp('\\b(I|we|they|he|she|and)\\s+(' + Object.keys(PAST).join('|') + ')\\b', 'gi'), (m, p, v, off, str) => (MODAL.test(str.slice(0, off)) || (/^have$/i.test(v) && PERF_AUX.test(str.slice(off + m.length))) ? m : p + ' ' + keepCase(v, PAST[v.toLowerCase()]))) },
+    { past: true, own: true, why: () => t('Chuyện đã xảy ra (hôm qua, cuối tuần trước…) dùng động từ ở thì quá khứ.'), fix: s => s.replace(new RegExp('\\b(he|she|it)\\s+(' + Object.keys(PAST3).join('|') + ')\\b', 'gi'), (m, p, v) => p + ' ' + PAST3[v.toLowerCase()]) },
   ];
   const PAST_Q = /\b(did you|how was|what did|yesterday|last (night|week|weekend))\b/i;
+  const PAST_OWN = /\b(yesterday|last (night|week|weekend|month|year|summer|winter|time)|ago|in (19|20)\d\d)\b/i;
   function correct(text, prompt) {
+    // Áp MỌI luật theo thứ tự (trước 05/11 dừng ở luật đầu → câu "đã sửa" còn lỗi; đo: scripts/feedback/eval.mjs)
+    // own: chỉ khi CHÍNH câu người học có mốc quá khứ (câu hỏi "Did you…?" không đủ: "it says…", "I have done it" vẫn đúng)
+    const own = PAST_OWN.test(text), past = own || PAST_Q.test(prompt || ''), whys = [];
+    let good = String(text || '');
     for (const r of RULES) {
-      if (r.past && !(PAST_Q.test(prompt || '') || /\b(yesterday|last (night|week|weekend|month|year)|ago)\b/i.test(text))) continue;
-      const good = r.fix(text);
-      if (good !== text) return { bad: text, good, why: r.why() };
+      if (r.past && !past || r.own && !own) continue;
+      const g2 = r.fix(good);
+      if (g2 !== good) { good = g2; const w = r.why(); if (!whys.includes(w)) whys.push(w); }
     }
-    return null;
+    return good !== text ? { bad: text, good, why: whys[0], whys } : null;
   }
 
   // ---------- Nhầm cặp âm (bread ≠ breast): máy nghe ra từ "anh em" của từ cần nói ----------

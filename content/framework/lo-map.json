@@ -124,7 +124,19 @@
    "online-shopping": "S.B1p.05",
    "new-year-goals": "S.B1.02",
    "childhood-memory": "S.B1.05",
-   "dream-job": "S.B2.01"
+   "dream-job": "S.B2.01",
+   "ask-directions": "I.A1.08",
+   "buy-ticket": "I.A1.09",
+   "hotel-checkin": "I.A2.04",
+   "pharmacy-help": "I.A2p.03",
+   "restaurant-problem": "I.A2.06",
+   "late-apology": "I.A2p.04",
+   "missed-flight": "I.B1.02",
+   "share-costs": "I.B1p.03",
+   "job-interview": "I.B1p.06",
+   "faulty-purchase": "I.B2.03",
+   "team-proposal": "I.B2.08",
+   "bad-news": "I.C1.04"
   },
   "roleplay": {
    "manager": "I.B2.08",
