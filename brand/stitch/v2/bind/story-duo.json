@@ -3,7 +3,8 @@
  "i18n": {
   "Close session": "Thoát bài học",
   "User Profile": "Hồ sơ người học",
-  "Answer options": "Các đáp án"
+  "Answer options": "Các đáp án",
+  "Toggle theme": "Đổi giao diện sáng/tối"
  },
  "text": {
   "Active Drill Session": "d.title",
@@ -15,7 +16,7 @@
   "What did the new timetable do to Carlos?": "d.qt"
  },
  "attr": {
-  ":scope > header > div > button": {
+  ":scope > header > div > button:nth-child(1)": {
    "href": "d.close",
    "id": "'lsnX'",
    "aria-label": "t('Thoát bài học')"
@@ -35,7 +36,7 @@
    "style": "'width:0%'",
    "id": "'lsnFill'"
   },
-  ":scope > header > div > div:nth-child(3)": {
+  ":scope > header > div > div:nth-child(4)": {
    "data-href": "'#/me'",
    "type": "'button'"
   },
@@ -58,6 +59,10 @@
   },
   ":scope > main > div > div:nth-child(2)": {
    "data-speaker": "''"
+  },
+  ":scope > header > div > button:nth-child(3)": {
+   "id": "'lkTheme'",
+   "aria-label": "t('Đổi giao diện sáng/tối')"
   }
  },
  "cls": {
@@ -69,20 +74,20 @@
   }
  },
  "tag": {
-  ":scope > header > div > button": {
+  ":scope > header > div > button:nth-child(1)": {
    "to": "a"
   },
-  ":scope > header > div > div:nth-child(3)": {
+  ":scope > header > div > div:nth-child(4)": {
    "to": "button"
   }
  },
  "addClass": {
-  ":scope > header > div > div:nth-child(3)": "relative after:absolute after:-inset-1.5 after:content-['']",
+  ":scope > header > div > div:nth-child(4)": "relative after:absolute after:-inset-1.5 after:content-['']",
   ":scope > main > div > div:nth-child(1) > div:nth-child(2)": "lsn-mid",
   ":scope > main > div > div:nth-child(3)": "lsn-chatp",
   ":scope > main > div > div:nth-child(6) > button": "lsn-gonext",
   ":scope > header > div > div:nth-child(2) > div:nth-child(2)": "lsn-bar",
-  ":scope > header > div > button": "lsn-x",
+  ":scope > header > div > button:nth-child(1)": "lsn-x",
   ":scope > main > div > div:nth-child(5)": "lsn-opts",
   ":scope > main > div > div:nth-child(4)": "lsn-qblk",
   ":scope > main > div > div:nth-child(6)": "lsn-qfoot",
