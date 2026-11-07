@@ -4,7 +4,7 @@
   --brand-ink: #0F3D3E;
   --radius: var(--r-lg);
   --radius-sm: var(--r-sm);
-  --font: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --font: "Be Vietnam Pro", "Be Vietnam Pro Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   --ipa: "Segoe UI", "Charis SIL", "Doulos SIL", "Gentium Plus", "Lucida Sans Unicode", "Arial Unicode MS", "Noto Sans", "DejaVu Sans", Roboto, sans-serif; /* đủ ɪ ʊ ə ː ˈ ˌ trên Windows/macOS/Android/Linux, không tải file font */
   /* Design tokens (docs/DESIGN-SYSTEM.md): khoảng cách 4/8/12/16/24/32 · bo góc · cỡ chữ (Be Vietnam Pro đã nạp) · độ nổi · chuyển động M3 */
   --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 32px;
@@ -1175,10 +1175,10 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 /* Phản hồi chạm: nút & thẻ nảy nhẹ khi bấm */
 .btn:active, .card.hover:active, .hub-card:active, .plan-item:active, .option:active { transform: scale(.97); transition: transform 80ms; }
 /* Chế độ tập trung khi ôn thẻ/luyện: ẩn menu bên, thanh trên và thanh dưới */
-body.focus .sidebar, body.focus .bottom-nav { display: none; }
-body.focus .shell { grid-template-columns: 1fr; }
-/* Thanh trên GIỮ chỗ (không display:none, không đổi padding .view) → vào/thoát màn học không đẩy nội dung (CLS ≈ 0, mqa); chỉ ẩn bằng transform/visibility */
-body.focus .topbar { visibility: hidden; transform: translateY(-100%); pointer-events: none; }
+body.focus .sidebar, body.focus .bottom-nav, .lk-fo .sidebar, .lk-fo .bottom-nav { display: none; }
+body.focus .shell, .lk-fo .shell { grid-template-columns: 1fr; }
+/* Màn học: thanh trên ra khỏi luồng để không để lại dải trống ở đầu màn */
+.lk-fo .topbar, body.focus .topbar { position: absolute; inset-inline: 0; visibility: hidden; transform: translateY(-100%); pointer-events: none; }
 
 .contact-form { display: flex; flex-direction: column; gap: 1rem; position: relative; }
 .contact-form label { display: flex; flex-direction: column; gap: .35rem; font-weight: 600; font-size: .92rem; }

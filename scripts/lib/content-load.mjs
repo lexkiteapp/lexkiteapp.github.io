@@ -1,9 +1,12 @@
 // Nạp toàn bộ dữ liệu học (từ vựng, ngữ pháp, đề IELTS/TOEIC/TOEFL) trong web/js vào một ngữ cảnh vm, không cần trình duyệt.
 // Dùng: import { loadContent } from './lib/content-load.mjs'; const C = loadContent(); C.IELTS_DATA, C.GRAMMAR, C.TOEIC…
 import fs from 'node:fs'; import vm from 'node:vm'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
+import { SCAN_ROOTS } from './scan-roots.mjs';
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const W = path.join(ROOT, 'web/js');
-export const DATA_DIRS = ['lib', 'grammar', 'toeic', '../cpack/toefl', 'readtest', 'listen', '../cpack/listen', 'write', 'speak'];
+// Thư mục dữ liệu theo thứ tự app nạp; mỗi thư mục có thể nằm ở web/js hoặc gói tải lười web/cpack – gốc quét lấy từ scan-roots.mjs (một nguồn đường dẫn).
+const SUBS = ['lib', 'grammar', 'toeic', 'toefl', 'readtest', 'listen', 'write', 'speak'];
+export const DATA_DIRS = SUBS.flatMap(sub => SCAN_ROOTS.map(r => path.relative(W, path.join(ROOT, r, sub))).filter(d => fs.existsSync(path.join(W, d))));
 export function loadContent() {
   const noop = () => {}, ctx = { console: { log: noop, warn: noop, error: noop }, Date, Math, JSON, setTimeout: noop, clearTimeout: noop, localStorage: { getItem: () => null, setItem: noop }, navigator: {} };
   ctx.self = ctx; ctx.window = ctx; ctx.t = (s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => (v[k] != null ? v[k] : m)) : s);

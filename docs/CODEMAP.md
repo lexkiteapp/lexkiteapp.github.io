@@ -6,20 +6,20 @@
 Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['web/js/app.js'])"` · `g.routes` · `g.workflows` · `g.tests` · `g.god`. Mỗi node: exports, imports, importedBy.
 
 ## Khu vực
-- `web/` (2055 file): App (SPA) + landing: shell web/app/index.html nạp web/js/*.js bằng <script> (toàn cục App/UI/Chars, KHÔNG import); lazy bundle: BUNDLES trong web/js/app.js; css web/css; trang tĩnh sinh bởi scripts/build-*.mjs → dist
-- `extension/` (1368 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
-- `functions/` (89 file): Cloudflare Pages Functions = backend /api/* (file _*.js là helper dùng chung)
+- `web/` (2057 file): App (SPA) + landing: shell web/app/index.html nạp web/js/*.js bằng <script> (toàn cục App/UI/Chars, KHÔNG import); lazy bundle: BUNDLES trong web/js/app.js; css web/css; trang tĩnh sinh bởi scripts/build-*.mjs → dist
+- `extension/` (1370 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
+- `functions/` (91 file): Cloudflare Pages Functions = backend /api/* (file _*.js là helper dùng chung)
 - `workers/` (19 file): Cloudflare Workers riêng: audio, dict, gemini (AI), mail, media; workers/lib dùng chung
-- `scripts/` (1120 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
+- `scripts/` (1131 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
 - `.github/workflows/` (190 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (10 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
 - `brand/` (1526 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
-- `content/` (3133 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
+- `content/` (3138 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
 - `mobile/` (216 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (43 file): Hồ sơ listing Chrome/Edge/Apple/Play
 - `docs/` (211 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
-- API `/api/*` (41): account,admin,admin-accounts,admin-clips,admin-prefs,admin-shared,admin-shorts,ads-report,ads-reward,ai,aiearn,backlinks,capacity,class,config,contact,cron-kick,dictlookup,distribution,drive,growth,handoff,hit,i18nfix…
-- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:711 s/test:460 s/video:104 js/vimg:64 s/lib:54 s/cine:51 js/st:34 s/lexicon:33 s/vocab-img:33 js/grammar:27 js/notes:27 s/stitch:26 s/ci:25 js/readtest:22 js/speak:22 js/lib:20 s/pron:19 s/native:16 js/get-app:15 js/toeic:15 s/word-audio:13 s/lipsync:12 s/ops:12
+- API `/api/*` (42): account,admin,admin-accounts,admin-clips,admin-prefs,admin-shared,admin-shorts,ads-report,ads-reward,ai,aiearn,backlinks,capacity,class,community,config,contact,cron-kick,dictlookup,distribution,drive,growth,handoff,hit…
+- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:711 s/test:469 s/video:104 js/vimg:64 s/lib:55 s/cine:51 js/st:34 s/lexicon:33 s/vocab-img:33 js/grammar:27 js/notes:27 s/ci:26 s/stitch:26 js/readtest:22 js/speak:21 js/lib:20 s/pron:19 s/native:16 js/get-app:15 js/toeic:15 s/word-audio:13 s/lipsync:12 s/ops:12
 
 ## Sửa ở đâu (tác vụ → file)
 - **Chuỗi i18n (15 ngôn ngữ)**: Khóa = câu tiếng Việt trong t('…'). Bản dịch web/js/i18n/<lang>.js + web/js/i18n/en/*.js (nhóm theo tính năng); add-on extension/_locales/<lang>/messages.json. Tool: scripts/i18n-missing.mjs, i18n-qa.mjs, gen-i18n.mjs, i18n-sync.sh. Luật: docs/I18N-PIPELINE.md
@@ -38,17 +38,17 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 ## God nodes (15 module được import/nạp nhiều nhất; không tính test)
 1. `web/js/app.js` ←93 · App,LK_GETAPP_T,accountMenu,retArm…
 2. `web/js/st/common.js` ←44 · ST
-3. `functions/api/sync.js` ←32 · cors,json,claims,verify…
+3. `functions/api/sync.js` ←33 · cors,json,claims,verify…
 4. `scripts/lexicon/lib.mjs` ←22 · ROOT,rd,wr,PRIORITY…
 5. `functions/api/_d1guard.js` ←20 · D1_LIMITS,GUARD_PCT,WARN_PCTS,GQL_TIMEOUT_MS…
 6. `scripts/video/library.mjs` ←20 · ROOT,LIB,CAND,MANIFEST…
 7. `web/js/ai.js` ←20 · AI
 8. `web/js/sync.js` ←20 · Sync,VBBridge
-9. `functions/api/admin.js` ←18 · adminAudit,adminCors,ghApi,_resetAdminMem…
+9. `functions/api/admin.js` ←19 · adminAudit,adminCors,ghApi,_resetAdminMem…
 10. `web/js/data.js` ←18 · script
-11. `functions/api/_quota.js` ←16 · DEFAULTS,PROVIDERS,BREAKER,STRIKE…
-12. `scripts/lib/blog-content.mjs` ←14 · ROOT,CATEGORIES,config,parse…
-13. `functions/api/_schema.js` ←13 · once,_resetSchema
+11. `functions/api/_quota.js` ←17 · DEFAULTS,PROVIDERS,BREAKER,STRIKE…
+12. `functions/api/_schema.js` ←14 · once,_resetSchema
+13. `scripts/lib/blog-content.mjs` ←14 · ROOT,CATEGORIES,config,parse…
 14. `scripts/lexicon/expand/lib.mjs` ←13 · LANGS,QUEUE,TOPIC_CHOICES,btMatch…
 15. `scripts/lib/site-layout.mjs` ←13 · EXT_STORE,EXT_JS,GETAPP_JS,LSW_CSS…
 
@@ -131,20 +131,20 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - [push,pr,manual,call] journey-e2e: Hành trình người…
 - [push:main,cron,manual,after-wf] pr-unconflict: Tự gỡ xung đột ở…
 
-## Test (388) → vùng phủ (file đích chi tiết: json `tests`)
-- `web/js`: account-delete account-flow account-ui admin-gate admin-metrics admin-share admin-tabs admin-ui ads-admin ads-cls ads anki audio-play audio-voice call-e2e call-engine cambridge choice-kit client-security clips-perf comment-code confidence criteria datamuse-resilience dict-entry-layout dict-sent-lang dictlookup drive-ui exit-guard ext-selection facade-perf feel focus-targets get-app haptics inline-box ios-audio-unlock ipa-accent js-budget klocal landing-routing league learn-flow lesson-drag lex lip-clock lipsync-lesson lipsync mobile-guards mobile-qa native-auth next-step notify-ux pron-coach pron-pairs quick-ui readtest-dedupe reminders report-ui retention say-text scroll-boot sel-translate settings-subpages shell-lazy shell-size social-ui speak-ipa speak-split speak st-web-i18n st2-href stories story-stage streak-flame streak-ui sync-cross-client sync-drive sync-ext-drive target-lang teacher-loop teacher-native teacher-rig today-mobile-actions tutor unit usage verbs video-web watch welcome-flow word-arrange-e2e
+## Test (396) → vùng phủ (file đích chi tiết: json `tests`)
+- `web/js`: account-delete account-flow account-ui admin-gate admin-metrics admin-share admin-tabs admin-ui ads-admin ads-cls ads anki audio-play audio-voice big-data call-e2e call-engine cambridge choice-kit client-security clips-perf comment-code confidence criteria datamuse-resilience dict-entry-layout dict-sent-lang dictlookup drive-ui exit-guard ext-selection facade-perf feel focus-early focus-targets get-app haptics inline-box ios-audio-unlock ipa-accent js-budget klocal landing-routing late-insert league learn-flow lesson-drag lex lip-clock lipsync-lesson lipsync mobile-guards mobile-qa native-auth next-step notify-ux pron-coach pron-pairs quick-ui readtest-dedupe reminders report-ui retention say-text scroll-boot sel-translate settings-subpages shell-lazy shell-size social-ui speak-ipa speak-split speak st-web-i18n st2-href stories story-stage streak-flame streak-ui sync-cross-client sync-drive sync-ext-drive target-lang teacher-loop teacher-native teacher-rig today-mobile-actions tutor unit usage verbs video-web watch welcome-flow word-arrange-e2e
 - `(không rõ)`: a11y admin-video-shots ads-demo-android ads-demo app-lcp-probe clutter confidence-shots content-check contrast crawl d1-scan dispatch-guard docs-budget e2e explain-shots ffmpeg-setup-policy figure-layout final-qc i18n-switch ios-audio-e2e ios-driver-watchdog lazyfix lip-shots listing-check native-facade native-parity nav-render no-url-pathname profile-route pron-read qa-bot-diff review-done review-lookup review-modes-e2e review-modes-ui review-modes review-shots review-taps route-race route-vitals run-suite samples-seo-parity samples-visual screens seo-pages seo-sitemap seo-words-shots serve-web shell-responsive side-menu smoke storage-audit teacher-native-shots teacher-rig-browser toeic-read-e2e tools-ui topbar-lang tsc-check ux-cards ux-guard-lib ux-guard ux-public ux-shots ux-sweep ux1-guard video-web-e2e visual-qa web-sweep welcome-journey workflow-yaml
-- `functions/api`: accounts admin-ads-shots admin-dist-shots admin-gh admin-guard admin-prefs admin-rollup ads-revenue ai-pool aiearn analytics api-security capacity classroom clip-bulk d1-cap dist-roles distribution drive-repair drive hit-retry img-api jobs keys live-check notices post-deploy-check pr-check quota report root-lang schema-lock sessions-scan-gate social-admin social-auto social-first-comment social-meta-oauth social-meta social-mgr social-preview social-proxy static-routes sync-ctx sync-pack user-mgmt users-bulk ux1-rollout voice-source yt-manual
+- `functions/api`: accounts admin-ads-shots admin-dist-shots admin-gh admin-guard admin-prefs admin-rollup ads-revenue ai-pool aiearn analytics api-security capacity classroom clip-bulk community-api d1-cap dist-roles distribution drive-repair drive hit-retry img-api jobs keys live-check notices post-deploy-check pr-check quota report root-lang schema-lock sessions-scan-gate social-admin social-auto social-first-comment social-meta-oauth social-meta social-mgr social-preview social-proxy static-routes sync-ctx sync-pack user-mgmt users-bulk ux1-rollout voice-source yt-manual
 - `scripts`: authority-pages axe blog-images blog-lang-gates blog-youtube bot-push-key brand-check build-hash ci-triage codemap-budget cpack explain-check explain-let frame-consistency i18n-english i18n-single journey-e2e lesson-content links-js mobile-polish mqa-parity-self mqa-parity origin-fetch pack-gloss pages-lag pages-skip pr-unconflict protection samples-ui scan-roots self-fonts sentence-asr sw-cache-fixed teacher-mood theme-switch token-drift tools-pages ux1 word-ipa world-scorecard
-- `scripts/ci`: audio-coverage audio-pr-branch ci-guards ci-hog ci-policy ci-queue-gate commit-regen cron-watch gh-api no-pr-branch-push qa-fill queue-report required-gate-stale retry5xx sparse-imports zombie-pages
+- `scripts/ci`: audio-coverage audio-pr-branch ci-guards ci-hog ci-policy ci-queue-gate ci-shards-busy commit-regen cron-watch gh-api heavy-rerun no-pr-branch-push qa-fill queue-report required-gate-stale retry5xx sparse-imports zombie-pages
 - `brand/stitch`: landing-v3 layout-guards stitch-coverage stitch-diff stitch-quality-qc stitch-refs-qc stitch-render stitch-screens stitch-web-diff
 - `content/video`: characters-gate library studio video-layout video-pron video-templates video
 - `scripts/lib`: ci-header-scope font-audit lastmod qa-classify syntax-check theme-static word-depth
+- `scripts/quality`: exit-sweep landing-cls nav-sweep qa-bot qs-fix-queue scroll-perf today-fold
 - `scripts/video`: capsplit motion-core motion overlay-gates put-session shorts-scale tpl1b-pipeline
 - `web`: brand-logo-stitch deep-links headers seo-twin site-footer size-budget sw-storage
 - `extension`: ext-newtab-quiz ext-orphan ext-popup i18n-pack infra-check word-audio-s2
 - `extension/app`: ext-bundles ext-dict-i18n ext-sync i18n-leak main-red-sweep teacher-bubble
-- `scripts/quality`: exit-sweep landing-cls nav-sweep qa-bot qs-fix-queue scroll-perf
 - `scripts/native`: native-compat native-one-source native-pick-sim native-visual
 - `web/css`: admin-map-colors card-actions css-lazy wordcard-ui
 - `content/blog`: blog-captions cpm-plan gsc
@@ -165,6 +165,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `content/lexicon`: vocab-img-strict
 - `content/mediation`: mediation
 - `content/situations`: situations
+- `mobile`: crashlytics
 - `mobile/ios`: ai-local
 - `scripts/audio`: tts-sites
 - `scripts/cdn`: cdn-r2
@@ -191,13 +192,13 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `workers/mail`: mail-prefs
 - `workers/push`: fcm-push
 
-## Mô-đun JS chính (17/1284, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
-- `functions/api/` _keys.js: ALERT_MIN,MAIL_GAP,PROVIDERS,PROVIDER_IDS,cleanKey… →_quota.js,_schema.js ←7 (_meta_oauth.js,_meta_tokens.js,_social_auto.js) · _social_auto.js: AUTO_PLATS,AUTO_DEFAULT,PROVIDERS,cleanAuto,ytViaGc… →_clip_logic.js,_distribution.js,_first_comment.js ←4 (social-auto.js,social.js,callback.js) · admin-shorts.js: MANIFEST,okPath,signedPack,signed,_memo… →_d1guard.js,_shorts_data.js,admin.js ←6 (_social_auto.js,_social_mgr.js,admin-clips.js) · drive.js: isFootageRow,isBackupRow,isShortsRow,shortsCapacity,sha256Hex… →_backup.js,_d1b.js,_d1guard.js ←8 (admin-shorts.js,capacity.js,callback.js)
+## Mô-đun JS chính (16/1296, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
+- `functions/api/` _keys.js: ALERT_MIN,MAIL_GAP,PROVIDERS,PROVIDER_IDS,cleanKey… →_quota.js,_schema.js ←7 (_meta_oauth.js,_meta_tokens.js,_social_auto.js) · _social_auto.js: AUTO_PLATS,AUTO_DEFAULT,PROVIDERS,cleanAuto,ytViaGc… →_clip_logic.js,_distribution.js,_first_comment.js ←4 (social-auto.js,social.js,callback.js) · drive.js: isFootageRow,isBackupRow,isShortsRow,shortsCapacity,sha256Hex… →_backup.js,_d1b.js,_d1guard.js ←8 (admin-shorts.js,capacity.js,callback.js)
 - `scripts/lexicon/` ipa.mjs: ALLOWED,badChars,ukStyle,ukStyleBad,fixBroken… →- ←12 (build-lexicon.mjs,gate.mjs,gen-wordlist.mjs) · shards.mjs: loadBrowserIndex,mergeExpand,buildShards,writeShards →lib.mjs,lib.mjs,app.js ←8 (build.mjs,wordnet.mjs,gen-newtab.mjs)
-- `scripts/lib/` ai-pool.mjs: modelInfo,familyOf,pickModels,judgeKey,TASKS… →lexai.js,cf-pool.mjs,key-pool.mjs ←12 (lib.mjs,job.mjs,lib.mjs) · content-registry.mjs: REGISTRY,GENESIS,sha256,entryHash,readRegistry… →- ←8 (content-registry.mjs,evidence.mjs,ots.mjs)
+- `scripts/lib/` ai-pool.mjs: modelInfo,familyOf,pickModels,judgeKey,TASKS… →lexai.js,cf-pool.mjs,key-pool.mjs ←12 (lib.mjs,job.mjs,lib.mjs) · content-registry.mjs: REGISTRY,GENESIS,sha256,entryHash,readRegistry… →- ←8 (content-registry.mjs,evidence.mjs,ots.mjs) · i18n-pack.mjs: ROOT,SRC,OUT,LANGS,LAZY… →- ←7 (build.mjs,gen-hero.mjs,gen-i18n.mjs)
 - `scripts/ops/` lib.mjs: arg,sleep,distinctDrives,sha256File,downloadCopy… →lib.mjs,library.mjs ←8 (code-bundle.mjs,d1-backup.mjs,d1-restore.mjs)
 - `scripts/scriptbank/` lib.mjs: DIR,h8,TYPES,CAT,HOOK_TYPES… →lib.mjs,ipa.mjs,lib.mjs ←7 (build.mjs,build.mjs,translate.mjs)
-- `scripts/sentence-audio/` corpus.mjs: collect →scan-roots.mjs,stories.js,calls-exam.js ←5 (coverage.mjs,gen-audio.mjs,merge.mjs) · lib.mjs: IDX,S2,readIndex,writeIndex,readLedger… →keyset.mjs,audio-index.js ←7 (audio-cdn-check.mjs,coverage.mjs,gen-audio.mjs)
+- `scripts/sentence-audio/` corpus.mjs: collect →scan-roots.mjs,stories.js,more.js ←5 (coverage.mjs,gen-audio.mjs,merge.mjs) · lib.mjs: IDX,S2,readIndex,writeIndex,readLedger… →keyset.mjs,audio-index.js ←7 (audio-cdn-check.mjs,coverage.mjs,gen-audio.mjs)
 - `scripts/vocab-img/` strict.mjs: fnv,STRICT_V,COLORS,SHAPES,ICONIC… →style.mjs ←8 (cards.mjs,gen.mjs,icons.mjs) · style.mjs: STYLE,PEOPLE,fnv,promptFor,altFor… →- ←12 (cards.mjs,concept.mjs,gen.mjs)
 - `web/` sw.js →ads.js,ai.js,app.js ←1 (world-scorecard.mjs)
-- `web/js/` ui.js →app.js ←3 (ipa-audit.mjs,pron.mjs,sw.js) · ux1.js: Ux1,teacherImg,navOf,crumb,afterRoute… →app.js,league.js,common.js ←6 (build-stitch-css.mjs,app.js,ui.js)
+- `web/js/` ux1.js: Ux1,teacherImg,navOf,crumb,afterRoute… →app.js,league.js,common.js ←6 (build-stitch-css.mjs,app.js,ui.js)
