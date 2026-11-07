@@ -4,6 +4,7 @@
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
 "Ôn": "Review",
 "Luyện": "Practice",
+"Đã xong": "Done",
 "Giải đấu": "Leagues",
 "Điều hướng chính": "Main navigation",
 "Tiến độ hôm nay": "Today's progress",
