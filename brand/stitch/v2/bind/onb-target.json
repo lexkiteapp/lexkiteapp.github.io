@@ -1,0 +1,116 @@
+{
+ "_doc": "Thiết lập – bước Điểm mục tiêu. Ô = TARGETS của onboard.js (thang thật #582), nhãn '+' chỉ để hiển thị. label/input của mẫu → button (id #bandT, [data-v], aria-pressed như bản cũ).",
+ "styles": true,
+ "rootClass": "flex justify-center min-h-screen lt:bg-[#FBF7F1] dk:bg-[#0E191C] lt:text-[#162124] dk:text-[#EAF2F2]",
+ "text": {
+  "Pick the band your goal needs.": "d.say",
+  "What band are you aiming for?": "d.q",
+  "Target IELTS Band score": "d.q",
+  "Continue": "t('Tiếp tục')"
+ },
+ "html": {
+  ":scope > main > div > section > div:nth-child(1) > div:nth-child(1)": "d.teacher"
+ },
+ "attr": {
+  ":scope > main > header > button": {
+   "id": "'onbBack'",
+   "type": "'button'",
+   "aria-label": "t('Quay lại')"
+  },
+  ":scope > main > header > div": {
+   "role": "'progressbar'",
+   "aria-label": "d.progAria",
+   "aria-valuemin": "1",
+   "aria-valuemax": "d.steps",
+   "aria-valuenow": "d.step"
+  },
+  ":scope > main > header > div > div": {
+   "style": "'width:' + d.pct + '%'"
+  },
+  ":scope > main > div > section > div:nth-child(2) > p": {
+   "role": "'status'",
+   "aria-live": "'polite'",
+   "id": "'onbSay'"
+  },
+  ":scope > main > div > header > h1": {
+   "id": "'onbQ'"
+  },
+  ":scope > main > div > fieldset": {
+   "id": "'bandT'",
+   "aria-label": "d.q"
+  },
+  ":scope > main > div > section": {
+   "aria-label": "d.kicker"
+  },
+  ":scope > main > footer > button": {
+   "id": "'obNext'"
+  }
+ },
+ "setClass": {
+  ":scope > main > div > section > div:nth-child(1) > div:nth-child(1)": "w-14 h-16"
+ },
+ "cls": {
+  ":scope > main > div > section > div:nth-child(1) > div:nth-child(2)": {
+   "mt-1.5": "''"
+  }
+ },
+ "addClass": {
+  ":scope > main": "flex-col",
+  ":scope > main > header > button": "ms-flip"
+ },
+ "repeat": [
+  {
+   "list": "d.bands",
+   "as": "r",
+   "variants": {
+    "on": ":scope > main > div > fieldset > label:nth-child(5)",
+    "off": ":scope > main > div > fieldset > label:nth-child(2)"
+   },
+   "samples": ":scope > main > div > fieldset > label",
+   "pick": "r.on ? 'on' : 'off'",
+   "bind": {
+    "on": {
+     "attr": {
+      ":scope": {
+       "data-v": "r.v",
+       "aria-pressed": "'true'",
+       "type": "'button'",
+       "aria-checked": "null"
+      }
+     },
+     "html": {
+      ":scope > span:nth-child(3)": "e(r.v)"
+     },
+     "remove": [
+      ":scope > input"
+     ],
+     "tag": {
+      ":scope": {
+       "to": "button"
+      }
+     }
+    },
+    "off": {
+     "attr": {
+      ":scope": {
+       "data-v": "r.v",
+       "aria-pressed": "'false'",
+       "type": "'button'"
+      }
+     },
+     "html": {
+      ":scope > span:nth-child(2)": "e(r.v)"
+     },
+     "remove": [
+      ":scope > input"
+     ],
+     "tag": {
+      ":scope": {
+       "to": "button"
+      }
+     }
+    }
+   }
+  }
+ ]
+}

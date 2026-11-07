@@ -3,7 +3,6 @@
  "known": [
   "accounts:data:junk",
   "accounts:empty:junk",
-  "accounts:loading",
   "accounts:slow:junk",
   "ads:data:junk",
   "ads:empty:junk",

@@ -39,15 +39,14 @@
             <p class="small bad-t" data-err role="alert" hidden></p><div><button class="btn primary sm" type="submit">${esc(S('Lưu'))}</button> <button class="btn ghost sm" type="button" data-x>${esc(S('Hủy'))}</button></div></form></td>`
           : `<td>${r.owner ? esc(r.owner) : `<span class="muted">${esc(S('chưa nhập'))}</span>`}<br><span class="tiny muted">${esc(r.account)}</span></td>
           <td>${r.expires ? `<span class="${r.due ? 'bad-t' : ''}">${esc(r.expires)}</span><br><span class="tiny ${r.due ? 'bad-t' : 'muted'}">${esc(dleft(r))}</span>` : '–'}<br><button class="btn ghost sm" data-e="${esc(r.id)}">${esc(S('Sửa'))}</button></td>`;
-        return `<tr${r.due ? ' style="outline:2px solid var(--bad,#d33);outline-offset:-2px"' : ''}><td><b>${esc(r.service)}</b>${r.scope ? `<br><span class="tiny muted">${esc(r.scope)}</span>` : ''}${r.note ? `<br><span class="tiny muted">${esc(r.note)}</span>` : ''}</td>
+        return `<tr${r.due ? ' class="acc-due-row"' : ''}><td><b>${esc(r.service)}</b>${r.scope ? `<br><span class="tiny muted">${esc(r.scope)}</span>` : ''}${r.note ? `<br><span class="tiny muted">${esc(r.note)}</span>` : ''}</td>
           <td><span class="tiny muted">${esc(S(STORE[r.store] || r.store))}</span><ul class="tiny" style="margin:.2rem 0 0;padding-left:1rem;list-style:none">${names}</ul></td>${tail}
           <td><a href="${esc(safeUrl(r.manage))}" target="_blank" rel="noopener noreferrer" aria-label="${esc(S('Mở trang quản lý'))}: ${esc(r.service)}">↗</a></td></tr>`;
       }).join('');
-      const due = D.due.length ? `<div class="card err-box" role="alert"><b>⏰ ${esc(S('Cần gia hạn trong 14 ngày'))}</b>: ${D.due.map(d => `${esc(d.service)} (${esc(d.expires)})`).join(' · ')}</div>` : '';
+      const due = D.due.length ? `<div class="acc-due" role="alert"><b>⏰ ${esc(S('Cần gia hạn trong 14 ngày'))}</b><span>${D.due.map(d => `${esc(d.service)} (${esc(d.expires)})`).join(' · ')}</span></div>` : '';
       const gh = !D.gh.ok ? `<p class="tiny muted">${esc(S('GitHub chưa đọc được tên secret (token thiếu quyền Secrets: read) – cột trạng thái ghi "chưa rõ".'))}</p>` : '';
       const extra = D.extra.length ? `<p class="tiny bad-t">${esc(S('Có trên GitHub nhưng chưa đăng ký trong sổ: {n}', { n: D.extra.join(', ') }))}</p>` : '';
-      box.innerHTML = `<div class="card"><div class="row between"><h2 style="margin:0">${esc(S('🗂️ Sổ tài khoản & khóa'))}</h2><button class="btn ghost sm" id="accR">${esc(S('Làm mới'))}</button></div>
-        <p class="small muted">${esc(S('Chỉ hiện TÊN biến và nơi lưu – không bao giờ hiện giá trị. Email chủ và hạn nhập tay ở đây, dùng chung mọi admin.'))}</p>${due}${gh}${extra}
+      box.innerHTML = `<div class="card"><div class="acc-h"><h2 class="sr-only">${esc(S('🗂️ Sổ tài khoản & khóa'))}</h2><p class="small muted">${esc(S('Chỉ hiện TÊN biến và nơi lưu – không bao giờ hiện giá trị. Email chủ và hạn nhập tay ở đây, dùng chung mọi admin.'))}</p><button class="btn ghost sm" id="accR">↻ ${esc(S('Làm mới'))}</button></div>${due}${gh}${extra}
         <div class="tbl-wrap"><table class="tbl"><thead><tr><th>${esc(S('Dịch vụ'))}</th><th>${esc(S('Nơi lưu & tên'))}</th><th>${esc(S('Email chủ'))} / ${esc(S('Tài khoản'))}</th><th>${esc(S('Hết hạn'))}</th><th>${esc(S('Quản lý'))}</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
       box.querySelector('#accR').onclick = () => load(true);
       box.querySelectorAll('[data-e]').forEach(b => { b.onclick = () => { edit = b.dataset.e; draw(); }; });
@@ -59,7 +58,7 @@
       }
     }
     const load = force => api('list', force ? { force: true } : {}).then(d => { if (my !== gen) return; D = d; draw(); }).catch(e => { if (my === gen) box.innerHTML = `<div class="card"><p class="small bad-t">${esc(S('Lỗi: {e}', { e: e.code || e.message }))}</p></div>`; });
-    box.innerHTML = `<div class="card"><p class="small muted">${esc(S('Đang tải…'))}</p></div>`;
+    box.innerHTML = `<div class="card" aria-busy="true" aria-label="${esc(S('Đang tải…'))}"><span class="sk" style="height:1rem;width:60%"></span><span class="sk sk-block" style="height:220px"></span></div>`; // khung xương cao gần bằng bảng thật → không co/giãn
     load();
     syncJs().then(() => { if (my === gen && window.AdminSync) AdminSync.watch(['accounts'], () => (my === gen && !edit ? load() : null), { box, S }); });
   }
