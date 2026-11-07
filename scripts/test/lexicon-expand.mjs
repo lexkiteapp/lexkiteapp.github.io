@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url';
 // Mở rộng kho từ (docs/LEXICON.md §Mở rộng 20k): cổng mục (gateEntry), dịch ngược, sổ việc hạ nguồn (infra/lexicon-consumers.json).
 import fs from 'fs';
 import path from 'path';
-import { defGrammarBad, mixPool, yieldSplit } from '../lexicon/expand/lib.mjs';
+import { defGrammarBad, mixPool, yieldSplit, quotaDry } from '../lexicon/expand/lib.mjs';
 import { wsdUnwrap, gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, posShapeOk, omwHas, trIn, inflRe } from '../lexicon/expand/lib.mjs';
 import { grade, hasBad, applies } from '../lexicon/expand/grade.mjs';
 import { nativeOwners, nativeLine } from '../lexicon/expand/tatoeba-native.mjs';
@@ -441,4 +441,6 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
     ok(rows.length === 1 && rows[0][0] === 'cv0.1' && rows[0][1] === 'eng', 'commonvoice: 1 câu đạt (bỏ đại từ, số, quá ngắn, trùng), id cv<tệp>.<dòng>');
   } catch (e) { if (!/wordfreq/.test(String(e.stderr || e))) throw e; console.log('(bỏ qua test commonvoice: thiếu wordfreq cục bộ)'); }
   fs.rmSync(dir, { recursive: true, force: true }); }
+ok(quotaDry({ calls: 12, fail: 12, pool: 'empty' }, 0) === true, 'quotaDry: mọi lệnh gọi AI thất bại + 0 mục đạt = hết hạn mức (cảnh báo, không đỏ)');
+ok(quotaDry({ calls: 12, fail: 7 }, 0) === false && quotaDry({ calls: 12, fail: 12 }, 3) === false && quotaDry({ calls: 0, fail: 0 }, 0) === false, 'quotaDry: có lệnh gọi thành công mà 0 mục đạt (lỗi thật), hoặc có mục đạt, hoặc chưa gọi → không phải hết hạn mức');
 if (fail) { console.error(`✗ lexicon-expand (pilot 7 fixes): ${fail} lỗi`); process.exit(1); }
