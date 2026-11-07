@@ -41,7 +41,7 @@ jobs:
       - name: Kiểm bố cục mọi hình đề
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
           node scripts/test/figure-layout.mjs
       - if: always()
         uses: actions/upload-artifact@v4

@@ -51,6 +51,9 @@ for (const dir of ['web/css', 'extension/app/css']) if (fs.existsSync(dir)) for 
   if (lt('mobile/android/app/src/main/res/values/lk_theme.xml') !== T.light['--bg'] || lt('mobile/android/app/src/main/res/values-night/lk_theme.xml') !== T.dark['--bg']) err.push('Android lk_theme.xml lệch --bg → node scripts/build-tokens.mjs');
   if (!/android:windowBackground">@color\/lk_bg/.test(fs.readFileSync('mobile/android/app/src/main/res/values/styles.xml', 'utf8'))) err.push('Android styles.xml: AppTheme.NoActionBar thiếu windowBackground @color/lk_bg (chớp nền khi mở)');
   if (!/themeBackground\(\)/.test(fs.readFileSync('mobile/ios/App/App/LexkiteBridgeViewController.swift', 'utf8'))) err.push('iOS LexkiteBridgeViewController: thiếu nền WebView theo sáng/tối');
+  // XML cấm "--" trong chú thích → aapt mergeDebugResources đỏ (android.yml 06/11: "--bg" trong chú thích lk_theme.xml/styles.xml)
+  const walkX = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walkX(d + '/' + e.name) : /\.xml$/.test(e.name) ? [d + '/' + e.name] : []);
+  for (const f of walkX('mobile/android/app/src/main/res')) for (const [, c] of fs.readFileSync(f, 'utf8').matchAll(/<!--([\s\S]*?)-->/g)) if (/--/.test(c)) err.push(`${f}: chú thích XML chứa "--" (aapt không dựng được)`);
   const cap = JSON.parse(fs.readFileSync('mobile/capacitor.config.json', 'utf8')); if (!/^#0{8}$/.test(cap.backgroundColor || '')) err.push('capacitor.config.json backgroundColor phải trong suốt (#00000000) để thấy nền cửa sổ theo theme'); }
 if (err.length) { console.error('✗ token-contrast:\n  - ' + err.join('\n  - ')); process.exit(1); }
 console.log(`✓ token-contrast: ${n} cặp chữ/nền sáng + tối đạt (chữ ≥ 4.5:1, icon/viền ≥ 3:1); màn Stitch dùng chung thang màu`);
