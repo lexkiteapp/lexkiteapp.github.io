@@ -72,6 +72,14 @@ jobs:
           if [ "$MODE" = pilot ] && { [ "$PROBE_ALIVE" -lt $NA ] || [ "$PROBE_HEAD" -lt $NH ] || [ "$PROBE_TAIL" -lt $NT ]; }; then echo "::warning::kho CF còn $PROBE_ALIVE/121 tài khoản có neuron (phần đầu $PROBE_HEAD, phần đuôi $PROBE_TAIL) – pilot bỏ lượt (cần đầu ≥ $NH, đuôi ≥ $NT)"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
           # 04/11 gốc hàng chờ lượt 41821221567: 10 việc × ~2 giờ mà max-parallel 3 ban ngày → 4 đợt, lượt kéo dài >6 giờ và giữ nhóm concurrency (lịch 3 giờ bị dồn/huỷ). Việc bị trần bởi KHO/thời gian máy chứ không bởi số việc → mặc định số việc = số máy song song (par): cùng giờ-máy, lượt xong ≤ ~2,2 giờ, không đợt chờ
           if [ "$MODE" = fill ]; then n=${{ github.event.inputs.shards || (github.event.inputs.judge_run != '' && '6' || '$par') }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1; fi
+          # 07/11 (06/11: 7 lượt × 10 máy cài giám khảo cho 1 nghĩa/việc → 91 ảnh/ngày): số việc theo số nghĩa CÓ THỂ vẽ (≥ 40 nghĩa/việc), 0 nghĩa → bỏ lượt
+          if [ "$MODE" = fill ] && [ -z "${{ github.event.inputs.judge_run }}" ]; then
+            { node scripts/build-lexicon.mjs --write >/dev/null || [ -s dist/lexicon.json ]; }
+            G=$(node scripts/vocab-img/scene.mjs --gaps 1000000 --shard 0/1 | node -p "JSON.parse(require('fs').readFileSync(0,'utf8')).items.length")
+            echo "nghĩa cảnh thiếu ảnh có thể vẽ (không trong hàng chờ / thẻ đang nghỉ): $G"
+            [ "$G" -gt 0 ] || { echo "✓ không còn nghĩa để vẽ – bỏ lượt"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; }
+            m=$(( (G + 39) / 40 )); [ "$n" -gt "$m" ] && n=$m
+          fi
           echo "shards=$(node -e "console.log(JSON.stringify([...Array($n).keys()]))")" >> $GITHUB_OUTPUT
           G='${{ github.event.inputs.max_gc }}'; [ -z "$G" ] && { [ "$MODE" = fill ] && G=6000 || G=400; }
           echo "per=$(( G / n ))" >> $GITHUB_OUTPUT
@@ -85,6 +93,8 @@ jobs:
       # 26/10: GrabCast 500 cho 700/700 ảnh → mặc định cf (Workers AI thẳng); lịch (fill) dùng vars.VIMG_PROVIDER
       GRABCAST_AI_KEY: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'grabcast' && secrets.GRABCAST_AI_KEY || '' }}
       CF_POOL: ${{ secrets.CF_POOL }}
+      GROQ_POOL: ${{ secrets.GROQ_POOL }}       # 07/11: thẻ cảnh văn bản qua kho Groq/Gemini miễn phí (scene.mjs CARD_CHAIN) – neuron CF chỉ để VẼ
+      GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
@@ -117,6 +127,7 @@ jobs:
         uses: actions/cache@v4
         with: { path: '~/.cache/huggingface', key: vimg-judge-models-v1 }
       - name: Cài giám khảo cục bộ (CPU)
+        timeout-minutes: 12
         if: steps.lease.outputs.skip != '1'
         run: |
           sudo apt-get install -y -qq tesseract-ocr librsvg2-bin >/dev/null
@@ -165,6 +176,8 @@ jobs:
       # 26/10: GrabCast 500 cho 700/700 ảnh → mặc định cf (Workers AI thẳng); lịch (fill) dùng vars.VIMG_PROVIDER
       GRABCAST_AI_KEY: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'grabcast' && secrets.GRABCAST_AI_KEY || '' }}
       CF_POOL: ${{ secrets.CF_POOL }}
+      GROQ_POOL: ${{ secrets.GROQ_POOL }}       # 07/11: thẻ cảnh văn bản qua kho Groq/Gemini miễn phí (scene.mjs CARD_CHAIN) – neuron CF chỉ để VẼ
+      GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
@@ -198,6 +211,7 @@ jobs:
         uses: actions/cache@v4
         with: { path: '~/.cache/huggingface', key: vimg-judge-models-v1 }
       - name: Cài giám khảo cục bộ (CPU)
+        timeout-minutes: 12
         if: steps.lease.outputs.skip != '1'
         run: |
           sudo apt-get install -y -qq tesseract-ocr librsvg2-bin >/dev/null
@@ -264,6 +278,8 @@ jobs:
       # 26/10: GrabCast 500 cho 700/700 ảnh → mặc định cf (Workers AI thẳng); lịch (fill) dùng vars.VIMG_PROVIDER
       GRABCAST_AI_KEY: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'grabcast' && secrets.GRABCAST_AI_KEY || '' }}
       CF_POOL: ${{ secrets.CF_POOL }}
+      GROQ_POOL: ${{ secrets.GROQ_POOL }}       # 07/11: thẻ cảnh văn bản qua kho Groq/Gemini miễn phí (scene.mjs CARD_CHAIN) – neuron CF chỉ để VẼ
+      GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
@@ -299,6 +315,7 @@ jobs:
         if: steps.lease.outputs.skip != '1'
         with: { path: '~/.cache/huggingface', key: vimg-judge-models-v1 }
       - name: Cài giám khảo cục bộ (CPU)
+        timeout-minutes: 12
         if: steps.lease.outputs.skip != '1'
         run: |
           sudo apt-get install -y -qq tesseract-ocr librsvg2-bin >/dev/null
@@ -387,6 +404,7 @@ jobs:
           sudo apt-get install -y -qq tesseract-ocr librsvg2-bin fonts-dejavu-core >/dev/null
           pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.4.1 torchvision==0.19.1
           pip install -q open_clip_torch==2.26.1 transformers==4.51.3 sentence-transformers==3.4.1 num2words==0.5.14 imagehash==4.3.1 pytesseract==0.3.13 pillow-avif-plugin==1.4.6 'numpy<2'
+        timeout-minutes: 12
       - name: Chấm lại bằng giám khảo kép + tờ soát
         env: { GH_TOKEN: '${{ github.token }}' }
         run: |
@@ -416,6 +434,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
       - run: sudo apt-get install -y -qq librsvg2-bin fonts-dejavu-core >/dev/null && pip install -q pillow==11.3.0 pillow-avif-plugin==1.4.6 'numpy<2'
+        timeout-minutes: 12
       - uses: actions/download-artifact@v4
         with: { pattern: 'vimg-fill-[0-9]*', path: parts }
       - name: Gộp + mã hoá ≤ 6 KB + tờ ảnh 40 ảnh nhận
@@ -464,7 +483,7 @@ jobs:
           { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }
           G=$(node scripts/vocab-img/scene.mjs --gaps 1 --shard 0/1 | node -p "JSON.parse(require('fs').readFileSync(0,'utf8')).items.length")
           [ "$G" -gt 0 ] || { echo "✓ không còn nghĩa thiếu ảnh (trừ hàng chờ) – dừng chuỗi"; exit 0; }
-          gh workflow run vocab-img-scene.yml -R ${{ github.repository }} --ref main -f mode=fill -f shards=10 -f max_gc=6000 -f variants=6 -f provider=cf
+          bash scripts/ci/gh-retry.sh gh workflow run vocab-img-scene.yml -R ${{ github.repository }} --ref main -f mode=fill -f shards=10 -f max_gc=6000 -f variants=6 -f provider=cf
           echo "↻ đã gọi lượt fill kế tiếp"
   labfeat:
     # đặc trưng giám khảo CẢNH (CLIP↔câu, chú thích↔câu, thị giác có/không) cho ảnh của lượt cũ đã gán nhãn – đầu vào calibrate_scene.py
@@ -478,6 +497,8 @@ jobs:
       # 26/10: GrabCast 500 cho 700/700 ảnh → mặc định cf (Workers AI thẳng); lịch (fill) dùng vars.VIMG_PROVIDER
       GRABCAST_AI_KEY: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'grabcast' && secrets.GRABCAST_AI_KEY || '' }}
       CF_POOL: ${{ secrets.CF_POOL }}
+      GROQ_POOL: ${{ secrets.GROQ_POOL }}       # 07/11: thẻ cảnh văn bản qua kho Groq/Gemini miễn phí (scene.mjs CARD_CHAIN) – neuron CF chỉ để VẼ
+      GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
@@ -508,6 +529,7 @@ jobs:
           pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.4.1 torchvision==0.19.1
           pip install -q open_clip_torch==2.26.1 transformers==4.51.3 sentence-transformers==3.4.1 num2words==0.5.14 imagehash==4.3.1 pytesseract==0.3.13 pillow-avif-plugin==1.4.6 'numpy<2'
           { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }
+        timeout-minutes: 12
       - uses: actions/download-artifact@v4
         if: steps.lease.outputs.skip != '1'
         with: { name: vimg-scene-final, path: lab, run-id: '${{ github.event.inputs.lab_run }}', github-token: '${{ github.token }}' }
@@ -534,6 +556,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
       - run: sudo apt-get install -y -qq librsvg2-bin fonts-dejavu-core >/dev/null && pip install -q pillow==11.3.0 'numpy<2'
+        timeout-minutes: 12
       - uses: actions/download-artifact@v4
         with: { pattern: 'vimg-scene-[0-9]*', path: parts, run-id: '${{ github.event.inputs.from_run || github.run_id }}', github-token: '${{ github.token }}' }
       - name: Gộp + mã hoá ≤ 6 KB + tờ ảnh

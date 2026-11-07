@@ -36,7 +36,7 @@
       moved = true;
       fc.style.transform = `translate3d(${dx}px, ${Math.min(0, dy) * 0.25}px, 0) rotate(${RM() ? 0 : dx / 18}deg)`;
       fc.classList.toggle('sw-good', dx > 40); fc.classList.toggle('sw-again', dx < -40);
-      if (!buzzed && passed()) { buzzed = true; try { if (navigator.vibrate) navigator.vibrate(15); } catch (_) { /* bỏ qua */ } }
+      if (!buzzed && passed()) { buzzed = true; try { if (window.Sfx && Sfx.haptic) Sfx.haptic('swipe'); } catch (_) { /* bỏ qua */ } }
     });
     const end = e => {
       if (!drag || (e && e.pointerId !== pid)) return;

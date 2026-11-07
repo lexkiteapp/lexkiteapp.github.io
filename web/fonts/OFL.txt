@@ -1,6 +1,10 @@
 Fonts in this folder
 - pjs-*.woff2: Plus Jakarta Sans - Copyright 2020 The Plus Jakarta Sans Project Authors
   (https://github.com/tokotype/PlusJakartaSans). Licensed under the SIL Open Font License, Version 1.1 (below).
+- bvp-*.woff2: Be Vietnam Pro - Copyright 2021 The Be Vietnam Pro Project Authors
+  (https://github.com/bettergui/BeVietnamPro). Licensed under the SIL Open Font License, Version 1.1 (below).
+- bri-*.woff2: Bricolage Grotesque - Copyright 2022 The Bricolage Grotesque Project Authors
+  (https://github.com/ateliertriay/bricolage). Licensed under the SIL Open Font License, Version 1.1 (below).
 - msym*.woff2: Material Symbols - Copyright Google LLC. Licensed under the Apache License, Version 2.0
   (https://www.apache.org/licenses/LICENSE-2.0).
 

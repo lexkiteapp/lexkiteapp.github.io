@@ -1,0 +1,74 @@
+{
+ "_note": "Sinh tự động bởi scripts/tm-evidence.mjs từ sổ băm (mục tm-use). Nhãn hiệu chưa đăng ký – dùng ™, không dùng ®.",
+ "owner": "MODIAN LUXURY JEWELRY LLC",
+ "uses": [
+  {
+   "mark": "Lexkite",
+   "use": "website",
+   "url": "https://lexkite.com/",
+   "goods": "Online English-learning service (Nice class 41) and web app (class 9)",
+   "firstUse": "2026-11-05T11:22:11.000Z",
+   "firstUseSource": "git log -S Lexkite -- web/index.html (chưa có bản lưu công khai)",
+   "archives": [
+    "https://web.archive.org/web/20261105124543/https://lexkite.com/en/"
+   ],
+   "registry": [
+    336
+   ]
+  },
+  {
+   "mark": "Lexkite",
+   "use": "chrome-web-store",
+   "url": "https://chromewebstore.google.com/detail/idalfipabpfcajpkfkifbdlpejcdmfcd",
+   "goods": "Browser extension – dictionary/translation software (class 9)",
+   "firstUse": "2026-11-05T11:22:11.000Z",
+   "firstUseSource": "git log -S Lexkite -- extension/manifest.json (chưa có bản lưu công khai)",
+   "archives": [],
+   "registry": [
+    337
+   ]
+  },
+  {
+   "mark": "Lexkite",
+   "use": "google-play",
+   "url": "https://play.google.com/store/apps/details?id=com.lexkite.app",
+   "goods": "Android app – downloadable education software (class 9)",
+   "firstUse": "2026-11-05T11:22:11.000Z",
+   "firstUseSource": "git log -S com.lexkite.app -- mobile (chưa có bản lưu công khai)",
+   "archives": [
+    "https://web.archive.org/web/20261105124744/https://play.google.com/store/apps/details?id=com.lexkite.app"
+   ],
+   "registry": [
+    340
+   ]
+  },
+  {
+   "mark": "Lexkite",
+   "use": "app-store",
+   "url": "https://apps.apple.com/app/id6824714708",
+   "goods": "iOS app – downloadable education software (class 9)",
+   "firstUse": "2026-11-05T11:22:11.000Z",
+   "firstUseSource": "git log -S Lexkite -- mobile (chưa có bản lưu công khai)",
+   "archives": [
+    "https://web.archive.org/web/20261105124805/https://apps.apple.com/us/app/lexkite-english-vocabulary/id6824714708"
+   ],
+   "registry": [
+    341
+   ]
+  },
+  {
+   "mark": "Lexkite logo (flying book kite)",
+   "use": "logo",
+   "url": "https://lexkite.com/icons/icon.svg",
+   "goods": "Logo used on all Lexkite products",
+   "firstUse": "2026-11-05T11:22:11.000Z",
+   "firstUseSource": "git log -- web/icons/icon.svg (chưa có bản lưu công khai)",
+   "archives": [
+    "https://web.archive.org/web/20261105124822/https://lexkite.com/icons/icon.svg"
+   ],
+   "registry": [
+    342
+   ]
+  }
+ ]
+}

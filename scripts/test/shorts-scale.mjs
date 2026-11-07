@@ -95,13 +95,18 @@ let exp = ''; try { await UP.putResumable('https://up', buf, { fetcher: async ()
 const AR = await imp('scripts/video/shorts-archive.mjs');
 const old = '2026-09-01T00:00:00Z', items = [
   { id: 'a', lesson: 'la', created: old, drive: { video: { sha256: 'v1' }, cover: { sha256: 'c1' } } },
-  { id: 'b', lesson: 'lb', created: old, drive: { video: { sha256: 'v2' } } },
+  { id: 'b', lesson: 'lb', created: old, rejected: true, drive: { video: { sha256: 'v2' } } },
+  { id: 'f', lesson: 'lf', created: old, drive: { video: { sha256: 'v6' } } },
+  { id: 'g', lesson: 'lg', created: old, rejected: true, paused: true, drive: { video: { sha256: 'v7' } } },
   { id: 'c', lesson: 'lc', created: new Date(now - 5 * 86400e3).toISOString(), drive: { video: { sha256: 'v3' } } },
   { id: 'd', lesson: 'ld', created: old, drive: { video: { sha256: 'v4', retired: '2026-10-01' } } },
   { id: 'e', lesson: 'le', created: old, youtube_id: 'abc', drive: { video: { sha256: 'v5' } } }];
 const keep = AR.keepSet(items, { approved: ['la'], youtube: { approved: [], uploaded: {} } }), plan = AR.planArchive(items, keep, now);
 ok(plan.promote.sort().join() === 'c1,v1,v5', 'archive: approved + published masters/covers → 2 copies');
-ok(plan.retire.map(x => x.id).join() === 'b', 'archive: only unapproved > 30 days retire (new, retired, kept skipped)');
+// 414b5b5ed: retention retires only REJECTED (not paused) clips; unapproved-but-pending masters wait for a decision, never auto-deleted
+ok(plan.retire.map(x => x.id).join() === 'b', 'archive: only rejected > 30 days retire (new, retired, kept, pending-unapproved, paused skipped)');
+const young = { ...items.find(x => x.id === 'c'), rejected: true };
+ok(AR.planArchive([young], keep, now).retire.length === 0, 'archive: rejected but < 30 days → kept');
 const DR = await imp('functions/api/drive.js');
 const cap = DR.shortsCapacity([{ status: 'ok', weight: 100, quota_total: 15e9, quota_used: 1.2e9 }, { status: 'ok', weight: 0, quota_total: 15e9, quota_used: 0 }, { status: 'ok', weight: 100, quota_total: 15e9, quota_used: 14e9 }]);
 ok(cap.clips === Math.floor(12.3e9 / 10485760), `capacity: ≈ ${cap.clips} clips (paused / ≥ 90 % Drives excluded)`);
