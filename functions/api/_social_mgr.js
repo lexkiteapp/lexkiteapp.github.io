@@ -16,7 +16,7 @@ export const STATES = ['idea', 'draft', 'review', 'approved', 'scheduled', 'publ
 export const PLAT = {
   facebook_page: { cap: 30, used: 'reels_24h', capKey: 'reels_cap', kind: 'reel' },
   instagram: { cap: 100, used: 'posts_24h', capKey: 'posts_cap', kind: 'reel', cap2200: true },
-  tiktok: { cap: 15, kind: 'video', privateOnly: 'tiktok-audit' },
+  tiktok: { cap: 15, kind: 'video' }, // Direct Post của app GrabCast được duyệt 03/11/2026 → hết giới hạn SELF_ONLY
   youtube: { cap: 6, kind: 'short', privateOnly: 'google-review' },
   threads: { cap: 250, kind: 'post' },
 };
@@ -182,12 +182,16 @@ async function approvedClips(env) {
   return m.items.filter(it => it && CLIP.test(String(it.id)) && q.has(it.id) && !(rv.get(it.id) || {}).deleted && !['rejected', 'paused'].includes((rv.get(it.id) || {}).state) && !it.rejected)
     .map(it => ({ id: it.id, title: it.title || it.lesson || it.id, description: it.description || '', hashtags: Array.isArray(it.hashtags) ? it.hashtags.slice(0, 10) : [], template: it.template || '', hook: field(it, 'hook'), cefr: field(it, 'diff') || it.cefr || '', duration: +it.duration || 0, created: it.created || '', video: it.video, cover: it.cover, _it: it }));
 }
-export const bodyFor = (clip, mediaId, accs, per = {}) => ({
-  title: str(clip.title, 100), caption: str([clip.description || clip.title, (clip.hashtags || []).map(h => '#' + String(h).replace(/^#/, '')).join(' ')].filter(Boolean).join('\n\n'), 2200), media_ids: [mediaId], timezone: 'America/New_York',
-  targets: accs.map(a => ({ account_id: a.id, kind: a.kind || (PLAT[a.p] || {}).kind || 'video', options: a.p === 'tiktok' ? { privacy_level: 'SELF_ONLY', allow_comment: true, allow_duet: false, allow_stitch: false, is_aigc: true } : a.p === 'youtube' ? { privacy_status: 'private', made_for_kids: false, contains_synthetic_media: true, category_id: '27' } : {}, ...(per[a.p] || {}) })),
+export const bodyFor = (clip, mediaId, accs, per = {}, tz = 'America/New_York') => ({
+  title: str(clip.title, 100), caption: str([clip.description || clip.title, (clip.hashtags || []).map(h => '#' + String(h).replace(/^#/, '')).join(' ')].filter(Boolean).join('\n\n'), 2200), media_ids: [mediaId], timezone: tz,
+  targets: accs.map(a => ({ account_id: a.id, kind: a.kind || (PLAT[a.p] || {}).kind || 'video', options: a.p === 'tiktok' ? { privacy_level: 'PUBLIC_TO_EVERYONE', allow_comment: true, allow_duet: false, allow_stitch: false, commercial_content: false, is_aigc: true } : a.p === 'youtube' ? { privacy_status: 'private', made_for_kids: false, contains_synthetic_media: true, category_id: '27' } : {}, ...(per[a.p] || {}) })),
 });
 export async function pushClip(env, clip, gc, origin) {
-  const cached = await getMeta(env.DB, 'media:' + clip.id, null); if (cached && cached.id) return cached.id;
+  const cached = await getMeta(env.DB, 'media:' + clip.id, null);
+  if (cached && cached.id) { // GrabCast xóa file 24 giờ sau khi bài xong (status expired) → chỉ dùng lại khi còn ready, không thì tải lại
+    const m = await gc('GET', 'media/' + cached.id), st = m.status < 400 && m.data ? String((m.data.media || m.data).status || 'ready') : '';
+    if (st === 'ready') return cached.id;
+  }
   const url = await signed(env, clip._it, 'video', 2 * 3600); if (!url) throw fail(409, 'clip-not-on-drive');
   const src = await fetch(new URL(url, origin).toString()); if (!src.ok || !src.body) throw fail(502, 'clip-fetch');
   const bytes = +src.headers.get('Content-Length') || 0; if (!bytes) throw fail(502, 'clip-size');
@@ -205,14 +209,25 @@ const rowOut = r => ({ ...r, accounts: JSON.parse(r.accounts || '[]'), plats: JS
 /** Đồng bộ 2 chiều với GrabCast (GrabCast giữ lịch & tự đăng nền; Lexkite là nguồn sự thật cho duyệt/lịch/luật):
  *  trạng thái → cột Scheduled/Published/Failed; giờ, chữ, kênh, link, lỗi phản chiếu từ GrabCast; sửa nội dung trên GrabCast sau khi duyệt
  *  → note 'changed-in-grabcast' (bài đã lên lịch: UI đề nghị hủy lịch & duyệt lại; bài chưa lên lịch: về In review). */
+/** Trạng thái bài GrabCast (backend/app/social, 04/11/2026) → cột bảng duyệt. partial = ít nhất 1 đích đã lên: KHÔNG phải lỗi, không tạo lại. needs_check = có thể đã lên: không bao giờ tự làm lại, để người xem. */
+export function boardStateOf(s, cur) {
+  s = String(s || '');
+  if (s === 'published' || s === 'partial') return 'published';
+  if (s === 'failed' || s === 'missed' || s === 'cancel_failed') return 'failed';
+  if (s === 'canceled' || s === 'deleted') return 'draft';
+  if (s === 'scheduled' || s === 'publishing') return 'scheduled';
+  return cur; // draft, awaiting_approval, needs_check, trạng thái mới: giữ cột, không đoán
+}
+export const noteOfStatus = s => (s === 'partial' ? 'partial' : s === 'needs_check' ? 'needs-check' : s === 'cancel_failed' ? 'cancel-failed' : null);
 export async function boardSync(db, posts) {
   const byPid = new Map(posts.map(p => [String(p.id), p])), rows = await all(db, "SELECT id, post_id, state, hash, want_at, note FROM soc_board WHERE post_id IS NOT NULL AND state NOT IN ('idea','draft','published')");
   for (const r of rows) {
     const p = byPid.get(String(r.post_id)); if (!p) continue; const s = String(p.status || ''), ts = p.targets || [];
-    let ns = /^published$/.test(s) ? 'published' : /fail|error|partial/.test(s) ? 'failed' : /cancel|deleted/.test(s) ? 'draft' : /schedul|publishing|processing/.test(s) ? 'scheduled' : r.state;
+    let ns = boardStateOf(s, r.state);
     if (ns === 'scheduled' && !r.hash) ns = r.state; // lên lịch ngoài Lexkite khi chưa duyệt → giữ cột cũ, note cảnh báo
-    let note = r.note;
-    if (r.hash && await contentHash(p) !== r.hash) { note = 'changed-in-grabcast'; if (ns === 'approved') ns = 'review'; }
+    let note = noteOfStatus(s) || (['partial', 'needs-check', 'cancel-failed'].includes(r.note) ? null : r.note);
+    if (noteOfStatus(s)) { /* giữ note trạng thái, không bị ghi đè bởi kiểm dấu băm */ }
+    else if (r.hash && await contentHash(p) !== r.hash) { note = 'changed-in-grabcast'; if (ns === 'approved') ns = 'review'; }
     else if (!r.hash && /schedul/.test(s)) note = 'scheduled-outside';
     else if (note === 'changed-in-grabcast' || note === 'scheduled-outside') note = null;
     const links = JSON.stringify(ts.map(t => ({ a: String(t.account_id), p: t.platform || '', s: t.state || '', u: /^https:\/\//.test(String(t.permalink || '')) ? t.permalink : '', e: t.last_error_code || '' })));

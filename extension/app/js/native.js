@@ -6,7 +6,18 @@
 (function (g) {
   const Cap = g.Capacitor;
   const native = !!(Cap && Cap.isNativePlatform && Cap.isNativePlatform());
-  g.VBNative = { is: native, platform: native ? Cap.getPlatform() : 'web' };
+  // Liên kết sâu → hash của router (MỘT chỗ cho cả lexkite:// lẫn Universal Links / App Links https://lexkite.com/app/…, docs/STORE-READINESS.md › Deep link).
+  // Trả '#/…' = mở đúng trang; '' = chỉ mở app (giữ trang đang xem); null = không phải liên kết của mình. Hàm thuần → scripts/test/deep-links.mjs kiểm.
+  const deepRoute = url => {
+    const u = String(url || '');
+    const w = /^lexkite:\/\/word\/([^?#/]+)/i.exec(u);
+    if (w) { let id = w[1]; try { id = encodeURIComponent(decodeURIComponent(id)); } catch (e) { /* giữ nguyên */ } return '#/dict/' + id; }
+    const m = /^lexkite:\/\/review\/?(?:\?w=([^&#]*))?/i.exec(u); if (m) return '#/review' + (m[1] ? '?w=' + m[1] : '');
+    const h = /^https:\/\/(?:www\.)?lexkite\.com\/app(?:\/[^?#]*)?(?:\?[^#]*)?(#.*)?$/i.exec(u); // web app = /app/#/<trang>; đường dẫn/query khác chỉ mở app
+    if (h) return h[1] && /^#\/[^\s<>"'`\\]*$/.test(h[1]) ? h[1] : '';
+    return null;
+  };
+  g.VBNative = { is: native, platform: native ? Cap.getPlatform() : 'web', deepRoute };
   if (!native) return;
   const P = Cap.Plugins || {};
   document.documentElement.classList.add('native', 'native-' + Cap.getPlatform());
@@ -16,7 +27,13 @@
 
   // Rung: dùng Haptics của hệ điều hành
   if (P.Haptics) {
-    try { Object.defineProperty(navigator, 'vibrate', { configurable: true, value: p => { const ms = Array.isArray(p) ? p[0] : p; P.Haptics.vibrate({ duration: Math.max(10, ms || 15) }).catch(() => {}); return true; } }); } catch (e) { /* bỏ qua */ }
+    // Mẫu rung [rung, nghỉ, rung…] phát tuần tự qua Haptics (plugin chỉ nhận 1 khoảng); mẫu mới cắt mẫu cũ
+    let hapT = [];
+    try { Object.defineProperty(navigator, 'vibrate', { configurable: true, value: p => {
+      hapT.forEach(clearTimeout); hapT = [];
+      const a = Array.isArray(p) ? p : [p]; let at = 0;
+      a.forEach((ms, i) => { ms = Math.max(0, +ms || 0); if (i % 2 === 0 && ms) { const go = () => P.Haptics.vibrate({ duration: Math.max(10, ms) }).catch(() => {}); if (at) hapT.push(setTimeout(go, at)); else go(); } at += ms; });
+      return true; } }); } catch (e) { /* bỏ qua */ }
   }
 
   // Nhắc học: lập lịch 7+ ngày cục bộ ở js/remind.js (tải lười, docs/REMINDERS.md). opts.ask: chỉ xin quyền khi người dùng chủ động
@@ -88,11 +105,8 @@
   document.addEventListener('visibilitychange', () => { if (document.hidden && wTimer) widgetFlush(); else if (!document.hidden) feedPush(); });
   // Chạm widget → lexkite://review?w=từ → mở đúng thẻ đó trong phiên ôn (#/review?w=từ)
   // Widget "Từ mỗi giờ" → lexkite://word/<từ> → thẻ từ #/dict/<từ> (chế độ đố: nghĩa hiện ở đây)
-  const openDeep = url => {
-    const w = /^lexkite:\/\/word\/([^?#/]+)/i.exec(url || '');
-    if (w) { let id = w[1]; try { id = encodeURIComponent(decodeURIComponent(id)); } catch (e) { /* giữ nguyên */ } location.hash = '#/dict/' + id; return; }
-    const m = /^lexkite:\/\/review\/?(?:\?w=([^&#]*))?/i.exec(url || ''); if (m) location.hash = '#/review' + (m[1] ? '?w=' + m[1] : '');
-  };
+  // Universal Links (iOS applinks:lexkite.com) / App Links (Android autoVerify) → cùng appUrlOpen, cùng router với lexkite://
+  const openDeep = url => { const h = deepRoute(url); if (h && h !== location.hash) location.hash = h; };
   if (P.App) {
     P.App.addListener('appUrlOpen', e => openDeep(e && e.url));
     window.addEventListener('load', () => { P.App.getLaunchUrl && P.App.getLaunchUrl().then(r => openDeep(r && r.url)).catch(() => {}); });
@@ -111,4 +125,11 @@
   if (P.CapacitorUpdater) P.CapacitorUpdater.notifyAppReady().catch(() => {});
   if (P.CapacitorUpdater || P.AppUpdate) window.addEventListener('load', () => setTimeout(() => g.App && g.App.need('ota').then(() => g.VBOta.start()).catch(() => {}), 8000));
   window.addEventListener('load', () => setTimeout(() => scheduleReminder({ ask: false }), 3000));
+  // Crashlytics: lỗi JS từ đầu vào hàng đợi; js/crash.js (sau load) lọc dữ liệu cá nhân rồi gửi non-fatal
+  if (P.FirebaseCrashlytics) {
+    const q = g.__lkCrashQ = [], put = (k, m, s) => (g.LKCrash ? g.LKCrash.report(k, m, s) : q.length < 20 && q.push([k, m, s]));
+    g.addEventListener('error', e => { if (e && e.message) put('js', e.message, (e.error && e.error.stack) || (e.filename ? e.filename + ':' + e.lineno : '')); });
+    g.addEventListener('unhandledrejection', e => { const r = e && e.reason; put('promise', r && (r.message || String(r)), r && r.stack); });
+    window.addEventListener('load', () => { const s = document.createElement('script'); s.src = 'js/crash.js'; document.head.appendChild(s); });
+  }
 })(typeof self !== 'undefined' ? self : this);

@@ -1,5 +1,5 @@
 {
- "_doc": "Bản đồ gắn dữ liệu màn Hôm nay (Home v2, docs/HOME-V2.md) – d do ux1.js home2() dựng từ dữ liệu thật. Khối không có dữ liệu: data-show=0 → ux1.js gỡ. Thanh tab Stitch riêng của mẫu (Today/Vocab/…) → gỡ, dùng thanh tab chung (shell) qua mount. Lộ trình mẫu 3 nút → lộ trình ĐẦY ĐỦ (khung path) chèn vào khối Your path.",
+ "_doc": "Bản đồ gắn dữ liệu màn Hôm nay (Home v2, docs/HOME-V2.md) – d do ux1.js home2() dựng từ dữ liệu thật. Khối không có dữ liệu: data-show=0 → ux1.js gỡ. Thanh tab Stitch riêng của mẫu (Today/Vocab/…) → gỡ, dùng thanh tab chung (shell) qua mount. Khối Your path: 3 nút đá kê như mẫu (bài hiện tại + 2 bài kế, dữ liệu thật); \"Xem toàn bộ lộ trình\" mở lộ trình ĐẦY ĐỦ (khung path, vẽ lười) ngay tại chỗ.",
  "styles": true,
  "i18n": {
   "Lexkite": "Lexkite",
@@ -25,9 +25,10 @@
   "View library": "Xem thư viện",
   "7-Day Streak": "Chuỗi 7 ngày",
   "Your path": "Lộ trình học của bạn",
-  "See full path →": "Tới bài hiện tại →",
+  "See full path →": "Xem toàn bộ lộ trình →",
   "Notifications": "Thông báo",
-  "Look up a word": "Tra từ"
+  "Look up a word": "Tra từ",
+  "Start": "Bắt đầu"
  },
  "text": {
   "L": "d.ini",
@@ -59,12 +60,15 @@
   "Promotion zone ↑": "d.lg.zone",
   "3/7": "d.wk.n",
   "Everyday English journey": "d.unitName",
-  "EN": "d.lang"
+  "EN": "d.lang",
+  "16%": "d.k.pct + '%'",
+  "1. Vocabulary": "d.pv[0].label",
+  "2. Collocations": "d.pv[1].label",
+  "3. Checkpoint": "d.pv[2].label"
  },
  "html": {
   ":scope > main > div > section:nth-child(2) > div:nth-child(1)": "d.teacher",
   ":scope > main > div > section:nth-child(3) > p": "d.k.words",
-  ":scope > main > div > section:nth-child(10) > div:nth-child(2)": "d.pathHtml",
   ":scope > main > header > div:nth-child(1) > span": "'lex<b>kite</b>'"
  },
  "attr": {
@@ -78,7 +82,8 @@
    "href": "d.c.tgHref"
   },
   ":scope > main > div > section:nth-child(1) > div:nth-child(2)": {
-   "href": "'#/streak'"
+   "href": "'#/streak'",
+   "aria-label": "t('Chuỗi ngày học') + ': ' + d.c.streak"
   },
   ":scope > main > div > section:nth-child(1) > div:nth-child(3)": {
    "href": "'#/stats'"
@@ -101,7 +106,7 @@
   ":scope > main > div > section:nth-child(3) > div:nth-child(4) > span:nth-child(2)": {
    "data-show": "0"
   },
-  ":scope > main > div > section:nth-child(3) > div:nth-child(5) > div": {
+  ":scope > main > div > section:nth-child(3) > div:nth-child(5) > div > div": {
    "style": "'width:' + d.k.pct + '%'",
    "role": "'progressbar'",
    "aria-valuenow": "d.k.pct",
@@ -199,11 +204,33 @@
    "data-blk": "'path'"
   },
   ":scope > main > div > section:nth-child(10) > div:nth-child(1) > button": {
-   "data-act": "'path'"
+   "data-act": "'pathx'",
+   "aria-expanded": "'false'",
+   "aria-controls": "'v2-pathfull'"
   },
   ":scope > main > header > div:nth-child(2) > button:last-of-type": {
    "data-act": "'lang'",
    "aria-haspopup": "'dialog'"
+  },
+  ":scope > main > div > section:nth-child(3) > div:nth-child(5) > span": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > main > div > section:nth-child(10) > div:nth-child(2) > div:nth-child(1)": {
+   "href": "d.pv[0].href",
+   "aria-label": "d.pv[0].aria"
+  },
+  ":scope > main > div > section:nth-child(10) > div:nth-child(2) > div:nth-child(3)": {
+   "title": "d.pv[1].aria"
+  },
+  ":scope > main > div > section:nth-child(10) > div:nth-child(2) > div:nth-child(5)": {
+   "title": "d.pv[2].aria"
+  },
+  ":scope > main > div > section:nth-child(10) > div:nth-child(3)": {
+   "id": "'v2-pathfull'",
+   "data-pathfull": "''"
+  },
+  ":scope > main > div > section:nth-child(10) > div:nth-child(2)": {
+   "data-pv": "'1'"
   }
  },
  "cls": {
@@ -216,9 +243,9 @@
    "justify-center": "'justify-end'",
    "p-2": "''",
    "lt:border-[#136B66]/60": "''",
-   "lt:bg-[#F4EFE6]": "''",
+   "lt:bg-[#FBF7F1]": "''",
    "dk:border-[#6BD8CE]/60": "''",
-   "dk:bg-[#0E1F24]": "''",
+   "dk:bg-[#122023]": "''",
    "dk:shadow-[0_3px_0_0_#071316]": "''"
   },
   ":scope > main > div > section:nth-child(7) > div:nth-child(2) > div:nth-child(2) > div": {
@@ -229,6 +256,12 @@
   },
   ":scope > main > div > section:nth-child(10) > div:nth-child(2)": {
    "max-w-[240px]": "''"
+  },
+  ":scope > main > div": {
+   "py-3": "'py-4'"
+  },
+  ":scope > main > div > section:nth-child(5)": {
+   "hidden": "''"
   }
  },
  "tag": {
@@ -270,6 +303,9 @@
   },
   ":scope > main > div > section:nth-child(9) > div:nth-child(2)": {
    "to": "a"
+  },
+  ":scope > main > div > section:nth-child(10) > div:nth-child(2) > div:nth-child(1)": {
+   "to": "a"
   }
  },
  "addClass": {
@@ -303,7 +339,9 @@
      },
      "attr": {
       ":scope": {
-       "href": "r.href"
+       "href": "r.href",
+       "title": "r.sub ? r.t + ' – ' + r.sub : r.t",
+       "aria-label": "r.sub ? r.t + ' – ' + r.sub : r.t"
       }
      },
      "tag": {
@@ -319,7 +357,9 @@
      },
      "attr": {
       ":scope": {
-       "href": "r.href"
+       "href": "r.href",
+       "title": "r.sub ? r.t + ' – ' + r.sub : r.t",
+       "aria-label": "r.sub ? r.t + ' – ' + r.sub : r.t"
       }
      },
      "tag": {
@@ -335,7 +375,9 @@
      },
      "attr": {
       ":scope": {
-       "href": "r.href"
+       "href": "r.href",
+       "title": "r.sub ? r.t + ' – ' + r.sub : r.t",
+       "aria-label": "r.sub ? r.t + ' – ' + r.sub : r.t"
       }
      },
      "tag": {

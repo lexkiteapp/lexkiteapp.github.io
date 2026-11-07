@@ -129,7 +129,7 @@ Muitos professores afirmam categoricamente que phrasal verbs são proibidos em p
 
 Para entender a trajetória completa de estudo autodidata do idioma, dê uma olhada em [como aprender inglês sozinho](/pt/blog/como-aprender-ingles-sozinho/).
 
-Você também pode consultar nosso [guia de vocabulário e colocações](/tu-vung/) para expandir seu repertório de expressões com exemplos autênticos.
+Você também pode consultar nosso [guia de vocabulário e colocações](/en/vocabulary/) para expandir seu repertório de expressões com exemplos autênticos.
 
 Para praticar essas combinações através de exercícios inteligentes com repetição espaçada, acesse o módulo de [aprendizado inteligente](/#/practice/learn).
 

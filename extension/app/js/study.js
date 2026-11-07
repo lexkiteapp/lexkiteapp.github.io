@@ -15,14 +15,7 @@
     return s;
   };
   // Phản hồi xúc giác chuẩn Duolingo: đúng = rung ngắn 35ms; sai = rung đôi [50, 40, 50]ms (tôn trọng prefers-reduced-motion & tắt âm)
-  const haptic = ok => {
-    try {
-      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      if (navigator.vibrate && (!state.settings || state.settings.sfx !== false)) {
-        navigator.vibrate(ok ? 35 : [50, 40, 50]);
-      }
-    } catch (e) { /* bỏ qua */ }
-  };
+  const haptic = ok => { try { if (window.Sfx && Sfx.haptic) Sfx.haptic(ok ? 'correct' : 'wrong'); } catch (e) { /* bỏ qua */ } };
 
   // ---------- Nguồn từ ----------
   // Nghĩa hiển thị theo ngôn ngữ người học: tiếng Việt, hoặc định nghĩa tiếng Anh cho người học quốc tế
@@ -66,7 +59,7 @@
   // Báo hoàn thành lượt (lộ trình ghi bước đã xong + màn thưởng cuối bài – path.js)
   const practiceDone = detail => window.dispatchEvent(new CustomEvent('lexkite:practice-done', { detail }));
   let libN = null, libW = null;
-  const libNorm = () => libN && libN.length === TOPICS.length ? libN.list : (libN = { length: TOPICS.length, list: TOPICS.flatMap(t => t.words).filter(x => x.vi || x.def).map(norm) }).list;
+  const libNorm = () => libN && (libN.length === TOPICS.length || libW) ? libN.list : (libN = { length: TOPICS.length, list: TOPICS.flatMap(t => t.words).filter(x => x.vi || x.def).map(norm) }).list;
   // Lượt trắc nghiệm đầu: chuẩn hóa kho (~20k từ) + làm đầy bộ nhớ của Distract theo LÁT ≤ 8 ms, nhường luồng chính giữa các lát
   // (trước đây 1 tác vụ ~100 ms ngay câu đầu → CPU chậm 4× ≈ 400 ms, TBT mobile #/practice > 200 ms). Kết quả y hệt libNorm().
   const yieldMain = () => new Promise(r => (window.scheduler && scheduler.yield ? scheduler.yield().then(r) : setTimeout(r, 0)));
@@ -83,6 +76,7 @@
       if (window.Distract && Distract.warm) await Distract.warm(list, { mean, yieldMain });
     })().catch(() => {}).then(() => { libW = null; });
   };
+  addEventListener('lk:soft', () => { if (/^#\/practice\//.test(location.hash)) warmLib(); }); // kho từ về sau lần vẽ: chuẩn hóa theo lát
   // Câu đầu vẽ khi p xong (kho đã làm nóng); giữ thanh "Ngày n" mà path-day.js chèn vào view trong lúc chờ
   // Bỏ khi đã có lượt điều hướng mới (token) – kể cả đi rồi quay lại đúng hash cũ (A→B→A: hash trùng nhưng phiên cũ đã bị thay) – hoặc hash đã đổi
   const startWhen = (p, next) => { const h0 = location.hash, tok = App.routeToken(); p.then(() => { if (App.routeStale(tok) || location.hash !== h0) return; const bar = view.querySelector('.day-bar'); next(); if (bar && !view.querySelector('.day-bar')) view.prepend(bar); }); };

@@ -135,7 +135,7 @@ publishAt: 2026-10-23T21:59:00+08:00
 
 想要夯实句子成分与基本句型结构，可以结合研读我们的[英语基础语法全攻略](/zh/blog/ying-yu-yu-fa-ji-chu-gui-ze/)。而在口语面试与日常交流中自然嵌入动词短语，能让你的表达瞬间听起来格外地道，具体实战问答可参考[雅思考试口语提分技巧](/zh/blog/ya-si-kou-yu-ji-qiao/)、[英语发音练习指南](/zh/blog/ying-yu-fa-yin-lian-xi/)与[商务英语邮件格式指南](/zh/blog/shang-wu-ying-yu-you-jian-ge-shi/)。背诵短语的周期规划也可以参考[背单词的方法](/zh/blog/bei-dan-ci-de-fang-fa/)中的间隔重复心法。
 
-更多主题词汇与短语分类清单，请查阅我们的[核心词汇静态大全](/tu-vung/)。
+更多主题词汇与短语分类清单，请查阅我们的[核心词汇静态大全](/en/vocabulary/)。
 
 {{youtube: | 英语常用动词短语50个地道用法全解析：介词小品词逻辑图解}}
 

@@ -7,7 +7,7 @@ import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox,
 import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar, loadLetters, loadPron } from './lib/seo-data.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail } from './lib/samples-ui.mjs';
-import { art, typeArt, topicArt, toneArt, task1Art, vocabArt, unitArt, pronArt, t2Key, t1Key, bento } from './lib/samples-visual.mjs';
+import { art, typeArt, topicArt, toneArt, task1Art, vocabArt, unitArt, pronArt, t2Key, t1Key, catNav } from './lib/samples-visual.mjs';
 const SITE = 'https://lexkite.com/', OG = `${SITE}og-default.png`, L = SEO_L.vi, U = SU.vi, APP = L.app; // APP: gốc app (hash route) – theo site-layout
 // URL công khai không đuôi .html (Cloudflare Pages chuyển 308 /x.html → /x); file trên đĩa vẫn là *.html
 const today = new Date().toISOString().slice(0, 10);
@@ -17,8 +17,9 @@ const addSm = (urls, ...src) => { const lm = gitDate(...src); fs.writeFileSync(s
 const plain = s => s.replace(/<<[^>]*>>\s*/g, '').replace(/\[\[([^|\]]*)\|[^\]]*\]\]/g, '$1').replace(/\{\{([^}]*)\}\}/g, '$1');
 const SEC = { samples: 'Bài mẫu Writing', speaking: 'IELTS Speaking', 'tu-vung': 'Từ vựng', 'ngu-phap': 'Ngữ pháp', 'viet-thu': 'Thư mẫu IELTS General', 'phat-am': 'Phát âm' };
 const EN = { samples: 'en/samples', speaking: 'en/speaking', 'tu-vung': 'en/vocabulary', 'ngu-phap': 'en/grammar', 'phat-am': 'en/pronunciation', 'viet-thu': 'en/ielts-writing/general-task-1' }; // mục có bản tiếng Anh (build-samples-en.mjs)
-// Breadcrumb JSON-LD tự suy từ canonical: Trang chủ → mục → trang (giữ nguyên như trước)
-const crumbs = (canon, name) => { const p = canon.slice(SITE.length).split('/'), sec = p[0], it = [['Trang chủ', SITE], [SEC[sec] || sec, `${SITE}${sec}/`]]; if (p[1]) it.push([name, canon]);
+// Breadcrumb JSON-LD tự suy từ canonical: Trang chủ → mục → trang. Trang chủ tiếng Việt = /vi/ (5/11): `/` là 302 theo nước/ngôn ngữ
+// (SEO-ARCH §10) nên crumb trỏ `/` đưa Google tới /en/ – lệch với crumb hiển thị và hreflang. Test: samples-seo-parity --self-test.
+const crumbs = (canon, name) => { const p = canon.slice(SITE.length).split('/'), sec = p[0], it = [['Trang chủ', `${SITE}vi/`], [SEC[sec] || sec, `${SITE}${sec}/`]]; if (p[1]) it.push([name, canon]);
   return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: it.map(([n, u], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: u })) }; };
 // <head>: meta, canonical, og, JSON-LD – giữ nguyên từng thẻ như bản cũ (build-samples-en.mjs chèn hreflang trước og:type)
 const head = (title, desc0, canon, o = {}) => { const desc = clip(desc0); return `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><meta name="theme-color" content="#0F3D3E"><link rel="canonical" href="${canon}"><meta property="og:type" content="article"><meta property="og:site_name" content="Lexkite"><meta property="og:locale" content="vi_VN"><meta property="og:url" content="${canon}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:image" content="${OG}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/icons/icon.svg?v=3" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=3">${ld({ "@context": "https://schema.org", "@type": "LearningResource", name: title, description: desc, url: canon, inLanguage: "vi", isAccessibleForFree: true, educationalLevel: "IELTS / TOEIC", provider: { "@type": "Organization", name: "Lexkite", url: SITE }, ...(o.lr || {}) })}${ld(crumbs(canon, title.replace(/\s*[–|]\s*Lexkite$/, '')))}${(o.ld || []).map(ld).join('')}${o.smp ? smpHead() : ''}`; };
@@ -34,7 +35,7 @@ const indexHero = (h1, lead, sec) => `${hero(esc(h1), { lead })}\n${sectionNav('
 const related = (items, card) => items.length ? `<section class="grp" aria-labelledby="rel"><h2 id="rel">${L.related}</h2><div class="grid">${items.map(card).join('')}</div></section>` : '';
 const group = (id, title, sub, cards) => `<section class="grp" aria-labelledby="g-${id}"><h2 id="g-${id}">${esc(title)} <small>${sub}</small></h2><div class="grid">${cards.join('')}</div></section>`;
 const short = (s, n) => s.length > n ? s.slice(0, n - 3).replace(/\s+\S*$/, '') + '…' : s;
-const wmDate = gitDate('web/js/models.js', 'web/js/write').replace(/-/g, '');
+const wmDate = gitDate('web/js/models.js', 'web/js/write', 'web/cpack/write').replace(/-/g, '');
 const wm = (html, id) => embedWatermark(html, `LK:${id}:${wmDate}`); // thủy ấn tàng hình (P1) trong bài mẫu – ngày = lần sửa dữ liệu cuối (build ổn định)
 
 // ===== Writing Task 2 =====
@@ -70,8 +71,8 @@ ${pwaBox('vi', 'samples')}</article>`;
     `<div class="page smp">${hero2({ h1: esc(`${done.length} bài mẫu IELTS Writing Task 2 (band 8)`), lead: 'Tự biên soạn, có chú giải từ vựng tiếng Việt. Bấm vào đề để xem bài mẫu.', mood: 'think',
       statsHtml: stats([[done.length, U.statEss], [types.length, U.statTypes], ['8.0', 'Band', 'band'], [gls.toLocaleString('vi'), U.statGl]]) })}
 ${sectionNav('vi', '/samples/')}
-${bento(types.map(([ty, xs], i) => [`t${i}`, ty, xs.length, typeCls(ty), typeArt(ty)]), U.types, esc)}
-${filterBox('vi', typeFilter(types.map(([ty, xs], i) => [`t${i}`, ty, xs.length, typeCls(ty)]), done.length, 'vi'))}
+${filterBox('vi')}
+${catNav(types.map(([ty, xs], i) => [`t${i}`, ty, xs.length, typeCls(ty), typeArt(ty)]), done.length, 'vi', U.types, esc)}
 ${types.map(([ty, xs], i) => group2(`t${i}`, ty, `${xs.length} ${L.items}`, xs.map(t2Card), typeCls(ty), typeArt(ty))).join('\n')}</div>`, undefined, undefined,
     { smp: 1, ld: [itemList(`Bài mẫu IELTS Writing Task 2`, done.map(([p]) => `${SITE}samples/${p.id}`))] }));
   addSm([`${SITE}samples/`, ...done.map(([p]) => `${SITE}samples/${p.id}`)], 'web/js/write.js', 'web/js/models.js', 'web/js/write');
@@ -119,7 +120,7 @@ ${sectionNav('vi', '/speaking/')}
 ${filterBox('vi')}
 ${group2('all', 'Chủ đề', `${made.length} ${L.items}`, made.map(spCard), '', 'v-speaking')}</div>`, undefined, undefined,
     { smp: 1, ld: [itemList('IELTS Speaking', made.map(([id]) => `${SITE}speaking/${id}`))] }));
-  addSm([`${SITE}speaking/`, ...made.map(([id]) => `${SITE}speaking/${id}`)], 'web/js/speaking.js', 'web/js/speak');
+  addSm([`${SITE}speaking/`, ...made.map(([id]) => `${SITE}speaking/${id}`)], 'web/js/speaking.js', 'web/js/speak', 'web/cpack/speak');
   console.log(`✓ SEO: ${made.length} trang chủ đề Speaking + mục lục`);
 }
 
@@ -150,8 +151,8 @@ ${pwaBox('vi', 'vocab')}`;
     `<div class="page smp">${hero2({ h1: esc(`Từ vựng theo chủ đề (${TP.length} bộ)`), lead: `${total.toLocaleString('vi')} từ có phiên âm, nghĩa tiếng Việt, ví dụ và phát âm. Chọn một bộ để xem danh sách, rồi học bằng flashcard miễn phí.`, mood: 'cheer',
   statsHtml: stats([[TP.length, F[2], '', 'v-topics'], [total.toLocaleString('vi'), F[3], '', 'v-core'], [Object.keys(byG).length, F[4], '', 'shapes'], [nAu.toLocaleString('vi'), F[5], '', 'audio']]) })}
 ${sectionNav('vi', '/tu-vung/')}
-${bento(Object.entries(byG).map(([k, xs]) => [k, GROUP[k] || k, xs.length, '', vocabArt('', k)]), F[1], esc)}
-${filterBox('vi', typeFilter(Object.entries(byG).map(([k, xs]) => [k, GROUP[k] || k, xs.length, '']), TP.length, 'vi', F[1]))}
+${filterBox('vi')}
+${catNav(Object.entries(byG).map(([k, xs]) => [k, GROUP[k] || k, xs.length, '', vocabArt('', k)]), TP.length, 'vi', F[1], esc)}
 ${Object.entries(byG).map(([k, xs]) => group2(k, GROUP[k] || k, `${xs.length} ${L.sets}`, xs.map(vCard), '', vocabArt('', k))).join('\n')}</div>`));
   addSm([`${SITE}tu-vung/`, ...TP.map(x => `${SITE}tu-vung/${x.id}`)], 'web/js/data.js', 'web/js/lib');
   console.log(`✓ SEO: ${TP.length} trang bộ từ vựng + mục lục`);
@@ -192,8 +193,8 @@ ${pwaBox('vi', 'grammar')}</article>`;
   fs.writeFileSync('dist/ngu-phap/index.html', page(`Ngữ pháp tiếng Anh từ cơ bản đến IELTS – ${G.length} bài | Lexkite`, `${G.length} bài ngữ pháp tiếng Anh: 12 thì, câu điều kiện, bị động, mệnh đề quan hệ… có công thức, ví dụ song ngữ, lỗi hay gặp và bài tập miễn phí.`, `${SITE}ngu-phap/`,
     `<div class="page smp">${hero2({ h1: esc(`Ngữ pháp tiếng Anh (${G.length} bài)`), lead: 'Từ nền tảng đến band 7+: công thức, cách dùng, dấu hiệu nhận biết, lỗi người Việt hay mắc và ứng dụng trong IELTS.', mood: 'think', statsHtml: stats([[G.length, L.lessons, '', 'notebook'], [order.length, FIND_I18N.vi[4], '', 'shapes']]) })}
 ${sectionNav('vi', '/ngu-phap/')}
-${bento(order.map(k => [k, unitOf(k).name, units[k].length, '', unitArt(k)]), L.sectionsL, esc)}
-${filterBox('vi', typeFilter(order.map(k => [k, unitOf(k).name, units[k].length, '']), G.length, 'vi'))}
+${filterBox('vi')}
+${catNav(order.map(k => [k, unitOf(k).name, units[k].length, '', unitArt(k)]), G.length, 'vi', L.sectionsL, esc)}
 ${order.map(k => { const u = unitOf(k); return group2(k, u.name, `${units[k].length} ${L.lessons}`, units[k].map(gCard), '', unitArt(k)).replace('</h2>', `</h2>${u.desc ? `<p>${esc(u.desc)}</p>` : ''}`); }).join('\n')}</div>`));
   addSm([`${SITE}ngu-phap/`, ...G.map(l => `${SITE}ngu-phap/${l.id}`)], 'web/js/grammar');
   console.log(`✓ SEO: ${G.length} trang ngữ pháp + mục lục`);
@@ -232,8 +233,8 @@ ${pwaBox('vi', 'pron')}</article>`;
   fs.writeFileSync('dist/phat-am/index.html', page(`Phát âm tiếng Anh chuẩn: 44 âm IPA, trọng âm, ngữ điệu – ${P.length} bài | Lexkite`, `${P.length} bài phát âm tiếng Anh: 44 âm IPA, đuôi -ed/-s, trọng âm, nối âm, ngữ điệu – khẩu hình, từ ví dụ có audio, cặp từ tối thiểu và lỗi người Việt hay mắc.`, `${SITE}phat-am/`,
     `<div class="page smp">${hero2({ h1: esc(`Phát âm tiếng Anh (${P.length} bài)`), lead: '44 âm IPA cùng trọng âm, đuôi -ed/-s và ngữ điệu – có từ ví dụ, audio, cặp từ tối thiểu và lỗi người Việt hay mắc.', mood: 'happy', statsHtml: stats([[P.length, L.lessons, '', 'notebook'], ['44', 'IPA', '', 'p-vowels']]) })}
 ${sectionNav('vi', '/phat-am/')}
-${bento(Object.entries(by).map(([k, xs]) => [k, GN[k] || k, xs.length, '', pronArt(k)]), L.sectionsL, esc)}
-${filterBox('vi', typeFilter(Object.entries(by).map(([k, xs]) => [k, GN[k] || k, xs.length, '']), P.length, 'vi'))}
+${filterBox('vi')}
+${catNav(Object.entries(by).map(([k, xs]) => [k, GN[k] || k, xs.length, '', pronArt(k)]), P.length, 'vi', L.sectionsL, esc)}
 ${Object.entries(by).map(([k, xs]) => group2(k, GN[k] || k, `${xs.length} ${L.lessons}`, xs.map(pCard), '', pronArt(k))).join('\n')}</div>`));
   addSm([`${SITE}phat-am/`, ...P.map(x => `${SITE}phat-am/${slugP(x)}`)], 'web/js/pron', 'content/seo-en/pron.json');
   console.log(`✓ SEO: ${P.length} trang phát âm + mục lục`);
@@ -267,8 +268,8 @@ ${pwaBox('vi', 'letters')}</article>`;
     `<div class="page smp">${hero2({ h1: esc(`${made.length} thư mẫu IELTS General Task 1`), lead: 'Thư trang trọng, bán trang trọng và thân mật – có chú thích cụm từ hay tiếng Việt.', mood: 'happy',
       statsHtml: stats([[made.length, U.statLt], [tones.length, U.statTone], ['8.0', 'Band', 'band']]) })}
 ${sectionNav('vi', '/viet-thu/')}
-${bento(tones.map(([k, xs]) => [k, TONE[k], xs.length, toneCls(k), toneArt(k)]), U.tones, esc)}
-${filterBox('vi', typeFilter(tones.map(([k, xs]) => [k, TONE[k], xs.length, toneCls(k)]), made.length, 'vi', U.tones))}
+${filterBox('vi')}
+${catNav(tones.map(([k, xs]) => [k, TONE[k], xs.length, toneCls(k), toneArt(k)]), made.length, 'vi', U.tones, esc)}
 ${tones.map(([k, xs]) => group2(k, TONE[k], `${xs.length} ${L.items}`, xs.map(lCard), toneCls(k), toneArt(k))).join('\n')}</div>`, undefined, undefined,
     { smp: 1, ld: [itemList('IELTS General Training Writing Task 1', made.map(([x]) => `${SITE}viet-thu/${x.id}`))] }));
   addSm([`${SITE}viet-thu/`, ...made.map(([x]) => `${SITE}viet-thu/${x.id}`)], 'web/js/write/gt-letters.js');

@@ -171,6 +171,8 @@ Task 1에서 가장 점수 비중이 큰 핵심 단락입니다. 구체적인 �
 
 ---
 
+Task 1을 마친 뒤에는 [Band 7+ 4단락 에세이 템플릿](/ko/blog/ielts-writing-task-2-template-4danrak/)으로 Task 2의 구조도 점검해 보세요.
+
 ## 자주 묻는 질문 (FAQ)
 
 ### Overview는 서론 바로 뒤와 글 마지막 중 어디에 쓰는 것이 좋나요?

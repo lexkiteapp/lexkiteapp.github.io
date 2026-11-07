@@ -27,6 +27,8 @@ jobs:
         run: node scripts/test/tsc-check.mjs
       - name: Test riêng FSRS & API đồng bộ
         run: node scripts/test/unit.mjs
+      - name: Test lõi Truyện & podcast + nội dung mẫu (docs/STORIES.md)
+        run: node scripts/test/stories.mjs
       - name: Chính tả tiếng Việt
         run: node scripts/vi-lint.mjs
       - name: ci-triage + bỏ qua hạn mức D1 + workflow youtube/i18n
