@@ -276,9 +276,10 @@ export const ROWS = [
    "GSC_SA_JSON",
    "ADS_OAUTH_CLIENT_ID",
    "ADS_OAUTH_CLIENT_SECRET",
-   "ADS_OAUTH_REFRESH"
+   "ADS_OAUTH_REFRESH",
+   "FCM_SA"
   ],
-  "scope": "Search Console, báo cáo AdSense/AdMob",
+  "scope": "Search Console, báo cáo AdSense/AdMob; FCM_SA = JSON service account lexkite-push (Firebase Cloud Messaging API Admin) cho dry-run validate_only (push-fcm.yml)",
   "manage": "https://console.cloud.google.com/apis/credentials",
   "expires": "",
   "note": ""

@@ -149,7 +149,8 @@
   {
    "id": "reading",
    "paths": [
-    "web/js/readtest"
+    "web/js/readtest",
+    "web/cpack/readings"
    ],
    "owner": "claude",
    "gen": false,
@@ -282,7 +283,8 @@
   {
    "id": "writing",
    "paths": [
-    "web/js/write"
+    "web/js/write",
+    "web/cpack/write"
    ],
    "owner": "antigravity",
    "gen": true,
@@ -300,7 +302,8 @@
   {
    "id": "speaking",
    "paths": [
-    "web/js/speak"
+    "web/js/speak",
+    "web/cpack/speak"
    ],
    "owner": "antigravity",
    "gen": true,

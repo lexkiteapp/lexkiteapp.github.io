@@ -88,6 +88,7 @@
   "Tự nói thử": "Say it",
   "XP": "XP",
   "Xem thư viện": "View library",
+  "Xem toàn bộ lộ trình →": "See full path →",
   "Ôn ngắt quãng đang bật": "Spaced Repetition Active",
   "Ôn tập hằng ngày": "Daily Review",
   "Đang luyện": "In training",
