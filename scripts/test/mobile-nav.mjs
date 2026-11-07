@@ -111,7 +111,9 @@ async function run(scheme, ux1) {
     else { if (!c.disabled) bad(k, 'Listening: nút "Sang phần tiếp" phải khóa khi chưa nghe xong'); if (c.ratio < 4.5) bad(k, `Listening: nút "Sang phần tiếp" bị khóa tương phản ${c.ratio.toFixed(2)} < 4.5`); if (!c.why) bad(k, 'Listening: nút bị khóa không nói lý do (aria-describedby)'); log(`  · nút khóa: ${c.ratio.toFixed(2)}:1 – "${c.why}"`); }
     await page.screenshot({ path: `${OUT}/${BT.name()}-${scheme}-ux1${+ux1}-listening.png` });
   }
-  await page.evaluate(() => { location.hash = '#/me'; }); await onMe(page); await page.waitForTimeout(600);
+  await page.evaluate(() => { location.hash = '#/me'; }); await page.waitForTimeout(400);
+  { const go = await page.$('[data-exit-go]'); if (go) await go.tap(); } // đang làm bài thi: ExitGuard hỏi "Thoát bây giờ sẽ mất tiến độ?" (đúng thiết kế) → người học bấm Thoát; WebKit hiện hộp này, Chromium thoát thẳng
+  await onMe(page); await page.waitForTimeout(600);
   await pinned(page, k, '#/me');
   await page.screenshot({ path: `${OUT}/${BT.name()}-${scheme}-ux1${+ux1}-me.png`, fullPage: true });
   const ov = await overflow(page); if (ov.length) bad(k, `#/me tràn ngang: ${ov.join(', ')}`);
