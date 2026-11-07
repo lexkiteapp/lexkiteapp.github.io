@@ -2,21 +2,25 @@
 // scripts/sentence-audio/todo.mjs + merge.mjs (cổng ASR câu, sentence-audio-asr.yml – docs/WORD-AUDIO.md, mục "Audio câu"),
 // scripts/audio/coverage.mjs (độ phủ theo nhóm: groups = tên nhóm → khóa). Nhóm theo giọng đọc chung (GEN) có cả Anh lẫn Mỹ: UI.tts tra khóa theo accent người học.
 import fs from 'node:fs'; import vm from 'node:vm';
+import { dataFiles } from '../lib/scan-roots.mjs';
 export function collect() {
   const groups = new Map(), tag = (g, key) => { if (!groups.has(g)) groups.set(g, new Set()); groups.get(g).add(key); };
   const c = { self: {} }; c.self = c; vm.createContext(c);
   vm.runInContext(fs.readFileSync('web/js/listen/kvoice.js', 'utf8'), c);
-  for (const f of fs.readdirSync('web/js/listen').filter(f => /^test\d+\.js$/.test(f)).sort()) vm.runInContext(fs.readFileSync('web/js/listen/' + f, 'utf8'), c);
+  for (const f of dataFiles('listen', /^test\d+\.js$/)) vm.runInContext(fs.readFileSync(f, 'utf8'), c); // web/js/listen + web/cpack/listen
   for (const f of fs.readdirSync('web/js/toeic').filter(f => /^listening\d+\.js$/.test(f)).sort()) vm.runInContext(fs.readFileSync('web/js/toeic/' + f, 'utf8'), c);
   for (const f of fs.readdirSync('web/cpack/toefl').filter(f => /^data\d+\.js$/.test(f))) vm.runInContext(fs.readFileSync('web/cpack/toefl/' + f, 'utf8'), c);
-  const parts = [...(c.LISTENING || []), ...((c.TOEIC || {}).listening || []), ...((c.TOEFL || {}).listening || [])];
+  // Cambridge A2–C2 (docs/specs/cambridge.md): mỗi unit nghe có speakers + script như TOEFL
+  if (fs.existsSync('web/cpack/cambridge')) for (const l of fs.readdirSync('web/cpack/cambridge').filter(x => /^(a2|b1|b2|c1|c2)$/.test(x))) for (const f of fs.readdirSync('web/cpack/cambridge/' + l).filter(f => /^t\d+\.js$/.test(f))) vm.runInContext(fs.readFileSync(`web/cpack/cambridge/${l}/${f}`, 'utf8'), c);
+  const camUnits = (c.CAMBRIDGE || []).flatMap(T => ((T.listening || {}).parts || []).flatMap(p => p.units || [])).map(u => ({ ...u, _g: 'cambridge-listening' }));
+  const parts = [...(c.LISTENING || []), ...((c.TOEIC || {}).listening || []), ...((c.TOEFL || {}).listening || []), ...camUnits];
   const jobs = new Map();
   for (const p of parts) {
     const v = c.KVoice.voices(p);
     for (const l of p.script || []) {
       const text = l.say || l.t; if (!text || l.pause != null) continue;
       const voice = l.say ? v._narrator : (v[l.s] || v._narrator), key = c.KVoice.lineKey(voice, text);
-      jobs.set(key, { voice, text: String(text).trim() }); tag('listening', key);
+      jobs.set(key, { voice, text: String(text).trim() }); tag(p._g || 'listening', key);
     }
   }
   // Truyện + Radio của #/lesson (docs/LESSON-ENGINE.md §2c): mỗi câu thoại 1 file theo giọng nhân vật (khớp LessonTeacher.VOICE)
@@ -41,6 +45,11 @@ export function collect() {
   const both = (text, g) => { for (const v of Object.values(GEN)) addOne(v, text, g); };
   const oneSplit = (v, text, g) => { if (!text) return; const whole = c.KVoice.lineKey(v, text); if (jobs.has(whole)) { tag(g, whole); return; } for (const sen of c.KVoice.split(text)) addOne(v, sen, g); };
   const bothSplit = (text, g) => { for (const v of Object.values(GEN)) oneSplit(v, text, g); };
+  // Cambridge Speaking: câu hỏi giám khảo (UI.tts 'en-GB') + lời bạn cùng thi (UI.tts 'en-US') – web/js/cambridge.js
+  for (const T of c.CAMBRIDGE || []) for (const p of (T.speaking || {}).parts || []) {
+    for (const q of [...(p.phases || []).flatMap(x => [...(x.q || []), ...(x.extended ? [x.extended] : [])]), p.prompt, ...(p.follow || [])]) if (q) addOne(GEN['en-GB'], q, 'cambridge-speaking');
+    for (const l of p.partnerLines || []) addOne(GEN['en-US'], l, 'cambridge-speaking');
+  }
   for (const u of (c.TOEFL || {}).speaking || []) { const v = GEN[u.accent] || GEN['en-GB']; for (const x of u.sentences || []) x.t && addOne(v, x.t, 'toefl-speaking'); for (const x of u.questions || []) x.q && addOne(v, x.q, 'toefl-speaking'); }
   {
     const sp = fs.readFileSync('web/js/speaking.js', 'utf8'), i0 = sp.indexOf('const BANK = [') + 13;
@@ -52,7 +61,7 @@ export function collect() {
   }
   // Đọc dài theo từng câu (UI.tts tách câu): câu trả lời mẫu Speaking + 30 bài đọc – theo accent người học (cả 2 giọng)
   {
-    for (const f of ['readings', 'readings-more']) vm.runInContext(fs.readFileSync(`web/js/${f}.js`, 'utf8'), c);
+    for (const f of ['web/js/readings.js', 'web/cpack/readings/more.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), c);
     vm.runInContext(fs.readFileSync('web/js/speak/samples.js', 'utf8'), c);
     for (const r of c.READINGS || []) for (const sen of c.KVoice.split(r.text)) both(sen, 'readings');
     for (const x of Object.values(c.SPEAK_SAMPLES || {})) for (const sen of c.KVoice.split(x.a)) both(sen, 'speaking-samples');

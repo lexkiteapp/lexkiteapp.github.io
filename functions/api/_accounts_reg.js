@@ -259,9 +259,10 @@ export const ROWS = [
    "CWS_REFRESH_TOKEN",
    "CWS_PUBLISHER_ID",
    "CWS_EXTENSION_ID",
-   "OTA_SIGNING_KEY"
+   "OTA_SIGNING_KEY",
+   "PLAY_SERVICE_ACCOUNT_JSON"
   ],
-  "scope": "Phát hành TestFlight, Play, CWS; ký OTA",
+  "scope": "Phát hành TestFlight, Play, CWS; ký OTA; đọc đánh giá App Store/Play (store-reviews.yml – PLAY_SERVICE_ACCOUNT_JSON chưa tạo)",
   "manage": "https://appstoreconnect.apple.com/",
   "expires": "",
   "note": ""
@@ -275,9 +276,10 @@ export const ROWS = [
    "GSC_SA_JSON",
    "ADS_OAUTH_CLIENT_ID",
    "ADS_OAUTH_CLIENT_SECRET",
-   "ADS_OAUTH_REFRESH"
+   "ADS_OAUTH_REFRESH",
+   "FCM_SA"
   ],
-  "scope": "Search Console, báo cáo AdSense/AdMob",
+  "scope": "Search Console, báo cáo AdSense/AdMob; FCM_SA = JSON service account lexkite-push (Firebase Cloud Messaging API Admin) cho dry-run validate_only (push-fcm.yml)",
   "manage": "https://console.cloud.google.com/apis/credentials",
   "expires": "",
   "note": ""
