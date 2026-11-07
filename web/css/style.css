@@ -1179,8 +1179,6 @@ body.focus .sidebar, body.focus .bottom-nav, .lk-fo .sidebar, .lk-fo .bottom-nav
 body.focus .shell, .lk-fo .shell { grid-template-columns: 1fr; }
 /* Màn học: thanh trên ra khỏi luồng để không để lại dải trống ở đầu màn */
 .lk-fo .topbar, body.focus .topbar { position: absolute; inset-inline: 0; visibility: hidden; transform: translateY(-100%); pointer-events: none; }
-.listen-back { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; }
-.listen-head { margin: .25rem 0 1rem; }
 
 .contact-form { display: flex; flex-direction: column; gap: 1rem; position: relative; }
 .contact-form label { display: flex; flex-direction: column; gap: .35rem; font-weight: 600; font-size: .92rem; }
