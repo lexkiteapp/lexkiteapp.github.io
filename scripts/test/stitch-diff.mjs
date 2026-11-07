@@ -61,7 +61,8 @@ async function auditContrast(page, buf, tag) {
 // gate: không ô giữ chỗ giáo viên / ảnh vỡ trong màn Stitch
 const PHSCAN = () => { const bad = []; for (const s of document.querySelectorAll('.st')) { if (/TEACHER SLOT|\[teacher\]|placeholder/i.test(s.innerText)) bad.push('chữ giữ chỗ');
     // lẫn ngôn ngữ: trang chụp ở hl=en → chữ hiện ra có chữ cái riêng tiếng Việt = chuỗi chưa dịch (lọt khóa Việt)
-    if (document.documentElement.lang !== 'vi') { const vi = (s.innerText.match(/[^\s]*[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹĂÂĐÊÔƠƯẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼẾỀỂỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴỶỸ][^\s]*/g) || []); if (vi.length) bad.push('lẫn tiếng Việt: ' + [...new Set(vi)].slice(0, 6).join(' ')); } for (const i of s.querySelectorAll('img')) if (i.complete && !i.naturalWidth && i.getBoundingClientRect().width) bad.push('ảnh vỡ ' + (i.getAttribute('src') || '').slice(-40)); } return bad; };
+    if (document.documentElement.lang !== 'vi') { const own = [...s.querySelectorAll('[lang]')].filter(x => x.lang !== document.documentElement.lang).reduce((a, x) => a.split(x.textContent.trim()).join(' '), s.innerText); // tên ngôn ngữ tự xưng (option lang="vi" "Tiếng Việt") không phải chuỗi lọt
+      const vi = (own.match(/[^\s]*[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹĂÂĐÊÔƠƯẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼẾỀỂỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴỶỸ][^\s]*/g) || []); if (vi.length) bad.push('lẫn tiếng Việt: ' + [...new Set(vi)].slice(0, 6).join(' ')); } for (const i of s.querySelectorAll('img')) if (i.complete && !i.naturalWidth && i.getBoundingClientRect().width) bad.push('ảnh vỡ ' + (i.getAttribute('src') || '').slice(-40)); } return bad; };
 const ph = {};
 
 // ---- ảnh: giải mã PNG/JPG (JPG đổi sang PNG bằng ImageMagick) → ma trận xám W×H ----

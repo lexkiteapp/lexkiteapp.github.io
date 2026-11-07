@@ -43,13 +43,44 @@
 - firebase-auth (39 KB) nạp cả khi khách chưa đăng nhập.
 - `#793` đang sửa TBT màn đầu (vocab-img, i18n), không trùng với các việc dưới đây.
 
+### Sau #799 + #804 + #816 (lexkite.com, 06/11, run 42299937992)
+| Route | LCP | FCP | TBT | Byte | So với 06/11 trước sửa |
+|---|---|---|---|---|---|
+| `#/welcome` | 0,93 s | 0,93 s | 8 ms | 497 KB | 0,75 s (dao động, font chưa nằm trong cache) |
+| Hôm nay | **3,65 s** | 0,74 s | 148 ms | 867 KB (font 126 KB) | 5,43 s |
+| Ôn | **3,26 s** | 3,09 s | 29 ms | 757 KB (font 57 KB) | 5,27 s |
+| Bài học | **4,05 s** | 4,05 s | 12 ms | 590 KB | 4,81 s |
+| Từ điển | 3,26 s | 0,72 s | 44 ms | 475 KB | 3,61 s |
+| Trang giới thiệu | 0,56 s | 0,56 s | 95 ms | 372 KB | 0,81 s · TBT 379 ms |
+| Blog | – | – | – | – | runner vẫn bị Cloudflare trả trang thử thách, chưa đo được |
+
+Còn cách mục tiêu LCP < 2,5 s:
+- Hôm nay vẽ khung lúc 0,74 s, nhưng phần tử LCP (dòng chặng) tới 3,65 s. Gói `words` (ngsl 151 KB, awl 51 KB…) vẫn tải trước mốc LCP và tranh băng thông 4G với dữ liệu màn → việc 10.
+- Bài học: FCP = LCP = 4 s, chuỗi gói `lesson` (CSS 105 KB, hơn 300 request) chặn lần vẽ đầu → việc 11.
+- Ôn: phần tử LCP là dòng báo "Không phát được âm thanh" (máy đo không có loa), nên số này chưa phản ánh thẻ ôn.
+
 Việc xếp theo lợi ích/chi phí (mỗi việc 1 PR nhỏ, có số trước/sau từ job `routes`):
-1. **Khách cũ vẽ trước, nạp kho từ sau.** Hôm nay, Ôn và Bài học không chặn lần vẽ đầu bằng `lib/ngsl|awl|skills|topics-more|office.js`: chỉ nạp phần route cần, phần còn lại nạp khi rảnh. Mục tiêu LCP < 2,5 s, khoảng −300 KB trên đường găng.
-2. **Cache bất biến theo mã băm.** `/js` và `/css` đặt tên theo mã băm lúc build, `Cache-Control: immutable` trên Pages và jsDelivr; SW dùng cache-first cho file có băm và stale-while-revalidate cho JSON dữ liệu. Lần mở lại không còn 250 lượt hỏi lại.
-3. **Font gọn.** Tự host Be Vietnam Pro bản cắt (latin + vietnamese, 3 độ đậm, bỏ nghiêng nếu không dùng), `preload` 1 file; Bricolage chỉ nạp ở màn có tiêu đề lớn. Ước tính −150 đến −250 KB mỗi route.
+1. **Khách cũ vẽ trước, nạp kho từ sau.** Xong ở #799: `PAINT_FIRST` = Hôm nay + Ôn, gói `words` nạp sau lần vẽ đầu (khóa ở `shell-lazy.mjs` mục 4).
+2. **Cache bất biến theo mã băm.** Xong ở #804. `scripts/build-hash.mjs` sinh `/h/<đường dẫn>.<băm10>.<đuôi>` cho JS/CSS (băm theo tầng, immutable 1 năm; HTML và `sw.js` vẫn no-cache). File gốc giữ nguyên cho add-on, app di động (`NO_HASH=1`) và đường dẫn ghép động. SW và `loadScript`/`loadCss` quay về file gốc khi bản băm đã bị gỡ. Khóa bằng `build-hash.mjs`. Tải ấm trên bản dựng thử nhanh hơn 6–15 %.
+3. **Font tự host, cắt gọn.** Xong ở #816. `scripts/build-fonts.mjs` khai báo 24 `@font-face` nội tuyến cho Be Vietnam Pro (swap) và Bricolage (optional).
+   - Mỗi kiểu cắt 3 mảnh latin/latin-ext/vietnamese (unicode-range), phủ chữ Latin của 15 ngôn ngữ. ar/hi/ja/ko/ru/th/zh dùng font hệ thống.
+   - Preload đúng 1 font LCP: ux1 → `pjs-latin`, mặc định → `bvp-400-latin`.
+   - Add-on chép `web/fonts`: trước đó `pjs-*` trong add-on bị 404.
+   - Khóa bằng `self-fonts.mjs`. Trên bản dựng thử, byte font Hôm nay 209 → 56 KB và LCP lạnh nhanh hơn 100–280 ms.
 4. firebase-auth nạp khi bấm Đăng nhập, hoặc khi đã có phiên.
 5. Trang giới thiệu: video `idle.webm` (209 KB) chỉ nạp khi rảnh và đang hiện trên màn; trước đó dùng ảnh poster. Đồng thời tìm nguồn TBT 379 ms.
 6. Speculation rules / prefetch lúc rảnh cho màn kế tiếp (Hôm nay → Ôn/Bài học).
 7. Ôn: INP 224 ms (lật thẻ). Tách việc nặng sau lần vẽ bằng `yield`.
 8. Ảnh AVIF/WebP có srcset và đủ kích thước; `content-visibility` cho danh sách dài (đã có luật ở trên). Ảnh chưa nằm trong top 10 byte của route nào.
 9. Đo blog: tìm cách để runner CI qua được trang thử thách (hoặc đo `lexkite.pages.dev`), và kiểm xem trang thử thách có chặn người hay crawler thật không.
+10. Hôm nay: dời gói `words` tới SAU mốc LCP thật (chờ phần tử chặng vẽ xong + mạng rảnh), không theo hẹn giờ 2,5 s. Đo bằng `TRACE=1` để thấy thác tài nguyên.
+11. Bài học: tách CSS màn học (105 KB) thành phần cần cho lần vẽ đầu và phần nạp sau; gom các request nhỏ của gói `lesson`.
+
+## Lưu trữ phía máy người học (07/11)
+Đo: `scripts/test/storage-audit.mjs` – 7 ngày học giả lập trên dist (SW thật), main vs nhánh trong workflow **Storage audit**; số ghi ở PR từng bước.
+Mỗi bước 1 PR, có số byte trước/sau:
+1. **Trần cache SW** – cache khung app: khung SHELL luôn giữ, phần runtime LRU ≤ `RT_MAX` 400 mục (trước: không trần); âm thanh 2000 / ảnh từ vựng 800 thành LRU thật
+   (nghe/xem lại = mới nhất); đổi phiên bản xóa cache khung cũ, máy cài cũ vượt trần về trần khi kích hoạt; không cất phản hồi lỗi. Test `scripts/test/sw-storage.mjs`.
+2. Dữ liệu lớn trong localStorage → IndexedDB (ngân sách `lsItemMax` trong `storage-audit.budget.json`).
+3. Cài đặt: dòng "Dung lượng đang dùng" + nút dọn (15 ngôn ngữ).
+4. `navigator.storage.persist()` chỉ khi người học bật học offline.

@@ -30,10 +30,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: npm }
       - if: matrix.group.parts != 'static'
-        timeout-minutes: 12
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install chromium   # không --with-deps: runner đã có thư viện của Chrome; apt hay kẹt khoá do cập nhật nền
+          bash scripts/ci/pw-install.sh chromium   # không --with-deps: runner đã có thư viện của Chrome; apt hay kẹt khoá do cập nhật nền
           sudo timeout 300 apt-get -o DPkg::Lock::Timeout=120 install -y -qq fonts-noto-cjk fonts-noto-core >/dev/null || true
       - if: contains(format(' {0} ', matrix.group.parts), ' blog ')
         run: node scripts/build-blog.mjs

@@ -85,6 +85,10 @@
 # Gói nội dung tải lười (web/cpack → dist/cpack/<tên>.<mã băm>.js, scripts/build-cpack.mjs): đổi nội dung = đổi tên → immutable 1 năm trên Cloudflare (miễn phí)
 /cpack/*
   Cache-Control: public, max-age=31536000, immutable
+# JS/CSS của app theo mã băm nội dung (scripts/build-hash.mjs → dist/h/<đường dẫn>.<băm>.<đuôi>): đổi nội dung = đổi tên → immutable 1 năm.
+# HTML (/app/, /) và /sw.js giữ no-cache/no-store ở trên → bản mới luôn được thấy ngay; file gốc /js/* /css/* vẫn no-cache.
+/h/*
+  Cache-Control: public, max-age=31536000, immutable
 
 /packs/*
   Cache-Control: public, max-age=86400

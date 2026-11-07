@@ -66,7 +66,7 @@
 'Học thông minh': 'Smart study',
 'Nguồn:': 'Source:',
 '{title} – câu {n}: {q}': '{title} – Q{n}: {q}',
-'{a}/{b} đã trả lời': '{a}/{b} answered',
+
 'Bấm để bỏ tô sáng': 'Tap to remove highlight',
 'Ghi chú': 'Note',
 'Đáp án:': 'Answer:',

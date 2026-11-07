@@ -57,7 +57,7 @@ script: [
 { s: 'B', t: 'Thanks very much for your help.' },
 ],
 groups: [
-{ type: 'form', title: 'Lost Property Report', instr: 'Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
+{ type: 'form', title: 'Lost Property Report', instr: g.LTI[1], limit: 2,
 items: [
 { n: 1, text: 'Name: Oliver ___', a: ['Fairclough'], cue: 'F, A, I, R, C, L, O, U, G, H', explain: 'Oliver đánh vần họ của mình: “F, A, I, R, C, L, O, U, G, H”. Chú ý chữ “C” ở giữa và cụm “GH” ở cuối, rất dễ bị bỏ sót khi viết.' },
 { n: 2, text: 'Mobile number: ___', a: ['07845316092', '07845 316092'], cue: '0, 7, 8, 4, 5 – 3, 1, 6, 0, 9, 2', explain: 'Số điện thoại được đọc từng chữ số: “0, 7, 8, 4, 5 – 3, 1, 6, 0, 9, 2”. Cần nghe kỹ để không bỏ sót số 0 ở đầu và giữa dãy.' },
@@ -67,7 +67,7 @@ items: [
 { n: 6, text: 'Distinguishing feature: fox-shaped ___ on front pocket', a: ['badge'], cue: "there's a little badge on the front pocket", explain: 'Đặc điểm nhận dạng: “there\'s a little badge on the front pocket. It\'s shaped like a fox”. Đề viết “fox-shaped ___” là cách diễn đạt lại của “shaped like a fox”.' },
 { n: 7, text: 'Most important item: ___', a: ['sketchbook', 'sketch book', 'a sketchbook'], cue: 'my sketchbook', explain: 'Bẫy: “water bottle” và “umbrella” có trong túi nhưng “don\'t matter much”; món anh thật sự muốn lấy lại là “my sketchbook”, được nhân viên ghi là “the main item”.' },
 ] },
-{ type: 'note', title: 'Collecting the bag', instr: 'Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
+{ type: 'note', title: 'Collecting the bag', instr: g.LTI[4], limit: 2,
 items: [
 { n: 8, text: 'Office closes at ___ on Saturdays', a: ['4', 'four', '4 pm', '4pm', '4.00', '4:00'], cue: 'at four', explain: 'Bẫy: ngày thường mở cửa “from eight until half past six”, còn thứ Bảy “we close earlier, at four”; Chủ nhật thì đóng cửa.' },
 { n: 9, text: 'When phoning, give the ___ number', a: ['reference'], cue: 'quote your reference number', explain: 'Khi gọi điện, cần “quote your reference number”; đề dùng “give” thay cho “quote”. Không phải tìm theo tên: “instead of searching by name”.' },
@@ -132,7 +132,7 @@ script: [
 { s: 'A', t: "OK, I think that covers everything. I'm happy to take any questions now." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 11, q: 'Why did the old library on King Street close?', options: ['It was too small for the number of visitors.', 'The roof was too expensive to repair.', 'It was too far from public transport.'], a: 1, cue: 'repairing it would', explain: 'Karen nói thư viện cũ “had plenty of space” (loại A); lý do thật là mái dột và “repairing it would\'ve cost more than building a new library” (B). Gần bến xe buýt là ưu điểm của địa điểm mới, không phải lý do đóng cửa (loại C).' },
 { n: 12, q: 'Why have the weekday opening hours been extended?', options: ['Residents asked for evening access.', 'The council provided extra funding.', 'The old library had longer hours.'], a: 0, cue: 'they wanted to visit after work', explain: 'Ban đầu định đóng cửa lúc sáu giờ, nhưng “residents told us in the survey that they wanted to visit after work” – tức muốn đến vào buổi tối (A). Không nhắc đến kinh phí (B); thư viện cũ thậm chí không mở Chủ nhật (C sai).' },
@@ -218,7 +218,7 @@ script: [
 { s: 'B', t: "Will do. Thanks, Dr Hayes, that's been really helpful." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 21, q: 'What was the main reason the students chose this topic?', options: ['There has been a lot of media coverage of it.', 'Their tutor suggested it to them.', 'Classmates said they had learned from social media.'], a: 2, cue: "almost everyone said they'd learned something", explain: 'Priya nói chọn đề tài “partly” vì tin tức về mạng xã hội gây xao nhãng (A chỉ là lý do phụ), “But mainly because… almost everyone said they\'d learned something” từ mạng xã hội (C). Giảng viên không gợi ý đề tài (B).' },
 { n: 22, q: 'Why have the students decided to survey only first-year students?', options: ['A larger survey would take too long.', 'First-year students use social media most.', 'Other year groups have already been surveyed.'], a: 0, cue: 'that would be impossible to manage in six weeks', explain: 'Khảo sát cả trường “would be impossible to manage in six weeks” = mất quá nhiều thời gian (A). Bẫy B: sinh viên năm nhất được chọn vì đang “adjusting their study habits”, không phải vì dùng mạng xã hội nhiều nhất; C không được nhắc.' },
@@ -295,7 +295,7 @@ script: [
 { s: 'A', t: "Next week, we'll look at how reefs are monitored using satellites and underwater drones." },
 ],
 groups: [
-{ type: 'note', title: 'Coral reefs and ocean acidification', instr: 'Complete the notes below. Write ONE WORD ONLY for each answer.', limit: 1,
+{ type: 'note', title: 'Coral reefs and ocean acidification', instr: g.LTI[2], limit: 1,
 items: [
 { n: 31, text: 'Importance of reefs: protect coastlines by reducing ___', a: ['erosion'], cue: 'it reduces erosion of the shoreline', explain: 'Rạn san hô là hàng rào tự nhiên chắn sóng: “it reduces erosion of the shoreline”. Đề dùng “protect coastlines” thay cho “barrier against waves… shoreline”.' },
 { n: 32, text: 'Coral skeleton is made of calcium carbonate, built from ___ in seawater', a: ['minerals'], cue: 'which it builds from minerals dissolved in the seawater', explain: 'Mỗi polyp tạo bộ xương canxi cacbonat “which it builds from minerals dissolved in the seawater”. Đáp án là “minerals”, không phải “carbonate” (đã có sẵn trong đề).' },
