@@ -353,6 +353,7 @@
    "id": "lesson",
    "paths": [
     "web/js/lesson",
+    "web/cpack/lesson",
     "content/lesson"
    ],
    "owner": "claude",
