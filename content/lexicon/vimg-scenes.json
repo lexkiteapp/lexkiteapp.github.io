@@ -1080,15 +1080,15 @@
   },
   "action item#n": {
    "ex": "Here are the action items from today's call.",
-   "ps": "a woman checks a box on a paper list while a man watches",
-   "sc": "a woman checks a box on a paper list while a man watches",
-   "check": "Is the woman marking a task on a list?",
-   "cap": "a woman marking a task on a paper list",
-   "who": 2,
+   "ps": "a person holds a blank sheet with a big red cross mark, looking determined",
+   "sc": "a person holds a blank sheet with a big red cross mark, looking determined",
+   "check": "Is there a visible pending task shown by a red cross on a sheet?",
+   "cap": "a person holding a sheet marked with a red cross",
+   "key": "a big red cross mark on a blank sheet; the person's focused expression",
+   "who": 1,
    "draw": 4,
-   "v": "e4",
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 3
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "action#n": {
    "ex": "We need to take action to reduce waste.",
@@ -21601,8 +21601,8 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "desktop#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-07T10:56:05.911Z"
+   "e4bad": 2,
+   "badAt": "2026-11-07T11:28:39.373Z"
   },
   "despair#n": {
    "ex": "He came home in despair.",
@@ -54993,11 +54993,16 @@
   },
   "password reset#n": {
    "ex": "I requested a password reset but did not get the email.",
-   "sc": "person A at a desk uses a laptop, presses a circular‑arrow reset icon on the screen, then glances at an empty mail tray beside the computer, showing no incoming message.",
-   "cap": "a user attempts a login change but gets no mail",
+   "ps": "a person holds a large silver key and inserts it into a metal lock, both clearly visible",
+   "sc": "a person holds a large silver key and inserts it into a metal lock, both clearly visible",
+   "check": "Is the person unlocking a lock with a new key?",
+   "cap": "a person unlocking a lock with a key",
+   "key": "person holding a large key; a lock being opened",
    "who": 1,
+   "draw": 4,
+   "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "e4bad": 3
+   "tries": 2
   },
   "password#n": {
    "ex": "For security reasons, change your password every three months.",
@@ -55968,8 +55973,8 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "peripheral#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-07T10:55:54.460Z"
+   "e4bad": 2,
+   "badAt": "2026-11-07T11:28:39.374Z"
   },
   "perishable goods#n": {
    "ex": "Perishable goods receive priority handling at the airport.",
@@ -59895,7 +59900,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 3
+   "e4bad": 4,
+   "badAt": "2026-11-07T11:28:39.373Z"
   },
   "product recall#n": {
    "ex": "The product recall affects about 10,000 heaters sold last winter.",
@@ -78113,11 +78119,15 @@
   },
   "timetable#n": {
    "ex": "Check the timetable — the last train leaves at 11:40.",
-   "sc": "person A, a traveler in a coat, stands on a train platform, looking up at a large wall board displaying multiple clock faces and train silhouettes, indicating schedule",
-   "cap": "a traveler checks a schedule board on the platform",
+   "ps": "a person stands looking at a wall-mounted digital board that displays rows of transport times",
+   "sc": "a person stands looking at a wall-mounted digital board that displays rows of transport times",
+   "check": "Is the board showing scheduled arrival and departure times for transport?",
+   "cap": "a person checking a digital board with rows of transport times",
+   "key": "a digital board displaying rows of times; a person looking at the board",
    "who": 1,
-   "by": "openai/gpt-oss-120b",
-   "e4bad": 3
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "tinnitus#n": {
    "ex": "Trauma to the skull may cause tinnitus.",

@@ -1345,6 +1345,12 @@
    "why": "meaning check: no (Is the person unable to move the shown arm volunta)",
    "b": "42315140853"
   },
+  "password reset#n": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "meaning check: no (Is the person unlocking a lock with a new key?)",
+   "b": "42368151761"
+  },
   "pay-per-click#adj": {
    "at": "2026-11-07",
    "tries": 18,
@@ -1878,6 +1884,12 @@
    "tries": 18,
    "why": "meaning check: no (Is there a paper showing many recorded work hours?)",
    "b": "42322284048"
+  },
+  "timetable#n": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "vision: text",
+   "b": "42368151761"
   },
   "trade-off#n": {
    "at": "2026-11-07",
