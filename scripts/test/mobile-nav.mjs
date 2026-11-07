@@ -18,7 +18,7 @@ async function open(scheme, ux1, { hangIdb = false, fresh = false } = {}) {
   const ctx = await browser.newContext({ viewport: { width: 375, height: 812 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: UA, colorScheme: scheme, locale: 'vi', reducedMotion: 'reduce' });
   await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   const page = await ctx.newPage(), errs = [];
-  page.on('pageerror', e => errs.push(String(e).slice(0, 300)));
+  page.on('pageerror', e => { const m = String(e).slice(0, 300); if (!/Response served by service worker is an error|Returned response is null/.test(m)) errs.push(m); }); // WebKit tự báo lỗi mạng của fetch ĐÃ được app bắt (notices.js) khi noProd cắt /api offline → không phải lỗi mã; mọi lỗi JS khác vẫn tính
   await page.addInitScript(({ ux1, hangIdb, fresh }) => {
     try {
       localStorage.setItem('lk.ux1', ux1 ? '1' : '0'); localStorage.setItem('vb.nudgeAt', String(Date.now()));
