@@ -67,10 +67,10 @@
   routes.placement = function () {
     if (!document.getElementById('pl-css')) { const st = document.createElement('style'); st.id = 'pl-css'; st.textContent = '.pl-result { text-align: center; color: var(--text); padding: 1.6rem 1.25rem; } .pl-em { font-size: 3rem; line-height: 1; margin-bottom: .5rem; } .pl-h { color: var(--text); font-size: 1.4rem; margin-bottom: .8rem; text-wrap: balance; } .pl-rings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; max-width: 320px; margin: .6rem auto 1rem; } .pl-skill { display: grid; justify-items: center; gap: .3rem; } .pl-skill .ring { width: 76px; height: 76px; } .pl-skill .ring b { font-size: 1rem; } .pl-how { text-wrap: pretty; } .pl-q { font-size: 1.15rem; font-weight: 700; margin-top: .4rem; line-height: 1.5; } .pl-cta { display: grid; gap: .6rem; max-width: 360px; margin: 1.2rem auto 0; } [dir="rtl"] .pl-q { direction: ltr; unicode-bidi: isolate; } .pl-inv { display: flex; align-items: flex-end; justify-content: center; gap: .75rem; margin: 0 auto .9rem; max-width: 360px; } .pl-say { flex: 1 1 auto; min-width: 0; margin: 0; padding: .7rem .9rem; border-radius: 16px; background: var(--surface-2); color: var(--text); text-align: start; font-weight: 600; text-wrap: pretty; }'; document.head.appendChild(st); }
     const mean = w => App.meanOf(w);
-    // Lời mời từ thiết lập lần đầu (onboard.js ghi lk.plInv = các chủ đề của mục tiêu khi chưa chọn trình độ): Bỏ qua / làm xong → Hôm nay; xong thì thêm từ đúng trình độ
+    // lk.plInv (onboard.js): lời mời người mới – Bỏ qua/xong → Hôm nay
     const INV = 'lk.plInv', inv = (() => { try { const v = JSON.parse(sessionStorage.getItem(INV) || 'null'); return state.settings.onboarded && Array.isArray(v) ? v : null; } catch (e) { return null; } })();
     const endInv = () => { try { sessionStorage.removeItem(INV); } catch (e) { /* bỏ qua */ } };
-    const addLv = async cefr => { // ≤10 từ đúng cấp CEFR (kỹ năng từ vựng) trong các chủ đề của mục tiêu, chưa có trong bộ thẻ
+    const addLv = async cefr => { // ≤10 từ đúng CEFR, chưa có trong bộ thẻ
       const ks = new Set(), ws = [];
       for (const id of inv || []) for (const w of ((App.topicOf(id) || {}).words || [])) { const k = String(w.word || '').toLowerCase(); if (ws.length < 10 && k && w.level === cefr && !ks.has(k) && !App.inDeck(k)) { ks.add(k); ws.push(w); } }
       for (const w of ws) await App.addWord(w, null, { silent: true });
@@ -163,7 +163,7 @@
       <p>${t('20 câu từ vựng và ngữ pháp từ A2 đến C1. Lexkite dùng kết quả để <b>ước tính band</b>, tìm <b>điểm yếu</b> và cá nhân hóa kế hoạch học mỗi ngày.')}</p>
       <p class="small muted">${t('Không biết thì chọn “Tôi không biết” – đừng đoán, kết quả sẽ chính xác hơn.')}</p>
       <div class="pl-cta"><button class="btn primary lg block" id="go">${t('Bắt đầu →')}</button>${inv ? `<button type="button" class="btn block" id="plSkip">${t('Bỏ qua')}</button><p class="small muted">${t('Bỏ qua thì bạn học từ chặng đầu – làm bài sau ở Hôm nay cũng được.')}</p>` : ''}</div></div></div>`;
-    if (inv) $('#plSkip').onclick = () => { endInv(); App.replaceHash('#/home'); }; // người mới bỏ qua → Hôm nay, trình độ mặc định (chặng đầu), bộ thẻ đã có từ thiết lập
+    if (inv) $('#plSkip').onclick = () => { endInv(); App.replaceHash('#/home'); }; // bỏ qua → mặc định
     $('#go').onclick = () => { if (App.holdRoute) App.holdRoute(); document.addEventListener('keydown', keys); ask(); }; // đang làm bài → boot không vẽ lại xóa tiến độ
   };
 })();

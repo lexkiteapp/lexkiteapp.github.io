@@ -117,8 +117,8 @@
         const to = TK() ? await TK().startSetup(pick) : '#/review';
         await D.saveSettings();
         for (const id of pick.topics) for (const w of D.topicOf(id).words) if (!D.inDeck(w.word)) await D.addWord(w, null, { silent: true }); // bộ thẻ ôn ban đầu hợp mục tiêu
-        if (to === '#/placement') try { sessionStorage.setItem('lk.plInv', JSON.stringify(topicsFor(pick.exam).map(x => x.id))); } catch (e) { /* riêng tư: vẫn làm bài, không có lời mời/bộ từ theo trình độ */ } // chưa chọn trình độ → lời mời 5 phút (placement.js: Bỏ qua / làm xong → Hôm nay, thêm từ hợp trình độ)
-        await D.finish(true, to); // vào thẳng Ngày 1 của gói (đã chọn trình độ) hoặc lời mời bài đầu vào – chưa cần tài khoản
+        if (to === '#/placement') try { sessionStorage.setItem('lk.plInv', JSON.stringify(topicsFor(pick.exam).map(x => x.id))); } catch (e) { /* riêng tư: không lời mời */ } // lời mời 5 phút (placement.js)
+        await D.finish(true, to); // Ngày 1 hoặc lời mời – chưa cần tài khoản
       };
     };
     live = i => { if (!view.querySelector('#onbBack')) return false; if (STEPS[i] && i !== pick.step) { pick.step = i; pick.said = ''; } draw(); focusQ(); return true; };
