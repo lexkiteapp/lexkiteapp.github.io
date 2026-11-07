@@ -21,7 +21,7 @@ concurrency:
 jobs:
   mqa:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - if: github.event_name == 'pull_request'
@@ -47,6 +47,12 @@ jobs:
           node scripts/build-hash.mjs out/site  # JS/CSS bản /h/ theo mã băm như dist/ (sau cpack)
           (node scripts/test/serve-web.mjs out/site 8080 >/dev/null 2>&1 &) ; sleep 1
           node scripts/test/mobile-qa.mjs http://localhost:8080 out/mobile-qa
+      - name: Bàn phím ảo không che ô đang nhập (visualViewport iOS/Chrome + adjustResize Android)
+        if: ${{ !cancelled() }}
+        run: |
+          # cùng bản dựng out/site + máy chủ của bước trên; Phòng viết, tra từ (#q, #gq + gợi ý), ô điền chữ… – scripts/test/mobile-qa-keyboard.mjs
+          curl -fsS -o /dev/null http://localhost:8080/app/ || { (node scripts/test/serve-web.mjs out/site 8080 >/dev/null 2>&1 &) ; sleep 1; }
+          node scripts/test/mobile-qa-keyboard.mjs http://localhost:8080 out/mobile-qa
       - if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
         with: { name: mobile-qa, path: out/mobile-qa, retention-days: 7 }
