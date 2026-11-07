@@ -15,14 +15,7 @@
     return s;
   };
   // Phản hồi xúc giác chuẩn Duolingo: đúng = rung ngắn 35ms; sai = rung đôi [50, 40, 50]ms (tôn trọng prefers-reduced-motion & tắt âm)
-  const haptic = ok => {
-    try {
-      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      if (navigator.vibrate && (!state.settings || state.settings.sfx !== false)) {
-        navigator.vibrate(ok ? 35 : [50, 40, 50]);
-      }
-    } catch (e) { /* bỏ qua */ }
-  };
+  const haptic = ok => { try { if (window.Sfx && Sfx.haptic) Sfx.haptic(ok ? 'correct' : 'wrong'); } catch (e) { /* bỏ qua */ } };
 
   // ---------- Nguồn từ ----------
   // Nghĩa hiển thị theo ngôn ngữ người học: tiếng Việt, hoặc định nghĩa tiếng Anh cho người học quốc tế

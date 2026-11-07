@@ -14,6 +14,8 @@ on:
     paths: ['web/js/**', 'web/css/**', 'web/app/**', 'scripts/test/ux-guard*.mjs', 'scripts/test/ux1-guard.mjs', 'scripts/test/dict-entry-layout.mjs', '.github/workflows/ux-cards.yml']
 permissions:
   contents: read
+  actions: write   # fast-lane: huỷ lượt nặng khi npm test cùng sha đã đỏ (docs/CI-RUNNERS.md › Máy gác)
+  checks: read
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
@@ -24,6 +26,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
+      - if: github.event_name == 'pull_request'
+        uses: ./.github/actions/fast-lane   # làn nhanh: npm test đỏ → huỷ lượt nặng
       - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
@@ -31,8 +35,8 @@ jobs:
         env: { BEFORE: "${{ github.event.inputs.before }}", EV: "${{ github.event_name }}" }
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium >/dev/null
-          sudo apt-get install -y -qq imagemagick fonts-noto-color-emoji fonts-noto-core >/dev/null || true
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          sudo timeout 600 apt-get install -y -qq imagemagick fonts-noto-color-emoji fonts-noto-core >/dev/null || true
           B=""
           if [ "$EV" = push ]; then BEFORE="$(git merge-base origin/main HEAD)"; [ "$BEFORE" = "$(git rev-parse HEAD)" ] && BEFORE=""; fi
           if [ -n "$BEFORE" ]; then git worktree add -q /tmp/before "$BEFORE"; B=/tmp/before/web; fi
@@ -62,9 +66,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Cài
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
           sudo apt-get install -y -qq imagemagick fonts-noto-color-emoji fonts-noto-core fonts-noto-cjk >/dev/null || true
       - name: Trước (main/commit 'before') – chỉ để làm tờ so sánh, không chặn
         env: { BEFORE: "${{ github.event.inputs.before }}", EV: "${{ github.event_name }}" }

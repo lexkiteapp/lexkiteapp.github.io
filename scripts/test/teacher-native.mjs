@@ -13,7 +13,10 @@ for (const f of walk(path.join(ROOT, 'web/js'))) {
   const rel = path.relative(ROOT, f).split(path.sep).join('/'); if (SKIP.has(rel)) continue;
   const s = fs.readFileSync(f, 'utf8');
   const code = s.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, ''); // bỏ chú thích: chỉ đếm mã thật
-  const n = (code.match(/Chars\.(img|still|poster|avatar)\(/g) || []).length; if (n) raw[rel] = n;
+  // teacher-rig.js là bộ vẽ canvas (như teacher-slot.js): Chars.still( chỉ để nạp ảnh tư thế vào canvas, KHÔNG đặt ảnh vào DOM → không đếm still, nhưng cấm img/poster/avatar và <img
+  const RIG = rel === 'web/js/teacher-rig.js';
+  if (RIG && /<img|createElement\(['"]img/.test(code)) err.push(`${rel}: bộ vẽ rig không được chèn <img> – ảnh dự phòng đi qua Chars.slot`);
+  const n = (code.match(RIG ? /Chars\.(img|poster|avatar)\(/g : /Chars\.(img|still|poster|avatar)\(/g) || []).length; if (n) raw[rel] = n;
   for (const m of s.matchAll(/Chars\.slot\([^)]*?size:\s*'([a-z]+)'/g)) if (!['xs', 's', 'm', 'l', 'xl'].includes(m[1])) err.push(`${rel}: Chars.slot size '${m[1]}' ngoài cỡ chuẩn xs/s/m/l/xl`);
   if (/teach\/(ama|carlos)\/still-/.test(s)) err.push(`${rel}: đường dẫn ảnh giáo viên viết tay – dùng Chars.slot`);
 }

@@ -1,58 +1,58 @@
 {
- "total": 50.1,
+ "total": 51.8,
  "areas": {
   "vocab": {
    "name": "Kho từ",
-   "score": 48.5,
-   "coverage": 48.5,
+   "score": 51.1,
+   "coverage": 51.1,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "từ#loại duy nhất",
-     "have": 9221,
+     "have": 9334,
      "std": 20000,
      "w": 25,
      "future": false
     },
     {
      "k": "IPA·nghĩa·định nghĩa·ví dụ·CEFR",
-     "have": 9221,
-     "std": 9221,
+     "have": 9334,
+     "std": 9334,
      "w": 20,
      "future": false
     },
     {
      "k": "collocation",
-     "have": 4671,
+     "have": 4696,
      "std": 20000,
      "w": 12,
      "future": false
     },
     {
      "k": "đồng nghĩa",
-     "have": 2744,
+     "have": 2776,
      "std": 20000,
      "w": 8,
      "future": false
     },
     {
      "k": "IPA Mỹ",
-     "have": 6046,
+     "have": 6140,
      "std": 20000,
      "w": 5,
      "future": false
     },
     {
      "k": "ảnh theo nghĩa",
-     "have": 5330,
+     "have": 7065,
      "std": 20000,
      "w": 15,
      "future": false
     },
     {
      "k": "C2",
-     "have": 327,
+     "have": 440,
      "std": 1000,
      "w": 10,
      "future": false
@@ -147,14 +147,14 @@
   },
   "comm": {
    "name": "Giao tiếp",
-   "score": 27.7,
-   "coverage": 27.7,
+   "score": 35.7,
+   "coverage": 35.7,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "cuộc gọi Ama/Carlos",
-     "have": 11,
+     "have": 35,
      "std": 60,
      "w": 20,
      "future": false
@@ -191,8 +191,8 @@
   },
   "skills": {
    "name": "4 kỹ năng",
-   "score": 48.2,
-   "coverage": 48.2,
+   "score": 49.2,
+   "coverage": 49.2,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -275,7 +275,7 @@
     },
     {
      "k": "trung gian (mediation)",
-     "have": 0,
+     "have": 2,
      "std": 30,
      "w": 14,
      "future": true
@@ -412,8 +412,8 @@
   },
   "lkf": {
    "name": "Khung Can-do",
-   "score": 79.5,
-   "coverage": 79.5,
+   "score": 80,
+   "coverage": 80,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -433,14 +433,14 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 10016,
-     "std": 10016,
+     "have": 10153,
+     "std": 10153,
      "w": 35,
      "future": false
     },
     {
      "k": "mục tiêu đã có nội dung luyện",
-     "have": 124,
+     "have": 135,
      "std": 600,
      "w": 25,
      "future": false
