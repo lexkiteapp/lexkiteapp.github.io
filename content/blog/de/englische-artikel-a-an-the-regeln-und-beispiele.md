@@ -176,6 +176,6 @@ Ist der Gegenstand für beide Gesprächspartner konkret eindeutig?
 | *I like the nature.* (allgemein) | Wortwörtliche Übersetzung von „die Natur“ | *I like nature.* |
 | *She has a headache.* | Völlig korrekt (headache gilt als zählbar) | *She has a headache.* |
 
-Vertiefen Sie Ihre Grammatikkenntnisse mit unseren fundierten Übersichten zu [Present Perfect oder Simple Past](/de/blog/present-perfect-oder-simple-past/), den wichtigsten [Linking Words im Englischen](/de/blog/linking-words-englisch-uebersicht-connectors/), den Regeln zu [englischen If-Sätzen](/de/blog/englische-if-saetze-conditional-clauses/) sowie der Bildung von [komplexen Sätzen im Writing](/de/blog/ielts-writing-komplexe-saetze-complex-sentences/). Gezielten Wortschatzaufbau finden Sie in unserer Rubrik [/tu-vung/](/tu-vung/).
+Vertiefen Sie Ihre Grammatikkenntnisse mit unseren fundierten Übersichten zu [Present Perfect oder Simple Past](/de/blog/present-perfect-oder-simple-past/), den wichtigsten [Linking Words im Englischen](/de/blog/linking-words-englisch-uebersicht-connectors/), den Regeln zu [englischen If-Sätzen](/de/blog/englische-if-saetze-conditional-clauses/) sowie der Bildung von [komplexen Sätzen im Writing](/de/blog/ielts-writing-komplexe-saetze-complex-sentences/). Gezielten Wortschatzaufbau finden Sie in unserer Rubrik [/tu-vung/](/en/vocabulary/).
 
 Wenn Sie den inneren Kompass von Bestimmtheit versus Allgemeinheit verinnerlichen, werden Sie Ihre Aufsätze und geschäftliche Korrespondenz mit der Präzision und Selbstsicherheit eines echten Sprachprofis verfassen.

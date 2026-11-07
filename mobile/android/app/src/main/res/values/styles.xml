@@ -13,6 +13,8 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:background">@null</item>
+        <!-- Nền cửa sổ trước khi web vẽ = token bg sáng/tối (lk_theme.xml SINH từ brand/tokens.json); WebView trong suốt (capacitor.config backgroundColor) -->
+        <item name="android:windowBackground">@color/lk_bg</item>
     </style>
 
 

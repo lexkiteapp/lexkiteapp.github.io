@@ -24,6 +24,7 @@ async function setup(db) {
     db.prepare('CREATE TABLE IF NOT EXISTS bw_placements (id TEXT PRIMARY KEY, platform TEXT, type TEXT, url TEXT, account TEXT, submitted TEXT, status TEXT, expect TEXT, rel_expected TEXT, notes TEXT, source TEXT, deleted INTEGER DEFAULT 0, created INTEGER, updated INTEGER, by TEXT, last_at INTEGER, last_http INTEGER, last_final TEXT, last_link INTEGER, last_rel TEXT, last_noindex INTEGER, last_title TEXT, last_state TEXT, last_level TEXT, last_reasons TEXT, last_change INTEGER, rel_base TEXT, noindex_base INTEGER) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS bw_checks (id INTEGER PRIMARY KEY AUTOINCREMENT, pid TEXT NOT NULL, at INTEGER NOT NULL, http INTEGER, link INTEGER, rel TEXT, noindex INTEGER, state TEXT, level TEXT, reasons TEXT)'),
     db.prepare('CREATE INDEX IF NOT EXISTS bw_checks_pid ON bw_checks (pid, at)'),
+    db.prepare('CREATE INDEX IF NOT EXISTS bw_checks_at ON bw_checks (at)'), // list (at > 90 ngày) + dọn > 180 ngày: không quét cả bảng → tiết kiệm hạn mức đọc D1
     db.prepare('CREATE TABLE IF NOT EXISTS bw_domains (domain TEXT PRIMARY KEY, status TEXT, ns INTEGER, a INTEGER, aaaa INTEGER, mx INTEGER, mx_hosts TEXT, ips TEXT, level TEXT, reasons TEXT, since INTEGER, at INTEGER, acked INTEGER DEFAULT 0) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS bw_handles (k TEXT PRIMARY KEY, platform TEXT, handle TEXT, url TEXT, status TEXT, notes TEXT, source TEXT, deleted INTEGER DEFAULT 0, updated INTEGER, by TEXT, last_at INTEGER, last_state TEXT, last_level TEXT, last_reasons TEXT) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS config (k TEXT PRIMARY KEY, v TEXT, at INTEGER, by TEXT) WITHOUT ROWID'),
@@ -116,6 +117,7 @@ export async function notify(env, db, now = Date.now()) {
 }
 
 // ---------- Chạy workflow kiểm ngay (GH_DISPATCH_TOKEN sẵn có của Video Studio) ----------
+const DISPATCH_GAP = 120e3; // mỗi lần "Kiểm ngay" cách nhau ≥ 2 phút: bấm đúp/nhiều tab không xếp hàng nhiều lần chạy GitHub Actions
 async function dispatch(env) {
   const tok = env.GH_DISPATCH_TOKEN; if (!tok) throw new Bad(503, 'not-configured', { need: 'GH_DISPATCH_TOKEN' });
   const r = await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/${WORKFLOW}/dispatches`, { method: 'POST', headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json', 'User-Agent': 'lexkite-backlinks', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json' }, body: JSON.stringify({ ref: 'main' }) }).catch(() => null);
@@ -141,7 +143,10 @@ const OPS = {
   async handleSet(env, db, b, who) { const v = validateHandle(b.row || {}); if (!v.ok) throw new Bad(400, 'invalid', { fields: v.errors }); await upsertHandle(db, v, 'admin', who.email); return { ok: true, k: v.key }; },
   async handleDelete(env, db, b, who) { await db.prepare('UPDATE bw_handles SET deleted = 1, updated = ?, by = ? WHERE k = ?').bind(Date.now(), who.email, String(b.k || '')).run(); return { ok: true }; },
   async domainAck(env, db, b) { await db.prepare("UPDATE bw_domains SET acked = 1, level = 'ok' WHERE domain = ?").bind(String(b.domain || '').toLowerCase()).run(); return { ok: true }; },
-  async checkNow(env, db, b, who) { await dispatch(env); await cfgSet(db, 'bw_dispatch', { at: Date.now() }, who.email); return { ok: true }; },
+  async checkNow(env, db, b, who) {
+    const last = await cfgGet(db, 'bw_dispatch', null), wait = last && last.at ? Math.ceil((last.at + DISPATCH_GAP - Date.now()) / 1000) : 0;
+    if (wait > 0 && wait <= DISPATCH_GAP / 1000) throw new Bad(429, 'too-fast', { retryAfter: wait });
+    await dispatch(env); await cfgSet(db, 'bw_dispatch', { at: Date.now() }, who.email); return { ok: true }; },
   async export(env, db) { return { version: 1, placements: (await all(db, 'SELECT * FROM bw_placements WHERE deleted = 0 ORDER BY id')).map(fileP) }; },
 };
 const WRITE = new Set(['placementSet', 'placementDelete', 'handleSet', 'handleDelete', 'domainAck', 'checkNow']);

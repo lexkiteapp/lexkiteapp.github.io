@@ -9,6 +9,7 @@
 '“Agree” đã là động từ – không cần “am/is/are” đứng trước.': '“Agree” is already a verb – you don’t need “am/is/are” before it.',
 'Với he/she/it, phủ định dùng “doesn’t”, không dùng “don’t”.': 'With he/she/it, the negative is “doesn’t”, not “don’t”.',
 'Sau can/could/should/will không dùng “to”.': 'Don’t use “to” after can/could/should/will.',
+'Có mốc thời gian đã qua (hôm qua, năm ngoái…) thì dùng quá khứ đơn, không dùng “have + V3”.': 'With a finished time (yesterday, last year…), use the past simple, not “have + past participle”.',
 'Từ so sánh hơn như “better” đã mang nghĩa “hơn” – bỏ “more”.': 'Comparatives like “better” already mean “more” – drop “more”.',
 'Danh từ không đếm được (information, advice…) không thêm -s.': 'Uncountable nouns (information, advice…) don’t take -s.',
 '“Very” không đứng trước động từ – dùng “really” hoặc “very much” ở cuối câu.': '“Very” can’t go before a verb – use “really”, or “very much” at the end.',
@@ -24,8 +25,8 @@
 'Kết thúc cuộc gọi': 'End call',
 'Tổng kết cuộc gọi': 'Call summary',
 '{m} phút {s} giây': '{m} min {s} sec',
-'Bạn đã trả lời {n}/{k} lượt, trong đó {s} lượt bằng giọng nói.': 'You answered {n}/{k} turns, {s} of them by voice.',
-'Cách nói tự nhiên hơn': 'More natural ways to say it',
+
+
 'Cụm từ nên nhớ': 'Phrases to remember',
 'Thêm vào thẻ ôn': 'Add to review cards',
 'Đã thêm {n} thẻ': 'Added {n} cards',

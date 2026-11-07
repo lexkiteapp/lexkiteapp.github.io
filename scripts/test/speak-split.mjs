@@ -29,6 +29,6 @@ ok(typeof idx.SPK_fill === 'function' && idx.SPK_fill.toString() === SPK_fill.to
 const app = fs.readFileSync('web/js/speak/app.js', 'utf8'), main = fs.readFileSync('web/js/app.js', 'utf8');
 ok(/ld\('js\/speak\/s\/' \+ id \+ '\.js'\)/.test(app) && /ld\('js\/speak\/s\/' \+ k \+ '\.js'\)/.test(app) && /App\.loadScript \? App\.loadScript\(src\)/.test(app), 'speak/app.js nạp s/<id>.js + s/<id>.<lang>.js khi mở');
 ok(!/window\.SPK\b(?!_)/.test(app), 'không còn đọc gói SPK toàn bộ');
-ok(/App\.loadScript = loadScript/.test(main), 'App.loadScript (CDN → máy chủ chính, thử lại) cho tệp lười');
+ok(/App\.loadScript = src => Promise\.all\(\[loadScript\(src\)/.test(main), 'App.loadScript (CDN → máy chủ chính, thử lại) cho tệp lười');
 console.log(fails ? `speak-split: ${fails} lỗi` : `✓ speak-split: ${all.length} tình huống, ${Object.keys(files).length} tệp lười, ghép lại đúng ${LANGS.length} ngôn ngữ`);
 process.exit(fails ? 1 : 0);

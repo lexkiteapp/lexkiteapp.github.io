@@ -29,5 +29,5 @@ jobs:
           OK=${{ steps.head.outputs.alive }}; [ "${OK:-0}" -ge 15 ] || { echo "phần vẽ còn ${OK:-0} tài khoản – chưa khởi động"; exit 0; }
           RUN=$(gh run list -R ${{ github.repository }} -w vocab-img-scene.yml --json status,createdAt -q '[.[]|select(.status!="completed" and (.createdAt|fromdateiso8601) > (now-21600))]|length' -L 20)   # bỏ lượt ma kẹt hàng đợi (40268807501)
           [ "${RUN:-0}" -eq 0 ] || { echo "đang có lượt ảnh chạy/xếp hàng – bỏ qua"; exit 0; }
-          gh workflow run vocab-img-scene.yml -R ${{ github.repository }} --ref main -f mode=fill -f shards=10 -f max_gc=6000 -f variants=6 -f provider=cf
+          bash scripts/ci/gh-retry.sh gh workflow run vocab-img-scene.yml -R ${{ github.repository }} --ref main -f mode=fill -f shards=10 -f max_gc=6000 -f variants=6 -f provider=cf
           echo "↻ phần vẽ mở ($OK tài khoản) – đã khởi động lượt ảnh"
