@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.lexkite.app",
+      "sha256_cert_fingerprints": [
+        "6F:40:6A:7E:A2:0E:BA:D4:F8:18:FB:34:BC:72:AA:39:0B:26:3B:23:93:D4:04:30:53:A4:89:77:97:4A:66:F1",
+        "2A:F6:31:76:89:8E:63:BC:78:99:C9:50:4E:D8:C8:A3:1E:24:C3:57:14:F3:FD:D9:FA:BF:4F:C0:5A:A1:DD:41"
+      ]
+    }
+  }
+]

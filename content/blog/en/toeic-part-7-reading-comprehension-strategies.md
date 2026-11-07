@@ -26,6 +26,8 @@ Building upon our essential overviews of the [TOEIC test format](/en/blog/toeic-
 
 In the 75-minute Reading test, Part 7 begins immediately after Part 5 (30 incomplete sentences) and Part 6 (16 text completion questions). The passages simulate authentic corporate artifacts encountered in modern business: email correspondence, internal memos, press releases, job advertisements, invoices, order confirmations, and multi-party instant message threads.
 
+To put this into practice, try [the TOEIC self-study roadmap](/en/blog/toeic-self-study-roadmap-guide/).
+
 The 54 questions are systematically distributed across three distinct passage architectures:
 
 | Layout Category | Text Structure | Question Count | Core Strategic Challenge |

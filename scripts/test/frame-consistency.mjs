@@ -116,8 +116,8 @@ const mk = async (w, theme) => {
   return { ctx, page, errs, w, theme };
 };
 const go = async (P, h) => {
-  await P.page.evaluate(x => { if (window.UI && UI.closeModal) UI.closeModal(); location.hash = x; window.scrollTo(0, 0); }, h);
-  await waitFn(P.page, x => location.hash === '#' + x.split('#').pop() || true, h).catch(() => {});
+  await P.page.evaluate(x => { if (window.UI && UI.closeModal) UI.closeModal(); if (window.App && App.state.settings) App.state.settings.onboarded = !/^#?\/welcome/.test(x); /* người có dữ liệu không thấy lại trang giới thiệu (docs/specs/welcome.md) → chỉ trong bộ nhớ */ location.hash = x; window.scrollTo(0, 0); }, h);
+  await P.waitFn(page, x => location.hash === '#' + x.split('#').pop() || true, h).catch(() => {});
   await sleep(1100);
   await P.page.evaluate(() => window.scrollTo(0, 0));
 };

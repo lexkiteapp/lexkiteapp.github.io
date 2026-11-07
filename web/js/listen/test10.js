@@ -24,7 +24,7 @@ script: [
 { s: 'A', t: "Bring whichever one you ride most. You'll learn more on your own bike." },
 { s: 'B', t: "That's the road bike, then. I use it to get to work every day." },
 { pause: 1.5 },
-{ say: 'Before you hear the rest of the conversation, you have some time to look at questions 7 to 10.' }, { pause: 3 },
+{ say: g.LTI[3] }, { pause: 3 },
 { s: 'B', t: "How much does the course cost?" },
 { s: 'A', t: "It's sixty pounds for the four weeks. But if you're a member of our cycling club, you get a discount, so it's only forty-five." },
 { s: 'B', t: "Oh, I joined the club last month, actually." },
@@ -36,7 +36,7 @@ script: [
 { s: 'B', t: "No problem. Thanks very much, Owen." },
 ],
 groups: [
-{ type: 'form', title: 'Spokes and Sprockets – Workshop booking', instr: 'Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
+{ type: 'form', title: 'Spokes and Sprockets – Workshop booking', instr: g.LTI[1], limit: 2,
 items: [
 { n: 1, text: 'Name: Hannah ___', a: ['Whitlock'], cue: 'W, H, I, T, L, O, C, K', explain: 'Họ được đánh vần W-H-I-T-L-O-C-K. Câu nghe được: “W, H, I, T, L, O, C, K.”' },
 { n: 2, text: 'Phone: 07945 318 ___', a: ['662'], cue: "It's 07945 318 662.", explain: "Ba số cuối của số điện thoại là 662. Câu nghe được: “It's 07945 318 662.”" },
@@ -45,7 +45,7 @@ items: [
 { n: 5, text: 'Start date: ___ April', a: ['12', '12th', 'twelfth'], cue: 'The next one starts on the 12th of April', explain: 'Khóa học bắt đầu ngày 12 tháng 4 và kéo dài bốn tuần. Câu nghe được: “The next one starts on the 12th of April.”' },
 { n: 6, text: 'Bike to bring: ___ bike', a: ['road'], cue: "That's the road bike, then.", explain: 'Xe địa hình (mountain bike) đã cũ; xe đạp đường trường được dùng đi làm hằng ngày.' },
 ] },
-{ type: 'note', title: 'Other information', instr: 'Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
+{ type: 'note', title: 'Other information', instr: g.LTI[4], limit: 2,
 items: [
 { n: 7, text: 'Cost for club members: £___', a: ['45', 'forty-five'], cue: "Then it's forty-five pounds for you.", explain: '60 bảng là giá thường; hội viên câu lạc bộ đạp xe được giảm còn 45 bảng.' },
 { n: 8, text: 'Bring: a pair of ___', a: ['gloves'], cue: "you'll need to bring a pair of gloves", explain: 'Dụng cụ và tạp dề (apron) do cửa hàng cung cấp; chỉ cần mang găng tay.' },
@@ -82,7 +82,7 @@ script: [
 { s: 'A', t: "Now, the most important rule in the building. Please never take drinks into the studio. Coffee on a mixing desk can do thousands of pounds of damage in a second." },
 { s: 'A', t: "Food is fine in the kitchen, of course, and mobile phones are allowed in the studio as long as they're switched to silent." },
 { pause: 1.5 },
-{ say: 'Now look at questions 16 to 20.' }, { pause: 3 },
+{ say: g.LTI[6] }, { pause: 3 },
 { s: 'A', t: "Now let me show you around. Have a look at the floor plan on your sheet. We're standing in the reception area, by the main entrance." },
 { s: 'A', t: "Directly opposite reception is Studio One. That's our main live studio, and you'll recognise it by the red light over the door." },
 { s: 'A', t: "If you go down the corridor to the left of reception, the first door on your right is the music library. We still have about twenty thousand CDs and records in there." },
@@ -93,7 +93,7 @@ script: [
 { s: 'A', t: "Right, let's take a short break and then we'll begin." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 11, q: 'Harbour FM originally started as', options: ['a student project.', 'a council service.', 'a business venture.'], a: 0, cue: 'Harbour FM began as a student project in a garage', explain: 'Đài khởi đầu là một dự án sinh viên trong ga-ra, chỉ phát hai giờ mỗi tuần. Câu nghe được: “Harbour FM began as a student project in a garage.”' },
 { n: 12, q: 'Most of the station’s money comes from', options: ['advertising by large companies.', 'a grant from the town council.', 'sponsorship by local businesses.'], a: 1, cue: 'Most of our money comes from a grant from the town council', explain: 'Không có quảng cáo của công ty lớn; doanh nghiệp địa phương chỉ đóng góp phần còn lại.' },
@@ -164,7 +164,7 @@ script: [
 { s: 'B', t: "And the conclusion – she liked it, but said we should be more careful, because our sample was small. We can't claim our findings apply to every university." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 21, q: 'What was the most common reason first-year students gave for wanting a mentor?', options: ['to improve their academic writing', 'to get help with accommodation', 'to have someone to talk to'], a: 2, cue: 'they felt lonely and wanted someone to talk to', explain: 'Priya tưởng là kỹ năng viết học thuật, nhưng rất ít người nhắc đến; lý do chính là cô đơn.' },
 { n: 22, q: 'How often did most pairs meet?', options: ['once a week', 'every two weeks', 'once a term'], a: 1, cue: 'Most met every two weeks', explain: 'Mỗi tuần một lần là khuyến nghị của trường; chỉ vài cặp gặp mỗi học kỳ một lần.' },
@@ -224,7 +224,7 @@ script: [
 { s: 'A', t: "Next week, we'll move forward a few centuries and look at the arrival of the newspaper." },
 ],
 groups: [
-{ type: 'note', title: 'The printing press', instr: 'Complete the notes below. Write ONE WORD ONLY for each answer.', limit: 1,
+{ type: 'note', title: 'The printing press', instr: g.LTI[2], limit: 1,
 items: [
 { n: 31, text: 'Before printing, books were copied by hand, mainly by ___', a: ['monks'], cue: 'mostly by monks', explain: 'Trước khi có máy in, sách chủ yếu do các tu sĩ chép tay. Câu nghe được: “mostly by monks.”' },
 { n: 32, text: 'In China and Korea, early printing used carved ___ blocks', a: ['wooden', 'wood'], cue: 'printing from carved wooden blocks for centuries', explain: 'Trung Quốc và Hàn Quốc in bằng khuôn gỗ khắc từ nhiều thế kỷ trước. Câu nghe được: “printing from carved wooden blocks for centuries.”' },

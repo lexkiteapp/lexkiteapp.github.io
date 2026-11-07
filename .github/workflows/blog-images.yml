@@ -51,15 +51,16 @@ jobs:
       - name: Lập kế hoạch (mục thiếu/đổi theo mã băm đầu vào)
         id: plan
         env:
+          LX_BEFORE: ${{ github.event.before }}
+          LX_LIMIT: ${{ inputs.limit || '40' }}
+          LX_LANG: ${{ inputs.lang }}
+          LX_POSTS: ${{ inputs.posts }}
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           GH_MEDIA_TOKEN: ${{ secrets.LEXKITE_MEDIA_TOKEN }}
-          LX_POSTS: ${{ inputs.posts }}
-          LX_LANG: ${{ inputs.lang }}
-          LX_LIMIT: ${{ inputs.limit || '40' }}
-          LX_EVENT: ${{ github.event.before }}
-        run: node scripts/blog-images.mjs plan --mode "$MODE" --since "$LX_EVENT" --limit "$LX_LIMIT" --lang "$LX_LANG" --posts "$LX_POSTS"
+        run: node scripts/blog-images.mjs plan --mode "$MODE" --since "$LX_BEFORE" --limit "$LX_LIMIT" --lang "$LX_LANG" --posts "$LX_POSTS"
       - name: Cài công cụ dựng ảnh + phông Noto (OFL) – chỉ trên CI
+        timeout-minutes: 12
         if: steps.plan.outputs.count != '0'
         run: |
           mkdir -p "$LEXKITE_TOOLS" && cd "$LEXKITE_TOOLS" && npm init -y >/dev/null
@@ -109,12 +110,12 @@ jobs:
           exit 1
       - name: Lô kế tiếp (backfill)
         if: steps.push.outputs.pushed == '1' && env.MODE == 'backfill' && inputs.chain && steps.plan.outputs.remaining != '0'
-        env: { GH_TOKEN: '${{ github.token }}', LX_LANG: '${{ inputs.lang }}', LX_LIMIT: '${{ inputs.limit }}' }
+        env: { GH_TOKEN: '${{ github.token }}', LX_LIMIT: '${{ inputs.limit }}', LX_LANG: '${{ inputs.lang }}' }
         run: |
           echo "· còn ${{ steps.plan.outputs.remaining }} bài – gọi lô tiếp"
-          gh workflow run blog-images.yml --ref main -f mode=backfill -f limit="$LX_LIMIT" -f lang="$LX_LANG" -f chain=true
+          bash scripts/ci/gh-retry.sh gh workflow run blog-images.yml --ref main -f mode=backfill -f limit="$LX_LIMIT" -f lang="$LX_LANG" -f chain=true
       - name: Build lại site khi bài ĐÃ đăng có ảnh mới (hoặc backfill xong)
         if: steps.push.outputs.pushed == '1' && (steps.plan.outputs.live != '0' && env.MODE != 'backfill' || env.MODE == 'backfill' && steps.plan.outputs.remaining == '0')
         env: { GH_TOKEN: '${{ github.token }}' }
         # không gấp: gom với yêu cầu khác (pages-deploy.yml chờ yên + giãn cách, cron 3 giờ bù) – docs/FREE-TIER.md §7
-        run: gh workflow run pages-deploy.yml --ref main -f quiet=15 -f reason="blog-images ${{ env.MODE }}" && echo "✓ đã yêu cầu deploy"
+        run: bash scripts/ci/gh-retry.sh gh workflow run pages-deploy.yml --ref main -f quiet=15 -f reason="blog-images ${{ env.MODE }}" && echo "✓ đã yêu cầu deploy"

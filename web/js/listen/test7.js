@@ -30,7 +30,7 @@ script: [
 { s: 'B', t: "Only on my balcony. I tried peppers once but they didn't do well. I've grown tomatoes for the last three summers, though." },
 { s: 'A', t: "Well, that's a good start. Tomatoes do very well up here." },
 { pause: 1.5 },
-{ say: 'Before you hear the rest of the conversation, you have some time to look at questions 7 to 10.' }, { pause: 3 },
+{ say: g.LTI[3] }, { pause: 3 },
 { s: 'B', t: 'So how much is the rent?' },
 { s: 'A', t: "A full plot is sixty-five pounds a year, and a half plot is thirty-eight pounds." },
 { s: 'B', t: 'Is there any discount for students? I do a part-time course at the college.' },
@@ -46,7 +46,7 @@ script: [
 { s: 'B', t: "Saturday's fine. I'll see you then. Thanks, Clive." },
 ],
 groups: [
-{ type: 'form', title: 'Millbrook Allotment Society – New member', instr: 'Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
+{ type: 'form', title: 'Millbrook Allotment Society – New member', instr: g.LTI[1], limit: 2,
 items: [
 { n: 1, text: 'Name: Marta ___', a: ['Delaney'], cue: 'D, E, L, A, N, E, Y', explain: 'Tên được đánh vần D-E-L-A-N-E-Y; cần chép đúng chính tả. Câu nghe được: “D, E, L, A, N, E, Y.”' },
 { n: 2, text: 'Address: Flat 3, ___ Court', a: ['Rosewood'], cue: "It's Flat 3, Rosewood Court.", explain: 'Station Road chỉ là đường ở góc phố – bẫy gây nhiễu.' },
@@ -55,7 +55,7 @@ items: [
 { n: 5, text: 'Plot number: ___', a: ['23', 'twenty-three', 'twenty three'], cue: 'The free one is plot twenty-three.', explain: 'Số 32 bị đính chính – mảnh 32 đã có người thuê; mảnh còn trống là 23.' },
 { n: 6, text: 'Previous experience: has successfully grown ___ on balcony', a: ['tomatoes'], cue: "I've grown tomatoes for the last three summers", explain: 'Ớt (peppers) chỉ trồng một lần và thất bại; cà chua mới là kinh nghiệm thực sự.' },
 ] },
-{ type: 'note', title: 'Rules and costs', instr: 'Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
+{ type: 'note', title: 'Rules and costs', instr: g.LTI[4], limit: 2,
 items: [
 { n: 7, text: 'Rent for a half plot: £___ per year', a: ['38', 'thirty-eight', 'thirty eight'], cue: 'a half plot is thirty-eight pounds', explain: '65 bảng là giá mảnh nguyên; cô không được giảm giá sinh viên nên trả 38 bảng.' },
 { n: 8, text: 'Water is turned off from ___ until March', a: ['November'], cue: 'we turn the water off in November', explain: 'Nước bị khóa từ tháng 11 vì ống có thể đóng băng; tháng 3 mở lại.' },
@@ -98,7 +98,7 @@ script: [
 { s: 'A', t: "And a word about the weather. The forecast goes up on the board every morning, and it's usually pretty good." },
 { s: 'A', t: "But up here, a sunny morning can turn into thick cloud in twenty minutes. Conditions change quickly, so always pack a waterproof, whatever the forecast says." },
 { pause: 1.5 },
-{ say: 'Now look at questions 16 to 20.' }, { pause: 3 },
+{ say: g.LTI[6] }, { pause: 3 },
 { s: 'A', t: "Right, let me run through the activities you can sign up for this week." },
 { s: 'A', t: "Gorge walking is our most popular one. You climb up a mountain stream, through pools and small waterfalls. You don't need to be able to swim – the water's shallow and you're with a guide the whole time." },
 { s: 'A', t: "We provide wetsuits and helmets, but you will get soaked, so you'll need to bring spare clothes to change into afterwards." },
@@ -111,7 +111,7 @@ script: [
 { s: 'A', t: "OK, sign-up sheets are on the noticeboard. Dinner's at seven. Enjoy your stay!" },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 11, q: 'What was the centre building originally used as?', options: ['a hunting lodge', 'a village school', 'a farmhouse'], a: 1, cue: 'it was the village school until the nineteen seventies', explain: 'Nhiều người tưởng là nhà nghỉ săn bắn (do có gạc hươu), nhưng thực ra là trường làng.' },
 { n: 12, q: 'What has changed since last year?', options: ['Breakfast starts earlier.', 'The drying room has moved.', 'Wi-Fi is available in the bedrooms.'], a: 0, cue: 'breakfast now starts at seven, half an hour earlier than last year', explain: 'Wi-Fi vẫn chỉ có ở phòng khách, phòng sấy vẫn ở chỗ cũ; chỉ giờ ăn sáng thay đổi.' },
@@ -193,7 +193,7 @@ script: [
 { s: 'A', t: "Great. Send me the revised version by the end of the month." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 21, q: 'Why did the students choose the Maritime Museum?', options: ['A gallery there had just been redesigned.', 'It was the nearest museum to the university.', 'It was the only museum with free entry.'], a: 0, cue: "They'd just redesigned their whole navigation gallery", explain: 'Gần trường chỉ là yếu tố phụ (“wasn’t really why”); mọi bảo tàng đều miễn phí.' },
 { n: 22, q: 'What problem did the students have during their observations?', options: ['The gallery was too crowded.', 'The lighting made it hard to write.', 'Some visitors noticed they were being watched.'], a: 2, cue: 'some visitors realised we were watching them', explain: 'Ben nói không quá đông và đủ sáng; vấn đề là khách phát hiện bị quan sát nên thay đổi hành vi.' },
@@ -259,7 +259,7 @@ script: [
 { s: 'A', t: "Next week we'll look at seagrass meadows, which face many of the same pressures." },
 ],
 groups: [
-{ type: 'note', title: 'Mangrove forests', instr: 'Complete the notes below. Write ONE WORD ONLY for each answer.', limit: 1,
+{ type: 'note', title: 'Mangrove forests', instr: g.LTI[2], limit: 1,
 items: [
 { n: 31, text: 'Grow in the ___ zone, covered by the sea at high tide', a: ['intertidal'], cue: 'They occupy what we call the intertidal zone', explain: 'Vùng gian triều – bị nước biển phủ khi triều lên và lộ ra khi triều xuống. Câu nghe được: “They occupy what we call the intertidal zone.”' },
 { n: 32, text: 'Some roots filter out ___ from seawater', a: ['salt'], cue: 'have roots that filter out salt', explain: 'Rễ lọc muối trước khi nước vào cây. Câu nghe được: “have roots that filter out salt.”' },

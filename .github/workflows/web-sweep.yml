@@ -11,6 +11,8 @@ on:
       write_known: { description: '1 = ghi ngưỡng mới vào artifact (không commit)', required: false, default: '0' }
 permissions:
   contents: read
+  actions: write   # fast-lane: huỷ lượt nặng khi npm test cùng sha đã đỏ (docs/CI-RUNNERS.md › Máy gác)
+  checks: read
 concurrency: { group: 'web-sweep-${{ github.ref }}', cancel-in-progress: true }
 jobs:
   sweep:
@@ -18,6 +20,8 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
+      - if: github.event_name == 'pull_request'
+        uses: ./.github/actions/fast-lane   # làn nhanh: npm test đỏ → huỷ lượt nặng
       - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
@@ -42,7 +46,7 @@ jobs:
           LX_WRITE_KNOWN: ${{ github.event.inputs.write_known }}
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2 >/dev/null
-          npx playwright install --with-deps chromium >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
           # tầng tĩnh từ điển (deploy riêng qua Worker) – chép 1 mẫu/loại vào dist sau cổng SEO để quét giao diện
           node scripts/dict/build.mjs >/dev/null 2>&1 && for d in $(cd dist-dict && find . -name index.html | sort | awk -F/ '{k=$3"/"NF; if(!s[k]++) print}' | head -12); do mkdir -p "dist/$(dirname "$d")"; cp -n "dist-dict/$d" "dist/$d"; done; echo "dict mẫu: $(find dist/assets -name index.html 2>/dev/null | wc -l)"
           (cd dist && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1

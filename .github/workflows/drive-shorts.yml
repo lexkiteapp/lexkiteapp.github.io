@@ -58,7 +58,7 @@ jobs:
           python3 scripts/cine/shorts_index.py manifest /tmp/shorts/shorts/index.json /tmp/admin-shorts.json
           node scripts/ci/quota-skip.mjs node scripts/video/drive-shorts.mjs --manifest /tmp/admin-shorts.json
       - name: Ghi vị trí Drive vào shorts/index.json
-        if: always()
+        if: ${{ always() && steps.lease.outputs.skip != '1' }}   # lượt bị bỏ qua (drive_pool đang bận) không clone /tmp/shorts → không có gì để ghi (đỏ giả 05/11)
         run: |
           cd /tmp/shorts; git diff --quiet shorts/index.json && { echo "index không đổi"; rm -f ~/.ssh/shorts; exit 0; }
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes"

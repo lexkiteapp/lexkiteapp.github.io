@@ -38,10 +38,10 @@ jobs:
         if: github.event.inputs.reuse_runs != ''
         env: { GH_TOKEN: '${{ github.token }}', RUNS: '${{ github.event.inputs.reuse_runs }}' }
         run: for r in ${RUNS//,/ }; do gh run download "$r" -n tts-ab-audio-$r -D .tts-ab/audio; done; ls .tts-ab/audio
+      - uses: ./.github/actions/setup-ffmpeg
       - name: Cài ffmpeg + kokoro-js
         if: env.PHASE != 'dryrun'
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
           case "$PHASE" in kokoro|free) npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null;; esac
       - uses: actions/cache@v4
         if: env.PHASE == 'kokoro'
@@ -69,7 +69,7 @@ jobs:
       - name: Ứng viên miễn phí – kokoro-js trong Chromium (Web Worker)
         if: env.PHASE == 'free'
         run: |
-          npm i --no-save --no-audit --no-fund playwright@1.48.2 && npx playwright install --with-deps chromium >/dev/null
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 && bash scripts/ci/pw-install.sh --with-deps chromium
           node scripts/tts-ab/web.mjs /tmp/kk/node_modules/kokoro-js
       - name: Render ElevenLabs (trần ${{ github.event.inputs.max_credits }} credit)
         if: env.PHASE == 'pilot' || env.PHASE == 'batch'
