@@ -147,5 +147,17 @@
   "opener": "ama",
   "pacing": "calm"
  },
- "share_line": "n_8cf065_s"
+ "share_line": "n_8cf065_s",
+ "publish": {
+  "title": "Stop saying \"I'm considering to buy a car\"",
+  "keyword": "consider + -ing",
+  "value": "Consider takes -ing: \"I'm considering buying a car.\"",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#shoppingenglish",
+   "#a2english"
+  ],
+  "first_comment": "Quiz answer: buying. Consider is followed by the -ing form, just like enjoy and avoid. Practice it with a free quiz: {link}"
+ }
 }

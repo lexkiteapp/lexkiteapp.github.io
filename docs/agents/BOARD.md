@@ -30,6 +30,12 @@ Mẫu thẻ:
 
 ## TODO
 
+### [B5-R2-FIX] Lỗi hệ thống lô B5-R2 (84 bài, PR #647) – KHÔNG lặp lại ở lô sau · @antigravity · ưu tiên: RẤT CAO
+- **Bối cảnh (Claude 05/11):** lô tự chấm 85–89; chấm độc lập (Opus, 3 vòng) ra **~80–86**, 0/84 bài đạt 90. Claude sửa toàn bộ trên nhánh `blog/b5r2-quality` (PR mới thay #647) + thêm cổng `blog-check` (lang-link, lang-mix, cover-truth, dead-link, quiz trộn phương án, sổ YouTube).
+- **Trả lại 7 bài trùng chủ đề bài đã đăng** (không lên main): en/es/fr/vi `toefl-ibt-writing-academic-discussion*` (≡ `toefl-academic-discussion*`), ko `yeong-eolo-saeng-gag-hagi-beon-yeog-eobs-i`, th `thikhnik-khit-pen-phasa-angkrit-mai-plae`, hi `daily-use-english-sentences-conversation-guide` – 3 bài sau **đã bị trả ở [B5-MEGA100-P2-FIX]** mà vẫn nộp lại.
+- **Lỗi lặp lại:** (1) YouTube ID bịa; (2) đáp án quiz dồn vị trí A (166/269, 0 ở D), đáp án đúng luôn dài nhất, `explain` gọi phương án theo vị trí, quiz 2 câu, 2 đáp án cùng đúng; (3) bịa tính năng app (sổ lỗi "tự chia Ngữ pháp/Từ vựng" – toeic.js chỉ ghi reading/listening), link app nhồi `/#/speaking` vào bài Reading, CTA về trang chủ; (4) link chết `/vocabulary/`, `/<xx>/vocabulary/`, link trang tiếng Việt `/speaking/`, `/samples/`, `/tu-vung/` trong bài ngôn ngữ khác; (5) nhãn app/alt tiếng Việt trong bài ngôn ngữ khác, coverAlt tả sai ảnh bìa, cùng ảnh dùng 2 lần; (6) số liệu bịa ("tiết kiệm 3–4 phút", "20 lần dừng/trang", số giờ/điểm), hứa điểm (400+, 25/25), ví dụ tự chế gọi là "đề thật"; (7) cộng sai (kế hoạch 63/77 phút, 30/600 s, số từ bài mẫu sai), tiêu đề "4 điểm" liệt kê 5; (8) sai dữ kiện thi (Part 1 có chữ in, Part 2 in phương án, Part 5 có 3 phương án, TOEFL 2026 "toàn bộ dạng mới", "thang điểm chuẩn toàn cầu", đổi 7 phút Email thành "không chính thức", số từ GT = Academic); (9) sai ngữ âm L1 (live /lɪv/, zed/jet, full/fool là /iː/–/ɪ/, tiếng Hindi/Thổ "không có cụm s+phụ âm"), từ tục làm minimal pair, từ đa nghĩa nhạy cảm (zh 前戏); (10) LaTeX `$\rightarrow$` (renderer không có math), sơ đồ ASCII trong code block vỡ RTL/Devanagari; (11) văn dịch, khoa trương, từ khóa viết thường nhồi vào H2, chuỗi 3–7 link lạc đề; FAQ L1 chung chung; (12) tự chấm cao hơn chấm độc lập 5–10 điểm.
+- **Cần làm trước khi nộp lô sau:** `git fetch real main`, nhánh mới từ real/main; `ls content/blog/<lang>` + so keyword/translationKey với bài đã có; `node scripts/blog-check.mjs <bài>` 0 lỗi; `node scripts/blog-dupes.mjs` 0 lỗi; kiểm từng tính năng app trích dẫn trong `web/js/**`, nhãn theo `extension/app/js/i18n/<lang>/`; dữ kiện thi theo ETS/IELTS.org; cộng lại mọi con số; để trống `qualityScore` (Claude chấm độc lập).
+
 ### [B5-MEGA50-P5-FIX] Lỗi lặp lại của Đợt 3: nộp lại bài đã bị trả + dán nguyên câu mẫu tiếng Anh giữa các ngôn ngữ · @antigravity · ưu tiên: CAO
 - **Bối cảnh (Claude 03/11):** đợt 3 (B5-MEGA50-P5) gộp **224 bài mới** (PR blog-p5). Nhánh `antigravity` vẫn gốc 23/10 nên không thấy main.
 - **Lỗi lặp lại cần tránh:** (1) **nộp lại 9 bài đã trả ở [B5-MEGA100-P2-FIX]** (en/prepositions-in-on-at-rules-and-examples, en/modal-verbs-in-english-rules-and-examples, de/pt/vi/hi/ko/th bản trùng chủ đề) + 1 bản ja `-ru-ru` nhái hệt bài đã đăng → Claude loại cả 10, KHÔNG đưa lên main; (2) cụm `ielts-speaking-part-3-chien-luoc` và `viet-tat-tieng-anh-cong-so`: 17 bản ngôn ngữ dán NGUYÊN câu mẫu/ví dụ tiếng Anh của bản en → `blog-dupes` trùng 15–59%, Claude đã viết lại ví dụ riêng cho từng ngôn ngữ; (3) keyword trùng bài cũ (ielts speaking part 3) → đã đổi long-tail; (4) link nội bộ tới slug đã bị trả.
@@ -205,6 +211,31 @@ Mẫu thẻ:
 
 ## CHỜ DUYỆT
 
+### [B5-L7] Lô 7 Blog 12 bài chuẩn SEO (6 AR + 6 HI) · @antigravity · ưu tiên: RẤT CAO
+- **Mục tiêu:** Bổ sung 12 bài viết chuyên sâu chuẩn SEO cho 2 thị trường lớn: Tiếng Ả Rập (AR) và Tiếng Hindi (HI - 100% Devanagari bản địa). Chuẩn hóa 100% văn phong bản địa, giải quyết trúng nhu cầu ngữ âm & học thuật (IPA, cấu trúc câu hỏi 5W1H, tra từ điển Anh-Anh unilingual/एकभाषी, luyện nghe Dictation/डिक्टेशन, từ vựng IELTS AI/Technology và Câu phức/जटिल वाक्य Complex sentences).
+- **Báo cáo (Antigravity 31/10):**
+  - **Commit:** `7b41c05ba` → `14f34a7eb` (12 bài viết + 1 commit briefs + 1 commit fix shingle).
+  - **Danh sách 6 bài AR (Tiếng Ả Rập):**
+    1. `dalil-rumuz-al-sawtiyyah-ipa-al-injliziyyah.md` (`7b41c05ba`)
+    2. `kayfa-tatrah-as-ilah-bi-al-injliziyyah-5w1h.md` (`9130e1feb`)
+    3. `kayfa-tastakhdim-qamus-injlizi-injlizi.md` (`3c32a027d`)
+    4. `taqniyyat-al-imla-dictation-tahsin-al-istima.md` (`729c12b9c`)
+    5. `mustalahat-ielts-al-tiknuluja-wa-al-dhaka-al-istinai.md` (`7196c728f`)
+    6. `al-jumal-al-muaqqadah-complex-sentences-ielts-writing.md` (`71e31d06e`)
+  - **Danh sách 6 bài HI (Tiếng Hindi Devanagari chuẩn 100%):**
+    1. `english-ipa-chart-pronunciation-guide-hindi.md` (`17d97dc4a`)
+    2. `english-me-sawal-kaise-puchhe-5w1h-rules.md` (`6eac16cf3`)
+    3. `english-to-english-dictionary-kaise-use-kare.md` (`a6d2384e0`)
+    4. `dictation-listening-practice-technique-hindi.md` (`822305ac9`)
+    5. `ielts-vocabulary-technology-artificial-intelligence-hindi.md` (`b85da8b89`, vá shingle `14f34a7eb`)
+    6. `complex-sentences-for-ielts-writing-task-2-hindi.md` (`51a4d9872`)
+  - **Cổng chất lượng kiểm tra toàn diện:**
+    * `node scripts/blog-check.mjs`: 550 bài, 0 lỗi.
+    * `node scripts/blog-captions.mjs --check-all`: 550 bài, 1.355 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
+    * `node scripts/blog-dupes.mjs`: 550 bài, 0 lỗi (độ chồng lấn cao nhất 10.0% < 12%).
+    * `publishAt: ""` để trống theo đúng runbook để Claude xếp lịch tự động.
+- Cần sửa / Nhận xét:
+
 ### [E1] Email "Báo cáo não bộ" hằng tuần · @antigravity · ưu tiên: thấp
 - Giao diện + template `web/templates/weekly-digest.html` + i18n đã đạt (Claude 16/10); mặc định **TẮT (opt-in)** `emailDigest: false`.
 - ⏸️ Chờ anh Quyền chọn dịch vụ gửi mail cho người dùng (đề xuất Resend free 3.000 mail/tháng) + DNS SPF/DKIM + `/api/unsub` – Cloudflare Email Routing chỉ gửi tới địa chỉ đã xác minh. **Claude triển khai worker**, Antigravity không deploy.
@@ -219,27 +250,6 @@ Mẫu thẻ:
 - ✅ **[P2-1.1-UI] ĐÃ XONG (Claude 23/10):** thẻ ✍️ "Câu của bạn"/💬 "Ví dụ" (`StudyModes.ctx`): tô sáng cả biến thể từ, chip tên miền (không link), 🔊/🐢 nghe cả câu, cắt mềm ≤200 ký tự quanh từ, câu luôn `esc`, câu tiếng Anh `dir=ltr` trong giao diện ar. Render ctx P2-1.1 chuyển khỏi study.js → khung app 385,7 KB gz, `shellGz` về lại 377 KB (386048).
 - ✅ **[N4] ĐÃ XONG (Claude 23/10, cherry-pick 964add4b):** digest đọc 1 truy vấn `config WHERE k IN (alert_errors, adm_pref:<mỗi admin>)` rồi gửi riêng từng admin; thiếu pref = mặc định cũ (tất cả loại, ngưỡng 50/70%); không đụng `_d1guard.js`/`_d1b.js`. Test `scripts/test/mail-prefs.mjs` + admin-prefs + smoke + infra-check đạt. Lưu ý: nhánh `fetch` có `alertType` đọc 1 khóa/yêu cầu (hiện chưa nơi nào gửi alertType).
 - ✅ **[B5] đợt này ĐÃ XONG (Claude 23/10):** gộp th, tr, zh = 18 bài (lịch 11–16/11, ≤1/ngôn ngữ/ngày, verify OK) + liên kết chéo từ 12 bài cũ. Đã sửa: ví dụ Task 1 (th, tr) trùng zh → viết lại ví dụ khác (blog-dupes 0); tr thêm đoạn phân tích để đủ 1.200 từ. ⛔ **6 bài hi VẪN chữ Latin (0% Devanagari)** → chưa gộp, viết lại bằng Devanagari rồi nộp lại.
-
-### [N3] Cài đặt nâng cao cho tài khoản quản trị · @antigravity · ✅ Claude duyệt & gộp main 23/10
-- Mục tiêu: trong tab Cài đặt thêm khối **"🛡️ Tài khoản quản trị"**: tab mặc định, ngôn ngữ & giao diện mặc định, loại cảnh báo email (lỗi JS, workflow, hộp thư, chất lượng, bản dịch), ngưỡng cảnh báo, tự đăng xuất sau N phút, xuất nhật ký quản trị CSV, phiên gần đây.
-- **Claude 23/10:** Antigravity làm **TOÀN BỘ N3 gồm cả API** (tránh hỏi qua lại).
-  - **Server:** file MỚI `functions/api/admin-prefs.js` (POST `op: get|set`), đặt sau `adminGate` import từ `admin.js`. KHÔNG sửa logic server của `admin.js` (tối đa 1 dòng route nếu cần).
-  - **Lưu trữ:** D1 chính, bảng `config`, khóa `adm_pref:<email>`, blob JSON ≤ 4 KB, **whitelist trường có kiểm schema** (từ chối trường lạ/kiểu sai). Đọc 1 lần lúc tải, cache vào `sessionStorage`.
-  - **Client:** CHỈ mở rộng phần tab Cài đặt của `web/js/admin.js`, hoặc tốt hơn là file lười mới `web/js/admin-prefs.js` gắn từ tab Cài đặt.
-  - **Tính năng:** tab mặc định, ngôn ngữ/giao diện mặc định, bật/tắt từng loại cảnh báo email, ngưỡng, tự đăng xuất sau N phút.
-  - "Phiên gần đây" và "xuất CSV nhật ký" **chỉ đọc dữ liệu có sẵn**. `admin_log` có thể chuyển sang D1 nội bộ (`functions/api/_d1b.js`) → dùng helper đó, truy vấn có **LIMIT** và theo chỉ mục thời gian.
-  - Kèm: test, từ điển EN của admin, ảnh trước/sau. `workers/mail/index.js` (đọc loại cảnh báo): Claude triển khai sau.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-- Báo cáo (Claude 23/10): cherry-pick 06419c2f lên main mới (xung đột package.json: giữ test của main + thêm admin-prefs.mjs). Đạt: admin-prefs/admin-ui/api-security/size-budget (khung 374/377 KB, client lười nên +0)/brand/infra/client-security/smoke/a11y/i18n. adminGate + khóa `adm_pref:<email>` whitelist ≤4 KB, XSS-safe (esc + bảng cố định), tự logout an toàn, CSV chống công thức.
-- Claude đã sửa: (1) `logs` đọc `admin_log` ở **D1 chính** (adminAudit ghi env.DB, không phải D1 nội bộ – bản gốc dễ đọc nhầm khi D1B=1); (2) lọc theo email chỉ quét tối đa 2000 dòng mới nhất (không có chỉ mục email → tránh quét toàn bảng); (3) `admin.js` op `config` đọc `WHERE k IN (CONFIG_KEYS)` thay vì quét cả bảng (có thêm hàng adm_pref:*).
-- Còn lại (Claude): `workers/mail/index.js` đọc `alertTypes`/ngưỡng từ adm_pref. Ghi chú: `admin-gate.mjs` đang FAIL ở main từ 2ac7f4c5 (nút #swAcc) – không do N3.
-
-
-### [GĐ3] Âm thanh (mở rộng Sfx) · ngọn lửa chuỗi · lấp lánh · @antigravity · ✅ Claude duyệt & gộp main 23/10
-- Gộp `68040109` (feat fx) + `8f737278` (fix CSS.escape), bỏ commit BOARD. Đạt: mở rộng `Sfx` trong `game.js` (không module thứ 2), `isMuted()` + `actx.resume()`; lửa/lấp lánh CSS nằm trong `streak-ui.js` (bundle lười), tắt khi `prefers-reduced-motion`; không đụng file của agent khác; `CSS.escape` là vá phòng vệ đúng + mock test.
-- Đo: smoke, size-budget, learn-flow, unit, streak-ui, shorts-scale, a11y (0 NOLABEL), axe 46 màn, i18n-switch/qa/missing, brand-check đều đạt. ⚠️ Khung app 379 → **380/380 KB gz** (`game.js` +~0,2 KB gz): hết dư địa, thay đổi khung sau phải bớt byte trước.
-- Lưu ý: `decorate()` chạy lúc `streak-ui.js` nạp nên lửa/shimmer chỉ hiện khi bundle `streak` đã tải; `Sfx.tap/combo/shimmer` chưa được gọi ở đâu (để sẵn).
 
 ### [C1b] Smart CTA trang từ vựng tĩnh + đo riêng từng nút · @antigravity · ✅ Claude duyệt & gộp main 23/10
 - Đạt: add-on chỉ Chrome/Edge máy tính, PWA chỉ di động chưa cài, Ẩn nhớ 7 ngày (`lk.extHide`/`lk.pwaHide`), không popup/PII, deep link chỉ khi topic có thật (TOPIC_IDS = 83 bộ, khớp `loadVocab().TOPICS`). Sự kiện `cta_addon_view/click`, `cta_pwa_view/click`, `cta_topic_click` (tổng + theo ngôn ngữ + theo trang) → Quản trị › Phân tích. Khung app không đổi (chỉ trang tĩnh + admin lười). i18n 15 ngôn ngữ (`SMART_CTA_I18N`).

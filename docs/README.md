@@ -28,7 +28,8 @@
 | Add-on Chrome / Edge | `CWS-RULES.md` (+ `CWS-FEATURED.md`) · `EDGE-SUBMIT.md` |
 | Mobile & cửa hàng · quảng cáo | `STORE-READINESS.md` · `ADS.md` |
 | Video: nguồn sự thật (+ luật dựng §9) | `VIDEO.md` · `VIDEO-QC.md` · `VIDEO-SCALE-PLAN.md` · `VIDEO-SERIES.md` · `VIDEO-TEMPLATES.md` · `AUTOMATION.md` |
-| Video: lưu trữ · kho tài nguyên · chấm điểm · xem trong admin · YouTube | `VIDEO-STORAGE.md` · `ASSET-LIBRARY.md` · `MEDIA-QA-RUBRIC.md` · `SHORTS-ACCESS.md` · `YOUTUBE-SETUP.md` |
+| Video: lưu trữ · kho tài nguyên · chấm điểm · xem trong admin · YouTube | `VIDEO-STORAGE.md` · `ASSET-LIBRARY.md` · `MEDIA-QA-RUBRIC.md` · `SHORTS-ACCESS.md` · `YOUTUBE-SETUP.md` · `YOUTUBE-AUDIT.md` |
+| App iOS/Android native (SwiftUI + Compose), parity, một nguồn sinh mã | `specs/native-apps.md` |
 | Học qua video YouTube (#/watch, /api/watch, add-on youtube.com) | `specs/video-learn.md` |
 | Thư viện công khai lướt bằng mắt (huy hiệu, bento, thẻ, cổng SEO) | `specs/samples-visual.md` |
 | Blog | `BLOG-RUNBOOK.md` |
@@ -36,6 +37,7 @@
 | Social / phân phối / GrabCast | `DISTRIBUTION.md` · `GRABCAST-API-REQUESTS.md` |
 | PR/backlink (pr-check đọc bảng: `node scripts/pr-check.mjs --table`) | `PR-PLATFORMS.md` · `BACKLINKS.md` |
 | Hạ tầng: sổ tài nguyên · khóa API · bảo vệ admin/nội dung · giấy phép dữ liệu | `INFRA-RULES.md` · `API-KEYS.md` · `ADMIN-SECURITY.md` · `CONTENT-PROTECTION.md` · `CREDITS.md` |
+| Cuộn mượt, CLS khi cuộn | `PERF-SCROLL.md` |
 | Sao lưu & khôi phục | `ROLLBACK.md` |
 | Audit / nghiên cứu (tham khảo) | `AUDIT-2026-10.md` · `CONTENT-AUDIT-2026-10-25.md` · `audits/` · `research/` · `legal/DMCA-KIT.md` · `agents/DUO-GAP.md` |
 | Lưu trữ (chỉ tra cứu) | `archive/` – METHODS-HISTORY, PLAYBOOK, STORE-READINESS-HISTORY, video cũ. Stub 1 dòng → `VIDEO.md`: VIDEO-PIPELINE, VIDEO-SYSTEM-PLAN, CINE-SCENE-STANDARD, KLING-PLAN, LISTENING-CHANNEL-PLAN, VIDEO-CONTENT-PLAN |

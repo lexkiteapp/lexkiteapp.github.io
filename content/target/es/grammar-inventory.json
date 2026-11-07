@@ -1,0 +1,3092 @@
+{
+ "_doc": "Kho điểm ngữ pháp tiếng Tây Ban Nha (es-419 trung tính) của LexKite. 100% tự soạn: tên điểm, câu \"Can …\" và ví dụ là của LexKite, không chép Plan Curricular del Instituto Cervantes hay sách giáo trình (CONTENT-RULES §1). lessons = id bài es (chưa có → []); tenses = khóa của scripts/target/conjugate.mjs; kiểm: node scripts/content-qa/grammar-map-check.mjs --tl es; id điểm KHÔNG đổi/tái dùng.",
+ "version": 1,
+ "areas": {
+  "verb": "Verb forms & tenses",
+  "mood": "Subjunctive & imperative",
+  "sereestar": "Ser, estar & haber",
+  "modal": "Modality & periphrasis",
+  "passive": "Passive, se & impersonals",
+  "cond": "Conditionals & hypothesis",
+  "reported": "Reported speech",
+  "noun": "Nouns, gender, articles & determiners",
+  "pronoun": "Pronouns & clitics",
+  "adj": "Adjectives & comparison",
+  "adv": "Adverbs",
+  "prep": "Prepositions (por/para, a personal…)",
+  "question": "Questions & exclamations",
+  "clause": "Clauses & complex sentences",
+  "sentence": "Word order, negation & punctuation",
+  "discourse": "Discourse, connectors & register",
+  "word": "Word formation (diminutives, affixes)",
+  "number": "Numbers, dates & time"
+ },
+ "points": [
+  {
+   "id": "ser-identity",
+   "level": "A1",
+   "area": "sereestar",
+   "name": "ser: identity, origin, profession",
+   "can_do_en": "Can use ser to say who someone is, where they are from and what they do.",
+   "example": "Soy Ana y soy de México. Mi papá es ingeniero.",
+   "example_en": "I'm Ana and I'm from Mexico. My dad is an engineer.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "estar-location",
+   "level": "A1",
+   "area": "sereestar",
+   "name": "estar: location",
+   "can_do_en": "Can use estar to say where a person, place or thing is.",
+   "example": "Mi casa está cerca del parque.",
+   "example_en": "My house is near the park.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "estar-feelings",
+   "level": "A1",
+   "area": "sereestar",
+   "name": "estar: states and feelings",
+   "can_do_en": "Can use estar to describe how someone feels or what state they are in today.",
+   "example": "Hoy estoy cansado, pero estoy contento.",
+   "example_en": "Today I'm tired, but I'm happy.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ser-estar-intro",
+   "level": "A1",
+   "area": "sereestar",
+   "name": "ser vs estar (first contrast)",
+   "can_do_en": "Can tell apart lasting traits with ser and temporary states with estar in simple sentences.",
+   "example": "Mi hermano es alto, pero hoy está enfermo.",
+   "example_en": "My brother is tall, but today he is sick.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "hay-existence",
+   "level": "A1",
+   "area": "sereestar",
+   "name": "hay: there is / there are",
+   "can_do_en": "Can use hay to say what exists in a place.",
+   "example": "Hay un banco en la esquina y hay dos tiendas.",
+   "example_en": "There is a bank on the corner and there are two shops.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "present-ar",
+   "level": "A1",
+   "area": "verb",
+   "name": "present tense of -ar verbs",
+   "can_do_en": "Can conjugate regular -ar verbs in the present to talk about what I do.",
+   "example": "Hablo español y trabajo en una tienda.",
+   "example_en": "I speak Spanish and I work in a shop.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "present-er-ir",
+   "level": "A1",
+   "area": "verb",
+   "name": "present tense of -er and -ir verbs",
+   "can_do_en": "Can conjugate regular -er and -ir verbs in the present for everyday actions.",
+   "example": "Como pan y escribo una carta.",
+   "example_en": "I eat bread and write a letter.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "present-irregular-yo",
+   "level": "A1",
+   "area": "verb",
+   "name": "present: irregular yo forms",
+   "can_do_en": "Can use common verbs with an irregular yo form such as hacer, salir, poner and traer.",
+   "example": "Hago la tarea y salgo a las ocho.",
+   "example_en": "I do my homework and leave at eight.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tener-present",
+   "level": "A1",
+   "area": "verb",
+   "name": "tener: age and possession",
+   "can_do_en": "Can use tener to say my age, my family and what I have.",
+   "example": "Tengo veinte años y dos hermanos.",
+   "example_en": "I'm twenty years old and I have two brothers.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ir-present",
+   "level": "A1",
+   "area": "verb",
+   "name": "ir a + place",
+   "can_do_en": "Can use ir with a to say where I am going.",
+   "example": "Voy al mercado con mi mamá.",
+   "example_en": "I go to the market with my mom.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "stem-change-e-ie",
+   "level": "A1",
+   "area": "verb",
+   "name": "stem changes e to ie",
+   "can_do_en": "Can use common verbs that change e to ie in the present, such as querer and empezar.",
+   "example": "Quiero un café y empiezo a las nueve.",
+   "example_en": "I want a coffee and I start at nine.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "stem-change-o-ue",
+   "level": "A1",
+   "area": "verb",
+   "name": "stem changes o to ue",
+   "can_do_en": "Can use common verbs that change o to ue in the present, such as poder and dormir.",
+   "example": "Duermo ocho horas y puedo estudiar por la tarde.",
+   "example_en": "I sleep eight hours and I can study in the afternoon.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "reflexive-daily",
+   "level": "A1",
+   "area": "pronoun",
+   "name": "reflexive verbs for daily routine",
+   "can_do_en": "Can use reflexive verbs to describe my morning and evening routine.",
+   "example": "Me levanto a las seis y me ducho.",
+   "example_en": "I get up at six and take a shower.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "gustar-basic",
+   "level": "A1",
+   "area": "pronoun",
+   "name": "gustar: likes and dislikes",
+   "can_do_en": "Can say what I like with gustar, choosing gusta or gustan by the thing liked.",
+   "example": "Me gusta el chocolate y me gustan los gatos.",
+   "example_en": "I like chocolate and I like cats.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "noun-gender",
+   "level": "A1",
+   "area": "noun",
+   "name": "gender of nouns",
+   "can_do_en": "Can match masculine and feminine nouns with the right article and adjective.",
+   "example": "El libro es rojo y la mesa es blanca.",
+   "example_en": "The book is red and the table is white.",
+   "lessons": []
+  },
+  {
+   "id": "noun-plural",
+   "level": "A1",
+   "area": "noun",
+   "name": "plural of nouns",
+   "can_do_en": "Can form plurals with -s, -es and the z to c change.",
+   "example": "Tengo dos lápices y tres libros.",
+   "example_en": "I have two pencils and three books.",
+   "lessons": []
+  },
+  {
+   "id": "definite-articles",
+   "level": "A1",
+   "area": "noun",
+   "name": "definite articles el, la, los, las",
+   "can_do_en": "Can use el, la, los and las with nouns I already know about.",
+   "example": "La niña tiene el balón.",
+   "example_en": "The girl has the ball.",
+   "lessons": []
+  },
+  {
+   "id": "indefinite-articles",
+   "level": "A1",
+   "area": "noun",
+   "name": "indefinite articles un, una, unos, unas",
+   "can_do_en": "Can use un, una, unos and unas to introduce something new.",
+   "example": "Tengo un perro y una gata.",
+   "example_en": "I have a dog and a cat.",
+   "lessons": []
+  },
+  {
+   "id": "adjective-agreement",
+   "level": "A1",
+   "area": "adj",
+   "name": "adjective agreement",
+   "can_do_en": "Can make adjectives agree in gender and number with the noun.",
+   "example": "Las casas pequeñas son bonitas.",
+   "example_en": "The small houses are pretty.",
+   "lessons": []
+  },
+  {
+   "id": "possessive-short",
+   "level": "A1",
+   "area": "noun",
+   "name": "possessives mi, tu, su, nuestro",
+   "can_do_en": "Can use short possessives to say whose people and things they are.",
+   "example": "Mi hermana y tu hermano son amigos.",
+   "example_en": "My sister and your brother are friends.",
+   "lessons": []
+  },
+  {
+   "id": "demonstratives",
+   "level": "A1",
+   "area": "noun",
+   "name": "demonstratives este, ese, aquel",
+   "can_do_en": "Can point to things near and far with este, ese and aquel.",
+   "example": "Esta casa es grande y aquel parque es bonito.",
+   "example_en": "This house is big and that park over there is pretty.",
+   "lessons": []
+  },
+  {
+   "id": "subject-pronouns",
+   "level": "A1",
+   "area": "pronoun",
+   "name": "subject pronouns",
+   "can_do_en": "Can use yo, tú, él, ella, usted and ellos when the subject needs to be clear.",
+   "example": "Yo trabajo y ella estudia.",
+   "example_en": "I work and she studies.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "question-words",
+   "level": "A1",
+   "area": "question",
+   "name": "question words",
+   "can_do_en": "Can ask simple questions with qué, quién, dónde, cuándo, cómo and cuántos.",
+   "example": "¿Dónde vives? ¿Cuántos años tienes?",
+   "example_en": "Where do you live? How old are you?",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "yes-no-questions",
+   "level": "A1",
+   "area": "question",
+   "name": "yes/no questions",
+   "can_do_en": "Can ask yes/no questions by rising intonation and answer with sí or no.",
+   "example": "¿Hablas inglés? Sí, un poco.",
+   "example_en": "Do you speak English? Yes, a little.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "negation-no",
+   "level": "A1",
+   "area": "sentence",
+   "name": "basic negation with no",
+   "can_do_en": "Can make a sentence negative by putting no before the verb.",
+   "example": "No tengo hermanos. No me gusta el café.",
+   "example_en": "I don't have siblings. I don't like coffee.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "prep-a-de-en",
+   "level": "A1",
+   "area": "prep",
+   "name": "prepositions a, de, en",
+   "can_do_en": "Can use a, de and en for direction, origin and place.",
+   "example": "Vivo en Lima y trabajo en el centro.",
+   "example_en": "I live in Lima and I work downtown.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "contractions-al-del",
+   "level": "A1",
+   "area": "prep",
+   "name": "contractions al and del",
+   "can_do_en": "Can use al and del instead of a el and de el.",
+   "example": "Voy al cine después del trabajo.",
+   "example_en": "I go to the movies after work.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "numbers-0-100",
+   "level": "A1",
+   "area": "number",
+   "name": "numbers 0 to 100",
+   "can_do_en": "Can say and understand numbers from zero to one hundred.",
+   "example": "Tengo treinta y cinco años.",
+   "example_en": "I'm thirty-five years old.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "time-clock",
+   "level": "A1",
+   "area": "number",
+   "name": "telling the time",
+   "can_do_en": "Can tell the time using es la and son las.",
+   "example": "Son las tres y media. Es la una.",
+   "example_en": "It's half past three. It's one o'clock.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "days-months-dates",
+   "level": "A1",
+   "area": "number",
+   "name": "days, months and dates",
+   "can_do_en": "Can say the days, the months and simple dates.",
+   "example": "Mi cumpleaños es el cinco de mayo.",
+   "example_en": "My birthday is on the fifth of May.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "weather-hacer",
+   "level": "A1",
+   "area": "verb",
+   "name": "weather with hacer and llover",
+   "can_do_en": "Can describe the weather with hacer, hay and llover.",
+   "example": "Hoy hace frío y llueve.",
+   "example_en": "Today it's cold and it's raining.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "muy-mucho",
+   "level": "A1",
+   "area": "adv",
+   "name": "muy and mucho",
+   "can_do_en": "Can choose muy before adjectives and adverbs, and mucho after verbs.",
+   "example": "Como mucho pan y es muy rico.",
+   "example_en": "I eat a lot of bread and it's very tasty.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tambien-tampoco",
+   "level": "A1",
+   "area": "adv",
+   "name": "también and tampoco",
+   "can_do_en": "Can agree with a positive statement using también and with a negative one using tampoco.",
+   "example": "Yo también trabajo. Ella tampoco come carne.",
+   "example_en": "I work too. She doesn't eat meat either.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "formal-usted",
+   "level": "A1",
+   "area": "discourse",
+   "name": "tú and usted",
+   "can_do_en": "Can choose usted for polite or formal speech and tú for friends and family.",
+   "example": "¿Cómo está usted, señora López?",
+   "example_en": "How are you, Mrs. López?",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "basic-connectors",
+   "level": "A1",
+   "area": "discourse",
+   "name": "y, pero, porque, o",
+   "can_do_en": "Can link short ideas with y, pero, porque and o.",
+   "example": "Estudio español porque me gusta, pero es difícil.",
+   "example_en": "I study Spanish because I like it, but it's hard.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ir-a-near-future",
+   "level": "A1",
+   "area": "verb",
+   "name": "ir a + infinitive (first use)",
+   "can_do_en": "Can say what I am going to do soon with ir a and an infinitive.",
+   "example": "Esta tarde voy a comer con mi tía.",
+   "example_en": "This afternoon I'm going to have lunch with my aunt.",
+   "tenses": [
+    "irA"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pret-regular",
+   "level": "A2",
+   "area": "verb",
+   "name": "preterite of regular verbs",
+   "can_do_en": "Can talk about finished past actions with regular preterite forms.",
+   "example": "Ayer comí tacos y hablé con Luis.",
+   "example_en": "Yesterday I ate tacos and talked with Luis.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pret-ser-ir",
+   "level": "A2",
+   "area": "verb",
+   "name": "preterite of ser and ir",
+   "can_do_en": "Can use fui, fuiste, fue and the other forms of ser and ir in the past.",
+   "example": "Fui al cine y la película fue buena.",
+   "example_en": "I went to the movies and the film was good.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pret-irregular-common",
+   "level": "A2",
+   "area": "verb",
+   "name": "common irregular preterites",
+   "can_do_en": "Can use common irregular preterites such as hacer, tener, estar, poder and decir.",
+   "example": "Hice la cena y tuve una llamada importante.",
+   "example_en": "I made dinner and had an important call.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pret-stem-change-3rd",
+   "level": "A2",
+   "area": "verb",
+   "name": "preterite stem changes (e to i, o to u)",
+   "can_do_en": "Can use the stem-changing preterite of -ir verbs in the third person.",
+   "example": "Ella durmió poco y pidió un café.",
+   "example_en": "She slept little and asked for a coffee.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pret-spelling-changes",
+   "level": "A2",
+   "area": "verb",
+   "name": "preterite spelling changes",
+   "can_do_en": "Can write the spelling changes in yo forms such as llegué, busqué and empecé.",
+   "example": "Llegué temprano y busqué la llave.",
+   "example_en": "I arrived early and looked for the key.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "imperfect-regular",
+   "level": "A2",
+   "area": "verb",
+   "name": "imperfect of regular verbs",
+   "can_do_en": "Can describe habits and scenes in the past with regular imperfect forms.",
+   "example": "De niño jugaba en el parque y comía helado.",
+   "example_en": "As a child I played in the park and ate ice cream.",
+   "tenses": [
+    "impf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "imperfect-irregular",
+   "level": "A2",
+   "area": "verb",
+   "name": "imperfect of ser, ir and ver",
+   "can_do_en": "Can use era, iba and veía to describe the past.",
+   "example": "Antes era tímido e íbamos a la playa.",
+   "example_en": "I used to be shy and we went to the beach.",
+   "tenses": [
+    "impf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pret-vs-imperfect-intro",
+   "level": "A2",
+   "area": "verb",
+   "name": "preterite vs imperfect (first contrast)",
+   "can_do_en": "Can tell a background situation in the imperfect from an event in the preterite.",
+   "example": "Cuando llegué, mi hermana dormía.",
+   "example_en": "When I arrived, my sister was sleeping.",
+   "tenses": [
+    "pret",
+    "impf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "present-progressive",
+   "level": "A2",
+   "area": "verb",
+   "name": "estar + gerund",
+   "can_do_en": "Can say what is happening right now with estar and a gerund.",
+   "example": "Estoy cocinando y mi hermano está leyendo.",
+   "example_en": "I'm cooking and my brother is reading.",
+   "tenses": [
+    "prog",
+    "ger"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "present-perfect-intro",
+   "level": "A2",
+   "area": "verb",
+   "name": "present perfect (introduction)",
+   "can_do_en": "Can use he, has, ha plus a participle for recent experience and unfinished periods.",
+   "example": "Hoy he comido muy bien. ¿Ya has visto la película?",
+   "example_en": "Today I've eaten very well. Have you seen the movie yet?",
+   "tenses": [
+    "perf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "participle-irregular",
+   "level": "A2",
+   "area": "verb",
+   "name": "irregular participles",
+   "can_do_en": "Can use irregular participles such as hecho, escrito, dicho, visto and puesto.",
+   "example": "He escrito el correo y he hecho la cena.",
+   "example_en": "I've written the email and I've made dinner.",
+   "tenses": [
+    "perf",
+    "part"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "imperative-tu-affirmative",
+   "level": "A2",
+   "area": "mood",
+   "name": "affirmative tú imperative",
+   "can_do_en": "Can give simple instructions to a friend with the tú imperative.",
+   "example": "Abre la ventana y ven aquí.",
+   "example_en": "Open the window and come here.",
+   "tenses": [
+    "imp"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "imperative-tu-negative",
+   "level": "A2",
+   "area": "mood",
+   "name": "negative tú imperative",
+   "can_do_en": "Can tell a friend what not to do using no and the subjunctive form.",
+   "example": "No abras la puerta ni hables fuerte.",
+   "example_en": "Don't open the door or talk loudly.",
+   "tenses": [
+    "impNeg"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "imperative-usted",
+   "level": "A2",
+   "area": "mood",
+   "name": "usted imperative",
+   "can_do_en": "Can politely tell someone to do something using the usted form.",
+   "example": "Pase, por favor, y siéntese.",
+   "example_en": "Come in, please, and have a seat.",
+   "tenses": [
+    "imp"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "reflexive-more-verbs",
+   "level": "A2",
+   "area": "pronoun",
+   "name": "reflexive verbs in more tenses",
+   "can_do_en": "Can use reflexive verbs in the preterite and with a change of meaning.",
+   "example": "Me desperté tarde y me vestí rápido.",
+   "example_en": "I woke up late and got dressed quickly.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "reciprocal-nos",
+   "level": "A2",
+   "area": "pronoun",
+   "name": "reciprocal actions",
+   "can_do_en": "Can use reflexive pronouns for actions people do to each other.",
+   "example": "Nos vemos los lunes y nos escribimos mucho.",
+   "example_en": "We see each other on Mondays and write to each other a lot.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "gustar-type-verbs",
+   "level": "A2",
+   "area": "pronoun",
+   "name": "gustar-type verbs",
+   "can_do_en": "Can use encantar, interesar, molestar and doler with an indirect object.",
+   "example": "A ella le encantan los museos y le interesa el arte.",
+   "example_en": "She loves museums and is interested in art.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "indirect-object-pronouns",
+   "level": "A2",
+   "area": "pronoun",
+   "name": "indirect object pronouns",
+   "can_do_en": "Can use me, te, le, nos and les to say who receives or benefits.",
+   "example": "Le doy un regalo a mi hermano y te escribo mañana.",
+   "example_en": "I give my brother a gift and I'll write to you tomorrow.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "direct-object-pronouns",
+   "level": "A2",
+   "area": "pronoun",
+   "name": "direct object pronouns",
+   "can_do_en": "Can replace a known noun with lo, la, los or las.",
+   "example": "¿El libro? Lo tengo yo. A Marta la veo mañana.",
+   "example_en": "The book? I have it. I'll see Marta tomorrow.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pronoun-position-infinitive",
+   "level": "A2",
+   "area": "pronoun",
+   "name": "pronouns with infinitives and gerunds",
+   "can_do_en": "Can attach pronouns to an infinitive or a gerund, or put them before the conjugated verb.",
+   "example": "Quiero verla y voy a llamarte.",
+   "example_en": "I want to see her and I'm going to call you.",
+   "tenses": [
+    "irA"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "prepositional-pronouns",
+   "level": "A2",
+   "area": "pronoun",
+   "name": "pronouns after prepositions",
+   "can_do_en": "Can use mí, ti, él, conmigo and contigo after prepositions.",
+   "example": "Este regalo es para ti. ¿Vienes conmigo?",
+   "example_en": "This gift is for you. Are you coming with me?",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "personal-a",
+   "level": "A2",
+   "area": "prep",
+   "name": "personal a",
+   "can_do_en": "Can add a before a direct object that is a specific person.",
+   "example": "Conozco a tu hermano, pero no conozco su casa.",
+   "example_en": "I know your brother, but I don't know his house.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "saber-conocer",
+   "level": "A2",
+   "area": "verb",
+   "name": "saber vs conocer",
+   "can_do_en": "Can choose saber for facts and skills and conocer for people and places.",
+   "example": "Sé cocinar, pero no conozco este restaurante.",
+   "example_en": "I know how to cook, but I don't know this restaurant.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ser-estar-contrast",
+   "level": "A2",
+   "area": "sereestar",
+   "name": "ser vs estar with adjectives",
+   "can_do_en": "Can use ser for what something is like and estar for how it is now.",
+   "example": "La sopa es buena, pero hoy está fría.",
+   "example_en": "The soup is good, but today it's cold.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tener-que-hay-que",
+   "level": "A2",
+   "area": "modal",
+   "name": "tener que and hay que",
+   "can_do_en": "Can express obligation with tener que and general necessity with hay que.",
+   "example": "Tengo que estudiar. Hay que llegar temprano.",
+   "example_en": "I have to study. One must arrive early.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "poder-querer-infinitive",
+   "level": "A2",
+   "area": "modal",
+   "name": "poder and querer + infinitive",
+   "can_do_en": "Can ask, offer and say what I want with poder, querer and an infinitive.",
+   "example": "¿Puedes ayudarme? Quiero aprender más.",
+   "example_en": "Can you help me? I want to learn more.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "acabar-de",
+   "level": "A2",
+   "area": "modal",
+   "name": "acabar de + infinitive",
+   "can_do_en": "Can say something has just happened with acabar de.",
+   "example": "Acabo de llegar y todavía no he cenado.",
+   "example_en": "I've just arrived and I haven't had dinner yet.",
+   "tenses": [
+    "pres",
+    "perf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "por-para-basics",
+   "level": "A2",
+   "area": "prep",
+   "name": "por and para (first uses)",
+   "can_do_en": "Can use para for purpose and goal and por for movement through a place.",
+   "example": "Estudio para ser médico y camino por el parque.",
+   "example_en": "I study to become a doctor and I walk through the park.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "comparatives-regular",
+   "level": "A2",
+   "area": "adj",
+   "name": "más / menos ... que",
+   "can_do_en": "Can compare two things with más que and menos que.",
+   "example": "Mi casa es más grande que la tuya.",
+   "example_en": "My house is bigger than yours.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "superlatives",
+   "level": "A2",
+   "area": "adj",
+   "name": "superlatives",
+   "can_do_en": "Can say which one is the most or the best with el más and el mejor.",
+   "example": "Es el mejor restaurante de la ciudad.",
+   "example_en": "It's the best restaurant in the city.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tan-como",
+   "level": "A2",
+   "area": "adj",
+   "name": "tan / tanto ... como",
+   "can_do_en": "Can say two things are equal with tan, tanto and como.",
+   "example": "Ella es tan alta como yo y tiene tantos libros como tú.",
+   "example_en": "She's as tall as I am and has as many books as you.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "adverbs-mente",
+   "level": "A2",
+   "area": "adv",
+   "name": "adverbs in -mente",
+   "can_do_en": "Can form adverbs from adjectives with -mente.",
+   "example": "Habla claramente y trabaja rápidamente.",
+   "example_en": "She speaks clearly and works quickly.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "frequency-adverbs",
+   "level": "A2",
+   "area": "adv",
+   "name": "frequency adverbs",
+   "can_do_en": "Can say how often I do things with siempre, a veces and nunca.",
+   "example": "Siempre desayuno temprano y nunca como carne.",
+   "example_en": "I always have breakfast early and I never eat meat.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ya-todavia",
+   "level": "A2",
+   "area": "adv",
+   "name": "ya and todavía",
+   "can_do_en": "Can use ya and todavía to say whether something has happened.",
+   "example": "Ya terminé, pero todavía no he cenado.",
+   "example_en": "I've already finished, but I haven't had dinner yet.",
+   "tenses": [
+    "pret",
+    "perf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "numbers-100-plus",
+   "level": "A2",
+   "area": "number",
+   "name": "numbers above 100",
+   "can_do_en": "Can say prices and years using hundreds and thousands.",
+   "example": "Cuesta mil doscientos pesos.",
+   "example_en": "It costs one thousand two hundred pesos.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ordinal-numbers",
+   "level": "A2",
+   "area": "number",
+   "name": "ordinal numbers",
+   "can_do_en": "Can use primero to décimo to say floors, order and dates.",
+   "example": "Vivo en el tercer piso.",
+   "example_en": "I live on the third floor.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "place-prepositions",
+   "level": "A2",
+   "area": "prep",
+   "name": "prepositions of place",
+   "can_do_en": "Can say where things are with al lado de, enfrente de, entre and cerca de.",
+   "example": "El banco está al lado del parque y enfrente de la escuela.",
+   "example_en": "The bank is next to the park and across from the school.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "time-hace",
+   "level": "A2",
+   "area": "number",
+   "name": "hace + time",
+   "can_do_en": "Can say how long ago something happened with hace and a time expression.",
+   "example": "Llegué hace tres días.",
+   "example_en": "I arrived three days ago.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "question-por-que",
+   "level": "A2",
+   "area": "question",
+   "name": "por qué vs porque",
+   "can_do_en": "Can ask with por qué and answer with porque.",
+   "example": "¿Por qué estudias español? Porque me encanta.",
+   "example_en": "Why do you study Spanish? Because I love it.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "cause-consequence-simple",
+   "level": "A2",
+   "area": "clause",
+   "name": "porque, por eso, así que",
+   "can_do_en": "Can explain a reason and a result in two linked sentences.",
+   "example": "No salí porque llovía; por eso me quedé en casa.",
+   "example_en": "I didn't go out because it was raining, so I stayed home.",
+   "tenses": [
+    "pret",
+    "impf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "relative-que-simple",
+   "level": "A2",
+   "area": "clause",
+   "name": "relative clauses with que",
+   "can_do_en": "Can add information about a noun with que.",
+   "example": "El libro que compré es muy bueno.",
+   "example_en": "The book that I bought is very good.",
+   "tenses": [
+    "pret",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "future-simple-regular",
+   "level": "B1",
+   "area": "verb",
+   "name": "simple future (regular)",
+   "can_do_en": "Can make predictions and promises with regular future forms.",
+   "example": "Mañana llamaré a mi tía y te escribiré.",
+   "example_en": "Tomorrow I'll call my aunt and write to you.",
+   "tenses": [
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "future-irregular",
+   "level": "B1",
+   "area": "verb",
+   "name": "irregular future stems",
+   "can_do_en": "Can use irregular future stems such as tendr-, har-, podr- and dir-.",
+   "example": "Tendré tiempo y haré las compras el sábado.",
+   "example_en": "I'll have time and do the shopping on Saturday.",
+   "tenses": [
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "future-probability",
+   "level": "B1",
+   "area": "verb",
+   "name": "future for probability",
+   "can_do_en": "Can guess about the present with the future tense.",
+   "example": "Ya serán las diez. Estará en casa.",
+   "example_en": "It must be ten o'clock by now. He must be at home.",
+   "tenses": [
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "conditional-polite",
+   "level": "B1",
+   "area": "verb",
+   "name": "conditional for polite requests",
+   "can_do_en": "Can ask politely with podría, querría and me gustaría.",
+   "example": "¿Podría abrir la ventana? Me gustaría un té.",
+   "example_en": "Could you open the window? I'd like a tea.",
+   "tenses": [
+    "cond"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "conditional-advice",
+   "level": "B1",
+   "area": "verb",
+   "name": "conditional for advice",
+   "can_do_en": "Can give advice with deberías, yo que tú and the conditional.",
+   "example": "Yo que tú, hablaría con ella. Deberías descansar.",
+   "example_en": "If I were you, I'd talk to her. You should rest.",
+   "tenses": [
+    "cond"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "past-perfect",
+   "level": "B1",
+   "area": "verb",
+   "name": "past perfect (pluscuamperfecto)",
+   "can_do_en": "Can show that one past event happened before another.",
+   "example": "Cuando llegamos, la película ya había empezado.",
+   "example_en": "When we arrived, the movie had already started.",
+   "tenses": [
+    "plup",
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pret-vs-imperfect-narrative",
+   "level": "B1",
+   "area": "verb",
+   "name": "preterite vs imperfect in stories",
+   "can_do_en": "Can tell a story with the imperfect for scene and the preterite for events.",
+   "example": "Era de noche y llovía cuando sonó el teléfono.",
+   "example_en": "It was night and it was raining when the phone rang.",
+   "tenses": [
+    "pret",
+    "impf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pret-meaning-change",
+   "level": "B1",
+   "area": "verb",
+   "name": "verbs that change meaning in the preterite",
+   "can_do_en": "Can use saber, conocer, querer and poder with a different meaning in the preterite.",
+   "example": "Ayer supe la verdad. Conocí a su hermano en la fiesta.",
+   "example_en": "Yesterday I found out the truth. I met her brother at the party.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "perfect-vs-preterite",
+   "level": "B1",
+   "area": "verb",
+   "name": "present perfect vs preterite",
+   "can_do_en": "Can choose the perfect for a period still open and the preterite for a closed one.",
+   "example": "Este año he viajado mucho, pero el año pasado viajé poco.",
+   "example_en": "This year I've traveled a lot, but last year I traveled little.",
+   "tenses": [
+    "perf",
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "past-progressive",
+   "level": "B1",
+   "area": "verb",
+   "name": "estar in the imperfect + gerund",
+   "can_do_en": "Can describe an action in progress in the past with estaba and a gerund.",
+   "example": "Estaba cocinando cuando llegaste.",
+   "example_en": "I was cooking when you arrived.",
+   "tenses": [
+    "prog",
+    "impf",
+    "ger",
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-present-forms",
+   "level": "B1",
+   "area": "mood",
+   "name": "present subjunctive forms",
+   "can_do_en": "Can form the present subjunctive of regular and stem-changing verbs.",
+   "example": "Espero que tengas un buen viaje.",
+   "example_en": "I hope you have a good trip.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-wishes",
+   "level": "B1",
+   "area": "mood",
+   "name": "subjunctive after wishes and requests",
+   "can_do_en": "Can say what I want others to do with querer que and the subjunctive.",
+   "example": "Quiero que vengas a mi fiesta.",
+   "example_en": "I want you to come to my party.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-emotion",
+   "level": "B1",
+   "area": "mood",
+   "name": "subjunctive after emotions",
+   "can_do_en": "Can react to a situation with me alegra que, siento que and the subjunctive.",
+   "example": "Me alegra que estés aquí.",
+   "example_en": "I'm glad you're here.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-doubt",
+   "level": "B1",
+   "area": "mood",
+   "name": "subjunctive after doubt",
+   "can_do_en": "Can express doubt with dudo que, no creo que and the subjunctive.",
+   "example": "Dudo que llegue a tiempo.",
+   "example_en": "I doubt he'll arrive on time.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-impersonal",
+   "level": "B1",
+   "area": "mood",
+   "name": "subjunctive after impersonal expressions",
+   "can_do_en": "Can use es importante que, es mejor que and es posible que with the subjunctive.",
+   "example": "Es importante que estudies todos los días.",
+   "example_en": "It's important that you study every day.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-recommend",
+   "level": "B1",
+   "area": "mood",
+   "name": "subjunctive after recommend, ask, suggest",
+   "can_do_en": "Can recommend, ask and suggest with a verb plus que plus the subjunctive.",
+   "example": "Te recomiendo que leas este libro.",
+   "example_en": "I recommend that you read this book.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-irregular-forms",
+   "level": "B1",
+   "area": "mood",
+   "name": "irregular subjunctive forms",
+   "can_do_en": "Can use sea, esté, vaya, sepa, haya and dé in the subjunctive.",
+   "example": "Ojalá que sepas la respuesta y que seas feliz.",
+   "example_en": "I hope you know the answer and that you are happy.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-cuando-future",
+   "level": "B1",
+   "area": "mood",
+   "name": "subjunctive after cuando for the future",
+   "can_do_en": "Can use cuando and the subjunctive for a future event that has not yet happened.",
+   "example": "Cuando llegue a casa, te llamaré.",
+   "example_en": "When I get home, I'll call you.",
+   "tenses": [
+    "subj",
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-para-que",
+   "level": "B1",
+   "area": "mood",
+   "name": "para que + subjunctive",
+   "can_do_en": "Can state a purpose that involves another person with para que.",
+   "example": "Te explico esto para que lo entiendas.",
+   "example_en": "I'm explaining this so that you understand it.",
+   "tenses": [
+    "subj",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "indicative-vs-subjunctive",
+   "level": "B1",
+   "area": "mood",
+   "name": "indicative vs subjunctive after creer",
+   "can_do_en": "Can contrast creo que with the indicative and no creo que with the subjunctive.",
+   "example": "Creo que viene, pero no creo que venga solo.",
+   "example_en": "I think he's coming, but I don't think he'll come alone.",
+   "tenses": [
+    "subj",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "imperative-clitics-affirmative",
+   "level": "B1",
+   "area": "mood",
+   "name": "affirmative imperative with pronouns",
+   "can_do_en": "Can attach pronouns to affirmative commands and write the accent.",
+   "example": "Dímelo ahora y siéntate aquí.",
+   "example_en": "Tell me now and sit down here.",
+   "tenses": [
+    "imp"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "imperative-clitics-negative",
+   "level": "B1",
+   "area": "mood",
+   "name": "negative imperative with pronouns",
+   "can_do_en": "Can put pronouns before negative commands.",
+   "example": "No me lo digas ni te lo lleves.",
+   "example_en": "Don't tell me and don't take it away.",
+   "tenses": [
+    "impNeg"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "imperative-ustedes",
+   "level": "B1",
+   "area": "mood",
+   "name": "ustedes imperative",
+   "can_do_en": "Can address a group politely with the ustedes imperative.",
+   "example": "Pasen y siéntense, por favor.",
+   "example_en": "Come in and have a seat, please.",
+   "tenses": [
+    "imp"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "double-object-pronouns",
+   "level": "B1",
+   "area": "pronoun",
+   "name": "double object pronouns",
+   "can_do_en": "Can put the indirect pronoun before the direct pronoun, as in me lo and te la.",
+   "example": "Mi mamá me lo dio ayer.",
+   "example_en": "My mom gave it to me yesterday.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "se-lo-rule",
+   "level": "B1",
+   "area": "pronoun",
+   "name": "le/les becomes se before lo/la",
+   "can_do_en": "Can change le or les to se before lo, la, los and las.",
+   "example": "Se lo expliqué a mi jefe.",
+   "example_en": "I explained it to my boss.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "se-accidental",
+   "level": "B1",
+   "area": "pronoun",
+   "name": "se me + unplanned events",
+   "can_do_en": "Can say that something happened by accident with se me, se te and se le.",
+   "example": "Se me cayó el vaso y se me olvidó el paraguas.",
+   "example_en": "I dropped the glass and I forgot the umbrella.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "passive-se",
+   "level": "B1",
+   "area": "passive",
+   "name": "passive se",
+   "can_do_en": "Can use se with a verb to say what is done without naming who does it.",
+   "example": "Aquí se habla español y se venden frutas.",
+   "example_en": "Spanish is spoken here and fruit is sold.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "impersonal-se",
+   "level": "B1",
+   "area": "passive",
+   "name": "impersonal se",
+   "can_do_en": "Can use se with a singular verb for people in general.",
+   "example": "En México se come mucho maíz. Se vive bien aquí.",
+   "example_en": "In Mexico people eat a lot of corn. One lives well here.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "passive-ser-intro",
+   "level": "B1",
+   "area": "passive",
+   "name": "ser + participle passive",
+   "can_do_en": "Can read and use simple passives with ser and a participle that agrees.",
+   "example": "La casa fue construida en 1990.",
+   "example_en": "The house was built in 1990.",
+   "tenses": [
+    "part",
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "llevar-gerund",
+   "level": "B1",
+   "area": "modal",
+   "name": "llevar + time + gerund",
+   "can_do_en": "Can say how long I have been doing something with llevar and a gerund.",
+   "example": "Llevo tres años estudiando español.",
+   "example_en": "I've been studying Spanish for three years.",
+   "tenses": [
+    "pres",
+    "ger"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "seguir-gerund",
+   "level": "B1",
+   "area": "modal",
+   "name": "seguir + gerund",
+   "can_do_en": "Can say that an action continues with seguir and a gerund.",
+   "example": "Sigo trabajando en el mismo lugar.",
+   "example_en": "I'm still working in the same place.",
+   "tenses": [
+    "pres",
+    "ger"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "soler-volver-a",
+   "level": "B1",
+   "area": "modal",
+   "name": "soler and volver a",
+   "can_do_en": "Can say what I usually do with soler and what I do again with volver a.",
+   "example": "Suelo caminar al trabajo y vuelvo a casa tarde.",
+   "example_en": "I usually walk to work and I come back home late.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "deber-deber-de",
+   "level": "B1",
+   "area": "modal",
+   "name": "deber vs deber de",
+   "can_do_en": "Can express obligation with deber and probability with deber de.",
+   "example": "Debes dormir más. Debe de estar cansado.",
+   "example_en": "You should sleep more. He must be tired.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "comparatives-irregular",
+   "level": "B1",
+   "area": "adj",
+   "name": "mejor, peor, mayor, menor",
+   "can_do_en": "Can use the irregular comparatives mejor, peor, mayor and menor.",
+   "example": "Mi hermano es mayor que yo, pero mi hermana es menor.",
+   "example_en": "My brother is older than me, but my sister is younger.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "adjective-position",
+   "level": "B1",
+   "area": "adj",
+   "name": "adjective position and apocope",
+   "can_do_en": "Can choose the position of the adjective and shorten bueno, malo and grande.",
+   "example": "Es un buen amigo y vive en una gran ciudad.",
+   "example_en": "He's a good friend and lives in a great city.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "relative-quien-donde",
+   "level": "B1",
+   "area": "clause",
+   "name": "relatives quien, donde, lo que",
+   "can_do_en": "Can use quien, donde and lo que to join ideas.",
+   "example": "La mujer con quien hablé es mi vecina.",
+   "example_en": "The woman I spoke with is my neighbor.",
+   "tenses": [
+    "pret",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "lo-neutral",
+   "level": "B1",
+   "area": "noun",
+   "name": "lo + adjective",
+   "can_do_en": "Can use lo with an adjective to talk about an idea in general.",
+   "example": "Lo importante es descansar.",
+   "example_en": "The important thing is to rest.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "si-real-conditions",
+   "level": "B1",
+   "area": "cond",
+   "name": "si + present (real conditions)",
+   "can_do_en": "Can state a likely condition and its result with si and the present.",
+   "example": "Si llueve, nos quedamos en casa.",
+   "example_en": "If it rains, we stay home.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "si-hypothetical",
+   "level": "B1",
+   "area": "cond",
+   "name": "si + imperfect subjunctive (hypothetical)",
+   "can_do_en": "Can talk about an unlikely or imaginary situation with si, the imperfect subjunctive and the conditional.",
+   "example": "Si tuviera tiempo, viajaría más.",
+   "example_en": "If I had time, I would travel more.",
+   "tenses": [
+    "subjImpf",
+    "cond"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "por-para-contrast",
+   "level": "B1",
+   "area": "prep",
+   "name": "por vs para (cause, recipient, deadline)",
+   "can_do_en": "Can contrast por for cause and exchange with para for recipient and deadline.",
+   "example": "Lo hice por ti, pero es para mi mamá.",
+   "example_en": "I did it for you, but it's for my mom.",
+   "tenses": [
+    "pret",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "verb-preposition-pairs",
+   "level": "B1",
+   "area": "prep",
+   "name": "verbs with fixed prepositions",
+   "can_do_en": "Can use verbs with their usual preposition, such as pensar en and soñar con.",
+   "example": "Pienso en ti. Sueño con viajar y dependo de mi familia.",
+   "example_en": "I think about you. I dream of traveling and I depend on my family.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "aunque-indicative",
+   "level": "B1",
+   "area": "discourse",
+   "name": "aunque + indicative",
+   "can_do_en": "Can concede a fact with aunque and the indicative.",
+   "example": "Aunque estoy cansado, sigo trabajando.",
+   "example_en": "Although I'm tired, I keep working.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "reported-simple",
+   "level": "B1",
+   "area": "reported",
+   "name": "simple reported speech",
+   "can_do_en": "Can report what someone said with dijo que and a past tense.",
+   "example": "Ana dijo que estaba cansada.",
+   "example_en": "Ana said she was tired.",
+   "tenses": [
+    "pret",
+    "impf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "indirect-questions",
+   "level": "B1",
+   "area": "question",
+   "name": "indirect questions",
+   "can_do_en": "Can embed a question after no sé, me preguntó or dime.",
+   "example": "Me preguntó dónde vivía. No sé qué hora es.",
+   "example_en": "He asked me where I lived. I don't know what time it is.",
+   "tenses": [
+    "pret",
+    "impf",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tag-questions",
+   "level": "B1",
+   "area": "question",
+   "name": "¿verdad? and ¿no? tags",
+   "can_do_en": "Can confirm information with tags such as ¿verdad? and ¿no? at the end of a sentence.",
+   "example": "Vienes mañana, ¿verdad? Hace frío, ¿no?",
+   "example_en": "You're coming tomorrow, right? It's cold, isn't it?",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "exclamations-que",
+   "level": "B1",
+   "area": "question",
+   "name": "exclamations with qué and cuánto",
+   "can_do_en": "Can react with ¡qué + adjective! and ¡cuánto / cuánta + noun! in everyday speech.",
+   "example": "¡Qué bonito! ¡Cuánta gente hay aquí!",
+   "example_en": "How pretty! There are so many people here!",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "diminutives",
+   "level": "B1",
+   "area": "word",
+   "name": "diminutives -ito and -ita",
+   "can_do_en": "Can form and understand diminutives for size and affection.",
+   "example": "Mi perrito es chiquito y vive en una casita.",
+   "example_en": "My little dog is tiny and lives in a little house.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "years-dates-long",
+   "level": "B1",
+   "area": "number",
+   "name": "years and full dates",
+   "can_do_en": "Can say years and full dates aloud and in writing.",
+   "example": "Nací en 1995. Hoy es el 12 de octubre de 2024.",
+   "example_en": "I was born in 1995. Today is October 12, 2024.",
+   "tenses": [
+    "pret",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "future-perfect",
+   "level": "B2",
+   "area": "verb",
+   "name": "future perfect",
+   "can_do_en": "Can say what will have happened by a future point with habré and a participle.",
+   "example": "Para el viernes ya habré terminado el informe.",
+   "example_en": "By Friday I'll have finished the report.",
+   "tenses": [
+    "futPerf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "conditional-perfect",
+   "level": "B2",
+   "area": "verb",
+   "name": "conditional perfect",
+   "can_do_en": "Can say what would have happened with habría and a participle.",
+   "example": "Yo no habría aceptado esa oferta.",
+   "example_en": "I wouldn't have accepted that offer.",
+   "tenses": [
+    "condPerf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-imperfect-forms",
+   "level": "B2",
+   "area": "mood",
+   "name": "imperfect subjunctive forms",
+   "can_do_en": "Can form the imperfect subjunctive and use it after past triggers.",
+   "example": "Quería que me ayudaras con la mudanza.",
+   "example_en": "I wanted you to help me with the move.",
+   "tenses": [
+    "subjImpf",
+    "impf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-perfect",
+   "level": "B2",
+   "area": "mood",
+   "name": "present perfect subjunctive",
+   "can_do_en": "Can use haya + participle for a completed event after a subjunctive trigger.",
+   "example": "Me alegra que hayas llegado bien.",
+   "example_en": "I'm glad you arrived safely.",
+   "tenses": [
+    "subjPerf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-pluperfect",
+   "level": "B2",
+   "area": "mood",
+   "name": "pluperfect subjunctive",
+   "can_do_en": "Can use hubiera + participle for a wish about the past.",
+   "example": "Ojalá hubiera estudiado más.",
+   "example_en": "I wish I had studied more.",
+   "tenses": [
+    "subjPlup"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "si-past-unreal",
+   "level": "B2",
+   "area": "cond",
+   "name": "si + pluperfect subjunctive (third conditional)",
+   "can_do_en": "Can talk about unreal past situations with si hubiera and habría.",
+   "example": "Si hubiera sabido la verdad, habría actuado distinto.",
+   "example_en": "If I had known the truth, I would have acted differently.",
+   "tenses": [
+    "subjPlup",
+    "condPerf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "si-mixed",
+   "level": "B2",
+   "area": "cond",
+   "name": "mixed conditionals",
+   "can_do_en": "Can link an unreal past condition to a present result.",
+   "example": "Si hubiera estudiado medicina, ahora sería doctora.",
+   "example_en": "If I had studied medicine, I would be a doctor now.",
+   "tenses": [
+    "subjPlup",
+    "cond"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "como-si",
+   "level": "B2",
+   "area": "cond",
+   "name": "como si + imperfect subjunctive",
+   "can_do_en": "Can compare with an imaginary situation using como si.",
+   "example": "Habla como si lo supiera todo.",
+   "example_en": "He talks as if he knew everything.",
+   "tenses": [
+    "subjImpf",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "sequence-of-tenses-subj",
+   "level": "B2",
+   "area": "mood",
+   "name": "sequence of tenses in the subjunctive",
+   "can_do_en": "Can match present or imperfect subjunctive to the tense of the main verb.",
+   "example": "Me pidió que le prestara dinero. Espero que me lo devuelva.",
+   "example_en": "He asked me to lend him money. I hope he gives it back.",
+   "tenses": [
+    "pret",
+    "subjImpf",
+    "pres",
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "aunque-subjunctive",
+   "level": "B2",
+   "area": "mood",
+   "name": "aunque + subjunctive",
+   "can_do_en": "Can use aunque with the subjunctive for a possible or irrelevant fact.",
+   "example": "Aunque llueva, saldré a correr.",
+   "example_en": "Even if it rains, I'll go for a run.",
+   "tenses": [
+    "subj",
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "relative-unknown-antecedent",
+   "level": "B2",
+   "area": "mood",
+   "name": "subjunctive in relative clauses (unknown)",
+   "can_do_en": "Can describe a person or thing I may not find with que plus the subjunctive.",
+   "example": "Busco a alguien que hable japonés.",
+   "example_en": "I'm looking for someone who speaks Japanese.",
+   "tenses": [
+    "subj",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "relative-negative-antecedent",
+   "level": "B2",
+   "area": "mood",
+   "name": "subjunctive after nobody, nothing",
+   "can_do_en": "Can say nobody or nothing exists with a relative clause in the subjunctive.",
+   "example": "No hay nadie que sepa la respuesta.",
+   "example_en": "There is nobody who knows the answer.",
+   "tenses": [
+    "subj",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "adverbial-time-subjunctive",
+   "level": "B2",
+   "area": "mood",
+   "name": "en cuanto, antes de que, hasta que",
+   "can_do_en": "Can use time conjunctions with the subjunctive for future events.",
+   "example": "En cuanto termine, te aviso. Antes de que te vayas, firma aquí.",
+   "example_en": "As soon as I finish, I'll let you know. Before you go, sign here.",
+   "tenses": [
+    "subj",
+    "pres",
+    "imp"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "conjunctions-condition-purpose",
+   "level": "B2",
+   "area": "mood",
+   "name": "a menos que, con tal de que, sin que",
+   "can_do_en": "Can use a menos que, con tal de que and sin que with the subjunctive.",
+   "example": "Te lo presto con tal de que me lo devuelvas.",
+   "example_en": "I'll lend it to you as long as you give it back.",
+   "tenses": [
+    "subj",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "quiza-tal-vez",
+   "level": "B2",
+   "area": "mood",
+   "name": "quizás and tal vez with the subjunctive",
+   "can_do_en": "Can express possibility with quizás, tal vez and a lo mejor.",
+   "example": "Quizás venga mañana. A lo mejor tiene razón.",
+   "example_en": "Maybe he'll come tomorrow. Maybe he's right.",
+   "tenses": [
+    "subj",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ojala-imperfect",
+   "level": "B2",
+   "area": "mood",
+   "name": "ojalá + imperfect subjunctive",
+   "can_do_en": "Can express a hard-to-reach wish with ojalá and the imperfect subjunctive.",
+   "example": "Ojalá tuviera más tiempo libre.",
+   "example_en": "I wish I had more free time.",
+   "tenses": [
+    "subjImpf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "passive-ser-agent",
+   "level": "B2",
+   "area": "passive",
+   "name": "ser passive with por",
+   "can_do_en": "Can name the agent in a passive with ser, a participle and por.",
+   "example": "La novela fue escrita por un autor chileno.",
+   "example_en": "The novel was written by a Chilean author.",
+   "tenses": [
+    "part",
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "passive-se-vs-ser",
+   "level": "B2",
+   "area": "passive",
+   "name": "passive se vs ser passive",
+   "can_do_en": "Can choose between se and ser + participle by register and focus.",
+   "example": "Se aprobaron las leyes nuevas. Fueron aprobadas por el congreso.",
+   "example_en": "The new laws were approved. They were approved by Congress.",
+   "tenses": [
+    "pret",
+    "part"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "estar-participle",
+   "level": "B2",
+   "area": "sereestar",
+   "name": "estar + participle (resulting state)",
+   "can_do_en": "Can describe a result with estar and an agreeing participle.",
+   "example": "La puerta está cerrada y las cartas ya están enviadas.",
+   "example_en": "The door is closed and the letters are already sent.",
+   "tenses": [
+    "pres",
+    "part"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ser-estar-meaning-change",
+   "level": "B2",
+   "area": "sereestar",
+   "name": "adjectives that change meaning",
+   "can_do_en": "Can tell apart pairs such as ser aburrido and estar aburrido, ser listo and estar listo.",
+   "example": "Mi jefe es listo, pero no está listo para la reunión.",
+   "example_en": "My boss is clever, but he isn't ready for the meeting.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "reported-backshift",
+   "level": "B2",
+   "area": "reported",
+   "name": "reported speech with tense backshift",
+   "can_do_en": "Can shift tenses when reporting, for example present to imperfect and future to conditional.",
+   "example": "Dijo que había terminado y que vendría mañana.",
+   "example_en": "He said he had finished and would come tomorrow.",
+   "tenses": [
+    "plup",
+    "cond",
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "reported-commands-questions",
+   "level": "B2",
+   "area": "reported",
+   "name": "reporting requests and questions",
+   "can_do_en": "Can report commands with pedir que and questions with preguntar si.",
+   "example": "Me pidió que lo ayudara y preguntó si habíamos comido.",
+   "example_en": "He asked me to help him and asked whether we had eaten.",
+   "tenses": [
+    "pret",
+    "subjImpf",
+    "plup"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "reported-time-shifts",
+   "level": "B2",
+   "area": "reported",
+   "name": "time and place shifts in reporting",
+   "can_do_en": "Can adjust words like hoy, aquí and mañana when reporting.",
+   "example": "Dijo que lo haría al día siguiente y que allí hacía frío.",
+   "example_en": "She said she would do it the next day and that it was cold there.",
+   "tenses": [
+    "pret",
+    "cond",
+    "impf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "relative-el-cual",
+   "level": "B2",
+   "area": "clause",
+   "name": "el cual and el que after prepositions",
+   "can_do_en": "Can use el cual, la cual and el que after prepositions in longer sentences.",
+   "example": "La razón por la cual renuncié es personal.",
+   "example_en": "The reason why I resigned is personal.",
+   "tenses": [
+    "pret",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "relative-cuyo",
+   "level": "B2",
+   "area": "clause",
+   "name": "cuyo, cuya, cuyos, cuyas",
+   "can_do_en": "Can use cuyo to link a noun to its owner and make it agree with the thing owned.",
+   "example": "El autor cuyo libro leí vive en Bogotá.",
+   "example_en": "The author whose book I read lives in Bogotá.",
+   "tenses": [
+    "pret",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "lo-que-lo-cual",
+   "level": "B2",
+   "area": "clause",
+   "name": "lo que and lo cual",
+   "can_do_en": "Can refer to a whole idea with lo que and lo cual.",
+   "example": "No vino, lo cual me sorprendió. Lo que dices es cierto.",
+   "example_en": "He didn't come, which surprised me. What you say is true.",
+   "tenses": [
+    "pret",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "gerund-adverbial",
+   "level": "B2",
+   "area": "clause",
+   "name": "adverbial gerund clauses",
+   "can_do_en": "Can use a gerund to give a manner, cause or condition.",
+   "example": "Saliendo temprano, llegarás a tiempo.",
+   "example_en": "If you leave early, you'll arrive on time.",
+   "tenses": [
+    "ger",
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "al-plus-infinitive",
+   "level": "B2",
+   "area": "clause",
+   "name": "al + infinitive and sin + infinitive",
+   "can_do_en": "Can express time with al plus infinitive and absence with sin plus infinitive.",
+   "example": "Al llegar a casa, me cambié. Sin decir nada, se fue.",
+   "example_en": "When I got home, I changed. Without saying anything, he left.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "absolute-participle",
+   "level": "B2",
+   "area": "clause",
+   "name": "absolute participle clauses",
+   "can_do_en": "Can open a sentence with a participle clause to show time or cause.",
+   "example": "Terminado el trabajo, volvimos a casa.",
+   "example_en": "With the work finished, we went back home.",
+   "tenses": [
+    "part",
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "clitic-climbing",
+   "level": "B2",
+   "area": "pronoun",
+   "name": "pronoun placement with periphrases",
+   "can_do_en": "Can place pronouns before or after the whole verb chain.",
+   "example": "Te lo voy a decir. Voy a decírtelo.",
+   "example_en": "I'm going to tell you. I'm going to tell you.",
+   "tenses": [
+    "irA"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "causative-hacer",
+   "level": "B2",
+   "area": "modal",
+   "name": "hacer + infinitive (causation)",
+   "can_do_en": "Can say I cause something to be done with hacer plus an infinitive.",
+   "example": "Hice reparar el carro. Me hizo reír.",
+   "example_en": "I had the car repaired. He made me laugh.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "connectors-result",
+   "level": "B2",
+   "area": "discourse",
+   "name": "por lo tanto, así que, de modo que",
+   "can_do_en": "Can state a result with por lo tanto, así que and de modo que.",
+   "example": "Llovía mucho; por lo tanto, cancelamos el paseo.",
+   "example_en": "It was raining a lot; therefore, we cancelled the outing.",
+   "tenses": [
+    "impf",
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "connectors-concession",
+   "level": "B2",
+   "area": "discourse",
+   "name": "a pesar de, sin embargo, aun así",
+   "can_do_en": "Can give a contrast with a pesar de, sin embargo and aun así.",
+   "example": "A pesar de la lluvia, fuimos al parque.",
+   "example_en": "Despite the rain, we went to the park.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "conversation-markers",
+   "level": "B2",
+   "area": "discourse",
+   "name": "conversation fillers and markers",
+   "can_do_en": "Can use bueno, o sea, pues and la verdad to manage a conversation.",
+   "example": "Bueno, o sea, la verdad es que no lo sé.",
+   "example_en": "Well, I mean, the truth is that I don't know.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "prep-verb-regime",
+   "level": "B2",
+   "area": "prep",
+   "name": "verbs with prepositional complements",
+   "can_do_en": "Can use verbs such as enamorarse de, insistir en and casarse con.",
+   "example": "Se enamoró de ella. Insiste en ir y se casó con él.",
+   "example_en": "He fell in love with her. He insists on going and he married him.",
+   "tenses": [
+    "pret",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "por-para-expressions",
+   "level": "B2",
+   "area": "prep",
+   "name": "fixed expressions with por and para",
+   "can_do_en": "Can use estar por, por si acaso, para colmo and por lo menos.",
+   "example": "Lo hice por si acaso. Por lo menos lo intenté.",
+   "example_en": "I did it just in case. At least I tried.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "double-negation",
+   "level": "B2",
+   "area": "sentence",
+   "name": "double negatives",
+   "can_do_en": "Can use no with nadie, nunca, nada and ningún in the same sentence.",
+   "example": "No dije nada a nadie. Nunca he visto nada así.",
+   "example_en": "I didn't say anything to anyone. I've never seen anything like it.",
+   "tenses": [
+    "pret",
+    "perf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "prefixes-suffixes",
+   "level": "B2",
+   "area": "word",
+   "name": "prefixes and suffixes",
+   "can_do_en": "Can use des-, in-, re-, -dad and -ción to build and understand words.",
+   "example": "Es imposible reinventar la rueda.",
+   "example_en": "It's impossible to reinvent the wheel.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "augmentatives",
+   "level": "B2",
+   "area": "word",
+   "name": "augmentatives -ón, -azo",
+   "can_do_en": "Can recognise augmentatives such as -ón, -ote and -azo and their tone.",
+   "example": "Vive en un casón enorme y siempre da un portazo al salir.",
+   "example_en": "He lives in a huge house and always slams the door when he leaves.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "fractions-percentages",
+   "level": "B2",
+   "area": "number",
+   "name": "fractions and percentages",
+   "can_do_en": "Can say fractions, decimals and percentages aloud.",
+   "example": "El veinticinco por ciento es un cuarto del total.",
+   "example_en": "Twenty-five percent is a quarter of the total.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-imperfect-ra-se",
+   "level": "C1",
+   "area": "mood",
+   "name": "-ra and -se imperfect subjunctive",
+   "can_do_en": "Can recognise the -se forms and use -ra forms for polite wishes with quisiera.",
+   "example": "Quisiera pedirle un favor. Si tuviese tiempo, lo haría yo.",
+   "example_en": "I would like to ask you a favor. If I had time, I would do it myself.",
+   "tenses": [
+    "subjImpf",
+    "cond"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-por-mas-que",
+   "level": "C1",
+   "area": "mood",
+   "name": "por más que, por mucho que",
+   "can_do_en": "Can concede with por más que and por mucho que plus the subjunctive.",
+   "example": "Por más que lo intente, no lo logro.",
+   "example_en": "No matter how hard I try, I can't do it.",
+   "tenses": [
+    "subj",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-reduplication",
+   "level": "C1",
+   "area": "mood",
+   "name": "reduplicated subjunctive (pase lo que pase)",
+   "can_do_en": "Can use fixed patterns such as pase lo que pase and sea como sea.",
+   "example": "Pase lo que pase, te apoyaré.",
+   "example_en": "Whatever happens, I'll support you.",
+   "tenses": [
+    "subj",
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-no-es-que",
+   "level": "C1",
+   "area": "mood",
+   "name": "no es que + subjunctive",
+   "can_do_en": "Can deny a possible reason with no es que and the subjunctive.",
+   "example": "No es que no quiera ayudarte, es que no puedo.",
+   "example_en": "It's not that I don't want to help you; it's that I can't.",
+   "tenses": [
+    "subj",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "aunque-mood-contrast",
+   "level": "C1",
+   "area": "mood",
+   "name": "aunque: indicative vs subjunctive nuance",
+   "can_do_en": "Can show whether a fact is known or hypothetical by choosing the mood after aunque.",
+   "example": "Aunque es caro, lo compro. Aunque fuera caro, lo compraría.",
+   "example_en": "Although it's expensive, I'm buying it. Even if it were expensive, I'd buy it.",
+   "tenses": [
+    "pres",
+    "subjImpf",
+    "cond"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "si-de-plus-infinitive",
+   "level": "C1",
+   "area": "cond",
+   "name": "de + infinitive as a condition",
+   "can_do_en": "Can replace a si clause with de plus an infinitive.",
+   "example": "De haberlo sabido, habría venido antes.",
+   "example_en": "Had I known, I would have come earlier.",
+   "tenses": [
+    "condPerf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "en-caso-de-que",
+   "level": "C1",
+   "area": "cond",
+   "name": "en caso de que, siempre que, siempre y cuando",
+   "can_do_en": "Can state a condition with en caso de que and siempre y cuando.",
+   "example": "En caso de que llame, dile que no estoy.",
+   "example_en": "In case he calls, tell him I'm not here.",
+   "tenses": [
+    "subj",
+    "imp",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "conditional-conjecture-past",
+   "level": "C1",
+   "area": "cond",
+   "name": "conditional for past probability",
+   "can_do_en": "Can guess about the past with the conditional.",
+   "example": "Serían las tres cuando salimos.",
+   "example_en": "It must have been three o'clock when we left.",
+   "tenses": [
+    "cond",
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "passive-se-formal",
+   "level": "C1",
+   "area": "passive",
+   "name": "formal se in notices and rules",
+   "can_do_en": "Can read and write notices with se plus a verb, such as se prohíbe and se alquila.",
+   "example": "Se prohíbe fumar. Se alquilan habitaciones.",
+   "example_en": "Smoking is prohibited. Rooms for rent.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "passive-ser-formal",
+   "level": "C1",
+   "area": "passive",
+   "name": "ser passive in news and formal texts",
+   "can_do_en": "Can use the ser passive in formal text with agents and tenses.",
+   "example": "Fue declarado ganador por el jurado.",
+   "example_en": "He was declared the winner by the jury.",
+   "tenses": [
+    "part",
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "impersonal-uno",
+   "level": "C1",
+   "area": "passive",
+   "name": "uno and se for generalising",
+   "can_do_en": "Can generalise with uno, se dice and se cree.",
+   "example": "Uno nunca sabe lo que va a pasar. Se dice que es rico.",
+   "example_en": "You never know what will happen. They say he's rich.",
+   "tenses": [
+    "pres",
+    "irA"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "impersonal-third-plural",
+   "level": "C1",
+   "area": "passive",
+   "name": "third person plural impersonal",
+   "can_do_en": "Can use the ellos form for unspecified people, as in dicen que and llaman.",
+   "example": "Dicen que va a llover. Están llamando a la puerta.",
+   "example_en": "They say it's going to rain. Someone is knocking at the door.",
+   "tenses": [
+    "pres",
+    "prog",
+    "irA"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nominalised-infinitive",
+   "level": "C1",
+   "area": "noun",
+   "name": "infinitive as a noun",
+   "can_do_en": "Can use an infinitive as a subject or noun, with or without el.",
+   "example": "Fumar es perjudicial. El saber no ocupa lugar.",
+   "example_en": "Smoking is harmful. Knowledge takes up no space.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "lo-adjective-relative",
+   "level": "C1",
+   "area": "noun",
+   "name": "lo + adjective + de / lo que",
+   "can_do_en": "Can build nominal phrases such as lo bueno de, lo mucho que and lo difícil que.",
+   "example": "Lo bueno de vivir aquí es la tranquilidad.",
+   "example_en": "The good thing about living here is the peace and quiet.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nominalisation-suffixes",
+   "level": "C1",
+   "area": "word",
+   "name": "turning verbs and adjectives into nouns",
+   "can_do_en": "Can build nouns with -ción, -miento, -eza and -dad.",
+   "example": "La construcción del puente mostró la belleza del diseño.",
+   "example_en": "The construction of the bridge showed the beauty of the design.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "relative-formal-quienes",
+   "level": "C1",
+   "area": "clause",
+   "name": "formal relatives (quienes, los cuales)",
+   "can_do_en": "Can use quienes, los cuales and la mayoría de los cuales in formal writing.",
+   "example": "Los estudiantes, la mayoría de los cuales viven lejos, llegan tarde.",
+   "example_en": "The students, most of whom live far away, arrive late.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "relative-preposition-article",
+   "level": "C1",
+   "area": "clause",
+   "name": "relative + preposition + article",
+   "can_do_en": "Can use el que, el cual and donde after prepositions to link longer clauses.",
+   "example": "El motivo por el que vine es claro.",
+   "example_en": "The reason I came is clear.",
+   "tenses": [
+    "pret",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "concessive-por-muy",
+   "level": "C1",
+   "area": "clause",
+   "name": "por muy ... que",
+   "can_do_en": "Can concede with por muy plus adjective plus que and the subjunctive.",
+   "example": "Por muy difícil que sea, lo lograremos.",
+   "example_en": "However hard it may be, we will manage.",
+   "tenses": [
+    "subj",
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "gerund-absolute",
+   "level": "C1",
+   "area": "clause",
+   "name": "siendo así, habiendo + participle",
+   "can_do_en": "Can use the gerund, as in siendo así and habiendo terminado, to link ideas.",
+   "example": "Habiendo terminado el trabajo, nos fuimos.",
+   "example_en": "Having finished the work, we left.",
+   "tenses": [
+    "ger",
+    "part",
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "aspectual-periphrases",
+   "level": "C1",
+   "area": "modal",
+   "name": "echar a, ponerse a, llegar a",
+   "can_do_en": "Can use aspect periphrases such as echar a correr, ponerse a and llegar a ser.",
+   "example": "Se puso a llorar y luego echó a correr.",
+   "example_en": "She started crying and then broke into a run.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "probability-periphrases",
+   "level": "C1",
+   "area": "modal",
+   "name": "deber de, haber de, tener que + haber",
+   "can_do_en": "Can express probability and deduction with deber de, haber de and tener que.",
+   "example": "Ha de ser difícil. Tiene que haberlo olvidado.",
+   "example_en": "It must be hard. He must have forgotten it.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "haber-impersonal-tenses",
+   "level": "C1",
+   "area": "sereestar",
+   "name": "impersonal haber in all tenses",
+   "can_do_en": "Can use hubo, había, habrá and haya correctly in impersonal sentences.",
+   "example": "Hubo muchos problemas. Habrá que esperar.",
+   "example_en": "There were many problems. We'll have to wait.",
+   "tenses": [
+    "pret",
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ser-estar-set-phrases",
+   "level": "C1",
+   "area": "sereestar",
+   "name": "ser de, estar para, estar por",
+   "can_do_en": "Can use phrases such as ser de, estar para and estar por.",
+   "example": "El libro es de Ana. Estoy por irme.",
+   "example_en": "The book is Ana's. I'm about to leave.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "clitic-redundancy",
+   "level": "C1",
+   "area": "pronoun",
+   "name": "redundant clitics with a topic",
+   "can_do_en": "Can repeat an object with a pronoun for emphasis, as in a Pedro le di el libro.",
+   "example": "A Pedro le di el libro. Lo del dinero ya lo hablé.",
+   "example_en": "I gave Pedro the book. I already talked about the money.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "leismo-recognition",
+   "level": "C1",
+   "area": "pronoun",
+   "name": "leísmo (recognition only)",
+   "can_do_en": "Can recognise le used for a male direct object, which is common in Spain, without using it.",
+   "example": "Lo vi ayer en la oficina.",
+   "example_en": "I saw him yesterday at the office.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ethical-dative",
+   "level": "C1",
+   "area": "pronoun",
+   "name": "dative of interest (se me, se le)",
+   "can_do_en": "Can interpret pronouns that show who is affected, as in se me durmió el niño.",
+   "example": "Se me durmió el niño en el carro.",
+   "example_en": "My child fell asleep on me in the car.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "speech-verbs-reporting",
+   "level": "C1",
+   "area": "reported",
+   "name": "rich reporting verbs",
+   "can_do_en": "Can report with verbs such as asegurar, admitir, negar and prometer.",
+   "example": "Aseguró que no había visto nada y admitió haberse equivocado.",
+   "example_en": "He claimed he hadn't seen anything and admitted he had been wrong.",
+   "tenses": [
+    "pret",
+    "plup"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "formal-connectors",
+   "level": "C1",
+   "area": "discourse",
+   "name": "formal connectors",
+   "can_do_en": "Can structure writing with no obstante, en consecuencia and por consiguiente.",
+   "example": "No obstante, los resultados fueron buenos y, en consecuencia, seguiremos.",
+   "example_en": "However, the results were good and, as a result, we will go on.",
+   "tenses": [
+    "pret",
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "hedging-stance",
+   "level": "C1",
+   "area": "discourse",
+   "name": "hedging and stance",
+   "can_do_en": "Can soften statements with parece que, cabe señalar que and en mi opinión.",
+   "example": "Cabe señalar que, en mi opinión, el plan es viable.",
+   "example_en": "It should be noted that, in my opinion, the plan is viable.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "formal-letter-register",
+   "level": "C1",
+   "area": "discourse",
+   "name": "formal and informal register",
+   "can_do_en": "Can write a formal opening and closing and adjust register to the reader.",
+   "example": "Estimado señor Pérez: Le escribo para solicitar información.",
+   "example_en": "Dear Mr. Pérez: I am writing to request information.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "cleft-sentences",
+   "level": "C1",
+   "area": "sentence",
+   "name": "cleft sentences with ser",
+   "can_do_en": "Can focus an element with lo que ... es and es ... donde.",
+   "example": "Lo que más me gusta es viajar. Es en esta ciudad donde nací.",
+   "example_en": "What I like most is traveling. It's in this city that I was born.",
+   "tenses": [
+    "pres",
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "punctuation-spanish",
+   "level": "C1",
+   "area": "sentence",
+   "name": "Spanish punctuation",
+   "can_do_en": "Can use ¿ ?, ¡ !, the dash and angle quotes correctly.",
+   "example": "¿Qué dices? ¡No puede ser! Dijo: «Vamos».",
+   "example_en": "What are you saying? It can't be! He said: \"Let's go.\"",
+   "tenses": [
+    "pres",
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "absolute-superlative",
+   "level": "C1",
+   "area": "adj",
+   "name": "-ísimo and other intensifiers",
+   "can_do_en": "Can intensify adjectives with -ísimo and with muy, sumamente and rete.",
+   "example": "Es riquísimo y facilísimo de preparar.",
+   "example_en": "It's extremely tasty and super easy to make.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "discourse-adverbs",
+   "level": "C1",
+   "area": "adv",
+   "name": "stance adverbs",
+   "can_do_en": "Can use efectivamente, precisamente and justamente to confirm or point out.",
+   "example": "Efectivamente, eso es lo que dije.",
+   "example_en": "Indeed, that is what I said.",
+   "tenses": [
+    "pret",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "comparatives-proportional",
+   "level": "C1",
+   "area": "adj",
+   "name": "cuanto más ... más, de lo que",
+   "can_do_en": "Can express proportion with cuanto más ... más and compare with de lo que.",
+   "example": "Cuanto más estudio, más aprendo.",
+   "example_en": "The more I study, the more I learn.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-fixed-expressions",
+   "level": "C2",
+   "area": "mood",
+   "name": "fixed subjunctive phrases",
+   "can_do_en": "Can use frozen forms such as que descanses, viva and sea como fuere.",
+   "example": "¡Que descanses! ¡Viva la libertad!",
+   "example_en": "Sleep well! Long live freedom!",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "future-subjunctive-recognition",
+   "level": "C2",
+   "area": "mood",
+   "name": "future subjunctive (recognition only)",
+   "can_do_en": "Can recognise the future subjunctive in legal texts and proverbs without using it.",
+   "example": "Adonde fueres, haz lo que vieres.",
+   "example_en": "Wherever you go, do as you see.",
+   "lessons": [],
+   "tenses": [
+    "subjFut"
+   ]
+  },
+  {
+   "id": "si-concessive",
+   "level": "C2",
+   "area": "cond",
+   "name": "si bien, aun si, y si",
+   "can_do_en": "Can use si bien, aun si and y si for concession and doubt.",
+   "example": "Si bien es cierto, aun si fuera falso, no cambiaría nada.",
+   "example_en": "Although it is true, even if it were false, nothing would change.",
+   "tenses": [
+    "pres",
+    "subjImpf",
+    "cond"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "imperfect-courtesy",
+   "level": "C2",
+   "area": "verb",
+   "name": "imperfect of courtesy and narration",
+   "can_do_en": "Can soften a request with the imperfect and use it for narrative effect.",
+   "example": "Perdone, quería preguntarle algo.",
+   "example_en": "Excuse me, I wanted to ask you something.",
+   "tenses": [
+    "impf",
+    "imp"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "historic-present",
+   "level": "C2",
+   "area": "verb",
+   "name": "historic present",
+   "can_do_en": "Can use the present to narrate past events vividly.",
+   "example": "En 1492, Colón llega a América.",
+   "example_en": "In 1492, Columbus arrives in America.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pret-anterior-recognition",
+   "level": "C2",
+   "area": "verb",
+   "name": "pretérito anterior (recognition only)",
+   "can_do_en": "Can recognise the literary form hubo + participle after apenas and cuando.",
+   "example": "Apenas hubo terminado, salió corriendo.",
+   "example_en": "As soon as he had finished, he ran out.",
+   "tenses": [
+    "pretAnt"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "conditional-rumour",
+   "level": "C2",
+   "area": "verb",
+   "name": "conditional of rumour in news",
+   "can_do_en": "Can report unconfirmed news with the conditional or conditional perfect.",
+   "example": "Según el diario, el presidente habría renunciado.",
+   "example_en": "According to the paper, the president would have resigned.",
+   "tenses": [
+    "condPerf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "passive-progressive",
+   "level": "C2",
+   "area": "passive",
+   "name": "passive with estar siendo",
+   "can_do_en": "Can read and use estar siendo + participle for a passive in progress.",
+   "example": "El proyecto está siendo evaluado por expertos.",
+   "example_en": "The project is being evaluated by experts.",
+   "tenses": [
+    "prog",
+    "part",
+    "ger"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "clitics-gerund-infinitive",
+   "level": "C2",
+   "area": "pronoun",
+   "name": "stacked clitics in complex chains",
+   "can_do_en": "Can handle two clitics with gerunds, infinitives and commands in one chain.",
+   "example": "Estaba dándoselo cuando entró él.",
+   "example_en": "I was giving it to him when he walked in.",
+   "tenses": [
+    "prog",
+    "ger",
+    "impf",
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "laismo-loismo-recognition",
+   "level": "C2",
+   "area": "pronoun",
+   "name": "laísmo and loísmo (recognition only)",
+   "can_do_en": "Can recognise laísmo and loísmo in some regional texts without using them.",
+   "example": "La vi ayer y le di el libro.",
+   "example_en": "I saw her yesterday and gave her the book.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "voseo-recognition",
+   "level": "C2",
+   "area": "pronoun",
+   "name": "voseo (recognition only)",
+   "can_do_en": "Can recognise voseo forms such as vos sabés from Argentina and Central America, while using tú.",
+   "example": "Tú sabes mucho de música, ¿verdad?",
+   "example_en": "You know a lot about music, don't you?",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "dequeismo-awareness",
+   "level": "C2",
+   "area": "clause",
+   "name": "queísmo and dequeísmo",
+   "can_do_en": "Can avoid dequeísmo and queísmo with verbs like creer que and darse cuenta de que.",
+   "example": "Creo que viene. Me di cuenta de que era tarde.",
+   "example_en": "I think he's coming. I realized it was late.",
+   "tenses": [
+    "pres",
+    "pret",
+    "impf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subject-position",
+   "level": "C2",
+   "area": "sentence",
+   "name": "subject placement and focus",
+   "can_do_en": "Can place the subject after the verb for focus or new information.",
+   "example": "Llegó tarde Ana. Primero llegaron ellos.",
+   "example_en": "Ana arrived late. They arrived first.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "advanced-discourse-markers",
+   "level": "C2",
+   "area": "discourse",
+   "name": "advanced discourse markers",
+   "can_do_en": "Can use ahora bien, en todo caso and cabe preguntarse to steer an argument.",
+   "example": "Ahora bien, cabe preguntarse si es posible.",
+   "example_en": "Now then, one has to ask whether it is possible.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "irony-understatement",
+   "level": "C2",
+   "area": "discourse",
+   "name": "irony and understatement",
+   "can_do_en": "Can use irony and understatement, such as no está nada mal, with the right tone.",
+   "example": "No está nada mal para un principiante.",
+   "example_en": "It's not bad at all for a beginner.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "proverbs-idioms",
+   "level": "C2",
+   "area": "discourse",
+   "name": "proverbs and idioms",
+   "can_do_en": "Can understand and use common proverbs and idioms.",
+   "example": "A caballo regalado no se le miran los dientes.",
+   "example_en": "Don't look a gift horse in the mouth.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "regional-lexical-variation",
+   "level": "C2",
+   "area": "discourse",
+   "name": "regional vocabulary variation",
+   "can_do_en": "Can recognise regional words for the same thing across Latin America.",
+   "example": "El autobús se llama «camión» en México y «guagua» en el Caribe.",
+   "example_en": "The bus is called \"camión\" in Mexico and \"guagua\" in the Caribbean.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "politeness-pragmatics",
+   "level": "C2",
+   "area": "discourse",
+   "name": "indirect politeness",
+   "can_do_en": "Can make very polite requests with the pattern ¿le importaría que + imperfect subjunctive?, as in this example.",
+   "example": "¿Le importaría que cerrara la ventana?",
+   "example_en": "Would you mind if I closed the window?",
+   "tenses": [
+    "cond",
+    "subjImpf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pseudo-cleft",
+   "level": "C2",
+   "area": "sentence",
+   "name": "pseudo-cleft sentences",
+   "can_do_en": "Can build lo que ... es que and quien ... fue sentences for emphasis.",
+   "example": "Lo que quiero es que me escuches. Fue Ana quien llamó.",
+   "example_en": "What I want is for you to listen to me. It was Ana who called.",
+   "tenses": [
+    "pres",
+    "subj",
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "clitic-doubling-a",
+   "level": "C2",
+   "area": "pronoun",
+   "name": "a + noun with clitic doubling",
+   "can_do_en": "Can double a fronted object with a clitic, as in a Juan lo conocí.",
+   "example": "A Juan lo conocí en Quito.",
+   "example_en": "I met Juan in Quito.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "lexical-periphrases",
+   "level": "C2",
+   "area": "modal",
+   "name": "estar a punto de, andar + gerund, ir + gerund",
+   "can_do_en": "Can use estar a punto de, andar and ir with a gerund for fine aspect.",
+   "example": "Estuvo a punto de caerse. Anda buscando trabajo.",
+   "example_en": "He was about to fall. He's looking for a job.",
+   "tenses": [
+    "pret",
+    "pres",
+    "ger"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ser-estar-abstract",
+   "level": "C2",
+   "area": "sereestar",
+   "name": "ser and estar in abstract constructions",
+   "can_do_en": "Can use constructions such as es de esperar, está por hacer and es que.",
+   "example": "Eso es de esperar. La cena está por hacer.",
+   "example_en": "That is to be expected. Dinner is yet to be made.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "haber-pronoun-impersonal",
+   "level": "C2",
+   "area": "sereestar",
+   "name": "impersonal haber with pronouns",
+   "can_do_en": "Can use hubo que and clitics with impersonal haber, as in los hubo.",
+   "example": "Hubo que esperar. Problemas, los hubo siempre.",
+   "example_en": "We had to wait. There have always been problems.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "gerund-two-values",
+   "level": "C2",
+   "area": "clause",
+   "name": "gerund as modifier of the object",
+   "can_do_en": "Can distinguish the gerund as manner and as description of an object.",
+   "example": "Me vio llegando. Cayendo la noche, regresamos.",
+   "example_en": "He saw me arriving. As night was falling, we went back.",
+   "tenses": [
+    "ger",
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "appreciative-suffixes",
+   "level": "C2",
+   "area": "word",
+   "name": "appreciative suffixes (-illo, -ucho, -ote)",
+   "can_do_en": "Can use appreciative suffixes to add shades of meaning such as scorn or affection.",
+   "example": "Es un cuartucho, pero la casita es linda.",
+   "example_en": "It's a shabby little room, but the little house is nice.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "learned-word-formation",
+   "level": "C2",
+   "area": "word",
+   "name": "learned affixes and roots",
+   "can_do_en": "Can analyse words built with Greek and Latin roots, as in inconmensurable.",
+   "example": "Es una belleza inconmensurable.",
+   "example_en": "It is an immeasurable beauty.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "collocations",
+   "level": "C2",
+   "area": "discourse",
+   "name": "collocations and light verbs",
+   "can_do_en": "Can use fixed combinations like hacer caso, dar lugar and tomar en cuenta.",
+   "example": "Tomó en cuenta mis ideas e hizo caso a mi consejo.",
+   "example_en": "He took my ideas into account and heeded my advice.",
+   "tenses": [
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "participle-absolute-formal",
+   "level": "C2",
+   "area": "clause",
+   "name": "una vez + participle",
+   "can_do_en": "Can use una vez + participle and similar formal frames for sequence.",
+   "example": "Una vez dichas esas palabras, se marchó.",
+   "example_en": "Once those words were said, he left.",
+   "tenses": [
+    "part",
+    "pret"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "apposition-parenthetical",
+   "level": "C2",
+   "area": "sentence",
+   "name": "apposition and parentheticals",
+   "can_do_en": "Can use commas to insert appositions and parenthetical comments.",
+   "example": "Lima, capital de Perú, es una ciudad enorme.",
+   "example_en": "Lima, the capital of Peru, is a huge city.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "roman-numerals-large-figures",
+   "level": "C2",
+   "area": "number",
+   "name": "Roman numerals and large figures",
+   "can_do_en": "Can read Roman numerals, centuries and very large numbers.",
+   "example": "Estamos en el siglo XXI, en el año dos mil veinticuatro.",
+   "example_en": "We are in the 21st century, in the year two thousand twenty-four.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  }
+ ]
+}

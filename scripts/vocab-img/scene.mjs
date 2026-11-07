@@ -168,6 +168,13 @@ const content = s => String(s || '').toLowerCase().match(/[a-z]+/g)?.filter(x =>
 export function checkEcho(ps, check) { const P = new Set(content(ps)), C = content(check); return C.length ? C.filter(x => P.has(x)).length / C.length : 1; }
 export const CHECK_ECHO = 0.75;
 export const CARD_TRIES = 3;   // thẻ trượt cổng → viết lại NGAY trong lượt với lý do (fix), tối đa 3 lần/lượt; hết lần → lượt sau viết tiếp (không ghi thẻ hỏng, không bỏ nghĩa)
+// 07/11 (06/11: 8 lượt fill, 1–16 ảnh/lượt dù kho CF còn 56/61 tài khoản): thẻ hỏng CARD_DEAD lần (e4bad) bị bỏ VĨNH VIỄN mà vẫn nằm trong --gaps →
+// 129 nghĩa thường gặp (up, right, include, result…) chiếm chỗ mỗi lượt, không viết lại, không vẽ, và chuỗi tự nối lượt không bao giờ dừng.
+// Nay như hàng chờ ảnh: hỏng → nghỉ VIMG_QUEUE_RETRY_DAYS ngày (badAt), hết hạn → viết lại TỪ ĐẦU (cùng cổng sceneOk, cùng giám khảo).
+export const CARD_DEAD = 3;
+export const cardResting = (c, now = Date.now(), env = process.env) => !!c && (c.e4bad || 0) >= CARD_DEAD && !!c.badAt && (now - Date.parse(c.badAt)) / 864e5 < +(env.VIMG_QUEUE_RETRY_DAYS ?? 2);
+// thẻ văn bản: kho Groq/Gemini miễn phí TRƯỚC (GROQ_POOL/GEMINI_POOL – xoay khoá, 429 → khoá kế), cf2 (neuron CF dành cho VẼ) chỉ khi hai kho kia không trả lời
+export const CARD_CHAIN = ['groq', 'gem', 'gc-groq', 'gc-gemini', 'cf2', 'gc-cf'];
 const esc = x => String(x).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 /** dạng của từ: chính nó, số nhiều, -ing/-ed, gốc bỏ -e/-y (cap 'hunting' cho hunter vẫn là gọi tên từ) */
 export function wordRe(w) {
@@ -250,7 +257,7 @@ if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(i
     // fill: nghĩa loại scene chưa có ảnh, không bị gỡ, không trong hàng chờ (26/10: hàng chờ thử lại sau VIMG_QUEUE_RETRY_DAYS=2 ngày, ảnh mới ngẫu nhiên), thẻ không skip; A1 trước, rồi tất định fnv; --shard i/n
     const img = rd('content/lexicon/img.json'), q = fs.existsSync(P(QF)) ? rd(QF).items : {}, [SI, SN] = String(arg('shard') || '0/1').split('/').map(Number);
     const LV = { A1: 1, A2: 2, B1: 3, B2: 4, C1: 5, C2: 6 };
-    const ks = Object.entries(lex).filter(([k, e]) => e && e.ex && !(img.items[k] && img.items[k].h) && !img.rejected[k] && !(q[k] && (Date.now() - Date.parse(q[k].at || 0)) / 864e5 < +(process.env.VIMG_QUEUE_RETRY_DAYS ?? 2)) && !(cards.items[k] && cards.items[k].skip) && (SN <= 1 || fnv(k) % SN === SI) && ['n', 'v', 'adj', 'adv'].includes(e.pos) && kind(k, e, (sel[k] || [])[1]) === 'scene')
+    const ks = Object.entries(lex).filter(([k, e]) => e && e.ex && !(img.items[k] && img.items[k].h) && !img.rejected[k] && !(q[k] && (Date.now() - Date.parse(q[k].at || 0)) / 864e5 < +(process.env.VIMG_QUEUE_RETRY_DAYS ?? 2)) && !(cards.items[k] && cards.items[k].skip) && !cardResting(cards.items[k]) && (SN <= 1 || fnv(k) % SN === SI) && ['n', 'v', 'adj', 'adv'].includes(e.pos) && kind(k, e, (sel[k] || [])[1]) === 'scene')
       .map(([k]) => k).sort((a, b) => (LV[lex[a].level] || 9) - (LV[lex[b].level] || 9) || fnv('g|' + a) - fnv('g|' + b)).slice(0, +arg('gaps'));
     process.stdout.write(JSON.stringify({ items: ks, scene: ks }));
   } else if (process.argv.includes('--pilot')) { const fr = +(arg('from') || 0), pl = pilot(lex, sel, +(arg('n') || 60) + fr, +(arg('fn') || 20)); if (fr) { pl.scene = pl.scene.slice(fr); pl.items = [...pl.scene, ...pl.concept]; } process.stdout.write(JSON.stringify(pl, null, 1)); }
@@ -275,11 +282,11 @@ if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(i
     } else {
       todo = [];
       for (const k of keysOf()) {
-        const c = cards.items[k]; if (!lex[k] || (c && c.skip)) continue;
+        const c = cards.items[k]; if (!lex[k] || (c && c.skip) || cardResting(c)) continue;
         if (c && c.v === SCENE_V && !sceneOk(lex[k], c)) continue;
-        // thẻ e4 cũ qua được cổng e6 → nâng bản tại chỗ (không tốn lượt AI); trượt → viết lại kèm lý do
-        if (c && c.ps && (c.e4bad || 0) < 3) { const w = sceneOk(lex[k], c), r = w === 'cap names the word' && repairCard(lex[k], c); if (!w || r) { cards.items[k] = { ...(r || c), v: SCENE_V, up: c.v || 'e4' }; up++; continue; } todo.push({ k, fix: w, tries: 0 }); continue; }
-        if (!c || (c.e4bad || 0) < 3) todo.push({ k, tries: 0 });
+        // thẻ e4 cũ qua được cổng e6 → nâng bản tại chỗ (không tốn lượt AI); trượt → viết lại kèm lý do. Thẻ hỏng đã nghỉ xong → viết lại từ đầu
+        if (c && c.ps && (c.e4bad || 0) < CARD_DEAD) { const w = sceneOk(lex[k], c), r = w === 'cap names the word' && repairCard(lex[k], c); if (!w || r) { cards.items[k] = { ...(r || c), v: SCENE_V, up: c.v || 'e4' }; up++; continue; } todo.push({ k, fix: w, tries: 0 }); continue; }
+        todo.push({ k, tries: 0 });
       }
     }
     // 29/10 lượt fill 40875877636: 2.000 thẻ e4 tuần tự (8/lần, 20–220 s) chạy 2 giờ 10 phút → job quá giờ, mất hết thẻ, 0 ảnh.
@@ -289,7 +296,7 @@ if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(i
     await Promise.all(Array.from({ length: CONC }, async () => { while (!stop && q.length && Date.now() < END) {
       const part = q.splice(0, 8);
       // 24/10 GrabCast: generate 300/phút/IP, 115k/ngày/khoá – Groq gpt-oss-120b (600/phút); 25/10: CF văn bản cuối chuỗi + TẮT (AI_POOL_CF_TEXT) – neuron CF dành cho ảnh
-      const r = await AI.gen({ mode: 'vscene', items: part.map(x => ({ k: x.k, w: lex[x.k].w, ...(x.fix ? { fix: x.fix } : {}) })) }, { chain: ['gc-groq', 'gc-gemini', 'cf2', 'gc-cf'] });
+      const r = await AI.gen({ mode: 'vscene', items: part.map(x => ({ k: x.k, w: lex[x.k].w, ...(x.fix ? { fix: x.fix } : {}) })) }, { chain: CARD_CHAIN });
       if (!r) { if (!stop) console.log('⏭ không tuyến nào trả lời – dừng (lượt sau viết tiếp)'); stop = true; break; }
       const out = normOut(r.out, part.map(x => ({ k: x.k, w: lex[x.k].w }))) || {};
       for (const x of part) {
@@ -302,7 +309,7 @@ if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(i
         why0[why.replace(/:.*/, '')] = (why0[why.replace(/:.*/, '')] || 0) + 1;
         // trượt cổng → viết lại NGAY (lô sau) kèm lý do, không bỏ nghĩa; hết lần → đếm hỏng, lượt sau viết tiếp
         if (!last) { q.push({ ...x, tries: x.tries + 1, fix: c && c.skip ? 'skip is the last resort: try the template for this part of speech with the most visible sentence' : why }); continue; }
-        bad++; if (cards.items[k] && !x.refix) cards.items[k].e4bad = (cards.items[k].e4bad || 0) + 1; console.log('✗ thẻ', k, why);
+        bad++; if (!x.refix) { const o = cards.items[k] || {}; cards.items[k] = { ...o, e4bad: (o.e4bad || 0) + 1, badAt: new Date().toISOString() }; } console.log('✗ thẻ', k, why);
       }
     } }));
     if (q.length && Date.now() >= END) console.log(`⏱ hết ${MIN} phút viết thẻ – còn ${q.length} nghĩa, lượt sau viết tiếp`);

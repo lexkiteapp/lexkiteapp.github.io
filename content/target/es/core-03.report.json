@@ -1,0 +1,993 @@
+{
+ "at": "2026-11-05T02:55:31.465Z",
+ "accepted": 75,
+ "rejected": [
+  {
+   "form": "puede",
+   "word": "poder",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "mi",
+   "word": "mi",
+   "why": [
+    "dịch ngược lệch: id"
+   ]
+  },
+  {
+   "form": "él",
+   "word": "él",
+   "why": [
+    "dịch ngược lệch: id,hi,tr"
+   ]
+  },
+  {
+   "form": "gente",
+   "word": "gente",
+   "why": [
+    "giám khảo A: Plural 'gentes' is not standard for 'gente'"
+   ]
+  },
+  {
+   "form": "amigos",
+   "word": "amigo",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "días",
+   "word": "día",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "haber",
+   "word": "haber",
+   "why": [
+    "dịch ngược lệch: vi,de"
+   ]
+  },
+  {
+   "form": "ven",
+   "word": "venir",
+   "why": [
+    "giám khảo A: IPA \"ben\" is incomplete and does not represent the lemma \"venir\""
+   ]
+  },
+  {
+   "form": "esos",
+   "word": "ese",
+   "why": [
+    "giám khảo A: IPA corresponds to plural form \"esos\" while lemma is \"ese\"",
+    "dịch ngược lệch: id"
+   ]
+  },
+  {
+   "form": "os",
+   "why": "skip: Castilian Spanish pronoun (vosotros); not used in neutral Latin American Spanish."
+  },
+  {
+   "form": "debes",
+   "word": "deber",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "niños",
+   "word": "niño",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "pasó",
+   "word": "pasar",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "señora",
+   "word": "señora",
+   "why": [
+    "dịch ngược lệch: hi"
+   ]
+  },
+  {
+   "form": "dijiste",
+   "word": "decir",
+   "why": [
+    "dịch ngược lệch: ar"
+   ]
+  },
+  {
+   "form": "estabas",
+   "word": "estar",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "coche",
+   "word": "coche",
+   "why": [
+    "giám khảo A: Word is Spain‑specific, not neutral Latin American",
+    "giám khảo B: Uses Spain-only vocabulary 'coche' for car; neutral Latin American Spanish uses 'carro' or 'auto'."
+   ]
+  },
+  {
+   "form": "última",
+   "word": "último",
+   "why": [
+    "giám khảo A: Lemma \"último\" does not match key \"última\" and gender mismatch"
+   ]
+  },
+  {
+   "form": "vuelta",
+   "word": "vuelta",
+   "why": [
+    "dịch ngược lệch: de,zh,ru"
+   ]
+  },
+  {
+   "form": "cree",
+   "word": "creer",
+   "why": [
+    "giám khảo A: IPA \"ˈkɾee\" is inaccurate for the verb",
+    "dịch ngược lệch: ar"
+   ]
+  },
+  {
+   "form": "meses",
+   "word": "mes",
+   "why": [
+    "giám khảo A: Lemma \"mes\" and IPA correspond to singular, but key is plural \"meses\"",
+    "dịch ngược lệch: vi,id,th,zh,ja,ko"
+   ]
+  },
+  {
+   "form": "necesitas",
+   "word": "necesitar",
+   "why": [
+    "cổng: necesitar: nghĩa ko sai chữ viết: need"
+   ]
+  },
+  {
+   "form": "oído",
+   "word": "oído",
+   "why": [
+    "giám khảo B: IPA contains 'ð' which is not standard for Latin American Spanish (typically /d/ or /ð/ depending on dialect, but the prompt explicitly flags θ/ð issues for LA Spanish in similar contexts, and 'oído' is often /oˈido/ in LA). More critically, the gloss 'ear (inner/hearing)' is slightly ambiguous but acceptable; however, the IPA 'oˈiðo' uses the dental fricative symbol which is often associated with Spain in strict LA decks, though acceptable in some. Let's look closer. Actually, the main issue is likely the IPA. In many LA dialects, the /d/ is a tap [ɾ] or a stop [d], rarely a fricative [ð] unless in specific regions. But the prompt says 'IPA has θ'. It does not have θ. It has ð. Is ð allowed? The prompt says 'IPA has θ or is not Latin American'. ð is the voiced counterpart. In LA Spanish, /d/ is usually [d] or [ɾ]. [ð] is more typical of Spain. Therefore, the IPA is not neutral LA Spanish."
+   ]
+  },
+  {
+   "form": "digas",
+   "word": "decir",
+   "why": [
+    "cổng: decir: nghĩa ru sai chữ viết: say"
+   ]
+  },
+  {
+   "form": "diez",
+   "word": "diez",
+   "why": [
+    "cổng: diez: nghĩa ja sai chữ viết: 10"
+   ]
+  },
+  {
+   "form": "aqui",
+   "word": "aquí",
+   "why": [
+    "cổng: aquí: nghĩa ar sai chữ viết: huna; aquí: nghĩa ru sai chữ viết: zdes'"
+   ]
+  },
+  {
+   "form": "detrás",
+   "word": "detrás",
+   "why": [
+    "cổng: detrás: nghĩa ar sai chữ viết: khalf"
+   ]
+  },
+  {
+   "form": "diré",
+   "word": "decir",
+   "why": [
+    "dịch ngược lệch: de,id",
+    "cổng: decir: nghĩa ar sai chữ viết: qala"
+   ]
+  },
+  {
+   "form": "extraño",
+   "word": "extraño",
+   "why": [
+    "cổng: extraño: nghĩa ar sai chữ viết: gharib"
+   ]
+  },
+  {
+   "form": "raro",
+   "word": "raro",
+   "why": [
+    "dịch ngược lệch: vi,fr,de,id,th,ko,hi,ar,ru,tr",
+    "cổng: raro: nghĩa ar sai chữ viết: nadira"
+   ]
+  },
+  {
+   "form": "derecho",
+   "word": "derecho",
+   "why": [
+    "giám khảo A: Example does not contain the target word and is slightly unnatural.",
+    "cổng: derecho: nghĩa ar sai chữ viết: yamin; derecho: câu ví dụ không chứa \"derecho\""
+   ]
+  },
+  {
+   "form": "control",
+   "word": "control",
+   "why": [
+    "cổng: control: nghĩa ar sai chữ viết: saytara"
+   ]
+  },
+  {
+   "form": "grupo",
+   "word": "grupo",
+   "why": [
+    "cổng: grupo: nghĩa ar sai chữ viết: majmu'a"
+   ]
+  },
+  {
+   "form": "sam",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "pie",
+   "word": "pie",
+   "why": [
+    "dịch ngược lệch: ru"
+   ]
+  },
+  {
+   "form": "llegado",
+   "word": "llegar",
+   "why": [
+    "giám khảo B: IPA is incorrect; 'llegado' is pronounced [leˈɣaðo], not [ʝeˈɣaðo].",
+    "dịch ngược lệch: vi,id,th,zh"
+   ]
+  },
+  {
+   "form": "llegó",
+   "word": "llegar",
+   "why": [
+    "giám khảo B: IPA is incorrect; 'llegó' is pronounced [leˈɣo], not [ʝeˈɣo]."
+   ]
+  },
+  {
+   "form": "través",
+   "word": "través",
+   "why": [
+    "giám khảo A: Part of speech is incorrect; 'través' is a noun (used in the prepositional phrase 'a través de'), not a preposition itself.",
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "vista",
+   "word": "vista",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "centro",
+   "word": "centro",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "carta",
+   "word": "carta",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "traje",
+   "word": "traje",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "profesor",
+   "word": "profesor",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "carrera",
+   "word": "carrera",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "tengas",
+   "word": "tener",
+   "why": [
+    "giám khảo A: The 'word' field contains the lemma 'tener', but the 'k' and 'exForm' indicate the specific form 'tengas'. The IPA 'teŋˈɡas' corresponds to the form, not the lemma. The entry structure is inconsistent regarding whether it is a lemma or a specific conjugated form.",
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "entra",
+   "word": "entrar",
+   "why": [
+    "giám khảo A: The 'word' field contains the lemma 'entrar', but the 'k' and 'exForm' indicate the specific form 'entra'. The IPA 'ˈen.tɾa' corresponds to the form, not the lemma. The entry structure is inconsistent regarding whether it is a lemma or a specific conjugated form.",
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "horrible",
+   "word": "horrible",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "podrían",
+   "word": "poder",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "saberlo",
+   "word": "saber",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "querías",
+   "word": "querer",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "vámonos",
+   "word": "ir",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "salud",
+   "word": "salud",
+   "why": [
+    "giám khảo A: IPA contains 'ð' (saˈluð) which is not standard Latin American Spanish (typically /s/ or /ð/ depending on region, but /ð/ is often associated with Spain or specific dialects, while /s/ is more common in es-419 contexts like Mexico/Colombia; however, the main issue is the English translation 'Bless you!' for '¡Salud!' which is a mistranslation of the sense (cheers/health) in this context, though 'Bless you' is used for sneezes. '¡Salud!' as a toast is 'Cheers!'. Also, IPA /ð/ is often considered non-standard or Spain-influenced in strict es-419 decks which prefer /s/ or /h/.",
+    "giám khảo B: The plural of 'salud' is listed as 'salud' (uncountable/rarely used in plural, but incorrect plural form given if listed; also example '¡Salud!' is 'Cheers!/Bless you!' which is an interjection use rather than illustrating the main noun sense)."
+   ]
+  },
+  {
+   "form": "doy",
+   "word": "dar",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "finalmente",
+   "word": "finalmente",
+   "why": [
+    "LanguageTool: COMMA_ADVERB: Finalmente – Si el adverbio «finalmente» se refiere a toda la frase, y no solo al verbo, es recomendable usar una coma."
+   ]
+  },
+  {
+   "form": "veras",
+   "word": "veras",
+   "why": [
+    "giám khảo A: lemma is not a noun, POS and gender are incorrect",
+    "giám khảo B: Lemma 'veras' is incorrect; the headword should be 'verdad' (noun) or 'de veras' (phrase). 'Veras' is not a standalone noun meaning 'truth'."
+   ]
+  },
+  {
+   "form": "bar",
+   "word": "bar",
+   "why": [
+    "giám khảo B: Example uses 'jugo' which is acceptable in Latin America, but the English translation 'We drink a juice' is unfaithful/unnatural (should be 'We had a juice' or 'We drank a juice'). More critically, 'jugo' is often considered less standard than 'zumo' in Spain, but in es-419 it is fine. However, the main issue is the English translation quality and potentially the IPA 'baɾ' which is fine. Let's look closer. 'jugo' is fine in es-419. The English 'We drink a juice' is grammatically poor. Also, 'bar' is a loanword, fine. The score is low due to the awkward English translation."
+   ]
+  },
+  {
+   "form": "temprano",
+   "word": "temprano",
+   "why": [
+    "dịch ngược lệch: th"
+   ]
+  },
+  {
+   "form": "ben",
+   "why": "skip: proper name"
+  },
+  {
+   "form": "verme",
+   "word": "ver",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "encontró",
+   "word": "encontrar",
+   "why": [
+    "giám khảo A: IPA uses non‑standard ŋ sound (eŋkonˈtɾo) which is not the correct Latin‑American Spanish transcription.",
+    "dịch ngược lệch: id"
+   ]
+  },
+  {
+   "form": "dejes",
+   "word": "dejar",
+   "why": [
+    "dịch ngược lệch: zh"
+   ]
+  },
+  {
+   "form": "londres",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "sigo",
+   "word": "seguir",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "sepa",
+   "word": "saber",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "hermanos",
+   "word": "hermano",
+   "why": [
+    "giám khảo A: IPA given for plural (eɾˈmanos) instead of lemma hermano; should be eɾˈmano"
+   ]
+  },
+  {
+   "form": "hayas",
+   "word": "haber",
+   "why": [
+    "dịch ngược lệch: vi,id,th,zh,ja,ko,hi,ar,tr"
+   ]
+  },
+  {
+   "form": "diferentes",
+   "word": "diferente",
+   "why": [
+    "cổng: diferente: nghĩa ko sai chữ viết: different"
+   ]
+  },
+  {
+   "form": "teniendo",
+   "word": "tener",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "probar",
+   "word": "probar",
+   "why": [
+    "giám khảo B: Example contains unnecessary capitalization in 'Comida'."
+   ]
+  },
+  {
+   "form": "danny",
+   "why": "skip: proper name"
+  },
+  {
+   "form": "sarah",
+   "why": "skip: proper name"
+  },
+  {
+   "form": "pantalones",
+   "word": "pantalón",
+   "why": [
+    "dịch ngược lệch: hi"
+   ]
+  },
+  {
+   "form": "olvidado",
+   "word": "olvidar",
+   "why": [
+    "giám khảo B: IPA 'olbiˈðaðo' is for the participle, but the entry headword is the infinitive 'olvidar' (IPA should be olbiˈðaɾ). The glosses also mix the participle sense ('forgotten') with the verb lemma."
+   ]
+  },
+  {
+   "form": "metros",
+   "word": "metro",
+   "why": [
+    "giám khảo A: IPA corresponds to plural form (ˈmetɾos) instead of singular lemma \"metro\"."
+   ]
+  },
+  {
+   "form": "operación",
+   "word": "operación",
+   "why": [
+    "dịch ngược lệch: pt,fr,de,id,hi,ru"
+   ]
+  },
+  {
+   "form": "brazos",
+   "word": "brazo",
+   "why": [
+    "giám khảo A: IPA reflects plural pronunciation (ˈbɾasos) not singular lemma."
+   ]
+  },
+  {
+   "form": "muestra",
+   "word": "mostrar",
+   "why": [
+    "giám khảo A: IPA and lemma mismatch; IPA is for \"muestra\" while lemma is \"mostrar\".",
+    "giám khảo B: IPA 'ˈmwestɾa' is for the 3rd person singular present form, but the entry headword is the infinitive 'mostrar' (IPA should be moˈstɾaɾ). The glosses also reflect the conjugated form ('shows') rather than the infinitive."
+   ]
+  },
+  {
+   "form": "encantaría",
+   "word": "encantar",
+   "why": [
+    "giám khảo A: IPA matches the conditional form, not the lemma \"encantar\".",
+    "giám khảo B: IPA 'enkantaˈɾia' is for the conditional form, but the entry headword is the infinitive 'encantar' (IPA should be enkantaˈɾaɾ). The glosses also reflect the conjugated form ('would love') rather than the infinitive.",
+    "dịch ngược lệch: vi,id,th,zh,ko,hi,ar"
+   ]
+  },
+  {
+   "form": "prefiero",
+   "word": "preferir",
+   "why": [
+    "giám khảo A: IPA corresponds to the form \"prefiero\" rather than the infinitive lemma.",
+    "giám khảo B: IPA 'pɾeˈfjeɾo' is for the 1st person singular present form, but the entry headword is the infinitive 'preferir' (IPA should be pɾefeˈɾiɾ). The glosses also reflect the conjugated form ('prefer') rather than the infinitive."
+   ]
+  },
+  {
+   "form": "maría",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "robert",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "bebe",
+   "word": "beber",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "yendo",
+   "word": "ir",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "ruido",
+   "word": "ruido",
+   "why": [
+    "giám khảo A: Example unnatural ('afueras' instead of proper 'afuera')",
+    "giám khảo B: IPA contains 'ð' (ˈrwiðo) which is not standard Latin American Spanish (should be ˈruido or ˈrwiðo is acceptable in some dialects but the prompt explicitly forbids IPA with θ, and often implies strict LA norms where /d/ is [ð] or [ð] is not the primary target for learners in this context, but more importantly, the prompt says 'IPA has θ' is a fail condition. Wait, the prompt says 'IPA has θ'. The IPA here is ˈrwiðo. It has ð, not θ. However, in many LA dialects, the /d/ between vowels is [ð]. Is this considered an error? The prompt says 'IPA has θ or is not Latin American'. [ð] is a valid realization of /d/ in LA Spanish. Let's look closer. Is there a better reason? The example 'afueras' is slightly less common than 'afuera' but acceptable. Let's re-read the constraint: 'IPA has θ'. It does not have θ. It has ð. Is ð considered 'not Latin American'? No, it is very common. Let's look at 'quedarte'. The key is 'quedarte' but the word is 'quedarse'. The IPA is 'keˈðaɾte'. This is the IPA for the infinitive 'quedarse' but the key is 'quedarte' (infinitive + te). The IPA provided 'keˈðaɾte' corresponds to 'quedarte' (2nd person singular imperative or infinitive+te). The entry word is 'quedarse'. The IPA should be for the lemma 'quedarse' (keˈðaɾse). The IPA provided is for the form 'quedarte'. This is a mismatch between the lemma and the IPA. Also, the key is 'quedarte' but the entry word is 'quedarse'. Usually, the key matches the entry word. If the key is 'quedarte', the entry word should be 'quedarte' or the IPA should match the key. Here, entry word is 'quedarse', IPA is for 'quedarte'. This is inconsistent. Let's check 'ruido' again. IPA ˈrwiðo. In standard LA Spanish, /d/ is often [ð]. This is likely acceptable. Let's look at 'alguno'. IPA alˈɣuno. Correct. 'televisión'. IPA teleβiˈsjon. Correct. Back to 'quedarte'. The key is 'quedarte'. The entry word is 'quedarse'. The IPA is 'keˈðaɾte'. The IPA matches the key 'quedarte', not the entry word 'quedarse'. This is a structural error in the deck item definition (mismatch between key/word/IPA). Also, 'quedarte' is not a lemma, it's a conjugated form or a compound. The prompt asks to review a learner deck. Usually, keys are lemmas. If the key is 'quedarte', it's a specific form. But the entry word is 'quedarse'. This inconsistency makes it 'ok: false'.\n\nLet's re-evaluate 'ruido'. Is 'afueras' natural? 'Escucho un ruido extraño afuera' is more standard. 'Afueras' is used but less common. However, the IPA issue in 'quedarte' is more definitive. The IPA 'keˈðaɾte' is for 'quedarte'. The word is 'quedarse'. The IPA for 'quedarse' is 'keˈðaɾse'. So the IPA is wrong for the entry word. Therefore, 'quedarte' is false.\n\nWhat about 'ruido'? IPA ˈrwiðo. In many LA dialects, /d/ is [ð]. This is standard. The example is fine. So 'ruido' is likely true.\n\nLet's check 'alguno'. '¿Alguno de ustedes...?' is correct. IPA alˈɣuno is correct.\n\nSo only 'quedarte' is false due to IPA/Word mismatch.",
+    "dịch ngược lệch: ja"
+   ]
+  },
+  {
+   "form": "alguno",
+   "word": "alguno",
+   "why": [
+    "dịch ngược lệch: vi,zh"
+   ]
+  },
+  {
+   "form": "quedarte",
+   "word": "quedarse",
+   "why": [
+    "giám khảo A: Lemma in entry ('quedarse') does not match the key 'quedarte'",
+    "giám khảo B: IPA (keˈðaɾte) corresponds to the form 'quedarte', but the entry word is the lemma 'quedarse' (IPA should be keˈðaɾse). Mismatch between entry word and IPA."
+   ]
+  },
+  {
+   "form": "ryan",
+   "why": "skip: proper name"
+  },
+  {
+   "form": "tenéis",
+   "why": "skip: Peninsular Spanish form (vosotros)"
+  },
+  {
+   "form": "cuchillo",
+   "word": "cuchillo",
+   "why": [
+    "cổng: cuchillo: nghĩa ar sai chữ viết: scine"
+   ]
+  },
+  {
+   "form": "francia",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "charles",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "adam",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "caballos",
+   "word": "caballo",
+   "why": [
+    "cổng: caballo: exForm thừa"
+   ]
+  },
+  {
+   "form": "inmediato",
+   "word": "inmediato",
+   "why": [
+    "cổng: inmediato: câu ví dụ không chứa \"inmediato\""
+   ]
+  },
+  {
+   "form": "directo",
+   "word": "directo",
+   "why": [
+    "cổng: directo: nghĩa ar sai chữ viết: mubaashir"
+   ]
+  },
+  {
+   "form": "brian",
+   "why": "skip: proper name"
+  },
+  {
+   "form": "bastardo",
+   "why": "skip: vulgar"
+  },
+  {
+   "form": "siguen",
+   "word": "seguir",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "siga",
+   "word": "seguir",
+   "why": [
+    "trùng lemma"
+   ]
+  }
+ ],
+ "tried": [
+  "estoy",
+  "ahora",
+  "muy",
+  "ha",
+  "esta",
+  "así",
+  "vamos",
+  "algo",
+  "hay",
+  "bueno",
+  "o",
+  "he",
+  "ser",
+  "tiene",
+  "puedo",
+  "ella",
+  "quiero",
+  "fue",
+  "gracias",
+  "sólo",
+  "tan",
+  "quién",
+  "sus",
+  "tiempo",
+  "dos",
+  "esa",
+  "nunca",
+  "dónde",
+  "va",
+  "oh",
+  "favor",
+  "mucho",
+  "mí",
+  "quieres",
+  "siento",
+  "señor",
+  "mejor",
+  "hace",
+  "has",
+  "decir",
+  "también",
+  "sobre",
+  "dios",
+  "sin",
+  "tenemos",
+  "están",
+  "ti",
+  "puedes",
+  "ver",
+  "hombre",
+  "vida",
+  "alguien",
+  "cosas",
+  "siempre",
+  "hasta",
+  "ahí",
+  "ir",
+  "años",
+  "antes",
+  "estar",
+  "estamos",
+  "quiere",
+  "podría",
+  "vas",
+  "ellos",
+  "tal",
+  "pasa",
+  "fuera",
+  "después",
+  "han",
+  "desde",
+  "que",
+  "por",
+  "mi",
+  "como",
+  "él",
+  "era",
+  "puede",
+  "día",
+  "gente",
+  "momento",
+  "lugar",
+  "hijo",
+  "días",
+  "haber",
+  "debe",
+  "contigo",
+  "ven",
+  "amor",
+  "esos",
+  "amigos",
+  "buenas",
+  "pasó",
+  "señora",
+  "persona",
+  "casi",
+  "niños",
+  "os",
+  "dijiste",
+  "debes",
+  "otros",
+  "tomar",
+  "equipo",
+  "coche",
+  "última",
+  "vuelta",
+  "cree",
+  "estabas",
+  "meses",
+  "pregunta",
+  "sabemos",
+  "necesitas",
+  "buscando",
+  "seguir",
+  "lejos",
+  "preocupes",
+  "oído",
+  "demonios",
+  "idiota",
+  "basta",
+  "digas",
+  "diez",
+  "aqui",
+  "especial",
+  "detrás",
+  "diré",
+  "extraño",
+  "raro",
+  "derecho",
+  "control",
+  "grupo",
+  "sucede",
+  "jamás",
+  "sam",
+  "ambos",
+  "pie",
+  "llegado",
+  "tuyo",
+  "loca",
+  "sientes",
+  "llegó",
+  "vámonos",
+  "gobierno",
+  "querías",
+  "juro",
+  "teniente",
+  "dale",
+  "saberlo",
+  "derecha",
+  "salud",
+  "podrían",
+  "doy",
+  "veras",
+  "bar",
+  "departamento",
+  "frío",
+  "finalmente",
+  "mirar",
+  "cerveza",
+  "temprano",
+  "bonita",
+  "ben",
+  "encontró",
+  "vienes",
+  "irnos",
+  "formas",
+  "volveré",
+  "verme",
+  "respeto",
+  "duele",
+  "dejes",
+  "hermanos",
+  "hayas",
+  "sepa",
+  "tuvimos",
+  "diferentes",
+  "teniendo",
+  "sigo",
+  "londres",
+  "llamaré",
+  "probar",
+  "danny",
+  "entrada",
+  "animales",
+  "tarjeta",
+  "usa",
+  "enemigo",
+  "obviamente",
+  "sarah",
+  "gay",
+  "rico",
+  "cine",
+  "pantalones",
+  "olvidado",
+  "sentimientos",
+  "metros",
+  "operación",
+  "brazos",
+  "muestra",
+  "encantaría",
+  "prefiero",
+  "preguntar",
+  "árbol",
+  "ruido",
+  "yendo",
+  "alguno",
+  "televisión",
+  "maría",
+  "robert",
+  "bebe",
+  "quedarte",
+  "verde",
+  "déjeme",
+  "cuchillo",
+  "ryan",
+  "conocerte",
+  "tenéis",
+  "desea",
+  "espectáculo",
+  "nariz",
+  "cuidar",
+  "francia",
+  "caballos",
+  "sociedad",
+  "uso",
+  "agradezco",
+  "inmediato",
+  "casos",
+  "charles",
+  "adam",
+  "directo",
+  "siga",
+  "siguen",
+  "marca",
+  "dueño",
+  "brian",
+  "sombrero",
+  "confía",
+  "créeme",
+  "amas",
+  "bastardo"
+ ],
+ "spot": [
+  "como",
+  "ser",
+  "jamás",
+  "teniente"
+ ],
+ "stats": {
+  "used": {
+   "lexai": 0,
+   "gc": 0,
+   "cf2": 0,
+   "cfLeak": 0,
+   "cf2Dead": [],
+   "gem": 17,
+   "groq": 54
+  },
+  "budget": {
+   "lexai": 0,
+   "gc": 10000,
+   "cf2": 0
+  },
+  "by": {
+   "gem|gemini-3.8-flash": {
+    "ok": 1,
+    "fail": 3,
+    "bad": 0
+   },
+   "gem|gemini-3.6-flash": {
+    "ok": 16,
+    "fail": 3,
+    "bad": 0
+   },
+   "groq|openai/gpt-oss-120b": {
+    "ok": 34,
+    "fail": 1,
+    "bad": 0
+   },
+   "groq|qwen/qwen3.8-27b": {
+    "ok": 20,
+    "fail": 0,
+    "bad": 0
+   },
+   "gem|gemini-3.7-flash": {
+    "ok": 0,
+    "fail": 3,
+    "bad": 0
+   },
+   "lexai|gemini-3.5-flash": {
+    "ok": 0,
+    "fail": 2,
+    "bad": 0
+   }
+  },
+  "keys": {
+   "gem": {
+    "size": 85,
+    "live": 70,
+    "parked": {
+     "day": 5,
+     "auth": 2,
+     "minute": 8
+    }
+   },
+   "groq": {
+    "size": 109,
+    "live": 109,
+    "parked": {}
+   }
+  }
+ },
+ "wiktFlags": [
+  "contigo: từ loại pron ↔ adv",
+  "otro: từ loại adj ↔ det/intj/pron",
+  "ambos: từ loại det ↔ adj/pron/noun"
+ ]
+}

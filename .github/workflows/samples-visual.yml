@@ -31,7 +31,7 @@ jobs:
       - name: Soi hình + ảnh trước/sau
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2 >/dev/null
-          npx playwright install --with-deps chromium >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
           for d in dist ../base/dist; do src=$(dirname "$d"); for a in img teach css fonts js icons; do ln -sfn "$(realpath "$src/web/$a")" "$d/$a"; done; done
           (cd dist && python3 -m http.server 8080 >/dev/null 2>&1 &) ; (cd ../base/dist && python3 -m http.server 8081 >/dev/null 2>&1 &) ; sleep 1
           node scripts/test/samples-visual.mjs http://localhost:8081 --shots out/shots/before || echo "(bản cũ có lỗi – chỉ lấy ảnh)"
