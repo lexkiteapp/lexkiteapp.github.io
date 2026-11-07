@@ -5,6 +5,7 @@
 // Chỉ ĐỌC API + POST /actions/runs/{id}/rerun. Workflow nặng = file .github/workflows/*.yml có dòng `# ci-policy: heavy-gate`.
 import fs from 'node:fs';
 import path from 'node:path';
+import { isMain } from '../lib/is-main.mjs';
 export const MARK = /^# ci-policy: heavy-gate\b/m;
 /** Tên file workflow nặng trong thư mục workflows (thuần theo nội dung file). */
 export function heavyFiles(dir = '.github/workflows') { return fs.readdirSync(dir).filter(f => /\.ya?ml$/.test(f) && MARK.test(fs.readFileSync(path.join(dir, f), 'utf8'))); }
@@ -30,4 +31,4 @@ async function main() {
   console.log(`npm test xanh → chạy lại ${ids.length} lượt nặng của ${sha.slice(0, 8)}: ${ids.join(', ') || '(không có)'}`);
   if (!dry) for (const id of ids) { const r = await api(`/actions/runs/${id}/rerun`, { method: 'POST' }); if (r.status !== 201) console.log(`::warning::rerun ${id} → HTTP ${r.status}`); }
 }
-if (import.meta.url === `file://${process.argv[1]}`) main().catch(e => { console.error(e); process.exit(1); });
+if (isMain(import.meta.url)) main().catch(e => { console.error(e); process.exit(1); });

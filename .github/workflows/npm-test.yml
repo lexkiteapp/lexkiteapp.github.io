@@ -37,7 +37,7 @@ jobs:
     permissions: { contents: read, actions: write }
     steps:
       - uses: actions/checkout@v4
-        with: { sparse-checkout: "scripts/ci\n.github/workflows", sparse-checkout-cone-mode: false }
+        with: { sparse-checkout: "scripts/ci\nscripts/lib/is-main.mjs\n.github/workflows", sparse-checkout-cone-mode: false }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: chạy lại việc nặng của cùng sha
