@@ -1473,3 +1473,6 @@ body:has(.learn-bar,.grade-bar,.sheet,.sel-bar,.install-nudge,#modal:not([hidden
 .v2 nav a[data-tab]:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 .v2 nav a[data-tab]:active .st-ti { transform: scale(.88); }
 @media (prefers-reduced-motion: reduce) { .st-ti { transition: none; } .v2 nav a[data-tab]:active .st-ti { transform: none; } }
+
+.lk-ftheme { flex: none; min-width: 44px; min-height: 44px; }
+.lk-ftheme.fix { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 8px); inset-inline-end: 12px; z-index: 60; }
