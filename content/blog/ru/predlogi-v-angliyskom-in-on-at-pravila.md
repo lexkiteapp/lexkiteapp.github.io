@@ -167,6 +167,8 @@ quiz: [
 
 {{youtube: | English Prepositions In On At Masterclass}}
 
+Закрепить предлоги на практике можно в заданиях [TOEIC Part 5](/ru/blog/toeic-part-5-strategii-grammatika-leksika/).
+
 ## Часто Задаваемые Вопросы (FAQ)
 
 ### Q1. Как правильно говорить: 'at the weekend' или 'on the weekend'?

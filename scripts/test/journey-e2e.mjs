@@ -151,8 +151,8 @@ async function toLast(h) { for (let i = 0; i < 8 && !(await h.has('#go')); i++) 
 async function setup(h, { test = false } = {}) {
   await h.boot('/welcome/setup', h.q);
   if (await h.has('#noAcct')) await h.click('#noAcct');
-  await h.click('button.trk-opt'); await h.click('#obNext', { wait: 250 });
-  await h.click(test ? '[data-lv="test"]' : '.trk-lv [data-lv]:not([data-lv="test"])');
+  await h.click('[data-track]'); await h.click('#obNext', { wait: 250 });
+  await h.click(test ? '[data-lv="test"]' : '[data-lv]:not([data-lv="test"])');
   await toLast(h);
   await h.click('#go', { wait: 1500 });
 }
@@ -169,7 +169,7 @@ const softAskShown = h => h.has('#modal:not([hidden]) #raY');
 // ---------- 1. Lần đầu: giới thiệu → app → kiểm tra đầu vào → bài đầu tiên → hỏi nhắc học ĐÚNG 1 lần sau bài → từ chối → không bao giờ hỏi lại ----------
 async function j1(h) {
   const { page, lang } = h;
-  await page.goto(`${O}/${lang === 'vi' ? '' : lang + '/'}`, { waitUntil: 'load' });
+  await page.goto(`${O}/${lang}/`, { waitUntil: 'load' });
   const cta = page.locator('[data-cta=start], .ctas a.btn.lg').first()  /* nút chính hero (khung Stitch: data-cta=start) */;
   const href = await cta.getAttribute('href');
   h.ok(href && href.startsWith(`/app/?hl=${lang}#/welcome/setup`), `trang giới thiệu: nút chính trỏ ${href}`);
@@ -181,7 +181,7 @@ async function j1(h) {
   h.ok(!(await softAskShown(h)), 'KHÔNG hỏi nhắc học lúc mở app lần đầu');
   await h.audit('first-load');
   if (await h.has('#noAcct')) await h.click('#noAcct');
-  await h.click('button.trk-opt'); await h.click('#obNext', { wait: 250 }); await h.click('[data-lv="test"]'); await toLast(h); await h.click('#go', { wait: 1500 });
+  await h.click('[data-track]'); await h.click('#obNext', { wait: 250 }); await h.click('[data-lv="test"]'); await toLast(h); await h.click('#go', { wait: 1500 });
   h.ok(/#\/placement/.test(page.url()), 'chọn "kiểm tra đầu vào" → #/placement');
   await h.click('#go', { wait: 600 });
   for (let i = 0; i < 26 && !(await h.has('.pl-result')); i++) { const o = page.locator('.pl-wrap .option[data-k]:not([data-k="-1"])'); if (await o.count()) { await o.nth(i % 2).click().catch(() => {}); } await sleep(520); }
@@ -387,13 +387,13 @@ async function j4(h) {
 // ---------- 5. Cài đặt nhắc học → tải lại → còn; cờ quảng cáo TẮT → không ô quảng cáo ở đâu cả ----------
 async function j5(h) {
   const { page } = h;
-  await h.boot('/settings');
+  await h.boot('/settings/remind'); // Cài đặt = mục lục + trang con (docs/specs/me-settings-ux.md): ô nhắc học ở #/settings/remind
   if (!(await page.locator('#sRem').isChecked())) await page.locator('#sRem').check();
   const set = async (sel, v) => { await page.locator(sel).fill(v); await page.locator(sel).dispatchEvent('change'); await sleep(250); };
   await set('#sTime', '07:30'); await set('#sQ1', '23:00'); await set('#sQ2', '06:30');
   if (await page.locator('#sTy_week').isChecked()) { await page.locator('#sTy_week').uncheck(); await sleep(250); }
   await h.audit('settings');
-  await h.reload(); await h.go('#/settings');
+  await h.reload(); await h.go('#/settings/remind');
   const v = await page.evaluate(() => ({ t: document.querySelector('#sTime').value, a: document.querySelector('#sQ1').value, b: document.querySelector('#sQ2').value, w: document.querySelector('#sTy_week').checked, d: document.querySelector('#sTy_due').checked, on: document.querySelector('#sRem').checked }));
   h.ok(v.on && v.t === '07:30' && v.a === '23:00' && v.b === '06:30' && !v.w && v.d, 'cài đặt nhắc học còn sau tải lại: ' + JSON.stringify(v));
   const plan = await page.evaluate(() => (JSON.parse(localStorage.getItem('lk.remp') || '[]')).length);
@@ -431,6 +431,8 @@ async function j6(h) {
 // ---------- 7. Add-on: tra từ → lưu kèm câu → thẻ tab mới → mở app ----------
 async function j7(lang) {
   const tag = `j7-${lang}`, fails = [], t0 = Date.now(), fail = m => { fails.push(m); console.log(`  ✗ [${tag}] ${m}`); }, ok = (c, m) => (c || fail(m), !!c);
+  // Cờ route fetch từ SW (dòng 27, cần cho J8) làm hỏng SW MV3 của add-on (#416, cùng lý do ext-e2e tắt): lúc xanh 8 s, lúc bảng tra không bao giờ hiện → "shadowRoot của null". Playwright đọc cờ khi tạo SW; J7 chạy tuần tự sau cùng nên tắt riêng ở đây là đủ.
+  const swFlag = process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS; delete process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS;
   const EXTD = path.resolve('extension'), prof = fs.mkdtempSync(path.join(os.tmpdir(), 'lkj7-'));
   const ctx = await chromium.launchPersistentContext(prof, { channel: 'chromium', headless: true, locale: LOCALE[lang], viewport: { width: 1280, height: 860 }, args: [`--disable-extensions-except=${EXTD}`, `--load-extension=${EXTD}`, `--lang=${LOCALE[lang]}`] });
   const errs = [];
@@ -440,14 +442,24 @@ async function j7(lang) {
     await ctx.route(/lexkite\.com|googleapis|dictionaryapi|tatoeba|wiktionary|datamuse|mymemory|wikimedia/, r => r.fulfill({ status: 200, contentType: 'application/json', body: '{}' }));
     ctx.on('page', p => p.on('pageerror', e => errs.push('pageerror ' + p.url().slice(0, 80) + ': ' + e.message.slice(0, 90) + ' @ ' + String(e.stack || '').split('\n').slice(1, 3).map(x => x.trim()).join(' ').slice(0, 200))));
     let [sw] = ctx.serviceWorkers(); if (!sw) sw = await ctx.waitForEvent('serviceworker');
+    for (let i = 0; i < 75 && !(await sw.evaluate(() => !!(self.chrome && chrome.storage && chrome.storage.local)).catch(() => false)); i++) await sleep(200); // API add-on gắn sau sự kiện serviceworker
     const base = `chrome-extension://${new URL(sw.url()).host}/`;
+    // SW vừa khởi động có thể chưa gắn chrome.storage (đỏ ngẫu nhiên "reading 'local'" ở 0 s): chờ sẵn sàng rồi mới dùng, hết hạn thì để lỗi thật lộ ra
+    for (let i = 0; i < 50 && !await sw.evaluate(() => !!(globalThis.chrome && chrome.storage && chrome.storage.local)).catch(() => false); i++) await sleep(100);
     await sw.evaluate(l => chrome.storage.local.set({ uiLang: l }), lang);
     await sw.evaluate(() => chrome.storage.local.get('settings').then(({ settings }) => chrome.storage.local.set({ settings: { ...(settings || {}), selectMode: 'icon', dblclickOn: true } })));
     await sleep(1500); for (const p of ctx.pages()) if (p.url().startsWith(base)) await p.close().catch(() => {});
     const pg = await ctx.newPage(); await pg.goto('https://news.example.test/article'); await sleep(1200);
     // boot.js chạy lúc document_idle rồi mới nhờ SW chèn content.js → chờ ĐIỀU KIỆN (bảng tra hiện), nhấp đúp lại nếu lần trước rơi vào lúc mồi chưa gắn
     const popUp = () => pg.waitForFunction(() => { const b = document.querySelector('ielts-lexi-popup')?.shadowRoot?.querySelector('.box'); return !!(b && !b.hidden && b.getBoundingClientRect().height > 0); }, null, { timeout: 8000 }).then(() => true, () => false);
-    for (let i = 0; i < 4; i++) { await pg.locator('#w').dblclick(); if (await popUp()) break; }
+    let shown = false; for (let i = 0; i < 4 && !shown; i++) { await pg.locator('#w').dblclick(); shown = await popUp(); }
+    // Đỏ ngẫu nhiên (1 lần ở #760, ar): bảng tra không hiện mà không pageerror → ghi trạng thái từng khâu để lần sau chỉ thẳng gốc
+    // (mồi boot.js có chạy/tự gỡ không · content.js đã chèn chưa · SW còn trả lkInject · phần tử bảng tra có trong DOM không)
+    if (!shown) {
+      const dom = await pg.evaluate(() => ({ el: !!document.querySelector('ielts-lexi-popup'), sr: !!document.querySelector('ielts-lexi-popup')?.shadowRoot, sel: String(getSelection() || '') })).catch(e => ({ err: e.message }));
+      const iso = await sw.evaluate(async () => { const [t] = await chrome.tabs.query({ url: 'https://news.example.test/*' }); if (!t) return { tab: 0 }; const [r] = await chrome.scripting.executeScript({ target: { tabId: t.id }, func: () => ({ boot: !!window.__lkBoot, off: !!(window.__lkBoot && window.__lkBoot.off), cs: !!window.__lkCS }) }); return { tab: t.id, ...(r && r.result) }; }).catch(e => ({ err: String(e.message || e).slice(0, 120) }));
+      fail('chẩn đoán bảng tra không hiện: ' + JSON.stringify({ dom, iso }));
+    }
     await pg.waitForFunction(() => { const r = document.querySelector('ielts-lexi-popup')?.shadowRoot; return !!(r && r.querySelector('#save') && /\S/.test((r.querySelector('.ctx') || {}).innerText || '')); }, null, { timeout: 15000 }).catch(() => {});
     const pop = () => pg.evaluate(() => { const r = document.querySelector('ielts-lexi-popup')?.shadowRoot; return r ? { box: !!(r.querySelector('.box') && !r.querySelector('.box').hidden), ctx: (r.querySelector('.ctx') || {}).innerText || '', save: !!r.querySelector('#save'), saved: !!(r.querySelector('#save') || {}).disabled } : null; });
     const p1 = await pop();
@@ -473,6 +485,7 @@ async function j7(lang) {
   results.push({ id: 7, name: 'add-on', lang, dev: 'desktop', ok: !fails.length, fails, notes: [], ms: Date.now() - t0 });
   console.log(`${fails.length ? '✗' : '✓'} J7 add-on [${lang}] ${Math.round((Date.now() - t0) / 1000)} s`);
   await ctx.close();
+  if (swFlag) process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS = swFlag;
 }
 
 

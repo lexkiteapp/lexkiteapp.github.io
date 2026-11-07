@@ -9,6 +9,8 @@
 import fs from 'node:fs';
 import { execSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
+import { isZombie } from './zombie.mjs';
+import { retry5xx } from '../lib/retry5xx.mjs';
 
 export const SAMPLE_MIN = 10, LOG_BRANCH = 'ci-stats', LOG_FILE = 'util.tsv', KEEP_LINES = 288;
 export const loadRegistry = (f = 'infra/ci-backlog.json') => JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -28,18 +30,21 @@ export function shardsFor(entry, free) {
 export const eligible = e => e.eligible !== false && e.cpu_bound === true && e.quota_bound !== true;
 const ACTIVE = new Set(['queued', 'in_progress', 'waiting', 'pending', 'requested']);
 /** Chặn trùng (thuần): tập file workflow đang có lượt chưa xong. */
-export const activeWorkflows = runs => new Set(runs.filter(r => ACTIVE.has(r.status)).map(r => String(r.path || '').replace(/^\.github\/workflows\//, '').replace(/@.*$/, '')));
+export const activeWorkflows = (runs, now = Date.now()) => new Set(runs.filter(r => ACTIVE.has(r.status) && !isZombie(r, now)).map(r => String(r.path || '').replace(/^\.github\/workflows\//, '').replace(/@.*$/, '')));
 export const isActive = (entry, active) => active.has(entry.workflow);
 /** Đếm từ danh sách job của các lượt chưa xong (thuần). Phần tử = mảng job, hoặc { event, jobs } để đếm job check PR đang xếp hàng (prQueued). */
+/** Job xếp hàng quá lâu mà máy vẫn rảnh là job kẹt (max-parallel giữ, lượt zombie): không tính vào hàng chờ. 04/11: teach-video của 1 PR giữ 14 job ~6 giờ, filler báo "check PR chờ" dù 38 runner trống. Ngưỡng cao hơn thời gian chờ thật khi còn runner; lúc nghẽn thật busy cao nên capacity vẫn về 0. */
+export const STUCK_MS = 45 * 60e3;
 export function countJobs(jobsByRun, now = Date.now()) {
-  let busy = 0, queued = 0, starved = 0, prQueued = 0;
+  let busy = 0, queued = 0, starved = 0, prQueued = 0, stuck = 0;
   for (const x of jobsByRun) {
     const jobs = Array.isArray(x) ? x : x.jobs || [], pr = !Array.isArray(x) && /^pull_request/.test(x.event || '');
-    const run = jobs.filter(j => j.status === 'in_progress').length, q = jobs.filter(j => j.status === 'queued');
+    const run = jobs.filter(j => j.status === 'in_progress').length, all = jobs.filter(j => j.status === 'queued'), q = all.filter(j => now - new Date(j.created_at || now) <= STUCK_MS);
+    stuck += all.length - q.length;
     busy += run; queued += q.length; if (pr) prQueued += q.length;
     if (!run) starved += q.filter(j => now - new Date(j.created_at || now) > 60e3).length;
   }
-  return { busy, queued, starved, prQueued };
+  return { busy, queued, starved, prQueued, stuck };
 }
 export function plan(entries, { free, active, left }) {
   const out = [];
@@ -82,7 +87,7 @@ export function report(text, now = Date.now()) {
 const REPO = process.env.GITHUB_REPOSITORY || 'lexkiteapp/lexkiteapp.github.io';
 const API = (process.env.GITHUB_API_URL || 'https://api.github.com') + '/repos/' + REPO;
 async function gh(p, { method = 'GET', body, raw = false } = {}) {
-  const r = await fetch(p.startsWith('http') ? p : API + p, { method, headers: { Authorization: 'Bearer ' + process.env.GITHUB_TOKEN, Accept: raw ? 'application/vnd.github.raw' : 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'lexkite-ci-filler', ...(body ? { 'Content-Type': 'application/json' } : {}) }, body: body ? JSON.stringify(body) : undefined, signal: AbortSignal.timeout(30e3) });
+  const r = await retry5xx(() => fetch(p.startsWith('http') ? p : API + p, { method, headers: { Authorization: 'Bearer ' + process.env.GITHUB_TOKEN, Accept: raw ? 'application/vnd.github.raw' : 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'lexkite-ci-filler', ...(body ? { 'Content-Type': 'application/json' } : {}) }, body: body ? JSON.stringify(body) : undefined, signal: AbortSignal.timeout(30e3) }));
   if (r.status === 404) return null;
   if (!r.ok) throw new Error(`GitHub ${method} ${p.slice(0, 80)} → ${r.status} ${(await r.text()).slice(0, 200)}`);
   return raw ? r.text() : r.status === 204 ? {} : r.json().catch(() => ({}));

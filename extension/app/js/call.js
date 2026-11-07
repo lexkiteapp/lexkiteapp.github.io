@@ -223,21 +223,25 @@ body.call-on{overflow:hidden}
       if (V2) { mic.setAttribute('aria-pressed', String(p === 'listen')); const ml = $('#cMicL', ov); if (ml) ml.textContent = p === 'listen' ? t('Đang nghe') : t('Nói'); }
     }
     // Nói lần lượt từng câu (mỗi câu 1 file Kokoro sinh sẵn) – sayRun đổi = bị ngắt lời → bỏ phần còn lại
+    let caps = null;
     function say(parts, then) {
       cur = parts.filter(Boolean); const my = ++sayRun;
-      $('#cL1', ov).textContent = cur.join(' '); paintTr(); if (canTr && showTr) setTimeout(() => alive() && fetchTr(cur), 1200);
+      const l1 = $('#cL1', ov); if (caps) caps.forEach(c => c && c.all()); caps = null; l1.textContent = '';
+      cur.forEach((x, i) => { if (i) l1.append(' '); const sp = document.createElement('span'); sp.textContent = x; l1.append(sp); });
+      if (tch && window.SayText) caps = [...l1.children].map(sp => SayText.prep(sp, { wait: 0 }));
+      paintTr(); if (canTr && showTr) setTimeout(() => alive() && fetchTr(cur), 1200);
       setPhase('talk');
-      const done = () => { if (my !== sayRun || !alive()) return; setPhase('you'); if (then) then(); else if (autoMic && node() && !node().prep) listen(); };
+      const done = () => { if (my !== sayRun || !alive()) return; if (caps) caps.forEach(c => c && c.all()); setPhase('you'); if (then) then(); else if (autoMic && node() && !node().prep) listen(); };
       const one = k => {
         if (my !== sayRun || !alive()) return;
         if (k >= cur.length) return done();
         const text = cur[k]; let fin = false; const next = () => { if (fin) return; fin = true; one(k + 1); };
-        if (tch) tch.say(text, { voice, accent: ACCENT, onEnd: next }); else UI.tts(text, ACCENT, undefined, { voice, onEnd: next });
+        if (tch) tch.say(text, { voice, accent: ACCENT, onEnd: next, caption: caps && caps[k] }); else UI.tts(text, ACCENT, undefined, { voice, onEnd: next });
         setTimeout(next, Math.min(15000, 1500 + text.length * 90)); // trình duyệt không báo kết thúc → vẫn đi tiếp
       };
       one(0);
     }
-    const hush = () => { sayRun++; if (tch) try { tch.stop(); } catch (e) { /* bỏ qua */ } UI.stopSpeak(); };
+    const hush = () => { if (caps) caps.forEach(c => c && c.all()); sayRun++; if (tch) try { tch.stop(); } catch (e) { /* bỏ qua */ } UI.stopSpeak(); };
 
     const showOpts = () => {
       const box = $('#cOpts', ov), n = node(), cue = $('#cCue', ov);
@@ -307,7 +311,7 @@ body.call-on{overflow:hidden}
         start: () => { if (my === turn) setPhase('listen'); },
         result: ({ heard, score }) => { if (my !== turn || !alive()) return; turn++; if (heard) answer(heard, false, false, { secs: (Date.now() - s0) / 1000, asr: score }); else setPhase('you'); },
         error: code => { if (my !== turn) return; autoMic = false; setPhase('you'); if (code !== 'no-speech') toast(UI.recErrorText(code), 3500); else toast(UI.recErrorText('no-speech'), 2500); },
-        end: () => { if (rec && rec._my === my) rec = null; if (my === turn && phase === 'listen') setPhase('you'); },
+        end: () => { if (rec && rec._my === my) rec = null; if (!rec && phase === 'listen') setPhase('you'); }, // result đến trước end (UI.recognize) → Part 2 vẫn mở micro cho đoạn kế
       };
       if (m === 'local') cb.setup = r => { r.processLocally = true; if (n.long) r.continuous = false; if (typeof window.SpeechRecognitionPhrase === 'function' && 'phrases' in r) r.phrases = words.map(w => new window.SpeechRecognitionPhrase(w, 3)); };
       if (m === 'whisper') { cb.whisper = true; cb.maxMs = n.long ? 28000 : Math.min(15000, 3000 + (n.min || 8) * 450); }

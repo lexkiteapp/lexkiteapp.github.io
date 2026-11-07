@@ -59,6 +59,8 @@ Không cần secret mới (máy chủ dùng lại client của Kho Drive; muốn
 
 ## 3. Kiểm định API (API compliance audit) – BẮT BUỘC trước khi video được công khai
 
+Hồ sơ soạn sẵn (câu trả lời tiếng Anh + kịch bản video demo): [YOUTUBE-AUDIT.md](YOUTUBE-AUDIT.md).
+
 Google khoá mọi video tải qua API từ project **chưa kiểm định** ở chế độ **private** (kể cả khi chọn unlisted/publishAt). Việc của chủ (miễn phí):
 1. Mở form: https://support.google.com/youtube/contact/yt_api_form → chọn **"I would like to request an API audit / quota extension"**.
 2. Điền: project number (https://console.cloud.google.com/home/dashboard → Project number), tên app "Lexkite", website https://lexkite.com,

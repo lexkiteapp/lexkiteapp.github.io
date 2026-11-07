@@ -3,6 +3,9 @@
 import fs from 'fs';
 import { shellHash, liveHash } from '../lib/sw-version.mjs';
 import { readIndex } from '../sentence-audio/lib.mjs'; // audio-index.js dạng nén – chạy tệp
+export const SW_GRACE_MIN = 200;
+// phút kể từ lượt Pages deploy THÀNH CÔNG gần nhất (null = không hỏi được API)
+export const deployLagMin = async (f = fetch, env = process.env) => { try { const r = await f(`https://api.github.com/repos/${env.GITHUB_REPOSITORY || 'lexkiteapp/lexkiteapp.github.io'}/actions/workflows/pages-deploy.yml/runs?status=success&per_page=1`, { headers: { 'User-Agent': 'lexkite-health', Accept: 'application/vnd.github+json', ...(env.GITHUB_TOKEN ? { Authorization: 'Bearer ' + env.GITHUB_TOKEN } : {}) } }); const j = await r.json(); const t = j.workflow_runs && j.workflow_runs[0] && Date.parse(j.workflow_runs[0].updated_at); return t ? Math.round((Date.now() - t) / 60000) : null; } catch { return null; } };
 const B = 'https://lexkite.com', bad = [], ok = [];
 // Header CI (secret LEXKITE_CI_HEADER): qua WAF + thống kê truy cập tự đếm là máy tự động (functions/api/hit.js) – không in giá trị
 const CI = process.env.LEXKITE_CI_HEADER ? { 'X-Lexkite-CI': process.env.LEXKITE_CI_HEADER.trim() } : {};
@@ -11,10 +14,10 @@ const check = async (name, fn) => { try { const m = await fn(); m === true || m 
 const page = (p, must) => check(p, async () => { const r = await get(B + p); if (!r.ok) return 'HTTP ' + r.status; const t = await r.text(); return !must || t.includes(must) || `thiếu "${must}"`; });
 const json = (p, test) => check(p, async () => { const r = await get(B + p); if (!r.ok) return 'HTTP ' + r.status; const j = await r.json(); return test ? test(j) : true; });
 
-await page('/', 'id="lk-route"'); await page('/en/', 'hreflang="x-default"'); await page('/app/', 'id="view"'); // trang giới thiệu (/, /<lang>/) + app học (/app/)
+await page('/vi/', 'id="lk-route"'); await page('/en/', 'hreflang="x-default"'); await page('/app/', 'id="view"'); // trang giới thiệu (/, /<lang>/) + app học (/app/)
 await page('/vi/blog/', '<h2'); await page('/en/blog/', 'Lexkite Blog');
 await page('/privacy'); await page('/terms'); await page('/ja/privacy'); await page('/sitemap.xml', '<loc>'); await page('/robots.txt', 'Sitemap');
-await check('sw.js = bản mới nhất', async () => { const live = liveHash(await (await get(B + '/sw.js?x=' + Date.now())).text()), local = shellHash('web'); return live === local || `live ${live || '?'} ≠ repo ${local} (deploy Cloudflare kẹt?)`; }); // hash nội dung (scripts/lib/sw-version.mjs) – web/sw.js giữ CACHE cố định
+await check('sw.js = bản mới nhất', async () => { const live = liveHash(await (await get(B + '/sw.js?x=' + Date.now())).text()), local = shellHash('web'); if (live === local) return true; const lag = await deployLagMin(); /* Pages gom deploy 180' (PAGES_DEPLOY=hook): repo đi trước live ≤ 200' là bình thường, quá thế mới là kẹt */ if (lag != null && lag < SW_GRACE_MIN) { console.log(`⚠ sw.js live ${live || '?'} ≠ repo ${local} nhưng lượt Pages deploy thành công gần nhất cách đây ${lag}' (< ${SW_GRACE_MIN}') – đợi lượt gom kế`); return true; } return `live ${live || '?'} ≠ repo ${local} (deploy Cloudflare kẹt? lượt Pages deploy xanh gần nhất: ${lag == null ? 'không rõ' : lag + "'"})`; }); // hash nội dung (scripts/lib/sw-version.mjs) – web/sw.js giữ CACHE cố định
 for (const f of ['js/app.js', 'js/qengine.js', 'js/toeic/reading1.js', 'js/listen/test1.js', 'img/toeic/t1-p1-1.jpg']) await page('/' + f);
 await json('/api/config');
 await check('/api/hit (POST)', async () => { const r = await get(B + '/api/hit', { method: 'POST', body: '{}' }); return r.status < 500 || 'HTTP ' + r.status; });

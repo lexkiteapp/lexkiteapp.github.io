@@ -1,3 +1,2 @@
-/* UI hi – ads (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["hi"] = Object.assign(D["hi"] || {}, {"Hết lượt hôm nay? Xem 1 video ngắn để nhận thêm {n} lượt.":"आज के मुफ़्त मौके खत्म हो गए? एक छोटा वीडियो देखें और {n} और पाएँ।","Xem video":"वीडियो देखें","Đã cộng thêm lượt – thử lại sau vài giây.":"अतिरिक्त मौके जोड़ दिए गए – कुछ सेकंड बाद फिर कोशिश करें।"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/hi/ads.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.hi=Object.assign(D.hi||{},{_ape0:"आज के मुफ़्त मौके खत्म हो गए? एक छोटा वीडियो देखें और {n} और पाएँ।",_dcji:"वीडियो देखें",_iq0k:"अतिरिक्त मौके जोड़ दिए गए – कुछ सेकंड बाद फिर कोशिश करें।",_8kw8:"{n} और बार पाने के लिए 10 कार्ड दोहराएँ – मुफ़्त।",_9lrf:"अभी दोहराएँ",_a5k9:"कार्ड दोहराने से आपको {n} और बार मिले।",_3iid:"आज {r}/{need} कार्ड दोहराए – और दोहराएँ तो बार मिलेंगे।"});})(typeof self!=='undefined'?self:this);

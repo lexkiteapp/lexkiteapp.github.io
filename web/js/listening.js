@@ -60,6 +60,9 @@
     const rate = () => opts.rate ? opts.rate() : (state.settings.listenRate || 0.95);
     const stopNow = () => { seq++; clearTimeout(timer); if ('speechSynthesis' in window) speechSynthesis.cancel(); if (el) { el.onended = el.onerror = null; el.pause(); el = null; } };
     const hqKey = l => { if (!kv || !hqOn()) return null; const k = KVoice.lineKey(l.say ? kv._narrator : (kv[l.s] || kv._narrator), l.say || l.t); return LISTEN_AUDIO.has(k) ? k : null; };
+    // iOS chặn play() (chưa có cú chạm): dừng tại câu này, giữ vị trí, báo trang hiện ▶ "Chạm để nghe" – không ghi "Đang phát" khi im lặng
+    let heard = false; const sound = () => { if (!heard) { heard = true; opts.onSound && opts.onSound(); } }; // lần đầu THẬT có tiếng (playing/onstart)
+    const blockedAt = () => { playing = false; if (window.LKAudio && LKAudio.blocked) LKAudio.blocked('listening'); opts.onState && opts.onState(false); if (opts.onBlocked) opts.onBlocked(); else toast(t('Chạm ▶ để nghe')); };
     function step(my) {
       if (my !== seq) return;
       if (pos >= q.length) { playing = false; opts.onLine && opts.onLine(-1); opts.onEnd && opts.onEnd(); return; }
@@ -70,13 +73,13 @@
       if (l.say && opts.skipNarrator) { next(); return; }
       const key = hqKey(l);
       if (key) {
-        el = new Audio(aUrl(key)); el.preservesPitch = true; el.playbackRate = l.say ? 1 : Math.min(1.3, Math.max(0.6, rate() / 0.95));
+        el = window.LKAudio && LKAudio.el ? LKAudio.el() : new Audio(); el.src = aUrl(key); el.preservesPitch = true; el.playbackRate = l.say ? 1 : Math.min(1.3, Math.max(0.6, rate() / 0.95)); // phần tử đã mồi trong cú chạm đầu: iOS cho phát câu kế sau setTimeout
         const me = el; let ok = false;
-        el.onplaying = () => { ok = true; audioDown = 0; };
+        el.onplaying = () => { ok = true; audioDown = 0; sound(); };
         el.onended = () => { if (el === me) timer = setTimeout(next, l.say ? 600 : 280); };
         el.onerror = () => { if (el !== me) return; el = null; if (!ok) { audioDown++; window.audioFail && window.audioFail(); } ttsLine(); };
         let pr; try { pr = el.play(); } catch (e) { pr = Promise.reject(e); }
-        if (pr && pr.catch) pr.catch(() => { if (el === me && !ok) { el = null; ttsLine(); } });
+        if (pr && pr.catch) pr.catch(err => { if (el !== me || ok) return; el = null; if (err && err.name === 'NotAllowedError') return blockedAt(); ttsLine(); });
         // tải trước câu kế tiếp → không bị khựng giữa các câu
         const nx = q.slice(pos + 1).find(x => x.t || x.say), nk = nx && hqKey(nx); if (nk) { const pre = new Audio(); pre.preload = 'auto'; pre.src = aUrl(nk); }
         return;
@@ -88,6 +91,7 @@
       const parts = UI.splitSentences(l.say || l.t);
       parts.forEach((t, k) => {
         const u = new SpeechSynthesisUtterance(t);
+        if (!k) u.onstart = sound;
         u.lang = c.lang; if (c.voice) u.voice = c.voice; u.pitch = c.pitch; u.rate = l.say ? 0.95 : rate();
         if (k === parts.length - 1) u.onend = u.onerror = () => { timer = setTimeout(next, l.say ? 600 : 280); };
         speechSynthesis.speak(u);
@@ -179,7 +183,7 @@
           <div class="row between"><span class="chip">Part ${p.part} · ${PART()[p.part]}</span>${done[p.id] != null ? `<span class="chip ok">✓ ${done[p.id]}/10</span>` : ''}</div>
           <h3 style="margin:.5rem 0 .2rem">${esc(p.title)}</h3><div class="small muted">${p.titleVi && I18N.lang() === 'vi' ? esc(p.titleVi) + ' · ' : ''}${esc(p.topic || '')}</div>
           <div class="row" style="margin-top:.4rem">${speakersHtml(p)}</div>
-          <div class="row" style="margin-top:.7rem"><a class="btn sm primary" href="#/listen/${p.id}">${UI.icon('target')} ${t('Luyện tập')}</a><a class="btn sm" href="#/listen/${p.id}?mode=exam">${UI.icon('timer')} ${t('Nghe 1 lần')}</a><a class="btn sm ghost" href="#/dictation/${p.id}">${UI.icon('keyboard')} ${t('Chép chính tả')}</a></div></div>`).join('')}</div></div>`).join('')}
+          <div class="card-acts"><a class="btn sm primary" href="#/listen/${p.id}">${UI.icon('target')} ${t('Luyện tập')}</a><a class="btn sm" href="#/listen/${p.id}?mode=exam">${UI.icon('timer')} ${t('Nghe 1 lần')}</a><a class="btn sm" href="#/dictation/${p.id}">${UI.icon('keyboard')} ${t('Chép chính tả')}</a></div></div>`).join('')}</div></div>`).join('')}
       <div class="card"><h3>${UI.icon('lightbulb')} ${t('Mẹo làm bài Listening')}</h3><ul class="small">
         <li>${t('<b>Đọc trước câu hỏi</b> trong thời gian chờ: gạch chân từ khóa, đoán loại từ cần điền (số, tên, danh từ…).')}</li>
         <li>${t('<b>Cẩn thận bẫy “đổi ý”</b>: người nói hay nói một đáp án rồi sửa lại (“sorry, I mean…”). Đáp án là thông tin cuối cùng.')}</li>
@@ -301,8 +305,11 @@
       const tick = setInterval(() => { if (started || !document.body.contains($('#tCount') || document.createElement('i'))) return clearInterval(tick); left--; $('#tCount').textContent = '⏳ ' + t('{n} giây đọc câu hỏi', { n: left }); if (left <= 0) start(); }, 1000);
       const start = () => {
         if (started) return; started = true; clearInterval(tick);
-        $('#tSkip').remove(); $('#tCount').textContent = '🔊 ' + t('Đang phát – chỉ nghe 1 lần');
+        $('#tSkip').remove(); $('#tCount').textContent = '⏳ ' + t('Đang tải…'); // "Đang phát" chỉ khi THẬT có tiếng (onSound); iOS chặn → nút ▶, chưa tính lượt nghe
+        const c = () => $('#tCount');
         player = Player(p, {
+          onSound: () => { if (c()) c().textContent = '🔊 ' + t('Đang phát – chỉ nghe 1 lần'); },
+          onBlocked: () => { if (!c()) return; c().innerHTML = `<button class="btn primary" id="tTap">▶ ${t('Chạm ▶ để nghe')}</button> <span class="small muted">${t('Âm thanh chưa phát được – chạm để nghe (chưa tính lượt nghe)')}</span>`; $('#tTap').onclick = () => { c().textContent = '⏳ ' + t('Đang tải…'); player.play(); }; },
           onLine: i => { const l = p.script[i]; $('#lNow') && ($('#lNow').textContent = !l ? '' : l.say ? '🎙️ ' + t('Lời dẫn') : l.pause != null ? '' : '🗣️ ' + ((p.speakers[l.s] || {}).name || '')); },
           onEnd: () => { if (!$('#tCount')) return; $('#tCount').textContent = '✓ ' + t('Hết phần nghe – kiểm tra lại đáp án'); $('#tNext').disabled = false; },
         });

@@ -1,10 +1,33 @@
 /* TOEIC Reading – Test 1 (tự biên soạn) */
 (function (g) {
+/* Chuỗi dài dùng chung của cả bộ đề (viết một lần; các đề khác tham chiếu g.TQR[n]) – nạp reading1.js trước. Test: scripts/test/readtest-dedupe.mjs */
+g.TQR = [
+'In this part you will read a selection of texts, such as magazine and newspaper articles, e-mails, and instant messages. Each text or set of texts is followed by several questions. Select the best answer for each question.',
+'Read the texts that follow. A word, phrase, or sentence is missing in parts of each text. Four answer choices for each question are given below the text. Select the best answer to complete the text.',
+'A word or phrase is missing in each of the sentences below. Four answer choices are given below each sentence. Select the best answer to complete the sentence.',
+'What is the article mainly about?',
+'Questions 161-164 refer to the following online chat discussion.',
+'Questions 149-150 refer to the following text-message chain.',
+'Questions 139-142 refer to the following article.',
+'Questions 172-175 refer to the following article.',
+'Questions 158-160 refer to the following article.',
+'Questions 169-171 refer to the following online chat discussion.',
+'Questions 181-185 refer to the following Web page and online review.',
+'What is the purpose of the memo?',
+'Questions 131-134 refer to the following e-mail.',
+'Questions 143-146 refer to the following letter.',
+'Questions 147-148 refer to the following notice.',
+'Questions 154-157 refer to the following letter.',
+'Questions 135-138 refer to the following advertisement.',
+'Questions 151-153 refer to the following Web page.',
+'What is the discussion mainly about?',
+'What is the purpose of the notice?',
+];
   const T = g.TOEIC = g.TOEIC || { reading: [], listening: [] };
   T.reading.push({ id: 'tr1', test: 1, title: 'TOEIC Reading Test 1', parts: [
 
     /* ================= PART 5 ================= */
-    { part: 5, title: 'Incomplete Sentences', instr: 'A word or phrase is missing in each of the sentences below. Four answer choices are given below each sentence. Select the best answer to complete the sentence.',
+    { part: 5, title: 'Incomplete Sentences', instr: g.TQR[2],
       groups: [ { type: 'mcq', instr: '', items: [
         { n: 101, q: 'Ms. Tanaka asked the interns to keep their workstations ------- at all times.', options: ['tidy', 'tidily', 'tidiness', 'tidies'], a: 0, cue: 'keep their workstations',
           explain: 'Cấu trúc keep + tân ngữ + TÍNH TỪ (giữ cái gì ở trạng thái nào) → "tidy". "tidily" là trạng từ, "tidiness" là danh từ, "tidies" là động từ.' },
@@ -40,7 +63,7 @@
           explain: 'Bổ nghĩa cho động từ "worked" cần trạng từ "quickly". "quick/quicker" là tính từ, "quickness" là danh từ.' },
         { n: 117, q: 'Applicants for the position should have at least three years of ------- in project management.', options: ['experience', 'experiment', 'expertly', 'expectation'], a: 0, cue: 'three years of',
           explain: '"years of experience" = số năm kinh nghiệm. "experiment" = thí nghiệm, "expectation" = sự mong đợi (sai nghĩa); "expertly" là trạng từ.' },
-        { n: 118, q: 'The annual employee awards dinner ------- at the Riverside Hotel last Saturday.', options: ['holds', 'is holding', 'will be held', 'was held'], a: 3, cue: 'last Saturday',
+        { n: 118, q: 'The annual employee awards dinner ------- at the Quillmere Riverside Hotel last Saturday.', options: ['holds', 'is holding', 'will be held', 'was held'], a: 3, cue: 'last Saturday',
           explain: 'Bữa tiệc "được tổ chức" (bị động) và "last Saturday" là quá khứ → "was held". "will be held" sai thì; "holds/is holding" là chủ động.' },
         { n: 119, q: 'Ms. Dubois and her colleagues designed the trade show booth by -------.', options: ['them', 'themselves', 'their', 'theirs'], a: 1, cue: 'designed the trade show booth by',
           explain: '"by + đại từ phản thân" = tự mình (không ai giúp): "by themselves". Các dạng khác không dùng trong cụm này.' },
@@ -69,7 +92,7 @@
       ] } ] },
 
     /* ================= PART 6 ================= */
-    { part: 6, title: 'Text Completion', instr: 'Read the texts that follow. A word, phrase, or sentence is missing in parts of each text. Four answer choices for each question are given below the text. Select the best answer to complete the text.',
+    { part: 6, title: 'Text Completion', instr: g.TQR[1],
       passages: [
         { title: 'E-mail', text:
 `To: All Harbor View staff
@@ -86,7 +109,7 @@ During this period, only levels 1 and 2 will be open. -----(132)-----, employees
 We apologize for any inconvenience and appreciate your -----(134)-----.
 
 Linh Pham`,
-          groups: [ { type: 'mcq', instr: 'Questions 131-134 refer to the following e-mail.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[12], items: [
             { n: 131, q: '(131)', options: ['lasting', 'lasted', 'lasts', 'last'], a: 3, cue: 'is expected to',
               explain: '"be expected to + V nguyên mẫu" → "last" (kéo dài). Các dạng khác không đứng sau "to".' },
             { n: 132, q: '(132)', options: ['Therefore', 'Instead', 'Otherwise', 'Similarly'], a: 0, cue: 'only levels 1 and 2 will be open',
@@ -104,7 +127,7 @@ At Corvana Office Furniture, we design desks and chairs that -----(135)----- com
 For a limited time, businesses that order ten or more desks will receive a 15 percent discount and free -----(138)-----. Our team will deliver and assemble everything at your workplace.
 
 Visit any Corvana showroom to try our products for yourself.`,
-          groups: [ { type: 'mcq', instr: 'Questions 135-138 refer to the following advertisement.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[16], items: [
             { n: 135, q: '(135)', options: ['combination', 'combine', 'combining', 'combined'], a: 1, cue: 'we design desks and chairs that',
               explain: 'Mệnh đề quan hệ "that ..." cần động từ chia theo chủ ngữ số nhiều "desks and chairs", thì hiện tại → "combine".' },
             { n: 136, q: '(136)', options: ['allows', 'allowed', 'to allow', 'allowing'], a: 3, cue: 'at the touch of a button',
@@ -120,7 +143,7 @@ Visit any Corvana showroom to try our products for yourself.`,
 Company president Hoang Minh Duc said the decision was driven by strong overseas demand. "Our export sales have doubled -----(140)----- the past three years," he explained. -----(141)-----.
 
 Construction will begin in July, and the company plans to begin -----(142)----- workers in early spring.`,
-          groups: [ { type: 'mcq', instr: 'Questions 139-142 refer to the following article.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[6], items: [
             { n: 139, q: '(139)', options: ['expecting', 'expectation', 'expected', 'expects'], a: 2, cue: 'The new facility is',
               explain: 'Nhà máy "được dự kiến" tạo việc làm → bị động "is expected to + V". "is expecting" mang nghĩa chủ động (nhà máy tự mong đợi) – sai.' },
             { n: 140, q: '(140)', options: ['at', 'over', 'by', 'on'], a: 1, cue: 'the past three years',
@@ -154,7 +177,7 @@ If you have any questions, please contact Ms. Ingrid Sauer, who will -----(146)-
       ] },
 
     /* ================= PART 7 ================= */
-    { part: 7, title: 'Reading Comprehension', instr: 'In this part you will read a selection of texts, such as magazine and newspaper articles, e-mails, and instant messages. Each text or set of texts is followed by several questions. Select the best answer for each question.',
+    { part: 7, title: 'Reading Comprehension', instr: g.TQR[0],
       passages: [
         { title: 'E-mail', text:
 `To: Daniel Mbeki
@@ -259,7 +282,7 @@ Ms. Le has also started buying used books directly from customers, who can excha
 
 Riverside Bookshop is open daily from 8:00 A.M. to 9:00 P.M.`,
           groups: [ { type: 'mcq', instr: 'Questions 162-165 refer to the following article.', items: [
-            { n: 162, q: 'What is the article mainly about?', options: ['The opening of a new library', 'Changes made to a long-established business', 'A writing competition for local authors', 'The decline of online shopping'], a: 1, cue: 'decided it was time for a change',
+            { n: 162, q: g.TQR[3], options: ['The opening of a new library', 'Changes made to a long-established business', 'A writing competition for local authors', 'The decline of online shopping'], a: 1, cue: 'decided it was time for a change',
               explain: 'Bài viết nói về một hiệu sách gần 25 năm tuổi thay đổi mô hình (thêm sách cũ, quán cà phê, sự kiện).' },
             { n: 163, q: 'According to the article, why did Ms. Le make changes?', options: ['Her building was being renovated.', 'Tourists requested a café.', 'She was planning to retire.', 'It was hard to compete with online stores on price.'], a: 3, cue: 'Online retailers made it difficult to compete on price alone',
               explain: 'Bà Le nói các nhà bán lẻ trực tuyến khiến việc cạnh tranh chỉ bằng giá trở nên khó khăn.' },
@@ -302,7 +325,7 @@ Paper forms will still be accepted for expenses incurred before March 2, provide
 
 Questions about the transition should be directed to Kaveh Jafari in the finance department at extension 2214.`,
           groups: [ { type: 'mcq', instr: 'Questions 169-171 refer to the following memo.', items: [
-            { n: 169, q: 'What is the purpose of the memo?', options: ['To announce the opening of new laboratories', 'To request feedback on a training program', 'To remind staff about a travel policy', 'To explain a change in how expenses are submitted'], a: 3, cue: 'will replace paper expense forms with ExpenseTrack',
+            { n: 169, q: g.TQR[11], options: ['To announce the opening of new laboratories', 'To request feedback on a training program', 'To remind staff about a travel policy', 'To explain a change in how expenses are submitted'], a: 3, cue: 'will replace paper expense forms with ExpenseTrack',
               explain: 'Bản ghi nhớ thông báo công ty "will replace paper expense forms with ExpenseTrack" → thay đổi cách nộp chi phí. Lyon và Porto là phòng thí nghiệm sẵn có, không phải mới mở; không có xin góp ý hay chính sách đi lại.' },
             { n: 170, q: 'What is NOT mentioned as a feature of ExpenseTrack?', options: ['It can be used on mobile phones.', 'It lets users check the progress of their claims.', 'It automatically approves small claims.', 'It allows receipts to be photographed.'], a: 2, cue: 'photograph receipts, submit claims, and check the status of their reimbursements',
               explain: 'Memo nêu dùng được trên điện thoại, chụp ảnh hóa đơn và "check the status" (xem tình trạng) yêu cầu hoàn tiền. Việc tự động duyệt các khoản nhỏ không hề được nhắc đến.' },
@@ -320,8 +343,8 @@ At the plant, panels are separated into glass, aluminum, copper, and silicon. Th
 "Many of the panels installed fifteen or twenty years ago are now being replaced," Mr. Pillai explained. "Until recently, owners had few options for disposing of them responsibly." —[3]— Sunvale charges a small collection fee, which is lower for customers who bring their panels directly to the plant.
 
 The company currently employs 45 people and plans to hire another 30 technicians by the end of the year. —[4]— It is also in talks with two universities about developing a method to recover silver from older panels.`,
-          groups: [ { type: 'mcq', instr: 'Questions 172-175 refer to the following article.', items: [
-            { n: 172, q: 'What is the article mainly about?', options: ['A university research program', 'A manufacturer of solar panels', 'A shortage of skilled technicians', 'A facility that recycles used panels'], a: 3, cue: 'the firm opened a recycling plant',
+          groups: [ { type: 'mcq', instr: g.TQR[7], items: [
+            { n: 172, q: g.TQR[3], options: ['A university research program', 'A manufacturer of solar panels', 'A shortage of skilled technicians', 'A facility that recycles used panels'], a: 3, cue: 'the firm opened a recycling plant',
               explain: 'Bài báo nói về nhà máy tái chế tấm pin mặt trời Sunvale vừa mở ("opened a recycling plant"). Sunvale không sản xuất tấm pin; trường đại học và việc tuyển kỹ thuật viên chỉ là chi tiết phụ.' },
             { n: 173, q: 'According to the article, who buys the glass recovered at the plant?', options: ['Producers of insulation materials', 'Solar panel installers', 'University laboratories', 'Regional metal suppliers'], a: 0, cue: 'The glass is sold to manufacturers of insulation materials',
               explain: '"The glass is sold to manufacturers of insulation materials" = kính bán cho nhà sản xuất vật liệu cách nhiệt. Các nhà cung cấp trong vùng nhận lại kim loại, không phải kính.' },
@@ -390,7 +413,7 @@ Rating: 4 out of 5 stars
 Our team rented a studio at Tidewell last week to photograph dishes for a restaurant chain's new menu. We needed a working kitchen for the shoot, so the choice was easy. We booked the space for a half day, but the session ran long, and the manager, Mr. Haruki Sato, kindly allowed us to stay an extra hour at the normal hourly rate rather than charging us for a full day.
 
 The space was spotless, and the natural light from the large windows was excellent. My only complaint is that parking is limited; two of our assistants had to leave their cars several blocks away. I would also recommend bringing your own camera gear, as the equipment available for rent was all reserved on the day of our visit. Still, I would gladly return for our next project.`,
-          groups: [ { type: 'mcq', instr: 'Questions 181-185 refer to the following Web page and online review.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[10], items: [
             { n: 181, q: 'What is indicated about all the studios at Tidewell?', options: ['They have kitchen facilities.', 'They must be booked for a full day.', 'They include free use of a dressing room.', 'They come with basic lighting equipment.'], a: 3, cue: 'All rentals include basic lighting kits',
               explain: '"All rentals include basic lighting kits" → mọi phòng đều có bộ đèn cơ bản. Chỉ Studio C có bếp; phòng thay đồ chỉ miễn phí khi thuê từ cả ngày trở lên; có thể thuê theo giờ hoặc nửa ngày.' },
             { n: 182, q: "How much did Ms. Benavides' team most likely pay for the studio rental?", options: ['$340', '$520', '$560', '$800'], a: 2, cue: 'We booked the space for a half day',

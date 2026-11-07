@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- System splash icon = the shipped brand mark (design/.../lk_logo_mark.xml, generated from brand/lexkite-mark.svg), inset so it stays inside the Android 12 icon circle. Not a redraw. -->
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/lk_logo_mark"
+    android:inset="25%" />

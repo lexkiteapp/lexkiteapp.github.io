@@ -193,6 +193,19 @@ export const ROWS = [
   "note": ""
  },
  {
+  "id": "gh-zenodo",
+  "service": "Zenodo (CERN) – nộp bằng chứng tác quyền restricted access, DOI",
+  "account": "zenodo.org (owner)",
+  "store": "github",
+  "names": [
+   "ZENODO_TOKEN"
+  ],
+  "scope": "deposit:write + deposit:actions – content-evidence.yml ngày 1 hằng tháng (docs/CONTENT-PROTECTION.md §4c)",
+  "manage": "https://zenodo.org/account/settings/applications/",
+  "expires": "",
+  "note": "Tạo 3/11/2026. Xoay vòng: tạo token mới cùng scope → cập nhật secret → xóa token cũ."
+ },
+ {
   "id": "gh-deploy-keys",
   "service": "Khóa deploy kho media (CI)",
   "account": "GitHub · lexkiteapp",
@@ -240,6 +253,7 @@ export const ROWS = [
    "ANDROID_KEYSTORE_PASSWORD",
    "ANDROID_KEY_ALIAS",
    "ANDROID_KEY_PASSWORD",
+   "PLAY_SERVICE_ACCOUNT_JSON",
    "CWS_CLIENT_ID",
    "CWS_CLIENT_SECRET",
    "CWS_REFRESH_TOKEN",

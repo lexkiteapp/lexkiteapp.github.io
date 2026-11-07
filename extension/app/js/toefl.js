@@ -1,5 +1,5 @@
 /* Luyện thi TOEFL iBT theo định dạng mới (áp dụng từ 21/01/2026): 4 kỹ năng, 12 dạng bài, thang band 1–6 (kèm 0–120 trong giai đoạn chuyển tiếp).
- * Dữ liệu: js/toefl/data1.js (tự biên soạn). Dùng chung bộ câu hỏi (qengine.js), trình phát nhiều giọng (listening.js),
+ * Dữ liệu: cpack/toefl/data1.js (tự biên soạn). Dùng chung bộ câu hỏi (qengine.js), trình phát nhiều giọng (listening.js),
  * nhận dạng/ghi âm (UI.recognize) và chấm AI tùy chọn (ai.js). Điểm ước tính chỉ để tham khảo, không tương đương điểm chính thức của ETS. */
 (function () {
   const { $, $$, esc, toast } = UI;
@@ -228,20 +228,21 @@
   };
   function practiceSentence({ task, units, body }) {
     const items = units.flatMap(u => u.items);
-    body.innerHTML = `<div class="card"><div class="lq-instr"><i>${esc(units[0].instr || '')}</i><br><span class="tiny">${t('Bấm cụm từ để đưa vào câu; bấm lại để bỏ ra.')}</span></div>
+    body.innerHTML = `<div class="card"><div class="lq-instr"><i>${esc(units[0].instr || '')}</i><br><span class="tiny">${t('Bấm cụm từ để đưa vào câu, bấm lại để bỏ ra; kéo để chèn vào giữa hoặc đổi chỗ.')}</span></div>
       ${items.map(it => `<div class="lq-item" data-bs="${it.n}" style="margin-bottom:.6rem"><div><span class="qn">${it.n}</span> <i>“${esc(it.prompt)}”</i></div>
         <div class="row" style="align-items:center;gap:.3rem;margin:.4rem 0 .3rem 2.2rem"><div data-ans style="flex:1;min-height:2.5rem;border:2px dashed var(--line);border-radius:10px;padding:.3rem;display:flex;flex-wrap:wrap;gap:.3rem;align-items:center">${it.starter ? `<span class="muted">${esc(it.starter)}</span>` : ''}</div><b>${esc(it.end || '.')}</b></div>
-        <div data-bank class="row" style="gap:.3rem;margin-left:2.2rem">${seeded(it.n, it.chunks.length).map(i => `<button class="btn sm" data-c="${i}">${esc(it.chunks[i])}</button>`).join('')}</div>
+        <div data-bank class="row" style="gap:.3rem;margin-left:2.2rem">${seeded(it.n, it.chunks.length).map(i => `<button type="button" class="btn sm ts-chunk" data-i="${i}">${esc(it.chunks[i])}</button>`).join('')}</div>
         <div class="lq-fb" hidden></div></div>`).join('')}</div>
       <div class="row" style="margin-top:1rem"><button class="btn primary" id="tSub">✅ ${t('Nộp bài & xem giải thích')}</button><button class="btn ghost" id="tReset">↺ ${t('Làm lại')}</button></div><div id="tRes" style="margin-top:1rem"></div>`;
-    body.addEventListener('click', e => {
-      const b = e.target.closest('button[data-c]'); if (!b || b.disabled) return;
-      const item = b.closest('[data-bs]'), ans = $('[data-ans]', item), bank = $('[data-bank]', item);
-      (b.parentElement === ans ? bank : ans).appendChild(b);
+    let sent = false;
+    items.forEach(it => { // xếp cụm: component chung (word-arrange.js); nộp bài đọc thứ tự từ các nút trong [data-ans] như cũ
+      const item = $(`[data-bs="${it.n}"]`, body), ans = $('[data-ans]', item), bank = $('[data-bank]', item); let order = [];
+      const draw = () => { $$('button', ans).forEach(b => b.remove()); ans.insertAdjacentHTML('beforeend', order.map(i => `<button type="button" class="btn sm ts-chunk" data-a="${i}">${esc(it.chunks[i])}</button>`).join('')); };
+      WordArrange.bind({ ans, bank, sel: '.ts-chunk', scope: item, get: () => order, set: o => { order = o; }, draw, locked: () => sent, word: i => it.chunks[i], t });
     });
     $('#tReset').onclick = () => routes['toefl-p'](task, query);
     $('#tSub').onclick = async () => {
-      let right = 0;
+      let right = 0; sent = true;
       items.forEach(it => {
         const item = $(`[data-bs="${it.n}"]`, body), given = $$('[data-ans] button', item).map(b => b.textContent).join(' ');
         const correct = it.chunks.join(' '), ok = [correct, ...(it.alt || [])].some(x => x.toLowerCase() === given.toLowerCase());

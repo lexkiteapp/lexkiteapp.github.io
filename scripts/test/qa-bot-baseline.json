@@ -1,30 +1,6 @@
 {
  "note": "Lỗi giao diện đã biết (qa-bot). Chỉ được XOÁ dòng khi đã sửa – không thêm dòng để làm xanh. docs/QA-BOT.md",
  "known": {
-  "clip|div#lsnTch>div.tch-rig": [
-   "lesson@390l",
-   "lesson@390d",
-   "lesson@768l",
-   "lesson@768d",
-   "lesson@1440l",
-   "lesson@1440d"
-  ],
-  "clip|main#view>div.card.hero-main": [
-   "stats@390l",
-   "stats@390d",
-   "stats@768l",
-   "stats@768d",
-   "stats@1440l",
-   "stats@1440d"
-  ],
-  "clip|main#view>div.card>div.heat": [
-   "stats@390l",
-   "stats@390d"
-  ],
-  "clip|main#view>div.set-wrap>nav.set-nav.fade-end": [
-   "settings@390l",
-   "settings@390d"
-  ],
   "clip|span#xpPill": [
    "home@1440l",
    "stats@1440l",
@@ -37,101 +13,9 @@
    "home@1440l",
    "home@1440d"
   ],
-  "cls|lesson": [
-   "lesson@1440l",
-   "lesson@1440d"
-  ],
-  "cls|review": [
-   "review@1440l",
-   "review@1440d"
-  ],
-  "cls|review-card": [
-   "review-card@1440l",
-   "review-card@1440d"
-  ],
-  "cls|review-type": [
-   "review-type@1440l",
-   "review-type@1440d"
-  ],
   "cls|ux1-home": [
    "ux1-home@1440l",
    "ux1-home@1440d"
-  ],
-  "cls|ux1-me": [
-   "ux1-me@1440l",
-   "ux1-me@1440d"
-  ],
-  "cls|ux1-train": [
-   "ux1-train@1440l",
-   "ux1-train@1440d"
-  ],
-  "nolabel|div.set-row>div.set-c>select.input.lang-select": [
-   "settings@390l",
-   "settings@390d",
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "nolabel|input#sQ1": [
-   "settings@390l",
-   "settings@390d",
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "nolabel|input#sTime": [
-   "settings@390l",
-   "settings@390d",
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "nolabel|select#aiModel": [
-   "settings@390l",
-   "settings@390d",
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "nolabel|select#sAccent": [
-   "settings@390l",
-   "settings@390d",
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "nolabel|select#sVoice": [
-   "settings@390l",
-   "settings@390d",
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "offscreen|div.set-wrap>nav.set-nav.fade-end>button": [
-   "settings@390l",
-   "settings@390d"
-  ],
-  "spill|div.set-wrap>nav.set-nav.fade-end>button": [
-   "settings@390l",
-   "settings@390d"
-  ],
-  "tap|a#sBlog": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|button#aiSet": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
   ],
   "tap|button#avatarBtn": [
    "home@768l",
@@ -181,54 +65,6 @@
    "review@1440l",
    "review-type@1440l"
   ],
-  "tap|button#sAnkiIn": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|button#sAnkiOut": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|button#sExport": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|button#sIcs": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|button#sPerm": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|button#sReset": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|button#sTest": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|button#sTry": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
   "tap|button#toggleRev": [
    "review@768l",
    "review-card@768l",
@@ -237,37 +73,11 @@
    "review-card@768d",
    "review-type@768d"
   ],
-  "tap|div#goldenCard>a.btn.primary": [
-   "stats@768l",
-   "stats@768d",
-   "stats@1440l",
-   "stats@1440d"
-  ],
   "tap|div#leagueHomeCard>div.card.league-home-card>a.btn.sm": [
    "home@768l",
    "home@768d",
    "home@1440l",
    "home@1440d"
-  ],
-  "tap|div#sMean>button": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|div#sTheme>button": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|div#sideAcct>button.gsi": [
-   "home@1440l",
-   "vocab@1440l",
-   "practice@1440l",
-   "skills@1440l",
-   "tests@1440l",
-   "me@1440l"
   ],
   "tap|div#ux1League>div.card.league-home-card>a.btn.sm": [
    "ux1-home@1440l",
@@ -277,12 +87,6 @@
    "ux1-train@1440d",
    "ux1-me@1440d"
   ],
-  "tap|div.card>div.row.between>a.small": [
-   "stats@768l",
-   "stats@768d",
-   "stats@1440l",
-   "stats@1440d"
-  ],
   "tap|div.main>header.topbar>a.brand": [
    "home@768l",
    "vocab@768l",
@@ -290,42 +94,6 @@
    "skills@768l",
    "tests@768l",
    "me@768l"
-  ],
-  "tap|div.set-c>span.set-btns>a.btn.sm": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|div.set-list>div.set-row>a.btn.sm": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|div.set-row>div.set-c>a.btn.sm": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|div.set-row>div.set-c>select.input.lang-select": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|div.set-wrap>nav.set-nav>button": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|div>div.big-num>button.streak-freeze-badge": [
-   "stats@768l",
-   "stats@768d",
-   "stats@1440l",
-   "stats@1440d"
   ],
   "tap|div>div.row>button.btn.sm": [
    "home@768l",
@@ -367,12 +135,6 @@
    "home@1440l",
    "home@1440d"
   ],
-  "tap|select#aiModel": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
   "tap|select#rmSel": [
    "review@768l",
    "review-card@768l",
@@ -380,30 +142,6 @@
    "review@768d",
    "review-card@768d",
    "review-type@768d"
-  ],
-  "tap|select#sAccent": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|select#sVoice": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "tap|select#srcSel": [
-   "practice@768l",
-   "practice@768d",
-   "practice@1440l",
-   "practice@1440d"
-  ],
-  "wrap|div.set-wrap>nav.set-nav>button": [
-   "settings@768l",
-   "settings@768d",
-   "settings@1440l",
-   "settings@1440d"
   ],
   "wrap|span.pron2>span.pron-acc>button.icon-btn.sm": [
    "review-card@390l",

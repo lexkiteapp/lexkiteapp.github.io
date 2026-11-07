@@ -25,10 +25,11 @@
   "View library": "Xem thư viện",
   "7-Day Streak": "Chuỗi 7 ngày",
   "Your path": "Lộ trình học của bạn",
-  "See full path →": "Tới bài hiện tại →"
+  "See full path →": "Tới bài hiện tại →",
+  "Notifications": "Thông báo",
+  "Look up a word": "Tra từ"
  },
  "text": {
-  "VI": "d.lang",
   "L": "d.ini",
   "6.5": "d.c.tg",
   "3": "d.c.streak",
@@ -57,27 +58,28 @@
   "#4 of 30": "d.lg.rank",
   "Promotion zone ↑": "d.lg.zone",
   "3/7": "d.wk.n",
-  "Everyday English journey": "d.unitName"
+  "Everyday English journey": "d.unitName",
+  "EN": "d.lang"
  },
  "html": {
   ":scope > main > div > section:nth-child(2) > div:nth-child(1)": "d.teacher",
   ":scope > main > div > section:nth-child(3) > p": "d.k.words",
-  ":scope > main > div > section:nth-child(10) > div:nth-child(2)": "d.pathHtml"
+  ":scope > main > div > section:nth-child(10) > div:nth-child(2)": "d.pathHtml",
+  ":scope > main > header > div:nth-child(1) > span": "'lex<b>kite</b>'"
  },
  "attr": {
-  ":scope > main > header > div:nth-child(2) > button": {
-   "data-act": "'lang'",
-   "aria-haspopup": "'dialog'"
-  },
   ":scope > main > header > div:nth-child(2) > div": {
    "href": "'#/me'",
-   "aria-label": "t('Tài khoản')"
+   "aria-label": "t('Tài khoản')",
+   "data-act": "'menu'",
+   "aria-haspopup": "'dialog'"
   },
   ":scope > main > div > section:nth-child(1) > div:nth-child(1)": {
    "href": "d.c.tgHref"
   },
   ":scope > main > div > section:nth-child(1) > div:nth-child(2)": {
-   "href": "'#/streak'"
+   "href": "'#/streak'",
+   "aria-label": "t('Chuỗi ngày học') + ': ' + d.c.streak"
   },
   ":scope > main > div > section:nth-child(1) > div:nth-child(3)": {
    "href": "'#/stats'"
@@ -199,6 +201,10 @@
   },
   ":scope > main > div > section:nth-child(10) > div:nth-child(1) > button": {
    "data-act": "'path'"
+  },
+  ":scope > main > header > div:nth-child(2) > button:last-of-type": {
+   "data-act": "'lang'",
+   "aria-haspopup": "'dialog'"
   }
  },
  "cls": {
@@ -211,9 +217,9 @@
    "justify-center": "'justify-end'",
    "p-2": "''",
    "lt:border-[#136B66]/60": "''",
-   "lt:bg-[#F4EFE6]": "''",
+   "lt:bg-[#FBF7F1]": "''",
    "dk:border-[#6BD8CE]/60": "''",
-   "dk:bg-[#0E1F24]": "''",
+   "dk:bg-[#122023]": "''",
    "dk:shadow-[0_3px_0_0_#071316]": "''"
   },
   ":scope > main > div > section:nth-child(7) > div:nth-child(2) > div:nth-child(2) > div": {

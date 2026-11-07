@@ -1,30 +1,53 @@
 {
- "at": "2026-11-03T05:30:22.285Z",
+ "at": "2026-11-07T01:14:58.982Z",
  "workflows": {
-  "npm-test": null,
+  "npm-test": {
+   "conclusion": "failure",
+   "at": "2026-11-07T01:13:16Z",
+   "id": 42322817276
+  },
   "visual-qa": {
    "conclusion": "success",
-   "at": "2026-11-02T04:27:41Z",
-   "id": 41387812184
+   "at": "2026-11-06T23:41:16Z",
+   "id": 42312793280
   },
   "new-ui-qa": null,
   "mobile-qa": {
    "conclusion": "success",
-   "at": "2026-11-03T04:08:13Z",
-   "id": 41575499165
+   "at": "2026-11-07T00:29:26Z",
+   "id": 42317567322
   },
   "journey-e2e": {
    "conclusion": "success",
-   "at": "2026-11-01T13:35:44Z",
-   "id": 41311124108
+   "at": "2026-11-06T23:46:41Z",
+   "id": 42312798147
   },
-  "stitch-quality-qc": null
+  "stitch-quality-qc": {
+   "conclusion": "success",
+   "at": "2026-11-07T00:35:54Z",
+   "id": 42317567352
+  },
+  "ext-e2e": {
+   "conclusion": "failure",
+   "at": "2026-11-06T22:11:06Z",
+   "id": 42301355446
+  },
+  "native-auth-e2e": {
+   "conclusion": "failure",
+   "at": "2026-11-06T22:18:05Z",
+   "id": 42301355498
+  },
+  "qa-bot": {
+   "conclusion": "success",
+   "at": "2026-11-06T22:46:35Z",
+   "id": 42303480092
+  }
  },
  "mobile": {
-  "maxLcp": 9341,
-  "maxCls": 0.0878,
-  "maxInp": 96,
-  "maxTbt": 50,
-  "at": "2026-11-03T04:08:09.342Z"
+  "maxLcp": 9454,
+  "maxCls": 0.0822,
+  "maxInp": 144,
+  "maxTbt": 64,
+  "at": "2026-11-07T00:29:22.805Z"
  }
 }

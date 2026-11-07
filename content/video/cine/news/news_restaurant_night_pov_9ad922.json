@@ -142,5 +142,17 @@
   "opener": "ama",
   "pacing": "snappy"
  },
- "share_line": "n_9ad922_s"
+ "share_line": "n_9ad922_s",
+ "publish": {
+  "title": "Order food politely in English",
+  "keyword": "ordering food",
+  "value": "\"I'll have the salmon, please.\"",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#b1english"
+  ],
+  "first_comment": "Quiz answer: \"Could I get a coffee, please?\" or \"I'll have a coffee, please.\" Both are polite. More ordering practice: {link}"
+ }
 }

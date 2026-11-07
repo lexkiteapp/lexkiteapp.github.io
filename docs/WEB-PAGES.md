@@ -14,6 +14,8 @@ Nguồn kiểu cũ: `site` = `scripts/lib/site-layout.mjs` (có tối tự độ
 
 ## 1. Trang công khai
 
+Lớp giao diện thư viện (#2, 3, 6–8 và `/phat-am/`, `/viet-thu/`): huy hiệu, khối đầu trang, thẻ, hàng lọc, cổng `samples-visual.yml` – [specs/samples-visual.md](specs/samples-visual.md).
+
 | # | Route | Nguồn sinh | ~Trang | Kiểu cũ | Trạng thái | Screen Kit (sáng / tối) | PR chủ |
 |---|---|---|---|---|---|---|---|
 | 1 | `/`, `/<lang>/` landing | build-landing.mjs | 15 | site | PR | home `7bfa0941…` / `fa2d1b99…` | #244 (HOLD) |
@@ -69,6 +71,6 @@ Không phải trang hiển thị (không cần Stitch): sitemap*, rss + `rss.xsl
 `.github/workflows/web-sweep.yml` chạy khi PR đụng trang công khai: dựng `dist` (+ 40 từ điển tĩnh) →
 `seo-pages.mjs` (canonical, hreflang hai chiều, trùng title/description, mồ côi) → `links-js.mjs` (link nội bộ, kể cả do JS sinh) →
 `scripts/test/web-sweep.mjs`: tự gom loại trang từ `dist` (loại mới tự vào cổng), 1 trang mẫu/loại (+ bản vi, ar) × 390/1280 × sáng/tối:
-lỗi console, tài nguyên 4xx, tràn ngang, cắt/chồng/tràn chữ (`layout-scan.mjs`), vùng chạm < 44 px, tương phản + axe AA, CLS > 0,1, LCP > 2,5 s,
+lỗi console, tài nguyên 4xx, tràn ngang, cắt/chồng/tràn chữ, chữ xếp dọc/ô bảng vỡ/nhãn mồ côi (`layout-scan.mjs`, tự kiểm `layout-scan-selftest.mjs`), vùng chạm < 44 px, tương phản + axe AA, CLS > 0,1, LCP > 2,5 s,
 nền sai giao diện (không có tối), meta/OG thiếu, `lang`/`dir=rtl` sai. Ngưỡng `scripts/test/web-sweep.known.json` = số lỗi hiện có mỗi loại × kiểm,
 **chỉ được hạ**; mỗi nhóm port phải đưa loại của mình về 0. Lỗi CORS của host ngoài đang trả 429/5xx (vd. `media.lexkite.com` hết hạn mức Workers – Cloudflare 1027) in thành cảnh báo riêng, không tính err; 404/thiếu CORS thật vẫn đỏ (`scripts/lib/qa-classify.mjs`). Video mới: `web-rendition.mjs verify` kiểm src/poster/VTT 200 + CORS trước khi vào manifest. Admin: `admin-guard.yml` (bố cục). i18n chuỗi: `seo-pages.mjs` mục 6 + `i18n.yml`.

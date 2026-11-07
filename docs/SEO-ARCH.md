@@ -43,7 +43,8 @@ Lỗ hổng lớn nhất: 13 ngôn ngữ ngoài vi/en chỉ có landing + blog �
 | Ngôn ngữ | N | Lý do |
 |---|---|---|
 | en, vi | 1.500 | dữ liệu soạn tay đầy đủ; vi có ghi chú lỗi người Việt |
-| 13 ngôn ngữ khác | 400 | chỉ từ có nghĩa cờ ≥ 1; nhân dần theo số liệu GSC (§5) – tránh nghìn trang chưa được index làm loãng crawl budget domain mới |
+| de, fr, ja, ko, ar | 650 | 4/11: thị trường CPM cao (`PRIORITY_LANGS`, `functions/api/_cpm.js`), `SEO_N_PRIORITY`. Dữ liệu đủ tới ≈ 1.300 từ có nghĩa thật mỗi ngôn ngữ; giới hạn ở 650 vì ngân sách file (xem dưới) |
+| 8 ngôn ngữ còn lại | 400 | chỉ từ có nghĩa cờ ≥ 1; nhân dần theo số liệu GSC (§5) – tránh nghìn trang chưa được index làm loãng crawl budget domain mới |
 | Bài giao tiếp | 24 × 15 | toàn bộ (ít, giá trị cao: "how to order coffee in English") |
 Tập 13 ngôn ngữ ⊂ tập en → x-default luôn tồn tại.
 
@@ -55,7 +56,7 @@ Tập 13 ngôn ngữ ⊂ tập en → x-default luôn tồn tại.
 | Giao tiếp: 24 × 15 + 15 mục lục | 375 |
 | Sitemap mới (words × 15 + conversations) | 16 |
 | **Sau (ước)** | **≈ 11.530** (cổng 18.000 → còn ≈ 6.400 cho blog/đợt sau) |
-Không cần host ngoài Pages lúc này. Khi vượt 15.000: chuyển trang từ 13 ngôn ngữ sang repo GitHub Pages `lexkite-media` (đã dùng cho ảnh blog) qua Worker `lexkite-media` phục vụ cùng tên miền con, hoặc shard theo chữ cái – generator đã tách `--out`, chỉ cần đổi thư mục đích.
+Đo 4/11: `dist` 13.696 file (Web sweep trên main), 5 ngôn ngữ × +250 trang → ≈ 14.950, dưới mốc 15.000. Dist tăng ≈ 100 file trong 9 giờ đo được 4/11 (blog đăng hằng ngày), nên nâng tiếp lên 1.000 phải làm cùng đường chuyển trang từ dưới đây. Không cần host ngoài Pages lúc này. Khi vượt 15.000: chuyển trang từ 13 ngôn ngữ sang repo GitHub Pages `lexkite-media` (đã dùng cho ảnh blog) qua Worker `lexkite-media` phục vụ cùng tên miền con, hoặc shard theo chữ cái – generator đã tách `--out`, chỉ cần đổi thư mục đích.
 
 ### (b) App → bản tĩnh
 `web/js/seo-twin.js` (≈ 2 KB, ngoài SHELL, chỉ chạy trên web lexkite.com/pages.dev – không chạy trong Capacitor/add-on): khi đổi route `#/dict/<từ>`, `#/confidence/<id>`, `#/topic/<id>`, `#/grammar/<id>` mà bản tĩnh tồn tại (danh mục `/data/seo-twins.json`, sinh cùng lúc, no-cache) → đặt `<link rel=canonical>` tới bản tĩnh + một liên kết nhỏ "🌐 Trang web" cuối trang (chia sẻ link index được thay vì link #/). Không đổi luồng học, không chặn vẽ trang.
@@ -89,3 +90,26 @@ Nạp: dòng cuối `notices.js` (đã tải lười 2,5 s sau khi mở app) →
 - Ngữ pháp/phát âm 13 ngôn ngữ: cần bản viết riêng (dịch máy = trang mỏng). Task 1 Academic bản vi (`/samples/task-1/`) – nội dung chú thích vi đã có.
 - Chia động từ `#/verb/<v>` (SEO-GROWTH-PLAN §4: 300 động từ × 15) – dùng cùng khung generator.
 - Speaking/bài mẫu cho 13 ngôn ngữ.
+
+## 9. Đo theo nước & nhóm CPM (4/11)
+- **Một nguồn:** `functions/api/_cpm.js` – 30 nước `HIGH_CPM` (GIẢ ĐỊNH; có RPM thật từ `scripts/ads/report.mjs` thì thay ở đây), `tierOf` nhận mã Cloudflare (`US`) lẫn GSC (`usa`), chuẩn hoá nguồn `srcOf`/`normRef`.
+- **Mốc 4/11** (D1 `sessions` từ 15/10, người thật = `bot IS NULL` và `dur ≥ 10`, 309 khách): VN 40 %, CPM cao 34 %, khác 26 %. Đo lại: `SELECT country, COUNT(DISTINCT vid) FROM sessions WHERE day >= '<ngày>' AND bot IS NULL AND dur >= 10 GROUP BY country`.
+- **GSC hằng tuần:** `scripts/seo/gsc.mjs` kéo thêm dimension `country` (28 ngày, 7 ngày, 7 ngày trước – không mất lượt ẩn danh như query×page×country) → bảng "Theo nhóm CPM" + "Theo nước" trong báo cáo/issue `seo-weekly`.
+- **Vì sao `ref` luôn trống (gốc):** `sessions` chỉ ghi app, mà người từ Google vào trang tĩnh trước rồi mới bấm sang `/app/` → `document.referrer` là chính lexkite.com → bị lọc thành trực tiếp.
+- **Sửa:** `SRC_JS` (`site-layout.mjs`, nằm trong `/js/site-ui.js`) khi khách từ ngoài vào trang tĩnh: lưu tên miền nguồn 30 phút (`lk.src`, không cookie) và gửi `/api/hit t:'l'` tối đa 1 lần/nguồn/30 phút/máy. App đọc `lk.src`, nếu không có thì ghi `site:<loại trang>`.
+- **Lưu:** `ext_events` kind `land:<nguồn>:<nước>:<loại trang>:<ngôn ngữ trang>` – không URL, không IP, không vid; nguồn ngoài danh sách → `other`. Bot và bản preview bị bỏ ở máy chủ.
+- **Quota:** +1 lượt Functions và +1 dòng ghi D1 cho mỗi lượt khách ngoài (không tính lượt xem nội bộ); 1.000 lượt/ngày ≈ 1 % trần ghi D1 miễn phí, 1 % Functions. Trần 30 lượt/giờ/IP. Tắt: biến Pages `HIT_LAND=0`.
+- **Admin:** Quản trị › Thống kê có thẻ "Nhóm CPM cao" và "Khách từ ngoài vào trang tĩnh". Số 692 Mỹ là truy vấn thô trên D1 (gồm bot); bảng nước của admin vốn đã lọc, nay có test khoá từng loại `dc, ci-app, ua, admin, bot` (`scripts/test/analytics.mjs`).
+- **Nội dung theo thị trường:** `gsc-priority.json` có `cpmShare` + `score = gain × (1 + CPM_W × cpmShare)`, xếp theo `score` (nhu cầu tiếng Việt lớn hơn hẳn vẫn đứng trên, không mục nào bị loại). Cụm US/UK/CA/AU/NZ: `content/blog/plan/2027-01-cpm-clusters.json` (IELTS định cư, người mới nhập cư, nghĩa từ, PTE/CELPIP so sánh trung thực vì app không có đề thi của hai kỳ này; cổng `scripts/test/cpm-plan.mjs`). NL, SE, NO, DK, FI… dùng trang en, không mở ngôn ngữ mới.
+
+## 10. Trang gốc quốc tế (4/11)
+- **Trước:** `/` là tiếng Việt nên mọi lượt tìm thương hiệu và backlink từ mọi nước vào tiếng Việt. **Nay:** tiếng Việt ở `/vi/`; `/` = 302 theo `functions/index.js` + `functions/api/_rootlang.js`, `Vary: Accept-Language`, không đệm. `/tu-vung/`, `/samples/`, `/blog/*` → `/vi/blog/` giữ nguyên.
+- **Luật chọn (chủ quyết 4/11):** (1) cookie `lk_lang` = ngôn ngữ người dùng đã bấm chọn, luôn thắng; (2) nước theo IP (`request.cf.country`) qua bảng GEO; (3) nước không có trong bảng (NL, SE, US…) theo Accept-Language; (4) `/en/`. Không xét User-Agent: Googlebot đi cùng luật, 302 sang URL ngôn ngữ riêng, không đổi nội dung tại cùng URL. Chỉ `/`; URL có ngôn ngữ không bị chuyển. Test `scripts/test/root-lang.mjs`.
+- **Một bảng GEO:** nguồn là `web/js/i18n.js`; `functions/api/_geo.gen.js` sinh từ đó bằng `build-landing.mjs` (Function không nạp được script cổ điển), `--check` và test chặn lệch.
+- **Cookie `lk_lang`:** chỉ ghi khi người dùng bấm chọn (menu ngôn ngữ, dải gợi ý, `I18N.set` trong app), không ghi khi đoán theo nước; 1 năm, `Secure`, `SameSite=Lax`, đọc ở `/`; ghi trong chính sách riêng tư §5.
+- **Crumb JSON-LD (5/11):** trang chủ trong BreadcrumbList luôn là `/<lang>/` (trang vi cũ `/samples/`, `/ngu-phap/`… trước trỏ `/` → Google đi theo 302 sang /en/). Cổng `seo-pages` §9 chặn mọi crumb trỏ `/`; `samples-seo-parity` chỉ chấp nhận đúng chuyển `/`→`/vi/` này.
+- **x-default** của 15 trang giới thiệu trỏ `/`. Trang khác (từ, bài viết) giữ x-default về bản en.
+- **Không vòng lặp:** `/vi/` trước đây 301 về `/` không kèm hạn dùng, Chromium coi là tươi vô hạn. Đích vi là `/vi/?r=1`, `ROUTE_JS` xoá `r` khỏi địa chỉ. Bỏ được dấu này sau khoảng 1 năm.
+- **Vì sao chọn Function, không Redirect Rule:** gói Free không có regex/`q` để chọn đúng theo thứ tự ngôn ngữ, 10 luật không đủ 15 ngôn ngữ, và cấu hình nằm ngoài repo.
+- **Hạn mức:** `/` ≈ 2.000 lượt/ngày (đo 4/11) ≈ 2 % trần 100k Workers + Functions. **Rủi ro:** hết trần trong ngày thì `/` lỗi tới khi hạn mức đặt lại (`/<lang>/` tĩnh vẫn sống); `free-tier` đo mỗi giờ (docs/FREE-TIER.md).
+- **Công tắc tắt:** bỏ `"/"` khỏi `web/_routes.json` → `/` phục vụ `web/index.html` tĩnh (trang chọn ngôn ngữ, sinh bởi `build-landing.mjs`). Quay lại hoàn toàn: revert PR.

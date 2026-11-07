@@ -929,6 +929,48 @@
       ]
     },
     {
+      "key": "rfc3161-tsa",
+      "name": "Tem thời gian RFC 3161 (DigiCert, Sectigo, FreeTSA)",
+      "kind": "storage",
+      "purpose": "Tem thời gian bên thứ ba cho mục đầu sổ băm (chỉ gửi SHA-256): scripts/tsa.mjs stamp trong content-evidence.yml; tệp content/protection/tsa/<hash>.<tsa>.tsr; kiểm node scripts/tsa.mjs verify <seq>. docs/CONTENT-PROTECTION.md §4c",
+      "console": "https://freetsa.org",
+      "free": "Miễn phí (TSA công khai, không tài khoản)",
+      "upgrade": "—",
+      "status": "Đang chạy (CI)",
+      "match": [
+        "timestamp.digicert.com",
+        "timestamp.sectigo.com",
+        "freetsa.org"
+      ]
+    },
+    {
+      "key": "software-heritage",
+      "name": "Software Heritage (save code now)",
+      "kind": "storage",
+      "purpose": "Lưu bản sao độc lập repo công khai (scripts/swh-save.mjs, content-evidence.yml: thứ Hai + mỗi lần phát hành) → mục swh trong sổ băm. docs/CONTENT-PROTECTION.md §4c",
+      "console": "https://archive.softwareheritage.org",
+      "free": "Miễn phí, ẩn danh",
+      "upgrade": "—",
+      "status": "Đang chạy (CI)",
+      "match": [
+        "archive.softwareheritage.org"
+      ]
+    },
+    {
+      "key": "zenodo",
+      "name": "Zenodo (CERN) – bản ghi restricted access",
+      "kind": "storage",
+      "purpose": "Hằng tháng nộp gói kho nội dung + manifest sha256 dạng restricted (tệp không công khai) → DOI, mục deposit trong sổ băm (scripts/zenodo-deposit.mjs, content-evidence.yml). Secret ZENODO_TOKEN. docs/CONTENT-PROTECTION.md §4c",
+      "console": "https://zenodo.org/account/settings/applications/",
+      "free": "Miễn phí (≤ 50 GB/bản ghi)",
+      "upgrade": "—",
+      "status": "Có token 3/11/2026 – chạy sau khi merge",
+      "match": [
+        "zenodo.org",
+        "sandbox.zenodo.org"
+      ]
+    },
+    {
       "key": "brave-search",
       "name": "Brave Search API (tùy chọn)",
       "kind": "seo",
@@ -1301,7 +1343,9 @@
       "learnenglish.britishcouncil.org",
       "ielts.org",
       "ielts.idp.com",
-      "classroom.google.com", "dash.cloudflare.com", "appstoreconnect.apple.com",
+      "classroom.google.com",
+      "dash.cloudflare.com",
+      "appstoreconnect.apple.com",
       "policies.google.com"
     ]
   }

@@ -2,6 +2,23 @@
  "_doc": "Sổ đăng ký MỌI nguồn nội dung học – cổng QA (docs/CONTENT-QA.md, scripts/content-qa/gate.mjs). Thư mục nội dung mới chưa có ở đây → CI đỏ. checks: schema · lexicon · pair (✗/✓) · cefr · judges (2 giám khảo) · translation · spot (≥5%/lô) · reports (tự ẩn). gen=true: có nội dung sinh tự động → bắt buộc judges + translation + spot.",
  "sources": [
   {
+   "id": "stories",
+   "paths": [
+    "content/stories",
+    "web/js/stories"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "license",
+    "cefr",
+    "lexicon",
+    "grammar"
+   ],
+   "doc": "docs/STORIES.md"
+  },
+  {
    "id": "vocab",
    "paths": [
     "web/js/lib",
@@ -441,6 +458,23 @@
    ]
   },
   {
+   "id": "mediation",
+   "paths": [
+    "content/mediation"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr"
+   ],
+   "delegate": [
+    "content-qa/mediation-check.mjs",
+    "test/mediation.mjs"
+   ],
+   "doc": "docs/specs/mediation.md"
+  },
+  {
    "id": "tutor",
    "paths": [
     "web/js/tutor"
@@ -454,13 +488,30 @@
    "delegate": [
     "test/reminders.mjs"
    ]
+  },
+  {
+   "id": "content-factory",
+   "paths": [
+    "content/factory"
+   ],
+   "owner": "claude",
+   "gen": true,
+   "checks": [
+    "schema",
+    "judges",
+    "spot",
+    "reports"
+   ],
+   "delegate": [
+    "test/content-factory.mjs"
+   ]
   }
  ],
  "skip": {
   "content/seo": "sổ máy sinh lastmod.json (URL → băm nội dung chính + ngày sửa thật cho sitemap) – không phải nội dung học; scripts/lib/lastmod.mjs, test scripts/test/lastmod.mjs",
   "web/js/st": "khuôn giao diện 4 màn port thẳng từ Google Stitch (DOM + class Tailwind, chữ qua t()) – không phải nội dung học; kiểm bởi scripts/test/stitch-diff.mjs + build-stitch-css.mjs --check",
   "web/js/vimg": "mảnh chỉ mục ảnh minh hoạ (khoá từ#loại → mã băm ảnh) SINH bởi build-lexicon từ content/lexicon/img.json – không phải nội dung học; ảnh đã qua cổng vocab-img (OCR, NSFW, giám khảo), kiểm bởi scripts/test/vocab-img.mjs",
-    "web/js/get-app": "chữ hướng dẫn nút \"Tải app\" sinh từ bản dịch giao diện (build-landing.mjs --check) – không phải nội dung học; test scripts/test/get-app.mjs",
+  "web/js/get-app": "chữ hướng dẫn nút \"Tải app\" sinh từ bản dịch giao diện (build-landing.mjs --check) – không phải nội dung học; test scripts/test/get-app.mjs",
   "content/dict": "Chỉ chứa stage.json – trạng thái mở index trang từ điển do workflow dict-stage.yml ghi (không phải nội dung học); nội dung trang lấy từ kho từ vựng đã qua cổng vocab/lexicon",
   "content/brand": "tài sản thương hiệu, không phải nội dung học",
   "content/landing": "trang giới thiệu – build-landing.mjs --check",

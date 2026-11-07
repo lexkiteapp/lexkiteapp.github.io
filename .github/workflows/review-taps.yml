@@ -20,9 +20,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Cài Playwright (WebKit + Chromium)
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium webkit >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium webkit
       - name: Chạm mọi nút màn Ôn
         run: node scripts/test/review-taps.mjs web out/review-taps
       - name: E2E ôn tập 3 chế độ (Lật · Gõ · Nghe) – bàn phím, axe, 390 px sáng/tối

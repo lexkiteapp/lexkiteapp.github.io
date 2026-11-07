@@ -15,14 +15,7 @@
     return s;
   };
   // Phản hồi xúc giác chuẩn Duolingo: đúng = rung ngắn 35ms; sai = rung đôi [50, 40, 50]ms (tôn trọng prefers-reduced-motion & tắt âm)
-  const haptic = ok => {
-    try {
-      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      if (navigator.vibrate && (!state.settings || state.settings.sfx !== false)) {
-        navigator.vibrate(ok ? 35 : [50, 40, 50]);
-      }
-    } catch (e) { /* bỏ qua */ }
-  };
+  const haptic = ok => { try { if (window.Sfx && Sfx.haptic) Sfx.haptic(ok ? 'correct' : 'wrong'); } catch (e) { /* bỏ qua */ } };
 
   // ---------- Nguồn từ ----------
   // Nghĩa hiển thị theo ngôn ngữ người học: tiếng Việt, hoặc định nghĩa tiếng Anh cho người học quốc tế
@@ -218,7 +211,7 @@
     session.queue.slice(0, 3).forEach(k => { const x = state.cards[k]; if (x && (!x.ipa || !x.def) && App.enrichLater) App.enrichLater(k); });
     if (window.VImg) VImg.prefetch(session.queue.slice(1, 4).map(k => state.cards[k]).filter(Boolean).map(x => [x.word, x.pos])); // 🖼️ ảnh 3 thẻ kế – lúc rảnh
     let flipped = false;
-    const isNew = c.srs.reps === 0 && !c.srs.last;
+    const isNew = c.srs.reps === 0 && !c.srs.last; if (isNew) Cards.markSeen(c.word);
     const rev = session.reverse;
     const pct = session.done / Math.max(1, session.done + session.queue.length) * 100;
 
