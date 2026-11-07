@@ -87,8 +87,12 @@ export const VIS_CSS = `.vart{display:block;flex:none;object-fit:contain}
 .tfw.has-l::before,.tfw.has-r::after{opacity:1}
 .tfb{position:absolute;z-index:1;top:2px;width:44px;height:44px;border-radius:50%;border:2px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer;box-shadow:0 2px 0 var(--line);display:none;padding:0}
 .tfb::before{content:"";display:block;width:20px;height:20px;margin:auto;background:currentColor;${mask(I_C)}}
-.tfb-l{left:0}.tfb-l::before{transform:scaleX(-1)}.tfb-r{right:0}.tfw.has-l .tfb-l,.tfw.has-r .tfb-r{display:block}
+.tfb-l{left:0}.tfb-l::before{transform:scaleX(-1)}.tfb-r{right:0}
 [dir=rtl] .tfb-l{left:auto;right:0}[dir=rtl] .tfb-r{right:auto;left:0}[dir=rtl] .tfb-l::before{transform:none}[dir=rtl] .tfb-r::before{transform:scaleX(-1)}
+/* Hàng tràn (.ovf, tính lúc tải/đổi cỡ – không đổi khi cuộn → không giật): 2 nút nằm trong lề 48 px riêng, KHÔNG đè chip (quality-sweep overlap 05/11); hết chỗ cuộn → nút mờ thay vì biến mất */
+.tfw.ovf>nav{margin-inline:48px}.tfw.ovf .tfb{display:block}.tfw.ovf .tfb[aria-disabled=true]{opacity:.35;cursor:default;box-shadow:none}
+.tfw.ovf::before{left:48px;width:28px}.tfw.ovf::after{right:48px;width:28px}
+[dir=rtl] .tfw::before{left:auto;right:0;background:linear-gradient(270deg,var(--bg) 35%,transparent)}[dir=rtl] .tfw::after{right:auto;left:0;background:linear-gradient(90deg,var(--bg) 35%,transparent)}[dir=rtl] .tfw.ovf::before{right:48px}[dir=rtl] .tfw.ovf::after{left:48px}
 /* Không cắt chữ, không giấu mục ngoài màn: breadcrumb xuống dòng thay vì "…"; dàn bài trên điện thoại xếp nhiều hàng thay vì cuộn ngang không dấu hiệu */
 .crumbs [aria-current]{white-space:normal;overflow:visible;text-overflow:clip;min-width:0;overflow-wrap:anywhere}
 @media (max-width:999px){.outline ol{flex-wrap:wrap;overflow:visible}}
@@ -96,7 +100,7 @@ export const VIS_CSS = `.vart{display:block;flex:none;object-fit:contain}
 @media print{.vcn-hd,.vcn,.vcn-on,.vh-t,.tfb{display:none!important}}`;
 
 // Hàng chip: hiện dấu cuộn đúng khi còn chỗ cuộn. Bộ chọn danh mục (.vcn) khuất khỏi màn khi đang lọc → thanh tìm dính đầu hiện nhãn danh mục đang lọc, bấm = bỏ lọc (không lặp lại cả hàng chip)
-export const VIS_JS = `(function(d){[].forEach.call(d.querySelectorAll('.tfw'),function(w){var s=w.querySelector('nav'),rtl=d.documentElement.dir==='rtl';function u(){var x=Math.abs(s.scrollLeft),m=s.scrollWidth-s.clientWidth;w.classList.toggle('has-l',x>2);w.classList.toggle('has-r',x<m-2)}s.addEventListener('scroll',u,{passive:true});addEventListener('resize',u);var c=s.querySelector('[aria-current]');if(c&&c.offsetLeft+c.offsetWidth>s.clientWidth)s.scrollLeft=c.offsetLeft-16;u();
+export const VIS_JS = `(function(d){[].forEach.call(d.querySelectorAll('.tfw'),function(w){var s=w.querySelector('nav'),rtl=d.documentElement.dir==='rtl';function u(){var x=Math.abs(s.scrollLeft),m=s.scrollWidth-s.clientWidth;w.classList.toggle('has-l',x>2);w.classList.toggle('has-r',x<m-2);[].forEach.call(w.querySelectorAll('.tfb'),function(b){b.setAttribute('aria-disabled',String(!w.classList.contains(b.classList.contains('tfb-r')?'has-r':'has-l')))})}function o(){w.classList.remove('ovf');w.classList.toggle('ovf',s.scrollWidth-s.clientWidth>2);u()}s.addEventListener('scroll',u,{passive:true});addEventListener('resize',o);o();var c=s.querySelector('[aria-current]');if(c&&c.offsetLeft+c.offsetWidth>s.clientWidth)s.scrollLeft=c.offsetLeft-16;u();
 [].forEach.call(w.querySelectorAll('.tfb'),function(b){b.addEventListener('click',function(){var n=b.classList.contains('tfb-r')?1:-1;s.scrollBy({left:(rtl?-n:n)*s.clientWidth*.7,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})})})});
 var cn=d.querySelector('.vcn'),fb=d.querySelector('.smp .find');if(cn&&fb){var pill=d.createElement('button');pill.type='button';pill.className='vcn-on';pill.hidden=true;fb.appendChild(pill);var seen=true,on=function(){return cn.querySelector('a[aria-pressed=true][data-g]:not([data-g=""])')},sync=function(){var a=on();if(a){var nm=a.querySelector('b').textContent;pill.textContent=nm;pill.setAttribute('aria-label',cn.getAttribute('data-clear')+': '+nm)}pill.hidden=!a||seen};
 if('IntersectionObserver' in window)new IntersectionObserver(function(es){seen=es[0].isIntersecting;sync()}).observe(cn);else seen=false;

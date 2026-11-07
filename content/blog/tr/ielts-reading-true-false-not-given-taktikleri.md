@@ -99,6 +99,8 @@ Bu analitik düşünme biçimini kalıcı bir reflekse dönüştürmek için:
 2. **Hata Günlüğü ile Zayıf Yönleri Tespit Edin:** Yanlış işaretlediğiniz her soru otomatik olarak [hata günlüğünüze](/#/mistakes) kaydedilir. Hatalarınızın kelime bilgisinden mi yoksa mantıksal niteleyicilerden mi kaynaklandığını analiz edin.
 3. **Stratejik Becerilerinizi Geliştirin:** [ielts reading skimming scanning taktikleri](/tr/blog/ielts-reading-skimming-scanning-taktikleri/) ve [ielts paraphrase yapma teknikleri ornekler](/tr/blog/ielts-paraphrase-yapma-teknikleri-ornekler/) rehberlerimizi inceleyin. Kelime dağarcığınızı zenginleştirmek için [ielts icin ingilizce collocations rehberi](/tr/blog/ielts-icin-ingilizce-collocations-rehberi/) içeriğimize göz atın ve dilbilgisi temellerinizi tazelemek için [/ngu-phap/](/ngu-phap/) sayfamızdaki kaynaklardan faydalanın. Dinleme becerilerinizi artırmak için [ielts listening taktikleri](/tr/blog/ielts-listening-taktikleri/) rehberimiz de yanınızdadır.
 
+Her pasaja kaç dakika ayıracağınızı [IELTS Reading 60 dakika zaman yönetimi stratejisinde](/tr/blog/ielts-reading-zaman-yonetimi-60-dakika-stratejisi/) bulabilirsiniz.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### True/False/Not Given ile Yes/No/Not Given arasındaki fark nedir?

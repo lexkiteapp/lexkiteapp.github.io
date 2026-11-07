@@ -28,7 +28,8 @@
 | Add-on Chrome / Edge | `CWS-RULES.md` (+ `CWS-FEATURED.md`) · `EDGE-SUBMIT.md` |
 | Mobile & cửa hàng · quảng cáo | `STORE-READINESS.md` · `ADS.md` |
 | Video: nguồn sự thật (+ luật dựng §9) | `VIDEO.md` · `VIDEO-QC.md` · `VIDEO-SCALE-PLAN.md` · `VIDEO-SERIES.md` · `VIDEO-TEMPLATES.md` · `AUTOMATION.md` |
-| Video: lưu trữ · kho tài nguyên · chấm điểm · xem trong admin · YouTube | `VIDEO-STORAGE.md` · `ASSET-LIBRARY.md` · `MEDIA-QA-RUBRIC.md` · `SHORTS-ACCESS.md` · `YOUTUBE-SETUP.md` |
+| Video: lưu trữ · kho tài nguyên · chấm điểm · xem trong admin · YouTube | `VIDEO-STORAGE.md` · `ASSET-LIBRARY.md` · `MEDIA-QA-RUBRIC.md` · `SHORTS-ACCESS.md` · `YOUTUBE-SETUP.md` · `YOUTUBE-AUDIT.md` |
+| App iOS/Android native (SwiftUI + Compose), parity, một nguồn sinh mã | `specs/native-apps.md` |
 | Học qua video YouTube (#/watch, /api/watch, add-on youtube.com) | `specs/video-learn.md` |
 | Thư viện công khai lướt bằng mắt (huy hiệu, bento, thẻ, cổng SEO) | `specs/samples-visual.md` |
 | Blog | `BLOG-RUNBOOK.md` |
