@@ -1541,6 +1541,7 @@
 "Giáo viên giao bài, học sinh nhập mã lớp": "Teachers assign work, students join with a class code",
 "Học qua video": "Learn with videos",
 "Video YouTube theo chủ đề, lặp đoạn, lưu từ": "YouTube videos by topic, loop parts, save words",
+'Đề A2 Key → C2 Proficiency: Đọc & Viết, Nghe, Nói': 'A2 Key → C2 Proficiency tests: Reading & Writing, Listening, Speaking',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* ✍️ Soát lỗi viết trong add-on (extension/writecheck.js, popup, web/js/writecheck-rules.js). Định dạng JSON để service worker đọc được (bản tiếng Anh cho add-on). */
