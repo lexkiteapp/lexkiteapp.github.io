@@ -2,11 +2,11 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 51.2 / 100**
+**Tổng: 51.3 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **51** | 45.2 | 51% | 100% | 0 |
+| Kho từ | **51.1** | 45.2 | 51.1% | 100% | 0 |
 | Ngữ pháp | **53.7** | 53.7 | 53.7% | 100% | 0 |
 | Giao tiếp | **31.7** | 14.1 | 31.7% | 100% | 0 |
 | 4 kỹ năng | **49.2** | 48.2 | 49.2% | 100% | 0 |
@@ -23,7 +23,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | collocation | 4696 / 20000 | 23% | 12 |
 | đồng nghĩa | 2776 / 20000 | 14% | 8 |
 | IPA Mỹ | 6140 / 20000 | 31% | 5 |
-| ảnh theo nghĩa | 6956 / 20000 | 35% | 15 |
+| ảnh theo nghĩa | 7065 / 20000 | 35% | 15 |
 | C2 | 440 / 1000 | 44% | 10 |
 | A1 | 858 / 1000 | 86% | 5 |
 

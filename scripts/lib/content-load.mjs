@@ -3,7 +3,7 @@
 import fs from 'node:fs'; import vm from 'node:vm'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const W = path.join(ROOT, 'web/js');
-export const DATA_DIRS = ['lib', 'grammar', 'toeic', '../cpack/toefl', 'readtest', 'listen', 'write', 'speak'];
+export const DATA_DIRS = ['lib', 'grammar', 'toeic', '../cpack/toefl', 'readtest', 'listen', 'write', '../cpack/write', 'speak', '../cpack/speak'];
 export function loadContent() {
   const noop = () => {}, ctx = { console: { log: noop, warn: noop, error: noop }, Date, Math, JSON, setTimeout: noop, clearTimeout: noop, localStorage: { getItem: () => null, setItem: noop }, navigator: {} };
   ctx.self = ctx; ctx.window = ctx; ctx.t = (s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => (v[k] != null ? v[k] : m)) : s);
