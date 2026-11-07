@@ -149,7 +149,8 @@
   {
    "id": "reading",
    "paths": [
-    "web/js/readtest"
+    "web/js/readtest",
+    "web/cpack/readings"
    ],
    "owner": "claude",
    "gen": false,
