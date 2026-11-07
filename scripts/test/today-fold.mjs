@@ -3,7 +3,7 @@
 //   • CTA chính ([data-cont]) nằm TRỌN trong màn đầu: đáy nút ≤ mép trên thanh tab dưới (#bnav / nav Stitch) – không phải cuộn mới thấy.
 //   • % tiến độ: thẻ bài Hôm nay hiện "{p}%" khớp aria-valuenow của thanh tiến độ; thẻ bài hiện tại trong lộ trình (data-cur) hiện % chặng.
 //   • Không giật bố cục: tổng layout-shift khi tải ≤ 0,02.
-//   Người cũ (?demo=1 → today) + người mới (0 XP → today-new) × sáng/tối.
+//   Người cũ (đã xong 3 bài → today) + người mới (0 XP → today-new) × sáng/tối.
 // Dùng: node scripts/test/today-fold.mjs [--root dist]
 import { chromium } from 'playwright';
 import { serve } from '../quality/serve.mjs';
@@ -17,14 +17,15 @@ for (const theme of ['light', 'dark']) for (const who of ['old', 'new']) {
   const tag = `${who}/${theme}`;
   const ctx = await browser.newContext({ viewport: { width: 360, height: 640 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true, locale: 'en-US', serviceWorkers: 'block', colorScheme: theme });
   await ctx.addInitScript(([th, fresh]) => { try {
-    localStorage.setItem('lk.ux1', '1'); // vỏ Stitch 5 tab (cờ đến từ /api/config, hermetic = rỗng)
-    if (fresh) localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true, theme: th }));
+    // cùng hạt giống stitch-diff: vỏ Stitch 5 tab (cờ từ /api/config, hermetic = rỗng), đã qua chào mừng; người cũ = đã xong 3 bài lộ trình
+    localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true, theme: th, exam: 'ielts', examTarget: '7.5' }));
+    if (!fresh) { localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 })); }
     window.__cls = 0; new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) window.__cls += e.value; }).observe({ type: 'layout-shift', buffered: true });
   } catch (e) { /* trang lỗi */ } }, [theme, who === 'new']);
   const page = await ctx.newPage();
-  await page.goto(`${O}/app/?${who === 'old' ? 'demo=1&' : ''}hl=en#/home`, { waitUntil: 'load', timeout: 90000 });
+  await page.goto(`${O}/app/?sandbox=1&hl=en#/home`, { waitUntil: 'load', timeout: 90000 });
   const root = who === 'old' ? '.v2-today' : '.v2-today-new';
-  try { await page.waitForSelector(`${root} [data-cont]`, { timeout: 30000 }); } catch { ok(false, `${tag}: không thấy ${root} [data-cont]`); await ctx.close(); continue; }
+  try { await page.waitForSelector(`${root} [data-cont]`, { timeout: 30000 }); } catch { ok(false, `${tag}: không thấy ${root} [data-cont] (${await page.evaluate(() => location.hash + ' · ' + document.body.className + ' · ' + ((document.querySelector('#view > *') || {}).className || '-')).catch(e => e.message)})`); await ctx.close(); continue; }
   await sleep(1500); // ảnh giáo viên + CSS lười xong
   const m = await page.evaluate(root => {
     const R = el => { const r = el.getBoundingClientRect(); return { t: Math.round(r.top), b: Math.round(r.bottom), h: Math.round(r.height), w: Math.round(r.width) }; };
