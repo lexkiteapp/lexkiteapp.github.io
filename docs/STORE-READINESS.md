@@ -152,3 +152,8 @@ Làm CÙNG LÚC, trước khi gửi duyệt bản build có `ADS_NATIVE=1`:
 5. **app-ads.txt:** đổi `pub-0000000000000000` (web/app-ads.txt, build ghi đè từ `web/js/ads/config.js`) → AdMob → Apps → app-ads.txt status "Verified". Điền trang web của nhà phát triển `https://lexkite.com` trong Play Console + App Store Connect (AdMob đọc app-ads.txt từ đó).
 6. **Niêm yết:** mô tả đã đổi sang "Không quảng cáo trong lúc học, làm quiz hay thi" (`store/apple/listing.json`, đẩy bằng `node scripts/asc-upload.mjs --only text`); Play: bật nhãn "Contains ads".
 7. Thay mã THỬ bằng mã thật trong `web/js/ads/config.js` (`native.testing: false`) CHỈ ở bản phát hành; bản dev/CI giữ mã thử.
+
+### F. Đánh giá cửa hàng (chỉ đọc)
+- Actions → **Store reviews** (`store-reviews.yml`, thứ Hai 08:20 VN + chạy tay): `scripts/store/reviews.mjs` kéo đánh giá App Store (App Store Connect API, khoá ASC_* sẵn có) + Google Play (Android Publisher API) → artifact `store-reviews` + tóm tắt (≤ 2 sao lên đầu, không ghi tên người đánh giá). Test: `scripts/test/store-reviews.mjs`.
+- 👤 Google Play: Play Console → Setup → API access → liên kết Google Cloud project → Create new service account (Google Cloud → IAM → Service accounts → Create → Keys → Add key → JSON) → quay lại Play Console → Users and permissions → Invite new users (email service account) → quyền app Lexkite: **View app information (read-only)** + **Reply to reviews** → GitHub repo → Settings → Secrets → Actions → New secret `PLAY_SERVICE_ACCOUNT_JSON` = nội dung file JSON. Chưa có secret → phần Play bỏ qua, không đỏ.
+
