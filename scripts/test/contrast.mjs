@@ -22,6 +22,9 @@ const add = (scheme, lang, where, n) => {
 };
 const scan = async (page, scheme, lang, where) => {
   await page.addScriptTag({ content: AXE }).catch(() => {});
+  // Đo trạng thái thật, không đo khung hình giữa hiệu ứng: toast/hộp thoại đang mờ dần (opacity) làm axe trộn màu nền → lỗi giả lúc đỏ lúc xanh
+  // (post-deploy 07/11 01:23 + 04:45: #toast "Your deck is ready" #fbf7f1 trên #eae7e2 = 1.15:1, lượt 01:29 xanh). Chờ mọi animation/transition xong, trần 2 s.
+  await page.evaluate(() => Promise.race([Promise.all(document.getAnimations().map(a => a.finished.catch(() => {}))), new Promise(r => setTimeout(r, 2000))])).catch(() => {});
   const res = await page.evaluate(() => window.axe.run(document, { runOnly: ['color-contrast'] })).catch(() => null);
   for (const v of res?.violations || []) for (const n of v.nodes) add(scheme, lang, where, n);
 };

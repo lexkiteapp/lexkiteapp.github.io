@@ -99,7 +99,7 @@ publishAt: 2026-12-02T07:40:00+08:00
   - 全面运用 [英语影子跟读法（Shadowing）](/zh/blog/ying-yu-shadowing-ying-zi-gen-du-fa/) 模仿原声音调与重音节拍。
   - 掌握 [英语条件状语从句if句型](/zh/blog/ying-yu-tiao-jian-zhuang-yu-cong-ju-if-clauses/)，自如表达假设与个人观点。
   - 尝试 [如何用英语思维不翻译](/zh/blog/ru-he-yong-ying-yu-si-wei-bu-fan-yi/) 的实操心法，看到身边事物直接用英文单词反应。
-  - 拓展阅读理解能力，可参考 [雅思阅读True False Not Given解题技巧](/zh/blog/ya-si-yue-du-true-false-not-given-jie-ti-ji-qiao/) 的信息定位逻辑，或在 [核心词库资料馆](/tu-vung/) 查漏补缺。
+  - 拓展阅读理解能力，可参考 [雅思阅读True False Not Given解题技巧](/zh/blog/ya-si-yue-du-true-false-not-given-jie-ti-ji-qiao/) 的信息定位逻辑，或在 [核心词库资料馆](/en/vocabulary/) 查漏补缺。
 
 ## 专为上班族定制的每日40分钟高效时间表
 

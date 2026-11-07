@@ -73,7 +73,7 @@
     'so với {v}: {n}': 'vs {v}: {n}', 'Đang online': 'Active now', 'tín hiệu trong 5 phút qua': 'signal in the last 5 minutes', 'Đăng nhập hôm nay': 'Signed-in today', '7 ngày: {a} · 30 ngày: {b}': '7 days: {a} · 30 days: {b}',
     'Học viên đăng ký': 'Registered learners', '+{n} / 7 ngày': '+{n} / 7 days', 'Gắn kết (DAU / MAU)': 'Stickiness (DAU / MAU)', 'Chuẩn EdTech ≥ 25%': 'EdTech benchmark ≥ 25%',
     'Thẻ đã ôn': 'Cards reviewed', 'Chưa đo – cần sự kiện ôn thẻ trong thống kê': 'Not tracked yet – needs a review event in analytics',
-    'Lỗi JS (24 giờ)': 'JS errors (24h)', '{n} loại': ['{n} type', '{n} types'], 'Không có lỗi': 'No errors', 'Phiên tự động đã loại': 'Bot sessions excluded', 'bot, CI, quản trị – hôm nay': 'bots, CI, admins – today',
+    'Giọng đọc 7 ngày: {s} % giọng máy ({n} lượt) – file Kokoro {f} · Kokoro trên máy {k} · giọng máy {sys}': 'Voice 7 days: {s}% device voice ({n} plays) – Kokoro files {f} · on-device Kokoro {k} · device voice {sys}', 'lý do giọng máy': 'device-voice reasons', 'Lỗi JS (24 giờ)': 'JS errors (24h)', '{n} loại': ['{n} type', '{n} types'], 'Không có lỗi': 'No errors', 'Phiên tự động đã loại': 'Bot sessions excluded', 'bot, CI, quản trị – hôm nay': 'bots, CI, admins – today',
     'Tin nhắn chưa xử lý': 'Open messages', 'Sạch hòm thư': 'Inbox zero', 'Chờ trả lời': 'Awaiting reply', 'Điểm chất lượng': 'Quality score', 'Đạt chuẩn': 'Meets standard', 'Dưới chuẩn': 'Below standard', 'chưa chạy': 'not run yet',
     'Khóa Gemini API': 'Gemini API keys', '{n} sẵn sàng': '{n} ready', 'Chưa thiết lập': 'Not set up', 'D1: {p}% dung lượng': 'D1: {p}% storage used',
     'Tác vụ cần chú ý': 'Jobs needing attention', 'Tác vụ tự động (GitHub Actions)': 'Automated jobs (GitHub Actions)', 'Toàn bộ cảnh báo & nhật ký →': 'All alerts & logs →',
@@ -255,6 +255,8 @@
   const paintTheme = () => { const b = document.getElementById('thm'); if (!b) return; const m = THEME[themeNow()] ? themeNow() : 'auto'; b.innerHTML = `${THEME[m][0]} <span class="lbl">${esc(L(THEME[m][1]))}</span>`; b.setAttribute('aria-label', L('Giao diện: {m} – bấm để đổi', { m: L(THEME[m][1]) })); };
   try { const m = localStorage.getItem('lk.admTheme'); if (m === 'light' || m === 'dark') document.documentElement.setAttribute('data-theme', m); } catch (e) { /* bỏ qua */ }
   let user = null, tab = 'overview', denied = false, guard = null, seq = 0;
+  // Khung chờ (body.adm-boot, admin.css): Firebase/whoami quá 6 s → vẫn hiện nội dung (thẻ Đăng nhập / lỗi), không để trang trống
+  setTimeout(() => document.body.classList.remove('adm-boot'), 6000);
 
   firebase.initializeApp(FIREBASE_CONFIG);
   const auth = firebase.auth();
@@ -499,12 +501,13 @@
     $('#tabs').innerHTML = NAV.map(([g, items]) => `<div class="side-g">${g ? `<h2 class="side-h">${esc(L(g))}</h2>` : ''}${items.map(([k, icon, label, , b]) => `<a class="side-a" href="#${k}" data-tab="${k}"${k === tab ? ' aria-current="page"' : ''}><span class="side-i" aria-hidden="true">${icon}</span><span class="nav-l">${esc(L(label))}</span>${b ? `<b class="side-b" id="${b}"></b>` : ''}</a>`).join('')}</div>`).join('');
     Object.entries(BADGE).forEach(([id, [t, c]]) => setBadge(id, t, c));
   };
+  const ACT_H = {}; // tab → chiều cao hàng nút hành động lần vẽ trước (điện thoại: hàng nút xuống dòng riêng)
   const pageHead = t => {
     const it = ITEM[t]; if (!it) return;
-    $('#pgHead').innerHTML = `<div class="pg-tx">${it.group ? `<div class="pg-crumb">${esc(L(it.group))}</div>` : ''}<h1 class="pg-t">${esc(L(it.label))}</h1><p class="pg-d">${esc(L(it.desc))}</p></div><div class="pg-act" id="pgAct"></div>`;
+    $('#pgHead').innerHTML = `<div class="pg-tx">${it.group ? `<div class="pg-crumb">${esc(L(it.group))}</div>` : ''}<h1 class="pg-t">${esc(L(it.label))}</h1><p class="pg-d">${esc(L(it.desc))}</p></div><div class="pg-act" id="pgAct"${ACT_H[t] ? ` style="min-height:${ACT_H[t]}px"` : ''}></div>`; // giữ chỗ nút hành động (vẽ sau khi có dữ liệu) theo lần mở trước → không đẩy nội dung
     document.title = L(it.label) + ' · Lexkite Admin';
-    // tab con hub = nút Kit (btn; đang chọn = btn primary) trong .seg-f, nằm dưới mô tả trang – không CSS riêng (giao diện cuối = port Stitch, PR2)
-    const hub = HUB_OF[t]; if (hub) { const nav = document.createElement('nav'); nav.className = 'hub-tabs seg-f'; nav.setAttribute('aria-label', L(ITEM[hub] ? ITEM[hub].label : '')); nav.innerHTML = HUBS[hub].map(k => `<a class="btn${k === t ? ' primary' : ''}" href="#${k}" data-go="${k}"${k === t ? ' aria-current="page"' : ''}>${esc(ITEM[k].icon)} ${esc(L(ITEM[k].label))}</a>`).join(''); $('#pgHead .pg-tx').appendChild(nav); }
+    // tab con hub = nút Kit (btn; đang chọn = btn primary) trong .seg-f, ngay dưới tiêu đề (trên mô tả) – kiểu .hub-tabs ở admin.css (giao diện cuối = port Stitch, PR2)
+    const hub = HUB_OF[t]; if (hub) { const nav = document.createElement('nav'); nav.className = 'hub-tabs seg-f'; nav.setAttribute('aria-label', L(ITEM[hub] ? ITEM[hub].label : '')); nav.innerHTML = HUBS[hub].map(k => `<a class="btn${k === t ? ' primary' : ''}" href="#${k}" data-go="${k}"${k === t ? ' aria-current="page"' : ''}>${esc(ITEM[k].icon)} ${esc(L(ITEM[k].label))}</a>`).join(''); $('#pgHead .pg-tx').insertBefore(nav, $('#pgHead .pg-d')); } // tab con ngay dưới tiêu đề: mô tả dài/ngắn khác nhau không làm hàng tab nhảy lên xuống
   };
   const setActions = html => { const a = $('#pgAct'); if (a) a.innerHTML = html; return a; };
   // Ngăn kéo thanh bên (điện thoại)
@@ -514,10 +517,10 @@
   scrim.onclick = () => drawer(false);
   side.addEventListener('keydown', e => { if (e.key === 'Escape' && side.classList.contains('open')) { drawer(false); navBtn.focus(); } });
   $('.adm-skip').onclick = e => { e.preventDefault(); main.focus(); };
-  const noAccess = u => { $('#pgHead').innerHTML = ''; main.innerHTML = `<div class="card center adm-login"><h1 class="adm-login-t">${L('Không có quyền')}</h1><p class="muted">${L('{e} chưa được cấp quyền quản trị.', { e: esc(u.email) })}</p><button type="button" class="btn" id="swAcc">${L('Đổi tài khoản')}</button></div>`; $('#swAcc').onclick = () => auth.signOut().then(() => location.reload()); };
+  const noAccess = u => { document.body.classList.remove('adm-boot'); $('#pgHead').innerHTML = ''; main.innerHTML = `<div class="card center adm-login"><h1 class="adm-login-t">${L('Không có quyền')}</h1><p class="muted">${L('{e} chưa được cấp quyền quản trị.', { e: esc(u.email) })}</p><button type="button" class="btn" id="swAcc">${L('Đổi tài khoản')}</button></div>`; $('#swAcc').onclick = () => auth.signOut().then(() => location.reload()); };
   // Cổng cửa: tài khoản không phải quản trị chỉ thấy màn từ chối (không vẽ thanh trên/thanh bên/nội dung quản trị)
   const deny = () => {
-    document.body.classList.remove('adm-in'); side.hidden = true; $('#me').innerHTML = ''; $('#pgHead').innerHTML = ''; $('#tabs').innerHTML = '';
+    document.body.classList.remove('adm-in', 'adm-boot'); side.hidden = true; $('#me').innerHTML = ''; $('#pgHead').innerHTML = ''; $('#tabs').innerHTML = '';
     main.innerHTML = `<div class="card center adm-login" id="denied"><h1 class="adm-login-t">${L('Tài khoản này không có quyền quản trị')}</h1><button type="button" class="btn primary" id="swAcc">${L('Đăng nhập bằng tài khoản khác')}</button></div>`;
     $('#swAcc').onclick = signIn;
   };
@@ -534,8 +537,11 @@
 
   auth.onAuthStateChanged(async u => {
     user = u;
-    if (!u) return;
+    if (!u) { document.body.classList.remove('adm-boot'); return; } // chưa đăng nhập → mới hiện thẻ Đăng nhập (đã đăng nhập sẵn: không nháy thẻ trong lúc chờ whoami)
     if (!(await isAdmin())) { user = null; denied = true; deny(); try { await auth.signOut(); } catch (e) { /* bỏ qua */ } return; }
+    // Chống nhảy (owner 7/11 "lỗi nhảy giật"): khung (thanh bên + banner Kho Drive) dựng xong TRƯỚC khi vẽ tab đầu → nội dung không bị đẩy ngang
+    // (thanh bên hiện muộn) hay đẩy xuống (banner chèn muộn). Cảnh báo Drive gọi SAU whoami (cổng: chưa qua cổng chỉ được gọi whoami – admin-gate.mjs), chờ tối đa 1,2 s.
+    await Promise.race([driveAlerts(), new Promise(r => setTimeout(r, 1200))]);
     renderMe(u);
     try {
       let cachedPref = null;
@@ -549,13 +555,15 @@
       }).catch(() => {});
       const defTab = (cachedPref && cachedPref.tab && VIEWS[cachedPref.tab]) ? cachedPref.tab : 'overview';
       try { if (canon(location.hash) !== location.hash.slice(1)) history.replaceState(null, '', '#' + canon(location.hash)); } catch (e) { /* bỏ qua */ }
-      const h = baseOf(location.hash); await show(VIEWS[h] ? h : defTab, { force: true, first: true });
-      document.body.classList.add('adm-in'); side.hidden = false; denied = false; renderNav(); badges();
+      const h = baseOf(location.hash), first = VIEWS[h] ? h : defTab; tab = first;
+      document.body.classList.add('adm-in'); side.hidden = false; denied = false; renderNav(); // khung trước, nội dung sau (chống nhảy ngang)
+      await show(first, { force: true, first: true });
+      badges(true);
       try { localStorage.setItem('lk.noTrack', '1'); } catch (e) { /* bỏ qua */ } // máy của quản trị: app không gửi thống kê (js/app.js)
     } catch (e) {
-      if (e && e.message === 'forbidden') { denied = true; noAccess(u); return; }
+      if (e && e.message === 'forbidden') { denied = true; document.body.classList.remove('adm-in'); side.hidden = true; $('#tabs').innerHTML = ''; noAccess(u); return; }
       // lỗi tải dữ liệu (D1 hết hạn mức, mạng…) ≠ không có quyền → vẫn vào quản trị, báo lỗi + nút thử lại thay vì 'Access denied'
-      document.body.classList.add('adm-in'); side.hidden = false; denied = false; renderNav(); badges();
+      document.body.classList.add('adm-in'); side.hidden = false; denied = false; renderNav(); badges(true);
       main.innerHTML = `<div class="card center"><h2>${L('Không tải được dữ liệu')}</h2><p class="muted">${esc(String(e && e.message || e).slice(0, 300))}</p><button type="button" class="btn primary" id="admRetry">${L('Thử lại')}</button></div>`;
       $('#admRetry').onclick = () => location.reload();
     }
@@ -613,12 +621,22 @@
     document.querySelectorAll('#tabs a[data-tab]').forEach(a => { if (a.dataset.tab === (HUB_OF[t] || t)) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     pageHead(t);
     // Mỗi lần vẽ 1 khung riêng: view đang chờ mạng của tab trước chỉ ghi vào khung cũ (đã tách khỏi trang) → không bao giờ đè tab mới (R1)
+    // Chống nhảy khi chuyển tab: giữ chiều cao cũ của #main tới khi tab mới vẽ xong (khung xương/"Đang tải…" thấp hơn → trang co rồi giãn = giật)
+    const keepH = !o.first && main.offsetHeight; if (keepH) main.style.minHeight = keepH + 'px';
+    if (!o.first && main.getBoundingClientRect().top < 0) window.scrollTo(0, 0); // tab mới mở từ đầu trang
     const host = document.createElement('div'); host.className = 'view-host'; host.style.display = 'contents'; host.dataset.view = t; host.innerHTML = skel(); main.replaceChildren(host);
     try { await VIEWS[t](host); }
     catch (e) { if (o.first || e.message === 'forbidden') throw e; if (my === seq && e.message !== 'reauth') host.innerHTML = errBox(e); }
+    finally { if (keepH && my === seq) settleH(my); if (my === seq) setTimeout(() => { const a = $('#pgAct'); if (my === seq && a) ACT_H[t] = a.childElementCount ? a.offsetHeight : 0; }, 1500); }
   }
-  async function badges() {
-    driveAlerts();
+  // Nhả min-height khi tab mới đã ổn định (module tải lười còn vẽ tiếp sau khi VIEWS[t] trả về): 350 ms không đổi DOM, tối đa 4 s
+  function settleH(my) {
+    let tm = 0; const done = () => { mo.disconnect(); clearTimeout(tm); clearTimeout(cap); if (my === seq) main.style.minHeight = ''; };
+    const mo = new MutationObserver(() => { clearTimeout(tm); tm = setTimeout(done, 350); }); mo.observe(main, { childList: true, subtree: true });
+    tm = setTimeout(done, 350); const cap = setTimeout(done, 4000);
+  }
+  async function badges(drvLoaded) {
+    if (!drvLoaded) driveAlerts(); // lần đầu: cảnh báo Drive đã tải cùng whoami (onAuthStateChanged) – không gọi trùng
     try {
       const [o, a, nst] = await Promise.all([api('overview'), api('alerts'), api('noticeStats').catch(() => ({}))]);
       setBadge('notN', nst && nst.active ? num(nst.active) : '');
@@ -815,7 +833,9 @@
   const exclLine = l => {
     const x = l.excluded; if (!x) return '';
     const parts = (x.kinds || []).map(r => `${esc(L(EXCL[r.k] || r.k))} ${num(r.s)}`).join(' · ');
-    return `<p class="excl">🤖 ${L('Tự động/bot & quản trị hôm nay: {n} phiên (đã loại)', { n: num(x.s) })}${parts ? ' – ' + parts : ''} · ${L('Ngày theo giờ Việt Nam (UTC+7)')}</p>${l.late ? `<p class="excl">↻ ${L('{n} phiên gửi bù: máy khách giữ lại lúc /api gián đoạn rồi gửi lại (đã cộng vào ngày gốc)', { n: num(l.late) })}</p>` : ''}`;
+    const v = l.voice || {}, vn = (v.f || 0) + (v.k || 0) + (v.s || 0), why = Object.entries(v).filter(([k]) => /^s_/.test(k)).map(([k, n]) => `${esc(k.slice(2))} ${num(n)}`).join(' · ');
+    const voice = vn ? `<p class="excl">🔊 ${L('Giọng đọc 7 ngày: {s} % giọng máy ({n} lượt) – file Kokoro {f} · Kokoro trên máy {k} · giọng máy {sys}', { s: (100 * (v.s || 0) / vn).toFixed(1), n: num(vn), f: num(v.f || 0), k: num(v.k || 0), sys: num(v.s || 0) })}${why ? ` (${L('lý do giọng máy')}: ${why})` : ''}</p>` : '';
+    return voice + `<p class="excl">🤖 ${L('Tự động/bot & quản trị hôm nay: {n} phiên (đã loại)', { n: num(x.s) })}${parts ? ' – ' + parts : ''} · ${L('Ngày theo giờ Việt Nam (UTC+7)')}</p>${l.late ? `<p class="excl">↻ ${L('{n} phiên gửi bù: máy khách giữ lại lúc /api gián đoạn rồi gửi lại (đã cộng vào ngày gốc)', { n: num(l.late) })}</p>` : ''}`;
   };
   const liveCard = l => {
     const t = l.today || {}, tot = l.total || {};

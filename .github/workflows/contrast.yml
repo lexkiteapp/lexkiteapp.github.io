@@ -22,7 +22,7 @@ jobs:
       - name: Kiểm
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
           node scripts/test/contrast.mjs ${{ github.event.inputs.base }}
       - if: always()
         uses: actions/upload-artifact@v4
