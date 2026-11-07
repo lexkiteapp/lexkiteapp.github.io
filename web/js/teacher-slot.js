@@ -3,9 +3,7 @@
  * không khối xám, không lơ lửng. Cỡ chuẩn s/m/l/xl theo chiều cao khung (đồng bộ cổng scripts/test/teacher-native.mjs). Ảnh chỉ qua Chars (registry). */
 (function (g) {
   const SIZES = { xs: 48, s: 72, m: 112, l: 152, xl: 208 }; // px chiều cao khung (đầu → mặt bệ) – thêm cỡ = sửa docs/CHARACTERS.md + cổng
-  // img.tslot-img aspect-ratio 1108/960 = tỉ lệ thật mọi ảnh tĩnh (characters.json): width/height làm tròn (h = 0,87 w) cho hộp trước khi tải lệch → ảnh xl giãn 1,1 px khi tải xong (cổng teacher-bubble.mjs)
-  // Hình học khung và bệ: docs/CHARACTERS.md §Hình học chỗ giáo viên. --fh/--fb = cao/đáy hình người – MỘT nguồn cho ảnh tĩnh, clip và rig (teacher-bubble .tb-rig):
-  // kích thước = mẫu Stitch (ảnh 1,2 khung, đáy −0,18): mép trên bệ ở y 688/960 (72 %), không đổi trước ↔ sau khi tải (cổng teacher-bubble.mjs, stitch-diff)
+  // Hình học (--fh/--fb, aspect-ratio, hip/HIP): một nguồn cho ảnh, clip, rig – số đo + lý do ở docs/CHARACTERS.md §Hình học chỗ giáo viên; cổng teacher-bubble.mjs
   const CSS = `.tslot{--h:112px;--fh:calc(var(--h)*1.2);--fb:calc(var(--h)*-.18);position:relative;display:inline-block;flex:none;width:calc(var(--h)*.9);height:var(--h);vertical-align:bottom;pointer-events:none;user-select:none;-webkit-user-select:none}
 .tslot-xs{--h:48px}.tslot-s{--h:72px}.tslot-m{--h:112px}.tslot-l{--h:152px}.tslot-xl{--h:208px}
 .tslot-fig{position:absolute;top:calc(var(--h)*-.1);left:calc(var(--h)*-.25);right:calc(var(--h)*-.25);bottom:0;overflow:hidden;overflow:clip}
@@ -29,8 +27,7 @@ img.tslot-img{aspect-ratio:1108/960}
   const hydrate = () => { pend = 0; if (document.querySelector('.tslot[data-clip]')) lib().then(() => { if (g.TeacherLive) document.querySelectorAll('.tslot[data-clip]').forEach(g.TeacherLive); }); };
   let on = 0;
   const css = () => { if (on || !g.document || !document.head) return; on = 1; const s = document.createElement('style'); s.id = 'tslot-css'; s.textContent = CSS; document.head.appendChild(s); };
-  // HIP = hàng ảnh (/960) của hông: đầu quần Ama ở y 786–798; dải 15 % đáy người (mờ dần – final-qc buộc khuất sau mặt đục) bắt đầu ở y ≥ 783 mọi tư thế.
-  // hip:true (Hôm nay/Welcome, mẫu streak): đầu/mặt giữ 1,2 khung, người nâng 0,055 khung, bệ mỏng 0,1 → (0,125 + 0,1) / 1,2 → mép bệ đúng hàng 780: lộ tới hông + tay, che dải đáy
+  // HIP = hàng ảnh (/960) của hông, hip:true đặt mép bệ đúng hàng này (docs/CHARACTERS.md §Hình học)
   g.TeacherSlot = { SIZES, css, HIP: 780 };
   const C = g.Chars; if (!C) return;
   // Chars.slot(who, {pose, size:'xs'|'s'|'m'|'l'|'xl', hip:true = lộ tới hông (bệ mỏng, xem HIP), cls, flip, lazy, alt, clip:true = clip tư thế phát 1 lần (ảnh tĩnh dưới đến khung đầu; giảm chuyển động/tiết kiệm dữ liệu → ảnh tĩnh), loop:true|ms = lặp cử chỉ, nghỉ 6 s, idle:true = vòng nghỉ mắt mở (Chars.idle, happy, lặp liền), ground:false = bệ cùng màu nền trang, style = CSS nội dòng (vd. lề), không đổi hình học})

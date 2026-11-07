@@ -217,6 +217,7 @@
 'Không bắt buộc – Lexkite đã có AI miễn phí, không cần khóa. Thêm khóa Gemini miễn phí của riêng bạn nếu muốn dùng nhiều lượt hơn mức miễn phí mỗi ngày.': 'Optional – Lexkite already includes free AI, no key needed. Add your own free Gemini key only if you want more uses than the daily free limit.',
 'Thêm khóa Gemini riêng (không bắt buộc)': 'Add your own Gemini key (optional)',
 'Dịch máy': 'Machine translation',
+'Cần giúp không? Cứ thử nhé – sai cũng không sao, mình học từ đó.': 'Need a hand? Just give it a try – mistakes are how we learn.',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – tên & mô tả bộ từ trong js/lib/*.js (qua IELTS_DATA.add) */

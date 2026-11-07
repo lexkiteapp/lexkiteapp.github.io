@@ -104,4 +104,5 @@
 "Chào bạn, mình là Ama! Cùng sẵn sàng qua 3 bước nhỏ nhé.": "Hi, I'm Ama! Let's get you ready in 3 small steps.",
 "Nghe Ama đọc": "Listen to Ama read this",
 "Dừng Ama đọc": "Stop Ama reading",
+"{g} Không sao đâu, ai cũng có ngày bận. Hôm nay mình bắt đầu lại cùng nhau nhé!": "{g} No worries – everyone has busy days. Let's start again together today!",
 }); })(typeof self !== 'undefined' ? self : this);
