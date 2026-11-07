@@ -538,11 +538,10 @@
   auth.onAuthStateChanged(async u => {
     user = u;
     if (!u) { document.body.classList.remove('adm-boot'); return; } // chưa đăng nhập → mới hiện thẻ Đăng nhập (đã đăng nhập sẵn: không nháy thẻ trong lúc chờ whoami)
-    // Chống nhảy (owner 7/11 "lỗi nhảy giật"): cảnh báo Kho Drive tải SONG SONG với whoami; khung (thanh bên + banner) dựng xong TRƯỚC khi vẽ tab đầu
-    // → nội dung không bị đẩy sang phải (thanh bên hiện muộn) hay đẩy xuống (banner chèn muộn). Chờ banner tối đa 1,2 s.
-    const drvP = driveAlerts();
     if (!(await isAdmin())) { user = null; denied = true; deny(); try { await auth.signOut(); } catch (e) { /* bỏ qua */ } return; }
-    await Promise.race([drvP, new Promise(r => setTimeout(r, 1200))]);
+    // Chống nhảy (owner 7/11 "lỗi nhảy giật"): khung (thanh bên + banner Kho Drive) dựng xong TRƯỚC khi vẽ tab đầu → nội dung không bị đẩy ngang
+    // (thanh bên hiện muộn) hay đẩy xuống (banner chèn muộn). Cảnh báo Drive gọi SAU whoami (cổng: chưa qua cổng chỉ được gọi whoami – admin-gate.mjs), chờ tối đa 1,2 s.
+    await Promise.race([driveAlerts(), new Promise(r => setTimeout(r, 1200))]);
     renderMe(u);
     try {
       let cachedPref = null;
