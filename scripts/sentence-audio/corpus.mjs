@@ -6,8 +6,8 @@ export function collect() {
   const groups = new Map(), tag = (g, key) => { if (!groups.has(g)) groups.set(g, new Set()); groups.get(g).add(key); };
   const c = { self: {} }; c.self = c; vm.createContext(c);
   vm.runInContext(fs.readFileSync('web/js/listen/kvoice.js', 'utf8'), c);
-  for (const f of fs.readdirSync('web/js/listen').filter(f => /^test\d+\.js$/.test(f))) vm.runInContext(fs.readFileSync('web/js/listen/' + f, 'utf8'), c);
-  for (const f of fs.readdirSync('web/js/toeic').filter(f => /^listening\d+\.js$/.test(f))) vm.runInContext(fs.readFileSync('web/js/toeic/' + f, 'utf8'), c);
+  for (const f of fs.readdirSync('web/js/listen').filter(f => /^test\d+\.js$/.test(f)).sort()) vm.runInContext(fs.readFileSync('web/js/listen/' + f, 'utf8'), c);
+  for (const f of fs.readdirSync('web/js/toeic').filter(f => /^listening\d+\.js$/.test(f)).sort()) vm.runInContext(fs.readFileSync('web/js/toeic/' + f, 'utf8'), c);
   for (const f of fs.readdirSync('web/cpack/toefl').filter(f => /^data\d+\.js$/.test(f))) vm.runInContext(fs.readFileSync('web/cpack/toefl/' + f, 'utf8'), c);
   const parts = [...(c.LISTENING || []), ...((c.TOEIC || {}).listening || []), ...((c.TOEFL || {}).listening || [])];
   const jobs = new Map();
@@ -21,13 +21,13 @@ export function collect() {
   }
   // Truyện + Radio của #/lesson (docs/LESSON-ENGINE.md §2c): mỗi câu thoại 1 file theo giọng nhân vật (khớp LessonTeacher.VOICE)
   {
-    vm.runInContext(fs.readFileSync('web/js/lesson/stories.js', 'utf8'), c);
+    vm.runInContext(fs.readFileSync('web/cpack/lesson/stories.js', 'utf8'), c);
     const V = { ama: 'af_heart', carlos: 'am_michael' };
     for (const st of c.LESSON_STORIES || []) for (const l of st.lines) { const key = c.KVoice.lineKey(V[l.who], l.en); jobs.set(key, { voice: V[l.who], text: l.en.trim() }); tag('lesson-stories', key); }
   }
   // Cuộc gọi Ama/Carlos (#/call, docs/CALL.md): mỗi câu giáo viên nói (câu hỏi, câu đáp nhánh, câu kết) 1 file theo giọng người gọi → sprite khớp môi đúng độ dài file
   {
-    for (const f of ['web/js/call/calls.js', 'web/js/call/calls-exam.js', 'web/js/call/calls-lot1.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), c);
+    for (const f of ['web/js/call/calls.js', 'web/js/call/calls-exam.js', 'web/js/call/calls-lot1.js', 'web/js/call/calls-lot2.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), c);
     const V = { ama: 'af_heart', carlos: 'am_michael' };
     for (const k of c.CALLS || []) {
       const v = V[k.who] || V.ama, nodes = k.nodes ? Object.values(k.nodes) : (k.turns || []);

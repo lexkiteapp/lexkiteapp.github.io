@@ -6,7 +6,7 @@
 'Quét mã bằng camera điện thoại (hoặc mở link trên máy kia) để nạp {n} thẻ – không cần đăng nhập.': 'Scan the code with your phone camera (or open the link on the other device) to load {n} cards – no sign-in needed.',
 'Mã dùng 1 lần, hết hạn sau': 'One-time code, expires in',
 'dữ liệu được mã hóa – máy chủ không đọc được.': 'your data is encrypted – our server cannot read it.',
-'Sao chép link': 'Copy link', 'Đã sao chép link': 'Link copied', 'đã hết hạn': 'expired',
+'đã hết hạn': 'expired',
 'Chưa tạo được mã – kiểm tra kết nối mạng rồi thử lại.': 'Could not create a code – check your connection and try again.',
 'Thử lại': 'Try again', 'Nhận dữ liệu': 'Receive data', 'Đang tải và giải mã…': 'Downloading and decrypting…',
 'Đã nhận dữ liệu': 'Data received', '{a} thẻ mới · {u} thẻ cập nhật tiến độ.': '{a} new cards · {u} cards with updated progress.',

@@ -1,9 +1,5 @@
-/* 👩‍🏫 Ama / Carlos đọc lời nhắc trong bài học – clip PHÔNG XANH đã tách nền PRO (scripts/teach/build.py, CI teach-build.yml), nền trong suốt, đủ đầu.
- * Đang nói → vòng "talk" (miệng thật của clip, khớp nhịp), im/nghe → vòng "listen"; trộn 160 ms trong CÙNG 1 canvas (không 2 lớp chồng nhau).
- * Video H.264 "xếp chồng" (nửa trên màu đã nhân alpha, nửa dưới alpha) → WebGL ghép thành nền trong suốt: mọi trình duyệt, giải mã phần cứng.
- * Hạ cấp: saveData / giảm chuyển động / không WebGL / thiếu tài sản → poster.webp (alpha) tĩnh. Tài sản: chỉ qua Chars (poster, clip talk/listen, đầu trơn).
- * 🙂 Mặt VẼ khớp miệng (cờ lk.lipsync, chỉ Call: mount(el, who, { lip: true }), docs/LESSON-ENGINE.md §Khớp miệng): đầu trơn + mắt/mi/mày/ria/miệng vector (LipFace) vẽ lại mỗi khung theo
- * audio.currentTime. Có mốc CI (web/js/call/cues.js + <khóa>-ls.mp3) → "pre"; không có → LipSync.live() theo năng lượng tiếng. Thiếu gì → vòng clip như cũ → poster. */
+/* 👩‍🏫 Ama / Carlos trong bài học: clip phông xanh đã tách nền (H.264 xếp chồng → WebGL), vòng nói/nghe trộn 160 ms trong 1 canvas, hạ cấp → poster;
+ * mặt VẼ khớp miệng (cờ lk.lipsync). Tài sản chỉ qua Chars. Chi tiết + cổng: docs/LESSON-ENGINE.md (§Giáo viên, §Khớp miệng mặt VẼ). */
 (function (g) {
   const IOS_WA = typeof navigator !== 'undefined' && (/iP(hone|ad|od)/.test(navigator.userAgent || '') || (/Macintosh/.test(navigator.userAgent || '') && navigator.maxTouchPoints > 1));
   const D = g.document;
@@ -47,7 +43,6 @@
   // tải SONG SONG, chạy ĐÚNG THỨ TỰ (async=false) – face.js đọc LipSync/LipMouth lúc nạp; nhanh hơn nạp nối tiếp để câu đầu kịp mốc CI (pre)
   const lipLoad = () => lipP || (lipP = Promise.all(['lipsync', 'mouths', 'face', 'paint', 'cues'].map(f => new Promise((ok, no) => { const s = D.createElement('script'); s.async = false; s.src = 'js/call/' + f + '.js'; s.onload = ok; s.onerror = no; D.head.appendChild(s); })))
     .then(() => { if (g.LK_CUES && g.LK_CUES.dict) g.LipSync.setDict(g.LK_CUES.dict); }, e => { lipP = null; throw e; }));
-  const POSE_EMO = { cheer: 'cheer', concern: 'concern', happy: 'happy', laugh: 'happy', encourage: 'encourage', empathy: 'concern', thinking: 'thinking', surprise: 'cheer', explain: 'explain', wave: 'happy', point: 'explain' }; // tư thế ảnh tĩnh → biểu cảm mặt vẽ (face.js EMO)
   let uid = 0, actx = null;
   const motionLow = () => { try { return g.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } };
   // 1 AudioContext dùng chung cho mọi mặt vẽ trên trang (trình duyệt giới hạn số context; nhiều giáo viên trên 1 trang không tranh nhau)
@@ -214,7 +209,7 @@
       // mặt vẽ: tư thế ảnh tĩnh (tài sản có sẵn) + biểu cảm tương ứng trên mặt vẽ; nói trong lúc đang tư thế → bỏ ảnh tĩnh để miệng vẽ khớp tiếng (không nói bằng ảnh tĩnh ngậm miệng)
       listen(on) { if (fc) fc.listen(on); },
       react(emo, ms) { if (fc) fc.react(emo, ms); },
-      pose(p) { let im = rig.querySelector('.tch-still'); if (fc) fc.hold(p ? POSE_EMO[p] || p : null, p); if (!p) { if (im) im.remove(); rig.classList.remove('posed'); return; }
+      pose(p) { let im = rig.querySelector('.tch-still'); if (fc) fc.hold(p ? g.Chars.POSE_EMO[p] || p : null, p); if (!p) { if (im) im.remove(); rig.classList.remove('posed'); return; }
         if (im) im.src = Chars.still(who, p); else { rig.insertAdjacentHTML('beforeend', Chars.img(who, { kind: 'still', pose: p, cls: 'tch-still', alt: '', size: 384 })); }
         rig.classList.add('posed'); },
       // o.voice (Kokoro, vd. af_heart): phát mp3 sinh sẵn trên CI (audio.lexkite.com, khóa KVoice.lineKey) – vòng nói chạy đúng độ dài file; thiếu file → giọng máy

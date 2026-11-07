@@ -20,6 +20,7 @@ after=$(cd dist && cat $FILES | wc -c)
 gz=$(cd dist && cat $FILES | gzip -9 | wc -c)
 echo "✓ dist/: JS+CSS $((before/1024))KB → $((after/1024))KB (gzip ~$((gz/1024))KB tổng; trang đầu chỉ tải phần lõi)"
 node scripts/build-cpack.mjs dist  # gói nội dung /cpack: đặt tên theo mã băm + sửa tham chiếu trong js (sau minify, TRƯỚC mã băm khung app)
+node scripts/build-hash.mjs dist  # JS/CSS: bản sao /h/<tên>.<băm>.<đuôi> (immutable 1 năm, web/_headers) + trỏ tham chiếu; file gốc giữ nguyên – docs/PERF-SCROLL.md › Tải trang
 H=$(node scripts/lib/sw-version.mjs web --stamp dist/sw.js)  # hash nội dung khung app (nguồn duy nhất, các bộ canh deploy dùng chung); web/sw.js giữ CACHE cố định – không bump tay
 grep -q "lexkite-[0-9]*-$H" dist/sw.js && echo "✓ sw cache: …-$H" || { echo "✗ không gắn được phiên bản cache vào dist/sw.js"; exit 1; }
 
