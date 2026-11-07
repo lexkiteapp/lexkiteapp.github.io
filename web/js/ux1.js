@@ -268,9 +268,10 @@
     const stories = so.map(x => ({ title: x.title, sub: x.kind === 'radio' ? 'Radio' : t('Truyện'), cefr: x.cefr || '', min: t('{n} phút', { n: KMIN[x.kind] || 4 }), href: '#/lesson/go' + (Q ? Q + '&' : '?') + 'story=' + encodeURIComponent(x.id) })); // giữ ?demo=1: truyện trong bài thử không ghi tiến độ thật
     const kind = (P[at] || {}).kind, ws = /^(story|radio|exam)$/.test(kind) ? [] : words(n, P.length);
     const h = new Date().getHours(), greet = h < 12 ? t('Chào buổi sáng!') : h < 18 ? t('Chào buổi chiều!') : t('Chào buổi tối!');
-    const say = b.p.left ? (due ? t('{g} Hôm nay còn {a} việc trong kế hoạch và {b} từ cần ôn.', { g: greet, a: b.p.left, b: due }) : t('{g} Hôm nay còn {a} việc trong kế hoạch.', { g: greet, a: b.p.left })) : due ? t('{g} Hôm nay có {b} từ cần ôn.', { g: greet, b: due }) : t('{g} Bạn đã xong kế hoạch hôm nay – tuyệt vời!', { g: greet });
+    const lost = !fresh && App.streakLost ? App.streakLost() : 0;
+    const say = lost ? t('{g} Không sao đâu, ai cũng có ngày bận. Hôm nay mình bắt đầu lại cùng nhau nhé!', { g: greet }) : b.p.left ? (due ? t('{g} Hôm nay còn {a} việc trong kế hoạch và {b} từ cần ôn.', { g: greet, a: b.p.left, b: due }) : t('{g} Hôm nay còn {a} việc trong kế hoạch.', { g: greet, a: b.p.left })) : due ? t('{g} Hôm nay có {b} từ cần ôn.', { g: greet, b: due }) : t('{g} Bạn đã xong kế hoạch hôm nay – tuyệt vời!', { g: greet });
     // teacher-pose-map: Ama sau bệ – người mới vẫy chào (wave), đang học vòng nghỉ (idle, happy)
-    const tch = fresh => Chars.slot('ama', Object.assign(fresh ? { pose: 'wave', clip: true, loop: 6000 } : { pose: 'happy', idle: true }, { size: 'm', hip: true, lazy: false, style: 'margin-left:auto' })); // hip: lộ tới hông như mẫu streak (chủ 06/11) · sát bong bóng: khung cắt rộng 1,4 khung-cao lòi mép màn 360 px nếu căn giữa ô 120 px
+    const tch = fresh => Chars.slot('ama', Object.assign(fresh ? { pose: 'wave', clip: true, loop: 6000 } : lost ? { pose: 'empathy' } : { pose: 'happy', idle: true }, { size: 'm', hip: true, lazy: false, style: 'margin-left:auto' })); // hip: lộ tới hông như mẫu streak (chủ 06/11) · sát bong bóng: khung cắt rộng 1,4 khung-cao lòi mép màn 360 px nếu căn giữa ô 120 px
     const d = Object.assign(b, { ini, say: `“${say}”`, xpReady: xpTo ? t('+{x} XP tới mốc kiểm tra', { x: xpTo }) : '', teacher: tch(fresh), pathHtml, unitName: u.name,
       k: { unit: t('Chặng học {n}', { n: u.no }) + ' · ' + u.name, of: t('Bài {a}/{b}', { a: Math.min(at + 1, P.length), b: P.length }), title: (nodes[at] || {}).label || t('Bài học'), mins: t('{n} phút', { n: nxMin }), lvl: u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))], pct: Math.round(at / P.length * 100), href: `#/lesson/go${Q}`,
         words: ws.length ? `${esc(t('Bạn sẽ học {n} từ:', { n: ws.length }))} ${ws.map(w => `<span class="font-black lt:text-[#17595A] dk:text-[#2BA39A]">${esc(w.word)}</span>`).join(', ')}` : '' },
@@ -286,7 +287,7 @@
     }
     const k = fresh ? 'today-new' : DSK() && ST2['today-desk'] ? 'today-desk' : 'today';
     const root = ST2.mount(view, k, d, null);
-    sayIn(root, d.say, fresh ? 'greet' : !b.p.left && !due ? 'goal' : due ? 'review' : 'plan'); // người mới chào · xong kế hoạch khen · có từ cần ôn khuyến khích (không dọa) · còn việc chỉ nút Bắt đầu
+    sayIn(root, d.say, lost, fresh ? 'greet' : lost ? 'review' : !b.p.left && !due ? 'goal' : due ? 'review' : 'plan'); // người mới chào · xong kế hoạch khen · có từ cần ôn khuyến khích (không dọa) · còn việc chỉ nút Bắt đầu
     if (ST2.shell) root.insertAdjacentHTML('beforeend', ST2.shell(Object.assign({ hdr: ST2.hdr(), tabs: ST2.tabs('home') }, d)).nav); // thanh tab CHUNG (5 tab), thay thanh tab riêng của mẫu
     prune(root); langBtn(root); headBtns(root);
     root.querySelectorAll(`[data-href="${(d.k || {}).href}"]`).forEach(x => x.classList.add('lsn-start', 'ux1-go')); // nút Bắt đầu chính = móc chung (lộ trình v1 cũng có) cho test/gác bố cục
@@ -381,8 +382,9 @@
   // Bong bóng Hôm nay = TeacherBubble (js/teacher-bubble.js, tải lười; docs/specs/teacher-bubble.md): chữ gõ 1 lần/ngày, 🔊 Ama đọc, miệng/vòng nghỉ bằng TeacherRig.
   // chỗ giữ nút 🔊 của TeacherBubble: cùng dấu chân dòng với .tb-snd (44 px + lề trái 2 px, cao dòng 16 px nhờ lề âm -14 px) – cổng teacher-bubble.mjs đọc đúng hằng này
   const TB_SLOT = '<span class="tb-snd-slot" aria-hidden="true" style="display:inline-block;width:46px;height:16px;vertical-align:middle"></span>';
-  function sayIn(root, say, mood) {
+  function sayIn(root, say, lost, mood) {
     const p = [...root.querySelectorAll('p')].find(x => x.textContent.trim() === say); if (!p || !App.loadScript) return;
+    App.loadScript('js/teacher-mood.js').then(() => { if (lost && window.TeacherMood) TeacherMood.emit('streakLost', { n: lost }); }).catch(() => {});
     p.style.visibility = 'hidden'; // chờ module nạp rồi mới hiện (không nháy chữ đầy → trống → gõ)
     p.insertAdjacentHTML('beforeend', TB_SLOT); // giữ chỗ nút 🔊 ngay từ khung đầu → gắn bong bóng không xuống dòng/xô bố cục (CLS 0)
     App.loadScript('js/teacher-bubble.js').then(() => window.TeacherBubble && TeacherBubble.attach({ root, textEl: p, slotEl: root.querySelector('[data-tch] .tslot'), who: 'ama', text: say, mood, key: 'today' })).catch(() => {}).finally(() => { p.style.visibility = ''; });

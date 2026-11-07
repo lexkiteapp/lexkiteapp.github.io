@@ -1,6 +1,6 @@
 /* 🚀 Thiết lập lần đầu TỪNG BƯỚC (tải lười – gói 'onb', app.js setup() gọi): 1 câu hỏi/màn kiểu Duolingo/Busuu.
  * Thanh tiến độ + nút quay lại + Ama phản hồi từng lựa chọn. Mục tiêu (gói học – tracks.js) → trình độ / kiểm tra đầu vào 5 phút
- * → điểm mục tiêu → cường độ → sẵn sàng → vào thẳng Ngày 1, KHÔNG cần tài khoản (mời lưu tiến độ sau khi xong Ngày 1 – path-reward.js).
+ * → điểm mục tiêu → cường độ → sẵn sàng → vào thẳng Ngày 1 (đã chọn trình độ) hoặc lời mời bài đầu vào 5 phút, bỏ qua được (placement.js), KHÔNG cần tài khoản (mời lưu tiến độ sau khi xong Ngày 1 – path-reward.js).
  * "Đã có tài khoản?" = liên kết nhỏ ở màn 1. Giữ nguyên mọi lựa chọn & cách lưu của bố cục cũ (id #go = nút bắt đầu ở màn cuối).
  * Mỗi bước 1 hash #/welcome/setup?s=<bước>: tiến = pushState (không chạy lại route, không nháy), Back/vuốt/Esc → hashchange → app.js setup() → Onboard.go chỉ vẽ lại.
  * Lựa chọn + bước ở sessionStorage lk.onbPick (qua được tải lại + I18N.set), xóa khi xong (finishOnboarding). Luật: docs/specs/welcome.md */
@@ -63,7 +63,7 @@
         : pick.lv === 'test' ? ['cheer', t('Lựa chọn thông minh! Bài kiểm tra chỉ mất khoảng 5 phút.')] : ['happy', t('Được rồi, mình bắt đầu từ {lv} nhé.', { lv: lvName() })];
       if (k === 'target') return fresh ? ['cheer', t('Mục tiêu {t} – mình sẽ cùng bạn chinh phục!', { t: pick.target })] : ['think', t('Đặt mục tiêu rõ ràng giúp mình chọn đúng độ khó.')];
       if (k === 'pace') return pick.pace === 10 ? ['happy', t('Từ từ mà chắc – 5 phút mỗi ngày cũng tạo khác biệt lớn.')] : pick.pace === 40 ? ['win', t('Tăng tốc nào! Mình sẽ nhắc bạn ôn đúng lúc.')] : ['cheer', t('Đều đặn mỗi ngày là bí quyết nhớ lâu!')];
-      return ['win', pick.lv === 'test' ? t('Lộ trình đã sẵn sàng! Làm bài kiểm tra 5 phút rồi học Ngày 1 – không cần tài khoản.') : t('Lộ trình của bạn đã sẵn sàng! Học Ngày 1 ngay – không cần tài khoản.')];
+      return ['win', pick.lv === 'test' ? t('Lộ trình đã sẵn sàng! Làm bài kiểm tra 5 phút rồi học Ngày 1 – không cần tài khoản.') : !pick.lv ? t('Lộ trình đã sẵn sàng! Bước cuối: bài kiểm tra 5 phút để xếp đúng chặng – bỏ qua cũng được.') : t('Lộ trình của bạn đã sẵn sàng! Học Ngày 1 ngay – không cần tài khoản.')];
     };
     const canAcct = () => g.Sync && g.Sync.gBtn && g.Sync.can !== false && !state.user;
     // 🎨 Bước có khung Stitch (brand/stitch/v2/bind/onb-<bước>.json, web/js/st/v2/onb-<bước>.js) → ST2.mount; bước chưa port giữ khung cũ bên dưới
@@ -84,7 +84,7 @@
       if (k === 'target') Object.assign(d, { q: tLabel(), bands: TARGETS[pick.exam].map(v => ({ v, on: pick.target === v })) });
       if (k === 'pace') { const B = S.P['onb-pace'](t, esc); // phút khớp Tutor PACE · số từ mới = dailyNew: 1 chuỗi có sẵn, mẫu tách viên phút + dòng phụ
         Object.assign(d, { q: t('Bạn muốn học với cường độ nào?'), foot: t('Miễn phí · Dữ liệu học thuộc về bạn'), paces: paces().map(([v, ti, sub], i) => { const [m, w] = sub.split(' · '); return { v, on: pick.pace === v, ti, min: w ? m : '', sub: w || m, badge: B['b' + i]({}) }; }) }); }
-      if (k === 'ready') Object.assign(d, { q: t('Lộ trình của bạn'), goTxt: pick.lv === 'test' ? '🧭 ' + t('Làm bài kiểm tra đầu vào') : t('Bắt đầu Ngày {n}', { n: 1 }), sum: [
+      if (k === 'ready') Object.assign(d, { q: t('Lộ trình của bạn'), goTxt: pick.lv === 'test' ? '🧭 ' + t('Làm bài kiểm tra đầu vào') : !pick.lv ? '🧭 ' + t('Kiểm tra đầu vào (5 phút)') : t('Bắt đầu Ngày {n}', { n: 1 }), sum: [
         { tpl: 'c1', ic: 'menu_book', k: t('Mục tiêu'), v: trName() }, { tpl: 'c1', ic: 'school', k: t('Trình độ'), v: pick.lv === 'test' ? '🧭 ' + t('Làm bài kiểm tra đầu vào') : lvName() || (K ? 'CEFR ' + K.TR[pick.track].stages[0].cefr : '') },
         { tpl: 'c2', ic: 'verified', k: tLabel().replace(/\?$/, ''), v: pick.target }, { tpl: 'c3', ic: 'local_fire_department', k: P[1], v: P[2] }] });
       S.mount(view, 'onb-' + k, d, null).classList.add('overflow-x-clip'); // giáo viên ở mép trái (px-5): canvas trong suốt của Chars.slot vượt mép màn 360/412 → cắt ở mép màn (phần nhìn thấy nằm trong màn), không cuộn ngang
@@ -117,7 +117,8 @@
         const to = TK() ? await TK().startSetup(pick) : '#/review';
         await D.saveSettings();
         for (const id of pick.topics) for (const w of D.topicOf(id).words) if (!D.inDeck(w.word)) await D.addWord(w, null, { silent: true }); // bộ thẻ ôn ban đầu hợp mục tiêu
-        await D.finish(true, to); // vào thẳng Ngày 1 của gói (hoặc bài kiểm tra đầu vào) – chưa cần tài khoản
+        if (to === '#/placement') try { sessionStorage.setItem('lk.plInv', JSON.stringify(topicsFor(pick.exam).map(x => x.id))); } catch (e) { /* riêng tư: không lời mời */ } // lời mời 5 phút (placement.js)
+        await D.finish(true, to); // Ngày 1 hoặc lời mời – chưa cần tài khoản
       };
     };
     live = i => { if (!view.querySelector('#onbBack')) return false; if (STEPS[i] && i !== pick.step) { pick.step = i; pick.said = ''; } draw(); focusQ(); return true; };

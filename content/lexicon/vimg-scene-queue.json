@@ -103,6 +103,12 @@
    "why": "size > 6 KB",
    "b": "42210116547"
   },
+  "application form#n": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "vision: no (man holds sheet, not on table)",
+   "b": "42365118590"
+  },
   "apply#v": {
    "at": "2026-11-07",
    "tries": 18,
@@ -126,6 +132,12 @@
    "tries": 12,
    "why": "vision: no (no chisel, no shaping a bowl)",
    "b": "42315140853"
+  },
+  "aside#adv": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "duplicate (pHash)",
+   "b": "42365118590"
   },
   "assassin#n": {
    "at": "2026-11-06",
@@ -211,6 +223,18 @@
    "why": "meaning check: no (Are the two people shown making a joint decision a)",
    "b": "42315140853"
   },
+  "boardroom#n": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "vision: no (two more chairs)",
+   "b": "42365118590"
+  },
+  "bullet#n": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "api: unsafe",
+   "b": "42365118590"
+  },
   "burial#n": {
    "at": "2026-11-06",
    "tries": 12,
@@ -276,6 +300,12 @@
    "tries": 12,
    "why": "meaning check: no (Are there two new cells formed from one original c)",
    "b": "42315140853"
+  },
+  "cent#n": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "vision description-sentence sim 0.2813",
+   "b": "42365118590"
   },
   "checking account#n": {
    "at": "2026-11-07",
@@ -427,6 +457,12 @@
    "why": "size > 6 KB",
    "b": "42322284048"
   },
+  "cover letter#n": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "meaning check: no (Is a person giving a simple document that accompan)",
+   "b": "42365118590"
+  },
   "creative brief#n": {
    "at": "2026-11-06",
    "tries": 12,
@@ -492,12 +528,6 @@
    "tries": 12,
    "why": "meaning check: no (Is the person transferring car keys to another per)",
    "b": "42315140853"
-  },
-  "decentralize#v": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (regional offices, decentralization action); vision description-sentence sim 0.1864",
-   "b": "40088424311"
   },
   "default#v": {
    "at": "2026-11-07",
@@ -1309,17 +1339,17 @@
    "why": "vision description-sentence sim 0.1108",
    "b": "42315140853"
   },
-  "page#n": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "clip-sentence sim 0.1967",
-   "b": "40276144478"
-  },
   "paralysis#n": {
    "at": "2026-11-07",
    "tries": 12,
    "why": "meaning check: no (Is the person unable to move the shown arm volunta)",
    "b": "42315140853"
+  },
+  "password reset#n": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "meaning check: no (Is the person unlocking a lock with a new key?)",
+   "b": "42368151761"
   },
   "pay-per-click#adj": {
    "at": "2026-11-07",
@@ -1507,6 +1537,12 @@
    "why": "vision: no (thousands of readers); vision description-sentence sim 0.175",
    "b": "40276144478"
   },
+  "realtor#n": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "meaning check: no (Is the person showing a model house to a client wh)",
+   "b": "42365118590"
+  },
   "recruiter#n": {
    "at": "2026-11-07",
    "tries": 12,
@@ -1584,12 +1620,6 @@
    "tries": 12,
    "why": "meaning check: no (Is the person pulling back on the leash to stop th)",
    "b": "42315140853"
-  },
-  "result#n": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "clip-sentence sim 0.1702",
-   "b": "40276144478"
   },
   "return ticket#n": {
    "at": "2026-11-07",
@@ -1674,6 +1704,12 @@
    "tries": 16,
    "why": "meaning check: no (Are the two females shown as siblings?)",
    "b": "42315140853"
+  },
+  "skill#n": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "vision: no (puzzle and action of fitting)",
+   "b": "42365118590"
   },
   "skipper#n": {
    "at": "2026-11-06",
@@ -1849,6 +1885,12 @@
    "why": "meaning check: no (Is there a paper showing many recorded work hours?)",
    "b": "42322284048"
   },
+  "timetable#n": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "vision: text",
+   "b": "42368151761"
+  },
   "trade-off#n": {
    "at": "2026-11-07",
    "tries": 12,
@@ -1968,6 +2010,12 @@
    "tries": 12,
    "why": "vision: no (empty space is visible)",
    "b": "42210116547"
+  },
+  "wide#adj": {
+   "at": "2026-11-07",
+   "tries": 6,
+   "why": "clip-sentence sim 0.2006",
+   "b": "42365118590"
   },
   "work order#n": {
    "at": "2026-11-07",
