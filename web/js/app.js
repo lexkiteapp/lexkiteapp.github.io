@@ -155,6 +155,15 @@
     applyTheme(); saveSettings();
     toast({ auto: '🌓 ' + t('Giao diện theo hệ thống'), light: '☀️ ' + t('Giao diện sáng'), dark: '🌙 ' + t('Giao diện tối') }[state.settings.theme]);
   };
+  // Nút sáng/tối ngay trong màn học (body.focus ẩn thanh trên; màn Stitch điện thoại cũng ẩn):
+  // Màn Stitch (học/phản hồi/gọi/truyện/xong) có sẵn nút #lkTheme trong header mẫu (44 px) → chỉ gắn hành vi + biểu tượng theo giao diện; nút nằm trong mẫu (không chèn bằng JS).
+  const isDark = () => { const r = document.documentElement; return r.getAttribute('data-theme') === 'dark' || (!r.hasAttribute('data-theme') && matchMedia('(prefers-color-scheme:dark)').matches); };
+  const flipTheme = () => { state.settings.theme = isDark() ? 'light' : 'dark'; applyTheme(); saveSettings(); document.querySelectorAll('#lkTheme .material-symbols-outlined').forEach(i => { i.textContent = isDark() ? 'light_mode' : 'dark_mode'; }); };
+  const focusTheme = () => {
+    const v = $('#view'); if (!document.body.classList.contains('focus')) return;
+    const own = v.querySelector('#lkTheme'); if (own && own.getClientRects().length) { if (!own.dataset.lk) { own.dataset.lk = 1; own.title = own.getAttribute('aria-label'); own.onclick = flipTheme; const i = own.querySelector('.material-symbols-outlined'); if (i) i.textContent = isDark() ? 'light_mode' : 'dark_mode'; } return; }
+  };
+  if ($('#view')) new MutationObserver(focusTheme).observe($('#view'), { childList: true });
 
 
   // ---------- Thưởng XP / nhiệm vụ / huy hiệu ----------
