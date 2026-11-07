@@ -11,8 +11,10 @@ const jpgSize = f => { // đọc SOF của JPEG → [w, h]
 };
 const credits = fs.readFileSync('web/img/toeic/CREDITS.md', 'utf8');
 let n = 0, avif = 0, jpgB = 0, avifB = 0;
-for (const f of fs.readdirSync('web/js/toeic').filter(f => /^listening\d+\.js$/.test(f))) {
-  const g = {}; g.self = g; vm.runInNewContext(fs.readFileSync('web/js/toeic/' + f, 'utf8'), g);
+{
+  // một ngữ cảnh chung theo thứ tự listening1..N: listening2–7 dùng g.TQL do listening1 dựng
+  const g = {}; g.self = g; vm.createContext(g);
+  for (const f of fs.readdirSync('web/js/toeic').filter(f => /^listening\d+\.js$/.test(f)).sort((a, b) => parseInt(a.slice(9)) - parseInt(b.slice(9)))) vm.runInContext(fs.readFileSync('web/js/toeic/' + f, 'utf8'), g);
   for (const p of (g.TOEIC.listening || []).filter(p => p.part === 1)) for (const gr of p.groups) for (const it of gr.items || []) {
     if (!it.img) continue; n++;
     const file = 'web/' + it.img, id = `${p.id} câu ${it.n}`;
