@@ -30,8 +30,8 @@ jobs:
       - name: Vẽ HTML Stitch v2 tĩnh (tắt hoạt ảnh) → tờ duyệt tối/sáng
         if: always()
         run: |
-          npx playwright install --with-deps chromium >/dev/null
-          sudo apt-get install -y -qq imagemagick fonts-noto-core fonts-noto-color-emoji >/dev/null || true
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          sudo timeout 600 apt-get install -y -qq imagemagick fonts-noto-core fonts-noto-color-emoji >/dev/null || true
           node scripts/test/stitch-render.mjs brand/stitch/v2 out/stitch-v2
       - if: always()
         uses: actions/upload-artifact@v4

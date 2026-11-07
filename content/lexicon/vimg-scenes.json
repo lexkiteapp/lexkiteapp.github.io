@@ -12090,17 +12090,17 @@
   },
   "civilization#n": {
    "ex": "The ancient Egyptians built a great civilization along the Nile.",
-   "ps": "a sprawling ancient city with stone pyramids, canals, and many buildings",
-   "sc": "a sprawling ancient city with stone pyramids, canals, and many buildings",
-   "check": "Is there a large organized settlement with many buildings and people?",
-   "cap": "an ancient city with pyramids, canals, and bustling streets",
-   "key": "stone pyramids and canals; paved streets with many buildings",
-   "who": 0,
+   "ps": "a man and a woman stand near a large stone building beside a flowing river",
+   "sc": "a man and a woman stand near a large stone building beside a flowing river",
+   "check": "Is there a developed human society with organized structures and culture shown?",
+   "cap": "a man and a woman beside a stone building and river",
+   "key": "a large stone building; a flowing river",
+   "who": 2,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "claim#n": {
    "skip": "the concept of an insurance claim and rejection relies on abstract paperwork and",
@@ -23269,17 +23269,17 @@
   },
   "distractor#n": {
    "ex": "Read carefully because one option is a distractor.",
-   "ps": "a child holds a blank sheet with three large circles, one circle marked by a big red cross",
-   "sc": "a child holds a blank sheet with three large circles, one circle marked by a big red cross",
-   "check": "Is there an option that looks like a possible answer but is marked as wrong?",
-   "cap": "a child showing a sheet with a crossed‑out answer",
-   "key": "a blank sheet with three circles; a big red cross over one circle",
-   "who": 1,
-   "draw": 4,
+   "ps": "three answer boxes sit side by side, one shows a big red cross",
+   "sc": "three answer boxes sit side by side, one shows a big red cross",
+   "check": "Is there an answer option marked clearly as wrong among several choices?",
+   "cap": "multiple choice options with one clearly marked as incorrect",
+   "key": "three answer boxes side by side; one box contains a big red cross mark",
+   "who": 0,
+   "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "distress#n": {
    "ex": "The company was in financial distress after losing its main client.",
@@ -34440,17 +34440,17 @@
   },
   "gravel#n": {
    "ex": "Tom lives on a gravel road.",
-   "ps": "a short stretch of a gray road covered with many small round gray stones",
-   "sc": "a short stretch of a gray road covered with many small round gray stones",
-   "check": "Is the road surface made of many small gray stones?",
-   "cap": "a road surface covered with small gray stones",
-   "key": "a road surface covered with small gray stones; the stones are round and gray",
+   "ps": "a thick layer of small grey stones covers a narrow country road",
+   "sc": "a thick layer of small grey stones covers a narrow country road",
+   "check": "Is there a collection of small grey stones used as a road surface?",
+   "cap": "a road covered with grey stones",
+   "key": "a thick layer of small grey stones covering a road",
    "who": 0,
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "gravitational pull#n": {
    "ex": "The moon's gravitational pull is the main cause of ocean tides.",
@@ -34907,16 +34907,17 @@
   },
   "guest folio#n": {
    "ex": "The cashier printed the guest folio for the customer to review.",
-   "ps": "a man in a white shirt hands a blank sheet with a green tick to a woman",
-   "sc": "a man in a white shirt hands a blank sheet with a green tick to a woman",
-   "check": "Is the paper being given a summary of the guest's charges?",
-   "cap": "a cashier hands a marked sheet to a guest",
-   "key": "a blank sheet with a green tick; a man handing it to a woman",
+   "ps": "a hotel clerk hands a plain folder to a guest, a few coins on the desk",
+   "sc": "a hotel clerk hands a plain folder to a guest, a few coins on the desk",
+   "check": "Is the guest receiving a record of their stay charges?",
+   "cap": "a hotel clerk giving a folder to a guest with coins on the desk",
+   "key": "plain folder handed to guest; few coins on the desk",
    "who": 2,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
-   "tries": 2
+   "tries": 3,
+   "refix": 2
   },
   "guest profile#n": {
    "skip": "abstract noun too abstract to depict clearly without text",
@@ -45876,16 +45877,17 @@
   },
   "mangrove#n": {
    "ex": "Mangrove forests reduce wave energy and protect villages during storms.",
-   "ps": "a mangrove tree with tangled aerial roots standing in shallow salty water",
-   "sc": "a mangrove tree with tangled aerial roots standing in shallow salty water",
-   "check": "Is there a tree with exposed roots growing in shallow water?",
-   "cap": "a tree with aerial roots growing in shallow water",
-   "key": "tangled aerial roots of the tree; the shallow salty water",
+   "ps": "a tall mangrove tree with thick aerial roots stands in shallow salty water",
+   "sc": "a tall mangrove tree with thick aerial roots stands in shallow salty water",
+   "check": "Is there a tree with roots hanging above salty water?",
+   "cap": "a coastal tree with roots hanging over water",
+   "key": "a tall mangrove tree with exposed aerial roots; shallow salty water around roots",
    "who": 0,
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
-   "tries": 2
+   "tries": 3,
+   "refix": 1
   },
   "manipulate#v": {
    "ex": "Advertisers manipulate consumers into buying unnecessary products.",
@@ -66812,17 +66814,17 @@
   },
   "runtime#n": {
    "ex": "The error only appears at runtime, not during compilation.",
-   "ps": "a person presses a large green start button and a robot arm begins moving",
-   "sc": "a person presses a large green start button and a robot arm begins moving",
-   "check": "Is the machine shown operating after the button is pressed?",
-   "cap": "a person starts a machine and a robot moves",
-   "key": "the large green start button being pressed; the robot arm moving",
+   "ps": "a man stands before a tall server rack, its panels glowing with many blinking lights",
+   "sc": "a man stands before a tall server rack, its panels glowing with many blinking lights",
+   "check": "Is the person looking at a machine that is currently operating?",
+   "cap": "a man watches a server rack with many blinking lights",
+   "key": "the server rack with many blinking lights; the man's attentive gaze",
    "who": 1,
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "rural#adj": {
    "ex": "Many young people leave rural areas to find work.",
@@ -75016,17 +75018,17 @@
   },
   "swing#v": {
    "ex": "The children were swinging in the park.",
-   "ps": "a child sits on a swing seat, leaning forward with legs stretched, ropes taut",
-   "sc": "a child sits on a swing seat, leaning forward with legs stretched, ropes taut",
-   "check": "Is the child moving back and forth while hanging from the ropes?",
-   "cap": "a child on a hanging seat leaning forward with legs outstretched",
-   "key": "child holding the hanging ropes at the forward extreme; hanging seat suspended from ropes",
+   "ps": "a child sits on a hanging seat, legs stretched forward as the rope angles forward",
+   "sc": "a child sits on a hanging seat, legs stretched forward as the rope angles forward",
+   "check": "Is the child moving back and forth while hanging from a rope?",
+   "cap": "a child perched on a hanging seat with legs extended",
+   "key": "the swing rope angled away from vertical; the child's legs stretched forward",
    "who": 1,
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "switch#n": {
    "ex": "These light switches are very good.",
@@ -75054,14 +75056,17 @@
   },
   "swot analysis#n": {
    "ex": "The team began the planning day with a SWOT analysis.",
-   "ps": "two people stand around a large board divided into four quadrants showing a muscle, a cracked wall, an open door, and a dark cloud",
-   "sc": "two people stand around a large board divided into four quadrants showing a muscle, a cracked wall, an open door, and a dark cloud",
-   "check": "Is the group reviewing strengths, weaknesses, opportunities and threats of their business?",
-   "cap": "team examining a four‑section board with distinct symbols",
-   "who": 2,
-   "draw": 5,
+   "ps": "a person stands before a board holding a muscular arm, a broken brick, a bright sun, and a dark cloud",
+   "sc": "a person stands before a board holding a muscular arm, a broken brick, a bright sun, and a dark cloud",
+   "check": "Is there a person examining four objects that show strengths, flaws, chances, and risks?",
+   "cap": "a person reviewing four objects that show strengths, flaws, chances, and risks",
+   "key": "a muscular arm and a broken brick; a bright sun and a dark cloud with lightning",
+   "who": 1,
+   "draw": 4,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b"
+   "by": "@cf/openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "syllable#n": {
    "ex": "The word \"information\" has four syllables, and the stress falls on the third.",
@@ -75079,17 +75084,17 @@
   },
   "syllabus#n": {
    "ex": "Check the syllabus — the due dates for all three essays are listed there.",
-   "ps": "a teacher hands a plain white folder to a student who looks interested",
-   "sc": "a teacher hands a plain white folder to a student who looks interested",
-   "check": "Is a teacher giving a student a document that outlines the course?",
-   "cap": "a teacher giving a blank folder to a student",
-   "key": "teacher handing plain white folder; student looking interested",
-   "who": 2,
-   "draw": 4,
+   "ps": "a woman holds a large white sheet with many short lines like a list",
+   "sc": "a woman holds a large white sheet with many short lines like a list",
+   "check": "Is there a paper showing a list of topics and dates?",
+   "cap": "a teacher presenting a paper that looks like a schedule",
+   "key": "a large white sheet with many short horizontal lines; a folder holding the sheet",
+   "who": 1,
+   "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "symbiosis#n": {
    "ex": "The clownfish and the sea anemone live in symbiosis.",
@@ -76281,17 +76286,17 @@
   },
   "tenure#n": {
    "ex": "After publishing three books, she was finally granted tenure.",
-   "ps": "a professor smiles as a dean hands over a golden key beside a university building",
-   "sc": "a professor smiles as a dean hands over a golden key beside a university building",
-   "check": "Is the professor being given a key that shows a permanent position at the university?",
-   "cap": "a professor receiving a golden key from a dean near a university",
-   "key": "a golden key being handed to a professor; a university building behind",
+   "ps": "a professor receives a large golden key from a dean, both smile",
+   "sc": "a professor receives a large golden key from a dean, both smile",
+   "check": "Is the professor being given a permanent position at the university?",
+   "cap": "a professor being handed a key by a dean",
+   "key": "a large golden key handed to the professor; the dean smiling",
    "who": 2,
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "term paper#n": {
    "ex": "His term paper examines trade between Venice and the Ottoman Empire.",
@@ -77251,17 +77256,17 @@
   },
   "time sheet#n": {
    "ex": "Hourly staff must submit their time sheets every Friday before noon.",
-   "ps": "a worker sits at a desk marking large empty boxes on a blank sheet",
-   "sc": "a worker sits at a desk marking large empty boxes on a blank sheet",
-   "check": "Is the person filling in a sheet with boxes to record work hours?",
-   "cap": "a worker filling out a box chart on a sheet",
-   "key": "large empty boxes on a blank sheet; the worker marking them",
-   "who": 1,
-   "draw": 5,
+   "ps": "a man hands a blank sheet covered with many small circles to a supervisor who nods approvingly",
+   "sc": "a man hands a blank sheet covered with many small circles to a supervisor who nods approvingly",
+   "check": "Is there a paper showing many recorded work hours?",
+   "cap": "an employee giving a circle‑filled sheet to a supervisor",
+   "key": "a blank sheet covered with many small circles; the employee handing the sheet to the supervisor",
+   "who": 2,
+   "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "time#n": {
    "skip": "abstract noun 'time' requires time symbols to convey meaning",

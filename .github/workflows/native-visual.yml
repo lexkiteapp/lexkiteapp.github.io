@@ -21,9 +21,10 @@ jobs:
         run: node scripts/test/native-visual.mjs --self-test
       - name: Vẽ web Stitch (Hôm nay sáng/tối, 390 px) làm cột so sánh
         continue-on-error: true     # chỉ là ảnh tham chiếu; không làm đỏ cổng
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 pngjs@7.0.0
-          npx playwright install --with-deps chromium >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
           sudo apt-get install -y -qq imagemagick fonts-noto-core fonts-noto-color-emoji >/dev/null || true
           mkdir -p "$RUNNER_TEMP/today" && cp brand/stitch/v2/today-light.html brand/stitch/v2/today-dark.html "$RUNNER_TEMP/today/"
           node scripts/test/stitch-render.mjs "$RUNNER_TEMP/today" out/stitch-today
