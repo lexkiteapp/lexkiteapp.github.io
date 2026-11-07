@@ -27,10 +27,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - id: c
-        env: { RF: "${{ github.event.inputs.retry_fail == 'true' && '--retry-fail' || '' }}" }
+        env: { RF: "${{ github.event.inputs.retry_fail == 'true' && '--retry-fail' || '' }}", LX_SHARDS: '${{ github.event.inputs.shards || ''6'' }}' }
         run: |
           echo "left=$(node scripts/sentence-audio/todo.mjs --count $RF | grep -o 'cần nghe [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
-          n="${{ github.event.inputs.shards || '6' }}"; echo "shards=$(node -e "console.log(JSON.stringify([...Array(+process.argv[1]).keys()]))" "$n")" >> "$GITHUB_OUTPUT"
+          n="$LX_SHARDS"; echo "shards=$(node -e "console.log(JSON.stringify([...Array(+process.argv[1]).keys()]))" "$n")" >> "$GITHUB_OUTPUT"
   check:
     needs: plan
     if: needs.plan.outputs.left != '0'
@@ -54,8 +54,8 @@ jobs:
       - name: Tự kiểm chuẩn hoá WER (ca từng trượt oan phải đạt, ca đọc sai phải trượt)
         run: python3 scripts/sentence-asr.py --selftest
       - name: Danh sách câu của shard
-        env: { RF: "${{ github.event.inputs.retry_fail == 'true' && '--retry-fail' || '' }}" }
-        run: node scripts/sentence-audio/todo.mjs $RF --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "${{ github.event.inputs.limit || '1500' }}" --out .sa/todo.json
+        env: { RF: "${{ github.event.inputs.retry_fail == 'true' && '--retry-fail' || '' }}", LX_LIMIT: '${{ github.event.inputs.limit || ''1500'' }}' }
+        run: node scripts/sentence-audio/todo.mjs $RF --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "$LX_LIMIT" --out .sa/todo.json
       - name: Nghe bản đang phục vụ
         run: python3 scripts/sentence-asr.py --todo .sa/todo.json --res .sa/res-${{ matrix.shard }}.json --minutes 100
       - name: Cài kokoro-js (chỉ khi có câu trượt)

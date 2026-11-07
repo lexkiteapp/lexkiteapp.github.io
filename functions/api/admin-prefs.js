@@ -8,6 +8,7 @@
  */
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
+import { readText, bodyFail } from './_body.js';
 import { maskEmail } from './admin-shared.js';
 
 const SHARED_ALERTS = 'adm_shared:alerts';
@@ -136,8 +137,7 @@ export async function onRequestPost({ request, env }) {
   const ip = request.headers.get('CF-Connecting-IP') || '?';
   if (await limit('admpref:' + ip, 120, 60)) return json(request, 429, { error: 'too-fast' });
 
-  const text = await request.text().catch(() => '');
-  if (text.length > 65536) return json(request, 413, { error: 'too-large' });
+  let text; try { text = await readText(request, 65536); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   let b;
   try { b = JSON.parse(text || '{}'); } catch (e) { b = null; }
   if (!b || typeof b !== 'object' || Array.isArray(b)) return json(request, 400, { error: 'body' });

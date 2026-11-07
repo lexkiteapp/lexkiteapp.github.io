@@ -18,6 +18,7 @@ import { internalDb, d1bMode, d1bReady, restDb } from './_d1b.js';
 import { isD1Limit, D1_LIMIT_BODY } from './_d1limit.js';
 import { limit } from './sync.js';
 import { makeFileOps, serveThumb } from './_drive_files.js';
+import { readText, bodyFail } from './_body.js';
 
 const REDIRECT = 'https://lexkite.com/api/drive/callback';
 const SCOPE = 'https://www.googleapis.com/auth/drive.file openid email';
@@ -853,8 +854,7 @@ export const onRequestOptions = ({ request }) => new Response(null, { status: 20
 export async function onRequestPost({ request, env, waitUntil }) {
   // D1 chế độ 'dual': bản chép sang D1 nội bộ chạy nền qua waitUntil (giữ thứ tự) – không bắt Quản trị chờ REST tài khoản 2 (27/10: 7–15 s, có lúc treo)
   const D = (x => (x && x.withDefer && typeof waitUntil === 'function' ? x.withDefer(p => waitUntil(p)) : x))(ddb(env));
-  const text = await request.text().catch(() => '');
-  if (text.length > 524288) return json(request, 413, { error: 'too-large' });
+  let text; try { text = await readText(request, 524288); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   let b; try { b = JSON.parse(text || '{}'); } catch (e) { return json(request, 400, { error: 'json' }); }
   if (!b || typeof b !== 'object' || Array.isArray(b)) return json(request, 400, { error: 'json' });
   if (text.length > 16384 && !BIG_OPS.has(b.op)) return json(request, 413, { error: 'too-large' });

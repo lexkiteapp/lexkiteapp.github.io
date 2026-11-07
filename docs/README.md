@@ -38,6 +38,7 @@
 | PR/backlink (pr-check đọc bảng: `node scripts/pr-check.mjs --table`) | `PR-PLATFORMS.md` · `BACKLINKS.md` |
 | Hạ tầng: sổ tài nguyên · khóa API · bảo vệ admin/nội dung · giấy phép dữ liệu | `INFRA-RULES.md` · `API-KEYS.md` · `ADMIN-SECURITY.md` · `CONTENT-PROTECTION.md` · `CREDITS.md` |
 | Cuộn mượt, CLS khi cuộn | `PERF-SCROLL.md` |
+| Hạ tầng: sổ tài nguyên · khóa API · bảo vệ admin/nội dung · giấy phép dữ liệu | `INFRA-RULES.md` · `API-KEYS.md` · `ADMIN-SECURITY.md` · `SECURITY-CSP.md` · `CONTENT-PROTECTION.md` · `CREDITS.md` |
 | Sao lưu & khôi phục | `ROLLBACK.md` |
 | Audit / nghiên cứu (tham khảo) | `AUDIT-2026-10.md` · `CONTENT-AUDIT-2026-10-25.md` · `audits/` · `research/` · `legal/DMCA-KIT.md` · `agents/DUO-GAP.md` |
 | Lưu trữ (chỉ tra cứu) | `archive/` – METHODS-HISTORY, PLAYBOOK, STORE-READINESS-HISTORY, video cũ. Stub 1 dòng → `VIDEO.md`: VIDEO-PIPELINE, VIDEO-SYSTEM-PLAN, CINE-SCENE-STANDARD, KLING-PLAN, LISTENING-CHANNEL-PLAN, VIDEO-CONTENT-PLAN |

@@ -5,6 +5,7 @@
 // Dùng: node scripts/test/route-vitals.mjs [base] [out.json]   – số ghi vào docs (mục "Tải trang – 6 route").
 import { chromium } from 'playwright';
 import fs from 'node:fs';
+import { waitFn } from '../lib/pw-wait.mjs';
 const base = (process.argv[2] || 'https://lexkite.com').replace(/\/$/, ''), out = process.argv[3] || 'out/route-vitals.json';
 const ONLY = process.env.ONLY ? process.env.ONLY.split(',') : null;
 const ROUTES = [
@@ -67,7 +68,7 @@ const seeded = await mkCtx();
 {
   const pg = await seeded.newPage(); await pg.addInitScript(init, UX1);
   await pg.goto(base + '/app/?hl=vi&demo=1#/home', { waitUntil: 'load', timeout: 90000 });
-  await pg.waitForFunction(() => window.App && App.state && App.state.settings && App.state.settings.onboarded, null, { timeout: 60000 }).catch(e => console.log('⚠ seed: ' + e.message.slice(0, 120)));
+  await waitFn(pg, () => window.App && App.state && App.state.settings && App.state.settings.onboarded, null, { timeout: 60000 }).catch(e => console.log('⚠ seed: ' + e.message.slice(0, 120)));
   console.log('seed: cards=' + await pg.evaluate(() => Object.keys((App.state && App.state.cards) || {}).length).catch(() => '?'));
   await pg.close();
 }

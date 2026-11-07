@@ -5,6 +5,7 @@
 import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module';
 import { chromium } from 'playwright';
 import { THEME_COLOR } from '../lib/site-layout.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 const require = createRequire(import.meta.url), AXE = fs.readFileSync(require.resolve('axe-core'), 'utf8');
 const args = process.argv.slice(2), opt = k => args.includes(k) ? args[args.indexOf(k) + 1] : null;
 const ROOT = path.resolve(args.find((a, i) => !a.startsWith('--') && !/^--/.test(args[i - 1] || '')) || (fs.existsSync('dist') ? 'dist' : 'web'));
@@ -29,7 +30,7 @@ const bad = [], lum = c => { const m = (c.match(/[\d.]+/g) || []).map(Number); c
 if (SHOTS) fs.mkdirSync(SHOTS, { recursive: true });
 let checks = 0;
 for (const [mode, scheme, stored] of MODES) {
-  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, colorScheme: scheme, reducedMotion: 'reduce' });
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, colorScheme: scheme, reducedMotion: 'reduce', bypassCSP: true });
   await serve(ctx);
   await ctx.addInitScript(([s]) => { try { if (!sessionStorage.getItem('__seed')) { sessionStorage.setItem('__seed', '1'); if (s) localStorage.setItem('lk.theme', s); else localStorage.removeItem('lk.theme'); } } catch (e) { /* */ } // chỉ gieo lần đầu mỗi tab → tải lại giữ lựa chọn người dùng
     new MutationObserver((_, o) => { if (document.body) { window.__bg0 = getComputedStyle(document.body).backgroundColor; window.__th0 = document.documentElement.getAttribute('data-theme'); o.disconnect(); } }).observe(document, { childList: true, subtree: true }); }, [stored]);
@@ -50,7 +51,7 @@ for (const [mode, scheme, stored] of MODES) {
     for (const x of v.slice(0, 5)) bad.push(`${tag}: tương phản ${x}`);
     if (SHOTS) await page.screenshot({ path: path.join(SHOTS, `${name}-${mode}.png`), fullPage: false });
     if (st.btn && mode === 'auto-light' && name.startsWith('landing-en')) {
-      await page.waitForFunction(() => window.LkUi, null, { timeout: 5000 }).catch(() => bad.push('landing-en: /js/site-ui.js không nạp sau load')); // vòng bấm trên trang thật: tự động → sáng → tối → tự động, có lưu + nhãn đổi
+      await waitFn(page, () => window.LkUi, null, { timeout: 5000 }).catch(() => bad.push('landing-en: /js/site-ui.js không nạp sau load')); // vòng bấm trên trang thật: tự động → sáng → tối → tự động, có lưu + nhãn đổi
       const seq = [];
       for (let i = 0; i < 3; i++) { await page.click('[data-tsw] >> visible=true'); seq.push(await page.evaluate(() => [document.documentElement.getAttribute('data-theme'), localStorage.getItem('lk.theme'), document.querySelector('[data-tsw]').getAttribute('aria-label')].join('|'))); }
       if (!/^light\|light\|.+: Light theme$/.test(seq[0]) || !/^dark\|dark\|.+: Dark theme$/.test(seq[1]) || !/^\|\|.+: Theme: match system$/.test(seq[2])) bad.push(`landing-en: vòng nút sai ${seq.join(' → ')}`);
@@ -72,7 +73,7 @@ for (const [mode, scheme, stored] of MODES) {
 { const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, colorScheme: 'light' }); await serve(ctx);
   await ctx.addInitScript(() => { try { if (!sessionStorage.getItem('__seed')) { sessionStorage.setItem('__seed', '1'); localStorage.setItem('ielts.settings', JSON.stringify({ theme: 'dark', goal: 20 })); localStorage.setItem('ielts.settingsAt', String(Date.now())); localStorage.setItem('vb.uiLang', 'vi'); } } catch (e) { /* */ } });
   for (const [p, name] of PAGES.filter(([, n]) => /^(landing-en|legal-en|404|blog-en|blog-post-en|tools-en|seo-en)$/.test(n))) {
-    const page = await ctx.newPage(); await page.goto(BASE + p, { waitUntil: 'load' }); await page.waitForFunction(() => window.LkUi, null, { timeout: 5000 }).catch(() => {});
+    const page = await ctx.newPage(); await page.goto(BASE + p, { waitUntil: 'load' }); await waitFn(page, () => window.LkUi, null, { timeout: 5000 }).catch(() => {});
     const r = await page.evaluate(() => ({ th: document.documentElement.getAttribute('data-theme'), logo: (document.querySelector('.flogo,header .logo,.logo') || {}).getAttribute?.('href'), app: [...document.querySelectorAll('a[href^="/app/"]')].map(a => a.getAttribute('href')).filter(h => /hl=/.test(h)), blog: [...document.querySelectorAll('a[href$="/blog/"]:not([hreflang])')].filter(a => !a.closest('[data-lsw],.flang')).map(a => a.getAttribute('href')).filter(h => h !== '/vi/blog/') }));
     if (r.th !== 'dark') bad.push(`sync ${name}: app đặt tối nhưng data-theme=${r.th}`);
     if (r.logo && r.logo !== '/vi/') bad.push(`sync ${name}: app chọn vi nhưng logo → ${r.logo}`);
@@ -80,7 +81,7 @@ for (const [mode, scheme, stored] of MODES) {
     if (r.blog.length) bad.push(`sync ${name}: link blog chưa về bản vi (${r.blog[0]})`);
     checks++; await page.close();
   }
-  const page = await ctx.newPage(); await page.goto(BASE + '/en/', { waitUntil: 'load' }); await page.waitForFunction(() => window.LkUi, null, { timeout: 5000 }).catch(() => {});
+  const page = await ctx.newPage(); await page.goto(BASE + '/en/', { waitUntil: 'load' }); await waitFn(page, () => window.LkUi, null, { timeout: 5000 }).catch(() => {});
   await page.click('[data-tsw] >> visible=true'); // tối → tự động
   const a = await page.evaluate(() => JSON.parse(localStorage.getItem('ielts.settings')));
   await page.click('[data-tsw] >> visible=true'); // → sáng
@@ -92,7 +93,7 @@ for (const [mode, scheme, stored] of MODES) {
 for (const [W, H] of [[1280, 900], [390, 844]]) for (const scheme of ['light', 'dark']) {
   const ctx = await browser.newContext({ viewport: { width: W, height: H }, colorScheme: scheme, reducedMotion: 'reduce' }); await serve(ctx);
   for (const [p, name] of PAGES.filter(([, n]) => /^(landing-en|legal-en|blog-en|404)$/.test(n))) {
-    const page = await ctx.newPage(); await page.goto(BASE + p, { waitUntil: 'load' }); await page.waitForFunction(() => window.LkUi, null, { timeout: 5000 }).catch(() => {});
+    const page = await ctx.newPage(); await page.goto(BASE + p, { waitUntil: 'load' }); await waitFn(page, () => window.LkUi, null, { timeout: 5000 }).catch(() => {});
     if (name === 'landing-en') { // landing v3: chân trang Stitch (chrome.js) – viên giao diện themePill + menu ngôn ngữ thứ hai (nút "Interface", lsw), không có nhóm .fg/.flang
       const tag = `footer ${name} @${W} ${scheme}`; checks++;
       const lf = await page.evaluate(async () => { const F = document.querySelector('footer'), g = F && F.querySelector('.tsp'); if (!g) return { none: 1 };
@@ -137,7 +138,7 @@ if (SHOTS && has('app/index.html')) {
   const link = page.locator('a[href$="/vi/blog/"]:visible').or(page.locator('a[data-blog]:visible')).first(), href = await link.getAttribute('href').catch(() => null);
   if (href) { await link.hover().catch(() => {}); await shot(); await Promise.all([page.waitForURL(/\/blog\//, { timeout: 10000 }).catch(() => {}), link.click()]); await page.waitForLoadState('load'); }
   else { bad.push('gif app→blog: app không có link Blog hiện'); await page.goto(APPB + '/vi/blog/', { waitUntil: 'load' }); }
-  await page.waitForFunction(() => window.LkUi, null, { timeout: 5000 }).catch(() => {}); await page.waitForTimeout(400); await shot();
+  await waitFn(page, () => window.LkUi, null, { timeout: 5000 }).catch(() => {}); await page.waitForTimeout(400); await shot();
   const r = { href, ...(await page.evaluate(() => ({ th: document.documentElement.getAttribute('data-theme'), lang: document.documentElement.lang, path: location.pathname }))) };
   if (r.th !== 'dark') bad.push(`gif app→blog: blog mở từ app nhưng data-theme=${r.th}`);
   if (!/^vi/.test(r.lang)) bad.push(`gif app→blog: app chọn Tiếng Việt nhưng blog mở bản ${r.lang} (${r.path})`);
@@ -155,7 +156,7 @@ if (has('app/index.html')) {
   const st = pg => pg.evaluate(() => ({ th: document.documentElement.getAttribute('data-theme'), th0: window.__th0, bg0: window.__bg0, tc: [...document.querySelectorAll('meta[name=theme-color]')].map(m => m.content) }));
   const app = await ctx.newPage(); const errs = []; app.on('pageerror', e => errs.push(e.message));
   await app.goto(APPB + '/app/', { waitUntil: 'load' }); await app.waitForSelector('#themeBtn', { state: 'attached', timeout: 20000 }).catch(() => bad.push('app→web: không thấy #themeBtn'));
-  await app.waitForFunction(() => document.querySelector('#themeBtn') && document.querySelector('#themeBtn').onclick, null, { timeout: 15000 }).catch(() => {});
+  await waitFn(app, () => document.querySelector('#themeBtn') && document.querySelector('#themeBtn').onclick, null, { timeout: 15000 }).catch(() => {});
   const tap = () => app.evaluate(() => document.querySelector('#themeBtn').click()); // 390 px: nút nằm ở thanh ẩn → gọi đúng onclick của nút app
   await tap(); await tap(); // tự động → sáng → tối (đúng thứ tự nút app)
   const a = await st(app); if (a.th !== 'dark' || a.tc.some(c => c.toUpperCase() !== TC.dark)) bad.push(`app→web: app sau 2 lần bấm data-theme=${a.th}, theme-color=${a.tc}`);
@@ -163,11 +164,11 @@ if (has('app/index.html')) {
     const pg = await ctx.newPage(); await pg.goto(APPB + p, { waitUntil: 'load' }); const r = await st(pg); checks++;
     if (r.th0 !== 'dark' || r.th !== 'dark') bad.push(`app→web ${p}: app chọn Tối nhưng trang vẽ đầu data-theme=${r.th0}, sau tải=${r.th}`);
     if (r.bg0 && lum(r.bg0) >= .2) bad.push(`app→web ${p}: nháy – nền lúc vẽ đầu ${r.bg0} không tối`);
-    await pg.waitForFunction(() => window.LkUi, null, { timeout: 8000 }).catch(() => {});
+    await waitFn(pg, () => window.LkUi, null, { timeout: 8000 }).catch(() => {});
     if ((await st(pg)).tc.some(c => c.toUpperCase() !== TC.dark)) bad.push(`app→web ${p}: theme-color không theo Tối (${(await st(pg)).tc})`);
     await pg.close();
   }
-  const land = await ctx.newPage(); await land.goto(APPB + '/en/', { waitUntil: 'load' }); await land.waitForFunction(() => window.LkUi, null, { timeout: 8000 }).catch(() => {});
+  const land = await ctx.newPage(); await land.goto(APPB + '/en/', { waitUntil: 'load' }); await waitFn(land, () => window.LkUi, null, { timeout: 8000 }).catch(() => {});
   await app.bringToFront(); await tap(); await land.waitForTimeout(300); // tối → tự động (máy sáng)
   if ((await st(land)).th !== null) bad.push(`app→web trực tiếp: app về Tự động nhưng tab landing data-theme=${(await st(land)).th}`);
   await land.bringToFront(); await land.click('.site-foot [data-tsv=dark]').catch(() => land.click('[data-tsw] >> visible=true')); await app.waitForTimeout(300);

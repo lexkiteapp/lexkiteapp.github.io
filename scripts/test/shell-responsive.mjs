@@ -8,6 +8,7 @@
 import fs from 'node:fs';
 import { chromium } from 'playwright';
 import { serve } from './ux-guard-lib.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 const argv = process.argv.slice(2), flag = n => { const i = argv.indexOf(n); return i < 0 ? null : argv.splice(i, 2)[1]; };
 const LABEL = flag('--label') || 'sau', REPORT = argv.includes('--report-only'), [ROOT = 'web', OUT = 'out/shell-responsive'] = argv.filter(a => a !== '--report-only');
 fs.mkdirSync(OUT, { recursive: true });
@@ -73,14 +74,14 @@ const run = async c => {
   for (const r of c.routes) {
     errs.length = 0;
     await page.goto(`https://lk.test/app/?sandbox=1&hl=${c.lang}#/${r}`, { waitUntil: 'load' });
-    await page.waitForFunction(() => document.getElementById('view') && document.getElementById('view').children.length > 0, null, { timeout: 15000 }).catch(() => errs.push('#view trống sau 15 s'));
+    await waitFn(page, () => document.getElementById('view') && document.getElementById('view').children.length > 0, null, { timeout: 15000 }).catch(() => errs.push('#view trống sau 15 s'));
     await page.waitForTimeout(1200);
     await page.evaluate(async () => { App.state.game = App.state.game || {}; App.state.game.xp = 225; await App.route(); }); await page.waitForTimeout(800);
     const m = await page.evaluate(measure); let themeVia = '';
     if (!m.themeBtn && m.hasOpener) { // nút mở menu tài khoản có thật sự dẫn tới mục giao diện?
       const sel = m.opener;
       await page.locator(sel).first().click().catch(e => errs.push('bấm nút tài khoản: ' + e.message));
-      const ok = await page.waitForFunction(() => { const mn = document.querySelector('.ux1-menu'); return !!mn && !!mn.querySelector('[data-m="theme"]') && mn.getBoundingClientRect().height > 0; }, null, { timeout: 4000 }).then(() => true, () => false);
+      const ok = await waitFn(page, () => { const mn = document.querySelector('.ux1-menu'); return !!mn && !!mn.querySelector('[data-m="theme"]') && mn.getBoundingClientRect().height > 0; }, null, { timeout: 4000 }).then(() => true, () => false);
       if (ok) themeVia = 'menu'; await closeAll(page);
     }
     check(c, r, m, errs, themeVia);

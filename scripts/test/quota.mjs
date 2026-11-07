@@ -28,7 +28,8 @@ const jwk = { ...(await webcrypto.subtle.exportKey('jwk', kp.publicKey)), kid: '
 const b64u = b => Buffer.from(b).toString('base64url'), sec = Math.floor(Date.now() / 1000);
 const tok = async (sub, email) => { const h = b64u(JSON.stringify({ alg: 'RS256', kid: 'k1' })), p = b64u(JSON.stringify({ aud: 'lexkite-app', iss: 'https://securetoken.google.com/lexkite-app', exp: sec + 3600, iat: sec, auth_time: sec, sub, email, email_verified: true })); return h + '.' + p + '.' + b64u(await webcrypto.subtle.sign('RSASSA-PKCS1-v1_5', kp.privateKey, new TextEncoder().encode(h + '.' + p))); };
 let gemCalls = 0, waiCalls = 0, mails = 0;
-globalThis.fetch = async url => { if (String(url).includes('googleapis.com/service_accounts')) return { ok: true, json: async () => ({ keys: [jwk] }) }; throw new Error('mạng bị chặn trong test: ' + url); };
+let tsMode = 'ok', tsCalls = 0; // Turnstile siteverify giả: 'ok' | 'bad' | 'down' (lỗi mạng) | '500'
+globalThis.fetch = async (url, init) => { if (String(url).includes('googleapis.com/service_accounts')) return { ok: true, json: async () => ({ keys: [jwk] }) }; if (String(url) === 'https://challenges.cloudflare.com/turnstile/v0/siteverify') { tsCalls++; if (tsMode === 'down') throw new Error('net'); if (tsMode === '500') return new Response('x', { status: 500 }); const tok = new URLSearchParams(String(init.body)).get('response'); return new Response(JSON.stringify({ success: tsMode === 'ok' && tok === 'ts-good' })); } throw new Error('mạng bị chặn trong test: ' + url); };
 
 const log = console.log; console.log = (...a) => { if (!/^(gemini fallback|gemini |ai error)/.test(String(a[0]))) log(...a); };
 sql.exec('CREATE TABLE users (uid TEXT PRIMARY KEY, email TEXT, name TEXT, created INTEGER NOT NULL, seen INTEGER NOT NULL, plat TEXT, n INTEGER DEFAULT 1)');
@@ -45,7 +46,7 @@ const MAIL = { fetch: async () => { mails++; return new Response('ok'); } };
 const ENV = { DB, AI: WAI, GEM, MAIL, GEMINI_KEY: 'gk_test_SECRET_1', ADMIN_EMAILS: 'boss@lexkite.com', UNLIMITED_EMAILS: 'teacher@school.edu' };
 const ORIGIN = 'https://lexkite.com';
 let ipSeq = 1; const freshIp = () => `203.0.113.${ipSeq++}`;
-const req = (path, body, { tk, dev, ip = '198.51.100.7', origin = ORIGIN } = {}) => new Request('https://lexkite.com' + path, { method: 'POST', headers: { 'Content-Type': 'application/json', Origin: origin, 'CF-Connecting-IP': ip, ...(tk ? { Authorization: 'Bearer ' + tk } : {}), ...(dev ? { 'X-Lexkite-Device': dev } : {}) }, body: JSON.stringify(body) });
+const req = (path, body, { tk, dev, ip = '198.51.100.7', origin = ORIGIN, hdr = {} } = {}) => new Request('https://lexkite.com' + path, { method: 'POST', headers: { 'Content-Type': 'application/json', Origin: origin, 'CF-Connecting-IP': ip, ...(tk ? { Authorization: 'Bearer ' + tk } : {}), ...(dev ? { 'X-Lexkite-Device': dev } : {}), ...hdr }, body: JSON.stringify(body) });
 const parse = async r => { const text = await r.text(); let j = {}; try { j = JSON.parse(text); } catch (e) { /* bỏ qua */ } return { s: r.status, j, text, h: r.headers }; };
 let pn = 0; const prompt = () => 'Please grade this IELTS essay about technology and society, number ' + (++pn) + '. '.repeat(3);
 const ai = (o = {}, body = {}) => AI.onRequestPost({ request: req('/api/ai', { prompt: prompt(), sys: 'grader', ...body }, o), env: o.env || ENV }).then(parse);
@@ -198,5 +199,77 @@ const shapeOk = j => JSON.stringify(Object.keys(j).sort()) === JSON.stringify([.
   ok(!g.res, 'D1 hỏng → cho qua (không chặn nhầm người học)');
 }
 
-console.log(fails ? `✗ quota: ${fails}/${n} kiểm tra lỗi` : `✓ quota: ${n} kiểm tra – bậc, danh sách không giới hạn, burst/ngày, chặn theo IP, cầu dao, dạng 429, quản trị, khóa tự động`);
+// 11) Người thật (02/11): vé /api/human + cờ AI_HUMAN_ENFORCE ở /api/ai; contact bắt buộc Turnstile/vé, siteverify lỗi → chặn (fail closed)
+{
+  const HU = await import(new URL('../../functions/api/human.js', import.meta.url));
+  const H = await import(new URL('../../functions/api/_human.js', import.meta.url));
+  const TS = { ...ENV, TURNSTILE_SECRET_KEY: 'ts_test_SECRET_key' }, ENF = { ...TS, AI_HUMAN_ENFORCE: '1' };
+  sql.exec("DELETE FROM quota_config WHERE feature IN ('ai', 'contact')"); sql.exec('DELETE FROM quota_flag'); sql.exec('DELETE FROM quota_allow'); Q.resetState(); clearEdge(); // về DEFAULTS (ai khách 10/ngày)
+  const human = (body, o = {}) => HU.onRequestPost({ request: req('/api/human', body, o), env: o.env || TS }).then(parse);
+  const d1 = dev('hum1'), d2 = dev('hum2'), dsw = dev('humsw');
+  tsMode = 'ok';
+  ok((await human({ token: 'ts-good' }, { env: ENV, dev: d1 })).s === 503, 'human: chưa có TURNSTILE_SECRET_KEY → 503 not-configured');
+  ok((await human({ token: 'ts-good' }, {})).s === 400, 'human: thiếu mã thiết bị → 400');
+  ok((await human({ token: 'ts-wrong' }, { dev: d1, ip: freshIp() })).s === 403, 'human: token Turnstile sai → 403');
+  tsMode = 'down'; const hd = await human({ token: 'ts-good' }, { dev: d1, ip: freshIp() });
+  ok(hd.s === 503 && hd.j.error === 'turnstile-unavailable' && !hd.j.ticket, 'human: siteverify lỗi mạng → 503, KHÔNG cấp vé (fail closed)');
+  tsMode = '500'; ok((await human({ token: 'ts-good' }, { dev: d1, ip: freshIp() })).s === 503, 'human: siteverify 500 → 503');
+  tsMode = 'ok';
+  const hv = await human({ token: 'ts-good', dev2: dsw }, { dev: d1, ip: freshIp() });
+  ok(hv.s === 200 && /^h1\./.test(hv.j.ticket) && hv.j.exp > Date.now() + 11 * 3600e3, 'human: token đúng → vé 12 h');
+  const T = hv.j.ticket;
+  ok(await H.checkTicket(TS, T, d1) && await H.checkTicket(TS, T, dsw), 'vé gắn cả mã trang add-on + service worker');
+  ok(!(await H.checkTicket(TS, T, d2)), 'vé: sai thiết bị → không hợp lệ');
+  ok(!(await H.checkTicket({ ...TS, TURNSTILE_SECRET_KEY: 'other_secret' }, T, d1)), 'vé: khóa khác → không hợp lệ');
+  ok(!(await H.checkTicket(TS, T, d1, Date.now() + 13 * 3600e3)), 'vé: hết hạn → không hợp lệ');
+  const [p0, p1, sg] = T.split('.'), forged = p0 + '.' + Buffer.from(JSON.stringify({ d: [d2], e: Date.now() + 3600e3 })).toString('base64url') + '.' + sg;
+  ok(!(await H.checkTicket(TS, forged, d2)), 'vé giả: sửa payload giữ chữ ký → không hợp lệ');
+  const far = await H.issueTicket(TS, [d1], Date.now() + 48 * 3600e3);
+  ok(!(await H.checkTicket(TS, far.ticket, d1)), 'vé hạn xa > 12 h (đồng hồ lệch/giả) → không hợp lệ');
+  ok(!(await H.checkTicket(TS, p0 + '.' + p1 + '.' + 'A'.repeat(43), d1)), 'vé: chữ ký sai → không hợp lệ');
+
+  // /api/ai – cờ bật: khách không vé/vé giả/hết hạn/sai thiết bị → 403 human; có vé → chạy; đăng nhập → khỏi vé
+  clearEdge();
+  const a0 = await ai({ dev: d1, ip: freshIp(), env: ENF });
+  ok(a0.s === 403 && a0.j.error === 'human', 'ai (cờ bật): khách không vé → 403 human');
+  ok((await ai({ dev: d2, ip: freshIp(), env: ENF, hdr: { 'X-Lexkite-Human': T } })).s === 403, 'ai (cờ bật): vé của thiết bị khác → 403');
+  ok((await ai({ dev: d2, ip: freshIp(), env: ENF, hdr: { 'X-Lexkite-Human': forged } })).s === 403, 'ai (cờ bật): vé giả → 403');
+  const exp = await H.issueTicket(TS, [d2], Date.now() - 13 * 3600e3);
+  ok((await ai({ dev: d2, ip: freshIp(), env: ENF, hdr: { 'X-Lexkite-Human': exp.ticket } })).s === 403, 'ai (cờ bật): vé hết hạn → 403');
+  const a1 = await ai({ dev: d1, ip: freshIp(), env: ENF, hdr: { 'X-Lexkite-Human': T } });
+  ok(a1.s === 200 && a1.j.left === 9, 'ai (cờ bật): vé đúng → chạy, hạn mức khách đủ (10/ngày)');
+  const a2 = await ai({ tk: await tok('human-u1', 'h1@gmail.com'), ip: freshIp(), env: ENF });
+  ok(a2.s === 200, 'ai (cờ bật): đăng nhập → khỏi cần vé');
+  // cờ chưa bật (chuyển tiếp – add-on/app cũ trong bộ đệm không sập): không vé vẫn chạy nhưng ½ hạn mức khách
+  const d3 = dev('hum3'), ip3 = freshIp(); let last;
+  for (let i = 0; i < 5; i++) { if (i % 5 === 0) clearEdge(); last = await ai({ dev: d3, ip: ip3, env: TS }); }
+  ok(last.s === 200 && last.j.left === 0, 'ai (cờ tắt): khách không vé vẫn chạy, hạn mức ½ (5/ngày)');
+  clearEdge(); const over = await ai({ dev: d3, ip: ip3, env: TS });
+  ok(over.s === 429 && over.j.error === 'quota', 'ai (cờ tắt): quá ½ hạn mức → 429 (gợi ý đăng nhập/xác minh)');
+  const ok3 = await ai({ dev: d3, ip: ip3, env: TS, hdr: { 'X-Lexkite-Human': (await H.issueTicket(TS, [d3])).ticket } });
+  ok(ok3.s === 200 && ok3.j.left === 3, 'ai (cờ tắt): hết ½ rồi xác minh → dùng tiếp phần còn lại của hạn mức đủ (lượt bị từ chối vẫn tính như cũ)');
+  ok((await ai({ dev: dev('hum4'), ip: freshIp(), env: ENV })).s === 200, 'ai: chưa cấu hình Turnstile → như cũ (dev/test)');
+
+  // /api/contact: có TURNSTILE_SECRET_KEY → bắt buộc token hoặc vé; siteverify lỗi → 503 (trước đây cho qua)
+  const cbody = (x = {}) => ({ name: 'A', email: 'a@b.co', msg: 'Hello there, a question', ms: 5000, ...x });
+  const ct = (body, o = {}) => CT.onRequestPost({ request: req('/api/contact', body, { ip: freshIp(), ...o }), env: o.env || TS }).then(parse);
+  const c0 = await ct(cbody());
+  ok(c0.s === 403 && c0.j.error === 'human', 'contact: thiếu token/vé → 403');
+  const cx = o => ct(cbody(), { origin: 'chrome-extension://abcdefghijklmnopabcdefghijklmnop', ...o });
+  ok((await cx()).s === 200, 'contact: add-on/app BẢN CŨ (Origin không phải web) thiếu bằng chứng → vẫn gửi được khi cờ chưa bật (chuyển tiếp)');
+  ok((await cx({ env: { ...TS, AI_HUMAN_ENFORCE: '1' } })).s === 403, 'contact: cờ AI_HUMAN_ENFORCE=1 → add-on/app cũ thiếu bằng chứng → 403');
+  ok((await ct(cbody(), { origin: '' })).s === 200 && (await ct(cbody(), { origin: '', env: { ...TS, AI_HUMAN_ENFORCE: '1' } })).s === 403, 'contact: không Origin → như add-on cũ (theo cờ)');
+  ok((await ct(cbody({ token: 'ts-wrong' }))).s === 403, 'contact: token sai → 403');
+  tsMode = 'down'; const cd = await ct(cbody({ token: 'ts-good' }));
+  ok(cd.s === 503 && cd.j.error === 'turnstile-unavailable', 'contact: siteverify lỗi mạng → 503 (fail closed, máy khách thử lại)');
+  tsMode = 'ok';
+  ok((await ct(cbody({ token: 'ts-good' }))).s === 200, 'contact: token đúng → gửi');
+  ok((await ct(cbody(), { dev: d1, hdr: { 'X-Lexkite-Human': T } })).s === 200, 'contact: vé người thật (app gốc) → gửi');
+  ok((await ct(cbody({ hp: 'bot' }))).s === 200, 'contact: ô bẫy → vẫn giả vờ thành công (không lộ cho bot)');
+  ok((await ct(cbody(), { env: ENV })).s === 200, 'contact: chưa cấu hình Turnstile → như cũ');
+  const pre = await CT.onRequestOptions({ request: new Request('https://lexkite.com/api/contact', { method: 'OPTIONS', headers: { Origin: 'capacitor://localhost' } }) });
+  ok(/X-Lexkite-Human/.test(pre.headers.get('Access-Control-Allow-Headers') || ''), 'contact: CORS cho phép header X-Lexkite-Human (app gốc)');
+}
+
+console.log(fails ? `✗ quota: ${fails}/${n} kiểm tra lỗi` : `✓ quota: ${n} kiểm tra – bậc, danh sách không giới hạn, burst/ngày, chặn theo IP, cầu dao, dạng 429, quản trị, khóa tự động, người thật (vé/cờ/contact fail closed)`);
 process.exit(fails ? 1 : 0);

@@ -14,6 +14,7 @@ import { guardBg } from './_d1guard.js';
 import { limit } from './sync.js';
 import { latestFile, driveMedia } from './drive.js';
 import DATA from './_shorts_data.js';
+import { readJSON, BodyError } from './_body.js';
 
 const REPO = 'lexkiteapp/lexkite-shorts';
 export const MANIFEST = { folder: 'shorts/_admin', name: 'admin-shorts.json' };
@@ -83,7 +84,7 @@ export const onRequestOptions = ({ request }) => new Response(null, { status: 20
 
 export async function onRequestPost({ request, env }) {
   const g = await adminGate(request, env, 'adm'); if (!g.who) return json(request, g.status, { error: g.error });
-  let b; try { b = await request.json(); } catch (e) { b = null; }
+  let b; try { b = await readJSON(request, 65536); } catch (e) { if (e instanceof BodyError && e.status === 413) return json(request, 413, { error: 'too-large' }); b = null; }
   if (!b || typeof b !== 'object') return json(request, 400, { error: 'body' });
   { const gb = await guardBg(request, env, json); if (gb) return gb; } // cầu dao D1 (_d1guard.js): việc nền/quản trị dừng khi tài khoản đã đọc ≥ 50 % hạn mức
   if (b.op === 'list') {

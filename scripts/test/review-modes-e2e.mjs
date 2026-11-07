@@ -5,6 +5,7 @@
 import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module';
 import { chromium } from 'playwright';
 import { serve } from './stitch-screens.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 const ROOT = path.resolve(process.argv[2] || 'web'), OUT = process.argv[3] || 'out/review-modes'; fs.mkdirSync(OUT, { recursive: true });
 const AXE = createRequire(import.meta.url).resolve('axe-core');
 let fails = 0; const ok = (c, m) => { if (!c) { fails++; console.error('✗', m); } else console.log('✓', m); };
@@ -25,7 +26,7 @@ async function run(tag, ctxOpts, lang) {
   const page = await ctx.newPage(), errs = [];
   page.on('pageerror', e => errs.push(e.message));
   const url = h => `https://lk.test/app/?sandbox=1&hl=${lang}#/${h}`;
-  await page.goto(url('home'), { waitUntil: 'load' }); await page.waitForFunction(() => window.App && App.state && App.saveSettings && window.Core, null, { timeout: 30000 });
+  await page.goto(url('home'), { waitUntil: 'load' }); await waitFn(page, () => window.App && App.state && App.saveSettings && window.Core, null, { timeout: 30000 });
   await page.evaluate(seed); await page.reload({ waitUntil: 'load' });
   await page.goto(url('review'), { waitUntil: 'load' }); await page.waitForSelector('#rmSel', { timeout: 30000 });
   const mobile = ctxOpts.viewport.width < 600;
@@ -45,20 +46,20 @@ async function run(tag, ctxOpts, lang) {
   await check('flip');
   await page.keyboard.press('Space'); await page.waitForSelector('#flash.flipped', { timeout: 3000 }).catch(() => {});
   ok(await page.$('#flash.flipped'), `${tag} Lật: Space lật thẻ`);
-  await page.keyboard.press('3'); await page.waitForFunction(() => /✅\s*1\b/.test(document.querySelector('.study-top').textContent), null, { timeout: 5000 }).catch(() => {});
+  await page.keyboard.press('3'); await waitFn(page, () => /✅\s*1\b/.test(document.querySelector('.study-top').textContent), null, { timeout: 5000 }).catch(() => {});
   ok(await doneOf(page) === 1, `${tag} Lật: phím 3 chấm xong (đã ôn 1)`);
 
   // 2) Đổi sang Gõ giữa phiên: tiến độ giữ nguyên; gõ HOA vẫn đúng; Enter trên nút được gợi ý = chấm
   await page.selectOption('#rmSel', 'type'); await page.waitForSelector('#typeIn', { timeout: 5000 }).catch(() => {});
   ok(await doneOf(page) === 1, `${tag}: đổi chế độ giữa phiên không mất tiến độ`);
-  ok(await page.waitForFunction(() => document.activeElement && document.activeElement.id === 'typeIn', null, { timeout: 2000 }).then(() => true, () => false), `${tag} Gõ: ô gõ tự nhận focus`);
+  ok(await waitFn(page, () => document.activeElement && document.activeElement.id === 'typeIn', null, { timeout: 2000 }).then(() => true, () => false), `${tag} Gõ: ô gõ tự nhận focus`);
   await check('type');
   const w1 = await word(page); await page.keyboard.type(`  ${w1.toUpperCase()} `); await page.keyboard.press('Enter');
   await page.waitForSelector('#flash.flipped', { timeout: 3000 }).catch(() => {});
   const sg = await page.evaluate(() => { const b = document.querySelector('[data-grade].suggest'); return b && b === document.activeElement ? +b.dataset.grade : -1; });
   ok(sg >= 2, `${tag} Gõ: "${w1.toUpperCase()}" (HOA, thừa khoảng trắng) = đúng → gợi ý Nhớ/Dễ và focus vào nút (mức ${sg})`);
   ok(/✅/.test(await page.textContent('#typeRes')), `${tag} Gõ: báo Chính xác`);
-  await page.keyboard.press('Enter'); await page.waitForFunction(() => /✅\s*2\b/.test(document.querySelector('.study-top').textContent), null, { timeout: 5000 }).catch(() => {});
+  await page.keyboard.press('Enter'); await waitFn(page, () => /✅\s*2\b/.test(document.querySelector('.study-top').textContent), null, { timeout: 5000 }).catch(() => {});
   ok(await doneOf(page) === 2, `${tag} Gõ: Enter chấm xong (đã ôn 2)`);
 
   // 3) Nghe chọn nghĩa: 4 phương án khác nhau, có đáp án; âm thanh không treo ở "đang tải"; phím số chọn, ✓ không chỉ màu
@@ -68,7 +69,7 @@ async function run(tag, ctxOpts, lang) {
   const right = await page.evaluate(() => (document.querySelector('.back .wi-vi') || {}).textContent || '');
   ok(opts.length === 4 && new Set(opts).size === 4, `${tag} Nghe: 4 phương án không trùng (${opts.join(' / ')})`);
   ok(opts.filter(o => o === right).length === 1, `${tag} Nghe: đúng 1 phương án là nghĩa của từ`);
-  await page.waitForFunction(() => !document.querySelector('#rmPlay[aria-busy]'), null, { timeout: 10000 }).catch(() => {});
+  await waitFn(page, () => !document.querySelector('#rmPlay[aria-busy]'), null, { timeout: 10000 }).catch(() => {});
   ok(!(await page.$('#rmPlay[aria-busy]')), `${tag} Nghe: trạng thái âm thanh kết thúc (phát được hoặc báo lỗi), không treo`);
   await check('audio');
   await page.keyboard.press(String(opts.indexOf(right) + 1)); await page.waitForSelector('#flash.flipped', { timeout: 3000 }).catch(() => {});

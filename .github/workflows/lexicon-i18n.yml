@@ -41,7 +41,10 @@ jobs:
         run: node scripts/build-lexicon.mjs --write
       - name: Dịch theo nghĩa + duyệt
         if: env.SKIP != '1'
-        run: node scripts/lexicon/i18n-job.mjs --calls "${{ github.event.inputs.calls || '120' }}" ${{ github.event.inputs.langs && format('--langs {0}', github.event.inputs.langs) || '' }}
+        env:
+          LX_LANGS: ${{ github.event.inputs.langs }}
+          LX_CALLS: ${{ github.event.inputs.calls || '120' }}
+        run: node scripts/lexicon/i18n-job.mjs --calls "$LX_CALLS" ${LX_LANGS:+--langs "$LX_LANGS"}
       - name: Lưu kết quả
         if: env.SKIP != '1'
         run: |

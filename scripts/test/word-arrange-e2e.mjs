@@ -4,6 +4,7 @@
 import fs from 'node:fs'; import path from 'node:path';
 import * as pw from 'playwright';
 import { serve } from './ux-guard-lib.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 const [ROOT = 'web', OUT = 'out/word-arrange'] = process.argv.slice(2), NAME = process.env.PW_BROWSER || 'chromium';
 fs.mkdirSync(OUT, { recursive: true });
 const WORDS = ['Hi', 'can', 'I', 'have', 'a', 'large', 'iced', 'coffee', 'with', 'extra', 'milk', 'please'], EXTRA = ['seven', 'day'];
@@ -54,7 +55,7 @@ async function run(width, scheme, lang, touch) {
 
   // Đề cố định, câu dài + 2 từ nhiễu như ảnh chủ dự án; thẻ xáo theo bảng chữ cái để chọn thẻ tất định. Đề 1 đáp đúng, đề 2 đáp sai để kiểm chấm.
   await page.goto(`https://lk.test/app/?sandbox=1&ux1=1&hl=${lang}#/lesson?demo=1`, { waitUntil: 'load' });
-  await page.waitForFunction(() => window.App && App.need);
+  await waitFn(page, () => window.App && App.need);
   await page.evaluate(async ({ WORDS, EXTRA }) => {
     await App.need('lesson'); const E = window.LessonEngine, orig = E.build, tiles = WORDS.concat(EXTRA).sort();
     E.build = (...a) => { const r = orig(...a), base = r.find(x => x.card) || r[0], mk = (id, type) => Object.assign({}, base, { id, type, noAudio: true, sent: WORDS.join(' '), prompt: '', answer: WORDS.join(' '), tiles, choice: false, retry: 0 }); return [mk(9001, 'build'), mk(9002, 'tr'), ...r]; };
@@ -169,7 +170,7 @@ async function run(width, scheme, lang, touch) {
   const before = await words(); await P.down(...locked); await glide(...locked, locked[0], locked[1] + 200, 4); await P.up(); await page.waitForTimeout(120);
   ok((await words()).join() === before.join(), T('đã chấm: khóa kéo'));
   await page.evaluate(() => { const n = document.querySelector('#lsnNext') || document.querySelector('#lsnCheck'); n.click(); }); await page.waitForTimeout(800);
-  await page.waitForFunction(() => App._lsn.sess.cur && App._lsn.sess.cur.id === 9002 && document.querySelector('#lsnBank'), null, { timeout: 8000 }).catch(() => {});
+  await waitFn(page, () => App._lsn.sess.cur && App._lsn.sess.cur.id === 9002 && document.querySelector('#lsnBank'), null, { timeout: 8000 }).catch(() => {});
   for (const w of [...WORDS].reverse()) await tap(w);
   await page.waitForTimeout(200);
   await page.click('#lsnCheck'); await page.waitForTimeout(500);

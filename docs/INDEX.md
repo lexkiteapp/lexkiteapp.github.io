@@ -5,6 +5,7 @@
 
 ## Tài liệu hiện hành (docs/)
 - [ADMIN-SECURITY.md](ADMIN-SECURITY.md) — Các lớp bảo vệ trang /admin: adminGate ở API (Origin, rate-limit, Firebase token + email_verified + ADMIN_EMAILS), cổng whoami ở trình duyệt; đọc khi: sửa trang/API quản trị hoặc bật Cloudflare Access
+- [SECURITY-CSP.md](SECURITY-CSP.md) — CSP chặn thật của web: header allowlist + meta hash từng script nội tuyến (build), cấm on*=; đọc khi thêm script nội tuyến/host ngoài/bật quảng cáo
 - [ADS.md](ADS.md) — Thiết kế quảng cáo một lần, mọi cờ TẮT: AdMob (app), AdSense (web), add-on Chrome không bao giờ; chỉ đặt ở điểm nghỉ của bài học; đọc khi: đụng tới quảng cáo, đồng ý, hoặc bật nền tảng quảng cáo mới
 - [API-KEYS.md](API-KEYS.md) — Bộ quản lý khóa API (Gemini, Groq, OpenRouter, Anthropic, OpenAI, Resend, Brevo, Cloudflare) trong một kho mã hóa, tự xoay vòng và báo sức khỏe; đọc khi: thêm/xoay khóa hoặc sửa _keys.js
 - [ACCOUNTS-LEDGER.md](ACCOUNTS-LEDGER.md) — Sổ tài khoản & khóa trong Admin: dịch vụ/khóa thuộc email nào, giữ ở đâu (chỉ tên), hạn + nhắc 14 ngày, có/thiếu secret. Đọc khi thêm secret hoặc gia hạn token.
@@ -83,6 +84,7 @@
 - [QA-BOT.md](QA-BOT.md) — bot QA trên CI: hành trình học sandbox + đầu dò giao diện ẩn 390/768/1440 sáng/tối + hiệu năng + dung lượng, trước/sau trên PR, live sau deploy; đọc khi: sửa giao diện app, bot đỏ
 - [QUALITY-SWEEP.md](QUALITY-SWEEP.md) — quality-sweep: quét lỗi tiềm ẩn hằng đêm (22:40 UTC, 0 token LLM) và journey-e2e; mở 1 issue + 1 dòng bản tin; đọc khi: sửa/đọc kết quả quét đêm
 - [QUOTAS.md](QUOTAS.md) — Hạn mức & chống lạm dụng: rà endpoint, danh tính/bậc, hạn mức mặc định, cầu dao nhà cung cấp (≤80% gói miễn phí), phản hồi 429; đọc khi: thêm endpoint tốn tài nguyên
+- [HUMAN.md](HUMAN.md) — Xác minh người thật (Turnstile + vé 12 h /api/human, iframe human.html cho app gốc/add-on), prompt hệ thống cố định /api/ai, giới hạn body _body.js, cờ AI_HUMAN_ENFORCE; đọc khi: sửa /api/ai, contact, report, human hoặc trước khi bật cờ
 - [TEACHER-IN-APP.md](TEACHER-IN-APP.md) — Giáo viên 3D Ama/Carlos trong app: Call with Ama/Carlos local-first, khớp môi viseme (pilot A 3D vs B sprite), free-tier 1M DAU, ngân sách tải; đọc khi: làm call/pron/clip giáo viên
 - [README.md](README.md) — Mục lục đọc-trước của docs/: thứ tự đầu phiên và mô tả nhóm tài liệu; đọc khi: đầu phiên
 - [RETENTION.md](RETENTION.md) — Lớp giữ thói quen: lịch tuần, mốc chuỗi, rã băng, sự kiện mùa, rương mỹ phẩm, widget giáo viên (cờ ret); đọc khi: sửa streak/thưởng

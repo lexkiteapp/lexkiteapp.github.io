@@ -23,9 +23,12 @@ jobs:
     outputs: { list: '${{ steps.m.outputs.list }}', shards: '${{ steps.m.outputs.shards }}' }
     steps:
       - id: m
+        env:
+          LX_TPL: ${{ github.event.inputs.templates }}
+          LX_SHARDS: ${{ github.event.inputs.shards || 1 }}
         run: |
-          echo "list=$(python3 -c "import json,sys;print(json.dumps([x.strip() for x in '${{ github.event.inputs.templates }}'.split(',') if x.strip()]))")" >> "$GITHUB_OUTPUT"
-          N=${{ github.event.inputs.shards || 1 }}; [ "$N" -ge 1 ] || N=1
+          echo "list=$(python3 -c "import json,os;print(json.dumps([x.strip() for x in os.environ['LX_TPL'].split(',') if x.strip()]))")" >> "$GITHUB_OUTPUT"
+          N="$LX_SHARDS"; case "$N" in ''|*[!0-9]*) N=1;; esac; [ "$N" -ge 1 ] || N=1
           echo "shards=$(python3 -c "import json;print(json.dumps(list(range($N))))")" >> "$GITHUB_OUTPUT"
   voice:
     needs: setup
@@ -90,12 +93,14 @@ jobs:
         with: { name: 'vo-${{ matrix.t }}-${{ github.run_number }}', path: vo }
       - name: Render (shard ${{ matrix.i }} of ${{ github.event.inputs.shards || 1 }})
         shell: bash
+        env:
+          LX_PLAN: ${{ github.event.inputs.plan }}
         run: |
           set -o pipefail
           mkdir -p $O
           python3 -m pyflakes scripts/video/tpl/render_v9.py scripts/video/tpl/qc_v9.py | grep -E 'undefined name|syntax error' && { echo '::error::render/qc code has undefined names'; exit 1; } || true   # fail fast (a commented-out assignment cost a full render)
           ARGS="--spec $SPEC --vo vo/vis3 --foot footage --fonts brand/social/src/fonts --img img --cache .dmcache --out $O/${{ matrix.t }}.mp4"
-          if [ "${{ github.event.inputs.plan }}" = "true" ]; then
+          if [ "$LX_PLAN" = "true" ]; then
             [ "${{ matrix.i }}" = "0" ] || exit 0
             python3 scripts/video/tpl/render_v9.py $ARGS --plan $O/plan.json 2>&1 | grep -v '^frame ' | tee $O/plan.log
             cp vo/vis3/*.words.json $O/ 2>/dev/null || true; mkdir -p $O/vo && cp vo/vis3/* $O/vo/ 2>/dev/null || true; exit 0

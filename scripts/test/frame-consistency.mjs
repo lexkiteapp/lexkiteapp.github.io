@@ -16,6 +16,7 @@ import path from 'node:path';
 import { noProd } from './lib/no-prod.mjs';
 import { serve } from '../quality/serve.mjs';
 import { FIXED } from './lib/learn-samples.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const ROOT = arg('root', 'dist'), OUT = path.resolve(arg('out', 'out/frame-consistency')), ONLY = arg('only', '');
@@ -110,13 +111,13 @@ const mk = async (w, theme) => {
   const page = await ctx.newPage(); const errs = [];
   page.on('pageerror', e => errs.push(String(e.message).slice(0, 120)));
   await page.goto(`${O}/app/?sandbox=1&hl=en#/home`, { waitUntil: 'load', timeout: 60000 });
-  await page.waitForFunction(() => window.App && App.routes && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 45000 });
+  await waitFn(page, () => window.App && App.routes && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 45000 });
   await sleep(800);
   return { ctx, page, errs, w, theme };
 };
 const go = async (P, h) => {
   await P.page.evaluate(x => { if (window.UI && UI.closeModal) UI.closeModal(); if (window.App && App.state.settings) App.state.settings.onboarded = !/^#?\/welcome/.test(x); /* người có dữ liệu không thấy lại trang giới thiệu (docs/specs/welcome.md) → chỉ trong bộ nhớ */ location.hash = x; window.scrollTo(0, 0); }, h);
-  await P.page.waitForFunction(x => location.hash === '#' + x.split('#').pop() || true, h).catch(() => {});
+  await P.waitFn(page, x => location.hash === '#' + x.split('#').pop() || true, h).catch(() => {});
   await sleep(1100);
   await P.page.evaluate(() => window.scrollTo(0, 0));
 };

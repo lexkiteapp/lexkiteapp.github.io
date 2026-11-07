@@ -21,6 +21,7 @@ import { gate } from './_quota.js';
 import { once } from './_schema.js';
 import { adRows, guardOf } from './_ads.js';
 import { purgeConfig } from './config.js';
+import { readJSON } from './_body.js';
 import { landKey, normRef } from './_cpm.js';
 const QUIZ_EV = ['quiz_view', 'quiz_done', 'quiz_cta'];
 const RET_EV = ['ret_on_seen', 'ret_off_seen', 'ret_on_d7', 'ret_off_d7']; // thử nghiệm cờ ret (web/js/app.js retTrack): nhóm bật/đối chứng – đã thấy / chuỗi chạm 7 → kind 'ret:<ev>' (D7 = d7/seen)
@@ -186,8 +187,7 @@ export async function adsGuard(db, now = Date.now()) {
 export async function onRequestPost({ request, env }) {
   if (!env.DB) return ok();
   if ((await gate(request, env, 'hit', { who: null })).res) return ok(); // 1 IP gửi dồn dập → bỏ qua im lặng (thống kê không bao giờ làm hỏng app)
-  if (+(request.headers.get('Content-Length') || 0) > 65536) return ok(); // beacon thật chỉ vài KB
-  let b; try { b = JSON.parse(await request.text()); } catch (e) { return ok(); }
+  let b; try { b = await readJSON(request, 65536); } catch (e) { return ok(); } // beacon thật chỉ vài KB; vượt trần/Content-Length giả → bỏ qua im lặng
   if (!b || typeof b !== 'object') return ok();
   const auto = automation(request);
   if (auto && b && b.t !== 's') return ok(); // máy tự động: chỉ đếm phiên (để Quản trị hiện "đã loại"), không ghi lỗi JS / add-on

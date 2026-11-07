@@ -1,6 +1,7 @@
 // Cổng sân khấu Truyện + khung bài tập (docs/specs/story-stage.md). Phần TĨNH chạy trong npm test; phần TRÌNH DUYỆT (playwright) chạy khi có + cờ --browser (story-stage.yml).
 //   node scripts/test/story-stage.mjs [--browser] [--out out/story-stage]
 import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module';
+import { waitFn } from '../lib/pw-wait.mjs';
 const A = process.argv.slice(2), BROWSER = A.includes('--browser'), OUT = A.includes('--out') ? A[A.indexOf('--out') + 1] : 'out/story-stage';
 const errs = [], rd = f => fs.readFileSync(f, 'utf8'), ok = (c, m) => { if (!c) errs.push(m); };
 // ---------- tương phản WCAG (thuần) ----------
@@ -69,7 +70,7 @@ async function browser() {
         ok(fl.floor.bottom <= fl.vh && fl.floor.top >= 0, `${tag}: bệ .ss-floor ngoài viewport`);
         ok(fl.sheet.top - fl.floor.top >= 4, `${tag}: bệ .ss-floor bị tấm hội thoại che hết (cần lộ ≥ 4 px)`); }
       // chạm Tiếp tục → âm chỉ phát sau chạm, người nói sáng, đổi theo dòng
-      const speakers = []; { await page.click('#lsnGo').catch(() => {}); await page.waitForFunction(() => { const s = document.querySelector('.ss-stage'); return s && s.dataset.speaker; }, null, { timeout: 3000 }).catch(() => {}); speakers.push(await page.evaluate(() => (document.querySelector('.ss-stage') || {}).dataset?.speaker)); } // 1 lần chạm: dòng 2 (Carlos); chạm tiếp là vào bài Xếp câu của truyện
+      const speakers = []; { await page.click('#lsnGo').catch(() => {}); await waitFn(page, () => { const s = document.querySelector('.ss-stage'); return s && s.dataset.speaker; }, null, { timeout: 3000 }).catch(() => {}); speakers.push(await page.evaluate(() => (document.querySelector('.ss-stage') || {}).dataset?.speaker)); } // 1 lần chạm: dòng 2 (Carlos); chạm tiếp là vào bài Xếp câu của truyện
       ok(new Set(speakers.filter(Boolean)).size >= 1, `${tag}: người nói không sáng (data-speaker)`);
       ok((await page.evaluate(() => window.__plays)) > 0 || eng === 'webkit', `${tag}: không phát âm sau khi chạm`);
       const act = await page.evaluate(() => [...document.querySelectorAll('.lsn-ln')].map(n => { const a = n.querySelector('.ss-act'); if (!a) return null; const p = n.querySelector('p').getBoundingClientRect(), b = a.getBoundingClientRect(); return { who: n.dataset.who, dx: Math.round(a.firstElementChild.getBoundingClientRect().left - n.getBoundingClientRect().left), below: b.top >= p.bottom - 1, btns: a.children.length }; }).filter(Boolean));
@@ -125,7 +126,7 @@ async function browser() {
       await page.goto(`${base}#/lesson/go?story=s-cafe`, { waitUntil: 'load' }); await page.waitForSelector('.ss-stage', { timeout: 20000 }).catch(() => {}); await page.waitForTimeout(2500);
       // cửa sổ đo 3 s TRỌN (gồm cú bấm + dòng mới hiện): đợi vòng đếm khung kết thúc rồi chia cho thời gian thật – đọc sớm khi mới trôi ~2 s mà vẫn chia 3 làm fps tụt giả (42 thay vì 61)
       await page.evaluate(() => { window.__f = 0; window.__fdone = false; const t0 = performance.now(); (function f(now) { window.__f++; if (now - t0 < 3000) requestAnimationFrame(f); else { window.__fdt = now - t0; window.__fdone = true; } })(t0); window.__lt = 0; });
-      await page.evaluate(() => { window.__clk = performance.now(); }); await page.click('#lsnGo').catch(() => {}); await page.waitForFunction(() => window.__fdone, null, { timeout: 15000 });
+      await page.evaluate(() => { window.__clk = performance.now(); }); await page.click('#lsnGo').catch(() => {}); await waitFn(page, () => window.__fdone, null, { timeout: 15000 });
       const m = await page.evaluate(() => ({ lt: window.__lt, cls: window.__cls, fps: window.__f / (window.__fdt / 1000) }));
       lines.push(`chromium 4×: longtask>50ms=${m.lt} cls=${m.cls.toFixed(3)} fps≈${m.fps.toFixed(0)}`);
       ok(m.lt <= 2, `4×: ${m.lt} tác vụ dài > 50 ms (tối đa 2)`); ok(m.cls === 0, `CLS ${m.cls} ≠ 0 ${JSON.stringify(await page.evaluate(() => window.__clsSrc || []))}`); ok(m.fps >= 50, `fps ${m.fps.toFixed(0)} < 50`);

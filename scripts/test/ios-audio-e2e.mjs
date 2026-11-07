@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { chromium, webkit, devices } from 'playwright';
 import { serve } from './stitch-screens.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 const ROOT = path.resolve(process.argv[2] || 'web'), which = (process.argv[3] || 'webkit,chromium').split(',');
 const PROJECTS = { webkit: [webkit, 'iPhone 13'], chromium: [chromium, 'Pixel 7'] };
 
@@ -51,10 +52,10 @@ async function open(browser, opts, flags = {}) {
   page.on('pageerror', e => errs.push(e.message));
   return { ctx, page, errs };
 }
-const ready = page => page.waitForFunction(() => window.App && window.UI && window.LKAudio && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 45000 });
+const ready = page => waitFn(page, () => window.App && window.UI && window.LKAudio && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 45000 });
 const goto = async (page, hash) => { await page.goto('https://lk.test' + URL0 + hash, { waitUntil: 'load' }); await ready(page); };
 const heard = page => page.evaluate(() => Object.entries(window.__ev).filter(([, o]) => o.playing && o.t > 0).map(([s]) => s));
-const waitHeard = (page, n, ms = 60000) => page.waitForFunction(n => Object.values(window.__ev).filter(o => o.playing && o.t > 0).length >= n, n, { timeout: ms }).then(() => true, () => false);
+const waitHeard = (page, n, ms = 60000) => waitFn(page, n => Object.values(window.__ev).filter(o => o.playing && o.t > 0).length >= n, n, { timeout: ms }).then(() => true, () => false);
 const blockedN = page => page.evaluate(() => (LKAudio.stats.blocked || 0));
 const txt = (page, sel) => page.evaluate(s => (document.querySelector(s) || {}).textContent || '', sel);
 const tap = (page, sel) => page.tap(sel, { timeout: 15000 });
@@ -122,10 +123,10 @@ async function speakCase(browser, opts) {
   try {
     await goto(page, '#/home');
     await page.touchscreen.tap(5, 5); // cú chạm đầu của người dùng → mở khóa
-    await page.waitForFunction(() => LKAudio.isUnlocked(), null, { timeout: 10000 });
+    await waitFn(page, () => LKAudio.isUnlocked(), null, { timeout: 10000 });
     // Hai đường phần tử, kiểm RIÊNG từng đường: (1) từ CÓ trong kho INDEX → file từ Kokoro (LA().play, phần tử pool);
     // (2) URL bản ghi của Lexkite → audioSrc → audioEl (ui.js bỏ URL ngoài lexkite khi máy có giọng đọc → URL lk.test cũ rơi về giọng máy, không kiểm được gì)
-    await page.waitForFunction(() => window.IELTS_DATA && Object.keys(IELTS_DATA.INDEX).some(k => /^[a-z]{3,}$/.test(k)), null, { timeout: 20000 });
+    await waitFn(page, () => window.IELTS_DATA && Object.keys(IELTS_DATA.INDEX).some(k => /^[a-z]{3,}$/.test(k)), null, { timeout: 20000 });
     const word = await page.evaluate(() => Object.keys(IELTS_DATA.INDEX).find(k => /^[a-z]{3,}$/.test(k)));
     let before = (await heard(page)).length;
     await page.evaluate(w => new Promise(r => setTimeout(r, 1200)).then(() => UI.speak(w, 'en-GB')), word); // ngoài cử chỉ
@@ -162,9 +163,9 @@ async function lessonCase(browser, opts, tag, setup, need, ios) {
   try {
     await goto(page, '#/home');
     await page.touchscreen.tap(5, 5); // cú chạm đầu của người dùng → mở khóa
-    await page.waitForFunction(() => LKAudio.isUnlocked(), null, { timeout: 10000 });
+    await waitFn(page, () => LKAudio.isUnlocked(), null, { timeout: 10000 });
     await page.evaluate(async s => { await App.need('lesson'); const h = await new Function('return (' + s + ')')()(); location.hash = h; }, setup.toString());
-    await page.waitForFunction(() => window.App && App._lsn && App._lsn.sess.cur, null, { timeout: 30000 });
+    await waitFn(page, () => window.App && App._lsn && App._lsn.sess.cur, null, { timeout: 30000 });
     const soft = [];
     for (let n = 0; n < 40; n++) {
       if (await page.evaluate(() => !!document.querySelector('.lsn-end'))) break;

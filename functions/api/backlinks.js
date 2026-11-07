@@ -12,6 +12,7 @@ import { adminGate, adminAudit, adminCors } from './admin.js';
 import { guardBg } from './_d1guard.js';
 import { limit } from './sync.js';
 import { LEVELS, SERIOUS, validatePlacement, validateHandle } from './_bw.js';
+import { readText, bodyFail } from './_body.js';
 
 const REPO = 'lexkiteapp/lexkiteapp.github.io', WORKFLOW = 'pr-check.yml', ADMIN_URL = 'https://lexkite.com/admin.html#backlinks';
 const MAX_BODY = 512 * 1024, DAY = 864e5, SKEW = 300;
@@ -218,7 +219,7 @@ export async function onRequestPost({ request, env }) {
   let who = null;
   const isCi = request.headers.get('X-BW-Sig') != null;
   if (!isCi) { const g = await adminGate(request, env, 'bw'); if (!g.who) return json(request, g.status, { error: g.error }); who = g.who; }
-  const raw = await request.text().catch(() => ''); if (raw.length > MAX_BODY) return json(request, 413, { error: 'too-large' });
+  let raw; try { raw = await readText(request, MAX_BODY); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   if (isCi) {
     if (String(env.STUDIO_CALLBACK_SECRET || '').length < 16) return json(request, 503, { error: 'not-configured', need: 'STUDIO_CALLBACK_SECRET' });
     if (await limit('bw-ci:' + (request.headers.get('CF-Connecting-IP') || '?'), 30, 60)) return json(request, 429, { error: 'too-fast' });

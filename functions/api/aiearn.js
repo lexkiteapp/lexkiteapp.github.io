@@ -7,6 +7,7 @@
 import { gate, dayKey, setupQuota, credit, unmark, UP } from './_quota.js';
 import { docsDb } from './_shard.js';
 import { docJson } from './_ctx.js';
+import { readJSON, bodyFail } from './_body.js';
 import { claims, viewOf, json as cj, onRequestOptions } from './sync.js';
 export { onRequestOptions }; // app gốc (capacitor://localhost) gọi khác nguồn – CORS như /api/sync
 
@@ -39,7 +40,7 @@ export async function onRequestPost({ request, env }) {
   if (!env.DB) return json(500, { error: 'no-db' });
   const who = await claims((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null), uid = who && who.sub;
   if (!uid) return json(401, { error: 'auth' });
-  let b; try { b = await request.json(); } catch (e) { return json(400, { error: 'json' }); }
+  let b; try { b = await readJSON(request, 2048); } catch (e) { const f = bodyFail(e); return json(f.status, { error: f.error }); }
   const feature = b && b.feature, day = (b && b.day) || dayKey();
   if (!EARN[feature] || !nearDay(day)) return json(400, { error: 'bad' });
   const q = await gate(request, env, 'sync', { who, json: (r, s, d) => json(s, d) }); if (q.res) return q.res; // cùng trần đồng bộ: chống dội

@@ -80,7 +80,8 @@ const env = {
 {
   assert.deepEqual(adminList({ ADMIN_EMAILS: 'boss@lexkite.com, ops@lexkite.com' }), ['boss@lexkite.com', 'ops@lexkite.com']);
   assert.deepEqual(adminList({ SEB_TO: 'single@lexkite.com' }), ['single@lexkite.com']);
-  assert.deepEqual(adminList({}), ['vintagezulilyjewelry@gmail.com']);
+  assert.deepEqual(adminList({}), [], 'không ghi cứng email cá nhân: chưa đặt NOTIFY_TO → rỗng');
+  assert.deepEqual(adminList({ NOTIFY_TO: 'n@lexkite.com', ADMIN_EMAILS: 'a@lexkite.com' }), ['n@lexkite.com'], 'NOTIFY_TO ưu tiên');
   assert.deepEqual(adminList({ ADMIN_EMAILS: 'dup@lexkite.com, dup@lexkite.com' }), ['dup@lexkite.com']);
   console.log('✓ 1. adminList phân tách đúng danh sách email và fallback an toàn');
 }

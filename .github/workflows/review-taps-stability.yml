@@ -28,8 +28,9 @@ jobs:
           bash scripts/ci/pw-install.sh --with-deps chromium webkit
         timeout-minutes: 12
       - name: Lặp review-taps
+        env: { LX_RUNS: "${{ inputs.runs || '5' }}" }
         run: |
-          n=${{ inputs.runs || '5' }}; bad=0
+          n=$(printf '%s' "$LX_RUNS" | tr -cd 0-9); n=${n:-5}; bad=0
           for i in $(seq 1 "$n"); do
             node scripts/test/review-taps.mjs web out/s$i > out.log 2>&1 && echo "run $i ✓" || { echo "run $i ✗"; grep '✗' out.log | head -5; bad=$((bad+1)); }
           done

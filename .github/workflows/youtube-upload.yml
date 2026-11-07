@@ -35,8 +35,8 @@ jobs:
           git -C /tmp/shorts sparse-checkout set --no-cone '/shorts/index.json'; git -C /tmp/shorts checkout -q; rm -f ~/.ssh/shorts
       - name: Lên YouTube (hàng chờ đã duyệt, trong hạn mức)
         if: ${{ steps.lease.outputs.skip != '1' }}
-        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
-        run: node scripts/ci/quota-skip.mjs node scripts/video/yt-upload.mjs --index /tmp/shorts/shorts/index.json --max "${{ github.event.inputs.max || '6' }}" ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}', LX_DRY_RUN: '${{ github.event.inputs.dry_run == ''true'' && ''--dry-run'' || '''' }}', LX_MAX: '${{ github.event.inputs.max || ''6'' }}' }
+        run: node scripts/ci/quota-skip.mjs node scripts/video/yt-upload.mjs --index /tmp/shorts/shorts/index.json --max "$LX_MAX" $LX_DRY_RUN
       - name: Trả thuê
         if: ${{ always() && steps.lease.outputs.skip != '1' }}
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }

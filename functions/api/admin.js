@@ -12,6 +12,7 @@ import { purgeNotices } from './notices.js';
 import { purgeConfig, ADS_PUBLIC } from './config.js';
 import { stats as adsStatsOf, guardOf, revPack as adsRevPack } from './_ads.js';
 import { SEL as ADS_REV_SEL } from './ads-report.js';
+import { readJSON, bodyFail } from './_body.js';
 import { setupQuota, resetState as resetQuotaState } from './_quota.js';
 import { deleteUserData } from './account.js';
 import { d1Usage, isShed, secsToReset } from './_d1guard.js';
@@ -908,7 +909,7 @@ export { audit as adminAudit, cors as adminCors };
 export async function onRequestPost({ request, env }) {
   const g = await adminGate(request, env); if (!g.who) return json(request, g.status, { error: g.error });
   const who = g.who;
-  let b; try { b = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
+  let b; try { b = await readJSON(request, 1_000_000); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   if (!b || typeof b !== 'object') return json(request, 400, { error: 'json' });
   const fn = Object.hasOwn(OPS, b.op) ? OPS[b.op] : null; if (!fn) return json(request, 400, { error: 'op' }); // hasOwn: chặn op 'constructor'/'__proto__' (Object(env) → lộ bí mật)
   if ((DANGER.has(b.op) || (b.op === 'usersBulk' && BULK_DANGER.has(b.action))) && Date.now() / 1000 - (+who.auth_time || 0) > 900) return json(request, 401, { error: 'reauth', message: tx(b, 'Thao tác quan trọng: hãy đăng xuất rồi đăng nhập lại (bảo mật) rồi thử lại.', 'Sensitive action: sign out and sign back in (for security), then try again.') });

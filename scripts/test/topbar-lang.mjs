@@ -5,6 +5,7 @@
 // Dùng: node scripts/test/topbar-lang.mjs <web> [out=out/topbar-lang] [--label sau] [--report-only]   (CI: .github/workflows/topbar-lang.yml)
 import fs from 'node:fs'; import path from 'node:path';
 import { chromium } from 'playwright';
+import { waitFn } from '../lib/pw-wait.mjs';
 const argv = process.argv.slice(2), flag = n => { const i = argv.indexOf(n); return i < 0 ? null : argv.splice(i, 2)[1]; };
 const LABEL = flag('--label') || 'sau', REPORT = argv.includes('--report-only'), [ROOT = 'web', OUT = 'out/topbar-lang'] = argv.filter(a => a !== '--report-only');
 fs.mkdirSync(OUT, { recursive: true });
@@ -71,7 +72,7 @@ const run = async c => {
   const page = await ctx.newPage(), errs = []; page.on('pageerror', e => errs.push(e.message));
   for (const r of c.routes) {
     await page.goto(`https://lk.test/app/?sandbox=1&hl=${c.lang}#/${r}`, { waitUntil: 'load' });
-    await page.waitForFunction(() => document.getElementById('view') && document.getElementById('view').children.length > 0, null, { timeout: 15000 }).catch(() => errs.push('#view trống sau 15 s'));
+    await waitFn(page, () => document.getElementById('view') && document.getElementById('view').children.length > 0, null, { timeout: 15000 }).catch(() => errs.push('#view trống sau 15 s'));
     await page.waitForTimeout(1200);
     if (!c.fresh) { await page.evaluate(async () => { App.state.game = App.state.game || {}; App.state.game.xp = 225; await App.route(); }); await page.waitForTimeout(800); } // người học cũ như ảnh chủ: today / today-desk, không phải khung người mới
     if (r === 'home' && !c.fresh && c.w >= 1024 && !await page.locator('.v2s-today-desk').count()) errs.push('không vào khung today-desk');
@@ -82,7 +83,7 @@ const run = async c => {
     if (c.th === 'light' || c.lang === 'vi' && [390, 1280, 1920].includes(c.w) || c.lang === 'ar' && [390, 1280, 1920].includes(c.w)) if (r === 'home' || r === 'vocab') await page.screenshot({ path: `${OUT}/${LABEL}-${tag}.png` });
     if (r === 'home' && m.langs.length) { // nút thật sự mở bộ chọn ngôn ngữ
       const sel = m.langs[0].id === 'langBtn' ? '#langBtn' : '[data-act="lang"]'; await page.locator(sel).first().click().catch(e => errs.push('bấm nút: ' + e.message));
-      const opened = await page.waitForFunction(() => { const v = e => e && !e.hidden && e.getBoundingClientRect().height > 0; return v(document.querySelector('#langMenu')) || v(document.querySelector('.ux1-lang')); }, null, { timeout: 5000 }).then(() => true, () => false);
+      const opened = await waitFn(page, () => { const v = e => e && !e.hidden && e.getBoundingClientRect().height > 0; return v(document.querySelector('#langMenu')) || v(document.querySelector('.ux1-lang')); }, null, { timeout: 5000 }).then(() => true, () => false);
       if (!opened) fails.push(`${c.th}/${c.lang}/${c.w}/home: nút ngôn ngữ không mở bộ chọn`);
     }
   }
