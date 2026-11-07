@@ -316,6 +316,7 @@ node scripts/test/st-web-i18n.mjs
 node scripts/test/settings-subpages.mjs
 node scripts/test/required-gate-stale.mjs
 node scripts/test/origin-fetch.mjs
+node scripts/test/story-stage.mjs
 node scripts/test/teacher-bubble.mjs --static
 node scripts/test/teacher-mood.mjs --static
 node scripts/test/voice-source.mjs

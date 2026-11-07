@@ -115,7 +115,7 @@ const C = {
   ok(rv[0].card.word === 'w1', 'nút Ôn lỗi: từ hay quên lên đầu');
 }
 {
-  vm.runInContext(fs.readFileSync(path.join(WEB, 'js/lesson/stories.js'), 'utf8'), ctx);
+  vm.runInContext(fs.readFileSync(path.join(WEB, 'cpack/lesson/stories.js'), 'utf8'), ctx);
   const SS = ctx.self.LESSON_STORIES, st = SS.find(x => x.kind === 'story'), ra = SS.find(x => x.kind === 'radio');
   ok(SS.filter(x => x.kind === 'story').length >= 3 && SS.filter(x => x.kind === 'radio').length >= 2, 'stories: ≥ 3 truyện + ≥ 2 radio');
   const P = E.pathPlan({}, NOW, { story: 1, radio: 1 }).map(x => x.kind);
@@ -268,7 +268,7 @@ w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tic
   ok(!D.querySelector('.lsn-ask, .lsn-duo') && $('a.lsn-x') && $('a.lsn-x').getAttribute('href') === '#/lesson?demo=1', 'v2: nút ✕ thoát về bản đồ; không còn khối giáo viên cũ');
   ok($('.lsn-bar').getAttribute('role') === 'progressbar' && $('#lsnFill') && /%$/.test($('#lsnPct').textContent) && $('#lsnQn'), 'v2: thanh tiến độ ARIA + % + Câu n/m');
   const T = st().teacher, tw = $('.lsn-tchw'), card = $('.lsn-qcard');
-  ok(T && T.who === 'ama' && $('#lsnTch') && tw && card && tw.compareDocumentPosition(card) & 4 && /z-10/.test(card.firstElementChild.className) && /-mb-1\d/.test(tw.className), 'v2: Ama (LessonTeacher) đứng SAU thẻ đề bài (thẻ z-10 kéo lên chồng đáy hình)');
+  ok(T && T.who === 'ama' && $('#lsnTch') && tw && card && tw.compareDocumentPosition(card) & 4 && /z-10/.test(card.firstElementChild.className) && tw.querySelector('.ss-floor') && /h-\[150px\]/.test(tw.className), 'v2: Ama (LessonTeacher) đứng TRÊN bệ (.ss-floor) ngay trên thẻ đề bài đục (thẻ z-10), hàng cao 150 px khớp mẫu Stitch');
   ok(!D.querySelector('.lsn-tchw .rounded-full, .lsn-tchw [class*="ring"], .lsn-tchw [class*="mask"]') && !/mask|clip-path/.test(tw.getAttribute('style') || ''), 'v2: không vòng / hào quang / khung / mặt nạ quanh giáo viên');
   const oS = T.say; T.say = (txt, o) => { say0.push(o || {}); return oS.call(T, txt, o); };
   ok(!!$('#lsnCheck') && ($('#lsnCheck').disabled || $('#lsnCheck').hidden), 'v2: nút Kiểm tra có sẵn, khóa tới khi chọn');
