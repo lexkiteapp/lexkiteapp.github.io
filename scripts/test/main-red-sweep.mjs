@@ -1,6 +1,6 @@
 // Máy gác main-red-sweep (hàm thuần) + hồi quy workflow đỏ 06/11. Thoát 1 nếu sai.
 import assert from 'node:assert/strict'; import fs from 'node:fs';
-import { autoTriggers, latestAuto, redList, issueBody } from '../ci/main-red-sweep.mjs';
+import { autoTriggers, latestAuto, redList, issueBody, blindHead } from '../ci/main-red-sweep.mjs';
 let n = 0; const ok = (c, m) => { assert.ok(c, m); n++; };
 ok(autoTriggers('name: x\non:\n  schedule:\n    - cron: "1 * * * *"\n  workflow_dispatch:\n').join() === 'schedule', 'schedule');
 ok(autoTriggers('on:\n  push:\n    branches: [main]\n').join() === 'push', 'push');
@@ -18,6 +18,17 @@ const S = 'on:\n  schedule:\n    - cron: "1 * * * *"\n';
 const red = redList([wf('a.yml', S), wf('b.yml', S), wf('c.yml', S, 'disabled_manually'), wf('d.yml', 'on:\n  workflow_dispatch:\n')], f => (f === 'a.yml' ? [R('failure')] : [R('success')]));
 ok(red.length === 1 && red[0].file === 'a.yml', 'chỉ a đỏ; tắt/chỉ-tay bị bỏ');
 ok(issueBody(red).includes('<!-- main-red-sweep -->') && issueBody(red).includes('a.yml'), 'thân issue có marker + tên');
+// ---- mù main: Prod release bị huỷ/bỏ đói thì npm test sau-push không đánh giá commit đầu main
+{ const now = Date.parse('2026-11-07T16:00:00Z'), at = m => new Date(now - m * 60000).toISOString();
+  const C = [{ sha: 'bot', date: at(2), message: 'sổ [skip ci]' }, { sha: 'h1', date: at(40), message: 'PR gộp' }, { sha: 'h0', date: at(300), message: 'cũ' }];
+  const run = (o) => ({ status: 'completed', conclusion: 'success', head_sha: 'x', created_at: at(500), ...o });
+  ok(blindHead(C, [run({ conclusion: 'cancelled', head_sha: 'h1', created_at: at(35) }), run({ created_at: at(290), head_sha: 'h0' })], now).sha === 'h1', 'lượt của h1 bị huỷ, lượt xong cũ hơn h1 → mù, gọi tay h1');
+  ok(blindHead(C, [run({ head_sha: 'h1', created_at: at(30) })], now) === null, 'đã có lượt xong (không huỷ) đánh giá h1');
+  ok(blindHead(C, [run({ head_sha: 'h1', created_at: at(35), status: 'queued', conclusion: null })], now) === null, 'đang xếp hàng < 60 phút → chờ');
+  ok(blindHead([{ ...C[1], date: at(100) }, C[2]], [run({ head_sha: 'h1', created_at: at(90), status: 'queued', conclusion: null })], now).ageMin === 100, 'xếp hàng quá 60 phút = bị bỏ đói → mù');
+  ok(blindHead([{ ...C[1], date: at(10) }], [], now) === null, 'commit mới < 25 phút → chưa tính');
+  ok(blindHead([C[0]], [], now) === null && blindHead([], [], now) === null, 'chỉ commit [skip ci] / không commit → không mù');
+  ok(blindHead(C, [run({ head_sha: 'later', created_at: at(20) })], now) === null, 'có lượt xong tạo SAU commit đầu → đã đánh giá'); }
 // ---- hồi quy sửa đỏ 06/11 (mỗi dòng FAIL trên mã cũ)
 const rd = f => fs.readFileSync(f, 'utf8');
 const ds = rd('.github/workflows/drive-shorts.yml');
