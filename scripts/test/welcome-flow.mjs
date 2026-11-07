@@ -88,8 +88,12 @@ ok(/15 phút/.test($('[data-pace="40"]').textContent) && /20 từ mới/.test($(
 ok(/10 phút/.test($('[data-pace="20"]').textContent) && /5 phút/.test($('[data-pace="10"]').textContent), 'nhãn các mức còn lại khớp 5 / 10 phút');
 click($('#obNext')); await tick();
 ok($('#go'), 'tới màn cuối');
-click($('#go')); await until(() => S.settings.onboarded && /^#\/day/.test(hash()), 15000); await tick(400);
-ok(S.settings.onboarded && /^#\/day/.test(hash()), 'xong thiết lập → Ngày 1: ' + hash());
+ok(/5/.test($('#go').textContent), 'chưa chọn trình độ: nút cuối mời bài đầu vào 5 phút');
+click($('#go')); await until(() => S.settings.onboarded && $('#plSkip'), 15000); await tick(400);
+ok(S.settings.onboarded && /^#\/placement/.test(hash()) && $('#plSkip') && $('.pl-inv .tslot') && $('.pl-say') && $('#go'), 'chưa chọn trình độ → lời mời bài đầu vào: Ama (Chars.slot), Bắt đầu + Bỏ qua: ' + hash());
+const nSeed = Object.keys(S.cards).length; ok(nSeed > 0, 'bộ thẻ ban đầu đã có trước lời mời');
+click($('#plSkip')); await until(() => hash() === '#/home'); await tick(300);
+ok(hash() === '#/home' && !w.sessionStorage.getItem('lk.plInv') && !S.settings.placement, 'Bỏ qua → Hôm nay, trình độ mặc định: ' + hash());
 { const at = hash(); w.history.back(); await tick(500); ok(!/welcome\/setup/.test(hash()), 'Back sau thiết lập: không đi qua các bước: ' + hash()); await go(at, 200); }
 ok(S.settings.examTarget === '900' && S.settings.exam === 'toeic', 'lưu examTarget không dấu +: ' + S.settings.examTarget);
 ok(S.settings.dailyGoal === 40 && S.settings.dailyNew === 20 && S.settings.pace === 40, 'lưu cường độ đúng ô Hôm nay + Tutor đọc');
@@ -117,6 +121,23 @@ click($('#setupIn')); await tick(300);
 ok(/welcome\/setup/.test(hash()) && !S.settings.onboarded && !$('#setupIn') && $('#obNext'), 'tài khoản trống: ở lại đúng bước, liên kết đăng nhập biến mất');
 asNew(); await go('#/welcome/setup', 500); stubSync({ uid: 'full' }, () => { S.cards = { a: { word: 'a', srs: { reps: 0, last: 0, due: 0 } } }; }); await w.App.loginOnboard(() => { w.__empty = 2; }); await tick(300);
 ok(w.__empty !== 2 && S.settings.onboarded && hash() === '#/home', 'tài khoản có dữ liệu: gộp xong → #/home: ' + hash());
+
+// ---- lời mời bài đầu vào: làm xong → Hôm nay, chặng + bộ từ theo kết quả; đã chọn trình độ → Ngày 1 ----
+const toGo = async () => { await go('#/welcome/setup', 900); await until(() => $('#obNext')); for (let i = 0; i < 8 && !$('#go'); i++) { click($('#obNext')); await tick(150); } };
+asNew(); await toGo(); click($('#go')); await until(() => $('#plSkip'), 15000);
+ok($('#plSkip') && /placement/.test(hash()), 'người mới thứ hai: tới lời mời');
+const n0 = Object.keys(S.cards).length; click($('#go')); await tick(400);
+for (let i = 0; i < 40 && !$('.pl-result h2'); i++) { const o = [...w.document.querySelectorAll('.pl-wrap .option[data-k]')].filter(b => b.dataset.k !== '-1'); if (o.length) click(o[i % o.length]); await tick(320); }
+const PL = S.settings.placement;
+ok($('.pl-result h2') && PL && /^s[0-3]$/.test(PL.stage) && $('.pl-result a[href="#/home"]'), 'làm xong → kết quả, nút về Hôm nay');
+{ const T = w.Tracks, cur = S.settings.tracks && S.settings.tracks.cur; ok(T && cur && T.start(T.TR[cur]) && !(S.settings.tracks.lv || {})[cur], 'chặng lấy từ kết quả (không ghi đè trình độ tay): ' + (T && cur && T.start(T.TR[cur]))); }
+const lvW = Object.values(S.cards).length - n0; ok(lvW >= 0 && lvW <= 10 && (!lvW || /\b(A1|A2|B1|B2|C1|C2)\b/.test($('.pl-result').textContent)), 'thêm ≤10 từ đúng trình độ vào bộ thẻ: ' + lvW);
+ok(!w.sessionStorage.getItem('lk.plInv'), 'xong: xóa lời mời');
+await go($('.pl-result a[href="#/home"]').getAttribute('href'), 500); ok(hash() === '#/home', 'làm xong → Hôm nay: ' + hash()); // jsdom bỏ khối <base> chặn link "#/…" → đi theo href (trình duyệt thật: welcome-journey)
+asNew(); await go('#/welcome/setup?s=level', 900); await until(() => $('[data-lv]')); click($('[data-lv]:not([data-lv="test"])')); await tick(); for (let i = 0; i < 8 && !$('#go'); i++) { click($('#obNext')); await tick(150); }
+click($('#go')); await until(() => S.settings.onboarded && /^#\/day/.test(hash()), 15000); await tick(300);
+ok(/^#\/day/.test(hash()) && !w.sessionStorage.getItem('lk.plInv'), 'đã chọn trình độ tay → vào thẳng Ngày 1, không mời: ' + hash());
+S.settings.onboarded = true;
 
 // ---- bài đầu vào làm trước: ghi sẵn, đổi được ----
 asNew(); S.settings.exam = 'toeic'; S.settings.examTarget = '900'; await go('#/welcome/setup?s=target', 900); await until(() => $('#bandT'));
