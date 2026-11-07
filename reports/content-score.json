@@ -1,58 +1,58 @@
 {
- "total": 51.2,
+ "total": 51.3,
  "areas": {
   "vocab": {
    "name": "Kho từ",
-   "score": 50.6,
-   "coverage": 50.6,
+   "score": 51.1,
+   "coverage": 51.1,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "từ#loại duy nhất",
-     "have": 9304,
+     "have": 9334,
      "std": 20000,
      "w": 25,
      "future": false
     },
     {
      "k": "IPA·nghĩa·định nghĩa·ví dụ·CEFR",
-     "have": 9304,
-     "std": 9304,
+     "have": 9334,
+     "std": 9334,
      "w": 20,
      "future": false
     },
     {
      "k": "collocation",
-     "have": 4692,
+     "have": 4696,
      "std": 20000,
      "w": 12,
      "future": false
     },
     {
      "k": "đồng nghĩa",
-     "have": 2769,
+     "have": 2776,
      "std": 20000,
      "w": 8,
      "future": false
     },
     {
      "k": "IPA Mỹ",
-     "have": 6118,
+     "have": 6140,
      "std": 20000,
      "w": 5,
      "future": false
     },
     {
      "k": "ảnh theo nghĩa",
-     "have": 6902,
+     "have": 7065,
      "std": 20000,
      "w": 15,
      "future": false
     },
     {
      "k": "C2",
-     "have": 410,
+     "have": 440,
      "std": 1000,
      "w": 10,
      "future": false
@@ -433,8 +433,8 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 10115,
-     "std": 10115,
+     "have": 10145,
+     "std": 10145,
      "w": 35,
      "future": false
     },
