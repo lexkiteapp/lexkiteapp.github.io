@@ -28,7 +28,7 @@ jobs:
         timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          if [ -f scripts/ci/pw-install.sh ]; then bash scripts/ci/pw-install.sh --with-deps chromium; else timeout 600 npx playwright install --with-deps chromium >/dev/null; fi
+          bash scripts/ci/pw-install.sh --with-deps chromium
       - name: Chặn lexkite.com (0 lượt chạm prod)
         run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
       - name: 7 ngày học – trước (main) / sau (nhánh)
