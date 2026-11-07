@@ -307,6 +307,7 @@ node scripts/test/native-visual.mjs --self-test
 node scripts/test/lip-clock.mjs
 node scripts/test/teacher-quality.mjs --static
 node scripts/test/legal-i18n.mjs
+node scripts/test/store-reviews.mjs
 node scripts/test/cpack.mjs
 node scripts/test/token-drift.mjs --self
 node scripts/test/token-drift.mjs
