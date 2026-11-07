@@ -4,19 +4,19 @@
 import fs from 'node:fs'; import vm from 'node:vm';
 import { loadContent } from '../lib/content-load.mjs'; import { collect } from '../sentence-audio/corpus.mjs';
 const errs = [], C = loadContent(), T = C.CAMBRIDGE || [];
-if (!T.length) errs.push('không nạp được đề Cambridge nào (web/js/cambridge/<cấp>/t<N>.js)');
+if (!T.length) errs.push('không nạp được đề Cambridge nào (web/cpack/cambridge/<cấp>/t<N>.js)');
 if (!T.some(x => x.id === 'a2-t1' && x.gold)) errs.push('mất đề gold a2-t1');
 // 1) file đề ↔ gói "cambridge" trong web/js/app.js
 const app = fs.readFileSync('web/js/app.js', 'utf8'), m = app.match(/\n\s*cambridge: \[([^\]]*)\]/), bundle = m ? m[1] : '';
-for (const l of fs.readdirSync('web/js/cambridge').filter(x => /^(a2|b1|b2|c1|c2)$/.test(x))) for (const f of fs.readdirSync('web/js/cambridge/' + l).filter(f => /\.js$/.test(f))) {
-  if (!/^t\d+\.js$/.test(f)) errs.push(`web/js/cambridge/${l}/${f}: tên file phải là t<N>.js`);
-  else if (!bundle.includes(`'js/cambridge/${l}/${f}'`)) errs.push(`web/js/cambridge/${l}/${f}: chưa có trong gói cambridge của web/js/app.js`);
+for (const l of fs.readdirSync('web/cpack/cambridge').filter(x => /^(a2|b1|b2|c1|c2)$/.test(x))) for (const f of fs.readdirSync('web/cpack/cambridge/' + l).filter(f => /\.js$/.test(f))) {
+  if (!/^t\d+\.js$/.test(f)) errs.push(`web/cpack/cambridge/${l}/${f}: tên file phải là t<N>.js`);
+  else if (!bundle.includes(`'cpack/cambridge/${l}/${f}'`)) errs.push(`web/cpack/cambridge/${l}/${f}: chưa có trong gói cambridge của web/js/app.js`);
 }
-for (const f of ['js/cambridge/rubric.js', 'js/cambridge.js', 'js/qengine.js']) if (!bundle.includes(`'${f}'`)) errs.push(`gói cambridge thiếu ${f}`);
+for (const f of ['cpack/cambridge/rubric.js', 'js/cambridge.js', 'js/qengine.js']) if (!bundle.includes(`'${f}'`)) errs.push(`gói cambridge thiếu ${f}`);
 // 2) helper chấm viết của màn thi (chạy thật trong vm) – bài mẫu phải qua đủ ý, đủ từ, ≥ 2 từ nối
 const ctx = { self: {}, console, UI: { $: () => null, $$: () => [], esc: s => s }, t: s => s };
 ctx.self = ctx; ctx.window = ctx; ctx.App = { state: { game: {} }, routes: {}, view: {} }; vm.createContext(ctx);
-vm.runInContext(fs.readFileSync('web/js/qengine.js', 'utf8'), ctx); vm.runInContext(fs.readFileSync('web/js/cambridge/rubric.js', 'utf8'), ctx); vm.runInContext(fs.readFileSync('web/js/cambridge.js', 'utf8'), ctx);
+vm.runInContext(fs.readFileSync('web/js/qengine.js', 'utf8'), ctx); vm.runInContext(fs.readFileSync('web/cpack/cambridge/rubric.js', 'utf8'), ctx); vm.runInContext(fs.readFileSync('web/js/cambridge.js', 'utf8'), ctx);
 const H = ctx.App.cambridge, R = ctx.CAMBRIDGE_RUBRIC;
 if (!H || typeof ctx.App.routes.cambridge !== 'function') errs.push('cambridge.js không đăng ký routes.cambridge / App.cambridge');
 else {

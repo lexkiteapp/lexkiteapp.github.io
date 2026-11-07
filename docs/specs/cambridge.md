@@ -1,6 +1,6 @@
 # Cambridge English A2–C2: định dạng đề, màn thi, cổng (O2)
 
-> TL;DR: Mỗi đề = 1 file `web/js/cambridge/<cấp>/t<N>.js` đẩy vào `self.CAMBRIDGE` (Reading & Writing · Listening · Speaking), tiêu chí chấm tự diễn đạt ở `web/js/cambridge/rubric.js`. Màn `#/cambridge` dùng lại QE/ChoiceKit/trình phát nghe/UI.recognize, không CSS riêng. Cổng: `exam-format-check` (spec `content/exams/spec/cam-*.json`) + `scripts/test/cambridge.mjs`. Mẫu chuẩn: đề gold `a2/t1.js`.
+> TL;DR: Mỗi đề = 1 file `web/cpack/cambridge/<cấp>/t<N>.js` đẩy vào `self.CAMBRIDGE` (Reading & Writing · Listening · Speaking), tiêu chí chấm tự diễn đạt ở `web/cpack/cambridge/rubric.js`. Màn `#/cambridge` dùng lại QE/ChoiceKit/trình phát nghe/UI.recognize, không CSS riêng. Cổng: `exam-format-check` (spec `content/exams/spec/cam-*.json`) + `scripts/test/cambridge.mjs`. Mẫu chuẩn: đề gold `a2/t1.js`.
 > Đọc khi: viết/soát đề Cambridge (lô S-CAM-*), sửa màn `web/js/cambridge.js` hoặc cổng đề Cambridge.
 
 ## 1. Dữ liệu một đề

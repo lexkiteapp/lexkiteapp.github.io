@@ -165,7 +165,8 @@
   {
    "id": "listening",
    "paths": [
-    "web/js/listen"
+    "web/js/listen",
+    "web/cpack/listen"
    ],
    "owner": "claude",
    "gen": false,
@@ -196,7 +197,8 @@
   {
    "id": "toefl",
    "paths": [
-    "web/js/toefl"
+    "web/js/toefl",
+    "web/cpack/toefl"
    ],
    "owner": "claude",
    "gen": false,
@@ -211,7 +213,7 @@
   {
    "id": "cambridge",
    "paths": [
-    "web/js/cambridge"
+    "web/cpack/cambridge"
    ],
    "owner": "claude",
    "gen": false,

@@ -252,7 +252,7 @@ for (const [t, xs] of Object.entries(tl)) {
   }
 }
 
-// Cambridge A2–C2 (docs/specs/cambridge.md): mỗi đề web/js/cambridge/<cấp>/t<N>.js so với spec cam-<cấp>
+// Cambridge A2–C2 (docs/specs/cambridge.md): mỗi đề web/cpack/cambridge/<cấp>/t<N>.js so với spec cam-<cấp>
 {
   const WTYPES = new Set(['email', 'story', 'essay', 'article', 'letter', 'review', 'report', 'proposal', 'note']);
   const RUB = K.CAMBRIDGE_RUBRIC || {};
@@ -276,7 +276,7 @@ for (const [t, xs] of Object.entries(tl)) {
           if (!has(p.prompt) || !has(p.model) || !(p.tips || []).length) D(f, u, `${secId}.part${p.n}.model`, 'thiếu đề/bài mẫu/gợi ý');
           else if (words(p.model) < (s.min_words || 0)) D(f, u, `${secId}.part${p.n}.words`, `bài mẫu ${words(p.model)} từ < ${s.min_words}`);
           if (p.points && (!(p.checks || []).length || p.checks.length !== p.points.length)) D(f, u, `${secId}.part${p.n}.checks`, 'mỗi ý bắt buộc cần 1 nhóm từ kiểm ý (checks)');
-          if (!(RUB[T.level] && (RUB[T.level].writing || []).length)) D(f, u, 'rubric', `thiếu tiêu chí chấm viết ${T.level} trong web/js/cambridge/rubric.js`);
+          if (!(RUB[T.level] && (RUB[T.level].writing || []).length)) D(f, u, 'rubric', `thiếu tiêu chí chấm viết ${T.level} trong web/cpack/cambridge/rubric.js`);
           continue;
         }
         const units = p.units || [p], items = units.flatMap(x => x.items || []);

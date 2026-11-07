@@ -2,15 +2,16 @@
 // scripts/sentence-audio/todo.mjs + merge.mjs (cổng ASR câu, sentence-audio-asr.yml – docs/WORD-AUDIO.md, mục "Audio câu"),
 // scripts/audio/coverage.mjs (độ phủ theo nhóm: groups = tên nhóm → khóa). Nhóm theo giọng đọc chung (GEN) có cả Anh lẫn Mỹ: UI.tts tra khóa theo accent người học.
 import fs from 'node:fs'; import vm from 'node:vm';
+import { dataFiles } from '../lib/scan-roots.mjs';
 export function collect() {
   const groups = new Map(), tag = (g, key) => { if (!groups.has(g)) groups.set(g, new Set()); groups.get(g).add(key); };
   const c = { self: {} }; c.self = c; vm.createContext(c);
   vm.runInContext(fs.readFileSync('web/js/listen/kvoice.js', 'utf8'), c);
-  for (const f of fs.readdirSync('web/js/listen').filter(f => /^test\d+\.js$/.test(f)).sort()) vm.runInContext(fs.readFileSync('web/js/listen/' + f, 'utf8'), c);
+  for (const f of dataFiles('listen', /^test\d+\.js$/)) vm.runInContext(fs.readFileSync(f, 'utf8'), c); // web/js/listen + web/cpack/listen
   for (const f of fs.readdirSync('web/js/toeic').filter(f => /^listening\d+\.js$/.test(f)).sort()) vm.runInContext(fs.readFileSync('web/js/toeic/' + f, 'utf8'), c);
   for (const f of fs.readdirSync('web/cpack/toefl').filter(f => /^data\d+\.js$/.test(f))) vm.runInContext(fs.readFileSync('web/cpack/toefl/' + f, 'utf8'), c);
   // Cambridge A2–C2 (docs/specs/cambridge.md): mỗi unit nghe có speakers + script như TOEFL
-  if (fs.existsSync('web/js/cambridge')) for (const l of fs.readdirSync('web/js/cambridge').filter(x => /^(a2|b1|b2|c1|c2)$/.test(x))) for (const f of fs.readdirSync('web/js/cambridge/' + l).filter(f => /^t\d+\.js$/.test(f))) vm.runInContext(fs.readFileSync(`web/js/cambridge/${l}/${f}`, 'utf8'), c);
+  if (fs.existsSync('web/cpack/cambridge')) for (const l of fs.readdirSync('web/cpack/cambridge').filter(x => /^(a2|b1|b2|c1|c2)$/.test(x))) for (const f of fs.readdirSync('web/cpack/cambridge/' + l).filter(f => /^t\d+\.js$/.test(f))) vm.runInContext(fs.readFileSync(`web/cpack/cambridge/${l}/${f}`, 'utf8'), c);
   const camUnits = (c.CAMBRIDGE || []).flatMap(T => ((T.listening || {}).parts || []).flatMap(p => p.units || [])).map(u => ({ ...u, _g: 'cambridge-listening' }));
   const parts = [...(c.LISTENING || []), ...((c.TOEIC || {}).listening || []), ...((c.TOEFL || {}).listening || []), ...camUnits];
   const jobs = new Map();

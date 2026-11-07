@@ -11,6 +11,7 @@
 // Chỉ chạy trên CI (frame-consistency.yml).
 // Dùng: node scripts/test/frame-consistency.mjs [--root dist | --base URL] [--out out/frame-consistency] [--only home,vocab] [--write-known]
 import { chromium } from 'playwright';
+import { SCAN_ROOTS } from '../lib/scan-roots.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { noProd } from './lib/no-prod.mjs';
@@ -129,7 +130,7 @@ const live = await P0.page.evaluate(() => ({ routes: Object.keys(App.routes).fil
 const target = r => FIXED[r] ? FIXED[r] : '/' + r;
 // App.routes chỉ có route của gói đã nạp (gói lười tự đăng ký khi mở) → danh sách đủ = route trong mã nguồn ∪ route đang sống.
 // Quét THẲNG web/js (cùng regex scripts/codemap.mjs §4): docs/codemap.json chỉ được bot dựng lại sau khi gộp → route lười mới của PR (vd. #/watch) từng bị báo "không còn trong app".
-const srcRoutes = () => { const out = new Set(), walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = d + '/' + e.name; if (e.isDirectory()) { if (e.name !== 'i18n') walk(p); } else if (e.name.endsWith('.js')) for (const m of fs.readFileSync(p, 'utf8').matchAll(/\broutes(?:\.([A-Za-z_$][\w$]*)|\[\s*['"]([\w-]+)['"]\s*\])\s*=[^=]/g)) out.add(m[1] || m[2]); } }; walk('web/js'); return out; };
+const srcRoutes = () => { const out = new Set(), walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = d + '/' + e.name; if (e.isDirectory()) { if (e.name !== 'i18n') walk(p); } else if (e.name.endsWith('.js')) for (const m of fs.readFileSync(p, 'utf8').matchAll(/\broutes(?:\.([A-Za-z_$][\w$]*)|\[\s*['"]([\w-]+)['"]\s*\])\s*=[^=]/g)) out.add(m[1] || m[2]); } }; SCAN_ROOTS.filter(r => fs.existsSync(r)).forEach(walk); return out; };
 const SRC_ROUTES = [...new Set([...Object.keys(JSON.parse(fs.readFileSync('docs/codemap.json', 'utf8')).routes || {}).map(h => h.replace(/^#\//, '')), ...srcRoutes()])];
 let ROUTES = [...new Set([...SRC_ROUTES, ...live.routes])].sort();
 if (ONLY) ROUTES = ROUTES.filter(r => ONLY.split(',').includes(r));
