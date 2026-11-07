@@ -52,7 +52,7 @@ export function collect() {
   }
   // Đọc dài theo từng câu (UI.tts tách câu): câu trả lời mẫu Speaking + 30 bài đọc – theo accent người học (cả 2 giọng)
   {
-    for (const f of ['readings', 'readings-more']) vm.runInContext(fs.readFileSync(`web/js/${f}.js`, 'utf8'), c);
+    for (const f of ['web/js/readings.js', 'web/cpack/readings/more.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), c);
     vm.runInContext(fs.readFileSync('web/js/speak/samples.js', 'utf8'), c);
     for (const r of c.READINGS || []) for (const sen of c.KVoice.split(r.text)) both(sen, 'readings');
     for (const x of Object.values(c.SPEAK_SAMPLES || {})) for (const sen of c.KVoice.split(x.a)) both(sen, 'speaking-samples');

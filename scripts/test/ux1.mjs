@@ -121,10 +121,23 @@ if (V2) {
   ok($$('.v2-today .ux1-go.lsn-start').length >= 1 && $$('.v2-today .ux1-go').every(x => x.getAttribute('data-href') === '#/lesson/go'), 'Hôm nay: nút Bắt đầu chính mang móc chung .lsn-start.ux1-go (lesson-embed/gác bố cục bấm đúng nút, không bấm nhầm thẻ truyện)');
   ok(T && $('.v2-today [data-cont][data-href="#/lesson/go"]') && /TOEIC/.test($('.v2-today [data-blk="exam"]').textContent) && $('.v2-today [data-blk="exam"] button[data-href="#/toeic"]'), 'Hôm nay: thẻ Tiếp tục → bài hiện tại; thẻ kỳ thi TOEIC + thi thử #/toeic');
   ok($('.v2-today [data-tch] img[src*="teach/ama/still-"]') && !$('.v2-today [data-tch]').textContent.trim() && /\d/.test($('.v2-today [data-tch] + div p').textContent), 'Hôm nay: Ama (Chars) đứng trong ô giáo viên, bong bóng nói số liệu thật');
+  const px = $('.v2-today [data-act="pathx"]'), pf = () => $('.v2-today [data-pathfull]');
+  ok(px && px.tagName === 'BUTTON' && px.getAttribute('aria-expanded') === 'false' && px.getAttribute('aria-controls') === pf().id && pf().hidden && !pf().firstChild && $$('.v2-today [data-pv] a[href="#/lesson/go"]').length === 1 && $$('.v2-today [data-pv] [title]').length === 2, 'Hôm nay: khối Lộ trình thu gọn như mẫu (3 nút đá kê, bài hiện tại là liên kết), lộ trình đầy đủ chưa vẽ (lười)');
+  px.click(); await tick(50);
+  ok(px.getAttribute('aria-expanded') === 'true' && !pf().hidden && $('.v2-today [data-pv]').style.display === 'none', 'Xem toàn bộ lộ trình: mở TẠI CHỖ (aria-expanded=true), bản thu gọn ẩn');
   ok($$('.v2-today [data-blk="path"] .v2-path [data-st]').length === 6 && $('.v2-today [data-blk="path"] [data-cur][data-href="#/lesson/go"]') && $('.v2-today [data-blk="path"] [data-act="guide"]') && $$('.v2-today [data-st="done"]').length === 2, 'Hôm nay: khối "Lộ trình" chứa ĐỦ 6 nút (xong/đang học/khóa/kiểm tra) + nút Hướng dẫn chặng');
   $('.v2-today [data-act="guide"]').click(); await tick(80);
   ok(/TOEIC · 750/.test(($('#modalBox') || {}).textContent || '') && $('#modalBox a[href="#/lesson?pick=1"]'), 'Hôm nay: Hướng dẫn chặng mở bảng cũ (thẻ kỳ thi, đổi mục tiêu)');
   if (w.UI && w.UI.closeModal) w.UI.closeModal();
+  px.click(); await tick(30);
+  ok(px.getAttribute('aria-expanded') === 'false' && pf().hidden && $('.v2-today [data-pv]').style.display === '' && pf().querySelector('[data-cur]'), 'Thu gọn lộ trình: đóng lại, giữ bản đã vẽ (mở lại không vẽ lại)');
+  await go('#/home?at=path', '.v2-today');
+  for (let i = 0; i < 40 && !$('.v2-today [data-pathfull] [data-cur]'); i++) await tick(50); // home2 vẽ bất đồng bộ
+  ok($('.v2-today [data-act="pathx"]') && $('.v2-today [data-act="pathx"]').getAttribute('aria-expanded') === 'true' && $('.v2-today [data-pathfull] [data-cur][data-href="#/lesson/go"]') && $('.v2-today [data-pathfull] [data-act="guide"]'), 'liên kết cũ #/home?at=path: lộ trình đầy đủ mở sẵn, có nút đang học + Hướng dẫn chặng');
+  $('.v2-today [data-pathfull] [data-act="guide"]').click(); await tick(80);
+  ok(/TOEIC · 750/.test(($('#modalBox') || {}).textContent || ''), '?at=path: Hướng dẫn chặng trong khối đã mở vẫn mở bảng');
+  if (w.UI && w.UI.closeModal) w.UI.closeModal();
+  await go('#/home', '.v2-today');
   ok(!$('.v2-today [data-show="0"]') && !$('.v2-today [data-blk="due"]') === !w.Core.Cards.dueCount(App.state.cards, App.state.settings, App.state.stats).total, 'Hôm nay: khối không có dữ liệu bị ẩn (nhắc ôn chỉ khi có thẻ đến hạn)');
   ok(['#/mistakes', '#/mistakes?retry=1'].some(h => $(`.v2-today a[href="${h}"]`)) && $('.v2-today a[href="#/listening"]') && $('.v2-today a[href="#/pron"]') && $('.v2-today a[href="#/train"]') && $$('.v2-today [data-blk="week"] [title]').length === 7, 'Hôm nay: luyện nhanh (lỗi sai · từ · nghe · nói) + chuỗi 7 ngày thật');
   ok($('.v2-today nav a[data-tab="home"][aria-current="page"]') && !$('.v2-today a[href="#vocab"], .v2-today a[href="#"]'), 'Hôm nay: thanh tab chung, không còn liên kết giả của mẫu');

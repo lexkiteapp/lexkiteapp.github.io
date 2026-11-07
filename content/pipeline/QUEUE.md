@@ -9,7 +9,7 @@ Quy trình & tiêu chí nghiệm thu: `docs/CONTENT-PIPELINE.md`. Lấy lô Đ�
 | 3 | Ngữ pháp – bài C1 | 6 / 15 bài | 40% | 3 bài | nâng C1 từ 6 lên 15 bài: bị động nâng cao, động từ tường thuật thể hiện quan điểm, mệnh đề quan hệ với lượng từ, nhượng bộ nâng cao… (điểm chờ: content/framework/grammar-inventory.json – kiểm grammar-map-check) | `web/js/grammar/*.js` |  |
 | 4 | IELTS Writing Task 2 | 80 / 100 đề | 80% | 10 đề | mỗi đề: bài mẫu band 8 + bài band 6 kèm nhận xét theo 4 tiêu chí, dàn ý, từ vựng chủ đề; phủ đủ dạng opinion/discussion/advantages/problem-solution/two-part | `web/js/write/models*.js` |  |
 | 5 | Ngữ pháp – trắc nghiệm | 1056 / 1200 câu | 88% | 60 câu | thêm ~9 chủ đề C1 lý thuyết (hiện 6) + C1 ≥ 200 câu | `web/js/grammar/*.js` | A2: 168, B1: 360, B2: 324, C1: 168, A1: 36 |
-| 6 | Bài đọc ngắn | 285 / 300 bài | 95% | 15 bài | — | `web/js/readings-more.js` | B1: 75, B2: 75, C1: 70, A2: 65 |
+| 6 | Bài đọc ngắn | 285 / 300 bài | 95% | 15 bài | — | `web/cpack/readings/more.js` | B1: 75, B2: 75, C1: 70, A2: 65 |
 | 7 | Từ vựng (mục) | 9588 / 10000 mục | 96% | 100 mục | C2 ≥ 500 (hiện 213) + 193 thiếu phiên âm | `web/js/lib/*.js` | B2: 2948, C1: 2459, B1: 2052, A2: 1103, A1: 827, C2: 199 |
 | 8 | Ngữ pháp – tự luận | 980 / 1000 câu | 98% | 20 câu | mọi chủ đề đã có ≥ 10 câu; nâng chủ đề còn 10 câu lên ≥ 20 (ưu tiên C1/IELTS) | `web/js/grammar/*.js` | A2: 140, B1: 300, B2: 350, C1: 130, A1: 60 |
 | 9 | Ngữ pháp – bài A2 | 14 / 18 bài | 78% | 3 bài | điểm A2 hiện chỉ dạy ở bài B1 (quá khứ tiếp diễn bối cảnh, hiện tại hoàn thành trải nghiệm, will/going to…) – bài A2 nhẹ hơn (điểm chờ: content/framework/grammar-inventory.json – kiểm grammar-map-check) | `web/js/grammar/*.js` |  |
