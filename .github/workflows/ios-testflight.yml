@@ -42,7 +42,7 @@ jobs:
           xcodebuild -project App.xcodeproj -scheme App -configuration Release -destination 'generic/platform=iOS' \
             -archivePath "$RUNNER_TEMP/Lexkite.xcarchive" -allowProvisioningUpdates \
             -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" \
-            DEVELOPMENT_TEAM="$TEAM" CODE_SIGN_STYLE=Automatic MARKETING_VERSION="${VER:-1.0}" CURRENT_PROJECT_VERSION="$GITHUB_RUN_NUMBER" \
+            DEVELOPMENT_TEAM="$TEAM" CODE_SIGN_STYLE=Automatic MARKETING_VERSION="${VER:-1.0}" CURRENT_PROJECT_VERSION="$GITHUB_RUN_NUMBER" DEBUG_INFORMATION_FORMAT=dwarf-with-dsym \
             archive | tail -60
           test -d "$RUNNER_TEMP/Lexkite.xcarchive"
       - name: Kiểm entitlements bản archive (Sign in with Apple, App Groups)
@@ -80,6 +80,15 @@ jobs:
             -exportPath "$RUNNER_TEMP/export" -allowProvisioningUpdates \
             -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" | tail -40
           echo "✓ Đã tải build $GITHUB_RUN_NUMBER lên App Store Connect – chờ Apple xử lý (5–30 phút) rồi hiện ở TestFlight" >> "$GITHUB_STEP_SUMMARY"
+      # Crashlytics: dSYM của bản archive → Firebase (lexkite-app) để crash iOS đọc được tên hàm/dòng. Công cụ upload-symbols đi kèm firebase-ios-sdk (SPM, @capacitor-firebase/crashlytics).
+      - name: Tải dSYM lên Firebase Crashlytics
+        if: inputs.upload
+        run: |
+          D="$RUNNER_TEMP/Lexkite.xcarchive/dSYMs"; ls "$D"/*.dSYM >/dev/null 2>&1 || { echo "::error::Bản archive không có dSYM (DEBUG_INFORMATION_FORMAT=dwarf-with-dsym)"; exit 1; }
+          UP=$(find "$HOME/Library/Developer/Xcode/DerivedData" -path '*/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/upload-symbols' -type f 2>/dev/null | head -1)
+          [ -n "$UP" ] || { echo "::error::Không thấy firebase-ios-sdk/Crashlytics/upload-symbols trong SourcePackages – plugin @capacitor-firebase/crashlytics chưa vào bản build?"; exit 1; }
+          "$UP" -gsp mobile/ios/App/App/GoogleService-Info.plist -p ios "$D" 2>&1 | tail -15
+          echo "✓ Đã tải $(ls -d "$D"/*.dSYM | wc -l | tr -d ' ') dSYM lên Crashlytics" >> "$GITHUB_STEP_SUMMARY"
       - name: Xuất IPA đã ký để lưu trữ (release-archive → Kho Drive; lỗi bước này KHÔNG ảnh hưởng TestFlight)
         if: inputs.upload
         continue-on-error: true
