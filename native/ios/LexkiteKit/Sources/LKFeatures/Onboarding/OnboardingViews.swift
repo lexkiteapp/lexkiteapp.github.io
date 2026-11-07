@@ -33,12 +33,15 @@ struct OnbSplashView: View {
     var body: some View {
         ZStack {
             LKColor.background.resolve(scheme).ignoresSafeArea()
-            Circle().fill(LKColor.glowSecondary.resolve(scheme).opacity(0.22)).frame(width: 280, height: 280).blur(radius: 48)
+            // Soft glow as a radial gradient (cheap, and drawn by snapshots too – .blur is not); only the glow fades in.
+            // The mark + name are visible from the first frame so the hand-off from the system launch screen never flashes empty (C17 QC).
+            RadialGradient(colors: [LKColor.glowSecondary.resolve(scheme).opacity(0.22), .clear], center: .center, startRadius: 0, endRadius: 190)
+                .frame(width: 380, height: 380)
+                .opacity(shown || reduceMotion ? 1 : 0)
             VStack(spacing: LKSpacing.spaceMd) {
                 LexkiteMark(size: 96)
                 Text(t(.appName)).lkText(LKType.headlineLg).foregroundStyle(LKColor.onSurface.resolve(scheme))
             }
-            .opacity(shown || reduceMotion ? 1 : 0)
         }
         .onAppear { withAnimation(LKMotionPolicy.progressAnimation(reduce: reduceMotion)) { shown = true } }
         .accessibilityElement(children: .combine)

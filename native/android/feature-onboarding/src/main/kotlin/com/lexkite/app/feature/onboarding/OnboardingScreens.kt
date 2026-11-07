@@ -54,6 +54,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
@@ -143,7 +144,7 @@ private fun StepFrame(k: Chrome, footer: @Composable ColumnScope.() -> Unit, bod
             Row(Modifier.fillMaxWidth().heightIn(min = 56.dp).padding(horizontal = LKSpacing.spaceXs), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
                 if (k.onBack != null) IconButton(onClick = k.onBack, modifier = Modifier.size(48.dp).testTag(TAG_BACK)) { Icon(Icons.AutoMirrored.Filled.ArrowBack, t(L10nKey.actionBack), tint = c.onSurface) } else Spacer(Modifier.size(48.dp))
                 if (OnbFlow.stepNo(k.step) > 0) {
-                    LKProgress(OnbFlow.fraction(k.step), Modifier.weight(1f), label = t(L10nKey.meProgress))
+                    LKProgress(OnbFlow.fraction(k.step), Modifier.weight(1f), color = c.secondary, label = t(L10nKey.meProgress), track = c.outlineVariant)   // Stitch onb-*.html + iOS OnbProgress: teal step bar
                     Text(t.num(OnbFlow.stepNo(k.step)) + " / " + t.num(OnbFlow.TOTAL), style = LKType.labelBadge.toCompose(), color = c.onSurfaceVariant)
                 } else Spacer(Modifier.weight(1f))
                 if (k.onSkip != null) Box(Modifier.heightIn(min = 48.dp).testTag(TAG_SKIP).tactile(k.onSkip).padding(horizontal = LKSpacing.spaceSm), contentAlignment = Alignment.Center) {
@@ -216,7 +217,7 @@ private fun LanguageStep(k: Chrome, selected: String, onNext: () -> Unit, onPick
         BasicTextField(
             value = q, onValueChange = { q = it }, singleLine = true,
             textStyle = LKType.bodyLg.toCompose().copy(color = c.onSurface), cursorBrush = SolidColor(c.primary),
-            modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp).clip(PillShape).background(c.cardHigh).padding(horizontal = LKSpacing.spaceMd).testTag("onb-lang-search"),
+            modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp).clip(PillShape).background(c.card).border(2.dp, c.outlineVariant, PillShape).padding(horizontal = LKSpacing.spaceMd).testTag("onb-lang-search"),
             decorationBox = { inner ->
                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
                     Icon(Icons.Filled.Search, null, tint = c.onSurfaceVariant)
@@ -228,13 +229,7 @@ private fun LanguageStep(k: Chrome, selected: String, onNext: () -> Unit, onPick
             },
         )
         val shown = L10nLangs.ALL.filter { q.isBlank() || t.nativeName(it).contains(q.trim(), ignoreCase = true) || it.startsWith(q.trim(), ignoreCase = true) }
-        for (l in shown) {
-            val on = l == selected
-            Row(Modifier.fillMaxWidth().heightIn(min = 52.dp).testTag("onb-lang-$l").semantics { this.selected = on }.tactile({ onPick(l) }, role = Role.RadioButton).padding(horizontal = LKSpacing.spaceXs), verticalAlignment = Alignment.CenterVertically) {
-                Text(t.nativeName(l), style = LKType.bodyLg.toCompose(), color = if (on) c.primary else c.onSurface, modifier = Modifier.weight(1f))
-                if (on) Icon(Icons.Filled.Check, null, tint = c.primary)
-            }
-        }
+        for (l in shown) ChoiceCard(l == selected, "onb-lang-$l", null, t.nativeName(l), null, { onPick(l) })   // same tactile radio card as every step (Stitch onb-*.html, iOS)
     }
 }
 
@@ -253,21 +248,21 @@ private fun Coach(q: String, say: String, teacher: @Composable (String) -> Unit,
     }
 }
 
-/** One option (radio semantics): tactile card with lip, icon capsule, title + subtitle, check badge; the selected one is outlined in primary. */
+/** One option (radio semantics): tactile card with lip, icon capsule, title + subtitle, check badge; the selected one is outlined in secondary (teal), as Stitch onb-*.html and iOS OnbChoiceRow. */
 @Composable
 private fun ChoiceCard(on: Boolean, tag: String, icon: ImageVector?, title: String, sub: String?, onClick: () -> Unit, lead: (@Composable () -> Unit)? = null) {
     val c = LocalLKColors.current
     Box(Modifier.fillMaxWidth().testTag(tag).semantics { selected = on }.tactile(onClick, role = Role.RadioButton)) {
-        Box(Modifier.matchParentSize().offset(y = 3.dp).background(if (on) c.primary else c.outlineVariant, CardShape))
-        Row(Modifier.fillMaxWidth().heightIn(min = 64.dp).clip(CardShape).background(if (on) c.cardHigh else c.card).border(2.dp, if (on) c.primary else c.outlineVariant, CardShape).padding(LKSpacing.spaceSm),
+        Box(Modifier.matchParentSize().offset(y = 3.dp).background(if (on) c.secondary else c.outlineVariant, CardShape))
+        Row(Modifier.fillMaxWidth().heightIn(min = 64.dp).clip(CardShape).background(c.card).background(if (on) c.secondary.copy(alpha = 0.16f) else Color.Transparent).border(2.dp, if (on) c.secondary else c.outlineVariant, CardShape).padding(LKSpacing.spaceSm),
             verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
             if (lead != null) lead() else if (icon != null) Box(Modifier.size(48.dp).clip(CardShape).background(c.secondaryContainer), contentAlignment = Alignment.Center) { Icon(icon, null, tint = c.onSecondaryContainer) }
             Column(Modifier.weight(1f)) {
                 Text(title, style = LKType.headlineSm.toCompose(), color = c.onSurface)
                 if (sub != null) Text(sub, style = LKType.bodyMd.toCompose(), color = c.onSurfaceVariant)
             }
-            Box(Modifier.size(28.dp).clip(CircleShape).background(if (on) c.primary else c.cardHigh).border(2.dp, if (on) c.primary else c.outlineVariant, CircleShape), contentAlignment = Alignment.Center) {
-                if (on) Icon(Icons.Filled.Check, null, tint = c.onPrimary, modifier = Modifier.size(16.dp))
+            Box(Modifier.size(28.dp).clip(CircleShape).background(if (on) c.secondary else Color.Transparent).border(2.dp, if (on) c.secondary else c.outlineVariant, CircleShape), contentAlignment = Alignment.Center) {
+                if (on) Icon(Icons.Filled.Check, null, tint = c.onSecondary, modifier = Modifier.size(16.dp))
             }
         }
     }
@@ -291,7 +286,7 @@ private fun GoalStep(k: Chrome, choice: OnbChoice, fresh: Boolean, teacher: @Com
                 val cur = choice.variant.ifEmpty { tr.variants.first().id }
                 for (v in tr.variants) {
                     val vOn = v.id == cur
-                    Box(Modifier.heightIn(min = 44.dp).testTag("onb-variant-${v.id}").semantics { selected = vOn }.clip(PillShape).background(if (vOn) c.primaryContainer else c.cardHigh).tactile({ onChange(choice.copy(variant = v.id)) }, role = Role.RadioButton).padding(horizontal = LKSpacing.spaceMd), contentAlignment = Alignment.Center) {
+                    Box(Modifier.heightIn(min = 44.dp).testTag("onb-variant-${v.id}").semantics { selected = vOn }.clip(PillShape).background(if (vOn) c.primaryContainer else c.card).border(2.dp, if (vOn) c.primaryContainer else c.outlineVariant, PillShape).tactile({ onChange(choice.copy(variant = v.id)) }, role = Role.RadioButton).padding(horizontal = LKSpacing.spaceMd), contentAlignment = Alignment.Center) {
                         Text(v.label, style = LKType.labelMetric.toCompose(), color = if (vOn) c.onPrimaryContainer else c.onSurface)
                     }
                 }
@@ -306,7 +301,7 @@ private fun GoalStep(k: Chrome, choice: OnbChoice, fresh: Boolean, teacher: @Com
 private fun LevelBars(filled: Int, total: Int) {
     val c = LocalLKColors.current
     Row(Modifier.size(48.dp), horizontalArrangement = Arrangement.spacedBy(3.dp), verticalAlignment = Alignment.Bottom) {
-        for (j in 0 until 4) Box(Modifier.width(6.dp).height((10 + 6 * j).dp).clip(PillShape).background(if (j < Math.ceil(filled.toDouble() / total * 4).toInt()) c.secondary else c.cardHigh))
+        for (j in 0 until 4) Box(Modifier.width(6.dp).height((10 + 6 * j).dp).clip(PillShape).background(if (j < Math.ceil(filled.toDouble() / total * 4).toInt()) c.secondary else c.outlineVariant))
     }
 }
 
