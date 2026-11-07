@@ -159,7 +159,6 @@ p { margin: .4rem 0; }
 .btn[disabled] { opacity: .5; cursor: default; pointer-events: none; }
 /* Nút bị vô hiệu vẫn đọc được (AA ≥ 4.5:1 cả sáng/tối): nền nhạt + chữ muted + viền đứt, không làm mờ cả nút. Lý do chưa bấm được: .next-why ngay dưới */
 .btn.btn[disabled] { opacity: 1; background: var(--surface-2); color: var(--muted); border: 1px dashed color-mix(in srgb, var(--muted) 55%, transparent); box-shadow: none; }
-.next-why { flex-basis: 100%; margin: .35rem 0 0; font-size: .85rem; color: var(--muted); }
 
 .input, select.input, textarea.input { width: 100%; padding: .7rem .9rem; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); outline: none; transition: border-color .15s, box-shadow .15s; }
 /* iOS Safari: ô ngày/giờ có bề rộng nội tại > khung → tràn (24/10). Ép co theo khung, căn trái như ô khác. */
