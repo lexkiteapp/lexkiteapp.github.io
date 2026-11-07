@@ -115,9 +115,6 @@
  "cls": {
   ":scope > div > main > div:nth-child(3) > div:nth-child(3) > div > div > div": {
    "[width:65%]": "''"
-  },
-  "[class~=\"lt:text-[#8C7A6B]\"]": {
-   "lt:text-[#8C7A6B]": "'lt:text-[#76665A]'"
   }
  },
  "tag": {
