@@ -18,7 +18,7 @@ jobs:
       - name: Chụp
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
           git worktree add -q ../before "${{ github.event.inputs.before }}"
           (cd ../before/web && python3 -m http.server 8081 >/dev/null 2>&1 &) ; (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
           node scripts/test/explain-shots.mjs http://localhost:8081 out/quiz-explain before

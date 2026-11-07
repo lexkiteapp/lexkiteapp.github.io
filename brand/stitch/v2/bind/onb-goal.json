@@ -1,0 +1,235 @@
+{
+ "_doc": "Thiết lập lần đầu – bước 1 'Mục tiêu' (#/welcome/setup, web/js/onboard.js). Mẫu: refs-factory onb-exam (4481132b / 80b61628, project 7268539912208977707). d do onboard.js dựng: d.tracks = 5 gói thật (Tracks.TR), khuôn theo icon (c2 túi = TOEIC/công sở, c3 = TOEFL, c4 bong bóng = giao tiếp, c5 = IELTS dùng khuôn sách của mẫu IELTS qua c1-icon); thẻ đang chọn = class tô của thẻ 'selected' trong mẫu (cls). Chip biến thể IELTS Academic/GT, TOEIC LR/SW chèn dưới thẻ đang chọn. Nhãn nhỏ trong bong bóng = tên giáo viên; dòng phụ = lời Kit/giáo viên (aria-live); dòng chân = 'Chọn 1 gói…'. Đăng nhập + chọn ngôn ngữ (chỉ bước 1) chèn dưới thanh đầu. Nút back 40 px → vùng chạm 48 px bằng after: trong suốt.",
+ "i18n": {
+  "Go back": "Quay lại màn trước",
+  "Continue": "Tiếp tục"
+ },
+ "text": {
+  "1 / 4": "d.stepTxt",
+  "Diagnostic Step": "d.kicker",
+  "Which exam are you preparing for?": "d.q",
+  "We will tune your daily vocabulary sprints and scoring rubrics.": "d.say",
+  "100% Free forever • You can switch exams anytime in Settings": "d.foot"
+ },
+ "html": {
+  ":scope > main > section:nth-child(1) > div:nth-child(1)": "d.teacher"
+ },
+ "attr": {
+  ":scope > header > div > button": {
+   "id": "'onbBack'",
+   "type": "'button'"
+  },
+  ":scope > header > div > div:nth-child(2) > div": {
+   "role": "'progressbar'",
+   "aria-label": "d.progAria",
+   "aria-valuemin": "1",
+   "aria-valuemax": "d.steps",
+   "aria-valuenow": "d.step"
+  },
+  ":scope > header > div > div:nth-child(2) > div > div": {
+   "style": "'width:' + d.pct + '%'"
+  },
+  ":scope > main > section:nth-child(1) > div:nth-child(2) > div > p": {
+   "role": "'status'",
+   "aria-live": "'polite'",
+   "id": "'onbSay'"
+  },
+  ":scope > main > section:nth-child(1) > div:nth-child(2) > div > h1": {
+   "id": "'onbQ'"
+  },
+  ":scope > footer > div > button": {
+   "id": "'obNext'",
+   "type": "'button'"
+  },
+  ":scope > main > section:nth-child(2)": {
+   "aria-labelledby": "'onbQ'",
+   "aria-label": "d.q"
+  }
+ },
+ "addClass": {
+  ":scope > header > div > button": "relative after:absolute after:-inset-1 after:content-['']"
+ },
+ "after": {
+  ":scope > header": "d.meta"
+ },
+ "repeat": [
+  {
+   "list": "d.tracks",
+   "as": "r",
+   "variants": {
+    "c1": ":scope > main > section:nth-child(2) > div:nth-child(1)",
+    "c2": ":scope > main > section:nth-child(2) > div:nth-child(2)",
+    "c3": ":scope > main > section:nth-child(2) > div:nth-child(3)",
+    "c4": ":scope > main > section:nth-child(2) > div:nth-child(4)",
+    "c5": ":scope > main > section:nth-child(2) > div:nth-child(5)"
+   },
+   "samples": ":scope > main > section:nth-child(2) > div",
+   "pick": "r.tpl",
+   "bind": {
+    "c1": {
+     "html": {
+      ":scope > div:nth-child(1) > div:nth-child(2) > div > span:nth-child(1)": "e(r.name)",
+      ":scope > div:nth-child(1) > div:nth-child(2) > div > span:nth-child(2)": "e(r.badge)",
+      ":scope > div:nth-child(1) > div:nth-child(2) > p": "e(r.sub)",
+      ":scope > div:nth-child(2)": "r.on ? '<svg fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" viewBox=\"0 0 24 24\" class=\"w-4 h-4\" aria-hidden=\"true\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M5 13l4 4L19 7\"></path></svg>' : ''"
+     },
+     "attr": {
+      ":scope": {
+       "data-track": "r.id",
+       "aria-checked": "r.on ? 'true' : 'false'"
+      }
+     },
+     "cls": {
+      ":scope": {
+       "tactile-card-selected": "r.on ? 'tactile-card-selected' : ''",
+       "border-[#2BA39A]": "r.on ? 'border-[#2BA39A]' : 'lt:border-[#EADEC8] dk:border-[#2B4750]'",
+       "lt:bg-[#E3F6F4]/60": "r.on ? 'lt:bg-[#E3F6F4]/60' : 'lt:bg-white'",
+       "lt:shadow-[0_5px_0_0_#125A55]": "r.on ? 'lt:shadow-[0_5px_0_0_#125A55]' : 'lt:shadow-[0_5px_0_0_#D8CFBC]'",
+       "dk:bg-[#143D3B]": "r.on ? 'dk:bg-[#143D3B]' : 'dk:bg-[#162528]'",
+       "dk:shadow-[0_5px_0_0_#0A2726]": "r.on ? 'dk:shadow-[0_5px_0_0_#0A2726]' : 'dk:shadow-[0_5px_0_0_#060E10]'"
+      },
+      ":scope > div:nth-child(2)": {
+       "bg-[#2BA39A]": "r.on ? 'bg-[#2BA39A]' : 'lt:bg-[#FBF7F1]/80 dk:bg-[#122023]'",
+       "lt:border-white": "r.on ? 'lt:border-white' : 'lt:border-[#EADEC8]'",
+       "dk:border-[#6BD8CE]": "r.on ? 'dk:border-[#6BD8CE]' : 'dk:border-[#2B4750]'"
+      }
+     },
+     "after": {
+      ":scope": "r.vs"
+     }
+    },
+    "c2": {
+     "html": {
+      ":scope > div:nth-child(1) > div:nth-child(2) > span": "e(r.name)",
+      ":scope > div:nth-child(1) > div:nth-child(2) > p": "e(r.sub)",
+      ":scope > div:nth-child(2)": "r.on ? '<svg fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" viewBox=\"0 0 24 24\" class=\"w-4 h-4\" aria-hidden=\"true\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M5 13l4 4L19 7\"></path></svg>' : ''"
+     },
+     "attr": {
+      ":scope": {
+       "data-track": "r.id",
+       "aria-checked": "r.on ? 'true' : 'false'"
+      }
+     },
+     "cls": {
+      ":scope": {
+       "lt:bg-white": "r.on ? 'lt:bg-[#E3F6F4]/60 tactile-card-selected' : 'lt:bg-white'",
+       "lt:border-[#EADEC8]": "r.on ? 'lt:border-[#2BA39A]' : 'lt:border-[#EADEC8]'",
+       "lt:shadow-[0_5px_0_0_#D8CFBC]": "r.on ? 'lt:shadow-[0_5px_0_0_#125A55]' : 'lt:shadow-[0_5px_0_0_#D8CFBC]'",
+       "dk:bg-[#162528]": "r.on ? 'dk:bg-[#143D3B]' : 'dk:bg-[#162528]'",
+       "dk:border-[#2B4750]": "r.on ? 'dk:border-[#2BA39A]' : 'dk:border-[#2B4750]'",
+       "dk:shadow-[0_5px_0_0_#060E10]": "r.on ? 'dk:shadow-[0_5px_0_0_#0A2726]' : 'dk:shadow-[0_5px_0_0_#060E10]'"
+      },
+      ":scope > div:nth-child(2)": {
+       "lt:border-[#EADEC8]": "r.on ? 'lt:border-white bg-[#2BA39A] lt:text-white dk:text-[#0E1E22]' : 'lt:border-[#EADEC8]'",
+       "lt:bg-[#FBF7F1]/80": "r.on ? '' : 'lt:bg-[#FBF7F1]/80'",
+       "dk:border-[#2B4750]": "r.on ? 'dk:border-[#74DDD5]' : 'dk:border-[#2B4750]'",
+       "dk:bg-[#122023]": "r.on ? '' : 'dk:bg-[#122023]'"
+      }
+     },
+     "after": {
+      ":scope": "r.vs"
+     }
+    },
+    "c3": {
+     "html": {
+      ":scope > div:nth-child(1) > div:nth-child(2) > span": "e(r.name)",
+      ":scope > div:nth-child(1) > div:nth-child(2) > p": "e(r.sub)",
+      ":scope > div:nth-child(2)": "r.on ? '<svg fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" viewBox=\"0 0 24 24\" class=\"w-4 h-4\" aria-hidden=\"true\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M5 13l4 4L19 7\"></path></svg>' : ''"
+     },
+     "attr": {
+      ":scope": {
+       "data-track": "r.id",
+       "aria-checked": "r.on ? 'true' : 'false'"
+      }
+     },
+     "cls": {
+      ":scope": {
+       "lt:bg-white": "r.on ? 'lt:bg-[#E3F6F4]/60 tactile-card-selected' : 'lt:bg-white'",
+       "lt:border-[#EADEC8]": "r.on ? 'lt:border-[#2BA39A]' : 'lt:border-[#EADEC8]'",
+       "lt:shadow-[0_5px_0_0_#D8CFBC]": "r.on ? 'lt:shadow-[0_5px_0_0_#125A55]' : 'lt:shadow-[0_5px_0_0_#D8CFBC]'",
+       "dk:bg-[#162528]": "r.on ? 'dk:bg-[#143D3B]' : 'dk:bg-[#162528]'",
+       "dk:border-[#2B4750]": "r.on ? 'dk:border-[#2BA39A]' : 'dk:border-[#2B4750]'",
+       "dk:shadow-[0_5px_0_0_#060E10]": "r.on ? 'dk:shadow-[0_5px_0_0_#0A2726]' : 'dk:shadow-[0_5px_0_0_#060E10]'"
+      },
+      ":scope > div:nth-child(2)": {
+       "lt:border-[#EADEC8]": "r.on ? 'lt:border-white bg-[#2BA39A] lt:text-white dk:text-[#0E1E22]' : 'lt:border-[#EADEC8]'",
+       "lt:bg-[#FBF7F1]/80": "r.on ? '' : 'lt:bg-[#FBF7F1]/80'",
+       "dk:border-[#2B4750]": "r.on ? 'dk:border-[#74DDD5]' : 'dk:border-[#2B4750]'",
+       "dk:bg-[#122023]": "r.on ? '' : 'dk:bg-[#122023]'"
+      }
+     },
+     "after": {
+      ":scope": "r.vs"
+     }
+    },
+    "c4": {
+     "html": {
+      ":scope > div:nth-child(1) > div:nth-child(2) > span": "e(r.name)",
+      ":scope > div:nth-child(1) > div:nth-child(2) > p": "e(r.sub)",
+      ":scope > div:nth-child(2)": "r.on ? '<svg fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" viewBox=\"0 0 24 24\" class=\"w-4 h-4\" aria-hidden=\"true\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M5 13l4 4L19 7\"></path></svg>' : ''"
+     },
+     "attr": {
+      ":scope": {
+       "data-track": "r.id",
+       "aria-checked": "r.on ? 'true' : 'false'"
+      }
+     },
+     "cls": {
+      ":scope": {
+       "lt:bg-white": "r.on ? 'lt:bg-[#E3F6F4]/60 tactile-card-selected' : 'lt:bg-white'",
+       "lt:border-[#EADEC8]": "r.on ? 'lt:border-[#2BA39A]' : 'lt:border-[#EADEC8]'",
+       "lt:shadow-[0_5px_0_0_#D8CFBC]": "r.on ? 'lt:shadow-[0_5px_0_0_#125A55]' : 'lt:shadow-[0_5px_0_0_#D8CFBC]'",
+       "dk:bg-[#162528]": "r.on ? 'dk:bg-[#143D3B]' : 'dk:bg-[#162528]'",
+       "dk:border-[#2B4750]": "r.on ? 'dk:border-[#2BA39A]' : 'dk:border-[#2B4750]'",
+       "dk:shadow-[0_5px_0_0_#060E10]": "r.on ? 'dk:shadow-[0_5px_0_0_#0A2726]' : 'dk:shadow-[0_5px_0_0_#060E10]'"
+      },
+      ":scope > div:nth-child(2)": {
+       "lt:border-[#EADEC8]": "r.on ? 'lt:border-white bg-[#2BA39A] lt:text-white dk:text-[#0E1E22]' : 'lt:border-[#EADEC8]'",
+       "lt:bg-[#FBF7F1]/80": "r.on ? '' : 'lt:bg-[#FBF7F1]/80'",
+       "dk:border-[#2B4750]": "r.on ? 'dk:border-[#74DDD5]' : 'dk:border-[#2B4750]'",
+       "dk:bg-[#122023]": "r.on ? '' : 'dk:bg-[#122023]'"
+      }
+     },
+     "after": {
+      ":scope": "r.vs"
+     }
+    },
+    "c5": {
+     "html": {
+      ":scope > div:nth-child(1) > div:nth-child(2) > span": "e(r.name)",
+      ":scope > div:nth-child(1) > div:nth-child(2) > p": "e(r.sub)",
+      ":scope > div:nth-child(2)": "r.on ? '<svg fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" viewBox=\"0 0 24 24\" class=\"w-4 h-4\" aria-hidden=\"true\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M5 13l4 4L19 7\"></path></svg>' : ''"
+     },
+     "attr": {
+      ":scope": {
+       "data-track": "r.id",
+       "aria-checked": "r.on ? 'true' : 'false'"
+      }
+     },
+     "cls": {
+      ":scope": {
+       "lt:bg-white": "r.on ? 'lt:bg-[#E3F6F4]/60 tactile-card-selected' : 'lt:bg-white'",
+       "lt:border-[#EADEC8]": "r.on ? 'lt:border-[#2BA39A]' : 'lt:border-[#EADEC8]'",
+       "lt:shadow-[0_5px_0_0_#D8CFBC]": "r.on ? 'lt:shadow-[0_5px_0_0_#125A55]' : 'lt:shadow-[0_5px_0_0_#D8CFBC]'",
+       "dk:bg-[#162528]": "r.on ? 'dk:bg-[#143D3B]' : 'dk:bg-[#162528]'",
+       "dk:border-[#2B4750]": "r.on ? 'dk:border-[#2BA39A]' : 'dk:border-[#2B4750]'",
+       "dk:shadow-[0_5px_0_0_#060E10]": "r.on ? 'dk:shadow-[0_5px_0_0_#0A2726]' : 'dk:shadow-[0_5px_0_0_#060E10]'"
+      },
+      ":scope > div:nth-child(2)": {
+       "lt:border-[#EADEC8]": "r.on ? 'lt:border-white bg-[#2BA39A] lt:text-white dk:text-[#0E1E22]' : 'lt:border-[#EADEC8]'",
+       "lt:bg-[#FBF7F1]/80": "r.on ? '' : 'lt:bg-[#FBF7F1]/80'",
+       "dk:border-[#2B4750]": "r.on ? 'dk:border-[#74DDD5]' : 'dk:border-[#2B4750]'",
+       "dk:bg-[#122023]": "r.on ? '' : 'dk:bg-[#122023]'"
+      }
+     },
+     "after": {
+      ":scope": "r.vs"
+     }
+    }
+   }
+  }
+ ],
+ "setClass": {
+  ":scope > main > section:nth-child(1) > div:nth-child(1)": "w-[110px] sm:w-[130px] h-[140px] sm:h-[160px] flex-shrink-0"
+ }
+}

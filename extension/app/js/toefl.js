@@ -1,5 +1,5 @@
 /* Luyện thi TOEFL iBT theo định dạng mới (áp dụng từ 21/01/2026): 4 kỹ năng, 12 dạng bài, thang band 1–6 (kèm 0–120 trong giai đoạn chuyển tiếp).
- * Dữ liệu: js/toefl/data1.js (tự biên soạn). Dùng chung bộ câu hỏi (qengine.js), trình phát nhiều giọng (listening.js),
+ * Dữ liệu: cpack/toefl/data1.js (tự biên soạn). Dùng chung bộ câu hỏi (qengine.js), trình phát nhiều giọng (listening.js),
  * nhận dạng/ghi âm (UI.recognize) và chấm AI tùy chọn (ai.js). Điểm ước tính chỉ để tham khảo, không tương đương điểm chính thức của ETS. */
 (function () {
   const { $, $$, esc, toast } = UI;
