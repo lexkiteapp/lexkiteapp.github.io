@@ -36,7 +36,7 @@
 - Mỗi câu: âm + rung (`Sfx`, theo Cài đặt › Hiệu ứng âm thanh), giáo viên gật/lắc + nói ("Nice!"/"Almost!") + emoji; ô chữ nảy, thanh tiến độ sáng, COMBO 🔥; màn kết pháo giấy + XP · % · thời gian, **1 chạm** sang bài tiếp. Chỉ transform/opacity (60 fps), tắt khi giảm chuyển động.
 
 ## 2c. Truyện + Radio (nút trên bản đồ) · trang chủ = bản đồ
-- Nội dung `content/lesson/stories.json` (tự soạn A1–A2, Ama ↔ Carlos) → `scripts/lesson/build-stories.mjs` (kiểm lược đồ, cặp ghép đủ 15 ngôn ngữ) → `web/js/lesson/stories.js` (~5 KB gz, trong bundle `lesson`).
+- Nội dung `content/lesson/stories.json` (tự soạn A1–A2, Ama ↔ Carlos) → `scripts/lesson/build-stories.mjs` (kiểm lược đồ, cặp ghép đủ 15 ngôn ngữ) → `web/cpack/lesson/stories.js` (~5 KB gz, trong bundle `lesson`).
 - **Truyện**: từng câu thoại (người nói sáng lên, chữ hiện dạng chat) + bài kiểm xen giữa: xếp lại câu vừa nghe · câu hỏi hiểu · ghép cụm ↔ nghĩa (ngôn ngữ người học). **Radio**: chỉ nghe (không chữ, "ON AIR") rồi 3 câu hỏi.
 - Giọng: Kokoro **sinh sẵn trên CI** (`scripts/gen-audio.mjs`, `audio.yml` hằng đêm; Ama = af_heart, Carlos = am_michael) → `audio.lexkite.com/audio/l/<KVoice.lineKey>.mp3`; vòng nói chạy đúng độ dài file; chưa có file → giọng máy. Khớp âm vị: §4.
 - Câu thoại không tính điểm (chỉ tiến độ); hết bài → bài kế tiếp xoay vòng. Cờ `lesson_mix` bật → `#/home` = bản đồ (trang chủ đầy đủ ở `#/home?all=1`).

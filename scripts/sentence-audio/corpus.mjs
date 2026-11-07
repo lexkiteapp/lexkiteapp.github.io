@@ -21,7 +21,7 @@ export function collect() {
   }
   // Truyện + Radio của #/lesson (docs/LESSON-ENGINE.md §2c): mỗi câu thoại 1 file theo giọng nhân vật (khớp LessonTeacher.VOICE)
   {
-    vm.runInContext(fs.readFileSync('web/js/lesson/stories.js', 'utf8'), c);
+    vm.runInContext(fs.readFileSync('web/cpack/lesson/stories.js', 'utf8'), c);
     const V = { ama: 'af_heart', carlos: 'am_michael' };
     for (const st of c.LESSON_STORIES || []) for (const l of st.lines) { const key = c.KVoice.lineKey(V[l.who], l.en); jobs.set(key, { voice: V[l.who], text: l.en.trim() }); tag('lesson-stories', key); }
   }

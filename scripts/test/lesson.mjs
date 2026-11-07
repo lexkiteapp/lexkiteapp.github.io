@@ -115,7 +115,7 @@ const C = {
   ok(rv[0].card.word === 'w1', 'nút Ôn lỗi: từ hay quên lên đầu');
 }
 {
-  vm.runInContext(fs.readFileSync(path.join(WEB, 'js/lesson/stories.js'), 'utf8'), ctx);
+  vm.runInContext(fs.readFileSync(path.join(WEB, 'cpack/lesson/stories.js'), 'utf8'), ctx);
   const SS = ctx.self.LESSON_STORIES, st = SS.find(x => x.kind === 'story'), ra = SS.find(x => x.kind === 'radio');
   ok(SS.filter(x => x.kind === 'story').length >= 3 && SS.filter(x => x.kind === 'radio').length >= 2, 'stories: ≥ 3 truyện + ≥ 2 radio');
   const P = E.pathPlan({}, NOW, { story: 1, radio: 1 }).map(x => x.kind);
