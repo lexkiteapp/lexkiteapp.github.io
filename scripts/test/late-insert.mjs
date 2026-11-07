@@ -51,7 +51,7 @@ ok(/dispatchEvent\(new Event\('lk:drawn'\)\)/.test(app) && /addEventListener\('l
 ok(/--font: "Be Vietnam Pro", "Be Vietnam Pro Fallback"/.test(rd('web/css/style.css')), 'cả app dùng font dự phòng khớp số đo → font về muộn gần như không xô chữ');
 
 // ---- 6) Kho từ không chặn lần vẽ đầu ở màn không cần, và vẫn được nạp
-{ const so = app.slice(app.indexOf('const softOf = '), app.indexOf('async function route()'));
+{ const s0 = app.indexOf('const softOf = '), so = app.slice(s0, app.indexOf('\n  };', s0) + 5); // đúng hàm softOf (main thêm khối Scroll giữa softOf và route())
   const softOf = new Function('topicOf', so + '; return softOf;')(id => (id === 'education' ? { words: [{}] } : null));
   const q = s => new URLSearchParams(s);
   ok(softOf('review', '', q('')).join() === 'words' && !softOf('review', '', q('hub=1')).length && !softOf('review', '', q('src=forgetting')).length, 'phiên ôn vẽ trước kho từ; hub/nguồn riêng vẫn đợi kho');
