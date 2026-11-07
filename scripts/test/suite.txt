@@ -325,3 +325,4 @@ node scripts/test/main-red-sweep.mjs
 node scripts/test/ci-queue-gate.mjs
 node scripts/test/android-xml-comments.mjs
 node scripts/test/retry5xx.mjs
+node scripts/test/sparse-imports.mjs
