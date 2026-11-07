@@ -340,3 +340,4 @@ node scripts/test/retry5xx.mjs
 node scripts/test/sparse-imports.mjs
 node scripts/test/big-data.mjs
 node scripts/test/heavy-rerun.mjs
+node scripts/test/json-dupkeys.mjs
