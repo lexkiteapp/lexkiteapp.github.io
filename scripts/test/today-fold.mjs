@@ -34,10 +34,9 @@ for (const theme of ['light', 'dark']) for (const who of ['old', 'new']) {
     const navs = [...document.querySelectorAll('#bnav, .v2 > nav, nav.fixed')].filter(vis).map(n => n.getBoundingClientRect().top);
     const fold = Math.min(innerHeight, ...navs);
     const bar = cta && cta.closest('section') && cta.closest('section').querySelector('[role="progressbar"]');
-    const cur = document.querySelector(`${root} [data-cur]`), card = cur && cur.closest('div.w-full.flex-col');
     return { strip: s ? R(s) : null, tiles: s ? [...s.children].map(a => ({ tag: a.tagName, href: a.getAttribute('href'), ...R(a) })) : [], cta: cta ? R(cta) : null, fold: Math.round(fold), scrollY: scrollY,
       bar: bar ? { now: bar.getAttribute('aria-valuenow'), txt: (bar.parentElement.nextElementSibling || {}).textContent } : null,
-      curPct: card ? (card.querySelector('span.tabular-nums') || {}).textContent : null, cls: window.__cls };
+      pxExp: (document.querySelector(`${root} [data-act="pathx"]`) || { getAttribute: () => null }).getAttribute('aria-expanded'), cls: window.__cls };
   }, root);
   ok(m.strip && m.strip.h <= 48, `${tag}: dải chuỗi·XP·mục tiêu gọn (cao ${m.strip && m.strip.h} ≤ 48 px)`);
   ok(m.tiles.length === 4 && m.tiles.every(x => x.tag === 'A' && x.href && x.h >= 44 && x.w >= 44), `${tag}: 4 ô của dải là liên kết, vùng chạm ≥ 44 px (${m.tiles.map(x => x.w + '×' + x.h).join(', ')})`);
@@ -45,7 +44,14 @@ for (const theme of ['light', 'dark']) for (const who of ['old', 'new']) {
   ok(m.cls <= 0.02, `${tag}: không giật bố cục (CLS ${m.cls.toFixed(3)} ≤ 0,02)`);
   if (who === 'old') {
     ok(m.bar && m.bar.txt && m.bar.txt.trim() === m.bar.now + '%', `${tag}: thẻ bài Hôm nay hiện % tiến độ khớp thanh (${m.bar && m.bar.txt} / ${m.bar && m.bar.now})`);
-    ok(m.curPct && /^\d{1,3}%$/.test(m.curPct.trim()), `${tag}: thẻ bài hiện tại trong lộ trình hiện % (${m.curPct})`);
+    // Khối "Your path" thu gọn (3 nút như mẫu) → mở TẠI CHỖ bằng bàn phím (Enter trên nút thật, aria-expanded) → lộ trình đầy đủ + % chặng
+    const px = `${root} [data-act="pathx"]`;
+    ok(m.pxExp === 'false', `${tag}: khối Lộ trình thu gọn mặc định (aria-expanded=${m.pxExp})`);
+    await page.focus(px); await page.keyboard.press('Enter'); await sleep(400);
+    const x = await page.evaluate(([root, px]) => { const cur = document.querySelector(`${root} [data-pathfull] [data-cur]`), card = cur && cur.closest('div.w-full.flex-col');
+      return { exp: document.querySelector(px).getAttribute('aria-expanded'), curPct: card ? (card.querySelector('span.tabular-nums') || {}).textContent : null, cls: window.__cls }; }, [root, px]);
+    ok(x.exp === 'true', `${tag}: Enter mở lộ trình đầy đủ tại chỗ (aria-expanded=${x.exp})`);
+    ok(x.curPct && /^\d{1,3}%$/.test(x.curPct.trim()), `${tag}: thẻ bài hiện tại trong lộ trình hiện % (${x.curPct})`);
   }
   await ctx.close();
 }

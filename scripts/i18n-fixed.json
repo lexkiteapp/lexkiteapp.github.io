@@ -32820,6 +32820,36 @@
     "ru": "Весь путь →",
     "tr": "Tüm yolu gör →"
   },
+  "Xem toàn bộ lộ trình →": {
+    "es": "Ver la ruta completa →",
+    "pt": "Ver trilha completa →",
+    "fr": "Voir tout le parcours →",
+    "de": "Ganzen Lernpfad ansehen →",
+    "id": "Lihat jalur lengkap →",
+    "th": "ดูเส้นทางทั้งหมด →",
+    "zh": "查看完整学习路径 →",
+    "ja": "学習パス全体を見る →",
+    "ko": "전체 학습 경로 보기 →",
+    "hi": "पूरा पथ देखें →",
+    "ar": "عرض المسار كاملًا ←",
+    "ru": "Весь путь обучения →",
+    "tr": "Tüm yolu gör →"
+  },
+  "Thu gọn lộ trình": {
+    "es": "Mostrar menos",
+    "pt": "Mostrar menos",
+    "fr": "Réduire",
+    "de": "Weniger anzeigen",
+    "id": "Tampilkan lebih sedikit",
+    "th": "ย่อ",
+    "zh": "收起",
+    "ja": "閉じる",
+    "ko": "접기",
+    "hi": "कम दिखाएँ",
+    "ar": "عرض أقل",
+    "ru": "Свернуть",
+    "tr": "Daha az göster"
+  },
   "Từ vựng cần ôn": {
     "es": "Palabras",
     "pt": "Palavras",
