@@ -253,6 +253,9 @@
   },
   ":scope > main > div > section:nth-child(9) > div:nth-child(1)": {
    "flex": "d.lg.tier ? 'flex' : 'hidden'"
+  },
+  ":scope > main > div > section:nth-child(5)": {
+   "hidden": "''"
   }
  },
  "tag": {
