@@ -45666,6 +45666,18 @@
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "machining#n": {
+   "ex": "The cast parts need final machining before they go to assembly.",
+   "ps": "a woman operates a metal lathe, the spinning tool shaping a long steel rod",
+   "sc": "a woman operates a metal lathe, the spinning tool shaping a long steel rod",
+   "check": "Is a metal piece being cut and formed by a powered tool?",
+   "cap": "a person shaping metal on a spinning lathe",
+   "key": "a spinning metal lathe cutting a steel rod; metal shavings falling from the workpiece",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "macro#adj": {
    "ex": "The report looks at the macro trends in the industry.",
    "ps": "a tiny model house sits beside a real city skyline with many tall buildings",
