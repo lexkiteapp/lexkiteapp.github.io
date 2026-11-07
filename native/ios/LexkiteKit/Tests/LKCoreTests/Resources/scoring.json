@@ -1,0 +1,851 @@
+{
+  "_doc": "Reference outputs of web/js/core.js SRS.review(noFuzz) and web/js/lesson/engine.js norm/check, TZ=UTC. Swift + Kotlin ports must match exactly (S/D to 1e-9).",
+  "params": {
+    "W": [
+      0.40255,
+      1.18385,
+      3.173,
+      15.69105,
+      7.1949,
+      0.5345,
+      1.4604,
+      0.0046,
+      1.54575,
+      0.1192,
+      1.01925,
+      1.9395,
+      0.11,
+      0.29605,
+      2.2698,
+      0.2315,
+      2.9898,
+      0.51655,
+      0.6621
+    ],
+    "DECAY": -0.5,
+    "FACTOR": 0.2345679012345679,
+    "MAX_IVL": 3650,
+    "retentionTarget": 0.9,
+    "learnStepsMin": {
+      "again": 1,
+      "hard": [
+        6,
+        10
+      ],
+      "good": 10
+    },
+    "dayRolloverHour": 4
+  },
+  "fsrs": [
+    {
+      "start": 1767603600000,
+      "grades": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "steps": [
+        {
+          "grade": 2,
+          "now": 1767603600000,
+          "S": 3.173,
+          "D": 5.282,
+          "reps": 0,
+          "lapses": 0,
+          "step": 1,
+          "interval": 0,
+          "due": 1767604200000
+        },
+        {
+          "grade": 2,
+          "now": 1767604200000,
+          "S": 4.467,
+          "D": 5.273,
+          "reps": 1,
+          "lapses": 0,
+          "step": 0,
+          "interval": 4,
+          "due": 1767931200000
+        },
+        {
+          "grade": 2,
+          "now": 1767934800000,
+          "S": 13.831,
+          "D": 5.264,
+          "reps": 2,
+          "lapses": 0,
+          "step": 0,
+          "interval": 14,
+          "due": 1769140800000
+        },
+        {
+          "grade": 2,
+          "now": 1769148000000,
+          "S": 43.431,
+          "D": 5.255,
+          "reps": 3,
+          "lapses": 0,
+          "step": 0,
+          "interval": 43,
+          "due": 1772856000000
+        },
+        {
+          "grade": 2,
+          "now": 1772866800000,
+          "S": 122.911,
+          "D": 5.246,
+          "reps": 4,
+          "lapses": 0,
+          "step": 0,
+          "interval": 123,
+          "due": 1783483200000
+        }
+      ]
+    },
+    {
+      "start": 1767603600000,
+      "grades": [
+        0,
+        0,
+        2,
+        2,
+        3
+      ],
+      "steps": [
+        {
+          "grade": 0,
+          "now": 1767603600000,
+          "S": 0.403,
+          "D": 7.195,
+          "reps": 0,
+          "lapses": 0,
+          "step": 0,
+          "interval": 0,
+          "due": 1767603660000
+        },
+        {
+          "grade": 0,
+          "now": 1767607800000,
+          "S": 0.202,
+          "D": 8.083,
+          "reps": 0,
+          "lapses": 0,
+          "step": 0,
+          "interval": 0,
+          "due": 1767607860000
+        },
+        {
+          "grade": 2,
+          "now": 1767615600000,
+          "S": 0.284,
+          "D": 8.061,
+          "reps": 0,
+          "lapses": 0,
+          "step": 1,
+          "interval": 0,
+          "due": 1767616200000
+        },
+        {
+          "grade": 2,
+          "now": 1767627000000,
+          "S": 0.4,
+          "D": 8.039,
+          "reps": 1,
+          "lapses": 0,
+          "step": 0,
+          "interval": 1,
+          "due": 1767672000000
+        },
+        {
+          "grade": 3,
+          "now": 1767686400000,
+          "S": 3.589,
+          "D": 7.7,
+          "reps": 2,
+          "lapses": 0,
+          "step": 0,
+          "interval": 4,
+          "due": 1768017600000
+        }
+      ]
+    },
+    {
+      "start": 1767603600000,
+      "grades": [
+        3,
+        3,
+        3
+      ],
+      "steps": [
+        {
+          "grade": 3,
+          "now": 1767603600000,
+          "S": 15.691,
+          "D": 3.225,
+          "reps": 1,
+          "lapses": 0,
+          "step": 0,
+          "interval": 16,
+          "due": 1768968000000
+        },
+        {
+          "grade": 3,
+          "now": 1768975200000,
+          "S": 149.33,
+          "D": 2.131,
+          "reps": 2,
+          "lapses": 0,
+          "step": 0,
+          "interval": 149,
+          "due": 1781841600000
+        },
+        {
+          "grade": 3,
+          "now": 1781852400000,
+          "S": 1244.957,
+          "D": 1,
+          "reps": 3,
+          "lapses": 0,
+          "step": 0,
+          "interval": 1245,
+          "due": 1889409600000
+        }
+      ]
+    },
+    {
+      "start": 1767603600000,
+      "grades": [
+        1,
+        1,
+        2,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "steps": [
+        {
+          "grade": 1,
+          "now": 1767603600000,
+          "S": 1.184,
+          "D": 6.488,
+          "reps": 0,
+          "lapses": 0,
+          "step": 0,
+          "interval": 0,
+          "due": 1767603960000
+        },
+        {
+          "grade": 1,
+          "now": 1767615000000,
+          "S": 0.994,
+          "D": 7.04,
+          "reps": 0,
+          "lapses": 0,
+          "step": 0,
+          "interval": 0,
+          "due": 1767615360000
+        },
+        {
+          "grade": 2,
+          "now": 1767630000000,
+          "S": 1.399,
+          "D": 7.022,
+          "reps": 0,
+          "lapses": 0,
+          "step": 1,
+          "interval": 0,
+          "due": 1767630600000
+        },
+        {
+          "grade": 1,
+          "now": 1767648600000,
+          "S": 1.175,
+          "D": 7.486,
+          "reps": 0,
+          "lapses": 0,
+          "step": 1,
+          "interval": 0,
+          "due": 1767649200000
+        },
+        {
+          "grade": 2,
+          "now": 1767670800000,
+          "S": 1.654,
+          "D": 7.466,
+          "reps": 1,
+          "lapses": 0,
+          "step": 0,
+          "interval": 2,
+          "due": 1767844800000
+        },
+        {
+          "grade": 0,
+          "now": 1767870000000,
+          "S": 0.703,
+          "D": 8.265,
+          "reps": 0,
+          "lapses": 1,
+          "step": 0,
+          "interval": 0,
+          "due": 1767870060000
+        },
+        {
+          "grade": 2,
+          "now": 1767899400000,
+          "S": 0.99,
+          "D": 8.242,
+          "reps": 0,
+          "lapses": 1,
+          "step": 1,
+          "interval": 0,
+          "due": 1767900000000
+        },
+        {
+          "grade": 2,
+          "now": 1767932400000,
+          "S": 1.394,
+          "D": 8.219,
+          "reps": 1,
+          "lapses": 1,
+          "step": 0,
+          "interval": 1,
+          "due": 1768017600000
+        }
+      ]
+    },
+    {
+      "start": 1767603600000,
+      "grades": [
+        2,
+        2,
+        2,
+        0,
+        2,
+        2,
+        1,
+        3
+      ],
+      "steps": [
+        {
+          "grade": 2,
+          "now": 1767603600000,
+          "S": 3.173,
+          "D": 5.282,
+          "reps": 0,
+          "lapses": 0,
+          "step": 1,
+          "interval": 0,
+          "due": 1767604200000
+        },
+        {
+          "grade": 2,
+          "now": 1767618600000,
+          "S": 4.467,
+          "D": 5.273,
+          "reps": 1,
+          "lapses": 0,
+          "step": 0,
+          "interval": 4,
+          "due": 1767931200000
+        },
+        {
+          "grade": 2,
+          "now": 1767949200000,
+          "S": 13.831,
+          "D": 5.264,
+          "reps": 2,
+          "lapses": 0,
+          "step": 0,
+          "interval": 14,
+          "due": 1769140800000
+        },
+        {
+          "grade": 0,
+          "now": 1769162400000,
+          "S": 2.484,
+          "D": 6.785,
+          "reps": 0,
+          "lapses": 1,
+          "step": 0,
+          "interval": 0,
+          "due": 1769162460000
+        },
+        {
+          "grade": 2,
+          "now": 1769188200000,
+          "S": 3.497,
+          "D": 6.769,
+          "reps": 0,
+          "lapses": 1,
+          "step": 1,
+          "interval": 0,
+          "due": 1769188800000
+        },
+        {
+          "grade": 2,
+          "now": 1769217600000,
+          "S": 4.923,
+          "D": 6.753,
+          "reps": 1,
+          "lapses": 1,
+          "step": 0,
+          "interval": 5,
+          "due": 1769659200000
+        },
+        {
+          "grade": 1,
+          "now": 1769691600000,
+          "S": 7.143,
+          "D": 7.261,
+          "reps": 2,
+          "lapses": 1,
+          "step": 0,
+          "interval": 7,
+          "due": 1770264000000
+        },
+        {
+          "grade": 3,
+          "now": 1770300000000,
+          "S": 38.535,
+          "D": 6.8,
+          "reps": 3,
+          "lapses": 1,
+          "step": 0,
+          "interval": 39,
+          "due": 1773633600000
+        }
+      ]
+    },
+    {
+      "start": 1767603600000,
+      "grades": [
+        3,
+        0,
+        3,
+        3,
+        2
+      ],
+      "steps": [
+        {
+          "grade": 3,
+          "now": 1767603600000,
+          "S": 15.691,
+          "D": 3.225,
+          "reps": 1,
+          "lapses": 0,
+          "step": 0,
+          "interval": 16,
+          "due": 1768968000000
+        },
+        {
+          "grade": 0,
+          "now": 1768986000000,
+          "S": 2.794,
+          "D": 5.414,
+          "reps": 0,
+          "lapses": 1,
+          "step": 0,
+          "interval": 0,
+          "due": 1768986060000
+        },
+        {
+          "grade": 3,
+          "now": 1769008200000,
+          "S": 6.593,
+          "D": 4.663,
+          "reps": 1,
+          "lapses": 1,
+          "step": 0,
+          "interval": 7,
+          "due": 1769572800000
+        },
+        {
+          "grade": 3,
+          "now": 1769598000000,
+          "S": 58.407,
+          "D": 3.794,
+          "reps": 2,
+          "lapses": 1,
+          "step": 0,
+          "interval": 58,
+          "due": 1774584000000
+        },
+        {
+          "grade": 2,
+          "now": 1774612800000,
+          "S": 188.142,
+          "D": 3.791,
+          "reps": 3,
+          "lapses": 1,
+          "step": 0,
+          "interval": 188,
+          "due": 1790827200000
+        }
+      ]
+    },
+    {
+      "start": 1767603600000,
+      "grades": [
+        2,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "steps": [
+        {
+          "grade": 2,
+          "now": 1767603600000,
+          "S": 3.173,
+          "D": 5.282,
+          "reps": 0,
+          "lapses": 0,
+          "step": 1,
+          "interval": 0,
+          "due": 1767604200000
+        },
+        {
+          "grade": 1,
+          "now": 1767625800000,
+          "S": 2.665,
+          "D": 6.035,
+          "reps": 0,
+          "lapses": 0,
+          "step": 1,
+          "interval": 0,
+          "due": 1767626400000
+        },
+        {
+          "grade": 2,
+          "now": 1767651600000,
+          "S": 3.752,
+          "D": 6.022,
+          "reps": 1,
+          "lapses": 0,
+          "step": 0,
+          "interval": 4,
+          "due": 1767931200000
+        },
+        {
+          "grade": 2,
+          "now": 1767960000000,
+          "S": 11.43,
+          "D": 6.009,
+          "reps": 2,
+          "lapses": 0,
+          "step": 0,
+          "interval": 11,
+          "due": 1768881600000
+        },
+        {
+          "grade": 2,
+          "now": 1768914000000,
+          "S": 32.251,
+          "D": 5.996,
+          "reps": 3,
+          "lapses": 0,
+          "step": 0,
+          "interval": 32,
+          "due": 1771646400000
+        },
+        {
+          "grade": 2,
+          "now": 1771682400000,
+          "S": 85.635,
+          "D": 5.983,
+          "reps": 4,
+          "lapses": 0,
+          "step": 0,
+          "interval": 86,
+          "due": 1779076800000
+        },
+        {
+          "grade": 2,
+          "now": 1779116400000,
+          "S": 213.422,
+          "D": 5.97,
+          "reps": 5,
+          "lapses": 0,
+          "step": 0,
+          "interval": 213,
+          "due": 1797480000000
+        },
+        {
+          "grade": 2,
+          "now": 1797523200000,
+          "S": 498.115,
+          "D": 5.957,
+          "reps": 6,
+          "lapses": 0,
+          "step": 0,
+          "interval": 498,
+          "due": 1840507200000
+        },
+        {
+          "grade": 2,
+          "now": 1840554000000,
+          "S": 1101.162,
+          "D": 5.944,
+          "reps": 7,
+          "lapses": 0,
+          "step": 0,
+          "interval": 1101,
+          "due": 1935633600000
+        },
+        {
+          "grade": 2,
+          "now": 1935684000000,
+          "S": 2317.177,
+          "D": 5.931,
+          "reps": 8,
+          "lapses": 0,
+          "step": 0,
+          "interval": 2317,
+          "due": 2135822400000
+        }
+      ]
+    }
+  ],
+  "answer": {
+    "norm": [
+      {
+        "in": "Consider",
+        "out": "consider"
+      },
+      {
+        "in": "consider",
+        "out": "consider"
+      },
+      {
+        "in": "  well-being ",
+        "out": "well being"
+      },
+      {
+        "in": "well being",
+        "out": "well being"
+      },
+      {
+        "in": "don’t",
+        "out": "don't"
+      },
+      {
+        "in": "don't",
+        "out": "don't"
+      },
+      {
+        "in": "It's fine.",
+        "out": "it's fine"
+      },
+      {
+        "in": "its fine",
+        "out": "its fine"
+      },
+      {
+        "in": "café",
+        "out": "caf"
+      },
+      {
+        "in": "caf",
+        "out": "caf"
+      },
+      {
+        "in": "Hello, world!",
+        "out": "hello world"
+      },
+      {
+        "in": "hello world",
+        "out": "hello world"
+      },
+      {
+        "in": "co-operate",
+        "out": "co operate"
+      },
+      {
+        "in": "co operate",
+        "out": "co operate"
+      },
+      {
+        "in": "A  B\tC",
+        "out": "a b c"
+      },
+      {
+        "in": "a b c",
+        "out": "a b c"
+      },
+      {
+        "in": "naïve",
+        "out": "na ve"
+      },
+      {
+        "in": "nave",
+        "out": "nave"
+      },
+      {
+        "in": "“quoted”",
+        "out": "quoted"
+      },
+      {
+        "in": "quoted",
+        "out": "quoted"
+      },
+      {
+        "in": "İstanbul",
+        "out": "i stanbul"
+      },
+      {
+        "in": "istanbul",
+        "out": "istanbul"
+      },
+      {
+        "in": "STRASSE",
+        "out": "strasse"
+      },
+      {
+        "in": "strasse",
+        "out": "strasse"
+      },
+      {
+        "in": "x",
+        "out": "x"
+      },
+      {
+        "in": "y",
+        "out": "y"
+      },
+      {
+        "in": "",
+        "out": ""
+      },
+      {
+        "in": "",
+        "out": ""
+      }
+    ],
+    "check": [
+      {
+        "item": {
+          "type": "type",
+          "answer": "consider"
+        },
+        "ans": "Consider ",
+        "ok": true
+      },
+      {
+        "item": {
+          "type": "type",
+          "answer": "consider"
+        },
+        "ans": "considr",
+        "ok": false
+      },
+      {
+        "item": {
+          "type": "gap",
+          "answer": "don't"
+        },
+        "ans": "don’t",
+        "ok": true
+      },
+      {
+        "item": {
+          "type": "build",
+          "answer": "I like green tea"
+        },
+        "ans": [
+          "I",
+          "like",
+          "green",
+          "tea"
+        ],
+        "ok": true
+      },
+      {
+        "item": {
+          "type": "build",
+          "answer": "I like green tea"
+        },
+        "ans": [
+          "I",
+          "green",
+          "like",
+          "tea"
+        ],
+        "ok": false
+      },
+      {
+        "item": {
+          "type": "tr",
+          "answer": "See you soon"
+        },
+        "ans": "see you soon!",
+        "ok": true
+      },
+      {
+        "item": {
+          "type": "say",
+          "answer": "hello"
+        },
+        "ans": 0.7,
+        "ok": true
+      },
+      {
+        "item": {
+          "type": "say",
+          "answer": "hello"
+        },
+        "ans": 0.69,
+        "ok": false
+      },
+      {
+        "item": {
+          "type": "say",
+          "answer": "hello"
+        },
+        "ans": "Hello",
+        "ok": true
+      },
+      {
+        "item": {
+          "type": "pic",
+          "answer": "apple"
+        },
+        "ans": "apple",
+        "ok": true
+      },
+      {
+        "item": {
+          "type": "pic",
+          "answer": "apple",
+          "choice": true
+        },
+        "ans": "Apple",
+        "ok": true
+      },
+      {
+        "item": {
+          "type": "match",
+          "answer": ""
+        },
+        "ans": true,
+        "ok": true
+      },
+      {
+        "item": {
+          "type": "match",
+          "answer": ""
+        },
+        "ans": false,
+        "ok": false
+      }
+    ]
+  }
+}

@@ -293,6 +293,15 @@ node scripts/test/ext-newtab-quiz.mjs
 node scripts/test/teacher-rig.mjs
 node scripts/test/workflow-yaml.mjs
 node scripts/test/samples-seo-parity.mjs --self-test
+node scripts/native/gen.mjs --check
+node scripts/test/native-one-source.mjs --self-test
+node scripts/test/native-one-source.mjs
+node scripts/test/native-parity.mjs
+node scripts/test/sync-cross-client.mjs
+node scripts/test/native-compat.mjs
+node scripts/native/content-publish.mjs check
+node scripts/test/native-pick-sim.mjs
+node scripts/test/native-visual.mjs --self-test
 node scripts/test/lip-clock.mjs
 node scripts/test/teacher-quality.mjs --static
 node scripts/test/legal-i18n.mjs
