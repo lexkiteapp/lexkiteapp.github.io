@@ -7,6 +7,8 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: write   # fast-lane: huỷ lượt nặng khi npm test cùng sha đã đỏ (docs/CI-RUNNERS.md › Máy gác)
+  checks: read
 concurrency:
   group: stitch-diff-${{ github.ref }}
   cancel-in-progress: true
@@ -16,6 +18,8 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+      - if: github.event_name == 'pull_request'
+        uses: ./.github/actions/fast-lane   # làn nhanh: npm test đỏ → huỷ lượt nặng
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: CSS Stitch khớp mẫu (Tailwind biên dịch sẵn, ≤ 10 KB gz/nhóm)
@@ -26,8 +30,8 @@ jobs:
       - name: Vẽ HTML Stitch v2 tĩnh (tắt hoạt ảnh) → tờ duyệt tối/sáng
         if: always()
         run: |
-          npx playwright install --with-deps chromium >/dev/null
-          sudo apt-get install -y -qq imagemagick fonts-noto-core fonts-noto-color-emoji >/dev/null || true
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          sudo timeout 600 apt-get install -y -qq imagemagick fonts-noto-core fonts-noto-color-emoji >/dev/null || true
           node scripts/test/stitch-render.mjs brand/stitch/v2 out/stitch-v2
       - if: always()
         uses: actions/upload-artifact@v4

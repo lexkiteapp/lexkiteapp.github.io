@@ -77,7 +77,7 @@ Les adjectifs et adverbes colorent votre pensée. Se tromper d'adjectif peut tra
 - **Comprehensive vs Compréhensif** : *Comprehensive* signifie complet, exhaustif ou global (*A comprehensive guide to grammar*). Si vous parlez d'une personne indulgente et à l'écoute, employez *understanding*.
 - **Convenient vs Convenable** : *Convenient* veut dire pratique, commode ou qui arrange votre emploi du temps (*Is 2 PM convenient for you?*). Pour convenable, préférez *suitable* ou *appropriate*.
 
-Pour ancrer durablement ces distinctions dans votre mémoire à long terme, suivez notre protocole d'apprentissage décrit dans le guide [apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/), qui détaille l'usage de la répétition espacée. Vous pouvez également enrichir votre panel avec nos [listes de vocabulaire thématiques](/tu-vung/) pour classer ces notions par domaines professionnels.
+Pour ancrer durablement ces distinctions dans votre mémoire à long terme, suivez notre protocole d'apprentissage décrit dans le guide [apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/), qui détaille l'usage de la répétition espacée. Vous pouvez également enrichir votre panel avec nos [listes de vocabulaire thématiques](/en/vocabulary/) pour classer ces notions par domaines professionnels.
 
 ## Les faux amis spécifiques aux examens et à l'IELTS
 

@@ -200,6 +200,12 @@
   },
   "scripts/content-qa/sense-check.mjs": {
    "skip": "cổng nghĩa v2 kiểm mục trong content/lexicon/senses*.json đối chiếu kho viết tay (từ lõi, scripts/lexicon/core.mjs); mục mở rộng chưa có nghĩa gold – khi lô gold nhận mục mở rộng phải đổi sang loadAllPlus"
+  },
+  "scripts/native/web-ref.mjs": {
+   "skip": "chạy JS web thật trong node:vm để sinh vector native (lib chỉ gồm từ mà vector dùng); không ghi/xuất kho"
+  },
+  "scripts/native/gen-sync.mjs": {
+   "skip": "chỉ tra các từ mà vector sync/migration dùng (map lib) để native dựng lại thẻ L:1; không ghi/xuất kho"
   }
  },
  "todo": {

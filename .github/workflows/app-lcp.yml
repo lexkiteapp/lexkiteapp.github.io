@@ -3,9 +3,14 @@
 name: App LCP
 on:
   workflow_dispatch:
+    inputs:
+      only: { description: 'route-vitals: chỉ các route (welcome,today,…)', default: '' }
+      trace: { description: 'route-vitals: in thác tài nguyên tới LCP (1)', default: '' }
+      base: { description: 'route-vitals: gốc đo (vd preview Pages)', default: '' }
+      ux1: { description: 'trước/sau: giao diện Stitch ux1 (1) hay mặc định (0)', default: '1' }
   push:
     branches: ['perf/app-lcp*']
-    paths: ['web/app/index.html', 'web/css/**', 'web/js/i18n.js', 'web/js/app.js', 'web/sw.js', '.github/workflows/app-lcp.yml', 'scripts/test/app-lcp-probe.mjs', 'scripts/build-web.sh', 'scripts/app-loader.mjs']
+    paths: ['web/app/index.html', 'web/css/**', 'web/js/i18n.js', 'web/js/app.js', 'web/sw.js', '.github/workflows/app-lcp.yml', 'scripts/test/app-lcp-probe.mjs', 'scripts/build-web.sh', 'scripts/app-loader.mjs', 'scripts/test/route-vitals.mjs', 'scripts/build-hash.mjs', 'web/_headers', 'web/fonts/**', 'scripts/build-fonts.mjs']
 permissions:
   contents: read
 concurrency:   # ci-policy 2/11: push/lịch trùng gộp; chạy tay (mỗi lượt khác input) không bao giờ bị huỷ
@@ -25,7 +30,7 @@ jobs:
           (cd dist && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
       - name: LCP probe (Playwright)
         run: |
-          npm i --no-save --no-audit --no-fund playwright@1.48.2 && npx playwright install chromium >/dev/null
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 && bash scripts/ci/pw-install.sh chromium
           node scripts/app-loader.mjs --check dist/app/index.html
           node scripts/test/app-lcp-probe.mjs http://localhost:8080
       - name: So sánh offline với main (cùng phép thử)
@@ -60,3 +65,36 @@ jobs:
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: app-lcp, path: lh, retention-days: 5 }
+  # 6 route chính trên bản thật lexkite.com (4G chậm, CPU×4): LCP/TBT/CLS/INP + byte + 10 tài nguyên nặng nhất – docs/PERF-SCROLL.md › Tải trang
+  routes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Cài Playwright
+        timeout-minutes: 14
+        run: npm i --no-save --no-audit --no-fund playwright@1.48.2 && bash scripts/ci/pw-install.sh --with-deps chromium
+      - name: Đo 6 route ×3
+        timeout-minutes: 18
+        env: { ONLY: '${{ inputs.only }}', TRACE: '${{ inputs.trace }}' }
+        run: node scripts/test/route-vitals.mjs ${{ inputs.base || 'https://lexkite.com' }} out/route-vitals.json
+      - name: Trước/sau trên bản dựng dist (main vs nhánh, máy chủ có nén, cùng runner)
+        if: ${{ github.ref != 'refs/heads/main' && !cancelled() }}
+        timeout-minutes: 40
+        env: { ONLY: 'today,review,lesson', UX1: "${{ inputs.ux1 || '1' }}" }
+        run: |
+          mkdir -p out
+          b() { (cd "$1" && npm ci --no-audit --no-fund >/dev/null && bash scripts/build-web.sh) > "$2" 2>&1 || { echo "::error::dựng $1 lỗi"; grep -v -E '│|╵|WARNING|original key' "$2" | tail -40; exit 1; }; }
+          b . out/build-head.log
+          git fetch -q --depth 1 origin main && git worktree add -q ../base FETCH_HEAD && b ../base out/build-base.log
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 >/dev/null  # npm ci ở trên xoá bản cài --no-save của bước trước
+          (node scripts/test/serve-web.mjs ../base/dist 8081 >/dev/null 2>&1 &) ; (node scripts/test/serve-web.mjs dist 8080 >/dev/null 2>&1 &) ; sleep 2
+          echo "### TRƯỚC (main) – lạnh"; node scripts/test/route-vitals.mjs http://localhost:8081 out/before.json
+          echo "### SAU (nhánh) – lạnh"; node scripts/test/route-vitals.mjs http://localhost:8080 out/after.json
+          echo "### TRƯỚC (main) – ấm"; WARM=1 node scripts/test/route-vitals.mjs http://localhost:8081 out/before-warm.json
+          echo "### SAU (nhánh) – ấm"; WARM=1 node scripts/test/route-vitals.mjs http://localhost:8080 out/after-warm.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: route-vitals, path: out, retention-days: 14 }

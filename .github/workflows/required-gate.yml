@@ -35,7 +35,7 @@ jobs:
       # chỉ lấy script từ nhánh mặc định – không bao giờ checkout mã PR
       - uses: actions/checkout@v4
         with:
-          sparse-checkout: "scripts/ci\nscripts/test/jobs-check.mjs\n.github/workflows\ninfra/jobs.json\nweb/free-tier-state.json"   # cron-watch: đọc cron workflow + paused
+          sparse-checkout: "scripts/ci\nscripts/lib\nscripts/test/jobs-check.mjs\n.github/workflows\ninfra/jobs.json\nweb/free-tier-state.json"   # cron-watch: đọc cron workflow + paused
           sparse-checkout-cone-mode: false
           fetch-depth: 1
           persist-credentials: false
