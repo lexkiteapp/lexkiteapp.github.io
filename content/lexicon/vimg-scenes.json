@@ -21601,8 +21601,8 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "desktop#n": {
-   "e4bad": 2,
-   "badAt": "2026-11-07T11:28:39.373Z"
+   "e4bad": 3,
+   "badAt": "2026-11-07T11:44:35.516Z"
   },
   "despair#n": {
    "ex": "He came home in despair.",
@@ -27887,7 +27887,8 @@
    "cap": "A student typing a paper about climate change.",
    "who": 1,
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 3
+   "e4bad": 4,
+   "badAt": "2026-11-07T11:44:35.515Z"
   },
   "essence#n": {
    "ex": "The essence of good teaching is clear communication.",
@@ -55973,8 +55974,8 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "peripheral#n": {
-   "e4bad": 2,
-   "badAt": "2026-11-07T11:28:39.374Z"
+   "e4bad": 3,
+   "badAt": "2026-11-07T11:44:19.833Z"
   },
   "perishable goods#n": {
    "ex": "Perishable goods receive priority handling at the airport.",
@@ -56273,11 +56274,17 @@
   },
   "peso#n": {
    "ex": "The price of the tour was given in Mexican pesos rather than US dollars.",
-   "sc": "person A (tourist) and person B (local guide) stand beside a table; the guide hands a bundle of orange-colored coins to the tourist while a green US bill lies nearby",
-   "cap": "tourist receives Mexican coins for a tour",
-   "who": 2,
+   "ps": "a man holds a large gold coin with a small star emblem, bright in his palm",
+   "sc": "a man holds a large gold coin with a small star emblem, bright in his palm",
+   "check": "Is there a round metal piece used as money?",
+   "cap": "a person holding a shiny gold coin with a star",
+   "key": "a large gold coin with a star emblem; the man's hand holding the coin",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "e4bad": 3
+   "tries": 3,
+   "refix": 1
   },
   "pest control#n": {
    "ex": "The council offers a free pest control service for rats.",
