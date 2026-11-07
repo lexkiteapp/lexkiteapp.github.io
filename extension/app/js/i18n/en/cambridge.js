@@ -1,0 +1,20 @@
+/* English UI strings – cambridge.js (Cambridge English A2 Key → C2 Proficiency, #/cambridge) */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
+'Đề tự biên soạn đúng định dạng Cambridge từ A2 Key đến C2 Proficiency: Đọc & Viết, Nghe, Nói – có lời giải, bài mẫu và tiêu chí chấm.': 'Original practice tests in the Cambridge format, from A2 Key to C2 Proficiency: Reading & Writing, Listening and Speaking – with explanations, model answers and marking criteria.',
+'Đang soạn đề cho cấp này.': 'Tests for this level are being written.',
+'Điểm trong ứng dụng là tỉ lệ câu đúng để tự theo dõi, không phải điểm Cambridge English Scale chính thức.': 'Scores in the app are the percentage of correct answers for tracking your progress – not an official Cambridge English Scale score.',
+'Viết {n} từ trở lên.': 'Write {n} words or more.',
+'Đã nghe 2 lần (như thi thật)': 'Heard twice (as in the real exam)',
+'Nghe lần 2': 'Listen again',
+'Kết quả: {a}/{b} câu đúng ({p}%)': 'Result: {a}/{b} correct ({p}%)',
+'Xem lời giải dưới từng câu. Phần viết có nhận xét riêng ngay dưới bài.': 'See the explanation under each question. Your writing has its own feedback just below it.',
+'{n} từ (tối thiểu {m})': '{n} words (minimum {m})',
+'Từ nối đã dùng: {w}': 'Linking words used: {w}',
+'Tiêu chí chấm (0–5 mỗi tiêu chí)': 'Marking criteria (0–5 each)',
+'Trả lời': 'Answer',
+'Bạn cùng thi nói:': 'Your partner says:',
+'Mẫu câu hữu ích:': 'Useful phrases:',
+'{n} từ – nên nói khoảng {m} từ trở lên': '{n} words – aim for about {m} words or more',
+'Thêm lý do hoặc ví dụ (because, so, for example…)': 'Add a reason or an example (because, so, for example…)',
+'Câu trả lời mẫu': 'Model answer',
+}); })(typeof self !== 'undefined' ? self : this);
