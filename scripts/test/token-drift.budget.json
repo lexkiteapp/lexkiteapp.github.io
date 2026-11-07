@@ -37,9 +37,9 @@
  },
  "web/css/style.css": {
   "color": 165,
-  "space": 476,
-  "radius": 108,
-  "font": 168
+  "space": 460,
+  "radius": 107,
+  "font": 164
  },
  "web/css/tactile-x.css": {
   "color": 0,
