@@ -289,6 +289,7 @@ node scripts/test/logic-invariants.mjs
 node scripts/test/top1-score.mjs
 node scripts/test/vocab-img-judge-budget.mjs
 node scripts/test/lastmod.mjs
+node scripts/test/today-debt.mjs
 node scripts/test/ci-shards-busy.mjs
 node scripts/test/brand-logo-stitch.mjs
 node scripts/test/today-mobile-actions.mjs
@@ -342,3 +343,4 @@ node scripts/test/stitch-today-contrast.mjs
 node scripts/test/is-main-guard.mjs
 node scripts/test/big-data.mjs
 node scripts/test/heavy-rerun.mjs
+node scripts/test/json-dupkeys.mjs
