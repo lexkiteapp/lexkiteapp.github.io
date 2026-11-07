@@ -11,6 +11,7 @@
 // Chỉ chạy trên CI (frame-consistency.yml).
 // Dùng: node scripts/test/frame-consistency.mjs [--root dist | --base URL] [--out out/frame-consistency] [--only home,vocab] [--write-known]
 import { chromium } from 'playwright';
+import { SCAN_ROOTS } from '../lib/scan-roots.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { noProd } from './lib/no-prod.mjs';
@@ -118,6 +119,8 @@ const go = async (P, h) => {
   await P.page.evaluate(x => { if (window.UI && UI.closeModal) UI.closeModal(); if (window.App && App.state.settings) App.state.settings.onboarded = !/^#?\/welcome/.test(x); /* người có dữ liệu không thấy lại trang giới thiệu (docs/specs/welcome.md) → chỉ trong bộ nhớ */ location.hash = x; window.scrollTo(0, 0); }, h);
   await P.page.waitForFunction(x => location.hash === '#' + x.split('#').pop() || true, h).catch(() => {});
   await sleep(1100);
+  // Gói lười nạp nguội (vd. #/speak → 'pas' + 3 CSS) có thể quá 1.1s trên runner bận → đo lúc còn khung xương, thanh dưới chưa đánh dấu tab (lệch giả). Chờ App.route vẽ xong.
+  await P.page.waitForFunction(() => { const v = document.querySelector('#view'); return v && v.children.length && !v.querySelector(':scope > .skel-page, :scope > .skel-study'); }, null, { timeout: 15000 }).catch(() => {});
   await P.page.evaluate(() => window.scrollTo(0, 0));
 };
 
@@ -127,7 +130,7 @@ const live = await P0.page.evaluate(() => ({ routes: Object.keys(App.routes).fil
 const target = r => FIXED[r] ? FIXED[r] : '/' + r;
 // App.routes chỉ có route của gói đã nạp (gói lười tự đăng ký khi mở) → danh sách đủ = route trong mã nguồn ∪ route đang sống.
 // Quét THẲNG web/js (cùng regex scripts/codemap.mjs §4): docs/codemap.json chỉ được bot dựng lại sau khi gộp → route lười mới của PR (vd. #/watch) từng bị báo "không còn trong app".
-const srcRoutes = () => { const out = new Set(), walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = d + '/' + e.name; if (e.isDirectory()) { if (e.name !== 'i18n') walk(p); } else if (e.name.endsWith('.js')) for (const m of fs.readFileSync(p, 'utf8').matchAll(/\broutes(?:\.([A-Za-z_$][\w$]*)|\[\s*['"]([\w-]+)['"]\s*\])\s*=[^=]/g)) out.add(m[1] || m[2]); } }; walk('web/js'); return out; };
+const srcRoutes = () => { const out = new Set(), walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = d + '/' + e.name; if (e.isDirectory()) { if (e.name !== 'i18n') walk(p); } else if (e.name.endsWith('.js')) for (const m of fs.readFileSync(p, 'utf8').matchAll(/\broutes(?:\.([A-Za-z_$][\w$]*)|\[\s*['"]([\w-]+)['"]\s*\])\s*=[^=]/g)) out.add(m[1] || m[2]); } }; SCAN_ROOTS.filter(r => fs.existsSync(r)).forEach(walk); return out; };
 const SRC_ROUTES = [...new Set([...Object.keys(JSON.parse(fs.readFileSync('docs/codemap.json', 'utf8')).routes || {}).map(h => h.replace(/^#\//, '')), ...srcRoutes()])];
 let ROUTES = [...new Set([...SRC_ROUTES, ...live.routes])].sort();
 if (ONLY) ROUTES = ROUTES.filter(r => ONLY.split(',').includes(r));
