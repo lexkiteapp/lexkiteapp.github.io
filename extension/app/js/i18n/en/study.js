@@ -105,7 +105,6 @@
 'Đã thêm': 'Added',
 
 /* ---------- study.js: Match & pronunciation ---------- */
-'Chơi lại': 'Play again',
 'Bỏ qua': 'Skip',
 'ước tính': 'estimated',
 'Xuất sắc!': 'Excellent!',
@@ -212,7 +211,6 @@
 '1 bài ngữ pháp': '1 grammar lesson',
 'Nghe 1 phần': 'Listen to 1 part',
 'Luyện Speaking': 'Practice Speaking',
-'Ghép thẻ tính giờ': 'Timed matching',
 '{n} từ đang sắp quên': '{n} words fading',
 'Đọc bài': 'Read',
 
