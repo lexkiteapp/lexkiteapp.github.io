@@ -1,0 +1,605 @@
+[
+ {
+  "id": "adm-ads",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-ads/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 33 vùng chạm < 44px (vd \"INPUT 213×36\")\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 213×36; VI 31×25; EN 35×25; notifications 31×36; save Áp dụng 128×36; Ngắt toàn bộ ngay 61×40;  44×24;  44×24;  44×24; tune 75×32;  44×24;  44×24\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-ads",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-ads/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 32 vùng chạm < 44px (vd \"INPUT 240×36\") | dark: tương phản 2 chữ (vd \"ADMIN\" 3.4<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"ADMIN\" 3.4:1; \"Áp dụng cấu hình\" 2.7:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 240×36; VI 31×25; EN 35×25; notifications 34×36; save Áp dụng cấu hình 141×36;  44×24;  44×24;  44×24; tune Chỉnh 79×32;  44×24;  44×24;  44×24\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-ads-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-ads-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 3 vùng chạm < 44px (vd \"INPUT 1×1\") | light: tương phản 1 chữ (vd \"Lưu cấu hình quảng cáo\" 3.12<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Lưu cấu hình quảng cáo\" 3.12:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 1×1; 3d 40×44; 5d 40×44\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-ads-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-ads-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"INPUT 1×1\") | dark: tương phản 2 chữ (vd \"7 ngày\" 3.04<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"7 ngày\" 3.04:1; \"Lưu cấu hình quảng cáo\" 3.12:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 1×1\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-alerts",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-alerts/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 2 chữ (vd \"Chạy tác vụ thủ công\" 3.44<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Chạy tác vụ thủ công\" 3.44:1; \"•\" 4.06:1\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-alerts-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-alerts-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 3 vùng chạm < 44px (vd \"smart_toy Tác vụ tự động 255×38\") | light: tương phản 1 chữ (vd \"+ Kích hoạt tác vụ thủ công\" 3.12<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"+ Kích hoạt tác vụ thủ công\" 3.12:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): smart_toy Tác vụ tự động 255×38; code_blocks Lỗi JS 255×36; history_edu Nhật ký quản 255×36\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-analytics",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-analytics/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tràn ngang 791px | light: 20 vùng chạm < 44px (vd \"dashboard 231×36\") | light: tương phản 57 chữ (vd \"Admin Console\" 3.32<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Admin Console\" 3.32:1; \"Tổng quan\" 2.74:1; \"Người dùng\" 2.74:1; \"Chất lượng\" 2.74:1; \"Nội dung & Video\" 2.74:1; \"Hệ thống\" 2.74:1; \"v2.4.2\" 2.74:1; \"Admin\" 3.3:1; \"›\" 3.3:1; \"Ctrl K\" 3.95:1; \"Xuất dữ liệu\" 3.72:1; \"Khoảng thời gian:\" 3.3:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): dashboard 231×36; insights 231×38; ad_units 231×36; group Ng 231×36; inbox Hộ 231×36; campaign 231×36; notification_important 231×36; bug_report 231×36; verified 231×36; share Kê 231×36; smart_display 231×36; movie_filter 231×36\nPage is 791px wider than the viewport: make tables scroll inside their own card (overflow-x:auto) and use flexible widths, no fixed widths over 100%.\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-analytics",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-analytics/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 24 vùng chạm < 44px (vd \"dashboard Tổng quan 231×36\") | dark: tương phản 8 chữ (vd \"Tổng quan\" 4.24<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Tổng quan\" 4.24:1; \"Người dùng\" 4.24:1; \"Chất lượng\" 4.24:1; \"Nội dung & Video\" 4.24:1; \"Hệ thống\" 4.24:1; \"#/drill/sound-lab\" 3.66:1; \"Luyện phát âm tối giản\" 2.97:1; \"Vừa rời 2m trước\" 2.97:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): dashboard Tổng quan 231×36; insights Phân tích 231×38; ad_units Quảng cáo 231×36; group Người dùng 231×36; inbox Hộp thư 231×36; campaign Thông báo 231×36; notification_important C 231×36; bug_report Báo lỗi 231×36; verified Chất lượng 231×36; share Kênh & phân phối 231×36; smart_display Video & So 231×36; movie_filter Video Studi 231×36\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-analytics-details",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-analytics-details/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 6 chữ (vd \"Báo cáo hoạt động tự nhiên, không theo d\" 4.36<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Báo cáo hoạt động tự nhiên, không theo d\" 4.36:1; \"Xuất dữ liệu CSV\" 3.12:1; \"Tổng: 4,812 phiên\" 4.13:1; \"Xếp hạng 30 ngày\" 4.13:1; \"🇩🇪\" 1.35:1; \"Top 5 đường dẫn\" 4.13:1\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-analytics-details",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-analytics-details/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"HM 42×44\") | dark: tương phản 7 chữ (vd \"HM\" 3.73<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"HM\" 3.73:1; \"250\" 4.34:1; \"200\" 4.34:1; \"150\" 4.34:1; \"100\" 4.34:1; \"50\" 4.34:1; \"0\" 4.34:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): HM 42×44\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-analytics-details-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-analytics-details-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"Xuất báo cáo chi tiết 30 ngày (.csv)\" 3.11<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Xuất báo cáo chi tiết 30 ngày (.csv)\" 3.11:1\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-analytics-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-analytics-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 14 chữ (vd \"KL\" 3.04<4.5) | light: tên icon hiện thành chữ \"drive_file_stream\" (1)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"KL\" 3.04:1; \"Trong 5 phút qua\" 4.31:1; \"58 phiên hoạt động\" 4.31:1; \"Thiết bị khác nhau\" 4.31:1; \"Độ sâu bài học cao\" 3.77:1; \"Đúng mục tiêu 5-min\" 4.31:1; \"2.311 khách từ trước\" 4.31:1; \"14 ngày trước\" 3.95:1; \"7 ngày\" 3.95:1; \"+14.2% so với tuần trước\" 3.95:1; \"Ít khách [1]\" 3.97:1; \"[21-100+] Nhiều khách\" 3.97:1\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-analytics-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-analytics-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"menu 40×40\") | dark: tương phản 1 chữ (vd \"1\" 4.33<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"1\" 4.33:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): menu 40×40\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-backlinks",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-backlinks/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 60 vùng chạm < 44px (vd \"dashboard Tổng quan 234×30\") | light: tương phản 18 chữ (vd \"NỘI DUNG & VIDEO\" 3.01<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"NỘI DUNG & VIDEO\" 3.01:1; \"›\" 1.51:1; \"›\" 1.51:1; \"Backlink & PR\" 3.01:1; \"VI\" 3.04:1; \"Kiểm tra ngay\" 3.72:1; \"+3 tuần này\" 2.72:1; \"48\" 3.04:1; \"18\" 3.64:1; \"15\" 3.64:1; \"9\" 3.64:1; \"lexkite.com/#/today\" 3.01:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): dashboard Tổng quan 234×30; query_stats Phân tích 234×30; campaign Quảng cáo 234×30; group Người dùng 234×30; inbox Hộp thư 234×30; notifications Thông báo 234×30; warning Cảnh báo 234×30; bug_report Báo lỗi 234×30; verified Chất lượng 234×30; hub Kênh & phân phối 234×30; share Video & Social 234×30; movie_edit Video Studio 234×30\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-backlinks",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-backlinks/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 60 vùng chạm < 44px (vd \"dashboard Tổng quan 234×30\") | dark: tương phản 5 chữ (vd \"›\" 2.59<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"›\" 2.59:1; \"›\" 2.59:1; \"VI\" 3.04:1; \"48\" 3.04:1; \"1\" 3.04:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): dashboard Tổng quan 234×30; query_stats Phân tích 234×30; campaign Quảng cáo 234×30; group Người dùng 234×30; inbox Hộp thư 234×30; notifications Thông báo 234×30; warning Cảnh báo 234×30; bug_report Báo lỗi 234×30; verified Chất lượng 234×30; hub Kênh & phân phối 234×30; share Video & Social 234×30; movie_edit Video Studio 234×30\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-dist",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-dist/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 9 chữ (vd \"GrabCast đồng bộ\" 3.55<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"GrabCast đồng bộ\" 3.55:1; \"Tạo luật phân phối mới\" 3.12:1; \"—\" 1.66:1; \"—\" 1.66:1; \"—\" 1.66:1; \"—\" 1.66:1; \"—\" 1.66:1; \"—\" 1.66:1; \"08:00 & 20:00\" 1.25:1\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-dist",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-dist/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 6 chữ (vd \"—\" 2.84<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"—\" 2.84:1; \"—\" 2.84:1; \"—\" 2.84:1; \"—\" 2.84:1; \"—\" 2.84:1; \"—\" 2.84:1\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-dist-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-dist-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 10 chữ (vd \"+ Thêm kênh phân phối\" 3.44<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"+ Thêm kênh phân phối\" 3.44:1; \"-\" 2.89:1; \"-\" 2.89:1; \"-\" 2.89:1; \"-\" 2.89:1; \"-\" 2.89:1; \"-\" 2.89:1; \"-\" 2.89:1; \"-\" 2.89:1; \"-\" 2.89:1\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-drive",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-drive/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 57 vùng chạm < 44px (vd \"space_dashboard Tổng qua 230×36\") | light: tương phản 54 chữ (vd \"ADMIN\" 3.4<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"ADMIN\" 3.4:1; \"Cụm điều hành tập trung\" 3.49:1; \"TỔNG QUAN\" 2.95:1; \"NGƯỜI DÙNG\" 2.95:1; \"CHẤT LƯỢNG\" 2.95:1; \"NỘI DUNG & VIDEO\" 2.95:1; \"HỆ THỐNG\" 2.95:1; \"v2.4.2\" 2.29:1; \"Trưởng nhóm hạ tầng\" 3.6:1; \"Admin\" 4.19:1; \"›\" 1.78:1; \"⌘K\" 4.1:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): space_dashboard Tổng qua 230×36; insights Phân tích 230×36; campaign Quảng cáo 230×36; groups Người dùng 230×36; mail Hộp thư 230×36; notifications Thông báo 230×36; warning Cảnh báo 230×36; bug_report Báo lỗi 230×36; verified Chất lượng 230×36; podcasts Kênh & phân phố 230×36; smart_display Video & So 230×36; video_camera_front Video 230×36\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-drive",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-drive/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 57 vùng chạm < 44px (vd \"space_dashboard Tổng qua 230×36\") | dark: tương phản 12 chữ (vd \"›\" 2.84<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"›\" 2.84:1; \"sha256: d84f...a02e\" 4.17:1; \"sha256: 3c1a...77bb\" 4.17:1; \"sha256: e441...9821\" 4.17:1; \"sha256: 78a2...3f10\" 4.42:1; \"sha256: bb09...11c4\" 4.17:1; \"sha256: ff42...44dd\" 4.17:1; \"12 phút trước\" 4.17:1; \"1 giờ trước\" 4.17:1; \"1 giờ trước\" 4.17:1; \"3 giờ trước\" 4.17:1; \"Hôm qua 22:15\" 4.17:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): space_dashboard Tổng qua 230×36; insights Phân tích 230×36; campaign Quảng cáo 230×36; groups Người dùng 230×36; mail Hộp thư 230×36; notifications Thông báo 230×36; warning Cảnh báo 230×36; bug_report Báo lỗi 230×36; verified Chất lượng 230×36; podcasts Kênh & phân phố 230×36; smart_display Video & So 230×36; video_camera_front Video 230×36\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-drive-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-drive-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"INPUT 324×40\")\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 324×40\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-growth",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-growth/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 2 chữ (vd \"242\" 3.04<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"242\" 3.04:1; \"4\" 3.04:1\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-growth",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-growth/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 4 vùng chạm < 44px (vd \"Tất cả 57×30\") | dark: tương phản 10 chữ (vd \"3\" 3.44<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"3\" 3.44:1; \"3\" 3.44:1; \"Xuất báo cáo cohort (.csv)\" 3.44:1; \"2\" 1.9:1; \"318\" 2.4:1; \"3\" 2.4:1; \"43,7%\" 2.4:1; \"46,3%\" 2.4:1; \"48,4%\" 2.4:1; \"50,7%\" 2.4:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): Tất cả 57×30; IELTS 49×30; TOEFL 57×30; TOEIC 56×30\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-growth-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-growth-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"downloadXuất báo cáo tăng trưởng (PDF/CS\" 3.12<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"downloadXuất báo cáo tăng trưởng (PDF/CS\" 3.12:1\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-growth-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-growth-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 4 chữ (vd \"—\" 4.14<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"—\" 4.14:1; \"—\" 4.14:1; \"—\" 4.14:1; \"download Xuất báo cáo tăng trư\" 3.12:1\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-inbox",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-inbox/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tràn ngang 30px | light: 46 vùng chạm < 44px (vd \"push_pin 28×28\") | light: tương phản 28 chữ (vd \"TỔNG QUAN\" 4.06<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"TỔNG QUAN\" 4.06:1; \"NGƯỜI DÙNG\" 4.06:1; \"CHẤT LƯỢNG\" 4.06:1; \"NỘI DUNG & VIDEO\" 4.06:1; \"HỆ THỐNG\" 4.06:1; \"CÀI ĐẶT\" 4.06:1; \"/\" 1.45:1; \"/\" 1.45:1; \"Danh sách tin nhắn\" 4.06:1; \"3 chưa đọc\" 3.88:1; \"18 phút trước\" 3.88:1; \"check_circle Đang mở t\" 4.08:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): push_pin 28×28; dashboard Tổng quan 231×32; analytics Phân tích 231×32; campaign Quảng cáo 231×32; group Người dùng 231×32; mail Hộp thư 3 231×42; notifications Thông báo 231×32; warning Cảnh báo 231×32; bug_report Báo lỗi 1 231×32; verified Chất lượng 231×32; hub Kênh & phân phối 231×32; video_library Video & So 231×32\nPage is 30px wider than the viewport: make tables scroll inside their own card (overflow-x:auto) and use flexible widths, no fixed widths over 100%.\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-inbox",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-inbox/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tràn ngang 32px | dark: 46 vùng chạm < 44px (vd \"push_pin 28×28\") | dark: tương phản 10 chữ (vd \"/\" 1.87<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"/\" 1.87:1; \"/\" 1.87:1; \"hoangminh.ielts@gmail.com\" 3.72:1; \"ductran99@outlook.com\" 4:1; \"2 ngày trước\" 4:1; \"Em đã thử nhập mã ghép nối K7P-Q4M trên \" 4:1; \"maiphuong.work@fpt.com\" 4:1; \"3 ngày trước\" 4:1; \"Bên mình muốn dùng iframe widget của Lex\" 4:1; \"task_alt Đã giải quyết\" 4:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): push_pin 28×28; dashboard Tổng quan 231×32; analytics Phân tích 231×32; campaign Quảng cáo 231×32; group Người dùng 231×32; mail Hộp thư 3 231×42; notifications Thông báo 231×32; warning Cảnh báo 231×32; bug_report Báo lỗi 1 231×34; verified Chất lượng 231×32; hub Kênh & phân phối 231×32; video_library Video & So 231×32\nPage is 32px wider than the viewport: make tables scroll inside their own card (overflow-x:auto) and use flexible widths, no fixed widths over 100%.\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-keys",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-keys/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 2 chữ (vd \"Thêm khóa mới\" 3.44<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Thêm khóa mới\" 3.44:1; \"+ Thêm khóa mới\" 3.44:1\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-keys",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-keys/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"EN 36×36\") | dark: tương phản 13 chữ (vd \"Thêm khóa mới\" 3.44<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Thêm khóa mới\" 3.44:1; \"+ Thêm khóa mới\" 3.44:1; \"(10 phút trước)\" 3.41:1; \"Trước\" 3.41:1; \"System Health Worker\" 3.41:1; \"Vault Alert Daemon\" 3.41:1; \"IP: 14.161.42.*** (Hà Nội, VN)\" 3.41:1; \"Môi trường: Production v2.4.2\" 4.13:1; \"·\" 4.13:1; \"Múi giờ chuẩn: Asia/Ho_Chi_Minh (GMT+7)\" 4.13:1; \"·\" 4.13:1; \"Lexkite Security Vault v1.3\" 4.13:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): EN 36×36\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-keys-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-keys-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"Xem thêm 57×16\")\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): Xem thêm 57×16\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-notices",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-notices/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 2 vùng chạm < 44px (vd \"INPUT 16×16\") | light: tương phản 3 chữ (vd \"Gửi thông báo\" 3.12<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Gửi thông báo\" 3.12:1; \"14\" 3.43:1; \"Trước\" 2.32:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 16×16; INPUT 16×16\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-notices",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-notices/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 3 vùng chạm < 44px (vd \"INPUT 16×16\") | dark: tương phản 2 chữ (vd \"Gửi thông báo\" 3.12<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Gửi thông báo\" 3.12:1; \"Trước\" 2.28:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 16×16; INPUT 16×16; Đã đọc tất cả 76×32\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-notices-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-notices-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 2 vùng chạm < 44px (vd \"INPUT 20×20\") | light: tương phản 2 chữ (vd \"send Gửi thông báo ngay\" 3.11<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"send Gửi thông báo ngay\" 3.11:1; \"3 thông báo\" 4.37:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 20×20; INPUT 20×20\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-notices-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-notices-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 2 vùng chạm < 44px (vd \"INPUT 16×16\") | dark: tương phản 2 chữ (vd \"send Gửi thông báo ngay\" 3.44<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"send Gửi thông báo ngay\" 3.44:1; \"inventory_2 Đã lưu\" 3.19:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 16×16; INPUT 16×16\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-overview",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-overview/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tràn ngang 447px | light: 9 vùng chạm < 44px (vd \"VI 32×24\") | light: tương phản 10 chữ (vd \"Admin\" 2.03<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Admin\" 2.03:1; \"VI\" 3.04:1; \"+17.9%\" 3.83:1; \"Ổn định\" 2.76:1; \"Cần xem\" 4.35:1; \"3 cảnh báo\" 4.35:1; \"5 cron active\" 3.83:1; \"Vừa chạy\" 3.8:1; \"Hoàn tất\" 3.8:1; \"Nội dung\" 4.35:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): VI 32×24; EN 36×24; Xem chi tiết cảnh báo hạ 2×44; Mở quản trị cron jobs 2×44; Mở hòm thư báo lỗi (7 tổ 2×44; Xem 52×36; Xem 52×36; Xem 52×36; Xem 52×36\nPage is 447px wider than the viewport: make tables scroll inside their own card (overflow-x:auto) and use flexible widths, no fixed widths over 100%.\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-overview",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-overview/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 2 vùng chạm < 44px (vd \"VI 32×44\") | dark: tương phản 1 chữ (vd \"MN\" 4.22<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"MN\" 4.22:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): VI 32×44; EN 36×44\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-quality",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-quality/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 5 chữ (vd \"Chạy kiểm định ngay\" 3.11<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Chạy kiểm định ngay\" 3.11:1; \"★\" 3.69:1; \"ES\" 2.84:1; \"3.2:1\" 4.2:1; \"✕\" 3.99:1\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-quality",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-quality/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"Xem toàn bộ log arrow_fo 112×22\") | dark: tương phản 4 chữ (vd \"|\" 3.53<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"|\" 3.53:1; \"Chạy kiểm định ngay\" 3.11:1; \"★\" 3.69:1; \"ES\" 3.81:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): Xem toàn bộ log arrow_fo 112×22\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-quality-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-quality-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"Chạy kiểm định ngay\" 3.11<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Chạy kiểm định ngay\" 3.11:1\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-quality-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-quality-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"Chạy kiểm định ngay\" 3.44<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Chạy kiểm định ngay\" 3.44:1\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-quota",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-quota/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"·\" 1.41<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"·\" 1.41:1\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-quota",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-quota/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"Khóa an toàn khẩn cấp\" 3.44<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Khóa an toàn khẩn cấp\" 3.44:1\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-quota-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-quota-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 6 vùng chạm < 44px (vd \"INPUT 1×1\") | light: tương phản 1 chữ (vd \"Khóa an toàn khẩn cấp\" 3.11<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Khóa an toàn khẩn cấp\" 3.11:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-quota-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-quota-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 6 vùng chạm < 44px (vd \"INPUT 1×1\")\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-reports",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-reports/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 11 vùng chạm < 44px (vd \"INPUT 278×16\") | light: tương phản 31 chữ (vd \"TỔNG QUAN\" 3.83<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"TỔNG QUAN\" 3.83:1; \"NGƯỜI DÙNG\" 3.83:1; \"CHẤT LƯỢNG\" 3.83:1; \"4 mới\" 3.4:1; \"NỘI DUNG & VIDEO\" 3.83:1; \"HỆ THỐNG\" 3.61:1; \"CÀI ĐẶT\" 3.83:1; \"KL\" 3.04:1; \"Máy chủ ổn định v2.4.2\" 3.77:1; \"›\" 2.33:1; \"VI\" 3.04:1; \"KL\" 3.04:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 278×16; VI 31×24; EN 36×24; notifications 40×40; share 34×38; more_horiz 34×38; content_copy Copy JSON 81×16; CM Carlos Mendez (Lexico 246×36; TA Teacher Ama 120×34; KL Tech Lead Kai 124×34; INPUT 423×16\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-reports",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-reports/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 11 vùng chạm < 44px (vd \"INPUT 278×16\") | dark: tương phản 4 chữ (vd \"4 mới\" 3.4<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"4 mới\" 3.4:1; \"›\" 2.54:1; \"4\" 3.4:1; \"CM\" 3.4:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 278×16; VI 32×24; EN 36×24; notifications 40×40; share 34×38; more_horiz 34×38; content_copy Copy JSON 81×16; CM Carlos Mendez (Lexico 246×36; TA Teacher Ama 120×34; KL Tech Lead Kai 124×34; INPUT 423×16\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-services",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-services/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 2 vùng chạm < 44px (vd \"refresh 30×44\") | light: tương phản 10 chữ (vd \"D1 Writes\" 4.03<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"D1 Writes\" 4.03:1; \"Cảnh báo sớm: 13.580 lượt còn lại\" 3.8:1; \"lexkite-vocabulary-db\" 3.63:1; \"Cảnh báo 86,4%\" 3.8:1; \"Hàng đã ghi (Writes)\" 4.03:1; \"86.420 / 100.000 (86,4%)\" 4.03:1; \"Còn lại 13.580 hàng ghi\" 4.03:1; \"Khuyên nghị: Tăng batch ghi\" 4.03:1; \"Quản lý hạn mức\" 3.8:1; \"Writes 86,4%\" 3.8:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): refresh 30×44; notifications 30×44\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-services",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-services/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 2 chữ (vd \"Đồng bộ & Kiểm tra kết nối\" 3.44<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Đồng bộ & Kiểm tra kết nối\" 3.44:1; \"Điều chỉnh tham số TTS\" 3.04:1\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-services-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-services-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"Lexkite Ops Engine v2.4.2 • 100% Free-Ti\" 3.82<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Lexkite Ops Engine v2.4.2 • 100% Free-Ti\" 3.82:1\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-settings",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-settings/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 10 vùng chạm < 44px (vd \"INPUT 1×1\")\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 1×1; INPUT 16×16; INPUT 16×16; INPUT 16×16; INPUT 20×20; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 768×8\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-settings",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-settings/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 10 vùng chạm < 44px (vd \"INPUT 1×1\")\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 1×1; INPUT 16×16; INPUT 16×16; INPUT 16×16; INPUT 20×20; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 768×10\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-settings-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-settings-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 6 vùng chạm < 44px (vd \"INPUT 1×1\") | light: tương phản 8 chữ (vd \"0% (Tắt)\" 4.37<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"0% (Tắt)\" 4.37:1; \"50%\" 4.37:1; \"100% (Chuẩn)\" 4.37:1; \"Phiên bản\" 4.31:1; \"Bản phát hành\" 4.31:1; \"Lần cập nhật cuối\" 4.31:1; \"Lưu thay đổi\" 3.01:1; \"Cài đặt\" 2.67:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 324×10\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-settings-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-settings-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 6 vùng chạm < 44px (vd \"INPUT 1×1\") | dark: tương phản 1 chữ (vd \"Lưu thay đổi\" 3.11<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Lưu thay đổi\" 3.11:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 324×12\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-social",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-social/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 3 vùng chạm < 44px (vd \"INPUT 20×20\") | light: tương phản 10 chữ (vd \"YT\" 2.57<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"YT\" 2.57:1; \"15s\" 2.8:1; \"Hôm nay\" 2.37:1; \"YT\" 2.21:1; \"29s\" 1.34:1; \"I have lived vs I lived\" 1.44:1; \"YT\" 2.03:1; \"1 bài\" 2.54:1; \"*\" 2.99:1; \"*\" 2.99:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 20×20; INPUT 20×20; INPUT 20×20\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-social",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-social/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 17 vùng chạm < 44px (vd \"VI 35×40\") | dark: tương phản 11 chữ (vd \"3\" 3.85<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"3\" 3.85:1; \"4 chờ\" 3.75:1; \"v2.4.1\" 4.15:1; \"›\" 2.52:1; \"›\" 2.52:1; \"TT\" 2.11:1; \"15s\" 3.07:1; \"Hôm nay\" 3.12:1; \"Thứ 5\" 4.15:1; \"Trống\" 4.15:1; \"FB\" 1.14:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): VI 35×40; EN 40×40; chevron_left 39×44; chevron_right 39×44; chevron_left 39×44; chevron_right 39×44; chevron_left 39×44; chevron_right 39×44; chevron_left 37×44; chevron_right 37×44; Tất cả (6) 43×48; Shorts 62×40\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-social-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-social-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 3 vùng chạm < 44px (vd \"INPUT 20×20\") | light: tương phản 4 chữ (vd \"IPA 3-SYLL\" 3.01<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"IPA 3-SYLL\" 3.01:1; \"/'kʌmftəbl/\" 2.86:1; \"Lexkite B2\" 4.01:1; \"Lên lịch bài đăng\" 3.44:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 20×20; INPUT 20×20; INPUT 20×20\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-social-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-social-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 3 vùng chạm < 44px (vd \"INPUT 20×20\") | dark: tương phản 3 chữ (vd \"3 kênh đồng bộ\" 3.04<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"3 kênh đồng bộ\" 3.04:1; \"IPA 3-SYLL\" 3.44:1; \"Lên lịch bài đăng\" 3.44:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 20×20; INPUT 20×20; INPUT 20×20\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-storage",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-storage/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 43 vùng chạm < 44px (vd \"keyboard_double_arrow_le 26×32\") | light: tương phản 36 chữ (vd \"Tổng quan\" 2.46<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Tổng quan\" 2.46:1; \"Người dùng\" 2.46:1; \"Chất lượng\" 2.46:1; \"Nội dung & Video\" 2.46:1; \"Hệ thống\" 2.46:1; \"Lưu trữ\" 2.45:1; \"Cài đặt\" 2.46:1; \"Admin Lead • Trực tuyến\" 2.47:1; \"Admin\" 2.46:1; \"Hệ thống\" 2.46:1; \"Ctrl K\" 3.91:1; \"+ Xuất bản sao lưu\" 4.05:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): keyboard_double_arrow_le 26×32; dashboard Tổng quan 231×30; analytics Phân tích 231×30; campaign Quảng cáo 231×30; group Người dùng 428 231×30; mail Hộp thư 3 231×30; notifications Thông báo 231×30; warning_amber Cảnh báo 231×30; bug_report Báo lỗi 1 231×30; verified Chất lượng 231×30; alt_route Kênh & phân ph 231×30; share Video & Social 231×30\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-storage",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-storage/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 43 vùng chạm < 44px (vd \"keyboard_double_arrow_le 26×32\") | dark: tương phản 13 chữ (vd \"Tổng quan\" 3.94<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Tổng quan\" 3.94:1; \"Người dùng\" 3.94:1; \"Chất lượng\" 3.94:1; \"Nội dung & Video\" 3.94:1; \"Hệ thống\" 3.94:1; \"Cài đặt\" 4.2:1; \"+ Xuất bản sao lưu\" 4.05:1; \"Mốc hiện tại\" 4.4:1; \"Trước\" 2.01:1; \"Lexkite Core Infrastructure • Cloudflare\" 4.2:1; \"•\" 4.2:1; \"•\" 4.2:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): keyboard_double_arrow_le 26×32; dashboard Tổng quan 231×30; analytics Phân tích 231×30; campaign Quảng cáo 231×30; group Người dùng 428 231×30; mail Hộp thư 3 231×30; notifications Thông báo 231×30; warning_amber Cảnh báo 231×30; bug_report Báo lỗi 1 231×30; verified Chất lượng 231×30; alt_route Kênh & phân ph 231×30; share Video & Social 231×30\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-storage-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-storage-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"An toàn\" 2.39<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"An toàn\" 2.39:1\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-storage-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-storage-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"100% Free-Tier Cloud Architecture • SQLi\" 4.13<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"100% Free-Tier Cloud Architecture • SQLi\" 4.13:1\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-studio",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-studio/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 6 chữ (vd \"Tạo video tự động\" 2.98<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Tạo video tự động\" 2.98:1; \"Còn ~45s\" 1.02:1; \"1 cần duyệt\" 2.88:1; \"Đang xem xét\" 1.25:1; \"9:16 HD\" 1.25:1; \"Tạo video tự động\" 2.98:1\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-studio",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-studio/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 7 chữ (vd \"Tạo video tự động\" 3.12<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Tạo video tự động\" 3.12:1; \"CCarlos (2D Avatar)\" 2.29:1; \"C\" 1.83:1; \"TikTok\" 2.86:1; \"YT Shorts\" 2.86:1; \"IG Reels\" 2.86:1; \"Duyệt & Sang Kho GrabCast\" 3.12:1\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-studio-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-studio-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 2 chữ (vd \"1\" 2.84<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"1\" 2.84:1; \"Duyệt & Đẩy sang Lên lịch\" 3.11:1\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-studio-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-studio-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 3 chữ (vd \"1\" 3.11<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"1\" 3.11:1; \"vs. \"I lived here in 2020\"\" 1.67:1; \"Duyệt & Đẩy sang Lên lịch\" 3.11:1\nLayout: native phone 390 wide, zero horizontal scroll. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-video",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-video/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 2 chữ (vd \"Trung tâm video\" 1.49<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Trung tâm video\" 1.49:1; \"16\" 1.49:1\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-video",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "5",
+  "from": "adm-video/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 7 vùng chạm < 44px (vd \"INPUT 88×32\") | dark: tương phản 4 chữ (vd \"Trung tâm video\" 1.89<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Trung tâm video\" 1.89:1; \"Tạo kịch bản mới\" 3.12:1; \"Duyệt xuất bản\" 3.12:1; \"Duyệt xuất bản\" 3.12:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 88×32; VI 38×38; EN 38×38; Tất cả (16) 82×38; Đã lên lịch (6) 103×38; Đã đăng (8) 89×38; Bản nháp (2) 96×38\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ }
+]

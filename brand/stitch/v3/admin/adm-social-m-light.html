@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Admin › Video &amp; Social – GrabCast</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms & Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration Token Injection -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#6f7978",
+            "on-tertiary-fixed-variant": "#005047",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#d4e6e4",
+            "surface": "#ebfdfb",
+            "inverse-on-surface": "#e2f4f2",
+            "primary": "#004340",
+            "on-tertiary": "#ffffff",
+            "inverse-surface": "#233332",
+            "primary-container": "#0d5c58",
+            "surface-container": "#dff2ef",
+            "secondary-fixed-dim": "#ffb599",
+            "on-primary-container": "#8ed2cc",
+            "surface-tint": "#216964",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#ffdbce",
+            "on-error-container": "#93000a",
+            "surface-bright": "#ebfdfb",
+            "on-tertiary-fixed": "#00201c",
+            "surface-dim": "#ccdedc",
+            "surface-container-highest": "#d4e6e4",
+            "tertiary": "#00433c",
+            "primary-fixed-dim": "#8fd3cd",
+            "tertiary-fixed-dim": "#3cddc7",
+            "on-tertiary-container": "#3bdcc7",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#005d53",
+            "surface-container-low": "#e5f7f5",
+            "outline-variant": "#bec9c7",
+            "inverse-primary": "#8fd3cd",
+            "primary-fixed": "#abefe9",
+            "on-background": "#0e1e1d",
+            "on-primary-fixed": "#00201e",
+            "on-secondary-container": "#571a00",
+            "secondary-container": "#fd651e",
+            "secondary": "#a73a00",
+            "on-surface-variant": "#3f4947",
+            "background": "#ebfdfb",
+            "on-secondary-fixed-variant": "#7f2b00",
+            "surface-container-high": "#daecea",
+            "on-secondary-fixed": "#370e00",
+            "on-surface": "#0e1e1d",
+            "on-error": "#ffffff",
+            "on-primary-fixed-variant": "#00504c",
+            "on-primary": "#ffffff",
+            "error": "#ba1a1a",
+            "tertiary-fixed": "#62fae3"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.25rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-xl": "1.5rem",
+            "gutter": "1rem",
+            "margin": "1rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "title-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-md": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-lg": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "title-md": ["16px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "title-lg": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Material Icon utility */
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      vertical-align: middle;
+    }
+
+    /* Tactile Ledge Elevation Tokens */
+    .tactile-card {
+      background-color: #ffffff;
+      border: 1px solid rgba(13, 92, 88, 0.12);
+      box-shadow: 0 1px 2px rgba(13, 92, 88, 0.04), 0 3px 0 0 #d9e9e5;
+    }
+    
+    .tactile-btn-primary {
+      background-color: #ea580c;
+      color: #ffffff;
+      box-shadow: 0 3px 0 0 #c2410c;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #c2410c;
+    }
+
+    .tactile-btn-secondary {
+      background-color: #ffffff;
+      border: 1.5px solid #0d5c58;
+      color: #0d5c58;
+      box-shadow: 0 2px 0 0 #d9e9e5;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(1.5px);
+      box-shadow: 0 0.5px 0 0 #d9e9e5;
+    }
+
+    /* Hide standard scrollbars cleanly for mobile presentation */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen selection:bg-surface-variant selection:text-primary pb-28">
+<!-- ========================================== -->
+<!-- 1. TOP APP BAR (From Shared Components JSON) -->
+<!-- ========================================== -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin h-14 max-w-md mx-auto bg-surface-container-lowest border-b border-outline-variant/30 shadow-sm"><div class="flex items-center gap-2.5"><button aria-label="Menu" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-primary hover:bg-surface-container-low transition-colors duration-150 active:scale-95" type="button"><span class="material-symbols-outlined text-primary text-[24px]" data-icon="menu">menu</span></button><div class="flex flex-col"><span class="text-title-md font-title-md text-on-surface font-semibold tracking-tight">Admin › Video &amp; Social</span><span class="text-body-sm font-body-sm text-on-surface-variant font-medium -mt-0.5">Lên lịch &amp; Kênh GrabCast</span></div></div><div class="flex items-center"><div class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-primary-container text-on-tertiary flex items-center justify-center text-label-md font-label-md font-bold tracking-wider shadow-sm ring-2 ring-surface-variant">LM</div></div></header>
+<!-- Viewport Container strictly capped at mobile 390-420px, no overflow -->
+<main class="max-w-md mx-auto pt-16 px-margin space-y-4">
+<!-- ========================================== -->
+<!-- 2. CHANNEL HEALTH STRIP (GrabCast Protocol) -->
+<!-- ========================================== -->
+<section aria-label="Thanh trạng thái kênh GrabCast" class="mt-2"><div class="flex items-center justify-between mb-2 px-0.5"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[20px]" data-icon="hub">hub</span><span class="text-label-md font-label-md text-primary font-bold">Cổng GrabCast v1.8</span></div><span class="text-[10px] uppercase tracking-wider font-bold px-2.5 py-1 rounded-full bg-surface-container-high text-primary border border-outline-variant/40">Auto-distribute</span></div><div class="flex gap-2 overflow-x-auto no-scrollbar pb-1"><div class="flex-shrink-0 min-h-[44px] bg-surface-container-lowest border border-outline-variant/30 rounded-xl px-3 py-2 flex items-center gap-2 shadow-xs"><div class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></div><div><div class="flex items-center gap-1"><span class="text-body-sm font-body-sm font-bold text-on-surface">YouTube Shorts</span><span class="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded">Sẵn sàng</span></div><p class="text-[11px] font-medium text-on-surface-variant">Quota 12/25 video</p></div></div><div class="flex-shrink-0 min-h-[44px] bg-surface-container-lowest border border-outline-variant/30 rounded-xl px-3 py-2 flex items-center gap-2 shadow-xs"><div class="w-2 h-2 rounded-full bg-emerald-600"></div><div><div class="flex items-center gap-1"><span class="text-body-sm font-body-sm font-bold text-on-surface">TikTok</span><span class="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded">Đã liên kết</span></div><p class="text-[11px] font-medium text-on-surface-variant">@lexkite_english</p></div></div><div class="flex-shrink-0 min-h-[44px] bg-surface-container-lowest border border-amber-300/60 rounded-xl px-3 py-2 flex items-center gap-2 shadow-xs bg-amber-50/20"><div class="w-2 h-2 rounded-full bg-amber-600"></div><div><div class="flex items-center gap-1"><span class="text-body-sm font-body-sm font-bold text-on-surface">FB Reels</span><span class="text-[10px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded">Cấp lại 3d</span></div><p class="text-[11px] text-amber-800 font-semibold">Lexkite Fluency</p></div></div></div></section>
+<!-- ========================================== -->
+<!-- 3. WEEKLY POSTING CALENDAR (Thứ 2 → CN)   -->
+<!-- ========================================== -->
+<section class="tactile-card rounded-2xl p-4"><div class="flex items-center justify-between mb-3.5 pb-2.5 border-b border-surface-container-highest"><div><h2 class="text-title-md font-title-md text-primary font-bold">Lịch phát hành tuần này</h2><p class="text-body-sm font-body-sm text-on-surface-variant font-medium">Kế hoạch nội dung micro-learning</p></div><span class="text-label-sm font-label-sm px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-bold">Tuần 14 · 5 bài đã xếp</span></div><div class="space-y-2.5"><div class="p-2.5 min-h-[44px] rounded-xl bg-surface-container-low/60 border border-outline-variant/30 flex items-start gap-2.5"><div class="w-9 text-center flex-shrink-0 pt-0.5"><span class="text-label-sm font-label-sm uppercase font-bold text-on-surface-variant block">T2</span><span class="text-body-sm font-body-sm font-extrabold text-on-surface">01</span></div><div class="flex-grow min-w-0"><div class="flex items-center justify-between gap-1 mb-0.5"><span class="text-body-sm font-body-sm font-bold text-on-surface truncate">3 Collocations with 'Make' &amp; 'Do'</span><span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded-md"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Đã đăng</span></div><div class="flex items-center gap-2 text-[11px] text-on-surface-variant font-medium"><span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[13px] text-primary" data-icon="schedule">schedule</span> 08:30</span><span>•</span><span class="px-1.5 py-0.5 rounded bg-surface-container text-primary font-semibold text-[10px]">TikTok &amp; Reels</span></div></div></div><div class="p-2.5 min-h-[44px] rounded-xl bg-surface-container-low/60 border border-outline-variant/30 flex items-start gap-2.5"><div class="w-9 text-center flex-shrink-0 pt-0.5"><span class="text-label-sm font-label-sm uppercase font-bold text-on-surface-variant block">T3</span><span class="text-body-sm font-body-sm font-extrabold text-on-surface">02</span></div><div class="flex-grow min-w-0"><div class="flex items-center justify-between gap-1 mb-0.5"><span class="text-body-sm font-body-sm font-bold text-on-surface truncate">Miss The Bus vs Lose The Bus</span><span class="inline-flex items-center gap-1 text-[10px] font-bold text-primary bg-surface-container-high px-1.5 py-0.5 rounded-md"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span> Đã lên lịch</span></div><div class="flex items-center gap-2 text-[11px] text-on-surface-variant font-medium"><span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[13px] text-primary" data-icon="schedule">schedule</span> 20:30</span><span>•</span><span class="px-1.5 py-0.5 rounded bg-surface-container text-primary font-semibold text-[10px]">Shorts &amp; TikTok</span></div></div></div><div class="px-2.5 py-2.5 min-h-[44px] rounded-xl bg-surface-container/30 border border-dashed border-outline-variant/40 flex items-center justify-between text-on-surface-variant"><div class="flex items-center gap-3"><div class="w-9 text-center flex-shrink-0"><span class="text-label-sm font-label-sm uppercase font-bold text-on-surface-variant">T4 · 03</span></div><span class="text-body-sm font-body-sm italic font-medium">Nghỉ nhịp giữ chân tương tác</span></div><span class="text-[11px] text-on-surface-variant font-bold px-2 py-0.5 rounded bg-surface-container-high">Tự do</span></div><div class="p-3 min-h-[44px] rounded-xl bg-surface-container-lowest border-2 border-primary-container shadow-sm flex items-start gap-2.5 ring-2 ring-primary-container/10"><div class="w-9 text-center flex-shrink-0 pt-0.5"><span class="text-label-sm font-label-sm uppercase font-bold text-primary-container block">T5</span><span class="text-body-sm font-body-sm font-black text-primary-container text-base">04</span></div><div class="flex-grow min-w-0"><div class="flex items-center justify-between gap-1 mb-1"><span class="text-body-sm font-body-sm font-bold text-primary truncate">Pronounce 'Comfortable' like a native</span><span class="inline-flex items-center gap-1 text-[10px] font-bold text-secondary bg-secondary-fixed/50 px-1.5 py-0.5 rounded-md">Đang xem xét</span></div><div class="flex items-center flex-wrap gap-1.5 text-[11px] text-on-surface-variant"><span class="flex items-center gap-0.5 font-bold text-primary"><span class="material-symbols-outlined text-[14px]" data-icon="alarm">alarm</span> 08:30 sáng</span><span>•</span><span class="px-1.5 py-0.5 rounded bg-primary-container text-on-tertiary font-bold text-[10px]">3 kênh đồng bộ</span><span class="text-[10px] text-on-surface-variant font-semibold">(IPA /'kʌmftəbl/)</span></div></div></div><div class="p-2.5 min-h-[44px] rounded-xl bg-surface-container-low/60 border border-outline-variant/30 flex items-start gap-2.5"><div class="w-9 text-center flex-shrink-0 pt-0.5"><span class="text-label-sm font-label-sm uppercase font-bold text-on-surface-variant block">T6</span><span class="text-body-sm font-body-sm font-extrabold text-on-surface">05</span></div><div class="flex-grow min-w-0"><div class="flex items-center justify-between gap-1 mb-0.5"><span class="text-body-sm font-body-sm font-bold text-on-surface truncate">50 Collocations IELTS Environment</span><span class="text-[11px] font-bold text-on-surface-variant">Lên lịch tự động</span></div><div class="flex items-center gap-2 text-[11px] text-on-surface-variant font-medium"><span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[13px] text-primary" data-icon="schedule">schedule</span> 20:30 tối</span><span>•</span><span class="px-1.5 py-0.5 rounded bg-surface-container text-primary font-semibold text-[10px]">Remotion Cloud</span></div></div></div><div class="p-2.5 min-h-[44px] rounded-xl bg-surface-container-low/60 border border-outline-variant/30 flex items-start gap-2.5"><div class="w-9 text-center flex-shrink-0 pt-0.5"><span class="text-label-sm font-label-sm uppercase font-bold text-on-surface-variant block">T7</span><span class="text-body-sm font-body-sm font-extrabold text-on-surface">06</span></div><div class="flex-grow min-w-0"><div class="flex items-center justify-between gap-1 mb-0.5"><span class="text-body-sm font-body-sm font-bold text-on-surface truncate">Speaking Part 1: Food &amp; Cooking</span><span class="text-[11px] font-bold text-on-surface-variant">Hàng đợi</span></div><div class="flex items-center gap-2 text-[11px] text-on-surface-variant font-medium"><span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[13px] text-primary" data-icon="schedule">schedule</span> 08:30 sáng</span></div></div></div><div class="p-2.5 min-h-[44px] rounded-xl bg-surface-container-low/60 border border-outline-variant/30 flex items-start gap-2.5"><div class="w-9 text-center flex-shrink-0 pt-0.5"><span class="text-label-sm font-label-sm uppercase font-bold text-on-surface-variant block">CN</span><span class="text-body-sm font-body-sm font-extrabold text-on-surface">07</span></div><div class="flex-grow min-w-0"><div class="flex items-center justify-between gap-1 mb-0.5"><span class="text-body-sm font-body-sm font-bold text-on-surface truncate">Tổng hợp mini-drill tuần</span><span class="text-[11px] font-bold text-on-surface-variant">Review tuần</span></div><div class="flex items-center gap-2 text-[11px] text-on-surface-variant font-medium"><span>Đố vui tương tác Story &amp; Community post</span></div></div></div></div></section>
+<!-- ========================================== -->
+<!-- 4. COMPOSE & SELECTED POST EDITOR MODULE  -->
+<!-- ========================================== -->
+<section class="tactile-card rounded-2xl p-4 space-y-4"><div class="flex items-start justify-between pb-3 border-b border-surface-container-highest"><div><div class="flex items-center gap-1.5 mb-0.5"><span class="text-label-sm font-label-sm bg-primary/10 text-primary px-2 py-0.5 rounded font-mono font-bold">#VID-2024-B1-12</span><span class="text-label-sm font-label-sm bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">CEFR B2</span></div><h3 class="text-title-md font-title-md font-bold text-on-surface">Soạn &amp; Tinh chỉnh bài đăng</h3></div><span class="text-body-sm font-body-sm font-semibold text-on-surface-variant flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary-container"></span> Soạn thảo</span></div><div class="rounded-xl overflow-hidden border border-outline-variant/30 bg-surface-container-low relative"><div class="flex items-center justify-between px-3 py-2 bg-surface-container text-primary font-bold text-body-sm"><span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px]" data-icon="videocam">videocam</span> Xem trước 9:16</span><span class="text-[11px] font-mono bg-primary text-on-primary px-2 py-0.5 rounded font-bold">00:28</span></div><div class="p-3 bg-gradient-to-b from-surface-container-lowest to-surface-container-low flex gap-3 items-center"><div class="w-20 h-32 rounded-lg bg-primary-container text-on-tertiary flex flex-col justify-between p-2 shadow-inner relative flex-shrink-0 overflow-hidden border border-primary"><div class="absolute -right-4 -bottom-4 w-16 h-16 rounded-full bg-surface-variant/20 pointer-events-none"></div><div class="flex justify-between items-start"><span class="text-[8px] bg-secondary-container text-on-secondary px-1 py-0.2 rounded font-extrabold" style="background-color: #7f2b00; color: #ffffff;">IPA 3-SYLL</span><span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" data-icon="mic">mic</span></div><div class="my-auto text-center"><p class="text-[11px] font-extrabold leading-tight text-white">COMFORT-ABLE</p><p class="text-[9px] text-on-primary-container font-mono font-bold" style="color: #ffffff;">/'kʌmftəbl/</p></div><div class="flex items-center justify-between text-[7px] text-surface-container-high"><span style="color: #ffffff; font-weight: 700;">Lexkite B2</span><span class="material-symbols-outlined text-[10px]" data-icon="volume_up">volume_up</span></div></div><div class="space-y-1 min-w-0"><h4 class="text-body-md font-body-md font-bold text-primary leading-snug truncate">Pronounce 'Comfortable' like a native</h4><p class="text-body-sm font-body-sm text-on-surface-variant font-medium">Thời lượng micro-drill 28 giây · Định dạng chuẩn MP4 H.264 vertical · 1080x1920</p><div class="flex items-center gap-1.5 pt-1"><span class="text-[11px] font-bold px-2 py-1 rounded bg-surface-container-high text-primary">Tốc độ 1.0x</span><span class="text-[11px] font-bold px-2 py-1 rounded bg-surface-container-high text-primary">Giọng Anh - Mỹ</span></div></div></div></div><div class="space-y-1.5"><div class="flex justify-between items-center"><label class="text-label-md font-label-md text-on-surface font-bold" for="post-caption">Văn bản mô tả bài đăng (Bilingual Caption)</label><span class="text-[11px] text-on-surface-variant font-bold">214 / 2,200 ký tự</span></div><textarea class="w-full text-body-md font-body-md rounded-xl border-1.5 border-outline-variant/40 bg-surface-container-lowest text-on-surface p-3 focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none leading-relaxed transition-colors shadow-xs" id="post-caption" rows="6">Học cách phát âm 'Comfortable' chuẩn tự nhiên chỉ trong 28 giây! Nhiều bạn hay đọc thành 4 âm tiết, nhưng người bản xứ chỉ nói 3 âm: /ˈkʌmftəbl/.
+
+Lưu lại ôn trước khi thi IELTS Speaking nhé! 🎧
+#Lexkite #IELTSSpeaking #Pronunciation #LearnEnglish</textarea></div><div class="space-y-2 pt-1"><label class="text-label-md font-label-md text-on-surface font-bold block">Chọn nền tảng phân phối qua GrabCast:</label><div class="space-y-2"><label class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low/50 border border-outline-variant/30 active:bg-surface-container transition-colors cursor-pointer min-h-[48px]"><div class="flex items-center gap-3"><input checked="" class="w-5 h-5 rounded-md text-primary-container focus:ring-primary border-outline-variant transition" style="min-width: 44px; min-height: 44px; cursor: pointer;" type="checkbox"/><div><span class="text-body-md font-body-md font-bold text-on-surface block">YouTube Shorts</span><span class="text-body-sm font-body-sm text-on-surface-variant font-medium">Kênh: Lexkite Official</span></div></div><span class="material-symbols-outlined text-primary text-[20px]" data-icon="smart_display">smart_display</span></label><label class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low/50 border border-outline-variant/30 active:bg-surface-container transition-colors cursor-pointer min-h-[48px]"><div class="flex items-center gap-3"><input checked="" class="w-5 h-5 rounded-md text-primary-container focus:ring-primary border-outline-variant transition" style="min-width: 44px; min-height: 44px; cursor: pointer;" type="checkbox"/><div><span class="text-body-md font-body-md font-bold text-on-surface block">TikTok</span><span class="text-body-sm font-body-sm text-on-surface-variant font-medium">Kênh: @lexkite_english</span></div></div><span class="material-symbols-outlined text-primary text-[20px]" data-icon="music_note">music_note</span></label><label class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low/50 border border-outline-variant/30 active:bg-surface-container transition-colors cursor-pointer min-h-[48px]"><div class="flex items-center gap-3"><input checked="" class="w-5 h-5 rounded-md text-primary-container focus:ring-primary border-outline-variant transition" style="min-width: 44px; min-height: 44px; cursor: pointer;" type="checkbox"/><div><span class="text-body-md font-body-md font-bold text-on-surface block">Facebook Reels</span><span class="text-body-sm font-body-sm text-on-surface-variant font-medium">Trang: Lexkite Fluency</span></div></div><span class="material-symbols-outlined text-primary text-[20px]" data-icon="video_library">video_library</span></label></div></div><div class="grid grid-cols-2 gap-2.5 pt-1"><div class="p-2.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40 min-h-[44px]"><span class="text-label-sm font-label-sm text-on-surface-variant uppercase block font-bold">Ngày đăng</span><div class="flex items-center gap-1.5 mt-1 text-on-surface font-bold text-body-sm"><span class="material-symbols-outlined text-[18px] text-primary" data-icon="calendar_month">calendar_month</span><span>Thứ 5, 04/04/2025</span></div></div><div class="p-2.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40 min-h-[44px]"><span class="text-label-sm font-label-sm text-on-surface-variant uppercase block font-bold">Khung giờ vàng</span><div class="flex items-center gap-1.5 mt-1 text-primary font-bold text-body-sm"><span class="material-symbols-outlined text-[18px] text-secondary" data-icon="schedule">schedule</span><span>08:30 (GMT+7)</span></div></div></div><div class="space-y-2 pt-2"><button class="w-full h-12 rounded-xl tactile-btn-primary flex items-center justify-center gap-2 font-bold text-body-md min-h-[48px] text-white" style="background-color: #b93815; color: #ffffff;" type="button"><span class="material-symbols-outlined text-[20px] text-white" data-icon="calendar_today">calendar_today</span><span class="text-white">Lên lịch bài đăng</span></button><div class="grid grid-cols-2 gap-2"><button class="h-11 rounded-xl tactile-btn-secondary flex items-center justify-center gap-1.5 font-bold text-body-sm min-h-[44px] text-primary" type="button"><span class="material-symbols-outlined text-[18px] text-primary" data-icon="send">send</span><span>Đăng ngay</span></button><button class="h-11 rounded-xl bg-surface-container-high text-primary hover:bg-surface-variant flex items-center justify-center gap-1.5 font-bold text-body-sm min-h-[44px] transition-colors" type="button"><span class="material-symbols-outlined text-[18px] text-primary" data-icon="bookmark">bookmark</span><span>Lưu bản nháp</span></button></div></div></section>
+<!-- ========================================== -->
+<!-- 5. REALISTIC LEAN METRICS DASHBOARD TILES  -->
+<!-- ========================================== -->
+<section aria-label="Số liệu hoạt động thực tế" class="tactile-card rounded-2xl p-4 space-y-3"><div class="flex items-center justify-between pb-2 border-b border-surface-container-highest"><h3 class="text-title-md font-title-md font-bold text-on-surface">Hiệu suất vận hành thực tế</h3><span class="text-[11px] text-on-surface-variant font-bold">Cập nhật 5 phút trước</span></div><div class="grid grid-cols-3 gap-2 text-center"><div class="p-2.5 rounded-xl bg-surface-container-low/60 border border-outline-variant/30 flex flex-col justify-between min-h-[44px]"><span class="text-label-sm font-label-sm text-on-surface-variant font-bold">Lượt chạm tuần</span><p class="text-title-lg font-title-lg font-bold text-primary mt-1">184</p><span class="text-[10px] text-emerald-800 font-bold">+12% tự nhiên</span></div><div class="p-2.5 rounded-xl bg-surface-container-low/60 border border-outline-variant/30 flex flex-col justify-between min-h-[44px]"><span class="text-label-sm font-label-sm text-on-surface-variant font-bold">Tỉ lệ xem hết</span><p class="text-title-lg font-title-lg font-bold text-primary mt-1">68%</p><span class="text-[10px] text-primary font-bold">Mục tiêu 65%</span></div><div class="p-2.5 rounded-xl bg-surface-container-low/60 border border-outline-variant/30 flex flex-col justify-between min-h-[44px]"><span class="text-label-sm font-label-sm text-on-surface-variant font-bold">Remotion Quota</span><p class="text-title-lg font-title-lg font-bold text-secondary mt-1">19/20</p><span class="text-[10px] text-amber-800 font-bold">Gần chạm ngưỡng</span></div></div><p class="text-[11px] text-on-surface-variant font-medium text-center">Hạ tầng: Cloud Run Rendering Engine · Không phát sinh chi phí phát sinh</p></section>
+</main>
+<!-- ========================================== -->
+<!-- 6. BOTTOM NAVIGATION BAR (From Shared JSON) -->
+<!-- ========================================== -->
+<!-- 
+    Destination Mapping:
+    0: Tổng quan
+    1: Kênh & Social (ACTIVE - Direct Match)
+    2: Lưu trữ
+    3: Cài đặt
+  -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex items-center justify-around px-gutter py-2 pb-safe max-w-md mx-auto bg-surface-container-lowest border-t border-outline-variant/30 shadow-[0_-3px_0_0_#d9e9e5]"><a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 font-semibold min-h-[44px] min-w-[44px] hover:text-primary transition-colors duration-150 active:translate-y-0.5" href="#tong-quan"><span class="material-symbols-outlined text-[22px] mb-0.5" data-icon="dashboard">dashboard</span><span class="text-label-sm font-label-sm">Tổng quan</span></a><a class="flex flex-col items-center justify-center text-primary bg-surface-container-high rounded-xl px-3 py-1 font-bold shadow-sm min-h-[44px] min-w-[44px] hover:text-primary transition-colors duration-150 active:translate-y-0.5" href="#kenh-social"><span class="material-symbols-outlined text-[22px] mb-0.5 text-primary" data-icon="video_library" data-weight="fill" style="font-variation-settings: 'FILL' 1;">video_library</span><span class="text-label-sm font-label-sm">Kênh &amp; Social</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 font-semibold min-h-[44px] min-w-[44px] hover:text-primary transition-colors duration-150 active:translate-y-0.5" href="#luu-tru"><span class="material-symbols-outlined text-[22px] mb-0.5" data-icon="folder">folder</span><span class="text-label-sm font-label-sm">Lưu trữ</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 font-semibold min-h-[44px] min-w-[44px] hover:text-primary transition-colors duration-150 active:translate-y-0.5" href="#cai-dat"><span class="material-symbols-outlined text-[22px] mb-0.5" data-icon="settings">settings</span><span class="text-label-sm font-label-sm">Cài đặt</span></a></nav>
+<!-- Interactive feedback micro-script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Tactile button click feedback
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          if (!this.classList.contains('active:scale-95')) {
+            this.style.opacity = '0.9';
+            setTimeout(() => {
+              this.style.opacity = '1';
+            }, 100);
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

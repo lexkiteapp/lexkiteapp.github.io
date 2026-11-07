@@ -1,15 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lexkite Quản trị › Hạn mức hệ thống</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Quản trị › Hạn mức hệ thống</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
     tailwind.config = {
       theme: {
         extend: {
@@ -64,7 +65,7 @@
       }
     };
   </script>
-  <style>
+<style>
     .material-symbols-rounded {
       font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
       line-height: 1;
@@ -84,932 +85,764 @@
     }
   </style>
 </head>
-<body class="bg-cream-100 text-teal-950 font-sans min-h-screen flex antialiased selection:bg-teal-100 selection:text-teal-900">
-
-  <!-- Left Sidebar -->
-  <aside class="w-64 bg-cream-50 border-r border-cream-border flex flex-col flex-shrink-0 min-h-screen select-none">
-    <!-- Brand / Kite Logo -->
-    <div class="h-16 px-5 border-b border-cream-border flex items-center justify-between">
-      <div class="flex items-center gap-2.5">
-        <div class="w-9 h-9 rounded-xl bg-teal-900 flex items-center justify-center text-white shadow-tactile-teal">
-          <!-- Kite geometric glyph -->
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="transform -rotate-12">
-            <path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#38B2C2" fill-opacity="0.95"/>
-            <path d="M12 2L20 10L12 13L4 10L12 2Z" fill="#EA580C"/>
-            <path d="M12 13L12 22" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div>
-          <div class="flex items-center gap-1.5">
-            <span class="font-extrabold text-base tracking-tight text-teal-950 font-sans">Lexkite</span>
-            <span class="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-teal-100 text-teal-800 border border-teal-200/60">Admin</span>
-          </div>
-          <p class="text-[11px] text-teal-700 font-medium">Bảng điều phối nội bộ</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Navigation Groups -->
-    <nav class="flex-1 px-3 py-4 overflow-y-auto custom-scroll space-y-5 text-sm">
-      <!-- Group 1: Tổng quan -->
-      <div>
-        <div class="px-2.5 mb-1.5 text-[11px] font-bold uppercase tracking-wider text-teal-700/80">Tổng quan</div>
-        <div class="space-y-0.5">
-          <a href="#" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium">
-            <span class="material-symbols-rounded text-[19px] text-teal-700">dashboard</span>
-            <span>Tổng quan</span>
-          </a>
-          <a href="#" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium">
-            <span class="material-symbols-rounded text-[19px] text-teal-700">analytics</span>
-            <span>Phân tích</span>
-          </a>
-          <a href="#" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium">
-            <span class="material-symbols-rounded text-[19px] text-teal-700">campaign</span>
-            <span>Quảng cáo</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Group 2: Người dùng -->
-      <div>
-        <div class="px-2.5 mb-1.5 text-[11px] font-bold uppercase tracking-wider text-teal-700/80">Người dùng</div>
-        <div class="space-y-0.5">
-          <a href="#" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium">
-            <span class="material-symbols-rounded text-[19px] text-teal-700">group</span>
-            <span>Người dùng</span>
-          </a>
-          <a href="#" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium">
-            <span class="material-symbols-rounded text-[19px] text-teal-700">mail</span>
-            <span>Hộp thư</span>
-          </a>
-          <a href="#" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium">
-            <span class="material-symbols-rounded text-[19px] text-teal-700">notifications</span>
-            <span>Thông báo</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Group 3: Chất lượng -->
-      <div>
-        <div class="px-2.5 mb-1.5 text-[11px] font-bold uppercase tracking-wider text-teal-700/80">Chất lượng</div>
-        <div class="space-y-0.5">
-          <a href="#" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium">
-            <span class="material-symbols-rounded text-[19px] text-teal-700">warning</span>
-            <span>Cảnh báo</span>
-          </a>
-          <a href="#" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium">
-            <span class="material-symbols-rounded text-[19px] text-teal-700">bug_report</span>
-            <span>Báo lỗi</span>
-          </a>
-          <a href="#" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium">
-            <span class="material-symbols-rounded text-[19px] text-teal-700">verified</span>
-            <span>Chất lượng</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Group 4: Nội dung & Video -->
-      <div>
-        <div class="px-2.5 mb-1.5 text-[11px] font-bold uppercase tracking-wider text-teal-700/80">Nội dung & Video</div>
-        <div class="space-y-0.5">
-          <a href="#" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium">
-            <span class="material-symbols-rounded text-[19px] text-teal-700">share</span>
-            <span>Kênh & phân phối</span>
-          </a>
-          <a href="#" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium">
-            <span class="material-symbols-rounded text-[19px] text-teal-700">movie</span>
-            <span>Video & Social</span>
-          </a>
-          <a href="#" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium">
-            <span class="material-symbols-rounded text-[19px] text-teal-700">video_settings</span>
-            <span>Video Studio</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Group 5: Hệ thống (ACTIVE) -->
-      <div>
-        <div class="px-2.5 mb-1.5 text-[11px] font-bold uppercase tracking-wider text-teal-700/80">Hệ thống</div>
-        <div class="space-y-0.5">
-          <!-- Active Item: Hạn mức -->
-          <a href="#" class="flex items-center justify-between px-2.5 py-2 rounded-xl bg-teal-900 text-white font-semibold shadow-tactile-teal">
-            <div class="flex items-center gap-2.5">
-              <span class="material-symbols-rounded text-[19px] text-teal-300">speed</span>
-              <span>Hạn mức</span>
-            </div>
-            <span class="w-1.5 h-1.5 rounded-full bg-teal-300"></span>
-          </a>
-          <a href="#" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium">
-            <span class="material-symbols-rounded text-[19px] text-teal-700">cloud_queue</span>
-            <span>Kho Drive</span>
-          </a>
-          <a href="#" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium">
-            <span class="material-symbols-rounded text-[19px] text-teal-700">vpn_key</span>
-            <span>Khóa API</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Group 6: Cài đặt -->
-      <div>
-        <div class="px-2.5 mb-1.5 text-[11px] font-bold uppercase tracking-wider text-teal-700/80">Hạ tầng</div>
-        <div class="space-y-0.5">
-          <a href="#" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium">
-            <span class="material-symbols-rounded text-[19px] text-teal-700">settings</span>
-            <span>Cài đặt</span>
-          </a>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Sidebar Footer / Environment Status -->
-    <div class="p-3 border-t border-cream-border bg-cream-50/70">
-      <div class="p-2.5 rounded-xl bg-cream-100 border border-cream-border text-xs flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span class="font-semibold text-teal-900">Môi trường sản xuất</span>
-        </div>
-        <span class="font-mono text-[11px] text-teal-700 font-medium">v1.4.2</span>
-      </div>
-    </div>
-  </aside>
-
-  <!-- Main Work Area -->
-  <div class="flex-1 flex flex-col min-w-0">
-
-    <!-- Slim Top Bar -->
-    <header class="h-16 bg-cream-50 border-b border-cream-border px-8 flex items-center justify-between sticky top-0 z-30">
-      <!-- Left: Breadcrumb & Title -->
-      <div class="flex items-center gap-3">
-        <div class="flex items-center gap-1.5 text-xs text-teal-700 font-medium">
-          <span>Hệ thống</span>
-          <span class="text-teal-400">/</span>
-          <span class="text-teal-950 font-bold">Hạn mức</span>
-        </div>
-        <span class="text-cream-300">|</span>
-        <h1 class="text-base font-bold text-teal-950 tracking-tight">Hạn mức & Cầu dao hệ thống</h1>
-      </div>
-
-      <!-- Right: Search, Language Switch, Admin Avatar & CTA -->
-      <div class="flex items-center gap-3.5">
-        <!-- Quick search / command bar -->
-        <div class="relative w-64">
-          <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-teal-600">
-            <span class="material-symbols-rounded text-lg">search</span>
-          </span>
-          <input type="text" readonly value="Tìm tính năng, API..." class="w-full pl-9 pr-14 py-1.5 bg-cream-100 border border-cream-border rounded-xl text-xs text-teal-900 focus:outline-none cursor-pointer hover:bg-cream-200/50 transition-colors shadow-tactile-subtle font-medium" />
-          <span class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none">
-            <kbd class="text-[10px] font-mono font-semibold bg-cream-50 text-teal-800 border border-cream-border px-1.5 py-0.5 rounded shadow-sm">Ctrl K</kbd>
-          </span>
-        </div>
-
-        <!-- Language toggle VI | EN -->
-        <div class="flex items-center bg-cream-100 border border-cream-border rounded-xl p-0.5 shadow-tactile-subtle text-xs font-semibold">
-          <button class="px-2 py-1 rounded-lg bg-teal-900 text-white shadow-sm">VI</button>
-          <button class="px-2 py-1 rounded-lg text-teal-700 hover:text-teal-950 transition-colors">EN</button>
-        </div>
-
-        <!-- Refresh action -->
-        <button class="w-9 h-9 rounded-xl bg-cream-50 border border-cream-border text-teal-800 flex items-center justify-center hover:bg-cream-200/60 shadow-tactile-subtle transition-transform active:translate-y-0.5" title="Tải lại số liệu">
-          <span class="material-symbols-rounded text-[18px]">sync</span>
-        </button>
-
-        <!-- Admin Initials Avatar -->
-        <div class="flex items-center gap-2 pl-2 border-l border-cream-border">
-          <div class="w-9 h-9 rounded-xl bg-teal-800 text-teal-100 border border-teal-700/50 flex items-center justify-center font-bold text-xs shadow-tactile-subtle" title="Quản trị viên nội bộ">
+<body class="bg-cream-100 text-teal-950 font-sans min-h-screen flex antialiased selection:bg-teal-100 selection:text-teal-900 overflow-x-hidden">
+<!-- Left Sidebar -->
+<aside class="w-64 bg-cream-50 border-r border-cream-border flex flex-col flex-shrink-0 min-h-screen select-none">
+<!-- Brand / Kite Logo -->
+<div class="h-16 px-5 border-b border-cream-border flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-teal-900 flex items-center justify-center text-white shadow-tactile-teal">
+<!-- Kite geometric glyph -->
+<svg class="transform -rotate-12" fill="none" height="20" viewbox="0 0 24 24" width="20">
+<path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#38B2C2" fill-opacity="0.95"></path>
+<path d="M12 2L20 10L12 13L4 10L12 2Z" fill="#EA580C"></path>
+<path d="M12 13L12 22" stroke="#FFFFFF" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-extrabold text-base tracking-tight text-teal-950 font-sans">Lexkite</span>
+<span class="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-teal-100 text-teal-800 border border-teal-200/60">Admin</span>
+</div>
+<p class="text-[11px] text-teal-700 font-medium">Bảng điều phối nội bộ</p>
+</div>
+</div>
+</div>
+<!-- Navigation Groups -->
+<nav class="flex-1 px-3 py-4 overflow-y-auto custom-scroll space-y-5 text-sm"><!-- Group 1: Tổng quan -->
+<div>
+<div class="px-2.5 mb-1.5 text-[11px] font-bold uppercase tracking-wider text-teal-800">Tổng quan</div>
+<div class="space-y-0.5">
+<a class="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium" href="#">
+<span class="material-symbols-rounded text-[19px] text-teal-700">dashboard</span>
+<span>Tổng quan</span>
+</a>
+<a class="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium" href="#">
+<span class="material-symbols-rounded text-[19px] text-teal-700">analytics</span>
+<span>Phân tích</span>
+</a>
+<a class="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium" href="#">
+<span class="material-symbols-rounded text-[19px] text-teal-700">campaign</span>
+<span>Quảng cáo</span>
+</a>
+</div>
+</div>
+<!-- Group 2: Người dùng -->
+<div>
+<div class="px-2.5 mb-1.5 text-[11px] font-bold uppercase tracking-wider text-teal-800">Người dùng</div>
+<div class="space-y-0.5">
+<a class="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium" href="#">
+<span class="material-symbols-rounded text-[19px] text-teal-700">group</span>
+<span>Người dùng</span>
+</a>
+<a class="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium" href="#">
+<span class="material-symbols-rounded text-[19px] text-teal-700">mail</span>
+<span>Hộp thư</span>
+</a>
+<a class="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium" href="#">
+<span class="material-symbols-rounded text-[19px] text-teal-700">notifications</span>
+<span>Thông báo</span>
+</a>
+</div>
+</div>
+<!-- Group 3: Chất lượng -->
+<div>
+<div class="px-2.5 mb-1.5 text-[11px] font-bold uppercase tracking-wider text-teal-800">Chất lượng</div>
+<div class="space-y-0.5">
+<a class="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium" href="#">
+<span class="material-symbols-rounded text-[19px] text-teal-700">warning</span>
+<span>Cảnh báo</span>
+</a>
+<a class="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium" href="#">
+<span class="material-symbols-rounded text-[19px] text-teal-700">bug_report</span>
+<span>Báo lỗi</span>
+</a>
+<a class="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium" href="#">
+<span class="material-symbols-rounded text-[19px] text-teal-700">verified</span>
+<span>Chất lượng</span>
+</a>
+</div>
+</div>
+<!-- Group 4: Nội dung & Video -->
+<div>
+<div class="px-2.5 mb-1.5 text-[11px] font-bold uppercase tracking-wider text-teal-800">Nội dung &amp; Video</div>
+<div class="space-y-0.5">
+<a class="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium" href="#">
+<span class="material-symbols-rounded text-[19px] text-teal-700">share</span>
+<span>Kênh &amp; phân phối</span>
+</a>
+<a class="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium" href="#">
+<span class="material-symbols-rounded text-[19px] text-teal-700">movie</span>
+<span>Video &amp; Social</span>
+</a>
+<a class="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium" href="#">
+<span class="material-symbols-rounded text-[19px] text-teal-700">video_settings</span>
+<span>Video Studio</span>
+</a>
+</div>
+</div>
+<!-- Group 5: Hệ thống (ACTIVE) -->
+<div>
+<div class="px-2.5 mb-1.5 text-[11px] font-bold uppercase tracking-wider text-teal-800">Hệ thống</div>
+<div class="space-y-0.5">
+<!-- Active Item: Hạn mức -->
+<a class="min-h-[44px] flex items-center justify-between px-3 py-2 rounded-xl bg-teal-900 text-white font-semibold shadow-tactile-teal" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-rounded text-[19px] text-teal-300">speed</span>
+<span>Hạn mức</span>
+</div>
+<span class="w-1.5 h-1.5 rounded-full bg-teal-300"></span>
+</a>
+<a class="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium" href="#">
+<span class="material-symbols-rounded text-[19px] text-teal-700">cloud_queue</span>
+<span>Kho Drive</span>
+</a>
+<a class="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium" href="#">
+<span class="material-symbols-rounded text-[19px] text-teal-700">vpn_key</span>
+<span>Khóa API</span>
+</a>
+</div>
+</div>
+<!-- Group 6: Cài đặt -->
+<div>
+<div class="px-2.5 mb-1.5 text-[11px] font-bold uppercase tracking-wider text-teal-800">Hạ tầng</div>
+<div class="space-y-0.5">
+<a class="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-lg text-teal-800 hover:bg-cream-200/70 hover:text-teal-950 transition-colors font-medium" href="#">
+<span class="material-symbols-rounded text-[19px] text-teal-700">settings</span>
+<span>Cài đặt</span>
+</a>
+</div>
+</div></nav>
+<!-- Sidebar Footer / Environment Status -->
+<div class="p-3 border-t border-cream-border bg-cream-50/70">
+<div class="p-2.5 rounded-xl bg-cream-100 border border-cream-border text-xs flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-semibold text-teal-900">Môi trường sản xuất</span>
+</div>
+<span class="font-mono text-[11px] text-teal-700 font-medium">v1.4.2</span>
+</div>
+</div>
+</aside>
+<!-- Main Work Area -->
+<div class="flex-1 flex flex-col min-w-0">
+<!-- Slim Top Bar -->
+<header class="h-16 bg-cream-50 border-b border-cream-border px-8 flex items-center justify-between sticky top-0 z-30"><!-- Left: Breadcrumb & Title with High Contrast Separator -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5 text-xs text-teal-800 font-medium">
+<span>Hệ thống</span>
+<span class="text-teal-700 font-bold">/</span>
+<span class="text-teal-950 font-bold">Hạn mức</span>
+</div>
+<span class="text-teal-800">|</span>
+<h1 class="text-base font-bold text-teal-950 tracking-tight">Hạn mức &amp; Cầu dao hệ thống</h1>
+</div>
+<!-- Right: Search, Language Switch, Admin Avatar & CTA -->
+<div class="flex items-center gap-3.5">
+<!-- Quick search / command bar with 44px min-h -->
+<div class="relative w-64">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-teal-700">
+<span class="material-symbols-rounded text-lg">search</span>
+</span>
+<input class="w-full min-h-[44px] pl-9 pr-14 py-2 bg-cream-100 border border-cream-border rounded-xl text-xs text-teal-900 focus:outline-none cursor-pointer hover:bg-cream-200/50 transition-colors shadow-tactile-subtle font-medium" readonly="" type="text" value="Tìm tính năng, API..."/>
+<span class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none">
+<kbd class="text-[10px] font-mono font-semibold bg-cream-50 text-teal-800 border border-cream-border px-1.5 py-0.5 rounded shadow-sm">Ctrl K</kbd>
+</span>
+</div>
+<!-- Language toggle VI | EN (>=44px touch targets) -->
+<div class="flex items-center bg-cream-100 border border-cream-border rounded-xl p-0.5 shadow-tactile-subtle text-xs font-semibold">
+<button class="min-w-[44px] min-h-[44px] px-2 py-1 rounded-lg bg-teal-900 text-white shadow-sm flex items-center justify-center">VI</button>
+<button class="min-w-[44px] min-h-[44px] px-2 py-1 rounded-lg text-teal-800 hover:text-teal-950 transition-colors flex items-center justify-center">EN</button>
+</div>
+<!-- Refresh action with 44x44px touch area -->
+<button class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-cream-50 border border-cream-border text-teal-800 flex items-center justify-center hover:bg-cream-200/60 shadow-tactile-subtle transition-transform active:translate-y-0.5" title="Tải lại số liệu">
+<span class="material-symbols-rounded text-[18px]">sync</span>
+</button>
+<!-- Admin Initials Avatar with 44x44px target -->
+<div class="flex items-center gap-2 pl-2 border-l border-cream-border">
+<div class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-teal-800 text-teal-100 border border-teal-700/50 flex items-center justify-center font-bold text-xs shadow-tactile-subtle cursor-pointer" title="Quản trị viên nội bộ">
             LM
           </div>
-          <div class="hidden xl:block text-left">
-            <div class="text-xs font-bold text-teal-950 leading-tight">Linh Mai</div>
-            <div class="text-[10px] text-teal-700 font-medium">Vận hành app</div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Page Body -->
-    <main class="flex-1 p-8 space-y-6 max-w-7xl w-full mx-auto">
-
-      <!-- Header Alert / Summary Strip & The Single Warm Coral Primary Action -->
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-cream-50 border border-cream-border p-5 rounded-2xl shadow-tactile">
-        <div class="flex items-start gap-3.5">
-          <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-800 flex items-center justify-center flex-shrink-0 mt-0.5">
-            <span class="material-symbols-rounded text-xl">tune</span>
-          </div>
-          <div>
-            <div class="flex items-center gap-2.5">
-              <h2 class="text-sm font-bold text-teal-950">Chính sách hạn ngạch miễn phí & Bảo vệ ngân sách</h2>
-              <span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">Bình thường</span>
-            </div>
-            <p class="text-xs text-teal-800 mt-1 max-w-2xl leading-relaxed">
+<div class="hidden xl:block text-left">
+<div class="text-xs font-bold text-teal-950 leading-tight">Linh Mai</div>
+<div class="text-[10px] text-teal-800 font-medium">Vận hành app</div>
+</div>
+</div>
+</div></header>
+<!-- Page Body -->
+<main class="flex-1 p-8 space-y-6 max-w-7xl w-full mx-auto">
+<!-- Header Alert / Summary Strip & The Single Warm Coral Primary Action -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-cream-50 border border-cream-border p-5 rounded-2xl shadow-tactile">
+<div class="flex items-start gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-800 flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-rounded text-xl">tune</span>
+</div>
+<div>
+<div class="flex items-center gap-2.5">
+<h2 class="text-sm font-bold text-teal-950">Chính sách hạn ngạch miễn phí &amp; Bảo vệ ngân sách</h2>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">Bình thường</span>
+</div>
+<p class="text-xs text-teal-800 mt-1 max-w-2xl leading-relaxed">
               Tất cả các dịch vụ đang vận hành trong khung miễn phí hàng ngày (Free Tier). Hạn ngạch tự động làm mới vào lúc <strong>07:00 sáng</strong> mỗi ngày (GMT+7). Khi chạm 90%, hệ thống tự động cảnh báo qua Telegram và chuyển sang chế độ tiết kiệm.
             </p>
-          </div>
-        </div>
-
-        <!-- The SINGLE warm coral primary action on this screen -->
-        <div class="flex items-center gap-2.5 flex-shrink-0">
-          <button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-coral-500 hover:bg-coral-600 text-white font-bold text-xs tracking-wide shadow-tactile-coral transition-transform active:translate-y-0.5 min-h-[44px]">
-            <span class="material-symbols-rounded text-base">emergency_home</span>
-            <span>Khóa an toàn khẩn cấp</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Top Feature Section: Dùng nhiều hôm nay -->
-      <section class="bg-cream-50 border border-cream-border rounded-2xl p-6 shadow-tactile">
-        <div class="flex items-center justify-between mb-4">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-rounded text-teal-700 text-xl">trending_up</span>
-            <h3 class="text-sm font-bold text-teal-950">Dùng nhiều hôm nay (Features with used / limit)</h3>
-          </div>
-          <span class="text-xs text-teal-700 font-mono">Dữ liệu từ 00:00 hôm nay</span>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <!-- Item 1: Tra cứu Collocation -->
-          <div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle">
-            <div class="flex items-center justify-between text-xs mb-2">
-              <span class="font-bold text-teal-950">Tra cứu Collocation</span>
-              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-100 text-teal-800">76%</span>
-            </div>
-            <div class="flex items-baseline justify-between mb-2">
-              <span class="font-mono text-lg font-bold text-teal-950">382 <span class="text-xs font-normal text-teal-700">lượt</span></span>
-              <span class="font-mono text-xs text-teal-700">trần 500</span>
-            </div>
-            <!-- Progress bar -->
-            <div class="w-full h-2 rounded-full bg-cream-200 overflow-hidden">
-              <div class="h-full rounded-full bg-teal-600" style="width: 76.4%"></div>
-            </div>
-            <div class="mt-2.5 pt-2 border-t border-cream-200/80 flex items-center justify-between text-[11px] text-teal-700">
-              <span>Độc giả blog + app</span>
-              <span class="font-mono font-medium">còn 118</span>
-            </div>
-          </div>
-
-          <!-- Item 2: Luyện phát âm (Pronunciation audio) -->
-          <div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle">
-            <div class="flex items-center justify-between text-xs mb-2">
-              <span class="font-bold text-teal-950">Nghe mẫu phát âm</span>
-              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-100 text-teal-800">42%</span>
-            </div>
-            <div class="flex items-baseline justify-between mb-2">
-              <span class="font-mono text-lg font-bold text-teal-950">212 <span class="text-xs font-normal text-teal-700">lần nghe</span></span>
-              <span class="font-mono text-xs text-teal-700">trần 500</span>
-            </div>
-            <!-- Progress bar -->
-            <div class="w-full h-2 rounded-full bg-cream-200 overflow-hidden">
-              <div class="h-full rounded-full bg-teal-600" style="width: 42.4%"></div>
-            </div>
-            <div class="mt-2.5 pt-2 border-t border-cream-200/80 flex items-center justify-between text-[11px] text-teal-700">
-              <span>Edge audio cache hit 89%</span>
-              <span class="font-mono font-medium">còn 288</span>
-            </div>
-          </div>
-
-          <!-- Item 3: Sửa lỗi viết Writing (Amber warning) -->
-          <div class="p-4 rounded-xl bg-cream-100 border border-amber-300 shadow-tactile-subtle">
-            <div class="flex items-center justify-between text-xs mb-2">
-              <span class="font-bold text-teal-950">Chấm câu Writing Task 2</span>
-              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-300">88%</span>
-            </div>
-            <div class="flex items-baseline justify-between mb-2">
-              <span class="font-mono text-lg font-bold text-amber-600">88 <span class="text-xs font-normal text-teal-700">bài nộp</span></span>
-              <span class="font-mono text-xs text-teal-700">trần 100</span>
-            </div>
-            <!-- Progress bar -->
-            <div class="w-full h-2 rounded-full bg-cream-200 overflow-hidden">
-              <div class="h-full rounded-full bg-amber-500" style="width: 88%"></div>
-            </div>
-            <div class="mt-2.5 pt-2 border-t border-cream-200/80 flex items-center justify-between text-[11px] text-amber-800 font-medium">
-              <span>Sắp chạm trần ngày</span>
-              <span class="font-mono font-bold">còn 12</span>
-            </div>
-          </div>
-
-          <!-- Item 4: Đồng bộ tiến độ Flashcards -->
-          <div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle">
-            <div class="flex items-center justify-between text-xs mb-2">
-              <span class="font-bold text-teal-950">Đồng bộ Flashcards</span>
-              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-100 text-teal-800">31%</span>
-            </div>
-            <div class="flex items-baseline justify-between mb-2">
-              <span class="font-mono text-lg font-bold text-teal-950">624 <span class="text-xs font-normal text-teal-700">lần sync</span></span>
-              <span class="font-mono text-xs text-teal-700">trần 2.000</span>
-            </div>
-            <!-- Progress bar -->
-            <div class="w-full h-2 rounded-full bg-cream-200 overflow-hidden">
-              <div class="h-full rounded-full bg-teal-600" style="width: 31.2%"></div>
-            </div>
-            <div class="mt-2.5 pt-2 border-t border-cream-200/80 flex items-center justify-between text-[11px] text-teal-700">
-              <span>Batch 50 từ / request</span>
-              <span class="font-mono font-medium">còn 1.376</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Provider Ceiling Meter Cards Grid (6 Meters: AI pool, D1 đọc, D1 ghi, Ảnh, Video render, Email) -->
-      <section class="space-y-4">
-        <div class="flex items-center justify-between">
-          <div>
-            <h3 class="text-sm font-bold text-teal-950 tracking-tight">Hạn ngạch nhà cung cấp (Provider daily ceilings)</h3>
-            <p class="text-xs text-teal-700">Theo dõi tiêu thụ thời gian thực so với mức trần miễn phí của các đối tác hạ tầng.</p>
-          </div>
-          <div class="flex items-center gap-3 text-xs">
-            <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-teal-600"></span> <span class="text-teal-800">Bình thường (&lt;80%)</span></span>
-            <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> <span class="text-teal-800">Cảnh báo (80-95%)</span></span>
-            <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span> <span class="text-teal-800">Quá trần (&gt;95%)</span></span>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-
-          <!-- Meter 1: AI pool -->
-          <div class="bg-cream-50 border border-cream-border rounded-2xl p-5 shadow-tactile flex flex-col justify-between">
-            <div>
-              <div class="flex items-start justify-between mb-3">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-9 h-9 rounded-xl bg-teal-100 text-teal-800 flex items-center justify-center">
-                    <span class="material-symbols-rounded text-lg">psychology</span>
-                  </div>
-                  <div>
-                    <h4 class="text-sm font-bold text-teal-950">AI Pool</h4>
-                    <span class="text-[11px] text-teal-700">OpenAI & Gemini Free Tier</span>
-                  </div>
-                </div>
-                <span class="px-2 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-cream-100 border border-cream-border text-teal-800 flex items-center gap-1">
-                  <span class="material-symbols-rounded text-[13px] text-teal-600">schedule</span> đặt lại 07:00
-                </span>
-              </div>
-
-              <div class="my-4">
-                <div class="flex items-baseline justify-between mb-1.5">
-                  <span class="text-xs text-teal-800 font-medium">Tokens / Lời gọi API</span>
-                  <span class="font-mono text-sm font-bold text-teal-950">14.280 <span class="text-xs text-teal-600 font-normal">/ trần 25.000</span></span>
-                </div>
-                <!-- Rounded progress bar: Teal OK -->
-                <div class="w-full h-3 rounded-full bg-cream-200 overflow-hidden p-0.5">
-                  <div class="h-full rounded-full bg-teal-600 transition-all duration-500" style="width: 57.1%"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="pt-3 border-t border-cream-border flex items-center justify-between text-xs text-teal-800">
-              <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-teal-600"></span> Đã dùng 57,1%</span>
-              <span class="font-mono text-teal-700">Hết hạn trong 14h 22m</span>
-            </div>
-          </div>
-
-          <!-- Meter 2: D1 đọc (Cloudflare D1 Read) -->
-          <div class="bg-cream-50 border border-cream-border rounded-2xl p-5 shadow-tactile flex flex-col justify-between">
-            <div>
-              <div class="flex items-start justify-between mb-3">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-9 h-9 rounded-xl bg-teal-100 text-teal-800 flex items-center justify-center">
-                    <span class="material-symbols-rounded text-lg">visibility</span>
-                  </div>
-                  <div>
-                    <h4 class="text-sm font-bold text-teal-950">D1 đọc</h4>
-                    <span class="text-[11px] text-teal-700">Cloudflare D1 Queries</span>
-                  </div>
-                </div>
-                <span class="px-2 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-cream-100 border border-cream-border text-teal-800 flex items-center gap-1">
-                  <span class="material-symbols-rounded text-[13px] text-teal-600">schedule</span> đặt lại 07:00
-                </span>
-              </div>
-
-              <div class="my-4">
-                <div class="flex items-baseline justify-between mb-1.5">
-                  <span class="text-xs text-teal-800 font-medium">Hàng đã đọc (Rows read)</span>
-                  <span class="font-mono text-sm font-bold text-teal-950">482.100 <span class="text-xs text-teal-600 font-normal">/ trần 5.000.000</span></span>
-                </div>
-                <!-- Rounded progress bar: Teal OK -->
-                <div class="w-full h-3 rounded-full bg-cream-200 overflow-hidden p-0.5">
-                  <div class="h-full rounded-full bg-teal-600 transition-all duration-500" style="width: 9.6%"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="pt-3 border-t border-cream-border flex items-center justify-between text-xs text-teal-800">
-              <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-teal-600"></span> Đã dùng 9,6%</span>
-              <span class="font-mono text-teal-700">Dư dả hạn mức</span>
-            </div>
-          </div>
-
-          <!-- Meter 3: D1 ghi (Cloudflare D1 Write - Amber Warning) -->
-          <div class="bg-cream-50 border border-amber-200/80 rounded-2xl p-5 shadow-tactile flex flex-col justify-between">
-            <div>
-              <div class="flex items-start justify-between mb-3">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center">
-                    <span class="material-symbols-rounded text-lg">edit_note</span>
-                  </div>
-                  <div>
-                    <h4 class="text-sm font-bold text-teal-950">D1 ghi</h4>
-                    <span class="text-[11px] text-teal-700">Cloudflare D1 Writes</span>
-                  </div>
-                </div>
-                <span class="px-2 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-amber-50 border border-amber-200 text-amber-900 flex items-center gap-1">
-                  <span class="material-symbols-rounded text-[13px] text-amber-600">schedule</span> đặt lại 07:00
-                </span>
-              </div>
-
-              <div class="my-4">
-                <div class="flex items-baseline justify-between mb-1.5">
-                  <span class="text-xs text-teal-800 font-medium">Hàng đã ghi (Rows written)</span>
-                  <span class="font-mono text-sm font-bold text-amber-600">86.420 <span class="text-xs text-teal-700 font-normal">/ trần 100.000</span></span>
-                </div>
-                <!-- Rounded progress bar: Amber Near Limit -->
-                <div class="w-full h-3 rounded-full bg-cream-200 overflow-hidden p-0.5">
-                  <div class="h-full rounded-full bg-amber-500 transition-all duration-500" style="width: 86.4%"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="pt-3 border-t border-cream-border flex items-center justify-between text-xs text-amber-800 font-medium">
-              <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-amber-500"></span> Đã dùng 86,4% (Gần chạm trần)</span>
-              <span class="font-mono">còn 13.580 hàng</span>
-            </div>
-          </div>
-
-          <!-- Meter 4: Ảnh (R2 & Thumbnails) -->
-          <div class="bg-cream-50 border border-cream-border rounded-2xl p-5 shadow-tactile flex flex-col justify-between">
-            <div>
-              <div class="flex items-start justify-between mb-3">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-9 h-9 rounded-xl bg-teal-100 text-teal-800 flex items-center justify-center">
-                    <span class="material-symbols-rounded text-lg">image</span>
-                  </div>
-                  <div>
-                    <h4 class="text-sm font-bold text-teal-950">Ảnh & Tài nguyên</h4>
-                    <span class="text-[11px] text-teal-700">Cloudflare R2 Egress</span>
-                  </div>
-                </div>
-                <span class="px-2 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-cream-100 border border-cream-border text-teal-800 flex items-center gap-1">
-                  <span class="material-symbols-rounded text-[13px] text-teal-600">schedule</span> đặt lại 07:00
-                </span>
-              </div>
-
-              <div class="my-4">
-                <div class="flex items-baseline justify-between mb-1.5">
-                  <span class="text-xs text-teal-800 font-medium">Băng thông xuất ngày</span>
-                  <span class="font-mono text-sm font-bold text-teal-950">1,82 GB <span class="text-xs text-teal-600 font-normal">/ trần 10 GB</span></span>
-                </div>
-                <!-- Rounded progress bar: Teal OK -->
-                <div class="w-full h-3 rounded-full bg-cream-200 overflow-hidden p-0.5">
-                  <div class="h-full rounded-full bg-teal-600 transition-all duration-500" style="width: 18.2%"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="pt-3 border-t border-cream-border flex items-center justify-between text-xs text-teal-800">
-              <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-teal-600"></span> Đã dùng 18,2%</span>
-              <span class="font-mono text-teal-700">Cache hit 94,1%</span>
-            </div>
-          </div>
-
-          <!-- Meter 5: Video render (Remotion Serverless Worker - Near Ceiling / Red Alert) -->
-          <div class="bg-cream-50 border border-rose-200/90 rounded-2xl p-5 shadow-tactile flex flex-col justify-between">
-            <div>
-              <div class="flex items-start justify-between mb-3">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-9 h-9 rounded-xl bg-rose-100 text-rose-800 flex items-center justify-center">
-                    <span class="material-symbols-rounded text-lg">movie_filter</span>
-                  </div>
-                  <div>
-                    <h4 class="text-sm font-bold text-teal-950">Video render</h4>
-                    <span class="text-[11px] text-teal-700">Remotion / Cloud Run Mini</span>
-                  </div>
-                </div>
-                <span class="px-2 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-rose-50 border border-rose-200 text-rose-800 flex items-center gap-1">
-                  <span class="material-symbols-rounded text-[13px] text-rose-600">schedule</span> đặt lại 07:00
-                </span>
-              </div>
-
-              <div class="my-4">
-                <div class="flex items-baseline justify-between mb-1.5">
-                  <span class="text-xs text-teal-800 font-medium">Số video ngắn (Social reel 4:5)</span>
-                  <span class="font-mono text-sm font-bold text-rose-600">19 <span class="text-xs text-teal-700 font-normal">/ trần 20</span></span>
-                </div>
-                <!-- Rounded progress bar: Red Over / Near limit (95%) -->
-                <div class="w-full h-3 rounded-full bg-cream-200 overflow-hidden p-0.5">
-                  <div class="h-full rounded-full bg-rose-500 transition-all duration-500" style="width: 95%"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="pt-3 border-t border-cream-border flex items-center justify-between text-xs text-rose-800 font-bold">
-              <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-rose-500"></span> Đã dùng 95% (Chạm trần an toàn)</span>
-              <span class="font-mono">còn 1 lượt</span>
-            </div>
-          </div>
-
-          <!-- Meter 6: Email (Resend Free Tier) -->
-          <div class="bg-cream-50 border border-cream-border rounded-2xl p-5 shadow-tactile flex flex-col justify-between">
-            <div>
-              <div class="flex items-start justify-between mb-3">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-9 h-9 rounded-xl bg-teal-100 text-teal-800 flex items-center justify-center">
-                    <span class="material-symbols-rounded text-lg">forward_to_inbox</span>
-                  </div>
-                  <div>
-                    <h4 class="text-sm font-bold text-teal-950">Email giao dịch</h4>
-                    <span class="text-[11px] text-teal-700">Resend / Xác thực tài khoản</span>
-                  </div>
-                </div>
-                <span class="px-2 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-cream-100 border border-cream-border text-teal-800 flex items-center gap-1">
-                  <span class="material-symbols-rounded text-[13px] text-teal-600">schedule</span> đặt lại 07:00
-                </span>
-              </div>
-
-              <div class="my-4">
-                <div class="flex items-baseline justify-between mb-1.5">
-                  <span class="text-xs text-teal-800 font-medium">Email gửi đi hôm nay</span>
-                  <span class="font-mono text-sm font-bold text-teal-950">28 <span class="text-xs text-teal-600 font-normal">/ trần 100</span></span>
-                </div>
-                <!-- Rounded progress bar: Teal OK -->
-                <div class="w-full h-3 rounded-full bg-cream-200 overflow-hidden p-0.5">
-                  <div class="h-full rounded-full bg-teal-600 transition-all duration-500" style="width: 28%"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="pt-3 border-t border-cream-border flex items-center justify-between text-xs text-teal-800">
-              <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-teal-600"></span> Đã dùng 28%</span>
-              <span class="font-mono text-teal-700">Còn 72 email</span>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Provider Circuit Breakers (Cầu dao nhà cung cấp with tactile on/off toggles) -->
-      <section class="bg-cream-50 border border-cream-border rounded-2xl p-6 shadow-tactile">
-        <div class="flex items-center justify-between mb-5">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-rounded text-teal-700 text-xl">power_settings_new</span>
-            <div>
-              <h3 class="text-sm font-bold text-teal-950">Cầu dao nhà cung cấp (Circuit breakers)</h3>
-              <p class="text-xs text-teal-700">Ngắt ngay lập tức khi phát hiện lỗi bất thường hoặc để ngăn chặn hóa đơn phát sinh ngoài dự kiến.</p>
-            </div>
-          </div>
-          <span class="text-xs font-semibold px-2.5 py-1 rounded-lg bg-teal-100 text-teal-900 border border-teal-200">
+</div>
+</div>
+<!-- The SINGLE warm coral primary action on this screen -->
+<div class="flex items-center gap-2.5 flex-shrink-0">
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-coral-600 hover:bg-teal-900 text-white font-bold text-xs tracking-wide shadow-tactile-coral transition-transform active:translate-y-0.5 min-h-[44px]"><span class="material-symbols-rounded text-base text-white">emergency_home</span><span class="text-white">Khóa an toàn khẩn cấp</span></button>
+</div>
+</div>
+<!-- Top Feature Section: Dùng nhiều hôm nay -->
+<section class="bg-cream-50 border border-cream-border rounded-2xl p-6 shadow-tactile">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-rounded text-teal-700 text-xl">trending_up</span>
+<h3 class="text-sm font-bold text-teal-950">Dùng nhiều hôm nay (Features with used / limit)</h3>
+</div>
+<span class="text-xs text-teal-700 font-mono">Dữ liệu từ 00:00 hôm nay</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Item 1: Tra cứu Collocation -->
+<div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle">
+<div class="flex items-center justify-between text-xs mb-2">
+<span class="font-bold text-teal-950">Tra cứu Collocation</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-100 text-teal-800">76%</span>
+</div>
+<div class="flex items-baseline justify-between mb-2">
+<span class="font-mono text-lg font-bold text-teal-950">382 <span class="text-xs font-normal text-teal-700">lượt</span></span>
+<span class="font-mono text-xs text-teal-700">trần 500</span>
+</div>
+<!-- Progress bar -->
+<div class="w-full h-2 rounded-full bg-cream-200 overflow-hidden">
+<div class="h-full rounded-full bg-teal-600" style="width: 76.4%"></div>
+</div>
+<div class="mt-2.5 pt-2 border-t border-cream-200/80 flex items-center justify-between text-[11px] text-teal-700">
+<span>Độc giả blog + app</span>
+<span class="font-mono font-medium">còn 118</span>
+</div>
+</div>
+<!-- Item 2: Luyện phát âm (Pronunciation audio) -->
+<div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle">
+<div class="flex items-center justify-between text-xs mb-2">
+<span class="font-bold text-teal-950">Nghe mẫu phát âm</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-100 text-teal-800">42%</span>
+</div>
+<div class="flex items-baseline justify-between mb-2">
+<span class="font-mono text-lg font-bold text-teal-950">212 <span class="text-xs font-normal text-teal-700">lần nghe</span></span>
+<span class="font-mono text-xs text-teal-700">trần 500</span>
+</div>
+<!-- Progress bar -->
+<div class="w-full h-2 rounded-full bg-cream-200 overflow-hidden">
+<div class="h-full rounded-full bg-teal-600" style="width: 42.4%"></div>
+</div>
+<div class="mt-2.5 pt-2 border-t border-cream-200/80 flex items-center justify-between text-[11px] text-teal-700">
+<span>Edge audio cache hit 89%</span>
+<span class="font-mono font-medium">còn 288</span>
+</div>
+</div>
+<!-- Item 3: Sửa lỗi viết Writing (Amber warning) -->
+<div class="p-4 rounded-xl bg-cream-100 border border-amber-300 shadow-tactile-subtle">
+<div class="flex items-center justify-between text-xs mb-2">
+<span class="font-bold text-teal-950">Chấm câu Writing Task 2</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-300">88%</span>
+</div>
+<div class="flex items-baseline justify-between mb-2">
+<span class="font-mono text-lg font-bold text-amber-600">88 <span class="text-xs font-normal text-teal-700">bài nộp</span></span>
+<span class="font-mono text-xs text-teal-700">trần 100</span>
+</div>
+<!-- Progress bar -->
+<div class="w-full h-2 rounded-full bg-cream-200 overflow-hidden">
+<div class="h-full rounded-full bg-amber-500" style="width: 88%"></div>
+</div>
+<div class="mt-2.5 pt-2 border-t border-cream-200/80 flex items-center justify-between text-[11px] text-amber-800 font-medium">
+<span>Sắp chạm trần ngày</span>
+<span class="font-mono font-bold">còn 12</span>
+</div>
+</div>
+<!-- Item 4: Đồng bộ tiến độ Flashcards -->
+<div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle">
+<div class="flex items-center justify-between text-xs mb-2">
+<span class="font-bold text-teal-950">Đồng bộ Flashcards</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-100 text-teal-800">31%</span>
+</div>
+<div class="flex items-baseline justify-between mb-2">
+<span class="font-mono text-lg font-bold text-teal-950">624 <span class="text-xs font-normal text-teal-700">lần sync</span></span>
+<span class="font-mono text-xs text-teal-700">trần 2.000</span>
+</div>
+<!-- Progress bar -->
+<div class="w-full h-2 rounded-full bg-cream-200 overflow-hidden">
+<div class="h-full rounded-full bg-teal-600" style="width: 31.2%"></div>
+</div>
+<div class="mt-2.5 pt-2 border-t border-cream-200/80 flex items-center justify-between text-[11px] text-teal-700">
+<span>Batch 50 từ / request</span>
+<span class="font-mono font-medium">còn 1.376</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Provider Ceiling Meter Cards Grid (6 Meters: AI pool, D1 đọc, D1 ghi, Ảnh, Video render, Email) -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-sm font-bold text-teal-950 tracking-tight">Hạn ngạch nhà cung cấp (Provider daily ceilings)</h3>
+<p class="text-xs text-teal-900 font-medium">Theo dõi tiêu thụ thời gian thực so với mức trần miễn phí của các đối tác hạ tầng.</p>
+</div>
+<div class="flex items-center gap-3 text-xs">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-teal-600"></span> <span class="text-teal-800">Bình thường (&lt;80%)</span></span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> <span class="text-teal-800">Cảnh báo (80-95%)</span></span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span> <span class="text-teal-800">Quá trần (&gt;95%)</span></span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"><!-- Breaker 1: OpenAI GPT-4o-mini -->
+<div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle flex items-center justify-between">
+<div class="space-y-1 pr-3">
+<div class="flex items-center gap-2">
+<span class="font-bold text-xs text-teal-950">OpenAI API (GPT-4o mini)</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500" title="Hoạt động bình thường"></span>
+</div>
+<p class="text-[11px] text-teal-800 leading-tight">Giải thích ngữ pháp &amp; bài mẫu Writing Task 2</p>
+<div class="text-[10px] font-mono text-teal-900 font-semibold">Độ trễ trung bình: 420ms</div>
+</div>
+<!-- Tactile ON toggle with min 44px tap target -->
+<button class="min-w-[44px] min-h-[44px] flex items-center justify-center" title="Đang BẬT - Nhấn để ngắt">
+<span class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner">
+<span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
+</span>
+</button>
+</div>
+<!-- Breaker 2: Google Gemini Flash -->
+<div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle flex items-center justify-between">
+<div class="space-y-1 pr-3">
+<div class="flex items-center gap-2">
+<span class="font-bold text-xs text-teal-950">Google Gemini 1.5 Flash</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</div>
+<p class="text-[11px] text-teal-800 leading-tight">Phân tích từ vựng AWL &amp; gợi ý collocation</p>
+<div class="text-[10px] font-mono text-teal-900 font-semibold">Độ trễ trung bình: 310ms</div>
+</div>
+<!-- Tactile ON toggle with min 44px tap target -->
+<button class="min-w-[44px] min-h-[44px] flex items-center justify-center" title="Đang BẬT">
+<span class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner">
+<span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
+</span>
+</button>
+</div>
+<!-- Breaker 3: ElevenLabs Audio TTS -->
+<div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle flex items-center justify-between">
+<div class="space-y-1 pr-3">
+<div class="flex items-center gap-2">
+<span class="font-bold text-xs text-teal-950">ElevenLabs TTS Audio</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</div>
+<p class="text-[11px] text-teal-800 leading-tight">Giọng đọc bản xứ cho từ vựng mới &amp; bài nghe</p>
+<div class="text-[10px] font-mono text-teal-900 font-semibold">Ký tự còn: 4.820 / 10.000</div>
+</div>
+<!-- Tactile ON toggle with min 44px tap target -->
+<button class="min-w-[44px] min-h-[44px] flex items-center justify-center" title="Đang BẬT">
+<span class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner">
+<span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
+</span>
+</button>
+</div>
+<!-- Breaker 4: Cloudflare D1 Database -->
+<div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle flex items-center justify-between">
+<div class="space-y-1 pr-3">
+<div class="flex items-center gap-2">
+<span class="font-bold text-xs text-teal-950">Cloudflare D1 (Chính)</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</div>
+<p class="text-[11px] text-teal-800 leading-tight">Cơ sở dữ liệu người dùng, từ vựng và thẻ ôn tập</p>
+<div class="text-[10px] font-mono text-teal-900 font-semibold">Cụm: SIN (Singapore edge)</div>
+</div>
+<!-- Tactile ON toggle with min 44px tap target -->
+<button class="min-w-[44px] min-h-[44px] flex items-center justify-center" title="Đang BẬT">
+<span class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner">
+<span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
+</span>
+</button>
+</div>
+<!-- Breaker 5: Cloudflare R2 Media Bucket -->
+<div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle flex items-center justify-between">
+<div class="space-y-1 pr-3">
+<div class="flex items-center gap-2">
+<span class="font-bold text-xs text-teal-950">Cloudflare R2 Bucket</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</div>
+<p class="text-[11px] text-teal-800 leading-tight">Lưu trữ ảnh minh họa, file nghe audio TOEIC/IELTS</p>
+<div class="text-[10px] font-mono text-teal-900 font-semibold">Tổng file: 1.482 tệp</div>
+</div>
+<!-- Tactile ON toggle with min 44px tap target -->
+<button class="min-w-[44px] min-h-[44px] flex items-center justify-center" title="Đang BẬT">
+<span class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner">
+<span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
+</span>
+</button>
+</div>
+<!-- Breaker 6: Video Social Render (Remotion - OFF / PAUSED) -->
+<div class="p-4 rounded-xl bg-cream-100 border border-rose-200 shadow-tactile-subtle flex items-center justify-between">
+<div class="space-y-1 pr-3">
+<div class="flex items-center gap-2">
+<span class="font-bold text-xs text-teal-950">Video Render Worker</span>
+<span class="w-2 h-2 rounded-full bg-rose-500" title="Đã ngắt cầu dao tự động"></span>
+</div>
+<p class="text-[11px] text-rose-800 leading-tight font-medium">Tự động ngắt do đạt 95% quota miễn phí ngày</p>
+<div class="text-[10px] font-mono text-teal-800 font-semibold">Chờ mở lại vào 07:00</div>
+</div>
+<!-- Tactile OFF toggle with min 44px tap target -->
+<button class="min-w-[44px] min-h-[44px] flex items-center justify-center" title="Đang TẮT - Nhấn để bật lại thủ công">
+<span class="relative w-12 h-7 bg-cream-300 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner">
+<span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-0 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-800">TẮT</span>
+</span>
+</button>
+</div></div>
+</section>
+<!-- Provider Circuit Breakers (Cầu dao nhà cung cấp with tactile on/off toggles) -->
+<section class="bg-cream-50 border border-cream-border rounded-2xl p-6 shadow-tactile">
+<div class="flex items-center justify-between mb-5">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-rounded text-teal-700 text-xl">power_settings_new</span>
+<div>
+<h3 class="text-sm font-bold text-teal-950">Cầu dao nhà cung cấp (Circuit breakers)</h3>
+<p class="text-xs text-teal-700">Ngắt ngay lập tức khi phát hiện lỗi bất thường hoặc để ngăn chặn hóa đơn phát sinh ngoài dự kiến.</p>
+</div>
+</div>
+<span class="text-xs font-semibold px-2.5 py-1 rounded-lg bg-teal-100 text-teal-900 border border-teal-200">
             5 / 6 Cầu dao đang MỞ
           </span>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-
-          <!-- Breaker 1: OpenAI GPT-4o-mini -->
-          <div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle flex items-center justify-between">
-            <div class="space-y-1 pr-3">
-              <div class="flex items-center gap-2">
-                <span class="font-bold text-xs text-teal-950">OpenAI API (GPT-4o mini)</span>
-                <span class="w-2 h-2 rounded-full bg-emerald-500" title="Hoạt động bình thường"></span>
-              </div>
-              <p class="text-[11px] text-teal-700 leading-tight">Giải thích ngữ pháp & bài mẫu Writing Task 2</p>
-              <div class="text-[10px] font-mono text-teal-800">Độ trễ trung bình: 420ms</div>
-            </div>
-            <!-- Tactile ON toggle -->
-            <button class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner" title="Đang BẬT - Nhấn để ngắt">
-              <span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
-            </button>
-          </div>
-
-          <!-- Breaker 2: Google Gemini Flash -->
-          <div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle flex items-center justify-between">
-            <div class="space-y-1 pr-3">
-              <div class="flex items-center gap-2">
-                <span class="font-bold text-xs text-teal-950">Google Gemini 1.5 Flash</span>
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-              </div>
-              <p class="text-[11px] text-teal-700 leading-tight">Phân tích từ vựng AWL & gợi ý collocation</p>
-              <div class="text-[10px] font-mono text-teal-800">Độ trễ trung bình: 310ms</div>
-            </div>
-            <!-- Tactile ON toggle -->
-            <button class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner" title="Đang BẬT">
-              <span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
-            </button>
-          </div>
-
-          <!-- Breaker 3: ElevenLabs Audio TTS -->
-          <div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle flex items-center justify-between">
-            <div class="space-y-1 pr-3">
-              <div class="flex items-center gap-2">
-                <span class="font-bold text-xs text-teal-950">ElevenLabs TTS Audio</span>
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-              </div>
-              <p class="text-[11px] text-teal-700 leading-tight">Giọng đọc bản xứ cho từ vựng mới & bài nghe</p>
-              <div class="text-[10px] font-mono text-teal-800">Ký tự còn: 4.820 / 10.000</div>
-            </div>
-            <!-- Tactile ON toggle -->
-            <button class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner" title="Đang BẬT">
-              <span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
-            </button>
-          </div>
-
-          <!-- Breaker 4: Cloudflare D1 Database -->
-          <div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle flex items-center justify-between">
-            <div class="space-y-1 pr-3">
-              <div class="flex items-center gap-2">
-                <span class="font-bold text-xs text-teal-950">Cloudflare D1 (Chính)</span>
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-              </div>
-              <p class="text-[11px] text-teal-700 leading-tight">Cơ sở dữ liệu người dùng, từ vựng và thẻ ôn tập</p>
-              <div class="text-[10px] font-mono text-teal-800">Cụm: SIN (Singapore edge)</div>
-            </div>
-            <!-- Tactile ON toggle -->
-            <button class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner" title="Đang BẬT">
-              <span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
-            </button>
-          </div>
-
-          <!-- Breaker 5: Cloudflare R2 Media Bucket -->
-          <div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle flex items-center justify-between">
-            <div class="space-y-1 pr-3">
-              <div class="flex items-center gap-2">
-                <span class="font-bold text-xs text-teal-950">Cloudflare R2 Bucket</span>
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-              </div>
-              <p class="text-[11px] text-teal-700 leading-tight">Lưu trữ ảnh minh họa, file nghe audio TOEIC/IELTS</p>
-              <div class="text-[10px] font-mono text-teal-800">Tổng file: 1.482 tệp</div>
-            </div>
-            <!-- Tactile ON toggle -->
-            <button class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner" title="Đang BẬT">
-              <span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
-            </button>
-          </div>
-
-          <!-- Breaker 6: Video Social Render (Remotion - OFF / PAUSED) -->
-          <div class="p-4 rounded-xl bg-cream-100 border border-rose-200 shadow-tactile-subtle flex items-center justify-between">
-            <div class="space-y-1 pr-3">
-              <div class="flex items-center gap-2">
-                <span class="font-bold text-xs text-teal-950">Video Render Worker</span>
-                <span class="w-2 h-2 rounded-full bg-rose-500" title="Đã ngắt cầu dao tự động"></span>
-              </div>
-              <p class="text-[11px] text-rose-800 leading-tight">Tự động ngắt do đạt 95% quota miễn phí ngày</p>
-              <div class="text-[10px] font-mono text-teal-700">Chờ mở lại vào 07:00</div>
-            </div>
-            <!-- Tactile OFF toggle -->
-            <button class="relative w-12 h-7 bg-cream-300 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner" title="Đang TẮT - Nhấn để bật lại thủ công">
-              <span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-0 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-700">TẮT</span>
-            </button>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Two Column Bottom Section: Danh sách không giới hạn (Unlimited List Table) & Nhật ký (Log List) -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
-        <!-- Left 2 Cols: Danh sách không giới hạn (Unlimited Whitelist Table) -->
-        <div class="lg:col-span-2 bg-cream-50 border border-cream-border rounded-2xl p-6 shadow-tactile flex flex-col justify-between">
-          <div>
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
-              <div class="flex items-center gap-2.5">
-                <span class="material-symbols-rounded text-teal-700 text-xl">all_inclusive</span>
-                <div>
-                  <h3 class="text-sm font-bold text-teal-950">Danh sách không giới hạn (Unlimited List)</h3>
-                  <p class="text-xs text-teal-700">Tài khoản nội bộ nhóm phát triển và người kiểm thử chất lượng nội dung.</p>
-                </div>
-              </div>
-              <!-- Small action to add identifier -->
-              <button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cream-100 hover:bg-cream-200 border border-cream-border text-teal-900 text-xs font-bold shadow-tactile-subtle transition-transform active:translate-y-0.5">
-                <span class="material-symbols-rounded text-base text-teal-700">add</span>
-                <span>Thêm tài khoản</span>
-              </button>
-            </div>
-
-            <!-- Table -->
-            <div class="overflow-x-auto">
-              <table class="w-full text-left text-xs border-collapse">
-                <thead>
-                  <tr class="border-b border-cream-border text-teal-700 text-[11px] font-bold uppercase tracking-wider">
-                    <th class="py-2.5 px-3">Tài khoản / Định danh</th>
-                    <th class="py-2.5 px-3">Vai trò</th>
-                    <th class="py-2.5 px-3 text-right">Lượt dùng 24h</th>
-                    <th class="py-2.5 px-3">Chính sách</th>
-                    <th class="py-2.5 px-3 text-right">Thao tác</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-cream-border/70 text-teal-900">
-                  <!-- Row 1 -->
-                  <tr class="hover:bg-cream-100/60 transition-colors">
-                    <td class="py-3 px-3">
-                      <div class="flex items-center gap-2.5">
-                        <div class="w-7 h-7 rounded-lg bg-teal-800 text-teal-100 font-bold flex items-center justify-center text-[11px]">
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"><!-- Breaker 1: OpenAI GPT-4o-mini -->
+<div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle flex items-center justify-between">
+<div class="space-y-1 pr-3">
+<div class="flex items-center gap-2">
+<span class="font-bold text-xs text-teal-950">OpenAI API (GPT-4o mini)</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500" title="Hoạt động bình thường"></span>
+</div>
+<p class="text-[11px] text-teal-800 leading-tight">Giải thích ngữ pháp &amp; bài mẫu Writing Task 2</p>
+<div class="text-[10px] font-mono text-teal-900 font-semibold">Độ trễ trung bình: 420ms</div>
+</div>
+<!-- Tactile ON toggle with min 44px tap target -->
+<button class="min-w-[48px] min-h-[44px] flex items-center justify-center" title="Đang BẬT - Nhấn để ngắt">
+<span class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner">
+<span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
+</span>
+</button>
+</div>
+<!-- Breaker 2: Google Gemini Flash -->
+<div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle flex items-center justify-between">
+<div class="space-y-1 pr-3">
+<div class="flex items-center gap-2">
+<span class="font-bold text-xs text-teal-950">Google Gemini 1.5 Flash</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</div>
+<p class="text-[11px] text-teal-800 leading-tight">Phân tích từ vựng AWL &amp; gợi ý collocation</p>
+<div class="text-[10px] font-mono text-teal-900 font-semibold">Độ trễ trung bình: 310ms</div>
+</div>
+<!-- Tactile ON toggle with min 44px tap target -->
+<button class="min-w-[48px] min-h-[44px] flex items-center justify-center" title="Đang BẬT">
+<span class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner">
+<span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
+</span>
+</button>
+</div>
+<!-- Breaker 3: ElevenLabs Audio TTS -->
+<div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle flex items-center justify-between">
+<div class="space-y-1 pr-3">
+<div class="flex items-center gap-2">
+<span class="font-bold text-xs text-teal-950">ElevenLabs TTS Audio</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</div>
+<p class="text-[11px] text-teal-800 leading-tight">Giọng đọc bản xứ cho từ vựng mới &amp; bài nghe</p>
+<div class="text-[10px] font-mono text-teal-900 font-semibold">Ký tự còn: 4.820 / 10.000</div>
+</div>
+<!-- Tactile ON toggle with min 44px tap target -->
+<button class="min-w-[48px] min-h-[44px] flex items-center justify-center" title="Đang BẬT">
+<span class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner">
+<span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
+</span>
+</button>
+</div>
+<!-- Breaker 4: Cloudflare D1 Database -->
+<div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle flex items-center justify-between">
+<div class="space-y-1 pr-3">
+<div class="flex items-center gap-2">
+<span class="font-bold text-xs text-teal-950">Cloudflare D1 (Chính)</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</div>
+<p class="text-[11px] text-teal-800 leading-tight">Cơ sở dữ liệu người dùng, từ vựng và thẻ ôn tập</p>
+<div class="text-[10px] font-mono text-teal-900 font-semibold">Cụm: SIN (Singapore edge)</div>
+</div>
+<!-- Tactile ON toggle with min 44px tap target -->
+<button class="min-w-[48px] min-h-[44px] flex items-center justify-center" title="Đang BẬT">
+<span class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner">
+<span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
+</span>
+</button>
+</div>
+<!-- Breaker 5: Cloudflare R2 Media Bucket -->
+<div class="p-4 rounded-xl bg-cream-100 border border-cream-border shadow-tactile-subtle flex items-center justify-between">
+<div class="space-y-1 pr-3">
+<div class="flex items-center gap-2">
+<span class="font-bold text-xs text-teal-950">Cloudflare R2 Bucket</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</div>
+<p class="text-[11px] text-teal-800 leading-tight">Lưu trữ ảnh minh họa, file nghe audio TOEIC/IELTS</p>
+<div class="text-[10px] font-mono text-teal-900 font-semibold">Tổng file: 1.482 tệp</div>
+</div>
+<!-- Tactile ON toggle with min 44px tap target -->
+<button class="min-w-[48px] min-h-[44px] flex items-center justify-center" title="Đang BẬT">
+<span class="relative w-12 h-7 bg-teal-700 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner">
+<span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-5 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">BẬT</span>
+</span>
+</button>
+</div>
+<!-- Breaker 6: Video Social Render (Remotion - OFF / PAUSED) -->
+<div class="p-4 rounded-xl bg-cream-100 border border-rose-200 shadow-tactile-subtle flex items-center justify-between">
+<div class="space-y-1 pr-3">
+<div class="flex items-center gap-2">
+<span class="font-bold text-xs text-teal-950">Video Render Worker</span>
+<span class="w-2 h-2 rounded-full bg-rose-500" title="Đã ngắt cầu dao tự động"></span>
+</div>
+<p class="text-[11px] text-rose-800 leading-tight font-medium">Tự động ngắt do đạt 95% quota miễn phí ngày</p>
+<div class="text-[10px] font-mono text-teal-900 font-semibold">Chờ mở lại vào 07:00</div>
+</div>
+<!-- Tactile OFF toggle with min 44px tap target -->
+<button class="min-w-[48px] min-h-[44px] flex items-center justify-center" title="Đang TẮT - Nhấn để bật lại thủ công">
+<span class="relative w-12 h-7 bg-cream-300 rounded-full transition-colors flex items-center p-0.5 flex-shrink-0 shadow-inner">
+<span class="w-6 h-6 bg-cream-50 rounded-full shadow-tactile-sm transform translate-x-0 transition-transform flex items-center justify-center text-[10px] font-bold text-teal-900">TẮT</span>
+</span>
+</button>
+</div></div>
+</section>
+<!-- Two Column Bottom Section: Danh sách không giới hạn (Unlimited List Table) & Nhật ký (Log List) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Left 2 Cols: Danh sách không giới hạn (Unlimited Whitelist Table) -->
+<div class="lg:col-span-2 bg-cream-50 border border-cream-border rounded-2xl p-6 shadow-tactile flex flex-col justify-between">
+<div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-rounded text-teal-700 text-xl">all_inclusive</span>
+<div>
+<h3 class="text-sm font-bold text-teal-950">Danh sách không giới hạn (Unlimited List)</h3>
+<p class="text-xs text-teal-700">Tài khoản nội bộ nhóm phát triển và người kiểm thử chất lượng nội dung.</p>
+</div>
+</div>
+<!-- Small action to add identifier -->
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cream-100 hover:bg-cream-200 border border-cream-border text-teal-900 text-xs font-bold shadow-tactile-subtle transition-transform active:translate-y-0.5 min-h-[44px]">
+<span class="material-symbols-rounded text-base text-teal-700">add</span>
+<span>Thêm tài khoản</span>
+</button>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left text-xs border-collapse">
+<thead>
+<tr class="border-b border-cream-border text-teal-700 text-[11px] font-bold uppercase tracking-wider">
+<th class="py-2.5 px-3">Tài khoản / Định danh</th>
+<th class="py-2.5 px-3">Vai trò</th>
+<th class="py-2.5 px-3 text-right">Lượt dùng 24h</th>
+<th class="py-2.5 px-3">Chính sách</th>
+<th class="py-2.5 px-3 text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-cream-border/70 text-teal-900"><!-- Row 1 -->
+<tr class="hover:bg-cream-100/60 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-teal-800 text-teal-100 font-bold flex items-center justify-center text-[11px]">
                           LM
                         </div>
-                        <div>
-                          <div class="font-bold text-teal-950">linh@lexkite.internal</div>
-                          <div class="text-[10px] text-teal-700">Admin hạ tầng</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="py-3 px-3">
-                      <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-100 text-teal-800">Nhóm vận hành</span>
-                    </td>
-                    <td class="py-3 px-3 text-right font-mono font-bold text-teal-950">142</td>
-                    <td class="py-3 px-3">
-                      <span class="inline-flex items-center gap-1 text-[11px] font-medium text-emerald-800">
-                        <span class="material-symbols-rounded text-xs text-emerald-600">check_circle</span> Miễn bypass trần
+<div>
+<div class="font-bold text-teal-950">linh@lexkite.internal</div>
+<div class="text-[10px] text-teal-800 font-medium">Admin hạ tầng</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-100 text-teal-800">Nhóm vận hành</span>
+</td>
+<td class="py-3 px-3 text-right font-mono font-bold text-teal-950">142</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 text-[11px] font-medium text-emerald-800">
+<span class="material-symbols-rounded text-xs text-emerald-600">check_circle</span> Miễn bypass trần
                       </span>
-                    </td>
-                    <td class="py-3 px-3 text-right">
-                      <button class="p-1 rounded-lg text-teal-700 hover:text-teal-950 hover:bg-cream-200 transition-colors" title="Chỉnh sửa">
-                        <span class="material-symbols-rounded text-base">more_horiz</span>
-                      </button>
-                    </td>
-                  </tr>
-
-                  <!-- Row 2 -->
-                  <tr class="hover:bg-cream-100/60 transition-colors">
-                    <td class="py-3 px-3">
-                      <div class="flex items-center gap-2.5">
-                        <div class="w-7 h-7 rounded-lg bg-teal-700 text-teal-100 font-bold flex items-center justify-center text-[11px]">
+</td>
+<td class="py-3 px-3 text-right">
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-lg text-teal-800 hover:text-teal-950 hover:bg-cream-200 transition-colors" title="Chỉnh sửa">
+<span class="material-symbols-rounded text-base">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-cream-100/60 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-teal-700 text-teal-100 font-bold flex items-center justify-center text-[11px]">
                           TQ
                         </div>
-                        <div>
-                          <div class="font-bold text-teal-950">quang@lexkite.internal</div>
-                          <div class="text-[10px] text-teal-700">Soạn giáo trình IELTS</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="py-3 px-3">
-                      <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-100 text-teal-800">Biên soạn</span>
-                    </td>
-                    <td class="py-3 px-3 text-right font-mono font-bold text-teal-950">98</td>
-                    <td class="py-3 px-3">
-                      <span class="inline-flex items-center gap-1 text-[11px] font-medium text-emerald-800">
-                        <span class="material-symbols-rounded text-xs text-emerald-600">check_circle</span> Miễn bypass trần
+<div>
+<div class="font-bold text-teal-950">quang@lexkite.internal</div>
+<div class="text-[10px] text-teal-800 font-medium">Soạn giáo trình IELTS</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-100 text-teal-800">Biên soạn</span>
+</td>
+<td class="py-3 px-3 text-right font-mono font-bold text-teal-950">98</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 text-[11px] font-medium text-emerald-800">
+<span class="material-symbols-rounded text-xs text-emerald-600">check_circle</span> Miễn bypass trần
                       </span>
-                    </td>
-                    <td class="py-3 px-3 text-right">
-                      <button class="p-1 rounded-lg text-teal-700 hover:text-teal-950 hover:bg-cream-200 transition-colors" title="Chỉnh sửa">
-                        <span class="material-symbols-rounded text-base">more_horiz</span>
-                      </button>
-                    </td>
-                  </tr>
-
-                  <!-- Row 3 -->
-                  <tr class="hover:bg-cream-100/60 transition-colors">
-                    <td class="py-3 px-3">
-                      <div class="flex items-center gap-2.5">
-                        <div class="w-7 h-7 rounded-lg bg-teal-600 text-teal-50 font-bold flex items-center justify-center text-[11px]">
+</td>
+<td class="py-3 px-3 text-right">
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-lg text-teal-800 hover:text-teal-950 hover:bg-cream-200 transition-colors" title="Chỉnh sửa">
+<span class="material-symbols-rounded text-base">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-cream-100/60 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-teal-600 text-teal-50 font-bold flex items-center justify-center text-[11px]">
                           HN
                         </div>
-                        <div>
-                          <div class="font-bold text-teal-950">ngan.ha@lexkite.internal</div>
-                          <div class="text-[10px] text-teal-700">Kiểm thử đề TOEIC</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="py-3 px-3">
-                      <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-100 text-teal-800">Kiểm thử</span>
-                    </td>
-                    <td class="py-3 px-3 text-right font-mono font-bold text-teal-950">64</td>
-                    <td class="py-3 px-3">
-                      <span class="inline-flex items-center gap-1 text-[11px] font-medium text-emerald-800">
-                        <span class="material-symbols-rounded text-xs text-emerald-600">check_circle</span> Miễn bypass trần
+<div>
+<div class="font-bold text-teal-950">ngan.ha@lexkite.internal</div>
+<div class="text-[10px] text-teal-800 font-medium">Kiểm thử đề TOEIC</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-100 text-teal-800">Kiểm thử</span>
+</td>
+<td class="py-3 px-3 text-right font-mono font-bold text-teal-950">64</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 text-[11px] font-medium text-emerald-800">
+<span class="material-symbols-rounded text-xs text-emerald-600">check_circle</span> Miễn bypass trần
                       </span>
-                    </td>
-                    <td class="py-3 px-3 text-right">
-                      <button class="p-1 rounded-lg text-teal-700 hover:text-teal-950 hover:bg-cream-200 transition-colors" title="Chỉnh sửa">
-                        <span class="material-symbols-rounded text-base">more_horiz</span>
-                      </button>
-                    </td>
-                  </tr>
-
-                  <!-- Row 4 -->
-                  <tr class="hover:bg-cream-100/60 transition-colors">
-                    <td class="py-3 px-3">
-                      <div class="flex items-center gap-2.5">
-                        <div class="w-7 h-7 rounded-lg bg-cream-300 text-teal-950 font-bold flex items-center justify-center text-[11px]">
+</td>
+<td class="py-3 px-3 text-right">
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-lg text-teal-800 hover:text-teal-950 hover:bg-cream-200 transition-colors" title="Chỉnh sửa">
+<span class="material-symbols-rounded text-base">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-cream-100/60 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-cream-300 text-teal-950 font-bold flex items-center justify-center text-[11px]">
                           CI
                         </div>
-                        <div>
-                          <div class="font-bold text-teal-950">service-worker-ci@lexkite</div>
-                          <div class="text-[10px] text-teal-700">GitHub Actions Bot</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="py-3 px-3">
-                      <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-cream-200 text-teal-900">Hệ thống</span>
-                    </td>
-                    <td class="py-3 px-3 text-right font-mono font-bold text-teal-950">215</td>
-                    <td class="py-3 px-3">
-                      <span class="inline-flex items-center gap-1 text-[11px] font-medium text-emerald-800">
-                        <span class="material-symbols-rounded text-xs text-emerald-600">check_circle</span> Kiểm tra build
+<div>
+<div class="font-bold text-teal-950">service-worker-ci@lexkite</div>
+<div class="text-[10px] text-teal-800 font-medium">GitHub Actions Bot</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-cream-200 text-teal-900">Hệ thống</span>
+</td>
+<td class="py-3 px-3 text-right font-mono font-bold text-teal-950">215</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 text-[11px] font-medium text-emerald-800">
+<span class="material-symbols-rounded text-xs text-emerald-600">check_circle</span> Kiểm tra build
                       </span>
-                    </td>
-                    <td class="py-3 px-3 text-right">
-                      <button class="p-1 rounded-lg text-teal-700 hover:text-teal-950 hover:bg-cream-200 transition-colors" title="Chỉnh sửa">
-                        <span class="material-symbols-rounded text-base">more_horiz</span>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="pt-3 mt-3 border-t border-cream-border text-xs text-teal-700 flex items-center justify-between">
-            <span>Hiển thị 4 tài khoản được cấp quyền bypass</span>
-            <span class="font-medium text-teal-900">Chỉ số truy cập cập nhật tự động</span>
-          </div>
-        </div>
-
-        <!-- Right 1 Col: Nhật ký điều phối (Short Logs List) -->
-        <div class="bg-cream-50 border border-cream-border rounded-2xl p-6 shadow-tactile flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <div class="flex items-center gap-2">
-                <span class="material-symbols-rounded text-teal-700 text-lg">receipt_long</span>
-                <h3 class="text-sm font-bold text-teal-950">Nhật ký điều phối (Audit log)</h3>
-              </div>
-              <span class="text-[10px] font-mono text-teal-600">Gần nhất</span>
-            </div>
-
-            <!-- List items -->
-            <div class="space-y-3">
-
-              <!-- Log 1: Circuit breaker auto-trip -->
-              <div class="p-3 rounded-xl bg-cream-100 border border-rose-200 text-xs shadow-tactile-subtle">
-                <div class="flex items-center justify-between font-bold text-rose-800 mb-1">
-                  <span class="flex items-center gap-1.5">
-                    <span class="material-symbols-rounded text-sm">error</span>
-                    <span>Ngắt cầu dao Video Render</span>
-                  </span>
-                  <span class="font-mono text-[10px] text-teal-700">10:42</span>
-                </div>
-                <p class="text-[11px] text-teal-900 leading-snug">
+</td>
+<td class="py-3 px-3 text-right">
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-lg text-teal-800 hover:text-teal-950 hover:bg-cream-200 transition-colors" title="Chỉnh sửa">
+<span class="material-symbols-rounded text-base">more_horiz</span>
+</button>
+</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div class="pt-3 mt-3 border-t border-cream-border text-xs text-teal-700 flex items-center justify-between">
+<span>Hiển thị 4 tài khoản được cấp quyền bypass</span>
+<span class="font-medium text-teal-900">Chỉ số truy cập cập nhật tự động</span>
+</div>
+</div>
+<!-- Right 1 Col: Nhật ký điều phối (Short Logs List) -->
+<div class="bg-cream-50 border border-cream-border rounded-2xl p-6 shadow-tactile flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-rounded text-teal-700 text-lg">receipt_long</span>
+<h3 class="text-sm font-bold text-teal-950">Nhật ký điều phối (Audit log)</h3>
+</div>
+<span class="text-[10px] font-mono text-teal-600">Gần nhất</span>
+</div>
+<!-- List items -->
+<div class="space-y-3">
+<!-- Log 1: Circuit breaker auto-trip -->
+<div class="p-3 rounded-xl bg-cream-100 border border-rose-200 text-xs shadow-tactile-subtle">
+<div class="flex items-center justify-between font-bold text-rose-800 mb-1">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-sm">error</span>
+<span>Ngắt cầu dao Video Render</span>
+</span>
+<span class="font-mono text-[10px] text-teal-700">10:42</span>
+</div>
+<p class="text-[11px] text-teal-900 leading-snug">
                   Đã đạt ngưỡng an toàn 95% (19/20 video). Chuyển sang hàng đợi cục bộ.
                 </p>
-                <div class="mt-1 text-[10px] text-teal-700 font-mono">Tác nhân: Giám sát tự động (Bot)</div>
-              </div>
-
-              <!-- Log 2: Daily reset executed -->
-              <div class="p-3 rounded-xl bg-cream-100 border border-cream-border text-xs shadow-tactile-subtle">
-                <div class="flex items-center justify-between font-bold text-teal-950 mb-1">
-                  <span class="flex items-center gap-1.5">
-                    <span class="material-symbols-rounded text-sm text-teal-600">restart_alt</span>
-                    <span>Đặt lại trần ngày hoàn tất</span>
-                  </span>
-                  <span class="font-mono text-[10px] text-teal-700">07:00</span>
-                </div>
-                <p class="text-[11px] text-teal-900 leading-snug">
+<div class="mt-1 text-[10px] text-teal-700 font-mono">Tác nhân: Giám sát tự động (Bot)</div>
+</div>
+<!-- Log 2: Daily reset executed -->
+<div class="p-3 rounded-xl bg-cream-100 border border-cream-border text-xs shadow-tactile-subtle">
+<div class="flex items-center justify-between font-bold text-teal-950 mb-1">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-sm text-teal-600">restart_alt</span>
+<span>Đặt lại trần ngày hoàn tất</span>
+</span>
+<span class="font-mono text-[10px] text-teal-700">07:00</span>
+</div>
+<p class="text-[11px] text-teal-900 leading-snug">
                   Tất cả 6 hạn ngạch đã được làm mới thành công cho chu kỳ 24 giờ mới.
                 </p>
-                <div class="mt-1 text-[10px] text-teal-700 font-mono">Tác nhân: Hệ thống Cron 07:00</div>
-              </div>
-
-              <!-- Log 3: Admin setting edit -->
-              <div class="p-3 rounded-xl bg-cream-100 border border-cream-border text-xs shadow-tactile-subtle">
-                <div class="flex items-center justify-between font-bold text-teal-950 mb-1">
-                  <span class="flex items-center gap-1.5">
-                    <span class="material-symbols-rounded text-sm text-teal-600">person</span>
-                    <span>Thêm tài khoản Whitelist</span>
-                  </span>
-                  <span class="font-mono text-[10px] text-teal-700">Hôm qua</span>
-                </div>
-                <p class="text-[11px] text-teal-900 leading-snug">
+<div class="mt-1 text-[10px] text-teal-700 font-mono">Tác nhân: Hệ thống Cron 07:00</div>
+</div>
+<!-- Log 3: Admin setting edit -->
+<div class="p-3 rounded-xl bg-cream-100 border border-cream-border text-xs shadow-tactile-subtle">
+<div class="flex items-center justify-between font-bold text-teal-950 mb-1">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-sm text-teal-600">person</span>
+<span>Thêm tài khoản Whitelist</span>
+</span>
+<span class="font-mono text-[10px] text-teal-700">Hôm qua</span>
+</div>
+<p class="text-[11px] text-teal-900 leading-snug">
                   Đã thêm <code>ngan.ha@lexkite</code> vào nhóm kiểm thử đề TOEIC.
                 </p>
-                <div class="mt-1 text-[10px] text-teal-700 font-mono">Thực hiện bởi: Linh Mai (LM)</div>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="pt-3 mt-3 border-t border-cream-border text-center">
-            <a href="#" class="text-xs font-bold text-teal-800 hover:text-teal-950 inline-flex items-center gap-1 transition-colors">
-              <span>Xem toàn bộ nhật ký hệ thống</span>
-              <span class="material-symbols-rounded text-sm">chevron_right</span>
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-    </main>
-
-    <!-- Sub-footer info -->
-    <footer class="px-8 py-4 border-t border-cream-border bg-cream-50 text-xs text-teal-700 flex flex-col sm:flex-row items-center justify-between gap-2">
-      <div class="flex items-center gap-3">
-        <span class="flex items-center gap-1.5 font-medium">
-          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<div class="mt-1 text-[10px] text-teal-700 font-mono">Thực hiện bởi: Linh Mai (LM)</div>
+</div>
+</div>
+</div>
+<div class="pt-3 mt-3 border-t border-cream-border text-center">
+<a class="text-xs font-bold text-teal-800 hover:text-teal-950 inline-flex items-center gap-1 transition-colors min-h-[44px]" href="#">
+<span>Xem toàn bộ nhật ký hệ thống</span>
+<span class="material-symbols-rounded text-sm">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+</main>
+<!-- Sub-footer info -->
+<footer class="px-8 py-4 border-t border-cream-border bg-cream-50 text-xs text-teal-700 flex flex-col sm:flex-row items-center justify-between gap-2">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1.5 font-medium">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
           Lexkite Internal Ops · Hoạt động ổn định
         </span>
-        <span class="text-cream-300">·</span>
-        <span>Múi giờ chuẩn: Asia/Ho_Chi_Minh (GMT+7)</span>
-      </div>
-      <div>
-        <span>Lexkite Kit Design System • Bright Day Theme</span>
-      </div>
-    </footer>
-
-  </div>
-
+<span class="text-teal-800 font-bold">·</span>
+<span>Múi giờ chuẩn: Asia/Ho_Chi_Minh (GMT+7)</span>
+</div>
+<div>
+<span>Lexkite Kit Design System • Bright Day Theme</span>
+</div>
+</footer>
+</div>
 </body>
 </html>

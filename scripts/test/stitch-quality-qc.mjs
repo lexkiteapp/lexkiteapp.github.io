@@ -20,6 +20,7 @@ fs.mkdirSync(path.join(OUT, 'png'), { recursive: true });
 const rows = [];
 for (const s of SURF) { const f = path.join(SRC, s, '.index.txt'); if (!fs.existsSync(f)) continue;
   for (const l of fs.readFileSync(f, 'utf8').split('\n')) { if (!l.trim() || l.startsWith('#')) continue;
+    if (!/^\S+ [0-9a-f]{32} [0-9a-f]{32} (DESKTOP|MOBILE) /.test(l)) { console.error(`✗ ${s}/.index.txt: dòng hỏng (ghi chú có xuống dòng?) "${l.slice(0, 60)}" – sửa bằng scripts/stitch/import-v3.mjs`); process.exitCode = 1; continue; }
     const [head] = l.split(' | '), [page, , , dev, verdict, ...flags] = head.split(/\s+/);
     if (GATED(verdict) || ALL) rows.push({ s, page, gated: GATED(verdict), w: dev === 'DESKTOP' ? 1280 : 390, teacher: flags.includes('teacher-slot') }); } }
 const browser = await chromium.launch(), report = [];
@@ -29,6 +30,8 @@ for (const r of rows) { const res = { surface: r.s, page: r.page, gated: r.gated
     const ctx = await browser.newContext({ viewport: sv ? { width: +sv[1], height: +sv[2] } : { width: r.w, height: r.w > 800 ? 900 : 844 }, deviceScaleFactor: 1, reducedMotion: 'reduce', colorScheme: m });
     const p = await ctx.newPage(), errs = []; p.on('pageerror', e => errs.push(String(e.message || e).slice(0, 120)));
     await p.goto('file://' + path.resolve(f), { waitUntil: 'networkidle', timeout: 60000 }).catch(e => errs.push('load: ' + e.message.slice(0, 80)));
+    // CDN Tailwind tải hỏng thoáng qua trên CI → màn mất hết CSS và báo đỏ oan (4/11: mistakes-loading dark). Tải lại tối đa 3 lần; hỏng cả 3 thì vẫn đỏ.
+    for (let i = 0; i < 3 && errs.some(e => /tailwind is not defined/.test(e)); i++) { errs.length = 0; await p.waitForTimeout(3000 * (i + 1)); await p.reload({ waitUntil: 'networkidle', timeout: 60000 }).catch(e => errs.push('load: ' + e.message.slice(0, 80))); }
     await p.addStyleTag({ content: STILL }); await p.evaluate(() => document.fonts && document.fonts.ready); await p.waitForTimeout(300);
     // Chụp fullPage: phần tử fixed (top bar, tab bar, CTA dưới) bị vẽ đè giữa trang → neo về đúng chỗ khi cuộn: thanh trên ở đầu trang, thanh dưới ở cuối trang.
     await p.evaluate(() => { const H = document.documentElement.scrollHeight, fx = [...document.querySelectorAll('body *')].filter(e => getComputedStyle(e).position === 'fixed');

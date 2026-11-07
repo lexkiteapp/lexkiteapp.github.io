@@ -1,0 +1,33 @@
+[
+ {
+  "id": "adm-reports-m",
+  "mode": "light",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "adm-reports-m/light",
+  "prompt": "Convert this exact phone screen to the light theme (\"Bright Day\"): soft cream page background, white-cream cards with a gentle ledge, deep teal text and accents, coral primary button with a readable label; every text at least 4.5:1 contrast. Keep layout, content and the narrow phone canvas identical."
+ },
+ {
+  "id": "adm-users2-table-m",
+  "mode": "light",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "adm-users2-table-m/light",
+  "prompt": "Convert this exact phone screen to the light theme (\"Bright Day\"): soft cream page background, white-cream cards with a gentle ledge, deep teal text and accents, coral primary button with a readable label; every text at least 4.5:1 contrast. Keep layout, content and the narrow phone canvas identical."
+ },
+ {
+  "id": "adm-ads",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-ads/light",
+  "prompt": "Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical. The previous attempt stayed light: this time every surface – page, sidebar, cards, table rows, toggles track, inputs – must be dark."
+ },
+ {
+  "id": "adm-users2-confirm",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Desktop web admin screen, 1440 px wide, of Lexkite admin (English-learning app). Feel: professional, calm, data-dense like Linear or Stripe dashboards, Lexkite Kit design system: deep teal brand, one warm coral primary button, cream light theme, rounded tactile cards. Left admin sidebar with Lexkite logo and sections (Tổng quan, Người dùng selected, Nội dung, Doanh thu, Hệ thống). All labels in Vietnamese. Realistic data, no lorem ipsum. All text strongly readable (4.5:1 contrast), every clickable control at least 44 px tall. No photos of people: use initials avatars. Screen: Admin › Người dùng. Top: title \"Người dùng\" with total 1.284. A row of 5 KPI cards each with a tiny sparkline (Tổng người dùng, Hoạt động 7 ngày, Mới tuần này, Streak trung bình, Đã trả phí). A filter strip of chips: Quốc gia, Nền tảng, Ngày tham gia, Hoạt động, Cấp độ, Streak, Nhãn, plus a search field, a \"Chế độ xem đã lưu\" button and a column chooser. A data table with a checkbox column, name + email, country flag, platform (Web, iOS, Android, Add-on), level, streak, last active, and status badges (Hoạt động, Ngủ đông, Mới, Bị khoá, Admin). Three rows are selected (checked, highlighted).  On top, a centred confirmation dialog for a destructive action: title \"Xoá dữ liệu 37 người dùng\", warning text, an input asking to type 37 to confirm, a note \"Xoá mềm – hoàn tác trong 30 ngày, ghi nhật ký kiểm toán\", buttons Huỷ and a red Xoá 37 người dùng (disabled until 37 typed). Background dimmed. Layout: the page must fit a 1280-wide browser window with zero horizontal scroll – flexible widths, no fixed widths wider than the window; every clickable control at least 44 px tall; all text at least 4.5:1 contrast."
+ }
+]

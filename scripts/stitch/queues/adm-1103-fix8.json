@@ -1,0 +1,387 @@
+[
+ {
+  "id": "adm-ads",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Round 8 redraw. The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio, Trung tâm video, Backlink & PR) · Hệ thống (Hạn mức, Kho Drive, Khóa API, Dịch vụ & API, Lưu trữ) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Quảng cáo selected. Screen: Admin › Quảng cáo – per-platform ad flags, emergency kill switch, estimated revenue, frequency caps, retention guard and consent by region. A prominent \"Công tắc khẩn cấp\" card with one big tactile toggle (all ads off). A table of platforms (Web, PWA, Add-on Chrome, iOS, Android) with toggle columns Banner / Xen kẽ / Có thưởng. A \"Doanh thu ước tính · 7 ngày\" card clearly labelled as an estimate with a small honest amount in USD and a mini bar chart. \"Tần suất\" card with steppers (tối đa mỗi giờ, khoảng cách giữa 2 quảng cáo). \"Cổng giữ chân\" card: no ads for new learners during their first days, with a stepper. \"Đồng ý theo vùng\" card with region chips (EEA, UK, California) and consent-mode status.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-ads",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-ads/light",
+  "prompt": "Round 8 redraw. Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-analytics",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Round 8 redraw. The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio) · Hệ thống (Hạn mức, Kho Drive, Khóa API) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Phân tích selected. Screen: Admin › Phân tích (live traffic). Header \"Phân tích\" with a soft pill \"Live · tự cập nhật 30s · 15:24\" with a pulsing green dot, and one muted line \"Tự động/bot & quản trị hôm nay: 37 phiên (đã loại) · Ngày theo giờ Việt Nam (UTC+7)\". A row of six compact KPI tiles, each icon + label + big number + small sub-line: Đang online (5 phút) 3 · Lượt xem hôm nay 412 (58 phiên) · Khách hôm nay 46 (thiết bị khác nhau) · Trang/khách 8,9 · Thời gian TB 6 phút 12 giây · Tổng lượt xem 18.940 (2.311 khách từ trước đến nay). A wide soft area chart card \"14 ngày qua\". A world map card \"Khách theo quốc gia · hôm nay\" with countries filled in a cream→amber→coral scale and a small legend (Ít, 1, 2–5, 6–20, 21–100, 100+, Nhiều khách) plus \"9 quốc gia · 46 khách · 2 không rõ\". Then a responsive grid of equal cards: \"Quốc gia hôm nay\" (flag + full country name + horizontal bar + count, including long names like Việt Nam, Hoa Kỳ, Vương quốc Anh, Cộng hòa Dominica, Ấn Độ, Philippines – names never cut), \"Đang xem · 3 online\" (route list like #/today, #/vocab), \"Trang xem nhiều hôm nay\" (routes with bars), \"Nguồn giới thiệu hôm nay\" (google.com, facebook.com, direct), \"Trang xem nhiều · 7 ngày\", and \"Nền tảng\": a small table with columns Nền tảng | Hôm nay | 30 ngày, rows Web, PWA, Add-on Chrome, iOS, Android, each number cell showing the count with a thin proportional bar beneath it, all inside the card.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-analytics",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-analytics/light",
+  "prompt": "Round 8 redraw. Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-analytics-details",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "8",
+  "from": "adm-analytics-details/light",
+  "prompt": "Round 8 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 3 chữ (vd \"Tổng: 4,812 phiên\" 4.13<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Tổng: 4,812 phiên\" 4.13:1; \"🇩🇪\" 1.35:1; \"Top 5 đường dẫn\" 4.13:1",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-analytics-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "8",
+  "from": "adm-analytics-m/light",
+  "prompt": "Round 8 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the phone-width layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 14 chữ (vd \"KL\" 3.04<4.5) | light: tên icon hiện thành chữ \"drive_file_stream\" (1)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"KL\" 3.04:1; \"Trong 5 phút qua\" 4.31:1; \"58 phiên hoạt động\" 4.31:1; \"Thiết bị khác nhau\" 4.31:1; \"Độ sâu bài học cao\" 3.77:1; \"Đúng mục tiêu 5-min\" 4.31:1; \"2.311 khách từ trước\" 4.31:1; \"14 ngày trước\" 3.95:1; \"7 ngày\" 3.95:1; \"+14.2% so với tuần trước\" 3.95:1; \"Ít khách [1]\" 3.97:1; \"[21-100+] Nhiều khách\" 3.97:1",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-backlinks",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Round 8 redraw. The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio, Trung tâm video, Backlink & PR) · Hệ thống (Hạn mức, Kho Drive, Khóa API, Dịch vụ & API, Lưu trữ) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Backlink & PR selected. Screen: Admin › Backlink, PR & Thương hiệu – PR articles, profiles linking to lexkite.com, look-alike domains, social accounts and copied content, auto-checked daily. Tabs for each group; the active table lists URL, type chip, last check, status pill (Còn sống / Mất link / Cần xem). A small \"Kiểm tra lần cuối 06:00\" chip and a coral \"Kiểm tra ngay\" button.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-backlinks",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-backlinks/light",
+  "prompt": "Round 8 redraw. Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-drive",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Round 8 redraw. The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio, Trung tâm video, Backlink & PR) · Hệ thống (Hạn mức, Kho Drive, Khóa API, Dịch vụ & API, Lưu trữ) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Kho Drive selected. Screen: Admin › Kho Drive – private Google Drive pool: capacity, replicas, file browser, ledger. A capacity card with a segmented bar per connected Drive and \"71% đã dùng\" plus a coral \"Nối thêm Drive\" button. A \"Bản sao\" health card (files with 2 copies, under-replicated count). A file browser table (name, type, size, copies, updated). A short \"Sổ kho\" activity list.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-drive",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-drive/light",
+  "prompt": "Round 8 redraw. Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-growth",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "8",
+  "from": "adm-growth/dark",
+  "prompt": "Round 8 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 2 chữ (vd \"318\" 3.73<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"318\" 3.73:1; \"318\" 2.4:1",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-inbox",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Round 8 redraw. The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio, Trung tâm video, Backlink & PR) · Hệ thống (Hạn mức, Kho Drive, Khóa API, Dịch vụ & API, Lưu trữ) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Hộp thư selected. Screen: Admin › Hộp thư – messages from the Contact form: reply and mark handled. Filter chips Chưa xử lý (3), Đã trả lời, Tất cả. Left: message rows (initials avatar, sender name, email, subject, one-line preview, time, unread dot). Right: the open message in a card, sender details, a reply composer with a coral \"Gửi trả lời\" button and a secondary \"Đánh dấu đã xử lý\".\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-inbox",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-inbox/light",
+  "prompt": "Round 8 redraw. Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-notices",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "8",
+  "from": "adm-notices/dark",
+  "prompt": "Round 8 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 2 vùng chạm < 44px (vd \"INPUT 20×20\") | dark: tương phản 1 chữ (vd \"Trước\" 3.74<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Trước\" 3.74:1\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 20×20; INPUT 20×20",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-overview",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Round 8 redraw. The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio) · Hệ thống (Hạn mức, Kho Drive, Khóa API) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Tổng quan selected. Screen: Admin › Tổng quan – system health, real humans and automated jobs on one screen. Greeting line \"Chào buổi chiều\" with today's date. Four KPI tiles with tiny sparklines: Người thật hôm nay 46 (so với hôm qua 39), Người thật 7 ngày 214, Đăng nhập hôm nay 12, Lỗi JS (24 giờ) 2 loại. A \"Cần chú ý\" card with 3 colored status rows (CI: 1 workflow đỏ trong 24 h; Kho Drive đã dùng 71%; Hạn mức AI 82%). A \"Tác vụ tự động\" card listing scheduled jobs with green/amber status dots and last-run times. A \"Báo lỗi mới\" list with 3 short rows. A 30-day line chart card of daily real visitors. Sample numbers are small and honest.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-overview",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-overview/light",
+  "prompt": "Round 8 redraw. Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-reports",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Round 8 redraw. The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio) · Hệ thống (Hạn mức, Kho Drive, Khóa API) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Báo lỗi selected. Screen: Admin › Báo lỗi – user bug reports inbox: triage, assign, reply. Filter chips on top: Mới (4), Đang xử lý (2), Đã sửa, Tất cả. Left: list of report rows (type chip Lỗi / Sai nội dung / Góp ý, one-line preview, screen route like #/vocab, time, status dot). Right: selected report detail: title, route + device chips (Android · Chrome 131), the user's message in a quoted card, an automatic console-error snippet card in monospace, assignee picker, and buttons: coral \"Đánh dấu đã sửa\", secondary \"Trả lời\", quiet \"Lưu trữ\". All buttons use the Kit colors (no plain white buttons).\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-reports",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-reports/light",
+  "prompt": "Round 8 redraw. Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-services-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "8",
+  "from": "adm-services-m/light",
+  "prompt": "Round 8 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the phone-width layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"Lexkite Ops Engine v2.4.2 • 100% Free-Ti\" 3.82<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Lexkite Ops Engine v2.4.2 • 100% Free-Ti\" 3.82:1",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-settings",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "8",
+  "from": "adm-settings/light",
+  "prompt": "Round 8 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 4 vùng chạm < 44px (vd \"INPUT 20×20\")\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 20×20; INPUT 20×20; INPUT 20×20; INPUT 24×24",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-settings",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "8",
+  "from": "adm-settings/dark",
+  "prompt": "Round 8 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 9 vùng chạm < 44px (vd \"INPUT 1×1\")\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 1×1; INPUT 20×20; INPUT 20×20; INPUT 20×20; INPUT 20×20; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-social",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Round 8 redraw. The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio) · Hệ thống (Hạn mức, Kho Drive, Khóa API) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Video & Social selected. Screen: Admin › Video & Social – compose posts, posting calendar and channels (via GrabCast). Top: a channel health strip with platform chips (YouTube Shorts, TikTok, Facebook Reels) each with a small green/amber status dot. Main: a weekly calendar grid (Thứ 2 → Chủ nhật) with scheduled posts as small cards (platform icon, flat 2D thumbnail, time). Right panel: the selected post with caption in a Kit-styled text area, platform toggles, and buttons coral \"Lên lịch\" and secondary \"Đăng ngay\". No made-up view or follower numbers; no search chip in the top bar other than the standard command field.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-social",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-social/light",
+  "prompt": "Round 8 redraw. Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-storage",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Round 8 redraw. The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio, Trung tâm video, Backlink & PR) · Hệ thống (Hạn mức, Kho Drive, Khóa API, Dịch vụ & API, Lưu trữ) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Lưu trữ selected. Screen: Admin › Lưu trữ – size of the main repo and media store (MB, file count), forecast for the 20k-word store, warning at 70 %. Cards with capacity bars, a small forecast line chart, and a table of the largest folders with sizes right-aligned.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-storage",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-storage/light",
+  "prompt": "Round 8 redraw. Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-storage-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "8",
+  "from": "adm-storage-m/light",
+  "prompt": "Round 8 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the phone-width layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"An toàn\" 2.39<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"An toàn\" 2.39:1",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-storage-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "8",
+  "from": "adm-storage-m/dark",
+  "prompt": "Round 8 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the phone-width layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"100% Free-Tier Cloud Architecture • SQLi\" 4.13<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"100% Free-Tier Cloud Architecture • SQLi\" 4.13:1",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-studio",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "8",
+  "from": "adm-studio/light",
+  "prompt": "Round 8 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 3 chữ (vd \"Tạo video tự động\" 2.98<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Tạo video tự động\" 2.98:1; \"1 cần duyệt\" 2.88:1; \"Tạo video tự động\" 2.98:1",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-users2-confirm",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Round 8 redraw. Desktop web admin screen, 1440 px wide, of Lexkite admin (English-learning app). Feel: professional, calm, data-dense like Linear or Stripe dashboards, Lexkite Kit design system: deep teal brand, one warm coral primary button, cream light theme, rounded tactile cards. Left admin sidebar with Lexkite logo and sections (Tổng quan, Người dùng selected, Nội dung, Doanh thu, Hệ thống). All labels in Vietnamese. Realistic data, no lorem ipsum. All text strongly readable (4.5:1 contrast), every clickable control at least 44 px tall. No photos of people: use initials avatars. Screen: Admin › Người dùng. Top: title \"Người dùng\" with total 1.284. A row of 5 KPI cards each with a tiny sparkline (Tổng người dùng, Hoạt động 7 ngày, Mới tuần này, Streak trung bình, Đã trả phí). A filter strip of chips: Quốc gia, Nền tảng, Ngày tham gia, Hoạt động, Cấp độ, Streak, Nhãn, plus a search field, a \"Chế độ xem đã lưu\" button and a column chooser. A data table with a checkbox column, name + email, country flag, platform (Web, iOS, Android, Add-on), level, streak, last active, and status badges (Hoạt động, Ngủ đông, Mới, Bị khoá, Admin). Three rows are selected (checked, highlighted).  On top, a centred confirmation dialog for a destructive action: title \"Xoá dữ liệu 37 người dùng\", warning text, an input asking to type 37 to confirm, a note \"Xoá mềm – hoàn tác trong 30 ngày, ghi nhật ký kiểm toán\", buttons Huỷ and a red Xoá 37 người dùng (disabled until 37 typed). Background dimmed.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-users2-confirm",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-users2-confirm/light",
+  "prompt": "Round 8 redraw. Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards and table rows, readable high-contrast text (4.5:1), brand teal accents lightened, keep the coral primary and red destructive buttons, no white panels left. Keep layout, content and the 1440 px desktop width identical.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-users2-table-m",
+  "mode": "draft",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Round 8 redraw. The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Native phone layout (narrow iPhone-width screen, single column, no sidebar): a slim top app bar with a menu button, the page title and the initials avatar; content stacks in full-width cards with comfortable side margins; tables keep every column inside the card (short headers, numbers right-aligned, long names wrap to two lines rather than being cut); nothing scrolls sideways. Screen: Admin › Người dùng. Top: title \"Người dùng\" with total 1.284. A row of 5 KPI cards each with a tiny sparkline (Tổng người dùng, Hoạt động 7 ngày, Mới tuần này, Streak trung bình, Đã trả phí). A filter strip of chips: Quốc gia, Nền tảng, Ngày tham gia, Hoạt động, Cấp độ, Streak, Nhãn, plus a search field, a \"Chế độ xem đã lưu\" button and a column chooser. A data table with a checkbox column, name + email, country flag, platform (Web, iOS, Android, Add-on), level, streak, last active, and status badges (Hoạt động, Ngủ đông, Mới, Bị khoá, Admin). Three rows are selected (checked, highlighted). A floating action bar pinned to the bottom: \"3 đã chọn · Chọn cả 1.284 theo bộ lọc\" with buttons Gắn nhãn, Cấp quyền AI, Gửi thông báo, Xuất CSV, Khoá, Xoá (red, destructive) and Bỏ chọn.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-users2-table-m",
+  "mode": "light",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "adm-users2-table-m/draft",
+  "prompt": "Round 8 redraw. Re-lay out this same screen as a native phone screen (narrow iPhone width, single column, no sidebar, slim top app bar with menu button, title and initials avatar). Keep every section and all content, stack cards full width, make tables fit inside their cards with right-aligned number columns and wrapped long names; nothing may scroll sideways or be cut off. Bright Day light theme.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-users2-table-m",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "adm-users2-table-m/light",
+  "prompt": "Round 8 redraw. Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-video",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "8",
+  "from": "adm-video/light",
+  "prompt": "Round 8 – the previous edit left these exact problems unchanged, so change the CSS of every listed element now (do not answer with an identical screen). Keep the 1280-wide desktop layout.\nFix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 2 chữ (vd \"Trung tâm video\" 1.49<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Trung tâm video\" 1.49:1; \"16\" 1.49:1",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-ads",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-ads/light",
+  "prompt": "Recolour this exact screen to the dark theme: deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; no white, cream or light-grey panels, chips, buttons, inputs or tooltips; every text a solid light colour reaching 4.5:1 on its own background; teal accents brightened for dark; coral primary button keeps a dark readable label; bars and charts stay clearly visible. Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign.",
+  "fix": "8b"
+ },
+ {
+  "id": "adm-drive",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-drive/light",
+  "prompt": "Recolour this exact screen to the dark theme: deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; no white, cream or light-grey panels, chips, buttons, inputs or tooltips; every text a solid light colour reaching 4.5:1 on its own background; teal accents brightened for dark; coral primary button keeps a dark readable label; bars and charts stay clearly visible. Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign.",
+  "fix": "8b"
+ },
+ {
+  "id": "adm-reports",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-reports/light",
+  "prompt": "Recolour this exact screen to the dark theme: deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; no white, cream or light-grey panels, chips, buttons, inputs or tooltips; every text a solid light colour reaching 4.5:1 on its own background; teal accents brightened for dark; coral primary button keeps a dark readable label; bars and charts stay clearly visible. Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign.",
+  "fix": "8b"
+ },
+ {
+  "id": "adm-services-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "8b",
+  "from": "adm-services-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"Lexkite Ops Engine v2.4.2 • 100% Free-Ti\" 3.82<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Lexkite Ops Engine v2.4.2 • 100% Free-Ti\" 3.82:1 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-settings",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "8b",
+  "from": "adm-settings/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 9 vùng chạm < 44px (vd \"INPUT 1×1\")\nMake EXACTLY these controls at least 44x44 px (min-height:44px; min-width:44px; padding; a visually hidden 1x1 checkbox/radio must become a visible 44px switch or be wrapped so the whole 44px label is the control): INPUT 1×1; INPUT 20×20; INPUT 20×20; INPUT 20×20; INPUT 20×20; INPUT 1×1; INPUT 1×1; INPUT 1×1; INPUT 1×1 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-social",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-social/light",
+  "prompt": "Recolour this exact screen to the dark theme: deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; no white, cream or light-grey panels, chips, buttons, inputs or tooltips; every text a solid light colour reaching 4.5:1 on its own background; teal accents brightened for dark; coral primary button keeps a dark readable label; bars and charts stay clearly visible. Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign.",
+  "fix": "8b"
+ },
+ {
+  "id": "adm-storage-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "8b",
+  "from": "adm-storage-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"100% Free-Tier Cloud Architecture • SQLi\" 4.13<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"100% Free-Tier Cloud Architecture • SQLi\" 4.13:1 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-storage-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "8b",
+  "from": "adm-storage-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"An toàn\" 2.39<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"An toàn\" 2.39:1 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-studio",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "8b",
+  "from": "adm-studio/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 3 chữ (vd \"Tạo video tự động\" 2.98<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Tạo video tự động\" 2.98:1; \"1 cần duyệt\" 2.88:1; \"Tạo video tự động\" 2.98:1 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-video",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "8b",
+  "from": "adm-video/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 2 chữ (vd \"Trung tâm video\" 1.49<4.5)\nRaise contrast of EXACTLY these texts (now → need ≥4.5:1, use the main ink colour or a darker/lighter shade of the same hue): \"Trung tâm video\" 1.49:1; \"16\" 1.49:1 Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign.",
+  "device": "DESKTOP"
+ }
+]

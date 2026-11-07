@@ -1,1045 +1,697 @@
 <!DOCTYPE html>
-
-<html class="h-full dark" lang="vi"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Lexkite Admin — Phân tích (Live Traffic)</title>
-<!-- Tailwind CSS CDN with plugins -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Google Fonts: Plus Jakarta Sans -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<!-- Material Symbols Outlined -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<script>
+<html lang="vi" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Admin — Phân tích (Live Traffic Tactile Night) [QC Fix]</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
           },
           colors: {
-            brand: {
+            tactile: {
+              bg: '#081518',
+              surface: '#0F1E22',
+              elevated: '#14252B',
+              border: '#21363E',
+              ledge: '#0B171A',
+              ink: '#EEF6F7',
+              muted: '#A9BFC1',
+              subtle: '#7E999C',
               teal: '#2EC4B6',
-              'teal-dark': '#0B524E',
-              'teal-light': '#16383D',
+              cyan: '#62D7CE',
               coral: '#F2553B',
-              'coral-hover': '#FF6B52',
-              amber: '#FFB054',
-              surface: '#081518',
-              card: '#122025',
-              border: '#223840',
-              ledge: '#101B1E',
-              text: '#EEF6F7',
-              muted: '#91A8AB'
+              coralLedge: '#A82B18',
+              amber: '#FFB703',
+              green: '#2FBF71',
+              darkInk: '#1B0B04'
             }
           }
         }
       }
-    }
+    };
   </script>
-<style>
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #081518;
-      color: #EEF6F7;
+  <style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
     }
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
-    }
-    /* Tactile Night card style with gentle bottom ledge */
-    .tactile-card {
-      background: #122025;
-      border: 1.5px solid #223840;
-      box-shadow: 0 3px 0 0 #0C1619;
-      border-radius: 16px;
-    }
-    .tactile-card-interactive {
-      background: #122025;
-      border: 1.5px solid #223840;
-      box-shadow: 0 3px 0 0 #0C1619;
-      border-radius: 16px;
-      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .tactile-card-interactive:hover {
-      border-color: #2EC4B6;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 0 0 #0C1619;
-    }
-    .tactile-button-coral {
-      background: linear-gradient(180deg, #FF6B52 0%, #F2553B 100%);
-      border: 1.5px solid #D9381E;
-      box-shadow: 0 3px 0 0 #7A1C0E;
-      color: #1B0B04;
-      transition: all 0.1s ease;
-    }
-    .tactile-button-coral:active {
-      transform: translateY(2px);
-      box-shadow: 0 1px 0 0 #7A1C0E;
-    }
-    .tactile-pill {
-      background: #15252A;
-      border: 1px solid #274048;
-      box-shadow: 0 1.5px 0 0 #0A1417;
-    }
-    /* Custom scrollbar for dark UI */
-    ::-webkit-scrollbar {
-      width: 6px;
+    .custom-scrollbar::-webkit-scrollbar {
       height: 6px;
+      width: 6px;
     }
-    ::-webkit-scrollbar-track {
+    .custom-scrollbar::-webkit-scrollbar-track {
       background: #081518;
     }
-    ::-webkit-scrollbar-thumb {
-      background: #223840;
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #21363E;
       border-radius: 9999px;
     }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #2E4B56;
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #2EC4B6;
     }
   </style>
 </head>
-<body class="min-h-full flex flex-col bg-[#081518] text-[#EEF6F7] antialiased selection:bg-[#2EC4B6] selection:text-[#081518]">
-<div class="flex flex-1 w-full min-h-screen">
-<!-- LEFT SIDEBAR -->
-<aside class="w-64 flex-shrink-0 bg-[#0D1C20] border-r border-[#1E3036] flex flex-col justify-between z-20">
-<div class="flex flex-col h-full">
-<!-- Logo Header -->
-<div class="h-16 px-6 flex items-center border-b border-[#1E3036] gap-3">
-<!-- Kite geometric icon mark -->
-<div class="w-9 h-9 rounded-xl bg-[#16383D] border border-[#2EC4B6]/40 flex items-center justify-center shadow-[0_2px_0_0_#0A1C1F] relative overflow-hidden flex-shrink-0">
-<svg fill="none" height="22" viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 2L20 12L12 22L4 12L12 2Z" fill="#2EC4B6" fill-opacity="0.2"></path>
-<path d="M12 2L20 12L12 14L4 12L12 2Z" fill="#FFB054"></path>
-<path d="M12 14L20 12L12 22L4 12L12 14Z" fill="#F2553B"></path>
-<circle cx="12" cy="12" fill="#FFFFFF" r="2"></circle>
-</svg>
-</div>
-<div class="flex flex-col">
-<span class="font-extrabold text-lg tracking-tight text-[#2EC4B6] leading-tight">Lexkite</span>
-<span class="text-[10px] font-bold uppercase tracking-wider text-[#91A8AB]">Admin Console</span>
-</div>
-</div>
-<!-- Sidebar Navigation Groups -->
-<div class="flex-1 overflow-y-auto px-3 py-4 space-y-5 text-sm">
-<!-- Group: Tổng quan -->
-<div>
-<div class="px-3 pb-1 text-[11px] font-extrabold uppercase tracking-wider text-[#678286]">Tổng quan</div>
-<div class="space-y-0.5">
-<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[#A9BFC1] font-semibold hover:bg-[#16272D] transition-colors" href="#overview">
-<span class="material-symbols-outlined text-[20px] text-[#7A9598]">dashboard</span>
-<span>Tổng quan</span>
-</a>
-<!-- Selected Item: Phân tích -->
-<a class="flex items-center gap-3 px-3 py-2 rounded-xl bg-[#16343A] text-[#2EC4B6] font-bold border border-[#2EC4B6]/30 shadow-[0_1.5px_0_0_#0D2125] transition-all" href="#analytics">
-<span class="material-symbols-outlined text-[20px] text-[#2EC4B6]">insights</span>
-<span class="flex-1">Phân tích</span>
-<span class="w-2 h-2 rounded-full bg-[#2EC4B6] animate-pulse"></span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[#A9BFC1] font-semibold hover:bg-[#16272D] transition-colors" href="#ads">
-<span class="material-symbols-outlined text-[20px] text-[#7A9598]">ad_units</span>
-<span>Quảng cáo</span>
-</a>
-</div>
-</div>
-<!-- Group: Người dùng -->
-<div>
-<div class="px-3 pb-1 text-[11px] font-extrabold uppercase tracking-wider text-[#678286]">Người dùng</div>
-<div class="space-y-0.5">
-<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[#A9BFC1] font-semibold hover:bg-[#16272D] transition-colors" href="#users">
-<span class="material-symbols-outlined text-[20px] text-[#7A9598]">group</span>
-<span>Người dùng</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[#A9BFC1] font-semibold hover:bg-[#16272D] transition-colors" href="#inbox">
-<span class="material-symbols-outlined text-[20px] text-[#7A9598]">inbox</span>
-<span>Hộp thư</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[#A9BFC1] font-semibold hover:bg-[#16272D] transition-colors" href="#notices">
-<span class="material-symbols-outlined text-[20px] text-[#7A9598]">campaign</span>
-<span>Thông báo</span>
-</a>
-</div>
-</div>
-<!-- Group: Chất lượng -->
-<div>
-<div class="px-3 pb-1 text-[11px] font-extrabold uppercase tracking-wider text-[#678286]">Chất lượng</div>
-<div class="space-y-0.5">
-<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[#A9BFC1] font-semibold hover:bg-[#16272D] transition-colors" href="#alerts">
-<span class="material-symbols-outlined text-[20px] text-[#7A9598]">notification_important</span>
-<span>Cảnh báo</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[#A9BFC1] font-semibold hover:bg-[#16272D] transition-colors" href="#reports">
-<span class="material-symbols-outlined text-[20px] text-[#7A9598]">bug_report</span>
-<span>Báo lỗi</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[#A9BFC1] font-semibold hover:bg-[#16272D] transition-colors" href="#quality">
-<span class="material-symbols-outlined text-[20px] text-[#7A9598]">verified</span>
-<span>Chất lượng</span>
-</a>
-</div>
-</div>
-<!-- Group: Nội dung & Video -->
-<div>
-<div class="px-3 pb-1 text-[11px] font-extrabold uppercase tracking-wider text-[#678286]">Nội dung &amp; Video</div>
-<div class="space-y-0.5">
-<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[#A9BFC1] font-semibold hover:bg-[#16272D] transition-colors" href="#channels">
-<span class="material-symbols-outlined text-[20px] text-[#7A9598]">share</span>
-<span>Kênh &amp; phân phối</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[#A9BFC1] font-semibold hover:bg-[#16272D] transition-colors" href="#social">
-<span class="material-symbols-outlined text-[20px] text-[#7A9598]">smart_display</span>
-<span>Video &amp; Social</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[#A9BFC1] font-semibold hover:bg-[#16272D] transition-colors" href="#studio">
-<span class="material-symbols-outlined text-[20px] text-[#7A9598]">movie_filter</span>
-<span>Video Studio</span>
-</a>
-</div>
-</div>
-<!-- Group: Hệ thống -->
-<div>
-<div class="px-3 pb-1 text-[11px] font-extrabold uppercase tracking-wider text-[#678286]">Hệ thống</div>
-<div class="space-y-0.5">
-<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[#A9BFC1] font-semibold hover:bg-[#16272D] transition-colors" href="#quotas">
-<span class="material-symbols-outlined text-[20px] text-[#7A9598]">data_thresholding</span>
-<span>Hạn mức</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[#A9BFC1] font-semibold hover:bg-[#16272D] transition-colors" href="#drive">
-<span class="material-symbols-outlined text-[20px] text-[#7A9598]">cloud_sync</span>
-<span>Kho Drive</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[#A9BFC1] font-semibold hover:bg-[#16272D] transition-colors" href="#api">
-<span class="material-symbols-outlined text-[20px] text-[#7A9598]">vpn_key</span>
-<span>Khóa API</span>
-</a>
-</div>
-</div>
-<!-- Group: Cài đặt -->
-<div>
-<div class="space-y-0.5 pt-2 border-t border-[#1E3036]">
-<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[#A9BFC1] font-semibold hover:bg-[#16272D] transition-colors" href="#settings">
-<span class="material-symbols-outlined text-[20px] text-[#7A9598]">settings</span>
-<span>Cài đặt</span>
-</a>
-</div>
-</div>
-</div>
-<!-- Sidebar Footer Status -->
-<div class="p-3 border-t border-[#1E3036] bg-[#0A1619]">
-<div class="flex items-center justify-between text-xs text-[#91A8AB] px-2 py-1">
-<span class="flex items-center gap-1.5 font-medium">
-<span class="w-2 h-2 rounded-full bg-[#2EC4B6]"></span>
-              Máy chủ ổn định
-            </span>
-<span class="text-[11px] font-semibold text-[#678286]">v2.4.2</span>
-</div>
-</div>
-</div>
-</aside>
-<!-- MAIN CONTENT AREA -->
-<div class="flex-1 flex flex-col min-w-0">
-<!-- TOP BAR -->
-<header class="h-16 bg-[#0D1C20] border-b border-[#1E3036] px-8 flex items-center justify-between gap-4 sticky top-0 z-10">
-<div class="flex items-center gap-4 min-w-0">
-<div class="flex items-center gap-2 text-xs font-semibold text-[#91A8AB]">
-<span>Admin</span>
-<span>›</span>
-<span class="text-[#2EC4B6] font-bold">Phân tích</span>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<!-- Command search field -->
-<div class="relative w-64 md:w-80">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-[#678286] pointer-events-none">search</span>
-<input class="w-full pl-9 pr-14 py-2 bg-[#122025] border border-[#223840] rounded-xl text-xs font-medium text-[#EEF6F7] placeholder-[#678286] focus:outline-none focus:border-[#2EC4B6] focus:ring-1 focus:ring-[#2EC4B6] shadow-[inset_0_1px_2px_rgba(0,0,0,0.3)]" placeholder="Tìm kiếm màn hình, số liệu..." type="text"/>
-<kbd class="absolute right-2.5 top-1/2 -translate-y-1/2 px-1.5 py-0.5 text-[10px] font-bold text-[#91A8AB] bg-[#16272D] border border-[#274048] rounded shadow-sm">Ctrl K</kbd>
-</div>
-<!-- VI | EN switch -->
-<div class="flex items-center bg-[#122025] border border-[#223840] rounded-lg p-0.5 text-xs font-bold text-[#91A8AB]">
-<button class="px-2.5 py-1 rounded bg-[#2EC4B6] text-[#081518] shadow-xs font-extrabold">VI</button>
-<button class="px-2.5 py-1 rounded hover:text-[#EEF6F7] transition-colors">EN</button>
-</div>
-<!-- Primary Action CTA -->
-<button class="tactile-button-coral px-4 py-2 font-bold text-xs rounded-xl flex items-center gap-2">
-<span class="material-symbols-outlined text-[18px]">file_download</span>
-<span>Xuất dữ liệu</span>
-</button>
-<!-- Admin Initials Avatar -->
-<div class="flex items-center gap-2 pl-2 border-l border-[#1E3036]">
-<div class="w-9 h-9 rounded-xl bg-[#16383D] text-[#2EC4B6] font-extrabold text-xs flex items-center justify-center shadow-[0_2px_0_0_#0A1C1F] border border-[#2EC4B6]/40">
-              KL
-            </div>
-<div class="hidden lg:flex flex-col text-left">
-<span class="text-xs font-bold leading-tight text-[#EEF6F7]">Kai Liang</span>
-<span class="text-[10px] text-[#91A8AB] font-semibold">Trưởng nhóm</span>
-</div>
-</div>
-</div>
-</header>
-<!-- PAGE BODY -->
-<main class="flex-1 p-8 space-y-6 max-w-[1440px] w-full mx-auto">
-<!-- Header & Live Update Status -->
-<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-2 border-b border-[#1E3036]">
-<div>
-<div class="flex items-center gap-3">
-<h1 class="text-2xl font-extrabold text-[#EEF6F7] tracking-tight">Phân tích</h1>
-<!-- Live Indicator Pill -->
-<span class="tactile-pill inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold text-[#2EC4B6]">
-<span class="w-2 h-2 rounded-full bg-[#2EC4B6] animate-ping"></span>
-<span class="w-2 h-2 rounded-full bg-[#2EC4B6] -ml-4"></span>
-<span>Live · tự cập nhật 30s · 15:24</span>
-</span>
-</div>
-<p class="text-xs text-[#91A8AB] font-medium mt-1">
-              Tự động/bot &amp; quản trị hôm nay: 37 phiên (đã loại) · Ngày theo giờ Việt Nam (UTC+7)
+<body class="bg-[#081518] text-[#EEF6F7] font-sans antialiased min-h-screen flex overflow-x-hidden selection:bg-[#2EC4B6] selection:text-[#081518]">
+
+  <!-- SIDEBAR NAVIGATION (Width: 260px, Fixed) -->
+  <aside class="w-[260px] flex-shrink-0 bg-[#0F1E22] border-r-2 border-[#21363E] min-h-screen flex flex-col justify-between p-4 sticky top-0 h-screen overflow-y-auto custom-scrollbar shadow-[4px_0_0_0_#0B171A] z-30">
+    <div class="flex flex-col gap-6">
+      
+      <!-- Brand Logo Header -->
+      <div class="flex items-center gap-3 px-2 py-1">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2EC4B6] to-[#0F3D3E] border-2 border-[#62D7CE] flex items-center justify-center text-[#081518] font-black text-xl shadow-[0_3px_0_0_#0B171A]">
+          <span class="material-symbols-rounded text-2xl font-bold">navigation</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-extrabold text-lg tracking-tight text-[#EEF6F7]">Lexkite</span>
+            <span class="text-[10px] font-bold tracking-wider uppercase px-1.5 py-0.5 rounded bg-[#14252B] text-[#62D7CE] border border-[#21363E]">ADMIN</span>
+          </div>
+          <p class="text-xs font-semibold text-[#A9BFC1]">Live Traffic Console</p>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="flex flex-col gap-5">
+        <!-- Group: TỔNG QUAN -->
+        <div>
+          <p class="text-[11px] font-bold text-[#A9BFC1] uppercase tracking-wider px-3 mb-1.5">TỔNG QUAN</p>
+          <div class="flex flex-col gap-1">
+            <a href="#" class="min-h-[44px] h-11 px-3 rounded-xl flex items-center gap-3 text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#14252B] transition-colors border border-transparent font-medium text-sm">
+              <span class="material-symbols-rounded text-xl">dashboard</span>
+              <span>Tổng quan</span>
+            </a>
+            <a href="#" class="min-h-[44px] h-11 px-3 rounded-xl flex items-center gap-3 bg-[#14252B] text-[#62D7CE] font-bold border-2 border-[#2EC4B6] shadow-[0_3px_0_0_#0B171A] transition-all text-sm">
+              <span class="material-symbols-rounded text-xl text-[#2EC4B6]">insights</span>
+              <span>Phân tích</span>
+              <span class="ml-auto w-2 h-2 rounded-full bg-[#2EC4B6] animate-pulse"></span>
+            </a>
+            <a href="#" class="min-h-[44px] h-11 px-3 rounded-xl flex items-center gap-3 text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#14252B] transition-colors border border-transparent font-medium text-sm">
+              <span class="material-symbols-rounded text-xl">ad_units</span>
+              <span>Quảng cáo</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Group: NGƯỜI DÙNG -->
+        <div>
+          <p class="text-[11px] font-bold text-[#A9BFC1] uppercase tracking-wider px-3 mb-1.5">NGƯỜI DÙNG</p>
+          <div class="flex flex-col gap-1">
+            <a href="#" class="min-h-[44px] h-11 px-3 rounded-xl flex items-center gap-3 text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#14252B] transition-colors border border-transparent font-medium text-sm">
+              <span class="material-symbols-rounded text-xl">group</span>
+              <span>Người dùng</span>
+            </a>
+            <a href="#" class="min-h-[44px] h-11 px-3 rounded-xl flex items-center gap-3 text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#14252B] transition-colors border border-transparent font-medium text-sm">
+              <span class="material-symbols-rounded text-xl">inbox</span>
+              <span>Hộp thư</span>
+            </a>
+            <a href="#" class="min-h-[44px] h-11 px-3 rounded-xl flex items-center gap-3 text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#14252B] transition-colors border border-transparent font-medium text-sm">
+              <span class="material-symbols-rounded text-xl">campaign</span>
+              <span>Thông báo</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Group: CHẤT LƯỢNG -->
+        <div>
+          <p class="text-[11px] font-bold text-[#A9BFC1] uppercase tracking-wider px-3 mb-1.5">CHẤT LƯỢNG</p>
+          <div class="flex flex-col gap-1">
+            <a href="#" class="min-h-[44px] h-11 px-3 rounded-xl flex items-center gap-3 text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#14252B] transition-colors border border-transparent font-medium text-sm">
+              <span class="material-symbols-rounded text-xl">notification_important</span>
+              <span>Cảnh báo</span>
+            </a>
+            <a href="#" class="min-h-[44px] h-11 px-3 rounded-xl flex items-center gap-3 text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#14252B] transition-colors border border-transparent font-medium text-sm">
+              <span class="material-symbols-rounded text-xl">bug_report</span>
+              <span>Báo lỗi</span>
+            </a>
+            <a href="#" class="min-h-[44px] h-11 px-3 rounded-xl flex items-center gap-3 text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#14252B] transition-colors border border-transparent font-medium text-sm">
+              <span class="material-symbols-rounded text-xl">verified</span>
+              <span>Chất lượng</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Group: NỘI DUNG & PHÂN PHỐI -->
+        <div>
+          <p class="text-[11px] font-bold text-[#A9BFC1] uppercase tracking-wider px-3 mb-1.5">NỘI DUNG &amp; VIDEO</p>
+          <div class="flex flex-col gap-1">
+            <a href="#" class="min-h-[44px] h-11 px-3 rounded-xl flex items-center gap-3 text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#14252B] transition-colors border border-transparent font-medium text-sm">
+              <span class="material-symbols-rounded text-xl">share</span>
+              <span>Kênh &amp; phân phối</span>
+            </a>
+            <a href="#" class="min-h-[44px] h-11 px-3 rounded-xl flex items-center gap-3 text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#14252B] transition-colors border border-transparent font-medium text-sm">
+              <span class="material-symbols-rounded text-xl">smart_display</span>
+              <span>Video &amp; Social</span>
+            </a>
+            <a href="#" class="min-h-[44px] h-11 px-3 rounded-xl flex items-center gap-3 text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#14252B] transition-colors border border-transparent font-medium text-sm">
+              <span class="material-symbols-rounded text-xl">movie_filter</span>
+              <span>Video Studio</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Group: HỆ THỐNG -->
+        <div>
+          <p class="text-[11px] font-bold text-[#A9BFC1] uppercase tracking-wider px-3 mb-1.5">HỆ THỐNG</p>
+          <div class="flex flex-col gap-1">
+            <a href="#" class="min-h-[44px] h-11 px-3 rounded-xl flex items-center gap-3 text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#14252B] transition-colors border border-transparent font-medium text-sm">
+              <span class="material-symbols-rounded text-xl">pie_chart</span>
+              <span>Hạn mức</span>
+            </a>
+            <a href="#" class="min-h-[44px] h-11 px-3 rounded-xl flex items-center gap-3 text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#14252B] transition-colors border border-transparent font-medium text-sm">
+              <span class="material-symbols-rounded text-xl">cloud_sync</span>
+              <span>Kho Drive</span>
+            </a>
+            <a href="#" class="min-h-[44px] h-11 px-3 rounded-xl flex items-center gap-3 text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#14252B] transition-colors border border-transparent font-medium text-sm">
+              <span class="material-symbols-rounded text-xl">key</span>
+              <span>Khóa API</span>
+            </a>
+            <a href="#" class="min-h-[44px] h-11 px-3 rounded-xl flex items-center gap-3 text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#14252B] transition-colors border border-transparent font-medium text-sm">
+              <span class="material-symbols-rounded text-xl">settings</span>
+              <span>Cài đặt</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Sidebar Footer Badge -->
+    <div class="pt-4 border-t-2 border-[#21363E] flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#2FBF71] ring-2 ring-[#0F1E22]"></span>
+        <span class="text-xs font-bold text-[#EEF6F7]">Lexkite Engine</span>
+      </div>
+      <span class="text-[11px] font-mono font-bold text-[#A9BFC1]">v2.4.2</span>
+    </div>
+  </aside>
+
+  <!-- MAIN VIEWPORT CONTAINER -->
+  <main class="flex-1 min-w-0 max-w-full flex flex-col bg-[#081518] pb-12 overflow-x-hidden">
+    
+    <!-- TOP COMMAND HEADER (Docked sticky, Height: 72px) -->
+    <header class="h-[72px] sticky top-0 z-20 bg-[#0F1E22] border-b-2 border-[#21363E] px-6 flex items-center justify-between shadow-[0_4px_0_0_#0B171A]">
+      <!-- Breadcrumb & Page Title -->
+      <div class="flex items-center gap-3">
+        <span class="text-sm font-semibold text-[#A9BFC1]">Admin</span>
+        <span class="text-sm font-bold text-[#A9BFC1]">›</span>
+        <h1 class="text-lg font-extrabold text-[#EEF6F7] tracking-tight">Phân tích (Live Traffic)</h1>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#14252B] border border-[#2EC4B6] text-xs font-bold text-[#62D7CE]">
+          <span class="w-2 h-2 rounded-full bg-[#2EC4B6] animate-ping"></span>
+          <span>LIVE</span>
+        </span>
+      </div>
+
+      <!-- Header Trailing Action Cluster (All ≥ 44x44px) -->
+      <div class="flex items-center gap-3">
+        <!-- Quick Search Pill -->
+        <button class="min-h-[44px] h-11 px-3.5 rounded-xl bg-[#14252B] border-2 border-[#21363E] text-[#A9BFC1] hover:text-[#EEF6F7] hover:border-[#62D7CE] flex items-center gap-2.5 text-xs font-semibold shadow-[0_2px_0_0_#0B171A] transition-all">
+          <span class="material-symbols-rounded text-lg text-[#2EC4B6]">search</span>
+          <span>Tìm kiếm đường dẫn, IP...</span>
+          <kbd class="px-1.5 py-0.5 rounded bg-[#081518] text-[10px] font-mono text-[#A9BFC1] border border-[#21363E]">Ctrl K</kbd>
+        </button>
+
+        <!-- Language Selector -->
+        <div class="min-h-[44px] h-11 p-1 rounded-xl bg-[#14252B] border-2 border-[#21363E] flex items-center shadow-[0_2px_0_0_#0B171A]">
+          <button class="h-9 px-3 rounded-lg bg-[#2EC4B6] text-[#081518] font-extrabold text-xs shadow-[0_2px_0_0_#0F3D3E]">VI</button>
+          <button class="h-9 px-3 rounded-lg text-[#A9BFC1] hover:text-[#EEF6F7] font-bold text-xs transition-colors">EN</button>
+        </div>
+
+        <!-- Export Data CTA (Coral with Dark Readable Text #1B0B04) -->
+        <button class="min-h-[44px] h-11 px-4 rounded-xl bg-gradient-to-b from-[#FF7347] to-[#F2553B] text-[#1B0B04] font-extrabold text-xs flex items-center gap-2 border-2 border-[#FFA07A] shadow-[0_3px_0_0_#A82B18] active:translate-y-0.5 active:shadow-none transition-all">
+          <span class="material-symbols-rounded text-lg font-bold">file_download</span>
+          <span>Xuất dữ liệu</span>
+        </button>
+
+        <!-- Admin Profile Badge -->
+        <div class="min-h-[44px] h-11 pl-2 pr-3 rounded-xl bg-[#14252B] border-2 border-[#21363E] flex items-center gap-2.5 shadow-[0_2px_0_0_#0B171A]">
+          <div class="w-8 h-8 rounded-lg bg-[#2EC4B6] text-[#081518] font-black text-xs flex items-center justify-center border border-[#62D7CE]">
+            KL
+          </div>
+          <div class="text-left hidden sm:block">
+            <p class="text-xs font-bold text-[#EEF6F7] leading-tight">Kai Lead</p>
+            <p class="text-[10px] font-semibold text-[#62D7CE]">Admin Staff</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT BODY PADDED (Max-width 1280px flexible) -->
+    <div class="px-6 pt-6 flex flex-col gap-6 max-w-[1240px] w-full mx-auto">
+
+      <!-- SUBHEADER CONTROLS & FILTER ROW -->
+      <div class="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-[#0F1E22] border-2 border-[#21363E] shadow-[0_4px_0_0_#0B171A]">
+        <!-- Live Status Info -->
+        <div class="flex items-center gap-3">
+          <span class="flex h-3 w-3 relative">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2FBF71] opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-[#2FBF71]"></span>
+          </span>
+          <div>
+            <h2 class="text-sm font-bold text-[#EEF6F7]">Dữ liệu thời gian thực (Real-time Telemetry)</h2>
+            <p class="text-xs font-semibold text-[#A9BFC1]">Tự động cập nhật mỗi 30s • Đã lọc 14 bot spam &amp; crawler nội bộ</p>
+          </div>
+        </div>
+
+        <!-- Time Range Selector Chips (All ≥ 44x44px) -->
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold text-[#A9BFC1] hidden md:inline">Khoảng thời gian:</span>
+          <button class="min-h-[44px] h-11 px-3.5 rounded-xl bg-[#14252B] border-2 border-[#2EC4B6] text-[#62D7CE] font-bold text-xs shadow-[0_2px_0_0_#0B171A]">Hôm nay</button>
+          <button class="min-h-[44px] h-11 px-3.5 rounded-xl bg-[#0F1E22] border-2 border-[#21363E] text-[#A9BFC1] hover:text-[#EEF6F7] hover:border-[#62D7CE] font-bold text-xs shadow-[0_2px_0_0_#0B171A] transition-colors">7 ngày</button>
+          <button class="min-h-[44px] h-11 px-3.5 rounded-xl bg-[#0F1E22] border-2 border-[#21363E] text-[#A9BFC1] hover:text-[#EEF6F7] hover:border-[#62D7CE] font-bold text-xs shadow-[0_2px_0_0_#0B171A] transition-colors">14 ngày</button>
+          <button class="min-h-[44px] h-11 px-3.5 rounded-xl bg-[#0F1E22] border-2 border-[#21363E] text-[#A9BFC1] hover:text-[#EEF6F7] hover:border-[#62D7CE] font-bold text-xs shadow-[0_2px_0_0_#0B171A] transition-colors">30 ngày</button>
+          <button class="min-h-[44px] h-11 w-11 rounded-xl bg-[#14252B] border-2 border-[#21363E] text-[#62D7CE] hover:text-[#EEF6F7] hover:border-[#2EC4B6] flex items-center justify-center shadow-[0_2px_0_0_#0B171A]" title="Làm mới ngay">
+            <span class="material-symbols-rounded text-xl">refresh</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 6 KEY METRIC CARDS GRID -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5">
+        <!-- Metric 1: Đang online -->
+        <div class="p-4 rounded-2xl bg-[#0F1E22] border-2 border-[#21363E] shadow-[0_4px_0_0_#0B171A] flex flex-col justify-between">
+          <div class="flex items-center justify-between text-[#A9BFC1] mb-2">
+            <span class="text-xs font-bold">Đang online</span>
+            <span class="material-symbols-rounded text-[#2FBF71] text-lg">radio_button_checked</span>
+          </div>
+          <div>
+            <div class="text-3xl font-extrabold text-[#EEF6F7] tracking-tight">3</div>
+            <p class="text-[11px] font-semibold text-[#62D7CE] mt-1 flex items-center gap-1">
+              <span class="material-symbols-rounded text-sm">trending_up</span> +2 khách (15p trước)
             </p>
-</div>
-<!-- Quick timeframe chips -->
-<div class="flex items-center gap-2">
-<span class="text-xs font-semibold text-[#91A8AB]">Khoảng thời gian:</span>
-<span class="tactile-pill px-3 py-1.5 rounded-lg text-xs font-bold text-[#2EC4B6] bg-[#16343A] border border-[#2EC4B6]">Hôm nay</span>
-<button class="px-3 py-1.5 rounded-lg text-xs font-semibold text-[#91A8AB] hover:bg-[#15252A] hover:text-[#EEF6F7] transition-colors">7 ngày</button>
-<button class="px-3 py-1.5 rounded-lg text-xs font-semibold text-[#91A8AB] hover:bg-[#15252A] hover:text-[#EEF6F7] transition-colors">14 ngày</button>
-<button class="px-3 py-1.5 rounded-lg text-xs font-semibold text-[#91A8AB] hover:bg-[#15252A] hover:text-[#EEF6F7] transition-colors">30 ngày</button>
-</div>
-</div>
-<!-- ROW OF 6 COMPACT KPI TILES -->
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5">
-<!-- KPI 1: Đang online -->
-<div class="tactile-card p-4 flex flex-col justify-between relative overflow-hidden group">
-<div class="flex items-center justify-between mb-2">
-<span class="text-[11px] font-bold uppercase tracking-wider text-[#91A8AB]">Đang online</span>
-<div class="w-7 h-7 rounded-lg bg-[#16383D] text-[#2EC4B6] flex items-center justify-center border border-[#2EC4B6]/30">
-<span class="material-symbols-outlined text-[18px]">radio_button_checked</span>
-</div>
-</div>
-<div>
-<div class="text-3xl font-extrabold text-[#2EC4B6] leading-none mb-1">3</div>
-<div class="text-[11px] font-medium text-[#91A8AB]">5 phút gần nhất</div>
-</div>
-<div class="absolute -right-3 -bottom-3 w-12 h-12 bg-[#2EC4B6]/10 rounded-full pointer-events-none"></div>
-</div>
-<!-- KPI 2: Lượt xem hôm nay -->
-<div class="tactile-card p-4 flex flex-col justify-between relative overflow-hidden">
-<div class="flex items-center justify-between mb-2">
-<span class="text-[11px] font-bold uppercase tracking-wider text-[#91A8AB]">Lượt xem</span>
-<div class="w-7 h-7 rounded-lg bg-[#16383D] text-[#2EC4B6] flex items-center justify-center border border-[#2EC4B6]/30">
-<span class="material-symbols-outlined text-[18px]">visibility</span>
-</div>
-</div>
-<div>
-<div class="text-3xl font-extrabold text-[#EEF6F7] leading-none mb-1">412</div>
-<div class="text-[11px] font-medium text-[#91A8AB]">58 phiên truy cập</div>
-</div>
-</div>
-<!-- KPI 3: Khách hôm nay -->
-<div class="tactile-card p-4 flex flex-col justify-between relative overflow-hidden">
-<div class="flex items-center justify-between mb-2">
-<span class="text-[11px] font-bold uppercase tracking-wider text-[#91A8AB]">Khách hôm nay</span>
-<div class="w-7 h-7 rounded-lg bg-[#302616] text-[#FFB054] flex items-center justify-center border border-[#FFB054]/30">
-<span class="material-symbols-outlined text-[18px]">person</span>
-</div>
-</div>
-<div>
-<div class="text-3xl font-extrabold text-[#EEF6F7] leading-none mb-1">46</div>
-<div class="text-[11px] font-medium text-[#91A8AB]">thiết bị khác nhau</div>
-</div>
-</div>
-<!-- KPI 4: Trang/khách -->
-<div class="tactile-card p-4 flex flex-col justify-between relative overflow-hidden">
-<div class="flex items-center justify-between mb-2">
-<span class="text-[11px] font-bold uppercase tracking-wider text-[#91A8AB]">Trang / khách</span>
-<div class="w-7 h-7 rounded-lg bg-[#16383D] text-[#2EC4B6] flex items-center justify-center border border-[#2EC4B6]/30">
-<span class="material-symbols-outlined text-[18px]">auto_stories</span>
-</div>
-</div>
-<div>
-<div class="text-3xl font-extrabold text-[#EEF6F7] leading-none mb-1">8,9</div>
-<div class="text-[11px] font-medium text-[#91A8AB]">mức độ gắn kết cao</div>
-</div>
-</div>
-<!-- KPI 5: Thời gian TB -->
-<div class="tactile-card p-4 flex flex-col justify-between relative overflow-hidden">
-<div class="flex items-center justify-between mb-2">
-<span class="text-[11px] font-bold uppercase tracking-wider text-[#91A8AB]">Thời gian TB</span>
-<div class="w-7 h-7 rounded-lg bg-[#1F2538] text-[#86A4F8] flex items-center justify-center border border-[#86A4F8]/30">
-<span class="material-symbols-outlined text-[18px]">timer</span>
-</div>
-</div>
-<div>
-<div class="text-2xl font-extrabold text-[#EEF6F7] leading-none mb-1">6p 12s</div>
-<div class="text-[11px] font-medium text-[#91A8AB]">trên mỗi người dùng</div>
-</div>
-</div>
-<!-- KPI 6: Tổng lượt xem -->
-<div class="tactile-card p-4 flex flex-col justify-between relative overflow-hidden bg-gradient-to-br from-[#122025] to-[#16272D]">
-<div class="flex items-center justify-between mb-2">
-<span class="text-[11px] font-bold uppercase tracking-wider text-[#91A8AB]">Tổng lượt xem</span>
-<div class="w-7 h-7 rounded-lg bg-[#16383D] text-[#2EC4B6] flex items-center justify-center border border-[#2EC4B6]/40">
-<span class="material-symbols-outlined text-[18px]">all_inclusive</span>
-</div>
-</div>
-<div>
-<div class="text-2xl font-extrabold text-[#2EC4B6] leading-none mb-1">18.940</div>
-<div class="text-[11px] font-medium text-[#91A8AB]">2.311 khách từ trước nay</div>
-</div>
-</div>
-</div>
-<!-- MAIN 2 CHARTS: 14 NGÀY QUA & KHÁCH THEO QUỐC GIA -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-<!-- Area Chart Card: 14 ngày qua (7 cols) -->
-<div class="lg:col-span-7 tactile-card p-5 flex flex-col">
-<div class="flex items-center justify-between mb-4">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[20px] text-[#2EC4B6]">timeline</span>
-<h3 class="font-extrabold text-base text-[#EEF6F7]">14 ngày qua</h3>
-<span class="text-xs font-semibold text-[#91A8AB]">(Lượt xem &amp; Khách truy cập)</span>
-</div>
-<div class="flex items-center gap-4 text-xs font-semibold">
-<div class="flex items-center gap-1.5">
-<span class="w-3 h-3 rounded bg-[#2EC4B6]"></span>
-<span class="text-[#A9BFC1]">Lượt xem</span>
-</div>
-<div class="flex items-center gap-1.5">
-<span class="w-3 h-3 rounded bg-[#FFB054]"></span>
-<span class="text-[#A9BFC1]">Khách riêng biệt</span>
-</div>
-</div>
-</div>
-<!-- Soft SVG Area Chart -->
-<div class="flex-1 w-full min-h-[220px] relative">
-<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 680 200">
-<defs>
-<!-- Gradient for Pageviews -->
-<lineargradient id="tealGrad" x1="0" x2="0" y1="0" y2="1">
-<stop offset="0%" stop-color="#2EC4B6" stop-opacity="0.45"></stop>
-<stop offset="100%" stop-color="#2EC4B6" stop-opacity="0.01"></stop>
-</lineargradient>
-<!-- Gradient for Visitors -->
-<lineargradient id="amberGrad" x1="0" x2="0" y1="0" y2="1">
-<stop offset="0%" stop-color="#FFB054" stop-opacity="0.45"></stop>
-<stop offset="100%" stop-color="#FFB054" stop-opacity="0.02"></stop>
-</lineargradient>
-</defs>
-<!-- Horizontal grid lines -->
-<line stroke="#1E3036" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="680" y1="30" y2="30"></line>
-<line stroke="#1E3036" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="680" y1="80" y2="80"></line>
-<line stroke="#1E3036" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="680" y1="130" y2="130"></line>
-<line stroke="#223840" stroke-width="1.5" x1="0" x2="680" y1="180" y2="180"></line>
-<!-- Y-axis guide labels -->
-<text fill="#91A8AB" font-size="10" font-weight="600" x="0" y="26">500</text>
-<text fill="#91A8AB" font-size="10" font-weight="600" x="0" y="76">300</text>
-<text fill="#91A8AB" font-size="10" font-weight="600" x="0" y="126">150</text>
-<!-- Area Fill: Pageviews (smooth curve) -->
-<path d="M 30 145 
-                         C 70 140, 90 150, 130 135 
-                         C 170 120, 190 125, 230 100 
-                         C 270 95, 290 85, 330 75 
-                         C 370 80, 390 65, 430 55 
-                         C 470 65, 490 60, 530 50 
-                         C 570 45, 600 58, 650 52 
-                         L 650 180 L 30 180 Z" fill="url(#tealGrad)"></path>
-<!-- Line: Pageviews -->
-<path d="M 30 145 
-                         C 70 140, 90 150, 130 135 
-                         C 170 120, 190 125, 230 100 
-                         C 270 95, 290 85, 330 75 
-                         C 370 80, 390 65, 430 55 
-                         C 470 65, 490 60, 530 50 
-                         C 570 45, 600 58, 650 52" fill="none" stroke="#2EC4B6" stroke-linecap="round" stroke-width="2.5"></path>
-<!-- Area Fill: Unique Visitors -->
-<path d="M 30 170 
-                         C 70 168, 90 172, 130 165 
-                         C 170 160, 190 162, 230 154 
-                         C 270 150, 290 145, 330 142 
-                         C 370 144, 390 136, 430 130 
-                         C 470 134, 490 128, 530 122 
-                         C 570 120, 600 125, 650 124 
-                         L 650 180 L 30 180 Z" fill="url(#amberGrad)"></path>
-<!-- Line: Unique Visitors -->
-<path d="M 30 170 
-                         C 70 168, 90 172, 130 165 
-                         C 170 160, 190 162, 230 154 
-                         C 270 150, 290 145, 330 142 
-                         C 370 144, 390 136, 430 130 
-                         C 470 134, 490 128, 530 122 
-                         C 570 120, 600 125, 650 124" fill="none" stroke="#FFB054" stroke-linecap="round" stroke-width="2"></path>
-<!-- Current point highlighted -->
-<circle cx="650" cy="52" fill="#2EC4B6" r="4.5" stroke="#081518" stroke-width="2"></circle>
-<circle cx="650" cy="124" fill="#FFB054" r="4" stroke="#081518" stroke-width="2"></circle>
-</svg>
-<!-- X-Axis Labels -->
-<div class="flex justify-between text-[10px] font-bold text-[#91A8AB] px-4 pt-1">
-<span>15/10</span>
-<span>17/10</span>
-<span>19/10</span>
-<span>21/10</span>
-<span>23/10</span>
-<span>25/10</span>
-<span>27/10</span>
-<span class="text-[#2EC4B6] font-extrabold">Hôm nay</span>
-</div>
-</div>
-<!-- Bottom summary note -->
-<div class="pt-3 border-t border-[#1E3036] flex items-center justify-between text-xs text-[#91A8AB]">
-<span class="font-medium">Xu hướng: Tăng đều vào khung giờ 19:00 - 22:00 (ôn luyện thi tối)</span>
-<span class="font-bold text-[#2EC4B6] bg-[#16383D] px-2 py-0.5 rounded-md border border-[#2EC4B6]/20">+14.2% so với tuần trước</span>
-</div>
-</div>
-<!-- World Map Card: Khách theo quốc gia · hôm nay (5 cols) -->
-<div class="lg:col-span-5 tactile-card p-5 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-2">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[20px] text-[#2EC4B6]">public</span>
-<h3 class="font-extrabold text-base text-[#EEF6F7]">Khách theo quốc gia</h3>
-</div>
-<span class="text-xs font-bold text-[#2EC4B6] bg-[#16383D] px-2.5 py-1 rounded-full border border-[#2EC4B6]/30">hôm nay</span>
-</div>
-<p class="text-xs text-[#91A8AB] font-medium mb-3">
-                9 quốc gia · 46 khách · 2 không rõ địa chỉ IP
-              </p>
-<!-- Stylized World Map with dark night styling -->
-<div class="w-full h-44 bg-[#0B181B] border border-[#1E3036] rounded-xl p-2 relative overflow-hidden flex items-center justify-center">
-<svg class="w-full h-full opacity-90" viewbox="0 0 460 210">
-<!-- Subtle graticule grid lines -->
-<line stroke="#1E3036" stroke-dasharray="2 3" stroke-width="0.8" x1="30" x2="430" y1="105" y2="105"></line>
-<line stroke="#1E3036" stroke-dasharray="2 3" stroke-width="0.8" x1="230" x2="230" y1="20" y2="190"></line>
-<!-- Stylized simplified landmasses tinted in dark slate with glowing hotspots -->
-<!-- North America -->
-<path d="M 60 50 Q 80 40 110 45 Q 130 55 125 80 Q 110 95 90 95 Q 60 85 55 65 Z" fill="#20343C" stroke="#2B4650" stroke-width="1"></path>
-<path d="M 85 95 Q 95 110 85 125 Q 75 115 80 100 Z" fill="#182A31" stroke="#2B4650" stroke-width="0.8"></path>
-<!-- South America -->
-<path d="M 115 125 Q 135 130 130 160 Q 120 185 110 180 Q 100 155 110 135 Z" fill="#182A31" stroke="#2B4650" stroke-width="0.8"></path>
-<!-- Dominican Republic highlight -->
-<circle cx="128" cy="116" fill="#FFB054" r="3"></circle>
-<!-- Europe -->
-<path d="M 210 50 Q 235 45 250 55 Q 240 75 220 75 Q 205 65 210 50 Z" fill="#1E323A" stroke="#2B4650" stroke-width="0.8"></path>
-<!-- UK island -->
-<path d="M 205 45 Q 212 40 214 48 Q 208 55 204 50 Z" fill="#FFB054" stroke="#D98A36" stroke-width="0.8"></path>
-<!-- Africa -->
-<path d="M 215 85 Q 245 85 255 115 Q 245 155 230 160 Q 215 135 210 105 Z" fill="#182A31" stroke="#2B4650" stroke-width="0.8"></path>
-<!-- Asia Mainland -->
-<path d="M 260 45 Q 320 35 370 50 Q 380 85 350 95 Q 310 95 285 80 Z" fill="#1C3038" stroke="#2B4650" stroke-width="0.8"></path>
-<!-- India -->
-<path d="M 305 90 Q 320 90 325 115 Q 315 130 305 115 Z" fill="#FFB054" stroke="#D98A36" stroke-width="0.8"></path>
-<!-- Japan & Korea -->
-<path d="M 385 65 Q 392 60 394 72 Q 388 78 384 70 Z" fill="#FFB054" stroke="#D98A36" stroke-width="0.8"></path>
-<!-- Southeast Asia & Vietnam (HOTTEST: CORAL #F2553B) -->
-<path d="M 335 100 Q 350 102 355 118 Q 345 130 338 120 Z" fill="#F2553B" stroke="#FF6B52" stroke-width="1.2"></path>
-<!-- Philippines -->
-<path d="M 365 115 Q 375 110 373 125 Q 365 130 363 120 Z" fill="#FFB054" stroke="#D98A36" stroke-width="0.8"></path>
-<!-- Australia -->
-<path d="M 370 145 Q 405 140 410 165 Q 390 185 365 175 Q 360 155 370 145 Z" fill="#182A31" stroke="#2B4650" stroke-width="0.8"></path>
-<!-- Concentric pulse for Vietnam epicenter -->
-<circle class="animate-ping" cx="346" cy="110" fill="#F2553B" fill-opacity="0.35" r="8"></circle>
-<circle cx="346" cy="110" fill="#FF7862" r="3.5"></circle>
-</svg>
-<div class="absolute bottom-2 left-2 text-[10px] font-semibold text-[#A9BFC1] bg-[#122025]/90 px-2 py-0.5 rounded border border-[#223840]">
-                  Bản đồ nhiệt phân bổ
+          </div>
+        </div>
+
+        <!-- Metric 2: Lượt xem hôm nay -->
+        <div class="p-4 rounded-2xl bg-[#0F1E22] border-2 border-[#21363E] shadow-[0_4px_0_0_#0B171A] flex flex-col justify-between">
+          <div class="flex items-center justify-between text-[#A9BFC1] mb-2">
+            <span class="text-xs font-bold">Lượt xem hôm nay</span>
+            <span class="material-symbols-rounded text-[#2EC4B6] text-lg">visibility</span>
+          </div>
+          <div>
+            <div class="text-3xl font-extrabold text-[#EEF6F7] tracking-tight">412</div>
+            <p class="text-[11px] font-semibold text-[#62D7CE] mt-1 flex items-center gap-1">
+              <span class="material-symbols-rounded text-sm">trending_up</span> +18.4% so h.qua
+            </p>
+          </div>
+        </div>
+
+        <!-- Metric 3: Khách hôm nay -->
+        <div class="p-4 rounded-2xl bg-[#0F1E22] border-2 border-[#21363E] shadow-[0_4px_0_0_#0B171A] flex flex-col justify-between">
+          <div class="flex items-center justify-between text-[#A9BFC1] mb-2">
+            <span class="text-xs font-bold">Khách hôm nay</span>
+            <span class="material-symbols-rounded text-[#FFB703] text-lg">person</span>
+          </div>
+          <div>
+            <div class="text-3xl font-extrabold text-[#EEF6F7] tracking-tight">46</div>
+            <p class="text-[11px] font-semibold text-[#A9BFC1] mt-1 flex items-center gap-1">
+              <span>Độc bản:</span> <span class="font-bold text-[#EEF6F7]">39 mới</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Metric 4: Trang / khách -->
+        <div class="p-4 rounded-2xl bg-[#0F1E22] border-2 border-[#21363E] shadow-[0_4px_0_0_#0B171A] flex flex-col justify-between">
+          <div class="flex items-center justify-between text-[#A9BFC1] mb-2">
+            <span class="text-xs font-bold">Trang / khách</span>
+            <span class="material-symbols-rounded text-[#2EC4B6] text-lg">auto_stories</span>
+          </div>
+          <div>
+            <div class="text-3xl font-extrabold text-[#EEF6F7] tracking-tight">8,9</div>
+            <p class="text-[11px] font-semibold text-[#62D7CE] mt-1 flex items-center gap-1">
+              <span class="material-symbols-rounded text-sm">bolt</span> Rất tích cực
+            </p>
+          </div>
+        </div>
+
+        <!-- Metric 5: Thời gian TB -->
+        <div class="p-4 rounded-2xl bg-[#0F1E22] border-2 border-[#21363E] shadow-[0_4px_0_0_#0B171A] flex flex-col justify-between">
+          <div class="flex items-center justify-between text-[#A9BFC1] mb-2">
+            <span class="text-xs font-bold">Thời gian TB</span>
+            <span class="material-symbols-rounded text-[#62D7CE] text-lg">timer</span>
+          </div>
+          <div>
+            <div class="text-3xl font-extrabold text-[#EEF6F7] tracking-tight">6p 12s</div>
+            <p class="text-[11px] font-semibold text-[#A9BFC1] mt-1 flex items-center gap-1">
+              <span>Học tập sâu</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Metric 6: Tổng lượt xem -->
+        <div class="p-4 rounded-2xl bg-[#0F1E22] border-2 border-[#21363E] shadow-[0_4px_0_0_#0B171A] flex flex-col justify-between">
+          <div class="flex items-center justify-between text-[#A9BFC1] mb-2">
+            <span class="text-xs font-bold">Tổng 30 ngày</span>
+            <span class="material-symbols-rounded text-[#F2553B] text-lg">query_stats</span>
+          </div>
+          <div>
+            <div class="text-3xl font-extrabold text-[#EEF6F7] tracking-tight">18.940</div>
+            <p class="text-[11px] font-semibold text-[#62D7CE] mt-1 flex items-center gap-1">
+              <span class="material-symbols-rounded text-sm">trending_up</span> +22% tháng này
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN DATA VISUALIZATION SECTION: 14-Day Timeline Chart + Active Realtime Sessions -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- 14-DAY TRAFFIC TREND (Span 2 Cols) -->
+        <div class="lg:col-span-2 p-5 rounded-2xl bg-[#0F1E22] border-2 border-[#21363E] shadow-[0_4px_0_0_#0B171A] flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <h3 class="text-base font-extrabold text-[#EEF6F7] tracking-tight">Xu hướng lưu lượng 14 ngày</h3>
+                <p class="text-xs font-semibold text-[#A9BFC1]">So sánh Lượt xem (Pageviews) và Khách truy cập độc bản (Unique Visitors)</p>
+              </div>
+              <div class="flex items-center gap-4 text-xs font-bold">
+                <span class="flex items-center gap-1.5 text-[#EEF6F7]">
+                  <span class="w-3 h-3 rounded-full bg-[#2EC4B6]"></span>
+                  <span>Lượt xem</span>
+                </span>
+                <span class="flex items-center gap-1.5 text-[#EEF6F7]">
+                  <span class="w-3 h-3 rounded-full bg-[#FFB703]"></span>
+                  <span>Khách duy nhất</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- SVG 14-Day Chart Area -->
+            <div class="w-full h-56 relative bg-[#14252B] rounded-xl p-3 border border-[#21363E]">
+              <svg class="w-full h-full overflow-visible" viewBox="0 0 600 180" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="tealGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#2EC4B6" stop-opacity="0.35"/>
+                    <stop offset="100%" stop-color="#2EC4B6" stop-opacity="0.0"/>
+                  </linearGradient>
+                  <linearGradient id="amberGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#FFB703" stop-opacity="0.25"/>
+                    <stop offset="100%" stop-color="#FFB703" stop-opacity="0.0"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Gridlines -->
+                <line x1="0" y1="40" x2="600" y2="40" stroke="#21363E" stroke-dasharray="4,4" stroke-width="1"/>
+                <line x1="0" y1="90" x2="600" y2="90" stroke="#21363E" stroke-dasharray="4,4" stroke-width="1"/>
+                <line x1="0" y1="140" x2="600" y2="140" stroke="#21363E" stroke-dasharray="4,4" stroke-width="1"/>
+
+                <!-- Amber Area (Unique Visitors) -->
+                <polygon fill="url(#amberGrad)" points="0,150 45,140 90,135 135,120 180,125 225,110 270,115 315,95 360,105 405,80 450,90 495,65 540,75 600,50 600,180 0,180"/>
+                <path d="M0,150 L45,140 L90,135 L135,120 L180,125 L225,110 L270,115 L315,95 L360,105 L405,80 L450,90 L495,65 L540,75 L600,50" fill="none" stroke="#FFB703" stroke-width="2.5"/>
+
+                <!-- Teal Area (Pageviews) -->
+                <polygon fill="url(#tealGrad)" points="0,130 45,110 90,105 135,85 180,90 225,75 270,80 315,60 360,70 405,45 450,55 495,30 540,40 600,18 600,180 0,180"/>
+                <path d="M0,130 L45,110 L90,105 L135,85 L180,90 L225,75 L270,80 L315,60 L360,70 L405,45 L450,55 L495,30 L540,40 L600,18" fill="none" stroke="#2EC4B6" stroke-width="3"/>
+
+                <!-- Key Data Dots -->
+                <circle cx="315" cy="60" r="4.5" fill="#EEF6F7" stroke="#2EC4B6" stroke-width="2"/>
+                <circle cx="600" cy="18" r="5" fill="#2EC4B6" stroke="#EEF6F7" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Bottom Time Axis -->
+          <div class="flex items-center justify-between text-[11px] font-mono font-bold text-[#A9BFC1] mt-3 pt-2 border-t border-[#21363E]">
+            <span>14 ngày trước</span>
+            <span>10 ngày</span>
+            <span>7 ngày</span>
+            <span>3 ngày</span>
+            <span>Hôm qua</span>
+            <span class="text-[#62D7CE] font-bold">Hôm nay (412 lượt)</span>
+          </div>
+        </div>
+
+        <!-- REALTIME ACTIVE SESSIONS (1 Col) -->
+        <div class="p-5 rounded-2xl bg-[#0F1E22] border-2 border-[#21363E] shadow-[0_4px_0_0_#0B171A] flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-base font-extrabold text-[#EEF6F7] tracking-tight">Đang xem • 3 online</h3>
+              <span class="text-xs font-bold text-[#62D7CE] bg-[#14252B] px-2 py-0.5 rounded border border-[#21363E]">Active Now</span>
+            </div>
+            <p class="text-xs font-semibold text-[#A9BFC1] mb-4">Hoạt động thời gian thực của các học viên</p>
+
+            <div class="flex flex-col gap-3">
+              <!-- Session 1 -->
+              <div class="p-3 rounded-xl bg-[#14252B] border border-[#21363E] flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#2FBF71] animate-pulse"></span>
+                  <div>
+                    <a href="#" class="text-xs font-mono font-bold text-[#62D7CE] hover:underline">#/practice/sound-drill</a>
+                    <p class="text-[11px] font-semibold text-[#EEF6F7]">Luyện âm IELTS • 4m 12s</p>
+                  </div>
                 </div>
-</div>
-</div>
-<!-- Map Heat Scale Legend -->
-<div class="mt-3 pt-3 border-t border-[#1E3036]">
-<div class="flex items-center justify-between text-[11px] font-semibold text-[#91A8AB] mb-1.5">
-<span>Ít</span>
-<span class="text-[#2EC4B6] font-bold">Thang lưu lượng</span>
-<span>Nhiều khách</span>
-</div>
-<div class="grid grid-cols-6 gap-1 text-center text-[10px] font-bold">
-<div class="py-1 rounded bg-[#182A31] text-[#91A8AB] border border-[#223840]">1</div>
-<div class="py-1 rounded bg-[#2A3E39] text-[#9EE5DE] border border-[#223840]">2–5</div>
-<div class="py-1 rounded bg-[#4D3F20] text-[#FFD685] border border-[#66542A]">6–20</div>
-<div class="py-1 rounded bg-[#7A4B1A] text-[#FFE0A3] border border-[#9E6224]">21–100</div>
-<div class="py-1 rounded bg-[#A33522] text-[#FFDAD3] border border-[#C9432C]">100+</div>
-<div class="py-1 rounded bg-[#F2553B] text-[#1B0B04] font-extrabold border border-[#FF7862]">Đỉnh</div>
-</div>
-</div>
-</div>
-</div>
-<!-- 6 EQUAL RESPONSIVE GRID CARDS -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<!-- CARD 1: Quốc gia hôm nay -->
-<div class="tactile-card p-5 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-3">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[20px] text-[#2EC4B6]">flag</span>
-<h3 class="font-extrabold text-base text-[#EEF6F7]">Quốc gia hôm nay</h3>
-</div>
-<span class="text-xs font-bold text-[#91A8AB]">46 khách</span>
-</div>
-<!-- List with full country names that never clip -->
-<div class="space-y-3 pt-1">
-<!-- Việt Nam (28) -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="flex items-center gap-2 text-[#EEF6F7]">
-<span class="text-sm">🇻🇳</span>
-<span>Việt Nam</span>
-</span>
-<span class="font-extrabold text-[#2EC4B6]">28 <span class="text-[10px] font-normal text-[#91A8AB]">(60,9%)</span></span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#2EC4B6] h-full rounded-full" style="width: 60.9%"></div>
-</div>
-</div>
-<!-- Hoa Kỳ (6) -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="flex items-center gap-2 text-[#EEF6F7]">
-<span class="text-sm">🇺🇸</span>
-<span>Hoa Kỳ</span>
-</span>
-<span class="font-extrabold text-[#EEF6F7]">6 <span class="text-[10px] font-normal text-[#91A8AB]">(13,0%)</span></span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#FFB054] h-full rounded-full" style="width: 13%"></div>
-</div>
-</div>
-<!-- Vương quốc Anh (3) -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="flex items-center gap-2 text-[#EEF6F7]">
-<span class="text-sm">🇬🇧</span>
-<span class="break-words">Vương quốc Anh</span>
-</span>
-<span class="font-extrabold text-[#EEF6F7]">3 <span class="text-[10px] font-normal text-[#91A8AB]">(6,5%)</span></span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#FFB054] h-full rounded-full" style="width: 6.5%"></div>
-</div>
-</div>
-<!-- Cộng hòa Dominica (3) -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="flex items-center gap-2 text-[#EEF6F7]">
-<span class="text-sm">🇩🇴</span>
-<span class="break-words">Cộng hòa Dominica</span>
-</span>
-<span class="font-extrabold text-[#EEF6F7]">3 <span class="text-[10px] font-normal text-[#91A8AB]">(6,5%)</span></span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#FFB054] h-full rounded-full" style="width: 6.5%"></div>
-</div>
-</div>
-<!-- Ấn Độ (2) -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="flex items-center gap-2 text-[#EEF6F7]">
-<span class="text-sm">🇮🇳</span>
-<span>Ấn Độ</span>
-</span>
-<span class="font-extrabold text-[#EEF6F7]">2 <span class="text-[10px] font-normal text-[#91A8AB]">(4,3%)</span></span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#FFB054] h-full rounded-full" style="width: 4.3%"></div>
-</div>
-</div>
-<!-- Philippines (2) -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="flex items-center gap-2 text-[#EEF6F7]">
-<span class="text-sm">🇵🇭</span>
-<span>Philippines</span>
-</span>
-<span class="font-extrabold text-[#EEF6F7]">2 <span class="text-[10px] font-normal text-[#91A8AB]">(4,3%)</span></span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#FFB054] h-full rounded-full" style="width: 4.3%"></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pt-3 mt-3 border-t border-[#1E3036] text-[11px] text-[#91A8AB] font-medium flex justify-between">
-<span>Còn lại: Singapore (1), Nhật Bản (1)</span>
-<span>2 không rõ IP</span>
-</div>
-</div>
-<!-- CARD 2: Đang xem · 3 online -->
-<div class="tactile-card p-5 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-3">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[20px] text-[#2EC4B6]">sensors</span>
-<h3 class="font-extrabold text-base text-[#EEF6F7]">Đang xem · 3 online</h3>
-</div>
-<span class="w-2.5 h-2.5 rounded-full bg-[#2EC4B6] animate-ping"></span>
-</div>
-<div class="space-y-2.5">
-<!-- Route 1: #/today -->
-<div class="p-3 bg-[#0B181B] border border-[#1E3036] rounded-xl flex items-center justify-between">
-<div class="min-w-0 pr-2">
-<div class="text-xs font-extrabold text-[#2EC4B6] font-mono truncate">#/today</div>
-<div class="text-[11px] text-[#91A8AB] truncate">Lộ trình học &amp; Nhiệm vụ hàng ngày</div>
-</div>
-<div class="flex items-center gap-1.5 px-2 py-1 bg-[#16272D] border border-[#274048] rounded-lg text-xs font-extrabold text-[#EEF6F7] flex-shrink-0">
-<span class="w-1.5 h-1.5 rounded-full bg-[#2EC4B6]"></span>
-<span>2 khách</span>
-</div>
-</div>
-<!-- Route 2: #/vocab -->
-<div class="p-3 bg-[#0B181B] border border-[#1E3036] rounded-xl flex items-center justify-between">
-<div class="min-w-0 pr-2">
-<div class="text-xs font-extrabold text-[#2EC4B6] font-mono truncate">#/vocab/collocations</div>
-<div class="text-[11px] text-[#91A8AB] truncate">IELTS Band 7.5+ Học từ vựng theo cặp</div>
-</div>
-<div class="flex items-center gap-1.5 px-2 py-1 bg-[#16272D] border border-[#274048] rounded-lg text-xs font-extrabold text-[#EEF6F7] flex-shrink-0">
-<span class="w-1.5 h-1.5 rounded-full bg-[#2EC4B6]"></span>
-<span>1 khách</span>
-</div>
-</div>
-<!-- Inactive recent item -->
-<div class="p-2.5 bg-[#0B181B]/60 border border-[#1E3036]/60 rounded-xl flex items-center justify-between opacity-75">
-<div class="min-w-0 pr-2">
-<div class="text-xs font-bold text-[#7A9598] font-mono truncate">#/drill/sound-lab</div>
-<div class="text-[11px] text-[#678286] truncate">Luyện phát âm tối giản</div>
-</div>
-<div class="text-[10px] font-semibold text-[#678286]">Vừa rời 2m trước</div>
-</div>
-</div>
-</div>
-<div class="pt-3 mt-3 border-t border-[#1E3036] flex items-center justify-between text-xs text-[#91A8AB]">
-<span class="font-medium">Thời gian phiên TB hiện tại:</span>
-<span class="font-bold text-[#2EC4B6]">5 phút 44 giây</span>
-</div>
-</div>
-<!-- CARD 3: Trang xem nhiều hôm nay -->
-<div class="tactile-card p-5 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-3">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[20px] text-[#2EC4B6]">bar_chart</span>
-<h3 class="font-extrabold text-base text-[#EEF6F7]">Trang xem nhiều hôm nay</h3>
-</div>
-<span class="text-xs font-bold text-[#91A8AB]">412 lượt</span>
-</div>
-<div class="space-y-3 pt-1">
-<!-- Page 1: #/today -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="text-[#2EC4B6] font-mono truncate max-w-[200px]">#/today</span>
-<span class="font-extrabold text-[#EEF6F7]">148</span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#2EC4B6] h-full rounded-full" style="width: 35.9%"></div>
-</div>
-</div>
-<!-- Page 2: #/vocab -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="text-[#2EC4B6] font-mono truncate max-w-[200px]">#/vocab</span>
-<span class="font-extrabold text-[#EEF6F7]">92</span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#2EC4B6] h-full rounded-full" style="width: 22.3%"></div>
-</div>
-</div>
-<!-- Page 3: #/placement-test -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="text-[#2EC4B6] font-mono truncate max-w-[200px]">#/placement-test</span>
-<span class="font-extrabold text-[#EEF6F7]">64</span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#2EC4B6] h-full rounded-full" style="width: 15.5%"></div>
-</div>
-</div>
-<!-- Page 4: #/drill/minimal-pairs -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="text-[#2EC4B6] font-mono truncate max-w-[200px]">#/drill/minimal-pairs</span>
-<span class="font-extrabold text-[#EEF6F7]">58</span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#2EC4B6] h-full rounded-full" style="width: 14.0%"></div>
-</div>
-</div>
-<!-- Page 5: #/blog/awl-570 -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="text-[#2EC4B6] font-mono truncate max-w-[200px]">#/blog/awl-570</span>
-<span class="font-extrabold text-[#EEF6F7]">50</span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#2EC4B6] h-full rounded-full" style="width: 12.1%"></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pt-3 mt-3 border-t border-[#1E3036] text-xs text-[#91A8AB] flex justify-between font-medium">
-<span>5 trang chiếm 94% lưu lượng</span>
-<a class="text-[#2EC4B6] font-bold hover:underline" href="#more">Xem tất cả 18 trang ›</a>
-</div>
-</div>
-<!-- CARD 4: Nguồn giới thiệu hôm nay -->
-<div class="tactile-card p-5 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-3">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[20px] text-[#2EC4B6]">link</span>
-<h3 class="font-extrabold text-base text-[#EEF6F7]">Nguồn giới thiệu hôm nay</h3>
-</div>
-<span class="text-xs font-bold text-[#91A8AB]">46 khách</span>
-</div>
-<div class="space-y-3 pt-1">
-<!-- Direct / Bookmark -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="flex items-center gap-2 text-[#EEF6F7]">
-<span class="material-symbols-outlined text-[16px] text-[#91A8AB]">bookmark</span>
-<span>Trực tiếp (direct / app)</span>
-</span>
-<span class="font-extrabold text-[#2EC4B6]">24 <span class="text-[10px] font-normal text-[#91A8AB]">(52,2%)</span></span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#2EC4B6] h-full rounded-full" style="width: 52.2%"></div>
-</div>
-</div>
-<!-- Google Search -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="flex items-center gap-2 text-[#EEF6F7]">
-<span class="material-symbols-outlined text-[16px] text-blue-400">search</span>
-<span>google.com</span>
-</span>
-<span class="font-extrabold text-[#EEF6F7]">14 <span class="text-[10px] font-normal text-[#91A8AB]">(30,4%)</span></span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#FFB054] h-full rounded-full" style="width: 30.4%"></div>
-</div>
-</div>
-<!-- Facebook -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="flex items-center gap-2 text-[#EEF6F7]">
-<span class="material-symbols-outlined text-[16px] text-blue-300">share</span>
-<span>facebook.com / group IELTS</span>
-</span>
-<span class="font-extrabold text-[#EEF6F7]">5 <span class="text-[10px] font-normal text-[#91A8AB]">(10,9%)</span></span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#FFB054] h-full rounded-full" style="width: 10.9%"></div>
-</div>
-</div>
-<!-- Chrome Web Store -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="flex items-center gap-2 text-[#EEF6F7]">
-<span class="material-symbols-outlined text-[16px] text-amber-400">extension</span>
-<span>chromewebstore.google.com</span>
-</span>
-<span class="font-extrabold text-[#EEF6F7]">3 <span class="text-[10px] font-normal text-[#91A8AB]">(6,5%)</span></span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#FFB054] h-full rounded-full" style="width: 6.5%"></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pt-3 mt-3 border-t border-[#1E3036] text-xs text-[#91A8AB] flex items-center justify-between font-medium">
-<span>Không có chiến dịch trả phí nào</span>
-<span class="text-[#2EC4B6] font-bold">100% tự nhiên</span>
-</div>
-</div>
-<!-- CARD 5: Trang xem nhiều · 7 ngày -->
-<div class="tactile-card p-5 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-3">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[20px] text-[#2EC4B6]">calendar_view_week</span>
-<h3 class="font-extrabold text-base text-[#EEF6F7]">Trang xem nhiều · 7 ngày</h3>
-</div>
-<span class="text-xs font-bold text-[#91A8AB]">2.684 lượt</span>
-</div>
-<div class="space-y-3 pt-1">
-<!-- 1: #/today -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="text-[#EEF6F7] font-mono truncate max-w-[200px]">#/today</span>
-<span class="font-extrabold text-[#2EC4B6]">980 <span class="text-[10px] font-normal text-[#91A8AB]">(36%)</span></span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#2EC4B6] h-full rounded-full" style="width: 36%"></div>
-</div>
-</div>
-<!-- 2: #/vocab -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="text-[#EEF6F7] font-mono truncate max-w-[200px]">#/vocab</span>
-<span class="font-extrabold text-[#EEF6F7]">612 <span class="text-[10px] font-normal text-[#91A8AB]">(23%)</span></span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#2EC4B6] h-full rounded-full" style="width: 23%"></div>
-</div>
-</div>
-<!-- 3: #/blog/affect-vs-effect -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="text-[#EEF6F7] font-mono truncate max-w-[200px]">#/blog/affect-vs-effect</span>
-<span class="font-extrabold text-[#EEF6F7]">428 <span class="text-[10px] font-normal text-[#91A8AB]">(16%)</span></span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#2EC4B6] h-full rounded-full" style="width: 16%"></div>
-</div>
-</div>
-<!-- 4: #/placement-test -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="text-[#EEF6F7] font-mono truncate max-w-[200px]">#/placement-test</span>
-<span class="font-extrabold text-[#EEF6F7]">390 <span class="text-[10px] font-normal text-[#91A8AB]">(15%)</span></span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#2EC4B6] h-full rounded-full" style="width: 15%"></div>
-</div>
-</div>
-<!-- 5: #/drill/stories -->
-<div>
-<div class="flex items-center justify-between text-xs font-semibold mb-1">
-<span class="text-[#EEF6F7] font-mono truncate max-w-[200px]">#/drill/stories</span>
-<span class="font-extrabold text-[#EEF6F7]">274 <span class="text-[10px] font-normal text-[#91A8AB]">(10%)</span></span>
-</div>
-<div class="w-full bg-[#081518] h-2 rounded-full overflow-hidden border border-[#1E3036]">
-<div class="bg-[#2EC4B6] h-full rounded-full" style="width: 10%"></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pt-3 mt-3 border-t border-[#1E3036] text-xs text-[#91A8AB] flex items-center justify-between font-medium">
-<span>Bài viết Viral: Affect vs Effect</span>
-<span class="text-[#2EC4B6] font-bold">16% tổng traffic</span>
-</div>
-</div>
-<!-- CARD 6: Nền tảng (Table with columns Nền tảng | Hôm nay | 30 ngày) -->
-<div class="tactile-card p-5 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-3">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[20px] text-[#2EC4B6]">devices</span>
-<h3 class="font-extrabold text-base text-[#EEF6F7]">Nền tảng</h3>
-</div>
-<span class="text-xs font-semibold text-[#91A8AB]">Thiết bị truy cập</span>
-</div>
-<!-- Table with right-aligned numbers and proportional thin bars underneath -->
-<div class="w-full overflow-x-auto">
-<table class="w-full text-xs text-left">
-<thead>
-<tr class="border-b border-[#1E3036] text-[#91A8AB] font-bold text-[11px] uppercase tracking-wider">
-<th class="pb-2 font-bold">Nền tảng</th>
-<th class="pb-2 text-right font-bold">Hôm nay</th>
-<th class="pb-2 text-right font-bold">30 ngày</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-[#1E3036]">
-<!-- Row: Web -->
-<tr class="hover:bg-[#16272D]/60 transition-colors">
-<td class="py-2.5 font-semibold text-[#EEF6F7] flex items-center gap-2">
-<span class="material-symbols-outlined text-[16px] text-[#2EC4B6]">language</span>
-<span>Web</span>
-</td>
-<td class="py-2.5 text-right font-bold text-[#EEF6F7]">
-<div>24</div>
-<div class="w-14 ml-auto bg-[#081518] h-1 rounded-full mt-1 overflow-hidden border border-[#1E3036]">
-<div class="bg-[#2EC4B6] h-full rounded-full" style="width: 52%"></div>
-</div>
-</td>
-<td class="py-2.5 text-right font-bold text-[#91A8AB]">
-<div>582</div>
-<div class="w-14 ml-auto bg-[#081518] h-1 rounded-full mt-1 overflow-hidden border border-[#1E3036]">
-<div class="bg-[#678286] h-full rounded-full" style="width: 48%"></div>
-</div>
-</td>
-</tr>
-<!-- Row: PWA -->
-<tr class="hover:bg-[#16272D]/60 transition-colors">
-<td class="py-2.5 font-semibold text-[#EEF6F7] flex items-center gap-2">
-<span class="material-symbols-outlined text-[16px] text-cyan-400">install_mobile</span>
-<span>PWA</span>
-</td>
-<td class="py-2.5 text-right font-bold text-[#EEF6F7]">
-<div>9</div>
-<div class="w-14 ml-auto bg-[#081518] h-1 rounded-full mt-1 overflow-hidden border border-[#1E3036]">
-<div class="bg-[#2EC4B6] h-full rounded-full" style="width: 20%"></div>
-</div>
-</td>
-<td class="py-2.5 text-right font-bold text-[#91A8AB]">
-<div>214</div>
-<div class="w-14 ml-auto bg-[#081518] h-1 rounded-full mt-1 overflow-hidden border border-[#1E3036]">
-<div class="bg-[#678286] h-full rounded-full" style="width: 18%"></div>
-</div>
-</td>
-</tr>
-<!-- Row: Add-on Chrome -->
-<tr class="hover:bg-[#16272D]/60 transition-colors">
-<td class="py-2.5 font-semibold text-[#EEF6F7] flex items-center gap-2">
-<span class="material-symbols-outlined text-[16px] text-amber-400">extension</span>
-<span>Add-on Chrome</span>
-</td>
-<td class="py-2.5 text-right font-bold text-[#EEF6F7]">
-<div>7</div>
-<div class="w-14 ml-auto bg-[#081518] h-1 rounded-full mt-1 overflow-hidden border border-[#1E3036]">
-<div class="bg-[#2EC4B6] h-full rounded-full" style="width: 15%"></div>
-</div>
-</td>
-<td class="py-2.5 text-right font-bold text-[#91A8AB]">
-<div>246</div>
-<div class="w-14 ml-auto bg-[#081518] h-1 rounded-full mt-1 overflow-hidden border border-[#1E3036]">
-<div class="bg-[#678286] h-full rounded-full" style="width: 20%"></div>
-</div>
-</td>
-</tr>
-<!-- Row: iOS -->
-<tr class="hover:bg-[#16272D]/60 transition-colors">
-<td class="py-2.5 font-semibold text-[#EEF6F7] flex items-center gap-2">
-<span class="material-symbols-outlined text-[16px] text-slate-400">phone_iphone</span>
-<span>iOS (TestFlight)</span>
-</td>
-<td class="py-2.5 text-right font-bold text-[#EEF6F7]">
-<div>4</div>
-<div class="w-14 ml-auto bg-[#081518] h-1 rounded-full mt-1 overflow-hidden border border-[#1E3036]">
-<div class="bg-[#2EC4B6] h-full rounded-full" style="width: 9%"></div>
-</div>
-</td>
-<td class="py-2.5 text-right font-bold text-[#91A8AB]">
-<div>112</div>
-<div class="w-14 ml-auto bg-[#081518] h-1 rounded-full mt-1 overflow-hidden border border-[#1E3036]">
-<div class="bg-[#678286] h-full rounded-full" style="width: 9%"></div>
-</div>
-</td>
-</tr>
-<!-- Row: Android -->
-<tr class="hover:bg-[#16272D]/60 transition-colors">
-<td class="py-2.5 font-semibold text-[#EEF6F7] flex items-center gap-2">
-<span class="material-symbols-outlined text-[16px] text-emerald-400">phone_android</span>
-<span>Android (APK)</span>
-</td>
-<td class="py-2.5 text-right font-bold text-[#EEF6F7]">
-<div>2</div>
-<div class="w-14 ml-auto bg-[#081518] h-1 rounded-full mt-1 overflow-hidden border border-[#1E3036]">
-<div class="bg-[#2EC4B6] h-full rounded-full" style="width: 4%"></div>
-</div>
-</td>
-<td class="py-2.5 text-right font-bold text-[#91A8AB]">
-<div>58</div>
-<div class="w-14 ml-auto bg-[#081518] h-1 rounded-full mt-1 overflow-hidden border border-[#1E3036]">
-<div class="bg-[#678286] h-full rounded-full" style="width: 5%"></div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="pt-3 mt-3 border-t border-[#1E3036] text-xs text-[#91A8AB] flex items-center justify-between font-medium">
-<span>Trình duyệt phổ biến nhất:</span>
-<span class="font-bold text-[#2EC4B6]">Chrome (68%)</span>
-</div>
-</div>
-</div>
-</main>
-</div>
-</div>
-</body></html>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#081518] text-[#A9BFC1] border border-[#21363E]">Hà Nội</span>
+              </div>
+
+              <!-- Session 2 -->
+              <div class="p-3 rounded-xl bg-[#14252B] border border-[#21363E] flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#2FBF71] animate-pulse"></span>
+                  <div>
+                    <a href="#" class="text-xs font-mono font-bold text-[#62D7CE] hover:underline">#/vocab/resilient</a>
+                    <p class="text-[11px] font-semibold text-[#EEF6F7]">Tra từ điển C1 • 2m 45s</p>
+                  </div>
+                </div>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#081518] text-[#A9BFC1] border border-[#21363E]">TP.HCM</span>
+              </div>
+
+              <!-- Session 3 -->
+              <div class="p-3 rounded-xl bg-[#14252B] border border-[#21363E] flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#FFB703]"></span>
+                  <div>
+                    <a href="#" class="text-xs font-mono font-bold text-[#62D7CE] hover:underline">#/drill/sound-lab</a>
+                    <p class="text-[11px] font-semibold text-[#A9BFC1]">Luyện phát âm tối giản</p>
+                  </div>
+                </div>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#081518] text-[#A9BFC1] border border-[#21363E]">Vừa rời 2m trước</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="#" class="min-h-[44px] h-11 mt-4 px-3 rounded-xl bg-[#14252B] border border-[#21363E] text-[#62D7CE] hover:text-[#EEF6F7] hover:border-[#2EC4B6] flex items-center justify-center gap-1.5 text-xs font-bold transition-all">
+            <span>Xem chi tiết luồng học viên</span>
+            <span class="material-symbols-rounded text-sm">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- GEOGRAPHIC HEATMAP & TOP ROUTE PAGES -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        <!-- GEOGRAPHIC DISTRIBUTION (Quốc gia & Khu vực) -->
+        <div class="p-5 rounded-2xl bg-[#0F1E22] border-2 border-[#21363E] shadow-[0_4px_0_0_#0B171A]">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h3 class="text-base font-extrabold text-[#EEF6F7] tracking-tight">Phân bổ địa lý (Top Countries)</h3>
+              <p class="text-xs font-semibold text-[#A9BFC1]">Nguồn truy cập toàn cầu trong 30 ngày qua</p>
+            </div>
+            <span class="text-xs font-mono font-bold text-[#62D7CE] bg-[#14252B] px-2.5 py-1 rounded border border-[#21363E]">18 quốc gia</span>
+          </div>
+
+          <!-- Progress bars by country -->
+          <div class="flex flex-col gap-3.5">
+            <!-- VN -->
+            <div>
+              <div class="flex justify-between text-xs font-bold mb-1">
+                <span class="text-[#EEF6F7] flex items-center gap-1.5">🇻🇳 Việt Nam</span>
+                <span class="text-[#62D7CE] font-mono">11.120 lượt (58.7%)</span>
+              </div>
+              <div class="w-full h-2.5 rounded-full bg-[#14252B] overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-[#2EC4B6] to-[#62D7CE] rounded-full" style="width: 58.7%"></div>
+              </div>
+            </div>
+
+            <!-- US -->
+            <div>
+              <div class="flex justify-between text-xs font-bold mb-1">
+                <span class="text-[#EEF6F7] flex items-center gap-1.5">🇺🇸 Hoa Kỳ (Du học sinh)</span>
+                <span class="text-[#62D7CE] font-mono">2.840 lượt (15.0%)</span>
+              </div>
+              <div class="w-full h-2.5 rounded-full bg-[#14252B] overflow-hidden">
+                <div class="h-full bg-[#2EC4B6] rounded-full" style="width: 15.0%"></div>
+              </div>
+            </div>
+
+            <!-- JP -->
+            <div>
+              <div class="flex justify-between text-xs font-bold mb-1">
+                <span class="text-[#EEF6F7] flex items-center gap-1.5">🇯🇵 Nhật Bản</span>
+                <span class="text-[#62D7CE] font-mono">1.720 lượt (9.1%)</span>
+              </div>
+              <div class="w-full h-2.5 rounded-full bg-[#14252B] overflow-hidden">
+                <div class="h-full bg-[#2EC4B6] rounded-full" style="width: 9.1%"></div>
+              </div>
+            </div>
+
+            <!-- KR -->
+            <div>
+              <div class="flex justify-between text-xs font-bold mb-1">
+                <span class="text-[#EEF6F7] flex items-center gap-1.5">🇰🇷 Hàn Quốc</span>
+                <span class="text-[#62D7CE] font-mono">1.340 lượt (7.1%)</span>
+              </div>
+              <div class="w-full h-2.5 rounded-full bg-[#14252B] overflow-hidden">
+                <div class="h-full bg-[#2EC4B6] rounded-full" style="width: 7.1%"></div>
+              </div>
+            </div>
+
+            <!-- Khác -->
+            <div>
+              <div class="flex justify-between text-xs font-bold mb-1">
+                <span class="text-[#A9BFC1] flex items-center gap-1.5">🌐 Quốc gia khác</span>
+                <span class="text-[#A9BFC1] font-mono">1.920 lượt (10.1%)</span>
+              </div>
+              <div class="w-full h-2.5 rounded-full bg-[#14252B] overflow-hidden">
+                <div class="h-full bg-[#A9BFC1] rounded-full" style="width: 10.1%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOP ROUTE PAGES (Bảng trang phổ biến nhất) -->
+        <div class="p-5 rounded-2xl bg-[#0F1E22] border-2 border-[#21363E] shadow-[0_4px_0_0_#0B171A] flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <h3 class="text-base font-extrabold text-[#EEF6F7] tracking-tight">Trang truy cập nhiều nhất (Top Pages)</h3>
+                <p class="text-xs font-semibold text-[#A9BFC1]">Đường dẫn bài học &amp; từ vựng có lượng traffic cao nhất</p>
+              </div>
+              <a href="#" class="min-h-[44px] h-11 px-3 rounded-xl bg-[#14252B] border border-[#21363E] text-xs font-bold text-[#62D7CE] hover:text-[#EEF6F7] flex items-center">Xem tất cả 18 trang ›</a>
+            </div>
+
+            <!-- Table Container (Scrollable inside card) -->
+            <div class="overflow-x-auto custom-scrollbar">
+              <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr class="border-b-2 border-[#21363E] text-[#A9BFC1] font-bold uppercase text-[11px]">
+                    <th class="py-2.5 pr-3">Đường dẫn</th>
+                    <th class="py-2.5 px-3 text-right">Hôm nay</th>
+                    <th class="py-2.5 px-3 text-right">7 ngày</th>
+                    <th class="py-2.5 pl-3 text-right">Tỷ lệ</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-[#21363E] font-medium text-[#EEF6F7]">
+                  <tr>
+                    <td class="py-2.5 pr-3 font-mono text-[#62D7CE]">/today</td>
+                    <td class="py-2.5 px-3 text-right font-bold">148</td>
+                    <td class="py-2.5 px-3 text-right text-[#A9BFC1]">1.820</td>
+                    <td class="py-2.5 pl-3 text-right font-bold text-[#2EC4B6]">35.9%</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-3 font-mono text-[#62D7CE]">/practice/sound-drill</td>
+                    <td class="py-2.5 px-3 text-right font-bold">89</td>
+                    <td class="py-2.5 px-3 text-right text-[#A9BFC1]">940</td>
+                    <td class="py-2.5 pl-3 text-right font-bold text-[#2EC4B6]">21.6%</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-3 font-mono text-[#62D7CE]">/vocab/resilient</td>
+                    <td class="py-2.5 px-3 text-right font-bold">64</td>
+                    <td class="py-2.5 px-3 text-right text-[#A9BFC1]">712</td>
+                    <td class="py-2.5 pl-3 text-right font-bold text-[#2EC4B6]">15.5%</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-3 font-mono text-[#62D7CE]">/diagnostic</td>
+                    <td class="py-2.5 px-3 text-right font-bold">42</td>
+                    <td class="py-2.5 px-3 text-right text-[#A9BFC1]">490</td>
+                    <td class="py-2.5 pl-3 text-right font-bold text-[#2EC4B6]">10.2%</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-3 font-mono text-[#62D7CE]">/leagues</td>
+                    <td class="py-2.5 px-3 text-right font-bold">38</td>
+                    <td class="py-2.5 px-3 text-right text-[#A9BFC1]">410</td>
+                    <td class="py-2.5 pl-3 text-right font-bold text-[#2EC4B6]">9.2%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- REFERRALS & CLIENT PLATFORMS TABLE -->
+      <div class="p-5 rounded-2xl bg-[#0F1E22] border-2 border-[#21363E] shadow-[0_4px_0_0_#0B171A]">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div>
+            <h3 class="text-base font-extrabold text-[#EEF6F7] tracking-tight">Nền tảng &amp; Kênh giới thiệu (Platforms &amp; Referrals)</h3>
+            <p class="text-xs font-semibold text-[#A9BFC1]">Thống kê thiết bị truy cập và nguồn chuyển đổi trực tiếp</p>
+          </div>
+          <span class="text-xs font-bold text-[#A9BFC1]">Phân phối: Web 64% • Mobile App 28% • Chrome Extension 8%</span>
+        </div>
+
+        <div class="overflow-x-auto custom-scrollbar">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="border-b-2 border-[#21363E] text-[#A9BFC1] font-bold uppercase text-[11px]">
+                <th class="py-3 pr-4">Nền tảng / Client</th>
+                <th class="py-3 px-4">Kênh nguồn (Referral)</th>
+                <th class="py-3 px-4 text-right">Lượt xem hôm nay</th>
+                <th class="py-3 px-4 text-right">Tổng 30 ngày</th>
+                <th class="py-3 px-4 text-right">Tỷ lệ thoát</th>
+                <th class="py-3 pl-4 text-right">Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#21363E] font-medium text-[#EEF6F7]">
+              <!-- Row 1 -->
+              <tr>
+                <td class="py-3 pr-4 flex items-center gap-2">
+                  <span class="material-symbols-rounded text-[#2EC4B6]">laptop_mac</span>
+                  <span class="font-bold text-[#EEF6F7]">Web Desktop (Chrome / Safari)</span>
+                </td>
+                <td class="py-3 px-4 text-[#A9BFC1]">Google Organic Search</td>
+                <td class="py-3 px-4 text-right font-mono font-bold">264</td>
+                <td class="py-3 px-4 text-right font-mono text-[#A9BFC1]">12.120</td>
+                <td class="py-3 px-4 text-right font-mono text-[#62D7CE]">14.2%</td>
+                <td class="py-3 pl-4 text-right">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded bg-[#14252B] border border-[#2EC4B6] text-[10px] font-bold text-[#62D7CE]">Tăng trưởng</span>
+                </td>
+              </tr>
+              <!-- Row 2 -->
+              <tr>
+                <td class="py-3 pr-4 flex items-center gap-2">
+                  <span class="material-symbols-rounded text-[#62D7CE]">smartphone</span>
+                  <span class="font-bold text-[#EEF6F7]">PWA Mobile (iOS / Android)</span>
+                </td>
+                <td class="py-3 px-4 text-[#A9BFC1]">Direct / Bookmark App</td>
+                <td class="py-3 px-4 text-right font-mono font-bold">115</td>
+                <td class="py-3 px-4 text-right font-mono text-[#A9BFC1]">5.320</td>
+                <td class="py-3 px-4 text-right font-mono text-[#62D7CE]">8.4%</td>
+                <td class="py-3 pl-4 text-right">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded bg-[#14252B] border border-[#2EC4B6] text-[10px] font-bold text-[#62D7CE]">Trung thành</span>
+                </td>
+              </tr>
+              <!-- Row 3 -->
+              <tr>
+                <td class="py-3 pr-4 flex items-center gap-2">
+                  <span class="material-symbols-rounded text-[#FFB703]">extension</span>
+                  <span class="font-bold text-[#EEF6F7]">Chrome Add-on In-Page Lookup</span>
+                </td>
+                <td class="py-3 px-4 text-[#A9BFC1]">Web Store Extension Hook</td>
+                <td class="py-3 px-4 text-right font-mono font-bold">33</td>
+                <td class="py-3 px-4 text-right font-mono text-[#A9BFC1]">1.500</td>
+                <td class="py-3 px-4 text-right font-mono text-[#62D7CE]">11.0%</td>
+                <td class="py-3 pl-4 text-right">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded bg-[#14252B] border border-[#21363E] text-[10px] font-bold text-[#A9BFC1]">Ổn định</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>

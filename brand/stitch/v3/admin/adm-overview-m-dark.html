@@ -97,7 +97,7 @@
 <!-- 1. Top App Bar -->
 <header class="sticky top-0 z-40 bg-[#0c1a1e]/95 backdrop-blur-md px-4 h-14 flex items-center justify-between border-b border-[#1f383e] shadow-md">
 <div class="flex items-center gap-2">
-<button aria-label="Menu" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-[#182c31] active:scale-95 transition-all text-[#6bd8ce]" type="button">
+<button aria-label="Menu" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg hover:bg-[#182c31] active:scale-95 transition-all text-[#6bd8ce]" type="button">
 <span class="material-symbols-outlined text-[22px]">menu</span>
 </button>
 <div class="flex flex-col">
@@ -105,17 +105,15 @@
 <span class="font-headline-sm text-headline-sm font-bold tracking-tight text-[#6bd8ce]">Lexkite</span>
 <span class="px-1.5 py-0.5 rounded-full bg-[#182c31] text-[#6bd8ce] font-data-mono text-[10px] leading-tight font-medium border border-[#26393e]">v2.4.1</span>
 </div>
-<span class="font-label-md text-[11px] text-[#83a1a9] font-medium leading-none">Admin › Tổng quan</span>
+<span class="font-label-md text-[11px] text-[#96adb4] font-medium leading-none">Admin › Tổng quan</span>
 </div>
 </div>
-<div class="flex items-center gap-1.5">
-<button aria-label="Bộ lọc" class="w-9 h-9 flex items-center justify-center rounded-lg text-[#83a1a9] hover:text-[#6bd8ce] hover:bg-[#182c31] active:scale-95 transition-all" type="button">
+<div class="flex items-center gap-1.5"><button aria-label="Bộ lọc" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-[#96adb4] hover:text-[#6bd8ce] hover:bg-[#182c31] active:scale-95 transition-all" type="button">
 <span class="material-symbols-outlined text-[20px]">tune</span>
 </button>
-<div class="w-9 h-9 rounded-full bg-[#2ba39a] text-[#091518] flex items-center justify-center font-label-md text-label-md font-bold tracking-wide shadow-sm ring-2 ring-[#2ba39a]/30">
+<div class="min-w-[44px] min-h-[44px] rounded-full bg-[#2ba39a] text-[#091518] flex items-center justify-center font-label-md text-label-md font-bold tracking-wide shadow-sm ring-2 ring-[#2ba39a]/30">
           HM
-        </div>
-</div>
+        </div></div>
 </header>
 <!-- Main Content Container (Vertical flow only) -->
 <main class="flex-1 px-4 py-3.5 space-y-3.5">
@@ -133,14 +131,13 @@
             Production
           </span>
 </div>
-<p class="font-body-sm text-body-sm text-[#83a1a9] flex items-center gap-1.5">
-<span class="material-symbols-outlined text-[16px] text-[#638088]">calendar_today</span>
+<p class="font-body-sm text-body-sm text-[#96adb4] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-[#96adb4]">calendar_today</span>
           Thứ Năm, 27 Tháng 3, 2025
         </p>
 </section>
 <!-- 3. Quick Metric Grid (2x2 neatly stacked) -->
-<section class="grid grid-cols-2 gap-2.5">
-<!-- Metric 1 -->
+<section class="grid grid-cols-2 gap-2.5"><!-- Metric 1 -->
 <div class="tactile-card rounded-xl p-3.5 flex flex-col justify-between">
 <div class="flex items-start justify-between">
 <span class="font-label-md text-label-md text-[#96adb4] font-medium leading-snug">Người thật hôm nay</span>
@@ -161,7 +158,7 @@
 </div>
 <div class="mt-2">
 <div class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-[#e6f0f2] tracking-tight">214</div>
-<div class="font-body-sm text-[11px] leading-tight text-[#83a1a9] font-medium mt-0.5">
+<div class="font-body-sm text-[11px] leading-tight text-[#96adb4] font-medium mt-0.5">
               TB 30 người / ngày
             </div>
 </div>
@@ -174,7 +171,7 @@
 </div>
 <div class="mt-2">
 <div class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-[#e6f0f2] tracking-tight">12</div>
-<div class="font-body-sm text-[11px] leading-tight text-[#83a1a9] font-medium mt-0.5 flex items-center gap-1">
+<div class="font-body-sm text-[11px] leading-tight text-[#96adb4] font-medium mt-0.5 flex items-center gap-1">
 <span>phiên FSRS</span>
 <span class="text-[#34d399] font-bold whitespace-nowrap">(● 100% thẻ)</span>
 </div>
@@ -184,7 +181,7 @@
 <div class="tactile-card rounded-xl p-3.5 flex flex-col justify-between">
 <div class="flex items-start justify-between">
 <span class="font-label-md text-label-md text-[#96adb4] font-medium leading-snug">Lỗi JS (24h)</span>
-<span class="material-symbols-outlined text-[#638088] text-[18px]">bug_report</span>
+<span class="material-symbols-outlined text-[#96adb4] text-[18px]">bug_report</span>
 </div>
 <div class="mt-2">
 <div class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-[#e6f0f2] tracking-tight">2</div>
@@ -192,11 +189,9 @@
               loại lỗi (✔ 0 nghiêm trọng)
             </div>
 </div>
-</div>
-</section>
+</div></section>
 <!-- 4. Attention Required Card -->
-<section class="tactile-card rounded-xl p-4 space-y-3.5">
-<div class="flex items-center justify-between pb-2 border-b border-[#1f383e]">
+<section class="tactile-card rounded-xl p-4 space-y-3.5"><div class="flex items-center justify-between pb-2 border-b border-[#1f383e]">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-[#ff5c38] text-[20px]">warning</span>
 <h2 class="font-headline-sm text-headline-sm font-bold text-[#e6f0f2]">Cần chú ý</h2>
@@ -212,7 +207,7 @@
 <span class="material-symbols-outlined text-[#f87171] text-[16px]">error</span>
               1 workflow đỏ trong 24h
             </span>
-<span class="font-data-mono text-[11px] text-[#83a1a9] font-medium">14:10</span>
+<span class="font-data-mono text-[11px] text-[#96adb4] font-medium">14:10</span>
 </div>
 <p class="font-body-sm text-[12px] text-[#96adb4] leading-relaxed">
             GitHub Actions: deploy-edge-worker thất bại, đã rollback bản an toàn.
@@ -227,7 +222,7 @@
 <div class="w-full bg-[#0f1d21] rounded-full h-1.5 overflow-hidden border border-[#1f383e]">
 <div class="bg-[#2ba39a] h-full rounded-full" style="width: 71%"></div>
 </div>
-<p class="font-body-sm text-[12px] text-[#83a1a9] leading-snug">
+<p class="font-body-sm text-[12px] text-[#96adb4] leading-snug">
             Gói lưu trữ miễn phí audio &amp; PDF bài học.
           </p>
 </div>
@@ -240,20 +235,19 @@
 <div class="w-full bg-[#0f1d21] rounded-full h-1.5 overflow-hidden border border-[#1f383e]">
 <div class="bg-[#ff5c38] h-full rounded-full" style="width: 82%"></div>
 </div>
-<p class="font-body-sm text-[12px] text-[#83a1a9] leading-snug">Gói AI miễn phí dùng chung</p>
+<p class="font-body-sm text-[12px] text-[#96adb4] leading-snug">Gói AI miễn phí dùng chung</p>
 </div>
-<!-- Full Width Coral CTA -->
-<button class="tactile-btn-coral w-full min-h-[44px] py-2.5 px-4 rounded-lg text-white font-label-lg text-label-lg font-extrabold flex items-center justify-center gap-2 hover:bg-[#ff7252] transition-all" type="button">
-<span class="material-symbols-outlined text-[18px]">build</span>
+<!-- Full Width Coral CTA with min-h-[48px] and strong contrast -->
+<button class="w-full min-h-[48px] py-3 px-4 rounded-lg bg-[#b83315] hover:bg-[#c83818] text-white font-label-lg text-label-lg font-extrabold flex items-center justify-center gap-2 shadow-md transition-all active:translate-y-[2px] border border-[#ff5c38]/30" type="button">
+<span class="material-symbols-outlined text-[18px] text-white">build</span>
           Xử lý &amp; Khắc phục hạ tầng
-        </button>
-</section>
+        </button></section>
 <!-- 5. Chart Card: Lượng khách thật (30 ngày) -->
 <section class="tactile-card rounded-xl p-4 space-y-3">
 <div class="flex items-start justify-between">
 <div>
 <h2 class="font-headline-sm text-headline-sm font-bold text-[#e6f0f2]">Lượng khách thật (30 ngày)</h2>
-<p class="font-body-sm text-[11px] text-[#83a1a9]">Thống kê không tính bot và admin</p>
+<p class="font-body-sm text-[11px] text-[#96adb4]">Thống kê không tính bot và admin</p>
 </div>
 <span class="px-2.5 py-0.5 rounded-full bg-[#1d343a] text-[#2dd4bf] font-label-sm text-label-sm font-bold border border-[#26393e] shrink-0">
             Đỉnh: 48 / ngày
@@ -291,13 +285,13 @@
 </div>
 </div>
 <!-- Legend & Stats Below -->
-<div class="pt-2 border-t border-[#1f383e] flex items-center justify-between text-[11px] font-medium text-[#83a1a9]">
+<div class="pt-2 border-t border-[#1f383e] flex items-center justify-between text-[11px] font-medium text-[#96adb4]">
 <span class="flex items-center gap-1">
 <span class="w-2 h-2 rounded-full bg-[#2dd4bf] inline-block"></span>
             Ngày thường (~35)
           </span>
 <span class="flex items-center gap-1">
-<span class="w-2 h-2 rounded-full bg-[#638088] inline-block"></span>
+<span class="w-2 h-2 rounded-full bg-[#96adb4] inline-block"></span>
             Cuối tuần (~22)
           </span>
 <span class="font-bold text-[#34d399]">
@@ -316,15 +310,14 @@
             ● 4 đang chạy
           </span>
 </div>
-<div class="space-y-2.5 divide-y divide-[#1f383e]">
-<!-- Cron 1 -->
+<div class="space-y-2.5 divide-y divide-[#1f383e]"><!-- Cron 1 -->
 <div class="pt-2 first:pt-0 flex items-start justify-between gap-2">
 <div class="space-y-0.5 min-w-0">
 <div class="flex items-center gap-1.5">
 <span class="font-label-md text-[13px] font-bold text-[#e6f0f2]">Đồng bộ thẻ FSRS v5</span>
-<span class="font-data-mono text-[10px] px-1 rounded bg-[#182c31] text-[#83a1a9] border border-[#26393e] font-medium">[15m]</span>
+<span class="font-data-mono text-[10px] px-1 rounded bg-[#182c31] text-[#96adb4] border border-[#26393e] font-medium">[15m]</span>
 </div>
-<p class="font-body-sm text-[11.5px] text-[#83a1a9]">Chạy mỗi 15 phút • Vừa xong lúc 15:45</p>
+<p class="font-body-sm text-[11.5px] text-[#96adb4]">Chạy mỗi 15 phút • Vừa xong lúc 15:45</p>
 </div>
 <span class="shrink-0 px-2 py-0.5 rounded-full bg-[#0d3329] text-[#34d399] text-[11px] font-bold border border-[#175240]">
               ● Xong
@@ -335,9 +328,9 @@
 <div class="space-y-0.5 min-w-0">
 <div class="flex items-center gap-1.5">
 <span class="font-label-md text-[13px] font-bold text-[#e6f0f2]">Gửi email ôn tập ngắt quãng</span>
-<span class="font-data-mono text-[10px] px-1 rounded bg-[#182c31] text-[#83a1a9] border border-[#26393e] font-medium">[Daily]</span>
+<span class="font-data-mono text-[10px] px-1 rounded bg-[#182c31] text-[#96adb4] border border-[#26393e] font-medium">[Daily]</span>
 </div>
-<p class="font-body-sm text-[11.5px] text-[#83a1a9]">Chạy 07:00 hàng ngày • Đã gửi 14/14 email</p>
+<p class="font-body-sm text-[11.5px] text-[#96adb4]">Chạy 07:00 hàng ngày • Đã gửi 14/14 email</p>
 </div>
 <span class="shrink-0 px-2 py-0.5 rounded-full bg-[#0d3329] text-[#34d399] text-[11px] font-bold border border-[#175240]">
               ● Xong
@@ -348,9 +341,9 @@
 <div class="space-y-0.5 min-w-0">
 <div class="flex items-center gap-1.5">
 <span class="font-label-md text-[13px] font-bold text-[#e6f0f2]">Dọn dẹp audio cache tạm</span>
-<span class="font-data-mono text-[10px] px-1 rounded bg-[#182c31] text-[#83a1a9] border border-[#26393e] font-medium">[03:00]</span>
+<span class="font-data-mono text-[10px] px-1 rounded bg-[#182c31] text-[#96adb4] border border-[#26393e] font-medium">[03:00]</span>
 </div>
-<p class="font-body-sm text-[11.5px] text-[#83a1a9]">Chạy hàng đêm • Giải phóng 120 MB</p>
+<p class="font-body-sm text-[11.5px] text-[#96adb4]">Chạy hàng đêm • Giải phóng 120 MB</p>
 </div>
 <span class="shrink-0 px-2 py-0.5 rounded-full bg-[#0d3329] text-[#34d399] text-[11px] font-bold border border-[#175240]">
               ● Xong
@@ -361,24 +354,22 @@
 <div class="space-y-0.5 min-w-0">
 <div class="flex items-center gap-1.5">
 <span class="font-label-md text-[13px] font-bold text-[#e6f0f2]">Kiểm tra link bài học hỏng</span>
-<span class="font-data-mono text-[10px] px-1 rounded bg-[#182c31] text-[#83a1a9] border border-[#26393e] font-medium">[Weekly]</span>
+<span class="font-data-mono text-[10px] px-1 rounded bg-[#182c31] text-[#96adb4] border border-[#26393e] font-medium">[Weekly]</span>
 </div>
-<p class="font-body-sm text-[11.5px] text-[#83a1a9]">Chạy 12:00 Chủ Nhật • 0 link lỗi</p>
+<p class="font-body-sm text-[11.5px] text-[#96adb4]">Chạy 12:00 Chủ Nhật • 0 link lỗi</p>
 </div>
 <span class="shrink-0 px-2 py-0.5 rounded-full bg-[#0d3329] text-[#34d399] text-[11px] font-bold border border-[#175240]">
               ● Xong
             </span>
-</div>
-</div>
+</div></div>
 </section>
 <!-- 7. Error Log Card (Sentry capture) -->
-<section class="tactile-card rounded-xl p-4 space-y-3">
-<div class="flex items-center justify-between pb-2 border-b border-[#1f383e]">
+<section class="tactile-card rounded-xl p-4 space-y-3"><div class="flex items-center justify-between pb-2 border-b border-[#1f383e]">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-[#ff5c38] text-[20px]">pest_control</span>
 <h2 class="font-headline-sm text-headline-sm font-bold text-[#e6f0f2]">Báo lỗi mới (Sentry capture)</h2>
 </div>
-<button class="text-[#2dd4bf] font-label-md text-[12px] font-bold hover:underline min-h-[36px] flex items-center" type="button">
+<button class="text-[#2dd4bf] font-label-md text-[12px] font-bold hover:underline min-h-[44px] min-w-[44px] px-2 flex items-center justify-center" type="button">
             Xem tất cả
           </button>
 </div>
@@ -389,11 +380,11 @@
 <div class="font-label-md text-[12.5px] font-bold text-[#f87171] truncate">
                 TypeError: AudioContext decode
               </div>
-<div class="font-body-sm text-[11px] text-[#83a1a9]">
-                iOS Safari 17.2 • 3 lần • <span class="text-[#638088]">28p trước</span>
+<div class="font-body-sm text-[11px] text-[#96adb4]">
+                iOS Safari 17.2 • 3 lần • <span class="text-[#96adb4]">28p trước</span>
 </div>
 </div>
-<button class="shrink-0 min-h-[36px] px-3 py-1.5 rounded-md bg-[#1d343a] border border-[#26393e] text-[#e6f0f2] font-label-sm text-[11px] font-bold hover:bg-[#254249] active:scale-95 transition-all shadow-xs" type="button">
+<button class="shrink-0 min-h-[44px] min-w-[64px] px-3 py-2.5 flex items-center justify-center rounded-md bg-[#1d343a] border border-[#26393e] text-[#e6f0f2] font-label-sm text-[11px] font-bold hover:bg-[#254249] active:scale-95 transition-all shadow-xs" type="button">
               Theo dõi
             </button>
 </div>
@@ -403,11 +394,11 @@
 <div class="font-label-md text-[12.5px] font-bold text-[#e6f0f2] truncate">
                 IndexedDB quota warning
               </div>
-<div class="font-body-sm text-[11px] text-[#83a1a9]">
-                Chrome Android • 1 lần • <span class="text-[#638088]">2h trước</span>
+<div class="font-body-sm text-[11px] text-[#96adb4]">
+                Chrome Android • 1 lần • <span class="text-[#96adb4]">2h trước</span>
 </div>
 </div>
-<button class="shrink-0 min-h-[36px] px-3 py-1.5 rounded-md bg-[#1d343a] border border-[#26393e] text-[#96adb4] font-label-sm text-[11px] font-medium hover:bg-[#254249] hover:text-[#e6f0f2] active:scale-95 transition-all shadow-xs" type="button">
+<button class="shrink-0 min-h-[44px] min-w-[64px] px-3 py-2.5 flex items-center justify-center rounded-md bg-[#1d343a] border border-[#26393e] text-[#96adb4] font-label-sm text-[11px] font-medium hover:bg-[#254249] hover:text-[#e6f0f2] active:scale-95 transition-all shadow-xs" type="button">
               Đã bỏ qua
             </button>
 </div>
@@ -417,23 +408,22 @@
 <div class="font-label-md text-[12.5px] font-bold text-[#e6f0f2] truncate">
                 NetworkTimeout: TTS Carlos
               </div>
-<div class="font-body-sm text-[11px] text-[#83a1a9]">
-                Desktop Edge • 2 lần • <span class="text-[#638088]">4h trước</span>
+<div class="font-body-sm text-[11px] text-[#96adb4]">
+                Desktop Edge • 2 lần • <span class="text-[#96adb4]">4h trước</span>
 </div>
 </div>
-<button class="shrink-0 min-h-[36px] px-3 py-1.5 rounded-md bg-[#1d343a] border border-[#26393e] text-[#96adb4] font-label-sm text-[11px] font-medium hover:bg-[#254249] hover:text-[#e6f0f2] active:scale-95 transition-all shadow-xs" type="button">
+<button class="shrink-0 min-h-[44px] min-w-[64px] px-3 py-2.5 flex items-center justify-center rounded-md bg-[#1d343a] border border-[#26393e] text-[#96adb4] font-label-sm text-[11px] font-medium hover:bg-[#254249] hover:text-[#e6f0f2] active:scale-95 transition-all shadow-xs" type="button">
               Đã thử lại
             </button>
 </div>
-</div>
-</section>
+</div></section>
 <!-- 8. Footer info -->
 <footer class="pt-2 pb-6 text-center space-y-1 text-[#83a1a9]">
 <p class="font-data-mono text-[11px] flex items-center justify-center gap-1.5 text-[#34d399] font-semibold">
 <span class="w-1.5 h-1.5 rounded-full bg-[#34d399] inline-block animate-pulse"></span>
           Cloudflare Edge • GMT+7 • Đệm 99.8%
         </p>
-<p class="font-body-sm text-[11px] text-[#638088]">
+<p class="font-body-sm text-[11px] text-[#96adb4]">
           Hệ thống giáo dục tự vận hành Lexkite © 2025
         </p>
 </footer>
