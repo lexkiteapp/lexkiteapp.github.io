@@ -23,7 +23,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Mọi khóa trong chỉ mục có trong cây kho media + mẫu qua Pages kho và audio.lexkite.com (404 lúc Pages kho đang dựng lô mới = chờ ≤ 90 phút: scripts/lib/pages-lag.mjs)
+      - name: Mọi khóa trong chỉ mục có trong cây kho media + mẫu qua Pages kho và audio.lexkite.com (404 lúc Pages kho đang dựng lô mới = chờ ≤ 90 phút, xem scripts/lib/pages-lag.mjs)
         env: { GITHUB_TOKEN: '${{ github.token }}' }
         run: |
           node scripts/audio-cdn-check.mjs --media
