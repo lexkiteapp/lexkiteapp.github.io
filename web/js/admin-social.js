@@ -18,7 +18,7 @@
     '✍️ Soạn bài': '✍️ Compose', '📅 Lịch': '📅 Calendar', '🗂️ Bài đăng': '🗂️ Posts', '📡 Kênh & Drive': '📡 Channels & Drives', 'Mục Video & Social': 'Video & Social sections',
     '🗽 New York: {ny} · 🕒 Giờ của bạn: {loc}': '🗽 New York: {ny} · 🕒 Your time: {loc}',
     // Duyệt bài & quản lý (admin-social-mgr.js)
-    '✅ Duyệt bài': '✅ Approvals', '🤖 Hàng đợi': '🤖 Queue', '🩺 Sức khỏe kênh': '🩺 Account health', '📈 Phân tích': '📈 Analytics', '💬 Bình luận': '💬 Comments',
+    '✅ Duyệt bài': '✅ Approvals', '🤖 Hàng đợi': '🤖 Queue', '🛰️ Autopilot & kênh': '🛰️ Autopilot & channels', '🩺 Sức khỏe kênh': '🩺 Account health', '📈 Phân tích': '📈 Analytics', '💬 Bình luận': '💬 Comments',
     'Gửi duyệt & lên lịch': 'Send for review & schedule', 'Gửi duyệt & đăng ngay': 'Send for review & publish now',
     'Bài phải qua duyệt trước khi lên lịch/đăng – gửi duyệt ở tab Duyệt bài.': 'Posts must be approved before scheduling/publishing – send it for review in Approvals.',
     'Bài chưa được duyệt – duyệt ở tab Duyệt bài rồi thử lại.': 'The post is not approved – approve it in Approvals, then retry.',
@@ -331,7 +331,7 @@
     // Mọi nội dung nằm trong .soc-wrap (khung main dùng chung với tab khác → không để lại class/sự kiện trên main)
     const put = html => { box.innerHTML = `<div class="soc-wrap">${html}</div>`; box.firstElementChild.addEventListener('error', e => { if (e.target && e.target.tagName === 'IMG' && e.target.closest('.soc-av,.soc-th')) e.target.remove(); }, true); }; // ảnh hỏng (link hết hạn) → chữ cái đầu
 
-    const TABS = [['compose', '✍️ Soạn bài'], ['board', '✅ Duyệt bài'], ['calendar', '📅 Lịch'], ['queue', '🤖 Hàng đợi'], ['posts', '🗂️ Bài đăng'], ['health', '🩺 Sức khỏe kênh'], ['stats', '📈 Phân tích'], ['inbox', '💬 Bình luận'], ['accounts', '📡 Kênh & Drive']];
+    const TABS = [['queue', '🛰️ Autopilot & kênh'], ['compose', '✍️ Soạn bài'], ['board', '✅ Duyệt bài'], ['calendar', '📅 Lịch'], ['posts', '🗂️ Bài đăng'], ['health', '🩺 Sức khỏe kênh'], ['stats', '📈 Phân tích'], ['inbox', '💬 Bình luận'], ['accounts', '📡 Kênh & Drive']];
     const MGR = new Set(['board', 'queue', 'health', 'stats', 'inbox']);
     const D = { stores: [], accounts: [], posts: [], objects: [], bad: {} };
     const accById = id => D.accounts.find(a => String(a.id) === String(id));
@@ -372,7 +372,7 @@
     function paint() { const b = $('#socBody'); if (!b) return; b.setAttribute('aria-labelledby', 'socT-' + tab); if (MGR.has(tab)) { const t = tab; b.innerHTML = `<p class="small muted">${S('Đang tải…')}</p>`; mgr().then(M => { if (alive() && tab === t) M.paint(t, b, mctx()); }).catch(e => { b.innerHTML = `<p class="small bad-t">${esc(errText(e))}</p>`; }); return; } ({ compose, calendar: calendarTab, posts: postsTab, accounts: accountsTab })[tab](b); }
     // Mục quản lý (js/admin-social-mgr.js, tải lười): duyệt bài, hàng đợi, sức khỏe, phân tích, bình luận + chọn clip/AI/bộ kênh cho trình soạn
     const mgr = () => (window.AdminSocialMgr ? Promise.resolve(window.AdminSocialMgr) : new Promise((y, n) => { const sc = document.createElement('script'); sc.src = 'js/admin-social-mgr.js'; sc.onload = () => y(window.AdminSocialMgr); sc.onerror = () => n(new Error('admin-social-mgr.js')); document.head.appendChild(sc); }));
-    const mctx = () => ({ focus: (() => { const f = focusId; focusId = null; return f; })(), sapi, L, esc, lang, D, accById, modal, both: t => both(t), errText, alive, LS, reloadPosts: () => reloadPosts(), reloadAccounts: () => sapi('GET', 'accounts').then(r => { D.accounts = arr(r).filter(a => platKey(accPlat(a)) !== 'google_drive'); }).catch(() => {}) });
+    const mctx = () => ({ focus: (() => { const f = focusId; focusId = null; return f; })(), sapi, L, esc, lang, D, accById, modal, both: t => both(t), errText, alive, LS, yapi: h.yapi || null, goBoard: id => { focusId = id; go('board'); }, reloadPosts: () => reloadPosts(), reloadAccounts: () => sapi('GET', 'accounts').then(r => { D.accounts = arr(r).filter(a => platKey(accPlat(a)) !== 'google_drive'); }).catch(() => {}) });
     libPush = (k, v) => sapi('POST', 'lk/lib/save', { kind: k, items: v }).catch(() => {});
     sapi('GET', 'lk/lib').then(r => { let ch = false; for (const k of ['tpl', 'tags']) if (Array.isArray(r[k]) && JSON.stringify(r[k]) !== JSON.stringify(LS.get(k, null))) { LS.set(k, r[k], true); ch = true; } if (ch && alive() && tab === 'compose') { paintTpl(); paintTags(); } }).catch(() => {});
 

@@ -105,10 +105,8 @@
    "border-dashed": "''",
    "justify-center": "'justify-end'",
    "lt:border-[#136B66]/70": "''",
-   "lt:bg-[#F4EBE0]/50": "''",
    "lt:p-2": "''",
    "dk:border-[#14b8a6]/40": "''",
-   "dk:bg-[#0d1c20]/60": "''",
    "dk:p-3": "''",
    "dk:shadow-[0_3px_0_#061013]": "''"
   }

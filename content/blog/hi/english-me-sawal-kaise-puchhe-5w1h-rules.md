@@ -8,7 +8,7 @@ translationKey: cach-dat-cau-hoi-trong-tieng-anh
 category: ngu-phap
 tags: [grammar, questions, 5w1h, auxiliary-verbs]
 cover: grammar
-coverAlt: "Ngữ pháp IELTS: lộ trình chương, 12 thì (hiện tại đơn, tiếp diễn, hoàn thành…), cấp A1–B2, bài luyện tổng hợp"
+coverAlt: "Lexkite पर IELTS व्याकरण: अध्यायों का मार्ग, 12 काल (Simple, Continuous, Perfect…), स्तर A1–B2 और मिश्रित अभ्यास"
 qualityScore: 95
 factChecked: 2026-10-15
 author: Lexkite
@@ -126,7 +126,7 @@ $$\text{Wh-Word} + \text{सहायक क्रिया} + \text{कर्�
 
 ## 3. सबसे महत्वपूर्ण अपवाद: सब्जेक्ट क्वेश्चन (Subject Questions)
 
-यह एक ऐसा नियम है जहाँ 90% छात्र धोखा खा जाते हैं:
+यह एक ऐसा नियम है जहाँ कई छात्र धोखा खा जाते हैं:
 
 > **स्वर्ण नियम:** जब प्रश्न शब्द (*Who, What, Which*) वाक्य में "कार्य करने वाले कर्ता (Subject)" के बारे में सीधे पूछ रहा हो, तो **do / does / did का प्रयोग बिल्कुल नहीं किया जाता**। क्रिया सामान्य कथन की तरह सीधे प्रश्न शब्द के बाद आती है।
 

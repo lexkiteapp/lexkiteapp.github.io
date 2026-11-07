@@ -2,7 +2,9 @@
  "_doc": "Màn Hôm nay – máy tính ≥ 1024 px (mẫu desk): CHỈ cột giữa (keep main). Menu trái của mẫu thuộc phiên khác (không dùng). Cột phải = màn today-rail (cùng HTML). d do ux1.js home2() dựng – cùng dữ liệu với màn today. Mẫu desk vẽ thêm viên ngôn ngữ cạnh tiêu đề: bỏ khi port, chọn ngôn ngữ chỉ ở #langBtn trên thanh trên (guard scripts/test/topbar-lang.mjs).",
  "styles": true,
  "keep": ":scope > div > main",
- "remove": [":scope > div > main > div:nth-child(1) > button"],
+ "remove": [
+  ":scope > div > main > div:nth-child(1) > button"
+ ],
  "i18n": {
   "Today": "Hôm nay",
   "Today's Focus": "Trọng tâm hôm nay",
@@ -127,7 +129,6 @@
    "lt:border-[#136B66]": "''",
    "lt:bg-[#E6F5F3]/40": "''",
    "dk:border-[#2DD4BF]": "''",
-   "dk:bg-[#102429]": "''",
    "dk:shadow-[0_4px_0_0_#071316]": "''"
   }
  },

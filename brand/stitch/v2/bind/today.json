@@ -78,7 +78,8 @@
    "href": "d.c.tgHref"
   },
   ":scope > main > div > section:nth-child(1) > div:nth-child(2)": {
-   "href": "'#/streak'"
+   "href": "'#/streak'",
+   "aria-label": "t('Chuỗi ngày học') + ': ' + d.c.streak"
   },
   ":scope > main > div > section:nth-child(1) > div:nth-child(3)": {
    "href": "'#/stats'"
@@ -216,9 +217,9 @@
    "justify-center": "'justify-end'",
    "p-2": "''",
    "lt:border-[#136B66]/60": "''",
-   "lt:bg-[#F4EFE6]": "''",
+   "lt:bg-[#FBF7F1]": "''",
    "dk:border-[#6BD8CE]/60": "''",
-   "dk:bg-[#0E1F24]": "''",
+   "dk:bg-[#122023]": "''",
    "dk:shadow-[0_3px_0_0_#071316]": "''"
   },
   ":scope > main > div > section:nth-child(7) > div:nth-child(2) > div:nth-child(2) > div": {

@@ -142,8 +142,10 @@
         let started = false;
         const start = () => {
           if (started) return; started = true; clearAll(); $('#mkSkip').remove(); $('#mkClock').textContent = '🔊';
-          $('#mkState').textContent = '🔊 ' + t('Đang phát – chỉ nghe 1 lần');
-          M.player = App.listening.Player(p, { onLine: i => { const l = p.script[i]; const n = $('#lNow'); if (n) n.textContent = !l || l.pause != null ? '' : l.say ? '🎙️ ' + t('Lời dẫn') : '🗣️ ' + ((p.speakers[l.s] || {}).name || ''); }, onEnd: () => { const s = $('#mkState'); if (s) s.textContent = '✓ ' + t('Hết phần nghe – kiểm tra đáp án'); const b = $('#mkNext'); if (b) b.disabled = false; } });
+          // Chỉ ghi "Đang phát" khi THẬT có tiếng (onSound); iOS chặn → nút ▶, lượt nghe 1 lần chưa bị tính (phát tiếp từ đúng câu)
+          $('#mkState').textContent = '⏳ ' + t('Đang tải…');
+          const blockedUI = () => { const s = $('#mkState'); if (!s) return; s.innerHTML = `<button class="btn primary" id="mkTap">▶ ${t('Chạm ▶ để nghe')}</button> <span class="small muted">${t('Âm thanh chưa phát được – chạm để nghe (chưa tính lượt nghe)')}</span>`; $('#mkTap').onclick = () => { s.textContent = '⏳ ' + t('Đang tải…'); M.player.play(); }; };
+          M.player = App.listening.Player(p, { onSound: () => { const s = $('#mkState'); if (s) s.textContent = '🔊 ' + t('Đang phát – chỉ nghe 1 lần'); }, onBlocked: blockedUI, onLine: i => { const l = p.script[i]; const n = $('#lNow'); if (n) n.textContent = !l || l.pause != null ? '' : l.say ? '🎙️ ' + t('Lời dẫn') : '🗣️ ' + ((p.speakers[l.s] || {}).name || ''); }, onEnd: () => { const s = $('#mkState'); if (s) s.textContent = '✓ ' + t('Hết phần nghe – kiểm tra đáp án'); const b = $('#mkNext'); if (b) b.disabled = false; } });
           M.player.play(0);
           setTimeout(() => { const b = $('#mkNext'); if (b) b.disabled = false; }, 30000);
         };

@@ -5,7 +5,7 @@
 import assert from 'node:assert/strict'; import fs from 'node:fs'; import vm from 'node:vm'; import { createRequire } from 'node:module';
 const LS = createRequire(import.meta.url)('../../web/js/call/lipsync.js');
 const c = { self: {} }; c.self = c; vm.createContext(c);
-for (const f of ['web/js/listen/kvoice.js', 'web/js/call/calls.js', 'web/js/call/calls-exam.js', 'web/js/lesson/stories.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), c);
+for (const f of ['web/js/listen/kvoice.js', 'web/js/call/calls.js', 'web/js/call/calls-exam.js', 'web/cpack/lesson/stories.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), c);
 const V = JSON.parse(fs.readFileSync('web/teach/characters.json', 'utf8')).people, T = new Map(); // khóa → câu (cùng cách lập như scripts/lipsync/call_cues.mjs)
 const add = (who, x) => { if (!x) return; who = V[who] ? who : 'ama'; const text = String(x).trim(); T.set(c.KVoice.lineKey(V[who].voice.app, text), text); };
 for (const k of c.CALLS || []) { const n = k.nodes ? Object.values(k.nodes) : (k.turns || []); for (const x of [...n.flatMap(n => [n.m, n.re, ...(n.br || []).map(b => b[1])]), k.end, "Let's keep our chat friendly and on topic!"]) add(k.who, x); }
