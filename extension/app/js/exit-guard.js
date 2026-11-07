@@ -210,7 +210,7 @@
   const F = document.fonts; if (F && F.addEventListener) { F.addEventListener('loadingdone', regrow); if (F.ready) F.ready.then(regrow, () => {}); }
 
   g.ExitGuard = {
-    isLearn, ALWAYS, WITH_ARG, NOT_LEARN,
+    isLearn, ALWAYS, WITH_ARG, NOT_LEARN, focusHash: h => flagOn() && learnHash(h),
     focusFor: (n, a, q) => flagOn() && isLearn(n, a, q), // route() đặt khung FOCUS ngay lúc chạm (after() chỉ còn là chốt)
     learn: name => extra.add(name),
     onSave: fn => saves.push(fn), // màn lưu được tiến độ → hộp hỏi báo "đã lưu"

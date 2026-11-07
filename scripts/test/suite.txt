@@ -82,6 +82,7 @@ node scripts/test/call-engine.mjs
 node scripts/test/feedback-eval.mjs
 node scripts/test/route-race.mjs
 node scripts/test/exit-guard.mjs
+node scripts/test/focus-early.mjs
 node scripts/test/review-done.mjs
 node scripts/test/league.mjs
 node scripts/test/speak-ipa.mjs
