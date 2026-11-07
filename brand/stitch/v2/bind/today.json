@@ -228,6 +228,9 @@
   ":scope > main > div > section:nth-child(10) > div:nth-child(3)": {
    "id": "'v2-pathfull'",
    "data-pathfull": "''"
+  },
+  ":scope > main > div > section:nth-child(10) > div:nth-child(2)": {
+   "data-pv": "'1'"
   }
  },
  "cls": {
