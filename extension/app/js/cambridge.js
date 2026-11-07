@@ -1,5 +1,5 @@
 /* Cambridge English A2 Key → C2 Proficiency (#/cambridge): danh sách đề theo cấp + phòng thi 3 bài (Reading & Writing · Listening · Speaking).
- * Dữ liệu: js/cambridge/<cấp>/t<N>.js (self.CAMBRIDGE) + js/cambridge/rubric.js (tiêu chí tự diễn đạt). Định dạng: docs/specs/cambridge.md.
+ * Dữ liệu: cpack/cambridge/<cấp>/t<N>.js (self.CAMBRIDGE) + cpack/cambridge/rubric.js (tiêu chí tự diễn đạt). Định dạng: docs/specs/cambridge.md.
  * Không CSS riêng: dùng khung câu hỏi QE (qengine.js, .lq-*), ChoiceKit, trình phát nghe (listening.js), ghi âm UI.recognize, chấm AI tùy chọn (ai.js), css/exam.css.
  * Mỗi đề có phần SẢN SINH: viết (đếm từ, kiểm ý bắt buộc, từ nối, bài mẫu, tiêu chí) và nói (nghe câu hỏi, trả lời, bản ghi, độ dài, lý do, câu mẫu). */
 (function () {
