@@ -26,6 +26,8 @@ When combined with systematic keyword identification and active pacing, these te
 
 Understanding exactly when to skim and when to scan prevents confusion and hesitation during the test.
 
+If this helps, our guide to [IELTS Reading time management](/en/blog/ielts-reading-time-management-strategies/) goes deeper.
+
 | Feature | Skimming | Scanning |
 |---|---|---|
 | **Primary Goal** | Understand main topic, tone, and paragraph functions | Pinpoint specific data, names, dates, or terms |

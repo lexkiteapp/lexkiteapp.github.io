@@ -67,6 +67,8 @@ Dans ce comparatif exhaustif et objectif, nous analysons point par point les for
 
 Avant d'entrer dans les subtilités pédagogiques, comparons les données fondamentales des deux certifications :
 
+À lire aussi : [notre guide du nouveau format TOEFL iBT 2026](/fr/blog/nouveau-format-toefl-ibt-2026/).
+
 | Critère | TOEFL iBT (Test of English as a Foreign Language) | IELTS Academic (International English Language Testing System) |
 | :--- | :--- | :--- |
 | **Organisme créateur** | ETS (États-Unis) | Cambridge Assessment, British Council, IDP (Royaume-Uni / Australie) |
