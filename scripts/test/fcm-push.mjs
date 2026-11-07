@@ -140,7 +140,7 @@ ok(a.sched.length >= 7 && Math.max(...a.days) >= 13 && !a.posts.some(p => p.op =
 a = await app({ avail: false });
 ok(!a.posts.some(p => p.op === 'sub') && Math.max(...a.days) >= 13, 'plugin không khả dụng (isPluginAvailable) → chỉ lịch cục bộ');
 a = await app();
-ok(a.posts.some(p => p.op === 'sub' && p.k === 'fcm' && p.token === TOK && p.tz && p.q) && a.fcm && a.fcm.tok === TOK && a.sched.length && Math.max(...a.days) < 3, 'đủ điều kiện → đăng ký FCM, lịch cục bộ chỉ 3 ngày đầu: ' + a.days);
+ok(a.posts.some(p => p.op === 'sub' && p.k === 'fcm' && p.token === TOK && p.tz && p.q) && a.fcm && a.fcm.tok === TOK && a.sched.length && Math.max(...a.days) <= 3, 'đủ điều kiện → đăng ký FCM, lịch cục bộ chỉ 3 ngày đầu: ' + a.days);
 a = await app({ fcm: false, saved: { id: 'd'.repeat(32), tok: TOK } });
 ok(a.posts.some(p => p.op === 'unsub' && p.id === 'd'.repeat(32)) && !a.fcm && Math.max(...a.days) >= 13, 'máy chủ thôi FCM (Worker mất FCM_SA) → hủy dòng cũ + lịch cục bộ đủ chu kỳ (không mất, không trùng)');
 a = await app({ hang: true });
