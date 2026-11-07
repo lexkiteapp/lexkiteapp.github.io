@@ -7928,15 +7928,17 @@
   },
   "blended learning#n": {
    "ex": "The university adopted blended learning for all first-year courses.",
-   "ps": "a teacher stands with a student while a laptop is seen from behind",
-   "sc": "a teacher stands with a student while a laptop is seen from behind",
-   "check": "Is there a mix of in-person teaching and remote video participation shown?",
-   "cap": "teacher with student and a laptop indicating online class",
+   "ps": "a teacher with students at desks in a classroom; a boy seen from behind at a desk wearing headphones",
+   "sc": "a teacher with students at desks in a classroom; a boy seen from behind at a desk wearing headphones",
+   "check": "Is there a mix of face‑to‑face and online study shown?",
+   "cap": "teacher with classroom pupils and a remote student wearing headphones",
+   "key": "students at desks in a classroom; boy seen from behind wearing headphones",
    "who": 2,
    "draw": 4,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b",
-   "tries": 2
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "blender#n": {
    "ex": "Tom poured milk into the blender.",

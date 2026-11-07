@@ -52,6 +52,7 @@ node scripts/test/criteria.mjs
 node scripts/test/quiz.mjs
 node scripts/test/notices.mjs
 node scripts/test/classroom.mjs
+node scripts/test/community-api.mjs
 node scripts/test/user-mgmt.mjs
 node scripts/test/users-bulk.mjs
 node scripts/test/account-delete.mjs
@@ -249,6 +250,7 @@ node scripts/test/dict-pages.mjs
 node scripts/test/dict-stage.mjs
 node scripts/test/native-auth.mjs
 node scripts/test/ota.mjs
+node scripts/test/crashlytics.mjs
 node scripts/test/deep-links.mjs
 node scripts/test/stories.mjs
 node scripts/content-qa/exam-format-check.mjs
@@ -334,3 +336,4 @@ node scripts/test/android-xml-comments.mjs
 node scripts/test/retry5xx.mjs
 node scripts/test/sparse-imports.mjs
 node scripts/test/is-main-guard.mjs
+node scripts/test/heavy-rerun.mjs
