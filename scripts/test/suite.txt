@@ -52,6 +52,7 @@ node scripts/test/criteria.mjs
 node scripts/test/quiz.mjs
 node scripts/test/notices.mjs
 node scripts/test/classroom.mjs
+node scripts/test/community-api.mjs
 node scripts/test/user-mgmt.mjs
 node scripts/test/users-bulk.mjs
 node scripts/test/account-delete.mjs
@@ -132,6 +133,7 @@ node scripts/test/ci-hog.mjs
 node scripts/test/queue-report.mjs
 node scripts/test/reminders.mjs
 node scripts/test/notify-ux.mjs
+node scripts/test/fcm-push.mjs
 node scripts/test/focus-targets.mjs
 node --check scripts/test/journey-e2e.mjs
 node scripts/push-copy.mjs --check
@@ -248,6 +250,7 @@ node scripts/test/dict-pages.mjs
 node scripts/test/dict-stage.mjs
 node scripts/test/native-auth.mjs
 node scripts/test/ota.mjs
+node scripts/test/crashlytics.mjs
 node scripts/test/deep-links.mjs
 node scripts/test/stories.mjs
 node scripts/content-qa/exam-format-check.mjs
