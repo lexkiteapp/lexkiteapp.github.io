@@ -100,6 +100,7 @@ assert.match(fs.readFileSync('.github/workflows/ci-triage.yml', 'utf8'), /\.gith
   assert.ok(!activeWorkflows([{ ...old }], now).size && activeWorkflows([{ ...old, created_at: '2026-11-03T22:30:00Z' }], now).has('d1-usage-watch.yml'), 'ci-filler không coi zombie là đang chạy');
   // 05/11: zombie > 24 giờ mà cancel + force-cancel đều 409 → DELETE (lượt 26/10 nằm 10 ngày vì issue chỉ ghi "chỉ còn DELETE")
   const del = [], gh3 = async (p, o = {}) => { if (o.method) del.push(`${o.method} ${p}`);
+    if (p === '/actions/runs/9') return del.includes('DELETE /actions/runs/9') ? null : { id: 9, status: 'queued' };
     if (p.startsWith('/actions/runs?status=queued')) return { workflow_runs: [{ ...old, id: 9, created_at: '2026-10-26T04:23:15Z' }] };
     if (p.endsWith('/9/jobs?per_page=1')) return { total_count: 0 };
     if (/\/9\/(force-)?cancel$/.test(p)) throw new Error('GitHub POST /x → 409');
