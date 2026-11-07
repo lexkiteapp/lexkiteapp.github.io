@@ -23,6 +23,7 @@ Thay bằng `location.replace`, để nút Back không kẹt vòng lặp. Đổi
 
 - Mỗi bước có hash riêng `#/welcome/setup?s=<bước>`, nên Back hệ thống và vuốt iOS đi đúng một bước, tải lại vẫn đúng màn.
 - Back hoặc X trên top-bar ≥ 44 px ở mọi bước, Esc cũng lùi. Bước đầu lùi về Welcome.
+- **Lời mời bài đầu vào (Đợt 1 #7):** chưa chọn trình độ (hoặc chọn "kiểm tra") → `ready` → lời mời 5 phút ở `#/placement` (Ama qua `Chars.slot`, Bắt đầu + **Bỏ qua**). Bỏ qua → Hôm nay, chặng đầu. Làm xong → chặng theo kết quả (`Tracks.start`), thêm ≤10 từ đúng CEFR từ vựng vào bộ thẻ, nút về Hôm nay. Đã chọn trình độ tay → vào thẳng Ngày 1, không mời. Cờ phiên `lk.plInv` (onboard.js ghi, placement.js xóa).
 - **Không hỏi lại:** có `settings.placement` (làm bài đầu vào từ Welcome) thì bước `level` ghi sẵn kết quả, được đổi nếu muốn. `settings.exam` và `examTarget` hợp thang thì chọn sẵn.
 - **Bài đầu vào từ Welcome khi chưa thiết lập:** nút cuối của kết quả đi `#/welcome/setup`, không đi `#/home` (bản cũ về Home chưa có mục tiêu, tải lại thì quay về Welcome). Đã thiết lập thì vẫn `#/home`.
 - **`#/style` từ Welcome:** không đổi logic; Back về Welcome, không chặn thiết lập.

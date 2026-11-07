@@ -758,4 +758,8 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
   'so với cả tuần trước': 'vs. all of last week',
   // ← en/streak.js
   'Ngày đóng băng (chuỗi được bảo toàn)': 'Streak freeze day (streak preserved)',
+  // ← kiểm tra đầu vào trong thiết lập lần đầu (placement.js lời mời)
+  'Làm bài 5 phút để mình xếp bạn vào đúng chặng và chọn bộ từ vừa sức nhé!': 'Take this 5-minute test so I can place you at the right stage and pick words at your level!',
+  'Bỏ qua thì bạn học từ chặng đầu – làm bài sau ở Hôm nay cũng được.': 'If you skip, you start from the first stage – you can take the test later from Today.',
+  'Đã thêm {n} từ hợp trình độ {cefr} vào bộ thẻ.': 'Added {n} words at your {cefr} level to your deck.',
 }); })(typeof self !== 'undefined' ? self : this);

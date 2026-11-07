@@ -315,6 +315,7 @@ node scripts/test/required-gate-stale.mjs
 node scripts/test/origin-fetch.mjs
 node scripts/test/story-stage.mjs
 node scripts/test/teacher-bubble.mjs --static
+node scripts/test/teacher-mood.mjs --static
 node scripts/test/voice-source.mjs
 node scripts/test/side-menu.mjs
 node scripts/test/site-footer.mjs
