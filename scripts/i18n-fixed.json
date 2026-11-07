@@ -36329,5 +36329,20 @@
     "ar": "تمت إضافة {n} كلمات بمستواك {cefr} إلى مجموعتك.",
     "ru": "В колоду добавлено слов вашего уровня {cefr}: {n}.",
     "tr": "Destene {cefr} seviyende {n} kelime eklendi."
+  },
+  "Tìm ngôn ngữ": {
+    "es": "Buscar idioma",
+    "pt": "Pesquisar idioma",
+    "fr": "Rechercher une langue",
+    "de": "Sprache suchen",
+    "id": "Cari bahasa",
+    "th": "ค้นหาภาษา",
+    "zh": "搜索语言",
+    "ja": "言語を検索",
+    "ko": "언어 검색",
+    "hi": "भाषा खोजें",
+    "ar": "ابحث عن لغة",
+    "ru": "Поиск языка",
+    "tr": "Dil ara"
   }
 }

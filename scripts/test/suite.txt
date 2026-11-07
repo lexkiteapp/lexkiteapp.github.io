@@ -217,6 +217,7 @@ node scripts/build-landing.mjs --check
 node scripts/test/landing-routing.mjs
 node scripts/test/landing-v3.mjs
 node scripts/test/sw-cache-fixed.mjs
+node scripts/test/sw-storage.mjs
 node scripts/test/get-app.mjs
 node scripts/test/brand-check.mjs
 node scripts/test/token-contrast.mjs
@@ -293,6 +294,15 @@ node scripts/test/ext-newtab-quiz.mjs
 node scripts/test/teacher-rig.mjs
 node scripts/test/workflow-yaml.mjs
 node scripts/test/samples-seo-parity.mjs --self-test
+node scripts/native/gen.mjs --check
+node scripts/test/native-one-source.mjs --self-test
+node scripts/test/native-one-source.mjs
+node scripts/test/native-parity.mjs
+node scripts/test/sync-cross-client.mjs
+node scripts/test/native-compat.mjs
+node scripts/native/content-publish.mjs check
+node scripts/test/native-pick-sim.mjs
+node scripts/test/native-visual.mjs --self-test
 node scripts/test/lip-clock.mjs
 node scripts/test/teacher-quality.mjs --static
 node scripts/test/legal-i18n.mjs
@@ -314,3 +324,5 @@ node scripts/test/pr-unconflict.mjs
 node scripts/test/main-red-sweep.mjs
 node scripts/test/ci-queue-gate.mjs
 node scripts/test/android-xml-comments.mjs
+node scripts/test/retry5xx.mjs
+node scripts/test/sparse-imports.mjs

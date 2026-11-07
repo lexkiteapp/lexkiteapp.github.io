@@ -117,6 +117,7 @@ jobs:
         uses: actions/cache@v4
         with: { path: '~/.cache/huggingface', key: vimg-judge-models-v1 }
       - name: Cài giám khảo cục bộ (CPU)
+        timeout-minutes: 12
         if: steps.lease.outputs.skip != '1'
         run: |
           sudo apt-get install -y -qq tesseract-ocr librsvg2-bin >/dev/null
@@ -198,6 +199,7 @@ jobs:
         uses: actions/cache@v4
         with: { path: '~/.cache/huggingface', key: vimg-judge-models-v1 }
       - name: Cài giám khảo cục bộ (CPU)
+        timeout-minutes: 12
         if: steps.lease.outputs.skip != '1'
         run: |
           sudo apt-get install -y -qq tesseract-ocr librsvg2-bin >/dev/null
@@ -299,6 +301,7 @@ jobs:
         if: steps.lease.outputs.skip != '1'
         with: { path: '~/.cache/huggingface', key: vimg-judge-models-v1 }
       - name: Cài giám khảo cục bộ (CPU)
+        timeout-minutes: 12
         if: steps.lease.outputs.skip != '1'
         run: |
           sudo apt-get install -y -qq tesseract-ocr librsvg2-bin >/dev/null
@@ -387,6 +390,7 @@ jobs:
           sudo apt-get install -y -qq tesseract-ocr librsvg2-bin fonts-dejavu-core >/dev/null
           pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.4.1 torchvision==0.19.1
           pip install -q open_clip_torch==2.26.1 transformers==4.51.3 sentence-transformers==3.4.1 num2words==0.5.14 imagehash==4.3.1 pytesseract==0.3.13 pillow-avif-plugin==1.4.6 'numpy<2'
+        timeout-minutes: 12
       - name: Chấm lại bằng giám khảo kép + tờ soát
         env: { GH_TOKEN: '${{ github.token }}' }
         run: |
@@ -416,6 +420,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
       - run: sudo apt-get install -y -qq librsvg2-bin fonts-dejavu-core >/dev/null && pip install -q pillow==11.3.0 pillow-avif-plugin==1.4.6 'numpy<2'
+        timeout-minutes: 12
       - uses: actions/download-artifact@v4
         with: { pattern: 'vimg-fill-[0-9]*', path: parts }
       - name: Gộp + mã hoá ≤ 6 KB + tờ ảnh 40 ảnh nhận
@@ -464,7 +469,7 @@ jobs:
           { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }
           G=$(node scripts/vocab-img/scene.mjs --gaps 1 --shard 0/1 | node -p "JSON.parse(require('fs').readFileSync(0,'utf8')).items.length")
           [ "$G" -gt 0 ] || { echo "✓ không còn nghĩa thiếu ảnh (trừ hàng chờ) – dừng chuỗi"; exit 0; }
-          gh workflow run vocab-img-scene.yml -R ${{ github.repository }} --ref main -f mode=fill -f shards=10 -f max_gc=6000 -f variants=6 -f provider=cf
+          bash scripts/ci/gh-retry.sh gh workflow run vocab-img-scene.yml -R ${{ github.repository }} --ref main -f mode=fill -f shards=10 -f max_gc=6000 -f variants=6 -f provider=cf
           echo "↻ đã gọi lượt fill kế tiếp"
   labfeat:
     # đặc trưng giám khảo CẢNH (CLIP↔câu, chú thích↔câu, thị giác có/không) cho ảnh của lượt cũ đã gán nhãn – đầu vào calibrate_scene.py
@@ -508,6 +513,7 @@ jobs:
           pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.4.1 torchvision==0.19.1
           pip install -q open_clip_torch==2.26.1 transformers==4.51.3 sentence-transformers==3.4.1 num2words==0.5.14 imagehash==4.3.1 pytesseract==0.3.13 pillow-avif-plugin==1.4.6 'numpy<2'
           { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }
+        timeout-minutes: 12
       - uses: actions/download-artifact@v4
         if: steps.lease.outputs.skip != '1'
         with: { name: vimg-scene-final, path: lab, run-id: '${{ github.event.inputs.lab_run }}', github-token: '${{ github.token }}' }
@@ -534,6 +540,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
       - run: sudo apt-get install -y -qq librsvg2-bin fonts-dejavu-core >/dev/null && pip install -q pillow==11.3.0 'numpy<2'
+        timeout-minutes: 12
       - uses: actions/download-artifact@v4
         with: { pattern: 'vimg-scene-[0-9]*', path: parts, run-id: '${{ github.event.inputs.from_run || github.run_id }}', github-token: '${{ github.token }}' }
       - name: Gộp + mã hoá ≤ 6 KB + tờ ảnh
