@@ -14,6 +14,7 @@
   "web/js/roleplay.js": { "groups": ["roleplay"], "dynamic": "câu trả lời AI tự do + câu 'nói hay hơn' do AI viết" },
   "web/js/mock.js": { "groups": ["mock-speaking", "speaking-questions"] },
   "web/js/speaking.js": { "groups": ["speaking-questions", "speaking-samples"] },
+  "web/js/cambridge.js": { "groups": ["cambridge-speaking"] },
   "web/js/toefl.js": { "groups": ["toefl-speaking", "toefl-models"] },
   "web/js/toeic.js": { "groups": ["toeic-speaking", "ui-lines"] },
   "web/js/reading.js": { "groups": ["readings"] },
