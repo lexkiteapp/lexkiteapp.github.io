@@ -15,7 +15,7 @@
     return k;
   }
   const setKey = async k => { await Store.set('aiKey', k); if (bridge()) try { await bridge().call('aiKeySet', { aiKey: k }); } catch (e) { /* bỏ qua */ } };
-  const SYS = `You are a certified senior IELTS examiner. Assess strictly according to the official public IELTS band descriptors. Be accurate, not generous: short or off-topic answers must receive low bands. Write all comments, explanations and advice in Vietnamese (clear, encouraging, specific). Quote the learner's exact words when pointing out errors. Return ONLY valid JSON matching the requested schema.`;
+  const SYS = `You are a certified senior IELTS examiner. Assess strictly according to the official public IELTS band descriptors. Be accurate, not generous: short or off-topic answers must receive low bands. Write all comments, explanations and advice in Vietnamese (clear, encouraging, specific). Read the response sentence by sentence and find every grammatical error before scoring; quote the learner's exact words when pointing out errors. Write plain text inside the JSON strings (no markdown, no asterisks or bold). Return ONLY valid JSON matching the requested schema.`;
   const SCHEMA = kind => `JSON schema:
 {
   "overall": number (IELTS band, multiple of 0.5),
@@ -23,11 +23,19 @@
   "summary": string (Vietnamese, 2-3 sentences overall verdict),
   "strengths": [string] (Vietnamese, 2-4 items),
   "improvements": [string] (Vietnamese, 3-5 concrete actions),
-  "errors": [ { "quote": string (exact learner text), "fix": string (corrected English), "why": string (Vietnamese) } ] (up to 8 most important grammar/vocabulary errors),
+  "errors": [ { "quote": string (exact learner text, short: only the words that are wrong plus 1-3 words around them), "fix": string (the same words corrected), "why": string (Vietnamese) } ] (up to 12: list EVERY grammar error first – subject-verb agreement, verb form/tense, articles, plurals/countability, prepositions, word form, word order, conditionals – one item per error, then the most important vocabulary errors),
   "vocab": [ { "from": string, "to": string (more precise/academic alternative), "note": string (Vietnamese) } ] (up to 6),
   "${kind === 'speaking' ? 'sample' : 'rewrite'}": string (${kind === 'speaking' ? 'a natural band 8 answer to the last question, 80-140 words' : 'the learner\'s weakest paragraph rewritten at band 8, keeping their ideas'})
 }
 Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion, Lexical Resource, Grammatical Range and Accuracy' : kind === 'task2' ? 'Task Response, Coherence and Cohesion, Lexical Resource, Grammatical Range and Accuracy' : 'Fluency and Coherence, Lexical Resource, Grammatical Range and Accuracy (Pronunciation cannot be assessed from a transcript: do not include it)'}.`;
+
+  // Lời giải theo NGÔN NGỮ NGƯỜI HỌC (15 ngôn ngữ, I18N.learnLang) – mọi lời nhắn (SYS/SCHEMA, AI.ask của toeic/toefl/fixer/assist…) viết mẫu "Vietnamese"
+  // → thay bằng tên tiếng Anh của ngôn ngữ người học ngay trước khi gửi máy chủ / khóa riêng (03/11: trước đây người học es/ja/ar… nhận lời giải tiếng Việt).
+  const learnName = () => { try { const L = I18N.learnLang(); return L === 'vi' ? 'Vietnamese' : ((I18N.LANGS[L] || ['English'])[0]); } catch (e) { return 'Vietnamese'; } };
+  const forLang = (p, n = learnName()) => (n === 'Vietnamese' ? p : String(p).replace(/\bVietnamese\b/g, n));
+  const gradeBody = (kind, task, text, extra = '') => kind === 'speaking'
+    ? `Assess this IELTS Speaking performance. The answers are an automatic speech-recognition transcript: capitalisation, punctuation and sentence boundaries come from the machine, not the speaker – ignore them completely, never list them as errors and never lower a band for them; judge only what was said (grammar, vocabulary, fluency, coherence, length and development of ideas), as a live examiner would. Questions and answers:\n${text}\n\n${SCHEMA(kind)}`
+    : `IELTS Writing ${kind === 'task1' ? 'Task 1 (Academic)' : 'Task 2'} question:\n"""${task}"""\n${extra ? `Data for Task 1:\n${extra}\n` : ''}\nCandidate's response (${(text.match(/[A-Za-z][A-Za-z'’-]*/g) || []).length} words):\n"""${text}"""\n\n${SCHEMA(kind)}`;
 
   // Tự dò danh sách mô hình Gemini hiện có (Google hay đổi/ngừng mô hình cũ) – lưu 3 ngày
   async function discover(key) {
@@ -126,7 +134,7 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
     const h = { 'Content-Type': 'application/json', 'X-Lexkite-Device': UI.dev() };
     try { if (window.Sync && Sync.user) h.Authorization = 'Bearer ' + await Sync.user.getIdToken(); } catch (e) { /* chưa đăng nhập: hạn mức khách */ }
     const ctrl = new AbortController(), to = setTimeout(() => ctrl.abort(), 60000);
-    let r; try { r = await fetch(PROXY, { method: 'POST', headers: h, signal: ctrl.signal, body: JSON.stringify({ prompt, sys: SYS }) }); } finally { clearTimeout(to); }
+    let r; try { r = await fetch(PROXY, { method: 'POST', headers: h, signal: ctrl.signal, body: JSON.stringify({ prompt: forLang(prompt), sys: forLang(SYS) }) }); } finally { clearTimeout(to); }
     const j = await r.json().catch(() => ({}));
     if (r.status === 429) throw Object.assign(new Error('PROXY_QUOTA'), { q: j });
     if (!r.ok || !j.out) throw new Error('FAILED');
@@ -149,8 +157,8 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
       const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 60000);
       try {
         const r = await fetch(API(m, key), { method: 'POST', signal: ctrl.signal, headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key }, body: JSON.stringify({
-          systemInstruction: { parts: [{ text: SYS }] },
-          contents: [{ role: 'user', parts: [{ text: prompt }] }],
+          systemInstruction: { parts: [{ text: forLang(SYS) }] },
+          contents: [{ role: 'user', parts: [{ text: forLang(prompt) }] }],
           generationConfig: { responseMimeType: 'application/json', temperature: 0.2, maxOutputTokens: 4096 },
         }) });
         clearTimeout(t);
@@ -171,12 +179,10 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
 
   // kind: 'task1' | 'task2' | 'speaking'; task: đề bài (chuỗi); text: bài làm / bản chữ
   async function grade({ kind, task, text, extra = '' }) {
-    const id = kind + ':' + hash(task + '|' + text);
+    const id = kind + ':' + learnName() + ':' + hash(task + '|' + text); // đổi ngôn ngữ người học → chấm lại (lời giải đúng ngôn ngữ)
     const cache = await Store.get('aiCache', {});
     if (cache[id]) return cache[id];
-    const body = kind === 'speaking'
-      ? `Assess this IELTS Speaking performance (machine transcript, punctuation may be missing). Questions and answers:\n${text}\n\n${SCHEMA(kind)}`
-      : `IELTS Writing ${kind === 'task1' ? 'Task 1 (Academic)' : 'Task 2'} question:\n"""${task}"""\n${extra ? `Data for Task 1:\n${extra}\n` : ''}\nCandidate's response (${(text.match(/[A-Za-z][A-Za-z'’-]*/g) || []).length} words):\n"""${text}"""\n\n${SCHEMA(kind)}`;
+    const body = gradeBody(kind, task, text, extra);
     const res = (await localAI(kind, body, text)) || await call(body);
     const keys = Object.keys(cache); if (keys.length >= 20) delete cache[keys[0]];
     cache[id] = { ...res, at: Date.now() };
@@ -349,5 +355,5 @@ Return ONLY JSON: {"meaning": string (Vietnamese meaning in THIS context), "stru
       ${x.tip ? `<div class="small" style="margin-top:.35rem">${UI.icon('lightbulb')} ${esc(x.tip)}</div>` : ''}</div>`;
   }
 
-  window.AI = { localGrade, ask: p => call(p), askLocal, localOn, badge, nanoStatus, onNanoProgress: f => { nanoProgress = f; nanoOptIn = true; }, explain, renderExplain, errText: e => errText(e), getKey, grade, attach, keyDialog, settingsHtml, bindSettings };
+  window.AI = { _p: { SYS, SCHEMA, gradeBody, forLang }, localGrade, ask: p => call(p), askLocal, localOn, badge, nanoStatus, onNanoProgress: f => { nanoProgress = f; nanoOptIn = true; }, explain, renderExplain, errText: e => errText(e), getKey, grade, attach, keyDialog, settingsHtml, bindSettings };
 })();

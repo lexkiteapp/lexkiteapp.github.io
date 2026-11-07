@@ -1,0 +1,557 @@
+{
+ "_note": "Bộ golden chấm IELTS (docs/AI-CHAIN.md §Golden): mỗi bài có lỗi đã biết (q = chữ phải xuất hiện trong errors[].quote, fix = chữ phải có trong errors[].fix) và band kỳ vọng (giám khảo, ±0,5). Tự biên soạn 100%. lang = ngôn ngữ người học (lời giải phải đúng ngôn ngữ).",
+ "cases": [
+  {
+   "id": "t2-probe",
+   "kind": "task2",
+   "task": "Some people believe that university education should be free for everyone. To what extent do you agree or disagree?",
+   "text": "Nowadays many people thinks that university education should be free for everyone. I am agree with this opinion because education are important for the development of a country. First, when students do not pay fees, more young people can go to university and it help the society to grow. Second, poor families cannot afford high tuition, so talented children lose their chance to study. However, the government need a lot of money to pay for this. In conclusion, I believe free university is a good idea.",
+   "extra": "",
+   "band": 4.5,
+   "lang": "vi",
+   "errors": [
+    {
+     "q": "thinks",
+     "fix": "think"
+    },
+    {
+     "q": "am agree",
+     "fix": "i agree|agree"
+    },
+    {
+     "q": "education are",
+     "fix": "is"
+    },
+    {
+     "q": "it help",
+     "fix": "helps"
+    },
+    {
+     "q": "government need",
+     "fix": "needs"
+    }
+   ]
+  },
+  {
+   "id": "t2-home",
+   "kind": "task2",
+   "task": "More and more people now work from home. Do the advantages of this trend outweigh the disadvantages?",
+   "text": "In recent years, the number of employees who work from home has grown rapidly, especially after the pandemic. While this trend brings some drawbacks, I believe its benefits are more significant.\n\nOn the one hand, working from home saves a great deal of time and money. Employees no longer spend hours in traffic, so less people are stressed before the working day even starts. In many cities, commuting costs have been increased sharply over the last decade, and avoiding them makes a real difference to a family budget. Moreover, companies can reduce the cost of renting large offices, which allows them to invest in better technology.\n\nOn the other hand, critics often discuss about the loneliness of remote workers. Without colleagues around them, some people feel isolated and find it harder to separate their job from their private life. In addition, employees sometimes receive a lot of informations through emails and chat apps, which can be overwhelming and reduce productivity.\n\nHowever, these problems can be solved. Whether remote work is successful or not depend of how well managers organise communication. Regular video meetings and clear working hours help employees stay connected and keep a healthy balance.\n\nIn conclusion, although working from home can make people feel lonely, the savings in time and money, together with greater flexibility, mean that the advantages clearly outweigh the disadvantages.",
+   "extra": "",
+   "band": 6.0,
+   "lang": "es",
+   "errors": [
+    {
+     "q": "less people",
+     "fix": "fewer"
+    },
+    {
+     "q": "have been increased",
+     "fix": "increased"
+    },
+    {
+     "q": "discuss about",
+     "fix": "discuss"
+    },
+    {
+     "q": "informations",
+     "fix": "information"
+    },
+    {
+     "q": "depend of",
+     "fix": "depends on|depend on"
+    }
+   ]
+  },
+  {
+   "id": "t2-tourism",
+   "kind": "task2",
+   "task": "International tourism has brought enormous benefits to many places. At the same time, there is concern about its impact on local inhabitants and the environment. Do the disadvantages of international tourism outweigh the advantages?",
+   "text": "International tourism is now one of the largest industries in the world, and in many countries the number of foreign visitors have risen dramatically over the past twenty years. Although mass tourism undoubtedly creates environmental and social problems, I would argue that its economic and cultural benefits are greater.\n\nThe most obvious advantage is economic. Tourism generates jobs not only in hotels and restaurants but also in transport, retail and crafts, and it often brings income to remote regions that have few other industries. Furthermore, contact between visitors and local people can broaden horizons on both sides and encourage mutual understanding.\n\nNevertheless, the drawbacks cannot be ignored. Popular destinations such as Venice or Bali suffer from overcrowding, rising housing costs and pollution, and the tourism industry is largely responsible of the damage to fragile coral reefs. In some cases, an unique local culture is reduced to a performance staged for foreigners.\n\nThese problems, however, are largely the result of poor management rather than of tourism itself. Governments can limit visitor numbers, introduce tourist taxes and reinvest the revenue in conservation, as Bhutan has done successfully for decades.\n\nIn conclusion, while international tourism can harm communities and ecosystems, these effects can be controlled through sensible regulation, and so the advantages outweigh the disadvantages.",
+   "extra": "",
+   "band": 7.0,
+   "lang": "vi",
+   "errors": [
+    {
+     "q": "have risen",
+     "fix": "has risen"
+    },
+    {
+     "q": "responsible of",
+     "fix": "responsible for"
+    },
+    {
+     "q": "an unique",
+     "fix": "a unique"
+    }
+   ]
+  },
+  {
+   "id": "t2-kids",
+   "kind": "task2",
+   "task": "Children today spend too much time on computers and smartphones. What problems does this cause, and what can be done to solve them?",
+   "text": "Nowadays children spends many hours every day on computers and smartphones. This situation cause several problems, but there are some solutions.\n\nFirst, using devices too much is bad for children health. They sit for a long time and they doesn't do exercise, so many of them become overweight. Also, looking at a screen for hours is harmful for their eyes. Second, children who play games all day have less time for to learn and their results at school become worse.\n\nIn the other hand, there are some ways to solve these problems. Parents should limit the time their children use phones, for example one hour per day. It is more easier to control if parents also put their phones away during family time. Schools can also organise more sport activities so students have fun without technology. However, the most of parents are very busy and they do not have time to check what their children do online.\n\nIn conclusion, technology is useful but children should use it carefully. Parents and schools must work together to help children.",
+   "extra": "",
+   "band": 5.0,
+   "lang": "vi",
+   "errors": [
+    {
+     "q": "children spends",
+     "fix": "spend"
+    },
+    {
+     "q": "they doesn't",
+     "fix": "don't"
+    },
+    {
+     "q": "for to learn",
+     "fix": "to learn"
+    },
+    {
+     "q": "in the other hand",
+     "fix": "on the other hand"
+    },
+    {
+     "q": "more easier",
+     "fix": "easier"
+    },
+    {
+     "q": "the most of parents",
+     "fix": "most parents|most of the parents"
+    }
+   ]
+  },
+  {
+   "id": "t2-transport",
+   "kind": "task2",
+   "task": "Some people think governments should spend money on improving public transport, while others believe building more roads is the better solution. Discuss both views and give your opinion.",
+   "text": "Traffic congestion has become a serious problem in almost every major city. Some people argue that the best response is to build new roads, whereas others believe that governments should invest more money on public transport. In my opinion, the second approach is far more effective.\n\nThose who support road building point out that many people still prefer to travel by car because it is convenient and flexible. Wider roads and new motorways can reduce journey times, at least in the short term, and they are essential for delivering goods. In rural areas, where buses are infrequent, roads are often the only realistic option.\n\nHowever, experience in cities such as Los Angeles shows that new roads tend to attract even more cars, so the traffic jams is soon as bad as before. Public transport, by contrast, can move large numbers of people using much less space and energy. A modern metro system benefits people who lives far from the city centre and cannot afford a car, and it also reduces air pollution, which is a major cause of respiratory disease.\n\nTherefore, I believe that governments should give priority to buses, trams and trains. If investment is combined with reasonable ticket prices, it will be helped to change people's habits over time.\n\nIn conclusion, although roads remain necessary in some places, a well-funded public transport network is the most sustainable solution to urban congestion.",
+   "extra": "",
+   "band": 6.5,
+   "lang": "vi",
+   "errors": [
+    {
+     "q": "invest more money on",
+     "fix": "money in|invest more in|investing more in"
+    },
+    {
+     "q": "traffic jams is",
+     "fix": "jams are|jam is|traffic is|congestion is"
+    },
+    {
+     "q": "people who lives",
+     "fix": "who live"
+    },
+    {
+     "q": "it will be helped",
+     "fix": "will help"
+    }
+   ]
+  },
+  {
+   "id": "t2-ads",
+   "kind": "task2",
+   "task": "Advertising encourages people to buy things they do not need. To what extent do you agree or disagree?",
+   "text": "Advertisement make a big influence on our daily life. Many people say that it encourages us to buy things what we do not really need. I mostly agree with this opinion.\n\nFirstly, companies spend huge amounts of money on advertising since many years, and their aim is to sell as many products as possible. Advertisements often show beautiful and happy people using a product, so viewers think they will be happy too if they buy it. For example, young people often buy the newest smartphone even though their old phone still works well. This is because advertisements persuade people buying new things all the time.\n\nSecondly, online advertising is now everywhere. When we use social media, we see adverts which are based on our searches, so it is very difficult to avoid them. As a result, people spend more money than they planned.\n\nHowever, advertising also has some advantages. It gives information about new products and helps small businesses to find customers. If companies would stop advertising, many people would not know about useful products.\n\nIn conclusion, although advertising can be useful, I believe it often makes people buy unnecessary things, so consumers should think carefully before shopping.",
+   "extra": "",
+   "band": 5.5,
+   "lang": "vi",
+   "errors": [
+    {
+     "q": "advertisement make",
+     "fix": "advertisements|advertising"
+    },
+    {
+     "q": "things what",
+     "fix": "things that"
+    },
+    {
+     "q": "since many years",
+     "fix": "for many years"
+    },
+    {
+     "q": "persuade people buying",
+     "fix": "to buy"
+    },
+    {
+     "q": "would stop",
+     "fix": "stopped"
+    }
+   ]
+  },
+  {
+   "id": "t2-arts",
+   "kind": "task2",
+   "task": "Some people think that governments should fund the arts, such as music and theatre, while others think this money should be spent on public services. Discuss both views and give your opinion.",
+   "text": "Whether public money should support the arts or be directed to services such as healthcare and education is a long-standing debate. While I accept that essential services must come first, I believe that a modest level of arts funding is fully justified.\n\nThose who oppose state subsidies for the arts argue that resources are limited and that every citizens deserves timely medical treatment and well-equipped schools before taxpayers pay for opera houses. From this perspective, theatres and orchestras should be financed by ticket sales or private sponsors, since only a minority of the population attends them regularly.\n\nHowever, this view underestimates the wider value of culture. Theatres, museums and music festivals attract tourists, create employment and regenerate run-down districts, as the Guggenheim Museum famously did for Bilbao. Moreover, art plays a vital role in preserving national identity and encouraging critical thinking. Without public support, many art forms that cannot compete commercially would simply disappear, because neither the market or private donors can be relied upon to sustain them.\n\nIn my view, the solution lies in balance. Governments should allocate the vast majority of their budgets to public services, but a small, carefully targeted share for the arts brings social and economic returns that far exceed its cost.\n\nIn conclusion, although public services are clearly the priority, the arts also deserve government funding because of their cultural, social and economic benefits.",
+   "extra": "",
+   "band": 7.5,
+   "lang": "vi",
+   "errors": [
+    {
+     "q": "every citizens",
+     "fix": "every citizen|all citizens"
+    },
+    {
+     "q": "neither the market or",
+     "fix": "nor"
+    }
+   ]
+  },
+  {
+   "id": "t2-city",
+   "kind": "task2",
+   "task": "Many people move from the countryside to cities. Why do they do this, and is it a positive or negative development?",
+   "text": "Now many peoples move from countryside to city. I think there is many reasons for this.\n\nFirst, in the city people can to find a good job and earn more money. My cousin is an example. Yesterday he tell me he earn double in Ho Chi Minh City. Second, city has good school and hospital for children.\n\nBut living in city have problems. The house is expensive and traffic is very bad. Life in countryside is more cheaper and more quiet.\n\nIn my opinion this is positive because people have better life. But government should help countryside also.",
+   "extra": "",
+   "band": 4.0,
+   "lang": "vi",
+   "errors": [
+    {
+     "q": "peoples",
+     "fix": "people"
+    },
+    {
+     "q": "there is many",
+     "fix": "there are"
+    },
+    {
+     "q": "can to find",
+     "fix": "can find"
+    },
+    {
+     "q": "he tell",
+     "fix": "told"
+    },
+    {
+     "q": "city have problems",
+     "fix": "has"
+    },
+    {
+     "q": "more cheaper",
+     "fix": "cheaper"
+    }
+   ]
+  },
+  {
+   "id": "t2-online",
+   "kind": "task2",
+   "task": "Online learning is becoming increasingly common. Do you think the advantages of studying online outweigh the disadvantages?",
+   "text": "Over the last few years, online learning has became a normal part of education for millions of students around the world. In my opinion, despite some serious limitations, its advantages outweigh its disadvantages.\n\nThe greatest benefit of online courses is flexibility. Learners can study whenever and wherever they want, which is especially important for adults who have jobs or young children. In addition, online platforms give access to lectures from top universities, so students in remote areas can gain the knowledges that were previously available only in big cities. Online courses are also usually much cheaper than traditional programmes.\n\nOn the other hand, studying alone in front of a screen can be demotivating. Students do not have many chances to interact each other, and some of them give up before finishing the course. Furthermore, practical subjects such as medicine or engineering require laboratory work that cannot be done at home.\n\nNevertheless, these problems can be reduced. Many universities now combine online lectures with face-to-face workshops, and discussion forums help learners stay in contact. Despite of its weaknesses, online learning makes education more accessible than ever before.\n\nIn conclusion, although online study requires self-discipline and is not suitable for every subject, its flexibility, low cost and accessibility make it a positive development.",
+   "extra": "",
+   "band": 6.0,
+   "lang": "vi",
+   "errors": [
+    {
+     "q": "has became",
+     "fix": "has become"
+    },
+    {
+     "q": "knowledges",
+     "fix": "knowledge"
+    },
+    {
+     "q": "interact each other",
+     "fix": "with each other"
+    },
+    {
+     "q": "despite of",
+     "fix": "despite"
+    }
+   ]
+  },
+  {
+   "id": "t2-sport",
+   "kind": "task2",
+   "task": "Professional sportspeople earn very high salaries. Some people think this is fair, while others think it is unfair. Discuss both views and give your opinion.",
+   "text": "Today many famous footballers earns millions of dollars every year. Some people think this is fair, but others believe it is unfair. In this essay I will discuss both sides.\n\nOn the one hand, top athletes train very hard from a young age and their career is short. They also bring a lot of money to their clubs from tickets and television, so some people think they are deserve high salaries.\n\nOn the other hand, I believe that sportspeople receive too much money than other important workers. For example, a doctors saves lives every day but his salary is much lower than a football player. Every people in society needs nurses, teachers and firefighters, but they are not paid well.\n\nIn my opinion, it is unfair that athletes earn so much. Governments could use higher taxes on very rich players to support public services.\n\nIn conclusion, although athletes work hard, their salaries are too high compared with other jobs.",
+   "extra": "",
+   "band": 5.0,
+   "lang": "vi",
+   "errors": [
+    {
+     "q": "footballers earns",
+     "fix": "earn"
+    },
+    {
+     "q": "are deserve",
+     "fix": "deserve"
+    },
+    {
+     "q": "too much money than",
+     "fix": "more money"
+    },
+    {
+     "q": "a doctors",
+     "fix": "a doctor"
+    },
+    {
+     "q": "every people",
+     "fix": "everyone|everybody|every person|all people"
+    }
+   ]
+  },
+  {
+   "id": "t1-internet",
+   "kind": "task1",
+   "task": "The bar chart shows the percentage of people in three age groups who used the internet daily in 2005, 2010 and 2015.",
+   "text": "The bar chart illustrate the proportion of people in three age groups who used the internet every day in 2005, 2010 and 2015.\n\nOverall, daily internet use increased in all age groups, and the youngest group always had the highest figures.\n\nIn 2005, 60% of people aged 16-24 went online daily, compared with 35% of those aged 25-54 and only 10% of people over 55. Among 2005 and 2015, the figure for the youngest group rised steadily to 95%.\n\nThe middle age group showed the most dramatic growth. Its percentage more than doubled, from 35% to 80%. In contrast of the other two groups, the over-55s remained relatively low, although their daily use still went up to 40% in 2015.\n\nTo sum up, the internet became part of everyday life for most people during this period, but older people adopted it more slowly.",
+   "extra": "{\"groups\":[\"16-24\",\"25-54\",\"55+\"],\"2005\":[60,35,10],\"2010\":[85,60,25],\"2015\":[95,80,40]}",
+   "band": 6.0,
+   "lang": "ar",
+   "errors": [
+    {
+     "q": "chart illustrate",
+     "fix": "illustrates"
+    },
+    {
+     "q": "among 2005 and 2015",
+     "fix": "between"
+    },
+    {
+     "q": "rised",
+     "fix": "rose"
+    },
+    {
+     "q": "in contrast of",
+     "fix": "in contrast to|unlike|compared with|compared to"
+    }
+   ]
+  },
+  {
+   "id": "t1-coffee",
+   "kind": "task1",
+   "task": "The line graph shows monthly sales of hot and iced coffee in a café chain from January to December 2023.",
+   "text": "The line graph compares the monthly sales of hot and iced coffee in a café chain over the course of 2023.\n\nOverall, the two drinks followed opposite seasonal patterns: hot coffee was more popular in the colder months, while iced coffee sales has risen sharply in summer.\n\nIn January, the chain sold about 40,000 cups of hot coffee, roughly four times as many as iced coffee. Hot coffee sales then declined gradually and reached to a low point of around 15,000 cups in July, before recovering to their original level by December.\n\nIced coffee, by contrast, began the year at just 10,000 cups but climbed steadily from March onwards, peaking at approximately 45,000 cups in July and August. After that, there was a significant drop of 20 percents in September, and sales continued to fall for the rest of the year, finishing at 12,000 cups in December.\n\nIn summary, temperature appears to have been the main factor influencing which type of coffee customers chose.",
+   "extra": "{\"hot\":{\"Jan\":40000,\"Jul\":15000,\"Dec\":40000},\"iced\":{\"Jan\":10000,\"Jul\":45000,\"Aug\":45000,\"Sep\":36000,\"Dec\":12000}}",
+   "band": 7.0,
+   "lang": "vi",
+   "errors": [
+    {
+     "q": "sales has risen",
+     "fix": "have risen|rose|increased"
+    },
+    {
+     "q": "reached to",
+     "fix": "reached"
+    },
+    {
+     "q": "20 percents",
+     "fix": "percent|%"
+    }
+   ]
+  },
+  {
+   "id": "t1-energy",
+   "kind": "task1",
+   "task": "The pie charts show the sources of electricity in a country in 1990 and 2020.",
+   "text": "The pie charts shows where a country got its electricity from in 1990 and 2020.\n\nIn 1990, coal was the most biggest source of electricity, with 55%. Gas was second with 25%, and nuclear power were 15%. Renewable energy accounted only 5%.\n\nIn 2020, the situation changed a lot. Coal fell to 20% and gas went up to 35%. Renewable energy increased very much to 35%, so it became equal to gas. Nuclear power accounted 10%.\n\nComparing with 1990, the country used much less coal and much more renewable energy in 2020.",
+   "extra": "{\"1990\":{\"coal\":55,\"gas\":25,\"nuclear\":15,\"renewables\":5},\"2020\":{\"coal\":20,\"gas\":35,\"nuclear\":10,\"renewables\":35}}",
+   "band": 5.0,
+   "lang": "vi",
+   "errors": [
+    {
+     "q": "charts shows",
+     "fix": "show"
+    },
+    {
+     "q": "most biggest",
+     "fix": "biggest|largest"
+    },
+    {
+     "q": "nuclear power were",
+     "fix": "was|accounted|made up"
+    },
+    {
+     "q": "accounted only",
+     "fix": "accounted for"
+    },
+    {
+     "q": "comparing with",
+     "fix": "compared with|compared to|in comparison"
+    }
+   ]
+  },
+  {
+   "id": "t1-enrol",
+   "kind": "task1",
+   "task": "The table shows the number of students enrolled at a university by gender in 2000, 2010 and 2020.",
+   "text": "The table gives information about the number of student who enrolled at a university, divided by gender, in 2000, 2010 and 2020.\n\nOverall, total enrolment grew over the period, and female students outnumbered male students from 2010 onwards.\n\nIn 2000, there were 6,000 male students and 5,000 female students. By 2010, the number of men had increased slightly to 6,500, while women rose more quickly to 7,500. In 2020, female students was the larger group by far, at 10,000.\n\nThe figure for male students changed less. It peaked at 6,500 in 2010, while in 2020 it fall back to 6,000, the same as in 2000.\n\nAs the data are showed, the growth of the university was mainly driven by female students.",
+   "extra": "{\"male\":{\"2000\":6000,\"2010\":6500,\"2020\":6000},\"female\":{\"2000\":5000,\"2010\":7500,\"2020\":10000}}",
+   "band": 6.0,
+   "lang": "vi",
+   "errors": [
+    {
+     "q": "number of student",
+     "fix": "students"
+    },
+    {
+     "q": "female students was",
+     "fix": "were"
+    },
+    {
+     "q": "it fall",
+     "fix": "fell"
+    },
+    {
+     "q": "are showed",
+     "fix": "shown|show"
+    }
+   ]
+  },
+  {
+   "id": "s-hometown",
+   "kind": "speaking",
+   "task": "IELTS Speaking test",
+   "text": "Q (Part 1): Where are you from?\nA (25s): i am come from da nang it is a city very beautiful in the centre of vietnam i am living there since ten years with my family\nQ (Part 1): What do you like about your hometown?\nA (30s): i like the beach there have many beach and the sea is very clean also the food is cheap and delicious so many tourist come every summer",
+   "extra": "",
+   "band": 5.0,
+   "lang": "vi",
+   "errors": [
+    {
+     "q": "am come",
+     "fix": "i come|come from|am from|come"
+    },
+    {
+     "q": "a city very beautiful",
+     "fix": "a very beautiful city|very beautiful city"
+    },
+    {
+     "q": "since ten years",
+     "fix": "for ten years"
+    },
+    {
+     "q": "there have many beach",
+     "fix": "there are many beaches|are many beaches"
+    },
+    {
+     "q": "many tourist",
+     "fix": "tourists"
+    }
+   ]
+  },
+  {
+   "id": "s-hobby",
+   "kind": "speaking",
+   "task": "IELTS Speaking test",
+   "text": "Q (Part 1): What do you do in your free time?\nA (30s): well i am interesting in photography so at weekends i usually go around the old quarter and take pictures of street life it make me relax after a long week\nQ (Part 1): How long have you had this hobby?\nA (25s): i have took photos for about three years now i started when my uncle gave me his old camera and since then i have joined a small club",
+   "extra": "",
+   "band": 6.0,
+   "lang": "ja",
+   "errors": [
+    {
+     "q": "am interesting in",
+     "fix": "interested"
+    },
+    {
+     "q": "it make me",
+     "fix": "makes"
+    },
+    {
+     "q": "have took",
+     "fix": "taken"
+    }
+   ]
+  },
+  {
+   "id": "s-book",
+   "kind": "speaking",
+   "task": "IELTS Speaking test",
+   "text": "Q (Part 2): Describe a book that had a strong influence on you.\nA (110s): i'd like to talk about sapiens by yuval noah harari which i have read it during my second year at university the author describe how human societies developed from small groups of hunter gatherers into the complex global civilisation we live in today what struck me most was his argument that shared stories like money religion and nations are what allow millions of strangers to cooperate honestly it was so inspired because it made me question many things i had always taken for granted and since then i've become much more interested in history and anthropology i'd recommend it to anyone who wants to understand the bigger picture",
+   "extra": "",
+   "band": 7.0,
+   "lang": "vi",
+   "errors": [
+    {
+     "q": "have read it",
+     "fix": "read|which i have read"
+    },
+    {
+     "q": "author describe",
+     "fix": "describes"
+    },
+    {
+     "q": "so inspired",
+     "fix": "inspiring|i was so inspired|i was inspired|so inspiring"
+    }
+   ]
+  },
+  {
+   "id": "s-work",
+   "kind": "speaking",
+   "task": "IELTS Speaking test",
+   "text": "Q (Part 1): Do you work or are you a student?\nA (20s): i working in bank in hanoi i am a teller\nQ (Part 1): Do you like your job?\nA (25s): not really my job is very busy and stress my boss he very strict and yesterday i work late until nine o'clock",
+   "extra": "",
+   "band": 4.5,
+   "lang": "vi",
+   "errors": [
+    {
+     "q": "i working in bank",
+     "fix": "i work|i am working|i'm working|work in a bank|work at a bank|work for a bank|in a bank|at a bank"
+    },
+    {
+     "q": "busy and stress",
+     "fix": "stressful"
+    },
+    {
+     "q": "my boss he very strict",
+     "fix": "boss is very strict|boss is very|boss is strict"
+    },
+    {
+     "q": "yesterday i work",
+     "fix": "worked"
+    }
+   ]
+  },
+  {
+   "id": "s-tech",
+   "kind": "speaking",
+   "task": "IELTS Speaking test",
+   "text": "Q (Part 3): How has technology changed the way people communicate?\nA (60s): i think it has changed things enormously especially for the young generation they are more depend on their phones than any generation before so on the positive side we can keep in touch with relatives abroad instantly but on the downside there is less face-to-face communications and some teenagers find it quite hard to hold a proper conversation\nQ (Part 3): Do you think this will continue in the future?\nA (45s): probably yes unless schools put more emphasis on social skills if governments would introduce limits on screen time for children things might improve but realistically technology will keep developing",
+   "extra": "",
+   "band": 6.5,
+   "lang": "vi",
+   "errors": [
+    {
+     "q": "more depend on",
+     "fix": "dependent"
+    },
+    {
+     "q": "face-to-face communications",
+     "fix": "communication"
+    },
+    {
+     "q": "if governments would introduce",
+     "fix": "introduced"
+    }
+   ]
+  },
+  {
+   "id": "s-food",
+   "kind": "speaking",
+   "task": "IELTS Speaking test",
+   "text": "Q (Part 1): What kind of food do you like?\nA (30s): i like vietnamese food very much i usually eat rice with my family in the dinner and my mother cook many dishes like fish soup and fried vegetables\nQ (Part 1): Do you often eat fast food?\nA (25s): no i don't eat fast food often because it make you fat and i think vietnamese food is more healthy than western food",
+   "extra": "",
+   "band": 5.5,
+   "lang": "vi",
+   "errors": [
+    {
+     "q": "in the dinner",
+     "fix": "at dinner|for dinner|dinnertime"
+    },
+    {
+     "q": "my mother cook",
+     "fix": "cooks"
+    },
+    {
+     "q": "it make you fat",
+     "fix": "makes"
+    },
+    {
+     "q": "more healthy",
+     "fix": "healthier"
+    }
+   ]
+  }
+ ]
+}
