@@ -1,6 +1,6 @@
 /* Quản trị → 💾 Lưu trữ (tải lười): dung lượng repo chính + kho media (MB cây đầu nhánh, MB cả lịch sử theo API, số tệp),
  * dự báo khi kho từ đủ 20k (âm thanh từ mới → kho audio open), cảnh báo ≥ 70 %. Dữ liệu tĩnh /data/storage-forecast.json
- * (scripts/lexicon/expand/forecast.mjs --measure, storage-watch hằng tuần). admin.js gọi AdminStorage.render(container, L, { esc, num, lang }).
+ * (scripts/lexicon/expand/forecast.mjs --measure, storage-watch hằng tuần). admin.js gọi AdminStorage.render(container, L, { esc, num, lang, quotaLv }) – quotaLv = METRICS.quota.
  * Tài liệu: docs/STORAGE.md */
 (function () {
   const EN = {
@@ -12,12 +12,12 @@
     'Tệp Pages (kho từ) hiện tại → khi đủ': 'Pages files (lexicon) now → at target', 'cổng': 'gate', 'Ảnh mới': 'New images',
     '⚠️ Cảnh báo': '⚠️ Alerts', '✓ Không có cảnh báo (mọi repo < 70 %).': '✓ No alerts (every repo < 70%).', 'Đo lúc {d}': 'Measured {d}', 'chưa đo': 'not measured',
   };
-  function render(box, L, { esc, num, lang }) {
+  function render(box, L, { esc, num, lang, quotaLv }) { // quotaLv = METRICS.quota của admin.js (R3: một nguồn ngưỡng 70/90 %)
     const S = (vi, vars) => { const s = lang() === 'en' && Object.prototype.hasOwnProperty.call(EN, vi) ? EN[vi] : vi; return vars ? String(s).replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)) : s; };
     const tab = document.querySelector('#tabs [data-tab="storage"] .nav-l'); if (tab) tab.textContent = S('Lưu trữ');
     const n = x => (x == null ? '—' : num ? num(x) : String(x));
     const ST = { open: 'mở', full: 'đầy (chỉ đọc)', planned: 'dự kiến' };
-    const bar = (pct, lab) => { const p = Math.max(0, Math.min(100, +pct || 0)), c = p >= 90 ? 'var(--bad, #d64545)' : p >= 70 ? 'var(--warn, #e9a23b)' : 'var(--ok, #2a9d6f)';
+    const bar = (pct, lab) => { const p = Math.max(0, Math.min(100, +pct || 0)), c = { crit: 'var(--bad, #d64545)', warn: 'var(--warn, #e9a23b)' }[quotaLv(p)] || 'var(--ok, #2a9d6f)';
       return `<div role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${p}" aria-label="${esc(lab)}" style="position:relative;height:8px;border-radius:4px;background:var(--line, #ddd);min-width:90px"><i style="position:absolute;left:0;top:0;bottom:0;width:${p}%;background:${c};border-radius:4px"></i><span aria-hidden="true" style="position:absolute;left:70%;top:-2px;bottom:-2px;border-left:1px dashed var(--warn, #e9a23b)"></span></div>`; };
     async function load() {
       box.innerHTML = `<section class="card"><h2>💾 ${esc(S('Lưu trữ'))}</h2><p class="small muted">${esc(S('Đang tải…'))}</p></section>`;

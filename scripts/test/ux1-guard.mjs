@@ -1,5 +1,5 @@
 // 🛡️ Gác bố cục cho giao diện ux1 (BẬT 100 % từ 28/10) + từng bước bài học + màn giữ chuỗi. Lõi quét: ux-guard-lib.mjs.
-// Phủ: chọn mục tiêu · bản đồ chặng (tiêu đề chặng, nút xong/tiếp/khóa) · Ôn · Luyện · Giải đấu · Tôi · cột phải máy tính (3 cột)
+// Phủ: chọn mục tiêu · bản đồ chặng (tiêu đề chặng, nút xong/tiếp/khóa) · Từ vựng · Kỹ năng · Thi · Giải đấu · Tôi · cột phải máy tính (3 cột)
 //      · #/lesson/go?demo=1: mọi dạng bài, phiếu đúng/sai, "Vì sao?", câu dễ sau 2 lần sai (ease), "Không nghe được", màn tổng kết
 //      · lịch chuỗi #/streak, mốc 7 ngày, rương quà, rã băng.
 // 360/390/412/1366/1920 px · sáng/tối · en/vi/ar(RTL)/de/ru. Hermetic: phục vụ thẳng web/, ?sandbox=1, 0 lượt chạm prod, 0 tài khoản thật.

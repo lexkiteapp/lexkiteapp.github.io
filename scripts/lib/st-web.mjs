@@ -3,7 +3,7 @@
 //   CSS biên dịch sẵn: web/css/st-w-<trang>.css (node scripts/build-stitch-css.mjs) → nhúng vào <style> (không thêm request, không CDN).
 //   Chữ tĩnh: khóa Việt → web/js/i18n/<lang>/v2web.js (pipeline i18n chung: i18n-fixed.json + i18n-fix.mjs, 15 ngôn ngữ).
 //   1 DOM cho cả sáng/tối (class lt:/dk: = prefers-color-scheme, như app). Giáo viên chỉ qua chars() (web/teach/characters.json – Ama/Carlos 2D).
-import fs from 'node:fs'; import path from 'node:path'; import vm from 'node:vm';
+import fs from 'node:fs'; import path from 'node:path'; import vm from 'node:vm'; import { hk } from './i18n-pack.mjs';
 
 const ROOT = process.cwd(), cache = new Map();
 const load = f => { if (!cache.has(f)) cache.set(f, fs.readFileSync(path.join(ROOT, f), 'utf8')); return cache.get(f); };
@@ -14,7 +14,8 @@ export const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;',
 const dicts = {};
 export function tr(lang) {
   if (!dicts[lang]) { const g = {}; for (const l of new Set(['en', lang])) { const f = `web/js/i18n/${l}/v2web.js`; if (fs.existsSync(path.join(ROOT, f))) vm.runInNewContext(load(f), { self: g }); }
-    const D = g.I18N_DICT || {}; dicts[lang] = s => lang === 'vi' ? s : (D[lang] && D[lang][s] != null ? D[lang][s] : (D.en && D.en[s] != null ? D.en[s] : s)); }
+    // gói 13 ngôn ngữ dùng KHÓA BĂM từ #545 (hk() của lib/i18n-pack) → tra cả khóa gốc lẫn khóa băm; trước đây chỉ tra khóa gốc → mọi chữ v2web trên landing rơi về tiếng Anh (05/11)
+    const D = g.I18N_DICT || {}, get = (d, k) => d ? (d[k] != null ? d[k] : d[hk(k)]) : null; dicts[lang] = s => lang === 'vi' ? s : (get(D[lang], s) ?? get(D.en, s) ?? s); }
   return dicts[lang];
 }
 

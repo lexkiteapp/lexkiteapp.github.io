@@ -4,6 +4,10 @@
 name: social-auto
 on:
   workflow_dispatch:
+    inputs:
+      mode: { description: 'run = 1 lượt thật · status · preview = dry-run qua máy chủ (kênh thật) · dryrun = dry-run từ manifest kho (không cần deploy). preview/dryrun KHÔNG đăng.', type: choice, options: [run, status, preview, dryrun], default: run }
+      clip: { description: 'preview/dryrun: id clip (trống = clip đạt QC mới nhất)', default: '' }
+      lang: { description: 'dryrun: thử ngôn ngữ clip (vd vi) – định tuyến page theo ngôn ngữ', default: '' }
   schedule:
     - cron: '52 */2 * * *'
 concurrency: { group: social-auto, cancel-in-progress: false }
@@ -15,8 +19,29 @@ jobs:
     env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}', GITHUB_TOKEN: '${{ github.token }}' }
     steps:
       - uses: actions/checkout@v4
-        with: { sparse-checkout: scripts, sparse-checkout-cone-mode: true }
+        with: { sparse-checkout: "scripts\nfunctions", sparse-checkout-cone-mode: true }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Một lượt autopilot
-        run: node scripts/social/auto.mjs run
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.mode == 'run' || inputs.mode == 'status' }}
+        run: node scripts/social/auto.mjs "${{ inputs.mode || 'run' }}"
+      - name: Dry-run qua máy chủ (payload từng nền tảng, kênh thật, không đăng)
+        if: ${{ inputs.mode == 'preview' }}
+        env: { CLIP: '${{ inputs.clip }}' }
+        run: node scripts/social/auto.mjs preview "$CLIP"
+      - name: Manifest kho (sparse) cho dry-run
+        if: ${{ inputs.mode == 'dryrun' }}
+        env: { KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}' }
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/shorts && chmod 600 ~/.ssh/shorts
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
+          git -C /tmp/shorts sparse-checkout set --no-cone '/shorts/index.json'; git -C /tmp/shorts checkout -q; rm -f ~/.ssh/shorts
+      - name: Dry-run từ manifest (payload từng nền tảng, không đăng, 0 lượt GrabCast)
+        if: ${{ inputs.mode == 'dryrun' }}
+        env: { CLIP: '${{ inputs.clip }}', LANG_IN: '${{ inputs.lang }}' }
+        run: node scripts/social/dryrun.mjs --index /tmp/shorts/shorts/index.json ${CLIP:+--clip "$CLIP"} ${LANG_IN:+--lang "$LANG_IN"} --json dryrun.json
+      - uses: actions/upload-artifact@v4
+        if: ${{ inputs.mode == 'dryrun' }}
+        with: { name: social-dryrun, path: dryrun.json, retention-days: 7 }

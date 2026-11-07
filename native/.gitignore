@@ -1,0 +1,10 @@
+# build outputs (CI only)
+ios/build/
+ios/Lexkite.xcodeproj/
+ios/App/Info.plist
+ios/LexkiteKit/.build/
+ios/LexkiteKit/.swiftpm/
+android/.gradle/
+android/**/build/
+android/local.properties
+ios/App/Lexkite.entitlements

@@ -1,0 +1,6 @@
+{
+  "_doc": "Body of the signed module order (type modules). order = tab keys of native/shared/gen/frame.json (checked by content-publish.mjs).",
+  "schema": 1,
+  "minApp": "2.0.0",
+  "body": { "order": ["home", "vocab", "skills", "tests", "me"], "hidden": [] }
+}

@@ -84,7 +84,7 @@ To **ask for permission**, *can* is everyday, *could* is more polite, and *may* 
 - *Could I ask you a question?* (polite)
 - *May I leave early today?* (formal or very polite)
 
-For **requests**, *could you* is softer than *can you*: *Could you send me the file?* *Would you mind* + -ing is softer still: *Would you mind closing the window?*
+For **requests**, *could you* is softer than *can you*: *Could you send me the file?* *Would you mind* + -ing is softer still: *Would you mind closing the window?* These softer forms are exactly what you need when [renting a home abroad](/en/blog/english-for-newcomers-renting/).
 
 To **give or refuse permission**, use *can* / *can't* or, in formal notices, *may* / *may not*: *Visitors may not take photographs.*
 
