@@ -6,6 +6,11 @@
    "via": "loadAllPlus",
    "job": "content-qa.yml (score)"
   },
+  "scripts/content-qa/learnability.mjs": {
+   "what": "reports/learnability.json + content/pipeline/LEARN.md – thước đo 'Dễ học – dễ nhớ' (12 tiêu chí; dùng cấp CEFR kho từ cho i+1, kể cả mục mở rộng 20k)",
+   "via": "loadAllPlus",
+   "job": "content-qa.yml (score) + npm test"
+  },
   "scripts/content-qa/lkf-check.mjs": {
    "what": "reports/lkf-coverage.json – độ phủ lo của từ#loại (luật vocab theo cấp CEFR, kể cả mục mở rộng 20k) cho khung Can-do",
    "via": "loadAllPlus",
