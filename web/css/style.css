@@ -479,6 +479,7 @@ html:has(.grade-bar) { scroll-padding-bottom: 6.5rem; }
   .hero-main .row .btn.lg { padding: .75rem 1rem; font-size: .98rem; }
   .gsearch { min-width: 0; } .gsearch input { min-width: 0; }
   .top-stats { gap: .35rem; } .pill { padding: .3rem .55rem; }
+  .top-stats #streakPill { min-width: 4.6rem; justify-content: center; } /* chuỗi + lượt đóng băng điền sau khi nạp dữ liệu (App.updateChrome): chừa chỗ để hàng chỉ số không giãn sang trái (CLS top-stats 0,041) */
   .page-head .input { max-width: 100% !important; }
   .modes { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   .pron > span { padding: .2rem .3rem .2rem .55rem; }
@@ -820,7 +821,7 @@ html:has(.learn-bar) { scroll-padding-bottom: 140px; } .wi .wc-sec, .wi-sec { sc
 /* Màn hình chào trên điện thoại: logo trái – chọn ngôn ngữ gọn bên phải; nút chính rộng hết màn hình */
 @media (max-width: 560px) {
 }
-@media (max-width: 1023px) { body:not(.bare) .toast { bottom: calc(84px + env(safe-area-inset-bottom)); } } /* không che thanh điều hướng dưới */
+@media (max-width: 1023px) { .toast { bottom: calc(84px + env(safe-area-inset-bottom)); } } /* không che thanh điều hướng dưới; KHÔNG phụ thuộc body.bare: gỡ 'bare' lúc đổi màn khi toast đang hiện làm toast nhảy 56 px = CLS (mqa #/home 360, 07/11) */
 /* Cảm giác app gốc trên điện thoại: không nháy ô xanh khi chạm, không kéo giãn trang, nút không bị bôi đen chữ */
 html { -webkit-tap-highlight-color: transparent; overscroll-behavior-y: none; }
 button, .btn, .option, .tabs, .bottom-nav { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
