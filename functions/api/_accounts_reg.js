@@ -261,7 +261,7 @@ export const ROWS = [
    "CWS_EXTENSION_ID",
    "OTA_SIGNING_KEY"
   ],
-  "scope": "Phát hành TestFlight, Play, CWS; ký OTA",
+  "scope": "Phát hành TestFlight, Play, CWS; ký OTA; nộp store tự động (store-submit.yml – PLAY_SERVICE_ACCOUNT_JSON chưa có)",
   "manage": "https://appstoreconnect.apple.com/",
   "expires": "",
   "note": ""

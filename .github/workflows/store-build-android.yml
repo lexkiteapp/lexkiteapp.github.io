@@ -1,0 +1,86 @@
+# Workflow TÁI DÙNG: build .aab Google Play ký bằng upload key. Một nguồn cho android.yml (bản kiểm tra mỗi lần đẩy main),
+# store-submit.yml (nộp production tự động) và native-release (app native). app = capacitor → mobile/android (gradlew), native → native/android.
+# Secret (docs/STORE-READINESS.md § Ký Android): ANDROID_KEYSTORE_BASE64, ANDROID_KEYSTORE_PASSWORD, ANDROID_KEY_ALIAS, ANDROID_KEY_PASSWORD.
+# version_code rỗng → mặc định cũ (capacitor 1000 + run_number, native 200000 + run_number); store-submit truyền số từ Play (max + 1).
+name: Store build Android (tái dùng)
+# ci-policy: no-concurrency – workflow tái dùng: concurrency nằm ở workflow gọi (mỗi lượt khác version/build, gộp nhóm sẽ huỷ mất bản build)
+on:
+  workflow_call:
+    inputs:
+      app: { type: string, required: false, default: capacitor }
+      version_name: { type: string, required: false, default: '' }
+      version_code: { type: string, required: false, default: '' }
+      require_key: { type: boolean, required: false, default: false, description: 'true = thiếu khoá ký là LỖI (nộp store); false = bỏ qua kèm notice' }
+permissions:
+  contents: read
+jobs:
+  aab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
+    env:
+      HAS_KEY: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' }}
+    steps:
+      - name: Chưa có khóa ký
+        if: env.HAS_KEY != 'true'
+        run: |
+          if [ "${{ inputs.require_key }}" = true ]; then echo "::error::Thiếu secret ANDROID_KEYSTORE_BASE64 – không nộp được Google Play"; exit 1; fi
+          echo "::notice::Chưa có secret ANDROID_KEYSTORE_BASE64 – bỏ qua bản .aab (xem docs/STORE-READINESS.md)"
+      - uses: actions/checkout@v4
+        if: env.HAS_KEY == 'true'
+      - uses: actions/setup-node@v4
+        if: env.HAS_KEY == 'true'
+        with: { node-version: 22 }
+      - uses: actions/setup-java@v4
+        if: env.HAS_KEY == 'true'
+        with: { distribution: temurin, java-version: 21 }
+      - name: Chọn dự án + số phiên bản
+        if: env.HAS_KEY == 'true'
+        env: { VN: '${{ inputs.version_name }}', VC: '${{ inputs.version_code }}' }
+        run: |
+          case "${{ inputs.app }}" in
+            capacitor) DIR=mobile/android; BASE=1000; DEF_VN=$(node -p "require('./mobile/package.json').version") ;;
+            native) [ -d native/android ] || { echo "::error::Chưa có native/android trên nhánh này"; exit 1; }; DIR=native/android; BASE=200000; DEF_VN=2.0.0 ;;
+            *) echo "::error::app phải là capacitor|native"; exit 1 ;;
+          esac
+          VN=${VN:-$DEF_VN}; VC=${VC:-$((BASE + GITHUB_RUN_NUMBER))}
+          [[ "$VC" =~ ^[0-9]+$ ]] || { echo "::error::version_code lạ: $VC"; exit 1; }
+          { echo "DIR=$DIR"; echo "LEXKITE_VERSION_NAME=$VN"; echo "LEXKITE_VERSION_CODE=$VC"; } >> "$GITHUB_ENV"
+          echo "versionCode=$VC versionName=$VN" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Build web → mobile/www → cap sync
+        if: env.HAS_KEY == 'true' && inputs.app == 'capacitor'
+        run: |
+          npm ci --prefix mobile --no-audit --no-fund
+          ./scripts/build-mobile.sh
+      - name: Native – file sinh khớp nguồn web
+        if: env.HAS_KEY == 'true' && inputs.app == 'native'
+        run: node scripts/native/gen.mjs --check
+      - uses: gradle/actions/setup-gradle@v4
+        if: env.HAS_KEY == 'true' && inputs.app == 'native'
+        with: { gradle-version: '8.14.3' }
+      - name: bundleRelease (ký upload key)
+        if: env.HAS_KEY == 'true'
+        working-directory: ${{ env.DIR }}
+        env:
+          KS_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          LEXKITE_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          LEXKITE_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          LEXKITE_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          export LEXKITE_KEYSTORE_FILE="$RUNNER_TEMP/upload.jks"
+          printf '%s' "$KS_B64" | base64 -d > "$LEXKITE_KEYSTORE_FILE"
+          # Vân tay upload key (công khai, không phải bí mật) → đăng ký SHA-1/SHA-256 trong Firebase cho Google Sign-In
+          keytool -list -v -keystore "$LEXKITE_KEYSTORE_FILE" -storepass "$LEXKITE_KEYSTORE_PASSWORD" 2>/dev/null | grep -E '^\s*SHA(1|256):' | sed 's/^ */upload key /' | tee -a "$GITHUB_STEP_SUMMARY" || true
+          if [ "${{ inputs.app }}" = native ]; then gradle --no-daemon :app:bundleRelease; else chmod +x gradlew && ./gradlew --no-daemon bundleRelease; fi
+          rm -f "$LEXKITE_KEYSTORE_FILE"
+          AAB=app/build/outputs/bundle/release/app-release.aab
+          test -f "$AAB"
+          # Play từ chối khoá khác upload key của bản live
+          jarsigner -verify -certs "$AAB" >/dev/null || { echo "::error::.aab chưa được ký"; exit 1; }
+          P=lexkite; [ "${{ inputs.app }}" = native ] && P=lexkite-native
+          cp "$AAB" "$GITHUB_WORKSPACE/$P-$LEXKITE_VERSION_NAME-$LEXKITE_VERSION_CODE.aab"
+      - uses: actions/upload-artifact@v4
+        if: env.HAS_KEY == 'true'
+        with:
+          name: ${{ inputs.app == 'native' && 'lexkite-native-aab' || 'lexkite-play-aab' }}
+          path: 'lexkite-*.aab'
+          retention-days: 30
