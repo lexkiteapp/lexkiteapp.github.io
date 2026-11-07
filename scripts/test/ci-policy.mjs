@@ -33,6 +33,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const WF = path.join(ROOT, '.github/workflows');
@@ -243,8 +244,12 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   // --- quét repo
   const files = fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f)), srcs = files.map(f => [f, fs.readFileSync(path.join(WF, f), 'utf8')]);
   for (const [f, s] of srcs) for (const v of violations(f, s)) ok(false, v);
-  const HEAVY = ['qa-bot', 'journey-e2e', 'ux-cards', 'scroll-perf', 'stitch-diff', 'font-audit', 'frame-consistency', 'visual-qa', 'mobile-qa', 'web-sweep', 'size-guard'];
+  const HEAVY = ['teach-video', 'video-motion', 'qa-bot', 'journey-e2e', 'ux-cards', 'scroll-perf', 'stitch-diff', 'font-audit', 'frame-consistency', 'visual-qa', 'mobile-qa', 'web-sweep', 'size-guard'];
   for (const h of HEAVY) { const src = (srcs.find(([f]) => f === h + '.yml') || [])[1] || ''; ok(/^# ci-policy: heavy-gate\b/m.test(src), `${h}.yml thiếu dòng "# ci-policy: heavy-gate – …" (luật 11)`); }
+  // luật 11b: teach-video trên PR chỉ smoke (preqc + ≤ 2 tập; render đầy đủ khi dispatch/ci-filler), video-motion PR chỉ 1 mẫu
+  { let n = -1; try { n = JSON.parse(execFileSync('python3', ['scripts/video/teach2d/gen.py', '--pick', '', '0', 'pull_request', '24'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] })).length; } catch (e) { console.log('• ci-policy: python3/gen.py không chạy được – bỏ qua kiểm shard teach-video'); }
+    ok(n < 0 || (n >= 1 && n <= 2), `teach-video trên PR chọn ${n} tập (phải 1–2: smoke, không render 24 shard)`);
+    const vm = (srcs.find(([f]) => f === 'video-motion.yml') || [])[1] || ''; ok(/github\.event_name == 'pull_request' && 'drill' \|\|/.test(vm), 'video-motion.yml: PR phải chạy 1 mẫu (drill), không 4'); }
   { const np = (srcs.find(([f]) => f === 'npm-test.yml') || [])[1] || ''; ok(/^  heavy:/m.test(np) && /heavy-rerun\.mjs/.test(np) && /needs:\s*test/.test(np), 'npm-test.yml thiếu job heavy (chạy heavy-rerun.mjs sau job test) – luật 11'); }
   for (const c of chainCycles(srcs)) ok(false, `vòng workflow_run: ${c}`);
   for (const k of ciParity(fs.readFileSync(path.join(WF, 'ci.yml'), 'utf8'), fs.readFileSync(path.join(ROOT, 'scripts/test/suite.txt'), 'utf8'))) ok(false, `ci.yml chạy "${k}" nhưng suite.txt (cổng PR) không có → PR xanh vẫn làm main đỏ`);
