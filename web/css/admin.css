@@ -71,6 +71,7 @@ body.adm {
 @media (max-width: 900px) {
   .adm.adm-in .adm-shell { grid-template-columns: minmax(0, 1fr); }
   .adm.adm-in .adm-burger { display: inline-grid; }
+  .adm.adm-boot .adm-burger { display: inline-grid; visibility: hidden; } /* giữ chỗ nút menu lúc chờ đăng nhập → logo không xê dịch */
   .adm-side { position: fixed; z-index: 70; top: 0; left: 0; bottom: 0; height: 100%; width: min(288px, 86vw); transform: translateX(-100%); visibility: hidden; transition: transform .2s ease, visibility .2s; box-shadow: var(--shadow-lg); }
   .adm-side.open { transform: none; visibility: visible; }
   .side-scrim { display: block; position: fixed; inset: 0; z-index: 65; background: color-mix(in srgb, var(--text) 45%, transparent); }
@@ -90,11 +91,20 @@ body.adm {
 .pg-t { font-size: 1.55rem; font-weight: 850; margin: .15rem 0 0; letter-spacing: -.025em; color: var(--text); line-height: 1.2; }
 .pg-d { margin: .35rem 0 0; color: var(--muted); font-size: .9rem; max-width: 72ch; line-height: 1.5; }
 .pg-act { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+.pg-tx { flex: 1 1 24rem; min-width: 0; } /* nút hành động vẽ sau (sau khi có dữ liệu) không đẩy khối tiêu đề xuống dòng → không nhảy */
+.pg-head .hub-tabs { margin: .8rem 0 .1rem; gap: .35rem; }
+.hub-tabs .btn { height: 36px; padding: 0 .9rem; font-size: .86rem; font-weight: 650; background: var(--surface); border: 1px solid var(--line); color: var(--muted); box-shadow: none; }
+.hub-tabs .btn:hover { color: var(--text); border-color: color-mix(in srgb, var(--primary) 45%, var(--line)); }
+.hub-tabs .btn[aria-current="page"] { background: var(--primary-soft); border-color: color-mix(in srgb, var(--primary) 55%, transparent); color: var(--primary); }
+/* Chờ Firebase khôi phục phiên + whoami: chưa vẽ vùng nội dung (đã đăng nhập sẵn thì không nháy thẻ Đăng nhập, khối nội dung không bị thanh bên đẩy ngang).
+   Bỏ adm-boot: chưa đăng nhập / bị từ chối / quá 6 s (js/admin.js). Khi đã vào (adm-in) quy tắc không còn tác dụng. */
+.adm-boot:not(.adm-in) .adm-content { display: none; }
 
 /* ---------- Cảnh báo toàn cục (Kho Drive …) ---------- */
 .drv-banner { max-width: var(--a-max); margin: 0 0 1.2rem; display: flex; align-items: center; flex-wrap: wrap; gap: .5rem .75rem; padding: .8rem 1.15rem; border-radius: 12px; font-size: .88rem; font-weight: 600; border: 1px solid; box-shadow: var(--a-card-shadow); }
 .drv-banner.crit { background: var(--a-bad-bg); border-color: color-mix(in srgb, var(--again) 45%, transparent); color: var(--a-bad); }
 .drv-banner.warn { background: var(--a-warn-bg); border-color: color-mix(in srgb, var(--gold) 50%, transparent); color: var(--a-warn); }
+.adm:not(.adm-in) .drv-banner { display: none; } /* tải cùng whoami; chỉ hiện khi khung quản trị đã dựng (không nhảy ngang theo thanh bên) */
 .drv-banner a { color: inherit; font-weight: 750; margin-left: auto; text-decoration: underline; }
 .drv-card { border-radius: var(--a-r); box-shadow: var(--a-card-shadow); transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease; }
 .drv-card:hover { border-color: color-mix(in srgb, var(--primary) 35%, var(--line)); }
@@ -632,3 +642,22 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
 .sx-r { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); }
 .sx-l { -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to left, #000 calc(100% - 36px), transparent); }
 .sx-l.sx-r { -webkit-mask-image: linear-gradient(to right, transparent, #000 36px, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to right, transparent, #000 36px, #000 calc(100% - 36px), transparent); }
+/* Sổ tài khoản & khóa (js/admin-accounts.js): đầu thẻ gọn (tiêu đề đã có ở đầu trang), cảnh báo gia hạn 1 dòng, hàng sắp hết hạn = vạch đỏ bên trái */
+.acc-h { display: flex; align-items: flex-start; justify-content: space-between; gap: .8rem; }
+.acc-h p { margin: 0; max-width: 70ch; }
+.acc-due { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .6rem; margin: .9rem 0 .2rem; padding: .65rem .9rem; border-radius: 10px; font-size: .88rem; background: var(--a-bad-bg); color: var(--a-bad); border: 1px solid color-mix(in srgb, var(--again) 40%, transparent); }
+.acc-due span { color: var(--text); }
+.tbl tr.acc-due-row > td { background: color-mix(in srgb, var(--again) 7%, transparent); }
+.tbl tr.acc-due-row > td:first-child { box-shadow: inset 3px 0 0 var(--again); }
+/* Điện thoại: thanh trên không gãy chữ, tab con 1 hàng cuộn ngang, banner cảnh báo gọn */
+.adm-me .btn { white-space: nowrap; }
+@media (max-width: 600px) {
+  .adm-me { gap: .15rem; }
+  .adm-me .btn { padding-inline: .5rem; }
+  .pg-head .hub-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(-1 * clamp(16px, 3.2vw, 2.4rem)); padding-inline: clamp(16px, 3.2vw, 2.4rem); scroll-padding-inline: clamp(16px, 3.2vw, 2.4rem); }
+  .pg-head .hub-tabs::-webkit-scrollbar { display: none; }
+  .hub-tabs .btn { flex: none; height: 34px; padding: 0 .75rem; }
+  .drv-banner { padding: .6rem .85rem; font-size: .82rem; gap: .25rem .6rem; }
+  .drv-banner a { margin-left: 0; }
+  .acc-h { flex-direction: column; gap: .4rem; }
+}
