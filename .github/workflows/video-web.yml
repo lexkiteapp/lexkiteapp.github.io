@@ -82,7 +82,7 @@ jobs:
           [ "$ok" = 1 ] || { echo "::error::không đẩy được lên main (BOT_DEPLOY_KEY / ruleset?)"; exit 1; }
           # có URL mới cần IndexNow → gấp (1 build); chỉ cập nhật bản cũ → gom (pages-deploy chờ yên + giãn cách)
           if [ -s .webvid/new-urls.txt ]; then u=true; q=0; else u=false; q=15; fi
-          gh workflow run pages-deploy.yml --ref main -f urgent=$u -f quiet=$q -f reason="video-web" && echo "đã yêu cầu deploy" || echo "::warning::không gọi được pages-deploy"
+          bash scripts/ci/gh-retry.sh gh workflow run pages-deploy.yml --ref main -f urgent=$u -f quiet=$q -f reason="video-web" && echo "đã yêu cầu deploy" || echo "::warning::không gọi được pages-deploy"
           if [ -s .webvid/new-urls.txt ]; then sleep 420; node scripts/indexnow.mjs < .webvid/new-urls.txt || echo "::warning::IndexNow lỗi"; fi
       - uses: actions/upload-artifact@v4
         if: always()

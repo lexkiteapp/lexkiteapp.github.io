@@ -21,7 +21,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 export const TAKE_MAIN = ['docs/CODEMAP.md', 'docs/codemap.json'];
-export const UNION = ['scripts/test/suite.txt'];
+export const UNION = ['scripts/test/suite.txt', 'docs/INDEX.md']; // danh sách chỉ thêm dòng: gộp union + khử trùng (docs-budget vẫn kiểm INDEX)
 export const ACTIVE_H = 24, MAX = 4;
 
 /** Kế hoạch gỡ cho danh sách tệp xung đột: null nếu có tệp ngoài danh sách tự gỡ. */
@@ -94,7 +94,10 @@ export function fix(p, dry) {
     }
     git('add', '--', f);
   }
+  // merge=union (.gitattributes) có thể gộp "sạch" mà nhân đôi dòng (06/11: #757 trùng voice-source.mjs) → luôn khử trùng tệp UNION
+  for (const f of UNION) if (fs.existsSync(f)) { const a = fs.readFileSync(f, 'utf8'), b = dedupeLines(a); if (a !== b) { fs.writeFileSync(f, b); git('add', '--', f); } }
   if (!m.ok) git('commit', '-q', '--no-edit');
+  else if (tryGit('diff', '--cached', '--quiet').ok === false) git('commit', '-q', '--amend', '--no-edit');
   if (dry) { console.log(`#${p.number}: [dry] gỡ được ${(steps.map(s => `${s.f}=${s.how}`).join(', ') || 'gộp sạch')}`); return 'dry'; }
   const push = tryGit('push', '-q', 'origin', `HEAD:refs/heads/${br}`);   // không force: nhánh vừa đổi thì bỏ qua, lượt sau thử lại
   console.log(push.ok ? `#${p.number}: ✓ đã gỡ ${steps.map(s => s.f).join(', ') || '(gộp sạch)'} và đẩy ${br}` : `#${p.number}: nhánh vừa đổi, không đẩy (${push.out.split('\n')[0]})`);

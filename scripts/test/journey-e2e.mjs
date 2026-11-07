@@ -151,8 +151,8 @@ async function toLast(h) { for (let i = 0; i < 8 && !(await h.has('#go')); i++) 
 async function setup(h, { test = false } = {}) {
   await h.boot('/welcome/setup', h.q);
   if (await h.has('#noAcct')) await h.click('#noAcct');
-  await h.click('button.trk-opt'); await h.click('#obNext', { wait: 250 });
-  await h.click(test ? '[data-lv="test"]' : '.trk-lv [data-lv]:not([data-lv="test"])');
+  await h.click('[data-track]'); await h.click('#obNext', { wait: 250 });
+  await h.click(test ? '[data-lv="test"]' : '[data-lv]:not([data-lv="test"])');
   await toLast(h);
   await h.click('#go', { wait: 1500 });
 }
@@ -181,7 +181,7 @@ async function j1(h) {
   h.ok(!(await softAskShown(h)), 'KHÔNG hỏi nhắc học lúc mở app lần đầu');
   await h.audit('first-load');
   if (await h.has('#noAcct')) await h.click('#noAcct');
-  await h.click('button.trk-opt'); await h.click('#obNext', { wait: 250 }); await h.click('[data-lv="test"]'); await toLast(h); await h.click('#go', { wait: 1500 });
+  await h.click('[data-track]'); await h.click('#obNext', { wait: 250 }); await h.click('[data-lv="test"]'); await toLast(h); await h.click('#go', { wait: 1500 });
   h.ok(/#\/placement/.test(page.url()), 'chọn "kiểm tra đầu vào" → #/placement');
   await h.click('#go', { wait: 600 });
   for (let i = 0; i < 26 && !(await h.has('.pl-result')); i++) { const o = page.locator('.pl-wrap .option[data-k]:not([data-k="-1"])'); if (await o.count()) { await o.nth(i % 2).click().catch(() => {}); } await sleep(520); }
@@ -387,13 +387,13 @@ async function j4(h) {
 // ---------- 5. Cài đặt nhắc học → tải lại → còn; cờ quảng cáo TẮT → không ô quảng cáo ở đâu cả ----------
 async function j5(h) {
   const { page } = h;
-  await h.boot('/settings');
+  await h.boot('/settings/remind'); // Cài đặt = mục lục + trang con (docs/specs/me-settings-ux.md): ô nhắc học ở #/settings/remind
   if (!(await page.locator('#sRem').isChecked())) await page.locator('#sRem').check();
   const set = async (sel, v) => { await page.locator(sel).fill(v); await page.locator(sel).dispatchEvent('change'); await sleep(250); };
   await set('#sTime', '07:30'); await set('#sQ1', '23:00'); await set('#sQ2', '06:30');
   if (await page.locator('#sTy_week').isChecked()) { await page.locator('#sTy_week').uncheck(); await sleep(250); }
   await h.audit('settings');
-  await h.reload(); await h.go('#/settings');
+  await h.reload(); await h.go('#/settings/remind');
   const v = await page.evaluate(() => ({ t: document.querySelector('#sTime').value, a: document.querySelector('#sQ1').value, b: document.querySelector('#sQ2').value, w: document.querySelector('#sTy_week').checked, d: document.querySelector('#sTy_due').checked, on: document.querySelector('#sRem').checked }));
   h.ok(v.on && v.t === '07:30' && v.a === '23:00' && v.b === '06:30' && !v.w && v.d, 'cài đặt nhắc học còn sau tải lại: ' + JSON.stringify(v));
   const plan = await page.evaluate(() => (JSON.parse(localStorage.getItem('lk.remp') || '[]')).length);

@@ -1,12 +1,6 @@
 /* 🧍 Chỗ giáo viên – phần PHÁT CLIP (WebGL/video), tải lười từ teacher-slot.js khi trang có .tslot[data-clip] (khung app chỉ giữ ảnh tĩnh + CSS).
  * Tách 3/11 để khung app dưới trần size-budget (không nới trần). Cổng: scripts/test/teacher-native.mjs, scripts/test/teacher-quality.mjs (CI teacher-quality.yml).
- * Sửa 05/11 (chủ: lag · vệt đen · lệch miệng) – bảng gốc lỗi: docs/CHARACTERS.md §Phát clip.
- *  - Lệch miệng: clip Kling được quay lúc nhân vật NÓI → phát lặp KHÔNG tiếng = miệng nhép không lời. Chỉ clip có miệng ngậm thật (QUIET, đo bằng
- *    scripts/teach/mouth_motion.py --check) được phát im; clip nói chỉ chạy khi có lời (data-talk, rồi lkQuiet → về ảnh tĩnh). Còn lại: ảnh tĩnh thở nhẹ (CSS).
- *  - Vệt/khung đen: H.264 không gắn dải màu → có trình duyệt/GPU đọc "dải hẹp" 16–235 như dải đủ → nền alpha 16/255 = khung xám-đen 6 %, mép đen;
- *    nhiễu nén alpha 1–3/255 phủ nền. Shader tự đo mức đen ở góc đệm (build.py: alpha = 0 tuyệt đối), giãn lại dải, cắt nhiễu, nhân alpha lại từ màu thẳng.
- *  - Lag: tải texture video mỗi rAF (60/s, video chỉ 24 khung/s, cả khi khung không đổi) + video vẫn giải mã ở tab ẩn → chỉ tải khi có KHUNG MỚI
- *    (requestVideoFrameCallback), texSubImage2D, dừng khi tab ẩn / ra khỏi màn. */
+ * Sửa 05/11 (chủ: lag · vệt đen · lệch miệng): gốc + cách sửa + cổng ở docs/CHARACTERS.md §Phát clip (một nguồn). */
 (function (g) {
   const QUIET = new Set([]); // 'who/pose' được phép phát im – rỗng: mọi clip hiện có đều nhép miệng (mouth_motion.py). Thêm = clip ngậm miệng qua cổng.
   const key = u => { const m = /teach\/([\w-]+)\/([\w-]+)\.(?:mp4|webm)/.exec(u || ''); return m ? m[1] + '/' + m[2] : ''; };

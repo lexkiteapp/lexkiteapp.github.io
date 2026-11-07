@@ -4,10 +4,10 @@ name: Mobile QA
 on:
   pull_request:
     branches: [main]
-    paths: ['web/app/**', 'web/js/**', 'web/css/**', 'scripts/test/mobile-qa*', 'scripts/app-loader.mjs', '.github/workflows/mobile-qa.yml']
+    paths: ['web/app/**', 'web/js/**', 'web/css/**', 'scripts/test/mobile-qa*', 'scripts/app-loader.mjs', 'scripts/build-hash.mjs', '.github/workflows/mobile-qa.yml']
   push:
     branches: [main]
-    paths: ['web/app/**', 'web/js/**', 'web/css/**', 'scripts/test/mobile-qa*', 'scripts/app-loader.mjs', '.github/workflows/mobile-qa.yml']
+    paths: ['web/app/**', 'web/js/**', 'web/css/**', 'scripts/test/mobile-qa*', 'scripts/app-loader.mjs', 'scripts/build-hash.mjs', '.github/workflows/mobile-qa.yml']
   workflow_dispatch:
   schedule:
     - cron: '40 3 * * 1'   # thứ Hai 10:40 giờ Việt Nam
@@ -30,6 +30,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Playwright
+        timeout-minutes: 12
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           npx playwright install --with-deps chromium
@@ -43,6 +44,7 @@ jobs:
           node scripts/lexicon/shards.mjs --out out/site  # mảnh kho từ + data/lex-index.json như dist/ – thiếu thì #/dict chạy nhánh dev nạp ~750 KB danh sách từ → LCP chập chờn ~10 s (02/11)
           (cd web && npx -y esbuild@0.24.0 $(find js css cpack sw.js -type f \( -name '*.js' -o -name '*.css' \) | sort) --minify --charset=utf8 --log-level=warning --outdir=../out/site --outbase=. --allow-overwrite)
           node scripts/build-cpack.mjs out/site  # gói nội dung /cpack như dist/ (băm tên + sửa tham chiếu), sau minify – mqa-parity bắt thiếu
+          node scripts/build-hash.mjs out/site  # JS/CSS bản /h/ theo mã băm như dist/ (sau cpack)
           (node scripts/test/serve-web.mjs out/site 8080 >/dev/null 2>&1 &) ; sleep 1
           node scripts/test/mobile-qa.mjs http://localhost:8080 out/mobile-qa
       - name: Bàn phím ảo không che ô đang nhập (visualViewport iOS/Chrome + adjustResize Android)

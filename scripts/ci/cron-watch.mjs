@@ -107,7 +107,7 @@ export async function cronWatch(gh, { now = Date.now(), wfDir = '.github/workflo
     }
   }
   const cron = bad.length, zombies = await zombieRuns(gh, { now, cancel: kick }).catch(e => { console.log('::warning::zombie: ' + e.message); return []; });
-  for (const z of zombies) bad.push({ file: z.file, kind: 'zombie', why: `lượt ${z.id} queued ${z.min} phút, 0 job${z.cancel ? (z.cancel === 'ok' ? ' → đã huỷ' : z.deleted === true ? ` · huỷ không được (${z.cancel}) → đã DELETE` : ` · huỷ không được (${z.cancel}): chỉ còn DELETE /actions/runs/${z.id}${z.deleted ? ` (DELETE lỗi: ${z.deleted})` : ' (tự xoá khi quá 24 giờ)'}`) : ''}` });
+  for (const z of zombies) bad.push({ file: z.file, kind: 'zombie', why: `lượt ${z.id} queued ${z.min} phút, 0 job${z.cancel ? (z.cancel === 'ok' ? ' → đã huỷ' : z.deleted === true ? ' → đã xoá (DELETE)' : ` · huỷ không được (${z.cancel}): chỉ còn DELETE /actions/runs/${z.id}${z.deleted ? ` (DELETE lỗi: ${z.deleted})` : ' (tự xoá khi quá 24 giờ)'}`) : ''}` });
   const zc = bad.length, stuck = await stuckJobs(gh, { now }).catch(e => { console.log('::warning::stuck-jobs: ' + e.message); return []; });
   for (const s of stuck) bad.push({ file: s.file, kind: 'stuck', why: `lượt ${s.id}: ${s.jobs} job queued tới ${s.min} phút (> ${STUCK_JOB_MIN}) – max-parallel giữ, nhãn runner sai, hoặc hàng chờ quá tải (đo busy/40 trước khi kết luận)` });
   const line = b => `- \`${b.file}\`: ${b.why}\n`;

@@ -343,6 +343,7 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Báo cáo não bộ qua email': 'Weekly brain report via email',
 'Gửi tóm tắt trí nhớ FSRS và các từ sắp quên vào sáng Chủ nhật (khi đã đăng nhập)': 'Send an FSRS memory summary and words at risk of fading on Sunday morning (when signed in)',
 'Mục tiêu học': 'Study goals',
+'{n} từ mới/ngày': '{n} new words/day',
 'Từ mới mỗi ngày:': 'New words per day:',
 'Mục tiêu lượt ôn mỗi ngày:': 'Daily review goal:',
 'Tối đa thẻ mỗi phiên ôn:': 'Max cards per session:',
@@ -373,9 +374,9 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Nhẹ nhàng': 'Casual',
 '5 phút/ngày · 5 từ mới': '5 min/day · 5 new words',
 'Đều đặn': 'Regular',
-'10–15 phút/ngày · 10 từ mới': '10–15 min/day · 10 new words',
+'10 phút/ngày · 10 từ mới': '10 min/day · 10 new words',
 'Tăng tốc': 'Intensive',
-'25 phút/ngày · 20 từ mới': '25 min/day · 20 new words',
+'15 phút/ngày · 20 từ mới': '15 min/day · 20 new words',
 'Band mục tiêu của bạn?': "What's your target band?",
 'Bạn muốn học với cường độ nào?': 'How intensely do you want to study?',
 'Đang chuẩn bị bộ thẻ…': 'Preparing your deck…',
@@ -397,7 +398,9 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Trộn câu hỏi của cả chương': 'Mixed questions from the whole chapter',
 'Chủ đề ngẫu nhiên': 'Random topic',
 '{n} chủ đề': '{n} topics',
-'Chào bạn, mình là Kit! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.': 'Hi, I’m Kit! A few quick questions and I’ll build a plan just for you.',
+'Chào bạn, mình là Ama! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.': 'Hi, I’m Ama! A few quick questions and I’ll build a plan just for you.',
+'Theo bài kiểm tra, bạn bắt đầu từ {lv}. Muốn đổi thì chọn lại nhé.': 'Based on your test, you start at {lv}. Pick another level if you’d like.',
+'Tiếp tục thiết lập lộ trình →': 'Continue setting up your plan →',
 'Điểm TOEIC mục tiêu?': 'Your target TOEIC score?',
 'Band TOEFL mục tiêu?': 'Your target TOEFL band?',
 'Trình độ bạn muốn đạt?': 'What level do you want to reach?',
@@ -688,6 +691,12 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Chế độ tiếp theo': 'Next mode',
 // ← en/shell.js
 "Tra từ ngay trên mọi trang web": "Look up words on any website",
+// ← native onboarding (C17): ids onb.* in native/shared/strings.json
+"Ngôn ngữ mẹ đẻ của bạn?": "What is your native language?",
+"Chúng tôi sẽ giải nghĩa và hướng dẫn bằng ngôn ngữ này.": "We will explain meanings and guide you in this language.",
+"Tìm ngôn ngữ": "Search language",
+"Vào bài học đầu tiên": "Start your first lesson",
+"Chào bạn, mình là Ama! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.": "Hi, I’m Ama! A few quick questions and I’ll build a plan just for you.",
 // ← klocal.js (Cài đặt › Âm thanh: giọng Kokoro trên máy)
 'Giọng đọc chất lượng cao trên máy': 'High-quality on-device voice',
 'Mọi câu đọc cùng một giọng tự nhiên, chạy ngay trên máy và dùng được khi mất mạng. Tải nền một lần (khoảng {mb} MB), chỉ khi có Wi-Fi và máy còn đủ chỗ trống. Văn bản không gửi đi đâu.': 'Every sentence is read in the same natural voice, generated right on your device and available offline. It downloads once in the background (about {mb} MB), only on Wi-Fi and when there is enough free space. Your text is never sent anywhere.',
@@ -749,4 +758,8 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
   'so với cả tuần trước': 'vs. all of last week',
   // ← en/streak.js
   'Ngày đóng băng (chuỗi được bảo toàn)': 'Streak freeze day (streak preserved)',
+  // ← kiểm tra đầu vào trong thiết lập lần đầu (placement.js lời mời)
+  'Làm bài 5 phút để mình xếp bạn vào đúng chặng và chọn bộ từ vừa sức nhé!': 'Take this 5-minute test so I can place you at the right stage and pick words at your level!',
+  'Bỏ qua thì bạn học từ chặng đầu – làm bài sau ở Hôm nay cũng được.': 'If you skip, you start from the first stage – you can take the test later from Today.',
+  'Đã thêm {n} từ hợp trình độ {cefr} vào bộ thẻ.': 'Added {n} words at your {cefr} level to your deck.',
 }); })(typeof self !== 'undefined' ? self : this);
