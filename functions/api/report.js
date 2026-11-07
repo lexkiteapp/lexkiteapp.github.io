@@ -12,7 +12,7 @@
  * Thư: báo lỗi mới → quản trị (Worker lexkite-mail, /send; REPORT_NOTIFY_EMAIL nếu có) theo chế độ config 'report_notify' (instant|digest|off);
  *      đổi trạng thái/phản hồi → người báo (nếu đã đồng ý) qua /user của Worker (Resend/Brevo). Trong app: trang #/report/<token> + nhắc khi mở app. */
 import { coordDb, d1bReady } from './_d1b.js';
-import { PUSH_NOW_SQL } from './push.js';
+import { PUSH_NOW_SQL, fcmOn } from './push.js';
 import { claims } from './sync.js';
 import { guardBg } from './_d1guard.js';
 import { adminGate, adminAudit } from './admin.js';
@@ -381,7 +381,7 @@ async function notifyReporter(env, db, id) {
 export async function secrets(env, db) {
   const last = await db.prepare("SELECT act, note FROM report_events WHERE act IN ('mailed', 'mail-failed') ORDER BY id DESC LIMIT 1").first().catch(() => null);
   const mailSt = !env.MAIL ? 'no-binding' : !last ? 'unknown' : last.act === 'mailed' ? 'ok' : /\b501\b/.test(last.note || '') ? 'no-key' : 'failing';
-  const push = !d1bReady(env) ? 'no-d1b' : !(+env.PUSH_PCT > 0 || String(env.FCM_ON || '') === '1') ? 'off' : 'ok';
+  const push = !d1bReady(env) ? 'no-d1b' : !(+env.PUSH_PCT > 0 || fcmOn(env)) ? 'off' : 'ok';
   return { mail_st: mailSt, push, r2: !!env.REPORT_SHOTS, shot_sign: !!shotKey(env) };
 }
 const OPS = {
