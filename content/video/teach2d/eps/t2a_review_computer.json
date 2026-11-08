@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"computer\" mean?",
+  "keyword": "computer",
+  "value": "Computer means a machine for storing information and accessing the internet.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=computer",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"computer\" mean?",
+    "description": "Computer means a machine for storing information and accessing the internet.\n\nReview your words, free: https://lexkite.com/app/#/review?w=computer\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "computer",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"computer\" mean?\n\nComputer means a machine for storing information and accessing the internet.\n\nReview your words, free: https://lexkite.com/app/#/review?w=computer"
+   },
+   "instagram": {
+    "caption": "What does \"computer\" mean?\n\nComputer means a machine for storing information and accessing the internet.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"computer\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a machine for storing information and accessing the internet. Computer means a machine for storing information and accessing the internet. More practice like this (free): {link}"
  }
 }

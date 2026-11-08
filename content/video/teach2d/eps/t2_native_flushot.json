@@ -86,5 +86,46 @@
   "words": 54,
   "seconds": 32.0,
   "wpm": 101
+ },
+ "publish": {
+  "title": "Textbook or real English?",
+  "keyword": "I need to get a flu shot.",
+  "value": "Say \"I need to get a flu shot\", not \"I need to get a flu injection\". In everyday American English, it's a flu shot.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#phrasalverbs",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "Textbook or real English?",
+    "description": "Say \"I need to get a flu shot\", not \"I need to get a flu injection\". In everyday American English, it's a flu shot.\n\nLearn real phrases, free: https://lexkite.com/app/#/phrases\n\nSeries: Say It Naturally · Teacher: Ama\n\n#learnenglish #englishtips #phrasalverbs #englishteacher",
+    "tags": [
+     "I need to get a flu shot.",
+     "Say It Naturally",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Textbook or real English?\n\nSay \"I need to get a flu shot\", not \"I need to get a flu injection\". In everyday American English, it's a flu shot.\n\nLearn real phrases, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Textbook or real English?\n\nSay \"I need to get a flu shot\", not \"I need to get a flu injection\". In everyday American English, it's a flu shot.\n\nLearn real phrases: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#phrasalverbs",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Textbook or real English? #learnenglish #englishtips #phrasalverbs"
+   }
+  },
+  "first_comment": "Quiz answer: Shot! Many people get a flu shot every fall. Say \"I need to get a flu shot\", not \"I need to get a flu injection\". In everyday American English, it's a flu shot. Practice it with a free quiz: {link}"
  }
 }

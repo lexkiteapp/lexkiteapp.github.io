@@ -41,6 +41,21 @@ export function redList(files, runsOf) {
   }
   return out.sort((a, b) => Date.parse(a.at) - Date.parse(b.at));
 }
+/**
+ * Mù main (07/11): Prod release (job gate = npm test sau-push → issue `main-red`) bị huỷ/xếp hàng bỏ đói khi hàng CI dài – 6 lượt liền không chạy, main đỏ (native-parity)
+ * mà không ai thấy. Hàm thuần: commits (main, mới→cũ, {sha,date,message}), runs = Prod release trên main (mọi trạng thái) → { sha, ageMin } nếu commit đầu (không [skip ci])
+ * đã quá graceMin mà CHƯA có lượt Prod release nào đánh giá nó (xong không huỷ, hoặc đang chạy/xếp hàng < staleMin); ngược lại null.
+ */
+export function blindHead(commits, runs, now = Date.now(), graceMin = 25, staleMin = 60) {
+  const head = (commits || []).find(c => !/\[skip ci\]/i.test(c.message || ''));
+  if (!head) return null;
+  const ageMin = Math.round((now - Date.parse(head.date)) / 60000);
+  if (ageMin < graceMin) return null;
+  const covered = (runs || []).some(r => r.status === 'completed'
+    ? !['cancelled', 'skipped'].includes(r.conclusion) && (r.head_sha === head.sha || Date.parse(r.created_at) >= Date.parse(head.date))
+    : r.head_sha === head.sha && (now - Date.parse(r.created_at)) / 60000 < staleMin);
+  return covered ? null : { sha: head.sha, ageMin };
+}
 export function issueBody(red) {
   return `${MARK}\nLượt tự động mới nhất trên \`main\` của ${red.length} workflow đang ĐỎ (main phải luôn xanh — sửa gốc, không tắt/hạ ngưỡng):\n\n` +
     red.map(r => `- **${r.name}** (\`${r.file}\`) — ${r.event} ${r.conclusion} từ ${r.at.slice(0, 16).replace('T', ' ')}Z — [lượt ${r.id}](${r.url})`).join('\n') + '\n\nTự cập nhật mỗi giờ; tự đóng khi hết đỏ.';
@@ -60,6 +75,15 @@ async function main() {
     const w = wfs.find(x => x.path === `${dir}/${file}`);
     return { file, name: w ? w.name : file, state: w ? w.state : 'active', yml: fs.readFileSync(path.join(dir, file), 'utf8') };
   }).filter(w => autoTriggers(w.yml).length && (w.state === 'active'));
+  // mù main: commit đầu main chưa được Prod release (npm test sau-push) đánh giá → gọi tay đúng sha đó (nhóm riêng, không bị lượt push thay thế)
+  try {
+    const commits = (await api('/commits?sha=main&per_page=15')).map(c => ({ sha: c.sha, date: c.commit.committer.date, message: c.commit.message }));
+    const pr = (await api('/actions/workflows/prod-release.yml/runs?branch=main&per_page=20')).workflow_runs;
+    const b = blindHead(commits, pr);
+    if (!b) console.log('main-red-sweep: commit đầu main đã/đang được npm test sau-push đánh giá');
+    else { console.log(`main-red-sweep: ⚠ ${b.sha.slice(0, 7)} (${b.ageMin} phút) chưa có lượt Prod release nào đánh giá – ${dry ? 'bỏ qua (--dry)' : 'gọi tay'}`);
+      if (!dry) await api('/actions/workflows/prod-release.yml/dispatches', { method: 'POST', body: { ref: 'main', inputs: { sha: b.sha } } }); }
+  } catch (e) { console.log('::warning::main-red-sweep mù-main: ' + e.message); }
   const cache = {};
   for (const w of files) { const id = wfs.find(x => x.path === `${dir}/${w.file}`)?.id; if (!id) continue; cache[w.file] = (await api(`/actions/workflows/${id}/runs?branch=main&status=completed&per_page=12`).catch(() => ({ workflow_runs: [] }))).workflow_runs; }
   const red = redList(files, f => cache[f] || []);

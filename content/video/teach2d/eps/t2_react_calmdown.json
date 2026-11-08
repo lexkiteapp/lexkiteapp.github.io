@@ -102,5 +102,46 @@
   "words": 45,
   "seconds": 29.6,
   "wpm": 91
+ },
+ "publish": {
+  "title": "A meeting gets loud?",
+  "keyword": "calm down",
+  "value": "\"Calm down\" means to become less angry, upset or excited.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#phrasalverbs",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "A meeting gets loud?",
+    "description": "\"Calm down\" means to become less angry, upset or excited.\n\nLearn real phrases, free: https://lexkite.com/app/#/phrases\n\nSeries: Say it like a native · Teacher: Ama\n\n#learnenglish #englishtips #phrasalverbs #englishteacher",
+    "tags": [
+     "calm down",
+     "Say it like a native",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "A meeting gets loud?\n\n\"Calm down\" means to become less angry, upset or excited.\n\nLearn real phrases, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "A meeting gets loud?\n\n\"Calm down\" means to become less angry, upset or excited.\n\nLearn real phrases: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#phrasalverbs",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "A meeting gets loud? #learnenglish #englishtips #phrasalverbs"
+   }
+  },
+  "first_comment": "Answer: Let's all calm down. \"Calm down\" means to become less angry, upset or excited. Try the full lesson and quiz here: {link}"
  }
 }

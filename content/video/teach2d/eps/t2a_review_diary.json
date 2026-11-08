@@ -72,5 +72,46 @@
   "words": 49,
   "seconds": 29.1,
   "wpm": 101
+ },
+ "publish": {
+  "title": "What does \"diary\" mean?",
+  "keyword": "diary",
+  "value": "Diary means a book in which you write about events each day.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=diary",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"diary\" mean?",
+    "description": "Diary means a book in which you write about events each day.\n\nReview your words, free: https://lexkite.com/app/#/review?w=diary\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "diary",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"diary\" mean?\n\nDiary means a book in which you write about events each day.\n\nReview your words, free: https://lexkite.com/app/#/review?w=diary"
+   },
+   "instagram": {
+    "caption": "What does \"diary\" mean?\n\nDiary means a book in which you write about events each day.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"diary\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a book in which you write about events each day. Diary means a book in which you write about events each day. More practice like this (free): {link}"
  }
 }

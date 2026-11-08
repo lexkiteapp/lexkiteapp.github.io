@@ -63,7 +63,7 @@ Mapped line by line from privacy policy §2 (and the Play Data safety form, `doc
 | Identifiers → **Device ID** | Yes (random visitor identifier; random device code + hashed IP for abuse limits) | No | No | Analytics, App Functionality (fraud prevention / security) | "Visitor identifier", "Abuse-prevention data" – `hit.js`, quota |
 | Usage Data → **Product Interaction** | Yes (pages opened, time spent, pages viewed, returning visitor) | No | No | Analytics | "Usage statistics for each visit" – `/api/hit` |
 | Location → **Coarse Location** | Yes (country derived by Cloudflare from IP; IP not stored) | No | No | Analytics | "country (determined by Cloudflare from your IP address…)" |
-| Diagnostics → **Crash Data** | Yes (JS error message, code location, app version) | No | No | Analytics | "Technical error reports" |
+| Diagnostics → **Crash Data** | Yes (JS error message, code location, app version; from 1.0.2 Firebase Crashlytics crash/error reports with a hashed user ID when signed in) | **Yes** (from 1.0.2) | No | Analytics, App Functionality | "Technical error reports" + "Crash and error reports in the iOS/Android apps" |
 | Diagnostics → **Performance Data** | Yes (page load speed) | No | No | Analytics | "page load speed" |
 | Diagnostics → **Other Diagnostic Data** | Yes (device type, platform, screen size, app version in stats and problem reports) | No | No | Analytics, App Functionality | usage statistics + problem-report technical details |
 
