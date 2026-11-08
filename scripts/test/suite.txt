@@ -346,3 +346,4 @@ node scripts/test/is-main-guard.mjs
 node scripts/test/big-data.mjs
 node scripts/test/heavy-rerun.mjs
 node scripts/test/json-dupkeys.mjs
+node scripts/test/cls-chrome.mjs

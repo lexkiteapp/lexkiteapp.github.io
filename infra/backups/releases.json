@@ -4,6 +4,7 @@
  "kinds": {
   "android-aab": [
    {
+<<<<<<< HEAD
     "run": 42420962477,
     "run_number": 873,
     "version": "1.0.1",
@@ -63,6 +64,67 @@
      {
       "driveId": 15,
       "fileId": "1CGU6oQ7HzgPXhDLMbwW_tXiCh3weI9AF"
+=======
+    "run": 42429942144,
+    "run_number": 874,
+    "version": "1.0.1",
+    "build": 1874,
+    "name": "lexkite-1.0.1-1874.aab",
+    "sha256": "282240de867099edaa98f2d33dce4892cff5a1ebc7f64c093f89e09b3db915cd",
+    "size": 238213649,
+    "commit": "648eae2f7b3d9bf3660841e9e879a52943961ae4",
+    "at": "2026-11-08T00:40:24Z",
+    "copies": [
+     {
+      "driveId": 20,
+      "fileId": "10twYlNmXZ8wsDIjXkQEcNC3UnRPDsBH-"
+     },
+     {
+      "driveId": 22,
+      "fileId": "1zre-DvJ3ExWXFCaKE_xlCYvELuwYgxkm"
+     }
+    ]
+   },
+   {
+    "run": 42420962477,
+    "run_number": 873,
+    "version": "1.0.1",
+    "build": 1873,
+    "name": "lexkite-1.0.1-1873.aab",
+    "sha256": "aa9cf2eb854f0a33379eca8636d79387ab998745c401113b92eecf2631eaf3fb",
+    "size": 238169395,
+    "commit": "b1986f0000fb614b9308e2bfeb6879198b7746d5",
+    "at": "2026-11-07T22:39:25Z",
+    "copies": [
+     {
+      "driveId": 18,
+      "fileId": "1wuhpqndPxG69CvTNewtN-qpjatpAQTM4"
+     },
+     {
+      "driveId": 24,
+      "fileId": "1cg-f_u0CZutQCMmU9Mbc_wvyDqtmYALm"
+     }
+    ]
+   },
+   {
+    "run": 42414253696,
+    "run_number": 872,
+    "version": "1.0.1",
+    "build": 1872,
+    "name": "lexkite-1.0.1-1872.aab",
+    "sha256": "7d57e30946223214a8ead436aaa1d2eacd90c01b93088118b1fcf027f9e0417c",
+    "size": 238168876,
+    "commit": "1a0e9a4fd9ccb770ffe551ec95efb6f292955aae",
+    "at": "2026-11-07T21:16:09Z",
+    "copies": [
+     {
+      "driveId": 13,
+      "fileId": "1ieGNdnHSNXvxRS6qVAR1PCBPe-3GtTGW"
+     },
+     {
+      "driveId": 16,
+      "fileId": "1Eaj7vKa8e4alKF2WwCujDKsbmG8TAtqz"
+>>>>>>> real/main
      }
     ]
    }
@@ -156,5 +218,9 @@
    }
   ]
  },
+<<<<<<< HEAD
  "updated": "2026-11-07T22:40:55.660Z"
+=======
+ "updated": "2026-11-08T00:42:30.244Z"
+>>>>>>> real/main
 }
