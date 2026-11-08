@@ -97,6 +97,20 @@ T = json.loads(sys.stdin.read()); print(json.dumps(dict(f=[frames_of(t, 30) for 
 
 // ---- side layout: camera zoom never pushes the head into the caption band (pilot #679 short/dusk: head x1 519 > band x0 510) ----
 {
+  { // owner review 05/11: "It's my | treat", side band 1–2 words a page, chip label running past its pill
+    const P = JSON.parse(py(`import json,sys; sys.path.insert(0,'scripts/video/teach2d'); from labels import paginate, chip_w
+tw = lambda s: len(s) * 30.0
+def pg(t, mw, r): W = t.split(); return [[' '.join(W[a:z]), b] for a, z, b in paginate(W, [tw(x) for x in W], 14, mw, r)]
+print(json.dumps(dict(side=pg("Your teammate says: It's my treat today!", 394, 2), short=pg("It's my treat!", 394, 2), one=pg("It's my treat today!", 300, 1), sent=pg("Save this. Free on lexkite.com.", 900, 1),
+  chip=[chip_w('☕ AB', lambda s, z: len(s) * 20.0, 40), chip_w('AB', lambda s, z: len(s) * 20.0, 40)])))`).stdout);
+    const flat = pg => pg.map(x => x[0]);
+    ok(P.side.every(x => x[0].split(' ').length >= 2) && P.side.length <= 2, `side band: two-row pages of ≥ 2 words (${JSON.stringify(P.side)})`);
+    ok(P.short.length === 1 && P.short[0][1] === 1, `side: "It's my treat!" stays one page and the row break is not after a function word (${JSON.stringify(P.short)})`);
+    ok(!flat(P.one).some((x, i) => i < P.one.length - 1 && /\b(my|the|a|to)$/i.test(x)), `no page ends on a function word (${flat(P.one)})`);
+    ok(flat(P.sent).length === 2 && flat(P.sent)[0] === 'Save this.', 'a page never crosses a sentence end');
+    ok(P.chip[0] - P.chip[1] >= 40, 'chip width reserves real emoji width');
+    ok(!/📞/.test(fs.readFileSync(path.join(ROOT, 'scripts/video/teach2d/build.py'), 'utf8')), 'no dark phone glyph on the dark chip');
+  }
   const Z = py(`import json,sys; sys.path.insert(0,'scripts/video/teach2d'); from labels import side_zoom_cap as z
 ox, hx1, cap0 = 253.1, 490.0, 510
 s = z(1.12, ox, hx1, cap0, 12); print(json.dumps(dict(s=s, edge=ox + (hx1 - ox) * s, old=ox + (hx1 - ox) * 1.12, floor=z(1.12, 253, 505, 510, 12), left=z(1.12, 300, 250, 510, 12))))`);

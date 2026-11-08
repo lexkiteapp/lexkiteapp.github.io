@@ -225,8 +225,8 @@ function Captions({ caps, box, t, T }) {
   const now = p.words.filter(w => t >= w.s - 0.02).length - 1, a = clamp01((t - p.t0) / 0.08);
   return (
     <div style={{ position: 'absolute', left: box[0], top: box[1], width: box[2] - box[0], height: box[3] - box[1], display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: a }}>
-      <div style={{ padding: '10px 26px', borderRadius: 24, background: T.cap_plate, fontFamily: JAK, fontWeight: 800, fontSize: 58, lineHeight: '74px', whiteSpace: 'pre' }}>
-        {p.words.map((w, i) => <span key={i} style={{ color: i === now ? T.cap_now : T.cap_ink }}>{(i ? ' ' : '') + w.w}</span>)}</div>
+      <div style={{ padding: '10px 26px', borderRadius: 24, textAlign: 'center', background: T.cap_plate, fontFamily: JAK, fontWeight: 800, fontSize: 58, lineHeight: '74px', whiteSpace: 'pre' }}>
+        {p.words.map((w, i) => <React.Fragment key={i}>{p.br && i === p.br ? <br /> : null}<span style={{ color: i === now ? T.cap_now : T.cap_ink }}>{(i && i !== p.br ? ' ' : '') + w.w}</span></React.Fragment>)}</div>
     </div>);
 }
 

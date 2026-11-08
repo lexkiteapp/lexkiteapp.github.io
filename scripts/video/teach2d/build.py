@@ -15,7 +15,7 @@ from PIL import ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HERE}/../../..')
 sys.path.insert(0, f'{ROOT}/scripts/video/motion'); import core as C   # noqa: E402  (same maths as Remotion core.mjs)
 sys.path.insert(0, f'{ROOT}/scripts/video/tpl'); from overlay_gates import bank_ipa   # noqa: E402  (audited IPA bank, same lookup as qc.py)
-sys.path.insert(0, HERE); from labels import ordinal, stress_quiz, frames_of, side_zoom_cap   # noqa: E402  (stress ordinals / syllable-position labels from the data)
+sys.path.insert(0, HERE); from labels import ordinal, stress_quiz, frames_of, side_zoom_cap, paginate, chip_w   # noqa: E402  (stress ordinals / syllable-position labels from the data)
 
 ap = argparse.ArgumentParser()
 for a in ('ep', 'vo', 'host', 'public', 'out'): ap.add_argument('--' + a, required=True)
@@ -33,7 +33,7 @@ TINT = _TJ['tints'][EP['template']]   # series colour: the big canvas blob carri
 HG = json.load(open(f'{o.host}/geom.json')); EMBED = o.format == 'wide'
 LAYOUTS = dict(   # same cards / timing; only where the card region, captions and teacher sit (owner 29/10: varied layouts)
     corner=dict(region=[60, 324, 960, 1150], cap=[60, 1168, 960, 1282], host_h=640, host_cx=540),
-    side=dict(region=[60, 324, 960, 1150], cap=[510, 1196, 960, 1310], host_h=760, host_cx=260),
+    side=dict(region=[60, 324, 960, 1150], cap=[510, 1196, 960, 1364], cap_rows=2, host_h=760, host_cx=260),
     bubble=dict(region=[60, 324, 960, 1396], cap=[60, 1410, 610, 1496], host_h=744, host_cx=None, bubble=[632, 1440, 1032, 1840]))
 FMT = dict(short=dict(W=1080, H=1920, chip=[60, 236], safe=[48, 232, 960, 1497], **LAYOUTS[o.layout or 'corner']),
            wide=dict(W=1920, H=1080, region=[96, 150, 1056, 990], chip=[96, 70], safe=[60, 48, 1860, 1032], cap=None, host_h=960, host_cx=1460))[o.format]
@@ -131,7 +131,7 @@ class Card:
 
 
 def chip(c, text, t_in, tone='chip'):
-    w = tw(text, S['chip']) * 1.06 + 56
+    w = chip_w(text, tw, S['chip'])
     return c.add(dict(type='chip', text=text, tone=tone, size=S['chip'], box=[PAD, 0, PAD + w, 0], **{'in': cue(t_in)}), S['chip'] + 28)
 
 
@@ -609,7 +609,7 @@ def T_call():
     meaning card, the reply chip the app offers, then the quiz."""
     D = EP['data']; series_chip(); t_out = start('q') - 0.2
     title([[f"“{D['phrase'].capitalize()}”", 'accent'], ['?', 'ink']], 112, RY0 + 140, None, start('m') - 0.2, hook=True)
-    c = Card(RY0, tone='tile'); chip(c, f"📞 {D['em']} {D['title'].upper()}", start('m'))
+    c = Card(RY0, tone='tile'); chip(c, f"{D['em']} {D['title'].upper()}", start('m'))
     c.text(runs_hl(D['line'], D['phrase'], 'accent'), S['body'], at('m', 'says')); b1 = c.place(start('m'), t_out, 'a')
     c = Card(b1[3] + 28, tone='good', badge='check', t_badge=start('y')); c.text([[D['phrase'], 'primary'], [' = ' + D['mean'], 'ink']], S['body'], start('y')); b2 = c.place(start('y'), t_out, 'b')
     c = Card(b2[3] + 28, tone='bubble_good', x0=RX0 + 120, w=RW - 120); c.tail = 'r'; chip(c, 'YOU SAY', at('o', 'say'), tone='good')
@@ -675,14 +675,12 @@ NODES.sort(key=lambda n: (0 if n['type'] == 'card' else 1))   # parents first; R
 # ---------------- captions (short only; embed ships them as VTT): one row, karaoke, never over the face ----------------
 CAPS = []; VTT = []
 for l in EP['lines']:
-    L_ = LINES[l['id']]; ws = L_['words']; page = []; pw = 0
-    def flush(pg, nxt):
-        if pg: CAPS.append(dict(words=pg, t0=round(pg[0]['s'] - 0.06, 3), t1=round(min(nxt, pg[-1]['e'] + 0.45), 3)))
-    for i, w in enumerate(ws):
-        ww = tw(w['w'] + ' ', S['cap'])
-        if page and (pw + ww > (FMT['cap'][2] - FMT['cap'][0] - 80 if FMT['cap'] else 1e9) or (page[-1]['w'][-1] in '.!?' and not re.fullmatch(r'(?:[A-Z]\.)+', page[-1]['w']))): flush(page, w['s'] - 0.02); page, pw = [], 0   # new page at each sentence end
-        page.append(w); pw += ww
-    flush(page, (ws[-1]['e'] + l['pause']))
+    L_ = LINES[l['id']]; ws = L_['words']; toks = [w['w'] for w in ws]
+    cap_w = FMT['cap'][2] - FMT['cap'][0] - 56 if FMT['cap'] else 1e9   # 56 = the caption plate's side padding (TeachShort Captions)
+    PG = paginate(toks, [tw(x, S['cap']) for x in toks], tw(' ', S['cap']), cap_w, FMT.get('cap_rows', 1))
+    for n_, (a, z, br) in enumerate(PG):
+        nxt = ws[z]['s'] - 0.02 if z < len(ws) else ws[-1]['e'] + l['pause']
+        CAPS.append(dict(words=ws[a:z], br=br, t0=round(ws[a]['s'] - 0.06, 3), t1=round(min(nxt, ws[z - 1]['e'] + 0.45), 3)))
     VTT.append(dict(t0=L_['t0'], t1=round(L_['t1'] + 0.2, 3), text=l['text']))
 if not FMT['cap']: CAPS = []
 
