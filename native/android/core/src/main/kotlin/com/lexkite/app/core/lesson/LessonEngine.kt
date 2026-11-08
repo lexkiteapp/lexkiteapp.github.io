@@ -352,7 +352,7 @@ object LessonEngine {
                         val extra = shuffle(words.filter { w -> t.none { it.lowercase() == w } }, r).take(2)
                         out.add(base.copy(type = "build", sent = ln.s("en"), who = ln.s("who"), answer = t.joinToString(" "), tiles = shuffle(t + extra, r)))
                     }
-                    "q" -> { val opts = c.arr("options").map { (it as JsonPrimitive).content }; out.add(base.copy(type = "q", prompt = c.s("q"), answer = opts[num(c["answer"]).toInt()], options = if (c.truthy("keep")) opts else shuffle(opts, r))) }
+                    "q" -> { val opts = c.arr("options").map { (it as JsonPrimitive).content }; out.add(base.copy(type = "q", prompt = c.s("q"), answer = opts[num(c["answer"]).toInt()], why = c.s("why"), options = if (c.truthy("keep")) opts else shuffle(opts, r))) }
                     "match" -> out.add(base.copy(type = "match", pairs = c.arr("pairs").map { p -> val po = p as JsonObject; val m = po["m"].obj(); MatchPair(po.s("en"), (m?.get(lang)?.takeIf { Js.truthy(it) } ?: m?.get("en")).let { e -> (e as? JsonPrimitive)?.content ?: "" }) }))
                 }
             }

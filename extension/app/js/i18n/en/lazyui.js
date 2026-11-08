@@ -690,6 +690,7 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Học ngay': 'Start',
 "Thân bài 1": "Body paragraph 1",
 'Chế độ tiếp theo': 'Next mode',
+'Câu của bạn có thể khác câu mẫu: máy chỉ kiểm bạn đã dùng đúng cấu trúc của bài.': 'Your sentence can differ from the model: we only check that you used the structure of this lesson.',
 // ⏱️ Thử thách 60 giây (cpack/play-app/play-blitz.js, docs/specs/play-learn.md)
 "Link thách đấu không còn dùng được – chơi bộ từ của bạn": "This challenge link no longer works – playing your own words instead",
 "Thách đấu: vượt {n} điểm": "Challenge: beat {n} points",

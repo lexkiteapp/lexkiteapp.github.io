@@ -13,8 +13,13 @@ export function loadContent() {
   vm.createContext(ctx);
   const files = ['data.js', 'lexis.js', 'structures.js', 'readings.js', '../cpack/readings/more.js'];
   // grammar: đúng thứ tự app nạp (web/js/app.js) – drills-*.js gắn bài tập vào chương đã có
-  const GORDER = ['tenses', 'verbs', 'sentences', 'foundation', 'starter', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'bank-gen', 'check'];
-  for (const d of DATA_DIRS) for (const f of fs.readdirSync(path.join(W, d)).sort((a, b) => d === 'grammar' ? (GORDER.indexOf(a.slice(0, -3)) + 1 || 99) - (GORDER.indexOf(b.slice(0, -3)) + 1 || 99) : a < b ? -1 : 1)) if (f.endsWith('.js')) files.push(d + '/' + f);
+  const GORDER = ['tenses', 'verbs', 'sentences', 'foundation', 'starter', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'drills-own', 'bank-gen', 'check'];
+  // grammar có thể nằm ở web/js/grammar và web/cpack/grammar (drills-own.js): gộp rồi xếp đúng thứ tự app nạp
+  const isG = d => /(^|\/)grammar$/.test(d), gOrder = f => GORDER.indexOf(path.basename(f).slice(0, -3)) + 1 || 99;
+  for (const d of DATA_DIRS) {
+    if (isG(d)) { if (!files.some(f => /(^|\/)grammar\//.test(f))) files.push(...DATA_DIRS.filter(isG).flatMap(g => fs.readdirSync(path.join(W, g)).filter(f => f.endsWith('.js')).map(f => g + '/' + f)).sort((a, b) => gOrder(a) - gOrder(b))); continue; }
+    for (const f of fs.readdirSync(path.join(W, d)).sort((a, b) => a < b ? -1 : 1)) if (f.endsWith('.js')) files.push(d + '/' + f);
+  }
   // Cambridge A2–C2 (docs/specs/cambridge.md): web/cpack/cambridge/<cấp>/t<N>.js → self.CAMBRIDGE
   const CAM = path.join(W, '../cpack/cambridge'); // gói nội dung tải lười (như TOEFL) – ngoài ngân sách byte web/js
   if (fs.existsSync(path.join(CAM, 'rubric.js'))) files.push('../cpack/cambridge/rubric.js');
