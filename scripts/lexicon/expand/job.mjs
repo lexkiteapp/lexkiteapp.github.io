@@ -235,7 +235,7 @@ await pmap(chunks(okDef, 10), 8, async ch => { const r = await call('lxtr', ch.m
   if (r) for (const x of ch) { const o = r.out[x.k] || {}; AT[x.k] = o; if (typeof o.vi === 'string' && o.vi.trim()) { VA[x.k] = o.vi.trim(); FA[x.k] = r.fam || familyOf(r.model); } } });
 // lxvi: HAI họ khác (llama + mistral) – vi nhận khi ≥ 2 trong 4 nguồn trùng (Wiktionary · A · B · C)
 const viReq = ch => ({ mode: 'lxvi', items: ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def })) });
-await pmap(chunks(okDef, 10), +(process.env.LX_VI_PAR || 6), async ch => { const fa = ch.map(x => FA[x.k]).find(Boolean) || 'gpt-oss'; stat.calls += 2;
+await pmap(chunks(okDef, 10), 6, async ch => { const fa = ch.map(x => FA[x.k]).find(Boolean) || 'gpt-oss'; stat.calls += 2;
   /* B = Gemini (chủ 30/10: Gemini dịch vi), họ khác bản lxtr */ const b = await AI.judge(viReq(ch), { chain: ['gem', 'groq', 'cf2'], exclude: [fa] }), c = b && await AI.judge(viReq(ch), { chain: ['groq', 'gem', 'cf2'], slot: 'C', exclude: [fa, b.fam], excludeModels: [b.model] });
   for (const [slot, r, V] of [['b', b, VB], ['c', c, VC]]) if (r) { used.add(r.route + ':' + r.model); let got = 0; for (const x of ch) { const v = viAnswer(r.out[x.k]); if (v) { V[x.k] = v; got++; } }
     const S = (stat.viSlot ||= {}), m = (S[slot + ':' + r.model] ||= { items: 0, got: 0 }); m.items += ch.length; m.got += got; if (got < ch.length && !m.sample) m.sample = JSON.stringify(r.out).slice(0, 400); } });
