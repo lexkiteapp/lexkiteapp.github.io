@@ -45,7 +45,7 @@ jobs:
         run: |
           python3 scripts/video/teach2d/gen.py -q
           git status --porcelain content/video/teach2d/eps | grep . && { echo "::error::eps/*.json differ from gen.py output (pilots.json + auto.json) – regenerate and review"; exit 1; }
-          python3 scripts/test/teach2d-gen.py   # batch generator gates (data / level / hook / dup) + spelling syllables, regression cases
+          python3 scripts/test/teach2d-gen.py && python3 scripts/test/teach2d-autopub.py   # batch generator gates (data / level / hook / dup) + spelling syllables, regression cases
           python3 scripts/video/teach2d/mix.py --check   # 0-credit build bank: mix.json regenerates identically, 0 repeats in the window, diversity >= 70
           python3 scripts/test/teach2d-mix.py
           python3 scripts/video/teach2d/publish.py --check   # publish block of every episode (title / platforms) valid – docs/specs/video-production-v2.md §2
