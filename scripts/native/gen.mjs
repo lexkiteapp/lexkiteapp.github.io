@@ -328,7 +328,9 @@ function jsonDiff(a, b, max = 8) {
       for (const k of new Set([...Object.keys(x), ...Object.keys(y)])) walk(x[k], y[k], `${p}${Array.isArray(x) ? `[${k}]` : `.${k}`}`);
     } else if (x !== y) out.push(`${p}: ${JSON.stringify(x)} → ${JSON.stringify(y)}`);
   };
-  walk(A, B, '$'); return out;
+  walk(A, B, '$');
+  if (!out.length) { let i = 0; while (i < a.length && a[i] === b[i]) i++; out.push(`same values, text differs at char ${i}/${a.length}→${b.length}: ${JSON.stringify(a.slice(Math.max(0, i - 60), i + 60))} → ${JSON.stringify(b.slice(Math.max(0, i - 60), i + 60))}`); }
+  return out;
 }
 let drift = 0;
 for (const [rel, s] of out) {
