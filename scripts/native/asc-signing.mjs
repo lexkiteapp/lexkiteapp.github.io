@@ -9,6 +9,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { isMain } from '../lib/is-main.mjs';
 
 export const BUNDLES = ['com.lexkite.app', 'com.lexkite.app.widget'];
 export const PROFILE_PREFIX = 'LexKite CI AppStore ';
@@ -68,7 +69,7 @@ async function createDist(csrFile, out) {
   }
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMain(import.meta.url)) {
   const [cmd, a, b] = process.argv.slice(2);
   const run = { list, 'revoke-ci-dev': () => revoke(a || ''), 'create-dist': () => createDist(a, b || 'out/signing') }[cmd];
   if (!run) { console.error('dùng: list | revoke-ci-dev <ids> | create-dist <csr.pem> <outDir>'); process.exit(2); }
