@@ -19,7 +19,7 @@ import { espeakUK } from './espeak.mjs';
 import { parseCmu, pickPron, heteronym, ipaAgrees } from './cmu.mjs';
 import { loadRefs, checkEntry } from '../ipa-check.mjs';
 // nguồn câu NGƯỜI VIẾT theo tiền tố id TSV (tatoeba-native/simplewiki.py --prefix/commonvoice.py) – 08/11 thêm Wikivoyage/Wikinews/Wikibooks
-const EX_SRC = [[/^\d+$/, 'tatoeba'], [/^cv/, 'commonvoice'], [/^wv\d/, 'wikivoyage'], [/^wnw\d/, 'wikinews'], [/^wb\d/, 'wikibooks'], [/^wvs\d/, 'wikiversity'], [/^gb\d/, 'gutenberg'], [/^sw\d/, 'simplewiki']];
+const EX_SRC = [[/^\d+$/, 'tatoeba'], [/^cv/, 'commonvoice'], [/^wv\d/, 'wikivoyage'], [/^wnw\d/, 'wikinews'], [/^wb\d/, 'wikibooks'], [/^wvs\d/, 'wikiversity'], [/^sw\d/, 'simplewiki']];
 const exSrc = id => (EX_SRC.find(([r]) => r.test(String(id))) || [0, 'simplewiki'])[1];
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : d; };
 const N = +arg('--n', 400), CALLS = +arg('--calls', 400), PILOT = process.argv.includes('--pilot'), DRY = process.argv.includes('--dry'), NORETRY = process.argv.includes('--no-retry'); // --no-retry: lượt kiểm nhỏ, không đụng danh sách làm lại
@@ -315,7 +315,7 @@ for (const x of items) {
      cefrF: c.cefrZ || c.cefr, cefrSrc: c.cefrSrc || 'freq', perLang: true, ...(X[x.k] && X[x.k].trBad ? { trBad: X[x.k].trBad } : {}), z: c.z, emoji: g.emoji || '', topic: g.topic || '', vi: g.vi || '', note_vi: g.note_vi || '', m: T[x.k] || {},
     src: { freq: 'wordfreq-3.1', sense: 'wordnet-3.0:' + c.syn, def: (D[x.k] || {}).src || 'wordnet-gloss+ai-simplify', defGen: GM[x.k] || mGen, ipaUS: CMU.has(x.w) ? 'cmudict' : 'wiktionary', ipaUK: x._ipa.ukSrc, cefr: c.cefrSrc || 'freq',
       ex: X[x.k] ? X[x.k].ex.map(e => e.src) : [], tr: X[x.k] ? X[x.k].trSrc || {} : {}, trSense: X[x.k] ? X[x.k].tg : '', col: g.col && g.col.length ? 'wordnet/tatoeba' : '', syn: g.syn && g.syn.length ? 'wordnet' : '',
-      lic: 'WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · Project Gutenberg public domain (US) · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0' }, qa: {} } : null;
+      lic: 'WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0' }, qa: {} } : null;
   if (ent && X[x.k] && !X[x.k].defOk) ent.defChanged = X[x.k].defWhy || 'changed';
   if (ent) { ent.senseLock = c._lock || false; ent.src.senseLock = c._lock || ''; }
   if (ent && g.pos && g.pos !== x.pos) ent.posDrift = g.pos; // khóa nghĩa: từ loại cố định theo nghĩa WordNet đã chọn
