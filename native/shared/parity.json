@@ -35,7 +35,8 @@
       "title": "Lesson player: match/type/gap/build/say/pic/tr, segmented bar, Check, feedback sheet + teacher, gold bank, combo, retries, stories/radio, lesson complete + celebration",
       "routes": [
         "#/lesson"
-      ]
+      ],
+   "status": "done"
     },
     {
       "id": "P04",
@@ -187,13 +188,15 @@
       "id": "C04",
       "m": 2,
       "title": "Audio: Kokoro prerendered files from the CDN (multi-origin fallback), offline pack, live free TTS tier, system TTS last; Ama female / Carlos male",
-      "routes": []
+      "routes": [],
+   "status": "done"
     },
     {
       "id": "C05",
       "m": 2,
       "title": "Teachers Ama/Carlos 2D: native port of the web TeacherRig (Rive-style viseme/emotion/gesture inputs, no Rive runtime), viseme lip sync ±33 ms, gestures/emotions, reduced motion",
-      "routes": []
+      "routes": [],
+   "status": "done"
     },
     {
       "id": "C06",
