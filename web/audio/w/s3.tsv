@@ -8855,28 +8855,6 @@ peruse	ok	ok
 authenticate	ok	ok
 sate	ok	cut_wordis:"SAIT" 0.48s · cut_wordis:"Date" 0.34s · dot100:"Say it." 0.56s · cut_wordis100:"SAIT" 0.66s · cut_wordis100:"SAIT" 0.55s · cut_next:"SAIT" 0.57s · cut_next:"Date" 0.42s · plain095:"Say it." 0.60s · dot090:"and say it" 0.64s
 capitulate	ok	ok
-retaliate	ok	ok
-alimony	ok	ok
-incoherent	ok	ok
-workmanship	ok	ok
-credence	ok	ok
-henceforth	ok	ok
-indignation	ok	ok
-orthography	ok	ok
-parallelism	ok	ok
-conflagration	ok	ok
-electrophoresis	ok	ok
-bicker	ok	ok
-rectification	ok	ok
-eavesdrop	ok	ok
-superconductivity	ok	ok
-emanate	ok	ok
-phonetics	ok	ok
-falsify	ok	ok
-gasification	ok	ok
-anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
-porpoise	ok	ok
-systematics	ok	ok
 grace	ok	ok
 policewoman	cut_wordis: câu mang: "The word is police woman." · dot100:"Police women." 0.94s · cut_wordis100:"Police women." 0.91s · cut_wordis100:"Police women" 0.86s · cut_next: câu mang: "Next word, police women" · plain095:"Police women" 0.97s · dot090:"A policewoman." 1.08s	ok
 unfortunate	ok	ok
@@ -8896,7 +8874,6 @@ insignificance	ok	ok
 scabbard	ok	ok
 supranational	ok	cut_wordis:"Super National." 1.18s · cut_wordis:"Supernational." 0.99s · dot100:"SuperNational." 0.97s · cut_wordis100:"It's super national." 1.13s · cut_wordis100:"Supernational." 0.98s · cut_next:"Supernational." 0.98s · cut_next:"For National." 0.76s · plain095:"SuperNational." 0.99s · dot090:"Su
 unaccustomed	ok	ok
-luminescent	ok	ok
 inductor	ok	ok
 pal	cut_wordis: câu mang: "The word is pell." · dot100:"PEL" 0.78s · cut_wordis100: câu mang: "The word is pell." · cut_next: câu mang: "Next word, Pali." · plain095:"Purl" 0.55s · dot090:"Depel." 0.63s	ok
 nonsense	ok	ok
@@ -8920,7 +8897,6 @@ unrivaled	ok	ok
 monopolistic	ok	ok
 camshaft	ok	ok
 heraldic	ok	ok
-deride	ok	ok
 eigenvalue	ok	ok
 meditation	ok	ok
 imaginary	ok	ok
@@ -8979,7 +8955,6 @@ lastly	ok	ok
 uneven	ok	ok
 inexperienced	ok	ok
 cascade	ok	ok
-invariably	ok	ok
 cowardly	ok	ok
 circuitry	ok	ok
 mausoleum	ok	ok
@@ -9009,7 +8984,6 @@ apex	ok	ok
 manifesto	ok	ok
 nutritional	ok	ok
 bloc	cut_wordis: câu mang: "The word is blocky." · dot100:"Block." 0.61s · cut_wordis100: câu mang: "The word is blocky." · cut_next: câu mang: "Next word blocky" · plain095:"block" 0.56s · dot090:"The block." 0.65s	cut_wordis: câu mang: "The word is block." · dot100:"Black." 0.63s · cut_wordis100: câu mang: "The word is block." · cut_next: câu mang: "Next word, block." · plain095:"Black." 0.61s · dot090:"Black." 0.70s
-contender	ok	ok
 famed	ok	ok
 weaver	ok	ok
 prostatectomy	ok	cut_wordis:"Prostetectomy" 1.25s · cut_wordis:"Prostetectomy" 1.05s · dot100:"Prostetectomy" 1.06s · cut_wordis100:"Prostetectomy" 1.16s · cut_wordis100:"Prostetectomy" 0.98s · cut_next:"Prostetectomy" 1.08s · cut_next:"Detect me." 0.85s · plain095:"Prostetectomy" 1.04s · dot090:"Prostetectomy" 1.13
@@ -9029,7 +9003,6 @@ squander	ok	ok
 naively	ok	ok
 popularization	ok	ok
 incisor	ok	ok
-issuance	ok	ok
 combustion	ok	ok
 multiplier	ok	ok
 issuer	ok	ok
@@ -9081,7 +9054,6 @@ enrichment	ok	ok
 synonymous	ok	ok
 neoplasm	ok	ok
 furtively	ok	ok
-watchword	ok	ok
 inadvisable	ok	ok
 disburse	cut_wordis:"Disperse" 0.91s · cut_wordis:"Disperse." 0.87s · dot100:"Disperse." 0.84s · cut_wordis100: câu mang: "The word is disperse." · cut_next: câu mang: "Next word, dispersi." · plain095:"Disperse" 0.75s · dot090:"Disperse." 0.90s	cut_wordis: câu mang: "The word is disperse." · dot100:"Disperse" 0.74s · cut_wordis100: câu mang: "The word is disperse." · cut_next: câu mang: "Next word, disperse." · plain095:"Disperse" 0.78s · dot090:"Disperse" 0.82s
 forewing	cut_wordis: câu mang: "The word is forwing." · dot100:"Fooling." 1.06s · cut_wordis100: câu mang: "The word is forwing." · cut_next: câu mang: "Next word, following." · plain095:"following." 0.64s · dot090:"The following." 1.15s	cut_wordis: câu mang: "The word is forwing." · dot100:"4-Wing" 0.68s · cut_wordis100: câu mang: "The word is forwing." · cut_next: câu mang: "Next word, four-wing." · plain095:"4-Wing" 0.68s · dot090:"4-Wing" 0.70s
@@ -9213,7 +9185,6 @@ transparently	ok	ok
 artfully	ok	ok
 humanely	ok	ok
 subfamily	cut_wordis: câu mang: "The word is sub-familiar." · dot100:"sub for Millie" 0.93s · cut_wordis100: câu mang: "The word is sub-familiar." · cut_next: câu mang: "Next word, sub-familiarly" · plain095:"sub for Millie" 0.89s · dot090:"sub-familiar" 1.02s	ok
-adjudicate	ok	ok
 dialectical	ok	ok
 judicious	ok	ok
 tentacle	ok	ok
@@ -9231,3 +9202,25 @@ tyrannosaurus	ok	ok
 unappreciated	ok	ok
 dropper	ok	ok
 initialize	ok	ok
+retaliate	ok	ok
+alimony	ok	ok
+incoherent	ok	ok
+workmanship	ok	ok
+credence	ok	ok
+henceforth	ok	ok
+indignation	ok	ok
+orthography	ok	ok
+parallelism	ok	ok
+conflagration	ok	ok
+electrophoresis	ok	ok
+bicker	ok	ok
+rectification	ok	ok
+eavesdrop	ok	ok
+superconductivity	ok	ok
+emanate	ok	ok
+phonetics	ok	ok
+falsify	ok	ok
+gasification	ok	ok
+anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
+porpoise	ok	ok
+systematics	ok	ok

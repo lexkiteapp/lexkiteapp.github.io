@@ -487,11 +487,6 @@
       ":scope": {
        "title": "x.aria"
       }
-     },
-     "cls": {
-      ":scope": {
-       "opacity-40": "''"
-      }
      }
     }
    }
