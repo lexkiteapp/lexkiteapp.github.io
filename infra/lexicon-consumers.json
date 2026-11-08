@@ -207,6 +207,9 @@
   "scripts/native/gen-vocab.mjs": {
    "skip": "chỉ lấy vài từ của các chủ đề cốt lõi làm mẫu thử cho vector test (vocab.json); dữ liệu từ thật thì app native tải lúc chạy như web, nên mục mở rộng 20k không đi qua script này"
   },
+  "scripts/native/gen-skills.mjs": {
+   "skip": "chỉ dựng bảng tách từ của Lexis (AWL/từ nối/cụm) và vector cho màn nghe/đọc từ IELTS_DATA nạp bằng data.js; không ghi/xuất kho, từ thật thì app native tải lúc chạy như web"
+  },
   "scripts/native/gen-sync.mjs": {
    "skip": "chỉ tra các từ mà vector sync/migration dùng (map lib) để native dựng lại thẻ L:1; không ghi/xuất kho"
   },

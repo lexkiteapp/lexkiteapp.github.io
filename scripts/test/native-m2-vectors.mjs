@@ -1,4 +1,4 @@
-// Native M2 – the shared layer's vectors (lesson engine P03, teacher rig C05, audio C04, lesson strings): they regenerate byte-identically from the real web JS,
+// Native M2–M4 – the shared layer's vectors (lesson engine P03, teacher rig C05, audio C04, lesson strings, M3 vocab P04/P05, M4 skills P06): they regenerate byte-identically from the real web JS,
 // and they are internally sane, so the SwiftUI / Compose ports can trust them. Light (a few seconds, no browser, no Mac heavy work). docs/specs/native-apps.md §3, §5.
 import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
 import { lessonVectors } from '../native/gen-lesson.mjs';
@@ -170,5 +170,40 @@ const RV = T1.vectorJson, RD = T1.rigJson;
   const miss = [...keys].filter(k => !have.has(k) && !UNP.has(k));
   ok(miss.length === 0, `M3 strings: ${keys.size} t() keys of the P04/P05 screens are mapped in native/shared/strings.json${miss.length ? ' – missing: ' + miss.slice(0, 3).join(' | ') : ''}`);
 }
+// ---- 8) M4 skills vectors (P06 listening & reading: #/listening #/listen #/listen-test #/dictation #/reading #/read; P07/P09 extend skills.json) ----
+{
+  const { skillsVectors } = await import('../native/gen-skills.mjs');
+  const S1 = await skillsVectors(), S2 = await skillsVectors();
+  ok(S1 === S2 && same(`${SH}/vectors/skills.json`, S1), 'skills.json: two runs identical and equal to the committed file (else: node scripts/native/gen.mjs)');
+  ok(Buffer.byteLength(S1) < 500 * 1024, `skills.json < 500 KB (${(Buffer.byteLength(S1) / 1024) | 0} KB; owner cap, incl. the cut-down listening/reading/lexis "data")`);
+  const SV = JSON.parse(S1), at = (o, k) => k.split('.').reduce((x, y) => (x ? x[y] : undefined), o), bad = [];
+  const selfD = a => Array.isArray(a) && a.length > 0 && a.every(c => c && typeof c.why === 'string' && c.why.length > 8 && c.input !== undefined && c.out !== undefined);
+  const pure = a => Array.isArray(a) && a.length > 0 && a.every(c => c && c.input !== undefined && c.out !== undefined);
+  for (const k of ['listening', 'listen.render', 'listen.flows', 'listen.popup', 'listen.player', 'listen-test.flows', 'dictation.walks', 'dictation.render', 'dictation.diff', 'dictation.session', 'dictation.settings', 'dictation.say', 'reading', 'read.render', 'read.popup', 'read.questions', 'read.actions', 'shared.cast', 'shared.qe.collect', 'shared.lexis.mark']) if (!selfD(at(SV, k))) bad.push(k);
+  for (const k of ['shared.kvoice.hash', 'shared.kvoice.split', 'shared.lexis.classify', 'shared.lexis.bases', 'shared.qe.norm', 'shared.qe.words', 'shared.qe.gradeGap', 'shared.qe.overall']) if (!pure(at(SV, k))) bad.push(k);
+  ok(bad.length === 0, `skills.json: every vector list is present and each case has why + input + out${bad.length ? ' – missing/invalid: ' + bad.join(', ') : ''}`);
+  // rules that the web code states and the ports must keep (cheap re-derivations from the vectors themselves)
+  const b8 = [], Q = SV.shared.qe, BL = Q.band.listening, byId = (l, id) => l.find(c => c.id === id);
+  if (BL.length !== 41 || BL[39] !== 9 || BL[30] !== 7 || BL[0] !== 0 || BL.some((v, i) => i && v < BL[i - 1])) b8.push('band table listening');
+  if (Q.band.reading[40] !== 9 || Q.band['reading-gt'][23] !== 5 || Q.band.reading.some((v, i) => i && v < Q.band.reading[i - 1])) b8.push('band tables reading');
+  if (byId(SV.listening, 'default').out.selected !== 1 || byId(SV.listening, 'query-t2').out.selected !== 2 || byId(SV.listening, 'unknown-t-remembered').out.selected !== 2 || byId(SV.listening, 'empty').out.empty !== true) b8.push('hub test selection');
+  for (const f of SV.listen.flows.filter(c => c.out.submitted)) { const r = f.out.result; if (r.xp !== 15 + 3 * r.right || f.out.rewards[0].xp !== r.xp || f.out.rewards[0].perfect !== (r.right === r.total ? 1 : 0) || f.out.mistakes.length !== r.total - r.right) b8.push('listen flow ' + f.id); }
+  for (const f of SV['listen-test'].flows) { const r = f.out.result, raw = r.byPart.reduce((n, x) => n + x.right, 0); if (raw !== r.raw || r.band !== BL[r.raw] || f.out.rewards[0].xp !== 40 + 2 * r.raw || r.sheet.length !== 40 || r.sheet.filter(x => x.ok).length !== raw || f.out.rewards[0].listens !== 4 || f.out.mistakes !== 40 - raw) b8.push('listen-test ' + f.id); }
+  { const p = SV['listen-test'].flows.find(c => c.id === 'perfect').out.parts; if (p.some((x, i) => x.progressPct !== i * 25 || x.nextDisabledInitially !== true || x.whenListened.nextDisabled !== false) ) b8.push('listen-test parts unlock after the audio'); }
+  const wk = SV.dictation.walks; for (const w of wk.filter(x => x.id !== 'walk-full')) { const ratio = w.id === 'walk-mid' ? 0.35 : 0.65; if (w.out.lines.some(l => l.holes.length < 1 || l.holes.length > Math.max(1, Math.round(l.nWords * ratio)))) b8.push(w.id + ' hole count'); if (w.out.final.pct !== 100 || w.out.rewards[0].xp !== 30) b8.push(w.id + ' perfect run'); }
+  if (byId(SV.dictation.diff, 'exact').out.pct !== 100 || byId(SV.dictation.diff, 'empty').out.pct !== 0 || byId(SV.dictation.diff, 'misspelt').out.cls !== 'no') b8.push('dictation diff');
+  for (const s of SV.dictation.session) if (s.out.rewards[0].xp !== 10 + Math.round(s.out.fin.pct / 5) || s.out.dictDone['t1p1'] !== s.out.fin.pct) b8.push('dictation session ' + s.id);
+  { const rd = SV.reading, all = byId(rd, 'default').out; if (all.tabs[0].n !== SV.data.readings.length || all.tabs.slice(1).reduce((n, t) => n + t.n, 0) !== SV.data.readings.length || all.cards.some(c => c.minutes < 2)) b8.push('reading list counts'); }
+  for (const q of SV.read.questions.filter(c => c.out.graded)) { const r = q.out.result; if (r.xp !== 10 + 4 * r.score || q.out.rewards[0].xp !== r.xp || q.out.rewards[0].perfect !== (r.pct === 100 ? 1 : 0) || q.out.mistakes.length !== r.n - r.score) b8.push('read ' + q.id); }
+  if (SV.read.questions.find(c => c.id === 'repeat').out.rewards[0].readings !== 0 || SV.read.questions.find(c => c.id === 'perfect').out.rewards[0].readings !== 1 || SV.read.questions.find(c => c.id === 'blank-declined').out.graded !== false) b8.push('read first-completion / confirm');
+  if (SV.data.listening.length !== 8 || SV.data.readings.length !== 6 || SV.data.lexis.awl.length < 400 || SV.data.lexis.phrases.length < 100 || SV.data.listening.some(p => !p.script.length || !p.groups.length)) b8.push('data block');
+  ok(b8.length === 0, `skills vectors obey the web rules (hub selection, listen/listen-test/dictation/reading XP + band + rewards, hole counts, diff, first-completion)${b8.length ? ' – ' + b8.slice(0, 4).join('; ') : ''}`);
+  // strings: every literal t() key on the P06 screens (listening, reading, qengine, qtips, choice-kit) is mapped by strings.json
+  const have8 = new Set(Object.values(JSON.parse(rd('native/shared/strings.json')))), keys8 = new Set();
+  for (const f of ['web/js/listening.js', 'web/js/reading.js', 'web/js/qengine.js', 'web/js/qtips.js', 'web/js/choice-kit.js', 'web/js/lexis.js']) for (const ln of rd(f).split('\n')) for (const m of ln.matchAll(/\bt\('((?:[^'\\]|\\.)*)'/g)) keys8.add(m[1].replace(/\\(['\\])/g, '$1'));
+  const miss8 = [...keys8].filter(k => !have8.has(k));
+  ok(miss8.length === 0, `M4 strings: ${keys8.size} t() keys of the P06 screens are mapped in native/shared/strings.json${miss8.length ? ' – missing: ' + miss8.slice(0, 3).join(' | ') : ''}`);
+}
+
 if (failed) process.exit(1);
 console.log('✓ native-m2-vectors OK');
