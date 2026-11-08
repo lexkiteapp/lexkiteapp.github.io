@@ -140,5 +140,18 @@ D.en = Object.assign(D.en || {}, {
 "Ôn: tự động hóa, quyền riêng tư": "Review: automation, privacy",
 "Kiểm tra: từ vựng công nghệ": "Test: technology vocabulary",
 "Nghe, đọc và nói về công nghệ": "Listen, read and speak about technology",
+"Sức khỏe và lối sống": "Health and lifestyle",
+"Ăn uống và vận động": "Eating and exercise",
+"Béo phì, dinh dưỡng, ít vận động": "Obesity, nutrition, inactivity",
+"Chế độ ăn cân bằng gồm nhiều rau củ.": "A balanced diet includes plenty of vegetables.",
+"Nghe: khám bệnh và tiêm chủng": "Listen: check-ups and vaccination",
+"Triệu chứng, vaccine, bệnh mãn tính": "Symptoms, vaccines, chronic illness",
+"Sốt và ho là những triệu chứng thường gặp của bệnh cúm.": "Fever and cough are common symptoms of the flu.",
+"Nói: giữ gìn sức khỏe": "Speak: staying healthy",
+"Tinh thần, phòng bệnh, tuổi thọ": "Mind, prevention, life expectancy",
+"Tập thể dục đều đặn cải thiện cả sức khỏe thể chất lẫn tinh thần.": "Regular exercise improves both physical and mental well-being.",
+"Ôn: dinh dưỡng và triệu chứng": "Review: nutrition and symptoms",
+"Kiểm tra: từ vựng sức khỏe": "Test: health vocabulary",
+"Nghe, đọc và nói về sức khỏe": "Listen, read and speak about health",
 });
 })(typeof self !== 'undefined' ? self : this);

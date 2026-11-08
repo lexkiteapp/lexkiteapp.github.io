@@ -575,6 +575,144 @@
           "ex": []
         }
       ]
+    },
+    "health": {
+      "theme": "Sức khỏe và lối sống",
+      "can": "Bạn sẽ đưa lời khuyên về sức khỏe",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Ăn uống và vận động",
+          "sub": "Béo phì, dinh dưỡng, ít vận động",
+          "min": 4,
+          "words": [
+            [
+              "obesity",
+              "n"
+            ],
+            [
+              "sedentary",
+              "adj"
+            ],
+            [
+              "nutrition",
+              "n"
+            ],
+            [
+              "diet",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "A balanced diet includes plenty of vegetables.",
+              "vi": "Chế độ ăn cân bằng gồm nhiều rau củ."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: khám bệnh và tiêm chủng",
+          "sub": "Triệu chứng, vaccine, bệnh mãn tính",
+          "min": 3,
+          "words": [
+            [
+              "symptom",
+              "n"
+            ],
+            [
+              "vaccine",
+              "n"
+            ],
+            [
+              "epidemic",
+              "n"
+            ],
+            [
+              "chronic",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Fever and cough are common symptoms of the flu.",
+              "vi": "Sốt và ho là những triệu chứng thường gặp của bệnh cúm."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: giữ gìn sức khỏe",
+          "sub": "Tinh thần, phòng bệnh, tuổi thọ",
+          "min": 3,
+          "words": [
+            [
+              "well-being",
+              "n"
+            ],
+            [
+              "mental",
+              "adj"
+            ],
+            [
+              "prevention",
+              "n"
+            ],
+            [
+              "life expectancy",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Regular exercise improves both physical and mental well-being.",
+              "vi": "Tập thể dục đều đặn cải thiện cả sức khỏe thể chất lẫn tinh thần."
+            }
+          ]
+        },
+        {
+          "slot": "story"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: dinh dưỡng và triệu chứng",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "nutrition",
+              "n"
+            ],
+            [
+              "symptom",
+              "n"
+            ],
+            [
+              "chronic",
+              "adj"
+            ],
+            [
+              "well-being",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Regular exercise improves both physical and mental well-being.",
+              "vi": "Tập thể dục đều đặn cải thiện cả sức khỏe thể chất lẫn tinh thần."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng sức khỏe",
+          "sub": "Nghe, đọc và nói về sức khỏe",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
     }
   }
 }
