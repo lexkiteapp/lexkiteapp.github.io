@@ -211,8 +211,8 @@ struct OnbChoiceRow: View {
             .frame(minHeight: 56)
             .background {
                 RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous).fill(LKColor.outlineVariant.resolve(scheme)).offset(y: 4)   // tactile ledge (Stitch tactile-card), neutral also when selected
-                RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous)
-                    .fill(selected ? LKColor.secondaryFixed.resolve(scheme).opacity(0.35) : LKColor.surfaceContainer.resolve(scheme))
+                RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous).fill(LKColor.surfaceContainer.resolve(scheme))   // opaque base: the ledge must not show through the tint
+                if selected { RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous).fill(LKColor.secondaryFixed.resolve(scheme).opacity(0.35)) }
                 RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous)
                     .strokeBorder(selected ? LKColor.secondary.resolve(scheme) : LKColor.outlineVariant.resolve(scheme), lineWidth: 2)
             }

@@ -1,6 +1,8 @@
 package com.lexkite.app
 
 import androidx.compose.foundation.layout.Box
+import com.lexkite.app.design.LocalLKColors
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.ui.Modifier
@@ -109,7 +111,7 @@ class LessonSnapshotTest {
 
     private fun teacher(who: String, dark: Boolean) {
         val t = Fixtures.t("en")
-        rule.setContent { LKTheme(t, dark, reduceMotion = true) { Box(Modifier.width(220.dp).height(190.dp)) { TeacherView(who, null, Modifier.width(220.dp).height(190.dp)) } } }
+        rule.setContent { LKTheme(t, dark, reduceMotion = true) { Box(Modifier.width(220.dp).height(190.dp).background(LocalLKColors.current.background)) { TeacherView(who, null, Modifier.width(220.dp).height(190.dp)) } } }
         rule.onRoot().captureRoboImage("src/test/snapshots/teacher-$who-${if (dark) "dark" else "light"}.png")
     }
 
