@@ -145,6 +145,7 @@ node scripts/test/drive-repair.mjs
 node scripts/test/keys.mjs
 node scripts/test/admin-share.mjs
 node scripts/test/accounts.mjs
+node scripts/test/asc-signing.mjs
 node scripts/test/ai-pool.mjs
 node scripts/test/ai-local.mjs
 node scripts/test/admin-prefs.mjs
@@ -344,3 +345,5 @@ node scripts/test/is-main-guard.mjs
 node scripts/test/big-data.mjs
 node scripts/test/heavy-rerun.mjs
 node scripts/test/json-dupkeys.mjs
+node scripts/test/cls-chrome.mjs
+node scripts/test/ext-version.mjs

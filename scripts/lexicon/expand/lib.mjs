@@ -273,6 +273,8 @@ export function wsdUnwrap(o, ids) {
 // 03/11 hạn ngạch retry: mục làm lại (rớt vi/ví dụ, đã thử một lần với nguồn hiện tại) chỉ chiếm ≤ share × N để ứng viên MỚI luôn được xử lý;
 // ứng viên mới ít hơn phần còn lại → retry lấp chỗ trống (không bỏ phí lượt). Thứ tự giữ nguyên (tần suất giảm dần). Thuần hàm, có test.
 export const RETRY_SHARE = 0.25;
+/** shard của mục (FNV-1a trên từ#loại) – job.mjs --shard i/n: các shard song song không trùng mục */
+export const shardOf = (k, n) => { let h = 2166136261; for (const c of String(k)) h = Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0; return h % n; };
 export function mixPool(retryList, fresh, N, share = RETRY_SHARE) {
   const cap = Math.max(0, Math.min(retryList.length, Math.ceil(N * Math.min(1, Math.max(0, share)))));
   const f = fresh.slice(0, N - cap), r = retryList.slice(0, Math.max(cap, N - f.length));
@@ -288,3 +290,10 @@ export function yieldSplit(rows) {
   for (const g of Object.values(o)) g.yield = +(g.pass / Math.max(1, g.judged)).toFixed(3);
   return o;
 }
+
+/** 08/11 lọc trước AI (job.mjs --no-prefilter để tắt): cận TRÊN số nguồn NGƯỜI VIẾT của một ứng viên – vi (Wiktionary en vi/bảng dịch · Wiktionary vi) và câu chứa từ
+ *  (examples.py · ví dụ Wiktionary · ví dụ WordNet mọi nghĩa). vi = 0 hoặc ex < 2 → chắc trượt cổng (viKeep cần nguồn người viết; ví dụ cần 2 câu người viết). */
+export const humanSrc = (e, k, wv, ext) => { if (k.err) return { vi: 1, ex: 2 }; const re = inflRe(e.w); // kaikki lỗi mạng = hạ tầng → không lọc (luồng cũ xử lý)
+  const vi = (k.vi || []).length + (wv || []).length + (k.trg || []).reduce((n, g) => n + ((g.tr || {}).vi || []).length, 0);
+  const ex = ((ext || {}).ex || []).length + (k.exs || []).filter(x => re.test(x.t)).length + Math.max(0, ...(e.senses && e.senses.length ? e.senses : [e]).map(s => (s.wnex || []).length));
+  return { vi, ex }; }; // cận TRÊN số nguồn (không lọc nghĩa) – chỉ loại mục chắc chắn trượt
