@@ -23,7 +23,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | collocation | 4818 / 20000 | 24% | 12 |
 | đồng nghĩa | 2917 / 20000 | 15% | 8 |
 | IPA Mỹ | 6472 / 20000 | 32% | 5 |
-| ảnh theo nghĩa | 7398 / 20000 | 37% | 15 |
+| ảnh theo nghĩa | 7432 / 20000 | 37% | 15 |
 | C2 | 672 / 1000 | 67% | 10 |
 | A1 | 862 / 1000 | 86% | 5 |
 

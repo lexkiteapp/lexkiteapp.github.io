@@ -2,10 +2,12 @@
 // MỘT giọng nhất quán ef_dora (Ama) = Target.kokoroVoice('es-419'). Tách khỏi corpus.mjs: gen-audio.mjs --tl es dùng; lượt tiếng Anh/độ phủ KHÔNG đổi.
 import fs from 'node:fs'; import vm from 'node:vm';
 import { build, sayText } from '../target/drill-lib.mjs';
+import { pxLines } from '../target/px-lib.mjs';
 export const ES_VOICE = 'ef_dora';
 export function collectEs() {
   const c = { self: {} }; c.self = c; vm.createContext(c); vm.runInContext(fs.readFileSync('web/js/listen/kvoice.js', 'utf8'), c);
   const jobs = new Map(), { dr } = build();
   for (const it of Object.values(dr).flat()) { const text = sayText(it).trim(); if (text) jobs.set(c.KVoice.lineKey(ES_VOICE, text), { voice: ES_VOICE, text }); }
+  for (const text of pxLines()) jobs.set(c.KVoice.lineKey(ES_VOICE, text), { voice: ES_VOICE, text }); // từ/cụm của bài phát âm W3 (px-lib.pxLines)
   return { jobs, parts: [] };
 }
