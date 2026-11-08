@@ -80,6 +80,7 @@
   "Thử ngay": "Try it now",
   "Truyện & âm thanh": "Stories & audio",
   "Truyện ngắn": "Stories",
+  "Trọng tâm hôm nay": "Today's Focus",
   "Tôi đã biết trình độ của mình": "I already know my level",
   "Từ tiện ích của bạn": "From your add-on",
   "Từ vựng cần ôn": "Words",
