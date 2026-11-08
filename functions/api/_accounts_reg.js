@@ -268,6 +268,22 @@ export const ROWS = [
   "note": ""
  },
  {
+  "id": "gh-ios-signing",
+  "service": "Ký iOS cố định (CI)",
+  "account": "Apple Developer · team B285J68262",
+  "store": "github",
+  "names": [
+   "IOS_DIST_P12_BASE64",
+   "IOS_DIST_P12_PASSWORD",
+   "IOS_PROFILE_APP_BASE64",
+   "IOS_PROFILE_WIDGET_BASE64"
+  ],
+  "scope": "Chứng chỉ Apple Distribution (.p12 + mật khẩu) và hồ sơ App Store app/widget cho ký Manual trên CI (scripts/native/ios-sign.sh) – tạo/gia hạn: docs/CI-SIGNING-IOS.md",
+  "manage": "https://appstoreconnect.apple.com/",
+  "expires": "",
+  "note": "Gia hạn mỗi năm (chứng chỉ + hồ sơ hết hạn 1 năm sau create-dist)"
+ },
+ {
   "id": "gh-google",
   "service": "Google (CI)",
   "account": "Google · dự án Lexkite",
