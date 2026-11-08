@@ -77,7 +77,7 @@ final class DictModel {
         busy = true
         defer { busy = false }
         word = w; phase = .loading; related = nil; phrases = []; ctx = ""; ctxVi = ""; savedNote = nil
-        recent = Dict.recent(recent, adding: w)
+        recent = DictPage.recent(recent, adding: w)
         defaults.set(recent, forKey: WritingLocal.recentKey)
         cards = await cardSource()
         let quick = await service.quick(w)
@@ -87,7 +87,7 @@ final class DictModel {
         guard word == w else { return }
         if let f = full, f["found"] != JSON.bool(false) {
             phase = .full(f)
-            let lk = Dict.lookupKey(day: TodaySnapshot.dayKey(Date(), .current), word: f.s("word"))
+            let lk = DictPage.lookupKey(day: TodaySnapshot.dayKey(Date(), .current), word: f.s("word"))
             if live, Self.lookedUp.insert(lk).inserted { await rewardLookup() }
             async let rel = DictRelated.load(f, net: net, origin: origin)
             async let ph = lex.phrases(f.s("word"))
@@ -130,7 +130,7 @@ final class DictModel {
         let text = ctx.trimmingCharacters(in: .whitespacesAndNewlines)
         if !text.isEmpty && ctxVi.isEmpty { await translateContext() }
         let had = card != nil
-        await saveCard(e, Dict.saveContext(text: text, vi: ctxVi))
+        await saveCard(e, DictPage.saveContext(text: text, vi: ctxVi))
         await refreshCards()
         savedNote = had ? "updated" : "saved"
         ctx = ""; ctxVi = ""

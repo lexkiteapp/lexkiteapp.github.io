@@ -123,7 +123,7 @@ struct DictView: View {
         }
         WritingHeading(t(.dictLookUpAnyEnglish), icon: "sparkle.magnifyingglass")
         Text(t(.dictUkUsIpaMeanings)).lkText(LKType.bodySm).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
-        FlowLayout { ForEach(Dict.sampleWords, id: \.self) { w in WritingChip(text: w, english: true) { openWord(w) } } }
+        FlowLayout { ForEach(DictPage.sampleWords, id: \.self) { w in WritingChip(text: w, english: true) { openWord(w) } } }
     }
 
     // MARK: not found
