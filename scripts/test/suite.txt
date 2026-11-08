@@ -39,6 +39,8 @@ node scripts/test/syntax-check.mjs
 node scripts/blog-pipeline.mjs gate
 node scripts/test/ci-header-scope.mjs
 node scripts/test/feel.mjs
+node scripts/test/sfx-loudness.mjs
+node scripts/test/play-blitz.mjs
 node scripts/test/review-modes.mjs
 node scripts/test/review-modes-ui.js web
 node scripts/build-lexicon.mjs
@@ -353,4 +355,5 @@ node scripts/test/heavy-rerun.mjs
 node scripts/test/json-dupkeys.mjs
 node scripts/test/cls-chrome.mjs
 node scripts/test/es-practice.mjs
+node scripts/test/es-pron.mjs
 node scripts/test/ext-version.mjs
