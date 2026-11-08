@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.unit.dp
@@ -36,7 +37,7 @@ import java.io.File
 
 /**
  * P03 + C05 snapshot gate at 390 dp: question (gap · build · match · type), feedback right / wrong, completion and a story line, light/dark x en/vi/ar(RTL)/de(+40 %)
- * = 64 images (src/test/snapshots/lesson-*) + the live teacher (teacher-*). Fixed inputs from the shared lesson vectors (no network, no DB); CI records new images on the first run, then verifies.
+ * = 72 images (src/test/snapshots/lesson-*) + the live teacher (teacher-*). Fixed inputs from the shared lesson vectors (no network, no DB); CI records new images on the first run, then verifies.
  */
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
@@ -49,15 +50,17 @@ class LessonSnapshotTest {
     private val starter = v.getValue("inputs").jsonObject.getValue("starter").jsonArray.map { it.jsonObject }
     private val now = v.getValue("now").jsonPrimitive.long
 
-    private fun lesson(seed: Long): LessonController {
+    private val imgWords = v.getValue("inputs").jsonObject.getValue("imgWords").jsonArray.map { it.jsonPrimitive.content }.toSet()
+    private val imgFn: (String, String) -> Boolean = { w, _ -> w in imgWords }
+    private fun lesson(seed: Long, img: Boolean = false): LessonController {
         val picks = LessonEngine.pickWords(cards, 6, now, null, starter)
-        val items = LessonEngine.build(picks, LessonEngine.BuildOpts(seed, cards + starter, Off(), null, mean = { c -> (c["vi"] as? JsonPrimitive)?.content.orEmpty() }, gloss = { _, en -> (v.getValue("inputs").jsonObject.getValue("gloss").jsonObject[en] as? JsonPrimitive)?.content.orEmpty() }), now)
+        val items = LessonEngine.build(picks, LessonEngine.BuildOpts(seed, cards + starter, Off(), null, hasImg = imgFn.takeIf { img }, mean = { c -> (c["vi"] as? JsonPrimitive)?.content.orEmpty() }, gloss = { _, en -> (v.getValue("inputs").jsonObject.getValue("gloss").jsonObject[en] as? JsonPrimitive)?.content.orEmpty() }), now)
         return LessonController(items, picks, cards, seed = 1, now = { now })
     }
     /** First lesson (by seed) whose current exercise has [type]; for "match" the lesson is played on until the match exercise. */
     private fun at(type: String): LessonController {
         for (s in 1L..300L) {
-            val c = lesson(s)
+            val c = lesson(s, img = type == "pic")
             if (type == "match") { while (c.finish == null && c.sess.cur!!.type != "match") { c.pickRight(); if (c.feedback != null) c.next() }; if (c.finish == null) return c }
             else if (c.sess.cur!!.type == type) return c
         }
@@ -80,6 +83,7 @@ class LessonSnapshotTest {
             "question-gap" -> { val c = at("gap"); c.pick(c.sess.cur!!.options!!.first { it != c.sess.cur!!.answer }); return c.ui() }
             "question-build" -> { val c = at("build"); val it = c.sess.cur!!; val w = it.answer.split(" "); repeat(minOf(2, w.size)) { k -> c.placeTile(it.tiles!!.indices.first { i -> i !in c.st.tiles && LessonEngine.same(it.tiles!![i], w[k]) }) }; return c.ui() }
             "question-match" -> { val c = at("match"); c.matchTap(true, 0); c.matchTap(false, 0); c.matchTap(true, 1); return c.ui() }
+            "question-pic" -> { val c = at("pic"); c.pick(c.sess.cur!!.options!!.first { it != c.sess.cur!!.answer }); return c.ui() }
             "question-type" -> { val c = at("type"); c.type(c.sess.cur!!.answer.take(2)); return c.ui() }
             "feedback-correct" -> { val c = at("gap"); c.pick(c.sess.cur!!.answer); c.check(); return c.ui() }
             "feedback-wrong" -> { val c = at("gap"); c.pick(c.sess.cur!!.options!!.first { it != c.sess.cur!!.answer }); c.check(); return c.ui() }
@@ -91,11 +95,13 @@ class LessonSnapshotTest {
     private val slots = LessonSlots(
         teacher = { who, _, mod -> Box(mod) { TeacherStill(who, "thinking") } },
         still = { who, pose, mod -> Box(mod) { TeacherStill(who, pose) } },
+        // no network in tests: the picture slot shows a bundled bitmap in the same fixed square box
+        image = { _, desc, mod -> androidx.compose.foundation.Image(com.lexkite.app.ui.TeacherArt.bundledRel(androidx.compose.ui.platform.LocalContext.current, "teach/ama/still-happy.webp")!!.asImageBitmap(), desc, mod, contentScale = androidx.compose.ui.layout.ContentScale.Crop) },
     )
 
     private fun shot(screen: String, lang: String, dark: Boolean) {
         val t = Fixtures.t(lang); val ui = uiOf(screen)
-        rule.setContent { LKTheme(t, dark, reduceMotion = true) { LessonScreen(ui, "ama", t(L10nKey.lessonKindLesson), LessonActions(), slots, pose = if (ui.feedback?.ok == true) "cheer" else if (ui.feedback != null) "concern" else null) } }
+        rule.setContent { LKTheme(t, dark, reduceMotion = true) { LessonScreen(ui, "ama", t(L10nKey.lessonKindLesson), LessonActions(), slots, imageUrl = { _, _ -> "test://pic" }, pose = if (ui.feedback?.ok == true) "cheer" else if (ui.feedback != null) "concern" else null) } }
         rule.onRoot().captureRoboImage("src/test/snapshots/lesson-$screen-$lang-${if (dark) "dark" else "light"}.png")
     }
 
@@ -176,6 +182,15 @@ class LessonSnapshotTest {
     @Test fun storyLineArDark() = shot("story-line", "ar", true)
     @Test fun storyLineDeLight() = shot("story-line", "de", false)
     @Test fun storyLineDeDark() = shot("story-line", "de", true)
+
+    @Test fun questionPicEnLight() = shot("question-pic", "en", false)
+    @Test fun questionPicEnDark() = shot("question-pic", "en", true)
+    @Test fun questionPicViLight() = shot("question-pic", "vi", false)
+    @Test fun questionPicViDark() = shot("question-pic", "vi", true)
+    @Test fun questionPicArLight() = shot("question-pic", "ar", false)
+    @Test fun questionPicArDark() = shot("question-pic", "ar", true)
+    @Test fun questionPicDeLight() = shot("question-pic", "de", false)
+    @Test fun questionPicDeDark() = shot("question-pic", "de", true)
 
     @Test fun teacherAmaLight() = teacher("ama", false)
     @Test fun teacherAmaDark() = teacher("ama", true)

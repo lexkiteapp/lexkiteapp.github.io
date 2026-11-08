@@ -37,6 +37,8 @@ class LessonEnv(
     val poseEmo: Map<String, String> = emptyMap(), val now: () -> Long = System::currentTimeMillis,
     /** Illustration for word#pos (web VImg, behind a flag that is off at launch) → null = no picture exercises. */
     val imageUrl: (String, String) -> String? = { _, _ -> null },
+    /** Loads the picture index/shards for the picked words before the lesson is built (VImgStore.prepare). */
+    val prepareImages: suspend (List<String>) -> Unit = {},
 )
 
 /** Which kind of lesson: null = the adaptive path node ("lesson"), "review"/"listen"/"speak", or a story/radio id. */
@@ -78,6 +80,7 @@ class LessonViewModel(private val env: LessonEnv, private val req: LessonRequest
             val starter = env.starterPack?.let { StarterDeck.cards(exam(doc), it, now).map { p -> p.second }.take(12) }.orEmpty()
             picks = LessonEngine.pickWords(cards, 4, now, req.kind, starter)
             val gloss = glossFn(picks)
+            runCatching { env.prepareImages(picks.map { (it.card["word"] as? JsonPrimitive)?.content.orEmpty() }) }
             val seedN = now
             items = LessonEngine.build(picks, LessonEngine.BuildOpts(seedN, cards + starter, off, LessonEngine.KIND[req.kind], calm = true,
                 hasImg = { w, p -> env.imageUrl(w, p) != null }, gloss = gloss, mean = { c -> if (env.uiLang == "vi") (c["vi"] as? JsonPrimitive)?.content.orEmpty() else "" }), now)

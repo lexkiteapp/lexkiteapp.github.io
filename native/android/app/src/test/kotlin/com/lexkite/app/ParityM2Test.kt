@@ -116,7 +116,8 @@ class ParityM2Test {
         val s2 = lessonStartingWith("say"); s2.spoke(0.3, "x"); assertTrue(s2.st.unclear); assertNull(s2.feedback); s2.spoke(0.3, "x"); assertNotNull(s2.feedback); assertFalse(s2.feedback!!.ok)
         val s3 = lessonStartingWith("say"); s3.spoke(0.9, "x"); assertTrue(s3.feedback!!.ok)
         assertEquals(1.0, Speaking.score("Most of the students passed", listOf("most of the students passed")), 1e-9)
-        assertEquals(0.5, Speaking.score("one two three four", listOf("one two", "uh")), 1e-9)
+        assertEquals(0.39, Speaking.score("one two three four", listOf("one two", "uh")), 1e-9) // Levenshtein 11/18 → 39 %
+        assertEquals("best alternative wins", "one two three four", Speaking.best("one two three four", listOf("one two", "one two three four")).first)
         assertEquals(0.0, Speaking.score("one two", emptyList()), 0.0)
     }
 

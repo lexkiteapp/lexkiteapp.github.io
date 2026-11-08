@@ -12,7 +12,10 @@ import com.lexkite.app.core.auth.GuestAuth
 import com.lexkite.app.core.data.LexDb
 import com.lexkite.app.core.data.LexStore
 import com.lexkite.app.core.settings.AppPrefs
+import com.lexkite.app.core.generated.FlagKey
 import com.lexkite.app.core.sync.StarterDeck
+import com.lexkite.app.core.vimg.VImg
+import com.lexkite.app.core.vimg.VImgStore
 import com.lexkite.app.core.sync.SyncConfig
 import com.lexkite.app.core.sync.UrlHttp
 import com.lexkite.app.core.config.Flags
@@ -47,6 +50,14 @@ class LexkiteApp : Application(), SyncHost {
     val audio: LkAudio by lazy { LkAudio(CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate), HttpFetcher(), File(cacheDir, "audio"), MediaPlayerBackend(), AndroidTtsBackend(this)) }
     /** Bundled starter content (generated from the web data): new learners practise offline from the first lesson. */
     val starter: StarterDeck.Pack? by lazy { runCatching { StarterDeck.parse(assets.open("content-pack/starter.json").bufferedReader().use { it.readText() }) }.getOrNull() }
+
+    /** Word pictures (VImg v3): rollout by remote config `vocab_img` / `vocab_img_pct` over this device's fixed bucket. */
+    val vimg: VImgStore by lazy {
+        VImgStore(UrlHttp, File(cacheDir, "vimg")) {
+            val f = flags.string(FlagKey.VOCAB_IMG).trim().lowercase()
+            VImg.mode(when (f) { "on" -> true; "off" -> false; else -> null }, flags.long(FlagKey.VOCAB_IMG_PCT), prefs.rolloutBucket())
+        }
+    }
 
     private val firebase: Boolean by lazy { runCatching { FirebaseApp.getApps(this).isNotEmpty() || FirebaseApp.initializeApp(this) != null }.getOrDefault(false) }
 }

@@ -43,7 +43,7 @@ fun LessonRoute(env: LessonEnv, req: LessonRequest, slots: LessonSlots, onExit: 
     fun listen() {
         val cur = vm.ui.value?.cur ?: return
         vm.stopAudio(); mic = MicUi(listening = true)
-        input.start({ alts -> mic = MicUi(); vm.spoke(vm.speechScore(cur.answer, alts), alts.first()) }, { code ->
+        input.start({ alts -> mic = MicUi(); val (heard, score) = com.lexkite.app.core.lesson.Speaking.best(cur.answer, alts); vm.spoke(score, heard) }, { code ->
             mic = MicUi()
             when (code) { "no-speech" -> vm.unclear(); "unsupported" -> vm.skipSpeak(); else -> mic = MicUi(error = true) }
         })

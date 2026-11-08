@@ -6,6 +6,7 @@ import com.lexkite.app.core.lesson.LessonEngine
 import com.lexkite.app.core.lesson.LessonWriter
 import com.lexkite.app.core.lesson.Off
 import com.lexkite.app.core.lesson.Pick
+import com.lexkite.app.core.lesson.Speaking
 import kotlinx.serialization.json.JsonObject
 import kotlin.math.max
 
@@ -138,7 +139,7 @@ class LessonController(
     fun spoke(score: Double, heard: String) {
         val it = sess.cur ?: return; if (!open()) return
         spoken++
-        if (score >= 0.7 || st.tries >= 1) submit(Answer.Given.Score(score), heard)
+        if (Speaking.percent(score) >= Speaking.PASS || st.tries >= 1) submit(Answer.Given.Score(score), heard)
         else st = st.copy(heard = heard, unclear = true, tries = st.tries + 1)
     }
     /** The recognizer heard nothing: ask again, does not count as a try. */
