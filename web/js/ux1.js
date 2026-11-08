@@ -19,7 +19,7 @@
 
   // ---------- 5 tab ----------
   const TABS = () => [['home', '#/home', 'house', t('Hôm nay')], ['vocab', '#/vocab', 'book-open', t('Từ vựng')], ['skills', '#/skills', 'target', t('Kỹ năng')], ['tests', '#/tests', 'flag', t('Thi')], ['me', '#/me', 'user', t('Tôi')]];
-  const ME = ['me', 'goal', 'stats', 'mistakes', 'settings', 'class', 'method', 'resources', 'tracks', 'streak', 'contact'];
+  const ME = ['me', 'goal', 'stats', 'mistakes', 'settings', 'class', 'method', 'resources', 'tracks', 'streak', 'contact', 'outcome'];
   const tabOf = (name, arg) => { if (!name || ['home', 'lesson', 'path', 'day', 'league'].includes(name)) return 'home'; if (ME.includes(name)) return 'me'; const o = (navOf0 ? navOf0(name, arg) : [])[0]; return o === 'vocab' || o === 'tests' ? o : 'skills'; }; // còn lại (#/train, #/say, #/call…) thuộc Kỹ năng
   const SKN = () => ({ listening: t('Nghe hiểu'), reading: t('Đọc hiểu'), writing: t('Viết'), speaking: t('Nói') });
   const navOf0 = App.navOf, crumb0 = App.crumb, after0 = App.afterRoute;

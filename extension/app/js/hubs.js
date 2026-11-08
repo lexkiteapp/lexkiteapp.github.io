@@ -338,7 +338,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
     if (name === 'toefl-p') return ['skills', 'skill-' + (TOEFL_SK[arg] || 'reading')];
     if (['skills', 'grammar', 'pron', 'toeic', 'toefl'].includes(name)) return ['skills', name];
     if (['tests', 'mock', 'listen-test', 'toeic-test', 'cambridge', 'placement'].includes(name)) return ['tests', name === 'placement' ? 'placement' : 'tests'];
-    if (['me', 'goal', 'stats', 'league', 'class', 'mistakes', 'settings', 'method', 'resources'].includes(name)) return ['me', name];
+    if (['me', 'goal', 'stats', 'league', 'class', 'mistakes', 'settings', 'method', 'resources', 'outcome'].includes(name)) return ['me', name];
     return [null, null];
   };
   const TAB = { vocab: [UI.icon('library'), () => t('Từ vựng')], skills: [UI.icon('target'), () => t('Kỹ năng')], tests: [UI.icon('flag'), () => t('Thi')], me: [UI.icon('user'), () => t('Tôi')] };
