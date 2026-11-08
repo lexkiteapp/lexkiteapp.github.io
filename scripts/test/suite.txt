@@ -102,6 +102,7 @@ node scripts/test/social-ui.mjs
 node scripts/test/social-mgr.mjs
 node scripts/test/social-auto.mjs
 node scripts/test/social-preview.mjs
+node scripts/test/dist-channels.mjs
 node scripts/test/social-admin.mjs
 node scripts/test/social-meta.mjs
 node scripts/test/social-meta-oauth.mjs
