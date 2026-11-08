@@ -29,7 +29,7 @@ let package = Package(
         .testTarget(name: "LKSyncTests", dependencies: ["LKSync", "LKStore", "LKCore"]),
         .testTarget(name: "LKFeaturesTests", dependencies: ["LKFeatures", "LKSync", "LKStore", "LKStrings", "LKDesign", "LKCore"]),
         .testTarget(name: "LKSnapshotTests", dependencies: [
-            "LKFeatures", "LKStrings", "LKStore", "LKSync", "LKDesign", .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
+            "LKFeatures", "LKStrings", "LKStore", "LKSync", "LKDesign", "LKCore", .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
         ], exclude: ["__Snapshots__"]),
     ]
 )
