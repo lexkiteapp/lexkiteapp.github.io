@@ -40,7 +40,10 @@ export function parseName(file) {
   const base = path.basename(file, '.png').replace(/^test/i, ''), toks = base.toLowerCase().split(/[.\-_]/).filter(Boolean);
   const theme = toks.find(t => t === 'light' || t === 'dark'); if (!theme) return null;
   const lang = toks.find((t, i) => i > 0 && LANGS15.has(t)) || null, variant = toks.includes('medium') ? 'medium' : '';
-  return { screen: toks[0], lang, theme, variant };
+  // screen = every token before the first language/theme token ('lesson-question-gap-en-light' → 'lesson-question-gap', 'Ama.pose-cheer-dark' → 'ama-pose-cheer'):
+  // a single first token merged all Android lesson-* / onb-* images into one id, so a failure could not be traced to its screen
+  const stop = toks.findIndex((t, i) => i > 0 && (t === theme || LANGS15.has(t)));
+  return { screen: toks.slice(0, stop < 0 ? 1 : stop).join('-'), lang, theme, variant };
 }
 const toGlob = g => new RegExp('^' + g.replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*') + '$');
 function collect(dir, platform) { return walk(dir).map(f => { const n = parseName(f); return n && { ...n, platform, file: f, id: [platform, n.screen, n.lang, n.theme, n.variant].filter(Boolean).join('-') }; }).filter(Boolean); }
@@ -186,8 +189,8 @@ async function selfTest(argv) {
   expect('bad-radius', 'bán kính nút ngoài token', r => r.lmFail.some(m => /bo /.test(m)));
   expect('bad-bar', 'thanh tab thấp hơn vùng chạm', r => r.lmFail.some(m => /thanh tab/.test(m)));
   // parse tên
-  const pn = parseName('x/testAppShell.ar-dark.png'), pa = parseName('today-de-light-medium.png');
-  if (pn?.screen !== 'appshell' || pn.lang !== 'ar' || pn.theme !== 'dark' || pa?.variant !== 'medium' || pa.lang !== 'de') errs.push('parseName sai');
+  const pn = parseName('x/testAppShell.ar-dark.png'), pa = parseName('today-de-light-medium.png'), pl = parseName('lesson-question-gap-en-light.png'), pt = parseName('x/testAma.pose-cheer-dark.png');
+  if (pn?.screen !== 'appshell' || pn.lang !== 'ar' || pn.theme !== 'dark' || pa?.variant !== 'medium' || pa.lang !== 'de' || pl?.screen !== 'lesson-question-gap' || pl.lang !== 'en' || pt?.screen !== 'ama-pose-cheer') errs.push('parseName sai');
   if (L.deltaE2000(L.rgb2lab([255, 0, 0]), L.rgb2lab([255, 0, 0])) !== 0 || Math.abs(L.deltaE2000([50, 2.6772, -79.7751], [50, 0, -82.7485]) - 2.0425) > 1e-3) errs.push('ΔE2000 lệch bảng Sharma');
   if (errs.length) { console.log(errs.map(e => '✗ ' + e).join('\n')); console.log(`✗ native-visual self-test ${errs.length} lỗi`); return 1; }
   console.log('✓ native-visual self-test (ảnh đúng token qua; lavender/tương phản/4 tab/bo góc/thanh tab thấp bị chặn)'); return 0;

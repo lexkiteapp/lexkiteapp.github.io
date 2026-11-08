@@ -68,6 +68,14 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.animation.core.animateFloat
 import com.lexkite.app.design.CardShape
 import com.lexkite.app.design.LKAnim
 import com.lexkite.app.design.LKCard
@@ -145,7 +153,7 @@ private fun StepFrame(k: Chrome, footer: @Composable ColumnScope.() -> Unit, bod
                 if (k.onBack != null) IconButton(onClick = k.onBack, modifier = Modifier.size(48.dp).testTag(TAG_BACK)) { Icon(Icons.AutoMirrored.Filled.ArrowBack, t(L10nKey.actionBack), tint = c.onSurface) } else Spacer(Modifier.size(48.dp))
                 if (OnbFlow.stepNo(k.step) > 0) {
                     LKProgress(OnbFlow.fraction(k.step), Modifier.weight(1f), color = c.secondary, label = t(L10nKey.meProgress), track = c.outlineVariant)   // Stitch onb-*.html + iOS OnbProgress: teal step bar
-                    Text(t.num(OnbFlow.stepNo(k.step)) + " / " + t.num(OnbFlow.TOTAL), style = LKType.labelBadge.toCompose(), color = c.onSurfaceVariant)
+                    Text("\u2066" + t.num(OnbFlow.stepNo(k.step)) + " / " + t.num(OnbFlow.TOTAL) + "\u2069", style = LKType.labelBadge.toCompose(), color = c.onSurfaceVariant)
                 } else Spacer(Modifier.weight(1f))
                 if (k.onSkip != null) Box(Modifier.heightIn(min = 48.dp).testTag(TAG_SKIP).tactile(k.onSkip).padding(horizontal = LKSpacing.spaceSm), contentAlignment = Alignment.Center) {
                     Text(t(L10nKey.onbCommonSkip), style = LKType.labelMetric.toCompose(), color = c.secondary)
@@ -171,14 +179,27 @@ fun BrandMark(modifier: Modifier = Modifier) {
     Image(painterResource(com.lexkite.app.design.R.drawable.lk_logo_mark), contentDescription = null, modifier = modifier.aspectRatio(1f))
 }
 
-/** Step 1 – brand screen shown while the app decides where to go (local only, never waits for the network). Same background as the system splash. */
+/** Step 1 – brand screen shown while the app decides where to go (local only, never waits for the network). Same background as the system splash.
+ *  Stitch splash-*.html: mark + wordmark + tagline sit 48 dp above the middle, a 3 dp indeterminate bar rests 48 dp from the bottom (static when motion is reduced). */
 @Composable
 fun BrandSplash(t: L10n) {
     val c = LocalLKColors.current
-    Column(Modifier.fillMaxSize().background(c.background), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
-        BrandMark(Modifier.size(96.dp))
-        Spacer(Modifier.height(LKSpacing.spaceMd))
-        Text(t(L10nKey.appName), style = LKType.headlineLg.toCompose(), color = c.onSurface)
+    val reduce = LocalReduceMotion.current
+    Box(Modifier.fillMaxSize().background(c.background)) {
+        Column(Modifier.align(Alignment.Center).offset(y = (-48).dp), horizontalAlignment = Alignment.CenterHorizontally) {
+            BrandMark(Modifier.size(96.dp))
+            Spacer(Modifier.height(LKSpacing.spaceMd))
+            Text(t(L10nKey.appName), style = LKType.headlineLg.toCompose(), color = c.onSurface)
+            Spacer(Modifier.height(LKSpacing.spaceXs))
+            Text(t(L10nKey.onbFree), style = LKType.bodyMd.toCompose().copy(fontWeight = FontWeight.SemiBold), color = c.onSurfaceVariant, textAlign = TextAlign.Center, modifier = Modifier.padding(horizontal = LKSpacing.spaceLg))
+        }
+        val x = if (reduce) 0.35f else rememberInfiniteTransition(label = "splash").animateFloat(0f, 1f, infiniteRepeatable(tween(1400, easing = LKAnim.ease), RepeatMode.Restart), label = "bar").value
+        Box(Modifier.align(Alignment.BottomCenter).padding(horizontal = 48.dp).padding(bottom = 48.dp).fillMaxWidth().height(3.dp).clip(CircleShape).background(c.outlineVariant)) {
+            BoxWithConstraints(Modifier.fillMaxSize()) {
+                val w = maxWidth * 0.35f
+                Box(Modifier.offset(x = (maxWidth + w) * (if (reduce) 0.325f else x) - w).width(w).fillMaxHeight().clip(CircleShape).background(c.secondary))
+            }
+        }
     }
 }
 
@@ -212,7 +233,7 @@ private fun LanguageStep(k: Chrome, selected: String, onNext: () -> Unit, onPick
     val t = k.t
     var q by rememberSaveable { mutableStateOf("") }
     StepFrame(k, footer = { NextButton(t(L10nKey.actionContinue), onNext) }) {
-        Text(t(L10nKey.onbLangTitle), style = LKType.headlineLg.toCompose(), color = c.onSurface, modifier = Modifier.semantics { heading() })
+        Text(t(L10nKey.onbLangTitle), style = LKType.headlineMd.toCompose(), color = c.onSurface, modifier = Modifier.semantics { heading() })
         Text(t(L10nKey.onbLangSub), style = LKType.bodyMd.toCompose(), color = c.onSurfaceVariant)
         BasicTextField(
             value = q, onValueChange = { q = it }, singleLine = true,
@@ -261,7 +282,7 @@ private fun ChoiceCard(on: Boolean, tag: String, icon: ImageVector?, title: Stri
                 Text(title, style = LKType.headlineSm.toCompose(), color = c.onSurface)
                 if (sub != null) Text(sub, style = LKType.bodyMd.toCompose(), color = c.onSurfaceVariant)
             }
-            Box(Modifier.size(28.dp).clip(CircleShape).background(if (on) c.secondary else Color.Transparent).border(2.dp, if (on) c.secondary else c.outlineVariant, CircleShape), contentAlignment = Alignment.Center) {
+            Box(Modifier.size(28.dp).clip(CircleShape).background(if (on) c.secondary else Color.Transparent).border(2.dp, if (on) c.secondary else c.outline, CircleShape), contentAlignment = Alignment.Center) {
                 if (on) Icon(Icons.Filled.Check, null, tint = c.onSecondary, modifier = Modifier.size(16.dp))
             }
         }
@@ -301,7 +322,9 @@ private fun GoalStep(k: Chrome, choice: OnbChoice, fresh: Boolean, teacher: @Com
 private fun LevelBars(filled: Int, total: Int) {
     val c = LocalLKColors.current
     Row(Modifier.size(48.dp), horizontalArrangement = Arrangement.spacedBy(3.dp), verticalAlignment = Alignment.Bottom) {
-        for (j in 0 until 4) Box(Modifier.width(6.dp).height((10 + 6 * j).dp).clip(PillShape).background(if (j < Math.ceil(filled.toDouble() / total * 4).toInt()) c.secondary else c.outlineVariant))
+        // filled = solid secondary; empty = outlined slot in `outline` (≥3:1 on the card – WCAG 1.4.11), not the pale outline-variant fill
+        val on = Math.ceil(filled.toDouble() / total * 4).toInt()
+        for (j in 0 until 4) Box(Modifier.width(6.dp).height((10 + 6 * j).dp).clip(PillShape).then(if (j < on) Modifier.background(c.secondary) else Modifier.border(1.5.dp, c.outline, PillShape)))
     }
 }
 
