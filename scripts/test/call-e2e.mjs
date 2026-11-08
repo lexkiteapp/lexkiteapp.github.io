@@ -23,7 +23,10 @@ const serve = route => {
   let p = decodeURIComponent(new URL(route.request().url()).pathname); if (p.endsWith('/')) p += 'index.html';
   const f = path.join(ROOT, path.normalize(p));
   if (!f.startsWith(ROOT) || !fs.existsSync(f) || !fs.statSync(f).isFile()) return route.fulfill({ status: 404, body: '' });
-  const body = fs.readFileSync(f); served += /\.(js|css|json|html)$/.test(f) ? zlib.gzipSync(body).length : body.length;
+  const body = fs.readFileSync(f);
+  // Tải sẵn nền (App.prefetchAll: <link rel=prefetch> mọi gói, ưu tiên thấp) KHÔNG phải chi phí vào cuộc gọi → không tính; nếu tính, kết quả phụ thuộc đúng lúc hàng đợi prefetch chạy (28 KB ↔ 1 MB cùng mã).
+  const rq = route.request(), pf = /prefetch/i.test((rq.headers()['sec-purpose'] || '') + (rq.headers().purpose || '')) || (rq.resourceType() === 'other' && /\.js$/.test(f));
+  if (!pf) served += /\.(js|css|json|html)$/.test(f) ? zlib.gzipSync(body).length : body.length;
   return route.fulfill({ status: 200, contentType: MIME[path.extname(f)] || 'application/octet-stream', body });
 };
 
