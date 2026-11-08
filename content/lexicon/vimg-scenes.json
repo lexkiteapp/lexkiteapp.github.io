@@ -24099,8 +24099,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "disenfranchise#v": {
-   "e4bad": 2,
-   "badAt": "2026-11-08T10:50:43.515Z"
+   "e4bad": 3,
+   "badAt": "2026-11-08T11:17:40.320Z"
   },
   "disguise#n": {
    "ex": "The price increase was a cut in quality in disguise.",
@@ -38364,8 +38364,17 @@
    "refix": 1
   },
   "hemorrhoid#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-08T09:28:20.760Z"
+   "ex": "Hemorrhoids may also appear because of sports.",
+   "ps": "a man holding a soccer ball wincing with a red swollen bump on his lower back",
+   "sc": "a man holding a soccer ball wincing with a red swollen bump on his lower back",
+   "check": "Is there a red swollen bump on the person's lower back causing discomfort?",
+   "cap": "a man holding a soccer ball with a painful red bump",
+   "key": "a red swollen bump on lower back; a soccer ball in the person's hand",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
   },
   "hence#adv": {
    "skip": "cause‑effect picture may not convey the word 'hence' clearly",
