@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/pt/espr.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.pt=Object.assign(D.pt||{},{_7h91:"Nível {l}",_fec8:"Complete a palavra que falta",_v848:"Atenção ao acento: {a}",_c2v2:"Não foi possível carregar a lição. Verifique sua conexão e tente de novo.",_qm64:"Ainda não há exercícios para este tópico."});})(typeof self!=='undefined'?self:this);

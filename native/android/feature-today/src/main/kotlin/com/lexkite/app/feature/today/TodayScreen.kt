@@ -72,7 +72,7 @@ val DEFAULT_BLOCKS = listOf("continue", "goal", "review", "streak")
 
 /** Destinations Today can open – same names as the web hash routes (#/review, #/mistakes …), resolved by the app frame. */
 object TodayRoutes { const val REVIEW = "review"; const val MISTAKES = "mistakes"; const val LISTEN = "listen"; const val SPEAK = "speak"; const val TRAIN = "train"
-    const val LESSON = "lesson"; const val SEARCH = "search"; const val NOTIF = "notif"; const val ME = "me"; const val STREAK = "streak"; const val GOAL = "goal"; const val STATS = "stats" }
+    const val LESSON = "lesson/go"; const val SEARCH = "search"; const val NOTIF = "notif"; const val ME = "me"; const val STREAK = "streak"; const val GOAL = "goal"; const val STATS = "stats" }
 
 /**
  * P02 Today – the phone Today of web (web/js/st/v2/today.js, Stitch "Lexkite Kit" today-light/dark), same block order:

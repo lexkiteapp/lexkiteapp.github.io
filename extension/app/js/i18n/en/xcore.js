@@ -139,4 +139,5 @@
 // ⏱️ Thử thách 60 giây – ô chế độ (app.js modeTiles, khung app)
 "Thử thách 60 giây": "60-second challenge",
 "Ôn từ đến hạn, combo, thách đấu bạn bè": "Review due words, build combos, challenge friends",
+'Luyện tiếng Tây Ban Nha': 'Spanish practice', 'Chia động từ và ngữ pháp, giải thích bằng ngôn ngữ của bạn': 'Verb conjugation and grammar, explained in your language',
 }); })(typeof self !== 'undefined' ? self : this);

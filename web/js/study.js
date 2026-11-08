@@ -406,6 +406,7 @@
     blitz: { em: '⏱️', get name() { return t('Thử thách 60 giây'); }, run: runBlitz },
     match: { em: '⚡', get name() { return t('Ghép thẻ'); }, run: runMatch },
     speak: { em: '🎙️', get name() { return t('Luyện phát âm'); }, run: runSpeak },
+    es: { em: '🇪🇸', get name() { return t('Luyện tiếng Tây Ban Nha'); }, run: (src, q) => App.need('espr').then(() => App.espr && App.espr(q.get('lv'), q.get('p'))) }, // phiên luyện TBN W2b (js/espr.js, cờ es_course ở lối vào)
   };
 
   routes.practice = function (mode, query) {

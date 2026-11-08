@@ -1,6 +1,4 @@
-/* Trung tâm điều hướng: 5 mục chính trên mọi nền tảng (Hôm nay · Từ vựng · Kỹ năng · Thi thử · Tôi),
- * chọn kỳ thi (IELTS / IELTS General / TOEIC / TOEFL / Tiếng Anh nền tảng) → các trang trung tâm tự lọc nội dung theo kỳ thi.
- * Trang trung tâm chỉ dẫn đường (không tải gói nặng) → mở tức thì. Mọi đường dẫn cũ vẫn giữ nguyên. */
+/* 5 mục chính + chọn kỳ thi (nội dung lọc theo kỳ); trang trung tâm chỉ dẫn đường, không tải gói nặng. */
 (function () {
   const { $, $$, esc, toast } = UI;
   const App = window.App;
@@ -19,8 +17,21 @@
   // Nhãn điểm mục tiêu (CEFR lưu 1–6 = A1–C2): ở khung app vì tab Tôi (ux1-me.js) dùng trước khi gói lười goal.js tải
   App.goalLabel = g => (g.exam === 'general' ? ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'][g.target - 1] || '' : String(g.target));
   App.EXAMS = EXAMS;
-  App.setExam = async e => { if (!EXAMS[e]) return; state.settings.exam = e; await App.saveSettings(); if (window.Sync) Sync.schedule(); App.updateExamChip(); toast(EXAMS[e].name); App.route(); };
-  App.updateExamChip = () => { const b = document.getElementById('examChip'); if (!b) return; const x = EXAMS[App.exam()]; b.innerHTML = `<span aria-hidden="true">${UI.icon(x.ic)}</span> ${esc(x.short)} <span class="chev" aria-hidden="true">▾</span>`; b.title = t('Kỳ thi của bạn') + ': ' + x.name; };
+  // <exam-target> Mục tiêu thuộc đúng thang của kỳ đang chọn; đổi kỳ: nhớ số kỳ cũ, không mượn sang kỳ mới
+  const TG_RANGE = { ielts: [0, 9], ieltsgt: [0, 9], toeic: [10, 990], toefl: [1, 6] };
+  App.targetFits = (ex, v) => { if (v == null || v === '') return false; if (ex === 'general') return /^(A1|A2|B1|B2|C1|C2)\b/i.test(String(v)); const r = TG_RANGE[ex], n = parseFloat(v); return !!r && n >= r[0] && n <= r[1]; };
+  const alignTrack = (s, e) => { const c = s.tracks; if (!c || !c.cur || !s.exam) return; if (c.cur === 'work' && (e === 'general' || e === 'toeic')) return;
+    let want = { ielts: 'ielts', ieltsgt: 'ielts', toeic: 'toeic', toefl: 'toefl' }[e]; if (e === 'general') want = ['ielts', 'toeic', 'toefl'].includes(c.cur) ? 'comm' : c.cur;
+    if (want && c.cur !== want) { if (c.on && !c.on.includes(want)) c.on.push(want); c.cur = want; }
+    if (want === 'ielts') (c.v || (c.v = {})).ielts = e === 'ieltsgt' ? 'gt' : 'ac'; };
+  const stashGoal = (s, e) => { if (s.goal && s.goal.exam && s.goal.exam !== e) { (s.goalsBy || (s.goalsBy = {}))[s.goal.exam] = s.goal; delete s.goal; } if (!s.goal && s.goalsBy && s.goalsBy[e]) s.goal = s.goalsBy[e]; };
+  App.moveExamTarget = (s, from, to) => { if (from === to) return; const m = s.targets || (s.targets = {}); if (from && App.targetFits(from, s.examTarget)) m[from] = s.examTarget; s.examTarget = m[to] || ''; stashGoal(s, to); if (s.goal && s.goal.exam === to) s.examTarget = App.goalLabel(s.goal); alignTrack(s, to); };
+  App.fixExamTarget = (s = state.settings) => { if (!s) return; const e = EXAMS[s.exam] ? s.exam : (s.goal && EXAMS[s.goal.exam] ? s.goal.exam : 'ielts'); stashGoal(s, e);
+    const pk = s.goalPick; if (s.examTarget && (!App.targetFits(e, s.examTarget) || (pk && pk.exam && pk.exam !== e && parseFloat(s.examTarget) === pk.target))) s.examTarget = '';
+    if (!s.examTarget && s.goal && s.goal.exam === e) s.examTarget = App.goalLabel(s.goal); if (!s.examTarget && s.targets && s.targets[e]) s.examTarget = s.targets[e]; alignTrack(s, e); };
+  // </exam-target>
+  App.setExam = async e => { if (!EXAMS[e]) return; const s0 = state.settings; App.moveExamTarget(s0, App.exam(), e); s0.exam = e; alignTrack(s0, e); await App.saveSettings(); if (window.Sync) Sync.schedule(); App.updateExamChip(); toast(EXAMS[e].name); App.route(); };
+  App.updateExamChip = () => { App.fixExamTarget(); const b = document.getElementById('examChip'); if (!b) return; const x = EXAMS[App.exam()]; b.innerHTML = `<span aria-hidden="true">${UI.icon(x.ic)}</span> ${esc(x.short)} <span class="chev" aria-hidden="true">▾</span>`; b.title = t('Kỳ thi của bạn') + ': ' + x.name; };
   App.examPicker = () => {
     const cur = App.exam();
     UI.modal(`<h2 style="margin-top:0">${t('Bạn đang luyện kỳ thi nào?')}</h2><p class="muted small">${t('Nội dung Kỹ năng, Thi thử và kế hoạch hôm nay sẽ theo kỳ thi này. Đổi kỳ thi không xóa dữ liệu.')}</p>

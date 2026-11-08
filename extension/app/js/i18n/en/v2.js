@@ -82,7 +82,6 @@
   "Truyện ngắn": "Stories",
   "Trọng tâm hôm nay": "Today's Focus",
   "Tôi đã biết trình độ của mình": "I already know my level",
-  "Tới bài hiện tại →": "See full path →",
   "Từ tiện ích của bạn": "From your add-on",
   "Từ vựng cần ôn": "Words",
   "Tự nói thử": "Say it",
