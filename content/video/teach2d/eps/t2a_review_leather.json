@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"leather\" mean?",
+  "keyword": "leather",
+  "value": "Leather means a material made from the skin of an animal.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=leather",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"leather\" mean?",
+    "description": "Leather means a material made from the skin of an animal.\n\nReview your words, free: https://lexkite.com/app/#/review?w=leather\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "leather",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"leather\" mean?\n\nLeather means a material made from the skin of an animal.\n\nReview your words, free: https://lexkite.com/app/#/review?w=leather"
+   },
+   "instagram": {
+    "caption": "What does \"leather\" mean?\n\nLeather means a material made from the skin of an animal.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"leather\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a material made from the skin of an animal. Leather means a material made from the skin of an animal. More practice like this (free): {link}"
  }
 }

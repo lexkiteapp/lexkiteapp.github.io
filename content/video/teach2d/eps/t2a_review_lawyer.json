@@ -72,5 +72,46 @@
   "words": 46,
   "seconds": 27.7,
   "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"lawyer\" mean?",
+  "keyword": "lawyer",
+  "value": "Lawyer means a professional who is paid to help people with the law.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=lawyer",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"lawyer\" mean?",
+    "description": "Lawyer means a professional who is paid to help people with the law.\n\nReview your words, free: https://lexkite.com/app/#/review?w=lawyer\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "lawyer",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"lawyer\" mean?\n\nLawyer means a professional who is paid to help people with the law.\n\nReview your words, free: https://lexkite.com/app/#/review?w=lawyer"
+   },
+   "instagram": {
+    "caption": "What does \"lawyer\" mean?\n\nLawyer means a professional who is paid to help people with the law.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"lawyer\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a professional who is paid to help people with the law. Lawyer means a professional who is paid to help people with the law. More practice like this (free): {link}"
  }
 }

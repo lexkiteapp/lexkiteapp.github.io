@@ -45,6 +45,21 @@ def frame_at(clip, pro, k):
         if i == k: return F, al
 
 
+def has_pro(clip): return MR.layer_paths(a.green, clip, pro=True)[2]
+
+
+def scope(items, key=lambda x: x):
+    """Only clips that have a PRO layer here (run 42046268983: dispatch kept the default ga4_* sheet while only ga11/gc11 were matted ->
+    frame_at None -> TypeError). Skipped entries are named; nothing left = a clear error, never a crash."""
+    keep = [x for x in items if has_pro(key(x))]; drop = [x for x in items if x not in keep]
+    if drop: print('::warning::matte_compare: no PRO layer for', ','.join(drop), '– skipped (matte them in this run or pass from_run)')
+    return keep
+
+
+SHEET = scope([s for s in a.sheet.split(',') if s], key=lambda s: s.split(':')[0]); VIDEO = scope([v for v in a.video.split(',') if v])
+if not SHEET and not VIDEO: sys.exit('::error::matte_compare: none of --sheet/--video has a PRO layer in ' + a.green)
+
+
 B0 = cv2.imread(a.bg); B0 = cv2.GaussianBlur(cv2.resize(B0, (1080, 1916), interpolation=cv2.INTER_AREA), (0, 0), 2.5).astype(np.float32)
 
 
@@ -75,37 +90,41 @@ def label(im, t, sz=0.6):
 
 
 rows = []
-for spec in a.sheet.split(','):
+for spec in SHEET:
     clip, k = spec.split(':'); k = int(k)
-    Fo, ao = frame_at(clip, False, k); Fn, an = frame_at(clip, True, k)
+    o_, n_ = frame_at(clip, False, k), frame_at(clip, True, k)
+    if o_ is None or n_ is None: sys.exit(f'::error::matte_compare: {clip} has no frame {k} (old {o_ is not None}, PRO {n_ is not None})')
+    (Fo, ao), (Fn, an) = o_, n_
     Co, Cn = comp_old(Fo, ao, B0).clip(0, 255).astype(np.uint8), comp_pro(Fn, an, B0).clip(0, 255).astype(np.uint8)
     tl = []
     for name, (x, y) in rois(an, Fn):
         tl += [label(MR.zoom(Co, x, y, 64, 4), f'OLD {name}'), label(MR.zoom(Cn, x, y, 64, 4), f'NEW {name}')]
     strip = np.full((256, 200, 3), 30, np.uint8); label(strip, clip, 0.5); cv2.putText(strip, f'f{k}', (6, 44), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (200, 200, 200), 1)
     rows.append(np.hstack([strip] + [np.pad(t, ((0, 0), (0, 4 if i % 2 else 0), (0, 0))) for i, t in enumerate(tl)]))
-wmax = max(r.shape[1] for r in rows)
-sheet = np.vstack([np.pad(r, ((0, 4), (0, wmax - r.shape[1]), (0, 0))) for r in rows])
-cv2.imwrite(f'{a.out}/matte-compare.jpg', sheet, [cv2.IMWRITE_JPEG_QUALITY, 90]); print('sheet', sheet.shape)
+if rows:
+    wmax = max(r.shape[1] for r in rows)
+    sheet = np.vstack([np.pad(r, ((0, 4), (0, wmax - r.shape[1]), (0, 0))) for r in rows])
+    cv2.imwrite(f'{a.out}/matte-compare.jpg', sheet, [cv2.IMWRITE_JPEG_QUALITY, 90]); print('sheet', sheet.shape)
 
-# 10 s split screen: left OLD, right NEW (1080 x 1215 crop from the hair top, shown at 0.89x)
-enc = subprocess.Popen(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', '1920x1080', '-r', '24', '-i', '-',
-                        '-c:v', 'libx264', '-preset', 'slow', '-crf', '21', '-maxrate', '7M', '-bufsize', '14M', '-pix_fmt', 'yuv420p', '-movflags', '+faststart',
-                        f'{a.out}/matte-before-after.mp4'], stdin=subprocess.PIPE)
-for clip in a.video.split(','):
-    top = None
-    for (i, Fo, ao), (_, Fn, an) in zip(frames(clip, False), frames(clip, True)):
-        if top is None: top = max(0, int(np.where((an > 0.5).any(1))[0][0]) - 60)
-        y0 = min(top, 1916 - 1215)
-        sides = []
-        for C, t in ((comp_old(Fo, ao, B0), 'BEFORE (old key)'), (comp_pro(Fn, an, B0), 'AFTER (PRO matte)')):
-            v = cv2.resize(C[y0:y0 + 1215].clip(0, 255).astype(np.uint8), (960, 1080), interpolation=cv2.INTER_AREA)
-            sides.append(label(v, t, 0.9))
-        enc.stdin.write(np.hstack(sides).tobytes())
-enc.stdin.close(); enc.wait(); print('mp4', round(os.path.getsize(f'{a.out}/matte-before-after.mp4') / 1e6, 2), 'MB')
+if VIDEO:
+    # 10 s split screen: left OLD, right NEW (1080 x 1215 crop from the hair top, shown at 0.89x)
+    enc = subprocess.Popen(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', '1920x1080', '-r', '24', '-i', '-',
+                            '-c:v', 'libx264', '-preset', 'slow', '-crf', '21', '-maxrate', '7M', '-bufsize', '14M', '-pix_fmt', 'yuv420p', '-movflags', '+faststart',
+                            f'{a.out}/matte-before-after.mp4'], stdin=subprocess.PIPE)
+    for clip in VIDEO:
+        top = None
+        for (i, Fo, ao), (_, Fn, an) in zip(frames(clip, False), frames(clip, True)):
+            if top is None: top = max(0, int(np.where((an > 0.5).any(1))[0][0]) - 60)
+            y0 = min(top, 1916 - 1215)
+            sides = []
+            for C, t in ((comp_old(Fo, ao, B0), 'BEFORE (old key)'), (comp_pro(Fn, an, B0), 'AFTER (PRO matte)')):
+                v = cv2.resize(C[y0:y0 + 1215].clip(0, 255).astype(np.uint8), (960, 1080), interpolation=cv2.INTER_AREA)
+                sides.append(label(v, t, 0.9))
+            enc.stdin.write(np.hstack(sides).tobytes())
+    enc.stdin.close(); enc.wait(); print('mp4', round(os.path.getsize(f'{a.out}/matte-before-after.mp4') / 1e6, 2), 'MB')
 
 M = []
-for clip in sorted({s.split(':')[0] for s in a.sheet.split(',')} | set(a.video.split(',')) | set(filter(None, a.metrics.split(',')))):
+for clip in sorted({s.split(':')[0] for s in SHEET} | set(VIDEO) | set(scope([m for m in a.metrics.split(',') if m]))):
     for pro in (False, True):
         r = Q.layer(a.green, clip, pro=pro, step=a.step); M.append(r); print(json.dumps(r), flush=True)
 json.dump(M, open(f'{a.out}/matte-metrics.json', 'w'), indent=1)

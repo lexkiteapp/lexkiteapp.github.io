@@ -91,6 +91,12 @@
    "why": "vision: no (no photo album, wrong objects)",
    "b": "42322284048"
   },
+  "antitoxin#n": {
+   "at": "2026-11-08",
+   "tries": 6,
+   "why": "vision: text",
+   "b": "42497510384"
+  },
   "applause#n": {
    "at": "2026-11-08",
    "tries": 18,
@@ -168,6 +174,12 @@
    "tries": 12,
    "why": "vision: no (table and different materials)",
    "b": "42315140853"
+  },
+  "autotrophic#adj": {
+   "at": "2026-11-08",
+   "tries": 6,
+   "why": "meaning check: no (Is the plant getting its nourishment directly from)",
+   "b": "42497510384"
   },
   "average daily rate#n": {
    "at": "2026-11-07",
@@ -576,6 +588,12 @@
    "tries": 18,
    "why": "vision: text",
    "b": "42435663000"
+  },
+  "demographer#n": {
+   "at": "2026-11-08",
+   "tries": 6,
+   "why": "meaning check: no (Is the adult examining a globe as if analyzing peo)",
+   "b": "42497510384"
   },
   "demon#n": {
    "at": "2026-11-07",
@@ -1021,6 +1039,12 @@
    "why": "meaning check: no (Is the guest receiving a record of their stay char)",
    "b": "42315140853"
   },
+  "gusher#n": {
+   "at": "2026-11-08",
+   "tries": 6,
+   "why": "meaning check: no (Is there an oil well shooting a large stream of oi)",
+   "b": "42497510384"
+  },
   "gyroscope#n": {
    "at": "2026-11-08",
    "tries": 6,
@@ -1171,6 +1195,12 @@
    "why": "vision: no (beach and palm trees)",
    "b": "42435663000"
   },
+  "incise#v": {
+   "at": "2026-11-08",
+   "tries": 6,
+   "why": "clip-sentence sim 0.212; vision description-sentence sim 0.169",
+   "b": "42497510384"
+  },
   "inexpensive#adj": {
    "at": "2026-11-07",
    "tries": 12,
@@ -1261,6 +1291,12 @@
    "why": "size > 6 KB",
    "b": "42467148738"
   },
+  "lexicographer#n": {
+   "at": "2026-11-08",
+   "tries": 6,
+   "why": "meaning check: no (Is the person creating a collection of word defini)",
+   "b": "42499355368"
+  },
   "liability#n": {
    "at": "2026-11-08",
    "tries": 18,
@@ -1338,6 +1374,18 @@
    "tries": 18,
    "why": "vision: no (cylindrical reel and table)",
    "b": "42435663000"
+  },
+  "militarize#v": {
+   "at": "2026-11-08",
+   "tries": 6,
+   "why": "vision: no (no antenna being lifted)",
+   "b": "42497510384"
+  },
+  "minicomputer#n": {
+   "at": "2026-11-08",
+   "tries": 6,
+   "why": "text: Se",
+   "b": "42497510384"
   },
   "minimise#v": {
    "at": "2026-11-08",
@@ -1494,6 +1542,12 @@
    "tries": 6,
    "why": "vision description-sentence sim 0.2363",
    "b": "42467148738"
+  },
+  "panhandler#n": {
+   "at": "2026-11-08",
+   "tries": 6,
+   "why": "vision: no (sidewalk, city, asking for money)",
+   "b": "42497510384"
   },
   "paralysis#n": {
    "at": "2026-11-07",
@@ -1716,6 +1770,12 @@
    "tries": 6,
    "why": "meaning check: no (Is the person showing a model house to a client wh)",
    "b": "42365118590"
+  },
+  "recapitulate#v": {
+   "at": "2026-11-08",
+   "tries": 6,
+   "why": "vision: no (blocks in one hand, three colored blocks)",
+   "b": "42497510384"
   },
   "recruiter#n": {
    "at": "2026-11-07",
@@ -2052,6 +2112,12 @@
    "tries": 18,
    "why": "vision: no (stone building, tall doorway, modest)",
    "b": "42435663000"
+  },
+  "teetotaler#n": {
+   "at": "2026-11-08",
+   "tries": 6,
+   "why": "duplicate (pHash)",
+   "b": "42497510384"
   },
   "telegraph#n": {
    "at": "2026-11-07",

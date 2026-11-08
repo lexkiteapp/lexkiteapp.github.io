@@ -73,5 +73,46 @@
   "words": 49,
   "seconds": 29.6,
   "wpm": 99
+ },
+ "publish": {
+  "title": "\"The usual way of behaving.\" Guess the word!",
+  "keyword": "habit",
+  "value": "The answer: habit /ˈhæbət/. Reading before bed is a good habit.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/habit",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "\"The usual way of behaving.\" Guess the word!",
+    "description": "The answer: habit /ˈhæbət/. Reading before bed is a good habit.\n\nLook up any word, free: https://lexkite.com/app/#/dict/habit\n\nSeries: Guess the Word · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "habit",
+     "Guess the Word",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "\"The usual way of behaving.\" Guess the word!\n\nThe answer: habit /ˈhæbət/. Reading before bed is a good habit.\n\nLook up any word, free: https://lexkite.com/app/#/dict/habit"
+   },
+   "instagram": {
+    "caption": "\"The usual way of behaving.\" Guess the word!\n\nThe answer: habit /ˈhæbət/. Reading before bed is a good habit.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "\"The usual way of behaving.\" Guess the word! #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Habit! Reading before bed is a good habit. Practice it with a free quiz: {link}"
  }
 }

@@ -39,6 +39,8 @@ node scripts/test/syntax-check.mjs
 node scripts/blog-pipeline.mjs gate
 node scripts/test/ci-header-scope.mjs
 node scripts/test/feel.mjs
+node scripts/test/sfx-loudness.mjs
+node scripts/test/play-blitz.mjs
 node scripts/test/review-modes.mjs
 node scripts/test/review-modes-ui.js web
 node scripts/build-lexicon.mjs
@@ -145,6 +147,7 @@ node scripts/test/drive-repair.mjs
 node scripts/test/keys.mjs
 node scripts/test/admin-share.mjs
 node scripts/test/accounts.mjs
+node scripts/test/ios-sign-patch.mjs
 node scripts/test/asc-signing.mjs
 node scripts/test/ai-pool.mjs
 node scripts/test/ai-local.mjs
@@ -305,6 +308,7 @@ node scripts/test/aiearn.mjs
 node scripts/test/ext-newtab-quiz.mjs
 node scripts/test/cambridge.mjs
 node scripts/test/teacher-rig.mjs
+node scripts/test/teach2d-rig.mjs
 node scripts/test/workflow-yaml.mjs
 node scripts/test/samples-seo-parity.mjs --self-test
 node scripts/native/gen.mjs --check
@@ -351,4 +355,5 @@ node scripts/test/heavy-rerun.mjs
 node scripts/test/json-dupkeys.mjs
 node scripts/test/cls-chrome.mjs
 node scripts/test/es-practice.mjs
+node scripts/test/es-pron.mjs
 node scripts/test/ext-version.mjs

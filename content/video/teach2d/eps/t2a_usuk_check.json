@@ -79,5 +79,46 @@
   "words": 45,
   "seconds": 27.6,
   "wpm": 98
+ },
+ "publish": {
+  "title": "Check or bill? US vs UK English",
+  "keyword": "check vs bill",
+  "value": "Americans say check. British people say bill.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/check",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Check or bill? US vs UK English",
+    "description": "Americans say check. British people say bill.\n\nLook up any word, free: https://lexkite.com/app/#/dict/check\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "check vs bill",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Check or bill? US vs UK English\n\nAmericans say check. British people say bill.\n\nLook up any word, free: https://lexkite.com/app/#/dict/check"
+   },
+   "instagram": {
+    "caption": "Check or bill? US vs UK English\n\nAmericans say check. British people say bill.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Check or bill? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Bill! Americans say check. British people say bill. Practice it with a free quiz: {link}"
  }
 }
