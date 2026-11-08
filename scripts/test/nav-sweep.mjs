@@ -147,14 +147,15 @@ for (const [r, hash] of samples) {
 await ctx.close(); await browser.close(); if (srv) srv.close();
 
 // ---------- cổng: known chỉ được thu nhỏ ----------
-const known = fs.existsSync(KNOWN_F) ? JSON.parse(fs.readFileSync(KNOWN_F, 'utf8')) : {};
+const { _flaky: flaky = {}, ...known } = fs.existsSync(KNOWN_F) ? JSON.parse(fs.readFileSync(KNOWN_F, 'utf8')) : {};
+// _flaky: màn lúc đạt lúc không đạt (practice/learn?src=deck: 10 bước ở một số lượt PR, 40 bước ở main – 08/11) → cả hai kết quả đều được chấp nhận, vẫn in ra; KHÔNG phải chỗ thêm lỗi mới
 const fails = [];
 for (const [r, gaps] of Object.entries(found)) {
-  const k = new Set((known[r] || []));
-  for (const gp of gaps) if (!k.has(gp)) fails.push(`${r}: thiếu "${gp}" (mới – sửa màn, không thêm vào known)`);
-  for (const gp of k) if (!gaps.includes(gp)) fails.push(`${r}: "${gp}" đã đạt – xoá khỏi scripts/test/nav-sweep.known.json`);
+  const k = new Set((known[r] || [])), fl = new Set(flaky[r] || []);
+  for (const gp of gaps) if (!k.has(gp) && !fl.has(gp)) fails.push(`${r}: thiếu "${gp}" (mới – sửa màn, không thêm vào known)`);
+  for (const gp of k) if (!gaps.includes(gp) && !fl.has(gp)) fails.push(`${r}: "${gp}" đã đạt – xoá khỏi scripts/test/nav-sweep.known.json`);
 }
-for (const r of Object.keys(known)) if (!(r in found)) fails.push(`${r}: có trong known nhưng không đo được (bài mẫu mất?)`);
+for (const r of [...Object.keys(known), ...Object.keys(flaky)]) if (!(r in found)) fails.push(`${r}: có trong known nhưng không đo được (bài mẫu mất?)`);
 if (process.argv.includes('--write-known')) fs.writeFileSync(OUT + '/known.json', JSON.stringify(Object.fromEntries(Object.entries(found).filter(([, g]) => g.length)), null, 1) + '\n');
 const Y = b => (b ? '✓' : '—');
 const md = `# nav-sweep\n\n${rows.length} màn học · ${rows.filter(m => m.end && m.next && m.enter).length} đi trọn bằng bàn phím tới màn kết có bước tiếp · ${fails.length} lỗi cổng\n\n| route | thoát | tiến độ | Enter | bỏ qua | màn kết | bước tiếp | bước | ngõ cụt |\n|---|---|---|---|---|---|---|---|---|\n${rows.map(m => `| ${m.route} | ${Y(m.exit)} | ${Y(m.prog)} | ${Y(m.enter)} | ${Y(m.skip)} | ${Y(m.end)} | ${Y(m.next)} | ${m.steps} | ${m.dead.replace(/\|/g, '/')} |`).join('\n')}\n\n${fails.length ? '## Lỗi cổng\n' + fails.map(f => '- ' + f).join('\n') + '\n' : ''}`;
