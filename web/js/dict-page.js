@@ -20,7 +20,7 @@
         <button class="btn primary lg">${t('Tra từ')}</button>
       </form>
       ${recent.length ? `<div class="row small" style="margin-top:.7rem"><span class="muted">${t('Gần đây:')}</span>${recent.map(r => `<a class="chip" href="#/dict/${encodeURIComponent(r)}">${esc(r)}</a>`).join('')}</div>` : ''}
-      <div id="result" style="margin-top:1.25rem"></div>
+      <div id="result"${q ? ' class="dict-res"' : ''} style="margin-top:1.25rem"></div>
       <div class="ext-card" data-ext-cta="app" hidden><div><b>🧩 ${t('Tra từ ngay trên mọi trang web')}</b><p class="small muted">${t('Bấm đúp vào bất kỳ từ nào khi đọc để xem nghĩa, phiên âm và lưu vào flashcard – với add-on Lexkite cho Chrome.')}</p></div><a class="btn sm primary" data-ext-cta="app" hidden>${t('Thêm vào Chrome')}</a></div>`;
     extCta();
     $('#searchForm').onsubmit = e => { e.preventDefault(); const v = $('#q').value.trim(); if (v) location.hash = `#/dict/${encodeURIComponent(v)}`; };

@@ -90,5 +90,17 @@
  "link": "https://lexkite.com/app/#/grammar",
  "cta": "Practice grammar free on lexkite.com",
  "est": 25.0,
- "end_alt": "n_4828ed_e2"
+ "end_alt": "n_4828ed_e2",
+ "publish": {
+  "title": "Get in or get on? Taxi vs bus",
+  "keyword": "get in vs get on",
+  "value": "Get in a taxi, but get on a bus.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#a2english"
+  ],
+  "first_comment": "Small vehicle? Get in. Big one you can walk on? Get on. Test yourself with a quick quiz: {link}"
+ }
 }

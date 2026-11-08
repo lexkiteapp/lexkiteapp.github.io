@@ -17,8 +17,9 @@ const addSm = (urls, ...src) => { const lm = gitDate(...src); fs.writeFileSync(s
 const plain = s => s.replace(/<<[^>]*>>\s*/g, '').replace(/\[\[([^|\]]*)\|[^\]]*\]\]/g, '$1').replace(/\{\{([^}]*)\}\}/g, '$1');
 const SEC = { samples: 'Bài mẫu Writing', speaking: 'IELTS Speaking', 'tu-vung': 'Từ vựng', 'ngu-phap': 'Ngữ pháp', 'viet-thu': 'Thư mẫu IELTS General', 'phat-am': 'Phát âm' };
 const EN = { samples: 'en/samples', speaking: 'en/speaking', 'tu-vung': 'en/vocabulary', 'ngu-phap': 'en/grammar', 'phat-am': 'en/pronunciation', 'viet-thu': 'en/ielts-writing/general-task-1' }; // mục có bản tiếng Anh (build-samples-en.mjs)
-// Breadcrumb JSON-LD tự suy từ canonical: Trang chủ → mục → trang (giữ nguyên như trước)
-const crumbs = (canon, name) => { const p = canon.slice(SITE.length).split('/'), sec = p[0], it = [['Trang chủ', SITE], [SEC[sec] || sec, `${SITE}${sec}/`]]; if (p[1]) it.push([name, canon]);
+// Breadcrumb JSON-LD tự suy từ canonical: Trang chủ → mục → trang. Trang chủ tiếng Việt = /vi/ (5/11): `/` là 302 theo nước/ngôn ngữ
+// (SEO-ARCH §10) nên crumb trỏ `/` đưa Google tới /en/ – lệch với crumb hiển thị và hreflang. Test: samples-seo-parity --self-test.
+const crumbs = (canon, name) => { const p = canon.slice(SITE.length).split('/'), sec = p[0], it = [['Trang chủ', `${SITE}vi/`], [SEC[sec] || sec, `${SITE}${sec}/`]]; if (p[1]) it.push([name, canon]);
   return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: it.map(([n, u], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: u })) }; };
 // <head>: meta, canonical, og, JSON-LD – giữ nguyên từng thẻ như bản cũ (build-samples-en.mjs chèn hreflang trước og:type)
 const head = (title, desc0, canon, o = {}) => { const desc = clip(desc0); return `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><meta name="theme-color" content="#0F3D3E"><link rel="canonical" href="${canon}"><meta property="og:type" content="article"><meta property="og:site_name" content="Lexkite"><meta property="og:locale" content="vi_VN"><meta property="og:url" content="${canon}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:image" content="${OG}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/icons/icon.svg?v=3" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=3">${ld({ "@context": "https://schema.org", "@type": "LearningResource", name: title, description: desc, url: canon, inLanguage: "vi", isAccessibleForFree: true, educationalLevel: "IELTS / TOEIC", provider: { "@type": "Organization", name: "Lexkite", url: SITE }, ...(o.lr || {}) })}${ld(crumbs(canon, title.replace(/\s*[–|]\s*Lexkite$/, '')))}${(o.ld || []).map(ld).join('')}${o.smp ? smpHead() : ''}`; };
@@ -34,7 +35,7 @@ const indexHero = (h1, lead, sec) => `${hero(esc(h1), { lead })}\n${sectionNav('
 const related = (items, card) => items.length ? `<section class="grp" aria-labelledby="rel"><h2 id="rel">${L.related}</h2><div class="grid">${items.map(card).join('')}</div></section>` : '';
 const group = (id, title, sub, cards) => `<section class="grp" aria-labelledby="g-${id}"><h2 id="g-${id}">${esc(title)} <small>${sub}</small></h2><div class="grid">${cards.join('')}</div></section>`;
 const short = (s, n) => s.length > n ? s.slice(0, n - 3).replace(/\s+\S*$/, '') + '…' : s;
-const wmDate = gitDate('web/js/models.js', 'web/js/write').replace(/-/g, '');
+const wmDate = gitDate('web/js/models.js', 'web/js/write', 'web/cpack/write').replace(/-/g, '');
 const wm = (html, id) => embedWatermark(html, `LK:${id}:${wmDate}`); // thủy ấn tàng hình (P1) trong bài mẫu – ngày = lần sửa dữ liệu cuối (build ổn định)
 
 // ===== Writing Task 2 =====
@@ -119,7 +120,7 @@ ${sectionNav('vi', '/speaking/')}
 ${filterBox('vi')}
 ${group2('all', 'Chủ đề', `${made.length} ${L.items}`, made.map(spCard), '', 'v-speaking')}</div>`, undefined, undefined,
     { smp: 1, ld: [itemList('IELTS Speaking', made.map(([id]) => `${SITE}speaking/${id}`))] }));
-  addSm([`${SITE}speaking/`, ...made.map(([id]) => `${SITE}speaking/${id}`)], 'web/js/speaking.js', 'web/js/speak');
+  addSm([`${SITE}speaking/`, ...made.map(([id]) => `${SITE}speaking/${id}`)], 'web/js/speaking.js', 'web/js/speak', 'web/cpack/speak');
   console.log(`✓ SEO: ${made.length} trang chủ đề Speaking + mục lục`);
 }
 

@@ -143,8 +143,9 @@
 'Ôn {n} thẻ': 'Review {n} cards',
 'Đây là kế hoạch của bạn hôm nay': "Here's your plan for today",
 'Đọc 1 bài & lưu từ mới': 'Read 1 passage & save new words',
-'TOEIC Listening: 1 Part': 'TOEIC Listening: 1 part',
-'TOEIC Reading: 1 Part': 'TOEIC Reading: 1 part',
+'TOEIC Listening: luyện 1 phần': 'TOEIC Listening: practice 1 part',
+'TOEIC Reading: luyện 1 phần': 'TOEIC Reading: practice 1 part',
+'{n} việc': '{n} tasks',
 'Bài mẫu band 8': 'Band 8 model answers',
 'Có đánh dấu cụm từ hay và từ nối': 'Useful phrases and linking words highlighted',
 'Thư mẫu band 8': 'Band 8 model letters',
@@ -253,4 +254,5 @@
 "Giáo viên giao bài, học sinh nhập mã lớp": "Teachers assign work, students join with a class code",
 "Học qua video": "Learn with videos",
 "Video YouTube theo chủ đề, lặp đoạn, lưu từ": "YouTube videos by topic, loop parts, save words",
+'Đề A2 Key → C2 Proficiency: Đọc & Viết, Nghe, Nói': 'A2 Key → C2 Proficiency tests: Reading & Writing, Listening, Speaking',
 }); })(typeof self !== 'undefined' ? self : this);

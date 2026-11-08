@@ -2,7 +2,7 @@
 // Hồi quy 02/11: ci-filler bật lại 03:47Z nhưng 0 lượt schedule → phải đỏ sau ≤ 60 phút. Không gọi mạng (gh giả).
 import assert from 'node:assert/strict'; import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
 import { maxGap, limitMin, cronsOf, verdict, cronWatch, syncIssue, OFF_OK, FLOOR_MIN, MARK, BACKFILL_MAX, dispatchable, backfillOrder, KICK_SETTLE_MS, KICK_EVERY_MS } from '../ci/cron-watch.mjs';
-import { isZombie, zombieRuns } from '../ci/zombie.mjs'; import { activeWorkflows } from '../ci/filler.mjs';
+import { isZombie, zombieRuns, stuckJobs } from '../ci/zombie.mjs'; import { activeWorkflows } from '../ci/filler.mjs';
 
 assert.equal(maxGap(['4-59/10 * * * *']), 10); assert.equal(maxGap(['17 * * * *']), 60); assert.equal(maxGap(['35 1 * * *', '17 * * * *']), 60);
 assert.equal(maxGap(['0 1 * * 1']), 7 * 1440); assert.equal(maxGap(['40 2,4,7,10,13,16,19,22 * * *']), 4 * 60);
@@ -80,9 +80,10 @@ assert.match(fs.readFileSync('.github/workflows/ci-triage.yml', 'utf8'), /\.gith
   const gh = async (p, o = {}) => { calls.push(`${o.method || 'GET'} ${p}`);
     if (p.startsWith('/actions/runs?status=queued')) return { workflow_runs: runs };
     if (p.endsWith('/1/jobs?per_page=1')) return { total_count: 0 }; if (p.endsWith('/2/jobs?per_page=1')) return { total_count: 3 };
-    if (p.endsWith('/1/cancel')) throw new Error('GitHub POST /x → 409');
+    if (p.endsWith('/1/cancel') || p.endsWith('/1/force-cancel')) throw new Error('GitHub POST /x → 409');
     return {}; };
-  const z = await zombieRuns(gh, { now }); assert.deepEqual(z.map(x => [x.id, x.cancel]), [[1, '409']], 'chỉ lượt quá hạn + 0 job; 409 được ghi lại');
+  const z = await zombieRuns(gh, { now });
+  assert.ok(calls.includes('POST /actions/runs/1/force-cancel') && !calls.includes('DELETE /actions/runs/1'), 'cancel 409 → thử force-cancel; chưa quá 24 giờ thì chưa DELETE'); assert.deepEqual(z.map(x => [x.id, x.cancel]), [[1, '409']], 'chỉ lượt quá hạn + 0 job; 409 được ghi lại');
   assert.ok(!calls.includes('GET /actions/runs/3/jobs?per_page=1'), 'lượt mới không tốn lệnh API');
   const wf = fs.mkdtempSync(path.join(os.tmpdir(), 'cwz-')); fs.writeFileSync(path.join(wf, 'd1-usage-watch.yml'), "on:\n  schedule:\n    - cron: '*/20 * * * *'\n  workflow_dispatch:\n");
   const disp = [], gh2 = async (p, o = {}) => {
@@ -92,11 +93,29 @@ assert.match(fs.readFileSync('.github/workflows/ci-triage.yml', 'utf8'), /\.gith
     if (p.endsWith('/dispatches')) { disp.push(p); return {}; }
     if (p.startsWith('/actions/runs?status=queued')) return { workflow_runs: [{ ...old, id: 1 }] };
     if (p.endsWith('/1/jobs?per_page=1')) return { total_count: 0 };
-    if (p.endsWith('/1/cancel')) throw new Error('GitHub POST /x → 409');
+    if (p.endsWith('/1/cancel') || p.endsWith('/1/force-cancel')) throw new Error('GitHub POST /x → 409');
     return {}; };
   const rz = await cronWatch(gh2, { now, wfDir: wf, root: wf, settleMs: 0 });
   assert.equal(disp.length, 1, 'lượt zombie không chặn dispatch bù'); assert.ok(rz.bad.some(b => b.kind === 'zombie') && /Lượt kẹt queued/.test(rz.md) && /DELETE \/actions\/runs\/1/.test(rz.md), 'zombie vào bad + md');
-  assert.ok(!activeWorkflows([{ ...old }], now).size && activeWorkflows([{ ...old, created_at: '2026-11-03T22:30:00Z' }], now).has('d1-usage-watch.yml'), 'ci-filler không coi zombie là đang chạy'); }
+  assert.ok(!activeWorkflows([{ ...old }], now).size && activeWorkflows([{ ...old, created_at: '2026-11-03T22:30:00Z' }], now).has('d1-usage-watch.yml'), 'ci-filler không coi zombie là đang chạy');
+  // 05/11: zombie > 24 giờ mà cancel + force-cancel đều 409 → DELETE (lượt 26/10 nằm 10 ngày vì issue chỉ ghi "chỉ còn DELETE")
+  const del = [], gh3 = async (p, o = {}) => { if (o.method) del.push(`${o.method} ${p}`);
+    if (p === '/actions/runs/9') return del.includes('DELETE /actions/runs/9') ? null : { id: 9, status: 'queued' };
+    if (p.startsWith('/actions/runs?status=queued')) return { workflow_runs: [{ ...old, id: 9, created_at: '2026-10-26T04:23:15Z' }] };
+    if (p.endsWith('/9/jobs?per_page=1')) return { total_count: 0 };
+    if (/\/9\/(force-)?cancel$/.test(p)) throw new Error('GitHub POST /x → 409');
+    return {}; };
+  const z3 = await zombieRuns(gh3, { now }); assert.deepEqual(del, ['DELETE /actions/runs/9'], '06/11: lượt ≥ 24 giờ DELETE thẳng (cancel 409 / 202 giả không tốn lệnh + ngủ)');
+  assert.equal(z3[0].deleted, true, 'zombie 10 ngày bị DELETE');
+  assert.deepEqual((await zombieRuns(gh3, { now, cancel: false })).map(x => x.deleted), [undefined], 'cancel: false (chạy khô) không xoá gì');
+  // job THẬT xếp hàng > 2 giờ → báo (không huỷ); job mới hoặc đang chạy thì không
+  const gh4 = async (p, o = {}) => { assert.ok(!o.method, 'stuckJobs chỉ đọc');
+    if (p.startsWith('/actions/runs?status=queued')) return { workflow_runs: [{ id: 5, path: '.github/workflows/teach-video.yml', created_at: '2026-11-03T18:00:00Z' }, { id: 6, path: '.github/workflows/qa-bot.yml', created_at: '2026-11-03T22:40:00Z' }] };
+    if (p.startsWith('/actions/runs?status=in_progress')) return { workflow_runs: [{ id: 7, path: '.github/workflows/video.yml', created_at: '2026-11-03T18:00:00Z' }] };
+    if (p.startsWith('/actions/runs/5/jobs')) return { jobs: [{ status: 'queued', created_at: '2026-11-03T18:05:00Z' }, { status: 'queued', created_at: '2026-11-03T19:00:00Z' }, { status: 'queued', created_at: '2026-11-03T22:00:00Z' }] };
+    if (p.startsWith('/actions/runs/7/jobs')) return { jobs: [{ status: 'in_progress', created_at: '2026-11-03T18:05:00Z' }] };
+    throw new Error('không được gọi ' + p); };
+  assert.deepEqual(await stuckJobs(gh4, { now }), [{ id: 5, file: 'teach-video.yml', jobs: 2, min: 295 }], 'chỉ job queued > 3 giờ; lượt mới không tốn API'); }
 assert.ok(isZombie({ status: 'queued', path: '.github/workflows/required-gate.yml', created_at: new Date(Date.now() - 20 * 6e4).toISOString() }) && !isZombie({ status: 'pending', path: '.github/workflows/required-gate.yml', created_at: new Date(Date.now() - 20 * 6e4).toISOString() }) && !isZombie({ status: 'queued', path: '.github/workflows/ci-triage.yml', created_at: new Date(Date.now() - 20 * 6e4).toISOString() }), 'required-gate kẹt sau 15 phút, workflow khác giữ 2 giờ');
 // chưa từng có lượt schedule: báo 'never' dù vừa đá/bật lại (đá không reset đồng hồ), đá ≤ 1 lần/24 giờ, vẫn dispatch bù; workflow mới trong ngưỡng thì chưa báo
 { const now = Date.parse('2026-11-03T23:00:00Z'), created = Date.parse('2026-11-01T14:21:56Z'), crons = ['4-59/10 * * * *'];
@@ -110,4 +129,4 @@ assert.ok(isZombie({ status: 'queued', path: '.github/workflows/required-gate.ym
     return { calls, r: await cronWatch(gh, { now, wfDir: wf, root: wf, sleep: async () => {} }) }; };
   const a = await go(new Date(now - 6e5).toISOString()); assert.ok(a.r.bad[0].kind === 'never' && /CHƯA TỪNG/.test(a.r.md), 'vừa đá vẫn báo'); assert.ok(!a.calls.some(c => c.endsWith('/disable')), 'đá trong 24 giờ: không đá lại'); assert.ok(a.calls.some(c => c.endsWith('/dispatches')), 'vẫn dispatch bù');
   const b = await go(new Date(now - KICK_EVERY_MS - 6e4).toISOString()); assert.ok(b.calls.some(c => c.endsWith('/disable')), 'quá 24 giờ: đá lại'); }
-console.log('✓ cron-watch: khoảng lịch, quá hạn 3× (sàn 60 phút), tắt ngoài ý muốn, đá lại lịch, issue mở/đóng, lượt zombie');
+console.log('✓ cron-watch: khoảng lịch, quá hạn 3× (sàn 60 phút), tắt ngoài ý muốn, đá lại lịch, issue mở/đóng, lượt zombie (huỷ → force-cancel → DELETE sau 24 giờ), job xếp hàng > 3 giờ');

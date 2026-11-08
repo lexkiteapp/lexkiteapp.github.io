@@ -1,0 +1,3 @@
+/* UI de – espr (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {"Cấp {l}":"Stufe {l}","Điền từ còn thiếu":"Fehlendes Wort ergänzen","Cẩn thận dấu (tilde): {a}":"Achte auf den Akzent: {a}","Không tải được bài. Kiểm tra mạng rồi thử lại.":"Lektion konnte nicht geladen werden. Prüfe deine Verbindung und versuche es erneut.","Chưa có bài cho mục này.":"Zu diesem Thema gibt es noch keine Übungen."});
+})(typeof self !== 'undefined' ? self : this);

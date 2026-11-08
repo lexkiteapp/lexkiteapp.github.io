@@ -6,9 +6,11 @@ the audited IPA bank (scripts/scriptbank, checked again by qc.py) and the curate
 Each template = ONE point, hook first (<= 6 words, on screen from frame 0), example, 3-second quiz, share line, deep-link CTA.
 Lines are short sentences (TTS + captions + whisper clock all come from the same text: voice = subtitle = mouth)."""
 import hashlib, json, os, re, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import publish as PUBLISH  # noqa: E402
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 REG = json.load(open(f'{ROOT}/web/teach/characters.json'))
 PIL = json.load(open(f'{ROOT}/content/video/teach2d/pilots.json'))
+PR_SMOKE_MAX = 1   # số tập teach-video render trên pull_request (ci-policy luật 11 khoá ≤ 2)
 GOLD = {}
 for x in open(f'{ROOT}/content/video/scripts/bank/g0000.jsonl'):
     r = json.loads(x); GOLD[r['id']] = r
@@ -362,6 +364,7 @@ def make(row):
     assert 30 <= n <= 70, ('word count', n)
     assert 60 * n / est <= 150, ('pace', 60 * n / est)
     ep['est'] = dict(words=n, seconds=round(est, 1), wpm=round(60 * n / est))
+    ep['publish'] = PUBLISH.build(ep)   # posting metadata written at production from this script (publish.py, docs/specs/video-production-v2.md §2)
     return ep
 
 
@@ -707,6 +710,7 @@ if __name__ == '__main__':
         if not ids:
             ids = [r['id'] for r in PIL['pilots']]
             if ev == 'pull_request': R_ = load_auto()['rows']; ids += [next(r['id'] for r in R_ if r['template'] == t) for t in CANDS if any(r['template'] == t for r in R_)]
+        if ev == 'pull_request': ids = ids[:PR_SMOKE_MAX]   # luật 11 (hàng chờ 48 job teach-video, 07/11): PR chỉ smoke preqc + 1 tập; render đủ chạy khi dispatch/ci-filler
         print(json.dumps(ids)); sys.exit(0)
     if '--verify' in A_:
         ok_, st_ = verify(); print(f'verify: {len(ok_)} ok, {len(st_)} stale'); [print(' ', i, b) for i, b in st_]; sys.exit(0)

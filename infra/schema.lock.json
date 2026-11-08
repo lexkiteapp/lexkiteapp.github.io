@@ -25,9 +25,10 @@
  },
  "_social_auto.js": {
   "vers": {
-   "soc-lock": 2
+   "soc-lock": 2,
+   "soc-fc": 1
   },
-  "ddl": "38c6a9344509fed8"
+  "ddl": "6e5e814f8f522196"
  },
  "ads-report.js": {
   "vers": {
@@ -52,6 +53,12 @@
    "class": 1
   },
   "ddl": "67529faa7384ddf4"
+ },
+ "community.js": {
+  "vers": {
+   "community": 1
+  },
+  "ddl": "bf29f22f85da6dac"
  },
  "hit.js": {
   "vers": {

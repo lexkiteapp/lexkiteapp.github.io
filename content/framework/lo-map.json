@@ -112,7 +112,20 @@
    "shop-return": ["I.B1.05", "I.A2.06"],
    "phone-plan": ["I.B1.10", "I.A2.03"],
    "emergency-room": ["I.A2.06", "I.B1.02"],
-   "tour-booking": ["I.B1.02", "I.B2.03"]
+   "tour-booking": ["I.B1.02", "I.B2.03"],
+   "bus-ticket": ["I.A1.09", "I.A2.03"],
+   "train-station": ["I.A2.03", "I.A1.09"],
+   "airport-checkin": ["I.B1.05", "I.A2.06"],
+   "car-rental": ["I.B1.05", "I.B1p.01"],
+   "laundry": ["I.A2.03", "I.A2.06"],
+   "supermarket": ["I.A1.04", "I.A2.03"],
+   "pharmacy": ["I.A2p.03", "I.A2.06"],
+   "bank": ["I.B1.05", "I.B1p.01"],
+   "post-office": ["I.A2.03", "I.A1.04"],
+   "hairdresser": ["I.A2.03", "I.A2.06"],
+   "dentist": ["I.A2p.03", "I.B1p.01"],
+   "restaurant-order": ["I.A1.03", "I.A2.06"],
+   "taxi": ["I.A1.09", "I.A2.03"]
   },
   "call": {
    "coffee": "I.A2.01",
@@ -137,7 +150,19 @@
    "online-shopping": "S.B1p.05",
    "new-year-goals": "S.B1.02",
    "childhood-memory": "S.B1.05",
-   "dream-job": "S.B2.01"
+   "dream-job": "S.B2.01",
+   "ask-directions": "I.A1.08",
+   "buy-ticket": "I.A1.09",
+   "hotel-checkin": "I.A2.04",
+   "pharmacy-help": "I.A2p.03",
+   "restaurant-problem": "I.A2.06",
+   "late-apology": "I.A2p.04",
+   "missed-flight": "I.B1.02",
+   "share-costs": "I.B1p.03",
+   "job-interview": "I.B1p.06",
+   "faulty-purchase": "I.B2.03",
+   "team-proposal": "I.B2.08",
+   "bad-news": "I.C1.04"
   },
   "roleplay": {
    "manager": "I.B2.08",

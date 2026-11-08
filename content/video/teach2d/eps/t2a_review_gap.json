@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"gap\" mean?",
+  "keyword": "gap",
+  "value": "Gap means a space between two things.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=gap",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"gap\" mean?",
+    "description": "Gap means a space between two things.\n\nReview your words, free: https://lexkite.com/app/#/review?w=gap\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "gap",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"gap\" mean?\n\nGap means a space between two things.\n\nReview your words, free: https://lexkite.com/app/#/review?w=gap"
+   },
+   "instagram": {
+    "caption": "What does \"gap\" mean?\n\nGap means a space between two things.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"gap\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a space between two things. Gap means a space between two things. More practice like this (free): {link}"
  }
 }

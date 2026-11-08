@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"discuss\" mean?",
+  "keyword": "discuss",
+  "value": "Discuss means to talk about something seriously or in great detail.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=discuss",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"discuss\" mean?",
+    "description": "Discuss means to talk about something seriously or in great detail.\n\nReview your words, free: https://lexkite.com/app/#/review?w=discuss\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "discuss",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"discuss\" mean?\n\nDiscuss means to talk about something seriously or in great detail.\n\nReview your words, free: https://lexkite.com/app/#/review?w=discuss"
+   },
+   "instagram": {
+    "caption": "What does \"discuss\" mean?\n\nDiscuss means to talk about something seriously or in great detail.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"discuss\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to talk about something seriously or in great detail. Discuss means to talk about something seriously or in great detail. Try the full lesson and quiz here: {link}"
  }
 }
