@@ -15,7 +15,7 @@
         { "who": "carlos", "en": "Have a nice day!" }
       ],
       "checks": [
-        { "at": 1, "type": "tap", "line": 1 },
+        { "at": 1, "type": "tap", "line": 1, "extra": ["has", "an"] },
         { "at": 3, "type": "q", "q": "What coffee does Ama want?", "options": ["Iced coffee", "Hot coffee", "Tea"], "answer": 0 },
         { "at": 6, "type": "match", "pairs": [
           { "en": "What can I get for you?", "m": { "en": "What would you like?", "vi": "Bạn muốn gọi gì?", "es": "¿Qué le pongo?", "pt": "O que vai querer?", "fr": "Qu'est-ce que je vous sers ?", "de": "Was darf es sein?", "id": "Mau pesan apa?", "th": "รับอะไรดีคะ/ครับ", "zh": "您要点什么？", "ja": "ご注文は何にしますか？", "ko": "뭐 드릴까요?", "hi": "आपको क्या चाहिए?", "ar": "ماذا تطلب؟", "ru": "Что вам предложить?", "tr": "Ne alırsınız?" } },
@@ -40,7 +40,7 @@
         { "who": "ama", "en": "At ten thirty. Have a good flight!" }
       ],
       "checks": [
-        { "at": 2, "type": "tap", "line": 2 },
+        { "at": 2, "type": "tap", "line": 2, "extra": ["is", "bag"] },
         { "at": 5, "type": "q", "q": "Which seat does Carlos want?", "options": ["A window seat", "An aisle seat", "A seat near the door"], "answer": 0 },
         { "at": 6, "type": "match", "pairs": [
           { "en": "boarding pass", "m": { "en": "the ticket you show to get on the plane", "vi": "thẻ lên máy bay", "es": "tarjeta de embarque", "pt": "cartão de embarque", "fr": "carte d'embarquement", "de": "Bordkarte", "id": "boarding pass", "th": "บัตรขึ้นเครื่อง", "zh": "登机牌", "ja": "搭乗券", "ko": "탑승권", "hi": "बोर्डिंग पास", "ar": "بطاقة الصعود", "ru": "посадочный талон", "tr": "biniş kartı" } },
@@ -65,7 +65,7 @@
       ],
       "checks": [
         { "at": 2, "type": "q", "q": "Where does Carlos live?", "options": ["Next door", "In the kitchen", "Far away"], "answer": 0 },
-        { "at": 4, "type": "tap", "line": 4 },
+        { "at": 4, "type": "tap", "line": 4, "extra": ["does", "box"] },
         { "at": 7, "type": "match", "pairs": [
           { "en": "I just moved in.", "m": { "en": "I started living here recently.", "vi": "Tôi vừa mới chuyển đến.", "es": "Acabo de mudarme.", "pt": "Acabei de me mudar.", "fr": "Je viens d'emménager.", "de": "Ich bin gerade eingezogen.", "id": "Saya baru pindah.", "th": "ฉันเพิ่งย้ายเข้ามา", "zh": "我刚搬来。", "ja": "引っ越してきたばかりです。", "ko": "막 이사 왔어요.", "hi": "मैं अभी-अभी यहाँ आई हूँ।", "ar": "انتقلت للتو.", "ru": "Я только что переехала.", "tr": "Yeni taşındım." } },
           { "en": "next door", "m": { "en": "in the house beside yours", "vi": "nhà bên cạnh", "es": "en la casa de al lado", "pt": "na casa ao lado", "fr": "à côté", "de": "nebenan", "id": "di sebelah", "th": "บ้านข้าง ๆ", "zh": "隔壁", "ja": "隣に", "ko": "옆집", "hi": "बगल में", "ar": "في البيت المجاور", "ru": "по соседству", "tr": "yan tarafta" } },

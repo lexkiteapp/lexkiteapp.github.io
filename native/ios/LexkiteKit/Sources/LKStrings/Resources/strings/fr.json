@@ -245,5 +245,7 @@
   "lesson.copied": "Copié",
   "lesson.story.lookup": "Recherche de « {w} »…",
   "lesson.story.notFound": "Aucun résultat pour « {w} ».",
-  "lesson.hint": "Indice"
+  "lesson.hint": "Indice",
+  "lesson.q.buildListen": "Écoutez, puis formez la phrase",
+  "lesson.card.word": "Mot : {w}"
 }

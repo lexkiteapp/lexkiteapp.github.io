@@ -259,6 +259,9 @@ node scripts/test/crashlytics.mjs
 node scripts/test/deep-links.mjs
 node scripts/test/stories.mjs
 node scripts/content-qa/exam-format-check.mjs
+node scripts/test/lesson-why.mjs
+node scripts/test/lesson-card.mjs
+node scripts/test/sentence-punct.mjs
 node scripts/content-qa/lkf-check.mjs
 node scripts/test/lkf.mjs
 node scripts/content-qa/grammar-map-check.mjs

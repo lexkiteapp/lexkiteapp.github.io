@@ -83,7 +83,7 @@ const AREAS = {
   comm: { name: 'Giao tiếp', err: 0, parts: [
     ['cuộc gọi Ama/Carlos', countRe(ls('web/js/call', /^calls.*\.js$/).map(f => 'web/js/call/' + f), /^\s*id: '/gm), 60, 20],
     ['roleplay', roleplay, 60, 20], ['tình huống Play & Speak', ls('content/situations', /\.json$/).length, 40, 20],
-    ['mục gold (giải thích cách dùng)', (rd('web/js/lesson/gold.js').match(/":\[\{"why"/g) || []).length, 1000, 20],
+    ['mục gold (giải thích cách dùng)', (rd('web/packs/lesson/gold.json').match(/":\[\{"why"/g) || []).length, 1000, 20],
     ['sổ mẫu câu theo chức năng', ex('content/framework/functions.json') ? (JSON.parse(rd('content/framework/functions.json')).functions || []).length : 0, 100, 20, 1]] },
   skills: { name: '4 kỹ năng', err: ERR.skills, parts: [
     ['Nghe: bộ bài', (C.LISTENING || []).length, 80, 15], ['Đọc: bài', (C.READINGS || []).length + n('Bài đọc ngắn'), 600, 15],

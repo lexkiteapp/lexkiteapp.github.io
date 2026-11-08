@@ -245,5 +245,7 @@
   "lesson.copied": "コピーしました",
   "lesson.story.lookup": "「{w}」を検索中…",
   "lesson.story.notFound": "「{w}」に一致する結果はありません。",
-  "lesson.hint": "ヒント"
+  "lesson.hint": "ヒント",
+  "lesson.q.buildListen": "聞いて文を組み立てよう",
+  "lesson.card.word": "単語：{w}"
 }

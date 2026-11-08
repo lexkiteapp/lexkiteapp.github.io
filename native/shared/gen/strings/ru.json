@@ -245,5 +245,7 @@
   "lesson.copied": "Скопировано",
   "lesson.story.lookup": "Ищем «{w}»…",
   "lesson.story.notFound": "Нет результатов по запросу «{w}».",
-  "lesson.hint": "Подсказка"
+  "lesson.hint": "Подсказка",
+  "lesson.q.buildListen": "Послушайте и составьте предложение",
+  "lesson.card.word": "Слово: {w}"
 }

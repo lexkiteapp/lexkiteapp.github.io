@@ -245,5 +245,7 @@
   "lesson.copied": "कॉपी हो गया",
   "lesson.story.lookup": "\"{w}\" को देख रहे हैं...",
   "lesson.story.notFound": "\"{w}\" के लिए कोई परिणाम नहीं।",
-  "lesson.hint": "संकेत"
+  "lesson.hint": "संकेत",
+  "lesson.q.buildListen": "सुनें, फिर वाक्य बनाएँ",
+  "lesson.card.word": "शब्द: {w}"
 }

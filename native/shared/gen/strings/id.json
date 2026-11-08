@@ -245,5 +245,7 @@
   "lesson.copied": "Tersalin",
   "lesson.story.lookup": "Mencari “{w}”…",
   "lesson.story.notFound": "Tidak ada hasil untuk “{w}”.",
-  "lesson.hint": "Petunjuk"
+  "lesson.hint": "Petunjuk",
+  "lesson.q.buildListen": "Dengar, lalu susun kalimatnya",
+  "lesson.card.word": "Kata: {w}"
 }

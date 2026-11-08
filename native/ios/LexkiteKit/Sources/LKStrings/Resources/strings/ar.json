@@ -245,5 +245,7 @@
   "lesson.copied": "تم النسخ",
   "lesson.story.lookup": "البحث عن \"{w}\"...",
   "lesson.story.notFound": "لا توجد نتائج لـ \"{w}\".",
-  "lesson.hint": "تلميح"
+  "lesson.hint": "تلميح",
+  "lesson.q.buildListen": "استمع ثم رتّب الجملة",
+  "lesson.card.word": "الكلمة: {w}"
 }
