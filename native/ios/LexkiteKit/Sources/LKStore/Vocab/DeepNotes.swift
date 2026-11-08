@@ -6,7 +6,8 @@ import LKSync
 public enum DeepNotes {
     public struct Pair: Equatable, Sendable { public var wrong: String, right: String, wrongNote: String, rightNote: String }
     public struct Errors: Equatable, Sendable { public var pairs: [Pair], notes: [String] }
-    public struct Family: Equatable, Sendable { public var word: String?, pos: String, text: String }
+    public struct Family: Equatable, Sendable { public var word: String?; public var pos: String; public var text: String
+        public init(word: String?, pos: String, text: String) { self.word = word; self.pos = pos; self.text = text } }
     public struct Usage: Equatable, Sendable { public var tag: String, text: String }
 
     private static let vi = "[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]"
