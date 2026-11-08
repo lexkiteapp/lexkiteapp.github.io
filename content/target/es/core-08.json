@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -12,7 +12,7 @@
   {
    "word": "y",
    "pos": "conj",
-   "ipa": "i",
+   "ipa": "ˈi",
    "gl": {
     "vi": "và",
     "en": "and",
@@ -166,53 +166,12 @@
    }
   },
   {
-   "word": "otro",
-   "pos": "det",
-   "ipa": "ˈotɾo",
-   "gl": {
-    "vi": "khác",
-    "en": "another / other (female)",
-    "es": "otro",
-    "pt": "outro",
-    "fr": "autre",
-    "de": "andere",
-    "id": "yang lain",
-    "th": "อีกอัน",
-    "zh": "另一个",
-    "ja": "別の",
-    "ko": "다른",
-    "hi": "दूसरा",
-    "ar": "أخرى",
-    "ru": "другая",
-    "tr": "diğer"
-   },
-   "ex": {
-    "es": "Quiero otra manzana.",
-    "en": "I want another apple."
-   },
-   "exForm": "otra",
-   "rank": 140,
-   "qa": {
-    "gen": "gemini-3.6-flash",
-    "judges": [
-     "openai/gpt-oss-120b",
-     "qwen/qwen3.8-27b"
-    ],
-    "bt": "openai/gpt-oss-120b",
-    "scores": [
-     5,
-     5
-    ],
-    "ipaAi": "ˈotɾa"
-   }
-  },
-  {
    "word": "decir",
    "pos": "v",
    "ipa": "deˈsiɾ",
    "gl": {
     "vi": "nói",
-    "en": "said",
+    "en": "to say, to tell",
     "es": "decir",
     "pt": "dizer",
     "fr": "dire",
@@ -222,10 +181,10 @@
     "zh": "说",
     "ja": "言う",
     "ko": "말하다",
-    "hi": "कहा",
+    "hi": "कहना",
     "ar": "قال",
-    "ru": "сказал",
-    "tr": "demek"
+    "ru": "говорить, сказать",
+    "tr": "demek, söylemek"
    },
    "ex": {
     "es": "Ella dijo la verdad.",
@@ -252,21 +211,21 @@
    "pos": "v",
    "ipa": "aˈβeɾ",
    "gl": {
-    "vi": "có (quá khứ)",
-    "en": "there was / there were",
+    "vi": "có (hay); đã (trợ động từ)",
+    "en": "to have (auxiliary); there is/are",
     "es": "haber",
-    "pt": "haver",
-    "fr": "il y avait",
-    "de": "es gab",
-    "id": "ada (dulu)",
-    "th": "เคยมี",
-    "zh": "有（过去式）",
-    "ja": "あった",
-    "ko": "있었다",
-    "hi": "था",
-    "ar": "كان هناك",
-    "ru": "было",
-    "tr": "vardı"
+    "pt": "haver (há)",
+    "fr": "avoir (auxiliaire); il y a",
+    "de": "haben (Hilfsverb); es gibt",
+    "id": "ada; telah (bantu)",
+    "th": "มี; (กริยาช่วย)",
+    "zh": "有；已（助动词）",
+    "ja": "ある；〜した（助動詞）",
+    "ko": "있다; ~했다 (조동사)",
+    "hi": "होना (सहायक क्रिया); है",
+    "ar": "يوجد؛ (فعل مساعد)",
+    "ru": "быть, иметься (вспомог.)",
+    "tr": "var olmak; (yardımcı fiil)"
    },
    "ex": {
     "es": "Había mucha gente en el parque.",
@@ -371,7 +330,7 @@
   {
    "word": "suficiente",
    "pos": "adj",
-   "ipa": "sufiˈsjɛnte",
+   "ipa": "sufiˈsjente",
    "gl": {
     "vi": "đủ",
     "en": "enough",
@@ -569,7 +528,7 @@
   {
    "word": "seis",
    "pos": "num",
-   "ipa": "ˈseɪs",
+   "ipa": "ˈsejs",
    "gl": {
     "vi": "sáu",
     "en": "six",
@@ -581,7 +540,7 @@
     "th": "หก",
     "zh": "六",
     "ja": "六",
-    "ko": "육",
+    "ko": "여섯",
     "hi": "छह",
     "ar": "ستة",
     "ru": "шесть",
@@ -620,7 +579,7 @@
     "id": "membunuh",
     "th": "ฆ่า",
     "zh": "杀",
-    "ja": "人・物を殺す",
+    "ja": "殺す",
     "ko": "죽이다",
     "hi": "मारना",
     "ar": "يقتل",
@@ -810,20 +769,20 @@
    "pos": "v",
    "ipa": "peɾˈðeɾ",
    "gl": {
-    "vi": "thua",
+    "vi": "mất, thua",
     "en": "to lose",
     "es": "perder",
     "pt": "perder",
     "fr": "perdre",
     "de": "verlieren",
-    "id": "kalah",
-    "th": "แพ้",
-    "zh": "输",
-    "ja": "失う",
+    "id": "kehilangan, kalah",
+    "th": "แพ้; ทำหาย",
+    "zh": "输；丢失",
+    "ja": "失う、負ける",
     "ko": "잃다",
     "hi": "खोना",
     "ar": "خسر",
-    "ru": "терять",
+    "ru": "терять, проигрывать",
     "tr": "kaybetmek"
    },
    "ex": {
@@ -850,8 +809,8 @@
    "pos": "v",
    "ipa": "tɾaˈtaɾ",
    "gl": {
-    "vi": "cố gắng",
-    "en": "to try",
+    "vi": "cố gắng; đối xử",
+    "en": "to try; to treat",
     "es": "tratar",
     "pt": "tentar",
     "fr": "essayer",
@@ -1019,7 +978,7 @@
     "vi": "đống, nhiều",
     "en": "heap, lot",
     "es": "montón",
-    "pt": "monte, monte de",
+    "pt": "pilha, monte; muito",
     "fr": "tas, quantité",
     "de": "Haufen, Menge",
     "id": "tumpukan, banyak",
@@ -1055,7 +1014,7 @@
    "pos": "n",
    "gender": "f",
    "plural": "leyes",
-   "ipa": "ˈleɪ",
+   "ipa": "ˈlej",
    "gl": {
     "vi": "luật",
     "en": "law",
@@ -1218,7 +1177,7 @@
   {
    "word": "inteligente",
    "pos": "adj",
-   "ipa": "inteliˈxɛnte",
+   "ipa": "inteliˈxente",
    "gl": {
     "vi": "thông minh",
     "en": "intelligent",
@@ -1340,7 +1299,7 @@
    "pos": "n",
    "gender": "m",
    "plural": "clientes",
-   "ipa": "ˈkliɛnte",
+   "ipa": "ˈkljente",
    "gl": {
     "vi": "khách hàng",
     "en": "customer",
@@ -1424,18 +1383,18 @@
    "pos": "v",
    "ipa": "peˈðiɾ",
    "gl": {
-    "vi": "yêu cầu",
-    "en": "to ask for",
+    "vi": "xin, gọi (món), yêu cầu",
+    "en": "to ask for, to order, to request",
     "es": "pedir",
     "pt": "pedir",
     "fr": "demander",
     "de": "bitten",
     "id": "meminta",
     "th": "ขอ",
-    "zh": "请求",
+    "zh": "要求；点（菜）",
     "ja": "頼む",
     "ko": "부탁하다",
-    "hi": "पूछना",
+    "hi": "माँगना",
     "ar": "طلب",
     "ru": "просить",
     "tr": "istemek"
@@ -1564,7 +1523,7 @@
     "hi": "काश",
     "ar": "أتمنى",
     "ru": "хоть бы",
-    "tr": "inşallah"
+    "tr": "keşke"
    },
    "ex": {
     "es": "Ojalá mañana no llueva.",
@@ -1670,7 +1629,7 @@
    "pos": "n",
    "gender": "m",
    "plural": "cuellos",
-   "ipa": "ˈkwejjo",
+   "ipa": "ˈkweʝo",
    "gl": {
     "vi": "cổ",
     "en": "neck",
@@ -1749,47 +1708,6 @@
    }
   },
   {
-   "word": "referir",
-   "pos": "v",
-   "ipa": "refeˈɾiɾ",
-   "gl": {
-    "vi": "ám chỉ",
-    "en": "refer",
-    "es": "referir",
-    "pt": "referir",
-    "fr": "référer",
-    "de": "beziehen",
-    "id": "merujuk",
-    "th": "อ้างถึง",
-    "zh": "指的是",
-    "ja": "指す",
-    "ko": "의미하다",
-    "hi": "संदर्भ देना",
-    "ar": "يشير",
-    "ru": "иметь в виду",
-    "tr": "kastediyorum"
-   },
-   "ex": {
-    "es": "Me refiero a este libro.",
-    "en": "I refer to this book."
-   },
-   "exForm": "refiero",
-   "rank": 1371,
-   "qa": {
-    "gen": "gemini-3.6-flash",
-    "judges": [
-     "openai/gpt-oss-120b",
-     "qwen/qwen3.8-27b"
-    ],
-    "bt": "openai/gpt-oss-120b",
-    "scores": [
-     5,
-     5
-    ],
-    "ipaAi": "reˈfjeɾo"
-   }
-  },
-  {
    "word": "nombre",
    "pos": "n",
    "gender": "m",
@@ -1797,20 +1715,20 @@
    "ipa": "ˈnombɾe",
    "gl": {
     "vi": "tên",
-    "en": "names",
+    "en": "name",
     "es": "nombre",
-    "pt": "nomes",
-    "fr": "noms",
-    "de": "Namen",
-    "id": "nama-nama",
+    "pt": "nome",
+    "fr": "nom",
+    "de": "Name",
+    "id": "nama",
     "th": "ชื่อ",
     "zh": "名字",
     "ja": "名前",
-    "ko": "이름들",
+    "ko": "이름",
     "hi": "नाम",
-    "ar": "أسماء",
-    "ru": "имена",
-    "tr": "isimler"
+    "ar": "اسم",
+    "ru": "имя",
+    "tr": "isim, ad"
    },
    "ex": {
     "es": "No recuerdo los nombres de todos.",
@@ -1838,10 +1756,10 @@
    "ipa": "refeˈɾiɾse",
    "gl": {
     "vi": "ám chỉ",
-    "en": "refer to",
+    "en": "to refer to",
     "es": "referirse",
     "pt": "referir-se",
-    "fr": "référer",
+    "fr": "se référer à",
     "de": "sich beziehen",
     "id": "merujuk",
     "th": "หมายถึง",
@@ -1926,7 +1844,7 @@
     "id": "terbang",
     "th": "บิน",
     "zh": "飞",
-    "ja": "飞ぶ",
+    "ja": "飛ぶ",
     "ko": "날다",
     "hi": "उड़ना",
     "ar": "طَارَ",
@@ -1998,21 +1916,21 @@
    "pos": "v",
    "ipa": "keˈðaɾ",
    "gl": {
-    "vi": "ở lại",
-    "en": "remained",
+    "vi": "ở lại; còn lại",
+    "en": "to stay, remain; to be left",
     "es": "quedar",
-    "pt": "ficou",
-    "fr": "est resté",
-    "de": "blieb",
-    "id": "tetap",
-    "th": "คงอยู่",
-    "zh": "留下",
-    "ja": "残った",
-    "ko": "남았다",
-    "hi": "रहा",
+    "pt": "ficar; sobrar",
+    "fr": "rester",
+    "de": "bleiben",
+    "id": "tinggal; tersisa",
+    "th": "อยู่; เหลือ",
+    "zh": "留下；剩下",
+    "ja": "とどまる；残る",
+    "ko": "머물다; 남다",
+    "hi": "रहना; बचना",
     "ar": "بقي",
-    "ru": "остался",
-    "tr": "kaldı"
+    "ru": "оставаться",
+    "tr": "kalmak"
    },
    "ex": {
     "es": "Se quedó en casa todo el día.",
@@ -2034,5 +1952,13 @@
     "ipaAi": "keˈðo"
    }
   }
- ]
+ ],
+ "review": {
+  "by": "sonnet-review-A",
+  "at": "2026-11-09",
+  "checked": 50,
+  "fixed": 19,
+  "dropped": 2,
+  "sample": 50
+ }
 }
