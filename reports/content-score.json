@@ -1,65 +1,65 @@
 {
- "total": 51.4,
+ "total": 52.4,
  "areas": {
   "vocab": {
    "name": "Kho từ",
-   "score": 51.1,
-   "coverage": 51.1,
+   "score": 53.7,
+   "coverage": 53.7,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "từ#loại duy nhất",
-     "have": 9334,
+     "have": 9714,
      "std": 20000,
      "w": 25,
      "future": false
     },
     {
      "k": "IPA·nghĩa·định nghĩa·ví dụ·CEFR",
-     "have": 9334,
-     "std": 9334,
+     "have": 9714,
+     "std": 9714,
      "w": 20,
      "future": false
     },
     {
      "k": "collocation",
-     "have": 4696,
+     "have": 4818,
      "std": 20000,
      "w": 12,
      "future": false
     },
     {
      "k": "đồng nghĩa",
-     "have": 2776,
+     "have": 2910,
      "std": 20000,
      "w": 8,
      "future": false
     },
     {
      "k": "IPA Mỹ",
-     "have": 6140,
+     "have": 6432,
      "std": 20000,
      "w": 5,
      "future": false
     },
     {
      "k": "ảnh theo nghĩa",
-     "have": 7066,
+     "have": 7071,
      "std": 20000,
      "w": 15,
      "future": false
     },
     {
      "k": "C2",
-     "have": 440,
+     "have": 629,
      "std": 1000,
      "w": 10,
      "future": false
     },
     {
      "k": "A1",
-     "have": 858,
+     "have": 862,
      "std": 1000,
      "w": 5,
      "future": false
@@ -147,8 +147,8 @@
   },
   "comm": {
    "name": "Giao tiếp",
-   "score": 31.7,
-   "coverage": 31.7,
+   "score": 35.7,
+   "coverage": 35.7,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -168,7 +168,7 @@
     },
     {
      "k": "tình huống Play & Speak",
-     "have": 1,
+     "have": 9,
      "std": 40,
      "w": 20,
      "future": false
@@ -433,14 +433,14 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 10145,
-     "std": 10145,
+     "have": 10533,
+     "std": 10533,
      "w": 35,
      "future": false
     },
     {
      "k": "mục tiêu đã có nội dung luyện",
-     "have": 134,
+     "have": 135,
      "std": 600,
      "w": 25,
      "future": false
