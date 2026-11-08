@@ -32,6 +32,8 @@ node "$ROOT/scripts/gen-academic.mjs" >/dev/null  # danh sách từ học thuậ
 node "$ROOT/scripts/gen-newtab.mjs" >/dev/null    # dữ liệu thẻ từ ở tab mới (extension/nt/*.json – chỉ dữ liệu thật trong kho)
 echo "✓ Đã build add-on vào $ROOT/extension"
 if [[ "${1:-}" == "--zip" ]]; then
+  # bản đăng cửa hàng: tự tăng số vá theo số commit đụng extension/ (scripts/ext-version.mjs) – manifest trong kho giữ số danh nghĩa; chỉ đặt EXT_AUTOVERSION=1 trong cws-publish
+  [[ "${EXT_AUTOVERSION:-}" == "1" ]] && node "$ROOT/scripts/ext-version.mjs" --apply "$ROOT/extension/manifest.json"
   (cd "$ROOT/extension" && rm -f ../lexkite-extension.zip && zip -qrX ../lexkite-extension.zip . -x '.*' '*/.*' '*.map' '*.md' '*.local*' '*.zip')
   mkdir -p "$ROOT/store" && cp "$ROOT/lexkite-extension.zip" "$ROOT/store/lexkite-extension.zip"
   echo "✓ Đã tạo lexkite-extension.zip (Chrome Web Store / Edge Add-ons) – bản sao trong store/"

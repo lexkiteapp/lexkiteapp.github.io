@@ -346,3 +346,4 @@ node scripts/test/heavy-rerun.mjs
 node scripts/test/json-dupkeys.mjs
 node scripts/test/cls-chrome.mjs
 node scripts/test/es-practice.mjs
+node scripts/test/ext-version.mjs
