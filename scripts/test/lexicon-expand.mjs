@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url';
 // Mở rộng kho từ (docs/LEXICON.md §Mở rộng 20k): cổng mục (gateEntry), dịch ngược, sổ việc hạ nguồn (infra/lexicon-consumers.json).
 import fs from 'fs';
 import path from 'path';
-import { defGrammarBad, mixPool, yieldSplit, quotaDry, shardOf, humanSrc } from '../lexicon/expand/lib.mjs';
+import { defGrammarBad, mixPool, yieldSplit, quotaDry, thinPool, MIN_SAMPLE, shardOf, humanSrc } from '../lexicon/expand/lib.mjs';
 import { wsdUnwrap, gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, posShapeOk, omwHas, trIn, inflRe } from '../lexicon/expand/lib.mjs';
 import { grade, hasBad, applies } from '../lexicon/expand/grade.mjs';
 import { nativeOwners, nativeLine } from '../lexicon/expand/tatoeba-native.mjs';
@@ -407,6 +407,7 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   ok(/SEC_MIN/.test(py) && /SEC_SHARE/.test(py) && /math\.log10\(cnt\[pos\] \/ tot\)/.test(py), 'pick_words: từ loại phụ có ngưỡng SemCor + CEFR theo tần suất của từ loại đó');
   ok(/not in FORCE/.test(py) && /w not in FORCE_W/.test(py), 'pick_words: mẫu cố định/retry (--want) luôn có ứng viên đúng từ#loại – mẫu pilot không âm thầm co (31/10: 204/378)');
   // 08/11 (lượt 42417868955: «cần -2063» → 0 từ mới từ 06/11): mốc 20k đếm mục SỐNG, mục trượt hàng duyệt chỉ để bỏ trùng
+  ok(/top_n_list\('en', a\.top\)/.test(py) && /'--top', type=int, default=int\(os\.environ\.get\('LX_TOP', 200000\)\)/.test(py) && /drop\['cmu'\] \+= 1/.test(py) && /w not in cmu/.test(py), 'pick_words: --top 200k ứng viên, vẫn bắt buộc CMUdict + đếm lý do loại');
   ok(/LIVE_N\['wp'\]/.test(py) && /need = a\.target - max\(LIVE_N/.test(py) && !/need = a\.target - max\(len\(have\)/.test(py), 'pick_words: mốc 20k = 20k − mục sống (existing.live.json), không trừ mục trượt');
   { const { execFileSync } = await import('node:child_process'), os = await import('node:os'), d = fs.mkdtempSync(path.join(os.tmpdir(), 'lxex-')), f = path.join(d, 'existing.json');
     execFileSync('node', [path.join(ROOT, 'scripts/lexicon/expand/existing.mjs'), f], { cwd: ROOT, stdio: 'pipe' });
@@ -467,6 +468,9 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   fs.rmSync(dir, { recursive: true, force: true }); }
 ok(quotaDry({ calls: 12, fail: 12, pool: 'empty' }, 0) === true, 'quotaDry: mọi lệnh gọi AI thất bại + 0 mục đạt = hết hạn mức (cảnh báo, không đỏ)');
 ok(quotaDry({ calls: 12, fail: 7 }, 0) === false && quotaDry({ calls: 12, fail: 12 }, 3) === false && quotaDry({ calls: 0, fail: 0 }, 0) === false, 'quotaDry: có lệnh gọi thành công mà 0 mục đạt (lỗi thật), hoặc có mục đạt, hoặc chưa gọi → không phải hết hạn mức');
+ok(thinPool(8, 0, 0) === true && thinPool(60, 15, 0) === true, 'thinPool: 0 đạt dưới cỡ mẫu cầu dao = xanh kèm ghi chú');
+ok(thinPool(MIN_SAMPLE, 0, 0) === false && thinPool(8, 0, 1) === false, 'thinPool: đủ mẫu mà 0 đạt vẫn đỏ; có mục đạt không vào nhánh này');
+ok(fs.readFileSync(new URL('../../.github/workflows/lexicon-expand.yml', import.meta.url), 'utf8').includes(`(r.n-inf)>=${MIN_SAMPLE}`), 'thinPool: cùng cỡ mẫu với cầu dao chuỗi trong workflow');
 // 08/11 lọc trước AI: chỉ loại mục CHẮC trượt (0 vi người viết / < 2 câu người viết), kaikki lỗi mạng không lọc, cận trên đếm mọi nghĩa
 { const e = { w: 'run', pos: 'v', senses: [{ wnex: ['a'] }, { wnex: ['x', 'y'] }] };
   ok(humanSrc(e, { trg: [{ tr: { vi: ['chạy'] } }], exs: [{ t: 'I run' }, { t: 'no match' }] }, [], { ex: [{ t: 'b' }] }).vi === 1, 'humanSrc: vi từ bảng dịch Wiktionary');

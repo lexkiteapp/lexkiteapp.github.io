@@ -7,6 +7,8 @@ import java.net.URLDecoder
  * web). [tab] is one of the 5 frame tabs (frame.json `k`), [route] the destination inside it (empty = the tab hub).
  */
 data class DeepLink(val tab: String, val route: String = "", val arg: String = "") {
+    /** Raw query string (`story=s-cafe`); not part of equality so route comparisons ignore tracking parameters. */
+    var query: String = ""
     companion object {
         const val HOME = "home"; const val VOCAB = "vocab"; const val SKILLS = "skills"; const val TESTS = "tests"; const val ME = "me"
         private val TAB_OF = mapOf(
@@ -31,7 +33,7 @@ data class DeepLink(val tab: String, val route: String = "", val arg: String = "
             val arg = parts.drop(1).joinToString("/").let { runCatching { URLDecoder.decode(it.replace("+", "%2B"), "UTF-8") }.getOrDefault(it) }
             val tab = TAB_OF[head] ?: return DeepLink(HOME)
             val route = if (head == tab || head == "" || head == "today") "" else head
-            return DeepLink(tab, route, arg)
+            return DeepLink(tab, route, arg).also { it.query = path.substringAfter('?', "").substringBefore('#') }
         }
     }
 }
