@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"laugh\" mean?",
+  "keyword": "laugh",
+  "value": "Laugh means to make a happy sound when something is funny.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=laugh",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"laugh\" mean?",
+    "description": "Laugh means to make a happy sound when something is funny.\n\nReview your words, free: https://lexkite.com/app/#/review?w=laugh\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "laugh",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"laugh\" mean?\n\nLaugh means to make a happy sound when something is funny.\n\nReview your words, free: https://lexkite.com/app/#/review?w=laugh"
+   },
+   "instagram": {
+    "caption": "What does \"laugh\" mean?\n\nLaugh means to make a happy sound when something is funny.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"laugh\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to make a happy sound when something is funny. Laugh means to make a happy sound when something is funny. Try the full lesson and quiz here: {link}"
  }
 }

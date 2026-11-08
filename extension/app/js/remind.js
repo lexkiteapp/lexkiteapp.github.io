@@ -21,7 +21,7 @@
     // Người mới (chưa có thẻ đến hạn / từ kèm câu): bài đang học dở trên lộ trình ({u} tên bài) và mục tiêu ngày ({g} thẻ) thay cho câu chung chung gen1
     path: [['ls1', 'Bài “{u}” đang chờ bạn', 'Bạn đang học dở – thêm 5 phút cho bước tiếp theo.'], ['ls2', 'Học tiếp “{u}” nhé?', 'Bước tiếp theo đã sẵn sàng. 5 phút là đủ.']],
     gstart: [['gs1', 'Mục tiêu hôm nay: {g} thẻ', 'Bắt đầu nhẹ nhàng – 5 phút là đủ.'], ['gs2', '{g} thẻ hôm nay – bạn làm được!', 'Học một chút mỗi ngày là nhớ lâu.']],
-    miss: [['ms1', 'Kit nhớ bạn lắm 🐦', 'Lâu rồi không gặp. Quay lại 2 phút thôi nhé? Đây là lời nhắc cuối cùng.']],
+    miss: [['ms1', 'Kit sẽ tạm ngừng nhắc bạn 🐦', 'Để không làm phiền bạn. Quay lại lúc nào cũng được – mọi thứ bạn đã học vẫn ở đây.']],
     gen: [['gen1', 'Đến giờ học với Kit rồi!', 'Mở Lexkite để ôn vài từ nhé.']],
   };
   const ROUTE = { gstart: '#/home', path: '#/home', due: '#/review', streak: '#/review', conf: '#/confidence', week: '#/stats', goal: '#/review', miss: '#/home', gen: '#/review' };
@@ -90,7 +90,7 @@
     let lastKept = ig.n >= BACKOFF && ig.last ? dayN(ig.last) : null;
     const out = [];
     for (const d of SEQ) {
-      if (x.remote && d >= 3) break;                 // app gốc có FCM: máy chủ lo kéo lại (≥ 3 ngày) + tiến bộ tuần
+      if (x.remote && d >= 3) break;                 // app gốc có FCM: máy chủ lo kéo lại (≥ 3 ngày)
       const base = addDays(t0, d), at = base + min * 60e3, dt = new Date(at), day = keyOf(dt);
       if (at <= now + 60e3 && !(x.past && d === 0)) continue; // giờ hôm nay đã qua (app gốc/add-on không lên lịch quá khứ)
       if (d === 0 && studied && !partial) continue; // hôm nay đã học (đủ mục tiêu / không đặt mục tiêu) → không nhắc
@@ -101,7 +101,7 @@
       else {
         const cand = [];
         if (types.includes('streak') && st > 0 && min >= EVE && ((d === 0 && !studied) || (d === 1 && studied))) cand.push('streak'); // chuỗi sắp mất: chỉ khi chưa học hôm nay (hoặc ngày mai nếu hôm nay đã học)
-        if (types.includes('week') && !x.remote && dt.getDay() === 0 && d <= 7) cand.push('week');
+        if (types.includes('week') && dt.getDay() === 0 && d <= 7) cand.push('week'); // có FCM: tiến bộ tuần ngày 0–2 vẫn do lịch cục bộ (máy chủ không gửi thêm cùng ngày)
         const nx = x.next && x.next.u && /^#\/[\w/?=&%~.-]*$/.test(x.next.url || '') ? x.next : null, fresh = !dueBy(base + DAY - 1) && !ctxCards.length; // người mới: chưa thẻ đến hạn, chưa từ kèm câu
         const rot = ['due', 'word', 'path', 'gstart', 'conf'].filter(k => (k === 'gstart' ? types.includes('goal') && fresh && goal > 0 : types.includes(k)) && (k !== 'due' || dueBy(base + DAY - 1) > 0) && (k !== 'word' || ctxCards.length) && (k !== 'path' || nx));
         for (let i = 0; i < rot.length; i++) cand.push(rot[(d + i) % rot.length]);
@@ -137,7 +137,11 @@
   const askDue = (r, days, now) => !r || !r.n ? true : r.n >= 2 || !r.no ? false : now - r.at >= REASK_DAYS * DAY && Object.keys(days || {}).filter(k => (days[k] || 0) > 0 && k > keyOf(new Date(r.at))).length >= REASK_STUDY;
   const generic = tt => { const [, a, b] = TPL.gen[0], [, c, e] = TPL.miss[0]; return { gen: { title: tt(a), body: tt(b), tpl: 'gen1' }, miss: { title: tt(c), body: tt(e), tpl: 'ms1' } }; };
 
-  const P = { plan, permStep, askDue, pickTime, habitMin, ignoredOf, clampQuiet, inQuiet, allowedDay, toMin, hm, SEQ, FINAL, TPL, TYPES, keyOf, generic };
+  /** App gốc có FCM thật không (thuần – test): bản cửa hàng cũ (iOS 1.0 trước 24/10) KHÔNG có plugin @capacitor-firebase/messaging → chỉ lịch cục bộ, không lỗi, không hỏi quyền thừa. */
+  const fcmCapable = C => !!(C && C.Plugins && C.Plugins.FirebaseMessaging && (typeof C.isPluginAvailable !== 'function' || C.isPluginAvailable('FirebaseMessaging')));
+  /** Promise có hạn giờ: getToken có thể treo khi bản app thiếu APNs (không gọi lại didRegister) – không bao giờ chặn lịch cục bộ. */
+  const within = (pr, ms) => new Promise((ok, no) => { const t = setTimeout(() => no(new Error('timeout')), ms); Promise.resolve(pr).then(v => { clearTimeout(t); ok(v); }, e => { clearTimeout(t); no(e); }); });
+  const P = { plan, permStep, askDue, pickTime, habitMin, ignoredOf, clampQuiet, inQuiet, allowedDay, toMin, hm, SEQ, FINAL, TPL, TYPES, keyOf, generic, fcmCapable, within };
   P.setRecent = r => { RECENT = Array.isArray(r) ? r : null; }; P.recent = () => RECENT;
   g.Remind = P;
   if (!g.document || !g.Core || !g.App) return; // môi trường test (vm) – chỉ phần thuần
@@ -205,12 +209,12 @@
   async function native(LN, opts = {}) {
     await LN.cancel({ notifications: NID.map(id => ({ id })) }).catch(() => {});
     opened(); // chạm thông báo (native.js ghi mẫu) → 'open'
-    if (state.settings.reminderOn === false) return;
+    if (state.settings.reminderOn === false) return fcmOff(); // MỘT công tắc: tắt nhắc → hủy cả FCM máy chủ (trước 05/11 FCM vẫn gửi)
     const perm = await LN.checkPermissions(); permNote(perm.display);
     if (perm.display !== 'granted') {
       // Chỉ xin quyền khi người dùng CHỦ ĐỘNG (hỏi mềm / bật trong Cài đặt) và hệ điều hành còn cho hỏi; đã từ chối → không hỏi lại, không đếm lại
-      if (!opts.ask || !/^prompt/.test(perm.display || '')) return;
-      permNote('default'); const r = await LN.requestPermissions(); permNote(r.display); if (r.display !== 'granted') return; ev('optin', 'native');
+      if (!opts.ask || !/^prompt/.test(perm.display || '')) return fcmOff(); // hệ điều hành chặn → máy chủ cũng thôi gửi
+      permNote('default'); const r = await LN.requestPermissions(); permNote(r.display); if (r.display !== 'granted') return fcmOff(); ev('optin', 'native');
     }
     await nextLoad();
     const remote = await fcmSub().catch(() => false);
@@ -290,14 +294,23 @@
     if (!(r instanceof Error)) ls.set(key, n);
   }
   // ---------- App gốc: FCM (cờ FCM_ON) – chỉ kéo lại sau ≥ 3 ngày không mở app + tiến bộ tuần; nhắc hằng ngày vẫn là lịch cục bộ ----------
-  const FM = () => (NATIVE && g.Capacitor.Plugins && g.Capacitor.Plugins.FirebaseMessaging) || null;
+  // Chỉ dùng FCM khi CẢ BA: bản app có plugin (fcmCapable), máy chủ báo Worker gửi được (cfg.fcm), lấy được token trong 8 giây. Thiếu 1 → lịch cục bộ đủ 14 ngày.
+  const FM = () => (NATIVE && fcmCapable(g.Capacitor) && g.Capacitor.Plugins.FirebaseMessaging) || null;
+  /** Hủy đăng ký FCM ở máy chủ (tắt nhắc / OS chặn / máy chủ thôi FCM / mất token) – lỗi mạng → giữ để thử lại lần mở app sau. */
+  async function fcmOff() {
+    const p = ls.get('lk.fcm', null); if (!p) return;
+    if (!p.id) return ls.set('lk.fcm', null);
+    try { await post({ op: 'unsub', id: p.id }); ls.set('lk.fcm', null); } catch (e) { /* thử lại sau */ }
+  }
   async function fcmSub() {
     const M = FM(); if (!M || OFF) return false;
-    const c = await cfg(); if (!c || !c.fcm) return false;
-    const { token } = await M.getToken(); if (!token) return false;
+    const c = await cfg(); if (!c || !c.fcm) { await fcmOff(); return false; } // Worker chưa/không gửi được → máy giữ cả chu kỳ, bỏ dòng cũ (không trùng khi Worker sống lại)
+    const t = await within(M.getToken(), 8000).catch(() => null), token = t && t.token;
+    if (!token) { await fcmOff(); return false; }
     const w = where(), studied = (state.stats.days || {})[todayKey()] > 0, p = ls.get('lk.fcm', null);
-    if (p && p.tok === token) return touch('lk.fcm', fcmSub).then(() => true);
-    const r = await post({ op: 'sub', k: 'fcm', token, ...w, st: studied ? 1 : 0 });
+    if (p && p.tok === token) { await touch('lk.fcm', fcmSub); return !!ls.get('lk.fcm', null); }
+    if (p && p.id) await fcmOff(); // token đổi (cài lại / Firebase xoay vòng) → hủy dòng cũ trước: 1 thiết bị = 1 dòng, không 2 thông báo
+    const r = await post({ op: 'sub', k: 'fcm', token, ...w, st: studied ? 1 : 0 }); if (!r || !/^[a-f0-9]{32}$/.test(r.id || '')) return false;
     ls.set('lk.fcm', { id: r.id, tok: token, sig: sig(w), act: todayKey(), std: studied ? todayKey() : '' }); return true;
   }
 

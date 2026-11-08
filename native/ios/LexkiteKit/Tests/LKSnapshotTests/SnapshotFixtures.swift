@@ -31,6 +31,7 @@ enum SnapshotFixtures {
             .environment(\.layoutDirection, services.l10n.isRTL ? .rightToLeft : .leftToRight)
             .environment(\.locale, Locale(identifier: lang))
             .environment(\.colorScheme, scheme)
+            .environment(\.liveContent, false)
         let vc = UIHostingController(rootView: root)
         vc.overrideUserInterfaceStyle = scheme == .dark ? .dark : .light
         return vc

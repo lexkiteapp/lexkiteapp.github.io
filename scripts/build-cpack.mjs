@@ -11,16 +11,26 @@ const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDi
 const jsFiles = walk(path.join(root, 'js')).filter(f => f.endsWith('.js'));
 const src = new Map(jsFiles.map(f => [f, fs.readFileSync(f, 'utf8')]));
 const manifest = {}, errs = [];
-for (const f of walk(cdir).filter(f => f.endsWith('.js'))) {
-  const rel = path.relative(root, f).split(path.sep).join('/'), buf = fs.readFileSync(f);
-  const h = crypto.createHash('sha256').update(buf).digest('hex').slice(0, 10), hashed = rel.replace(/\.js$/, `.${h}.js`);
-  let used = 0;
-  for (const [jf, t] of src) { const parts = t.split(rel); if (parts.length > 1) { used += parts.length - 1; src.set(jf, parts.join(hashed)); } }
-  if (!used) errs.push(`gói ${rel} không được js/*.js nào tham chiếu (mồ côi – xoá hoặc thêm vào BUNDLES)`);
-  fs.renameSync(f, path.join(root, hashed)); manifest[rel] = hashed;
+// Gói có thể tham chiếu gói khác (vd. gốc tình huống → bản dịch): băm LÁ trước, rồi sửa tham chiếu trong gói cha và băm tiếp (chuỗi dài tuỳ ý, vòng → lỗi)
+const packs = new Map(walk(cdir).filter(f => f.endsWith('.js')).map(f => [path.relative(root, f).split(path.sep).join('/'), fs.readFileSync(f, 'utf8')]));
+const deps = new Map([...packs].map(([rel, t]) => [rel, [...packs.keys()].filter(r => r !== rel && t.includes(r))]));
+const cited = new Set([...deps.values()].flat()), todo = new Set(packs.keys());
+while (todo.size) {
+  const ready = [...todo].filter(rel => deps.get(rel).every(d => !todo.has(d)));
+  if (!ready.length) { errs.push(`gói tham chiếu vòng: ${[...todo].join(', ')}`); break; }
+  for (const rel of ready) {
+    todo.delete(rel); let t = packs.get(rel);
+    for (const d of deps.get(rel)) t = t.split(d).join(manifest[d]);
+    const h = crypto.createHash('sha256').update(t).digest('hex').slice(0, 10), hashed = rel.replace(/\.js$/, `.${h}.js`);
+    let used = cited.has(rel) ? 1 : 0;
+    for (const [jf, jt] of src) { const parts = jt.split(rel); if (parts.length > 1) { used += parts.length - 1; src.set(jf, parts.join(hashed)); } }
+    if (!used) errs.push(`gói ${rel} không được js/*.js hay gói nào tham chiếu (mồ côi – xoá hoặc thêm vào BUNDLES)`);
+    fs.writeFileSync(path.join(root, rel), t); fs.renameSync(path.join(root, rel), path.join(root, hashed)); manifest[rel] = hashed;
+  }
 }
 for (const [jf, t] of src) fs.writeFileSync(jf, t);
-for (const [jf, t] of src) for (const m of t.matchAll(/cpack\/[\w./-]+\.js/g)) if (!Object.values(manifest).includes(m[0])) errs.push(`${path.relative(root, jf)} trỏ tới ${m[0]} – không có trong web/cpack`);
+const hashedSet = new Set(Object.values(manifest)), scan = [...src.entries(), ...Object.values(manifest).map(h => [path.join(root, h), fs.readFileSync(path.join(root, h), 'utf8')])];
+for (const [jf, t] of scan) for (const m of t.matchAll(/cpack\/[\w./-]+\.js/g)) if (!hashedSet.has(m[0])) errs.push(`${path.relative(root, jf)} trỏ tới ${m[0]} – không có trong web/cpack`);
 fs.writeFileSync(path.join(cdir, 'manifest.json'), JSON.stringify(manifest, null, 1) + '\n');
 if (errs.length) { console.error('✗ cpack:\n  - ' + errs.join('\n  - ')); process.exit(1); }
 console.log(`✓ cpack: ${Object.keys(manifest).length} gói đặt tên theo mã băm (immutable)`);

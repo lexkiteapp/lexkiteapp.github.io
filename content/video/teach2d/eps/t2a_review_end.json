@@ -72,5 +72,46 @@
   "words": 46,
   "seconds": 27.7,
   "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"end\" mean?",
+  "keyword": "end",
+  "value": "End means a point that marks the limit of something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=end",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"end\" mean?",
+    "description": "End means a point that marks the limit of something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=end\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "end",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"end\" mean?\n\nEnd means a point that marks the limit of something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=end"
+   },
+   "instagram": {
+    "caption": "What does \"end\" mean?\n\nEnd means a point that marks the limit of something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"end\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a point that marks the limit of something. End means a point that marks the limit of something. Practice it with a free quiz: {link}"
  }
 }

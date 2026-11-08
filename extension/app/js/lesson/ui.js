@@ -24,12 +24,8 @@
   ].map(c => (learnVi() ? c : Object.assign({}, c, { sentences: [] }))); // câu song ngữ mẫu chỉ có tiếng Việt → ngôn ngữ khác bỏ dạng dịch
   const STARTER = () => DEMO().map(c => Object.assign({}, c, { ctx: '', src: '', srs: SRS(now0, 0) }));
 
-  // Ảnh đúng từ#loại (cùng chỉ mục của VImg; bài học có cờ riêng nên tự tra chỉ mục nhỏ, SW đệm)
-  let imgIdx = null;
-  const imgP = () => imgIdx ? Promise.resolve(imgIdx) : fetch('js/lexicon-img.json').then(r => (r.ok ? r.json() : null)).then(j => (imgIdx = j && j.m ? j : { m: {} })).catch(() => (imgIdx = { m: {} }));
-  const POSK = p => (window.VImg ? VImg.pos(p) : String(p || '').slice(0, 3).replace('nou', 'n').replace('ver', 'v'));
-  const imgKey = (w, p) => String(w).toLowerCase() + '#' + POSK(p);
-  const imgUrl = (w, p) => { const h = imgIdx && imgIdx.m[imgKey(w, p)]; return h ? imgIdx.base + h + '.webp' : ''; };
+  // Ảnh đúng từ#loại qua VImg (chỉ mục v3 theo mảnh, cùng cờ bật dần); chưa bật/chưa có ảnh → '' (bài không sinh dạng pic)
+  const imgUrl = (w, p) => (window.VImg ? VImg.quizUrl(w, p) : '');
 
   function css() {
     if ($('#lsnCss')) return;
@@ -116,13 +112,12 @@
     const plan = ux ? Ux1.plan(E, cards, has, n) : E.pathPlan(cards, Date.now(), has), node = XS ? { kind: XS.kind } : plan[n % plan.length];
     if (arg !== 'go') return ux ? Ux1.map({ demo, plan, n }) : map(demo, plan, n);
     if (node.kind === 'exam') { ls.set(PKEY(demo), String(n + 1)); location.hash = Ux1.check(n).href; return; } // nút kiểm tra kỹ năng thi → module thi có sẵn
-    await imgP();
     // Truyện / Radio: bài tiếp theo chưa nghe (xoay vòng), Ama ↔ Carlos đọc bằng giọng Kokoro sinh sẵn
     const SK = 'lk.lsn.s.' + node.kind + (demo ? '.demo' : ''), sl = STORIES(node.kind), sAt = parseInt(ls.get(SK) || '0', 10) || 0, sOrd = sl.map((_, i) => sl[(sAt + i) % sl.length]), sSeen = sDone(demo), story = XS || sOrd.find(x => !sSeen.includes(x.id)) || sOrd[0] || null;
     const pickCards = demo && n > 0 && cards.length ? cards.map((_, i) => cards[(i + n) % cards.length]).slice(0, 4) : cards; // bài thử không ghi thẻ: chọn 4 từ xoay theo nút lộ trình để bài kế có bộ từ khác
     const picks = story ? [] : E.pickWords(pickCards, { n: 4, starter: ux ? Ux1.words(n, plan.length).map(w => Object.assign({}, w, { ctx: '', src: '', srs: SRS(now0, 0) })).concat(STARTER()) : STARTER(), mode: node.kind }); // ux1: từ chủ đề vừa sức (i+1) // 4 từ ≈ 9 bài ≈ 2–3 phút
     let pool0 = [];
-    if (!story) { const pk = App.loadPack ? App.loadPack().catch(() => {}) : null; await Promise.all([pk, sentLoad(picks.map(p => p.card.word))]); } // nghĩa từ + bản dịch câu tiếng mẹ đẻ trước khi dựng đề
+    if (!story) { const pk = App.loadPack ? App.loadPack().catch(() => {}) : null; await Promise.all([pk, sentLoad(picks.map(p => p.card.word)), App.vimgReady && App.vimgReady(picks.map(p => p.card.word))]); } // nghĩa từ + bản dịch câu tiếng mẹ đẻ trước khi dựng đề
     const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: (pool0 = cards.concat(STARTER())), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux, gloss: sentGloss, mean: nativeMean });
     if (!story && lvOn()) items.unshift({ id: 0, type: 'video', free: true, word: '#video', card: null, retry: 0, words: picks.map(p => p.word) }); // 🎞️ demo video nhúng (cờ lv_embed)
     const prev = ls.get('lk.lsn.who'), V2 = !story && v2On(), DUO = !!story && duoOn(), who = V2 ? 'ama' : prev === 'ama' ? 'carlos' : 'ama'; if (!V2) ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài

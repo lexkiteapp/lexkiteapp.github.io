@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite v2.1 Light — Dictionary</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed": "#00201e",
+            "on-surface-variant": "#404848",
+            "secondary-container": "#88f5ea",
+            "on-primary-fixed": "#002020",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#6bd8ce",
+            "on-tertiary-fixed-variant": "#900f00",
+            "inverse-surface": "#31302d",
+            "inverse-primary": "#a3cfcf",
+            "outline": "#717978",
+            "surface-container": "#f1ede7",
+            "outline-variant": "#c0c8c8",
+            "on-secondary-fixed-variant": "#00504b",
+            "surface-container-high": "#ebe8e2",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed-dim": "#a3cfcf",
+            "on-secondary": "#ffffff",
+            "tertiary-container": "#720a00",
+            "surface": "#fdf9f3",
+            "surface-tint": "#3b6566",
+            "on-background": "#1c1c18",
+            "on-tertiary-container": "#ff765e",
+            "on-tertiary-fixed": "#3f0300",
+            "secondary": "#006a64",
+            "on-error": "#ffffff",
+            "inverse-on-surface": "#f4f0ea",
+            "tertiary": "#4a0400",
+            "surface-variant": "#e6e2dc",
+            "tertiary-fixed": "#ffdad3",
+            "on-primary-fixed-variant": "#224d4e",
+            "on-tertiary": "#ffffff",
+            "surface-bright": "#fdf9f3",
+            "primary-container": "#0f3d3e",
+            "secondary-fixed": "#88f5ea",
+            "error-container": "#ffdad6",
+            "primary-fixed": "#beebeb",
+            "on-primary": "#ffffff",
+            "surface-container-highest": "#e6e2dc",
+            "error": "#ba1a1a",
+            "surface-container-low": "#f7f3ed",
+            "on-primary-container": "#7da8a8",
+            "surface-dim": "#dddad4",
+            "on-secondary-container": "#00716a",
+            "tertiary-fixed-dim": "#ffb4a6",
+            "background": "#fdf9f3",
+            "on-surface": "#1c1c18",
+            "primary": "#002627",
+            // Custom brand tokens
+            "brand-warm-canvas": "#FBF7F1",
+            "brand-deep-teal": "#0F3D3E",
+            "brand-teal": "#2BA39A",
+            "brand-border": "#EADEC8",
+            "brand-coral": "#F2553B"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "margin": "2rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Nunito Sans", "sans-serif"],
+            "body-md": ["Nunito Sans", "sans-serif"],
+            "headline-lg": ["Nunito Sans", "sans-serif"],
+            "headline-xl": ["Nunito Sans", "sans-serif"],
+            "headline-sm": ["Nunito Sans", "sans-serif"],
+            "label-md": ["Nunito Sans", "sans-serif"],
+            "headline-md": ["Nunito Sans", "sans-serif"],
+            "body-sm": ["Nunito Sans", "sans-serif"],
+            "label-sm": ["Nunito Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Touch target guarantee utility */
+    .touch-target {
+      min-width: 44px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#FBF7F1] text-on-surface antialiased font-body-md text-body-md flex justify-center min-h-screen py-0 sm:py-6 selection:bg-[#2BA39A]/20">
+<!-- Mobile Portrait Container (390px fixed canvas) -->
+<main class="w-[390px] max-w-full bg-[#FBF7F1] min-h-screen flex flex-col shadow-xl sm:rounded-[36px] overflow-x-hidden border border-[#EADEC8]/60 relative pb-12">
+<!-- 1. Top App Bar (Shared Components Anchor execution) -->
+<header class="sticky top-0 z-30 bg-[#FBF7F1]/95 backdrop-blur-md px-4 pt-3 pb-2 flex items-center justify-between">
+<!-- Leading back action -->
+<button aria-label="Go back" class="touch-target rounded-full hover:bg-surface-container active:scale-95 transition-all text-[#0F3D3E]" type="button">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<!-- Center Title -->
+<h1 class="font-headline-sm text-headline-sm text-[#0F3D3E] tracking-tight">
+        Dictionary
+      </h1>
+<!-- Trailing Language Selector Pill -->
+<button aria-label="Select target languages" class="touch-target h-[44px] px-3 py-1.5 rounded-full bg-white border border-[#EADEC8] shadow-xs flex items-center gap-1.5 hover:border-[#2BA39A] active:scale-98 transition-all" type="button">
+<span class="material-symbols-outlined text-[#2BA39A] text-[18px]">translate</span>
+<span class="font-label-sm text-label-sm font-bold text-[#0F3D3E] tracking-wide">EN ⇄ VI</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<div class="px-4 pt-2 flex flex-col gap-4">
+<!-- 2. Search Field & Floating Suggestions Panel -->
+<div class="relative z-20">
+<!-- Search Input with active focus ring -->
+<div class="relative flex items-center">
+<span class="absolute left-3.5 text-[#2BA39A] flex items-center pointer-events-none">
+<span class="material-symbols-outlined">search</span>
+</span>
+<input aria-label="Dictionary search" class="w-full h-12 pl-11 pr-11 bg-white border-2 border-[#2BA39A] rounded-xl font-headline-sm text-[16px] text-[#0F3D3E] placeholder-[#717978] shadow-sm focus:outline-none" placeholder="Search academic word..." type="text" value="reluct"/>
+<button aria-label="Clear search" class="touch-target absolute right-0 text-[#717978] hover:text-[#0F3D3E] transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Suggestion Dropdown (Connected floating panel) -->
+<div class="mt-1.5 bg-white border border-[#EADEC8] rounded-xl shadow-md divide-y divide-[#EADEC8]/50 overflow-hidden">
+<!-- Suggestion 1: Primary match -->
+<a class="min-h-[44px] px-3.5 py-2.5 flex items-center justify-between hover:bg-[#F8F4EC] transition-colors group" href="#result-reluctant">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-[15px] font-bold text-[#0F3D3E] group-hover:text-[#2BA39A] transition-colors">reluctant</span>
+<span class="font-label-sm text-[11px] text-[#717978] italic">adj</span>
+<span class="bg-[#2BA39A]/10 text-[#006a64] font-label-sm text-[11px] px-1.5 py-0.5 rounded font-bold">IELTS 6.5+ / B2</span>
+</div>
+<span class="material-symbols-outlined text-[#717978] group-hover:text-[#0F3D3E] group-hover:translate-x-0.5 transition-all text-[18px]">chevron_right</span>
+</a>
+<!-- Suggestion 2: Noun derivation -->
+<div class="min-h-[44px] px-3.5 py-2.5 flex items-center justify-between hover:bg-[#F8F4EC] transition-colors cursor-pointer group">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-[15px] font-bold text-[#0F3D3E]">reluctance</span>
+<span class="font-label-sm text-[11px] text-[#717978] italic">noun</span>
+<span class="text-[#717978] text-[13px] truncate max-w-[120px]">— unwillingness</span>
+</div>
+<span class="material-symbols-outlined text-[#717978] text-[18px]">chevron_right</span>
+</div>
+<!-- Suggestion 3: Adverb derivation -->
+<div class="min-h-[44px] px-3.5 py-2.5 flex items-center justify-between hover:bg-[#F8F4EC] transition-colors cursor-pointer group">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-[15px] font-bold text-[#0F3D3E]">reluctantly</span>
+<span class="font-label-sm text-[11px] text-[#717978] italic">adv</span>
+<span class="text-[#717978] text-[13px] truncate max-w-[120px]">— in an unwilling manner</span>
+</div>
+<span class="material-symbols-outlined text-[#717978] text-[18px]">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- 3. Chips Navigation & Fast Browse Section -->
+<section class="flex flex-col gap-3">
+<!-- Recent searches header + chips -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#2BA39A] text-[16px]">history</span>
+<h2 class="font-label-md text-label-md text-[#0F3D3E] font-bold">Recent searches</h2>
+</div>
+<button class="touch-target h-[30px] font-label-sm text-label-sm text-[#717978] hover:text-[#0F3D3E]" type="button">Clear</button>
+</div>
+<!-- 8 recent search chips -->
+<div class="flex flex-wrap gap-1.5">
+<span class="h-[32px] px-2.5 rounded-full bg-white border border-[#EADEC8] text-[#0F3D3E] font-label-md text-[13px] flex items-center gap-1 hover:border-[#2BA39A] cursor-pointer shadow-2xs">
+              ambiguous
+            </span>
+<span class="h-[32px] px-2.5 rounded-full bg-white border border-[#EADEC8] text-[#0F3D3E] font-label-md text-[13px] flex items-center gap-1 hover:border-[#2BA39A] cursor-pointer shadow-2xs">
+              feasible
+            </span>
+<span class="h-[32px] px-2.5 rounded-full bg-white border border-[#EADEC8] text-[#0F3D3E] font-label-md text-[13px] flex items-center gap-1 hover:border-[#2BA39A] cursor-pointer shadow-2xs">
+              mitigate
+            </span>
+<span class="h-[32px] px-2.5 rounded-full bg-white border border-[#EADEC8] text-[#0F3D3E] font-label-md text-[13px] flex items-center gap-1 hover:border-[#2BA39A] cursor-pointer shadow-2xs">
+              diligent
+            </span>
+<span class="h-[32px] px-2.5 rounded-full bg-white border border-[#EADEC8] text-[#0F3D3E] font-label-md text-[13px] flex items-center gap-1 hover:border-[#2BA39A] cursor-pointer shadow-2xs">
+              concur
+            </span>
+<span class="h-[32px] px-2.5 rounded-full bg-white border border-[#EADEC8] text-[#0F3D3E] font-label-md text-[13px] flex items-center gap-1 hover:border-[#2BA39A] cursor-pointer shadow-2xs">
+              went
+            </span>
+<span class="h-[32px] px-2.5 rounded-full bg-white border border-[#EADEC8] text-[#0F3D3E] font-label-md text-[13px] flex items-center gap-1 hover:border-[#2BA39A] cursor-pointer shadow-2xs">
+              coherent
+            </span>
+<span class="h-[32px] px-2.5 rounded-full bg-white border border-[#EADEC8] text-[#0F3D3E] font-label-md text-[13px] flex items-center gap-1 hover:border-[#2BA39A] cursor-pointer shadow-2xs">
+              pinnacle
+            </span>
+</div>
+</div>
+<!-- Quick Explore Words -->
+<div class="pt-1">
+<div class="flex items-center gap-1.5 mb-2">
+<span class="material-symbols-outlined text-[#2BA39A] text-[16px]">explore</span>
+<h2 class="font-label-md text-label-md text-[#0F3D3E] font-bold">Academic quick browse</h2>
+</div>
+<!-- 6 academic explorer chips -->
+<div class="flex flex-wrap gap-1.5">
+<button class="h-[32px] px-2.5 rounded-full bg-[#F8F4EC] border border-[#EADEC8] text-[#006a64] font-label-md text-[13px] font-bold flex items-center hover:bg-white hover:border-[#2BA39A] transition-all" type="button">
+              ephemeral
+            </button>
+<button class="h-[32px] px-2.5 rounded-full bg-[#F8F4EC] border border-[#EADEC8] text-[#006a64] font-label-md text-[13px] font-bold flex items-center hover:bg-white hover:border-[#2BA39A] transition-all" type="button">
+              resilient
+            </button>
+<button class="h-[32px] px-2.5 rounded-full bg-[#F8F4EC] border border-[#EADEC8] text-[#006a64] font-label-md text-[13px] font-bold flex items-center hover:bg-white hover:border-[#2BA39A] transition-all" type="button">
+              pragmatic
+            </button>
+<button class="h-[32px] px-2.5 rounded-full bg-[#F8F4EC] border border-[#EADEC8] text-[#006a64] font-label-md text-[13px] font-bold flex items-center hover:bg-white hover:border-[#2BA39A] transition-all" type="button">
+              lucid
+            </button>
+<button class="h-[32px] px-2.5 rounded-full bg-[#F8F4EC] border border-[#EADEC8] text-[#006a64] font-label-md text-[13px] font-bold flex items-center hover:bg-white hover:border-[#2BA39A] transition-all" type="button">
+              nuance
+            </button>
+<button class="h-[32px] px-2.5 rounded-full bg-[#F8F4EC] border border-[#EADEC8] text-[#006a64] font-label-md text-[13px] font-bold flex items-center hover:bg-white hover:border-[#2BA39A] transition-all" type="button">
+              advocate
+            </button>
+</div>
+</div>
+</section>
+<!-- 4. Result Showcase 1: Full-Result Header Card for "reluctant" -->
+<section class="bg-white border border-[#EADEC8] rounded-2xl p-4 shadow-sm flex flex-col gap-3.5" id="result-reluctant">
+<!-- Top row: Headword, audio, and Level badges -->
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-lg text-[26px] font-black text-[#0F3D3E] tracking-tight leading-none">
+                reluctant
+              </h2>
+<span class="bg-[#F8F4EC] text-[#0F3D3E] border border-[#EADEC8] font-label-sm text-[11px] font-bold px-2 py-0.5 rounded-full">
+                adj
+              </span>
+</div>
+<!-- Phonetic & Audio Trigger -->
+<div class="flex items-center gap-2 text-[#717978]">
+<span class="font-mono text-[14px]">/rɪˈlʌktənt/</span>
+<!-- Audio pronunciation 44px target -->
+<button aria-label="Pronounce reluctant" class="touch-target w-11 h-11 rounded-full bg-[#F8F4EC] border border-[#EADEC8] text-[#2BA39A] hover:bg-[#2BA39A] hover:text-white transition-all shadow-2xs" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+</div>
+<!-- Exam Tag Badge -->
+<div class="flex flex-col items-end gap-1">
+<span class="bg-[#2BA39A]/15 border border-[#2BA39A]/30 text-[#0F3D3E] font-label-sm text-[11px] font-bold px-2.5 py-1 rounded-full">
+              C1 • IELTS Core
+            </span>
+<span class="text-[11px] font-semibold text-[#717978]">TOEFL High-Freq</span>
+</div>
+</div>
+<!-- Bilingual Definition Container -->
+<div class="p-3 bg-[#FBF7F1] rounded-xl border border-[#EADEC8]/80 space-y-1.5">
+<div class="flex items-center gap-1.5 text-[#006a64]">
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+<span class="font-label-sm text-[12px] font-bold">Definition</span>
+</div>
+<p class="font-body-md text-[14px] text-[#162124] leading-relaxed">
+<strong class="text-[#0F3D3E]">VN:</strong> miễn cưỡng, không sẵn lòng
+          </p>
+<p class="font-body-md text-[14px] text-[#45555A] leading-relaxed">
+<strong class="text-[#0F3D3E]">EN:</strong> unwilling and hesitant; disinclined.
+          </p>
+</div>
+<!-- Example Sentence with Academic Context -->
+<div class="border-l-2 border-[#2BA39A] pl-3 py-1 space-y-1">
+<span class="font-label-sm text-[11px] uppercase tracking-wider text-[#717978] font-bold">Example in context</span>
+<p class="font-body-md text-[14px] text-[#0F3D3E] italic leading-snug">
+            "He was <span class="font-bold underline decoration-[#2BA39A] text-[#006a64] not-italic">reluctant</span> to commit to the test date without proper preparation."
+          </p>
+<p class="text-[12px] text-[#717978]">
+            Anh ấy miễn cưỡng cam kết ngày thi khi chưa chuẩn bị kỹ càng.
+          </p>
+</div>
+<!-- The Single Primary Button on Screen -->
+<button class="w-full h-12 bg-[#F2553B] hover:bg-[#e0452b] active:scale-[0.99] text-white font-headline-sm text-[16px] font-bold rounded-xl shadow-md flex items-center justify-center gap-2 transition-all" type="button">
+<span class="material-symbols-outlined fill-icon text-[20px]">bookmark</span>
+<span>Save flashcard</span>
+</button>
+</section>
+<!-- 4b. Morphological / Lemma Resolution State -->
+<section class="bg-[#F8F4EC] border border-[#EADEC8] rounded-2xl p-4 flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#2BA39A] text-[18px]">account_tree</span>
+<span class="font-label-sm text-label-sm text-[#0F3D3E] font-bold">Morphology &amp; Lemma Resolution</span>
+</div>
+<span class="bg-white border border-[#EADEC8] font-label-sm text-[10px] text-[#717978] font-bold px-2 py-0.5 rounded-full">
+            Verb form
+          </span>
+</div>
+<div class="bg-white border border-[#EADEC8] p-3 rounded-xl flex items-center justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-[18px] font-extrabold text-[#0F3D3E]">went</span>
+<!-- Inflection chip resolving to lemma -->
+<span class="bg-[#2BA39A]/15 text-[#006a64] font-label-sm text-[12px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                went → go
+                <span class="material-symbols-outlined text-[12px]">arrow_forward</span>
+</span>
+</div>
+<p class="text-[12px] text-[#45555A]">
+              Irregular past tense of <span class="font-bold text-[#0F3D3E]">go</span> (v.)
+            </p>
+</div>
+<span class="bg-[#F8F4EC] border border-[#EADEC8] text-[#006a64] font-label-sm text-[11px] font-bold px-2 py-1 rounded">
+            CEFR B1
+          </span>
+</div>
+<p class="text-[12px] text-[#717978] italic px-1">
+          Showing base lemma "go": to move from one place to another; travel.
+        </p>
+</section>
+<!-- 4c. Partial / Async Loading State Indicator -->
+<section class="bg-white border border-[#EADEC8] rounded-2xl p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#2BA39A] text-[18px] animate-spin">sync</span>
+<span class="font-label-sm text-label-sm text-[#0F3D3E] font-bold">Loading full entry…</span>
+</div>
+<span class="text-[11px] text-[#717978]">Collocations &amp; idioms</span>
+</div>
+<!-- Skeleton placeholder bars with shimmer pulse effect -->
+<div aria-hidden="true" class="space-y-2.5 animate-pulse pt-1">
+<div class="flex items-center gap-2">
+<div class="h-4 bg-[#EADEC8]/70 rounded w-24"></div>
+<div class="h-4 bg-[#EADEC8]/40 rounded w-16"></div>
+</div>
+<div class="h-3 bg-[#EADEC8]/50 rounded-full w-full"></div>
+<div class="h-3 bg-[#EADEC8]/40 rounded-full w-4/5"></div>
+<div class="flex gap-2 pt-1">
+<div class="h-6 bg-[#EADEC8]/60 rounded-full w-28"></div>
+<div class="h-6 bg-[#EADEC8]/40 rounded-full w-24"></div>
+</div>
+</div>
+</section>
+<!-- 4d. "Not found" & Smart Suggestion Fallback Card -->
+<section class="bg-[#FBF7F1] border border-[#EADEC8] rounded-2xl p-4 flex flex-col gap-3">
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-full bg-error-container/40 text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">info</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-sm text-[15px] font-bold text-[#0F3D3E]">
+              No exact entry for "<span class="text-error font-semibold">reluctancy</span>"
+            </h3>
+<p class="font-body-sm text-body-sm text-[#45555A]">
+              Did you mean <button class="font-bold text-[#2BA39A] underline decoration-[#2BA39A] hover:text-[#006a64]" type="button">reluctance</button>? (standard IELTS noun form)
+            </p>
+</div>
+</div>
+<!-- Secondary Action Button for Community/AI translation -->
+<button class="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border border-[#2BA39A] bg-white text-[#006a64] font-label-md text-label-md font-bold hover:bg-[#F8F4EC] active:scale-98 transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span>Search community / AI translation</span>
+</button>
+</section>
+</div>
+</main>
+</body></html>

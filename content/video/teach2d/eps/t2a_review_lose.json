@@ -72,5 +72,46 @@
   "words": 48,
   "seconds": 28.6,
   "wpm": 101
+ },
+ "publish": {
+  "title": "What does \"lose\" mean?",
+  "keyword": "lose",
+  "value": "Lose means to be unable to find something you once had.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=lose",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"lose\" mean?",
+    "description": "Lose means to be unable to find something you once had.\n\nReview your words, free: https://lexkite.com/app/#/review?w=lose\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "lose",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"lose\" mean?\n\nLose means to be unable to find something you once had.\n\nReview your words, free: https://lexkite.com/app/#/review?w=lose"
+   },
+   "instagram": {
+    "caption": "What does \"lose\" mean?\n\nLose means to be unable to find something you once had.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"lose\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to be unable to find something you once had. Lose means to be unable to find something you once had. More practice like this (free): {link}"
  }
 }
