@@ -100,8 +100,9 @@ public struct LessonView: View {
                 HStack(spacing: LKSpacing.spaceXs) {
                     if let h = m.nextHint(it) {
                         Button { m.useHint(h) } label: {
-                            Image(systemName: "lightbulb.fill").foregroundStyle(LKColor.tertiary.resolve(scheme)).frame(width: LKFrame.shared.minTap, height: LKFrame.shared.minTap)
-                        }.buttonStyle(.plain)
+                            Label { Text(t(.lessonHint)).lkText(LKType.labelMetric).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)) } icon: { Image(systemName: "lightbulb.fill").foregroundStyle(LKColor.tertiary.resolve(scheme)) }
+                                .frame(minHeight: LKFrame.shared.minTap)
+                        }.buttonStyle(.plain).accessibilityLabel(t(.lessonHint))
                     }
                     Spacer(minLength: 0)
                     if m.listens(it) { skip(t(.lessonNoListen), "ear.trianglebadge.exclamationmark") { m.cantListen() } }

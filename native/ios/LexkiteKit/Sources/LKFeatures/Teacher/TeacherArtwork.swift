@@ -15,6 +15,13 @@ public enum TeacherRigStore {
     }()
 }
 
+/// The bundled pre-generated cue table (`teach/cues.json`, LKDesign) and the lip-sync using its dictionary (web `LipSync.setDict(LK_CUES.dict)`); nil if missing.
+public enum TeacherCueStore {
+    public static let table: CueTable? = LKBrand.bundle.url(forResource: "cues", withExtension: "json", subdirectory: "teach")
+        .flatMap { try? Data(contentsOf: $0) }.flatMap { CueTable(data: $0) }
+    public static let lip: LipSync? = table.map { LipSync(TeacherRigStore.shared.def, dict: LipSync.parseDict($0.dictText)) }
+}
+
 /// Decoded teacher art for one teacher: bare head (face base layer) + pose stills, decoded once off the draw path.
 /// Order like web `Chars.still`: bundled (offline, instant) → disk cache → CDN (TeacherArt.load); a pose that cannot be loaded draws `bundle.fallbackPose`.
 @MainActor

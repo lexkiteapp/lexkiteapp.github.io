@@ -124,27 +124,32 @@ public final class TeacherController {
     }
 
     // MARK: speech
-    public func speak(text: String, duration: Double?, source: TeacherSpeechSource?) { speak(text: text, duration: duration, source: source, cues: nil) }
+    /// Web teacher.js order: pre-generated cues for `lineKey(voice, text)` (`teach/cues.json`) → exact shapes + loudness; else live / text-timed.
+    public func speak(text: String, duration: Double?, source: TeacherSpeechSource?) {
+        let key = VoiceCore.lineKey(voice: rig.def.people[who]?.voice ?? "", text: text)
+        speak(text: text, duration: duration, source: source, cues: TeacherCueStore.table?.unpacked(key))
+    }
 
     /// `cues`: precomputed mouth cues (LK_CUES `LipSync.unpack`, or `rig.lipDict.fromEnv` on decoded audio) – exact shapes + loudness.
     public func speak(text: String, duration: Double?, source: TeacherSpeechSource?, cues: LipSync.Unpacked?) {
         guard !isFrozen else { return }
-        let lip = rig.lipDict
+        let lip = TeacherCueStore.lip ?? rig.lipDict
         let dur = cues?.dur ?? duration ?? max(Self.minDur, Double(text.utf16.count) * Self.msPerChar)
         let box = clock, t0 = clock.now
-        let live = cues == nil ? lip.live(text, dur: dur) : nil
+        // no real audio (nothing to measure) and no cues → text-timed cues with the dictionary; real audio without cues → live loudness cursor
+        let est = lip.fromText(text, dur)
+        let timed = cues == nil && source == nil
+        let live = cues == nil && !timed ? lip.live(text, dur: dur) : nil
         var s: RigSpeech
         if let source {
             s = RigSpeech(clock: { [weak source] in source?.time ?? 0 }, playing: { [weak source] in source?.isPlaying ?? false },
                           voiced: live == nil ? nil : { [weak source] in source?.isVoiced ?? false })
             autoQuietAt = nil
         } else {
-            let est = lip.fromText(text, dur)
-            s = RigSpeech(clock: { box.now - t0 }, playing: { box.now - t0 < dur },
-                          voiced: live == nil ? nil : { lip.stateAt(est, box.now - t0).b != "X" })
+            s = RigSpeech(clock: { box.now - t0 }, playing: { box.now - t0 < dur })
             autoQuietAt = t0 + dur + Self.endPad
         }
-        s.cues = cues?.cues; s.env = cues?.env; s.live = live; s.dur = dur; s.text = text
+        s.cues = cues?.cues ?? (timed ? est : nil); s.env = cues?.env; s.live = live; s.dur = dur; s.text = text
         self.source = source; hasSource = source != nil; speech = s
         machine.speak(s)
     }

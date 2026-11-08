@@ -37,7 +37,7 @@ struct LessonStoryStage: View {
             if carlos { Spacer(minLength: 40) }
             Button { model.say(line.sent ?? "", who: line.who ?? "ama") } label: {
                 VStack(alignment: carlos ? .trailing : .leading, spacing: 2) {
-                    Text(carlos ? "Carlos" : "Ama").lkText(LKType.labelBadge).foregroundStyle(LKColor.secondary.resolve(scheme))
+                    Text(TeacherRigStore.shared.def.people[carlos ? "carlos" : "ama"]?.name ?? "").lkText(LKType.labelBadge).foregroundStyle(LKColor.secondary.resolve(scheme))
                     if line.radio == true { Image(systemName: "waveform").foregroundStyle(LKColor.onSurface.resolve(scheme)) }
                     else { Text(line.sent ?? "").lkText(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme)).multilineTextAlignment(.leading).englishText() }
                 }
