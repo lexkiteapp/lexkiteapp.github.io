@@ -1,10 +1,10 @@
-// ⏱️ Test Thử thách 60 giây (web/js/play-blitz.js, docs/specs/play-learn.md): lõi thuần (thứ tự SRS, chấm, combo, nhiễu, link thách đấu)
+// ⏱️ Test Thử thách 60 giây (web/cpack/play-app/play-blitz.js, docs/specs/play-learn.md): lõi thuần (thứ tự SRS, chấm, combo, nhiễu, link thách đấu)
 // + vòng chơi jsdom: CHỈ thẻ đến hạn được SRS.review đúng mức, sai → hỏi lại, phím 1–4, tab ẩn dừng giờ, hết giờ → màn kết thúc + XP + kỷ lục.
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import jsdom from 'jsdom';
 
-const src = fs.readFileSync(new URL('../../web/js/play-blitz.js', import.meta.url), 'utf8');
+const src = fs.readFileSync(new URL('../../web/cpack/play-app/play-blitz.js', import.meta.url), 'utf8');
 const dom = new jsdom.JSDOM('<!doctype html><body><main id="view"></main></body>', { url: 'https://lexkite.com/app/#/practice/blitz', runScripts: 'outside-only', pretendToBeVisual: true });
 const w = dom.window;
 let now = 1000; w.performance.now = () => now;

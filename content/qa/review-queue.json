@@ -1013156,6 +1013156,125 @@
     "qa": {},
     "senseLock": "wiktionary-1"
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "pseudonym#n",
+   "batch": "20261108-r176",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-08",
+   "data": {
+    "w": "pseudonym",
+    "pos": "n",
+    "ipa": "/ˈs(j)uːdə(ʊ)nɪm/",
+    "ipaUS": "/ˈsuːdənɪm/",
+    "def": "a false name used by a person when acting in a particular role",
+    "ex": [
+     "All members go by pseudonyms.",
+     "The name is a pseudonym."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.1,
+    "emoji": "",
+    "topic": "culture",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:pseudonym.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:10908936",
+      "simplewiki:sw23486.1"
+     ],
+     "tr": {
+      "es": "wiktionary+ai",
+      "pt": "omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "id": "omw+ai",
+      "th": "wiktionary+ai",
+      "ar": "wiktionary+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "fictitious name (more literally, a false name)",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "profusion#n",
+   "batch": "20261108-r176",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-08",
+   "data": {
+    "w": "profusion",
+    "pos": "n",
+    "ipa": "/prə(ʊ)ˈfjuːʒən/",
+    "ipaUS": "/prəˈfjuːʒn/",
+    "def": "the state of being extremely abundant",
+    "ex": [
+     "Another problem was a profusion of windows.",
+     "There is also a profusion of birds, butterflies and insects."
+    ],
+    "col": [],
+    "syn": [
+     "richness"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.52,
+    "emoji": "",
+    "topic": "culture",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:profusion.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "commonvoice:cv2.369328",
+      "wikivoyage:wv38704.3"
+     ],
+     "tr": {
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "abundance",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
   }
  ]
 }
