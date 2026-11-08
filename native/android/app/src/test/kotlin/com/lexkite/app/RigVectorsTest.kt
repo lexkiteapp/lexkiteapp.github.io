@@ -157,9 +157,9 @@ class RigVectorsTest {
         for (u in lip.a("unpack").map { it.jsonObject }) {
             val p = u.a("packed"); val out = u.o("out")
             val got = com.lexkite.app.core.rig.LipSync.unpack(p[0].d(), p[1].s(), p.getOrNull(2)?.takeIf { it !is JsonNull }?.s())
-            assertEquals(out.getValue("dur").d(), got.dur, 1e-12)
+            assertEquals(out.getValue("dur").d(), got.dur, 1e-9)
             val ec = out.a("cues"); assertEquals("${p[1]} cues", ec.size, got.cues.size)
-            ec.forEachIndexed { i, c -> assertEquals(c.jsonArray[0].d(), got.cues[i].start, 1e-12); assertEquals(c.jsonArray[1].s(), got.cues[i].value) }
+            ec.forEachIndexed { i, c -> assertEquals(c.jsonArray[0].d(), got.cues[i].start, 1e-9); assertEquals(c.jsonArray[1].s(), got.cues[i].value) }
             got.cues.forEachIndexed { i, c -> assertEquals(if (i < got.cues.size - 1) got.cues[i + 1].start else got.dur, c.end, 0.0) }
             val env = out["env255"]
             if (env == null || env is JsonNull) assertTrue(got.env == null)

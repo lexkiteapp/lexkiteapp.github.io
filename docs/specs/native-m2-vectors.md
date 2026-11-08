@@ -5,7 +5,7 @@
 
 Nhánh `native-m2`, worktree `social-channel-ui-57eaad`. Chưa commit. Mọi tệp dưới đây do `node scripts/native/gen.mjs` sinh từ JS web THẬT (`node:vm`/`require`); sửa web → `gen.mjs --check` đỏ → chạy `node scripts/native/gen.mjs`. Test gác: `node scripts/test/native-m2-vectors.mjs` (đã vào `scripts/test/suite.txt`, chạy trong `npm test`).
 
-Luật cứng khi port: KHÔNG gõ tay chữ giao diện / màu / hằng số chấm điểm hay rig trong Swift/Kotlin (`native-one-source.mjs` chặn). Hằng số rig đọc từ `teach/rig.json`; logic = port của JS web, kiểm bằng vector. Dung sai số thực mặc định: **2e-6** (vector rig làm tròn 6 chữ số) và **1e-9** cho vector lesson/audio (không làm tròn). Chuỗi so khớp tuyệt đối.
+Luật cứng khi port: KHÔNG gõ tay chữ giao diện / màu / hằng số chấm điểm hay rig trong Swift/Kotlin (`native-one-source.mjs` chặn). Hằng số rig đọc từ `teach/rig.json`; logic = port của JS web, kiểm bằng vector. Dung sai số thực mặc định: **2e-6** (vector rig làm tròn 6 chữ số; mọi số thực trong rig.json làm tròn 9 chữ số thập phân để ổn định giữa x64/arm64 – so sánh rig dùng dung sai ≥ 1e-9) và **1e-9** cho vector lesson/audio (không làm tròn). Chuỗi so khớp tuyệt đối.
 
 ---------------------------------------------------------------------------------------------------
 ## 0. Tệp và cách đọc
