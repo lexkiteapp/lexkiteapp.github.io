@@ -5,7 +5,7 @@ import SnapshotTesting
 import LKDesign
 
 /// C05 teacher rig (frozen, deterministic machine states) on the page background token, light/dark, framed tight to the rig canvas
-/// (390 × 338 pt = the 1108 × 960 art at column width, 2×) – a full-screen device shot was 10× the bytes for the same pixels of the teacher:
+/// (390 × 338 pt = the 1108 × 960 art at column width) – a full-screen device shot was 10× the bytes for the same pixels of the teacher:
 /// 2 teachers × 5 states (rest, speaking D, speaking E, pose cheer, pose concern) × 2 schemes = 20 images.
 /// References live in __Snapshots__; CI records missing ones (SNAPSHOT_RECORD=missing, all with =1) and verifies after.
 @MainActor
