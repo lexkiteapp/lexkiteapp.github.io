@@ -101,7 +101,7 @@ T = json.loads(sys.stdin.read()); print(json.dumps(dict(f=[frames_of(t, 30) for 
     const P = JSON.parse(py(`import json,sys; sys.path.insert(0,'scripts/video/teach2d'); from labels import paginate, chip_w
 tw = lambda s: len(s) * 30.0
 def pg(t, mw, r): W = t.split(); return [[' '.join(W[a:z]), b] for a, z, b in paginate(W, [tw(x) for x in W], 14, mw, r)]
-print(json.dumps(dict(side=pg("Your teammate says: It's my treat today!", 394, 2), short=pg("It's my treat!", 394, 2), one=pg("It's my treat today!", 300, 1), sent=pg("Save this. Free on lexkite.com.", 900, 1),
+print(json.dumps(dict(side=pg("Your teammate says: It's my treat today!", 394, 2), short=pg("It's my treat!", 300, 2), one=pg("It's my treat today!", 300, 1), sent=pg("Save this. Free on lexkite.com.", 900, 1),
   chip=[chip_w('☕ AB', lambda s, z: len(s) * 20.0, 40), chip_w('AB', lambda s, z: len(s) * 20.0, 40)])))`).stdout);
     const flat = pg => pg.map(x => x[0]);
     ok(P.side.every(x => x[0].split(' ').length >= 2) && P.side.length <= 2, `side band: two-row pages of ≥ 2 words (${JSON.stringify(P.side)})`);

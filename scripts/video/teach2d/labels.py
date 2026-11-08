@@ -53,7 +53,7 @@ def side_zoom_cap(cap_s, ox, hx1, cap_x0, gap=12):
 
 
 EMOJI = re.compile('[\u2600-\u27bf\U0001f300-\U0001faff]')
-NO_BREAK_AFTER = {'a', 'an', 'the', 'my', 'your', 'his', 'her', 'our', 'their', 'its', 'this', 'that', 'to', 'of', 'in', 'on', 'at', 'for', 'with', 'by', 'from', 'and', 'or', 'but', "it's", "i'm", "you're", 'i', 'will', 'do', 'does', 'is', 'are', 'not'}
+NO_BREAK_AFTER = {'a', 'an', 'the', 'my', 'your', 'his', 'her', 'our', 'their', 'its', 'this', 'that', 'to', 'of', 'in', 'on', 'at', 'for', 'with', 'by', 'from', 'and', 'or', 'but', 'i', 'will', 'do', 'does', 'is', 'are', 'not'}
 
 
 def chip_w(text, measure, size):

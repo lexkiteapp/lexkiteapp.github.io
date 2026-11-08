@@ -136,7 +136,7 @@ jobs:
       - name: Playwright Chromium (TeacherRig host)
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 >/dev/null
-          timeout 600 npx playwright install --with-deps chromium >/dev/null && echo "Playwright OK"
+          bash scripts/ci/pw-install.sh --with-deps chromium
       - name: Host layer (TeacherRig static geom -> props) + rig render (VP9 alpha, visemes of this voice)
         run: |
           mkdir -p $O; W=$(python3 -c "import json;print(json.load(open('$E'))['teacher'])")
