@@ -235,7 +235,17 @@
  },
  "cls": {
   ":scope > main": {
-   "w-[390px]": "'w-full'"
+   "w-[390px]": "'w-full'",
+   "pb-[75px]": "'pb-28'"
+  },
+  ":scope > main > div > section:nth-child(5) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > span": {
+   "hidden": "''"
+  },
+  ":scope > main > div > section:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span": {
+   "hidden": "''"
+  },
+  ":scope > main > div > section:nth-child(8) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2)": {
+   "hidden": "''"
   },
   ":scope > main > div > section:nth-child(2) > div:nth-child(1) > div:nth-child(1)": {
    "justify-center": "'justify-end'",
