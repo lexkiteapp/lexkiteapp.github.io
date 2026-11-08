@@ -62,6 +62,7 @@ class LessonController(
 
     /** A new exercise became current: fresh input state (match shuffles are seeded by the item id → stable across recompositions). */
     private val log = ArrayList<LItem>()
+    private var fbPos = 1
     init { enter() }
     private fun enter() {
         val it = sess.cur
@@ -74,7 +75,9 @@ class LessonController(
 
     fun ui(): LessonUi {
         val total = sess.total
-        return LessonUi(sess.cur, st, feedback, minOf(sess.solved + 1, max(1, total)), total, sess.progress.toFloat(), sess.combo, finish, (sess.cur?.retry ?: 0) > 0, offState().listen, offState().speak, max(sess.solved, sess.n), log.toList())
+        // Session.answer() already shifted the queue: while the feedback sheet is up the screen keeps the ANSWERED item (web: question stays until Continue)
+        val shown = feedback?.item ?: sess.cur
+        return LessonUi(shown, st, feedback, if (feedback != null) fbPos else minOf(sess.solved + 1, max(1, total)), total, sess.progress.toFloat(), sess.combo, finish, (shown?.retry ?: 0) > 0, offState().listen, offState().speak, max(sess.solved, sess.n), log.toList())
     }
 
     // ---------- input ----------
@@ -148,6 +151,7 @@ class LessonController(
 
     private fun submit(given: Answer.Given, shown: String?) {
         val it = sess.cur ?: return
+        fbPos = minOf(sess.solved + 1, max(1, sess.total)) // "Question n of N" of the answered item, kept while its feedback shows
         val ok = LessonEngine.check(it, given); val r = sess.answer(ok) ?: return
         feedback = Feedback(ok, it, shown ?: st.pick, r.combo, if (ok && it.retry == 0) XP_PER_RIGHT else 0, r.requeued == true)
     }

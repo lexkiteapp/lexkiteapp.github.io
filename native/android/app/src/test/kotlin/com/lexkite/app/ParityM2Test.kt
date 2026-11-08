@@ -67,6 +67,7 @@ class ParityM2Test {
         assertNotNull(fb); assertFalse(fb!!.ok); assertEquals(0, c.sess.combo); assertEquals(total + 0, c.sess.total)
         assertTrue("wrong answer is requeued", fb.requeued && c.sess.q.any { it.id == first.id && it.retry == 1 })
         assertTrue(c.ui().exitNeedsConfirm)
+        assertEquals("the answered question stays on screen under its feedback", first.id, c.ui().cur?.id)
         c.next(); assertNull(c.feedback)
         // right answers build the COMBO and XP is only for first-time rights
         var guard = 0
