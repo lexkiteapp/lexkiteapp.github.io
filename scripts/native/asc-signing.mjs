@@ -6,6 +6,9 @@
 //   revoke-ci-dev <id,id,…>       thu hồi đúng các id đã liệt kê; chỉ nhận chứng chỉ Development do API key tạo ("Created via API")
 //   create-dist <csr.pem> <outDir> tạo 1 chứng chỉ Apple Distribution từ CSR (khoá riêng không bao giờ lên CI) + hồ sơ App Store
 //                                 cho BUNDLES; ghi dist.cer + <bundle>.mobileprovision vào outDir (đều là dữ liệu công khai)
+//   profiles <certId> <outDir>    giữ chứng chỉ Distribution đã có, chỉ bật capability còn thiếu + tạo lại hồ sơ (cùng đầu ra)
+// Trước khi tạo hồ sơ luôn bật đủ CAPS cho từng App ID: hồ sơ chỉ mang capability App ID đang bật, thiếu một cái → archive đỏ
+// "requires a provisioning profile with the … features" (native-release 08/11 thiếu Associated Domains). Chỉ BẬT, không bao giờ tắt.
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -13,6 +16,12 @@ import { isMain } from '../lib/is-main.mjs';
 
 export const BUNDLES = ['com.lexkite.app', 'com.lexkite.app.widget'];
 export const PROFILE_PREFIX = 'LexKite CI AppStore ';
+/** Capability phải có trên App ID = entitlements của app (native/ios/project.yml, mobile/ios/App/App/App.entitlements, widget). */
+export const CAPS = {
+  'com.lexkite.app': ['APP_GROUPS', 'ASSOCIATED_DOMAINS', 'APPLE_ID_AUTH', 'PUSH_NOTIFICATIONS'],
+  'com.lexkite.app.widget': ['APP_GROUPS'],
+};
+const CAP_SETTINGS = { APPLE_ID_AUTH: [{ key: 'APPLE_ID_AUTH_APP_CONSENT', options: [{ key: 'PRIMARY_APP_CONSENT' }] }] };
 const DEV_TYPES = new Set(['DEVELOPMENT', 'IOS_DEVELOPMENT']);
 /** Chứng chỉ được phép thu hồi: Development, tạo bởi API key (CI) – không bao giờ Distribution hay chứng chỉ tạo tay. */
 export const revocable = c => DEV_TYPES.has(c.attributes.certificateType) && /Created via API/i.test(`${c.attributes.name} ${c.attributes.displayName}`);
@@ -41,6 +50,10 @@ async function list() {
   const ps = (await api('GET', '/v1/profiles?limit=200')).data;
   console.log(`Hồ sơ (${ps.length}): id | loại | tên | trạng thái | hết hạn`);
   for (const p of ps) console.log([p.id, p.attributes.profileType, p.attributes.name, p.attributes.profileState, (p.attributes.expirationDate || '').slice(0, 10)].join(' | '));
+  for (const b of BUNDLES) {
+    const have = (await caps((await bundleId(b)).id)).map(c => c.attributes.capabilityType);
+    console.log(`Capability ${b}: ${have.sort().join(', ')}${CAPS[b].some(c => !have.includes(c)) ? ` – THIẾU ${CAPS[b].filter(c => !have.includes(c)).join(', ')}` : ''}`);
+  }
 }
 
 async function revoke(ids) {
@@ -51,17 +64,31 @@ async function revoke(ids) {
   for (const id of want) { await api('DELETE', `/v1/certificates/${id}`); console.log(`đã thu hồi: ${row(cs.get(id))}`); }
 }
 
-async function createDist(csrFile, out) {
-  const csrContent = fs.readFileSync(csrFile, 'utf8').replace(/-----[^-]+-----|\s/g, '');
-  const cert = (await api('POST', '/v1/certificates', { data: { type: 'certificates', attributes: { certificateType: 'DISTRIBUTION', csrContent } } })).data;
+async function bundleId(b) {
+  const bid = (await api('GET', `/v1/bundleIds?filter[identifier]=${encodeURIComponent(b)}&filter[platform]=IOS`)).data.find(x => x.attributes.identifier === b);
+  if (!bid) throw new Error(`không có bundle id ${b} trên App Store Connect`);
+  return bid;
+}
+const caps = async id => (await api('GET', `/v1/bundleIds/${id}/bundleIdCapabilities?limit=200`)).data;
+
+/** Bật capability còn thiếu trên App ID (không tắt cái nào). */
+export async function ensureCaps(b, id) {
+  const have = new Set((await caps(id)).map(c => c.attributes.capabilityType));
+  for (const capabilityType of CAPS[b].filter(c => !have.has(c))) {
+    await api('POST', '/v1/bundleIdCapabilities', { data: { type: 'bundleIdCapabilities', attributes: { capabilityType, settings: CAP_SETTINGS[capabilityType] },
+      relationships: { bundleId: { data: { type: 'bundleIds', id } } } } });
+    console.log(`đã bật ${capabilityType} cho ${b}`);
+  }
+}
+
+async function profiles(cert, out) {
   fs.mkdirSync(out, { recursive: true });
   fs.writeFileSync(path.join(out, 'dist.cer'), Buffer.from(cert.attributes.certificateContent, 'base64'));
-  console.log(`đã tạo: ${row(cert)}`);
   const old = (await api('GET', '/v1/profiles?limit=200')).data.filter(p => p.attributes.name.startsWith(PROFILE_PREFIX));
   for (const p of old) { await api('DELETE', `/v1/profiles/${p.id}`); console.log(`xoá hồ sơ CI cũ: ${p.attributes.name}`); }
   for (const b of BUNDLES) {
-    const bid = (await api('GET', `/v1/bundleIds?filter[identifier]=${encodeURIComponent(b)}&filter[platform]=IOS`)).data.find(x => x.attributes.identifier === b);
-    if (!bid) throw new Error(`không có bundle id ${b} trên App Store Connect`);
+    const bid = await bundleId(b);
+    await ensureCaps(b, bid.id);
     const prof = (await api('POST', '/v1/profiles', { data: { type: 'profiles', attributes: { name: PROFILE_PREFIX + b, profileType: 'IOS_APP_STORE' },
       relationships: { bundleId: { data: { type: 'bundleIds', id: bid.id } }, certificates: { data: [{ type: 'certificates', id: cert.id }] } } } })).data;
     fs.writeFileSync(path.join(out, `${b}.mobileprovision`), Buffer.from(prof.attributes.profileContent, 'base64'));
@@ -69,9 +96,23 @@ async function createDist(csrFile, out) {
   }
 }
 
+async function createDist(csrFile, out) {
+  const csrContent = fs.readFileSync(csrFile, 'utf8').replace(/-----[^-]+-----|\s/g, '');
+  const cert = (await api('POST', '/v1/certificates', { data: { type: 'certificates', attributes: { certificateType: 'DISTRIBUTION', csrContent } } })).data;
+  console.log(`đã tạo: ${row(cert)}`);
+  await profiles(cert, out);
+}
+
+async function reprofile(id, out) {
+  const cert = (await api('GET', `/v1/certificates/${encodeURIComponent(id)}`)).data;
+  if (cert.attributes.certificateType !== 'DISTRIBUTION') throw new Error(`${id} không phải chứng chỉ Distribution`);
+  console.log(`giữ chứng chỉ: ${row(cert)}`);
+  await profiles(cert, out);
+}
+
 if (isMain(import.meta.url)) {
   const [cmd, a, b] = process.argv.slice(2);
-  const run = { list, 'revoke-ci-dev': () => revoke(a || ''), 'create-dist': () => createDist(a, b || 'out/signing') }[cmd];
-  if (!run) { console.error('dùng: list | revoke-ci-dev <ids> | create-dist <csr.pem> <outDir>'); process.exit(2); }
+  const run = { list, 'revoke-ci-dev': () => revoke(a || ''), 'create-dist': () => createDist(a, b || 'out/signing'), profiles: () => reprofile(a || '', b || 'out/signing') }[cmd];
+  if (!run) { console.error('dùng: list | revoke-ci-dev <ids> | create-dist <csr.pem> <outDir> | profiles <certId> <outDir>'); process.exit(2); }
   run().catch(e => { console.error(`::error::${e.message}`); process.exit(1); });
 }
