@@ -1016527,6 +1016527,135 @@
     "qa": {},
     "senseLock": "wiktionary-1"
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "unverifiable#adj",
+   "batch": "20261108-r177",
+   "why": [
+    "soát mẫu AI 1/3: def: does not match sense (unobjective.s.01) · ex: examples use unverifiable but sense is about unobjective · vi: Vietnamese translation does not correspond to sense"
+   ],
+   "at": "2026-11-08",
+   "data": {
+    "w": "unverifiable",
+    "pos": "adj",
+    "ipa": "/ʌnˈverɪˌfaɪəbəl/",
+    "ipaUS": "/ənˌverɪˈfaɪəbl/",
+    "def": "cannot be checked or proven",
+    "ex": [
+     "An unverifiable assertion may be deleted.",
+     "Many conspiracy theorists leverage unverifiable statements and claim them as facts."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 2.08,
+    "emoji": "",
+    "topic": "science",
+    "vi": "không thể xác minh",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:unobjective.s.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wikiversity:wvs261072.5",
+      "tatoeba:13155176"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi"
+     },
+     "trSense": "Not capable of being verified, confirmed, checked or proven",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [],
+      "pt": [],
+      "fr": [],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "cannot be verified",
+      "unverifiable; cannot be verified",
+      "không thể xác minh"
+     ],
+     "viLem": [
+      "unobjective"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C2",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {}
+     },
+     "viSrc": [
+      "b",
+      "c",
+      "wv"
+     ],
+     "trDrop": {
+      "es": "rỗng",
+      "pt": "rỗng",
+      "fr": "rỗng",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "science.d"
+    ]
+   }
   }
  ]
 }
