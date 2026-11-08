@@ -44,9 +44,7 @@
     S.pick = null; S.checked = false;
     const d = { close: '#/practice', title: t('Luyện tiếng Tây Ban Nha'), pct: Math.round(S.i / S.items.length * 100), combo: '', chip: S.lv + (g.t ? ' · ' + g.t : ''), play: t('Nghe lại'), who: '', teacher: '', slow: '',
       opts: ['off', 'on', 'off', 'off'].map((v, i) => ({ v, o: '', k: LET[i], t: '' })) };
-    const root = ST2.mount(view, 'lesson-question', d, null); root.id = 'lsn'; root.classList.add('lsn-v2');
-    const body = $('#lsnBody'); tpl = { off: body.children[0], on: body.children[1] }; body.textContent = '';
-    const f = $('#lsnFill'); if (f) f.style.width = d.pct + '%'; const pc = $('#lsnPct'); if (pc) pc.textContent = d.pct + '%';
+    const body = frame(d);
     const [a, b] = split(it[2]), kind = typed ? t('Chia động từ') : t('Điền từ còn thiếu');
     $('#lsnBub').innerHTML = `${ST.lsnTag(kind, false)}${ST.lsnSent(esc(a) + ST.GAP + esc(b))}${typed ? ST.lsnSub(it[4], 'es') : ''}`;
     $('#lsnPlay').hidden = true; const sl = $('#lsnSlow'); if (sl) sl.hidden = true; const sk = $('.lsn-skipb'); if (sk) sk.hidden = true;
@@ -57,16 +55,43 @@
     } else paint(it);
     $('#lsnRep').onclick = () => window.open('#/report/new', '_blank');
   }
-  function paint(it) {
-    const body = $('#lsnBody'), chk = $('#lsnCheck'); body.textContent = '';
-    it[4].forEach((o, i) => {
-      const n = tpl[S.pick === o ? 'on' : 'off'].cloneNode(true); n.removeAttribute('id'); n.dataset.o = o; n.lang = 'es';
+  // Khung câu hỏi Stitch (lesson-question) + lấy mẫu nút phương án; dùng chung với cpack/es-app/pron-ui.js qua App.esQ
+  function frame(d) {
+    const root = ST2.mount(view, 'lesson-question', d, null); root.id = 'lsn'; root.classList.add('lsn-v2');
+    const body = $('#lsnBody'); tpl = { off: body.children[0], on: body.children[1] }; body.textContent = '';
+    const f = $('#lsnFill'); if (f) f.style.width = d.pct + '%'; const pc = $('#lsnPct'); if (pc) pc.textContent = d.pct + '%';
+    return body;
+  }
+  // Vẽ lại các nút phương án (pick = đang chọn; onPick(o) khi bấm; locked() = đã chấm thì không đổi)
+  function opts(list, pick, onPick, locked) {
+    const body = $('#lsnBody'); body.textContent = '';
+    list.forEach((o, i) => {
+      const n = tpl[pick === o ? 'on' : 'off'].cloneNode(true); n.removeAttribute('id'); n.dataset.o = o; n.lang = 'es';
       n.querySelector(':scope > div > span').textContent = LET[i]; n.querySelector(':scope > span').textContent = o;
-      n.onclick = () => { if (S.checked) return; S.pick = o; chk.disabled = false; const g = $('#lsnGap'); if (g) g.textContent = o; paint(it); const nb = body.children[i]; if (nb) nb.focus({ preventScroll: true }); };
+      n.onclick = () => { if (locked && locked()) return; onPick(o); const nb = body.children[i]; if (nb) nb.focus({ preventScroll: true }); };
       body.appendChild(n);
     });
+  }
+  App.esQ = { frame, opts };
+  function paint(it) {
+    opts(it[4], S.pick, o => { S.pick = o; $('#lsnCheck').disabled = false; paint(it); }, () => S.checked);
     const g = $('#lsnGap'); if (g && S.pick) g.textContent = S.pick;
   }
+
+  // Tấm phản hồi Stitch dưới câu hỏi (dùng chung với cpack/es-app/pron-ui.js qua App.esFoot): dd = trường của feedback-correct/wrong, tr = dòng phụ (tùy chọn), next = bấm Tiếp tục
+  function foot(ok, dd, tr, next) {
+    const K = ok ? 'feedback-correct' : 'feedback-wrong', qf = view.querySelector('.lsn-qfoot');
+    let f = $('#lsnFoot'); if (!f) { f = document.createElement('div'); f.id = 'lsnFoot'; }
+    if (qf) { qf.hidden = true; qf.after(f); }
+    f.hidden = false; f.className = 'lsn-fv2 ' + (ok ? 'ok' : 'bad');
+    const o2 = ST2[K](dd); f.innerHTML = `<div class="v2s-${K}">${o2.main}</div>`;
+    f.querySelectorAll('.lsn-dict,.lsn-whyrow').forEach(x => x.remove()); const xp = f.querySelector('.lsn-xpp'); if (xp) xp.hidden = true; const an = f.querySelector('.lsn-ans'); if (an && ok) an.hidden = true;
+    if (tr) f.insertAdjacentHTML('afterbegin', tr);
+    view.querySelectorAll('.lsn-fq').forEach(x => x.remove());
+    $('#lsnNext').onclick = next; $('#lsnNext').focus({ preventScroll: true });
+    f.scrollIntoView({ block: 'end', behavior: 'auto' });
+  }
+  App.esFoot = foot;
 
   function check() {
     if (S.checked) return; const it = S.items[S.i], typed = it[0] === 'c', ans = it[3];
@@ -79,21 +104,13 @@
     document.querySelectorAll('#lsnBody button, #lsnIn').forEach(x => { x.disabled = true; });
     try { if (window.Sfx) (ok ? Sfx.correct : Sfx.wrong)(); } catch (e) { /* bỏ qua */ }
     const full = it[2].replace('___', ans).replace(/\s*\([^)]*\)/, '');
-    const g = gx(it[1]), K = ok ? 'feedback-correct' : 'feedback-wrong', qf = view.querySelector('.lsn-qfoot');
-    let foot = $('#lsnFoot'); if (!foot) { foot = document.createElement('div'); foot.id = 'lsnFoot'; }
-    if (qf) { qf.hidden = true; qf.after(foot); }
-    foot.hidden = false; foot.className = 'lsn-fv2 ' + (ok ? 'ok' : 'bad');
+    const g = gx(it[1]);
     const why = (g.t || g.x) ? `<div class="lsn-fb flex flex-col gap-[0.5rem]"><div class="${ST.XP}" dir="auto" lang="${lang()}"><b>${esc(g.t)}</b><br>${esc(g.x)}</div></div>` : '';
     const tr = !typed && it[5] ? `<span class="text-[13px] opacity-90" lang="en">${esc(it[5])}</span>` : '';
     const dd = { head: ok ? t('Tuyệt!') : t('Chưa đúng'), xp: '', answer: ok ? '' : ans, tlabel: '', word: '', ipa: '', mean: '', a1: '', a2: '', acc1: '', acc2: '', url1: '', url2: '', ar1: '', ar2: '', say: '',
       qkind: typed ? t('Chia động từ') : t('Điền từ còn thiếu'), qpre: split(it[2])[0], qpick: ok ? ans : String(given), qpost: split(it[2])[1], extra: note ? `<span class="text-[13px]">${esc(note)}</span>` : '', boxes: why };
-    const o2 = ST2[K](dd); foot.innerHTML = `<div class="v2s-${K}">${o2.main}</div>`;
-    foot.querySelectorAll('.lsn-dict,.lsn-whyrow').forEach(x => x.remove()); const xp = foot.querySelector('.lsn-xpp'); if (xp) xp.hidden = true; const an = foot.querySelector('.lsn-ans'); if (an && ok) an.hidden = true;
-    if (tr) foot.insertAdjacentHTML('afterbegin', tr);
-    view.querySelectorAll('.lsn-fq').forEach(x => x.remove());
+    foot(ok, dd, tr, next);
     $('#lsnBody').querySelectorAll('.lsn-opt').forEach(b => { b.classList.toggle('opacity-60', b.dataset.o !== ans && b.dataset.o !== String(given)); });
-    $('#lsnNext').onclick = next; $('#lsnNext').focus({ preventScroll: true });
-    foot.scrollIntoView({ block: 'end', behavior: 'auto' });
     if (!typed || ok) setTimeout(() => speak(full), 150);
   }
 
@@ -102,15 +119,19 @@
     if (++S.i < S.items.length) return ask();
     finish();
   }
-  async function finish() {
-    const n = S.items.length, acc = Math.round(S.ok / n * 100), xp = 10 + S.ok * 2 + (S.ok === n ? 5 : 0), nx = LV[(LV.indexOf(S.lv) + 1) % LV.length];
-    try { await App.reward({ quizzes: 1, perfect: S.ok === n ? 1 : 0, xp }); } catch (e) { /* bỏ qua */ }
+  const finish = () => end({ n: S.items.length, ok: S.ok, first: S.first, best: S.best, chip: S.lv, rev: t('Cấp {l}', { l: nx() }), revHref: '#/practice/es?lv=' + nx(), again: () => App.espr(S.lv) });
+  const nx = () => LV[(LV.indexOf(S.lv) + 1) % LV.length];
+  // Màn kết Stitch (lesson-complete) dùng chung với cpack/es-app/pron-ui.js qua App.esEnd: o = { n, ok, first, best, chip, title, rev, revHref, again }
+  async function end(o) {
+    const n = o.n, acc = Math.round(o.ok / n * 100), xp = 10 + o.ok * 2 + (o.ok === n ? 5 : 0);
+    try { await App.reward({ quizzes: 1, perfect: o.ok === n ? 1 : 0, xp }); } catch (e) { /* bỏ qua */ }
     const off = (v) => Math.round(490 * (1 - v)), ic = x => `<span class="material-symbols-outlined text-[16px]" aria-hidden="true">${x}</span>`;
-    const d = { close: '#/practice', mapL: t('Làm lại'), title: t('Luyện tiếng Tây Ban Nha'), pct: '100%', chip: S.lv, xp: '+' + xp, acc: acc + '%', streak: String(App.streak ? App.streak() : 0), off1: off(acc / 100), off2: Math.round(414 * (1 - S.first / Math.max(1, n))),
-      sub: acc >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!'), learned: ' ', more: `<span class="flex flex-wrap items-center gap-x-3 mt-1 text-[13px] font-bold">${ic('local_fire_department')}${esc(t('COMBO cao nhất'))}: ${S.best}</span>`,
-      rev: t('Cấp {l}', { l: nx }), revHref: '#/practice/es?lv=' + nx, teacher: '' };
+    const d = { close: '#/practice', mapL: t('Làm lại'), title: o.title || t('Luyện tiếng Tây Ban Nha'), pct: '100%', chip: o.chip, xp: '+' + xp, acc: acc + '%', streak: String(App.streak ? App.streak() : 0), off1: off(acc / 100), off2: Math.round(414 * (1 - o.first / Math.max(1, n))),
+      sub: acc >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!'), learned: ' ', more: `<span class="flex flex-wrap items-center gap-x-3 mt-1 text-[13px] font-bold">${ic('local_fire_department')}${esc(t('COMBO cao nhất'))}: ${o.best}</span>`,
+      rev: o.rev, revHref: o.revHref, teacher: '' };
     const root = ST2.mount(view, 'lesson-complete', d, null); root.id = 'lsn'; root.classList.add('lsn-v2', 'lsn-end', 'st-end');
     try { if (window.Sfx) Sfx.win(); } catch (e) { /* bỏ qua */ }
-    $('#lsnAgain').onclick = () => App.espr(S.lv); $('#lsnAgain').focus({ preventScroll: true });
+    $('#lsnAgain').onclick = o.again; $('#lsnAgain').focus({ preventScroll: true });
   }
+  App.esEnd = end;
 })();

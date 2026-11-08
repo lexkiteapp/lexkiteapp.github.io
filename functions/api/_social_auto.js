@@ -30,7 +30,7 @@ export const PROVIDERS = ['auto', 'grabcast', 'meta'];
 const clamp = (v, lo, hi, d) => { const n = Math.round(+v); return Number.isFinite(n) ? Math.max(lo, Math.min(hi, n)) : d; };
 export function cleanAuto(a) {
   a = a && typeof a === 'object' ? a : {}; const d = AUTO_DEFAULT, pl = a.plats && typeof a.plats === 'object' ? a.plats : {};
-  return { on: a.on == null ? d.on : !!a.on, auto_approve: !!a.auto_approve, auto_queue: !!a.auto_queue, manual_first: clamp(a.manual_first, 1, 50, d.manual_first),
+  return { on: a.on == null ? d.on : !!a.on, auto_approve: !!a.auto_approve, auto_queue: !!a.auto_queue, manual_first: clamp(a.manual_first, 1, 50, d.manual_first), autopub: Object.fromEntries(AUTO_PLATS.map(p => [p, !!a.autopub && a.autopub[p] === true])),
     plats: Object.fromEntries(AUTO_PLATS.map(p => [p, pl[p] == null ? d.plats[p] : !!pl[p]])),
     max_per_run: clamp(a.max_per_run, 1, 5, d.max_per_run), lookahead_h: clamp(a.lookahead_h, 2, 72, d.lookahead_h), lead_min: clamp(a.lead_min, 10, 180, d.lead_min),
     sync_h: clamp(a.sync_h, 3, 24, d.sync_h), daily_calls: clamp(a.daily_calls, 10, 120, d.daily_calls), plan_daily: a.plan_daily == null ? d.plan_daily : !!a.plan_daily,
@@ -55,7 +55,7 @@ export const dayOf = t => new Date(t).toISOString().slice(0, 10);
 /** Còn bao nhiêu lượt GrabCast hôm nay (UTC). */
 export const budgetLeft = (st, cfg, now) => Math.max(0, cfg.daily_calls - ((st.calls && st.calls.day === dayOf(now)) ? +st.calls.n || 0 : 0));
 /** Tự duyệt được cho nền tảng p? – cần công tắc BẬT và đã có ≥ manual_first bài duyệt TAY trên nền tảng đó. */
-export const canAutoApprove = (cfg, p, manual) => !!cfg.auto_approve && (+(manual || {})[p] || 0) >= cfg.manual_first;
+export const canAutoApprove = (cfg, p, manual) => !!cfg.auto_approve && !!cfg.autopub && cfg.autopub[p] === true && (+(manual || {})[p] || 0) >= cfg.manual_first; // autopub: cờ riêng từng nền tảng (mặc định tắt) – auto_approve một mình không bao giờ đủ để tự đăng
 /** Hàng social_due → việc của lượt này: nền tảng bật, có account_id, slot trong cửa sổ; sớm nhất trước. */
 export function pickDue(rows, cfg, now) {
   const lo = now + cfg.lead_min * 60e3, hi = now + cfg.lookahead_h * 36e5;

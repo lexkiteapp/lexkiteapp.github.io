@@ -1,6 +1,7 @@
 // Thư viện gói luyện tập tiếng Tây Ban Nha W2b: dựng dữ liệu (câu điền từ + bài chia động từ sinh từ conjugate.mjs) – dùng bởi drill-pack.mjs và corpus âm thanh.
 import { readJSON } from './lib.mjs';
 import { form, conjugate, TENSES } from './conjugate.mjs';
+import { buildPx } from './px-lib.mjs';
 
 export const D = 'content/target/es/', LV = ['A1', 'A2', 'B1'];
 export const GX_LANGS = ['en', 'vi', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
@@ -45,6 +46,7 @@ export function build() {
     for (const p of pts) if (src[p.id]) o[p.id] = [src[p.id].t, src[p.id].x];
     files[`gx-${l}.js`] = `self.ESX=self.ESX||{};(ESX.gx=ESX.gx||{})[${JSON.stringify(l)}]=${JSON.stringify(o)};\n`;
   }
+  Object.assign(files, buildPx().files); // gói phát âm W3 (px.js + px-<ngôn ngữ>.js) cùng thư mục, cùng kiểm 'cũ so với nguồn' / mồ côi
   return { files, dr, pts, cloze };
 }
 
