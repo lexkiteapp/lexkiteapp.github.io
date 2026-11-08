@@ -120,7 +120,7 @@ object WordBook {
         var card = st.cards[key]
         if (card == null) card = WebCards.make(entry, now)
         else {
-            var o = card
+            var o: JsonObject = card
             if (!o.gt("image") && entry.gt("image")) o = o.cp("imageCredit" to (if (entry.gt("imageCredit")) entry["imageCredit"] else JsonNull))
             for (k in FILL) if (!o.gt(k) && entry.gt(k)) o = o.cp(k to entry[k])
             if (o.ga("sentences").isEmpty() && entry["sentences"] is JsonArray) o = o.cp("sentences" to entry.ga("sentences").take(2))

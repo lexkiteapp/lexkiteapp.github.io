@@ -72,7 +72,7 @@ class Topic(val id: String, val name: String, val emoji: String, val desc: Strin
 class WordGroup(val id: String, val name: String, val emoji: String, val desc: String)
 
 /**
- * The web word library as native data: `web/js/data.js` + `web/js/lib/*.js` rows -> topics, groups and the INDEX (lower-case word -> entry, the
+ * The web word library as native data: `web/js/data.js` + `web/js/lib/` files rows -> topics, groups and the INDEX (lower-case word -> entry, the
  * set with the smallest group rank wins, ties load order). Native loads the same files as the web (cached by path); injectable text source.
  */
 class WebWords(val topics: List<Topic>, val groups: List<WordGroup>) {
@@ -96,7 +96,7 @@ class WebWords(val topics: List<Topic>, val groups: List<WordGroup>) {
         }
         private val CALL = Regex("(?m)^(add|T)\\(")
 
-        /** Topics declared in one script (`T(...)` in data.js, `add(...)` in js/lib/*.js), in file order. */
+        /** Topics declared in one script (`T(...)` in data.js, `add(...)` in js/lib/ files), in file order. */
         fun parseTopics(text: String): List<Topic> {
             val out = ArrayList<Topic>()
             for (m in CALL.findAll(text)) {

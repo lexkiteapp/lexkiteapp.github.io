@@ -408,7 +408,7 @@ class Dict(private val net: DictNet, private val lex: Lex?, private val index: M
     }
     private fun overlay(e: JsonObject?, local: JsonObject?): JsonObject? {
         if (e == null || local == null) return e
-        var o = e
+        var o: JsonObject = e
         for (f in LOCAL_F) { val v = local[f]; if (v != null && v !is JsonNull && !(v is JsonPrimitive && v.isString && v.content.isEmpty()) && !(v is JsonArray && v.isEmpty())) o = o.cp(f to v) }
         return o.cp("ipaUS" to if (local.gt("ipaUS")) local["ipaUS"] else if (local.gt("ipa")) "" else o["ipaUS"])
     }
