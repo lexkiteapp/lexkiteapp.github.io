@@ -133,7 +133,7 @@ internal fun PickerDialog(title: String, options: List<Pair<String, String>>, se
 
 // ---- text ----
 @Composable internal fun Body(text: String, modifier: Modifier = Modifier, color: Color = LocalLKColors.current.onSurface, style: com.lexkite.app.design.generated.LKTextStyle = LKType.bodyMd, align: TextAlign? = null, maxLines: Int = Int.MAX_VALUE) =
-    Text(text, modifier, color = color, style = style.toCompose(), textAlign = align, maxLines = maxLines, overflow = if (maxLines == Int.MAX_VALUE) TextOverflow.Clip else TextOverflow.Ellipsis)
+    Text(text, modifier, color = color, style = style.toCompose().copy(textDirection = contentDirection(text)), textAlign = align, maxLines = maxLines, overflow = if (maxLines == Int.MAX_VALUE) TextOverflow.Clip else TextOverflow.Ellipsis)
 @Composable internal fun Muted(text: String, modifier: Modifier = Modifier, align: TextAlign? = null) = Body(text, modifier, LocalLKColors.current.onSurfaceVariant, LKType.bodySm, align)
 @Composable internal fun Label(text: String, modifier: Modifier = Modifier, color: Color = LocalLKColors.current.onSurfaceVariant) = Text(text.uppercase(t.locale), modifier, color = color, style = LKType.labelBadge.toCompose())
 

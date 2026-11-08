@@ -62,7 +62,7 @@ fun ParaphraseScreen(ui: ParaUi, a: ParaActions, onExit: () -> Unit) {
                 }
                 if (ui.picked != null) {
                     LKCard {
-                        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
                             Ltr { VText(ui.q.q + " ≈ " + ui.q.answer, LKType.bodyMd, c.onSurface, Modifier.weight(1f)) }
                             VSpeak(t(L10nKey.lessonReplay)) { a.say(ui.q.answer) }
                         }

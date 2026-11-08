@@ -3,6 +3,7 @@ package com.lexkite.app.feature.vocab
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.material3.Text
@@ -126,11 +127,10 @@ private fun VerbPage(ui: VerbUi.Page, a: VerbActions) {
     val d = ui.d; val base = d.base; val f = d.forms
     // ---- hero ----
     LKCard {
-        Ltr {
-            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
-                Text(base + (if (d.tail.isNotEmpty()) " " + d.tail else ""), style = LKType.headlineLg.toCompose(), color = c.onSurface, modifier = Modifier.weight(1f, fill = false).semantics { heading() })
-                VSpeak(t(L10nKey.vocabPronounce)) { a.say(base) }
-            }
+        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
+            Ltr { Text(base + (if (d.tail.isNotEmpty()) " " + d.tail else ""), style = LKType.headlineLg.toCompose(), color = c.onSurface, modifier = Modifier.semantics { heading() }) }
+            Spacer(Modifier.weight(1f))
+            VSpeak(t(L10nKey.vocabPronounce)) { a.say(base) }
         }
         VFlow {
             if (d.modal) VBadge(t(L10nKey.verbModalVerb), c.tertiaryContainer, c.onTertiaryContainer)

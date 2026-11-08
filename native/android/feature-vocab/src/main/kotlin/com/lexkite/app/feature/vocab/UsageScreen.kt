@@ -4,6 +4,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
@@ -197,10 +198,11 @@ private fun UsageWord(ui: UsageUi.Word, a: UsageActions) {
     val r = ui.lookup; val lang = t.lang
     val all = Usage.KINDS.flatMap { r.byKind[it] ?: emptyList() }
     LKCard {
-        Ltr { Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-            Text(ui.title, style = LKType.headlineLg.toCompose(), color = c.onSurface, modifier = Modifier.weight(1f, fill = false).semantics { heading() })
+        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
+            Ltr { Text(ui.title, style = LKType.headlineLg.toCompose(), color = c.onSurface, modifier = Modifier.semantics { heading() }) }
+            Spacer(Modifier.weight(1f))
             VSpeak(t(L10nKey.vocabPronounce)) { a.say(ui.title) }
-        } }
+        }
         VFlow { Usage.KINDS.filter { (r.byKind[it] ?: emptyList()).isNotEmpty() }.forEach { k -> kindLabel(k)?.let { VBadge(t(it), c.secondaryContainer, c.onSecondaryContainer) } } }
         VFlow {
             LKPillButton(t(L10nKey.verbSeeMeaning), { a.open("dict/" + android.net.Uri.encode(r.key)) })
@@ -312,7 +314,7 @@ private fun Notes(es: List<UEntry>, lang: String) {
 private fun ExampleLine(raw: String, a: UsageActions) {
     val c = LocalLKColors.current; val t = LocalL10n.current
     val text = exText(raw)
-    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
         Ltr { VText(text, LKType.bodyMd, c.onSurface, Modifier.weight(1f)) }
         VSpeak(t(L10nKey.usagePlaySentence)) { a.say(text) }
     }

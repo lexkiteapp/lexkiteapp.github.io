@@ -191,17 +191,17 @@ private val SENT = Regex("[^.!?]+[.!?]+")
 /** The essay with highlighted phrases (tap = save), linkers and sentence roles, following the annotation switches. */
 @Composable
 private fun Annotated(paras: List<Models.Para>, annot: Set<String>, lang: String, saved: Set<String>, onChunk: (String, String) -> Unit, hl: HlState = HlState(), onSentence: (Int) -> Unit = {}) {
-    val c = LocalLKColors.current
+    val c = LocalLKColors.current; val t = LocalL10n.current
     var ord = 0 // running sentence ordinal over the whole essay (the free highlight is stored by ordinal)
     Ltr {
         Column(verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
             paras.forEach { p ->
-                if (p.head != null && "role" in annot) VBadge(p.head!!, c.tertiaryContainer, c.onTertiaryContainer)
+                if (p.head != null && "role" in annot) VBadge(t.src(p.head!!), c.tertiaryContainer, c.onTertiaryContainer)
                 val plain = buildAnnotatedString {
                     p.segs.forEach { s ->
                         when (s) {
                             is Models.Seg.Text -> append(s.s)
-                            is Models.Seg.Role -> if ("role" in annot) withStyle(SpanStyle(color = c.onTertiaryContainer, background = c.tertiaryContainer, fontWeight = FontWeight.Bold, fontSize = LKType.bodySm.size)) { append(" ${s.s} ") }
+                            is Models.Seg.Role -> if ("role" in annot) withStyle(SpanStyle(color = c.onTertiaryContainer, background = c.tertiaryContainer, fontWeight = FontWeight.Bold, fontSize = LKType.bodySm.size)) { append(" ${t.src(s.s)} ") }
                             is Models.Seg.Link -> if ("lk" in annot) withStyle(SpanStyle(color = c.tertiary, fontWeight = FontWeight.Bold)) { append(s.s) } else append(s.s)
                             is Models.Seg.Chunk -> if ("ch" in annot) {
                                 pushStringAnnotation("chunk", s.en + "\u0000" + s.vi)
@@ -218,7 +218,7 @@ private fun Annotated(paras: List<Models.Para>, annot: Set<String>, lang: String
                     append(plain)
                     sents.forEachIndexed { k, r -> if (base + k in hl.marked) addStyle(SpanStyle(background = c.tertiaryContainer), r.first, r.last + 1) }
                 }
-                ClickableText(text, style = LKType.bodyLg.toCompose().copy(color = c.onSurface, lineHeight = 44.sp), onClick = { off ->
+                ClickableText(text, style = LKType.bodyLg.toCompose().copy(color = c.onSurface, lineHeight = 34.sp), onClick = { off ->
                     if (hl.on) { val k = sents.indexOfFirst { off in it }; if (k >= 0) onSentence(base + k); return@ClickableText }
                     text.getStringAnnotations("chunk", off, off).firstOrNull()?.let { a -> val (en, vi) = a.item.split("\u0000"); onChunk(en, vi) }
                 })
@@ -430,7 +430,7 @@ private fun SlotsPractice(m: JsonObject, a: ModelActions) {
     Ltr {
         Column(verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
             blocks.forEachIndexed { bi, b ->
-                if (b.role.isNotEmpty()) VBadge(b.role, c.tertiaryContainer, c.onTertiaryContainer)
+                if (b.role.isNotEmpty()) VBadge(t.src(b.role), c.tertiaryContainer, c.onTertiaryContainer)
                 VFlow {
                     b.toks.forEachIndexed { ti, tok ->
                         val i = slotIdx[bi][ti]
@@ -462,7 +462,7 @@ private fun LemmaPractice(m: JsonObject, tools: ModelTools, a: ModelActions) {
     VMuted(t(L10nKey.modelEachSentenceIsGiven).plain())
     sents.forEachIndexed { i, s ->
         Column(verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
-            if (s.role.isNotEmpty()) VBadge(s.role, c.tertiaryContainer, c.onTertiaryContainer)
+            if (s.role.isNotEmpty()) VBadge(t.src(s.role), c.tertiaryContainer, c.onTertiaryContainer)
             Ltr { VText(prompts[i], LKType.bodyMd, c.onSurface) }
             VField(inputs[i], { v -> inputs = inputs.toMutableList().also { it[i] = v }; res = null }, t(L10nKey.modelWriteTheFullSentence), singleLine = false, lines = 2)
             val r = res?.get(i)

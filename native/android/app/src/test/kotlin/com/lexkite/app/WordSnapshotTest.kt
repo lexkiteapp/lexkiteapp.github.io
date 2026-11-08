@@ -136,7 +136,7 @@ class WordSnapshotTest {
     @Composable private fun paraphraseContent() {
         val round = Paraphrase.Round(Paraphrase.pairs(writing.paraphrase), null)
         val q = round.question()
-        ParaphraseScreen(ParaUi.Question(0, round.items.size, q, q.answer), ParaActions(), {})
+        ParaphraseScreen(ParaUi.Question(0, round.items.size, q, null), ParaActions(), {})
     }
 
     @Composable private fun phrasesContent() {

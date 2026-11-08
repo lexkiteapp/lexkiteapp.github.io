@@ -25,6 +25,12 @@ class IdeasActions(
     val pickTopic: (String) -> Unit = {}, val toggleIssue: (Int) -> Unit = {}, val say: (String) -> Unit = {}, val saveChunk: (JsonObject, String) -> Unit = { _, _ -> }, val open: (String) -> Unit = {},
 )
 
+/** Topic titles are authored in Vietnamese and translated through the shared string table; a title with no id keeps the topic name (like iOS). */
+private fun topicTitle(t: com.lexkite.app.i18n.L10n, x: JsonObject): String {
+    val ti = x.jstr("title")
+    return (if (ti.isNotEmpty()) t.translate(ti) else null) ?: if (t.lang == "vi" && ti.isNotEmpty()) ti else x.jstr("topic").replaceFirstChar { it.uppercase() }
+}
+
 /** #/ideas and #/ideas/<topic>: Task 2 idea bank – topic chips, issues with For / Against ideas, example sentences, tap-to-save chunks, topic vocabulary, related prompts. */
 @Composable
 fun IdeasScreen(topics: List<JsonObject>, cur: JsonObject?, openIssues: Set<Int>, saved: Set<String>, prompts: List<JsonObject>, a: IdeasActions, onExit: () -> Unit) {
@@ -32,7 +38,7 @@ fun IdeasScreen(topics: List<JsonObject>, cur: JsonObject?, openIssues: Set<Int>
     VScreen(t(L10nKey.ideasTask2IdeaBank), onExit) {
         if (cur == null) { VNotice(t(L10nKey.ideasTheIdeaBankIs)); return@VScreen }
         VMuted(t(L10nKey.ideasRunningOutOfIdeas).plain())
-        VFlow { topics.forEach { tp -> VChip(tp.jstr("emoji") + " " + tp.jstr("title"), { a.pickTopic(tp.jstr("topic")) }, selected = tp.jstr("topic") == cur.jstr("topic")) } }
+        VFlow { topics.forEach { tp -> VChip(tp.jstr("emoji") + " " + topicTitle(t, tp), { a.pickTopic(tp.jstr("topic")) }, selected = tp.jstr("topic") == cur.jstr("topic")) } }
         cur.jarr("issues").mapNotNull { it as? JsonObject }.forEachIndexed { i, iss ->
             val open = i in openIssues
             LKCard(onClick = { a.toggleIssue(i) }) {
@@ -47,7 +53,7 @@ fun IdeasScreen(topics: List<JsonObject>, cur: JsonObject?, openIssues: Set<Int>
                             Column(verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
                                 Ltr { VText(idea.jstr("idea"), LKType.titlePill, c.onSurface) }
                                 if (t.lang == "vi" && idea.jstr("vi").isNotEmpty()) VText(idea.jstr("vi"), LKType.bodyMd, c.onSurfaceVariant)
-                                if (idea.jstr("ex").isNotEmpty()) Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                                if (idea.jstr("ex").isNotEmpty()) Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
                                     Ltr { VText(idea.jstr("ex"), LKType.bodyMd, c.onSurface, Modifier.weight(1f)) }
                                     VSpeak(t(L10nKey.lessonReplay)) { a.say(idea.jstr("ex")) }
                                 }

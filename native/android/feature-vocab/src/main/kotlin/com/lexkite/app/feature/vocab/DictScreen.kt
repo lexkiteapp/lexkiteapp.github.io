@@ -3,6 +3,7 @@ package com.lexkite.app.feature.vocab
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
@@ -111,25 +112,24 @@ private fun WordCard(v: DictView, a: DictActions) {
     val word = m.word
     // ---- head: word, part of speech, level, "form -> word", pronunciation UK / US with slow playback ----
     LKCard {
-        Ltr {
-            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
-                Text(word, style = LKType.headlineLg.toCompose(), color = c.onSurface, modifier = Modifier.weight(1f, fill = false).semantics { heading() })
-                val pos = DictPage.posLabel(e.jstr("pos"), v.uiLang)
-                if (pos.isNotEmpty()) VBadge(pos)
-                if (e.jstr("level").isNotEmpty()) VBadge(e.jstr("level"), c.tertiaryContainer, c.onTertiaryContainer)
-            }
-            if (m.from.isNotEmpty()) VBadge(m.from + " → " + word, c.secondaryContainer, c.onSecondaryContainer)
-            val ipa = e.jstr("ipa"); val ipaUS = e.jstr("ipaUS")
-            if (ipa.isNotEmpty()) PronRow(if (ipaUS.isEmpty()) "$UK · $US" else UK, ipa, word, "UK", a)
-            if (ipaUS.isNotEmpty()) PronRow(US, ipaUS, word, "US", a)
+        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
+            Ltr { Text(word, style = LKType.headlineLg.toCompose(), color = c.onSurface, modifier = Modifier.semantics { heading() }) }
+            Spacer(Modifier.weight(1f))
+            val pos = DictPage.posLabel(e.jstr("pos"), v.uiLang)
+            if (pos.isNotEmpty()) VBadge(pos)
+            if (e.jstr("level").isNotEmpty()) VBadge(e.jstr("level"), c.tertiaryContainer, c.onTertiaryContainer)
         }
+        if (m.from.isNotEmpty()) Ltr { VBadge(m.from + " → " + word, c.secondaryContainer, c.onSecondaryContainer) }
+        val ipa = e.jstr("ipa"); val ipaUS = e.jstr("ipaUS")
+        if (ipa.isNotEmpty()) PronRow(if (ipaUS.isEmpty()) "$UK · $US" else UK, ipa, word, "UK", a)
+        if (ipaUS.isNotEmpty()) PronRow(US, ipaUS, word, "US", a)
     }
     // ---- meaning + main example ----
     LKCard {
         if (m.meaning.isNotEmpty()) VText(m.meaning, LKType.headlineSm, c.onSurface)
         if (m.def.isNotEmpty()) Ltr { VText(m.def, LKType.bodyMd, c.onSurfaceVariant) }
         if (m.example.isNotEmpty()) {
-            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
                 Ltr { VText(m.example, LKType.bodyLg, c.onSurface, Modifier.weight(1f)) }
                 VSpeak(t(L10nKey.lessonReplay)) { a.speakText(m.example) }
             }
@@ -202,7 +202,7 @@ private fun PronRow(label: String, ipa: String, word: String, region: String, a:
     val c = LocalLKColors.current; val t = LocalL10n.current
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
         VBadge(label, c.secondaryContainer, c.onSecondaryContainer)
-        VText(ipa, LKType.bodyLg, c.onSurfaceVariant, Modifier.weight(1f))
+        Ltr { VText(ipa, LKType.bodyLg, c.onSurfaceVariant, Modifier.weight(1f)) }
         VSpeak(t(L10nKey.vocabPronounce)) { a.speakWord(word, region, false) }
         VSpeak(t(L10nKey.dictSlow), slow = true) { a.speakWord(word, region, true) }
     }

@@ -158,7 +158,9 @@ private fun FlipFace(u: ReviewUi.Card, a: ReviewActions) {
                     Body(card.word, align = TextAlign.Center, style = LKType.displayHeroMobile)
                     if (card.ipa.isNotEmpty()) Muted(card.ipa, align = TextAlign.Center)
                 }
+                Spacer(Modifier.height(LKSpacing.spaceSm))
                 SpeakButton({ a.sayWord(card.word, "") })
+                Spacer(Modifier.height(LKSpacing.spaceSm))
                 Muted(t(L10nKey.revGuessTheMeaningThen), align = TextAlign.Center)
             }
         }

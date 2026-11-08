@@ -98,9 +98,21 @@ internal fun VScreen(title: String, onExit: () -> Unit, content: @Composable Col
     }
 }
 
+/** Latin-only text inside an RTL layout runs left-to-right (punctuation stays at its end: `Meaning of "x"?`); mixed or Arabic text keeps the layout's rule. */
+@Composable @androidx.compose.runtime.ReadOnlyComposable
+internal fun contentDirection(text: String): androidx.compose.ui.text.style.TextDirection {
+    if (LocalLayoutDirection.current != LayoutDirection.Rtl) return androidx.compose.ui.text.style.TextDirection.Unspecified
+    var latin = false
+    for (ch in text) when (Character.getDirectionality(ch)) {
+        Character.DIRECTIONALITY_LEFT_TO_RIGHT -> latin = true
+        Character.DIRECTIONALITY_RIGHT_TO_LEFT, Character.DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC -> return androidx.compose.ui.text.style.TextDirection.Unspecified
+    }
+    return if (latin) androidx.compose.ui.text.style.TextDirection.Ltr else androidx.compose.ui.text.style.TextDirection.Unspecified
+}
+
 @Composable
 internal fun VText(text: String, style: LKTextStyle = LKType.bodyMd, color: Color = LocalLKColors.current.onSurface, modifier: Modifier = Modifier) =
-    Text(text, style = style.toCompose(), color = color, modifier = modifier)
+    Text(text, style = style.toCompose().copy(textDirection = contentDirection(text)), color = color, modifier = modifier)
 
 @Composable
 internal fun VMuted(text: String, modifier: Modifier = Modifier) = VText(text, LKType.bodySm, LocalLKColors.current.onSurfaceVariant, modifier)
@@ -118,13 +130,13 @@ internal fun VChip(text: String, onClick: (() -> Unit)?, selected: Boolean = fal
         modifier.heightIn(min = MinTap).clip(PillShape).background(if (selected) c.secondaryContainer else c.card)
             .border(2.dp, if (selected) c.secondary else c.outlineVariant, PillShape).tactile(onClick).semantics { this.selected = selected }.padding(horizontal = LKSpacing.spaceSm),
         contentAlignment = Alignment.Center,
-    ) { Text(text, style = LKType.labelMetric.toCompose(), color = if (selected) c.onSecondaryContainer else c.onSurface) }
+    ) { Text(text, style = LKType.labelMetric.toCompose().copy(textDirection = contentDirection(text)), color = if (selected) c.onSecondaryContainer else c.onSurface) }
 }
 
 /** Small read-only badge (level, part of speech, band …). */
 @Composable
 internal fun VBadge(text: String, fill: Color = LocalLKColors.current.cardHigh, ink: Color = LocalLKColors.current.onSurface) {
-    Box(Modifier.clip(PillShape).background(fill).padding(horizontal = LKSpacing.spaceXs, vertical = 2.dp)) { Text(text, style = LKType.labelBadge.toCompose(), color = ink) }
+    Box(Modifier.clip(PillShape).background(fill).padding(horizontal = LKSpacing.spaceXs, vertical = 2.dp)) { Text(text, style = LKType.labelBadge.toCompose().copy(textDirection = contentDirection(text)), color = ink) }
 }
 
 /** Round 44 dp icon button with a spoken description. */
@@ -152,12 +164,12 @@ internal fun VField(
         ) {
             if (leading) Box(Modifier.heightIn(min = 52.dp), contentAlignment = Alignment.Center) { Icon(Icons.Filled.Search, null, tint = c.secondary, modifier = Modifier.size(22.dp)) }
             BasicTextField(
-                value, onChange, Modifier.weight(1f).padding(vertical = if (singleLine) 0.dp else LKSpacing.spaceXs).semantics { contentDescription = hint }, singleLine = singleLine,
+                value, onChange, Modifier.weight(1f).padding(vertical = if (singleLine) 8.dp else LKSpacing.spaceXs).semantics { contentDescription = hint }, singleLine = singleLine,
                 textStyle = LKType.bodyLg.toCompose().copy(color = c.onSurface), cursorBrush = SolidColor(c.secondary),
                 keyboardOptions = KeyboardOptions(imeAction = if (onGo != null && singleLine) ImeAction.Search else ImeAction.Default, autoCorrectEnabled = false),
                 keyboardActions = KeyboardActions(onSearch = { onGo?.invoke() }),
                 decorationBox = { inner ->
-                    Box(Modifier.heightIn(min = if (singleLine) 52.dp else 24.dp), contentAlignment = if (singleLine) Alignment.CenterStart else Alignment.TopStart) {
+                    Box(Modifier.heightIn(min = if (singleLine) 36.dp else 24.dp), contentAlignment = if (singleLine) Alignment.CenterStart else Alignment.TopStart) {
                         if (value.isEmpty()) Text(hint, style = LKType.bodyLg.toCompose(), color = c.onSurfaceVariant)
                         inner()
                     }
