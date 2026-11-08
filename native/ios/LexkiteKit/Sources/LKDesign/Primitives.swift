@@ -31,16 +31,7 @@ public struct LKTextStyle: Sendable {
 }
 
 public extension View {
-    func lkText(_ s: LKTextStyle) -> some View { modifier(LKTextModifier(style: s)) }
-}
-
-/// Letter spacing breaks Arabic joining ("ا لتنسيق"): tracking is dropped in right-to-left layouts.
-struct LKTextModifier: ViewModifier {
-    let style: LKTextStyle
-    @Environment(\.layoutDirection) private var dir
-    func body(content: Content) -> some View {
-        content.font(style.font).tracking(dir == .rightToLeft ? 0 : style.tracking * style.size).lineSpacing(max(0, style.lineHeight - style.size * 1.2))
-    }
+    func lkText(_ s: LKTextStyle) -> some View { font(s.font).tracking(s.tracking * s.size).lineSpacing(max(0, s.lineHeight - s.size * 1.2)) }
 }
 
 /// Same as `lkText` but without letter spacing in right-to-left layouts (tracking breaks Arabic joining: "ا لتنسيق").
