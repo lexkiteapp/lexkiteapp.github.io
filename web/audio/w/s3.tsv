@@ -8898,6 +8898,8 @@ misconstrue	cut_wordis: câu mang: "The word is misconstru." · dot100:"Miskin's
 avowedly	ok	ok
 phlebitis	ok	ok
 fossilize	ok	ok
+heterotrophic	ok	ok
+demographer	ok	ok
 grace	ok	ok
 policewoman	cut_wordis: câu mang: "The word is police woman." · dot100:"Police women." 0.94s · cut_wordis100:"Police women." 0.91s · cut_wordis100:"Police women" 0.86s · cut_next: câu mang: "Next word, police women" · plain095:"Police women" 0.97s · dot090:"A policewoman." 1.08s	ok
 unfortunate	ok	ok

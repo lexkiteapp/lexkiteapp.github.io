@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"brother\" mean?",
+  "keyword": "brother",
+  "value": "Brother means a boy or man who shares a parent with you.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=brother",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"brother\" mean?",
+    "description": "Brother means a boy or man who shares a parent with you.\n\nReview your words, free: https://lexkite.com/app/#/review?w=brother\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "brother",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"brother\" mean?\n\nBrother means a boy or man who shares a parent with you.\n\nReview your words, free: https://lexkite.com/app/#/review?w=brother"
+   },
+   "instagram": {
+    "caption": "What does \"brother\" mean?\n\nBrother means a boy or man who shares a parent with you.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"brother\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a boy or man who shares a parent with you. Brother means a boy or man who shares a parent with you. Practice it with a free quiz: {link}"
  }
 }

@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"press\" mean?",
+  "keyword": "press",
+  "value": "Press means to push something against something else.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=press",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"press\" mean?",
+    "description": "Press means to push something against something else.\n\nReview your words, free: https://lexkite.com/app/#/review?w=press\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "press",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"press\" mean?\n\nPress means to push something against something else.\n\nReview your words, free: https://lexkite.com/app/#/review?w=press"
+   },
+   "instagram": {
+    "caption": "What does \"press\" mean?\n\nPress means to push something against something else.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"press\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to push something against something else. Press means to push something against something else. Practice it with a free quiz: {link}"
  }
 }

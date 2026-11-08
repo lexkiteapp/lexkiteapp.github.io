@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"draw\" mean?",
+  "keyword": "draw",
+  "value": "Draw means to create an image using pen or pencil and paper.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=draw",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"draw\" mean?",
+    "description": "Draw means to create an image using pen or pencil and paper.\n\nReview your words, free: https://lexkite.com/app/#/review?w=draw\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "draw",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"draw\" mean?\n\nDraw means to create an image using pen or pencil and paper.\n\nReview your words, free: https://lexkite.com/app/#/review?w=draw"
+   },
+   "instagram": {
+    "caption": "What does \"draw\" mean?\n\nDraw means to create an image using pen or pencil and paper.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"draw\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to create an image using pen or pencil and paper. Draw means to create an image using pen or pencil and paper. Try the full lesson and quiz here: {link}"
  }
 }

@@ -72,5 +72,46 @@
   "words": 47,
   "seconds": 28.2,
   "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"think\" mean?",
+  "keyword": "think",
+  "value": "Think means to have an idea, opinion, or belief about something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=think",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"think\" mean?",
+    "description": "Think means to have an idea, opinion, or belief about something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=think\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "think",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"think\" mean?\n\nThink means to have an idea, opinion, or belief about something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=think"
+   },
+   "instagram": {
+    "caption": "What does \"think\" mean?\n\nThink means to have an idea, opinion, or belief about something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"think\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to have an idea, opinion, or belief about something. Think means to have an idea, opinion, or belief about something. Practice it with a free quiz: {link}"
  }
 }

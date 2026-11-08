@@ -72,5 +72,46 @@
   "words": 38,
   "seconds": 23.7,
   "wpm": 96
+ },
+ "publish": {
+  "title": "What does \"beef\" mean?",
+  "keyword": "beef",
+  "value": "Beef means the meat from a cow or bull.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=beef",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"beef\" mean?",
+    "description": "Beef means the meat from a cow or bull.\n\nReview your words, free: https://lexkite.com/app/#/review?w=beef\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "beef",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"beef\" mean?\n\nBeef means the meat from a cow or bull.\n\nReview your words, free: https://lexkite.com/app/#/review?w=beef"
+   },
+   "instagram": {
+    "caption": "What does \"beef\" mean?\n\nBeef means the meat from a cow or bull.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"beef\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means the meat from a cow or bull. Beef means the meat from a cow or bull. More practice like this (free): {link}"
  }
 }

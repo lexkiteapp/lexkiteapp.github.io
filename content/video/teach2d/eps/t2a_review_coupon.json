@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"coupon\" mean?",
+  "keyword": "coupon",
+  "value": "Coupon means a ticket that gives a discount on a purchase.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=coupon",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"coupon\" mean?",
+    "description": "Coupon means a ticket that gives a discount on a purchase.\n\nReview your words, free: https://lexkite.com/app/#/review?w=coupon\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "coupon",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"coupon\" mean?\n\nCoupon means a ticket that gives a discount on a purchase.\n\nReview your words, free: https://lexkite.com/app/#/review?w=coupon"
+   },
+   "instagram": {
+    "caption": "What does \"coupon\" mean?\n\nCoupon means a ticket that gives a discount on a purchase.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"coupon\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a ticket that gives a discount on a purchase. Coupon means a ticket that gives a discount on a purchase. More practice like this (free): {link}"
  }
 }

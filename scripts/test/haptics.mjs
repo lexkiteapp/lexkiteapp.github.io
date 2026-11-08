@@ -3,7 +3,7 @@ import fs from 'node:fs'; import vm from 'node:vm'; import assert from 'node:ass
 let n = 0; const ok = (c, m) => { assert.ok(c, m); n++; };
 const mk = ({ muted = false, rm = false, coarse = true, haptics } = {}) => {
   const calls = [], ls = new Map(haptics === undefined ? [] : [['vb.haptics', haptics]]);
-  const doc = { documentElement: { dataset: {} }, addEventListener() {}, getElementById: () => null, querySelector: () => null, hidden: false };
+  const doc = { documentElement: { dataset: {} }, addEventListener() {}, getElementById: () => null, querySelector: () => null, createElement: () => ({}), head: { appendChild() {} }, hidden: false }; // game.js nạp js/feel.js khi game feel bật (mặc định từ 3/11): stub đủ DOM để nạp, không ảnh hưởng bảng rung
   const g = { Core: { Store: {}, todayKey: () => 'k', sfxOff: muted }, document: doc, localStorage: { getItem: k => (ls.has(k) ? ls.get(k) : null), setItem: (k, v) => ls.set(k, v) } };
   g.self = g; g.navigator = { vibrate: p => { calls.push(p); return true; }, serviceWorker: null };
   g.matchMedia = q => ({ matches: /reduce/.test(q) ? rm : /coarse/.test(q) ? coarse : false });
