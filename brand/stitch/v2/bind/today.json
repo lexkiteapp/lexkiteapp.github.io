@@ -238,20 +238,11 @@
    "w-[390px]": "'w-full'"
   },
   ":scope > main > div > section:nth-child(2) > div:nth-child(1) > div:nth-child(1)": {
-   "border-2": "''",
-   "border-dashed": "''",
    "justify-center": "'justify-end'",
-   "p-2": "''",
-   "lt:border-[#136B66]/60": "''",
-   "lt:bg-[#FBF7F1]": "''",
-   "dk:border-[#6BD8CE]/60": "''",
-   "dk:bg-[#122023]": "''"
+   "p-2": "''"
   },
   ":scope > main > div > section:nth-child(8) > div:nth-child(1)": {
    "flex": "d.lg.tier ? 'flex' : 'hidden'"
-  },
-  ":scope > main > div": {
-   "py-3": "'py-4'"
   },
   ":scope > main > div > section:nth-child(4)": {
    "hidden": "''"
