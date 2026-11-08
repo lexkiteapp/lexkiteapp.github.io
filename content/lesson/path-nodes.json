@@ -713,6 +713,144 @@
           "ex": []
         }
       ]
+    },
+    "work": {
+      "theme": "Công việc và sự nghiệp",
+      "can": "Bạn sẽ nói về công việc của mình",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Tìm việc và tuyển dụng",
+          "sub": "Việc làm, tuyển người, lương",
+          "min": 4,
+          "words": [
+            [
+              "employment",
+              "n"
+            ],
+            [
+              "recruit",
+              "v"
+            ],
+            [
+              "workforce",
+              "n"
+            ],
+            [
+              "salary",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Tech companies are struggling to recruit skilled engineers.",
+              "vi": "Các công ty công nghệ đang khó tuyển được kỹ sư giỏi."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: một ngày ở văn phòng",
+          "sub": "Đồng nghiệp, đi làm, giờ linh hoạt",
+          "min": 3,
+          "words": [
+            [
+              "colleague",
+              "n"
+            ],
+            [
+              "commute",
+              "v"
+            ],
+            [
+              "flexible",
+              "adj"
+            ],
+            [
+              "promotion",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "I commute to the city by train, which takes about forty minutes.",
+              "vi": "Tôi đi làm vào thành phố bằng tàu, mất khoảng bốn mươi phút."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: năng suất và khởi nghiệp",
+          "sub": "Thưởng, năng suất, mất việc",
+          "min": 3,
+          "words": [
+            [
+              "productivity",
+              "n"
+            ],
+            [
+              "entrepreneur",
+              "n"
+            ],
+            [
+              "incentive",
+              "n"
+            ],
+            [
+              "redundancy",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Flexible working hours can boost employee productivity.",
+              "vi": "Giờ làm việc linh hoạt có thể nâng cao năng suất của nhân viên."
+            }
+          ]
+        },
+        {
+          "slot": "story"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: tuyển dụng và thăng chức",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "recruit",
+              "v"
+            ],
+            [
+              "colleague",
+              "n"
+            ],
+            [
+              "promotion",
+              "n"
+            ],
+            [
+              "incentive",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "She received a promotion to regional sales manager.",
+              "vi": "Cô ấy được thăng chức lên quản lý bán hàng khu vực."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng công việc",
+          "sub": "Nghe, đọc và nói về công việc",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
     }
   }
 }
