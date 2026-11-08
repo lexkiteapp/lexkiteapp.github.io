@@ -36,10 +36,6 @@ final class LibraryModel {
     func saved(_ tp: TopicCatalog.Topic) -> Int { let h = have; return tp.words.filter { h.contains($0.s("word").lowercased()) }.count }
     func group(_ id: String) -> TopicCatalog.Group? { bundle.catalog.groups.first { $0.id == id } }
     func levelCount(_ tp: TopicCatalog.Topic) -> Int { level.isEmpty ? tp.words.count : tp.words.filter { $0.s("level") == level }.count }
-    func ankiFile(stamp: String, deck: String) -> DeckExport {
-        let list = bundle.cards
-        return DeckExport(name: "lexkite-" + stamp + ".txt") { Data(DeckTransfer.ankiText(cards: list, deck: deck).utf8) }
-    }
 }
 
 struct LibraryView: View {
@@ -61,6 +57,9 @@ struct LibraryView: View {
             else { StudyPage(title: t(.vocabVocabularyLibrary)) { content } }
         }
         .task { if !model.loaded { await model.load(query: query) } }
+        .sheet(item: Binding(get: { model.io.ankiTab }, set: { model.io.ankiTab = $0 })) { tab in
+            AnkiSheet(model: AnkiModel(deck: model.io, tab: tab), onRoute: onRoute).environment(\.l10n, t)
+        }
         .fileImporter(isPresented: Binding(get: { model.io.showImporter }, set: { model.io.showImporter = $0 }),
                       allowedContentTypes: [.json, .plainText, .commaSeparatedText, .tabSeparatedText]) { r in
             if case .success(let url) = r { Task { await model.io.importFile(url); await model.reload() } }
@@ -210,11 +209,9 @@ struct LibraryView: View {
     }
 
     private var ankiRow: some View {
-        let stamp = DeckView.stamp(model.core.now())
-        return HStack(spacing: LKSpacing.spaceXs) {
-            ShareLink(item: model.ankiFile(stamp: stamp, deck: t(.vocabMyWords)), preview: SharePreview(t(.vocabExportToAnki))) { Text(verbatim: t(.vocabExportToAnki)).frame(maxWidth: .infinity) }
-                .buttonStyle(StudyOutlineButtonStyle()).disabled(model.bundle.cards.isEmpty)
-            Button(t(.vocabImportFromAnki)) { model.io.showImporter = true }.buttonStyle(StudyOutlineButtonStyle())
+        HStack(spacing: LKSpacing.spaceXs) {
+            Button(t(.vocabExportToAnki)) { Task { await model.io.load(query: [:]); model.io.ankiTab = .export } }.buttonStyle(StudyOutlineButtonStyle())
+            Button(t(.vocabImportFromAnki)) { Task { await model.io.load(query: [:]); model.io.ankiTab = .importing } }.buttonStyle(StudyOutlineButtonStyle())
         }
     }
 }

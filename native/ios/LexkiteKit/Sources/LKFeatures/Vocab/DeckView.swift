@@ -34,6 +34,9 @@ struct DeckView: View {
         .sheet(isPresented: Binding(get: { model.shareLink != nil }, set: { if !$0 { model.shareLink = nil } })) {
             if let link = model.shareLink { DeckShareSheet(link: link, count: model.shareCount).environment(\.l10n, t) }
         }
+        .sheet(item: Binding(get: { model.ankiTab }, set: { model.ankiTab = $0 })) { tab in
+            AnkiSheet(model: AnkiModel(deck: model, tab: tab), onRoute: onRoute).environment(\.l10n, t)
+        }
         .fileImporter(isPresented: Binding(get: { model.showImporter }, set: { model.showImporter = $0 }),
                       allowedContentTypes: [.json, .plainText, .commaSeparatedText, .tabSeparatedText]) { r in
             if case .success(let url) = r { Task { await model.importFile(url) } } else { model.clearNotice() }
@@ -101,9 +104,8 @@ struct DeckView: View {
                 Button(t(.vocabImport)) { model.showImporter = true }.buttonStyle(StudyOutlineButtonStyle())
             }
             HStack(spacing: LKSpacing.spaceXs) {
-                ShareLink(item: model.ankiFile(stamp, deck: t(.vocabMyWords)), preview: SharePreview(t(.vocabExportToAnki))) { Text(verbatim: t(.vocabExportToAnki)).frame(maxWidth: .infinity) }
-                    .buttonStyle(StudyOutlineButtonStyle()).disabled(model.cards.isEmpty)
-                Button(t(.vocabImportFromAnki)) { model.showImporter = true }.buttonStyle(StudyOutlineButtonStyle())
+                Button(t(.vocabExportToAnki)) { model.ankiTab = .export }.buttonStyle(StudyOutlineButtonStyle())
+                Button(t(.vocabImportFromAnki)) { model.ankiTab = .importing }.buttonStyle(StudyOutlineButtonStyle())
             }
         }
     }

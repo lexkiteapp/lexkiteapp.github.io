@@ -87,6 +87,24 @@ final class VocabSnapshotTests: XCTestCase {
     }
 
     // MARK: states
+    static let ankiText = "#separator:tab\n#html:true\n#deck:Demo deck\nconsider\tcân nhắc\nafraid\tsợ\nbrand-new\tmới tinh\nsalary\ttiền lương\n"
+    func testAnkiExport() async {
+        await shoot { lang in
+            let deck = DeckModel(core: self.core(lang)); deck.autoPlay = false
+            await deck.load(query: [:])
+            return AnkiSheet(model: AnkiModel(deck: deck, tab: .export))
+        }
+    }
+    func testAnkiImport() async {
+        await shoot { lang in
+            let deck = DeckModel(core: self.core(lang)); deck.autoPlay = false
+            await deck.load(query: [:])
+            let m = AnkiModel(deck: deck, tab: .importing)
+            await m.load(data: Data(Self.ankiText.utf8), name: "Demo")
+            return AnkiSheet(model: m)
+        }
+    }
+
     func testReviewFront() async {
         await shoot { lang in
             let m = StudyReviewModel(core: self.core(lang)); m.autoPlay = false

@@ -34,6 +34,8 @@ final class DeckModel {
     var editing: String?
     var shareLink: String?
     var showImporter = false
+    /// the Anki dialog (export / import) when open
+    var ankiTab: AnkiTab?
 
     let core: StudyCore
     @ObservationIgnored var autoPlay = true
@@ -114,10 +116,6 @@ final class DeckModel {
         let cards = bundle.cards, stats = bundle.stats, game = bundle.game, settings = bundle.settings, now = core.now()
         return DeckExport(name: "lexkite-backup-" + stamp + ".json") { DeckTransfer.backup(cards: cards, stats: stats, game: game, settings: settings, now: now) }
     }
-    func ankiFile(_ stamp: String, deck: String) -> DeckExport {
-        let list = matched
-        return DeckExport(name: "lexkite-" + stamp + ".txt") { Data(DeckTransfer.ankiText(cards: list, deck: deck).utf8) }
-    }
     func importFile(_ url: URL) async {
         let ok = url.startAccessingSecurityScopedResource()
         defer { if ok { url.stopAccessingSecurityScopedResource() } }
@@ -141,6 +139,25 @@ final class DeckModel {
         tick += 1
     }
     func clearNotice() { notice = nil }
+
+    /// Anki dialog: add the planned words as new cards in batches (the screen stays responsive); returns how many were added
+    func addEntries(_ entries: [JSON], deck: String, progress: @MainActor (Int) -> Void) async -> Int {
+        var added = 0
+        var start = 0
+        while start < entries.count {
+            let end = min(entries.count, start + 200)
+            var cards: [JSON] = []
+            for var e in entries[start..<end] { e["deck"] = .string(deck); cards.append(core.addWord(e, into: &bundle)) }
+            await core.commit(VocabEdit(upsert: cards))
+            added += cards.count
+            progress(added)
+            start = end
+            await Task.yield()
+        }
+        await refresh()
+        tick += 1
+        return added
+    }
 
     // MARK: shared deck preview
     var sharedFresh: [JSON] { (shared?.words ?? []).filter { card($0.s("word")) == nil } }

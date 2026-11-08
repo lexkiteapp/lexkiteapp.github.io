@@ -5,7 +5,7 @@ import LKSync
 /// The Task 1 figure of a chart set drawn inline (web task1.js `draw`): line graph, bar chart, pie charts, table, process and maps. Data = the set read from `js/task1.js`
 /// (`x`, `unit`, `series`, `pies`, `head`/`rows`, `steps`, `maps`); colours come from the design tokens.
 struct Task1ChartView: View {
-    let set: JSON
+    let figure: JSON
     @Environment(\.colorScheme) private var scheme
     @Environment(\.l10n) private var t
 
@@ -16,8 +16,8 @@ struct Task1ChartView: View {
 
     var body: some View {
         Group {
-            switch set.s("type") {
-            case "line", "bar": axes(bars: set.s("type") == "bar")
+            switch figure.s("type") {
+            case "line", "bar": axes(bars: figure.s("type") == "bar")
             case "pie": pies
             case "table": table
             case "process": process
@@ -26,19 +26,19 @@ struct Task1ChartView: View {
             }
         }
         .accessibilityElement(children: .contain)
-        .accessibilityLabel(Text(verbatim: set.s("title")))
+        .accessibilityLabel(Text(verbatim: figure.s("title")))
     }
 
     private struct Series { let name: String, values: [Double] }
-    private var series: [Series] { set.list("series").compactMap { s in s.array.map { Series(name: $0.first?.string ?? "", values: ($0.count > 1 ? $0[1].array ?? [] : []).map(\.toNumber)) } } }
+    private var series: [Series] { figure.list("series").compactMap { s in s.array.map { Series(name: $0.first?.string ?? "", values: ($0.count > 1 ? $0[1].array ?? [] : []).map(\.toNumber)) } } }
 
     // MARK: line + bar
     private func axes(bars: Bool) -> some View {
-        let xs = set.strs("x"), all = series
+        let xs = figure.strs("x"), all = series
         let top = all.flatMap(\.values).max() ?? 10
         let maxV = max(10, (top / 10).rounded(.up) * 10)
         return VStack(alignment: .leading, spacing: LKSpacing.spaceXs) {
-            Text(verbatim: set.s("unit")).lkText(LKType.labelBadge).foregroundStyle(dim)
+            Text(verbatim: figure.s("unit")).lkText(LKType.labelBadge).foregroundStyle(dim)
             Canvas { ctx, size in
                 let left: CGFloat = 34, topPad: CGFloat = 8, bottom: CGFloat = 34
                 let w = size.width - left - 8, h = size.height - topPad - bottom
@@ -89,7 +89,7 @@ struct Task1ChartView: View {
 
     // MARK: pies
     private var pies: some View {
-        let list = set.list("pies")
+        let list = figure.list("pies")
         let names = (list.first?.array?.dropFirst().first?.array ?? []).map { $0.array?.first?.string ?? "" }
         return VStack(spacing: LKSpacing.spaceSm) {
             HStack(alignment: .top, spacing: LKSpacing.spaceSm) {
@@ -126,7 +126,7 @@ struct Task1ChartView: View {
 
     // MARK: table
     private var table: some View {
-        let head = set.strs("head"), rows = set.list("rows")
+        let head = figure.strs("head"), rows = figure.list("rows")
         return ScrollView(.horizontal, showsIndicators: false) {
             Grid(alignment: .leading, horizontalSpacing: LKSpacing.spaceSm, verticalSpacing: 6) {
                 GridRow { ForEach(Array(head.enumerated()), id: \.offset) { _, h in Text(verbatim: h).lkText(LKType.labelMetric).foregroundStyle(ink) } }
@@ -143,14 +143,14 @@ struct Task1ChartView: View {
     // MARK: process
     private var process: some View {
         VStack(alignment: .leading, spacing: 6) {
-            ForEach(Array(set.strs("steps").enumerated()), id: \.offset) { i, s in
+            ForEach(Array(figure.strs("steps").enumerated()), id: \.offset) { i, s in
                 HStack(alignment: .firstTextBaseline, spacing: LKSpacing.spaceXs) {
                     Text(verbatim: String(i + 1)).lkText(LKType.labelMetric).foregroundStyle(LKColor.onSecondary.resolve(scheme))
                         .frame(width: 26, height: 26).background(Circle().fill(LKColor.secondary.resolve(scheme)))
                     Text(verbatim: s).lkText(LKType.bodyMd).foregroundStyle(ink).englishText()
                 }
                 .accessibilityElement(children: .combine)
-                if i < set.strs("steps").count - 1 { Image(systemName: "arrow.down").foregroundStyle(dim).padding(.leading, 6).accessibilityHidden(true) }
+                if i < figure.strs("steps").count - 1 { Image(systemName: "arrow.down").foregroundStyle(dim).padding(.leading, 6).accessibilityHidden(true) }
             }
         }
     }
@@ -158,7 +158,7 @@ struct Task1ChartView: View {
     // MARK: maps
     private var maps: some View {
         VStack(spacing: LKSpacing.spaceSm) {
-            ForEach(Array(set.list("maps").enumerated()), id: \.offset) { _, m in
+            ForEach(Array(figure.list("maps").enumerated()), id: \.offset) { _, m in
                 let label = m.array?.first?.string ?? "", blocks = (m.array?.dropFirst().first?.array ?? []).compactMap { $0.array }.filter { $0.count >= 5 }
                 VStack(alignment: .leading, spacing: 4) {
                     Text(verbatim: label).lkText(LKType.labelMetric).foregroundStyle(ink)

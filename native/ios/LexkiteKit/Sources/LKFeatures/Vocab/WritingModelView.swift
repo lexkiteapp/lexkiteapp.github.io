@@ -112,7 +112,7 @@ struct WritingModelView: View {
                 WritingEnglish(text: (set?.s("title") ?? "Task 1 · " + m.s("ref")) + " Summarise the information by selecting and reporting the main features, and make comparisons where relevant.", style: LKType.bodyMd)
                 if let set {
                     DisclosureGroup {
-                        Task1ChartView(set: set).padding(.top, LKSpacing.spaceXs)
+                        Task1ChartView(figure: set).padding(.top, LKSpacing.spaceXs)
                         Button { services.router.open(AppRoute("task1", arg: m.s("ref"))) } label: { Label(t(.modelViewChart), systemImage: "chart.bar") }.buttonStyle(WritingSecondaryButtonStyle())
                     } label: {
                         Label(t(.modelViewChart), systemImage: "chart.bar").lkText(LKType.titlePill).foregroundStyle(ink).frame(minHeight: LKFrame.shared.minTap, alignment: .leading)
