@@ -57749,6 +57749,32 @@
    "b": "41615420488",
    "repo": "m4"
   },
+  "electrocardiogram#n": {
+   "h": "9bc74e7536712ec5",
+   "url": "https://media.lexkite.com/vimg/9bc74e7536712ec5.webp",
+   "alt": "electrocardiogram",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.322,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 2
+   },
+   "ph": "b0ee47b0b0c9c59e",
+   "at": "2026-11-08",
+   "b": "42473937650",
+   "repo": "m4"
+  },
   "electrochemical#adj": {
    "h": "3d4d52528db8b07e",
    "url": "https://media.lexkite.com/vimg/3d4d52528db8b07e.webp",

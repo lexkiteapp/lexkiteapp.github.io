@@ -19412,8 +19412,8 @@
    "tries": 2
   },
   "crusher#n": {
-   "e4bad": 2,
-   "badAt": "2026-11-08T10:50:50.948Z"
+   "e4bad": 3,
+   "badAt": "2026-11-08T11:04:58.848Z"
   },
   "crust#n": {
    "skip": "draw 3: a globe shows a blue ocean area with a very thin gray outer ",
@@ -27055,8 +27055,17 @@
    "refix": 1
   },
   "electrocardiogram#n": {
-   "e4bad": 2,
-   "badAt": "2026-11-08T10:50:50.948Z"
+   "ex": "When was your last electrocardiogram?",
+   "ps": "a man lies on a table with red chest electrodes, a white strip shows spiky wave lines",
+   "sc": "a man lies on a table with red chest electrodes, a white strip shows spiky wave lines",
+   "check": "Is there a paper strip with spiky lines showing heart activity?",
+   "cap": "a man on a table with chest electrodes and a wave strip",
+   "key": "red chest electrodes on the man; white strip with spiky wave lines",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3
   },
   "electrochemical#adj": {
    "ex": "An electrochemical gradient has two components.",
@@ -27366,8 +27375,8 @@
    "badAt": "2026-11-07T10:55:59.755Z"
   },
   "email#v": {
-   "e4bad": 2,
-   "badAt": "2026-11-08T10:50:50.947Z"
+   "e4bad": 3,
+   "badAt": "2026-11-08T11:04:58.846Z"
   },
   "embankment#n": {
    "ex": "The station and line are on an embankment.",
@@ -42791,8 +42800,8 @@
    "refix": 2
   },
   "insignia#n": {
-   "e4bad": 2,
-   "badAt": "2026-11-08T10:50:43.515Z"
+   "e4bad": 3,
+   "badAt": "2026-11-08T11:04:58.848Z"
   },
   "insignificance#n": {
    "ex": "William would sink into insignificance.",
