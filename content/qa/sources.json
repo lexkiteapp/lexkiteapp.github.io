@@ -81,7 +81,8 @@
   {
    "id": "grammar",
    "paths": [
-    "web/js/grammar"
+    "web/js/grammar",
+    "web/cpack/grammar"
    ],
    "owner": "claude",
    "gen": false,
