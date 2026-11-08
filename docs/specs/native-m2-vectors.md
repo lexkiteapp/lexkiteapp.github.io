@@ -1,4 +1,5 @@
-> Schema of the M2 vectors (lesson, rig, audio) + bundled teacher art – the contract the Swift/Kotlin ports follow. Sinh bởi scripts/native/gen-{lesson,teach,audio}.mjs.
+> TL;DR: Lược đồ chính xác của vector M2 (lesson/rig/audio), định nghĩa rig giáo viên và ảnh giáo viên đóng gói – hợp đồng mà bản port Swift/Kotlin phải khớp. Sinh bởi `scripts/native/gen-{lesson,teach,audio}.mjs`; kiểm bằng `scripts/test/native-m2-vectors.mjs`.
+> Đọc khi: port hoặc sửa trình học bài, giáo viên, âm thanh trên iOS/Android, hoặc đổi các file gen trên.
 
 # Native M2 – lớp chung: ghi chú bàn giao cho người port iOS / Android
 
