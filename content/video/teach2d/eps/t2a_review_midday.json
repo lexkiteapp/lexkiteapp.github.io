@@ -72,5 +72,46 @@
   "words": 37,
   "seconds": 23.3,
   "wpm": 95
+ },
+ "publish": {
+  "title": "What does \"midday\" mean?",
+  "keyword": "midday",
+  "value": "Midday means the middle of the day.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=midday",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"midday\" mean?",
+    "description": "Midday means the middle of the day.\n\nReview your words, free: https://lexkite.com/app/#/review?w=midday\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "midday",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"midday\" mean?\n\nMidday means the middle of the day.\n\nReview your words, free: https://lexkite.com/app/#/review?w=midday"
+   },
+   "instagram": {
+    "caption": "What does \"midday\" mean?\n\nMidday means the middle of the day.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"midday\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means the middle of the day. Midday means the middle of the day. Practice it with a free quiz: {link}"
  }
 }

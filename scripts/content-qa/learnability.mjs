@@ -119,7 +119,7 @@ for (const s of ST) {
 // ================= 3. Bộ từ (mỗi bộ = 1 đơn vị) =================
 const IMG = ex('content/lexicon/img.json') ? JSON.parse(rd('content/lexicon/img.json')).items || {} : {};
 const W3 = new Map((ex('web/audio/w/s3.tsv') ? rd('web/audio/w/s3.tsv') : '').split('\n').filter(Boolean).map(l => { const [w, ...x] = l.split('\t'); return [w, x]; }));
-const GOLD = new Set([...rd('web/js/lesson/gold.js').matchAll(/"([^"]+)":\[\{"why"/g)].map(m => m[1].toLowerCase()));
+const GOLD = new Set([...rd('web/cpack/lesson/gold.js').matchAll(/"([^"]+)":\[\{"why"/g)].map(m => m[1].toLowerCase()));
 // (k) nhóm dễ nhầm, tầng 0: hai từ cùng loại, dài ≥ 5, khác nhau ≤ 2 ký tự (affect/effect, adapt/adopt, complement/compliment) → cần mẹo/cách dùng (gold "why")
 const lev = (a, b) => { if (Math.abs(a.length - b.length) > 2) return 9; let p = [...Array(b.length + 1).keys()]; for (let i = 1; i <= a.length; i++) { const c = [i]; for (let j = 1; j <= b.length; j++) c[j] = Math.min(p[j] + 1, c[j - 1] + 1, p[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); p = c; } return p[b.length]; };
 // cùng họ từ / biến thể chính tả (connect–connector, stabilize–stabilise, labor–labour) không phải "dễ nhầm nghĩa" → loại

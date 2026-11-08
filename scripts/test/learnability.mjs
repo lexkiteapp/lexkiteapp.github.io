@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Hồi quy bộ chấm sư phạm learnability (P0-H, docs/specs/learnability.md): luật đo đúng trên ca biết trước + báo cáo đủ mảng/tiêu chí
-// + hồi quy lỗi 02/11: cặp dễ nhầm soạn tay (content/video/scripts/bank/mixups.jsonl, pid c:mixup:a-b) phải vào web/js/lesson/gold.js.
+// + hồi quy lỗi 02/11: cặp dễ nhầm soạn tay (content/video/scripts/bank/mixups.jsonl, pid c:mixup:a-b) phải vào web/cpack/lesson/gold.js.
 import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
 
@@ -28,7 +28,7 @@ ok(/## 30 bài yếu nhất/.test(md) && (md.match(/^\| \d+ \|/gm) || []).length
 ok(Object.keys(L.CRIT).length === 12, 'phải đủ 12 tiêu chí a…l');
 
 // 5. Hồi quy: mọi từ trong pid c:mixup:a-b có mục trong gold.js (trước 02/11 build-gold bỏ sót cả tệp mixups)
-const g = {}; new Function('self', fs.readFileSync('web/js/lesson/gold.js', 'utf8'))(g);
+const g = {}; new Function('self', fs.readFileSync('web/cpack/lesson/gold.js', 'utf8'))(g);
 for (const l of fs.readFileSync('content/video/scripts/bank/mixups.jsonl', 'utf8').split('\n').filter(Boolean)) {
   const d = JSON.parse(l), m = /^c:mixup:(.+)$/.exec(d.pid || ''); if (!m) continue;
   for (const w of m[1].split('-')) ok(g.LESSON_GOLD[w.toLowerCase()], `gold.js thiếu "${w}" từ ${d.pid}`);

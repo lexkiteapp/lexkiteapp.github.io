@@ -1,0 +1,916 @@
+{
+ "id": "supermarket",
+ "group": "shopping",
+ "cefr": "A2",
+ "title": {
+  "en": "Supermarket",
+  "vi": "Siêu thị",
+  "es": "Supermercado",
+  "pt": "Supermercado",
+  "fr": "Supermarché",
+  "de": "Supermarkt",
+  "id": "Supermarket",
+  "th": "ซูเปอร์มาร์เก็ต",
+  "zh": "超市",
+  "ja": "スーパーマーケット",
+  "ko": "슈퍼마켓",
+  "hi": "सुपरमार्केट",
+  "ar": "السوبرماركت",
+  "ru": "Супермаркет",
+  "tr": "Süpermarket"
+ },
+ "goal": {
+  "en": "Find it, ask, and pay!",
+  "vi": "Tìm đồ, hỏi nhân viên và thanh toán!",
+  "es": "¡Encuentra, pregunta y paga!",
+  "pt": "Encontre, pergunte e pague!",
+  "fr": "Trouvez, demandez et payez !",
+  "de": "Finde, frag nach und zahl!",
+  "id": "Temukan, tanya, lalu bayar!",
+  "th": "หาของ ถามพนักงาน แล้วจ่ายเงิน!",
+  "zh": "找东西、问店员、去结账！",
+  "ja": "探して、聞いて、支払おう！",
+  "ko": "찾고, 물어보고, 계산해요!",
+  "hi": "ढूँढें, पूछें और भुगतान करें!",
+  "ar": "ابحث واسأل وادفع!",
+  "ru": "Найди, спроси и заплати!",
+  "tr": "Bul, sor ve öde!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "find",
+   "title": {
+    "en": "Find things",
+    "vi": "Tìm đồ",
+    "es": "Encontrar cosas",
+    "pt": "Encontrar coisas",
+    "fr": "Trouver les produits",
+    "de": "Dinge finden",
+    "id": "Mencari barang",
+    "th": "หาของ",
+    "zh": "找东西",
+    "ja": "商品を探す",
+    "ko": "물건 찾기",
+    "hi": "सामान ढूँढना",
+    "ar": "إيجاد الأغراض",
+    "ru": "Найти товар",
+    "tr": "Ürün bulma"
+   },
+   "lines": [
+    "f1",
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "id": "ask",
+   "title": {
+    "en": "Ask about food",
+    "vi": "Hỏi về đồ ăn",
+    "es": "Preguntar por la comida",
+    "pt": "Perguntar sobre a comida",
+    "fr": "Poser des questions",
+    "de": "Nach Essen fragen",
+    "id": "Bertanya tentang makanan",
+    "th": "ถามเรื่องอาหาร",
+    "zh": "询问食品",
+    "ja": "食品について聞く",
+    "ko": "식품 문의",
+    "hi": "खाने के बारे में पूछना",
+    "ar": "السؤال عن الطعام",
+    "ru": "Спросить о продуктах",
+    "tr": "Yiyecek hakkında sorma"
+   },
+   "lines": [
+    "a1",
+    "a2",
+    "a3",
+    "a4"
+   ]
+  },
+  {
+   "id": "checkout",
+   "title": {
+    "en": "Checkout",
+    "vi": "Thanh toán",
+    "es": "Pasar por caja",
+    "pt": "No caixa",
+    "fr": "À la caisse",
+    "de": "An der Kasse",
+    "id": "Di kasir",
+    "th": "ที่แคชเชียร์",
+    "zh": "结账",
+    "ja": "レジで",
+    "ko": "계산대에서",
+    "hi": "चेकआउट पर",
+    "ar": "عند الدفع",
+    "ru": "На кассе",
+    "tr": "Kasada"
+   },
+   "lines": [
+    "c1",
+    "c2",
+    "c3",
+    "c4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "f1",
+   "who": "customer",
+   "en": "Excuse me, where can I find the milk?",
+   "variants": {
+    "polite": "Excuse me, could you tell me where the milk is?",
+    "casual": "Where is the milk?"
+   },
+   "gloss": {
+    "en": "Asking where a product is.",
+    "vi": "Hỏi sữa ở đâu.",
+    "es": "Pregunta dónde está la leche.",
+    "pt": "Pergunta onde fica o leite.",
+    "fr": "Demander où se trouve le lait.",
+    "de": "Fragen, wo die Milch steht.",
+    "id": "Menanyakan di mana susu.",
+    "th": "ถามว่านมอยู่ตรงไหน",
+    "zh": "请问牛奶在哪里？",
+    "ja": "牛乳はどこですか？",
+    "ko": "우유가 어디에 있나요?",
+    "hi": "दूध कहाँ मिलेगा?",
+    "ar": "أين أجد الحليب؟",
+    "ru": "Подскажите, где молоко?",
+    "tr": "Süt nerede bulabilirim?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "milk",
+     "ipa": "/mɪlk/",
+     "hi": "MILK",
+     "note": {
+      "en": "Say one syllable, MILK. Do not add a vowel in the middle (not \"mi-luk\").",
+      "vi": "Đọc một âm tiết MILK, đừng thêm nguyên âm ở giữa (không đọc \"mi-lúc\").",
+      "es": "Una sola sílaba: MILK. No añadas una vocal en medio (no \"mi-luk\").",
+      "pt": "Uma só sílaba: MILK. Não ponha vogal no meio (não \"mi-luk\").",
+      "fr": "Une seule syllabe : MILK. N'ajoutez pas de voyelle au milieu (pas « mi-leuk »).",
+      "de": "Eine Silbe: MILK. Kein Vokal in der Mitte (nicht „mi-lük“).",
+      "id": "Satu suku kata: MILK. Jangan tambah vokal di tengah (bukan \"mi-luk\").",
+      "th": "ออกเสียงพยางค์เดียว MILK อย่าเติมสระตรงกลาง (ไม่ใช่ \"มิ-ลุค\")",
+      "zh": "只读一个音节 MILK，中间不要加元音（不是“mi-luk”）。",
+      "ja": "MILK は1音節です。真ん中に母音を入れないで（「ミルク」と伸ばさない）。",
+      "ko": "MILK는 한 음절이에요. 가운데에 모음을 넣지 마세요(\"밀럭\" 아님).",
+      "hi": "MILK एक ही अक्षर है। बीच में स्वर न जोड़ें (\"मिलुक\" नहीं)।",
+      "ar": "المقطع واحد: MILK. لا تضف حرف علة في الوسط (ليس \"ميلك\" بمقطعين).",
+      "ru": "Один слог: MILK. Не вставляйте гласную в середине (не «ми-лук»).",
+      "tr": "Tek hece: MILK. Ortaya ünlü eklemeyin (\"mi-lik\" değil)."
+     }
+    }
+   ]
+  },
+  {
+   "id": "f2",
+   "who": "barista",
+   "en": "It's in aisle five, next to the eggs.",
+   "variants": {
+    "polite": "You'll find it in aisle five, beside the eggs.",
+    "casual": "Aisle five, by the eggs."
+   },
+   "gloss": {
+    "en": "Staff say which aisle it is in.",
+    "vi": "Nhân viên chỉ lối đi có sữa.",
+    "es": "El personal indica el pasillo.",
+    "pt": "O funcionário indica o corredor.",
+    "fr": "L'employé indique le rayon.",
+    "de": "Das Personal nennt den Gang.",
+    "id": "Petugas menyebut lorong.",
+    "th": "พนักงานบอกว่าอยู่ช่องทางไหน",
+    "zh": "店员告诉你在哪条通道。",
+    "ja": "店員が通路を案内します。",
+    "ko": "직원이 통로를 알려 줘요.",
+    "hi": "स्टाफ़ बताता है कि कौन-सी गली में है।",
+    "ar": "الموظف يحدد الممر.",
+    "ru": "Сотрудник называет проход.",
+    "tr": "Çalışan hangi reyonda olduğunu söyler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "f3",
+   "who": "customer",
+   "en": "Do you have any gluten-free bread?",
+   "variants": {
+    "polite": "Would you happen to have any gluten-free bread?",
+    "casual": "Any gluten-free bread?"
+   },
+   "gloss": {
+    "en": "Asking if the shop sells a certain item.",
+    "vi": "Hỏi cửa hàng có bán món đó không.",
+    "es": "Pregunta si venden ese producto.",
+    "pt": "Pergunta se a loja vende o item.",
+    "fr": "Demander si le magasin vend l'article.",
+    "de": "Fragen, ob es den Artikel gibt.",
+    "id": "Menanyakan apakah barang tersedia.",
+    "th": "ถามว่ามีสินค้านี้ไหม",
+    "zh": "问店里有没有这种商品。",
+    "ja": "その商品があるか尋ねます。",
+    "ko": "그 상품이 있는지 물어봐요.",
+    "hi": "पूछना कि दुकान में यह सामान है या नहीं।",
+    "ar": "السؤال عن توفر المنتج.",
+    "ru": "Спросить, есть ли товар.",
+    "tr": "Ürünün olup olmadığını sorma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "bread",
+     "ipa": "/bred/",
+     "hi": "BRED",
+     "note": {
+      "en": "Say BRED, not \"breed\". The \"ea\" is a short e.",
+      "vi": "\"Bread\" đọc như \"bred\", không phải \"breed\". Chữ \"ea\" là âm e ngắn.",
+      "es": "\"Bread\" suena como \"bred\", no \"breed\". La \"ea\" es una e corta.",
+      "pt": "\"Bread\" soa como \"bred\", não \"breed\". O \"ea\" é um e curto.",
+      "fr": "« Bread » se prononce « bred », pas « breed ». Le « ea » est un e bref.",
+      "de": "„Bread“ klingt wie „bred“, nicht „breed“. „ea“ ist ein kurzes e.",
+      "id": "\"Bread\" dibaca \"bred\", bukan \"breed\". \"ea\" adalah e pendek.",
+      "th": "\"Bread\" ออกเสียงเหมือน \"เบรด\" ไม่ใช่ \"บรีด\" \"ea\" เป็นเสียง e สั้น",
+      "zh": "bread 读作“bred”，不是“breed”。ea 发短 e。",
+      "ja": "bread は「ブレッド」。「ブリード」ではなく、ea は短い e です。",
+      "ko": "bread는 \"브레드\"로 읽어요. \"브리드\"가 아니에요. ea는 짧은 e 소리예요.",
+      "hi": "bread का उच्चारण \"ब्रेड\" है, \"ब्रीड\" नहीं। ea छोटा e है।",
+      "ar": "تُنطق bread \"بْرِد\" بصوت e قصير، وليس \"بريد\" الطويل (breed).",
+      "ru": "Bread читается «бред», а не «брид». «ea» — короткий звук e.",
+      "tr": "Bread \"bred\" diye okunur, \"breed\" değil. \"ea\" kısa e sesidir."
+     }
+    }
+   ]
+  },
+  {
+   "id": "f4",
+   "who": "barista",
+   "en": "Sorry, we're out of that. Would you like another brand?",
+   "variants": {
+    "polite": "I'm afraid we've sold out. May I suggest another brand?",
+    "casual": "Sold out. Another brand?"
+   },
+   "gloss": {
+    "en": "Staff say an item is sold out.",
+    "vi": "Nhân viên báo hết hàng.",
+    "es": "El personal dice que se agotó.",
+    "pt": "O funcionário diz que acabou.",
+    "fr": "L'employé dit que c'est épuisé.",
+    "de": "Das Personal sagt, es ist ausverkauft.",
+    "id": "Petugas bilang barang habis.",
+    "th": "พนักงานบอกว่าของหมด",
+    "zh": "店员说这个卖完了。",
+    "ja": "店員が品切れだと伝えます。",
+    "ko": "직원이 품절이라고 말해요.",
+    "hi": "स्टाफ़ बताता है कि सामान ख़त्म है।",
+    "ar": "الموظف يقول إن المنتج نفد.",
+    "ru": "Сотрудник говорит, что товар закончился.",
+    "tr": "Çalışan ürünün tükendiğini söyler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "a1",
+   "who": "customer",
+   "en": "Is this fresh? When was it baked?",
+   "variants": {
+    "polite": "Could you tell me if this is fresh? When was it baked?",
+    "casual": "Is this fresh?"
+   },
+   "gloss": {
+    "en": "Asking whether food is fresh.",
+    "vi": "Hỏi đồ ăn có tươi không.",
+    "es": "Pregunta si la comida es fresca.",
+    "pt": "Pergunta se a comida é fresca.",
+    "fr": "Demander si c'est frais.",
+    "de": "Fragen, ob es frisch ist.",
+    "id": "Menanyakan apakah makanan segar.",
+    "th": "ถามว่าของสดใหม่ไหม",
+    "zh": "问这个新不新鲜。",
+    "ja": "新鮮かどうか尋ねます。",
+    "ko": "신선한지 물어봐요.",
+    "hi": "पूछना कि सामान ताज़ा है या नहीं।",
+    "ar": "السؤال إن كان الطعام طازجًا.",
+    "ru": "Спросить, свежий ли продукт.",
+    "tr": "Ürünün taze olup olmadığını sorma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "baked",
+     "ipa": "/beɪkt/",
+     "hi": "BAYKT",
+     "note": {
+      "en": "The \"ed\" sounds like \"t\" and joins the word: one syllable, BAYKT.",
+      "vi": "\"ed\" ở đây đọc là âm \"t\" và nối liền vào từ: một âm tiết BAYKT.",
+      "es": "La terminación \"ed\" suena como \"t\" aquí: una sola sílaba, BAYKT.",
+      "pt": "O \"ed\" soa como \"t\" aqui: uma sílaba só, BAYKT.",
+      "fr": "Le « ed » se prononce « t » ici : une seule syllabe, BAYKT.",
+      "de": "„ed“ klingt hier wie „t“: eine Silbe, BAYKT.",
+      "id": "\"ed\" di sini dibaca \"t\": satu suku kata, BAYKT.",
+      "th": "\"ed\" ตรงนี้ออกเสียงเป็น \"ท\" ติดกับคำ: พยางค์เดียว BAYKT",
+      "zh": "这里的 ed 读作 t，和前面连成一个音节：BAYKT。",
+      "ja": "ここの ed は「t」の音で、1音節の BAYKT になります。",
+      "ko": "여기서 ed는 \"t\" 소리이고 한 음절 BAYKT로 읽어요.",
+      "hi": "यहाँ ed की ध्वनि \"t\" है; एक अक्षर BAYKT।",
+      "ar": "ينطق \"ed\" هنا مثل \"t\" ويتصل بالكلمة: مقطع واحد BAYKT.",
+      "ru": "«ed» здесь звучит как «т»: один слог BAYKT.",
+      "tr": "Buradaki \"ed\" bir \"t\" sesidir ve kelimeye bağlanır: tek hece BAYKT."
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2",
+   "who": "barista",
+   "en": "Yes, it came in this morning.",
+   "variants": {
+    "polite": "Yes, it was delivered fresh this morning.",
+    "casual": "Yes, this morning."
+   },
+   "gloss": {
+    "en": "Staff confirm it is fresh.",
+    "vi": "Nhân viên xác nhận đồ còn tươi.",
+    "es": "El personal confirma que es fresco.",
+    "pt": "O funcionário confirma que é fresco.",
+    "fr": "L'employé confirme que c'est frais.",
+    "de": "Das Personal bestätigt, dass es frisch ist.",
+    "id": "Petugas memastikan barang segar.",
+    "th": "พนักงานยืนยันว่าสดใหม่",
+    "zh": "店员确认很新鲜。",
+    "ja": "店員が新鮮だと答えます。",
+    "ko": "직원이 신선하다고 확인해요.",
+    "hi": "स्टाफ़ पुष्टि करता है कि ताज़ा है।",
+    "ar": "الموظف يؤكد أنه طازج.",
+    "ru": "Сотрудник подтверждает свежесть.",
+    "tr": "Çalışan tazeliğini onaylar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "a3",
+   "who": "customer",
+   "en": "Does this contain nuts? I'm allergic.",
+   "variants": {
+    "polite": "Could you check whether this contains nuts? I'm allergic.",
+    "casual": "Any nuts in this?"
+   },
+   "gloss": {
+    "en": "Checking for an allergy.",
+    "vi": "Hỏi về dị ứng thực phẩm.",
+    "es": "Preguntar por una alergia.",
+    "pt": "Perguntar sobre uma alergia.",
+    "fr": "Vérifier une allergie.",
+    "de": "Wegen einer Allergie nachfragen.",
+    "id": "Menanyakan soal alergi.",
+    "th": "ถามเรื่องการแพ้อาหาร",
+    "zh": "确认是否会过敏。",
+    "ja": "アレルギーを確認します。",
+    "ko": "알레르기 여부를 확인해요.",
+    "hi": "एलर्जी के बारे में पूछना।",
+    "ar": "التحقق من الحساسية.",
+    "ru": "Уточнить про аллергию.",
+    "tr": "Alerjiyi kontrol etme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "allergic",
+     "ipa": "/əˈlɜːr.dʒɪk/",
+     "hi": "LUR",
+     "note": {
+      "en": "Stress the second syllable: a-LUR-jik. The \"g\" sounds like \"j\".",
+      "vi": "Nhấn âm tiết thứ hai: a-LƠ-jik. Chữ \"g\" đọc như \"j\".",
+      "es": "Acentúa la segunda sílaba: a-LER-yik. La \"g\" suena como \"y/ch\" suave (j inglesa).",
+      "pt": "Acentue a segunda sílaba: a-LÉR-djik. O \"g\" soa como \"dj\".",
+      "fr": "Accentuez la deuxième syllabe : a-LEUR-djik. Le « g » se prononce « dj ».",
+      "de": "Betone die zweite Silbe: a-LÖR-dschik. Das „g“ klingt wie „dsch“.",
+      "id": "Tekankan suku kata kedua: a-LER-jik. Huruf \"g\" dibaca seperti \"j\".",
+      "th": "เน้นพยางค์ที่สอง: อะ-เลอร์-จิก \"g\" ออกเสียงเหมือน \"จ\"",
+      "zh": "重音在第二音节：a-LUR-jik，g 读作 j。",
+      "ja": "2番目の音節を強く：ア・ラー・ジック。g は「ジ」の音です。",
+      "ko": "두 번째 음절에 강세: 얼-LUR-직. g는 \"ㅈ\" 소리예요.",
+      "hi": "दूसरे अक्षर पर ज़ोर दें: अ-LUR-जिक। g की ध्वनि \"ज\" जैसी है।",
+      "ar": "النبر على المقطع الثاني: a-LUR-jik، وحرف g يُنطق مثل \"ج\".",
+      "ru": "Ударение на второй слог: а-ЛЁР-джик. Буква «g» звучит как «дж».",
+      "tr": "Vurgu ikinci hecede: a-LÖR-cik. \"g\" harfi \"c\" gibi okunur."
+     }
+    }
+   ]
+  },
+  {
+   "id": "a4",
+   "who": "barista",
+   "en": "Let me check the label. No, it's nut-free.",
+   "variants": {
+    "polite": "I'll just read the label for you. No, it doesn't contain nuts.",
+    "casual": "Nope, no nuts."
+   },
+   "gloss": {
+    "en": "Staff check the label for you.",
+    "vi": "Nhân viên đọc nhãn giúp bạn.",
+    "es": "El personal revisa la etiqueta.",
+    "pt": "O funcionário verifica o rótulo.",
+    "fr": "L'employé lit l'étiquette.",
+    "de": "Das Personal prüft das Etikett.",
+    "id": "Petugas memeriksa label.",
+    "th": "พนักงานช่วยอ่านฉลาก",
+    "zh": "店员帮你看标签。",
+    "ja": "店員がラベルを確認します。",
+    "ko": "직원이 라벨을 확인해 줘요.",
+    "hi": "स्टाफ़ लेबल देखकर बताता है।",
+    "ar": "الموظف يقرأ الملصق لك.",
+    "ru": "Сотрудник читает этикетку.",
+    "tr": "Çalışan etiketi kontrol eder."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c1",
+   "who": "barista",
+   "en": "Do you have a loyalty card?",
+   "variants": {
+    "polite": "Do you have a loyalty card with us?",
+    "casual": "Loyalty card?"
+   },
+   "gloss": {
+    "en": "The cashier asks about a store card.",
+    "vi": "Thu ngân hỏi thẻ thành viên.",
+    "es": "El cajero pregunta por la tarjeta de cliente.",
+    "pt": "O caixa pergunta pelo cartão fidelidade.",
+    "fr": "Le caissier demande la carte de fidélité.",
+    "de": "Der Kassierer fragt nach der Kundenkarte.",
+    "id": "Kasir menanyakan kartu member.",
+    "th": "แคชเชียร์ถามว่ามีบัตรสมาชิกไหม",
+    "zh": "收银员问你有没有会员卡。",
+    "ja": "レジで会員カードの有無を聞かれます。",
+    "ko": "계산원이 멤버십 카드를 물어봐요.",
+    "hi": "कैशियर पूछता है कि लॉयल्टी कार्ड है या नहीं।",
+    "ar": "أمين الصندوق يسأل عن بطاقة العضوية.",
+    "ru": "Кассир спрашивает про карту клиента.",
+    "tr": "Kasiyer üyelik kartını sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c2",
+   "who": "customer",
+   "en": "No, I don't. Can I get one?",
+   "variants": {
+    "polite": "No, I don't, I'm afraid. Is it possible to sign up today?",
+    "casual": "No. Can I get one?"
+   },
+   "gloss": {
+    "en": "Saying no and asking to join.",
+    "vi": "Nói không có và hỏi đăng ký.",
+    "es": "Dice que no y pide hacerse socio.",
+    "pt": "Diz que não e pede para aderir.",
+    "fr": "Répondre non et demander à s'inscrire.",
+    "de": "Verneinen und fragen, ob man beitreten kann.",
+    "id": "Menjawab tidak punya dan bertanya cara daftar.",
+    "th": "บอกว่าไม่มี และถามว่าสมัครได้ไหม",
+    "zh": "说没有，并问能不能办一张。",
+    "ja": "持っていないと答え、作れるか尋ねます。",
+    "ko": "없다고 답하고 만들 수 있는지 물어봐요.",
+    "hi": "मना करना और कार्ड बनवाने के बारे में पूछना।",
+    "ar": "الرد بالنفي وطلب التسجيل.",
+    "ru": "Сказать «нет» и спросить про оформление.",
+    "tr": "Yok demek ve üye olunup olunamayacağını sormak."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c3",
+   "who": "customer",
+   "en": "Could I have a bag, please? I forgot mine.",
+   "variants": {
+    "polite": "Could I buy a bag, please? I've left mine at home.",
+    "casual": "A bag, please."
+   },
+   "gloss": {
+    "en": "Asking for a shopping bag.",
+    "vi": "Xin một cái túi.",
+    "es": "Pide una bolsa.",
+    "pt": "Pede uma sacola.",
+    "fr": "Demander un sac.",
+    "de": "Um eine Tüte bitten.",
+    "id": "Meminta kantong belanja.",
+    "th": "ขอถุงใส่ของ",
+    "zh": "请求一个购物袋。",
+    "ja": "レジ袋をお願いします。",
+    "ko": "쇼핑백을 부탁해요.",
+    "hi": "थैला माँगना।",
+    "ar": "طلب كيس تسوق.",
+    "ru": "Попросить пакет.",
+    "tr": "Poşet isteme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "forgot",
+     "ipa": "/fərˈɡɑːt/",
+     "hi": "GOT",
+     "note": {
+      "en": "Stress the second syllable: for-GOT. The first vowel is weak, like \"fer\".",
+      "vi": "Nhấn âm tiết thứ hai: fơ-GÓT. Nguyên âm đầu đọc nhẹ như \"fơ\".",
+      "es": "Acentúa la segunda sílaba: for-GOT. La primera vocal es débil, como \"fer\".",
+      "pt": "Acentue a segunda sílaba: for-GÓT. A primeira vogal é fraca, como \"fer\".",
+      "fr": "Accentuez la deuxième syllabe : for-GOT. La première voyelle est faible, comme « feur ».",
+      "de": "Betone die zweite Silbe: for-GOT. Der erste Vokal ist schwach, wie „fer“.",
+      "id": "Tekankan suku kata kedua: for-GOT. Vokal pertama lemah seperti \"fer\".",
+      "th": "เน้นพยางค์ที่สอง: ฟอร์-GOT สระแรกออกเสียงเบา",
+      "zh": "重音在第二音节：for-GOT，第一个元音很轻。",
+      "ja": "2番目の音節を強く：フォ・ガット。最初の母音は弱く発音します。",
+      "ko": "두 번째 음절에 강세: 포-GOT. 첫 모음은 약하게 읽어요.",
+      "hi": "दूसरे अक्षर पर ज़ोर: फ़र-GOT। पहला स्वर हल्का है।",
+      "ar": "النبر على المقطع الثاني: for-GOT، والحرف الأول خفيف.",
+      "ru": "Ударение на второй слог: фор-ГОТ. Первая гласная слабая.",
+      "tr": "Vurgu ikinci hecede: for-GOT. İlk ünlü zayıftır."
+     }
+    }
+   ]
+  },
+  {
+   "id": "c4",
+   "who": "barista",
+   "en": "That's twenty-three forty. Card or cash?",
+   "variants": {
+    "polite": "Your total is twenty-three forty. Will that be card or cash?",
+    "casual": "Twenty-three forty. Card or cash?"
+   },
+   "gloss": {
+    "en": "The cashier says the total.",
+    "vi": "Thu ngân báo tổng tiền.",
+    "es": "El cajero dice el total.",
+    "pt": "O caixa diz o total.",
+    "fr": "Le caissier annonce le total.",
+    "de": "Der Kassierer nennt den Betrag.",
+    "id": "Kasir menyebut total.",
+    "th": "แคชเชียร์บอกยอดรวม",
+    "zh": "收银员报出总价。",
+    "ja": "レジで合計金額を伝えます。",
+    "ko": "계산원이 총액을 말해요.",
+    "hi": "कैशियर कुल राशि बताता है।",
+    "ar": "أمين الصندوق يذكر المبلغ الإجمالي.",
+    "ru": "Кассир называет сумму.",
+    "tr": "Kasiyer toplam tutarı söyler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "Did you find everything you were looking for?",
+   "keywords": [
+    "yes",
+    "yeah",
+    "everything",
+    "all",
+    "found",
+    "no",
+    "not",
+    "couldn't",
+    "missing",
+    "looking for"
+   ],
+   "variants": {
+    "polite": "Were you able to find everything you needed today?",
+    "casual": "Find everything okay?"
+   },
+   "gloss": {
+    "en": "The cashier asks if you found everything.",
+    "vi": "Thu ngân hỏi bạn đã tìm đủ đồ chưa.",
+    "es": "El cajero pregunta si encontraste todo.",
+    "pt": "O caixa pergunta se você achou tudo.",
+    "fr": "Le caissier demande si vous avez tout trouvé.",
+    "de": "Der Kassierer fragt, ob du alles gefunden hast.",
+    "id": "Kasir menanyakan apakah semua barang ditemukan.",
+    "th": "แคชเชียร์ถามว่าหาของครบไหม",
+    "zh": "收银员问你东西找齐了吗。",
+    "ja": "探していた物は全部見つかったか聞かれます。",
+    "ko": "찾던 물건을 다 찾았는지 물어봐요.",
+    "hi": "कैशियर पूछता है कि सब कुछ मिल गया या नहीं।",
+    "ar": "أمين الصندوق يسأل إن وجدت كل ما تريد.",
+    "ru": "Кассир спрашивает, всё ли вы нашли.",
+    "tr": "Kasiyer aradığınız her şeyi bulup bulmadığınızı sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "Would you like your receipt in the bag?",
+   "keywords": [
+    "yes",
+    "please",
+    "no",
+    "thanks",
+    "bag",
+    "receipt",
+    "email",
+    "keep",
+    "throw",
+    "don't need"
+   ],
+   "variants": {
+    "polite": "Would you like me to put the receipt in the bag?",
+    "casual": "Receipt in the bag?"
+   },
+   "gloss": {
+    "en": "The cashier asks about the receipt.",
+    "vi": "Thu ngân hỏi về hóa đơn.",
+    "es": "El cajero pregunta por el recibo.",
+    "pt": "O caixa pergunta sobre o recibo.",
+    "fr": "Le caissier demande pour le ticket.",
+    "de": "Der Kassierer fragt nach dem Kassenbon.",
+    "id": "Kasir menanyakan struk.",
+    "th": "แคชเชียร์ถามเรื่องใบเสร็จ",
+    "zh": "收银员问小票怎么处理。",
+    "ja": "レシートの扱いを聞かれます。",
+    "ko": "영수증을 어떻게 할지 물어봐요.",
+    "hi": "कैशियर रसीद के बारे में पूछता है।",
+    "ar": "أمين الصندوق يسأل عن الإيصال.",
+    "ru": "Кассир спрашивает про чек.",
+    "tr": "Kasiyer fişi sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Hi there! Did you find everything okay?"
+  },
+  {
+   "who": "customer",
+   "en": "Yes, thanks. Could I have a bag, please?"
+  },
+  {
+   "who": "barista",
+   "en": "Sure. That's five cents extra."
+  },
+  {
+   "who": "customer",
+   "en": "That's fine. Do you take cards?"
+  },
+  {
+   "who": "barista",
+   "en": "Yes, just tap here."
+  },
+  {
+   "who": "customer",
+   "en": "Great. Do you have a loyalty card scheme?"
+  },
+  {
+   "who": "barista",
+   "en": "We do. You can sign up at the desk."
+  },
+  {
+   "who": "customer",
+   "en": "Thanks, I'll do that next time."
+  },
+  {
+   "who": "barista",
+   "en": "Your total is twenty-three forty. Have a nice day!"
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Excuse me, where are the eggs?"
+    },
+    {
+     "who": "barista",
+     "en": "Aisle four, next to the butter."
+    },
+    {
+     "who": "customer",
+     "en": "And do you have brown rice?"
+    },
+    {
+     "who": "barista",
+     "en": "Yes, it's on the bottom shelf in aisle two."
+    }
+   ],
+   "q": {
+    "en": "Where is the brown rice?",
+    "vi": "Gạo lứt nằm ở đâu?",
+    "es": "¿Dónde está el arroz integral?",
+    "pt": "Onde fica o arroz integral?",
+    "fr": "Où se trouve le riz complet ?",
+    "de": "Wo steht der Naturreis?",
+    "id": "Di mana beras merah berada?",
+    "th": "ข้าวกล้องอยู่ตรงไหน",
+    "zh": "糙米在哪里？",
+    "ja": "玄米はどこにありますか？",
+    "ko": "현미는 어디에 있나요?",
+    "hi": "ब्राउन राइस कहाँ है?",
+    "ar": "أين يوجد الأرز البني؟",
+    "ru": "Где лежит бурый рис?",
+    "tr": "Esmer pirinç nerede?"
+   },
+   "answer": "bottom shelf in aisle two"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "That comes to eighteen seventy."
+    },
+    {
+     "who": "customer",
+     "en": "Can I pay by card?"
+    },
+    {
+     "who": "barista",
+     "en": "Of course. Please tap or insert your card."
+    },
+    {
+     "who": "customer",
+     "en": "Oh, my card isn't working. Can I pay in cash instead?"
+    }
+   ],
+   "q": {
+    "en": "What problem does the customer have?",
+    "vi": "Khách gặp vấn đề gì?",
+    "es": "¿Qué problema tiene el cliente?",
+    "pt": "Que problema o cliente tem?",
+    "fr": "Quel problème le client a-t-il ?",
+    "de": "Welches Problem hat der Kunde?",
+    "id": "Masalah apa yang dialami pelanggan?",
+    "th": "ลูกค้ามีปัญหาอะไร",
+    "zh": "顾客遇到了什么问题？",
+    "ja": "お客さんはどんな問題がありますか？",
+    "ko": "손님에게 어떤 문제가 생겼나요?",
+    "hi": "ग्राहक को क्या समस्या है?",
+    "ar": "ما المشكلة التي تواجه الزبون؟",
+    "ru": "Какая проблема у клиента?",
+    "tr": "Müşterinin sorunu nedir?"
+   },
+   "answer": "card isn't working"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "find-item",
+    "title": {
+     "en": "Find an item",
+     "vi": "Tìm một món đồ",
+     "es": "Encuentra un producto",
+     "pt": "Encontre um item",
+     "fr": "Trouver un article",
+     "de": "Einen Artikel finden",
+     "id": "Temukan satu barang",
+     "th": "หาสินค้าชิ้นหนึ่ง",
+     "zh": "找到一件商品",
+     "ja": "商品を一つ見つける",
+     "ko": "물건 하나 찾기",
+     "hi": "एक सामान ढूँढें",
+     "ar": "ابحث عن منتج",
+     "ru": "Найти товар",
+     "tr": "Bir ürün bul"
+    },
+    "intents": [
+     "f1",
+     "f3"
+    ]
+   },
+   {
+    "id": "check-food",
+    "title": {
+     "en": "Check the food is safe",
+     "vi": "Kiểm tra đồ ăn có an toàn",
+     "es": "Comprueba que la comida es segura",
+     "pt": "Verifique se a comida é segura",
+     "fr": "Vérifier que l'aliment convient",
+     "de": "Prüfen, ob das Essen sicher ist",
+     "id": "Pastikan makanan aman",
+     "th": "ตรวจว่าอาหารปลอดภัย",
+     "zh": "确认食品安全",
+     "ja": "食品が安全か確認する",
+     "ko": "식품이 안전한지 확인하기",
+     "hi": "जाँचें कि खाना सुरक्षित है",
+     "ar": "تأكد أن الطعام آمن",
+     "ru": "Проверить безопасность продукта",
+     "tr": "Yiyeceğin güvenli olduğunu kontrol et"
+    },
+    "intents": [
+     "a1",
+     "a3"
+    ]
+   },
+   {
+    "id": "pay-bag",
+    "title": {
+     "en": "Ask for a bag and pay",
+     "vi": "Xin túi và thanh toán",
+     "es": "Pide una bolsa y paga",
+     "pt": "Peça uma sacola e pague",
+     "fr": "Demander un sac et payer",
+     "de": "Tüte erfragen und bezahlen",
+     "id": "Minta kantong dan bayar",
+     "th": "ขอถุงและจ่ายเงิน",
+     "zh": "要袋子并付款",
+     "ja": "袋をもらって支払う",
+     "ko": "봉투를 요청하고 계산하기",
+     "hi": "थैला माँगें और भुगतान करें",
+     "ar": "اطلب كيسًا وادفع",
+     "ru": "Попросить пакет и заплатить",
+     "tr": "Poşet iste ve öde"
+    },
+    "intents": [
+     "c3",
+     "c4"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "In many English-speaking countries you bag your own shopping, and bags often cost a few cents. Bring a reusable bag. At self-checkout, wait for the machine to say \"Please place the item in the bagging area\" before you scan the next one. Staff are happy to help if you ask.",
+  "vi": "Ở nhiều nước nói tiếng Anh, khách tự cho đồ vào túi và túi thường tính thêm vài xu. Hãy mang túi dùng lại. Ở quầy tự thanh toán, đợi máy báo \"Please place the item in the bagging area\" rồi mới quét món tiếp theo. Nhân viên rất sẵn lòng giúp nếu bạn hỏi.",
+  "es": "En muchos países de habla inglesa uno embolsa su propia compra y las bolsas suelen costar unos centavos. Lleva una bolsa reutilizable. En la caja de autoservicio, espera a que la máquina diga \"Please place the item in the bagging area\" antes de escanear el siguiente. El personal ayuda con gusto si se lo pides.",
+  "pt": "Em muitos países de língua inglesa você mesmo coloca as compras na sacola, e as sacolas costumam custar alguns centavos. Leve uma sacola reutilizável. No caixa de autoatendimento, espere a máquina dizer \"Please place the item in the bagging area\" antes de escanear o próximo item. Os funcionários ajudam com prazer se você pedir.",
+  "fr": "Dans beaucoup de pays anglophones, on emballe soi-même ses courses et les sacs coûtent souvent quelques centimes. Apportez un sac réutilisable. À la caisse automatique, attendez que la machine dise « Please place the item in the bagging area » avant de scanner l'article suivant. Le personnel aide volontiers si vous demandez.",
+  "de": "In vielen englischsprachigen Ländern packt man seine Einkäufe selbst ein, und Tüten kosten oft ein paar Cent. Bring eine Mehrwegtasche mit. An der Selbstbedienungskasse wartest du, bis die Maschine „Please place the item in the bagging area“ sagt, bevor du den nächsten Artikel scannst. Das Personal hilft gern, wenn du fragst.",
+  "id": "Di banyak negara berbahasa Inggris, pembeli mengemas belanjaannya sendiri dan kantong plastik sering berbayar beberapa sen. Bawalah tas yang bisa dipakai ulang. Di kasir swalayan, tunggu mesin berkata \"Please place the item in the bagging area\" sebelum memindai barang berikutnya. Petugas senang membantu jika Anda bertanya.",
+  "th": "ในหลายประเทศที่พูดภาษาอังกฤษ ลูกค้าต้องใส่ของลงถุงเอง และถุงมักคิดเงินเพิ่มไม่กี่เซนต์ ควรพกถุงผ้าไปเอง ที่แคชเชียร์แบบสแกนเอง ให้รอจนเครื่องพูดว่า \"Please place the item in the bagging area\" ก่อนสแกนชิ้นต่อไป พนักงานยินดีช่วยถ้าคุณถาม",
+  "zh": "在许多英语国家，顾客要自己装袋，购物袋通常要收几分钱。请自带环保袋。在自助结账机前，要等机器说“Please place the item in the bagging area”再扫下一件商品。有问题可以问店员，他们很乐意帮忙。",
+  "ja": "英語圏の多くの国では、買った物は自分で袋に詰め、レジ袋は数セントかかることが多いです。マイバッグを持っていきましょう。セルフレジでは、機械が \"Please place the item in the bagging area\" と言ってから次の商品をスキャンします。聞けば店員さんが喜んで手伝ってくれます。",
+  "ko": "영어권 여러 나라에서는 산 물건을 직접 봉투에 담고, 봉투는 보통 몇 센트를 받아요. 장바구니를 챙겨 가세요. 셀프 계산대에서는 기계가 \"Please place the item in the bagging area\"라고 말한 뒤에 다음 물건을 스캔하세요. 물어보면 직원이 기꺼이 도와줘요.",
+  "hi": "कई अंग्रेज़ी-भाषी देशों में लोग अपना सामान ख़ुद थैले में डालते हैं और थैले के कुछ सेंट लगते हैं। अपना दोबारा इस्तेमाल होने वाला थैला साथ ले जाएँ। सेल्फ़-चेकआउट पर मशीन के \"Please place the item in the bagging area\" कहने के बाद ही अगला सामान स्कैन करें। पूछने पर स्टाफ़ ख़ुशी से मदद करता है।",
+  "ar": "في كثير من الدول الناطقة بالإنجليزية يعبّئ الزبون مشترياته بنفسه، وغالبًا تُحسب الأكياس بعدة سنتات. أحضر كيسًا قابلًا لإعادة الاستخدام. عند الدفع الذاتي انتظر حتى تقول الآلة \"Please place the item in the bagging area\" قبل مسح المنتج التالي. الموظفون يساعدون بسرور إن سألتهم.",
+  "ru": "Во многих англоязычных странах покупатели сами пакуют продукты, а пакеты часто стоят несколько центов. Возьмите с собой многоразовую сумку. На кассе самообслуживания дождитесь фразы \"Please place the item in the bagging area\", прежде чем сканировать следующий товар. Сотрудники охотно помогут, если вы спросите.",
+  "tr": "Birçok İngilizce konuşulan ülkede alışverişi kişi kendisi poşetler ve poşetler genelde birkaç sent tutar. Tekrar kullanılabilir bir çanta getirin. Self-servis kasada makine \"Please place the item in the bagging area\" diyene kadar bekleyin, sonra sıradaki ürünü okutun. Çalışanlar sorarsanız memnuniyetle yardım eder."
+ }
+}

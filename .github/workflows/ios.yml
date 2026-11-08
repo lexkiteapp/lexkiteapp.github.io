@@ -29,7 +29,7 @@ jobs:
           xcodebuild -version
       - name: Build web → mobile/www → cap sync
         run: |
-          npm ci --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
           ./scripts/build-mobile.sh
       - name: xcodebuild (iphonesimulator, không ký)
         working-directory: mobile/ios/App

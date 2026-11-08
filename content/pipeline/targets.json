@@ -48,7 +48,7 @@
   "target": 300,
   "unit": "bài",
   "batch": 15,
-  "file": "web/js/readings-more.js",
+  "file": "web/cpack/readings/more.js",
   "priority": 2
  },
  "TOEIC Listening": {

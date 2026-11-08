@@ -50,7 +50,16 @@ import com.lexkite.app.i18n.L10n
 import com.lexkite.app.ui.AppShell
 import com.lexkite.app.ui.LanguageDialog
 import com.lexkite.app.ui.ShellSlots
+import com.lexkite.app.ui.RemoteImage
+import com.lexkite.app.ui.RigAssets
 import com.lexkite.app.ui.TeacherStill
+import com.lexkite.app.ui.TeacherView
+import com.lexkite.app.core.sync.UrlHttp
+import com.lexkite.app.feature.lesson.LessonEnv
+import com.lexkite.app.feature.lesson.LessonRequest
+import com.lexkite.app.feature.lesson.LessonRoute
+import com.lexkite.app.feature.lesson.LessonSlots
+import androidx.compose.foundation.layout.Box
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.JsonArray
@@ -134,6 +143,18 @@ class MainActivity : ComponentActivity() {
     private fun slots(lang: String, onLanguage: () -> Unit) = ShellSlots(
         today = { open -> TodayRoute(lang, open, onLanguage) },
         me = { MeRoute() },
+        lesson = { story, onExit ->
+            val dark = com.lexkite.app.design.LocalLKColors.current.dark
+            val env = remember(lang, dark) { LessonEnv(app.store, app.audio, UrlHttp, cacheDir, app.starter, lang, RigAssets.def(this@MainActivity).poseEmo, imageUrl = { w, p -> app.vimg.urlFor(w, p, dark) }, prepareImages = { app.vimg.prepare(it) }) }
+            LessonRoute(env, LessonRequest(story = story), lessonSlots, onExit)
+        },
+    )
+
+    /** The teacher in the lesson: the live rig for the stage, the bundled still for the feedback sheet / result (C05). */
+    private val lessonSlots = LessonSlots(
+        teacher = { who, signal, mod -> TeacherView(who, signal, mod) },
+        still = { who, pose, mod -> Box(mod) { TeacherStill(who, pose) } },
+        image = { url, desc, mod -> RemoteImage(url, desc, mod) },
     )
 
     @Composable

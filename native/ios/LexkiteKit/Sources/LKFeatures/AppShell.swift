@@ -132,19 +132,23 @@ struct InnerScreen: View {
     }
 }
 
-/// Focus flow (lesson, review, mock…): no tab bar, Close X ≥ 44 pt top-leading, Esc closes. Players land in M2+.
+/// Focus flow (lesson, review, mock…): no tab bar, Close X ≥ 44 pt top-leading, Esc closes. The lesson player is P03; the other players land in M3+.
 struct FocusScreen: View {
     let route: AppRoute
     @Environment(AppServices.self) private var services
     @Environment(\.colorScheme) private var scheme
     @Environment(\.l10n) private var t
     var body: some View {
-        VStack(spacing: 0) {
-            TopBar(variant: .focus(progress: 0), title: "") { services.router.closeFocus() }
-            Spacer()
+        if route.name == "lesson" && route.arg == "go" {
+            LessonView(route: route) { services.router.closeFocus() }   // P03
+        } else {
+            VStack(spacing: 0) {
+                TopBar(variant: .focus(progress: 0), title: "") { services.router.closeFocus() }
+                Spacer()
+            }
+            .background(LKColor.background.resolve(scheme).ignoresSafeArea())
+            .accessibilityIdentifier("focus-\(route.name)")
         }
-        .background(LKColor.background.resolve(scheme).ignoresSafeArea())
-        .accessibilityIdentifier("focus-\(route.name)")
     }
 }
 

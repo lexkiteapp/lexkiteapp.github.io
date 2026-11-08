@@ -87,7 +87,7 @@ const AREAS = {
   comm: { name: 'Giao tiếp', err: 0, parts: [
     ['cuộc gọi Ama/Carlos', countRe(ls('web/js/call', /^calls.*\.js$/).map(f => 'web/js/call/' + f), /^\s*id: '/gm), 60, 20],
     ['roleplay', roleplay, 60, 20], ['tình huống Play & Speak', ls('content/situations', /\.json$/).length, 40, 20],
-    ['mục gold (giải thích cách dùng)', (rd('web/js/lesson/gold.js').match(/":\[\{"why"/g) || []).length, 1000, 20],
+    ['mục gold (giải thích cách dùng)', (rd('web/cpack/lesson/gold.js').match(/":\[\{"why"/g) || []).length, 1000, 20],
     ['sổ mẫu câu theo chức năng', ex('content/framework/functions.json') ? (JSON.parse(rd('content/framework/functions.json')).functions || []).length : 0, 100, 20, 1]] },
   skills: { name: '4 kỹ năng', err: ERR.skills, parts: [
     ['Nghe: bộ bài', (C.LISTENING || []).length, 80, 15], ['Đọc: bài', (C.READINGS || []).length + n('Bài đọc ngắn'), 600, 15],
@@ -97,7 +97,7 @@ const AREAS = {
     ['trung gian (mediation)', ls('content/mediation', /\.json$/).length, 30, 14, 1]] },
   exam: { name: 'Đề thi', err: ERR.exam, parts: [
     ...Object.entries(EXAM_STD).map(([k, t]) => [k, S[k] ? n(k) : +T[k]?.have || 0, t, 5]), // loại chưa đếm trong content-check: số đếm tay ở targets.json (như content-queue)
-    ...['a2', 'b1', 'b2', 'c1', 'c2'].map(l => [`Cambridge ${l.toUpperCase()}`, ls(`web/js/cambridge/${l}`, /\.js$/).length, 6, 8, 1])] },
+    ...['a2', 'b1', 'b2', 'c1', 'c2'].map(l => [`Cambridge ${l.toUpperCase()}`, (C.CAMBRIDGE || []).filter(x => x.level === l && x.id === `${l}-t${x.n}`).length, 6, 8, 1])] }, // Cambridge: đề nạp được qua content-load (không đếm file rác); exam-format-check chặn đề lệch spec
   // Chuẩn: ~600 mục tiêu (6 kỹ năng × 6 cấp × ≥ 15), mọi nội dung có lo; "mục tiêu có nội dung" đo khoảng trống thật (vd trung gian, A1, C2) – chỉ tăng khi thêm bài
   lkf: { name: 'Khung Can-do', err: LK.errors, items: LK.total.items, gate: lkfRun.status === 0, parts: [
     ['mục tiêu LKF tự soạn', LK.objectives, 600, 25], ['ô kỹ năng × cấp đủ ≥ 15', LK.cellsOk, 36, 15],

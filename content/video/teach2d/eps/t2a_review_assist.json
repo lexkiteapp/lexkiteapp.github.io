@@ -72,5 +72,46 @@
   "words": 35,
   "seconds": 22.3,
   "wpm": 94
+ },
+ "publish": {
+  "title": "What does \"assist\" mean?",
+  "keyword": "assist",
+  "value": "Assist means to help.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=assist",
+  "script_words": 29,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"assist\" mean?",
+    "description": "Assist means to help.\n\nReview your words, free: https://lexkite.com/app/#/review?w=assist\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "assist",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"assist\" mean?\n\nAssist means to help.\n\nReview your words, free: https://lexkite.com/app/#/review?w=assist"
+   },
+   "instagram": {
+    "caption": "What does \"assist\" mean?\n\nAssist means to help.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"assist\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to help. Assist means to help. More practice like this (free): {link}"
  }
 }

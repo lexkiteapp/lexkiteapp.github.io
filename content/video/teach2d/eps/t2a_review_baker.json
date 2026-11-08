@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"baker\" mean?",
+  "keyword": "baker",
+  "value": "Baker means a person who bakes bread.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=baker",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"baker\" mean?",
+    "description": "Baker means a person who bakes bread.\n\nReview your words, free: https://lexkite.com/app/#/review?w=baker\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "baker",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"baker\" mean?\n\nBaker means a person who bakes bread.\n\nReview your words, free: https://lexkite.com/app/#/review?w=baker"
+   },
+   "instagram": {
+    "caption": "What does \"baker\" mean?\n\nBaker means a person who bakes bread.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"baker\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a person who bakes bread. Baker means a person who bakes bread. Try the full lesson and quiz here: {link}"
  }
 }

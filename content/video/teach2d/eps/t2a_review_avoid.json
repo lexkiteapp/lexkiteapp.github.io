@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"avoid\" mean?",
+  "keyword": "avoid",
+  "value": "Avoid means to prevent from happening, or stay away from.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=avoid",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"avoid\" mean?",
+    "description": "Avoid means to prevent from happening, or stay away from.\n\nReview your words, free: https://lexkite.com/app/#/review?w=avoid\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "avoid",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"avoid\" mean?\n\nAvoid means to prevent from happening, or stay away from.\n\nReview your words, free: https://lexkite.com/app/#/review?w=avoid"
+   },
+   "instagram": {
+    "caption": "What does \"avoid\" mean?\n\nAvoid means to prevent from happening, or stay away from.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"avoid\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to prevent from happening, or stay away from. Avoid means to prevent from happening, or stay away from. More practice like this (free): {link}"
  }
 }
