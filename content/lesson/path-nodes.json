@@ -1409,6 +1409,144 @@
           "ex": []
         }
       ]
+    },
+    "crime": {
+      "theme": "Tội phạm và pháp luật",
+      "can": "Bạn sẽ bàn về luật lệ và an toàn",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Tội phạm và hình phạt",
+          "sub": "Nạn nhân, kẻ phạm tội, mức phạt",
+          "min": 4,
+          "words": [
+            [
+              "crime rate",
+              "n"
+            ],
+            [
+              "offender",
+              "n"
+            ],
+            [
+              "victim",
+              "n"
+            ],
+            [
+              "penalty",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Heavier penalties for drink-driving have saved many lives.",
+              "vi": "Mức phạt nặng hơn với lái xe khi uống rượu đã cứu sống nhiều người."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: luật và việc thực thi",
+          "sub": "Luật mới, thực thi, truy tố",
+          "min": 3,
+          "words": [
+            [
+              "legislation",
+              "n"
+            ],
+            [
+              "enforce",
+              "v"
+            ],
+            [
+              "prosecute",
+              "v"
+            ],
+            [
+              "juvenile",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "The police should enforce speed limits more strictly.",
+              "vi": "Cảnh sát nên thực thi nghiêm hơn các giới hạn tốc độ."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: nên phạt nặng hay cải tạo?",
+          "sub": "Án tù, cải tạo, án tử hình",
+          "min": 3,
+          "words": [
+            [
+              "deterrent",
+              "n"
+            ],
+            [
+              "rehabilitation",
+              "n"
+            ],
+            [
+              "custodial sentence",
+              "n"
+            ],
+            [
+              "capital punishment",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Long prison sentences act as a deterrent to potential criminals.",
+              "vi": "Án tù dài hạn có tác dụng răn đe tội phạm tiềm tàng."
+            }
+          ]
+        },
+        {
+          "slot": "story"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: nạn nhân, mức phạt, răn đe",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "victim",
+              "n"
+            ],
+            [
+              "penalty",
+              "n"
+            ],
+            [
+              "enforce",
+              "v"
+            ],
+            [
+              "deterrent",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Victims of cybercrime often lose large sums of money.",
+              "vi": "Nạn nhân của tội phạm mạng thường mất những khoản tiền lớn."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng pháp luật",
+          "sub": "Nghe, đọc và nói về luật và an toàn",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
     }
   }
 }
