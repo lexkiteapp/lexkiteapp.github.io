@@ -47,7 +47,7 @@ await page0.close();
 // Ảnh chụp trạng thái màn (chạy trong trang)
 const probe = () => {
   const v = document.querySelector('#view'), vis = el => { if (!el) return false; const r = el.getBoundingClientRect(), cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && !el.closest('[hidden]'); };
-  const END = '.lsn-done, .lesson-complete, #wDone, [data-lesson-done], .rev-done, .nx-step, #lRes:not(:empty), #tRes:not(:empty), .celebrate:not(.lk-exit-ask)';
+  const END = '.lsn-done, .lesson-complete, #wDone, [data-lesson-done], .rev-done, .nx-step, #lRes:not(:empty), #tRes:not(:empty), .celebrate:not(.lk-exit-ask), #view .score-ring';   // .score-ring: thẻ kết quả của màn Viết (#/write: Phân tích → vòng điểm band) – màn kết thật, không phụ thuộc modal lên cấp (.celebrate) có hiện hay không
   const end = [...document.querySelectorAll(END)].find(vis) || null;
   const p = window.ExitGuard && ExitGuard.primary && ExitGuard.primary();
   const SKIP = '#lsnNoL, #lsnNoS, #skip, #skipW, #lfxNoAudio, #mkSkip, [data-lk-skip], .lfx-skipmic';
