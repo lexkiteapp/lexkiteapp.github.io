@@ -13,7 +13,9 @@ data class DeepLink(val tab: String, val route: String = "", val arg: String = "
         const val HOME = "home"; const val VOCAB = "vocab"; const val SKILLS = "skills"; const val TESTS = "tests"; const val ME = "me"
         private val TAB_OF = mapOf(
             "" to HOME, "home" to HOME, "today" to HOME, "lesson" to HOME, "path" to HOME, "streak" to HOME,
+            "practice" to VOCAB, "deck" to VOCAB, "library" to VOCAB, "topic" to VOCAB,
             "vocab" to VOCAB, "review" to VOCAB, "word" to VOCAB, "words" to VOCAB, "dict" to VOCAB, "mistakes" to VOCAB,
+            "verb" to VOCAB, "usage" to VOCAB, "phrases" to VOCAB, "letters" to SKILLS, "ideas" to SKILLS, "paraphrase" to SKILLS, "models" to SKILLS, "model" to SKILLS,
             "skills" to SKILLS, "train" to SKILLS, "listen" to SKILLS, "speak" to SKILLS, "write" to SKILLS, "grammar" to SKILLS, "read" to SKILLS,
             "tests" to TESTS, "mock" to TESTS, "toeic" to TESTS, "toefl" to TESTS, "exam" to TESTS,
             "me" to ME, "stats" to ME, "settings" to ME, "account" to ME, "goal" to ME, "notif" to ME, "search" to VOCAB,

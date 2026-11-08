@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite v2.1 Light — Topic</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#FBF7F1',
+            surface: '#FFFFFF',
+            'surface-subtle': '#FAF5EE',
+            'border-base': '#EADEC8',
+            'border-subtle': '#F2E8D7',
+            'text-main': '#0F3D3E',
+            'text-muted': '#587374',
+            'text-soft': '#7E9899',
+            brand: {
+              teal: '#2BA39A',
+              'teal-dark': '#1F7A75',
+              'teal-light': '#E8F6F5',
+              coral: '#F2553B',
+              'coral-dark': '#D9432B',
+              'coral-light': '#FDF2F0',
+              amber: '#EAA235',
+              'amber-light': '#FDF6EB'
+            }
+          },
+          fontFamily: {
+            sans: ['Nunito Sans', 'Plus Jakarta Sans', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'Nunito Sans', 'sans-serif']
+          },
+          boxShadow: {
+            'tactile-sm': '0 2px 0 0 #D8CFBC',
+            'tactile-md': '0 3px 0 0 #D8CFBC',
+            'tactile-btn': '0 4px 0 0 #B53A22',
+            'tactile-secondary': '0 3px 0 0 #D8CFBC',
+            'tactile-teal': '0 2px 0 0 #1B6662'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-rounded.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Hide scrollbar for tabs */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-text-main font-sans antialiased min-h-screen flex justify-center selection:bg-brand-teal/20 selection:text-text-main">
+
+  <!-- Mobile Viewport Container 390px -->
+  <main class="w-full max-w-[390px] bg-canvas min-h-screen flex flex-col relative pb-10">
+
+    <!-- Sticky Top Bar -->
+    <header class="sticky top-0 z-30 bg-canvas/95 backdrop-blur-md px-4 py-2.5 flex items-center justify-between border-b border-border-base/60">
+      <button type="button" aria-label="Quay lại" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface border-2 border-border-base text-text-main hover:bg-surface-subtle active:translate-y-0.5 active:shadow-none shadow-tactile-sm transition-all">
+        <span class="material-symbols-rounded text-xl">arrow_back</span>
+      </button>
+
+      <div class="flex items-center gap-1.5">
+        <button type="button" title="Hands-free listening" class="h-10 px-3 flex items-center gap-1.5 rounded-xl bg-surface border-2 border-border-base text-text-main hover:text-brand-teal hover:border-brand-teal/50 active:translate-y-0.5 active:shadow-none shadow-tactile-sm transition-all text-xs font-semibold">
+          <span class="material-symbols-rounded text-lg text-brand-teal">headphones</span>
+          <span class="hidden sm:inline">Hands-free</span>
+        </button>
+
+        <button type="button" title="Export to Anki" aria-label="Xuất thẻ ra Anki" class="w-10 h-10 flex items-center justify-center rounded-xl bg-surface border-2 border-border-base text-text-main hover:text-brand-teal active:translate-y-0.5 active:shadow-none shadow-tactile-sm transition-all">
+          <span class="material-symbols-rounded text-lg">ios_share</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="px-4 pt-3 flex flex-col gap-4">
+
+      <!-- Header Card: Travel Essentials -->
+      <section class="bg-surface rounded-2xl p-4 border-2 border-border-base shadow-tactile-sm flex flex-col gap-3">
+        <div class="flex items-start gap-3.5">
+          <!-- Big Illustrated Icon / Emoji Container -->
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-b from-[#E8F6F5] to-[#D5EFEF] border-2 border-brand-teal/40 flex items-center justify-center text-3xl shadow-sm flex-shrink-0">
+            ✈️
+          </div>
+
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1 flex-wrap">
+              <span class="text-[11px] font-bold tracking-wider uppercase text-brand-teal-dark bg-brand-teal-light px-2 py-0.5 rounded-md border border-brand-teal/30">
+                IELTS &amp; Du lịch
+              </span>
+              <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
+                <span class="material-symbols-rounded text-[13px] text-emerald-600 font-bold">check_circle</span>
+                12 added
+              </span>
+            </div>
+
+            <h1 class="text-xl font-bold font-display tracking-tight text-text-main leading-tight">
+              Travel Essentials
+            </h1>
+          </div>
+        </div>
+
+        <p class="text-xs text-text-muted leading-relaxed">
+          40 từ vựng cốt lõi giúp bạn tự tin làm thủ tục bay, quá cảnh, đặt phòng và xử lý tình huống hải quan.
+        </p>
+
+        <!-- Progress Counter Micro-Bar -->
+        <div class="bg-canvas rounded-xl p-2.5 border border-border-base flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-rounded text-base text-text-soft">library_books</span>
+            <span class="text-xs font-semibold text-text-main">Bộ từ: <strong class="font-bold">40 từ vựng</strong></span>
+          </div>
+          <span class="text-xs font-bold text-brand-teal-dark bg-surface px-2 py-0.5 rounded-md border border-border-base">
+            Đã lưu 12/40 (30%)
+          </span>
+        </div>
+
+        <!-- Primary CTA Button -->
+        <button type="button" class="w-full min-h-[48px] py-3 px-4 rounded-xl bg-gradient-to-r from-brand-coral to-[#F77F42] hover:brightness-105 active:translate-y-0.5 active:shadow-tactile-sm shadow-tactile-btn text-white text-sm font-bold tracking-wide flex items-center justify-center gap-2 transition-all">
+          <span class="material-symbols-rounded text-lg">add_circle</span>
+          <span>+ Add 28 words to flashcards</span>
+        </button>
+
+        <!-- Secondary Utility Quick-Links (Hands-free & Anki export links) -->
+        <div class="grid grid-cols-2 gap-2 pt-1 border-t border-border-subtle">
+          <button type="button" class="py-2 px-3 rounded-lg bg-surface-subtle border border-border-base hover:bg-canvas text-xs font-semibold text-text-main flex items-center justify-center gap-1.5 transition-colors">
+            <span class="material-symbols-rounded text-base text-brand-teal">headphones</span>
+            <span>Hands-free audio</span>
+          </button>
+          <button type="button" class="py-2 px-3 rounded-lg bg-surface-subtle border border-border-base hover:bg-canvas text-xs font-semibold text-text-main flex items-center justify-center gap-1.5 transition-colors">
+            <span class="material-symbols-rounded text-base text-brand-amber">file_download</span>
+            <span>Export to Anki</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Practice Modes Section: 3 Link Buttons -->
+      <section class="flex flex-col gap-2">
+        <h2 class="text-xs font-bold tracking-wider uppercase text-text-soft px-1">
+          Luyện tập từ vựng bộ này
+        </h2>
+        <div class="grid grid-cols-3 gap-2">
+          <!-- Learn Button -->
+          <a href="#learn" class="bg-surface rounded-xl p-2.5 border-2 border-border-base shadow-tactile-sm hover:border-brand-teal/60 active:translate-y-0.5 active:shadow-none flex flex-col items-center text-center gap-1 transition-all group">
+            <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center group-hover:scale-105 transition-transform">
+              <span class="material-symbols-rounded text-lg">school</span>
+            </div>
+            <span class="text-xs font-bold text-text-main">Learn</span>
+            <span class="text-[10px] text-text-muted leading-tight">Spaced drill</span>
+          </a>
+
+          <!-- Match cards Button -->
+          <a href="#match" class="bg-surface rounded-xl p-2.5 border-2 border-border-base shadow-tactile-sm hover:border-brand-amber/60 active:translate-y-0.5 active:shadow-none flex flex-col items-center text-center gap-1 transition-all group">
+            <div class="w-8 h-8 rounded-lg bg-brand-amber-light text-brand-amber flex items-center justify-center group-hover:scale-105 transition-transform">
+              <span class="material-symbols-rounded text-lg">style</span>
+            </div>
+            <span class="text-xs font-bold text-text-main">Match</span>
+            <span class="text-[10px] text-text-muted leading-tight">Speed pairs</span>
+          </a>
+
+          <!-- Test Button -->
+          <a href="#test" class="bg-surface rounded-xl p-2.5 border-2 border-border-base shadow-tactile-sm hover:border-brand-coral/60 active:translate-y-0.5 active:shadow-none flex flex-col items-center text-center gap-1 transition-all group">
+            <div class="w-8 h-8 rounded-lg bg-brand-coral-light text-brand-coral flex items-center justify-center group-hover:scale-105 transition-transform">
+              <span class="material-symbols-rounded text-lg">quiz</span>
+            </div>
+            <span class="text-xs font-bold text-text-main">Test</span>
+            <span class="text-[10px] text-text-muted leading-tight">Recall quiz</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Level Tab Row: A1, A2, B1 -->
+      <section class="flex flex-col gap-2 pt-1">
+        <div class="flex items-center justify-between px-1">
+          <h2 class="text-xs font-bold tracking-wider uppercase text-text-soft">
+            Danh sách từ vựng
+          </h2>
+          <span class="text-[11px] text-text-soft">Lọc theo cấp độ CEFR</span>
+        </div>
+
+        <div class="flex items-center gap-1.5 bg-surface-subtle p-1 rounded-xl border border-border-base">
+          <!-- All -->
+          <button type="button" class="flex-1 py-1.5 px-2 rounded-lg text-xs font-bold transition-all bg-text-main text-white shadow-sm">
+            Tất cả <span class="text-[10px] font-normal opacity-80">(40)</span>
+          </button>
+          <!-- A1 -->
+          <button type="button" class="flex-1 py-1.5 px-2 rounded-lg text-xs font-semibold text-text-muted hover:text-text-main hover:bg-white/60 transition-all">
+            A1 <span class="text-[10px] text-text-soft font-normal">(14)</span>
+          </button>
+          <!-- A2 (Highlighted) -->
+          <button type="button" class="flex-1 py-1.5 px-2 rounded-lg text-xs font-semibold text-text-muted hover:text-text-main hover:bg-white/60 transition-all">
+            A2 <span class="text-[10px] text-text-soft font-normal">(16)</span>
+          </button>
+          <!-- B1 -->
+          <button type="button" class="flex-1 py-1.5 px-2 rounded-lg text-xs font-semibold text-text-muted hover:text-text-main hover:bg-white/60 transition-all">
+            B1 <span class="text-[10px] text-text-soft font-normal">(10)</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Word List: High-Yield Vocabulary Cards -->
+      <section class="flex flex-col gap-3">
+
+        <!-- Word Card 1: boarding pass (Added state) -->
+        <article class="bg-surface rounded-2xl p-3.5 border-2 border-border-base shadow-tactile-sm flex flex-col gap-2.5 transition-all">
+          <!-- Word Row Top: Word, Level, Speaker, Add Button -->
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="text-base font-bold font-display text-text-main">
+                  boarding pass
+                </h3>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-teal-800 bg-teal-50 px-1.5 py-0.5 rounded border border-teal-200">
+                  A2
+                </span>
+                <span class="text-[10px] text-text-soft italic">noun</span>
+              </div>
+              <p class="text-[11px] text-text-soft font-mono mt-0.5">/ˈbɔː.dɪŋ ˌpɑːs/</p>
+            </div>
+
+            <div class="flex items-center gap-1.5 flex-shrink-0">
+              <!-- Speaker Button -->
+              <button type="button" aria-label="Nghe phát âm boarding pass" class="w-9 h-9 rounded-lg bg-surface border border-border-base hover:border-brand-teal text-text-main hover:text-brand-teal flex items-center justify-center active:scale-95 transition-all">
+                <span class="material-symbols-rounded text-lg text-brand-teal">volume_up</span>
+              </button>
+
+              <!-- State: Added -->
+              <button type="button" class="h-9 px-2.5 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs font-bold flex items-center gap-1 shadow-sm active:translate-y-0.5 transition-all cursor-default">
+                <span class="material-symbols-rounded text-base text-emerald-600">check</span>
+                <span>Added</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Semantic Definition & Vietnamese Meaning -->
+          <div class="bg-canvas/80 rounded-xl p-2.5 border border-border-base/70 flex flex-col gap-1 text-xs">
+            <div class="text-text-main font-semibold">
+              <span class="text-text-soft font-normal text-[11px]">Nghĩa tiếng Việt:</span> thẻ lên máy bay
+            </div>
+            <div class="text-text-muted text-[11px] leading-relaxed">
+              <span class="text-text-soft font-normal">English:</span> A document provided by an airline during check-in, giving a passenger permission to enter the aircraft.
+            </div>
+          </div>
+
+          <!-- Example sentence -->
+          <div class="text-xs text-text-main italic bg-amber-50/50 p-2 rounded-lg border border-amber-200/50 leading-relaxed">
+            &ldquo;Please have your <strong class="font-bold not-italic text-brand-coral">boarding pass</strong> and passport ready at gate 14.&rdquo;
+          </div>
+
+          <!-- Collocation line -->
+          <div class="flex items-center gap-1.5 text-[11px] text-text-muted pt-0.5">
+            <span class="material-symbols-rounded text-sm text-brand-teal">link</span>
+            <span class="font-medium">Collocation:</span>
+            <span class="text-text-main font-semibold">issue a boarding pass • digital boarding pass</span>
+          </div>
+        </article>
+
+        <!-- Word Card 2: layover (Not Added / Add state) -->
+        <article class="bg-surface rounded-2xl p-3.5 border-2 border-border-base shadow-tactile-sm flex flex-col gap-2.5 transition-all">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="text-base font-bold font-display text-text-main">
+                  layover
+                </h3>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">
+                  B1
+                </span>
+                <span class="text-[10px] text-text-soft italic">noun</span>
+              </div>
+              <p class="text-[11px] text-text-soft font-mono mt-0.5">/ˈleɪˌoʊ.vər/</p>
+            </div>
+
+            <div class="flex items-center gap-1.5 flex-shrink-0">
+              <button type="button" aria-label="Nghe phát âm layover" class="w-9 h-9 rounded-lg bg-surface border border-border-base hover:border-brand-teal text-text-main hover:text-brand-teal flex items-center justify-center active:scale-95 transition-all">
+                <span class="material-symbols-rounded text-lg text-brand-teal">volume_up</span>
+              </button>
+
+              <!-- State: + Add -->
+              <button type="button" class="h-9 px-3 rounded-lg bg-surface border-2 border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white text-xs font-bold flex items-center gap-1 shadow-sm active:translate-y-0.5 transition-all">
+                <span class="material-symbols-rounded text-base">add</span>
+                <span>Add</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-canvas/80 rounded-xl p-2.5 border border-border-base/70 flex flex-col gap-1 text-xs">
+            <div class="text-text-main font-semibold">
+              <span class="text-text-soft font-normal text-[11px]">Nghĩa tiếng Việt:</span> thời gian quá cảnh (giữa 2 chặng bay)
+            </div>
+            <div class="text-text-muted text-[11px] leading-relaxed">
+              <span class="text-text-soft font-normal">English:</span> A short stay in a place that you make while on a longer journey to somewhere else.
+            </div>
+          </div>
+
+          <div class="text-xs text-text-main italic bg-amber-50/50 p-2 rounded-lg border border-amber-200/50 leading-relaxed">
+            &ldquo;We had a four-hour <strong class="font-bold not-italic text-brand-coral">layover</strong> in Doha before our flight to Frankfurt.&rdquo;
+          </div>
+
+          <div class="flex items-center gap-1.5 text-[11px] text-text-muted pt-0.5">
+            <span class="material-symbols-rounded text-sm text-brand-teal">link</span>
+            <span class="font-medium">Collocation:</span>
+            <span class="text-text-main font-semibold">brief layover • during the layover</span>
+          </div>
+        </article>
+
+        <!-- Word Card 3: baggage claim (Added state) -->
+        <article class="bg-surface rounded-2xl p-3.5 border-2 border-border-base shadow-tactile-sm flex flex-col gap-2.5 transition-all">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="text-base font-bold font-display text-text-main">
+                  baggage claim
+                </h3>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-teal-800 bg-teal-50 px-1.5 py-0.5 rounded border border-teal-200">
+                  A2
+                </span>
+                <span class="text-[10px] text-text-soft italic">noun</span>
+              </div>
+              <p class="text-[11px] text-text-soft font-mono mt-0.5">/ˈbæɡ.ɪdʒ ˌkleɪm/</p>
+            </div>
+
+            <div class="flex items-center gap-1.5 flex-shrink-0">
+              <button type="button" aria-label="Nghe phát âm baggage claim" class="w-9 h-9 rounded-lg bg-surface border border-border-base hover:border-brand-teal text-text-main hover:text-brand-teal flex items-center justify-center active:scale-95 transition-all">
+                <span class="material-symbols-rounded text-lg text-brand-teal">volume_up</span>
+              </button>
+
+              <button type="button" class="h-9 px-2.5 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs font-bold flex items-center gap-1 shadow-sm active:translate-y-0.5 transition-all cursor-default">
+                <span class="material-symbols-rounded text-base text-emerald-600">check</span>
+                <span>Added</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-canvas/80 rounded-xl p-2.5 border border-border-base/70 flex flex-col gap-1 text-xs">
+            <div class="text-text-main font-semibold">
+              <span class="text-text-soft font-normal text-[11px]">Nghĩa tiếng Việt:</span> khu vực nhận hành lý ký gửi
+            </div>
+            <div class="text-text-muted text-[11px] leading-relaxed">
+              <span class="text-text-soft font-normal">English:</span> The specific airport carousel area where arriving passengers retrieve their checked luggage.
+            </div>
+          </div>
+
+          <div class="text-xs text-text-main italic bg-amber-50/50 p-2 rounded-lg border border-amber-200/50 leading-relaxed">
+            &ldquo;Follow the airport signs down to the <strong class="font-bold not-italic text-brand-coral">baggage claim</strong> area on level 1.&rdquo;
+          </div>
+
+          <div class="flex items-center gap-1.5 text-[11px] text-text-muted pt-0.5">
+            <span class="material-symbols-rounded text-sm text-brand-teal">link</span>
+            <span class="font-medium">Collocation:</span>
+            <span class="text-text-main font-semibold">baggage claim carousel • proceed to baggage claim</span>
+          </div>
+        </article>
+
+        <!-- Word Card 4: itinerary (Add state) -->
+        <article class="bg-surface rounded-2xl p-3.5 border-2 border-border-base shadow-tactile-sm flex flex-col gap-2.5 transition-all">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="text-base font-bold font-display text-text-main">
+                  itinerary
+                </h3>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">
+                  B1
+                </span>
+                <span class="text-[10px] text-text-soft italic">noun</span>
+              </div>
+              <p class="text-[11px] text-text-soft font-mono mt-0.5">/aɪˈtɪn.ər.ər.i/</p>
+            </div>
+
+            <div class="flex items-center gap-1.5 flex-shrink-0">
+              <button type="button" aria-label="Nghe phát âm itinerary" class="w-9 h-9 rounded-lg bg-surface border border-border-base hover:border-brand-teal text-text-main hover:text-brand-teal flex items-center justify-center active:scale-95 transition-all">
+                <span class="material-symbols-rounded text-lg text-brand-teal">volume_up</span>
+              </button>
+
+              <button type="button" class="h-9 px-3 rounded-lg bg-surface border-2 border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white text-xs font-bold flex items-center gap-1 shadow-sm active:translate-y-0.5 transition-all">
+                <span class="material-symbols-rounded text-base">add</span>
+                <span>Add</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-canvas/80 rounded-xl p-2.5 border border-border-base/70 flex flex-col gap-1 text-xs">
+            <div class="text-text-main font-semibold">
+              <span class="text-text-soft font-normal text-[11px]">Nghĩa tiếng Việt:</span> lịch trình, hành trình chi tiết
+            </div>
+            <div class="text-text-muted text-[11px] leading-relaxed">
+              <span class="text-text-soft font-normal">English:</span> A planned route or detailed list of destinations and scheduled times for a journey.
+            </div>
+          </div>
+
+          <div class="text-xs text-text-main italic bg-amber-50/50 p-2 rounded-lg border border-amber-200/50 leading-relaxed">
+            &ldquo;The travel agency emailed us a comprehensive <strong class="font-bold not-italic text-brand-coral">itinerary</strong> for our weekend trip.&rdquo;
+          </div>
+
+          <div class="flex items-center gap-1.5 text-[11px] text-text-muted pt-0.5">
+            <span class="material-symbols-rounded text-sm text-brand-teal">link</span>
+            <span class="font-medium">Collocation:</span>
+            <span class="text-text-main font-semibold">travel itinerary • confirm the itinerary</span>
+          </div>
+        </article>
+
+        <!-- Word Card 5: departure gate (Add state) -->
+        <article class="bg-surface rounded-2xl p-3.5 border-2 border-border-base shadow-tactile-sm flex flex-col gap-2.5 transition-all">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="text-base font-bold font-display text-text-main">
+                  departure gate
+                </h3>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
+                  A1
+                </span>
+                <span class="text-[10px] text-text-soft italic">noun</span>
+              </div>
+              <p class="text-[11px] text-text-soft font-mono mt-0.5">/dɪˈpɑː.tʃər ˌɡeɪt/</p>
+            </div>
+
+            <div class="flex items-center gap-1.5 flex-shrink-0">
+              <button type="button" aria-label="Nghe phát âm departure gate" class="w-9 h-9 rounded-lg bg-surface border border-border-base hover:border-brand-teal text-text-main hover:text-brand-teal flex items-center justify-center active:scale-95 transition-all">
+                <span class="material-symbols-rounded text-lg text-brand-teal">volume_up</span>
+              </button>
+
+              <button type="button" class="h-9 px-3 rounded-lg bg-surface border-2 border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white text-xs font-bold flex items-center gap-1 shadow-sm active:translate-y-0.5 transition-all">
+                <span class="material-symbols-rounded text-base">add</span>
+                <span>Add</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-canvas/80 rounded-xl p-2.5 border border-border-base/70 flex flex-col gap-1 text-xs">
+            <div class="text-text-main font-semibold">
+              <span class="text-text-soft font-normal text-[11px]">Nghĩa tiếng Việt:</span> cửa khởi hành
+            </div>
+            <div class="text-text-muted text-[11px] leading-relaxed">
+              <span class="text-text-soft font-normal">English:</span> An airport gate where passengers assemble to board their specific aircraft.
+            </div>
+          </div>
+
+          <div class="text-xs text-text-main italic bg-amber-50/50 p-2 rounded-lg border border-amber-200/50 leading-relaxed">
+            &ldquo;Passengers on flight VN302 are invited to board at <strong class="font-bold not-italic text-brand-coral">departure gate</strong> B22.&rdquo;
+          </div>
+
+          <div class="flex items-center gap-1.5 text-[11px] text-text-muted pt-0.5">
+            <span class="material-symbols-rounded text-sm text-brand-teal">link</span>
+            <span class="font-medium">Collocation:</span>
+            <span class="text-text-main font-semibold">head to departure gate • gate change announcement</span>
+          </div>
+        </article>
+
+        <!-- Word Card 6: customs declaration (Added state) -->
+        <article class="bg-surface rounded-2xl p-3.5 border-2 border-border-base shadow-tactile-sm flex flex-col gap-2.5 transition-all">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="text-base font-bold font-display text-text-main">
+                  customs declaration
+                </h3>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">
+                  B1
+                </span>
+                <span class="text-[10px] text-text-soft italic">noun</span>
+              </div>
+              <p class="text-[11px] text-text-soft font-mono mt-0.5">/ˈkʌs.təmz ˌdek.ləˈreɪ.ʃən/</p>
+            </div>
+
+            <div class="flex items-center gap-1.5 flex-shrink-0">
+              <button type="button" aria-label="Nghe phát âm customs declaration" class="w-9 h-9 rounded-lg bg-surface border border-border-base hover:border-brand-teal text-text-main hover:text-brand-teal flex items-center justify-center active:scale-95 transition-all">
+                <span class="material-symbols-rounded text-lg text-brand-teal">volume_up</span>
+              </button>
+
+              <button type="button" class="h-9 px-2.5 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs font-bold flex items-center gap-1 shadow-sm active:translate-y-0.5 transition-all cursor-default">
+                <span class="material-symbols-rounded text-base text-emerald-600">check</span>
+                <span>Added</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-canvas/80 rounded-xl p-2.5 border border-border-base/70 flex flex-col gap-1 text-xs">
+            <div class="text-text-main font-semibold">
+              <span class="text-text-soft font-normal text-[11px]">Nghĩa tiếng Việt:</span> tờ khai hải quan
+            </div>
+            <div class="text-text-muted text-[11px] leading-relaxed">
+              <span class="text-text-soft font-normal">English:</span> An official form that passengers fill in to list goods brought into a country upon entry.
+            </div>
+          </div>
+
+          <div class="text-xs text-text-main italic bg-amber-50/50 p-2 rounded-lg border border-amber-200/50 leading-relaxed">
+            &ldquo;Remember to fill out your electronic <strong class="font-bold not-italic text-brand-coral">customs declaration</strong> prior to landing.&rdquo;
+          </div>
+
+          <div class="flex items-center gap-1.5 text-[11px] text-text-muted pt-0.5">
+            <span class="material-symbols-rounded text-sm text-brand-teal">link</span>
+            <span class="font-medium">Collocation:</span>
+            <span class="text-text-main font-semibold">submit a customs declaration • customs inspection</span>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Bottom Load More / Pagination indicator -->
+      <footer class="pt-3 pb-6 flex flex-col items-center gap-2">
+        <p class="text-xs text-text-soft">
+          Đang hiển thị 6 trên 40 từ trong bộ
+        </p>
+        <button type="button" class="px-5 py-2.5 rounded-xl bg-surface border-2 border-border-base hover:bg-surface-subtle active:translate-y-0.5 shadow-tactile-sm text-xs font-bold text-text-main flex items-center gap-1.5 transition-all">
+          <span>Xem tiếp 34 từ còn lại</span>
+          <span class="material-symbols-rounded text-base">expand_more</span>
+        </button>
+      </footer>
+
+    </div>
+
+  </main>
+</body>
+</html>

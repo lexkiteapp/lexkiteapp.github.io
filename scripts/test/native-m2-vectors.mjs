@@ -4,6 +4,7 @@ import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath }
 import { lessonVectors } from '../native/gen-lesson.mjs';
 import { audioVectors } from '../native/gen-audio.mjs';
 import { teachGen, teachBundle, rigVectorText, BUNDLED_POSES, TEACHERS } from '../native/gen-teach.mjs';
+import { vocabVectors } from '../native/gen-vocab.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..'), R = p => path.join(ROOT, p), rd = p => fs.readFileSync(R(p), 'utf8');
 const SH = 'native/shared/gen', IOS = 'native/ios/LexkiteKit/Sources/LKDesign/Resources/teach';
@@ -116,6 +117,58 @@ const RV = T1.vectorJson, RD = T1.rigJson;
   const B = teachBundle(), total = B.reduce((s, a) => s + a.bytes.length, 0), bad = [];
   for (const a of B) { for (const dst of [`${SH}/teach/${a.who}/${a.name}`, `${IOS}/${a.who}/${a.name}`]) if (!fs.existsSync(R(dst)) || !fs.readFileSync(R(dst)).equals(a.bytes)) bad.push(dst); }
   ok(bad.length === 0 && B.length === 2 * (1 + BUNDLED_POSES.length) && total < 1.0 * 1024 * 1024, `teacher art: ${B.length} files (head-bare-2x + ${BUNDLED_POSES.length} stills × Ama, Carlos) = ${(total / 1024) | 0} KB per platform, byte for byte from web/teach in both destinations${bad.length ? ' – drift: ' + bad.slice(0, 2).join(', ') : ''}`);
+}
+
+// ---- 7) M3 vocab vectors (P04 review/practice/mistakes/deck · P05 dict/library/topic/letters/verb/phrases/model/models/usage/ideas/paraphrase) ----
+{
+  const V1 = await vocabVectors(), V2 = await vocabVectors();
+  ok(V1 === V2 && same(`${SH}/vectors/vocab.json`, V1), 'vocab.json: two runs identical and equal to the committed file (else: node scripts/native/gen.mjs)');
+  ok(Buffer.byteLength(V1) < 500 * 1024, `vocab.json < 500 KB (${(Buffer.byteLength(V1) / 1024) | 0} KB; owner cap, incl. the mini library + reduced writing content of "data")`);
+  const VV = JSON.parse(V1), bad = [];
+  const selfDescribing = a => Array.isArray(a) && a.length > 0 && a.every(c => c && c.why && (c.out !== undefined));
+  for (const k of ['review', 'mistakes.log', 'mistakes.view', 'mistakes.list', 'mistakes.retry', 'deck', 'library', 'topic', 'wordbook', 'dict.norm', 'dict.lookup', 'dict.page', 'dict.lex', 'dict.suggest', 'practice.pool', 'practice.accept', 'writing.ideas', 'writing.letters', 'writing.models', 'writing.model', 'writing.phrases', 'writing.gap', 'writing.exercise', 'usage.resolve', 'usage.suggest', 'usage.near', 'usage.lookup', 'usage.quiz', 'verb.resolve', 'verb.forms', 'verb.table', 'verb.mistakes', 'verb.suggest'].filter(Boolean)) {
+    const v = k.split('.').reduce((o, x) => (o ? o[x] : undefined), VV);
+    if (!selfDescribing(v) && !(k === 'wordbook' && Array.isArray(v) && v.length >= 9)) bad.push(k);
+  }
+  ok(bad.length === 0, `vocab.json: every vector list is present and each case has why + out${bad.length ? ' – missing/invalid: ' + bad.join(', ') : ''}`);
+  // review: queue rules (due asc, new cards spliced at 1,4,7…, cap, ahead has no new cards, pin first) and per-grade bookkeeping
+  const rq = id => VV.review.find(c => c.id === id).out.queue, b2 = [];
+  const def = rq('queue-default'), cap = rq('queue-cap-5'), pin = rq('queue-pin');
+  if (cap.join() !== def.slice(0, 5).join()) b2.push('cap = prefix of default');
+  if (pin[0] !== 'vocational' || pin.slice(1).join() !== def.filter(w => w !== 'vocational').join()) b2.push('pin puts one card first, rest unchanged');
+  if (rq('queue-new-0').length >= def.length || rq('queue-ahead-2').length <= rq('queue-new-0').length) b2.push('new/ahead counts');
+  if (VV.review.find(c => c.id === 'empty-deck').out.state !== 'empty' || VV.review.find(c => c.id === 'all-done').out.state !== 'allDone' || VV.review.find(c => c.id === 'forgetting-redirect').out.hash !== '#/practice/learn?src=forgetting') b2.push('states');
+  for (const S of VV.reviewSession) {
+    let prev = null;
+    for (const st of S.steps) {
+      if (st.op === 'grade') {
+        const xp = st.grade === 0 ? 2 : st.wasNew ? 8 : 5;
+        if (prev && st.xp - prev.xp !== xp) b2.push(`${S.id}: xp rule at ${st.word}`);
+        if (prev && st.done - prev.done !== 1) b2.push(`${S.id}: done +1`);
+        if (st.srs.reps === 0 && !st.queue.includes(st.word) && !st.summary) b2.push(`${S.id}: learning card ${st.word} must come back`);
+        if (st.srs.reps === 0 && !st.summary && st.queue.indexOf(st.word) !== Math.min(st.grade === 0 ? 3 : 6, st.queue.length - 1)) b2.push(`${S.id}: learning card requeues at index 3 (again) / 6 (else)`);
+      }
+      prev = st;
+    }
+  }
+  const U = VV.reviewSession.find(x => x.id === 'undo').steps; const ui = U.findIndex(x => x.op === 'undo');
+  if (ui < 1 || U[ui].xp !== U[ui - 2].xp || U[ui].done !== U[ui - 2].done) b2.push('undo restores the previous counters');
+  ok(b2.length === 0, `review vectors: ${VV.review.length} queue cases + ${VV.reviewSession.length} graded sessions (${VV.reviewSession.reduce((n, s) => n + s.steps.length, 0)} steps) obey the web rules${b2.length ? ' – ' + b2.slice(0, 3).join('; ') : ''}`);
+  // mistakes: tabs partition the open records; retry sorts by n desc
+  const ML = VV.mistakes.list, b3 = [];
+  for (const c of ML.filter(x => !x.out.empty)) { const t = c.out.tabs, sum = ['vocab', 'grammar', 'reading', 'listening'].reduce((n, k) => n + t[k].length, 0); if (sum !== t.all.length || c.out.counts.all !== t.all.length) b3.push(c.id + ' tabs'); }
+  if (!ML.find(c => c.id === 'list-retry').out.retryButton === false && ML.find(c => c.id === 'list-retry').out.tabs.all[0] !== 'listening|Test 1 – Câu 3') b3.push('retry sort');
+  ok(b3.length === 0, `mistakes vectors: ${ML.length} list cases (tabs partition the open records, ?retry=1 sorts by n desc) + ${VV.mistakes.retry.length} retry flows + ${VV.mistakes.view.length} mistakeView${b3.length ? ' – ' + b3.join('; ') : ''}`);
+  // dict/verb/usage: the engines answered (not empty)
+  ok(VV.dict.lookup.find(c => c.id === 'lookup-local+net').out.found && VV.dict.lookup.find(c => c.id === 'lookup-not-found').out.found === false && VV.verb.table[0].out.length === 4 && VV.usage.resolve.filter(x => x.out).length >= 8 && VV.writing.paraphrase.data.usable > 100, 'dict lookup / not-found, verb table (4 tense groups), usage resolve, paraphrase data are all non-trivial');
+  // strings: every literal t() key on the P04/P05 screens is mapped by strings.json (or consciously listed as not in the web pipeline)
+  const map = JSON.parse(rd('native/shared/strings.json')), have = new Set(Object.values(map));
+  const UNP = new Set(['“{w}” → {b}', 'V2 = V3', 'V1 = V3']); // not translated in ANY web language either (code-like labels) – native shows the key as is
+  const R3 = { 'web/js/study.js': [[1, 10], [96, 420]], 'web/js/plan.js': [[10, 110]], 'web/js/app.js': [[886, 1230]], 'web/js/dict-page.js': [[1, 220]], 'web/js/ideas.js': [[1, 30]], 'web/js/letters.js': [[1, 90]], 'web/js/paraphrase.js': [[1, 60]], 'web/js/phrases-model.js': [[1, 400]], 'web/js/verbs.js': [[85, 260]], 'web/js/usage.js': [[90, 480]] };
+  const keys = new Set();
+  for (const [f, rs] of Object.entries(R3)) { const L = rd(f).split('\n'); for (const [a, b] of rs) for (const ln of L.slice(a - 1, b)) for (const m of ln.matchAll(/\bt\('((?:[^'\\]|\\.)*)'/g)) keys.add(m[1].replace(/\\'/g, "'")); }
+  const miss = [...keys].filter(k => !have.has(k) && !UNP.has(k));
+  ok(miss.length === 0, `M3 strings: ${keys.size} t() keys of the P04/P05 screens are mapped in native/shared/strings.json${miss.length ? ' – missing: ' + miss.slice(0, 3).join(' | ') : ''}`);
 }
 if (failed) process.exit(1);
 console.log('✓ native-m2-vectors OK');

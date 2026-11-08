@@ -5,4 +5,4 @@ dependencyResolutionManagement {
     repositories { google(); mavenCentral() }
 }
 rootProject.name = "Lexkite"
-include(":app", ":core", ":design", ":feature-today", ":feature-me", ":feature-onboarding", ":feature-lesson")
+include(":app", ":core", ":design", ":feature-today", ":feature-me", ":feature-onboarding", ":feature-lesson", ":feature-vocab")
