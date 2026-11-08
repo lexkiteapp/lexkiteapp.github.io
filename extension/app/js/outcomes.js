@@ -88,7 +88,7 @@
   async function hub(view) {
     const checks = await App.live(load()), d = O.due(checks), last = checks[checks.length - 1], first = checks[0];
     if (!checks.length) {
-      view.innerHTML = `<div class="oc-wrap"><div class="card"><div class="oc-step">${t('Đo đầu ra')}</div><h2>${t('Bài đo đầu vào: nói + viết')}</h2>
+      view.innerHTML = `<div class="oc-wrap oc-hub"><div class="page-head"><div><h1>${t('Bài đo đầu vào: nói + viết')}</h1></div></div><div class="card"><div class="oc-step">${t('Đo đầu ra')}</div>
         <p>${t('Khoảng 12 phút, 3 phần: đọc to một đoạn ngắn, nói tự do 1–2 phút và viết 10 phút. Lexkite đo tốc độ nói, độ rõ, lỗi trên 100 từ, độ đa dạng từ và bài viết, rồi ước tính trình độ CEFR từng khía cạnh.')}</p>
         <p class="small muted">${t('Mỗi 4 tuần đo lại để nghe bản ghi tháng đầu cạnh bản mới nhất và thấy tiến bộ thật. Ghi âm chỉ lưu trên máy của bạn.')}</p>
         <a class="btn primary lg block" href="#/outcome/go">${t('Bắt đầu bài đo')}</a></div></div>`;
@@ -103,8 +103,8 @@
     }).join('');
     const col = (c, label) => `<div><b>${esc(label)}</b><div class="small muted">${esc(fmtDate(c.at))} · ${esc(O.estimate(c).all || '–')}</div>
       <div data-aud="${esc(c.id)}:sp"></div><div data-aud="${esc(c.id)}:rd"></div>${c.wr && c.wr.text ? `<p lang="en">${esc(c.wr.text)}</p>` : ''}</div>`;
-    view.innerHTML = `<div class="oc-wrap">
-      <div class="card"><div class="oc-step">${t('Đo đầu ra')}</div><h2>${t('Tiến bộ nói + viết')}</h2>
+    view.innerHTML = `<div class="oc-wrap oc-hub"><div class="page-head"><div><h1>${t('Tiến bộ nói + viết')}</h1></div></div>
+      <div class="card"><div class="oc-step">${t('Đo đầu ra')}</div>
         <p>${t('Lần đo gần nhất: {date} · Ước tính {cefr}', { date: esc(fmtDate(last.at)), cefr: esc(e.all || '–') })}</p>
         <div class="oc-grid">${DIMS().map(([k, l]) => `<div class="oc-dim"><span>${l}</span><b>${esc(e[k] || '–')}</b></div>`).join('')}</div>
         <p class="small muted">${t('Ước tính từ rubric CEFR của Lexkite, không phải chứng chỉ.')}</p>

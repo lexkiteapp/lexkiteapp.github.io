@@ -1,6 +1,7 @@
 /* Bài đo #/outcome (web/js/outcomes.js) – gói lười outcome */
 :root{--oc1:.9rem;--oc2:.2rem;--oc3:.8rem;--oc4:1.08rem;--oc5:.95rem;--oc6:.7rem;--oc7:1.2rem;--oc8:.15rem;--oc9:1.25rem;--oc10:.85rem;--oc11:.4rem;--oc12:.6rem;--oc13:.3rem;--oc14:.88rem;}
 .oc-wrap{max-width:560px;margin:0 auto;display:grid;gap:var(--oc1);color:var(--text)}
+.oc-hub{max-width:none;margin:0}
 .oc-wrap h2{margin:var(--oc2) 0}
 .oc-step{font-size:var(--oc3);font-weight:700;letter-spacing:.04em;color:var(--primary-text);text-transform:uppercase}
 .oc-passage{font-size:var(--oc4);line-height:1.7;background:var(--surface-2);border-radius:var(--radius);padding:var(--sp-4)}
