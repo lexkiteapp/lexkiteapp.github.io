@@ -1,24 +1,24 @@
 {
- "total": 52.8,
+ "total": 57.9,
  "areas": {
   "vocab": {
    "name": "Kho từ",
-   "score": 54.4,
-   "coverage": 54.4,
+   "score": 54.5,
+   "coverage": 54.5,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "từ#loại duy nhất",
-     "have": 9757,
+     "have": 9759,
      "std": 20000,
      "w": 25,
      "future": false
     },
     {
      "k": "IPA·nghĩa·định nghĩa·ví dụ·CEFR",
-     "have": 9757,
-     "std": 9757,
+     "have": 9759,
+     "std": 9759,
      "w": 20,
      "future": false
     },
@@ -38,21 +38,21 @@
     },
     {
      "k": "IPA Mỹ",
-     "have": 6470,
+     "have": 6472,
      "std": 20000,
      "w": 5,
      "future": false
     },
     {
      "k": "ảnh theo nghĩa",
-     "have": 7398,
+     "have": 7432,
      "std": 20000,
      "w": 15,
      "future": false
     },
     {
      "k": "C2",
-     "have": 670,
+     "have": 672,
      "std": 1000,
      "w": 10,
      "future": false
@@ -68,8 +68,8 @@
   },
   "grammar": {
    "name": "Ngữ pháp",
-   "score": 53.7,
-   "coverage": 53.7,
+   "score": 54.5,
+   "coverage": 54.5,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -124,7 +124,7 @@
     },
     {
      "k": "tự luận",
-     "have": 980,
+     "have": 1125,
      "std": 3000,
      "w": 20,
      "future": false
@@ -147,8 +147,8 @@
   },
   "comm": {
    "name": "Giao tiếp",
-   "score": 38.2,
-   "coverage": 38.2,
+   "score": 39.3,
+   "coverage": 39.3,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -175,7 +175,7 @@
     },
     {
      "k": "mục gold (giải thích cách dùng)",
-     "have": 228,
+     "have": 284,
      "std": 1000,
      "w": 20,
      "future": false
@@ -433,8 +433,8 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 10581,
-     "std": 10581,
+     "have": 10583,
+     "std": 10583,
      "w": 35,
      "future": false
     },
@@ -442,6 +442,43 @@
      "k": "mục tiêu đã có nội dung luyện",
      "have": 135,
      "std": 600,
+     "w": 25,
+     "future": false
+    }
+   ]
+  },
+  "learn": {
+   "name": "Dễ học – dễ nhớ",
+   "score": 91.5,
+   "coverage": 91.5,
+   "pass": 100,
+   "errors": 0,
+   "parts": [
+    {
+     "k": "Ngữ pháp",
+     "have": 96.4,
+     "std": 100,
+     "w": 25,
+     "future": false
+    },
+    {
+     "k": "Bài lộ trình",
+     "have": 100,
+     "std": 100,
+     "w": 25,
+     "future": false
+    },
+    {
+     "k": "Bộ từ",
+     "have": 74.3,
+     "std": 100,
+     "w": 25,
+     "future": false
+    },
+    {
+     "k": "Kỹ năng",
+     "have": 95.4,
+     "std": 100,
      "w": 25,
      "future": false
     }

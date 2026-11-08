@@ -101,7 +101,7 @@ export function collect() {
     { const x = ctx(), d = 'web/cpack/speak/s'; if (fs.existsSync(d)) for (const f of fs.readdirSync(d).filter(f => /^[^.]+\.js$/.test(f)).sort()) L(x, `${d}/${f}`); // gốc en từng tình huống (scripts/speak/build.mjs)
       for (const sc of Object.values(x.SPK_B || {})) for (const l of sc.lines || []) oneSplit(GEN['en-US'], l.en, 'speak-situations'); }
     // Lời giáo viên Ama/Carlos trong #/lesson (LessonTeacher.say tra khóa CẢ CÂU theo giọng nhân vật): khen/sửa, câu hỏi truyện, câu "nói hay hơn"
-    { const x = ctx(); L(x, 'web/js/lesson/gold.js'); const T = ['af_heart', 'am_michael'];
+    { const x = ctx(); L(x, 'web/cpack/lesson/gold.js'); const T = ['af_heart', 'am_michael'];
       const lines = ['Nice!', 'Great!', 'Yes!', 'Perfect!', 'Well done!', 'Almost!', 'Not quite.', "Let's try again.", 'Great job!', 'Good work. Keep going!',
         ...(c.LESSON_STORIES || []).flatMap(st => (st.checks || []).filter(k => k.type === 'q').map(k => k.q)), ...Object.values(x.LESSON_GOLD || {}).flat().map(g => g && g.r)];
       for (const t of strs(lines)) for (const v of T) addOne(v, t, 'lesson-teacher');
