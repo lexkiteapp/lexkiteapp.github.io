@@ -14602,19 +14602,19 @@
     "tr": "Sonraki mod"
   },
   "Đã hoàn thành": {
-    "ar": "مكتمل",
-    "de": "Abgeschlossen",
     "es": "Completado",
+    "pt": "Concluído",
     "fr": "Terminé",
-    "hi": "पूरा हुआ",
+    "de": "Abgeschlossen",
     "id": "Selesai",
+    "th": "เสร็จแล้ว",
+    "zh": "已完成",
     "ja": "完了",
     "ko": "완료",
-    "pt": "Concluído",
-    "ru": "Завершено",
-    "th": "เสร็จแล้ว",
-    "tr": "Tamamlandı",
-    "zh": "已完成"
+    "hi": "पूरा हुआ",
+    "ar": "مكتمل",
+    "ru": "Выполнено",
+    "tr": "Tamamlandı"
   },
   "Nối thông tin": {
     "es": "Emparejar",
