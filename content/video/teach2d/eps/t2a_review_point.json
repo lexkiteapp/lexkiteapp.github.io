@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"point\" mean?",
+  "keyword": "point",
+  "value": "Point means an idea or opinion in a discussion.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=point",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"point\" mean?",
+    "description": "Point means an idea or opinion in a discussion.\n\nReview your words, free: https://lexkite.com/app/#/review?w=point\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "point",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"point\" mean?\n\nPoint means an idea or opinion in a discussion.\n\nReview your words, free: https://lexkite.com/app/#/review?w=point"
+   },
+   "instagram": {
+    "caption": "What does \"point\" mean?\n\nPoint means an idea or opinion in a discussion.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"point\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means an idea or opinion in a discussion. Point means an idea or opinion in a discussion. Practice it with a free quiz: {link}"
  }
 }

@@ -72,3 +72,56 @@ public struct SRS: Sendable {
         return s
     }
 }
+
+// MARK: scheduling helpers shared by review / deck / practice (ports of web/js/core.js SRS.retention / level5 / mastery / preview)
+public enum SRSPreview: Equatable, Sendable {
+    case minutes(Int), oneDay, days(Int), months(Int), years(Double)
+}
+
+extension SRSCard {
+    /// JS `!s.last` – a missing, null or zero last-review time all mean "never reviewed"
+    public var hasLast: Bool { (last ?? 0) != 0 }
+}
+
+extension SRS {
+    /// Probability of recall now (forgetting curve); nil when the card was never reviewed.
+    public func retention(_ s: SRSCard, now: Int64) -> Double? {
+        guard s.hasLast, let last = s.last else { return nil }
+        if s.reps == 0 { return max(0.3, pow(0.9, Double(now - last) / Double(10 * Self.MIN))) }
+        let t = max(0, Double(now - last) / Double(Self.DAY))
+        if let S = s.S { return R(t, S) }
+        return pow(0.9, t / Double(max(1, s.interval)))
+    }
+    /// A card is "forgetting" when reps > 0 and retention < min(0.85, target − 0.05) (web App.forgetting).
+    public func isForgetting(_ s: SRSCard, now: Int64) -> Bool {
+        guard s.reps > 0, let r = retention(s, now: now) else { return false }
+        return r < min(0.85, p.retentionTarget - 0.05)
+    }
+    /// 0 never learned · 1 < 1 day · 2 ≤ 3 days · 3 ≤ 10 · 4 ≤ 30 · 5 longer
+    public static func level5(_ s: SRSCard) -> Int {
+        if !s.hasLast { return 0 }
+        if s.reps == 0 { return 1 }
+        return s.interval <= 3 ? 2 : s.interval <= 10 ? 3 : s.interval <= 30 ? 4 : 5
+    }
+    /// 0 new · 1 learning · 2 known · 3 mastered
+    public static func mastery(_ s: SRSCard) -> Int {
+        if s.reps == 0 { return s.hasLast ? 1 : 0 }
+        if s.interval >= 21 { return 3 }
+        if s.interval >= 4 { return 2 }
+        return 1
+    }
+    /// The next-interval label under the grade buttons (no fuzz).
+    public func preview(_ s: SRSCard, grade: Int, now: Int64) -> SRSPreview {
+        if s.reps == 0 {
+            if grade == 0 { return .minutes(1) }
+            if grade == 1 { return .minutes(s.step == 0 ? 6 : 10) }
+            if grade == 2 && !(s.step > 0) { return .minutes(10) }
+        } else if grade == 0 { return .minutes(1) }
+        let n = review(s, grade: grade, now: now)
+        let d = Int(Self.jsRound(Double(n.due - now) / Double(Self.DAY)))
+        if d <= 1 { return .oneDay }
+        if d < 30 { return .days(d) }
+        if d < 365 { return .months(Int(Self.jsRound(Double(d) / 30))) }
+        return .years(Double(d) / 365)
+    }
+}

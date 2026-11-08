@@ -3,12 +3,12 @@ import assert from 'node:assert/strict';
 import { zombieRuns, stillOpen } from '../ci/zombie.mjs';
 import { backfillAllowed, realQueued, QUEUE_MAX } from '../ci/cron-watch.mjs';
 const now = Date.parse('2026-11-06T08:00:00Z'), old = { id: 7, status: 'queued', created_at: '2026-11-03T08:00:00Z', path: '.github/workflows/ci-filler.yml' }, young = { id: 8, status: 'queued', created_at: '2026-11-06T04:00:00Z', path: '.github/workflows/ci-filler.yml' };
-const mk = runs => { const calls = []; const gh = async (p, o = {}) => { calls.push(`${o.method || 'GET'} ${p}`);
+const mk = runs => { const calls = [], gone = new Set(); const gh = async (p, o = {}) => { calls.push(`${o.method || 'GET'} ${p}`);
   if (p.startsWith('/actions/runs?status=queued')) return { workflow_runs: runs };
   if (/\/jobs/.test(p)) return { total_count: 0, jobs: [] };
   if (/\/(force-)?cancel$/.test(p)) return {};                       // 202: "đã nhận" – lượt zombie KHÔNG đổi trạng thái
-  if (o.method === 'DELETE') return {};
-  const id = +p.match(/runs\/(\d+)$/)?.[1]; return runs.find(r => r.id === id) || {}; }; return { gh, calls }; };
+  if (o.method === 'DELETE') { gone.add(+p.match(/runs\/(\d+)$/)?.[1]); return {}; }
+  const id = +p.match(/runs\/(\d+)$/)?.[1]; return gone.has(id) ? {} : runs.find(r => r.id === id) || {}; }; return { gh, calls }; };
 { const { gh, calls } = mk([old]); const z = await zombieRuns(gh, { now, settleMs: 0 });
   assert.ok(calls.includes('DELETE /actions/runs/7') && !calls.some(c => /cancel$/.test(c)), 'lượt > 24 giờ → DELETE thẳng, không huỷ giả 202'); assert.equal(z[0].deleted, true); assert.notEqual(z[0].cancel, 'ok'); }
 // DELETE bị 403 (GitHub: lượt kẹt không gỡ được qua API) → báo thật, không ngủ/thử huỷ, và KHÔNG chiếm MAX_CHECK của lượt zombie mới

@@ -59,7 +59,7 @@
   // Báo hoàn thành lượt (lộ trình ghi bước đã xong + màn thưởng cuối bài – path.js)
   const practiceDone = detail => window.dispatchEvent(new CustomEvent('lexkite:practice-done', { detail }));
   let libN = null, libW = null;
-  const libNorm = () => libN && libN.length === TOPICS.length ? libN.list : (libN = { length: TOPICS.length, list: TOPICS.flatMap(t => t.words).filter(x => x.vi || x.def).map(norm) }).list;
+  const libNorm = () => libN && (libN.length === TOPICS.length || libW) ? libN.list : (libN = { length: TOPICS.length, list: TOPICS.flatMap(t => t.words).filter(x => x.vi || x.def).map(norm) }).list;
   // Lượt trắc nghiệm đầu: chuẩn hóa kho (~20k từ) + làm đầy bộ nhớ của Distract theo LÁT ≤ 8 ms, nhường luồng chính giữa các lát
   // (trước đây 1 tác vụ ~100 ms ngay câu đầu → CPU chậm 4× ≈ 400 ms, TBT mobile #/practice > 200 ms). Kết quả y hệt libNorm().
   const yieldMain = () => new Promise(r => (window.scheduler && scheduler.yield ? scheduler.yield().then(r) : setTimeout(r, 0)));
@@ -76,6 +76,7 @@
       if (window.Distract && Distract.warm) await Distract.warm(list, { mean, yieldMain });
     })().catch(() => {}).then(() => { libW = null; });
   };
+  addEventListener('lk:soft', () => { if (/^#\/practice\//.test(location.hash)) warmLib(); }); // kho từ về sau lần vẽ: chuẩn hóa theo lát
   // Câu đầu vẽ khi p xong (kho đã làm nóng); giữ thanh "Ngày n" mà path-day.js chèn vào view trong lúc chờ
   // Bỏ khi đã có lượt điều hướng mới (token) – kể cả đi rồi quay lại đúng hash cũ (A→B→A: hash trùng nhưng phiên cũ đã bị thay) – hoặc hash đã đổi
   const startWhen = (p, next) => { const h0 = location.hash, tok = App.routeToken(); p.then(() => { if (App.routeStale(tok) || location.hash !== h0) return; const bar = view.querySelector('.day-bar'); next(); if (bar && !view.querySelector('.day-bar')) view.prepend(bar); }); };
@@ -117,12 +118,13 @@
     // Từ thông báo "sắp quên" (checkReminder): ôn đúng nhóm từ sắp quên bằng chế độ học nhanh (nguồn 'forgetting')
     if (query && query.get && query.get('src') === 'forgetting' && App.forgetting().length) { location.hash = '#/practice/learn?src=forgetting'; return; }
     const ahead = Math.min(7, Math.max(0, +((query && query.get && query.get('ahead')) || 0)));
+    // 🎨 Stitch v2 (cờ ux1): vào bằng thanh tab (#/review?hub=1) → màn "Ôn" của Stitch (Ux1.reviewHub); nút Bắt đầu mở phiên ôn này (#/review). Mọi lối cũ (?ahead= ?src= ?w=, #/review trần) vẫn vào thẳng phiên ôn.
+    if (query && query.get && query.get('hub') === '1' && window.Ux1 && Ux1.reviewHub && self.ST2 && ST2.review && App.ux1On && App.ux1On()) { Ux1.reviewHub(); return; }
     if (!Object.keys(state.cards).length) {
+      document.body.classList.remove('focus'); // chưa có thẻ → không có phiên ôn: giữ thanh tab để người dùng đi tiếp (không kẹt)
       view.innerHTML = `<div class="study-wrap"><div class="card empty"><div class="em">🃏</div><h2>${t('Chưa có flashcard nào')}</h2><p>${t('Thêm từ từ thư viện hoặc tra từ điển để bắt đầu.')}</p><div class="row center"><a class="btn primary" href="#/library">${t('Mở thư viện')}</a><a class="btn" href="#/dict">${t('Tra từ')}</a></div></div></div>`;
       return;
     }
-    // 🎨 Stitch v2 (cờ ux1): vào bằng thanh tab (#/review?hub=1) → màn "Ôn" của Stitch (Ux1.reviewHub); nút Bắt đầu mở phiên ôn này (#/review). Mọi lối cũ (?ahead= ?src= ?w=, #/review trần) vẫn vào thẳng phiên ôn.
-    if (query && query.get && query.get('hub') === '1' && window.Ux1 && Ux1.reviewHub && self.ST2 && ST2.review && App.ux1On && App.ux1On()) { Ux1.reviewHub(); return; }
     session = { queue: buildQueue(ahead), done: 0, again: 0, missed: [], total: 0, xp: 0, g: [0, 0, 0, 0], t0: Date.now(), reverse: !!session && session.reverse, mode: session && session.mode };
     // Từ widget màn hình chính/khóa (#/review?w=từ): đưa đúng thẻ đang hiện lên đầu phiên ôn
     const pin = query && query.get && String(query.get('w') || '').toLowerCase();
@@ -393,7 +395,7 @@
   // ⚡ Ghép thẻ & 🎙️ Phát âm: study-games.js (tải lười)
   let games = null;
   const lazyGame = k => (...a) => { const h = location.hash; return App.lazy('pgames').then(() => { if (location.hash !== h || !window.StudyGames) return; games = games || StudyGames({ accent, emptySource, haptic, head, mean, norm, picOk, pool, practiceDone, runQuiz, srcName }); games[k](...a); }).catch(() => toast(t('Không tải được – thử lại sau'))); };
-  const runMatch = lazyGame('runMatch'), runSpeak = lazyGame('runSpeak');
+  const runMatch = lazyGame('runMatch'), runSpeak = lazyGame('runSpeak'), runBlitz = lazyGame('runBlitz');
 
   // ================= TRUNG TÂM LUYỆN TẬP =================
   const MODES = {
@@ -402,8 +404,11 @@
     cloze: { em: '✍️', get name() { return t('Điền từ vào câu'); }, run: src => runQuiz(src, 'cloze') },
     listen: { em: '🎧', get name() { return t('Nghe & chép'); }, run: src => runQuiz(src, 'listen') },
     test: { em: '📝', get name() { return t('Bài kiểm tra'); }, run: src => runQuiz(src, 'test') },
+    blitz: { em: '⏱️', get name() { return t('Thử thách 60 giây'); }, run: runBlitz },
     match: { em: '⚡', get name() { return t('Ghép thẻ'); }, run: runMatch },
     speak: { em: '🎙️', get name() { return t('Luyện phát âm'); }, run: runSpeak },
+    esp: { em: '🇪🇸', get name() { return t('Luyện phát âm'); }, run: (src, q) => App.need('espr').then(() => App.espron && App.espron(q.get('tp'), q.get('m'))) }, // phát âm TBN W3 (js/cpack/es-app/pron-ui.js; danh sách chủ đề khi không có m)
+    es: { em: '🇪🇸', get name() { return t('Luyện tiếng Tây Ban Nha'); }, run: (src, q) => App.need('espr').then(() => App.espr && App.espr(q.get('lv'), q.get('p'))) }, // phiên luyện TBN W2b (js/espr.js, cờ es_course ở lối vào)
   };
 
   routes.practice = function (mode, query) {

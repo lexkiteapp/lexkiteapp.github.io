@@ -1,0 +1,39 @@
+# Bảo trì ký iOS cố định (scripts/native/asc-signing.mjs): liệt kê / thu hồi chứng chỉ Development do CI tạo / tạo chứng chỉ Distribution + hồ sơ App Store.
+# Chạy tay: Actions → "Apple signing". create-dist: CSR tạo trên máy có khoá riêng (khoá riêng KHÔNG lên CI) – các bước: docs/CI-SIGNING-IOS.md.
+name: Apple signing
+on:
+  workflow_dispatch:
+    inputs:
+      mode: { description: 'list | revoke-ci-dev | create-dist | profiles', type: choice, options: [list, revoke-ci-dev, create-dist, profiles], default: list }
+      ids: { description: 'revoke-ci-dev: id chứng chỉ (lấy từ lượt list), cách nhau dấu phẩy; profiles: id chứng chỉ Distribution đang dùng', required: false }
+      csr: { description: 'create-dist: CSR (PEM) mã base64 một dòng', required: false }
+permissions:
+  contents: read
+concurrency: { group: apple-signing, cancel-in-progress: false }
+jobs:
+  asc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+      ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+      ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+      MODE: ${{ inputs.mode }}
+      IDS: ${{ inputs.ids }}
+      CSR: ${{ inputs.csr }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: App Store Connect
+        run: |
+          case "$MODE" in
+            create-dist) printf '%s' "$CSR" | base64 -d > "$RUNNER_TEMP/dist.csr"; node scripts/native/asc-signing.mjs create-dist "$RUNNER_TEMP/dist.csr" out/signing ;;
+            profiles) node scripts/native/asc-signing.mjs profiles "$IDS" out/signing ;;
+            revoke-ci-dev) node scripts/native/asc-signing.mjs revoke-ci-dev "$IDS" ;;
+            *) node scripts/native/asc-signing.mjs list ;;
+          esac
+          node scripts/native/asc-signing.mjs list | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: inputs.mode == 'create-dist' || inputs.mode == 'profiles'
+        with: { name: ios-signing-public, path: out/signing, retention-days: 1 }   # chỉ .cer + .mobileprovision (công khai), không khoá riêng

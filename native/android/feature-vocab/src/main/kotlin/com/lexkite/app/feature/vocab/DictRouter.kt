@@ -1,0 +1,25 @@
+package com.lexkite.app.feature.vocab
+
+import androidx.compose.runtime.Composable
+
+/** Web hash routes (first path segment) that [WordRoute] draws: dictionary + word card, verbs, usage, the writing library. */
+val WORD_ROUTES: Set<String> = setOf("dict", "word", "verb", "usage", "letters", "ideas", "paraphrase", "phrases", "models", "model")
+
+/**
+ * One entry point for the app shell: [route] is the first segment of the web hash route (`#/dict/went` -> route `dict`, arg `went`),
+ * [query] the raw query string, [open] takes a web route (`"verb/go"`, `"model/gt-gt1"`) and navigates inside the frame.
+ */
+@Composable
+fun WordRoute(env: WordEnv, route: String, arg: String, query: String, onExit: () -> Unit, open: (String) -> Unit) {
+    when (route) {
+        "dict", "word" -> DictRoute(env, arg, onExit, open)
+        "verb" -> VerbRoute(env, arg, query, onExit, open)
+        "usage" -> UsageRoute(env, arg, query, onExit, open)
+        "letters" -> LettersRoute(env, arg, query, onExit, open)
+        "ideas" -> IdeasRoute(env, arg, onExit, open)
+        "paraphrase" -> ParaphraseRoute(env, onExit, open)
+        "phrases" -> PhrasesRoute(env, onExit, open)
+        "models" -> ModelsRoute(env, query, onExit, open)
+        "model" -> ModelRoute(env, arg, onExit, open)
+    }
+}
