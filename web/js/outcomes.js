@@ -163,10 +163,12 @@
 
     const micStep = (n, title, body, maxSec, minSec, next) => {
       view.innerHTML = `<div class="oc-wrap"><div class="card"><div class="oc-step">${t('Phần {n}/3', { n })}</div><h2>${title}</h2>${body}
-        <div class="oc-mic"><button class="btn primary lg" id="ocRec" aria-label="${t('Bắt đầu ghi âm')}">🎙️ ${t('Bắt đầu')}</button><span class="oc-clock" id="ocClock" aria-live="off">0:00</span></div>
+        <div class="oc-mic"><button class="btn primary lg" id="ocRec" data-lk-primary aria-label="${t('Bắt đầu ghi âm')}">🎙️ ${t('Bắt đầu')}</button><span class="oc-clock" id="ocClock" aria-live="off">0:00</span></div>
         <div class="oc-live" id="ocLive" aria-live="polite"></div>
-        <p class="small muted" id="ocHint">${t('Bấm Bắt đầu rồi nói to, rõ ràng. Bấm lần nữa khi xong.')}</p></div></div>`;
+        <p class="small muted" id="ocHint">${t('Bấm Bắt đầu rồi nói to, rõ ràng. Bấm lần nữa khi xong.')}</p>
+        <button class="btn ghost" id="ocSkip" data-lk-skip>${t('Bỏ qua')}</button></div></div>`;
       const btn = $('#ocRec');
+      $('#ocSkip').onclick = () => { if (R && R.on) { clearInterval(tick); R.stop(); R = null; } next(null); }; // không có micro/không muốn nói → vẫn làm tiếp phần viết (phần nói không được chấm)
       btn.onclick = async () => {
         if (R && R.on) {
           const sec = (Date.now() - R.t0) / 1000;
@@ -186,7 +188,7 @@
       view.innerHTML = `<div class="oc-wrap"><div class="card"><div class="oc-step">${t('Đo đầu ra')}</div><h2>${t('Bài đo: nói + viết (~12 phút)')}</h2>
         <ol><li>${t('Đọc to một đoạn ngắn (1 phút)')}</li><li>${t('Nói tự do theo đề (1–2 phút)')}</li><li>${t('Viết một đoạn (10 phút)')}</li></ol>
         <p class="small muted">${t('Ngồi chỗ yên tĩnh, dùng tai nghe có micro nếu có. Cứ nói tự nhiên – đây là mốc để so với chính bạn sau này.')}</p>
-        <button class="btn primary lg block" id="ocGo">${t('Bắt đầu')}</button></div></div>`;
+        <button class="btn primary lg block" id="ocGo" data-lk-primary>${t('Bắt đầu')}</button></div></div>`;
       $('#ocGo').onclick = step1;
     };
     const step1 = () => micStep(1, t('Đọc to đoạn này'), `<p class="oc-passage" lang="en">${esc(F.read)}</p>`, 60, 8, r => {
@@ -204,7 +206,7 @@
         <label class="small muted" for="ocTxt">${t('Viết bằng tiếng Anh, 80–150 từ. Không dùng công cụ dịch – bài đo là để so với chính bạn.')}</label>
         <textarea id="ocTxt" lang="en" spellcheck="false" autocapitalize="sentences"></textarea>
         <div class="oc-mic"><span class="oc-clock" id="ocClock">10:00</span><span class="small muted" id="ocWc">${t('{n} từ', { n: 0 })}</span></div>
-        <button class="btn primary lg block" id="ocDone">${t('Nộp bài')}</button></div></div>`;
+        <button class="btn primary lg block" id="ocDone" data-lk-primary>${t('Nộp bài')}</button></div></div>`;
       const ta = $('#ocTxt'), wc = () => O.words(ta.value).length;
       ta.oninput = () => { $('#ocWc').textContent = t('{n} từ', { n: wc() }); };
       tick = setInterval(() => { const el = $('#ocClock'); if (!el) return clearInterval(tick); const left = Math.max(0, 600 - (Date.now() - t0) / 1000); el.textContent = clock(left); if (!left) { clearInterval(tick); el.textContent = t('Hết giờ – nộp khi bạn sẵn sàng'); } }, 500);
