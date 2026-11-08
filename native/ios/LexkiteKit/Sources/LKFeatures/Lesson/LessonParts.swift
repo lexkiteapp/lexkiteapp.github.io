@@ -100,6 +100,7 @@ struct LessonOption: View {
                     .frame(width: 28, height: 28).background(Circle().fill(c.badge.resolve(scheme)))
                 VStack(alignment: .leading, spacing: 2) {
                     Text(text).lkText(LKType.headlineSm).foregroundStyle(c.text.resolve(scheme)).multilineTextAlignment(.leading).englishText()
+                        .lineLimit(text.contains(" ") ? 3 : 1).minimumScaleFactor(0.7) // a single word shrinks, never breaks mid-word ("considerin|g")
                     if let sub, !sub.isEmpty { Text(sub).lkText(LKType.bodySm).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)) }
                 }
                 Spacer(minLength: 0)

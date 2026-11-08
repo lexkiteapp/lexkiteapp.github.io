@@ -15,7 +15,7 @@ struct LessonCompleteView: View {
         let s = model.summary
         ZStack(alignment: .top) {
             ScrollView {
-                VStack(spacing: LKSpacing.spaceMd) {
+                VStack(spacing: LKSpacing.spaceSm) {
                     TeacherView(controller: model.teacher).frame(width: 154, height: 132).accessibilityHidden(true)
                     Text(t(.lessonDone)).lkText(LKType.headlineLg).foregroundStyle(LKColor.onBackground.resolve(scheme)).accessibilityAddTraits(.isHeader)
                     Text(s.accuracy >= 80 ? t(.lessonAwesome) : t(.lessonKeepGoing)).lkText(LKType.bodyLg).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).multilineTextAlignment(.center)
@@ -60,7 +60,7 @@ struct LessonCompleteView: View {
                 Text(t(.lessonAccuracy)).lkText(LKType.bodySm).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).multilineTextAlignment(.center).padding(.horizontal, 12)
             }
         }
-        .frame(width: 160, height: 160)
+        .frame(width: 132, height: 132)
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("\(t(.lessonAccuracy)) \(s.accuracy)%")
     }

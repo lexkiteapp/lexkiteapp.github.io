@@ -9,10 +9,11 @@ public struct CueTable: Sendable {
     public var keys: [String] { Array(k.keys) }
 
     public init?(data: Data) {
-        guard let o = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any], let raw = o["k"] as? [String: [Any]] else { return nil }
+        guard let o = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any], let raw = o["k"] as? [String: Any] else { return nil }
         var t: [String: (ms: Double, cues: String, env: String?)] = [:]
-        for (key, e) in raw {
-            guard e.count >= 2, let ms = (e[0] as? NSNumber)?.doubleValue, let c = e[1] as? String else { continue }
+        for (key, v) in raw {
+            // web `k[key] || null`: lines without cues are stored as 0 → skipped (a strict [String: [Any]] cast would drop the whole table)
+            guard let e = v as? [Any], e.count >= 2, let ms = (e[0] as? NSNumber)?.doubleValue, let c = e[1] as? String else { continue }
             t[key] = (ms, c, e.count > 2 ? e[2] as? String : nil)
         }
         k = t; dictText = o["dict"] as? String ?? ""
