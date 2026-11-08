@@ -246,5 +246,7 @@
   "lesson.copied": "Đã sao chép",
   "lesson.story.lookup": "Đang tra “{w}”…",
   "lesson.story.notFound": "Không tìm thấy “{w}”.",
-  "lesson.hint": "Gợi ý"
+  "lesson.hint": "Gợi ý",
+  "lesson.q.buildListen": "Nghe rồi xếp thành câu",
+  "lesson.card.word": "Từ: {w}"
 }

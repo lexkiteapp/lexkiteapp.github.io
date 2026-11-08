@@ -264,6 +264,7 @@ node scripts/test/sentence-punct.mjs
 node scripts/content-qa/lkf-check.mjs
 node scripts/test/lkf.mjs
 node scripts/content-qa/grammar-map-check.mjs
+node scripts/target/drill-pack.mjs --check
 node scripts/test/grammar-inventory.mjs
 node scripts/test/explain-let.mjs
 node scripts/content-qa/sense-check.mjs
@@ -351,4 +352,5 @@ node scripts/test/big-data.mjs
 node scripts/test/heavy-rerun.mjs
 node scripts/test/json-dupkeys.mjs
 node scripts/test/cls-chrome.mjs
+node scripts/test/es-practice.mjs
 node scripts/test/ext-version.mjs

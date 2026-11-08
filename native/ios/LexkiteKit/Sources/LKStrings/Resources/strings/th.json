@@ -245,5 +245,7 @@
   "lesson.copied": "คัดลอกแล้ว",
   "lesson.story.lookup": "กำลังค้นหา \"{w}\"...",
   "lesson.story.notFound": "ไม่มีผลลัพธ์สำหรับ \"{w}\"",
-  "lesson.hint": "คำใบ้"
+  "lesson.hint": "คำใบ้",
+  "lesson.q.buildListen": "ฟังแล้วเรียงเป็นประโยค",
+  "lesson.card.word": "คำ: {w}"
 }

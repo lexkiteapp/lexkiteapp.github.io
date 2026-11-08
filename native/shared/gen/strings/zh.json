@@ -245,5 +245,7 @@
   "lesson.copied": "已复制",
   "lesson.story.lookup": "查找“{w}”...",
   "lesson.story.notFound": "没有“{w}”的结果。",
-  "lesson.hint": "提示"
+  "lesson.hint": "提示",
+  "lesson.q.buildListen": "听一听，再排成句子",
+  "lesson.card.word": "单词：{w}"
 }
