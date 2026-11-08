@@ -86,7 +86,7 @@ class VImgStore(private val http: Http, private val dir: File, private val mode:
         if (h == null) { enabled = false; return false }
         enabled = m == 1 || h.on
         if (!enabled || h.n <= 0) return enabled
-        coroutineScope { words.map { VImg.shard(it, h.n) }.toSet().filter { it !in shards }.map { id ->
+        coroutineScope { words.map { VImg.shard(it, h.n) }.toSet().filter { !shards.containsKey(it) }.map { id ->
             async { text(VImg.SHARD_URL + "%02d.json".format(id), "s%02d.json".format(id))?.let(VImg::parseShard)?.let { shards[id] = it } }
         }.awaitAll() }
         return true
