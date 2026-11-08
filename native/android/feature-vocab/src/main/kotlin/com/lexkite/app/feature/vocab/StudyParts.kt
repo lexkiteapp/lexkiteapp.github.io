@@ -149,7 +149,7 @@ internal fun rich(s: String, bold: SpanStyle = SpanStyle(fontWeight = FontWeight
     Text(rich(s), modifier, color = color, style = style.toCompose(), textAlign = align)
 
 /** English learning content always reads left-to-right, also in an RTL UI (web `dir="ltr"` on the same blocks). */
-@Composable internal fun EnLtr(content: @Composable () -> Unit) = CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.EnLtr) { content() }
+@Composable internal fun EnLtr(content: @Composable () -> Unit) = CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) { content() }
 
 // ---- controls ----
 /** Filter / tab chip: ≥ 44 dp, selected = teal container. */

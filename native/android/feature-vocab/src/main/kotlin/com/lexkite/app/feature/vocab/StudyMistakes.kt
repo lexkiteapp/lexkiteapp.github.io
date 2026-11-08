@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.text.style.TextAlign
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -49,7 +50,7 @@ class MistakesUi(
     val st: Map<String, RetryState> = emptyMap(), val loaded: Boolean = true, val notice: L10nKey? = null,
 )
 class MistakesActions(
-    val tab: (String) -> Unit = {}, val retry: (Boolean) -> Unit = {}, val check: (String, String) -> Unit = {}, val reveal: (String) -> Unit = {}, val settle: (String, Boolean) -> Unit = { _, _ -> },
+    val tab: (String) -> Unit = {}, val retry: (Boolean) -> Unit = {}, val check: (String, String) -> Unit = { _, _ -> }, val reveal: (String) -> Unit = {}, val settle: (String, Boolean) -> Unit = { _, _ -> },
     val gotIt: (String) -> Unit = {}, val clearFixed: () -> Unit = {}, val sayWord: (String) -> Unit = {}, val addCard: (String) -> Unit = {}, val open: (String) -> Unit = {}, val exit: () -> Unit = {},
 )
 
