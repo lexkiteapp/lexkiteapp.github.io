@@ -91,7 +91,7 @@ public enum Vocab {
         return .obj([("reps", .int(s?.i("reps") ?? 0)), ("lapses", .int(s?.i("lapses") ?? 0)), ("step", .int(s?.i("step") ?? 0)), ("interval", .int(s?.i("interval") ?? 0)),
                      ("S", nn("S")), ("D", nn("D")), ("due", nn("due")), ("last", nn("last"))])
     }
-    static func isNew(_ c: JSON) -> Bool { let s = srs(c); return s.reps == 0 && !s.hasLast }
+    public static func isNew(_ c: JSON) -> Bool { let s = srs(c); return s.reps == 0 && !s.hasLast }
     static func hasHistory(_ c: JSON) -> Bool { let s = srs(c); return s.reps > 0 || s.hasLast }
 
     /// App.meanOf as the native build sees it for the learner's meaning language "vi": `vi || def`

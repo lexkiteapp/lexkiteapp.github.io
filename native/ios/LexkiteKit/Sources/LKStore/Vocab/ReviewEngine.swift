@@ -39,6 +39,7 @@ public struct ReviewSummary: Equatable, Sendable {
     /// cards due in the next 2 days ("Ôn trước")
     public var soon = 0
     public var canBrag = false
+    public init() {}
 }
 
 /// Cards + stats + session of one #/review visit. Pure: persist `cards`/`stats` after each call; add `ReviewReward` to the game (App.reward).

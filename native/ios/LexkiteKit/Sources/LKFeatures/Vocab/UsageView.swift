@@ -229,7 +229,7 @@ struct UsageView: View {
         guard let re = try? NSRegularExpression(pattern: "\\(([^)]+)\\)\\s*$"), let m = re.firstMatch(in: h, range: NSRange(h.startIndex..., in: h)), let r = Range(m.range(at: 1), in: h) else { return "" }
         return String(h[r])
     }
-    @ViewBuilder private func row(_ e: JSON, _ k: String) -> some View {
+    private func rowText(_ e: JSON, _ k: String) -> (title: String, subtitle: String) {
         let items = e.list("items")
         let heads = uniq(items.map { $0.s("h") })
         let title: String, subtitle: String
@@ -240,6 +240,13 @@ struct UsageView: View {
         case "s": title = e.s("f"); subtitle = e.list("notes").first.map { mean($0) } ?? ""
         default: title = items.map { headOf($0.s("h")) }.joined(separator: " ↔ "); subtitle = items.map { mean($0) }.joined(separator: " · ")
         }
+        return (title, subtitle)
+    }
+    private func row(_ e: JSON, _ k: String) -> some View {
+        let (title, subtitle) = rowText(e, k)
+        return rowBody(title, subtitle)
+    }
+    private func rowBody(_ title: String, _ subtitle: String) -> some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(title).lkText(LKType.titlePill).foregroundStyle(ink).englishText().frame(maxWidth: .infinity, alignment: .leading)
             if !subtitle.isEmpty { Text(subtitle).lkText(LKType.bodySm).foregroundStyle(dim).lineLimit(2).frame(maxWidth: .infinity, alignment: .leading) }
