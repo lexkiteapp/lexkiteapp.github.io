@@ -49,7 +49,7 @@ jobs:
         # PyAV 19 bỏ tham số metadata_errors mà faster-whisper (≤1.2.1) vẫn truyền vào av.open → khoá av<19
         run: |
           # onnxruntime-node tải nhị phân lúc cài (postinstall) → mạng chập chờn làm rớt 2/6 shard (08/11): thử lại 3 lần
-          for i in 1 2 3; do npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 && break; [ "$i" = 3 ] && exit 1; sleep $((i * 10)); done
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
           pip install -q 'faster-whisper==1.2.1' 'av==18.1.0'
       - uses: actions/cache@v4
         with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: kokoro-82m-v1-fp32 }

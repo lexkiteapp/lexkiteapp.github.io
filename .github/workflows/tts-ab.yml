@@ -42,7 +42,7 @@ jobs:
       - name: Cài ffmpeg + kokoro-js
         if: env.PHASE != 'dryrun'
         run: |
-          case "$PHASE" in kokoro|free) npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null;; esac
+          case "$PHASE" in kokoro|free) bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null;; esac
       - uses: actions/cache@v4
         if: env.PHASE == 'kokoro'
         with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: kokoro-82m-v1-q8 }

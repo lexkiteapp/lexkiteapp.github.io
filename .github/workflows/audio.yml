@@ -62,7 +62,7 @@ jobs:
         with: { node-version: 22 }
       - uses: ./.github/actions/setup-ffmpeg
       - name: Cài kokoro-js + ffmpeg (nén mp3 – ảnh máy chủ GitHub mới không còn sẵn ffmpeg)
-        run: npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
+        run: bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
       - name: Đệm mô hình Kokoro giữa các lượt (đỡ tải lại ~90 MB, tránh lỗi mạng)
         uses: actions/cache@v4
         with:
