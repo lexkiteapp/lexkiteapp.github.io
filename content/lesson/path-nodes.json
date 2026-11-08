@@ -1,0 +1,27 @@
+{
+  "v": 1,
+  "_note": "Nội dung nút Lộ trình (6 ô × chặng). Build: node scripts/lesson/build-path-nodes.mjs → web/cpack/lesson/path-nodes.js. Từ + câu ví dụ tiếng Anh lấy từ kho (ví dụ nguyên văn của kho); chữ Việt đi qua t() → web/js/i18n/en/pathx.js + i18n/ui/<lang>/pathx.js.",
+  "units": {
+    "start": {
+      "theme": "Chào hỏi và một ngày của bạn",
+      "can": "Bạn sẽ chào hỏi và kể về một ngày của mình",
+      "cap": "A2",
+      "nodes": [
+        { "slot": "lesson", "title": "Chào hỏi, giới thiệu bản thân", "sub": "Hỏi tên, làm quen bạn mới", "min": 4,
+          "words": [["hello", "excl"], ["name", "n"], ["meet", "v"], ["friend", "n"]],
+          "ex": [{ "en": "Hello, my name is Minh.", "vi": "Xin chào, tên mình là Minh." }, { "en": "Nice to meet you, I'm Lan.", "vi": "Rất vui được gặp bạn, mình là Lan." }] },
+        { "slot": "listen", "title": "Nghe: bạn kể buổi sáng của mình", "sub": "Giờ dậy, tắm rửa, ăn sáng", "min": 3,
+          "words": [["morning", "n"], ["wake", "v"], ["shower", "n"], ["breakfast", "n"]],
+          "ex": [{ "en": "I usually wake up at six.", "vi": "Mình thường thức dậy lúc sáu giờ." }, { "en": "I usually have a shower in the morning.", "vi": "Mình thường tắm vào buổi sáng." }] },
+        { "slot": "speak", "title": "Nói: kể một ngày của bạn", "sub": "Bữa trưa, buổi tối, giờ đi ngủ", "min": 3,
+          "words": [["work", "v"], ["lunch", "n"], ["evening", "n"], ["bed", "n"]],
+          "ex": [{ "en": "We usually watch TV in the evening.", "vi": "Buổi tối chúng mình thường xem tivi." }, { "en": "I usually go to bed before midnight.", "vi": "Mình thường đi ngủ trước nửa đêm." }] },
+        { "slot": "story", "title": "Truyện: người hàng xóm mới", "sub": "Chào hỏi người mới chuyển đến", "min": 4, "words": [], "ex": [], "story": "s-neighbor" },
+        { "slot": "review", "title": "Ôn: chào hỏi và buổi sáng", "sub": "Nhắc lại những từ dễ quên nhất", "min": 3,
+          "words": [["name", "n"], ["meet", "v"], ["wake", "v"], ["evening", "n"]],
+          "ex": [{ "en": "Nice to meet you, I'm Lan.", "vi": "Rất vui được gặp bạn, mình là Lan." }, { "en": "I usually wake up at six.", "vi": "Mình thường thức dậy lúc sáu giờ." }] },
+        { "slot": "exam", "title": "Kiểm tra: chào hỏi và một ngày", "sub": "Nghe và đọc câu ngắn hằng ngày", "min": 5, "words": [], "ex": [] }
+      ]
+    }
+  }
+}
