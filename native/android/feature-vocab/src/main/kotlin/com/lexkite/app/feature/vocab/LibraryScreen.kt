@@ -34,7 +34,7 @@ import com.lexkite.app.i18n.generated.L10nKey
 private fun Ring(frac: Float, label: String) {
     val c = LocalLKColors.current
     Box(Modifier.size(56.dp), contentAlignment = Alignment.Center) {
-        val track = c.cardHigh; val fill = c.secondary
+        val track = c.surfaceContainerHighest; val fill = c.secondary
         Canvas(Modifier.size(56.dp)) {
             val sw = 6.dp.toPx(); val inset = sw / 2
             drawArc(track, 0f, 360f, false, topLeft = androidx.compose.ui.geometry.Offset(inset, inset), size = Size(size.width - sw, size.height - sw), style = Stroke(sw))

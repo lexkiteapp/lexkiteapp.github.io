@@ -199,7 +199,7 @@ private fun AudioFace(u: ReviewUi.Card, a: ReviewActions) {
 @Composable
 private fun AnswerBanner(u: ReviewUi.Card) {
     val ans = u.ans ?: return; val c = LocalLKColors.current
-    Row(Modifier.fillMaxWidth().clip(RoundedCornerShape(16.dp)).background(if (ans.ok) c.cardHigh else c.errorContainer).border(2.dp, if (ans.ok) c.success else c.error, RoundedCornerShape(16.dp)).padding(LKSpacing.spaceSm), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
+    Row(Modifier.fillMaxWidth().clip(RoundedCornerShape(16.dp)).background(if (ans.ok) c.surfaceContainerHighest else c.errorContainer).border(2.dp, if (ans.ok) c.success else c.error, RoundedCornerShape(16.dp)).padding(LKSpacing.spaceSm), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
         Text(t(if (ans.ok) L10nKey.lessonRight else L10nKey.lessonWrong), style = LKType.titlePill.toCompose(), color = if (ans.ok) c.success else c.onErrorContainer)
         if (ans.given.isNotEmpty() && !ans.ok) EnLtr { Body(ans.given, color = c.onErrorContainer) }
     }
@@ -334,7 +334,7 @@ private fun SummaryScreen(s: ReviewSummary, a: ReviewActions) {
                 listOf(L10nKey.revAgain to c.error, L10nKey.revHard to c.tertiary, L10nKey.revGood to c.secondary, L10nKey.revEasy to c.success).forEachIndexed { i, (k, col) ->
                     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
                         Body(t(k), Modifier.width(84.dp), style = LKType.bodySm)
-                        Box(Modifier.weight(1f).height(10.dp).clip(PillShape).background(c.cardHigh)) { if (s.g[i] > 0) Box(Modifier.fillMaxHeight().fillMaxWidth(s.g[i].toFloat() / total).background(col, PillShape)) }
+                        Box(Modifier.weight(1f).height(10.dp).clip(PillShape).background(c.surfaceContainerHighest)) { if (s.g[i] > 0) Box(Modifier.fillMaxHeight().fillMaxWidth(s.g[i].toFloat() / total).background(col, PillShape)) }
                         Body(s.g[i].toString(), style = LKType.bodySm, modifier = Modifier.width(32.dp), align = TextAlign.End)
                     }
                 }
@@ -390,7 +390,7 @@ private fun Forecast(s: ReviewSummary) {
             s.forecast.forEachIndexed { i, n ->
                 Column(Modifier.weight(1f).fillMaxHeight(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Bottom) {
                     Text(n.toString(), style = LKType.bodySm.toCompose(), color = c.onSurfaceVariant)
-                    Box(Modifier.fillMaxWidth().height(max(4, 48 * n / peak).dp).clip(RoundedCornerShape(6.dp)).background(if (n > 0) c.secondary else c.cardHigh))
+                    Box(Modifier.fillMaxWidth().height(max(4, 48 * n / peak).dp).clip(RoundedCornerShape(6.dp)).background(if (n > 0) c.secondary else c.surfaceContainerHighest))
                     val label = if (i == 0) t(L10nKey.revTmrw) else SimpleDateFormat("EEE", t.locale).format(Date(Calendar.getInstance().apply { timeInMillis = s.now; add(Calendar.DAY_OF_MONTH, i + 1) }.timeInMillis))
                     Text(label, style = LKType.bodySm.toCompose(), color = c.onSurfaceVariant, maxLines = 1)
                 }

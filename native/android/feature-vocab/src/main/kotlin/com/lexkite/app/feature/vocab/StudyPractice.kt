@@ -207,7 +207,7 @@ private fun Question(q: Q, st: QState, a: PracticeActions) {
     }
     if (done) {
         val ok = st.ok == true
-        LKCard(fill = if (ok) c.cardHigh else c.errorContainer) {
+        LKCard(fill = if (ok) c.surfaceContainerHighest else c.errorContainer) {
             Body(t(if (ok) L10nKey.lessonRight else L10nKey.lessonWrong), style = LKType.titlePill, color = if (ok) c.success else c.onErrorContainer)
             if (!ok) { Label(t(L10nKey.lessonAnswer), color = c.onErrorContainer); EnLtr { Body(q.answer, color = c.onErrorContainer, style = LKType.headlineSm) } }
             if (q.w.ex.isNotEmpty()) Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
@@ -265,7 +265,7 @@ private fun MatchScreen(m: MatchState, a: PracticeActions, clock: () -> Long) {
                 row.forEach { tl ->
                     val done = tl.id in m.done; val sel = m.sel == tl.id; val wrong = m.wrong?.let { tl.id == it.first || tl.id == it.second } == true
                     val line = if (wrong) c.error else if (done) c.success else if (sel) c.secondary else c.outlineVariant
-                    Box(Modifier.weight(1f).heightIn(min = 64.dp).clip(RoundedCornerShape(16.dp)).background(if (wrong) c.errorContainer else if (done) c.cardHigh else c.card).border(2.dp, line, RoundedCornerShape(16.dp))
+                    Box(Modifier.weight(1f).heightIn(min = 64.dp).clip(RoundedCornerShape(16.dp)).background(if (wrong) c.errorContainer else if (done) c.surfaceContainerHighest else c.card).border(2.dp, line, RoundedCornerShape(16.dp))
                         .let { if (done) it else it.tactile({ a.tile(tl.id) }) }.padding(LKSpacing.spaceXs), contentAlignment = Alignment.Center) {
                         val body: @Composable () -> Unit = { Body(tl.text, align = TextAlign.Center, color = if (done) c.onSurfaceVariant else c.onSurface, style = LKType.bodyMd) }
                         if (tl.isWord) EnLtr(body) else body()

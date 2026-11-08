@@ -137,7 +137,7 @@ internal fun VChip(text: String, onClick: (() -> Unit)?, selected: Boolean = fal
 
 /** Small read-only badge (level, part of speech, band …). */
 @Composable
-internal fun VBadge(text: String, fill: Color = LocalLKColors.current.cardHigh, ink: Color = LocalLKColors.current.onSurface) {
+internal fun VBadge(text: String, fill: Color = LocalLKColors.current.surfaceContainerHighest, ink: Color = LocalLKColors.current.onSurface) {
     Box(Modifier.clip(PillShape).background(fill).padding(horizontal = LKSpacing.spaceXs, vertical = 2.dp)) { Text(text, style = LKType.labelBadge.toCompose().copy(textDirection = contentDirection(text)), color = ink) }
 }
 

@@ -199,7 +199,7 @@ internal fun AnkiDialog(f: AnkiFlow, open: (String) -> Unit) {
 @Composable
 private fun Option(title: String, sub: String?, selected: Boolean, badge: String? = null, onPick: () -> Unit) {
     val c = LocalLKColors.current
-    LKCard(onClick = onPick, label = title, fill = if (selected) c.cardHigh else c.card) {
+    LKCard(onClick = onPick, label = title, fill = if (selected) c.surfaceContainerHighest else c.card) {
         Row(horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.Top) {
             Text(if (selected) "◉" else "○", style = LKType.titlePill.toCompose(), color = c.secondary)
             Column(Modifier.weight(1f)) {
@@ -261,7 +261,7 @@ private fun ExportBody(f: AnkiFlow) {
 @Composable
 private fun PreviewSide(title: String, lines: List<String>, modifier: Modifier) {
     val c = LocalLKColors.current
-    Column(modifier.clip(androidx.compose.foundation.shape.RoundedCornerShape(14.dp)).background(c.cardHigh).padding(LKSpacing.spaceSm), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+    Column(modifier.clip(androidx.compose.foundation.shape.RoundedCornerShape(14.dp)).background(c.surfaceContainerHighest).padding(LKSpacing.spaceSm), verticalArrangement = Arrangement.spacedBy(2.dp)) {
         Label(title)
         lines.filter { it.isNotEmpty() }.forEachIndexed { i, l -> EnLtr { Body(l, style = if (i == 0) LKType.titlePill else LKType.bodySm, color = if (i == 0) c.onSurface else c.onSurfaceVariant) } }
     }
@@ -340,7 +340,7 @@ private fun ImportBody(f: AnkiFlow, open: (String) -> Unit) {
             GhostButton(t(L10nKey.vocabChooseAnotherFile), f::reset, Modifier.fillMaxWidth())
         }
         AnkiFlow.Import.Importing -> Column(Modifier.fillMaxWidth().heightIn(min = 160.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
-            Box(Modifier.fillMaxWidth().height(8.dp).clip(androidx.compose.foundation.shape.RoundedCornerShape(4.dp)).background(c.cardHigh)) {
+            Box(Modifier.fillMaxWidth().height(8.dp).clip(androidx.compose.foundation.shape.RoundedCornerShape(4.dp)).background(c.surfaceContainerHighest)) {
                 Box(Modifier.fillMaxWidth((f.done.toFloat() / maxOf(1, f.total)).coerceIn(0f, 1f)).fillMaxHeight().background(c.secondary))
             }
             Muted(t(L10nKey.vocabImportingWords, mapOf("i" to t.num(f.done), "n" to t.num(f.total))))

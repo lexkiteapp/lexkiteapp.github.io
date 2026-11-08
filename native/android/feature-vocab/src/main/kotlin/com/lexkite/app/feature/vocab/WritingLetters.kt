@@ -96,7 +96,7 @@ fun LetterPracticeScreen(letter: JsonObject, text: String, secondsLeft: Int, run
                 VText(if (secondsLeft <= 0) t(L10nKey.lettersTimeSUp) else Letters.timerText(secondsLeft), LKType.headlineSm, if (running) c.secondary else c.onSurface)
             }
             androidx.compose.foundation.layout.Spacer(Modifier.weight(1f))
-            VBadge(t.s(L10nKey.vocabWords, "n" to n), if (ok) c.success.copy(alpha = 0.2f) else c.cardHigh, if (ok) c.success else c.onSurface)
+            VBadge(t.s(L10nKey.vocabWords, "n" to n), if (ok) c.success.copy(alpha = 0.2f) else c.surfaceContainerHighest, if (ok) c.success else c.onSurface)
         }
         VField(text, a.textChange, t(L10nKey.lettersPractiseWriting), singleLine = false, lines = 10)
         LKPrimaryButton(t(L10nKey.actionCheck), a.check, enabled = text.isNotBlank())

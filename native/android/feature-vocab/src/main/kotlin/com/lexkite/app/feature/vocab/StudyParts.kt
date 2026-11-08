@@ -95,7 +95,7 @@ internal fun StudyPage(title: String, onBack: () -> Unit, bottom: (@Composable C
 internal fun StudyFocus(progress: Float, title: String, onExit: () -> Unit, bottom: (@Composable ColumnScope.() -> Unit)? = null, content: @Composable ColumnScope.() -> Unit) {
     val c = LocalLKColors.current
     Column(Modifier.fillMaxSize().background(c.background)) {
-        TopBar(TopBarVariant.Focus(progress), title, t, onExit)
+        TopBar(TopBarVariant.Focus(progress, track = c.surfaceContainerHighest), title, t, onExit)
         Column(Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = LKSpacing.gutter, vertical = LKSpacing.spaceXs), verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceMd), content = content)
         if (bottom != null) Column(Modifier.fillMaxWidth().padding(horizontal = LKSpacing.gutter, vertical = LKSpacing.spaceSm), verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs), content = bottom)
     }
@@ -220,7 +220,7 @@ internal fun EmptyState(emoji: String, title: String, body: String? = null, acti
 internal fun Notice(text: String, ok: Boolean = true, modifier: Modifier = Modifier) {
     val c = LocalLKColors.current
     val line = if (ok) c.success else c.error
-    Row(modifier.fillMaxWidth().clip(RoundedCornerShape(16.dp)).background(if (ok) c.cardHigh else c.errorContainer).border(2.dp, line, RoundedCornerShape(16.dp)).padding(LKSpacing.spaceSm), verticalAlignment = Alignment.CenterVertically) {
+    Row(modifier.fillMaxWidth().clip(RoundedCornerShape(16.dp)).background(if (ok) c.surfaceContainerHighest else c.errorContainer).border(2.dp, line, RoundedCornerShape(16.dp)).padding(LKSpacing.spaceSm), verticalAlignment = Alignment.CenterVertically) {
         Text(text, style = LKType.bodyMd.toCompose(), color = if (ok) c.onSurface else c.onErrorContainer)
     }
 }
@@ -254,7 +254,7 @@ internal fun ChoiceCard(letter: String, text: String, state: Pick, onClick: (() 
     val c = LocalLKColors.current
     val shape = RoundedCornerShape(20.dp)
     val line = when (state) { Pick.RIGHT -> c.success; Pick.WRONG -> c.error; else -> c.outlineVariant }
-    val bg = when (state) { Pick.RIGHT -> c.cardHigh; Pick.WRONG -> c.errorContainer; else -> c.card }
+    val bg = when (state) { Pick.RIGHT -> c.surfaceContainerHighest; Pick.WRONG -> c.errorContainer; else -> c.card }
     val ink = if (state == Pick.WRONG) c.onErrorContainer else if (state == Pick.DIM) c.onSurfaceVariant else c.onSurface
     val body: @Composable () -> Unit = {
         Row(Modifier.fillMaxWidth().heightIn(min = 56.dp).clip(shape).background(bg).border(2.dp, line, shape).let { if (onClick != null) it.tactile(onClick, role = Role.RadioButton) else it }.padding(LKSpacing.spaceSm),
@@ -277,7 +277,7 @@ internal fun Flow(content: @Composable () -> Unit) = FlowRow(Modifier.fillMaxWid
 /** Small read-only tag (part of speech, CEFR level). */
 @Composable
 internal fun Tag(text: String, color: Color = LocalLKColors.current.secondary) {
-    Text(text.uppercase(t.locale), Modifier.clip(PillShape).background(LocalLKColors.current.cardHigh).padding(horizontal = LKSpacing.spaceXs, vertical = 2.dp), color = color, style = LKType.labelBadge.toCompose())
+    Text(text.uppercase(t.locale), Modifier.clip(PillShape).background(LocalLKColors.current.surfaceContainerHighest).padding(horizontal = LKSpacing.spaceXs, vertical = 2.dp), color = color, style = LKType.labelBadge.toCompose())
 }
 
 /** Mastery dot colour: 0 new · 1 learning · 2 known · 3 mastered. */

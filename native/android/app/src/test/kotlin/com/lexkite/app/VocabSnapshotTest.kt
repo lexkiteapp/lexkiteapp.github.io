@@ -123,7 +123,7 @@ class VocabSnapshotTest {
         ),
     )
 
-    private val image: @Composable (String, String, Modifier) -> Unit = { _, _, mod -> Box(mod.background(LocalLKColors.current.cardHigh)) }
+    private val image: @Composable (String, String, Modifier) -> Unit = { _, _, mod -> Box(mod.background(LocalLKColors.current.surfaceContainerHighest)) }
 
     @Composable private fun screen(name: String) {
         when (name) {

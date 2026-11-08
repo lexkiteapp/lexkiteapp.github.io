@@ -96,7 +96,7 @@ private fun WordRow(r: DeckRowUi, a: DeckActions) {
     val c = LocalLKColors.current
     LKCard {
         Row(verticalAlignment = Alignment.Top, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
-            Box(Modifier.size(56.dp).clip(RoundedCornerShape(16.dp)).background(c.cardHigh), contentAlignment = Alignment.Center) {
+            Box(Modifier.size(56.dp).clip(RoundedCornerShape(16.dp)).background(c.surfaceContainerHighest), contentAlignment = Alignment.Center) {
                 if (r.isImage && a.image != null) a.image.invoke(r.thumb, r.word, Modifier.size(56.dp)) else Text(r.thumb, style = LKType.headlineMd.toCompose())
             }
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
