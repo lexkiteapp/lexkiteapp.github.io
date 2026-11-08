@@ -851,6 +851,144 @@
           "ex": []
         }
       ]
+    },
+    "society": {
+      "theme": "Xã hội và gia đình",
+      "can": "Bạn sẽ so sánh và bảo vệ quan điểm",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Bất bình đẳng và phúc lợi",
+          "sub": "Nghèo đói, phân biệt đối xử",
+          "min": 4,
+          "words": [
+            [
+              "poverty",
+              "n"
+            ],
+            [
+              "inequality",
+              "n"
+            ],
+            [
+              "welfare",
+              "n"
+            ],
+            [
+              "discrimination",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Income inequality has widened in many developed countries.",
+              "vi": "Bất bình đẳng thu nhập đã gia tăng ở nhiều nước phát triển."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: cộng đồng và tình nguyện",
+          "sub": "Tình nguyện, người nhập cư",
+          "min": 3,
+          "words": [
+            [
+              "community",
+              "n"
+            ],
+            [
+              "volunteer",
+              "v"
+            ],
+            [
+              "diversity",
+              "n"
+            ],
+            [
+              "immigration",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "I volunteered to help organise the international food festival.",
+              "vi": "Tôi đã tình nguyện giúp tổ chức lễ hội ẩm thực quốc tế."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: gia đình và các thế hệ",
+          "sub": "Khoảng cách thế hệ, già hóa dân số",
+          "min": 3,
+          "words": [
+            [
+              "generation gap",
+              "n"
+            ],
+            [
+              "upbringing",
+              "n"
+            ],
+            [
+              "nuclear family",
+              "n"
+            ],
+            [
+              "ageing population",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Technology has widened the generation gap in many families.",
+              "vi": "Công nghệ đã nới rộng khoảng cách thế hệ trong nhiều gia đình."
+            }
+          ]
+        },
+        {
+          "slot": "story"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: phúc lợi, thế hệ, cộng đồng",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "poverty",
+              "n"
+            ],
+            [
+              "welfare",
+              "n"
+            ],
+            [
+              "community",
+              "n"
+            ],
+            [
+              "generation gap",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Education is the most effective way to escape poverty.",
+              "vi": "Giáo dục là cách hiệu quả nhất để thoát nghèo."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng xã hội",
+          "sub": "Nghe, đọc và nói về xã hội",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
     }
   }
 }
