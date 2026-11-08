@@ -32,9 +32,6 @@
  "lesson": [
   "end"
  ],
- "practice": [
-  "end"
- ],
  "listen": [
   "enter",
   "end",
@@ -79,5 +76,10 @@
  ],
  "letters": [
   "end"
- ]
+ ],
+ "_flaky": {
+  "practice": [
+   "end"
+  ]
+ }
 }
