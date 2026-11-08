@@ -25251,8 +25251,8 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "doff#v": {
-   "e4bad": 1,
-   "badAt": "2026-11-08T16:01:08.020Z"
+   "e4bad": 2,
+   "badAt": "2026-11-08T16:22:39.493Z"
   },
   "doll#n": {
    "ex": "What does the doll look like?",
@@ -44084,8 +44084,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "internationalize#v": {
-   "e4bad": 1,
-   "badAt": "2026-11-08T16:01:29.181Z"
+   "e4bad": 2,
+   "badAt": "2026-11-08T16:22:39.493Z"
   },
   "internationally#adv": {
    "ex": "Our products are now sold internationally in more than twenty countries.",
@@ -47353,8 +47353,17 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "lexicographer#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-08T16:01:04.601Z"
+   "ex": "Tom is a renowned lexicographer.",
+   "ps": "a man sits at a desk holding a stack of blank pages and a pen",
+   "sc": "a man sits at a desk holding a stack of blank pages and a pen",
+   "check": "Is the person creating a collection of word definitions?",
+   "cap": "a person with a pen and many blank pages",
+   "key": "a person holding a stack of blank pages; a pen in hand",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3
   },
   "liability#n": {
    "ex": "The company accepts no liability for lost items.",
@@ -60257,8 +60266,18 @@
    "refix": 1
   },
   "phlebitis#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-08T16:01:33.925Z"
+   "ex": "Phlebitis is an inflammation of a vein, usually in the legs.",
+   "ps": "a woman doctor gently touches a man's lower leg showing a bright red swollen vein",
+   "sc": "a woman doctor gently touches a man's lower leg showing a bright red swollen vein",
+   "check": "Is there a visibly inflamed red vein on the leg?",
+   "cap": "a doctor examining a painful red vein on a leg",
+   "key": "a bright red swollen vein on the leg; the woman's concerned hand",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "phone#v": {
    "ex": "Who are you phoning now?",

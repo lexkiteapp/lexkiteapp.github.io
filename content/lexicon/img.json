@@ -128810,6 +128810,32 @@
    "b": "41348854493",
    "repo": "m4"
   },
+  "phlebitis#n": {
+   "h": "19890e292d9f5204",
+   "url": "https://media.lexkite.com/vimg/19890e292d9f5204.webp",
+   "alt": "phlebitis",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.367,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "bbd8a047c186a797",
+   "at": "2026-11-08",
+   "b": "42499355368",
+   "repo": "m4"
+  },
   "phone#n": {
    "h": "327e82433d130408",
    "url": "https://media.lexkite.com/vimg/327e82433d130408.webp",

@@ -1291,6 +1291,12 @@
    "why": "size > 6 KB",
    "b": "42467148738"
   },
+  "lexicographer#n": {
+   "at": "2026-11-08",
+   "tries": 6,
+   "why": "meaning check: no (Is the person creating a collection of word defini)",
+   "b": "42499355368"
+  },
   "liability#n": {
    "at": "2026-11-08",
    "tries": 18,
