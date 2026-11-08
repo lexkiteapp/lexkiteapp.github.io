@@ -9224,3 +9224,10 @@ gasification	ok	ok
 anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
 porpoise	ok	ok
 systematics	ok	ok
+metastasize	cut_wordis:"Metastasis" 1.17s · cut_wordis:"Metastasis" 1.16s · dot100:"Metastasisae" 1.21s · cut_wordis100:"Metastasis" 1.13s · cut_wordis100:"Metastasis" 1.11s · cut_next: câu mang: "Next word Metastasis" · plain095:"Metastasis" 1.22s · dot090:"Metastasisae" 1.39s	ok
+internationalize	ok	ok
+doff	cut_wordis: câu mang: "The word is doffy." · dot100:"Doth." 0.75s · cut_wordis100:"Dolph." 0.60s · cut_wordis100:"Doth." 0.58s · cut_next: câu mang: "Next word, Dorothy." · plain095:"Doth" 0.54s · dot090:"Duff." 0.81s	cut_wordis:"DOF" 0.75s · cut_wordis:"DOF." 0.57s · dot100:"doves" 0.61s · cut_wordis100:"DoF." 0.69s · cut_wordis100:"DoF." 0.52s · cut_next:"DOF." 0.58s · cut_next:"Off." 0.33s · plain095:"Doth" 0.56s · dot090:"DoF." 0.67s
+homophone	ok	ok
+proscribe	cut_wordis: câu mang: "The word is proscriby." · dot100:"Prescribe" 0.90s · cut_wordis100:"Prescribe" 0.89s · cut_wordis100:"prescribe." 0.83s · cut_next: câu mang: "Next word proscriby" · plain095:"Prescribed" 0.82s · dot090:"Prescribe" 1.05s	cut_wordis:"Prescribe" 0.87s · cut_wordis:"prescribe." 0.76s · dot100:"prescribe." 0.78s · cut_wordis100:"Prescribe" 0.89s · cut_wordis100:"prescribe." 0.74s · cut_next: câu mang: "Next word, prescribe." · plain095:"prescribe." 0.81s · dot090:"prescribe." 0.87s
+teetotaler	cut_wordis: câu mang: "The word is Titu Taylor." · dot100:"T2 Taylor" 1.02s · cut_wordis100: câu mang: "The word is T to Taylor." · cut_next: câu mang: "Next word, T to Taylor" · plain095:"T2 Taylor" 0.95s · dot090:"T2 Taylor" 1.18s	cut_wordis: câu mang: "The word is Tito Taylor." · dot100:"Tito Taylor" 0.89s · cut_wordis100: câu mang: "The word is Tito Taylor." · cut_next: câu mang: "Next word, Tito Taylor." · plain095:"TitoTiller" 0.80s · dot090:"Tito Taylor" 0.94s
+deportment	ok	ok
