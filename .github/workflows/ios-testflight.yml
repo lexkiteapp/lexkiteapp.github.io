@@ -29,7 +29,7 @@ jobs:
           sudo xcode-select -s "$X/Contents/Developer"; xcodebuild -version
       - name: Build web → mobile/www → cap sync
         run: |
-          npm ci --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
           ./scripts/build-mobile.sh
       - name: Khoá App Store Connect API
         env: { ASC_KEY_P8: '${{ secrets.ASC_KEY_P8 }}' }

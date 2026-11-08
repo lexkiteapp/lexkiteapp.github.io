@@ -98,7 +98,7 @@ export function collect() {
       for (const k of (x.PronPairs || {}).CONTRASTS || []) for (const p of String(k.pairs || '').split(/\s+/)) for (const w of p.split('/')) addOne(GEN['en-US'], w.split('=')[0], 'pron');
       for (const it of (x.PronCoach || {}).SENTENCES || []) bothSplit(it.s, 'pron'); }
     // Tình huống Nói (speak/app.js, giọng Mỹ, cả câu)
-    { const x = ctx(), d = 'web/js/speak/s'; if (fs.existsSync(d)) for (const f of fs.readdirSync(d).filter(f => /^[^.]+\.js$/.test(f)).sort()) L(x, `${d}/${f}`); // gốc en từng tình huống (scripts/speak/build.mjs)
+    { const x = ctx(), d = 'web/cpack/speak/s'; if (fs.existsSync(d)) for (const f of fs.readdirSync(d).filter(f => /^[^.]+\.js$/.test(f)).sort()) L(x, `${d}/${f}`); // gốc en từng tình huống (scripts/speak/build.mjs)
       for (const sc of Object.values(x.SPK_B || {})) for (const l of sc.lines || []) oneSplit(GEN['en-US'], l.en, 'speak-situations'); }
     // Lời giáo viên Ama/Carlos trong #/lesson (LessonTeacher.say tra khóa CẢ CÂU theo giọng nhân vật): khen/sửa, câu hỏi truyện, câu "nói hay hơn"
     { const x = ctx(); L(x, 'web/js/lesson/gold.js'); const T = ['af_heart', 'am_michael'];

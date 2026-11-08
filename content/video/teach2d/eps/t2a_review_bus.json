@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"bus\" mean?",
+  "keyword": "bus",
+  "value": "Bus means a large road vehicle used for carrying many people.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=bus",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"bus\" mean?",
+    "description": "Bus means a large road vehicle used for carrying many people.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bus\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "bus",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"bus\" mean?\n\nBus means a large road vehicle used for carrying many people.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bus"
+   },
+   "instagram": {
+    "caption": "What does \"bus\" mean?\n\nBus means a large road vehicle used for carrying many people.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"bus\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a large road vehicle used for carrying many people. Bus means a large road vehicle used for carrying many people. More practice like this (free): {link}"
  }
 }

@@ -72,5 +72,46 @@
   "words": 39,
   "seconds": 24.2,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"prefer\" mean?",
+  "keyword": "prefer",
+  "value": "Prefer means to like something better than something else.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=prefer",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"prefer\" mean?",
+    "description": "Prefer means to like something better than something else.\n\nReview your words, free: https://lexkite.com/app/#/review?w=prefer\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "prefer",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"prefer\" mean?\n\nPrefer means to like something better than something else.\n\nReview your words, free: https://lexkite.com/app/#/review?w=prefer"
+   },
+   "instagram": {
+    "caption": "What does \"prefer\" mean?\n\nPrefer means to like something better than something else.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"prefer\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to like something better than something else. Prefer means to like something better than something else. Practice it with a free quiz: {link}"
  }
 }

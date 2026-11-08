@@ -72,5 +72,46 @@
   "words": 40,
   "seconds": 24.7,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"agree\" mean?",
+  "keyword": "agree",
+  "value": "Agree means to have the same opinion as someone else.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=agree",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"agree\" mean?",
+    "description": "Agree means to have the same opinion as someone else.\n\nReview your words, free: https://lexkite.com/app/#/review?w=agree\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "agree",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"agree\" mean?\n\nAgree means to have the same opinion as someone else.\n\nReview your words, free: https://lexkite.com/app/#/review?w=agree"
+   },
+   "instagram": {
+    "caption": "What does \"agree\" mean?\n\nAgree means to have the same opinion as someone else.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"agree\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to have the same opinion as someone else. Agree means to have the same opinion as someone else. More practice like this (free): {link}"
  }
 }

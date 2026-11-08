@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"upstairs\" mean?",
+  "keyword": "upstairs",
+  "value": "Upstairs means to or on a higher floor.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=upstairs",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"upstairs\" mean?",
+    "description": "Upstairs means to or on a higher floor.\n\nReview your words, free: https://lexkite.com/app/#/review?w=upstairs\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "upstairs",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"upstairs\" mean?\n\nUpstairs means to or on a higher floor.\n\nReview your words, free: https://lexkite.com/app/#/review?w=upstairs"
+   },
+   "instagram": {
+    "caption": "What does \"upstairs\" mean?\n\nUpstairs means to or on a higher floor.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"upstairs\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to or on a higher floor. Upstairs means to or on a higher floor. More practice like this (free): {link}"
  }
 }
