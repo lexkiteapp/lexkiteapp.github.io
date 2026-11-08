@@ -55,7 +55,7 @@
     } else paint(it);
     $('#lsnRep').onclick = () => window.open('#/report/new', '_blank');
   }
-  // Khung câu hỏi Stitch (lesson-question) + lấy mẫu nút phương án; dùng chung với espr-pron.js qua App.esQ
+  // Khung câu hỏi Stitch (lesson-question) + lấy mẫu nút phương án; dùng chung với cpack/es-app/pron-ui.js qua App.esQ
   function frame(d) {
     const root = ST2.mount(view, 'lesson-question', d, null); root.id = 'lsn'; root.classList.add('lsn-v2');
     const body = $('#lsnBody'); tpl = { off: body.children[0], on: body.children[1] }; body.textContent = '';
@@ -78,7 +78,7 @@
     const g = $('#lsnGap'); if (g && S.pick) g.textContent = S.pick;
   }
 
-  // Tấm phản hồi Stitch dưới câu hỏi (dùng chung với espr-pron.js qua App.esFoot): dd = trường của feedback-correct/wrong, tr = dòng phụ (tùy chọn), next = bấm Tiếp tục
+  // Tấm phản hồi Stitch dưới câu hỏi (dùng chung với cpack/es-app/pron-ui.js qua App.esFoot): dd = trường của feedback-correct/wrong, tr = dòng phụ (tùy chọn), next = bấm Tiếp tục
   function foot(ok, dd, tr, next) {
     const K = ok ? 'feedback-correct' : 'feedback-wrong', qf = view.querySelector('.lsn-qfoot');
     let f = $('#lsnFoot'); if (!f) { f = document.createElement('div'); f.id = 'lsnFoot'; }
@@ -121,7 +121,7 @@
   }
   const finish = () => end({ n: S.items.length, ok: S.ok, first: S.first, best: S.best, chip: S.lv, rev: t('Cấp {l}', { l: nx() }), revHref: '#/practice/es?lv=' + nx(), again: () => App.espr(S.lv) });
   const nx = () => LV[(LV.indexOf(S.lv) + 1) % LV.length];
-  // Màn kết Stitch (lesson-complete) dùng chung với espr-pron.js qua App.esEnd: o = { n, ok, first, best, chip, title, rev, revHref, again }
+  // Màn kết Stitch (lesson-complete) dùng chung với cpack/es-app/pron-ui.js qua App.esEnd: o = { n, ok, first, best, chip, title, rev, revHref, again }
   async function end(o) {
     const n = o.n, acc = Math.round(o.ok / n * 100), xp = 10 + o.ok * 2 + (o.ok === n ? 5 : 0);
     try { await App.reward({ quizzes: 1, perfect: o.ok === n ? 1 : 0, xp }); } catch (e) { /* bỏ qua */ }

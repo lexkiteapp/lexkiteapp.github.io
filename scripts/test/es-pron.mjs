@@ -1,4 +1,4 @@
-// Test phát âm tiếng Tây Ban Nha W3 (spanish-course.md §10; web/js/espr-pron.js, scripts/target/{es-g2p,px-lib}.mjs, ui.js Whisper đa ngôn ngữ).
+// Test phát âm tiếng Tây Ban Nha W3 (spanish-course.md §10; web/cpack/es-app/pron-ui.js, scripts/target/{es-g2p,px-lib}.mjs, ui.js Whisper đa ngôn ngữ).
 // (a) bộ chữ→IPA khớp kho từ có sẵn; (b) gói px: đủ 15 ngôn ngữ, cặp tối thiểu thật sự KHÁC âm, ví dụ trong “…” giữ nguyên; (c) ui.js chọn đúng mô hình Whisper; (d) jsdom chạy trọn cặp tối thiểu · nghe chính tả · nói theo trên khung Stitch có sẵn.
 import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module'; import jsdom from 'jsdom';
 import { ipa, ipaText } from '../target/es-g2p.mjs'; import { buildPx, PX_UI, PX_TOPICS } from '../target/px-lib.mjs';
