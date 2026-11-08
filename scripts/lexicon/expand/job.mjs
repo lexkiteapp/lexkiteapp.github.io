@@ -12,14 +12,14 @@ import { execFileSync } from 'child_process';
 import { arpaToIpa, badChars, ukStyle } from '../ipa.mjs';
 import { ROOT, rd, wr, loadAll } from '../lib.mjs';
 import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
-import { shardOf, mixPool, RETRY_SHARE, yieldSplit, quotaDry, thinPool, MIN_SAMPLE, inflRe, gateEntry, defPosOk, defGrammarBad, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viContested, humanSrc, trTableAmbiguous, CW, ov, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
+import { shardOf, mixPool, RETRY_SHARE, yieldSplit, quotaDry, viAnswer, thinPool, MIN_SAMPLE, inflRe, gateEntry, defPosOk, defGrammarBad, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viContested, humanSrc, trTableAmbiguous, CW, ov, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
 import { createPool, judgeKey, familyOf } from '../../lib/ai-pool.mjs';
 import { kaikki, clean, pmap } from './wikt.mjs';
 import { espeakUK } from './espeak.mjs';
 import { parseCmu, pickPron, heteronym, ipaAgrees } from './cmu.mjs';
 import { loadRefs, checkEntry } from '../ipa-check.mjs';
 // nguồn câu NGƯỜI VIẾT theo tiền tố id TSV (tatoeba-native/simplewiki.py --prefix/commonvoice.py) – 08/11 thêm Wikivoyage/Wikinews/Wikibooks
-const EX_SRC = [[/^\d+$/, 'tatoeba'], [/^cv/, 'commonvoice'], [/^wv\d/, 'wikivoyage'], [/^wnw\d/, 'wikinews'], [/^wb\d/, 'wikibooks'], [/^sw\d/, 'simplewiki']];
+const EX_SRC = [[/^\d+$/, 'tatoeba'], [/^cv/, 'commonvoice'], [/^wv\d/, 'wikivoyage'], [/^wnw\d/, 'wikinews'], [/^wb\d/, 'wikibooks'], [/^wvs\d/, 'wikiversity'], [/^sw\d/, 'simplewiki']];
 const exSrc = id => (EX_SRC.find(([r]) => r.test(String(id))) || [0, 'simplewiki'])[1];
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : d; };
 const N = +arg('--n', 400), CALLS = +arg('--calls', 400), PILOT = process.argv.includes('--pilot'), DRY = process.argv.includes('--dry'), NORETRY = process.argv.includes('--no-retry'); // --no-retry: lượt kiểm nhỏ, không đụng danh sách làm lại
@@ -237,7 +237,8 @@ await pmap(chunks(okDef, 10), 8, async ch => { const r = await call('lxtr', ch.m
 const viReq = ch => ({ mode: 'lxvi', items: ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def })) });
 await pmap(chunks(okDef, 10), 6, async ch => { const fa = ch.map(x => FA[x.k]).find(Boolean) || 'gpt-oss'; stat.calls += 2;
   /* B = Gemini (chủ 30/10: Gemini dịch vi), họ khác bản lxtr */ const b = await AI.judge(viReq(ch), { chain: ['gem', 'groq', 'cf2'], exclude: [fa] }), c = b && await AI.judge(viReq(ch), { chain: ['groq', 'gem', 'cf2'], slot: 'C', exclude: [fa, b.fam], excludeModels: [b.model] });
-  for (const [r, V] of [[b, VB], [c, VC]]) if (r) { used.add(r.route + ':' + r.model); for (const x of ch) { const o = r.out[x.k] || {}; if (typeof o.vi === 'string' && o.vi.trim()) V[x.k] = o.vi.trim(); } } });
+  for (const [slot, r, V] of [['b', b, VB], ['c', c, VC]]) if (r) { used.add(r.route + ':' + r.model); let got = 0; for (const x of ch) { const v = viAnswer(r.out[x.k]); if (v) { V[x.k] = v; got++; } }
+    const S = (stat.viSlot ||= {}), m = (S[slot + ':' + r.model] ||= { items: 0, got: 0 }); m.items += ch.length; m.got += got; if (got < ch.length && !m.sample) m.sample = JSON.stringify(r.out).slice(0, 400); } });
 const OMWL = ['ja', 'zh', 'th', 'id', 'fr', 'es', 'pt', 'ar'];
 stat.vi = { agree: 0, none: 0 }; stat.tr = { 'wiktionary+omw+ai': 0, 'omw+ai': 0, 'wiktionary+ai': 0 };
 const probe = {};
@@ -314,7 +315,7 @@ for (const x of items) {
      cefrF: c.cefrZ || c.cefr, cefrSrc: c.cefrSrc || 'freq', perLang: true, ...(X[x.k] && X[x.k].trBad ? { trBad: X[x.k].trBad } : {}), z: c.z, emoji: g.emoji || '', topic: g.topic || '', vi: g.vi || '', note_vi: g.note_vi || '', m: T[x.k] || {},
     src: { freq: 'wordfreq-3.1', sense: 'wordnet-3.0:' + c.syn, def: (D[x.k] || {}).src || 'wordnet-gloss+ai-simplify', defGen: GM[x.k] || mGen, ipaUS: CMU.has(x.w) ? 'cmudict' : 'wiktionary', ipaUK: x._ipa.ukSrc, cefr: c.cefrSrc || 'freq',
       ex: X[x.k] ? X[x.k].ex.map(e => e.src) : [], tr: X[x.k] ? X[x.k].trSrc || {} : {}, trSense: X[x.k] ? X[x.k].tg : '', col: g.col && g.col.length ? 'wordnet/tatoeba' : '', syn: g.syn && g.syn.length ? 'wordnet' : '',
-      lic: 'WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0' }, qa: {} } : null;
+      lic: 'WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0' }, qa: {} } : null;
   if (ent && X[x.k] && !X[x.k].defOk) ent.defChanged = X[x.k].defWhy || 'changed';
   if (ent) { ent.senseLock = c._lock || false; ent.src.senseLock = c._lock || ''; }
   if (ent && g.pos && g.pos !== x.pos) ent.posDrift = g.pos; // khóa nghĩa: từ loại cố định theo nghĩa WordNet đã chọn
@@ -377,7 +378,7 @@ for (const x of items) { const e = pend.items[x.k]; if (!e || !e.src || !e.src.e
 // pass = mục đạt CỦA LƯỢT NÀY (31/10: trước đếm cả lô ngày cộng dồn → yield ảo 0,59 khi lượt thật 14/600, cầu dao "< ½ pilot" không bao giờ ngắt); batchPass = cả lô
 const sec = (Date.now() - t0) / 1000, batchPass = Object.keys(pend.items).length, pass = items.filter(x => pend.items[x.k] && OUT[x.k] && OUT[x.k].pass).length;
 const ys = yieldSplit(items.map(x => ({ retry: !!x._c._retry, pass: !!(pend.items[x.k] && OUT[x.k] && OUT[x.k].pass), judged: !!OUT[x.k] && !gaps.has(x.k) })));
-const rep = { batch: BATCH, n: items.length, pass, batchPass, yieldFresh: ys.fresh.yield, nFresh: ys.fresh.judged, passFresh: ys.fresh.pass, yieldRetry: ys.retry.yield, nRetry: ys.retry.judged, passRetry: ys.retry.pass, retryWait: stat.retryWait || 0, exShort: stat.exShort || 0, yield: +(pass / Math.max(1, items.length - (why.infra || 0) - (why.gap || 0))).toFixed(3), lock: stat.lock, resense: stat.resense, defNo: stat.defNo, defRedo: stat.defRedo, defRedoOk: stat.defRedoOk, wsd: stat.wsd, vi: stat.vi, tr: stat.tr, trBad: stat.trBad || 0, cov, tatoeba: items.filter(x => ((EXT[x.k] || {}).ex || []).length >= 2).length, pre: stat.pre || null, review: items.length - pass - (why.infra || 0) - (why.gap || 0), skipped: why.infra || 0, gap: why.gap || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, retry: stat.retry || 0, ukMiss: stat.ukMiss, ukEspeak: stat.ukEspeak || 0, ipaFix: stat.ipaFix || 0, ipaBad: stat.ipaBad || 0, ipaDrop: stat.ipaDrop || 0, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB }, ai: { routes: [...used], ...AI.stats() }, topics: buildTopicSets(Object.entries(pend.items).map(([k, e]) => ({ k, e })), TAX()).stats };
+const rep = { batch: BATCH, n: items.length, pass, batchPass, yieldFresh: ys.fresh.yield, nFresh: ys.fresh.judged, passFresh: ys.fresh.pass, yieldRetry: ys.retry.yield, nRetry: ys.retry.judged, passRetry: ys.retry.pass, retryWait: stat.retryWait || 0, exShort: stat.exShort || 0, yield: +(pass / Math.max(1, items.length - (why.infra || 0) - (why.gap || 0))).toFixed(3), lock: stat.lock, resense: stat.resense, defNo: stat.defNo, defRedo: stat.defRedo, defRedoOk: stat.defRedoOk, wsd: stat.wsd, vi: stat.vi, tr: stat.tr, trBad: stat.trBad || 0, cov, tatoeba: items.filter(x => ((EXT[x.k] || {}).ex || []).length >= 2).length, pre: stat.pre || null, viSlot: stat.viSlot || null, review: items.length - pass - (why.infra || 0) - (why.gap || 0), skipped: why.infra || 0, gap: why.gap || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, retry: stat.retry || 0, ukMiss: stat.ukMiss, ukEspeak: stat.ukEspeak || 0, ipaFix: stat.ipaFix || 0, ipaBad: stat.ipaBad || 0, ipaDrop: stat.ipaDrop || 0, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB }, ai: { routes: [...used], ...AI.stats() }, topics: buildTopicSets(Object.entries(pend.items).map(([k, e]) => ({ k, e })), TAX()).stats };
 AI.report('lexicon-expand'); fs.mkdirSync(new URL('reports/', ROOT), { recursive: true }); wr('reports/lexicon-expand.json', JSON.stringify(rep, null, 1));
 console.log('✓ lexicon-expand ' + JSON.stringify(rep));
 // kho AI cạn hoàn toàn (mọi mục bỏ qua hạ tầng, không mục nào vào hàng duyệt) = KHÔNG phải lỗi: lịch 3 giờ thử lại (27/10 – kho CF cửa sổ 24 giờ trượt)

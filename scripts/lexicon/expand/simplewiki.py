@@ -10,7 +10,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument('--dump', required=True); ap.add_argument('--out', required=True)
 ap.add_argument('--max', type=int, default=2_000_000)
 # 08/11: cùng bộ lọc cho các dump MediaWiki tiếng Anh khác (Wikivoyage/Wikinews/Wikibooks) – tiền tố id = nguồn (job.mjs EX_SRC)
-ap.add_argument('--prefix', default='sw', choices=['sw', 'wv', 'wnw', 'wb'])
+ap.add_argument('--prefix', default='sw', choices=['sw', 'wv', 'wnw', 'wb', 'wvs'])
 a = ap.parse_args()
 
 def clean(t):

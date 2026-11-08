@@ -286,6 +286,8 @@ export function mixPool(retryList, fresh, N, share = RETRY_SHARE) {
 export function quotaDry(stat, pass) { return !pass && (stat.calls || 0) > 0 && (stat.fail || 0) >= stat.calls; }
 // 08/11 (run 42457106947: 4 shard, mỗi shard 5–8 mục còn lại đều «gap» → 0 đạt → đỏ giả): dưới cỡ mẫu tối thiểu của cầu dao chuỗi thì 0 đạt chưa kết luận được gì. Từ 50 mục trở lên vẫn đỏ.
 export const MIN_SAMPLE = 50;
+/** câu trả lời lxvi của một mục: {vi:"…"} hoặc chuỗi trần (một số mô hình bỏ tầng bọc) */
+export const viAnswer = o => { const v = typeof o === 'string' ? o : o && o.vi; return typeof v === 'string' ? v.trim() : ''; };
 export function thinPool(n, infra, pass) { return !pass && n - (infra || 0) < MIN_SAMPLE; }
 export function yieldSplit(rows) {
   const o = { fresh: { judged: 0, pass: 0, yield: 0 }, retry: { judged: 0, pass: 0, yield: 0 } };
