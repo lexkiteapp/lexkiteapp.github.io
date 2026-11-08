@@ -475,4 +475,7 @@ ok(quotaDry({ calls: 12, fail: 7 }, 0) === false && quotaDry({ calls: 12, fail: 
   ok(JSON.stringify(humanSrc(e, { err: true }, [], null)) === '{"vi":1,"ex":2}', 'humanSrc: kaikki lỗi mạng = không lọc (hạ tầng)');
   const job = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8');
   ok(/no-prefilter/.test(job) && /if \(!h\.vi\) stat\.pre\.noVi\+\+; else if \(h\.ex < 2\) stat\.pre\.noEx\+\+; else keep\.push\(e\)/.test(job) && /pool = mixPool\(rtK, frK, N, share\)/.test(job) && /pre: stat\.pre/.test(job), 'job.mjs: lọc trước AI nối vào chọn mục + báo cáo'); }
+// 08/11 xuất trong ngày: lô riêng mỗi lượt (plan → --batch <ngày>-r<số lượt>), soát/xuất mọi lô chờ đã khép trừ lô của chính lượt; concurrency không huỷ (lượt trước đã khép)
+{ const wf = fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8');
+  ok(/batch=\$\(date -u \+%Y%m%d\)-r\$\{\{ github\.run_number \}\}/.test(wf) && /EXTRA\+=\(--batch "\$\{\{ needs\.plan\.outputs\.batch \}\}"\)/.test(wf) && /\[ "\$B" = "\$CUR" \] && continue/.test(wf) && /cancel-in-progress: false/.test(wf), 'workflow: lô riêng mỗi lượt + xuất lô đã khép trong ngày'); }
 if (fail) { console.error(`✗ lexicon-expand (pilot 7 fixes): ${fail} lỗi`); process.exit(1); }
