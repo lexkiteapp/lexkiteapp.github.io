@@ -1016656,6 +1016656,73 @@
      "science.d"
     ]
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "supernatural#adj",
+   "batch": "20261108-r180",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)"
+   ],
+   "at": "2026-11-08",
+   "data": {
+    "w": "supernatural",
+    "pos": "adj",
+    "ipa": "/ˌs(j)uːpəˈnætʃərəl/",
+    "ipaUS": "/ˌsuːpərˈnætʃərl/",
+    "def": "existing beyond nature, often thought to come from a deity or other supernatural force",
+    "ex": [
+     "In Roman Catholic theology, sanctifying grace is considered to be a supernatural addition to human nature."
+    ],
+    "col": [
+     "supernatural powers",
+     "supernatural forces",
+     "supernatural events"
+    ],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "B2",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.89,
+    "emoji": "",
+    "topic": "xw-religion-history",
+    "vi": "siêu nhiên",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:supernatural.a.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "wiktionary"
+     ],
+     "tr": {
+      "vi": "wiktionary",
+      "es": "wiktionary+omw+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "th": "wiktionary+omw+ai",
+      "zh": "wiktionary+ai",
+      "ja": "omw+ai",
+      "ko": "wiktionary+ai",
+      "hi": "wiktionary+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "above nature",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
   }
  ]
 }

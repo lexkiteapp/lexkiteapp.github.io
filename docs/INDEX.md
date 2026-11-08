@@ -30,6 +30,7 @@
 - [welcome](specs/welcome.md) — màn chào + thiết lập lần đầu: ai thấy gì, đi đâu; đọc khi sửa welcome.js, onboard.js, gen-hero
 - [specs/kokoro-on-device.md](specs/kokoro-on-device.md) — Kokoro chạy trên máy (kokoro-js, Web Worker) cho chữ chưa có file dựng sẵn: cấp máy, tải lười, R2, cờ kl/kl_pct, lùi giọng máy; đọc khi: sửa web/js/klocal*.js, bật/tắt từ xa
 - [specs/community.md](specs/community.md) — Spec Cộng đồng người học 3/11: phòng học, chat, phòng nói WebRTC, mời bạn/bạn học, học chung, an toàn + tuổi, $0 (DO/D1/TURN), 7 đợt sau cờ `community`; đọc khi: làm bất kỳ phần nào của #/community
+- [specs/play-learn.md](specs/play-learn.md) — Spec vừa chơi vừa học 3/11: benchmark 6 app, lớp phản hồi (âm −16 LUFS, rung, reduced-motion), Thử thách 60 giây trên SRS thật + thách đấu bạn, mốc M1–M3, gate CI; đọc khi: thêm mini-game/âm thanh/hiệu ứng phản hồi
 - [specs/outcomes-3-6m.md](specs/outcomes-3-6m.md) — Đầu ra 3–6 tháng: vòng ngày nói + viết, lộ trình 12/24 tuần, lỗi → SRS, bài đo 4 tuần/lần #/outcome (mốc 1); đọc khi: làm lộ trình/nhiệm vụ nói-viết/đo tiến bộ/phần thưởng
 - [CAPACITY.md](CAPACITY.md) — Chi phí Cloudflare theo người dùng (đo bằng Miniflare, không dội production), kiến trúc mở rộng; đọc khi: lập kế hoạch tải/chi phí hoặc thêm endpoint đọc/ghi D1
 - [CODEMAP.md](CODEMAP.md) — Bản đồ mã nguồn tự sinh (khu vực, god node, route, workflow, test, sửa-ở-đâu; json đầy đủ docs/codemap.json); đọc khi: ĐẦU MỖI PHIÊN, trước khi tìm code
