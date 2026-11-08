@@ -249,7 +249,7 @@ for (const [rel, s] of logoFiles()) put(rel, s);
 
 // ---------- teacher rig (C05) + offline art (Ama + Carlos) + lesson (P03) and audio (C04) vectors – all from the REAL web JS ----------
 // Native port of the web TeacherRig (no .riv, docs/specs/teacher-rive-rig.md): rig definition → teach/rig.json (bundled with both apps), frame/lip-sync vectors → vectors/rig.json.
-const { teachGen, teachBundle } = await import('./gen-teach.mjs');
+const { teachGen, teachBundle, rigVectorText } = await import('./gen-teach.mjs');
 const TG = teachGen();
 const rigJson = JSON.stringify(TG.rigJson, null, 1) + '\n';
 put(`${SHARED}/teach/rig.json`, rigJson);                                    // Android: assets srcDir = native/shared/gen → asset path teach/rig.json
@@ -264,10 +264,7 @@ put(`${IOS}/Sources/LKDesign/Resources/teach/rig.json`, rigJson);
   put(`${SHARED}/teach/cues.json`, cuesJson);
   put(`${IOS}/Sources/LKDesign/Resources/teach/cues.json`, cuesJson);
 }
-// floats → 9 decimals (values already rounded to 6 decimals are unchanged): Math.exp/pow/sin differ in the last bit between x64 (CI) and arm64 V8 builds (seen in lipsync.gain);
-// ports compare with ≥ 1e-9 absolute tolerance (error here ≤ 5e-10), so this keeps the drift gate byte-stable on every machine without loosening any test
-const dec9 = (k, v) => (typeof v === 'number' && !Number.isInteger(v) ? Math.round(v * 1e9) / 1e9 : v);
-put(`${SHARED}/vectors/rig.json`, JSON.stringify(TG.vectorJson, dec9) + '\n');
+put(`${SHARED}/vectors/rig.json`, rigVectorText(TG.vectorJson));
 // Bundled offline art: head-bare-2x + the pose stills the lesson screen / feedback sheet / complete screen / rig use, byte for byte from web/teach (size-capped)
 for (const a of teachBundle()) {
   putBin(`${SHARED}/teach/${a.who}/${a.name}`, a.bytes);                     // Android: asset path teach/<who>/<file> (same path as the CDN)

@@ -3,7 +3,7 @@
 import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
 import { lessonVectors } from '../native/gen-lesson.mjs';
 import { audioVectors } from '../native/gen-audio.mjs';
-import { teachGen, teachBundle, BUNDLED_POSES, TEACHERS } from '../native/gen-teach.mjs';
+import { teachGen, teachBundle, rigVectorText, BUNDLED_POSES, TEACHERS } from '../native/gen-teach.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..'), R = p => path.join(ROOT, p), rd = p => fs.readFileSync(R(p), 'utf8');
 const SH = 'native/shared/gen', IOS = 'native/ios/LexkiteKit/Sources/LKDesign/Resources/teach';
@@ -13,8 +13,8 @@ const same = (rel, fresh) => { const cur = fs.existsSync(R(rel)) ? rd(rel) : nul
 
 // ---- 1) regenerate identically (twice in-process = deterministic; equal to the committed files) ----
 const L1 = lessonVectors(), L2 = lessonVectors(), A1 = audioVectors(), A2 = audioVectors(), T1 = teachGen(), T2 = teachGen();
-const rigVec = JSON.stringify(T1.vectorJson) + '\n', rigDef = JSON.stringify(T1.rigJson, null, 1) + '\n';
-ok(L1 === L2 && A1 === A2 && rigVec === JSON.stringify(T2.vectorJson) + '\n' && rigDef === JSON.stringify(T2.rigJson, null, 1) + '\n', 'two runs give the same vectors (fixed clock, fixed seeds, TZ=UTC)');
+const rigVec = rigVectorText(T1.vectorJson), rigDef = JSON.stringify(T1.rigJson, null, 1) + '\n';
+ok(L1 === L2 && A1 === A2 && rigVec === rigVectorText(T2.vectorJson) && rigDef === JSON.stringify(T2.rigJson, null, 1) + '\n', 'two runs give the same vectors (fixed clock, fixed seeds, TZ=UTC)');
 ok(same(`${SH}/vectors/lesson.json`, L1) && same(`${SH}/vectors/audio.json`, A1) && same(`${SH}/vectors/rig.json`, rigVec) && same(`${SH}/teach/rig.json`, rigDef) && same(`${IOS}/rig.json`, rigDef), 'lesson.json · audio.json · vectors/rig.json · teach/rig.json (shared + iOS copy) equal what the web JS gives now (else: node scripts/native/gen.mjs)');
 ok([L1, A1, rigVec, rigDef].every(s => Buffer.byteLength(s) < MAX), `each vector file < 1 MB (lesson ${(L1.length / 1024) | 0} KB · rig ${(rigVec.length / 1024) | 0} KB · audio ${(A1.length / 1024) | 0} KB · rig def ${(rigDef.length / 1024) | 0} KB)`);
 

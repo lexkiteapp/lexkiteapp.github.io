@@ -29,6 +29,11 @@ const lipSrc = fs.readFileSync(R('web/js/call/lipsync.js'), 'utf8');
 /** `const A = <js literal>, B = …;` constants that lipsync.js keeps private → read from the source (so they cannot drift). */
 const lit = (name, re) => { const m = re.exec(lipSrc); if (!m) throw new Error(`gen-teach: ${name} not found in web/js/call/lipsync.js`); return Function(`return (${m[1]})`)(); };
 
+/** vectors/rig.json text – the ONE serializer (gen.mjs writes it, scripts/test/native-m2-vectors.mjs compares with it).
+ *  Floats → 9 decimals (values already rounded to 6 decimals are unchanged): Math.exp/pow/sin differ in the last bit between x64 (CI)
+ *  and arm64 V8 builds (seen in lipsync.gain); ports compare with ≥ 1e-9 absolute tolerance, so this keeps the drift gate byte-stable. */
+export const rigVectorText = v => JSON.stringify(v, (k, x) => (typeof x === 'number' && !Number.isInteger(x) ? Math.round(x * 1e9) / 1e9 : x)) + '\n';
+
 export function teachGen() {
   process.env.TZ = 'UTC';
   const RIG = web('teacher-rig.js'), LS = web('call/lipsync.js'), LF = web('call/face.js'), LM = web('call/mouths.js'), LP = web('call/paint.js');
