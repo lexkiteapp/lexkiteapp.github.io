@@ -407,6 +407,7 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   ok(/SEC_MIN/.test(py) && /SEC_SHARE/.test(py) && /math\.log10\(cnt\[pos\] \/ tot\)/.test(py), 'pick_words: từ loại phụ có ngưỡng SemCor + CEFR theo tần suất của từ loại đó');
   ok(/not in FORCE/.test(py) && /w not in FORCE_W/.test(py), 'pick_words: mẫu cố định/retry (--want) luôn có ứng viên đúng từ#loại – mẫu pilot không âm thầm co (31/10: 204/378)');
   // 08/11 (lượt 42417868955: «cần -2063» → 0 từ mới từ 06/11): mốc 20k đếm mục SỐNG, mục trượt hàng duyệt chỉ để bỏ trùng
+  ok(/top_n_list\('en', a\.top\)/.test(py) && /'--top', type=int, default=int\(os\.environ\.get\('LX_TOP', 200000\)\)/.test(py) && /drop\['cmu'\] \+= 1/.test(py) && /w not in cmu/.test(py), 'pick_words: --top 200k ứng viên, vẫn bắt buộc CMUdict + đếm lý do loại');
   ok(/LIVE_N\['wp'\]/.test(py) && /need = a\.target - max\(LIVE_N/.test(py) && !/need = a\.target - max\(len\(have\)/.test(py), 'pick_words: mốc 20k = 20k − mục sống (existing.live.json), không trừ mục trượt');
   { const { execFileSync } = await import('node:child_process'), os = await import('node:os'), d = fs.mkdtempSync(path.join(os.tmpdir(), 'lxex-')), f = path.join(d, 'existing.json');
     execFileSync('node', [path.join(ROOT, 'scripts/lexicon/expand/existing.mjs'), f], { cwd: ROOT, stdio: 'pipe' });
