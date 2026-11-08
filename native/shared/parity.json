@@ -47,7 +47,8 @@
         "#/practice",
         "#/mistakes",
         "#/deck"
-      ]
+      ],
+      "status": "done"
     },
     {
       "id": "P05",
@@ -65,7 +66,8 @@
         "#/usage",
         "#/ideas",
         "#/paraphrase"
-      ]
+      ],
+      "status": "done"
     },
     {
       "id": "P06",
