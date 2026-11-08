@@ -4,67 +4,6 @@
  "kinds": {
   "android-aab": [
    {
-<<<<<<< HEAD
-    "run": 42420962477,
-    "run_number": 873,
-    "version": "1.0.1",
-    "build": 1873,
-    "name": "lexkite-1.0.1-1873.aab",
-    "sha256": "aa9cf2eb854f0a33379eca8636d79387ab998745c401113b92eecf2631eaf3fb",
-    "size": 238169395,
-    "commit": "b1986f0000fb614b9308e2bfeb6879198b7746d5",
-    "at": "2026-11-07T22:39:25Z",
-    "copies": [
-     {
-      "driveId": 18,
-      "fileId": "1wuhpqndPxG69CvTNewtN-qpjatpAQTM4"
-     },
-     {
-      "driveId": 24,
-      "fileId": "1cg-f_u0CZutQCMmU9Mbc_wvyDqtmYALm"
-     }
-    ]
-   },
-   {
-    "run": 42414253696,
-    "run_number": 872,
-    "version": "1.0.1",
-    "build": 1872,
-    "name": "lexkite-1.0.1-1872.aab",
-    "sha256": "7d57e30946223214a8ead436aaa1d2eacd90c01b93088118b1fcf027f9e0417c",
-    "size": 238168876,
-    "commit": "1a0e9a4fd9ccb770ffe551ec95efb6f292955aae",
-    "at": "2026-11-07T21:16:09Z",
-    "copies": [
-     {
-      "driveId": 13,
-      "fileId": "1ieGNdnHSNXvxRS6qVAR1PCBPe-3GtTGW"
-     },
-     {
-      "driveId": 16,
-      "fileId": "1Eaj7vKa8e4alKF2WwCujDKsbmG8TAtqz"
-     }
-    ]
-   },
-   {
-    "run": 42409236192,
-    "run_number": 871,
-    "version": "1.0.1",
-    "build": 1871,
-    "name": "lexkite-1.0.1-1871.aab",
-    "sha256": "6bf189e6f2b9186f054ff98d5515b090ca5beacce5cb0c21a97b7be39d26622a",
-    "size": 238169493,
-    "commit": "b6719e7f7b3f9141ff86bf67b625f8a1f0df9b36",
-    "at": "2026-11-07T20:13:21Z",
-    "copies": [
-     {
-      "driveId": 12,
-      "fileId": "1cQiNcjLpSEuox25paEv1VhtT3PUCIj-N"
-     },
-     {
-      "driveId": 15,
-      "fileId": "1CGU6oQ7HzgPXhDLMbwW_tXiCh3weI9AF"
-=======
     "run": 42429942144,
     "run_number": 874,
     "version": "1.0.1",
@@ -124,7 +63,6 @@
      {
       "driveId": 16,
       "fileId": "1Eaj7vKa8e4alKF2WwCujDKsbmG8TAtqz"
->>>>>>> real/main
      }
     ]
    }
@@ -218,9 +156,5 @@
    }
   ]
  },
-<<<<<<< HEAD
- "updated": "2026-11-07T22:40:55.660Z"
-=======
- "updated": "2026-11-08T00:42:30.244Z"
->>>>>>> real/main
+ "updated": "2026-11-08T01:30:07.666Z"
 }

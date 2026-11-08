@@ -20640,17 +20640,17 @@
   },
   "delegation#n": {
    "ex": "A trade delegation from Japan visited the factory.",
-   "ps": "a man and a woman stand side by side in front of a large factory",
-   "sc": "a man and a woman stand side by side in front of a large factory",
-   "check": "Are the two people shown as a group visiting a specific place?",
-   "cap": "two adults stand together in front of a factory",
-   "key": "two people standing together; a factory building behind them",
+   "ps": "a man and a woman stand together holding a small globe in front of a factory",
+   "sc": "a man and a woman stand together holding a small globe in front of a factory",
+   "check": "Are the two people shown as a group sent to act for others?",
+   "cap": "a man and a woman stand together holding a globe near a factory",
+   "key": "two people standing side by side; a small globe held between them",
    "who": 2,
-   "draw": 4,
+   "draw": 5,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b",
+   "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "delete#v": {
    "ex": "Please delete the old files from the server.",
@@ -35254,15 +35254,17 @@
   },
   "guarantee#n": {
    "ex": "The TV comes with a two-year guarantee.",
-   "ps": "a blank white sheet with a large green tick mark in the center",
-   "sc": "a blank white sheet with a large green tick mark in the center",
-   "check": "Is there a plain paper with a green check showing a promise?",
-   "cap": "a blank sheet with a big green tick",
-   "key": "a blank sheet with a large green tick mark",
-   "who": 0,
+   "ps": "a man receives a blank sheet with a big green tick from a smiling salesperson",
+   "sc": "a man receives a blank sheet with a big green tick from a smiling salesperson",
+   "check": "Is there a blank paper with a green tick that shows a promise to fix a product?",
+   "cap": "a salesperson hands a paper with a green tick to a customer",
+   "key": "a big green tick mark on a blank sheet; the customer's relieved smile",
+   "who": 2,
    "draw": 5,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b"
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "guarantee#v": {
    "skip": "concept of 'promise' is abstract and hard to show without text or symbols",
