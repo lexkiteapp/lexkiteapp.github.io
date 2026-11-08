@@ -261,7 +261,11 @@ struct DeckEditSheet: View {
     @Environment(\.l10n) private var t
     @Environment(\.colorScheme) private var scheme
     @Environment(\.dismiss) private var dismiss
-    @State private var vi = "", ipa = "", ex = "", note = "", image = ""
+    @State private var vi = ""
+    @State private var ipa = ""
+    @State private var ex = ""
+    @State private var note = ""
+    @State private var image = ""
     @State private var askDelete = false
 
     var body: some View {

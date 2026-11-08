@@ -360,7 +360,8 @@ hr#answer{border:0;height:0;margin:0}
     }
 
     /// which column holds the word / meaning / example / IPA (names first, then the first free columns)
-    public struct ColumnMap: Equatable, Sendable { public var word = -1, mean = -1, ex = -1, ipa = -1 }
+    public struct ColumnMap: Equatable, Sendable { public var word = -1; public var mean = -1; public var ex = -1; public var ipa = -1
+        public init() {} }
     public static func guessMap(_ columns: [String]) -> ColumnMap {
         let cols = columns.map { $0.lowercased() }
         func find(_ re: String) -> Int { cols.firstIndex { $0.range(of: re, options: .regularExpression) != nil } ?? -1 }
@@ -390,7 +391,8 @@ hr#answer{border:0;height:0;margin:0}
         for (a, b) in [("&nbsp;", " "), ("&amp;", "&"), ("&lt;", "‹"), ("&gt;", "›"), ("&quot;", "\""), ("&#39;", "'"), ("&apos;", "'")] { s = s.replacingOccurrences(of: a, with: b) }
         return s.components(separatedBy: .newlines).map { $0.split(whereSeparator: { $0.isWhitespace }).joined(separator: " ") }.filter { !$0.isEmpty }.joined(separator: sep)
     }
-    public struct Plan: Sendable { public var entries: [JSON], duplicates: Int, invalid: Int }
+    public struct Plan: Sendable { public var entries: [JSON]; public var duplicates: Int; public var invalid: Int
+        public init(entries: [JSON], duplicates: Int, invalid: Int) { self.entries = entries; self.duplicates = duplicates; self.invalid = invalid } }
     /// the words that would be imported (web `planImport`): valid, not yet saved, not repeated in the file
     public static func plan(_ set: NoteSet, map: ColumnMap, existing: Set<String>, limit: Int = 20_000) -> Plan {
         var out: [JSON] = [], seen = Set<String>(), dup = 0, bad = 0
