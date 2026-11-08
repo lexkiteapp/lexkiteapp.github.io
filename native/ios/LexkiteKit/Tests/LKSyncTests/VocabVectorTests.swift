@@ -367,8 +367,13 @@ final class VocabVectorTests: XCTestCase {
             for c in book.list {
                 var ctx: JSON = .null; if c.t("ctx") { ctx = c["ctx"]! }
                 var src: JSON = .null; if c.t("src") { src = c["src"]! }
-                cards[Vocab.cardKey(c)] = .obj([("word", c["word"] ?? .null), ("vi", c["vi"] ?? .null), ("ipa", c["ipa"] ?? .null), ("ex", c["ex"] ?? .null), ("note", c["note"] ?? .null), ("image", c["image"] ?? .null), ("topic", c["topic"] ?? .null),
-                                                 ("contexts", .array(c.list("contexts").map { $0["text"] ?? .null })), ("ctx", ctx), ("src", src), ("added", c["added"] ?? .null), ("mod", c["mod"] ?? .null), ("srs", Vocab.srsView(c))])
+                let nul: JSON = .null
+                var fields: [(String, JSON)] = []
+                for k in ["word", "vi", "ipa", "ex", "note", "image", "topic"] { fields.append((k, c[k] ?? nul)) }
+                fields.append(("contexts", .array(c.list("contexts").map { $0["text"] ?? nul })))
+                fields.append(("ctx", ctx)); fields.append(("src", src))
+                fields.append(("added", c["added"] ?? nul)); fields.append(("mod", c["mod"] ?? nul)); fields.append(("srs", Vocab.srsView(c)))
+                cards[Vocab.cardKey(c)] = .obj(fields)
             }
             return .obj([("cards", .object(cards)), ("inState", .strings(book.order)), ("deleted", .object(book.deleted.mapValues { .number($0) }))])
         }
@@ -660,7 +665,7 @@ final class VocabVectorTests: XCTestCase {
         r.check(!pairs.isEmpty, "paraphrase pairs")
         if let q0 = pairs.first {
             r.eq(q0.q, first.s("q"), "paraphrase q"); r.eq(WritingEngine.paraphraseOptions(q0, all: pairs), first.strs("options"), "paraphrase options")
-            r.eq("1/\(min(WritingEngine.paraphraseRound, pairs.count))", first.s("progress"), "paraphrase progress")
+            r.eq("1/\(Swift.min(WritingEngine.paraphraseRound, pairs.count))", first.s("progress"), "paraphrase progress")
         }
         // models list: tabs, kind-then-title order, search
         for c in W.list("models") {
