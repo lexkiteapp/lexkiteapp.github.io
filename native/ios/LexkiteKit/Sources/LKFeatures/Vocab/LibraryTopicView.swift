@@ -68,7 +68,7 @@ struct LibraryTopicView: View {
             switch model.phase {
             case .unknown: LibraryView(model: LibraryModel(core: model.core), query: [:], onRoute: onRoute)   // unknown id → the library
             default:
-                StudyPage(title: model.page?.topic.name ?? t(.vocabVocabularyLibrary)) { content }
+                StudyPage(title: model.page.map { t.src($0.topic.name) } ?? t(.vocabVocabularyLibrary)) { content }
             }
         }
         .task { if model.phase == .loading { await model.load(level: query["lv"]) } }
@@ -92,8 +92,8 @@ struct LibraryTopicView: View {
             HStack(spacing: LKSpacing.spaceSm) {
                 Text(verbatim: p.topic.emoji.isEmpty ? "📘" : p.topic.emoji).font(.system(size: 40)).accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(verbatim: p.topic.name).studyText(LKType.headlineMd).accessibilityAddTraits(.isHeader)
-                    if !p.topic.desc.isEmpty { Text(verbatim: p.topic.desc).studyText(LKType.bodySm, LKColor.onSurfaceVariant) }
+                    Text(verbatim: t.src(p.topic.name)).studyText(LKType.headlineMd).accessibilityAddTraits(.isHeader)
+                    if !p.topic.desc.isEmpty { Text(verbatim: t.src(p.topic.desc)).studyText(LKType.bodySm, LKColor.onSurfaceVariant) }
                 }
             }
             HStack(spacing: LKSpacing.spaceXs) {

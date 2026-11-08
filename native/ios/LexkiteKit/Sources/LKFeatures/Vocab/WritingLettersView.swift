@@ -57,6 +57,7 @@ struct WritingLettersView: View {
     }
     private func title(_ x: JSON) -> String {
         let vi = x.s("titleVi")
+        if !vi.isEmpty, let tr = t.translate(source: vi) { return tr }
         return services.uiLang == "vi" && !vi.isEmpty ? vi : x.s("topic").prefix(1).uppercased() + x.s("topic").dropFirst()
     }
 

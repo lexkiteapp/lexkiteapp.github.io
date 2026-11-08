@@ -28,8 +28,11 @@ struct WritingIdeasView: View {
     private var dim: Color { LKColor.onSurfaceVariant.resolve(scheme) }
     private var accent: Color { LKColor.secondary.resolve(scheme) }
     private var vi: Bool { services.uiLang == "vi" }
-    /// topic titles are authored in Vietnamese; other languages show the topic id until the title is in the string pipeline
-    private func topicTitle(_ x: JSON) -> String { vi && x.t("title") ? x.s("title") : x.s("topic").prefix(1).uppercased() + x.s("topic").dropFirst() }
+    /// topic titles are authored in Vietnamese and translated through the shared string table (ids ideas.*); a title with no id keeps the topic name
+    private func topicTitle(_ x: JSON) -> String {
+        if x.t("title"), let tr = t.translate(source: x.s("title")) { return tr }
+        return vi && x.t("title") ? x.s("title") : x.s("topic").prefix(1).uppercased() + x.s("topic").dropFirst()
+    }
 
     var body: some View {
         WritingPage(title: t(.ideasTask2IdeaBank)) {

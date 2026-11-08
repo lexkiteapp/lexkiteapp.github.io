@@ -47,7 +47,7 @@ public enum DeckTransfer {
         let iso = ISO8601DateFormatter().string(from: Date(timeIntervalSince1970: Double(now) / 1000))
         return JSON.obj([("app", .string("ielts-lexi")), ("version", .int(2)), ("exported", .string(iso)), ("cards", .object(map)), ("stats", stats), ("game", game), ("settings", settings)]).data
     }
-    public struct Imported: Sendable { public var cards: [JSON], stats: JSON?, game: JSON? }
+    public struct Imported: Sendable { public var cards: [JSON]; public var stats: JSON? = nil; public var game: JSON? = nil }
     /// gộp `cards` vào kho, `stats.days` lấy max, `game` nếu xp lớn hơn. nil = "File không hợp lệ"
     public static func importBackup(_ data: Data, stats: JSON, game: JSON) -> Imported? {
         guard let d = try? JSON.parse(data), let cards = d["cards"]?.object else { return nil }

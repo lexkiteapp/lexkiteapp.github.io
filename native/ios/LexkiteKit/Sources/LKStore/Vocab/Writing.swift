@@ -41,7 +41,7 @@ public enum WritingEngine {
     }
     public struct LetterList: Sendable {
         public struct Tab: Sendable { public var tone: String, n: Int }
-        public struct Card: Sendable { public var id: String, tone: String, draftWords: Int?, titleVi: String, situation: String }
+        public struct Card: Sendable { public var id: String, tone: String; public var draftWords: Int? = nil; public var titleVi: String, situation: String }
         public var tabs: [Tab], cards: [Card]
         /// the tone tip is shown when a tone is selected
         public var tip: Bool

@@ -47,7 +47,7 @@ struct PracticeIntro: View {
                     LKCard {
                         VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
                             HStack {
-                                StudyChip(text: t(.revNew), icon: "sparkles", tint: LKColor.tertiary)
+                                StudyChip(text: t(.revNewWords), icon: "sparkles", tint: LKColor.tertiary)
                                 Spacer()
                                 if w.t("image") || w.t("emoji") { StudyThumb(emoji: w.s("emoji"), image: w.s("image"), size: 72) }
                             }
@@ -79,7 +79,7 @@ struct PracticeIntro: View {
                 }
                 VStack(spacing: LKSpacing.spaceXs) {
                     Button(t(.actionContinue)) { model.introContinue() }.buttonStyle(PrimaryButtonStyle())
-                    Button { model.introKnown() } label: { Text(verbatim: t(.vocabMastered)).lkText(LKType.titlePill).foregroundStyle(LKColor.secondary.resolve(scheme)).frame(maxWidth: .infinity, minHeight: LKFrame.shared.minTap) }
+                    Button { model.introKnown() } label: { Text(verbatim: t(.revIAlreadyKnowThisWord)).lkText(LKType.titlePill).foregroundStyle(LKColor.secondary.resolve(scheme)).frame(maxWidth: .infinity, minHeight: LKFrame.shared.minTap) }
                 }
                 .padding(.horizontal, LKFrame.shared.gutter).padding(.bottom, LKSpacing.spaceSm)
                 .frame(maxWidth: LKFrame.shared.width)
@@ -111,27 +111,26 @@ struct PracticeQuizDone: View {
             Image(systemName: (r?.percent ?? 0) >= 80 ? "trophy.fill" : (r?.percent ?? 0) >= 50 ? "hand.thumbsup.fill" : "flame.fill")
                 .font(.system(size: 52, weight: .bold)).foregroundStyle(LKColor.tertiary.resolve(scheme)).accessibilityHidden(true)
             StudyRing(percent: r?.percent ?? 0, tint: (r?.percent ?? 0) >= 80 ? LKColor.success : (r?.percent ?? 0) >= 50 ? LKColor.tertiary : LKColor.error)
-            Text(verbatim: Fmt.int(r?.score ?? 0, t.lang) + "/" + Fmt.int(r?.total ?? 0, t.lang)).studyText(LKType.headlineLg)
-            Text(verbatim: t(.lessonAccuracy)).studyText(LKType.bodySm, LKColor.onSurfaceVariant)
-            if let b = r?.band { StudyChip(text: "IELTS " + b, icon: "graduationcap.fill", tint: LKColor.tertiary) }
+            Text(verbatim: t(.revCorrect, ["score": Fmt.int(r?.score ?? 0, t.lang), "total": Fmt.int(r?.total ?? 0, t.lang)])).studyText(LKType.headlineLg).multilineTextAlignment(.center)
+            if let b = r?.band { StudyChip(text: t(.revEstimatedVocabularyLevelBand, ["band": b]).replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: ""), icon: "graduationcap.fill", tint: LKColor.tertiary) }
             StudyChip(text: "+" + Fmt.int(r?.xp ?? 0, t.lang) + " " + t(.todayXp), icon: "bolt.fill", tint: LKColor.star)
             if model.wrong.isEmpty {
-                Label { Text(verbatim: t(.lessonPerfect)).studyText(LKType.titlePill) } icon: { Image(systemName: "star.fill").foregroundStyle(LKColor.star.resolve(scheme)) }
+                Label { Text(verbatim: t(.revNoMistakesExcellent)).studyText(LKType.titlePill) } icon: { Image(systemName: "star.fill").foregroundStyle(LKColor.star.resolve(scheme)) }
             } else {
                 LKCard {
                     VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
-                        Text(verbatim: t(.revOtherMissedWords)).studyText(LKType.labelBadge, LKColor.secondary).textCase(.uppercase)
+                        Text(verbatim: t(.revReviewThese)).studyText(LKType.labelBadge, LKColor.secondary).textCase(.uppercase)
                         WordChips(words: model.wrong.map { $0.s("word") }) { onRoute(AppRoute("dict", arg: $0)) }
                         if model.wrong.contains(where: { !model.inDeck($0.s("word")) }) && !model.wrongAdded {
-                            Button(t(.vocabAddWordsToFlashcards, ["n": model.wrong.filter { !model.inDeck($0.s("word")) }.count])) { model.addWrongToDeck() }.buttonStyle(StudyOutlineButtonStyle())
+                            Button(t(.revAddMissedWordsToFlashcards)) { model.addWrongToDeck() }.buttonStyle(StudyOutlineButtonStyle())
                         } else if model.wrongAdded {
-                            Label { Text(verbatim: t(.vocabAdded2)).studyText(LKType.bodyMd, LKColor.success) } icon: { Image(systemName: "checkmark.circle.fill").foregroundStyle(LKColor.success.resolve(scheme)) }
+                            Label { Text(verbatim: t(.revAddedToFlashcards)).studyText(LKType.bodyMd, LKColor.success) } icon: { Image(systemName: "checkmark.circle.fill").foregroundStyle(LKColor.success.resolve(scheme)) }
                         }
                     }
                 }
             }
-            Button(t(.lessonAgain)) { model.start(model.mode ?? "mcq") }.buttonStyle(PrimaryButtonStyle())
-            Button(t(.revGamesPractice)) { model.backToHub() }.buttonStyle(StudyOutlineButtonStyle())
+            Button(t(.revNewRound)) { model.start(model.mode ?? "mcq") }.buttonStyle(PrimaryButtonStyle())
+            Button(t(.revChangeMode)) { model.backToHub() }.buttonStyle(StudyOutlineButtonStyle())
         }
     }
 }
@@ -145,20 +144,21 @@ struct PracticeLearnDone: View {
         let items = model.learn?.items ?? []
         PracticeColumn {
             Image(systemName: "brain.head.profile").font(.system(size: 52, weight: .bold)).foregroundStyle(LKColor.secondary.resolve(scheme)).accessibilityHidden(true)
-            Text(verbatim: t(.lessonDone)).studyText(LKType.headlineLg).multilineTextAlignment(.center)
-            Text(verbatim: Fmt.int(items.count, t.lang) + " " + t(.vocabWords, ["n": ""]).trimmingCharacters(in: .whitespaces)).studyText(LKType.bodyMd, LKColor.onSurfaceVariant)
-            StudyChip(text: "+" + Fmt.int(PracticeRun.xpLearnDone, t.lang) + " " + t(.todayXp), icon: "bolt.fill", tint: LKColor.star)
+            Text(verbatim: t(.revYouVeLearnedWords, ["n": Fmt.int(items.count, t.lang)])).studyText(LKType.headlineLg).multilineTextAlignment(.center)
+            StudyChip(text: t(.revBonusXp, ["xp": Fmt.int(PracticeRun.xpLearnDone, t.lang)]), icon: "bolt.fill", tint: LKColor.star)
             WordChips(words: items.map { $0.s("word") }) { onRoute(AppRoute("dict", arg: $0)) }
             if !model.learnNotInDeck.isEmpty && !model.learnAdded {
-                Button(t(.vocabAddWordsToFlashcards, ["n": model.learnNotInDeck.count])) { model.addLearned() }.buttonStyle(PrimaryButtonStyle())
+                Button(t(.revAddWordsToFlashcardsFor, ["n": model.learnNotInDeck.count])) { model.addLearned() }.buttonStyle(PrimaryButtonStyle())
             } else if model.learnAdded {
-                Label { Text(verbatim: t(.vocabAdded2)).studyText(LKType.bodyMd, LKColor.success) } icon: { Image(systemName: "checkmark.circle.fill").foregroundStyle(LKColor.success.resolve(scheme)) }
+                Label { Text(verbatim: t(.revAddedToFlashcards)).studyText(LKType.bodyMd, LKColor.success) } icon: { Image(systemName: "checkmark.circle.fill").foregroundStyle(LKColor.success.resolve(scheme)) }
+            } else if model.learnNotInDeck.isEmpty {
+                Text(verbatim: t(.revTheseWordsAreAlreadyIn)).studyText(LKType.bodySm, LKColor.onSurfaceVariant).multilineTextAlignment(.center)
             }
             HStack(spacing: LKSpacing.spaceXs) {
-                Button(t(.lessonAgain)) { model.start("learn") }.buttonStyle(StudyOutlineButtonStyle())
+                Button(t(.revLearnTheNext8Words)) { model.start("learn") }.buttonStyle(StudyOutlineButtonStyle())
                 Button(t(.revMatch)) { model.start("match") }.buttonStyle(StudyOutlineButtonStyle())
             }
-            Button(t(.revGamesPractice)) { model.backToHub() }.buttonStyle(StudyOutlineButtonStyle())
+            Button(t(.revChangeMode)) { model.backToHub() }.buttonStyle(StudyOutlineButtonStyle())
         }
     }
 }
@@ -172,7 +172,11 @@ struct PracticeMatch: View {
     var body: some View {
         PracticeColumn {
             HStack {
-                Text(verbatim: t(.revMatch)).studyText(LKType.titlePill)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(verbatim: t(.revMatch)).studyText(LKType.titlePill)
+                    Text(verbatim: t(.revMatchEachWordWithIts)).studyText(LKType.bodySm, LKColor.onSurfaceVariant)
+                    Text(verbatim: t(.revEachWrongMatchAddsA)).studyText(LKType.bodySm, LKColor.onSurfaceVariant)
+                }
                 Spacer()
                 TimelineView(.periodic(from: .now, by: 0.1)) { _ in
                     Text(verbatim: StudyFmt.seconds(model.elapsed() + Double(model.misses), lang: t.lang)).studyText(LKType.labelMetric, LKColor.secondary).monospacedDigit()
@@ -212,8 +216,9 @@ struct PracticeMatchDone: View {
         PracticeColumn {
             Image(systemName: "bolt.fill").font(.system(size: 52, weight: .bold)).foregroundStyle(LKColor.star.resolve(scheme)).accessibilityHidden(true)
             Text(verbatim: StudyFmt.seconds(model.matchTime, lang: t.lang)).studyText(LKType.displayHeroMobile)
-            if model.newRecord { StudyChip(text: t(.lessonGreat), icon: "medal.fill", tint: LKColor.tertiary) }
-            else if let b = model.matchBest { Text(verbatim: StudyFmt.seconds(b, lang: t.lang)).studyText(LKType.bodyMd, LKColor.onSurfaceVariant) }
+            if model.newRecord { StudyChip(text: t(.revNewRecord), icon: "medal.fill", tint: LKColor.tertiary) }
+            else if let b = model.matchBest { Text(verbatim: t(.revYourRecordS, ["best": StudyFmt.seconds(b, lang: t.lang)])).studyText(LKType.bodyMd, LKColor.onSurfaceVariant) }
+            if model.misses > 0 { Text(verbatim: t(.revMistakes, ["n": Fmt.int(model.misses, t.lang)])).studyText(LKType.bodySm, LKColor.onSurfaceVariant) }
             StudyChip(text: "+" + Fmt.int(model.matchXP, t.lang) + " " + t(.todayXp), icon: "bolt.fill", tint: LKColor.star)
             LKCard {
                 VStack(alignment: .leading, spacing: 6) {
@@ -223,8 +228,8 @@ struct PracticeMatchDone: View {
                     }
                 }
             }
-            Button(t(.lessonAgain)) { model.start("match") }.buttonStyle(PrimaryButtonStyle())
-            Button(t(.revGamesPractice)) { model.backToHub() }.buttonStyle(StudyOutlineButtonStyle())
+            Button(t(.revPlayAgain)) { model.start("match") }.buttonStyle(PrimaryButtonStyle())
+            Button(t(.revOtherModes)) { model.backToHub() }.buttonStyle(StudyOutlineButtonStyle())
         }
     }
 }
@@ -249,9 +254,10 @@ struct PracticeSpeak: View {
                     if w.t("ipa") { Text(verbatim: w.s("ipa")).studyText(LKType.bodyLg, LKColor.onSurfaceVariant).englishText() }
                     if w.t("vi") { Text(verbatim: w.s("vi")).studyText(LKType.bodyMd, LKColor.onSurfaceVariant).multilineTextAlignment(.center) }
                     HStack(spacing: LKSpacing.spaceXs) {
-                        StudySpeak(label: t(.vocabPronounce)) { model.speakWord() }
+                        StudySpeak(label: t(.revPlayModel)) { model.speakWord() }
                         StudySpeak(label: t(.lessonSlowShort), slow: true) { model.speakWord(slow: true) }
                     }
+                    if !w.t("ipa") { Text(verbatim: t(.revNoTranscriptionYetPlayThe)).studyText(LKType.bodySm, LKColor.onSurfaceVariant).multilineTextAlignment(.center) }
                 }
                 .frame(maxWidth: .infinity, minHeight: 220)
                 .padding(LKSpacing.spaceLg)
@@ -261,7 +267,7 @@ struct PracticeSpeak: View {
                 if let s = model.speakScore { result(s) }
                 HStack(spacing: LKSpacing.spaceXs) {
                     Button(t(.onbCommonSkip)) { model.nextSpeak() }.buttonStyle(StudyOutlineButtonStyle())
-                    if model.speakScore != nil { Button(t(.actionContinue)) { model.nextSpeak() }.buttonStyle(PrimaryButtonStyle()) }
+                    if model.speakScore != nil { Button(t(.revNextWord)) { model.nextSpeak() }.buttonStyle(PrimaryButtonStyle()) }
                 }
             }
         }
@@ -274,18 +280,19 @@ struct PracticeSpeak: View {
                 .background(Circle().fill((model.listening ? LKColor.error : LKColor.primary).resolve(scheme)))
         }
         .buttonStyle(LKPressStyle())
-        .accessibilityLabel(t(.lessonTapToSpeak))
+        .accessibilityLabel(t(.revTapAndSpeak))
     }
     @ViewBuilder private var status: some View {
-        if model.listening { Text(verbatim: t(.lessonListening)).studyText(LKType.bodyMd, LKColor.error) }
+        if model.listening { Text(verbatim: t(.revListeningSpeakLoudAndClear)).studyText(LKType.bodyMd, LKColor.error) }
         else if model.speakNotice == .unsupported { Text(verbatim: t(.lessonNoVoice)).studyText(LKType.bodyMd, LKColor.error).multilineTextAlignment(.center) }
         else if model.speakNotice == .noSpeech { Text(verbatim: t(.lessonUnclear)).studyText(LKType.bodyMd, LKColor.tertiary) }
-        else if model.speakScore == nil { Text(verbatim: t(.lessonTapToSpeak)).studyText(LKType.bodySm, LKColor.onSurfaceVariant) }
+        else if model.speakScore == nil { Text(verbatim: t(.revTapTheMicAndSay)).studyText(LKType.bodySm, LKColor.onSurfaceVariant) }
     }
     private func result(_ s: Int) -> some View {
         VStack(spacing: LKSpacing.spaceXs) {
             StudyRing(percent: s, tint: s >= PracticeRun.speakGreat ? LKColor.success : s >= PracticeRun.speakGood ? LKColor.tertiary : LKColor.error)
-            Text(verbatim: t(.lessonHeard, ["s": model.heard.isEmpty ? "…" : model.heard])).studyText(LKType.bodyMd, LKColor.onSurfaceVariant).englishText()
+            Text(verbatim: s >= PracticeRun.speakGreat ? t(.revExcellent) : s >= PracticeRun.speakGood ? t(.revPrettyGoodListenToThe) : t(.revNotQuiteListenSlowlyTo)).studyText(LKType.titlePill)
+            Text(verbatim: t(.revHeard, ["heard": model.heard.isEmpty ? "…" : model.heard])).studyText(LKType.bodyMd, LKColor.onSurfaceVariant).englishText()
         }
     }
 }
@@ -300,9 +307,11 @@ struct PracticeSpeakDone: View {
             Text(verbatim: t(.lessonDone)).studyText(LKType.headlineLg)
             StudyRing(percent: Vocab.round(Double(model.good) / Double(max(1, model.total)) * 100))
             Text(verbatim: Fmt.int(model.good, t.lang) + "/" + Fmt.int(model.total, t.lang)).studyText(LKType.headlineMd)
+            Text(verbatim: t(.revPronouncedWordsWell, ["good": Fmt.int(model.good, t.lang), "total": Fmt.int(model.total, t.lang)])).studyText(LKType.bodyMd, LKColor.onSurfaceVariant)
+            Text(verbatim: t(.revPracticeDailyToMakeYour)).studyText(LKType.bodySm, LKColor.onSurfaceVariant).multilineTextAlignment(.center)
             StudyChip(text: "+" + Fmt.int(PracticeRun.xpSpeakDone, t.lang) + " " + t(.todayXp), icon: "bolt.fill", tint: LKColor.star)
-            Button(t(.lessonAgain)) { model.start("speak") }.buttonStyle(PrimaryButtonStyle())
-            Button(t(.revGamesPractice)) { model.backToHub() }.buttonStyle(StudyOutlineButtonStyle())
+            Button(t(.revPlayAgain)) { model.start("speak") }.buttonStyle(PrimaryButtonStyle())
+            Button(t(.revOtherModes)) { model.backToHub() }.buttonStyle(StudyOutlineButtonStyle())
         }
     }
 }

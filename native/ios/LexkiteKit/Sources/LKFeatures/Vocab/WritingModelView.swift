@@ -144,7 +144,7 @@ struct WritingModelView: View {
             ForEach(Array(paras.enumerated()), id: \.offset) { pi, p in
                 let start = chunkOffset(paras, pi)
                 VStack(alignment: .leading, spacing: 4) {
-                    if let head = p.head, annot.contains("role") { WritingTag(text: head, tint: LKColor.tertiary) }
+                    if let head = p.head, annot.contains("role") { WritingTag(text: t.src(head), tint: LKColor.tertiary) }
                     Text(attributed(p, pi: pi, firstChunk: start)).lkText(LKType.bodyLg).foregroundStyle(ink).lineSpacing(6).englishText()
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
@@ -217,7 +217,7 @@ struct WritingModelView: View {
             switch seg {
             case .text(let s): plain(s)
             case .role(let r):
-                if annot.contains("role") { var a = AttributedString(" [" + r + "] "); a.font = LKType.bodySm.font; a.foregroundColor = LKColor.tertiary.resolve(scheme); out += a }
+                if annot.contains("role") { var a = AttributedString(" [" + t.src(r) + "] "); a.font = LKType.bodySm.font; a.foregroundColor = LKColor.tertiary.resolve(scheme); out += a }
             case .linker(let l):
                 var a = AttributedString(l)
                 if annot.contains("lk") { a.underlineStyle = .single; a.foregroundColor = LKColor.tertiary.resolve(scheme); a.inlinePresentationIntent = .stronglyEmphasized }

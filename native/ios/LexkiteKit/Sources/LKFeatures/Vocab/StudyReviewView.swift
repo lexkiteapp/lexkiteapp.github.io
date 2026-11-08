@@ -129,7 +129,7 @@ struct StudyReviewView: View {
         }
     }
     private func icon(_ m: String) -> String { m == "type" ? "keyboard" : m == "audio" ? "headphones" : m == "auto" ? "wand.and.stars" : "rectangle.on.rectangle" }
-    private func modeTitle(_ m: String) -> String { m == "type" ? t(.mistTypeYourAnswer) : m == "audio" ? t(.revListenType) : m == "auto" ? t(.revSmartStudy) : t(.revFlipCard) }
+    private func modeTitle(_ m: String) -> String { m == "type" ? t(.revTypeIt) : m == "audio" ? t(.revListenPick) : m == "auto" ? t(.revAuto) : t(.revFlipCard) }
 
     private var swipe: some Gesture {
         DragGesture(minimumDistance: 28).onEnded { v in
@@ -240,14 +240,14 @@ private struct ReviewTypeFront: View {
             VStack(spacing: LKSpacing.spaceSm) {
                 Text(verbatim: Vocab.meanOf(c)).studyText(LKType.headlineLg).multilineTextAlignment(.center)
                 if c.t("pos") { StudyChip(text: c.s("pos")) }
-                Text(verbatim: t(.lessonTypeHint, ["letter": String(c.s("word").prefix(1)), "n": c.s("word").count])).studyText(LKType.bodySm, LKColor.onSurfaceVariant).multilineTextAlignment(.center)
+                Text(verbatim: t(.revHintStartsWithLetters, ["a": String(c.s("word").prefix(1)), "n": c.s("word").count])).studyText(LKType.bodySm, LKColor.onSurfaceVariant).multilineTextAlignment(.center)
                 if model.hints > 0 { Text(verbatim: model.typedLetters).studyText(LKType.headlineMd, LKColor.secondary).englishText() }
             }
             .frame(maxWidth: .infinity, minHeight: 200)
             .padding(LKSpacing.spaceLg)
             .tactile(fill: LKColor.surfaceContainer, radius: 28)
             if model.checked == nil {
-                TextField(t(.mistTypeYourAnswer), text: Binding(get: { model.typed }, set: { model.typed = $0 }))
+                TextField(t(.revTypeYourAnswer), text: Binding(get: { model.typed }, set: { model.typed = $0 }))
                     .focused($focused)
                     .textInputAutocapitalization(.never).autocorrectionDisabled()
                     .submitLabel(.done)
@@ -257,8 +257,8 @@ private struct ReviewTypeFront: View {
                     .tactile(fill: LKColor.surfaceContainerHigh, line: LKColor.outlineVariant, ledge: LKColor.outlineVariant, radius: 16)
                 Button(t(.lessonCheckAnswer)) { model.checkTyped() }.buttonStyle(PrimaryButtonStyle()).disabled(model.typed.trimmingCharacters(in: .whitespaces).isEmpty)
                 HStack(spacing: LKSpacing.spaceXs) {
-                    Button(t(.lessonHint)) { model.hint() }.buttonStyle(StudyOutlineButtonStyle())
-                    Button(t(.mistShowAnswer)) { model.giveUp() }.buttonStyle(StudyOutlineButtonStyle())
+                    Button(t(.revLetterHint)) { model.hint() }.buttonStyle(StudyOutlineButtonStyle())
+                    Button(t(.revIDonTKnowShow)) { model.giveUp() }.buttonStyle(StudyOutlineButtonStyle())
                 }
             }
         }
@@ -279,7 +279,7 @@ private struct ReviewAudioFront: View {
                 .buttonStyle(.plain)
                 .accessibilityLabel(t(.lessonReplay))
                 HStack(spacing: LKSpacing.spaceXs) {
-                    Button(t(.lessonReplay)) { model.replay() }.buttonStyle(StudyOutlineButtonStyle())
+                    Button(t(.revHearTheWord)) { model.replay() }.buttonStyle(StudyOutlineButtonStyle())
                     Button(t(.lessonSlowShort)) { model.speak(slow: true) }.buttonStyle(StudyOutlineButtonStyle())
                 }
             }
@@ -346,8 +346,7 @@ private struct ReviewBack: View {
         HStack(spacing: LKSpacing.spaceSm) {
             Image(systemName: ch.ok ? "checkmark.circle.fill" : "xmark.circle.fill").font(.system(size: 24)).foregroundStyle((ch.ok ? LKColor.success : LKColor.error).resolve(scheme))
             VStack(alignment: .leading, spacing: 2) {
-                Text(verbatim: ch.ok ? t(.lessonRight) : t(.lessonWrong)).studyText(LKType.headlineSm, ch.ok ? LKColor.success : LKColor.error)
-                if !ch.ok { Text(verbatim: t(.lessonAnswer) + ": " + ch.answer).studyText(LKType.bodyMd).englishText() }
+                Text(verbatim: ch.ok ? t(.revWellDone) : t(.revNotQuiteAnswer, ["answer": ch.answer])).studyText(LKType.headlineSm, ch.ok ? LKColor.success : LKColor.error)
             }
             Spacer(minLength: 0)
         }
@@ -441,7 +440,6 @@ private struct ReviewBack: View {
                     Button { Task { await model.makeTip() } } label: { Text(verbatim: model.aiBusy ? t(.revAiIsThinkingOf) : t(.revCreateAMemoryAid)) }
                         .buttonStyle(StudyOutlineButtonStyle()).disabled(model.aiBusy)
                     if let tip = model.aiTip { Text(verbatim: tip).studyText(LKType.bodyMd) }
-                    if model.aiFailed { Text(verbatim: t(.revDownloadFailedTryAgain)).studyText(LKType.bodySm, LKColor.error) }
                 }
                 Button(t(.revRepeatAloud3Times)) { model.shadow3() }.buttonStyle(StudyOutlineButtonStyle())
                 TextField(t(.revYourOwnMemoryAid), text: $m.noteDraft, axis: .vertical)

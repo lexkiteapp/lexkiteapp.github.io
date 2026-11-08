@@ -119,7 +119,7 @@ struct LibraryView: View {
     private func tabName(_ tb: LibraryModel.Tab) -> String {
         if tb.id == "all" { return t(.vocabAll) }
         if tb.id == "mine" { return t(.vocabMyLibrary) }
-        return tb.name.isEmpty ? t(.vocabAllSets) : tb.name
+        return tb.name.isEmpty ? t(.vocabAllSets) : t.src(tb.name)
     }
     private var levelRow: some View {
         VStack(alignment: .leading, spacing: 4) {
@@ -148,7 +148,7 @@ struct LibraryView: View {
             }
         case .group(let g):
             VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
-                header(model.group(g)?.name.isEmpty == false ? (model.group(g)?.name ?? "") : t(.vocabAllSets), sub: model.group(g)?.desc)
+                header(model.group(g)?.name.isEmpty == false ? t.src(model.group(g)?.name ?? "") : t(.vocabAllSets), sub: model.group(g)?.desc.isEmpty == false ? t.src(model.group(g)?.desc ?? "") : nil)
                 topicGrid(s.topics)
                 if let all = s.viewAll {
                     Button { model.tab = all.group } label: {
@@ -171,6 +171,7 @@ struct LibraryView: View {
                     Image(systemName: StudyNames.originIcon(c.origin)).font(.system(size: 22, weight: .bold)).foregroundStyle(LKColor.secondary.resolve(scheme)).frame(width: 44, height: 44)
                     VStack(alignment: .leading, spacing: 2) {
                         Text(verbatim: StudySourceName.origin(c.origin, t)).studyText(LKType.titlePill)
+                        Text(verbatim: StudySourceName.hint(c.origin, t)).studyText(LKType.bodySm, LKColor.onSurfaceVariant).lineLimit(2)
                         HStack(spacing: LKSpacing.spaceXs) {
                             Text(verbatim: t(.vocabWords, ["n": c.count])).studyText(LKType.bodySm, LKColor.onSurfaceVariant)
                             if c.due > 0 { Text(verbatim: t(.vocabDue, ["n": c.due])).studyText(LKType.labelBadge, LKColor.error) }
@@ -193,8 +194,8 @@ struct LibraryView: View {
                             HStack(spacing: LKSpacing.spaceSm) {
                                 Text(verbatim: tp.emoji.isEmpty ? "📘" : tp.emoji).font(.system(size: 30)).frame(width: 48, height: 48).accessibilityHidden(true)
                                 VStack(alignment: .leading, spacing: 2) {
-                                    Text(verbatim: tp.name).studyText(LKType.titlePill).multilineTextAlignment(.leading)
-                                    if !tp.desc.isEmpty { Text(verbatim: tp.desc).studyText(LKType.bodySm, LKColor.onSurfaceVariant).lineLimit(2).multilineTextAlignment(.leading) }
+                                    Text(verbatim: t.src(tp.name)).studyText(LKType.titlePill).multilineTextAlignment(.leading)
+                                    if !tp.desc.isEmpty { Text(verbatim: t.src(tp.desc)).studyText(LKType.bodySm, LKColor.onSurfaceVariant).lineLimit(2).multilineTextAlignment(.leading) }
                                     Text(verbatim: t(.vocabWords, ["n": model.levelCount(tp)]) + (model.level.isEmpty ? "" : " · " + model.level)).studyText(LKType.labelBadge, LKColor.secondary)
                                 }
                                 Spacer(minLength: 0)

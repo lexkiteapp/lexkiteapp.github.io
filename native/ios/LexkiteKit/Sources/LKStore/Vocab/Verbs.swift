@@ -5,7 +5,7 @@ import LKSync
 /// Word lists come from native/shared/gen/verbs.json (`Verbs(tables:)`, never typed here); the English example tables (OBJ, COMP, TIME, SUBJ, MIS, …) and the web key order of the modals are in the same file.
 /// Results are `JSON` shaped exactly like the web objects (vectors/vocab.json `verb.*`); the UI translates the rule / pronunciation codes with L10n.
 public struct Verbs: Sendable {
-    public struct Form: Equatable, Sendable { public var w: String, tag: String?
+    public struct Form: Equatable, Sendable { public var w: String; public var tag: String? = nil
         var json: JSON { tag.map { JSON.obj([("w", .string(w)), ("tag", .string($0))]) } ?? .obj([("w", .string(w))]) } }
     struct Sound { var ipa: String, why: String, end: String
         var json: JSON { .obj([("ipa", .string(ipa)), ("why", .string(why)), ("end", .string(end))]) } }

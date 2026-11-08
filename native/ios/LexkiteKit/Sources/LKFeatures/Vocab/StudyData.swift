@@ -39,7 +39,7 @@ public protocol VocabDataSource: Sendable {
     func commit(_ edit: VocabEdit, now: Int64) async
 }
 
-/// The word library the learner can browse: the bundled onboarding pack (content-pack/starter.json). The full CDN catalog is injected by the app when available.
+/// The offline fallback word library: the bundled onboarding pack (content-pack/starter.json). The full catalog is `WordCatalogRemote`.
 public enum StudyCatalog {
     public static func bundled() -> TopicCatalog {
         guard let pack = StarterDeck.bundled() else { return TopicCatalog() }
@@ -54,9 +54,9 @@ public enum StudyCatalog {
 /// Production data: the SwiftData repository (serial writes, same lock as a sync merge).
 public struct RepoVocabData: VocabDataSource {
     let repo: LKRepository
-    let catalog: @Sendable () -> TopicCatalog
+    let catalog: @Sendable () async -> TopicCatalog
     static let seenKey = "lk.newSeen"
-    public init(repo: LKRepository, catalog: @escaping @Sendable () -> TopicCatalog = { StudyCatalog.bundled() }) { self.repo = repo; self.catalog = catalog }
+    public init(repo: LKRepository, catalog: @escaping @Sendable () async -> TopicCatalog = { await WordCatalogRemote.shared.catalog() }) { self.repo = repo; self.catalog = catalog }
 
     public func load() async -> VocabBundle {
         var b = VocabBundle()
@@ -71,7 +71,7 @@ public struct RepoVocabData: VocabDataSource {
         if let s = UserDefaults.standard.string(forKey: Self.seenKey), let j = try? JSON.parse(s) {
             b.seen = (j.object ?? [:]).compactMapValues(\.double)
         }
-        b.catalog = catalog()
+        b.catalog = await catalog()
         return b
     }
 

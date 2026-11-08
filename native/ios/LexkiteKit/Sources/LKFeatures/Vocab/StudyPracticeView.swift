@@ -33,10 +33,10 @@ struct StudyPracticeView: View {
             model.singleWord = query["w"]
             await model.load(mode: mode, src: query["src"])
         }
-        .alert(t(.lessonExitAsk), isPresented: $confirmExit) {
-            Button(t(.lessonExitStay), role: .cancel) {}
+        .alert(t(.revQuitNow), isPresented: $confirmExit) {
+            Button(t(.revKeepGoing), role: .cancel) {}
             Button(t(.lessonExitGo), role: .destructive) { model.stopListening(); onClose() }
-        } message: { Text(verbatim: t(.lessonExitLose)) }
+        } message: { Text(verbatim: t(.revYourAnswersInThisRound)) }
         .lkHaptic(.correct, trigger: model.tick)
         .lkHaptic(.wrong, trigger: model.wrongTick)
         .lkHaptic(.complete, trigger: model.doneTick)
@@ -143,13 +143,13 @@ private struct PracticeHub: View {
     /// menu text of a source (web `sourceList`)
     func label(_ v: String) -> String {
         switch v {
-        case "deck": return t(.vocabMyWords) + " (" + Fmt.int(model.count("deck"), t.lang) + ")"
-        case "due": return t(.todayDueN, ["n": model.count("due")])
-        case "forgetting": return t(.todayFading, ["n": model.count("forgetting")])
-        case "phrases": return t(.modelUsefulPhrases)
-        case "weak": return t(.revHard)
+        case "deck": return t(.revMyWordList, ["n": Fmt.int(model.count("deck"), t.lang)])
+        case "due": return t(.revCardsDueToday) + " (" + Fmt.int(model.count("due"), t.lang) + ")"
+        case "forgetting": return t(.revWordsYouReForgettingRecall) + " (" + Fmt.int(model.count("forgetting"), t.lang) + ")"
+        case "phrases": return t(.revMyPhrasesStructures)
+        case "weak": return t(.revFrequentlyForgottenWords)
         default:
-            if v.hasPrefix("level:") { return t(.onbLevelWord) + " " + v.dropFirst(6) }
+            if v.hasPrefix("level:") { return t(.revMemoryLevel, ["n": String(v.dropFirst(6))]) }
             if v.hasPrefix("origin:") { return StudySourceName.origin(String(v.dropFirst(7)), t) }
             if v.hasPrefix("topic:") { return model.topicName(String(v.dropFirst(6))) }
             return v
@@ -159,8 +159,25 @@ private struct PracticeHub: View {
 
 enum StudySourceName {
     static func origin(_ k: String, _ t: L10n) -> String {
-        if let n = StudyNames.origin(k) { return n }
-        return k == "dict" ? t(.topSearch) : t(.vocabVocabularyLibrary)
+        switch k {
+        case "youtube": return t(.revFromYoutubeVideos)
+        case "web": return t(.revFromWebsites)
+        case "reading": return t(.revFromReadings)
+        case "dict": return t(.revFromDictionaryLookups)
+        case "anki": return t(.revFromAnki)
+        default: return t(.revFromTheLibrary)
+        }
+    }
+    /// one-line explanation under an origin name
+    static func hint(_ k: String, _ t: L10n) -> String {
+        switch k {
+        case "youtube": return t(.revSavedWhileWatchingSubtitledVideos)
+        case "web": return t(.revSavedWithTheAddOn)
+        case "reading": return t(.revSavedWhileReadingInLexkite)
+        case "dict": return t(.revWordsYouLookedUpAnd)
+        case "anki": return t(.revImportedFromYourAnkiDecks)
+        default: return t(.revAddedFromIeltsWordSets)
+        }
     }
 }
 
@@ -207,26 +224,27 @@ private struct PracticeQuestionView: View {
                 }
                 if q.word.t("ipa") { Text(verbatim: q.word.s("ipa")).studyText(LKType.bodyLg, LKColor.onSurfaceVariant).englishText() }
                 if q.word.t("pos") { StudyChip(text: q.word.s("pos")) }
-                Text(verbatim: t(.vocabMeaning)).studyText(LKType.bodySm, LKColor.onSurfaceVariant)
+                Text(verbatim: t(.revChooseTheCorrectMeaning)).studyText(LKType.bodySm, LKColor.onSurfaceVariant)
             case .mcqEn:
                 Text(verbatim: q.mean).studyText(LKType.headlineLg).multilineTextAlignment(.center)
                 if q.word.t("pos") { StudyChip(text: q.word.s("pos")) }
                 if q.word.t("ex"), let b = PracticeRun.cloze(q.word.s("ex"), q.w) { Text(verbatim: "“" + b + "”").studyText(LKType.bodyLg, LKColor.onSurfaceVariant).multilineTextAlignment(.center).englishText() }
-                Text(verbatim: t(.lessonQMean)).studyText(LKType.bodySm, LKColor.onSurfaceVariant)
+                Text(verbatim: t(.revChooseTheCorrectEnglishWord)).studyText(LKType.bodySm, LKColor.onSurfaceVariant)
             case .typeListen:
                 Image(systemName: "headphones").font(.system(size: 44, weight: .bold)).foregroundStyle(LKColor.secondary.resolve(scheme)).accessibilityHidden(true)
                 HStack(spacing: LKSpacing.spaceXs) {
                     Button(t(.lessonReplay)) { model.speakWord() }.buttonStyle(StudyOutlineButtonStyle())
                     Button(t(.lessonSlowShort)) { model.speakWord(slow: true) }.buttonStyle(StudyOutlineButtonStyle())
                 }
-                Text(verbatim: t(.revListenType)).studyText(LKType.bodySm, LKColor.onSurfaceVariant)
+                Text(verbatim: t(.revTypeTheWordYouHear)).studyText(LKType.bodySm, LKColor.onSurfaceVariant)
                 if q.word.t("vi") && !q.hard { Text(verbatim: q.mean).studyText(LKType.bodyMd, LKColor.onSurfaceVariant) }
             case .typeCloze:
                 if let b = q.blanked {
+                    Text(verbatim: t(.revFillInTheBlank2)).studyText(LKType.bodySm, LKColor.onSurfaceVariant)
                     Text(verbatim: "“" + b + "”").studyText(LKType.headlineSm).multilineTextAlignment(.center).englishText()
                     Text(verbatim: q.mean).studyText(LKType.bodyMd, LKColor.onSurfaceVariant)
                     if q.word.t("pos") { StudyChip(text: q.word.s("pos")) }
-                    if !q.hard { Text(verbatim: t(.lessonTypeHint, ["letter": String(q.answer.prefix(1)), "n": q.answer.count])).studyText(LKType.bodySm, LKColor.onSurfaceVariant) }
+                    if !q.hard { Text(verbatim: t(.revHintStartsWithLetters, ["a": String(q.answer.prefix(1)), "n": q.answer.count])).studyText(LKType.bodySm, LKColor.onSurfaceVariant) }
                 } else { meaningPrompt(q) }
             case .typeSpell:
                 Text(verbatim: q.mean).studyText(LKType.headlineLg).multilineTextAlignment(.center)
@@ -245,8 +263,8 @@ private struct PracticeQuestionView: View {
     @ViewBuilder private func meaningPrompt(_ q: PracticeQuestion) -> some View {
         Text(verbatim: q.mean).studyText(LKType.headlineLg).multilineTextAlignment(.center)
         if q.word.t("pos") { StudyChip(text: q.word.s("pos")) }
-        Text(verbatim: t(.lessonQType)).studyText(LKType.bodySm, LKColor.onSurfaceVariant)
-        if !q.hard { Text(verbatim: t(.lessonTypeHint, ["letter": String(q.w.prefix(1)), "n": q.w.count])).studyText(LKType.bodySm, LKColor.onSurfaceVariant) }
+        Text(verbatim: t(.revTypeTheEnglishWordThen)).studyText(LKType.bodySm, LKColor.onSurfaceVariant)
+        if !q.hard { Text(verbatim: t(.revHintStartsWithLetters, ["a": String(q.w.prefix(1)), "n": q.w.count])).studyText(LKType.bodySm, LKColor.onSurfaceVariant) }
     }
 
     private func spell(_ q: PracticeQuestion) -> some View {
@@ -280,7 +298,7 @@ private struct PracticeQuestionView: View {
     @ViewBuilder private func typedInput(_ q: PracticeQuestion) -> some View {
         if model.feedback == nil {
             VStack(spacing: LKSpacing.spaceSm) {
-                TextField(t(.lessonYourAnswerField), text: Binding(get: { model.typed }, set: { model.typed = $0 }))
+                TextField(t(.revTypeYourAnswer), text: Binding(get: { model.typed }, set: { model.typed = $0 }))
                     .focused($focused)
                     .textInputAutocapitalization(.never).autocorrectionDisabled()
                     .submitLabel(.done)
@@ -288,10 +306,10 @@ private struct PracticeQuestionView: View {
                     .studyText(LKType.bodyLg).englishText()
                     .padding(.horizontal, LKSpacing.spaceMd).frame(minHeight: 52)
                     .tactile(fill: LKColor.surfaceContainerHigh, line: model.nearMiss ? LKColor.tertiary : LKColor.outlineVariant, ledge: LKColor.outlineVariant, radius: 16)
-                if model.nearMiss { Text(verbatim: t(.lessonUnclear)).studyText(LKType.bodySm, LKColor.tertiary) }
+                if model.nearMiss { Text(verbatim: t(.revAlmostCheckYourSpelling)).studyText(LKType.bodySm, LKColor.tertiary) }
                 Button(t(.lessonCheckAnswer)) { model.submitTyped() }.buttonStyle(PrimaryButtonStyle()).disabled(model.typed.trimmingCharacters(in: .whitespaces).isEmpty)
                 HStack(spacing: LKSpacing.spaceXs) {
-                    Button(t(.mistShowAnswer)) { model.giveUp() }.buttonStyle(StudyOutlineButtonStyle())
+                    Button(t(.revIDonTKnowShow)) { model.giveUp() }.buttonStyle(StudyOutlineButtonStyle())
                     if q.kind == .typeListen { Button(t(.lessonNoListen)) { model.switchToMeaning() }.buttonStyle(StudyOutlineButtonStyle()) }
                 }
             }
@@ -311,7 +329,7 @@ private struct PracticeFeedback: View {
         VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
             HStack(spacing: LKSpacing.spaceXs) {
                 Image(systemName: fb.ok ? "checkmark.circle.fill" : "xmark.circle.fill").font(.system(size: 26)).foregroundStyle(tint.resolve(scheme))
-                Text(verbatim: fb.ok ? t(.lessonRight) : t(.lessonWrong)).studyText(LKType.headlineSm, tint)
+                Text(verbatim: fb.ok ? t(.revWellDone) : t(.revNotQuiteAnswer, ["answer": fb.answer])).studyText(LKType.headlineSm, tint)
                 Spacer(minLength: 0)
             }
             if fb.marks.contains(where: \.fix) {
@@ -320,8 +338,6 @@ private struct PracticeFeedback: View {
                         Text(verbatim: m.w).studyText(LKType.bodyLg, m.fix ? LKColor.tertiary : LKColor.onSurface).underline(m.fix).englishText()
                     }
                 }
-            } else if !fb.ok, fb.answer.lowercased() != q.w.lowercased() {
-                Text(verbatim: t(.lessonAnswer) + ": " + fb.answer).studyText(LKType.bodyLg).englishText()
             }
             HStack(alignment: .top, spacing: LKSpacing.spaceSm) {
                 StudySpeak(label: t(.vocabPronounce)) { model.speakWord() }

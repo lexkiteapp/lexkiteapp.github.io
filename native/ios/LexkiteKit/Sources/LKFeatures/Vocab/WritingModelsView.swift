@@ -80,7 +80,7 @@ struct WritingModelsView: View {
 
     private func info(_ m: JSON, _ ix: WritingModelIndex) -> (title: String, kind: String, topic: String) {
         if m["task"]?.jsToString == "1" { let d = ix.set(m); return (d?.s("title") ?? m.s("ref"), d.map { typeName($0.s("type")) } ?? "Task 1", "") }
-        if m["task"]?.jsToString == "gt" { let l = ix.letter(m); return (l.map { services.uiLang == "vi" && $0.t("titleVi") ? $0.s("titleVi") : $0.s("topic") } ?? m.s("ref"), l.map { toneName($0.s("tone")) } ?? t(.modelLetter), "") }
+        if m["task"]?.jsToString == "gt" { let l = ix.letter(m); return (l.map { $0.t("titleVi") ? (t.translate(source: $0.s("titleVi")) ?? (services.uiLang == "vi" ? $0.s("titleVi") : $0.s("topic"))) : $0.s("topic") } ?? m.s("ref"), l.map { toneName($0.s("tone")) } ?? t(.modelLetter), "") }
         let p = ix.prompt(m)
         return (p?.s("text") ?? m.s("ref"), p?.s("type") ?? "Task 2", p?.s("topic") ?? "")
     }

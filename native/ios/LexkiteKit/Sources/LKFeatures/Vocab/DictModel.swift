@@ -39,6 +39,7 @@ final class DictModel {
          defaults: UserDefaults = .standard, live: Bool = true) {
         var cfg = DictConfig()
         cfg.meanLang = uiLang == "vi" ? "vi" : "en"; cfg.learnLang = uiLang
+        cfg.viTypo = WritingVerbs.tables.map { Dict.viTypo(from: $0) } ?? [:]
         origin = cfg.base
         let lexStore = LexStore(loader: loader)
         lex = lexStore
