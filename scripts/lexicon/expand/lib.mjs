@@ -284,6 +284,9 @@ export function mixPool(retryList, fresh, N, share = RETRY_SHARE) {
 /** Hạn mức AI cạn (07/11, lexicon-expand đỏ 4 lượt liền: mọi khoá Gemini 429 → AI.gen trả null): 0 mục đạt mà MỌI lệnh gọi AI đều thất bại = hết hạn mức, KHÔNG phải lỗi thật (cảnh báo vàng, lịch 3 giờ thử lại).
  *  Có lệnh gọi thành công mà 0 mục đạt = lỗi chất lượng/cổng → vẫn đỏ. */
 export function quotaDry(stat, pass) { return !pass && (stat.calls || 0) > 0 && (stat.fail || 0) >= stat.calls; }
+// 08/11 (run 42457106947: 4 shard, mỗi shard 5–8 mục còn lại đều «gap» → 0 đạt → đỏ giả): dưới cỡ mẫu tối thiểu của cầu dao chuỗi thì 0 đạt chưa kết luận được gì. Từ 50 mục trở lên vẫn đỏ.
+export const MIN_SAMPLE = 50;
+export function thinPool(n, infra, pass) { return !pass && n - (infra || 0) < MIN_SAMPLE; }
 export function yieldSplit(rows) {
   const o = { fresh: { judged: 0, pass: 0, yield: 0 }, retry: { judged: 0, pass: 0, yield: 0 } };
   for (const r of rows) { const g = o[r.retry ? 'retry' : 'fresh']; if (r.judged) g.judged++; if (r.pass) g.pass++; }

@@ -145,6 +145,7 @@ node scripts/test/drive-repair.mjs
 node scripts/test/keys.mjs
 node scripts/test/admin-share.mjs
 node scripts/test/accounts.mjs
+node scripts/test/asc-signing.mjs
 node scripts/test/ai-pool.mjs
 node scripts/test/ai-local.mjs
 node scripts/test/admin-prefs.mjs
@@ -213,6 +214,7 @@ node scripts/test/client-security.mjs
 node scripts/test/headers.mjs
 node scripts/test/static-routes.mjs
 node scripts/test/layout-guards.mjs
+node scripts/test/home-logic.mjs
 node scripts/test/inline-box.mjs
 node scripts/test/st2-href.mjs
 node scripts/test/card-actions.mjs
@@ -310,6 +312,7 @@ node scripts/native/gen.mjs --check
 node scripts/test/native-one-source.mjs --self-test
 node scripts/test/native-one-source.mjs
 node scripts/test/native-parity.mjs
+node scripts/test/native-m2-vectors.mjs
 node scripts/test/sync-cross-client.mjs
 node scripts/test/native-compat.mjs
 node scripts/native/content-publish.mjs check
@@ -342,6 +345,7 @@ node scripts/test/ci-queue-gate.mjs
 node scripts/test/android-xml-comments.mjs
 node scripts/test/retry5xx.mjs
 node scripts/test/sparse-imports.mjs
+node scripts/test/stitch-today-contrast.mjs
 node scripts/test/is-main-guard.mjs
 node scripts/test/big-data.mjs
 node scripts/test/heavy-rerun.mjs

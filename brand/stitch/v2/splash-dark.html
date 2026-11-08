@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Splash Screen</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    @keyframes indeterminate { 0% { left: -35%; right: 100%; } 60% { left: 100%; right: -90%; } 100% { left: 100%; right: -90%; } }
+    .animate-progress { animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite; }
+    body { min-height: max(884px, 100dvh); font-family: 'Nunito Sans', sans-serif; }
+  </style>
+</head>
+<body class="bg-[#0E191C] text-[#EAF2F2] antialiased m-0 p-0 flex items-center justify-center min-h-screen">
+<div class="relative w-[390px] h-[844px] bg-[#0E191C] flex flex-col justify-between items-center overflow-hidden">
+<div class="w-full"></div>
+<div class="flex flex-col items-center justify-center -mt-12">
+<!-- Real Lexkite mark (brand/lexkite-mark.svg); Stitch placeholder glyph removed -->
+<img src="../../lexkite-mark.svg" alt="Lexkite" width="96" height="96" class="w-[96px] h-[96px]"/>
+<h1 class="text-[#EAF2F2] font-bold text-[34px] leading-[40px] tracking-tight mt-[16px]">Lexkite</h1>
+<p class="text-[#A3B9B7] text-[15px] leading-[20px] font-semibold mt-[8px]">Learn English, free</p>
+</div>
+<div class="w-full px-12 pb-12">
+<div class="w-full h-[3px] bg-[#2B4750] rounded-full overflow-hidden relative">
+<div class="absolute top-0 bottom-0 bg-[#2BA39A] rounded-full animate-progress"></div>
+</div>
+</div>
+</div>
+</body></html>
