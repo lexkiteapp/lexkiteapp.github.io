@@ -68,7 +68,8 @@ internal fun DeepNotesCard(n: JsonObject, word: String, a: DictActions) {
             NoteSection("🌳", t(L10nKey.usageWordFamily), fam.count { it.word != null }.takeIf { it > 0 }?.toString() ?: "", false) {
                 VFlow {
                     fam.forEach { x ->
-                        if (x.word != null) Ltr { VChip(x.word + (if (x.pos.isNotEmpty()) " " + x.pos else ""), { a.speakText(x.word.split("/")[0].trim()) }) }
+                        val w = x.word
+                        if (w != null) Ltr { VChip(w + (if (x.pos.isNotEmpty()) " " + x.pos else ""), { a.speakText(w.split("/")[0].trim()) }) }
                         else VMuted(x.text)
                     }
                 }
