@@ -82,12 +82,12 @@ private val SheetShape = RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp)
 internal fun FeedbackSheet(fb: Feedback, ui: LessonUi, who: String, pose: String?, a: LessonActions, slots: LessonSlots, gold: Map<String, List<LessonData.Gold>>?) {
     val c = LocalLKColors.current; val t = LocalL10n.current; val tk = tokens
     var why by remember(fb.item.id, fb.item.retry) { mutableStateOf(false) }
-    val bg = if (fb.ok) tk.secondaryFixed.copy(alpha = if (c.dark) 0.16f else 0.35f) else tk.errorContainer
+    val bg = if (fb.ok) c.cardHigh else tk.errorContainer
     val ink = if (fb.ok) c.onSurface else tk.onErrorContainer
     val accent = if (fb.ok) c.success else c.error
     val card = fb.item.card
     val word = (card?.get("word") as? JsonPrimitive)?.content.orEmpty()
-    Column(Modifier.fillMaxWidth().heightIn(max = 520.dp).clip(SheetShape).background(bg).border(2.dp, accent.copy(alpha = 0.5f), SheetShape).verticalScroll(rememberScrollState())
+    Column(Modifier.fillMaxWidth().heightIn(max = 520.dp).clip(SheetShape).background(bg).border(2.dp, accent, SheetShape).verticalScroll(rememberScrollState())
         .padding(LKSpacing.spaceMd), verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
         Row(Modifier.semantics(mergeDescendants = true) { liveRegion = LiveRegionMode.Polite }, verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
             slots.still(who, pose ?: if (fb.ok) "cheer" else "concern", Modifier.size(72.dp))
@@ -119,7 +119,7 @@ internal fun FeedbackSheet(fb: Feedback, ui: LessonUi, who: String, pose: String
             }
             Boost(word, gold, a, who)
             if (why) Explain(fb.item, gold)
-            Row(Modifier.heightIn(min = MinTap).clip(PillShape).border(2.dp, accent.copy(alpha = 0.6f), PillShape).tactile({ why = !why }, t(L10nKey.lessonWhy)).padding(horizontal = LKSpacing.spaceMd), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            Row(Modifier.heightIn(min = MinTap).clip(PillShape).border(2.dp, accent, PillShape).tactile({ why = !why }, t(L10nKey.lessonWhy)).padding(horizontal = LKSpacing.spaceMd), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 Icon(Icons.Filled.Lightbulb, null, tint = accent, modifier = Modifier.size(20.dp)); Text(t(L10nKey.lessonWhy), style = LKType.labelMetric.toCompose(), color = ink)
             }
         }

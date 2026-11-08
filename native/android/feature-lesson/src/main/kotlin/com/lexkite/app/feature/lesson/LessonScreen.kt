@@ -159,7 +159,7 @@ private fun Header(ui: LessonUi, onExit: () -> Unit) {
         IconButton(onExit, Modifier.size(48.dp).testTag("lk-exit")) { Icon(Icons.Filled.Close, t(L10nKey.lessonExit), tint = c.onSurfaceVariant) }
         Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
             Row(Modifier.fillMaxWidth().semantics(mergeDescendants = true) { contentDescription = label; progressBarRangeInfo = ProgressBarRangeInfo(ui.progress, 0f..1f) }, horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                for (i in 0 until n) Box(Modifier.weight(1f).height(8.dp).clip(PillShape).background(if (i < filled) c.secondary else c.cardHigh))
+                for (i in 0 until n) Box(Modifier.weight(1f).height(8.dp).clip(PillShape).background(if (i < filled) c.secondary else tokens.surfaceContainerHighest))
             }
             if (ui.finish == null) Text(t(L10nKey.lessonQn, mapOf("a" to ui.position, "b" to ui.total)), style = LKType.labelBadge.toCompose(), color = c.onSurfaceVariant)
         }
@@ -172,7 +172,7 @@ private fun ContextRow(ui: LessonUi, cur: LItem, kindLabel: String) {
     val c = LocalLKColors.current; val t = LocalL10n.current; val tk = tokens
     FlowRow(Modifier.fillMaxWidth().padding(vertical = LKSpacing.spaceXs), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs), verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
         if (ui.combo >= 3) Chip(t(L10nKey.lessonCombo, mapOf("n" to ui.combo)), tk.tertiaryFixed.copy(alpha = 0.16f), c.tertiary, line = c.tertiary.copy(alpha = 0.4f))
-        if (kindLabel.isNotEmpty()) Chip(kindLabel, c.cardHigh, c.onSurfaceVariant, line = c.outlineVariant)
+        if (kindLabel.isNotEmpty()) Chip(kindLabel, tokens.surfaceContainerHighest, c.onSurfaceVariant, line = c.outlineVariant)
         if (ui.retry) Chip("↺ " + t(L10nKey.lessonTagOld), tk.errorContainer, tk.onErrorContainer)
         else if (cur.own == true && (cur.type == "gap" || cur.type == "build")) Chip(t(L10nKey.lessonTagLooked), c.secondaryContainer.copy(alpha = 0.2f), c.onSurface, line = c.secondary.copy(alpha = 0.4f))
     }
@@ -184,7 +184,7 @@ private fun Stage(cur: LItem, who: String, slots: LessonSlots, signal: TeacherSi
     val c = LocalLKColors.current; val tk = tokens; val t = LocalL10n.current
     if (cur.type == "line") return
     Box(Modifier.fillMaxWidth().height(150.dp).padding(bottom = 4.dp).semantics { contentDescription = t(L10nKey.lessonTeacher) }, contentAlignment = Alignment.BottomCenter) {
-        Box(Modifier.width(200.dp).height(28.dp).clip(PillShape).background(c.cardHigh).border(1.dp, c.outlineVariant, PillShape))
+        Box(Modifier.width(200.dp).height(28.dp).clip(PillShape).background(tk.surfaceContainerHighest).border(1.dp, c.outlineVariant, PillShape))
         slots.teacher(cur.who ?: who, signal, Modifier.width(170.dp).height(144.dp))
     }
 }

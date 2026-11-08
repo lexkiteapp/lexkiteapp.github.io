@@ -56,13 +56,13 @@ private val OptShape = RoundedCornerShape(20.dp)
 internal fun OptionCard(letter: String, text: String, mark: Mark, onClick: (() -> Unit)?, modifier: Modifier = Modifier, sub: String? = null, tag: String? = null, state: String? = null) {
     val c = LocalLKColors.current; val tk = tokens
     val (bg, line, lip) = when (mark) {
-        Mark.SELECTED -> Triple(c.secondaryContainer.copy(alpha = 0.16f), c.secondary, tk.lipOptSel)
-        Mark.RIGHT -> Triple(c.success.copy(alpha = 0.14f), c.success, c.success)
+        Mark.SELECTED -> Triple(c.cardHigh, c.secondary, tk.lipOptSel)
+        Mark.RIGHT -> Triple(c.cardHigh, c.success, c.success)
         Mark.WRONG -> Triple(tk.errorContainer, c.error, c.error)
         else -> Triple(c.card, c.outlineVariant, tk.lipOpt)
     }
     val ink = if (mark == Mark.WRONG) tk.onErrorContainer else c.onSurface
-    val badge = if (mark == Mark.NONE || mark == Mark.DIM) c.cardHigh else if (mark == Mark.WRONG) c.error else if (mark == Mark.RIGHT) c.success else c.secondary
+    val badge = if (mark == Mark.NONE || mark == Mark.DIM) tk.surfaceContainerHighest else if (mark == Mark.WRONG) c.error else if (mark == Mark.RIGHT) c.success else c.secondary
     val onBadge = if (mark == Mark.NONE || mark == Mark.DIM) c.onSurfaceVariant else if (mark == Mark.WRONG) c.onError else c.onSecondary
     Box(modifier.heightIn(min = 96.dp).let { if (onClick != null) it.tactile(onClick, role = Role.RadioButton) else it }
         .semantics { selected = mark == Mark.SELECTED || mark == Mark.RIGHT; if (state != null) stateDescription = state }) {
