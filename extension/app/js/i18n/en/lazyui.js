@@ -149,6 +149,7 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Kết quả chỉ để tham khảo, không thay thế bài thi thật.': 'Results are for reference only and don’t replace a real exam.',
 'Xem kế hoạch hôm nay →': 'See today’s plan →',
 'Kiểm tra đầu vào (5 phút)': 'Placement test (5 min)',
+'Đo nói + viết (12 phút)': 'Speaking + writing check (12 min)',
 '20 câu từ vựng và ngữ pháp từ A2 đến C1. Lexkite dùng kết quả để <b>ước tính band</b>, tìm <b>điểm yếu</b> và cá nhân hóa kế hoạch học mỗi ngày.': '20 vocabulary and grammar questions from A2 to C1. Lexkite uses your results to <b>estimate your band</b>, find your <b>weak spots</b> and personalize your daily study plan.',
 'Không biết thì chọn “Tôi không biết” – đừng đoán, kết quả sẽ chính xác hơn.': 'If you don’t know, choose “I don’t know” – don’t guess, and your results will be more accurate.',
 'Lộ trình chinh phục IELTS': 'Your IELTS path',

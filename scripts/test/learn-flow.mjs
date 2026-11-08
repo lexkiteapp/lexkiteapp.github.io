@@ -159,7 +159,7 @@ ok(h && /Band/.test(h.textContent) && (pl.lo === pl.hi || h.textContent.includes
 ok(h && cs(h).color !== cs($('.pl-how')).color, 'tiêu đề dùng màu chữ chính (không xám như chữ phụ)');
 ok($$('.pl-skill').length === 2 && $$('.pl-skill .ring b').every(b => /^\d\.\d$/.test(b.textContent)), 'vòng kỹ năng hiện band từng kỹ năng (nhất quán với band tổng)');
 const ctas = $$('.pl-cta .btn');
-ok(ctas.length === 2 && ctas[0].classList.contains('primary') && /home/.test(ctas[0].getAttribute('href')) && !ctas[1].classList.contains('primary'), 'CTA: “Xem kế hoạch hôm nay” chính, “Lộ trình” phụ');
+ok(ctas.length === 3 && ctas[0].classList.contains('primary') && /home/.test(ctas[0].getAttribute('href')) && !ctas[1].classList.contains('primary') && /path/.test(ctas[1].getAttribute('href')) && !ctas[2].classList.contains('primary') && /outcome/.test(ctas[2].getAttribute('href')), 'CTA: “Xem kế hoạch hôm nay” chính, “Lộ trình” và “Đo nói + viết” (#/outcome) phụ');
 
 // ===== 5) Kế hoạch & lộ trình đổi theo kết quả =====
 w.App.state.settings.placement = { ...pl, weak: 'grammar', gCefr: 'B2', stage: 's2' };

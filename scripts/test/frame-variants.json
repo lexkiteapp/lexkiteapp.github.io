@@ -71,6 +71,7 @@
   "tracks": {"variant": "inner", "surface": ["vocab-path"]},
   "train": {"variant": "inner", "surface": ["practice"]},
   "usage": {"variant": "inner", "surface": ["usage"]},
+  "outcome": {"variant": "inner", "surface": ["placement"]},
   "verb": {"variant": "inner", "surface": ["verbs"]},
   "vocab": {"variant": "hub", "surface": ["hub-vocab"]},
   "watch": {"variant": "inner", "surface": ["listening"]},

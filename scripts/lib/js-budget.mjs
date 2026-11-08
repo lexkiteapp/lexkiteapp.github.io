@@ -63,10 +63,6 @@ export function jsTotal(root = '.') {
 export function langPacks(root = '.') {
   const I = path.join(root, 'web/js/i18n'), packs = {}, sizeOf = d => { let n = 0; for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); n += e.isDirectory() ? sizeOf(p) : p.endsWith('.js') ? fs.statSync(p).size : 0; } return n; };
   for (const e of fs.readdirSync(I, { withFileTypes: true })) { const m = e.name.match(/^([a-z]{2})(\.js)?$/); if (!m || m[1] === 'en') continue; const p = path.join(I, e.name); packs[m[1]] = (packs[m[1]] || 0) + (e.isDirectory() ? sizeOf(p) : fs.statSync(p).size); }
-  // 5/11: bản dịch tình huống Play & Speak (web/js/speak/s/<id>.<lang>.js) tải lười theo id + ngôn ngữ đang dùng (speak/app.js `sit`): mỗi người học chỉ tải
-  // gốc <id>.js (en) + các <id>.<lang>.js của MÌNH → thuộc gói ngôn ngữ đó, không phải nền. Đếm cả 14 ngôn ngữ như nền là tính 13 bản dịch không ai tải.
-  const S = path.join(root, 'web/js/speak/s');
-  if (fs.existsSync(S)) for (const e of fs.readdirSync(S)) { const m = e.match(/^[\w-]+\.([a-z]{2})\.js$/); if (m && m[1] !== 'en') packs[m[1]] = (packs[m[1]] || 0) + fs.statSync(path.join(S, e)).size; }
   return packs;
 }
 /** Thước mới: total (đã trừ admin + nguồn dựng) − Σ gói ngôn ngữ + gói LỚN NHẤT (người học xấu nhất, không phải trung bình). */
