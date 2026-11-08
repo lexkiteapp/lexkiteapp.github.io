@@ -62,7 +62,7 @@ object LessonEngine {
 
     // ---------- text helpers ----------
     private val WS = Regex("[\\s\\u00A0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]+")
-    private val EDGE_NON_WORD = Regex("^[^A-Za-z0-9']+|[^A-Za-z0-9']+$")
+    private val EDGE_NON_WORD = Regex("^[^A-Za-z0-9']+|[^A-Za-z0-9']+\\z") // \z: JS `$` is end-of-input only (Java `$` also matches before a final line terminator)
     fun norm(s: String?) = Answer.norm(s ?: "")
     fun same(a: String, b: String) = norm(a) == norm(b)
     fun toks(s: String?): List<String> = WS.split((s ?: "").replace("“", "").replace("”", "").replace("\"", "")).map { EDGE_NON_WORD.replace(it, "") }.filter { it.isNotEmpty() }

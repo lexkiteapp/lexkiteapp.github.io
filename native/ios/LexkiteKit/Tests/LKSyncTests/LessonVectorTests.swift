@@ -321,7 +321,7 @@ final class LessonVectorTests: XCTestCase {
     }
     func testPickWords() { assertReport(LessonVectorCheck.pickWords(cx), min: 8) }
     func testBuild() { assertReport(LessonVectorCheck.build(cx), min: 100) }
-    func testAdapt() { assertReport(LessonVectorCheck.adapt(cx), min: 30) }
+    func testAdapt() { assertReport(LessonVectorCheck.adapt(cx), min: 28) } // 7 vector cases × 4 off-states (every case must run)
     func testCheck() { assertReport(LessonVectorCheck.check(cx), min: 30) }
     func testSession() { assertReport(LessonVectorCheck.session(cx), min: 100) }
     func testPureFunctions() { assertReport(LessonVectorCheck.pure(cx), min: 100) }

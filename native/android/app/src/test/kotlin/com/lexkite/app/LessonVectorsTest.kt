@@ -9,6 +9,7 @@ import com.lexkite.app.core.lesson.LessonEngine.BuildOpts
 import com.lexkite.app.core.lesson.MatchPair
 import com.lexkite.app.core.lesson.Off
 import com.lexkite.app.core.lesson.Pick
+import com.lexkite.app.core.sync.Js
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
@@ -58,7 +59,7 @@ class LessonVectorsTest {
         put("hints", strs(hints)!!); mean?.let { put("mean", it) }; noAudio?.let { put("noAudio", it) }
         sent?.let { put("sent", it) }; own?.let { put("own", it) }
         blank?.let { b -> put("blank", buildJsonObject { put("i", b.i); put("n", b.n); put("toks", strs(b.toks)!!); put("form", b.form) }) }
-        put("answer", answer); strs(options)?.let { put("options", it) }; strs(tiles)?.let { put("tiles", it) }; prompt?.let { put("prompt", it) }; tr?.let { put("tr", it) }
+        if (answer.isNotEmpty() || word == "#match") put("answer", answer); strs(options)?.let { put("options", it) }; strs(tiles)?.let { put("tiles", it) }; prompt?.let { put("prompt", it) }; tr?.let { put("tr", it) }
         def?.let { put("def", it) }; len?.let { put("len", it) }; first?.let { put("first", it) }; strs(bank)?.let { put("bank", it) }
         this@json.alt?.let { put("alt", it.json(true)) }
         choice?.let { put("choice", it) }; spoke?.let { put("spoke", it) }
@@ -74,7 +75,7 @@ class LessonVectorsTest {
             sl("hints").orEmpty(), st("mean"), bo("noAudio"), st("sent"), bo("own"),
             (j["blank"] as? JsonObject)?.let { Found(it.getValue("i").jsonPrimitive.long.toInt(), it.getValue("n").jsonPrimitive.long.toInt(), it.a("toks").map { x -> x.s() }, it.s("form")) },
             st("answer").orEmpty(), sl("options"), sl("tiles"), st("prompt"), st("tr"), st("def"), j["len"]?.jsonPrimitive?.long?.toInt(), st("first"), sl("bank"),
-            (j["alt"] as? JsonObject)?.let { a -> parseItem(JsonObject(a + mapOf("id" to JsonPrimitive(0), "word" to JsonPrimitive("")))) }, bo("choice"), bo("spoke"), null, bo("free"), st("who"), bo("radio"))
+            (j["alt"] as? JsonObject)?.let { a -> parseItem(JsonObject(a + mapOf("id" to JsonPrimitive(0), "word" to JsonPrimitive("")))) }, bo("choice"), bo("spoke"), (j["pairs"] as? JsonArray)?.map { e -> if (e is JsonPrimitive) cardOf(e.content).let { c -> MatchPair(c.s("word"), null, c) } else e.jsonObject.let { o -> MatchPair(o.s("word"), o.s("mean")) } }, bo("free"), st("who"), bo("radio"))
     }
     private fun JsonObject.s(k: String) = getValue(k).jsonPrimitive.content
 
@@ -152,7 +153,7 @@ class LessonVectorsTest {
             errs.add(diff("${s.s("id")}.step$i", st, buildJsonObject {
                 put("op", if (ch == 's') "skip" else if (ch == '0') "wrong" else "right")
                 put("res", res?.let { r -> buildJsonObject { put("ok", r.ok); put("combo", r.combo); r.requeued?.let { put("requeued", it) }; r.free?.let { put("free", it) } } } ?: JsonNull)
-                put("cur", sess.cur?.id?.let { JsonPrimitive(it) } ?: JsonNull); put("curRetry", sess.cur?.retry ?: 0)
+                put("cur", sess.cur?.id?.let { JsonPrimitive(it) } ?: JsonNull); put("curRetry", sess.cur?.retry?.let { JsonPrimitive(it) } ?: JsonNull)
                 put("solved", sess.solved); put("progress", sess.progress); put("combo", sess.combo); put("best", sess.best); put("n", sess.n); put("ok1", sess.ok1); put("miss", sess.miss)
                 put("accuracy", sess.accuracy); put("done", sess.done)
                 put("q", buildJsonArray { sess.q.forEach { x -> add(buildJsonArray { add(x.id); add(x.retry) }) } })
@@ -186,7 +187,7 @@ class LessonVectorsTest {
                 put("at", buildJsonObject { put("i", x.at.i); put("n", x.at.n); put("toks", strs(x.at.toks)!!); put("form", x.at.form) }) } } ?: JsonNull) })
         check(v.a("stress").map { c -> val o = c.jsonObject; val s = LessonEngine.stress(o.s("ipa"))
             diff("stress(${o.s("ipa")})", o.getValue("out"), s?.let { buildJsonObject { put("syl", it.syl); put("of", it.of) } } ?: JsonNull) })
-        check(v.a("usuk").map { c -> val o = c.jsonObject; val u = LessonEngine.usuk(o.o("card"))
+        check(v.a("usuk").map { c -> val o = c.jsonObject; val u = LessonEngine.usuk(o["card"] as? JsonObject) // card may be JSON null
             diff("usuk", o.getValue("out"), u?.let { buildJsonObject { put("uk", it.first); put("us", it.second) } } ?: JsonNull) })
         check(v.a("visemes").map { c -> val o = c.jsonObject; val d = o["dur"]?.takeIf { it !is JsonNull }?.jsonPrimitive?.content?.toDouble()
             diff("visemes(${o.s("text")})", o.getValue("out"), buildJsonArray { LessonEngine.visemes(o.s("text"), d).forEach { (t, s) -> add(buildJsonArray { add(t); add(s) }) } }) })
@@ -206,7 +207,7 @@ class LessonVectorsTest {
             for (e in p.a("unit").map { it.jsonObject }) assertEquals("unit ${e.o("has")}", e.a("out").map { it.s() }, LessonEngine.unitPlan(set, n, has(e.o("has"))).map { it.kind })
         }
         v.a("nextKind").forEach { c -> val o = c.jsonObject; val ctx = o.o("ctx")
-            assertEquals("nextKind ${o.s("kind")} $ctx", o.s("out"), LessonEngine.nextKind(o.s("kind"), ctx["acc"]?.takeIf { it !is JsonNull }?.jsonPrimitive?.content?.toDouble(), ctx.b("due"))) }
+            assertEquals("nextKind ${o.s("kind")} $ctx", o.s("out"), LessonEngine.nextKind(o.s("kind"), ctx["acc"]?.takeIf { it !is JsonNull }?.jsonPrimitive?.content?.toDouble(), Js.truthy(ctx["due"]))) } // JS `!ctx.due`: due is a count (3) or 0, not a boolean
         v.a("isDue").forEach { c -> val o = c.jsonObject; val card = cardOf(o.s("card"))
             assertEquals("isDue ${o.s("card")}", o.b("isDue"), LessonEngine.isDue(card, o.getValue("now").jsonPrimitive.long)); assertEquals("fromExt ${o.s("card")}", o.b("fromExt"), LessonEngine.fromExt(card)) }
     }

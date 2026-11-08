@@ -40,7 +40,7 @@ data class LessonUi(
     val cur: LItem?, val st: ItemState, val feedback: Feedback?, val position: Int, val total: Int, val progress: Float, val combo: Int,
     val finish: Finish?, val retry: Boolean, val listenOff: Boolean, val speakOff: Boolean, val solved: Int = 0, val log: List<LItem> = emptyList(),
 ) {
-    /** Leaving now would lose answered exercises (nothing is saved until the lesson ends). */
+    /** Leaving now would lose answered exercises – right or wrong, a wrong one is not solved yet, so the screen passes max(solved, graded answers) (nothing is saved until the lesson ends). */
     val exitNeedsConfirm: Boolean get() = finish == null && solved > 0
 }
 
@@ -74,7 +74,7 @@ class LessonController(
 
     fun ui(): LessonUi {
         val total = sess.total
-        return LessonUi(sess.cur, st, feedback, minOf(sess.solved + 1, max(1, total)), total, sess.progress.toFloat(), sess.combo, finish, (sess.cur?.retry ?: 0) > 0, offState().listen, offState().speak, sess.solved, log.toList())
+        return LessonUi(sess.cur, st, feedback, minOf(sess.solved + 1, max(1, total)), total, sess.progress.toFloat(), sess.combo, finish, (sess.cur?.retry ?: 0) > 0, offState().listen, offState().speak, max(sess.solved, sess.n), log.toList())
     }
 
     // ---------- input ----------
@@ -168,7 +168,7 @@ class LessonController(
             s.wrong.keys.filter { !it.startsWith("#") }, s.wrong.isEmpty())
     }
     fun results(): List<LessonEngine.Res> = LessonEngine.results(sess, items0, cards, now())
-    val exitNeedsConfirm: Boolean get() = finish == null && sess.solved > 0
+    val exitNeedsConfirm: Boolean get() = finish == null && max(sess.solved, sess.n) > 0
 
     companion object { const val XP_PER_RIGHT = 2; const val MAX_TYPED = 60 }
 }

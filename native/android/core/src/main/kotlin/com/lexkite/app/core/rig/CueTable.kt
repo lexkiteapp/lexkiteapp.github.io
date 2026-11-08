@@ -4,8 +4,6 @@ import android.content.Context
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonNull
-import kotlinx.serialization.json.doubleOrNull
-import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 
@@ -27,7 +25,9 @@ class CueTable(private val k: Map<String, JsonArray>, dictText: String) {
     companion object {
         fun parse(json: String): CueTable {
             val o = Json.parseToJsonElement(json).jsonObject
-            return CueTable(o.getValue("k").jsonObject.mapValues { it.value.jsonArray }, o["dict"]?.jsonPrimitive?.content.orEmpty())
+            // web `cue(key)` = `k[key] || null`: lines without cues are stored as 0 → not a table entry
+            val k = o.getValue("k").jsonObject.entries.mapNotNull { (key, e) -> (e as? JsonArray)?.let { key to it } }.toMap()
+            return CueTable(k, o["dict"]?.jsonPrimitive?.content.orEmpty())
         }
     }
 }

@@ -57,12 +57,13 @@ class LessonSnapshotTest {
         val items = LessonEngine.build(picks, LessonEngine.BuildOpts(seed, cards + starter, Off(), null, hasImg = imgFn.takeIf { img }, mean = { c -> (c["vi"] as? JsonPrimitive)?.content.orEmpty() }, gloss = { _, en -> (v.getValue("inputs").jsonObject.getValue("gloss").jsonObject[en] as? JsonPrimitive)?.content.orEmpty() }), now)
         return LessonController(items, picks, cards, seed = 1, now = { now })
     }
-    /** First lesson (by seed) whose current exercise has [type]; for "match" the lesson is played on until the match exercise. */
+    /** First lesson (by seed) whose current exercise has [type], played on with right answers until it comes up (the engine puts the rarest kind of the first word first, so
+     *  gap / build / match are never exercise #1). */
     private fun at(type: String): LessonController {
         for (s in 1L..300L) {
-            val c = lesson(s, img = type == "pic")
-            if (type == "match") { while (c.finish == null && c.sess.cur!!.type != "match") { c.pickRight(); if (c.feedback != null) c.next() }; if (c.finish == null) return c }
-            else if (c.sess.cur!!.type == type) return c
+            val c = lesson(s, img = type == "pic"); var guard = 0
+            while (c.finish == null && c.sess.cur!!.type != type && guard++ < 80) { c.pickRight(); if (c.feedback != null) c.next() }
+            if (c.finish == null && c.sess.cur!!.type == type) return c
         }
         error("no lesson with $type")
     }
@@ -72,6 +73,7 @@ class LessonSnapshotTest {
             "build", "tr" -> { it.answer.split(" ").forEach { w -> placeTile(it.tiles!!.indices.first { i -> i !in st.tiles && LessonEngine.same(it.tiles!![i], w) }) }; check() }
             "type" -> { type(it.answer); check() }
             "say" -> spoke(0.95, "")
+            "pic" -> if (it.choice == true) { pick(it.answer); check() } else spoke(0.95, "")
             "match" -> { for (i in 0 until it.pairs!!.size) { matchTap(true, i); matchTap(false, i) } }
             else -> { pick(it.answer); check() }
         }

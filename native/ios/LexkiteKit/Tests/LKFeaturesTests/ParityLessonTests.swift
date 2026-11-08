@@ -42,7 +42,16 @@ final class ParityLessonTests: XCTestCase {
         XCTAssertFalse(m.needsConfirmToExit, "nothing to lose before the first answer")
         let total = m.session.total
 
-        // wrong answer first: sheet shows, combo 0, the item is requeued as a past mistake
+        // play right until the first choice exercise (the engine never opens with gap/match – web build order), then answer it wrong
+        var g0 = 0
+        while let c = m.cur, c.type != "gap", c.type != "mean", m.phase != .done, g0 < 60 {
+            g0 += 1
+            if m.phase == .feedback { m.next(); continue }
+            LessonFixtures.answerRight(m)
+            if m.phase == .feedback { m.next() }
+        }
+        XCTAssertTrue(m.cur?.type == "gap" || m.cur?.type == "mean", "a choice exercise comes up")
+        // wrong answer: sheet shows, combo 0, the item is requeued as a past mistake
         if let it = m.cur, it.type == "gap" || it.type == "mean" {
             m.pick = it.options?.first { $0 != it.answer }
             XCTAssertTrue(m.canCheck); m.submit()

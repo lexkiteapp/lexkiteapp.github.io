@@ -189,13 +189,13 @@ class RigVectorsTest {
     @Test fun lipsyncFromEnv() {
         for (c in lip.a("fromEnv").map { it.jsonObject }) {
             val S = src(c.s("source")); val text = c.s("text")
-            assertCues("fromEnv '$text'", c.a("out"), ls.fromEnv(text, c.getValue("dur").d(), S.env))
+            assertCues("fromEnv '$text'", c.a("out"), ls.fromEnv(text, c.getValue("dur").d(), S.env, def.dict)) // gen-teach.mjs runs fromEnv/live with LipSync.setDict(rig.lip.dict) ON (like the web lesson)
         }
     }
 
     @Test fun lipsyncLive() {
         for (c in lip.a("live").map { it.jsonObject }) {
-            val text = c.s("text"); val dur = c.getValue("dur").d(); val fps = c.getValue("fps").d(); val lv = ls.live(text, dur)
+            val text = c.s("text"); val dur = c.getValue("dur").d(); val fps = c.getValue("fps").d(); val lv = ls.live(text, dur, def.dict)
             val trace = c.a("trace"); var k = 0
             for (i in 0..(Math.ceil(dur * fps).toInt() + 20)) {
                 val t = i / fps; val voiced = t > 0.1 && t < dur - 0.1 && (i % 90) < 72

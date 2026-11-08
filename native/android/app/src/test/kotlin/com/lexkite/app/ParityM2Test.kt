@@ -89,10 +89,15 @@ class ParityM2Test {
         assertEquals(now, Js.num(out.cards.getValue(wrongWord.word.lowercase())["mod"]).toLong())
     }
 
-    /** A fresh lesson whose first exercise is of [type] (the seed decides the mix; the engine is deterministic). */
+    /** A lesson whose current exercise is of [type]: played on (right answers) from the start until it comes up – the engine puts the rarest kind of the first word first,
+     *  so gap / build / say only appear later in the lesson. Input state is fresh because every answered exercise is followed by next(). */
     private fun lessonStartingWith(type: String, offState: () -> Off = { Off() }): LessonController {
-        for (s in 1L..300L) { val c = lesson(s, offState = offState); if (c.item().type == type) return c }
-        error("no lesson starts with $type")
+        for (s in 1L..300L) {
+            val c = lesson(s, offState = offState); var guard = 0
+            while (c.finish == null && c.item().type != type && guard++ < 80) { c.play(true); if (c.feedback != null) c.next() }
+            if (c.finish == null && c.item().type == type) return c
+        }
+        error("no lesson reaches $type")
     }
 
     @Test fun lessonHintsSkipsAndSpeech() {
