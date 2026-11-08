@@ -432,6 +432,8 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case revGoHarder = "rev.goHarder"
     case revKeepThisLevel = "rev.keepThisLevel"
     case revToughItemXp = "rev.toughItemXp"
+    case revInARow = "rev.inARow"
+    case revRightInARow = "rev.rightInARow"
     case mistGrammar = "mist.grammar"
     case mistReadingComprehension = "mist.readingComprehension"
     case mistEveryQuestionYouGet = "mist.everyQuestionYouGet"

@@ -430,6 +430,8 @@
   "rev.goHarder": "難しくする",
   "rev.keepThisLevel": "このままで",
   "rev.toughItemXp": "難問 · +{n} XP",
+  "rev.inARow": "{n}問連続",
+  "rev.rightInARow": "{n}問連続正解！",
   "mist.grammar": "文法",
   "mist.readingComprehension": "リーディング",
   "mist.everyQuestionYouGet": "間違えた問題はすべて自動的に保存されます。間違いを見直すことがスコアを上げる一番の近道です。なぜ間違えたのかを確認し、「わかった」とマークします。",

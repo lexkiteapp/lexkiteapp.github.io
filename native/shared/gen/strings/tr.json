@@ -430,6 +430,8 @@
   "rev.goHarder": "Daha zor",
   "rev.keepThisLevel": "Seviyeyi koru",
   "rev.toughItemXp": "Zor soru · +{n} XP",
+  "rev.inARow": "Üst üste {n}",
+  "rev.rightInARow": "Üst üste {n} doğru!",
   "mist.grammar": "Dilbilgisi",
   "mist.readingComprehension": "Okuma",
   "mist.everyQuestionYouGet": "Yanlış yaptığınız her soru otomatik olarak kaydedilir. Hataları gözden geçirmek puanınızı yükseltmenin en hızlı yoludur; neden yanlış yaptığınızı görün ve ardından \"Anladım\" olarak işaretleyin.",

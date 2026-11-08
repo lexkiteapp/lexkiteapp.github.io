@@ -430,6 +430,8 @@
   "rev.goHarder": "Go harder",
   "rev.keepThisLevel": "Keep this level",
   "rev.toughItemXp": "Tough item · +{n} XP",
+  "rev.inARow": "{n} in a row",
+  "rev.rightInARow": "{n} right in a row!",
   "mist.grammar": "Grammar",
   "mist.readingComprehension": "Reading comprehension",
   "mist.everyQuestionYouGet": "Every question you get wrong is saved automatically. Reviewing mistakes is the fastest way to raise your score – see why you got it wrong, then mark it “Got it”.",

@@ -430,6 +430,8 @@
   "rev.goHarder": "더 어렵게",
   "rev.keepThisLevel": "그대로 하기",
   "rev.toughItemXp": "어려운 문제 · +{n} XP",
+  "rev.inARow": "{n}개 연속",
+  "rev.rightInARow": "{n}문제 연속 정답!",
   "mist.grammar": "문법",
   "mist.readingComprehension": "읽기",
   "mist.everyQuestionYouGet": "틀린 모든 질문은 자동으로 저장됩니다. 실수를 검토하는 것이 점수를 높이는 가장 빠른 방법입니다. 왜 틀렸는지 확인한 다음 \"알았습니다\"라고 표시하세요.",

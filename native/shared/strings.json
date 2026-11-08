@@ -431,6 +431,8 @@
   "rev.goHarder": "Thử mức khó",
   "rev.keepThisLevel": "Giữ mức này",
   "rev.toughItemXp": "Câu khó · +{n} XP",
+  "rev.inARow": "{n} đúng liền",
+  "rev.rightInARow": "{n} câu đúng liền!",
   "mist.grammar": "Ngữ pháp",
   "mist.readingComprehension": "Đọc hiểu",
   "mist.everyQuestionYouGet": "Mọi câu bạn làm sai đều được ghi lại tự động. Ôn lại lỗi sai là cách tăng điểm nhanh nhất – xem lại vì sao sai rồi đánh dấu “Đã hiểu”.",

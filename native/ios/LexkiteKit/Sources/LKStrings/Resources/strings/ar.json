@@ -430,6 +430,8 @@
   "rev.goHarder": "أصعب",
   "rev.keepThisLevel": "إبقاء المستوى",
   "rev.toughItemXp": "سؤال صعب · +{n} XP",
+  "rev.inARow": "{n} على التوالي",
+  "rev.rightInARow": "{n} إجابات صحيحة متتالية!",
   "mist.grammar": "القواعد",
   "mist.readingComprehension": "القراءة",
   "mist.everyQuestionYouGet": "يتم حفظ كل سؤال تخطئ فيه تلقائيًا. إن مراجعة الأخطاء هي أسرع طريقة لرفع درجاتك - تعرف على سبب خطأك، ثم ضع علامة \"فهمت\".",

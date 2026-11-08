@@ -430,6 +430,8 @@
   "rev.goHarder": "Lebih sulit",
   "rev.keepThisLevel": "Tetap level ini",
   "rev.toughItemXp": "Soal sulit · +{n} XP",
+  "rev.inARow": "{n} beruntun",
+  "rev.rightInARow": "{n} jawaban benar beruntun!",
   "mist.grammar": "Tata bahasa",
   "mist.readingComprehension": "Membaca",
   "mist.everyQuestionYouGet": "Setiap pertanyaan yang Anda jawab salah disimpan secara otomatis. Meninjau kesalahan adalah cara tercepat untuk meningkatkan skor Anda – lihat mengapa Anda melakukan kesalahan, lalu tandai “Mengerti”.",

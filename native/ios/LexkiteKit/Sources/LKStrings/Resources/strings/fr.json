@@ -430,6 +430,8 @@
   "rev.goHarder": "Plus difficile",
   "rev.keepThisLevel": "Garder ce niveau",
   "rev.toughItemXp": "Question difficile · +{n} XP",
+  "rev.inARow": "{n} d'affilée",
+  "rev.rightInARow": "{n} bonnes réponses d'affilée !",
   "mist.grammar": "Grammaire",
   "mist.readingComprehension": "Compréhension écrite",
   "mist.everyQuestionYouGet": "Chaque question que vous vous trompez est automatiquement enregistrée. Réviser les erreurs est le moyen le plus rapide d'augmenter votre score : voyez pourquoi vous vous êtes trompé, puis marquez \"Compris\".",

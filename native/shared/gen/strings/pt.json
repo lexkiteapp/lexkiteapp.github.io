@@ -430,6 +430,8 @@
   "rev.goHarder": "Mais difícil",
   "rev.keepThisLevel": "Manter nível",
   "rev.toughItemXp": "Questão difícil · +{n} XP",
+  "rev.inARow": "{n} seguidas",
+  "rev.rightInARow": "{n} acertos seguidos!",
   "mist.grammar": "Gramática",
   "mist.readingComprehension": "Leitura",
   "mist.everyQuestionYouGet": "Cada pergunta que você errar é salva automaticamente. Revisar erros é a maneira mais rápida de aumentar sua pontuação – veja por que você errou e marque “Entendi”.",

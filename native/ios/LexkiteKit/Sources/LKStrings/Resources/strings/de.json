@@ -430,6 +430,8 @@
   "rev.goHarder": "Schwerer",
   "rev.keepThisLevel": "Level behalten",
   "rev.toughItemXp": "Schwere Aufgabe · +{n} XP",
+  "rev.inARow": "{n} in Folge",
+  "rev.rightInARow": "{n} richtige in Folge!",
   "mist.grammar": "Grammatik",
   "mist.readingComprehension": "Leseverstehen",
   "mist.everyQuestionYouGet": "Jede Frage, die Sie falsch stellen, wird automatisch gespeichert. Das Überprüfen von Fehlern ist der schnellste Weg, um Ihre Punktzahl zu verbessern. Sehen Sie nach, warum Sie etwas falsch gemacht haben, und markieren Sie es dann mit „Verstanden“.",

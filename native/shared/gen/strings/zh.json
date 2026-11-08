@@ -430,6 +430,8 @@
   "rev.goHarder": "挑战更难",
   "rev.keepThisLevel": "保持难度",
   "rev.toughItemXp": "难题 · +{n} XP",
+  "rev.inARow": "连对 {n} 题",
+  "rev.rightInARow": "连续答对 {n} 题！",
   "mist.grammar": "语法",
   "mist.readingComprehension": "阅读",
   "mist.everyQuestionYouGet": "您答错的每个问题都会自动保存。回顾错误是提高分数的最快方法 - 看看为什么你做错了，然后将其标记为“明白了”。",
