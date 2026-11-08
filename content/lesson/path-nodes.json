@@ -1127,6 +1127,144 @@
           "ex": []
         }
       ]
+    },
+    "urban": {
+      "theme": "Đô thị và giao thông",
+      "can": "Bạn sẽ mô tả thành phố và đề xuất thay đổi",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Đô thị hóa và nhà ở",
+          "sub": "Nhà ở, hạ tầng, đô thị lan rộng",
+          "min": 4,
+          "words": [
+            [
+              "urbanisation",
+              "n"
+            ],
+            [
+              "housing",
+              "n"
+            ],
+            [
+              "infrastructure",
+              "n"
+            ],
+            [
+              "sprawl",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "The lack of affordable housing forces young people to live with their parents.",
+              "vi": "Thiếu nhà ở giá phải chăng buộc người trẻ phải sống cùng cha mẹ."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: đi lại trong thành phố",
+          "sub": "Giờ cao điểm, xe buýt, người đi bộ",
+          "min": 3,
+          "words": [
+            [
+              "commuter",
+              "n"
+            ],
+            [
+              "public transport",
+              "n"
+            ],
+            [
+              "congestion",
+              "n"
+            ],
+            [
+              "pedestrian",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Trains are packed with commuters during rush hour.",
+              "vi": "Tàu chật kín người đi làm vào giờ cao điểm."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: sống ở phố hay ngoại ô",
+          "sub": "Khu dân cư, tiện ích, đông đúc",
+          "min": 3,
+          "words": [
+            [
+              "suburb",
+              "n"
+            ],
+            [
+              "residential",
+              "adj"
+            ],
+            [
+              "amenity",
+              "n"
+            ],
+            [
+              "overcrowded",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Many families move to the suburbs for more space.",
+              "vi": "Nhiều gia đình chuyển ra ngoại ô để có thêm không gian."
+            }
+          ]
+        },
+        {
+          "slot": "story"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: nhà ở và giao thông",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "housing",
+              "n"
+            ],
+            [
+              "commuter",
+              "n"
+            ],
+            [
+              "congestion",
+              "n"
+            ],
+            [
+              "amenity",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "A congestion charge has reduced traffic in the city centre.",
+              "vi": "Phí chống tắc đường đã giảm lượng xe ở trung tâm thành phố."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng đô thị",
+          "sub": "Nghe, đọc và nói về thành phố",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
     }
   }
 }
