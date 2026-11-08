@@ -152,4 +152,4 @@ Yes, but selectively. Use personal pronouns (*"In my opinion, I believe that..."
 
 ### What is the ideal word count for Task 2?
 
-The minimum requirement is 250 words. The ideal target is between 260 and 290 words. Writing more than 320 words leaves you insufficient time for proofreading and increases your statistical probability of making grammatical and spelling slips.
+The minimum requirement is 250 words. The ideal target is between 260 and 290 words. Writing more than 320 words leaves you insufficient time for proofreading and increases your statistical probability of making grammatical and spelling slips. For Canadian immigration, check the Writing band your CLB target needs in the [IELTS to CLB conversion](/en/blog/ielts-clb-score-canada/) table.

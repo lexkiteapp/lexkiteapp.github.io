@@ -4,6 +4,7 @@
 //   --write: ghi content/pipeline/WORLD.md + khối Top 10 trong docs/UX-BENCHMARK.md   --check: thoát 1 nếu trục nào < sàn (content/pipeline/world.budget.json)
 //   --raise: nâng sàn lên điểm mới (chỉ tăng; trục dao động trừ "noise")
 import fs from 'node:fs';
+import { dataFiles } from './lib/scan-roots.mjs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -96,7 +97,7 @@ function measure(ax) {
   else { m.gates = null; note.gates = 'chưa có reports/world/ci.json'; }
   // luyện thi thật
   const n = (d, re) => ls(d).filter(f => re.test(f)).length;
-  const E = { IELTS: Math.min(n('web/js/readtest', /^test\d+\.js$/), n('web/js/listen', /^test\d+\.js$/)), TOEIC: Math.min(n('web/js/toeic', /^reading\d+\.js$/), n('web/js/toeic', /^listening\d+\.js$/)), TOEFL: n('web/js/toefl', /^data\d+\.js$/), Cambridge: n('web/js/cambridge', /\.js$/) };
+  const E = { IELTS: Math.min(n('web/js/readtest', /^test\d+\.js$/), dataFiles('listen', /^test\d+\.js$/, ROOT).length), TOEIC: Math.min(n('web/js/toeic', /^reading\d+\.js$/), n('web/js/toeic', /^listening\d+\.js$/)), TOEFL: n('web/cpack/toefl', /^data\d+\.js$/), Cambridge: n('web/cpack/cambridge', /\.js$/) };
   const pe = g('exam').perExam; m.exam = r1(Object.values(E).reduce((s, x) => s + Math.min(1, x / pe), 0) / 4 * 100); note.exam = Object.entries(E).map(([k, v]) => `${k} ${v}`).join(' · ') + ` đề (đích ${pe}/kỳ)`;
   // add-on tra từ
   const sel = has('extension/content.js', /getSelection/) && has('extension/content.js', /(dblclick|mouseup)/), selT = fs.existsSync(P('scripts/test/ext-selection.mjs'));

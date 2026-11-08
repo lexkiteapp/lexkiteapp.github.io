@@ -1,0 +1,38 @@
+# Cổng giáo viên Ama/Carlos (chủ 05/11: lag · vệt đen · lệch miệng): Chromium + WebKit thật – không khung/viền đen, tải texture theo khung video,
+# CPU 4× ≥ 50 fps, chỗ giáo viên im lặng không phát clip nhép miệng (mouth_motion.py), khớp miệng ±33 ms (lip-clock), trần dung lượng.
+name: Chất lượng giáo viên
+on:
+  pull_request:
+    paths: ['web/js/teacher-live.js', 'web/js/teacher-slot.js', 'web/js/lesson/teacher.js', 'web/js/call/**', 'web/js/characters.js', 'web/teach/**', 'scripts/teach/**', 'scripts/test/teacher-quality.mjs', 'scripts/test/lip-clock.mjs', '.github/workflows/teacher-quality.yml']
+  push:
+    branches: [main]
+    paths: ['web/js/teacher-live.js', 'web/js/teacher-slot.js', 'web/js/lesson/teacher.js', 'web/js/call/**', 'web/js/characters.js', 'web/teach/**', 'scripts/teach/**', 'scripts/test/teacher-quality.mjs', 'scripts/test/lip-clock.mjs', '.github/workflows/teacher-quality.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  teacher:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: ./.github/actions/setup-ffmpeg
+      - name: Miệng ngậm (clip được phát im)
+        run: |
+          pip install -q numpy
+          python scripts/teach/mouth_motion.py --check
+      - name: Khớp miệng ±33 ms
+        run: node scripts/test/lip-clock.mjs
+      - name: Viền đen · fps · dung lượng (Chromium + WebKit)
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium webkit
+          node scripts/test/teacher-quality.mjs

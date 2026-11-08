@@ -15,7 +15,7 @@ const TARGETS = [
   ['đầu trang: chuỗi ngày', '.v2 header a[data-hdr="streak"]', '#/streak'],
   ['đầu trang: XP', '.v2 header a[data-hdr="xp"]', '#/league'],
   ['đầu trang: mục tiêu hôm nay', '.v2 header a[data-hdr="goal"]', '#/stats'],
-  ['đầu trang: tài khoản', '.v2 header a[href="#/me"]', '#/me'],
+  ['đầu trang: tài khoản', '.v2 header a[href="#/me"]', '#/me', 'menu'], // avatar mở menu tài khoản (app.js App.accountMenu: sáng/tối, kỳ thi, XP) → mục "Tài khoản" sang #/me
   ['Bắt đầu ôn', '#start-review-btn', '#/review'],
   ['chip sắp quên', '.v2-review main button[data-href^="#/review"][aria-label]:not(#start-review-btn)', ['#/practice/learn?src=forgetting', '#/review']], // có thẻ sắp quên → học nhanh nhóm sắp quên; không có → phiên ôn
   ['chip quen', '.v2-review main a[href^="#/review"][aria-label]', '#/review'],
@@ -23,10 +23,10 @@ const TARGETS = [
   ['ô Đang luyện', '.v2-review main .grid > a:nth-child(2)', '#/deck?m=12'],
   ['ô Nhớ lâu', '.v2-review main .grid > a:nth-child(3)', '#/deck?m=3'],
   ['Quản lý', '.v2-review main button[data-href="#/deck"]', '#/deck'],
-  ['tab Học', '.v2 nav a[data-tab="learn"]', '#/home'],
-  ['tab Ôn (đang mở)', '.v2 nav a[data-tab="review"]', null],
-  ['tab Luyện', '.v2 nav a[data-tab="train"]', '#/train'],
-  ['tab Giải đấu', '.v2 nav a[data-tab="league"]', '#/league'],
+  ['tab Hôm nay', '.v2 nav a[data-tab="home"]', '#/home'],
+  ['tab Từ vựng', '.v2 nav a[data-tab="vocab"]', '#/vocab'],
+  ['tab Kỹ năng', '.v2 nav a[data-tab="skills"]', '#/skills'],
+  ['tab Thi', '.v2 nav a[data-tab="tests"]', '#/tests'],
   ['tab Tôi', '.v2 nav a[data-tab="me"]', '#/me'],
 ];
 // thẻ bộ (theo nguồn): chạm giữa thẻ VÀ chạm vào chip "n đến hạn" đều mở bộ đó
@@ -78,7 +78,7 @@ async function run(type, name, opts, scheme) {
   await page.screenshot({ path: path.join(OUT, `hub-${name}-${scheme}.png`) });
   await ringCheck(page, tag);
   // Kiểm 1 phần tử: cuộn vào giữa, không bị đè, vùng chạm ≥ 44 px, chạm → đúng trang
-  const check = async (label, sel, want, nth = 0, inner = null) => {
+  const check = async (label, sel, want, nth = 0, inner = null, via = null) => {
     if (!(await hub())) return; const loc = page.locator(sel).nth(nth); if (!(await loc.count())) { ok(false, `${tag}: ${label} – không có phần tử (${sel})`); return; }
     const pt = await loc.evaluate((el, inner) => { const t = inner ? el.closest('.relative').querySelector(inner) : el; if (!t) return { miss: 'không thấy ' + inner };
       if (!el.closest('header, nav')) t.scrollIntoView({ block: 'center' }); const r = t.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
@@ -90,10 +90,13 @@ async function run(type, name, opts, scheme) {
     ok(pt.tall && pt.wide, `${tag}: ${label} – vùng chạm ≥ 44×44 px (hộp ${Math.round(pt.w)}×${Math.round(pt.h)}${pt.tall && pt.wide ? '' : '; trượt ' + pt.slip.join(' ')})`);
     if (want === null) return;
     const before = await page.evaluate(() => location.hash); await page.touchscreen.tap(pt.x, pt.y);
+    if (via === 'menu') { // qua menu tài khoản: phải mở, có mục sáng/tối, chạm mục "Tài khoản" → trang đích
+      const mi = await page.waitForFunction(() => { const m = document.querySelector('.ux1-menu'), a = m && m.querySelector('a[data-m="x"]'), r = a && a.getBoundingClientRect(); return !!m && !!m.querySelector('[data-m="theme"]') && r && r.height > 0 ? { x: r.left + r.width / 2, y: r.top + r.height / 2 } : false; }, null, { timeout: 5000 }).then(h => h.jsonValue()).catch(() => null);
+      ok(!!mi, `${tag}: ${label} – chạm mở menu tài khoản có mục sáng/tối + "Tài khoản"`); if (!mi) return; await page.touchscreen.tap(mi.x, mi.y); }
     const got = await page.waitForFunction(([b, w]) => location.hash !== b && [].concat(w).some(x => location.hash.startsWith(x)) ? location.hash : false, [before, want], { timeout: 5000 }).then(h => h.jsonValue()).catch(() => null);
     ok(!!got, `${tag}: ${label} – chạm → ${want}${got ? '' : ' (vẫn ở ' + (await page.evaluate(() => location.hash)) + ')'}`);
     if (got) ok(await settle(null), `${tag}: ${label} – trang đích vẽ xong (${await diag()})`); }; // về màn Ôn khi trang đích đã vẽ xong (cả lối chuyển tiếp ?src=forgetting → học nhanh)
-  for (const [label, sel, want] of TARGETS) await check(label, sel, want);
+  for (const [label, sel, want, via] of TARGETS) await check(label, sel, want, 0, null, via);
   if (!(await hub())) { await browser.close(); return; } const decks = await page.locator(DECK).count(); ok(decks >= 2, `${tag}: có ≥ 2 thẻ bộ (web + thư viện), thấy ${decks}`);
   for (const href of await page.locator(DECK).evaluateAll(as => as.map(a => a.getAttribute('href')))) { const sel = `${DECK.split('[')[0]}[href="${href}"]`; // lấy href trước (thứ tự bộ có thể đổi sau khi mở phiên ôn)
     await check(`thẻ bộ ${href}`, sel, href); await check(`chip đến hạn của ${href}`, sel, href, 0, ':scope > div:last-child > span:first-child'); }

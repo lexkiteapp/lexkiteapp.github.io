@@ -52,6 +52,9 @@ else if (!fs.existsSync(MD) || fs.readFileSync(MD, 'utf8') !== md) warns.push(`$
 const sum = `Stitch coverage: ${done.length}/${done.length + miss.length} bề mặt đã port; còn ${miss.length} (${batches.map(b => `${b}:${miss.filter(s => s.batch === b).length}`).join(' ')})`;
 console.log(sum); for (const w of warns) console.log(`::warning title=stitch-coverage::${w}`);
 if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### ${sum}\n${warns.map(w => '- ' + w).join('\n')}\n`);
+// QC khổ máy của stitch-diff phải chờ phông icon (Material Symbols) trước khi đo "chữ bị cắt": chưa nạp thì chữ ligature (arrow_back…) rộng hơn ô 1em → cắt GIẢ (07/11)
+{ const sd = fs.readFileSync('scripts/test/stitch-diff.mjs', 'utf8'), i = sd.indexOf('qc[`${k}-${scheme}-${QW}`]'); if (!(i > 0 && /document\.fonts\.load\('24px "Material Symbols '/.test(sd.slice(Math.max(0, i - 900), i)))) { console.error('✗ stitch-diff.mjs: QC khổ máy phải chờ document.fonts.load(Material Symbols) trước khi đo chữ bị cắt'); process.exit(1); }
+  if (!/CANARY clipped text/.test(sd) || !/KHÔNG bắt chữ bị cắt giả lập/.test(sd)) { console.error('✗ stitch-diff.mjs: thiếu ca đối chứng dương (CANARY) – chữ thường bị cắt thật phải vẫn bị báo, gác không được yếu đi'); process.exit(1); } }
 const bad = warns.length + miss.length;
 if (cov.enforce && bad) { console.error(`✗ stitch-coverage: ${bad} vấn đề (enforce=true)`); process.exit(1); }
 console.log(cov.enforce ? '✓ stitch-coverage (enforce)' : `ℹ stitch-coverage: chỉ cảnh báo (${warns.length} cảnh báo, ${miss.length} màn chưa Stitch); đặt enforce=true khi về 0`);

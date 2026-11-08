@@ -28,6 +28,9 @@ for (const g of LAZY) {
   for (const k of Object.keys(d)) keyToGroup.set(k, g);
 }
 
+// Chỉ áp khóa có en: khóa mồ côi (mã đã bỏ, không t() nào gọi) không vào gói – không ai đọc tới mà tốn byte ở 13 ngôn ngữ. Bản dịch vẫn lưu trong i18n-fixed.json; khóa dùng lại → thêm en là có ngay.
+const enAll = new Set([...keyToGroup.keys(), ...Object.keys(loadDict(path.join(DIR, 'en.js')))]);
+
 let n = 0;
 for (const lang of ['es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr']) {
   // Gom các cập nhật theo file đích: core hoặc nhóm lazy
@@ -40,7 +43,7 @@ for (const lang of ['es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 
   };
 
   for (const [k, tr] of Object.entries(fixed)) {
-    if (k.startsWith('_') || !tr[lang]) continue;
+    if (k.startsWith('_') || !tr[lang] || !enAll.has(k)) continue;
     const g = keyToGroup.get(k);
     const f = g ? path.join(SRC, lang, `${g}.js`) : path.join(SRC, `${lang}.js`);
     let s = getFileContent(f);

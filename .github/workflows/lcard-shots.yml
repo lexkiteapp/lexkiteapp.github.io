@@ -18,10 +18,13 @@ jobs:
         with: { fetch-depth: 0 }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - name: Chụp
+      - name: Cài Playwright
+        timeout-minutes: 15
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - name: Chụp
+        run: |
           git worktree add -q ../before "$(git merge-base HEAD origin/main)"
           (cd ../before/web && python3 -m http.server 8081 >/dev/null 2>&1 &)
           (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &)

@@ -17,7 +17,7 @@ paras: [
 ],
 groups: [
 { type: 'tfng',
-instr: 'Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+instr: g.RTI[1],
 items: [
 { n: 1, text: 'In ancient sundials, the length of an hour depended on the time of year.', a: 'TRUE', cue: 'an hour of daylight in summer was considerably longer than an hour in winter' },
 { n: 2, text: "Su Song's clock tower was less than ten metres tall.", a: 'FALSE', cue: 'an astronomical clock tower more than ten metres high' },
@@ -27,7 +27,7 @@ items: [
 { n: 6, text: 'The prize for finding longitude at sea was won by someone who was not an astronomer.', a: 'TRUE', cue: 'It was eventually won not by an astronomer but by John Harrison' },
 ] },
 { type: 'table', title: 'Devices for measuring time',
-instr: 'Complete the table below. Choose NO MORE THAN TWO WORDS from the passage for each answer.', limit: 2,
+instr: g.RTI[14], limit: 2,
 items: [
 { n: 7, text: 'Sundials – weakness: could not be used at night or on ___ days', a: ['cloudy'], cue: 'they were useless at night and on cloudy days' },
 { n: 8, text: 'Water clocks – drawbacks: water flowed more slowly as the level fell and could ___ in cold weather', a: ['freeze'], cue: 'in cold weather it could freeze' },
@@ -35,7 +35,7 @@ items: [
 { n: 10, text: "Harrison's marine timekeepers – use: allowed sailors to calculate their ___", a: ['longitude'], cue: 'calculating their longitude, their position east or west' },
 { n: 11, text: 'Atomic clocks – use: essential for ___ systems such as GPS', a: ['satellite navigation'], cue: 'satellite navigation systems such as GPS depend on it' },
 ] },
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 12, q: "Why does the writer mention the origin of the word 'clock' in paragraph C?",
 options: ['to show that clocks were first invented in England', 'to show that early clocks often told the time by sound rather than by sight', 'to explain why early clocks were so expensive', 'to suggest that churches controlled the measurement of time'],
@@ -112,7 +112,7 @@ items: [
 { n: 23, text: 'Habitats may be lost before scientists know what lives in them.', a: 'B', cue: 'before we have even given names to the species that live in them' },
 ] },
 { type: 'summary', title: 'How nodules would be collected',
-instr: 'Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.', limit: 2,
+instr: g.RTI[2], limit: 2,
 items: [
 { n: 24, text: 'A remotely operated machine called a ___ would move across the seabed on caterpillar tracks, using jets of water to free the nodules.', a: ['collector'], cue: 'A remotely operated machine known as a collector' },
 { n: 25, text: 'The nodules, mixed with mud and water, would be pumped upwards through a ___ several kilometres long.', a: ['riser pipe'], cue: 'pumped through a riser pipe several kilometres long' },
@@ -150,7 +150,7 @@ paras: [
 { k: 'G', t: "Some remedies are relatively simple. Dealing with email in batches at fixed times, rather than responding to each message as it arrives, reduces the number of switches a person must make, and protected blocks of time for demanding work appear to improve both output and job satisfaction. Nevertheless, it would be a mistake to conclude that all forms of multitasking are harmful. Listening to familiar music while doing a routine task, such as sorting files or cleaning, may improve mood without any noticeable loss of performance. The real danger lies in combining two activities that both demand conscious thought, especially when one of them, like driving, carries serious risks. The problem, in other words, is not that we try to do more than one thing; it is our persistent belief that attention is a resource without limits." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 27, q: "In paragraph A, the writer suggests that what people call 'multitasking' is usually",
 options: ['two tasks being completed at exactly the same moment.', 'a quick movement back and forth between tasks.', 'a skill that most employers fail to value.', 'an ability that improves steadily with practice.'],
@@ -166,7 +166,7 @@ options: ['It proved that smartphones cause lasting harm to concentration.', 'It
 a: 1, cue: 'The study showed an association, not a cause' },
 ] },
 { type: 'ynng',
-instr: 'Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+instr: g.RTI[0],
 items: [
 { n: 31, text: 'Employers who require multitasking skills misunderstand what the brain is able to do.', a: 'YES', cue: 'asking for something that the human brain is poorly designed to supply' },
 { n: 32, text: 'Open-plan offices are worse for concentration than working from home.', a: 'NOT GIVEN', cue: 'Open-plan offices, constant notifications and the expectation that messages will be answered within minutes' },
@@ -175,7 +175,7 @@ items: [
 { n: 35, text: 'Combining two tasks that both require conscious thought is riskier than combining a demanding task with a routine one.', a: 'YES', cue: 'The real danger lies in combining two activities that both demand conscious thought' },
 ] },
 { type: 'match',
-instr: 'Complete each sentence with the correct ending, A–F, below.',
+instr: g.RTI[17],
 options: [
 'A means that tasks drawing on the same mental resources interfere with each other.',
 'B describes thoughts about an earlier task that continue to occupy the mind.',

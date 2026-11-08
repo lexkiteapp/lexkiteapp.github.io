@@ -1,0 +1,172 @@
+{
+ "v": 1,
+ "tl": "es",
+ "variant": "es-419",
+ "status": "pending-review",
+ "source": {
+  "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
+  "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
+  "license": "CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec"
+ },
+ "words": [
+  {
+   "word": "un",
+   "pos": "det",
+   "ipa": "ˈun",
+   "gl": {
+    "vi": "một (giống đực)",
+    "en": "a, an (masculine singular)",
+    "es": "un",
+    "pt": "um",
+    "fr": "un",
+    "de": "ein",
+    "id": "seorang, sebuah (maskulin)",
+    "th": "หนึ่ง (เพศชาย)",
+    "zh": "一个（阳性单数）",
+    "ja": "ひとつの（男性単数）",
+    "ko": "하나의 (남성 단수)",
+    "hi": "एक (पुल्लिंग)",
+    "ar": "واحد (مذكر)",
+    "ru": "неопределённый артикль (муж. род)",
+    "tr": "bir (eril)"
+   },
+   "ex": {
+    "es": "Tengo un perro blanco.",
+    "en": "I have a white dog."
+   },
+   "rank": 11,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "si",
+   "pos": "conj",
+   "ipa": "ˈsi",
+   "gl": {
+    "vi": "nếu",
+    "en": "if, whether",
+    "es": "si",
+    "pt": "se",
+    "fr": "si",
+    "de": "wenn, falls",
+    "id": "jika, kalau",
+    "th": "ถ้า, หาก",
+    "zh": "如果，是否",
+    "ja": "もし〜なら",
+    "ko": "만약 ~라면",
+    "hi": "यदि, अगर",
+    "ar": "إذا, لو",
+    "ru": "если",
+    "tr": "eğer"
+   },
+   "ex": {
+    "es": "Vamos al parque si no llueve.",
+    "en": "We go to the park if it doesn't rain."
+   },
+   "rank": 25,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "del",
+   "pos": "prep",
+   "ipa": "ˈdel",
+   "gl": {
+    "vi": "của/từ cái đó",
+    "en": "of the, from the (masculine)",
+    "es": "del",
+    "pt": "do",
+    "fr": "du",
+    "de": "des, vom",
+    "id": "dari yang",
+    "th": "ของ/จาก (เพศชาย)",
+    "zh": "那个的，来自那个的",
+    "ja": "その〜の、その〜から",
+    "ko": "그 ~의, 그 ~로부터",
+    "hi": "उसका, उससे",
+    "ar": "من الـ",
+    "ru": "от этого, из этого",
+    "tr": "o şeyin, o şeyden"
+   },
+   "ex": {
+    "es": "El perro del vecino ladra mucho.",
+    "en": "The neighbor's dog barks a lot."
+   },
+   "rank": 31,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true,
+    "wikt": "từ loại prep ↔ contraction"
+   }
+  },
+  {
+   "word": "al",
+   "pos": "prep",
+   "ipa": "ˈal",
+   "gl": {
+    "vi": "đến cái đó",
+    "en": "to the, at the (masculine)",
+    "es": "al",
+    "pt": "ao",
+    "fr": "au",
+    "de": "zum, an das",
+    "id": "ke yang",
+    "th": "ไปยัง (เพศชาย)",
+    "zh": "到那个，去那个",
+    "ja": "その〜へ、その〜に",
+    "ko": "그 ~에, 그 ~로",
+    "hi": "उसको, उस पर",
+    "ar": "إلى الـ",
+    "ru": "к этому, в это",
+    "tr": "o şeye"
+   },
+   "ex": {
+    "es": "Mañana voy al mercado.",
+    "en": "Tomorrow I am going to the market."
+   },
+   "rank": 35,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "wikt": "từ loại prep ↔ contraction"
+   }
+  }
+ ]
+}

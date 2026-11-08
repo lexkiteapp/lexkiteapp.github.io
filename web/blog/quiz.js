@@ -61,12 +61,17 @@
     return String(s == null ? '' : s).replace(/[&<>"]/g, function (m) { return '&#' + m.charCodeAt(0) + ';'; });
   }
 
-  // utm trước # (sau # là route app)
   function ctaUrl(u, def) {
     u = /^\/(?!\/)/.test(u || '') ? u : (def || '/app/');
     if (/utm_source=/.test(u)) return u;
     const h = u.indexOf('#'), base = h < 0 ? u : u.slice(0, h), frag = h < 0 ? '' : u.slice(h);
     return base + (base.indexOf('?') < 0 ? '?' : '&') + 'utm_source=blog&utm_medium=quiz' + frag;
+  }
+
+  function shuffle(q) {
+    const o = q.options.map((_, i) => i);
+    for (let i = o.length - 1, j; i > 0; i--) { j = Math.random() * (i + 1) | 0; [o[i], o[j]] = [o[j], o[i]]; }
+    return Object.assign({}, q, { options: o.map(i => q.options[i]), answer: o.indexOf(q.answer) });
   }
 
   function init(c) {
@@ -75,7 +80,7 @@
     try { d = JSON.parse(c.dataset.quiz || ''); } catch (e) { return; }
     const it = (Array.isArray(d) ? d : (d && d.items) || []).filter(function (q) {
       return q && q.q && Array.isArray(q.options) && q.options.length > 1 && q.answer >= 0 && q.answer < q.options.length;
-    });
+    }).map(shuffle);
     if (!it.length) return;
     c.dataset.lkReady = '1';
     css();
