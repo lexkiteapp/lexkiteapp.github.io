@@ -7165,16 +7165,17 @@
   },
   "bathe#v": {
    "ex": "Do you want to bathe?",
-   "ps": "a woman standing in a white bathtub filled with clear water, splashing gently",
-   "sc": "a woman standing in a white bathtub filled with clear water, splashing gently",
-   "check": "Is the person cleaning themselves while standing in water?",
-   "cap": "a person standing in a tub of water",
-   "key": "a person standing in a tub filled with water; water splashing around the body",
+   "ps": "a woman stands in a large white bathtub filled with clear water, arms raised",
+   "sc": "a woman stands in a large white bathtub filled with clear water, arms raised",
+   "check": "Is a person standing in water to wash themselves?",
+   "cap": "a woman standing in a tub of clear water",
+   "key": "a large white bathtub filled with clear water; the woman's arms raised under water",
    "who": 1,
    "draw": 5,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "tries": 3
+   "tries": 3,
+   "refix": 1
   },
   "battalion#n": {
    "ex": "They took down entire battalions.",
@@ -9010,8 +9011,18 @@
    "tries": 2
   },
   "brass#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-08T09:28:14.810Z"
+   "ex": "Another business area is the production of brass.",
+   "ps": "a bright yellow metal bar, rectangular, shiny, lying on a plain surface",
+   "sc": "a bright yellow metal bar, rectangular, shiny, lying on a plain surface",
+   "check": "Is there a bright yellow metal bar that looks like an alloy of copper and zinc?",
+   "cap": "a shiny yellow metal bar on a plain surface",
+   "key": "bright yellow metal bar; metallic shine indicating alloy",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "brave#adj": {
    "ex": "It was a brave decision to start her own business.",
@@ -19401,8 +19412,8 @@
    "tries": 2
   },
   "crusher#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-08T09:28:20.700Z"
+   "e4bad": 2,
+   "badAt": "2026-11-08T10:50:50.948Z"
   },
   "crust#n": {
    "skip": "draw 3: a globe shows a blue ocean area with a very thin gray outer ",
@@ -24088,8 +24099,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "disenfranchise#v": {
-   "e4bad": 1,
-   "badAt": "2026-11-08T09:28:31.180Z"
+   "e4bad": 2,
+   "badAt": "2026-11-08T10:50:43.515Z"
   },
   "disguise#n": {
    "ex": "The price increase was a cut in quality in disguise.",
@@ -27044,8 +27055,8 @@
    "refix": 1
   },
   "electrocardiogram#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-08T09:28:21.115Z"
+   "e4bad": 2,
+   "badAt": "2026-11-08T10:50:50.948Z"
   },
   "electrochemical#adj": {
    "ex": "An electrochemical gradient has two components.",
@@ -27355,8 +27366,8 @@
    "badAt": "2026-11-07T10:55:59.755Z"
   },
   "email#v": {
-   "e4bad": 1,
-   "badAt": "2026-11-08T09:28:17.201Z"
+   "e4bad": 2,
+   "badAt": "2026-11-08T10:50:50.947Z"
   },
   "embankment#n": {
    "ex": "The station and line are on an embankment.",
@@ -40365,8 +40376,17 @@
    "refix": 2
   },
   "immunological#adj": {
-   "e4bad": 1,
-   "badAt": "2026-11-08T09:28:28.902Z"
+   "ex": "The first four substances have protective immunological functions.",
+   "ps": "a scientist in a lab coat examines a slide showing white blood cells under a microscope",
+   "sc": "a scientist in a lab coat examines a slide showing white blood cells under a microscope",
+   "check": "Is the person studying cells that fight infections?",
+   "cap": "a lab scientist looking at white blood cells through a microscope",
+   "key": "a scientist wearing a lab coat; a microscope showing white blood cells",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
   },
   "immunology#n": {
    "ex": "Collins is a professor of immunology.",
@@ -42771,8 +42791,8 @@
    "refix": 2
   },
   "insignia#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-08T09:28:31.180Z"
+   "e4bad": 2,
+   "badAt": "2026-11-08T10:50:43.515Z"
   },
   "insignificance#n": {
    "ex": "William would sink into insignificance.",
@@ -44703,8 +44723,16 @@
    "tries": 2
   },
   "jaundice#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-08T09:28:25.188Z"
+   "ex": "Jaundice is common in newly born babies.",
+   "ps": "a baby with yellow skin and yellow eyes sits on a mother's lap, both looking at a doctor",
+   "sc": "a baby with yellow skin and yellow eyes sits on a mother's lap, both looking at a doctor",
+   "check": "Is the child's skin and eyes visibly yellow?",
+   "cap": "a baby with yellow skin and eyes in a mother's lap",
+   "key": "yellow skin on the baby; yellow eyes on the baby",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "jaw#n": {
    "ex": "He's broken his jaw and lost a few teeth.",
@@ -62786,8 +62814,16 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "principally#adv": {
-   "e4bad": 1,
-   "badAt": "2026-11-08T09:28:15.713Z"
+   "ex": "Extension results principally from the following three processes.",
+   "ps": "a boy holds a large stack of blue blocks and a small stack of red blocks",
+   "sc": "a boy holds a large stack of blue blocks and a small stack of red blocks",
+   "check": "Is the bigger stack of blocks the one the boy has most of?",
+   "cap": "a boy with a big blue block pile and a small red pile",
+   "key": "a large stack of blue blocks; a small stack of red blocks",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "principle#n": {
    "skip": "draw 3: a man stands beside a tall stack of coins and a short stack,",
@@ -65846,8 +65882,16 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "ratification#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-08T09:28:21.115Z"
+   "ex": "The amendment is still pending ratification.",
+   "ps": "a man and a woman each place a hand on a large blank sheet with a big green tick mark",
+   "sc": "a man and a woman each place a hand on a large blank sheet with a big green tick mark",
+   "check": "Have the two people just approved the sheet by confirming the green tick?",
+   "cap": "two adults putting hands on a sheet marked with a green tick",
+   "key": "a large blank sheet with a big green tick mark; two people placing hands on the sheet",
+   "who": 2,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "ratify#v": {
    "ex": "All member countries must ratify the trade agreement before it can take effect.",
@@ -79513,8 +79557,17 @@
    "by": "openai/gpt-oss-120b"
   },
   "surrealism#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-08T09:28:21.115Z"
+   "ex": "Are you into literary surrealism?",
+   "ps": "a woman sits at a table, staring at a floating fish above a teacup with a tiny tree",
+   "sc": "a woman sits at a table, staring at a floating fish above a teacup with a tiny tree",
+   "check": "Does the picture show a dream‑like scene with strange, unexpected objects?",
+   "cap": "a woman amazed by a fish floating over a teacup tree",
+   "key": "a floating fish in the air; a teacup with a tiny tree growing out",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
   },
   "surrender#v": {
    "ex": "You must surrender your old passport when you get a new one.",

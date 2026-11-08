@@ -199,6 +199,12 @@
    "why": "vision: no (empty shelf beside person)",
    "b": "42315140853"
   },
+  "bathe#v": {
+   "at": "2026-11-08",
+   "tries": 6,
+   "why": "vision: no (woman, large bathtub, clear water)",
+   "b": "42472934320"
+  },
   "benefits enrollment#n": {
    "at": "2026-11-07",
    "tries": 12,
