@@ -585,6 +585,7 @@
 'Tải & bật': 'Download & turn on', 'Đang chuẩn bị… bấm micro lần nữa để nói': 'Getting ready… tap the mic again to speak',
 // ---------- từ en/goal.js + en/remind.js: nhãn trợ năng viên đầu trang Stitch chung (web/js/st/v2/shell.js) – màn Ôn/Lộ trình/Tôi… cần ngay, không chờ gói lười (thiếu → dịch máy gọi mạng) ----------
 'Mức sẵn sàng thi': 'Exam readiness', 'Mục tiêu hôm nay': "Today's goal",
+'Luyện tiếng Tây Ban Nha': 'Spanish practice', 'Chia động từ và ngữ pháp, giải thích bằng ngôn ngữ của bạn': 'Verb conjugation and grammar, explained in your language',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – study.js, plan.js, path.js, method.js, goal.js */
@@ -730,7 +731,6 @@
 'Bắt đầu →': 'Start →',
 
 /* ---------- plan.js: today's plan ---------- */
-'Làm bài kiểm tra đầu vào (5 phút)': 'Take the placement test (5 min)',
 'Để Lexkite cá nhân hóa lộ trình cho bạn': 'So Lexkite can personalize your path',
 'Ôn tập thẻ đến hạn': 'Review due cards',
 'Lặp lại ngắt quãng – ưu tiên số 1': 'Spaced repetition – top priority',
@@ -1431,8 +1431,9 @@
 'Ôn {n} thẻ': 'Review {n} cards',
 'Đây là kế hoạch của bạn hôm nay': "Here's your plan for today",
 'Đọc 1 bài & lưu từ mới': 'Read 1 passage & save new words',
-'TOEIC Listening: 1 Part': 'TOEIC Listening: 1 part',
-'TOEIC Reading: 1 Part': 'TOEIC Reading: 1 part',
+'TOEIC Listening: luyện 1 phần': 'TOEIC Listening: practice 1 part',
+'TOEIC Reading: luyện 1 phần': 'TOEIC Reading: practice 1 part',
+'{n} việc': '{n} tasks',
 'Bài mẫu band 8': 'Band 8 model answers',
 'Có đánh dấu cụm từ hay và từ nối': 'Useful phrases and linking words highlighted',
 'Thư mẫu band 8': 'Band 8 model letters',
