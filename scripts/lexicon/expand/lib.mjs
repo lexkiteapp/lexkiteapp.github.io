@@ -279,6 +279,9 @@ export function mixPool(retryList, fresh, N, share = RETRY_SHARE) {
   return [...r, ...f].slice(0, N);
 }
 // sản lượng tách theo nguồn mục: mới vs làm lại (cầu dao chuỗi đo trên mục MỚI – mục retry là phần còn lại khó, không đại diện cho kho ứng viên)
+/** Hạn mức AI cạn (07/11, lexicon-expand đỏ 4 lượt liền: mọi khoá Gemini 429 → AI.gen trả null): 0 mục đạt mà MỌI lệnh gọi AI đều thất bại = hết hạn mức, KHÔNG phải lỗi thật (cảnh báo vàng, lịch 3 giờ thử lại).
+ *  Có lệnh gọi thành công mà 0 mục đạt = lỗi chất lượng/cổng → vẫn đỏ. */
+export function quotaDry(stat, pass) { return !pass && (stat.calls || 0) > 0 && (stat.fail || 0) >= stat.calls; }
 export function yieldSplit(rows) {
   const o = { fresh: { judged: 0, pass: 0, yield: 0 }, retry: { judged: 0, pass: 0, yield: 0 } };
   for (const r of rows) { const g = o[r.retry ? 'retry' : 'fresh']; if (r.judged) g.judged++; if (r.pass) g.pass++; }
