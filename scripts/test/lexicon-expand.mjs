@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url';
 // Mở rộng kho từ (docs/LEXICON.md §Mở rộng 20k): cổng mục (gateEntry), dịch ngược, sổ việc hạ nguồn (infra/lexicon-consumers.json).
 import fs from 'fs';
 import path from 'path';
-import { defGrammarBad, mixPool, yieldSplit, quotaDry, shardOf, humanSrc } from '../lexicon/expand/lib.mjs';
+import { defGrammarBad, mixPool, yieldSplit, quotaDry, thinPool, MIN_SAMPLE, shardOf, humanSrc } from '../lexicon/expand/lib.mjs';
 import { wsdUnwrap, gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, posShapeOk, omwHas, trIn, inflRe } from '../lexicon/expand/lib.mjs';
 import { grade, hasBad, applies } from '../lexicon/expand/grade.mjs';
 import { nativeOwners, nativeLine } from '../lexicon/expand/tatoeba-native.mjs';
@@ -468,6 +468,9 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   fs.rmSync(dir, { recursive: true, force: true }); }
 ok(quotaDry({ calls: 12, fail: 12, pool: 'empty' }, 0) === true, 'quotaDry: mọi lệnh gọi AI thất bại + 0 mục đạt = hết hạn mức (cảnh báo, không đỏ)');
 ok(quotaDry({ calls: 12, fail: 7 }, 0) === false && quotaDry({ calls: 12, fail: 12 }, 3) === false && quotaDry({ calls: 0, fail: 0 }, 0) === false, 'quotaDry: có lệnh gọi thành công mà 0 mục đạt (lỗi thật), hoặc có mục đạt, hoặc chưa gọi → không phải hết hạn mức');
+ok(thinPool(8, 0, 0) === true && thinPool(60, 15, 0) === true, 'thinPool: 0 đạt dưới cỡ mẫu cầu dao = xanh kèm ghi chú');
+ok(thinPool(MIN_SAMPLE, 0, 0) === false && thinPool(8, 0, 1) === false, 'thinPool: đủ mẫu mà 0 đạt vẫn đỏ; có mục đạt không vào nhánh này');
+ok(fs.readFileSync(new URL('../../.github/workflows/lexicon-expand.yml', import.meta.url), 'utf8').includes(`(r.n-inf)>=${MIN_SAMPLE}`), 'thinPool: cùng cỡ mẫu với cầu dao chuỗi trong workflow');
 // 08/11 lọc trước AI: chỉ loại mục CHẮC trượt (0 vi người viết / < 2 câu người viết), kaikki lỗi mạng không lọc, cận trên đếm mọi nghĩa
 { const e = { w: 'run', pos: 'v', senses: [{ wnex: ['a'] }, { wnex: ['x', 'y'] }] };
   ok(humanSrc(e, { trg: [{ tr: { vi: ['chạy'] } }], exs: [{ t: 'I run' }, { t: 'no match' }] }, [], { ex: [{ t: 'b' }] }).vi === 1, 'humanSrc: vi từ bảng dịch Wiktionary');
