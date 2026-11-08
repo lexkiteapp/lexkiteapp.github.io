@@ -933888,6 +933888,241 @@
     "qa": {},
     "senseLock": "wiktionary-1"
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "akin#adj",
+   "batch": "20261108",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)",
+    "dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo"
+   ],
+   "at": "2026-11-08",
+   "data": {
+    "w": "akin",
+    "pos": "adj",
+    "ipa": "",
+    "ipaUS": "/ˈeɪkɪn/",
+    "def": "related by blood or family",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "blood-related",
+     "kin"
+    ],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.7,
+    "emoji": "",
+    "topic": "xw-people",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:akin.s.02",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.7-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {
+      "es": "wiktionary+ai",
+      "fr": "wiktionary+ai",
+      "de": "wiktionary+ai",
+      "zh": "omw+ai"
+     },
+     "trSense": "of the same kin; related by blood",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1",
+    "ipaPos": false
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "anemone#n",
+   "batch": "20261108",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)",
+    "dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)"
+   ],
+   "at": "2026-11-08",
+   "data": {
+    "w": "anemone",
+    "pos": "n",
+    "ipa": "",
+    "ipaUS": "/ˈænɪmoʊn/",
+    "def": "a small plant with bright flowers and deeply divided leaves",
+    "ex": [],
+    "col": [
+     "canada anemone",
+     "mountain anemone"
+    ],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.56,
+    "emoji": "",
+    "topic": "wildlife",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:anemone.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.8-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {
+      "de": "wiktionary+ai",
+      "tr": "wiktionary+ai"
+     },
+     "trSense": "any plant of genus Anemone",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1",
+    "ipaPos": false
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "pseudoscience#n",
+   "batch": "20261108",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-08",
+   "data": {
+    "w": "pseudoscience",
+    "pos": "n",
+    "ipa": "/ˈs(j)uːdəʊsaɪəns/",
+    "ipaUS": "/ˌsuːdoʊˈsaɪəns/",
+    "def": "a system of beliefs or practices that claims to be scientific but is not",
+    "ex": [
+     "Some is part science and part pseudoscience.",
+     "Both individuals claim the other's hypothesis is pseudoscience."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.56,
+    "emoji": "",
+    "topic": "science",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:pseudoscience.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.8-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "simplewiki:sw56264.6",
+      "commonvoice:cv2.1076010"
+     ],
+     "tr": {
+      "es": "wiktionary+ai",
+      "pt": "wiktionary+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "id": "wiktionary+ai",
+      "th": "wiktionary+ai",
+      "zh": "wiktionary+ai",
+      "ja": "wiktionary+omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "purported science",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "rambunctious#adj",
+   "batch": "20261108",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-08",
+   "data": {
+    "w": "rambunctious",
+    "pos": "adj",
+    "ipa": "/ræmˈbʌŋ(k)ʃəs/",
+    "ipaUS": "/ræmˈbʌŋkʃəs/",
+    "def": "noisy, full of energy, and hard to control",
+    "ex": [
+     "Tom is a rambunctious child.",
+     "The child continues to be rambunctious."
+    ],
+    "col": [],
+    "syn": [
+     "boisterous",
+     "unruly"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.41,
+    "emoji": "",
+    "topic": "xw-qualities",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:boisterous.s.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.8-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:12331152",
+      "tatoeba:2149281"
+     ],
+     "tr": {
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "boisterous, energetic, noisy, and difficult to control",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
   }
  ]
 }
