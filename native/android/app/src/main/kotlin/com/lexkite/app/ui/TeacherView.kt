@@ -43,6 +43,8 @@ import com.lexkite.app.core.rig.RigFrame
 import com.lexkite.app.core.rig.RigMachine
 import com.lexkite.app.core.rig.RigMatrix
 import com.lexkite.app.core.rig.TeacherSignal
+import com.lexkite.app.core.rig.TeachAssets
+import com.lexkite.app.core.audio.AudioLogic
 import com.lexkite.app.design.LocalReduceMotion
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
@@ -51,8 +53,7 @@ import kotlin.math.min
 
 /** The rig definition (`teach/rig.json`, one source shared with iOS and the vectors) parsed once. */
 object RigAssets {
-    @Volatile private var def: RigDef? = null
-    fun def(ctx: Context): RigDef = def ?: synchronized(this) { def ?: RigDef.parse(ctx.assets.open("teach/rig.json").bufferedReader().use { it.readText() }).also { def = it } }
+    fun def(ctx: Context): RigDef = TeachAssets.rig(ctx)
 }
 
 /**
@@ -65,6 +66,7 @@ object RigAssets {
 fun TeacherView(who: String, signal: TeacherSignal?, modifier: Modifier = Modifier) {
     val ctx = LocalContext.current; val reduce = LocalReduceMotion.current
     val def = remember { RigAssets.def(ctx) }
+    val cueTable = remember { runCatching { TeachAssets.cues(ctx) }.getOrNull() }
     val person = def.people.getValue(who)
     val machine = remember(who, reduce) { RigMachine(def, who, reduce, person.seed, person::has) }
     val paint = remember(def) { FacePaint(def) }
@@ -87,8 +89,14 @@ fun TeacherView(who: String, signal: TeacherSignal?, modifier: Modifier = Modifi
             while (true) {
                 when (val c = signal?.poll() ?: break) {
                     is TeacherSignal.Cmd.Speak -> {
-                        val cues = if (c.dur > 0) def.lipSync.fromText(c.text, c.dur, def.dict) else null
-                        machine.speak(c.clock, c.playing, cues, null, if (cues == null) def.lipSync.live(c.text, null, def.dict) else null, c.dur, c.text)
+                        // web teacher.js: pre-generated cues (key = lineKey(voice, text)) → exact shapes + loudness; else text-timed / live
+                        val hit = cueTable?.unpacked(AudioLogic.lineKey(person.voice, c.text))
+                        val dict = cueTable?.dict ?: def.dict
+                        if (hit != null) machine.speak(c.clock, c.playing, hit.cues, hit.env, null, hit.dur, c.text)
+                        else {
+                            val cues = if (c.dur > 0) def.lipSync.fromText(c.text, c.dur, dict) else null
+                            machine.speak(c.clock, c.playing, cues, null, if (cues == null) def.lipSync.live(c.text, null, dict) else null, c.dur, c.text)
+                        }
                     }
                     is TeacherSignal.Cmd.Gesture -> scope.launch { person.gestures[c.name]?.pose?.let { ensure(it) }; machine.gesture(c.name) }
                     is TeacherSignal.Cmd.Pose -> {

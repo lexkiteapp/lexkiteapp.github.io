@@ -242,13 +242,16 @@ private fun AudioButton(label: String, icon: androidx.compose.ui.graphics.vector
     Box(Modifier.size(48.dp).clip(CircleShape).background(c.secondaryContainer.copy(alpha = 0.22f)).tactile(onClick, label), contentAlignment = Alignment.Center) { Icon(icon, label, tint = c.secondary, modifier = Modifier.size(24.dp)) }
 }
 
-/** Light bulb = the next hint of this exercise type (no XP cost). Its spoken name is the exercise title: there is no separate hint string in the web i18n yet. */
+/** Light bulb + "Gợi ý" (`lesson.hint`) = the next hint of this exercise type (no XP cost); the spoken name is the same string. */
 @Composable
 private fun HintButton(cur: LItem, a: LessonActions) {
     val c = LocalLKColors.current; val t = LocalL10n.current
     if (cur.type == "say" || (cur.type == "pic" && cur.choice != true)) return
-    val d = titleKey(cur)?.let { t(it) }.orEmpty()
-    Box(Modifier.size(MinTap).clip(CircleShape).tactile(a.hint, d), contentAlignment = Alignment.Center) { Icon(Icons.Filled.Lightbulb, d, tint = c.tertiary, modifier = Modifier.size(22.dp)) }
+    val d = t(L10nKey.lessonHint)
+    Row(Modifier.heightIn(min = MinTap).clip(PillShape).tactile(a.hint, d).padding(horizontal = LKSpacing.spaceSm), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs), verticalAlignment = Alignment.CenterVertically) {
+        Icon(Icons.Filled.Lightbulb, null, tint = c.tertiary, modifier = Modifier.size(22.dp))
+        Text(d, style = LKType.labelMetric.toCompose(), color = c.onSurfaceVariant)
+    }
 }
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -386,6 +389,7 @@ private fun SayArea(cur: LItem, st: ItemState, a: LessonActions, mic: MicUi, t: 
 @Composable
 private fun LineArea(ui: LessonUi, a: LessonActions) {
     val c = LocalLKColors.current; val t = LocalL10n.current
+    val people = com.lexkite.app.core.rig.TeachAssets.rig(androidx.compose.ui.platform.LocalContext.current).people
     Column(Modifier.fillMaxWidth().semantics { contentDescription = t(L10nKey.lessonDialog) }, verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
         ui.log.forEach { l ->
             val carlos = l.who == "carlos"
@@ -393,7 +397,7 @@ private fun LineArea(ui: LessonUi, a: LessonActions) {
                 val shape = RoundedCornerShape(18.dp)
                 Row(Modifier.widthIn(max = 300.dp).clip(shape).background(if (carlos) c.secondaryContainer.copy(alpha = 0.18f) else c.card).border(1.dp, c.outlineVariant, shape).padding(start = LKSpacing.spaceSm, top = 4.dp, bottom = 4.dp, end = 4.dp), verticalAlignment = Alignment.CenterVertically) {
                     Column(Modifier.weight(1f, fill = false)) {
-                        Text(if (carlos) "Carlos" else "Ama", style = LKType.labelBadge.toCompose(), color = c.secondary)
+                        Text(people.getValue(if (carlos) "carlos" else "ama").name, style = LKType.labelBadge.toCompose(), color = c.secondary)
                         if (l.radio != true) Text(l.sent.orEmpty(), style = LKType.bodyMd.toCompose(), color = c.onSurface)
                     }
                     IconButton({ a.playText(l.sent.orEmpty(), l.who ?: "ama", false) }, Modifier.size(48.dp)) { Icon(Icons.AutoMirrored.Filled.VolumeUp, t(L10nKey.lessonReplay), tint = c.secondary) }
