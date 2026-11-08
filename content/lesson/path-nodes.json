@@ -989,6 +989,144 @@
           "ex": []
         }
       ]
+    },
+    "media": {
+      "theme": "Truyền thông và quảng cáo",
+      "can": "Bạn sẽ bàn về tin tức và mạng xã hội",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Quảng cáo và người tiêu dùng",
+          "sub": "Quảng cáo thuyết phục hay đánh lừa",
+          "min": 4,
+          "words": [
+            [
+              "advertisement",
+              "n"
+            ],
+            [
+              "consumer",
+              "n"
+            ],
+            [
+              "persuasive",
+              "adj"
+            ],
+            [
+              "mislead",
+              "v"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Advertisers use persuasive language to create demand.",
+              "vi": "Các nhà quảng cáo dùng ngôn từ thuyết phục để tạo nhu cầu."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: bản tin trên truyền hình",
+          "sub": "Phát sóng, đưa tin, ảnh hưởng",
+          "min": 3,
+          "words": [
+            [
+              "broadcast",
+              "v"
+            ],
+            [
+              "coverage",
+              "n"
+            ],
+            [
+              "publicity",
+              "n"
+            ],
+            [
+              "influence",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "The final match was broadcast live to millions of viewers.",
+              "vi": "Trận chung kết được phát sóng trực tiếp đến hàng triệu khán giả."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: tin giả và kiểm duyệt",
+          "sub": "Tin sai lệch, báo lá cải",
+          "min": 3,
+          "words": [
+            [
+              "misinformation",
+              "n"
+            ],
+            [
+              "censorship",
+              "n"
+            ],
+            [
+              "tabloid",
+              "n"
+            ],
+            [
+              "sensationalism",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Misinformation spreads rapidly on social media platforms.",
+              "vi": "Thông tin sai lệch lan nhanh trên các nền tảng mạng xã hội."
+            }
+          ]
+        },
+        {
+          "slot": "story"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: quảng cáo và tin sai lệch",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "consumer",
+              "n"
+            ],
+            [
+              "broadcast",
+              "v"
+            ],
+            [
+              "misinformation",
+              "n"
+            ],
+            [
+              "mislead",
+              "v"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Some adverts deliberately mislead consumers about health benefits.",
+              "vi": "Một số quảng cáo cố ý đánh lừa người tiêu dùng về lợi ích sức khỏe."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng truyền thông",
+          "sub": "Nghe, đọc và nói về truyền thông",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
     }
   }
 }
