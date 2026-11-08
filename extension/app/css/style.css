@@ -4,7 +4,7 @@
   --brand-ink: #0F3D3E;
   --radius: var(--r-lg);
   --radius-sm: var(--r-sm);
-  --font: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --font: "Be Vietnam Pro", "Be Vietnam Pro Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   --ipa: "Segoe UI", "Charis SIL", "Doulos SIL", "Gentium Plus", "Lucida Sans Unicode", "Arial Unicode MS", "Noto Sans", "DejaVu Sans", Roboto, sans-serif; /* đủ ɪ ʊ ə ː ˈ ˌ trên Windows/macOS/Android/Linux, không tải file font */
   /* Design tokens (docs/DESIGN-SYSTEM.md): khoảng cách 4/8/12/16/24/32 · bo góc · cỡ chữ (Be Vietnam Pro đã nạp) · độ nổi · chuyển động M3 */
   --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 32px;
@@ -824,7 +824,7 @@ html:has(.learn-bar) { scroll-padding-bottom: 140px; } .wi .wc-sec, .wi-sec { sc
 /* Màn hình chào trên điện thoại: logo trái – chọn ngôn ngữ gọn bên phải; nút chính rộng hết màn hình */
 @media (max-width: 560px) {
 }
-@media (max-width: 1023px) { body:not(.bare) .toast { bottom: calc(84px + env(safe-area-inset-bottom)); } } /* không che thanh điều hướng dưới */
+@media (max-width: 1023px) { .toast { bottom: calc(84px + env(safe-area-inset-bottom)); } } /* không che thanh điều hướng dưới; KHÔNG phụ thuộc body.bare: gỡ 'bare' lúc đổi màn khi toast đang hiện làm toast nhảy 56 px = CLS (mqa #/home 360, 07/11) */
 /* Cảm giác app gốc trên điện thoại: không nháy ô xanh khi chạm, không kéo giãn trang, nút không bị bôi đen chữ */
 html { -webkit-tap-highlight-color: transparent; overscroll-behavior-y: none; }
 button, .btn, .option, .tabs, .bottom-nav { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
@@ -1342,6 +1342,8 @@ body:has(.sheet) .view { padding-bottom: calc(18rem + env(safe-area-inset-bottom
 .pill.fire .i { color: #F2553B; fill: #FFB054; fill-opacity: .55; }
 .pill.xp .i { color: var(--gold); fill: currentColor; fill-opacity: .9; }
 .pill .pill-sub { display: inline-flex; align-items: center; gap: 2px; margin-inline-start: var(--sp-1); color: var(--accent-text); }
+/* lượt đóng băng điền SAU khi nạp dữ liệu (App.updateChrome): huy hiệu nổi ở góc pill chuỗi – không đổi bề rộng hàng chỉ số (CLS top-stats 0,041, mqa #/home 360 07/11); min-width làm ô tra từ < 44 px */
+.top-stats .pill.fire { position: relative; } .top-stats .pill.fire .pill-sub { position: absolute; top: calc(-1 * var(--sp-2)); inset-inline-end: calc(-1 * var(--sp-1)); margin: 0; padding: 0 var(--sp-1); border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: var(--fs-xs); line-height: 1.3; }
 .pill.fire i.flame-icon { display: inline-grid; place-items: center; font-style: normal; }
 .set-h .i, .set-nav .i { width: 1.15em; height: 1.15em; vertical-align: -.2em; }
 .set-h .i { width: 1.35em; height: 1.35em; color: var(--accent-text); }
@@ -1480,3 +1482,4 @@ body:has(.learn-bar,.grade-bar,.sheet,.sel-bar,.install-nudge,#modal:not([hidden
 .v2 nav a[data-tab]:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 .v2 nav a[data-tab]:active .st-ti { transform: scale(.88); }
 @media (prefers-reduced-motion: reduce) { .st-ti { transition: none; } .v2 nav a[data-tab]:active .st-ti { transform: none; } }
+

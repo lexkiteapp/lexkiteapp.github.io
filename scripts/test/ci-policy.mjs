@@ -29,6 +29,9 @@
 //     có dòng `# ci-policy: heavy-gate – …`, job `gate` (đọc check-run `npm test` cùng sha) và MỌI job khác `needs: gate` + `if` chứa
 //     needs.gate.outputs.go == 'true'; npm-test.yml có job `heavy` chạy scripts/ci/heavy-rerun.mjs để chạy lại lượt nặng khi npm test xanh.
 //  12) Workflow chạy trên PR có concurrency cancel-in-progress: true (đẩy commit mới huỷ lượt cũ cùng ref, không dồn hàng), hoặc `# ci-policy: queue – <lý do>`.
+//  13) (08/11 – native-m1 đỏ: ký Automatic + -allowProvisioningUpdates tạo 1 chứng chỉ Development mỗi máy CI → tài khoản Apple đầy hạn mức)
+//     cấm ký iOS Automatic trên CI (`-allowProvisioningUpdates`, `CODE_SIGN_STYLE=Automatic`, ExportOptions signingStyle automatic): ký Manual
+//     bằng chứng chỉ Distribution cố định – scripts/native/ios-sign.sh, docs/CI-SIGNING-IOS.md.
 // Không có danh sách miễn trừ ngầm: ngoại lệ nằm ngay trong file workflow, kèm lý do. Chạy: node scripts/test/ci-policy.mjs
 import fs from 'node:fs';
 import path from 'node:path';
@@ -106,6 +109,7 @@ export function installSteps(src) {
   return out;
 }
 /** Lỗi chính sách của 1 workflow (thuần, có test) → [chuỗi]. */
+const SIGN_AUTO = /-allowProvisioningUpdates\b|CODE_SIGN_STYLE\s*=\s*"?Automatic|signingStyle<\/key>\s*<string>automatic/i;
 export function violations(file, src) {
   const out = [], t = triggers(src);
   for (const j of jobs(src)) if (!/^    uses:/m.test(j.text) && !/^    timeout-minutes:/m.test(j.text)) out.push(`${file}: job "${j.id}" thiếu timeout-minutes`);
@@ -142,6 +146,7 @@ export function violations(file, src) {
   //     (mỗi lượt ≤ 4 phút, thử lại 3 lượt, giết apt treo) – một lượt treo không còn làm đỏ job. Trừ mobile-qa.yml (nội dung bị mqa-parity khoá) và vòng thử lại tự viết.
   if (!/(^|\/)mobile-qa\.yml$/.test(file)) String(src).split('\n').forEach((l, n) => { if (!/^\s*#/.test(l) && /npx\s+(?:--yes\s+)?playwright(?:@[\w.]+)?\s+install\b/.test(l) && !/\bif timeout \d+ npx/.test(l)) out.push(`${file}:${n + 1}: cài Playwright trần – dùng \`bash scripts/ci/pw-install.sh [--with-deps] <trình duyệt>\` (trần + thử lại, luật 10)`); });
   for (const st of installSteps(src)) if (!st.bounded) out.push(`${file}:${st.start + 1}: bước cài Playwright/apt không giới hạn thời gian – bước chỉ cài: thêm timeout-minutes; bước còn việc khác: bọc lệnh cài bằng \`timeout 600 …\` (luật 9)`);
+  String(src).split('\n').forEach((l, n) => { if (!/^\s*#/.test(l) && SIGN_AUTO.test(l)) out.push(`${file}:${n + 1}: ký iOS Automatic/-allowProvisioningUpdates trên CI – mỗi máy CI tạo 1 chứng chỉ mới → đầy hạn mức; ký Manual qua scripts/native/ios-sign.sh (luật 13)`); });
   return out;
 }
 /** Tên các workflow trong workflow_run.workflows (dạng [a, b] hoặc danh sách - 'a'). */
@@ -241,6 +246,12 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     ok(violations('h.yml', hv).some(v => /gate/.test(v)), 'luật 11: thiếu job gate → lỗi');
     ok(violations('h.yml', good.replace('cancel-in-progress: true', 'cancel-in-progress: false')).some(v => /luật 12/.test(v)), 'luật 12: PR không cancel-in-progress → lỗi');
     ok(violations('h.yml', '# ci-policy: queue – việc tuần tự không được huỷ\n' + good.replace('cancel-in-progress: true', 'cancel-in-progress: false')).length === 0, 'luật 12: có lý do queue → đạt'); }
+  { const sg = l => violations('s.yml', base.replace('    steps: []\n', `    steps:\n      - run: |\n          ${l}\n`)).filter(v => /luật 13/.test(v)).length;
+    ok(sg('xcodebuild archive -allowProvisioningUpdates') === 1, 'luật 13: -allowProvisioningUpdates → lỗi (đầy hạn mức chứng chỉ 08/11)');
+    ok(sg('xcodebuild DEVELOPMENT_TEAM=X CODE_SIGN_STYLE=Automatic archive') === 1, 'luật 13: CODE_SIGN_STYLE=Automatic → lỗi');
+    ok(sg('<key>signingStyle</key><string>automatic</string>') === 1, 'luật 13: ExportOptions automatic → lỗi');
+    ok(sg('bash scripts/native/ios-sign.sh App.xcodeproj/project.pbxproj com.lexkite.app:P') === 0, 'luật 13: ký Manual qua ios-sign.sh → đạt');
+    ok(sg('# không dùng -allowProvisioningUpdates') === 0, 'luật 13: dòng chú thích không tính'); }
   // --- quét repo
   const files = fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f)), srcs = files.map(f => [f, fs.readFileSync(path.join(WF, f), 'utf8')]);
   for (const [f, s] of srcs) for (const v of violations(f, s)) ok(false, v);
