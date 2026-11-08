@@ -30,8 +30,10 @@
   routes.espractice = async function (arg) {
     const lv = LV.includes(arg) ? arg : LV.includes(ls(KEY)) ? ls(KEY) : 'A1', pid = new URLSearchParams(location.hash.split('?')[1] || '').get('p');
     ls(KEY, lv); const tok = App.routeToken();
+    view.innerHTML = `<div class="card" role="status">${esc(t('Đang tải…'))}</div>`; // hiện ngay khi gói còn đang về (mạng chậm)
     try { await Promise.all([App.need('espr'), App.loadScript('cpack/es/dr.js'), App.loadScript(GX[lang()]), lang() === 'en' ? 0 : App.loadScript(GX.en)]); } catch (e) { if (App.routeStale(tok)) return; view.innerHTML = `<div class="card">${esc(t('Không tải được bài. Kiểm tra mạng rồi thử lại.'))}</div>`; return; }
     if (App.routeStale(tok)) return; // đã sang trang khác trong lúc nạp gói → không vẽ đè
+    if (!(window.ST2 && ST2['lesson-question'] && ST2['feedback-correct'] && ST2['feedback-wrong'] && ST2['lesson-complete'] && window.QE && X().dr && X().dr[lv])) { view.innerHTML = `<div class="card">${esc(t('Không tải được bài. Kiểm tra mạng rồi thử lại.'))}</div>`; return; } // thiếu khung/dữ liệu (gói chưa về): báo, không ném lỗi
     const items = pick(lv, pid);
     if (!items.length) { view.innerHTML = `<div class="card">${esc(t('Chưa có bài cho mục này.'))}</div>`; return; }
     S = { lv, items, i: 0, ok: 0, first: 0, t0: Date.now(), best: 0, run: 0 }; tpl = null;
