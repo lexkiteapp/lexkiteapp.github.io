@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url';
 // Mở rộng kho từ (docs/LEXICON.md §Mở rộng 20k): cổng mục (gateEntry), dịch ngược, sổ việc hạ nguồn (infra/lexicon-consumers.json).
 import fs from 'fs';
 import path from 'path';
-import { defGrammarBad, mixPool, yieldSplit, quotaDry, shardOf } from '../lexicon/expand/lib.mjs';
+import { defGrammarBad, mixPool, yieldSplit, quotaDry, shardOf, humanSrc } from '../lexicon/expand/lib.mjs';
 import { wsdUnwrap, gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, posShapeOk, omwHas, trIn, inflRe } from '../lexicon/expand/lib.mjs';
 import { grade, hasBad, applies } from '../lexicon/expand/grade.mjs';
 import { nativeOwners, nativeLine } from '../lexicon/expand/tatoeba-native.mjs';
@@ -467,4 +467,12 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   fs.rmSync(dir, { recursive: true, force: true }); }
 ok(quotaDry({ calls: 12, fail: 12, pool: 'empty' }, 0) === true, 'quotaDry: mọi lệnh gọi AI thất bại + 0 mục đạt = hết hạn mức (cảnh báo, không đỏ)');
 ok(quotaDry({ calls: 12, fail: 7 }, 0) === false && quotaDry({ calls: 12, fail: 12 }, 3) === false && quotaDry({ calls: 0, fail: 0 }, 0) === false, 'quotaDry: có lệnh gọi thành công mà 0 mục đạt (lỗi thật), hoặc có mục đạt, hoặc chưa gọi → không phải hết hạn mức');
+// 08/11 lọc trước AI: chỉ loại mục CHẮC trượt (0 vi người viết / < 2 câu người viết), kaikki lỗi mạng không lọc, cận trên đếm mọi nghĩa
+{ const e = { w: 'run', pos: 'v', senses: [{ wnex: ['a'] }, { wnex: ['x', 'y'] }] };
+  ok(humanSrc(e, { trg: [{ tr: { vi: ['chạy'] } }], exs: [{ t: 'I run' }, { t: 'no match' }] }, [], { ex: [{ t: 'b' }] }).vi === 1, 'humanSrc: vi từ bảng dịch Wiktionary');
+  ok(humanSrc(e, {}, [], null).ex === 2 && humanSrc({ w: 'run', pos: 'v', wnex: [] }, { exs: [{ t: 'She runs' }, { t: 'x' }] }, [], null).ex === 1, 'humanSrc: câu = ví dụ WordNet nghĩa nhiều nhất + Wiktionary chứa biến tố');
+  ok(humanSrc(e, {}, ['chạy'], null).vi === 1 && humanSrc(e, { vi: [{ w: 'chạy' }] }, null, null).vi === 1 && humanSrc(e, {}, [], null).vi === 0, 'humanSrc: vi Wiktionary vi / en; không có = 0');
+  ok(JSON.stringify(humanSrc(e, { err: true }, [], null)) === '{"vi":1,"ex":2}', 'humanSrc: kaikki lỗi mạng = không lọc (hạ tầng)');
+  const job = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8');
+  ok(/no-prefilter/.test(job) && /if \(!h\.vi\) stat\.pre\.noVi\+\+; else if \(h\.ex < 2\) stat\.pre\.noEx\+\+; else keep\.push\(e\)/.test(job) && /pool = mixPool\(rtK, frK, N, share\)/.test(job) && /pre: stat\.pre/.test(job), 'job.mjs: lọc trước AI nối vào chọn mục + báo cáo'); }
 if (fail) { console.error(`✗ lexicon-expand (pilot 7 fixes): ${fail} lỗi`); process.exit(1); }
