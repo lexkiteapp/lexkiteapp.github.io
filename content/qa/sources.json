@@ -149,7 +149,8 @@
   {
    "id": "reading",
    "paths": [
-    "web/js/readtest"
+    "web/js/readtest",
+    "web/cpack/readings"
    ],
    "owner": "claude",
    "gen": false,
@@ -165,7 +166,8 @@
   {
    "id": "listening",
    "paths": [
-    "web/js/listen"
+    "web/js/listen",
+    "web/cpack/listen"
    ],
    "owner": "claude",
    "gen": false,
@@ -196,7 +198,8 @@
   {
    "id": "toefl",
    "paths": [
-    "web/js/toefl"
+    "web/js/toefl",
+    "web/cpack/toefl"
    ],
    "owner": "claude",
    "gen": false,
@@ -207,6 +210,24 @@
    "delegate": [
     "test/content-check.mjs"
    ]
+  },
+  {
+   "id": "cambridge",
+   "paths": [
+    "web/cpack/cambridge"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr",
+    "format"
+   ],
+   "delegate": [
+    "content-qa/exam-format-check.mjs",
+    "test/cambridge.mjs"
+   ],
+   "doc": "docs/specs/cambridge.md"
   },
   {
    "id": "exam-spec",
@@ -260,9 +281,27 @@
    "_note": "Ngôn ngữ đích (docs/specs/target-language.md): seed soát tay; bộ lõi do scripts/target/gen.mjs sinh – 2 giám khảo khác họ + dịch ngược en + mẫu soát ≥5 %"
   },
   {
+   "id": "target-es-drills",
+   "paths": [
+    "web/cpack/es"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "target/drill-pack.mjs --check",
+    "test/es-practice.mjs"
+   ],
+   "_note": "Gói luyện tập tiếng TBN W2b (spanish-course.md §10): dựng từ content/target/es/{drills,gx}; drill-pack --check = khớp nguồn + đủ 15 ngôn ngữ + ví dụ TBN nguyên văn, CI thêm LanguageTool 0 lỗi (--lt)"
+  },
+  {
    "id": "writing",
    "paths": [
-    "web/js/write"
+    "web/js/write",
+    "web/cpack/write"
    ],
    "owner": "antigravity",
    "gen": true,
@@ -280,7 +319,8 @@
   {
    "id": "speaking",
    "paths": [
-    "web/js/speak"
+    "web/js/speak",
+    "web/cpack/speak"
    ],
    "owner": "antigravity",
    "gen": true,
@@ -333,6 +373,7 @@
    "id": "lesson",
    "paths": [
     "web/js/lesson",
+    "web/cpack/lesson",
     "content/lesson"
    ],
    "owner": "claude",

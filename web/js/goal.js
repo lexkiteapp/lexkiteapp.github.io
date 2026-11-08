@@ -127,7 +127,7 @@
 <section class="${V.card}"><h2 class="${V.lab} pb-[0.5rem]">${t('Mục tiêu của bạn')}</h2>
   <div class="grid grid-cols-2 gap-3">${fld(t('Kỳ thi'), `<select class="${V.inp}" id="gExam">${exams}</select>`)}<label class="flex flex-col gap-1 min-w-0" id="gTargetF"><span class="${V.body}">${t('Điểm mục tiêu')}</span>${targetField(ex, g.target, V.inp)}</label>
   ${fld(t('Ngày thi'), `<input class="${V.inp}" id="gDate" type="date" value="${e(g.date)}">`)}${fld(t('Điểm hiện tại (ước tính)'), `<input class="${V.inp}" value="${e(lab(cur))}" disabled>`)}</div>
-  <p class="${V.body} pt-[0.5rem]">${t('Điểm hiện tại lấy từ lần thi thử gần nhất (hoặc bài kiểm tra đầu vào).')} <a class="${V.lnk}" href="${mhref}">${ex === 'general' ? t('Làm bài kiểm tra đầu vào (5 phút)') + ' →' : t('Thi thử để cập nhật →')}</a></p>
+  <p class="${V.body} pt-[0.5rem]">${t('Điểm hiện tại lấy từ lần thi thử gần nhất (hoặc bài kiểm tra đầu vào).')} <a class="${V.lnk}" href="${mhref}">${ex === 'general' ? t('Kiểm tra trình độ (5 phút)') + ' →' : t('Thi thử để cập nhật →')}</a></p>
   <div class="flex flex-col gap-2 pt-[0.5rem]"><button type="button" class="${V.btn}" id="gSave">${has ? t('Cập nhật kế hoạch') : t('Lập kế hoạch')}</button>${has ? `<a class="${V.lnk} justify-center" href="${pathFor(ex)}">${t('Tiếp tục học lộ trình của bạn →')}</a>` : ''}</div></section>
 <section class="${V.card}"><h2 class="${V.lab}">${e(plan)}</h2><div class="${V.big} pt-1">${t('{hrs} giờ/tuần', { hrs })}</div>
   <p class="${V.body}">≈ ${t('{m} phút mỗi ngày.', { m: Math.round(hrs * 60 / 7) })} ${hrs >= SCALE[ex][4] ? t('Mục tiêu khá gấp – cân nhắc lùi ngày thi hoặc tăng thời gian học.') : t('Học đều mỗi ngày hiệu quả hơn học dồn cuối tuần.')}</p><p class="${V.body}">${e(rdD.hrs)}</p></section>
@@ -187,7 +187,7 @@ ${rd}
             <label class="field"><span class="small">${t('Ngày thi')}</span><input class="input" id="gDate" type="date" value="${esc(g.date)}"></label>
             <label class="field"><span class="small">${t('Điểm hiện tại (ước tính)')}</span><input class="input" value="${esc(App.goalLabel({ exam: g.exam, target: cur }))}" disabled></label>
           </div>
-          <div class="tiny muted" style="margin:.4rem 0 .8rem">${t('Điểm hiện tại lấy từ lần thi thử gần nhất (hoặc bài kiểm tra đầu vào).')} <a href="${g.exam === 'toeic' ? '#/toeic' : g.exam === 'toefl' ? '#/toefl' : g.exam === 'general' ? '#/placement' : '#/mock'}">${g.exam === 'general' ? t('Làm bài kiểm tra đầu vào (5 phút)') + ' →' : t('Thi thử để cập nhật →')}</a></div>
+          <div class="tiny muted" style="margin:.4rem 0 .8rem">${t('Điểm hiện tại lấy từ lần thi thử gần nhất (hoặc bài kiểm tra đầu vào).')} <a href="${g.exam === 'toeic' ? '#/toeic' : g.exam === 'toefl' ? '#/toefl' : g.exam === 'general' ? '#/placement' : '#/mock'}">${g.exam === 'general' ? t('Kiểm tra trình độ (5 phút)') + ' →' : t('Thi thử để cập nhật →')}</a></div>
           <div class="row wrap" style="gap:.6rem"><button class="btn primary" id="gSave">${has ? t('Cập nhật kế hoạch') : t('Lập kế hoạch')}</button>${has ? `<a class="btn" href="${pathFor(g.exam)}">${t('Tiếp tục học lộ trình của bạn →')}</a>` : ''}</div>
         </div>
         <div class="card hero-main">

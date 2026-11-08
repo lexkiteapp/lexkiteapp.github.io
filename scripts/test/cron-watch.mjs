@@ -100,14 +100,15 @@ assert.match(fs.readFileSync('.github/workflows/ci-triage.yml', 'utf8'), /\.gith
   assert.ok(!activeWorkflows([{ ...old }], now).size && activeWorkflows([{ ...old, created_at: '2026-11-03T22:30:00Z' }], now).has('d1-usage-watch.yml'), 'ci-filler không coi zombie là đang chạy');
   // 05/11: zombie > 24 giờ mà cancel + force-cancel đều 409 → DELETE (lượt 26/10 nằm 10 ngày vì issue chỉ ghi "chỉ còn DELETE")
   const del = [], gh3 = async (p, o = {}) => { if (o.method) del.push(`${o.method} ${p}`);
+    if (p === '/actions/runs/9') return del.includes('DELETE /actions/runs/9') ? null : { id: 9, status: 'queued' };
     if (p.startsWith('/actions/runs?status=queued')) return { workflow_runs: [{ ...old, id: 9, created_at: '2026-10-26T04:23:15Z' }] };
     if (p.endsWith('/9/jobs?per_page=1')) return { total_count: 0 };
     if (/\/9\/(force-)?cancel$/.test(p)) throw new Error('GitHub POST /x → 409');
     return {}; };
-  const z3 = await zombieRuns(gh3, { now }); assert.deepEqual(del, ['POST /actions/runs/9/cancel', 'POST /actions/runs/9/force-cancel', 'DELETE /actions/runs/9']);
+  const z3 = await zombieRuns(gh3, { now }); assert.deepEqual(del, ['DELETE /actions/runs/9'], '06/11: lượt ≥ 24 giờ DELETE thẳng (cancel 409 / 202 giả không tốn lệnh + ngủ)');
   assert.equal(z3[0].deleted, true, 'zombie 10 ngày bị DELETE');
   assert.deepEqual((await zombieRuns(gh3, { now, cancel: false })).map(x => x.deleted), [undefined], 'cancel: false (chạy khô) không xoá gì');
-  // job THẬT xếp hàng > 3 giờ → báo (không huỷ); job mới hoặc đang chạy thì không
+  // job THẬT xếp hàng > 2 giờ → báo (không huỷ); job mới hoặc đang chạy thì không
   const gh4 = async (p, o = {}) => { assert.ok(!o.method, 'stuckJobs chỉ đọc');
     if (p.startsWith('/actions/runs?status=queued')) return { workflow_runs: [{ id: 5, path: '.github/workflows/teach-video.yml', created_at: '2026-11-03T18:00:00Z' }, { id: 6, path: '.github/workflows/qa-bot.yml', created_at: '2026-11-03T22:40:00Z' }] };
     if (p.startsWith('/actions/runs?status=in_progress')) return { workflow_runs: [{ id: 7, path: '.github/workflows/video.yml', created_at: '2026-11-03T18:00:00Z' }] };

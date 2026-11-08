@@ -33,11 +33,11 @@
 | P3 | Bước kế cá nhân hoá hiện rõ (`next-step.js` → thẻ Tiếp tục đổi theo điểm yếu) | logic nhỏ |
 | P4 | Mới: đóng băng chuỗi, nhiệm vụ ngày có thưởng, chuỗi bạn bè | xây mới, sau khi anh OK |
 
-Không cắt gì: lộ trình đầy đủ (mọi nút, popover bài, hướng dẫn chặng), chip, giáo viên vẫn ở home ngay dưới các khối mới; chỉ THÊM khối.
+Không cắt gì: lộ trình đầy đủ (mọi nút, popover bài, hướng dẫn chặng), chip, giáo viên vẫn ở home ngay dưới các khối mới (điện thoại: thu gọn mặc định, mở tại chỗ – xem §4); chỉ THÊM khối.
 
 ## 4. Thiết kế (Stitch, anh duyệt 31/10) → đã port
 Ref: `brand/stitch/v2/app/home-v2/` (today · new · desk, sáng/tối; id ở `.index.txt`; tờ duyệt `owner/`). Port theo STITCH-V2-PORT.md: màn `today` (điện thoại), `today-new` (người mới: 0 XP, chưa xong bài), `today-desk` (cột giữa ≥ 1024 px), `today-rail` (cột phải, cùng HTML desk). Dữ liệu: `web/js/ux1.js` `homeBase()` / `home2()` / `rail()`.
-- Lộ trình ĐẦY ĐỦ (khung `path`: mọi nút, Hướng dẫn chặng, popover) nằm trong khối "Your path"; nút "Tới bài hiện tại" cuộn tới nút đang học (`#/home?at=path` cuộn sẵn).
+- Khối "Your path" (điện thoại, `today`; 07/11, #826): mặc định THU GỌN đúng mẫu (Stitch path-block, 08/11): đầu chương + thanh tiến độ, 5–7 nút diều quanh bài hiện tại nối bằng dây liền, Ama cạnh nút đang học (dữ liệu thật; cả máy tính). Nút "Xem toàn bộ lộ trình" (`data-act="pathx"`, `aria-expanded`) mở lộ trình ĐẦY ĐỦ (khung `path`: mọi nút, Hướng dẫn chặng, popover) NGAY TẠI CHỖ, vẽ lười lần đầu mở; "Thu gọn lộ trình" đóng lại. `#/home?at=path` mở sẵn và cuộn tới nút đang học. Không cắt tính năng nào. Người mới (`today-new`) và máy tính (`today-desk`) vẫn hiện lộ trình đầy đủ ngay. Test: `scripts/test/ux1.mjs`, `scripts/test/today-fold.mjs`.
 - Ô giáo viên = `Chars.img('ama', still talk|wave)` nguyên khung (ảnh still tới hông – bộ ảnh hiện có). Thanh tab riêng của mẫu (Today/Vocab/Skills/Tests/Me) → thanh tab CHUNG 5 tab.
 - Khối không có dữ liệu bị gỡ (`data-show=0`): nhắc ôn chỉ khi có thẻ đến hạn, kế hoạch rỗng, truyện, mức sẵn sàng khi chưa có điểm; giải đấu chỉ khi có tài khoản + đã tham gia (cột phải: thẻ giải đấu cũ thay vào). "6 exercises" (chưa có số bài thật) ẩn.
 - Thẻ truyện → `#/lesson/go?story=<id>` (mở đúng truyện, không đẩy nút lộ trình).
