@@ -20,7 +20,11 @@ ok(e1.made_for_kids === false && e1.synthetic === true, 'embed: not for kids + A
 for (const p of Object.keys(M.PLATFORMS)) {
   const s = M.socialMeta(clip, p), lines = s.description.split('\n');
   ok(s.title.length <= 60 && s.title.toLowerCase().startsWith('look for'), `${p}: title ≤ 60, keyword first (${s.title})`);
-  ok(/\?|!|mistake/i.test(lines[0]) && /look for/i.test(lines[1]) && lines[2].includes('https://lexkite.com/video/cafe-look-for/?utm_source=' + p), `${p}: line 1 hook, line 2 value, then lesson deep link`);
+  const deep = 'https://lexkite.com/video/cafe-look-for/?utm_source=' + p, L = p === 'youtube' ? lines.slice(1) : lines; // §6c: YouTube link ở dòng ĐẦU mô tả
+  if (p === 'youtube') ok(lines[0].startsWith('Full lesson + quiz: ' + deep), 'youtube: lesson deep link on the FIRST line of the description');
+  ok(/\?|!|mistake/i.test(L[0]) && /look for/i.test(L[1]), `${p}: hook line, then value line`);
+  if (M.BIO_ONLY.includes(p)) ok(L[2] === M.BIO_CTA && !s.description.includes('https://'), `${p}: no unclickable link in caption – "link in bio" CTA instead`);
+  else if (p !== 'youtube') ok(L[2].includes(deep), `${p}: lesson deep link after hook + value`);
   ok(s.hashtags.length >= 3 && s.hashtags.length <= 5 && s.hashtags.every(h => /^#[a-z0-9]+$/i.test(h)), `${p}: 3–5 clean hashtags`);
   ok(s.tags.length >= 5 && new Set(s.variants).size === 3 && s.variants.every(v => v.length <= 60 && v.toLowerCase().startsWith('look for')), `${p}: tags + 3 distinct A/B variants, all keyword-first`);
   ok(s.seo.score >= 90 && s.privacy === 'public' && s.description.length <= M.PLATFORMS[p].caption, `${p}: SEO ≥ 90 (${s.seo.score} ${s.seo.failed}) + within caption limit`);
@@ -83,11 +87,12 @@ ok(retired.length === 2 && reported.join() === 'gone-clip' && idx.items.map(x =>
   const mv = [it('a')]; ok(applyMoves(mv, [{ file_id: 'f-a', new_file_id: 'g-a', to: 7 }]) === 1 && mv[0].drive.video.fileId === 'g-a' && mv[0].drive.video.driveId === 7, 'cân bằng Drive: ghi fileId/driveId mới vào index');
   ok(applyMoves(mv, [{ file_id: 'f-khac', new_file_id: 'x', to: 9 }]) === 0 && mv[0].drive.video.fileId === 'g-a', 'file khác không đụng');
 
-  const noPage = M.socialMeta({ id: 'cine-a', point: 'look for', headline: 'Stop saying "look a book"', cefr: 'A2' }, 'tiktok');
-  ok(!/\/video\/cine-a/.test(noPage.description) && /lexkite\.com\/app\/\?utm_source=tiktok/.test(noPage.description), 'clip chưa có trang → link về app, không phải /video/<id>/ (404)');
+  const noPage = M.socialMeta({ id: 'cine-a', point: 'look for', headline: 'Stop saying "look a book"', cefr: 'A2' }, 'threads');
+  ok(!/\/video\/cine-a/.test(noPage.description) && /lexkite\.com\/app\/\?utm_source=threads/.test(noPage.description), 'clip chưa có trang → link về app, không phải /video/<id>/ (404)');
   ok(noPage.title === 'Stop saying "look a book"' && !noPage.no_keyword && noPage.hashtags.length >= 3 && noPage.seo.score >= 80, 'tiêu đề tay được dùng, đủ hashtag, đạt SEO');
-  ok(/\/video\/s-1\/\?utm/.test(M.socialMeta({ id: 'c', point: 'x', slug: 's-1' }, 'tiktok').description), 'có slug → trang video');
-  ok(/app\/\?utm_source=tiktok[^#\s]*#\/grammar/.test(M.socialMeta({ id: 'c', point: 'x', url: 'https://lexkite.com/app/#/grammar' }, 'tiktok').description), 'utm đứng trước #');
+  ok(/\/video\/s-1\/\?utm/.test(M.socialMeta({ id: 'c', point: 'x', slug: 's-1' }, 'facebook_page').description), 'có slug → trang video');
+  ok(/app\/\?utm_source=youtube[^#\s]*#\/grammar/.test(M.socialMeta({ id: 'c', point: 'x', url: 'https://lexkite.com/app/#/grammar' }, 'youtube').description), 'utm đứng trước #');
+  ok(M.socialMeta({ id: 'c', point: 'x', slug: 's-1' }, 'tiktok').seo.failed.indexOf('link_early') < 0 && M.socialMeta({ id: 'c', point: 'x', slug: 's-1' }, 'instagram').seo.failed.indexOf('link_early') < 0, 'IG/TikTok: CTA "link in bio" tính là link sớm (không tụt điểm SEO)');
   ok(M.socialMeta({ id: 'cine-news-x', title: 'cine-news-x' }, 'tiktok').no_keyword === true, 'không có metadata → đánh dấu để không đăng');
   const own = M.socialMeta({ id: 'c', point: 'x', headline: 'Do yoga or make yoga?', value: "You do yoga. You don't make it.", hashtags: ['#learnenglish', '#englishtips', '#a2english'] }, 'facebook_page');
   ok(own.title === 'Do yoga or make yoga?' && own.description.split('\n')[1] === "You do yoga. You don't make it." && own.hashtags.join() === '#learnenglish,#englishtips,#a2english' && own.description.includes('#a2english'), 'khối publish được dùng nguyên cho tiêu đề, dòng giá trị, hashtag');

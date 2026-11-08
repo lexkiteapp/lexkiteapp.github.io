@@ -66,7 +66,7 @@
 'Học thông minh': 'Smart study',
 'Nguồn:': 'Source:',
 '{title} – câu {n}: {q}': '{title} – Q{n}: {q}',
-'{a}/{b} đã trả lời': '{a}/{b} answered',
+
 'Bấm để bỏ tô sáng': 'Tap to remove highlight',
 'Ghi chú': 'Note',
 'Đáp án:': 'Answer:',
@@ -134,4 +134,7 @@
 'Trình duyệt này chưa có nhận dạng giọng nói. Lexkite có thể dùng <b>Whisper</b> (mã nguồn mở) chạy ngay trên máy của bạn: miễn phí, riêng tư – âm thanh không gửi đi đâu.': 'This browser has no built-in speech recognition. Lexkite can use <b>Whisper</b> (open source) running right on your device: free and private – your audio never leaves it.',
 'Cần tải mô hình khoảng 40 MB một lần (nên dùng Wi-Fi).': 'It needs a one-time ~40 MB model download (Wi-Fi recommended).',
 'Tải & bật': 'Download & turn on', 'Đang chuẩn bị… bấm micro lần nữa để nói': 'Getting ready… tap the mic again to speak',
+// ---------- từ en/goal.js + en/remind.js: nhãn trợ năng viên đầu trang Stitch chung (web/js/st/v2/shell.js) – màn Ôn/Lộ trình/Tôi… cần ngay, không chờ gói lười (thiếu → dịch máy gọi mạng) ----------
+'Mức sẵn sàng thi': 'Exam readiness', 'Mục tiêu hôm nay': "Today's goal",
+'Luyện tiếng Tây Ban Nha': 'Spanish practice', 'Chia động từ và ngữ pháp, giải thích bằng ngôn ngữ của bạn': 'Verb conjugation and grammar, explained in your language',
 }); })(typeof self !== 'undefined' ? self : this);

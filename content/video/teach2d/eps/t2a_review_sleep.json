@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"sleep\" mean?",
+  "keyword": "sleep",
+  "value": "Sleep means to rest your body in bed, as at night time.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=sleep",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"sleep\" mean?",
+    "description": "Sleep means to rest your body in bed, as at night time.\n\nReview your words, free: https://lexkite.com/app/#/review?w=sleep\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "sleep",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"sleep\" mean?\n\nSleep means to rest your body in bed, as at night time.\n\nReview your words, free: https://lexkite.com/app/#/review?w=sleep"
+   },
+   "instagram": {
+    "caption": "What does \"sleep\" mean?\n\nSleep means to rest your body in bed, as at night time.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"sleep\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to rest your body in bed, as at night time. Sleep means to rest your body in bed, as at night time. More practice like this (free): {link}"
  }
 }

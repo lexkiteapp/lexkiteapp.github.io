@@ -40,6 +40,8 @@ ok(vals.length >= 12 && !('en' in pk), `langPacks: ≥ 12 gói ngoài en (có ${
 ok(LB.topSize === Math.max(...vals) && pk[LB.topLang] === LB.topSize, 'gói lớn nhất = max thật, không phải trung bình');
 ok(LB.learner === LB.total - LB.sum + LB.topSize, 'learner = total − Σ gói + gói lớn nhất');
 ok(LB.learner < LB.total && LB.learner > LB.total - LB.sum, 'thước mới nằm giữa: nhỏ hơn tổng cả kho, lớn hơn nền thuần (vẫn tính 1 gói)');
+// Tình huống Play & Speak (speak/s/<id>[.<lang>].js) nay ở web/cpack/speak/s (tải lười, băm tên) → KHÔNG tính vào nền hay gói ngôn ngữ; kho JS không được mọc lại thư mục này
+ok(!fs.existsSync('web/js/speak/s'), 'tình huống Play & Speak nằm trong web/cpack/speak/s, không phải web/js/speak/s');
 const bj = JSON.parse(fs.readFileSync('scripts/test/budget.json', 'utf8'));
 ok(Math.max(...vals) <= bj.langPackMax, `gói ${LB.topLang} ${LB.topSize} B ≤ langPackMax ${bj.langPackMax}`);
 ok(LB.total <= bj.totalAll && bj.totalAll >= bj.totalJs, 'totalAll (chặn tổng cả kho) tồn tại và ≥ totalJs');

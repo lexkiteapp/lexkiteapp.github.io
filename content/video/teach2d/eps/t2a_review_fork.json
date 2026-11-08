@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"fork\" mean?",
+  "keyword": "fork",
+  "value": "Fork means a tool with points for eating.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=fork",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"fork\" mean?",
+    "description": "Fork means a tool with points for eating.\n\nReview your words, free: https://lexkite.com/app/#/review?w=fork\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "fork",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"fork\" mean?\n\nFork means a tool with points for eating.\n\nReview your words, free: https://lexkite.com/app/#/review?w=fork"
+   },
+   "instagram": {
+    "caption": "What does \"fork\" mean?\n\nFork means a tool with points for eating.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"fork\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a tool with points for eating. Fork means a tool with points for eating. Practice it with a free quiz: {link}"
  }
 }

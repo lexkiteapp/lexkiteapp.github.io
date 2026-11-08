@@ -2,7 +2,7 @@
 import fs from 'node:fs'; import vm from 'node:vm';
 
 const ctx = (extra = {}) => { const c = { self: {}, window: {}, t: s => s, localStorage: { getItem() {}, setItem() {} }, ...extra }; c.self = c.window = c; vm.createContext(c); return c; };
-const run = (c, f) => vm.runInContext(fs.readFileSync(`web/js/${f}.js`, 'utf8'), c);
+const run = (c, f) => vm.runInContext(fs.readFileSync(fs.existsSync(`web/js/${f}.js`) ? `web/js/${f}.js` : `web/cpack/${f}.js`, 'utf8'), c); // dữ liệu lớn tải lười nằm ở web/cpack (cùng tên, không có ở web/js)
 const load = files => { const c = ctx(); for (const f of files) run(c, f); return c; };
 
 // Writing Task 2: đề (write.js PROMPTS + WRITE_MORE) + bài mẫu (MODELS)

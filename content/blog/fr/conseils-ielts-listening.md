@@ -58,7 +58,7 @@ La Section 2 est un monologue portant sur un sujet d'intérêt général (visite
 - Tracez mentalement les repères cardinaux (North, South, East, West).
 - Mémorisez le lexique spatial : *adjacent to, opposite, turn clockwise, past the junction*.
 
-N'hésitez pas à étoffer votre lexique thématique à l'aide de nos [listes de vocabulaire spécialisées](/tu-vung/).
+N'hésitez pas à étoffer votre lexique thématique à l'aide de nos [listes de vocabulaire spécialisées](/en/vocabulary/).
 
 ## Section 3 & 4 : Débats académiques et cours magistraux
 

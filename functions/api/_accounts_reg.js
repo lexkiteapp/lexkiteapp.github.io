@@ -253,17 +253,35 @@ export const ROWS = [
    "ANDROID_KEYSTORE_PASSWORD",
    "ANDROID_KEY_ALIAS",
    "ANDROID_KEY_PASSWORD",
+   "PLAY_SERVICE_ACCOUNT_JSON",
    "CWS_CLIENT_ID",
    "CWS_CLIENT_SECRET",
    "CWS_REFRESH_TOKEN",
    "CWS_PUBLISHER_ID",
    "CWS_EXTENSION_ID",
-   "OTA_SIGNING_KEY"
+   "OTA_SIGNING_KEY",
+   "PLAY_SERVICE_ACCOUNT_JSON"
   ],
-  "scope": "Phát hành TestFlight, Play, CWS; ký OTA",
+  "scope": "Phát hành TestFlight, Play, CWS; ký OTA; đọc đánh giá App Store/Play (store-reviews.yml – PLAY_SERVICE_ACCOUNT_JSON chưa tạo)",
   "manage": "https://appstoreconnect.apple.com/",
   "expires": "",
   "note": ""
+ },
+ {
+  "id": "gh-ios-signing",
+  "service": "Ký iOS cố định (CI)",
+  "account": "Apple Developer · team B285J68262",
+  "store": "github",
+  "names": [
+   "IOS_DIST_P12_BASE64",
+   "IOS_DIST_P12_PASSWORD",
+   "IOS_PROFILE_APP_BASE64",
+   "IOS_PROFILE_WIDGET_BASE64"
+  ],
+  "scope": "Chứng chỉ Apple Distribution (.p12 + mật khẩu) và hồ sơ App Store app/widget cho ký Manual trên CI (scripts/native/ios-sign.sh) – tạo/gia hạn: docs/CI-SIGNING-IOS.md",
+  "manage": "https://appstoreconnect.apple.com/",
+  "expires": "",
+  "note": "Gia hạn mỗi năm (chứng chỉ + hồ sơ hết hạn 1 năm sau create-dist)"
  },
  {
   "id": "gh-google",
@@ -274,9 +292,10 @@ export const ROWS = [
    "GSC_SA_JSON",
    "ADS_OAUTH_CLIENT_ID",
    "ADS_OAUTH_CLIENT_SECRET",
-   "ADS_OAUTH_REFRESH"
+   "ADS_OAUTH_REFRESH",
+   "FCM_SA"
   ],
-  "scope": "Search Console, báo cáo AdSense/AdMob",
+  "scope": "Search Console, báo cáo AdSense/AdMob; FCM_SA = JSON service account lexkite-push (Firebase Cloud Messaging API Admin) cho dry-run validate_only (push-fcm.yml)",
   "manage": "https://console.cloud.google.com/apis/credentials",
   "expires": "",
   "note": ""

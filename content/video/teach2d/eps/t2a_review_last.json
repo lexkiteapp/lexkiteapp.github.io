@@ -72,5 +72,46 @@
   "words": 38,
   "seconds": 23.7,
   "wpm": 96
+ },
+ "publish": {
+  "title": "What does \"last\" mean?",
+  "keyword": "last",
+  "value": "Last means the one before.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=last",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"last\" mean?",
+    "description": "Last means the one before.\n\nReview your words, free: https://lexkite.com/app/#/review?w=last\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "last",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"last\" mean?\n\nLast means the one before.\n\nReview your words, free: https://lexkite.com/app/#/review?w=last"
+   },
+   "instagram": {
+    "caption": "What does \"last\" mean?\n\nLast means the one before.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"last\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means the one before. Last means the one before. Try the full lesson and quiz here: {link}"
  }
 }

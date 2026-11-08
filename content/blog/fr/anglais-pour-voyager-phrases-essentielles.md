@@ -171,7 +171,7 @@ Pour aller plus loin et voyager avec un esprit totalement détendu :
 * Retenez les verbes d'action indispensables avec [Phrasal verbs anglais essentiels](/fr/blog/phrasal-verbs-anglais-essentiels/).
 * Évitez les quiproquos comiques ou embarrassants répertoriés dans [Faux amis anglais français](/fr/blog/faux-amis-anglais-francais/).
 * Libérez votre spontanéité orale sans chercher à traduire en découvrant [Comment penser en anglais sans traduire](/fr/blog/comment-penser-en-anglais-sans-traduire/).
-* Consultez aussi nos listes thématiques dans notre section de [Liste de vocabulaire thématique](/tu-vung/).
+* Consultez aussi nos listes thématiques dans notre section de [Liste de vocabulaire thématique](/en/vocabulary/).
 
 {{cta: /app/#/library | Découvrir le vocabulaire de voyage sur Lexkite}}
 

@@ -72,5 +72,46 @@
   "words": 39,
   "seconds": 24.2,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"heavily\" mean?",
+  "keyword": "heavily",
+  "value": "Heavily means a lot or to a great degree.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=heavily",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"heavily\" mean?",
+    "description": "Heavily means a lot or to a great degree.\n\nReview your words, free: https://lexkite.com/app/#/review?w=heavily\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "heavily",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"heavily\" mean?\n\nHeavily means a lot or to a great degree.\n\nReview your words, free: https://lexkite.com/app/#/review?w=heavily"
+   },
+   "instagram": {
+    "caption": "What does \"heavily\" mean?\n\nHeavily means a lot or to a great degree.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"heavily\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a lot or to a great degree. Heavily means a lot or to a great degree. Try the full lesson and quiz here: {link}"
  }
 }

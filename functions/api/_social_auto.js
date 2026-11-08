@@ -17,14 +17,15 @@ import { gcClient, gcConfigured } from './_grabcast.js';
 import { manifest, signed } from './admin-shorts.js';
 import { once } from './_schema.js';
 import { encReady } from './_keys.js';
-import { metaClient, tokenHealth, fbReel, fbStatus, igContainer, igStatus, igQuota, igPublish } from './_meta.js';
+import { metaClient, tokenHealth, fbReel, fbStatus, igContainer, igStatus, igQuota, igPublish, fbComment, fbFindComment } from './_meta.js';
+import { firstComment, fcCaption, fcLeft, fcCount, cleanFc, clickStats, FC_DEFAULT } from './_first_comment.js';
 import { setupOAuth, appStatus, setAppSecret, startOAuth, pendingPages, pickPage, reconnectUrl } from './_meta_oauth.js';
 import { metaChannels, tokenOf, refreshIg, igNeedsRefresh, markToken, setToken, delToken, KIND } from './_meta_tokens.js';
 
 // ---------------- Hàm thuần (test: scripts/test/social-auto.mjs) ----------------
 export const AUTO_PLATS = ['facebook_page', 'instagram', 'tiktok', 'youtube', 'threads'];
 /** on = kill switch (TẮT → không gọi GrabCast gì cả) · auto_approve mặc định TẮT · TikTok BẬT (Direct Post duyệt 03/11/2026) · YouTube TẮT tới khi Google duyệt app. plan_daily BẬT: lịch tự xếp mỗi ngày (chỉ D1, không đăng gì khi chưa duyệt). */
-export const AUTO_DEFAULT = { on: true, auto_approve: false, auto_queue: false, manual_first: 1, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 3, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 60, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {}, yt_gc_auto: true };
+export const AUTO_DEFAULT = { on: true, auto_approve: false, auto_queue: false, manual_first: 1, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 3, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 60, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {}, yt_gc_auto: true, fc: FC_DEFAULT };
 export const PROVIDERS = ['auto', 'grabcast', 'meta'];
 const clamp = (v, lo, hi, d) => { const n = Math.round(+v); return Number.isFinite(n) ? Math.max(lo, Math.min(hi, n)) : d; };
 export function cleanAuto(a) {
@@ -33,7 +34,7 @@ export function cleanAuto(a) {
     plats: Object.fromEntries(AUTO_PLATS.map(p => [p, pl[p] == null ? d.plats[p] : !!pl[p]])),
     max_per_run: clamp(a.max_per_run, 1, 5, d.max_per_run), lookahead_h: clamp(a.lookahead_h, 2, 72, d.lookahead_h), lead_min: clamp(a.lead_min, 10, 180, d.lead_min),
     sync_h: clamp(a.sync_h, 3, 24, d.sync_h), daily_calls: clamp(a.daily_calls, 10, 120, d.daily_calls), plan_daily: a.plan_daily == null ? d.plan_daily : !!a.plan_daily,
-    yt_gc_auto: a.yt_gc_auto == null ? d.yt_gc_auto : !!a.yt_gc_auto,
+    yt_gc_auto: a.yt_gc_auto == null ? d.yt_gc_auto : !!a.yt_gc_auto, fc: cleanFc(a.fc), // bình luận đầu mang link (§6c): bật, ≤ per_ch_day/kênh/ngày, ≤ max_tries lần thử
     provider: PROVIDERS.includes(a.provider) ? a.provider : d.provider, meta_daily: clamp(a.meta_daily, 20, 200, d.meta_daily),
     meta_map: Object.fromEntries(['facebook_page', 'instagram'].filter(p => a.meta_map && /^gc-[a-z_]+-[A-Za-z0-9_-]{1,40}$/.test(String(a.meta_map[p] || ''))).map(p => [p, String(a.meta_map[p])])) };
 }
@@ -82,9 +83,10 @@ const CLIP = /^[a-z0-9-]{3,120}$/;
 const stopErr = (status, code) => Object.assign(new Error('stop'), { stop: true, status, code: String(code || status) });
 
 /** Số bài duyệt TAY (không phải autopilot) theo nền tảng – qua chỉ mục soc_board_state. */
-export async function manualCounts(db) {
+/** fc = true: chỉ đếm bài duyệt tay CÓ bình luận đầu – bài đầu mang bình luận link trên mỗi nền tảng vẫn do chủ duyệt tay (§6c). */
+export async function manualCounts(db, { fc = false } = {}) {
   const out = {};
-  for (const r of await all(db, "SELECT plats FROM soc_board WHERE state IN ('approved', 'scheduled', 'published') AND approved_by IS NOT NULL AND approved_by != ? LIMIT 5000", AUTO_WHO)) {
+  for (const r of await all(db, `SELECT plats FROM soc_board WHERE state IN ('approved', 'scheduled', 'published') AND approved_by IS NOT NULL AND approved_by != ?${fc ? " AND fc IS NOT NULL AND fc != ''" : ''} LIMIT 5000`, AUTO_WHO)) {
     let ps = []; try { ps = JSON.parse(r.plats || '[]'); } catch (e) { /* hỏng */ }
     for (const p of new Set(ps.map(x => platOf({ platform: x })))) out[p] = (out[p] || 0) + 1;
   }
@@ -143,7 +145,7 @@ export function metaChannelFor(p, chans, map = {}) {
   if (map[p]) return chans.some(c => c.channel_id === map[p]) ? map[p] : null;
   const xs = chans.filter(c => c.platform === p); return xs.length === 1 ? xs[0].channel_id : null;
 }
-const ALERT_EVERY = { failover: 0, 'meta-token': 3 * 864e5, 'meta-down': 864e5, 'dup-published': 0, recovered: 0, 'gc-auth': 864e5, 'no-channels': 3 * 864e5, 'no-approved': 3 * 864e5, 'nothing-planned': 864e5, 'gave-up': 0, 'post-failed': 0, 'no-metadata': 0, 'no-new-clips': 7 * 864e5, 'manifest-stale': 864e5 };
+const ALERT_EVERY = { failover: 0, 'meta-token': 3 * 864e5, 'meta-down': 864e5, 'dup-published': 0, recovered: 0, 'gc-auth': 864e5, 'no-channels': 3 * 864e5, 'no-approved': 3 * 864e5, 'nothing-planned': 864e5, 'gave-up': 0, 'post-failed': 0, 'no-metadata': 0, 'no-new-clips': 7 * 864e5, 'manifest-stale': 864e5, 'fc-perm': 3 * 864e5, 'fc-gave-up': 0, 'fc-no-capability': 7 * 864e5 };
 /** Đưa 1 cảnh báo vào hàng (CI mở 1 issue/email cho mỗi cảnh báo). failover chỉ 1 lần mỗi đợt (xóa khi hồi phục). */
 export function pushAlert(st, k, text, now) {
   const base = k.split(':')[0], last = (st.alerted || {})[k];
@@ -160,6 +162,17 @@ export async function setupLock(db, env) {
     db.prepare('CREATE INDEX IF NOT EXISTS soc_lock_cancel ON soc_lock (gc_cancel)'), // hồi phục GrabCast: chỉ đọc các bài còn treo hủy
     db.prepare('CREATE TABLE IF NOT EXISTS soc_tokens (channel_id TEXT PRIMARY KEY, kind TEXT NOT NULL, target_id TEXT NOT NULL, name TEXT, enc TEXT NOT NULL, last4 TEXT, expires_at INTEGER, refreshed_at INTEGER, status TEXT, err TEXT, updated INTEGER)'), // token Meta theo kênh (mã hóa) – functions/api/_meta_tokens.js
   ]), { env });
+  await setupFc(db, env);
+}
+/** Cột bình luận đầu (§6c): soc_board.fc = nội dung đã gắn link · soc_lock.fc_* = trạng thái bình luận đường Meta (due → done | retry | unknown | no-perm | gave-up).
+ *  ALTER từng cột riêng, bỏ qua "duplicate column" (lần chạy dở trước) – không bao giờ chặn lượt đăng. */
+export async function setupFc(db, env) {
+  await setupMgr(db);
+  await once(db, 'soc-fc', 1, async () => {
+    for (const q of ['ALTER TABLE soc_board ADD COLUMN fc TEXT', 'ALTER TABLE soc_lock ADD COLUMN fc_state TEXT', 'ALTER TABLE soc_lock ADD COLUMN fc_id TEXT', 'ALTER TABLE soc_lock ADD COLUMN fc_tries INTEGER', 'ALTER TABLE soc_lock ADD COLUMN fc_at INTEGER'])
+      await db.prepare(q).run().catch(e => { if (!/duplicate column/i.test(String(e && e.message))) throw e; });
+    await db.prepare('CREATE INDEX IF NOT EXISTS soc_lock_fc ON soc_lock (fc_state)').run(); // lượt bình luận Meta chỉ đọc hàng đang chờ (không quét bảng)
+  }, { env });
 }
 const lockOf = (db, clip, ch) => one(db, 'SELECT * FROM soc_lock WHERE clip = ? AND channel_id = ?', clip, ch);
 const setLock = (db, clip, ch, f) => { const k = Object.keys(f); return run(db, `UPDATE soc_lock SET ${k.map(x => x + ' = ?').join(', ')}, updated = ? WHERE clip = ? AND channel_id = ?`, ...k.map(x => f[x]), Date.now(), clip, ch); };
@@ -176,7 +189,10 @@ export async function autoStatus(env, now = Date.now()) {
   const ytc = await all(db, "SELECT channel_id, title FROM dist_ext WHERE platform = 'youtube' AND status = 'ok' LIMIT 5").catch(() => []);
   // Bảng Kênh (Quản trị #social): kênh GrabCast + ngôn ngữ nhận từ tên trang (0 lượt GrabCast) · kênh YouTube API trực tiếp (dự phòng, yt_channel)
   const channels = await socialChannels(db).catch(() => []), yt_direct = await all(db, 'SELECT channel_id, title, status FROM yt_channel ORDER BY id LIMIT 10').catch(() => []);
-  return { cfg, yt_via_gc: ytViaGc(cfg, ytc), yt_gc_channels: ytc, channels, yt_direct, state: st, key: gcConfigured(env), webhook: String(env.GRABCAST_WEBHOOK_SECRET || '').length >= 24, manual: await manualCounts(db), budget_left: budgetLeft(st, cfg, now),
+  // Click từ bình luận đầu / link bio (functions/api/go/[[path]].js → ext_events 'soc:' / 'socc:'), 28 ngày – quét theo khoảng khóa (day, kind) PK, không cả bảng
+  const since = new Date(now - 28 * 864e5).toISOString().slice(0, 10), crow = await all(db, "SELECT kind, SUM(n) AS n FROM ext_events WHERE day >= ? AND ((kind >= 'soc:' AND kind < 'soc;') OR (kind >= 'socc:' AND kind < 'socc;')) GROUP BY kind LIMIT 2000", since).catch(() => []);
+  const fcs = await all(db, "SELECT fc_state, COUNT(*) AS n FROM soc_lock WHERE fc_state IS NOT NULL GROUP BY fc_state").catch(() => []);
+  return { cfg, yt_via_gc: ytViaGc(cfg, ytc), yt_gc_channels: ytc, channels, clicks: { days: 28, ...clickStats(crow) }, fc: { meta: Object.fromEntries(fcs.map(r => [r.fc_state, +r.n || 0])), manual: await manualCounts(db, { fc: true }), today: (st.fc && st.fc.day === dayOf(now)) ? st.fc.n : {} }, yt_direct, state: st, key: gcConfigured(env), webhook: String(env.GRABCAST_WEBHOOK_SECRET || '').length >= 24, manual: await manualCounts(db), budget_left: budgetLeft(st, cfg, now),
     provider: { ...(st.provider || { cur: 'grabcast', why: '' }), mode: cfg.provider, gc_down: gcDownWhy(env, st, now) || null },
     meta: { configured: mlist.length > 0, enc: encReady(env), apps: await appStatus(env, db), budget_left: metaLeft(st, cfg, now), channels: chans,
       tokens: mlist.map(m => ({ ...m, health: (ms.th || {})[m.channel_id] || null, breaker: (ms.br || {})[m.channel_id] && ms.br[m.channel_id].until > now ? ms.br[m.channel_id] : null })) },
@@ -250,7 +266,7 @@ export const metaLeft = (st, cfg, now) => Math.max(0, cfg.meta_daily - (((st.met
 export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = fetch, origin = 'https://lexkite.com/api/social-auto', force_sync = false, sleep = ms => new Promise(r => setTimeout(r, ms)) } = {}) {
   const db = env.DB; await setupMgr(db); await setupDist(db); await setupLock(db, env);
   const cfg = cleanAuto(await getMeta(db, 'auto', AUTO_DEFAULT)), st = await getMeta(db, 'auto_state', {});
-  const rec = { at: now, src, due: 0, created: 0, scheduled: 0, review: 0, skipped: [], calls: 0, stop: null, synced: null, provider: null, meta: { calls: 0, posted: 0, scheduled: 0, containers: 0, stop: null }, alerts: [] };
+  const rec = { at: now, src, due: 0, created: 0, scheduled: 0, review: 0, skipped: [], calls: 0, stop: null, synced: null, provider: null, meta: { calls: 0, posted: 0, scheduled: 0, containers: 0, stop: null }, alerts: [], fc: { attached: 0, posted: 0, skipped: [] } };
   const save = async () => {
     const today = dayOf(now), calls = st.calls && st.calls.day === today ? +st.calls.n || 0 : 0;
     st.calls = { day: today, n: calls + rec.calls }; st.last_run = { ...rec, alerts: undefined };
@@ -265,6 +281,17 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
   const planNow = async () => { try { await ytSetup(db); await run(db, "DELETE FROM dist_social WHERE state = 'planned' AND source = 'auto' AND slot_ms BETWEEN ? AND ?", now - 90 * 864e5, now - MAX_LATE_MS); const p = await DIST.plan_run(db, {}, env); st.last_plan = now; rec.planned = (p && p.social) || 0; } catch (e) { rec.skipped.push({ why: 'plan-error', err: String(e && e.message).slice(0, 120) }); } }; // chỉ D1, 0 lượt GrabCast. Slot đã lỡ quá 12 giờ (GrabCast sập, lịch CI trễ) → xóa để xếp lại, không kẹt 'planned' mãi
   const queuedNew = await ytSetup(db).then(() => autoQueue(env, db, cfg, now)).catch(() => { rec.skipped.push({ why: 'auto-queue-error' }); return 0; }); rec.auto_queued = queuedNew;
   if (cfg.plan_daily && (queuedNew || now - (+st.last_plan || 0) > 20 * 36e5)) await planNow();
+
+  /** Bình luận đầu qua GrabCast (§6c): nội dung sản xuất + link đếm click; gắn vào target options.first_comment (1 lệnh tạo bài – không có lệnh thứ 2 nên không thể đăng trùng,
+   *  nội dung nằm trong dấu băm duyệt). Chỉ khi: công tắc fc bật · kênh GrabCast báo capabilities.first_comment · còn hạn mức kênh/ngày. → { text, why } */
+  const gcFirstComment = (c, p, acc, ch) => {
+    const f = firstComment({ ...c, lang: (c._it && c._it.lang) || c.lang }, p);
+    if (!f.text) return f.mode === 'bio' ? { text: '', why: '' } : f;
+    if (!cfg.fc.on) return { text: '', why: 'off' };
+    if (!((acc && acc.capabilities) || {}).first_comment) return { text: '', why: 'no-capability' };
+    if (fcLeft(st, cfg.fc, ch, now) <= 0) return { text: '', why: 'rate' };
+    return f;
+  };
 
   // ---- GrabCast client (ngân sách + cầu dao) ----
   let left = budgetLeft(st, cfg, now);
@@ -331,6 +358,8 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
     if (rec.stop === 'no-key' || rec.stop === 'breaker' || rec.stop === 'budget') rec.stop = null;
     try { await metaPass(); } catch (e) { if (!e.metaStop) throw e; }
   }
+  // ---- 2b) Bình luận đầu của các Reel FB đã lên qua Meta (chạy cả khi đã quay về GrabCast: bài Meta cũ vẫn cần bình luận) ----
+  try { await metaFcPass(); } catch (e) { rec.fc.skipped.push({ why: 'fc-pass:' + String((e && e.code) || (e && e.message) || 'error').slice(0, 60) }); }
   if (cfg.on) {
     rec.health = await chainHealth(db, cfg, now);
     const mf = await manifest(env).catch(() => null), newest = Math.max(0, ...((mf && mf.items) || []).map(x => Date.parse(x.created || '') || 0));
@@ -372,15 +401,15 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
     // 2) Bài đến hạn
     const due = pickDue((await DIST.social_due(db, { from: now + cfg.lead_min * 60e3, to: now + cfg.lookahead_h * 36e5 }, env)).rows, cfg, now).filter(r => !skipPlats.includes(r.platform));
     rec.due = due.length;
-    const manual = cfg.auto_approve ? await manualCounts(db) : {};
+    const manual = cfg.auto_approve ? await manualCounts(db) : {}, manualFc = cfg.auto_approve ? await manualCounts(db, { fc: true }) : {};
     let done = 0;
     // Bài đã tạo mà chưa lên lịch: social_due không còn trả về (state 'pushed') nên phải gom riêng – vừa bật tự duyệt, hoặc lần lên lịch trước lỗi. Slot đã qua → đăng sớm nhất có thể.
-    for (const b of await all(db, "SELECT id, post_id, clip, accounts, plats, want_at, state, approved_by FROM soc_board WHERE state IN ('review', 'approved') AND by_who = ? AND post_id IS NOT NULL ORDER BY want_at LIMIT 10", AUTO_WHO)) {
+    for (const b of await all(db, "SELECT id, post_id, clip, accounts, plats, want_at, state, approved_by, fc FROM soc_board WHERE state IN ('review', 'approved') AND by_who = ? AND post_id IS NOT NULL ORDER BY want_at LIMIT 10", AUTO_WHO)) {
       if (done >= cfg.max_per_run) break;
       let a = [], p = []; try { a = JSON.parse(b.accounts || '[]'); p = JSON.parse(b.plats || '[]'); } catch (e) { continue; }
       const plat = platOf({ platform: p[0] || '' }), ch = `gc-${plat}-${a[0]}`;
       if (a.length !== 1 || skipPlats.includes(plat) || !cfg.plats[plat]) continue;
-      if (b.state === 'approved' ? b.approved_by !== AUTO_WHO : !canAutoApprove(cfg, plat, manual)) continue; // bài duyệt tay do board/approve lo; chưa đủ điều kiện thì chờ người
+      if (b.state === 'approved' ? b.approved_by !== AUTO_WHO : !canAutoApprove(cfg, plat, b.fc ? manualFc : manual)) continue; // bài duyệt tay do board/approve lo; chưa đủ điều kiện thì chờ người (bài có bình luận đầu: đếm riêng)
       const fk = 'r|' + b.clip + '|' + ch; if (((st.fails || {})[fk] || {}).n >= MAX_TRIES) { rec.skipped.push({ clip: b.clip, ch, why: 'gave-up' }); continue; }
       const lk = await lockOf(db, b.clip, ch); if (lk && lk.provider === 'meta') continue;
       done++; const before = rec.scheduled;
@@ -394,10 +423,9 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       if (done >= cfg.max_per_run) break;
       if (((st.fails || {})[r.clip + '|' + r.channel_id] || {}).n >= MAX_TRIES) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'gave-up' }); continue; } // lỗi lặp lại → chờ người xem (không đốt lượt GrabCast)
       const lk = await lockOf(db, r.clip, r.channel_id); if (lk && lk.provider === 'meta') { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta' }); continue; } // Meta đã nhận bài này
-      const bid = await boardId(r.clip, r.channel_id), ex = await one(db, 'SELECT id, post_id, state FROM soc_board WHERE id = ?', bid);
-      const auto = canAutoApprove(cfg, r.platform, manual);
+      const bid = await boardId(r.clip, r.channel_id), ex = await one(db, 'SELECT id, post_id, state, fc FROM soc_board WHERE id = ?', bid);
       if (ex && ex.post_id) { // đã tạo bài ở lượt trước
-        if (ex.state === 'review' && auto) { done++; await approveAndSchedule(db, call, ex.id, ex.post_id, r, rec); }
+        if (ex.state === 'review' && canAutoApprove(cfg, r.platform, ex.fc ? manualFc : manual)) { done++; await approveAndSchedule(db, call, ex.id, ex.post_id, r, rec); }
         else if (['scheduled', 'published'].includes(ex.state)) await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'pushed', post_id: ex.post_id });
         else rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'waiting-approval' });
         continue;
@@ -416,18 +444,20 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       try {
         const mid = await pushClip(env, c, call, origin);
         const body = bodyFor({ ...c, title: meta.title || c.title, description: meta.description || c.description, hashtags: meta.description ? [] : c.hashtags }, mid, [acc]);
+        // Bình luận đầu (§6c): chỉ khi GrabCast báo kênh có quyền first_comment (capabilities), còn hạn mức kênh/ngày; IG/TikTok: link bio, không bình luận.
+        const fc = gcFirstComment(c, p, a, r.channel_id); if (fc.text) { body.targets[0].options = { ...body.targets[0].options, first_comment: fc.text }; body.caption = fcCaption(body.caption, p); }
         const v = validateCompose({ caption: body.caption, title: body.title, clip: c.id }, [p]).filter(x => x.lv === 'error');
         if (v.length) { await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'failed', err: 'invalid:' + v.map(x => x.code).join(',') }); failed(r, 'invalid'); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'invalid' }); continue; }
         const cr = await call('POST', 'posts', body, null, await createKey(r.clip, r.channel_id, body));
         const pid = String((cr.data && (cr.data.post || cr.data).id) || '');
         if (cr.status >= 400 || !/^[A-Za-z0-9_-]{1,100}$/.test(pid)) { await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'failed', err: 'create:' + (cr.code || cr.status) }); failed(r, 'create'); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'create-' + (cr.code || cr.status) }); continue; }
         const t = Date.now();
-        await run(db, `INSERT INTO soc_board (id, post_id, clip, title, caption, accounts, plats, template, hook, cefr, state, mode, want_at, hash, note, created, updated, by_who) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'review', 'sched', ?, NULL, 'autopilot', ?, ?, ?)
-          ON CONFLICT(id) DO UPDATE SET post_id = excluded.post_id, state = 'review', want_at = excluded.want_at, hash = NULL, approved_by = NULL, approved_at = NULL, updated = excluded.updated`,
-          bid, pid, c.id, String(body.title || '').slice(0, 200), String(body.caption || '').slice(0, 2200), JSON.stringify([String(a.id)]), JSON.stringify([p]), c.template || null, c.hook || null, c.cefr || null, r.slot_ms, t, t, AUTO_WHO);
+        await run(db, `INSERT INTO soc_board (id, post_id, clip, title, caption, accounts, plats, template, hook, cefr, state, mode, want_at, hash, note, created, updated, by_who, fc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'review', 'sched', ?, NULL, 'autopilot', ?, ?, ?, ?)
+          ON CONFLICT(id) DO UPDATE SET post_id = excluded.post_id, state = 'review', want_at = excluded.want_at, hash = NULL, approved_by = NULL, approved_at = NULL, updated = excluded.updated, fc = excluded.fc`,
+          bid, pid, c.id, String(body.title || '').slice(0, 200), String(body.caption || '').slice(0, 2200), JSON.stringify([String(a.id)]), JSON.stringify([p]), c.template || null, c.hook || null, c.cefr || null, r.slot_ms, t, t, AUTO_WHO, fc.text || null);
         await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'pushed', post_id: pid });
-        rec.created++;
-        if (auto) await approveAndSchedule(db, call, bid, pid, r, rec); else rec.review++;
+        rec.created++; if (fc.text) { fcCount(st, r.channel_id, now); rec.fc.attached++; } else if (fc.why) rec.fc.skipped.push({ clip: r.clip, ch: r.channel_id, why: fc.why });
+        if (canAutoApprove(cfg, r.platform, fc.text ? manualFc : manual)) await approveAndSchedule(db, call, bid, pid, r, rec); else rec.review++;
       } catch (e) {
         if (e.stop && (e.status === 409 || e.status === 422)) { // lỗi NỘI DUNG của clip này: vẫn dừng lượt, nhưng phải tính cho clip – không thì lượt nào cũng kẹt đúng clip đầu hàng và chặn mọi bài sau
           if (/media|validation/.test(e.code)) await run(db, 'DELETE FROM soc_meta WHERE k = ?', 'media:' + r.clip); // media cache hết hạn → lượt sau tải lại
@@ -497,7 +527,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       .filter(r => META_PLATS.includes(r.platform) && cfg.plats[r.platform] && ['planned', 'failed', 'pushed'].includes(r.state));
     for (const r of rows) if (!served.has(r.channel_id)) rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-no-token' });
     const mine = rows.filter(r => served.has(r.channel_id));
-    const manual = cfg.auto_approve ? await manualCounts(db) : {};
+    const manual = cfg.auto_approve ? await manualCounts(db) : {}, manualFc = cfg.auto_approve ? await manualCounts(db, { fc: true }) : {};
     const clips = mine.length ? await clipsFor(env, mine.slice(0, 20).map(r => r.clip)) : new Map();
     let acts = 0;
     for (const r of mine) {
@@ -515,15 +545,18 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
         const due = (await DIST.social_due(db, { from: r.slot_ms, to: r.slot_ms, channel_id: r.channel_id }, env)).rows.find(x => x.clip === r.clip) || {}, meta = due.meta || {};
         if (meta.no_keyword) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'no-metadata' }); continue; }
         const body = bodyFor({ ...c, title: meta.title || c.title, description: meta.description || c.description, hashtags: meta.description ? [] : c.hashtags }, 'meta', [{ id: 0, p: r.platform }]);
-        const ok = canAutoApprove(cfg, r.platform, manual), t = Date.now();
-        await run(db, `INSERT INTO soc_board (id, post_id, clip, title, caption, accounts, plats, template, hook, cefr, state, mode, want_at, hash, approved_by, approved_at, note, created, updated, by_who) VALUES (?, NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'sched', ?, NULL, ?, ?, 'meta', ?, ?, ?) ON CONFLICT(id) DO NOTHING`,
-          bid, c.id, String(body.title || '').slice(0, 200), String(body.caption || '').slice(0, 2200), JSON.stringify([r.channel_id.split('-').pop()]), JSON.stringify([r.platform]), c.template || null, c.hook || null, c.cefr || null, ok ? 'approved' : 'review', r.slot_ms, ok ? AUTO_WHO : null, ok ? t : null, t, t, AUTO_WHO);
+        // Bình luận đầu đường Meta (§6c): chỉ FB (IG: link bio). Lượt sau khi Reel đã lên, metaFcPass đăng 1 bình luận của Page (Graph /{video-id}/comments).
+        const f = r.platform === 'facebook_page' && cfg.fc.on && fcLeft(st, cfg.fc, r.channel_id, now) > 0 ? firstComment({ ...c, lang: (c._it && c._it.lang) || c.lang }, r.platform) : { text: '' };
+        if (f.text) { body.caption = fcCaption(body.caption, r.platform); fcCount(st, r.channel_id, now); rec.fc.attached++; } else if (f.why && f.why !== 'bio') rec.fc.skipped.push({ clip: r.clip, ch: r.channel_id, why: f.why });
+        const ok = canAutoApprove(cfg, r.platform, f.text ? manualFc : manual), t = Date.now();
+        await run(db, `INSERT INTO soc_board (id, post_id, clip, title, caption, accounts, plats, template, hook, cefr, state, mode, want_at, hash, approved_by, approved_at, note, created, updated, by_who, fc) VALUES (?, NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'sched', ?, NULL, ?, ?, 'meta', ?, ?, ?, ?) ON CONFLICT(id) DO NOTHING`,
+          bid, c.id, String(body.title || '').slice(0, 200), String(body.caption || '').slice(0, 2200), JSON.stringify([r.channel_id.split('-').pop()]), JSON.stringify([r.platform]), c.template || null, c.hook || null, c.cefr || null, ok ? 'approved' : 'review', r.slot_ms, ok ? AUTO_WHO : null, ok ? t : null, t, t, AUTO_WHO, f.text || null);
         b = await one(db, 'SELECT * FROM soc_board WHERE id = ?', bid);
         if (!ok) { rec.review++; rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'waiting-approval' }); continue; }
       }
       if (b.state === 'published') { await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'published', post_id: r.post_id || b.post_id }); continue; }
       if (!['approved', 'scheduled'].includes(b.state) || !b.approved_by) {
-        if (b.state === 'review' && canAutoApprove(cfg, r.platform, manual)) { await run(db, "UPDATE soc_board SET state = 'approved', approved_by = ?, approved_at = ?, updated = ? WHERE id = ?", AUTO_WHO, now, now, bid); b.state = 'approved'; }
+        if (b.state === 'review' && canAutoApprove(cfg, r.platform, b.fc ? manualFc : manual)) { await run(db, "UPDATE soc_board SET state = 'approved', approved_by = ?, approved_at = ?, updated = ? WHERE id = ?", AUTO_WHO, now, now, bid); b.state = 'approved'; }
         else { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'waiting-approval' }); continue; }
       }
       if (!c) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'clip-not-approved' }); continue; }
@@ -605,8 +638,41 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       }
     }
   }
+  /** Bình luận đầu đường Meta (§6c): ≤ 3 Reel/lượt có soc_lock.fc_state due|retry|unknown (chỉ mục soc_lock_fc), Reel đã lên ≤ 48 giờ.
+   *  Mỗi bài tối đa 1 bình luận: lần thử > 1 hoặc lần trước hết giờ chờ → GET bình luận của Page trước, có rồi thì chỉ ghi 'done' (không đăng lần 2).
+   *  Thử ≤ cfg.fc.max_tries lần; lỗi quyền (thiếu pages_manage_engagement) → 'no-perm' + 1 cảnh báo, KHÔNG dừng kênh (bài vẫn đăng bình thường). */
+  async function metaFcPass() {
+    if (!cfg.fc.on) return;
+    const pend = await all(db, "SELECT clip, channel_id, meta_id, fc_state, fc_tries, updated FROM soc_lock WHERE fc_state IN ('due', 'retry', 'unknown') LIMIT 10");
+    if (!pend.length) return;
+    const { list } = await metaChannels(env, db, cfg), ms = st.meta = st.meta || {}, br = ms.br || {};
+    let mleft = metaLeft(st, cfg, now), n = 0;
+    for (const l of pend) {
+      if (n >= 3 || mleft <= 2) break;
+      const m = list.find(x => x.channel_id === l.channel_id && x.platform === 'facebook_page');
+      if (!m || (br[l.channel_id] && br[l.channel_id].until > now) || !/^\d{5,30}$/.test(String(l.meta_id || ''))) continue;
+      if (now - (+l.updated || 0) > 48 * 36e5 && l.fc_state !== 'due') { await setLock(db, l.clip, l.channel_id, { fc_state: 'gave-up' }); continue; }
+      const b = await one(db, 'SELECT fc FROM soc_board WHERE id = ?', await boardId(l.clip, l.channel_id)), text = String((b && b.fc) || '');
+      if (!text) { await setLock(db, l.clip, l.channel_id, { fc_state: 'none' }); continue; }
+      const tok = await tokenOf(env, db, m); if (!tok) continue;
+      n++; const mc = metaClient(env, { token: tok, host: 'fb', fetcher, onCall: () => { rec.meta.calls++; mleft--; } }), link = (/https:\/\/lexkite\.com\/api\/go\/\S+/.exec(text) || [''])[0], tries = +l.fc_tries || 0;
+      if (tries > 0 || l.fc_state === 'unknown') { // chống trùng: đã có bình luận của Page mang đúng link → xong
+        const f = await fbFindComment(mc, l.meta_id, m.target_id, link);
+        if (f.ok && f.id) { await setLock(db, l.clip, l.channel_id, { fc_state: 'done', fc_id: f.id, fc_at: now }); rec.fc.posted++; continue; }
+        if (!f.ok) { await setLock(db, l.clip, l.channel_id, { fc_state: 'retry' }); continue; } // chưa biết chắc → không đăng mù
+      }
+      const out = await fbComment(mc, l.meta_id, text);
+      if (out.ok) { await setLock(db, l.clip, l.channel_id, { fc_state: 'done', fc_id: out.id, fc_tries: tries + 1, fc_at: now }); rec.fc.posted++; continue; }
+      if (out.kind === 'perm') { await setLock(db, l.clip, l.channel_id, { fc_state: 'no-perm', fc_tries: tries + 1 }); pushAlert(st, 'fc-perm:' + l.channel_id, `Lexkite autopilot: Page ${l.channel_id} chưa cấp quyền pages_manage_engagement nên không đăng được bình luận đầu (${out.code}) – bấm Kết nối lại: ${reconnectUrl(l.channel_id)}`, now); continue; }
+      const next = tries + 1 >= cfg.fc.max_tries ? 'gave-up' : out.status === 504 ? 'unknown' : 'retry';
+      await setLock(db, l.clip, l.channel_id, { fc_state: next, fc_tries: tries + 1, err: ('fc:' + out.code).slice(0, 120) });
+      if (next === 'gave-up') pushAlert(st, `fc-gave-up:${l.clip}|${l.channel_id}`, `Lexkite autopilot: bình luận đầu cho Reel ${l.clip} (${l.channel_id}) lỗi ${cfg.fc.max_tries} lần (${out.code}), đã dừng thử.`, now);
+      if (out.kind === 'rate' || out.kind === 'down' || out.kind === 'token') break; // Meta đang giới hạn/sập/token hỏng → để lượt sau (lượt đăng bài tự xử lý token)
+    }
+  }
   /** Ghi kết quả Meta: dist_social (post_id meta_…, published/pushed) + soc_board (state, links có permalink + provider 'meta', bỏ post_id GrabCast để boardSync không ghi đè). */
   async function done(r, bid, id, k, permalink, published) {
+    if (published && k === 'fb') await run(db, "UPDATE soc_lock SET fc_state = 'due', fc_tries = 0, updated = ? WHERE clip = ? AND channel_id = ? AND fc_state IS NULL AND EXISTS (SELECT 1 FROM soc_board WHERE id = ? AND fc IS NOT NULL AND fc != '')", Date.now(), r.clip, r.channel_id, bid);
     await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: published ? 'published' : 'pushed', post_id: `meta_${k}_${id}` });
     await run(db, "UPDATE soc_board SET state = ?, post_id = NULL, note = 'meta', links = ?, err = NULL, updated = ? WHERE id = ?", published ? 'published' : 'scheduled',
       JSON.stringify([{ a: r.channel_id.split('-').pop(), p: r.platform, s: published ? 'published' : 'scheduled', u: /^https:\/\//.test(permalink || '') ? permalink : '', e: '', v: 'meta' }]), Date.now(), bid);

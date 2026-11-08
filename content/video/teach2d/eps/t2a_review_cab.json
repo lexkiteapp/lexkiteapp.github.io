@@ -72,5 +72,46 @@
   "words": 40,
   "seconds": 24.7,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"cab\" mean?",
+  "keyword": "cab",
+  "value": "Cab means a taxi.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=cab",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"cab\" mean?",
+    "description": "Cab means a taxi.\n\nReview your words, free: https://lexkite.com/app/#/review?w=cab\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cab",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"cab\" mean?\n\nCab means a taxi.\n\nReview your words, free: https://lexkite.com/app/#/review?w=cab"
+   },
+   "instagram": {
+    "caption": "What does \"cab\" mean?\n\nCab means a taxi.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"cab\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a taxi. Cab means a taxi. More practice like this (free): {link}"
  }
 }

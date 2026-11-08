@@ -72,5 +72,46 @@
   "words": 35,
   "seconds": 22.3,
   "wpm": 94
+ },
+ "publish": {
+  "title": "What does \"imagine\" mean?",
+  "keyword": "imagine",
+  "value": "Imagine means to think creatively about.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=imagine",
+  "script_words": 29,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"imagine\" mean?",
+    "description": "Imagine means to think creatively about.\n\nReview your words, free: https://lexkite.com/app/#/review?w=imagine\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "imagine",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"imagine\" mean?\n\nImagine means to think creatively about.\n\nReview your words, free: https://lexkite.com/app/#/review?w=imagine"
+   },
+   "instagram": {
+    "caption": "What does \"imagine\" mean?\n\nImagine means to think creatively about.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"imagine\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to think creatively about. Imagine means to think creatively about. Try the full lesson and quiz here: {link}"
  }
 }

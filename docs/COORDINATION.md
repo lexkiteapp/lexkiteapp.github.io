@@ -53,7 +53,7 @@ Mục đích: chia tải để không ai chạm giới hạn token, không sửa
 ## Phân vùng file đang giữ (17/10 – nhiều luồng song song)
 | Luồng | Được sửa | Không được sửa |
 |---|---|---|
-| Phiên nội dung | web/js/toefl/*, toeic/*, readtest/*, notes/từ vựng, content/pipeline/*, en/exams.js | app.js (trừ 2 dòng BUNDLES/ROUTE_BUNDLE đã duyệt), admin-* |
+| Phiên nội dung | web/cpack/toefl/*, toeic/*, readtest/*, notes/từ vựng, content/pipeline/*, en/exams.js | app.js (trừ 2 dòng BUNDLES/ROUTE_BUNDLE đã duyệt), admin-* |
 | Phiên blog SEO | content/blog/** | mọi thứ ngoài content/blog |
 | Agent dịch lời giải | trường bản dịch "why" trong các file đề | câu hỏi/đáp án, app.js |
 | Agent test đọc to | scripts/test/* (test mới), sửa nhỏ phần chấm trong web/js/toeic.js | toeic/sw1.js dữ liệu, app.js |
@@ -65,3 +65,5 @@ Mục đích: chia tải để không ai chạm giới hạn token, không sửa
 | Phiên brand kit | brand/social/templates/** | web/js/kit.js |
 | Antigravity | thẻ trên BOARD, worktree riêng | file luồng khác đang giữ |
 Quy tắc: sửa file ngoài vùng → nhắn phiên chính trước; mỗi luồng làm nhánh/worktree riêng hoặc chỉ `git add` đúng file của mình; phiên chính là người duy nhất ship (ship2.sh) sau khi chạy `npm test` toàn bộ.
+
+**Gói nội dung lớn (5/11):** đặt ở `web/cpack/` (không `web/js/`, không nới `totalJs`): thêm `cpack/…` vào BUNDLES; build băm tên (`scripts/build-cpack.mjs`), `/cpack/*` immutable, SW cache-first (offline). Trần: mỗi gói ≤ `fileGz`, tổng ≤ `cpackTotal`; test `scripts/test/cpack.mjs`. Bộ quét toàn kho đọc gốc từ `scripts/lib/scan-roots.mjs` (`SCAN_ROOTS` = web/js + web/cpack; dữ liệu nằm ở cả hai nơi → `dataFiles(sub, re)`), test `scripts/test/scan-roots.mjs` chặn bộ quét gốc cứng.

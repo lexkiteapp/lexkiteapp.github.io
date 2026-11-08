@@ -25,7 +25,7 @@ const clip = { id: 'news_taxi_ab_123', lang: 'en', title: 'Get in or get on a ta
   ok(t.description.length <= 500 && /#esl/.test(t.description) && /…/.test(t.description), 'Threads 500: thân bị rút gọn có "…", hashtag giữ nguyên');
   const yt = RM.socialMeta({ ...clip, value: 'w '.repeat(3000) }, 'youtube');
   ok(/lk:news_taxi_ab_123/.test(yt.description) || !RM.PLATFORMS.youtube.marker, 'YouTube: marker lk:<clip> còn sau khi rút gọn');
-  ok(RM.socialMeta(clip, 'tiktok').description.includes('Full lesson + quiz:'), 'mô tả ngắn: không bị rút gọn');
+  ok(RM.socialMeta(clip, 'facebook_page').description.includes('Full lesson + quiz:') && RM.socialMeta(clip, 'tiktok').description.includes(RM.BIO_CTA) && !/…/.test(RM.socialMeta(clip, 'tiktok').description), 'mô tả ngắn: không bị rút gọn');
 }
 
 // ---- 2) previewClip: payload từng nền tảng, chưa nối kênh, 0 gọi mạng ----
