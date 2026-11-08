@@ -89,6 +89,7 @@
 "Bài {a}/{b}": "Lesson {a}/{b}",
 "Bạn sẽ học {n} từ:": "You'll learn {n} words:",
 "Thu gọn lộ trình": "Show less",
+"Đã hoàn thành": "Completed",
 "Tới bài hiện tại →": "See full path →",
 "Đọc một đoạn hội thoại ngắn rồi trả lời câu hỏi.": "Read a short dialogue, then answer questions.",
 "Nghe một đoạn radio ngắn rồi trả lời câu hỏi.": "Listen to a short radio clip, then answer questions.",
