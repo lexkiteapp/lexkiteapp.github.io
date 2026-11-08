@@ -1159,5 +1159,14 @@
   "usage.jumpToSection": "Zum Abschnitt",
   "usage.relatedWords": "Verwandte Wörter",
   "usage.thereAreNoUsage": "Für „{w}“ gibt es noch keine Hinweise zum Gebrauch. Hier ist, was Lexkite über das Wort weiß, plus ähnliche Wörter.",
-  "usage.youMightBeLooking": "Vielleicht meinst du"
+  "usage.youMightBeLooking": "Vielleicht meinst du",
+  "rev.blitz60": "60-Sekunden-Challenge",
+  "rev.practiseSpanish": "Spanisch üben",
+  "rev.testHint": "20 gemischte Fragen, bewertet",
+  "rev.writingRoom": "Schreibraum",
+  "rev.writingRoomHint": "Schreiben Sie Aufgabe 2 und erhalten Sie eine Vokabelanalyse",
+  "rev.speakingRoom": "Speaking-Raum",
+  "rev.speakingRoomHint": "Teil 1–3: Nehmen Sie sich selbst auf, Vokabelbewertung",
+  "rev.spanishGrammarHint": "Verbkonjugation und Grammatik, in deiner Sprache erklärt",
+  "rev.speakScoreHint": "Wenn Sie ins Mikrofon sprechen, werden Sie sofort gepunktet"
 }

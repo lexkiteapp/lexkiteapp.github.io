@@ -1159,5 +1159,14 @@
   "usage.jumpToSection": "Lompat ke bagian",
   "usage.relatedWords": "Kata terkait",
   "usage.thereAreNoUsage": "Belum ada catatan penggunaan untuk “{w}”. Berikut yang Lexkite ketahui tentang kata ini dan kata-kata yang mirip.",
-  "usage.youMightBeLooking": "Mungkin yang kamu cari"
+  "usage.youMightBeLooking": "Mungkin yang kamu cari",
+  "rev.blitz60": "Tantangan 60 detik",
+  "rev.practiseSpanish": "Latihan bahasa Spanyol",
+  "rev.testHint": "20 pertanyaan campuran, diberi skor",
+  "rev.writingRoom": "Ruang menulis",
+  "rev.writingRoomHint": "Tulis Tugas 2, dapatkan analisis kosakata",
+  "rev.speakingRoom": "Ruang Speaking",
+  "rev.speakingRoomHint": "Bagian 1–3, catat diri Anda, penilaian kosakata",
+  "rev.spanishGrammarHint": "Konjugasi kata kerja dan tata bahasa, dijelaskan dalam bahasamu",
+  "rev.speakScoreHint": "Bicaralah ke mikrofon, dapatkan skor secara instan"
 }

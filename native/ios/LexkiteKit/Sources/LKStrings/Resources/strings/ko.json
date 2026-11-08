@@ -1159,5 +1159,14 @@
   "usage.jumpToSection": "섹션으로 이동",
   "usage.relatedWords": "관련 단어",
   "usage.thereAreNoUsage": "“{w}”의 용법 노트는 아직 없어요. 아래는 Lexkite가 아는 정보와 비슷한 단어예요.",
-  "usage.youMightBeLooking": "이런 단어를 찾으셨나요?"
+  "usage.youMightBeLooking": "이런 단어를 찾으셨나요?",
+  "rev.blitz60": "60초 챌린지",
+  "rev.practiseSpanish": "스페인어 연습",
+  "rev.testHint": "20개의 혼합 질문, 점수 매기기",
+  "rev.writingRoom": "쓰기 연습실",
+  "rev.writingRoomHint": "Task 2 작성, 어휘 분석 받기",
+  "rev.speakingRoom": "스피킹 연습실",
+  "rev.speakingRoomHint": "파트 1~3, 본인 녹음, 어휘 채점",
+  "rev.spanishGrammarHint": "동사 활용과 문법을 내 언어로 설명해 드려요",
+  "rev.speakScoreHint": "마이크에 대고 말하고 즉시 점수를 받으세요"
 }

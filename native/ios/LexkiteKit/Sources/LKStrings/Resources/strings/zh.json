@@ -1159,5 +1159,14 @@
   "usage.jumpToSection": "跳到小节",
   "usage.relatedWords": "相关词",
   "usage.thereAreNoUsage": "暂时还没有“{w}”的用法说明。以下是 Lexkite 对这个词的了解，以及相近的词。",
-  "usage.youMightBeLooking": "你可能想看"
+  "usage.youMightBeLooking": "你可能想看",
+  "rev.blitz60": "60 秒挑战",
+  "rev.practiseSpanish": "西班牙语练习",
+  "rev.testHint": "20 道混合题，已评分",
+  "rev.writingRoom": "写作室",
+  "rev.writingRoomHint": "编写任务2，进行词汇分析",
+  "rev.speakingRoom": "口语练习室",
+  "rev.speakingRoomHint": "第 1-3 部分，录音，词汇评分",
+  "rev.spanishGrammarHint": "动词变位与语法，用你的语言讲解",
+  "rev.speakScoreHint": "对着麦克风说话，立即得分"
 }

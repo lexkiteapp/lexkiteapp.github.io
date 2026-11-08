@@ -1159,5 +1159,14 @@
   "usage.jumpToSection": "खंड पर जाएँ",
   "usage.relatedWords": "संबंधित शब्द",
   "usage.thereAreNoUsage": "“{w}” के लिए अभी प्रयोग नोट्स नहीं हैं। नीचे Lexkite इस शब्द के बारे में जो जानता है और मिलते-जुलते शब्द हैं।",
-  "usage.youMightBeLooking": "शायद आप यह ढूँढ रहे हैं"
+  "usage.youMightBeLooking": "शायद आप यह ढूँढ रहे हैं",
+  "rev.blitz60": "60 सेकंड की चुनौती",
+  "rev.practiseSpanish": "स्पेनिश अभ्यास",
+  "rev.testHint": "20 मिश्रित प्रश्न, अंक",
+  "rev.writingRoom": "लेखन कक्ष",
+  "rev.writingRoomHint": "कार्य 2 लिखें, शब्दावली विश्लेषण प्राप्त करें",
+  "rev.speakingRoom": "स्पीकिंग रूम",
+  "rev.speakingRoomHint": "भाग 1-3, स्वयं को रिकॉर्ड करें, शब्दावली स्कोरिंग",
+  "rev.spanishGrammarHint": "क्रिया-रूप और व्याकरण, आपकी अपनी भाषा में समझाए गए",
+  "rev.speakScoreHint": "माइक में बोलें, तुरंत अंक प्राप्त करें"
 }

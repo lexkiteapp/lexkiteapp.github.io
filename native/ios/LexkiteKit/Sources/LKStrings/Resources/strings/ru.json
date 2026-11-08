@@ -1159,5 +1159,14 @@
   "usage.jumpToSection": "К разделу",
   "usage.relatedWords": "Связанные слова",
   "usage.thereAreNoUsage": "Заметок об употреблении «{w}» пока нет. Вот что Lexkite знает об этом слове и похожие слова.",
-  "usage.youMightBeLooking": "Возможно, вы ищете"
+  "usage.youMightBeLooking": "Возможно, вы ищете",
+  "rev.blitz60": "Челлендж на 60 секунд",
+  "rev.practiseSpanish": "Практика испанского",
+  "rev.testHint": "20 смешанных вопросов с оценкой",
+  "rev.writingRoom": "Письменная практика",
+  "rev.writingRoomHint": "Напишите задание 2, проведите анализ словарного запаса.",
+  "rev.speakingRoom": "Speaking-класс",
+  "rev.speakingRoomHint": "Части 1–3, запишите себя, подсчет словарного запаса.",
+  "rev.spanishGrammarHint": "Спряжение глаголов и грамматика с объяснениями на вашем языке",
+  "rev.speakScoreHint": "Говорите в микрофон и мгновенно получайте баллы"
 }

@@ -1163,7 +1163,16 @@ enum class L10nKey(val id: String) {
     usageJumpToSection("usage.jumpToSection"),
     usageRelatedWords("usage.relatedWords"),
     usageThereAreNoUsage("usage.thereAreNoUsage"),
-    usageYouMightBeLooking("usage.youMightBeLooking");
+    usageYouMightBeLooking("usage.youMightBeLooking"),
+    revBlitz60("rev.blitz60"),
+    revPractiseSpanish("rev.practiseSpanish"),
+    revTestHint("rev.testHint"),
+    revWritingRoom("rev.writingRoom"),
+    revWritingRoomHint("rev.writingRoomHint"),
+    revSpeakingRoom("rev.speakingRoom"),
+    revSpeakingRoomHint("rev.speakingRoomHint"),
+    revSpanishGrammarHint("rev.spanishGrammarHint"),
+    revSpeakScoreHint("rev.speakScoreHint");
 }
 
 object L10nLangs {

@@ -1159,5 +1159,14 @@
   "usage.jumpToSection": "Jump to section",
   "usage.relatedWords": "Related words",
   "usage.thereAreNoUsage": "There are no usage notes for “{w}” yet. Here is what Lexkite knows about this word, plus similar words.",
-  "usage.youMightBeLooking": "You might be looking for"
+  "usage.youMightBeLooking": "You might be looking for",
+  "rev.blitz60": "60-second challenge",
+  "rev.practiseSpanish": "Spanish practice",
+  "rev.testHint": "20 mixed questions, scored",
+  "rev.writingRoom": "Writing Lab",
+  "rev.writingRoomHint": "Write Task 2, get vocabulary analysis",
+  "rev.speakingRoom": "Speaking room",
+  "rev.speakingRoomHint": "Parts 1–3, record yourself, vocabulary scoring",
+  "rev.spanishGrammarHint": "Verb conjugation and grammar, explained in your language",
+  "rev.speakScoreHint": "Speak into the mic, get scored instantly"
 }

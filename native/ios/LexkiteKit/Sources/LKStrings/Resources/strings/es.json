@@ -1159,5 +1159,14 @@
   "usage.jumpToSection": "Ir a la sección",
   "usage.relatedWords": "Palabras relacionadas",
   "usage.thereAreNoUsage": "Aún no hay notas de uso para “{w}”. Esto es lo que Lexkite sabe de esta palabra y algunas parecidas.",
-  "usage.youMightBeLooking": "Quizás buscas"
+  "usage.youMightBeLooking": "Quizás buscas",
+  "rev.blitz60": "Desafío de 60 segundos",
+  "rev.practiseSpanish": "Practica español",
+  "rev.testHint": "20 preguntas mixtas, puntuadas",
+  "rev.writingRoom": "Sala de escritura",
+  "rev.writingRoomHint": "Escribe la tarea 2 y obtén un análisis de vocabulario.",
+  "rev.speakingRoom": "Sala de Speaking",
+  "rev.speakingRoomHint": "Partes 1 a 3, grábate, puntuación de vocabulario",
+  "rev.spanishGrammarHint": "Conjugación y gramática, explicadas en tu idioma",
+  "rev.speakScoreHint": "Habla por el micrófono y recibe puntos al instante"
 }

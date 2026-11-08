@@ -1159,5 +1159,14 @@
   "usage.jumpToSection": "انتقل إلى القسم",
   "usage.relatedWords": "كلمات ذات صلة",
   "usage.thereAreNoUsage": "لا توجد بعد ملاحظات استخدام لـ “{w}”. إليك ما يعرفه Lexkite عن هذه الكلمة وكلمات مشابهة.",
-  "usage.youMightBeLooking": "ربما تبحث عن"
+  "usage.youMightBeLooking": "ربما تبحث عن",
+  "rev.blitz60": "تحدي 60 ثانية",
+  "rev.practiseSpanish": "تدرّب على الإسبانية",
+  "rev.testHint": "20 سؤال مختلط، وسجل",
+  "rev.writingRoom": "غرفة الكتابة",
+  "rev.writingRoomHint": "اكتب المهمة 2، واحصل على تحليل المفردات",
+  "rev.speakingRoom": "غرفة المحادثة",
+  "rev.speakingRoomHint": "الأجزاء 1-3، سجل نفسك، وسجل المفردات",
+  "rev.spanishGrammarHint": "تصريف الأفعال والقواعد بشرح بلغتك",
+  "rev.speakScoreHint": "التحدث في هيئة التصنيع العسكري، والحصول على النتيجة على الفور"
 }

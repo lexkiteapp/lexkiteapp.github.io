@@ -1162,6 +1162,15 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case usageRelatedWords = "usage.relatedWords"
     case usageThereAreNoUsage = "usage.thereAreNoUsage"
     case usageYouMightBeLooking = "usage.youMightBeLooking"
+    case revBlitz60 = "rev.blitz60"
+    case revPractiseSpanish = "rev.practiseSpanish"
+    case revTestHint = "rev.testHint"
+    case revWritingRoom = "rev.writingRoom"
+    case revWritingRoomHint = "rev.writingRoomHint"
+    case revSpeakingRoom = "rev.speakingRoom"
+    case revSpeakingRoomHint = "rev.speakingRoomHint"
+    case revSpanishGrammarHint = "rev.spanishGrammarHint"
+    case revSpeakScoreHint = "rev.speakScoreHint"
 }
 
 public enum L10nLangs {

@@ -1159,5 +1159,14 @@
   "usage.jumpToSection": "Bölüme git",
   "usage.relatedWords": "İlgili kelimeler",
   "usage.thereAreNoUsage": "“{w}” için henüz kullanım notu yok. Lexkite’ın bu kelime hakkında bildikleri ve benzer kelimeler aşağıda.",
-  "usage.youMightBeLooking": "Belki şunu arıyorsun"
+  "usage.youMightBeLooking": "Belki şunu arıyorsun",
+  "rev.blitz60": "60 saniyelik meydan okuma",
+  "rev.practiseSpanish": "İspanyolca pratiği",
+  "rev.testHint": "20 karışık soru, puanlandı",
+  "rev.writingRoom": "Yazma odası",
+  "rev.writingRoomHint": "Görev 2'yi yazın, kelime analizi alın",
+  "rev.speakingRoom": "Speaking odası",
+  "rev.speakingRoomHint": "Bölüm 1-3, kendinizi kaydedin, sözcük puanlaması",
+  "rev.spanishGrammarHint": "Fiil çekimi ve dilbilgisi, kendi dilinde anlatımla",
+  "rev.speakScoreHint": "Mikrofona konuşun, anında puan alın"
 }
