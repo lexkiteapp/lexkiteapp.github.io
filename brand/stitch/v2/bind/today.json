@@ -27,8 +27,7 @@
   "Your path": "Lộ trình học của bạn",
   "See full path →": "Xem toàn bộ lộ trình →",
   "Notifications": "Thông báo",
-  "Look up a word": "Tra từ",
-  "Start": "Bắt đầu"
+  "Look up a word": "Tra từ"
  },
  "text": {
   "L": "d.ini",
@@ -62,9 +61,9 @@
   "Everyday English journey": "d.unitName",
   "EN": "d.lang",
   "16%": "d.k.pct + '%'",
-  "1. Vocabulary": "d.pv[0].label",
-  "2. Collocations": "d.pv[1].label",
-  "3. Checkpoint": "d.pv[2].label"
+  "Lesson 2/6": "d.ph.of",
+  "Everyday English": "d.ph.unit",
+  "Stage 3": "d.ph.stage"
  },
  "html": {
   ":scope > main > div > section:nth-child(2) > div:nth-child(1)": "d.teacher",
@@ -200,14 +199,6 @@
    "href": "'#/streak'",
    "data-blk": "'week'"
   },
-  ":scope > main > div > section:nth-child(10)": {
-   "data-blk": "'path'"
-  },
-  ":scope > main > div > section:nth-child(10) > div:nth-child(1) > button": {
-   "data-act": "'pathx'",
-   "aria-expanded": "'false'",
-   "aria-controls": "'v2-pathfull'"
-  },
   ":scope > main > header > div:nth-child(2) > button:last-of-type": {
    "data-act": "'lang'",
    "aria-haspopup": "'dialog'"
@@ -215,22 +206,41 @@
   ":scope > main > div > section:nth-child(3) > div:nth-child(5) > span": {
    "aria-hidden": "'true'"
   },
-  ":scope > main > div > section:nth-child(10) > div:nth-child(2) > div:nth-child(1)": {
-   "href": "d.pv[0].href",
-   "aria-label": "d.pv[0].aria"
+  ":scope > main > div > section:nth-child(10)": {
+   "data-blk": "'path'"
   },
-  ":scope > main > div > section:nth-child(10) > div:nth-child(2) > div:nth-child(3)": {
-   "title": "d.pv[1].aria"
+  ":scope > main > div > section:nth-child(10) > div:nth-child(1) > div:nth-child(1) > span": {
+   "aria-label": "d.ph.of"
   },
-  ":scope > main > div > section:nth-child(10) > div:nth-child(2) > div:nth-child(5)": {
-   "title": "d.pv[2].aria"
+  ":scope > main > div > section:nth-child(10) > div:nth-child(1) > div:nth-child(4) > div": {
+   "style": "'width:' + d.ph.pct + '%'",
+   "role": "'progressbar'",
+   "aria-valuenow": "d.ph.pct",
+   "aria-valuemin": "0",
+   "aria-valuemax": "100",
+   "aria-label": "d.ph.of"
+  },
+  ":scope > main > div > section:nth-child(10) > div:nth-child(2)": {
+   "data-pv": "'1'"
+  },
+  ":scope > main > div > section:nth-child(10) > div:nth-child(2) > svg": {
+   "height": "d.ph.h",
+   "viewBox": "'0 0 150 ' + d.ph.h"
+  },
+  ":scope > main > div > section:nth-child(10) > div:nth-child(2) > svg > path:nth-child(1)": {
+   "d": "d.ph.all"
+  },
+  ":scope > main > div > section:nth-child(10) > div:nth-child(2) > svg > path:nth-child(2)": {
+   "d": "d.ph.done"
   },
   ":scope > main > div > section:nth-child(10) > div:nth-child(3)": {
    "id": "'v2-pathfull'",
    "data-pathfull": "''"
   },
-  ":scope > main > div > section:nth-child(10) > div:nth-child(2)": {
-   "data-pv": "'1'"
+  ":scope > main > div > section:nth-child(10) > div:nth-child(4) > button": {
+   "data-act": "'pathx'",
+   "aria-expanded": "'false'",
+   "aria-controls": "'v2-pathfull'"
   }
  },
  "cls": {
@@ -254,14 +264,14 @@
   ":scope > main > div > section:nth-child(9) > div:nth-child(1)": {
    "flex": "d.lg.tier ? 'flex' : 'hidden'"
   },
-  ":scope > main > div > section:nth-child(10) > div:nth-child(2)": {
-   "max-w-[240px]": "''"
-  },
   ":scope > main > div": {
    "py-3": "'py-4'"
   },
   ":scope > main > div > section:nth-child(5)": {
    "hidden": "''"
+  },
+  ":scope > main > div > section:nth-child(10) > div:nth-child(1) > div:nth-child(4) > div": {
+   "[width:33%]": "''"
   }
  },
  "tag": {
@@ -303,9 +313,6 @@
   },
   ":scope > main > div > section:nth-child(9) > div:nth-child(2)": {
    "to": "a"
-  },
-  ":scope > main > div > section:nth-child(10) > div:nth-child(2) > div:nth-child(1)": {
-   "to": "a"
   }
  },
  "addClass": {
@@ -313,7 +320,6 @@
   ":scope > main > header > div:nth-child(2) > div": "relative after:absolute after:-inset-1.5 after:content-['']",
   ":scope > main > div > section:nth-child(6) > div:nth-child(1) > span": "relative after:absolute after:-inset-y-[14px] after:-inset-x-1 after:content-['']",
   ":scope > main > div > section:nth-child(8) > div:nth-child(1) > span": "relative after:absolute after:-inset-y-[14px] after:-inset-x-1 after:content-['']",
-  ":scope > main > div > section:nth-child(10) > div:nth-child(1) > button": "relative after:absolute after:-inset-y-[14px] after:-inset-x-1 after:content-['']",
   ":scope > main > div > section:nth-child(2)": "rtl:flex-row-reverse",
   ":scope > main > div > section:nth-child(7) button": "min-h-[44px]"
  },
@@ -485,6 +491,113 @@
      "cls": {
       ":scope": {
        "opacity-40": "''"
+      }
+     }
+    }
+   }
+  },
+  {
+   "list": "d.pv",
+   "as": "r",
+   "variants": {
+    "done": ":scope > main > div > section:nth-child(10) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)",
+    "cur": ":scope > main > div > section:nth-child(10) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)",
+    "lock": ":scope > main > div > section:nth-child(10) > div:nth-child(2) > div:nth-child(2) > div:nth-child(3)",
+    "chk": ":scope > main > div > section:nth-child(10) > div:nth-child(2) > div:nth-child(2) > div:nth-child(6)"
+   },
+   "samples": ":scope > main > div > section:nth-child(10) > div:nth-child(2) > div:nth-child(2) > div",
+   "pick": "r.v",
+   "bind": {
+    "done": {
+     "text": {
+      "Vocabulary": "r.label",
+      "Completed": "r.sub"
+     },
+     "attr": {
+      ":scope": {
+       "style": "'height:' + r.h + 'px'",
+       "title": "r.aria",
+       "data-pn": "r.v"
+      },
+      ":scope > div:nth-child(1)": {
+       "style": "'left:' + r.x + 'px;top:' + r.cy + 'px'"
+      },
+      ":scope > div:nth-child(2)": {
+       "style": "'top:' + r.cy + 'px'"
+      }
+     }
+    },
+    "cur": {
+     "text": {
+      "Start": "r.start",
+      "Lesson 2 of 6": "r.of",
+      "Listening": "r.label",
+      "4 min": "r.sub"
+     },
+     "attr": {
+      ":scope": {
+       "style": "'height:' + r.h + 'px'",
+       "title": "r.aria",
+       "data-pn": "r.v"
+      },
+      ":scope > div:nth-child(1)": {
+       "style": "'left:' + r.x + 'px;top:' + r.cy + 'px'"
+      },
+      ":scope > div:nth-child(2)": {
+       "style": "'top:' + r.cy + 'px'"
+      },
+      ":scope > div:nth-child(1) > div > div:nth-child(3)": {
+       "href": "r.href",
+       "aria-label": "r.aria"
+      },
+      ":scope > div:nth-child(1) > div > svg > circle:nth-child(2)": {
+       "stroke-dashoffset": "r.off"
+      }
+     },
+     "tag": {
+      ":scope > div:nth-child(1) > div > div:nth-child(3)": {
+       "to": "a"
+      }
+     },
+     "html": {
+      ":scope > div:nth-child(3)": "r.tch"
+     }
+    },
+    "lock": {
+     "text": {
+      "Speaking": "r.label",
+      "5 min": "r.sub"
+     },
+     "attr": {
+      ":scope": {
+       "style": "'height:' + r.h + 'px'",
+       "title": "r.aria",
+       "data-pn": "r.v"
+      },
+      ":scope > div:nth-child(1)": {
+       "style": "'left:' + r.x + 'px;top:' + r.cy + 'px'"
+      },
+      ":scope > div:nth-child(2)": {
+       "style": "'top:' + r.cy + 'px'"
+      }
+     }
+    },
+    "chk": {
+     "text": {
+      "Checkpoint": "r.label",
+      "Quick check": "r.sub"
+     },
+     "attr": {
+      ":scope": {
+       "style": "'height:' + r.h + 'px'",
+       "title": "r.aria",
+       "data-pn": "r.v"
+      },
+      ":scope > div:nth-child(1)": {
+       "style": "'left:' + r.x + 'px;top:' + r.cy + 'px'"
+      },
+      ":scope > div:nth-child(2)": {
+       "style": "'top:' + r.cy + 'px'"
       }
      }
     }

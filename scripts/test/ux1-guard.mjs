@@ -69,9 +69,9 @@ async function run(width, scheme, lang) {
   await go('home?pick=1'); await check('goal-pick');
   await click('.ux1-pk-tg .chip'); await page.waitForTimeout(1600); await check('home-map');
   await page.evaluate(() => localStorage.setItem('lk.lsn.path', '4')); await go('home'); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800); // cùng URL → goto không vẽ lại
-  { const c = await page.evaluate(() => { const b = document.querySelector('.v2-today [data-act="pathx"]'); if (!b) return null; const pv = document.querySelector('.v2-today [data-pv]'); return { exp: b.getAttribute('aria-expanded'), n: pv ? pv.querySelectorAll(':scope > a[href], :scope > div[title]').length : 0, full: !!document.querySelector('.v2-today [data-pathfull] [data-st]') }; });
-    if (c && !(c.exp === 'false' && c.n === 3 && !c.full)) errs.push(`${tag}: khối Your path thu gọn phải đủ 3 nút, aria-expanded=false, chưa vẽ lộ trình đầy đủ (${JSON.stringify(c)})`); } // điện thoại: gác trạng thái thu gọn
-  await page.evaluate(() => { const b = document.querySelector('.v2-today [data-act="pathx"][aria-expanded="false"]'); if (b) b.click(); }); await page.waitForTimeout(300); // điện thoại: khối Your path thu gọn 3 nút → mở lộ trình đầy đủ tại chỗ rồi mới kiểm nút đã xong
+  { const c = await page.evaluate(() => { const b = document.querySelector('.v2-today [data-act="pathx"]'); if (!b) return null; const pv = document.querySelector('.v2-today [data-pv]'); return { exp: b.getAttribute('aria-expanded'), n: pv ? pv.querySelectorAll('[data-pn]').length : 0, full: !!document.querySelector('.v2-today [data-pathfull] [data-st]') }; });
+    if (c && !(c.exp === 'false' && c.n >= 5 && c.n <= 7 && !c.full)) errs.push(`${tag}: khối Your path thu gọn phải đủ 5–7 nút, aria-expanded=false, chưa vẽ lộ trình đầy đủ (${JSON.stringify(c)})`); } // điện thoại: gác trạng thái thu gọn
+  await page.evaluate(() => { const b = document.querySelector('.v2-today [data-act="pathx"][aria-expanded="false"]'); if (b) b.click(); }); await page.waitForTimeout(300); // điện thoại: khối Your path thu gọn 5–7 nút → mở lộ trình đầy đủ tại chỗ rồi mới kiểm nút đã xong
   if (!await page.evaluate(() => !!document.querySelector('.ux1-n.done, .v2 [data-st="done"]'))) errs.push(`${tag}: bản đồ n4 không có nút đã xong`);
   await check('home-map-n4');
   for (const r of ROUTES) { await go(r); await check(r); }
