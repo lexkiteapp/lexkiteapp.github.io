@@ -132,7 +132,7 @@ final class WordSnapshotTests: XCTestCase {
     func testUsage() { shoot { _ in UsageView(route: AppRoute("usage", arg: "depend"), store: Self.usageStore, seed: 7) } }
     func testLetters() { shoot { _ in WritingLettersView(route: AppRoute("letters"), letters: Self.letters, drafts: ["gt2": "Dear Mr Lee, I am writing about the noise from your flat at night."]) } }
     func testIdeas() { shoot { _ in WritingIdeasView(route: AppRoute("ideas", arg: "education"), ideas: Self.ideas, prompts: Self.prompts) } }
-    func testParaphrase() { shoot { _ in WritingParaphraseView(data: Self.pairs, seed: 5, step: 2) } }
+    func testParaphrase() { shoot { _ in WritingParaphraseView(data: Self.pairs, seed: 5, step: 0) } }
     func testPhrases() { shoot { _ in WritingPhrasesView(cards: Self.phraseCards, models: Self.models) } }
     func testModels() { shoot { _ in WritingModelsView(route: AppRoute("models", query: ["t": "2"]), index: Self.modelIndex) } }
     func testModel() { shoot { _ in WritingModelView(route: AppRoute("model", arg: "t2-fx"), index: Self.modelIndex, seed: 3, cards: [Self.phraseCards[4]]) } }

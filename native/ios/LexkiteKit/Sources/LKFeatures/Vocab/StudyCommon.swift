@@ -46,12 +46,16 @@ enum StudyFmt {
         }
         let f = DateComponentsFormatter()
         f.unitsStyle = .abbreviated; f.allowedUnits = units; f.calendar = calendar(lang); f.maximumUnitCount = 1
-        return f.string(from: comps) ?? ""
+        return spaced(f.string(from: comps) ?? "", lang)
+    }
+    /// Vietnamese abbreviated units come without a gap ("16ngày"): add the thin gap between digit and word.
+    static func spaced(_ s: String, _ lang: String) -> String {
+        lang.hasPrefix("vi") ? s.replacingOccurrences(of: "(\\d)(\\p{L})", with: "$1 $2", options: .regularExpression) : s
     }
     static func minutes(_ n: Int, lang: String) -> String {
         var c = DateComponents(); c.minute = n
         let f = DateComponentsFormatter(); f.unitsStyle = .abbreviated; f.allowedUnits = [.minute]; f.calendar = calendar(lang)
-        return f.string(from: c) ?? "\(n)"
+        return spaced(f.string(from: c) ?? "\(n)", lang)
     }
     static func date(_ ms: Int64, lang: String) -> String {
         Date(timeIntervalSince1970: Double(ms) / 1000).formatted(.dateTime.day().month(.abbreviated).locale(Locale(identifier: lang)))

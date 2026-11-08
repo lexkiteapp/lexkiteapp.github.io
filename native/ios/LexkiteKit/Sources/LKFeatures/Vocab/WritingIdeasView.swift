@@ -57,7 +57,6 @@ struct WritingIdeasView: View {
 
     @ViewBuilder private func page(_ v: WritingEngine.IdeasView, _ all: [JSON]) -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(t(.ideasTask2IdeaBank)).lkText(LKType.headlineMd).foregroundStyle(ink)
             Text(t(.ideasRunningOutOfIdeas)).lkText(LKType.bodySm).foregroundStyle(dim)
         }
         ScrollView(.horizontal, showsIndicators: false) {

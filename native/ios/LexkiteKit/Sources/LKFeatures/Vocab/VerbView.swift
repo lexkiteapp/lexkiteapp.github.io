@@ -13,6 +13,7 @@ struct VerbView: View {
     @Environment(AppServices.self) private var services
     @Environment(\.l10n) private var t
     @Environment(\.colorScheme) private var scheme
+    @Environment(\.layoutDirection) private var dir
     @AppStorage("lk.verb.region") private var region = "UK"
     @State private var q: String
     @State private var group = "present"
@@ -42,7 +43,6 @@ struct VerbView: View {
         WritingPage(title: t(.verbEnglishVerbConjugator)) {
             if let V = WritingVerbs.shared {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(t(.verbEnglishVerbConjugator)).lkText(LKType.headlineMd).foregroundStyle(ink)
                     Text(t(.verbThe5VerbForms)).lkText(LKType.bodySm).foregroundStyle(dim)
                 }
                 searchBox(V)
@@ -162,7 +162,7 @@ struct VerbView: View {
         let f = V.forms(base, region: region), full = base + tail
         if r.s("from") != "base", let first = r.s("input").split(separator: " ").first, String(first) != base {
             let form = t(VerbLabels.from(r.s("from")) ?? .verbPresentForm)
-            Text(t(.verbIsTheOf, ["w": String(first), "form": form, "b": base])).lkText(LKType.bodyMd).foregroundStyle(ink)
+            Text((dir == .rightToLeft ? "\u{200F}" : "") + t(.verbIsTheOf, ["w": String(first), "form": form, "b": base])).lkText(LKType.bodyMd).foregroundStyle(ink)
                 .padding(LKSpacing.spaceSm).frame(maxWidth: .infinity, alignment: .leading)
                 .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(LKColor.surfaceContainerHigh.resolve(scheme)))
                 .accessibilityAddTraits(.updatesFrequently)

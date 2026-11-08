@@ -49,7 +49,6 @@ struct UsageView: View {
     var body: some View {
         WritingPage(title: t(.dictUsage)) {
             VStack(alignment: .leading, spacing: 4) {
-                Text(t(.dictUsage)).lkText(LKType.headlineMd).foregroundStyle(ink)
                 Text(t(.usageDependentPrepositionsVerbPatterns)).lkText(LKType.bodySm).foregroundStyle(dim)
             }
             if let U = store {
@@ -361,8 +360,9 @@ struct UsageView: View {
                 ForEach(Array(e.list("items").enumerated()), id: \.offset) { _, x in
                     let phrase = e.s("key") + " " + x.s("h")
                     WritingCard {
-                        HStack { Text(phrase).lkText(LKType.headlineSm).foregroundStyle(ink).englishText(); WritingTag(text: prepSub(e.s("sub"))); Spacer(minLength: 0)
-                            WritingSayButton(text: phrase, label: t(.usagePlaySentence), voice: voice); saveButton(phrase, vi: x.s("vi"), en: x.s("en"), ex: x.strs("ex").first.map { UsageStore.example($0).s("text") } ?? "") }
+                        HStack(alignment: .top) { Text(phrase).lkText(LKType.headlineSm).foregroundStyle(ink).englishText().frame(maxWidth: .infinity, alignment: .leading)
+                            WritingSayButton(text: phrase, label: t(.usagePlaySentence), voice: voice) }
+                        FlowLayout { WritingTag(text: prepSub(e.s("sub"))); saveButton(phrase, vi: x.s("vi"), en: x.s("en"), ex: x.strs("ex").first.map { UsageStore.example($0).s("text") } ?? "") }
                         Text(mean(x)).lkText(LKType.bodyMd).foregroundStyle(dim)
                         ForEach(x.strs("ex"), id: \.self) { example($0) }
                     }
@@ -503,7 +503,7 @@ struct UsageView: View {
                 if await WritingCards.add(entry, services: services) { saved.insert(phrase) }
             }
         } label: { Label(done ? t(.revSaved) : t(.usageSaveToMyWords), systemImage: done ? "checkmark" : "plus") }
-        .buttonStyle(WritingSecondaryButtonStyle()).disabled(done)
+        .buttonStyle(WritingSecondaryButtonStyle()).disabled(done).fixedSize()
         .accessibilityLabel(done ? t(.usageSavedToYourWords, ["w": phrase]) : t(.usageSaveToMyWords))
     }
 

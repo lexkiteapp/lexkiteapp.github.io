@@ -125,9 +125,8 @@ final class VocabSnapshotTests: XCTestCase {
     func testPractice() async {
         await shoot { lang in
             let m = StudyPracticeModel(core: self.core(lang)); m.autoPlay = false
-            await m.load(mode: "mcq", src: "deck")
-            if let q = m.question { m.choose(q.options.first { $0 != q.answer } ?? q.answer) }
-            return StudyPracticeView(model: m, mode: "mcq")
+            await m.load(mode: nil, src: "deck")
+            return StudyPracticeView(model: m, mode: nil)
         }
     }
 

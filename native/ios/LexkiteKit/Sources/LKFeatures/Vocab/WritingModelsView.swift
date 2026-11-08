@@ -45,7 +45,6 @@ struct WritingModelsView: View {
     var body: some View {
         WritingPage(title: t(.modelBand8ModelAnswers)) {
             VStack(alignment: .leading, spacing: 4) {
-                Text(t(.modelBand8ModelAnswers)).lkText(LKType.headlineMd).foregroundStyle(ink)
                 Text(t(.modelOriginalModelAnswersWith)).lkText(LKType.bodySm).foregroundStyle(dim)
             }
             if let ix = index {

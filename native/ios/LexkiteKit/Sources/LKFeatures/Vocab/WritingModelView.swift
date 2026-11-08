@@ -89,7 +89,6 @@ struct WritingModelView: View {
     private func header(_ m: JSON, _ kind: String, _ back: AppRoute?, _ task: String) -> some View {
         WritingCard {
             FlowLayout { WritingTag(text: WritingEngine.modelBadge(m)); WritingTag(text: kind, tint: LKColor.onSurfaceVariant); WritingTag(text: "Band " + (m["band"]?.jsToString ?? ""), tint: LKColor.success) }
-            Text(t(.modelAnnotatedModelAnswer)).lkText(LKType.headlineMd).foregroundStyle(ink)
             FlowLayout {
                 if m.t("words") { WritingTag(text: t(.vocabWords, ["n": m.i("words")]), tint: LKColor.onSurfaceVariant) }
                 Button { toggleRead(m) } label: { Label(t(.modelListenToEssay), systemImage: reading ? "stop.fill" : "speaker.wave.2.fill") }.buttonStyle(WritingSecondaryButtonStyle())

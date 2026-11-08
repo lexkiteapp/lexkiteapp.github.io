@@ -65,7 +65,6 @@ struct WritingLettersView: View {
     @ViewBuilder private func list(_ all: [JSON]) -> some View {
         let v = WritingEngine.letters(all, tone: tone, drafts: .object(drafts.mapValues { .string($0) }))
         VStack(alignment: .leading, spacing: 4) {
-            Text(t(.lettersLetterWritingIeltsGeneral)).lkText(LKType.headlineMd).foregroundStyle(ink)
             Text(t(.lettersWriteALetterOf)).lkText(LKType.bodySm).foregroundStyle(dim)
         }
         FlowLayout { ForEach(v.tabs, id: \.tone) { tab in WritingChip(text: toneName(tab.tone) + " " + String(tab.n), selected: (tone == tab.tone) || (tab.tone == "all" && !WritingEngine.tones.contains(tone))) { tone = tab.tone } } }

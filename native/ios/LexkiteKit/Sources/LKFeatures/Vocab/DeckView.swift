@@ -119,9 +119,12 @@ struct DeckView: View {
         VStack(spacing: LKSpacing.spaceXs) {
             HStack(spacing: LKSpacing.spaceXs) {
                 Image(systemName: "magnifyingglass").foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).accessibilityHidden(true)
-                TextField(t(.vocabSearchWordsOrMeanings), text: Binding(get: { model.filter.q }, set: { model.filter.q = $0 }))
-                    .textInputAutocapitalization(.never).autocorrectionDisabled().submitLabel(.search)
-                    .studyText(LKType.bodyLg)
+                ZStack(alignment: .leading) {
+                    if model.filter.q.isEmpty { Text(t(.vocabSearchWordsOrMeanings)).studyText(LKType.bodyLg, LKColor.onSurfaceVariant).lineLimit(2).fixedSize(horizontal: false, vertical: true).allowsHitTesting(false).accessibilityHidden(true) }
+                    TextField(t(.vocabSearchWordsOrMeanings), text: Binding(get: { model.filter.q }, set: { model.filter.q = $0 }))
+                        .textInputAutocapitalization(.never).autocorrectionDisabled().submitLabel(.search)
+                        .studyText(LKType.bodyLg)
+                }
             }
             .padding(.horizontal, LKSpacing.spaceMd).frame(minHeight: 52)
             .tactile(fill: LKColor.surfaceContainerHigh, radius: 16)

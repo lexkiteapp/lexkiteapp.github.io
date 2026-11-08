@@ -70,7 +70,6 @@ struct WritingParaphraseView: View {
             }
             .accessibilityElement(children: .combine)
             WritingCard {
-                WritingHeading(t(.paraParaphrasePractice), icon: "arrow.triangle.2.circlepath")
                 Text(t(.paraTheQuestionSays)).lkText(LKType.bodyMd).foregroundStyle(dim)
                 WritingEnglish(text: "“" + it.q + "”", style: LKType.headlineSm)
                 Text(t(.paraThePassageRewordsThis)).lkText(LKType.bodyMd).foregroundStyle(dim)

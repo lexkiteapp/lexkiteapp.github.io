@@ -152,9 +152,12 @@ struct WritingSearchField: View {
     var body: some View {
         HStack(spacing: LKSpacing.spaceXs) {
             Image(systemName: "magnifyingglass").foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).accessibilityHidden(true)
-            TextField(placeholder, text: $text)
-                .textInputAutocapitalization(.never).autocorrectionDisabled().submitLabel(.search).onSubmit(onSubmit)
-                .lkText(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme))
+            ZStack(alignment: .leading) {
+                if text.isEmpty { Text(placeholder).lkText(LKType.bodyLg).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).lineLimit(2).fixedSize(horizontal: false, vertical: true).allowsHitTesting(false).accessibilityHidden(true) }
+                TextField(placeholder, text: $text).labelsHidden()
+                    .textInputAutocapitalization(.never).autocorrectionDisabled().submitLabel(.search).onSubmit(onSubmit)
+                    .lkText(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme))
+            }
             if !text.isEmpty {
                 Button { text = "" } label: {
                     Image(systemName: "xmark.circle.fill").foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
@@ -210,7 +213,7 @@ struct WritingTag: View {
     var tint: LKDynamicColor = LKColor.secondary
     @Environment(\.colorScheme) private var scheme
     var body: some View {
-        Text(text).lkText(LKType.labelBadge).textCase(.uppercase)
+        Text(text).lkText(LKType.labelBadge).textCase(.uppercase).lineLimit(1).fixedSize()
             .padding(.horizontal, LKSpacing.spaceXs).padding(.vertical, 3)
             .foregroundStyle(tint.resolve(scheme))
             .background(Capsule().fill(LKColor.surfaceContainerHighest.resolve(scheme)))
@@ -261,10 +264,10 @@ struct WritingSecondaryButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) private var enabled
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .lkText(LKType.titlePill)
+            .lkText(LKType.titlePill).lineLimit(1).minimumScaleFactor(0.85)
             .foregroundStyle(LKColor.secondary.resolve(scheme))
             .padding(.horizontal, LKSpacing.spaceMd).frame(minHeight: LKFrame.shared.minTap)
-            .background(Capsule().strokeBorder(LKColor.secondary.resolve(scheme), lineWidth: 2))
+            .background(Capsule().inset(by: 1).stroke(LKColor.secondary.resolve(scheme), lineWidth: 2))
             .opacity(enabled ? (configuration.isPressed ? 0.7 : 1) : 0.4)
             .contentShape(Capsule())
     }

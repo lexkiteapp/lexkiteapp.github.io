@@ -236,8 +236,8 @@ struct AnkiSheet: View {
             HStack(alignment: .top, spacing: LKSpacing.spaceSm) {
                 Image(systemName: selected ? "largecircle.fill.circle" : "circle").foregroundStyle(LKColor.secondary.resolve(scheme)).accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: 2) {
-                    HStack(spacing: 6) {
-                        Text(verbatim: title).studyText(LKType.titlePill).multilineTextAlignment(.leading)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(verbatim: title).studyText(LKType.titlePill).multilineTextAlignment(.leading).fixedSize(horizontal: false, vertical: true)
                         if let badge { StudyChip(text: badge, tint: LKColor.success) }
                     }
                     if let sub { Text(verbatim: sub).studyText(LKType.bodySm, LKColor.onSurfaceVariant).multilineTextAlignment(.leading) }
@@ -373,7 +373,7 @@ struct AnkiSheet: View {
         if model.plan.entries.isEmpty {
             Text(verbatim: t(.vocabNoNewWordsToImport)).studyText(LKType.bodyMd)
         } else {
-            Button(t(.vocabImportWords, ["n": Fmt.int(model.plan.entries.count, t.lang)])) { Task { await model.runImport() } }.buttonStyle(PrimaryButtonStyle())
+            Button(model.plan.entries.count == 1 ? t(.vocabImport) : t(.vocabImportWords, ["n": Fmt.int(model.plan.entries.count, t.lang)])) { Task { await model.runImport() } }.buttonStyle(PrimaryButtonStyle())
         }
         Button(t(.vocabChooseAnotherFile)) { model.reset() }.buttonStyle(StudyOutlineButtonStyle())
     }

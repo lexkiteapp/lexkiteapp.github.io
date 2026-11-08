@@ -29,7 +29,6 @@ struct WritingPhrasesView: View {
         let book = WritingEngine.phraseBook(cards)
         WritingPage(title: t(.modelPhrasesStructures)) {
             VStack(alignment: .leading, spacing: 4) {
-                Text(t(.modelPhrasesStructures)).lkText(LKType.headlineMd).foregroundStyle(ink)
                 Text(t.rich(.modelLearningInChunksMakes)).lkText(LKType.bodySm).foregroundStyle(dim)
             }
             Button { sheet = true } label: { Label(t(.modelAddPhraseStructure), systemImage: "plus") }.buttonStyle(PrimaryButtonStyle())
