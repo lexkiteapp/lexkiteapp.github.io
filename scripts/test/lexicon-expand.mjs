@@ -406,6 +406,14 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   ok(/have_wp/.test(py) && /f'\{w\}#\{pos\}' in have_wp/.test(py) && !/if w in have or w in seen/.test(py), 'pick_words: bỏ trùng theo từ#loại, không theo từ');
   ok(/SEC_MIN/.test(py) && /SEC_SHARE/.test(py) && /math\.log10\(cnt\[pos\] \/ tot\)/.test(py), 'pick_words: từ loại phụ có ngưỡng SemCor + CEFR theo tần suất của từ loại đó');
   ok(/not in FORCE/.test(py) && /w not in FORCE_W/.test(py), 'pick_words: mẫu cố định/retry (--want) luôn có ứng viên đúng từ#loại – mẫu pilot không âm thầm co (31/10: 204/378)');
+  // 08/11 (lượt 42417868955: «cần -2063» → 0 từ mới từ 06/11): mốc 20k đếm mục SỐNG, mục trượt hàng duyệt chỉ để bỏ trùng
+  ok(/LIVE_N\['wp'\]/.test(py) && /need = a\.target - max\(LIVE_N/.test(py) && !/need = a\.target - max\(len\(have\)/.test(py), 'pick_words: mốc 20k = 20k − mục sống (existing.live.json), không trừ mục trượt');
+  { const { execFileSync } = await import('node:child_process'), os = await import('node:os'), d = fs.mkdtempSync(path.join(os.tmpdir(), 'lxex-')), f = path.join(d, 'existing.json');
+    execFileSync('node', [path.join(ROOT, 'scripts/lexicon/expand/existing.mjs'), f], { cwd: ROOT, stdio: 'pipe' });
+    const all = Object.keys(JSON.parse(fs.readFileSync(f, 'utf8'))).filter(k => k.includes('#')).length, live = JSON.parse(fs.readFileSync(path.join(d, 'existing.live.json'), 'utf8'));
+    const failed = [...doneWords()].filter(k => !doneWords({ queue: false }).has(k)).length;
+    ok(live.wp > 0 && live.wp <= all - failed + 1 && live.w <= live.wp + 1, `existing.mjs: mục sống ${live.wp} ≤ bỏ trùng ${all} − trượt ${failed}`);
+    fs.rmSync(d, { recursive: true, force: true }); }
   const job = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8');
   ok(/!done\.has\(kk\(e\)\)/.test(job) && !/done\.has\(e\.w\)/.test(job), 'job.mjs: chọn theo từ#loại'); }
 // 31/10 phễu 600 (thiếu 2 câu người viết 230/600): câu Wiktionary của ĐÚNG nghĩa khoá luôn là ứng viên; không cắt 8 câu đầu (thuộc nghĩa khác) – gate trắc nghiệm nghĩa 3/3 giữ nguyên
@@ -431,7 +439,14 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
     const rows = fs.readFileSync(dir + '/o.tsv', 'utf8').trim().split('\n').map(l => l.split('\t'));
     ok(rows.length === 2 && rows.every(r => /^sw12\.\d+$/.test(r[0]) && r[1] === 'eng'), 'simplewiki: chỉ trang chính, id sw<trang>.<n>');
     ok(rows[0][2] === 'Cats are small mammals that people keep as pets.' && rows[1][2].startsWith('Most farmers'), 'simplewiki: gỡ markup, bỏ số/đại từ/danh sách/tiêu đề');
+    // 08/11: cùng bộ lọc cho Wikivoyage/Wikinews/Wikibooks (--prefix) → job.mjs ghi đúng nguồn + giấy phép
+    execFileSync('python3', [path.join(ROOT, 'scripts/lexicon/expand/simplewiki.py'), '--dump', dir + '/s.bz2', '--out', dir + '/v.tsv', '--prefix', 'wv'], { stdio: 'pipe' });
+    ok(fs.readFileSync(dir + '/v.tsv', 'utf8').trim().split('\n').every(l => /^wv12\.\d+\teng\t/.test(l)), 'simplewiki.py --prefix wv: id wv<trang>.<n>');
     fs.rmSync(dir, { recursive: true, force: true }); } }
+// 08/11 nguồn câu người viết thứ 5–7: job.mjs nhận tiền tố, ghi giấy phép; workflow tải 3 dump (lỗi tải = như cũ)
+{ const job = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'), wf = fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8');
+  ok(/\[\/\^wv\\d\/, 'wikivoyage'\]/.test(job) && /'wikinews'/.test(job) && /'wikibooks'/.test(job) && /Wikivoyage CC BY-SA 4\.0/.test(job) && /Wikinews CC BY/.test(job), 'job.mjs: nguồn wv/wnw/wb + giấy phép');
+  ok(wf.includes('enwikivoyage:wv enwikinews:wnw enwikibooks:wb') && wf.includes('${d%%:*}-latest-pages-articles.xml.bz2') && wf.includes('--prefix "${d##*:}"'), 'lexicon-expand.yml: tải Wikivoyage/Wikinews/Wikibooks'); }
 // 05/11 Common Voice en (commonvoice.py, CC0): lọc hình thức + dễ, id cv<tệp>.<dòng>, bỏ trùng/đại từ/số
 { const { execFileSync } = await import('node:child_process'), os = await import('node:os');
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'cv-'));
