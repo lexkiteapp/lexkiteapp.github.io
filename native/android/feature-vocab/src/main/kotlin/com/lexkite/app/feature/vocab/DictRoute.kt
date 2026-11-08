@@ -36,6 +36,7 @@ internal class DictController(private val env: WordEnv, private val scope: Corou
     private var partial = false
     private var related: RelatedUi = RelatedUi.Loading
     private var phrases: DictPage.Phrases? = null
+    private var note: JsonObject? = null
     private var ctx = CtxUi()
     private var savedPhrases = emptySet<String>()
     private var region = "UK"
@@ -73,7 +74,7 @@ internal class DictController(private val env: WordEnv, private val scope: Corou
         val w = Dict.normWord(raw)
         if (w.isEmpty()) return
         job?.cancel(); sugJob?.cancel()
-        q = w; entry = null; ctx = CtxUi(); related = RelatedUi.Loading; phrases = null; savedPhrases = emptySet()
+        q = w; entry = null; note = null; ctx = CtxUi(); related = RelatedUi.Loading; phrases = null; savedPhrases = emptySet()
         ui = DictUi.Looking(w)
         job = scope.launch {
             region = env.region()
@@ -94,6 +95,7 @@ internal class DictController(private val env: WordEnv, private val scope: Corou
             render()
             if (env.autoSpeak()) env.speakWord(full.jstr("word").ifEmpty { w }, region, false)
             launch { phrases = loadPhrases(full); render() }
+            launch { note = runCatching { env.deepNote(full.jstr("word").ifEmpty { w }) }.getOrNull(); if (note != null) render() }
             launch { runCatching { env.usage() }; render() }
             loadRelated()
         }
@@ -122,7 +124,7 @@ internal class DictController(private val env: WordEnv, private val scope: Corou
             val usage = env.usageCached()
             val m = DictPage.model(e, card, env.meanLang, verbOf = { x -> verbs?.verbOf(x)?.takeIf { it.isNotEmpty() } }, hasUsage = { w -> usage?.hasWord(w) == true })
             val c = ctx.copy2(count = card.jarr("contexts").size)
-            ui = DictUi.Found(DictView(e, m, partial, region, env.uiLang, phrases, related, c, savedPhrases))
+            ui = DictUi.Found(DictView(e, m, partial, region, env.uiLang, phrases, related, c, savedPhrases, note))
         }
     }
 

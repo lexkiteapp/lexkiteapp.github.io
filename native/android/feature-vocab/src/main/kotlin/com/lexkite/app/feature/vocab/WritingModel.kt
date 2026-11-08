@@ -60,7 +60,11 @@ class ModelUi(
     val band6Open: Boolean = false, val finish: Models.Finish? = null, val right: Int = 0, val total: Int = 0, val seed: Long = 1L,
 )
 
+/** Free highlight (phrases-model.js "Tô sáng"): [on] = tapping a sentence marks it; [marked] = ordinals of the marked sentences. */
+class HlState(val on: Boolean = false, val marked: Set<Int> = emptySet())
+
 class ModelActions(
+    val toggleHl: () -> Unit = {}, val clearHl: () -> Unit = {}, val tapSentence: (Int) -> Unit = {},
     val setTab: (String) -> Unit = {}, val toggleAnnot: (String) -> Unit = {}, val saveChunk: (String, String) -> Unit = { _, _ -> }, val saveAll: () -> Unit = {}, val listen: () -> Unit = {},
     val toggleBand6: () -> Unit = {}, val open: (String) -> Unit = {}, val finish: (String, Int, Int) -> Unit = { _, _, _ -> }, val redo: () -> Unit = {}, val say: (String) -> Unit = {},
 )
@@ -80,7 +84,7 @@ private fun whyKey(why: String): L10nKey? = when (why) {
 
 /** #/model/<id>: annotated model answer with the six modes (read, fill phrases, fix grammar, linking words, type the essay, rebuild from lemmas). */
 @Composable
-fun ModelScreen(page: Models.Page, ui: ModelUi, tools: ModelTools, a: ModelActions, onExit: () -> Unit) {
+fun ModelScreen(page: Models.Page, ui: ModelUi, tools: ModelTools, a: ModelActions, onExit: () -> Unit, hl: HlState = HlState()) {
     val c = LocalLKColors.current; val t = LocalL10n.current
     val m = page.m
     VScreen(t(L10nKey.modelAnnotatedModelAnswer), onExit) {
@@ -102,12 +106,12 @@ fun ModelScreen(page: Models.Page, ui: ModelUi, tools: ModelTools, a: ModelActio
         VFlow {
             Models.PRACTICE_TABS.forEach { k -> VChip(t(practiceLabel(k)) + (if (k in ui.done) " ✓" else ""), { a.setTab(k) }, selected = ui.tab == k) }
         }
-        if (ui.tab == "read") ReadTab(page, ui, a) else PracticeTab(page, ui, tools, a)
+        if (ui.tab == "read") ReadTab(page, ui, a, hl) else PracticeTab(page, ui, tools, a)
     }
 }
 
 @Composable
-private fun ReadTab(page: Models.Page, ui: ModelUi, a: ModelActions) {
+private fun ReadTab(page: Models.Page, ui: ModelUi, a: ModelActions, hl: HlState) {
     val c = LocalLKColors.current; val t = LocalL10n.current
     val m = page.m
     VFlow {
@@ -115,7 +119,12 @@ private fun ReadTab(page: Models.Page, ui: ModelUi, a: ModelActions) {
             VChip(t(label), { a.toggleAnnot(k) }, selected = k in ui.annot)
         }
     }
-    LKCard { Annotated(Models.render(m.jstr("text")), ui.annot, t.lang, ui.saved, a.saveChunk) }
+    VFlow {
+        VChip("🖍 " + t(L10nKey.modelHighlight), a.toggleHl, selected = hl.on)
+        LKPillButton("↺ " + t(L10nKey.modelClearAllYourHighlights), a.clearHl)
+    }
+    if (hl.on) VMuted(t(L10nKey.modelSelectTextInThe2))
+    LKCard { Annotated(Models.render(m.jstr("text")), ui.annot, t.lang, ui.saved, a.saveChunk, hl, a.tapSentence) }
     VMuted(t(L10nKey.modelHoverOverOrTap).plain())
     // phrases + linkers
     LKCard {
@@ -176,15 +185,18 @@ private fun ReadTab(page: Models.Page, ui: ModelUi, a: ModelActions) {
     }
 }
 
+private val SENT = Regex("[^.!?]+[.!?]+")
+
 /** The essay with highlighted phrases (tap = save), linkers and sentence roles, following the annotation switches. */
 @Composable
-private fun Annotated(paras: List<Models.Para>, annot: Set<String>, lang: String, saved: Set<String>, onChunk: (String, String) -> Unit) {
+private fun Annotated(paras: List<Models.Para>, annot: Set<String>, lang: String, saved: Set<String>, onChunk: (String, String) -> Unit, hl: HlState = HlState(), onSentence: (Int) -> Unit = {}) {
     val c = LocalLKColors.current
+    var ord = 0 // running sentence ordinal over the whole essay (the free highlight is stored by ordinal)
     Ltr {
         Column(verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
             paras.forEach { p ->
                 if (p.head != null && "role" in annot) VBadge(p.head!!, c.tertiaryContainer, c.onTertiaryContainer)
-                val text = buildAnnotatedString {
+                val plain = buildAnnotatedString {
                     p.segs.forEach { s ->
                         when (s) {
                             is Models.Seg.Text -> append(s.s)
@@ -199,7 +211,14 @@ private fun Annotated(paras: List<Models.Para>, annot: Set<String>, lang: String
                         }
                     }
                 }
+                val sents = SENT.findAll(plain.text).map { it.range }.toList()
+                val base = ord; ord += sents.size
+                val text = if (hl.marked.isEmpty()) plain else buildAnnotatedString {
+                    append(plain)
+                    sents.forEachIndexed { k, r -> if (base + k in hl.marked) addStyle(SpanStyle(background = c.tertiaryContainer), r.first, r.last + 1) }
+                }
                 ClickableText(text, style = LKType.bodyLg.toCompose().copy(color = c.onSurface), onClick = { off ->
+                    if (hl.on) { val k = sents.indexOfFirst { off in it }; if (k >= 0) onSentence(base + k); return@ClickableText }
                     text.getStringAnnotations("chunk", off, off).firstOrNull()?.let { a -> val (en, vi) = a.item.split("\u0000"); onChunk(en, vi) }
                 })
             }

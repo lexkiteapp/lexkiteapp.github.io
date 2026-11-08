@@ -124,6 +124,7 @@ class VocabSnapshotTest {
             "review-front" -> ReviewScreen(ReviewUi.Card(front, false, null, 3, 12, 9, false), ReviewActions(), image)
             "review-answer" -> ReviewScreen(ReviewUi.Card(back, true, null, 4, 12, 8, true), ReviewActions(), image)
             "practice" -> PracticeScreen(practice, PracticeActions())
+            "practice-hard" -> PracticeScreen(PracticeUi.HardOffer(8), PracticeActions())
             "mistakes" -> MistakesScreen(mistakes, MistakesActions())
             "deck" -> DeckScreen(deck, DeckActions(image = image))
             "library" -> LibraryScreen(library, LibraryActions())
@@ -154,6 +155,12 @@ class VocabSnapshotTest {
     @Test fun practiceViLight() = shot("practice", "vi", false)
     @Test fun practiceArLight() = shot("practice", "ar", false)
     @Test fun practiceDeDark() = shot("practice", "de", true)
+
+    @Test fun practiceHardEnLight() = shot("practice-hard", "en", false)
+    @Test fun practiceHardEnDark() = shot("practice-hard", "en", true)
+    @Test fun practiceHardViLight() = shot("practice-hard", "vi", false)
+    @Test fun practiceHardArLight() = shot("practice-hard", "ar", false)
+    @Test fun practiceHardDeDark() = shot("practice-hard", "de", true)
 
     @Test fun mistakesEnLight() = shot("mistakes", "en", false)
     @Test fun mistakesEnDark() = shot("mistakes", "en", true)

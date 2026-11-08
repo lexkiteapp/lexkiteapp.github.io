@@ -30,6 +30,7 @@ import com.lexkite.app.ui.TopBar
 import com.lexkite.app.ui.TopBarVariant
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonObject
@@ -199,6 +200,9 @@ fun ModelRoute(env: WordEnv, id: String, onExit: () -> Unit, open: (String) -> U
         val scope = rememberCoroutineScope()
         val page = remember(m, t) { Models.page(m, w.prompts, w.task1, w.letters, { k -> chartKey(k)?.let { t(it) } ?: k }, { tone -> t(toneKey(tone)) }) }
         var ui by remember(id) { mutableStateOf(ModelUi(seed = System.currentTimeMillis() % 100000)) }
+        var hlOn by remember(id) { mutableStateOf(false) }
+        var hlSet by remember(id) { mutableStateOf(emptySet<Int>()) }
+        val hlKey = "uhl:$id"; val hlVer = m.jstr("text").length.toString()
         val tools by produceState(ModelTools(), env) {
             value = runCatching { ModelTools(env.verbData().forms, env.lemmatizer(), env.index()) }.getOrDefault(ModelTools())
         }
@@ -206,9 +210,24 @@ fun ModelRoute(env: WordEnv, id: String, onExit: () -> Unit, open: (String) -> U
             val done = env.modelDone(id)
             val an = (env.kv("annot2") as? JsonPrimitive)?.content?.split(" ")?.filter { it.isNotEmpty() }?.toSet()
             val have = env.cards().keys
+            (env.kv(hlKey) as? JsonObject)?.let { o -> if ((o["v"] as? JsonPrimitive)?.content == hlVer) hlSet = (o["s"] as? JsonArray)?.mapNotNull { (it as? JsonPrimitive)?.content?.toIntOrNull() }?.toSet() ?: emptySet() }
             ui = ModelUi(tab = ui.tab, done = done, annot = an ?: ui.annot, saved = Models.chunksOf(m.jstr("text")).map { it.first }.filter { it.lowercase() in have }.toSet(), seed = ui.seed)
         }
+        /** Web shape {v, h}: h = the essay as HTML with the marked sentences in <mark class="uhl"> (so the web page shows them too); s = the ordinals, native only. */
+        fun saveHl(next: Set<Int>) {
+            hlSet = next
+            scope.launch {
+                if (next.isEmpty()) env.putKv(hlKey, null)
+                else {
+                    val sents = Models.plain(m.jstr("text")).let { Regex("[^.!?]+[.!?]+").findAll(it).map { x -> x.value }.toList() }
+                    val esc = { s: String -> s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;") }
+                    val h = sents.mapIndexed { k, s -> if (k in next) "<mark class=\"uhl\">" + esc(s) + "</mark>" else esc(s) }.joinToString("")
+                    env.putKv(hlKey, JsonObject(mapOf("v" to JsonPrimitive(hlVer), "h" to JsonPrimitive(h), "s" to JsonArray(next.sorted().map { JsonPrimitive(it) }))))
+                }
+            }
+        }
         val actions = ModelActions(
+            toggleHl = { hlOn = !hlOn }, clearHl = { saveHl(emptySet()) }, tapSentence = { k -> saveHl(if (k in hlSet) hlSet - k else hlSet + k) },
             setTab = { k -> ui = ModelUi(k, ui.done, ui.annot, ui.saved, ui.notice, ui.band6Open, null, 0, 0, System.currentTimeMillis() % 100000) },
             toggleAnnot = { k ->
                 val next = if (k in ui.annot) ui.annot - k else ui.annot + k
@@ -239,6 +258,6 @@ fun ModelRoute(env: WordEnv, id: String, onExit: () -> Unit, open: (String) -> U
                 scope.launch { env.putModelDone(id, done) }
             },
         )
-        ModelScreen(page, ui, tools, actions, onExit)
+        ModelScreen(page, ui, tools, actions, onExit, HlState(hlOn, hlSet))
     }
 }

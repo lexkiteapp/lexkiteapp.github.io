@@ -45,7 +45,7 @@ internal class JsLit(private val s: String, var i: Int = 0, private val consts: 
         return when {
             c == '\'' || c == '"' || c == '`' -> JsonPrimitive(str())
             c == '{' -> { i++; val m = LinkedHashMap<String, JsonElement>(); while (true) { ws(); if (s[i] == '}') { i++; break }; val k = key(); ws(); i++ /* : */; m[k] = value(); ws(); if (s[i] == ',') i++ }; JsonObject(m) }
-            c == '[' -> { i++; val out = ArrayList<JsonElement>(); while (true) { ws(); if (s[i] == ']') { i++; break }; out.add(value()); ws(); if (s[i] == ',') i++ }; JsonArray(out) }
+            c == '[' -> { i++; val out = ArrayList<JsonElement>(); while (true) { ws(); if (s[i] == ']') { i++; break }; val at = i; out.add(value()); check(i > at) { "JS literal: stuck at ${s.substring(at, minOf(s.length, at + 30))}" }; ws(); if (s[i] == ',') i++ }; JsonArray(out) }
             c == '(' -> { i = s.indexOf("=>", i) + 2; value() } // () => t('…')
             c == '-' || c.isDigit() -> { val st = i; i++; while (i < s.length && (s[i].isDigit() || s[i] == '.')) i++; s.substring(st, i).let { n -> if (n.contains('.')) JsonPrimitive(n.toDouble()) else JsonPrimitive(n.toLong()) } }
             else -> { // identifier: null | undefined | true | false | t('…')
@@ -65,7 +65,7 @@ internal class JsLit(private val s: String, var i: Int = 0, private val consts: 
     /** Arguments of a call whose `(` is already consumed; stops after `)`. */
     fun args(): List<JsonElement> {
         val out = ArrayList<JsonElement>()
-        while (true) { ws(); if (s[i] == ')') { i++; break }; out.add(value()); ws(); if (s[i] == ',') i++ }
+        while (true) { ws(); if (s[i] == ')') { i++; break }; val at = i; out.add(value()); check(i > at) { "JS literal: stuck at ${s.substring(at, minOf(s.length, at + 30))}" }; ws(); if (s[i] == ',') i++ }
         return out
     }
 }
@@ -98,13 +98,14 @@ class WebWords(val topics: List<Topic>, val groups: List<WordGroup>) {
             return jo("word" to g(0), "ipa" to g(1), "pos" to g(2), "vi" to g(3), "def" to g(4), "ex" to g(5), "col" to list(6), "syn" to list(7), "level" to g(8), "emoji" to g(9), "ipaUS" to g(10), "topic" to id)
         }
         private val CALL = Regex("(?m)^(add|T)\\(")
-        private val CONST = Regex("(?m)^const (\\w+) = (?=\\[)")
+        /** `const NAME = ['text', ...];` - only arrays of plain strings (the lib files keep their description there); code-like arrays are not touched. */
+        private val CONST = Regex("(?m)^const (\\w+) = (\\[\\s*(?:'[^'\\n]*'|\"[^\"\\n]*\")(?:\\s*,\\s*(?:'[^'\\n]*'|\"[^\"\\n]*\"))*\\s*,?\\s*\\]);")
 
         /** Topics declared in one script (`T(...)` in data.js, `add(...)` in js/lib/ files), in file order. */
         fun parseTopics(text: String): List<Topic> {
             val out = ArrayList<Topic>()
             val consts = HashMap<String, JsonElement>()
-            for (m in CONST.findAll(text)) consts[m.groupValues[1]] = JsLit(text, m.range.last + 1).value()
+            for (m in CONST.findAll(text)) consts[m.groupValues[1]] = JsLit(m.groupValues[2]).value()
             for (m in CALL.findAll(text)) {
                 val a = JsLit(text, m.range.last + 1, consts).args()
                 val id = a[0].s(); val rows = (a.getOrNull(4) as? JsonArray) ?: continue

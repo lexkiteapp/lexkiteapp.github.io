@@ -13,6 +13,11 @@ import com.lexkite.app.core.dict.LexSource
 import com.lexkite.app.core.sync.Http
 import com.lexkite.app.core.usage.Usage
 import com.lexkite.app.core.verbs.VerbData
+import com.lexkite.app.core.vocab.CardMath
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import com.lexkite.app.core.verbs.Verbs
 import com.lexkite.app.core.vocab.Tx
 import com.lexkite.app.core.vocab.WordBook
@@ -59,8 +64,35 @@ class WordEnv(
 
     // ---------- cards ----------
     suspend fun cards(): Map<String, JsonObject> = store.doc().cards
-    suspend fun addWord(entry: JsonObject, context: JsonObject?) {
+    /** Adds a word; a single new word (not [silent]) is enriched in the background (IPA, audio, definition, image, sentences) like app.js `enrichLater`. */
+    suspend fun addWord(entry: JsonObject, context: JsonObject?, silent: Boolean = false) {
+        val key = CardMath.keyOf(entry.jstr("word"))
+        val isNew = !store.doc().cards.containsKey(key)
         store.mutate { d -> val st = WordBook.add(WordBook.Store(d.cards, d.deleted), entry, context, clock()); d.copy(cards = st.cards, deleted = st.deleted) }
+        if (isNew && !silent) enrichLater(key)
+    }
+
+    private val enrichScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    private val enrichLock = Mutex()
+    private val ENRICH = listOf("ipa", "ipaUS", "audio", "def", "ex", "vi", "image")
+    /** One word at a time: look it up and fill what the card lacks (never overwrites); offline or unknown = nothing. */
+    private fun enrichLater(key: String) {
+        enrichScope.launch {
+            enrichLock.withLock {
+                val c = store.doc().cards[key] ?: return@withLock
+                if (c.jstr("tl").let { it.isNotEmpty() && it != "en" }) return@withLock
+                val e = runCatching { dict().lookup(key, image = c.jstr("pos") == "n" && c.jstr("image").isEmpty(), examples = (c["sentences"] as? JsonArray).isNullOrEmpty()) }.getOrNull() ?: return@withLock
+                if (e["found"] == JsonPrimitive(false)) return@withLock
+                store.mutate { d ->
+                    val cur = d.cards[key] ?: return@mutate d
+                    var o = cur
+                    if (o.jstr("image").isEmpty() && e.jstr("image").isNotEmpty()) o = o.with("imageCredit" to (e["imageCredit"] ?: kotlinx.serialization.json.JsonNull))
+                    for (k in ENRICH) if (o.jstr(k).isEmpty() && e.jstr(k).isNotEmpty()) o = o.with(k to e[k])
+                    if ((o["sentences"] as? JsonArray).isNullOrEmpty() && e["sentences"] is JsonArray) o = o.with("sentences" to JsonArray((e["sentences"] as JsonArray).take(2)))
+                    d.copy(cards = d.cards + (key to o))
+                }
+            }
+        }
     }
     /** Applies a pure WordBook transformation (saveChunk / saveAll / addStarter …). */
     suspend fun updateBook(fn: (WordBook.Store) -> WordBook.Store) {
@@ -77,6 +109,19 @@ class WordEnv(
     suspend fun putDraft(id: String, text: String) { val cur = LinkedHashMap(drafts()); cur[id] = JsonPrimitive(text); putKv("letterDrafts", JsonObject(cur)) }
     suspend fun modelDone(id: String): List<String> = (kv("mdone:$id") as? JsonArray)?.map { it.js() } ?: emptyList()
     suspend fun putModelDone(id: String, kinds: List<String>) = putKv("mdone:$id", JsonArray(kinds.map { JsonPrimitive(it) }))
+
+    // ---------- "Hiểu sâu" notes (js/notes/<letter>.json) ----------
+    private val noteFiles = HashMap<String, JsonObject>()
+    /** The note object {m, e, u, f} of a word, or null (no note, or offline without a cached file). One file per first letter, kept for the session. */
+    suspend fun deepNote(word: String): JsonObject? {
+        val w = word.lowercase(); val f = com.lexkite.app.core.dict.DeepNotes.file(w)
+        val file = lock.withLock { noteFiles[f] } ?: run {
+            val txt = script("js/notes/$f.json")
+            val parsed = runCatching { kotlinx.serialization.json.Json.parseToJsonElement(txt) as? JsonObject }.getOrNull() ?: return null
+            lock.withLock { noteFiles[f] = parsed }; parsed
+        }
+        return file[w] as? JsonObject
+    }
 
     // ---------- game ----------
     private val lookedUp = HashSet<String>()

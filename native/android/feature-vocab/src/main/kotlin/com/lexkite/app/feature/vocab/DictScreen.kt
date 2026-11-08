@@ -37,6 +37,8 @@ class CtxUi(val text: String = "", val vi: String = "", val translating: Boolean
 class DictView(
     val entry: JsonObject, val model: DictPage.Model, val partial: Boolean, val region: String, val uiLang: String,
     val phrases: DictPage.Phrases? = null, val related: RelatedUi = RelatedUi.Loading, val ctx: CtxUi = CtxUi(), val savedPhrases: Set<String> = emptySet(),
+    /** "Hiểu sâu" note of the word ({m, e, u, f}) when js/notes has one. */
+    val note: JsonObject? = null,
 )
 
 sealed interface DictUi {
@@ -150,6 +152,7 @@ private fun WordCard(v: DictView, a: DictActions) {
         m.verb?.let { vb -> LKPillButton(t(L10nKey.dictVerbForms), { a.open("verb/" + android.net.Uri.encode(vb)) }) }
         if (m.hasUsage) LKPillButton(t(L10nKey.dictUsage), { a.open("usage/" + android.net.Uri.encode(word.lowercase())) })
     }
+    v.note?.let { DeepNotesCard(it, word, a) }
     // ---- meanings by part of speech ----
     if (m.posBlocks.isNotEmpty()) LKCard {
         VTitle(t(L10nKey.dictMeaningsByPartOf))
