@@ -7,7 +7,7 @@ import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 
 /** Tolerant reader of the JS literals the web word packs use (strings, numbers, arrays, `null`, and `() => t('…')` / `t('…')` call wrappers). */
-internal class JsLit(private val s: String, var i: Int = 0) {
+internal class JsLit(private val s: String, var i: Int = 0, private val consts: Map<String, JsonElement> = emptyMap()) {
     private fun ws() {
         while (i < s.length) {
             val c = s[i]
@@ -54,7 +54,10 @@ internal class JsLit(private val s: String, var i: Int = 0) {
                 when (id) {
                     "null", "undefined" -> JsonNull
                     "true" -> JsonPrimitive(true); "false" -> JsonPrimitive(false)
-                    else -> { ws(); if (s[i] == '(') { i++; val a = value(); ws(); while (s[i] != ')') { i++; ws(); value(); ws() }; i++; a } else JsonNull }
+                    else -> if (s[i] == '[' && consts[id] is JsonArray) { // NAME[0] of a `const NAME = [...]` of the same file (the lib files keep one description there)
+                        i++; val idx = value(); ws(); i++
+                        (consts[id] as JsonArray).getOrNull((idx as? JsonPrimitive)?.content?.toIntOrNull() ?: -1) ?: JsonNull
+                    } else { ws(); if (s[i] == '(') { i++; val a = value(); ws(); while (s[i] != ')') { i++; ws(); value(); ws() }; i++; a } else JsonNull }
                 }
             }
         }
@@ -95,12 +98,15 @@ class WebWords(val topics: List<Topic>, val groups: List<WordGroup>) {
             return jo("word" to g(0), "ipa" to g(1), "pos" to g(2), "vi" to g(3), "def" to g(4), "ex" to g(5), "col" to list(6), "syn" to list(7), "level" to g(8), "emoji" to g(9), "ipaUS" to g(10), "topic" to id)
         }
         private val CALL = Regex("(?m)^(add|T)\\(")
+        private val CONST = Regex("(?m)^const (\\w+) = (?=\\[)")
 
         /** Topics declared in one script (`T(...)` in data.js, `add(...)` in js/lib/ files), in file order. */
         fun parseTopics(text: String): List<Topic> {
             val out = ArrayList<Topic>()
+            val consts = HashMap<String, JsonElement>()
+            for (m in CONST.findAll(text)) consts[m.groupValues[1]] = JsLit(text, m.range.last + 1).value()
             for (m in CALL.findAll(text)) {
-                val a = JsLit(text, m.range.last + 1).args()
+                val a = JsLit(text, m.range.last + 1, consts).args()
                 val id = a[0].s(); val rows = (a.getOrNull(4) as? JsonArray) ?: continue
                 var group = a.getOrNull(5).s().ifEmpty { "topics" }
                 if (m.groupValues[1] == "T" && (id == "task1" || id == "task2")) group = "writing"

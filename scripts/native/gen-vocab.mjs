@@ -550,6 +550,7 @@ const pageEnv = async (hash, files, appOpts = {}, mini = false) => {
   const A = mkApp(E, { cards: await E.Core.Cards.all(), ...appOpts });
   return { E, A };
 };
+const SIMILARITY = vm.runInNewContext(`(function(){ ${slice(rd('web/js/ui.js'), /function similarity\(a, b\) \{/)}\n return similarity; })()`);
 async function writingCases() {
   const out = { ideas: [], letters: [], paraphrase: {}, models: [], model: [], phrases: [], annotated: [] };
   // ---- the web content the page scripts read, plus the REDUCED copy the ports get in vocab.json (data.writing): the same real records, a few of them ----
@@ -657,6 +658,7 @@ async function writingCases() {
   out.exercise = [];
   const exercise = async (m, mode) => {
     const P = await base('#/model/' + m.id, MW), rewards = []; P.A.app.reward = r => rewards.push(r);
+    P.E.sb.UI.similarity = SIMILARITY; // the page's own UI.similarity (web/js/ui.js), not the page-env stub that always answers 0: lemmaExercise accepts >= 95 % similar lines
     const D = P.E.dom, btn = D.mkEl('tab'); btn.dataset.mt = mode; D.resolveList('#mTabs button', () => [btn]);
     const box = D.mkEl('pane'); box._q = D.reg(); D.resolve('#mPane', () => box);
     let h0 = null, L = {};

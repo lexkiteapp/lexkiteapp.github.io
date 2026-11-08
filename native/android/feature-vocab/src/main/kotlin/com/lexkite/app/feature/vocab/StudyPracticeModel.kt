@@ -32,8 +32,10 @@ class PW(val raw: JsonObject) {
  * One question. [type]: mcq-vi (word -> meaning) · mcq-en (meaning -> word) · type-cloze (sentence with a gap) · type-listen (hear it, type it) · type-vi / type-spell (meaning -> type the word).
  * [options] only for mcq; [blank] = the sentence with the gap for cloze.
  */
-class Q(val type: String, val w: PW, val options: List<String>, val answer: String, val blank: String = "") {
+class Q(val type: String, val w: PW, val options: List<String>, val answer: String, val blank: String = "", val hard: Boolean = false) {
     val typed get() = type.startsWith("type")
+    /** Hard mode (lesson-fx `harden`): choosing becomes typing, +6 XP instead of +3. */
+    fun harden(): Q = if (type.startsWith("mcq")) Q("type-vi", w, emptyList(), w.word, hard = true) else Q(type, w, options, answer, blank, hard = true)
 }
 
 /** State of the question on screen: what was picked / typed, whether it was right, and whether a near miss gets one more try. */
@@ -94,6 +96,8 @@ sealed interface PracticeUi {
     class Empty(val mode: String) : PracticeUi
     class Run(val mode: String, val i: Int, val total: Int, val score: Int, val intro: PW?, val q: Q?, val st: QState, val stage: Int = 0, val speak: SpeakState? = null, val sp: PW? = null) : PracticeUi
     class MatchRun(val m: MatchState) : PracticeUi
+    /** 8 right in a row: offer the harder rest of the round (once per round). */
+    class HardOffer(val streak: Int) : PracticeUi
     class Done(val r: PracticeResult) : PracticeUi
 }
 
@@ -102,7 +106,7 @@ class PracticeActions(
     val sayWord: (String) -> Unit = {}, val sayText: (String) -> Unit = {}, val tile: (Int) -> Unit = {},
     val mic: () -> Unit = {}, val skip: () -> Unit = {}, val clear: () -> Unit = {},
     val source: (String) -> Unit = {}, val picker: (Boolean) -> Unit = {}, val start: (String) -> Unit = {},
-    val addMissing: () -> Unit = {}, val again: () -> Unit = {}, val open: (String) -> Unit = {}, val exit: () -> Unit = {},
+    val addMissing: () -> Unit = {}, val again: () -> Unit = {}, val hard: (Boolean) -> Unit = {}, val open: (String) -> Unit = {}, val exit: () -> Unit = {},
 )
 
 /** #/practice: hub (word source + mode grid) and the runs learn · mcq · cloze · listen · test · match · speak. Port of web/js/study.js + study-games.js. */
@@ -121,6 +125,7 @@ internal class PracticeVm(private val env: VocabEnv, private val mode: String, p
     private var queue: List<Q> = emptyList(); private var i = 0; private var score = 0; private var xp = 0; private var st = QState(); private var wrongWords = ArrayList<PW>()
     private var learn: Practice.Learn? = null; private var learnList: List<JsonObject> = emptyList(); private val knownSet = HashSet<String>(); private var intro: PW? = null; private var curQ: Q? = null; private var curW: JsonObject? = null; private var introduced = HashSet<String>(); private var learnAnswered = 0
     private var speakSt = SpeakState(); private var spoken = 0
+    private var streak = 0; private var offered = false; private var hardOn = false
     private var match: MatchState? = null; private var matchStart = 0L
 
     init { viewModelScope.launch { start() } }
@@ -152,7 +157,7 @@ internal class PracticeVm(private val env: VocabEnv, private val mode: String, p
         poolRaw = Practice.pool(src.ifEmpty { null }, data.cards, words, env.now(), rnd)
         pool = poolRaw.map { PW(it) }
         if (pool.isEmpty()) { ui = PracticeUi.Empty(mode); return }
-        score = 0; xp = 0; i = 0; wrongWords = ArrayList(); st = QState()
+        score = 0; xp = 0; i = 0; wrongWords = ArrayList(); st = QState(); streak = 0; offered = false; hardOn = false
         when (mode) {
             "learn" -> { learnList = Practice.learnItems(poolRaw, data.cards, rnd); learn = Practice.Learn(learnList, rnd); knownSet.clear(); nextLearn() }
             "match" -> startMatch()
@@ -168,9 +173,17 @@ internal class PracticeVm(private val env: VocabEnv, private val mode: String, p
 
     private fun showQ() {
         if (i >= queue.size) { finish(); return }
+        if (wantsHard()) { offered = true; ui = PracticeUi.HardOffer(streak); return }
         st = QState(); speakSt = SpeakState(); val q = queue[i]; curQ = q
         publishRun(q)
         if (q.type == "type-listen") env.sayWord(q.w.word, data.accent) else if (q.type == "speak") Unit
+    }
+    /** lesson-fx `wantsHard`: once per round, not in the test, at least two questions left. */
+    private fun wantsHard() = mode in Practice.HARD_MODES && !offered && !hardOn && streak >= Practice.HARD_AT && queue.size - i >= 2
+    /** The learner's answer to the offer: yes = the rest of the round is typed and worth more. */
+    fun hard(yes: Boolean) {
+        if (yes) { hardOn = true; queue = queue.take(i) + queue.drop(i).map { it.harden() } }
+        showQ()
     }
     private fun publishRun(q: Q?, intro: PW? = null) {
         val total = if (mode == "learn") (learn?.total ?: 0) else queue.size
@@ -225,7 +238,8 @@ internal class PracticeVm(private val env: VocabEnv, private val mode: String, p
             val l = learn ?: return; val x = l.answer(curW ?: return, ok); xp += x; learnAnswered++
             if (ok) score++
         } else {
-            if (ok) { score++; xp += 3 } else {
+            if (mode in Practice.HARD_MODES) streak = if (ok) streak + 1 else 0
+            if (ok) { score++; xp += Practice.quizXpPerAnswer(q.hard) } else {
                 wrongWords.add(q.w)
                 viewModelScope.launch { mistakes = Mistakes.log(mistakes, StudyQuiz.mistake(q, given), env.now(), env.tx); env.saveMistakes(mistakes) }
             }
@@ -324,7 +338,7 @@ internal class PracticeVm(private val env: VocabEnv, private val mode: String, p
     fun actions(open: (String) -> Unit, exit: () -> Unit, mic: () -> Unit) = PracticeActions(
         pick = ::pick, submit = ::submit, next = ::next, known = ::known, startQuestion = ::startQuestion, sayWord = { env.sayWord(it, if (this::data.isInitialized) data.accent else "en-US") }, sayText = { env.sayText(it) },
         tile = ::tile, mic = mic, skip = ::skip, clear = ::clearWrong, source = ::source, picker = ::picker, start = { m -> open("practice/$m" + (if (src.isNotEmpty()) "?src=" + android.net.Uri.encode(src) else "")) },
-        addMissing = ::addMissing, again = ::again, open = open, exit = exit,
+        addMissing = ::addMissing, again = ::again, hard = ::hard, open = open, exit = exit,
     )
 
     class Factory(private val env: VocabEnv, private val mode: String, private val src: String) : ViewModelProvider.Factory {

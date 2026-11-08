@@ -588,7 +588,7 @@ class VocabVectorsTest {
     @Test fun verb_mistakes() { for (c in VB.a("mistakes").map { it.jsonObject }) eq(c.s("input"), c["out"], verbs.mistakes(c.s("input"))) }
     @Test fun verb_suggest() { for (c in VB.a("suggest").map { it.jsonObject }) eq(c.s("input"), c["out"], verbs.suggest(c.s("input"), c.n("n").toInt())) }
     @Test fun verb_modal() { for (c in VB.a("modal").map { it.jsonObject }) check(c.s("input"), c["out"], verbs.modal(c.s("input"))) }
-    @Test fun verb_verbOf() { for (c in VB.a("verbOf").map { it.jsonObject }) assertEquals(c.s("input"), c.s("out"), verbs.verbOf(c.o("input"))) }
+    @Test fun verb_verbOf() { for (c in VB.a("verbOf").map { it.jsonObject }) assertEquals(Js.stringify(c["input"]), c.s("out"), verbs.verbOf(c.o("input"))) }
     @Test fun verb_irregular() {
         val irr = VB.o("irregular"); val list = verbs.irregularList()
         assertEquals(irr.n("total").toInt(), list.size); check("sample", irr["sample"], list.take(4))

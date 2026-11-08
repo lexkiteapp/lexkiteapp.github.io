@@ -4,6 +4,7 @@ import com.lexkite.app.core.audio.LkAudio
 import com.lexkite.app.core.data.LexStore
 import com.lexkite.app.core.dict.Dict
 import com.lexkite.app.core.dict.DictCfg
+import com.lexkite.app.core.dict.DictPage
 import com.lexkite.app.core.dict.DictStore
 import com.lexkite.app.core.dict.HttpDictNet
 import com.lexkite.app.core.dict.HttpLexSource
@@ -13,6 +14,7 @@ import com.lexkite.app.core.sync.Http
 import com.lexkite.app.core.usage.Usage
 import com.lexkite.app.core.verbs.VerbData
 import com.lexkite.app.core.verbs.Verbs
+import com.lexkite.app.core.vocab.Tx
 import com.lexkite.app.core.vocab.WordBook
 import com.lexkite.app.core.write.Lemmatizer
 import com.lexkite.app.core.write.Models
@@ -42,6 +44,8 @@ class WordEnv(
     /** The word library index (web IELTS_DATA.INDEX) when the app has it; empty = grammar "planted errors" fall back to choosing the right form. */
     private val wordIndex: suspend () -> Map<String, JsonObject> = { emptyMap() },
     private val clock: () -> Long = System::currentTimeMillis,
+    /** Words of the dictionary credit / notes text keyed by the web's Vietnamese source strings. */
+    private val tx: Tx = Tx.RAW,
 ) {
     val learnLang: String get() = uiLang
     val meanLang: String get() = if (uiLang == "vi") "vi" else "en"
@@ -74,6 +78,15 @@ class WordEnv(
     suspend fun modelDone(id: String): List<String> = (kv("mdone:$id") as? JsonArray)?.map { it.js() } ?: emptyList()
     suspend fun putModelDone(id: String, kinds: List<String>) = putKv("mdone:$id", JsonArray(kinds.map { JsonPrimitive(it) }))
 
+    // ---------- game ----------
+    private val lookedUp = HashSet<String>()
+    /** App.reward({lookups: 1}) once per word per day (dict-page.js): the day counter and the lifetime total of the game document. */
+    suspend fun rewardLookup(word: String) {
+        val now = clock()
+        if (!DictPage.rewardOnce(lookedUp, now, word)) return
+        store.mutate { d -> d.copy(game = StudyReward.track(d.game, mapOf("lookups" to 1), 0, now)) }
+    }
+
     // ---------- voice ----------
     fun speakWord(word: String, region: String, slow: Boolean = false) = audio.speakWord(word, if (region == "US") "en-US" else "en-GB", slow)
     fun speak(text: String, slow: Boolean = false, who: String = "ama") = audio.speak(text, who, if (slow) 0.7f else 0.95f)
@@ -94,7 +107,10 @@ class WordEnv(
     /** Already-loaded usage table (null until the first [usage] call finished) – lets a screen show "usage" links without waiting. */
     fun usageCached(): Usage? = usageV
 
-    suspend fun dict(): Dict = lock.withLock { dictV ?: Dict(HttpDictNet(http), lex(), emptyMap(), DictCfg(meanLang, learnLang, base), dictStore, clock).also { dictV = it } }
+    suspend fun dict(): Dict {
+        val idx = index(); val typo = verbData().viTypo
+        return lock.withLock { dictV ?: Dict(HttpDictNet(http), lex(), idx, DictCfg(meanLang, learnLang, base, tx, viTypo = typo), dictStore, clock).also { dictV = it } }
+    }
     private var verbDataV: VerbData? = null
     private var lemmaV: Lemmatizer? = null
     private fun vd(): VerbData = verbDataV ?: VerbData.parse(asset("verbs.json")).also { verbDataV = it }

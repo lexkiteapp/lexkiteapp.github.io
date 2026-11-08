@@ -14,6 +14,14 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.gestures.detectHorizontalDragGestures
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.platform.LocalDensity
+import com.lexkite.app.design.LocalReduceMotion
+import kotlin.math.abs
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -27,6 +35,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -84,11 +93,46 @@ private fun CardScreen(u: ReviewUi.Card, a: ReviewActions, image: StudyImage) {
         if (u.notice != null) Notice(t(u.notice), u.noticeOk)
         if (u.flipped) {
             if (answered) AnswerBanner(u)
-            BackFace(u, a, image)
+            SwipeGrade(!answered, a.grade) { BackFace(u, a, image) }
         } else when (card.mode) {
             "type" -> TypeFace(u, a)
             "audio" -> AudioFace(u, a)
             else -> FlipFace(u, a)
+        }
+    }
+}
+
+/**
+ * study-swipe.js: drag the flipped card sideways to grade it - left = Again, right = Good (physical sides, also in RTL). Needs 30% of the width
+ * or a quick 40 dp flick; starts only away from the 24 dp screen edges (back gesture); vertical scrolling is untouched; no tilt with Reduce Motion.
+ */
+@Composable
+private fun SwipeGrade(enabled: Boolean, onGrade: (Int) -> Unit, content: @Composable () -> Unit) {
+    if (!enabled) { content(); return }
+    val c = LocalLKColors.current; val reduce = LocalReduceMotion.current; val dens = LocalDensity.current.density
+    var dx by remember { mutableFloatStateOf(0f) }
+    var width by remember { mutableFloatStateOf(1f) }
+    val grade by rememberUpdatedState(onGrade)
+    Box(Modifier.fillMaxWidth().onSizeChanged { width = it.width.toFloat().coerceAtLeast(1f) }
+        .pointerInput(Unit) {
+            var live = false; var t0 = 0L
+            detectHorizontalDragGestures(
+                onDragStart = { p -> live = p.x >= 24 * dens && p.x <= width - 24 * dens; t0 = System.nanoTime(); dx = 0f },
+                onDragEnd = {
+                    val dist = abs(dx); val ms = ((System.nanoTime() - t0) / 1_000_000L).coerceAtLeast(1L)
+                    val passed = live && (dist >= width * 0.3f || (dist >= 40 * dens && dist / dens / ms > 0.5f))
+                    val good = dx > 0; dx = 0f; live = false
+                    if (passed) grade(if (good) 2 else 0)
+                },
+                onDragCancel = { dx = 0f; live = false },
+                onHorizontalDrag = { change, d -> if (live) { change.consume(); dx += d } },
+            )
+        }) {
+        Column(Modifier.fillMaxWidth().graphicsLayer { translationX = dx; rotationZ = if (reduce) 0f else dx / (18f * dens) }, verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceMd)) { content() }
+        if (abs(dx) > 40 * dens) {
+            val good = dx > 0
+            Text((if (good) "✓ " else "↺ ") + t(if (good) L10nKey.revGood else L10nKey.revAgain), Modifier.align(if (good) Alignment.TopStart else Alignment.TopEnd).padding(LKSpacing.spaceXs).clip(PillShape).background(if (good) c.secondary else c.error).padding(horizontal = LKSpacing.spaceSm, vertical = 4.dp),
+                style = LKType.labelMetric.toCompose(), color = if (good) c.onSecondary else c.onError)
         }
     }
 }
@@ -223,7 +267,7 @@ private fun LeechBox(u: ReviewUi.Card, a: ReviewActions) {
         Body(t(L10nKey.revHardWordForgottenTimes, mapOf("n" to u.c.lapses)), style = LKType.titlePill)
         Muted(t(L10nKey.revRelearnItDifferentlyInstead))
         Row(horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
-            GhostButton(t(L10nKey.revCreateAMemoryAid), a.aid, Modifier.weight(1f), enabled = !u.busy)
+            if (u.canAid) GhostButton(t(L10nKey.revCreateAMemoryAid), a.aid, Modifier.weight(1f), enabled = !u.busy)
             GhostButton(t(L10nKey.revRepeatAloud3Times), a.shadow, Modifier.weight(1f))
         }
         if (u.aid != null) Body(u.aid)

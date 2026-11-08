@@ -49,14 +49,14 @@ internal fun JsonObject.without(vararg k: String): JsonObject = JsonObject(Linke
 /**
  * Everything the vocabulary screens need from the app graph (small manual DI, like [com.lexkite.app.feature.lesson.LessonEnv]).
  * [tx] turns the web's Vietnamese source strings (practice sources, library names) into the UI language; [words] is the web word library
- * (cached download, null while offline without a cache); [ai] answers a prompt with text (memory aids), null = no AI available.
+ * (cached download, null while offline without a cache); [ai] answers a prompt with text (memory aids), null = no AI available (the AI entries stay hidden, M6).
  */
 class VocabEnv(
     val store: LexStore, val audio: LkAudio, val http: Http, val cacheDir: File,
     val tx: Tx = Tx.RAW, val now: () -> Long = System::currentTimeMillis,
     val words: suspend () -> WebWords? = { null },
     val imageUrl: (String, String) -> String? = { _, _ -> null },
-    val ai: suspend (String) -> String? = { null },
+    val ai: (suspend (String) -> String?)? = null,
 ) {
     /** One consistent read of everything a screen starts from. */
     class Loaded(val doc: SyncDoc, val mistakes: List<JsonObject>, val seen: Map<String, Long>) {
@@ -136,18 +136,12 @@ object StudyWords {
 
 /**
  * The web keys its UI text by the Vietnamese source string; the native strings are keyed by id. This maps a Vietnamese key to the id whose
- * Vietnamese text is that key and renders it in the UI language; unknown keys fall back to the key itself (still readable).
+ * Vietnamese text is that key and renders it in the UI language; every key the code passes has an id (strings.json).
  */
 object StudyTx {
-    /** Source strings of the web that have no id of their own: composed from ids that mean the same. */
-    private val ALIAS: Map<String, (L10n, Map<String, String>?) -> String> = mapOf(
-        "Sổ từ của tôi ({n})" to { l, v -> l(L10nKey.vocabMyWords) + " (" + (v?.get("n") ?: "") + ")" },
-        "Từ sắp quên (độ nhớ < 85%)" to { l, _ -> l(L10nKey.vocabFading) },
-        "Thẻ đến hạn hôm nay" to { l, _ -> l(L10nKey.todayReview) },
-    )
     fun of(cur: L10n, vi: L10n): Tx {
         val rev = HashMap<String, L10nKey>()
         for (k in L10nKey.entries) if (vi.has(k)) rev.putIfAbsent(vi(k), k)
-        return Tx { key, vars -> val k = rev[key]; if (k != null) cur(k, vars.orEmpty()) else ALIAS[key]?.invoke(cur, vars) ?: Tx.RAW.t(key, vars) }
+        return Tx { key, vars -> val k = rev[key]; if (k != null) cur(k, vars.orEmpty()) else Tx.RAW.t(key, vars) }
     }
 }

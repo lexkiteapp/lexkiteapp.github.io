@@ -90,6 +90,7 @@ internal class DictController(private val env: WordEnv, private val scope: Corou
             full!!
             entry = full; partial = false
             env.putRecent(DictPage.recent(env.recent(), full.jstr("word").ifEmpty { w }))
+            runCatching { env.rewardLookup(full.jstr("word").ifEmpty { w }) }
             render()
             if (env.autoSpeak()) env.speakWord(full.jstr("word").ifEmpty { w }, region, false)
             launch { phrases = loadPhrases(full); render() }

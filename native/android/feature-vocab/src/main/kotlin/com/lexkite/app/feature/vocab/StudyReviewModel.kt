@@ -54,7 +54,7 @@ sealed interface ReviewUi {
     class Done(val s: ReviewSummary) : ReviewUi
     class Card(
         val c: ReviewCard, val flipped: Boolean, val ans: ReviewAnswer?, val done: Int, val total: Int, val left: Int, val canUndo: Boolean,
-        val hints: Int = 0, val picked: Int? = null, val notice: L10nKey? = null, val noticeOk: Boolean = true, val aid: String? = null, val busy: Boolean = false,
+        val hints: Int = 0, val picked: Int? = null, val notice: L10nKey? = null, val noticeOk: Boolean = true, val aid: String? = null, val busy: Boolean = false, val canAid: Boolean = true,
     ) : ReviewUi
 }
 
@@ -130,7 +130,7 @@ internal class ReviewVm(private val env: VocabEnv, private val query: Map<String
             retention = CardMath.retention(srs, now)?.let { floor(it * 100 + 0.5).toInt() }, lapses = srs.gn("lapses").toInt(), isNew = CardMath.isNew(c), reverse = s.reverse,
             mode = pick.mode, options = pick.options?.all.orEmpty(), right = pick.options?.right ?: -1, previews = (0..3).map { Review.preview(srs, it, now) },
         )
-        ui = ReviewUi.Card(card, flipped || answer != null, answer, s.done, s.total, s.queue.size, s.canUndo, hints, picked, notice, noticeOk, aidText, busy)
+        ui = ReviewUi.Card(card, flipped || answer != null, answer, s.done, s.total, s.queue.size, s.canUndo, hints, picked, notice, noticeOk, aidText, busy, env.ai != null)
     }
     private fun slash(ipa: String) = if (ipa.isBlank()) "" else "/" + ipa.trim().trim('/') + "/"
 
@@ -197,11 +197,11 @@ internal class ReviewVm(private val env: VocabEnv, private val query: Map<String
     }
     /** "Create a memory aid with AI": asks the injected AI, keeps the mnemonic as the card note (<= 200) when it has none. */
     fun aid() {
-        val c = card() ?: return; if (busy) return
+        val c = card() ?: return; val ask = env.ai ?: return; if (busy) return
         busy = true; notice = L10nKey.revAiIsThinkingOf; noticeOk = true; publish()
         viewModelScope.launch {
             val prompt = "Create a memory aid for the English word \"${c.gs("word")}\" (${c.gs("pos")}) meaning \"${c.gs("vi")}\". Return ONLY JSON: {\"mnemonic\": \"a vivid sound-alike or image association, max 30 words\", \"parts\": \"word parts / root meaning if useful, else empty\", \"confuse\": \"a commonly confused word and the difference, else empty\"}"
-            val raw = runCatching { env.ai(prompt) }.getOrNull()
+            val raw = runCatching { ask(prompt) }.getOrNull()
             val j = raw?.let { r -> runCatching { Json.parseToJsonElement(r.substring(r.indexOf('{'), r.lastIndexOf('}') + 1)).jsonObject }.getOrNull() }
             busy = false
             if (j == null || j.gs("mnemonic").isEmpty()) { notice = L10nKey.revDownloadFailedTryAgain; noticeOk = false }

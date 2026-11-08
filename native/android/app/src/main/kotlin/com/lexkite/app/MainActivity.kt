@@ -159,7 +159,8 @@ class MainActivity : ComponentActivity() {
         vocab = { route, arg, query, onExit, open, replace -> VocabRoute(vocabEnv(lang), route, arg, query, vocabSlots, open, replace, onExit) },
         vocabHub = { open -> VocabHubRoute(vocabEnv(lang), open) },
         words = { route, arg, query, onExit, open ->
-            val env = remember(lang) { WordEnv(app.store, app.audio, UrlHttp, { name -> assets.open(name).bufferedReader().use { it.readText() } }, lang) }
+            val t = com.lexkite.app.design.LocalL10n.current
+            val env = remember(lang) { WordEnv(app.store, app.audio, UrlHttp, { name -> assets.open(name).bufferedReader().use { it.readText() } }, lang, wordIndex = { StudyWords.load(UrlHttp, cacheDir)?.index ?: emptyMap() }, tx = StudyTx.of(t, L10n.load(this@MainActivity, "vi"))) }
             WordRoute(env, route, arg, query, onExit, open)
         },
     )

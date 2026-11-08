@@ -128,6 +128,9 @@ object Practice {
     fun quizSize(mode: String) = if (mode == "test") 20 else 10
     fun quizTypes(mode: String): List<String> = when (mode) { "mcq" -> listOf("mcq-vi"); "cloze" -> listOf("type-cloze"); "listen" -> listOf("type-listen"); else -> listOf("mcq-vi", "mcq-en", "type-cloze", "type-listen", "type-vi") }
     fun quizXpPerAnswer(hard: Boolean) = if (hard) 6 else 3
+    /** lesson-fx HARD_AT: right answers in a row before the hard mode is offered; modes that offer it (not the test). */
+    const val HARD_AT = 8
+    val HARD_MODES = setOf("mcq", "cloze", "listen")
     fun percent(score: Int, total: Int) = floor(score.toDouble() / total * 100 + 0.5).toInt()
     /** `reward({quizzes:1, perfect, xp})` base XP of a finished quiz. */
     fun quizBaseXp(pct: Int) = if (pct == 100) 15 else 5

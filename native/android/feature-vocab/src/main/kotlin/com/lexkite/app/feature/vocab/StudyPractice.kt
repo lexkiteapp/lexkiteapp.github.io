@@ -73,6 +73,7 @@ fun PracticeScreen(ui: PracticeUi, a: PracticeActions, clock: () -> Long = Syste
         }
         is PracticeUi.Run -> RunScreen(ui, a)
         is PracticeUi.MatchRun -> MatchScreen(ui.m, a, clock)
+        is PracticeUi.HardOffer -> HardOfferScreen(ui, a)
         is PracticeUi.Done -> DoneScreen(ui.r, a)
     }
 }
@@ -145,6 +146,21 @@ private fun RunScreen(r: PracticeUi.Run, a: PracticeActions) {
     }
 }
 
+/** 8 right in a row: "this looks too easy" - try the harder rest (typing, +6 XP) or keep the level. */
+@Composable
+private fun HardOfferScreen(h: PracticeUi.HardOffer, a: PracticeActions) {
+    val c = LocalLKColors.current
+    StudyFocus(0f, t(L10nKey.revHard), a.exit, bottom = {
+        LKPrimaryButton("💪 " + t(L10nKey.revGoHarder), { a.hard(true) })
+        GhostButton(t(L10nKey.revKeepThisLevel), { a.hard(false) }, Modifier.fillMaxWidth())
+    }) {
+        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
+            Text("🔥 " + h.streak, style = LKType.displayHero.toCompose(), color = c.secondary)
+            Body(t(L10nKey.revThisLooksTooEasyFor), style = LKType.headlineSm, align = TextAlign.Center)
+        }
+    }
+}
+
 @Composable
 private fun Intro(w: PW, a: PracticeActions) {
     LKCard {
@@ -163,6 +179,7 @@ private fun Intro(w: PW, a: PracticeActions) {
 @Composable
 private fun Question(q: Q, st: QState, a: PracticeActions) {
     val c = LocalLKColors.current; val done = st.ok != null
+    if (q.hard) Tag("💪 " + t(L10nKey.revToughItemXp, mapOf("n" to 6)))
     LKCard {
         when (q.type) {
             "mcq-vi" -> Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
