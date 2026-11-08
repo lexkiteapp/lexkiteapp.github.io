@@ -9224,16 +9224,41 @@ gasification	ok	ok
 anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
 porpoise	ok	ok
 systematics	ok	ok
+musicologist	ok	ok
+antitoxin	ok	ok
+polyhedron	ok	ok
 metastasize	cut_wordis:"Metastasis" 1.17s · cut_wordis:"Metastasis" 1.16s · dot100:"Metastasisae" 1.21s · cut_wordis100:"Metastasis" 1.13s · cut_wordis100:"Metastasis" 1.11s · cut_next: câu mang: "Next word Metastasis" · plain095:"Metastasis" 1.22s · dot090:"Metastasisae" 1.39s	ok
+minicomputer	ok	ok
 hydrolyze	ok	cut_wordis:"Hydralize." 0.95s · cut_wordis:"Hydralize." 0.85s · dot100:"Hydralize." 0.88s · cut_wordis100:"Hydralize." 0.91s · cut_wordis100:"Hydralize." 0.87s · cut_next:"Hydralize." 0.97s · cut_next:"July's." 0.70s · plain095:"Hydralize." 0.89s · dot090:"Hydralize." 0.94s
+fluoresce	ok	ok
+plosive	ok	ok
 internationalize	ok	ok
+defoliant	ok	ok
+adjoin	ok	ok
 depositor	ok	ok
+randomize	ok	ok
 doff	cut_wordis: câu mang: "The word is doffy." · dot100:"Doth." 0.75s · cut_wordis100:"Dolph." 0.60s · cut_wordis100:"Doth." 0.58s · cut_next: câu mang: "Next word, Dorothy." · plain095:"Doth" 0.54s · dot090:"Duff." 0.81s	cut_wordis:"DOF" 0.75s · cut_wordis:"DOF." 0.57s · dot100:"doves" 0.61s · cut_wordis100:"DoF." 0.69s · cut_wordis100:"DoF." 0.52s · cut_next:"DOF." 0.58s · cut_next:"Off." 0.33s · plain095:"Doth" 0.56s · dot090:"DoF." 0.67s
+arteriosclerosis	ok	ok
+mitochondrion	cut_wordis:"It's mitochondrion" 1.19s · cut_wordis:"Mitochondrian" 1.08s · dot100:"Mitochondrians" 1.11s · cut_wordis100:"is mitochondrion" 1.14s · cut_wordis100:"Mitochondrian" 1.03s · cut_next:"Itachondrian." 0.88s · cut_next:"to Condrian." 0.86s · plain095:"Mitochondrians" 1.15s · dot090:"mitocho	ok
+recapitulate	cut_wordis:"Zricka Pitchelate" 1.08s · cut_wordis:"Ricopitulate" 0.97s · dot100:"Rickopitulator" 1.24s · cut_wordis100: câu mang: "The word is ricapitulate." · cut_next: câu mang: "Next word Rickopitulate" · plain095:"Ricopitulate" 1.18s · dot090:"Rickopitulator" 1.32s	ok
 counterfeiter	ok	cut_wordis: câu mang: "The word is, counter-fitter." · dot100:"CounterFitter" 0.83s · cut_wordis100:"CounterFitter" 1.01s · cut_wordis100:"CounterFitter" 0.84s · cut_next:"CounterFitter" 0.90s · cut_next:"CounterFitter" 0.82s · plain095:"CounterFitter" 0.85s · dot090:"CounterFitter" 0.88s
 homophone	ok	ok
+counterrevolution	ok	cut_wordis: câu mang: "The word is counter-evolution." · dot100:"Counter-evolution" 1.12s · cut_wordis100: câu mang: "The word is counter-evolution." · cut_next: câu mang: "Next word, counter-evolution." · plain095:"Counter-evolution" 1.11s · dot090:"Counter-evolution" 1.19s
+panhandler	ok	ok
+cotyledon	ok	ok
 proscribe	cut_wordis: câu mang: "The word is proscriby." · dot100:"Prescribe" 0.90s · cut_wordis100:"Prescribe" 0.89s · cut_wordis100:"prescribe." 0.83s · cut_next: câu mang: "Next word proscriby" · plain095:"Prescribed" 0.82s · dot090:"Prescribe" 1.05s	cut_wordis:"Prescribe" 0.87s · cut_wordis:"prescribe." 0.76s · dot100:"prescribe." 0.78s · cut_wordis100:"Prescribe" 0.89s · cut_wordis100:"prescribe." 0.74s · cut_next: câu mang: "Next word, prescribe." · plain095:"prescribe." 0.81s · dot090:"prescribe." 0.87s
+incise	cut_wordis: câu mang: "The word is incised." · dot100:"in size." 0.94s · cut_wordis100: câu mang: "The word is in size." · cut_next: câu mang: "Next word in size." · plain095:"In size" 0.85s · dot090:"in size." 1.00s	cut_wordis: câu mang: "The word is in size." · dot100:"In size." 0.81s · cut_wordis100: câu mang: "The word is in size." · cut_next: câu mang: "Next word, in size." · plain095:"In size." 0.81s · dot090:"In size." 0.86s
 lexicographer	ok	ok
+shipwright	ok	ok
+misapplication	ok	ok
+gallstone	cut_wordis:"It's Galston." 0.90s · cut_wordis:"Galstoon" 0.83s · dot100:"Galstoon" 0.88s · cut_wordis100:"Skalstoon" 0.84s · cut_wordis100:"Galston" 0.79s · cut_next: câu mang: "Next word, Galston" · plain095:"A Galestone" 0.79s · dot090:"Galston." 0.94s	cut_wordis:"Galstone." 1.00s · cut_wordis:"Galstone" 0.82s · dot100:"Galstone" 0.79s · cut_wordis100:"Galstone." 0.93s · cut_wordis100:"Galestone." 0.74s · cut_next:"Galestone." 0.77s · cut_next:"Stone." 0.55s · plain095:"Galstone" 0.81s · dot090:"Galstone" 0.83s
 teetotaler	cut_wordis: câu mang: "The word is Titu Taylor." · dot100:"T2 Taylor" 1.02s · cut_wordis100: câu mang: "The word is T to Taylor." · cut_next: câu mang: "Next word, T to Taylor" · plain095:"T2 Taylor" 0.95s · dot090:"T2 Taylor" 1.18s	cut_wordis: câu mang: "The word is Tito Taylor." · dot100:"Tito Taylor" 0.89s · cut_wordis100: câu mang: "The word is Tito Taylor." · cut_next: câu mang: "Next word, Tito Taylor." · plain095:"TitoTiller" 0.80s · dot090:"Tito Taylor" 0.94s
+mangosteen	ok	ok
 overemphasize	ok	ok
+decease	ok	ok
+gusher	ok	ok
 deportment	ok	ok
+misconstrue	cut_wordis: câu mang: "The word is misconstru." · dot100:"Miskin's Drew" 1.04s · cut_wordis100: câu mang: "The word is miss construe" · cut_next: câu mang: "Next word miss construe" · plain095:"Misk and Strew" 1.06s · dot090:"Miskin Strue" 1.18s	cut_wordis: câu mang: "The word is misconstru." · dot100:"Miskin Strew" 0.93s · cut_wordis100: câu mang: "The word is misconstru." · cut_next:"Miskin's True." 0.92s · cut_next:"construe" 0.69s · plain095:"Miss Constru." 0.95s · dot090:"Miss Constru." 1.02s
+avowedly	ok	ok
+phlebitis	ok	ok
 fossilize	ok	ok
