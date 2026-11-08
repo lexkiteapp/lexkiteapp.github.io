@@ -43,7 +43,7 @@ def entry(scene, lesson, base, r, qa_text='', created=None, sizes=None, cal=None
     slot = (cal or {}).get(lesson)
     m = re.search(r'-([a-z]{2,3})(?:-v\d+.*)?$', base)
     sizes = sizes or {}
-    return dict(id=base, lesson=lesson, scene=scene, format=fmt, template=tpl, area=pack.get('area') or '', cefr=pack.get('cefr') or '',
+    e = dict(id=base, lesson=lesson, scene=scene, format=fmt, template=tpl, area=pack.get('area') or '', cefr=pack.get('cefr') or '',
                 point=pack.get('point') or '', series=pack.get('series') or '', lang=m.group(1) if m else 'en',
                 title=pack.get('title') or '', description=pack.get('description') or '', hashtags=pack.get('hashtags') or [],
                 duration=r.get('duration'), qa=dict(status='pass' if (r.get('qa') or '').upper().startswith('ALL PASS') else 'fail', **qa_metrics(qa_text)),
@@ -51,6 +51,8 @@ def entry(scene, lesson, base, r, qa_text='', created=None, sizes=None, cal=None
                 cover_bytes=sizes.get(r.get('cover')) if r.get('cover') else None, video=r.get('video'), cover=r.get('cover'),
                 slot=dict(n=slot['n'], date=slot['date'], time=slot['time'], tz=slot.get('tz')) if slot else None, packed=bool(pack),
                 rejected=r.get('rejected'), paused=r.get('paused'), recipe=r.get('recipe'), master_sha256=r.get('master_sha256'))   # owner flags (meta.json, copied per render): admin shows them, nothing schedules them
+    e.update(r.get('index') or {})   # a pipeline with its own metadata (Teach2D: scripts/video/teach2d/store.py) overrides the cine defaults
+    return e
 
 
 def write(path, items):

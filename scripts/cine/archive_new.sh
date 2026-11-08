@@ -13,7 +13,7 @@ python3 - "$R" <<'PY'
 import json, os, subprocess, sys
 r = sys.argv[1]; idx = json.load(open(f'{r}/shorts/index.json'))
 for it in idx.get('items', []):
-    for k in ('video', 'cover'):
+    for k in ('video', 'cover', 'wide'):
         rel = it.get(k)
         if rel and os.path.exists(f'{r}/{rel}') and not ((it.get('drive') or {}).get(k) or {}).get('fileId'):
             subprocess.run(['git', '-C', r, 'add', '-f', '--sparse', rel], check=False); print('kept in git:', rel)
