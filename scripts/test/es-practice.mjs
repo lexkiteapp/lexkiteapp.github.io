@@ -17,7 +17,7 @@ const loaded = []; App.loadScript = async src => { loaded.push(src); w.eval(fs.r
 let spoken = [], rewards = []; UI.tts = t => { spoken.push(t); }; App.reward = async d => { rewards.push(d); };
 ok(typeof App.routes.espractice === 'function', 'route espractice có');
 await App.routes.espractice('A1'); await tick(50);
-ok(loaded.includes('cpack/es/dr.js') && loaded.some(s => /gx-/.test(s)), 'tải dữ liệu cpack/es (câu hỏi + giải thích)');
+ok(w.ESX && w.ESX.dr && loaded.some(s => /gx-/.test(s)), 'dữ liệu cpack/es: câu hỏi (trong gói espr) + giải thích theo ngôn ngữ');
 ok($('#lsn.lsn-v2') && $('#lsnBub') && $('#lsnCheck'), 'khung Stitch lesson-question dựng');
 const DR = w.ESX.dr.A1, find = () => { const txt = $('#lsnBub').textContent.replace(/\s+/g, ' '); return DR.find(it => { const [a, b] = it[2].split('___'); return txt.includes(a.trim()) && txt.includes(b.trim()) && ($('#lsnIn') ? it[0] === 'c' : it[0] === 'g'); }); };
 let typed = 0, cloze = 0, wrongSeen = false, whySeen = false;

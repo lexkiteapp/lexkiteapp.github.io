@@ -4,8 +4,7 @@
  * Vào bằng URL (không cần cờ es_course); lối vào ở Luyện tập chỉ hiện khi cờ bật. */
 (function () {
   const { $, esc } = UI, App = window.App, view = App.view, routes = App.routes, N = 10, LV = ['A1', 'A2', 'B1'], LET = 'ABCD', KEY = 'lk.es.lv';
-  const GX = { vi: 'cpack/es/gx-vi.js', en: 'cpack/es/gx-en.js', es: 'cpack/es/gx-es.js', pt: 'cpack/es/gx-pt.js', fr: 'cpack/es/gx-fr.js', de: 'cpack/es/gx-de.js', id: 'cpack/es/gx-id.js',
-    th: 'cpack/es/gx-th.js', zh: 'cpack/es/gx-zh.js', ja: 'cpack/es/gx-ja.js', ko: 'cpack/es/gx-ko.js', hi: 'cpack/es/gx-hi.js', ar: 'cpack/es/gx-ar.js', ru: 'cpack/es/gx-ru.js', tr: 'cpack/es/gx-tr.js' };
+  const GX = App.esGx; // bảng gói giải thích theo ngôn ngữ (khai ở app.js để build-cpack đặt tên băm)
   const ls = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { /* riêng tư */ } return null; };
   const noAcc = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
   let S = null, tpl = null;
@@ -31,7 +30,7 @@
     const lv = LV.includes(arg) ? arg : LV.includes(ls(KEY)) ? ls(KEY) : 'A1', pid = new URLSearchParams(location.hash.split('?')[1] || '').get('p');
     ls(KEY, lv); const tok = App.routeToken();
     view.innerHTML = `<div class="card" role="status">${esc(t('Đang tải…'))}</div>`; // hiện ngay khi gói còn đang về (mạng chậm)
-    try { await Promise.all([App.need('espr'), App.loadScript('cpack/es/dr.js'), App.loadScript(GX[lang()]), lang() === 'en' ? 0 : App.loadScript(GX.en)]); } catch (e) { if (App.routeStale(tok)) return; view.innerHTML = `<div class="card">${esc(t('Không tải được bài. Kiểm tra mạng rồi thử lại.'))}</div>`; return; }
+    try { await Promise.all([App.need('espr'), App.loadScript(GX[lang()]), lang() === 'en' ? 0 : App.loadScript(GX.en)]); } catch (e) { if (App.routeStale(tok)) return; view.innerHTML = `<div class="card">${esc(t('Không tải được bài. Kiểm tra mạng rồi thử lại.'))}</div>`; return; }
     if (App.routeStale(tok)) return; // đã sang trang khác trong lúc nạp gói → không vẽ đè
     if (!(window.ST2 && ST2['lesson-question'] && ST2['feedback-correct'] && ST2['feedback-wrong'] && ST2['lesson-complete'] && window.QE && X().dr && X().dr[lv])) { view.innerHTML = `<div class="card">${esc(t('Không tải được bài. Kiểm tra mạng rồi thử lại.'))}</div>`; return; } // thiếu khung/dữ liệu (gói chưa về): báo, không ném lỗi
     const items = pick(lv, pid);
