@@ -210,7 +210,10 @@ fun ModelRoute(env: WordEnv, id: String, onExit: () -> Unit, open: (String) -> U
             val done = env.modelDone(id)
             val an = (env.kv("annot2") as? JsonPrimitive)?.content?.split(" ")?.filter { it.isNotEmpty() }?.toSet()
             val have = env.cards().keys
-            (env.kv(hlKey) as? JsonObject)?.let { o -> if ((o["v"] as? JsonPrimitive)?.content == hlVer) hlSet = (o["s"] as? JsonArray)?.mapNotNull { (it as? JsonPrimitive)?.content?.toIntOrNull() }?.toSet() ?: emptySet() }
+            (env.kv(hlKey) as? JsonObject)?.let { o ->
+                if ((o["v"] as? JsonPrimitive)?.content == hlVer) hlSet = (o["s"] as? JsonArray)?.mapNotNull { (it as? JsonPrimitive)?.content?.toIntOrNull() }?.toSet()
+                    ?: hlFromHtml((o["h"] as? JsonPrimitive)?.content.orEmpty(), essaySentences(m)) // a highlight made on the web: {v, h} only
+            }
             ui = ModelUi(tab = ui.tab, done = done, annot = an ?: ui.annot, saved = Models.chunksOf(m.jstr("text")).map { it.first }.filter { it.lowercase() in have }.toSet(), seed = ui.seed)
         }
         /** Web shape {v, h}: h = the essay as HTML with the marked sentences in <mark class="uhl"> (so the web page shows them too); s = the ordinals, native only. */
@@ -219,7 +222,7 @@ fun ModelRoute(env: WordEnv, id: String, onExit: () -> Unit, open: (String) -> U
             scope.launch {
                 if (next.isEmpty()) env.putKv(hlKey, null)
                 else {
-                    val sents = Models.plain(m.jstr("text")).let { Regex("[^.!?]+[.!?]+").findAll(it).map { x -> x.value }.toList() }
+                    val sents = essaySentences(m)
                     val esc = { s: String -> s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;") }
                     val h = sents.mapIndexed { k, s -> if (k in next) "<mark class=\"uhl\">" + esc(s) + "</mark>" else esc(s) }.joinToString("")
                     env.putKv(hlKey, JsonObject(mapOf("v" to JsonPrimitive(hlVer), "h" to JsonPrimitive(h), "s" to JsonArray(next.sorted().map { JsonPrimitive(it) }))))
@@ -260,4 +263,25 @@ fun ModelRoute(env: WordEnv, id: String, onExit: () -> Unit, open: (String) -> U
         )
         ModelScreen(page, ui, tools, actions, onExit, HlState(hlOn, hlSet))
     }
+}
+
+/** The sentences of a model answer in reading order; their ordinals are what the free highlight stores. */
+internal fun essaySentences(m: JsonObject): List<String> = Regex("[^.!?]+[.!?]+").findAll(Models.plain(m.jstr("text"))).map { it.value }.toList()
+
+/**
+ * A free highlight made on the web is stored as `{v, h}` with `h` = the annotated essay as HTML and the selections in `<mark class="uhl">`. Native marks whole sentences, so a sentence
+ * counts as highlighted when its words and the marked words contain one another (tags, entities and punctuation ignored).
+ */
+fun hlFromHtml(h: String, sentences: List<String>): Set<Int> {
+    fun nz(s: String) = s.lowercase().replace(Regex("[^a-z0-9]+"), " ").trim()
+    val marks = Regex("<mark[^>]*class=[\"']?[^>\"']*\\buhl\\b[^>]*>([\\s\\S]*?)</mark>", RegexOption.IGNORE_CASE).findAll(h)
+        .map { nz(it.groupValues[1].replace(Regex("<[^>]*>"), " ").replace("&nbsp;", " ").replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">").replace("&quot;", "\"").replace("&#39;", "'")) }
+        .filter { it.length >= 3 }.toList()
+    if (marks.isEmpty()) return emptySet()
+    val out = HashSet<Int>()
+    sentences.forEachIndexed { i, s ->
+        val n = nz(s); if (n.isEmpty()) return@forEachIndexed
+        if (marks.any { m -> " $m ".contains(" $n ") || " $n ".contains(" $m ") }) out.add(i)
+    }
+    return out
 }

@@ -94,7 +94,7 @@ sealed interface PracticeUi {
     class Hub(val sources: List<SrcRow>, val src: SrcRow, val picker: Boolean, val count: Int) : PracticeUi
     /** nothing to practise in the chosen source */
     class Empty(val mode: String) : PracticeUi
-    class Run(val mode: String, val i: Int, val total: Int, val score: Int, val intro: PW?, val q: Q?, val st: QState, val stage: Int = 0, val speak: SpeakState? = null, val sp: PW? = null) : PracticeUi
+    class Run(val mode: String, val i: Int, val total: Int, val score: Int, val intro: PW?, val q: Q?, val st: QState, val stage: Int = 0, val speak: SpeakState? = null, val sp: PW? = null, val streak: Int = 0) : PracticeUi
     class MatchRun(val m: MatchState) : PracticeUi
     /** 8 right in a row: offer the harder rest of the round (once per round). */
     class HardOffer(val streak: Int) : PracticeUi
@@ -188,7 +188,7 @@ internal class PracticeVm(private val env: VocabEnv, private val mode: String, p
     private fun publishRun(q: Q?, intro: PW? = null) {
         val total = if (mode == "learn") (learn?.total ?: 0) else queue.size
         val prog = if (mode == "learn") (learn?.doneWords ?: 0) else i
-        ui = PracticeUi.Run(mode, prog, total, score, intro, q, st, speak = if (mode == "speak") speakSt else null, sp = if (mode == "speak") q?.w else null)
+        ui = PracticeUi.Run(mode, prog, total, score, intro, q, st, speak = if (mode == "speak") speakSt else null, sp = if (mode == "speak") q?.w else null, streak = if (mode in Practice.HARD_MODES) streak else 0)
     }
 
     // learn: up to 8 words, three stages each

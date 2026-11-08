@@ -36,6 +36,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.lexkite.app.core.lesson.Speaking
 import com.lexkite.app.core.write.Lemmatizer
 import com.lexkite.app.core.write.Models
@@ -217,7 +218,7 @@ private fun Annotated(paras: List<Models.Para>, annot: Set<String>, lang: String
                     append(plain)
                     sents.forEachIndexed { k, r -> if (base + k in hl.marked) addStyle(SpanStyle(background = c.tertiaryContainer), r.first, r.last + 1) }
                 }
-                ClickableText(text, style = LKType.bodyLg.toCompose().copy(color = c.onSurface), onClick = { off ->
+                ClickableText(text, style = LKType.bodyLg.toCompose().copy(color = c.onSurface, lineHeight = 44.sp), onClick = { off ->
                     if (hl.on) { val k = sents.indexOfFirst { off in it }; if (k >= 0) onSentence(base + k); return@ClickableText }
                     text.getStringAnnotations("chunk", off, off).firstOrNull()?.let { a -> val (en, vi) = a.item.split("\u0000"); onChunk(en, vi) }
                 })

@@ -50,6 +50,7 @@ private fun levelLabel(v: String) = when (v) { "" -> t(L10nKey.vocabAllLevels); 
 fun DeckScreen(u: DeckUi, a: DeckActions) {
     val c = LocalLKColors.current
     if (u.shared != null) { SharedScreen(u.shared, a); return }
+    a.anki?.let { AnkiDialog(it, a.open) }
     StudyList(t(L10nKey.vocabMyWords), a.exit) {
         item {
             LKCard {
@@ -61,8 +62,8 @@ fun DeckScreen(u: DeckUi, a: DeckActions) {
                     GhostButton(t(L10nKey.vocabShareDeck), a.share)
                     GhostButton(t(L10nKey.vocabExport), a.exportJson, ink = c.onSurfaceVariant)
                     GhostButton(t(L10nKey.vocabImport), a.importJson, ink = c.onSurfaceVariant)
-                    GhostButton(t(L10nKey.vocabExportToAnki), a.exportAnki, ink = c.onSurfaceVariant)
-                    GhostButton(t(L10nKey.vocabImportFromAnki), a.importAnki, ink = c.onSurfaceVariant)
+                    GhostButton(t(L10nKey.vocabExportToAnki), { a.anki?.show("export") ?: a.exportAnki() }, ink = c.onSurfaceVariant)
+                    GhostButton(t(L10nKey.vocabImportFromAnki), { a.anki?.show("import") ?: a.importAnki() }, ink = c.onSurfaceVariant)
                 }
             }
         }

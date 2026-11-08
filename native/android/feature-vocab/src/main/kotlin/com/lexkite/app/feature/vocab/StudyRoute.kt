@@ -130,6 +130,20 @@ private fun rememberPlatform(): DeckPlatform {
     val ctx = LocalContext.current
     var pending by remember { mutableStateOf<String?>(null) }
     var callback by remember { mutableStateOf<((String, String) -> Unit)?>(null) }
+    var pendingBytes by remember { mutableStateOf<ByteArray?>(null) }
+    var bytesCallback by remember { mutableStateOf<((ByteArray, String) -> Unit)?>(null) }
+    val byteSaver = rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument("*/*")) { uri ->
+        val b = pendingBytes; pendingBytes = null
+        if (uri != null && b != null) runCatching { ctx.contentResolver.openOutputStream(uri)?.use { it.write(b) } }
+    }
+    val bytePicker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        val cb = bytesCallback; bytesCallback = null
+        if (uri != null && cb != null) {
+            val data = runCatching { ctx.contentResolver.openInputStream(uri)?.use { it.readBytes() } }.getOrNull()
+            val name = runCatching { ctx.contentResolver.query(uri, arrayOf(OpenableColumns.DISPLAY_NAME), null, null, null)?.use { c -> if (c.moveToFirst()) c.getString(0) else null } }.getOrNull() ?: "Anki"
+            if (data != null) cb(data, name)
+        }
+    }
     val saver = rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument("*/*")) { uri ->
         val text = pending; pending = null
         if (uri != null && text != null) runCatching { ctx.contentResolver.openOutputStream(uri)?.use { it.write(text.toByteArray(Charsets.UTF_8)) } }
@@ -148,6 +162,8 @@ private fun rememberPlatform(): DeckPlatform {
             override fun send(text: String) = shareText(ctx, text)
             override fun saveFile(name: String, mime: String, content: String) { pending = content; saver.launch(name) }
             override fun pickFile(onText: (text: String, name: String) -> Unit) { callback = onText; picker.launch(arrayOf("*/*")) }
+            override fun saveBytes(name: String, mime: String, bytes: ByteArray) { pendingBytes = bytes; byteSaver.launch(name) }
+            override fun pickBytes(onBytes: (bytes: ByteArray, name: String) -> Unit) { bytesCallback = onBytes; bytePicker.launch(arrayOf("*/*")) }
         }
     }
 }

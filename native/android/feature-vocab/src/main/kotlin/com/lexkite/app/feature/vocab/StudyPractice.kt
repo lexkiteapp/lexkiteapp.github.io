@@ -136,6 +136,7 @@ private fun RunScreen(r: PracticeUi.Run, a: PracticeActions) {
     StudyFocus(progress, t(modeKey(r.mode)), a.exit, bottom = bottom) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
             Label(t(modeKey(r.mode)))
+            if (r.streak >= 2) Tag("🔥 " + t(L10nKey.revInARow, mapOf("n" to r.streak)), c.tertiary)
             Label(r.score.toString(), color = c.success)
         }
         when {
@@ -156,6 +157,7 @@ private fun HardOfferScreen(h: PracticeUi.HardOffer, a: PracticeActions) {
     }) {
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
             Text("🔥 " + h.streak, style = LKType.displayHero.toCompose(), color = c.secondary)
+            Body(t(L10nKey.revRightInARow, mapOf("n" to h.streak)), style = LKType.headlineMd, align = TextAlign.Center)
             Body(t(L10nKey.revThisLooksTooEasyFor), style = LKType.headlineSm, align = TextAlign.Center)
         }
     }

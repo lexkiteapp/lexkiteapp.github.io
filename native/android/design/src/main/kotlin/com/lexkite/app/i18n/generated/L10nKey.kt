@@ -434,6 +434,8 @@ enum class L10nKey(val id: String) {
     revGoHarder("rev.goHarder"),
     revKeepThisLevel("rev.keepThisLevel"),
     revToughItemXp("rev.toughItemXp"),
+    revInARow("rev.inARow"),
+    revRightInARow("rev.rightInARow"),
     mistGrammar("mist.grammar"),
     mistReadingComprehension("mist.readingComprehension"),
     mistEveryQuestionYouGet("mist.everyQuestionYouGet"),

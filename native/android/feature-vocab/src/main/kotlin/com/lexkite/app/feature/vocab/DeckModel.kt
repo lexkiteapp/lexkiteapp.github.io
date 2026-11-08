@@ -34,7 +34,7 @@ class DeckActions(
     val edit: (String?) -> Unit = {}, val save: (String, String, String, String, String) -> Unit = { _, _, _, _, _ -> }, val relearn: () -> Unit = {}, val delete: (Boolean) -> Unit = {}, val deleteNow: () -> Unit = {},
     val sayWord: (String) -> Unit = {}, val share: () -> Unit = {}, val closeShare: () -> Unit = {}, val copyLink: (String) -> Unit = {}, val sendLink: (String) -> Unit = {},
     val exportJson: () -> Unit = {}, val importJson: () -> Unit = {}, val exportAnki: () -> Unit = {}, val importAnki: () -> Unit = {},
-    val addShared: () -> Unit = {}, val open: (String) -> Unit = {}, val image: StudyImage? = null, val exit: () -> Unit = {},
+    val addShared: () -> Unit = {}, val open: (String) -> Unit = {}, val image: StudyImage? = null, val exit: () -> Unit = {}, val anki: AnkiFlow? = null,
 )
 
 /** #/deck: the list with its four filters, edit / relearn / delete, share link, JSON + Anki files, and the shared-deck preview. Port of app.js routes.deck. */
@@ -147,13 +147,18 @@ internal class DeckVm(private val env: VocabEnv, private val args: Map<String, S
         }
     }
 
-    fun actions(open: (String) -> Unit, exit: () -> Unit, platform: DeckPlatform, image: StudyImage?): DeckActions = DeckActions(
+    private var flow: AnkiFlow? = null
+    fun actions(open: (String) -> Unit, exit: () -> Unit, platform: DeckPlatform, image: StudyImage?): DeckActions {
+        val anki = flow ?: AnkiFlow(env, viewModelScope, platform, { data.cards.values.toList() }, { Deck.rows(data.cards.values, f, env.now()) }, { data = env.load(); publish() }).also { flow = it }
+        return build(open, exit, platform, image, anki)
+    }
+    private fun build(open: (String) -> Unit, exit: () -> Unit, platform: DeckPlatform, image: StudyImage?, anki: AnkiFlow): DeckActions = DeckActions(
         query = ::query, picker = ::picker, pick = ::pick, edit = ::edit, save = ::save, relearn = ::relearn, delete = ::delete, deleteNow = ::deleteNow,
         sayWord = { env.sayWord(it, if (this::data.isInitialized) data.accent else "en-US") }, share = ::share, closeShare = ::closeShare,
         copyLink = { platform.copy(it); linkCopied() }, sendLink = { platform.send(it) },
         exportJson = { platform.saveFile("lexkite-cards.json", "application/json", backupText()) }, importJson = { platform.pickFile { text, _ -> importJson(text) } },
         exportAnki = { platform.saveFile("lexkite-anki.txt", "text/plain", ankiTextOut()) }, importAnki = { platform.pickFile { text, name -> importAnki(text, name) } },
-        addShared = { addShared { open("deck") } }, open = open, image = image, exit = exit,
+        addShared = { addShared { open("deck") } }, open = open, image = image, exit = exit, anki = anki,
     )
 
     class Factory(private val env: VocabEnv, private val query: Map<String, String>, private val deckName: String) : ViewModelProvider.Factory {
@@ -167,4 +172,7 @@ interface DeckPlatform {
     fun send(text: String)
     fun saveFile(name: String, mime: String, content: String)
     fun pickFile(onText: (text: String, name: String) -> Unit)
+    /** Binary files (.apkg): save through the system file dialog / read a chosen file. */
+    fun saveBytes(name: String, mime: String, bytes: ByteArray) {}
+    fun pickBytes(onBytes: (bytes: ByteArray, name: String) -> Unit) {}
 }
