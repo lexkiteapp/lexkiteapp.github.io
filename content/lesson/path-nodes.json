@@ -7,20 +7,435 @@
       "can": "Bạn sẽ chào hỏi và kể về một ngày của mình",
       "cap": "A2",
       "nodes": [
-        { "slot": "lesson", "title": "Chào hỏi, giới thiệu bản thân", "sub": "Hỏi tên, làm quen bạn mới", "min": 4,
-          "words": [["hello", "excl"], ["name", "n"], ["meet", "v"], ["friend", "n"]],
-          "ex": [{ "en": "Hello, my name is Minh.", "vi": "Xin chào, tên mình là Minh." }, { "en": "Nice to meet you, I'm Lan.", "vi": "Rất vui được gặp bạn, mình là Lan." }] },
-        { "slot": "listen", "title": "Nghe: bạn kể buổi sáng của mình", "sub": "Giờ dậy, tắm rửa, ăn sáng", "min": 3,
-          "words": [["morning", "n"], ["wake", "v"], ["shower", "n"], ["breakfast", "n"]],
-          "ex": [{ "en": "I usually wake up at six.", "vi": "Mình thường thức dậy lúc sáu giờ." }, { "en": "I usually have a shower in the morning.", "vi": "Mình thường tắm vào buổi sáng." }] },
-        { "slot": "speak", "title": "Nói: kể một ngày của bạn", "sub": "Bữa trưa, buổi tối, giờ đi ngủ", "min": 3,
-          "words": [["work", "v"], ["lunch", "n"], ["evening", "n"], ["bed", "n"]],
-          "ex": [{ "en": "We usually watch TV in the evening.", "vi": "Buổi tối chúng mình thường xem tivi." }, { "en": "I usually go to bed before midnight.", "vi": "Mình thường đi ngủ trước nửa đêm." }] },
-        { "slot": "story", "title": "Truyện: người hàng xóm mới", "sub": "Chào hỏi người mới chuyển đến", "min": 4, "words": [], "ex": [], "story": "s-neighbor" },
-        { "slot": "review", "title": "Ôn: chào hỏi và buổi sáng", "sub": "Nhắc lại những từ dễ quên nhất", "min": 3,
-          "words": [["name", "n"], ["meet", "v"], ["wake", "v"], ["evening", "n"]],
-          "ex": [{ "en": "Nice to meet you, I'm Lan.", "vi": "Rất vui được gặp bạn, mình là Lan." }, { "en": "I usually wake up at six.", "vi": "Mình thường thức dậy lúc sáu giờ." }] },
-        { "slot": "exam", "title": "Kiểm tra: chào hỏi và một ngày", "sub": "Nghe và đọc câu ngắn hằng ngày", "min": 5, "words": [], "ex": [] }
+        {
+          "slot": "lesson",
+          "title": "Chào hỏi, giới thiệu bản thân",
+          "sub": "Hỏi tên, làm quen bạn mới",
+          "min": 4,
+          "words": [
+            [
+              "hello",
+              "excl"
+            ],
+            [
+              "name",
+              "n"
+            ],
+            [
+              "meet",
+              "v"
+            ],
+            [
+              "friend",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Hello, my name is Minh.",
+              "vi": "Xin chào, tên mình là Minh."
+            },
+            {
+              "en": "Nice to meet you, I'm Lan.",
+              "vi": "Rất vui được gặp bạn, mình là Lan."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: bạn kể buổi sáng của mình",
+          "sub": "Giờ dậy, tắm rửa, ăn sáng",
+          "min": 3,
+          "words": [
+            [
+              "morning",
+              "n"
+            ],
+            [
+              "wake",
+              "v"
+            ],
+            [
+              "shower",
+              "n"
+            ],
+            [
+              "breakfast",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "I usually wake up at six.",
+              "vi": "Mình thường thức dậy lúc sáu giờ."
+            },
+            {
+              "en": "I usually have a shower in the morning.",
+              "vi": "Mình thường tắm vào buổi sáng."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: kể một ngày của bạn",
+          "sub": "Bữa trưa, buổi tối, giờ đi ngủ",
+          "min": 3,
+          "words": [
+            [
+              "work",
+              "v"
+            ],
+            [
+              "lunch",
+              "n"
+            ],
+            [
+              "evening",
+              "n"
+            ],
+            [
+              "bed",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "We usually watch TV in the evening.",
+              "vi": "Buổi tối chúng mình thường xem tivi."
+            },
+            {
+              "en": "I usually go to bed before midnight.",
+              "vi": "Mình thường đi ngủ trước nửa đêm."
+            }
+          ]
+        },
+        {
+          "slot": "story",
+          "title": "Truyện: người hàng xóm mới",
+          "sub": "Chào hỏi người mới chuyển đến",
+          "min": 4,
+          "words": [],
+          "ex": [],
+          "story": "s-neighbor"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: chào hỏi và buổi sáng",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "name",
+              "n"
+            ],
+            [
+              "meet",
+              "v"
+            ],
+            [
+              "wake",
+              "v"
+            ],
+            [
+              "evening",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Nice to meet you, I'm Lan.",
+              "vi": "Rất vui được gặp bạn, mình là Lan."
+            },
+            {
+              "en": "I usually wake up at six.",
+              "vi": "Mình thường thức dậy lúc sáu giờ."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: chào hỏi và một ngày",
+          "sub": "Nghe và đọc câu ngắn hằng ngày",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
+    },
+    "education": {
+      "theme": "Giáo dục và học tập",
+      "can": "Bạn sẽ nói về việc học và trường lớp",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Chương trình học và kỷ luật",
+          "sub": "Môn học, thi cử, nội quy",
+          "min": 4,
+          "words": [
+            [
+              "curriculum",
+              "n"
+            ],
+            [
+              "compulsory",
+              "adj"
+            ],
+            [
+              "assessment",
+              "n"
+            ],
+            [
+              "discipline",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "In my country, education is compulsory until the age of fifteen.",
+              "vi": "Ở nước tôi, giáo dục là bắt buộc đến mười lăm tuổi."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: tư vấn học bổng, học phí",
+          "sub": "Chọn ngành, chi phí, học bổng",
+          "min": 3,
+          "words": [
+            [
+              "scholarship",
+              "n"
+            ],
+            [
+              "tuition",
+              "n"
+            ],
+            [
+              "undergraduate",
+              "n"
+            ],
+            [
+              "vocational",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "She won a full scholarship to study engineering abroad.",
+              "vi": "Cô ấy giành học bổng toàn phần để học kỹ thuật ở nước ngoài."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: bạn thích học kiểu nào?",
+          "sub": "Học thuộc, hoạt động ngoại khóa",
+          "min": 3,
+          "words": [
+            [
+              "rote learning",
+              "n"
+            ],
+            [
+              "extracurricular",
+              "adj"
+            ],
+            [
+              "academic",
+              "adj"
+            ],
+            [
+              "literacy",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Extracurricular activities help children develop teamwork and leadership skills.",
+              "vi": "Hoạt động ngoại khóa giúp trẻ phát triển kỹ năng làm việc nhóm và lãnh đạo."
+            }
+          ]
+        },
+        {
+          "slot": "story"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: học bổng, thi cử, ngoại khóa",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "assessment",
+              "n"
+            ],
+            [
+              "scholarship",
+              "n"
+            ],
+            [
+              "tuition",
+              "n"
+            ],
+            [
+              "extracurricular",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "She won a full scholarship to study engineering abroad.",
+              "vi": "Cô ấy giành học bổng toàn phần để học kỹ thuật ở nước ngoài."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng giáo dục",
+          "sub": "Nghe, đọc và nói về việc học",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
+    },
+    "environment": {
+      "theme": "Môi trường và đời sống xanh",
+      "can": "Bạn sẽ nêu nguyên nhân và giải pháp cho môi trường",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Ô nhiễm và năng lượng sạch",
+          "sub": "Nguyên nhân và hướng giải quyết",
+          "min": 4,
+          "words": [
+            [
+              "pollution",
+              "n"
+            ],
+            [
+              "emission",
+              "n"
+            ],
+            [
+              "deforestation",
+              "n"
+            ],
+            [
+              "renewable",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Governments must cut carbon emissions to slow down climate change.",
+              "vi": "Chính phủ phải cắt giảm khí thải carbon để làm chậm biến đổi khí hậu."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: hạn hán và rác thải",
+          "sub": "Nguồn nước, rác, nông nghiệp",
+          "min": 3,
+          "words": [
+            [
+              "drought",
+              "n"
+            ],
+            [
+              "contaminate",
+              "v"
+            ],
+            [
+              "landfill",
+              "n"
+            ],
+            [
+              "sustainable",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Chemicals from factories have contaminated the local water supply.",
+              "vi": "Hóa chất từ nhà máy đã làm ô nhiễm nguồn nước địa phương."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: bảo vệ động vật hoang dã",
+          "sub": "Nơi sống, loài nguy cấp",
+          "min": 3,
+          "words": [
+            [
+              "biodiversity",
+              "n"
+            ],
+            [
+              "conservation",
+              "n"
+            ],
+            [
+              "habitat",
+              "n"
+            ],
+            [
+              "endangered",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Poaching has pushed many endangered species to the edge of extinction.",
+              "vi": "Nạn săn trộm đã đẩy nhiều loài nguy cấp đến bờ vực tuyệt chủng."
+            }
+          ]
+        },
+        {
+          "slot": "story"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: khí thải và loài nguy cấp",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "emission",
+              "n"
+            ],
+            [
+              "contaminate",
+              "v"
+            ],
+            [
+              "habitat",
+              "n"
+            ],
+            [
+              "endangered",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Governments must cut carbon emissions to slow down climate change.",
+              "vi": "Chính phủ phải cắt giảm khí thải carbon để làm chậm biến đổi khí hậu."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng môi trường",
+          "sub": "Nghe, đọc và nói về môi trường",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
       ]
     }
   }

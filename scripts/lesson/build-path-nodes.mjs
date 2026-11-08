@@ -20,6 +20,7 @@ for (const [uid, u] of Object.entries(J.units)) {
   const seen = new Map();
   u.nodes.forEach(n => {
     const at = `${uid}.${n.slot}`;
+    if (n.slot === 'story' && !n.story) { if (n.title || n.sub || (n.words || []).length || (n.ex || []).length) err.push(`${at}: chưa có truyện thì ô để trống (app hiện tên chặng)`); return; } // chưa có truyện đúng chủ đề → không bịa
     if (!n.title || n.title.length > TITLE_MAX || BARE.test(n.title.trim())) err.push(`${at}: title rỗng/quá ${TITLE_MAX} ký tự/chỉ là tên loại bài`);
     if (!n.sub || n.sub.length > SUB_MAX) err.push(`${at}: sub rỗng/quá ${SUB_MAX} ký tự`);
     if (!(n.min >= 2 && n.min <= 10)) err.push(`${at}: min`);
@@ -45,7 +46,7 @@ for (const [uid, u] of Object.entries(J.units)) {
 }
 if (err.length) { console.error('✗ path-nodes:\n  ' + err.join('\n  ')); process.exit(1); }
 const out = { v: J.v, units: {} };
-for (const [uid, u] of Object.entries(J.units)) out.units[uid] = { theme: u.theme, can: u.can, nodes: u.nodes.map(n => ({ slot: n.slot, title: n.title, sub: n.sub, words: n.words.map(([w, pos]) => ({ w, pos })), ex: n.ex, min: n.min, xp: null, story: n.story || null })) };
+for (const [uid, u] of Object.entries(J.units)) out.units[uid] = { theme: u.theme, can: u.can, nodes: u.nodes.map(n => ({ slot: n.slot, title: n.title || '', sub: n.sub || '', words: (n.words || []).map(([w, pos]) => ({ w, pos })), ex: n.ex || [], min: n.min || 0, xp: null, story: n.story || null })).map(n => n.story || n.slot !== 'story' ? n : { slot: 'story', title: '', sub: '', words: [], ex: [], min: 0, xp: null, story: null }) };
 const text = `/* FILE SINH TỰ ĐỘNG – scripts/lesson/build-path-nodes.mjs từ ${SRC}. Đừng sửa tay. Nội dung nút Lộ trình (tải lười; chữ Việt qua t() – nhóm i18n pathx). */\nself.LESSON_PATH_NODES = ${JSON.stringify(out)};\n`;
 if (process.argv.includes('--check')) { if ((fs.existsSync(OUT) ? fs.readFileSync(OUT, 'utf8') : '') !== text) { console.error(`✗ ${OUT} cũ – chạy node scripts/lesson/build-path-nodes.mjs`); process.exit(1); } console.log('✓ path-nodes khớp nguồn + kiểm kho/CEFR/ví dụ'); }
 else { fs.writeFileSync(OUT, text); console.log(`✓ ${OUT}: ${Object.keys(out.units).length} chặng`); }
