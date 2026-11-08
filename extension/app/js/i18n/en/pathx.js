@@ -127,5 +127,18 @@ D.en = Object.assign(D.en || {}, {
 "Ôn: khí thải và loài nguy cấp": "Review: emissions and endangered species",
 "Kiểm tra: từ vựng môi trường": "Check: environment vocabulary",
 "Nghe, đọc và nói về môi trường": "Listen, read and speak about the environment",
+"Công nghệ và đời sống số": "Technology and digital life",
+"Đổi mới và tự động hóa": "Innovation and automation",
+"Phát minh, máy móc thay người": "Inventions, machines replacing people",
+"Tự động hóa có thể thay thế hàng triệu việc làm thủ công trong thập kỷ tới.": "Automation could replace millions of manual jobs in the next decade.",
+"Nghe: thiết bị và AI": "Listen: devices and AI",
+"Thiết bị số, trí tuệ nhân tạo": "Digital devices, artificial intelligence",
+"Trí tuệ nhân tạo đã được dùng để chẩn đoán một số bệnh.": "Artificial intelligence is already used to diagnose some diseases.",
+"Nói: ưu và nhược của công nghệ": "Speak: pros and cons of technology",
+"Quyền riêng tư, nghiện ứng dụng": "Privacy, app addiction",
+"Nhiều ứng dụng được cố ý thiết kế để gây nghiện.": "Many apps are deliberately designed to be addictive.",
+"Ôn: tự động hóa, quyền riêng tư": "Review: automation, privacy",
+"Kiểm tra: từ vựng công nghệ": "Test: technology vocabulary",
+"Nghe, đọc và nói về công nghệ": "Listen, read and speak about technology",
 });
 })(typeof self !== 'undefined' ? self : this);

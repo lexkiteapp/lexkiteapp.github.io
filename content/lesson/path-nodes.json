@@ -437,6 +437,144 @@
           "ex": []
         }
       ]
+    },
+    "technology": {
+      "theme": "Công nghệ và đời sống số",
+      "can": "Bạn sẽ nêu ưu và nhược điểm của công nghệ",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Đổi mới và tự động hóa",
+          "sub": "Phát minh, máy móc thay người",
+          "min": 4,
+          "words": [
+            [
+              "innovation",
+              "n"
+            ],
+            [
+              "automation",
+              "n"
+            ],
+            [
+              "breakthrough",
+              "n"
+            ],
+            [
+              "obsolete",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Automation could replace millions of manual jobs in the next decade.",
+              "vi": "Tự động hóa có thể thay thế hàng triệu việc làm thủ công trong thập kỷ tới."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: thiết bị và AI",
+          "sub": "Thiết bị số, trí tuệ nhân tạo",
+          "min": 3,
+          "words": [
+            [
+              "device",
+              "n"
+            ],
+            [
+              "digital",
+              "adj"
+            ],
+            [
+              "artificial",
+              "adj"
+            ],
+            [
+              "cutting-edge",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Artificial intelligence is already used to diagnose some diseases.",
+              "vi": "Trí tuệ nhân tạo đã được dùng để chẩn đoán một số bệnh."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: ưu và nhược của công nghệ",
+          "sub": "Quyền riêng tư, nghiện ứng dụng",
+          "min": 3,
+          "words": [
+            [
+              "privacy",
+              "n"
+            ],
+            [
+              "surveillance",
+              "n"
+            ],
+            [
+              "addictive",
+              "adj"
+            ],
+            [
+              "user-friendly",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Many apps are deliberately designed to be addictive.",
+              "vi": "Nhiều ứng dụng được cố ý thiết kế để gây nghiện."
+            }
+          ]
+        },
+        {
+          "slot": "story"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: tự động hóa, quyền riêng tư",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "automation",
+              "n"
+            ],
+            [
+              "device",
+              "n"
+            ],
+            [
+              "privacy",
+              "n"
+            ],
+            [
+              "addictive",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Automation could replace millions of manual jobs in the next decade.",
+              "vi": "Tự động hóa có thể thay thế hàng triệu việc làm thủ công trong thập kỷ tới."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng công nghệ",
+          "sub": "Nghe, đọc và nói về công nghệ",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
     }
   }
 }
