@@ -25251,8 +25251,17 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "doff#v": {
-   "e4bad": 2,
-   "badAt": "2026-11-08T16:22:39.493Z"
+   "ex": "The rustics doffed their hats at the clergy.",
+   "ps": "a man pulls a large brimmed hat off his head, hand gripping the hat",
+   "sc": "a man pulls a large brimmed hat off his head, hand gripping the hat",
+   "check": "Is the man taking off his head covering?",
+   "cap": "a man removing a wide hat from his head",
+   "key": "hand gripping a hat and pulling it upward; the hat lifted away from the head",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3
   },
   "doll#n": {
    "ex": "What does the doll look like?",
@@ -44084,8 +44093,16 @@
    "by": "openai/gpt-oss-120b"
   },
   "internationalize#v": {
-   "e4bad": 2,
-   "badAt": "2026-11-08T16:22:39.493Z"
+   "ex": "Are there plans to fully internationalize the website?",
+   "ps": "a woman attaches several small colored discs onto a large globe",
+   "sc": "a woman attaches several small colored discs onto a large globe",
+   "check": "Is the person adding many small colored discs to a globe?",
+   "cap": "a woman attaching many small colored discs to a big globe",
+   "key": "small colored discs being attached to the globe; large globe receiving the discs",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "internationally#adv": {
    "ex": "Our products are now sold internationally in more than twenty countries.",
