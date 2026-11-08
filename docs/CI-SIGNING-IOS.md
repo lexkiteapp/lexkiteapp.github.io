@@ -1,6 +1,6 @@
 # Ký iOS trên CI – chứng chỉ Distribution cố định
 
-> TL;DR: CI ký iOS Manual bằng 1 chứng chỉ Apple Distribution + hồ sơ App Store trong secret (scripts/native/ios-sign.sh); cấm ký Automatic/-allowProvisioningUpdates (ci-policy luật 13). Tạo/gia hạn: Actions → Apple signing (create-dist) rồi scripts/native/ios-signing-secrets.sh; dọn chứng chỉ Development do CI tạo: mode revoke-ci-dev.
+> TL;DR: CI ký iOS Manual bằng 1 chứng chỉ Apple Distribution + hồ sơ App Store trong secret (scripts/native/ios-sign.sh); cấm ký Automatic/-allowProvisioningUpdates (ci-policy luật 13). Tạo/gia hạn: Actions → Apple signing (create-dist; chỉ làm lại hồ sơ: profiles) rồi scripts/native/ios-signing-secrets.sh; dọn chứng chỉ Development do CI tạo: mode revoke-ci-dev.
 
 **Vì sao.** Trước 08/11, `ios-testflight.yml` (Capacitor) và `native-release.yml` (native) ký theo kiểu Automatic, có `-allowProvisioningUpdates`. Mỗi máy CI mới lại tạo thêm một chứng chỉ Development "Created via API". Đến lượt native-m1 thì tài khoản đã hết hạn mức chứng chỉ, và bước archive đỏ.
 
@@ -36,6 +36,20 @@ Các thao tác dưới đây đụng tới tài khoản Apple nên chủ tài kh
    - Khi lượt chạy xong, tải artifact `ios-signing-public` về rồi giải nén. Artifact chỉ có .cer và .mobileprovision, đều là dữ liệu công khai.
 3. **Đặt secret:** `bash scripts/native/ios-signing-secrets.sh <thư mục artifact>`. Script tự kiểm khoá riêng khớp chứng chỉ, đóng gói .p12 với mật khẩu ngẫu nhiên, rồi gọi `gh secret set` cho cả 4 secret.
 4. **Chạy lại bản build:** Actions → *Native → TestFlight + Play Internal*, hoặc *iOS → TestFlight*.
+
+## Capability của App ID
+
+Hồ sơ App Store chỉ mang những capability đang bật trên App ID. Nếu thiếu một cái, archive đỏ với lỗi `requires a provisioning profile with the … features`; lần 08/11 thiếu Associated Domains. Có hai lớp gác:
+
+- `asc-signing.mjs`: trước khi tạo hồ sơ, bật đủ các capability ghi trong `CAPS` qua ASC API. Script chỉ bật, không bao giờ tắt. Danh sách hiện tại:
+  - `com.lexkite.app`: App Groups, Associated Domains, Sign In with Apple, Push.
+  - widget: App Groups.
+- `ios-sign.sh`: trước khi archive, so entitlements của target (`CODE_SIGN_ENTITLEMENTS`) với hồ sơ. Thiếu thì báo đúng tên capability.
+
+Khi thêm một capability vào app, sửa `CAPS` trong cùng PR. Cách sửa khi hồ sơ thiếu, không tạo chứng chỉ mới:
+
+1. Vào Actions → **Apple signing**, chọn mode `profiles`, dán vào ô `ids` id chứng chỉ Distribution đang dùng. Lần 08/11 là `456NVP9789`.
+2. Chạy bước 3 ở mục trên (`ios-signing-secrets.sh`) với artifact mới.
 
 ## Dọn chứng chỉ Development cũ do CI tạo
 
