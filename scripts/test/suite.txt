@@ -214,6 +214,7 @@ node scripts/test/client-security.mjs
 node scripts/test/headers.mjs
 node scripts/test/static-routes.mjs
 node scripts/test/layout-guards.mjs
+node scripts/test/home-logic.mjs
 node scripts/test/inline-box.mjs
 node scripts/test/st2-href.mjs
 node scripts/test/card-actions.mjs
@@ -260,6 +261,7 @@ node scripts/content-qa/exam-format-check.mjs
 node scripts/content-qa/lkf-check.mjs
 node scripts/test/lkf.mjs
 node scripts/content-qa/grammar-map-check.mjs
+node scripts/target/drill-pack.mjs --check
 node scripts/test/grammar-inventory.mjs
 node scripts/test/explain-let.mjs
 node scripts/content-qa/sense-check.mjs
@@ -290,6 +292,7 @@ node scripts/test/logic-invariants.mjs
 node scripts/test/top1-score.mjs
 node scripts/test/vocab-img-judge-budget.mjs
 node scripts/test/lastmod.mjs
+node scripts/test/outcomes.mjs
 node scripts/test/today-debt.mjs
 node scripts/test/ci-shards-busy.mjs
 node scripts/test/brand-logo-stitch.mjs
@@ -308,6 +311,7 @@ node scripts/native/gen.mjs --check
 node scripts/test/native-one-source.mjs --self-test
 node scripts/test/native-one-source.mjs
 node scripts/test/native-parity.mjs
+node scripts/test/native-m2-vectors.mjs
 node scripts/test/sync-cross-client.mjs
 node scripts/test/native-compat.mjs
 node scripts/native/content-publish.mjs check
@@ -340,9 +344,11 @@ node scripts/test/ci-queue-gate.mjs
 node scripts/test/android-xml-comments.mjs
 node scripts/test/retry5xx.mjs
 node scripts/test/sparse-imports.mjs
+node scripts/test/stitch-today-contrast.mjs
 node scripts/test/is-main-guard.mjs
 node scripts/test/big-data.mjs
 node scripts/test/heavy-rerun.mjs
 node scripts/test/json-dupkeys.mjs
 node scripts/test/cls-chrome.mjs
+node scripts/test/es-practice.mjs
 node scripts/test/ext-version.mjs
