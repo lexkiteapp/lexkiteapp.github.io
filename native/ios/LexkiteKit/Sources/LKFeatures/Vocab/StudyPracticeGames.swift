@@ -80,7 +80,7 @@ struct PracticeIntro: View {
                 }
                 VStack(spacing: LKSpacing.spaceXs) {
                     Button(t(.actionContinue)) { model.introContinue() }.buttonStyle(PrimaryButtonStyle())
-                    Button { model.introKnown() } label: { Text(verbatim: t(.revIAlreadyKnowThisWord)).lkText(LKType.titlePill).foregroundStyle(LKColor.secondary.resolve(scheme)).frame(maxWidth: .infinity, minHeight: LKFrame.shared.minTap) }
+                    Button { model.introKnown() } label: { Text(verbatim: t(.revIAlreadyKnowThisWord)).lkTextSafe(LKType.titlePill).foregroundStyle(LKColor.secondary.resolve(scheme)).frame(maxWidth: .infinity, minHeight: LKFrame.shared.minTap) }
                 }
                 .padding(.horizontal, LKFrame.shared.gutter).padding(.bottom, LKSpacing.spaceSm)
                 .frame(maxWidth: LKFrame.shared.width)

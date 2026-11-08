@@ -211,8 +211,8 @@ private struct ReviewGrades: View {
                 let label = t(key), when = model.preview(g, lang: t.lang)
                 Button { model.grade(g) } label: {
                     VStack(spacing: 2) {
-                        Text(verbatim: label).lkText(LKType.titlePill).foregroundStyle(color.resolve(scheme)).multilineTextAlignment(.center).lineLimit(2).minimumScaleFactor(0.8)
-                        Text(verbatim: when).lkText(LKType.labelBadge).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
+                        Text(verbatim: label).lkTextSafe(LKType.titlePill).foregroundStyle(color.resolve(scheme)).multilineTextAlignment(.center).lineLimit(2).minimumScaleFactor(0.8)
+                        Text(verbatim: when).lkTextSafe(LKType.labelBadge).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
                     }
                     .padding(.horizontal, 4).padding(.vertical, LKSpacing.spaceXs)
                     .frame(maxWidth: .infinity, minHeight: 64)
@@ -399,7 +399,7 @@ private struct ReviewBack: View {
                     }
                     if let url = Self.videoURL(x.s("source")) {
                         Button { openURL(url) } label: {
-                            Label { Text(verbatim: t(.revReplayTheOriginalClip)).lkText(LKType.bodySm) } icon: { Image(systemName: "play.rectangle.fill") }
+                            Label { Text(verbatim: t(.revReplayTheOriginalClip)).lkTextSafe(LKType.bodySm) } icon: { Image(systemName: "play.rectangle.fill") }
                                 .frame(minHeight: LKFrame.shared.minTap)
                         }
                         .foregroundStyle(LKColor.secondary.resolve(scheme))
@@ -642,7 +642,7 @@ struct ReviewSummaryView: View {
             if s.canBrag {
                 ShareLink(item: t(.revReviewsDone, ["n": s.done]) + " " + StudyFmt.percent(s.accuracy, lang: t.lang) + " +" + Fmt.int(s.xp, t.lang) + " " + t(.todayXp)) {
                     Label { Text(verbatim: t(.revShareYourProgress)) } icon: { Image(systemName: "square.and.arrow.up") }
-                        .lkText(LKType.titlePill).frame(maxWidth: .infinity, minHeight: LKFrame.shared.minTap)
+                        .lkTextSafe(LKType.titlePill).frame(maxWidth: .infinity, minHeight: LKFrame.shared.minTap)
                 }
                 .foregroundStyle(LKColor.secondary.resolve(scheme))
             }

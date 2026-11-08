@@ -74,7 +74,7 @@ struct StudyMistakesView: View {
             HStack(spacing: LKSpacing.spaceXs) {
                 ForEach(items, id: \.0) { k, label in
                     Button { model.tab = k } label: {
-                        Text(verbatim: label).lkText(LKType.labelMetric)
+                        Text(verbatim: label).lkTextSafe(LKType.labelMetric)
                             .foregroundStyle((model.tab == k ? LKColor.onSecondary : LKColor.onSurface).resolve(scheme))
                             .padding(.horizontal, LKSpacing.spaceMd).frame(minHeight: LKFrame.shared.minTap)
                             .background(Capsule().fill((model.tab == k ? LKColor.secondary : LKColor.surfaceContainerHighest).resolve(scheme)))
@@ -182,7 +182,7 @@ private struct MistakeCard: View {
     }
     private func linkButton(_ title: String, _ run: @escaping () -> Void) -> some View {
         Button(action: run) {
-            Text(verbatim: title).lkText(LKType.labelMetric).foregroundStyle(LKColor.secondary.resolve(scheme))
+            Text(verbatim: title).lkTextSafe(LKType.labelMetric).foregroundStyle(LKColor.secondary.resolve(scheme))
                 .padding(.horizontal, LKSpacing.spaceSm).frame(minHeight: LKFrame.shared.minTap)
         }
         .buttonStyle(.plain)

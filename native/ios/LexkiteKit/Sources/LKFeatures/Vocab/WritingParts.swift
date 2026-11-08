@@ -65,7 +65,7 @@ struct WritingPage<Content: View>: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.visible, for: .navigationBar)
         .toolbarBackground(LKColor.background.resolve(scheme), for: .navigationBar)
-        .toolbar { ToolbarItem(placement: .principal) { Text(title).lkText(LKType.headlineSm).foregroundStyle(LKColor.onSurface.resolve(scheme)).lineLimit(1).accessibilityAddTraits(.isHeader) } }
+        .toolbar { ToolbarItem(placement: .principal) { Text(title).lkTextSafe(LKType.headlineSm).foregroundStyle(LKColor.onSurface.resolve(scheme)).lineLimit(1).accessibilityAddTraits(.isHeader) } }
     }
 }
 
@@ -91,7 +91,7 @@ struct WritingHeading: View {
     var body: some View {
         HStack(spacing: LKSpacing.spaceXs) {
             if let icon { Image(systemName: icon).foregroundStyle(LKColor.secondary.resolve(scheme)) }
-            Text(text).lkText(LKType.headlineSm).foregroundStyle(LKColor.onSurface.resolve(scheme)).fixedSize(horizontal: false, vertical: true)
+            Text(text).lkTextSafe(LKType.headlineSm).foregroundStyle(LKColor.onSurface.resolve(scheme)).fixedSize(horizontal: false, vertical: true)
         }
         .accessibilityElement(children: .combine).accessibilityAddTraits(.isHeader)
     }
@@ -109,7 +109,7 @@ struct WritingChip: View {
         Button(action: action) {
             HStack(spacing: 4) {
                 if let system { Image(systemName: system).font(.system(size: 13, weight: .bold)) }
-                Text(text).lkText(LKType.labelMetric).multilineTextAlignment(.leading).environment(\.layoutDirection, english ? .leftToRight : layout)
+                Text(text).lkTextSafe(LKType.labelMetric).multilineTextAlignment(.leading).environment(\.layoutDirection, english ? .leftToRight : layout)
             }
             .padding(.horizontal, LKSpacing.spaceSm).frame(minHeight: LKFrame.shared.minTap)
             .foregroundStyle((selected ? LKColor.onSecondary : LKColor.onSurface).resolve(scheme))
@@ -153,10 +153,10 @@ struct WritingSearchField: View {
         HStack(spacing: LKSpacing.spaceXs) {
             Image(systemName: "magnifyingglass").foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).accessibilityHidden(true)
             ZStack(alignment: .leading) {
-                if text.isEmpty { Text(placeholder).lkText(LKType.bodyLg).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).lineLimit(2).fixedSize(horizontal: false, vertical: true).allowsHitTesting(false).accessibilityHidden(true) }
+                if text.isEmpty { Text(placeholder).lkTextSafe(LKType.bodyLg).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).lineLimit(2).fixedSize(horizontal: false, vertical: true).allowsHitTesting(false).accessibilityHidden(true) }
                 TextField(placeholder, text: $text).labelsHidden()
                     .textInputAutocapitalization(.never).autocorrectionDisabled().submitLabel(.search).onSubmit(onSubmit)
-                    .lkText(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme))
+                    .lkTextSafe(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme))
             }
             if !text.isEmpty {
                 Button { text = "" } label: {
@@ -180,7 +180,7 @@ struct WritingNotice: View {
     var body: some View {
         VStack(spacing: LKSpacing.spaceSm) {
             Image(systemName: icon).font(.system(size: 30, weight: .bold)).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).accessibilityHidden(true)
-            Text(text).lkText(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).multilineTextAlignment(.center)
+            Text(text).lkTextSafe(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).multilineTextAlignment(.center)
             if let action { Button(action.title, action: action.run).buttonStyle(PrimaryButtonStyle()) }
         }
         .frame(maxWidth: .infinity).padding(LKSpacing.spaceMd)
@@ -213,7 +213,7 @@ struct WritingTag: View {
     var tint: LKDynamicColor = LKColor.secondary
     @Environment(\.colorScheme) private var scheme
     var body: some View {
-        Text(text).lkText(LKType.labelBadge).textCase(.uppercase).lineLimit(1).fixedSize()
+        Text(text).lkTextSafe(LKType.labelBadge).textCase(.uppercase).lineLimit(1).fixedSize()
             .padding(.horizontal, LKSpacing.spaceXs).padding(.vertical, 3)
             .foregroundStyle(tint.resolve(scheme))
             .background(Capsule().fill(LKColor.surfaceContainerHighest.resolve(scheme)))
@@ -264,7 +264,7 @@ struct WritingSecondaryButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) private var enabled
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .lkText(LKType.titlePill).lineLimit(1).minimumScaleFactor(0.85)
+            .lkTextSafe(LKType.titlePill).lineLimit(1).minimumScaleFactor(0.85)
             .foregroundStyle(LKColor.secondary.resolve(scheme))
             .padding(.horizontal, LKSpacing.spaceMd).frame(minHeight: LKFrame.shared.minTap)
             .background(Capsule().inset(by: 1).stroke(LKColor.secondary.resolve(scheme), lineWidth: 2))
@@ -279,7 +279,7 @@ struct WritingEnglish: View {
     var style: LKTextStyle = LKType.bodyLg
     var color: LKDynamicColor = LKColor.onSurface
     @Environment(\.colorScheme) private var scheme
-    var body: some View { Text(text).lkText(style).foregroundStyle(color.resolve(scheme)).multilineTextAlignment(.leading).frame(maxWidth: .infinity, alignment: .leading).englishText() }
+    var body: some View { Text(text).lkTextSafe(style).foregroundStyle(color.resolve(scheme)).multilineTextAlignment(.leading).frame(maxWidth: .infinity, alignment: .leading).englishText() }
 }
 
 /// Save-a-phrase form (web `App.savePhraseDialog`): phrase, meaning (Vietnamese learners only), the sentence it came from → a `phrase` card.
@@ -320,9 +320,9 @@ struct WritingPhraseSheet: View {
     }
     private func field(_ title: String, _ text: Binding<String>, english: Bool) -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(title).lkText(LKType.labelBadge).textCase(.uppercase).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
+            Text(title).lkTextSafe(LKType.labelBadge).textCase(.uppercase).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
             TextField(title, text: text, axis: .vertical).lineLimit(1...4)
-                .lkText(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme))
+                .lkTextSafe(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme))
                 .textInputAutocapitalization(.never).autocorrectionDisabled()
                 .padding(LKSpacing.spaceSm).frame(minHeight: LKFrame.shared.minTap)
                 .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(LKColor.surfaceContainerLowest.resolve(scheme)))

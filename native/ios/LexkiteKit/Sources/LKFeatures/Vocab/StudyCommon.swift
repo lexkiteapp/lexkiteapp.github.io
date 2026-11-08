@@ -85,7 +85,7 @@ enum StudyNames {
 struct StudyTextModifier: ViewModifier {
     let style: LKTextStyle, color: LKDynamicColor
     @Environment(\.colorScheme) private var scheme
-    func body(content: Content) -> some View { content.lkText(style).foregroundStyle(color.resolve(scheme)) }
+    func body(content: Content) -> some View { content.lkTextSafe(style).foregroundStyle(color.resolve(scheme)) }
 }
 extension View {
     func studyText(_ style: LKTextStyle, _ color: LKDynamicColor = LKColor.onSurface) -> some View { modifier(StudyTextModifier(style: style, color: color)) }
@@ -99,7 +99,7 @@ struct StudyOutlineButtonStyle: ButtonStyle {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .lkText(LKType.titlePill)
+            .lkTextSafe(LKType.titlePill)
             .foregroundStyle(tint.resolve(scheme))
             .padding(.horizontal, LKSpacing.spaceMd)
             .frame(minHeight: max(LKFrame.shared.minTap, 48))
@@ -120,7 +120,7 @@ struct StudyChip: View {
     var body: some View {
         HStack(spacing: 4) {
             if let icon { Image(systemName: icon).font(.system(size: 12, weight: .bold)).accessibilityHidden(true) }
-            Text(verbatim: text).lkText(LKType.labelBadge)
+            Text(verbatim: text).lkTextSafe(LKType.labelBadge)
         }
         .foregroundStyle(tint.resolve(scheme))
         .padding(.horizontal, LKSpacing.spaceSm).padding(.vertical, 5)

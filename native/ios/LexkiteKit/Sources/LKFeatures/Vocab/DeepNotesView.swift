@@ -61,7 +61,7 @@ struct DeepNotesView: View {
     private func card(_ n: JSON) -> some View {
         WritingCard {
             WritingHeading(t(.dictGoDeeper), icon: "brain.head.profile")
-            if n.t("m") { section("m", "lightbulb.fill", t(.dictMnemonic), "") { Text(n.s("m")).lkText(LKType.bodyMd).foregroundStyle(ink) } }
+            if n.t("m") { section("m", "lightbulb.fill", t(.dictMnemonic), "") { Text(n.s("m")).lkTextSafe(LKType.bodyMd).foregroundStyle(ink) } }
             if n.t("e") {
                 let errs = DeepNotes.parseErrors(n.s("e"))
                 section("e", "exclamationmark.triangle.fill", t(.modelCommonMistakes), errs.pairs.isEmpty ? "" : String(errs.pairs.count)) { mistakes(errs) }
@@ -83,8 +83,8 @@ struct DeepNotesView: View {
         } label: {
             HStack(spacing: LKSpacing.spaceXs) {
                 Image(systemName: icon).foregroundStyle(LKColor.secondary.resolve(scheme)).accessibilityHidden(true)
-                Text(verbatim: title).lkText(LKType.titlePill).foregroundStyle(ink)
-                if !meta.isEmpty { Text(verbatim: meta).lkText(LKType.labelBadge).foregroundStyle(dim) }
+                Text(verbatim: title).lkTextSafe(LKType.titlePill).foregroundStyle(ink)
+                if !meta.isEmpty { Text(verbatim: meta).lkTextSafe(LKType.labelBadge).foregroundStyle(dim) }
             }
             .frame(minHeight: LKFrame.shared.minTap, alignment: .leading)
         }
@@ -96,22 +96,22 @@ struct DeepNotesView: View {
             VStack(alignment: .leading, spacing: 2) {
                 HStack(alignment: .top, spacing: LKSpacing.spaceXs) {
                     Image(systemName: "xmark.circle.fill").foregroundStyle(LKColor.error.resolve(scheme)).accessibilityLabel(Text(verbatim: t(.usageWrong)))
-                    (Text(verbatim: p.wrong).strikethrough().foregroundStyle(dim) + Text(verbatim: p.wrongNote.isEmpty ? "" : " " + p.wrongNote).foregroundStyle(dim)).lkText(LKType.bodyMd)
+                    (Text(verbatim: p.wrong).strikethrough().foregroundStyle(dim) + Text(verbatim: p.wrongNote.isEmpty ? "" : " " + p.wrongNote).foregroundStyle(dim)).lkTextSafe(LKType.bodyMd)
                 }
                 HStack(alignment: .top, spacing: LKSpacing.spaceXs) {
                     Image(systemName: "checkmark.circle.fill").foregroundStyle(LKColor.success.resolve(scheme)).accessibilityLabel(Text(verbatim: t(.usageRight)))
-                    (Text(verbatim: p.right).bold().foregroundStyle(ink) + Text(verbatim: p.rightNote.isEmpty ? "" : " " + p.rightNote).foregroundStyle(dim)).lkText(LKType.bodyMd)
+                    (Text(verbatim: p.right).bold().foregroundStyle(ink) + Text(verbatim: p.rightNote.isEmpty ? "" : " " + p.rightNote).foregroundStyle(dim)).lkTextSafe(LKType.bodyMd)
                 }
             }
             .accessibilityElement(children: .combine)
         }
-        ForEach(Array(e.notes.enumerated()), id: \.offset) { _, line in Text(verbatim: line).lkText(LKType.bodySm).foregroundStyle(dim) }
+        ForEach(Array(e.notes.enumerated()), id: \.offset) { _, line in Text(verbatim: line).lkTextSafe(LKType.bodySm).foregroundStyle(dim) }
     }
     @ViewBuilder private func usage(_ items: [DeepNotes.Usage]) -> some View {
         ForEach(Array(items.enumerated()), id: \.offset) { _, x in
             HStack(alignment: .firstTextBaseline, spacing: LKSpacing.spaceXs) {
                 if !x.tag.isEmpty { WritingTag(text: x.tag, tint: LKColor.tertiary).englishText() }
-                Text(verbatim: x.text).lkText(LKType.bodyMd).foregroundStyle(ink)
+                Text(verbatim: x.text).lkTextSafe(LKType.bodyMd).foregroundStyle(ink)
             }
         }
     }
@@ -119,11 +119,11 @@ struct DeepNotesView: View {
         FlowLayout {
             ForEach(Array(items.enumerated()), id: \.offset) { _, x in
                 if let w = x.word {
-                    (Text(verbatim: w).foregroundStyle(ink) + Text(verbatim: x.pos.isEmpty ? "" : " " + x.pos).foregroundStyle(dim)).lkText(LKType.bodyMd).englishText()
+                    (Text(verbatim: w).foregroundStyle(ink) + Text(verbatim: x.pos.isEmpty ? "" : " " + x.pos).foregroundStyle(dim)).lkTextSafe(LKType.bodyMd).englishText()
                         .padding(.horizontal, LKSpacing.spaceXs).padding(.vertical, 6)
                         .background(Capsule().fill(LKColor.surfaceContainerHigh.resolve(scheme)))
                 } else {
-                    Text(verbatim: x.text).lkText(LKType.bodySm).foregroundStyle(dim)
+                    Text(verbatim: x.text).lkTextSafe(LKType.bodySm).foregroundStyle(dim)
                 }
             }
         }

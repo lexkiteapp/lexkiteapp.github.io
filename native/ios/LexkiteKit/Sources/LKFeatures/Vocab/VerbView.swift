@@ -43,7 +43,7 @@ struct VerbView: View {
         WritingPage(title: t(.verbEnglishVerbConjugator)) {
             if let V = WritingVerbs.shared {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(t(.verbThe5VerbForms)).lkText(LKType.bodySm).foregroundStyle(dim)
+                    Text(t(.verbThe5VerbForms)).lkTextSafe(LKType.bodySm).foregroundStyle(dim)
                 }
                 searchBox(V)
                 if let arg = route.arg, let r = V.resolve(arg) {
@@ -80,8 +80,8 @@ struct VerbView: View {
                     ForEach(Array(list.enumerated()), id: \.offset) { _, x in
                         Button { go(x.s("base"), V) } label: {
                             HStack(spacing: LKSpacing.spaceXs) {
-                                Text(x.s("base")).lkText(LKType.headlineSm).foregroundStyle(ink).englishText()
-                                if x.t("via") { Text(x.s("via") + " → " + x.s("base")).lkText(LKType.bodySm).foregroundStyle(dim).englishText() }
+                                Text(x.s("base")).lkTextSafe(LKType.headlineSm).foregroundStyle(ink).englishText()
+                                if x.t("via") { Text(x.s("via") + " → " + x.s("base")).lkTextSafe(LKType.bodySm).foregroundStyle(dim).englishText() }
                                 Spacer(minLength: 0)
                                 if V.isIrregular(x.s("base")) { WritingTag(text: t(.verbIrregular), tint: LKColor.tertiary) }
                             }
@@ -116,15 +116,15 @@ struct VerbView: View {
             ForEach(["AAA", "ABB", "ABA", "ABC"], id: \.self) { p in WritingChip(text: p, selected: pattern == p, english: true) { pattern = p } }
         }
         .accessibilityLabel(t(.verbFilterByPattern))
-        Text(t(.verbVerbs, ["n": rows.count])).lkText(LKType.bodySm).foregroundStyle(dim).accessibilityAddTraits(.updatesFrequently)
+        Text(t(.verbVerbs, ["n": rows.count])).lkTextSafe(LKType.bodySm).foregroundStyle(dim).accessibilityAddTraits(.updatesFrequently)
         if rows.isEmpty { WritingNotice(icon: "text.magnifyingglass", text: t(.verbNoMatchingVerbs)) }
         LazyVStack(spacing: 0) {
             ForEach(Array(rows.prefix(400).enumerated()), id: \.offset) { _, x in
                 Button { services.router.open(AppRoute("verb", arg: x.s("base"))) } label: {
                     HStack(spacing: LKSpacing.spaceXs) {
-                        Text(x.s("base")).lkText(LKType.titlePill).foregroundStyle(ink).frame(maxWidth: .infinity, alignment: .leading)
-                        Text(x.list("past").map { $0.s("w") }.joined(separator: "/")).lkText(LKType.bodyMd).foregroundStyle(dim).frame(maxWidth: .infinity, alignment: .leading)
-                        Text(x.list("pp").map { $0.s("w") }.joined(separator: "/")).lkText(LKType.bodyMd).foregroundStyle(dim).frame(maxWidth: .infinity, alignment: .leading)
+                        Text(x.s("base")).lkTextSafe(LKType.titlePill).foregroundStyle(ink).frame(maxWidth: .infinity, alignment: .leading)
+                        Text(x.list("past").map { $0.s("w") }.joined(separator: "/")).lkTextSafe(LKType.bodyMd).foregroundStyle(dim).frame(maxWidth: .infinity, alignment: .leading)
+                        Text(x.list("pp").map { $0.s("w") }.joined(separator: "/")).lkTextSafe(LKType.bodyMd).foregroundStyle(dim).frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .englishText().padding(.horizontal, LKSpacing.spaceXs).frame(minHeight: LKFrame.shared.minTap).contentShape(Rectangle())
                 }
@@ -138,9 +138,9 @@ struct VerbView: View {
     @ViewBuilder private func modalPage(_ V: Verbs, _ base: String) -> some View {
         let m = V.modal(base) ?? []
         WritingCard {
-            HStack { Text(base).lkText(LKType.displayHeroMobile).foregroundStyle(ink).englishText(); Spacer(minLength: 0); WritingSayButton(text: base, label: t(.verbPlayExample), voice: voice, word: true) }
+            HStack { Text(base).lkTextSafe(LKType.displayHeroMobile).foregroundStyle(ink).englishText(); Spacer(minLength: 0); WritingSayButton(text: base, label: t(.verbPlayExample), voice: voice, word: true) }
             WritingTag(text: t(.verbModalVerb), tint: LKColor.tertiary)
-            Text(t(.verbModalVerbsDoNot)).lkText(LKType.bodyMd).foregroundStyle(dim)
+            Text(t(.verbModalVerbsDoNot)).lkTextSafe(LKType.bodyMd).foregroundStyle(dim)
             modalRow(t(.verbAffirmative), base == "ought to" ? "You ought to rest." : "You \(base) go.")
             if m.count > 0 { modalRow(t(.verbNegative), m[0] + (m.count > 1 && !m[1].isEmpty ? " / " + m[1] : "")) }
             modalRow(t(.verbQuestion), (base.split(separator: " ").first.map { $0.prefix(1).uppercased() + $0.dropFirst() } ?? "") + " I …?")
@@ -151,7 +151,7 @@ struct VerbView: View {
     }
     private func modalRow(_ title: String, _ text: String) -> some View {
         VStack(alignment: .leading, spacing: 2) {
-            Text(title).lkText(LKType.labelBadge).textCase(.uppercase).foregroundStyle(dim)
+            Text(title).lkTextSafe(LKType.labelBadge).textCase(.uppercase).foregroundStyle(dim)
             WritingEnglish(text: text, style: LKType.bodyLg)
         }
     }
@@ -162,7 +162,7 @@ struct VerbView: View {
         let f = V.forms(base, region: region), full = base + tail
         if r.s("from") != "base", let first = r.s("input").split(separator: " ").first, String(first) != base {
             let form = t(VerbLabels.from(r.s("from")) ?? .verbPresentForm)
-            Text((dir == .rightToLeft ? "\u{200F}" : "") + t(.verbIsTheOf, ["w": String(first), "form": form, "b": base])).lkText(LKType.bodyMd).foregroundStyle(ink)
+            Text((dir == .rightToLeft ? "\u{200F}" : "") + t(.verbIsTheOf, ["w": String(first), "form": form, "b": base])).lkTextSafe(LKType.bodyMd).foregroundStyle(ink)
                 .padding(LKSpacing.spaceSm).frame(maxWidth: .infinity, alignment: .leading)
                 .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(LKColor.surfaceContainerHigh.resolve(scheme)))
                 .accessibilityAddTraits(.updatesFrequently)
@@ -170,17 +170,17 @@ struct VerbView: View {
         let alts = r.list("alts").filter { $0.s("base") != base }
         if !alts.isEmpty {
             HStack(alignment: .top, spacing: LKSpacing.spaceXs) {
-                Text(t(.verbOrDidYouMean)).lkText(LKType.bodySm).foregroundStyle(dim)
+                Text(t(.verbOrDidYouMean)).lkTextSafe(LKType.bodySm).foregroundStyle(dim)
                 FlowLayout { ForEach(alts.map { $0.s("base") }, id: \.self) { a in WritingChip(text: a, english: true) { services.router.open(AppRoute("verb", arg: a)) } } }
             }
         }
         WritingCard {
             HStack(alignment: .firstTextBaseline) {
-                Text(full).lkText(LKType.displayHeroMobile).foregroundStyle(ink).englishText().minimumScaleFactor(0.6).lineLimit(2)
+                Text(full).lkTextSafe(LKType.displayHeroMobile).foregroundStyle(ink).englishText().minimumScaleFactor(0.6).lineLimit(2)
                 Spacer(minLength: 0)
                 WritingSayButton(text: full, label: t(.verbPlayExample), voice: voice, word: true)
             }
-            if !meaning.isEmpty { Text(meaning).lkText(LKType.bodyMd).foregroundStyle(dim) }
+            if !meaning.isEmpty { Text(meaning).lkTextSafe(LKType.bodyMd).foregroundStyle(dim) }
             FlowLayout {
                 if f.t("irregular") { WritingTag(text: t(.verbIrregular), tint: LKColor.tertiary) } else { WritingTag(text: t(.verbRegular), tint: LKColor.success) }
                 if f.t("partial") { WritingTag(text: t(.verbAlsoHasAnEd)) }
@@ -192,7 +192,7 @@ struct VerbView: View {
                 HStack(spacing: 0) {
                     ForEach(["UK", "US"], id: \.self) { k in
                         Button { region = k } label: {
-                            Text(k).lkText(LKType.labelMetric).foregroundStyle((region == k ? LKColor.onSecondary : LKColor.onSurface).resolve(scheme))
+                            Text(k).lkTextSafe(LKType.labelMetric).foregroundStyle((region == k ? LKColor.onSecondary : LKColor.onSurface).resolve(scheme))
                                 .frame(minWidth: 56, minHeight: LKFrame.shared.minTap)
                                 .background(Capsule().fill(region == k ? LKColor.secondary.resolve(scheme) : Color.clear))
                         }
@@ -206,7 +206,7 @@ struct VerbView: View {
             }
         }
         formsGrid(f, tail)
-        if (f.list("past") + f.list("pp")).contains(where: { $0.t("tag") }) { Text(t(.verbUkBritishUsageUs)).lkText(LKType.bodySm).foregroundStyle(dim) }
+        if (f.list("past") + f.list("pp")).contains(where: { $0.t("tag") }) { Text(t(.verbUkBritishUsageUs)).lkTextSafe(LKType.bodySm).foregroundStyle(dim) }
         infoBoxes(V, f)
         tensesSection(V, r, f)
         mistakes(V, base)
@@ -224,10 +224,10 @@ struct VerbView: View {
                 let words = b.1.map { $0.s("w") + tail }
                 HStack(alignment: .center, spacing: LKSpacing.spaceSm) {
                     VStack(alignment: .leading, spacing: 2) {
-                        Text(b.0).lkText(LKType.labelBadge).textCase(.uppercase).foregroundStyle(dim)
+                        Text(b.0).lkTextSafe(LKType.labelBadge).textCase(.uppercase).foregroundStyle(dim)
                         ForEach(Array(b.1.enumerated()), id: \.offset) { i, x in
                             HStack(spacing: 4) {
-                                Text(words[i]).lkText(LKType.headlineSm).foregroundStyle(ink).englishText()
+                                Text(words[i]).lkTextSafe(LKType.headlineSm).foregroundStyle(ink).englishText()
                                 if x.t("tag") { WritingTag(text: x.s("tag"), tint: LKColor.onSurfaceVariant) }
                             }
                         }
@@ -250,14 +250,14 @@ struct VerbView: View {
             WritingCard {
                 WritingHeading(t(.verbSpellingRules), icon: "pencil.line")
                 if !anyRule {
-                    Text(f.t("irregular") && !f.t("partial") ? t(.verbIrregularVerbLearnV2) : t(.verbJustAddEdIng)).lkText(LKType.bodyMd).foregroundStyle(ink)
+                    Text(f.t("irregular") && !f.t("partial") ? t(.verbIrregularVerbLearnV2) : t(.verbJustAddEdIng)).lkTextSafe(LKType.bodyMd).foregroundStyle(ink)
                 } else {
                     ForEach(Array(Set(["ed", "ing", "s"].compactMap { rules?.s($0) }.filter { VerbLabels.rule($0) != nil })).sorted(), id: \.self) { k in
                         if let rule = VerbLabels.rule(k) {
                             VStack(alignment: .leading, spacing: 2) {
-                                if let title = rule.title { Text(t(title)).lkText(LKType.titlePill).foregroundStyle(ink) }
-                                else if let formula = VerbLabels.ruleFormula(k) { Text(verbatim: formula).lkText(LKType.titlePill).foregroundStyle(ink).englishText() }
-                                Text(t(rule.body)).lkText(LKType.bodySm).foregroundStyle(dim)
+                                if let title = rule.title { Text(t(title)).lkTextSafe(LKType.titlePill).foregroundStyle(ink) }
+                                else if let formula = VerbLabels.ruleFormula(k) { Text(verbatim: formula).lkTextSafe(LKType.titlePill).foregroundStyle(ink).englishText() }
+                                Text(t(rule.body)).lkTextSafe(LKType.bodySm).foregroundStyle(dim)
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .accessibilityElement(children: .combine)
@@ -270,20 +270,20 @@ struct VerbView: View {
                 if let ed, ed != .null {
                     let end = V.endIpa(ed.s("end"))
                     HStack(spacing: LKSpacing.spaceXs) {
-                        Text(verbatim: "-ed").lkText(LKType.titlePill).foregroundStyle(ink).englishText()
-                        Text(ed.s("ipa")).lkText(LKType.headlineSm).foregroundStyle(LKColor.secondary.resolve(scheme)).englishText()
-                        if !end.isEmpty { Text(t(.verbFinalSound, ["s": end])).lkText(LKType.bodySm).foregroundStyle(dim) }
+                        Text(verbatim: "-ed").lkTextSafe(LKType.titlePill).foregroundStyle(ink).englishText()
+                        Text(ed.s("ipa")).lkTextSafe(LKType.headlineSm).foregroundStyle(LKColor.secondary.resolve(scheme)).englishText()
+                        if !end.isEmpty { Text(t(.verbFinalSound, ["s": end])).lkTextSafe(LKType.bodySm).foregroundStyle(dim) }
                     }
-                    if let why = VerbLabels.edWhy(ed.s("why")) { Text(t(why)).lkText(LKType.bodySm).foregroundStyle(dim) }
+                    if let why = VerbLabels.edWhy(ed.s("why")) { Text(t(why)).lkTextSafe(LKType.bodySm).foregroundStyle(dim) }
                 } else {
-                    Text(t(.verbNoEdEndingIrregular)).lkText(LKType.bodyMd).foregroundStyle(dim)
+                    Text(t(.verbNoEdEndingIrregular)).lkTextSafe(LKType.bodyMd).foregroundStyle(dim)
                 }
                 if let sz {
                     HStack(spacing: LKSpacing.spaceXs) {
-                        Text(verbatim: "-s").lkText(LKType.titlePill).foregroundStyle(ink).englishText()
-                        Text(sz.s("ipa")).lkText(LKType.headlineSm).foregroundStyle(LKColor.secondary.resolve(scheme)).englishText()
+                        Text(verbatim: "-s").lkTextSafe(LKType.titlePill).foregroundStyle(ink).englishText()
+                        Text(sz.s("ipa")).lkTextSafe(LKType.headlineSm).foregroundStyle(LKColor.secondary.resolve(scheme)).englishText()
                     }
-                    if let why = VerbLabels.sWhy(sz.s("why")) { Text(t(why)).lkText(LKType.bodySm).foregroundStyle(dim) }
+                    if let why = VerbLabels.sWhy(sz.s("why")) { Text(t(why)).lkTextSafe(LKType.bodySm).foregroundStyle(dim) }
                 }
                 Button(t(.verbLessonPronouncingEdAnd)) { services.router.open(AppRoute("grammar", arg: "ed-s-endings")) }.buttonStyle(WritingSecondaryButtonStyle())
             }
@@ -323,7 +323,7 @@ struct VerbView: View {
         let formula = pas && x.t("formulaP") ? x.s("formulaP") : x.s("formula")
         return DisclosureGroup(isExpanded: isOpen) {
             VStack(alignment: .leading, spacing: LKSpacing.spaceXs) {
-                if let use = VerbLabels.use(id) { Text(t(use)).lkText(LKType.bodySm).foregroundStyle(dim) }
+                if let use = VerbLabels.use(id) { Text(t(use)).lkTextSafe(LKType.bodySm).foregroundStyle(dim) }
                 if x.t("rare") { note("info.circle", t(.verbAlmostNeverUsedIn)) }
                 else if pas && rows == nil { note("info.circle", t(.verbThePassiveIsRare)) }
                 else if let rows {
@@ -346,9 +346,9 @@ struct VerbView: View {
             .padding(.top, LKSpacing.spaceXs)
         } label: {
             VStack(alignment: .leading, spacing: 2) {
-                Text(x.s("en")).lkText(LKType.titlePill).foregroundStyle(ink).englishText()
-                if let name = VerbLabels.tense(id) { Text(t(name)).lkText(LKType.labelBadge).foregroundStyle(LKColor.secondary.resolve(scheme)) }
-                Text(formula).lkText(LKType.bodySm).foregroundStyle(dim).englishText()
+                Text(x.s("en")).lkTextSafe(LKType.titlePill).foregroundStyle(ink).englishText()
+                if let name = VerbLabels.tense(id) { Text(t(name)).lkTextSafe(LKType.labelBadge).foregroundStyle(LKColor.secondary.resolve(scheme)) }
+                Text(formula).lkTextSafe(LKType.bodySm).foregroundStyle(dim).englishText()
             }
             .frame(minHeight: LKFrame.shared.minTap, alignment: .leading)
         }
@@ -368,10 +368,10 @@ struct VerbView: View {
                     }
                 }()
                 HStack(alignment: .firstTextBaseline, spacing: LKSpacing.spaceXs) {
-                    Text(x.s("subj")).lkText(LKType.labelMetric).foregroundStyle(LKColor.secondary.resolve(scheme)).frame(width: 78, alignment: .leading)
+                    Text(x.s("subj")).lkTextSafe(LKType.labelMetric).foregroundStyle(LKColor.secondary.resolve(scheme)).frame(width: 78, alignment: .leading)
                     VStack(alignment: .leading, spacing: 0) {
-                        Text(cells[0].0.isEmpty ? "—" : cells[0].0).lkText(LKType.bodyMd).foregroundStyle(ink)
-                        if !cells[0].1.isEmpty { Text(cells[0].1).lkText(LKType.bodySm).foregroundStyle(dim) }
+                        Text(cells[0].0.isEmpty ? "—" : cells[0].0).lkTextSafe(LKType.bodyMd).foregroundStyle(ink)
+                        if !cells[0].1.isEmpty { Text(cells[0].1).lkTextSafe(LKType.bodySm).foregroundStyle(dim) }
                     }
                     Spacer(minLength: 0)
                 }
@@ -381,7 +381,7 @@ struct VerbView: View {
         }
     }
     private func note(_ icon: String, _ text: String) -> some View {
-        Label { Text(text).lkText(LKType.bodySm).foregroundStyle(dim) } icon: { Image(systemName: icon).foregroundStyle(LKColor.tertiary.resolve(scheme)) }
+        Label { Text(text).lkTextSafe(LKType.bodySm).foregroundStyle(dim) } icon: { Image(systemName: icon).foregroundStyle(LKColor.tertiary.resolve(scheme)) }
     }
 
     // MARK: mistakes
@@ -393,13 +393,13 @@ struct VerbView: View {
                 WritingCard {
                     HStack(alignment: .top, spacing: LKSpacing.spaceXs) {
                         Image(systemName: "xmark.circle.fill").foregroundStyle(LKColor.error.resolve(scheme)).accessibilityHidden(true)
-                        Text(m.s("wrong")).lkText(LKType.bodyLg).strikethrough().foregroundStyle(dim).englishText()
+                        Text(m.s("wrong")).lkTextSafe(LKType.bodyLg).strikethrough().foregroundStyle(dim).englishText()
                     }
                     HStack(alignment: .top, spacing: LKSpacing.spaceXs) {
                         Image(systemName: "checkmark.circle.fill").foregroundStyle(LKColor.success.resolve(scheme)).accessibilityHidden(true)
-                        Text(m.s("right")).lkText(LKType.bodyLg).fontWeight(.bold).foregroundStyle(ink).englishText()
+                        Text(m.s("right")).lkTextSafe(LKType.bodyLg).fontWeight(.bold).foregroundStyle(ink).englishText()
                     }
-                    if let why = VerbLabels.mistake(m.s("code").hasPrefix("sp-") ? "sp" : m.s("code")) { Text(t(why)).lkText(LKType.bodySm).foregroundStyle(dim) }
+                    if let why = VerbLabels.mistake(m.s("code").hasPrefix("sp-") ? "sp" : m.s("code")) { Text(t(why)).lkTextSafe(LKType.bodySm).foregroundStyle(dim) }
                 }
             }
         }

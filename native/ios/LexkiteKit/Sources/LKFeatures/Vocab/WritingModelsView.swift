@@ -45,7 +45,7 @@ struct WritingModelsView: View {
     var body: some View {
         WritingPage(title: t(.modelBand8ModelAnswers)) {
             VStack(alignment: .leading, spacing: 4) {
-                Text(t(.modelOriginalModelAnswersWith)).lkText(LKType.bodySm).foregroundStyle(dim)
+                Text(t(.modelOriginalModelAnswersWith)).lkTextSafe(LKType.bodySm).foregroundStyle(dim)
             }
             if let ix = index {
                 let counts = ["2", "1", "gt"].map { k in (k, ix.models.filter { $0["task"]?.jsToString == k }.count) }
@@ -61,8 +61,8 @@ struct WritingModelsView: View {
                     Button { services.router.open(AppRoute("model", arg: r.id)) } label: {
                         HStack(spacing: LKSpacing.spaceSm) {
                             VStack(alignment: .leading, spacing: 2) {
-                                Text(r.title).lkText(LKType.titlePill).foregroundStyle(ink).englishText().multilineTextAlignment(.leading).lineLimit(3)
-                                Text([r.kind, r.topic, r.words.map { t(.vocabWords, ["n": $0]) } ?? ""].filter { !$0.isEmpty }.joined(separator: " · ")).lkText(LKType.bodySm).foregroundStyle(dim)
+                                Text(r.title).lkTextSafe(LKType.titlePill).foregroundStyle(ink).englishText().multilineTextAlignment(.leading).lineLimit(3)
+                                Text([r.kind, r.topic, r.words.map { t(.vocabWords, ["n": $0]) } ?? ""].filter { !$0.isEmpty }.joined(separator: " · ")).lkTextSafe(LKType.bodySm).foregroundStyle(dim)
                             }
                             Spacer(minLength: 0)
                             WritingTag(text: "Band " + r.band, tint: LKColor.success)

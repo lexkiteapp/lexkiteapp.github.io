@@ -52,15 +52,15 @@ struct DictView: View {
 
     @ViewBuilder private func content(_ m: DictModel) -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(t(.dictEnglishVietnameseDictionary)).lkText(LKType.headlineMd).foregroundStyle(LKColor.onSurface.resolve(scheme))
-            Text(t(.dictOxfordLanguagesDefinitionsUk)).lkText(LKType.bodySm).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
+            Text(t(.dictEnglishVietnameseDictionary)).lkTextSafe(LKType.headlineMd).foregroundStyle(LKColor.onSurface.resolve(scheme))
+            Text(t(.dictOxfordLanguagesDefinitionsUk)).lkTextSafe(LKType.bodySm).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
         }
         searchBox(m)
         switch m.phase {
         case .input: inputPage(m)
         case .loading:
             WritingCard {
-                Text(t(.dictLookingUp, ["q": m.word])).lkText(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
+                Text(t(.dictLookingUp, ["q": m.word])).lkTextSafe(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
                 WritingSkeleton(rows: 4)
             }
             .accessibilityElement(children: .combine)
@@ -89,9 +89,9 @@ struct DictView: View {
                     ForEach(suggestions) { s in
                         Button { openWord(s.word) } label: {
                             HStack(spacing: LKSpacing.spaceXs) {
-                                Text(s.word).lkText(LKType.headlineSm).foregroundStyle(LKColor.onSurface.resolve(scheme)).englishText()
+                                Text(s.word).lkTextSafe(LKType.headlineSm).foregroundStyle(LKColor.onSurface.resolve(scheme)).englishText()
                                 if !s.pos.isEmpty { WritingTag(text: s.pos) }
-                                Text(s.vi).lkText(LKType.bodySm).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).lineLimit(1)
+                                Text(s.vi).lkTextSafe(LKType.bodySm).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).lineLimit(1)
                                 Spacer(minLength: 0)
                                 Image(systemName: "chevron.forward").font(.system(size: 13, weight: .bold)).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
                             }
@@ -122,7 +122,7 @@ struct DictView: View {
             FlowLayout { ForEach(m.recent, id: \.self) { w in WritingChip(text: w, english: true) { openWord(w) } } }
         }
         WritingHeading(t(.dictLookUpAnyEnglish), icon: "sparkle.magnifyingglass")
-        Text(t(.dictUkUsIpaMeanings)).lkText(LKType.bodySm).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
+        Text(t(.dictUkUsIpaMeanings)).lkTextSafe(LKType.bodySm).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
         FlowLayout { ForEach(DictPage.sampleWords, id: \.self) { w in WritingChip(text: w, english: true) { openWord(w) } } }
     }
 
@@ -132,11 +132,11 @@ struct DictView: View {
             HStack(alignment: .top, spacing: LKSpacing.spaceSm) {
                 Image(systemName: "questionmark.circle.fill").font(.system(size: 28)).foregroundStyle(LKColor.tertiary.resolve(scheme)).accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: 6) {
-                    Text(t(.dictNoResultsFor, ["q": m.word])).lkText(LKType.headlineSm).foregroundStyle(LKColor.onSurface.resolve(scheme))
+                    Text(t(.dictNoResultsFor, ["q": m.word])).lkTextSafe(LKType.headlineSm).foregroundStyle(LKColor.onSurface.resolve(scheme))
                     if let suggestion {
-                        Text(t.rich(.dictSuggestedTranslation, ["vi": suggestion])).lkText(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme))
+                        Text(t.rich(.dictSuggestedTranslation, ["vi": suggestion])).lkTextSafe(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme))
                     }
-                    Text(t(.dictCheckTheSpellingOr)).lkText(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
+                    Text(t(.dictCheckTheSpellingOr)).lkTextSafe(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
                 }
             }
             if m.live { Button(t(.actionRetry)) { Task { await m.open(m.query) } }.buttonStyle(WritingSecondaryButtonStyle()) }

@@ -49,7 +49,7 @@ struct UsageView: View {
     var body: some View {
         WritingPage(title: t(.dictUsage)) {
             VStack(alignment: .leading, spacing: 4) {
-                Text(t(.usageDependentPrepositionsVerbPatterns)).lkText(LKType.bodySm).foregroundStyle(dim)
+                Text(t(.usageDependentPrepositionsVerbPatterns)).lkTextSafe(LKType.bodySm).foregroundStyle(dim)
             }
             if let U = store {
                 searchBox(U)
@@ -121,7 +121,7 @@ struct UsageView: View {
                 VStack(spacing: 0) {
                     ForEach(list, id: \.self) { w in
                         Button { go(w, U) } label: {
-                            HStack { Text(w).lkText(LKType.headlineSm).foregroundStyle(ink).englishText(); Spacer(minLength: 0) }
+                            HStack { Text(w).lkTextSafe(LKType.headlineSm).foregroundStyle(ink).englishText(); Spacer(minLength: 0) }
                                 .padding(.horizontal, LKSpacing.spaceSm).frame(minHeight: LKFrame.shared.minTap).contentShape(Rectangle())
                         }
                         .buttonStyle(.plain)
@@ -146,9 +146,9 @@ struct UsageView: View {
                 HStack(spacing: LKSpacing.spaceSm) {
                     Image(systemName: c.icon).font(.system(size: 20, weight: .bold)).foregroundStyle(accent).frame(width: 32)
                     VStack(alignment: .leading, spacing: 2) {
-                        Text(name).lkText(LKType.titlePill).foregroundStyle(ink).multilineTextAlignment(.leading)
-                        Text(desc).lkText(LKType.bodySm).foregroundStyle(dim).multilineTextAlignment(.leading)
-                        Text(t(.usageEntries, ["n": U.list(c.kind).count])).lkText(LKType.labelMetric).foregroundStyle(accent)
+                        Text(name).lkTextSafe(LKType.titlePill).foregroundStyle(ink).multilineTextAlignment(.leading)
+                        Text(desc).lkTextSafe(LKType.bodySm).foregroundStyle(dim).multilineTextAlignment(.leading)
+                        Text(t(.usageEntries, ["n": U.list(c.kind).count])).lkTextSafe(LKType.labelMetric).foregroundStyle(accent)
                     }
                     Spacer(minLength: 0)
                     Image(systemName: "chevron.forward").foregroundStyle(dim)
@@ -162,7 +162,7 @@ struct UsageView: View {
         WritingCard {
             WritingHeading(t(.usageHowToRememberWord), icon: "lightbulb")
             ForEach([t(.usageLearnWholeChunksNot), t(.usageReadTheExamplesAloud), t(.usageSavePhrasesToYour), t(.usageDoTheQuickPractice)], id: \.self) { line in
-                Label { Text(line).lkText(LKType.bodyMd).foregroundStyle(ink) } icon: { Image(systemName: "checkmark.circle").foregroundStyle(accent) }
+                Label { Text(line).lkTextSafe(LKType.bodyMd).foregroundStyle(ink) } icon: { Image(systemName: "checkmark.circle").foregroundStyle(accent) }
             }
         }
     }
@@ -172,7 +172,7 @@ struct UsageView: View {
         let all = U.list(cat.kind)
         Button { services.router.open(AppRoute("usage")) } label: { Label(t(.usageAllTopics), systemImage: "chevron.backward") }.buttonStyle(WritingSecondaryButtonStyle())
         WritingHeading(name, icon: cat.icon)
-        Text(desc).lkText(LKType.bodyMd).foregroundStyle(dim)
+        Text(desc).lkTextSafe(LKType.bodyMd).foregroundStyle(dim)
         if cat.kind == "a" { posExplainer }
         let filters = subFilters(cat.kind)
         if filters.count > 1 {
@@ -185,7 +185,7 @@ struct UsageView: View {
         }
         let kept = all.filter { keep($0, cat.kind) }
         let rows = cat.kind == "s" || cat.kind == "c" ? kept : kept.sorted { $0.s("key").localizedCompare($1.s("key")) == .orderedAscending }
-        Text(t(.usageEntries, ["n": rows.count])).lkText(LKType.bodySm).foregroundStyle(dim).accessibilityAddTraits(.updatesFrequently)
+        Text(t(.usageEntries, ["n": rows.count])).lkTextSafe(LKType.bodySm).foregroundStyle(dim).accessibilityAddTraits(.updatesFrequently)
         if rows.isEmpty { WritingNotice(icon: "text.magnifyingglass", text: t(.usageNoMatchingEntries)) }
         LazyVStack(spacing: 0) {
             ForEach(Array(rows.prefix(300).enumerated()), id: \.offset) { _, e in
@@ -247,8 +247,8 @@ struct UsageView: View {
     }
     private func rowBody(_ title: String, _ subtitle: String) -> some View {
         VStack(alignment: .leading, spacing: 2) {
-            Text(title).lkText(LKType.titlePill).foregroundStyle(ink).englishText().frame(maxWidth: .infinity, alignment: .leading)
-            if !subtitle.isEmpty { Text(subtitle).lkText(LKType.bodySm).foregroundStyle(dim).lineLimit(2).frame(maxWidth: .infinity, alignment: .leading) }
+            Text(title).lkTextSafe(LKType.titlePill).foregroundStyle(ink).englishText().frame(maxWidth: .infinity, alignment: .leading)
+            if !subtitle.isEmpty { Text(subtitle).lkTextSafe(LKType.bodySm).foregroundStyle(dim).lineLimit(2).frame(maxWidth: .infinity, alignment: .leading) }
         }
         .padding(.horizontal, LKSpacing.spaceXs).padding(.vertical, 6).frame(minHeight: LKFrame.shared.minTap).contentShape(Rectangle())
     }
@@ -258,13 +258,13 @@ struct UsageView: View {
             ForEach([("front", "[Fortunately], nobody was hurt."), ("mid", "She [always] walks to work."), ("end", "Read the instructions [carefully].")], id: \.0) { p, ex in
                 if let (n, d) = position(p) {
                     VStack(alignment: .leading, spacing: 2) {
-                        Text(n).lkText(LKType.titlePill).foregroundStyle(ink)
-                        Text(d).lkText(LKType.bodySm).foregroundStyle(dim)
+                        Text(n).lkTextSafe(LKType.titlePill).foregroundStyle(ink)
+                        Text(d).lkTextSafe(LKType.bodySm).foregroundStyle(dim)
                         example(ex)
                     }
                 }
             }
-            Text(t(.usageDonTPutAn)).lkText(LKType.bodySm).foregroundStyle(LKColor.error.resolve(scheme))
+            Text(t(.usageDonTPutAn)).lkTextSafe(LKType.bodySm).foregroundStyle(LKColor.error.resolve(scheme))
         }
     }
 
@@ -276,7 +276,7 @@ struct UsageView: View {
             let all = sections.flatMap(\.es)
             WritingCard {
                 HStack(alignment: .firstTextBaseline) {
-                    Text(key).lkText(LKType.displayHeroMobile).foregroundStyle(ink).englishText().minimumScaleFactor(0.6).lineLimit(2)
+                    Text(key).lkTextSafe(LKType.displayHeroMobile).foregroundStyle(ink).englishText().minimumScaleFactor(0.6).lineLimit(2)
                     Spacer(minLength: 0)
                     WritingSayButton(text: key, label: t(.usagePlaySentence), voice: voice, word: true)
                 }
@@ -301,7 +301,7 @@ struct UsageView: View {
                 WritingCard {
                     WritingHeading(t(.usageSeeDetails), icon: "graduationcap")
                     FlowLayout { ForEach(lessons, id: \.self) { l in WritingChip(text: l, system: "graduationcap", english: true) { services.router.open(AppRoute("grammar", arg: l)) } } }
-                    if !rel.isEmpty { Text(t(.usageRelatedWords)).lkText(LKType.labelBadge).textCase(.uppercase).foregroundStyle(dim); FlowLayout { ForEach(rel, id: \.self) { w in WritingChip(text: w, english: true) { services.router.open(AppRoute("usage", arg: w)) } } } }
+                    if !rel.isEmpty { Text(t(.usageRelatedWords)).lkTextSafe(LKType.labelBadge).textCase(.uppercase).foregroundStyle(dim); FlowLayout { ForEach(rel, id: \.self) { w in WritingChip(text: w, english: true) { services.router.open(AppRoute("usage", arg: w)) } } } }
                 }
             }
             quiz(U, all, title: t(.usageQuickPractice))
@@ -324,8 +324,8 @@ struct UsageView: View {
     @ViewBuilder private func fallback(_ U: UsageStore, _ w: String) -> some View {
         let near = U.near(w, 6), sug = U.suggest(w, 6).filter { !near.contains($0) }
         WritingCard {
-            HStack { Text(w.isEmpty ? "—" : w).lkText(LKType.displayHeroMobile).foregroundStyle(ink).englishText(); Spacer(minLength: 0); if !w.isEmpty { WritingSayButton(text: w, label: t(.usagePlaySentence), voice: voice, word: true) } }
-            Text(t(.usageThereAreNoUsage, ["w": w])).lkText(LKType.bodyMd).foregroundStyle(ink)
+            HStack { Text(w.isEmpty ? "—" : w).lkTextSafe(LKType.displayHeroMobile).foregroundStyle(ink).englishText(); Spacer(minLength: 0); if !w.isEmpty { WritingSayButton(text: w, label: t(.usagePlaySentence), voice: voice, word: true) } }
+            Text(t(.usageThereAreNoUsage, ["w": w])).lkTextSafe(LKType.bodyMd).foregroundStyle(ink)
             Button { services.router.open(AppRoute("dict", arg: w)) } label: { Label(t(.verbSeeMeaning), systemImage: "book") }.buttonStyle(WritingSecondaryButtonStyle())
         }
         if !near.isEmpty || !sug.isEmpty {
@@ -343,27 +343,27 @@ struct UsageView: View {
         var hl = AttributedString(a); hl.foregroundColor = accent; hl.inlinePresentationIntent = .stronglyEmphasized
         s += hl; s += AttributedString(x.s("post"))
         return HStack(alignment: .top) {
-            Text(s).lkText(LKType.bodyLg).foregroundStyle(ink).englishText().frame(maxWidth: .infinity, alignment: .leading)
+            Text(s).lkTextSafe(LKType.bodyLg).foregroundStyle(ink).englishText().frame(maxWidth: .infinity, alignment: .leading)
             WritingSayButton(text: x.s("text"), label: t(.verbPlayExample), voice: voice)
         }
     }
     private func tipBox(_ text: String) -> some View {
-        Label { Text(text).lkText(LKType.bodyMd).foregroundStyle(ink) } icon: { Image(systemName: "lightbulb.fill").foregroundStyle(LKColor.tertiary.resolve(scheme)) }
+        Label { Text(text).lkTextSafe(LKType.bodyMd).foregroundStyle(ink) } icon: { Image(systemName: "lightbulb.fill").foregroundStyle(LKColor.tertiary.resolve(scheme)) }
     }
     @ViewBuilder private func kindSection(_ k: String, _ es: [JSON], current: String) -> some View {
         let notes = es.flatMap { $0.list("notes") }
         switch k {
         case "p":
             WritingHeading(t(.usageDependentPreposition), icon: "arrow.triangle.merge")
-            Text(t(.usageChangeThePrepositionAnd)).lkText(LKType.bodySm).foregroundStyle(dim)
+            Text(t(.usageChangeThePrepositionAnd)).lkTextSafe(LKType.bodySm).foregroundStyle(dim)
             ForEach(Array(es.enumerated()), id: \.offset) { _, e in
                 ForEach(Array(e.list("items").enumerated()), id: \.offset) { _, x in
                     let phrase = e.s("key") + " " + x.s("h")
                     WritingCard {
-                        HStack(alignment: .top) { Text(phrase).lkText(LKType.headlineSm).foregroundStyle(ink).englishText().frame(maxWidth: .infinity, alignment: .leading)
+                        HStack(alignment: .top) { Text(phrase).lkTextSafe(LKType.headlineSm).foregroundStyle(ink).englishText().frame(maxWidth: .infinity, alignment: .leading)
                             WritingSayButton(text: phrase, label: t(.usagePlaySentence), voice: voice) }
                         FlowLayout { WritingTag(text: prepSub(e.s("sub"))); saveButton(phrase, vi: x.s("vi"), en: x.s("en"), ex: x.strs("ex").first.map { UsageStore.example($0).s("text") } ?? "") }
-                        Text(mean(x)).lkText(LKType.bodyMd).foregroundStyle(dim)
+                        Text(mean(x)).lkTextSafe(LKType.bodyMd).foregroundStyle(dim)
                         ForEach(x.strs("ex"), id: \.self) { example($0) }
                     }
                 }
@@ -371,13 +371,13 @@ struct UsageView: View {
             }
         case "v":
             WritingHeading(t(.usageVerbPatterns), icon: "puzzlepiece")
-            Text(t(.usageWhatFollowsThisVerb)).lkText(LKType.bodySm).foregroundStyle(dim)
+            Text(t(.usageWhatFollowsThisVerb)).lkTextSafe(LKType.bodySm).foregroundStyle(dim)
             ForEach(Array(es.enumerated()), id: \.offset) { _, e in
                 ForEach(Array(e.list("items").enumerated()), id: \.offset) { _, x in
                     WritingCard {
-                        Text(e.s("key") + " " + (Self.formula[x.s("h")] ?? x.s("h"))).lkText(LKType.headlineSm).foregroundStyle(accent).englishText()
-                        Text(patternName(x.s("h"))).lkText(LKType.bodySm).foregroundStyle(dim)
-                        if !mean(x).isEmpty { Text(mean(x)).lkText(LKType.bodyMd).foregroundStyle(ink) }
+                        Text(e.s("key") + " " + (Self.formula[x.s("h")] ?? x.s("h"))).lkTextSafe(LKType.headlineSm).foregroundStyle(accent).englishText()
+                        Text(patternName(x.s("h"))).lkTextSafe(LKType.bodySm).foregroundStyle(dim)
+                        if !mean(x).isEmpty { Text(mean(x)).lkTextSafe(LKType.bodyMd).foregroundStyle(ink) }
                         ForEach(x.strs("ex"), id: \.self) { example($0) }
                     }
                 }
@@ -389,13 +389,13 @@ struct UsageView: View {
                 WritingCard {
                     ForEach(Array(e.list("items").enumerated()), id: \.offset) { _, x in
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(x.s("h")).lkText(LKType.titlePill).foregroundStyle(ink).englishText()
-                            Text(mean(x)).lkText(LKType.bodyMd).foregroundStyle(dim)
+                            Text(x.s("h")).lkTextSafe(LKType.titlePill).foregroundStyle(ink).englishText()
+                            Text(mean(x)).lkTextSafe(LKType.bodyMd).foregroundStyle(dim)
                             ForEach(x.strs("ex"), id: \.self) { example($0) }
                         }
                     }
                     FlowLayout { WritingTag(text: advSub(e.s("sub"))); ForEach(e.strs("pos"), id: \.self) { p in if let (n, _) = position(p) { WritingTag(text: n, tint: LKColor.tertiary) } } }
-                    ForEach(e.strs("pos"), id: \.self) { p in if let (n, d) = position(p) { Text(n + ": " + d).lkText(LKType.bodySm).foregroundStyle(dim) } }
+                    ForEach(e.strs("pos"), id: \.self) { p in if let (n, d) = position(p) { Text(n + ": " + d).lkTextSafe(LKType.bodySm).foregroundStyle(dim) } }
                     ForEach(e.strs("ex"), id: \.self) { example($0) }
                 }
             }
@@ -403,13 +403,13 @@ struct UsageView: View {
             WritingHeading(t(.usageSentenceStructures), icon: "building.2")
             ForEach(Array(es.enumerated()), id: \.offset) { _, e in
                 WritingCard {
-                    Text(e.s("f")).lkText(LKType.headlineSm).foregroundStyle(accent).englishText()
+                    Text(e.s("f")).lkTextSafe(LKType.headlineSm).foregroundStyle(accent).englishText()
                     ForEach(Array(e.list("items").enumerated()), id: \.offset) { _, x in
-                        Text(x.s("h")).lkText(LKType.titlePill).foregroundStyle(ink).englishText()
-                        if !mean(x).isEmpty { Text(mean(x)).lkText(LKType.bodyMd).foregroundStyle(dim) }
+                        Text(x.s("h")).lkTextSafe(LKType.titlePill).foregroundStyle(ink).englishText()
+                        if !mean(x).isEmpty { Text(mean(x)).lkTextSafe(LKType.bodyMd).foregroundStyle(dim) }
                         ForEach(x.strs("ex"), id: \.self) { example($0) }
                     }
-                    ForEach(Array(e.list("notes").enumerated()), id: \.offset) { _, n in Text(mean(n)).lkText(LKType.bodyMd).foregroundStyle(ink) }
+                    ForEach(Array(e.list("notes").enumerated()), id: \.offset) { _, n in Text(mean(n)).lkTextSafe(LKType.bodyMd).foregroundStyle(ink) }
                     ForEach(e.strs("ex"), id: \.self) { example($0) }
                     FlowLayout {
                         if e.s("key") != current { Button(t(.usageSeeDetails)) { services.router.open(AppRoute("usage", arg: e.s("key"))) }.buttonStyle(WritingSecondaryButtonStyle()) }
@@ -424,10 +424,10 @@ struct UsageView: View {
                     ForEach(Array(e.list("items").enumerated()), id: \.offset) { _, x in
                         VStack(alignment: .leading, spacing: 4) {
                             HStack(spacing: 4) {
-                                Text(headOf(x.s("h"))).lkText(LKType.titlePill).foregroundStyle(accent).englishText()
-                                if !posOf(x.s("h")).isEmpty { Text("(" + posOf(x.s("h")) + ")").lkText(LKType.bodySm).foregroundStyle(dim).englishText() }
+                                Text(headOf(x.s("h"))).lkTextSafe(LKType.titlePill).foregroundStyle(accent).englishText()
+                                if !posOf(x.s("h")).isEmpty { Text("(" + posOf(x.s("h")) + ")").lkTextSafe(LKType.bodySm).foregroundStyle(dim).englishText() }
                             }
-                            Text(mean(x)).lkText(LKType.bodyMd).foregroundStyle(ink)
+                            Text(mean(x)).lkTextSafe(LKType.bodyMd).foregroundStyle(ink)
                             ForEach(x.strs("ex"), id: \.self) { example($0) }
                         }
                     }
@@ -443,7 +443,7 @@ struct UsageView: View {
         let cols = uniq(all.flatMap { $0.strs("col") }).prefix(16)
         if !cols.isEmpty {
             WritingHeading(t(.usageCollocationsWordsThatGo), icon: "link")
-            Text(t(.usageTapToListen)).lkText(LKType.bodySm).foregroundStyle(dim)
+            Text(t(.usageTapToListen)).lkTextSafe(LKType.bodySm).foregroundStyle(dim)
             FlowLayout { ForEach(Array(cols), id: \.self) { c in WritingChip(text: c, system: "speaker.wave.2.fill", english: true) { voice.speak(c, who: "ama") } } }
         }
     }
@@ -451,7 +451,7 @@ struct UsageView: View {
         if !list.isEmpty {
             WritingHeading(t(.usageRegisterIelts), icon: "graduationcap")
             ForEach(Array(list.enumerated()), id: \.offset) { _, r in
-                HStack(alignment: .top, spacing: LKSpacing.spaceXs) { WritingTag(text: register(r.s("r")), tint: LKColor.tertiary); Text(mean(r)).lkText(LKType.bodyMd).foregroundStyle(ink) }
+                HStack(alignment: .top, spacing: LKSpacing.spaceXs) { WritingTag(text: register(r.s("r")), tint: LKColor.tertiary); Text(mean(r)).lkTextSafe(LKType.bodyMd).foregroundStyle(ink) }
             }
         }
     }
@@ -459,19 +459,19 @@ struct UsageView: View {
         let list = unique(all)
         if !list.isEmpty {
             WritingHeading(t(.modelCommonMistakes), icon: "exclamationmark.triangle.fill")
-            Text(t(.usageMistakesLearnersOftenMake)).lkText(LKType.bodySm).foregroundStyle(dim)
+            Text(t(.usageMistakesLearnersOftenMake)).lkTextSafe(LKType.bodySm).foregroundStyle(dim)
             ForEach(Array(list.enumerated()), id: \.offset) { _, m in
                 WritingCard {
                     HStack(alignment: .top, spacing: LKSpacing.spaceXs) {
                         Image(systemName: "xmark.circle.fill").foregroundStyle(LKColor.error.resolve(scheme)).accessibilityLabel(t(.usageWrong))
-                        Text(m.s("w")).lkText(LKType.bodyLg).strikethrough().foregroundStyle(dim).englishText()
+                        Text(m.s("w")).lkTextSafe(LKType.bodyLg).strikethrough().foregroundStyle(dim).englishText()
                     }
                     HStack(alignment: .top, spacing: LKSpacing.spaceXs) {
                         Image(systemName: "checkmark.circle.fill").foregroundStyle(LKColor.success.resolve(scheme)).accessibilityLabel(t(.usageRight))
-                        Text(m.s("r")).lkText(LKType.bodyLg).fontWeight(.bold).foregroundStyle(ink).englishText().frame(maxWidth: .infinity, alignment: .leading)
+                        Text(m.s("r")).lkTextSafe(LKType.bodyLg).fontWeight(.bold).foregroundStyle(ink).englishText().frame(maxWidth: .infinity, alignment: .leading)
                         WritingSayButton(text: m.s("r"), label: t(.usagePlaySentence), voice: voice)
                     }
-                    if !mean(m).isEmpty { Text(mean(m)).lkText(LKType.bodyMd).foregroundStyle(dim) }
+                    if !mean(m).isEmpty { Text(mean(m)).lkTextSafe(LKType.bodyMd).foregroundStyle(dim) }
                 }
             }
         }
@@ -483,7 +483,7 @@ struct UsageView: View {
         Color.clear.frame(height: 0).task(id: key) { if fixedSeed == nil { notes = await UsageNotes.load(key) } }
         if !fam.isEmpty {
             WritingHeading(t(.usageWordFamily), icon: "tree")
-            Text(t(.usageOtherPartsOfSpeech)).lkText(LKType.bodySm).foregroundStyle(dim)
+            Text(t(.usageOtherPartsOfSpeech)).lkTextSafe(LKType.bodySm).foregroundStyle(dim)
             FlowLayout {
                 ForEach(fam, id: \.self) { f in
                     let w = headOf(f).split(separator: "/").first.map { $0.trimmingCharacters(in: .whitespaces) } ?? f
@@ -539,7 +539,7 @@ struct UsageQuiz: View {
         if qs.count >= 3 {
             VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
                 WritingHeading(title, icon: "target")
-                Text(t(.usageChooseTheCorrectAnswer)).lkText(LKType.bodySm).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
+                Text(t(.usageChooseTheCorrectAnswer)).lkTextSafe(LKType.bodySm).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
                 ForEach(Array(qs.enumerated()), id: \.offset) { i, q in question(i, q) }
                 if chosen.count == qs.count { score(qs) }
             }
@@ -553,8 +553,8 @@ struct UsageQuiz: View {
     private func question(_ i: Int, _ q: JSON) -> some View {
         let pick = chosen[i]
         return WritingCard {
-            Text(t(.usageQ, ["n": i + 1])).lkText(LKType.labelBadge).textCase(.uppercase).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
-            (Text(q.s("pre")) + Text(pick == nil ? " ____ " : q.s("ans")).bold() + Text(q.s("post"))).lkText(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme)).englishText()
+            Text(t(.usageQ, ["n": i + 1])).lkTextSafe(LKType.labelBadge).textCase(.uppercase).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
+            (Text(q.s("pre")) + Text(pick == nil ? " ____ " : q.s("ans")).bold() + Text(q.s("post"))).lkTextSafe(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme)).englishText()
                 .accessibilityLabel(q.s("pre") + t(.usageBlank) + q.s("post"))
             ForEach(Array(q.strs("choices").enumerated()), id: \.offset) { j, c in
                 LessonOption(letter: ["A", "B", "C", "D"][min(j, 3)], text: c, state: state(q, c, pick)) {
@@ -566,7 +566,7 @@ struct UsageQuiz: View {
             }
             if let pick {
                 let ok = pick == q.s("ans")
-                Text(ok ? t(.lessonAwesome) : t(.usageNotQuite) + " " + t(.usageAnswer) + " " + q.s("ans")).lkText(LKType.titlePill)
+                Text(ok ? t(.lessonAwesome) : t(.usageNotQuite) + " " + t(.usageAnswer) + " " + q.s("ans")).lkTextSafe(LKType.titlePill)
                     .foregroundStyle((ok ? LKColor.success : LKColor.error).resolve(scheme)).englishText()
             }
         }
@@ -574,8 +574,8 @@ struct UsageQuiz: View {
     private func score(_ qs: [JSON]) -> some View {
         let right = qs.indices.filter { chosen[$0] == qs[$0].s("ans") }.count
         return WritingCard(fill: LKColor.surfaceContainerHigh) {
-            Text("\(right)/\(qs.count)").lkText(LKType.headlineLg).foregroundStyle(LKColor.onSurface.resolve(scheme))
-            Text(right == qs.count ? t(.usageExcellentYouVeGot) : right >= qs.count - 1 ? t(.usageVeryGoodTakeAnother) : t(.usageReadTheExamplesAbove)).lkText(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
+            Text("\(right)/\(qs.count)").lkTextSafe(LKType.headlineLg).foregroundStyle(LKColor.onSurface.resolve(scheme))
+            Text(right == qs.count ? t(.usageExcellentYouVeGot) : right >= qs.count - 1 ? t(.usageVeryGoodTakeAnother) : t(.usageReadTheExamplesAbove)).lkTextSafe(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
             Button(t(.usageTryANewSet)) { seed += 1; chosen = [:] }.buttonStyle(WritingSecondaryButtonStyle())
         }
     }

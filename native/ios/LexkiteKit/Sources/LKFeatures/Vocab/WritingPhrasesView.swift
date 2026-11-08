@@ -29,7 +29,7 @@ struct WritingPhrasesView: View {
         let book = WritingEngine.phraseBook(cards)
         WritingPage(title: t(.modelPhrasesStructures)) {
             VStack(alignment: .leading, spacing: 4) {
-                Text(t.rich(.modelLearningInChunksMakes)).lkText(LKType.bodySm).foregroundStyle(dim)
+                Text(t.rich(.modelLearningInChunksMakes)).lkTextSafe(LKType.bodySm).foregroundStyle(dim)
             }
             Button { sheet = true } label: { Label(t(.modelAddPhraseStructure), systemImage: "plus") }.buttonStyle(PrimaryButtonStyle())
             if book.canLearn {
@@ -39,18 +39,18 @@ struct WritingPhrasesView: View {
                 HStack(spacing: LKSpacing.spaceSm) {
                     Image(systemName: "doc.text").font(.system(size: 20, weight: .bold)).foregroundStyle(accent).frame(width: 32)
                     VStack(alignment: .leading, spacing: 2) {
-                        Text(t(.modelBand8ModelAnswers2)).lkText(LKType.titlePill).foregroundStyle(ink).multilineTextAlignment(.leading)
-                        Text(t(.modelReadAModelAnswer)).lkText(LKType.bodySm).foregroundStyle(dim).multilineTextAlignment(.leading)
+                        Text(t(.modelBand8ModelAnswers2)).lkTextSafe(LKType.titlePill).foregroundStyle(ink).multilineTextAlignment(.leading)
+                        Text(t(.modelReadAModelAnswer)).lkTextSafe(LKType.bodySm).foregroundStyle(dim).multilineTextAlignment(.leading)
                     }
                     Spacer(minLength: 0)
-                    if !models.isEmpty { Text(t(.modelAnswers, ["n": models.count])).lkText(LKType.labelMetric).foregroundStyle(accent) }
+                    if !models.isEmpty { Text(t(.modelAnswers, ["n": models.count])).lkTextSafe(LKType.labelMetric).foregroundStyle(accent) }
                     Image(systemName: "chevron.forward").foregroundStyle(dim)
                 }
                 .padding(LKSpacing.spaceSm).frame(minHeight: LKFrame.shared.minTap + 16).frame(maxWidth: .infinity, alignment: .leading)
                 .tactile(fill: LKColor.surfaceContainer, radius: 16).padding(.bottom, 4)
             }
             .buttonStyle(LKPressStyle())
-            if let n = addedNote { Text(t(.modelAddedPhrasesToYour, ["n": n])).lkText(LKType.titlePill).foregroundStyle(LKColor.success.resolve(scheme)).accessibilityAddTraits(.updatesFrequently) }
+            if let n = addedNote { Text(t(.modelAddedPhrasesToYour, ["n": n])).lkTextSafe(LKType.titlePill).foregroundStyle(LKColor.success.resolve(scheme)).accessibilityAddTraits(.updatesFrequently) }
             if book.list.isEmpty {
                 WritingCard {
                     WritingNotice(icon: "puzzlepiece.extension", text: t(.modelNoPhrasesYetSelect))
@@ -79,16 +79,16 @@ struct WritingPhrasesView: View {
         WritingCard {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(c.s("word")).lkText(LKType.headlineSm).foregroundStyle(ink).englishText()
+                    Text(c.s("word")).lkTextSafe(LKType.headlineSm).foregroundStyle(ink).englishText()
                     let m = Vocab.meanOf(c)
-                    if !m.isEmpty { Text(m).lkText(LKType.bodyMd).foregroundStyle(accent) }
-                    if c.t("note") { Label { Text(c.s("note")).lkText(LKType.bodySm).foregroundStyle(dim) } icon: { Image(systemName: "ruler") } }
+                    if !m.isEmpty { Text(m).lkTextSafe(LKType.bodyMd).foregroundStyle(accent) }
+                    if c.t("note") { Label { Text(c.s("note")).lkTextSafe(LKType.bodySm).foregroundStyle(dim) } icon: { Image(systemName: "ruler") } }
                 }
                 Spacer(minLength: 0)
                 WritingSayButton(text: c.s("word"), label: t(.revPlaySentence), voice: voice)
             }
             let ctx = c.list("contexts").first?.s("text") ?? c.s("ex")
-            if !ctx.isEmpty { Text(WritingText.highlight("“" + String(ctx.prefix(140)) + "”", c.s("word"), accent)).lkText(LKType.bodySm).foregroundStyle(dim).englishText().frame(maxWidth: .infinity, alignment: .leading) }
+            if !ctx.isEmpty { Text(WritingText.highlight("“" + String(ctx.prefix(140)) + "”", c.s("word"), accent)).lkTextSafe(LKType.bodySm).foregroundStyle(dim).englishText().frame(maxWidth: .infinity, alignment: .leading) }
             HStack(spacing: 4) {
                 ForEach(0..<3, id: \.self) { i in Circle().fill((i < Vocab.mastery(c) ? LKColor.success : LKColor.surfaceContainerHighest).resolve(scheme)).frame(width: 10, height: 10) }
             }

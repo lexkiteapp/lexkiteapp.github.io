@@ -97,7 +97,7 @@ struct LibraryView: View {
 
     private func chip(_ label: String, _ on: Bool, _ run: @escaping () -> Void) -> some View {
         Button(action: run) {
-            Text(verbatim: label).lkText(LKType.labelMetric)
+            Text(verbatim: label).lkTextSafe(LKType.labelMetric)
                 .foregroundStyle((on ? LKColor.onSecondary : LKColor.onSurface).resolve(scheme))
                 .padding(.horizontal, LKSpacing.spaceMd).frame(minHeight: LKFrame.shared.minTap)
                 .background(Capsule().fill((on ? LKColor.secondary : LKColor.surfaceContainerHighest).resolve(scheme)))
@@ -151,7 +151,7 @@ struct LibraryView: View {
                 topicGrid(s.topics)
                 if let all = s.viewAll {
                     Button { model.tab = all.group } label: {
-                        Text(verbatim: t(.vocabSeeAllSets, ["n": all.count])).lkText(LKType.labelMetric).foregroundStyle(LKColor.secondary.resolve(scheme)).frame(maxWidth: .infinity, minHeight: LKFrame.shared.minTap)
+                        Text(verbatim: t(.vocabSeeAllSets, ["n": all.count])).lkTextSafe(LKType.labelMetric).foregroundStyle(LKColor.secondary.resolve(scheme)).frame(maxWidth: .infinity, minHeight: LKFrame.shared.minTap)
                     }
                 }
             }
@@ -224,7 +224,7 @@ struct StudyRing3: View {
         ZStack {
             Circle().stroke(LKColor.outlineVariant.resolve(scheme), lineWidth: 4)
             Circle().trim(from: 0, to: of > 0 ? CGFloat(min(done, of)) / CGFloat(of) : 0).stroke(LKColor.secondary.resolve(scheme), style: StrokeStyle(lineWidth: 4, lineCap: .round)).rotationEffect(.degrees(-90))
-            Text(verbatim: "\(done)").lkText(LKType.labelBadge).foregroundStyle(LKColor.onSurface.resolve(scheme)).minimumScaleFactor(0.6)
+            Text(verbatim: "\(done)").lkTextSafe(LKType.labelBadge).foregroundStyle(LKColor.onSurface.resolve(scheme)).minimumScaleFactor(0.6)
         }
         .frame(width: 44, height: 44)
         .accessibilityElement(children: .ignore)

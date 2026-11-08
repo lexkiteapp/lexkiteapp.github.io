@@ -103,7 +103,7 @@ struct WritingModelView: View {
 
     private func prompt(_ m: JSON, task: String, letter: JSON?, set: JSON?, p2: JSON?) -> some View {
         WritingCard(fill: LKColor.surfaceContainerHigh) {
-            Text(t(.modelTask)).lkText(LKType.labelBadge).foregroundStyle(dim)
+            Text(t(.modelTask)).lkTextSafe(LKType.labelBadge).foregroundStyle(dim)
             if let l = letter {
                 WritingEnglish(text: l.s("situation"), style: LKType.bodyMd)
                 ForEach(l.strs("bullets"), id: \.self) { b in HStack(alignment: .top, spacing: LKSpacing.spaceXs) { Text("•").foregroundStyle(accent); WritingEnglish(text: b, style: LKType.bodyMd) } }
@@ -114,7 +114,7 @@ struct WritingModelView: View {
                         Task1ChartView(figure: set).padding(.top, LKSpacing.spaceXs)
                         Button { services.router.open(AppRoute("task1", arg: m.s("ref"))) } label: { Label(t(.modelViewChart), systemImage: "chart.bar") }.buttonStyle(WritingSecondaryButtonStyle())
                     } label: {
-                        Label(t(.modelViewChart), systemImage: "chart.bar").lkText(LKType.titlePill).foregroundStyle(ink).frame(minHeight: LKFrame.shared.minTap, alignment: .leading)
+                        Label(t(.modelViewChart), systemImage: "chart.bar").lkTextSafe(LKType.titlePill).foregroundStyle(ink).frame(minHeight: LKFrame.shared.minTap, alignment: .leading)
                     }
                     .tint(accent)
                 }
@@ -147,16 +147,16 @@ struct WritingModelView: View {
                 WritingChip(text: t(.modelHighlight), selected: highlight, system: "highlighter") { highlight.toggle(); note = highlight ? t(.modelSelectTextInThe2) : t(.modelHighlightingOff) }
                 WritingChip(text: t(.modelClearAllYourHighlights), system: "arrow.counterclockwise") { marked = []; saveMarks(m); note = t(.modelHighlightsCleared) }
             }
-            if let note { Text(note).lkText(LKType.bodySm).foregroundStyle(dim).accessibilityAddTraits(.updatesFrequently) }
+            if let note { Text(note).lkTextSafe(LKType.bodySm).foregroundStyle(dim).accessibilityAddTraits(.updatesFrequently) }
             ForEach(Array(paras.enumerated()), id: \.offset) { pi, p in
                 let start = chunkOffset(paras, pi)
                 VStack(alignment: .leading, spacing: 4) {
                     if let head = p.head, annot.contains("role") { WritingTag(text: t.src(head), tint: LKColor.tertiary) }
-                    Text(attributed(p, pi: pi, firstChunk: start)).lkText(LKType.bodyLg).foregroundStyle(ink).lineSpacing(6).englishText()
+                    Text(attributed(p, pi: pi, firstChunk: start)).lkTextSafe(LKType.bodyLg).foregroundStyle(ink).lineSpacing(6).englishText()
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
-            Text(t(.modelHoverOverOrTap)).lkText(LKType.bodySm).foregroundStyle(dim)
+            Text(t(.modelHoverOverOrTap)).lkTextSafe(LKType.bodySm).foregroundStyle(dim)
         }
         .environment(\.openURL, OpenURLAction { url in handle(url, m, chunks) })
         WritingCard {
@@ -168,8 +168,8 @@ struct WritingModelView: View {
             ForEach(Array(chunks.enumerated()), id: \.offset) { _, c in
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 0) {
-                        Text(c.en).lkText(LKType.titlePill).foregroundStyle(ink).englishText()
-                        if vi { Text(c.vi).lkText(LKType.bodySm).foregroundStyle(dim) }
+                        Text(c.en).lkTextSafe(LKType.titlePill).foregroundStyle(ink).englishText()
+                        if vi { Text(c.vi).lkTextSafe(LKType.bodySm).foregroundStyle(dim) }
                     }
                     Spacer(minLength: 0)
                     let have = WritingCards.has(c.en, in: cards)
@@ -299,8 +299,8 @@ struct WritingModelView: View {
                 ForEach(Array(vocab.enumerated()), id: \.offset) { _, w in
                     let a = w.array ?? []
                     VStack(alignment: .leading, spacing: 0) {
-                        Text(a.first?.jsToString ?? "").lkText(LKType.titlePill).foregroundStyle(ink).englishText()
-                        if vi, a.count > 1 { Text(a[1].jsToString).lkText(LKType.bodySm).foregroundStyle(dim) }
+                        Text(a.first?.jsToString ?? "").lkTextSafe(LKType.titlePill).foregroundStyle(ink).englishText()
+                        if vi, a.count > 1 { Text(a[1].jsToString).lkTextSafe(LKType.bodySm).foregroundStyle(dim) }
                     }
                 }
             }
@@ -315,12 +315,12 @@ struct WritingModelView: View {
             DisclosureGroup {
                 VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
                     WritingEnglish(text: b6.s("text"), style: LKType.bodyMd)
-                    Text(t(.modelWhyItOnlyReaches)).lkText(LKType.titlePill).foregroundStyle(ink)
+                    Text(t(.modelWhyItOnlyReaches)).lkTextSafe(LKType.titlePill).foregroundStyle(ink)
                     ForEach([("TR", "Task Response"), ("CC", "Coherence & Cohesion"), ("LR", "Lexical Resource"), ("GRA", "Grammatical Range & Accuracy")], id: \.0) { k, n in
                         if let note = b6["notes"]?[k]?.string, !note.isEmpty { WritingEnglish(text: k + " · " + n + ": " + note, style: LKType.bodySm, color: LKColor.onSurfaceVariant) }
                     }
                 }.padding(.top, 4)
-            } label: { Text(t(.modelBand6EssayFor)).lkText(LKType.titlePill).foregroundStyle(ink).frame(minHeight: LKFrame.shared.minTap, alignment: .leading) }
+            } label: { Text(t(.modelBand6EssayFor)).lkTextSafe(LKType.titlePill).foregroundStyle(ink).frame(minHeight: LKFrame.shared.minTap, alignment: .leading) }
             .tint(accent)
         }
     }
@@ -351,8 +351,8 @@ struct WritingModelView: View {
         let modes = WritingEngine.modelModes
         let next = modes.firstIndex(of: r.kind).flatMap { $0 + 1 < modes.count ? modes[$0 + 1] : nil }
         return WritingCard(fill: LKColor.surfaceContainerHigh) {
-            Text(t(.paraCorrect, ["right": r.right, "total": r.total, "pct": f.percent])).lkText(LKType.headlineSm).foregroundStyle((f.percent >= 70 ? LKColor.success : LKColor.error).resolve(scheme))
-            Text("+\(f.xp) XP").lkText(LKType.labelMetric).foregroundStyle(dim)
+            Text(t(.paraCorrect, ["right": r.right, "total": r.total, "pct": f.percent])).lkTextSafe(LKType.headlineSm).foregroundStyle((f.percent >= 70 ? LKColor.success : LKColor.error).resolve(scheme))
+            Text("+\(f.xp) XP").lkTextSafe(LKType.labelMetric).foregroundStyle(dim)
             if f.markDone, let next { Button(t(.modelNextMode) + " → " + modeName(next)) { mode = next; result = nil }.buttonStyle(WritingSecondaryButtonStyle()) }
         }
         .accessibilityAddTraits(.updatesFrequently)

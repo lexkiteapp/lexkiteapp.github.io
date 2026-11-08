@@ -152,7 +152,7 @@ struct DeckView: View {
     private func menu<M: View>(label: String, selected: Bool, @ViewBuilder _ items: () -> M) -> some View {
         Menu { items() } label: {
             HStack(spacing: 4) {
-                Text(verbatim: label).lkText(LKType.labelMetric).lineLimit(1)
+                Text(verbatim: label).lkTextSafe(LKType.labelMetric).lineLimit(1)
                 Image(systemName: "chevron.down").font(.system(size: 11, weight: .bold))
             }
             .foregroundStyle((selected ? LKColor.onSecondary : LKColor.onSurface).resolve(scheme))

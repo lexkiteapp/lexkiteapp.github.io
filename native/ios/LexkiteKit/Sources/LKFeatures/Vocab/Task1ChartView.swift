@@ -38,7 +38,7 @@ struct Task1ChartView: View {
         let top = all.flatMap(\.values).max() ?? 10
         let maxV = max(10, (top / 10).rounded(.up) * 10)
         return VStack(alignment: .leading, spacing: LKSpacing.spaceXs) {
-            Text(verbatim: figure.s("unit")).lkText(LKType.labelBadge).foregroundStyle(dim)
+            Text(verbatim: figure.s("unit")).lkTextSafe(LKType.labelBadge).foregroundStyle(dim)
             Canvas { ctx, size in
                 let left: CGFloat = 34, topPad: CGFloat = 8, bottom: CGFloat = 34
                 let w = size.width - left - 8, h = size.height - topPad - bottom
@@ -81,7 +81,7 @@ struct Task1ChartView: View {
             ForEach(Array(names.enumerated()), id: \.offset) { i, n in
                 HStack(spacing: 6) {
                     RoundedRectangle(cornerRadius: 3).fill(palette[i % palette.count]).frame(width: 12, height: 12).accessibilityHidden(true)
-                    Text(verbatim: n).lkText(LKType.bodySm).foregroundStyle(ink).englishText()
+                    Text(verbatim: n).lkTextSafe(LKType.bodySm).foregroundStyle(ink).englishText()
                 }
             }
         }
@@ -101,7 +101,7 @@ struct Task1ChartView: View {
     private func pie(label: String, parts: [(String, Double)]) -> some View {
         let total = max(1, parts.reduce(0) { $0 + $1.1 })
         return VStack(spacing: 4) {
-            Text(verbatim: label).lkText(LKType.labelMetric).foregroundStyle(ink)
+            Text(verbatim: label).lkTextSafe(LKType.labelMetric).foregroundStyle(ink)
             Canvas { ctx, size in
                 let r = min(size.width, size.height) / 2 - 18, c = CGPoint(x: size.width / 2, y: size.height / 2)
                 var a0 = -Double.pi / 2
@@ -129,10 +129,10 @@ struct Task1ChartView: View {
         let head = figure.strs("head"), rows = figure.list("rows")
         return ScrollView(.horizontal, showsIndicators: false) {
             Grid(alignment: .leading, horizontalSpacing: LKSpacing.spaceSm, verticalSpacing: 6) {
-                GridRow { ForEach(Array(head.enumerated()), id: \.offset) { _, h in Text(verbatim: h).lkText(LKType.labelMetric).foregroundStyle(ink) } }
+                GridRow { ForEach(Array(head.enumerated()), id: \.offset) { _, h in Text(verbatim: h).lkTextSafe(LKType.labelMetric).foregroundStyle(ink) } }
                 Divider().overlay(line)
                 ForEach(Array(rows.enumerated()), id: \.offset) { _, r in
-                    GridRow { ForEach(Array((r.array ?? []).enumerated()), id: \.offset) { _, c in Text(verbatim: c.jsToString).lkText(LKType.bodyMd).foregroundStyle(ink) } }
+                    GridRow { ForEach(Array((r.array ?? []).enumerated()), id: \.offset) { _, c in Text(verbatim: c.jsToString).lkTextSafe(LKType.bodyMd).foregroundStyle(ink) } }
                 }
             }
             .padding(LKSpacing.spaceXs)
@@ -145,9 +145,9 @@ struct Task1ChartView: View {
         VStack(alignment: .leading, spacing: 6) {
             ForEach(Array(figure.strs("steps").enumerated()), id: \.offset) { i, s in
                 HStack(alignment: .firstTextBaseline, spacing: LKSpacing.spaceXs) {
-                    Text(verbatim: String(i + 1)).lkText(LKType.labelMetric).foregroundStyle(LKColor.onSecondary.resolve(scheme))
+                    Text(verbatim: String(i + 1)).lkTextSafe(LKType.labelMetric).foregroundStyle(LKColor.onSecondary.resolve(scheme))
                         .frame(width: 26, height: 26).background(Circle().fill(LKColor.secondary.resolve(scheme)))
-                    Text(verbatim: s).lkText(LKType.bodyMd).foregroundStyle(ink).englishText()
+                    Text(verbatim: s).lkTextSafe(LKType.bodyMd).foregroundStyle(ink).englishText()
                 }
                 .accessibilityElement(children: .combine)
                 if i < figure.strs("steps").count - 1 { Image(systemName: "arrow.down").foregroundStyle(dim).padding(.leading, 6).accessibilityHidden(true) }
@@ -161,7 +161,7 @@ struct Task1ChartView: View {
             ForEach(Array(figure.list("maps").enumerated()), id: \.offset) { _, m in
                 let label = m.array?.first?.string ?? "", blocks = (m.array?.dropFirst().first?.array ?? []).compactMap { $0.array }.filter { $0.count >= 5 }
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(verbatim: label).lkText(LKType.labelMetric).foregroundStyle(ink)
+                    Text(verbatim: label).lkTextSafe(LKType.labelMetric).foregroundStyle(ink)
                     Canvas { ctx, size in
                         let rows = max(2, blocks.map { Int($0[2].toNumber + $0[4].toNumber) }.max() ?? 3), colW = size.width / 4, rowH = min(46, size.height / CGFloat(rows))
                         for (i, b) in blocks.enumerated() {

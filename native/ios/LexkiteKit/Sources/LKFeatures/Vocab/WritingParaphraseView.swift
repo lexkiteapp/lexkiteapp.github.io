@@ -66,13 +66,13 @@ struct WritingParaphraseView: View {
             HStack(spacing: LKSpacing.spaceSm) {
                 ProgressView(value: Double(index), total: Double(round.count)).tint(LKColor.primary.resolve(scheme))
                     .animation(LKMotionPolicy.progressAnimation(reduce: reduceMotion), value: index)
-                Text("\(index + 1)/\(round.count)").lkText(LKType.labelMetric).foregroundStyle(dim)
+                Text("\(index + 1)/\(round.count)").lkTextSafe(LKType.labelMetric).foregroundStyle(dim)
             }
             .accessibilityElement(children: .combine)
             WritingCard {
-                Text(t(.paraTheQuestionSays)).lkText(LKType.bodyMd).foregroundStyle(dim)
+                Text(t(.paraTheQuestionSays)).lkTextSafe(LKType.bodyMd).foregroundStyle(dim)
                 WritingEnglish(text: "“" + it.q + "”", style: LKType.headlineSm)
-                Text(t(.paraThePassageRewordsThis)).lkText(LKType.bodyMd).foregroundStyle(dim)
+                Text(t(.paraThePassageRewordsThis)).lkTextSafe(LKType.bodyMd).foregroundStyle(dim)
                 ForEach(Array(options.enumerated()), id: \.offset) { j, o in
                     LessonOption(letter: ["A", "B", "C", "D"][min(j, 3)], text: o, state: optionState(o, it)) {
                         guard picked == nil else { return }
@@ -83,7 +83,7 @@ struct WritingParaphraseView: View {
                 }
                 if picked != nil {
                     VStack(alignment: .leading, spacing: LKSpacing.spaceXs) {
-                        Text(it.q + " ≈ " + it.p).lkText(LKType.bodyMd).foregroundStyle(ink).englishText()
+                        Text(it.q + " ≈ " + it.p).lkTextSafe(LKType.bodyMd).foregroundStyle(ink).englishText()
                         Button(t(.paraNext)) { advance(pairs) }.buttonStyle(PrimaryButtonStyle())
                     }
                     .accessibilityAddTraits(.updatesFrequently)
@@ -108,8 +108,8 @@ struct WritingParaphraseView: View {
         let r = WritingEngine.paraphraseFinish(right: right, total: max(1, round.count))
         return WritingCard {
             Image(systemName: "arrow.triangle.2.circlepath").font(.system(size: 30, weight: .bold)).foregroundStyle(LKColor.secondary.resolve(scheme)).accessibilityHidden(true)
-            Text(t(.paraCorrect, ["right": right, "total": round.count, "pct": r.percent])).lkText(LKType.headlineMd).foregroundStyle(ink)
-            Text(t(.paraSpottingParaphrasesQuicklyIs)).lkText(LKType.bodyMd).foregroundStyle(dim)
+            Text(t(.paraCorrect, ["right": right, "total": round.count, "pct": r.percent])).lkTextSafe(LKType.headlineMd).foregroundStyle(ink)
+            Text(t(.paraSpottingParaphrasesQuicklyIs)).lkTextSafe(LKType.bodyMd).foregroundStyle(dim)
             Button(t(.paraKeepPracticing)) { if let all { start(all) } }.buttonStyle(PrimaryButtonStyle())
             Button(t(.paraBackToReading)) { services.router.open(AppRoute("skill", arg: "reading")) }.buttonStyle(WritingSecondaryButtonStyle())
         }

@@ -131,7 +131,7 @@ struct LibraryTopicView: View {
             HStack(spacing: LKSpacing.spaceXs) {
                 ForEach([""] + p.levels, id: \.self) { lv in
                     Button { model.level = lv } label: {
-                        Text(verbatim: lv.isEmpty ? t(.vocabAllLevels) : lv).lkText(LKType.labelMetric)
+                        Text(verbatim: lv.isEmpty ? t(.vocabAllLevels) : lv).lkTextSafe(LKType.labelMetric)
                             .foregroundStyle((model.level == lv ? LKColor.onSecondary : LKColor.onSurface).resolve(scheme))
                             .padding(.horizontal, LKSpacing.spaceMd).frame(minHeight: LKFrame.shared.minTap)
                             .background(Capsule().fill((model.level == lv ? LKColor.secondary : LKColor.surfaceContainerHighest).resolve(scheme)))
@@ -164,7 +164,7 @@ struct LibraryTopicView: View {
                             .frame(minHeight: 28)
                     } else {
                         Button { model.add(w) } label: {
-                            Label { Text(verbatim: t(.vocabAdd)).lkText(LKType.labelMetric) } icon: { Image(systemName: "plus") }
+                            Label { Text(verbatim: t(.vocabAdd)).lkTextSafe(LKType.labelMetric) } icon: { Image(systemName: "plus") }
                                 .foregroundStyle(LKColor.secondary.resolve(scheme)).frame(minHeight: LKFrame.shared.minTap)
                         }
                         .buttonStyle(.plain)

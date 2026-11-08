@@ -57,7 +57,7 @@ struct WritingIdeasView: View {
 
     @ViewBuilder private func page(_ v: WritingEngine.IdeasView, _ all: [JSON]) -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(t(.ideasRunningOutOfIdeas)).lkText(LKType.bodySm).foregroundStyle(dim)
+            Text(t(.ideasRunningOutOfIdeas)).lkTextSafe(LKType.bodySm).foregroundStyle(dim)
         }
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: LKSpacing.spaceXs) {
@@ -66,7 +66,7 @@ struct WritingIdeasView: View {
                 }
             }
         }
-        if savedNote { Label(t(.vocabAdded2), systemImage: "checkmark.circle.fill").lkText(LKType.titlePill).foregroundStyle(LKColor.success.resolve(scheme)).accessibilityAddTraits(.updatesFrequently) }
+        if savedNote { Label(t(.vocabAdded2), systemImage: "checkmark.circle.fill").lkTextSafe(LKType.titlePill).foregroundStyle(LKColor.success.resolve(scheme)).accessibilityAddTraits(.updatesFrequently) }
         ForEach(Array(v.issues.enumerated()), id: \.offset) { i, issue in issueCard(i, issue) }
         if !v.topic.list("vocab").isEmpty {
             WritingCard {
@@ -74,8 +74,8 @@ struct WritingIdeasView: View {
                 ForEach(Array(v.topic.list("vocab").enumerated()), id: \.offset) { _, w in
                     let a = w.array ?? []
                     VStack(alignment: .leading, spacing: 0) {
-                        Text(a.first?.jsToString ?? "").lkText(LKType.titlePill).foregroundStyle(ink).englishText()
-                        if vi, a.count > 1 { Text(a[1].jsToString).lkText(LKType.bodySm).foregroundStyle(dim) }
+                        Text(a.first?.jsToString ?? "").lkTextSafe(LKType.titlePill).foregroundStyle(ink).englishText()
+                        if vi, a.count > 1 { Text(a[1].jsToString).lkTextSafe(LKType.bodySm).foregroundStyle(dim) }
                     }
                     .accessibilityElement(children: .combine)
                 }
@@ -104,7 +104,7 @@ struct WritingIdeasView: View {
             }
             .padding(.top, LKSpacing.spaceXs)
         } label: {
-            Text(issue.s("q")).lkText(LKType.titlePill).foregroundStyle(ink).englishText().multilineTextAlignment(.leading).frame(minHeight: LKFrame.shared.minTap, alignment: .leading)
+            Text(issue.s("q")).lkTextSafe(LKType.titlePill).foregroundStyle(ink).englishText().multilineTextAlignment(.leading).frame(minHeight: LKFrame.shared.minTap, alignment: .leading)
         }
         .tint(accent)
         .padding(LKSpacing.spaceSm)
@@ -112,11 +112,11 @@ struct WritingIdeasView: View {
     }
 
     @ViewBuilder private func side(_ title: String, _ icon: String, _ list: [JSON]) -> some View {
-        Label(title, systemImage: icon).lkText(LKType.headlineSm).foregroundStyle(accent)
+        Label(title, systemImage: icon).lkTextSafe(LKType.headlineSm).foregroundStyle(accent)
         ForEach(Array(list.enumerated()), id: \.offset) { _, x in
             VStack(alignment: .leading, spacing: 6) {
-                Text(x.s("idea")).lkText(LKType.titlePill).foregroundStyle(ink).englishText()
-                if vi, x.t("vi") { Text(x.s("vi")).lkText(LKType.bodySm).foregroundStyle(dim) }
+                Text(x.s("idea")).lkTextSafe(LKType.titlePill).foregroundStyle(ink).englishText()
+                if vi, x.t("vi") { Text(x.s("vi")).lkTextSafe(LKType.bodySm).foregroundStyle(dim) }
                 HStack(alignment: .top) {
                     WritingEnglish(text: x.s("ex"), style: LKType.bodyMd)
                     WritingSayButton(text: x.s("ex"), label: t(.revPlaySentence), voice: voice)

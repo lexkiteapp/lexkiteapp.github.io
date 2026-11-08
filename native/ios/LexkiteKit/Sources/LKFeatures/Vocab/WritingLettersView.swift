@@ -65,11 +65,11 @@ struct WritingLettersView: View {
     @ViewBuilder private func list(_ all: [JSON]) -> some View {
         let v = WritingEngine.letters(all, tone: tone, drafts: .object(drafts.mapValues { .string($0) }))
         VStack(alignment: .leading, spacing: 4) {
-            Text(t(.lettersWriteALetterOf)).lkText(LKType.bodySm).foregroundStyle(dim)
+            Text(t(.lettersWriteALetterOf)).lkTextSafe(LKType.bodySm).foregroundStyle(dim)
         }
         FlowLayout { ForEach(v.tabs, id: \.tone) { tab in WritingChip(text: toneName(tab.tone) + " " + String(tab.n), selected: (tone == tab.tone) || (tab.tone == "all" && !WritingEngine.tones.contains(tone))) { tone = tab.tone } } }
         if v.tip {
-            Label { Text(toneTip(tone)).lkText(LKType.bodyMd).foregroundStyle(ink) } icon: { Image(systemName: "lightbulb.fill").foregroundStyle(LKColor.tertiary.resolve(scheme)) }
+            Label { Text(toneTip(tone)).lkTextSafe(LKType.bodyMd).foregroundStyle(ink) } icon: { Image(systemName: "lightbulb.fill").foregroundStyle(LKColor.tertiary.resolve(scheme)) }
                 .padding(LKSpacing.spaceSm).frame(maxWidth: .infinity, alignment: .leading)
                 .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(LKColor.surfaceContainerHigh.resolve(scheme)))
         }
@@ -82,8 +82,8 @@ struct WritingLettersView: View {
                     if let n = c.draftWords { WritingTag(text: t(.vocabWords, ["n": n]), tint: LKColor.success) }
                     Spacer(minLength: 0)
                 }
-                Text(title(x)).lkText(LKType.headlineSm).foregroundStyle(ink)
-                Text(c.situation).lkText(LKType.bodySm).foregroundStyle(dim).englishText().frame(maxWidth: .infinity, alignment: .leading)
+                Text(title(x)).lkTextSafe(LKType.headlineSm).foregroundStyle(ink)
+                Text(c.situation).lkTextSafe(LKType.bodySm).foregroundStyle(dim).englishText().frame(maxWidth: .infinity, alignment: .leading)
                 FlowLayout {
                     Button { services.router.open(AppRoute("letters", arg: c.id)) } label: { Label(t(.lettersPractiseWriting), systemImage: "square.and.pencil") }.buttonStyle(WritingSecondaryButtonStyle())
                     Button { services.router.open(AppRoute("model", arg: "gt-" + c.id)) } label: { Label(t(.lettersModelAnswer), systemImage: "doc.text") }.buttonStyle(WritingSecondaryButtonStyle())
@@ -105,15 +105,15 @@ struct WritingLettersView: View {
             }
             WritingEnglish(text: "Write at least 150 words. You do NOT need to write any addresses. Begin your letter as follows: " + x.s("open"), style: LKType.bodySm, color: LKColor.onSurfaceVariant)
             DisclosureGroup {
-                Text(toneTip(x.s("tone"))).lkText(LKType.bodySm).foregroundStyle(dim).padding(.top, 4)
-            } label: { Text(t(.lettersToneOpeningsClosings)).lkText(LKType.titlePill).foregroundStyle(ink).frame(minHeight: LKFrame.shared.minTap, alignment: .leading) }
+                Text(toneTip(x.s("tone"))).lkTextSafe(LKType.bodySm).foregroundStyle(dim).padding(.top, 4)
+            } label: { Text(t(.lettersToneOpeningsClosings)).lkTextSafe(LKType.titlePill).foregroundStyle(ink).frame(minHeight: LKFrame.shared.minTap, alignment: .leading) }
         }
         WritingCard {
             ZStack(alignment: .topLeading) {
-                TextEditor(text: $text).lkText(LKType.bodyLg).foregroundStyle(ink).scrollContentBackground(.hidden).englishText().focused($editing)
+                TextEditor(text: $text).lkTextSafe(LKType.bodyLg).foregroundStyle(ink).scrollContentBackground(.hidden).englishText().focused($editing)
                     .frame(minHeight: 280).padding(4)
                     .onChange(of: text) { _, v in scheduleSave(id, v); checks = nil }
-                if text.isEmpty { Text(x.s("open")).lkText(LKType.bodyLg).foregroundStyle(dim).englishText().padding(.horizontal, 9).padding(.vertical, 12).allowsHitTesting(false) }
+                if text.isEmpty { Text(x.s("open")).lkTextSafe(LKType.bodyLg).foregroundStyle(dim).englishText().padding(.horizontal, 9).padding(.vertical, 12).allowsHitTesting(false) }
             }
             .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(LKColor.surfaceContainerLowest.resolve(scheme)))
             .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).strokeBorder(LKColor.outlineVariant.resolve(scheme), lineWidth: 2))
@@ -123,7 +123,7 @@ struct WritingLettersView: View {
                     .accessibilityLabel(clock)
                 Spacer(minLength: 0)
             }
-            if timeUp { Text(t(.lettersTimeSUp)).lkText(LKType.titlePill).foregroundStyle(LKColor.error.resolve(scheme)).accessibilityAddTraits(.updatesFrequently) }
+            if timeUp { Text(t(.lettersTimeSUp)).lkTextSafe(LKType.titlePill).foregroundStyle(LKColor.error.resolve(scheme)).accessibilityAddTraits(.updatesFrequently) }
             Button(t(.actionCheck)) { editing = false; checks = WritingEngine.checkLetter(x, text: text) }.buttonStyle(PrimaryButtonStyle())
             if let checks { results(checks, x) }
             Button { services.router.open(AppRoute("model", arg: "gt-" + id)) } label: { Label(t(.lettersShowModel), systemImage: "doc.text") }.buttonStyle(WritingSecondaryButtonStyle())
@@ -147,7 +147,7 @@ struct WritingLettersView: View {
             ForEach(Array(rows.enumerated()), id: \.offset) { _, r in
                 HStack(alignment: .top, spacing: LKSpacing.spaceXs) {
                     Image(systemName: r.ok ? "checkmark.circle.fill" : "exclamationmark.triangle.fill").foregroundStyle((r.ok ? LKColor.success : LKColor.tertiary).resolve(scheme))
-                    Text(line(r, x)).lkText(LKType.bodyMd).foregroundStyle(ink)
+                    Text(line(r, x)).lkTextSafe(LKType.bodyMd).foregroundStyle(ink)
                 }
                 .accessibilityElement(children: .combine)
             }

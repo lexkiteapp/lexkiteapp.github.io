@@ -35,7 +35,7 @@ private struct PracticeFieldStyle: ViewModifier {
     @Environment(\.colorScheme) private var scheme
     func body(content: Content) -> some View {
         let line = mark == nil ? LKColor.outlineVariant : (mark == true ? LKColor.success : LKColor.error)
-        content.lkText(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme)).englishText()
+        content.lkTextSafe(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme)).englishText()
             .textInputAutocapitalization(.never).autocorrectionDisabled()
             .padding(.horizontal, 8).frame(minHeight: LKFrame.shared.minTap)
             .background(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(LKColor.surfaceContainerLowest.resolve(scheme)))
@@ -62,21 +62,21 @@ struct WritingGapPractice: View {
 
     var body: some View {
         WritingCard {
-            Text(kind == "vocab" ? t.rich(.modelFillTheGapsWith) : t.rich(.modelFillEachGapWith)).lkText(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
-            if kind == "vocab", ctx.vi { Toggle(t(.modelShowMeaningHintsNext), isOn: $hints).lkText(LKType.bodyMd).frame(minHeight: LKFrame.shared.minTap).tint(LKColor.secondary.resolve(scheme)) }
+            Text(kind == "vocab" ? t.rich(.modelFillTheGapsWith) : t.rich(.modelFillEachGapWith)).lkTextSafe(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
+            if kind == "vocab", ctx.vi { Toggle(t(.modelShowMeaningHintsNext), isOn: $hints).lkTextSafe(LKType.bodyMd).frame(minHeight: LKFrame.shared.minTap).tint(LKColor.secondary.resolve(scheme)) }
             FlowLayout { ForEach(Array(bank.enumerated()), id: \.offset) { _, w in WritingChip(text: w, selected: false, english: true) { fill(w) }.opacity(used(w) ? 0.4 : 1) } }
             ForEach(Array(paras.enumerated()), id: \.offset) { _, p in
                 FlowLayout(spacing: 6) {
                     ForEach(Array(p.enumerated()), id: \.offset) { _, tok in
                         switch tok {
-                        case .word(let w): Text(w).lkText(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme)).englishText()
+                        case .word(let w): Text(w).lkTextSafe(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme)).englishText()
                         case .gap(let i, let hint):
                             VStack(alignment: .leading, spacing: 0) {
                                 TextField("", text: Binding(get: { i < inputs.count ? inputs[i] : "" }, set: { if i < inputs.count { inputs[i] = $0; marks[i] = nil } }))
                                     .focused($focus, equals: i).practiceField(i < marks.count ? marks[i] : nil)
                                     .frame(width: CGFloat(max(76, min(220, (i < answers.count ? answers[i].count : 8) * 10 + 28))))
                                     .accessibilityLabel(t(.usageBlank) + " " + String(i + 1))
-                                if hints, ctx.vi, !hint.isEmpty { Text(hint).lkText(LKType.bodySm).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).lineLimit(1) }
+                                if hints, ctx.vi, !hint.isEmpty { Text(hint).lkTextSafe(LKType.bodySm).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).lineLimit(1) }
                             }
                         }
                     }
@@ -153,13 +153,13 @@ struct WritingErrPractice: View {
 
     var body: some View {
         WritingCard {
-            if selectMode { Text(t.rich(.modelChooseTheCorrectForm)).lkText(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)) }
-            else { Text(t.rich(.modelTheModelAnswerNow, ["n": slots.count])).lkText(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)) }
+            if selectMode { Text(t.rich(.modelChooseTheCorrectForm)).lkTextSafe(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)) }
+            else { Text(t.rich(.modelTheModelAnswerNow, ["n": slots.count])).lkTextSafe(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)) }
             ForEach(Array(paras.enumerated()), id: \.offset) { _, p in
                 FlowLayout(spacing: 6) {
                     ForEach(Array(p.enumerated()), id: \.offset) { _, tok in
                         switch tok {
-                        case .word(let w): Text(w).lkText(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme)).englishText()
+                        case .word(let w): Text(w).lkTextSafe(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme)).englishText()
                         case .slot(let k): slotView(k)
                         }
                     }
@@ -178,22 +178,22 @@ struct WritingErrPractice: View {
         if k < slots.count {
             let s = slots[k]
             HStack(spacing: 2) {
-                if !s.pre.isEmpty { Text(s.pre).lkText(LKType.bodyLg).englishText() }
-                if !selectMode, !s.wrong.isEmpty { Text(s.wrong).lkText(LKType.bodyLg).underline().foregroundStyle(LKColor.error.resolve(scheme)).englishText() }
+                if !s.pre.isEmpty { Text(s.pre).lkTextSafe(LKType.bodyLg).englishText() }
+                if !selectMode, !s.wrong.isEmpty { Text(s.wrong).lkTextSafe(LKType.bodyLg).underline().foregroundStyle(LKColor.error.resolve(scheme)).englishText() }
                 if selectMode {
                     Menu {
                         ForEach(options(s), id: \.self) { o in Button(o) { inputs[k] = o; marks[k] = nil } }
                     } label: {
-                        Text(inputs[k].isEmpty ? "…" : inputs[k]).lkText(LKType.bodyLg).practiceField(marks[k]).frame(minWidth: 76)
+                        Text(inputs[k].isEmpty ? "…" : inputs[k]).lkTextSafe(LKType.bodyLg).practiceField(marks[k]).frame(minWidth: 76)
                     }
                 } else {
                     TextField(s.wrong.isEmpty ? "+" : "", text: Binding(get: { k < inputs.count ? inputs[k] : "" }, set: { if k < inputs.count { inputs[k] = $0; marks[k] = nil } }))
                         .focused($focus, equals: k).practiceField(marks[k]).frame(width: CGFloat(max(60, min(200, s.ans.count * 10 + 28))))
                         .accessibilityLabel(t(.usageBlank) + " " + String(k + 1))
                 }
-                if !s.post.isEmpty { Text(s.post).lkText(LKType.bodyLg).englishText() }
+                if !s.post.isEmpty { Text(s.post).lkTextSafe(LKType.bodyLg).englishText() }
             }
-            if marks[k] == false { Text(s.why.isEmpty ? s.ans : s.why + ": " + s.ans).lkText(LKType.bodySm).foregroundStyle(LKColor.error.resolve(scheme)) }
+            if marks[k] == false { Text(s.why.isEmpty ? s.ans : s.why + ": " + s.ans).lkTextSafe(LKType.bodySm).foregroundStyle(LKColor.error.resolve(scheme)) }
         }
     }
     private func options(_ s: Slot) -> [String] {
@@ -285,8 +285,8 @@ struct WritingSlotPractice: View {
 
     var body: some View {
         WritingCard {
-            Text(t.rich(.modelRetypeTheWholeModel)).lkText(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
-            Toggle(t(.modelFirstLetterHints), isOn: $hint).lkText(LKType.bodyMd).frame(minHeight: LKFrame.shared.minTap).tint(LKColor.secondary.resolve(scheme))
+            Text(t.rich(.modelRetypeTheWholeModel)).lkTextSafe(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
+            Toggle(t(.modelFirstLetterHints), isOn: $hint).lkTextSafe(LKType.bodyMd).frame(minHeight: LKFrame.shared.minTap).tint(LKColor.secondary.resolve(scheme))
             ForEach(Array(blocks.enumerated()), id: \.offset) { _, b in
                 VStack(alignment: .leading, spacing: 4) {
                     if !b.role.isEmpty { WritingTag(text: b.role, tint: LKColor.tertiary) }
@@ -298,13 +298,13 @@ struct WritingSlotPractice: View {
                                     .frame(width: CGFloat(max(44, min(180, it.text.count * 10 + 24)))).submitLabel(.next).onSubmit { focus = i + 1 }
                                     .accessibilityLabel(String(i + 1))
                             } else {
-                                Text(it.text).lkText(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme)).englishText()
+                                Text(it.text).lkTextSafe(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme)).englishText()
                             }
                         }
                     }
                 }
             }
-            Text(t(.modelWords, ["done": inputs.filter { !$0.trimmingCharacters(in: .whitespaces).isEmpty }.count, "n": answers.count])).lkText(LKType.bodySm).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).accessibilityAddTraits(.updatesFrequently)
+            Text(t(.modelWords, ["done": inputs.filter { !$0.trimmingCharacters(in: .whitespaces).isEmpty }.count, "n": answers.count])).lkTextSafe(LKType.bodySm).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).accessibilityAddTraits(.updatesFrequently)
             Button(t(.actionCheck)) { check() }.buttonStyle(PrimaryButtonStyle())
             Button(t(.modelClearAll)) { inputs = Array(repeating: "", count: answers.count); marks = Array(repeating: nil, count: answers.count); focus = 0 }.buttonStyle(WritingSecondaryButtonStyle())
         }
@@ -350,22 +350,22 @@ struct WritingLemmaPractice: View {
 
     var body: some View {
         WritingCard {
-            Text(t.rich(.modelEachSentenceIsGiven)).lkText(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
+            Text(t.rich(.modelEachSentenceIsGiven)).lkTextSafe(LKType.bodyMd).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
             ForEach(Array(lines.enumerated()), id: \.offset) { i, l in
                 VStack(alignment: .leading, spacing: 4) {
                     if !l.role.isEmpty { WritingTag(text: l.role, tint: LKColor.tertiary) }
-                    Text(l.prompt).lkText(LKType.titlePill).foregroundStyle(LKColor.secondary.resolve(scheme)).englishText().frame(maxWidth: .infinity, alignment: .leading)
+                    Text(l.prompt).lkTextSafe(LKType.titlePill).foregroundStyle(LKColor.secondary.resolve(scheme)).englishText().frame(maxWidth: .infinity, alignment: .leading)
                     TextField(t(.modelWriteTheFullSentence), text: Binding(get: { i < inputs.count ? inputs[i] : "" }, set: { if i < inputs.count { inputs[i] = $0; results[i] = nil } }), axis: .vertical)
                         .lineLimit(1...4).practiceField(results[i].map { $0 >= 0.95 })
                     if let sc = results[i] {
                         if WritingSimilarity.norm(inputs[i]) == WritingSimilarity.norm(l.sentence) {
-                            Label(t(.modelCorrect), systemImage: "checkmark.circle.fill").lkText(LKType.titlePill).foregroundStyle(LKColor.success.resolve(scheme))
+                            Label(t(.modelCorrect), systemImage: "checkmark.circle.fill").lkTextSafe(LKType.titlePill).foregroundStyle(LKColor.success.resolve(scheme))
                         } else {
-                            Text(t(.modelMatch, ["n": Int((sc * 100).rounded())])).lkText(LKType.titlePill).foregroundStyle((sc >= 0.85 ? LKColor.tertiary : LKColor.error).resolve(scheme))
+                            Text(t(.modelMatch, ["n": Int((sc * 100).rounded())])).lkTextSafe(LKType.titlePill).foregroundStyle((sc >= 0.85 ? LKColor.tertiary : LKColor.error).resolve(scheme))
                         }
                     }
                     if shown || results[i] != nil && results[i]! < 0.95 {
-                        Text(t(.modelModelSentence) + " " + l.sentence).lkText(LKType.bodySm).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).englishText().frame(maxWidth: .infinity, alignment: .leading)
+                        Text(t(.modelModelSentence) + " " + l.sentence).lkTextSafe(LKType.bodySm).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).englishText().frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
             }
