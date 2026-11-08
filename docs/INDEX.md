@@ -180,6 +180,7 @@
 - [i18n-review-2026-10-16.md](archive/i18n-review-2026-10-16.md) — Nhật ký rà soát bản dịch 16/10 (chuyển từ docs/, nguyên văn); đọc khi: tra quyết định dịch
 - [LEXICON-expand-pilots-24-10.md](archive/LEXICON-expand-pilots-24-10.md) — Nhật ký pilot 5–10 kho từ 20k (24/10, nguyên văn từ LEXICON.md); đọc khi: tra vì sao có espeak/retry/dịch ngược theo ngôn ngữ
 - [LEXICON-ra-la-ok-29-10](archive/LEXICON-ra-la-ok-29-10.md) — bài học từng lớp lỗi lexicon-expand 29/10 (nguyên văn); đọc khi sửa cổng nghĩa/IPA của lexicon-expand
+- [LEXICON-throughput-31-10](archive/LEXICON-throughput-31-10.md) — nhật ký thông lượng lexicon-expand 31/10–05/11 (nguyên văn); đọc khi chẩn đoán sản lượng/retry
 - [LEXICON-img-pilot-23-10.md](archive/LEXICON-img-pilot-23-10.md) — Pilot ảnh minh hoạ s1 ngày 23/10 (nguyên văn từ LEXICON.md); đọc khi: tra số đo pilot ảnh đầu tiên.
 - [archive/UX-BENCHMARK-2026-10.md](archive/UX-BENCHMARK-2026-10.md) — Bản so sánh UX bằng lời 25/10 (scorecard theo luồng, top 10 đã ship, UX v3 icon/token, UX1); đọc khi: tra lịch sử UX
 - [specs/upgrade-audit.md](specs/upgrade-audit.md) — Kiểm toán nâng cấp ≤1 trang so Duolingo/Anki/Elsa/Speak (UX, hiệu năng, a11y, nội dung, AI), số đo tự làm mới; đọc khi: chọn việc nâng chất lượng tiếp theo
