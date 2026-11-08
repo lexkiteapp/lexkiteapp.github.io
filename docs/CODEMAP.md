@@ -10,7 +10,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `extension/` (1370 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
 - `functions/` (91 file): Cloudflare Pages Functions = backend /api/* (file _*.js là helper dùng chung)
 - `workers/` (19 file): Cloudflare Workers riêng: audio, dict, gemini (AI), mail, media; workers/lib dùng chung
-- `scripts/` (1137 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
+- `scripts/` (1138 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
 - `.github/workflows/` (190 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (10 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
 - `brand/` (1526 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
@@ -19,7 +19,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `store/` (43 file): Hồ sơ listing Chrome/Edge/Apple/Play
 - `docs/` (211 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
 - API `/api/*` (42): account,admin,admin-accounts,admin-clips,admin-prefs,admin-shared,admin-shorts,ads-report,ads-reward,ai,aiearn,backlinks,capacity,class,community,config,contact,cron-kick,dictlookup,distribution,drive,growth,handoff,hit…
-- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:711 s/test:474 s/video:104 js/vimg:64 s/lib:56 s/cine:51 js/st:34 s/lexicon:33 s/vocab-img:33 js/grammar:27 js/notes:27 s/ci:26 s/stitch:26 js/readtest:22 js/speak:21 js/lib:20 s/pron:19 s/native:16 js/get-app:15 js/toeic:15 s/word-audio:13 s/lipsync:12 s/ops:12
+- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:711 s/test:474 s/video:104 js/vimg:64 s/lib:56 s/cine:51 s/lexicon:34 js/st:34 s/vocab-img:33 js/grammar:27 js/notes:27 s/ci:26 s/stitch:26 js/readtest:22 js/speak:21 js/lib:20 s/pron:19 s/native:16 js/get-app:15 js/toeic:15 s/word-audio:13 s/lipsync:12 s/ops:12
 
 ## Sửa ở đâu (tác vụ → file)
 - **Chuỗi i18n (15 ngôn ngữ)**: Khóa = câu tiếng Việt trong t('…'). Bản dịch web/js/i18n/<lang>.js + web/js/i18n/en/*.js (nhóm theo tính năng); add-on extension/_locales/<lang>/messages.json. Tool: scripts/i18n-missing.mjs, i18n-qa.mjs, gen-i18n.mjs, i18n-sync.sh. Luật: docs/I18N-PIPELINE.md
@@ -39,7 +39,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 1. `web/js/app.js` ←93 · App,LK_GETAPP_T,accountMenu,retArm…
 2. `web/js/st/common.js` ←44 · ST
 3. `functions/api/sync.js` ←33 · cors,json,claims,verify…
-4. `scripts/lexicon/lib.mjs` ←22 · ROOT,rd,wr,PRIORITY…
+4. `scripts/lexicon/lib.mjs` ←23 · ROOT,rd,wr,PRIORITY…
 5. `functions/api/_d1guard.js` ←20 · D1_LIMITS,GUARD_PCT,WARN_PCTS,GQL_TIMEOUT_MS…
 6. `scripts/video/library.mjs` ←20 · ROOT,LIB,CAND,MANIFEST…
 7. `web/js/ai.js` ←20 · AI
@@ -48,8 +48,8 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 10. `web/js/data.js` ←18 · script
 11. `functions/api/_quota.js` ←17 · DEFAULTS,PROVIDERS,BREAKER,STRIKE…
 12. `functions/api/_schema.js` ←14 · once,_resetSchema
-13. `scripts/lib/blog-content.mjs` ←14 · ROOT,CATEGORIES,config,parse…
-14. `scripts/lexicon/expand/lib.mjs` ←13 · LANGS,QUEUE,TOPIC_CHOICES,btMatch…
+13. `scripts/lexicon/expand/lib.mjs` ←14 · LANGS,QUEUE,TOPIC_CHOICES,btMatch…
+14. `scripts/lib/blog-content.mjs` ←14 · ROOT,CATEGORIES,config,parse…
 15. `scripts/lib/site-layout.mjs` ←13 · EXT_STORE,EXT_JS,GETAPP_JS,LSW_CSS…
 
 ## Routes `#/…` → file xử lý (75)
@@ -192,11 +192,11 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `workers/mail`: mail-prefs
 - `workers/push`: fcm-push
 
-## Mô-đun JS chính (26/1302, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
+## Mô-đun JS chính (26/1303, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
 - `functions/api/` _d1b.js: D1B_DEFAULT_DB,d1bMode,d1bReady,REST_TIMEOUT_MS,restDb… →- ←7 (_jobs.js,admin-shared.js,drive.js) · _keys.js: ALERT_MIN,MAIL_GAP,PROVIDERS,PROVIDER_IDS,cleanKey… →_quota.js,_schema.js ←7 (_meta_oauth.js,_meta_tokens.js,_social_auto.js) · _social_auto.js: AUTO_PLATS,AUTO_DEFAULT,PROVIDERS,cleanAuto,ytViaGc… →_clip_logic.js,_distribution.js,_first_comment.js ←4 (social-auto.js,social.js,callback.js) · admin-shorts.js: MANIFEST,okPath,signedPack,signed,_memo… →_d1guard.js,_shorts_data.js,admin.js ←6 (_social_auto.js,_social_mgr.js,admin-clips.js) · drive.js: isFootageRow,isBackupRow,isShortsRow,shortsCapacity,sha256Hex… →_backup.js,_d1b.js,_d1guard.js ←8 (admin-shorts.js,capacity.js,callback.js)
 - `scripts/dict/` build.mjs: QUALITY_MIN,POOL,loadSources,dictPool,enrich… →content.js,shards.mjs,ads-static.mjs ←4 (build-seo-pages.mjs,links.mjs,metrics.mjs)
 - `scripts/footage/` lib.mjs: ROOT,DEFAULT_ROOT,MANIFEST_NAME,WANT,mimeOf… →library.mjs ←7 (archive.mjs,fetch.mjs,repo-size.mjs)
-- `scripts/lexicon/` ipa.mjs: ALLOWED,badChars,ukStyle,ukStyleBad,fixBroken… →- ←12 (build-lexicon.mjs,gate.mjs,gen-wordlist.mjs) · shards.mjs: loadBrowserIndex,mergeExpand,buildShards,writeShards →lib.mjs,lib.mjs,app.js ←8 (build.mjs,wordnet.mjs,gen-newtab.mjs)
+- `scripts/lexicon/` ipa.mjs: ALLOWED,badChars,ukStyle,ukStyleBad,fixBroken… →- ←12 (build-lexicon.mjs,gate.mjs,gen-wordlist.mjs) · shards.mjs: loadBrowserIndex,mergeExpand,buildShards,writeShards →lib.mjs,lib.mjs,app.js ←9 (build.mjs,wordnet.mjs,gen-newtab.mjs)
 - `scripts/lib/` ai-pool.mjs: modelInfo,familyOf,pickModels,judgeKey,TASKS… →lexai.js,cf-pool.mjs,key-pool.mjs ←12 (lib.mjs,job.mjs,lib.mjs) · content-load.mjs: ROOT,DATA_DIRS,loadContent →scan-roots.mjs ←7 (exam-format-check.mjs,gate.mjs,grammar-map-check.mjs) · content-registry.mjs: REGISTRY,GENESIS,sha256,entryHash,readRegistry… →- ←8 (content-registry.mjs,evidence.mjs,ots.mjs) · i18n-pack.mjs: ROOT,SRC,OUT,LANGS,LAZY… →- ←7 (build.mjs,gen-hero.mjs,gen-i18n.mjs) · is-main.mjs: isMain →- ←9 (build-hash.mjs,creds.mjs,cutover.mjs) · tools-links.mjs: TOOL_LANGS,TOOL_SLUGS,toolPath,toolStrings,toolFoot… →- ←7 (build-authority.mjs,build-blog.mjs,build-seo-pages.mjs)
 - `scripts/ops/` lib.mjs: arg,sleep,distinctDrives,sha256File,downloadCopy… →lib.mjs,library.mjs ←8 (code-bundle.mjs,d1-backup.mjs,d1-restore.mjs)
 - `scripts/scriptbank/` lib.mjs: DIR,h8,TYPES,CAT,HOOK_TYPES… →lib.mjs,ipa.mjs,lib.mjs ←7 (build.mjs,build.mjs,translate.mjs)
