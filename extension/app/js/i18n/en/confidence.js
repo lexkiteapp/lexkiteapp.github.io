@@ -3,7 +3,6 @@
   const D = g.I18N_DICT = g.I18N_DICT || {};
   D.en = Object.assign(D.en || {}, {
    "Điểm tự tin {n} lần gần nhất": "Your last {n} confidence scores",
-   "Đã xong": "Done",
    "Mỗi bài là một tình huống thật, 5–8 phút: nghe, học cụm câu, nói theo, rồi tự tin nói chuyện. Sai cũng không sao – cứ nói!": "Each lesson is one real situation, 5–8 minutes: listen, learn phrases, repeat, then talk with confidence. Mistakes are fine – just speak!",
    "Điểm tự tin": "Confidence score",
    "Lần gần nhất: {n}/100 · chuỗi {d} ngày": "Last time: {n}/100 · {d}-day streak",

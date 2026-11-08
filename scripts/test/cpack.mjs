@@ -18,7 +18,7 @@ const sw = fs.readFileSync('web/sw.js', 'utf8'), m = sw.match(/const STATIC = (\
 ok(re && re.test('/cpack/toefl/data4.0123456789.js') && !re.test('/cpack/toefl/data4.js') && !re.test('/js/app.js'), 'SW: /cpack/*.<băm>.js cache-first (offline chạy lại bài đã mở), file không băm thì không');
 ok(/\/cpack\/\*\n\s+Cache-Control: public, max-age=31536000, immutable/.test(fs.readFileSync('web/_headers', 'utf8')), '_headers: /cpack/* immutable 1 năm');
 ok(/build-cpack\.mjs/.test(fs.readFileSync('scripts/build-web.sh', 'utf8')) && /cpack/.test(fs.readFileSync('scripts/lib/sw-version.mjs', 'utf8')), 'build-web.sh gọi build-cpack; mã băm khung app tính cả cpack (đổi gói → app.js/SW làm mới)');
-// mọi gói trong web/cpack được BUNDLES (app.js) tham chiếu
+// mọi gói trong web/cpack được BUNDLES (app.js) tham chiếu – riêng web/cpack/speak/s/* nạp động theo id+ngôn ngữ qua bảng SPK_P (speak/data.js, tự sinh bởi scripts/speak/build.mjs) → bảng đó cũng là nơi tham chiếu hợp lệ
 const app = fs.readFileSync('web/js/app.js', 'utf8'), walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]);
-const miss = walk('web/cpack').map(f => path.relative('web', f)).filter(f => !app.includes(f)); ok(!miss.length, 'mọi gói web/cpack có trong BUNDLES' + (miss.length ? ': ' + miss.join(', ') : ''));
+const spk = fs.readFileSync('web/js/speak/data.js', 'utf8'), miss = walk('web/cpack').map(f => path.relative('web', f)).filter(f => !app.includes(f) && !(f.startsWith('cpack/speak/s/') && spk.includes(f))); ok(!miss.length, 'mọi gói web/cpack có trong BUNDLES' + (miss.length ? ': ' + miss.join(', ') : ''));
 process.exit(bad ? 1 : 0);

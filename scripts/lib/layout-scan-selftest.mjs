@@ -2,6 +2,7 @@
 // Ca lỗi tái hiện nguyên CSS gây lỗi #users của owner 5/11 (1900 px): td:first-child{min-width:15rem} trúng cột ô chọn,
 // overflow-wrap:anywhere ở ô tên, td.u-badges{display:flex}; hàng lọc trộn nhãn "pill" bên cạnh với nhãn ngày bên trên ("to" tách dòng).
 // Gọi từ web-sweep.mjs (và được admin-guard dùng gián tiếp qua scan) – máy dò hỏng thì cổng đỏ trước khi quét trang thật.
+import { isMain } from './is-main.mjs';
 import { scan } from './layout-scan.mjs';
 
 const CSS = `body{margin:0;font:14px/1.4 system-ui;background:#fff;color:#111} section{padding:16px} #bad{width:1100px} #good{width:1700px}
@@ -43,7 +44,7 @@ export async function selftest(browser) {
   } finally { await page.close(); }
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) { // node scripts/lib/layout-scan-selftest.mjs (cần playwright – chạy trên CI)
+if (isMain(import.meta.url)) { // node scripts/lib/layout-scan-selftest.mjs (cần playwright – chạy trên CI)
   const { chromium } = await import('playwright'); const b = await chromium.launch();
   const r = await selftest(b); await b.close(); console.log(JSON.stringify(r, null, 1)); process.exit(r.ok ? 0 : 1);
 }

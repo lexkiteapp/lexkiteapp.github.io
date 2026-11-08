@@ -27,7 +27,7 @@ jobs:
       # Máy chủ ubuntu-latest đã cài sẵn Android SDK (ANDROID_HOME) → không cần bước cài riêng
       - name: Build web → mobile/www → cap sync
         run: |
-          npm ci --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
           ./scripts/build-mobile.sh
       - name: Gradle assembleDebug
         working-directory: mobile/android
@@ -88,7 +88,7 @@ jobs:
       - name: Build web → mobile/www → cap sync
         if: env.HAS_KEY == 'true'
         run: |
-          npm ci --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
           ./scripts/build-mobile.sh
       - name: Gradle bundleRelease (ký upload key)
         if: env.HAS_KEY == 'true'

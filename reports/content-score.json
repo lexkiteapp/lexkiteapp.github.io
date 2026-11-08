@@ -1,65 +1,65 @@
 {
- "total": 51.6,
+ "total": 52.8,
  "areas": {
   "vocab": {
    "name": "Kho từ",
-   "score": 51.1,
-   "coverage": 51.1,
+   "score": 54.4,
+   "coverage": 54.4,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "từ#loại duy nhất",
-     "have": 9334,
+     "have": 9757,
      "std": 20000,
      "w": 25,
      "future": false
     },
     {
      "k": "IPA·nghĩa·định nghĩa·ví dụ·CEFR",
-     "have": 9334,
-     "std": 9334,
+     "have": 9757,
+     "std": 9757,
      "w": 20,
      "future": false
     },
     {
      "k": "collocation",
-     "have": 4696,
+     "have": 4818,
      "std": 20000,
      "w": 12,
      "future": false
     },
     {
      "k": "đồng nghĩa",
-     "have": 2776,
+     "have": 2917,
      "std": 20000,
      "w": 8,
      "future": false
     },
     {
      "k": "IPA Mỹ",
-     "have": 6140,
+     "have": 6470,
      "std": 20000,
      "w": 5,
      "future": false
     },
     {
      "k": "ảnh theo nghĩa",
-     "have": 7065,
+     "have": 7398,
      "std": 20000,
      "w": 15,
      "future": false
     },
     {
      "k": "C2",
-     "have": 440,
+     "have": 670,
      "std": 1000,
      "w": 10,
      "future": false
     },
     {
      "k": "A1",
-     "have": 858,
+     "have": 862,
      "std": 1000,
      "w": 5,
      "future": false
@@ -147,8 +147,8 @@
   },
   "comm": {
    "name": "Giao tiếp",
-   "score": 34.2,
-   "coverage": 34.2,
+   "score": 38.2,
+   "coverage": 38.2,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -168,7 +168,7 @@
     },
     {
      "k": "tình huống Play & Speak",
-     "have": 6,
+     "have": 14,
      "std": 40,
      "w": 20,
      "future": false
@@ -284,8 +284,8 @@
   },
   "exam": {
    "name": "Đề thi",
-   "score": 30.4,
-   "coverage": 30.4,
+   "score": 31.7,
+   "coverage": 31.7,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -375,7 +375,7 @@
     },
     {
      "k": "Cambridge A2",
-     "have": 0,
+     "have": 1,
      "std": 6,
      "w": 8,
      "future": true
@@ -433,8 +433,8 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 10150,
-     "std": 10150,
+     "have": 10581,
+     "std": 10581,
      "w": 35,
      "future": false
     },

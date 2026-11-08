@@ -81,8 +81,8 @@
    "pct": 100
   },
   "situation": {
-   "items": 6,
-   "tagged": 6,
+   "items": 14,
+   "tagged": 14,
    "pct": 100
   },
   "call": {
@@ -96,14 +96,14 @@
    "pct": 100
   },
   "vocab": {
-   "items": 9334,
-   "tagged": 9334,
+   "items": 9757,
+   "tagged": 9757,
    "pct": 100
   }
  },
  "total": {
-  "items": 10150,
-  "tagged": 10150,
+  "items": 10581,
+  "tagged": 10581,
   "pct": 100
  },
  "errors": 0

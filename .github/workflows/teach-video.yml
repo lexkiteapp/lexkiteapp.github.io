@@ -1,3 +1,4 @@
+# ci-policy: heavy-gate – render video trên PR chờ npm test xanh (job `gate`, luật 11)
 # teach-video: Teach2D templates (docs/VIDEO-TEACH2D.md) – ONE pilot per template, short 9:16 + lesson embed 16:9, review sheet. 0 credits.
 # QC BEFORE render (script review, data facts, voice clock, layout / contrast / IPA / mouth / hook on the real timeline) and AFTER render
 # (file, -16 LUFS, teacher visible, no blank frame) – a red gate stops the job. Hosts = web/teach/characters.json 2D set (no footage clone).
@@ -13,7 +14,26 @@ on:
 permissions: { contents: read, actions: read }   # actions: read = count busy runners (scripts/ci/shards.mjs)
 concurrency: { group: 'teach-video-${{ github.ref }}-${{ github.event_name }}', cancel-in-progress: "${{ github.event_name == 'pull_request' }}" }   # a batch on main is never cancelled by the next one (it queues)
 jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha → go=$go"
   preqc:   # gate 1 (seconds): generator self-checks, reviewed script == spec, motion parity
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs: { list: '${{ steps.m.outputs.list }}', par: '${{ steps.p.outputs.par }}' }
@@ -44,7 +64,8 @@ jobs:
       - id: m   # a batch takes only what the free runners finish in ~1.5 h (4 episodes per runner); ci-filler dispatches the next slice
         run: echo "list=$(python3 scripts/video/teach2d/gen.py --pick '${{ github.event.inputs.eps }}' '${{ github.event.inputs.shards }}' '${{ github.event_name }}' ${{ steps.p.outputs.par }})" >> "$GITHUB_OUTPUT"   # batch = facts re-verified live (gen.py --verify), not yet banked
   voice:
-    needs: preqc
+    needs: [preqc, gate]
+    if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 25
     strategy: { fail-fast: false, max-parallel: '${{ fromJSON(needs.preqc.outputs.par) }}', matrix: { ep: '${{ fromJSON(needs.preqc.outputs.list) }}' } }
@@ -61,8 +82,8 @@ jobs:
         with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: video-models-kokoro82m-q8-cine-v1 }
       - name: kokoro-js + Rhubarb
         run: |
-          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
-          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL --retry 5 --retry-delay 10 --retry-all-errors -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
           mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
           R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"; "$R" --version | grep -q 1.13
           echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
@@ -77,8 +98,8 @@ jobs:
       - uses: actions/upload-artifact@v4
         with: { name: 'tvo-${{ matrix.ep }}-${{ github.run_id }}', path: 'vo/vis3/', retention-days: 3 }
   par:   # count free runners again before the render matrix (preqc's count is an hour old in a busy queue; 2/11 run 41380206879 was stuck at 1)
-    needs: [preqc, voice]
-    if: ${{ !cancelled() && needs.preqc.result == 'success' }}
+    needs: [preqc, voice, gate]
+    if: ${{ (!cancelled() && needs.preqc.result == 'success') && needs.gate.outputs.go == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
     outputs: { par: '${{ steps.p.outputs.par }}' }
@@ -90,8 +111,8 @@ jobs:
         env: { GITHUB_TOKEN: '${{ github.token }}' }
         run: echo "par=$(node scripts/ci/shards.mjs --left $(( $(echo '${{ needs.preqc.outputs.list }}' | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))') * 2 )) --per 1 --cap 24 | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
   render:   # one red voice job no longer skips the whole batch: that episode's render fails on its missing voice artifact, the rest render
-    needs: [preqc, voice, par]
-    if: ${{ !cancelled() && needs.preqc.result == 'success' && needs.par.result == 'success' }}
+    needs: [preqc, voice, par, gate]
+    if: ${{ (!cancelled() && needs.preqc.result == 'success' && needs.par.result == 'success') && needs.gate.outputs.go == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
     strategy: { fail-fast: false, max-parallel: '${{ fromJSON(needs.par.outputs.par) }}', matrix: { ep: '${{ fromJSON(needs.preqc.outputs.list) }}', fmt: [short, wide] } }
@@ -163,8 +184,8 @@ jobs:
             ${{ env.O }}/props*.json*
           retention-days: 14
   embed:   # in-app embed preview screenshots (light + dark, phone + desktop) of every 16:9 lesson video
-    needs: render
-    if: always() && needs.render.result != 'cancelled'
+    needs: [render, gate]
+    if: ${{ (always() && needs.render.result != 'cancelled') && needs.gate.outputs.go == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 45   # 4 screenshots per episode; a 120-episode batch takes ~25 min
     steps:
@@ -201,8 +222,8 @@ jobs:
       - uses: actions/upload-artifact@v4
         with: { name: 'tv-embed-shots-${{ github.run_id }}', path: shots/, retention-days: 14 }
   sheet:   # one review sheet: every episode's frames + QC score, both themes; then the bank (only QC >= 90 with every gate green)
-    needs: [preqc, render, embed]
-    if: always() && needs.render.result != 'cancelled'
+    needs: [preqc, render, embed, gate]
+    if: ${{ (always() && needs.render.result != 'cancelled') && needs.gate.outputs.go == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
