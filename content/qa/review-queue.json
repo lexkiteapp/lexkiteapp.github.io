@@ -934315,6 +934315,1162 @@
     "senseLock": "wiktionary-1",
     "ipaPos": false
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "watchword#n",
+   "batch": "20261108",
+   "why": [
+    "soát mẫu AI 1/3: ex: \"Watchword of Irish nationalists at the turn of the century.\" is a sentence fragment missing an article or subject/verb"
+   ],
+   "at": "2026-11-08",
+   "data": {
+    "w": "watchword",
+    "pos": "n",
+    "ipa": "/ˈwɒtʃwɜːd/",
+    "ipaUS": "/ˈwɑːtʃwɜːrd/",
+    "def": "a motto or rallying cry",
+    "ex": [
+     "Watchword of Irish nationalists at the turn of the century.",
+     "Our watchword will be `democracy'."
+    ],
+    "col": [],
+    "syn": [
+     "cry"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 2.21,
+    "emoji": "",
+    "topic": "society",
+    "vi": "khẩu hiệu",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:war_cry.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wikibooks:wb261090.1",
+      "wordnet:war_cry.n.01"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "pt": "omw+ai",
+      "th": "omw+ai"
+     },
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [],
+      "de": [],
+      "id": [],
+      "th": [
+       5,
+       5,
+       5
+      ],
+      "zh": [],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "slogan; motto",
+      "slogan; motto",
+      "motto; slogan"
+     ],
+     "viLem": [
+      "war cry",
+      "rallying cry",
+      "battle cry",
+      "cry"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C1",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "pt": true,
+       "th": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "a",
+      "c"
+     ],
+     "trDrop": {
+      "es": "rỗng",
+      "pt": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "fr": "rỗng",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "zh": "rỗng",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "society.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "adjudicate#v",
+   "batch": "20261108",
+   "why": [
+    "soát mẫu AI 1/3: sense: wrong sense, should be adjudicate.v.01"
+   ],
+   "at": "2026-11-08",
+   "data": {
+    "w": "adjudicate",
+    "pos": "v",
+    "ipa": "/əˈdʒuːdɪkeɪt/",
+    "ipaUS": "/əˈdʒuːdɪkeɪt/",
+    "def": "to act as a judge in a legal case",
+    "ex": [
+     "In such courts, judges routinely adjudicate both matters of fact and law.",
+     "The limitation only applies when the case being adjudicated cannot be further appealed."
+    ],
+    "col": [],
+    "syn": [
+     "judge",
+     "try"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 2.47,
+    "emoji": "",
+    "topic": "dom-law",
+    "vi": "xét xử",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:judge.v.05",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "commonvoice:cv2.435157",
+      "commonvoice:cv2.203036"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "es": "omw+ai",
+      "pt": "omw+ai",
+      "fr": "omw+ai",
+      "th": "omw+ai",
+      "zh": "omw+ai"
+     },
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-2+semcor"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [],
+      "id": [],
+      "th": [
+       5,
+       5,
+       5
+      ],
+      "zh": [
+       5,
+       5,
+       4
+      ],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "to judge",
+      "to try a case",
+      "try; judge"
+     ],
+     "viLem": [
+      "judge",
+      "try"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "pt": true,
+       "fr": true,
+       "th": true,
+       "zh": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "a",
+      "c"
+     ],
+     "trDrop": {
+      "es": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "pt": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "fr": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "zh": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-2+semcor",
+    "tp": [
+     "dom-law.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "luminescent#adj",
+   "batch": "20261108",
+   "why": [
+    "soát mẫu AI 1/3: vi: translation is a verb phrase, not an adjective"
+   ],
+   "at": "2026-11-08",
+   "data": {
+    "w": "luminescent",
+    "pos": "adj",
+    "ipa": "/ˌluːmɪˈnesənt/",
+    "ipaUS": "/ˌluːməˈnesənt/",
+    "def": "giving off light without heat",
+    "ex": [
+     "The stamp, of course, is printed in luminescent ink.",
+     "The luminescent field was observed to glow over three consecutive nights."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "trBad": {
+     "de": [
+      "lumineszierend"
+     ]
+    },
+    "z": 2.43,
+    "emoji": "",
+    "topic": "science",
+    "vi": "phát quang",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:luminescent.s.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wikibooks:wb404451.5",
+      "commonvoice:cv2.1099443"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "pt": "wiktionary+ai",
+      "fr": "wiktionary+ai",
+      "de": "wiktionary+ai"
+     },
+     "trSense": "emitting light by luminescence",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5,
+       4
+      ],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "emit light",
+      "emitting light; luminescent",
+      "glowing; luminescent"
+     ],
+     "viLem": [],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C1",
+      "C1"
+     ],
+     "bad": {
+      "de": "pos"
+     },
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "pt": true,
+       "fr": true,
+       "de": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "a"
+     ],
+     "trDrop": {
+      "es": "rỗng",
+      "pt": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "fr": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "khác từ loại/khác từ, cần 2 nguồn độc lập (Wiktionary / OMW / AI), từ không có thật (wordfreq: lumineszierend)",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "science.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "deride#v",
+   "batch": "20261108",
+   "why": [
+    "soát mẫu AI 1/3: ex: 'Rae derided the criticism as well' is unnatural; 'as well' does not fit the context of mocking criticism, and the sentence lacks a clear object or context for the mockery."
+   ],
+   "at": "2026-11-08",
+   "data": {
+    "w": "deride",
+    "pos": "v",
+    "ipa": "/dɪˈraɪd/",
+    "ipaUS": "/dɪˈraɪd/",
+    "def": "to mock or laugh at someone harshly.",
+    "ex": [
+     "Rae derided the criticism as well.",
+     "He derides her choices, but never offers alternatives."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 2.4,
+    "emoji": "",
+    "topic": "society",
+    "vi": "chế giễu",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:deride.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "commonvoice:cv2.778254",
+      "tatoeba:12652821"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "pt": "omw+ai",
+      "de": "wiktionary+ai",
+      "id": "omw+ai",
+      "th": "wiktionary+ai",
+      "zh": "wiktionary+ai",
+      "ja": "omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "to laugh at or mock (someone or something) harshly — see also ridicule, scorn",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [],
+      "de": [
+       5,
+       5,
+       4
+      ],
+      "id": [
+       5,
+       5,
+       5
+      ],
+      "th": [
+       5,
+       5,
+       5
+      ],
+      "zh": [
+       5,
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5,
+       5
+      ],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [
+       5,
+       5,
+       5
+      ],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "to mock",
+      "to mock",
+      "chế giễu"
+     ],
+     "viLem": [],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C1",
+      "C1"
+     ],
+     "bad": {},
+     "vi": [
+      "ok",
+      "ok",
+      "ok"
+     ],
+     "viWikt": [
+      "chế giểu",
+      "chế nhạo"
+     ],
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "pt": true,
+       "de": true,
+       "id": true,
+       "th": true,
+       "zh": true,
+       "ja": true,
+       "ru": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "a",
+      "b",
+      "c"
+     ],
+     "trDrop": {
+      "es": "rỗng",
+      "pt": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "fr": "rỗng",
+      "de": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "id": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "th": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "zh": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ja": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "society.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "contender#n",
+   "batch": "20261108",
+   "why": [
+    "soát mẫu AI 1/3: m: 'concurrent' is not a valid French equivalent for 'contender' (rival); it means 'simultaneous' or 'concurrent'."
+   ],
+   "at": "2026-11-08",
+   "data": {
+    "w": "contender",
+    "pos": "n",
+    "ipa": "/kənˈtendə/",
+    "ipaUS": "/kənˈtendər/",
+    "def": "a person you hope to defeat in a competition",
+    "ex": [
+     "The top four contenders fought a tournament for the title.",
+     "The race started out with four contenders in the first half."
+    ],
+    "col": [],
+    "syn": [
+     "rival",
+     "challenger",
+     "competitor"
+    ],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "z": 3.6,
+    "emoji": "",
+    "topic": "sport",
+    "vi": "đối thủ",
+    "note_vi": "",
+    "m": {
+     "fr": "concurrent"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:rival.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "commonvoice:cv2.570232",
+      "commonvoice:cv2.602257"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "es": "omw+ai",
+      "pt": "omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "id": "omw+ai",
+      "ja": "omw+ai",
+      "ru": "wiktionary+ai",
+      "tr": "wiktionary+ai"
+     },
+     "trSense": "someone who competes",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1-2of3+semcor"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [],
+      "id": [
+       5,
+       5,
+       5
+      ],
+      "th": [],
+      "zh": [],
+      "ja": [
+       5,
+       5,
+       5
+      ],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [
+       5,
+       5,
+       5
+      ],
+      "tr": [
+       5,
+       5,
+       5
+      ]
+     },
+     "bt": 0.08,
+     "viBtw": [
+      "opponent; rival",
+      "opponent; rival",
+      "person you hope to defeat"
+     ],
+     "viLem": [
+      "rival",
+      "challenger",
+      "competitor",
+      "competition"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C1",
+      "C1"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "pt": true,
+       "fr": true,
+       "id": true,
+       "ja": true,
+       "ru": true,
+       "tr": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "a",
+      "c"
+     ],
+     "trDrop": {
+      "es": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "pt": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "rỗng",
+      "id": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "tr": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)"
+     },
+     "trKeep": [
+      "fr"
+     ]
+    },
+    "senseLock": "wiktionary-1-2of3+semcor",
+    "tp": [
+     "sport.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "invariably#adv",
+   "batch": "20261108",
+   "why": [
+    "soát mẫu AI 1/3: ex: unnatural or unclear example"
+   ],
+   "at": "2026-11-08",
+   "data": {
+    "w": "invariably",
+    "pos": "adv",
+    "ipa": "/ɪnˈveəriəbli/",
+    "ipaUS": "/ɪnˈveriəbli/",
+    "def": "always, without any change or exception",
+    "ex": [
+     "White will invariably take with the Queen.",
+     "Emergency calls can invariably be made without charge."
+    ],
+    "col": [
+     "almost invariably"
+    ],
+    "syn": [
+     "constantly",
+     "always"
+    ],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "z": 3.44,
+    "emoji": "",
+    "topic": "xw-qualities",
+    "vi": "luôn luôn",
+    "note_vi": "",
+    "m": {
+     "es": "invariablemente"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:constantly.r.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "wikibooks:wb182961.1",
+      "commonvoice:cv2.733961"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "es": "wiktionary+omw+ai",
+      "pt": "omw+ai",
+      "fr": "wiktionary+ai",
+      "ja": "omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "always",
+     "col": "wordnet/tatoeba",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [
+       5,
+       5,
+       5
+      ],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [
+       5,
+       5,
+       5
+      ],
+      "tr": []
+     },
+     "bt": 0.08,
+     "viBtw": [
+      "always",
+      "always",
+      "always; invariably"
+     ],
+     "viLem": [
+      "constantly",
+      "always"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "B2",
+      "B2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "pt": true,
+       "fr": true,
+       "ja": true,
+       "ru": true
+      }
+     },
+     "viSrc": [
+      "a",
+      "c",
+      "wv"
+     ],
+     "trDrop": {
+      "pt": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "fr": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "tr": "rỗng"
+     },
+     "trKeep": [
+      "es"
+     ]
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "xw-qualities.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "issuance#n",
+   "batch": "20261108",
+   "why": [
+    "soát mẫu AI 1/3: ex: unnatural/misleading example"
+   ],
+   "at": "2026-11-08",
+   "data": {
+    "w": "issuance",
+    "pos": "n",
+    "ipa": "/ˈɪsjuːəns/",
+    "ipaUS": "/ˈɪʃuəns/",
+    "def": "the act of giving out something",
+    "ex": [
+     "The new construction was financed by a bond issuance.",
+     "Event covers, instead of marking the issuance of a stamp, commemorate events."
+    ],
+    "col": [],
+    "syn": [
+     "issue",
+     "issuing"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 3.34,
+    "emoji": "",
+    "topic": "xw-actions",
+    "vi": "sự phát hành",
+    "note_vi": "",
+    "m": {
+     "pt": "emissão",
+     "fr": "émission"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:issue.n.04",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "commonvoice:cv2.469908",
+      "commonvoice:cv2.54676"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "ja": "omw+ai"
+     },
+     "trSense": "act of issuing",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 4,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5,
+       5
+      ],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [
+       5,
+       5,
+       5
+      ],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0.15,
+     "viBtw": [
+      "issuance",
+      "issuance",
+      "issuance; issue"
+     ],
+     "viLem": [
+      "issue",
+      "issuing"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "pt": true,
+       "fr": true,
+       "de": true,
+       "ja": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "a",
+      "c"
+     ],
+     "trDrop": {
+      "es": "rỗng",
+      "de": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": [
+      "pt",
+      "fr"
+     ]
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "xw-actions.n"
+    ]
+   }
   }
  ]
 }
