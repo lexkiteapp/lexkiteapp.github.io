@@ -164,3 +164,6 @@ Nguồn = `web/js/vocab-img.js` thật (VImg v3). App tải đầu `https://lexk
 - `sh[]` = FNV-1a 32-bit theo code point của `word.toLowerCase()` (`Math.imul`, `>>> 0`) `% n`.
 - `cases[]` (`word,pos,key,shard,hash,url,url2x,scene,a`): ảnh = `base + hash + '.webp'`. Bài "pic": chỉ khi `url != null && !scene` (ảnh cảnh cần câu ví dụ). Chế độ tối: ảnh `a == false` (nền kem) ẩn.
 - `mode[]` = luật bật dần: Remote Config `vocab_img` ("on"/"off"/"" → web `true`/`false`/không đặt) + `vocab_img_pct` (mặc định `defaultPct` = 10) + nhóm thiết bị cố định 0–99 (sinh ngẫu nhiên 1 lần, lưu). `1` bật · `0` tắt · `-1` bật dần → bật khi `head.on`. Cờ mới trong `native/shared/flags.json`: `vocab_img`, `vocab_img_pct`.
+
+## lesson.json `similarity` – chấm nói (say/pic không chọn)
+`web/js/ui.js similarity()` thật: chữ thường, chỉ giữ `[a-z ]`, trim; cả hai rỗng → 1; `1 − Levenshtein / max(len)`. `score = round(sim·100)`. Luồng bài: `score ≥ pass (70)` → nộp `score/100`; thấp hơn → "Thử lại", trượt lần thứ `retriesBeforeSubmit` (2) → nộp luôn (Session chấm sai). Lấy câu nhận dạng tốt nhất trong các phương án (alts) theo `sim`.
