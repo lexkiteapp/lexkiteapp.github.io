@@ -1013098,6 +1013098,64 @@
      "xw-feelings.d"
     ]
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "conjunctiva#n",
+   "batch": "20261108-r170",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-08",
+   "data": {
+    "w": "conjunctiva",
+    "pos": "n",
+    "ipa": "/ˌkɒndʒʌŋ(k)ˈtʌɪvə/",
+    "ipaUS": "/ˌkɑːndʒəŋkˈtaɪvə/",
+    "def": "the clear thin layer that covers the front of the eye and inside the eyelid",
+    "ex": [
+     "Eye care aims to keep the exposed conjunctiva moist, preventing tissue damage.",
+     "A small number of bacteria and fungi are normally present in the conjunctiva."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 1.96,
+    "emoji": "",
+    "topic": "health",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:conjunctiva.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.8-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikibooks:wb267548.2",
+      "commonvoice:cv2.192110"
+     ],
+     "tr": {
+      "pt": "omw+ai",
+      "fr": "omw+ai",
+      "id": "omw+ai",
+      "ja": "omw+ai"
+     },
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
   }
  ]
 }
