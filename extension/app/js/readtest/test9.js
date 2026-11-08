@@ -17,7 +17,7 @@ paras: [
 ],
 groups: [
 { type: 'tfng',
-instr: 'Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+instr: g.RTI[1],
 items: [
 { n: 1, text: 'The ancient drink made at Jiahu included honey among its ingredients.', a: 'TRUE', cue: 'making a fermented drink from rice, honey and fruit' },
 { n: 2, text: 'People who fermented food in the past usually understood why the process worked.', a: 'FALSE', cue: 'cooks knew what worked without any understanding of why it worked' },
@@ -35,7 +35,7 @@ items: [
 { n: 10, text: 'Mould used in Indonesia – binds cooked ___ into a firm cake (tempeh)', a: ['soybeans'], cue: 'allowing a mould to grow through cooked soybeans until they are bound into a firm cake' },
 ] },
 { type: 'match',
-instr: 'Reading Passage 1 has seven paragraphs, A–G. Which paragraph contains the following information? NB You may use any letter more than once.',
+instr: g.RTI[5],
 options: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
 items: [
 { n: 11, text: 'a mention of a disease that a fermented food was believed to prevent', a: 'B', cue: 'believing that it helped to protect his crews from scurvy' },
@@ -75,7 +75,7 @@ paras: [
 ],
 groups: [
 { type: 'match',
-instr: 'Reading Passage 2 has six paragraphs, A–F. Choose the correct heading for each paragraph from the list of headings below.',
+instr: g.RTI[9],
 options: [
 'i Old problems, new pollutants and an unfair outcome',
 'ii From lifeline to dumping ground',
@@ -96,14 +96,14 @@ items: [
 { n: 19, text: 'Paragraph F', a: 'i', cue: 'the work is far from finished' },
 ] },
 { type: 'summary', title: 'The restoration of a stream in Seoul',
-instr: 'Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.', limit: 2,
+instr: g.RTI[2], limit: 2,
 items: [
 { n: 20, text: 'After being covered with concrete in the 1950s, the Cheonggyecheon had an ___ built above it in the 1970s.', a: ['elevated highway'], cue: 'in the 1970s an elevated highway was built above it' },
 { n: 21, text: 'The restoration project created a green ___ almost six kilometres long.', a: ['corridor'], cue: 'created a green corridor almost six kilometres long' },
 { n: 22, text: 'Because the stream lacks natural flow, water has to be pumped in from the ___.', a: ['Han River'], cue: 'large quantities of water must be pumped in from the Han River' },
 { n: 23, text: 'For this reason, some ecologists regard the stream as a ___ rather than a genuine river.', a: ['landscaped fountain'], cue: 'describe the result as a landscaped fountain rather than a genuine river' },
 ] },
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 24, q: "Why does the writer mention the 'Great Stink' of 1858?",
 options: ['to show how a crisis pushed the authorities into taking action', 'to explain why Parliament moved to a new building', 'to compare the Thames with the rivers of Paris and Manchester', 'to suggest that cholera was caused by bad smells'],
@@ -149,7 +149,7 @@ paras: [
 ],
 groups: [
 { type: 'ynng',
-instr: 'Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+instr: g.RTI[0],
 items: [
 { n: 27, text: 'Heavy use of social media is mainly the result of users lacking willpower.', a: 'NO', cue: "The difficulty lies not in the weakness of users' willpower" },
 { n: 28, text: 'Infinite scroll removes moments at which users would naturally stop.', a: 'YES', cue: 'removes the natural stopping points' },
@@ -184,7 +184,7 @@ options: [
 a: ['A', 'C'],
 cue: 'a person who leaves a service alone loses touch ... a rival cannot win users by offering a lower price' },
 { type: 'sentence',
-instr: 'Complete the sentences below. Choose NO MORE THAN TWO WORDS from the passage for each answer.', limit: 2,
+instr: g.RTI[8], limit: 2,
 items: [
 { n: 38, text: 'Figures such as time on site and the number of daily active users are known as ___.', a: ['engagement metrics'], cue: 'So-called engagement metrics, such as time on site and the number of daily active users' },
 { n: 39, text: 'The posts most likely to keep each person on a platform are identified and shown first by ___.', a: ['ranking algorithms'], cue: 'ranking algorithms predict, for each individual, which posts are most likely to keep them on the platform' },

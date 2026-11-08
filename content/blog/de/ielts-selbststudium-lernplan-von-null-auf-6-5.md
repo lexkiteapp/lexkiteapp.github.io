@@ -18,11 +18,15 @@ qualityScore: 94
 
 Die Vorbereitung auf den internationalen IELTS-Test auf eigene Faust kann ohne erfahrene Lehrkraft zunächst entmutigend wirken. Dennoch erreichen jedes Jahr zehntausende Kandidaten eigenständig ein Traumergebnis von Band 6.5 oder 7.0, ohne kostspielige Intensivkurse belegen zu müssen. Der Schlüssel zum Erfolg liegt keineswegs im blinden Abarbeiten zahlloser Cambridge-Modelltests, sondern im konsequenten Aufbau eines durchdachten **ielts selbststudium lernplan** mit klaren Meilensteinen, verlässlichen Lerngewohnheiten und einer logischen Phasenstruktur.
 
-In diesem ausführlichen Leitfaden stellen wir ein erprobtes 4-Phasen-Modell vor, zeigen Ihnen die ideale Verteilung der täglichen Lernzeit auf die vier Fertigkeiten (Listening, Reading, Writing und Speaking) und erklären, wie Sie mithilfe moderner FSRS-Spaced-Repetition akademisches Vokabular dauerhaft im Langzeitgedächtnis verankern. Wenn Sie Ihre allgemeine Sprachbasis auffrischen möchten, lesen Sie zuvor unsere Übersicht über [Englisch lernen Tipps](/de/blog/englisch-lernen-tipps/). Entdecken Sie zudem unsere Sammlungen für [englisches Vokabular](/de/vocabulary/).
+In diesem ausführlichen Leitfaden stellen wir ein erprobtes 4-Phasen-Modell vor, zeigen Ihnen die ideale Verteilung der täglichen Lernzeit auf die vier Fertigkeiten (Listening, Reading, Writing und Speaking) und erklären, wie Sie mithilfe moderner FSRS-Spaced-Repetition akademisches Vokabular dauerhaft im Langzeitgedächtnis verankern. Wenn Sie Ihre allgemeine Sprachbasis auffrischen möchten, lesen Sie zuvor unsere Übersicht über [Englisch lernen Tipps](/de/blog/englisch-lernen-tipps/). Entdecken Sie zudem unsere Sammlungen für [englisches Vokabular](/de/vocabulary/). Wer den Plan für ein Visum nutzt, findet in diesem Beitrag zu [IELTS für die Auswanderung nach Kanada, UK und Neuseeland](/de/blog/ielts-fuer-auswanderung-kanada-australien-uk/) die Prüfungsvarianten und Nachweise im Überblick.
 
 ## Ausgangspunkt: Bestimmen Sie Ihr tatsächliches Sprachniveau
 
 Der häufigste Fehler beim eigenständigen Lernen besteht darin, am ersten Tag ein dickes Testbuch aufzuschlagen und sofort vollständige Prüfungen unter Zeitdruck zu simulieren. Wenn Ihr Wortschatz und Ihre grammatikalische Basis noch unterhalb des B1- oder B2-Niveaus nach dem Gemeinsamen Europäischen Referenzrahmen (GER) liegen, führt das direkte Bearbeiten komplexer Fachtexte lediglich zu Frustration und mentaler Erschöpfung.
+
+Wenn du tiefer einsteigen möchtest, lies auch [Zeitmanagement im IELTS Reading](/de/blog/zeitmanagement-im-ielts-reading-60-minuten-strategie/).
+
+Wenn du tiefer einsteigen möchtest, lies auch [Neues TOEFL Format 2026](/de/blog/neues-toefl-format-2026-vorbereitung/).
 
 ![Einstufungstest mit 20 Vokabel- und Grammatikfragen in Lexkite](media:placement "Diagnostischer 5-Minuten-Einstufungstest mit 20 Fragen in Lexkite")
 

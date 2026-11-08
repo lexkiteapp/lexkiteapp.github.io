@@ -146,7 +146,8 @@
      "text": {
       "STAGE 3": "d.stage",
       "2/4": "d.step",
-      "Writing Task 1 & Cohesion": "r.title"
+      "Writing Task 1 & Cohesion": "r.title",
+      "50%": "d.unit.pct + '%'"
      },
      "html": {
       ":scope > div:nth-child(2) > div:nth-child(1) > button > span.material-symbols-outlined": "r.icon"
@@ -159,10 +160,21 @@
       },
       ":scope > div:nth-child(2) > div:nth-child(1) > button": {
        "data-st": "r.st"
+      },
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div > div": {
+       "style": "'width:' + d.unit.pct + '%'"
+      },
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > span": {
+       "aria-hidden": "'true'"
       }
      },
      "after": {
       ":scope > div:nth-child(2) > div:nth-child(1)": "d.teacher"
+     },
+     "cls": {
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div > div": {
+       "w-[50%]": "''"
+      }
      }
     }
    }

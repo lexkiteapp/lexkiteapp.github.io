@@ -56,7 +56,7 @@ script: [
 { s: 'A', t: "You're welcome, Mr Brennan. We look forward to meeting Lily." },
 ],
 groups: [
-{ type: 'form', title: 'Fernhill Summer Camps – Booking form', instr: 'Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
+{ type: 'form', title: 'Fernhill Summer Camps – Booking form', instr: g.LTI[1], limit: 2,
 items: [
 { n: 1, text: "Parent's surname: ___", a: ['Brennan'], cue: 'B, R, E, N, N, A, N', explain: 'Ông bố đánh vần họ của mình: “Brennan. That\'s B, R, E, N, N, A, N.” Chú ý có hai chữ N ở giữa.' },
 { n: 2, text: "Child's age at start of camp: ___", a: ['9', 'nine'], cue: "I'll put her down as nine", explain: 'Bẫy: Lily hiện “eight right now”, nhưng trại tính tuổi lúc bắt đầu trại nên nhân viên nói “I\'ll put her down as nine”. Đáp án là 9, không phải 8.' },
@@ -67,7 +67,7 @@ items: [
 { n: 7, text: 'Allergy: ___', a: ['kiwi', 'kiwis', 'kiwi fruit'], cue: "It's actually kiwi.", explain: 'Bẫy: nhân viên đoán “Is it nuts?” nhưng ông bố phủ nhận và nói “It\'s actually kiwi.” Đáp án là kiwi.' },
 { n: 8, text: 'Collected by: Grace ___ (aunt)', a: ['Okafor'], cue: 'O, K, A, F, O, R', explain: 'Người đón là dì của Lily, “Grace Okafor”, và họ được đánh vần “O, K, A, F, O, R”.' },
 ] },
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 9, q: 'What must Lily bring to camp?', options: ['a swimsuit', 'a pair of trainers', 'a sun hat'], a: 2, cue: 'is a sun hat', explain: 'Đồ bơi (A) và giày thể thao (B) bị loại: “She won\'t need trainers or a swimsuit for drama”. Thứ bắt buộc là “a sun hat” vì nhiều trò chơi ngoài trời.' },
 { n: 10, q: 'How will Mr Brennan pay for the camp?', options: ['by bank transfer', 'by card over the phone', 'by cheque'], a: 0, cue: 'pay by bank transfer', explain: 'Thẻ (B) bị loại vì “We don\'t take cards over the phone”, séc (C) cũng vậy vì “stopped accepting cheques”. Ông sẽ nhận hóa đơn qua email và “pay by bank transfer” nên đáp án là A.' },
@@ -118,7 +118,7 @@ script: [
 { s: 'B', t: "And for teenagers, the scheme is open to anyone aged fourteen and over." },
 { s: 'B', t: "Fourteen and fifteen-year-olds don't need a separate permission form, but they must ride with an adult who also has an account." },
 { pause: 1.5 },
-{ say: 'Now look at questions 16 to 20.' }, { pause: 3 },
+{ say: g.LTI[6] }, { pause: 3 },
 { s: 'A', t: "Let's talk about the new rules. I know some listeners are confused about where they can and can't ride." },
 { s: 'B', t: "Yes, so let me go through the main places. Starting with the High Street." },
 { s: 'B', t: "It's pedestrian-only during shopping hours, so cycling there is only allowed before ten in the morning, when the delivery vans come in." },
@@ -135,7 +135,7 @@ script: [
 { s: 'A', t: "That's really clear, Nadia. Thanks for joining us." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 11, q: 'What was the main reason for introducing the scheme?', options: ['to reduce air pollution', 'to reduce traffic around schools', 'to attract more tourists'], a: 1, cue: 'the main thing driving it was the school run', explain: 'Bẫy: ô nhiễm (A) chỉ là “a bonus”, còn khách du lịch (C) thì “weren\'t really the reason”. Lý do chính là “the main thing driving it was the school run”, tức giảm tắc đường quanh trường học (B).' },
 { n: 12, q: 'How do users unlock a bike?', options: ['by using a phone app', 'with a card from the library', 'by paying at the docking station'], a: 0, cue: 'you simply download our app', explain: 'Thẻ thư viện (B) chỉ là kế hoạch ban đầu (“Originally, we planned”) rồi bị bỏ vì quá chậm. Hiện nay “you simply download our app and scan the code”, nên đáp án là A.' },
@@ -221,7 +221,7 @@ script: [
 { s: 'B', t: "That's really useful. Thanks." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 21, q: 'How do the students decide to start their presentation?', options: ['with a map of the islands', 'with a definition of key terms', 'with the story of one island'], a: 2, cue: 'Starting with one dramatic story', explain: 'Bản đồ (A) bị chê vì “everyone does that”, còn định nghĩa (B) thì “a bit dry” và để giải thích sau. Hai bạn thống nhất “Starting with one dramatic story”, tức câu chuyện của một hòn đảo (C).' },
 { n: 22, q: 'What surprised the students about leakage?', options: ['Imported food was the biggest cause.', 'Foreign hotels kept most of the profits.', 'Local farmers refused to sell to hotels.'], a: 0, cue: 'the bigger loss was imported food', explain: 'Lachlan tưởng nguyên nhân là khách sạn nước ngoài chuyển lợi nhuận đi (B), nhưng thực tế “the bigger loss was imported food”. Nông dân không từ chối bán (C sai): “I don\'t think it\'s that they refuse”.' },
@@ -297,7 +297,7 @@ script: [
 { s: 'A', t: "Understanding navigation in detail helps us test which chemicals are safe. We'll look at that research next week." },
 ],
 groups: [
-{ type: 'note', title: 'Bee navigation and communication', instr: 'Complete the notes below. Write ONE WORD ONLY for each answer.', limit: 1,
+{ type: 'note', title: 'Bee navigation and communication', instr: g.LTI[2], limit: 1,
 items: [
 { n: 31, text: 'Navigation: the ___ is used as a compass', a: ['sun'], cue: 'The first and most important tool is the sun', explain: 'Giảng viên nói “The first and most important tool is the sun”, và ong dùng vị trí mặt trời “as a kind of compass”.' },
 { n: 32, text: 'On cloudy days, bees detect patterns of polarised ___', a: ['light'], cue: 'patterns of polarised light', explain: 'Khi trời “overcast” (cách nói khác của cloudy), mắt ong vẫn phát hiện được “patterns of polarised light” xuyên qua mây mỏng.' },

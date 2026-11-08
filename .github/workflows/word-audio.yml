@@ -14,7 +14,7 @@ on:
 permissions:
   contents: write
 concurrency: { group: word-audio, cancel-in-progress: false }
-env: { WORD_AUDIO_EXPAND: '1' }
+env: { WORD_AUDIO_EXPAND: '1', WORD_AUDIO_PENDING: '1' }   # + từ của lô lexicon-expand chờ xuất: có giọng TRƯỚC khi vào kho (promote.mjs cổng giọng)
 jobs:
   plan:
     runs-on: ubuntu-latest
@@ -44,11 +44,12 @@ jobs:
         with: { node-version: 22 }
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
+      - uses: ./.github/actions/setup-ffmpeg
       - name: Cài kokoro-js + ffmpeg + faster-whisper
         # PyAV 19 bỏ tham số metadata_errors mà faster-whisper (≤1.2.1) vẫn truyền vào av.open → khoá av<19
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
-          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
+          # onnxruntime-node tải nhị phân lúc cài (postinstall) → mạng chập chờn làm rớt 2/6 shard (08/11): thử lại 3 lần
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
           pip install -q 'faster-whisper==1.2.1' 'av==18.1.0'
       - uses: actions/cache@v4
         with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: kokoro-82m-v1-fp32 }
@@ -114,6 +115,7 @@ jobs:
         with: { python-version: '3.12' }
       - uses: actions/cache@v4
         with: { path: ~/.cache/huggingface, key: whisper-small-en-ct2 }
+      - uses: ./.github/actions/setup-ffmpeg
       - run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null && pip install -q 'faster-whisper==1.2.1' 'av==18.1.0'
+          pip install -q 'faster-whisper==1.2.1' 'av==18.1.0'
           python3 scripts/word-audio-asr.py --sample "${{ github.event.inputs.asr_sample }}"

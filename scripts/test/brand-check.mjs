@@ -70,7 +70,9 @@ for (const l of ['en', 'vi']) {
   if (!/<p id="trademarks">[^\n]*MODIAN LUXURY JEWELRY LLC/.test(src) || !/^<p>Lexkite™ /m.test(src)) tmErr.push(`content/legal/${l}/terms.html: thiếu điều khoản nhãn hiệu #trademarks / "Lexkite™" lần nhắc đầu`);
   if (!fs.readFileSync(`web/${l}/terms.html`, 'utf8').includes('id="trademarks"')) tmErr.push(`web/${l}/terms.html chưa dựng lại (node scripts/build-legal.mjs)`);
 }
-if ((fs.readFileSync('web/js/app.js', 'utf8').match(/t\('Lexkite™ là nhãn hiệu của \{owner\}\.'/g) || []).length < 2) tmErr.push('web/js/app.js: chân trang chào mừng thiếu dòng nhãn hiệu');
+// Chân trang Welcome: chuỗi nhãn hiệu một nguồn ở web/js/welcome.js (field copy), cả HAI khung (điện thoại welcome.js + máy tính welcome-desk.js) phải in copy trong <footer>
+if (!/copy: [^\n]*t\('Lexkite™ là nhãn hiệu của \{owner\}\.'/.test(fs.readFileSync('web/js/welcome.js', 'utf8'))) tmErr.push('web/js/welcome.js: chân trang chào mừng thiếu dòng nhãn hiệu (copy)');
+for (const fr of ['web/js/st/v2/welcome.js', 'web/js/st/v2/welcome-desk.js']) if (!/copy\)[^]*<\/footer>/.test(fs.readFileSync(fr, 'utf8'))) tmErr.push(fr + ': khung chào mừng không in dòng nhãn hiệu (copy) trong <footer>');
 if (tmErr.length) { console.error('✗ brand-check (nhãn hiệu):\n  - ' + tmErr.join('\n  - ')); process.exit(1); }
 console.log(`✓ brand-check: Lexkite™ ở chân trang ${Object.keys(TM_NOTE).length} ngôn ngữ + điều khoản (logo/wordmark/<title> không đổi)`);
 

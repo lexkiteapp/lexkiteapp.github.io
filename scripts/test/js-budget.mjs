@@ -1,7 +1,7 @@
 // Ngân sách web/js đếm đúng "byte người học tải" (scripts/lib/js-budget.mjs): nguồn dựng en.js không bị tính 2 lần,
 // nhưng nhóm nào được nạp lúc chạy (đường dẫn trực tiếp hoặc map tên → js/i18n/en/${n}.js) thì VẪN tính – không có lỗ hổng che byte thật.
 import fs from 'node:fs';
-import { enBuildGroups, loadedAtRuntime, buildOnlyEn, jsTotal, isAdmin, adminRefs, learnerUses, adminOnlyDeps } from '../lib/js-budget.mjs';
+import { langPacks, learnerBytes, enBuildGroups, loadedAtRuntime, buildOnlyEn, jsTotal, isAdmin, adminRefs, learnerUses, adminOnlyDeps } from '../lib/js-budget.mjs';
 let fails = 0; const ok = (c, m) => { if (!c) { fails++; console.log('✗', m); } };
 const sh = fs.readFileSync('scripts/build-i18n.sh', 'utf8'), groups = enBuildGroups(sh);
 ok(groups.includes('core') && groups.includes('shell') && groups.length >= 8, `đọc được danh sách nhóm gộp en.js từ build-i18n.sh (${groups.join(' ')})`);
@@ -34,5 +34,16 @@ const { total, skipped, admin } = jsTotal('.');
 for (const { file } of admin) ok(!inApp(file), `${file} chỉ quản trị dùng nhưng vẫn bị đóng vào app Android/iOS (thêm --exclude trong scripts/build-mobile.sh)`);
 ok(total > 0 && skipped.length === skip.length, 'jsTotal đếm được và bỏ đúng các nguồn dựng');
 ok(admin.some(x => x.file === 'web/js/admin.js'), 'admin.js không bị tính vào byte người học');
+// Thước mới 5/11: nền + gói ngôn ngữ LỚN NHẤT (không phải trung bình, không phải tổng 13 gói)
+const LB = learnerBytes('.'), pk = langPacks('.'), vals = Object.values(pk);
+ok(vals.length >= 12 && !('en' in pk), `langPacks: ≥ 12 gói ngoài en (có ${vals.length})`);
+ok(LB.topSize === Math.max(...vals) && pk[LB.topLang] === LB.topSize, 'gói lớn nhất = max thật, không phải trung bình');
+ok(LB.learner === LB.total - LB.sum + LB.topSize, 'learner = total − Σ gói + gói lớn nhất');
+ok(LB.learner < LB.total && LB.learner > LB.total - LB.sum, 'thước mới nằm giữa: nhỏ hơn tổng cả kho, lớn hơn nền thuần (vẫn tính 1 gói)');
+// Tình huống Play & Speak (speak/s/<id>[.<lang>].js) nay ở web/cpack/speak/s (tải lười, băm tên) → KHÔNG tính vào nền hay gói ngôn ngữ; kho JS không được mọc lại thư mục này
+ok(!fs.existsSync('web/js/speak/s'), 'tình huống Play & Speak nằm trong web/cpack/speak/s, không phải web/js/speak/s');
+const bj = JSON.parse(fs.readFileSync('scripts/test/budget.json', 'utf8'));
+ok(Math.max(...vals) <= bj.langPackMax, `gói ${LB.topLang} ${LB.topSize} B ≤ langPackMax ${bj.langPackMax}`);
+ok(LB.total <= bj.totalAll && bj.totalAll >= bj.totalJs, 'totalAll (chặn tổng cả kho) tồn tại và ≥ totalJs');
 console.log(fails ? `js-budget: ${fails} lỗi` : `✓ js-budget: bỏ ${skipped.length} nguồn dựng en.js (${(skipped.reduce((s, x) => s + x.size, 0) / 1024).toFixed(0)} KB, đã có trong en.js) · bỏ ${admin.length} file chỉ quản trị (${(admin.reduce((s, x) => s + x.size, 0) / 1024).toFixed(0)} KB) · tổng ${(total / 1048576).toFixed(2)} MB`);
 process.exit(fails ? 1 : 0);

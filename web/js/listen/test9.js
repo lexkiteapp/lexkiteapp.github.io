@@ -26,7 +26,7 @@ script: [
 { s: 'A', t: "Twenty-seven. And the boat leaves from our pier at Westgate. Departure is at a quarter to ten, so please be there by half past nine." },
 { s: 'B', t: "A quarter to ten. Got it." },
 { pause: 1.5 },
-{ say: 'Before you hear the rest of the conversation, you have some time to look at questions 7 to 10.' }, { pause: 3 },
+{ say: g.LTI[3] }, { pause: 3 },
 { s: 'A', t: "Now, the price. The normal adult fare is twenty-two pounds, but groups of over twenty get a discount, so it's eighteen pounds per person." },
 { s: 'B', t: "Eighteen pounds each. That's good value. What's included in the lunch?" },
 { s: 'A', t: "It's a picnic lunch served on board. Sandwiches, fruit and cake. If anyone needs a special diet, just let us know a week before." },
@@ -41,7 +41,7 @@ script: [
 { s: 'B', t: "Perfect. Thanks very much, Neil." },
 ],
 groups: [
-{ type: 'form', title: 'Kingfisher River Cruises – Group booking', instr: 'Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
+{ type: 'form', title: 'Kingfisher River Cruises – Group booking', instr: g.LTI[1], limit: 2,
 items: [
 { n: 1, text: 'Name: Hannah ___', a: ['Lindqvist'], cue: 'L, I, N, D, Q, V, I, S, T', explain: 'Họ được đánh vần L-I-N-D-Q-V-I-S-T. Câu nghe được: “L, I, N, D, Q, V, I, S, T.”' },
 { n: 2, text: 'Group: Thornbury ___ Club', a: ['Walking'], cue: "we're just called the Thornbury Walking Club", explain: 'Bẫy: người ta hay tưởng là hội leo núi (hiking society), nhưng tên đúng là câu lạc bộ đi bộ.' },
@@ -50,7 +50,7 @@ items: [
 { n: 5, text: 'Number of people: ___', a: ['27', 'twenty-seven', 'twenty seven'], cue: 'so twenty-seven altogether', explain: 'Câu lạc bộ có 30 thành viên, 26 người đi được, cộng thêm chính Hannah là 27.' },
 { n: 6, text: 'Departure time: ___ a.m.', a: ['9.45', '9:45', 'quarter to ten', 'a quarter to ten'], cue: 'Departure is at a quarter to ten', explain: '9 giờ 30 là giờ cần có mặt; giờ tàu chạy là 9 giờ 45.' },
 ] },
-{ type: 'note', title: 'Other details', instr: 'Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
+{ type: 'note', title: 'Other details', instr: g.LTI[4], limit: 2,
 items: [
 { n: 7, text: 'Group price: £___ per person', a: ['18', 'eighteen'], cue: "so it's eighteen pounds per person", explain: '22 bảng là giá vé người lớn thông thường; nhóm trên 20 người được giảm còn 18 bảng.' },
 { n: 8, text: 'Special lunch needed: one ___ lunch', a: ['gluten-free', 'gluten free'], cue: "I'll note down one gluten-free lunch", explain: 'Một thành viên không ăn được gluten nên cần một suất không chứa gluten.' },
@@ -90,7 +90,7 @@ script: [
 { s: 'A', t: "And we won't be able to watch a rehearsal either. The company is rehearsing a new play at the moment, but the director has asked for no visitors." },
 { s: 'A', t: "What you will be able to do, though, is stand on the stage itself, and you'll get a chance to try on some of our costumes." },
 { pause: 1.5 },
-{ say: 'Now look at questions 15 to 20.' }, { pause: 3 },
+{ say: g.LTI[5] }, { pause: 3 },
 { s: 'A', t: "Let me tell you a little about the places we'll visit." },
 { s: 'A', t: "We'll start in the foyer, where we are now. Have a look at the floor – the tiles are all original, and they were made in Italy. They're the oldest thing in the building." },
 { s: 'A', t: "From here we'll go into the auditorium. People often expect the seats to be original too, but they were all replaced during the restoration. What's special about the auditorium is the sound. An actor can whisper on stage and you'll hear every word in the back row." },
@@ -178,7 +178,7 @@ script: [
 { s: 'B', t: "Great. So that's another one we can recommend." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 21, q: 'What did Daniel find most surprising in his reading?', options: ['how quickly people throw clothes away', 'how little clothing is recycled into new clothes', 'how much clothing is produced each year'], a: 1, cue: 'It was definitely the recycling figure for me', explain: 'Việc quần áo bị vứt nhanh là điều làm Leah ngạc nhiên; Daniel đã biết từ trước.' },
 { n: 22, q: 'According to the survey, why do most students throw clothes away?', options: ['The clothes are damaged.', 'The clothes are out of fashion.', 'The clothes no longer fit.'], a: 2, cue: "the clothes simply didn't fit any more", explain: 'Hư hỏng là điều cả hai đoán trước, nhưng đứng cuối danh sách; thời trang đứng thứ hai.' },
@@ -238,7 +238,7 @@ script: [
 { s: 'A', t: "Next week we'll look at the history of navigation charts." },
 ],
 groups: [
-{ type: 'note', title: 'The history of lighthouses', instr: 'Complete the notes below. Write ONE WORD ONLY for each answer.', limit: 1,
+{ type: 'note', title: 'The history of lighthouses', instr: g.LTI[2], limit: 1,
 items: [
 { n: 31, text: 'Problem with wood and coal fires: too much ___', a: ['smoke'], cue: 'they produced a great deal of smoke', explain: 'Khói che mất ánh sáng đúng lúc cần nhất. Câu nghe được: “they produced a great deal of smoke.”' },
 { n: 32, text: 'Early offshore towers were made of ___', a: ['timber', 'wood'], cue: 'The first attempts on offshore rocks were made of timber', explain: 'Các tháp gỗ đầu tiên bị bão cuốn trôi. Câu nghe được: “The first attempts on offshore rocks were made of timber.”' },

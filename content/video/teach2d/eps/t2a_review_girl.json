@@ -72,5 +72,46 @@
   "words": 39,
   "seconds": 24.2,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"girl\" mean?",
+  "keyword": "girl",
+  "value": "Girl means a female child.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=girl",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"girl\" mean?",
+    "description": "Girl means a female child.\n\nReview your words, free: https://lexkite.com/app/#/review?w=girl\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "girl",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"girl\" mean?\n\nGirl means a female child.\n\nReview your words, free: https://lexkite.com/app/#/review?w=girl"
+   },
+   "instagram": {
+    "caption": "What does \"girl\" mean?\n\nGirl means a female child.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"girl\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a female child. Girl means a female child. Try the full lesson and quiz here: {link}"
  }
 }

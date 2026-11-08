@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"wait\" mean?",
+  "keyword": "wait",
+  "value": "Wait means to spend time until an expected thing happens.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=wait",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"wait\" mean?",
+    "description": "Wait means to spend time until an expected thing happens.\n\nReview your words, free: https://lexkite.com/app/#/review?w=wait\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "wait",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"wait\" mean?\n\nWait means to spend time until an expected thing happens.\n\nReview your words, free: https://lexkite.com/app/#/review?w=wait"
+   },
+   "instagram": {
+    "caption": "What does \"wait\" mean?\n\nWait means to spend time until an expected thing happens.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"wait\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to spend time until an expected thing happens. Wait means to spend time until an expected thing happens. Practice it with a free quiz: {link}"
  }
 }

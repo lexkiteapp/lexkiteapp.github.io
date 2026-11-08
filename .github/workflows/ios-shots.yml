@@ -35,7 +35,7 @@ jobs:
           [ -n "$X" ] && sudo xcode-select -s "$X/Contents/Developer"; xcodebuild -version
       - name: Build web → mobile/www (+ script điều khiển chỉ cho bản chụp ảnh) → cap copy
         run: |
-          npm ci --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
           ./scripts/build-mobile.sh
           cp scripts/ios-shots-inject.js mobile/www/shots-inject.js
           perl -0pi -e 's#<head>#<head><script src="shots-inject.js"></script>#' mobile/www/index.html
@@ -102,8 +102,8 @@ jobs:
           done 3< devs.txt
       - name: Đóng khung + chữ (Playwright Chromium)
         run: |
-          npm i --no-save --no-audit --no-fund playwright@1.50.1
-          npx playwright install chromium
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund playwright@1.50.1
+          bash scripts/ci/pw-install.sh chromium
           node scripts/ios-shots.mjs frame ios-raw ios-shots
       - uses: actions/upload-artifact@v4
         if: always()
