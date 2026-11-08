@@ -7,10 +7,10 @@ import argparse, bz2, hashlib, re, sys
 import xml.etree.ElementTree as ET
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--dump', required=True); ap.add_argument('--out', required=True)
+ap.add_argument('--dump'); ap.add_argument('--txt', nargs='*', default=[]); ap.add_argument('--out', required=True)
 ap.add_argument('--max', type=int, default=2_000_000)
 # 08/11: cùng bộ lọc cho các dump MediaWiki tiếng Anh khác (Wikivoyage/Wikinews/Wikibooks) – tiền tố id = nguồn (job.mjs EX_SRC)
-ap.add_argument('--prefix', default='sw', choices=['sw', 'wv', 'wnw', 'wb'])
+ap.add_argument('--prefix', default='sw', choices=['sw', 'wv', 'wnw', 'wb', 'wvs', 'gb'])  # 08/11 wvs = Wikiversity, gb = Project Gutenberg (--txt: tệp .txt, bỏ đầu/cuối giấy phép PG)
 a = ap.parse_args()
 
 def clean(t):
@@ -36,31 +36,49 @@ def clean(t):
 SENT = re.compile(r'(?<=[.!?])\s+(?=[A-Z])')
 BAD = re.compile(r'[^\x20-\x7e]|[0-9"()\[\]{}<>|=_*#@&;:/\\~^%$+]|\bmay (?:also )?(?:refer|mean)\b|\b(?:he|she|it|they|this|these|those|his|her|their|its|him|them)\b', re.I)
 seen, n_out, n_pages = set(), 0, 0
-with bz2.open(a.dump, 'rb') as f, open(a.out, 'w', encoding='utf-8') as o:
-    pid, ns, red, txt = None, None, False, None
-    for ev, el in ET.iterparse(f, events=('end',)):
-        tag = el.tag.rsplit('}', 1)[-1]
-        if tag == 'ns': ns = el.text
-        elif tag == 'redirect': red = True
-        elif tag == 'id' and pid is None: pid = el.text            # id đầu tiên trong <page> là id trang
-        elif tag == 'text': txt = el.text or ''
-        elif tag == 'page':
-            if ns == '0' and not red and txt and not txt.lstrip().lower().startswith('#redirect'):
-                n_pages += 1; k = 0
-                for line in clean(txt).split('\n'):
-                    line = line.strip()
-                    if not line or not line[0].isalpha(): continue   # bỏ danh sách, tiêu đề (=), bảng, định dạng
-                    for s in SENT.split(line):
-                        s = s.strip()
-                        if not (20 <= len(s) <= 110) or s[-1] not in '.!?' or not s[0].isupper() or BAD.search(s): continue
-                        if not 5 <= len(s.split()) <= 14: continue
-                        h = hashlib.md5(s.lower().encode()).digest()[:8]
-                        if h in seen: continue
-                        seen.add(h); k += 1; n_out += 1
-                        o.write(f'{a.prefix}{pid}.{k}\teng\t{s}\n')
-                        if n_out >= a.max: break
-                    if n_out >= a.max: break
-            pid, ns, red, txt = None, None, False, None
-            el.clear()
-            if n_out >= a.max: break
+
+def take(o, pid, text):
+    """lọc hình thức một văn bản đã làm sạch (mỗi dòng một đoạn); ghi TSV; trả False khi đủ --max"""
+    global n_out
+    k = 0
+    for line in text.split('\n'):
+        line = line.strip()
+        if not line or not line[0].isalpha(): continue   # bỏ danh sách, tiêu đề (=), bảng, định dạng
+        for s in SENT.split(line):
+            s = s.strip()
+            if not (20 <= len(s) <= 110) or s[-1] not in '.!?' or not s[0].isupper() or BAD.search(s): continue
+            if not 5 <= len(s.split()) <= 14: continue
+            h = hashlib.md5(s.lower().encode()).digest()[:8]
+            if h in seen: continue
+            seen.add(h); k += 1; n_out += 1
+            o.write(f'{a.prefix}{pid}.{k}\teng\t{s}\n')
+            if n_out >= a.max: return False
+    return True
+
+PG = re.compile(r'\*\*\* *START OF.*?\*\*\*(.*)\*\*\* *END OF', re.S | re.I)
+def pg_body(t):
+    """thân sách Project Gutenberg, mỗi đoạn một dòng; không có dấu START/END thì bỏ cả tệp"""
+    m = PG.search(t)
+    return '\n'.join(re.sub(r'\s+', ' ', p) for p in re.split(r'\n\s*\n', m.group(1))) if m else ''
+
+with open(a.out, 'w', encoding='utf-8') as o:
+    for path in a.txt:
+        n_pages += 1
+        with open(path, encoding='utf-8', errors='ignore') as f:
+            if not take(o, re.sub(r'\D', '', path.rsplit('/', 1)[-1]) or n_pages, pg_body(f.read())): break
+    if a.dump:
+        f = bz2.open(a.dump, 'rb')
+        pid, ns, red, txt = None, None, False, None
+        for ev, el in ET.iterparse(f, events=('end',)):
+            tag = el.tag.rsplit('}', 1)[-1]
+            if tag == 'ns': ns = el.text
+            elif tag == 'redirect': red = True
+            elif tag == 'id' and pid is None: pid = el.text            # id đầu tiên trong <page> là id trang
+            elif tag == 'text': txt = el.text or ''
+            elif tag == 'page':
+                if ns == '0' and not red and txt and not txt.lstrip().lower().startswith('#redirect'):
+                    n_pages += 1
+                    if not take(o, pid, clean(txt)): break
+                pid, ns, red, txt = None, None, False, None
+                el.clear()
 print(f'✓ {a.prefix} (simplewiki.py): {n_pages} trang → {n_out} câu', file=sys.stderr)
