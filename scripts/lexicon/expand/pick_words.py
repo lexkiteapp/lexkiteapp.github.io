@@ -99,7 +99,11 @@ def comps(w):
     c = sorted({x for x in COMP.get(w, [])}, key=lambda x: (-zipf_frequency(x, 'en'), x))
     return [x for x in c if zipf_frequency(x, 'en') >= 2.3][:4]
 out, seen, excl, nsec = [], set(), {}, {False: 0, True: 0}
-need = a.target - max(len(have), len(have_wp))  # mốc 20k đếm theo mục từ#loại
+# mốc 20k đếm mục SỐNG (existing.mjs → <existing>.live.json: kho + đã xuất + chờ soát); mục trượt ở hàng duyệt chỉ để bỏ trùng
+# (08/11: tính cả 12.707 mục trượt → «cần -2063», 0 từ mới suốt 2 ngày). Thiếu tệp sống (chạy tay cũ) → như trước.
+LIVE = re.sub(r'\.json$', '', a.existing) + '.live.json'
+LIVE_N = json.load(open(LIVE)) if os.path.exists(LIVE) else {'wp': len(have_wp), 'w': len(have)}
+need = a.target - max(LIVE_N['w'], LIVE_N['wp'])  # mốc 20k đếm theo mục từ#loại
 OLPW = {h for h, _ in OLP}
 nfreq = 0  # từ CHỈ có tần suất (ngoài danh sách người học) – trần need × 3 (dư 25 % cho hàng duyệt/loại); từ danh sách người học luôn lấy hết
 for w in top_n_list('en', 80000):
