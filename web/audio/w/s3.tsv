@@ -8898,3 +8898,49 @@ supranational	ok	cut_wordis:"Super National." 1.18s · cut_wordis:"Supernational
 unaccustomed	ok	ok
 luminescent	ok	ok
 inductor	ok	ok
+pal	cut_wordis: câu mang: "The word is pell." · dot100:"PEL" 0.78s · cut_wordis100: câu mang: "The word is pell." · cut_next: câu mang: "Next word, Pali." · plain095:"Purl" 0.55s · dot090:"Depel." 0.63s	ok
+nonsense	ok	ok
+brass	cut_wordis: câu mang: "The word is brassy." · dot100:"Breast" 0.84s · cut_wordis100:"Breath." 0.64s · cut_wordis100:"Breath." 0.60s · cut_next: câu mang: "Next word, brassi." · plain095:"Breasts" 0.64s · dot090:"abreast" 0.91s	ok
+humorous	ok	ok
+dustbin	ok	ok
+gyroscope	ok	ok
+immunological	ok	ok
+econometrics	ok	ok
+internationalism	ok	ok
+ovum	cut_wordis:"It's over." 0.81s · cut_wordis:"Ovem" 0.76s · dot100:"Oh, them." 0.69s · cut_wordis100:"It's over." 0.73s · cut_wordis100:"Oh, them." 0.68s · cut_next:"Over me." 0.75s · cut_next:"Them." 0.48s · plain095:"Oh, them." 0.62s · dot090:"Oh them." 0.78s	ok
+partiality	ok	ok
+drugstore	ok	ok
+miracle	ok	ok
+unbelievable	ok	ok
+herd	cut_wordis: câu mang: "The word is heard." · dot100:"Heard." 0.83s · cut_wordis100: câu mang: "The word is heard." · cut_next: câu mang: "Next word, heardy." · plain095:"Heard you." 0.53s · dot090:"Heard." 0.96s	cut_wordis: câu mang: "The word is heard." · dot100:"Heard." 0.58s · cut_wordis100: câu mang: "The word is heard." · cut_next: câu mang: "Next word, heard." · plain095:"Turd." 0.41s · dot090:"Heard." 0.66s
+transitional	ok	ok
+unfairly	ok	ok
+retrospect	ok	ok
+unrivaled	ok	ok
+monopolistic	ok	ok
+camshaft	ok	ok
+heraldic	ok	ok
+deride	ok	ok
+eigenvalue	ok	ok
+meditation	ok	ok
+imaginary	ok	ok
+graceful	ok	ok
+hearty	ok	cut_wordis: câu mang: "The word is hardy." · dot100:"Hardy." 0.65s · cut_wordis100: câu mang: "The word is hardy." · cut_next: câu mang: "Next word, hardy." · plain095:"Hardy." 0.67s · dot090:"a hardy" 0.69s
+geographer	ok	ok
+aerodrome	ok	ok
+newsprint	ok	ok
+pupa	ok	ok
+discontinuity	ok	ok
+collectivism	ok	ok
+empiricism	ok	ok
+provable	ok	ok
+vitreous	ok	ok
+incontrovertible	ok	ok
+foramen	ok	ok
+inductance	ok	ok
+oscillate	ok	ok
+countermeasure	ok	ok
+deferential	ok	ok
+interlocutor	ok	ok
+missive	ok	ok
+decapitate	ok	ok
