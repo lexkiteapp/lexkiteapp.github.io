@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url';
 // Mở rộng kho từ (docs/LEXICON.md §Mở rộng 20k): cổng mục (gateEntry), dịch ngược, sổ việc hạ nguồn (infra/lexicon-consumers.json).
 import fs from 'fs';
 import path from 'path';
-import { defGrammarBad, mixPool, yieldSplit, quotaDry } from '../lexicon/expand/lib.mjs';
+import { defGrammarBad, mixPool, yieldSplit, quotaDry, shardOf } from '../lexicon/expand/lib.mjs';
 import { wsdUnwrap, gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, posShapeOk, omwHas, trIn, inflRe } from '../lexicon/expand/lib.mjs';
 import { grade, hasBad, applies } from '../lexicon/expand/grade.mjs';
 import { nativeOwners, nativeLine } from '../lexicon/expand/tatoeba-native.mjs';
@@ -344,7 +344,7 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   const m = IC.checkEntry({ w: 'malaria', pos: 'n', ipa: '/mæˈleəriə/', ipaUS: '/məˈleriə/', src: { ipaUK: 'espeak' } }, R);
   ok(m.ipa === '/məˈleərɪə/' && IC.strictEq('/məˈleərɪə/', '/məˈlɛəɹiə/') && !IC.strictEq('/mæˈleəriə/', '/məˈlɛəɹɪə/'), 'IPA Anh espeak ↔ Britfone khớp chặt (malaria)'); }
 // hạ tầng (30/10): retry tính TRONG N – 2.701 mục requeue + N mới trong 1 lượt vượt timeout → mất cả lượt
-{ const J = fs.readFileSync('scripts/lexicon/expand/job.mjs', 'utf8'), Y = fs.readFileSync('.github/workflows/lexicon-expand.yml', 'utf8'), m = /timeout-minutes: (\d+)/.exec(Y), n = /N="\$\{N:-(\d+)\}"/.exec(Y);
+{ const J = fs.readFileSync('scripts/lexicon/expand/job.mjs', 'utf8'), Y = fs.readFileSync('.github/workflows/lexicon-expand.yml', 'utf8'), m = /\n  expand:[\s\S]*?timeout-minutes: (\d+)/.exec(Y), n = /N="\$\{N:-(\d+)\}"/.exec(Y);
   ok(/pool = mixPool\(rt, pool, N,/.test(J) && !/pool = \[\.\.\.C\.items\.filter\(e => want\.has/.test(J), 'job: retry + mới trộn bằng mixPool, cắt về N (không còn retry đứng trước chiếm trọn)');
   // 03/11 sản lượng 336 → 35 → 15 mục/ngày: 3.641 mục retry (rớt vi/ví dụ) chiếm trọn N, ứng viên mới không bao giờ tới → hạn ngạch retry ≤ 25 % N
   { const R = n => Array.from({ length: n }, (_, i) => 'r' + i), F = n => Array.from({ length: n }, (_, i) => 'f' + i), P = (r, f, N, s) => mixPool(r, f, N, s);
@@ -447,6 +447,15 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
 { const job = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'), wf = fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8');
   ok(/\[\/\^wv\\d\/, 'wikivoyage'\]/.test(job) && /'wikinews'/.test(job) && /'wikibooks'/.test(job) && /Wikivoyage CC BY-SA 4\.0/.test(job) && /Wikinews CC BY/.test(job), 'job.mjs: nguồn wv/wnw/wb + giấy phép');
   ok(wf.includes('enwikivoyage:wv enwikinews:wnw enwikibooks:wb') && wf.includes('${d%%:*}-latest-pages-articles.xml.bz2') && wf.includes('--prefix "${d##*:}"'), 'lexicon-expand.yml: tải Wikivoyage/Wikinews/Wikibooks'); }
+// 08/11 shard song song (ci-filler): băm từ#loại chia hết, không trùng; retry shard khác giữ khoá; chỉ shard 0 soát/xuất/nối/trả thuê; probe đếm việc còn
+{ const ks = Array.from({ length: 400 }, (_, i) => 'w' + i + '#n'), by = [0, 1, 2, 3].map(i => ks.filter(k => shardOf(k, 4) === i));
+  ok(by.reduce((a, b) => a + b.length, 0) === 400 && by.every(b => b.length > 50) && ks.every(k => shardOf(k, 1) === 0), 'shardOf: chia hết, đều, n=1 → 0');
+  const job = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'), wf = fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8');
+  ok(/SN > 1\) C\.items = C\.items\.filter\(e => shardOf\(kk\(e\), SN\) === SI\)/.test(job) && /SN > 1 && shardOf\(k, SN\) !== SI \? k/.test(job), 'job.mjs --shard: lọc ứng viên + retry shard khác giữ khoá');
+  ok((wf.match(/matrix\.shard == 0 \}\}/g) || []).length >= 3 && /--shard "\$\{\{ matrix\.shard \}\}\/\$\{\{ needs\.plan\.outputs\.n \}\}"/.test(wf) && /\/ \$\{\{ needs\.plan\.outputs\.n \}\} \)\)/.test(wf) && /lexicon-expand-\$\{\{ matrix\.shard \}\}/.test(wf), 'lexicon-expand.yml: shard 0 soát/nối/trả thuê, neuron chia đều, artifact theo shard');
+  const bl = JSON.parse(fs.readFileSync(path.join(ROOT, 'infra/ci-backlog.json'), 'utf8')).entries.find(e => e.id === 'lexicon-expand');
+  const { execFileSync } = await import('node:child_process'), out = execFileSync('node', [path.join(ROOT, bl.probe.cmd.split(' ')[1])], { cwd: ROOT, encoding: 'utf8' });
+  ok(bl.shards_input === 'shards' && bl.max_shards <= 6 && new RegExp(bl.probe.left_re).test(out), `ci-backlog lexicon-expand: shard + probe (${out.trim()})`); }
 // 05/11 Common Voice en (commonvoice.py, CC0): lọc hình thức + dễ, id cv<tệp>.<dòng>, bỏ trùng/đại từ/số
 { const { execFileSync } = await import('node:child_process'), os = await import('node:os');
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'cv-'));

@@ -12,7 +12,7 @@ import { execFileSync } from 'child_process';
 import { arpaToIpa, badChars, ukStyle } from '../ipa.mjs';
 import { ROOT, rd, wr, loadAll } from '../lib.mjs';
 import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
-import { mixPool, RETRY_SHARE, yieldSplit, quotaDry, inflRe, gateEntry, defPosOk, defGrammarBad, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, CW, ov, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
+import { shardOf, mixPool, RETRY_SHARE, yieldSplit, quotaDry, inflRe, gateEntry, defPosOk, defGrammarBad, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, CW, ov, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
 import { createPool, judgeKey, familyOf } from '../../lib/ai-pool.mjs';
 import { kaikki, clean, pmap } from './wikt.mjs';
 import { espeakUK } from './espeak.mjs';
@@ -35,9 +35,12 @@ const t0 = Date.now(), stat = { calls: 0, fail: 0, kaikki: 0, ukMiss: 0 };
 const done = doneWords();
 const RETRY = 'content/lexicon/expand/retry/words.json', retry = fs.existsSync(new URL(RETRY, ROOT)) ? JSON.parse(rd(RETRY)) : { _doc: 'Từ làm lại ở lượt kế (lỗ dữ liệu nguồn – không vào hàng duyệt). job.mjs tự thêm/bớt.', items: [] };
 const kk = e => e.w + '#' + e.pos; // khoá trùng = từ#loại (30/10 đa từ loại: kho có duck#n vẫn làm duck#v)
+// 08/11 --shard i/n (ci-filler lấp runner rảnh): mỗi shard nhận phần ứng viên + retry theo băm từ#loại – không trùng mục giữa shard; gộp lô qua save-merge 3 chiều
+const [SI, SN] = String(arg('--shard', '0/1')).split('/').map(Number);
+if (SN > 1) C.items = C.items.filter(e => shardOf(kk(e), SN) === SI);
 // mục retry khớp ĐÚNG từ#loại; khoá cũ không còn ứng viên cùng loại (ứng viên đổi từ loại chính) → ứng viên cùng từ chưa làm (như trước, không mất mục)
 const CK = new Set(C.items.map(kk)), byW = new Map(); for (const e of C.items) if (!done.has(kk(e)) && !byW.has(e.w)) byW.set(e.w, kk(e));
-retry.items = [...new Set(retry.items.map(k => CK.has(k) ? k : byW.get(k.split('#')[0]) || k))]; // đổi khoá cũ ngay → lưu lại đúng khoá, gỡ được khi đạt
+retry.items = [...new Set(retry.items.map(k => SN > 1 && shardOf(k, SN) !== SI ? k : CK.has(k) ? k : byW.get(k.split('#')[0]) || k))]; // mục của shard khác giữ nguyên khoá // đổi khoá cũ ngay → lưu lại đúng khoá, gỡ được khi đạt
 const want = new Set(retry.items.filter(k => CK.has(k)));
 let pool = C.items.filter(e => !done.has(kk(e)) && !want.has(kk(e))); // từ làm lại KHÔNG tính vào N từ mới
 if (WORDS) { const want = JSON.parse(fs.readFileSync(WORDS, 'utf8')).items, miss = [];

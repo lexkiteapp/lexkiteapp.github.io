@@ -273,6 +273,8 @@ export function wsdUnwrap(o, ids) {
 // 03/11 hạn ngạch retry: mục làm lại (rớt vi/ví dụ, đã thử một lần với nguồn hiện tại) chỉ chiếm ≤ share × N để ứng viên MỚI luôn được xử lý;
 // ứng viên mới ít hơn phần còn lại → retry lấp chỗ trống (không bỏ phí lượt). Thứ tự giữ nguyên (tần suất giảm dần). Thuần hàm, có test.
 export const RETRY_SHARE = 0.25;
+/** shard của mục (FNV-1a trên từ#loại) – job.mjs --shard i/n: các shard song song không trùng mục */
+export const shardOf = (k, n) => { let h = 2166136261; for (const c of String(k)) h = Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0; return h % n; };
 export function mixPool(retryList, fresh, N, share = RETRY_SHARE) {
   const cap = Math.max(0, Math.min(retryList.length, Math.ceil(N * Math.min(1, Math.max(0, share)))));
   const f = fresh.slice(0, N - cap), r = retryList.slice(0, Math.max(cap, N - f.length));
