@@ -1265,6 +1265,150 @@
           "ex": []
         }
       ]
+    },
+    "travel": {
+      "theme": "Du lịch và khám phá",
+      "can": "Bạn sẽ kể về chuyến đi và đặt dịch vụ",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Lên kế hoạch chuyến đi",
+          "sub": "Điểm đến, chỗ ở, lịch trình",
+          "min": 4,
+          "words": [
+            [
+              "destination",
+              "n"
+            ],
+            [
+              "accommodation",
+              "n"
+            ],
+            [
+              "itinerary",
+              "n"
+            ],
+            [
+              "souvenir",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Our itinerary included three days in Hoi An.",
+              "vi": "Lịch trình của chúng tôi gồm ba ngày ở Hội An."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: tour tham quan",
+          "sub": "Chuyến đi trong ngày, danh lam",
+          "min": 3,
+          "words": [
+            [
+              "excursion",
+              "n"
+            ],
+            [
+              "landmark",
+              "n"
+            ],
+            [
+              "hospitality",
+              "n"
+            ],
+            [
+              "exotic",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "We went on a day excursion to Ha Long Bay.",
+              "vi": "Chúng tôi đi tham quan Hạ Long trong một ngày."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: du lịch và văn hóa",
+          "sub": "Di sản, du lịch sinh thái",
+          "min": 3,
+          "words": [
+            [
+              "authentic",
+              "adj"
+            ],
+            [
+              "heritage",
+              "n"
+            ],
+            [
+              "ecotourism",
+              "n"
+            ],
+            [
+              "globalisation",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Many travellers look for an authentic local experience.",
+              "vi": "Nhiều du khách tìm kiếm trải nghiệm địa phương chân thực."
+            }
+          ]
+        },
+        {
+          "slot": "story",
+          "title": "Truyện: làm thủ tục ở sân bay",
+          "sub": "Đọc đoạn hội thoại ở quầy check-in",
+          "min": 4,
+          "words": [],
+          "ex": [],
+          "story": "s-airport"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: điểm đến và chỗ ở",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "destination",
+              "n"
+            ],
+            [
+              "accommodation",
+              "n"
+            ],
+            [
+              "excursion",
+              "n"
+            ],
+            [
+              "authentic",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "The price includes accommodation and breakfast.",
+              "vi": "Giá đã gồm chỗ ở và bữa sáng."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng du lịch",
+          "sub": "Nghe, đọc và nói về du lịch",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
     }
   }
 }
