@@ -7933,6 +7933,33 @@
    "b": "41615420488",
    "repo": "m4"
   },
+  "antibody#n": {
+   "h": "1a28721fecb4cc2b",
+   "url": "https://media.lexkite.com/vimg/1a28721fecb4cc2b.webp",
+   "alt": "antibody",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.337,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 100,
+    "tries": 1
+   },
+   "ph": "ba37c5c8e09d3916",
+   "at": "2026-11-08",
+   "b": "42435663000",
+   "repo": "m4"
+  },
   "anticlockwise#adv": {
    "h": "9aefa80ca8b8a07f",
    "url": "https://media.lexkite.com/vimg/9aefa80ca8b8a07f.webp",
@@ -17090,6 +17117,32 @@
    "ph": "e56586969e999998",
    "at": "2026-11-04",
    "b": "41775450761",
+   "repo": "m4"
+  },
+  "blended learning#n": {
+   "h": "91406a87f8796fb3",
+   "url": "https://media.lexkite.com/vimg/91406a87f8796fb3.webp",
+   "alt": "blended learning",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.298,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 100,
+    "tries": 4
+   },
+   "ph": "fbb3900f4fc4c0cc",
+   "at": "2026-11-07",
+   "b": "42383506212",
    "repo": "m4"
   },
   "blender#n": {
@@ -45314,6 +45367,33 @@
    "ph": "e8b186c19ec791ce",
    "at": "2026-10-30",
    "b": "41047063580",
+   "repo": "m4"
+  },
+  "denominator#n": {
+   "h": "d517aca9863cb283",
+   "url": "https://media.lexkite.com/vimg/d517aca9863cb283.webp",
+   "alt": "denominator",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.354,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 100,
+    "tries": 2
+   },
+   "ph": "bcd3d324cb2ccc2c",
+   "at": "2026-11-08",
+   "b": "42435663000",
    "repo": "m4"
   },
   "denote#v": {
@@ -79239,6 +79319,32 @@
    "ph": "ba95c44a4e3a37c5",
    "at": "2026-11-04",
    "b": "41775450761",
+   "repo": "m4"
+  },
+  "hibernate#v": {
+   "h": "c5260b7dd68a19ad",
+   "url": "https://media.lexkite.com/vimg/c5260b7dd68a19ad.webp",
+   "alt": "hibernate",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.279,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 3
+   },
+   "ph": "efa09097cf342b43",
+   "at": "2026-11-08",
+   "b": "42435663000",
    "repo": "m4"
   },
   "hibernation#n": {
@@ -123270,6 +123376,32 @@
    "ph": "b251d9848c7ab33b",
    "at": "2026-11-02",
    "b": "41348854493",
+   "repo": "m4"
+  },
+  "pirate#n": {
+   "h": "5a21f33d2824436d",
+   "url": "https://media.lexkite.com/vimg/5a21f33d2824436d.webp",
+   "alt": "pirate",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.366,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 5
+   },
+   "ph": "f8b50dc4c3c39cac",
+   "at": "2026-11-08",
+   "b": "42435663000",
    "repo": "m4"
   },
   "pit#n": {
@@ -167799,6 +167931,32 @@
    "ph": "ee9d9162c01d951f",
    "at": "2026-11-04",
    "b": "41884971574",
+   "repo": "m4"
+  },
+  "text#n": {
+   "h": "5464798266698f72",
+   "url": "https://media.lexkite.com/vimg/5464798266698f72.webp",
+   "alt": "text",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.325,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 100,
+    "tries": 2
+   },
+   "ph": "b8f106cf87c8e586",
+   "at": "2026-11-08",
+   "b": "42448278793",
    "repo": "m4"
   },
   "textile#n": {

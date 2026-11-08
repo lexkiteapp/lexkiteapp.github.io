@@ -149,7 +149,8 @@
   {
    "id": "reading",
    "paths": [
-    "web/js/readtest"
+    "web/js/readtest",
+    "web/cpack/readings"
    ],
    "owner": "claude",
    "gen": false,
@@ -165,7 +166,8 @@
   {
    "id": "listening",
    "paths": [
-    "web/js/listen"
+    "web/js/listen",
+    "web/cpack/listen"
    ],
    "owner": "claude",
    "gen": false,
@@ -196,7 +198,8 @@
   {
    "id": "toefl",
    "paths": [
-    "web/js/toefl"
+    "web/js/toefl",
+    "web/cpack/toefl"
    ],
    "owner": "claude",
    "gen": false,
@@ -207,6 +210,24 @@
    "delegate": [
     "test/content-check.mjs"
    ]
+  },
+  {
+   "id": "cambridge",
+   "paths": [
+    "web/cpack/cambridge"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr",
+    "format"
+   ],
+   "delegate": [
+    "content-qa/exam-format-check.mjs",
+    "test/cambridge.mjs"
+   ],
+   "doc": "docs/specs/cambridge.md"
   },
   {
    "id": "exam-spec",
@@ -262,7 +283,8 @@
   {
    "id": "writing",
    "paths": [
-    "web/js/write"
+    "web/js/write",
+    "web/cpack/write"
    ],
    "owner": "antigravity",
    "gen": true,
@@ -280,7 +302,8 @@
   {
    "id": "speaking",
    "paths": [
-    "web/js/speak"
+    "web/js/speak",
+    "web/cpack/speak"
    ],
    "owner": "antigravity",
    "gen": true,
@@ -333,6 +356,7 @@
    "id": "lesson",
    "paths": [
     "web/js/lesson",
+    "web/cpack/lesson",
     "content/lesson"
    ],
    "owner": "claude",
