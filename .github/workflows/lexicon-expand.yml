@@ -56,8 +56,11 @@ jobs:
         with: { python-version: '3.12' }
       - name: Thuê tài nguyên (điều phối việc nền, docs/JOBS.md)
         id: lease
+        if: ${{ matrix.shard == 0 }}   # 08/11: shard > 0 đi cùng thuê của lượt (shard 0) – không gọi điều phối thêm
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
-        run: node scripts/jobs/lease.mjs acquire lexicon-expand ${{ (github.event_name == 'workflow_dispatch' || matrix.shard > 0) && '--force' || '' }}   # shard > 0 đi cùng thuê của lượt (shard 0)
+        run: node scripts/jobs/lease.mjs acquire lexicon-expand ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}
+      # 08/11 (no-prod-hosts: việc ci-filler bơm được): sau khi thuê, chặn DNS host prod – AI đi thẳng kho CF_POOL/GROQ_POOL/GEMINI_POOL, /api/lexai (calls 0) không bị gọi
+      - uses: ./.github/actions/no-prod
       - name: Nguồn miễn phí (wordfreq CC BY-SA 4.0 · WordNet · CMUdict BSD-2 · LDNOOBW CC BY 4.0)
         if: ${{ steps.lease.outputs.skip != '1' }}
         run: |
@@ -170,4 +173,4 @@ jobs:
       - name: Trả thuê
         if: ${{ always() && steps.lease.outputs.skip != '1' && matrix.shard == 0 }}
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
-        run: node scripts/jobs/lease.mjs release lexicon-expand --status "${{ job.status }}"
+        run: sudo sed -i '/lexkite/d' /etc/hosts && node scripts/jobs/lease.mjs release lexicon-expand --status "${{ job.status }}"
