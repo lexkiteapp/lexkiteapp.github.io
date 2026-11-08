@@ -1,0 +1,14 @@
+{
+ "id": "cf-functions-2026-11-08-s0",
+ "source": "content-factory",
+ "kind": "functions",
+ "n": 13,
+ "checked": [
+  {
+   "id": "refusing-politely",
+   "ok": true,
+   "by": "gemini-3.8-flash"
+  }
+ ],
+ "status": "accepted"
+}

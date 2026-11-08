@@ -1,0 +1,14 @@
+{
+ "id": "cf-functions-2026-11-08-s3",
+ "source": "content-factory",
+ "kind": "functions",
+ "n": 5,
+ "checked": [
+  {
+   "id": "interrupting-politely",
+   "ok": true,
+   "by": "openai/gpt-oss-120b"
+  }
+ ],
+ "status": "accepted"
+}

@@ -1,0 +1,14 @@
+{
+ "id": "cf-mcq-2026-11-08-s0",
+ "source": "content-factory",
+ "kind": "mcq",
+ "n": 3,
+ "checked": [
+  {
+   "id": "future-in-past#1",
+   "ok": true,
+   "by": "openai/gpt-oss-20b"
+  }
+ ],
+ "status": "accepted"
+}

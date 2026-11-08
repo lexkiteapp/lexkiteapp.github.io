@@ -1,0 +1,14 @@
+{
+ "id": "cf-mcq-2026-11-08-s1",
+ "source": "content-factory",
+ "kind": "mcq",
+ "n": 2,
+ "checked": [
+  {
+   "id": "present-perfect#0",
+   "ok": true,
+   "by": "openai/gpt-oss-120b"
+  }
+ ],
+ "status": "accepted"
+}

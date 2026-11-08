@@ -980,6 +980,71 @@
    }
   },
   {
+   "id": "booking-by-phone",
+   "name": "Booking an appointment by phone",
+   "level": "A2",
+   "lo": [
+    "I.A2.09"
+   ],
+   "situations": [
+    "work",
+    "health"
+   ],
+   "phrases": {
+    "formal": [
+     "I would like to arrange an appointment, please.",
+     "Could you tell me your earliest availability?",
+     "I am calling to schedule a consultation."
+    ],
+    "neutral": [
+     "I would like to book an appointment for Tuesday.",
+     "Do you have any openings this afternoon?",
+     "Can I make an appointment with the doctor, please?"
+    ],
+    "informal": [
+     "Can I come in tomorrow morning?",
+     "Do you have anything free today?",
+     "Can I book a slot for this Friday?"
+    ]
+   },
+   "responses": [
+    "Certainly, what time suits you best?",
+    "We have an opening at two o'clock.",
+    "Could I take your name, please?"
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "Can I make an appointment with the doctor, please?"
+    },
+    {
+     "who": "B",
+     "en": "Certainly, what time suits you best?"
+    },
+    {
+     "who": "A",
+     "en": "Do you have anything available tomorrow morning?"
+    },
+    {
+     "who": "B",
+     "en": "Yes, we have an opening at ten o'clock."
+    }
+   ],
+   "avoid": {
+    "wrong": "I want an appointment.",
+    "right": "I would like to make an appointment.",
+    "why": "'I want' sounds abrupt and demanding when requesting a service."
+   },
+   "note": "Always confirm the date and time before hanging up to prevent misunderstandings.",
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
+   }
+  },
+  {
    "id": "checking-in-hotel",
    "name": "Checking in at a hotel",
    "level": "A2",
@@ -1102,6 +1167,136 @@
    "note": "Always thank the person before or after saying no so you remain polite.",
    "qa": {
     "gen": "gemini-3.7-flash",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
+   }
+  },
+  {
+   "id": "disagreeing-simply",
+   "name": "Disagreeing in a simple way",
+   "level": "A2",
+   "lo": [
+    "I.A2.07"
+   ],
+   "situations": [
+    "social",
+    "school"
+   ],
+   "phrases": {
+    "formal": [
+     "I’m afraid I disagree.",
+     "With respect, I see it differently.",
+     "I’m not convinced."
+    ],
+    "neutral": [
+     "I don’t think that’s right.",
+     "I see it another way.",
+     "That’s not how I understand it."
+    ],
+    "informal": [
+     "I don’t think so.",
+     "Not really.",
+     "No way!"
+    ]
+   },
+   "responses": [
+    "Can you explain why?",
+    "I understand your view.",
+    "That’s a fair point."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "I’m not convinced that the test will be easy."
+    },
+    {
+     "who": "B",
+     "en": "Why do you think that?"
+    },
+    {
+     "who": "A",
+     "en": "Because the material is quite tough."
+    },
+    {
+     "who": "B",
+     "en": "I see, maybe we can study together."
+    }
+   ],
+   "avoid": {
+    "wrong": "I disagree with you very much.",
+    "right": "I strongly disagree.",
+    "why": "\"Very much\" sounds unnatural; use stronger adverbs."
+   },
+   "note": "Disagree politely, especially in formal contexts.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 4,
+     "gemini:gemini-3.8-flash": 4
+    }
+   }
+  },
+  {
+   "id": "giving-directions",
+   "name": "Giving directions",
+   "level": "A2",
+   "lo": [
+    "I.A2.02"
+   ],
+   "situations": [
+    "city",
+    "travel"
+   ],
+   "phrases": {
+    "formal": [
+     "Go straight ahead until you reach the crossroads.",
+     "Take the second turn on your right-hand side.",
+     "Continue past the station and it will be on your left."
+    ],
+    "neutral": [
+     "Go straight on and turn left at the lights.",
+     "Take the first street on the right.",
+     "Walk down this road for two minutes."
+    ],
+    "informal": [
+     "Just head down here and turn left.",
+     "It is right around the corner.",
+     "Keep going until you see the big park."
+    ]
+   },
+   "responses": [
+    "Thank you very much.",
+    "Is it far from here?",
+    "Okay, got it."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "Excuse me, where is the nearest bank?"
+    },
+    {
+     "who": "B",
+     "en": "Go straight on and turn left at the lights."
+    },
+    {
+     "who": "A",
+     "en": "Is it far from here?"
+    },
+    {
+     "who": "B",
+     "en": "No, it takes only two minutes to walk there."
+    }
+   ],
+   "avoid": {
+    "wrong": "Turn to the left hand.",
+    "right": "Turn left.",
+    "why": "Use the simple adverb 'left' or 'on your left' for direction commands."
+   },
+   "note": "Use clear landmarks like traffic lights, corners, or stations to make directions easier to follow.",
+   "qa": {
+    "gen": "gemini-3.8-flash",
     "j": {
      "gpt-oss:openai/gpt-oss-120b": 5,
      "qwen:qwen/qwen3.8-27b": 5
@@ -1304,6 +1499,72 @@
    }
   },
   {
+   "id": "making-suggestion",
+   "name": "Making a suggestion",
+   "level": "A2",
+   "lo": [
+    "I.A2.01"
+   ],
+   "situations": [
+    "social",
+    "work",
+    "travel"
+   ],
+   "phrases": {
+    "formal": [
+     "May I suggest that we schedule a meeting?",
+     "Perhaps we could consider a different route?",
+     "I would like to propose a new idea."
+    ],
+    "neutral": [
+     "How about we try the new cafe?",
+     "What if we start early?",
+     "Maybe we should ask for help."
+    ],
+    "informal": [
+     "Let's grab a bite!",
+     "Why don’t we watch a film?",
+     "We could just go now."
+    ]
+   },
+   "responses": [
+    "Sounds good.",
+    "I think that works.",
+    "Okay, let's do that."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "May I suggest that we take the train instead of the bus?"
+    },
+    {
+     "who": "B",
+     "en": "Sounds good."
+    },
+    {
+     "who": "A",
+     "en": "Great, I’ll book the tickets."
+    },
+    {
+     "who": "B",
+     "en": "Thanks, that helps a lot."
+    }
+   ],
+   "avoid": {
+    "wrong": "I suggest you to go.",
+    "right": "I suggest we go.",
+    "why": "'Suggest' is followed by a clause, not 'to' + infinitive."
+   },
+   "note": "After 'suggest' use 'that' clause or a gerund.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 4,
+     "gemini:gemini-3.8-flash": 4
+    }
+   }
+  },
+  {
    "id": "offering-help",
    "name": "Offering help",
    "level": "A2",
@@ -1496,6 +1757,2021 @@
     "j": {
      "gpt-oss:openai/gpt-oss-120b": 4,
      "qwen:qwen/qwen3.8-27b": 4
+    }
+   }
+  },
+  {
+   "id": "asking-advice",
+   "name": "Asking for advice",
+   "level": "B1",
+   "lo": [
+    "I.B1p.01"
+   ],
+   "situations": [
+    "social",
+    "work",
+    "health"
+   ],
+   "phrases": {
+    "formal": [
+     "Could you advise me on how to improve my CV?",
+     "I would appreciate your guidance regarding the project.",
+     "Might you have any recommendations for a good dentist?"
+    ],
+    "neutral": [
+     "What would you suggest?",
+     "Do you have any advice?",
+     "Any tips for staying focused?"
+    ],
+    "informal": [
+     "Got any ideas?",
+     "What do you think I should do?",
+     "Any suggestions?"
+    ]
+   },
+   "responses": [
+    "You could try updating the layout.",
+    "I think you should practice more regularly."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "Could you advise me on which language course to choose?"
+    },
+    {
+     "who": "B",
+     "en": "You could try the evening class; it fits most schedules."
+    },
+    {
+     "who": "A",
+     "en": "Thanks, that sounds perfect."
+    },
+    {
+     "who": "B",
+     "en": "Happy to help!"
+    }
+   ],
+   "avoid": {
+    "wrong": "I need advice from you to do this.",
+    "right": "I need your advice on this.",
+    "why": "'Advice' is a noun; use 'your advice' rather than 'advice from you'."
+   },
+   "note": "'Advise' is a verb; 'advice' is the noun you receive.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 4,
+     "gemini:gemini-3.8-flash": 4
+    }
+   }
+  },
+  {
+   "id": "asking-clarification",
+   "name": "Asking for clarification",
+   "level": "B1",
+   "lo": [
+    "I.B1p.05"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ],
+   "phrases": {
+    "formal": [
+     "Could you clarify what you meant by that statement?",
+     "Would you mind elaborating on the last point?",
+     "May I ask you to explain this part further?"
+    ],
+    "neutral": [
+     "Can you explain that again?",
+     "What do you mean by this?",
+     "Could you give an example?"
+    ],
+    "informal": [
+     "What’s that about?",
+     "Run that by me again?",
+     "Can you break it down?"
+    ]
+   },
+   "responses": [
+    "Sure, I meant that we need more data.",
+    "Of course, let me give you an example.",
+    "I’ll explain it in a different way."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "Can you explain that again?"
+    },
+    {
+     "who": "B",
+     "en": "Sure, I meant that we need more data."
+    },
+    {
+     "who": "A",
+     "en": "Could you give an example?"
+    },
+    {
+     "who": "B",
+     "en": "I’ll explain it in a different way."
+    }
+   ],
+   "avoid": {
+    "wrong": "Explain me that.",
+    "right": "Explain that to me.",
+    "why": "English uses a preposition after 'explain'."
+   },
+   "note": "Use 'explain that to me' or 'clarify what you meant' for clear requests.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.7-flash": 4
+    }
+   }
+  },
+  {
+   "id": "asking-favour",
+   "name": "Asking for a favour",
+   "level": "B1",
+   "lo": [
+    "I.B1.05"
+   ],
+   "situations": [
+    "social",
+    "work",
+    "home"
+   ],
+   "phrases": {
+    "formal": [
+     "Would you be able to assist me with this report, please?",
+     "May I kindly ask you to review my presentation?",
+     "Could I request your help in organising the meeting?"
+    ],
+    "neutral": [
+     "Can you help me move these boxes?",
+     "Would you mind covering my shift tomorrow?",
+     "Could you give me a hand with this task?"
+    ],
+    "informal": [
+     "Hey, can you do me a favour?",
+     "Mind giving me a lift?",
+     "Could you grab me a coffee?"
+    ]
+   },
+   "responses": [
+    "Sure, happy to help.",
+    "Sorry, I'm a bit busy right now.",
+    "I can do it after lunch."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "Could you give me a hand with this task?"
+    },
+    {
+     "who": "B",
+     "en": "Of course, what do you need?"
+    },
+    {
+     "who": "A",
+     "en": "I need to copy these files onto the server."
+    },
+    {
+     "who": "B",
+     "en": "I'll do it right away."
+    }
+   ],
+   "avoid": {
+    "wrong": "Can you to help me?",
+    "right": "Can you help me?",
+    "why": "Modal verbs are followed directly by the base verb."
+   },
+   "note": "Match the level of politeness to your relationship with the person.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.8-flash": 5
+    }
+   }
+  },
+  {
+   "id": "changing-arrangement",
+   "name": "Changing an arrangement",
+   "level": "B1",
+   "lo": [
+    "I.B1p.05"
+   ],
+   "situations": [
+    "work",
+    "social"
+   ],
+   "phrases": {
+    "formal": [
+     "I would like to propose an amendment to our schedule.",
+     "Due to unforeseen circumstances, we need to reschedule our meeting.",
+     "May I suggest moving the appointment to a later date?"
+    ],
+    "neutral": [
+     "Can we change the time?",
+     "I need to shift our plans.",
+     "Is it possible to meet tomorrow instead?"
+    ],
+    "informal": [
+     "Let’s push it back.",
+     "Can we bump it up?",
+     "How about we do it later?"
+    ]
+   },
+   "responses": [
+    "Sure, that works for me.",
+    "I’m sorry, I’m not available then.",
+    "Let me check and get back to you."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "We were supposed to meet today at 3 p.m."
+    },
+    {
+     "who": "B",
+     "en": "Is it possible to meet tomorrow instead?"
+    },
+    {
+     "who": "A",
+     "en": "Yes, tomorrow at the same time works for me."
+    },
+    {
+     "who": "B",
+     "en": "Great, see you then."
+    }
+   ],
+   "avoid": {
+    "wrong": "I can’t do that day.",
+    "right": "Is it possible to meet tomorrow instead?",
+    "why": "Frames the change as a request, not a demand."
+   },
+   "note": "When altering plans, phrase it as a polite request.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 4,
+     "gemini:gemini-3.8-flash": 4
+    }
+   }
+  },
+  {
+   "id": "changing-subject",
+   "name": "Changing the subject",
+   "level": "B1",
+   "lo": [
+    "I.B1.01"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ],
+   "phrases": {
+    "formal": [
+     "If I may, let's turn our attention to…",
+     "Perhaps we could discuss… instead",
+     "May I suggest we move on to…"
+    ],
+    "neutral": [
+     "Let's talk about…",
+     "How about we change the topic to…",
+     "What do you think about…"
+    ],
+    "informal": [
+     "Anyway, about…",
+     "Speaking of that, did you hear…",
+     "Changing the subject, have you…"
+    ]
+   },
+   "responses": [
+    "Sure, that sounds good.",
+    "Okay, let's move on.",
+    "Alright, go ahead."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "If I may, let's turn our attention to the budget."
+    },
+    {
+     "who": "B",
+     "en": "Sure, that's fine."
+    },
+    {
+     "who": "A",
+     "en": "The budget figures are ready for review."
+    },
+    {
+     "who": "B",
+     "en": "Got it."
+    }
+   ],
+   "avoid": {
+    "wrong": "I want to change subject.",
+    "right": "I would like to change the subject.",
+    "why": "Missing article and polite phrasing."
+   },
+   "note": "Use a transition phrase to signal a shift politely.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
+   }
+  },
+  {
+   "id": "congratulating",
+   "name": "Congratulating someone",
+   "level": "B1",
+   "lo": [
+    "I.B1.03"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ],
+   "phrases": {
+    "formal": [
+     "Congratulations on your achievement.",
+     "Please accept my sincere congratulations.",
+     "I would like to commend you on your success."
+    ],
+    "neutral": [
+     "Well done!",
+     "Congrats!",
+     "Nice job!"
+    ],
+    "informal": [
+     "Awesome, you nailed it!",
+     "Great stuff!",
+     "You rock!"
+    ]
+   },
+   "responses": [
+    "Thank you!",
+    "I appreciate it.",
+    "That means a lot, thanks."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "Well done on finishing the project!"
+    },
+    {
+     "who": "B",
+     "en": "Thanks, it was a team effort."
+    },
+    {
+     "who": "A",
+     "en": "Your hard work really paid off."
+    },
+    {
+     "who": "B",
+     "en": "I’m glad it turned out well."
+    }
+   ],
+   "avoid": {
+    "wrong": "Congrats you!",
+    "right": "Congrats to you!",
+    "why": "Missing the preposition \"to\" makes the phrase ungrammatical."
+   },
+   "note": "Match the register to how close you are to the person.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 4,
+     "gemini:gemini-3.8-flash": 4
+    }
+   }
+  },
+  {
+   "id": "expressing-preferences",
+   "name": "Expressing preferences",
+   "level": "B1",
+   "lo": [
+    "S.B1.04"
+   ],
+   "situations": [
+    "social",
+    "restaurant",
+    "travel"
+   ],
+   "phrases": {
+    "formal": [
+     "I would prefer to dine at a quieter restaurant.",
+     "My preference is to travel by train rather than by plane.",
+     "I would rather schedule the meeting for next week."
+    ],
+    "neutral": [
+     "I like the chicken more than the fish.",
+     "I would rather stay at the hotel than a hostel.",
+     "I prefer coffee over tea."
+    ],
+    "informal": [
+     "I’m more into pizza than burgers.",
+     "I’d rather chill at home tonight.",
+     "I’m keen on watching that new series."
+    ]
+   },
+   "responses": [
+    "That sounds good to me.",
+    "I agree, that option works better.",
+    "Let's go with that."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "I would prefer to dine at a quieter restaurant."
+    },
+    {
+     "who": "B",
+     "en": "I understand, there's a small bistro nearby."
+    },
+    {
+     "who": "A",
+     "en": "Great, let's book a table there."
+    },
+    {
+     "who": "B",
+     "en": "I'll make the reservation."
+    }
+   ],
+   "avoid": {
+    "wrong": "I prefer to eat fish more than chicken.",
+    "right": "I prefer fish to chicken.",
+    "why": "Use 'prefer X to Y', not 'more than' after 'prefer'."
+   },
+   "note": "Use 'prefer' with 'to' or 'rather than' for clear comparisons.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.8-flash": 4
+    }
+   }
+  },
+  {
+   "id": "expressing-surprise",
+   "name": "Expressing surprise and interest",
+   "level": "B1",
+   "lo": [
+    "I.B1.03"
+   ],
+   "situations": [
+    "social"
+   ],
+   "phrases": {
+    "formal": [
+     "That is quite remarkable, please tell me more.",
+     "I must admit, that comes as a surprise.",
+     "How extraordinary! How did that happen?"
+    ],
+    "neutral": [
+     "Really? I had no idea about that.",
+     "That is amazing, tell me what happened next.",
+     "Are you serious? That sounds incredible."
+    ],
+    "informal": [
+     "No way! You cannot be serious!",
+     "You are kidding! How did that go down?",
+     "Wow, that is wild! Tell me everything."
+    ]
+   },
+   "responses": [
+    "I know, I could hardly believe it myself.",
+    "It is completely true, I promise.",
+    "That was my exact reaction when I heard."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "I won first prize in the photography contest."
+    },
+    {
+     "who": "B",
+     "en": "Are you serious? That sounds incredible."
+    },
+    {
+     "who": "A",
+     "en": "I know, I could hardly believe it myself."
+    },
+    {
+     "who": "B",
+     "en": "You definitely deserve it after all your hard work."
+    }
+   ],
+   "avoid": {
+    "wrong": "I am very surprise.",
+    "right": "I am very surprised.",
+    "why": "Use the past participle ending in -ed to describe your feeling."
+   },
+   "note": "Use rising intonation and follow up with a question to show genuine engagement.",
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
+   }
+  },
+  {
+   "id": "giving-opinion",
+   "name": "Giving your opinion",
+   "level": "B1",
+   "lo": [
+    "I.B1.04"
+   ],
+   "situations": [
+    "social",
+    "school",
+    "work"
+   ],
+   "phrases": {
+    "formal": [
+     "In my view, the project could benefit from more research.",
+     "From my perspective, the proposal seems viable.",
+     "I would suggest that we consider alternative options."
+    ],
+    "neutral": [
+     "I think the meeting went well.",
+     "It seems to me that the deadline is realistic.",
+     "I believe this approach will work."
+    ],
+    "informal": [
+     "I reckon it's a good idea.",
+     "Sounds like a plan to me.",
+     "I'm pretty sure it'll be fine."
+    ]
+   },
+   "responses": [
+    "That's an interesting point.",
+    "I see what you mean.",
+    "Thanks for sharing your thoughts."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "I think the meeting went well."
+    },
+    {
+     "who": "B",
+     "en": "That's an interesting point."
+    },
+    {
+     "who": "A",
+     "en": "I also believe the agenda covered all key topics."
+    },
+    {
+     "who": "B",
+     "en": "I see what you mean."
+    }
+   ],
+   "avoid": {
+    "wrong": "I think is good.",
+    "right": "I think it is good.",
+    "why": "A complete clause needs a subject after 'think'."
+   },
+   "note": "Use 'I think' followed by a full clause to express personal opinions.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.7-flash": 4
+    }
+   }
+  },
+  {
+   "id": "giving-reasons-excuses",
+   "name": "Giving reasons and excuses",
+   "level": "B1",
+   "lo": [
+    "I.B1.02"
+   ],
+   "situations": [
+    "work",
+    "school",
+    "social"
+   ],
+   "phrases": {
+    "formal": [
+     "I was unable to attend because I had a prior commitment.",
+     "Unfortunately, I missed the deadline due to unforeseen circumstances.",
+     "I regret that I cannot join, as I am unwell."
+    ],
+    "neutral": [
+     "I couldn't come because I was busy.",
+     "Sorry, I missed it – my alarm didn’t go off.",
+     "I can’t make it, I have another meeting."
+    ],
+    "informal": [
+     "I was stuck in traffic.",
+     "My dog ate my homework.",
+     "I just forgot."
+    ]
+   },
+   "responses": [
+    "I understand.",
+    "No worries.",
+    "Thanks for letting me know."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "I couldn’t come because I was busy with another project."
+    },
+    {
+     "who": "B",
+     "en": "I understand."
+    },
+    {
+     "who": "A",
+     "en": "I’ll catch up on the notes later."
+    },
+    {
+     "who": "B",
+     "en": "No worries, let me know if you need anything."
+    }
+   ],
+   "avoid": {
+    "wrong": "I didn't come cause I didn't want to.",
+    "right": "I couldn't come because I had another appointment.",
+    "why": "Blunt language sounds rude and unprofessional."
+   },
+   "note": "Give a brief, plausible reason; avoid over‑explaining.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 4,
+     "gemini:gemini-3.8-flash": 4
+    }
+   }
+  },
+  {
+   "id": "interrupting-politely",
+   "name": "Interrupting politely",
+   "level": "B1",
+   "lo": [
+    "I.B1p.02"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ],
+   "phrases": {
+    "formal": [
+     "Excuse me, may I add something?",
+     "Pardon me, could I interject?",
+     "If I may, I'd like to comment."
+    ],
+    "neutral": [
+     "Sorry to interrupt, but…",
+     "Can I just say something?",
+     "Excuse me, I have a point."
+    ],
+    "informal": [
+     "Hold on a sec…",
+     "Hey, wait a minute!",
+     "Sorry, but…"
+    ]
+   },
+   "responses": [
+    "Go ahead.",
+    "Sure, what were you going to say?",
+    "No problem, please continue."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "Excuse me, may I add something?"
+    },
+    {
+     "who": "B",
+     "en": "Go ahead."
+    },
+    {
+     "who": "A",
+     "en": "I think the deadline should be moved to Friday."
+    },
+    {
+     "who": "B",
+     "en": "Noted, thank you."
+    }
+   ],
+   "avoid": {
+    "wrong": "I want to interrupt you.",
+    "right": "Excuse me, may I interrupt?",
+    "why": "Directly stating you want to interrupt sounds rude."
+   },
+   "note": "Use \"excuse me\" to soften an interruption.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.7-flash": 4
+    }
+   }
+  },
+  {
+   "id": "making-complaint",
+   "name": "Making a complaint",
+   "level": "B1",
+   "lo": [
+    "I.B1.05"
+   ],
+   "situations": [
+    "shopping",
+    "travel",
+    "restaurant"
+   ],
+   "phrases": {
+    "formal": [
+     "I would like to make a complaint about the service.",
+     "Could you please address this issue?",
+     "I am dissatisfied with the service I received."
+    ],
+    "neutral": [
+     "I’m not happy with this.",
+     "There seems to be a problem with my order.",
+     "Can I speak to a manager, please?"
+    ],
+    "informal": [
+     "This is rubbish!",
+     "What a mess!",
+     "I’m fed up with this."
+    ]
+   },
+   "responses": [
+    "I’m sorry to hear that.",
+    "Let me see how I can help.",
+    "I’ll do my best to resolve it."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "I’m not happy with this, the meal was cold."
+    },
+    {
+     "who": "B",
+     "en": "I’m sorry to hear that."
+    },
+    {
+     "who": "A",
+     "en": "Could you bring a fresh dish, please?"
+    },
+    {
+     "who": "B",
+     "en": "Absolutely, I’ll arrange that right away."
+    }
+   ],
+   "avoid": {
+    "wrong": "I have a complaint about you.",
+    "right": "I have a complaint about the service.",
+    "why": "Complaints target the service, not the person."
+   },
+   "note": "Stay calm and specific when lodging a complaint.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.8-flash": 5
+    }
+   }
+  },
+  {
+   "id": "refusing-politely",
+   "name": "Refusing a request politely",
+   "level": "B1",
+   "lo": [
+    "I.B1.04"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ],
+   "phrases": {
+    "formal": [
+     "I appreciate the offer, but I am unable to accept.",
+     "Regrettably, I have a prior commitment at that time.",
+     "I am afraid that will not be possible under the circumstances."
+    ],
+    "neutral": [
+     "I would love to help, but I am really busy right now.",
+     "I am afraid I cannot make it this time.",
+     "Thanks for asking, but I already have plans."
+    ],
+    "informal": [
+     "I would rather pass this time, if that is okay.",
+     "Sorry, I cannot swing it today.",
+     "I wish I could, but I am totally swamped."
+    ]
+   },
+   "responses": [
+    "No problem at all, maybe next time.",
+    "That is completely understandable, do not worry.",
+    "Thanks for letting me know so quickly."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "Can you help me move these boxes this weekend?"
+    },
+    {
+     "who": "B",
+     "en": "I would love to help, but I am really busy right now."
+    },
+    {
+     "who": "A",
+     "en": "No problem at all, maybe next time."
+    },
+    {
+     "who": "B",
+     "en": "Thanks for understanding, good luck with the move."
+    }
+   ],
+   "avoid": {
+    "wrong": "No, I do not want to.",
+    "right": "I am afraid I cannot make it.",
+    "why": "A flat 'no' sounds harsh; cushion the refusal with an apology or reason."
+   },
+   "note": "Soften your refusal by expressing appreciation first, followed by a brief, general reason.",
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
+   }
+  },
+  {
+   "id": "special-requests-restaurant",
+   "name": "Making special requests in a restaurant",
+   "level": "B1",
+   "lo": [
+    "I.A2.06"
+   ],
+   "situations": [
+    "restaurant",
+    "travel"
+   ],
+   "phrases": {
+    "formal": [
+     "Could I please have the dressing on the side?",
+     "May I request a gluten‑free menu, please?",
+     "Would it be possible to have my steak cooked medium‑rare?"
+    ],
+    "neutral": [
+     "Can I get the sauce separate?",
+     "I’d like a vegetarian option, please.",
+     "Could you make my pasta less spicy?"
+    ],
+    "informal": [
+     "Can you leave the mayo off?",
+     "I want it not too hot.",
+     "No onions, please."
+    ]
+   },
+   "responses": [
+    "Certainly, I’ll note that.",
+    "I’ll check with the kitchen.",
+    "Sorry, we can’t accommodate that."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "Could I please have the dressing on the side?"
+    },
+    {
+     "who": "B",
+     "en": "Certainly, I’ll note that."
+    },
+    {
+     "who": "A",
+     "en": "And could you make the soup a little less salty?"
+    },
+    {
+     "who": "B",
+     "en": "I’ll ask the chef and let you know."
+    }
+   ],
+   "avoid": {
+    "wrong": "I don’t want the sauce.",
+    "right": "Could I have the sauce on the side, please?",
+    "why": "Polite phrasing is expected in restaurants."
+   },
+   "note": "Use \"could\" and \"please\" for courteous requests.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.8-flash": 4
+    }
+   }
+  },
+  {
+   "id": "disagreeing-politely",
+   "name": "Disagreeing politely",
+   "level": "B2",
+   "lo": [
+    "I.B2p.01"
+   ],
+   "situations": [
+    "work",
+    "school",
+    "social"
+   ],
+   "phrases": {
+    "formal": [
+     "I see your point, however I must disagree on this matter.",
+     "While I respect your opinion, I have a different perspective.",
+     "I understand your argument, yet I believe the evidence suggests otherwise."
+    ],
+    "neutral": [
+     "I’m not sure I agree with that.",
+     "That’s an interesting view, but I think otherwise.",
+     "I see what you mean, but I have a different take."
+    ],
+    "informal": [
+     "I don’t think that’s right.",
+     "Nah, I’m not buying that.",
+     "I’m not convinced, mate."
+    ]
+   },
+   "responses": [
+    "I appreciate your view.",
+    "Thanks for sharing your thoughts.",
+    "I understand where you're coming from."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "While I respect your opinion, I have a different perspective."
+    },
+    {
+     "who": "B",
+     "en": "I see, could you explain your reasoning?"
+    },
+    {
+     "who": "A",
+     "en": "Certainly, the data shows a higher correlation with variable X."
+    },
+    {
+     "who": "B",
+     "en": "That makes sense, thank you for clarifying."
+    }
+   ],
+   "avoid": {
+    "wrong": "I am disagree with you.",
+    "right": "I disagree with you.",
+    "why": "'Disagree' is a verb; it does not need the auxiliary 'am'."
+   },
+   "note": "Stay respectful; focus on ideas, not the person.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.8-flash": 5
+    }
+   }
+  },
+  {
+   "id": "formal-email-request",
+   "name": "Making a request in a formal email",
+   "level": "B2",
+   "lo": [
+    "I.B2.08"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ],
+   "phrases": {
+    "formal": [
+     "I would be grateful if you could provide the requested documents by Friday.",
+     "Please could you forward the report at your earliest convenience?",
+     "Kindly send the required files no later than Friday."
+    ],
+    "neutral": [
+     "Could you send me the documents by Friday?",
+     "Please forward the report when you have a chance.",
+     "I need the files by Friday; can you arrange that?"
+    ],
+    "informal": [
+     "Send me the docs by Friday, please.",
+     "Hey, can you shoot over the report?",
+     "Just get the files to me by Friday."
+    ]
+   },
+   "responses": [
+    "Sure, I’ll have them to you by Thursday.",
+    "I’ll need a day extra; will that be okay?",
+    "I’m on it and will email them shortly."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "I would be grateful if you could provide the requested documents by Friday."
+    },
+    {
+     "who": "B",
+     "en": "Certainly, I will compile them and send them to you by Thursday."
+    },
+    {
+     "who": "A",
+     "en": "Thank you; please let me know if any issues arise."
+    },
+    {
+     "who": "B",
+     "en": "Will do, and I’ll confirm once they’re sent."
+    }
+   ],
+   "avoid": {
+    "wrong": "Give me the documents by Friday.",
+    "right": "Please provide the documents by Friday.",
+    "why": "Direct commands are too blunt for a formal email."
+   },
+   "note": "Begin with ‘I would be grateful’ to show politeness.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 4,
+     "gemini:gemini-3.8-flash": 4
+    }
+   }
+  },
+  {
+   "id": "giving-feedback",
+   "name": "Giving constructive feedback",
+   "level": "B2",
+   "lo": [
+    "I.C1.12"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ],
+   "phrases": {
+    "formal": [
+     "I appreciate your effort, however, there are a few areas that could be refined.",
+     "Your work shows promise, yet some sections require further development.",
+     "The project is well-structured, though the conclusion could be stronger."
+    ],
+    "neutral": [
+     "Good work, but you could improve the introduction.",
+     "Nice attempt; the analysis needs more detail.",
+     "Well done overall; the formatting could be tidier."
+    ],
+    "informal": [
+     "Nice job, just tweak the intro a bit.",
+     "Looks good, but the ending feels rushed.",
+     "Cool effort, just polish the middle part."
+    ]
+   },
+   "responses": [
+    "Thanks for the feedback; I’ll revise it.",
+    "I understand; I’ll focus on those sections.",
+    "Can you give me an example of the changes needed?"
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "Good work, but you could improve the introduction."
+    },
+    {
+     "who": "B",
+     "en": "Thanks, I’ll add more background information."
+    },
+    {
+     "who": "A",
+     "en": "Make sure to link it clearly to the main argument."
+    },
+    {
+     "who": "B",
+     "en": "Will do, I’ll rewrite that part."
+    }
+   ],
+   "avoid": {
+    "wrong": "Your work is bad.",
+    "right": "Your work could be improved.",
+    "why": "Negative wording discourages and is unconstructive."
+   },
+   "note": "Combine praise with specific suggestions for balanced feedback.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.8-flash": 4
+    }
+   }
+  },
+  {
+   "id": "inviting-contributions",
+   "name": "Inviting others to speak",
+   "level": "B2",
+   "lo": [
+    "I.B2p.03"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ],
+   "phrases": {
+    "formal": [
+     "I would welcome any comments you may have.",
+     "Please feel free to share your thoughts.",
+     "We value your input on this matter."
+    ],
+    "neutral": [
+     "Anyone have any ideas?",
+     "What do you think about this?",
+     "Feel free to add your view."
+    ],
+    "informal": [
+     "Got any thoughts?",
+     "Anyone want to chime in?",
+     "Tell me what you think."
+    ]
+   },
+   "responses": [
+    "I think…",
+    "My suggestion is…",
+    "I'd like to add…"
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "We value your input on this matter."
+    },
+    {
+     "who": "B",
+     "en": "I think we could streamline the process."
+    },
+    {
+     "who": "A",
+     "en": "That's a good suggestion."
+    },
+    {
+     "who": "B",
+     "en": "We can discuss it further."
+    }
+   ],
+   "avoid": {
+    "wrong": "Speak up now!",
+    "right": "Please share your thoughts when you’re ready.",
+    "why": "Too abrupt; invite politely."
+   },
+   "note": "Open‑ended prompts encourage participation from all speakers.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.8-flash": 4
+    }
+   }
+  },
+  {
+   "id": "negotiating-deadline",
+   "name": "Negotiating a deadline",
+   "level": "B2",
+   "lo": [
+    "I.B2p.05"
+   ],
+   "situations": [
+    "work"
+   ],
+   "phrases": {
+    "formal": [
+     "Would it be possible to extend the deadline to…?",
+     "May I request an additional week to complete the work?",
+     "I propose we set the due date for…"
+    ],
+    "neutral": [
+     "Can we push the deadline to…?",
+     "I need a bit more time, maybe until…",
+     "Could we move the deadline back a few days?"
+    ],
+    "informal": [
+     "Can we get a few more days?",
+     "How about we finish it next week?",
+     "Let's stretch the deadline a bit."
+    ]
+   },
+   "responses": [
+    "That should be fine.",
+    "I can agree to that.",
+    "We'll need to check with the team."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "Would it be possible to extend the deadline to next Friday?"
+    },
+    {
+     "who": "B",
+     "en": "That should be fine."
+    },
+    {
+     "who": "A",
+     "en": "Thank you, I'll have the report ready by then."
+    },
+    {
+     "who": "B",
+     "en": "Great, looking forward to it."
+    }
+   ],
+   "avoid": {
+    "wrong": "I can't do it, it's impossible.",
+    "right": "I need more time to ensure quality.",
+    "why": "Negative tone; offer a solution instead."
+   },
+   "note": "Suggest a new date and give a brief reason.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.8-flash": 5
+    }
+   }
+  },
+  {
+   "id": "softening-opinion",
+   "name": "Softening an opinion with hedging",
+   "level": "B2",
+   "lo": [
+    "I.B2p.01"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ],
+   "phrases": {
+    "formal": [
+     "It appears that the results may not meet our expectations.",
+     "One could argue that this approach is somewhat limited.",
+     "There is a possibility that we are overlooking an alternative."
+    ],
+    "neutral": [
+     "I think the proposal could use some improvement.",
+     "It seems the data isn’t entirely reliable.",
+     "I feel the argument is a bit weak."
+    ],
+    "informal": [
+     "Honestly, I’m not sure this works well.",
+     "To be fair, it’s kinda shaky.",
+     "I guess it’s not the best idea."
+    ]
+   },
+   "responses": [
+    "That’s a fair point.",
+    "I see what you mean.",
+    "Let’s look into it further."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "We’ve decided to stick with the current design."
+    },
+    {
+     "who": "B",
+     "en": "There is a possibility that we are overlooking an alternative solution."
+    },
+    {
+     "who": "A",
+     "en": "You may be right; let’s review other options."
+    },
+    {
+     "who": "B",
+     "en": "Thanks, I’ll prepare some suggestions."
+    }
+   ],
+   "avoid": {
+    "wrong": "I think maybe it’s bad.",
+    "right": "I think it might be problematic.",
+    "why": "‘Might’ provides a more natural hedge than ‘maybe’ after ‘I think’."
+   },
+   "note": "Hedging softens statements and invites discussion.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 4,
+     "gemini:gemini-3.8-flash": 5
+    }
+   }
+  },
+  {
+   "id": "taking-the-turn",
+   "name": "Taking and holding the turn",
+   "level": "B2",
+   "lo": [
+    "I.B2.04"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ],
+   "phrases": {
+    "formal": [
+     "If I may add something…",
+     "May I interject briefly?",
+     "Allow me to continue."
+    ],
+    "neutral": [
+     "Can I say something?",
+     "Just a moment, please.",
+     "Hold on, I have a point."
+    ],
+    "informal": [
+     "Hey, listen up!",
+     "Wait, I’ve got something.",
+     "Hang on, I’m not done."
+    ]
+   },
+   "responses": [
+    "Go ahead.",
+    "Sure, continue.",
+    "Please, finish."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "May I interject briefly?"
+    },
+    {
+     "who": "B",
+     "en": "Go ahead."
+    },
+    {
+     "who": "A",
+     "en": "I think the client needs more data in the report."
+    },
+    {
+     "who": "B",
+     "en": "Please continue."
+    }
+   ],
+   "avoid": {
+    "wrong": "You’re talking over me.",
+    "right": "May I finish my thought?",
+    "why": "Polite request avoids confrontation."
+   },
+   "note": "Use turn‑taking markers to signal you want to speak.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 4,
+     "gemini:gemini-3.8-flash": 4
+    }
+   }
+  },
+  {
+   "id": "announcing-a-change",
+   "name": "Announcing a change to a team",
+   "level": "C1",
+   "lo": [
+    "S.C1.15"
+   ],
+   "situations": [
+    "work"
+   ],
+   "phrases": {
+    "formal": [
+     "I would like to inform you that, effective next Monday, we will be restructuring the project timeline.",
+     "Please be advised that the reporting procedure will be updated from the 15th of June.",
+     "Kindly note that the weekly meeting will now take place on Thursdays."
+    ],
+    "neutral": [
+     "From next week, we’re moving the deadline up by two days.",
+     "We’re changing the way we submit timesheets starting tomorrow.",
+     "The team lunch will now be on Fridays instead of Wednesdays."
+    ],
+    "informal": [
+     "Heads up – we’re shifting the launch date to next Thursday.",
+     "Just so you know, the coffee break is now at 10 am.",
+     "FYI, we’re swapping the parking spots today."
+    ]
+   },
+   "responses": [
+    "Got it, thanks.",
+    "Will the new schedule affect my tasks?",
+    "Understood."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "Please be advised that the reporting procedure will be updated from the 15th of June."
+    },
+    {
+     "who": "B",
+     "en": "What changes should we expect?"
+    },
+    {
+     "who": "A",
+     "en": "All reports will now be submitted through the new portal."
+    },
+    {
+     "who": "B",
+     "en": "Thanks, I’ll make sure to follow the new process."
+    }
+   ],
+   "avoid": {
+    "wrong": "We gonna change the schedule",
+    "right": "We are going to change the schedule",
+    "why": "Use the full form \"are going to\" for correct future construction."
+   },
+   "note": "Begin announcements with \"Please be advised\" or \"I would like to inform you\" for a professional tone.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.8-flash": 4
+    }
+   }
+  },
+  {
+   "id": "conceding-a-point",
+   "name": "Conceding a point gracefully",
+   "level": "C1",
+   "lo": [
+    "I.C1.10"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ],
+   "phrases": {
+    "formal": [
+     "You raise a compelling argument, and I must acknowledge its validity.",
+     "I concede that your suggestion has merit.",
+     "Upon reflection, I accept that your assessment is accurate."
+    ],
+    "neutral": [
+     "You’ve got a point there.",
+     "I’ll admit that’s true.",
+     "Fair enough, I was wrong about that."
+    ],
+    "informal": [
+     "Okay, you win this one.",
+     "Touché, I can’t argue with that.",
+     "Alright, you’ve got me."
+    ]
+   },
+   "responses": [
+    "Thanks for recognizing that.",
+    "I appreciate your honesty.",
+    "Glad we’re on the same page."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "You’ve got a point there."
+    },
+    {
+     "who": "B",
+     "en": "I’m glad you see it that way."
+    },
+    {
+     "who": "A",
+     "en": "Let’s incorporate that into our plan."
+    },
+    {
+     "who": "B",
+     "en": "Sounds good, moving forward then."
+    }
+   ],
+   "avoid": {
+    "wrong": "I’m wrong.",
+    "right": "I was mistaken.",
+    "why": "Avoid blunt self‑deprecation; acknowledge the specific point instead."
+   },
+   "note": "Use 'concede' in formal settings; informal contexts favour simple admissions.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.8-flash": 5
+    }
+   }
+  },
+  {
+   "id": "defusing-conflict",
+   "name": "Defusing a conflict",
+   "level": "C1",
+   "lo": [
+    "I.C1.09"
+   ],
+   "situations": [
+    "work",
+    "social"
+   ],
+   "phrases": {
+    "formal": [
+     "Let’s step back and examine the issue calmly.",
+     "I propose we focus on a solution rather than assigning blame.",
+     "Perhaps we can find common ground on this matter."
+    ],
+    "neutral": [
+     "Can we take a breath and talk this through?",
+     "Let’s try to keep things civil and sort it out.",
+     "How about we look at the facts together?"
+    ],
+    "informal": [
+     "Hey, let’s not blow this out of proportion.",
+     "Chill, we can sort this out.",
+     "Relax, it’s not worth fighting over."
+    ]
+   },
+   "responses": [
+    "That sounds reasonable.",
+    "I agree, let’s move forward.",
+    "Okay, let’s work on a solution."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "Can we take a breath and talk this through?"
+    },
+    {
+     "who": "B",
+     "en": "Absolutely, I think that will help."
+    },
+    {
+     "who": "A",
+     "en": "Let’s focus on the facts and see where we agree."
+    },
+    {
+     "who": "B",
+     "en": "Agreed, we can find a solution together."
+    }
+   ],
+   "avoid": {
+    "wrong": "You’re wrong!",
+    "right": "I think we’re both misunderstanding each other.",
+    "why": "Aggressive language escalates conflict; neutral phrasing de‑escalates."
+   },
+   "note": "Using 'let’s' invites collaboration and reduces tension.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.8-flash": 4
+    }
+   }
+  },
+  {
+   "id": "diplomatic-disagreement",
+   "name": "Disagreeing diplomatically in a debate",
+   "level": "C1",
+   "lo": [
+    "I.C1.05"
+   ],
+   "situations": [
+    "work",
+    "school"
+   ],
+   "phrases": {
+    "formal": [
+     "While I respect your perspective, I must point out that the evidence suggests otherwise.",
+     "I see merit in your argument, yet the data indicates a different conclusion.",
+     "With due respect, I find the premise somewhat flawed."
+    ],
+    "neutral": [
+     "I understand your view, but I have a different take.",
+     "That’s an interesting point, however I see it another way.",
+     "I hear what you’re saying, yet I disagree on this aspect."
+    ],
+    "informal": [
+     "I get where you’re coming from, but I’m not buying it.",
+     "Fair enough, but I think you’re off the mark.",
+     "No doubt, but I see it differently."
+    ]
+   },
+   "responses": [
+    "I see your point, let’s consider both sides.",
+    "That’s a valid counter‑argument.",
+    "Alright, we can explore that further."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "I understand your view, but I have a different take."
+    },
+    {
+     "who": "B",
+     "en": "I appreciate your honesty; can you elaborate?"
+    },
+    {
+     "who": "A",
+     "en": "Certainly, the recent figures show a contrary trend."
+    },
+    {
+     "who": "B",
+     "en": "That’s a compelling counter‑point."
+    }
+   ],
+   "avoid": {
+    "wrong": "I don’t agree with you.",
+    "right": "I see things differently.",
+    "why": "A diplomatic opening softens disagreement and keeps the tone courteous."
+   },
+   "note": "Start with a concession before presenting your counter‑argument to stay polite.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.8-flash": 4
+    }
+   }
+  },
+  {
+   "id": "pitching-an-idea",
+   "name": "Pitching an idea",
+   "level": "C1",
+   "lo": [
+    "S.C1.14"
+   ],
+   "situations": [
+    "work"
+   ],
+   "phrases": {
+    "formal": [
+     "May I propose a solution that could enhance our quarterly targets?",
+     "I would like to put forward a concept that addresses the current bottleneck.",
+     "Allow me to outline a proposal that may yield significant savings."
+    ],
+    "neutral": [
+     "I have an idea that might help us improve the process.",
+     "What if we tried this approach?",
+     "I think this could work well for the team."
+    ],
+    "informal": [
+     "Hey, I've got a thought that could sort this out.",
+     "How about we give this a go?",
+     "I've been thinking – why not try this?"
+    ]
+   },
+   "responses": [
+    "That sounds promising, let's explore it further.",
+    "I see the potential, but we need more data."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "May I propose a solution that could enhance our quarterly targets?"
+    },
+    {
+     "who": "B",
+     "en": "That sounds promising, let's explore it further."
+    },
+    {
+     "who": "A",
+     "en": "I can provide the cost‑benefit analysis by Friday."
+    },
+    {
+     "who": "B",
+     "en": "I see the potential, but we need more data."
+    }
+   ],
+   "avoid": {
+    "wrong": "I think maybe we could possibly try this idea?",
+    "right": "I think we could try this idea.",
+    "why": "Avoid redundant hedging; it weakens the pitch."
+   },
+   "note": "Use confident, concise language when presenting a new proposal.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.8-flash": 5
+    }
+   }
+  },
+  {
+   "id": "answering-hostile-question",
+   "name": "Answering a hostile question",
+   "level": "C2",
+   "lo": [
+    "I.C2.05"
+   ],
+   "situations": [
+    "work",
+    "media"
+   ],
+   "phrases": {
+    "formal": [
+     "I understand your concern; let me clarify the facts.",
+     "With respect, the premise of your question is inaccurate.",
+     "Allow me to address the point you raised directly."
+    ],
+    "neutral": [
+     "I see why you might think that, but here's what actually happened.",
+     "That's a fair question; here's the answer.",
+     "Let me explain why that isn't the case."
+    ],
+    "informal": [
+     "Look, that's not how it works.",
+     "Honestly, that's a bit off‑base.",
+     "I get why you're upset, but here's the real story."
+    ]
+   },
+   "responses": [
+    "I appreciate the clarification.",
+    "That doesn't change my view."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "I understand your concern; let me clarify the facts."
+    },
+    {
+     "who": "B",
+     "en": "I appreciate the clarification."
+    },
+    {
+     "who": "A",
+     "en": "The data shows a 12% increase, not a decline."
+    },
+    {
+     "who": "B",
+     "en": "That doesn't change my view."
+    }
+   ],
+   "avoid": {
+    "wrong": "You’re wrong, that never happened!",
+    "right": "I’m sorry, that information is not correct.",
+    "why": "Avoid direct accusations; they heighten hostility."
+   },
+   "note": "Stay calm, focus on facts, and keep the tone respectful.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.8-flash": 5
+    }
+   }
+  },
+  {
+   "id": "graceful-topic-change",
+   "name": "Changing the topic gracefully",
+   "level": "C2",
+   "lo": [
+    "I.C2.08"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ],
+   "phrases": {
+    "formal": [
+     "If I may, I'd like to steer the conversation towards...",
+     "Perhaps we could shift our focus to...",
+     "Allow me to redirect our attention to..."
+    ],
+    "neutral": [
+     "Speaking of that, have you heard about...",
+     "By the way, did you notice...",
+     "On a related note, let's discuss..."
+    ],
+    "informal": [
+     "Anyway, guess what happened...",
+     "Speaking of that, check this out...",
+     "Alright, enough about that, here's something cool..."
+    ]
+   },
+   "responses": [
+    "Sure, go ahead.",
+    "Okay, what about that?",
+    "Sounds good."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "By the way, did you notice the new policy changes?"
+    },
+    {
+     "who": "B",
+     "en": "Yes, I saw them. They seem quite significant."
+    },
+    {
+     "who": "A",
+     "en": "Indeed, and they will affect how we handle client requests."
+    },
+    {
+     "who": "B",
+     "en": "Thanks for bringing it up; we should plan accordingly."
+    }
+   ],
+   "avoid": {
+    "wrong": "I want to change the subject to...",
+    "right": "I’d like to change the subject to...",
+    "why": "'I’d like' sounds more polite than the blunt 'I want'."
+   },
+   "note": "'By the way' signals a smooth transition without sounding abrupt.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.8-flash": 4
+    }
+   }
+  },
+  {
+   "id": "mediating-tension",
+   "name": "Mediating tension in a group",
+   "level": "C2",
+   "lo": [
+    "I.C2.06"
+   ],
+   "situations": [
+    "work",
+    "social"
+   ],
+   "phrases": {
+    "formal": [
+     "May I suggest we explore a compromise that addresses both concerns?",
+     "Perhaps we could schedule a separate meeting to discuss this matter in depth.",
+     "I propose we temporarily set aside our differences to focus on the shared objective."
+    ],
+    "neutral": [
+     "Let's try to find a middle ground here.",
+     "Can we agree on a solution that works for everyone?",
+     "How about we take a short break and then come back to this?"
+    ],
+    "informal": [
+     "Come on, let's not fight over this.",
+     "How about we just sort this out over a coffee?",
+     "Let's chill and figure it out together."
+    ]
+   },
+   "responses": [
+    "That's a fair point.",
+    "I think that could work.",
+    "I appreciate your suggestion."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "Let's try to find a middle ground here."
+    },
+    {
+     "who": "B",
+     "en": "I agree, we should look for a solution that satisfies both sides."
+    },
+    {
+     "who": "A",
+     "en": "How about we draft a plan that incorporates each of our main concerns?"
+    },
+    {
+     "who": "B",
+     "en": "That sounds reasonable; let's move forward with that."
+    }
+   ],
+   "avoid": {
+    "wrong": "We must to find a compromise.",
+    "right": "We must find a compromise.",
+    "why": "The infinitive 'to' is unnecessary after 'must'."
+   },
+   "note": "Use 'compromise' as a noun or verb, not 'compromising' in this context.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 5,
+     "gemini:gemini-3.8-flash": 4
+    }
+   }
+  },
+  {
+   "id": "sensitive-public-statement",
+   "name": "Making a sensitive public statement",
+   "level": "C2",
+   "lo": [
+    "S.C2.15"
+   ],
+   "situations": [
+    "work",
+    "media"
+   ],
+   "phrases": {
+    "formal": [
+     "I wish to acknowledge the concerns raised and assure you that we are taking decisive action.",
+     "It is with deep regret that we address the recent events and commit to transparency.",
+     "We recognise the impact of this issue and are dedicated to remedial measures."
+    ],
+    "neutral": [
+     "We understand the worries and are working on a solution.",
+     "I want to be clear about what's happening and what we plan to do.",
+     "Our team is taking steps to address the problem."
+    ],
+    "informal": [
+     "Hey, we know things went wrong and we're fixing it.",
+     "Sorry about the mess— we're on it.",
+     "We messed up, but we're sorting it out."
+    ]
+   },
+   "responses": [
+    "Thank you for the honesty.",
+    "I appreciate the clarity.",
+    "That’s reassuring."
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "I wish to acknowledge the concerns raised and assure you that we are taking decisive action."
+    },
+    {
+     "who": "B",
+     "en": "We appreciate your transparency and look forward to seeing the improvements."
+    },
+    {
+     "who": "A",
+     "en": "Our next steps will be communicated publicly within the week."
+    },
+    {
+     "who": "B",
+     "en": "Thank you for keeping us informed during this time."
+    }
+   ],
+   "avoid": {
+    "wrong": "We are sorry for the problem and we will fix it soon.",
+    "right": "We apologise for the problem and are taking steps to resolve it promptly.",
+    "why": "'Apologise' is more formal and appropriate than 'sorry' in public statements."
+   },
+   "note": "Use 'apologise' and 'assure' for credibility in formal statements.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 4,
+     "gemini:gemini-3.8-flash": 4
+    }
+   }
+  },
+  {
+   "id": "special-occasion-speech",
+   "name": "Speaking on a special occasion",
+   "level": "C2",
+   "lo": [
+    "S.C2.05"
+   ],
+   "situations": [
+    "social",
+    "work"
+   ],
+   "phrases": {
+    "formal": [
+     "Ladies and gentlemen, it is my distinct honour to address you on this momentous occasion.",
+     "I stand before you today humbled by the significance of this event.",
+     "Allow me to extend my heartfelt gratitude to all who have contributed."
+    ],
+    "neutral": [
+     "I'm delighted to be here today to celebrate this special day.",
+     "Thank you all for gathering to mark this important moment.",
+     "It's a pleasure to share a few words on this wonderful occasion."
+    ],
+    "informal": [
+     "Hey everyone, thanks for coming—this is awesome!",
+     "Wow, what a great day to be together!",
+     "Just wanted to say a big thanks for being here!"
+    ]
+   },
+   "responses": [
+    "Congratulations!",
+    "Well said!",
+    "That was moving!"
+   ],
+   "example": [
+    {
+     "who": "A",
+     "en": "I'm delighted to be here today to celebrate this special day."
+    },
+    {
+     "who": "B",
+     "en": "We’re thrilled to have you with us; the event wouldn’t be the same without you."
+    },
+    {
+     "who": "A",
+     "en": "Your support means a lot, and I look forward to what we’ll achieve together."
+    },
+    {
+     "who": "B",
+     "en": "Here’s to many more successes ahead!"
+    }
+   ],
+   "avoid": {
+    "wrong": "I am happy to be here for this special day.",
+    "right": "I’m delighted to be here today to celebrate this special day.",
+    "why": "'Delighted' conveys a more appropriate level of formality for speeches."
+   },
+   "note": "Begin with a greeting, state purpose, and end with thanks.",
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "j": {
+     "qwen:qwen/qwen3.8-27b": 4,
+     "gemini:gemini-3.8-flash": 4
     }
    }
   }

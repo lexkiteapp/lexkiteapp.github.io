@@ -1,0 +1,14 @@
+{
+ "id": "cf-functions-2026-11-08-s2",
+ "source": "content-factory",
+ "kind": "functions",
+ "n": 7,
+ "checked": [
+  {
+   "id": "expressing-preferences",
+   "ok": true,
+   "by": "gemini-3.7-flash"
+  }
+ ],
+ "status": "accepted"
+}

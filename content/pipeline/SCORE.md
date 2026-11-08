@@ -2,13 +2,13 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 57.9 / 100**
+**Tổng: 58.9 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
 | Kho từ | **54.5** | 46.2 | 54.5% | 100% | 0 |
-| Ngữ pháp | **54.5** | 54.5 | 54.5% | 100% | 0 |
-| Giao tiếp | **39.3** | 15.2 | 39.3% | 100% | 0 |
+| Ngữ pháp | **55.3** | 54.5 | 55.3% | 100% | 0 |
+| Giao tiếp | **46.3** | 15.2 | 46.3% | 100% | 0 |
 | 4 kỹ năng | **49.2** | 48.2 | 49.2% | 100% | 0 |
 | Đề thi | **31.7** | 30.4 | 31.7% | 100% | 0 |
 | Khung Can-do | **80** | 79.3 | 80% | 100% | 0 |
@@ -38,7 +38,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | bài B2 | 27 / 27 | 100% | 8 |
 | bài C1 | 6 / 15 | 40% | 8 |
 | bài C2 (chưa làm) | 0 / 10 | 0% | 8 |
-| trắc nghiệm | 1056 / 3000 | 35% | 20 |
+| trắc nghiệm | 1186 / 3000 | 40% | 20 |
 | tự luận | 1125 / 3000 | 38% | 20 |
 | kho điểm ngữ pháp | 300 / 300 | 100% | 12 |
 | điểm đã có bài đúng cấp | 157 / 300 | 52% | 12 |
@@ -51,7 +51,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | roleplay | 31 / 60 | 52% | 20 |
 | tình huống Play & Speak | 14 / 40 | 35% | 20 |
 | mục gold (giải thích cách dùng) | 284 / 1000 | 28% | 20 |
-| sổ mẫu câu theo chức năng (chưa làm) | 23 / 100 | 23% | 20 |
+| sổ mẫu câu theo chức năng (chưa làm) | 58 / 100 | 58% | 20 |
 
 ## 4 kỹ năng
 
