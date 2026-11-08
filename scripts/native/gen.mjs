@@ -254,7 +254,10 @@ const TG = teachGen();
 const rigJson = JSON.stringify(TG.rigJson, null, 1) + '\n';
 put(`${SHARED}/teach/rig.json`, rigJson);                                    // Android: assets srcDir = native/shared/gen → asset path teach/rig.json
 put(`${IOS}/Sources/LKDesign/Resources/teach/rig.json`, rigJson);
-put(`${SHARED}/vectors/rig.json`, JSON.stringify(TG.vectorJson) + '\n');
+// floats → 9 significant digits: Math.exp/pow/sin differ in the last bit between x64 (CI) and arm64 V8 builds (seen in lipsync.gain);
+// ports compare with ≥ 2e-6 tolerance, so this keeps the drift gate byte-stable on every machine without loosening any test
+const sig9 = (k, v) => (typeof v === 'number' && !Number.isInteger(v) ? +v.toPrecision(9) : v);
+put(`${SHARED}/vectors/rig.json`, JSON.stringify(TG.vectorJson, sig9) + '\n');
 // Bundled offline art: head-bare-2x + the pose stills the lesson screen / feedback sheet / complete screen / rig use, byte for byte from web/teach (size-capped)
 for (const a of teachBundle()) {
   putBin(`${SHARED}/teach/${a.who}/${a.name}`, a.bytes);                     // Android: asset path teach/<who>/<file> (same path as the CDN)
