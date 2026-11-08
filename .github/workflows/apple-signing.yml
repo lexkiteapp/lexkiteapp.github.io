@@ -4,8 +4,8 @@ name: Apple signing
 on:
   workflow_dispatch:
     inputs:
-      mode: { description: 'list | revoke-ci-dev | create-dist', type: choice, options: [list, revoke-ci-dev, create-dist], default: list }
-      ids: { description: 'revoke-ci-dev: id chứng chỉ (lấy từ lượt list), cách nhau dấu phẩy', required: false }
+      mode: { description: 'list | revoke-ci-dev | create-dist | profiles', type: choice, options: [list, revoke-ci-dev, create-dist, profiles], default: list }
+      ids: { description: 'revoke-ci-dev: id chứng chỉ (lấy từ lượt list), cách nhau dấu phẩy; profiles: id chứng chỉ Distribution đang dùng', required: false }
       csr: { description: 'create-dist: CSR (PEM) mã base64 một dòng', required: false }
 permissions:
   contents: read
@@ -29,10 +29,11 @@ jobs:
         run: |
           case "$MODE" in
             create-dist) printf '%s' "$CSR" | base64 -d > "$RUNNER_TEMP/dist.csr"; node scripts/native/asc-signing.mjs create-dist "$RUNNER_TEMP/dist.csr" out/signing ;;
+            profiles) node scripts/native/asc-signing.mjs profiles "$IDS" out/signing ;;
             revoke-ci-dev) node scripts/native/asc-signing.mjs revoke-ci-dev "$IDS" ;;
             *) node scripts/native/asc-signing.mjs list ;;
           esac
           node scripts/native/asc-signing.mjs list | tee -a "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
-        if: inputs.mode == 'create-dist'
+        if: inputs.mode == 'create-dist' || inputs.mode == 'profiles'
         with: { name: ios-signing-public, path: out/signing, retention-days: 1 }   # chỉ .cer + .mobileprovision (công khai), không khoá riêng
