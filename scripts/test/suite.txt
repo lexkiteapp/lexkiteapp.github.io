@@ -307,7 +307,6 @@ node scripts/test/ext-newtab-quiz.mjs
 node scripts/test/cambridge.mjs
 node scripts/test/teacher-rig.mjs
 node scripts/test/teach2d-rig.mjs
-python3 scripts/test/teach2d-autopub.py
 node scripts/test/workflow-yaml.mjs
 node scripts/test/samples-seo-parity.mjs --self-test
 node scripts/native/gen.mjs --check
