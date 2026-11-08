@@ -77,8 +77,9 @@ struct DeepNotesView: View {
     }
 
     private func section<C: View>(_ k: String, _ icon: String, _ title: String, _ meta: String, @ViewBuilder _ body: () -> C) -> some View {
-        DisclosureGroup(isExpanded: isOpen(k)) {
-            VStack(alignment: .leading, spacing: LKSpacing.spaceXs) { body() }.padding(.top, LKSpacing.spaceXs)
+        let content = body()
+        return DisclosureGroup(isExpanded: isOpen(k)) {
+            VStack(alignment: .leading, spacing: LKSpacing.spaceXs) { content }.padding(.top, LKSpacing.spaceXs)
         } label: {
             HStack(spacing: LKSpacing.spaceXs) {
                 Image(systemName: icon).foregroundStyle(LKColor.secondary.resolve(scheme)).accessibilityHidden(true)
