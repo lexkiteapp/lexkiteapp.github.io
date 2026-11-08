@@ -110,7 +110,15 @@ struct WritingModelView: View {
                 ForEach(l.strs("bullets"), id: \.self) { b in HStack(alignment: .top, spacing: LKSpacing.spaceXs) { Text("•").foregroundStyle(accent); WritingEnglish(text: b, style: LKType.bodyMd) } }
             } else if task == "1" {
                 WritingEnglish(text: (set?.s("title") ?? "Task 1 · " + m.s("ref")) + " Summarise the information by selecting and reporting the main features, and make comparisons where relevant.", style: LKType.bodyMd)
-                if set != nil { Button { services.router.open(AppRoute("task1", arg: m.s("ref"))) } label: { Label(t(.modelViewChart), systemImage: "chart.bar") }.buttonStyle(WritingSecondaryButtonStyle()) }
+                if let set {
+                    DisclosureGroup {
+                        Task1ChartView(set: set).padding(.top, LKSpacing.spaceXs)
+                        Button { services.router.open(AppRoute("task1", arg: m.s("ref"))) } label: { Label(t(.modelViewChart), systemImage: "chart.bar") }.buttonStyle(WritingSecondaryButtonStyle())
+                    } label: {
+                        Label(t(.modelViewChart), systemImage: "chart.bar").lkText(LKType.titlePill).foregroundStyle(ink).frame(minHeight: LKFrame.shared.minTap, alignment: .leading)
+                    }
+                    .tint(accent)
+                }
             } else {
                 WritingEnglish(text: p2?.s("text") ?? "Task 2 · " + m.s("ref"), style: LKType.bodyMd)
             }
