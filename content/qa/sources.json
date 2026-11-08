@@ -282,6 +282,23 @@
    "_note": "Ngôn ngữ đích (docs/specs/target-language.md): seed soát tay; bộ lõi do scripts/target/gen.mjs sinh – 2 giám khảo khác họ + dịch ngược en + mẫu soát ≥5 %"
   },
   {
+   "id": "target-es-drills",
+   "paths": [
+    "web/cpack/es"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "target/drill-pack.mjs --check",
+    "test/es-practice.mjs"
+   ],
+   "_note": "Gói luyện tập tiếng TBN W2b (spanish-course.md §10): dựng từ content/target/es/{drills,gx}; drill-pack --check = khớp nguồn + đủ 15 ngôn ngữ + ví dụ TBN nguyên văn, CI thêm LanguageTool 0 lỗi (--lt)"
+  },
+  {
    "id": "writing",
    "paths": [
     "web/js/write",

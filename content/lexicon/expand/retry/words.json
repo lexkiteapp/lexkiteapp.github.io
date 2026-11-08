@@ -137,6 +137,7 @@
   "chestnut#n",
   "chipotle#n",
   "choice#adj",
+  "circumcise#v",
   "circumnavigate#v",
   "citywide#adj",
   "clamor#v",
@@ -160,7 +161,6 @@
   "computational#adj",
   "conceptualize#v",
   "confessional#n",
-  "conjunctiva#n",
   "conn#v",
   "conscientiously#adv",
   "conservationist#n",
@@ -852,7 +852,6 @@
   "yesteryear#n",
   "yore#n",
   "zany#adj",
-  "zilch#n",
-  "circumcise#v"
+  "zilch#n"
  ]
 }
