@@ -84,8 +84,8 @@ async function run(scheme, ux1) {
   // Sang từng tab chính bằng CÁCH NGƯỜI DÙNG LÀM (chạm tab đó ở thanh dưới), rồi chạm "Tôi"; thêm Cài đặt (trang con, vào bằng địa chỉ)
   for (const from of ['home', 'vocab', 'skills', 'tests', 'settings']) { // khóa tab (data-tab) của thanh dưới: main dùng cùng 4 khóa cho Stitch và thanh cũ (st/v2/runtime.js TABS)
     if (from === 'settings') await page.evaluate(() => { location.hash = '#/settings'; });
-    else { // lần nạp đầu: thanh tab Stitch thay thanh cũ ngay sau lượt vẽ đầu (đo CI WebKit: 167 ms) → cho tối đa 1 s; chậm hơn vẫn là LỖI
-      if (from === 'learn' || from === 'home') await page.waitForFunction(key => [...document.querySelectorAll(`a[data-tab="${key}"]`)].some(a => { const r = a.getBoundingClientRect(); return r.height > 0 && r.bottom <= innerHeight + 1 && r.top >= innerHeight / 2; }), from, { timeout: 1000 }).catch(() => {});
+    else { // lần nạp đầu, và ngay sau khi vừa sang trang Tôi (onMe thấy h1 trang cũ trước khi trang mới vẽ xong): thanh tab Stitch thay thanh cũ ngay sau lượt vẽ (đo CI WebKit: 62–167 ms) → cho tối đa 1 s; chậm hơn vẫn là LỖI
+      await page.waitForFunction(key => [...document.querySelectorAll(`a[data-tab="${key}"]`)].some(a => { const r = a.getBoundingClientRect(); return r.height > 0 && r.bottom <= innerHeight + 1 && r.top >= innerHeight / 2; }), from, { timeout: 1000 }).catch(() => {});
       const tb = await tabAt(page, from); if (!tb) { // chẩn đoán: thanh tab ở đâu, CSS màn đã nạp chưa, bao lâu sau mới hiện (vẫn tính LỖI)
         const p = await navPin(page), css = await page.evaluate(() => [...document.styleSheets].map(x => (x.href || '').split('/').pop()).filter(h => /^st-/.test(h)).join(',')), t0 = Date.now();
         const late = await page.waitForFunction(key => [...document.querySelectorAll(`a[data-tab="${key}"]`)].some(a => { const r = a.getBoundingClientRect(); return r.height > 0 && r.bottom <= innerHeight + 1 && r.top >= innerHeight / 2; }), from, { timeout: 5000 }).then(() => Date.now() - t0, () => -1);
