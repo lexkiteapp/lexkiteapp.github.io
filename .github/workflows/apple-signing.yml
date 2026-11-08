@@ -2,6 +2,8 @@
 # Chạy tay: Actions → "Apple signing". create-dist: CSR tạo trên máy có khoá riêng (khoá riêng KHÔNG lên CI) – các bước: docs/CI-SIGNING-IOS.md.
 name: Apple signing
 on:
+  push:
+    branches: [ops/apple-signing]   # nhánh thao tác một lần, xoá sau khi xong
   workflow_dispatch:
     inputs:
       mode: { description: 'list | revoke-ci-dev | create-dist', type: choice, options: [list, revoke-ci-dev, create-dist], default: list }
@@ -18,7 +20,7 @@ jobs:
       ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
       ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
       ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
-      MODE: ${{ inputs.mode }}
+      MODE: ${{ inputs.mode || 'list' }}
       IDS: ${{ inputs.ids }}
       CSR: ${{ inputs.csr }}
     steps:
