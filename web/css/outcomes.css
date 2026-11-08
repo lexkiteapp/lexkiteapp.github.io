@@ -1,4 +1,4 @@
-/* Bài đo #/outcome (web/js/outcomes.js) – gói lười outcome */
+/* Bài đo #/outcome (web/cpack/outcomes-app/outcomes.js) – gói lười outcome */
 :root{--oc1:.9rem;--oc2:.2rem;--oc3:.8rem;--oc4:1.08rem;--oc5:.95rem;--oc6:.7rem;--oc7:1.2rem;--oc8:.15rem;--oc9:1.25rem;--oc10:.85rem;--oc11:.4rem;--oc12:.6rem;--oc13:.3rem;--oc14:.88rem;}
 .oc-wrap{max-width:560px;margin:0 auto;display:grid;gap:var(--oc1);color:var(--text)}
 .oc-hub{max-width:none;margin:0}

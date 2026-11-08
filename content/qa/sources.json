@@ -550,6 +550,7 @@
   }
  ],
  "skip": {
+  "web/cpack/outcomes-app": "MÃ giao diện bài đo (outcomes.js, outcomes-core.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu đề ở web/cpack/outcomes (nguồn 'outcomes'), test scripts/test/outcomes.mjs",
   "content/seo": "sổ máy sinh lastmod.json (URL → băm nội dung chính + ngày sửa thật cho sitemap) – không phải nội dung học; scripts/lib/lastmod.mjs, test scripts/test/lastmod.mjs",
   "web/js/st": "khuôn giao diện 4 màn port thẳng từ Google Stitch (DOM + class Tailwind, chữ qua t()) – không phải nội dung học; kiểm bởi scripts/test/stitch-diff.mjs + build-stitch-css.mjs --check",
   "web/js/vimg": "mảnh chỉ mục ảnh minh hoạ (khoá từ#loại → mã băm ảnh) SINH bởi build-lexicon từ content/lexicon/img.json – không phải nội dung học; ảnh đã qua cổng vocab-img (OCR, NSFW, giám khảo), kiểm bởi scripts/test/vocab-img.mjs",
