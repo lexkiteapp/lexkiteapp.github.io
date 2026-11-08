@@ -9201,3 +9201,33 @@ statuette	ok	ok
 vegetarianism	ok	ok
 disallow	ok	ok
 remoteness	ok	ok
+encephalopathy	ok	ok
+stethoscope	ok	ok
+unknowable	ok	ok
+exoskeleton	ok	ok
+fealty	ok	ok
+eschew	cut_wordis: câu mang: "The word is is chu." · dot100:"It's true" 0.71s · cut_wordis100: câu mang: "The word is ischoo." · cut_next: câu mang: "Next word is chu." · plain095:"It's true." 0.69s · dot090:"And it's true." 0.80s	cut_wordis: câu mang: "The word is estu." · dot100:"It's true." 0.69s · cut_wordis100:"It's true" 0.71s · cut_wordis100:"It's true" 0.62s · cut_next: câu mang: "Next word is chew." · plain095:"S2" 0.69s · dot090:"S2" 0.74s
+expressionism	ok	ok
+clavicle	ok	ok
+transparently	ok	ok
+artfully	ok	ok
+humanely	ok	ok
+subfamily	cut_wordis: câu mang: "The word is sub-familiar." · dot100:"sub for Millie" 0.93s · cut_wordis100: câu mang: "The word is sub-familiar." · cut_next: câu mang: "Next word, sub-familiarly" · plain095:"sub for Millie" 0.89s · dot090:"sub-familiar" 1.02s	ok
+adjudicate	ok	ok
+dialectical	ok	ok
+judicious	ok	ok
+tentacle	ok	ok
+laxative	ok	ok
+interdependent	ok	ok
+myopic	ok	ok
+unbearably	ok	ok
+allergen	ok	ok
+earshot	ok	ok
+precondition	ok	ok
+crystallography	ok	ok
+injectable	ok	ok
+squalid	ok	ok
+tyrannosaurus	ok	ok
+unappreciated	ok	ok
+dropper	ok	ok
+initialize	ok	ok
