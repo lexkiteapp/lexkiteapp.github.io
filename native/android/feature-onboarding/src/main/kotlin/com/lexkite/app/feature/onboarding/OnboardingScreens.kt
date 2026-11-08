@@ -301,7 +301,9 @@ private fun GoalStep(k: Chrome, choice: OnbChoice, fresh: Boolean, teacher: @Com
 private fun LevelBars(filled: Int, total: Int) {
     val c = LocalLKColors.current
     Row(Modifier.size(48.dp), horizontalArrangement = Arrangement.spacedBy(3.dp), verticalAlignment = Alignment.Bottom) {
-        for (j in 0 until 4) Box(Modifier.width(6.dp).height((10 + 6 * j).dp).clip(PillShape).background(if (j < Math.ceil(filled.toDouble() / total * 4).toInt()) c.secondary else c.outlineVariant))
+        // filled = solid secondary; empty = outlined slot in `outline` (≥3:1 on the card – WCAG 1.4.11), not the pale outline-variant fill
+        val on = Math.ceil(filled.toDouble() / total * 4).toInt()
+        for (j in 0 until 4) Box(Modifier.width(6.dp).height((10 + 6 * j).dp).clip(PillShape).then(if (j < on) Modifier.background(c.secondary) else Modifier.border(1.5.dp, c.outline, PillShape)))
     }
 }
 

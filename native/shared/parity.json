@@ -192,7 +192,7 @@
     {
       "id": "C05",
       "m": 2,
-      "title": "Teachers Ama/Carlos 2D via Rive native runtime, viseme lip sync ±33 ms, gestures/emotions, reduced motion",
+      "title": "Teachers Ama/Carlos 2D: native port of the web TeacherRig (Rive-style viseme/emotion/gesture inputs, no Rive runtime), viseme lip sync ±33 ms, gestures/emotions, reduced motion",
       "routes": []
     },
     {

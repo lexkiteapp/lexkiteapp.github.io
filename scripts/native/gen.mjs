@@ -9,7 +9,10 @@
  *            vectors/migration.json, migration-export.js;  content  scripts/native/content-pack.mjs → content-pack/ (Today + first lesson)
  *   starter  scripts/native/starter.mjs → content-pack/starter.json + vectors/starter-deck.json (onboarding starter deck, web parity)
  *   logo     scripts/native/logo.mjs: brand/lexkite-mark.svg → Android VectorDrawable + iOS imageset (the EXACT mark, never redrawn)
- *   teacher  web/teach/characters.json + web/teach/ama/still-<pose>.webp → bundled offline fallback stills (Android assets / iOS LKDesign resources)
+ *   teacher  scripts/native/gen-teach.mjs: web TeacherRig core + call/{face,mouths,lipsync,paint}.js + cues.js → teach/rig.json (rig definition) + vectors/rig.json (frames, lip sync ±33 ms, face paint ops, mood);
+ *            web/teach/<ama|carlos>/{head-bare-2x,still-<pose>}.webp → bundled offline art (Android assets / iOS LKDesign resources)
+ *   lesson   scripts/native/gen-lesson.mjs: web/js/lesson/engine.js (pickWords/build/adapt/check/Session/results/storyItems/plans…) → vectors/lesson.json
+ *   audio    scripts/native/gen-audio.mjs: web/js/audio.js + CDN/word-key/ttsClean lines of web/js/ui.js + listen/kvoice.js → vectors/audio.json
  * Usage: node scripts/native/gen.mjs          (write)
  *        node scripts/native/gen.mjs --check  (CI drift gate: exit 1 if any generated file differs or a string is missing)
  *        --only=<path prefix>                  limit write/check to one tree (e.g. native/shared)
@@ -243,16 +246,23 @@ put(`${SHARED}/vectors/starter-deck.json`, ST.vector);
 const { logoFiles } = await import('./logo.mjs');
 for (const [rel, s] of logoFiles()) put(rel, s);
 
-// ---------- teacher (Ama) offline fallback stills: poses the onboarding shows, copied byte for byte from the web art ----------
-const TEACH_POSES = ['happy', 'cheer', 'point', 'thinking']; // web Chars poses (characters.json "poses"); keep in sync with the poses OnboardingScreens/OnboardingViews request
-const chars = JSON.parse(fs.readFileSync(R('web/teach/characters.json'), 'utf8'));
-for (const p of TEACH_POSES) {
-  if (!chars.poses.includes(p) || !chars.people.ama) throw new Error(`teacher pose "${p}" is not in web/teach/characters.json`);
-  const bytes = fs.readFileSync(R(`web/teach/ama/still-${p}.webp`));
-  if (bytes.length > 60 * 1024) throw new Error(`teacher still ${p} is ${bytes.length} B – too large to bundle`);
-  putBin(`${SHARED}/teach/ama/still-${p}.webp`, bytes);               // Android: assets srcDir = native/shared/gen → asset path teach/ama/still-<pose>.webp (same path as the CDN)
-  putBin(`${IOS}/Sources/LKDesign/Resources/teach/ama/still-${p}.webp`, bytes);
+// ---------- teacher rig (C05) + offline art (Ama + Carlos) + lesson (P03) and audio (C04) vectors – all from the REAL web JS ----------
+// Native port of the web TeacherRig (no .riv, docs/specs/teacher-rive-rig.md): rig definition → teach/rig.json (bundled with both apps), frame/lip-sync vectors → vectors/rig.json.
+const { teachGen, teachBundle } = await import('./gen-teach.mjs');
+const TG = teachGen();
+const rigJson = JSON.stringify(TG.rigJson, null, 1) + '\n';
+put(`${SHARED}/teach/rig.json`, rigJson);                                    // Android: assets srcDir = native/shared/gen → asset path teach/rig.json
+put(`${IOS}/Sources/LKDesign/Resources/teach/rig.json`, rigJson);
+put(`${SHARED}/vectors/rig.json`, JSON.stringify(TG.vectorJson) + '\n');
+// Bundled offline art: head-bare-2x + the pose stills the lesson screen / feedback sheet / complete screen / rig use, byte for byte from web/teach (size-capped)
+for (const a of teachBundle()) {
+  putBin(`${SHARED}/teach/${a.who}/${a.name}`, a.bytes);                     // Android: asset path teach/<who>/<file> (same path as the CDN)
+  putBin(`${IOS}/Sources/LKDesign/Resources/teach/${a.who}/${a.name}`, a.bytes);
 }
+const { lessonVectors } = await import('./gen-lesson.mjs');
+put(`${SHARED}/vectors/lesson.json`, lessonVectors());
+const { audioVectors } = await import('./gen-audio.mjs');
+put(`${SHARED}/vectors/audio.json`, audioVectors());
 
 // ---------- Remote Config flags (native/shared/flags.json → Flags.swift + Flags.kt, safe offline defaults) ----------
 const FL = JSON.parse(fs.readFileSync(R('native/shared/flags.json'), 'utf8')).flags;
