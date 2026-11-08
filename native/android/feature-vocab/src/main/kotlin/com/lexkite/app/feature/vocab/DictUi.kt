@@ -157,7 +157,7 @@ internal fun VField(
     value: String, onChange: (String) -> Unit, hint: String, modifier: Modifier = Modifier, onGo: (() -> Unit)? = null,
     singleLine: Boolean = true, lines: Int = 1, leading: Boolean = false, onClear: (() -> Unit)? = null,
 ) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val shape = androidx.compose.foundation.shape.RoundedCornerShape(16.dp)
     Ltr {
         Row(
@@ -187,7 +187,7 @@ internal fun VField(
 /** A message card for empty / offline / error states, with an optional retry. */
 @Composable
 internal fun VNotice(text: String, retry: (() -> Unit)? = null) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     LKCard {
         VText(text, LKType.bodyMd, c.onSurfaceVariant)
         if (retry != null) LKPillButton(t(L10nKey.actionRetry), retry)

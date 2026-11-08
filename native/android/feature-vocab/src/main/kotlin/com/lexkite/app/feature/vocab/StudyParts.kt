@@ -77,7 +77,7 @@ import java.util.Date
 import java.util.Locale
 
 /** The translation of the current UI language. */
-internal val t: L10n @Composable get() = LocalL10n.current
+internal val t: L10n @Composable get() = LocalL10n.current.western()
 
 /** Inner screen: Back top bar (mirrored in RTL), scrolling body on the Kit gutter; [bottom] is pinned under the body (primary action / grade bar). */
 @Composable

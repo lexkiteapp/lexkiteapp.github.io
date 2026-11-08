@@ -8,8 +8,10 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onRoot
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.lexkite.app.core.vocab.Mistakes
+import com.lexkite.app.core.vocab.Practice
 import com.lexkite.app.core.vocab.Review
 import com.lexkite.app.design.LKTheme
+import com.lexkite.app.design.LocalL10n
 import com.lexkite.app.design.LocalLKColors
 import com.lexkite.app.feature.vocab.CtxLine
 import com.lexkite.app.feature.vocab.DeckActions
@@ -34,6 +36,7 @@ import com.lexkite.app.feature.vocab.ReviewScreen
 import com.lexkite.app.feature.vocab.ReviewUi
 import com.lexkite.app.feature.vocab.SetCard
 import com.lexkite.app.feature.vocab.SrcRow
+import com.lexkite.app.feature.vocab.StudyTx
 import com.lexkite.app.feature.vocab.TopicScreen
 import com.lexkite.app.feature.vocab.TopicUi
 import com.lexkite.app.feature.vocab.TopicWord
@@ -70,10 +73,13 @@ class VocabSnapshotTest {
         previews = listOf(Review.Preview("min", 1.0), Review.Preview("day", 2.0), Review.Preview("day", 9.0), Review.Preview("month", 1.0)),
     )
 
-    private val practice = PracticeUi.Hub(
-        listOf(SrcRow("deck", "📒 My words (124)", 124), SrcRow("due", "🔁 Due today", 12), SrcRow("forgetting", "⚠️ Fading", 4)),
-        SrcRow("deck", "📒 My words (124)", 124), false, 124,
-    )
+    /** Rows labelled the way the app builds them (Practice.Source through StudyTx), so every language shows its real translation. */
+    @Composable private fun practice(): PracticeUi.Hub {
+        val tx = StudyTx.of(LocalL10n.current, Fixtures.t("vi"))
+        fun row(value: String, emoji: String, key: String, n: Int, vars: Map<String, String>? = null) = SrcRow(value, Practice.Source(value, emoji, key, vars).label(tx), n)
+        val deck = row("deck", "📒", "Sổ từ của tôi ({n})", 124, mapOf("n" to "124"))
+        return PracticeUi.Hub(listOf(deck, row("due", "🔁", "Thẻ đến hạn hôm nay", 12), row("forgetting", "⚠️", "Từ sắp quên (độ nhớ < 85%)", 4)), deck, false, 124)
+    }
 
     private fun mist(key: String, kind: String, v: Mistakes.View, n: Int, qIpa: String, ref: String, short: Boolean) = MistRow(key, kind, v, n, qIpa, "", ref, false, short)
     private val mistakes = MistakesUi(
@@ -123,7 +129,7 @@ class VocabSnapshotTest {
         when (name) {
             "review-front" -> ReviewScreen(ReviewUi.Card(front, false, null, 3, 12, 9, false), ReviewActions(), image)
             "review-answer" -> ReviewScreen(ReviewUi.Card(back, true, null, 4, 12, 8, true), ReviewActions(), image)
-            "practice" -> PracticeScreen(practice, PracticeActions())
+            "practice" -> PracticeScreen(practice(), PracticeActions())
             "practice-hard" -> PracticeScreen(PracticeUi.HardOffer(8), PracticeActions())
             "mistakes" -> MistakesScreen(mistakes, MistakesActions())
             "deck" -> DeckScreen(deck, DeckActions(image = image))

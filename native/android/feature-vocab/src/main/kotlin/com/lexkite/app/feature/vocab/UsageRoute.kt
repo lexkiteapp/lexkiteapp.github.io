@@ -30,7 +30,7 @@ import kotlinx.serialization.json.put
 /** Route `#/usage`, `#/usage?c=<prep|verb|adv|struct|pair>`, `#/usage/<word>`. */
 @Composable
 fun UsageRoute(env: WordEnv, arg: String, query: String, onExit: () -> Unit, open: (String) -> Unit) {
-    val t = LocalL10n.current; val c = LocalLKColors.current
+    val t = LocalL10n.current.western(); val c = LocalLKColors.current
     var reload by remember { mutableStateOf(0) }
     val usage by produceState<Usage?>(null, env, reload) { value = runCatching { env.usage() }.getOrNull() }
     val scope = rememberCoroutineScope()

@@ -154,7 +154,7 @@ struct WritingSearchField: View {
             Image(systemName: "magnifyingglass").foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).accessibilityHidden(true)
             ZStack(alignment: .leading) {
                 if text.isEmpty { Text(placeholder).lkTextSafe(LKType.bodyLg).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).lineLimit(2).fixedSize(horizontal: false, vertical: true).allowsHitTesting(false).accessibilityHidden(true) }
-                TextField(placeholder, text: $text).labelsHidden()
+                TextField("", text: $text).accessibilityLabel(placeholder)
                     .textInputAutocapitalization(.never).autocorrectionDisabled().submitLabel(.search).onSubmit(onSubmit)
                     .lkTextSafe(LKType.bodyLg).foregroundStyle(LKColor.onSurface.resolve(scheme))
             }
@@ -267,7 +267,7 @@ struct WritingSecondaryButtonStyle: ButtonStyle {
             .lkTextSafe(LKType.titlePill).lineLimit(1).minimumScaleFactor(0.85)
             .foregroundStyle(LKColor.secondary.resolve(scheme))
             .padding(.horizontal, LKSpacing.spaceMd).frame(minHeight: LKFrame.shared.minTap)
-            .background(Capsule().inset(by: 1).stroke(LKColor.secondary.resolve(scheme), lineWidth: 2))
+            .background(Capsule(style: .circular).inset(by: 1).stroke(LKColor.secondary.resolve(scheme), style: StrokeStyle(lineWidth: 2, lineJoin: .round)))
             .opacity(enabled ? (configuration.isPressed ? 0.7 : 1) : 0.4)
             .contentShape(Capsule())
     }

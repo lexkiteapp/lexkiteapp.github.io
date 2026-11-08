@@ -46,7 +46,7 @@ internal fun letterTitle(l: JsonObject, lang: String): String = if (lang == "vi"
 /** #/letters: IELTS General Task 1 letters – tone tabs, drafts, practise / model answer buttons. */
 @Composable
 fun LettersListScreen(tab: String, tabs: List<Pair<String, Int>>, rows: List<LetterRow>, a: LettersActions, onExit: () -> Unit) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     VScreen(t(L10nKey.lettersLetterWritingIeltsGeneral), onExit) {
         VMuted(t(L10nKey.lettersWriteALetterOf))
         VFlow { tabs.forEach { (k, n) -> VChip(t(toneKey(k)) + "  " + t.num(n), { a.setTab(k) }, selected = tab == k) } }
@@ -75,7 +75,7 @@ fun LettersListScreen(tab: String, tabs: List<Pair<String, Int>>, rows: List<Let
 /** #/letters/<id>: write the letter (word counter, 20-minute timer, draft saved by the route) and run the self-check. */
 @Composable
 fun LetterPracticeScreen(letter: JsonObject, text: String, secondsLeft: Int, running: Boolean, check: Letters.Check?, a: LettersActions, onExit: () -> Unit) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val n = Letters.wc(text)
     VScreen(letterTitle(letter, t.lang), onExit) {
         LKCard {

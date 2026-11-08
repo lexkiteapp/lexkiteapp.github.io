@@ -62,7 +62,7 @@ private const val TATOEBA = "Tatoeba"
 /** #/dict and #/dict/<word>: search box on top, then the state below (input · looking · word card · not found). */
 @Composable
 fun DictScreen(ui: DictUi, q: String, a: DictActions, onExit: () -> Unit) {
-    val t = LocalL10n.current
+    val t = LocalL10n.current.western()
     VScreen(t(L10nKey.dictEnglishVietnameseDictionary), onExit) {
         VField(q, a.queryChange, t(L10nKey.dictTypeAnEnglishWord), onGo = { a.search(q) }, leading = true, onClear = { a.queryChange("") })
         when (ui) {
@@ -76,7 +76,7 @@ fun DictScreen(ui: DictUi, q: String, a: DictActions, onExit: () -> Unit) {
 
 @Composable
 private fun DictInput(ui: DictUi.Input, a: DictActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     if (ui.suggestions.isNotEmpty()) LKCard {
         ui.suggestions.forEach { s ->
             Row(Modifier.fillMaxWidth().heightIn(min = MinTap).tactile({ a.search(s.word) }), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
@@ -97,7 +97,7 @@ private fun DictInput(ui: DictUi.Input, a: DictActions) {
 
 @Composable
 private fun DictMissing(ui: DictUi.Missing) {
-    val t = LocalL10n.current
+    val t = LocalL10n.current.western()
     LKCard {
         VTitle(t.s(L10nKey.dictNoResultsFor, "q" to ui.q))
         if (ui.suggested.isNotEmpty()) VText(t.s(L10nKey.dictSuggestedTranslation, "vi" to ui.suggested).plain())
@@ -107,7 +107,7 @@ private fun DictMissing(ui: DictUi.Missing) {
 
 @Composable
 private fun WordCard(v: DictView, a: DictActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val e = v.entry; val m = v.model
     val word = m.word
     // ---- head: word, part of speech, level, "form -> word", pronunciation UK / US with slow playback ----
@@ -199,7 +199,7 @@ private fun WordCard(v: DictView, a: DictActions) {
 
 @Composable
 private fun PronRow(label: String, ipa: String, word: String, region: String, a: DictActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
         VBadge(label, c.secondaryContainer, c.onSecondaryContainer)
         Ltr { VText(ipa, LKType.bodyLg, c.onSurfaceVariant, Modifier.weight(1f)) }
@@ -210,7 +210,7 @@ private fun PronRow(label: String, ipa: String, word: String, region: String, a:
 
 @Composable
 private fun ContextCard(v: DictView, a: DictActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val x = v.ctx; val w = v.model.word
     LKCard {
         VTitle(t(L10nKey.dictAddContextToThis))
@@ -227,7 +227,7 @@ private fun ContextCard(v: DictView, a: DictActions) {
 
 @Composable
 private fun PhrasesCard(v: DictView, a: DictActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val ph = v.phrases ?: return
     LKCard {
         VTitle(t.s(L10nKey.dictPhrasesStructuresWith, "w" to v.model.word))
@@ -247,7 +247,7 @@ private fun PhrasesCard(v: DictView, a: DictActions) {
 
 @Composable
 private fun RelatedCard(v: DictView, a: DictActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     LKCard {
         VTitle(t(L10nKey.usageRelatedWords))
         when (val r = v.related) {

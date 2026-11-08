@@ -28,7 +28,8 @@ class L10n(val lang: String, private val table: Map<String, String>, private val
     /** Like web fmtInt / toLocaleString(lang): ar → Arabic-Indic digits, grouping per locale ([western] = Latin digits). */
     fun num(n: Number): String = NumberFormat.getIntegerInstance(if (westernDigits) Locale.forLanguageTag(lang + "-u-nu-latn") else locale).format(n)
     /** Same strings with Latin digits: the word / writing screens interpolate plain Latin digits ("3/10") as iOS does; one screen must not mix two digit styles. */
-    fun western(): L10n = if (westernDigits || lang != "ar") this else L10n(lang, table, fallback, viTable, true)
+    fun western(): L10n = if (westernDigits || lang != "ar") this else westernCopy
+    private val westernCopy by lazy { L10n(lang, table, fallback, viTable, true) }
     /** Language picker label: the language's own name, from the platform (no hand-written names). */
     fun nativeName(code: String): String = Locale.forLanguageTag(code).let { l -> l.getDisplayLanguage(l).replaceFirstChar { it.titlecase(l) } }
 

@@ -67,7 +67,7 @@ internal val VERB_PATTERNS = listOf("AAA", "ABB", "ABA", "ABC")
 /** #/verb and #/verb/<verb>: landing (search + irregular table) or the conjugation page. */
 @Composable
 fun VerbScreen(ui: VerbUi, a: VerbActions, onExit: () -> Unit) {
-    val t = LocalL10n.current
+    val t = LocalL10n.current.western()
     VScreen(t(L10nKey.verbEnglishVerbConjugator), onExit) {
         when (ui) {
             is VerbUi.Landing -> VerbLanding(ui, a)
@@ -78,7 +78,7 @@ fun VerbScreen(ui: VerbUi, a: VerbActions, onExit: () -> Unit) {
 
 @Composable
 private fun VerbLanding(ui: VerbUi.Landing, a: VerbActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     VField(ui.q, a.queryChange, t(L10nKey.verbTypeAVerbE), onGo = { a.go(ui.q) }, leading = true, onClear = { a.queryChange("") })
     if (ui.suggestions.isNotEmpty()) LKCard {
         ui.suggestions.forEach { (b, via) ->
@@ -123,7 +123,7 @@ private fun formOfLabel(from: String) = when {
 
 @Composable
 private fun VerbPage(ui: VerbUi.Page, a: VerbActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val d = ui.d; val base = d.base; val f = d.forms
     // ---- hero ----
     LKCard {
@@ -219,7 +219,7 @@ private const val ING_LABEL = "V-ing"
 
 @Composable
 private fun FormRow(label: String, forms: List<Pair<String, String>>, a: VerbActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     Row(Modifier.fillMaxWidth().heightIn(min = MinTap), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
         VText(label, LKType.bodySm, c.onSurfaceVariant, Modifier.weight(1f))
         Ltr {
@@ -231,7 +231,7 @@ private fun FormRow(label: String, forms: List<Pair<String, String>>, a: VerbAct
 
 @Composable
 private fun TenseCard(x: JsonObject, ui: VerbUi.Page, a: VerbActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val id = x.jstr("id"); val open = ui.openTense == id
     LKCard(onClick = { a.toggleTense(id) }, label = x.jstr("en")) {
         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
@@ -278,7 +278,7 @@ private fun TenseCard(x: JsonObject, ui: VerbUi.Page, a: VerbActions) {
 
 @Composable
 private fun ModalBlock(d: VerbPageData, a: VerbActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     LKCard {
         VMuted(t(L10nKey.verbModalVerbsDoNot))
         d.modalLines?.forEach { line ->
@@ -293,7 +293,7 @@ private fun ModalBlock(d: VerbPageData, a: VerbActions) {
 
 @Composable
 private fun MistakesBlock(d: VerbPageData, a: VerbActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val list = d.mistakes.mapNotNull { it as? JsonObject }
     if (list.isEmpty()) return
     LKCard {

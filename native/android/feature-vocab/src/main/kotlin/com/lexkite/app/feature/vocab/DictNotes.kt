@@ -31,7 +31,7 @@ import kotlinx.serialization.json.JsonObject
 /** wordcard.js "Hiểu sâu": mnemonic (open at first), common mistakes as wrong/right pairs, exam use, word family chips (tap = hear it). The note text is Vietnamese content shown as authored. */
 @Composable
 internal fun DeepNotesCard(n: JsonObject, word: String, a: DictActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val m = n.jstr("m"); val e = n.jstr("e"); val u = n.jstr("u"); val f = n.jstr("f")
     if (m.isEmpty() && e.isEmpty() && u.isEmpty() && f.isEmpty()) return
     LKCard {

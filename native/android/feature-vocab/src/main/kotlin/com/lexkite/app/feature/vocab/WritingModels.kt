@@ -37,7 +37,7 @@ class ModelsActions(val setTab: (String) -> Unit = {}, val queryChange: (String)
 /** #/models: tabs Task 2 / Task 1 charts / letters, search, rows (title, kind, topic, word count, band). */
 @Composable
 fun ModelsScreen(tab: String, counts: Map<String, Int>, q: String, rows: List<Models.Row>, a: ModelsActions, onExit: () -> Unit) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     VScreen(t(L10nKey.modelBand8ModelAnswers), onExit) {
         VMuted(t(L10nKey.modelOriginalModelAnswersWith))
         VFlow { listOf("2", "1", "gt").forEach { k -> VChip(modelTabLabel(t, k) + "  " + t.num(counts[k] ?: 0), { a.setTab(k) }, selected = tab == k) } }
@@ -64,7 +64,7 @@ class PhrasesActions(
 /** #/phrases: the learner's phrase book – study button (>= 4), link to the model answers, manual add, quick-add of 20 phrases when empty. */
 @Composable
 fun PhrasesScreen(cards: List<JsonObject>, modelCount: Int, adding: Boolean, phrase: String, vi: String, notice: String?, a: PhrasesActions, onExit: () -> Unit) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     VScreen(t(L10nKey.modelPhrasesStructures), onExit) {
         VMuted(t(L10nKey.modelLearningInChunksMakes).plain())
         VFlow {

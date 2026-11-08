@@ -84,7 +84,7 @@ private fun exText(s: String) = Usage.example(s).text
 
 @Composable
 fun UsageScreen(ui: UsageUi, a: UsageActions, onExit: () -> Unit) {
-    val t = LocalL10n.current
+    val t = LocalL10n.current.western()
     val title = when (ui) { is UsageUi.Category -> t(ui.cat.title); is UsageUi.Word -> ui.title; else -> t(L10nKey.usageWordUsage) }
     VScreen(title, onExit) {
         when (ui) {
@@ -98,7 +98,7 @@ fun UsageScreen(ui: UsageUi, a: UsageActions, onExit: () -> Unit) {
 
 @Composable
 private fun SearchBlock(q: String, suggestions: List<String>, a: UsageActions) {
-    val t = LocalL10n.current; val c = LocalLKColors.current
+    val t = LocalL10n.current.western(); val c = LocalLKColors.current
     VField(q, a.queryChange, t(L10nKey.usageTypeAWordE), onGo = { a.go(q) }, leading = true, onClear = { a.queryChange("") })
     if (suggestions.isNotEmpty()) LKCard {
         suggestions.forEach { s -> Row(Modifier.fillMaxWidth().heightIn(min = MinTap).tactile({ a.go(s) }, t(L10nKey.usageWordSuggestions)), verticalAlignment = Alignment.CenterVertically) { Ltr { VText(s, LKType.titlePill, c.onSurface) } } }
@@ -107,7 +107,7 @@ private fun SearchBlock(q: String, suggestions: List<String>, a: UsageActions) {
 
 @Composable
 private fun CatCards(counts: Map<String, Int>, a: UsageActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     USAGE_CATS.forEach { cat ->
         LKCard(onClick = { a.openCat(cat.id) }) {
             VText(t(cat.title), LKType.titlePill, c.onSurface)
@@ -119,7 +119,7 @@ private fun CatCards(counts: Map<String, Int>, a: UsageActions) {
 
 @Composable
 private fun UsageLanding(ui: UsageUi.Landing, a: UsageActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     VMuted(t(L10nKey.usageDependentPrepositionsVerbPatterns))
     SearchBlock(ui.q, ui.suggestions, a)
     LKPillButton(t(L10nKey.usageShow), { a.go(ui.q) })
@@ -135,7 +135,7 @@ private fun UsageLanding(ui: UsageUi.Landing, a: UsageActions) {
 
 @Composable
 private fun UsageFallback(ui: UsageUi.Fallback, a: UsageActions) {
-    val t = LocalL10n.current
+    val t = LocalL10n.current.western()
     SearchBlock(ui.raw, emptyList(), a)
     LKCard { VText(t.s(L10nKey.usageThereAreNoUsage, "w" to ui.raw).plain(), LKType.bodyMd) }
     if (ui.near.isNotEmpty()) {
@@ -148,7 +148,7 @@ private fun UsageFallback(ui: UsageUi.Fallback, a: UsageActions) {
 
 @Composable
 private fun UsageCategory(ui: UsageUi.Category, a: UsageActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val k = ui.cat.kind
     LKPillButton(t(L10nKey.usageAllTopics), { a.openCat("") })
     VMuted(t(ui.cat.desc))
@@ -194,7 +194,7 @@ private fun UsageCategory(ui: UsageUi.Category, a: UsageActions) {
 
 @Composable
 private fun UsageWord(ui: UsageUi.Word, a: UsageActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val r = ui.lookup; val lang = t.lang
     val all = Usage.KINDS.flatMap { r.byKind[it] ?: emptyList() }
     LKCard {
@@ -312,7 +312,7 @@ private fun Notes(es: List<UEntry>, lang: String) {
 
 @Composable
 private fun ExampleLine(raw: String, a: UsageActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val text = exText(raw)
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
         Ltr { VText(text, LKType.bodyMd, c.onSurface, Modifier.weight(1f)) }
@@ -322,7 +322,7 @@ private fun ExampleLine(raw: String, a: UsageActions) {
 
 @Composable
 private fun ItemRow(phrase: String, badges: List<String>, meaning: String, x: UItem, ui: UsageUi.Word, a: UsageActions, saveKey: String?) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     Column(verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
             Ltr { VText(phrase, LKType.titlePill, c.onSurface, Modifier.weight(1f)) }
@@ -340,7 +340,7 @@ private fun ItemRow(phrase: String, badges: List<String>, meaning: String, x: UI
 /** The 5-question quick practice (seeded, see [Usage.quiz]). */
 @Composable
 internal fun QuizCard(q: UsageQuiz, a: UsageActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     if (q.questions.size < 3) return
     LKCard {
         VTitle(t(q.title))

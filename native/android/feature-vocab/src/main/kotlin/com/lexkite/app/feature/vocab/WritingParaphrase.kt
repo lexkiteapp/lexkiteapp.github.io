@@ -34,7 +34,7 @@ class ParaActions(val pick: (String) -> Unit = {}, val next: () -> Unit = {}, va
 /** #/paraphrase: a round of 10 – the question phrase, four rewordings, instant right/wrong, "q ≈ p", score. */
 @Composable
 fun ParaphraseScreen(ui: ParaUi, a: ParaActions, onExit: () -> Unit) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     VScreen(t(L10nKey.paraParaphrasePractice), onExit) {
         when (ui) {
             ParaUi.Updating -> VNotice(t(L10nKey.paraUpdatingData))

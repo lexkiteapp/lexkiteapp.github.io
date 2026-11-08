@@ -41,7 +41,7 @@ private fun qParam(q: String, k: String): String? = Regex("(?:^|&)$k=([^&]+)").f
 /** Loads the writing content (network scripts); shows loading / offline-with-retry until it is there. */
 @Composable
 private fun WithWriting(env: WordEnv, title: L10nKey, onExit: () -> Unit, content: @Composable (WritingData) -> Unit) {
-    val t = LocalL10n.current; val c = LocalLKColors.current
+    val t = LocalL10n.current.western(); val c = LocalLKColors.current
     var reload by remember { mutableIntStateOf(0) }
     val state by produceState<Pair<Boolean, WritingData?>>(false to null, env, reload) {
         val w = runCatching { env.writing() }.getOrNull()
@@ -104,7 +104,7 @@ fun IdeasRoute(env: WordEnv, arg: String, onExit: () -> Unit, open: (String) -> 
         var openIssues by remember(cur?.jstr("topic")) { mutableStateOf(setOf(0)) }
         var saved by remember { mutableStateOf<Set<String>>(emptySet()) }
         val scope = rememberCoroutineScope()
-        val t = LocalL10n.current
+        val t = LocalL10n.current.western()
         IdeasScreen(w.ideas, cur, openIssues, saved, if (cur == null) emptyList() else Ideas.prompts(w.prompts, cur), IdeasActions(
             pickTopic = { topic = it }, toggleIssue = { i -> openIssues = if (i in openIssues) openIssues - i else openIssues + i },
             say = { env.speak(it) }, open = open,
@@ -145,7 +145,7 @@ fun ParaphraseRoute(env: WordEnv, onExit: () -> Unit, open: (String) -> Unit) {
 // ---------------------------------------------------------------- phrase book
 @Composable
 fun PhrasesRoute(env: WordEnv, onExit: () -> Unit, open: (String) -> Unit) {
-    val t = LocalL10n.current
+    val t = LocalL10n.current.western()
     val scope = rememberCoroutineScope()
     var rev by remember { mutableIntStateOf(0) }
     val cards by produceState<Map<String, JsonObject>>(emptyMap(), env, rev) { value = env.cards() }
@@ -173,7 +173,7 @@ fun PhrasesRoute(env: WordEnv, onExit: () -> Unit, open: (String) -> Unit) {
 @Composable
 fun ModelsRoute(env: WordEnv, query: String, onExit: () -> Unit, open: (String) -> Unit) {
     WithWriting(env, L10nKey.modelBand8ModelAnswers, onExit) { w ->
-        val t = LocalL10n.current
+        val t = LocalL10n.current.western()
         val exam by produceState("", env) { value = env.exam() }
         var tab by remember(query, exam) { mutableStateOf(Models.defaultTab(qParam(query, "t"), exam)) }
         var q by remember { mutableStateOf("") }
@@ -188,7 +188,7 @@ fun ModelsRoute(env: WordEnv, query: String, onExit: () -> Unit, open: (String) 
 @Composable
 fun ModelRoute(env: WordEnv, id: String, onExit: () -> Unit, open: (String) -> Unit) {
     WithWriting(env, L10nKey.modelAnnotatedModelAnswer, onExit) { w ->
-        val t = LocalL10n.current; val c = LocalLKColors.current
+        val t = LocalL10n.current.western(); val c = LocalLKColors.current
         val m = w.models.firstOrNull { it.jstr("id") == id }
         if (m == null) {
             Column(Modifier.fillMaxSize().background(c.background)) {

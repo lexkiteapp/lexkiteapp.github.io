@@ -34,7 +34,7 @@ private fun topicTitle(t: com.lexkite.app.i18n.L10n, x: JsonObject): String {
 /** #/ideas and #/ideas/<topic>: Task 2 idea bank – topic chips, issues with For / Against ideas, example sentences, tap-to-save chunks, topic vocabulary, related prompts. */
 @Composable
 fun IdeasScreen(topics: List<JsonObject>, cur: JsonObject?, openIssues: Set<Int>, saved: Set<String>, prompts: List<JsonObject>, a: IdeasActions, onExit: () -> Unit) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     VScreen(t(L10nKey.ideasTask2IdeaBank), onExit) {
         if (cur == null) { VNotice(t(L10nKey.ideasTheIdeaBankIs)); return@VScreen }
         VMuted(t(L10nKey.ideasRunningOutOfIdeas).plain())

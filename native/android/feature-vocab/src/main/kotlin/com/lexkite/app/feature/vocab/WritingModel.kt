@@ -86,7 +86,7 @@ private fun whyKey(why: String): L10nKey? = when (why) {
 /** #/model/<id>: annotated model answer with the six modes (read, fill phrases, fix grammar, linking words, type the essay, rebuild from lemmas). */
 @Composable
 fun ModelScreen(page: Models.Page, ui: ModelUi, tools: ModelTools, a: ModelActions, onExit: () -> Unit, hl: HlState = HlState()) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val m = page.m
     VScreen(t(L10nKey.modelAnnotatedModelAnswer), onExit) {
         LKCard {
@@ -113,7 +113,7 @@ fun ModelScreen(page: Models.Page, ui: ModelUi, tools: ModelTools, a: ModelActio
 
 @Composable
 private fun ReadTab(page: Models.Page, ui: ModelUi, a: ModelActions, hl: HlState) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val m = page.m
     VFlow {
         listOf("ch" to L10nKey.modelUsefulPhrases, "gl" to L10nKey.modelMeaningsUnderPhrases, "lk" to L10nKey.modelLinkingWords, "role" to L10nKey.modelSentenceRoles).forEach { (k, label) ->
@@ -191,7 +191,7 @@ private val SENT = Regex("[^.!?]+[.!?]+")
 /** The essay with highlighted phrases (tap = save), linkers and sentence roles, following the annotation switches. */
 @Composable
 private fun Annotated(paras: List<Models.Para>, annot: Set<String>, lang: String, saved: Set<String>, onChunk: (String, String) -> Unit, hl: HlState = HlState(), onSentence: (Int) -> Unit = {}) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     var ord = 0 // running sentence ordinal over the whole essay (the free highlight is stored by ordinal)
     Ltr {
         Column(verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
@@ -229,7 +229,7 @@ private fun Annotated(paras: List<Models.Para>, annot: Set<String>, lang: String
 
 @Composable
 private fun PracticeTab(page: Models.Page, ui: ModelUi, tools: ModelTools, a: ModelActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val m = page.m
     LKCard {
         when (ui.tab) {
@@ -287,7 +287,7 @@ private fun gapParts(text: String, kind: String): List<List<GapPart>> {
 
 @Composable
 private fun GapPractice(m: JsonObject, kind: String, seed: Long, a: ModelActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val g = remember(m, kind, seed) { Models.gap(m, kind, Random(seed)) }
     val parts = remember(m, kind) { gapParts(m.jstr("text"), kind) }
     val vi = remember(m) { Models.chunksOf(m.jstr("text")).map { it.second } }
@@ -342,7 +342,7 @@ private fun splitKeep(p: String): List<String> { val out = ArrayList<String>(); 
 
 @Composable
 private fun GramPractice(m: JsonObject, seed: Long, tools: ModelTools, a: ModelActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val lem = tools.lemmatizer
     // the web's first choice: real mistakes planted in the model (needs the word library); otherwise choose the right form
     val errs = remember(m, seed, lem, tools.index) { if (lem != null && tools.index.isNotEmpty()) Models.errors(m, lem, { tools.index[it] }, Random(seed)) else null }
@@ -377,7 +377,7 @@ private fun GramPractice(m: JsonObject, seed: Long, tools: ModelTools, a: ModelA
 
 @Composable
 private fun ErrPractice(m: JsonObject, items: List<Models.ErrItem>, a: ModelActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val text = remember(m) { Models.paras(Models.plain(Models.stripRole(m.jstr("text")))).joinToString("\n\n") }
     val toks = remember(text) { splitKeep(text) }
     val at = remember(items) { items.withIndex().associate { (k, v) -> v.i to k } }
@@ -418,7 +418,7 @@ private fun ErrPractice(m: JsonObject, items: List<Models.ErrItem>, a: ModelActi
 
 @Composable
 private fun SlotsPractice(m: JsonObject, a: ModelActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val (blocks, answers) = remember(m) { Models.slots(m) }
     var inputs by remember(m) { mutableStateOf(List(answers.size) { "" }) }
     var res by remember(m) { mutableStateOf<List<Boolean>?>(null) }
@@ -452,7 +452,7 @@ private fun SlotsPractice(m: JsonObject, a: ModelActions) {
 
 @Composable
 private fun LemmaPractice(m: JsonObject, tools: ModelTools, a: ModelActions) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
     val sents = remember(m) { Models.sentencesOf(m) }
     val lem = tools.lemmatizer
     val prompts = remember(sents, lem) { sents.map { s -> Models.lemmaPrompt(s.s) { w -> lem?.lemma(w) ?: w.lowercase() } } }
