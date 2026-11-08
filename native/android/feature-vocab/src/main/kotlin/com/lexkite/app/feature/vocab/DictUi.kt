@@ -88,13 +88,15 @@ internal fun Ltr(content: @Composable () -> Unit) = CompositionLocalProvider(Loc
 /** Inner screen shell: Back top-start (mirrored in RTL), scrolling body, 16 dp gutter. */
 @Composable
 internal fun VScreen(title: String, onExit: () -> Unit, content: @Composable ColumnScope.() -> Unit) {
-    val c = LocalLKColors.current; val t = LocalL10n.current
-    Column(Modifier.fillMaxSize().background(c.background)) {
-        TopBar(TopBarVariant.Inner, title, t, onExit)
-        Column(
-            Modifier.fillMaxWidth().weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = LKSpacing.gutter, vertical = LKSpacing.spaceXs),
-            verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceMd), content = content,
-        )
+    val c = LocalLKColors.current; val t = LocalL10n.current.western()
+    CompositionLocalProvider(LocalL10n provides t) {
+        Column(Modifier.fillMaxSize().background(c.background)) {
+            TopBar(TopBarVariant.Inner, title, t, onExit)
+            Column(
+                Modifier.fillMaxWidth().weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = LKSpacing.gutter, vertical = LKSpacing.spaceXs),
+                verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceMd), content = content,
+            )
+        }
     }
 }
 

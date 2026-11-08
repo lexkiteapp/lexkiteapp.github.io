@@ -10,7 +10,7 @@ import java.text.NumberFormat
 import java.util.Locale
 
 /** Runtime strings for the 15 UI languages (C10); same semantics as web t(): `{name}` placeholders, fallback → en → key. */
-class L10n(val lang: String, private val table: Map<String, String>, private val fallback: Map<String, String>, private val viTable: Map<String, String> = emptyMap()) {
+class L10n(val lang: String, private val table: Map<String, String>, private val fallback: Map<String, String>, private val viTable: Map<String, String> = emptyMap(), private val westernDigits: Boolean = false) {
     val isRtl get() = lang in L10nLangs.RTL
     val locale: Locale get() = Locale.forLanguageTag(lang)
     operator fun invoke(key: L10nKey, vars: Map<String, Any> = emptyMap()): String {
@@ -25,8 +25,10 @@ class L10n(val lang: String, private val table: Map<String, String>, private val
     fun translate(source: String): String? = sourceIndex[source]?.let { table[it] ?: fallback[it] }
     /** [translate], unknown keys stay as they are. */
     fun src(source: String): String = translate(source) ?: source
-    /** Grouping per locale but always Western digits (u-nu-latn): the rest of a screen (counters, "3/10", plain interpolation) is Latin digits, as on iOS; mixing Arabic-Indic and Latin digits on one screen looked broken. */
-    fun num(n: Number): String = NumberFormat.getIntegerInstance(Locale.forLanguageTag(lang + "-u-nu-latn")).format(n)
+    /** Like web fmtInt / toLocaleString(lang): ar → Arabic-Indic digits, grouping per locale ([western] = Latin digits). */
+    fun num(n: Number): String = NumberFormat.getIntegerInstance(if (westernDigits) Locale.forLanguageTag(lang + "-u-nu-latn") else locale).format(n)
+    /** Same strings with Latin digits: the word / writing screens interpolate plain Latin digits ("3/10") as iOS does; one screen must not mix two digit styles. */
+    fun western(): L10n = if (westernDigits || lang != "ar") this else L10n(lang, table, fallback, viTable, true)
     /** Language picker label: the language's own name, from the platform (no hand-written names). */
     fun nativeName(code: String): String = Locale.forLanguageTag(code).let { l -> l.getDisplayLanguage(l).replaceFirstChar { it.titlecase(l) } }
 
