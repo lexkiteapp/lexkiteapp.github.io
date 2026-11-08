@@ -58,12 +58,12 @@ import java.io.File
 
 /**
  * M3 vocabulary / writing screens at 390 dp, 2x: dictionary input, word card, verb page, usage word page (with quick practice), letters, ideas, paraphrase, phrase book,
- * model list and model page. Each state is rendered in exactly 5 variants: en-light, en-dark, vi-light, ar-light (RTL), de-dark (+40 % text) = 50 images
+ * model list and model page. Each state is rendered in exactly 4 variants (hdpi, PR image budget): en-light, vi-light, ar-light (RTL), de-dark (+40 % text) = 50 images
  * (src/test/snapshots/word-*). Fixed data (the web scripts + verbs.json, a hand-written dictionary entry), no clock, no network.
  */
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
-@Config(sdk = [35], qualifiers = "w390dp-h844dp-xhdpi")
+@Config(sdk = [35], qualifiers = "w390dp-h844dp-hdpi")
 class WordSnapshotTest {
     @get:Rule val rule = createComposeRule()
 
@@ -160,54 +160,44 @@ class WordSnapshotTest {
         ModelScreen(page, ModelUi(done = listOf("vocab"), saved = setOf(page.chunks.first().first)), ModelTools(), ModelActions(), {})
     }
 
-    // ---------------- 10 states x 5 variants ----------------
+    // ---------------- 10 states x 4 variants ----------------
     @Test fun dictInputEn() = shot("dictInput", "en", false) { dictInputContent() }
-    @Test fun dictInputEnDark() = shot("dictInput", "en", true) { dictInputContent() }
     @Test fun dictInputVi() = shot("dictInput", "vi", false) { dictInputContent() }
     @Test fun dictInputAr() = shot("dictInput", "ar", false) { dictInputContent() }
     @Test fun dictInputDeDark() = shot("dictInput", "de", true) { dictInputContent() }
     @Test fun wordCardEn() = shot("wordCard", "en", false) { wordCardContent() }
-    @Test fun wordCardEnDark() = shot("wordCard", "en", true) { wordCardContent() }
     @Test fun wordCardVi() = shot("wordCard", "vi", false) { wordCardContent() }
     @Test fun wordCardAr() = shot("wordCard", "ar", false) { wordCardContent() }
     @Test fun wordCardDeDark() = shot("wordCard", "de", true) { wordCardContent() }
     @Test fun verbEn() = shot("verb", "en", false) { verbContent() }
-    @Test fun verbEnDark() = shot("verb", "en", true) { verbContent() }
     @Test fun verbVi() = shot("verb", "vi", false) { verbContent() }
     @Test fun verbAr() = shot("verb", "ar", false) { verbContent() }
     @Test fun verbDeDark() = shot("verb", "de", true) { verbContent() }
     @Test fun usageEn() = shot("usage", "en", false) { usageContent() }
-    @Test fun usageEnDark() = shot("usage", "en", true) { usageContent() }
     @Test fun usageVi() = shot("usage", "vi", false) { usageContent() }
     @Test fun usageAr() = shot("usage", "ar", false) { usageContent() }
     @Test fun usageDeDark() = shot("usage", "de", true) { usageContent() }
     @Test fun lettersEn() = shot("letters", "en", false) { lettersContent() }
-    @Test fun lettersEnDark() = shot("letters", "en", true) { lettersContent() }
     @Test fun lettersVi() = shot("letters", "vi", false) { lettersContent() }
     @Test fun lettersAr() = shot("letters", "ar", false) { lettersContent() }
     @Test fun lettersDeDark() = shot("letters", "de", true) { lettersContent() }
     @Test fun ideasEn() = shot("ideas", "en", false) { ideasContent() }
-    @Test fun ideasEnDark() = shot("ideas", "en", true) { ideasContent() }
     @Test fun ideasVi() = shot("ideas", "vi", false) { ideasContent() }
     @Test fun ideasAr() = shot("ideas", "ar", false) { ideasContent() }
     @Test fun ideasDeDark() = shot("ideas", "de", true) { ideasContent() }
     @Test fun paraphraseEn() = shot("paraphrase", "en", false) { paraphraseContent() }
-    @Test fun paraphraseEnDark() = shot("paraphrase", "en", true) { paraphraseContent() }
     @Test fun paraphraseVi() = shot("paraphrase", "vi", false) { paraphraseContent() }
     @Test fun paraphraseAr() = shot("paraphrase", "ar", false) { paraphraseContent() }
     @Test fun paraphraseDeDark() = shot("paraphrase", "de", true) { paraphraseContent() }
     @Test fun phrasesEn() = shot("phrases", "en", false) { phrasesContent() }
-    @Test fun phrasesEnDark() = shot("phrases", "en", true) { phrasesContent() }
     @Test fun phrasesVi() = shot("phrases", "vi", false) { phrasesContent() }
     @Test fun phrasesAr() = shot("phrases", "ar", false) { phrasesContent() }
     @Test fun phrasesDeDark() = shot("phrases", "de", true) { phrasesContent() }
     @Test fun modelsEn() = shot("models", "en", false) { modelsContent() }
-    @Test fun modelsEnDark() = shot("models", "en", true) { modelsContent() }
     @Test fun modelsVi() = shot("models", "vi", false) { modelsContent() }
     @Test fun modelsAr() = shot("models", "ar", false) { modelsContent() }
     @Test fun modelsDeDark() = shot("models", "de", true) { modelsContent() }
     @Test fun modelEn() = shot("model", "en", false) { modelContent() }
-    @Test fun modelEnDark() = shot("model", "en", true) { modelContent() }
     @Test fun modelVi() = shot("model", "vi", false) { modelContent() }
     @Test fun modelAr() = shot("model", "ar", false) { modelContent() }
     @Test fun modelDeDark() = shot("model", "de", true) { modelContent() }

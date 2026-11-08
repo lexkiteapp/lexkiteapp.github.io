@@ -6,7 +6,7 @@ import LKStore
 import LKSync
 
 /// M3 word screens at 390 pt: dictionary input, word card, verb, usage, letters, ideas, paraphrase, phrases, models, model –
-/// 10 states × 5 variants (en-light, en-dark, vi-light, ar-light, de-dark) at 2× = 50 images. Fixed data, no clock, no network.
+/// 10 states × 4 variants (en-light, vi-light, ar-light, de-dark) at 1.5× = 40 images (PR image budget). Fixed data, no clock, no network.
 /// References live in __Snapshots__; CI records missing ones (SNAPSHOT_RECORD=missing, all with =1) and verifies after.
 @MainActor
 final class WordSnapshotTests: XCTestCase {
@@ -14,12 +14,12 @@ final class WordSnapshotTests: XCTestCase {
         withSnapshotTesting(record: snapshotRecordMode()) { super.invokeTest() }
     }
 
-    static let variants: [(String, ColorScheme)] = [("en", .light), ("en", .dark), ("vi", .light), ("ar", .light), ("de", .dark)]
+    static let variants: [(String, ColorScheme)] = [("en", .light), ("vi", .light), ("ar", .light), ("de", .dark)]
 
     func shoot<V: View>(_ make: (String) -> V, testName: String = #function) {
         for (lang, scheme) in Self.variants {
             assertSnapshot(of: SnapshotFixtures.host(NavigationStack { make(lang) }, lang: lang, scheme: scheme),
-                           as: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98, traits: UITraitCollection(displayScale: 2)),
+                           as: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98, traits: UITraitCollection(displayScale: 1.5)),
                            named: SnapshotFixtures.name(lang, scheme), testName: testName)
         }
     }

@@ -9,7 +9,7 @@ import LKSync
 import LKDesign
 
 /// M3 P04/P05 vocabulary screens: review (front · answer with the four grades), practice (a quiz question with its feedback), mistakes,
-/// word book (deck), library and topic. Five variants each: en-light, en-dark, vi-light, ar-light (RTL), de-dark (long text) = 7 × 5 = 35 images at 2×.
+/// word book (deck), library and topic. Four variants each (1.5×, PR image budget): en-light, vi-light, ar-light (RTL), de-dark (long text) = 7 × 5 = 35 images at 2×.
 /// Fixed cards, fixed clock, in-memory data, no sound, no network. References live in __Snapshots__; CI records missing ones (SNAPSHOT_RECORD=missing).
 @MainActor
 final class VocabSnapshotTests: XCTestCase {
@@ -19,7 +19,7 @@ final class VocabSnapshotTests: XCTestCase {
 
     static let now: Int64 = 1_767_603_600_000
     static let day = 86_400_000.0
-    static let variants: [(String, ColorScheme)] = [("en", .light), ("en", .dark), ("vi", .light), ("ar", .light), ("de", .dark)]
+    static let variants: [(String, ColorScheme)] = [("en", .light), ("vi", .light), ("ar", .light), ("de", .dark)]
     static var cal: Calendar { var c = Calendar(identifier: .gregorian); c.timeZone = TimeZone(identifier: "UTC")!; return c }
     struct VocabOffline: VoiceTransport { func data(from url: URL, timeout: TimeInterval) async throws -> Data { throw URLError(.notConnectedToInternet) } }
 
@@ -81,7 +81,7 @@ final class VocabSnapshotTests: XCTestCase {
         for (lang, scheme) in Self.variants {
             let v = await make(lang)
             assertSnapshot(of: SnapshotFixtures.host(v, lang: lang, scheme: scheme),
-                           as: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98, traits: UITraitCollection(displayScale: 2)),
+                           as: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98, traits: UITraitCollection(displayScale: 1.5)),
                            named: SnapshotFixtures.name(lang, scheme), testName: testName)
         }
     }

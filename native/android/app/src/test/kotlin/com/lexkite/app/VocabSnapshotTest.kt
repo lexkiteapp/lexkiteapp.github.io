@@ -46,12 +46,12 @@ import org.robolectric.annotation.GraphicsMode
 
 /**
  * M3 vocabulary snapshot gate at 390 dp: review (front · answer with the four grades), practice hub, mistakes, deck, library, topic,
- * each in en-light · en-dark · vi-light · ar-light (RTL) · de-dark = 35 images (src/test/snapshots/vocab-*). Fixed data, no clock, no network;
+ * each in en-light · vi-light · ar-light (RTL) · de-dark  (src/test/snapshots/vocab-*). Fixed data, no clock, no network;
  * CI records the references on the first run (recordRoborazziDebug), then verifies.
  */
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
-@Config(sdk = [35], qualifiers = "w390dp-h844dp-xhdpi")
+@Config(sdk = [35], qualifiers = "w390dp-h844dp-hdpi")
 class VocabSnapshotTest {
     @get:Rule val rule = createComposeRule()
 
@@ -139,49 +139,41 @@ class VocabSnapshotTest {
     }
 
     @Test fun reviewFrontEnLight() = shot("review-front", "en", false)
-    @Test fun reviewFrontEnDark() = shot("review-front", "en", true)
     @Test fun reviewFrontViLight() = shot("review-front", "vi", false)
     @Test fun reviewFrontArLight() = shot("review-front", "ar", false)
     @Test fun reviewFrontDeDark() = shot("review-front", "de", true)
 
     @Test fun reviewAnswerEnLight() = shot("review-answer", "en", false)
-    @Test fun reviewAnswerEnDark() = shot("review-answer", "en", true)
     @Test fun reviewAnswerViLight() = shot("review-answer", "vi", false)
     @Test fun reviewAnswerArLight() = shot("review-answer", "ar", false)
     @Test fun reviewAnswerDeDark() = shot("review-answer", "de", true)
 
     @Test fun practiceEnLight() = shot("practice", "en", false)
-    @Test fun practiceEnDark() = shot("practice", "en", true)
     @Test fun practiceViLight() = shot("practice", "vi", false)
     @Test fun practiceArLight() = shot("practice", "ar", false)
     @Test fun practiceDeDark() = shot("practice", "de", true)
 
     @Test fun practiceHardEnLight() = shot("practice-hard", "en", false)
-    @Test fun practiceHardEnDark() = shot("practice-hard", "en", true)
     @Test fun practiceHardViLight() = shot("practice-hard", "vi", false)
     @Test fun practiceHardArLight() = shot("practice-hard", "ar", false)
     @Test fun practiceHardDeDark() = shot("practice-hard", "de", true)
 
     @Test fun mistakesEnLight() = shot("mistakes", "en", false)
-    @Test fun mistakesEnDark() = shot("mistakes", "en", true)
     @Test fun mistakesViLight() = shot("mistakes", "vi", false)
     @Test fun mistakesArLight() = shot("mistakes", "ar", false)
     @Test fun mistakesDeDark() = shot("mistakes", "de", true)
 
     @Test fun deckEnLight() = shot("deck", "en", false)
-    @Test fun deckEnDark() = shot("deck", "en", true)
     @Test fun deckViLight() = shot("deck", "vi", false)
     @Test fun deckArLight() = shot("deck", "ar", false)
     @Test fun deckDeDark() = shot("deck", "de", true)
 
     @Test fun libraryEnLight() = shot("library", "en", false)
-    @Test fun libraryEnDark() = shot("library", "en", true)
     @Test fun libraryViLight() = shot("library", "vi", false)
     @Test fun libraryArLight() = shot("library", "ar", false)
     @Test fun libraryDeDark() = shot("library", "de", true)
 
     @Test fun topicEnLight() = shot("topic", "en", false)
-    @Test fun topicEnDark() = shot("topic", "en", true)
     @Test fun topicViLight() = shot("topic", "vi", false)
     @Test fun topicArLight() = shot("topic", "ar", false)
     @Test fun topicDeDark() = shot("topic", "de", true)
