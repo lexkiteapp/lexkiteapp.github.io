@@ -157,3 +157,10 @@ Byte-for-byte từ `web/teach/<who>/…`, mỗi tệp ≤ 60 KB (gen throw nếu
 - Chưa làm mục 6 của brief (gold bank): `web/js/lesson/gold.js` (56 KB, `self.LESSON_GOLD = {"<từ>":[{why,w,r,mem,ex[]}]}`) – app tải qua CDN như web (parse JSON sau `self.LESSON_GOLD =`), không nhúng. Cấu trúc dùng ở "Vì sao?" (`explain`) và "Tăng điểm" (`booster`) trong `lesson/ui.js` 536–567.
 - Ghi chú này nằm ngoài repo; nếu muốn người sau đọc được, chép vào `docs/specs/` (spec đã trỏ "ghi chú bàn giao M2"; `_doc` trong các vector nhắc `native-m2-shared.md`).
 - Trong worktree có thay đổi KHÔNG phải của phiên này (Teacher.kt, OnboardingScreens.kt, snapshot onb-* bị xoá, brand/stitch/v2/onb-language*/splash*): giữ nguyên.
+
+## vectors/vimg.json – ảnh dạng bài "pic" (thêm sau, `scripts/native/gen-vimg.mjs`)
+Nguồn = `web/js/vocab-img.js` thật (VImg v3). App tải đầu `https://lexkite.com/js/lexicon-img.json` (`head`: `{v:3, base, sv, on, n}`) rồi mảnh `https://lexkite.com/js/vimg/<shard 2 chữ số>.json` (`{m:{key:hash}, s:[…], a:[…], x:[…], w:[…], p:{…}}`), cache đĩa.
+- `pos[]` = `VImg.pos` (chuẩn hoá loại từ), `key` = `word.trim().toLowerCase() + '#' + pos` (đúng từ#loại, không lấy loại khác).
+- `sh[]` = FNV-1a 32-bit theo code point của `word.toLowerCase()` (`Math.imul`, `>>> 0`) `% n`.
+- `cases[]` (`word,pos,key,shard,hash,url,url2x,scene,a`): ảnh = `base + hash + '.webp'`. Bài "pic": chỉ khi `url != null && !scene` (ảnh cảnh cần câu ví dụ). Chế độ tối: ảnh `a == false` (nền kem) ẩn.
+- `mode[]` = luật bật dần: Remote Config `vocab_img` ("on"/"off"/"" → web `true`/`false`/không đặt) + `vocab_img_pct` (mặc định `defaultPct` = 10) + nhóm thiết bị cố định 0–99 (sinh ngẫu nhiên 1 lần, lưu). `1` bật · `0` tắt · `-1` bật dần → bật khi `head.on`. Cờ mới trong `native/shared/flags.json`: `vocab_img`, `vocab_img_pct`.

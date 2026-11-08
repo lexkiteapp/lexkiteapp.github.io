@@ -12,6 +12,7 @@
  *   teacher  scripts/native/gen-teach.mjs: web TeacherRig core + call/{face,mouths,lipsync,paint}.js + cues.js → teach/rig.json (rig definition) + vectors/rig.json (frames, lip sync ±33 ms, face paint ops, mood);
  *            web/teach/<ama|carlos>/{head-bare-2x,still-<pose>}.webp → bundled offline art (Android assets / iOS LKDesign resources)
  *   lesson   scripts/native/gen-lesson.mjs: web/js/lesson/engine.js (pickWords/build/adapt/check/Session/results/storyItems/plans…) → vectors/lesson.json
+ *   vimg     scripts/native/gen-vimg.mjs: web/js/vocab-img.js (VImg v3 head + shards) → vectors/vimg.json (lesson pic images)
  *   audio    scripts/native/gen-audio.mjs: web/js/audio.js + CDN/word-key/ttsClean lines of web/js/ui.js + listen/kvoice.js → vectors/audio.json
  * Usage: node scripts/native/gen.mjs          (write)
  *        node scripts/native/gen.mjs --check  (CI drift gate: exit 1 if any generated file differs or a string is missing)
@@ -263,6 +264,13 @@ const { lessonVectors } = await import('./gen-lesson.mjs');
 put(`${SHARED}/vectors/lesson.json`, lessonVectors());
 const { audioVectors } = await import('./gen-audio.mjs');
 put(`${SHARED}/vectors/audio.json`, audioVectors());
+const { vimgVectors } = await import('./gen-vimg.mjs'); // lesson "pic" images: VImg v3 lookup (exact word#pos, shard by FNV) on the lesson + starter words
+{
+  const lp = JSON.parse(fs.readFileSync(R('native/shared/gen/content-pack/lesson-ngsl1.1.json'), 'utf8')), sp = JSON.parse(fs.readFileSync(R('native/shared/gen/content-pack/starter.json'), 'utf8'));
+  const ws = new Map(); for (const c of lp.words.concat(...Object.values(sp.topics))) if (c && c.word) ws.set(c.word + '#' + c.pos, [c.word, c.pos]);
+  ws.set('apple#n', ['apple', 'n']); ws.set('apple#v', ['apple', 'v']); ws.set(' Book #noun', [' Book ', 'noun']);
+  put(`${SHARED}/vectors/vimg.json`, JSON.stringify(await vimgVectors([...ws.values()])) + '\n');
+}
 
 // ---------- Remote Config flags (native/shared/flags.json → Flags.swift + Flags.kt, safe offline defaults) ----------
 const FL = JSON.parse(fs.readFileSync(R('native/shared/flags.json'), 'utf8')).flags;

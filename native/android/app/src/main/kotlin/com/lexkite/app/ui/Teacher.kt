@@ -35,7 +35,8 @@ import java.net.URL
  */
 object TeacherArt {
     const val BASE = "https://lexkite.com/teach/"
-    private val mem = LruCache<String, Bitmap>(6)
+    private const val ROOT = "https://lexkite.com/"
+    private val mem = LruCache<String, Bitmap>(24)
     private fun rel(who: String, pose: String) = "teach/$who/still-$pose.webp"
 
     /** Bundled still, synchronously (small webp, decoded once and kept in memory) – null when this pose is not bundled. */
@@ -43,6 +44,23 @@ object TeacherArt {
         val key = "$who-$pose"
         mem.get(key)?.let { return it }
         return runCatching { ctx.assets.open(rel(who, pose)).use { BitmapFactory.decodeStream(it) } }.getOrNull()?.also { mem.put(key, it) }
+    }
+
+    /** Any teacher art by its CDN-relative path (`teach/<who>/head-bare-2x.webp`, `teach/<who>/still-<pose>.webp`): memory → bundled asset, synchronously. */
+    fun bundledRel(ctx: Context, rel: String): Bitmap? {
+        mem.get(rel)?.let { return it }
+        return runCatching { ctx.assets.open(rel).use { BitmapFactory.decodeStream(it) } }.getOrNull()?.also { mem.put(rel, it) }
+    }
+
+    /** Same path, with disk cache + CDN for art that is not bundled (poses beyond the bundled ones). */
+    suspend fun loadRel(ctx: Context, rel: String): Bitmap? = withContext(Dispatchers.IO) {
+        bundledRel(ctx, rel)?.let { return@withContext it }
+        val f = File(ctx.cacheDir, "teach/" + rel.removePrefix("teach/").replace('/', '-'))
+        val bytes = runCatching { if (f.exists()) f.readBytes() else null }.getOrNull() ?: runCatching {
+            val c = URL(ROOT + rel).openConnection() as HttpURLConnection
+            try { c.connectTimeout = 8000; c.readTimeout = 15000; if (c.responseCode != 200) null else c.inputStream.use { it.readBytes() } } finally { c.disconnect() }
+        }.getOrNull()?.also { b -> runCatching { f.parentFile?.mkdirs(); f.writeBytes(b) } }
+        bytes?.let { BitmapFactory.decodeByteArray(it, 0, it.size) }?.also { mem.put(rel, it) }
     }
 
     suspend fun load(ctx: Context, who: String, pose: String): Bitmap? = withContext(Dispatchers.IO) {
