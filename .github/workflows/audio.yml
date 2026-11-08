@@ -19,6 +19,7 @@ on:
     inputs:
       limit: { description: 'Số câu mỗi shard', default: '1500' }
       shards: { description: 'Trần số shard (thực tế = min(trần, runner rảnh − 8, ⌈câu/500⌉))', default: '24' }
+      tl: { description: "'es' = chỉ câu tiếng TBN của bài luyện W2b (Kokoro fp32 + âm vị espeak es-419, giọng ef_dora); trống = lượt tiếng Anh như cũ", default: '' }
       only_call_cues: { description: 'Chỉ sinh mốc khớp miệng (bỏ qua giọng còn thiếu khác)', type: boolean, default: false }
 permissions:
   contents: write
@@ -41,14 +42,14 @@ jobs:
         with: { node-version: 22 }
       - id: c
         run: |
-          left=$(node scripts/gen-audio.mjs --limit 0 | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')
+          left=$(node scripts/gen-audio.mjs ${TL:+--tl $TL} --limit 0 | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')
           [ "${{ github.event.inputs.only_call_cues }}" = "true" ] && left=0
           echo "left=$left" >> "$GITHUB_OUTPUT"
           # mốc khớp miệng câu giáo viên (Call + Truyện – docs/LESSON-ENGINE.md §Khớp miệng): job cues riêng, chạy song song với gen
-          echo "cues=$(node scripts/lipsync/call_cues.mjs --count | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
+          [ -n "$TL" ] && echo "cues=0" >> "$GITHUB_OUTPUT" || echo "cues=$(node scripts/lipsync/call_cues.mjs --count | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
           # số shard động: min(24, 40 − job đang chạy/xếp hàng − 8 chừa cho check PR, ⌈còn / 500⌉) – scripts/ci/shards.mjs (chủ 1/11: dùng hết runner rảnh)
           echo "shards=$(node scripts/ci/shards.mjs --left "$left" --per 500 --cap "${{ github.event.inputs.shards || '24' }}")" >> "$GITHUB_OUTPUT"
-        env: { GITHUB_TOKEN: '${{ github.token }}' }
+        env: { GITHUB_TOKEN: '${{ github.token }}', TL: '${{ github.event.inputs.tl }}' }
   gen:
     needs: plan
     if: needs.plan.outputs.left != '0'
@@ -68,8 +69,15 @@ jobs:
         with:
           path: /tmp/kk/node_modules/@huggingface/transformers/.cache
           key: kokoro-82m-v1-q8
+      - if: ${{ github.event.inputs.tl != '' }}
+        uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - name: G2P tiếng TBN (misaki EspeakG2P + espeak-ng đầy đủ – kokoro-js chỉ kèm espeak tiếng Anh)
+        if: ${{ github.event.inputs.tl != '' }}
+        run: pip install -q "misaki==0.9.4" "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4"
       - name: Tạo âm thanh
-        run: AUDIO_MIN=150 NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "${{ github.event.inputs.limit || '1500' }}"
+        env: { TL: '${{ github.event.inputs.tl }}' }
+        run: AUDIO_MIN=150 NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs ${TL:+--tl $TL} --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "${{ github.event.inputs.limit || '1500' }}"
       - uses: actions/upload-artifact@v4
         if: always()
         with:

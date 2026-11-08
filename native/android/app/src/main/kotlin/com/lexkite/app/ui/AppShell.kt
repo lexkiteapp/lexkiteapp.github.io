@@ -70,6 +70,8 @@ fun l10nKey(id: String) = L10nKey.entries.first { it.id == id }
 class ShellSlots(
     val today: @Composable (open: (String) -> Unit) -> Unit,
     val me: @Composable () -> Unit,
+    /** P03 lesson player (`lexkite://lesson/go[?story=<id>]`); null → the M1 placeholder focus screen. */
+    val lesson: (@Composable (story: String?, onExit: () -> Unit) -> Unit)? = null,
 )
 
 /** Focus destinations reachable in M1 (their players land in M2–M4; the frame, X and Back already work). */
@@ -82,8 +84,9 @@ object Routes {
     fun hub(tab: String) = "$tab/hub"
     const val WORD = "vocab/word/{w}"
     fun word(w: String) = "vocab/word/" + android.net.Uri.encode(w)
-    const val FOCUS_R = "focus/{kind}"
-    fun focus(kind: String) = "focus/$kind"
+    const val FOCUS_R = "focus/{kind}?story={story}"
+    fun focus(kind: String, story: String? = null) = "focus/$kind" + (story?.let { "?story=" + android.net.Uri.encode(it) } ?: "")
+    fun storyOf(query: String): String? = Regex("(?:^|&)story=([^&]+)").find(query)?.groupValues?.get(1)?.let { android.net.Uri.decode(it) }
 }
 
 /** Opens a web-style route or a parsed deep link inside the frame (C08). */
@@ -91,7 +94,7 @@ fun NavHostController.open(link: DeepLink) {
     val route = link.route
     when {
         route == "word" && link.arg.isNotEmpty() -> { selectTab(link.tab); navigate(Routes.word(link.arg)) }
-        route in FOCUS -> navigate(Routes.focus(route)) { launchSingleTop = true }
+        route in FOCUS -> navigate(Routes.focus(route, Routes.storyOf(link.query))) { launchSingleTop = true }
         else -> selectTab(link.tab)
     }
 }
@@ -153,9 +156,11 @@ fun AppShell(t: L10n, frame: LKFrame, slots: ShellSlots, initialTab: String = "h
                             LKScreen(TopBarVariant.Inner, e.arguments?.getString("w").orEmpty(), t, onExit = { nav.popBackStack() }) {}
                         }
                     }
-                    composable(Routes.FOCUS_R, arguments = listOf(navArgument("kind") { type = NavType.StringType })) { e ->
+                    composable(Routes.FOCUS_R, arguments = listOf(navArgument("kind") { type = NavType.StringType }, navArgument("story") { type = NavType.StringType; nullable = true; defaultValue = null })) { e ->
                         val kind = e.arguments?.getString("kind").orEmpty()
-                        LKScreen(TopBarVariant.Focus(0f), t(focusTitle(kind)), t, onExit = { nav.popBackStack() }) {}
+                        val lesson = slots.lesson
+                        if (kind == "lesson" && lesson != null) lesson(e.arguments?.getString("story")) { nav.popBackStack() }
+                        else LKScreen(TopBarVariant.Focus(0f), t(focusTitle(kind)), t, onExit = { nav.popBackStack() }) {}
                     }
                 }
             }

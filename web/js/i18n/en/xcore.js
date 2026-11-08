@@ -136,4 +136,5 @@
 'Tải & bật': 'Download & turn on', 'Đang chuẩn bị… bấm micro lần nữa để nói': 'Getting ready… tap the mic again to speak',
 // ---------- từ en/goal.js + en/remind.js: nhãn trợ năng viên đầu trang Stitch chung (web/js/st/v2/shell.js) – màn Ôn/Lộ trình/Tôi… cần ngay, không chờ gói lười (thiếu → dịch máy gọi mạng) ----------
 'Mức sẵn sàng thi': 'Exam readiness', 'Mục tiêu hôm nay': "Today's goal",
+'Luyện tiếng Tây Ban Nha': 'Spanish practice', 'Chia động từ và ngữ pháp, giải thích bằng ngôn ngữ của bạn': 'Verb conjugation and grammar, explained in your language',
 }); })(typeof self !== 'undefined' ? self : this);
