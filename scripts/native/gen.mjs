@@ -317,12 +317,25 @@ const COMPAT = compatVectors(fs.existsSync(compatFile) ? JSON.parse(fs.readFileS
 put(`${SHARED}/vectors/compat.json`, json(COMPAT));
 
 // ---------- write / check ----------
+// first differing JSON paths (committed → regenerated): turns a CI-only DRIFT into a readable cause (platform float/order differences)
+function jsonDiff(a, b, max = 8) {
+  const out = []; let A, B; try { A = JSON.parse(a); B = JSON.parse(b); } catch { return ['(not parseable JSON)']; }
+  const walk = (x, y, p) => {
+    if (out.length >= max) return;
+    if (typeof x !== typeof y || Array.isArray(x) !== Array.isArray(y) || (x === null) !== (y === null)) { out.push(`${p}: ${JSON.stringify(x)?.slice(0, 80)} → ${JSON.stringify(y)?.slice(0, 80)}`); return; }
+    if (x && typeof x === 'object') {
+      if (Array.isArray(x) && x.length !== y.length) out.push(`${p}: length ${x.length} → ${y.length}`);
+      for (const k of new Set([...Object.keys(x), ...Object.keys(y)])) walk(x[k], y[k], `${p}${Array.isArray(x) ? `[${k}]` : `.${k}`}`);
+    } else if (x !== y) out.push(`${p}: ${JSON.stringify(x)} → ${JSON.stringify(y)}`);
+  };
+  walk(A, B, '$'); return out;
+}
 let drift = 0;
 for (const [rel, s] of out) {
   if (ONLY && !rel.startsWith(ONLY)) continue;
   const f = R(rel), bin = Buffer.isBuffer(s), cur = fs.existsSync(f) ? fs.readFileSync(f, bin ? undefined : 'utf8') : null;
   if (bin ? cur && cur.equals(s) : cur === s) continue;
-  if (CHECK) { drift++; console.error(`DRIFT ${rel} (run: node scripts/native/gen.mjs)`); }
+  if (CHECK) { drift++; console.error(`DRIFT ${rel} (run: node scripts/native/gen.mjs)`); if (!bin && cur && rel.endsWith('.json')) jsonDiff(cur, s).forEach(d => console.error('  ' + d)); }
   else { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, s); console.log('wrote', rel); }
 }
 if (missing.length) { console.error(`MISSING translations (${missing.length}): ${missing.slice(0, 20).join(', ')} – add them through the web i18n pipeline, never in native code`); process.exit(1); }
