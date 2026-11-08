@@ -36,40 +36,6 @@ enum WritingSimilarity {
     static func norm(_ x: String) -> String { WritingEngine.gapNorm(x) }
 }
 
-/// web `App.lemma`: plural → singular, past / participle → infinitive, comparative → adjective. Irregular forms come from the verb tables;
-/// "known word" is the set of words the exercise itself shows plus the known verbs (the web asks its whole word library).
-struct WritingLemma {
-    let verbs: Verbs?
-    let known: Set<String>
-    static let keep: Set<String> = Set("as was has is his its this thus us yes less unless across perhaps whereas always sometimes nevertheless upon bus gas status focus plus process business analysis basis crisis".split(separator: " ").map(String.init))
-    static let irregularOther = ["is": "be", "are": "be", "am": "be", "was": "be", "were": "be", "been": "be", "being": "be", "has": "have", "had": "have", "having": "have", "does": "do", "did": "do", "done": "do",
-                                 "better": "good", "best": "good", "worse": "bad", "worst": "bad", "further": "far", "farther": "far", "children": "child", "men": "man", "women": "woman", "feet": "foot",
-                                 "teeth": "tooth"]
-    private func isKnown(_ w: String) -> Bool { known.contains(w) || (verbs?.isKnown(w) ?? false) }
-    func lemma(_ w: String) -> String {
-        let l = w.lowercased()
-        if let b = Self.irregularOther[l] { return b }
-        if let v = verbs, l.range(of: "^[a-z]+$", options: .regularExpression) != nil, let r = v.resolve(l), r.s("from") == "past" || r.s("from") == "pp", r.s("base") != l, !r.t("guess") { return r.s("base") }
-        if Self.keep.contains(l) || l.count < 4 || (isKnown(l) && l.range(of: "(ies|es|s|ed|ing|er|est)$", options: .regularExpression) == nil) { return l }
-        func cut(_ n: Int) -> String { String(l.dropLast(n)) }
-        func has(_ re: String) -> Bool { l.range(of: re, options: .regularExpression) != nil }
-        func tryB(_ c: [String?]) -> String? { c.compactMap { $0 }.first { !$0.isEmpty && isKnown($0) } }
-        var b: String?
-        if has("ies$") { b = tryB([cut(3) + "y"]) }
-        if b == nil, has("ves$") { b = tryB([cut(3) + "f", cut(3) + "fe"]) }
-        if b == nil, has("(ss|x|z|ch|sh|o)es$") { b = tryB([cut(2)]) }
-        if b == nil, has("[^s]s$") { b = tryB([cut(1)]) }
-        if b == nil, has("ied$") { b = tryB([cut(3) + "y"]) }
-        if b == nil, has("ed$") { b = tryB([cut(1), cut(2), has("(.)\\1ed$") ? cut(3) : nil]) }
-        if b == nil, has("ing$") { b = tryB([cut(3), cut(3) + "e", has("(.)\\1ing$") ? cut(4) : nil]) }
-        if b == nil, has("iest$") { b = tryB([cut(4) + "y"]) }
-        if b == nil, has("est$") { b = tryB([cut(3), cut(2), has("(.)\\1est$") ? cut(4) : nil]) }
-        if b == nil, has("ier$") { b = tryB([cut(3) + "y"]) }
-        if b == nil, has("er$"), !isKnown(l) { b = tryB([cut(2), cut(1), has("(.)\\1er$") ? cut(3) : nil]) }
-        return b ?? l
-    }
-}
-
 /// web `App.reward({xp})` for the writing screens: XP into `game.xp` and `game.days[today].xp`, written through the serial repository.
 @MainActor
 enum WritingReward {
@@ -84,6 +50,13 @@ enum WritingReward {
             days[day] = .object(d); g["days"] = .object(days)
             doc.game = g
         }
+        services.localChange()
+    }
+    /// web dict page: one "lookups" count per word per day (game.days[today].lookups and the lifetime total when the game has it)
+    static func lookup(services: AppServices, now: Date = Date(), calendar: Calendar = .current) async {
+        guard let repo = services.repo else { return }
+        let ms = Int64(now.timeIntervalSince1970 * 1000), clock = VocabClock(calendar: calendar)
+        _ = try? await repo.mutate { doc in doc.game = StudyGame.apply(doc.game ?? StudyGame.empty, StudyDelta(counters: ["lookups": 1]), now: ms, clock: clock) }
         services.localChange()
     }
 }

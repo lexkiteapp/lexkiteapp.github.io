@@ -16,7 +16,8 @@ final class StudyMistakesModel {
     private(set) var revealed: Set<String> = []
     private(set) var penalized: Set<String> = []
     private(set) var fading: Set<String> = []
-    private(set) var tick = 0, wrongTick = 0
+    private(set) var tick = 0
+    private(set) var wrongTick = 0
 
     let core: StudyCore
     @ObservationIgnored var translate: MistakesEngine.Translate = MistakesEngine.defaultTranslate
@@ -102,6 +103,7 @@ final class StudyMistakesModel {
         let entry = bundle.catalog.topics.lazy.flatMap(\.words).first { $0.s("word").lowercased() == word.lowercased() } ?? JSON.obj([("word", .string(word))])
         let card = core.addWord(entry, into: &bundle)
         Task { await core.commit(VocabEdit(upsert: [card])) }
+        core.enrichLater(word)
         tick += 1
     }
     func speak(_ s: String) { core.speakSentence(s, settings: bundle.settings) }

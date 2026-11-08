@@ -337,6 +337,7 @@ private struct ReviewBack: View {
                     }
                 }
             }
+            DeepNotesView(word: c.s("word"))
             if model.lapses >= 3 { leech }
             ownSentence
         }

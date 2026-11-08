@@ -46,6 +46,7 @@ struct DictView: View {
         let m = DictModel(uiLang: services.uiLang)
         m.cardSource = { await WritingCards.cards(services) }
         m.saveCard = { entry, ctx in await WritingCards.add(entry, context: ctx, services: services) }
+        m.rewardLookup = { await WritingReward.lookup(services: services) }
         return m
     }
 

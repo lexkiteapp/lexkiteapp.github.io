@@ -27,6 +27,7 @@ struct DictEntryView: View {
             posBlocks(e, page)
             if page.extraMeanings > 0 { extra(e) }
             if !page.bilingual.isEmpty { bilingual(e, page) }
+            DeepNotesView(word: e.s("word"))
             if model.isFinal {
                 saveBox(e)
                 phrasesAndRelated(e)

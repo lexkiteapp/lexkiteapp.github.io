@@ -286,6 +286,10 @@ struct UsageView: View {
             registers(all.flatMap { $0.list("reg") })
             mistakes(all.flatMap { $0.list("mis") })
             family(key)
+            if let n = notes {
+                // mnemonic + exam use (+ common mistakes when the entries carry none), the same note the review card shows
+                DeepNotesView(word: key, preset: .obj([("m", n["m"] ?? ""), ("u", n["u"] ?? ""), ("e", all.contains { !$0.list("mis").isEmpty } ? "" : (n["e"] ?? ""))]))
+            }
             let lessons = Array(Set(all.flatMap { $0.strs("lessons") })).sorted(), rel = uniq(all.flatMap { $0.strs("rel") }.filter { $0 != key })
             if !lessons.isEmpty || !rel.isEmpty {
                 WritingCard {

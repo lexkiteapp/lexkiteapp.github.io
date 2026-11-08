@@ -25,7 +25,8 @@ final class StudyReviewModel {
     private(set) var options: StudyModes.Options?
     var flipped = false
     var typed = ""
-    private(set) var hints = 0, replays = 0
+    private(set) var hints = 0
+    private(set) var replays = 0
     private(set) var picked: Int?
     private(set) var checked: Check?
     var noteDraft = ""
@@ -33,9 +34,11 @@ final class StudyReviewModel {
     private(set) var sentenceState: SentenceState = .idle
     private(set) var noteSaved = false
     private(set) var aiTip: String?
-    private(set) var aiBusy = false, aiFailed = false
+    private(set) var aiBusy = false
+    private(set) var aiFailed = false
     private(set) var undoneNotice = false
-    private(set) var gradeTick = 0, undoTick = 0
+    private(set) var gradeTick = 0
+    private(set) var undoTick = 0
 
     let core: StudyCore
     @ObservationIgnored var query = ReviewEngine.Query()

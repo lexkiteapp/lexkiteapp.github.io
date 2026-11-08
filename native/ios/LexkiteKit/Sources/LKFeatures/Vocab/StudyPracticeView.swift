@@ -56,7 +56,7 @@ struct StudyPracticeView: View {
                        action: (t(.revGamesPractice), { model.backToHub() }), secondary: (t(.revOpenLibrary), { onRoute(AppRoute("library")) }))
             Spacer()
         case .intro: PracticeIntro(model: model)
-        case .question: PracticeQuestionView(model: model)
+        case .question: if model.offeringHard { PracticeHardOffer(model: model) } else { PracticeQuestionView(model: model) }
         case .quizDone: PracticeQuizDone(model: model, onRoute: onRoute)
         case .learnDone: PracticeLearnDone(model: model, onRoute: onRoute)
         case .match: PracticeMatch(model: model)
@@ -215,6 +215,7 @@ private struct PracticeQuestionView: View {
 
     @ViewBuilder private func promptCard(_ q: PracticeQuestion) -> some View {
         VStack(spacing: LKSpacing.spaceSm) {
+            if q.hard { StudyChip(text: t(.revToughItemXp, ["n": Fmt.int(PracticeRun.xpCorrectHard, t.lang)]), icon: "bolt.fill", tint: LKColor.tertiary) }
             switch q.kind {
             case .mcqVi:
                 if q.word.t("image") || q.word.t("emoji") { StudyThumb(emoji: q.word.s("emoji"), image: q.word.s("image"), size: 96) }
@@ -369,5 +370,25 @@ private struct PracticeFeedback: View {
         }
         .frame(maxWidth: .infinity)
         .accessibilityElement(children: .contain)
+    }
+}
+
+// MARK: - hard-mode offer
+private struct PracticeHardOffer: View {
+    let model: StudyPracticeModel
+    @Environment(\.l10n) private var t
+    @Environment(\.colorScheme) private var scheme
+    var body: some View {
+        PracticeColumn {
+            Spacer(minLength: 0)
+            Image(systemName: "bolt.heart.fill").font(.system(size: 56, weight: .bold)).foregroundStyle(LKColor.tertiary.resolve(scheme)).accessibilityHidden(true)
+            Text(verbatim: t(.revThisLooksTooEasyFor)).studyText(LKType.headlineSm).multilineTextAlignment(.center)
+            Text(verbatim: t(.revToughItemXp, ["n": Fmt.int(PracticeRun.xpCorrectHard, t.lang)])).studyText(LKType.bodyMd, LKColor.onSurfaceVariant)
+            Button(t(.revGoHarder)) { model.answerHardOffer(true) }.buttonStyle(PrimaryButtonStyle())
+            Button(t(.revKeepThisLevel)) { model.answerHardOffer(false) }.buttonStyle(StudyOutlineButtonStyle())
+            Spacer(minLength: 0)
+        }
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("practice-hard-offer")
     }
 }

@@ -141,6 +141,7 @@ struct WritingErrPractice: View {
 
     let ctx: WritingPracticeContext
     @Environment(\.l10n) private var t
+    @Environment(\.liveContent) private var live
     @Environment(\.colorScheme) private var scheme
     @State private var paras: [[Tok]] = []
     @State private var slots: [Slot] = []
@@ -170,7 +171,7 @@ struct WritingErrPractice: View {
                 Button(selectMode ? t(.modelShuffleGaps) : t(.modelNewSetOfErrors)) { round += 1; build() }.buttonStyle(WritingSecondaryButtonStyle())
             }
         }
-        .task(id: ctx.model.s("id")) { build() }
+        .task(id: ctx.model.s("id")) { if live { _ = await WordCatalogRemote.shared.catalog() }; build() }
     }
 
     @ViewBuilder private func slotView(_ k: Int) -> some View {
@@ -205,7 +206,7 @@ struct WritingErrPractice: View {
         var rng = ctx.seed.map { WritingRNG(seed: $0 &+ UInt64(round)) } ?? WritingRNG.timeSeeded()
         let plainParas = paragraphs(ctx.model.s("text")).map { WritingEngine.plain(stripRole($0)) }
         let allWords = Set(plainParas.flatMap { matches($0, "[A-Za-z]+") }.map { $0.lowercased() })
-        let lem = WritingLemma(verbs: WritingVerbs.shared, known: allWords)
+        let lem = WritingLemmas.make(known: allWords)
         // candidate errors
         var cand: [(para: Int, tok: Int, slot: Slot)] = []
         for (pi, p) in plainParas.enumerated() {
@@ -340,6 +341,7 @@ struct WritingLemmaPractice: View {
     struct Line: Hashable { var sentence: String, role: String, prompt: String }
     let ctx: WritingPracticeContext
     @Environment(\.l10n) private var t
+    @Environment(\.liveContent) private var live
     @Environment(\.colorScheme) private var scheme
     @State private var lines: [Line] = []
     @State private var inputs: [String] = []
@@ -370,14 +372,14 @@ struct WritingLemmaPractice: View {
             Button(t(.modelCheckAll)) { check() }.buttonStyle(PrimaryButtonStyle())
             Button(t(.modelShowModelSentences)) { shown = true }.buttonStyle(WritingSecondaryButtonStyle())
         }
-        .task(id: ctx.model.s("id")) { build() }
+        .task(id: ctx.model.s("id")) { if live { _ = await WordCatalogRemote.shared.catalog() }; build() }
     }
 
     private func build() {
         var ls: [Line] = []
         let all = paragraphs(ctx.model.s("text")).flatMap { matches(WritingEngine.plain(stripRole($0)), "[^.!?]+[.!?]+") }
         let known = Set(all.flatMap { matches($0, "[A-Za-z]+") }.map { $0.lowercased() })
-        let lem = WritingLemma(verbs: WritingVerbs.shared, known: known)
+        let lem = WritingLemmas.make(known: known)
         for p in paragraphs(ctx.model.s("text")) {
             let role = roleOf(p)
             for (si, s) in matches(WritingEngine.plain(stripRole(p)), "[^.!?]+[.!?]+").enumerated() {

@@ -25,12 +25,23 @@ final class StudyPracticeModel {
     var typed = ""
     private(set) var picked: String?
     private(set) var nearMiss = false
-    private(set) var qi = 0, total = 0, score = 0, runXP = 0, streak = 0
+    private(set) var qi = 0
+    private(set) var total = 0
+    private(set) var score = 0
+    private(set) var runXP = 0
+    private(set) var streak = 0
     private(set) var wrong: [JSON] = []
     private(set) var result: PracticeRun.QuizResult?
     private(set) var learn: PracticeRun.LearnRun?
-    private(set) var learnAdded = false, wrongAdded = false
-    private(set) var tick = 0, wrongTick = 0, doneTick = 0
+    private(set) var learnAdded = false
+    private(set) var wrongAdded = false
+    private(set) var tick = 0
+    private(set) var wrongTick = 0
+    private(set) var doneTick = 0
+    /// 8 correct in a row → "this looks too easy" screen (once per run, never in the test)
+    private(set) var offeringHard = false
+    @ObservationIgnored private var hardOffered = false
+    static let hardAt = 8
 
     // match
     private(set) var tiles: [PracticeRun.MatchTile] = []
@@ -40,13 +51,15 @@ final class StudyPracticeModel {
     private(set) var bad: Set<Int> = []
     private(set) var misses = 0
     private(set) var matchStart: Int64 = 0
-    private(set) var matchTime = 0.0, matchXP = 0
+    private(set) var matchTime = 0.0
+    private(set) var matchXP = 0
     private(set) var matchBest: Double?
     private(set) var newRecord = false
 
     // speak
     private(set) var speakItems: [JSON] = []
-    private(set) var si = 0, good = 0
+    private(set) var si = 0
+    private(set) var good = 0
     private(set) var heard = ""
     private(set) var speakScore: Int?
     private(set) var listening = false
@@ -92,7 +105,7 @@ final class StudyPracticeModel {
         mode = m
         pool = poolFor(src)
         question = nil; intro = nil; feedback = nil; result = nil; picked = nil; typed = ""; nearMiss = false
-        qi = 0; score = 0; runXP = 0; streak = 0; wrong = []; wrongAdded = false; learnAdded = false
+        qi = 0; score = 0; runXP = 0; streak = 0; wrong = []; wrongAdded = false; learnAdded = false; offeringHard = false; hardOffered = false
         switch m {
         case "learn": startLearn()
         case "match": startMatch()
@@ -163,7 +176,18 @@ final class StudyPracticeModel {
             runXP += xp; reward(StudyDelta(xp: xp))
         } else { wrong.append(q.word); streak = 0 }
         qi += 1
-        if qi >= quiz.count { finishQuiz() } else { showQuestion(quiz[qi]) }
+        if qi >= quiz.count { finishQuiz(); return }
+        if mode != "test", !hardOffered, !quiz.contains(where: \.hard), streak >= Self.hardAt, quiz.count - qi >= 2 {
+            hardOffered = true; offeringHard = true; question = nil; feedback = nil
+            return
+        }
+        showQuestion(quiz[qi])
+    }
+    /// answer of the hard-mode offer: yes → the remaining questions become typed ones with fewer hints
+    func answerHardOffer(_ yes: Bool) {
+        offeringHard = false
+        if yes { var g = rng; let rest = PracticeRun.harden(Array(quiz[qi...]), rng: &g); rng = g; quiz.replaceSubrange(qi..., with: rest) }
+        showQuestion(quiz[qi])
     }
 
     private func finishQuiz() {

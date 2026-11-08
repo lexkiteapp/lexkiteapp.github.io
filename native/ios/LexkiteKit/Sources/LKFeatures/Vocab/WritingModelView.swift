@@ -56,7 +56,7 @@ struct WritingModelView: View {
             if services.repo != nil { cards = await WritingCards.cards(services) }
             let d = WritingLocal.dict(WritingLocal.doneKey)[route.arg ?? ""] ?? ""
             if done.isEmpty { done = Set(d.split(separator: ",").map(String.init)) }
-            marked = Set(UserDefaults.standard.stringArray(forKey: "lk.uhl." + (route.arg ?? "")) ?? [])
+            await loadMarks(route.arg ?? "")
         }
         .sheet(isPresented: Binding(get: { pending != nil }, set: { if !$0 { pending = nil } })) {
             if let p = pending {
@@ -138,7 +138,7 @@ struct WritingModelView: View {
             FlowLayout {
                 toggleChip("ch", t(.modelUsefulPhrases)); toggleChip("gl", t(.modelMeaningsUnderPhrases)); toggleChip("lk", t(.modelLinkingWords)); toggleChip("role", t(.modelSentenceRoles))
                 WritingChip(text: t(.modelHighlight), selected: highlight, system: "highlighter") { highlight.toggle(); note = highlight ? t(.modelSelectTextInThe2) : t(.modelHighlightingOff) }
-                WritingChip(text: t(.modelClearAllYourHighlights), system: "arrow.counterclockwise") { marked = []; UserDefaults.standard.removeObject(forKey: "lk.uhl." + m.s("id")); note = t(.modelHighlightsCleared) }
+                WritingChip(text: t(.modelClearAllYourHighlights), system: "arrow.counterclockwise") { marked = []; saveMarks(m); note = t(.modelHighlightsCleared) }
             }
             if let note { Text(note).lkText(LKType.bodySm).foregroundStyle(dim).accessibilityAddTraits(.updatesFrequently) }
             ForEach(Array(paras.enumerated()), id: \.offset) { pi, p in
@@ -237,6 +237,20 @@ struct WritingModelView: View {
         return out
     }
 
+    /// Free highlight is kept per model answer under the web's device key `uhl:<id>` (Store). The web keeps DOM ranges (`{v, h}`); native keeps the marked sentences
+    /// (`{v: "n:<length>", s: ["paragraph.sentence"…]}`): the version differs, so each side ignores the other's record and never reads it wrongly.
+    private func marksVersion(_ m: JSON) -> String { "n:" + String(m.s("text").utf16.count) }
+    private func loadMarks(_ id: String) async {
+        guard let repo = services.repo, let m = index?.model(id) else { return }
+        if let sv = await repo.legacyStore("uhl:" + id), sv.s("v") == marksVersion(m) { marked = Set(sv.strs("s")) }
+    }
+    private func saveMarks(_ m: JSON) {
+        guard let repo = services.repo else { return }
+        let value: JSON = marked.isEmpty ? .null : .obj([("v", .string(marksVersion(m))), ("s", .strings(marked.sorted()))])
+        let key = "uhl:" + m.s("id")
+        Task { await repo.storeLegacy(key, value) }
+    }
+
     private func handle(_ url: URL, _ m: JSON, _ chunks: [(en: String, vi: String)]) -> OpenURLAction.Result {
         let s = url.absoluteString
         if s.hasPrefix("lkchunk:"), let i = Int(s.dropFirst(8)), i < chunks.count {
@@ -247,7 +261,7 @@ struct WritingModelView: View {
         if s.hasPrefix("lkhl:") {
             let key = String(s.dropFirst(5))
             if marked.contains(key) { marked.remove(key) } else { marked.insert(key) }
-            UserDefaults.standard.set(Array(marked), forKey: "lk.uhl." + m.s("id"))
+            saveMarks(m)
             return .handled
         }
         return .discarded

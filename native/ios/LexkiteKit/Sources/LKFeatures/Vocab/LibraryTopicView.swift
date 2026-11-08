@@ -33,6 +33,7 @@ final class LibraryTopicModel {
         reopen(level: level.isEmpty ? nil : level)
         tick += 1
         Task { await core.commit(VocabEdit(upsert: [card])) }
+        core.enrichLater(w.s("word"))
     }
     func addAll() {
         guard let p = page, p.canAddAll else { return }

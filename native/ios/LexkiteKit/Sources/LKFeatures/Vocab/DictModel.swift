@@ -16,8 +16,10 @@ final class DictModel {
     private(set) var cards: [JSON] = []
     var related: DictRelated.Result?
     var phrases: [JSON] = []
-    var ctx = "", ctxVi = ""
-    var translating = false, translateFailed = false
+    var ctx = ""
+    var ctxVi = ""
+    var translating = false
+    var translateFailed = false
     /// "saved" confirmation shown under the box
     var savedNote: String?
     private(set) var saving = false
@@ -34,6 +36,9 @@ final class DictModel {
     let live: Bool
     var cardSource: () async -> [JSON] = { [] }
     var saveCard: (JSON, JSON?) async -> Void = { _, _ in }
+    /// the lookup reward (stats + per-day counter); called once per word per day
+    var rewardLookup: () async -> Void = {}
+    @MainActor private static var lookedUp = Set<String>()
 
     init(uiLang: String, network: DictNetwork = DictURLNetwork(), cache: DictCache? = DictDiskCache(), loader: LexShardLoader? = DictLexLoader(),
          defaults: UserDefaults = .standard, live: Bool = true) {
@@ -82,6 +87,8 @@ final class DictModel {
         guard word == w else { return }
         if let f = full, f["found"] != JSON.bool(false) {
             phase = .full(f)
+            let lk = Dict.lookupKey(day: TodaySnapshot.dayKey(Date(), .current), word: f.s("word"))
+            if live, Self.lookedUp.insert(lk).inserted { await rewardLookup() }
             async let rel = DictRelated.load(f, net: net, origin: origin)
             async let ph = lex.phrases(f.s("word"))
             related = await rel

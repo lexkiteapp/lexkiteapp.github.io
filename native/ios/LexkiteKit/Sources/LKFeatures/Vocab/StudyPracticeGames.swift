@@ -76,6 +76,7 @@ struct PracticeIntro: View {
                             chips(.revSynonyms, w.strs("syn"))
                         }
                     }
+                    DeepNotesView(word: w.s("word"))
                 }
                 VStack(spacing: LKSpacing.spaceXs) {
                     Button(t(.actionContinue)) { model.introContinue() }.buttonStyle(PrimaryButtonStyle())
