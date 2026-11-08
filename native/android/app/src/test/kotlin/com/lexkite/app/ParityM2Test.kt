@@ -47,7 +47,7 @@ class ParityM2Test {
         val it = item()
         when (it.type) {
             "gap", "mean", "q", "pic" -> if (it.type == "pic" && it.choice != true) { spoke(if (right) 0.95 else 0.1, "x"); if (!right) spoke(0.1, "x") } else pick(if (right) it.answer else it.options!!.first { o -> !LessonEngine.same(o, it.answer) })
-            "build", "tr" -> { val words = it.answer.split(" "); val order = (if (right) words else words.reversed()).map { w -> it.tiles!!.indices.first { i -> i !in st.tiles && LessonEngine.same(it.tiles!![i], w) } }; order.forEach { i -> placeTile(i) }; check() }
+            "build", "tr" -> { val words = it.answer.split(" "); (if (right) words else words.reversed()).forEach { w -> placeTile(it.tiles!!.indices.first { i -> i !in st.tiles && LessonEngine.same(it.tiles!![i], w) }) }; check() } // one tile at a time: a repeated word takes the next free tile
             "type" -> { type(if (right) it.answer else "zzz"); check() }
             "say" -> { spoke(if (right) 0.95 else 0.1, "x"); if (!right) spoke(0.1, "x") }
             "match" -> { val n = it.pairs!!.size; for (i in 0 until n) { matchTap(true, i); matchTap(false, if (right) i else (i + 1) % n) }; if (!right) for (i in 0 until n) { matchTap(true, i); matchTap(false, i) } }
@@ -72,7 +72,7 @@ class ParityM2Test {
         var guard = 0
         while (c.finish == null && guard++ < 80) {
             val cur = c.item(); c.play(true); fb = c.feedback
-            if (cur.type != "line" && cur.type != "match") { assertNotNull(fb); assertTrue(fb!!.ok); assertEquals(if (cur.retry == 0) LessonController.XP_PER_RIGHT else 0, fb.xp); c.next() }
+            if (cur.type != "line" && cur.type != "match") { assertNotNull(fb); assertTrue("right answer to ${cur.type} '${cur.answer}' must pass", fb!!.ok); assertEquals(if (cur.retry == 0) LessonController.XP_PER_RIGHT else 0, fb.xp); c.next() }
             else if (cur.type == "match") { assertNotNull(fb); c.next() }
         }
         val f = c.finish!!

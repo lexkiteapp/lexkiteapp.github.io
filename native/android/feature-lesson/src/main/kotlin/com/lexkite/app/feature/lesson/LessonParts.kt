@@ -92,6 +92,10 @@ internal fun Tile(text: String, onClick: (() -> Unit)?, modifier: Modifier = Mod
     }
 }
 
+/** English learning content (sentences, word tiles, typed answers) always reads left-to-right, also in an RTL UI (ar): web `dir="ltr"` on the same blocks. */
+@Composable
+internal fun EnglishLtr(content: @Composable () -> Unit) = androidx.compose.runtime.CompositionLocalProvider(androidx.compose.ui.platform.LocalLayoutDirection provides androidx.compose.ui.unit.LayoutDirection.Ltr) { content() }
+
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 internal fun Flow(modifier: Modifier = Modifier, content: @Composable () -> Unit) {

@@ -259,7 +259,7 @@ private fun HintButton(cur: LItem, a: LessonActions) {
 private fun Gap(cur: LItem, pick: String?, fb: Feedback?) {
     val c = LocalLKColors.current; val tk = tokens
     val b = cur.blank ?: return
-    FlowRow(Modifier.fillMaxWidth().padding(vertical = LKSpacing.spaceXs), horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterHorizontally), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+    EnglishLtr { FlowRow(Modifier.fillMaxWidth().padding(vertical = LKSpacing.spaceXs), horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterHorizontally), verticalArrangement = Arrangement.spacedBy(4.dp)) {
         b.toks.forEachIndexed { i, w ->
             if (i == b.i) {
                 val shown = if (fb?.ok == true) cur.answer else pick.orEmpty()
@@ -271,7 +271,7 @@ private fun Gap(cur: LItem, pick: String?, fb: Feedback?) {
             } else if (i > b.i && i < b.i + b.n) Unit
             else Text(w, style = LKType.headlineSm.toCompose(), color = c.onSurface)
         }
-    }
+    } }
 }
 
 /** The answer area under the question card. */
@@ -313,12 +313,14 @@ private fun BuildArea(cur: LItem, st: ItemState, a: LessonActions, checked: Bool
     val c = LocalLKColors.current; val t = LocalL10n.current
     val tiles = cur.tiles ?: return
     val shape = RoundedCornerShape(16.dp)
+    EnglishLtr { Column {
     FlowRow(Modifier.fillMaxWidth().heightIn(min = 112.dp).clip(shape).background(c.cardLow).border(2.dp, c.outlineVariant, shape).padding(LKSpacing.spaceXs)
         .semantics { contentDescription = t(L10nKey.lessonYourAnswerField) }, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs), verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
         st.tiles.forEachIndexed { pos, i -> Tile(tiles[i], if (checked) null else ({ a.removeTile(pos) })) }
     }
     Spacer(Modifier.height(LKSpacing.spaceSm))
     Flow(Modifier.fillMaxWidth()) { tiles.forEachIndexed { i, w -> Tile(w, if (checked) null else ({ a.placeTile(i) }), dim = i in st.tiles) } }
+    } }
 }
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -328,6 +330,7 @@ private fun TypeArea(cur: LItem, st: ItemState, a: LessonActions, checked: Boole
     val shape = RoundedCornerShape(16.dp); val fr = remember { FocusRequester() }
     val hasBank = !cur.bank.isNullOrEmpty()
     LaunchedEffect(cur.id, cur.retry) { if (!st.bankMode) runCatching { delay(50); fr.requestFocus() } }
+    EnglishLtr { Column {
     Row(Modifier.fillMaxWidth().heightIn(min = 56.dp).clip(shape).background(c.card).border(2.dp, if (checked) c.outlineVariant else c.secondary, shape).padding(horizontal = LKSpacing.spaceMd), verticalAlignment = Alignment.CenterVertically) {
         if (st.bankMode) Text(st.typed.ifEmpty { " " }, style = LKType.headlineSm.toCompose(), color = c.onSurface, modifier = Modifier.weight(1f).semantics { contentDescription = t(L10nKey.lessonYourAnswerField) })
         else BasicTextField(st.typed, { a.type(it) }, Modifier.weight(1f).focusRequester(fr).semantics { contentDescription = t(L10nKey.lessonYourAnswerField) }, enabled = !checked, singleLine = true,
@@ -342,6 +345,7 @@ private fun TypeArea(cur: LItem, st: ItemState, a: LessonActions, checked: Boole
             Text(cur.first.orEmpty().uppercase() + "  ·  " + (1..(cur.len ?: 0)).joinToString(" ") { "_" }.take(40), style = LKType.labelMetric.toCompose(), color = c.secondary)
         }
     }
+    } }
 }
 
 @Composable
