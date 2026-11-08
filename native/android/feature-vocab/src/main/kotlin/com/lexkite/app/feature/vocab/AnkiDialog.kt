@@ -56,7 +56,7 @@ import java.io.File
  * State of the Anki dialog (web App.anki): export = options -> file -> steps for the learner's device; import = pick a file -> check the columns -> import.
  * Logic = [AnkiKit]. [cards] = every saved card, [shown] = the ones the deck filters match; [reload] re-reads the deck after an import.
  */
-internal class AnkiFlow(
+class AnkiFlow(
     private val env: VocabEnv, private val scope: CoroutineScope, private val platform: DeckPlatform,
     private val cards: () -> List<JsonObject>, private val shown: () -> List<JsonObject>, private val reload: suspend () -> Unit,
 ) {
@@ -75,6 +75,7 @@ internal class AnkiFlow(
     var imported by mutableIntStateOf(0); var done by mutableIntStateOf(0); var total by mutableIntStateOf(0); var rowCount by mutableIntStateOf(0)
 
     val all: List<JsonObject> get() = cards()
+    val shownCards: List<JsonObject> get() = shown()
     val canChooseScope: Boolean get() = shown().size != all.size && shown().isNotEmpty()
     val list: List<JsonObject> get() = if (onlyShown && canChooseScope) shown() else all
     private val tmp: File get() = File(env.cacheDir, "anki")
@@ -240,7 +241,7 @@ private fun ExportBody(f: AnkiFlow) {
             if (f.canChooseScope) {
                 Label(t(L10nKey.vocabWhichWordsToExport), color = c.secondary)
                 Option(t(L10nKey.vocabAll) + " (" + t.num(f.all.size) + ")", null, !f.onlyShown) { f.onlyShown = false }
-                Option(t(L10nKey.vocabOnlyTheFilteredWords) + " (" + t.num(f.shown().size) + ")", null, f.onlyShown) { f.onlyShown = true }
+                Option(t(L10nKey.vocabOnlyTheFilteredWords) + " (" + t.num(f.shownCards.size) + ")", null, f.onlyShown) { f.onlyShown = true }
             }
             Label(t(L10nKey.vocabFormat), color = c.secondary)
             Option(t(L10nKey.vocabAnkiPackageApkg), t(L10nKey.vocabBeautifulCardsWithIpaAudio), f.format == AnkiFlow.Format.Apkg, t(L10nKey.vocabRecommended)) { f.format = AnkiFlow.Format.Apkg }

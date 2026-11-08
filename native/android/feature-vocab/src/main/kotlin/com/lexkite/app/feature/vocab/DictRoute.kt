@@ -103,7 +103,7 @@ internal class DictController(private val env: WordEnv, private val scope: Corou
 
     private suspend fun loadPhrases(e: JsonObject): DictPage.Phrases {
         val lexPhrases = runCatching { env.lex().phrases(e.jstr("word")) }.getOrNull()
-        return DictPage.phrases(e, lexPhrases, emptyList(), env.cards().values)
+        return DictPage.phrases(e, lexPhrases, runCatching { env.index().values }.getOrDefault(emptyList()), env.cards().values)
     }
 
     private fun loadRelated() {
