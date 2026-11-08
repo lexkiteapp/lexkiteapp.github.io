@@ -201,6 +201,11 @@
   },
   "scripts/native/gen-sync.mjs": {
    "skip": "chỉ tra các từ mà vector sync/migration dùng (map lib) để native dựng lại thẻ L:1; không ghi/xuất kho"
+  },
+  "scripts/lexicon/expand/left.mjs": {
+   "what": "số việc còn cho ci-filler (20k − mục sống + retry), không ghi gì",
+   "via": "doneWords",
+   "job": "ci-filler.yml (probe infra/ci-backlog.json)"
   }
  },
  "todo": {

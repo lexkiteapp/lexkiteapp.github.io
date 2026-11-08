@@ -8877,3 +8877,24 @@ gasification	ok	ok
 anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
 porpoise	ok	ok
 systematics	ok	ok
+grace	ok	ok
+policewoman	cut_wordis: câu mang: "The word is police woman." · dot100:"Police women." 0.94s · cut_wordis100:"Police women." 0.91s · cut_wordis100:"Police women" 0.86s · cut_next: câu mang: "Next word, police women" · plain095:"Police women" 0.97s · dot090:"A policewoman." 1.08s	ok
+unfortunate	ok	ok
+tightly	ok	ok
+courageous	ok	ok
+orderly	ok	ok
+recite	ok	ok
+bathe	ok	ok
+analogue	cut_wordis:"It's analog." 0.85s · cut_wordis:"Analog." 0.81s · dot100:"analog" 0.80s · cut_wordis100:"The analog." 0.59s · cut_wordis100:"analog" 0.54s · cut_next: câu mang: "Next word, analogy." · plain095:"analog" 0.76s · dot090:"analog" 0.89s	cut_wordis: câu mang: "The word is analog." · dot100:"Analog." 0.71s · cut_wordis100: câu mang: "The word is analog." · cut_next: câu mang: "Next word, analog." · plain095:"Analog." 0.70s · dot090:"Analog" 0.82s
+fallible	ok	ok
+undercarriage	ok	ok
+creditable	ok	ok
+paleontologist	ok	ok
+countable	ok	ok
+electrolytic	ok	ok
+insignificance	ok	ok
+scabbard	ok	ok
+supranational	ok	cut_wordis:"Super National." 1.18s · cut_wordis:"Supernational." 0.99s · dot100:"SuperNational." 0.97s · cut_wordis100:"It's super national." 1.13s · cut_wordis100:"Supernational." 0.98s · cut_next:"Supernational." 0.98s · cut_next:"For National." 0.76s · plain095:"SuperNational." 0.99s · dot090:"Su
+unaccustomed	ok	ok
+luminescent	ok	ok
+inductor	ok	ok
