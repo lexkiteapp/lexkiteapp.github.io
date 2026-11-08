@@ -566,8 +566,8 @@
     await C.mount(host, { en, tr, ok, demo: L.demo, hard: cardHard(it, en), gloss: cardGloss, speak: x => say(x, false, L.who), hold: r => { if (L) L.rec = r; } });
     if (!L || L.cardIt !== it) return;
     view.querySelectorAll('.lsn-fq').forEach(x => x.remove());
-    const wr = $('#lsnWhy'), acts = host.querySelector('.lkc-a'), row = wr && wr.closest('.lsn-whyrow'); // Vì sao? (#336) nằm chung hàng hành động, không thành hai chỗ
-    if (wr && acts) { wr.className = 'lkc-b'; acts.insertBefore(wr, acts.children[1] || null); if (row) row.remove(); if (!ok && $('#lsnXp') && $('#lsnXp').hidden) explain(it); }
+    const wr = $('#lsnWhy'), acts = host.querySelector('.lkc-a'), row = wr && wr.closest('.lsn-whyrow'); // Vì sao? (mục 336) nằm chung hàng hành động, không thành hai chỗ
+    if (wr && acts) { wr.className = 'lkc-b'; wr.querySelectorAll('*').forEach(x => { x.className = x.classList.contains('material-symbols-outlined') ? 'material-symbols-outlined' : ''; }); /* bỏ màu của mẫu Stitch: chữ/biểu tượng kế thừa màu thẻ */ acts.insertBefore(wr, acts.children[1] || null); if (row) row.remove(); if (!ok && $('#lsnXp') && $('#lsnXp').hidden) explain(it); }
     const nx = $('#lsnNext'); if (nx && document.activeElement === document.body) nx.focus({ preventScroll: true });
   }
 
