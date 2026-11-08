@@ -1,0 +1,212 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Onboarding - Language Selection</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..1000;1,6..12,300..1000&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed-variant": "#224d4e",
+            "surface-container-lowest": "#ffffff",
+            "inverse-surface": "#31302d",
+            "surface-container": "#f1ede7",
+            "secondary-fixed": "#88f5ea",
+            "tertiary-container": "#720a00",
+            "tertiary-fixed-dim": "#ffb4a6",
+            "on-secondary-fixed-variant": "#00504b",
+            "on-tertiary-fixed-variant": "#900f00",
+            "surface-container-highest": "#e6e2dc",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed": "#002020",
+            "error-container": "#ffdad6",
+            "surface-tint": "#3b6566",
+            "on-tertiary-container": "#ff765e",
+            "primary-container": "#0f3d3e",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#3f0300",
+            "on-primary-container": "#7da8a8",
+            "primary-fixed": "#beebeb",
+            "on-background": "#1c1c18",
+            "on-primary": "#ffffff",
+            "tertiary-fixed": "#ffdad3",
+            "primary": "#002627",
+            "on-tertiary": "#ffffff",
+            "inverse-on-surface": "#f4f0ea",
+            "tertiary": "#4a0400",
+            "surface-variant": "#e6e2dc",
+            "secondary": "#006a64",
+            "on-secondary-fixed": "#00201e",
+            "on-error": "#ffffff",
+            "surface": "#fdf9f3",
+            "on-secondary-container": "#00716a",
+            "surface-bright": "#fdf9f3",
+            "secondary-fixed-dim": "#6bd8ce",
+            "outline": "#717978",
+            "error": "#ba1a1a",
+            "secondary-container": "#88f5ea",
+            "background": "#fdf9f3",
+            "on-surface": "#1c1c18",
+            "outline-variant": "#c0c8c8",
+            "surface-container-high": "#ebe8e2",
+            "inverse-primary": "#a3cfcf",
+            "on-surface-variant": "#404848",
+            "surface-container-low": "#f7f3ed",
+            "surface-dim": "#dddad4",
+            "primary-fixed-dim": "#a3cfcf"
+          },
+          "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+          "spacing": { "margin": "2rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "gutter": "1.5rem", "space-xl": "2.5rem", "space-sm": "0.5rem", "space-md": "1rem" },
+          "fontFamily": {
+            "body-lg": ["Nunito Sans", "sans-serif"],
+            "body-md": ["Nunito Sans", "sans-serif"],
+            "headline-sm": ["Nunito Sans", "sans-serif"],
+            "headline-xl": ["Nunito Sans", "sans-serif"],
+            "label-sm": ["Nunito Sans", "sans-serif"],
+            "label-md": ["Nunito Sans", "sans-serif"],
+            "headline-lg": ["Nunito Sans", "sans-serif"],
+            "headline-md": ["Nunito Sans", "sans-serif"],
+            "body-sm": ["Nunito Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body { background-color: #FBF7F1; font-family: 'Nunito Sans', sans-serif; min-height: max(884px, 100dvh); }
+    .tactile-card { border: 2px solid #EADEC8; box-shadow: 0 4px 0 0 #EADEC8; border-radius: 16px; }
+    .tactile-btn { box-shadow: 0 4px 0 0 #0C3132; }
+    .tactile-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 0 #0C3132; }
+  </style>
+</head>
+<body class="bg-[#FBF7F1] text-on-surface antialiased flex justify-center items-center min-h-screen">
+<div class="w-[390px] h-[844px] bg-[#FBF7F1] flex flex-col relative overflow-hidden shadow-2xl rounded-2xl">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface flex justify-between items-center w-full px-4 py-3">
+<button aria-label="Back" class="w-[44px] h-[44px] flex items-center justify-center rounded-full hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary" data-icon="chevron_left">chevron_left</span>
+</button>
+<!-- Progress Bar (4 segments) -->
+<div class="flex items-center gap-1.5 w-28">
+<div class="h-2 flex-1 rounded-full bg-[#2BA39A]"></div>
+<div class="h-2 flex-1 rounded-full bg-[#EADEC8]"></div>
+<div class="h-2 flex-1 rounded-full bg-[#EADEC8]"></div>
+<div class="h-2 flex-1 rounded-full bg-[#EADEC8]"></div>
+</div>
+<button class="font-label-md text-label-md text-primary dark:text-inverse-primary hover:opacity-85 transition-all px-2 py-1">
+        Skip
+      </button>
+</header>
+<main class="flex-1 overflow-y-auto px-6 py-4 flex flex-col">
+<div class="mb-6">
+<h1 class="font-headline-md text-headline-md text-[#0F3D3E] mb-1">What language do you speak?</h1>
+<p class="font-body-md text-body-md text-[#0F3D3E] opacity-80">We'll explain lessons in your language</p>
+</div>
+<div class="flex flex-col gap-3.5 pb-24">
+<!-- 1. Tiếng Việt (SELECTED) -->
+<div class="tactile-card bg-[#F8F4EC] border-[#2BA39A] p-4 h-[64px] flex items-center justify-between cursor-pointer transition-all" onclick="selectLang(this)">
+<div class="flex flex-col justify-center">
+<span class="font-headline-sm text-headline-sm text-[#0F3D3E] leading-tight">Tiếng Việt</span>
+<span class="font-body-sm text-body-sm text-[#0F3D3E] opacity-75 leading-tight">Vietnamese</span>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#2BA39A] bg-[#2BA39A] flex items-center justify-center"><span class="material-symbols-outlined text-white text-sm" style="font-size: 16px;">check</span></div>
+</div>
+<!-- 2. English -->
+<div class="tactile-card bg-surface-container-lowest p-4 h-[64px] flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-all" onclick="selectLang(this)">
+<div class="flex flex-col justify-center">
+<span class="font-headline-sm text-headline-sm text-[#0F3D3E] leading-tight">English</span>
+<span class="font-body-sm text-body-sm text-[#0F3D3E] opacity-75 leading-tight">English</span>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#74817F] bg-transparent flex items-center justify-center"></div>
+</div>
+<!-- 3. 中文 -->
+<div class="tactile-card bg-surface-container-lowest p-4 h-[64px] flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-all" onclick="selectLang(this)">
+<div class="flex flex-col justify-center">
+<span class="font-headline-sm text-headline-sm text-[#0F3D3E] leading-tight">中文</span>
+<span class="font-body-sm text-body-sm text-[#0F3D3E] opacity-75 leading-tight">Chinese</span>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#74817F] bg-transparent flex items-center justify-center"></div>
+</div>
+<!-- 4. 日本語 -->
+<div class="tactile-card bg-surface-container-lowest p-4 h-[64px] flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-all" onclick="selectLang(this)">
+<div class="flex flex-col justify-center">
+<span class="font-headline-sm text-headline-sm text-[#0F3D3E] leading-tight">日本語</span>
+<span class="font-body-sm text-body-sm text-[#0F3D3E] opacity-75 leading-tight">Japanese</span>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#74817F] bg-transparent flex items-center justify-center"></div>
+</div>
+<!-- 5. 한국어 -->
+<div class="tactile-card bg-surface-container-lowest p-4 h-[64px] flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-all" onclick="selectLang(this)">
+<div class="flex flex-col justify-center">
+<span class="font-headline-sm text-headline-sm text-[#0F3D3E] leading-tight">한국어</span>
+<span class="font-body-sm text-body-sm text-[#0F3D3E] opacity-75 leading-tight">Korean</span>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#74817F] bg-transparent flex items-center justify-center"></div>
+</div>
+<!-- 6. Español -->
+<div class="tactile-card bg-surface-container-lowest p-4 h-[64px] flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-all" onclick="selectLang(this)">
+<div class="flex flex-col justify-center">
+<span class="font-headline-sm text-headline-sm text-[#0F3D3E] leading-tight">Español</span>
+<span class="font-body-sm text-body-sm text-[#0F3D3E] opacity-75 leading-tight">Spanish</span>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#74817F] bg-transparent flex items-center justify-center"></div>
+</div>
+<!-- 7. Français -->
+<div class="tactile-card bg-surface-container-lowest p-4 h-[64px] flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-all" onclick="selectLang(this)">
+<div class="flex flex-col justify-center">
+<span class="font-headline-sm text-headline-sm text-[#0F3D3E] leading-tight">Français</span>
+<span class="font-body-sm text-body-sm text-[#0F3D3E] opacity-75 leading-tight">French</span>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#74817F] bg-transparent flex items-center justify-center"></div>
+</div>
+<!-- 8. Deutsch -->
+<div class="tactile-card bg-surface-container-lowest p-4 h-[64px] flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-all" onclick="selectLang(this)">
+<div class="flex flex-col justify-center">
+<span class="font-headline-sm text-headline-sm text-[#0F3D3E] leading-tight">Deutsch</span>
+<span class="font-body-sm text-body-sm text-[#0F3D3E] opacity-75 leading-tight">German</span>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#74817F] bg-transparent flex items-center justify-center"></div>
+</div>
+<!-- 9. العربية -->
+<div class="tactile-card bg-surface-container-lowest p-4 h-[64px] flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-all" onclick="selectLang(this)">
+<div class="flex flex-col justify-center">
+<span class="font-headline-sm text-headline-sm text-[#0F3D3E] leading-tight">العربية</span>
+<span class="font-body-sm text-body-sm text-[#0F3D3E] opacity-75 leading-tight">Arabic</span>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#74817F] bg-transparent flex items-center justify-center"></div>
+</div>
+</div>
+</main>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#FBF7F1] via-[#FBF7F1] to-transparent pt-6">
+<button class="w-full h-14 bg-[#2BA39A] text-white font-headline-sm rounded-xl tactile-btn flex items-center justify-center transition-all">
+        Continue
+      </button>
+</div>
+</div>
+<script>
+    function selectLang(el) {
+      document.querySelectorAll('.tactile-card').forEach(c => {
+        c.classList.remove('bg-[#F8F4EC]', 'border-[#2BA39A]'); c.classList.add('bg-surface-container-lowest');
+        const r = c.querySelector('div > div:last-child'); r.className = "w-6 h-6 rounded-full border-2 border-[#74817F] bg-transparent flex items-center justify-center"; r.innerHTML = "";
+      });
+      el.classList.remove('bg-surface-container-lowest'); el.classList.add('bg-[#F8F4EC]', 'border-[#2BA39A]');
+      const a = el.querySelector('div > div:last-child'); a.className = "w-6 h-6 rounded-full border-2 border-[#2BA39A] bg-[#2BA39A] flex items-center justify-center";
+      a.innerHTML = '<span class="material-symbols-outlined text-white text-sm" style="font-size: 16px;">check</span>';
+    }
+  </script>
+</body></html>

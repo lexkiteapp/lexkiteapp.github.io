@@ -39,7 +39,7 @@ for (const lang of ['vi', 'ar', 'ja']) for (const [vp, opt] of Object.entries(VP
       await page.waitForFunction(() => { const x = document.querySelector('.lv-slot video'); return x && x.readyState >= 2 && !x.paused; }, null, { timeout: 20000 }).catch(() => bad('video không phát'));
       const cap = await v.evaluate(el => [...el.textTracks].map(t => `${t.language}:${t.mode}`).join(','));
       if (cap !== 'en:showing') bad('phụ đề phải chỉ EN và đang hiện: ' + cap);
-      await v.evaluate(el => { el.currentTime = Math.max(0, el.duration - 0.4); el.play(); });
+      await v.evaluate(el => { el.currentTime = Math.max(0, el.duration - 0.4); const p = el.play(); if (p && p.catch) p.catch(() => {}); /* tua sát cuối: play() có thể bị 'interrupted by end of playback' – chỉ là cách kiểm tra tua, không phải lỗi của app (08/11 Visual QA đỏ 1 lần vì chỗ này) */ });
       const opt0 = page.locator('.lv-q .lv-o').first(); await opt0.waitFor({ timeout: 15000 });
       const q = await page.locator('.lv-q p[lang="en"]').innerText();
       if (!/[a-z]/i.test(q)) bad('câu đố không phải tiếng Anh');
