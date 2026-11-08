@@ -247,6 +247,7 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case lessonCopied = "lesson.copied"
     case lessonStoryLookup = "lesson.story.lookup"
     case lessonStoryNotFound = "lesson.story.notFound"
+    case lessonHint = "lesson.hint"
 }
 
 public enum L10nLangs {

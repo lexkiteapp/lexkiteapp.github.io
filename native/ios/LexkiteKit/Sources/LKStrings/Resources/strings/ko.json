@@ -244,5 +244,6 @@
   "lesson.share": "방금 Lexkite 수업을 마쳤습니다: {a}% 정답, +{x} XP",
   "lesson.copied": "복사됨",
   "lesson.story.lookup": "“{w}”을(를) 찾는 중…",
-  "lesson.story.notFound": "“{w}”에 대한 검색결과가 없습니다."
+  "lesson.story.notFound": "“{w}”에 대한 검색결과가 없습니다.",
+  "lesson.hint": "힌트"
 }

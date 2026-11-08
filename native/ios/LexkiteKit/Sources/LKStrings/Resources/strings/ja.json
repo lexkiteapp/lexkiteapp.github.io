@@ -244,5 +244,6 @@
   "lesson.share": "Lexkite レッスンを終了しました: {a}% 正解、+{x} XP",
   "lesson.copied": "コピーしました",
   "lesson.story.lookup": "「{w}」を検索中…",
-  "lesson.story.notFound": "「{w}」に一致する結果はありません。"
+  "lesson.story.notFound": "「{w}」に一致する結果はありません。",
+  "lesson.hint": "ヒント"
 }

@@ -244,5 +244,6 @@
   "lesson.share": "मैंने अभी-अभी एक लेक्सकाइट पाठ समाप्त किया है: {a}% सही, +{x} एक्सपी",
   "lesson.copied": "कॉपी हो गया",
   "lesson.story.lookup": "\"{w}\" को देख रहे हैं...",
-  "lesson.story.notFound": "\"{w}\" के लिए कोई परिणाम नहीं।"
+  "lesson.story.notFound": "\"{w}\" के लिए कोई परिणाम नहीं।",
+  "lesson.hint": "संकेत"
 }

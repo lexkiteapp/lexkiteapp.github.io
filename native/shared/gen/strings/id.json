@@ -244,5 +244,6 @@
   "lesson.share": "Saya baru saja menyelesaikan pelajaran Lexkite: {a}% benar, +{x} XP",
   "lesson.copied": "Tersalin",
   "lesson.story.lookup": "Mencari “{w}”…",
-  "lesson.story.notFound": "Tidak ada hasil untuk “{w}”."
+  "lesson.story.notFound": "Tidak ada hasil untuk “{w}”.",
+  "lesson.hint": "Petunjuk"
 }

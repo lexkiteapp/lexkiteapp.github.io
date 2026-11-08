@@ -244,5 +244,6 @@
   "lesson.share": "Я только что закончил урок Лекскита: {a}% правильно, +{x} опыта",
   "lesson.copied": "Скопировано",
   "lesson.story.lookup": "Ищем «{w}»…",
-  "lesson.story.notFound": "Нет результатов по запросу «{w}»."
+  "lesson.story.notFound": "Нет результатов по запросу «{w}».",
+  "lesson.hint": "Подсказка"
 }

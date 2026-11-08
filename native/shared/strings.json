@@ -245,5 +245,6 @@
   "lesson.share": "Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP",
   "lesson.copied": "Đã sao chép",
   "lesson.story.lookup": "Đang tra “{w}”…",
-  "lesson.story.notFound": "Không tìm thấy “{w}”."
+  "lesson.story.notFound": "Không tìm thấy “{w}”.",
+  "lesson.hint": "Gợi ý"
 }

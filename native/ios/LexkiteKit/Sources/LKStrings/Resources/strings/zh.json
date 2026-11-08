@@ -244,5 +244,6 @@
   "lesson.share": "我刚刚完成 Lexkite 课程：{a}% 正确，+{x} XP",
   "lesson.copied": "已复制",
   "lesson.story.lookup": "查找“{w}”...",
-  "lesson.story.notFound": "没有“{w}”的结果。"
+  "lesson.story.notFound": "没有“{w}”的结果。",
+  "lesson.hint": "提示"
 }

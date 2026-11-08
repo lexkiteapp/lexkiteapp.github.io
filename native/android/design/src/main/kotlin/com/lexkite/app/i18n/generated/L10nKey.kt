@@ -248,7 +248,8 @@ enum class L10nKey(val id: String) {
     lessonShare("lesson.share"),
     lessonCopied("lesson.copied"),
     lessonStoryLookup("lesson.story.lookup"),
-    lessonStoryNotFound("lesson.story.notFound");
+    lessonStoryNotFound("lesson.story.notFound"),
+    lessonHint("lesson.hint");
 }
 
 object L10nLangs {

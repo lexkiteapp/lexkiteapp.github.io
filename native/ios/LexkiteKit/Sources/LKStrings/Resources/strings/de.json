@@ -244,5 +244,6 @@
   "lesson.share": "Ich habe gerade eine Lexkite-Lektion abgeschlossen: {a}% richtig, +{x} XP",
   "lesson.copied": "Kopiert",
   "lesson.story.lookup": "Suche nach „{w}“…",
-  "lesson.story.notFound": "Keine Ergebnisse für „{w}“."
+  "lesson.story.notFound": "Keine Ergebnisse für „{w}“.",
+  "lesson.hint": "Tipp"
 }

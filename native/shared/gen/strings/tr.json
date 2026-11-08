@@ -244,5 +244,6 @@
   "lesson.share": "Bir Lexkite dersini az önce bitirdim: %{a} doğru, +{x} XP",
   "lesson.copied": "Kopyalandı",
   "lesson.story.lookup": "“{w}” aranıyor…",
-  "lesson.story.notFound": "“{w}” için sonuç yok."
+  "lesson.story.notFound": "“{w}” için sonuç yok.",
+  "lesson.hint": "İpucu"
 }

@@ -244,5 +244,6 @@
   "lesson.share": "ฉันเพิ่งจบบทเรียน Lexkite: ถูกต้อง {a}%, +{x} XP",
   "lesson.copied": "คัดลอกแล้ว",
   "lesson.story.lookup": "กำลังค้นหา \"{w}\"...",
-  "lesson.story.notFound": "ไม่มีผลลัพธ์สำหรับ \"{w}\""
+  "lesson.story.notFound": "ไม่มีผลลัพธ์สำหรับ \"{w}\"",
+  "lesson.hint": "คำใบ้"
 }

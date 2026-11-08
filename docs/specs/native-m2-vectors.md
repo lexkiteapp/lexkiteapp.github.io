@@ -167,3 +167,6 @@ Nguồn = `web/js/vocab-img.js` thật (VImg v3). App tải đầu `https://lexk
 
 ## lesson.json `similarity` – chấm nói (say/pic không chọn)
 `web/js/ui.js similarity()` thật: chữ thường, chỉ giữ `[a-z ]`, trim; cả hai rỗng → 1; `1 − Levenshtein / max(len)`. `score = round(sim·100)`. Luồng bài: `score ≥ pass (70)` → nộp `score/100`; thấp hơn → "Thử lại", trượt lần thứ `retriesBeforeSubmit` (2) → nộp luôn (Session chấm sai). Lấy câu nhận dạng tốt nhất trong các phương án (alts) theo `sim`.
+
+## teach/cues.json – mốc khẩu hình sinh sẵn (như web)
+= `window.LK_CUES` của `web/js/call/cues.js` (CI sinh từ audio Kokoro): `{v, k, dict}`. Khi giáo viên đọc một câu có giọng `voice`: `key = lineKey(voice, text)` (vectors/audio.json) → `k[key]` có → `LipSync.unpack` (vectors/rig.json `lipsync.unpack`) → `machine.speak({cues, env, dur})`; không có → `fromEnv` (độ lớn tiếng của file) rồi `fromText(text, dur, dict)`. Đúng thứ tự `web/js/lesson/teacher.js` (`cue(key)`). Android: asset `teach/cues.json`; iOS: LKDesign `teach/cues.json`. Chuỗi mới: `lesson.hint` ("Gợi ý") cho nút gợi ý.

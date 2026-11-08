@@ -244,5 +244,6 @@
   "lesson.share": "لقد انتهيت للتو من درس Lexkite: {a}% صحيح، +{x} XP",
   "lesson.copied": "تم النسخ",
   "lesson.story.lookup": "البحث عن \"{w}\"...",
-  "lesson.story.notFound": "لا توجد نتائج لـ \"{w}\"."
+  "lesson.story.notFound": "لا توجد نتائج لـ \"{w}\".",
+  "lesson.hint": "تلميح"
 }
