@@ -1,11 +1,11 @@
-// Test màn luyện tiếng Tây Ban Nha #/espractice (web/js/espr.js, spanish-course.md W2b): jsdom chạy trọn 1 phiên trên khung Stitch bài học có sẵn.
+// Test màn luyện tiếng Tây Ban Nha #/practice/es (web/js/espr.js, spanish-course.md W2b): jsdom chạy trọn 1 phiên trên khung Stitch bài học có sẵn.
 // Kiểm: dựng màn đúng khung · điền từ (trắc nghiệm) + chia động từ (gõ, qua QE.gradeGap) · thiếu dấu tilde vẫn đúng kèm nhắc · giải thích theo ngôn ngữ người học · màn kết + thưởng.
 import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module'; import jsdom from 'jsdom';
 const require = createRequire(import.meta.url), WEB = 'web';
 let total = 0, fails = 0; const ok = (c, m) => { total++; if (!c) { fails++; console.error('✗', m); } else console.log('✓', m); };
 const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8'), scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
 const vc = new jsdom.VirtualConsole(), errors = []; vc.on('jsdomError', e => { if (!/Not implemented|Could not parse CSS/.test(e.message)) errors.push(e.message); });
-const dom = new jsdom.JSDOM(html.replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '').replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''), { url: 'http://localhost/app/#/espractice/A1', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
+const dom = new jsdom.JSDOM(html.replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '').replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''), { url: 'http://localhost/app/#/practice/es?lv=A1', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
 const w = dom.window; w.scrollTo = () => {}; w.HTMLElement.prototype.scrollIntoView = () => {}; w.matchMedia = () => ({ matches: false, addEventListener() {}, addListener() {} }); w.CSS = { escape: s => s };
 w.fetch = async () => ({ ok: false, status: 404, json: async () => ({}), text: async () => '' });
 for (const f of scripts) { try { w.eval(fs.readFileSync(path.join(WEB, f), 'utf8')); } catch (e) { errors.push(f + ': ' + e.message); } }
@@ -15,8 +15,8 @@ ok(!errors.length, 'nạp mã + bundle espr không lỗi' + (errors.length ? ': 
 const { App, UI } = w, $ = s => w.document.querySelector(s);
 const loaded = []; App.loadScript = async src => { loaded.push(src); w.eval(fs.readFileSync(path.join(WEB, src.replace(/^cpack\/es\/(.*)$/, 'cpack/es/$1')), 'utf8')); };
 let spoken = [], rewards = []; UI.tts = t => { spoken.push(t); }; App.reward = async d => { rewards.push(d); };
-ok(typeof App.routes.espractice === 'function', 'route espractice có');
-await App.routes.espractice('A1'); await tick(50);
+ok(typeof App.espr === 'function', 'App.espr có');
+await App.espr('A1'); await tick(50);
 ok(w.ESX && w.ESX.dr && loaded.some(s => /gx-/.test(s)), 'dữ liệu cpack/es: câu hỏi (trong gói espr) + giải thích theo ngôn ngữ');
 ok($('#lsn.lsn-v2') && $('#lsnBub') && $('#lsnCheck'), 'khung Stitch lesson-question dựng');
 const DR = w.ESX.dr.A1, find = () => { const txt = $('#lsnBub').textContent.replace(/\s+/g, ' '); return DR.find(it => { const [a, b] = it[2].split('___'); return txt.includes(a.trim()) && txt.includes(b.trim()) && ($('#lsnIn') ? it[0] === 'c' : it[0] === 'g'); }); };

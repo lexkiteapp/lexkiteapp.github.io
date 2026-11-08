@@ -1,4 +1,4 @@
-/* English UI strings – Luyện tiếng Tây Ban Nha (#/espractice, js/espr.js; spanish-course.md W2b). Nhóm tải lười 'espr'. */
+/* English UI strings – Luyện tiếng Tây Ban Nha (#/practice/es, js/espr.js; spanish-course.md W2b). Nhóm tải lười 'espr'. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
 'Cấp {l}': 'Level {l}',
 'Điền từ còn thiếu': 'Fill in the missing word',

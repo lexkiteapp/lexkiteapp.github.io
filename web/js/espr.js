@@ -1,9 +1,9 @@
-/* 🇪🇸 Luyện tiếng Tây Ban Nha (#/espractice[/A1|A2|B1]) – chia động từ + điền từ ngữ pháp, giải thích bằng ngôn ngữ người học.
+/* 🇪🇸 Luyện tiếng Tây Ban Nha (#/practice/es?lv=A1|A2|B1) – chia động từ + điền từ ngữ pháp, giải thích bằng ngôn ngữ người học.
  * Khung Stitch CÓ SẴN của bài học (lesson-question · feedback-correct/wrong · lesson-complete) – không CSS mới. Chấm gõ qua QE (qengine.js).
  * Dữ liệu tĩnh tải lười: cpack/es/dr.js (câu hỏi) + cpack/es/gx-<ngôn ngữ>.js (giải thích). Dựng bởi scripts/target/drill-pack.mjs (spanish-course.md W2b).
  * Vào bằng URL (không cần cờ es_course); lối vào ở Luyện tập chỉ hiện khi cờ bật. */
 (function () {
-  const { $, esc } = UI, App = window.App, view = App.view, routes = App.routes, N = 10, LV = ['A1', 'A2', 'B1'], LET = 'ABCD', KEY = 'lk.es.lv';
+  const { $, esc } = UI, App = window.App, view = App.view, N = 10, LV = ['A1', 'A2', 'B1'], LET = 'ABCD', KEY = 'lk.es.lv';
   const GX = App.esGx; // bảng gói giải thích theo ngôn ngữ (khai ở app.js để build-cpack đặt tên băm)
   const ls = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { /* riêng tư */ } return null; };
   const noAcc = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -26,8 +26,8 @@
   const gx = pid => { const D = (X().gx || {}), r = (D[lang()] || {})[pid] || (D.en || {})[pid]; return r ? { t: r[0], x: r[1] } : { t: '', x: '' }; };
   const split = s => { const i = s.indexOf('___'); return [s.slice(0, i), s.slice(i + 3)]; };
 
-  routes.espractice = async function (arg) {
-    const lv = LV.includes(arg) ? arg : LV.includes(ls(KEY)) ? ls(KEY) : 'A1', pid = new URLSearchParams(location.hash.split('?')[1] || '').get('p');
+  App.espr = async function (arg, pid) { // gọi từ #/practice/es?lv=A1&p=<điểm ngữ pháp> (study.js MODES.es)
+    const lv = LV.includes(arg) ? arg : LV.includes(ls(KEY)) ? ls(KEY) : 'A1';
     ls(KEY, lv); const tok = App.routeToken();
     view.innerHTML = `<div class="card" role="status">${esc(t('Đang tải…'))}</div>`; // hiện ngay khi gói còn đang về (mạng chậm)
     try { await Promise.all([App.need('espr'), App.loadScript(GX[lang()]), lang() === 'en' ? 0 : App.loadScript(GX.en)]); } catch (e) { if (App.routeStale(tok)) return; view.innerHTML = `<div class="card">${esc(t('Không tải được bài. Kiểm tra mạng rồi thử lại.'))}</div>`; return; }
@@ -108,9 +108,9 @@
     const off = (v) => Math.round(490 * (1 - v)), ic = x => `<span class="material-symbols-outlined text-[16px]" aria-hidden="true">${x}</span>`;
     const d = { close: '#/practice', mapL: t('Làm lại'), title: t('Luyện tiếng Tây Ban Nha'), pct: '100%', chip: S.lv, xp: '+' + xp, acc: acc + '%', streak: String(App.streak ? App.streak() : 0), off1: off(acc / 100), off2: Math.round(414 * (1 - S.first / Math.max(1, n))),
       sub: acc >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!'), learned: ' ', more: `<span class="flex flex-wrap items-center gap-x-3 mt-1 text-[13px] font-bold">${ic('local_fire_department')}${esc(t('COMBO cao nhất'))}: ${S.best}</span>`,
-      rev: t('Cấp {l}', { l: nx }), revHref: '#/espractice/' + nx, teacher: '' };
+      rev: t('Cấp {l}', { l: nx }), revHref: '#/practice/es?lv=' + nx, teacher: '' };
     const root = ST2.mount(view, 'lesson-complete', d, null); root.id = 'lsn'; root.classList.add('lsn-v2', 'lsn-end', 'st-end');
     try { if (window.Sfx) Sfx.win(); } catch (e) { /* bỏ qua */ }
-    $('#lsnAgain').onclick = () => routes.espractice(S.lv); $('#lsnAgain').focus({ preventScroll: true });
+    $('#lsnAgain').onclick = () => App.espr(S.lv); $('#lsnAgain').focus({ preventScroll: true });
   }
 })();
