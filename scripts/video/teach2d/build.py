@@ -15,7 +15,7 @@ from PIL import ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HERE}/../../..')
 sys.path.insert(0, f'{ROOT}/scripts/video/motion'); import core as C   # noqa: E402  (same maths as Remotion core.mjs)
 sys.path.insert(0, f'{ROOT}/scripts/video/tpl'); from overlay_gates import bank_ipa   # noqa: E402  (audited IPA bank, same lookup as qc.py)
-sys.path.insert(0, HERE); from labels import ordinal, stress_quiz, frames_of, side_zoom_cap, paginate, chip_w   # noqa: E402  (stress ordinals / syllable-position labels from the data)
+sys.path.insert(0, HERE); from labels import ordinal, stress_quiz, frames_of, side_zoom_cap, paginate, chip_w, clamp_span   # noqa: E402  (stress ordinals / syllable-position labels from the data)
 
 ap = argparse.ArgumentParser()
 for a in ('ep', 'vo', 'host', 'public', 'out'): ap.add_argument('--' + a, required=True)
@@ -304,7 +304,8 @@ def beat_row(word, syl, stress, ipa, t_in, t_hit, t_out, y):
         nodes.append(nd); pts.append([x + ww / 2 - RX0, ty + h / 2 - (y - 10)]); x += ww + gap
     top('path', [RX0, y - 10, RX1, ty + h + 60], t_in, out=t_out, pts=pts, wave=True)
     sb = nodes[stress]['box']
-    top('chip', [(sb[0] + sb[2]) / 2 - 200, ty - 116, (sb[0] + sb[2]) / 2 + 200, ty - 48], t_hit, out=t_out, text='PRIMARY STRESS', tone='chip', size=40)
+    cx0, cx1 = clamp_span((sb[0] + sb[2]) / 2, 400, FMT['safe'][0], FMT['safe'][2])   # the chip follows the stressed tile, the last tile of a long word sits at the safe edge
+    top('chip', [cx0, ty - 116, cx1, ty - 48], t_hit, out=t_out, text='PRIMARY STRESS', tone='chip', size=40)
     y2 = ty + h + 70; iw = tw(ipa, 52, True) + 80
     nip = top('ipapill', [RX0 + (RW - iw) / 2, y2, RX0 + (RW + iw) / 2, y2 + 88], t_in, out=t_out, text=ipa, size=52, pairs=[[TH['ink'], TH['card'], 52]])
     rh = ' · '.join('DUM' if i == stress else 'da' for i in range(n)); rw = tw(rh, 44) + 60
