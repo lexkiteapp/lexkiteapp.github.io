@@ -16,6 +16,10 @@ export function nextVersion(manifestVersion, commits) {
   if (n > 65535) throw new Error(`số commit ${n} > 65535 – tăng minor trong extension/manifest.json`);
   return `${m[1]}.${m[2]}.${n}`;
 }
+/** Thuần: bản tự tăng cho lượt đăng kế (manifest + số commit) có lớn hơn bản ĐÃ đăng không. Không so với số vá tối thiểu (.1) – số vá thật = số commit, tăng theo thời gian. */
+export const publishable = (manifestVersion, lastPublished, commits) => cmp(nextVersion(manifestVersion, commits), lastPublished) > 0;
+/** Thuần: major.minor của manifest không được thấp hơn bản đã đăng (thấp hơn thì số tự tăng không bao giờ vượt được). */
+export const baseOk = (manifestVersion, lastPublished) => { const mm = v => String(v).split('.').slice(0, 2).join('.'); return cmp(mm(manifestVersion), mm(lastPublished)) >= 0; };
 export const countCommits = () => +execFileSync('git', ['rev-list', '--count', 'HEAD', '--', 'extension'], { encoding: 'utf8' }).trim();
 if (isMain(import.meta.url)) {
   const i = process.argv.indexOf('--apply'), file = i > 0 ? process.argv[i + 1] : '';
