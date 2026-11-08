@@ -1,0 +1,137 @@
+/* 🎓 Thẻ kết quả theo câu, dùng chung mọi dạng bài có câu (docs/specs/learn-card.md).
+ * Mặc định: câu đúng đủ dấu · nghĩa tiếng mẹ đẻ · mẫu câu. Mở thêm: Vì sao · Thử đổi từ. Nói theo bằng mic, chạm từ xem nghĩa, mẫu tự vào ôn tập.
+ * Phần thuần (match, tokens, saveAllowed) chạy được trong Node: scripts/lesson/build-card.mjs + scripts/test/lesson-card.mjs. Dữ liệu: web/packs/lcard. */
+(function (g) {
+  const norm = s => String(s || '').toLowerCase().replace(/[’‘]/g, "'").replace(/[^a-z0-9' -]+/g, ' ').replace(/-/g, ' ').replace(/\s+/g, ' ').trim();
+  const clean = s => String(s || '').replace(/[’‘]/g, "'").trim();
+  const DAY_MAX = 5, LESSON_MAX = 2;
+
+  /** Mẫu câu của một câu: mẫu đầu tiên khớp trong danh sách (đặt cụ thể trước, chung sau). → frame | null */
+  function match(sent, frames) {
+    const s = clean(sent); if (!s || !frames) return null;
+    for (const f of frames) { try { if ((f._r || (f._r = new RegExp(f.re, 'i'))).test(s) && fits(f, s)) return f; } catch (e) { /* mẫu lỗi: build-card.mjs chặn trên CI */ } }
+    return null;
+  }
+  // Chữ cố định của mẫu phải thật sự có trong câu, đúng thứ tự (be/have/do cùng họ; -s bỏ qua): người học nhìn là thấy câu dùng mẫu này. Thành ngữ: regex đã đủ chặt.
+  const FAM = { am: 'be', is: 'be', are: 'be', was: 'be', were: 'be', been: 'be', has: 'have', had: 'have', does: 'do', did: 'do' }, SUF = { "'s": 'is', "'re": 'are', "'ve": 'have', "'m": 'am', "'ll": 'will', "'d": 'would' };
+  const wds = x => String(x).toLowerCase().replace(/\bcan't\b/g, 'can not').replace(/\bwon't\b/g, 'will not').replace(/n't\b/g, ' not').replace(/('s|'re|'ve|'m|'ll|'d)\b/g, m => ' ' + SUF[m]).replace(/_+/g, ' ').match(/[a-z0-9]+/g) || [];
+  const fam = w => FAM[w] || (w.length > 3 ? w.replace(/s$/, '') : w);
+  function fits(f, s) {
+    if (f.idiom) return true;
+    const W = wds(s).map(fam); let i = 0;
+    return wds(f.f).map(fam).every(x => { const j = W.indexOf(x, i); if (j < 0) return false; i = j + 1; return true; });
+  }
+  /** Tách câu thành từ + phần giữa (giữ nguyên dấu): [{ w, gap }] – vẽ từ chạm được mà câu vẫn đủ dấu */
+  function tokens(sent) {
+    const out = [], re = /[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*/g; let m, at = 0; const s = String(sent || '');
+    while ((m = re.exec(s))) { if (m.index > at) out.push({ gap: s.slice(at, m.index) }); out.push({ w: m[0] }); at = m.index + m[0].length; }
+    if (at < s.length) out.push({ gap: s.slice(at) });
+    return out;
+  }
+  /** Có được tự lưu mẫu này không (trần theo bài/ngày, không trùng). log: { day, n } · seen: số mẫu đã lưu trong bài */
+  function saveAllowed(log, seen, today) {
+    const n = log && log.day === today ? log.n : 0;
+    return seen < LESSON_MAX && n < DAY_MAX;
+  }
+  /** Câu đổi từ: "Can I have [a small tea], please?" → [trước, chữ đổi, sau] */
+  const altParts = a => { const m = /^(.*?)\[(.+?)\](.*)$/.exec(String(a || '')); return m ? [m[1], m[2], m[3]] : [String(a || ''), '', '']; };
+  const altText = a => altParts(a).join('');
+  /** Bản dịch dùng được: có chữ và khác câu tiếng Anh (bản trùng = chưa dịch → ẩn) */
+  const goodTr = (tr, en) => { const x = String(tr || '').trim(); return x && norm(x) !== norm(en) ? x : ''; };
+
+  // ---------- dữ liệu ----------
+  const base = () => { try { return /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) || /^(localhost|127\.)/.test(location.hostname) ? '' : 'https://lexkite.com'; } catch (e) { return ''; } };
+  const P = {};
+  const get = n => P[n] || (P[n] = fetch(`${base()}/packs/lcard/${n}.json`).then(r => (r.ok ? r.json() : null)).catch(() => { delete P[n]; return null; }));
+  let FR = null, LG = {};
+  const load = lang => Promise.all([get('frames').then(j => { FR = (j && j.frames) || FR; }), lang && lang !== 'en' ? get(lang).then(j => { if (j) LG[lang] = j; }) : null]).then(() => {});
+  const trOf = (lang, en) => { const j = LG[lang]; return (j && j.s && j.s[norm(en)]) || ''; };
+
+
+  // ---------- vẽ ----------
+  const ic = n => `<span class="material-symbols-outlined" aria-hidden="true">${n}</span>`;
+  /** spec { en, tr, word, hard:{w,m}, idiom, frame, canWhy, saved } → HTML. Không có dữ liệu nào thì phần đó không có mặt. */
+  function html(spec, t, esc) {
+    const f = spec.frame, A = f && f.alts ? f.alts : [], tr = goodTr(spec.tr, spec.en), idiom = f && f.idiom;
+    const sent = tokens(spec.en).map(x => (x.w ? `<button type="button" class="lkc-w" data-w="${esc(x.w)}">${esc(x.w)}</button>` : esc(x.gap))).join('');
+    return `<div class="lkc" id="lkc" data-sent="${esc(spec.en)}">
+      <p class="lkc-l">${esc(t('Câu đúng'))}</p>
+      <p class="lkc-s" lang="en" dir="ltr">${sent}</p>
+      <p class="lkc-g" id="lkcG" aria-live="polite"></p>
+      ${tr ? `<p class="lkc-t" dir="auto" id="lkcTr">${esc(tr)}</p>` : ''}
+      ${f ? `<p class="lkc-l">${esc(idiom ? t('Thành ngữ') : t('Mẫu câu'))}</p><p class="lkc-p" lang="en" dir="ltr">${esc(f.f)}</p>` : ''}
+      ${idiom && spec.idiomMean ? `<p class="lkc-n" dir="auto">${esc(spec.idiomMean)}</p>` : ''}
+      ${spec.hard ? `<p class="lkc-n" dir="auto"><b>${esc(t('Từ mới'))}:</b> <span lang="en" dir="ltr">${esc(spec.hard.w)}</span> · ${esc(spec.hard.m)}</p>` : ''}
+      <div class="lkc-a">
+        <button type="button" class="lkc-b" id="lkcSay">${ic('mic')}<span>${esc(t('Thử nói'))}</span></button>
+        ${spec.canWhy ? `<button type="button" class="lkc-b" id="lkcWhy" aria-expanded="false" aria-controls="lkcWhyB">${ic('lightbulb')}<span>${esc(t('Vì sao?'))}</span></button>` : ''}
+        ${A.length ? `<button type="button" class="lkc-b" id="lkcSwap" aria-expanded="false" aria-controls="lkcSwapB">${ic('swap_horiz')}<span>${esc(t('Thử đổi từ'))}</span></button>` : ''}
+        ${f ? `<button type="button" class="lkc-b${spec.saved ? ' on' : ''}" id="lkcSave" aria-pressed="${spec.saved ? 'true' : 'false'}" ${spec.saved ? '' : 'hidden'}>${ic('bookmark_added')}<span>${esc(t('Đã lưu vào ôn tập'))}</span></button>` : ''}
+      </div>
+      <p class="lkc-m" id="lkcMsg" aria-live="polite"></p>
+      ${spec.canWhy ? '<div class="lkc-x lkc-why" id="lkcWhyB" hidden></div>' : ''}
+      ${A.length ? `<div class="lkc-x" id="lkcSwapB" hidden>${A.slice(0, 3).map(a => { const [x, y, z] = altParts(a); return `<button type="button" class="lkc-alt" data-say="${esc(x + y + z)}" lang="en" dir="ltr">${ic('volume_up')}<span>${esc(x)}<b>${esc(y)}</b>${esc(z)}</span></button>`; }).join('')}</div>` : ''}
+    </div>`;
+  }
+
+  /** Gắn sự kiện. deps { t, speak(text), gloss(word)→nghĩa|'', why()→HTML|'' , rec(text, cb), save()→bool, unsave() } */
+  function wire(root, spec, deps) {
+    const q = s => root.querySelector(s), msg = q('#lkcMsg'), gl = q('#lkcG'), t = deps.t;
+    root.querySelectorAll('.lkc-w').forEach(b => { b.onclick = () => {
+      const w = b.dataset.w, open = b.getAttribute('aria-expanded') === 'true';
+      root.querySelectorAll('.lkc-w[aria-expanded=true]').forEach(x => x.setAttribute('aria-expanded', 'false'));
+      if (open) { gl.textContent = ''; return; }
+      b.setAttribute('aria-expanded', 'true'); if (deps.speak) deps.speak(w);
+      const m = deps.gloss ? deps.gloss(w) : ''; gl.textContent = m ? `${w}: ${m}` : ''; // không có nghĩa → chỉ đọc từ, không hiện dòng trống
+    }; });
+    const tog = (btn, box, fill) => { if (!btn || !box) return null; const fn = () => { const on = box.hidden; if (on && fill) fill(box); box.hidden = !on; btn.setAttribute('aria-expanded', String(on)); }; btn.onclick = fn; return fn; };
+    const openWhy = tog(q('#lkcWhy'), q('#lkcWhyB'), box => { if (!box.dataset.f) { box.innerHTML = (deps.why && deps.why()) || ''; box.dataset.f = '1'; } });
+    tog(q('#lkcSwap'), q('#lkcSwapB'));
+    root.querySelectorAll('.lkc-alt').forEach(b => { b.onclick = () => deps.speak && deps.speak(b.dataset.say); });
+    const say = q('#lkcSay');
+    if (say) say.onclick = () => {
+      if (!deps.rec) return; say.disabled = true; msg.textContent = t('Đang nghe bạn nói…');
+      deps.rec(spec.en, r => { say.disabled = false; msg.textContent = r.err ? r.err : r.score >= 70 ? t('Rõ lắm, cứ nói như vậy!') : t('Gần được rồi, nghe lại rồi thử nhé.'); });
+    };
+    const sv = q('#lkcSave');
+    if (sv) sv.onclick = () => { const on = sv.getAttribute('aria-pressed') === 'true'; if (on) { if (deps.unsave) deps.unsave(); sv.setAttribute('aria-pressed', 'false'); sv.classList.remove('on'); sv.lastElementChild.textContent = t('Lưu vào ôn tập'); } else { if (deps.save) deps.save(); sv.setAttribute('aria-pressed', 'true'); sv.classList.add('on'); sv.lastElementChild.textContent = t('Đã lưu vào ôn tập'); } };
+    if (!spec.ok && openWhy) openWhy(); // sai: cho thấy lý do ngay, không phạt
+  }
+  const on = () => { try { return localStorage.getItem('lk.lcard') !== '0'; } catch (e) { return true; } };
+  // ---------- lắp vào màn bất kỳ ----------
+  const natLang = () => { try { return I18N.meanLang && I18N.meanLang() === 'vi' ? 'vi' : (I18N.lang() === 'en' ? '' : I18N.lang()); } catch (e) { return ''; } };
+  const day = () => new Date().toISOString().slice(0, 10), wordOf = f => f.f.replace(/_{3}/g, '…');
+  let seen = 0, VIW = null;
+  function save(f, en, tr, lg) { // tự lưu mẫu vào ôn tập, có trần; bỏ lưu chạm được
+    const A = g.App; if (!A || !A.addWord) return false; const word = wordOf(f); if (A.inDeck && A.inDeck(word)) return true;
+    let log = null; try { log = JSON.parse(localStorage.getItem('lk.lcard.d') || 'null'); } catch (e) { /* bỏ qua */ }
+    if (!saveAllowed(log, seen, day())) return false;
+    seen++; try { localStorage.setItem('lk.lcard.d', JSON.stringify({ day: day(), n: (log && log.day === day() ? log.n : 0) + 1 })); } catch (e) { /* bỏ qua */ }
+    const e = { word, pos: 'phrase', ex: en, def: en, emoji: '🧩', topic: 'pattern' }; if (tr) { if (lg === 'vi') e.vi = tr; else if (lg) e.gl = { [lg]: tr }; }
+    Promise.resolve(A.addWord(e, { text: en, title: 'Lexkite' }, { silent: true })).catch(() => {});
+    return true;
+  }
+  const unsave = f => { const A = g.App, w = wordOf(f); if (g.Cards && g.Cards.remove) g.Cards.remove(w).then(() => { if (A && A.state && A.state.cards) delete A.state.cards[w.toLowerCase()]; }).catch(() => {}); };
+  function gloss(w) {
+    const A = g.App; if (!A) return ''; const k = String(w).toLowerCase(), lm = A.lemma ? A.lemma(k) : k, c = A.state && A.state.cards && (A.state.cards[k] || A.state.cards[lm]);
+    if (c && A.meanOf) return A.meanOf(c);
+    if (natLang() === 'vi') { if (!VIW) { VIW = {}; try { A.allWords().forEach(x => { if (x && x.vi) VIW[String(x.word).toLowerCase()] = x.vi; }); } catch (e) { /* bỏ qua */ } } return VIW[k] || VIW[lm] || ''; }
+    return (A.nativeGloss && (A.nativeGloss(k) || A.nativeGloss(lm))) || '';
+  }
+  function rec(text, cb, hold) {
+    const U = g.UI; let fin = false; const r = U.recognize(text, 'en-US', { result: ({ score }) => { fin = true; cb({ score }); }, error: c => { fin = true; cb({ err: U.recErrorText(c) }); }, end: () => { if (hold) hold(null); if (!fin) cb({ err: U.recErrorText('no-speech') }); } });
+    if (hold) hold(r); if (!r && !fin) cb({ err: (g.t || (x => x))('Thiết bị này chưa nhận được giọng nói.') });
+  }
+  /** Vẽ thẻ vào el. s { en, tr?, ok, demo?, hard?, why?, gloss?(w), speak?(x), hold?(rec) }. Thiếu dữ liệu → phần đó ẩn. Trả về spec, hoặc null khi tắt/đã rời màn. */
+  async function mount(el, s) {
+    if (!on() || !el || !s.en) return null;
+    const lg = natLang(); await load(lg); if (!el.isConnected) return null;
+    const A = g.App; if (lg && A && A.loadPack && lg !== 'vi' && !(A.packs || {})[lg]) A.loadPack().catch(() => {}); // nghĩa khi chạm từ
+    const t = g.t || (x => x), esc = g.UI ? g.UI.esc : (x => String(x)), en = s.en, tr = goodTr(s.tr || trOf(lg, en), en), f = match(en, FR);
+    const spec = { en, tr: lg ? tr : '', ok: s.ok !== false, frame: f, saved: f && !s.demo ? save(f, en, tr, lg) : false, idiomMean: f && f.idiom ? (LG[lg] && LG[lg].i && LG[lg].i[f.id]) || '' : '', hard: s.hard || null, canWhy: !!s.why };
+    el.innerHTML = html(spec, t, esc);
+    wire(el, spec, { t, speak: s.speak || (x => { if (g.UI && g.UI.speak) g.UI.speak(x, ((A && A.state && A.state.settings) || {}).accent); }), gloss: w => (s.gloss && s.gloss(w)) || gloss(w), why: s.why, save: () => f && save(f, en, tr, lg), unsave: () => f && unsave(f), rec: (x, cb) => rec(x, cb, s.hold) });
+    return spec;
+  }
+  g.LearnCard = { match, fits, tokens, saveAllowed, altParts, altText, goodTr, norm, load, trOf, frames: () => FR, html, wire, on, mount, newLesson: () => { seen = 0; }, DAY_MAX, LESSON_MAX };
+})(typeof self !== 'undefined' ? self : globalThis);

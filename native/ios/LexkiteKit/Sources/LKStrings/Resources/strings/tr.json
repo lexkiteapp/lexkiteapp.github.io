@@ -245,5 +245,7 @@
   "lesson.copied": "Kopyalandı",
   "lesson.story.lookup": "“{w}” aranıyor…",
   "lesson.story.notFound": "“{w}” için sonuç yok.",
-  "lesson.hint": "İpucu"
+  "lesson.hint": "İpucu",
+  "lesson.q.buildListen": "Dinle ve cümleyi kur",
+  "lesson.card.word": "Sözcük: {w}"
 }

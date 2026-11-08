@@ -423,7 +423,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       bind: () => $$('[data-reveal]').forEach(b => b.onclick = () => { $(`[data-ans="${b.dataset.reveal}"]`).hidden = false; b.remove(); Sfx.flip(); }) });
     if (builds.length) steps.push({ name: t('Xếp câu'), em: '🧩', html: () => `<div class="stack">${builds.map((s, k) => `<div class="g-block" data-build="${k}"><h3>🧩 ${t('Xếp các từ thành câu đúng')}</h3><div class="build-slot" data-slot="${k}"></div>
         <div class="row" data-pool="${k}" style="margin-top:.6rem">${UI.shuffle(tokenize(s).map((w, j) => ({ w, j }))).map(({ w, j }) => `<button type="button" class="chip wpick" data-i="${j}" style="${WPICK}">${esc(w)}</button>`).join('')}</div>
-        <div class="row" style="margin-top:.6rem"><button class="btn sm" data-undo="${k}">↺ ${t('Làm lại')}</button><span class="small" data-msg="${k}"></span></div></div>`).join('')}</div>`,
+        <div class="row" style="margin-top:.6rem"><button class="btn sm" data-undo="${k}">↺ ${t('Làm lại')}</button><span class="small" data-msg="${k}"></span></div><div data-lc="${k}" style="margin-top:.6rem"></div></div>`).join('')}</div>`,
       bind: () => builds.forEach((s, k) => {
         const words = tokenize(s); let built = [], done = false;
         const pool = $(`[data-pool="${k}"]`), slot = $(`[data-slot="${k}"]`), msg = $(`[data-msg="${k}"]`);
@@ -433,10 +433,11 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
           msg.innerHTML = ok ? `${UI.icon('circle-check')} <b>${t('Chính xác!')}</b>` : `❌ ${t('Đáp án: <i>{a}</i>', { a: esc(s) })}`; Sfx.answer(ok, { el: slot, answer: s });
           if (ok) UI.speak(s, state.settings.accent);
           slot.classList.add(ok ? 'ok' : 'no'); done = true;
+          App.need('lcard').then(() => window.LearnCard && LearnCard.mount($(`[data-lc="${k}"]`), { en: s, ok })).catch(() => {}); // thẻ kết quả dùng chung (docs/specs/learn-card.md)
         };
         const draw = () => { slot.innerHTML = built.map(j => `<button type="button" class="chip wpick" data-a="${j}" style="${WPICK}">${esc(words[j])}</button>`).join(''); };
         const arr = WordArrange.bind({ ans: slot, bank: pool, sel: '.wpick', scope: slot.closest('[data-build]'), get: () => built, set: o => { built = o; }, draw, locked: () => done, word: j => words[j], t, onPlace: () => Sfx.pop(), onChange: check });
-        $(`[data-undo="${k}"]`).onclick = () => { built = []; done = false; slot.classList.remove('ok', 'no'); msg.textContent = ''; arr.reset(); };
+        $(`[data-undo="${k}"]`).onclick = () => { built = []; done = false; slot.classList.remove('ok', 'no'); msg.textContent = ''; $(`[data-lc="${k}"]`).innerHTML = ''; arr.reset(); };
       }) });
     if (drillsOf(x).length) steps.push({ name: t('Tự luận'), em: '✍️', html: () => drillsHtml(x), bind: () => bindDrills(x) });
     steps.push({ name: t('Luyện tập'), em: '✏️', html: () => quizHtml(x), bind: () => bindQuiz(x, next, () => lessonSteps(id)) });

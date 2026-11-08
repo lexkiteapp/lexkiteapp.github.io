@@ -12,6 +12,10 @@
   "web/js/call.js": { "groups": ["calls"], "dynamic": "nút đọc lại câu người học vừa nói (cSpk)" },
   "web/js/lesson/story-stage.js": { "groups": ["lesson-stories"], "dynamic": "dòng truyện từ dữ liệu bài học, chỉ đọc khi chạm 🔊/🐢 (qua say của ui.js)" },
   "web/js/lesson/ui.js": { "groups": ["lesson-stories", "lesson-teacher", "examples-us", "words-us"], "dynamic": "thẻ từ vựng giọng Carlos (am_michael) khi tắt ux1 – chưa có nhóm" },
+  "web/js/lesson/card.js": {
+    "groups": [],
+    "dynamic": "thẻ học: đọc câu bài học đang hiển thị và cách nói khác khi chạm 🔊 (qua UI.speak; câu thuộc nhóm lesson/examples của ui.js)"
+  },
   "web/js/roleplay.js": { "groups": ["roleplay"], "dynamic": "câu trả lời AI tự do + câu 'nói hay hơn' do AI viết" },
   "web/js/mock.js": { "groups": ["mock-speaking", "speaking-questions"] },
   "web/js/speaking.js": { "groups": ["speaking-questions", "speaking-samples"] },

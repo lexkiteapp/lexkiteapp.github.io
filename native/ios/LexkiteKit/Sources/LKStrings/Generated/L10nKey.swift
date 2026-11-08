@@ -248,6 +248,8 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case lessonStoryLookup = "lesson.story.lookup"
     case lessonStoryNotFound = "lesson.story.notFound"
     case lessonHint = "lesson.hint"
+    case lessonQBuildListen = "lesson.q.buildListen"
+    case lessonCardWord = "lesson.card.word"
 }
 
 public enum L10nLangs {
