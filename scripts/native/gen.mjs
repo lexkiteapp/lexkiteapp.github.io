@@ -275,7 +275,8 @@ const { lessonVectors } = await import('./gen-lesson.mjs');
 put(`${SHARED}/vectors/lesson.json`, lessonVectors());
 const { audioVectors } = await import('./gen-audio.mjs');
 put(`${SHARED}/vectors/audio.json`, audioVectors());
-const { vocabVectors } = await import('./gen-vocab.mjs');
+const { vocabVectors, verbsTables } = await import('./gen-vocab.mjs');
+for (const p of [SHARED, `${IOS}/Sources/LKDesign/Resources`]) put(`${p}/verbs.json`, verbsTables());   // M3 verb tables of verbs-core.js
 put(`${SHARED}/vectors/vocab.json`, await vocabVectors());   // M3 vocabulary screens (review/practice/mistakes/deck/dict/library/topic/letters/verb/phrases/model/models/usage/ideas/paraphrase)
 const { vimgVectors } = await import('./gen-vimg.mjs'); // lesson "pic" images: VImg v3 lookup (exact word#pos, shard by FNV) on the lesson + starter words
 {

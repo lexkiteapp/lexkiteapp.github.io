@@ -723,3 +723,15 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   const s = await vocabVectors(); console.log(s.length, 'bytes');
   if (process.argv.includes('--print')) console.log(s.slice(0, 6000));
 }
+
+// Bảng động từ (hằng trong IIFE của verbs-core.js): chạy đúng đoạn khai báo của web, xuất nguyên giá trị → native/shared/gen/verbs.json (port đọc tệp này, không chép tay).
+export function verbsTables() {
+  const src = fs.readFileSync('web/js/verbs-core.js', 'utf8');
+  const a = src.indexOf('const IRR ='), b = src.indexOf('const IRREG =');
+  if (a < 0 || b < a) throw new Error('verbs-core.js: không tìm thấy khối bảng IRR…IRREG');
+  const NAMES = ['IRR', 'COMMON', 'MODALS', 'INTRANS', 'STATIVE', 'DUAL', 'DOUBLE', 'L_BOTH', 'L_NONE', 'L_UKX', 'NOPASS', 'UK_DOUBLE', 'SE_S', 'GH_F', 'K_END'];
+  const t = vm.runInNewContext(`(()=>{${src.slice(a, b)};return {${NAMES.join(',')}}})()`);
+  const out = {};
+  for (const k of NAMES) out[k] = t[k] && t[k].constructor.name === 'Set' ? [...t[k]] : t[k];
+  return JSON.stringify(out, null, 0) + '\n';
+}

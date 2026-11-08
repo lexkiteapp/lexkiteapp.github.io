@@ -261,6 +261,6 @@ Tệp: `native/shared/gen/vectors/vocab.json` (~300 KB, đọc như `lesson.json
 ### Chưa phủ bằng vector (port đúng theo mã web; ghi rõ để không đoán)
 - Hiển thị/UI thuần (HTML/CSS, chip, vòng tiến độ, hiệu ứng, âm thanh, rung, confetti) – theo Stitch Kit, không có vector.
 - `reviewDone` (công thức tổng kết/dự báo/khoe), `runLearn`/`runQuiz` (chọn câu, nhiễu, XP/band), `match`, `speak`, `gram/copy/write` của #/model, `usage.js` quizBox UI, `verbs.js` bảng thì UI – mô tả ở trên kèm dòng mã; phần ngẫu nhiên không thể so tuyệt đối.
-- Bảng động từ trong `verbs-core.js` chưa được `gen.mjs` xuất thành JSON (vector chỉ phủ kết quả của các ca nêu): **việc kế**: xuất IRR/COMMON/MODALS/INTRANS/STATIVE/DUAL/DOUBLE/L_BOTH/L_NONE/L_UKX/NOPASS/UK_DOUBLE/SE_S/GH_F/K_END ⇒ `native/shared/gen/verbs.json`.
+- Bảng động từ của `verbs-core.js` xuất nguyên văn: `native/shared/gen/verbs.json` (iOS: `LKDesign/Resources/verbs.json`), khóa IRR/COMMON/MODALS/INTRANS/STATIVE/DUAL/DOUBLE/L_BOTH/L_NONE/L_UKX/NOPASS/UK_DOUBLE/SE_S/GH_F/K_END.
 - `Dict.translateVi/translateTo/myMemory/ipaGuess`, `Dict.sentences` mạng thật, Datamuse "từ liên quan", `Lex.phrases` – chỉ mô tả; `Dict.lookup` có vector với mạng giả.
 - Giao diện gõ/nghe của `#/review` + phím (logic chấm có vector); `study-swipe.js` (vuốt = chấm 0/2); các route lộ trình gọi từ `practiceDone` (`path.js`, ngoài phạm vi M3).
