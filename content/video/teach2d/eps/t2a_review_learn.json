@@ -72,5 +72,46 @@
   "words": 40,
   "seconds": 24.7,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"learn\" mean?",
+  "keyword": "learn",
+  "value": "Learn means to get knowledge or skills by study or experience.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=learn",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"learn\" mean?",
+    "description": "Learn means to get knowledge or skills by study or experience.\n\nReview your words, free: https://lexkite.com/app/#/review?w=learn\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "learn",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"learn\" mean?\n\nLearn means to get knowledge or skills by study or experience.\n\nReview your words, free: https://lexkite.com/app/#/review?w=learn"
+   },
+   "instagram": {
+    "caption": "What does \"learn\" mean?\n\nLearn means to get knowledge or skills by study or experience.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"learn\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to get knowledge or skills by study or experience. Learn means to get knowledge or skills by study or experience. Practice it with a free quiz: {link}"
  }
 }

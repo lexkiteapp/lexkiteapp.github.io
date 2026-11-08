@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"shower\" mean?",
+  "keyword": "shower",
+  "value": "Shower means the cleaning of a body by standing under falling water.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=shower",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"shower\" mean?",
+    "description": "Shower means the cleaning of a body by standing under falling water.\n\nReview your words, free: https://lexkite.com/app/#/review?w=shower\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "shower",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"shower\" mean?\n\nShower means the cleaning of a body by standing under falling water.\n\nReview your words, free: https://lexkite.com/app/#/review?w=shower"
+   },
+   "instagram": {
+    "caption": "What does \"shower\" mean?\n\nShower means the cleaning of a body by standing under falling water.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"shower\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means the cleaning of a body by standing under falling water. Shower means the cleaning of a body by standing under falling water. Try the full lesson and quiz here: {link}"
  }
 }

@@ -72,5 +72,46 @@
   "words": 47,
   "seconds": 28.2,
   "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"try\" mean?",
+  "keyword": "try",
+  "value": "Try means to make an effort, to attempt to do something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=try",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"try\" mean?",
+    "description": "Try means to make an effort, to attempt to do something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=try\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "try",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"try\" mean?\n\nTry means to make an effort, to attempt to do something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=try"
+   },
+   "instagram": {
+    "caption": "What does \"try\" mean?\n\nTry means to make an effort, to attempt to do something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"try\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to make an effort, to attempt to do something. Try means to make an effort, to attempt to do something. More practice like this (free): {link}"
  }
 }
