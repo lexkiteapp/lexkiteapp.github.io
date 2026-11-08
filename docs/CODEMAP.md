@@ -17,7 +17,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `content/` (3217 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
 - `mobile/` (216 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (43 file): Hồ sơ listing Chrome/Edge/Apple/Play
-- `docs/` (214 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
+- `docs/` (216 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
 - API `/api/*` (42): account,admin,admin-accounts,admin-clips,admin-prefs,admin-shared,admin-shorts,ads-report,ads-reward,ai,aiearn,backlinks,capacity,class,community,config,contact,cron-kick,dictlookup,distribution,drive,growth,handoff,hit…
 - Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:725 s/test:481 s/video:104 js/vimg:64 s/lib:56 s/cine:51 s/lexicon:34 js/st:34 s/vocab-img:33 js/grammar:27 js/notes:27 s/ci:26 s/stitch:26 s/native:23 js/readtest:22 js/lib:20 s/pron:19 js/speak:19 js/get-app:15 js/toeic:15 s/target:13 s/word-audio:13 s/lipsync:12 s/ops:12
 
