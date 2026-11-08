@@ -2,7 +2,7 @@ import Foundation
 import LKSync
 
 /// #/verb – port of web/js/verbs-core.js (resolve, forms, table, mistakes, suggest, verbOf, irregularList, modal).
-/// Word lists come from native/shared/gen/verbs.json (`Verbs(tables:)`, never typed here); English example tables from the generated VerbExampleData.
+/// Word lists come from native/shared/gen/verbs.json (`Verbs(tables:)`, never typed here); the English example tables (OBJ, COMP, TIME, SUBJ, MIS, …) and the web key order of the modals are in the same file.
 /// Results are `JSON` shaped exactly like the web objects (vectors/vocab.json `verb.*`); the UI translates the rule / pronunciation codes with L10n.
 public struct Verbs: Sendable {
     public struct Form: Equatable, Sendable { public var w: String, tag: String?
@@ -32,6 +32,8 @@ public struct Verbs: Sendable {
     let rev: [String: [String]]
     let common: [String]
     public let modals: [String: [String]]
+    /// JSON objects are unordered: the web `Object.keys(MODALS)` order (suggest lists modals in it)
+    let modalOrder: [String]
     let intrans, stative, dual, doubleSet, lBoth, lNone, lUkx, noPass, ukDouble, seS, ghF, kEnd: Set<String>
     let order: [String]
     var extra: Set<String> = []
@@ -53,13 +55,13 @@ public struct Verbs: Sendable {
         common = t.strs("COMMON")
         var m: [String: [String]] = [:]
         for (k, v) in t["MODALS"]?.object ?? [:] { m[k] = v.array?.map { $0.string ?? "" } ?? [] }
-        modals = m
+        modals = m; modalOrder = t.strs("MODALS_ORDER")
         intrans = set("INTRANS"); stative = set("STATIVE"); dual = set("DUAL"); doubleSet = set("DOUBLE"); lBoth = set("L_BOTH"); lNone = set("L_NONE"); lUkx = set("L_UKX")
         noPass = set("NOPASS"); ukDouble = set("UK_DOUBLE"); seS = set("SE_S"); ghF = set("GH_F"); kEnd = set("K_END")
         var seen = Set<String>(), o: [String] = []
         for v in common + ord where seen.insert(v).inserted { o.append(v) }
         order = o
-        data = (try? JSON.parse(VerbExampleData.json)) ?? .object([:])
+        data = t
     }
     /// words of the learner's library that are verbs (web addKnown)
     public mutating func addKnown(_ list: [String]) { for w in list { let x = w.lowercased(); if x.count > 1, x.range(of: "^[a-z]+$", options: .regularExpression) != nil { extra.insert(x) } } }
@@ -411,7 +413,7 @@ public struct Verbs: Sendable {
         func push(_ base: String, _ via: String? = nil) { if !seen.contains(base) && out.count < n { seen.insert(base); out.append(via.map { JSON.obj([("base", .string(base)), ("via", .string($0))]) } ?? .obj([("base", .string(base))])) } }
         let head = s.split(separator: " ").first.map(String.init) ?? ""
         if let r = resolve(s), r.s("base") != head, known(r.s("base")) || modals[r.s("base")] != nil { push(r.s("base"), head) }
-        for m in modals.keys.sorted() where m.hasPrefix(s) { push(m) }
+        for m in modalOrder where m.hasPrefix(s) { push(m) }
         for v in order where v.hasPrefix(s) { push(v) }
         for v in extra.sorted() where v.hasPrefix(s) { push(v) }
         return .array(out)

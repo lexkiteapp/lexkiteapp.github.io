@@ -123,10 +123,10 @@ const RV = T1.vectorJson, RD = T1.rigJson;
 {
   const V1 = await vocabVectors(), V2 = await vocabVectors();
   ok(V1 === V2 && same(`${SH}/vectors/vocab.json`, V1), 'vocab.json: two runs identical and equal to the committed file (else: node scripts/native/gen.mjs)');
-  ok(Buffer.byteLength(V1) < 400 * 1024, `vocab.json < 400 KB (${(V1.length / 1024) | 0} KB)`);
+  ok(Buffer.byteLength(V1) < 500 * 1024, `vocab.json < 500 KB (${(Buffer.byteLength(V1) / 1024) | 0} KB; owner cap, incl. the mini library + reduced writing content of "data")`);
   const VV = JSON.parse(V1), bad = [];
   const selfDescribing = a => Array.isArray(a) && a.length > 0 && a.every(c => c && c.why && (c.out !== undefined));
-  for (const k of ['review', 'mistakes.log', 'mistakes.view', 'mistakes.list', 'mistakes.retry', 'deck', 'library', 'topic', 'wordbook', 'dict.norm', 'dict.lookup', 'dict.page', 'dict.lex', 'dict.suggest', 'practice.pool', 'practice.accept', 'writing.ideas', 'writing.letters', 'writing.models', 'writing.model', 'writing.phrases', 'writing.gap', 'usage.resolve', 'usage.suggest', 'usage.near', 'usage.lookup', 'usage.quiz', 'verb.resolve', 'verb.forms', 'verb.table', 'verb.mistakes', 'verb.suggest'].filter(Boolean)) {
+  for (const k of ['review', 'mistakes.log', 'mistakes.view', 'mistakes.list', 'mistakes.retry', 'deck', 'library', 'topic', 'wordbook', 'dict.norm', 'dict.lookup', 'dict.page', 'dict.lex', 'dict.suggest', 'practice.pool', 'practice.accept', 'writing.ideas', 'writing.letters', 'writing.models', 'writing.model', 'writing.phrases', 'writing.gap', 'writing.exercise', 'usage.resolve', 'usage.suggest', 'usage.near', 'usage.lookup', 'usage.quiz', 'verb.resolve', 'verb.forms', 'verb.table', 'verb.mistakes', 'verb.suggest'].filter(Boolean)) {
     const v = k.split('.').reduce((o, x) => (o ? o[x] : undefined), VV);
     if (!selfDescribing(v) && !(k === 'wordbook' && Array.isArray(v) && v.length >= 9)) bad.push(k);
   }

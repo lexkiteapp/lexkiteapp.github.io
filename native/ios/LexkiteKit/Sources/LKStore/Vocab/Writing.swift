@@ -1,5 +1,6 @@
 import Foundation
 import LKSync
+import LKCore
 
 /// Writing screens (parity P05): #/ideas, #/letters, #/paraphrase, #/models, #/model, #/phrases. Ports of web/js/{ideas,letters,paraphrase,phrases-model}.js.
 /// Content (`IDEAS`, `GT_LETTERS`, `PARAPHRASE`, `MODELS`, `WRITE_PROMPTS`, Task 1 sets) is loaded like the web does and passed in as JSON.
@@ -214,6 +215,18 @@ public enum WritingEngine {
             return c != .orderedSame ? c == .orderedAscending : a.title.localizedCompare(b.title) == .orderedAscending
         }
     }
+    /// web TYPE_VI / TONE: the Vietnamese source strings of the chart types and letter tones (the UI translates them; the list sorts by them)
+    public static let chartTypeKey = ["line": "Biểu đồ đường", "bar": "Biểu đồ cột", "pie": "Biểu đồ tròn", "table": "Bảng số liệu", "process": "Quy trình", "map": "Bản đồ"]
+    public static let toneKey = ["formal": "Trang trọng", "semi-formal": "Bán trang trọng", "informal": "Thân mật"]
+    /// the `info` of `models(_:tab:q:info:)`: Task 1 = chart set title + type, gt = letter title + tone, Task 2 = prompt text + type + topic (looked up by `ref`)
+    public static func modelInfo(_ m: JSON, prompts: [JSON], task1: [JSON], letters: [JSON]) -> (title: String, kind: String, topic: String) {
+        let ref = m.s("ref")
+        switch m["task"]?.jsToString ?? "" {
+        case "1": let d = task1.first { $0.s("id") == ref }; return (d?.s("title") ?? ref, d.map { chartTypeKey[$0.s("type")] ?? $0.s("type") } ?? "Task 1", "")
+        case "gt": let l = letters.first { $0.s("id") == ref }; return (l?.s("titleVi") ?? ref, l.map { toneKey[$0.s("tone")] ?? $0.s("tone") } ?? "Viết thư", "")
+        default: let p = prompts.first { $0.s("id") == ref }; return (p?.s("text") ?? ref, p?.s("type") ?? "Task 2", p?.s("topic") ?? "")
+        }
+    }
     /// where "back to the prompt" goes
     public static func modelBack(_ m: JSON) -> String {
         let task = m["task"]?.jsToString ?? ""
@@ -246,6 +259,147 @@ public enum WritingEngine {
     public static func phraseBook(_ cards: [JSON]) -> (list: [JSON], canLearn: Bool) {
         let l = Vocab.stableSorted(cards.filter { Vocab.isPhrase($0) }) { ($0.d("added") ?? 0) > ($1.d("added") ?? 0) }
         return (l, l.count >= 4)
+    }
+}
+
+// MARK: practice modes generated from a model (web/js/phrases-model.js): gram · copy · write, and the lemmatizer they share
+/// web phrases.js `App.lemma` (dictionary form of an inflected word) with its irregular-verb tables `App.lemmaT` (PAST, BASE).
+/// Tables = verbs.json `LEMMA` {IRR, BASE_EXTRA, KEEP}; `known(word)` = the word index (web IELTS_DATA.INDEX, `TopicCatalog.index`), lower-case.
+public struct Lemmatizer: Sendable {
+    public let past: [String: String], base: [String: String]
+    let keep: Set<String>
+    let lookup: @Sendable (String) -> Bool
+    public init(tables t: JSON, known: @escaping @Sendable (String) -> Bool) {
+        let l = t["LEMMA"] ?? .null
+        var past: [String: String] = [:], base: [String: String] = [:]
+        for row in l.s("IRR").split(separator: "|") {
+            let f = row.split(separator: " ").map(String.init)
+            guard f.count >= 3 else { continue }
+            past[f[0]] = f[1]
+            if f[1] != f[0] { base[f[1]] = f[0] }
+            if f[2] != f[0] { base[f[2]] = f[0] }
+        }
+        for (k, v) in l["BASE_EXTRA"]?.object ?? [:] { if let x = v.string { base[k] = x } }
+        self.past = past; self.base = base; keep = Set(l.strs("KEEP")); lookup = known
+    }
+    public func known(_ w: String) -> Bool { lookup(w) }
+    public func lemma(_ w: String) -> String {
+        let l = w.lowercased()
+        if let b = base[l] { return b }
+        if keep.contains(l) || l.count < 4 || (known(l) && !Verbs.m(l, "(ies|es|s|ed|ing|er|est)$")) { return l }
+        func cut(_ n: Int) -> String { String(l.dropLast(n)) }
+        func tryB(_ a: [String?]) -> String? { a.compactMap { $0 }.first { !$0.isEmpty && known($0) } }
+        func dbl(_ re: String, _ n: Int) -> String? { Verbs.m(l, re) ? cut(n) : nil }
+        var b: String?
+        if Verbs.m(l, "ies$") { b = tryB([cut(3) + "y"]) }
+        if b == nil, Verbs.m(l, "ves$") { b = tryB([cut(3) + "f", cut(3) + "fe"]) }
+        if b == nil, Verbs.m(l, "(ss|x|z|ch|sh|o)es$") { b = tryB([cut(2)]) }
+        if b == nil, Verbs.m(l, "[^s]s$") { b = tryB([cut(1)]) }
+        if b == nil, Verbs.m(l, "ied$") { b = tryB([cut(3) + "y"]) }
+        if b == nil, Verbs.m(l, "ed$") { b = tryB([cut(1), cut(2), dbl("(.)\\1ed$", 3)]) }
+        if b == nil, Verbs.m(l, "ing$") { b = tryB([cut(3), cut(3) + "e", dbl("(.)\\1ing$", 4)]) }
+        if b == nil, Verbs.m(l, "iest$") { b = tryB([cut(4) + "y"]) }
+        if b == nil, Verbs.m(l, "est$") { b = tryB([cut(3), cut(2), dbl("(.)\\1est$", 4)]) }
+        if b == nil, Verbs.m(l, "ier$") { b = tryB([cut(3) + "y"]) }
+        if b == nil, Verbs.m(l, "er$"), !known(l) { b = tryB([cut(2), cut(1), dbl("(.)\\1er$", 3)]) }
+        return b ?? l
+    }
+}
+
+public extension WritingEngine {
+    static func paras(_ t: String) -> [String] { Dict.split(t, "\\n\\s*\\n") }
+    static func stripRole(_ p: String) -> String { rx(p, "<<[^>]*>>\\s*", "") }
+    static func roleOf(_ p: String) -> String { Verbs.groups(p, "<<([^>]*)>>")?[1] ?? "" }
+    /// JS `s.split(/(\s+)/)`: the pieces AND the whitespace runs between them
+    static func splitKeep(_ p: String) -> [String] {
+        guard let re = try? NSRegularExpression(pattern: "\\s+") else { return [p] }
+        var out: [String] = [], last = p.startIndex
+        for m in re.matches(in: p, range: NSRange(p.startIndex..., in: p)) {
+            guard let r = Range(m.range, in: p) else { continue }
+            out.append(String(p[last..<r.lowerBound])); out.append(String(p[r])); last = r.upperBound
+        }
+        out.append(String(p[last...])); return out
+    }
+    private static func capLike(_ w: String, _ x: String) -> String { (w.first?.isUppercase ?? false) && !x.isEmpty ? x.prefix(1).uppercased() + x.dropFirst() : x }
+
+    /// "gram" mode as the web shows it (errExercise): real errors are planted in the model text, the learner types the right form. `wrong` "" = a word is missing (an article).
+    struct ErrItem: Equatable, Sendable { public var i: Int, pre: String, post: String, ans: String, wrong: String, why: String }
+    /// Candidates come from the lemmatizer and the word index (`index(word)` = web IELTS_DATA.INDEX): missing article, past tense of an irregular verb, was/were, -ed verb, -ly adverb, plural noun,
+    /// comparative; at most 12, at least 6 tokens apart. `random` nil = the vector run (Math.random 0.5: no article dropped, no shuffle). nil result = fewer than 5 errors could be
+    /// planted (the page then shows the "choose the form" exercise = `gram`). `why` is the Vietnamese key of the hint.
+    static func errors(_ m: JSON, lem: Lemmatizer, index: (String) -> JSON?, random: (() -> Double)? = nil, shuffle: ([ErrItem]) -> [ErrItem] = { $0 }) -> [ErrItem]? {
+        let text = paras(plain(stripRole(m.s("text")))).joined(separator: "\n\n")
+        var cand: [ErrItem] = []
+        for (i, tok) in splitKeep(text).enumerated() {
+            guard let mm = Verbs.groups(tok, "^([^A-Za-z]*)([A-Za-z]+)([^A-Za-z]*)$") else { continue }
+            let w = mm[2], l = w.lowercased(), lm = lem.lemma(l), e = index(lm)
+            var wrong: String?, why = ""
+            if Verbs.m(l, "^(the|a|an)$"), (random?() ?? 0.5) < 0.5 { wrong = ""; why = "Thiếu mạo từ" }
+            else if let b = lem.base[l], lem.past[b] == l, !Verbs.m(l, "^(was|were|had|did)$") { wrong = b; why = "Sai thì (cần quá khứ)" }
+            else if l == "was" || l == "were" { wrong = l == "was" ? "were" : "was"; why = "Sai hòa hợp chủ – vị" }
+            else if Verbs.m(l, "ed$"), lm != l, let e, (e.s("pos").isEmpty ? "v" : e.s("pos")).contains("v") { wrong = lm; why = "Sai thì / thiếu -ed" }
+            else if Verbs.m(l, "ly$"), lem.known(String(l.dropLast(2))), l.count > 5 {
+                let x = rx(rx(rx(l, "ily$", "y"), "ally$", "al"), "ly$", "")
+                if lem.known(x) { wrong = x; why = "Cần trạng từ (-ly)" }
+            }
+            else if Verbs.m(l, "[^s]s$"), lm != l, let e, e.s("pos").hasPrefix("n") { wrong = lm; why = "Danh từ số nhiều" }
+            else if Verbs.m(l, "(er|est)$"), lm != l, !lem.known(l) { wrong = lm; why = "Thiếu so sánh hơn/nhất" }
+            if let wr = wrong, wr != l { cand.append(ErrItem(i: i, pre: mm[1], post: mm[3], ans: w, wrong: capLike(w, wr), why: why)) }
+        }
+        var pick: [ErrItem] = []
+        for c in shuffle(cand) where pick.count < 12 && !pick.contains(where: { abs($0.i - c.i) < 6 }) { pick.append(c) }
+        return pick.count < 5 ? nil : pick
+    }
+    static func errScore(_ items: [ErrItem], typed: [String]) -> Int { items.indices.filter { gapNorm($0 < typed.count ? typed[$0] : "") == gapNorm(items[$0].ans) }.count }
+
+    /// "gram" fallback: pick the right form of a word at up to 12 places. `forms` = verbs.json `FORMS`.
+    struct GramSlot: Equatable, Sendable { public var pre: String, answer: String, options: [String], post: String }
+    enum GramTok: Equatable, Sendable { case plain(String), slot(Int, GramSlot) }
+    static func gram(_ m: JSON, forms: [[String]], random: (() -> Double)? = nil, shuffle: ([String]) -> [String] = { $0 }) -> [[GramTok]] {
+        let text = paras(plain(m.s("text"))).joined(separator: "\n\n")
+        var picked = 0, n = 0
+        return text.components(separatedBy: "\n\n").map { p in
+            splitKeep(p).map { tok -> GramTok in
+                let mm = Verbs.groups(tok, "^([^A-Za-z]*)([A-Za-z]+)([^A-Za-z]*)$")
+                guard let mm, let f = forms.first(where: { $0.contains(mm[2].lowercased()) }), picked < 12, (random?() ?? 0.5) >= 0.45 else { return .plain(tok) }
+                picked += 1
+                let w = mm[2], idx = n, opts = shuffle(f).map { o in (w.first?.isUppercase ?? false) ? o.prefix(1).uppercased() + o.dropFirst() : o }
+                n += 1
+                return .slot(idx, GramSlot(pre: mm[1], answer: w, options: opts, post: mm[3]))
+            }
+        }
+    }
+    static func gramScore(_ answers: [String], picks: [String]) -> Int { answers.indices.filter { ($0 < picks.count ? picks[$0] : "").lowercased() == answers[$0].lowercased() }.count }
+
+    /// "copy" mode: every word is a box (length = word length); punctuation stays.
+    static func tokens(_ s: String) -> [String] { Verbs.matchesAll(s, "[A-Za-z][A-Za-z'’-]*|\\d+(?:[.,]\\d+)*%?|[^\\sA-Za-z\\d]").map { $0[0] } }
+    struct SlotBlock: Equatable, Sendable { public var role: String, toks: [String] }
+    static func slots(_ m: JSON) -> (blocks: [SlotBlock], answers: [String]) {
+        let blocks = paras(m.s("text")).map { SlotBlock(role: roleOf($0), toks: tokens(plain(stripRole($0)))) }
+        return (blocks, blocks.flatMap { $0.toks.filter { !Verbs.m($0, "^[^A-Za-z\\d]$") } })
+    }
+    static func slotScore(_ answers: [String], inputs: [String]) -> Int { answers.indices.filter { gapNorm($0 < inputs.count ? inputs[$0] : "") == gapNorm(answers[$0]) }.count }
+
+    /// "write" mode: each sentence is given as lemmas, the learner rewrites it. `lemma` = `Lemmatizer.lemma`.
+    struct ModelSentence: Equatable, Sendable { public var s: String, role: String }
+    static func sentencesOf(_ m: JSON) -> [ModelSentence] {
+        paras(m.s("text")).flatMap { p -> [ModelSentence] in
+            let role = roleOf(p)
+            return Verbs.matchesAll(plain(stripRole(p)), "[^.!?]+[.!?]+").enumerated().map { ModelSentence(s: $1[0].trimmingCharacters(in: .whitespacesAndNewlines), role: $0 == 0 ? role : "") }
+        }
+    }
+    static func lemmaPrompt(_ s: String, lemma: (String) -> String) -> String {
+        tokens(s).enumerated().map { (k, t) -> String in
+            guard Verbs.m(t, "^[A-Za-z]") else { return t }
+            if (t.first?.isUppercase ?? false), k > 0, t != "I" { return t }
+            if t.contains("'") { return Dict.split(t, "['’]").enumerated().map { j, x in j > 0 ? "'" + x : lemma(x) }.joined(separator: " / ") }
+            return lemma(t)
+        }.joined(separator: " / ")
+    }
+    /// right = exact (normalised) or ≥ 95 % similar
+    static func lemmaRight(_ typed: String, _ target: String) -> Bool {
+        let a = gapNorm(typed), b = gapNorm(target)
+        return a == b || Vocab.round(LessonEngine.similarity(a, b) * 100) >= 95
     }
 }
 

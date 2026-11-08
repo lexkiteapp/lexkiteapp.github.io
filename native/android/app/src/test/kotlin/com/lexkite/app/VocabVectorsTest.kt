@@ -21,12 +21,15 @@ import com.lexkite.app.core.vocab.Practice
 import com.lexkite.app.core.vocab.Qe
 import com.lexkite.app.core.vocab.Review
 import com.lexkite.app.core.vocab.StudyModes
+import com.lexkite.app.core.vocab.Topic
 import com.lexkite.app.core.vocab.Tx
 import com.lexkite.app.core.vocab.VStats
 import com.lexkite.app.core.vocab.WebWords
 import com.lexkite.app.core.vocab.WordBook
+import com.lexkite.app.core.vocab.WordGroup
 import com.lexkite.app.core.write.Ideas
 import com.lexkite.app.core.write.Letters
+import com.lexkite.app.core.write.Lemmatizer
 import com.lexkite.app.core.write.Models
 import com.lexkite.app.core.write.Paraphrase
 import com.lexkite.app.core.write.WritingData
@@ -102,7 +105,16 @@ class VocabVectorsTest {
         val libs = (pack("words") + pack("tsl")).filter { it.startsWith("js/lib/") }.map { File(web, it).readText() }
         WebWords.fromScripts(File(web, "js/data.js").readText(), libs)
     }
-    private val verbs: Verbs by lazy { Verbs(VerbData.parse(File(gen, "verbs.json").readText())) }
+    private val verbData: VerbData by lazy { VerbData.parse(File(gen, "verbs.json").readText()) }
+    private val verbs: Verbs by lazy { Verbs(verbData) }
+    // the real records cut down, carried by the vectors (vocab.json `data`): the mini library for library / pool / model pages and the reduced writing content
+    private val data by lazy { v.o("data") }
+    private val miniWords: WebWords by lazy { data.o("catalog").let { c ->
+        WebWords(c.a("topics").map { it.jsonObject }.map { t -> Topic(t.s("id"), t.s("name"), t.s("emoji"), t.s("desc"), t.s("group"), t.a("words").map { it.jsonObject }) },
+            c.a("groups").map { it.jsonObject }.map { g -> WordGroup(g.s("id"), g.s("name"), g.s("emoji"), g.s("desc")) }) } }
+    private val mini: WritingData by lazy { data.o("writing").let { w ->
+        WritingData(w.a("ideas").map { it.jsonObject }, w.a("letters").map { it.jsonObject }, w.a("paraphrase").map { it.jsonArray.let { p -> p[0].s() to p[1].s() } }, w.a("models").map { it.jsonObject },
+            w.a("prompts").map { it.jsonObject }, w.a("task1").map { it.jsonObject }) } }
     private val usage: Usage by lazy {
         val files = File(web, "js/usage").listFiles()!!.sortedBy { it.name }.map { it.readText() }
         Usage.fromScripts(files, File(web, "js/usage-index.js").readText(), verbs)
@@ -233,18 +245,15 @@ class VocabVectorsTest {
             val inp = c.o("input"); val cards = deck(inp.s("deck")).values.toList(); val f0 = Deck.fromQuery(query(inp.s("query"))); val fl = inp.o("filters")
             val f = Deck.Filter(if (fl.containsKey("q")) fl.s("q") else f0.q, if (fl.containsKey("topic")) fl.s("topic") else f0.topic, if (fl.containsKey("from")) fl.s("from") else f0.from, if (fl.containsKey("m")) fl.s("m") else f0.m)
             val id = c.s("id"); val out = c.o("out")
-            // vector artifact: the recording DOM does not apply <option selected>, so ?from= was never applied there; in a browser (and here) it is
-            val expectFrom = if (id == "query-from") "youtube" else out.o("selected").s("from")
-            if (id != "query-from") assertEquals(id, out.o("selected").s("from"), f.from); assertEquals(id, expectFrom, f.from)
+            assertEquals(id, out.o("selected").s("from"), f.from)
             val rows = Deck.rows(cards, f, now)
-            val want = if (id == "query-from") v.a("deck").map { it.jsonObject }.first { it.s("id") == "from-youtube" }.o("out").a("rows") else out.a("rows")
-            check("$id.rows", want, rows.take(Deck.MAX_ROWS).map { r -> val x = Deck.row(r, now); obj("word" to x.word, "ipa" to x.ipa, "mean" to x.mean, "note" to x.note, "retention" to x.retention, "thumb" to x.thumb) })
-            if (id != "query-from") assertEquals(id, out.getValue("empty").jsonPrimitive.booleanOrNull, rows.isEmpty())
+            check("$id.rows", out.a("rows"), rows.take(Deck.MAX_ROWS).map { r -> val x = Deck.row(r, now); obj("word" to x.word, "ipa" to x.ipa, "mean" to x.mean, "note" to x.note, "retention" to x.retention, "thumb" to x.thumb) })
+            assertEquals(id, out.getValue("empty").jsonPrimitive.booleanOrNull, rows.isEmpty())
             val (n, k) = Deck.headline(cards); assertEquals(id, out.s("headline"), Tx.RAW.t("{n} từ · {k} đã thuộc", mapOf("n" to "$n", "k" to "$k")))
         }
     }
 
-    private fun headingOf(gid: String, sec: Library.Section): String = when {
+    private fun headingOf(words: WebWords, gid: String, sec: Library.Section): String = when {
         gid == "mine" && sec.collections.isNotEmpty() -> "📌 Thư viện của tôi"
         gid == "mine" -> "📚 Bộ từ IELTS đang học"
         else -> words.groups.first { it.id == gid }.let { it.emoji + " " + it.name }
@@ -252,13 +261,13 @@ class VocabVectorsTest {
     @Test fun library() {
         val cards = deck("B")
         for (c in v.a("library").map { it.jsonObject }) {
-            val inp = c.o("input"); val q = query(inp.s("query")); var tab = Library.defaultTab(q["g"], cards.size, "ielts"); var lv = Library.levelOf(q["lv"]); var text = ""
+            val inp = c.o("input"); val ws = if (inp.s("catalog") == "mini") miniWords else words; val q = query(inp.s("query")); var tab = Library.defaultTab(q["g"], cards.size, "ielts"); var lv = Library.levelOf(q["lv"]); var text = ""
             val steps = c.a("out").map { it.jsonObject }
             fun snap(i: Int) {
-                val page = Library.page(tab, lv, text, cards, words, now); val st = steps[i]; val id = "${c.s("id")}#$i"
+                val page = Library.page(tab, lv, text, cards, ws, now); val st = steps[i]; val id = "${c.s("id")}#$i"
                 assertEquals(id, st.s("tab"), page.tab)
                 check("$id.sections", st["sections"], page.sections.map { sec ->
-                    obj("heading" to headingOf(sec.groupId, sec), "viewAll" to (sec.viewAll?.let { "${sec.groupId}|Xem cả $it bộ →" }),
+                    obj("heading" to headingOf(ws, sec.groupId, sec), "viewAll" to (sec.viewAll?.let { "${sec.groupId}|Xem cả $it bộ →" }),
                         "topics" to sec.topics.map { it.id + (if (lv.isNotEmpty()) "?lv=$lv" else "") }, "collections" to sec.collections.map { it.key }) })
                 assertEquals(id, st["empty"].let { if (it == null || it is JsonNull) null else it.s() }, page.emptyEmoji)
             }
@@ -333,7 +342,7 @@ class VocabVectorsTest {
             else -> null
         }
     }
-    private fun dict(net: Map<String, JsonObject> = emptyMap(), meanLang: String = "vi") = Dict(fakeNet(net), lex(), words.index, DictCfg(meanLang = meanLang), clock = { now })
+    private fun dict(net: Map<String, JsonObject> = emptyMap(), meanLang: String = "vi") = Dict(fakeNet(net), lex(), words.index, DictCfg(meanLang = meanLang, viTypo = verbData.viTypo), clock = { now })
 
     @Test fun dict_norm() { for (c in v.o("dict").a("norm").map { it.jsonObject }) assertEquals(Js.stringify(c["input"]), c.s("out"), Dict.normWord(c["input"]?.let { if (it is JsonNull) null else it.s() })) }
     @Test fun dict_lookup() = runBlocking {
@@ -372,9 +381,7 @@ class VocabVectorsTest {
             val m = DictPage.model(full, null, "vi", { e -> verbs.verbOf(e).ifEmpty { null } }, { k -> usage.hasWord(k) })
             assertEquals(id, out.s("word"), m.word); assertEquals(id, out.s("meaning"), m.meaning); assertEquals(id, out.s("def"), m.def); assertEquals(id, out.s("example"), m.example)
             check("$id.exT", out["exampleTranslation"], m.exampleTranslation?.let { listOf(it.s("vi"), if (Js.truthy(it["auto"])) "Oxford · dịch máy" else "Tatoeba") } ?: emptyList<String>())
-            // the vector scrapes <li> after the last block, so the extra-definitions list (<details>) shows up in the last block's defs
-            val extra = m.extraMeanings.flatMap { g -> g.ga("defs").map { it.jsonObject } }.map { d -> mapOf("def" to d.s("def"), "ex" to (if (Js.truthy(d["ex"]) && d.s("ex").trim().lowercase() != m.example.lowercase()) d.s("ex") else "")) }
-            val blocks = m.posBlocks.mapIndexed { i, b -> mapOf("pos" to DictPage.posLabel(b.pos, "vi"), "vi" to b.vi, "defs" to (b.defs.map { x -> mapOf("def" to x.def, "ex" to x.ex) } + (if (i == m.posBlocks.size - 1) extra else emptyList()))) }
+            val blocks = m.posBlocks.map { b -> mapOf("pos" to DictPage.posLabel(b.pos, "vi"), "vi" to b.vi, "defs" to b.defs.map { x -> mapOf("def" to x.def, "ex" to x.ex) }) }
             check("$id.pos", out["posBlocks"], blocks); assertEquals(id, out.n("extraMeanings").toInt(), if (m.extraMeanings.isNotEmpty()) 1 else 0)
             check("$id.bil", out["bilingual"], m.bilingual.map { mapOf("en" to it.s("en"), "vi" to it.s("vi")) })
             check("$id.actions", out["actions"], mapOf("quickSave" to !m.saved, "saved" to m.saved, "practiceSpeak" to "#/practice/speak?w=${m.word}", "verb" to m.verb?.let { "#/verb/${Dict.jsEncode(it)}" }, "usage" to (if (m.hasUsage) "#/usage/${m.word}" else null), "saveCard" to true))
@@ -396,7 +403,7 @@ class VocabVectorsTest {
     }
     @Test fun practice_pool() {
         for (c in v.o("practice").a("pool").map { it.jsonObject }) {
-            val inp = c.o("input"); val r = Practice.pool(inp.s("src"), deck(inp.s("deck")), words, now, null); val out = c.o("out")
+            val inp = c.o("input"); val r = Practice.pool(inp.s("src"), deck(inp.s("deck")), if (inp.s("catalog") == "mini") miniWords else words, now, null); val out = c.o("out")
             assertEquals(c.s("id"), out.n("n").toInt(), r.size)
             if (out["words"] != null && out["words"] !is JsonNull) check("${c.s("id")}.words", out["words"], r.map { it.s("word") })
             check("${c.s("id")}.first", out["first"], r.take(3))
@@ -412,8 +419,7 @@ class VocabVectorsTest {
     @Test fun practice_typo() {
         for (c in v.o("practice").a("typo").map { it.jsonObject }) {
             val i = c.o("input"); val o = i.o("opts")
-            // the vector runs lesson-fx.js without ui.js: only exact text passes (similarity unavailable) - same here with similarity = null
-            val r = LessonFx.typo(i.s("given"), i.s("target"), strict = o["strict"] != null, isWord = if (o["isWord"] != null) { x -> x == "two" || x == "tow" } else null, similarity = null)
+            val r = LessonFx.typo(i.s("given"), i.s("target"), strict = o["strict"] != null, isWord = if (o["isWord"] != null) { x -> x == "two" || x == "tow" } else null)
             check(Js.stringify(i), c["out"], mapOf("ok" to r.ok, "typo" to r.typo, "marks" to r.marks.map { m -> if (m.fix) mapOf("w" to m.w, "fix" to true) else mapOf("w" to m.w) }))
         }
     }
@@ -422,10 +428,10 @@ class VocabVectorsTest {
     private val W get() = v.o("writing")
     @Test fun writing_ideas() {
         for (c in W.a("ideas").map { it.jsonObject }) {
-            val tp = Ideas.pick(writing.ideas, c.o("input").s("topic"))!!; val out = c.o("out"); val issues = tp.a("issues").map { it.jsonObject }
-            check("topics", out["topics"], writing.ideas.map { it.s("topic") }); assertEquals(out.s("selected"), tp.s("topic")); assertEquals(out.n("issues").toInt(), issues.size)
+            val tp = Ideas.pick(mini.ideas, c.o("input").s("topic"))!!; val out = c.o("out"); val issues = tp.a("issues").map { it.jsonObject }
+            check("topics", out["topics"], mini.ideas.map { it.s("topic") }); assertEquals(out.s("selected"), tp.s("topic")); assertEquals(out.n("issues").toInt(), issues.size)
             assertEquals(out.o("firstIssue").s("q"), issues[0].s("q")); assertEquals(out.o("firstIssue").n("ideas").toInt(), Ideas.ideasOf(issues[0], "for").size + Ideas.ideasOf(issues[0], "against").size)
-            assertEquals(out.n("vocab").toInt(), tp.a("vocab").size); check("prompts", out["prompts"], Ideas.prompts(writing.prompts, tp).map { it.s("id") })
+            assertEquals(out.n("vocab").toInt(), tp.a("vocab").size); check("prompts", out["prompts"], Ideas.prompts(mini.prompts, tp).map { it.s("id") })
             val first = Ideas.ideasOf(issues[0], "for")[0]
             check("save", out["firstChunkSave"], Ideas.chunkSave(first, first.a("chunks")[0].s(), "vi"))
         }
@@ -458,7 +464,7 @@ class VocabVectorsTest {
         val p = W.o("paraphrase"); val all = writing.paraphrase
         assertEquals(p.o("data").n("total").toInt(), all.size); assertEquals(p.o("data").n("usable").toInt(), Paraphrase.pairs(all).size)
         for (c in p.a("usable").map { it.jsonObject }) { val a = c.a("input"); assertEquals(Js.stringify(a), c.getValue("out").jsonPrimitive.booleanOrNull, Paraphrase.usable(a[0].s(), a[1].s())) }
-        val round = Paraphrase.Round(Paraphrase.pairs(all), null); val q0 = round.question(); val first = p.o("first")
+        val round = Paraphrase.Round(Paraphrase.pairs(mini.paraphrase), null); val q0 = round.question(); val first = p.o("first")
         assertEquals(first.s("q"), q0.q); check("options", first["options"], q0.options); assertEquals(first.s("progress"), "1/${round.items.size}")
         val steps = p.o("finish").a("steps").map { it.jsonObject }
         for ((i, st) in steps.withIndex()) {
@@ -470,7 +476,7 @@ class VocabVectorsTest {
         val fin = p.o("finish"); assertEquals(fin.s("summary"), Tx.RAW.t("{right}/{total} đúng ({pct}%)", mapOf("right" to "${round.right}", "total" to "${round.items.size}", "pct" to "${round.percent}")))
         check("reward", fin["rewards"], listOf(mapOf("quizzes" to 1, "readings" to 0, "xp" to round.xp)))
     }
-    private fun modelRows() = Models.rows(writing.models, writing.prompts, writing.task1, writing.letters)
+    private fun modelRows() = Models.rows(mini.models, mini.prompts, mini.task1, mini.letters)
     @Test fun writing_models() {
         val rows = modelRows()
         for (c in W.a("models").map { it.jsonObject }) {
@@ -478,7 +484,7 @@ class VocabVectorsTest {
             val steps = out.a("steps").map { it.jsonObject }
             fun snap(i: Int) {
                 val list = Models.list(rows, tab, q); val st = steps[i]
-                val topicName = { r: Models.Row -> words.topic(r.topic)?.name }
+                val topicName = { r: Models.Row -> miniWords.topic(r.topic)?.name }
                 check("${c.s("id")}#$i", st["rows"], list.take(8).map { r -> mapOf("id" to r.id, "title" to r.title, "meta" to (r.kind + (topicName(r)?.let { " · $it" } ?: "") + " · " + Tx.RAW.t("{n} từ", mapOf("n" to r.words.ifEmpty { "–" }))), "band" to r.band) })
                 if (st.containsKey("n")) assertEquals(st.n("n").toInt(), list.size)
             }
@@ -492,8 +498,8 @@ class VocabVectorsTest {
     }
     @Test fun writing_model() {
         for (c in W.a("model").map { it.jsonObject }) {
-            val inp = c.o("input"); val m = writing.models.first { it.s("id") == inp.s("id") }; val out = c.o("out")
-            val pg = Models.page(m, writing.prompts, writing.task1, writing.letters)
+            val inp = c.o("input"); val m = mini.models.first { it.s("id") == inp.s("id") }; val out = c.o("out")
+            val pg = Models.page(m, mini.prompts, mini.task1, mini.letters)
             check("badges", out["badges"], listOf(pg.badge, pg.kind, pg.band)); assertEquals(out.s("back"), pg.back)
             check("chunks", out["chunks"], pg.chunks.map { listOf(it.first, it.second) }); check("linkers", out["linkers"], pg.linkers)
             check("tabs", out["tabs"], Models.PRACTICE_TABS); check("extras", out["extras"], mapOf("outline" to pg.hasOutline, "vocab" to pg.hasVocab, "pitfalls" to pg.hasPitfalls, "band6" to pg.hasBand6))
@@ -515,7 +521,7 @@ class VocabVectorsTest {
     }
     @Test fun writing_gap() {
         for (c in W.a("gap").map { it.jsonObject }) {
-            val inp = c.o("input"); val m = writing.models.first { it.s("id") == inp.s("model") }; val out = c.o("out"); val g = Models.gap(m, inp.s("kind"), null)
+            val inp = c.o("input"); val m = mini.models.first { it.s("id") == inp.s("model") }; val out = c.o("out"); val g = Models.gap(m, inp.s("kind"), null)
             assertEquals(out.n("gaps").toInt(), g.answers.size); check("bank", out["bank"], g.bank)
             val typed = if (inp.s("scenario") == "all-correct") g.answers else g.answers.mapIndexed { i, a -> if (i == 0) a else "wrong" }
             val right = Models.gapScore(g, typed); val f = Models.finish(inp.s("kind"), right, g.answers.size)
@@ -524,8 +530,42 @@ class VocabVectorsTest {
             check("marks", out["marks"], g.answers.indices.map { i -> if (Models.norm(typed[i]) == Models.norm(g.answers[i])) "ok" else "no" })
         }
     }
+    /** The three exercises generated from a model: gram (errExercise, or the select fallback), copy (one box per word), write (sentences given as lemmas). Lemmatizer + word index = the mini library. */
+    @Test fun writing_exercise() {
+        val lem = Lemmatizer(verbData.lemma) { w -> miniWords.index.containsKey(w) }
+        for (c in W.a("exercise").map { it.jsonObject }) {
+            val inp = c.o("input"); val m = mini.models.first { it.s("id") == inp.s("model") }; val out = c.o("out"); val id = c.s("id")
+            when (inp.s("mode")) {
+                "gram" -> {
+                    val items = Models.errors(m, lem, { w -> miniWords.index[w] }, null)
+                    if (out.s("kind") == "select") {
+                        assertTrue(id, items == null)
+                        val slots = Models.gram(m, verbData.forms, null).flatten().filterIsInstance<Models.GramTok.Slot>()
+                        check("$id.options", out["options"], slots.map { it.slot.options }); check("$id.answers", out["answers"], slots.map { it.slot.answer })
+                        assertEquals(id, out.n("right").toInt(), Models.gramScore(slots.map { it.slot.answer }, out.a("typed").map { it.s() }))
+                    } else {
+                        assertTrue(id, items != null); items!!
+                        check("$id.items", out["items"], items.mapIndexed { k, x -> mapOf("k" to k, "wrong" to x.wrong, "missing" to (x.wrong == ""), "ans" to x.ans, "why" to x.why) })
+                        assertEquals(id, out.n("right").toInt(), Models.errScore(items, out.a("typed").map { it.s() }))
+                    }
+                }
+                "copy" -> {
+                    val (blocks, answers) = Models.slots(m)
+                    check("$id.blocks", out["blocks"], blocks.map { b -> mapOf("role" to b.role, "n" to b.toks.count { !Regex("^[^A-Za-z\\d]$").matches(it) }) })
+                    assertEquals(id, out.n("n").toInt(), answers.size); assertEquals(id, out.s("answers"), answers.joinToString(" "))
+                    assertEquals(id, out.n("right").toInt(), Models.slotScore(answers, answers.mapIndexed { i, a -> if (i % 2 == 1) "x" else a }))
+                }
+                else -> {
+                    val sents = Models.sentencesOf(m)
+                    check("$id.prompts", out["prompts"], sents.map { Models.lemmaPrompt(it.s) { w -> lem.lemma(w) } }); check("$id.sentences", out["sentences"], sents.map { it.s })
+                    val typed = out.a("typed").map { it.s() }
+                    assertEquals(id, out.n("right").toInt(), sents.indices.count { Models.lemmaRight(typed[it], sents[it].s) })
+                }
+            }
+        }
+    }
     @Test fun writing_phrases() {
-        val models = writing.models
+        val models = mini.models
         for (c in W.a("phrases").map { it.jsonObject }) {
             val out = c.o("out"); val dk = c.o("input").s("deck")
             val cards: Map<String, JsonObject> = if (dk == "B") keyed(B + A.subList(0, 3).mapIndexed { i, x -> JsonObject(x + mapOf("word" to J(listOf("by and large", "in terms of", "as a result")[i]), "topic" to J("phrases"), "pos" to J("phrase"))) }) else emptyMap()
@@ -594,11 +634,11 @@ class VocabVectorsTest {
 
     // ====================================================== coverage guard ======================================================
     @Test fun every_top_level_key_is_covered() {
-        val covered = setOf("_doc", "now", "inputs", "review", "reviewSession", "reviewModes", "mistakes", "deck", "library", "topic", "wordbook", "dict", "practice", "writing", "verb", "usage")
+        val covered = setOf("_doc", "now", "inputs", "review", "reviewSession", "reviewModes", "mistakes", "deck", "library", "topic", "wordbook", "dict", "practice", "writing", "verb", "usage", "data")
         assertEquals(covered, v.keys)
         assertEquals(setOf("log", "view", "list", "retry"), v.o("mistakes").keys); assertEquals(setOf("norm", "lookup", "lex", "suggest", "page"), v.o("dict").keys)
         assertEquals(setOf("sources", "pool", "accept", "qeNorm", "typo"), v.o("practice").keys)
-        assertEquals(setOf("ideas", "ideasData", "letters", "lettersData", "paraphrase", "models", "modelData", "model", "annotated", "gap", "phrases"), W.keys)
+        assertEquals(setOf("ideas", "ideasData", "letters", "lettersData", "paraphrase", "models", "modelData", "model", "annotated", "gap", "exercise", "phrases"), W.keys)
         assertEquals(setOf("resolve", "forms", "table", "mistakes", "suggest", "modal", "verbOf", "irregular", "pairs"), VB.keys)
         assertEquals(setOf("parse", "example", "resolve", "suggest", "near", "lookup", "entries", "quizItems", "quiz", "counts", "categories"), US.keys)
     }

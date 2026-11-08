@@ -52,8 +52,8 @@ class MemDictStore : DictStore {
 /** Optional on-device translator (Apple Translation / ML Kit): null = unavailable, fall back to the web services. */
 fun interface DeviceTranslator { suspend fun translate(text: String, from: String, to: String): String? }
 
-/** Dictionary settings: language of the meanings (`vi` or other = English definitions only), learner language, API base, vocabulary lookups. */
-class DictCfg(val meanLang: String = "vi", val learnLang: String = "vi", val apiBase: String = "https://lexkite.com", val tx: Tx = Tx.RAW, val rare: Map<String, Set<String>> = emptyMap())
+/** Dictionary settings (`viTypo` = web VI_TYPO from verbs.json: `VerbData.viTypo`): language of the meanings (`vi` or other = English definitions only), learner language, API base, vocabulary lookups. */
+class DictCfg(val meanLang: String = "vi", val learnLang: String = "vi", val apiBase: String = "https://lexkite.com", val tx: Tx = Tx.RAW, val rare: Map<String, Set<String>> = emptyMap(), val viTypo: Map<String, String> = emptyMap())
 
 private class Sense(val pos: String, val terms: List<String>)
 private class DefItem(val def: String, val ex: String)
@@ -71,6 +71,8 @@ private class Img(val src: String, val link: String, val credit: String)
 class Dict(private val net: DictNet, private val lex: Lex?, private val index: Map<String, JsonObject> = emptyMap(), private val cfg: DictCfg = DictCfg(),
            private val store: DictStore = MemDictStore(), private val clock: () -> Long = System::currentTimeMillis, private val device: DeviceTranslator? = null) {
     private val cache = HashMap<String, JsonObject>()
+    private fun fixVi(s: String): String = fixVi(s, cfg.viTypo)
+    private fun fixDeep(e: JsonElement): JsonElement = fixDeep(e, cfg.viTypo)
     private val quickCache = HashMap<String, JsonObject>()
     private val wikiPages = HashMap<String, Boolean>()
     private var dmOff = 0L
@@ -84,7 +86,6 @@ class Dict(private val net: DictNet, private val lex: Lex?, private val index: M
         const val FRESH = 14L * 86_400_000L
         private val VI_DIA = Regex("[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]", RegexOption.IGNORE_CASE)
         private val VI_POS = mapOf("danh từ" to "noun", "động từ" to "verb", "tính từ" to "adjective", "trạng từ" to "adverb", "giới từ" to "preposition", "liên từ" to "conjunction", "đại từ" to "pronoun", "thán từ" to "interjection", "từ hạn định" to "determiner", "viết tắt" to "abbreviation", "cụm từ" to "phrase", "tiền tố" to "prefix", "hậu tố" to "suffix")
-        private val VI_TYPO: Map<String, String> = "chũ:chủ|điễn:điển|cũa:của|thưỡng:thưởng|đễ:để|chĩ:chỉ|tãi:tải|chuyễn:chuyển|buỗi:buổi|chuổi:chuỗi|điễm:điểm|ỡ:ở|hảy:hãy|mổi:mỗi|nghỉa:nghĩa|kiễm:kiểm|tỗng:tổng|ngử:ngữ|cãnh:cảnh|quã:quả|hiễn:hiển|tưỡng:tưởng|hũy:hủy|khõi:khỏi|dỏi:dõi|khoãn:khoản|gữi:gửi|kễ:kể|biễu:biểu|thữ:thử|khã:khả|bãn:bản|ãnh:ảnh|thễ:thể|giử:giữ|lổi:lỗi|khẫu:khẩu|dể:dễ|miển:miễn|vửng:vững|chuẫn:chuẩn|sẳn:sẵn|hiễu:hiểu|trỡ:trở|khỡi:khởi|phõng:phỏng|chử:chữ|chĩnh:chỉnh|cở:cỡ|hõi:hỏi|đũ:đủ|ẫn:ẩn|giãm:giảm|trã:trả|thiễu:thiểu|ỗn:ổn|khoãng:khoảng|đãm:đảm|ngẩu:ngẫu|kiễu:kiểu|thẵng:thẳng|giãng:giảng|phỗ:phổ|nhiểm:nhiễm|thãi:thải|bải:bãi|chũng:chủng|khõe:khỏe|dưởng:dưỡng|tuỗi:tuổi|tuyễn:tuyển|đẵng:đẳng|xữ:xử|tữ:tử|hưỡng:hưởng|sãn:sản|tĩ:tỉ|xĩ:xỉ|ũng:ủng|triễn:triển|diển:diễn|tãng:tảng|phãn:phản|phãi:phải|nhõ:nhỏ|xãy:xảy|cữa:cửa|bãng:bảng|dẩn:dẫn|đão:đảo|nhửng:những|giửa:giữa|tiễu:tiểu|khão:khảo|đở:đỡ|bỡi:bởi|thão:thảo|quãn:quản|khẵng:khẳng|hửu:hữu|phẫy:phẩy|thũ:thủ|trưỡng:trưởng|biễn:biển|thũy:thủy|hõng:hỏng|tỗ:tổ|lể:lễ|hiễm:hiểm|sữ:sử|gổ:gỗ|trể:trễ|cãm:cảm|rổng:rỗng|phẫm:phẩm|hẵn:hẳn|khỗng:khổng|bửa:bữa|khũng:khủng|hoãng:hoảng|nử:nữ|lổ:lỗ|chãy:chảy|thoãi:thoải|tỗn:tổn|thõa:thỏa|nhản:nhãn|trử:trữ|thã:thả|vủ:vũ|thỗi:thổi|mủi:mũi|lưởi:lưỡi|cãn:cản|võn:vỏn".split("|").associate { val i = it.indexOf(':'); it.substring(0, i) to it.substring(i + 1) }
         private val POS_EN = mapOf("Noun" to "noun", "Verb" to "verb", "Adjective" to "adjective", "Adverb" to "adverb", "Proper noun" to "noun", "Preposition" to "preposition", "Conjunction" to "conjunction", "Pronoun" to "pronoun", "Interjection" to "interjection", "n" to "noun", "v" to "verb", "adj" to "adjective", "adv" to "adverb")
         private val POS_SHORT = mapOf("noun" to "n", "verb" to "v", "adjective" to "adj", "adverb" to "adv", "preposition" to "prep", "conjunction" to "conj", "pronoun" to "pron", "interjection" to "excl", "danh từ" to "n", "động từ" to "v", "tính từ" to "adj", "trạng từ" to "adv", "giới từ" to "prep", "liên từ" to "conj", "đại từ" to "pron", "thán từ" to "excl")
         private val POS_FULL = mapOf("n" to "noun", "v" to "verb", "adj" to "adjective", "adv" to "adverb", "danh từ" to "noun", "động từ" to "verb", "tính từ" to "adjective", "trạng từ" to "adverb")
@@ -95,17 +96,17 @@ class Dict(private val net: DictNet, private val lex: Lex?, private val index: M
         fun normWord(raw: String?): String = Regex("\\s+").replace(Normalizer.normalize(raw ?: "", Normalizer.Form.NFC).trim().lowercase().replace("’", "'").replace(Regex("[×÷]"), "").replace(Regex("[^a-z\\u00c0-\\u024f\\s'-]"), ""), " ").trim()
 
         /** Fix known hỏi/ngã slips in the Google Vietnamese data (word by word, case kept). */
-        fun fixVi(s0: String): String {
+        fun fixVi(s0: String, table: Map<String, String>): String {
             var s = Normalizer.normalize(s0, Normalizer.Form.NFC).let { x -> Regex("[a-zA-ZÀ-ỹđĐ]+").replace(x) { m ->
-                val w = m.value; val r = VI_TYPO[w.lowercase()]
+                val w = m.value; val r = table[w.lowercase()]
                 if (r == null) w else if (w[0] == w[0].uppercaseChar() && w[0] != w[0].lowercaseChar()) r[0].uppercaseChar() + r.substring(1) else r } }
             s = Regex("\\bcọng chung\\b", setOf(RegexOption.IGNORE_CASE)).replace(s, "cộng chung")
             return s
         }
-        fun fixDeep(e: JsonElement): JsonElement = when (e) {
-            is JsonPrimitive -> if (e.isString) JsonPrimitive(fixVi(e.content)) else e
-            is JsonArray -> JsonArray(e.map { fixDeep(it) })
-            is JsonObject -> JsonObject(e.mapValues { fixDeep(it.value) })
+        fun fixDeep(e: JsonElement, table: Map<String, String>): JsonElement = when (e) {
+            is JsonPrimitive -> if (e.isString) JsonPrimitive(fixVi(e.content, table)) else e
+            is JsonArray -> JsonArray(e.map { fixDeep(it, table) })
+            is JsonObject -> JsonObject(e.mapValues { fixDeep(it.value, table) })
         }
         /** encodeURIComponent */
         fun jsEncode(s: String): String { val sb = StringBuilder(); for (b in s.toByteArray(Charsets.UTF_8)) { val c = b.toInt() and 0xff; if (c.toChar().isLetterOrDigit() && c < 128 || c.toChar() in "-_.!~*'()") sb.append(c.toChar()) else sb.append('%').append("%02X".format(c)) }; return sb.toString() }

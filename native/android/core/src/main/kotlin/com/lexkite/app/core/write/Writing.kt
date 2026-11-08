@@ -14,6 +14,9 @@ import com.lexkite.app.core.vocab.jsTrim
 import com.lexkite.app.core.vocab.s
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.jsonArray
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import kotlin.random.Random
 
 /** #/ideas: topic -> issues -> for/against ideas with a model sentence and savable chunks "en|vi". Port of web/js/ideas.js. */
@@ -117,6 +120,44 @@ internal object JsCollate : Comparator<String> {
         if (a.length != b.length) return a.length - b.length
         for (i in 0 until n) if (a[i] != b[i]) return if (a[i].isLowerCase()) -1 else 1
         return 0
+    }
+}
+
+/**
+ * web phrases.js `App.lemma` (dictionary form of an inflected word) with its irregular-verb tables `App.lemmaT` (PAST, BASE). Data = verbs.json `LEMMA` ([VerbData.lemma]);
+ * `known(word)` = the word index lookup (web IELTS_DATA.INDEX), lower-case.
+ */
+class Lemmatizer(tables: JsonObject, private val lookup: (String) -> Boolean) {
+    val past = HashMap<String, String>(); val base = HashMap<String, String>(); private val keep: Set<String>
+    init {
+        for (row in tables.getValue("IRR").jsonPrimitive.content.split("|")) {
+            val f = row.split(" "); if (f.size < 3) continue
+            past[f[0]] = f[1]; if (f[1] != f[0]) base[f[1]] = f[0]; if (f[2] != f[0]) base[f[2]] = f[0]
+        }
+        tables.getValue("BASE_EXTRA").jsonObject.forEach { (k, v) -> base[k] = v.jsonPrimitive.content }
+        keep = tables.getValue("KEEP").jsonArray.map { it.jsonPrimitive.content }.toSet()
+    }
+    fun known(w: String): Boolean = lookup(w)
+    fun lemma(w: String): String {
+        val l = w.lowercase()
+        base[l]?.let { return it }
+        if (l in keep || l.length < 4 || (known(l) && !Regex("(ies|es|s|ed|ing|er|est)$").containsMatchIn(l))) return l
+        fun tryB(vararg a: String?): String? = a.firstOrNull { !it.isNullOrEmpty() && known(it) }
+        fun cut(n: Int) = l.dropLast(n)
+        fun dbl(re: String, n: Int): String? = if (Regex(re).containsMatchIn(l)) cut(n) else null
+        var b: String? = null
+        if (l.endsWith("ies")) b = tryB(cut(3) + "y")
+        if (b == null && l.endsWith("ves")) b = tryB(cut(3) + "f", cut(3) + "fe")
+        if (b == null && Regex("(ss|x|z|ch|sh|o)es$").containsMatchIn(l)) b = tryB(cut(2))
+        if (b == null && Regex("[^s]s$").containsMatchIn(l)) b = tryB(cut(1))
+        if (b == null && l.endsWith("ied")) b = tryB(cut(3) + "y")
+        if (b == null && l.endsWith("ed")) b = tryB(cut(1), cut(2), dbl("(.)\\1ed$", 3))
+        if (b == null && l.endsWith("ing")) b = tryB(cut(3), cut(3) + "e", dbl("(.)\\1ing$", 4))
+        if (b == null && l.endsWith("iest")) b = tryB(cut(4) + "y")
+        if (b == null && l.endsWith("est")) b = tryB(cut(3), cut(2), dbl("(.)\\1est$", 4))
+        if (b == null && l.endsWith("ier")) b = tryB(cut(3) + "y")
+        if (b == null && l.endsWith("er") && !known(l)) b = tryB(cut(2), cut(1), dbl("(.)\\1er$", 3))
+        return b ?: l
     }
 }
 
@@ -237,14 +278,14 @@ object Models {
     /** "gram" mode: pick the right form of a word at up to 12 places. */
     class GramSlot(val pre: String, val answer: String, val options: List<String>, val post: String)
     sealed interface GramTok { class Plain(val s: String) : GramTok; class Slot(val i: Int, val slot: GramSlot) : GramTok }
-    private val FORMS: List<List<String>> = "rise,rose,risen,rising,rises|fall,fell,fallen,falling,falls|increase,increased,increasing,increases|decrease,decreased,decreasing,decreases|decline,declined,declining,declines|grow,grew,grown,growing,grows|remain,remained,remaining,remains|show,shows,showed,shown|see,saw,seen,sees|have,has,had,having|is,are,was,were,be,been|reach,reached,reaches,reaching|become,became,becomes,becoming|spend,spent,spends,spending|lead,led,leads,leading|make,made,makes,making|take,took,taken,takes,taking|give,gave,given,gives|believe,believes,believed,believing|argue,argues,argued,arguing|provide,provides,provided,providing|encourage,encourages,encouraged,encouraging|reduce,reduces,reduced,reducing|country,countries|student,students|household,households|figure,figures|people,person|a,an,the|much,many|less,fewer|high,higher,highest|low,lower,lowest|large,larger,largest|significant,significantly|dramatic,dramatically|steady,steadily|sharp,sharply|slight,slightly".split("|").map { it.split(",") }
-    fun formOf(w: String): List<String>? = FORMS.firstOrNull { it.contains(w.lowercase()) }
-    fun gram(m: JsonObject, rnd: Random? = Random.Default): List<List<GramTok>> {
+    /** `forms` = verbs.json `FORMS` ([VerbData.forms]). */
+    fun formOf(forms: List<List<String>>, w: String): List<String>? = forms.firstOrNull { it.contains(w.lowercase()) }
+    fun gram(m: JsonObject, forms: List<List<String>>, rnd: Random? = Random.Default): List<List<GramTok>> {
         val text = paras(plain(m.gs("text"))).joinToString("\n\n"); var picked = 0; var n = 0
         return text.split("\n\n").map { p ->
             splitKeep(p).map { tok ->
                 val mm = Regex("^([^A-Za-z]*)([A-Za-z]+)([^A-Za-z]*)$").find(tok)
-                val f = mm?.let { formOf(it.groupValues[2]) }
+                val f = mm?.let { formOf(forms, it.groupValues[2]) }
                 if (mm == null || f == null || picked >= 12 || (rnd != null && rnd.nextDouble() < 0.45)) GramTok.Plain(tok)
                 else {
                     picked++; val w = mm.groupValues[2]
@@ -256,6 +297,34 @@ object Models {
     }
     private fun splitKeep(p: String): List<String> { val out = ArrayList<String>(); var pos = 0; for (m in Regex("\\s+").findAll(p)) { out.add(p.substring(pos, m.range.first)); out.add(m.value); pos = m.range.last + 1 }; out.add(p.substring(pos)); return out }
     fun gramScore(answers: List<String>, picks: List<String>): Int = answers.indices.count { picks.getOrElse(it) { "" }.lowercase() == answers[it].lowercase() }
+
+    /** "gram" mode as the web shows it (errExercise): real errors are planted in the model text; the learner types the right form. `wrong` "" = a word is missing (an article). */
+    class ErrItem(val i: Int, val pre: String, val post: String, val ans: String, val wrong: String, val why: String)
+    /**
+     * Candidates are found with the lemmatizer ([Lemmatizer], phrases.js) and the word index (`index(word)` = web IELTS_DATA.INDEX): missing article, past tense of an irregular verb, was/were,
+     * -ed verb, -ly adverb, plural noun, comparative. At most 12, at least 6 tokens apart. `rnd` null = the vector run (Math.random 0.5: no article is dropped, no shuffle).
+     * Returns null when fewer than 5 errors could be planted (the page then shows the "choose the form" exercise = [gram]). `why` is the Vietnamese key of the hint.
+     */
+    fun errors(m: JsonObject, lem: Lemmatizer, index: (String) -> JsonObject?, rnd: Random? = Random.Default): List<ErrItem>? {
+        val text = paras(plain(stripRole(m.gs("text")))).joinToString("\n\n"); val cand = ArrayList<ErrItem>(); val tokRx = Regex("^([^A-Za-z]*)([A-Za-z]+)([^A-Za-z]*)$")
+        splitKeep(text).forEachIndexed { i, tok ->
+            val mm = tokRx.find(tok) ?: return@forEachIndexed
+            val w = mm.groupValues[2]; val l = w.lowercase(); val lm = lem.lemma(l); val e = index(lm)
+            var wrong: String? = null; var why = ""
+            if (Regex("^(the|a|an)$").matches(l) && (rnd?.nextDouble() ?: 0.5) < 0.5) { wrong = ""; why = "Thiếu mạo từ" }
+            else if (lem.base[l]?.let { b -> lem.past[b] == l } == true && !Regex("^(was|were|had|did)$").matches(l)) { wrong = lem.base[l]; why = "Sai thì (cần quá khứ)" }
+            else if (l == "was" || l == "were") { wrong = if (l == "was") "were" else "was"; why = "Sai hòa hợp chủ – vị" }
+            else if (l.endsWith("ed") && lm != l && e != null && e.gs("pos").ifEmpty { "v" }.contains("v")) { wrong = lm; why = "Sai thì / thiếu -ed" }
+            else if (l.endsWith("ly") && lem.known(l.dropLast(2)) && l.length > 5) { val x = l.replace(Regex("ily$"), "y").replace(Regex("ally$"), "al").replace(Regex("ly$"), ""); if (lem.known(x)) { wrong = x; why = "Cần trạng từ (-ly)" } }
+            else if (Regex("[^s]s$").containsMatchIn(l) && lm != l && e != null && e.gs("pos").startsWith("n")) { wrong = lm; why = "Danh từ số nhiều" }
+            else if (Regex("(er|est)$").containsMatchIn(l) && lm != l && !lem.known(l)) { wrong = lm; why = "Thiếu so sánh hơn/nhất" }
+            if (wrong != null && wrong != l) cand.add(ErrItem(i, mm.groupValues[1], mm.groupValues[3], w, if (w[0] == w[0].uppercaseChar() && wrong.isNotEmpty()) wrong[0].uppercaseChar() + wrong.substring(1) else wrong, why))
+        }
+        val pick = ArrayList<ErrItem>()
+        for (c in (if (rnd == null) cand else cand.shuffled(rnd))) if (pick.size < 12 && pick.none { Math.abs(it.i - c.i) < 6 }) pick.add(c)
+        return if (pick.size < 5) null else pick
+    }
+    fun errScore(items: List<ErrItem>, typed: List<String>): Int = items.indices.count { norm(typed.getOrElse(it) { "" }) == norm(items[it].ans) }
 
     /** "copy" mode: every word is a slot (length = word length); punctuation stays. */
     private val TOKEN = Regex("[A-Za-z][A-Za-z'’-]*|\\d+(?:[.,]\\d+)*%?|[^\\sA-Za-z\\d]")

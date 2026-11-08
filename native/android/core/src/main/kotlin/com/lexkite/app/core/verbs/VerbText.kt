@@ -1,43 +1,19 @@
 package com.lexkite.app.core.verbs
 
-/** Example-sentence and common-mistake content of web/js/verbs-core.js (OBJ, COMP, TIME, SUBJ, MIS, MODAL_MIS), copied verbatim. The conjugation tables are read from verbs.json. */
-internal object VerbText {
-    val OBJ: Map<String, String> = mapOf("read" to "the news", "write" to "an email", "eat" to "breakfast", "drink" to "coffee", "play" to "football", "watch" to "a film", "learn" to "English", "study" to "English", "make" to "dinner", "cook" to "dinner", "take" to "the bus", "buy" to "a new laptop", "sell" to "old books", "drive" to "a car", "build" to "a house", "open" to "the window", "close" to "the door", "clean" to "the kitchen", "send" to "an email", "call" to "the office", "visit" to "the museum", "help" to "the team", "meet" to "new people", "teach" to "maths", "speak" to "French", "sing" to "a song", "draw" to "a map", "paint" to "the wall", "wash" to "the dishes", "do" to "the shopping", "get" to "a message", "give" to "a talk", "tell" to "a story", "bring" to "lunch", "find" to "the answer", "lose" to "the keys", "forget" to "the password", "choose" to "a topic", "break" to "the record", "catch" to "the train", "ride" to "a bike", "wear" to "a uniform", "throw" to "the ball", "hit" to "the ball", "kick" to "the ball", "carry" to "the bags", "pay" to "the bill", "spend" to "money", "keep" to "a diary", "leave" to "the office", "see" to "the doctor", "hear" to "the news", "know" to "the answer", "have" to "lunch", "use" to "a laptop", "want" to "a new phone", "need" to "help", "like" to "jazz", "love" to "music", "hate" to "the rain", "prefer" to "tea", "believe" to "the story", "understand" to "the rules", "remember" to "the date", "fly" to "a drone", "shut" to "the gate", "cut" to "the grass", "fix" to "the printer", "check" to "the email", "answer" to "the phone", "finish" to "the report", "start" to "the project", "begin" to "the lesson", "plan" to "a trip", "prepare" to "the slides", "explain" to "the rules", "review" to "the notes", "improve" to "the design", "win" to "the match", "feed" to "the cat", "hold" to "a meeting", "lead" to "the team", "run" to "a café", "set" to "a goal", "put" to "the box", "grow" to "tomatoes", "hang" to "the picture", "lay" to "the table", "raise" to "a question", "bear" to "the pain", "beat" to "the record", "bite" to "the apple", "blow" to "the whistle", "dig" to "a hole", "feel" to "the heat", "fight" to "the fire", "forgive" to "the mistake", "freeze" to "the soup", "hide" to "the gift", "lend" to "money", "mean" to "it", "show" to "the photos", "shake" to "hands", "steal" to "the idea", "strike" to "a deal", "swear" to "an oath", "sweep" to "the floor", "tear" to "the paper")
-    val COMP: Map<String, String> = mapOf("be" to "busy", "become" to "stronger", "seem" to "happy", "remain" to "calm", "go" to "to work", "come" to "home", "arrive" to "at work", "live" to "in the city", "work" to "from home", "sleep" to "well", "wait" to "for the bus", "listen" to "to music", "look" to "at the board", "talk" to "to the manager", "travel" to "abroad", "stay" to "at home", "run" to "in the park", "walk" to "to school", "swim" to "in the lake", "sit" to "by the window", "stand" to "by the door", "lie" to "on the sofa", "rise" to "early", "fall" to "asleep", "depend" to "on the weather", "belong" to "to the club", "consist" to "of three parts", "agree" to "with the plan", "apologise" to "for the delay", "apologize" to "for the delay", "complain" to "about the noise", "laugh" to "at the joke", "smile" to "at the camera", "think" to "about the future", "jump" to "into the pool", "respond" to "to emails", "react" to "quickly", "graduate" to "from university", "retire" to "early", "exist" to "online", "happen" to "here", "occur" to "here", "appear" to "on TV", "disappear" to "quickly", "die" to "young", "cry" to "at sad films", "differ" to "from the original", "succeed" to "at work", "compete" to "in the final", "participate" to "in the event", "insist" to "on paying", "cope" to "with stress", "hesitate" to "before answering", "emerge" to "from the shadows")
-    val TIME: Map<String, String> = mapOf("ps" to "every day", "pc" to "right now", "pp" to "recently", "ppc" to "all morning", "pas" to "yesterday", "pac" to "when the phone rang", "pap" to "before we arrived", "papc" to "for hours before we arrived", "fs" to "tomorrow", "gt" to "next week", "fc" to "at 8 p.m. tomorrow", "fp" to "by Friday", "fpc" to "for two hours by noon", "fip" to "the next day", "fipg" to "", "m-should" to "earlier", "m-could" to "yesterday", "m-would" to "", "m-might" to "last night", "m-may" to "last week", "m-must" to "by then")
-    val SUBJ: Map<String, Pair<String, String>> = mapOf("ps" to ("She" to "3s"), "pc" to ("They" to "3p"), "pp" to ("I" to "1s"), "ppc" to ("He" to "3s"), "pas" to ("We" to "1p"), "pac" to ("She" to "3s"), "pap" to ("They" to "3p"), "papc" to ("He" to "3s"), "fs" to ("I" to "1s"), "gt" to ("We" to "1p"), "fc" to ("She" to "3s"), "fp" to ("They" to "3p"), "fpc" to ("I" to "1s"), "fip" to ("she" to "3s"), "fipg" to ("I" to "1s"), "m-should" to ("You" to "2"), "m-could" to ("They" to "3p"), "m-would" to ("I" to "1s"), "m-might" to ("He" to "3s"), "m-may" to ("She" to "3s"), "m-must" to ("She" to "3s"))
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.jsonArray
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
+
+/** Example-sentence and common-mistake content of web/js/verbs-core.js (OBJ, COMP, TIME, SUBJ, MIS, MODAL_MIS), read from the generated verbs.json (never typed here). */
+internal class VerbText(o: JsonObject) {
+    private fun strs(k: String): Map<String, String> = o.getValue(k).jsonObject.mapValues { it.value.jsonPrimitive.content }
+    private fun triple(e: kotlinx.serialization.json.JsonElement) = e.jsonArray.let { Triple(it[0].jsonPrimitive.content, it[1].jsonPrimitive.content, it[2].jsonPrimitive.content) }
+    val OBJ: Map<String, String> = strs("OBJ")
+    val COMP: Map<String, String> = strs("COMP")
+    val TIME: Map<String, String> = strs("TIME")
+    val SUBJ: Map<String, Pair<String, String>> = o.getValue("SUBJ").jsonObject.mapValues { (_, v) -> v.jsonArray.let { it[0].jsonPrimitive.content to it[1].jsonPrimitive.content } }
     /** base -> (wrong, right, code) */
-    val MIS: Map<String, List<Triple<String, String, String>>> = mapOf(
-        "agree" to listOf(Triple("I am agree with you.", "I agree with you.", "agree")),
-        "disagree" to listOf(Triple("She is disagree.", "She disagrees.", "agree")),
-        "listen" to listOf(Triple("I listen music every day.", "I listen to music every day.", "listen-to")),
-        "discuss" to listOf(Triple("We discussed about the plan.", "We discussed the plan.", "discuss")),
-        "explain" to listOf(Triple("Can you explain me the rule?", "Can you explain the rule to me?", "explain")),
-        "enjoy" to listOf(Triple("I enjoy to swim.", "I enjoy swimming.", "ving")),
-        "avoid" to listOf(Triple("Avoid to eat late.", "Avoid eating late.", "ving")),
-        "marry" to listOf(Triple("She married with a doctor.", "She married a doctor.", "marry")),
-        "enter" to listOf(Triple("He entered into the room.", "He entered the room.", "enter")),
-        "arrive" to listOf(Triple("We arrived to London.", "We arrived in London.", "arrive")),
-        "depend" to listOf(Triple("It depends of the weather.", "It depends on the weather.", "depend")),
-        "lie" to listOf(Triple("I laid on the bed.", "I lay on the bed.", "lie-lay"), Triple("He lied on the sofa.", "He lay on the sofa.", "lie-lay")),
-        "lay" to listOf(Triple("Lay down and rest.", "Lie down and rest.", "lie-lay")),
-        "rise" to listOf(Triple("Prices raised by 10%.", "Prices rose by 10%.", "rise-raise")),
-        "raise" to listOf(Triple("The government rose taxes.", "The government raised taxes.", "rise-raise")),
-        "bear" to listOf(Triple("I was borned in 2005.", "I was born in 2005.", "born")),
-        "want" to listOf(Triple("I want go home.", "I want to go home.", "want-to")),
-        "let" to listOf(Triple("Let me to help you.", "Let me help you.", "let")),
-        "make" to listOf(Triple("She made me to wait.", "She made me wait.", "let")),
-        "be" to listOf(Triple("Do you are ready?", "Are you ready?", "be-do"), Triple("I didn't was there.", "I wasn't there.", "be-do"), Triple("I am agree.", "I agree.", "agree")),
-        "have" to listOf(Triple("He have a car.", "He has a car.", "sva"), Triple("I am having a car.", "I have a car.", "stative")),
-        "look" to listOf(Triple("I look forward to see you.", "I look forward to seeing you.", "look-forward")),
-        "suggest" to listOf(Triple("He suggested me to go.", "He suggested that I (should) go.", "suggest")),
-        "hope" to listOf(Triple("I hope you will can come.", "I hope you can come.", "will-can")),
-        "recommend" to listOf(Triple("I recommend you to try it.", "I recommend that you try it.", "suggest")),
-        "lend" to listOf(Triple("Can you lend me? I need to borrow.", "Can you lend me £10? / Can I borrow £10?", "lend-borrow")),
-        "borrow" to listOf(Triple("Can you borrow me your pen?", "Can you lend me your pen?", "lend-borrow")),
-        "say" to listOf(Triple("He said me that he was tired.", "He told me that he was tired.", "say-tell")),
-        "tell" to listOf(Triple("She told that she was busy.", "She said that she was busy.", "say-tell")),
-        "get" to listOf(Triple("I have gotten a car. (UK)", "I have got a car. (UK) / I have a car.", "gotten")),
-    )
-    val MODAL_MIS: List<Triple<String, String, String>> = listOf(Triple("She can swims.", "She can swim.", "modal-base"), Triple("You must to go.", "You must go.", "modal-to"), Triple("Do you can help?", "Can you help?", "modal-q"))
+    val MIS: Map<String, List<Triple<String, String, String>>> = o.getValue("MIS").jsonObject.mapValues { (_, v) -> v.jsonArray.map { triple(it) } }
+    val MODAL_MIS: List<Triple<String, String, String>> = o.getValue("MODAL_MIS").jsonArray.map { triple(it) }
 }

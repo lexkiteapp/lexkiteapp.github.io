@@ -14,7 +14,7 @@ public struct DictConfig: Sendable {
     public var base = "https://lexkite.com"
     /// meaning language (settings): "vi" or another; everything not "vi" never shows Vietnamese
     public var meanLang = "vi", learnLang = "vi"
-    /// web `VI_TYPO` (hỏi/ngã fixes of Google's Vietnamese) – data, loaded from the content pack
+    /// web `VI_TYPO` (hỏi/ngã fixes of Google's Vietnamese): set it from `Dict.viTypo(from:)` (verbs.json); empty = no fixes
     public var viTypo: [String: String] = [:]
     public var translate: @Sendable (String, JSON?) -> String = { k, v in MistakesEngine.fill(k, v) }
     public var now: @Sendable () -> Int64 = { Int64(Date().timeIntervalSince1970 * 1000) }
@@ -49,6 +49,8 @@ public enum Dict {
     static func test(_ s: String, _ re: String, ci: Bool = false) -> Bool { s.range(of: re, options: ci ? [.regularExpression, .caseInsensitive] : .regularExpression) != nil }
     static func lower(_ j: JSON?) -> String { (j?.string ?? "").lowercased() }
 
+    /// web `VI_TYPO` from the generated tables (native/shared/gen/verbs.json, key `VI_TYPO`) → `DictConfig.viTypo`
+    public static func viTypo(from tables: JSON) -> [String: String] { (tables["VI_TYPO"]?.object ?? [:]).compactMapValues { $0.string } }
     /// hỏi/ngã spelling fixes on Vietnamese text; `table` = web VI_TYPO
     public static func fixVi(_ s: String, _ table: [String: String]) -> String {
         var x = s.precomposedStringWithCanonicalMapping

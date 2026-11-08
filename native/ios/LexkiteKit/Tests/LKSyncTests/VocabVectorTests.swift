@@ -1,16 +1,13 @@
 import Foundation
 import XCTest
-#if canImport(JavaScriptCore)
-import JavaScriptCore
-#endif
 @testable import LKSync
 @testable import LKStore
 @testable import LKCore
 
 /// M3 vocabulary logic (parity P04/P05): the native port (LKStore/Vocab) against vectors/vocab.json, produced by running the REAL web code
 /// (scripts/native/gen-vocab.mjs; schema docs/specs/native-m2-vectors.md "M3 vectors"). One test per key of the file.
-/// Data the vectors do not carry (word library, Task 2 prompts, usage DSL, verbs.json) comes from the repo itself: content-pack/starter.json, web/js/usage/*.js,
-/// native/shared/gen/verbs.json; model data is evaluated with JavaScriptCore and the test is skipped (XCTSkip) when that data cannot be loaded.
+/// The real records the screens need are carried by the vectors themselves (`data.catalog` = mini word library, `data.writing` = ideas/letters/paraphrase/models/prompts/task1 sets);
+/// the rest comes from the repo: content-pack/starter.json, web/js/usage/*.js, native/shared/gen/verbs.json (conjugation + example tables, VI_TYPO, lemmatizer, grammar forms). Nothing is skipped.
 final class VocabVectorTests: XCTestCase {
     struct R {
         var checked = 0
@@ -62,6 +59,11 @@ final class VocabVectorTests: XCTestCase {
         }
     }
     var starterTopics: [String: JSON] { get { (try? readJSON("native/shared/gen/content-pack/starter.json"))?["topics"]?.object ?? [:] } }
+    /// the real library cut down (vocab.json `data.catalog`) and the reduced writing content (`data.writing`)
+    func miniCatalog(_ V: JSON) -> TopicCatalog { TopicCatalog(json: V["data"]?["catalog"] ?? .null) }
+    func miniWriting(_ V: JSON) -> JSON { V["data"]?["writing"] ?? .null }
+    func qparam(_ qs: String, _ k: String) -> String? { qs.split(separator: "&").first { $0.hasPrefix(k + "=") }.map { String($0.dropFirst(k.count + 1)) } }
+    func viTypo() throws -> [String: String] { Dict.viTypo(from: try readJSON("native/shared/gen/verbs.json")) }
     func catalog() -> TopicCatalog {
         TopicCatalog(topics: ["education", "environment", "technology"].compactMap { id in
             starterTopics[id].map { TopicCatalog.Topic(id: id, group: "topics", name: id, words: $0.array ?? []) } })
@@ -232,9 +234,9 @@ final class VocabVectorTests: XCTestCase {
         let n = now(V)
         r.eq(PracticeEngine.sourceValues(topicIDs: ["education"]), P.list("sources").compactMap { $0["value"]?.string }, "sources")
         for c in P.list("pool") {
-            let i = c["input"]!, dk = i.s("deck"), src = i.s("src")
-            if dk == "tiny" && src == "deck" { continue }   // 120 random library words: needs the whole library
-            let rows = PracticeEngine.pool(src, cards: deck(dk, V), catalog: catalog(), now: n, clock: clock)
+            let i = c["input"]!, dk = i.s("deck"), src = i.s("src"), mini = i.s("catalog") == "mini"
+            if dk == "tiny" && src == "deck" && !mini { continue }   // 120 words of the whole 104-topic library: its twin on the mini library (pool-mini-tiny-deck) runs here
+            let rows = PracticeEngine.pool(src, cards: deck(dk, V), catalog: mini ? miniCatalog(V) : catalog(), now: n, clock: clock)
             let o = c["out"]!
             r.eq(rows.count, o.i("n"), "pool \(c.s("id")) n")
             if o["words"] != nil { r.eq(rows.map { $0.s("word") }, o.strs("words"), "pool \(c.s("id")) words") }
@@ -246,23 +248,12 @@ final class VocabVectorTests: XCTestCase {
             r.diff(.obj([("ok", .bool(a.ok)), ("how", .string(a.how)), ("want", .string(a.want))]), c["out"], "accept \(i.stableString)")
         }
         for c in P.list("qeNorm") { r.eq(PracticeEngine.qeNorm(c["input"]?.string), c.s("out"), "qeNorm") }
-        // The vector was generated with LessonFx loaded WITHOUT UI.similarity, so its distance is `a === b ? 0 : 99` (no slip is ever accepted).
-        // The real web (UI.similarity present) accepts one slip per word; both behaviours are checked (the real one against node, see `realTypo`).
-        let stub: (String, String) -> Int = { $0 == $1 ? 0 : 99 }
         for c in P.list("typo") {
             let i = c["input"]!, o = i["opts"]
-            let t = PracticeEngine.typo(i.s("given"), i.s("target"), strict: o?.t("strict") ?? false, isWord: o?["isWord"] != nil ? { $0 == "two" || $0 == "tow" } : nil, dist: stub)
+            let t = PracticeEngine.typo(i.s("given"), i.s("target"), strict: o?.t("strict") ?? false, isWord: o?["isWord"] != nil ? { $0 == "two" || $0 == "tow" } : nil)
             let j = JSON.obj([("ok", .bool(t.ok)), ("typo", .bool(t.typo)), ("marks", .array(t.marks.map { m in m.fix ? JSON.obj([("w", .string(m.w)), ("fix", true)]) : JSON.obj([("w", .string(m.w))]) }))])
-            r.diff(j, c["out"], "typo(stub) \(i.stableString)")
+            r.diff(j, c["out"], "typo \(i.stableString)")
         }
-        let realTypo: [(String, String, Bool, Bool, [String])] = [("consider", "consider", true, false, ["consider"]), ("considr", "consider", true, true, ["consider"]), ("conzider", "consider", true, true, ["consider"]),
-                                                                  ("cat", "cut", false, false, []), ("scholarshp", "scholarship", true, true, ["scholarship"]), ("i like grean tea", "I like green tea", true, true, ["I", "like", "green", "tea"])]
-        for (g, t, ok, typo, words) in realTypo {
-            let x = PracticeEngine.typo(g, t)
-            r.eq(x.ok, ok, "typo(real) ok \(g)"); r.eq(x.typo, typo, "typo(real) typo \(g)"); r.eq(x.marks.map(\.w), words, "typo(real) marks \(g)")
-        }
-        r.eq(PracticeEngine.typo("grean", "green", strict: true).ok, false, "typo strict")
-        r.eq(PracticeEngine.typo("tow", "two", isWord: { $0 == "two" || $0 == "tow" }).ok, false, "typo isWord")
         finish(r, "practice")
     }
 
@@ -276,12 +267,7 @@ final class VocabVectorTests: XCTestCase {
             var f = DeckFilter(q: i["filters"]?.s("q") ?? "", topic: i["filters"]?.s("topic") ?? "", from: i["filters"]?.s("from") ?? "", m: i["filters"]?.s("m") ?? "")
             let qs = i.s("query")
             if id == "query-m" || id == "query-m-bad" { f = DeckFilter(query: nil, m: qs.replacingOccurrences(of: "m=", with: "")) }
-            if id == "query-from" {
-                // the generator's DOM stub never applied `?from=` (rows = all 8); the web select is pre-selected, the port applies it (= the from-youtube case)
-                f = DeckFilter(query: qs.replacingOccurrences(of: "from=", with: ""), m: nil)
-                r.eq(DeckEngine.filter(cards, f, now: n, clock: clock).count, 1, "deck query-from rows")
-                continue
-            }
+            if id == "query-from" { f = DeckFilter(query: qs.replacingOccurrences(of: "from=", with: ""), m: nil) }
             let rows = DeckEngine.filter(cards, f, now: n, clock: clock).prefix(DeckEngine.maxRows).map { DeckEngine.row($0, now: n, clock: clock) }
             let o = c["out"]!
             r.eq("\(cards.count) từ · \(DeckEngine.masteredCount(cards)) đã thuộc", o.s("headline"), "deck \(id) headline")
@@ -309,6 +295,30 @@ final class VocabVectorTests: XCTestCase {
             r.eq(LibraryEngine.defaultTab(g: g, cardCount: cards.count, exam: "ielts"), c["out"]?.array?.first?["tab"]?.string ?? "", "library \(c.s("id")) tab")
             if let sec = c["out"]?.array?.first?["sections"]?.array?.first(where: { !$0.strs("collections").isEmpty }) {
                 r.eq(LibraryEngine.collections(cards, now: n, clock: clock).map(\.origin), sec.strs("collections"), "library \(c.s("id")) collections")
+            }
+        }
+        // the same page on the mini library (data.catalog): sections, "view all" cut, level filter, search, tab switch
+        let mini = miniCatalog(V)
+        for c in V["library"]?.array ?? [] where c["input"]?.s("catalog") == "mini" {
+            let i = c["input"]!, id = c.s("id"), qs = i.s("query"), steps = c["out"]?.array ?? []
+            var tab = LibraryEngine.defaultTab(g: qparam(qs, "g"), cardCount: cards.count, exam: "ielts"), lv = LibraryEngine.validLevel(qparam(qs, "lv")), text = ""
+            func snap(_ k: Int) {
+                let v = LibraryEngine.view(tab: tab, q: text, level: lv, catalog: mini, cards: cards, now: n, clock: clock), st = steps[k]
+                r.eq(v.tab, st.s("tab"), "\(id)#\(k) tab")
+                let got: [JSON] = v.sections.map { sec in
+                    let gid: String? = { if case .group(let g) = sec.kind { return g }; return nil }()
+                    let g = mini.groups.first { $0.id == gid }
+                    let heading = gid == nil ? (sec.kind == .myCollections ? "📌 Thư viện của tôi" : "📚 Bộ từ IELTS đang học") : (g.map { $0.emoji + " " + $0.name } ?? "")
+                    return .obj([("heading", .string(heading)), ("viewAll", sec.viewAll.map { .string("\($0.group)|Xem cả \($0.count) bộ →") } ?? .null),
+                                 ("topics", .strings(sec.topics.map { $0 + (lv.isEmpty ? "" : "?lv=" + lv) })), ("collections", .strings(sec.collections.map(\.origin)))])
+                }
+                r.diff(.array(got), st["sections"], "\(id)#\(k) sections")
+                r.eq(v.empty != nil, (st["empty"] ?? .null) != .null, "\(id)#\(k) empty")
+            }
+            snap(0)
+            for (k, a) in (i["actions"]?.array ?? []).enumerated() {
+                if a["q"] != nil { text = a.s("q") }; if a["lv"] != nil { lv = a.s("lv") }; if a["tab"] != nil { tab = a.s("tab") }
+                snap(k + 1)
             }
         }
         r.eq(LibraryEngine.defaultTab(g: nil, cardCount: 10, exam: "ielts"), "mine", "tab with 10 cards"); r.eq(LibraryEngine.defaultTab(g: nil, cardCount: 0, exam: "toeic"), "toeic", "toeic tab")
@@ -435,7 +445,7 @@ final class VocabVectorTests: XCTestCase {
         let net = try JSON.parse(Self.netJSON), lex = try dictLexicon(V), n = now(V)
         for c in D.list("lookup") {
             let i = c["input"]!, id = c.s("id")
-            var cfg = DictConfig(); cfg.meanLang = i.s("meanLang").isEmpty ? "vi" : i.s("meanLang"); cfg.now = { n }
+            var cfg = DictConfig(); cfg.meanLang = i.s("meanLang").isEmpty ? "vi" : i.s("meanLang"); cfg.now = { n }; cfg.viTypo = try viTypo()
             let svc = DictionaryService(network: FakeNet(net: net, enabled: Set(i.strs("network"))), lex: lex, cache: nil, config: cfg)
             let got = i.s("fn") == "quick" ? await svc.quick(i.s("w")) : await svc.lookup(i.s("w"), image: true, examples: true)
             r.diff(got ?? .null, c["out"] ?? .null, "lookup \(id)")
@@ -448,7 +458,7 @@ final class VocabVectorTests: XCTestCase {
         let net = try JSON.parse(Self.netJSON), lex = try dictLexicon(V), n = now(V), verbs = try loadVerbs(), usage = try loadUsage()
         for c in D.list("page") where !c.s("id").isEmpty && c["out"]?.t("empty") != true {
             let w = c["input"]!.s("query")
-            var cfg = DictConfig(); cfg.now = { n }
+            var cfg = DictConfig(); cfg.now = { n }; cfg.viTypo = try viTypo()
             let svc = DictionaryService(network: FakeNet(net: net, enabled: [w]), lex: lex, cache: nil, config: cfg)
             guard let e = await svc.lookup(w) else { r.check(false, "page \(w) lookup"); continue }
             let m = DictPage.model(e, saved: false, uiLang: "vi", meanLang: "vi", verbs: verbs, hasUsage: { !usage.chunksOf($0).isEmpty })
@@ -583,35 +593,11 @@ final class VocabVectorTests: XCTestCase {
         finish(r, "writing (small)")
     }
 
-    /// MODELS & co. evaluated with JavaScriptCore from the web sources; nil → the caller skips
-    func loadModels() -> (models: [JSON], letters: [JSON])? {
-        #if canImport(JavaScriptCore)
-        guard let ctx = JSContext() else { return nil }
-        var failed = false
-        ctx.exceptionHandler = { _, _ in failed = true }
-        ctx.evaluateScript("var self = this, window = this, globalThis = this; function t(s, v) { return s; }")
-        for f in ["web/js/models.js", "web/cpack/write/models2.js", "web/cpack/write/models3.js", "web/cpack/write/models4.js", "web/cpack/write/models5.js", "web/js/write/gt-letters.js"] {
-            guard let s = try? readFile(f) else { return nil }
-            ctx.evaluateScript(s)
-        }
-        if failed { return nil }
-        func dump(_ name: String) -> [JSON]? {
-            guard let v = ctx.evaluateScript("JSON.stringify(typeof \(name) === 'undefined' ? [] : \(name))"), let s = v.toString(), let j = try? JSON.parse(s) else { return nil }
-            return j.array
-        }
-        guard let m = dump("MODELS"), !m.isEmpty else { return nil }
-        return (m, dump("GT_LETTERS") ?? [])
-        #else
-        return nil
-        #endif
-    }
     func testWritingModels() throws {
         let V = try vec(), W = V["writing"]!; var r = R()
-        guard let data = loadModels() else { throw XCTSkip("MODELS could not be evaluated with JavaScriptCore on this host") }
-        let M = data.models
-        let md = W["modelData"]!
-        r.eq(M.count, md.i("count"), "model count")
-        for k in ["1", "2", "gt"] { r.eq(M.filter { $0["task"]?.jsToString == k }.count, md["byTask"]?.i(k) ?? -1, "byTask \(k)") }
+        let M = miniWriting(V).list("models")   // the reduced MODELS the vectors were generated on (first two of each task)
+        for k in ["1", "2", "gt"] { r.eq(M.filter { $0["task"]?.jsToString == k }.count, 2, "models of task \(k)") }
+        r.check(W["modelData"]?.i("count") ?? 0 > M.count, "modelData carries the full-library counts (checked on Android against the real scripts)")
         // model pages: chunks, linkers, tabs, save one / save all
         for c in W.list("model") {
             let i = c["input"]!, o = c["out"]!
@@ -651,6 +637,84 @@ final class VocabVectorTests: XCTestCase {
             r.eq(top.map { $0.context?.s("title") ?? "" }, want.map { $0.s("ctxTitle") }, "starter titles")
         }
         finish(r, "writing (models)")
+    }
+    /// ideas / letters list / paraphrase first question / models list - from the reduced content in `data.writing`
+    func testWritingPages() throws {
+        let V = try vec(), W = V["writing"]!, D = miniWriting(V), cat = miniCatalog(V); var r = R()
+        for c in W.list("ideas") {
+            let v = WritingEngine.ideas(D.list("ideas"), topic: c["input"]?.s("topic"), prompts: D.list("prompts")), o = c["out"]!
+            guard let v else { r.check(false, "ideas \(c.s("id")) view"); continue }
+            r.eq(v.topics, o.strs("topics"), "ideas \(c.s("id")) topics"); r.eq(v.selected, o.s("selected"), "ideas \(c.s("id")) selected"); r.eq(v.issues.count, o.i("issues"), "ideas \(c.s("id")) issues")
+            r.eq(v.issues.first?.s("q") ?? "", o["firstIssue"]?.s("q") ?? "", "ideas \(c.s("id")) first q"); r.eq(v.issues.first.map(v.ideaCount) ?? -1, o["firstIssue"]?.i("ideas") ?? -2, "ideas \(c.s("id")) first ideas")
+            r.eq(v.vocabCount, o.i("vocab"), "ideas \(c.s("id")) vocab"); r.eq(v.prompts, o.strs("prompts"), "ideas \(c.s("id")) prompts")
+        }
+        for c in W.list("letters") where !c.s("id").hasPrefix("check-") {
+            let i = c["input"]!, o = c["out"]!, l = WritingEngine.letters(D.list("letters"), tone: qparam(i.s("query"), "tone"), drafts: i["drafts"] ?? .null)
+            r.eq(l.tabs.map(\.tone), o.list("tabs").map { $0.s("tone") }, "letters \(c.s("id")) tabs"); r.eq(l.tabs.map(\.n), o.list("tabs").map { $0.i("n") }, "letters \(c.s("id")) counts")
+            r.eq(l.tip, o.t("tip"), "letters \(c.s("id")) tip")
+            r.eq(l.cards.map(\.id), o.list("cards").map { $0.s("id") }, "letters \(c.s("id")) cards"); r.eq(l.cards.map { $0.draftWords ?? -1 }, o.list("cards").map { $0["draftWords"]?.double.map { Int($0) } ?? -1 }, "letters \(c.s("id")) drafts")
+            r.eq(l.cards.map(\.titleVi), o.list("cards").map { $0.s("title") }, "letters \(c.s("id")) titles")
+        }
+        // paraphrase: the first question of a round (no shuffle) = first usable pair + 3 others of similar length
+        let pairs = WritingEngine.paraphrasePairs(D.list("paraphrase")), first = W["paraphrase"]?["first"] ?? .null
+        r.check(!pairs.isEmpty, "paraphrase pairs")
+        if let q0 = pairs.first {
+            r.eq(q0.q, first.s("q"), "paraphrase q"); r.eq(WritingEngine.paraphraseOptions(q0, all: pairs), first.strs("options"), "paraphrase options")
+            r.eq("1/\(min(WritingEngine.paraphraseRound, pairs.count))", first.s("progress"), "paraphrase progress")
+        }
+        // models list: tabs, kind-then-title order, search
+        for c in W.list("models") {
+            let i = c["input"]!, tab = WritingEngine.modelsTab(query: qparam(i.s("query"), "t"), exam: "ielts"), steps = c["out"]?["steps"]?.array ?? []
+            var q = ""
+            func snap(_ k: Int) {
+                let rows = WritingEngine.models(D.list("models"), tab: tab, q: q, info: { WritingEngine.modelInfo($0, prompts: D.list("prompts"), task1: D.list("task1"), letters: D.list("letters")) }), st = steps[k]
+                let got: [JSON] = rows.prefix(8).map { x in
+                    let meta = x.kind + (cat.topic(x.topic).map { " · " + $0.name } ?? "") + " · " + (x.words.map(String.init) ?? "–") + " từ"
+                    return .obj([("id", .string(x.id)), ("title", .string(x.title)), ("meta", .string(meta)), ("band", .string(x.band))])
+                }
+                r.diff(.array(got), st["rows"], "models \(c.s("id"))#\(k) rows"); r.eq(rows.count, st.i("n"), "models \(c.s("id"))#\(k) n")
+            }
+            snap(0)
+            for (k, a) in (i["actions"]?.array ?? []).enumerated() { q = a.s("q"); snap(k + 1) }
+        }
+        finish(r, "writing (pages)")
+    }
+    /// gram (planted errors, or the select fallback) · copy · write: generated from a model with the real lemmatizer on the mini library
+    func testWritingExercises() throws {
+        let V = try vec(), W = V["writing"]!, D = miniWriting(V); var r = R()
+        let tables = try readJSON("native/shared/gen/verbs.json"), idx = miniCatalog(V).index, models = D.list("models")
+        let lem = Lemmatizer(tables: tables, known: { idx[$0] != nil })
+        let forms = tables.list("FORMS").map { $0.array?.compactMap(\.string) ?? [] }
+        for c in W.list("exercise") {
+            let i = c["input"]!, o = c["out"]!, id = c.s("id")
+            guard let m = models.first(where: { $0.s("id") == i.s("model") }) else { r.check(false, "\(id): model missing"); continue }
+            switch i.s("mode") {
+            case "gram":
+                let items = WritingEngine.errors(m, lem: lem, index: { idx[$0] })
+                if o.s("kind") == "select" {
+                    r.check(items == nil, "\(id): fewer than 5 errors → select fallback")
+                    let slots = WritingEngine.gram(m, forms: forms).flatMap { $0 }.compactMap { t -> WritingEngine.GramSlot? in if case .slot(_, let g) = t { return g }; return nil }
+                    r.eq(slots.map(\.options), o.list("options").map { ($0.array ?? []).compactMap(\.string) }, "\(id) options"); r.eq(slots.map(\.answer), o.strs("answers"), "\(id) answers")
+                    r.eq(WritingEngine.gramScore(slots.map(\.answer), picks: o.strs("typed")), o.i("right"), "\(id) right")
+                } else {
+                    guard let items else { r.check(false, "\(id): errors planted"); continue }
+                    let want = o.list("items")
+                    r.eq(items.map(\.wrong), want.map { $0.s("wrong") }, "\(id) wrong"); r.eq(items.map { $0.wrong.isEmpty }, want.map { $0.t("missing") }, "\(id) missing")
+                    r.eq(items.map(\.ans), want.map { $0.s("ans") }, "\(id) ans"); r.eq(items.map(\.why), want.map { $0.s("why") }, "\(id) why")
+                    r.eq(WritingEngine.errScore(items, typed: o.strs("typed")), o.i("right"), "\(id) right")
+                }
+            case "copy":
+                let (blocks, answers) = WritingEngine.slots(m)
+                r.eq(blocks.map(\.role), o.list("blocks").map { $0.s("role") }, "\(id) roles"); r.eq(blocks.map { $0.toks.filter { !Verbs.m($0, "^[^A-Za-z\\d]$") }.count }, o.list("blocks").map { $0.i("n") }, "\(id) boxes")
+                r.eq(answers.count, o.i("n"), "\(id) n"); r.eq(answers.joined(separator: " "), o.s("answers"), "\(id) answers")
+                r.eq(WritingEngine.slotScore(answers, inputs: answers.enumerated().map { $0.offset % 2 == 1 ? "x" : $0.element }), o.i("right"), "\(id) right")
+            default:
+                let sents = WritingEngine.sentencesOf(m), typed = o.strs("typed")
+                r.eq(sents.map { WritingEngine.lemmaPrompt($0.s, lemma: lem.lemma) }, o.strs("prompts"), "\(id) prompts"); r.eq(sents.map(\.s), o.strs("sentences"), "\(id) sentences")
+                r.eq(sents.indices.filter { WritingEngine.lemmaRight(typed[$0], sents[$0].s) }.count, o.i("right"), "\(id) right")
+            }
+        }
+        finish(r, "writing (exercises)")
     }
     func testPhraseBook() throws {
         let V = try vec(); var r = R()

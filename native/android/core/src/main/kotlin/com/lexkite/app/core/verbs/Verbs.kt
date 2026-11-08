@@ -15,9 +15,16 @@ import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 
 /** The conjugation tables of web/js/verbs-core.js, exported once to `native/shared/gen/verbs.json` (Android asset `verbs.json`). */
-class VerbData(
+class VerbData internal constructor(
     val irr: String, val common: List<String>, val modals: Map<String, List<String>>, val intrans: Set<String>, val stative: Set<String>, val dual: Set<String>, val double: Set<String>,
     val lBoth: Set<String>, val lNone: Set<String>, val lUkx: Set<String>, val noPass: Set<String>, val ukDouble: Set<String>, val seS: Set<String>, val ghF: Set<String>, val kEnd: Set<String>,
+    internal val text: VerbText,
+    /** web `VI_TYPO` (hỏi/ngã fixes of Google's Vietnamese) → `DictCfg.viTypo` */
+    val viTypo: Map<String, String>,
+    /** phrases.js lemmatizer tables `{IRR, BASE_EXTRA, KEEP}` → `Lemmatizer` (write package) */
+    val lemma: JsonObject,
+    /** phrase-model grammar exercise: families of forms (rise/rose/risen…) */
+    val forms: List<List<String>>,
 ) {
     companion object {
         fun parse(text: String): VerbData {
@@ -25,7 +32,9 @@ class VerbData(
             fun set(k: String) = o.getValue(k).jsonArray.map { it.jsonPrimitive.content }.toSet()
             return VerbData(o.getValue("IRR").jsonPrimitive.content, o.getValue("COMMON").jsonArray.map { it.jsonPrimitive.content },
                 o.getValue("MODALS").jsonObject.mapValues { (_, v) -> v.jsonArray.map { it.jsonPrimitive.content } },
-                set("INTRANS"), set("STATIVE"), set("DUAL"), set("DOUBLE"), set("L_BOTH"), set("L_NONE"), set("L_UKX"), set("NOPASS"), set("UK_DOUBLE"), set("SE_S"), set("GH_F"), set("K_END"))
+                set("INTRANS"), set("STATIVE"), set("DUAL"), set("DOUBLE"), set("L_BOTH"), set("L_NONE"), set("L_UKX"), set("NOPASS"), set("UK_DOUBLE"), set("SE_S"), set("GH_F"), set("K_END"),
+                VerbText(o), o.getValue("VI_TYPO").jsonObject.mapValues { it.value.jsonPrimitive.content }, o.getValue("LEMMA").jsonObject,
+                o.getValue("FORMS").jsonArray.map { r -> r.jsonArray.map { it.jsonPrimitive.content } })
         }
     }
 }
@@ -287,16 +296,16 @@ class Verbs(private val d: VerbData) {
     }
 
     private fun example(x: Tense, v: Forms, tail: String): JsonObject {
-        val (sj, p) = VerbText.SUBJ.getValue(x.id); val b = v.base
-        val obj = if (tail.isNotEmpty()) tail else if (v.transitive) (VerbText.OBJ[b]?.ifEmpty { null } ?: VerbText.COMP[b]?.ifEmpty { null } ?: "it") else (VerbText.COMP[b] ?: "")
+        val (sj, p) = d.text.SUBJ.getValue(x.id); val b = v.base
+        val obj = if (tail.isNotEmpty()) tail else if (v.transitive) (d.text.OBJ[b]?.ifEmpty { null } ?: d.text.COMP[b]?.ifEmpty { null } ?: "it") else (d.text.COMP[b] ?: "")
         val chain = x.act(p, v); val s = sentence(sj, p, chain, b, x.simple, "")
         var core = join(listOf(s.aff, obj))
         if (b == "be" && x.cont) core = join(listOf(sj) + chain + "very careful")
-        val time = VerbText.TIME[x.id] ?: ""
+        val time = d.text.TIME[x.id] ?: ""
         val en = when (x.id) { "fip" -> "She said $core${if (time.isNotEmpty()) " $time" else ""}."; "fipg" -> "$core, but there was no time."; "m-would" -> "$core if I had known."; else -> "$core${if (time.isNotEmpty()) " $time" else ""}." }
         var pas = ""
-        if (v.passive && tail.isEmpty() && x.pas != null && (VerbText.OBJ[b]?.isNotEmpty() == true || VerbText.COMP[b].isNullOrEmpty())) {
-            val o = VerbText.OBJ[b]?.ifEmpty { null } ?: "it"; val subj = if (o == "it") "It" else cap(o)
+        if (v.passive && tail.isEmpty() && x.pas != null && (d.text.OBJ[b]?.isNotEmpty() == true || d.text.COMP[b].isNullOrEmpty())) {
+            val o = d.text.OBJ[b]?.ifEmpty { null } ?: "it"; val subj = if (o == "it") "It" else cap(o)
             val plural = Regex("[^su]s$").containsMatchIn(o) && !Regex("news$").containsMatchIn(o) && o != "maths"
             val pp = if (plural) "3p" else "3s"; val ps = sentence(subj, pp, x.pas.invoke(pp) + v.PP, "be", null, "")
             val first = Regex("^\\S+").replace(ps.aff) { it.value.lowercase() }
@@ -309,10 +318,10 @@ class Verbs(private val d: VerbData) {
     // ---------- mistakes ----------
     /** Typical learner errors `{wrong, right, code, arg?}` (the UI translates the codes). */
     fun mistakes(base: String): JsonArray {
-        if (d.modals.containsKey(base)) return JsonArray(VerbText.MODAL_MIS.map { (w, r, c) -> jo("wrong" to w, "right" to r, "code" to c) })
+        if (d.modals.containsKey(base)) return JsonArray(d.text.MODAL_MIS.map { (w, r, c) -> jo("wrong" to w, "right" to r, "code" to c) })
         val f = forms(base); val out = ArrayList<JsonObject>(); val irr = irreg[base]
         fun add(wrong: String, right: String, code: String, arg: String? = null) { if (wrong != right && out.none { it.gs("wrong") == wrong }) out.add(jo("wrong" to wrong, "right" to right, "code" to code, "arg" to (arg ?: Absent))) }
-        (VerbText.MIS[base] ?: emptyList()).forEach { (w, r, c) -> add(w, r, c) }
+        (d.text.MIS[base] ?: emptyList()).forEach { (w, r, c) -> add(w, r, c) }
         if (base == "be") return JsonArray(out)
         val reg = suffix(base, "ed").list[0].w
         if (irr != null && irr.first.none { it.w == reg }) add("Yesterday I $reg …", "Yesterday I ${f.past[0].w} …", "overreg", reg)

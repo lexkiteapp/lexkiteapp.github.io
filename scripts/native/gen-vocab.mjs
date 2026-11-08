@@ -60,10 +60,29 @@ function loadWordData() { // IELTS_DATA (TOPICS/INDEX/GROUPS) once per process: 
   return (WORDS = sb.IELTS_DATA);
 }
 
+// ---------- mini library: the same real topics cut down; carried in vocab.json as data.catalog so the ports build their catalog from it (no web files, no skip) ----------
+const MINI_KEEP = { topics: 7, core: 2, writing: 2, speaking: 1, toeic: 1 }; // topics kept per group (first N, load order); > 6 'topics' so the "Xem cả n bộ" cut shows
+const MINI_WORDS = { topics: 12 }, MINI_WORDS_OTHER = 6;          // words kept per topic (the fixtures use education[0..10], environment[0..2], technology[0])
+let MINI = null;
+export function miniData() {
+  if (MINI) return MINI;
+  const sb = { console, Math, JSON, t }; sb.self = sb; sb.window = sb; sb.globalThis = sb; vm.createContext(sb);
+  for (const f of ['web/js/data.js', ...LEX_FILES]) vm.runInContext(rd(f), sb, { filename: f });
+  const D = sb.IELTS_DATA, n = {}, TOPICS = [];
+  for (const tp of D.TOPICS) {
+    n[tp.group] = n[tp.group] || 0; if (n[tp.group] >= (MINI_KEEP[tp.group] || 0)) continue; n[tp.group]++;
+    TOPICS.push(clone({ id: tp.id, name: tp.name, emoji: tp.emoji, desc: tp.desc, group: tp.group, words: tp.words.slice(0, MINI_WORDS[tp.group] || MINI_WORDS_OTHER) }));
+  }
+  const GROUPS = D.GROUPS.filter(g => TOPICS.some(x => x.group === g.id)).map(g => clone({ id: g.id, name: g.name, emoji: g.emoji, desc: g.desc }));
+  const RANK = vm.runInNewContext('(' + /const RANK = (\{.*?\});/.exec(rd('web/js/data.js'))[1] + ')'), rk = g => (g in RANK ? RANK[g] : 99), INDEX = Object.create(null), rankOf = {};
+  for (const tp of TOPICS) { rankOf[tp.id] = rk(tp.group); for (const w of tp.words) { const k = w.word.toLowerCase(), cur = INDEX[k]; if (!cur || rankOf[tp.id] < (rankOf[cur.topic] ?? 99)) INDEX[k] = w; } } // data.js indexTopic
+  return (MINI = { TOPICS, INDEX, GROUPS, add() {} });
+}
+
 /** A web "install": real core.js + word data + fixed clock; page scripts are loaded on demand with load(file). */
 export function mkEnv(o = {}) {
   process.env.TZ = 'UTC';
-  const clock = { t: o.now ?? NOW }, ls = memStorage(o.ls || {}), dom = makeDom(), data = loadWordData();
+  const clock = { t: o.now ?? NOW }, ls = memStorage(o.ls || {}), dom = makeDom(), data = o.mini ? miniData() : loadWordData();
   const CD = class extends Date { constructor(...a) { if (a.length) super(...a); else super(clock.t); } static now() { return clock.t; } };
   const rnd = o.random ?? (() => 0.5);
   const M = Object.create(Math); M.random = rnd;
@@ -306,8 +325,8 @@ function appFn(E, A, re) {
 const deckRow = h => ({ word: decodeURIComponent((/href="#\/dict\/([^"]+)"/.exec(h) || [])[1] || ''), ipa: ((/<span class="ipa small">(.*?)<\/span>/.exec(h) || [])[1]) || '', mean: ((/<div class="small">(.*?)<\/div>/.exec(h) || [])[1]) || '', note: ((/<div class="small muted hide-sm">(.*?)<\/div>/.exec(h) || [])[1]) || '', retention: (/🧠 (\d+)%/.exec(h) || [])[1] != null ? +(/🧠 (\d+)%/.exec(h))[1] : null, thumb: ((/<div class="em">(.*?)<\/div>/.exec(h) || [])[1]) || '' });
 async function deckLibraryTopic(decks) {
   const out = { deck: [], library: [], topic: [], wordbook: [] };
-  const open = async (dk, hash) => {
-    const E = mkEnv({ hash }); const map = keyed(E, decks(E)[dk]); await E.Core.Store.set('cards', map);
+  const open = async (dk, hash, mini = false) => {
+    const E = mkEnv({ hash, mini }); const map = keyed(E, decks(E)[dk]); await E.Core.Store.set('cards', map);
     const A = mkApp(E, { cards: await E.Core.Cards.all() }); A.app.routes.deck = () => {}; return { E, A };
   };
   // ---------------- deck ----------------
@@ -339,6 +358,9 @@ async function deckLibraryTopic(decks) {
   for (const [id, why, qs, f] of deckCases) {
     const { E, A } = await open('B', '#/deck');
     E.dom.$('#filterM').options = ['', '0', '12', '1', '2', '3'].map(value => ({ value }));
+    for (const sid of ['filterTopic', 'filterFrom', 'filterM']) { // a real <select> reports its <option selected>; the recording DOM must do the same (a test/user assignment wins)
+      const el = E.dom.$('#' + sid); let ov; Object.defineProperty(el, 'value', { get() { if (ov !== undefined) return ov; const blk = new RegExp('id="' + sid + '"[\\s\\S]*?</select>').exec(E.dom.view.innerHTML); const m = blk && /<option value="([^"]*)"\s+selected/.exec(blk[0]); return m ? m[1] : ''; }, set(v) { ov = v; } });
+    }
     vm.runInContext(appFn(E, A, /routes\.deck = function \(arg, query\) \{/), E.sb)(A.routes, A.app, {}, null);
     await A.routes.deck('', new URLSearchParams(qs)); await settle(3);
     for (const [k, id2] of [['q', '#filterQ'], ['topic', '#filterTopic'], ['from', '#filterFrom'], ['m', '#filterM']]) if (f[k] != null) { E.dom.$(id2).value = f[k]; for (const fn of E.dom.$(id2)._ls.input || []) fn(); }
@@ -357,8 +379,9 @@ async function deckLibraryTopic(decks) {
     ['level-query', '#/library?lv=C1 pre-selects the level (A1..C2 only)', 'g=topics&lv=C1', []],
     ['tab-switch', 'switching tab keeps q + lv filters', 'g=topics', [{ lv: 'B2' }, { tab: 'core' }]],
   ];
-  for (const [id, why, qs, acts] of libCases) {
-    const { E, A } = await open('B', '#/library');
+  for (const mini of [false, true]) for (const [id0, why, qs, acts] of libCases) { // the second pass runs the SAME page on the mini library carried in data.catalog (ports without the 104-topic library)
+    const id = mini ? 'mini-' + id0 : id0;
+    const { E, A } = await open('B', '#/library', mini);
     E.dom.resolveList('#libTabs button', () => { const h = E.dom.view.innerHTML; if (E.__h !== h) { E.__h = h; E.__t = attrs(h, /data-g="(\w+)"/g).map(g => { const b = E.dom.mkEl('b'); b.dataset.g = g; b._tog = (c, f) => { if (c === 'on' && f) E.__on = g; }; return b; }); } return E.__t; });
     E.dom.resolve('#libTabs .on', () => { const e = E.dom.mkEl('on'); e.dataset.g = E.__on ?? (/data-g="(\w+)" class="on"/.exec(E.dom.view.innerHTML) || [])[1]; return e; });
     E.dom.resolveList('[data-lvf]', () => { const h = E.dom.view.innerHTML; if (E.__lh !== h) { E.__lh = h; E.__l = attrs(h, /data-lvf="(\w*)"/g).map(v => { const b = E.dom.mkEl('l'); b.dataset.lvf = v; return b; }); } return E.__l; });
@@ -372,7 +395,7 @@ async function deckLibraryTopic(decks) {
       if (a.tab) E.dom.$$('#libTabs button').find(b => b.dataset.g === a.tab).onclick();
       steps.push({ after: a, ...snap() });
     }
-    out.library.push({ id, why, input: { deck: 'B', query: qs, actions: acts, tabs: attrs(E.dom.view.innerHTML, /data-g="(\w+)"/g), levels: attrs(E.dom.view.innerHTML, /data-lvf="(\w*)"/g) }, out: steps });
+    out.library.push({ id, why: mini ? why + ' (mini library)' : why, input: { deck: 'B', ...(mini ? { catalog: 'mini' } : {}), query: qs, actions: acts, tabs: attrs(E.dom.view.innerHTML, /data-g="(\w+)"/g), levels: attrs(E.dom.view.innerHTML, /data-lvf="(\w*)"/g) }, out: steps });
   }
   // ---------------- topic ----------------
   const topCases = [
@@ -487,7 +510,7 @@ async function dictCases() {
 // ============================================================ #/practice sources · answer kits (ChoiceKit.accept, QE.norm, LessonFx.typo) ============================================================
 async function practiceCases(decks) {
   const out = { sources: [], pool: [], accept: [], qeNorm: [], typo: [] };
-  const mk = (dk) => { const E = mkEnv({ hash: '#/practice' }); return E.Core.Store.set('cards', keyed(E, decks(E)[dk])).then(async () => { const A = mkApp(E, { cards: await E.Core.Cards.all() }); return { E, A }; }); };
+  const mk = (dk, mini = false) => { const E = mkEnv({ hash: '#/practice', mini }); return E.Core.Store.set('cards', keyed(E, decks(E)[dk])).then(async () => { const A = mkApp(E, { cards: await E.Core.Cards.all() }); return { E, A }; }); };
   const study = rd('web/js/study.js');
   const slices = ['const mean = x =>', 'const picOk = w =>', 'const norm = w =>', 'function sourceList() {', 'function pool(src) {', 'const srcName = src =>'].map(r => slice(study, new RegExp(r.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))));
   const mkPool = (E, A) => vm.runInContext(`(function (App) { const { SRS, Cards, Stats, endOfToday, DAY } = Core; const { TOPICS, INDEX } = IELTS_DATA; const { $, $$, esc, shuffle } = UI; const state = App.state; ${slices.join('\n')}\n return { pool, sourceList, norm, srcName }; })`, E.sb)(A.app);
@@ -497,13 +520,17 @@ async function practiceCases(decks) {
     for (const sname of src) { const r = P.pool(sname); out.pool.push({ id: `pool-${dk}-${sname}`, why: `pool("${sname}") on ${label}: cards WITH a meaning (vi) for deck/weak/forgetting/phrases/level/origin; 'due' = Cards.dueList practicable; topic = topic words; deck with <4 cards falls back to 120 random words of the "topics" group`, input: { deck: dk, src: sname }, out: { n: r.length, words: r.length > 40 ? undefined : r.map(x => x.word), first: r.slice(0, 3).map(x => ({ word: x.word, ipa: x.ipa, vi: x.vi, ex: x.ex, def: x.def, pos: x.pos, emoji: x.emoji, image: x.image, audio: x.audio, level: x.level, topic: x.topic })) } }); }
     if (dk === 'P') out.sources = P.sourceList().filter(o => !/^(origin|topic):/.test(o[0]) || /^(origin:|topic:education)/.test(o[0])).map(([value, label]) => ({ value, label })).concat([{ topicEntries: E.data.TOPICS.length, note: 'one entry "topic:<id>" = "<emoji> <name>" per TOPICS item, in TOPICS order' }]);
   }
+  { // the mini library (data.catalog): the <4-cards fallback ("120 words of the topics group") and a topic source, runnable by ports without the 104-topic library
+    const { E, A } = await mk('tiny', true), P = mkPool(E, A);
+    for (const sname of ['deck', 'topic:education', 'topic:zzz']) { const r = P.pool(sname); out.pool.push({ id: `pool-mini-tiny-${sname}`, why: `pool("${sname}") with 2 cards on the mini library (data.catalog): deck with <4 cards falls back to up to 120 words of the "topics" group (shuffle = identity)`, input: { deck: 'tiny', catalog: 'mini', src: sname }, out: { n: r.length, words: r.length > 40 ? undefined : r.map(x => x.word), first: r.slice(0, 3).map(x => ({ word: x.word, ipa: x.ipa, vi: x.vi, ex: x.ex, def: x.def, pos: x.pos, emoji: x.emoji, image: x.image, audio: x.audio, level: x.level, topic: x.topic })) } }); }
+  }
   // typed-answer helpers used by quizzes / mistakes retry (web/js/choice-kit.js accept, qengine.js norm, lesson-fx.js typo): loaded exactly as web loads them
   const sb = { console, Math, JSON, t, I18N: { lang: () => 'vi', tk: (k, v) => ({ k, v }) }, localStorage: memStorage(), sessionStorage: memStorage(), document: undefined, navigator: {}, location: { hash: '' }, setTimeout, clearTimeout }; sb.self = sb; sb.window = sb; sb.globalThis = sb; vm.createContext(sb);
   for (const f of ['web/js/choice-kit.js', 'web/js/qengine.js']) { try { vm.runInContext(rd(f), sb, { filename: f }); } catch (e) { /* DOM-only parts */ } }
   const CK = sb.ChoiceKit, QE = sb.QE;
   if (CK) for (const [g, a, o] of [['consider', 'consider', {}], ['Consider ', 'consider', {}], ['don’t', "don't", {}], ['do not', "don't", {}], ['colour', 'color', {}], ['considr', 'consider', { typo: true }], ['considr', 'consider', {}], ['', 'x', {}], ['green tea', 'green tea', { alts: ['tea'] }], ['tea', 'green tea', { alts: ['tea'] }], ['The cat!', 'the cat', {}]]) out.accept.push({ input: { given: g, answer: a, opts: o }, out: CK.accept(g, a, o), why: 'ChoiceKit.accept(given, answer, {alts, typo}) → {ok, how: exact|variant|typo|"", want}' });
   if (QE) for (const x of ['The Cat!', "  It’s  fine. ", '1,000 people', '$50', 'a bird', 'An apple', 'A.B', '']) out.qeNorm.push({ input: x, out: QE.norm(x), why: 'QE.norm: lowercase, curly→straight quotes, drop currency, 1,000→1000, punctuation→space, collapse, drop leading the/a/an' });
-  const sf = { console, Math, JSON, t, I18N: sb.I18N, localStorage: memStorage(), sessionStorage: memStorage(), navigator: {}, setTimeout, clearTimeout, location: { hash: '' }, ChoiceKit: CK }; sf.self = sf; sf.window = sf; sf.globalThis = sf; vm.createContext(sf);
+  const sf = { console, Math, JSON, t, UI: vm.runInNewContext(`(function(){ ${slice(rd('web/js/ui.js'), /function similarity\(a, b\) \{/)}\n return { similarity }; })()`), I18N: sb.I18N, localStorage: memStorage(), sessionStorage: memStorage(), navigator: {}, setTimeout, clearTimeout, location: { hash: '' }, ChoiceKit: CK }; sf.self = sf; sf.window = sf; sf.globalThis = sf; vm.createContext(sf);
   try { vm.runInContext(rd('web/js/lesson-fx.js'), sf, { filename: 'web/js/lesson-fx.js' }); } catch (e) { /* DOM-only parts */ }
   const FX = sf.LessonFx;
   if (FX && FX.typo) for (const [g, tg, o] of [['consider', 'consider', {}], ['considr', 'consider', {}], ['conzider', 'consider', {}], ['cat', 'cut', {}], ['scholarshp', 'scholarship', {}], ['i like grean tea', 'I like green tea', {}], ['grean', 'green', { strict: true }], ['tow', 'two', { isWord: x => x === 'two' || x === 'tow' }]]) out.typo.push({ input: { given: g, target: tg, opts: o.strict ? { strict: true } : o.isWord ? { isWord: 'x === "two" || x === "tow"' } : {} }, out: FX.typo(g, tg, o), why: 'LessonFx.typo: ≤1 slip per word of ≥4 letters is accepted (ok) and marked (marks[].fix); strict = no slips; isWord blocks a slip that is itself another word' });
@@ -511,25 +538,48 @@ async function practiceCases(decks) {
 }
 
 // ============================================================ #/ideas · #/letters · #/paraphrase · #/models · #/model · #/phrases ============================================================
-const pageEnv = async (hash, files, appOpts = {}) => {
-  const E = mkEnv({ hash }); await E.Core.Store.set('cards', {});
+/** The REAL lemmatizer + irregular tables of web/js/phrases.js (IRR … lemma), evaluated on a word index (IELTS_DATA.INDEX): App.lemma / App.lemmaT. */
+function lemmaTables(IELTS_DATA) {
+  const src = rd('web/js/phrases.js'), a = src.indexOf('const IRR = '), b = src.indexOf('  App.lemma = lemma;');
+  if (a < 0 || b < a) throw new Error('gen-vocab: phrases.js IRR…lemma block not found');
+  return vm.runInNewContext(`(function (IELTS_DATA) { ${src.slice(a, b)}\n return { lemma, PAST, PP, BASE, KNOWN, KEEP, IRR }; })`)(IELTS_DATA);
+}
+const pageEnv = async (hash, files, appOpts = {}, mini = false) => {
+  const E = mkEnv({ hash, mini }); await E.Core.Store.set('cards', {});
   for (const f of files) E.load(f);
   const A = mkApp(E, { cards: await E.Core.Cards.all(), ...appOpts });
   return { E, A };
 };
 async function writingCases() {
   const out = { ideas: [], letters: [], paraphrase: {}, models: [], model: [], phrases: [], annotated: [] };
+  // ---- the web content the page scripts read, plus the REDUCED copy the ports get in vocab.json (data.writing): the same real records, a few of them ----
+  const MODF = ['web/js/models.js', 'web/cpack/write/models2.js', 'web/cpack/write/models3.js', 'web/cpack/write/models4.js', 'web/cpack/write/models5.js', 'web/js/write/gt-letters.js', 'web/cpack/write/task2-more.js'];
+  const applyMini = (P, W) => { const sb = P.E.sb; sb.MODELS = clone(W.models); sb.WRITE_PROMPTS = clone(W.prompts); const S = P.A.app.task1 && P.A.app.task1.SETS; if (S) S.splice(0, S.length, ...clone(W.task1)); };
+  const base = async (hash, W) => { // the model pages on the MINI library (word index = data.catalog) with the real phrases.js lemmatizer
+    const P = await pageEnv(hash, MODF, {}, true);
+    const L = lemmaTables(P.E.sb.IELTS_DATA); P.A.app.lemma = L.lemma; P.A.app.lemmaT = { PAST: L.PAST, PP: L.PP, BASE: L.BASE, KNOWN: L.KNOWN };
+    P.A.app.cleanText = el => ''; P.A.app.phrasePop = () => {}; P.A.app.savePhraseDialog = () => {}; P.A.app.saveSettings = () => {};
+    for (const f of ['web/js/write/task1-more.js', 'web/js/write/task1-more2.js', 'web/js/write.js', 'web/js/task1.js']) P.E.load(f);
+    P.E.load('web/js/phrases-model.js'); if (W) applyMini(P, W);
+    return P;
+  };
+  const FULL = await base('#/models'); FULL.E.load('web/cpack/write/ideas.js'); FULL.E.load('web/js/lib/paraphrase-data.js');
+  const sbF = FULL.E.sb, KEEP_TOPICS = ['education', 'sport'];
+  const kept = [1, 2, 'gt'].flatMap(k => sbF.MODELS.filter(m => m.task === k).slice(0, 2)), refs = new Set(kept.map(m => m.ref));
+  const MW = clone({ ideas: sbF.IDEAS.filter(x => KEEP_TOPICS.includes(x.topic)), letters: sbF.GT_LETTERS, paraphrase: sbF.PARAPHRASE.slice(0, 60), models: kept,
+    prompts: sbF.WRITE_PROMPTS.filter(p => KEEP_TOPICS.includes(p.topic) || refs.has(p.id)), task1: FULL.A.app.task1.SETS.filter(x => refs.has(x.id)) });
+  out._mini = MW;
   // ---- ideas ----
   for (const [id, why, topic] of [['default', 'no topic → first topic of window.IDEAS', ''], ['education', '#/ideas/education', 'education'], ['unknown', 'unknown topic id → first topic', 'zzz']]) {
     const { E, A } = await pageEnv('#/ideas', ['web/cpack/write/ideas.js']);
-    E.sb.WRITE_PROMPTS = [{ id: 'p1', topic: 'education', text: 'Prompt one about education.' }, { id: 'p2', topic: 'education', text: 'Prompt two.' }, { id: 'p3', topic: 'crime', text: 'Crime prompt.' }];
+    E.sb.WRITE_PROMPTS = clone(MW.prompts); E.sb.IDEAS.splice(0, E.sb.IDEAS.length, ...clone(MW.ideas));
     const saved = []; A.app.savePhraseDialog = o => saved.push(o);
     E.load('web/js/ideas.js');
     E.dom.resolveList('.idea-ch', () => { const h = E.dom.view.innerHTML; if (E.__h !== h) { E.__h = h; E.__c = [...h.matchAll(/data-en="([^"]*)" data-vi="([^"]*)" data-ex="([^"]*)"/g)].map(m => { const b = E.dom.mkEl('c'); b.dataset = { en: m[1], vi: m[2], ex: m[3] }; return b; }); } return E.__c; });
     A.routes.ideas(topic); const h = E.dom.view.innerHTML; E.dom.$$('.idea-ch')[0].onclick();
     const topics = [...h.matchAll(/href="#\/ideas\/(\w[\w-]*)"/g)].map(m => m[1]);
     const issues = h.split('<details class="card idea"').slice(1).map(d => ({ q: (/<b>❓ (.*?)<\/b>/.exec(d) || [])[1], ideas: d.split('class="idea-it"').slice(1).map(i => ({ idea: (/<b>(.*?)<\/b>/.exec(i) || [])[1], chunks: [...i.matchAll(/data-en="([^"]*)" data-vi="([^"]*)"/g)].map(m => [m[1], m[2]]) })).length, side: [...d.matchAll(/<h4[^>]*>(.*?)<\/h4>/g)].map(m => m[1]) }));
-    out.ideas.push({ id, why, input: { topic, learnLang: 'vi' }, out: { topics, selected: (/class="chip lv" href="#\/ideas\/([\w-]+)"/.exec(h) || [])[1], issues: issues.length, firstIssue: issues[0], vocab: (h.split('class="ai-vocab"')[1] || '').split('<div><b>').length - 1, prompts: [...h.matchAll(/href="#\/write\/(\w+)"/g)].map(m => m[1]), firstChunkSave: saved[0] } });
+    out.ideas.push({ id, why, input: { topic, learnLang: 'vi' }, out: { topics, selected: (/class="chip lv" href="#\/ideas\/([\w-]+)"/.exec(h) || [])[1], issues: issues.length, firstIssue: issues[0] && { ...issues[0], q: unesc(issues[0].q) }, vocab: (h.split('class="ai-vocab"')[1] || '').split('<div><b>').length - 1, prompts: [...h.matchAll(/href="#\/write\/(\w+)"/g)].map(m => m[1]), firstChunkSave: saved[0] } });
   }
   { const { E } = await pageEnv('#/ideas', ['web/cpack/write/ideas.js']); out.ideasData = { topics: E.sb.IDEAS.map(x => ({ topic: x.topic, title: x.title, emoji: x.emoji, issues: x.issues.length, vocab: (x.vocab || []).length, exampleIssue: x.topic === 'education' ? { q: x.issues[0].q, for: x.issues[0].for[0], against: x.issues[0].against[0] } : undefined })).map(x => x), shape: '{topic,title,emoji,issues:[{q,for:[{idea,vi,ex,chunks:["en|vi",…]}],against:[…]}],vocab:[[en,vi],…]}' }; out.ideasData.topics = out.ideasData.topics.map(x => (x.exampleIssue ? x : { ...x })); }
   // ---- letters ----
@@ -537,7 +587,7 @@ async function writingCases() {
   for (const [id, why, qs, drafts] of [['all', '#/letters: all prompts, tone tabs with counts, draft chips (✍️ n từ) from Store letterDrafts', '', { gt1: 'Dear Sir or Madam, hello world one two three' }], ['formal', '?tone=formal filters; unknown tone → all', 'tone=formal', {}], ['bad-tone', 'unknown tone → all', 'tone=zzz', {}]]) {
     const { E, A } = await pageEnv('#/letters', LET); await E.Core.Store.set('letterDrafts', drafts); E.load('web/js/letters.js');
     await A.routes.letters('', new URLSearchParams(qs)); await settle(3); const h = E.dom.view.innerHTML;
-    out.letters.push({ id, why, input: { query: qs, drafts }, out: { tabs: [...h.matchAll(/href="#\/letters\?tone=([\w-]+)"[^>]*>([^<]*)<span class="tiny muted">(\d+)<\/span>/g)].map(m => ({ tone: m[1], label: m[2].trim(), n: +m[3] })), tip: /class="tip small"/.test(h), cards: h.split('<div class="card">').slice(1).map(c => ({ id: (/href="#\/letters\/(\w+)"/.exec(c) || [])[1], tone: (/<span class="chip">(.*?)<\/span>/.exec(c) || [])[1], draftWords: (/chip ok">✍️ (\d+) từ/.exec(c) || [])[1] ? +(/chip ok">✍️ (\d+) từ/.exec(c))[1] : null, title: (/<h3[^>]*>(.*?)<\/h3>/.exec(c) || [])[1] })) } });
+    out.letters.push({ id, why, input: { query: qs, drafts }, out: { tabs: [...h.matchAll(/href="#\/letters\?tone=([\w-]+)"[^>]*>([^<]*)<span class="tiny muted">(\d+)<\/span>/g)].map(m => ({ tone: m[1], label: m[2].trim(), n: +m[3] })), tip: /class="tip small"/.test(h), cards: h.split('<div class="card">').slice(1).map(c => ({ id: (/href="#\/letters\/(\w+)"/.exec(c) || [])[1], tone: (/<span class="chip">(.*?)<\/span>/.exec(c) || [])[1], draftWords: (/chip ok">✍️ (\d+) từ/.exec(c) || [])[1] ? +(/chip ok">✍️ (\d+) từ/.exec(c))[1] : null, title: unesc((/<h3[^>]*>(.*?)<\/h3>/.exec(c) || [])[1]) })) } });
   }
   { const { E } = await pageEnv('#/letters', LET); const L = E.sb.GT_LETTERS; out.lettersData = { count: L.length, example: L[0], shape: 'GT_LETTERS item = {id,tone: formal|semi-formal|informal,topic,titleVi,to,situation,bullets[3],open,close}' }; }
   const checks = [['gt1', 'Dear Sir or Madam,\n\nI am writing to complain.\n\n' + 'word '.repeat(150) + '\n\nYours faithfully,\nA'], ['gt1', 'Hi there, I\'m upset. short'], ['gt1', ''], ['gt13', 'Dear Mr Smith,\n\n' + 'x '.repeat(160) + '\n\nBest regards']];
@@ -552,20 +602,19 @@ async function writingCases() {
   { const { E, A } = await pageEnv('#/paraphrase', ['web/js/lib/paraphrase-data.js']); const rewards = []; A.app.reward = r => rewards.push(r); E.load('web/js/paraphrase.js');
     const src = rd('web/js/paraphrase.js'), rules = [slice(src, /const STOP = /), slice(src, /const keyw = /), slice(src, /const usable = /)].join('\n');
     const U = vm.runInContext(`(function () { ${rules}\n return { usable, keyw }; })()`, E.sb);
-    const all = E.sb.PARAPHRASE, ok = all.filter(([q, p]) => U.usable(q, p));
-    out.paraphrase.data = { total: all.length, usable: ok.length, shape: 'self.PARAPHRASE = [[phraseInQuestion, phraseInPassage], …] (web/js/lib/paraphrase-data.js)' };
+    const all = E.sb.PARAPHRASE, okFull = all.filter(([q, p]) => U.usable(q, p));
+    out.paraphrase.data = { total: all.length, usable: okFull.length, shape: 'self.PARAPHRASE = [[phraseInQuestion, phraseInPassage], …] (web/js/lib/paraphrase-data.js)' };
+    all.splice(0, all.length, ...clone(MW.paraphrase)); const ok = all.filter(([q, p]) => U.usable(q, p)); // from here on: the reduced list (data.writing.paraphrase)
     out.paraphrase.usable = [...all.slice(0, 6), ['the ___ of', 'x'], ['a / b', 'c'], ['same words here today', 'same words here today'], ['abc', 'x'.repeat(95)], ['hello world', 'greeting people']].map(([q, p]) => ({ input: [q, p], out: U.usable(q, p) }));
     E.dom.resolveList('[data-o]', () => { const h = E.dom.view.innerHTML; if (E.__h !== h) { E.__h = h; E.__o = [...h.matchAll(/data-o="([^"]*)"/g)].map(m => { const b = E.dom.mkEl('o'); b.dataset.o = m[1]; return b; }); } return E.__o; });
     A.routes.paraphrase(); const h0 = E.dom.view.innerHTML;
-    out.paraphrase.first = { q: (/class="pp-q"[^>]*>“(.*?)”/.exec(h0) || [])[1], options: [...h0.matchAll(/data-o="([^"]*)"/g)].map(m => m[1]), progress: (/<span class="small muted">(\d+\/\d+)<\/span>/.exec(h0) || [])[1], why: 'round = 10 random usable pairs; options = the right phrase + 3 other usable phrases whose length differs < 40 and q differs; shuffled (test order here = web order with shuffle disabled)' };
+    out.paraphrase.first = { q: unesc((/class="pp-q"[^>]*>“(.*?)”/.exec(h0) || [])[1]), options: [...h0.matchAll(/data-o="([^"]*)"/g)].map(m => unesc(m[1])), progress: (/<span class="small muted">(\d+\/\d+)<\/span>/.exec(h0) || [])[1], why: 'round = 10 random usable pairs; options = the right phrase + 3 other usable phrases whose length differs < 40 and q differs; shuffled (test order here = web order with shuffle disabled)' };
     let right = 0, steps = [];
     for (let i = 0; i < 10; i++) { const h = E.dom.view.innerHTML, qtxt = (/class="pp-q"[^>]*>“(.*?)”/.exec(h) || [])[1], opts = E.dom.$$('[data-o]'); const want = ok.find(([q]) => q.replace(/&#39;/g, "'") === qtxt || esc(q) === qtxt); const rightBtn = want && opts.find(b => b.dataset.o === esc(want[1])); const pickRight = i % 3 !== 2; const btn = pickRight && rightBtn ? rightBtn : opts.find(b => b !== rightBtn); if (btn === rightBtn) right++; btn.onclick(); steps.push({ i, correct: btn === rightBtn }); E.dom.$('#ppNext').onclick(); }
     out.paraphrase.finish = { steps, summary: (/<h2>(.*?)<\/h2>/.exec(E.dom.view.innerHTML) || [])[1], rewards, rule: 'reward {quizzes:1, readings:0, xp: 5 + right*2}' }; }
   // ---- models (library) ----
-  const MODF = ['web/js/models.js', 'web/cpack/write/models2.js', 'web/cpack/write/models3.js', 'web/cpack/write/models4.js', 'web/cpack/write/models5.js', 'web/js/write/gt-letters.js', 'web/cpack/write/task2-more.js'];
-  const base = async hash => { const P = await pageEnv(hash, MODF); P.A.app.lemmaT = { PAST: {}, BASE: {}, KNOWN: new Set() }; P.A.app.lemma = w => w; P.A.app.cleanText = el => ''; P.A.app.phrasePop = () => {}; P.A.app.savePhraseDialog = () => {}; P.A.app.saveSettings = () => {}; for (const f of ['web/js/write/task1-more.js', 'web/js/write/task1-more2.js', 'web/js/write.js', 'web/js/task1.js']) P.E.load(f); P.E.load('web/js/phrases-model.js'); return P; };
   for (const [id, why, qs, acts] of [['tab-2', 'default tab = "2" (Task 2) for exam ielts; sorted by kind then title; each row: title/kind/topic/words/band', '', []], ['tab-1', '?t=1 Task 1 charts (kind = chart type)', 't=1', []], ['tab-gt', '?t=gt letters (kind = tone)', 't=gt', []], ['search', 'search over "title kind topic" lowercase', 't=2', [{ q: 'education' }]]]) {
-    const { E, A } = await base('#/models'); A.routes.models('', new URLSearchParams(qs));
+    const { E, A } = await base('#/models', MW); A.routes.models('', new URLSearchParams(qs));
     E.dom.resolveList('#mTabs button', () => { const h = E.dom.view.innerHTML; if (E.__h !== h) { E.__h = h; E.__t = attrs(h, /data-v="(\w+)"/g).map(v => { const b = E.dom.mkEl('b'); b.dataset.v = v; return b; }); } return E.__t; });
     const rows = () => E.dom.$('#mList').innerHTML.split('class="card hover model-row"').slice(1).map(r => ({ id: (/href="#\/model\/([\w-]+)"/.exec(r) || [])[1], title: unesc((/<b>(.*?)<\/b>/.exec(r) || [])[1]), meta: unesc((/<small>(.*?)<\/small>/.exec(r) || [])[1]), band: (/Band (\S+?)<\/span>/.exec(r) || [])[1] }));
     const steps = [{ after: 'open', rows: rows() }];
@@ -573,13 +622,13 @@ async function writingCases() {
     out.models.push({ id, why, input: { query: qs, actions: acts, tabs: ['2', '1', 'gt'] }, out: { tabsHtml: attrs(E.dom.view.innerHTML, /data-v="(\w+)">([^<]*)/g), steps: steps.map(s => ({ ...s, n: s.rows.length, rows: s.rows.slice(0, 8) })) } });
   }
   // ---- model page + annotated text ----
-  const { E: EM, A: AM } = await base('#/model/t1-energy');
+  const { E: EM, A: AM } = await base('#/model/t1-energy', MW);
   const ann = ['<<Mở bài>> The graph [[illustrates|minh họa]] data.\n\n{{However}}, [[the figure|con số]] rose. <<Kết>> Done & dusted <b>.']; // role at start, role inline, chunk, link, html-escaped
   for (const text of ann) { const h = AM.app.renderAnnotated(text); out.annotated.push({ input: text, out: { paragraphs: h.split('</p>').filter(Boolean).length, roles: attrs(h, /<span class="an-role[^"]*" translate="no">(.*?)<\/span>/g), roleHead: /<div class="an-ptag">/.test(h), chunks: [...h.matchAll(/data-ph="([^"]*)" data-vi="([^"]*)"/g)].map(m => [m[1], m[2]]), links: attrs(h, /<span class="an-lk">(.*?)<\/span>/g), escaped: /&lt;b&gt;/.test(h), glossHidden: !/data-gl=/.test(h) }, why: 'App.renderAnnotated: [[en|vi]] chunk, {{linker}}, <<Role>> at paragraph start = label above, inline = small tag; text is HTML-escaped first; paragraphs split on blank lines' }); }
-  { const MODELS = EM.sb.MODELS, picks = [MODELS.find(m => m.task === 1), MODELS.find(m => m.task === 2), MODELS.find(m => m.task === 'gt')].filter(Boolean);
+  { const MODELS = sbF.MODELS, picks = [MODELS.find(m => m.task === 1), MODELS.find(m => m.task === 2), MODELS.find(m => m.task === 'gt')].filter(Boolean);
     out.modelData = { count: MODELS.length, byTask: Object.fromEntries(['1', '2', 'gt'].map(k => [k, MODELS.filter(m => String(m.task) === k).length])), shape: 'MODELS item = {id,task: 1|2|"gt",ref,band,words,text (annotated),outline?[],vocab?[[en,vi]],pitfalls?[],band6?{text,notes{TR,CC,LR,GRA}}}' };
     for (const m of picks) {
-      const P = await base('#/model/' + m.id); const rewards = []; P.A.app.reward = r => rewards.push(r);
+      const P = await base('#/model/' + m.id, MW); const rewards = []; P.A.app.reward = r => rewards.push(r);
       P.E.dom.resolveList('[data-sv]', () => { const h = P.E.dom.view.innerHTML; if (P.__h !== h) { P.__h = h; P.__b = attrs(h, /data-sv="(\d+)"/g).map(i => { const b = P.E.dom.mkEl('sv'); b.dataset.sv = i; return b; }); } return P.__b; });
       P.A.routes.model(m.id); const h = P.E.dom.view.innerHTML;
       const chunks = [...m.text.matchAll(/\[\[([^|\]]+)\|([^\]]+)\]\]/g)].map(x => [x[1], x[2]]);
@@ -591,7 +640,7 @@ async function writingCases() {
   // ---- gap exercises (vocab / link) and phrase book, driven on real models ----
   out.gap = []; 
   for (const kind of ['vocab', 'link']) for (const scenario of ['all-correct', 'one-correct']) {
-    const m = EM.sb.MODELS.find(x => x.id === 't1-energy'); const P = await base('#/model/' + m.id); const rewards = []; P.A.app.reward = r => rewards.push(r);
+    const m = EM.sb.MODELS.find(x => x.id === 't1-energy'); const P = await base('#/model/' + m.id, MW); const rewards = []; P.A.app.reward = r => rewards.push(r);
     const btn = P.E.dom.mkEl('tab'); btn.dataset.mt = kind; P.E.dom.resolveList('#mTabs button', () => [btn]);
     const box = P.E.dom.mkEl('pane'); box._q = P.E.dom.reg(); P.E.dom.resolve('#mPane', () => box);
     let gapEls = null, gh = null; Object.defineProperty(box, '_lists', { get: () => { if (gh !== box.innerHTML) { gh = box.innerHTML; gapEls = [...gh.matchAll(/class="gap[^"]*" data-i="(\d+)"/g)].map(x => { const g = P.E.dom.mkEl('gap'); g.dataset.i = x[1]; g.classList.toggle = (c, f) => { g[c] = f; }; return g; }); } return { '.gap': gapEls, '.bankw': [] }; } });
@@ -604,9 +653,51 @@ async function writingCases() {
     box._q('#chk').onclick(); await settle(6);
     out.gap.push({ id: `${kind}-${scenario}`, why: 'gap exercise: answers = every [[chunk]] (vocab) or {{linker}} (link) in text order, bank = unique answers; check compares norm(input) === norm(answer) (norm: lowercase, ’→\', non [a-z0-9\' ] → space, collapse); score = right/total, reward {quizzes:1, perfect: pct===100 ?1:0, xp: 5 + right*2}; ≥70 % stores kind in Store "mdone:<id>"', input: { model: m.id, kind, scenario }, out: { gaps: n, bank, feedback: box.firstElementChild && (box._q('#chk') && 'checked'), rewards, mdone: await P.E.Core.Store.get('mdone:' + m.id, []), marks: gaps.map(g => (g.ok ? 'ok' : g.no ? 'no' : '')) } });
   }
+  // ---- exercises generated from a model (phrases-model.js EX): gram = errExercise (planted errors; <5 candidates → select fallback), copy = slotExercise, write = lemmaExercise ----
+  out.exercise = [];
+  const exercise = async (m, mode) => {
+    const P = await base('#/model/' + m.id, MW), rewards = []; P.A.app.reward = r => rewards.push(r);
+    const D = P.E.dom, btn = D.mkEl('tab'); btn.dataset.mt = mode; D.resolveList('#mTabs button', () => [btn]);
+    const box = D.mkEl('pane'); box._q = D.reg(); D.resolve('#mPane', () => box);
+    let h0 = null, L = {};
+    const lists = () => { // the recording DOM: input/select/line elements of the exercise HTML, rebuilt only when the HTML changes (values the page sets stay)
+      if (h0 === box.innerHTML) return L; h0 = box.innerHTML;
+      const gen = (re, init) => [...h0.matchAll(re)].map(x => { const e = D.mkEl('x'); e.classList.toggle = (c, f) => { e[c] = f; }; init(e, x); return e; });
+      L = { '.gap': gen(/class="gap[^"]*" data-(?:i|k)="(\d+)"/g, (e, x) => { e.dataset.i = e.dataset.k = x[1]; }), '.gsel': gen(/class="gap gsel" data-i="(\d+)"/g, (e, x) => { e.dataset.i = x[1]; }), '.slot': gen(/class="slot" data-i="(\d+)"/g, (e, x) => { e.dataset.i = x[1]; }),
+        '.line': gen(/class="line" data-i="(\d+)"/g, (e, x) => { e.dataset.i = x[1]; const k = { '.lin': D.mkEl('lin'), '.lres': D.mkEl('lres') }; e.querySelector = sel => k[sel] || null; e._k = k; }), '.bankw': [] };
+      return L;
+    };
+    Object.defineProperty(box, '_lists', { get: lists }); box.querySelectorAll = sel => lists()[sel] || []; box.querySelector = sel => (lists()[sel] || [])[0] || null; box.firstElementChild = D.mkEl('first');
+    P.A.routes.model(m.id); await settle(3); btn.onclick(); await settle(3);
+    const html = box.innerHTML, right = () => (rewards.length ? (rewards[rewards.length - 1].xp - 5) / 2 : null), res = {};
+    if (mode === 'gram' && /class="gap gsel"/.test(html)) { // fewer than 5 plantable errors → the "choose the right form" exercise
+      res.kind = 'select'; const sel = lists()['.gsel']; res.options = [...html.matchAll(/<select class="gap gsel"[^>]*>(.*?)<\/select>/g)].map(x => attrs(x[1], /<option>(.*?)<\/option>/g).map(unesc).filter(o => o !== '…'));
+      box._q('#chk').onclick(); res.answers = sel.map(g => g.title.replace(/^Đáp án: /, '')); // nothing chosen → every title is "Đáp án: <word>"
+      res.typed = sel.map((g, i) => (i % 3 === 1 ? res.options[i].find(o => o.toLowerCase() !== res.answers[i].toLowerCase()) : res.answers[i])); sel.forEach((g, i) => { g.value = res.typed[i]; }); rewards.length = 0; box._q('#chk').onclick(); await settle(6); res.right = right();
+    } else if (mode === 'gram') {
+      res.kind = 'errors'; res.items = [...html.matchAll(/(?:<u class="err-w">([^<]*)<\/u>)?<input class="gap( err-miss)?" data-k="(\d+)"/g)].map(x => ({ k: +x[3], wrong: unesc(x[1] || ''), missing: !!x[2] }));
+      res.paragraphs = html.split('</p><p>').length;
+      box._q('#show').onclick(); const gaps = lists()['.gap']; res.items.forEach((it, i) => { it.ans = gaps[i].value; it.why = gaps[i].title; });
+      const typed = gaps.map((g, i) => (i % 3 === 1 ? 'zz' : g.value)); gaps.forEach((g, i) => { g.value = typed[i]; }); box._q('#chk').onclick(); await settle(6);
+      res.typed = typed; res.right = right();
+    } else if (mode === 'copy') {
+      res.blocks = html.split('<p class="slot-p">').slice(1).map(b => ({ role: (/<span class="an-role slot-role" translate="no">(.*?)<\/span>/.exec(b) || [])[1] || '', n: (b.match(/class="slot"/g) || []).length }));
+      const ins = lists()['.slot']; res.n = ins.length; box._q('#chk').onclick(); await settle(3); res.answers = ins.map(g => g.title).join(' '); // empty fields → each title is the expected word
+      ins.forEach((g, i) => { g.value = i % 2 ? 'x' : g.title; g.title = ''; }); rewards.length = 0; box._q('#chk').onclick(); await settle(6); res.right = right();
+    } else {
+      const lines = lists()['.line']; res.prompts = html.split('class="lem-q">').slice(1).map(x => unesc(x.split('</div>')[0])); res.roles = html.split('<li class="line"').slice(1).map(x => (/slot-role" translate="no">(.*?)<\/span>/.exec(x) || [])[1] || '');
+      box._q('#show').onclick(); res.sentences = lines.map(l => unesc(l._k['.lres'].innerHTML.replace(/^<span class="muted">[^<]*<\/span> /, '')));
+      res.typed = res.sentences.map((x, i) => (i % 3 === 1 ? 'x' : i % 3 === 2 ? 'X' + x.slice(1) : x)); lines.forEach((l, i) => { l._k['.lin'].value = res.typed[i]; });
+      box._q('#chk').onclick(); await settle(6); res.right = right();
+    }
+    out.exercise.push({ id: `${mode}-${m.id}`, why: { gram: 'errExercise: the app plants real errors in the model (missing article / past tense / was-were / -ed / -ly / plural / comparative; max 12, ≥ 6 tokens apart; Math.random=0.5 → no article is dropped), the learner types the right form; items = underlined wrong word (or an empty box for a missing word), answer and reason key; typed = answers except every 3rd (zz); fewer than 5 errors → select-the-form fallback (options per box, answers, typed = answer except every 3rd = another form)',
+      copy: 'slotExercise: one box per word (punctuation stays), role label per paragraph; typed = even boxes exact, odd boxes "x"', write: 'lemmaExercise: each sentence given as lemmas (real App.lemma on the mini index); typed per line: exact / "x" / first letter changed; right = exact or ≥ 95 % similar' }[mode], input: { model: m.id, mode }, out: res });
+  };
+  for (const m of MW.models) await exercise(m, 'gram');
+  for (const m of MW.models.filter((x, i) => i % 2 === 0)) { await exercise(m, 'copy'); await exercise(m, 'write'); }
   // ---- #/phrases ----
   for (const [id, why, deckName] of [['empty', 'no phrase cards → empty hint + "Thêm nhanh 20 cụm" starter (top 20 chunks by frequency in all MODELS, ≥2 words, ≤48 chars, not already saved)', 'none'], ['with-cards', 'phrase cards (isPhrase: has a space, pos phrase or topic phrases) newest first; "Học các cụm" shown when ≥4', 'B']]) {
-    const dk = fixtureDecks(mkEnv()); const P = await base('#/phrases'); await P.E.Core.Store.set('cards', keyed(P.E, deckName === 'B' ? [...dk.B, ...dk.A.slice(0, 3).map((c, i) => ({ ...c, word: ['by and large', 'in terms of', 'as a result'][i], topic: 'phrases', pos: 'phrase' }))] : [])); P.A.state.cards = await P.E.Core.Cards.all();
+    const dk = fixtureDecks(mkEnv()); const P = await base('#/phrases', MW); await P.E.Core.Store.set('cards', keyed(P.E, deckName === 'B' ? [...dk.B, ...dk.A.slice(0, 3).map((c, i) => ({ ...c, word: ['by and large', 'in terms of', 'as a result'][i], topic: 'phrases', pos: 'phrase' }))] : [])); P.A.state.cards = await P.E.Core.Cards.all();
     P.A.routes.phrases(); await settle(2); const h = P.E.dom.view.innerHTML;
     const res = { list: h.split('class="deck-row"').slice(1).map(r => (/<b>(.*?)<\/b>/.exec(r) || [])[1]), learnButton: /practice\/learn\?src=phrases/.test(h), models: (/hub-meta">([^<]*)</.exec(h) || [])[1], starterButton: /id="starter"/.test(h) };
     if (res.starterButton) { P.E.dom.$('#starter').onclick(); await settle(80); const c = await P.E.Core.Cards.all(); res.starterAdded = Object.values(c).sort((a, b) => a.added - b.added).map(x => ({ word: x.word, vi: x.vi, pos: x.pos, topic: x.topic, ctxTitle: (x.contexts[0] || {}).title })); }
@@ -670,7 +761,7 @@ async function dictPageCases() {
     r.def = (/<div style="margin-top:\.4rem" lang="en">(.*?)<\/div>/.exec(h) || [])[1] || null;
     r.example = (/<div lang="en" dir="ltr">(.*?)<\/div>/.exec(h) || [])[1] || null;
     r.exampleTranslation = (/class="muted small" style="margin-top:\.25rem">(.*?) <span class="chip">(.*?)<\/span>/.exec(h) || []).slice(1);
-    r.posBlocks = h.split('class="pos-block"').slice(1).map(b => ({ pos: (/<span class="chip pos">(.*?)<\/span>/.exec(b) || [])[1], vi: ((/<b class="vi">(.*?)<\/b>/.exec(b) || [])[1] || '').split(', ').filter(Boolean), defs: [...b.matchAll(/<li>([\s\S]*?)(?:<div class="ex small">“([\s\S]*?)”)?/g)].length ? b.split('<li>').slice(1).map(li => ({ def: li.split('<div')[0].replace(/<\/li>.*$/, ''), ex: (/<div class="ex small">“(.*?)”/.exec(li) || [])[1] || '' })) : [] }));
+    r.posBlocks = h.split('class="pos-block"').slice(1).map(b => ({ pos: (/<span class="chip pos">(.*?)<\/span>/.exec(b) || [])[1], vi: ((/<b class="vi">(.*?)<\/b>/.exec(b) || [])[1] || '').split(', ').filter(Boolean), defs: ((x) => x.split('<li>').slice(1))(b.split('<details')[0]).map(li => ({ def: li.split('<div')[0].replace(/<\/li>.*$/, ''), ex: (/<div class="ex small">“(.*?)”/.exec(li) || [])[1] || '' })) }));
     r.extraMeanings = (h.match(/<details/g) || []).length;
     r.bilingual = h.split('class="meaning"').slice(1).filter(x => /data-use-sent/.test(x)).map(x => ({ en: (/<div>(.*?) <button/.exec(x) || [])[1], vi: (/<div class="muted small">(.*?) <span/.exec(x) || [])[1] }));
     r.actions = { quickSave: /id="quickSave"/.test(h), saved: /entry-saved/.test(h), practiceSpeak: (/href="(#\/practice\/speak[^"]*)"/.exec(h) || [])[1] || null, verb: (/href="(#\/verb\/[^"]*)"/.exec(h) || [])[1] || null, usage: (/href="(#\/usage\/[^"]*)"/.exec(h) || [])[1] || null, saveCard: /id="saveCard"/.test(h) };
@@ -713,9 +804,10 @@ export async function vocabVectors() {
   Object.assign(out, await deckLibraryTopic(decks));
   out.dict = await dictCases();
   out.practice = await practiceCases(decks);
-  out.writing = await writingCases();
+  out.writing = await writingCases(); const MW = out.writing._mini; delete out.writing._mini;
   Object.assign(out, await usageVerbCases());
   out.dict.page = await dictPageCases();
+  const MD = miniData(); out.data = { _doc: 'REAL records cut down so the ports run every screen with no web files: catalog = mini word library (groups + topics + words, load order), writing = ideas/letters/paraphrase pairs/models/prompts/task1 sets used by the writing vectors', catalog: { groups: MD.GROUPS, topics: MD.TOPICS }, writing: MW };
   return rigVectorText(out);
 }
 
@@ -733,5 +825,14 @@ export function verbsTables() {
   const t = vm.runInNewContext(`(()=>{${src.slice(a, b)};return {${NAMES.join(',')}}})()`);
   const out = {};
   for (const k of NAMES) out[k] = t[k] && t[k].constructor.name === 'Set' ? [...t[k]] : t[k];
+  out.MODALS_ORDER = Object.keys(t.MODALS);                // JSON objects are unordered on Swift: suggest() lists modals in this order
+  // example sentences + small lookup tables of the same file (the ports read them from here; nothing is copied by hand)
+  const EXN = ['OBJ', 'COMP', 'TIME', 'SUBJ', 'MIS', 'MODAL_MIS', 'SAY_S', 'IPA_END', 'BE', 'AUX', 'NEG', 'CON'];
+  const ex = vm.runInNewContext(`(()=>{${[...EXN.map(k => slice(src, new RegExp('const ' + k + ' = '))), slice(src, /const BE_PRES = /)].join('\n')};return {${[...EXN, 'BE_PRES', 'BE_PAST'].join(',')}}})()`);
+  Object.assign(out, ex);
+  out.VI_TYPO = vm.runInNewContext(`(()=>{${slice(fs.readFileSync('web/js/dictionary.js', 'utf8'), /const VI_TYPO = /)};return VI_TYPO})()`);   // hỏi/ngã fixes of Google's Vietnamese (Dict.fixVi)
+  const ph = fs.readFileSync('web/js/phrases.js', 'utf8');   // phrases.js lemmatizer data (App.lemma): irregular rows, extra base forms, words never reduced
+  out.LEMMA = vm.runInNewContext(`(()=>{${slice(ph, /const IRR = /)};const BASE_EXTRA = ${/Object\.assign\(BASE, (\{.*\})\);/.exec(ph)[1]};${slice(ph, /const KEEP = /)};return { IRR, BASE_EXTRA, KEEP: [...KEEP] }})()`);
+  out.FORMS = vm.runInNewContext(`(()=>{${slice(fs.readFileSync('web/js/phrases-model.js', 'utf8'), /const FORMS = /)};return FORMS})()`);   // grammar-exercise form families
   return JSON.stringify(out, null, 0) + '\n';
 }

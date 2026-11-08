@@ -16,6 +16,21 @@ public struct TopicCatalog: Sendable {
     }
     public var topics: [Topic], groups: [Group]
     public init(topics: [Topic] = [], groups: [Group] = []) { self.topics = topics; self.groups = groups }
+    /// `{groups:[{id,name,emoji,desc}], topics:[{id,group,name,emoji,desc,words}]}` – vectors/vocab.json `data.catalog` (the real library, cut down)
+    public init(json: JSON) {
+        self.init(topics: json.list("topics").map { Topic(id: $0.s("id"), group: $0.s("group"), name: $0.s("name"), emoji: $0.s("emoji"), desc: $0.s("desc"), words: $0.list("words")) },
+                  groups: json.list("groups").map { Group(id: $0.s("id"), name: $0.s("name"), emoji: $0.s("emoji"), desc: $0.s("desc")) })
+    }
+    /// web `IELTS_DATA.INDEX`: lower-case word → entry; the set with the smallest group rank wins, ties go to the set loaded first
+    public var index: [String: JSON] {
+        let rank = ["topics": 0, "writing": 1, "speaking": 2, "awl": 3, "core": 4, "office": 5, "toeic": 6, "domain": 7, "exam": 8, "nawl": 9, "bsl": 10]
+        var out: [String: JSON] = [:], at: [String: Int] = [:]
+        for t in topics {
+            let r = rank[t.group] ?? 99
+            for w in t.words { let k = w.s("word").lowercased(); if out[k] == nil || r < (at[k] ?? 99) { out[k] = w; at[k] = r } }
+        }
+        return out
+    }
     /// the first topic with this id wins (web topicOf)
     public func topic(_ id: String) -> Topic? { topics.first { $0.id == id } }
     public var wordCount: Int { var seen = Set<String>(); for t in topics { for w in t.words { seen.insert(Vocab.keyOf(w.s("word"))) } }; return seen.count }
