@@ -56,6 +56,11 @@ EMOJI = re.compile('[\u2600-\u27bf\U0001f300-\U0001faff]')
 NO_BREAK_AFTER = {'a', 'an', 'the', 'my', 'your', 'his', 'her', 'our', 'their', 'its', 'this', 'that', 'to', 'of', 'in', 'on', 'at', 'for', 'with', 'by', 'from', 'and', 'or', 'but', 'i', 'will', 'do', 'does', 'is', 'are', 'not'}
 
 
+def clamp_span(center, width, lo, hi):
+    """[x0, x1] of a box of this width centred on `center`, moved just enough to stay inside lo..hi."""
+    x0 = max(lo, min(center - width / 2, hi - width)); return [x0, x0 + width]
+
+
 def chip_w(text, measure, size):
     """Chip width: the Latin font measures an emoji as a narrow box and the 0.06em tracking is not in the metrics, so the label ran past the pill (mytreat short)."""
     plain = EMOJI.sub('', text)
