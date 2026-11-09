@@ -298,6 +298,8 @@ export function yieldSplit(rows) {
 
 /** 08/11 lọc trước AI (job.mjs --no-prefilter để tắt): cận TRÊN số nguồn NGƯỜI VIẾT của một ứng viên – vi (Wiktionary en vi/bảng dịch · Wiktionary vi) và câu chứa từ
  *  (examples.py · ví dụ Wiktionary · ví dụ WordNet mọi nghĩa). vi = 0 hoặc ex < 2 → chắc trượt cổng (viKeep cần nguồn người viết; ví dụ cần 2 câu người viết). */
+/** gộp các bảng {word#pos:[vi…]} của nguồn đối chiếu, không trùng */
+export const mergeViSources = (...maps) => { const o = {}; for (const m of maps) for (const [k, v] of Object.entries(m)) o[k] = [...new Set([...(o[k] || []), ...v])]; return o; };
 export const humanSrc = (e, k, wv, ext) => { if (k.err) return { vi: 1, ex: 2 }; const re = inflRe(e.w); // kaikki lỗi mạng = hạ tầng → không lọc (luồng cũ xử lý)
   const vi = (k.vi || []).length + (wv || []).length + (k.trg || []).reduce((n, g) => n + ((g.tr || {}).vi || []).length, 0);
   const ex = ((ext || {}).ex || []).length + (k.exs || []).filter(x => re.test(x.t)).length + Math.max(0, ...(e.senses && e.senses.length ? e.senses : [e]).map(s => (s.wnex || []).length));
