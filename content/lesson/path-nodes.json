@@ -1,0 +1,1552 @@
+{
+  "v": 1,
+  "_note": "Nội dung nút Lộ trình (6 ô × chặng). Build: node scripts/lesson/build-path-nodes.mjs → web/cpack/lesson/path-nodes.js. Từ + câu ví dụ tiếng Anh lấy từ kho (ví dụ nguyên văn của kho); chữ Việt đi qua t() → web/js/i18n/en/pathx.js + i18n/ui/<lang>/pathx.js.",
+  "units": {
+    "start": {
+      "theme": "Chào hỏi và một ngày của bạn",
+      "can": "Bạn sẽ chào hỏi và kể về một ngày của mình",
+      "cap": "A2",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Chào hỏi, giới thiệu bản thân",
+          "sub": "Hỏi tên, làm quen bạn mới",
+          "min": 4,
+          "words": [
+            [
+              "hello",
+              "excl"
+            ],
+            [
+              "name",
+              "n"
+            ],
+            [
+              "meet",
+              "v"
+            ],
+            [
+              "friend",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Hello, my name is Minh.",
+              "vi": "Xin chào, tên mình là Minh."
+            },
+            {
+              "en": "Nice to meet you, I'm Lan.",
+              "vi": "Rất vui được gặp bạn, mình là Lan."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: bạn kể buổi sáng của mình",
+          "sub": "Giờ dậy, tắm rửa, ăn sáng",
+          "min": 3,
+          "words": [
+            [
+              "morning",
+              "n"
+            ],
+            [
+              "wake",
+              "v"
+            ],
+            [
+              "shower",
+              "n"
+            ],
+            [
+              "breakfast",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "I usually wake up at six.",
+              "vi": "Mình thường thức dậy lúc sáu giờ."
+            },
+            {
+              "en": "I usually have a shower in the morning.",
+              "vi": "Mình thường tắm vào buổi sáng."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: kể một ngày của bạn",
+          "sub": "Bữa trưa, buổi tối, giờ đi ngủ",
+          "min": 3,
+          "words": [
+            [
+              "work",
+              "v"
+            ],
+            [
+              "lunch",
+              "n"
+            ],
+            [
+              "evening",
+              "n"
+            ],
+            [
+              "bed",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "We usually watch TV in the evening.",
+              "vi": "Buổi tối chúng mình thường xem tivi."
+            },
+            {
+              "en": "I usually go to bed before midnight.",
+              "vi": "Mình thường đi ngủ trước nửa đêm."
+            }
+          ]
+        },
+        {
+          "slot": "story",
+          "title": "Truyện: người hàng xóm mới",
+          "sub": "Chào hỏi người mới chuyển đến",
+          "min": 4,
+          "words": [],
+          "ex": [],
+          "story": "s-neighbor"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: chào hỏi và buổi sáng",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "name",
+              "n"
+            ],
+            [
+              "meet",
+              "v"
+            ],
+            [
+              "wake",
+              "v"
+            ],
+            [
+              "evening",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Nice to meet you, I'm Lan.",
+              "vi": "Rất vui được gặp bạn, mình là Lan."
+            },
+            {
+              "en": "I usually wake up at six.",
+              "vi": "Mình thường thức dậy lúc sáu giờ."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: chào hỏi và một ngày",
+          "sub": "Nghe và đọc câu ngắn hằng ngày",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
+    },
+    "education": {
+      "theme": "Giáo dục và học tập",
+      "can": "Bạn sẽ nói về việc học và trường lớp",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Chương trình học và kỷ luật",
+          "sub": "Môn học, thi cử, nội quy",
+          "min": 4,
+          "words": [
+            [
+              "curriculum",
+              "n"
+            ],
+            [
+              "compulsory",
+              "adj"
+            ],
+            [
+              "assessment",
+              "n"
+            ],
+            [
+              "discipline",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "In my country, education is compulsory until the age of fifteen.",
+              "vi": "Ở nước tôi, giáo dục là bắt buộc đến mười lăm tuổi."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: tư vấn học bổng, học phí",
+          "sub": "Chọn ngành, chi phí, học bổng",
+          "min": 3,
+          "words": [
+            [
+              "scholarship",
+              "n"
+            ],
+            [
+              "tuition",
+              "n"
+            ],
+            [
+              "undergraduate",
+              "n"
+            ],
+            [
+              "vocational",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "She won a full scholarship to study engineering abroad.",
+              "vi": "Cô ấy giành học bổng toàn phần để học kỹ thuật ở nước ngoài."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: bạn thích học kiểu nào?",
+          "sub": "Học thuộc, hoạt động ngoại khóa",
+          "min": 3,
+          "words": [
+            [
+              "rote learning",
+              "n"
+            ],
+            [
+              "extracurricular",
+              "adj"
+            ],
+            [
+              "academic",
+              "adj"
+            ],
+            [
+              "literacy",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Extracurricular activities help children develop teamwork and leadership skills.",
+              "vi": "Hoạt động ngoại khóa giúp trẻ phát triển kỹ năng làm việc nhóm và lãnh đạo."
+            }
+          ]
+        },
+        {
+          "slot": "story"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: học bổng, thi cử, ngoại khóa",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "assessment",
+              "n"
+            ],
+            [
+              "scholarship",
+              "n"
+            ],
+            [
+              "tuition",
+              "n"
+            ],
+            [
+              "extracurricular",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "She won a full scholarship to study engineering abroad.",
+              "vi": "Cô ấy giành học bổng toàn phần để học kỹ thuật ở nước ngoài."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng giáo dục",
+          "sub": "Nghe, đọc và nói về việc học",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
+    },
+    "environment": {
+      "theme": "Môi trường và đời sống xanh",
+      "can": "Bạn sẽ nêu nguyên nhân và giải pháp cho môi trường",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Ô nhiễm và năng lượng sạch",
+          "sub": "Nguyên nhân và hướng giải quyết",
+          "min": 4,
+          "words": [
+            [
+              "pollution",
+              "n"
+            ],
+            [
+              "emission",
+              "n"
+            ],
+            [
+              "deforestation",
+              "n"
+            ],
+            [
+              "renewable",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Governments must cut carbon emissions to slow down climate change.",
+              "vi": "Chính phủ phải cắt giảm khí thải carbon để làm chậm biến đổi khí hậu."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: hạn hán và rác thải",
+          "sub": "Nguồn nước, rác, nông nghiệp",
+          "min": 3,
+          "words": [
+            [
+              "drought",
+              "n"
+            ],
+            [
+              "contaminate",
+              "v"
+            ],
+            [
+              "landfill",
+              "n"
+            ],
+            [
+              "sustainable",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Chemicals from factories have contaminated the local water supply.",
+              "vi": "Hóa chất từ nhà máy đã làm ô nhiễm nguồn nước địa phương."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: bảo vệ động vật hoang dã",
+          "sub": "Nơi sống, loài nguy cấp",
+          "min": 3,
+          "words": [
+            [
+              "biodiversity",
+              "n"
+            ],
+            [
+              "conservation",
+              "n"
+            ],
+            [
+              "habitat",
+              "n"
+            ],
+            [
+              "endangered",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Poaching has pushed many endangered species to the edge of extinction.",
+              "vi": "Nạn săn trộm đã đẩy nhiều loài nguy cấp đến bờ vực tuyệt chủng."
+            }
+          ]
+        },
+        {
+          "slot": "story"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: khí thải và loài nguy cấp",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "emission",
+              "n"
+            ],
+            [
+              "contaminate",
+              "v"
+            ],
+            [
+              "habitat",
+              "n"
+            ],
+            [
+              "endangered",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Governments must cut carbon emissions to slow down climate change.",
+              "vi": "Chính phủ phải cắt giảm khí thải carbon để làm chậm biến đổi khí hậu."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng môi trường",
+          "sub": "Nghe, đọc và nói về môi trường",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
+    },
+    "technology": {
+      "theme": "Công nghệ và đời sống số",
+      "can": "Bạn sẽ nêu ưu và nhược điểm của công nghệ",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Đổi mới và tự động hóa",
+          "sub": "Phát minh, máy móc thay người",
+          "min": 4,
+          "words": [
+            [
+              "innovation",
+              "n"
+            ],
+            [
+              "automation",
+              "n"
+            ],
+            [
+              "breakthrough",
+              "n"
+            ],
+            [
+              "obsolete",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Automation could replace millions of manual jobs in the next decade.",
+              "vi": "Tự động hóa có thể thay thế hàng triệu việc làm thủ công trong thập kỷ tới."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: thiết bị và AI",
+          "sub": "Thiết bị số, trí tuệ nhân tạo",
+          "min": 3,
+          "words": [
+            [
+              "device",
+              "n"
+            ],
+            [
+              "digital",
+              "adj"
+            ],
+            [
+              "artificial",
+              "adj"
+            ],
+            [
+              "cutting-edge",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Artificial intelligence is already used to diagnose some diseases.",
+              "vi": "Trí tuệ nhân tạo đã được dùng để chẩn đoán một số bệnh."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: ưu và nhược của công nghệ",
+          "sub": "Quyền riêng tư, nghiện ứng dụng",
+          "min": 3,
+          "words": [
+            [
+              "privacy",
+              "n"
+            ],
+            [
+              "surveillance",
+              "n"
+            ],
+            [
+              "addictive",
+              "adj"
+            ],
+            [
+              "user-friendly",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Many apps are deliberately designed to be addictive.",
+              "vi": "Nhiều ứng dụng được cố ý thiết kế để gây nghiện."
+            }
+          ]
+        },
+        {
+          "slot": "story"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: tự động hóa, quyền riêng tư",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "automation",
+              "n"
+            ],
+            [
+              "device",
+              "n"
+            ],
+            [
+              "privacy",
+              "n"
+            ],
+            [
+              "addictive",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Automation could replace millions of manual jobs in the next decade.",
+              "vi": "Tự động hóa có thể thay thế hàng triệu việc làm thủ công trong thập kỷ tới."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng công nghệ",
+          "sub": "Nghe, đọc và nói về công nghệ",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
+    },
+    "health": {
+      "theme": "Sức khỏe và lối sống",
+      "can": "Bạn sẽ đưa lời khuyên về sức khỏe",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Ăn uống và vận động",
+          "sub": "Béo phì, dinh dưỡng, ít vận động",
+          "min": 4,
+          "words": [
+            [
+              "obesity",
+              "n"
+            ],
+            [
+              "sedentary",
+              "adj"
+            ],
+            [
+              "nutrition",
+              "n"
+            ],
+            [
+              "diet",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "A balanced diet includes plenty of vegetables.",
+              "vi": "Chế độ ăn cân bằng gồm nhiều rau củ."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: khám bệnh và tiêm chủng",
+          "sub": "Triệu chứng, vaccine, bệnh mãn tính",
+          "min": 3,
+          "words": [
+            [
+              "symptom",
+              "n"
+            ],
+            [
+              "vaccine",
+              "n"
+            ],
+            [
+              "epidemic",
+              "n"
+            ],
+            [
+              "chronic",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Fever and cough are common symptoms of the flu.",
+              "vi": "Sốt và ho là những triệu chứng thường gặp của bệnh cúm."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: giữ gìn sức khỏe",
+          "sub": "Tinh thần, phòng bệnh, tuổi thọ",
+          "min": 3,
+          "words": [
+            [
+              "well-being",
+              "n"
+            ],
+            [
+              "mental",
+              "adj"
+            ],
+            [
+              "prevention",
+              "n"
+            ],
+            [
+              "life expectancy",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Regular exercise improves both physical and mental well-being.",
+              "vi": "Tập thể dục đều đặn cải thiện cả sức khỏe thể chất lẫn tinh thần."
+            }
+          ]
+        },
+        {
+          "slot": "story"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: dinh dưỡng và triệu chứng",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "nutrition",
+              "n"
+            ],
+            [
+              "symptom",
+              "n"
+            ],
+            [
+              "chronic",
+              "adj"
+            ],
+            [
+              "well-being",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Regular exercise improves both physical and mental well-being.",
+              "vi": "Tập thể dục đều đặn cải thiện cả sức khỏe thể chất lẫn tinh thần."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng sức khỏe",
+          "sub": "Nghe, đọc và nói về sức khỏe",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
+    },
+    "work": {
+      "theme": "Công việc và sự nghiệp",
+      "can": "Bạn sẽ nói về công việc của mình",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Tìm việc và tuyển dụng",
+          "sub": "Việc làm, tuyển người, lương",
+          "min": 4,
+          "words": [
+            [
+              "employment",
+              "n"
+            ],
+            [
+              "recruit",
+              "v"
+            ],
+            [
+              "workforce",
+              "n"
+            ],
+            [
+              "salary",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Tech companies are struggling to recruit skilled engineers.",
+              "vi": "Các công ty công nghệ đang khó tuyển được kỹ sư giỏi."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: một ngày ở văn phòng",
+          "sub": "Đồng nghiệp, đi làm, giờ linh hoạt",
+          "min": 3,
+          "words": [
+            [
+              "colleague",
+              "n"
+            ],
+            [
+              "commute",
+              "v"
+            ],
+            [
+              "flexible",
+              "adj"
+            ],
+            [
+              "promotion",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "I commute to the city by train, which takes about forty minutes.",
+              "vi": "Tôi đi làm vào thành phố bằng tàu, mất khoảng bốn mươi phút."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: năng suất và khởi nghiệp",
+          "sub": "Thưởng, năng suất, mất việc",
+          "min": 3,
+          "words": [
+            [
+              "productivity",
+              "n"
+            ],
+            [
+              "entrepreneur",
+              "n"
+            ],
+            [
+              "incentive",
+              "n"
+            ],
+            [
+              "redundancy",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Flexible working hours can boost employee productivity.",
+              "vi": "Giờ làm việc linh hoạt có thể nâng cao năng suất của nhân viên."
+            }
+          ]
+        },
+        {
+          "slot": "story"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: tuyển dụng và thăng chức",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "recruit",
+              "v"
+            ],
+            [
+              "colleague",
+              "n"
+            ],
+            [
+              "promotion",
+              "n"
+            ],
+            [
+              "incentive",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "She received a promotion to regional sales manager.",
+              "vi": "Cô ấy được thăng chức lên quản lý bán hàng khu vực."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng công việc",
+          "sub": "Nghe, đọc và nói về công việc",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
+    },
+    "society": {
+      "theme": "Xã hội và gia đình",
+      "can": "Bạn sẽ so sánh và bảo vệ quan điểm",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Bất bình đẳng và phúc lợi",
+          "sub": "Nghèo đói, phân biệt đối xử",
+          "min": 4,
+          "words": [
+            [
+              "poverty",
+              "n"
+            ],
+            [
+              "inequality",
+              "n"
+            ],
+            [
+              "welfare",
+              "n"
+            ],
+            [
+              "discrimination",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Income inequality has widened in many developed countries.",
+              "vi": "Bất bình đẳng thu nhập đã gia tăng ở nhiều nước phát triển."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: cộng đồng và tình nguyện",
+          "sub": "Tình nguyện, người nhập cư",
+          "min": 3,
+          "words": [
+            [
+              "community",
+              "n"
+            ],
+            [
+              "volunteer",
+              "v"
+            ],
+            [
+              "diversity",
+              "n"
+            ],
+            [
+              "immigration",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "I volunteered to help organise the international food festival.",
+              "vi": "Tôi đã tình nguyện giúp tổ chức lễ hội ẩm thực quốc tế."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: gia đình và các thế hệ",
+          "sub": "Khoảng cách thế hệ, già hóa dân số",
+          "min": 3,
+          "words": [
+            [
+              "generation gap",
+              "n"
+            ],
+            [
+              "upbringing",
+              "n"
+            ],
+            [
+              "nuclear family",
+              "n"
+            ],
+            [
+              "ageing population",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Technology has widened the generation gap in many families.",
+              "vi": "Công nghệ đã nới rộng khoảng cách thế hệ trong nhiều gia đình."
+            }
+          ]
+        },
+        {
+          "slot": "story"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: phúc lợi, thế hệ, cộng đồng",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "poverty",
+              "n"
+            ],
+            [
+              "welfare",
+              "n"
+            ],
+            [
+              "community",
+              "n"
+            ],
+            [
+              "generation gap",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Education is the most effective way to escape poverty.",
+              "vi": "Giáo dục là cách hiệu quả nhất để thoát nghèo."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng xã hội",
+          "sub": "Nghe, đọc và nói về xã hội",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
+    },
+    "media": {
+      "theme": "Truyền thông và quảng cáo",
+      "can": "Bạn sẽ bàn về tin tức và mạng xã hội",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Quảng cáo và người tiêu dùng",
+          "sub": "Quảng cáo thuyết phục hay đánh lừa",
+          "min": 4,
+          "words": [
+            [
+              "advertisement",
+              "n"
+            ],
+            [
+              "consumer",
+              "n"
+            ],
+            [
+              "persuasive",
+              "adj"
+            ],
+            [
+              "mislead",
+              "v"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Advertisers use persuasive language to create demand.",
+              "vi": "Các nhà quảng cáo dùng ngôn từ thuyết phục để tạo nhu cầu."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: bản tin trên truyền hình",
+          "sub": "Phát sóng, đưa tin, ảnh hưởng",
+          "min": 3,
+          "words": [
+            [
+              "broadcast",
+              "v"
+            ],
+            [
+              "coverage",
+              "n"
+            ],
+            [
+              "publicity",
+              "n"
+            ],
+            [
+              "influence",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "The final match was broadcast live to millions of viewers.",
+              "vi": "Trận chung kết được phát sóng trực tiếp đến hàng triệu khán giả."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: tin giả và kiểm duyệt",
+          "sub": "Tin sai lệch, báo lá cải",
+          "min": 3,
+          "words": [
+            [
+              "misinformation",
+              "n"
+            ],
+            [
+              "censorship",
+              "n"
+            ],
+            [
+              "tabloid",
+              "n"
+            ],
+            [
+              "sensationalism",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Misinformation spreads rapidly on social media platforms.",
+              "vi": "Thông tin sai lệch lan nhanh trên các nền tảng mạng xã hội."
+            }
+          ]
+        },
+        {
+          "slot": "story"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: quảng cáo và tin sai lệch",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "consumer",
+              "n"
+            ],
+            [
+              "broadcast",
+              "v"
+            ],
+            [
+              "misinformation",
+              "n"
+            ],
+            [
+              "mislead",
+              "v"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Some adverts deliberately mislead consumers about health benefits.",
+              "vi": "Một số quảng cáo cố ý đánh lừa người tiêu dùng về lợi ích sức khỏe."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng truyền thông",
+          "sub": "Nghe, đọc và nói về truyền thông",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
+    },
+    "urban": {
+      "theme": "Đô thị và giao thông",
+      "can": "Bạn sẽ mô tả thành phố và đề xuất thay đổi",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Đô thị hóa và nhà ở",
+          "sub": "Nhà ở, hạ tầng, đô thị lan rộng",
+          "min": 4,
+          "words": [
+            [
+              "urbanisation",
+              "n"
+            ],
+            [
+              "housing",
+              "n"
+            ],
+            [
+              "infrastructure",
+              "n"
+            ],
+            [
+              "sprawl",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "The lack of affordable housing forces young people to live with their parents.",
+              "vi": "Thiếu nhà ở giá phải chăng buộc người trẻ phải sống cùng cha mẹ."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: đi lại trong thành phố",
+          "sub": "Giờ cao điểm, xe buýt, người đi bộ",
+          "min": 3,
+          "words": [
+            [
+              "commuter",
+              "n"
+            ],
+            [
+              "public transport",
+              "n"
+            ],
+            [
+              "congestion",
+              "n"
+            ],
+            [
+              "pedestrian",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Trains are packed with commuters during rush hour.",
+              "vi": "Tàu chật kín người đi làm vào giờ cao điểm."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: sống ở phố hay ngoại ô",
+          "sub": "Khu dân cư, tiện ích, đông đúc",
+          "min": 3,
+          "words": [
+            [
+              "suburb",
+              "n"
+            ],
+            [
+              "residential",
+              "adj"
+            ],
+            [
+              "amenity",
+              "n"
+            ],
+            [
+              "overcrowded",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Many families move to the suburbs for more space.",
+              "vi": "Nhiều gia đình chuyển ra ngoại ô để có thêm không gian."
+            }
+          ]
+        },
+        {
+          "slot": "story"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: nhà ở và giao thông",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "housing",
+              "n"
+            ],
+            [
+              "commuter",
+              "n"
+            ],
+            [
+              "congestion",
+              "n"
+            ],
+            [
+              "amenity",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "A congestion charge has reduced traffic in the city centre.",
+              "vi": "Phí chống tắc đường đã giảm lượng xe ở trung tâm thành phố."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng đô thị",
+          "sub": "Nghe, đọc và nói về thành phố",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
+    },
+    "travel": {
+      "theme": "Du lịch và khám phá",
+      "can": "Bạn sẽ kể về chuyến đi và đặt dịch vụ",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Lên kế hoạch chuyến đi",
+          "sub": "Điểm đến, chỗ ở, lịch trình",
+          "min": 4,
+          "words": [
+            [
+              "destination",
+              "n"
+            ],
+            [
+              "accommodation",
+              "n"
+            ],
+            [
+              "itinerary",
+              "n"
+            ],
+            [
+              "souvenir",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Our itinerary included three days in Hoi An.",
+              "vi": "Lịch trình của chúng tôi gồm ba ngày ở Hội An."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: tour tham quan",
+          "sub": "Chuyến đi trong ngày, danh lam",
+          "min": 3,
+          "words": [
+            [
+              "excursion",
+              "n"
+            ],
+            [
+              "landmark",
+              "n"
+            ],
+            [
+              "hospitality",
+              "n"
+            ],
+            [
+              "exotic",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "We went on a day excursion to Ha Long Bay.",
+              "vi": "Chúng tôi đi tham quan Hạ Long trong một ngày."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: du lịch và văn hóa",
+          "sub": "Di sản, du lịch sinh thái",
+          "min": 3,
+          "words": [
+            [
+              "authentic",
+              "adj"
+            ],
+            [
+              "heritage",
+              "n"
+            ],
+            [
+              "ecotourism",
+              "n"
+            ],
+            [
+              "globalisation",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Many travellers look for an authentic local experience.",
+              "vi": "Nhiều du khách tìm kiếm trải nghiệm địa phương chân thực."
+            }
+          ]
+        },
+        {
+          "slot": "story",
+          "title": "Truyện: làm thủ tục ở sân bay",
+          "sub": "Đọc đoạn hội thoại ở quầy check-in",
+          "min": 4,
+          "words": [],
+          "ex": [],
+          "story": "s-airport"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: điểm đến và chỗ ở",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "destination",
+              "n"
+            ],
+            [
+              "accommodation",
+              "n"
+            ],
+            [
+              "excursion",
+              "n"
+            ],
+            [
+              "authentic",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "The price includes accommodation and breakfast.",
+              "vi": "Giá đã gồm chỗ ở và bữa sáng."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng du lịch",
+          "sub": "Nghe, đọc và nói về du lịch",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
+    },
+    "crime": {
+      "theme": "Tội phạm và pháp luật",
+      "can": "Bạn sẽ bàn về luật lệ và an toàn",
+      "cap": "C1",
+      "nodes": [
+        {
+          "slot": "lesson",
+          "title": "Tội phạm và hình phạt",
+          "sub": "Nạn nhân, kẻ phạm tội, mức phạt",
+          "min": 4,
+          "words": [
+            [
+              "crime rate",
+              "n"
+            ],
+            [
+              "offender",
+              "n"
+            ],
+            [
+              "victim",
+              "n"
+            ],
+            [
+              "penalty",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Heavier penalties for drink-driving have saved many lives.",
+              "vi": "Mức phạt nặng hơn với lái xe khi uống rượu đã cứu sống nhiều người."
+            }
+          ]
+        },
+        {
+          "slot": "listen",
+          "title": "Nghe: luật và việc thực thi",
+          "sub": "Luật mới, thực thi, truy tố",
+          "min": 3,
+          "words": [
+            [
+              "legislation",
+              "n"
+            ],
+            [
+              "enforce",
+              "v"
+            ],
+            [
+              "prosecute",
+              "v"
+            ],
+            [
+              "juvenile",
+              "adj"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "The police should enforce speed limits more strictly.",
+              "vi": "Cảnh sát nên thực thi nghiêm hơn các giới hạn tốc độ."
+            }
+          ]
+        },
+        {
+          "slot": "speak",
+          "title": "Nói: nên phạt nặng hay cải tạo?",
+          "sub": "Án tù, cải tạo, án tử hình",
+          "min": 3,
+          "words": [
+            [
+              "deterrent",
+              "n"
+            ],
+            [
+              "rehabilitation",
+              "n"
+            ],
+            [
+              "custodial sentence",
+              "n"
+            ],
+            [
+              "capital punishment",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Long prison sentences act as a deterrent to potential criminals.",
+              "vi": "Án tù dài hạn có tác dụng răn đe tội phạm tiềm tàng."
+            }
+          ]
+        },
+        {
+          "slot": "story"
+        },
+        {
+          "slot": "review",
+          "title": "Ôn: nạn nhân, mức phạt, răn đe",
+          "sub": "Nhắc lại những từ dễ quên nhất",
+          "min": 3,
+          "words": [
+            [
+              "victim",
+              "n"
+            ],
+            [
+              "penalty",
+              "n"
+            ],
+            [
+              "enforce",
+              "v"
+            ],
+            [
+              "deterrent",
+              "n"
+            ]
+          ],
+          "ex": [
+            {
+              "en": "Victims of cybercrime often lose large sums of money.",
+              "vi": "Nạn nhân của tội phạm mạng thường mất những khoản tiền lớn."
+            }
+          ]
+        },
+        {
+          "slot": "exam",
+          "title": "Kiểm tra: từ vựng pháp luật",
+          "sub": "Nghe, đọc và nói về luật và an toàn",
+          "min": 5,
+          "words": [],
+          "ex": []
+        }
+      ]
+    }
+  }
+}
