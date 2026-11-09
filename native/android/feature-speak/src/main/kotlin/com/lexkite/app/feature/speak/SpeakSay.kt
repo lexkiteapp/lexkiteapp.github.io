@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -93,7 +94,7 @@ fun SayCardScreen(ui: SayCardUi, a: SayActions2) {
             LKCard(fill = c.surfaceContainerHighest, onClick = a.flip, label = trs(Tr("Chạm để lật"))) {
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) { Tag(trs(f.regLbl), c.success); GhostButton("🔊", { a.speak(false) }, ink = c.primary) }
                 EnLtr { Body("“" + cd.say + "”", color = c.primary, style = LKType.headlineLg) }
-                if (f.ipa.isNotEmpty()) Box(Modifier.clip(RoundedCornerShape(50)).background(c.surfaceContainerLow).padding(horizontal = LKSpacing.spaceSm, vertical = 6.dp)) { EnLtr { Body(f.ipa) } }
+                if (f.ipa.isNotEmpty()) Box(Modifier.clip(RoundedCornerShape(50)).background(c.cardLow).padding(horizontal = LKSpacing.spaceSm, vertical = 6.dp)) { EnLtr { Body(f.ipa) } }
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.Bottom) {
                     Muted("⟳ " + trs(Tr("Chạm để lật")))
                     Box(Modifier.size(width = 120.dp, height = 130.dp)) { LocalSpeakSlots.current.teacher(ui.s.teacher, cd.pose, Modifier.size(width = 120.dp, height = 130.dp)) }
