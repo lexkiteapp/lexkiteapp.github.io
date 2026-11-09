@@ -185,7 +185,7 @@ class MainActivity : ComponentActivity() {
         val vocab = vocabEnv(lang)
         return remember(lang, dark) {
             val word = WordEnv(app.store, app.audio, UrlHttp, { name -> assets.open(name).bufferedReader().use { it.readText() } }, lang, wordIndex = { StudyWords.load(UrlHttp, cacheDir)?.index ?: emptyMap() }, tx = StudyTx.of(t, L10n.load(this@MainActivity, "vi")))
-            SkillsEnv(vocab, word, lang) { SkillsEnv.fetchPack(UrlHttp, cacheDir) }
+            SkillsEnv(vocab, word, lang) { SkillsEnv.fetchPack(UrlHttp, cacheDir, starter = { assets.open("content-pack/skills-starter.json").bufferedReader().use { it.readText() } }) }
         }
     }
     private val vocabSlots = StudySlots(image = { url, desc, mod -> RemoteImage(url, desc, mod) })

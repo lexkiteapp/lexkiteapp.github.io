@@ -61,12 +61,12 @@ class SkillsEnv(val vocab: VocabEnv, val word: WordEnv, val learnLang: String, p
          * listening/readings/lexis in the shape of vectors/skills.json `data`, consts = band table, Kokoro pools, dictation stopwords (installed by [SkillsContent.parse]).
          * Cached on disk: a good download replaces the cache, a failed/invalid one falls back to it; null = no pack anywhere (the hub shows its empty state).
          */
-        suspend fun fetchPack(http: Http, cacheDir: File, url: String = PACK_URL): SkillsContent? = withContext(Dispatchers.IO) {
+        suspend fun fetchPack(http: Http, cacheDir: File, url: String = PACK_URL, starter: () -> String? = { null }): SkillsContent? = withContext(Dispatchers.IO) {
             val f = File(cacheDir, "skills-pack.json")
             fun parse(t: String) = runCatching { SkillsContent.parse(Json.parseToJsonElement(t) as JsonObject).takeIf { it.listening.isNotEmpty() } }.getOrNull()
             val r = runCatching { http.send(Http.Req("GET", url)) }.getOrNull()
             val fresh = if (r != null && r.ok) parse(r.text)?.also { runCatching { f.parentFile?.mkdirs(); f.writeText(r.text) } } else null
-            fresh ?: if (f.exists()) runCatching { f.readText() }.getOrNull()?.let(::parse) else null
+            fresh ?: (if (f.exists()) runCatching { f.readText() }.getOrNull()?.let(::parse) else null) ?: runCatching { starter() }.getOrNull()?.let(::parse) // bundled 2-test starter: the hub is never empty offline
         }
         const val PACK_URL = "https://lexkite.com/data/skills-pack.json"
     }

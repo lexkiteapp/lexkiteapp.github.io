@@ -76,10 +76,12 @@ internal fun Opt(letter: String, text: String, selected: Boolean, mark: Boolean?
  * [graded] != null = after submitting: inputs lock, each question shows its verdict, the answer, the explanation and (listening) the evidence button.
  */
 @Composable
-internal fun QuestionGroups(p: Part, answers: Map<String, Any?>, graded: Map<Int, Qx.Res>?, tips: Boolean, onAnswer: (String, Any?) -> Unit, onHear: ((Int) -> Unit)? = null) {
+internal fun QuestionGroups(p: Part, answers: Map<String, Any?>, graded: Map<Int, Qx.Res>?, tips: Boolean, onAnswer: (String, Any?) -> Unit, onHear: ((Int) -> Unit)? = null, hide: Set<Int> = emptySet()) {
     val c = LocalLKColors.current
     p.groups.forEachIndexed { gi, gr ->
         val type = gr.gs("type"); val kind = Qx.kindOf(gr)
+        val nums = if (type == "multi") gr.ga("n").map { it.toString().trim('"').toDouble().toInt() } else gr.ga("items").map { (it as JsonObject).gs("n").toDouble().toInt() }
+        if (nums.isNotEmpty() && nums.all { it in hide }) return@forEachIndexed
         LKCard(fill = c.surfaceContainerHighest) {
             if (gr.gs("title").isNotEmpty()) Body(gr.gs("title"), style = LKType.titlePill)
             Muted(gr.gs("instr"))
@@ -94,7 +96,7 @@ internal fun QuestionGroups(p: Part, answers: Map<String, Any?>, graded: Map<Int
             } else {
               if (type == "match" && gr.strs("options").any { o -> Qx.label(o).isNotEmpty() }) Muted(gr.strs("options").joinToString("\n"))
               for (e in gr.ga("items")) {
-                val q = e as JsonObject; val n = q.gs("n").toDouble().toInt(); val key = n.toString(); val cur = answers[key] as? String ?: ""
+                val q = e as JsonObject; val n = q.gs("n").toDouble().toInt(); if (n in hide) continue; val key = n.toString(); val cur = answers[key] as? String ?: ""
                 if (type == "mcq") Body("$n. " + q.gs("q"), style = LKType.titlePill)
                 else if (type == "tfng" || type == "ynng" || type == "match") Body("$n. " + q.gs("text"), style = LKType.titlePill)
                 val res = graded?.get(n)
@@ -124,3 +126,17 @@ private fun Verdict(r: Qx.Res?, explain: String, n: Int, onHear: ((Int) -> Unit)
     }
 }
 
+
+/** "Results by question type" (QE.stats): right / total, % and the wrong question numbers per type; [onRetake] adds "Làm lại n câu sai". */
+@Composable
+internal fun StatsCard(res: Collection<Qx.Res>, onRetake: (() -> Unit)? = null) {
+    val c = LocalLKColors.current; val rows = Qx.stats(res.withIndex().associate { it.index to it.value }); val wrong = res.count { !it.ok }
+    LKCard {
+        Body("📊 " + t(L10nKey.skillQeKetQuaTheoDang), style = LKType.titlePill)
+        for (r in rows) Column(verticalArrangement = Arrangement.spacedBy(LKSpacing.space2xs)) {
+            EnLtr { Body(Qx.kindName(r.kind), style = LKType.labelMetric) }
+            Muted("${r.right}/${r.total} · ${r.pct}%" + if (r.wrong.isNotEmpty()) " · " + t(L10nKey.skillQeCauSai) + ": " + r.wrong.joinToString(", ") else "")
+        }
+        if (wrong > 0 && onRetake != null) GhostButton("↻ " + t(L10nKey.skillQeLamLaiNCau, mapOf("n" to wrong)), onRetake)
+    }
+}

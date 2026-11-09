@@ -54,7 +54,7 @@ object Qx {
         return if (has("choose .*from the (passage|text)")) "rnotes" else "notes"
     }
 
-    class Res(val ok: Boolean, val given: String, val answer: String, val cue: String, val q: String, val type: String, val kind: String, val over: Boolean = false)
+    data class Res(val ok: Boolean, val given: String, val answer: String, val cue: String, val q: String, val type: String, val kind: String, val over: Boolean = false, val alts: List<String> = emptyList(), val limit: Int = 0)
 
     /** Grades a part. [answers]: question number -> typed text / picked option index / TRUE|FALSE|… / letter; "m<group index>" -> the ticked letters of a choose-2 group. */
     fun collect(p: Part, answers: Map<String, Any?>): Map<Int, Res> {
@@ -65,22 +65,45 @@ object Qx {
             if (type == "multi") {
                 @Suppress("UNCHECKED_CAST") val picked = (answers["m$gi"] as? List<String>) ?: emptyList()
                 val want = gr.strs("a"); val correct = picked.count { it in want }
-                gr.ga("n").forEachIndexed { k, n -> res[(n as JsonPrimitive).content.toDouble().toInt()] = Res(k < correct, picked.joinToString(", "), want.joinToString(", "), gr.gs("cue"), gr.gs("q"), "multi", kind) }
+                gr.ga("n").forEachIndexed { k, n -> res[(n as JsonPrimitive).content.toDouble().toInt()] = Res(k < correct, picked.joinToString(", "), want.joinToString(", "), gr.gs("cue"), gr.gs("q"), "multi", kind, alts = want) }
                 return@forEachIndexed
             }
             for (e in gr.ga("items")) {
                 val it = e as JsonObject; val n = it.gn("n").toInt(); val cue = it.gs("cue")
                 res[n] = when {
                     type == "mcq" -> { val g = ans(n)?.toIntOrNull(); val a = it.gn("a").toInt(); val o = it.strs("options")
-                        Res(g == a, if (g == null) "" else L[g].toString(), L[a] + ". " + o[a], cue, it.gs("q"), "mcq", kind) }
-                    type == "tfng" || type == "ynng" -> { val g = ans(n) ?: ""; Res(g == it.gs("a"), g, it.gs("a"), cue, it.gs("text"), type, kind) }
+                        Res(g == a, if (g == null) "" else L[g].toString(), L[a] + ". " + o[a], cue, it.gs("q"), "mcq", kind, alts = listOf(a.toString())) }
+                    type == "tfng" || type == "ynng" -> { val g = ans(n) ?: ""; Res(g == it.gs("a"), g, it.gs("a"), cue, it.gs("text"), type, kind, alts = listOf(it.gs("a"))) }
                     type == "match" -> { val v = ans(n) ?: ""; val a = it.gs("a"); val opt = gr.strs("options").find { o -> code(o) == a }
-                        Res(v == a, v, a + (if (opt != null && label(opt).isNotEmpty()) " – " + label(opt) else ""), cue, it.gs("text"), "match", kind) }
-                    else -> { val v = (ans(n) ?: "").trim(); val a = it.strs("a"); val r = gradeGap(a, gr.gn("limit").toInt(), v); Res(r.ok, v, a.firstOrNull() ?: "", cue, it.gs("text"), "gap", kind, r.over) }
+                        Res(v == a, v, a + (if (opt != null && label(opt).isNotEmpty()) " – " + label(opt) else ""), cue, it.gs("text"), "match", kind, alts = listOf(a)) }
+                    else -> { val v = (ans(n) ?: "").trim(); val a = it.strs("a"); val r = gradeGap(a, gr.gn("limit").toInt(), v); Res(r.ok, v, a.firstOrNull() ?: "", cue, it.gs("text"), "gap", kind, r.over, a, gr.gn("limit").toInt()) }
                 }
             }
         }
         return res
+    }
+
+    /** Question-type names as the exams print them (qtips.js NAME): English in every language. */
+    private val NAME = mapOf("tfng" to "True / False / Not Given", "ynng" to "Yes / No / Not Given", "mcq" to "Multiple Choice", "multi" to "Multiple Choice (2 answers)", "headings" to "Matching Headings", "info" to "Matching Information",
+        "features" to "Matching Features", "endings" to "Matching Sentence Endings", "map" to "Map / Plan Labelling", "lmatch" to "Matching", "notes" to "Form / Note / Table Completion", "rnotes" to "Note / Table / Flow-chart Completion",
+        "summary" to "Summary Completion", "sentence" to "Sentence Completion")
+    fun kindName(k: String) = NAME[k] ?: k
+    /** One row of "results by question type": right / total and the numbers of the wrong questions. */
+    class Stat(val kind: String, val right: Int, val total: Int, val wrong: List<Int>) { val pct get() = Math.floor(right * 100.0 / total + 0.5).toInt() }
+    fun stats(res: Map<Int, Res>): List<Stat> { val m = LinkedHashMap<String, MutableList<Pair<Int, Res>>>(); for ((n, r) in res) m.getOrPut(r.kind.ifEmpty { r.type }) { ArrayList() }.add(n to r)
+        return m.map { (k, l) -> Stat(k, l.count { it.second.ok }, l.size, l.filter { !it.second.ok }.map { it.first }) } }
+    /** The answer the learner gave for question [n] in the [collect] answer map (a choose-2 group answers with its letters). */
+    fun answerFor(p: Part, answers: Map<String, Any?>, n: Int): Any? { p.groups.forEachIndexed { gi, g -> if (g.gs("type") == "multi" && g.ga("n").any { (it as JsonPrimitive).content.toDouble().toInt() == n }) return answers["m$gi"] }; return answers[n.toString()] }
+    /** Index of the choose-2 group holding question [n] (null = not a multi question). */
+    fun groupIndex(p: Part, n: Int): Int? = p.groups.indexOfFirst { g -> g.gs("type") == "multi" && g.ga("n").any { (it as JsonPrimitive).content.toDouble().toInt() == n } }.takeIf { it >= 0 }
+    /** "Làm lại câu sai": grades a wrong question again with a new answer (QE.retake). */
+    fun recheck(r: Res, given: Any?): Res {
+        val ok = when (r.type) {
+            "multi" -> (given as? List<*>).orEmpty().map { it.toString() }.let { it.size == r.alts.size && it.all { x -> x in r.alts } }
+            "mcq", "tfng", "ynng", "match" -> given is String && given == r.alts.firstOrNull()
+            else -> gradeGap(r.alts, r.limit, (given as? String).orEmpty()).ok
+        }
+        return r.copy(ok = ok)
     }
 
     /** Raw score -> band, per skill: `[min raw, band]` rows of the pack (`consts.band`, qengine.js BAND), first row with raw >= min. */

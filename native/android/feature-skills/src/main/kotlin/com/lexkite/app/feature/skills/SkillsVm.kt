@@ -97,6 +97,14 @@ class ListenVm(private val env: SkillsEnv, private val id: String, exam: Boolean
     fun line(i: Int) { val u = ui ?: return; if (u.live || u.submit != null) { ui = u.copy(plays = u.plays + 1); player?.play(i) } }
     fun switchMode() { examMode = !examMode; open() }
     fun again() { open() }
+    fun retake() { val u = ui ?: return; val s = u.submit ?: return
+        val wrong = s.res.filterValues { !it.ok }.keys
+        val dropM = wrong.mapNotNull { Qx.groupIndex(part, it) }.map { "m$it" }.toSet()
+        val keep = u.answers.filterKeys { k -> k !in dropM && k.toIntOrNull() !in wrong }
+        ui = u.copy(retake = true, recheck = null, showAll = false, answers = keep) }
+    fun recheck() { val u = ui ?: return; val s = u.submit ?: return
+        ui = u.copy(recheck = s.res.filterValues { !it.ok }.mapValues { (n, r) -> Qx.recheck(r, Qx.answerFor(part, u.answers, n)) }) }
+    fun showAll() { ui = ui?.copy(showAll = true) }
     fun submit(confirmed: Boolean = false) {
         val u = ui ?: return
         if (u.submit != null) return

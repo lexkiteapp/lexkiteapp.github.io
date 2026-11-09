@@ -123,11 +123,12 @@ fun ListenHubScreen(ui: HubUi, a: HubActions) {
 data class ListenUi(
     val page: ListenPage.Page, val answers: Map<String, Any?> = emptyMap(), val playing: Boolean = false, val plays: Int = 0, val line: Int = -1, val ended: Boolean = false, val blocked: Boolean = false,
     val live: Boolean = false, val rows: List<ListenPage.Row> = emptyList(), val submit: ListenPage.Submit? = null, val popup: PopupUi? = null, val saved: Set<Int> = emptySet(), val confirmSubmit: Boolean = false,
+    val retake: Boolean = false, val recheck: Map<Int, Qx.Res>? = null, val showAll: Boolean = false,
 )
 class ListenActions(
     val play: () -> Unit = {}, val back: () -> Unit = {}, val rate: (Double) -> Unit = {}, val live: (Boolean) -> Unit = {}, val answer: (String, Any?) -> Unit = { _, _ -> }, val submit: () -> Unit = {}, val confirm: (Boolean) -> Unit = {},
     val again: () -> Unit = {}, val line: (Int) -> Unit = {}, val word: (String, String) -> Unit = { _, _ -> }, val closePopup: () -> Unit = {}, val savePopup: () -> Unit = {}, val speakWord: () -> Unit = {}, val hear: (Int) -> Unit = {},
-    val saveVocab: (Int) -> Unit = {}, val switchMode: () -> Unit = {}, val open: (String) -> Unit = {}, val exit: () -> Unit = {},
+    val saveVocab: (Int) -> Unit = {}, val retake: () -> Unit = {}, val recheck: () -> Unit = {}, val showAll: () -> Unit = {}, val switchMode: () -> Unit = {}, val open: (String) -> Unit = {}, val exit: () -> Unit = {},
 )
 
 /** The player bar: play / pause, previous line, speed, live-transcript switch (practice) or the one-listen note (exam). */
@@ -190,7 +191,11 @@ fun ListenScreen(ui: ListenUi, a: ListenActions) {
         Body(p.title, style = LKType.headlineMd); Muted(p.context); SpeakerChips(ListenHub.speakers(p))
         PlayerBar(ui, a)
         if (!pg.exam || s != null) Transcript(ui, a)
-        QuestionGroups(p, ui.answers, s?.res, pg.tipsOn, a.answer, a.hear)
+        val shown = if (ui.retake) ui.recheck else s?.res
+        if (s != null && ui.retake) LKCard { Flow { if (ui.recheck == null) LKPrimaryButton(t(L10nKey.actionCheck), a.recheck) else Body(t(L10nKey.skillQeLamLaiDungRight, mapOf("right" to ui.recheck.values.count { it.ok }, "total" to ui.recheck.size)), style = LKType.titlePill)
+            GhostButton(t(L10nKey.skillQeHienTatCaCau), a.showAll) } }
+        QuestionGroups(p, ui.answers, shown, pg.tipsOn, a.answer, a.hear, if (ui.retake && !ui.showAll && s != null) s.res.filterValues { it.ok }.keys else emptySet())
+        if (s != null && !ui.retake) StatsCard(s.res.values, a.retake)
         if (s != null) {
             LKCard(fill = if (s.ok) c.surfaceContainerHighest else c.errorContainer) {
                 Body(t(L10nKey.skillListenABCauDung, mapOf("a" to s.right, "b" to s.total)) + " · +${s.xp} XP", style = LKType.headlineSm)
@@ -249,6 +254,7 @@ fun ListenTestScreen(ui: TestUi, a: TestActions) {
                 for ((k, id) in ui.partIds.withIndex()) LKCard(onClick = { a.open("#/listen/$id") }) {
                     Body("Part ${k + 1} · ${d.byPart[k]}/10", style = LKType.titlePill); LKProgress(d.byPart[k] / 10f, track = c.surfaceContainerHighest); Muted(t(L10nKey.skillListenBamDeLuyenLai))
                 }
+                StatsCard(ui.sheet.map { it.second })
                 LKCard {
                     Body("📋 " + t(L10nKey.skillListenBangDapAn), style = LKType.titlePill)
                     for ((q, r, _) in ui.sheet) EnLtr { Row(horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
@@ -351,12 +357,12 @@ fun ReaderScreen(ui: ReaderUi, a: ReaderActions) {
         Muted(t(L10nKey.skillReadToSang))
         Flow { for ((k, key) in listOf("kw" to L10nKey.skillReadTuKhoa, "awl" to L10nKey.skillReadHocThuatAwl, "link" to L10nKey.skillReadTuNoiCum, "mine" to L10nKey.skillReadTuCuaToi)) Chip(t(key) + " ${ui.passage.counts[k]}", k in ui.on, { a.toggle(k) }) }
         LKCard(fill = c.surfaceContainerHighest) {
-            for (para in ui.passage.paras) EnLtr { Flow { for (s in para) { val sent = ui.passage.sentenceText(s).replace(Regex("\\s+"), " ").trim(); for (tk in s) {
+            for ((pi, para) in ui.passage.paras.withIndex()) EnLtr { Flow { for ((si, s) in para.withIndex()) { val hot = ui.passage.paras.take(pi).sumOf { it.size } + si == ui.reading; val sent = ui.passage.sentenceText(s).replace(Regex("\\s+"), " ").trim(); for (tk in s) {
                 if (tk is Lexis.Tok) { val cls = tk.cls.split(' ').filter { it in ui.on }
-                    Text(tk.text, Modifier.heightIn(min = 32.dp).clickable { a.word(tk.w, sent) }.background(when { ui.active == tk.w -> c.secondaryContainer; "mine" in cls -> c.surfaceContainerHighest; else -> c.card }).padding(horizontal = 2.dp)
+                    Text(tk.text, Modifier.heightIn(min = 32.dp).clickable { a.word(tk.w, sent) }.background(when { hot -> c.secondaryContainer; ui.active == tk.w -> c.secondaryContainer; "mine" in cls -> c.surfaceContainerHighest; else -> c.card }).padding(horizontal = 2.dp)
                         .let { m -> if (cls.isEmpty()) m else m.background(c.tertiaryContainer.copy(alpha = if ("kw" in cls) 0.55f else 0.25f)) },
                         style = LKType.bodyLg.toCompose(), color = if ("awl" in cls) c.secondary else c.onSurface, textDecoration = if ("link" in cls || "col" in cls) androidx.compose.ui.text.style.TextDecoration.Underline else null)
-                } else Text(tk.toString(), style = LKType.bodyLg.toCompose(), color = c.onSurface) } } } }
+                } else Text(tk.toString(), Modifier.let { if (hot) it.background(c.secondaryContainer) else it }, style = LKType.bodyLg.toCompose(), color = c.onSurface) } } } }
             Muted(t(L10nKey.skillReadChamVaoTuDe))
         }
         LKCard {

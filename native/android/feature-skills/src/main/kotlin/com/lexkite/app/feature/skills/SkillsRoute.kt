@@ -51,7 +51,7 @@ fun SkillsRoute(env: SkillsEnv, page: String, arg: String, query: String, open: 
             if (ui == null) Loading(exit) else ListenScreen(ui, ListenActions(
                 play = { vm.play() }, back = { vm.back() }, rate = { vm.rate(it) }, live = { vm.live(it) }, answer = { k, v -> vm.answer(k, v) }, submit = { vm.submit() }, confirm = { vm.confirm(it) }, again = { vm.again() },
                 line = { vm.line(it) }, word = { w, s -> vm.word(w, s) }, closePopup = { vm.closePopup() }, savePopup = { vm.savePopup() }, speakWord = { vm.speakWord() }, hear = { vm.hear(it) },
-                saveVocab = { vm.saveVocab(it) }, switchMode = { vm.switchMode() }, open = go, exit = exit))
+                saveVocab = { vm.saveVocab(it) }, retake = { vm.retake() }, recheck = { vm.recheck() }, showAll = { vm.showAll() }, switchMode = { vm.switchMode() }, open = go, exit = exit))
         }
         "listen-test" -> {
             val vm: TestVm = viewModel(key = "test-$key", factory = TestVm.Factory(env, arg.toIntOrNull() ?: 1))
