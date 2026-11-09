@@ -74,6 +74,7 @@ dependencies {
     implementation(project(":feature-lesson"))
     implementation(project(":feature-vocab"))
     implementation(project(":feature-skills"))
+    implementation(project(":feature-speak"))
     implementation("androidx.core:core-splashscreen:1.0.1") // C17 system splash (brand colour, then Compose brand screen)
 
     val bom = platform("androidx.compose:compose-bom:2025.06.00")
