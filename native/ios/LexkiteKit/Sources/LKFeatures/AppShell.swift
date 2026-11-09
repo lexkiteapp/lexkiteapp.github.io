@@ -86,6 +86,7 @@ public struct AppShell: View {
         case "home": TodayView()
         case "me": MeHub(tab: tb)
         case "vocab": StudyVocabHub(tab: tb)   // M3 P04/P05
+        case "skills": SkillsHubView(tab: tb)   // M4 P06
         default: HubScreen(tab: tb)
         }
     }
@@ -119,6 +120,7 @@ struct InnerScreen: View {
     var body: some View {
         if StudyRoutes.handlesInner(route.name) { StudyInnerScreen(route: route) }
         else if DictRoutes.handlesInner(route.name) { DictInnerScreen(route: route) }
+        else if SkillsRoutes.handlesInner(route.name) { SkillsInnerScreen(route: route) }   // M4 P06: listening · listen · reading · read
         else { placeholder }
     }
     @ViewBuilder private var placeholder: some View {
@@ -149,6 +151,8 @@ struct FocusScreen: View {
             LessonView(route: route) { services.router.closeFocus() }   // P03
         } else if StudyRoutes.handlesFocus(route.name) {
             StudyFocusScreen(route: route)   // M3 P04: review · practice · mistakes
+        } else if SkillsRoutes.handlesFocus(route.name) {
+            SkillsFocusScreen(route: route)   // M4 P06: listen-test · dictation
         } else {
             VStack(spacing: 0) {
                 TopBar(variant: .focus(progress: 0), title: "") { services.router.closeFocus() }

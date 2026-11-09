@@ -29,8 +29,10 @@ public struct VocabEdit: Sendable {
     public var game: JSON?
     public var mistakes: [JSON]?
     public var seen: [String: Double]?
-    public init(upsert: [JSON] = [], removed: [String] = [], stats: JSON? = nil, game: JSON? = nil, mistakes: [JSON]? = nil, seen: [String: Double]? = nil) {
-        self.upsert = upsert; self.removed = removed; self.stats = stats; self.game = game; self.mistakes = mistakes; self.seen = seen
+    /// the whole synced settings object (listening rate, highlights, dictation mode…)
+    public var settings: JSON?
+    public init(upsert: [JSON] = [], removed: [String] = [], stats: JSON? = nil, game: JSON? = nil, mistakes: [JSON]? = nil, seen: [String: Double]? = nil, settings: JSON? = nil) {
+        self.upsert = upsert; self.removed = removed; self.stats = stats; self.game = game; self.mistakes = mistakes; self.seen = seen; self.settings = settings
     }
 }
 
@@ -76,13 +78,14 @@ public struct RepoVocabData: VocabDataSource {
     }
 
     public func commit(_ e: VocabEdit, now: Int64) async {
-        if !e.upsert.isEmpty || !e.removed.isEmpty || e.stats != nil || e.game != nil {
+        if !e.upsert.isEmpty || !e.removed.isEmpty || e.stats != nil || e.game != nil || e.settings != nil {
             let edit = e
             _ = try? await repo.mutate { doc in
                 for c in edit.upsert { let k = Vocab.cardKey(c); doc.cards[k] = c; doc.deleted[k] = nil }
                 for k in edit.removed { doc.cards[k] = nil; doc.deleted[k] = Double(now) }
                 if let s = edit.stats { doc.stats = s }
                 if let g = edit.game { doc.game = g }
+                if let s = edit.settings { doc.settings = s }
             }
         }
         if let m = e.mistakes { await repo.storeLegacy("mistakes", .array(m)) }
@@ -118,6 +121,7 @@ public final class MemoryVocabData: VocabDataSource, @unchecked Sendable {
         for k in e.removed { bundle.cards.removeAll { Vocab.cardKey($0) == k } }
         if let s = e.stats { bundle.stats = s }
         if let g = e.game { bundle.game = g }
+        if let s = e.settings { bundle.settings = s }
         if let m = e.mistakes { bundle.mistakes = m }
         if let s = e.seen { bundle.seen = s }
     }

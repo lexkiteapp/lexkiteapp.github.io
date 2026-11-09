@@ -30,13 +30,13 @@ internal fun JsonObject.cp(vararg p: Pair<String, Any?>): JsonObject = JsonObjec
 
 /** JS `String(x ?? '')` for a JSON value (objects/arrays give ""). */
 internal fun JsonElement?.s(): String = when (this) { null, is JsonNull -> ""; is JsonPrimitive -> content; else -> "" }
-internal fun JsonObject?.gs(k: String): String = this?.get(k).s()
+fun JsonObject?.gs(k: String): String = this?.get(k).s()
 internal fun JsonObject?.gn(k: String, d: Double = 0.0): Double { val e = this?.get(k); return if (e == null || e is JsonNull) d else Js.num(e).let { if (it.isNaN()) d else it } }
-internal fun JsonObject?.ga(k: String): List<JsonElement> = (this?.get(k) as? JsonArray) ?: emptyList()
+fun JsonObject?.ga(k: String): List<JsonElement> = (this?.get(k) as? JsonArray) ?: emptyList()
 internal fun JsonObject?.go(k: String): JsonObject? = this?.get(k) as? JsonObject
 internal fun JsonObject?.gt(k: String): Boolean = Js.truthy(this?.get(k))
 internal fun JsonObject?.gl(k: String): Long? { val e = this?.get(k); return if (e == null || e is JsonNull || !Js.truthy(e)) null else Js.num(e).toLong() }
-internal fun JsonObject?.strs(k: String): List<String> = ga(k).map { it.s() }
+fun JsonObject?.strs(k: String): List<String> = ga(k).map { it.s() }
 
 /** JS whitespace class (String.prototype.trim / \s). */
 internal const val JSWS = "[\\s\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000\\ufeff]"
