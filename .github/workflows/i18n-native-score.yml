@@ -30,7 +30,9 @@ jobs:
           CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
           CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
           AI_POOL_GC_MAX: '3000'
-        run: node scripts/i18n-native-score.mjs --shard ${{ matrix.shard }}/4 --limit "${{ github.event.inputs.limit || '400' }}" ${{ github.event.inputs.fix == '1' && '--fix' || '' }}
+          LX_LIMIT: ${{ github.event.inputs.limit || '400' }}
+          LX_FIX: ${{ github.event.inputs.fix }}
+        run: node scripts/i18n-native-score.mjs --shard ${{ matrix.shard }}/4 --limit "$LX_LIMIT" $([ "$LX_FIX" = 1 ] && echo --fix)
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
