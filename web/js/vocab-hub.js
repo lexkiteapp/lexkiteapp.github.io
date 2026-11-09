@@ -14,7 +14,8 @@
       teacher: Chars.slot('ama', { pose: total ? 'point' : 'happy', size: 's', lazy: false }),
       r: [row('#/path', t('Lộ trình từ vựng'), t('Từng chặng nhỏ, mở khóa dần theo trình độ')), row(lib, t('Thư viện từ'), t('Bộ từ theo chủ đề, kỳ thi và trình độ')), row('#/deck', t('Sổ từ của tôi'), t('{n} từ · {m} từ đã thuộc', { n: deck.length, m: mastered })), row('#/practice', t('Trò chơi từ vựng'), t('Ghép thẻ, gõ từ, nghe – gõ, trắc nghiệm'))],
       p: [pill('#/verb', t('Chia động từ')), pill('#/usage', t('Cách dùng từ')), pill('#/phrases', t('Cụm từ & cấu trúc'))],
-    }, 'vocab');
+    }, null);
+    document.body.classList.remove('v2on'); // ST2.mount bật v2on (ẩn thanh trên chung < 1024 px): tab này dùng thanh trên + #bnav chung như Kỹ năng/Thi
     const f = root.querySelector('[data-vh=search]'), q = root.querySelector('[data-vh=q]');
     // Bàn phím ảo: đưa ô nhập lên vùng nhìn thấy sau khi bàn phím mở xong
     q.addEventListener('focus', () => setTimeout(() => q.scrollIntoView({ block: 'center', behavior: 'smooth' }), 300));
