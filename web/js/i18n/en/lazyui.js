@@ -786,7 +786,7 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Mẫu câu thân mật': 'Informal',
 'Câu đáp thường gặp': 'Common replies',
 'Hội thoại mẫu': 'Sample dialogue',
-'Tránh nói': 'Avoid',
+'Lỗi cần tránh': 'Avoid',
 'Lưu cụm này vào sổ': 'Save this phrase',
 'Lọc theo cấp độ': 'Filter by level',
 'Tìm chức năng hoặc câu…': 'Search a function or phrase…',

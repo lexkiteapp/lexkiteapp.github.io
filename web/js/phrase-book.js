@@ -21,7 +21,7 @@
     return `${REG.map(([k, lab]) => (f.phrases[k] || []).length ? h(lab) + f.phrases[k].map(p => row(p, sv(p))).join('') : '').join('')}
       ${(f.responses || []).length ? h('Câu đáp thường gặp') + f.responses.map(p => row(p, sv(p))).join('') : ''}
       ${(f.example || []).length ? h('Hội thoại mẫu') + f.example.map(x => row(x.en, '', x.who)).join('') : ''}
-      ${f.avoid ? `${h('Tránh nói')}<div class="small"><div><span class="chip">✗</span> <span lang="en">${esc(f.avoid.wrong)}</span></div><div style="margin-top:.2rem"><span class="chip ok">✓</span> <span lang="en">${esc(f.avoid.right)}</span></div><p class="muted small" style="margin:.3rem 0 0">${esc(L1(f, 'why', f.avoid.why))}</p></div>` : ''}
+      ${f.avoid ? `${h('Lỗi cần tránh')}<div class="small"><div><span class="chip">✗</span> <span lang="en">${esc(f.avoid.wrong)}</span></div><div style="margin-top:.2rem"><span class="chip ok">✓</span> <span lang="en">${esc(f.avoid.right)}</span></div><p class="muted small" style="margin:.3rem 0 0">${esc(L1(f, 'why', f.avoid.why))}</p></div>` : ''}
       ${f.note ? `<p class="muted small" style="margin:.8rem 0 0">${UI.icon('ruler')} ${esc(L1(f, 'note', f.note))}</p>` : ''}`;
   };
   // host = phần tử rỗng trong #/phrases; gọi một lần khi mở mục. Trả true nếu có dữ liệu để vẽ.
