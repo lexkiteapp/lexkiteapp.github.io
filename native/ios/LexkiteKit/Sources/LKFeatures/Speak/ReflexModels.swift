@@ -27,6 +27,8 @@ final class ReflexModel {
     private(set) var game: ReflexCore.Game
     private(set) var stage: Stage = .idle
     private(set) var history: [Round] = []
+    /// the teacher slot (Stitch reflex-run / reflex-result): drawn, silent
+    var teacher = TeacherController(who: SpeakAccent.ama)
     private var timer: Task<Void, Never>?
     private var playTask: Task<Void, Never>?
     private var dead = false
@@ -121,6 +123,7 @@ final class ReflexModel {
     // MARK: fixtures
     static func fixture(ctx: SkillsContext, items: [ReflexCore.Item], stage: Stage, left: Int = 60, history: [Round] = []) -> ReflexModel {
         let m = ReflexModel(ctx: ctx, io: .scripted(), items: items, live: false)
+        m.teacher = TeacherController.frozen(who: "ama", pose: "talk")
         m.game.start(); for _ in 0..<(ReflexCore.seconds - left) { _ = m.game.tick() }
         if case .finished = stage { _ = m.game.finish() }
         m.stage = stage; m.history = history

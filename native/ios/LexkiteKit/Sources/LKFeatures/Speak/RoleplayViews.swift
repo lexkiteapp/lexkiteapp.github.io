@@ -135,25 +135,45 @@ struct RoleplayBriefView: View {
                 Text(verbatim: s.s("em")).font(.system(size: 40)).accessibilityHidden(true)
                 Text(verbatim: s.s("title")).studyText(LKType.bodyMd, LKColor.onSurfaceVariant).englishText()
             }
+            // Stitch roleplay-brief: partner card (avatar + name + role), objectives, topic vocabulary, level, then the pinned Start and "choose another situation"
             SkillCard {
                 VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
                     head("theatermasks.fill", t(.speakRpVaiCuaAi))
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(verbatim: (s["ai"]?.s("name") ?? "") + " – " + (s["ai"]?.s("role") ?? "")).studyText(LKType.titlePill).englishText()
-                        Text(verbatim: s["ai"]?.s("persona") ?? "").studyText(LKType.bodySm, LKColor.onSurfaceVariant).englishText()
+                    HStack(alignment: .center, spacing: LKSpacing.spaceSm) {
+                        Text(verbatim: String((s["ai"]?.s("name") ?? "?").prefix(1))).studyText(LKType.headlineSm, LKColor.onSecondary).englishText()
+                            .frame(width: 48, height: 48).background(Circle().fill(LKColor.secondary.resolve(scheme))).accessibilityHidden(true)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(verbatim: (s["ai"]?.s("name") ?? "") + " – " + (s["ai"]?.s("role") ?? "")).studyText(LKType.titlePill).englishText().fixedSize(horizontal: false, vertical: true)
+                            Text(verbatim: s["ai"]?.s("persona") ?? "").studyText(LKType.bodySm, LKColor.onSurfaceVariant).englishText().fixedSize(horizontal: false, vertical: true)
+                        }
                     }
-                    head("scope", t(.speakRpMucTieuCuaBan))
-                    if s.t("cando") { Text(verbatim: SpeakText.render(.string(s.s("cando")), t)).studyText(LKType.titlePill) }
-                    Text(verbatim: s.s("you")).studyText(LKType.bodyMd, s.t("cando") ? LKColor.onSurfaceVariant : LKColor.onSurface).englishText()
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            SkillCard {
+                VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
+                    head("flag.fill", t(.speakRpMucTieuCuaBan))
+                    HStack(alignment: .firstTextBaseline, spacing: LKSpacing.spaceSm) {
+                        Text(verbatim: "1").studyText(LKType.labelBadge, LKColor.onSecondary).frame(width: 24, height: 24).background(Circle().fill(LKColor.secondary.resolve(scheme))).accessibilityHidden(true)
+                        VStack(alignment: .leading, spacing: 2) {
+                            if s.t("cando") { Text(verbatim: SpeakText.render(.string(s.s("cando")), t)).studyText(LKType.titlePill).fixedSize(horizontal: false, vertical: true) }
+                            Text(verbatim: s.s("you")).studyText(LKType.bodyMd, s.t("cando") ? LKColor.onSurfaceVariant : LKColor.onSurface).englishText().fixedSize(horizontal: false, vertical: true)
+                        }
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            SkillCard {
+                VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
                     head("books.vertical.fill", t(.modelTopicVocabulary))
                     FlowLayout(spacing: 8) {
                         ForEach(Array(s.list("vocab").enumerated()), id: \.offset) { i, v in chip(i, v) }
                     }
                     Text(verbatim: t(.speakRpBamDeLuuTu)).studyText(LKType.bodySm, LKColor.onSurfaceVariant)
-                    RoleplayLevelPicker(labels: model.levels, selected: level) { level = $0; model.setLevel($0) }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
+            RoleplayLevelPicker(labels: model.levels, selected: level) { level = $0; model.setLevel($0) }
             SkillAction(title: t(.speakRpChonTinhHuongKhac)) { dismiss() }
         }
         .safeAreaInset(edge: .bottom) {

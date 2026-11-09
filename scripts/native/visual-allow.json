@@ -40,36 +40,6 @@
         317
       ],
       "reason": "Ảnh chụp riêng rig giáo viên (C05): vùng nhân vật = art 2D đã duyệt của web/teach (Ama/Carlos, characters.json), không phải UI nên không thuộc bảng token; nền quanh nhân vật vẫn được kiểm. Màn bài học/onboarding có giáo viên vẫn kiểm đầy đủ."
-    },
-    {
-      "match": "ios-pronsoundvowel-de-dark",
-      "rect": [
-        60,
-        292,
-        270,
-        226
-      ],
-      "reason": "P07 pron-sound: SVG khẩu hình (đĩa sáng + môi/lưỡi) giữ màu sáng trong thẻ tối theo mẫu Stitch (docs/specs/native-m4-vectors.md \"Mẫu Stitch P07\"): hình minh họa đã duyệt, không phải UI nên không thuộc bảng token tối; phần còn lại của màn vẫn được kiểm."
-    },
-    {
-      "match": "android-speak-pronsound-de-dark",
-      "rect": [
-        112,
-        226,
-        166,
-        166
-      ],
-      "reason": "P07 pron-sound: SVG khẩu hình (đĩa sáng + môi/lưỡi) giữ màu sáng trong thẻ tối theo mẫu Stitch (docs/specs/native-m4-vectors.md \"Mẫu Stitch P07\"): hình minh họa đã duyệt, không phải UI nên không thuộc bảng token tối; phần còn lại của màn vẫn được kiểm."
-    },
-    {
-      "match": "ios-handsfreedarkscreen-*",
-      "rect": [
-        0,
-        0,
-        390,
-        844
-      ],
-      "reason": "P07 hands-free \"Màn tối\" (ambient mode): nền đen thuần #000000 có chủ đích (tiết kiệm pin OLED, như màn khóa), chỉ còn từ + chấm tiến độ mờ; không thuộc bảng token. Chỉ ảnh trạng thái này."
     }
   ],
   "colors": []

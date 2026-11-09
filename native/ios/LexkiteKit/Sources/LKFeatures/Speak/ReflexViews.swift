@@ -60,7 +60,7 @@ struct ReflexView: View {
     // MARK: running
     private var run: some View {
         VStack(spacing: LKSpacing.spaceMd) {
-            Text(verbatim: t(.speakReflexNgheMotCauNgan)).studyText(LKType.bodyMd, LKColor.onSurfaceVariant).multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
+            PronCoachCard(controller: model.teacher, text: t(.speakReflexNgheMotCauNgan))
             dial
             SkillCard { card.frame(maxWidth: .infinity, minHeight: 200) }
             Text(verbatim: t(.speakReflexMeoLuuCauTrong)).studyText(LKType.bodySm, LKColor.onSurfaceVariant).multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
@@ -117,6 +117,7 @@ struct ReflexView: View {
     // MARK: result (reflex-result)
     private func result(_ s: ReflexCore.Summary) -> some View {
         VStack(spacing: LKSpacing.spaceMd) {
+            PronCoachCard(controller: model.teacher, text: t(.speakReflexMeoLuuCauTrong))
             SkillCard {
                 VStack(spacing: LKSpacing.spaceXs) {
                     Image(systemName: "flag.checkered").font(.system(size: 36, weight: .bold)).foregroundStyle(LKColor.secondary.resolve(scheme)).accessibilityHidden(true)

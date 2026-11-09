@@ -22,15 +22,37 @@ struct RtypeView: View {
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
-        StudyPage(title: model.kind.map { RtypeKinds.title($0, t) } ?? t(.skillQtLuyenReadingTheoDang)) {
-            if model.isEmpty { SkillCard { StudyEmpty(icon: "book.closed", title: t(.skillListenDangCapNhatDe)) } }
-            else if model.kind == nil { hub }
-            else if model.finished { done }
-            else { run }
+        Group {
+            if model.kind == nil || model.isEmpty || model.finished {
+                StudyPage(title: model.kind.map { RtypeKinds.title($0, t) } ?? t(.skillQtLuyenReadingTheoDang)) {
+                    if model.isEmpty { SkillCard { StudyEmpty(icon: "book.closed", title: t(.skillListenDangCapNhatDe)) } }
+                    else if model.kind == nil { hub }
+                    else { done }
+                }
+            } else { runFrame }
         }
-        .safeAreaInset(edge: .bottom) { bottomBar }
         .task { await model.load() }
         .accessibilityIdentifier("rtype")
+    }
+
+    /// Stitch rtype-run (focus: X + group progress, one pinned button) and rtype-result (inner: back + kind title, the summary FIRST so it and the next-group button sit in the first screen).
+    private var runFrame: some View {
+        VStack(spacing: 0) {
+            if model.outcome == nil {
+                TopBar(variant: .focus(progress: Double(model.index) / Double(max(1, model.list.count))), title: "") { dismiss() }
+            } else {
+                TopBar(variant: .inner, title: model.kind.map { RtypeKinds.title($0, t) } ?? "") { dismiss() }
+            }
+            ScrollView {
+                VStack(alignment: .leading, spacing: LKSpacing.spaceMd) { run }
+                    .padding(.horizontal, LKFrame.shared.gutter).padding(.top, LKSpacing.spaceSm).padding(.bottom, LKSpacing.space2xl)
+                    .frame(maxWidth: LKFrame.shared.width).frame(maxWidth: .infinity)
+            }
+            .scrollIndicators(.hidden)
+            bottomBar
+        }
+        .background(LKColor.background.resolve(scheme).ignoresSafeArea())
+        .toolbar(.hidden, for: .navigationBar)
     }
 
     // MARK: hub
@@ -65,17 +87,16 @@ struct RtypeView: View {
     // MARK: run / result
     @ViewBuilder private var run: some View {
         if let u = model.current {
+            if let o = model.outcome { resultCard(o) }
             HStack {
                 StudyChip(text: t(.speakRtypeNhomIN, ["i": model.position.i, "n": model.position.n]), icon: "square.stack.fill")
                 Spacer(minLength: 0)
             }
-            SkillProgress(value: Double(model.index) / Double(max(1, model.list.count)))
             passage(u)
             SkillCard {
                 QuestionsView(part: model.shownPart, answers: model.answers, results: model.results, tips: true,
                               setOne: { model.setOne($0, $1) }, toggle: { model.toggle($0, $1) })
             }
-            if let o = model.outcome { resultCard(o) }
         }
     }
     private func passage(_ u: Rtype.Unit) -> some View {
@@ -102,6 +123,7 @@ struct RtypeView: View {
                     Image(systemName: o.ok ? "checkmark.circle.fill" : "xmark.circle.fill").foregroundStyle((o.ok ? LKColor.success : LKColor.error).resolve(scheme)).accessibilityHidden(true)
                     Text(StudyText.rich(t(.speakRtypeRNCauDung, ["r": o.right, "n": o.total, "p": o.pct]))).studyText(LKType.bodyMd).fixedSize(horizontal: false, vertical: true)
                 }
+                SkillProgress(value: Double(o.pct) / 100)
                 FlowLayout(spacing: 8) {
                     ForEach(o.results.filter { !$0.cue.isEmpty }, id: \.n) { r in
                         SkillAction(title: t(.speakRtypeXemViTriTrong) + " · " + String(r.n), icon: "mappin.and.ellipse") { model.highlight = r.cue }

@@ -33,7 +33,7 @@ final class SpeakPronSnapshotTests: XCTestCase {
         for (lang, scheme) in SnapshotFixtures.speakVariants(testName) {
             let v = await make(lang)
             assertSnapshot(of: SnapshotFixtures.host(v, lang: lang, scheme: scheme),
-                           as: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98, traits: UITraitCollection(displayScale: 1.5)),
+                           as: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98, traits: UITraitCollection(displayScale: SnapshotFixtures.speakScale(testName))),
                            named: SnapshotFixtures.name(lang, scheme), testName: testName)
         }
     }
@@ -86,19 +86,19 @@ final class SpeakPronSnapshotTests: XCTestCase {
         await shoot { lang in
             let l = self.lesson("iː"), pairs = l.list("pairs").map { ($0.array ?? []).compactMap(\.string) }
             let m = PronPairGameModel.fixture(ctx: self.ctx(lang), pairs: pairs, index: 2, ok: 1, picked: 1)   // a wrong pick: the right word is shown too
-            return self.page(l.s("ipa")) { PronPairsCard(model: m, lesson: l) }
+            return PronPairsFocus(model: m, lesson: l)
         }
     }
     func testPronPairsResultGood() async {
         await shoot { lang in
             let l = self.lesson("iː"), pairs = l.list("pairs").map { ($0.array ?? []).compactMap(\.string) }
-            return self.page(l.s("ipa")) { PronPairsCard(model: PronPairGameModel.fixture(ctx: self.ctx(lang), pairs: pairs, index: 8, ok: 7, finished: true), lesson: l) }
+            return PronPairsFocus(model: PronPairGameModel.fixture(ctx: self.ctx(lang), pairs: pairs, index: 8, ok: 7, finished: true), lesson: l)
         }
     }
     func testPronPairsResultRetry() async {
         await shoot { lang in
             let l = self.lesson("iː"), pairs = l.list("pairs").map { ($0.array ?? []).compactMap(\.string) }
-            return self.page(l.s("ipa")) { PronPairsCard(model: PronPairGameModel.fixture(ctx: self.ctx(lang), pairs: pairs, index: 8, ok: 4, finished: true), lesson: l) }
+            return PronPairsFocus(model: PronPairGameModel.fixture(ctx: self.ctx(lang), pairs: pairs, index: 8, ok: 4, finished: true), lesson: l)
         }
     }
 
@@ -111,20 +111,20 @@ final class SpeakPronSnapshotTests: XCTestCase {
         await shoot { lang in self.page(self.lesson("th-sounds").s("ipa")) { PronSayCard(model: self.say(lang, .intro, stats: stats)) } }
     }
     func testPronSayRight() async {
-        await shoot { lang in self.page(self.lesson("th-sounds").s("ipa")) { PronSayCard(model: self.say(lang, .running, [.good])) } }
+        await shoot { lang in PronSayFocus(model: self.say(lang, .running, [.good])) }
     }
     func testPronSayOtherWord() async {
-        await shoot { lang in self.page(self.lesson("th-sounds").s("ipa")) { PronSayCard(model: self.say(lang, .running, [.other])) } }
+        await shoot { lang in PronSayFocus(model: self.say(lang, .running, [.other])) }
     }
     func testPronSayRetry() async {
-        await shoot { lang in self.page(self.lesson("th-sounds").s("ipa")) { PronSayCard(model: self.say(lang, .running, [.neither])) } }
+        await shoot { lang in PronSayFocus(model: self.say(lang, .running, [.neither])) }
     }
     func testPronSayBlocked() async {
         await shoot { lang in self.page(self.lesson("th-sounds").s("ipa")) { PronSayCard(model: self.say(lang, .blocked("not-allowed"))) } }
     }
     func testPronSayResult() async {
         let o: [PronSaySession.Outcome] = [.good, .good, .other, .good, .good, .good, .other, .good, .good, .good]
-        await shoot { lang in self.page(self.lesson("th-sounds").s("ipa")) { PronSayCard(model: self.say(lang, .done, o)) } }
+        await shoot { lang in PronSayFocus(model: self.say(lang, .done, o)) }
     }
 
     // MARK: pron-rhythm (sentence rhythm & shadowing)

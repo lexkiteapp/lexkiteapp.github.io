@@ -19,6 +19,8 @@ enum SnapshotFixtures {
         let all: [(String, ColorScheme)] = [("en", .light), ("vi", .light), ("ar", .light), ("de", .dark)]
         return speakMain.contains(testName.replacingOccurrences(of: "()", with: "")) ? all : [all[0]]
     }
+    /// the 23 main screens (4 variants) are shot at 1.5×; the other states (en-light only) at 1× to keep the image pack small
+    static func speakScale(_ testName: String) -> CGFloat { speakMain.contains(testName.replacingOccurrences(of: "()", with: "")) ? 1.5 : 1.0 }
     static func name(_ lang: String, _ scheme: ColorScheme) -> String { "\(lang)-\(scheme == .dark ? "dark" : "light")" }
 
     /// Fixed, realistic learner state (no clock, no network): computed with the web definitions from a fixed document.

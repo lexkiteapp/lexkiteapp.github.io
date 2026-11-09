@@ -128,10 +128,10 @@ struct HandsfreeView: View {
         .frame(maxWidth: .infinity)
     }
 
-    /// the dark screen: near-black, the word dim, one big tap area to come back; playback goes on
+    /// the dark screen: the darkest Kit surface (surfaceContainerLowest, dark), the word dim, one big tap area to come back; playback goes on
     private var ambient: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            LKColor.surfaceContainerLowest.resolve(.dark).ignoresSafeArea()
             VStack(spacing: LKSpacing.spaceMd) {
                 Text(verbatim: model.word.s("word")).studyText(LKType.displayHero, LKColor.onSurfaceVariant).englishText().opacity(0.55)
                 Text(verbatim: model.position).studyText(LKType.labelMetric, LKColor.onSurfaceVariant).opacity(0.55)

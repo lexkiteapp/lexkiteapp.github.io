@@ -15,7 +15,9 @@ struct SpeakingView: View {
 
     var body: some View {
         Group {
-            if model.stage == .recording || model.stage == .prep { recordPage } else { hubPage }
+            if model.stage == .recording || model.stage == .prep { recordPage }
+            else if model.stage == .result, let a = model.analysis { resultPage(a) }
+            else { hubPage }
         }
         .task { await model.load() }
         .onDisappear { model.stop() }
@@ -33,11 +35,20 @@ struct SpeakingView: View {
             topicRow
             Text(verbatim: Bidi.isolate(t(.speakSpkNChuDe, ["n": model.bank.count]))).studyText(LKType.bodySm, LKColor.onSurfaceVariant)
             examiner
-            if let a = model.analysis, model.stage == .result { resultCard(a) }
             if let s = model.sample { sampleCard(s) }
             micCard
             suggestionsCard
             tipsCard
+        }
+    }
+
+    /// Stitch speaking-result: an inner screen of its own (back to the hub, the coach, the summary tiles, transcript, feedback, the sample, record again)
+    private func resultPage(_ a: Speaking.Analysis) -> some View {
+        StudyPage(title: t(.speakSpkKetQua), onBack: { model.closeResult() }) {
+            PronCoachCard(controller: model.teacher, text: t(.speakSpkBamMicroDeTra3))
+            resultCard(a)
+            if let s = model.sample { sampleCard(s) }
+            micCard
         }
     }
 

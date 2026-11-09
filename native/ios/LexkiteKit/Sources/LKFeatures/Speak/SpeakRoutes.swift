@@ -46,7 +46,7 @@ struct SpeakFocusScreen: View {
 enum SpeakErrors {
     static func message(_ code: String, _ t: L10n) -> String {
         switch code {
-        case "not-allowed": return "⚠️ " + t(.speakUiCanChoPhepDung)
+        case "not-allowed": return "⚠️ " + t(.speakMicDeniedNative)
         case "service-not-allowed": return "⚠️ " + t(.speakUiTrinhDuyetDangChan)
         case "no-speech": return "🤫 " + t(.speakUiKhongNgheThayGi)
         case "audio-capture": return "🎙️ " + t(.speakUiKhongTimThayMicro)

@@ -143,6 +143,8 @@ final class SpeakingModel {
     }
     private func abortRecording() { tick?.cancel(); recog?.cancel(); stage = .ready; seconds = 0 }
     /// X on the recording screen: nothing is kept
+    /// the back arrow of the result screen: to the hub (the analysis stays until the next attempt)
+    func closeResult() { stage = .ready }
     func discard() { stop(); stage = .ready; seconds = 0; live = ""; prepUsed = false }
     func finishRecording() {
         guard stage == .recording else { return }

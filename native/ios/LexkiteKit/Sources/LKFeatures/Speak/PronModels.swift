@@ -159,6 +159,10 @@ final class PronPairGameModel {
     private(set) var finished: (pct: Int, good: Bool, ok: Int)?
     private var advance: Task<Void, Never>?
     var started: Bool { !rounds.isEmpty }
+    /// the teacher slot of the focus screen (drawn, never speaks by itself)
+    var teacher = TeacherController(who: SpeakAccent.ama)
+    /// the X of the focus screen: back to the lesson page
+    func quit() { advance?.cancel(); rounds = []; index = 0; ok = 0; picked = nil; finished = nil }
     var current: PronLessonRules.Round? { rounds.indices.contains(index) ? rounds[index] : nil }
     var accent: String { SpeakAccent.locale(ctx.settings) }
 
@@ -170,12 +174,12 @@ final class PronPairGameModel {
         index = 0; ok = 0; picked = nil; finished = nil
         play(after: 200)
     }
-    func play(after ms: Int = 0) {
+    func play(after ms: Int = 0, slow: Bool = false) {
         guard let r = current else { return }
         Task { @MainActor [weak self] in
             if ms > 0 { try? await Task.sleep(nanoseconds: UInt64(ms) * 1_000_000) }
             guard let self else { return }
-            self.io.say(r.options[r.answer], SpeakAccent.ama, self.accent, false, nil)
+            self.io.say(r.options[r.answer], SpeakAccent.ama, self.accent, slow, nil)
         }
     }
     func pick(_ k: Int) {
@@ -198,6 +202,7 @@ final class PronPairGameModel {
     }
     static func fixture(ctx: SkillsContext, pairs: [[String]], index: Int, ok: Int, picked: Int? = nil, finished: Bool = false) -> PronPairGameModel {
         let m = PronPairGameModel(ctx: ctx, pairs: pairs, io: .scripted())
+        m.teacher = TeacherController.frozen(who: "ama", pose: "talk")
         m.rounds = PronLessonRules.pairRounds(pairs, shuffle: { $0 }, random: { 0.2 })
         m.index = finished ? m.rounds.count : index; m.ok = ok; m.picked = picked
         if finished { let f = PronLessonRules.pairFinish(ok: ok, n: m.rounds.count); m.finished = (f.pct, f.good, ok) }
@@ -224,6 +229,10 @@ final class PronSayModel {
     private(set) var stats: PronStats
     var onFallback: () -> Void = {}
     var locale: String { SpeakAccent.us }
+    /// the teacher slot of the focus screen
+    var teacher = TeacherController(who: SpeakAccent.ama)
+    /// the X of the focus screen: back to the intro card (the score of a finished session is already saved)
+    func quit() { io.recognizer.cancel(); io.stopSay(); listening = false; session = nil; step = nil; summary = nil; phase = .intro }
 
     init(ctx: SkillsContext, pairs: PronPairs, contrasts: [PronContrast], io: SpeakIO) {
         self.ctx = ctx; self.pairs = pairs; self.contrasts = contrasts; self.io = io
@@ -283,6 +292,7 @@ final class PronSayModel {
 
     static func fixture(ctx: SkillsContext, pairs: PronPairs, contrasts: [PronContrast], phase: Phase, outcomes: [PronSaySession.Outcome] = [], stats: PronStats = [:]) -> PronSayModel {
         let m = PronSayModel(ctx: ctx, pairs: pairs, contrasts: contrasts, io: .scripted(random: { 0.3 }))
+        m.teacher = TeacherController.frozen(who: "ama", pose: "talk")
         m.stats = stats
         var s = PronSaySession(pairs: pairs, contrasts: contrasts, stats: stats, random: { 0.3 })
         for (n, o) in outcomes.enumerated() {

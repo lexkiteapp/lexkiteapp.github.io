@@ -137,6 +137,16 @@ struct PronLessonView: View {
     @Environment(\.l10n) private var t
     @Environment(\.colorScheme) private var scheme
     var body: some View {
+        Group {
+            if let pg = model.pairGame, pg.started { PronPairsFocus(model: pg, lesson: model.lesson, onClose: { pg.quit() }) }
+            else if let say = model.say, say.phase == .running || say.phase == .done { PronSayFocus(model: say, onClose: { say.quit() }) }
+            else { page }
+        }
+        .task { await model.load() }
+        .onDisappear { model.stop() }
+        .accessibilityIdentifier("pron-lesson")
+    }
+    private var page: some View {
         StudyPage(title: t(.speakPronThuVienPhatAm)) {
             PronLessonHeader(lesson: model.lesson, mouth: model.mouth)
             PronRulesCards(lesson: model.lesson)
@@ -149,9 +159,6 @@ struct PronLessonView: View {
             PronQuizCard(model: model)
             nav
         }
-        .task { await model.load() }
-        .onDisappear { model.stop() }
-        .accessibilityIdentifier("pron-lesson")
     }
     private var nav: some View {
         HStack(spacing: LKSpacing.spaceSm) {
@@ -428,23 +435,7 @@ struct PronSayCard: View {
         .accessibilityIdentifier("pron-say")
     }
     private func label(_ c: PronContrast) -> String { pronText(model.pairs.label(c), t) }
-    private var weakBlock: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            if model.weakIds.isEmpty {
-                Text(verbatim: t(.speakPronChuaCoDuLieu)).studyText(LKType.bodySm, LKColor.onSurfaceVariant).fixedSize(horizontal: false, vertical: true)
-            } else {
-                Text(verbatim: "🎯 " + t(.speakPronAmCanLuyenThem)).studyText(LKType.titlePill)
-                FlowLayout(spacing: 6) {
-                    ForEach(model.weakIds, id: \.self) { id in
-                        if let c = model.pairs.contrast(id), let s = model.stats[id] {
-                            let pct = Vocab.round((s.acc ?? 0) * 100)
-                            StudyChip(text: label(c) + " \(pct)%", tint: pct >= 80 ? LKColor.success : LKColor.tertiary)
-                        }
-                    }
-                }
-            }
-        }
-    }
+    private var weakBlock: some View { PronSayWeak(model: model) }
     private var intro: some View {
         VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
             Text(verbatim: t(.speakPronNhinTuNgheMau)).studyText(LKType.bodySm, LKColor.onSurfaceVariant).fixedSize(horizontal: false, vertical: true)
@@ -479,7 +470,27 @@ struct PronSayCard: View {
             .frame(maxWidth: .infinity)
         }
     }
-    @ViewBuilder private func feedback(_ it: PronItem) -> some View {
+    private func feedback(_ it: PronItem) -> some View { PronSayFeedback(model: model, it: it) }
+    private func blocked(_ code: String) -> some View {
+        VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
+            SkillNote(icon: "info.circle.fill", text: code == "unsupported" ? t(.speakPronThietBiNayChua) : t(.speakMicDeniedNative))
+            HStack(spacing: LKSpacing.spaceSm) {
+                SkillAction(title: t(.skillListenLuyenNghe), icon: "headphones", primary: true) { model.onFallback() }
+                SkillAction(title: t(.actionRetry), icon: "arrow.clockwise") { model.retryFromBlocked() }
+            }
+        }
+    }
+    private var done: some View { PronSayDone(model: model) }
+}
+
+/// the feedback under the microphone: listening · right · the other word + tip · retry · skip, and (inline only) the next-word button
+struct PronSayFeedback: View {
+    let model: PronSayModel
+    let it: PronItem
+    var inlineNext = true
+    @Environment(\.l10n) private var t
+    @Environment(\.colorScheme) private var scheme
+    var body: some View {
         if model.listening {
             Text(verbatim: t(.speakSpkDangNghe)).studyText(LKType.bodyMd)
         } else if let st = model.step {
@@ -495,30 +506,54 @@ struct PronSayCard: View {
                 case .skip: Text(verbatim: t(.speakPronVanChuaRoChuyen)).studyText(LKType.bodyMd).multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
                 case .blocked: EmptyView()
                 }
-                if st.nextButton { SkillAction(title: t(.speakPronTuTiepTheo), primary: true) { Task { await model.next() } } }
+                if st.nextButton, inlineNext { SkillAction(title: t(.speakPronTuTiepTheo), primary: true) { Task { await model.next() } } }
             }
         } else {
             Text(verbatim: t(.speakPronBamDeNoi)).studyText(LKType.bodyMd, LKColor.onSurfaceVariant)
         }
     }
-    private func blocked(_ code: String) -> some View {
-        VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
-            SkillNote(icon: "info.circle.fill", text: code == "unsupported" ? t(.speakPronThietBiNayChua) : t(.speakPronMicroBiChanBam))
-            HStack(spacing: LKSpacing.spaceSm) {
-                SkillAction(title: t(.skillListenLuyenNghe), icon: "headphones", primary: true) { model.onFallback() }
-                SkillAction(title: t(.actionRetry), icon: "arrow.clockwise") { model.retryFromBlocked() }
-            }
-        }
-    }
-    @ViewBuilder private var done: some View {
+}
+
+/// the result of a finished session (score line, chips per contrast, weak sounds, practise again)
+struct PronSayDone: View {
+    let model: PronSayModel
+    var showAgain = true
+    @Environment(\.l10n) private var t
+    @Environment(\.colorScheme) private var scheme
+    var body: some View {
+
         if let s = model.summary {
             VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
                 Text(verbatim: t(.speakPronNoiDungOkN, ["ok": s.ok, "n": s.n])).studyText(LKType.titlePill, s.good ? LKColor.success : LKColor.tertiary)
                 FlowLayout(spacing: 6) {
                     ForEach(Array(s.chips.enumerated()), id: \.offset) { _, c in StudyChip(text: pronText(c.label, t) + " \(c.ok)/\(c.n)", tint: c.ok == c.n ? LKColor.success : LKColor.secondary) }
                 }
-                weakBlock
-                SkillAction(title: t(.speakPronLuyenLai), icon: "arrow.clockwise", primary: true) { model.start() }
+                PronSayWeak(model: model)
+                if showAgain { SkillAction(title: t(.speakPronLuyenLai), icon: "arrow.clockwise", primary: true) { model.start() } }
+            }
+        }
+    }
+}
+
+/// the practised sounds, weakest first (or a hint when there is no data yet)
+struct PronSayWeak: View {
+    let model: PronSayModel
+    @Environment(\.l10n) private var t
+    private func label(_ c: PronContrast) -> String { pronText(model.pairs.label(c), t) }
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            if model.weakIds.isEmpty {
+                Text(verbatim: t(.speakPronChuaCoDuLieu)).studyText(LKType.bodySm, LKColor.onSurfaceVariant).fixedSize(horizontal: false, vertical: true)
+            } else {
+                Text(verbatim: "🎯 " + t(.speakPronAmCanLuyenThem)).studyText(LKType.titlePill)
+                FlowLayout(spacing: 6) {
+                    ForEach(model.weakIds, id: \.self) { id in
+                        if let c = model.pairs.contrast(id), let s = model.stats[id] {
+                            let pct = Vocab.round((s.acc ?? 0) * 100)
+                            StudyChip(text: label(c) + " \(pct)%", tint: pct >= 80 ? LKColor.success : LKColor.tertiary)
+                        }
+                    }
+                }
             }
         }
     }
