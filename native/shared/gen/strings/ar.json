@@ -1932,5 +1932,6 @@
   "speak.rp.ketThucThanThien": "أنهِ الحديث بنبرة ودّية",
   "speak.sp.noiDuoi": "التكرار المتزامن",
   "speak.sp.noiTuTriNho": "من الذاكرة",
-  "speak.sp.thiThu": "اختبارات تجريبية"
+  "speak.sp.thiThu": "اختبارات تجريبية",
+  "speak.micDeniedNative": "الميكروفون متوقف. افتح تطبيق الإعدادات في جهازك، وابحث عن Lexkite، وفعّل الميكروفون ثم حاول مرة أخرى."
 }

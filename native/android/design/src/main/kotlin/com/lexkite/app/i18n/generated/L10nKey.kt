@@ -1936,7 +1936,8 @@ enum class L10nKey(val id: String) {
     speakRpKetThucThanThien("speak.rp.ketThucThanThien"),
     speakSpNoiDuoi("speak.sp.noiDuoi"),
     speakSpNoiTuTriNho("speak.sp.noiTuTriNho"),
-    speakSpThiThu("speak.sp.thiThu");
+    speakSpThiThu("speak.sp.thiThu"),
+    speakMicDeniedNative("speak.micDeniedNative");
 }
 
 object L10nLangs {

@@ -1932,5 +1932,6 @@
   "speak.rp.ketThucThanThien": "Mengakhiri dengan nada ramah",
   "speak.sp.noiDuoi": "Shadowing",
   "speak.sp.noiTuTriNho": "Dari ingatan",
-  "speak.sp.thiThu": "Tes latihan"
+  "speak.sp.thiThu": "Tes latihan",
+  "speak.micDeniedNative": "Mikrofon sedang mati. Buka aplikasi Pengaturan di perangkatmu, cari Lexkite, aktifkan Mikrofon, lalu coba lagi."
 }

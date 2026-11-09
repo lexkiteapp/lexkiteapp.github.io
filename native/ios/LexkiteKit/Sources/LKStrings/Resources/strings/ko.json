@@ -1932,5 +1932,6 @@
   "speak.rp.ketThucThanThien": "친근하게 마무리하기",
   "speak.sp.noiDuoi": "쉐도잉",
   "speak.sp.noiTuTriNho": "외워서 말하기",
-  "speak.sp.thiThu": "모의고사"
+  "speak.sp.thiThu": "모의고사",
+  "speak.micDeniedNative": "마이크가 꺼져 있어요. 기기의 설정 앱에서 Lexkite를 찾아 마이크를 켠 다음 다시 시도해 주세요."
 }

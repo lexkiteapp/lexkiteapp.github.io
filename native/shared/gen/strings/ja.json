@@ -1932,5 +1932,6 @@
   "speak.rp.ketThucThanThien": "感じよく締めくくる",
   "speak.sp.noiDuoi": "シャドーイング",
   "speak.sp.noiTuTriNho": "記憶で話す",
-  "speak.sp.thiThu": "模擬試験"
+  "speak.sp.thiThu": "模擬試験",
+  "speak.micDeniedNative": "マイクがオフになっています。端末の「設定」アプリで Lexkite を探し、マイクをオンにしてからもう一度お試しください。"
 }

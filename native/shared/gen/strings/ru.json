@@ -1932,5 +1932,6 @@
   "speak.rp.ketThucThanThien": "Закончить разговор по-доброму",
   "speak.sp.noiDuoi": "Повтор за диктором",
   "speak.sp.noiTuTriNho": "По памяти",
-  "speak.sp.thiThu": "Пробные тесты"
+  "speak.sp.thiThu": "Пробные тесты",
+  "speak.micDeniedNative": "Микрофон выключен. Откройте приложение «Настройки» на устройстве, найдите Lexkite, включите микрофон и попробуйте снова."
 }

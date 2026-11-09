@@ -1932,5 +1932,6 @@
   "speak.rp.ketThucThanThien": "मित्रतापूर्ण ढंग से बात समाप्त करें",
   "speak.sp.noiDuoi": "साथ-साथ बोलें",
   "speak.sp.noiTuTriNho": "याददाश्त से",
-  "speak.sp.thiThu": "मॉक टेस्ट"
+  "speak.sp.thiThu": "मॉक टेस्ट",
+  "speak.micDeniedNative": "माइक्रोफ़ोन बंद है। अपने डिवाइस का सेटिंग्स ऐप खोलें, Lexkite ढूँढें, माइक्रोफ़ोन चालू करें और फिर से कोशिश करें।"
 }

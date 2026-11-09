@@ -39,4 +39,5 @@
 "Chưa nói được lúc này": "Can’t speak right now",
 "Cô đang nghe…": "Listening…",
 "Nhiệm vụ tình huống": "Mission cue",
+"Micro đang bị tắt. Mở Cài đặt của thiết bị, tìm Lexkite, bật Micro rồi quay lại thử nhé.": "The microphone is off. Open your device’s Settings app, find Lexkite, turn on Microphone, then come back and try again.",
 }); })(typeof self !== 'undefined' ? self : globalThis);

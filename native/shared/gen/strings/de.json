@@ -1932,5 +1932,6 @@
   "speak.rp.ketThucThanThien": "Freundlich abschließen",
   "speak.sp.noiDuoi": "Shadowing",
   "speak.sp.noiTuTriNho": "Aus dem Gedächtnis",
-  "speak.sp.thiThu": "Probetests"
+  "speak.sp.thiThu": "Probetests",
+  "speak.micDeniedNative": "Das Mikrofon ist ausgeschaltet. Öffne die Einstellungen-App deines Geräts, suche Lexkite, aktiviere das Mikrofon und versuche es erneut."
 }

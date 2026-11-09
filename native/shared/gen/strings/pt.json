@@ -1932,5 +1932,6 @@
   "speak.rp.ketThucThanThien": "Terminar de forma simpática",
   "speak.sp.noiDuoi": "Shadowing",
   "speak.sp.noiTuTriNho": "De memória",
-  "speak.sp.thiThu": "Simulados"
+  "speak.sp.thiThu": "Simulados",
+  "speak.micDeniedNative": "O microfone está desativado. Abra o app Ajustes do dispositivo, encontre o Lexkite, ative o microfone e tente de novo."
 }

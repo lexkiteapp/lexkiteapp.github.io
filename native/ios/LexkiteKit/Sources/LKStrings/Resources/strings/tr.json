@@ -1932,5 +1932,6 @@
   "speak.rp.ketThucThanThien": "Dostça bir notla bitirin",
   "speak.sp.noiDuoi": "Eş zamanlı tekrar",
   "speak.sp.noiTuTriNho": "Ezberden",
-  "speak.sp.thiThu": "Deneme sınavları"
+  "speak.sp.thiThu": "Deneme sınavları",
+  "speak.micDeniedNative": "Mikrofon kapalı. Cihazının Ayarlar uygulamasını aç, Lexkite’ı bul, mikrofonu aç ve tekrar dene."
 }

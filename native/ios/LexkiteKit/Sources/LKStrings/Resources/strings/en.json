@@ -1932,5 +1932,6 @@
   "speak.rp.ketThucThanThien": "End on a friendly note",
   "speak.sp.noiDuoi": "Shadow",
   "speak.sp.noiTuTriNho": "From memory",
-  "speak.sp.thiThu": "Tests"
+  "speak.sp.thiThu": "Tests",
+  "speak.micDeniedNative": "The microphone is off. Open your device’s Settings app, find Lexkite, turn on Microphone, then come back and try again."
 }

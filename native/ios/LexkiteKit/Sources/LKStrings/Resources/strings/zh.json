@@ -1932,5 +1932,6 @@
   "speak.rp.ketThucThanThien": "以友好的方式结束",
   "speak.sp.noiDuoi": "跟读",
   "speak.sp.noiTuTriNho": "凭记忆说",
-  "speak.sp.thiThu": "模拟考试"
+  "speak.sp.thiThu": "模拟考试",
+  "speak.micDeniedNative": "麦克风已关闭。请打开设备的“设置”应用，找到 Lexkite，开启麦克风后再试一次。"
 }

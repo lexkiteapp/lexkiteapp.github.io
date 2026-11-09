@@ -1932,5 +1932,6 @@
   "speak.rp.ketThucThanThien": "จบบทสนทนาอย่างเป็นมิตร",
   "speak.sp.noiDuoi": "พูดตามทันที",
   "speak.sp.noiTuTriNho": "พูดจากความจำ",
-  "speak.sp.thiThu": "สอบจำลอง"
+  "speak.sp.thiThu": "สอบจำลอง",
+  "speak.micDeniedNative": "ไมโครโฟนถูกปิดอยู่ เปิดแอปการตั้งค่าของอุปกรณ์ ค้นหา Lexkite เปิดไมโครโฟน แล้วลองอีกครั้ง"
 }

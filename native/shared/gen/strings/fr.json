@@ -1932,5 +1932,6 @@
   "speak.rp.ketThucThanThien": "Terminer sur une note aimable",
   "speak.sp.noiDuoi": "Shadowing",
   "speak.sp.noiTuTriNho": "De mémoire",
-  "speak.sp.thiThu": "Examens blancs"
+  "speak.sp.thiThu": "Examens blancs",
+  "speak.micDeniedNative": "Le micro est désactivé. Ouvre l’app Réglages de ton appareil, trouve Lexkite, active le micro, puis réessaie."
 }
