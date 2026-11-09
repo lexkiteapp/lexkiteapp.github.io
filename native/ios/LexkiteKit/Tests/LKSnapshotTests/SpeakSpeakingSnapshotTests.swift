@@ -40,7 +40,7 @@ final class SpeakSpeakingSnapshotTests: XCTestCase {
         return SkillsContext(core: core, lang: lang, defaults: d)
     }
     func shoot<V: View>(testName: String = #function, size: CGSize? = nil, _ make: (String) async -> V) async {
-        for (lang, scheme) in Self.variants {
+        for (lang, scheme) in SnapshotFixtures.speakVariants(testName) {
             let v = await make(lang)
             assertSnapshot(of: SnapshotFixtures.host(v, lang: lang, scheme: scheme),
                            as: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98, size: size, traits: UITraitCollection(displayScale: 1.5)),

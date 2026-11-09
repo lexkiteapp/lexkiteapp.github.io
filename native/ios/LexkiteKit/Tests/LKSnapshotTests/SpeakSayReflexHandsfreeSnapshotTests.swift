@@ -41,7 +41,7 @@ final class SpeakSayReflexHandsfreeSnapshotTests: XCTestCase {
         return SkillsContext(core: core, lang: lang, defaults: d)
     }
     func shoot<V: View>(testName: String = #function, _ make: (String) -> V) {
-        for (lang, scheme) in Self.variants {
+        for (lang, scheme) in SnapshotFixtures.speakVariants(testName) {
             assertSnapshot(of: SnapshotFixtures.host(make(lang), lang: lang, scheme: scheme),
                            as: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98, traits: UITraitCollection(displayScale: 1.5)),
                            named: SnapshotFixtures.name(lang, scheme), testName: testName)
