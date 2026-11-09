@@ -32,7 +32,8 @@ final class SkillsSnapshotTests: XCTestCase {
     static var learnerGame: JSON {
         game(["listenBest": ["1": 7], "listenDone": ["t1p1": 8, "t1p3": 10], "readDone": ["urban-farming": "4/5"]])
     }
-    func ctx(_ lang: String, game: JSON = SkillsSnapshotTests.learnerGame, data: SkillsData = SkillsSnapshotTests.content) -> SkillsContext {
+    func ctx(_ lang: String, game: JSON? = nil, data: SkillsData? = nil) -> SkillsContext {
+        let game = game ?? SkillsSnapshotTests.learnerGame, data = data ?? SkillsSnapshotTests.content
         let voice = LKVoicePlayer(resolver: VoiceResolver(transport: Offline(), cacheDirectory: nil))
         let core = StudyCore(data: MemoryVocabData(VocabBundle(cards: [], stats: .object([:]), settings: ["accent": "us"], game: game)), voice: voice, calendar: Self.cal, now: { SkillsSnapshotTests.now })
         return SkillsContext(core: core, lang: lang, data: data, defaults: UserDefaults(suiteName: "lk.skills.snapshot.\(lang)") ?? .standard)
