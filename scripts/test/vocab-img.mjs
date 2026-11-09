@@ -388,4 +388,41 @@ else:
   ok((wf.match(/GROQ_POOL: \$\{\{ secrets\.GROQ_POOL \}\}/g) || []).length >= 3 && (wf.match(/GEMINI_POOL: \$\{\{ secrets\.GEMINI_POOL \}\}/g) || []).length >= 3, 'prep/shard/fill nhận GROQ_POOL + GEMINI_POOL');
   ok(/scene\.mjs --gaps 1000000 --shard 0\/1/.test(wf) && /m=\$\(\( \(G \+ 39\) \/ 40 \)\)/.test(wf), 'plan: số việc theo số nghĩa vẽ được, 0 nghĩa → bỏ lượt (không cài giám khảo 10 máy cho 1 nghĩa)');
 }
+// Hồi quy: bài học đọc chỉ mục ảnh v2 (`j.m`) trong khi lexicon-img.json đã là v3 (đầu + mảnh) → dạng "pic" không bao giờ sinh. Chạy trên chỉ mục v3 THẬT.
+{
+  const head = J('web/js/lexicon-img.json'), store = { 'lk.vimg': '1' }, D = { theme: 'light' };
+  ok(head.v === 3 && !head.m && head.n > 0, 'lexicon-img.json là đầu v3 (không có m) – đúng ca gây lỗi');
+  const local = u => { const f = 'web/js/' + new URL(u).pathname.split('/js/').pop(); return fs.existsSync(f) ? { ok: true, json: async () => J(f) } : { ok: false, json: async () => null }; };
+  const sb = { console, URL, Promise, Math, setTimeout, navigator: {}, location: { href: 'https://lexkite.com/' }, fetch: async u => local(u), localStorage: { getItem: k => (k in store ? store[k] : null), setItem: (k, v) => { store[k] = String(v); } }, document: { documentElement: { getAttribute: () => D.theme } } };
+  sb.self = sb; sb.globalThis = sb; vm.createContext(sb);
+  vm.runInContext(rd('web/js/vocab-img.js'), sb); vm.runInContext(rd('web/js/lesson/engine.js'), sb);
+  const shards = fs.readdirSync('web/js/vimg').filter(f => f.endsWith('.json')).map(f => J('web/js/vimg/' + f));
+  const find = fn => { for (const sh of shards) for (const [k, h] of Object.entries(sh.m || {})) { const S = new Set(sh.s || []), A = new Set(sh.a || []); if (/^[a-z]+#n$/.test(k) && fn(S.has(k), A.has(k))) return { k, h, word: k.split('#')[0], pos: 'n' }; } return null; };
+  const plain = find(s => !s), scene = find(s => s), V = sb.VImg; // chỉ mục hiện chỉ có ảnh cảnh + ảnh nền kem (a rỗng)
+  ok(plain && scene, 'chỉ mục thật có ảnh thường và ảnh cảnh');
+  await V.ready([plain.word, scene.word]);
+  ok(V.quizUrl(plain.word, plain.pos) === head.base + plain.h + '.webp', 'quizUrl đọc được mảnh v3');
+  ok(V.quizUrl(plain.word, 'v') === '', 'quizUrl: sai loại từ → không lấy ảnh');
+  ok(V.quizUrl(scene.word, scene.pos) === '', 'quizUrl: ảnh cảnh cần câu ví dụ → không dùng');
+  const items = sb.LessonEngine.build([{ card: { word: plain.word, pos: plain.pos, vi: 'x', def: 'x' }, why: 'new' }], { seed: 3, perWord: 1, hasImg: (w, p) => !!V.quizUrl(w, p), match: false });
+  ok(items.some(i => i.type === 'pic'), 'chỉ mục v3 thật → bài học sinh dạng pic');
+  D.theme = 'dark'; ok(V.quizUrl(plain.word, plain.pos) === (shards.some(x => (x.a || []).includes(plain.k)) ? head.base + plain.h + '.webp' : ''), 'chế độ tối: ẩn ảnh nền kem (như .vimg:not([data-a]))'); D.theme = 'light';
+  store['lk.vimg'] = '0'; ok(V.quizUrl(plain.word, plain.pos) === '', 'cờ tắt → không có ảnh');
+  const ui = rd('web/js/lesson/ui.js'); ok(/VImg\.quizUrl/.test(ui) && /App\.vimgReady\(picks/.test(ui) && !/lexicon-img\.json/.test(ui), 'lesson/ui.js dùng VImg, không tự đọc chỉ mục');
+}
+// 09/11 (job 129143630777): tầng miễn phí 0 ảnh đạt → tờ soát Image 0 px → đỏ cả lượt. Pillow thật nếu có, không thì PIL giả (nhánh 0 ảnh không vẽ gì).
+{ const { execFileSync } = await import('child_process'), os = await import('os'), path = await import('path');
+  const d = fs.mkdtempSync(path.join(os.tmpdir(), 'vimgfree0-')), sh = path.join(d, 'sheet.jpg');
+  const py = `import sys,types,runpy
+try:
+    import PIL.Image, PIL.ImageDraw
+except Exception:
+    P = types.ModuleType('PIL')
+    for n in ('Image', 'ImageDraw'): m = types.ModuleType('PIL.' + n); setattr(P, n, m); sys.modules['PIL.' + n] = m
+    sys.modules['PIL'] = P
+sheet_path = sys.argv[2]; sys.argv = ['free_tier.py', sys.argv[1]]
+runpy.run_path('scripts/vocab-img/free_tier.py')['sheet']({}, sheet_path)`;
+  const out = execFileSync('python3', ['-c', py, d, sh], { encoding: 'utf8' });
+  ok(/0 ảnh đạt/.test(out) && !fs.existsSync(sh), 'free_tier.py: 0 ảnh → log rõ, không tạo tờ soát, không đỏ cả lượt');
+}
 console.log(`✓ vocab-img: ${n} kiểm`);

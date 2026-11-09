@@ -252,6 +252,66 @@ for (const [t, xs] of Object.entries(tl)) {
   }
 }
 
+// Cambridge A2–C2 (docs/specs/cambridge.md): mỗi đề web/cpack/cambridge/<cấp>/t<N>.js so với spec cam-<cấp>
+{
+  const WTYPES = new Set(['email', 'story', 'essay', 'article', 'letter', 'review', 'report', 'proposal', 'note']);
+  const RUB = K.CAMBRIDGE_RUBRIC || {};
+  const txt = v => Array.isArray(v) ? v.join(' ') : String(v || '');
+  const seen = new Set();
+  for (const T of K.CAMBRIDGE || []) {
+    const id = 'cam-' + T.level, f = id, u = unit(f, T.id || '?'), S = SPEC[id];
+    if (!S) { D(f, u, 'spec', `không có spec ${id}`); continue; }
+    if (T.spec !== id || T.id !== `${T.level}-t${T.n}`) D(f, u, 'id', `id/spec "${T.id}"/"${T.spec}" ≠ "${T.level}-t${T.n}"/"${id}"`);
+    if (seen.has(T.id)) D(f, u, 'dup', 'trùng id đề'); seen.add(T.id);
+    const optsOf = p => (p.texts || []).map(x => x.code).concat((p.options || []).map(code => String(code).split(' ')[0]));
+    const paper = (key, secId) => {
+      const sp = parts(id, secId), got = (T[key] || {}).parts || [];
+      if (got.map(p => p.n).join() !== sp.map(p => p.n).join()) D(f, u, `${secId}.parts`, `phần ${got.map(p => p.n).join(',')} ≠ spec ${sp.map(p => p.n).join(',')}`);
+      let all = [];
+      for (const p of got) {
+        const s = sp.find(x => x.n === p.n); if (!s) continue;
+        if (!s.types.includes(p.type)) D(f, u, `${secId}.part${p.n}.type`, `dạng "${p.type}" ≠ spec ${s.types.join('/')}`);
+        if (WTYPES.has(p.type)) { // phần viết: đề + ý bắt buộc + bài mẫu đủ số từ + gợi ý/kiểm ý (phản hồi sản sinh)
+          if (s.min_words && p.min_words !== s.min_words) D(f, u, `${secId}.part${p.n}.min_words`, `min_words ${p.min_words} ≠ ${s.min_words}`);
+          if (!has(p.prompt) || !has(p.model) || !(p.tips || []).length) D(f, u, `${secId}.part${p.n}.model`, 'thiếu đề/bài mẫu/gợi ý');
+          else if (words(p.model) < (s.min_words || 0)) D(f, u, `${secId}.part${p.n}.words`, `bài mẫu ${words(p.model)} từ < ${s.min_words}`);
+          if (p.points && (!(p.checks || []).length || p.checks.length !== p.points.length)) D(f, u, `${secId}.part${p.n}.checks`, 'mỗi ý bắt buộc cần 1 nhóm từ kiểm ý (checks)');
+          if (!(RUB[T.level] && (RUB[T.level].writing || []).length)) D(f, u, 'rubric', `thiếu tiêu chí chấm viết ${T.level} trong web/cpack/cambridge/rubric.js`);
+          continue;
+        }
+        const units = p.units || [p], items = units.flatMap(x => x.items || []);
+        const q = items.reduce((a, it) => a + qCount(it), 0);
+        if (s.questions != null && q !== s.questions) D(f, u, `${secId}.part${p.n}.questions`, `Part ${p.n}: ${q} câu ≠ ${s.questions}`);
+        const codes = optsOf(p);
+        const badA = items.filter(it => /mcq/.test(p.type) ? !((it.options || []).length >= 3 && it.options[it.a] != null) : /match/.test(p.type) ? !codes.includes(it.a) : !(Array.isArray(it.a) && it.a.length)).map(it => it.n);
+        if (badA.length) D(f, u, `${secId}.part${p.n}.answer`, `${badA.length} câu đáp án không hợp lệ: ${badA.join(', ')}`);
+        for (const x of units) {
+          const src = key === 'listening' ? scriptText(x.script) : [txt(p.text), ...(p.texts || []).map(y => y.text), ...(x.items || []).map(it => txt(it.text))].join(' ');
+          if (key === 'listening') {
+            const sp_ = x.speakers || {}, bad = (x.script || []).filter(l => l.s && !sp_[l.s]);
+            if (!(x.script || []).length || bad.length) D(f, u, `${secId}.part${p.n}.script`, 'thiếu lời thoại hoặc người nói không khai báo');
+          }
+          itemChecks(f, `${u}/${secId}.part${p.n}`, x.items || [], src);
+        }
+        all = all.concat(items);
+      }
+      return all;
+    };
+    const rw = paper('rw', 'reading-writing'), li = paper('listening', 'listening');
+    numbering(f, u, rw, 1, rw.length); numbering(f, u, li, 1, li.length);
+    // Speaking: đủ phần theo spec, có câu hỏi + câu trả lời mẫu (phản hồi sản sinh nói)
+    const ssp = parts(id, 'speaking'), sg = ((T.speaking || {}).parts || []);
+    if (sg.map(p => p.n).join() !== ssp.map(p => p.n).join()) D(f, u, 'speaking.parts', `phần ${sg.map(p => p.n).join(',')} ≠ spec ${ssp.map(p => p.n).join(',')}`);
+    for (const p of sg) {
+      const qs = p.type === 'interview' ? (p.phases || []).flatMap(x => [...(x.q || []), ...(x.extended ? [x.extended] : [])]) : [p.prompt, ...(p.follow || [])].filter(Boolean);
+      if (qs.length < 4 || !Object.keys(p.models || {}).length) D(f, u, `speaking.part${p.n}`, `Part ${p.n}: ${qs.length} câu hỏi / ${Object.keys(p.models || {}).length} câu mẫu (cần ≥ 4 và ≥ 1)`);
+      const orphan = Object.keys(p.models || {}).filter(k => !qs.includes(k));
+      if (orphan.length) D(f, u, `speaking.part${p.n}.models`, `câu mẫu không khớp câu hỏi: ${orphan[0]}`);
+    }
+    if (!(RUB[T.level] && (RUB[T.level].speaking || []).length)) D(f, u, 'rubric.speaking', `thiếu tiêu chí chấm nói ${T.level}`);
+  }
+}
+
 // ---------- 3) So với danh sách lệch đã biết (chỉ được bớt) ----------
 const KNOWN_F = 'content/exams/spec/deviations.json';
 const KNOWN = fs.existsSync(P(KNOWN_F)) ? J(KNOWN_F).known || {} : {};
@@ -270,7 +330,7 @@ const rows = Object.values(fam).map(F => {
 });
 const total = rows.reduce((a, r) => a + r.units, 0), pass = rows.reduce((a, r) => a + r.pass, 0);
 if (!total) fatal.push('tổng số đề đếm được = 0');
-const cam = SPEC_IDS.filter(x => x.startsWith('cam-')).map(x => `${x}: 0 đề (chưa soạn – P1)`);
+const cam = SPEC_IDS.filter(x => x.startsWith('cam-')).map(x => `${x}: ${(fam[x] || { units: [] }).units.length} đề`);
 const pct = total ? Math.round(1000 * pass / total) / 10 : 0;
 const md = ['| Họ đề | Đơn vị | Qua cổng | % | Số lệch |', '|---|---|---|---|---|', ...rows.map(r => `| ${r.family} | ${r.units} | ${r.pass} | ${r.pct} % | ${r.deviations} |`), `| **Tổng** | **${total}** | **${pass}** | **${pct} %** | **${Object.keys(dev).length}** |`].join('\n');
 console.log(md);

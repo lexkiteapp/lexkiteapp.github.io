@@ -1,0 +1,922 @@
+{
+ "id": "lost-luggage",
+ "group": "travel",
+ "cefr": "B1",
+ "title": {
+  "en": "Lost luggage",
+  "vi": "Mất hành lý",
+  "es": "Equipaje perdido",
+  "pt": "Bagagem extraviada",
+  "fr": "Bagage perdu",
+  "de": "Verlorenes Gepäck",
+  "id": "Bagasi hilang",
+  "th": "กระเป๋าหาย",
+  "zh": "行李丢失",
+  "ja": "荷物の紛失",
+  "ko": "수하물 분실",
+  "hi": "खोया हुआ सामान",
+  "ar": "الأمتعة المفقودة",
+  "ru": "Потерянный багаж",
+  "tr": "Kayıp bagaj"
+ },
+ "goal": {
+  "en": "Report your missing suitcase and get it delivered!",
+  "vi": "Báo mất vali và nhờ giao tận nơi!",
+  "es": "¡Informa de tu maleta perdida y pide que te la entreguen!",
+  "pt": "Informe a mala extraviada e peça a entrega!",
+  "fr": "Signalez votre valise manquante et faites-la livrer !",
+  "de": "Melde deinen fehlenden Koffer und lass ihn liefern!",
+  "id": "Laporkan koper yang hilang dan minta diantar!",
+  "th": "แจ้งกระเป๋าที่หายและขอให้ส่งถึงที่พัก!",
+  "zh": "报告行李箱丢失，并请对方送货上门！",
+  "ja": "スーツケースの紛失を届け出て、配送してもらおう！",
+  "ko": "분실한 캐리어를 신고하고 배송을 요청해요!",
+  "hi": "खोए सूटकेस की रिपोर्ट करें और उसे डिलीवर करवाएँ!",
+  "ar": "أبلغ عن حقيبتك المفقودة واطلب توصيلها!",
+  "ru": "Заяви о пропавшем чемодане и закажи доставку!",
+  "tr": "Kayıp bavulunu bildir ve teslim ettir!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "report",
+   "title": {
+    "en": "Report it",
+    "vi": "Báo mất",
+    "es": "Informar de la pérdida",
+    "pt": "Comunicar a perda",
+    "fr": "Signaler la perte",
+    "de": "Verlust melden",
+    "id": "Melaporkan",
+    "th": "แจ้งเรื่อง",
+    "zh": "报失",
+    "ja": "届け出る",
+    "ko": "신고하기",
+    "hi": "रिपोर्ट करें",
+    "ar": "تقديم البلاغ",
+    "ru": "Заявить о потере",
+    "tr": "Bildir"
+   },
+   "lines": [
+    "r1",
+    "r2",
+    "r3",
+    "r4"
+   ]
+  },
+  {
+   "id": "describe",
+   "title": {
+    "en": "Describe the bag",
+    "vi": "Mô tả hành lý",
+    "es": "Describir la maleta",
+    "pt": "Descrever a mala",
+    "fr": "Décrire le bagage",
+    "de": "Gepäck beschreiben",
+    "id": "Gambarkan tas",
+    "th": "บรรยายกระเป๋า",
+    "zh": "描述行李",
+    "ja": "荷物の特徴",
+    "ko": "가방 설명",
+    "hi": "बैग का वर्णन",
+    "ar": "وصف الحقيبة",
+    "ru": "Описать багаж",
+    "tr": "Bagajı anlat"
+   },
+   "lines": [
+    "d1",
+    "d2",
+    "d3",
+    "d4"
+   ]
+  },
+  {
+   "id": "follow",
+   "title": {
+    "en": "Follow up",
+    "vi": "Theo dõi",
+    "es": "Seguimiento",
+    "pt": "Acompanhamento",
+    "fr": "Suivi",
+    "de": "Nachverfolgung",
+    "id": "Tindak lanjut",
+    "th": "ติดตามผล",
+    "zh": "后续跟进",
+    "ja": "その後の対応",
+    "ko": "후속 조치",
+    "hi": "आगे की कार्रवाई",
+    "ar": "المتابعة",
+    "ru": "Дальнейшие шаги",
+    "tr": "Takip"
+   },
+   "lines": [
+    "f1",
+    "f2",
+    "f3",
+    "f4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "r1",
+   "who": "customer",
+   "en": "Excuse me, my suitcase didn't come out on the carousel.",
+   "variants": {
+    "polite": "Excuse me, I'm afraid my suitcase hasn't come out on the carousel.",
+    "casual": "Hi, my bag never showed up on the carousel."
+   },
+   "gloss": {
+    "en": "Telling the staff your checked bag did not arrive.",
+    "vi": "Xin lỗi, vali của tôi không ra trên băng chuyền.",
+    "es": "Disculpe, mi maleta no ha salido en la cinta.",
+    "pt": "Com licença, minha mala não saiu na esteira.",
+    "fr": "Excusez-moi, ma valise n'est pas sortie sur le tapis.",
+    "de": "Entschuldigung, mein Koffer ist nicht auf dem Band angekommen.",
+    "id": "Permisi, koper saya tidak keluar di ban berjalan.",
+    "th": "ขอโทษค่ะ กระเป๋าเดินทางของดิฉันไม่ออกมาที่สายพานเลยค่ะ",
+    "zh": "您好，我的行李箱没有从传送带上出来。",
+    "ja": "すみません、スーツケースがターンテーブルに出てきませんでした。",
+    "ko": "실례합니다, 제 캐리어가 수하물 벨트에 나오지 않았어요.",
+    "hi": "सुनिए, मेरा सूटकेस कैरोसेल पर नहीं आया।",
+    "ar": "عفوًا، لم تخرج حقيبتي على السير الناقل.",
+    "ru": "Извините, мой чемодан не выехал на ленте.",
+    "tr": "Pardon, bavulum bagaj bandına gelmedi."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "carousel",
+     "ipa": "/ˌkær.əˈsel/",
+     "hi": "SEL",
+     "note": {
+      "en": "Stress the last syllable: ka-ruh-SEL, not KA-ruh-sel.",
+      "vi": "Nhấn âm tiết cuối: ke-rơ-XEL, không phải KE-rơ-xel.",
+      "es": "Acentúa la última sílaba: ka-ru-SEL.",
+      "pt": "Acentue a última sílaba: ca-ru-SÉL.",
+      "fr": "Accentuez la dernière syllabe : ca-reu-SEL.",
+      "de": "Betone die letzte Silbe: ka-ru-SEL.",
+      "id": "Tekankan suku kata terakhir: ka-ru-SEL.",
+      "th": "เน้นพยางค์สุดท้าย: แคร์-รึ-เซล",
+      "zh": "重音在最后一个音节：ka-ruh-SEL。",
+      "ja": "最後の音節を強く：キャラ・セル。",
+      "ko": "마지막 음절에 강세를 두세요: 캐러-셀.",
+      "hi": "आख़िरी अक्षर पर ज़ोर दें: कैरो-सेल।",
+      "ar": "شدّد على المقطع الأخير: كارا-سِل.",
+      "ru": "Ударение на последний слог: ка-ру-СЕЛ.",
+      "tr": "Vurgu son hecede: ke-rı-SEL."
+     }
+    }
+   ]
+  },
+  {
+   "id": "r2",
+   "who": "barista",
+   "en": "I'm sorry about that. May I see your baggage tag and boarding pass?",
+   "variants": {
+    "polite": "I'm very sorry about that. May I see your baggage tag and boarding pass, please?",
+    "casual": "Sorry about that. Can I see your bag tag and boarding pass?"
+   },
+   "gloss": {
+    "en": "The agent asks to see your baggage tag and boarding pass.",
+    "vi": "Tôi rất tiếc. Cho tôi xem thẻ hành lý và thẻ lên máy bay của bạn nhé?",
+    "es": "Lo siento. ¿Puedo ver la etiqueta de equipaje y su tarjeta de embarque?",
+    "pt": "Sinto muito. Posso ver a etiqueta da bagagem e o cartão de embarque?",
+    "fr": "Désolé. Puis-je voir votre étiquette bagage et votre carte d'embarquement ?",
+    "de": "Das tut mir leid. Darf ich Ihren Gepäckanhänger und Ihre Bordkarte sehen?",
+    "id": "Mohon maaf. Boleh saya lihat tag bagasi dan boarding pass Anda?",
+    "th": "ขออภัยด้วยค่ะ ขอดูป้ายกระเป๋าและบัตรโดยสารหน่อยได้ไหมคะ",
+    "zh": "很抱歉。请出示您的行李牌和登机牌好吗？",
+    "ja": "申し訳ございません。手荷物タグと搭乗券を拝見できますか？",
+    "ko": "죄송합니다. 수하물 태그와 탑승권을 보여 주시겠어요?",
+    "hi": "मुझे खेद है। क्या मैं आपका बैगेज टैग और बोर्डिंग पास देख सकता हूँ?",
+    "ar": "أنا آسف لذلك. هل يمكنني رؤية بطاقة الأمتعة وبطاقة الصعود إلى الطائرة؟",
+    "ru": "Мне очень жаль. Можно посмотреть ваш багажный талон и посадочный?",
+    "tr": "Üzgünüm. Bagaj etiketinizi ve biniş kartınızı görebilir miyim?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "baggage",
+     "ipa": "/ˈbæɡ.ɪdʒ/",
+     "hi": "BAG",
+     "note": {
+      "en": "Stress the first syllable: BAG-ij. The ending is a soft 'ij', not 'ayj'.",
+      "vi": "Nhấn âm tiết đầu: BE-gịch. Phần cuối là “ịch” nhẹ, không phải “ây-dờ”.",
+      "es": "Acentúa la primera sílaba: BA-guij. Termina en un sonido suave “ij”, no “eich”.",
+      "pt": "Acentue a primeira sílaba: BÉ-guidj. O final é um “idj” suave, não “eidj”.",
+      "fr": "Accentuez la première syllabe : BA-guidj. La fin est un « idj » doux, pas « èdj ».",
+      "de": "Betone die erste Silbe: BÄ-gidsch. Das Ende ist ein weiches „idsch“, nicht „eidsch“.",
+      "id": "Tekankan suku kata pertama: BE-gij. Akhirnya “ij” lembut, bukan “eij”.",
+      "th": "เน้นพยางค์แรก: แบ็ก-กิจ ท้ายเสียงเบา ๆ ไม่ใช่ “เอจ”",
+      "zh": "重音在第一个音节：BAG-ij，结尾是轻的 ij，不是 age 的音。",
+      "ja": "最初の音節を強く：バギッジ。語尾は弱い「イッジ」で、「エイジ」ではありません。",
+      "ko": "첫 음절에 강세를 두세요: 배-기지. 끝은 약한 ‘이지’이고 ‘에이지’가 아니에요.",
+      "hi": "पहले अक्षर पर ज़ोर दें: बैग-इज। अंत हल्का “इज” है, “एज” नहीं।",
+      "ar": "شدّد على المقطع الأول: باج-ِج، والنهاية خفيفة ij وليست eij.",
+      "ru": "Ударение на первый слог: БЭГ-идж. Конец лёгкий «идж», а не «эйдж».",
+      "tr": "Vurgu ilk hecede: BAG-ic. Sonu hafif “ic”, “eyc” değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "r3",
+   "who": "customer",
+   "en": "I flew in from Lisbon this morning, and I checked in one bag.",
+   "variants": {
+    "polite": "I arrived from Lisbon this morning with one checked bag.",
+    "casual": "I flew in from Lisbon with one checked bag."
+   },
+   "gloss": {
+    "en": "Saying where you flew in from and that you checked in one bag.",
+    "vi": "Tôi bay từ Lisbon đến sáng nay và có một kiện hành lý ký gửi.",
+    "es": "He llegado en vuelo desde Lisboa esta mañana con una maleta facturada.",
+    "pt": "Cheguei de Lisboa esta manhã, com uma mala despachada.",
+    "fr": "Je suis arrivé de Lisbonne ce matin avec un bagage en soute.",
+    "de": "Ich bin heute Morgen aus Lissabon gekommen und habe einen Koffer aufgegeben.",
+    "id": "Saya mendarat dari Lisbon pagi ini dengan satu bagasi terdaftar.",
+    "th": "ดิฉันบินมาจากลิสบอนเมื่อเช้านี้ และเช็กอินกระเป๋าไว้หนึ่งใบค่ะ",
+    "zh": "我今天早上从里斯本飞来，托运了一件行李。",
+    "ja": "今朝リスボンから到着して、預け荷物は1個です。",
+    "ko": "오늘 아침 리스본에서 도착했고, 부친 가방이 하나 있어요.",
+    "hi": "मैं आज सुबह लिस्बन से आया हूँ और मैंने एक बैग चेक-इन किया था।",
+    "ar": "وصلتُ هذا الصباح من لشبونة ولديّ حقيبة واحدة مسجّلة.",
+    "ru": "Я прилетел из Лиссабона сегодня утром и сдал один чемодан в багаж.",
+    "tr": "Bu sabah Lizbon'dan geldim ve bir bavul teslim etmiştim."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "r4",
+   "who": "barista",
+   "en": "Could you describe your suitcase for me?",
+   "variants": {
+    "polite": "Could you please describe your suitcase for me?",
+    "casual": "What does it look like?"
+   },
+   "gloss": {
+    "en": "The agent asks you to describe your suitcase.",
+    "vi": "Bạn mô tả giúp tôi chiếc vali được không?",
+    "es": "¿Podría describirme su maleta?",
+    "pt": "Pode descrever a sua mala para mim?",
+    "fr": "Pourriez-vous me décrire votre valise ?",
+    "de": "Könnten Sie mir Ihren Koffer beschreiben?",
+    "id": "Bisa tolong gambarkan koper Anda?",
+    "th": "ช่วยบอกลักษณะกระเป๋าเดินทางหน่อยได้ไหมคะ",
+    "zh": "您能描述一下您的行李箱吗？",
+    "ja": "スーツケースの特徴を教えていただけますか？",
+    "ko": "캐리어가 어떻게 생겼는지 설명해 주시겠어요?",
+    "hi": "क्या आप अपने सूटकेस का वर्णन कर सकते हैं?",
+    "ar": "هل يمكنك وصف حقيبتك لي؟",
+    "ru": "Не могли бы вы описать ваш чемодан?",
+    "tr": "Bavulunuzu tarif edebilir misiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "d1",
+   "who": "customer",
+   "en": "It's a large navy blue hard-shell suitcase with a red ribbon on the handle.",
+   "variants": {
+    "polite": "It's a large, navy blue hard-shell suitcase with a red ribbon tied to the handle.",
+    "casual": "A big navy blue case with a red ribbon on the handle."
+   },
+   "gloss": {
+    "en": "Describing your suitcase: size, colour, material and a ribbon.",
+    "vi": "Đó là một chiếc vali cứng lớn màu xanh navy, có dải ruy băng đỏ buộc ở tay cầm.",
+    "es": "Es una maleta rígida grande, azul marino, con una cinta roja en el asa.",
+    "pt": "É uma mala rígida grande, azul-marinho, com uma fita vermelha na alça.",
+    "fr": "C'est une grande valise rigide bleu marine avec un ruban rouge sur la poignée.",
+    "de": "Es ist ein großer marineblauer Hartschalenkoffer mit einem roten Band am Griff.",
+    "id": "Kopernya besar, cangkang keras berwarna biru tua, dengan pita merah di gagangnya.",
+    "th": "เป็นกระเป๋าเดินทางเปลือกแข็งใบใหญ่สีน้ำเงินเข้ม มีริบบิ้นสีแดงผูกที่หูหิ้วค่ะ",
+    "zh": "是一个深蓝色的大号硬壳行李箱，拉手上系着一条红丝带。",
+    "ja": "紺色の大きなハードケースで、持ち手に赤いリボンが付いています。",
+    "ko": "남색의 큰 하드케이스 캐리어이고, 손잡이에 빨간 리본이 달려 있어요.",
+    "hi": "यह गहरे नीले रंग का बड़ा हार्ड-शेल सूटकेस है, जिसके हैंडल पर लाल रिबन बँधा है।",
+    "ar": "إنها حقيبة صلبة كبيرة بلون أزرق داكن وعلى المقبض شريط أحمر.",
+    "ru": "Это большой тёмно-синий пластиковый чемодан с красной лентой на ручке.",
+    "tr": "Büyük, lacivert, sert kabuklu bir bavul; sapında kırmızı bir kurdele var."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "ribbon",
+     "ipa": "/ˈrɪb.ən/",
+     "hi": "RIB",
+     "note": {
+      "en": "Stress the first syllable: RIB-un. The vowel is short, like 'rib', not 'ree'.",
+      "vi": "Nhấn âm tiết đầu: RIB-ần. Nguyên âm ngắn như “rib”, không phải “ri” dài.",
+      "es": "Acentúa la primera sílaba: RIB-an. La vocal es corta, como en “rib”, no “ri” larga.",
+      "pt": "Acentue a primeira sílaba: RÍB-an. A vogal é curta, como em “rib”.",
+      "fr": "Accentuez la première syllabe : RIB-eun. La voyelle est brève, comme dans « rib ».",
+      "de": "Betone die erste Silbe: RIB-en. Der Vokal ist kurz wie in „rib“, nicht lang.",
+      "id": "Tekankan suku kata pertama: RIB-en. Vokalnya pendek seperti “rib”, bukan “rii”.",
+      "th": "เน้นพยางค์แรก: ริบ-เบิน สระสั้นเหมือน rib ไม่ใช่ “รีบ”",
+      "zh": "重音在第一个音节：RIB-un。元音要短，像 rib，不是长的 ree。",
+      "ja": "最初の音節を強く：リブ・ン。母音は短く「リ」で、「リー」ではありません。",
+      "ko": "첫 음절에 강세를 두세요: 립-언. 모음은 rib처럼 짧게, ‘리-’가 아니에요.",
+      "hi": "पहले अक्षर पर ज़ोर दें: रिब-न। स्वर छोटा है, “रीब” नहीं।",
+      "ar": "شدّد على المقطع الأول: ريب-ن، والحرف قصير كما في rib وليس ريي.",
+      "ru": "Ударение на первый слог: РИБ-н. Гласный краткий, как в rib, а не «ри-и».",
+      "tr": "Vurgu ilk hecede: RIB-ın. Ünlü kısa, rib gibi; uzun “ri” değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "d2",
+   "who": "barista",
+   "en": "Is there anything valuable or fragile inside?",
+   "variants": {
+    "polite": "Is there anything valuable or fragile inside, by any chance?",
+    "casual": "Anything valuable or breakable in there?"
+   },
+   "gloss": {
+    "en": "The agent asks if anything valuable or breakable is inside.",
+    "vi": "Bên trong có đồ có giá trị hay dễ vỡ không?",
+    "es": "¿Hay algo de valor o frágil dentro?",
+    "pt": "Há algo de valor ou frágil lá dentro?",
+    "fr": "Y a-t-il quelque chose de précieux ou de fragile à l'intérieur ?",
+    "de": "Ist etwas Wertvolles oder Zerbrechliches darin?",
+    "id": "Apakah ada barang berharga atau mudah pecah di dalamnya?",
+    "th": "ข้างในมีของมีค่าหรือของที่แตกง่ายไหมคะ",
+    "zh": "里面有贵重物品或易碎品吗？",
+    "ja": "中に貴重品や壊れやすい物は入っていますか？",
+    "ko": "안에 귀중품이나 깨지기 쉬운 물건이 있나요?",
+    "hi": "क्या अंदर कोई कीमती या नाज़ुक चीज़ है?",
+    "ar": "هل يوجد بداخلها شيء ثمين أو قابل للكسر؟",
+    "ru": "Внутри есть что-то ценное или хрупкое?",
+    "tr": "İçinde değerli ya da kırılabilir bir şey var mı?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "d3",
+   "who": "customer",
+   "en": "Yes, my medication and my laptop charger are inside.",
+   "variants": {
+    "polite": "Yes, unfortunately my medication and laptop charger are inside.",
+    "casual": "Yeah, my medication and my charger."
+   },
+   "gloss": {
+    "en": "Telling the agent that medicine and a charger are inside.",
+    "vi": "Có, thuốc của tôi và dây sạc laptop ở trong đó.",
+    "es": "Sí, dentro están mis medicamentos y el cargador del portátil.",
+    "pt": "Sim, meus remédios e o carregador do notebook estão lá dentro.",
+    "fr": "Oui, mes médicaments et le chargeur de mon ordinateur sont dedans.",
+    "de": "Ja, meine Medikamente und mein Laptop-Ladegerät sind darin.",
+    "id": "Ya, obat saya dan charger laptop ada di dalamnya.",
+    "th": "มีค่ะ ยาของดิฉันกับสายชาร์จแล็ปท็อปอยู่ข้างในค่ะ",
+    "zh": "有，我的药和笔记本电脑充电器都在里面。",
+    "ja": "はい、薬とノートパソコンの充電器が入っています。",
+    "ko": "네, 안에 제 약과 노트북 충전기가 들어 있어요.",
+    "hi": "हाँ, मेरी दवाइयाँ और लैपटॉप चार्जर अंदर हैं।",
+    "ar": "نعم، أدويتي وشاحن الحاسوب المحمول بداخلها.",
+    "ru": "Да, там мои лекарства и зарядка для ноутбука.",
+    "tr": "Evet, içinde ilaçlarım ve laptop şarj aletim var."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "medication",
+     "ipa": "/ˌmed.ɪˈkeɪ.ʃən/",
+     "hi": "KAY",
+     "note": {
+      "en": "Stress the third syllable: med-i-KAY-shun.",
+      "vi": "Nhấn âm tiết thứ ba: me-đi-KÂY-shần.",
+      "es": "Acentúa la tercera sílaba: me-di-KEI-shun.",
+      "pt": "Acentue a terceira sílaba: mé-di-KEI-chun.",
+      "fr": "Accentuez la troisième syllabe : mé-di-KÉ-chonn.",
+      "de": "Betone die dritte Silbe: me-di-KEI-schn.",
+      "id": "Tekankan suku kata ketiga: me-di-KEI-syen.",
+      "th": "เน้นพยางค์ที่สาม: เมด-ดิ-เคย์-เชิน",
+      "zh": "重音在第三个音节：med-i-KAY-shun。",
+      "ja": "3番目の音節を強く：メディ・ケイ・ション。",
+      "ko": "세 번째 음절에 강세를 두세요: 메디-케이-션.",
+      "hi": "तीसरे अक्षर पर ज़ोर दें: मेड-इ-के-शन।",
+      "ar": "شدّد على المقطع الثالث: مِد-ي-كيي-شن.",
+      "ru": "Ударение на третий слог: мед-и-КЭЙ-шн.",
+      "tr": "Vurgu üçüncü hecede: med-i-KEY-şın."
+     }
+    }
+   ]
+  },
+  {
+   "id": "d4",
+   "who": "barista",
+   "en": "We'll trace it straight away. Where should we deliver it once it's found?",
+   "variants": {
+    "polite": "We'll start tracing it straight away. Where would you like it delivered once it's found?",
+    "casual": "We'll track it down. Where should we send it?"
+   },
+   "gloss": {
+    "en": "The agent will trace the bag and asks where to deliver it.",
+    "vi": "Chúng tôi sẽ truy tìm ngay. Khi tìm thấy, giao hành lý cho bạn ở đâu?",
+    "es": "Lo rastrearemos enseguida. ¿Dónde quiere que se lo entreguemos cuando aparezca?",
+    "pt": "Vamos rastreá-la já. Onde devemos entregá-la quando for encontrada?",
+    "fr": "Nous allons la retrouver tout de suite. Où devons-nous la livrer une fois retrouvée ?",
+    "de": "Wir suchen ihn sofort. Wohin sollen wir ihn liefern, sobald er gefunden ist?",
+    "id": "Kami akan segera melacaknya. Ke mana kami harus mengantarnya setelah ditemukan?",
+    "th": "เราจะติดตามหาทันทีค่ะ เมื่อเจอแล้วจะให้ส่งไปที่ไหนคะ",
+    "zh": "我们会马上追踪。找到后要送到哪里？",
+    "ja": "すぐに捜索します。見つかったら、どちらにお届けしましょうか？",
+    "ko": "바로 추적해 보겠습니다. 찾으면 어디로 배송해 드릴까요?",
+    "hi": "हम तुरंत इसकी खोज शुरू करते हैं। मिलने पर इसे कहाँ पहुँचाएँ?",
+    "ar": "سنتتبّعها فورًا. أين نوصلها عند العثور عليها؟",
+    "ru": "Мы сразу начнём поиск. Куда доставить чемодан, когда он найдётся?",
+    "tr": "Hemen izini süreceğiz. Bulunca nereye teslim edelim?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "f1",
+   "who": "customer",
+   "en": "Could you deliver it to my hotel? It's the Riverside Hotel, near the station.",
+   "variants": {
+    "polite": "Would it be possible to deliver it to my hotel? It's the Riverside Hotel.",
+    "casual": "Can you send it to my hotel? It's the Riverside."
+   },
+   "gloss": {
+    "en": "Asking for the bag to be delivered to your hotel.",
+    "vi": "Bạn giao đến khách sạn giúp tôi được không? Đó là khách sạn Riverside, gần nhà ga.",
+    "es": "¿Podrían entregarla en mi hotel? Es el Hotel Riverside, cerca de la estación.",
+    "pt": "Podem entregá-la no meu hotel? É o Hotel Riverside, perto da estação.",
+    "fr": "Pourriez-vous la livrer à mon hôtel ? C'est l'hôtel Riverside, près de la gare.",
+    "de": "Könnten Sie ihn zu meinem Hotel liefern? Es ist das Hotel Riverside, in der Nähe des Bahnhofs.",
+    "id": "Bisakah diantar ke hotel saya? Namanya Hotel Riverside, dekat stasiun.",
+    "th": "ช่วยส่งไปที่โรงแรมของดิฉันได้ไหมคะ โรงแรมริเวอร์ไซด์ ใกล้สถานีค่ะ",
+    "zh": "可以把它送到我的酒店吗？是河畔酒店，在车站附近。",
+    "ja": "ホテルまで届けていただけますか？駅の近くのリバーサイドホテルです。",
+    "ko": "제 호텔로 배송해 주실 수 있나요? 역 근처 리버사이드 호텔이에요.",
+    "hi": "क्या आप इसे मेरे होटल पहुँचा सकते हैं? वह स्टेशन के पास रिवरसाइड होटल है।",
+    "ar": "هل يمكنكم توصيلها إلى فندقي؟ إنه فندق ريفرسايد قرب المحطة.",
+    "ru": "Могли бы вы доставить его в мой отель? Это отель «Риверсайд» рядом с вокзалом.",
+    "tr": "Otelime teslim edebilir misiniz? İstasyonun yakınındaki Riverside Otel."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "f2",
+   "who": "barista",
+   "en": "Here's your reference number. Most bags turn up within two days, and we'll text you.",
+   "variants": {
+    "polite": "Here is your reference number. Most bags are found within two days, and we'll text you updates.",
+    "casual": "Here's your reference number. Most bags turn up in a day or two."
+   },
+   "gloss": {
+    "en": "The agent gives a reference number and says bags usually turn up within two days.",
+    "vi": "Đây là mã tham chiếu của bạn. Phần lớn hành lý được tìm thấy trong hai ngày và chúng tôi sẽ nhắn tin cho bạn.",
+    "es": "Aquí tiene su número de referencia. La mayoría de las maletas aparecen en dos días y le enviaremos un mensaje.",
+    "pt": "Aqui está o seu número de referência. A maioria das malas aparece em dois dias e avisaremos por mensagem.",
+    "fr": "Voici votre numéro de dossier. La plupart des bagages sont retrouvés en deux jours, et nous vous enverrons un SMS.",
+    "de": "Hier ist Ihre Referenznummer. Die meisten Koffer tauchen innerhalb von zwei Tagen auf, und wir schreiben Ihnen eine SMS.",
+    "id": "Ini nomor referensi Anda. Kebanyakan bagasi ditemukan dalam dua hari, dan kami akan mengirim pesan.",
+    "th": "นี่คือหมายเลขอ้างอิงของคุณค่ะ กระเป๋าส่วนใหญ่พบภายในสองวัน และเราจะส่งข้อความแจ้งให้ทราบค่ะ",
+    "zh": "这是您的参考编号。大多数行李两天内就能找到，我们会发短信通知您。",
+    "ja": "こちらが受付番号です。ほとんどの荷物は2日以内に見つかります。ショートメッセージでお知らせします。",
+    "ko": "이건 접수 번호예요. 대부분의 가방은 이틀 안에 나오고, 문자로 알려 드릴게요.",
+    "hi": "यह आपका संदर्भ नंबर है। ज़्यादातर बैग दो दिन में मिल जाते हैं, और हम आपको मैसेज भेजेंगे।",
+    "ar": "هذا رقمك المرجعي. تُعثر على معظم الحقائب خلال يومين وسنرسل لك رسالة نصية.",
+    "ru": "Вот ваш номер заявки. Большинство чемоданов находят за два дня, и мы пришлём вам сообщение.",
+    "tr": "İşte referans numaranız. Çoğu bagaj iki gün içinde bulunuyor, size mesaj atacağız."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "f3",
+   "who": "customer",
+   "en": "I need a few essentials in the meantime. Can I claim for them?",
+   "variants": {
+    "polite": "In the meantime, would I be able to claim for a few essentials?",
+    "casual": "Can I claim for basics like toiletries until it turns up?"
+   },
+   "gloss": {
+    "en": "Asking whether you can claim money back for basic items while you wait.",
+    "vi": "Trong lúc chờ, tôi cần vài thứ thiết yếu. Tôi có thể yêu cầu bồi hòan không?",
+    "es": "Mientras tanto necesito algunas cosas básicas. ¿Puedo reclamar el gasto?",
+    "pt": "Enquanto isso, preciso de algumas coisas básicas. Posso pedir reembolso?",
+    "fr": "En attendant, il me faut quelques affaires de première nécessité. Puis-je les faire rembourser ?",
+    "de": "Ich brauche in der Zwischenzeit ein paar Dinge des täglichen Bedarfs. Kann ich dafür eine Erstattung beantragen?",
+    "id": "Sementara itu saya butuh beberapa keperluan dasar. Bisakah saya mengajukan penggantian?",
+    "th": "ระหว่างนี้ดิฉันต้องใช้ของจำเป็นบางอย่าง ขอเบิกค่าใช้จ่ายได้ไหมคะ",
+    "zh": "这期间我需要买一些必需品，可以申请报销吗？",
+    "ja": "その間、最低限の必需品が必要です。費用を請求できますか？",
+    "ko": "그동안 필수품이 몇 가지 필요해요. 비용을 청구할 수 있을까요?",
+    "hi": "इस बीच मुझे कुछ ज़रूरी चीज़ें चाहिए। क्या मैं इनका क्लेम कर सकता हूँ?",
+    "ar": "أحتاج إلى بعض الأساسيات في الأثناء. هل يمكنني المطالبة بتعويضها؟",
+    "ru": "А пока мне нужны вещи первой необходимости. Можно подать заявку на возмещение?",
+    "tr": "Bu arada birkaç temel ihtiyaca gerek var. Bunlar için talepte bulunabilir miyim?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "essentials",
+     "ipa": "/ɪˈsen.ʃəlz/",
+     "hi": "SEN",
+     "note": {
+      "en": "Stress the second syllable: ih-SEN-shulz.",
+      "vi": "Nhấn âm tiết thứ hai: i-XEN-shồlz.",
+      "es": "Acentúa la segunda sílaba: i-SEN-shuls.",
+      "pt": "Acentue a segunda sílaba: i-SÉN-chals.",
+      "fr": "Accentuez la deuxième syllabe : i-SÈN-cheulz.",
+      "de": "Betone die zweite Silbe: i-SEN-schls.",
+      "id": "Tekankan suku kata kedua: i-SEN-syelz.",
+      "th": "เน้นพยางค์ที่สอง: อิ-เซน-เชิลส์",
+      "zh": "重音在第二个音节：ih-SEN-shulz。",
+      "ja": "2番目の音節を強く：イ・セン・シャルズ。",
+      "ko": "두 번째 음절에 강세를 두세요: 이-센-셜즈.",
+      "hi": "दूसरे अक्षर पर ज़ोर दें: इ-सेन-शल्ज़।",
+      "ar": "شدّد على المقطع الثاني: إ-سِن-شلز.",
+      "ru": "Ударение на второй слог: и-СЕН-шлз.",
+      "tr": "Vurgu ikinci hecede: i-SEN-şılz."
+     }
+    }
+   ]
+  },
+  {
+   "id": "f4",
+   "who": "customer",
+   "en": "I don't mean to complain, but this is the second time this has happened.",
+   "variants": {
+    "polite": "I don't want to complain, but this is the second time my bag has gone missing.",
+    "casual": "Sorry, but this is the second time my bag has gone missing."
+   },
+   "gloss": {
+    "en": "A polite way to complain: this has happened before.",
+    "vi": "Tôi không muốn phàn nàn, nhưng đây là lần thứ hai chuyện này xảy ra.",
+    "es": "No quiero quejarme, pero es la segunda vez que me pasa.",
+    "pt": "Não quero reclamar, mas é a segunda vez que isso acontece.",
+    "fr": "Je ne veux pas me plaindre, mais c'est la deuxième fois que cela arrive.",
+    "de": "Ich möchte mich nicht beschweren, aber das ist jetzt das zweite Mal.",
+    "id": "Saya tidak bermaksud mengeluh, tetapi ini kedua kalinya hal ini terjadi.",
+    "th": "ดิฉันไม่ได้ตั้งใจจะบ่นนะคะ แต่นี่เป็นครั้งที่สองแล้วที่เกิดเรื่องแบบนี้",
+    "zh": "我不是想抱怨，但这已经是第二次发生这种事了。",
+    "ja": "文句を言うつもりはないのですが、こうなるのは2回目なんです。",
+    "ko": "불평하려는 건 아니지만, 이런 일이 벌어진 게 두 번째예요.",
+    "hi": "मैं शिकायत नहीं करना चाहता, लेकिन ऐसा दूसरी बार हुआ है।",
+    "ar": "لا أقصد الشكوى، لكن هذه ثاني مرة يحدث فيها هذا.",
+    "ru": "Я не хочу жаловаться, но это уже второй раз.",
+    "tr": "Şikâyet etmek istemem ama bu ikinci kez başıma geliyor."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "en": "Can you tell me what your bag looks like?",
+   "open": true,
+   "keywords": [
+    "blue",
+    "black",
+    "red",
+    "green",
+    "grey",
+    "large",
+    "small",
+    "hard",
+    "soft",
+    "wheels",
+    "handle",
+    "ribbon",
+    "sticker",
+    "backpack",
+    "rucksack"
+   ],
+   "variants": {
+    "polite": "Could you tell me what your bag looks like?",
+    "casual": "What does your bag look like?"
+   },
+   "gloss": {
+    "en": "The agent asks what your bag looks like.",
+    "vi": "Bạn cho tôi biết hành lý trông thế nào được không?",
+    "es": "¿Puede decirme cómo es su equipaje?",
+    "pt": "Pode me dizer como é a sua bagagem?",
+    "fr": "Pouvez-vous me dire à quoi ressemble votre bagage ?",
+    "de": "Können Sie mir sagen, wie Ihr Gepäckstück aussieht?",
+    "id": "Bisa beri tahu seperti apa tas Anda?",
+    "th": "ช่วยบอกลักษณะกระเป๋าของคุณหน่อยได้ไหมคะ",
+    "zh": "您能告诉我您的行李是什么样的吗？",
+    "ja": "お荷物はどんな見た目か教えていただけますか？",
+    "ko": "가방이 어떻게 생겼는지 알려 주시겠어요?",
+    "hi": "क्या आप बता सकते हैं कि आपका बैग कैसा दिखता है?",
+    "ar": "هل يمكنك أن تخبرني كيف تبدو حقيبتك؟",
+    "ru": "Можете сказать, как выглядит ваш багаж?",
+    "tr": "Bagajınızın neye benzediğini söyleyebilir misiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "en": "How can we contact you while we search?",
+   "open": true,
+   "keywords": [
+    "phone",
+    "number",
+    "email",
+    "text",
+    "message",
+    "hotel",
+    "call",
+    "mobile",
+    "address"
+   ],
+   "variants": {
+    "polite": "What is the best way to contact you while we search?",
+    "casual": "How do we reach you?"
+   },
+   "gloss": {
+    "en": "The agent asks how to contact you during the search.",
+    "vi": "Chúng tôi liên lạc với bạn bằng cách nào trong lúc tìm?",
+    "es": "¿Cómo podemos contactarle mientras buscamos?",
+    "pt": "Como podemos entrar em contato com você durante a busca?",
+    "fr": "Comment pouvons-nous vous joindre pendant les recherches ?",
+    "de": "Wie können wir Sie während der Suche erreichen?",
+    "id": "Bagaimana kami bisa menghubungi Anda selama pencarian?",
+    "th": "ระหว่างที่เราค้นหา ติดต่อคุณได้ทางไหนคะ",
+    "zh": "查找期间我们怎么联系您？",
+    "ja": "捜索中、どのようにご連絡すればよいですか？",
+    "ko": "찾는 동안 어떻게 연락드리면 될까요?",
+    "hi": "खोज के दौरान हम आपसे कैसे संपर्क करें?",
+    "ar": "كيف يمكننا التواصل معك أثناء البحث؟",
+    "ru": "Как нам связаться с вами во время поиска?",
+    "tr": "Arama sürerken size nasıl ulaşabiliriz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Good morning. How can I help you?"
+  },
+  {
+   "who": "customer",
+   "en": "Hi, my suitcase didn't come out on the carousel."
+  },
+  {
+   "who": "barista",
+   "en": "I'm sorry about that. May I see your baggage tag and boarding pass?"
+  },
+  {
+   "who": "customer",
+   "en": "Here you are. I flew in from Lisbon this morning."
+  },
+  {
+   "who": "barista",
+   "en": "Thank you. Could you describe your suitcase for me?"
+  },
+  {
+   "who": "customer",
+   "en": "It's a large navy blue hard-shell suitcase with a red ribbon on the handle."
+  },
+  {
+   "who": "barista",
+   "en": "Is there anything valuable or fragile inside?"
+  },
+  {
+   "who": "customer",
+   "en": "Yes, my medication is inside, so it's quite urgent."
+  },
+  {
+   "who": "barista",
+   "en": "I understand. We'll trace it straight away. Where should we deliver it?"
+  },
+  {
+   "who": "customer",
+   "en": "Could you deliver it to my hotel? It's the Riverside Hotel."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Hello, I'd like to report a missing bag."
+    },
+    {
+     "who": "barista",
+     "en": "Certainly. What does it look like?"
+    },
+    {
+     "who": "customer",
+     "en": "It's a small black rucksack with a green tag."
+    },
+    {
+     "who": "barista",
+     "en": "Thank you. And what's the best phone number to reach you on?"
+    }
+   ],
+   "q": {
+    "en": "What does the passenger's bag look like?",
+    "vi": "Hành lý của hành khách trông thế nào?",
+    "es": "¿Cómo es el equipaje del pasajero?",
+    "pt": "Como é a bagagem do passageiro?",
+    "fr": "À quoi ressemble le bagage du passager ?",
+    "de": "Wie sieht das Gepäck des Fluggasts aus?",
+    "id": "Seperti apa tas penumpang itu?",
+    "th": "กระเป๋าของผู้โดยสารมีลักษณะอย่างไร",
+    "zh": "乘客的行李是什么样的？",
+    "ja": "乗客の荷物はどんな見た目ですか？",
+    "ko": "승객의 가방은 어떻게 생겼나요?",
+    "hi": "यात्री का बैग कैसा दिखता है?",
+    "ar": "كيف تبدو حقيبة المسافر؟",
+    "ru": "Как выглядит багаж пассажира?",
+    "tr": "Yolcunun bagajı neye benziyor?"
+   },
+   "answer": "small black rucksack"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Good news. Your bag has been found, and it's on the evening flight from Frankfurt."
+    },
+    {
+     "who": "customer",
+     "en": "That's great. Can you deliver it to my hotel?"
+    },
+    {
+     "who": "barista",
+     "en": "Yes, it will be there by ten o'clock tonight."
+    },
+    {
+     "who": "customer",
+     "en": "Perfect, thank you very much."
+    }
+   ],
+   "q": {
+    "en": "When will the bag be delivered?",
+    "vi": "Khi nào hành lý được giao?",
+    "es": "¿Cuándo entregarán la maleta?",
+    "pt": "Quando a mala será entregue?",
+    "fr": "Quand le bagage sera-t-il livré ?",
+    "de": "Wann wird das Gepäck geliefert?",
+    "id": "Kapan tas itu akan diantar?",
+    "th": "กระเป๋าจะถูกส่งเมื่อไร",
+    "zh": "行李什么时候送到？",
+    "ja": "荷物はいつ届きますか？",
+    "ko": "가방은 언제 배달되나요?",
+    "hi": "बैग कब पहुँचाया जाएगा?",
+    "ar": "متى ستُوصَّل الحقيبة؟",
+    "ru": "Когда доставят багаж?",
+    "tr": "Bagaj ne zaman teslim edilecek?"
+   },
+   "answer": "by ten o'clock tonight"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "report-bag",
+    "title": {
+     "en": "Report the missing bag",
+     "vi": "Báo mất hành lý",
+     "es": "Informa del equipaje perdido",
+     "pt": "Informe a bagagem extraviada",
+     "fr": "Signaler le bagage manquant",
+     "de": "Das fehlende Gepäck melden",
+     "id": "Laporkan bagasi yang hilang",
+     "th": "แจ้งกระเป๋าที่หายไป",
+     "zh": "报告行李丢失",
+     "ja": "紛失した荷物を届け出る",
+     "ko": "분실한 가방 신고하기",
+     "hi": "खोए हुए बैग की रिपोर्ट करें",
+     "ar": "أبلغ عن الحقيبة المفقودة",
+     "ru": "Сообщи о пропавшем багаже",
+     "tr": "Kayıp bagajı bildir"
+    },
+    "intents": [
+     "r1"
+    ]
+   },
+   {
+    "id": "describe-bag",
+    "title": {
+     "en": "Describe your suitcase",
+     "vi": "Mô tả chiếc vali",
+     "es": "Describe tu maleta",
+     "pt": "Descreva a sua mala",
+     "fr": "Décrire sa valise",
+     "de": "Den Koffer beschreiben",
+     "id": "Gambarkan koper Anda",
+     "th": "บรรยายลักษณะกระเป๋า",
+     "zh": "描述行李箱",
+     "ja": "スーツケースの特徴を伝える",
+     "ko": "캐리어 설명하기",
+     "hi": "सूटकेस का वर्णन करें",
+     "ar": "صف حقيبتك",
+     "ru": "Опиши чемодан",
+     "tr": "Bavulu tarif et"
+    },
+    "intents": [
+     "d1"
+    ]
+   },
+   {
+    "id": "ask-help",
+    "title": {
+     "en": "Ask for delivery or help",
+     "vi": "Nhờ giao hành lý hoặc hỗ trợ",
+     "es": "Pide la entrega o ayuda",
+     "pt": "Peça entrega ou ajuda",
+     "fr": "Demander la livraison ou de l'aide",
+     "de": "Um Lieferung oder Hilfe bitten",
+     "id": "Minta pengantaran atau bantuan",
+     "th": "ขอให้ส่งกระเป๋าหรือขอความช่วยเหลือ",
+     "zh": "请求送货或协助",
+     "ja": "配送やサポートを頼む",
+     "ko": "배송이나 도움 요청하기",
+     "hi": "डिलीवरी या मदद माँगें",
+     "ar": "اطلب التوصيل أو المساعدة",
+     "ru": "Попроси доставку или помощь",
+     "tr": "Teslimat veya yardım iste"
+    },
+    "intents": [
+     "f1",
+     "f3"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "Report a missing bag at the airline's baggage desk before you leave the arrivals hall, and keep your baggage tag and boarding pass. You will usually get a reference number to track the bag online. Airlines differ on what they pay for, so ask what is covered and keep your receipts for essentials.",
+  "vi": "Hãy báo mất hành lý tại quầy hành lý của hãng bay trước khi rời khu vực nhận hành lý, và giữ lại thẻ hành lý cùng thẻ lên máy bay. Thường bạn sẽ nhận được một mã tham chiếu để theo dõi hành lý trực tuyến. Mỗi hãng bồi hòan khác nhau, nên hãy hỏi rõ khoản nào được chi trả và giữ hóa đơn các đồ thiết yếu.",
+  "es": "Informa de la pérdida en el mostrador de equipajes de la aerolínea antes de salir de la zona de llegadas, y guarda la etiqueta de equipaje y la tarjeta de embarque. Normalmente te darán un número de referencia para seguir la maleta en línea. Cada aerolínea cubre cosas distintas, así que pregunta qué incluye y guarda los recibos de lo esencial.",
+  "pt": "Comunique a perda no balcão de bagagens da companhia aérea antes de sair da área de desembarque e guarde a etiqueta da bagagem e o cartão de embarque. Normalmente você recebe um número de referência para acompanhar a mala on-line. Cada companhia cobre coisas diferentes; pergunte o que está incluído e guarde os recibos dos itens essenciais.",
+  "fr": "Signalez la perte au comptoir bagages de la compagnie avant de quitter la zone d'arrivée, et gardez l'étiquette bagage et la carte d'embarquement. On vous donne généralement un numéro de dossier pour suivre le bagage en ligne. Les compagnies ne remboursent pas toutes les mêmes frais : demandez ce qui est couvert et gardez les reçus des achats de première nécessité.",
+  "de": "Melde den Verlust am Gepäckschalter der Fluggesellschaft, bevor du den Ankunftsbereich verlässt, und bewahre Gepäckanhänger und Bordkarte auf. Meist bekommst du eine Referenznummer, mit der du den Koffer online verfolgen kannst. Die Airlines erstatten unterschiedlich viel, also frag nach, was abgedeckt ist, und hebe die Belege für Notwendiges auf.",
+  "id": "Laporkan kehilangan di meja bagasi maskapai sebelum meninggalkan area kedatangan, dan simpan tag bagasi serta boarding pass. Biasanya Anda mendapat nomor referensi untuk melacak bagasi secara daring. Setiap maskapai berbeda dalam hal penggantian, jadi tanyakan apa yang ditanggung dan simpan struk pembelian keperluan dasar.",
+  "th": "แจ้งกระเป๋าหายที่เคาน์เตอร์สัมภาระของสายการบินก่อนออกจากโถงผู้โดยสารขาเข้า และเก็บป้ายกระเป๋ากับบัตรโดยสารไว้ มักจะได้หมายเลขอ้างอิงสำหรับติดตามกระเป๋าทางออนไลน์ แต่ละสายการบินชดเชยไม่เหมือนกัน จึงควรถามว่าครอบคลุมอะไรบ้างและเก็บใบเสร็จของใช้จำเป็นไว้",
+  "zh": "离开到达大厅之前，先到航空公司的行李柜台报失，并保管好行李牌和登机牌。通常会给您一个参考编号，可以在线追踪行李。各家航空公司的赔付范围不同，请问清楚哪些费用可以报销，并留好购买必需品的收据。",
+  "ja": "到着ロビーを出る前に、航空会社の手荷物カウンターで届け出て、手荷物タグと搭乗券を保管しておきましょう。通常は受付番号が発行され、オンラインで荷物の所在を確認できます。補償の範囲は航空会社によって異なるので、何が対象かを確認し、必需品のレシートも取っておいてください。",
+  "ko": "도착 홀을 나가기 전에 항공사 수하물 카운터에서 분실 신고를 하고, 수하물 태그와 탑승권을 잘 보관하세요. 보통 접수 번호를 받아 온라인으로 가방을 추적할 수 있습니다. 보상 범위는 항공사마다 다르니 무엇이 포함되는지 물어보고, 필수품을 산 영수증도 챙겨 두세요.",
+  "hi": "आगमन हॉल से निकलने से पहले एयरलाइन के बैगेज डेस्क पर रिपोर्ट करें, और बैगेज टैग व बोर्डिंग पास संभालकर रखें। आमतौर पर एक संदर्भ नंबर मिलता है, जिससे आप बैग को ऑनलाइन ट्रैक कर सकते हैं। एयरलाइनें अलग-अलग चीज़ों का भुगतान करती हैं, इसलिए पूछ लें कि क्या शामिल है और ज़रूरी सामान की रसीदें रखें।",
+  "ar": "أبلغ عن الحقيبة المفقودة لدى مكتب الأمتعة التابع لشركة الطيران قبل مغادرة صالة الوصول، واحتفظ ببطاقة الأمتعة وبطاقة الصعود. وعادةً ستحصل على رقم مرجعي لتتبّع الحقيبة عبر الإنترنت. تختلف شركات الطيران في ما تعوّضه، فاسأل عمّا هو مشمول واحتفظ بإيصالات المستلزمات الأساسية.",
+  "ru": "Сообщите о пропаже на стойке багажа авиакомпании, пока не покинули зал прилёта, и сохраните багажную бирку и посадочный талон. Обычно выдают номер заявки, по которому багаж можно отслеживать онлайн. Авиакомпании по-разному возмещают расходы, поэтому уточните, что покрывается, и сохраняйте чеки на вещи первой необходимости.",
+  "tr": "Varış salonundan ayrılmadan önce havayolunun bagaj masasına bildirin; bagaj etiketinizi ve biniş kartınızı saklayın. Genellikle bagajı çevrimiçi takip edebileceğiniz bir referans numarası verilir. Havayollarının ödediği kalemler farklıdır; neyin karşılandığını sorun ve temel ihtiyaçların fişlerini saklayın."
+ }
+}

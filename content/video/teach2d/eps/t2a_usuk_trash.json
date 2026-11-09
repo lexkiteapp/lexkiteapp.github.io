@@ -79,5 +79,46 @@
   "words": 44,
   "seconds": 27.1,
   "wpm": 97
+ },
+ "publish": {
+  "title": "Trash or rubbish? US vs UK English",
+  "keyword": "trash vs rubbish",
+  "value": "Americans say trash. British people say rubbish.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/trash",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "Trash or rubbish? US vs UK English",
+    "description": "Americans say trash. British people say rubbish.\n\nLook up any word, free: https://lexkite.com/app/#/dict/trash\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "trash vs rubbish",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Trash or rubbish? US vs UK English\n\nAmericans say trash. British people say rubbish.\n\nLook up any word, free: https://lexkite.com/app/#/dict/trash"
+   },
+   "instagram": {
+    "caption": "Trash or rubbish? US vs UK English\n\nAmericans say trash. British people say rubbish.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Trash or rubbish? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Rubbish! Americans say trash. British people say rubbish. Practice it with a free quiz: {link}"
  }
 }

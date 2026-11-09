@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"coin\" mean?",
+  "keyword": "coin",
+  "value": "Coin means a small, flat piece of metal used as money.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=coin",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"coin\" mean?",
+    "description": "Coin means a small, flat piece of metal used as money.\n\nReview your words, free: https://lexkite.com/app/#/review?w=coin\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "coin",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"coin\" mean?\n\nCoin means a small, flat piece of metal used as money.\n\nReview your words, free: https://lexkite.com/app/#/review?w=coin"
+   },
+   "instagram": {
+    "caption": "What does \"coin\" mean?\n\nCoin means a small, flat piece of metal used as money.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"coin\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a small, flat piece of metal used as money. Coin means a small, flat piece of metal used as money. Practice it with a free quiz: {link}"
  }
 }

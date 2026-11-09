@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"mix\" mean?",
+  "keyword": "mix",
+  "value": "Mix means to combine two or more things to make one.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=mix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"mix\" mean?",
+    "description": "Mix means to combine two or more things to make one.\n\nReview your words, free: https://lexkite.com/app/#/review?w=mix\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "mix",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"mix\" mean?\n\nMix means to combine two or more things to make one.\n\nReview your words, free: https://lexkite.com/app/#/review?w=mix"
+   },
+   "instagram": {
+    "caption": "What does \"mix\" mean?\n\nMix means to combine two or more things to make one.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"mix\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to combine two or more things to make one. Mix means to combine two or more things to make one. Try the full lesson and quiz here: {link}"
  }
 }

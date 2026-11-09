@@ -10,10 +10,10 @@
   "Continue": "Tiếp tục"
  },
  "text": {
+  "86": "d.score",
   "Café": "d.chip",
   "• Practice 7/12": "d.prog",
   "Coach Ama": "d.coach",
-  "86": "d.score",
   "/ˈmiː.di.əm/": "d.tipIpa"
  },
  "html": {
@@ -113,6 +113,16 @@
   },
   ":scope > main > div > section:nth-child(7)": {
    "px-4": "d.res ? 'px-4' : 'hidden'"
+  },
+  ":scope > main > div > section:nth-child(3) > div:nth-child(1)": {
+   "border-2": "''",
+   "border-dashed": "''",
+   "justify-center": "'justify-end'",
+   "p-2.5": "''",
+   "lt:border-[#136B66]": "''",
+   "lt:shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]": "''",
+   "dk:border-[#2dd4bf]/60": "''",
+   "dk:shadow-[0_3px_0_#061013]": "''"
   }
  },
  "repeat": [

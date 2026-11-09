@@ -70,6 +70,46 @@ for (const l of LANGS) {
     ran++; shot(`${l}-${f}`); console.log(`${l} ${f}: ${r && !r.__err && !r.length ? '✓' : '✗ ' + JSON.stringify(r).slice(0, 300)}`);
   }
 }
+// Bàn phím THẬT (Gboard trên emulator): chạm thật vào ô → chờ IME hiện → ô đang focus phải nằm TRỌN trên mép bàn phím (đo bằng toạ độ màn hình:
+// khung WebView từ uiautomator + khung cửa sổ InputMethod từ dumpsys). Cùng luật với scripts/test/mobile-qa-keyboard.mjs (giả lập), đây là bản đo thật.
+const imeShown = () => /mInputShown=true/.test(adb('shell', 'dumpsys', 'input_method'));
+const imeTop = () => { // mép trên bàn phím (px màn hình): nguồn inset IME đang hiện (Android 11+); dự phòng khung cửa sổ InputMethod nếu nằm nửa dưới màn
+  const d = adb('shell', 'dumpsys', 'window');
+  for (const m of d.matchAll(/InsetsSource[^\n]*?type=ime[^\n]*?frame=\[(\d+),(\d+)\]\[(\d+),(\d+)\][^\n]*?visible=true/g)) if (+m[2] > 0) return +m[2];
+  const w = /Window\{[^}]*InputMethod\}[\s\S]{0,4000}?(?:mFrame|frame)=\[(\d+),(\d+)\]\[(\d+),(\d+)\]/.exec(d); return w && +w[2] > +w[4] / 3 ? +w[2] : 0; };
+const webBox = () => { adb('shell', 'uiautomator', 'dump', '/sdcard/kb.xml'); const m = /class="android\.webkit\.WebView"[^>]*bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"/.exec(adb('shell', 'cat', '/sdcard/kb.xml')); return m ? m.slice(1).map(Number) : null; };
+let kbRan = 0;
+for (const [route, css] of [['write', '#essay'], ['dict', '#q'], ['home', '#gq']]) {
+  await clearAnr();
+  const pos = await ev(`location.hash = '#/${route}'; for (let i = 0; i < 20 && !document.querySelector(${JSON.stringify(css)}); i++) await new Promise(r => setTimeout(r, 400));
+    const el = document.querySelector(${JSON.stringify(css)}); if (!el || el.getBoundingClientRect().width < 2) return null; el.scrollIntoView({ block: 'nearest' }); await new Promise(r => setTimeout(r, 300));
+    const b = el.getBoundingClientRect(), x = b.left + Math.min(b.width / 2, 40), y = b.top + Math.min(b.height / 2, 20), h = y >= 0 && y < innerHeight && document.elementFromPoint(x, y);
+    return { x, y, dpr: devicePixelRatio, ih: innerHeight, hit: !!h && (h === el || el.contains(h) || h.contains(el)) }`);
+  if (!pos || pos.__err) { bad.push(`[bàn phím] #/${route}: không thấy ô ${css}`); continue; }
+  if (!pos.hit) { console.log(`bàn phím #/${route}: ${css} không chạm tới được khi chưa có bàn phím (ẩn/che) – bỏ qua`); continue; }
+  const wb = webBox(); if (!wb) { bad.push('[bàn phím] không đọc được khung WebView (uiautomator)'); break; }
+  const sx = wb[0] + pos.x * pos.dpr, sy = wb[1] + pos.y * pos.dpr;
+  adb('shell', 'input', 'tap', String(Math.round(sx)), String(Math.round(sy)));
+  let shown = false; for (let k = 0; k < 16 && !(shown = imeShown()); k++) await sleep(500);
+  await sleep(1200); // WebView/app phản ứng (resize, cuộn)
+  const kTop = imeTop();
+  const st = await ev(`const el = document.activeElement, vv = visualViewport, b = el && el.getBoundingClientRect();
+    return el && el.matches(${JSON.stringify(css)}) ? { top: b.top, h: b.height, vt: vv.offsetTop, vh: vv.height, sc: vv.scale, ih: innerHeight } : { lost: el ? el.tagName + (el.id ? '#' + el.id : '') : 'null' }`);
+  shot(`kbd-${route}`);
+  if (!shown) { const sb = /InsetsSource[^\n]*?type=statusBars[^\n]*?frame=\[\d+,\d+\]\[\d+,(\d+)\]/.exec(adb('shell', 'dumpsys', 'window')); const ae = await ev('const a = document.activeElement; return a ? a.tagName + (a.id ? "#" + a.id : "") : "null"');
+    bad.push(`[bàn phím] #/${route}: chạm ${css} không mở bàn phím (mInputShown=false) – chạm ở ${Math.round(sx)},${Math.round(sy)} px màn hình, thanh trạng thái tới ${sb ? sb[1] : '?'} px, activeElement ${ae}`); }
+  else if (!st || st.__err || st.lost) bad.push(`[bàn phím] #/${route}: ${css} mất focus sau khi mở bàn phím (${st && (st.lost || st.__err)})`);
+  else {
+    const head = Math.min(st.h, 48), yTop = wb[1] + (st.top - st.vt) * st.sc * pos.dpr, yHead = wb[1] + (st.top + head - st.vt) * st.sc * pos.dpr;
+    const edge = kTop || wb[1] + (st.vt + st.vh) * st.sc * pos.dpr; // không đọc được khung IME → dùng mép dưới visualViewport
+    if (yTop < wb[1] - 2 || yHead > edge + 2) bad.push(`[bàn phím] #/${route}: ${css} bị bàn phím che – ô ${Math.round(yTop)}–${Math.round(yHead)} px màn hình, mép bàn phím ${Math.round(edge)} px (WebView ${wb[1]}–${wb[3]}, visualViewport ${Math.round(st.vh)}/${st.ih} css px)`);
+    console.log(`bàn phím #/${route}: ô ${Math.round(yTop)}–${Math.round(yHead)} · mép IME ${kTop || '?'} · vv ${Math.round(st.vh)}/${st.ih} (trước khi mở: ${pos.ih})`);
+    kbRan++;
+  }
+  if (imeShown()) adb('shell', 'input', 'keyevent', 'KEYCODE_BACK'); await sleep(600);
+  await ev('document.activeElement && document.activeElement.blur(); return 1');
+}
+if (kbRan < 2) bad.push(`[bàn phím] chỉ đo được ${kbRan}/3 ô trên bàn phím thật (cần ≥ 2: Phòng viết + tra từ)`);
 if (ran < 6 * LANGS.length) bad.push(`chỉ chạy ${ran} bước (cần ≥ ${6 * LANGS.length} = ${LANGS.length} ngôn ngữ × ≥ 6 bước) – 0 bài chạy không được tính là xanh`);
 const fatal = adb('logcat', '-d', '-v', 'brief').split('\n').filter(x => /FATAL EXCEPTION/.test(x));
 if (fatal.length) bad.push('Crash: ' + fatal.slice(0, 2).join(' / '));

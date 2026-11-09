@@ -67,3 +67,6 @@ Khóa có `content/i18n/en-src/*.json` { "<chuỗi vi>": "<en GV bản xứ>" }:
 - `hreflang` + `x-default`; không chuyển hướng tự động theo IP.
 - Chỉ mở blog một ngôn ngữ khi có bài bản địa hóa thật (từ khóa riêng thị trường đó), không dịch máy hàng loạt.
 - Lối vào Blog trong app chỉ hiện khi `/<lang>/blog/rss.xml` tồn tại.
+
+## Nhóm ở web/cpack
+Nhóm `pathn` (nội dung nút Lộ trình): nguồn và bản en như mọi nhóm, gói chạy 13 ngôn ngữ ra `web/cpack/lesson/pn-<lang>.js` (`CPACK_GROUP` trong `scripts/lib/i18n-pack.mjs`), nạp qua `App.pathnPack` cùng dữ liệu nút; `scan-roots` và `i18n-pack` kiểm.

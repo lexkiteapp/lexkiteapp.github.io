@@ -72,7 +72,7 @@ val DEFAULT_BLOCKS = listOf("continue", "goal", "review", "streak")
 
 /** Destinations Today can open – same names as the web hash routes (#/review, #/mistakes …), resolved by the app frame. */
 object TodayRoutes { const val REVIEW = "review"; const val MISTAKES = "mistakes"; const val LISTEN = "listen"; const val SPEAK = "speak"; const val TRAIN = "train"
-    const val LESSON = "lesson"; const val SEARCH = "search"; const val NOTIF = "notif"; const val ME = "me"; const val STREAK = "streak"; const val GOAL = "goal"; const val STATS = "stats" }
+    const val LESSON = "lesson/go"; const val SEARCH = "search"; const val NOTIF = "notif"; const val ME = "me"; const val STREAK = "streak"; const val GOAL = "goal"; const val STATS = "stats" }
 
 /**
  * P02 Today – the phone Today of web (web/js/st/v2/today.js, Stitch "Lexkite Kit" today-light/dark), same block order:
@@ -137,7 +137,7 @@ private fun Stats(s: TodaySummary, onOpen: (String) -> Unit) {
         Tile(Icons.Filled.TrackChanges, c.primary, s.target.ifEmpty { "–" }, if (s.target.isEmpty()) t(L10nKey.todaySetGoal) else t(L10nKey.todayTarget), Modifier.weight(1f)) { onOpen(TodayRoutes.GOAL) }
         Tile(Icons.Filled.LocalFireDepartment, c.primaryContainer, t.num(s.streak), t(L10nKey.todayStreakDays), Modifier.weight(1f)) { onOpen(TodayRoutes.STREAK) }
         Tile(Icons.Filled.Star, c.star, t.num(s.xp), t(L10nKey.todayXp), Modifier.weight(1f)) { onOpen(TodayRoutes.STATS) }
-        Tile(Icons.Filled.Bolt, c.secondary, "${t.num(minOf(s.reviewedToday, s.dailyGoal))}/${t.num(s.dailyGoal)}", t(L10nKey.todayGoalShort), Modifier.weight(1f)) { onOpen(TodayRoutes.REVIEW) }
+        Tile(Icons.Filled.Bolt, c.secondary, "${t.num(minOf(s.reviewedToday, s.dailyGoal))}/${t.num(s.dailyGoal)}", t(L10nKey.todayDailyGoal), Modifier.weight(1f)) { onOpen(TodayRoutes.REVIEW) }
     }
 }
 
@@ -159,7 +159,7 @@ private fun Teacher(s: TodaySummary, teacher: (@Composable () -> Unit)?) {
     val say = if (s.due > 0) t(L10nKey.todaySayDue, mapOf("g" to g, "b" to s.due)) else t(L10nKey.todaySayDone, mapOf("g" to g))
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
         // teacher slot (Stitch draws no people; the 2D Ama still is filled in by the app, grounded, no crop/halo)
-        Box(Modifier.width(120.dp).height(140.dp), contentAlignment = Alignment.BottomCenter) { teacher?.invoke() ?: Icon(Icons.Filled.School, null, tint = c.outlineVariant, modifier = Modifier.size(40.dp)) }
+        Box(Modifier.width(120.dp).then(if (teacher != null) Modifier.height(140.dp) else Modifier), contentAlignment = Alignment.BottomCenter) { teacher?.invoke() ?: Icon(Icons.Filled.School, null, tint = c.outlineVariant, modifier = Modifier.size(40.dp)) }
         Column(Modifier.weight(1f).clip(RoundedCornerShape(LKRadius.xl * 2)).background(c.card).border(2.dp, c.outlineVariant, RoundedCornerShape(LKRadius.xl * 2)).padding(LKSpacing.spaceSm),
             verticalArrangement = Arrangement.spacedBy(LKSpacing.space2xs)) {
             Text(t(L10nKey.todayFocus), style = LKType.labelBadge.toCompose(), color = c.secondary)

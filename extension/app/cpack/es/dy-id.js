@@ -1,0 +1,1 @@
+self.ESX=self.ESX||{};(ESX.dyl=ESX.dyl||{})["id"]=["Jalur harian: bahasa Spanyol","Satu pelajaran singkat per hari: kata baru, satu poin tata bahasa, satu bunyi, dan setiap beberapa hari satu panggilan.","Hari {n}","Kata baru","Tata bahasa","Pelafalan","Panggilan AI","Mulai","Hari {d} dari {t} · {p} langkah selesai hari ini","Tandai selesai","Hari selesai! 🎉","Hari ini"];

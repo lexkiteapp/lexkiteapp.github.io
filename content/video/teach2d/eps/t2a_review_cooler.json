@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"cooler\" mean?",
+  "keyword": "cooler",
+  "value": "Cooler means a box that keeps food and drinks cold.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=cooler",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"cooler\" mean?",
+    "description": "Cooler means a box that keeps food and drinks cold.\n\nReview your words, free: https://lexkite.com/app/#/review?w=cooler\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cooler",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"cooler\" mean?\n\nCooler means a box that keeps food and drinks cold.\n\nReview your words, free: https://lexkite.com/app/#/review?w=cooler"
+   },
+   "instagram": {
+    "caption": "What does \"cooler\" mean?\n\nCooler means a box that keeps food and drinks cold.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"cooler\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a box that keeps food and drinks cold. Cooler means a box that keeps food and drinks cold. Practice it with a free quiz: {link}"
  }
 }

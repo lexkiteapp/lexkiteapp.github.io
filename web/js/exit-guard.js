@@ -6,8 +6,8 @@
   const t = (s, v) => (g.t ? g.t(s, v) : s);
   // Màn học: luôn là màn học / chỉ khi có tham số (bài cụ thể). Trang trung tâm có crumb + tab dưới.
   const ALWAYS = ['quick', 'reflex', 'paraphrase', 'placement', 'handsfree', 'review', 'rtype', 'cbt', 'call', 'task1', 'write', 'speaking']; // task1/write/speaking: không tham số = bài đầu / phòng viết / Part 1
-  const WITH_ARG = ['lesson', 'practice', 'listen', 'listen-test', 'dictation', 'grammar', 'read', 'toefl-p', 'toeic-r', 'toeic-test', 'toeic-sw', 'pron', 'roleplay', 'mock', 'letters'];
-  const NOT_LEARN = ['watch', 'home', 'welcome', 'contact', 'deck', 'dict', 'library', 'stats', 'topic', 'class', 'confidence', 'course', 'courses', 'criteria', 'fix', 'goal', 'handoff', 'me', 'skill', 'skills', 'tests', 'vocab', 'ideas', 'league', 'listening', 'method', 'day', 'path', 'tracks', 'model', 'models', 'phrases', 'mistakes', 'qstats', 'style', 'reading', 'report', 'resources', 'streak', 'settings', 'toefl', 'toeic', 'usage', 'train', 'verb'];
+  const WITH_ARG = ['lesson', 'practice', 'listen', 'listen-test', 'dictation', 'grammar', 'read', 'toefl-p', 'toeic-r', 'toeic-test', 'toeic-sw', 'pron', 'roleplay', 'mock', 'letters', 'outcome']
+  const NOT_LEARN = ['watch', 'home', 'welcome', 'contact', 'deck', 'dict', 'library', 'stats', 'topic', 'class', 'confidence', 'course', 'courses', 'criteria', 'fix', 'goal', 'handoff', 'me', 'skill', 'skills', 'tests', 'vocab', 'ideas', 'league', 'listening', 'method', 'day', 'path', 'tracks', 'model', 'models', 'phrases', 'mistakes', 'qstats', 'style', 'reading', 'report', 'resources', 'streak', 'settings', 'toefl', 'toeic', 'usage', 'train', 'verb']
   const extra = new Set(); // màn đăng ký lúc chạy (gói lười: truyện, video, Play & Speak…): ExitGuard.learn('story')
   // #/review?hub=1 (thanh tab, ux1) = màn "Ôn" trung tâm của Stitch, không phải phiên ôn – cùng điều kiện study.js
   const reviewHub = q => /(^|[?&])hub=1(&|$)/.test(q || '') && !!(g.App && App.ux1On && App.ux1On());
@@ -52,7 +52,7 @@
   function injectBar(v) {
     const b = document.createElement('div');
     b.className = 'study-top lk-exitbar';
-    b.innerHTML = `<button type="button" class="icon-btn lk-exit-x" data-exit aria-label="${t('Thoát bài học')}">${g.UI && UI.icon ? UI.icon('x') : '✕'}</button><div class="progress" aria-hidden="true"><i style="width:0%"></i></div>`;
+    b.innerHTML = `<button type="button" class="icon-btn lk-exit-x" data-exit aria-label="${t('Thoát bài học')}">${g.UI && UI.icon ? UI.icon('x') : '✕'}</button><div class="progress" aria-hidden="true"><i style="width:0%"></i></div><button type="button" id="lkTheme" class="icon-btn lk-exit-x" aria-label="${t('Đổi giao diện sáng/tối')}"><span class="material-symbols-outlined">light_mode</span></button>`; /* desktop: header mẫu bị ẩn → thanh thoát thay header, mang nút sáng/tối (hành vi gắn ở app.js focusTheme) */
     v.prepend(b);
     return b;
   }
@@ -187,8 +187,8 @@
   hist.push(location.hash);
   // Màn vẽ lại đầu trang (câu kế tiếp…) → gắn lại nút thoát, đồng bộ tiến độ; gom theo khung hình
   let raf = 0;
-  const reMark = () => { raf = 0; const v = view(); if (!cur || !v) return; if (!v.querySelector('[data-exit]')) setup(...parse(cur)); syncBar(); };
-  if (g.MutationObserver) document.addEventListener('DOMContentLoaded', () => { const v = view(); if (v) new MutationObserver(() => { if (cur && !raf) raf = requestAnimationFrame(reMark); }).observe(v, { childList: true, subtree: true }); });
+  const reMark = () => { raf = 0; const v = view(); if (!cur || !v || parse(location.hash)[0] !== parse(cur)[0]) return; /* cur còn là màn học cũ khi đã sang trang khác (đua điều hướng): không gắn thanh thoát vào trang mới */ if (!v.querySelector('[data-exit]')) setup(...parse(cur)); syncBar(); };
+  if (g.MutationObserver) document.addEventListener('DOMContentLoaded', () => { const v = view(); if (v) new MutationObserver(() => { if (!cur) return; if (!v.querySelector('[data-exit]')) return reMark(); /* gắn thanh trước khi vẽ: gắn sau đẩy cả màn 64 px (CLS) */ if (!raf) raf = requestAnimationFrame(reMark); }).observe(v, { childList: true, subtree: true }); });
 
   // Mỗi lượt vẽ trang (App.afterRoute, gọi từ app.js)
   function after(name) {
@@ -210,7 +210,7 @@
   const F = document.fonts; if (F && F.addEventListener) { F.addEventListener('loadingdone', regrow); if (F.ready) F.ready.then(regrow, () => {}); }
 
   g.ExitGuard = {
-    isLearn, ALWAYS, WITH_ARG, NOT_LEARN,
+    isLearn, ALWAYS, WITH_ARG, NOT_LEARN, focusHash: h => flagOn() && learnHash(h),
     focusFor: (n, a, q) => flagOn() && isLearn(n, a, q), // route() đặt khung FOCUS ngay lúc chạm (after() chỉ còn là chốt)
     learn: name => extra.add(name),
     onSave: fn => saves.push(fn), // màn lưu được tiến độ → hộp hỏi báo "đã lưu"
