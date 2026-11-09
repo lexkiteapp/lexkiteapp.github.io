@@ -1441,12 +1441,6 @@
    "why": "vision: no (no broken window, plain bag unclear)",
    "b": "42567126266"
   },
-  "online review#n": {
-   "at": "2026-11-07",
-   "tries": 12,
-   "why": "meaning check: no (Is a person writing a negative comment about a hot)",
-   "b": "42340402468"
-  },
   "operational#adj": {
    "at": "2026-11-09",
    "tries": 18,
@@ -2090,10 +2084,10 @@
    "b": "42567126266"
   },
   "trade-off#n": {
-   "at": "2026-11-07",
-   "tries": 12,
+   "at": "2026-11-09",
+   "tries": 18,
    "why": "meaning check: no (Is the person deciding between two options that ca)",
-   "b": "42315140853"
+   "b": "42578883435"
   },
   "training session#n": {
    "at": "2026-11-09",
@@ -2186,10 +2180,10 @@
    "b": "42567126266"
   },
   "website#n": {
-   "at": "2026-11-07",
-   "tries": 6,
-   "why": "meaning check: no (Is the person looking at a network of blank pages )",
-   "b": "42342700537"
+   "at": "2026-11-09",
+   "tries": 12,
+   "why": "meaning check: no (Is there a collection of pages with pictures about)",
+   "b": "42578883435"
   },
   "wholly#adv": {
    "at": "2026-11-08",
