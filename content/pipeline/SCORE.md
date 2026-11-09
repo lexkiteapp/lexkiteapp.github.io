@@ -2,16 +2,17 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 53.8 / 100**
+**Tổng: 58.7 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **54.5** | 45.2 | 54.5% | 100% | 0 |
-| Ngữ pháp | **53.7** | 53.7 | 53.7% | 100% | 0 |
-| Giao tiếp | **44.7** | 14.1 | 44.7% | 100% | 0 |
+| Kho từ | **54.5** | 46.2 | 54.5% | 100% | 0 |
+| Ngữ pháp | **54.5** | 54.5 | 54.5% | 100% | 0 |
+| Giao tiếp | **45.8** | 15.2 | 45.8% | 100% | 0 |
 | 4 kỹ năng | **49.2** | 48.2 | 49.2% | 100% | 0 |
 | Đề thi | **31.7** | 30.4 | 31.7% | 100% | 0 |
 | Khung Can-do | **80.1** | 79.3 | 80.1% | 100% | 0 |
+| Dễ học – dễ nhớ | **91.5** | 90.7 | 91.5% | 100% | 0 |
 | i18n | **62.7** | 62.7 | 62.7% | 100% | 0 |
 
 ## Kho từ
@@ -38,7 +39,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | bài C1 | 6 / 15 | 40% | 8 |
 | bài C2 (chưa làm) | 0 / 10 | 0% | 8 |
 | trắc nghiệm | 1056 / 3000 | 35% | 20 |
-| tự luận | 980 / 3000 | 33% | 20 |
+| tự luận | 1125 / 3000 | 38% | 20 |
 | kho điểm ngữ pháp | 300 / 300 | 100% | 12 |
 | điểm đã có bài đúng cấp | 157 / 300 | 52% | 12 |
 
@@ -49,7 +50,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | cuộc gọi Ama/Carlos | 35 / 60 | 58% | 20 |
 | roleplay | 31 / 60 | 52% | 20 |
 | tình huống Play & Speak | 27 / 40 | 68% | 20 |
-| mục gold (giải thích cách dùng) | 228 / 1000 | 23% | 20 |
+| mục gold (giải thích cách dùng) | 284 / 1000 | 28% | 20 |
 | sổ mẫu câu theo chức năng (chưa làm) | 23 / 100 | 23% | 20 |
 
 ## 4 kỹ năng
@@ -99,6 +100,15 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
 | nội dung có lo hợp lệ | 10596 / 10596 | 100% | 35 |
 | mục tiêu đã có nội dung luyện | 137 / 600 | 23% | 25 |
+
+## Dễ học – dễ nhớ
+
+| Thành phần | Có / chuẩn | % | Trọng số |
+|---|---|---|---|
+| Ngữ pháp | 96.4 / 100 | 96% | 25 |
+| Bài lộ trình | 100 / 100 | 100% | 25 |
+| Bộ từ | 74.3 / 100 | 74% | 25 |
+| Kỹ năng | 95.4 / 100 | 95% | 25 |
 
 ## i18n
 

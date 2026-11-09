@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite v2.1 Dark — Library</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Typography: Nunito Sans & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..800;1,6..12,300..800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-high": "#202C2F",
+            "on-primary-fixed": "#00201E",
+            "secondary-fixed": "#FFDAD3",
+            "outline-variant": "#3D4947",
+            "secondary": "#FFB4A6",
+            "on-error": "#690005",
+            "surface-variant": "#2B373A",
+            "surface-container": "#162125",
+            "primary-fixed": "#88F5EA",
+            "on-primary-fixed-variant": "#00504B",
+            "surface-tint": "#6BD8CE",
+            "surface-bright": "#2F3B3E",
+            "surface": "#091518",
+            "surface-dim": "#091518",
+            "coral-shadow": "#981201",
+            "tertiary-container": "#BA8B00",
+            "surface-container-low": "#121D20",
+            "surface-container-lowest": "#051013",
+            "primary-shadow": "#00504B",
+            "surface-container-highest": "#2B373A",
+            "on-secondary-container": "#FFA493",
+            "on-background": "#D8E5E9",
+            "background": "#091518",
+            "on-primary-container": "#00322E",
+            "primary-fixed-dim": "#6BD8CE",
+            "outline": "#879391",
+            "on-secondary-fixed-variant": "#900F00",
+            "inverse-on-surface": "#263236",
+            "tertiary": "#F4BF40",
+            "on-secondary": "#660800",
+            "on-tertiary": "#3F2E00",
+            "on-surface-variant": "#BCC9C7",
+            "error-container": "#93000A",
+            "primary-container": "#4FD1C5",
+            "inverse-primary": "#006A64",
+            "tertiary-fixed-dim": "#F4BF40",
+            "on-tertiary-fixed-variant": "#5B4300",
+            "error": "#FFB4AB",
+            "on-surface": "#D8E5E9",
+            "secondary-container": "#981201",
+            "secondary-fixed-dim": "#FFB4A6",
+            "on-secondary-fixed": "#3F0300",
+            "on-tertiary-container": "#392900",
+            "inverse-surface": "#D8E5E9",
+            "coral-cta": "#F2553B",
+            "tertiary-fixed": "#FFDF9E",
+            "on-tertiary-fixed": "#261A00",
+            "on-primary": "#003733",
+            "on-error-container": "#FFDAD6",
+            "gold-shadow": "#5B4300",
+            "primary": "#6BD8CE",
+            // Custom palette additions for warm reading room mood while matching design tokens
+            "warm-canvas": "#0E191C",
+            "warm-card": "#162528",
+            "warm-border": "#EADEC8",
+            "warm-ledge": "#D8CFBC",
+            "warm-ink": "#0F3D3E",
+            "warm-slate": "#4E6668",
+            "warm-teal": "#4FD1C5",
+            "warm-teal-dark": "#00504B",
+            "warm-coral": "#F2553B"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.25rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "margin": "16px",
+            "space-lg": "24px",
+            "gutter": "16px",
+            "space-md": "16px",
+            "space-xs": "4px",
+            "space-sm": "8px",
+            "space-xl": "32px"
+          },
+          fontFamily: {
+            "label-md": ["Nunito Sans", "Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Nunito Sans", "Plus Jakarta Sans", "sans-serif"],
+            "display": ["Plus Jakarta Sans", "Nunito Sans", "sans-serif"],
+            "title-md": ["Plus Jakarta Sans", "Nunito Sans", "sans-serif"],
+            "label-xs": ["Nunito Sans", "Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Nunito Sans", "Plus Jakarta Sans", "sans-serif"],
+            "label-sm": ["Nunito Sans", "Plus Jakarta Sans", "sans-serif"],
+            "title-sm": ["Plus Jakarta Sans", "Nunito Sans", "sans-serif"],
+            "title-lg": ["Plus Jakarta Sans", "Nunito Sans", "sans-serif"]
+          },
+          fontSize: {
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "display": ["32px", { lineHeight: "38px", fontWeight: "800" }],
+            "title-md": ["20px", { lineHeight: "26px", fontWeight: "700" }],
+            "label-xs": ["10px", { lineHeight: "12px", letterSpacing: "0.04em", fontWeight: "800" }],
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "500" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.05em", fontWeight: "800" }],
+            "title-sm": ["16px", { lineHeight: "22px", fontWeight: "700" }],
+            "title-lg": ["22px", { lineHeight: "28px", fontWeight: "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Hide scrollbars for smooth horizontal navigation */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#0E191C] text-[#0F3D3E] font-body-md antialiased selection:bg-[#4FD1C5]/20 selection:text-[#0F3D3E] min-h-screen flex justify-center">
+<!-- Mobile Portrait Shell (390px Native Viewport) -->
+<div class="w-full max-w-[390px] min-h-screen bg-[#0E191C] relative flex flex-col pb-24 shadow-2xl">
+<!-- 1. Fixed Top Bar / Header -->
+<header class="sticky top-0 left-0 w-full z-40 bg-[#0E191C]/95 backdrop-blur-md border-b-2 border-[#EADEC8] px-4 py-3 flex items-center justify-between transition-all">
+<div class="flex items-center gap-1.5">
+<h1 class="font-display text-xl text-[#0F3D3E] font-extrabold tracking-tight">Word Library</h1>
+<span class="w-2 h-2 rounded-full bg-[#4FD1C5] inline-block mb-1 shadow-sm"></span>
+</div>
+<!-- Tactile Action Pills -->
+<div class="flex items-center gap-2">
+<button aria-label="Import Anki Deck" class="h-8 px-2.5 rounded-lg bg-[#162528] border-2 border-[#EADEC8] border-b-[3px] border-b-[#D8CFBC] active:translate-y-[2px] active:border-b-2 text-[#0F3D3E] hover:bg-[#122023] transition-all flex items-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-[#4FD1C5]" data-icon="file_download">file_download</span>
+<span class="font-label-xs text-[11px] font-bold tracking-tight">Import Anki</span>
+</button>
+<button aria-label="Export Deck" class="h-8 px-2.5 rounded-lg bg-[#162528] border-2 border-[#EADEC8] border-b-[3px] border-b-[#D8CFBC] active:translate-y-[2px] active:border-b-2 text-[#0F3D3E] hover:bg-[#122023] transition-all flex items-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-[#4E6668]" data-icon="ios_share">ios_share</span>
+<span class="font-label-xs text-[11px] font-bold tracking-tight">Export</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-4 pt-3 space-y-6">
+<!-- 2. Search & Filter Area -->
+<section class="space-y-3">
+<!-- Search Input with tactile ledge -->
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-[#4E6668] text-[20px] pointer-events-none" data-icon="search">search</span>
+<input class="w-full h-11 pl-10 pr-10 bg-[#162528] text-[#0F3D3E] placeholder-[#4E6668]/70 font-body-sm text-[14px] rounded-2xl border-2 border-[#EADEC8] border-b-[3px] border-b-[#D8CFBC] focus:outline-none focus:border-[#4FD1C5] focus:ring-0 transition-all shadow-sm" placeholder="Search sets or words..." type="text"/>
+<button aria-label="Open filter settings" class="absolute right-2.5 w-7 h-7 flex items-center justify-center rounded-lg text-[#4E6668] hover:text-[#0F3D3E] hover:bg-[#122023] transition-colors" type="button">
+<span class="material-symbols-outlined text-[19px]" data-icon="tune">tune</span>
+</button>
+</div>
+<!-- Group Tabs Row -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
+<button class="flex-shrink-0 px-4 py-1.5 rounded-xl bg-[#4FD1C5] text-[#FFFFFF] font-label-sm font-bold shadow-[0_2px_0_0_#00504b] active:translate-y-[1px] transition-transform" type="button">
+            All
+          </button>
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-xl bg-[#162528] border border-[#EADEC8] border-b-2 border-b-[#D8CFBC] text-[#4E6668] hover:text-[#0F3D3E] font-label-sm font-bold active:translate-y-[1px] transition-all" type="button">
+            Core
+          </button>
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-xl bg-[#162528] border border-[#EADEC8] border-b-2 border-b-[#D8CFBC] text-[#4E6668] hover:text-[#0F3D3E] font-label-sm font-bold active:translate-y-[1px] transition-all" type="button">
+            Topics
+          </button>
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-xl bg-[#162528] border border-[#EADEC8] border-b-2 border-b-[#D8CFBC] text-[#4E6668] hover:text-[#0F3D3E] font-label-sm font-bold active:translate-y-[1px] transition-all" type="button">
+            Exam
+          </button>
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-xl bg-[#162528] border border-[#EADEC8] border-b-2 border-b-[#D8CFBC] text-[#4E6668] hover:text-[#0F3D3E] font-label-sm font-bold active:translate-y-[1px] transition-all" type="button">
+            My library
+          </button>
+</div>
+<!-- CEFR Level Chips Row -->
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar text-xs">
+<span class="text-[11px] font-bold text-[#4E6668] uppercase tracking-wider mr-1">Level:</span>
+<button class="flex-shrink-0 px-2.5 py-1 rounded-lg bg-[#0F3D3E] text-white font-label-xs font-extrabold border border-[#0F3D3E]" type="button">
+            All levels
+          </button>
+<button class="flex-shrink-0 px-2.5 py-1 rounded-lg bg-[#162528] border border-[#EADEC8] text-[#4E6668] hover:border-[#4FD1C5] font-label-xs font-bold transition-colors" type="button">
+            A1
+          </button>
+<button class="flex-shrink-0 px-2.5 py-1 rounded-lg bg-[#162528] border border-[#EADEC8] text-[#4E6668] hover:border-[#4FD1C5] font-label-xs font-bold transition-colors" type="button">
+            A2
+          </button>
+<button class="flex-shrink-0 px-2.5 py-1 rounded-lg bg-[#162528] border border-[#EADEC8] text-[#4E6668] hover:border-[#4FD1C5] font-label-xs font-bold transition-colors" type="button">
+            B1
+          </button>
+<button class="flex-shrink-0 px-2.5 py-1 rounded-lg bg-[#162528] border border-[#EADEC8] text-[#4E6668] hover:border-[#4FD1C5] font-label-xs font-bold transition-colors" type="button">
+            B2
+          </button>
+<button class="flex-shrink-0 px-2.5 py-1 rounded-lg bg-[#162528] border border-[#EADEC8] text-[#4E6668] hover:border-[#4FD1C5] font-label-xs font-bold transition-colors" type="button">
+            C1
+          </button>
+<button class="flex-shrink-0 px-2.5 py-1 rounded-lg bg-[#162528] border border-[#EADEC8] text-[#4E6668] hover:border-[#4FD1C5] font-label-xs font-bold transition-colors" type="button">
+            C2
+          </button>
+</div>
+</section>
+<!-- 3. Content Sections -->
+<!-- Section 1: Core Vocabulary -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h2 class="font-title-md text-[#0F3D3E] text-lg font-bold">Core Vocabulary</h2>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#EADEC8]/40 border border-[#EADEC8] text-[#4E6668] text-[11px] font-bold">
+<span>3 sets</span>
+<span>•</span>
+<span>Foundations</span>
+</div>
+</div>
+</div>
+<div class="space-y-2.5">
+<!-- Card 1: Everyday Verbs -->
+<article class="bg-[#162528] rounded-2xl p-3.5 border-2 border-[#EADEC8] border-b-[4px] border-b-[#D8CFBC] hover:border-[#4FD1C5]/60 transition-all flex items-center justify-between shadow-sm cursor-pointer active:translate-y-[2px] active:border-b-2">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#0E191C] border border-[#EADEC8] flex items-center justify-center text-xl flex-shrink-0 shadow-inner">
+                🌱
+              </div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<h3 class="font-title-sm text-[15px] font-bold text-[#0F3D3E]">Everyday Verbs</h3>
+<span class="px-1.5 py-0.2 rounded bg-[#EADEC8]/60 text-[#0F3D3E] font-label-xs text-[10px] font-extrabold">A2–B1</span>
+</div>
+<p class="font-body-sm text-[12px] text-[#4E6668] leading-tight line-clamp-1">High-frequency actions in nuanced context</p>
+<p class="text-[11px] font-bold text-[#4FD1C5] pt-0.5">40 words • 24 mastered</p>
+</div>
+</div>
+<!-- Circular Progress Ring (60%) -->
+<div class="relative w-11 h-11 flex-shrink-0 flex items-center justify-center">
+<svg class="w-11 h-11 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-[#EADEC8]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-[#4FD1C5]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="60, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute text-[10px] font-extrabold text-[#0F3D3E]">60%</span>
+</div>
+</article>
+<!-- Card 2: High-Frequency 500 -->
+<article class="bg-[#162528] rounded-2xl p-3.5 border-2 border-[#EADEC8] border-b-[4px] border-b-[#D8CFBC] hover:border-[#4FD1C5]/60 transition-all flex items-center justify-between shadow-sm cursor-pointer active:translate-y-[2px] active:border-b-2">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#0E191C] border border-[#EADEC8] flex items-center justify-center text-xl flex-shrink-0 shadow-inner">
+                ⚡
+              </div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<h3 class="font-title-sm text-[15px] font-bold text-[#0F3D3E]">High-Frequency 500</h3>
+<span class="px-1.5 py-0.2 rounded bg-[#EADEC8]/60 text-[#0F3D3E] font-label-xs text-[10px] font-extrabold">A1–A2</span>
+</div>
+<p class="font-body-sm text-[12px] text-[#4E6668] leading-tight line-clamp-1">Essential backbone for fluent comprehension</p>
+<p class="text-[11px] font-bold text-[#4FD1C5] pt-0.5">50 words • 48 mastered</p>
+</div>
+</div>
+<!-- Circular Progress Ring (96%) -->
+<div class="relative w-11 h-11 flex-shrink-0 flex items-center justify-center">
+<svg class="w-11 h-11 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-[#EADEC8]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-[#4FD1C5]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="96, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute text-[10px] font-extrabold text-[#0F3D3E]">96%</span>
+</div>
+</article>
+<!-- Card 3: Essential Connectors -->
+<article class="bg-[#162528] rounded-2xl p-3.5 border-2 border-[#EADEC8] border-b-[4px] border-b-[#D8CFBC] hover:border-[#4FD1C5]/60 transition-all flex items-center justify-between shadow-sm cursor-pointer active:translate-y-[2px] active:border-b-2">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#0E191C] border border-[#EADEC8] flex items-center justify-center text-xl flex-shrink-0 shadow-inner">
+                🔗
+              </div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<h3 class="font-title-sm text-[15px] font-bold text-[#0F3D3E]">Essential Connectors</h3>
+<span class="px-1.5 py-0.2 rounded bg-[#EADEC8]/60 text-[#0F3D3E] font-label-xs text-[10px] font-extrabold">B1–B2</span>
+</div>
+<p class="font-body-sm text-[12px] text-[#4E6668] leading-tight line-clamp-1">Bridge complex thoughts naturally</p>
+<p class="text-[11px] font-bold text-[#4FD1C5] pt-0.5">30 words • 12 mastered</p>
+</div>
+</div>
+<!-- Circular Progress Ring (40%) -->
+<div class="relative w-11 h-11 flex-shrink-0 flex items-center justify-center">
+<svg class="w-11 h-11 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-[#EADEC8]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-[#4FD1C5]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="40, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute text-[10px] font-extrabold text-[#0F3D3E]">40%</span>
+</div>
+</article>
+</div>
+</section>
+<!-- Section 2: Curated Topics -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h2 class="font-title-md text-[#0F3D3E] text-lg font-bold">Curated Topics</h2>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#EADEC8]/40 border border-[#EADEC8] text-[#4E6668] text-[11px] font-bold">
+<span>12 sets</span>
+<span>•</span>
+<span>Contextual</span>
+</div>
+</div>
+</div>
+<!-- 2-column Bento Grid of Topics -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Topic 1: Travel Essentials -->
+<article class="bg-[#162528] rounded-2xl p-3 border-2 border-[#EADEC8] border-b-[3px] border-b-[#D8CFBC] hover:border-[#4FD1C5]/60 flex flex-col justify-between space-y-2.5 transition-all shadow-sm active:translate-y-[1px]">
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<span class="text-xl">✈️</span>
+<span class="px-1.5 py-0.5 rounded bg-[#0E191C] border border-[#EADEC8] text-[#0F3D3E] font-label-xs text-[9px] font-bold">A2–B1</span>
+</div>
+<h3 class="font-title-sm text-[14px] font-bold text-[#0F3D3E] line-clamp-1">Travel Essentials</h3>
+<p class="text-[11px] text-[#4E6668]">35 words</p>
+</div>
+<div class="space-y-1 pt-1">
+<div class="flex justify-between text-[10px] font-bold">
+<span class="text-[#4E6668]">Mastered</span>
+<span class="text-[#4FD1C5]">20/35</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-[#EADEC8]/60 overflow-hidden">
+<div class="h-full rounded-full bg-[#4FD1C5]" style="width: 57%;"></div>
+</div>
+</div>
+</article>
+<!-- Topic 2: Office Small Talk -->
+<article class="bg-[#162528] rounded-2xl p-3 border-2 border-[#EADEC8] border-b-[3px] border-b-[#D8CFBC] hover:border-[#4FD1C5]/60 flex flex-col justify-between space-y-2.5 transition-all shadow-sm active:translate-y-[1px]">
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<span class="text-xl">💼</span>
+<span class="px-1.5 py-0.5 rounded bg-[#0E191C] border border-[#EADEC8] text-[#0F3D3E] font-label-xs text-[9px] font-bold">B1–B2</span>
+</div>
+<h3 class="font-title-sm text-[14px] font-bold text-[#0F3D3E] line-clamp-1">Office Small Talk</h3>
+<p class="text-[11px] text-[#4E6668]">40 words</p>
+</div>
+<div class="space-y-1 pt-1">
+<div class="flex justify-between text-[10px] font-bold">
+<span class="text-[#4E6668]">Mastered</span>
+<span class="text-[#4FD1C5]">14/40</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-[#EADEC8]/60 overflow-hidden">
+<div class="h-full rounded-full bg-[#4FD1C5]" style="width: 35%;"></div>
+</div>
+</div>
+</article>
+<!-- Topic 3: Dining & Coffee -->
+<article class="bg-[#162528] rounded-2xl p-3 border-2 border-[#EADEC8] border-b-[3px] border-b-[#D8CFBC] hover:border-[#4FD1C5]/60 flex flex-col justify-between space-y-2.5 transition-all shadow-sm active:translate-y-[1px]">
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<span class="text-xl">☕</span>
+<span class="px-1.5 py-0.5 rounded bg-[#0E191C] border border-[#EADEC8] text-[#0F3D3E] font-label-xs text-[9px] font-bold">A2</span>
+</div>
+<h3 class="font-title-sm text-[14px] font-bold text-[#0F3D3E] line-clamp-1">Dining &amp; Coffee</h3>
+<p class="text-[11px] text-[#4E6668]">28 words</p>
+</div>
+<div class="space-y-1 pt-1">
+<div class="flex justify-between text-[10px] font-bold">
+<span class="text-[#4E6668]">Mastered</span>
+<span class="text-[#4FD1C5]">21/28</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-[#4FD1C5]" style="width: 75%;"></div>
+</div>
+</article>
+<!-- Topic 4: Academic Discourse -->
+<article class="bg-[#162528] rounded-2xl p-3 border-2 border-[#EADEC8] border-b-[3px] border-b-[#D8CFBC] hover:border-[#4FD1C5]/60 flex flex-col justify-between space-y-2.5 transition-all shadow-sm active:translate-y-[1px]">
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<span class="text-xl">🏛️</span>
+<span class="px-1.5 py-0.5 rounded bg-[#0E191C] border border-[#EADEC8] text-[#0F3D3E] font-label-xs text-[9px] font-bold">C1</span>
+</div>
+<h3 class="font-title-sm text-[14px] font-bold text-[#0F3D3E] line-clamp-1">Academic Discourse</h3>
+<p class="text-[11px] text-[#4E6668]">45 words</p>
+</div>
+<div class="space-y-1 pt-1">
+<div class="flex justify-between text-[10px] font-bold">
+<span class="text-[#4E6668]">Mastered</span>
+<span class="text-[#4FD1C5]">10/45</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-[#EADEC8]/60 overflow-hidden">
+<div class="h-full rounded-full bg-[#4FD1C5]" style="width: 22%;"></div>
+</div>
+</div>
+</article>
+</div>
+<!-- Tactile Button Link for Section Footer -->
+<button class="w-full py-2.5 px-4 rounded-xl bg-[#162528] border-2 border-[#EADEC8] border-b-[3px] border-b-[#D8CFBC] text-[#0F3D3E] hover:text-[#4FD1C5] font-label-sm font-bold flex items-center justify-center gap-1.5 active:translate-y-[1px] active:border-b-2 transition-all shadow-sm" type="button">
+<span>See all 12 sets</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</section>
+<!-- Section 3: Exam Specific -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h2 class="font-title-md text-[#0F3D3E] text-lg font-bold">Exam Specific</h2>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#EADEC8]/40 border border-[#EADEC8] text-[#4E6668] text-[11px] font-bold">
+<span>2 sets</span>
+<span>•</span>
+<span>Targeted</span>
+</div>
+</div>
+</div>
+<div class="space-y-2.5">
+<!-- IELTS Academic Writing Task 2 -->
+<article class="bg-[#162528] rounded-2xl p-3.5 border-2 border-[#EADEC8] border-b-[4px] border-b-[#D8CFBC] hover:border-[#4FD1C5]/60 transition-all shadow-sm active:translate-y-[1px]">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-title-sm text-[15px] font-bold text-[#0F3D3E]">IELTS Academic Writing Task 2</h3>
+<span class="px-1.5 py-0.5 rounded bg-[#0E191C] border border-[#EADEC8] text-[#0F3D3E] font-label-xs text-[10px] font-extrabold">B2–C1</span>
+</div>
+<p class="font-body-sm text-[12px] text-[#4E6668] mt-0.5">50 high-impact collocations</p>
+</div>
+<span class="font-label-sm text-[12px] font-extrabold text-[#4FD1C5]">64%</span>
+</div>
+<div class="mt-3 space-y-1">
+<div class="w-full h-2 rounded-full bg-[#EADEC8]/60 overflow-hidden">
+<div class="h-full rounded-full bg-[#4FD1C5]" style="width: 64%;"></div>
+</div>
+<div class="flex justify-between text-[11px] font-semibold text-[#4E6668] pt-0.5">
+<span>32 / 50 mastered</span>
+<span class="text-[#0F3D3E] font-bold">18 in queue</span>
+</div>
+</div>
+</article>
+<!-- TOEIC Business Collocations -->
+<article class="bg-[#162528] rounded-2xl p-3.5 border-2 border-[#EADEC8] border-b-[4px] border-b-[#D8CFBC] hover:border-[#4FD1C5]/60 transition-all shadow-sm active:translate-y-[1px]">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-title-sm text-[15px] font-bold text-[#0F3D3E]">TOEIC Business Collocations</h3>
+<span class="px-1.5 py-0.5 rounded bg-[#0E191C] border border-[#EADEC8] text-[#0F3D3E] font-label-xs text-[10px] font-extrabold">B2</span>
+</div>
+<p class="font-body-sm text-[12px] text-[#4E6668] mt-0.5">40 corporate phrases</p>
+</div>
+<span class="font-label-sm text-[12px] font-extrabold text-[#4FD1C5]">45%</span>
+</div>
+<div class="mt-3 space-y-1">
+<div class="w-full h-2 rounded-full bg-[#EADEC8]/60 overflow-hidden">
+<div class="h-full rounded-full bg-[#4FD1C5]" style="width: 45%;"></div>
+</div>
+<div class="flex justify-between text-[11px] font-semibold text-[#4E6668] pt-0.5">
+<span>18 / 40 mastered</span>
+<span class="text-[#0F3D3E] font-bold">22 in queue</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Section 4: My Library -->
+<section class="space-y-3 pb-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h2 class="font-title-md text-[#0F3D3E] text-lg font-bold">My Library</h2>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#EADEC8]/40 border border-[#EADEC8] text-[#4E6668] text-[11px] font-bold">
+<span>Personal Sources • 99 words total</span>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<!-- Item 1: Dictionary Lookups -->
+<article class="bg-[#162528] rounded-2xl p-3 border-2 border-[#EADEC8] border-b-[3px] border-b-[#D8CFBC] hover:border-[#4FD1C5]/60 flex items-center justify-between transition-all shadow-sm active:translate-y-[1px]">
+<div class="flex items-center gap-3">
+<span class="text-xl">📖</span>
+<div>
+<h3 class="font-title-sm text-[14px] font-bold text-[#0F3D3E]">Dictionary Lookups</h3>
+<p class="text-[11px] text-[#4E6668]">18 words • Mastered 10/18 (55%)</p>
+</div>
+</div>
+<!-- Coral review badge -->
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-[#F2553B]/10 border border-[#F2553B]/40 text-[#F2553B] font-label-xs text-[10px] font-extrabold flex items-center gap-1 shadow-xs">
+<span>4 to review</span>
+</span>
+<span class="material-symbols-outlined text-[16px] text-[#4E6668]" data-icon="chevron_right">chevron_right</span>
+</div>
+</article>
+<!-- Item 2: Reading Articles -->
+<article class="bg-[#162528] rounded-2xl p-3 border-2 border-[#EADEC8] border-b-[3px] border-b-[#D8CFBC] hover:border-[#4FD1C5]/60 flex items-center justify-between transition-all shadow-sm active:translate-y-[1px]">
+<div class="flex items-center gap-3">
+<span class="text-xl">📰</span>
+<div>
+<h3 class="font-title-sm text-[14px] font-bold text-[#0F3D3E]">Reading Articles</h3>
+<p class="text-[11px] text-[#4E6668]">24 words • Mastered 14/24 (58%)</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-[#F2553B]/10 border border-[#F2553B]/40 text-[#F2553B] font-label-xs text-[10px] font-extrabold flex items-center gap-1 shadow-xs">
+<span>6 to review</span>
+</span>
+<span class="material-symbols-outlined text-[16px] text-[#4E6668]" data-icon="chevron_right">chevron_right</span>
+</div>
+</article>
+<!-- Item 3: YouTube Transcripts -->
+<article class="bg-[#162528] rounded-2xl p-3 border-2 border-[#EADEC8] border-b-[3px] border-b-[#D8CFBC] hover:border-[#4FD1C5]/60 flex items-center justify-between transition-all shadow-sm active:translate-y-[1px]">
+<div class="flex items-center gap-3">
+<span class="text-xl">🎬</span>
+<div>
+<h3 class="font-title-sm text-[14px] font-bold text-[#0F3D3E]">YouTube Transcripts</h3>
+<p class="text-[11px] text-[#4E6668]">12 words • Mastered 8/12 (66%)</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-[#F2553B]/10 border border-[#F2553B]/40 text-[#F2553B] font-label-xs text-[10px] font-extrabold flex items-center gap-1 shadow-xs">
+<span>2 to review</span>
+</span>
+<span class="material-symbols-outlined text-[16px] text-[#4E6668]" data-icon="chevron_right">chevron_right</span>
+</div>
+</article>
+<!-- Item 4: Web & Add-on -->
+<article class="bg-[#162528] rounded-2xl p-3 border-2 border-[#EADEC8] border-b-[3px] border-b-[#D8CFBC] hover:border-[#4FD1C5]/60 flex items-center justify-between transition-all shadow-sm active:translate-y-[1px]">
+<div class="flex items-center gap-3">
+<span class="text-xl">🌐</span>
+<div>
+<h3 class="font-title-sm text-[14px] font-bold text-[#0F3D3E]">Web &amp; Add-on</h3>
+<p class="text-[11px] text-[#4E6668]">15 words • Mastered 9/15 (60%)</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-[#F2553B]/10 border border-[#F2553B]/40 text-[#F2553B] font-label-xs text-[10px] font-extrabold flex items-center gap-1 shadow-xs">
+<span>3 to review</span>
+</span>
+<span class="material-symbols-outlined text-[16px] text-[#4E6668]" data-icon="chevron_right">chevron_right</span>
+</div>
+</article>
+<!-- Item 5: Anki Imports -->
+<article class="bg-[#162528] rounded-2xl p-3 border-2 border-[#EADEC8] border-b-[3px] border-b-[#D8CFBC] hover:border-[#4FD1C5]/60 flex items-center justify-between transition-all shadow-sm active:translate-y-[1px]">
+<div class="flex items-center gap-3">
+<span class="text-xl">📥</span>
+<div>
+<h3 class="font-title-sm text-[14px] font-bold text-[#0F3D3E]">Anki Imports</h3>
+<p class="text-[11px] text-[#4E6668]">30 words • Mastered 16/30 (53%)</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-[#F2553B]/10 border border-[#F2553B]/40 text-[#F2553B] font-label-xs text-[10px] font-extrabold flex items-center gap-1 shadow-xs">
+<span>8 to review</span>
+</span>
+<span class="material-symbols-outlined text-[16px] text-[#4E6668]" data-icon="chevron_right">chevron_right</span>
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- 4. Bottom Navigation Bar (Docked full-width at bottom) -->
+<!-- Executing Shared Components JSON logic:
+         - style_shell_layout: fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2
+         - style_active_navigation: applied solely to "Vocab" (exact intent match)
+         - style_inactive_navigation: applied to Today, Skills, Tests, Me
+    -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2 bg-[#0E191C]/95 backdrop-blur-md border-t-2 border-[#EADEC8] shadow-[0_-4px_12px_rgba(0,0,0,0.03)]">
+<div class="w-full max-w-[390px] mx-auto flex justify-around items-center">
+<!-- Tab 1: Today -->
+<a class="flex flex-col items-center justify-center text-[#4E6668] hover:text-[#0F3D3E] px-3 py-1 transition-colors group" href="#today">
+<span class="material-symbols-outlined text-[22px] group-hover:scale-105 transition-transform" data-icon="today">today</span>
+<span class="font-label-xs text-[10px] font-bold mt-0.5">Today</span>
+</a>
+<!-- Tab 2: Vocab (ACTIVE TAB) -->
+<a class="flex flex-col items-center justify-center bg-[#4FD1C5]/15 text-[#0F3D3E] rounded-xl px-3.5 py-1 border-2 border-[#4FD1C5]/60 shadow-[0_2px_0_0_#2BA39A] transition-all" href="#vocab">
+<span class="material-symbols-outlined text-[22px] text-[#00504B]" data-icon="menu_book" data-weight="fill" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-label-xs text-[10px] font-extrabold text-[#00504B] mt-0.5">Vocab</span>
+</a>
+<!-- Tab 3: Skills -->
+<a class="flex flex-col items-center justify-center text-[#4E6668] hover:text-[#0F3D3E] px-3 py-1 transition-colors group" href="#skills">
+<span class="material-symbols-outlined text-[22px] group-hover:scale-105 transition-transform" data-icon="psychology">psychology</span>
+<span class="font-label-xs text-[10px] font-bold mt-0.5">Skills</span>
+</a>
+<!-- Tab 4: Tests -->
+<a class="flex flex-col items-center justify-center text-[#4E6668] hover:text-[#0F3D3E] px-3 py-1 transition-colors group" href="#tests">
+<span class="material-symbols-outlined text-[22px] group-hover:scale-105 transition-transform" data-icon="quiz">quiz</span>
+<span class="font-label-xs text-[10px] font-bold mt-0.5">Tests</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="flex flex-col items-center justify-center text-[#4E6668] hover:text-[#0F3D3E] px-3 py-1 transition-colors group" href="#me">
+<span class="material-symbols-outlined text-[22px] group-hover:scale-105 transition-transform" data-icon="person">person</span>
+<span class="font-label-xs text-[10px] font-bold mt-0.5">Me</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

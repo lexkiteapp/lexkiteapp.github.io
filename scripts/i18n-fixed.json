@@ -74,7 +74,6 @@
     "ru": "Точность",
     "tr": "Doğruluk"
   },
-  "_note": "Bản dịch tay cho nhãn ngắn dễ bị dịch máy sai nghĩa. scripts/i18n-fix.mjs áp vào nguồn i18n/ui/<lang>.js (rồi sinh gói web/js/i18n/<lang> bằng i18n-pack) sau mỗi lần dịch tự động.",
   "Ghi chú": {
     "es": "Nota",
     "pt": "Nota",
@@ -35655,6 +35654,21 @@
     "ru": "Видео YouTube по темам, повтор фрагментов, сохранение слов",
     "tr": "Konuya göre YouTube videoları, bölüm tekrarı, kelime kaydı"
   },
+  "Câu của bạn có thể khác câu mẫu: máy chỉ kiểm bạn đã dùng đúng cấu trúc của bài.": {
+    "es": "Tu frase puede ser distinta del modelo: solo comprobamos que uses la estructura de esta lección.",
+    "pt": "Sua frase pode ser diferente do modelo: só verificamos se você usou a estrutura desta lição.",
+    "fr": "Votre phrase peut différer du modèle : nous vérifions seulement que vous utilisez la structure de cette leçon.",
+    "de": "Dein Satz darf vom Muster abweichen: Wir prüfen nur, ob du die Struktur dieser Lektion verwendest.",
+    "id": "Kalimatmu boleh berbeda dari contoh: kami hanya memeriksa apakah kamu memakai struktur pelajaran ini.",
+    "th": "ประโยคของคุณไม่จำเป็นต้องเหมือนประโยคตัวอย่าง เราตรวจเพียงว่าคุณใช้โครงสร้างของบทนี้หรือไม่",
+    "zh": "你的句子可以与范例不同：我们只检查你是否用了本课的句型。",
+    "ja": "例文と違っていても大丈夫です。このレッスンの構文を使えているかだけをチェックします。",
+    "ko": "예문과 달라도 괜찮아요. 이 과의 구조를 사용했는지만 확인합니다.",
+    "hi": "आपका वाक्य उदाहरण से अलग हो सकता है: हम केवल यह जाँचते हैं कि आपने इस पाठ की संरचना का उपयोग किया है या नहीं।",
+    "ar": "يمكن أن تختلف جملتك عن المثال: نتحقق فقط من أنك استخدمت تركيب هذا الدرس.",
+    "ru": "Ваше предложение может отличаться от образца: мы проверяем только, использовали ли вы структуру этого урока.",
+    "tr": "Cümlen örnekten farklı olabilir: yalnızca bu dersin yapısını kullanıp kullanmadığını kontrol ediyoruz."
+  },
   "Thi": {
     "es": "Exámenes",
     "pt": "Provas",
@@ -35879,6 +35893,21 @@
     "ar": "الاهتزاز عند الإجابة وإكمال الدرس",
     "ru": "Вибрация при ответах и завершении урока",
     "tr": "Cevaplarda ve ders bitişinde titreşim"
+  },
+  "Nghe hết phần này để mở nút tiếp": {
+    "es": "Escucha toda esta parte para continuar",
+    "pt": "Ouça toda esta parte para continuar",
+    "fr": "Écoutez toute cette partie pour continuer",
+    "de": "Hören Sie den ganzen Teil an, um fortzufahren",
+    "id": "Dengarkan seluruh bagian ini untuk melanjutkan",
+    "th": "ฟังส่วนนี้ให้จบเพื่อไปต่อ",
+    "zh": "听完这一部分才能继续",
+    "ja": "このパートを最後まで聞くと次へ進めます",
+    "ko": "이 파트를 끝까지 들으면 다음으로 넘어갈 수 있어요",
+    "hi": "आगे बढ़ने के लिए इस भाग को पूरा सुनें",
+    "ar": "استمع إلى هذا الجزء كاملاً للمتابعة",
+    "ru": "Прослушайте эту часть до конца, чтобы продолжить",
+    "tr": "Devam etmek için bu bölümü sonuna kadar dinleyin"
   },
   "Giọng đọc chất lượng cao trên máy": {
     "es": "Voz de alta calidad en el dispositivo",

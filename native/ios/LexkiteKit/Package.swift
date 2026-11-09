@@ -16,7 +16,7 @@ let package = Package(
     ],
     targets: [
         // Assets.xcassets = the brand mark (LexkiteMark, generated from brand/lexkite-mark.svg); teach/ = bundled Ama stills (generated from web/teach/ama, offline first frame)
-        .target(name: "LKDesign", resources: [.copy("Resources/frame.json"), .process("Resources/Assets.xcassets"), .copy("Resources/teach")]),
+        .target(name: "LKDesign", resources: [.copy("Resources/frame.json"), .copy("Resources/verbs.json"), .process("Resources/Assets.xcassets"), .copy("Resources/teach")]),
         .target(name: "LKStrings", resources: [.copy("Resources/strings")]),
         .target(name: "LKCore"),
         // Data contract shared with web / add-on / Android (docs/specs/native-apps.md §4): merge port of web/js/sync.js, D1 + Drive transports, auth + crash protocols, SyncEngine

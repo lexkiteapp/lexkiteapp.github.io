@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390px, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite v2.1 Light — Mistakes</title>
+<!-- Google Fonts: Nunito Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-container": "#7da8a8",
+            "tertiary": "#4a0400",
+            "on-tertiary-fixed": "#3f0300",
+            "inverse-on-surface": "#f4f0ea",
+            "on-secondary": "#ffffff",
+            "on-primary": "#ffffff",
+            "primary-fixed-dim": "#a3cfcf",
+            "surface-variant": "#e6e2dc",
+            "secondary": "#006a64",
+            "secondary-fixed-dim": "#6bd8ce",
+            "on-tertiary-container": "#ff765e",
+            "surface-container-highest": "#e6e2dc",
+            "on-tertiary": "#ffffff",
+            "primary": "#002627",
+            "tertiary-fixed-dim": "#ffb4a6",
+            "on-surface-variant": "#404848",
+            "surface-bright": "#fdf9f3",
+            "secondary-fixed": "#88f5ea",
+            "error-container": "#ffdad6",
+            "surface": "#fdf9f3",
+            "primary-fixed": "#beebeb",
+            "tertiary-fixed": "#ffdad3",
+            "inverse-primary": "#a3cfcf",
+            "on-surface": "#1c1c18",
+            "surface-container": "#f1ede7",
+            "inverse-surface": "#31302d",
+            "surface-dim": "#dddad4",
+            "on-primary-fixed-variant": "#224d4e",
+            "on-secondary-container": "#00716a",
+            "outline-variant": "#c0c8c8",
+            "outline": "#717978",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed": "#002020",
+            "surface-container-low": "#f7f3ed",
+            "surface-container-high": "#ebe8e2",
+            "tertiary-container": "#720a00",
+            "primary-container": "#0f3d3e",
+            "surface-tint": "#3b6566",
+            "on-secondary-fixed": "#00201e",
+            "on-error-container": "#93000a",
+            "background": "#fdf9f3",
+            "secondary-container": "#88f5ea",
+            "on-secondary-fixed-variant": "#00504b",
+            "on-background": "#1c1c18",
+            "on-tertiary-fixed-variant": "#900f00",
+            "on-error": "#ffffff",
+            "error": "#ba1a1a"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          fontFamily: {
+            "label-md": ["Nunito Sans"],
+            "body-lg": ["Nunito Sans"],
+            "body-sm": ["Nunito Sans"],
+            "headline-md": ["Nunito Sans"],
+            "headline-lg": ["Nunito Sans"],
+            "label-sm": ["Nunito Sans"],
+            "headline-xl": ["Nunito Sans"],
+            "body-md": ["Nunito Sans"],
+            "headline-sm": ["Nunito Sans"]
+          },
+          fontSize: {
+            "label-md": ["14px", { lineHeight: "20px", fontWeight: "600" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+            "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+            "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+            "label-sm": ["12px", { lineHeight: "16px", fontWeight: "600" }],
+            "headline-xl": ["40px", { lineHeight: "48px", fontWeight: "700" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FBF7F1;
+      font-family: 'Nunito Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    /* Brand-specific subtle card outline style */
+    .card-border {
+      border: 1.5px solid #EADEC8;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface flex justify-center min-h-screen">
+<!-- Mobile Viewport Frame (390px fixed width target) -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#FBF7F1] flex flex-col relative pb-32">
+<!-- Top App Bar (Task-Focused: suppress global navigation shell, 44px min tap targets) -->
+<header class="sticky top-0 z-30 bg-[#FBF7F1]/95 backdrop-blur-sm px-4 pt-3 pb-2 flex items-center justify-between">
+<button aria-label="Go back" class="min-w-[44px] min-h-[44px] -ml-2 flex items-center justify-center rounded-full text-primary-container active:scale-95 transition-transform hover:bg-surface-variant/40 focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[26px]">chevron_left</span>
+</button>
+<div class="flex-1 text-center">
+<h1 class="font-headline-sm text-headline-sm text-primary-container tracking-tight">Mistakes</h1>
+</div>
+<button class="min-w-[44px] min-h-[44px] -mr-2 px-2 flex items-center justify-center font-label-md text-label-md text-secondary hover:text-primary-container transition-colors active:scale-95" type="button">
+        Clear fixed
+      </button>
+</header>
+<!-- Content Canvas -->
+<div class="px-4 space-y-4 pt-1">
+<!-- Spaced Repetition Review Banner -->
+<section class="bg-surface-container-low rounded-2xl p-3.5 card-border flex items-center justify-between gap-3 shadow-[0_2px_8px_-2px_rgba(15,61,62,0.06)]">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-9 h-9 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[20px]">repeat</span>
+</div>
+<div class="truncate">
+<p class="font-label-md text-label-md text-primary-container truncate">Spaced Repetition Active</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">3 items ready for recall review</p>
+</div>
+</div>
+<button class="min-h-[44px] px-3.5 bg-primary-container text-on-primary rounded-xl font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all shadow-sm flex items-center gap-1.5 shrink-0 hover:bg-primary" type="button">
+<span>Review soon</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</section>
+<!-- Filter Tabs (Horizontal Scrollable Pills) -->
+<nav aria-label="Mistake Categories" class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 -mx-4 px-4">
+<!-- All (Active) -->
+<button class="min-h-[44px] px-4 py-2 rounded-full font-label-md text-label-md bg-primary-container text-on-primary shadow-sm flex items-center gap-1 shrink-0 transition-transform active:scale-95" type="button">
+<span>All</span>
+<span class="bg-white/20 text-white rounded-full px-1.5 py-0.2 font-label-sm text-label-sm">7</span>
+</button>
+<!-- Vocab -->
+<button class="min-h-[44px] px-3.5 py-2 rounded-full font-label-md text-label-md bg-surface-container-lowest card-border text-on-surface hover:border-secondary transition-all flex items-center gap-1.5 shrink-0 active:scale-95" type="button">
+<span>Vocab</span>
+<span class="bg-surface-container text-on-surface-variant rounded-full px-1.5 py-0.2 font-label-sm text-label-sm">4</span>
+</button>
+<!-- Grammar -->
+<button class="min-h-[44px] px-3.5 py-2 rounded-full font-label-md text-label-md bg-surface-container-lowest card-border text-on-surface hover:border-secondary transition-all flex items-center gap-1.5 shrink-0 active:scale-95" type="button">
+<span>Grammar</span>
+<span class="bg-surface-container text-on-surface-variant rounded-full px-1.5 py-0.2 font-label-sm text-label-sm">2</span>
+</button>
+<!-- Reading -->
+<button class="min-h-[44px] px-3.5 py-2 rounded-full font-label-md text-label-md bg-surface-container-lowest card-border text-on-surface hover:border-secondary transition-all flex items-center gap-1.5 shrink-0 active:scale-95" type="button">
+<span>Reading</span>
+<span class="bg-surface-container text-on-surface-variant rounded-full px-1.5 py-0.2 font-label-sm text-label-sm">1</span>
+</button>
+<!-- Listening -->
+<button class="min-h-[44px] px-3.5 py-2 rounded-full font-label-md text-label-md bg-surface-container-lowest/60 card-border text-outline transition-all flex items-center gap-1.5 shrink-0 active:scale-95" type="button">
+<span>Listening</span>
+<span class="bg-surface-container text-outline rounded-full px-1.5 py-0.2 font-label-sm text-label-sm">0</span>
+</button>
+</nav>
+<!-- Section: Cards List -->
+<section class="space-y-4">
+<!-- CARD 1: Vocab Mistake -->
+<article class="bg-surface-container-lowest card-border rounded-2xl p-4 shadow-[0_2px_8px_rgba(15,61,62,0.04)] space-y-3.5">
+<!-- Header Row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm bg-secondary-fixed/50 text-on-secondary-fixed-variant px-2.5 py-1 rounded-full">
+                Vocab
+              </span>
+<span class="font-label-sm text-label-sm bg-[#ffdad3] text-[#720a00] px-2 py-0.5 rounded-full font-bold flex items-center gap-0.5" title="Failed 3 times">
+<span class="material-symbols-outlined text-[13px]">history</span>
+                x3
+              </span>
+</div>
+<!-- Audio + Pronunciation -->
+<div class="flex items-center gap-1.5 bg-surface-container-low px-2 py-1 rounded-lg">
+<button aria-label="Listen to pronunciation" class="w-7 h-7 flex items-center justify-center text-secondary hover:text-primary-container rounded active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+<span class="font-body-sm text-body-sm text-on-surface-variant italic">/rɪˈlʌk.tənt/</span>
+</div>
+</div>
+<!-- Question -->
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-0.5">IELTS Academic Reading • Passage 2</span>
+<p class="font-headline-sm text-headline-sm text-primary-container">Meaning of 'reluctant'?</p>
+</div>
+<!-- Comparison Row -->
+<div class="grid grid-cols-2 gap-2.5 pt-1">
+<div class="bg-[#ffdad6]/40 border border-[#ffdad6] rounded-xl p-2.5 flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-[#93000a] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">close</span>
+                Your answer
+              </span>
+<p class="font-headline-sm text-headline-sm text-[#720a00] line-through mt-0.5">eager</p>
+</div>
+<div class="bg-secondary-fixed/25 border border-secondary-fixed-dim/60 rounded-xl p-2.5 flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check</span>
+                Correct
+              </span>
+<p class="font-headline-sm text-headline-sm text-primary-container font-bold mt-0.5">unwilling</p>
+</div>
+</div>
+<!-- Pedagogical Tip -->
+<div class="bg-[#FBF7F1] rounded-xl p-3 border border-[#EADEC8]/70 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">lightbulb</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+<strong class="text-primary-container font-label-md">Tip:</strong> 'Reluctant' comes from Latin <em>reluctari</em> (to struggle against). 'Eager' is the exact antonym.
+            </p>
+</div>
+<!-- Actions Row -->
+<div class="pt-1 flex items-center justify-between border-t border-[#EADEC8]/60">
+<div class="flex items-center gap-3">
+<button class="min-h-[44px] flex items-center gap-1 text-secondary font-label-md text-label-md hover:underline active:scale-95" type="button">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span>Dictionary</span>
+</button>
+<button class="min-h-[44px] flex items-center gap-1 text-secondary font-label-md text-label-md hover:underline active:scale-95" type="button">
+<span class="material-symbols-outlined text-[18px]">bookmark_add</span>
+<span>+ Flashcard</span>
+</button>
+</div>
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-xl bg-surface-container text-primary-container font-label-md text-label-md hover:bg-secondary-fixed/40 transition-colors active:scale-95 flex items-center gap-1" type="button">
+<span>Got it</span>
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</button>
+</div>
+</article>
+<!-- CARD 2: Grammar Mistake -->
+<article class="bg-surface-container-lowest card-border rounded-2xl p-4 shadow-[0_2px_8px_rgba(15,61,62,0.04)] space-y-3.5">
+<!-- Header Row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm bg-surface-container text-on-surface-variant px-2.5 py-1 rounded-full font-bold">
+                Grammar
+              </span>
+<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant px-2 py-0.5 rounded-full font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">history</span>
+                x1
+              </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">TOEIC Practice • Part 5</span>
+</div>
+<!-- Question -->
+<div>
+<p class="font-body-md text-body-md text-primary-container font-semibold leading-snug">
+              Choose correct form: “Neither of the candidates <span class="underline decoration-2 decoration-secondary font-bold">___</span> qualified.”
+            </p>
+</div>
+<!-- Comparison Row -->
+<div class="grid grid-cols-2 gap-2.5 pt-1">
+<div class="bg-[#ffdad6]/40 border border-[#ffdad6] rounded-xl p-2.5 flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-[#93000a] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">close</span>
+                Your answer
+              </span>
+<p class="font-headline-sm text-headline-sm text-[#720a00] line-through mt-0.5">were</p>
+</div>
+<div class="bg-secondary-fixed/25 border border-secondary-fixed-dim/60 rounded-xl p-2.5 flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check</span>
+                Correct
+              </span>
+<p class="font-headline-sm text-headline-sm text-primary-container font-bold mt-0.5">was</p>
+</div>
+</div>
+<!-- Pedagogical Tip -->
+<div class="bg-[#FBF7F1] rounded-xl p-3 border border-[#EADEC8]/70 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">lightbulb</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+<strong class="text-primary-container font-label-md">Tip:</strong> 'Neither of' takes a singular verb in formal IELTS/TOEFL writing standards.
+            </p>
+</div>
+<!-- Actions Row -->
+<div class="pt-1 flex items-center justify-between border-t border-[#EADEC8]/60">
+<button class="min-h-[44px] flex items-center gap-1 text-secondary font-label-md text-label-md hover:underline active:scale-95" type="button">
+<span class="material-symbols-outlined text-[18px]">school</span>
+<span>Open grammar lesson</span>
+</button>
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-xl bg-surface-container text-primary-container font-label-md text-label-md hover:bg-secondary-fixed/40 transition-colors active:scale-95 flex items-center gap-1" type="button">
+<span>Got it</span>
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</button>
+</div>
+</article>
+<!-- CARD 3: Interactive Retry Mode Preview / Typed-Answer Card -->
+<article class="bg-surface-container-lowest card-border rounded-2xl p-4 shadow-[0_2px_8px_rgba(15,61,62,0.04)] space-y-3.5 border-dashed border-[#006a64]/40 bg-gradient-to-b from-white to-[#FDF9F3]">
+<!-- Header Row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm bg-secondary-fixed/50 text-on-secondary-fixed-variant px-2.5 py-1 rounded-full font-bold">
+                Reading
+              </span>
+<span class="font-label-sm text-label-sm bg-[#beebeb]/60 text-secondary px-2 py-0.5 rounded-full font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">mode_edit</span>
+                Retry Preview
+              </span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold">Interactive Mode</span>
+</div>
+<!-- Question -->
+<div>
+<p class="font-body-md text-body-md text-primary-container font-semibold leading-snug">
+              Reading inference: The author implies the project was <span class="underline decoration-secondary decoration-2">________</span>?
+            </p>
+</div>
+<!-- Typed Answer Interactive Box -->
+<div class="space-y-2 pt-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant flex items-center justify-between" for="retry-input">
+<span>Test yourself before checking:</span>
+<span class="text-xs text-outline">Press Show to check</span>
+</label>
+<div class="relative">
+<input class="w-full min-h-[48px] px-3.5 pr-24 rounded-xl border border-[#EADEC8] bg-white text-primary-container placeholder:text-outline font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-[#2BA39A] focus:border-[#2BA39A] transition-all" id="retry-input" placeholder="Type your answer..." type="text"/>
+<button class="absolute right-1.5 top-1.5 bottom-1.5 px-3 min-h-[36px] bg-surface-container hover:bg-surface-container-high text-primary-container font-label-md text-label-md rounded-lg active:scale-95 transition-all flex items-center justify-center" id="show-answer-btn" type="button">
+                Show
+              </button>
+</div>
+<div class="hidden p-2.5 bg-secondary-fixed/20 border border-secondary-fixed-dim/50 rounded-xl text-primary-container font-body-sm text-body-sm flex items-center gap-2" id="answer-reveal">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span>Answer: <strong>overambitious</strong> (Paragraph 4 inference)</span>
+</div>
+</div>
+</article>
+</section>
+<!-- Pedagogical Empty-State / Looking Ahead Helper Box -->
+<footer class="text-center py-4 px-2 space-y-1">
+<p class="font-label-sm text-label-sm text-outline flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">task_alt</span>
+          Looking ahead: 'No open mistakes' once all 7 are cleared.
+        </p>
+<p class="font-label-sm text-label-sm text-outline/80">
+          Reviewed words cycle back in 3 days automatically.
+        </p>
+</footer>
+</div>
+<!-- Bottom Sticky Primary Action Container -->
+<div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center pointer-events-none">
+<div class="w-full max-w-[390px] px-4 pb-5 pt-3 bg-gradient-to-t from-[#FBF7F1] via-[#FBF7F1]/95 to-transparent pointer-events-auto">
+<!-- Quiet helper text -->
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant mb-2 font-medium">
+          No open mistakes in Listening • 7 total to master
+        </p>
+<!-- Primary Action Button (Coral #F2553B with White Text) -->
+<button class="w-full min-h-[50px] bg-[#F2553B] hover:bg-[#e0452c] active:scale-[0.98] text-white font-headline-sm text-headline-sm rounded-xl shadow-[0_4px_14px_rgba(242,85,59,0.35)] flex items-center justify-center gap-2 transition-all focus:outline-none focus:ring-4 focus:ring-[#F2553B]/30" type="button">
+<span class="material-symbols-outlined text-[22px]">play_circle</span>
+<span>Retry mistakes (7)</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Interactive JavaScript for micro-interactions -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const showBtn = document.getElementById('show-answer-btn');
+      const answerReveal = document.getElementById('answer-reveal');
+
+      if (showBtn && answerReveal) {
+        showBtn.addEventListener('click', () => {
+          const isHidden = answerReveal.classList.contains('hidden');
+          if (isHidden) {
+            answerReveal.classList.remove('hidden');
+            showBtn.textContent = 'Hide';
+          } else {
+            answerReveal.classList.add('hidden');
+            showBtn.textContent = 'Show';
+          }
+        });
+      }
+    });
+  </script>
+</body></html>

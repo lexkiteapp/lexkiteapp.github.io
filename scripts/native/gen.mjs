@@ -14,6 +14,7 @@
  *   lesson   scripts/native/gen-lesson.mjs: web/js/lesson/engine.js (pickWords/build/adapt/check/Session/results/storyItems/plans…) → vectors/lesson.json
  *   vimg     scripts/native/gen-vimg.mjs: web/js/vocab-img.js (VImg v3 head + shards) → vectors/vimg.json (lesson pic images)
  *   audio    scripts/native/gen-audio.mjs: web/js/audio.js + CDN/word-key/ttsClean lines of web/js/ui.js + listen/kvoice.js → vectors/audio.json
+ *   vocab    scripts/native/gen-vocab.mjs: web/js/{core,study,plan,app (deck/library/topic),dictionary,lex,dict-page,ideas,letters,paraphrase,phrases-model,usage-core,verbs-core}.js → vectors/vocab.json (M3: parity P04 + P05 screens)
  * Usage: node scripts/native/gen.mjs          (write)
  *        node scripts/native/gen.mjs --check  (CI drift gate: exit 1 if any generated file differs or a string is missing)
  *        --only=<path prefix>                  limit write/check to one tree (e.g. native/shared)
@@ -274,6 +275,9 @@ const { lessonVectors } = await import('./gen-lesson.mjs');
 put(`${SHARED}/vectors/lesson.json`, lessonVectors());
 const { audioVectors } = await import('./gen-audio.mjs');
 put(`${SHARED}/vectors/audio.json`, audioVectors());
+const { vocabVectors, verbsTables } = await import('./gen-vocab.mjs');
+for (const p of [SHARED, `${IOS}/Sources/LKDesign/Resources`]) put(`${p}/verbs.json`, verbsTables());   // M3 verb tables of verbs-core.js
+put(`${SHARED}/vectors/vocab.json`, await vocabVectors());   // M3 vocabulary screens (review/practice/mistakes/deck/dict/library/topic/letters/verb/phrases/model/models/usage/ideas/paraphrase)
 const { vimgVectors } = await import('./gen-vimg.mjs'); // lesson "pic" images: VImg v3 lookup (exact word#pos, shard by FNV) on the lesson + starter words
 {
   const lp = JSON.parse(fs.readFileSync(R('native/shared/gen/content-pack/lesson-ngsl1.1.json'), 'utf8')), sp = JSON.parse(fs.readFileSync(R('native/shared/gen/content-pack/starter.json'), 'utf8'));
