@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -74,37 +75,64 @@ fun SayListScreen(ui: SayListUi, a: SayActions2) {
 @Composable
 fun SayCardScreen(ui: SayCardUi, a: SayActions2) {
     val c = LocalLKColors.current; val cd = ui.s.items[ui.i]; val f = ui.front; val b = ui.back
-    StudyFocus((f.pct / 100.0).toFloat(), f.series.let { trs(it) }, a.exit, bottom = {
-        if (!ui.flipped) LKPrimaryButton(trs(Tr("Lật thẻ – xem nghĩa và cách dùng")), a.flip)
-        else { Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) { GhostButton("🎤 " + trs(Tr("Luyện nói câu này")), a.mic, Modifier.weight(1f)); GhostButton(trs(Tr("Thẻ tiếp")) + " →", { a.open(b.next) }, Modifier.weight(1f)) } }
-    }) {
-        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) { Tag(trs(f.regLbl)); Muted(trs(f.step)) }
+    val micLabel = trs(Tr("Tự nói thử"))
+    StudyFocus((f.pct / 100.0).toFloat(), trs(Tr("Nói như người bản xứ")), a.exit, bottom = {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.CenterVertically) {
-            Box(Modifier.size(104.dp)) { LocalSpeakSlots.current.teacher(ui.s.teacher, cd.pose, Modifier.size(104.dp)) }
-            LKCard(Modifier.weight(1f), fill = c.surfaceContainerHighest, onClick = if (!ui.flipped) a.flip else null, label = trs(Tr("Chạm để lật"))) {
-                EnLtr { Body("“" + cd.say + "”", style = LKType.headlineMd) }; if (f.ipa.isNotEmpty()) EnLtr { Muted(f.ipa) }; if (!ui.flipped) Muted(trs(Tr("Chạm để lật"))) }
+            if (!ui.flipped) {
+                GhostButton("🎧 " + trs(Tr("Nghe từ tốn")), { a.speak(true) }, Modifier.weight(1f), ink = c.onSurface)
+                MicButton(ui.listening, a.mic, micLabel)
+                GhostButton("↗ " + trs(Tr("Chia sẻ")), a.share, Modifier.weight(1f), ink = c.onSurface)
+            } else {
+                MicButton(ui.listening, a.mic, micLabel)
+                LKPrimaryButton(trs(Tr("Thẻ tiếp")) + " →", { a.open(b.next) }, Modifier.weight(1f))
+            }
         }
-        Row(horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) { GhostButton("🔊", { a.speak(false) }); GhostButton("🎧 " + trs(Tr("Nghe từ tốn")), { a.speak(true) }); if (!ui.flipped) GhostButton("🎤 " + trs(Tr("Tự nói thử")), a.mic) }
-        if (ui.listening) Muted(trs(Tr("Đang nghe… hãy nói câu trên")))
-        ui.micText?.let { Body(trs(it) + ui.micHeard, color = c.secondary, style = LKType.labelMetric) }
-        ui.micError?.let { Body(trs(it), color = c.error) }
-        if (ui.flipped) {
-            b.react?.let { RichBody("✨ " + trs(it)) }
-            LKCard {
+    }) {
+        if (!ui.flipped) {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) { Tag(trs(f.series)); Muted(trs(f.step)) }
+            LKCard(fill = c.surfaceContainerHighest, onClick = a.flip, label = trs(Tr("Chạm để lật"))) {
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) { Tag(trs(f.regLbl), c.success); GhostButton("🔊", { a.speak(false) }, ink = c.primary) }
+                EnLtr { Body("“" + cd.say + "”", color = c.primary, style = LKType.headlineLg) }
+                if (f.ipa.isNotEmpty()) Box(Modifier.clip(RoundedCornerShape(50)).background(c.surfaceContainerLow).padding(horizontal = LKSpacing.spaceSm, vertical = 6.dp)) { EnLtr { Body(f.ipa) } }
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.Bottom) {
+                    Muted("⟳ " + trs(Tr("Chạm để lật")))
+                    Box(Modifier.size(width = 120.dp, height = 130.dp)) { LocalSpeakSlots.current.teacher(ui.s.teacher, cd.pose, Modifier.size(width = 120.dp, height = 130.dp)) }
+                }
+            }
+        } else {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.Bottom) {
+                Box(Modifier.size(width = 96.dp, height = 110.dp)) { LocalSpeakSlots.current.teacher(ui.s.teacher, cd.pose, Modifier.size(width = 96.dp, height = 110.dp)) }
+                LKCard(Modifier.weight(1f), fill = c.surfaceContainerHighest) {
+                    Body(trs(Tr("Mẹo hay")).uppercase(), color = c.secondary, style = LKType.labelBadge)
+                    b.react?.let { Body(trs(it), style = LKType.titlePill) }
+                    if (b.def.isNotEmpty()) EnLtr { Muted(b.def) }
+                }
+            }
+            LKCard(fill = c.surfaceContainerHighest) {
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) { Tag(trs(f.regLbl), c.success); GhostButton("🔊", { a.speak(false) }, ink = c.primary) }
+                Body(trs(Tr("Câu cần học")).uppercase(), color = c.onSurfaceVariant, style = LKType.labelBadge)
+                EnLtr { Body(cd.say, color = c.primary, style = LKType.headlineMd) }
                 Muted(trs(b.meaningLabel)); Body(b.meaning, style = LKType.titlePill); b.real?.let { Muted(trs(it)) }
-                if (b.def.isNotEmpty()) { Muted(trs(Tr("Mẹo hay"))); EnLtr { Body(b.def) } }
-                if (b.whenText.isNotEmpty()) { Muted(trs(Tr("Dùng khi"))); EnLtr { Body(b.whenText) } }
+                if (b.whenText.isNotEmpty()) { Body(trs(Tr("Dùng khi")).uppercase(), color = c.secondary, style = LKType.labelBadge); EnLtr { Body("“" + b.whenText + "”") } }
+                Row(Modifier.fillMaxWidth().height(androidx.compose.foundation.layout.IntrinsicSize.Max), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
+                    if (b.dont.isNotEmpty()) SayMini(Modifier.weight(1f).fillMaxHeight(), trs(Tr("Đừng nói")), b.dontReg, b.dont, b.dontWhy, c.error)
+                    if (b.swap.isNotEmpty()) SayMini(Modifier.weight(1f).fillMaxHeight(), trs(Tr("Nói thế này")), b.swapReg, b.swap, b.swapWhy, c.success)
+                }
             }
-            if (b.dont.isNotEmpty()) LKCard(fill = c.errorContainer) {
-                Row(horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs), verticalAlignment = Alignment.CenterVertically) { Body("✗ " + trs(Tr("Đừng nói")), color = c.onErrorContainer, style = LKType.labelMetric); b.dontReg?.let { Tag(trs(it), c.onErrorContainer) } }
-                EnLtr { Body(b.dont, color = c.onErrorContainer) }; b.dontWhy?.let { Muted(trs(it)) }
-            }
-            if (b.swap.isNotEmpty()) LKCard(fill = c.surfaceContainerHighest) {
-                Row(horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs), verticalAlignment = Alignment.CenterVertically) { Body("✓ " + trs(Tr("Nói thế này")), color = c.success, style = LKType.labelMetric); b.swapReg?.let { Tag(trs(it)) } }
-                EnLtr { Body(b.swap) }; b.swapWhy?.let { Muted(trs(it)) }
-            }
-            GhostButton("↗ " + trs(Tr("Chia sẻ")), a.share)
         }
+        if (ui.listening) Muted(trs(Tr("Đang nghe… hãy nói câu trên")))
+        ui.micText?.let { Body(trs(it) + ui.micHeard, color = c.secondary, style = LKType.titlePill) }
+        ui.micError?.let { Body(trs(it), color = c.error) }
+    }
+}
+
+@Composable
+private fun SayMini(m: Modifier, title: String, reg: Tr?, text: String, why: Tr?, tint: androidx.compose.ui.graphics.Color) {
+    Column(m.clip(RoundedCornerShape(14.dp)).background(tint.copy(alpha = 0.12f)).padding(LKSpacing.spaceSm), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        Body(title.uppercase(), color = tint, style = LKType.labelBadge)
+        reg?.let { Muted(trs(it)) }
+        EnLtr { Body(text, style = LKType.titlePill) }
+        why?.let { Muted(trs(it)) }
     }
 }
 
