@@ -105,10 +105,11 @@
   onReady(watchToast);
 
   let lastFocus = null;
-  function modal(html) {
+  function modal(html, opts) {
     lastFocus = document.activeElement;
     const box = $('#modalBox');
     box.innerHTML = html;
+    $('#modal').dataset.v = (opts && opts.v) || ''; // dạng hộp: 'sheet' = tấm dưới (css/path-sheet.css)
     box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.tabIndex = -1;
     $('#modal').hidden = false;
     trapFocus(true); requestAnimationFrame(() => trapFocus()); setTimeout(trapFocus, 120); // WebView (iOS/Android) có thể bỏ qua focus() lần đầu
