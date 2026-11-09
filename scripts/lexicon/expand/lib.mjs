@@ -298,6 +298,9 @@ export function yieldSplit(rows) {
 
 /** 08/11 lọc trước AI (job.mjs --no-prefilter để tắt): cận TRÊN số nguồn NGƯỜI VIẾT của một ứng viên – vi (Wiktionary en vi/bảng dịch · Wiktionary vi) và câu chứa từ
  *  (examples.py · ví dụ Wiktionary · ví dụ WordNet mọi nghĩa). vi = 0 hoặc ex < 2 → chắc trượt cổng (viKeep cần nguồn người viết; ví dụ cần 2 câu người viết). */
+/** ci-filler: các shard lượt gần nhất đều gần rỗng (tổng < EMPTY_RUN mục, retry chưa tăng, kết quả < 24 h) → không có việc, khỏi thuê runner */
+export const EMPTY_RUN = 40;
+export const laneEmpty = (runs, retryNow, now = Date.now()) => { const a = runs.filter(r => r && now - Date.parse(r.at) < 864e5); return a.length > 0 && a.reduce((t, r) => t + r.n, 0) < EMPTY_RUN && retryNow <= Math.max(...a.map(r => r.retry)) + 50; };
 export const humanSrc = (e, k, wv, ext) => { if (k.err) return { vi: 1, ex: 2 }; const re = inflRe(e.w); // kaikki lỗi mạng = hạ tầng → không lọc (luồng cũ xử lý)
   const vi = (k.vi || []).length + (wv || []).length + (k.trg || []).reduce((n, g) => n + ((g.tr || {}).vi || []).length, 0);
   const ex = ((ext || {}).ex || []).length + (k.exs || []).filter(x => re.test(x.t)).length + Math.max(0, ...(e.senses && e.senses.length ? e.senses : [e]).map(s => (s.wnex || []).length));
