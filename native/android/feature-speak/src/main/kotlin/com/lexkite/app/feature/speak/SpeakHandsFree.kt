@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.ui.draw.clip
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -48,6 +49,7 @@ import com.lexkite.app.feature.vocab.GhostButton
 import com.lexkite.app.feature.vocab.Muted
 import com.lexkite.app.feature.skills.SwitchRow
 import com.lexkite.app.feature.vocab.StudyFocus
+import com.lexkite.app.feature.vocab.Tag
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -72,25 +74,31 @@ fun HandsFreeScreen(ui: HfUi, a: HfActions) {
         }
         return
     }
-    StudyFocus((ui.i + 1) / ui.words.size.toFloat(), trs(Tr("Học rảnh tay")), a.exit, bottom = {
-        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly, verticalAlignment = Alignment.CenterVertically) {
-            val prevLabel = trs(Tr("Từ trước")); val nextLabel = trs(Tr("Từ tiếp"))
-            GhostButton("⏮", a.prev, Modifier.semantics { contentDescription = prevLabel }); LKPrimaryButton(if (ui.playing) "⏸ " + trs(Tr("Tạm dừng")) else "▶ " + trs(Tr(if (ui.i == 0 && !ui.playing) "Bắt đầu" else "Tiếp tục")), a.toggle, Modifier.weight(1f)); GhostButton("⏭", a.next, Modifier.semantics { contentDescription = nextLabel })
-        }
-    }) {
-        Muted(trs(Tr("Nghe từ, nghĩa và câu ví dụ liên tục – vừa đi bộ, lái xe hay làm việc nhà. Khóa màn hình vẫn nghe được, điều khiển từ màn hình khóa & tai nghe.")))
-        LKCard(fill = c.surfaceContainerHighest) {
-            Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
-                EnLtr { Body(w.word, style = LKType.headlineLg, align = TextAlign.Center) }
-                if (w.ipa.isNotEmpty()) EnLtr { Muted(w.ipa) }
-                Body(w.meaning, style = LKType.bodyLg, align = TextAlign.Center)
-                if (w.ex.isNotEmpty()) EnLtr { Muted("“" + w.ex + "”", align = TextAlign.Center) }
-                Muted(HandsFree.position(ui.i, ui.words.size))
+    val prevLabel = trs(Tr("Từ trước")); val nextLabel = trs(Tr("Từ tiếp"))
+    StudyFocus((ui.i + 1) / ui.words.size.toFloat(), trs(Tr("Học rảnh tay")), a.exit, bottom = { LKPrimaryButton(nextLabel + " →", a.next) }) {
+        LKCard {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.CenterVertically) {
+                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(LKSpacing.space2xs)) { Body(trs(Tr("Học rảnh tay")), style = LKType.headlineSm); Muted(trs(ui.title)); Muted(trs(Tr("Nghe từ, nghĩa và câu ví dụ liên tục – vừa đi bộ, lái xe hay làm việc nhà. Khóa màn hình vẫn nghe được, điều khiển từ màn hình khóa & tai nghe."))) }
+                Box(Modifier.size(64.dp)) { LocalSpeakSlots.current.teacher("ama", "point", Modifier.size(64.dp)) }
             }
         }
-        SwitchRow(trs(Tr("Câu ví dụ")), ui.opt.ex, onChange = a.ex); SwitchRow(trs(Tr("Đọc nghĩa (khi mở màn hình)")), ui.opt.mean, onChange = a.mean)
-        GhostButton("🌙 " + trs(Tr("Màn tối")), { a.ambient(true) })
-        Muted("🔒 " + trs(HandsFree.footer(ui.title)))
+        LKCard {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) { Tag(HandsFree.position(ui.i, ui.words.size)) }
+            EnLtr { Body(w.word, style = LKType.headlineLg) }
+            if (w.ipa.isNotEmpty()) EnLtr { Muted(w.ipa) }
+            Body(w.meaning, style = LKType.titlePill)
+            if (w.ex.isNotEmpty()) Box(Modifier.fillMaxWidth().clip(androidx.compose.foundation.shape.RoundedCornerShape(16.dp)).background(c.surfaceContainerHighest).padding(LKSpacing.spaceSm)) { EnLtr { Body("“" + w.ex + "”") } }
+        }
+        LKCard {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs), verticalAlignment = Alignment.CenterVertically) {
+                GhostButton("⏮", a.prev, Modifier.semantics { contentDescription = prevLabel })
+                LKPrimaryButton(if (ui.playing) "⏸ " + trs(Tr("Tạm dừng")) else "▶ " + trs(Tr(if (ui.i == 0 && !ui.playing) "Bắt đầu" else "Tiếp tục")), a.toggle, Modifier.weight(1f))
+                GhostButton("⏭", a.next, Modifier.semantics { contentDescription = nextLabel })
+            }
+            GhostButton("🌙 " + trs(Tr("Màn tối")), { a.ambient(true) }, Modifier.fillMaxWidth())
+        }
+        LKCard { SwitchRow(trs(Tr("Câu ví dụ")), ui.opt.ex, onChange = a.ex); SwitchRow(trs(Tr("Đọc nghĩa (khi mở màn hình)")), ui.opt.mean, onChange = a.mean) }
+        LKCard(fill = c.surfaceContainerHighest) { Muted("🔒 " + trs(HandsFree.footer(ui.title))) }
     }
 }
 

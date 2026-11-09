@@ -85,43 +85,55 @@ class PronHubActions(val open: (String) -> Unit = {}, val exit: () -> Unit = {})
 fun PronHubScreen(ui: PronHubUi, done: Map<String, Int>, a: PronHubActions) {
     val c = LocalLKColors.current; val h = ui.hub
     StudyPage(trs(Tr("Thư viện phát âm")), a.exit) {
-        Muted(trs(Tr("Luyện như ELSA: học khẩu hình từng âm IPA, nghe – phân biệt cặp từ dễ nhầm, nói và được chấm điểm, rồi sửa các lỗi người Việt hay mắc.")))
-        if (h == null || h.groups.isEmpty()) { EmptyState("🔤", trs(Tr("Đang cập nhật bài học…"))); return@StudyPage }
-        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
-            Box(Modifier.size(72.dp).semantics { contentDescription = h.ringLabel }, contentAlignment = Alignment.Center) {
-                CircularProgressIndicator(progress = { (h.ring / 100.0).toFloat() }, Modifier.size(72.dp), color = c.success, trackColor = c.surfaceContainerHighest, strokeWidth = 8.dp)
-                Text(h.ringLabel, color = c.onSurface, style = LKType.labelMetric.toCompose())
+        if (h == null || h.groups.isEmpty()) { Muted(trs(Tr("Luyện như ELSA: học khẩu hình từng âm IPA, nghe – phân biệt cặp từ dễ nhầm, nói và được chấm điểm, rồi sửa các lỗi người Việt hay mắc."))); EmptyState("🔤", trs(Tr("Đang cập nhật bài học…"))); return@StudyPage }
+        LKCard {
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
+                Box(Modifier.size(72.dp)) { LocalSpeakSlots.current.teacher("ama", "point", Modifier.size(72.dp)) }
+                Muted(trs(Tr("Luyện như ELSA: học khẩu hình từng âm IPA, nghe – phân biệt cặp từ dễ nhầm, nói và được chấm điểm, rồi sửa các lỗi người Việt hay mắc.")), Modifier.weight(1f))
             }
-            Muted(trs(Tr("Ô viền xám nhạt = phụ âm vô thanh · Mỗi bài: khẩu hình → nghe mẫu → phân biệt cặp từ → nói & chấm điểm.")), Modifier.weight(1f))
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
+                Box(Modifier.size(64.dp).semantics { contentDescription = h.ringLabel }, contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator(progress = { (h.ring / 100.0).toFloat() }, Modifier.size(64.dp), color = c.success, trackColor = c.surfaceContainerHighest, strokeWidth = 7.dp)
+                    Text(h.ringLabel, color = c.onSurface, style = LKType.labelMetric.toCompose())
+                }
+                Muted(trs(Tr("Ô viền xám nhạt = phụ âm vô thanh · Mỗi bài: khẩu hình → nghe mẫu → phân biệt cặp từ → nói & chấm điểm.")), Modifier.weight(1f))
+            }
         }
         for (g in h.groups) {
-            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) { Body(g.g.emoji + " " + trs(Tr(g.g.name)), style = LKType.headlineSm) }
+            SectionHeader(g.g.emoji + " " + trs(Tr(g.g.name)))
             Muted(trs(Tr(g.g.desc)))
-            if (g.g.chart) Flow { for (l in g.lessons) {
-                val on = done.containsKey(l.id); val unv = l.mouth?.voiced == false
-                Column(Modifier.size(width = 72.dp, height = 72.dp).clip(RoundedCornerShape(16.dp)).background(if (on) c.secondaryContainer else c.card).let { if (unv) it.dashed(c.outline) else it.border(1.dp, c.outlineVariant, RoundedCornerShape(16.dp)) }
-                    .tactile({ a.open(l.id) }, l.title), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
-                    EnLtr { Text(l.ipa.replace("/", ""), color = c.onSurface, style = LKType.headlineSm.toCompose()) }
-                    EnLtr { Text((if (on) "✓ " else "") + (l.words.firstOrNull()?.w ?: ""), color = c.onSurfaceVariant, style = LKType.labelBadge.toCompose(), maxLines = 1) }
-                } } }
+            if (g.g.chart) for (row in g.lessons.chunked(4)) Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
+                for (l in row) {
+                    val on = done.containsKey(l.id); val unv = l.mouth?.voiced == false
+                    Column(Modifier.weight(1f).heightIn(min = 72.dp).clip(RoundedCornerShape(16.dp)).background(if (on) c.secondaryContainer else c.card).let { if (unv) it.dashed(c.outline) else it.border(1.dp, c.outlineVariant, RoundedCornerShape(16.dp)) }
+                        .tactile({ a.open(l.id) }, l.title), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
+                        EnLtr { Text(l.ipa.replace("/", ""), color = c.onSurface, style = LKType.headlineSm.toCompose()) }
+                        EnLtr { Text((if (on) "✓ " else "") + (l.words.firstOrNull()?.w ?: ""), color = c.onSurfaceVariant, style = LKType.labelBadge.toCompose(), maxLines = 1) }
+                    }
+                }
+                for (k in row.size until 4) androidx.compose.foundation.layout.Spacer(Modifier.weight(1f))
+            }
             else Column(verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) { for (l in g.lessons) LKCard(onClick = { a.open(l.id) }, label = l.title) {
-                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) { Text(l.emoji, style = LKType.headlineMd.toCompose()); if (done[l.id] != null) Tag("✓ ${done[l.id]}%", c.success) else EnLtr { Tag(l.ipa) } }
-                Body(l.title, style = LKType.titlePill); Muted(l.how.take(110) + if (l.how.length > 110) "…" else "") } }
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.CenterVertically) {
+                    Box(Modifier.size(48.dp).clip(androidx.compose.foundation.shape.CircleShape).background(c.surfaceContainerHighest), contentAlignment = Alignment.Center) { Text(l.emoji, style = LKType.headlineSm.toCompose()) }
+                    Column(Modifier.weight(1f)) { Body(l.title, style = LKType.titlePill); Muted(l.how.take(90) + if (l.how.length > 90) "…" else "") }
+                    if (done[l.id] != null) Tag("✓ ${done[l.id]}%", c.success) else Text("›", color = c.onSurfaceVariant, style = LKType.headlineSm.toCompose())
+                } } }
         }
     }
 }
 
 // ---------------------------------------------------------------- #/pron/<id>  (Stitch pron-sound)
-/** The mouth figure: ellipses of the outer lip, inner mouth and tongue (numbers of the web SVG), always on a light disc so it stays legible in dark mode. */
+/** The mouth figure: ellipses of the outer lip, inner mouth and tongue (numbers of the web SVG), drawn with the Kit tokens of the current theme (legible in light and dark). */
 @Composable
 fun MouthFigure(m: PronPage.Mouth, modifier: Modifier = Modifier) {
-    val l = LKColors.light; val cap = m.caption.map { trs(it) }.joinToString(" · ")
+    val l = LocalLKColors.current; val cap = m.caption.map { trs(it) }.joinToString(" · ")
     Column(modifier, horizontalAlignment = Alignment.CenterHorizontally) {
         Canvas(Modifier.size(width = 200.dp, height = 160.dp).semantics { contentDescription = cap }) {
             val k = size.width / 200f
-            drawCircle(l.cardHigh, 74f * k, Offset(100f * k, 80f * k))
+            drawCircle(l.surfaceContainerHighest, 74f * k, Offset(100f * k, 80f * k))
             fun oval(e: List<Double>, color: androidx.compose.ui.graphics.Color) = drawOval(color, Offset(((e[0] - e[2]) * k).toFloat(), ((e[1] - e[3]) * k).toFloat()), Size((e[2] * 2 * k).toFloat(), (e[3] * 2 * k).toFloat()))
-            oval(m.outerLip, l.errorContainer); oval(m.innerMouth, l.error); oval(m.tongue, l.tertiary)
+            oval(m.outerLip, l.error); oval(m.innerMouth, l.errorContainer); oval(m.tongue, l.tertiary)
         }
         Muted(cap)
     }
@@ -140,25 +152,25 @@ class PronSoundActions(
 
 @Composable
 fun PronSoundScreen(ui: PronSoundUi, a: PronSoundActions) {
-    val c = LocalLKColors.current; val l = ui.l
+    val c = LocalLKColors.current; val l = ui.l; val card = RoundedCornerShape(16.dp)
     StudyPage(l.title, a.exit) {
         LKCard(fill = c.secondaryContainer) {
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.CenterVertically) {
-                EnLtr { Text(l.ipa, color = c.onSecondaryContainer, style = LKType.headlineLg.toCompose()) }
-                Flow { for (x in ui.chips) Tag(trs(x), c.onSecondaryContainer) }
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.Top) {
+                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) { Flow { for (x in ui.chips) Tag(trs(x), c.onSecondaryContainer) }; Body(l.how, color = c.onSecondaryContainer) }
+                Box(Modifier.clip(card).background(c.card).padding(horizontal = LKSpacing.spaceSm, vertical = LKSpacing.spaceXs)) { EnLtr { Text(l.ipa, color = c.onSurface, style = LKType.headlineLg.toCompose()) } }
             }
-            Body(l.how, color = c.onSecondaryContainer)
         }
-        Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) { if (ui.mouth != null) MouthFigure(ui.mouth) else Text(l.emoji, style = LKType.headlineLg.toCompose()) }
+        TeacherCard("ama", "point", "", "💡 " + l.tip)
+        LKCard { Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) { if (ui.mouth != null) MouthFigure(ui.mouth) else Text(l.emoji, style = LKType.headlineLg.toCompose()) } }
         if (l.rules.isNotEmpty()) LKCard { Body("📋 " + trs(Tr("Quy tắc")), style = LKType.titlePill)
             for (r in l.rules) Column(verticalArrangement = Arrangement.spacedBy(LKSpacing.space2xs)) { Body(r.label, style = LKType.labelMetric); Muted(r.whenText); Flow { for (w in r.ex) GhostButton("🔊 $w", { a.hearText(w) }) } } }
         LKCard(fill = c.errorContainer) { Body("🇻🇳 " + trs(Tr("Lỗi hay gặp")), style = LKType.titlePill, color = c.onErrorContainer); Body(l.vn, color = c.onErrorContainer) }
-        LKCard { Body("💡 " + l.tip) }
         LKCard {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) { Body("🗣️ " + trs(Tr("Luyện từ ({n})", mapOf("n" to l.words.size))), style = LKType.titlePill); ui.best?.let { Tag("✓ $it%", c.success) } }
             Muted(trs(Tr("Bấm 🔊 nghe mẫu → 🎙️ nói → xem điểm")))
             l.words.forEachIndexed { k, w ->
                 Row(Modifier.fillMaxWidth().heightIn(min = 48.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.space2xs)) {
+                    NumBadge("${k + 1}")
                     Column(Modifier.weight(1f)) { EnLtr { Body(w.w, style = LKType.titlePill) }; EnLtr { Muted(w.ipa + if (w.note.isNotEmpty()) " · ${w.note}" else "") } }
                     GhostButton("🔊", { a.hear(w.w, false) }); GhostButton("🐢", { a.hear(w.w, true) })
                     if (ui.recordingWord == k) Tag("🔴") else GhostButton("🎙️", { a.wordMic(k) })
@@ -168,20 +180,22 @@ fun PronSoundScreen(ui: PronSoundUi, a: PronSoundActions) {
             if (ui.heardHint.isNotEmpty()) Muted(trs(Tr("Máy nghe được: “{heard}”", mapOf("heard" to ui.heardHint))))
             ui.micError?.let { RichBody("⚠️ " + trs(it), color = c.error) }
         }
-        if (ui.hasSay) LKCard { Body("🎙️ " + trs(Tr("Luyện nói cặp từ")), style = LKType.titlePill); Muted(trs(Tr("Nhìn từ, nghe mẫu rồi bấm micro và nói. Máy sẽ cho biết bạn nói đúng từ, hay nói thành từ còn lại trong cặp."))); LKPrimaryButton(trs(Tr("Bắt đầu nói ({n} từ)", mapOf("n" to PairSession.N))), a.startSay) }
-        if (ui.hasRhythm) LKCard { Body("🎵 " + trs(Tr("Nhịp câu & shadowing")), style = LKType.titlePill); Muted(trs(Tr("Từ in to được nhấn; từ nhỏ đọc nhanh, nhẹ (dạng yếu). Nghe mẫu, rồi bấm Shadowing và nói theo ngay."))); LKPrimaryButton(trs(Tr("Shadowing")), a.startRhythm) }
         if (l.pairs.isNotEmpty()) LKCard {
             Body("👂 " + trs(Tr("Nghe & phân biệt cặp từ")), style = LKType.titlePill); Muted(trs(Tr("Nghe một từ trong cặp rồi chọn đúng từ bạn nghe được. Luyện tai trước, miệng sẽ chuẩn theo.")))
-            Flow { for ((x, y) in l.pairs) EnLtr { Tag("$x ↔ $y") } }
+            val first = l.pairs.first()
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) { for (w in listOf(first.first, first.second)) Box(Modifier.weight(1f).clip(card).background(c.surfaceContainerHighest).padding(LKSpacing.spaceSm), contentAlignment = Alignment.Center) { EnLtr { Body(w, style = LKType.headlineSm) } } }
+            if (l.pairs.size > 1) Flow { for ((x, y) in l.pairs.drop(1)) EnLtr { Tag("$x ↔ $y") } }
             LKPrimaryButton("▶️ " + trs(Tr("Bắt đầu ({n} lượt)", mapOf("n" to PronPage.PAIR_ROUNDS))), a.startPairs)
         }
+        if (ui.hasSay) LKCard { Body("🎙️ " + trs(Tr("Luyện nói cặp từ")), style = LKType.titlePill); Muted(trs(Tr("Nhìn từ, nghe mẫu rồi bấm micro và nói. Máy sẽ cho biết bạn nói đúng từ, hay nói thành từ còn lại trong cặp."))); LKPrimaryButton(trs(Tr("Bắt đầu nói ({n} từ)", mapOf("n" to PairSession.N))), a.startSay) }
+        if (ui.hasRhythm) LKCard { Body("🎵 " + trs(Tr("Nhịp câu & shadowing")), style = LKType.titlePill); Muted(trs(Tr("Từ in to được nhấn; từ nhỏ đọc nhanh, nhẹ (dạng yếu). Nghe mẫu, rồi bấm Shadowing và nói theo ngay."))); LKPrimaryButton(trs(Tr("Shadowing")), a.startRhythm) }
         if (l.sentences.isNotEmpty()) LKCard { Body("📢 " + trs(Tr("Luyện câu")), style = LKType.titlePill)
             l.sentences.forEachIndexed { k, s -> Row(Modifier.fillMaxWidth().heightIn(min = 48.dp), verticalAlignment = Alignment.CenterVertically) {
                 EnLtr { Body(s, Modifier.weight(1f)) }; GhostButton("🔊", { a.hearText(PronPage.cleanSentence(s)) })
                 if (ui.recordingSentence == k) Tag("🔴") else GhostButton("🎙️", { a.sentenceMic(k) }); ui.sentScores[k]?.let { ScorePill(it, PronPage.scoreColor(it)) } } } }
         if (l.quiz.isNotEmpty()) LKCard { Body("✏️ " + trs(Tr("Kiểm tra nhanh")), style = LKType.titlePill)
             l.quiz.forEachIndexed { qi, q -> Body("${qi + 1}. ${q.q}", style = LKType.labelMetric); val pick = ui.quiz.picks[qi]
-                Flow { q.options.forEachIndexed { j, o -> Chip((if (pick != null && j == q.answer) "✓ " else if (pick == j) "✗ " else "") + o, pick == j, { a.pickQuiz(qi, j) }) } }
+                q.options.forEachIndexed { j, o -> com.lexkite.app.feature.vocab.ChoiceCard(com.lexkite.app.feature.vocab.LETTERS[j.coerceAtMost(5)], o, if (pick == null) com.lexkite.app.feature.vocab.Pick.NONE else if (j == q.answer) com.lexkite.app.feature.vocab.Pick.RIGHT else if (pick == j) com.lexkite.app.feature.vocab.Pick.WRONG else com.lexkite.app.feature.vocab.Pick.DIM, if (pick == null) ({ a.pickQuiz(qi, j) }) else null, ltr = true) }
                 if (pick != null) Muted((if (pick == q.answer) "✅ " else "❌ ") + q.explain) } }
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             if (ui.prev != null) GhostButton("← " + ui.prev.ipa, { a.open(ui.prev.id) }) else Box(Modifier)
@@ -191,20 +205,32 @@ fun PronSoundScreen(ui: PronSoundUi, a: PronSoundActions) {
 }
 
 // ---------------------------------------------------------------- listening pair game  (Stitch pron-pairs, focus screen)
-class PairsUi(val n: Int, val r: Int, val options: List<String>, val picked: Int?, val answer: Int, val end: PronPage.PairEnd?)
-class PairsActions(val replay: () -> Unit = {}, val pick: (Int) -> Unit = {}, val again: () -> Unit = {}, val exit: () -> Unit = {})
+class PairsUi(val n: Int, val r: Int, val options: List<String>, val picked: Int?, val answer: Int, val end: PronPage.PairEnd?, val selected: Int? = null)
+class PairsActions(val replay: () -> Unit = {}, val select: (Int) -> Unit = {}, val check: () -> Unit = {}, val again: () -> Unit = {}, val exit: () -> Unit = {})
 @Composable
 fun PronPairsScreen(ui: PairsUi, title: String, a: PairsActions) {
     val c = LocalLKColors.current
-    StudyFocus(ui.r.coerceAtMost(ui.n) / ui.n.toFloat(), title, a.exit, bottom = { if (ui.end != null) LKPrimaryButton("↺ " + trs(Tr("Chơi lại")), a.again) }) {
+    StudyFocus(ui.r.coerceAtMost(ui.n) / ui.n.toFloat(), title, a.exit, bottom = {
+        if (ui.end != null) LKPrimaryButton("↺ " + trs(Tr("Chơi lại")), a.again) else LKPrimaryButton(trs(Tr("Kiểm tra")), a.check, enabled = ui.picked == null && ui.selected != null)
+    }) {
         val e = ui.end
         if (e != null) { LKCard(fill = toneFill(if (e.good) "good" else "again")) { Body(trs(e.final[0]) + " – " + trs(e.final[1]), style = LKType.titlePill); Muted("+${e.reward.xp} XP") }; return@StudyFocus }
-        GhostButton("🔊 " + trs(Tr("Nghe lại ({i}/{n})", mapOf("i" to ui.r + 1, "n" to ui.n))), a.replay)
-        Column(verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) { ui.options.forEachIndexed { k, w ->
+        LKCard {
+            Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
+                PlayDisc(a.replay, trs(Tr("Nghe lại ({i}/{n})", mapOf("i" to ui.r + 1, "n" to ui.n))))
+                Body(trs(Tr("Nghe lại ({i}/{n})", mapOf("i" to ui.r + 1, "n" to ui.n))), style = LKType.titlePill, align = androidx.compose.ui.text.style.TextAlign.Center)
+                Muted(trs(Tr("Nghe một từ trong cặp rồi chọn đúng từ bạn nghe được. Luyện tai trước, miệng sẽ chuẩn theo.")), align = androidx.compose.ui.text.style.TextAlign.Center)
+            }
+        }
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) { ui.options.forEachIndexed { k, w ->
             val mark = if (ui.picked == null) null else if (k == ui.answer) true else if (k == ui.picked) false else null
-            Row(Modifier.fillMaxWidth().heightIn(min = 72.dp).clip(RoundedCornerShape(20.dp)).background(when (mark) { true -> c.surfaceContainerHighest; false -> c.errorContainer; null -> c.card }).border(2.dp, when (mark) { true -> c.success; false -> c.error; null -> c.outlineVariant }, RoundedCornerShape(20.dp))
-                .tactile({ if (ui.picked == null) a.pick(k) }, w).padding(LKSpacing.spaceSm), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween) {
-                EnLtr { Text(w, color = c.onSurface, style = LKType.headlineSm.toCompose()) }; if (mark != null) Text(if (mark) "✓" else "✗", color = if (mark) c.success else c.error, style = LKType.titlePill.toCompose()) } } }
+            val chosen = ui.picked == null && ui.selected == k
+            Column(Modifier.weight(1f).heightIn(min = 96.dp).clip(RoundedCornerShape(20.dp)).background(when (mark) { true -> c.surfaceContainerHighest; false -> c.errorContainer; null -> if (chosen) c.secondaryContainer else c.card }).border(2.dp, when (mark) { true -> c.success; false -> c.error; null -> if (chosen) c.secondary else c.outlineVariant }, RoundedCornerShape(20.dp))
+                .tactile({ if (ui.picked == null) a.select(k) }, w).padding(LKSpacing.spaceSm), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs, Alignment.CenterVertically)) {
+                NumBadge(com.lexkite.app.feature.vocab.LETTERS[k.coerceAtMost(5)])
+                EnLtr { Text(w + if (mark != null) (if (mark) " ✓" else " ✗") else "", color = c.onSurface, style = LKType.headlineSm.toCompose()) } } } }
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally)) { for (k in 0 until ui.n) Box(Modifier.size(10.dp).clip(androidx.compose.foundation.shape.CircleShape).background(if (k < ui.r) c.secondary else if (k == ui.r) c.primary else c.surfaceContainerHighest)) }
+        TeacherCard("ama", "point", "", trs(Tr("Nghe một từ trong cặp rồi chọn đúng từ bạn nghe được. Luyện tai trước, miệng sẽ chuẩn theo.")))
     }
 }
 
@@ -217,26 +243,31 @@ class SayActions(val start: () -> Unit = {}, val hear: (Boolean) -> Unit = {}, v
 @Composable
 fun PronSayScreen(ui: SaySessionUi, title: String, a: SayActions) {
     val c = LocalLKColors.current
-    StudyFocus(ui.progress, title, a.exit, bottom = {
+    StudyPage(title, a.exit, bottom = {
         if (ui.final != null) LKPrimaryButton("↺ " + trs(Tr("Luyện lại")), a.start) else if (ui.step?.next == true) LKPrimaryButton(trs(Tr("Từ tiếp theo")), a.next)
     }) {
         val f = ui.final
-        if (ui.blocked != null) { MicBlocked(ui.blocked, a.fallback, "🎧 " + trs(Tr("Luyện nghe")), a.start); return@StudyFocus }
+        if (ui.blocked != null) { MicBlocked(ui.blocked, a.fallback, "🎧 " + trs(Tr("Luyện nghe")), a.start); return@StudyPage }
         if (f != null) {
             LKCard(fill = toneFill(if (f.pct >= 80) "good" else "again")) { Body(trs(f.score), style = LKType.titlePill); Muted("+${f.reward.xp} XP") }
             Flow { for ((label, ok, n) in ui.chips) Tag(trs(label) + " $ok/$n", if (ok == n) c.success else c.secondary) }
-            return@StudyFocus
+            return@StudyPage
         }
-        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) { Muted(trs(ui.label) + if (ui.retry) " · " + trs(Tr("Thử lại")) else ""); Muted(ui.index) }
-        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
-            EnLtr { Text(ui.target, color = c.onSurface, style = LKType.headlineLg.toCompose()) }; EnLtr { Muted(ui.ipa) }; EnLtr { Muted("≠ ${ui.other}") }
-            Row(horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) { GhostButton("🔊 " + trs(Tr("Nghe mẫu")), { a.hear(false) }); GhostButton("🐢 " + trs(Tr("Nghe chậm")), { a.hear(true) }) }
-            MicButton(ui.listening, a.mic, trs(Tr("Bấm để nói")), enabled = ui.step?.next != true)
-            val st = ui.step
-            Body(if (ui.listening) trs(Tr("Đang nghe…")) else st?.let { trs(it.state) } ?: trs(Tr("Bấm để nói")), color = if (st?.outcome == "good") c.success else if (st?.outcome == "other") c.error else c.onSurface, style = LKType.titlePill)
-            if (st?.retryHeard == true) Muted(trs(Tr("Máy nghe được: “{heard}”", mapOf("heard" to st.heard))))
-            st?.tip?.let { tp -> LKCard(fill = c.surfaceContainerHighest) { Body("💡 ${ui.target} ${ui.ipa}", style = LKType.labelMetric); RichBody(trs(tp)) } }
-            ui.error?.let { RichBody(trs(it), color = c.error) }
+        val st = ui.step
+        TeacherCard("ama", if (st?.outcome == "good") "cheer" else "point", trs(ui.label) + if (ui.retry) " · " + trs(Tr("Thử lại")) else "", st?.tip?.let { trs(it) } ?: trs(Tr("Nhìn từ, nghe mẫu rồi bấm micro và nói. Máy sẽ cho biết bạn nói đúng từ, hay nói thành từ còn lại trong cặp.")), tag = ui.index)
+        LKCard {
+            Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
+                EnLtr { Text(ui.target, color = c.onSurface, style = LKType.headlineLg.toCompose()) }; EnLtr { Muted(ui.ipa) }; EnLtr { Muted("≠ ${ui.other}") }
+                Row(horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) { GhostButton("🔊 " + trs(Tr("Nghe mẫu")), { a.hear(false) }); GhostButton("🐢 " + trs(Tr("Nghe chậm")), { a.hear(true) }) }
+            }
+        }
+        LKCard(fill = if (st?.outcome == "other") c.errorContainer else if (st?.outcome == "good") c.surfaceContainerHighest else c.card) {
+            Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
+                MicButton(ui.listening, a.mic, trs(Tr("Bấm để nói")), enabled = ui.step?.next != true)
+                Body(if (ui.listening) trs(Tr("Đang nghe…")) else st?.let { trs(it.state) } ?: trs(Tr("Bấm để nói")), color = if (st?.outcome == "good") c.success else if (st?.outcome == "other") c.onErrorContainer else c.onSurface, style = LKType.titlePill, align = androidx.compose.ui.text.style.TextAlign.Center)
+                if (st?.retryHeard == true) Muted(trs(Tr("Máy nghe được: “{heard}”", mapOf("heard" to st.heard))))
+                ui.error?.let { RichBody(trs(it), color = c.error) }
+            }
         }
     }
 }
@@ -299,13 +330,13 @@ class PronSoundVm(private val env: SpeakEnv, private val id: String) : ViewModel
 
     fun hear(w: String, slow: Boolean) { env.speak(w, accent, if (slow) 0.55f else 0.95f) }
     fun hearText(s: String) { env.speak(s, accent, 0.95f) }
-    fun micDenied() { recW = null; recS = null; micErr = RecError.text("not-allowed"); publish() }
+    fun micDenied() { recW = null; recS = null; micErr = recText("not-allowed"); publish() }
     fun wordMic(k: Int) { if (recW != null || recS != null) { env.stopListening(); return }; recW = k; micErr = null; publish(); val target = lesson.words[k].w
-        env.listen(accent, {}, { alts -> val b = SpeakScore.best(target, alts); recW = null; heardHint = b.heard; scores = PronPage.bestOf(scores, k, b.score); micErr = null; publish(); afterWord(b.score) }, { code -> recW = null; micErr = RecError.text(code); publish() }) }
+        env.listen(accent, {}, { alts -> val b = SpeakScore.best(target, alts); recW = null; heardHint = b.heard; scores = PronPage.bestOf(scores, k, b.score); micErr = null; publish(); afterWord(b.score) }, { code -> recW = null; micErr = recText(code); publish() }) }
     private fun afterWord(score: Int) { viewModelScope.launch { env.pay(PronPage.wordReward(score)); val pct = PronPage.lessonBest(scores, lesson.words.size) ?: return@launch
         env.writeGame({ g -> PronPage.saveBest(g, id, pct) }); best = maxOf(best ?: 0, pct); publish() } }
     fun sentenceMic(k: Int) { if (recW != null || recS != null) { env.stopListening(); return }; recS = k; micErr = null; publish(); val target = PronPage.cleanSentence(lesson.sentences[k])
-        env.listen(accent, {}, { alts -> val b = SpeakScore.best(target, alts); recS = null; heardHint = b.heard; sent = sent + (k to maxOf(sent[k] ?: 0, b.score)); publish(); viewModelScope.launch { env.pay(PronPage.sentenceReward(b.score)) } }, { code -> recS = null; micErr = RecError.text(code); publish() }) }
+        env.listen(accent, {}, { alts -> val b = SpeakScore.best(target, alts); recS = null; heardHint = b.heard; sent = sent + (k to maxOf(sent[k] ?: 0, b.score)); publish(); viewModelScope.launch { env.pay(PronPage.sentenceReward(b.score)) } }, { code -> recS = null; micErr = recText(code); publish() }) }
 
     // ---- quiz ----
     fun pickQuiz(q: Int, v: Int) { if (quiz.picks.containsKey(q)) return; quiz = QuizUi(quiz.picks + (q to v)); publish()
@@ -316,6 +347,8 @@ class PronSoundVm(private val env: SpeakEnv, private val id: String) : ViewModel
     fun startPairs() { rounds = PronPage.rounds(lesson.pairs.map { it.first to it.second }, env.random); r = 0; ok = 0; showRound(); playRound() }
     private fun showRound() { pairs = if (r >= rounds.size) PairsUi(rounds.size, r, emptyList(), null, 0, PronPage.pairEnd(ok, rounds.size)) else PairsUi(rounds.size, r, rounds[r].options, null, rounds[r].answer, null) }
     fun playRound() { if (r < rounds.size) env.speak(rounds[r].spoken, accent, 0.85f) }
+    fun select(k: Int) { val cur = pairs ?: return; if (cur.picked != null || cur.end != null) return; pairs = PairsUi(cur.n, cur.r, cur.options, null, cur.answer, null, k) }
+    fun check() { val k = pairs?.selected ?: return; pick(k) }
     fun pick(k: Int) { val cur = pairs ?: return; if (cur.picked != null || r >= rounds.size) return; val right = k == rounds[r].answer; if (right) ok++
         pairs = PairsUi(cur.n, r, cur.options, k, cur.answer, null)
         viewModelScope.launch { delay(900); r++; showRound(); val e = pairs?.end; if (e != null) env.pay(e.reward) else playRound() } }
@@ -332,9 +365,9 @@ class PronSoundVm(private val env: SpeakEnv, private val id: String) : ViewModel
     fun sayHear(slow: Boolean) { val s = session ?: return; if (!s.finished) env.speak(s.item.target, "en-US", if (slow) 0.55f else 0.95f) }
     fun sayMic() { val s = session ?: return; if (s.finished || sayListening) { env.stopListening(); return }; sayListening = true; sayErr = null; saySync()
         env.listen("en-US", {}, { alts -> sayListening = false; sayStep = s.heard(alts); saySync() }, { code -> sayListening = false
-            if (RecError.blocked(code)) { sayBlocked = if (code == "unsupported") Tr("Thiết bị này chưa hỗ trợ nhận dạng giọng nói – hãy luyện phần nghe phân biệt bên dưới.") else Tr("Micro bị chặn. Bấm biểu tượng ổ khóa trên thanh địa chỉ → cho phép Micro, rồi thử lại. Trong lúc đó, bạn có thể luyện phần nghe bên dưới."); saySync() }
-            else if (RecError.retry(code)) { sayStep = s.heard(emptyList()); saySync() } else { sayErr = RecError.text(code); saySync() } }) }
-    fun sayMicDenied() { sayListening = false; sayBlocked = Tr("Micro bị chặn. Bấm biểu tượng ổ khóa trên thanh địa chỉ → cho phép Micro, rồi thử lại. Trong lúc đó, bạn có thể luyện phần nghe bên dưới."); saySync() }
+            if (RecError.blocked(code)) { sayBlocked = if (code == "unsupported") Tr("Thiết bị này chưa hỗ trợ nhận dạng giọng nói – hãy luyện phần nghe phân biệt bên dưới.") else MIC_DENIED_NATIVE; saySync() }
+            else if (RecError.retry(code)) { sayStep = s.heard(emptyList()); saySync() } else { sayErr = recText(code); saySync() } }) }
+    fun sayMicDenied() { sayListening = false; sayBlocked = MIC_DENIED_NATIVE; saySync() }
     fun sayNext() { val s = session ?: return; s.next(); sayStep = null; saySync() }
     fun closeSay() { session = null; say = null; env.stopListening() }
 
@@ -347,8 +380,8 @@ class PronSoundVm(private val env: SpeakEnv, private val id: String) : ViewModel
     fun rHear(slow: Boolean) { env.speak(pack.coachSentences[rk].s, if (accent == "en-US") "en-US" else "en-GB", if (slow) 0.6f else 0.95f) }
     fun rShadow() { val a = if (accent == "en-US") "en-US" else "en-GB"; val s = pack.coachSentences[rk].s; rphase = "hear"; rattempt = null; rerr = null; rsync()
         env.speak(s, a, 0.9f) { viewModelScope.launch { rphase = "rec"; rsync(); env.listen(a, {}, { alts -> val h = SpeakScore.best(s, alts); val at = coach.attempt(s, h.heard, h.alts); rphase = "idle"; rattempt = at; rhy = rhy + (rk to maxOf(rhy[rk] ?: 0, at.score)); rsync()
-            viewModelScope.launch { env.putKv(RHYTHM_KEY, JsonObject(rhy.mapKeys { it.key.toString() }.mapValues { JsonPrimitive(it.value) })); env.pay(at.reward) } }, { code -> rphase = "idle"; rerr = RecError.text(code); rsync() }) } } }
-    fun rMicDenied() { rphase = "idle"; rerr = RecError.text("not-allowed"); rsync() }
+            viewModelScope.launch { env.putKv(RHYTHM_KEY, JsonObject(rhy.mapKeys { it.key.toString() }.mapValues { JsonPrimitive(it.value) })); env.pay(at.reward) } }, { code -> rphase = "idle"; rerr = recText(code); rsync() }) } } }
+    fun rMicDenied() { rphase = "idle"; rerr = recText("not-allowed"); rsync() }
     fun closeRhythm() { rhythm = null; env.stopListening(); env.stopSpeaking() }
     fun coachBand(b: String) = coach.bandText(b)
 

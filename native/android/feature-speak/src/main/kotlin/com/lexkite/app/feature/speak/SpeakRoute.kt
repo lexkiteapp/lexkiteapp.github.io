@@ -64,7 +64,7 @@ fun SpeakRoute(env: SpeakEnv, slots: SpeakSlots, page: String, arg: String, quer
                 val ui = vm.ui; val pairs = vm.pairs; val say = vm.say; val rh = vm.rhythm
                 when {
                     ui == null -> Loading(exit)
-                    pairs != null -> PronPairsScreen(pairs, ui.l.title, PairsActions(replay = { vm.playRound() }, pick = { vm.pick(it) }, again = { vm.startPairs() }, exit = { vm.closePairs() }))
+                    pairs != null -> PronPairsScreen(pairs, ui.l.title, PairsActions(replay = { vm.playRound() }, select = { vm.select(it) }, check = { vm.check() }, again = { vm.startPairs() }, exit = { vm.closePairs() }))
                     say != null -> PronSayScreen(say, ui.l.title, SayActions(start = { vm.startSay() }, hear = { vm.sayHear(it) }, mic = { gate({ vm.sayMic() }, { vm.sayMicDenied() }) }, next = { vm.sayNext() }, fallback = { vm.closeSay(); vm.startPairs() }, exit = { vm.closeSay() }))
                     rh != null -> PronRhythmScreen(rh, ui.l.title, { vm.coachBand(it) }, RhythmActions(pick = { vm.rPick(it) }, hear = { vm.rHear(it) }, shadow = { gate({ vm.rShadow() }, { vm.rMicDenied() }) }, open = { open("pron/" + java.net.URLEncoder.encode(it, "UTF-8").replace("+", "%20")) }, go = { vm.rPick(it) }, exit = { vm.closeRhythm() }))
                     else -> PronSoundScreen(ui, PronSoundActions(hear = { w, slow -> vm.hear(w, slow) }, wordMic = { k -> gate({ vm.wordMic(k) }, { vm.micDenied() }) }, sentenceMic = { k -> gate({ vm.sentenceMic(k) }, { vm.micDenied() }) }, hearText = { vm.hearText(it) },

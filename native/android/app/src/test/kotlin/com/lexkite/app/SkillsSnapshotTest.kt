@@ -304,10 +304,10 @@ class SkillsSnapshotTest {
             "speakingResult" -> SpeakingScreen(speaking("idle", "00:25", "good", Tr("Bấm micro để trả lời lại"), "", SpeakingRoom.analyse(spack, pg, spText, 25.0, content.lexis, listOf("public transport"))), SpeakingActions())
             "pronHub" -> { val done = mapOf("iː" to 90, "ɪ" to 70, "th-sounds" to 60); PronHubScreen(PronHubUi(PronPage.hub(spack, done)), done, PronHubActions()) }
             "pronSound" -> PronSoundScreen(PronSoundUi(ls, null, spack.lesson("ɪ"), PronPage.mouth(ls.mouth), PronPage.chips(ls), mapOf(0 to 90, 1 to 70, 2 to 50), mapOf(0 to 80), null, null, "sheep", null, pairs.forSkill(ls.id).isNotEmpty(), false, QuizUi(), 70), PronSoundActions())
-            "pronPairs" -> PronPairsScreen(PairsUi(8, 2, listOf("fill", "feel"), 0, 1, null), ls.title, PairsActions())
+            "pronPairs" -> PronPairsScreen(PairsUi(8, 2, listOf("fill", "feel"), null, 1, null, selected = 1), ls.title, PairsActions())
             "pronSay" -> { val it0 = PairItem("th-s", listOf("think", "sink"), listOf("/θɪŋk/", "/sɪŋk/"), 0)
                 PronSayScreen(SaySessionUi("3/10", 0.2f, pairs.labelTr(spack.contrasts.first { it.id == "th-s" }), false, "think", "/θɪŋk/", "sink", false, PairSession.Step("other", Tr("Máy nghe thành “{heard}” – từ còn lại trong cặp.", mapOf("heard" to "sink")), pairs.tipOf(it0), "sink", true, false), null, null), spack.lesson("th-sounds")!!.title, SayActions()) }
-            "pronSayBlocked" -> PronSayScreen(SaySessionUi("1/10", 0f, Tr("/θ/ – /s/"), false, "think", "/θɪŋk/", "sink", false, null, Tr("Micro bị chặn. Bấm biểu tượng ổ khóa trên thanh địa chỉ → cho phép Micro, rồi thử lại. Trong lúc đó, bạn có thể luyện phần nghe bên dưới."), null), spack.lesson("th-sounds")!!.title, SayActions())
+            "pronSayBlocked" -> PronSayScreen(SaySessionUi("1/10", 0f, Tr("/θ/ – /s/"), false, "think", "/θɪŋk/", "sink", false, null, MIC_DENIED_NATIVE, null), spack.lesson("th-sounds")!!.title, SayActions())
             "pronRhythm" -> { val s0 = spack.coachSentences[0].s; val at = pc.attempt(s0, "I want go the shop", listOf("I want go the shop")); val rl = spack.lesson("weak-forms")!!
                 PronRhythmScreen(RhythmUi(0, spack.coachSentences.map { it.s }, pc.plan(spack.coachSentences[0], "en-GB"), "en-GB", mapOf(0 to 69), "idle", at, pc.next(pairs, emptyMap(), mapOf(0 to 69), rl.id), spack.lessons.associate { it.id to it.title } + spack.contrasts.associate { it.id to pairs.label(it) }, null), rl.title, { b -> pc.bandText(b) }, RhythmActions()) }
             "reflexRun" -> ReflexScreen(ReflexUi("speak", 37, "I like to read the news every morning.", null, null, 0, false, null, null), ReflexActions())
@@ -329,7 +329,7 @@ class SkillsSnapshotTest {
 
     private fun speakShot(name: String, lang: String, dark: Boolean) {
         val t = Fixtures.t(lang)
-        rule.setContent { LKTheme(t, dark, reduceMotion = true) { Box(Modifier.background(LocalLKColors.current.background)) { speakScreen(name, lang) } } }
+        rule.setContent { LKTheme(t, dark, reduceMotion = true) { Box(Modifier.background(LocalLKColors.current.background)) { androidx.compose.runtime.CompositionLocalProvider(LocalSpeakSlots provides SpeakSlots(teacher = { who, pose, mod -> Box(mod) { com.lexkite.app.ui.TeacherStill(who, pose) } })) { speakScreen(name, lang) } } } }
         // the long pages are captured where their state lives: the analysis, the checked group, the sharper sentences
         when (name) { "speakingResult" -> rule.onNodeWithTag("speak-result").performScrollTo(); "rtypeResult" -> rule.onNodeWithTag("speak-rtype-result").performScrollTo(); "rpResult" -> rule.onNodeWithTag("speak-rp-rewrites").performScrollTo() }
         rule.waitForIdle()

@@ -43,13 +43,18 @@ import com.lexkite.app.feature.vocab.Body
 import com.lexkite.app.feature.vocab.GhostButton
 import com.lexkite.app.feature.vocab.Muted
 import com.lexkite.app.feature.vocab.RichBody
+import com.lexkite.app.feature.vocab.Tag
 import com.lexkite.app.feature.vocab.t
 import com.lexkite.app.i18n.L10n
 import com.lexkite.app.i18n.generated.L10nKey
 
 /** A web `t()` text in the UI language: the Vietnamese source key looked up in the language table, variables substituted, nested keys translated from the inside out. Latin digits. */
-fun L10n.tr(x: Tr): String { var s = src(x.k); for ((k, v) in x.v) s = s.replace("{$k}", if (v is Tr) tr(v) else v.toString()); return s }
+fun L10n.tr(x: Tr): String { var s = if (x.k == "@speak.micDeniedNative") this(L10nKey.speakMicDeniedNative) else src(x.k); for ((k, v) in x.v) s = s.replace("{$k}", if (v is Tr) tr(v) else v.toString()); return s }
 @Composable fun trs(x: Tr): String = t.tr(x)
+
+/** Native wording of "the microphone is blocked" (key speak.micDeniedNative: OS settings, never a browser address bar). */
+val MIC_DENIED_NATIVE = Tr("@speak.micDeniedNative")
+fun recText(code: String): Tr = if (code == "not-allowed") MIC_DENIED_NATIVE else com.lexkite.app.core.speak.RecError.text(code)
 
 /** The mic needs RECORD_AUDIO: runs [granted] now or after the learner agrees; a refusal runs [denied] (the screen then shows its tap-in-order / type fallback). */
 @Composable
@@ -127,3 +132,49 @@ fun Bubble(text: String, mine: Boolean, who: String, onSpeak: (() -> Unit)? = nu
 
 /** The tinted fill of a verdict (good / medium / again) as a Kit container colour. */
 @Composable fun toneFill(tone: String): Color { val c = LocalLKColors.current; return if (tone == "again") c.errorContainer else c.surfaceContainerHighest }
+
+/** The Stitch teacher card: the 2D teacher (slot filled by :app) beside a short coaching line; [title] may be empty. */
+@Composable
+fun TeacherCard(who: String, pose: String, title: String, body: String, tag: String? = null) {
+    val c = LocalLKColors.current
+    LKCard {
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.Top) {
+            Box(Modifier.size(72.dp)) { LocalSpeakSlots.current.teacher(who, pose, Modifier.size(72.dp)) }
+            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(LKSpacing.space2xs)) {
+                if (title.isNotEmpty() || tag != null) Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs), verticalAlignment = Alignment.CenterVertically) {
+                    Text(title, Modifier.weight(1f), color = c.secondary, style = LKType.labelMetric.toCompose()); if (tag != null) Tag(tag) }
+                Body(body)
+            }
+        }
+    }
+}
+
+/** Section title (left) with an optional tag (right). */
+@Composable
+fun SectionHeader(title: String, tag: String? = null) {
+    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs), verticalAlignment = Alignment.CenterVertically) {
+        Body(title, Modifier.weight(1f), style = LKType.headlineSm); if (tag != null) Tag(tag) }
+}
+
+/** A small round number / letter badge (list rows, objectives). */
+@Composable
+fun NumBadge(text: String) {
+    val c = LocalLKColors.current
+    Box(Modifier.size(32.dp).clip(CircleShape).background(c.secondary), contentAlignment = Alignment.Center) { Text(text, color = c.onSecondary, style = LKType.labelMetric.toCompose()) }
+}
+
+/** The round send button of the chat input. */
+@Composable
+fun SendButton(onClick: () -> Unit, label: String, enabled: Boolean) {
+    val c = LocalLKColors.current
+    Box(Modifier.size(56.dp).clip(CircleShape).background(if (enabled) c.secondary else c.cardHigh).let { if (enabled) it.tactile(onClick, label) else it }.semantics { contentDescription = label }, contentAlignment = Alignment.Center) {
+        Text("↑", color = if (enabled) c.onSecondary else c.onSurfaceVariant, style = LKType.headlineSm.toCompose()) }
+}
+
+/** The big round play button of the listening drills. */
+@Composable
+fun PlayDisc(onClick: () -> Unit, label: String) {
+    val c = LocalLKColors.current
+    Box(Modifier.size(96.dp).clip(CircleShape).background(c.secondary).tactile(onClick, label).semantics { contentDescription = label }, contentAlignment = Alignment.Center) {
+        Text("🔊", color = c.onSecondary, style = LKType.headlineLg.toCompose()) }
+}

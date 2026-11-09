@@ -3,9 +3,12 @@ package com.lexkite.app.feature.speak
 import android.annotation.SuppressLint
 import android.webkit.WebView
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -80,20 +83,32 @@ fun ReflexScreen(ui: ReflexUi, a: ReflexActions) {
         }
         return
     }
-    StudyFocus(ui.left / Reflex.SECONDS.toFloat(), trs(Tr("Phản xạ 60 giây")) + "  ·  " + ui.left, a.exit, bottom = {
+    StudyFocus(ui.left / Reflex.SECONDS.toFloat(), trs(Tr("Phản xạ 60 giây")), a.exit, bottom = {
         if (ui.phase == "idle") LKPrimaryButton("▶ " + trs(Tr("Bắt đầu")), a.start) else if (ui.showNext) LKPrimaryButton(trs(Tr("Câu tiếp")) + " →", a.next) else GhostButton(trs(Tr("Bỏ qua")) + " →", a.skip)
     }) {
-        Muted(trs(Tr("Nghe một câu ngắn rồi nhại lại ngay – luyện phản xạ nghe nói như người bản xứ.")))
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.CenterVertically) {
+            Tag(trs(Tr("Phản xạ 60 giây")), c.onSurface)
+            Box(Modifier.weight(1f)) {}
+            Box(Modifier.size(64.dp).clip(androidx.compose.foundation.shape.CircleShape).border(4.dp, c.secondary, androidx.compose.foundation.shape.CircleShape), contentAlignment = Alignment.Center) { Body("${ui.left}", style = LKType.headlineSm) }
+        }
+        TeacherCard("ama", "point", "", trs(Tr("Nghe một câu ngắn rồi nhại lại ngay – luyện phản xạ nghe nói như người bản xứ.")))
+        LKCard {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.CenterVertically) {
+                Box(Modifier.size(48.dp).clip(RoundedCornerShape(14.dp)).background(c.surfaceContainerHighest), contentAlignment = Alignment.Center) { androidx.compose.material3.Text("🎧", style = LKType.headlineSm.toCompose()) }
+                when (ui.phase) {
+                    "listen" -> Body(trs(Tr("Nghe kỹ…")), Modifier.weight(1f), style = LKType.titlePill)
+                    "speak" -> Body(trs(Tr("Nhại lại câu vừa nghe…")), Modifier.weight(1f), style = LKType.titlePill)
+                    "result" -> Muted(ui.note?.let { trs(it) } ?: "", Modifier.weight(1f))
+                    else -> Muted(trs(Tr("Mẹo: lưu câu trong video YouTube bằng add-on Lexkite (bấm vào từ trong phụ đề) để luyện đúng những gì bạn đang xem.")), Modifier.weight(1f))
+                }
+            }
+        }
         LKCard(fill = c.surfaceContainerHighest) {
             if (ui.ytId != null) AndroidView(factory = { ctx -> WebView(ctx).apply { settings.javaScriptEnabled = true; settings.mediaPlaybackRequiresUserGesture = false
                 val s = maxOf(0, ui.ytStart - 1); loadUrl("https://www.youtube-nocookie.com/embed/${ui.ytId}?start=$s&end=${s + 5}&autoplay=1&controls=0&modestbranding=1&rel=0&playsinline=1") } }, Modifier.fillMaxWidth().height(200.dp))
-            when (ui.phase) {
-                "listen" -> Body("🎧 " + trs(Tr("Nghe kỹ…")), style = LKType.titlePill)
-                "speak" -> { Body("🎙️ " + trs(Tr("Nhại lại câu vừa nghe…")), style = LKType.titlePill) }
-                "result" -> ui.colored?.let { co -> EnLtr { Flow { for ((w, ok) in co.words) Tag((if (ok) "✓ " else "✗ ") + w, if (ok) c.success else c.error) } }; Muted(trs(Tr("Bạn nói")) + ": “" + co.shown + "” · " + co.pct + "%") }
-                else -> Muted(trs(Tr("Mẹo: lưu câu trong video YouTube bằng add-on Lexkite (bấm vào từ trong phụ đề) để luyện đúng những gì bạn đang xem.")))
-            }
-            ui.note?.let { Muted(trs(it)) }
+            if (ui.phase == "speak") Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) { MicButton(true, {}, trs(Tr("Nhại lại câu vừa nghe…"))) }
+            ui.colored?.let { co -> if (ui.phase == "result") { EnLtr { Flow { for ((w, ok) in co.words) Tag((if (ok) "✓ " else "✗ ") + w, if (ok) c.success else c.error) } }; Muted(trs(Tr("Bạn nói")) + ": “" + co.shown + "” · " + co.pct + "%") } }
+            if (ui.phase == "listen" || ui.phase == "idle") Box(Modifier.fillMaxWidth().height(24.dp))
         }
     }
 }
@@ -137,13 +152,19 @@ class RtypeActions(val open: (String) -> Unit = {}, val answer: (String, Any?) -
 fun RtypeHubScreen(ui: RtypeHubUi, a: RtypeActions) {
     val c = LocalLKColors.current
     StudyPage(trs(Tr("Luyện Reading theo dạng câu hỏi")), a.exit) {
-        RichBody(trs(Tr("Tập trung 1 dạng câu hỏi tới khi tỉ lệ đúng đạt <b>70–80%</b> rồi mới chuyển dạng. Thứ tự khuyên dùng: Điền từ → TRUE/FALSE/NOT GIVEN → Trắc nghiệm → Nối.")))
+        LKCard { Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.Top) {
+            Box(Modifier.size(48.dp).clip(RoundedCornerShape(14.dp)).background(c.surfaceContainerHighest), contentAlignment = Alignment.Center) { androidx.compose.material3.Text("💡", style = LKType.headlineSm.toCompose()) }
+            RichBody(trs(Tr("Tập trung 1 dạng câu hỏi tới khi tỉ lệ đúng đạt <b>70–80%</b> rồi mới chuyển dạng. Thứ tự khuyên dùng: Điền từ → TRUE/FALSE/NOT GIVEN → Trắc nghiệm → Nối.")), Modifier.weight(1f)) } }
         if (ui.empty) { EmptyState("🎯", trs(Tr("Đang cập nhật bài học…"))); return@StudyPage }
         for (k in ui.cards) LKCard(onClick = { a.open("rtype/${k.kind.id}") }, label = trs(k.kind.title)) {
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) { androidx.compose.material3.Text(k.kind.emoji, style = LKType.headlineMd.toCompose()); Tag(trs(k.chip), if (k.reached) c.success else c.secondary) }
-            Body(trs(k.kind.title), style = LKType.titlePill); Muted(trs(k.size))
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.Top) {
+                Box(Modifier.size(48.dp).clip(RoundedCornerShape(14.dp)).background(c.surfaceContainerHighest), contentAlignment = Alignment.Center) { androidx.compose.material3.Text(k.kind.emoji, style = LKType.headlineSm.toCompose()) }
+                Column(Modifier.weight(1f)) { Body(trs(k.kind.title), style = LKType.titlePill); Muted(trs(k.size)) }
+                Tag(trs(k.chip), if (k.reached) c.success else c.secondary)
+            }
             Box(Modifier.fillMaxWidth().height(8.dp).clip(RoundedCornerShape(50)).background(c.surfaceContainerHighest)) { Box(Modifier.fillMaxWidth(k.bar / 100f).height(8.dp).clip(RoundedCornerShape(50)).background(if (k.reached) c.success else c.primary)) }
             Muted((if (k.reached) "✅ " else "") + trs(k.note))
+            GhostButton(trs(Tr("Bắt đầu")) + " →", { a.open("rtype/${k.kind.id}") }, Modifier.fillMaxWidth())
         }
     }
 }
@@ -152,21 +173,24 @@ fun RtypeHubScreen(ui: RtypeHubUi, a: RtypeActions) {
 fun RtypeRunScreen(ui: RtypeRunUi, a: RtypeActions) {
     val c = LocalLKColors.current; val u = ui.unit; val ck = ui.checked
     if (ui.finished || u == null) { StudyPage(trs(ui.kind.title), a.exit, bottom = { LKPrimaryButton(trs(Tr("Chọn dạng khác")), { a.open("rtype") }) }) { EmptyState("🎉", trs(Rtype.finished(ui.kind))) }; return }
-    StudyFocus(((ui.i + if (ck != null) 1 else 0) / ui.n.toFloat()), ui.kind.emoji + " " + trs(ui.kind.title), a.exit, bottom = {
-        if (ck == null) LKPrimaryButton(trs(Tr("Kiểm tra")), a.check) else LKPrimaryButton(trs(Tr("Nhóm tiếp")) + " →", a.next)
-    }) {
-        Tag(trs(Rtype.position(ui.i, ui.n)))
-        LKCard(fill = c.surfaceContainerHighest) { RichBody("💡 " + trs(ui.kind.tip), style = LKType.bodySm) }
+    val body: @Composable ColumnScope.() -> Unit = {
+        if (ck != null) {
+            LKCard(Modifier.testTag("speak-rtype-result"), fill = toneFill(if (ck.ok) "good" else "again")) { RichBody(trs(ck.result)) }
+            TeacherCard("ama", if (ck.ok) "cheer" else "point", "", trs(ui.kind.tip).replace(Regex("<[^>]*>"), ""), tag = trs(Rtype.position(ui.i, ui.n)))
+        } else {
+            Tag(trs(Rtype.position(ui.i, ui.n)))
+            LKCard(fill = c.surfaceContainerHighest) { RichBody("💡 " + trs(ui.kind.tip), style = LKType.bodySm) }
+        }
         LKCard {
             EnLtr { Body(u.title, style = LKType.titlePill) }
             for ((k, text) in u.paras) EnLtr { androidx.compose.material3.Text(highlighted(k, text, ui.mark), color = c.onSurface, style = LKType.bodyMd.toCompose()) }
         }
         QuestionGroups(u.part, ui.answers, ck?.res, false, a.answer)
-        if (ck != null) {
-            LKCard(Modifier.testTag("speak-rtype-result"), fill = toneFill(if (ck.ok) "good" else "again")) { RichBody(trs(ck.result)) }
-            for ((n, r) in ck.res) { if (r.cue.isNotEmpty()) GhostButton("📍 " + trs(Tr("Xem vị trí trong bài")) + " (${n})", { a.locate(n) }); ui.explain[n]?.let { Muted("💡 $it") } }
-        }
+        if (ck != null) for ((n, r) in ck.res) { if (r.cue.isNotEmpty()) GhostButton("📍 " + trs(Tr("Xem vị trí trong bài")) + " (${n})", { a.locate(n) }); ui.explain[n]?.let { Muted("💡 $it") } }
     }
+    val bottom: @Composable ColumnScope.() -> Unit = { if (ck == null) LKPrimaryButton(trs(Tr("Kiểm tra")), a.check) else { LKPrimaryButton(trs(Tr("Nhóm tiếp")) + " →", a.next); GhostButton(trs(Tr("Chọn dạng khác")), { a.open("rtype") }) } }
+    if (ck == null) StudyFocus(ui.i / ui.n.toFloat(), ui.kind.emoji + " " + trs(ui.kind.title), a.exit, bottom = bottom, content = body)
+    else StudyPage(ui.kind.emoji + " " + trs(ui.kind.title), a.exit, bottom = bottom, content = body)
 }
 @Composable
 private fun highlighted(k: String, text: String, mark: String?): androidx.compose.ui.text.AnnotatedString { val c = LocalLKColors.current

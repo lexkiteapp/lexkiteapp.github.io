@@ -83,16 +83,29 @@ fun RoleplayListScreen(ui: RpListUi, a: RpActions) {
 fun RoleplayBriefScreen(ui: RpBriefUi, a: RpActions) {
     val s = ui.s; val c = LocalLKColors.current
     StudyPage(s.em + " " + trs(Roleplay.name(ui.pack, s)), a.exit, bottom = { LKPrimaryButton("▶ " + trs(Tr("Bắt đầu hội thoại")), a.start); GhostButton(trs(Tr("Chọn tình huống khác")), a.back) }) {
-        EnLtr { Muted(s.title) }
-        LKCard { Body("🎭 " + trs(Tr("Vai của AI")), style = LKType.titlePill); EnLtr { Body(s.aiName + " – " + s.aiRole); Muted(s.aiPersona) } }
-        LKCard { Body("🎯 " + trs(Tr("Mục tiêu của bạn")), style = LKType.titlePill); if (s.cando.isNotEmpty()) Body(trs(Tr(s.cando)), style = LKType.labelMetric); EnLtr { if (s.cando.isNotEmpty()) Muted(s.you) else Body(s.you) } }
+        EnLtr { Body(s.title, style = LKType.headlineLg) }
+        LKCard {
+            Body("🎭 " + trs(Tr("Vai của AI")), style = LKType.titlePill)
+            Row(Modifier.fillMaxWidth().clip(RoundedCornerShape(16.dp)).background(c.surfaceContainerHighest).padding(LKSpacing.spaceSm), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.CenterVertically) {
+                Box(Modifier.size(56.dp).clip(RoundedCornerShape(16.dp)).background(c.secondary), contentAlignment = Alignment.Center) { EnLtr { androidx.compose.material3.Text(s.aiName.take(1), color = c.onSecondary, style = LKType.headlineSm.toCompose()) } }
+                Column(Modifier.weight(1f)) { EnLtr { Body(s.aiName, style = LKType.headlineSm); Muted(s.aiRole) } }
+            }
+            EnLtr { Muted(s.aiPersona) }
+        }
+        LKCard {
+            Body("🎯 " + trs(Tr("Mục tiêu của bạn")), style = LKType.titlePill)
+            Row(Modifier.fillMaxWidth().clip(RoundedCornerShape(16.dp)).background(c.surfaceContainerHighest).padding(LKSpacing.spaceSm), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.CenterVertically) {
+                NumBadge("1")
+                Column(Modifier.weight(1f)) { if (s.cando.isNotEmpty()) Body(trs(Tr(s.cando)), style = LKType.labelMetric); EnLtr { if (s.cando.isNotEmpty()) Muted(s.you) else Body(s.you) } }
+            }
+        }
         LKCard {
             Body("📚 " + trs(Tr("Từ vựng chủ đề")), style = LKType.titlePill)
             Flow { s.vocab.forEachIndexed { i, (w, d) -> EnLtr { GhostButton(if (i in ui.saved) "✓ $w" else "+ $w", { a.save(i) }, enabled = i !in ui.saved) } } }
             Muted(trs(Tr("Bấm để lưu từ vào flashcard.")))
             ui.notice?.let { Body(trs(it), color = c.success, style = LKType.labelMetric) }
         }
-        Seg(s.levels, ui.level, a.level)
+        LKCard { Seg(s.levels, ui.level, a.level) }
     }
 }
 
@@ -100,13 +113,14 @@ fun RoleplayBriefScreen(ui: RpBriefUi, a: RpActions) {
 fun RoleplayChatScreen(ui: RpChatUi, a: RpActions, gate: (() -> Unit) -> Unit) {
     val c = LocalLKColors.current; val s = ui.s
     StudyFocus((ui.bubbles.count { it.who == "me" }.toFloat() / s.turns.size).coerceIn(0f, 1f), s.em + " " + s.title, a.exit, bottom = {
-        StudyField(ui.input, a.input, trs(Tr("Nói hoặc gõ câu trả lời…")), onDone = a.send)
-        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs), verticalAlignment = Alignment.CenterVertically) {
-            MicButton(ui.listening, { gate(a.mic) }, trs(Tr("Nói")), modifier = Modifier.height(56.dp)); LKPrimaryButton(trs(Tr("Gửi")), a.send, Modifier.weight(1f), enabled = ui.input.isNotBlank() && !ui.thinking)
-        }
         Flow { GhostButton("💡 " + trs(Tr("Gợi ý")), a.hint); if (ui.help) GhostButton("🆘 " + trs(Tr("Giúp tôi nói")), a.help); GhostButton("🏁 " + trs(Tr("Kết thúc & chấm điểm")), a.end, enabled = ui.canEnd) }
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs), verticalAlignment = Alignment.CenterVertically) {
+            MicButton(ui.listening, { gate(a.mic) }, trs(Tr("Nói")), modifier = Modifier.height(56.dp))
+            StudyField(ui.input, a.input, trs(Tr("Nói hoặc gõ câu trả lời…")), Modifier.weight(1f), onDone = a.send)
+            SendButton(a.send, trs(Tr("Gửi")), enabled = ui.input.isNotBlank() && !ui.thinking)
+        }
     }) {
-        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) { Muted(Roleplay.modeEmoji(ui.mode) + " " + trs(Roleplay.modeLabel(ui.mode)) + " · " + s.levels[ui.L]); Muted(trs(ui.turnLabel)) }
+        TeacherCard("ama", "point", s.title, Roleplay.modeEmoji(ui.mode) + " " + trs(Roleplay.modeLabel(ui.mode)) + " · " + s.levels[ui.L], tag = trs(ui.turnLabel))
         for (b in ui.bubbles) Bubble(b.text, b.who == "me", if (b.who == "ai") s.aiName else trs(Tr("Bạn")), if (b.who == "ai") ({ a.speak(b.text) }) else null)
         if (ui.thinking) Bubble("…", false, s.aiName)
         ui.hint?.let { (tip, line) -> LKCard(fill = c.surfaceContainerHighest) { tip?.let { Muted("🧭 " + trs(it)) }; Muted("💡 " + trs(Tr("Bạn có thể nói:"))); EnLtr { Row(verticalAlignment = Alignment.CenterVertically) { Body(line, Modifier.weight(1f)); GhostButton("🔊", { a.speak(line) }) } } } }
@@ -124,12 +138,16 @@ fun RoleplayResultScreen(ui: RpResultUi, a: RpActions) {
         LKCard {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.CenterVertically) {
                 Box(Modifier.size(72.dp), contentAlignment = Alignment.Center) { androidx.compose.material3.CircularProgressIndicator(progress = { r.ring / 100f }, Modifier.size(72.dp), color = c.primary, trackColor = c.surfaceContainerHighest, strokeWidth = 8.dp); Body(r.ring.toString(), style = LKType.headlineSm) }
-                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(LKSpacing.space2xs)) { for ((label, v) in r.meters) { Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) { Muted(trs(label)); Body("$v", style = LKType.labelMetric) }
-                    Box(Modifier.fillMaxWidth().height(8.dp).clip(RoundedCornerShape(50)).background(c.surfaceContainerHighest)) { Box(Modifier.fillMaxWidth(v / 100f).height(8.dp).clip(RoundedCornerShape(50)).background(c.secondary)) } } }
             }
-            if (r.scores.summary.isNotEmpty()) Body(r.scores.summary)
+            for (pair in r.meters.chunked(2)) Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
+                for ((label, v) in pair) Column(Modifier.weight(1f).clip(RoundedCornerShape(16.dp)).background(c.surfaceContainerHighest).padding(LKSpacing.spaceXs), verticalArrangement = Arrangement.spacedBy(LKSpacing.space2xs)) {
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) { Muted(trs(label)); Body("$v", style = LKType.labelMetric) }
+                    Box(Modifier.fillMaxWidth().height(8.dp).clip(RoundedCornerShape(50)).background(c.card)) { Box(Modifier.fillMaxWidth(v / 100f).height(8.dp).clip(RoundedCornerShape(50)).background(c.secondary)) } }
+                if (pair.size == 1) androidx.compose.foundation.layout.Spacer(Modifier.weight(1f))
+            }
             Muted(trs(r.source) + " · +${r.xp} XP")
         }
+        if (r.scores.summary.isNotEmpty()) TeacherCard("ama", "cheer", "", r.scores.summary)
         Body("✨ " + trs(Tr("3 câu nói sắc hơn")), Modifier.testTag("speak-rp-rewrites"), style = LKType.headlineSm)
         if (r.scores.rewrites.isEmpty()) Muted(trs(Tr("Rất tốt – không có câu nào cần viết lại!")))
         r.scores.rewrites.forEachIndexed { n, w -> LKCard {
@@ -188,8 +206,8 @@ class RoleplayVm(private val env: SpeakEnv, private val arg: String, private val
     fun help() { val t = talk ?: return; hint = null; val line = t.help(); helpHint = line; input = line; chatSync(); env.speak(line, accent, Roleplay.HELP_RATE.toFloat()) }
     fun speak(text: String) { env.speak(text, accent, (talk?.rate ?: 1.0).toFloat()) }
     fun mic() { val t = talk ?: return; if (listening) { env.stopListening(); return }; env.stopSpeaking(); listening = true; notice = null; chatSync(); val target = t.modelLine()
-        env.listen(accent, {}, { alts -> listening = false; val h = SpeakScore.best(target, alts).heard; chatSync(); if (h.isNotEmpty()) { input = h; send() } }, { code -> listening = false; notice = RecError.text(code); chatSync() }) }
-    fun micDenied() { listening = false; notice = RecError.text("not-allowed"); chatSync() }
+        env.listen(accent, {}, { alts -> listening = false; val h = SpeakScore.best(target, alts).heard; chatSync(); if (h.isNotEmpty()) { input = h; send() } }, { code -> listening = false; notice = recText(code); chatSync() }) }
+    fun micDenied() { listening = false; notice = recText("not-allowed"); chatSync() }
     fun end() { val t = talk ?: return; if (!t.busy) finish() }
     private fun finish() { val t = talk ?: return; val s = script ?: return; env.stopListening(); env.stopSpeaking()
         viewModelScope.launch { val hist = t.hist.toList(); var ai: Roleplay.Scores? = null

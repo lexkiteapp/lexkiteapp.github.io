@@ -194,7 +194,7 @@ class SpeakingVm(private val env: SpeakEnv, private val arg: String) : ViewModel
         if (page.part == "p2" && prepJob == null) { prep(); return }
         start()
     }
-    fun micDenied() { micError = Tr("Cần cho phép dùng micro (biểu tượng 🎙️ trên thanh địa chỉ)"); phase = "idle"; publish() }
+    fun micDenied() { micError = MIC_DENIED_NATIVE; phase = "idle"; publish() }
     private fun prep() { var left = page.info.prep; phase = "prep"; clock = SpeakingRoom.clock(left.toDouble()); hint = Tr("Thời gian chuẩn bị – ghi chú ý chính · <a href=\"#\" id=\"skipPrep\">bắt đầu nói ngay</a>"); publish()
         prepJob = viewModelScope.launch { while (left > 0) { delay(1000); left--; clock = SpeakingRoom.clock(left.toDouble()); publish() }; start() } }
     fun skipPrep() { prepJob?.cancel(); prepJob = viewModelScope.launch { }; start() }
@@ -208,7 +208,7 @@ class SpeakingVm(private val env: SpeakEnv, private val arg: String) : ViewModel
     /** SpeechRecognizer ends after a pause: keep listening until the learner stops (the web restarts `onend` the same way). */
     private fun listenLoop() { if (phase != "rec") return
         env.listen(accent, { p -> interim = p; publish() }, { alts -> if (phase == "rec") { finalText += (alts.firstOrNull { it.isNotBlank() } ?: "").trim() + " "; interim = ""; restarts = 0; publish(); listenLoop() } },
-            { code -> if (phase != "rec") return@listen; if (com.lexkite.app.core.speak.RecError.blocked(code)) { micError = com.lexkite.app.core.speak.RecError.text(code); publish(); stop() } else if (++restarts < 4) viewModelScope.launch { delay(300); listenLoop() } else stop() }) }
+            { code -> if (phase != "rec") return@listen; if (com.lexkite.app.core.speak.RecError.blocked(code)) { micError = com.lexkite.app.core.speak.recText(code); publish(); stop() } else if (++restarts < 4) viewModelScope.launch { delay(300); listenLoop() } else stop() }) }
     private fun stop() { if (phase != "rec") return; phase = "idle"; tickJob?.cancel(); env.stopListening()
         val secs = (System.currentTimeMillis() - t0) / 1000.0; val text = (finalText + " " + interim).trim(); transcript = text; interim = ""
         hint = Tr("Bấm micro để trả lời lại"); val a = SpeakingRoom.analyse(pack, page, text, secs, lexis, topicWords); analysis = a; publish(); viewModelScope.launch { env.pay(a.reward) } }
@@ -226,7 +226,7 @@ class SpeakingVm(private val env: SpeakEnv, private val arg: String) : ViewModel
     fun shadowHear(slow: Boolean) { val sh = shadow ?: return; env.speak(sh.sentence, accent, (if (slow) SpeakingRoom.SLOW_RATE else SpeakingRoom.SHADOW_DEFAULT_RATE).toFloat()) }
     fun shadowMic() { val sh = shadow ?: return; shadow = ShadowUi(sh.k, sh.n, sh.sentence, listening = true); publish()
         env.listen(accent, {}, { alts -> val b = SpeakScore.best(sh.sentence, alts); shadowScores.add(b.score); shadow = ShadowUi(sh.k, sh.n, sh.sentence, b.score, b.heard); publish() },
-            { code -> shadow = ShadowUi(sh.k, sh.n, sh.sentence, error = com.lexkite.app.core.speak.RecError.text(code)); publish() }) }
+            { code -> shadow = ShadowUi(sh.k, sh.n, sh.sentence, error = com.lexkite.app.core.speak.recText(code)); publish() }) }
     fun shadowNext() { val sh = shadow ?: return; shadowStep(sh.k + 1) }
     class Factory(private val env: SpeakEnv, private val arg: String) : ViewModelProvider.Factory { @Suppress("UNCHECKED_CAST") override fun <T : ViewModel> create(modelClass: Class<T>): T = SpeakingVm(env, arg) as T }
 }
