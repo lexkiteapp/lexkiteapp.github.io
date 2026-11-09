@@ -1973,7 +1973,7 @@
   "call.ui.denLuotBanBam": "轮到你了——点击麦克风说话",
   "call.ui.dungNghe": "停止聆听",
   "call.ui.dangNghe": "正在听",
-  "call.ui.luotNoiDai1": "长轮：讲1-2分钟",
+  "call.ui.luotNoiDai1": "长段发言：请讲 1–2 分钟",
   "call.ui.banNenNoi": "你应该谈到：",
   "call.ui.toiNoiXong": "我说完了",
   "call.ui.ngheGiongSaidBan": "听起来像“{said}”——你的意思是“{meant}”吗？这两个词只有一个声音不同。",

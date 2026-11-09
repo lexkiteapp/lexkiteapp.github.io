@@ -83,7 +83,7 @@ struct CallRunView: View {
         ZStack(alignment: .bottom) {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .fill(LinearGradient(colors: [LKColor.surfaceContainerLow.resolve(scheme), LKColor.surfaceContainerHighest.resolve(scheme)], startPoint: .top, endPoint: .bottom))
-            SpeakTeacher(controller: model.teacher, size: CGSize(width: 220, height: 180)).padding(.bottom, 4)
+            SpeakTeacher(controller: model.teacher, size: CGSize(width: 220, height: 180)).padding(.bottom, 30) // the caption below has its own strip (Arabic / long names wrap)
             VStack {
                 HStack {
                     HStack(spacing: 4) {
@@ -99,9 +99,9 @@ struct CallRunView: View {
             }
             .padding(LKSpacing.spaceSm)
         }
-        .frame(height: 200)
+        .frame(height: 230)
         .overlay(alignment: .bottom) {
-            Text(verbatim: s.status).studyText(LKType.labelBadge, LKColor.onSurfaceVariant).padding(.bottom, 6)
+            Text(verbatim: s.status).studyText(LKType.labelBadge, LKColor.onSurfaceVariant).lineLimit(1).minimumScaleFactor(0.8).padding(.horizontal, LKSpacing.spaceSm).frame(height: 30)
         }
     }
 

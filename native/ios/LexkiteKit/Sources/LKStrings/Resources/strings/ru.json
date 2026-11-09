@@ -1973,7 +1973,7 @@
   "call.ui.denLuotBanBam": "Ваша очередь — коснитесь микрофона, чтобы говорить",
   "call.ui.dungNghe": "Остановить запись",
   "call.ui.dangNghe": "Слушает",
-  "call.ui.luotNoiDai1": "Длинный поворот: говорите 1–2 минуты.",
+  "call.ui.luotNoiDai1": "Длинный ответ: говорите 1–2 минуты",
   "call.ui.banNenNoi": "Вам нужно рассказать:",
   "call.ui.toiNoiXong": "Я закончил(а)",
   "call.ui.ngheGiongSaidBan": "Это звучало как «{said}» — вы имели в виду «{meant}»? Эти два слова отличаются всего одним звуком.",

@@ -37,9 +37,11 @@ import com.lexkite.app.feature.speak.SpeakSlots
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import kotlinx.serialization.json.long
+import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -87,17 +89,30 @@ class CallSnapshotTest {
     private fun session(id: String, io: Fake, lang: String): CallSession = CallSession(e, pack.call(id)!!, io, CallAskEnv(sr = true), lang == "en")
 
     /** The teacher is speaking the first line (suggestions and cue shown), the mic idle. */
-    private fun talk(lang: String): CallRoomUi { val io = Fake(false); val s = session("ielts-p1-home", io, lang); s.begin(); return CallRoomUi(pack, s.call, s.view(), "local", "", null, null) }
+    private fun talk(lang: String): CallRoomUi { val io = Fake(false); val s = session("ielts-p1-home", io, lang); s.begin(); return CallRoomUi(pack, s.call, s.view(), "local", "", null, null, 41) }
     /** Part 2: the preparation is over, the learner is in the long turn: the clock runs, the first chunk is heard and counted. */
     private fun long(lang: String): CallRoomUi { val io = Fake(true); val s = session("ielts-p2-place", io, lang); s.begin(); s.tapOption(0) // "I'm ready." ends the preparation
         s.mic(); io.clock += 20_000; val cb = io.recs.last(); cb.start(); cb.result("I’d like to talk about Hoi An, an old town that is located in central Vietnam. It takes about forty minutes to get there from Da Nang by bus.", 90)
-        io.clock += 500; s.tick(); return CallRoomUi(pack, s.call, s.view(), "local", "", null, null) }
-    /** A finished bakery call: 3 by voice (one with a sound-pair slip and a grammar error), one typed, one tapped – the flow of the vector `voice-fix-slip-retry`. */
+        io.clock += 500; s.tick(); return CallRoomUi(pack, s.call, s.view(), "local", "", null, null, 104) }
+    /** The answers of the vector flow `voice-fix-slip-retry` up to its first summary (bakery: 3 by voice with a sound-pair slip and a grammar slip, one typed, one tapped) – read FROM the vector, never retyped, so the clock (secs) cannot drift from the web truth. */
+    private fun vectorSteps() = v.getValue("flow").jsonArray.map { it.jsonObject }.first { it.getValue("id").jsonPrimitive.content == "voice-fix-slip-retry" }.getValue("out").jsonObject.getValue("steps").jsonArray.map { it.jsonObject }
+    private fun vectorSummary() = vectorSteps().first { "summary" in it }.getValue("summary").jsonObject
+    private fun vectorLog(): List<LogEntry> = vectorSteps().let { st -> st.take(st.indexOfFirst { "summary" in it } + 1) }.flatMap { it["log"]?.jsonArray ?: JsonArray(emptyList()) }.map { it.jsonObject }.map { e ->
+        LogEntry(e.getValue("id").jsonPrimitive.content, e.getValue("text").jsonPrimitive.content, e["picked"]?.jsonPrimitive?.content == "true", e["secs"]?.jsonPrimitive?.content?.toDouble(), e["asr"]?.jsonPrimitive?.content?.toIntOrNull(), e["typed"]?.jsonPrimitive?.content == "true") }
     private fun summary(): CallSummaryUi { val call = pack.call("bakery")!!
-        val log = listOf(LogEntry("hi", "Could I have a loaf of bread, please?", false, 6.0, 90), LogEntry("bread", "I want to bye some breast please and I am agree", false, 11.0, 90), LogEntry("sweet", "yes", false, 4.0, null, true),
-            LogEntry("drink", "Yes, a small black coffee, please.", true, 0.0), LogEntry("pay", "Yes, please. Here’s ten dollars.", false, 8.0, 90))
+        val log = vectorLog()
         val rc = e.recap(call, log); val voiced = log.count { !it.picked && !it.typed }
         return CallSummaryUi(pack, CallResult(call, rc, voiced, e.reward(rc.turns.size, voiced, rc.used.size), 41, log), null) }
+
+    /** Parity guard: the fixture the snapshots show says what the web says (score, "about N words per minute", words) – the 48 vs 45 drift of the first CI run cannot come back. */
+    @Test fun summaryFixtureIsTheVectorFlow() {
+        val web = vectorSummary(); val rc = summary().result.recap
+        assertEquals(web.getValue("score").jsonPrimitive.content.toInt(), rc.score)
+        assertEquals(web.getValue("words").jsonObject.getValue("v").jsonObject.getValue("n").jsonPrimitive.content.toInt(), rc.words)
+        val slow = web.getValue("notes").jsonArray.map { it.jsonObject }.firstOrNull { it["v"]?.jsonObject?.containsKey("wpm") == true }?.getValue("v")?.jsonObject?.getValue("wpm")?.jsonPrimitive?.content?.toInt()
+        assertEquals(slow, rc.notes.firstOrNull { it.id == "slow" }?.wpm)
+        assertEquals(45, rc.wpm)
+    }
 
     @Composable private fun screen(name: String, lang: String) {
         val a = CallActions()
