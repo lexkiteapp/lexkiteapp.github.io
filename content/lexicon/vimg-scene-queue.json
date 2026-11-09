@@ -397,6 +397,12 @@
    "why": "vision: no (six blocks, red color, spaced apart)",
    "b": "42567126266"
   },
+  "consent form#n": {
+   "at": "2026-11-09",
+   "tries": 6,
+   "why": "meaning check: no (Is a person giving a paper with a tick that shows )",
+   "b": "42654904589"
+  },
   "consequent#adj": {
    "at": "2026-11-08",
    "tries": 18,
@@ -732,6 +738,12 @@
    "tries": 18,
    "why": "meaning check: no (Is the woman adding herbs to make the soup richer?)",
    "b": "42567126266"
+  },
+  "entrance exam#n": {
+   "at": "2026-11-09",
+   "tries": 6,
+   "why": "meaning check: no (Is a student taking a formal test while a proctor )",
+   "b": "42654904589"
   },
   "entrepreneur#n": {
    "at": "2026-11-09",
