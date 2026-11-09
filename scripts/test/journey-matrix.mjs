@@ -189,9 +189,11 @@ async function jLearner(h) {
     const total = await h.page.evaluate(() => { const { Cards } = Core, s = App.state; return Cards.dueCount(s.cards, s.settings, s.stats).total; });
     h.ok(total === 5, `lõi: 5 thẻ đến hạn, thực tế ${total}`);
     const all = await h.page.evaluate(() => [document.querySelector('#view'), document.querySelector('#ux1Rail')].filter(Boolean).map(e => e.innerText).join(' \n ').replace(/\s+/g, ' '));
-    h.ok(new RegExp(`\\b${total} từ đang phai dần`).test(all), `Hôm nay phải ghi đúng "${total} từ đang phai dần": ` + all.slice(0, 120));
+    // Một lối nhắc ôn (ux1.js oneReview): Lộ trình còn việc ôn → Hôm nay gỡ khối "N từ đang phai dần" + số "N đến hạn", chỉ còn lối #/review trong Lộ trình; chưa có việc ôn → phải ghi đúng N.
+    const planRev = await h.page.evaluate(() => [...document.querySelectorAll('#view [href="#/review"], #ux1Rail [href="#/review"]')].some(e => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; }));
+    h.ok(new RegExp(`\\b${total} từ đang phai dần`).test(all) || planRev, `Hôm nay phải ghi đúng "${total} từ đang phai dần" hoặc có lối ôn #/review trong Lộ trình: ` + all.slice(0, 120));
     h.ok(all.includes(xp), `Hôm nay phải có đúng XP ${xp}`); h.ok(all.includes(`${TODAY_DONE}/${GOAL_N}`), `Hôm nay phải có tiến độ ngày ${TODAY_DONE}/${GOAL_N}`);
-    h.ok(new RegExp(`\\b${total} đến hạn`).test(all), `ô nhanh phải ghi "${total} đến hạn"`);
+    h.ok(new RegExp(`\\b${total} đến hạn`).test(all) || planRev, `ô nhanh phải ghi "${total} đến hạn" (hoặc Lộ trình giữ lối ôn #/review)`);
     // không trùng: cùng 1 khối, cùng 1 tiêu đề, cùng 1 lối vào giải đấu không xuất hiện 2 lần
     const dup = await h.page.evaluate(() => { const vs = e => { const r = e.getBoundingClientRect(); return r.width > 1 && r.height > 1 && getComputedStyle(e).visibility !== 'hidden' && getComputedStyle(e).display !== 'none'; }, count = {}, roots = [document.querySelector('#view'), document.querySelector('#ux1Rail')].filter(Boolean);
       for (const r of roots) { for (const e of r.querySelectorAll('[data-blk]')) if (vs(e)) count['blk:' + e.dataset.blk] = (count['blk:' + e.dataset.blk] || 0) + 1; for (const e of r.querySelectorAll('h1,h2,h3')) if (vs(e) && e.textContent.trim()) { const k = 'h:' + e.textContent.trim(); count[k] = (count[k] || 0) + 1; } for (const e of r.querySelectorAll('a[href="#/league"],[data-href="#/league"]')) if (vs(e)) count.league = (count.league || 0) + 1; }
@@ -259,7 +261,7 @@ async function jLeagueJoined(h) {
 // Tôi: #/me → cài đặt
 async function jMe(h) {
   await h.step('tab Tôi', async () => { await h.boot('/home'); await h.tab('me'); h.ok(/^#\/me/.test(await h.hash()), 'tab Tôi → #/me'); await h.screen('tôi', { tab: 'me' }); });
-  await h.step('cài đặt', async () => { await h.click('#view a[href="#/settings"]'); h.ok(await h.wait('#sRem', 15000), 'cài đặt có mục nhắc học'); await h.screen('cài đặt', { tab: 'me' }); await h.page.goBack(); await sleep(300); await h.settle(); h.ok(/^#\/me/.test(await h.hash()), 'Back từ cài đặt → #/me'); });
+  await h.step('cài đặt', async () => { await h.click('#view a[href="#/settings"]'); h.ok(await h.wait('a.set-go[data-go="remind"]', 15000), 'cài đặt có lối vào mục nhắc học'); await h.screen('cài đặt', { tab: 'me' }); /* Cài đặt = danh mục + trang con (#/settings/<mục>) */ await h.click('a.set-go[data-go="remind"]'); h.ok(await h.wait('#sRem', 15000), 'trang Nhắc học có công tắc bật nhắc'); await h.screen('cài đặt nhắc học', { tab: 'me' }); await h.page.goBack(); await sleep(300); await h.page.goBack(); await sleep(300); await h.settle(); h.ok(/^#\/me/.test(await h.hash()), 'Back từ cài đặt → #/me'); });
 }
 // 5 tab + deep link cũ
 const DEEP = [['/train', '#/train', 'skills', '.v2s-practice', {}], ['/league', '#/league', 'home', '#leagueBody, .league-wrap, .v2s-leagues', {}], ['/leagues', '#/league', 'home', '#leagueBody, .league-wrap, .v2s-leagues', {}], ['/review', '#/review', 'vocab', '#flipBtn, #typeIn, [data-opt="0"], .rev-done', { focus: true }], ['/review?hub=1', '#/review?hub=1', 'vocab', '.v2s-review', {}]];

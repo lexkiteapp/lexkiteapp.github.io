@@ -61,6 +61,6 @@
   // Màn hiện chữ trên màn: có gì đó ngoài trang trắng
   const painted = () => { const v = D.querySelector('#view'), b = (D.body && D.body.innerText) || ''; return { body: b.trim().length, view: v ? v.children.length : 0, viewText: v ? v.innerText.trim().length : 0, err: !!(v && v.querySelector('.err-state')) }; };
   // Phông icon phải nạp được: không thì màn hiện chữ "menu_book" thay vì biểu tượng
-  async function iconFont() { const e = [...D.querySelectorAll('.material-symbols-outlined')].find(vis); if (!e || !D.fonts) return null; await Promise.race([D.fonts.ready, new Promise(r => setTimeout(r, 3000))]); const fam = getComputedStyle(e).fontFamily.split(',')[0]; return D.fonts.check('24px ' + fam, 'home') ? null : fam; }
+  async function iconFont() { const e = [...D.querySelectorAll('.material-symbols-outlined')].find(vis); if (!e || !D.fonts) return null; const fam = getComputedStyle(e).fontFamily.split(',')[0]; await Promise.race([D.fonts.ready.then(() => D.fonts.load('24px ' + fam, 'home')).catch(() => {}), new Promise(r => setTimeout(r, 6000))]); /* phông icon nạp lười khi chữ cần vẽ (font-display:block): ép nạp rồi mới kiểm, như stitch-diff – chậm ≠ không nạp được */ return D.fonts.check('24px ' + fam, 'home') ? null : fam; }
   W.LKJM = { iconFont, vis: e => !!vis(e), tabs, taps, theme, reach, leak, painted, state: S };
 })(window);
