@@ -152,5 +152,5 @@ const md = [`# ⌨️ Bàn phím ảo – ${checked.length} lượt ô nhập ×
   ...(errs.length ? ['## Lỗi chạy', ...errs.slice(0, 30).map(e => '- ' + e)] : [])].join('\n');
 fs.writeFileSync(`${OUT}/KEYBOARD.md`, md);
 if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md + '\n');
-console.log(md.split('\n').slice(0, 30).join('\n'));
+console.log(md.split('\n').slice(0, 30).join('\n')); if (errs.length) console.log('## Lỗi chạy\n' + errs.slice(0, 30).map(e => '- ' + e).join('\n')); // lỗi chạy luôn hiện trong log CI
 if (fails.length && process.env.MQA_REPORT_ONLY !== '1') process.exit(1);
