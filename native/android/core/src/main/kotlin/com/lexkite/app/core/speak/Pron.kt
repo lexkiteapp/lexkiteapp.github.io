@@ -165,13 +165,13 @@ object PronPage {
     fun neighbours(pack: SpeakPack, id: String): Pair<PronLesson?, PronLesson?> { val i = pack.lessons.indexOfFirst { it.id == id }; return pack.lessons.getOrNull(i - 1).takeIf { i > 0 } to pack.lessons.getOrNull(i + 1) }
 
     /** The mouth figure: ellipses `[cx, cy, rx, ry]` of the outer lip, the inner mouth and the tongue (SVG numbers of pron.js mouthSvg). null = no figure (show the emoji). */
-    class Mouth(val outerLip: List<Int>, val innerMouth: List<Int>, val tongue: List<Int>, val caption: List<Tr>)
+    class Mouth(val outerLip: List<Double>, val innerMouth: List<Double>, val tongue: List<Double>, val caption: List<Tr>)
     fun mouth(m: MouthSpec?): Mouth? {
         if (m == null || !m.hasShape) return null
         val open = mapOf("close" to 6, "mid" to 16, "open" to 28)[m.jaw] ?: 14; val wide = mapOf("spread" to 70, "neutral" to 56, "round" to 34)[m.lips] ?: 56
         val tx = mapOf("front" to 92, "central" to 100, "back" to 112)[m.tongue] ?: 100; val ty = 108 - (mapOf("close" to 14, "mid" to 8, "open" to 2)[m.jaw] ?: 8)
         val lips = mapOf("spread" to "môi dàn rộng", "neutral" to "môi tự nhiên", "round" to "môi tròn")[m.lips]; val jaw = mapOf("close" to "hàm khép", "mid" to "hàm hé", "open" to "hàm mở rộng")[m.jaw]
-        return Mouth(listOf(100, 98, wide / 2 + 10, open / 2 + 12), listOf(100, 98, wide / 2, open / 2 + 2), listOf(tx, ty + open / 3, 18, 6), listOfNotNull(lips?.let { Tr(it) }, jaw?.let { Tr(it) }))
+        return Mouth(listOf(100.0, 98.0, wide / 2.0 + 10, open / 2.0 + 12), listOf(100.0, 98.0, wide / 2.0, open / 2.0 + 2), listOf(tx.toDouble(), ty + open / 3.0, 18.0, 6.0), listOfNotNull(lips?.let { Tr(it) }, jaw?.let { Tr(it) }))
     }
 
     const val WORD_GOOD = 85; const val WORD_MEDIUM = 65; const val SENTENCE_PASS = 70; const val PAIR_ROUNDS = 8

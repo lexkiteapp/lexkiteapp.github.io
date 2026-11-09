@@ -2,6 +2,7 @@ import SwiftUI
 import Observation
 import LKDesign
 import LKStore
+import LKSync
 import LKStrings
 
 /// #/handsfree – Stitch handsfree-run: X + progress, the word card (word · IPA · meaning · example), previous / play-pause / next, the two switches, the dark screen.

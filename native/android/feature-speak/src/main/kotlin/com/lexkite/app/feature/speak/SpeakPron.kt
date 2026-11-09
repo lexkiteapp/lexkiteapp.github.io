@@ -120,7 +120,7 @@ fun MouthFigure(m: PronPage.Mouth, modifier: Modifier = Modifier) {
         Canvas(Modifier.size(width = 200.dp, height = 160.dp).semantics { contentDescription = cap }) {
             val k = size.width / 200f
             drawCircle(l.cardHigh, 74f * k, Offset(100f * k, 80f * k))
-            fun oval(e: List<Int>, color: androidx.compose.ui.graphics.Color) = drawOval(color, Offset((e[0] - e[2]) * k, (e[1] - e[3]) * k), Size(e[2] * 2f * k, e[3] * 2f * k))
+            fun oval(e: List<Double>, color: androidx.compose.ui.graphics.Color) = drawOval(color, Offset(((e[0] - e[2]) * k).toFloat(), ((e[1] - e[3]) * k).toFloat()), Size((e[2] * 2 * k).toFloat(), (e[3] * 2 * k).toFloat()))
             oval(m.outerLip, l.errorContainer); oval(m.innerMouth, l.error); oval(m.tongue, l.tertiary)
         }
         Muted(cap)
