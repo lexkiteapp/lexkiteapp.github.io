@@ -1,7 +1,7 @@
 /* 🧭 Lộ trình MỘT component (khung Stitch path + path-sheet): thu gọn = chặng hiện tại, mở rộng = thêm chặng cùng hình, không có bản thứ hai.
  * Nội dung nút: cpack/lesson/path-nodes.js (tải lười). Chặng có ô truyện rỗng: ẩn nút và tự bỏ qua vị trí đó (bộ đếm đi theo số nút thấy được). */
 (function () {
-  const SLOTS = ['lesson', 'listen', 'speak', 'story', 'review', 'exam'], XS = [44, 66, 52, 66, 48, 60], H = 84, HC = 184, SPAN = 11, RING = 238.76;
+  const SLOTS = ['lesson', 'listen', 'speak', 'story', 'review', 'exam'], XS = [44, 66, 52, 66, 48, 60], H = 84, HC = 196, SPAN = 11, RING = 238.76;
   const unitC = id => ((self.LESSON_PATH_NODES || {}).units || {})[id] || null;
   const slotOf = (c, s) => c.nodes.find(x => x.slot === s) || null;
   const hidden = (u, i) => { const c = unitC(u.id); if (!c || SLOTS[i] !== 'story') return false; const s = slotOf(c, 'story'); return !!s && !s.story; };

@@ -187,7 +187,7 @@
         fillMock(box || document); }); };
       const demoNote = root => { if (!demo) return; const s = document.createElement('p'); s.className = 'sr-only'; s.setAttribute('role', 'status'); s.textContent = t('Bài thử (không lưu tiến độ)'); root.prepend(s); if (App.toast) App.toast(t('Bài thử (không lưu tiến độ)')); };
       const toCur = root => { const cur = root.querySelector('[data-cur]'); if (cur && cur.getBoundingClientRect().bottom > innerHeight - 160) try { cur.scrollIntoView({ block: 'center' }); } catch (e) { /* bỏ qua */ } };
-      const tp = { P, at, n, Q, unitAt, check, can: CAN(), kmin: KMIN, tch: () => Chars.slot('ama', { pose: 'point', size: 's', lazy: false, hip: true }), guide, toCur, render: x => ST2.path(Object.assign({ hdr: ST2.hdr(), tabs: [] }, x)).main };
+      const tp = { P, at, n, Q, unitAt, check, can: CAN(), kmin: KMIN, tch: () => Chars.slot('ama', { pose: 'point', size: 'm', lazy: false, hip: true }), guide, toCur, render: x => ST2.path(Object.assign({ hdr: ST2.hdr(), tabs: [] }, x)).main };
       // 🏠 Home v2 "Hôm nay": lộ trình = đúng một component PathTrail (thu gọn chặng hiện tại, mở rộng thêm hàng)
       if (ST2.today) return home2({ demo, fresh, Q, P, at, n, u, nodes, tp, xpTo, nxMin, guide, demoNote, toCur });
       const first = PathTrail.build(tp, false), root = ST2.mount(view, 'path', first, 'home'); PathTrail.wire(root, tp, first);
