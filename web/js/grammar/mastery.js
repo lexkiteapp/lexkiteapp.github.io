@@ -1,9 +1,11 @@
 /* Ngữ pháp – Thành thạo C2 (tự biên soạn). Điểm ngữ pháp: content/framework/grammar-inventory.json (lessons) */
 (function (g) {
 const G = g.GRAMMAR = g.GRAMMAR || [];
+// Gói lười (lazy-*.js): bài rút gọn cùng id được thay tại chỗ (giữ thứ tự), bài tập/câu hỏi gắn thêm lúc đó (drills-own…) được nối vào; nạp lại không nhân đôi
+const put = x => { const i = G.findIndex(y => y.id === x.id), o = G[i]; if (i < 0) return G.push(x); if (!o.lazy) return; for (const k of ['drills', 'quiz']) if (o[k]) x[k] = (x[k] || []).concat(o[k]); G[i] = x; };
 
 /* C2-1. Đảo ngữ trọn bộ: so / such, as / than, nơi chốn, bổ ngữ đặt trước */
-G.push({
+put({
 id: 'inversion-range-c2', unit: 'academic', order: 20,
 title: 'Đảo ngữ trọn bộ: so, such, as, nơi chốn, bổ ngữ', en: 'The Full Range of Inversion', level: 'C2', emoji: '🔀',
 summary: 'Ngoài đảo ngữ sau trạng từ phủ định, C2 còn có đảo ngữ sau so / such, as / than, trạng ngữ nơi chốn và bổ ngữ đặt lên đầu. Mỗi kiểu có luật riêng: đảo cả động từ chính hay chỉ trợ động từ, đại từ có đảo không.',
@@ -69,7 +71,7 @@ drills: [
 });
 
 /* C2-2. Đóng gói thông tin: câu chẻ, end-focus, extraposition */
-G.push({
+put({
 id: 'information-packaging-c2', unit: 'academic', order: 21,
 title: 'Đóng gói thông tin: câu chẻ, end-focus & extraposition', en: 'Information Packaging: Clefts, End-Focus and Extraposition', level: 'C2', emoji: '📦',
 summary: 'Thông tin cũ đứng đầu, thông tin mới đứng cuối (end-focus), thành phần nặng đứng cuối (end-weight). Câu chẻ, câu chẻ đảo và it-extraposition là công cụ để sắp lại câu cho đúng nhịp.',
@@ -133,7 +135,7 @@ drills: [
 });
 
 /* C2-3. Thức giả định trang trọng & cấu trúc cố định */
-G.push({
+put({
 id: 'subjunctive-formal-c2', unit: 'academic', order: 22,
 title: 'Thức giả định trang trọng & cụm cố định', en: 'The Formal Subjunctive and Fixed Expressions', level: 'C2', emoji: '🎩',
 summary: 'Ngoài mandative that + V nguyên mẫu, C2 gặp were-giả định, lest, whether it be…, be he… và các cụm cố định (be that as it may, come what may, suffice it to say, far be it from me). Dùng chuẩn xác thể hiện độ chín của văn phong.',
@@ -201,7 +203,7 @@ drills: [
 });
 
 /* C2-4. Điều kiện nâng cao & điều kiện ngầm */
-G.push({
+put({
 id: 'conditionals-nuance-c2', unit: 'academic', order: 23,
 title: 'Điều kiện sắc thái & điều kiện ngầm', en: 'Conditional Nuance and Implied Conditions', level: 'C2', emoji: '🔑',
 summary: 'Điều kiện C2 không chỉ If + thì: should / happen to / were to đổi mức độ khả năng; will / would trong mệnh đề if mang sắc thái lịch sự hay bực bội; but for, given, left alone và "One more… and…" mang nghĩa điều kiện mà không có if.',
@@ -267,7 +269,7 @@ drills: [
 });
 
 /* C2-5. Tỉnh lược & thay thế, ngữ pháp văn nói */
-G.push({
+put({
 id: 'ellipsis-substitution-c2', unit: 'academic', order: 24,
 title: 'Tỉnh lược & thay thế, ngữ pháp văn nói', en: 'Ellipsis, Substitution and Spoken Grammar', level: 'C2', emoji: '✂️',
 summary: 'Người bản xứ bỏ từ nào được tự hiểu và thay cụm dài bằng từ ngắn (so, not, do so, one, to). C2 cần biết chỗ nào được lược, chỗ nào gây mơ hồ, và các nét văn nói như left dislocation, tail, vague language.',
@@ -333,7 +335,7 @@ drills: [
 });
 
 /* C2-6. Rào đón tinh tế, giữ khoảng cách & động từ tường thuật */
-G.push({
+put({
 id: 'hedging-distance-c2', unit: 'academic', order: 25,
 title: 'Rào đón tinh tế, giữ khoảng cách & động từ tường thuật', en: 'Nuanced Hedging, Distance and Reporting Verbs', level: 'C2', emoji: '🌫️',
 summary: 'C2 điều chỉnh mức chắc chắn bằng thì quá khứ, would, trạng từ, và chọn động từ tường thuật cho thấy người viết tin hay nghi ngờ (admit, point out vs claim, allege, purport).',
@@ -396,7 +398,7 @@ drills: [
 });
 
 /* C2-7. Trạng từ thái độ, đánh giá & nói giảm */
-G.push({
+put({
 id: 'stance-irony-c2', unit: 'academic', order: 26,
 title: 'Trạng từ thái độ, đánh giá & nói giảm', en: 'Stance Adverbials, Evaluation and Understatement', level: 'C2', emoji: '🎭',
 summary: 'Trạng từ thái độ (admittedly, tellingly, regrettably) cho thấy người nói nghĩ gì về nội dung. Nói giảm (not unreasonable, no mean feat, hardly the most tactful) và mỉa mai tạo sắc thái tinh vi bằng ngữ pháp, không cần từ mạnh.',
@@ -462,7 +464,7 @@ drills: [
 });
 
 /* C2-8. Văn phong danh từ dày đặc & bị động tu từ */
-G.push({
+put({
 id: 'nominal-style-c2', unit: 'academic', order: 27,
 title: 'Văn phong danh từ dày đặc & bị động tu từ', en: 'Dense Nominal Style and the Stylistic Passive', level: 'C2', emoji: '🏛️',
 summary: 'Văn viết trang trọng nén thông tin vào cụm danh từ (the government\'s controversial decision to raise the retirement age) và dùng bị động để giữ mạch, giấu tác nhân, hoặc đưa thông tin mới về cuối. Biết cả hai phía: nén đúng chỗ, mở ra khi quá dày.',
@@ -525,7 +527,7 @@ drills: [
 });
 
 /* C2-9. Liên kết trang trọng, siêu diễn ngôn, thang văn phong */
-G.push({
+put({
 id: 'discourse-register-c2', unit: 'academic', order: 28,
 title: 'Liên kết trang trọng, tín hiệu dẫn dắt & thang văn phong', en: 'Formal Cohesion, Signposting and the Register Ladder', level: 'C2', emoji: '🧭',
 summary: 'C2 chọn liên từ theo thang văn phong (but → however → notwithstanding), dùng tín hiệu dẫn dắt (as noted above, in what follows), và nối ý bằng danh từ tóm tắt (this trend, such developments) để văn bản liền mạch dù rất dài.',
@@ -590,7 +592,7 @@ drills: [
 });
 
 /* C2-10. Khuyết thiếu & thể: suy đoán quá khứ, hành vi quen thuộc, thể tiếp diễn thái độ */
-G.push({
+put({
 id: 'modal-aspect-c2', unit: 'academic', order: 29,
 title: 'Khuyết thiếu & thể: suy đoán, thói quen, thái độ', en: 'Modals and Aspect: Deduction, Habit and Attitude', level: 'C2', emoji: '🧩',
 summary: 'C2 dùng modal perfect (continuous) để suy đoán chuyện quá khứ, will / would cho hành vi đặc trưng, needn\'t have với didn\'t need to, was to have, và thể tiếp diễn cho thái độ (always V-ing, be being).',

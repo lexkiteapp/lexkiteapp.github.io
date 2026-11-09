@@ -1,9 +1,11 @@
 /* Ngữ pháp – Khởi đầu A1, phần 2 (tự biên soạn). Điểm ngữ pháp: content/framework/grammar-inventory.json (lessons) */
 (function (g) {
 const G = g.GRAMMAR = g.GRAMMAR || [];
+// Gói lười (lazy-*.js): bài rút gọn cùng id được thay tại chỗ (giữ thứ tự), bài tập/câu hỏi gắn thêm lúc đó (drills-own…) được nối vào; nạp lại không nhân đôi
+const put = x => { const i = G.findIndex(y => y.id === x.id), o = G[i]; if (i < 0) return G.push(x); if (!o.lazy) return; for (const k of ['drills', 'quiz']) if (o[k]) x[k] = (x[k] || []).concat(o[k]); G[i] = x; };
 
 /* A1-4. Hiện tại đơn: thói quen, he/she/it + -s, trạng từ tần suất */
-G.push({
+put({
 id: 'present-simple-a1', unit: 'foundation', order: 17,
 title: 'Hiện tại đơn: thói quen & quy tắc -s', en: 'Present Simple: Routines and the -s Rule', level: 'A1', emoji: '⏰',
 summary: 'Dùng hiện tại đơn để nói về thói quen, lịch cố định và sự thật; với he / she / it, động từ thêm -s / -es; always, usually, sometimes, never đứng trước động từ thường.',
@@ -69,7 +71,7 @@ drills: [
 });
 
 /* A1-5. do / does: câu hỏi, phủ định, trả lời ngắn */
-G.push({
+put({
 id: 'do-does-a1', unit: 'foundation', order: 18,
 title: 'Do / does: phủ định, câu hỏi & trả lời ngắn', en: 'Do / Does: Negatives, Questions and Short Answers', level: 'A1', emoji: '❓',
 summary: 'Hiện tại đơn phủ định và nghi vấn dùng trợ động từ do / does; sau do / does động từ luôn ở dạng nguyên mẫu, không thêm -s.',
@@ -132,7 +134,7 @@ drills: [
 });
 
 /* A1-6. Đại từ chủ ngữ, tân ngữ & tính từ sở hữu */
-G.push({
+put({
 id: 'pronouns-a1', unit: 'foundation', order: 19,
 title: 'I / me / my: đại từ & tính từ sở hữu', en: 'Pronouns: I / me / my', level: 'A1', emoji: '🧑‍🤝‍🧑',
 summary: 'Mỗi người có ba dạng: I (chủ ngữ, trước động từ), me (tân ngữ, sau động từ hoặc giới từ), my (tính từ sở hữu, trước danh từ).',
@@ -199,7 +201,7 @@ drills: [
 });
 
 /* A1-7. this / that / these / those & 's */
-G.push({
+put({
 id: 'this-that-possessive-a1', unit: 'foundation', order: 20,
 title: 'This / that / these / those & sở hữu \'s', en: 'This / That / These / Those and Possessive \'s', level: 'A1', emoji: '👆',
 summary: 'This / these chỉ vật gần, that / those chỉ vật xa (số ít → this / that, số nhiều → these / those); \'s sau tên người để chỉ vật thuộc về ai.',
@@ -262,7 +264,7 @@ drills: [
 });
 
 /* A1-8. have (got) & there is / there are */
-G.push({
+put({
 id: 'have-got-there-is', unit: 'foundation', order: 21,
 title: 'Have (got) & There is / There are', en: 'Have (got) and There is / There are', level: 'A1', emoji: '🏠',
 summary: 'Have / have got nói ai SỞ HỮU gì; there is / there are nói CÓ gì ở đâu. Tiếng Việt dùng chung một chữ "có" cho cả hai, tiếng Anh thì không.',
@@ -325,7 +327,7 @@ drills: [
 });
 
 /* A1-9. can / can't: khả năng, xin phép, nhờ */
-G.push({
+put({
 id: 'can-a1', unit: 'foundation', order: 22,
 title: 'Can / can\'t: khả năng, xin phép, nhờ vả', en: 'Can / Can\'t: Ability, Permission and Requests', level: 'A1', emoji: '💪',
 summary: 'Can + động từ nguyên mẫu nói khả năng (I can swim); Can I…? xin phép; Can you…? nhờ ai làm gì. Can không thêm -s, không có to.',
@@ -387,7 +389,7 @@ drills: [
 });
 
 /* A1-10. Câu mệnh lệnh & Let's */
-G.push({
+put({
 id: 'imperatives-lets-a1', unit: 'foundation', order: 23,
 title: 'Câu mệnh lệnh & Let\'s', en: 'Imperatives and Let\'s', level: 'A1', emoji: '📢',
 summary: 'Câu mệnh lệnh dùng động từ nguyên mẫu, không cần chủ ngữ (Open the door); thêm please cho lịch sự, don\'t để cấm; Let\'s + V để rủ cùng làm.',
@@ -445,7 +447,7 @@ drills: [
 });
 
 /* A1-11. Từ để hỏi: what, where, who, when, why, how… */
-G.push({
+put({
 id: 'wh-questions-a1', unit: 'foundation', order: 24,
 title: 'Từ để hỏi: what, where, who, when, why, how', en: 'Wh- Questions: what, where, who, when, why, how', level: 'A1', emoji: '🔎',
 summary: 'Đặt từ để hỏi lên đầu câu, rồi tới trợ động từ / be và chủ ngữ: Where do you live? Với how many (đếm được) và how much (không đếm được / giá).',
@@ -513,7 +515,7 @@ drills: [
 });
 
 /* A1-12. Hiện tại tiếp diễn & be going to */
-G.push({
+put({
 id: 'now-and-next-a1', unit: 'foundation', order: 25,
 title: 'Đang làm gì & sắp làm gì: am doing / going to', en: 'Now and Next: am doing / going to', level: 'A1', emoji: '🎬',
 summary: 'Hiện tại tiếp diễn (am / is / are + V-ing) nói việc đang xảy ra lúc nói; be going to + V nói kế hoạch, dự định sắp tới.',
@@ -578,7 +580,7 @@ drills: [
 });
 
 /* A1-13. Quá khứ: was / were & động từ có quy tắc */
-G.push({
+put({
 id: 'past-basics-a1', unit: 'foundation', order: 26,
 title: 'Quá khứ cơ bản: was / were & -ed', en: 'Past Basics: was / were and -ed', level: 'A1', emoji: '⏪',
 summary: 'Quá khứ của be là was / were; động từ có quy tắc thêm -ed (worked); phủ định và câu hỏi dùng did + nguyên mẫu. Tiếng Anh luôn phải đổi động từ, không chỉ thêm "hôm qua".',
@@ -644,7 +646,7 @@ drills: [
 });
 
 /* A1-14. a / the / some / any */
-G.push({
+put({
 id: 'the-some-any-a1', unit: 'foundation', order: 27,
 title: 'The, some, any: nói về cái đã biết & số lượng', en: 'The, Some and Any', level: 'A1', emoji: '🛒',
 summary: 'The dùng cho vật cả hai người đã biết hoặc duy nhất; some dùng trong câu khẳng định, any trong câu phủ định và câu hỏi với danh từ số nhiều / không đếm được.',
@@ -706,7 +708,7 @@ drills: [
 });
 
 /* A1-15. would like / like + -ing */
-G.push({
+put({
 id: 'would-like-a1', unit: 'foundation', order: 28,
 title: 'Would like & like + -ing: muốn gì, thích gì', en: 'Would Like and Like + -ing', level: 'A1', emoji: '☕',
 summary: 'I\'d like… (muốn, lịch sự) dùng khi gọi món, hỏi giá, đưa lời mời; I like + V-ing nói sở thích lâu dài. Hai cấu trúc có nghĩa khác nhau.',
