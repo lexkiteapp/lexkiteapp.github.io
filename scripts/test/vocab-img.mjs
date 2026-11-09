@@ -410,4 +410,19 @@ else:
   store['lk.vimg'] = '0'; ok(V.quizUrl(plain.word, plain.pos) === '', 'cờ tắt → không có ảnh');
   const ui = rd('web/js/lesson/ui.js'); ok(/VImg\.quizUrl/.test(ui) && /App\.vimgReady\(picks/.test(ui) && !/lexicon-img\.json/.test(ui), 'lesson/ui.js dùng VImg, không tự đọc chỉ mục');
 }
+// 09/11 (job 129143630777): tầng miễn phí 0 ảnh đạt → tờ soát Image 0 px → đỏ cả lượt. Pillow thật nếu có, không thì PIL giả (nhánh 0 ảnh không vẽ gì).
+{ const { execFileSync } = await import('child_process'), os = await import('os'), path = await import('path');
+  const d = fs.mkdtempSync(path.join(os.tmpdir(), 'vimgfree0-')), sh = path.join(d, 'sheet.jpg');
+  const py = `import sys,types,runpy
+try:
+    import PIL.Image, PIL.ImageDraw
+except Exception:
+    P = types.ModuleType('PIL')
+    for n in ('Image', 'ImageDraw'): m = types.ModuleType('PIL.' + n); setattr(P, n, m); sys.modules['PIL.' + n] = m
+    sys.modules['PIL'] = P
+sheet_path = sys.argv[2]; sys.argv = ['free_tier.py', sys.argv[1]]
+runpy.run_path('scripts/vocab-img/free_tier.py')['sheet']({}, sheet_path)`;
+  const out = execFileSync('python3', ['-c', py, d, sh], { encoding: 'utf8' });
+  ok(/0 ảnh đạt/.test(out) && !fs.existsSync(sh), 'free_tier.py: 0 ảnh → log rõ, không tạo tờ soát, không đỏ cả lượt');
+}
 console.log(`✓ vocab-img: ${n} kiểm`);
