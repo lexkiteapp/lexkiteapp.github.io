@@ -128,19 +128,30 @@ fun SpeakDrillScreen(ui: DrillUi, a: DrillActions) {
         LKPrimaryButton(trs(Tr("Tiếp")), a.next, enabled = ui.canNext)
         GhostButton(trs(ui.alt), a.alt)
     }) {
-        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-            Muted("• " + trs(ui.lineTr)); Muted(trs(Tr("Nhịp {n}/3", mapOf("n" to ui.beat + 1))))
+        Row(horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs), verticalAlignment = Alignment.CenterVertically) { Tag(trs(ui.lineTr)); Muted(trs(Tr("Nhịp {n}/3", mapOf("n" to ui.beat + 1)))) }
+        Body(trs(Tr("Nói theo 3 nhịp")), style = LKType.headlineMd)
+        LKCard(fill = c.surfaceContainerHighest) {
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
+                Box(Modifier.size(96.dp)) { LocalSpeakSlots.current.teacher("ama", ui.pose, Modifier.size(96.dp)) }
+                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Body(trs(Tr("Cô {n}", mapOf("n" to "Ama"))).uppercase(), color = c.secondary, style = LKType.labelBadge)
+                    Body(trs(ui.say), style = LKType.titlePill); if (ui.hint.isNotEmpty()) Muted(ui.hint)
+                }
+            }
         }
-        Flow { BEATS.forEachIndexed { i, b -> Chip((if (i < ui.beat) "✓ " else "") + trs(Tr(b)), i == ui.beat, {}) } }
-        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
-            Box(Modifier.size(96.dp)) { LocalSpeakSlots.current.teacher("ama", ui.pose, Modifier.size(96.dp)) }
-            LKCard(Modifier.weight(1f), fill = c.surfaceContainerHighest) { Muted(trs(ui.coach)); Body(trs(ui.say)) }
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
+            BEATS.forEachIndexed { i, b -> Chip((if (i < ui.beat) "✓ " else "") + trs(Tr(b)), i == ui.beat, {}, Modifier.weight(1f)) }
         }
-        Muted(ui.hint)
-        LKCard {
+        LKCard(fill = c.surfaceContainerHighest) {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                Body(trs(Tr("Câu mẫu để nói")).uppercase(), color = c.onSurfaceVariant, style = LKType.labelBadge)
+                Row(horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) { GhostButton("🔊", a.play, ink = c.primary); GhostButton("🐢", a.slow, ink = c.primary) }
+            }
             EnLtr { Flow { for (w in ui.words) Chip(w.text, w.tap, { if (w.tap) a.tapWord(w.index) }) } }   // English word order in RTL
-            Row(horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) { GhostButton("🔊 " + trs(Tr("Nghe câu mẫu")), a.play); GhostButton("🐢 " + trs(Tr("Nghe chậm")), a.slow) }
         }
+        ui.tip?.let { tp -> LKCard(fill = c.surfaceContainerHighest) {
+            Row(horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs), verticalAlignment = Alignment.CenterVertically) { Body("💡 " + trs(Tr("Mẹo nhấn âm")).uppercase(), color = c.onSurfaceVariant, style = LKType.labelBadge); if (tp.ipa.isNotEmpty()) EnLtr { Muted(tp.ipa) } }
+            RichBody(tp.note) } }
         if (ui.blocked != null) MicBlocked(ui.blocked, null, "", a.alt)
         if (!ui.noMic) Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
             MicButton(ui.rec, a.mic, trs(if (ui.rec) Tr("Đang nghe… chạm để dừng") else Tr("Chạm mic để nói")))
@@ -152,7 +163,6 @@ fun SpeakDrillScreen(ui: DrillUi, a: DrillActions) {
                 Body(trs(r.verdict), style = LKType.titlePill); Muted(trs(r.sub))
             }
         }
-        ui.tip?.let { tp -> LKCard { if (tp.ipa.isNotEmpty()) EnLtr { Body("💡 " + tp.ipa, style = LKType.titlePill) }; RichBody(tp.note) } }
     }
 }
 
