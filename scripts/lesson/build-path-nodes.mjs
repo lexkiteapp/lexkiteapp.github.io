@@ -1,9 +1,9 @@
 // Nội dung nút Lộ trình (content/lesson/path-nodes.json) → web/cpack/lesson/path-nodes.js, có kiểm: từ phải CÓ trong kho + đúng CEFR chặng,
-// câu ví dụ là ví dụ nguyên văn của kho (không câu AI mới), tên bài không chỉ là tên loại bài, mọi chữ Việt có bản en (pathx).
+// câu ví dụ là ví dụ nguyên văn của kho (không câu AI mới), tên bài không chỉ là tên loại bài, mọi chữ Việt có bản en (pathn).
 // Dùng: node scripts/lesson/build-path-nodes.mjs [--check]
 import fs from 'node:fs';
 import { loadAll } from '../lexicon/lib.mjs';
-const SRC = 'content/lesson/path-nodes.json', OUT = 'web/cpack/lesson/path-nodes.js', EN = 'web/js/i18n/en/pathx.js', EN_DIR = 'web/js/i18n/en/'; // chữ mới → pathx.js; khóa đã dịch sẵn ở nhóm khác (vd. câu "Bạn sẽ…" ở ux1.js) dùng lại
+const SRC = 'content/lesson/path-nodes.json', OUT = 'web/cpack/lesson/path-nodes.js', EN = 'web/js/i18n/en/pathn.js', EN_DIR = 'web/js/i18n/en/'; // chữ mới → pathn.js; khóa đã dịch sẵn ở nhóm khác (vd. câu "Bạn sẽ…" ở ux1.js) dùng lại
 const SLOTS = ['lesson', 'listen', 'speak', 'story', 'review', 'exam'], WORD_SLOTS = ['lesson', 'listen', 'speak', 'review'], LV = { A1: 1, A2: 2, B1: 3, B2: 4, C1: 5, C2: 6 };
 const BARE = /^(bài học|nghe|nói|truyện|radio|ôn|ôn tập|ôn lỗi|kiểm tra)$/i, TITLE_MAX = 32, SUB_MAX = 40;
 const J = JSON.parse(fs.readFileSync(SRC, 'utf8')), err = [];
@@ -47,6 +47,6 @@ for (const [uid, u] of Object.entries(J.units)) {
 if (err.length) { console.error('✗ path-nodes:\n  ' + err.join('\n  ')); process.exit(1); }
 const out = { v: J.v, units: {} };
 for (const [uid, u] of Object.entries(J.units)) out.units[uid] = { theme: u.theme, can: u.can, nodes: u.nodes.map(n => ({ slot: n.slot, title: n.title || '', sub: n.sub || '', words: (n.words || []).map(([w, pos]) => ({ w, pos })), ex: n.ex || [], min: n.min || 0, xp: null, story: n.story || null })).map(n => n.story || n.slot !== 'story' ? n : { slot: 'story', title: '', sub: '', words: [], ex: [], min: 0, xp: null, story: null }) };
-const text = `/* FILE SINH TỰ ĐỘNG – scripts/lesson/build-path-nodes.mjs từ ${SRC}. Đừng sửa tay. Nội dung nút Lộ trình (tải lười; chữ Việt qua t() – nhóm i18n pathx). */\nself.LESSON_PATH_NODES = ${JSON.stringify(out)};\n`;
+const text = `/* FILE SINH TỰ ĐỘNG – scripts/lesson/build-path-nodes.mjs từ ${SRC}. Đừng sửa tay. Nội dung nút Lộ trình (tải lười; chữ Việt qua t() – nhóm i18n pathn). */\nself.LESSON_PATH_NODES = ${JSON.stringify(out)};\n`;
 if (process.argv.includes('--check')) { if ((fs.existsSync(OUT) ? fs.readFileSync(OUT, 'utf8') : '') !== text) { console.error(`✗ ${OUT} cũ – chạy node scripts/lesson/build-path-nodes.mjs`); process.exit(1); } console.log('✓ path-nodes khớp nguồn + kiểm kho/CEFR/ví dụ'); }
 else { fs.writeFileSync(OUT, text); console.log(`✓ ${OUT}: ${Object.keys(out.units).length} chặng`); }
