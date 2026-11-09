@@ -1,0 +1,150 @@
+{
+ "id": "m29",
+ "level": "C2",
+ "lo": "M.C2.07",
+ "activity": "facilitate",
+ "title": "Phones at school: a way forward",
+ "scenario": "You chair a school council with a teacher, a parent and a student. The meeting on a phone policy has reached a deadlock. Speak to the group to turn the disagreement into something they can agree on.",
+ "source": {
+  "kind": "dialogue",
+  "lines": [
+   {
+    "s": "Ms Adeyemi",
+    "t": "The evidence from my classroom is clear. When phones are in pockets, half the class is not listening. They should be banned during the school day, full stop."
+   },
+   {
+    "s": "Mr Kovac",
+    "t": "My daughter is thirteen and gets anxious if she cannot reach us. And frankly, I pay for her phone bill; I expect her to have it. What if there is an emergency?"
+   },
+   {
+    "s": "Zara",
+    "t": "We also use phones for translation, calculators and timetables. And honestly, teachers look at their phones too. A total ban feels like we are not trusted."
+   },
+   {
+    "s": "Ms Adeyemi",
+    "t": "Nobody is saying that. I am saying lessons have to be protected."
+   },
+   {
+    "s": "Mr Kovac",
+    "t": "And I am saying children must be reachable. Those two things cannot both be true."
+   },
+   {
+    "s": "Zara",
+    "t": "Maybe they can. I do not need my phone in a maths lesson. I just want it at lunch."
+   }
+  ]
+ },
+ "task": {
+  "mode": "speak",
+  "audience": "a school council with different interests",
+  "prompt": "Speak to the council (90–140 words). Reframe the disagreement around a shared aim, propose a workable policy and suggest how to check it.",
+  "min_words": 90,
+  "max_words": 140
+ },
+ "points": [
+  {
+   "id": "aim",
+   "idea": "The shared aim is that students can learn and also feel safe and in contact.",
+   "checks": [
+    [
+     "learn",
+     "focus",
+     "concentrat",
+     "lessons"
+    ],
+    [
+     "safe",
+     "contact",
+     "reach",
+     "wellbeing",
+     "well-being"
+    ]
+   ]
+  },
+  {
+   "id": "reframe",
+   "idea": "The question is not ban or no ban, but when and how phones are used.",
+   "checks": [
+    [
+     "when and how",
+     "which times",
+     "where and when"
+    ],
+    [
+     "not whether",
+     "rather than",
+     "instead of"
+    ]
+   ]
+  },
+  {
+   "id": "rule",
+   "idea": "Phones away during lessons, allowed at breaks.",
+   "checks": [
+    [
+     "lesson",
+     "class"
+    ],
+    [
+     "break",
+     "lunch"
+    ]
+   ]
+  },
+  {
+   "id": "emergency",
+   "idea": "Emergencies go through the school office, so parents can always reach students.",
+   "checks": [
+    [
+     "office",
+     "reception"
+    ],
+    [
+     "emergenc",
+     "urgent",
+     "reach"
+    ]
+   ]
+  },
+  {
+   "id": "review",
+   "idea": "Try it for a term and review.",
+   "checks": [
+    [
+     "term",
+     "trial"
+    ],
+    [
+     "review",
+     "look again",
+     "check"
+    ]
+   ]
+  }
+ ],
+ "leave_out": [
+  {
+   "idea": "The phone bill and the remark about teachers' phones.",
+   "checks": [
+    [
+     "bill",
+     "teachers look",
+     "teachers use",
+     "teachers check"
+    ]
+   ]
+  }
+ ],
+ "model": "Thank you all. I think there is more agreement here than it seems. Everyone wants students to learn without distraction, and everyone wants them to be safe and reachable. So perhaps the question is not whether to ban phones, but when and how they are used. May I suggest this? Phones stay away during lessons, and students can use them at break and lunch. If a parent needs to reach a child urgently, they call the school office, and the office passes the message on straight away. We run this for one term, and then the council reviews it together with the students' own feedback. Could each of you accept that as a starting point?",
+ "useful": [
+  "There is more agreement here than it seems.",
+  "The question is not whether …, but when and how …",
+  "May I suggest this?",
+  "Could each of you accept that as a starting point?"
+ ],
+ "tips": [
+  "In a deadlock, look for the sentence everybody can sign (\"students should learn and be safe\") and rebuild the disagreement as a design question about when and how.",
+  "Make each side's real need part of the solution (lessons protected, parents able to reach), so no one has to lose in order for the others to win."
+ ],
+ "explain": "The chair names the shared aim, changes the question to when and how, gives a rule with an emergency route and sets a review. The phone bill and the remark about teachers' own phones are side issues that would reopen the quarrel."
+}
