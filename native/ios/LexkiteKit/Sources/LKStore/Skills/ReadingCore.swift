@@ -40,6 +40,9 @@ public struct ReadingList: Equatable, Sendable {
         return (vi, .translate)
     }
 
+    /// What the screens show: web machine-translates the Vietnamese summary at runtime; native has no translator yet, so other languages read the English one.
+    public static func shownSummary(_ r: JSON, learnLang: String) -> String { let s = summary(r, learnLang: learnLang), en = r.s("summaryEn"); return s.1 == .translate && !en.isEmpty ? en : s.0 }
+
     /// `remembered` = localStorage `vb.readLv`
     public static func build(_ data: SkillsData, query: [String: String], remembered: String?, game: JSON, learnLang: String) -> ReadingList {
         let lvs = Array(Set(data.readings.map { $0.s("level") }.filter { !$0.isEmpty })).sorted()

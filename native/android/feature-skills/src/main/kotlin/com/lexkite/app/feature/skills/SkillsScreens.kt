@@ -343,7 +343,7 @@ fun ReadingListScreen(ui: ReadingUi, a: ReadingActions) {
         if (m.cards.isEmpty()) EmptyState("📖", t(L10nKey.skillListenDangCapNhatDe))
         for (k in m.cards) LKCard(onClick = { a.open("#/read/${k.r.id}") }, fill = c.surfaceContainerHighest) {
             Row(horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs), verticalAlignment = Alignment.CenterVertically) { Text(k.r.emoji, style = LKType.headlineMd.toCompose()); Tag(k.r.level) }
-            Body(k.r.title, style = LKType.titlePill); Muted(k.summary)
+            Body(k.r.title, style = LKType.titlePill); Muted(k.shown)
             Flow { Tag(t(L10nKey.todayMinutes, n(k.r.minutes))); Tag(t(L10nKey.skillReadNCauHoi, n(k.r.questions.size))); k.done?.let { Tag("✓ $it", c.success) } }
         }
     }

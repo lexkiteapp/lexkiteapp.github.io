@@ -95,7 +95,7 @@ class SkillsSnapshotTest {
 
     @Composable private fun screen(name: String, lang: String) {
         val read = Reader.passage(reading, content.lexis) { it == "residents" }
-        val summary = Reader.list(content, emptyMap(), null, game, lang).cards.first { it.r.id == reading.id }.summary
+        val summary = Reader.list(content, emptyMap(), null, game, lang).cards.first { it.r.id == reading.id }.shown
         val testPart = TestUi(1, TestUi.Phase.PART, p, 0, 4, partIds = parts.map { it.id }, answers = answers)
         when (name) {
             "hub" -> ListenHubScreen(HubUi(ListenHub.hub(content, emptyMap(), null, game, lang), lang), HubActions())

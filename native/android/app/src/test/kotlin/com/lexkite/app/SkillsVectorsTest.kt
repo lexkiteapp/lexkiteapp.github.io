@@ -56,6 +56,16 @@ class SkillsVectorsTest {
     private val pack = SkillsContent.parse(Json.parseToJsonElement(javaClass.classLoader!!.getResource("skills-pack.json")!!.readText()).jsonObject)
     private val now = v.getValue("now").jsonPrimitive.long
     private val tx = Tx.RAW
+
+    /** P06: the full pack has every listening test and reading, each opens by id, and the reading list never shows a Vietnamese summary to a language without a translator. */
+    @Test fun parity_P06() {
+        assertEquals(10, pack.tests.size); assertEquals(40, pack.listening.size); assertEquals(57, pack.readings.size)
+        for (n in pack.tests) assertEquals(4, pack.partsOf(n).size)
+        for (r in pack.readings) assertEquals(r, pack.reading(r.id))
+        val ar = Reader.list(pack, emptyMap(), null, null, "ar").cards
+        assertEquals(57, ar.size); assertTrue(ar.all { it.summaryKind == "translate" && it.shown == it.r.summaryEn.ifEmpty { it.summary } })
+        assertTrue(Reader.list(pack, emptyMap(), null, null, "vi").cards.all { it.shown == it.summary })
+    }
     private fun t(key: String, vararg vars: Pair<String, Any>) = tx.t(key, if (vars.isEmpty()) null else vars.associate { it.first to it.second.toString() })
 
     // ---------- helpers ----------

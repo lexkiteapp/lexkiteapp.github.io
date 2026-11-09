@@ -304,7 +304,7 @@ object Dictation {
 /** #/reading list + #/read passage logic. */
 object Reader {
     class Tab(val lv: String, val n: Int, val selected: Boolean)
-    class Card(val r: Reading, val summaryKind: String, val summary: String, val done: String?)
+    class Card(val r: Reading, val summaryKind: String, val summary: String, val done: String?) { /** Web machine-translates the Vietnamese summary at runtime; native has no translator yet, so other languages read the English one. */ val shown: String get() = if (summaryKind == "translate") r.summaryEn.ifEmpty { summary } else summary }
     class ListModel(val tabs: List<Tab>, val cards: List<Card>, val selected: String?, val persistedLevel: String)
     fun list(c: SkillsContent, query: Map<String, String>, remembered: String?, game: JsonElement?, learnLang: String): ListModel {
         val lvs = c.readings.map { it.level }.filter { it.isNotEmpty() }.distinct().sorted()

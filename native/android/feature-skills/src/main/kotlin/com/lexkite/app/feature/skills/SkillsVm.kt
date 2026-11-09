@@ -271,7 +271,7 @@ class ReaderVm(private val env: SkillsEnv, private val id: String) : ViewModel()
         r = content.reading(id) ?: return@launch run { missing = true }
         port = env.port(); mine = env.word.cards().keys.map { it.lowercase() }.toSet()
         val st = env.vocab.load().settings
-        ui = ReaderUi(r, if (env.learnLang == "en") r.summaryEn else r.summaryVi, passage(), Reader.highlights(st.settingStr("hl")).toSet())
+        ui = ReaderUi(r, if (env.learnLang == "vi" || r.summaryEn.isEmpty()) r.summaryVi else r.summaryEn, passage(), Reader.highlights(st.settingStr("hl")).toSet())
     } }
     override fun onCleared() { env.vocab.audio.stop() }
     private fun passage() = Reader.passage(r, content.lexis) { it.lowercase() in mine }

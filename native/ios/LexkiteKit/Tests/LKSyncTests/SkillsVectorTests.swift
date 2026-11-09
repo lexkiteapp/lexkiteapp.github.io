@@ -22,6 +22,16 @@ final class SkillsVectorTests: XCTestCase {
         XCTAssertTrue(r.failures.isEmpty, "\(name): \(r.failures.count) of \(r.checked) failed:\n" + r.failures.joined(separator: "\n"), file: file, line: line)
     }
 
+    /// P06: the reading list opens with real content and a language without a translator reads the English summary, never the Vietnamese one.
+    func testParityP06() throws {
+        let V = try vec(), D = data(V)
+        XCTAssertFalse(D.parts.isEmpty); XCTAssertFalse(D.readings.isEmpty)
+        let ar = ReadingList.build(D, query: [:], remembered: nil, game: .null, learnLang: "ar")
+        XCTAssertEqual(ar.cards.count, D.readings.count)
+        for r in D.readings { let en = r.s("summaryEn"); if !en.isEmpty { XCTAssertEqual(ReadingList.shownSummary(r, learnLang: "ar"), en) } }
+        for r in D.readings { XCTAssertEqual(ReadingList.shownSummary(r, learnLang: "vi"), ReadingList.summary(r, learnLang: "vi").0) }
+    }
+
     // MARK: fixtures
     static var cachedV: JSON?
     func vec() throws -> JSON { if let v = Self.cachedV { return v }; let v = try Vectors.load("skills.json"); Self.cachedV = v; return v }

@@ -261,7 +261,7 @@ struct ReadingListView: View {
                         VStack(alignment: .leading, spacing: LKSpacing.spaceXs) {
                             HStack { Text(verbatim: c.emoji).font(.system(size: 28)).accessibilityHidden(true); Spacer(minLength: 0); StudyChip(text: c.level, tint: LKColor.tertiary) }
                             Text(verbatim: c.title).studyText(LKType.headlineSm).englishText().multilineTextAlignment(.leading).fixedSize(horizontal: false, vertical: true)
-                            Text(verbatim: c.summary).studyText(LKType.bodySm, LKColor.onSurfaceVariant).multilineTextAlignment(.leading).fixedSize(horizontal: false, vertical: true)
+                            Text(verbatim: c.kind == .translate && !c.summaryEn.isEmpty ? c.summaryEn : c.summary).studyText(LKType.bodySm, LKColor.onSurfaceVariant).multilineTextAlignment(.leading).fixedSize(horizontal: false, vertical: true)
                             FlowLayout {
                                 StudyChip(text: t(.todayMinutes, ["n": c.minutes]), icon: "timer")
                                 StudyChip(text: t(.skillReadNCauHoi, ["n": c.questions]))
@@ -324,7 +324,7 @@ struct ReaderView: View {
         VStack(alignment: .leading, spacing: LKSpacing.spaceXs) {
             FlowLayout { StudyChip(text: r.s("level"), tint: LKColor.tertiary); StudyChip(text: r.s("emoji") + " " + r.s("topic")) }
             Text(verbatim: r.s("title")).studyText(LKType.headlineLg).englishText().fixedSize(horizontal: false, vertical: true)
-            Text(verbatim: ReadingList.summary(r, learnLang: model.ctx.lang).0).studyText(LKType.bodyMd, LKColor.onSurfaceVariant).fixedSize(horizontal: false, vertical: true)
+            Text(verbatim: ReadingList.shownSummary(r, learnLang: model.ctx.lang)).studyText(LKType.bodyMd, LKColor.onSurfaceVariant).fixedSize(horizontal: false, vertical: true)
             SkillAction(title: t(model.aloud ? .skillReadDungDoc : .skillReadNgheCaBai), icon: model.aloud ? "stop.fill" : "speaker.wave.2.fill") { model.toggleAloud() }
         }
     }
