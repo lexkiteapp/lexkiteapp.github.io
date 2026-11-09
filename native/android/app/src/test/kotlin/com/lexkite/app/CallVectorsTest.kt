@@ -176,7 +176,7 @@ class CallVectorsTest {
         var clock = now
         val prefs = HashMap<String, String?>().also { m -> for ((k, x) in ls) if (k.startsWith("vb.call.")) m[k.removePrefix("vb.call.")] = x.s() }
         val queue = ArrayList<() -> Unit>()
-        val said = ArrayList<String>(); val reacts = ArrayList<Pair<String, Int>>(); val toasts = ArrayList<Pair<String, String>>(); val phases = ArrayList<String>(); val writes = ArrayList<Pair<String, String>>()
+        val said = ArrayList<String>(); val reacts = ArrayList<Pair<String, Int>>(); val toasts = ArrayList<JsonObject>(); val phases = ArrayList<String>(); val writes = ArrayList<Pair<String, String>>()
         val rewards = ArrayList<JsonElement>(); val hash = ArrayList<String>(); val results = ArrayList<CallResult>(); val recs = ArrayList<H>(); val saved = ArrayList<JsonElement>()
         var session: CallSession? = null; var call: Call = callIn(input)
         inner class H(val o: CallListenOpts, val cb: CallCallbacks) : CallRec { override fun stop() {}; override fun cancel() {} }
@@ -190,8 +190,8 @@ class CallVectorsTest {
         override fun after(ms: Long, f: () -> Unit) { queue.add(f) }
         override fun react(pose: String, ms: Int) { reacts.add(pose to ms) }
         override fun listenPose(on: Boolean) {}
-        override fun toast(t: Tr, ms: Int) { toasts.add("k" to t.k) }
-        override fun toastErr(code: String, ms: Int) { toasts.add("recError" to code) }
+        override fun toast(t: Tr, ms: Int) { toasts.add(t.json() as JsonObject) }
+        override fun toastErr(code: String, ms: Int) { toasts.add(obj("recError" to code)) }
         override fun finished(r: CallResult) { results.add(r); rewards.add(r.reward.json()) }
         override fun hangup() { hash.add("#/call") }
         override fun changed() {}
@@ -226,7 +226,7 @@ class CallVectorsTest {
                     a.containsKey("askPick") -> s!!.pickAsr(a.s("askPick"))
                     a.containsKey("tr") -> s!!.toggleSubtitles()
                     a.containsKey("save") -> { val r = f.results.last(); val cards = e.cards(r.call, r.recap); f.saved.add(J(cards.map { x -> obj("entry" to x.entry, "ctx" to x.ctx, "opts" to obj("silent" to true)) }))
-                        f.toasts.add("k" to Tr("Đã thêm {n} thẻ").k); st["toasts"]?.let { t -> assertEquals("$tag.saved n", t.jsonArray[0].jsonObject.o("v").n("n").toInt(), cards.size) } }
+                        f.toasts.add(Tr("Đã thêm {n} thẻ", mapOf("n" to cards.size)).json() as JsonObject); st["toasts"]?.let { t -> assertEquals("$tag.saved n", t.jsonArray[0].jsonObject.o("v").n("n").toInt(), cards.size) } }
                     a.containsKey("retry") -> { val r = f.results.last(); val base = pack.call(r.call.id) ?: r.call; f.begin(e.retry(base, r.recap.weak)) }
                     else -> error("$tag: unknown action")
                 }
@@ -252,7 +252,7 @@ class CallVectorsTest {
                 st["clock"]?.let { w -> assertEquals("$tag.clock", w.s(), view.cue?.clock) }
                 st["longWords"]?.let { w -> assertEquals("$tag.longWords", w.jsonObject.o("v").n("n").toInt(), view.cue?.longWords) }
                 st["ask"]?.let { w -> check("$tag.ask", w.jsonObject["choices"], view.ask!!.map { ch -> obj("id" to ch.id, "icon" to ch.icon, "k" to ch.label.k) }) }
-                st["toasts"]?.let { w -> check("$tag.toasts", w, f.toasts.drop(mToast).map { t -> if (t.first == "recError") obj("recError" to t.second) else obj("k" to t.second) }) }
+                st["toasts"]?.let { w -> check("$tag.toasts", w, f.toasts.drop(mToast)) }
                 st["rewards"]?.let { w -> check("$tag.rewards", w, f.rewards.drop(mRew)) }
                 st["writes"]?.let { w -> check("$tag.writes", w, f.writes.drop(mWrite).map { obj("key" to it.first, "value" to it.second) }) }
                 st["hash"]?.let { w -> check("$tag.hash", w, f.hash.drop(mHash)) }
