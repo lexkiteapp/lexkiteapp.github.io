@@ -27,6 +27,7 @@ public struct ReadingList: Equatable, Sendable {
     }
     public var tabs: [Tab] = [], cards: [Card] = []
     public var selected: String?
+    public init() {}
     /// the value written to `vb.readLv`
     public var persistedLevel = "all"
 

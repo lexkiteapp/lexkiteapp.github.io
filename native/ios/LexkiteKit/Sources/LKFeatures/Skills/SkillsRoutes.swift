@@ -1,5 +1,6 @@
 import SwiftUI
 import LKStore
+import LKDesign
 
 /// Route wiring of M4 P06 (called from AppShell's InnerScreen and FocusScreen):
 /// pushed #/listening · #/listen/<part> · #/reading · #/read/<id>, full-screen #/listen-test/<n> · #/dictation/<part>.

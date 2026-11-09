@@ -43,8 +43,9 @@ class SkillsEnv(val vocab: VocabEnv, val word: WordEnv, val learnLang: String, p
     /** The dictionary / word-book port of the popup (cards and library index are snapshots taken when the screen opens). */
     suspend fun port(): WordPort {
         val index = runCatching { word.index() }.getOrDefault(emptyMap())
+        val cards0 = word.cards().keys
         return object : WordPort {
-            private var cards = word.cards().keys
+            private var cards = cards0
             override suspend fun quick(w: String) = word.dict().quick(w)
             override suspend fun lookup(w: String, examples: Boolean, image: Boolean) = word.dict().lookup(w, image = image, examples = examples)
             override suspend fun translateVi(s: String) = word.dict().translateVi(s)

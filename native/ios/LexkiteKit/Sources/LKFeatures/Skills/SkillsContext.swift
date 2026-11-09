@@ -19,7 +19,8 @@ final class SkillsContext {
     static var content: SkillsData { SkillsContentStore.current }
     static var sharedLexis: Lexis { SkillsContentStore.lexis }
 
-    init(core: StudyCore, lang: String, data: SkillsData = SkillsContext.content, lexis: Lexis? = nil, defaults: UserDefaults = .standard) {
+    init(core: StudyCore, lang: String, data: SkillsData? = nil, lexis: Lexis? = nil, defaults: UserDefaults = .standard) {
+        let data = data ?? SkillsContext.content
         self.core = core; self.lang = lang; self.data = data; self.lexis = lexis ?? (data.lexis.awl.isEmpty ? Self.sharedLexis : Lexis(data.lexis)); self.defaults = defaults
     }
     func reload() async { bundle = await core.data.load() }

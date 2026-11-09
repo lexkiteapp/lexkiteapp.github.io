@@ -52,7 +52,8 @@ public enum KVoice {
 
 /// One device voice picked for a speaker (web `castVoices`): the voice name (nil = system default), the accent and the pitch that tells speakers apart.
 public struct CastVoice: Equatable, Sendable {
-    public var voice: String?, lang: String, pitch: Double
+    public var voice: String?
+    public var lang: String, pitch: Double
     public init(voice: String?, lang: String, pitch: Double) { self.voice = voice; self.lang = lang; self.pitch = pitch }
 }
 
@@ -91,13 +92,18 @@ public struct ListenHub: Equatable, Sendable {
     public struct Tab: Equatable, Sendable { public var n: Int, done: Bool, selected: Bool }
     public struct Speaker: Equatable, Sendable { public var flag: String, name: String }
     public struct Card: Equatable, Sendable {
-        public var id: String, part: Int, partKey: L10nKey, best: Double?, title: String
+        public var id: String, part: Int, partKey: L10nKey
+        public var best: Double?
+        public var title: String
         /// "titleVi · topic" (Vietnamese UI) or the topic
         public var sub: String
         public var speakers: [Speaker], actions: [String]
     }
     public var empty = true, tabs: [Tab] = []
-    public var selected: Int?, band: Double?, fullTest: String?
+    public var selected: Int?
+    public var band: Double?
+    public var fullTest: String?
+    public init() {}
     public var parts: [Card] = []
     /// the value written to `vb.listenT`
     public var persistedTest = "1"

@@ -85,7 +85,8 @@ public enum Dictation {
         public var percent: Int { Vocab.round(pct * 100) }
         public var ok: Bool { pct >= 0.9 }
         /// gaps: right of total; full: nil
-        public var right: Int?, of: Int?
+        public var right: Int?
+        public var of: Int?
         /// per gap: correct? and the word to show when not
         public var gaps: [(ok: Bool, answer: String)] = []
         public var diff: [(mark: Mark, text: String)] = []
