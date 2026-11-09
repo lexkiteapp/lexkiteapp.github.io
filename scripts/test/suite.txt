@@ -268,6 +268,8 @@ node scripts/content-qa/lkf-check.mjs
 node scripts/test/lkf.mjs
 node scripts/content-qa/grammar-map-check.mjs
 node scripts/target/drill-pack.mjs --check
+node scripts/target/exam-es-check.mjs
+node scripts/test/es-exam.mjs
 node scripts/test/grammar-inventory.mjs
 node scripts/test/explain-let.mjs
 node scripts/content-qa/sense-check.mjs

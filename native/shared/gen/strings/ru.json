@@ -1169,6 +1169,8 @@
   "rev.speakingRoomHint": "Части 1–3, запишите себя, подсчет словарного запаса.",
   "rev.spanishGrammarHint": "Спряжение глаголов и грамматика с объяснениями на вашем языке",
   "rev.speakScoreHint": "Говорите в микрофон и мгновенно получайте баллы",
+  "rev.spanishExam": "Формат DELE/SIELE",
+  "rev.spanishExamHint": "Чтение, аудирование, письмо и говорение по структуре экзамена",
   "skill.listen.moTaTranh": "Фотографии",
   "skill.listen.hoiDap": "Вопрос–ответ",
   "skill.listen.hoiThoai": "Диалоги",

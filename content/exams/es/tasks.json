@@ -1,0 +1,36 @@
+{
+ "_note": "Consigna + rubric TỰ VIẾT (không chép tiêu chí Cervantes). g = các ý khóa (regex không dấu, khớp bản chữ đã bỏ dấu), con = từ nối cần dùng, min = số từ tối thiểu (mục tiêu luyện tập, KHÔNG phải giới hạn chính thức).",
+ "A1": {
+  "con": ["y", "pero", "porque", "tambien", "ademas"],
+  "w": [
+   {"t": "Escribe un correo a un amigo nuevo. Dile cómo te llamas, de dónde eres y qué te gusta hacer.", "min": 25, "g": ["llamo|nombre|soy", "vivo|vengo|de [a-z]+|pais|ciudad", "gusta|encanta|quiero|me divierte"]},
+   {"t": "Describe a tu familia: cuántas personas son, cómo se llaman y qué hacen.", "min": 25, "g": ["somos|hay|tengo|mi (mama|madre|papa|padre|hermano|hermana|abuelo|abuela)", "llama", "trabaj|estudi|hace|es (medico|profesor|estudiante)"]}
+  ],
+  "s": [
+   {"t": "Habla de tu casa: dónde está y cómo es.", "min": 15, "g": ["vivo|casa|apartamento|departamento", "grande|pequen|bonit|cuarto|habitacion|cocina|bano", "cerca|esta en|ciudad|calle|barrio"]},
+   {"t": "Habla de tu día: a qué hora te levantas y qué haces por la tarde.", "min": 15, "g": ["levanto|despierto|desayuno", "trabajo|estudio|voy|clase", "tarde|noche|ceno|como|duermo"]}
+  ]
+ },
+ "A2": {
+  "con": ["pero", "porque", "ademas", "despues", "luego", "entonces", "primero"],
+  "w": [
+   {"t": "Cuenta a un amigo qué hiciste el fin de semana pasado.", "min": 45, "g": ["fui|fuimos|estuve|visite|sali|jugue|comi|vi ", "con |amig|familia|mi (hermano|madre|padre|novi)", "ayer|sabado|domingo|despues|luego|el fin de semana"]},
+   {"t": "Escribe un mensaje para invitar a un amigo a tu fiesta: di cuándo y dónde es y qué van a hacer.", "min": 45, "g": ["fiesta|cumple|invit|celebr", "el (sabado|domingo|viernes)|a las|hora|proximo", "en mi|casa|lugar|restaurante|parque", "vamos a|podemos|hay |habra|bailar|comer|jugar"]}
+  ],
+  "s": [
+   {"t": "Habla de tus vacaciones ideales.", "min": 30, "g": ["viaj|vacaciones|playa|ciudad|montan|pais", "quiero|me gustaria|iria|voy a", "porque|con |hacer|visitar"]},
+   {"t": "Describe a una persona importante para ti.", "min": 30, "g": ["mi (amig|madre|padre|abuel|herman|maestr|profesor)|se llama", "alto|bajo|simpatic|amable|divertid|trabajador|pelo|ojos", "porque|siempre|me gusta|me ayuda"]}
+  ]
+ },
+ "B1": {
+  "con": ["sin embargo", "por eso", "aunque", "ademas", "porque", "por lo tanto", "en cambio", "ya que", "finalmente", "asi que"],
+  "w": [
+   {"t": "Escribe un correo a una escuela de idiomas: explica por qué quieres estudiar allí, cuenta tu experiencia con el español y pregunta por horarios y precios.", "min": 90, "g": ["quiero|me gustaria|necesito", "estudi|aprend|experiencia|hace (un|dos|tres|varios)|anos|meses|nivel", "horario|precio|cuanto|cuesta|clases|matricula", "saludo|atentamente|gracias|estimad|buenos dias|buenas tardes"]},
+   {"t": "Da tu opinión: ¿es mejor vivir en la ciudad o en el campo? Explica tus razones y da algún ejemplo.", "min": 90, "g": ["ciudad", "campo|pueblo|rural", "creo|pienso|opino|en mi opinion|me parece", "porque|razon|ventaja|desventaja|por ejemplo"]}
+  ],
+  "s": [
+   {"t": "Habla de una experiencia que te enseñó algo importante.", "min": 50, "g": ["una vez|cuando|hace |el ano pasado", "aprend|ensen|descubr|me di cuenta|entendi", "porque|entonces|por eso|ahora"]},
+   {"t": "Habla de un problema de tu ciudad y propón una solución.", "min": 50, "g": ["problema|trafico|ruido|contamin|transporte|basura|precio", "deberia|podrian|habria que|hay que|propongo|solucion|se podria", "porque|por eso|creo|pienso|ademas"]}
+  ]
+ }
+}
