@@ -1,7 +1,7 @@
 /* 🧭 Lộ trình MỘT component (khung Stitch path + path-sheet): thu gọn = chặng hiện tại, mở rộng = thêm chặng cùng hình, không có bản thứ hai.
  * Nội dung nút: cpack/lesson/path-nodes.js (tải lười). Chặng có ô truyện rỗng: ẩn nút và tự bỏ qua vị trí đó (bộ đếm đi theo số nút thấy được). */
 (function () {
-  const SLOTS = ['lesson', 'listen', 'speak', 'story', 'review', 'exam'], XS = [52, 96, 64, 104, 56, 92], H = 84, HC = 140, SPAN = 11, RING = 238.76;
+  const SLOTS = ['lesson', 'listen', 'speak', 'story', 'review', 'exam'], XS = [44, 66, 52, 66, 48, 60], H = 84, HC = 184, SPAN = 11, RING = 238.76;
   const unitC = id => ((self.LESSON_PATH_NODES || {}).units || {})[id] || null;
   const slotOf = (c, s) => c.nodes.find(x => x.slot === s) || null;
   const hidden = (u, i) => { const c = unitC(u.id); if (!c || SLOTS[i] !== 'story') return false; const s = slotOf(c, 'story'); return !!s && !s.story; };
@@ -28,7 +28,7 @@
     return { rows, by, ph: { open: String(!!full), more: full ? t('Thu gọn lộ trình') : t('Xem toàn bộ lộ trình →') } };
   }
   const openSheet = async it => { await App.need('psheet'); const go = it.st === 'lock' ? t('Hoàn thành {x} để mở', { x: it.before }) : it.st === 'cur' ? t('Bắt đầu') : t('Ôn lại');
-    const box = UI.modal(ST2['path-sheet']({ over: it.over, title: it.label, sub: it.sub, wordsL: t('Từ sẽ luyện'), exL: t('Ví dụ'), min: it.minT, go, href: it.href, close: t('Đóng'), words: it.words, ex: it.ex }).main.replace(/^<main[^>]*>/, '<div class="st v2 v2-path-sheet">').replace(/<\/main>$/, '</div>'), { v: 'sheet' });
+    const box = UI.modal(ST2['path-sheet']({ over: it.over, title: it.label, sub: it.sub, wordsL: t('Từ sẽ luyện'), exL: t('Ví dụ'), min: it.minT, go, href: it.href, close: t('Đóng'), words: it.words, ex: it.ex }).main.replace(/^<main[^>]*>/, '<div class="v2s-path-sheet"><div class="st v2 v2-path-sheet">').replace(/<\/main>$/, '</div></div>'), { v: 'sheet' });
     const panel = box.querySelector('.v2-path-sheet > div'), secs = [...panel.children], gone = (lst, el) => { if (!lst.length) { const lab = el.previousElementSibling; lab.remove(); el.remove(); } };
     gone(it.words, secs.find(x => x.classList.contains('flex-wrap'))); gone(it.ex, secs.find(x => x.classList.contains('rounded-2xl')));
     box.querySelector('[data-act="pclose"]').addEventListener('click', () => UI.closeModal());

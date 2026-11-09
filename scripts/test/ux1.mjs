@@ -132,8 +132,8 @@ if (V2) {
   ok(/TOEIC · 750/.test(($('#modalBox') || {}).textContent || '') && $('#modalBox a[href="#/lesson?pick=1"]'), 'Hôm nay: Hướng dẫn chặng mở bảng cũ (thẻ kỳ thi, đổi mục tiêu)');
   if (w.UI && w.UI.closeModal) w.UI.closeModal();
   // Bấm nút nào cũng có phản hồi: tấm chi tiết (đang học / đã xong / khoá)
-  const sheetOf = async b => { b.click(); await tick(120); const g = $('#modalBox [data-act="pgo"]'); const out = g && { txt: $('#modalBox').textContent, go: g.textContent, dis: g.disabled, href: g.getAttribute('data-href') }; if (w.UI && w.UI.closeModal) w.UI.closeModal(); await tick(30); return out; };
-  { const cur = await sheetOf(nb('n2')); ok(cur && /Start|Bắt đầu/.test(cur.go) && !cur.dis && cur.href === '#/lesson/go' && /\d/.test(cur.txt), 'tấm chi tiết nút đang học: nội dung + phút + Bắt đầu vào đúng bài');
+  const sheetOf = async b => { b.click(); await tick(120); const g = $('#modalBox [data-act="pgo"]'); const out = g && { scoped: !!$('#modalBox .v2s-path-sheet .v2-path-sheet'), txt: $('#modalBox').textContent, go: g.textContent, dis: g.disabled, href: g.getAttribute('data-href') }; if (w.UI && w.UI.closeModal) w.UI.closeModal(); await tick(30); return out; };
+  { const cur = await sheetOf(nb('n2')); ok(cur && cur.scoped && /Start|Bắt đầu/.test(cur.go) && !cur.dis && cur.href === '#/lesson/go' && /\d/.test(cur.txt), 'tấm chi tiết nút đang học: nội dung + phút + Bắt đầu vào đúng bài');
     const done = await sheetOf(nb('n0')); ok(done && /Practise again|Ôn lại/.test(done.go) && !done.dis && /[?&]redo=0\b/.test(done.href), 'tấm chi tiết nút đã xong: Ôn lại → ?redo=<nút đó>');
     const lk = await sheetOf(nb('n3')); ok(lk && /Finish .+ to unlock|Hoàn thành .+ để mở/.test(lk.go) && lk.dis && !lk.href, 'nút khoá: tấm nói điều kiện "Hoàn thành X để mở", không có đích bấm'); }
   { const xp0 = App.state.game.xp; App.state.game.xp = 5; // đã học (không bị mời kiểm tra trình độ)
@@ -142,6 +142,7 @@ if (V2) {
   await go('#/home', '.v2-today');
   { const px2 = $('.v2-today [data-act="pathx"]'); px2.click(); await tick(30); px2.click(); await tick(30);
     ok(px2.getAttribute('aria-expanded') === 'false' && $$('.v2-today [data-pv] [role="progressbar"]').length === 1 && $$('.v2-today [data-pv] [data-pr]').length === n0, 'Thu gọn lộ trình: về đúng chặng hiện tại'); }
+  ok($$('.v2-today [data-pv] [data-pr] button[aria-haspopup="dialog"]').every(b => parseFloat(b.style.left) + 42 <= 120 - 12), 'nút lộ trình (kể cả vòng 84 px của nút hiện tại) cách cột chữ ≥ 12 px ở mọi vị trí zigzag');
   // Ô truyện rỗng: ẩn nút, tự bỏ qua vị trí đó
   { const PT = w.PathTrail, U = w.LESSON_PATH_NODES.units, id = Object.keys(U).find(k => { const s = U[k].nodes.find(x => x.slot === 'story'); return s && !s.story; }), unitAt = () => ({ id, no: 2, words: [] });
     ok(id && PT.hidden({ id }, 3) && !PT.hidden({ id }, 2) && PT.skip(3, unitAt) === 4 && PT.skip(2, unitAt) === 2, 'chặng có ô truyện rỗng: ẩn đúng nút đó, tiến độ tự bỏ qua vị trí đó'); }
