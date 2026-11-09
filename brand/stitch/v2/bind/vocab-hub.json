@@ -39,8 +39,8 @@
    "autocapitalize": "'none'",
    "spellcheck": "'false'"
   },
-  ":scope > main > div > section:nth-child(3) > div > div:nth-child(1) > button": {
-   "data-href": "d.href"
+  ":scope > main > div > section:nth-child(3) > div > div:nth-child(1) > a": {
+   "href": "d.href"
   },
   ":scope > main > div > section:nth-child(4)": {
    "aria-label": "d.title"
@@ -74,7 +74,7 @@
   ":scope > main > div > section:nth-child(3) > div > div:nth-child(1)": "min-w-0",
   ":scope > main > div > section:nth-child(3) > div > div:nth-child(1) > div": "flex-wrap",
   ":scope > main > div > section:nth-child(3) > div > div:nth-child(1) > div > span:nth-child(2)": "min-w-0 [overflow-wrap:anywhere]",
-  ":scope > main > div > section:nth-child(3) > div > div:nth-child(1) > button": "min-h-[48px] max-w-full",
+  ":scope > main > div > section:nth-child(3) > div > div:nth-child(1) > a": "min-h-[48px] max-w-full",
   ":scope > main > div > section:nth-child(4) > a:nth-child(1)": "min-h-[64px]",
   ":scope > main > div > section:nth-child(4) > a:nth-child(2)": "min-h-[64px]",
   ":scope > main > div > section:nth-child(4) > a:nth-child(3)": "min-h-[64px]",

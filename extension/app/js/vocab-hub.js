@@ -10,7 +10,7 @@
       title: t('Từ vựng'), ph: t('Tra từ…'), tools: t('Tra cứu'),
       count: total ? total.toLocaleString(I18N.lang()) : '', label: total ? t('Thẻ cần ôn hôm nay') : t('Không còn thẻ cần ôn – học từ mới nhé'),
       stats: t('{n} từ · {m} từ đã thuộc', { n: deck.length, m: mastered }), cta: total ? t('Ôn ngay') : t('Học từ mới'),
-      href: total ? '#/review' + (App.ux1On() ? '?hub=1' : '') : '#/path',
+      href: '#/review' + (App.ux1On() ? '?hub=1' : ''),
       teacher: Chars.slot('ama', { pose: total ? 'point' : 'happy', size: 's', lazy: false }),
       r: [row('#/path', t('Lộ trình từ vựng'), t('Từng chặng nhỏ, mở khóa dần theo trình độ')), row(lib, t('Thư viện từ'), t('Bộ từ theo chủ đề, kỳ thi và trình độ')), row('#/deck', t('Sổ từ của tôi'), t('{n} từ · {m} từ đã thuộc', { n: deck.length, m: mastered })), row('#/practice', t('Trò chơi từ vựng'), t('Ghép thẻ, gõ từ, nghe – gõ, trắc nghiệm'))],
       p: [pill('#/verb', t('Chia động từ')), pill('#/usage', t('Cách dùng từ')), pill('#/phrases', t('Cụm từ & cấu trúc'))],

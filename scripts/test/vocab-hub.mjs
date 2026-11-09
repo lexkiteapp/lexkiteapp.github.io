@@ -7,6 +7,6 @@ const run = (due, exam) => { let d; const el = () => { const o = { value: '', on
   vm.runInNewContext(src, c); c.window.App.routes.vocab(); return { d, loc, q, f }; };
 const a = run(18, 'toeic'); assert.equal(a.d.count, '18'); assert.equal(a.d.href, '#/review?hub=1'); assert.equal(a.d.r[1].href, '#/library?g=toeic');
 assert.deepEqual([...a.d.r, ...a.d.p].map(x => x.href.split('?')[0]), ['#/path', '#/library', '#/deck', '#/practice', '#/verb', '#/usage', '#/phrases']);
-const b = run(0, 'ielts'); assert.equal(b.d.count, ''); assert.equal(b.d.href, '#/path'); assert.equal(b.d.r[1].href, '#/library');
+const b = run(0, 'ielts'); assert.equal(b.d.count, ''); assert.equal(b.d.href, '#/review?hub=1'); assert.equal(b.d.r[1].href, '#/library');
 const c = run(1, 'ielts'); c.q.value = ' a/b c '; c.f.on.submit({ preventDefault() {} }); assert.equal(c.loc.hash, '#/dict/a%2Fb%20c'); c.q.on.focus(); assert.ok(c.q.seen, 'ô nhập cuộn vào vùng nhìn thấy khi bàn phím mở');
 console.log('✓ vocab-hub');
