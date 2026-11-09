@@ -248,6 +248,7 @@ struct SpeakDrillView: View {
                 FlowLayout(spacing: 6) {
                     ForEach(Array(d.wordList.enumerated()), id: \.offset) { _, w in word(w, d) }
                 }
+                .environment(\.layoutDirection, .leftToRight)   // the English sentence keeps its word order in the Arabic interface
                 .accessibilityElement(children: .contain)
                 .accessibilityLabel(d.memory ? t(.speakSpCauDaCheNoi) : d.target)
             }

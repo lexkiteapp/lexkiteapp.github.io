@@ -51,6 +51,7 @@ struct SpeakWords: View {
                 .accessibilityElement(children: .combine)
             }
         }
+        .environment(\.layoutDirection, .leftToRight)   // English word order inside the Arabic interface
     }
 }
 
