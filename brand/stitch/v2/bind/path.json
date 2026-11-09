@@ -203,6 +203,12 @@
       ":scope > div:nth-child(3)": {
        "style": "'top:' + r.cy + 'px'"
       }
+     },
+     "cls": {
+      ":scope > button": {
+       "w-16": "'w-[72px]'",
+       "h-16": "'h-[72px]'"
+      }
      }
     }
    }
