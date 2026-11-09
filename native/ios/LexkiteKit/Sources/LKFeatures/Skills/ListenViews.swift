@@ -109,6 +109,8 @@ struct ListenPartView: View {
     let model: ListenPartModel
     /// fixtures: the part is longer than a phone, so the result is shown on its own
     var showResultOnly = false
+    /// fixtures (retake): the questions and the result without the header, player and transcript
+    var questionsAndResult = false
     var onRoute: (AppRoute) -> Void = { _ in }
     @Environment(\.colorScheme) private var scheme
     @Environment(\.l10n) private var t
@@ -120,9 +122,9 @@ struct ListenPartView: View {
                 VStack(alignment: .leading, spacing: LKSpacing.spaceMd) {
                     modeSwitch
                     SkillProgress(value: model.progress)
-                    if !showResultOnly { header; player; questions }
+                    if !showResultOnly { if !questionsAndResult { header; player }; questions }
                     if let o = model.outcome { result(o) }
-                    if !showResultOnly && (!model.exam || model.submitted) { transcript }
+                    if !showResultOnly && !questionsAndResult && (!model.exam || model.submitted) { transcript }
                 }
                 .onChange(of: model.scrollTo) { _, i in if let i { withAnimation { proxy.scrollTo(i, anchor: .center) } } }
             }

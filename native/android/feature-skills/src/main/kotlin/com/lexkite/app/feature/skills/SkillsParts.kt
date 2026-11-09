@@ -15,6 +15,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
@@ -162,4 +164,27 @@ internal fun SwitchRow(label: String, on: Boolean, enabled: Boolean = true, onCh
         androidx.compose.material3.Switch(on, onChange, enabled = enabled, colors = androidx.compose.material3.SwitchDefaults.colors(checkedTrackColor = c.secondary, checkedThumbColor = c.onSecondary, uncheckedTrackColor = c.surfaceContainerHighest,
             uncheckedThumbColor = c.outline, uncheckedBorderColor = c.outline, checkedBorderColor = c.secondary, disabledCheckedTrackColor = c.secondary.copy(alpha = 0.5f), disabledUncheckedTrackColor = c.surfaceContainerHighest))
     }
+}
+
+
+/** One sentence of a passage as tokens (words are [Lexis.Tok], the rest plain text); [hot] = the sentence being read aloud. */
+internal class TokSent(val tokens: List<Any>, val sentence: String, val hot: Boolean = false)
+
+/**
+ * Running text made of tokens: ONE text block so spacing, punctuation and line height are those of a normal paragraph (Stitch `reader`); a word only gets a background when it is
+ * a highlighted category or the active / read-aloud word; every word stays tappable ([onWord] gets the word token and its sentence).
+ */
+@Composable
+internal fun TokenText(sents: List<TokSent>, style: androidx.compose.ui.text.TextStyle, wordStyle: (Lexis.Tok) -> androidx.compose.ui.text.SpanStyle, hotBg: Color, onWord: (Lexis.Tok, String) -> Unit, modifier: Modifier = Modifier) {
+    val flat = ArrayList<Pair<Lexis.Tok, String>>()
+    val text = androidx.compose.ui.text.buildAnnotatedString {
+        for (s in sents) for (tk in s.tokens) {
+            val hot = if (s.hot) androidx.compose.ui.text.SpanStyle(background = hotBg) else androidx.compose.ui.text.SpanStyle()
+            if (tk is Lexis.Tok) { pushStringAnnotation("w", flat.size.toString()); flat.add(tk to s.sentence); withStyle(wordStyle(tk).merge(hot)) { append(tk.text) }; pop() }
+            else withStyle(hot) { append(tk.toString()) }
+        }
+    }
+    var layout by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf<androidx.compose.ui.text.TextLayoutResult?>(null) }
+    Text(text, modifier.pointerInput(text) { detectTapGestures { pos -> layout?.let { l -> val off = l.getOffsetForPosition(pos)
+        text.getStringAnnotations("w", off, off).firstOrNull()?.let { a -> flat.getOrNull(a.item.toInt())?.let { (tk, sent) -> onWord(tk, sent) } } } } }, style = style, onTextLayout = { layout = it })
 }

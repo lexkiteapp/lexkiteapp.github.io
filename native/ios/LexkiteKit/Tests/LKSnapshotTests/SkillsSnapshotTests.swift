@@ -105,7 +105,7 @@ final class SkillsSnapshotTests: XCTestCase {
             let c = self.ctx(lang), p = self.part("t1p2")
             let m = ListenPartModel.fixture(ctx: c, part: p, exam: false)
             m.fixtureSubmit(self.answers(p, 2)); m.startRetake()
-            return ListenPartView(model: m)
+            return ListenPartView(model: m, questionsAndResult: true)
         }
     }
     func testListenPracticeRetakeChecked() async {
@@ -113,7 +113,7 @@ final class SkillsSnapshotTests: XCTestCase {
             let c = self.ctx(lang), p = self.part("t1p2")
             let m = ListenPartModel.fixture(ctx: c, part: p, exam: false)
             m.fixtureSubmit(self.answers(p, 2)); m.startRetake(); m.answers = self.answers(p, 1); m.recheck()
-            return ListenPartView(model: m)
+            return ListenPartView(model: m, questionsAndResult: true)
         }
     }
     func testListenExam() async {

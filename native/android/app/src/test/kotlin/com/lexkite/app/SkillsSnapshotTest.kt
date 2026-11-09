@@ -4,7 +4,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.SemanticsActions
+import androidx.compose.ui.test.hasScrollAction
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.performScrollTo
+import androidx.compose.ui.test.performSemanticsAction
 import androidx.compose.ui.test.onRoot
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.lexkite.app.core.skills.Dictation
@@ -129,6 +134,12 @@ class SkillsSnapshotTest {
     private fun shot(name: String, lang: String, dark: Boolean) {
         val t = Fixtures.t(lang)
         rule.setContent { LKTheme(t, dark, reduceMotion = true) { Box(Modifier.background(LocalLKColors.current.background)) { screen(name, lang) } } }
+        // the long pages are captured at the state they exist for (small frame, like the other shots): the result block, or the retake card
+        when (name) {
+            "result", "readerResult" -> rule.onAllNodes(hasScrollAction())[0].performSemanticsAction(SemanticsActions.ScrollBy) { it(0f, 1_000_000f) }
+            "retake", "retakeChecked" -> rule.onNodeWithTag("skills-retake").performScrollTo()
+        }
+        rule.waitForIdle()
         rule.onRoot().captureRoboImage("src/test/snapshots/skills-$name-$lang-${if (dark) "dark" else "light"}.png")
     }
 
@@ -160,18 +171,18 @@ class SkillsSnapshotTest {
     @Test fun popupMissViLight() = shot("popupMiss", "vi", false)
     @Test fun popupMissArLight() = shot("popupMiss", "ar", false)
     @Test fun popupMissDeDark() = shot("popupMiss", "de", true)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun resultEnLight() = shot("result", "en", false)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun resultViLight() = shot("result", "vi", false)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun resultArLight() = shot("result", "ar", false)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun resultDeDark() = shot("result", "de", true)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun retakeEnLight() = shot("retake", "en", false)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun retakeViLight() = shot("retake", "vi", false)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun retakeArLight() = shot("retake", "ar", false)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun retakeDeDark() = shot("retake", "de", true)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun retakeCheckedEnLight() = shot("retakeChecked", "en", false)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun retakeCheckedViLight() = shot("retakeChecked", "vi", false)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun retakeCheckedArLight() = shot("retakeChecked", "ar", false)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun retakeCheckedDeDark() = shot("retakeChecked", "de", true)
+    @Test fun resultEnLight() = shot("result", "en", false)
+    @Test fun resultViLight() = shot("result", "vi", false)
+    @Test fun resultArLight() = shot("result", "ar", false)
+    @Test fun resultDeDark() = shot("result", "de", true)
+    @Test fun retakeEnLight() = shot("retake", "en", false)
+    @Test fun retakeViLight() = shot("retake", "vi", false)
+    @Test fun retakeArLight() = shot("retake", "ar", false)
+    @Test fun retakeDeDark() = shot("retake", "de", true)
+    @Test fun retakeCheckedEnLight() = shot("retakeChecked", "en", false)
+    @Test fun retakeCheckedViLight() = shot("retakeChecked", "vi", false)
+    @Test fun retakeCheckedArLight() = shot("retakeChecked", "ar", false)
+    @Test fun retakeCheckedDeDark() = shot("retakeChecked", "de", true)
     @Test fun examEnLight() = shot("exam", "en", false)
     @Test fun examViLight() = shot("exam", "vi", false)
     @Test fun examArLight() = shot("exam", "ar", false)
@@ -196,10 +207,10 @@ class SkillsSnapshotTest {
     @Test fun testEndedViLight() = shot("testEnded", "vi", false)
     @Test fun testEndedArLight() = shot("testEnded", "ar", false)
     @Test fun testEndedDeDark() = shot("testEnded", "de", true)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun testResultEnLight() = shot("testResult", "en", false)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun testResultViLight() = shot("testResult", "vi", false)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun testResultArLight() = shot("testResult", "ar", false)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun testResultDeDark() = shot("testResult", "de", true)
+    @Test fun testResultEnLight() = shot("testResult", "en", false)
+    @Test fun testResultViLight() = shot("testResult", "vi", false)
+    @Test fun testResultArLight() = shot("testResult", "ar", false)
+    @Test fun testResultDeDark() = shot("testResult", "de", true)
     @Test fun dictFillEnLight() = shot("dictFill", "en", false)
     @Test fun dictFillViLight() = shot("dictFill", "vi", false)
     @Test fun dictFillArLight() = shot("dictFill", "ar", false)
@@ -228,8 +239,8 @@ class SkillsSnapshotTest {
     @Test fun readerPopupViLight() = shot("readerPopup", "vi", false)
     @Test fun readerPopupArLight() = shot("readerPopup", "ar", false)
     @Test fun readerPopupDeDark() = shot("readerPopup", "de", true)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun readerResultEnLight() = shot("readerResult", "en", false)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun readerResultViLight() = shot("readerResult", "vi", false)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun readerResultArLight() = shot("readerResult", "ar", false)
-    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun readerResultDeDark() = shot("readerResult", "de", true)
+    @Test fun readerResultEnLight() = shot("readerResult", "en", false)
+    @Test fun readerResultViLight() = shot("readerResult", "vi", false)
+    @Test fun readerResultArLight() = shot("readerResult", "ar", false)
+    @Test fun readerResultDeDark() = shot("readerResult", "de", true)
 }

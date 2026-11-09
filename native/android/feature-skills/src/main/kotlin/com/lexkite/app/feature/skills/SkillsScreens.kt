@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.platform.testTag
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -168,9 +169,7 @@ internal fun Transcript(ui: ListenUi, a: ListenActions) {
             Column(Modifier.fillMaxWidth().clip(androidx.compose.foundation.shape.RoundedCornerShape(16.dp)).background(if (on) c.secondaryContainer else c.surfaceContainerHighest).clickable(enabled = show) { a.line(r.line.i) }.heightIn(min = 44.dp).padding(LKSpacing.spaceXs)) {
                 if (r.line.say != null) { if (show) EnLtr { Muted(r.line.say.orEmpty()) } else Muted("• • • • •") } else {
                     Muted(ui.page.part.speakerName(r.line.s))
-                    if (!show) Muted("• • • • •") else EnLtr { Flow { for (tk in r.tokens.orEmpty()) {
-                        if (tk is Lexis.Tok) Text(tk.text, Modifier.heightIn(min = 32.dp).clickable { a.word(tk.w, sent) }.padding(horizontal = 2.dp), style = LKType.bodyMd.toCompose(), color = if ("awl" in tk.cls) c.secondary else c.onSurface)
-                        else Text(tk.toString(), style = LKType.bodyMd.toCompose(), color = c.onSurface) } } }
+                    if (!show) Muted("• • • • •") else EnLtr { TokenText(listOf(TokSent(r.tokens.orEmpty(), sent)), LKType.bodyMd.toCompose().copy(color = c.onSurface), { tk -> androidx.compose.ui.text.SpanStyle(color = if ("awl" in tk.cls) c.secondary else c.onSurface) }, c.secondaryContainer, { tk, snt -> a.word(tk.w, snt) }) }
                     if (r.ev.isNotEmpty()) Flow { for (e in r.ev) Tag(t(L10nKey.usageQ, mapOf("n" to e.toString()))) }
                 }
             }
@@ -193,8 +192,8 @@ fun ListenScreen(ui: ListenUi, a: ListenActions) {
         PlayerBar(ui, a)
         if (!pg.exam || s != null) Transcript(ui, a)
         val shown = if (ui.retake) ui.recheck else s?.res
-        if (s != null && ui.retake) LKCard { Flow { if (ui.recheck == null) LKPrimaryButton(t(L10nKey.actionCheck), a.recheck) else Body(t(L10nKey.skillQeLamLaiDungRight, mapOf("right" to ui.recheck.values.count { it.ok }, "total" to ui.recheck.size)), style = LKType.titlePill)
-            GhostButton(t(L10nKey.skillQeHienTatCaCau), a.showAll) } }
+        if (s != null && ui.retake) Box(Modifier.testTag("skills-retake")) { LKCard { Flow { if (ui.recheck == null) LKPrimaryButton(t(L10nKey.actionCheck), a.recheck) else Body(t(L10nKey.skillQeLamLaiDungRight, mapOf("right" to ui.recheck.values.count { it.ok }, "total" to ui.recheck.size)), style = LKType.titlePill)
+            GhostButton(t(L10nKey.skillQeHienTatCaCau), a.showAll) } } }
         QuestionGroups(p, ui.answers, shown, pg.tipsOn, a.answer, a.hear, if (ui.retake && !ui.showAll && s != null) s.res.filterValues { it.ok }.keys else emptySet())
         if (s != null && !ui.retake) StatsCard(s.res.values, a.retake)
         if (s != null) {
@@ -369,12 +368,14 @@ fun ReaderScreen(ui: ReaderUi, a: ReaderActions) {
         Muted(t(L10nKey.skillReadToSang))
         Flow { for ((k, key) in listOf("kw" to L10nKey.skillReadTuKhoa, "awl" to L10nKey.skillReadHocThuatAwl, "link" to L10nKey.skillReadTuNoiCum, "mine" to L10nKey.skillReadTuCuaToi)) Chip(t(key) + " ${ui.passage.counts[k]}", k in ui.on, { a.toggle(k) }) }
         LKCard(fill = c.surfaceContainerHighest) {
-            for ((pi, para) in ui.passage.paras.withIndex()) EnLtr { Flow { for ((si, s) in para.withIndex()) { val hot = ui.passage.paras.take(pi).sumOf { it.size } + si == ui.reading; val sent = ui.passage.sentenceText(s).replace(Regex("\\s+"), " ").trim(); for (tk in s) {
-                if (tk is Lexis.Tok) { val cls = tk.cls.split(' ').filter { it in ui.on }
-                    Text(tk.text, Modifier.heightIn(min = 32.dp).clickable { a.word(tk.w, sent) }.background(when { hot -> c.secondaryContainer; ui.active == tk.w -> c.secondaryContainer; "mine" in cls -> c.surfaceContainerHighest; else -> c.card }).padding(horizontal = 2.dp)
-                        .let { m -> if (cls.isEmpty()) m else m.background(c.tertiaryContainer.copy(alpha = if ("kw" in cls) 0.55f else 0.25f)) },
-                        style = LKType.bodyLg.toCompose(), color = if ("awl" in cls) c.secondary else c.onSurface, textDecoration = if ("link" in cls || "col" in cls) androidx.compose.ui.text.style.TextDecoration.Underline else null)
-                } else Text(tk.toString(), Modifier.let { if (hot) it.background(c.secondaryContainer) else it }, style = LKType.bodyLg.toCompose(), color = c.onSurface) } } } }
+            for ((pi, para) in ui.passage.paras.withIndex()) EnLtr {
+                TokenText(para.mapIndexed { si, s -> TokSent(s, ui.passage.sentenceText(s).replace(Regex("\\s+"), " ").trim(), hot = ui.passage.paras.take(pi).sumOf { it.size } + si == ui.reading) },
+                    LKType.bodyLg.toCompose().copy(color = c.onSurface),
+                    { tk -> val cls = tk.cls.split(' ').filter { it in ui.on }
+                        androidx.compose.ui.text.SpanStyle(color = if ("awl" in cls) c.secondary else c.onSurface,
+                            background = when { ui.active == tk.w -> c.secondaryContainer; "kw" in cls -> c.tertiaryContainer.copy(alpha = 0.55f); cls.isNotEmpty() && "mine" !in cls -> c.tertiaryContainer.copy(alpha = 0.25f); "mine" in cls -> c.surfaceContainerHighest; else -> androidx.compose.ui.graphics.Color.Unspecified },
+                            textDecoration = if ("link" in cls || "col" in cls) androidx.compose.ui.text.style.TextDecoration.Underline else null) },
+                    c.secondaryContainer, { tk, snt -> a.word(tk.w, snt) }) }
             Muted(t(L10nKey.skillReadChamVaoTuDe))
         }
         LKCard {
