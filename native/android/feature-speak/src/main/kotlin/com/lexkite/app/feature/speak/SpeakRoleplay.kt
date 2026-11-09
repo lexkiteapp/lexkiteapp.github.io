@@ -123,9 +123,9 @@ fun RoleplayResultScreen(ui: RpResultUi, a: RpActions) {
         if (r == null) { Body(trs(Tr("Bạn chưa trả lời câu nào – hãy thử lại nhé.")), style = LKType.titlePill); return@StudyPage }
         LKCard {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.CenterVertically) {
-                Box(Modifier.size(72.dp), contentAlignment = Alignment.Center) { androidx.compose.material3.CircularProgressIndicator(progress = { r.ring / 100f }, Modifier.size(72.dp), color = c.primary, trackColor = c.cardHigh, strokeWidth = 8.dp); Body(r.ring.toString(), style = LKType.headlineSm) }
+                Box(Modifier.size(72.dp), contentAlignment = Alignment.Center) { androidx.compose.material3.CircularProgressIndicator(progress = { r.ring / 100f }, Modifier.size(72.dp), color = c.primary, trackColor = c.surfaceContainerHighest, strokeWidth = 8.dp); Body(r.ring.toString(), style = LKType.headlineSm) }
                 Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(LKSpacing.space2xs)) { for ((label, v) in r.meters) { Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) { Muted(trs(label)); Body("$v", style = LKType.labelMetric) }
-                    Box(Modifier.fillMaxWidth().height(8.dp).clip(RoundedCornerShape(50)).background(c.cardHigh)) { Box(Modifier.fillMaxWidth(v / 100f).height(8.dp).clip(RoundedCornerShape(50)).background(c.secondary)) } } }
+                    Box(Modifier.fillMaxWidth().height(8.dp).clip(RoundedCornerShape(50)).background(c.surfaceContainerHighest)) { Box(Modifier.fillMaxWidth(v / 100f).height(8.dp).clip(RoundedCornerShape(50)).background(c.secondary)) } } }
             }
             if (r.scores.summary.isNotEmpty()) Body(r.scores.summary)
             Muted(trs(r.source) + " · +${r.xp} XP")

@@ -89,7 +89,7 @@ fun PronHubScreen(ui: PronHubUi, done: Map<String, Int>, a: PronHubActions) {
         if (h == null || h.groups.isEmpty()) { EmptyState("🔤", trs(Tr("Đang cập nhật bài học…"))); return@StudyPage }
         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
             Box(Modifier.size(72.dp).semantics { contentDescription = h.ringLabel }, contentAlignment = Alignment.Center) {
-                CircularProgressIndicator(progress = { (h.ring / 100.0).toFloat() }, Modifier.size(72.dp), color = c.success, trackColor = c.cardHigh, strokeWidth = 8.dp)
+                CircularProgressIndicator(progress = { (h.ring / 100.0).toFloat() }, Modifier.size(72.dp), color = c.success, trackColor = c.surfaceContainerHighest, strokeWidth = 8.dp)
                 Text(h.ringLabel, color = c.onSurface, style = LKType.labelMetric.toCompose())
             }
             Muted(trs(Tr("Ô viền xám nhạt = phụ âm vô thanh · Mỗi bài: khẩu hình → nghe mẫu → phân biệt cặp từ → nói & chấm điểm.")), Modifier.weight(1f))

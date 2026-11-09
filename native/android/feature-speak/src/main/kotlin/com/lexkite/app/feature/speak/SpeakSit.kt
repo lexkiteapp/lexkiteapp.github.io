@@ -86,7 +86,7 @@ fun SpeakSituationScreen(ui: SitUi, a: SitActions) {
         }
         LKCard {
             Body(h.mastered, style = LKType.headlineSm); Muted(trs(h.masteredSub)); Muted(trs(h.remain)); Muted(trs(h.week))
-            Box(Modifier.fillMaxWidth().height(8.dp).clip(RoundedCornerShape(50)).background(c.cardHigh)) { Box(Modifier.fillMaxWidth(h.pct / 100f).height(8.dp).clip(RoundedCornerShape(50)).background(c.primary)) }
+            Box(Modifier.fillMaxWidth().height(8.dp).clip(RoundedCornerShape(50)).background(c.surfaceContainerHighest)) { Box(Modifier.fillMaxWidth(h.pct / 100f).height(8.dp).clip(RoundedCornerShape(50)).background(c.primary)) }
         }
         if (h.addon.isNotEmpty()) LKCard { Body(trs(Tr("Từ vựng nên dùng")), style = LKType.titlePill); Flow { for (w in h.addon) Tag(w.w + if (w.ipa.isNotEmpty()) "  " + w.ipa else "") } }
         if (h.culture.isNotEmpty()) LKCard(onClick = a.culture, label = trs(Tr("Văn hóa"))) { Body("ℹ️ " + trs(Tr("Văn hóa")), style = LKType.titlePill); Muted(h.culture) }

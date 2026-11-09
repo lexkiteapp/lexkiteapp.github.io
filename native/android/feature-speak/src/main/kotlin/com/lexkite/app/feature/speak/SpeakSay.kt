@@ -63,7 +63,7 @@ fun SayListScreen(ui: SayListUi, a: SayActions2) {
                 Box(Modifier.size(64.dp)) { LocalSpeakSlots.current.teacher(r.series.teacher, r.firstCard.pose, Modifier.size(64.dp)) }
                 Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     EnLtr { Body(r.series.title, style = LKType.titlePill, maxLines = 1) }; Muted(trs(r.progress))
-                    Box(Modifier.fillMaxWidth(0.7f).height(5.dp).clip(RoundedCornerShape(50)).background(c.cardHigh)) { Box(Modifier.fillMaxWidth(r.pct / 100f).height(5.dp).clip(RoundedCornerShape(50)).background(c.primary)) }
+                    Box(Modifier.fillMaxWidth(0.7f).height(5.dp).clip(RoundedCornerShape(50)).background(c.surfaceContainerHighest)) { Box(Modifier.fillMaxWidth(r.pct / 100f).height(5.dp).clip(RoundedCornerShape(50)).background(c.primary)) }
                 }
                 Body(if (androidx.compose.ui.platform.LocalLayoutDirection.current == androidx.compose.ui.unit.LayoutDirection.Rtl) "‹" else "›", color = c.primary, style = LKType.headlineSm)
             }

@@ -142,7 +142,7 @@ fun RtypeHubScreen(ui: RtypeHubUi, a: RtypeActions) {
         for (k in ui.cards) LKCard(onClick = { a.open("rtype/${k.kind.id}") }, label = trs(k.kind.title)) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) { androidx.compose.material3.Text(k.kind.emoji, style = LKType.headlineMd.toCompose()); Tag(trs(k.chip), if (k.reached) c.success else c.secondary) }
             Body(trs(k.kind.title), style = LKType.titlePill); Muted(trs(k.size))
-            Box(Modifier.fillMaxWidth().height(8.dp).clip(RoundedCornerShape(50)).background(c.cardHigh)) { Box(Modifier.fillMaxWidth(k.bar / 100f).height(8.dp).clip(RoundedCornerShape(50)).background(if (k.reached) c.success else c.primary)) }
+            Box(Modifier.fillMaxWidth().height(8.dp).clip(RoundedCornerShape(50)).background(c.surfaceContainerHighest)) { Box(Modifier.fillMaxWidth(k.bar / 100f).height(8.dp).clip(RoundedCornerShape(50)).background(if (k.reached) c.success else c.primary)) }
             Muted((if (k.reached) "✅ " else "") + trs(k.note))
         }
     }
