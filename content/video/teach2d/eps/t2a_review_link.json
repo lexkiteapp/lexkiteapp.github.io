@@ -72,5 +72,46 @@
   "words": 37,
   "seconds": 23.3,
   "wpm": 95
+ },
+ "publish": {
+  "title": "What does \"link\" mean?",
+  "keyword": "link",
+  "value": "Link means a connection.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=link",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"link\" mean?",
+    "description": "Link means a connection.\n\nReview your words, free: https://lexkite.com/app/#/review?w=link\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "link",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"link\" mean?\n\nLink means a connection.\n\nReview your words, free: https://lexkite.com/app/#/review?w=link"
+   },
+   "instagram": {
+    "caption": "What does \"link\" mean?\n\nLink means a connection.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"link\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a connection. Link means a connection. Try the full lesson and quiz here: {link}"
  }
 }

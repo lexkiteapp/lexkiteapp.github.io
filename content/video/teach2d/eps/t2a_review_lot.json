@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"lot\" mean?",
+  "keyword": "lot",
+  "value": "Lot means a large number or amount (a lot of).",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=lot",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"lot\" mean?",
+    "description": "Lot means a large number or amount (a lot of).\n\nReview your words, free: https://lexkite.com/app/#/review?w=lot\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "lot",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"lot\" mean?\n\nLot means a large number or amount (a lot of).\n\nReview your words, free: https://lexkite.com/app/#/review?w=lot"
+   },
+   "instagram": {
+    "caption": "What does \"lot\" mean?\n\nLot means a large number or amount (a lot of).\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"lot\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a large number or amount (a lot of). Lot means a large number or amount (a lot of). Practice it with a free quiz: {link}"
  }
 }

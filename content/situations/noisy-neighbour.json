@@ -1,0 +1,898 @@
+{
+ "id": "noisy-neighbour",
+ "group": "housing",
+ "cefr": "B1",
+ "title": {
+  "en": "Noisy neighbour",
+  "vi": "Hàng xóm ồn ào",
+  "es": "Vecino ruidoso",
+  "pt": "Vizinho barulhento",
+  "fr": "Voisin bruyant",
+  "de": "Laute Nachbarn",
+  "id": "Tetangga berisik",
+  "th": "เพื่อนบ้านเสียงดัง",
+  "zh": "吵闹的邻居",
+  "ja": "うるさい隣人",
+  "ko": "시끄러운 이웃",
+  "hi": "शोर करने वाला पड़ोसी",
+  "ar": "الجار المزعج",
+  "ru": "Шумный сосед",
+  "tr": "Gürültücü komşu"
+ },
+ "goal": {
+  "en": "Ask your neighbour to turn it down, politely but clearly!",
+  "vi": "Nhờ hàng xóm bớt ồn, lịch sự nhưng rõ ràng!",
+  "es": "¡Pide a tu vecino que baje el ruido, con educación pero con claridad!",
+  "pt": "Peça ao vizinho para diminuir o barulho, com educação e clareza!",
+  "fr": "Demandez à votre voisin de faire moins de bruit, poliment mais clairement !",
+  "de": "Bitte deinen Nachbarn höflich, aber deutlich, leiser zu sein!",
+  "id": "Mintalah tetangga mengecilkan suara, dengan sopan tetapi jelas!",
+  "th": "ขอให้เพื่อนบ้านเบาเสียงลง อย่างสุภาพแต่ชัดเจน!",
+  "zh": "礼貌而清楚地请邻居小声一点！",
+  "ja": "隣人に、丁寧かつはっきりと音を下げてもらおう！",
+  "ko": "이웃에게 정중하지만 분명하게 소리를 줄여 달라고 해요!",
+  "hi": "पड़ोसी से शिष्टता से, पर साफ़ शब्दों में, आवाज़ कम करने को कहें!",
+  "ar": "اطلب من جارك خفض الصوت بأدب ووضوح!",
+  "ru": "Вежливо, но ясно попроси соседа сделать потише!",
+  "tr": "Komşundan nazik ama net biçimde sesi kısmasını iste!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "approach",
+   "title": {
+    "en": "Start gently",
+    "vi": "Mở lời nhẹ nhàng",
+    "es": "Empieza con tacto",
+    "pt": "Comece com delicadeza",
+    "fr": "Entrez en matière avec tact",
+    "de": "Behutsam anfangen",
+    "id": "Mulai dengan halus",
+    "th": "เริ่มอย่างนุ่มนวล",
+    "zh": "委婉开口",
+    "ja": "やんわり切り出す",
+    "ko": "부드럽게 시작하기",
+    "hi": "नरमी से शुरू करें",
+    "ar": "ابدأ بلطف",
+    "ru": "Начни мягко",
+    "tr": "Nazikçe başla"
+   },
+   "lines": [
+    "n1",
+    "n2",
+    "n3",
+    "n4"
+   ]
+  },
+  {
+   "id": "request",
+   "title": {
+    "en": "Make the request",
+    "vi": "Đưa ra yêu cầu",
+    "es": "Haz la petición",
+    "pt": "Faça o pedido",
+    "fr": "Formulez la demande",
+    "de": "Die Bitte äußern",
+    "id": "Sampaikan permintaan",
+    "th": "ขอร้อง",
+    "zh": "提出请求",
+    "ja": "お願いする",
+    "ko": "부탁하기",
+    "hi": "अनुरोध करें",
+    "ar": "قدّم طلبك",
+    "ru": "Выскажи просьбу",
+    "tr": "Ricada bulun"
+   },
+   "lines": [
+    "r1",
+    "r2",
+    "r3",
+    "r4"
+   ]
+  },
+  {
+   "id": "agree",
+   "title": {
+    "en": "Agree a solution",
+    "vi": "Thống nhất giải pháp",
+    "es": "Acordar una solución",
+    "pt": "Combinar uma solução",
+    "fr": "Convenir d'une solution",
+    "de": "Eine Lösung vereinbaren",
+    "id": "Sepakati solusi",
+    "th": "ตกลงทางออก",
+    "zh": "商定解决办法",
+    "ja": "解決策で合意する",
+    "ko": "해결책 합의하기",
+    "hi": "समाधान पर सहमति",
+    "ar": "الاتفاق على حل",
+    "ru": "Договориться о решении",
+    "tr": "Çözümde anlaş"
+   },
+   "lines": [
+    "g1",
+    "g2",
+    "g3",
+    "g4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "n1",
+   "who": "customer",
+   "en": "Sorry to bother you. Do you have a minute?",
+   "variants": {
+    "polite": "I'm sorry to disturb you. Would you have a moment to talk?",
+    "casual": "Hi, got a sec?"
+   },
+   "gloss": {
+    "en": "Sorry to bother you. Do you have a minute?",
+    "vi": "Xin lỗi đã làm phiền. Anh/chị có một phút không ạ?",
+    "es": "Perdone la molestia. ¿Tiene un minuto?",
+    "pt": "Desculpe incomodar. Você tem um minuto?",
+    "fr": "Désolée de vous déranger. Vous avez une minute ?",
+    "de": "Entschuldigen Sie die Störung. Haben Sie kurz Zeit?",
+    "id": "Maaf mengganggu. Apakah Anda punya waktu sebentar?",
+    "th": "ขอโทษที่รบกวนนะคะ มีเวลาสักครู่ไหมคะ",
+    "zh": "不好意思打扰一下，您有时间吗？",
+    "ja": "お邪魔してすみません。少しお時間よろしいですか？",
+    "ko": "방해해서 죄송해요. 잠깐 시간 괜찮으세요?",
+    "hi": "परेशान करने के लिए माफ़ कीजिए। क्या आपके पास एक मिनट है?",
+    "ar": "أعتذر عن الإزعاج. هل لديك دقيقة؟",
+    "ru": "Извините за беспокойство. У вас найдётся минутка?",
+    "tr": "Rahatsız ettiğim için üzgünüm. Bir dakikanız var mı?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "n2",
+   "who": "barista",
+   "en": "Of course. Is everything all right?",
+   "variants": {
+    "polite": "Certainly. Is something the matter?",
+    "casual": "Sure, what's up?"
+   },
+   "gloss": {
+    "en": "Of course. Is everything all right?",
+    "vi": "Dĩ nhiên rồi. Có chuyện gì không ổn à?",
+    "es": "Claro. ¿Va todo bien?",
+    "pt": "Claro. Está tudo bem?",
+    "fr": "Bien sûr. Tout va bien ?",
+    "de": "Natürlich. Ist alles in Ordnung?",
+    "id": "Tentu. Apakah semuanya baik-baik saja?",
+    "th": "ได้เลยครับ มีอะไรหรือเปล่าครับ",
+    "zh": "当然可以。出什么事了吗？",
+    "ja": "もちろんです。何かありましたか？",
+    "ko": "그럼요. 무슨 일 있으세요?",
+    "hi": "बिल्कुल। सब ठीक तो है?",
+    "ar": "بالطبع. هل كل شيء على ما يرام؟",
+    "ru": "Конечно. Всё в порядке?",
+    "tr": "Tabii. Her şey yolunda mı?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "n3",
+   "who": "customer",
+   "en": "I live in the flat below, and I've noticed loud music at night.",
+   "variants": {
+    "polite": "I live in the flat directly below yours, and I've noticed the music is quite loud at night.",
+    "casual": "I'm downstairs, and your music's really loud at night."
+   },
+   "gloss": {
+    "en": "I live in the flat below, and I've noticed loud music at night.",
+    "vi": "Tôi sống ở căn hộ ngay bên dưới, và tôi thấy ban đêm nhạc khá to.",
+    "es": "Vivo en el piso de abajo y he notado música alta por la noche.",
+    "pt": "Moro no apartamento de baixo e tenho notado música alta à noite.",
+    "fr": "J'habite l'appartement du dessous et j'ai remarqué de la musique forte la nuit.",
+    "de": "Ich wohne in der Wohnung darunter und habe nachts laute Musik bemerkt.",
+    "id": "Saya tinggal di apartemen di bawah, dan saya perhatikan ada musik keras di malam hari.",
+    "th": "ฉันอยู่ห้องชั้นล่าง และสังเกตว่าตอนกลางคืนมีเสียงเพลงดังค่ะ",
+    "zh": "我住在楼下，发现晚上音乐声很大。",
+    "ja": "下の階に住んでいるのですが、夜に音楽が大きく聞こえるんです。",
+    "ko": "저는 아래층에 사는데, 밤에 음악 소리가 크게 들려요.",
+    "hi": "मेरा फ़्लैट आपके ठीक नीचे है, और मैंने रात में तेज़ संगीत सुना है।",
+    "ar": "أسكن في الشقة التي تحتكم، وقد لاحظت أن الموسيقى عالية في الليل.",
+    "ru": "Моя квартира прямо под вашей, и по ночам здесь слышна громкая музыка.",
+    "tr": "Alt kattaki dairede oturuyorum ve geceleri müziğin yüksek olduğunu fark ettim."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "music",
+     "ipa": "/ˈmjuː.zɪk/",
+     "hi": "MYOO",
+     "note": {
+      "en": "Stress the first syllable: MYOO-zik, and the 's' sounds like 'z'.",
+      "vi": "Nhấn âm đầu: MIU-zik; chữ ‘s’ đọc như ‘z’.",
+      "es": "Acentúa la primera sílaba: MIU-zik, con la ‘s’ sonora como una ‘z’.",
+      "pt": "Acentue a primeira sílaba: MIÚ-zik, com o ‘s’ soando como ‘z’.",
+      "fr": "Accentuez la première syllabe : MYOU-zik, avec un « s » sonore comme « z ».",
+      "de": "Betone die erste Silbe: MJU-sik, mit weichem, stimmhaftem „s“.",
+      "id": "Tekankan suku kata pertama: MYU-zik, huruf ‘s’ dibaca seperti ‘z’.",
+      "th": "เน้นพยางค์แรก: มิว-ซิก โดย s ออกเสียงเหมือน z",
+      "zh": "重音在第一个音节：MYOO-zik，s 读作 z 的音。",
+      "ja": "最初の音節を強く：ミュー・ジック。sはzの音になります。",
+      "ko": "첫 음절에 강세: 뮤-직. s는 z처럼 소리 나요.",
+      "hi": "पहले अक्षर पर ज़ोर: म्यू-ज़िक, ‘s’ की आवाज़ ‘ज़’ जैसी।",
+      "ar": "شدّد على المقطع الأول: ميو-زِك، وحرف s يُنطق مثل z.",
+      "ru": "Ударение на первый слог: МЬЮ-зик, «s» звучит как «з».",
+      "tr": "Vurgu ilk hecede: MYU-zik, s harfi z gibi okunur."
+     }
+    }
+   ]
+  },
+  {
+   "id": "n4",
+   "who": "customer",
+   "en": "I don't want to cause trouble, but it's affecting my sleep.",
+   "variants": {
+    "polite": "I don't wish to cause any problems, but it has been affecting my sleep.",
+    "casual": "No offence, but I can't sleep with it on."
+   },
+   "gloss": {
+    "en": "I don't want to cause trouble, but it's affecting my sleep.",
+    "vi": "Tôi không muốn gây rắc rối, nhưng nó đang ảnh hưởng đến giấc ngủ của tôi.",
+    "es": "No quiero causar problemas, pero me está afectando el sueño.",
+    "pt": "Não quero causar problemas, mas isso está afetando meu sono.",
+    "fr": "Je ne veux pas faire d'histoires, mais cela perturbe mon sommeil.",
+    "de": "Ich möchte keinen Ärger machen, aber es beeinträchtigt meinen Schlaf.",
+    "id": "Saya tidak ingin membuat masalah, tetapi ini mengganggu tidur saya.",
+    "th": "ไม่อยากสร้างปัญหานะคะ แต่มันกระทบการนอนของฉันค่ะ",
+    "zh": "我不想惹麻烦，但这影响了我的睡眠。",
+    "ja": "事を荒立てたくはないのですが、睡眠に影響が出ていて。",
+    "ko": "문제를 만들고 싶진 않지만, 잠을 방해받고 있어요.",
+    "hi": "मेरी मंशा परेशानी खड़ी करने की नहीं है, लेकिन इससे मेरी नींद पर असर पड़ रहा है।",
+    "ar": "لا أريد أن أسبب مشكلة، لكنّ الأمر يؤثر في نومي.",
+    "ru": "Не хочу создавать проблем, но это мешает мне спать.",
+    "tr": "Sorun çıkarmak istemem ama bu uykumu etkiliyor."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "affecting",
+     "ipa": "/əˈfek.tɪŋ/",
+     "hi": "FEK",
+     "note": {
+      "en": "Stress the middle: uh-FEK-ting. 'Affect' is a verb; 'effect' is a noun.",
+      "vi": "Nhấn âm giữa: ờ-FEK-ting. “Affect” là động từ, “effect” là danh từ.",
+      "es": "Acentúa la sílaba del medio: uh-FEK-ting. “Affect” es verbo y “effect” es sustantivo.",
+      "pt": "Acentue a sílaba do meio: uh-FEK-ting. “Affect” é verbo e “effect” é substantivo.",
+      "fr": "Accentuez la syllabe du milieu : euh-FEK-ting. « Affect » est un verbe, « effect » un nom.",
+      "de": "Betone die mittlere Silbe: e-FEK-ting. „Affect“ ist ein Verb, „effect“ ein Nomen.",
+      "id": "Tekankan suku kata tengah: uh-FEK-ting. “Affect” kata kerja, “effect” kata benda.",
+      "th": "เน้นพยางค์กลาง: อะ-เฟค-ติง affect เป็นกริยา effect เป็นคำนาม",
+      "zh": "重音在中间：uh-FEK-ting。affect 是动词，effect 是名词。",
+      "ja": "真ん中を強く：ア・フェク・ティング。affectは動詞、effectは名詞です。",
+      "ko": "가운데 음절에 강세: 어-펙-팅. affect는 동사, effect는 명사예요.",
+      "hi": "बीच के अक्षर पर ज़ोर: अ-फ़ेक-टिंग। affect क्रिया है, effect संज्ञा।",
+      "ar": "شدّد على المقطع الأوسط: أ-فِكت-ينغ. affect فعل وeffect اسم.",
+      "ru": "Ударение на средний слог: э-ФЕК-тинг. Affect — глагол, effect — существительное.",
+      "tr": "Vurgu ortadaki hecede: ı-FEK-ting. Affect fiildir, effect isimdir."
+     }
+    }
+   ]
+  },
+  {
+   "id": "r1",
+   "who": "customer",
+   "en": "Would you mind turning it down after ten o'clock?",
+   "variants": {
+    "polite": "Would it be possible to keep the volume down after ten o'clock?",
+    "casual": "Could you turn it down after ten?"
+   },
+   "gloss": {
+    "en": "Would you mind turning it down after ten o'clock?",
+    "vi": "Anh/chị có phiền vặn nhỏ lại sau mười giờ tối không ạ?",
+    "es": "¿Le importaría bajar el volumen después de las diez?",
+    "pt": "Você se importaria de abaixar o volume depois das dez?",
+    "fr": "Cela vous dérangerait de baisser le son après dix heures ?",
+    "de": "Würde es Ihnen etwas ausmachen, es nach zehn Uhr leiser zu stellen?",
+    "id": "Apakah Anda keberatan mengecilkannya setelah jam sepuluh?",
+    "th": "รบกวนช่วยเบาเสียงลงหลังสี่ทุ่มได้ไหมคะ",
+    "zh": "十点以后能请您把声音调小一点吗？",
+    "ja": "10時以降は音量を下げていただけませんか？",
+    "ko": "10시 이후에는 소리를 좀 줄여 주시겠어요?",
+    "hi": "क्या आप दस बजे के बाद आवाज़ कम कर सकेंगे?",
+    "ar": "هل تمانع في خفض الصوت بعد الساعة العاشرة؟",
+    "ru": "Не могли бы вы убавлять звук после десяти часов?",
+    "tr": "Saat ondan sonra sesi kısmanızın bir sakıncası var mı?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "r2",
+   "who": "barista",
+   "en": "I had no idea it was that loud. I'm so sorry.",
+   "variants": {
+    "polite": "I honestly didn't realise it carried that far. I do apologise.",
+    "casual": "Oh no, I didn't know! Sorry."
+   },
+   "gloss": {
+    "en": "I had no idea it was that loud. I'm so sorry.",
+    "vi": "Tôi không hề biết nó ồn đến vậy. Tôi xin lỗi nhiều.",
+    "es": "No tenía ni idea de que se oyera tanto. Lo siento mucho.",
+    "pt": "Eu não fazia ideia de que estava tão alto. Sinto muito.",
+    "fr": "Je n'avais aucune idée que c'était si fort. Je suis vraiment désolé.",
+    "de": "Ich hatte keine Ahnung, dass es so laut ist. Es tut mir wirklich leid.",
+    "id": "Saya tidak tahu suaranya sekeras itu. Saya benar-benar minta maaf.",
+    "th": "ไม่รู้เลยว่าเสียงดังขนาดนั้น ขอโทษจริง ๆ ครับ",
+    "zh": "我完全不知道声音这么大，真的很抱歉。",
+    "ja": "そんなに響いているとは思いませんでした。本当にすみません。",
+    "ko": "그렇게 시끄러운 줄 몰랐어요. 정말 죄송합니다.",
+    "hi": "मुझे बिल्कुल अंदाज़ा नहीं था कि आवाज़ इतनी तेज़ है। मुझे बहुत खेद है।",
+    "ar": "لم أتصوّر أن الصوت عالٍ إلى هذا الحد. أعتذر بشدة.",
+    "ru": "Мне и в голову не приходило, что так громко. Мне очень жаль.",
+    "tr": "Bu kadar yüksek olduğunu hiç fark etmedim. Çok özür dilerim."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "r3",
+   "who": "customer",
+   "en": "I understand you want to enjoy your evenings. I just need some quiet at night.",
+   "variants": {
+    "polite": "I appreciate that you want to enjoy your evenings. I only ask for some quiet at night.",
+    "casual": "No worries, I just need some peace at night."
+   },
+   "gloss": {
+    "en": "I understand you want to enjoy your evenings. I just need some quiet at night.",
+    "vi": "Tôi hiểu là anh/chị muốn tận hưởng buổi tối. Tôi chỉ cần chút yên tĩnh vào ban đêm.",
+    "es": "Entiendo que quiera disfrutar de sus tardes. Yo solo necesito algo de tranquilidad por la noche.",
+    "pt": "Entendo que você queira aproveitar as noites. Eu só preciso de um pouco de silêncio à noite.",
+    "fr": "Je comprends que vous vouliez profiter de vos soirées. J'ai juste besoin de calme la nuit.",
+    "de": "Ich verstehe, dass Sie Ihre Abende genießen möchten. Ich brauche nur nachts etwas Ruhe.",
+    "id": "Saya mengerti Anda ingin menikmati malam. Saya hanya butuh ketenangan di malam hari.",
+    "th": "เข้าใจค่ะว่าอยากสนุกกับช่วงเย็น ฉันแค่ต้องการความเงียบตอนกลางคืนค่ะ",
+    "zh": "我理解您想好好享受晚上的时光，我只是需要夜里安静一点。",
+    "ja": "夜を楽しみたいお気持ちはわかります。ただ、夜は静かに過ごしたいんです。",
+    "ko": "저녁 시간을 즐기고 싶으신 건 이해해요. 다만 밤에는 조용했으면 해요.",
+    "hi": "आप शामें आनंद से बिताना चाहते हैं, यह बात मैं समझती हूँ। बस रात में मुझे थोड़ी शांति चाहिए।",
+    "ar": "أتفهّم رغبتك في الاستمتاع بأمسياتك. كل ما أحتاجه هو بعض الهدوء ليلًا.",
+    "ru": "Я понимаю, что вы хотите проводить вечера с удовольствием. Мне просто нужна тишина по ночам.",
+    "tr": "Akşamlarınızın keyfini çıkarmak istediğinizi anlıyorum. Ben sadece geceleri biraz sessizlik istiyorum."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "quiet",
+     "ipa": "/ˈkwaɪ.ət/",
+     "hi": "KWY",
+     "note": {
+      "en": "Say KWY-et: it has two syllables, not one like 'quite'.",
+      "vi": "Đọc KWAI-ệt: có hai âm tiết, không phải một như “quite”.",
+      "es": "Di KUAI-et: tiene dos sílabas, no una como “quite”.",
+      "pt": "Diga KUAI-et: são duas sílabas, não uma como “quite”.",
+      "fr": "Dites KOUAÏ-et : deux syllabes, pas une comme « quite ».",
+      "de": "Sprich KWAI-et: zwei Silben, nicht eine wie bei „quite“.",
+      "id": "Ucapkan KWAI-et: dua suku kata, bukan satu seperti “quite”.",
+      "th": "ออกเสียง ไคว-เอ็ท มี 2 พยางค์ ไม่ใช่พยางค์เดียวเหมือน quite",
+      "zh": "读作 KWY-et：两个音节，不像 quite 只有一个。",
+      "ja": "「クワイ・エット」と2音節で。quiteの1音節とは別の語です。",
+      "ko": "‘콰이-엇’처럼 두 음절로 말해요. quite처럼 한 음절이 아니에요.",
+      "hi": "‘क्वाइ-अट’ दो अक्षरों में बोलें, quite की तरह एक नहीं।",
+      "ar": "انطقها كواي-ت بمقطعين، وليس بمقطع واحد مثل quite.",
+      "ru": "Говорите КВАЙ-ет: два слога, а не один, как в quite.",
+      "tr": "KVAY-et deyin: iki hecelidir, quite gibi tek heceli değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "r4",
+   "who": "customer",
+   "en": "It happened three nights in a row, so I thought I should say something.",
+   "variants": {
+    "polite": "It has happened three nights in a row, so I felt I should mention it.",
+    "casual": "That's three nights running, so I had to say something."
+   },
+   "gloss": {
+    "en": "It happened three nights in a row, so I thought I should say something.",
+    "vi": "Chuyện này xảy ra ba đêm liên tiếp, nên tôi nghĩ mình nên nói.",
+    "es": "Ha pasado tres noches seguidas, así que pensé que debía decírselo.",
+    "pt": "Aconteceu três noites seguidas, então achei que devia falar.",
+    "fr": "C'est arrivé trois nuits de suite, alors j'ai pensé qu'il fallait vous en parler.",
+    "de": "Es ist drei Nächte hintereinander passiert, deshalb dachte ich, ich sollte etwas sagen.",
+    "id": "Ini terjadi tiga malam berturut-turut, jadi saya merasa perlu mengatakannya.",
+    "th": "เกิดขึ้นสามคืนติดกัน ฉันจึงคิดว่าควรพูดค่ะ",
+    "zh": "已经连续三个晚上了，所以我觉得该跟您说一声。",
+    "ja": "3晩続けてだったので、お伝えしたほうがいいと思いました。",
+    "ko": "사흘 밤 연속이라서 말씀드려야겠다고 생각했어요.",
+    "hi": "यह लगातार तीन रातों से हो रहा है, इसलिए मुझे लगा कि बात करनी चाहिए।",
+    "ar": "حدث هذا ثلاث ليالٍ متتالية، لذا رأيت أن أخبرك.",
+    "ru": "Это уже три ночи подряд, поэтому пришлось об этом сказать.",
+    "tr": "Üst üste üç gece oldu, o yüzden bir şey söylemem gerektiğini düşündüm."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "g1",
+   "who": "barista",
+   "en": "From now on I'll use headphones after ten.",
+   "variants": {
+    "polite": "From now on I'll make sure to use headphones after ten.",
+    "casual": "I'll use headphones after ten, promise."
+   },
+   "gloss": {
+    "en": "From now on I'll use headphones after ten.",
+    "vi": "Từ giờ tôi sẽ dùng tai nghe sau mười giờ.",
+    "es": "A partir de ahora usaré auriculares después de las diez.",
+    "pt": "A partir de agora vou usar fones de ouvido depois das dez.",
+    "fr": "Désormais j'utiliserai un casque après dix heures.",
+    "de": "Ab jetzt benutze ich nach zehn Kopfhörer.",
+    "id": "Mulai sekarang saya akan pakai headphone setelah jam sepuluh.",
+    "th": "ต่อไปนี้หลังสี่ทุ่มผมจะใช้หูฟังครับ",
+    "zh": "从现在起，十点以后我会戴耳机。",
+    "ja": "これからは10時以降はヘッドホンを使います。",
+    "ko": "앞으로 10시 이후에는 헤드폰을 쓸게요.",
+    "hi": "अब से दस बजे के बाद मैं हेडफ़ोन का इस्तेमाल करूँगा।",
+    "ar": "من الآن فصاعدًا سأستخدم سماعات الرأس بعد العاشرة.",
+    "ru": "Отныне после десяти буду пользоваться наушниками.",
+    "tr": "Bundan sonra saat onu geçince kulaklık kullanacağım."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "g2",
+   "who": "customer",
+   "en": "Thank you, I really appreciate that.",
+   "variants": {
+    "polite": "Thank you so much. I really appreciate your understanding.",
+    "casual": "Thanks, that's great."
+   },
+   "gloss": {
+    "en": "Thank you, I really appreciate that.",
+    "vi": "Cảm ơn anh/chị, tôi rất trân trọng điều đó.",
+    "es": "Gracias, se lo agradezco de verdad.",
+    "pt": "Agradeço muito, de verdade.",
+    "fr": "Merci, c'est vraiment très apprécié.",
+    "de": "Danke, das weiß ich wirklich zu schätzen.",
+    "id": "Terima kasih, saya sangat menghargainya.",
+    "th": "ขอบคุณมากค่ะ ซาบซึ้งจริง ๆ",
+    "zh": "谢谢您，我真的很感激。",
+    "ja": "ありがとうございます。本当に助かります。",
+    "ko": "감사합니다. 정말 고맙게 생각해요.",
+    "hi": "धन्यवाद, यह मेरे लिए बहुत मायने रखता है।",
+    "ar": "شكرًا لك، أقدّر ذلك حقًا.",
+    "ru": "Спасибо, я это очень ценю.",
+    "tr": "Teşekkür ederim, bunu gerçekten takdir ediyorum."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "appreciate",
+     "ipa": "/əˈpriː.ʃi.eɪt/",
+     "hi": "PREE",
+     "note": {
+      "en": "Stress the second syllable: uh-PREE-shee-ate.",
+      "vi": "Nhấn âm tiết thứ hai: ờ-PRI-si-ết.",
+      "es": "Acentúa la segunda sílaba: uh-PRI-shi-eit.",
+      "pt": "Acentue a segunda sílaba: uh-PRI-shi-eit.",
+      "fr": "Accentuez la deuxième syllabe : euh-PRI-chi-eit.",
+      "de": "Betone die zweite Silbe: e-PRIE-schi-eit.",
+      "id": "Tekankan suku kata kedua: uh-PRI-syi-eit.",
+      "th": "เน้นพยางค์ที่สอง: อะ-พรี-ชี-เอท",
+      "zh": "重音在第二个音节：uh-PREE-shee-ate。",
+      "ja": "2番目の音節を強く：ア・プリー・シ・エイト。",
+      "ko": "두 번째 음절에 강세: 어-프리-시-에이트.",
+      "hi": "दूसरे अक्षर पर ज़ोर: अ-प्री-शि-एट।",
+      "ar": "شدّد على المقطع الثاني: أ-بري-شي-إيت.",
+      "ru": "Ударение на второй слог: э-ПРИ-ши-эйт.",
+      "tr": "Vurgu ikinci hecede: ı-PRİ-şi-eyt."
+     }
+    }
+   ]
+  },
+  {
+   "id": "g3",
+   "who": "customer",
+   "en": "If it happens again, can I knock on your door?",
+   "variants": {
+    "polite": "If it happens again, would you mind if I knocked on your door?",
+    "casual": "If it's loud again, can I knock?"
+   },
+   "gloss": {
+    "en": "If it happens again, can I knock on your door?",
+    "vi": "Nếu lại xảy ra, tôi gõ cửa nhà anh/chị được không?",
+    "es": "Si vuelve a pasar, ¿puedo llamar a su puerta?",
+    "pt": "Se acontecer de novo, posso bater na sua porta?",
+    "fr": "Si cela se reproduit, je peux frapper à votre porte ?",
+    "de": "Wenn es wieder passiert, darf ich bei Ihnen klopfen?",
+    "id": "Kalau terjadi lagi, boleh saya mengetuk pintu Anda?",
+    "th": "ถ้าเกิดขึ้นอีก ขอเคาะประตูบอกได้ไหมคะ",
+    "zh": "如果再发生，我可以来敲您的门吗？",
+    "ja": "また同じことがあったら、ドアをノックしてもいいですか？",
+    "ko": "또 그러면 문을 두드려도 될까요?",
+    "hi": "अगर दोबारा ऐसा हो, तो क्या आपका दरवाज़ा खटखटाना ठीक रहेगा?",
+    "ar": "إذا تكرر الأمر، هل يمكنني طرق بابك؟",
+    "ru": "Если это повторится, можно мне постучать в вашу дверь?",
+    "tr": "Tekrar olursa kapınızı çalabilir miyim?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "g4",
+   "who": "barista",
+   "en": "Of course. Just tell me and I'll sort it out.",
+   "variants": {
+    "polite": "Of course. Please tell me straight away and I'll sort it out.",
+    "casual": "Sure, just tell me and I'll fix it."
+   },
+   "gloss": {
+    "en": "Of course. Just tell me and I'll sort it out.",
+    "vi": "Dĩ nhiên rồi. Cứ nói với tôi, tôi sẽ xử lý ngay.",
+    "es": "Por supuesto. Solo avíseme y lo soluciono.",
+    "pt": "Claro. É só me avisar que eu resolvo.",
+    "fr": "Bien sûr. Dites-le-moi et je m'en occupe.",
+    "de": "Natürlich. Sagen Sie mir einfach Bescheid, dann kümmere ich mich darum.",
+    "id": "Tentu. Cukup beri tahu saya, nanti saya atasi.",
+    "th": "ได้เลยครับ บอกผมได้เลย เดี๋ยวจัดการให้",
+    "zh": "当然可以。告诉我一声，我马上处理。",
+    "ja": "もちろんです。言ってもらえればすぐ対応します。",
+    "ko": "물론이죠. 말씀만 하시면 바로 해결할게요.",
+    "hi": "बिल्कुल। बस मुझे बता दीजिए, मैं तुरंत इंतज़ाम कर दूँगा।",
+    "ar": "بالطبع. أخبرني فقط وسأتدبّر الأمر.",
+    "ru": "Конечно. Просто скажите мне, и я всё улажу.",
+    "tr": "Elbette. Bana söylemeniz yeterli, ben hallederim."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "How long has this been bothering you?",
+   "keywords": [
+    "week",
+    "days",
+    "nights",
+    "month",
+    "since",
+    "every night",
+    "weekend",
+    "always",
+    "recently",
+    "yesterday",
+    "long"
+   ],
+   "variants": {
+    "polite": "How long has this been a problem for you?",
+    "casual": "How long's this been going on?"
+   },
+   "gloss": {
+    "en": "How long has this been bothering you?",
+    "vi": "Chuyện này làm phiền anh/chị bao lâu rồi?",
+    "es": "¿Desde cuándo le molesta esto?",
+    "pt": "Há quanto tempo isso incomoda você?",
+    "fr": "Depuis combien de temps cela vous gêne-t-il ?",
+    "de": "Seit wann stört Sie das schon?",
+    "id": "Sudah berapa lama ini mengganggu Anda?",
+    "th": "เรื่องนี้รบกวนคุณมานานแค่ไหนแล้วครับ",
+    "zh": "这个问题困扰您多久了？",
+    "ja": "いつ頃から気になっていましたか？",
+    "ko": "얼마나 오래 신경 쓰이셨어요?",
+    "hi": "यह बात आपको कब से परेशान कर रही है?",
+    "ar": "منذ متى وهذا الأمر يزعجك؟",
+    "ru": "Как давно это вас беспокоит?",
+    "tr": "Bu ne zamandır sizi rahatsız ediyor?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "What time would you like it to be quiet?",
+   "keywords": [
+    "ten",
+    "eleven",
+    "midnight",
+    "nine",
+    "evening",
+    "night",
+    "weekdays",
+    "weekend",
+    "early",
+    "sleep",
+    "bedtime"
+   ],
+   "variants": {
+    "polite": "From what time would you prefer it to be quiet?",
+    "casual": "When do you need it quiet?"
+   },
+   "gloss": {
+    "en": "What time would you like it to be quiet?",
+    "vi": "Anh/chị muốn yên tĩnh từ mấy giờ?",
+    "es": "¿A partir de qué hora le gustaría que hubiera silencio?",
+    "pt": "A partir de que horas você gostaria de silêncio?",
+    "fr": "À partir de quelle heure voulez-vous du calme ?",
+    "de": "Ab wann hätten Sie gern Ruhe?",
+    "id": "Mulai jam berapa Anda ingin suasana tenang?",
+    "th": "อยากให้เงียบตั้งแต่กี่โมงครับ",
+    "zh": "您希望几点以后保持安静？",
+    "ja": "何時から静かにしてほしいですか？",
+    "ko": "몇 시부터 조용했으면 하세요?",
+    "hi": "आप चाहते हैं कि कितने बजे से शांति रहे?",
+    "ar": "من أي ساعة تودّ أن يسود الهدوء؟",
+    "ru": "С какого времени вам нужна тишина?",
+    "tr": "Saat kaçtan sonra sessizlik istersiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "customer",
+   "en": "Sorry to bother you. Do you have a minute?"
+  },
+  {
+   "who": "barista",
+   "en": "Of course. Is everything all right?"
+  },
+  {
+   "who": "customer",
+   "en": "I live in the flat below, and I've noticed loud music at night."
+  },
+  {
+   "who": "barista",
+   "en": "Oh dear. Is it a problem?"
+  },
+  {
+   "who": "customer",
+   "en": "I don't want to cause trouble, but it's affecting my sleep."
+  },
+  {
+   "who": "barista",
+   "en": "I had no idea it was that loud. I'm so sorry."
+  },
+  {
+   "who": "customer",
+   "en": "Would you mind turning it down after ten o'clock?"
+  },
+  {
+   "who": "barista",
+   "en": "From now on I'll use headphones after ten."
+  },
+  {
+   "who": "customer",
+   "en": "Thank you, I really appreciate that."
+  },
+  {
+   "who": "barista",
+   "en": "Of course. Just tell me and I'll sort it out."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Hi, I'm Maya from number five. Sorry to bother you."
+    },
+    {
+     "who": "barista",
+     "en": "Hello, Maya. What can I do for you?"
+    },
+    {
+     "who": "customer",
+     "en": "Your dog has been barking for hours while you're out."
+    },
+    {
+     "who": "barista",
+     "en": "I'm so sorry. I'll ask my sister to take him for walks."
+    }
+   ],
+   "q": {
+    "en": "What will the neighbour do about the dog?",
+    "vi": "Người hàng xóm sẽ làm gì về con chó?",
+    "es": "¿Qué hará el vecino con el perro?",
+    "pt": "O que o vizinho vai fazer sobre o cachorro?",
+    "fr": "Que va faire le voisin pour le chien ?",
+    "de": "Was will der Nachbar wegen des Hundes tun?",
+    "id": "Apa yang akan dilakukan tetangga soal anjingnya?",
+    "th": "เพื่อนบ้านจะทำอะไรกับเรื่องสุนัข",
+    "zh": "邻居打算怎么处理狗的事？",
+    "ja": "隣人は犬のことでどうしますか？",
+    "ko": "이웃은 개 문제를 어떻게 할 건가요?",
+    "hi": "पड़ोसी कुत्ते के बारे में क्या करेगा?",
+    "ar": "ماذا سيفعل الجار بشأن الكلب؟",
+    "ru": "Что сосед предпримет из-за собаки?",
+    "tr": "Komşu köpek konusunda ne yapacak?"
+   },
+   "answer": "ask my sister"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Excuse me, are you having building work done?"
+    },
+    {
+     "who": "barista",
+     "en": "Yes, the kitchen. It's only until the end of next week."
+    },
+    {
+     "who": "customer",
+     "en": "I see. Could you avoid drilling before nine in the morning?"
+    },
+    {
+     "who": "barista",
+     "en": "Of course. We'll start at nine thirty from now on."
+    }
+   ],
+   "q": {
+    "en": "When will the work start from now on?",
+    "vi": "Từ giờ công việc sẽ bắt đầu lúc mấy giờ?",
+    "es": "¿A qué hora empezarán las obras a partir de ahora?",
+    "pt": "A que horas a obra vai começar daqui em diante?",
+    "fr": "À quelle heure les travaux commenceront-ils désormais ?",
+    "de": "Wann beginnen die Arbeiten ab jetzt?",
+    "id": "Mulai sekarang pekerjaan dimulai jam berapa?",
+    "th": "จากนี้งานจะเริ่มกี่โมง",
+    "zh": "今后施工几点开始？",
+    "ja": "今後、工事は何時に始まりますか？",
+    "ko": "앞으로 공사는 몇 시에 시작하나요?",
+    "hi": "अब से काम कितने बजे शुरू होगा?",
+    "ar": "متى سيبدأ العمل من الآن فصاعدًا؟",
+    "ru": "Во сколько теперь будут начинать работы?",
+    "tr": "Bundan sonra işler saat kaçta başlayacak?"
+   },
+   "answer": "nine thirty"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "open-kindly",
+    "title": {
+     "en": "Start the conversation kindly",
+     "vi": "Mở đầu cuộc trò chuyện thật nhẹ nhàng",
+     "es": "Empieza la conversación con amabilidad",
+     "pt": "Comece a conversa com gentileza",
+     "fr": "Engagez la conversation avec gentillesse",
+     "de": "Das Gespräch freundlich beginnen",
+     "id": "Buka percakapan dengan ramah",
+     "th": "เริ่มบทสนทนาอย่างสุภาพ",
+     "zh": "友善地开启对话",
+     "ja": "やさしく話を切り出す",
+     "ko": "친절하게 대화 시작하기",
+     "hi": "नरमी से बातचीत शुरू करें",
+     "ar": "ابدأ الحديث بلطف",
+     "ru": "Начни разговор доброжелательно",
+     "tr": "Konuşmaya nazikçe başla"
+    },
+    "intents": [
+     "n1",
+     "n3"
+    ]
+   },
+   {
+    "id": "ask-quiet",
+    "title": {
+     "en": "Explain the problem and ask for quiet",
+     "vi": "Nêu vấn đề và nhờ giữ yên tĩnh",
+     "es": "Explica el problema y pide silencio",
+     "pt": "Explique o problema e peça silêncio",
+     "fr": "Expliquez le problème et demandez du calme",
+     "de": "Das Problem erklären und um Ruhe bitten",
+     "id": "Jelaskan masalah dan minta ketenangan",
+     "th": "อธิบายปัญหาและขอความเงียบ",
+     "zh": "说明问题并请对方保持安静",
+     "ja": "困りごとを伝えて静かにしてもらう",
+     "ko": "문제를 설명하고 조용히 해 달라고 하기",
+     "hi": "समस्या बताएँ और शांति माँगें",
+     "ar": "اشرح المشكلة واطلب الهدوء",
+     "ru": "Объясни проблему и попроси тишины",
+     "tr": "Sorunu anlat ve sessizlik iste"
+    },
+    "intents": [
+     "n4",
+     "r1"
+    ]
+   },
+   {
+    "id": "close-deal",
+    "title": {
+     "en": "Agree what happens next",
+     "vi": "Thống nhất bước tiếp theo",
+     "es": "Acuerda qué pasará a partir de ahora",
+     "pt": "Combine o que vai acontecer a seguir",
+     "fr": "Convenez de la suite",
+     "de": "Vereinbaren, wie es weitergeht",
+     "id": "Sepakati langkah selanjutnya",
+     "th": "ตกลงว่าจะทำอย่างไรต่อ",
+     "zh": "商定接下来怎么做",
+     "ja": "今後の対応を決める",
+     "ko": "앞으로 어떻게 할지 합의하기",
+     "hi": "आगे क्या होगा, इस पर सहमति बनाएँ",
+     "ar": "اتفقا على الخطوة التالية",
+     "ru": "Договорись, что будет дальше",
+     "tr": "Bundan sonrası için anlaş"
+    },
+    "intents": [
+     "g2",
+     "g3"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "Quiet hours vary by country, city and building, so check your lease or house rules before you speak. Start with a calm, face-to-face chat rather than an angry note; most neighbours do not realise how far sound travels. Asking for something specific, such as 'quiet after ten', works better than only saying what is wrong.",
+  "vi": "Giờ yên tĩnh khác nhau tùy quốc gia, thành phố và tòa nhà, nên hãy xem hợp đồng thuê hoặc nội quy trước khi nói. Hãy bắt đầu bằng một cuộc trò chuyện trực tiếp, bình tĩnh thay vì mảnh giấy giận dữ; đa số hàng xóm không nhận ra âm thanh vọng xa đến đâu. Nêu một yêu cầu cụ thể, như “yên tĩnh sau mười giờ”, hiệu quả hơn là chỉ nói điều gì đang sai.",
+  "es": "El horario de silencio varía según el país, la ciudad y el edificio, así que revisa tu contrato o las normas de la comunidad antes de hablar. Empieza con una charla tranquila en persona, mejor que con una nota enfadada; la mayoría de los vecinos no se da cuenta de hasta dónde llega el sonido. Pedir algo concreto, como «silencio después de las diez», funciona mejor que decir solo qué está mal.",
+  "pt": "O horário de silêncio varia conforme o país, a cidade e o prédio, então confira o contrato de aluguel ou as regras do condomínio antes de conversar. Comece com uma conversa calma, cara a cara, em vez de um bilhete irritado; a maioria dos vizinhos não percebe até onde o som chega. Pedir algo específico, como “silêncio depois das dez”, funciona melhor do que só dizer o que está errado.",
+  "fr": "Les heures de silence varient selon le pays, la ville et l'immeuble ; consultez donc votre bail ou le règlement avant d'en parler. Commencez par une discussion calme, en face à face, plutôt que par un mot agacé ; la plupart des voisins ne se rendent pas compte de la portée du son. Demander quelque chose de précis, comme « du calme après dix heures », marche mieux que de dire seulement ce qui ne va pas.",
+  "de": "Die Ruhezeiten sind je nach Land, Stadt und Haus verschieden, schau also vorher in Mietvertrag oder Hausordnung. Beginne mit einem ruhigen Gespräch von Angesicht zu Angesicht statt mit einem wütenden Zettel; die meisten Nachbarn ahnen nicht, wie weit sich Schall ausbreitet. Eine konkrete Bitte wie „Ruhe nach zehn“ wirkt besser, als nur zu sagen, was falsch läuft.",
+  "id": "Jam tenang berbeda-beda menurut negara, kota, dan gedung, jadi periksa kontrak sewa atau tata tertib sebelum berbicara. Mulailah dengan obrolan tenang secara langsung, bukan catatan yang marah; kebanyakan tetangga tidak sadar seberapa jauh suara merambat. Meminta hal yang spesifik, seperti “tenang setelah jam sepuluh”, lebih efektif daripada hanya menyebut apa yang salah.",
+  "th": "ช่วงเวลาที่ต้องเงียบต่างกันไปตามประเทศ เมือง และอาคาร จึงควรดูสัญญาเช่าหรือกฎของอาคารก่อนไปพูด เริ่มด้วยการคุยกันตรง ๆ อย่างใจเย็น แทนที่จะเขียนโน้ตด้วยอารมณ์โกรธ เพราะเพื่อนบ้านส่วนใหญ่ไม่รู้ว่าเสียงเดินทางไปไกลแค่ไหน การขอสิ่งที่ชัดเจน เช่น “เงียบหลังสี่ทุ่ม” ได้ผลดีกว่าการบอกแค่ว่ามีอะไรผิด",
+  "zh": "安静时段因国家、城市和楼栋而异，所以开口前先看一下租约或楼规。先心平气和地当面聊聊，比留一张气呼呼的字条更好；大多数邻居并不知道声音能传多远。提出具体的请求，比如“十点以后保持安静”，比只说哪里不对更有效。",
+  "ja": "静かにすべき時間帯は国や都市、建物によって違うので、話す前に賃貸契約書や建物のルールを確認しておきましょう。怒りのメモを残すより、落ち着いて直接話すほうが効果的です。多くの隣人は音がどれだけ響くか気づいていません。「10時以降は静かに」のように具体的にお願いするほうが、問題点を言うだけより伝わります。",
+  "ko": "조용히 해야 하는 시간은 나라와 도시, 건물마다 다르니, 이야기하기 전에 임대 계약서나 건물 규칙을 확인해 보세요. 화난 쪽지보다 차분하게 직접 만나서 이야기하는 편이 좋아요. 대부분의 이웃은 소리가 얼마나 멀리 퍼지는지 잘 몰라요. ‘10시 이후에는 조용히’처럼 구체적으로 부탁하면 문제점만 말하는 것보다 효과적이에요.",
+  "hi": "शांति के घंटे देश, शहर और इमारत के हिसाब से अलग होते हैं, इसलिए बात करने से पहले किराये का अनुबंध या सोसाइटी के नियम देख लें। ग़ुस्से भरे नोट की जगह शांति से आमने-सामने बात करें; ज़्यादातर पड़ोसियों को पता ही नहीं होता कि आवाज़ कितनी दूर तक जाती है। केवल यह कहने के बजाय कि क्या ग़लत है, कोई ठोस माँग रखें, जैसे “दस बजे के बाद शांति”; यह ज़्यादा असर करता है।",
+  "ar": "تختلف ساعات الهدوء حسب البلد والمدينة والمبنى، فراجع عقد الإيجار أو قواعد العمارة قبل أن تتحدث. ابدأ بحديث هادئ وجهًا لوجه بدل ورقة غاضبة؛ فمعظم الجيران لا يدركون إلى أي مدى ينتقل الصوت. طلب شيء محدد مثل «الهدوء بعد العاشرة» أنفع من الاكتفاء بذكر ما هو خطأ.",
+  "ru": "Часы тишины отличаются в зависимости от страны, города и дома, поэтому перед разговором загляните в договор аренды или правила дома. Лучше начать со спокойной беседы лицом к лицу, чем с сердитой записки: большинство соседей не представляют, как далеко разносится звук. Конкретная просьба, например «тишина после десяти», действует лучше, чем просто перечисление того, что не так.",
+  "tr": "Sessizlik saatleri ülkeye, şehre ve binaya göre değişir; bu yüzden konuşmadan önce kira sözleşmenize veya bina kurallarına bakın. Öfkeli bir not yerine sakin bir yüz yüze sohbetle başlayın; çoğu komşu sesin ne kadar uzağa gittiğinin farkında değildir. “On'dan sonra sessizlik” gibi somut bir istekte bulunmak, yalnızca neyin yanlış olduğunu söylemekten daha etkilidir."
+ }
+}

@@ -1,0 +1,893 @@
+{
+ "id": "video-call-tech",
+ "group": "work",
+ "cefr": "B1",
+ "title": {
+  "en": "Video call problems",
+  "vi": "Sự cố khi họp video",
+  "es": "Problemas en una videollamada",
+  "pt": "Problemas em uma videochamada",
+  "fr": "Problèmes en visioconférence",
+  "de": "Probleme bei der Videokonferenz",
+  "id": "Masalah saat rapat video",
+  "th": "ปัญหาระหว่างประชุมวิดีโอ",
+  "zh": "视频会议出问题",
+  "ja": "ビデオ会議のトラブル",
+  "ko": "화상 회의 문제 해결",
+  "hi": "वीडियो कॉल की दिक्कतें",
+  "ar": "مشاكل اجتماع الفيديو",
+  "ru": "Проблемы на видеозвонке",
+  "tr": "Görüntülü görüşme sorunları"
+ },
+ "goal": {
+  "en": "Fix tech problems and keep the meeting going!",
+  "vi": "Xử lý sự cố kỹ thuật để cuộc họp tiếp tục!",
+  "es": "¡Resuelve los fallos técnicos y sigue con la reunión!",
+  "pt": "Resolva os problemas técnicos e continue a reunião!",
+  "fr": "Réglez les soucis techniques et poursuivez la réunion !",
+  "de": "Löse technische Probleme und halte das Meeting am Laufen!",
+  "id": "Atasi masalah teknis dan lanjutkan rapatnya!",
+  "th": "แก้ปัญหาเทคนิคให้ประชุมเดินต่อได้!",
+  "zh": "解决技术问题，让会议继续！",
+  "ja": "技術トラブルを解決して会議を続けよう！",
+  "ko": "기술 문제를 해결하고 회의를 이어가요!",
+  "hi": "तकनीकी समस्याएँ सुलझाएँ और मीटिंग चालू रखें!",
+  "ar": "عالج المشكلات التقنية وواصل الاجتماع!",
+  "ru": "Реши технические проблемы и продолжи встречу!",
+  "tr": "Teknik sorunları çöz ve toplantıyı sürdür!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "join",
+   "title": {
+    "en": "Join and check",
+    "vi": "Vào họp và kiểm tra",
+    "es": "Conectarse y comprobar",
+    "pt": "Entrar e verificar",
+    "fr": "Rejoindre et vérifier",
+    "de": "Beitreten und prüfen",
+    "id": "Bergabung dan periksa",
+    "th": "เข้าร่วมและตรวจสอบ",
+    "zh": "入会与检查",
+    "ja": "参加して確認する",
+    "ko": "입장하고 점검하기",
+    "hi": "जुड़ें और जाँचें",
+    "ar": "الانضمام والتحقق",
+    "ru": "Подключиться и проверить",
+    "tr": "Katıl ve kontrol et"
+   },
+   "lines": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+   ]
+  },
+  {
+   "id": "fix",
+   "title": {
+    "en": "Fix the problem",
+    "vi": "Xử lý sự cố",
+    "es": "Resolver el problema",
+    "pt": "Resolver o problema",
+    "fr": "Résoudre le problème",
+    "de": "Problem beheben",
+    "id": "Atasi masalah",
+    "th": "แก้ปัญหา",
+    "zh": "解决问题",
+    "ja": "問題を解決する",
+    "ko": "문제 해결하기",
+    "hi": "समस्या सुलझाएँ",
+    "ar": "حل المشكلة",
+    "ru": "Решить проблему",
+    "tr": "Sorunu çöz"
+   },
+   "lines": [
+    "v5",
+    "v6",
+    "v7",
+    "v8"
+   ]
+  },
+  {
+   "id": "share",
+   "title": {
+    "en": "Share and wrap up",
+    "vi": "Chia sẻ và kết thúc",
+    "es": "Compartir y cerrar",
+    "pt": "Compartilhar e encerrar",
+    "fr": "Partager et conclure",
+    "de": "Teilen und abschließen",
+    "id": "Berbagi dan menutup",
+    "th": "แชร์และสรุป",
+    "zh": "分享与收尾",
+    "ja": "共有して締める",
+    "ko": "공유하고 마무리하기",
+    "hi": "साझा करें और समाप्त करें",
+    "ar": "المشاركة والختام",
+    "ru": "Показать экран и завершить",
+    "tr": "Paylaş ve bitir"
+   },
+   "lines": [
+    "v9",
+    "v10",
+    "v11",
+    "v12"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "v1",
+   "who": "customer",
+   "en": "Hi, sorry I'm a few minutes late. Can you hear me?",
+   "variants": {
+    "polite": "Hello, I'm sorry I'm a few minutes late. Can you hear me clearly?",
+    "casual": "Hi, sorry I'm late. Can you hear me?"
+   },
+   "gloss": {
+    "en": "Joining late, apologising briefly and checking your sound.",
+    "vi": "Chào mọi người, xin lỗi mình vào trễ vài phút. Mọi người nghe được mình không?",
+    "es": "Hola, perdón por llegar unos minutos tarde. ¿Me oís?",
+    "pt": "Oi, desculpem o atraso de alguns minutos. Vocês me ouvem?",
+    "fr": "Bonjour, désolé d'avoir quelques minutes de retard. Vous m'entendez ?",
+    "de": "Hallo, entschuldigt die paar Minuten Verspätung. Könnt ihr mich hören?",
+    "id": "Halo, maaf saya terlambat beberapa menit. Apakah suara saya terdengar?",
+    "th": "สวัสดี ขอโทษที่เข้ามาช้าไปไม่กี่นาที ได้ยินเสียงฉันไหม",
+    "zh": "大家好，抱歉晚了几分钟。能听到我吗？",
+    "ja": "こんにちは、数分遅れてすみません。私の声は聞こえますか？",
+    "ko": "안녕하세요, 몇 분 늦어서 죄송해요. 제 목소리 들리나요?",
+    "hi": "नमस्ते, कुछ मिनट देर से आने के लिए माफ़ कीजिए। क्या आपको मेरी आवाज़ सुनाई दे रही है?",
+    "ar": "مرحبًا، آسف على التأخر بضع دقائق. هل تسمعونني؟",
+    "ru": "Здравствуйте, простите, что опоздал на пару минут. Меня слышно?",
+    "tr": "Merhaba, birkaç dakika geciktiğim için özür dilerim. Beni duyabiliyor musunuz?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "v2",
+   "who": "barista",
+   "en": "No, your sound is cutting out. I think your microphone is muted.",
+   "variants": {
+    "polite": "I'm afraid your sound keeps cutting out. I think your microphone might be muted.",
+    "casual": "Nope, you keep cutting out. Maybe you're muted?"
+   },
+   "gloss": {
+    "en": "A colleague says your sound is breaking up and suggests the mic is muted.",
+    "vi": "Không, âm thanh của bạn bị ngắt quãng. Hình như micro của bạn đang tắt.",
+    "es": "No, tu sonido se corta. Creo que tienes el micrófono silenciado.",
+    "pt": "Não, seu som está falhando. Acho que seu microfone está no mudo.",
+    "fr": "Non, votre son se coupe. Je crois que votre micro est coupé.",
+    "de": "Nein, dein Ton setzt immer aus. Ich glaube, dein Mikrofon ist stummgeschaltet.",
+    "id": "Tidak, suaramu putus-putus. Sepertinya mikrofonmu dimatikan.",
+    "th": "ไม่ได้ยินเลย เสียงคุณขาดหาย ฉันคิดว่าไมโครโฟนคุณถูกปิดเสียงอยู่",
+    "zh": "听不到，你的声音断断续续的。我觉得你的麦克风被静音了。",
+    "ja": "いいえ、音が途切れています。マイクがミュートになっているようです。",
+    "ko": "아니요, 소리가 계속 끊겨요. 마이크가 음소거된 것 같아요.",
+    "hi": "नहीं, आपकी आवाज़ बार-बार कट रही है। मुझे लगता है आपका माइक्रोफ़ोन म्यूट है।",
+    "ar": "لا، صوتك ينقطع. أظن أن الميكروفون مكتوم.",
+    "ru": "Нет, звук пропадает. Кажется, у вас выключен микрофон.",
+    "tr": "Hayır, sesiniz kesiliyor. Sanırım mikrofonunuz sessize alınmış."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "microphone",
+     "ipa": "/ˈmaɪ.krə.fəʊn/",
+     "hi": "MY",
+     "note": {
+      "en": "Stress the first syllable: MY-kruh-fone.",
+      "vi": "Nhấn âm đầu: MAI-crờ-phôn.",
+      "es": "Acentúa la primera sílaba: MAI-kre-fon.",
+      "pt": "Acentue a primeira sílaba: MAI-cro-fone.",
+      "fr": "Accentuez la première syllabe : MAÏ-kreu-fonn.",
+      "de": "Erste Silbe betonen: MAI-kro-fon.",
+      "id": "Tekankan suku pertama: MAI-kro-fon.",
+      "th": "เน้นพยางค์แรก: ไมค์-โคร-โฟน",
+      "zh": "重音在第一个音节：MY-kruh-fone。",
+      "ja": "最初の音節を強く：マイクロフォン。",
+      "ko": "첫 음절에 강세: 마이-크러-폰.",
+      "hi": "पहले अक्षर पर ज़ोर: माइ-क्रो-फ़ोन।",
+      "ar": "شدّد على المقطع الأول: ماي-كرو-فون.",
+      "ru": "Ударение на первом слоге: МАЙ-кро-фон.",
+      "tr": "İlk hece vurgulu: MAY-kro-fon."
+     }
+    }
+   ]
+  },
+  {
+   "id": "v3",
+   "who": "customer",
+   "en": "Oh, you're right. Let me unmute myself. Is that better?",
+   "variants": {
+    "polite": "Oh, you're right. Let me unmute myself. Is that any better now?",
+    "casual": "Oops, I was muted. Better now?"
+   },
+   "gloss": {
+    "en": "Fixing the mute problem and checking that it worked.",
+    "vi": "Ồ, đúng rồi. Để mình bật tiếng. Giờ ổn hơn chưa?",
+    "es": "Ah, tienes razón. Voy a activar el micrófono. ¿Se oye mejor?",
+    "pt": "Ah, você tem razão. Vou ativar o som. Melhorou?",
+    "fr": "Ah, vous avez raison. Je réactive mon micro. C'est mieux ?",
+    "de": "Oh, du hast recht. Ich schalte den Ton ein. Ist es jetzt besser?",
+    "id": "Oh, kamu benar. Saya nyalakan suaranya. Sudah lebih baik?",
+    "th": "อ้อ คุณพูดถูก เดี๋ยวฉันเปิดเสียง ตอนนี้ดีขึ้นไหม",
+    "zh": "哦，你说得对。我来取消静音。现在好些了吗？",
+    "ja": "ああ、そのとおりですね。ミュートを解除します。これでどうですか？",
+    "ko": "아, 맞네요. 음소거를 풀게요. 이제 좀 나은가요?",
+    "hi": "अरे, आप सही हैं। मैं म्यूट हटा देता हूँ। अब बेहतर है?",
+    "ar": "آه، معك حق. سألغي الكتم. هل أصبح أفضل الآن؟",
+    "ru": "Ой, вы правы. Включаю звук. Теперь лучше?",
+    "tr": "Ah, haklısınız. Sesi açıyorum. Şimdi daha iyi mi?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "v4",
+   "who": "barista",
+   "en": "Yes, I can hear you now, but the picture is a bit frozen.",
+   "variants": {
+    "polite": "Yes, I can hear you now, although the picture seems a bit frozen.",
+    "casual": "Yep, I hear you, but your video is frozen."
+   },
+   "gloss": {
+    "en": "Confirming the sound works but the video is stuck.",
+    "vi": "Có, giờ nghe được rồi, nhưng hình hơi bị đứng.",
+    "es": "Sí, ya te oigo, pero la imagen está algo congelada.",
+    "pt": "Sim, agora ouço, mas a imagem está meio travada.",
+    "fr": "Oui, je vous entends maintenant, mais l'image est un peu figée.",
+    "de": "Ja, jetzt höre ich dich, aber das Bild ist etwas eingefroren.",
+    "id": "Ya, sekarang terdengar, tapi gambarnya agak macet.",
+    "th": "ได้ยินแล้ว แต่ภาพค้างนิดหน่อย",
+    "zh": "现在听到了，不过画面有点卡住了。",
+    "ja": "はい、今は聞こえますが、映像が少し固まっています。",
+    "ko": "네, 이제 들려요. 근데 화면이 좀 멈춰 있어요.",
+    "hi": "हाँ, अब आवाज़ आ रही है, पर तस्वीर थोड़ी अटकी हुई है।",
+    "ar": "نعم، أسمعك الآن، لكن الصورة متجمدة قليلًا.",
+    "ru": "Да, теперь слышу, но картинка немного зависла.",
+    "tr": "Evet, şimdi sizi duyuyorum ama görüntü biraz donmuş."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "v5",
+   "who": "customer",
+   "en": "My connection is weak. I'll turn off my camera to see if that helps.",
+   "variants": {
+    "polite": "My connection seems weak. Would you mind if I turned off my camera to see if that helps?",
+    "casual": "My wifi is bad. I'll switch the camera off."
+   },
+   "gloss": {
+    "en": "Explaining the weak connection and trying to turn the camera off.",
+    "vi": "Kết nối của mình yếu. Mình tắt camera xem có đỡ hơn không.",
+    "es": "Mi conexión es débil. Apagaré la cámara a ver si ayuda.",
+    "pt": "Minha conexão está fraca. Vou desligar a câmera para ver se ajuda.",
+    "fr": "Ma connexion est faible. Je coupe ma caméra pour voir si ça aide.",
+    "de": "Meine Verbindung ist schwach. Ich schalte die Kamera aus und schaue, ob es hilft.",
+    "id": "Koneksi saya lemah. Saya matikan kamera dulu, semoga membantu.",
+    "th": "สัญญาณของฉันอ่อน ฉันจะปิดกล้องดูว่าช่วยได้ไหม",
+    "zh": "我的网络信号弱。我先关掉摄像头，看看有没有帮助。",
+    "ja": "接続が弱いようです。カメラを切って改善するか試してみます。",
+    "ko": "연결이 약해요. 카메라를 끄면 나아지는지 해 볼게요.",
+    "hi": "मेरा कनेक्शन कमज़ोर है। मैं कैमरा बंद करके देखता हूँ कि इससे मदद मिलती है या नहीं।",
+    "ar": "اتصالي ضعيف. سأطفئ الكاميرا لأرى إن كان ذلك يساعد.",
+    "ru": "У меня слабое соединение. Выключу камеру и посмотрю, поможет ли это.",
+    "tr": "Bağlantım zayıf. Yardımı olur mu diye kamerayı kapatacağım."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "camera",
+     "ipa": "/ˈkæm.rə/",
+     "hi": "KAM",
+     "note": {
+      "en": "Say KAM-ruh, usually two syllables, not three.",
+      "vi": "Đọc KEM-rờ, thường hai âm tiết, không phải ba.",
+      "es": "Di KAM-re, normalmente dos sílabas, no tres.",
+      "pt": "Diga KÃM-ra, normalmente duas sílabas, não três.",
+      "fr": "Dites KAM-reu, en général deux syllabes, pas trois.",
+      "de": "Sprich KAM-re, meist zwei Silben, nicht drei.",
+      "id": "Ucapkan KEM-re, biasanya dua suku kata, bukan tiga.",
+      "th": "ออกเสียง แคม-รา โดยทั่วไปสองพยางค์ ไม่ใช่สาม",
+      "zh": "读作 KAM-ruh，通常是两个音节，不是三个。",
+      "ja": "「キャムラ」のように通常は2音節で、3音節にしません。",
+      "ko": "‘캠-러’처럼 보통 두 음절로 읽어요. 세 음절이 아니에요.",
+      "hi": "‘कैम-रा’ बोलें, आम तौर पर दो अक्षर, तीन नहीं।",
+      "ar": "انطقها «كام-را» غالبًا بمقطعين وليس ثلاثة.",
+      "ru": "Читается КЭМ-ра, обычно два слога, а не три.",
+      "tr": "KEM-ra diye okunur; genellikle iki hecedir, üç değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "v6",
+   "who": "barista",
+   "en": "Good idea. If it's still slow, you could move closer to the router.",
+   "variants": {
+    "polite": "That's a good idea. If it's still slow, perhaps you could move closer to the router.",
+    "casual": "Good idea. Still slow? Move closer to the router."
+   },
+   "gloss": {
+    "en": "Agreeing and suggesting a simple fix: sit closer to the router.",
+    "vi": "Hay đó. Nếu vẫn chậm, bạn thử ngồi gần bộ phát wifi hơn.",
+    "es": "Buena idea. Si sigue lento, podrías acercarte al router.",
+    "pt": "Boa ideia. Se continuar lento, você poderia chegar mais perto do roteador.",
+    "fr": "Bonne idée. Si c'est toujours lent, rapprochez-vous du routeur.",
+    "de": "Gute Idee. Wenn es immer noch langsam ist, geh näher an den Router.",
+    "id": "Ide bagus. Kalau masih lambat, coba dekati router.",
+    "th": "ความคิดดี ถ้ายังช้าอยู่ ลองขยับเข้าไปใกล้เราเตอร์ดู",
+    "zh": "好主意。如果还是慢，你可以靠近路由器一点。",
+    "ja": "いい考えですね。まだ遅ければ、ルーターに近づいてみてください。",
+    "ko": "좋은 생각이에요. 그래도 느리면 공유기 가까이로 가 보세요.",
+    "hi": "अच्छा विचार है। अगर फिर भी धीमा रहे तो राउटर के पास चले जाइए।",
+    "ar": "فكرة جيدة. وإن بقي بطيئًا فيمكنك الاقتراب من جهاز الراوتر.",
+    "ru": "Хорошая идея. Если всё ещё медленно, подойдите ближе к роутеру.",
+    "tr": "İyi fikir. Hâlâ yavaşsa modeme biraz yaklaşabilirsiniz."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "router",
+     "ipa": "/ˈruː.tər/",
+     "hi": "ROO",
+     "note": {
+      "en": "Stress the first syllable: ROO-ter (some speakers say ROW-ter).",
+      "vi": "Nhấn âm đầu: RU-tờ (có người đọc RAO-tờ).",
+      "es": "Acentúa la primera sílaba: RU-ter (algunos dicen RAU-ter).",
+      "pt": "Acentue a primeira sílaba: RU-ter (alguns dizem RAU-ter).",
+      "fr": "Accentuez la première syllabe : ROU-teur (certains disent RAOU-teur).",
+      "de": "Erste Silbe betonen: RUU-ter (manche sagen RAU-ter).",
+      "id": "Tekankan suku pertama: RU-ter (sebagian orang mengucapkan RAU-ter).",
+      "th": "เน้นพยางค์แรก: รู-เตอร์ (บางคนออกเสียงว่า เราว์-เตอร์)",
+      "zh": "重音在第一个音节：ROO-ter（也有人读 ROW-ter）。",
+      "ja": "最初を強く：ルーター（「ラウター」と言う人もいます）。",
+      "ko": "첫 음절에 강세: 루-터 (라우-터라고도 해요).",
+      "hi": "पहले अक्षर पर ज़ोर: रू-टर (कुछ लोग ‘राउ-टर’ भी बोलते हैं)।",
+      "ar": "شدّد على المقطع الأول: رو-تر (ويقولها بعضهم راو-تر).",
+      "ru": "Ударение на первом слоге: РУ-тер (некоторые говорят РАУ-тер).",
+      "tr": "İlk hece vurgulu: RUU-tır (bazıları RAU-tır der)."
+     }
+    }
+   ]
+  },
+  {
+   "id": "v7",
+   "who": "customer",
+   "en": "Sorry, could you repeat that? The audio dropped for a second.",
+   "variants": {
+    "polite": "I'm sorry, could you repeat that, please? The audio dropped for a second.",
+    "casual": "Sorry, say that again? The audio dropped."
+   },
+   "gloss": {
+    "en": "Asking someone to repeat after the sound cut out.",
+    "vi": "Xin lỗi, bạn nhắc lại được không? Âm thanh vừa bị rớt một giây.",
+    "es": "Perdona, ¿puedes repetirlo? Se me cortó el audio un segundo.",
+    "pt": "Desculpe, pode repetir? O áudio falhou por um segundo.",
+    "fr": "Pardon, pouvez-vous répéter ? Le son a sauté une seconde.",
+    "de": "Entschuldigung, kannst du das wiederholen? Der Ton ist kurz ausgefallen.",
+    "id": "Maaf, bisa diulangi? Suaranya sempat putus sebentar.",
+    "th": "ขอโทษ ช่วยพูดซ้ำได้ไหม เสียงหายไปแป๊บหนึ่ง",
+    "zh": "抱歉，能再说一遍吗？刚才声音断了一下。",
+    "ja": "すみません、もう一度お願いできますか？一瞬音声が途切れました。",
+    "ko": "죄송한데 다시 말씀해 주실래요? 소리가 잠깐 끊겼어요.",
+    "hi": "माफ़ कीजिए, क्या आप दोहरा सकते हैं? एक पल के लिए आवाज़ चली गई थी।",
+    "ar": "عذرًا، هل يمكنك أن تعيد ما قلت؟ انقطع الصوت لثانية.",
+    "ru": "Простите, повторите, пожалуйста. Звук на секунду пропал.",
+    "tr": "Pardon, tekrar eder misiniz? Ses bir saniye kesildi."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "audio",
+     "ipa": "/ˈɔː.di.əʊ/",
+     "hi": "AW",
+     "note": {
+      "en": "Stress the first syllable: AW-dee-oh.",
+      "vi": "Nhấn âm đầu: O-đi-ô.",
+      "es": "Acentúa la primera sílaba: O-di-o.",
+      "pt": "Acentue a primeira sílaba: Ó-di-o.",
+      "fr": "Accentuez la première syllabe : O-di-o.",
+      "de": "Erste Silbe betonen: O-di-o.",
+      "id": "Tekankan suku pertama: O-di-o.",
+      "th": "เน้นพยางค์แรก: ออ-ดี-โอ",
+      "zh": "重音在第一个音节：AW-dee-oh。",
+      "ja": "最初を強く：オーディオ。",
+      "ko": "첫 음절에 강세: 오-디-오.",
+      "hi": "पहले अक्षर पर ज़ोर: ऑ-डी-ओ।",
+      "ar": "شدّد على المقطع الأول: أو-دي-أو.",
+      "ru": "Ударение на первом слоге: О-ди-о.",
+      "tr": "İlk hece vurgulu: O-di-o."
+     }
+    }
+   ]
+  },
+  {
+   "id": "v8",
+   "who": "barista",
+   "en": "I said we should start with the budget. Can you see my shared screen?",
+   "variants": {
+    "polite": "I said that we should start with the budget. Are you able to see my shared screen?",
+    "casual": "I said let's start with the budget. See my screen?"
+   },
+   "gloss": {
+    "en": "Repeating the point and checking that the shared screen is visible.",
+    "vi": "Mình nói là nên bắt đầu với ngân sách. Bạn thấy màn hình mình chia sẻ chưa?",
+    "es": "Dije que deberíamos empezar por el presupuesto. ¿Ves mi pantalla compartida?",
+    "pt": "Eu disse que devemos começar pelo orçamento. Você está vendo minha tela compartilhada?",
+    "fr": "J'ai dit qu'on devrait commencer par le budget. Vous voyez mon écran partagé ?",
+    "de": "Ich sagte, wir sollten mit dem Budget anfangen. Siehst du meinen geteilten Bildschirm?",
+    "id": "Saya bilang sebaiknya kita mulai dari anggaran. Apakah layar yang saya bagikan terlihat?",
+    "th": "ฉันบอกว่าเราควรเริ่มที่งบประมาณ เห็นหน้าจอที่ฉันแชร์ไหม",
+    "zh": "我说我们应该先从预算开始。你能看到我共享的屏幕吗？",
+    "ja": "予算から始めましょうと言いました。共有した画面は見えますか？",
+    "ko": "예산부터 시작하자고 했어요. 제가 공유한 화면 보이세요?",
+    "hi": "मैंने कहा था कि हमें बजट से शुरू करना चाहिए। क्या आपको मेरी साझा स्क्रीन दिख रही है?",
+    "ar": "قلت إننا يجب أن نبدأ بالميزانية. هل ترى الشاشة التي أشاركها؟",
+    "ru": "Я сказал, что стоит начать с бюджета. Вы видите мой общий экран?",
+    "tr": "Bütçeyle başlamamız gerektiğini söyledim. Paylaştığım ekranı görebiliyor musunuz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "v9",
+   "who": "customer",
+   "en": "Yes, I can see it clearly, but could you zoom in a little? The numbers are small.",
+   "variants": {
+    "polite": "Yes, I can see it, but would you mind zooming in a little? The numbers are quite small.",
+    "casual": "I see it, but zoom in a bit? The numbers are tiny."
+   },
+   "gloss": {
+    "en": "Confirming you see the screen and asking for a bigger view.",
+    "vi": "Thấy rõ rồi, nhưng bạn phóng to một chút được không? Các con số nhỏ quá.",
+    "es": "Sí, lo veo bien, pero ¿puedes ampliar un poco? Los números se ven pequeños.",
+    "pt": "Sim, estou vendo bem, mas pode ampliar um pouco? Os números estão pequenos.",
+    "fr": "Oui, je vois bien, mais pouvez-vous zoomer un peu ? Les chiffres sont petits.",
+    "de": "Ja, ich sehe es gut, aber könntest du ein bisschen hineinzoomen? Die Zahlen sind klein.",
+    "id": "Ya, terlihat jelas, tapi bisakah diperbesar sedikit? Angkanya kecil.",
+    "th": "เห็นชัดค่ะ แต่ช่วยซูมเข้าอีกนิดได้ไหม ตัวเลขเล็กไปหน่อย",
+    "zh": "能看到，很清楚，不过能放大一点吗？数字有点小。",
+    "ja": "はっきり見えますが、少し拡大してもらえますか？数字が小さくて。",
+    "ko": "잘 보이는데, 조금만 확대해 주실 수 있나요? 숫자가 작아서요.",
+    "hi": "हाँ, साफ़ दिख रहा है, पर क्या आप थोड़ा ज़ूम कर सकते हैं? संख्याएँ छोटी हैं।",
+    "ar": "نعم، أراها بوضوح، لكن هل يمكنك التكبير قليلًا؟ الأرقام صغيرة.",
+    "ru": "Да, вижу чётко, но не могли бы вы немного увеличить? Цифры мелкие.",
+    "tr": "Evet, net görüyorum ama biraz yakınlaştırır mısınız? Rakamlar küçük."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "v10",
+   "who": "customer",
+   "en": "Before we go on, could I share a quick slide with the rest of the team?",
+   "variants": {
+    "polite": "Before we go on, would it be all right if I shared a quick slide with the team?",
+    "casual": "Can I share one quick slide first?"
+   },
+   "gloss": {
+    "en": "Asking permission to share your own slide.",
+    "vi": "Trước khi tiếp tục, mình chia sẻ nhanh một slide với cả nhóm được không?",
+    "es": "Antes de seguir, ¿puedo compartir una diapositiva rápida con el resto del equipo?",
+    "pt": "Antes de continuar, posso compartilhar um slide rápido com o resto da equipe?",
+    "fr": "Avant de continuer, puis-je partager rapidement une diapositive avec l'équipe ?",
+    "de": "Bevor wir weitermachen, könnte ich kurz eine Folie mit dem Team teilen?",
+    "id": "Sebelum lanjut, boleh saya bagikan satu slide singkat ke tim?",
+    "th": "ก่อนไปต่อ ขอแชร์สไลด์สั้นๆ ให้ทีมดูได้ไหม",
+    "zh": "在继续之前，我可以给团队共享一张幻灯片吗？",
+    "ja": "先に進む前に、チームにスライドを1枚だけ共有してもいいですか？",
+    "ko": "계속하기 전에 팀에 슬라이드 하나만 잠깐 공유해도 될까요?",
+    "hi": "आगे बढ़ने से पहले, क्या मैं टीम के साथ एक छोटी स्लाइड साझा कर सकता हूँ?",
+    "ar": "قبل أن نتابع، هل يمكنني مشاركة شريحة سريعة مع بقية الفريق؟",
+    "ru": "Прежде чем продолжить, можно показать команде один быстрый слайд?",
+    "tr": "Devam etmeden önce ekibe kısa bir slayt gösterebilir miyim?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "v11",
+   "who": "barista",
+   "en": "Go ahead. Please put your questions in the chat if you don't want to interrupt.",
+   "variants": {
+    "polite": "Please go ahead. If you'd rather not interrupt, feel free to put your questions in the chat.",
+    "casual": "Go ahead. Use the chat if you have questions."
+   },
+   "gloss": {
+    "en": "Allowing the share and explaining how to ask questions without interrupting.",
+    "vi": "Cứ tự nhiên. Nếu không muốn ngắt lời, hãy ghi câu hỏi vào khung chat.",
+    "es": "Adelante. Si no quieres interrumpir, escribe tus preguntas en el chat.",
+    "pt": "Pode ir em frente. Se não quiser interromper, coloque as perguntas no chat.",
+    "fr": "Allez-y. Si vous ne voulez pas interrompre, posez vos questions dans le chat.",
+    "de": "Leg los. Wenn du nicht unterbrechen willst, schreib deine Fragen in den Chat.",
+    "id": "Silakan. Kalau tidak ingin menyela, tulis pertanyaan di chat.",
+    "th": "เชิญเลย ถ้าไม่อยากขัดจังหวะ พิมพ์คำถามในแชตได้",
+    "zh": "请吧。如果不想打断，可以把问题写在聊天框里。",
+    "ja": "どうぞ。話を遮りたくなければ、質問はチャットに書いてください。",
+    "ko": "그렇게 하세요. 끼어들기 싫으시면 질문은 채팅창에 남겨 주세요.",
+    "hi": "ज़रूर। अगर बीच में टोकना नहीं चाहते तो अपने सवाल चैट में लिख दीजिए।",
+    "ar": "تفضّل. وإن لم ترغب في المقاطعة فاكتب أسئلتك في الدردشة.",
+    "ru": "Конечно. Если не хотите перебивать, пишите вопросы в чат.",
+    "tr": "Buyurun. Sözü kesmek istemezseniz sorularınızı sohbete yazabilirsiniz."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "v12",
+   "who": "customer",
+   "en": "Thanks, everyone. I'll send the notes by email, and we can reconnect tomorrow morning.",
+   "variants": {
+    "polite": "Thank you, everyone. I'll send the notes by email, and we can reconnect tomorrow morning.",
+    "casual": "Thanks all. I'll email the notes, and we talk tomorrow morning."
+   },
+   "gloss": {
+    "en": "Closing the call, promising notes and setting the next meeting.",
+    "vi": "Cảm ơn mọi người. Mình sẽ gửi ghi chú qua email, và sáng mai ta họp lại nhé.",
+    "es": "Gracias a todos. Enviaré las notas por correo y mañana por la mañana volvemos a conectar.",
+    "pt": "Obrigado a todos. Vou enviar as anotações por e-mail e nos falamos de novo amanhã de manhã.",
+    "fr": "Merci à tous. J'enverrai les notes par e-mail et nous nous reconnectons demain matin.",
+    "de": "Danke euch allen. Ich schicke die Notizen per E-Mail, und morgen früh schalten wir uns wieder zusammen.",
+    "id": "Terima kasih semuanya. Saya kirim catatannya lewat email, dan kita terhubung lagi besok pagi.",
+    "th": "ขอบคุณทุกคน ฉันจะส่งบันทึกทางอีเมล แล้วเราค่อยคุยกันใหม่พรุ่งนี้เช้า",
+    "zh": "谢谢大家。我会用邮件发会议记录，明天上午我们再连线。",
+    "ja": "皆さん、ありがとうございました。議事メモはメールで送ります。明日の朝また繋ぎましょう。",
+    "ko": "모두 감사합니다. 메모는 이메일로 보내고, 내일 아침에 다시 연결해요.",
+    "hi": "सबका धन्यवाद। मैं नोट्स ईमेल से भेज दूँगा, और कल सुबह हम फिर जुड़ेंगे।",
+    "ar": "شكرًا لكم جميعًا. سأرسل الملاحظات بالبريد الإلكتروني، ونتواصل مجددًا صباح الغد.",
+    "ru": "Всем спасибо. Я пришлю заметки по почте, а завтра утром снова созвонимся.",
+    "tr": "Herkese teşekkürler. Notları e-postayla göndereceğim, yarın sabah yeniden görüşürüz."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "Can you tell me what the problem is?",
+   "keywords": [
+    "sound",
+    "audio",
+    "video",
+    "camera",
+    "microphone",
+    "connection",
+    "wifi",
+    "screen",
+    "freezing",
+    "lag",
+    "echo",
+    "muted"
+   ],
+   "variants": {
+    "polite": "Could you tell me what the problem seems to be?",
+    "casual": "What's wrong?"
+   },
+   "gloss": {
+    "en": "Asking you to describe the technical problem.",
+    "vi": "Bạn nói giúp mình vấn đề là gì nhé?",
+    "es": "¿Puedes decirme cuál es el problema?",
+    "pt": "Você pode me dizer qual é o problema?",
+    "fr": "Pouvez-vous me dire quel est le problème ?",
+    "de": "Kannst du mir sagen, wo das Problem liegt?",
+    "id": "Bisakah kamu jelaskan apa masalahnya?",
+    "th": "บอกได้ไหมว่าปัญหาคืออะไร",
+    "zh": "你能说说是什么问题吗？",
+    "ja": "どんな問題か教えてもらえますか？",
+    "ko": "무슨 문제인지 말씀해 주실래요?",
+    "hi": "क्या आप बता सकते हैं कि समस्या क्या है?",
+    "ar": "هل يمكنك أن تخبرني ما المشكلة؟",
+    "ru": "Можете сказать, в чём проблема?",
+    "tr": "Sorunun ne olduğunu söyleyebilir misin?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "What would you like to try next?",
+   "keywords": [
+    "restart",
+    "reconnect",
+    "rejoin",
+    "phone",
+    "headphones",
+    "router",
+    "browser",
+    "update",
+    "call",
+    "turn off",
+    "move",
+    "mute"
+   ],
+   "variants": {
+    "polite": "What would you like to try next, do you think?",
+    "casual": "What do you want to try next?"
+   },
+   "gloss": {
+    "en": "Asking what fix you want to try next.",
+    "vi": "Tiếp theo bạn muốn thử cách nào?",
+    "es": "¿Qué te gustaría probar ahora?",
+    "pt": "O que você gostaria de tentar agora?",
+    "fr": "Que voulez-vous essayer ensuite ?",
+    "de": "Was möchtest du als Nächstes ausprobieren?",
+    "id": "Apa yang ingin kamu coba selanjutnya?",
+    "th": "ต่อไปคุณอยากลองทำอะไร",
+    "zh": "接下来你想试什么办法？",
+    "ja": "次は何を試してみたいですか？",
+    "ko": "다음에는 무엇을 해 보고 싶으세요?",
+    "hi": "आप आगे क्या आज़माना चाहेंगे?",
+    "ar": "ما الذي تودّ تجربته بعد ذلك؟",
+    "ru": "Что хотите попробовать дальше?",
+    "tr": "Sırada neyi denemek istersin?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "customer",
+   "en": "Hi, sorry I'm a few minutes late. Can you hear me?"
+  },
+  {
+   "who": "barista",
+   "en": "No, your sound is cutting out. I think your microphone is muted."
+  },
+  {
+   "who": "customer",
+   "en": "Oh, you're right. Let me unmute myself. Is that better?"
+  },
+  {
+   "who": "barista",
+   "en": "Yes, I can hear you now, but the picture is a bit frozen."
+  },
+  {
+   "who": "customer",
+   "en": "My connection is weak. I'll turn off my camera to see if that helps."
+  },
+  {
+   "who": "barista",
+   "en": "Good idea. If it's still slow, you could move closer to the router."
+  },
+  {
+   "who": "customer",
+   "en": "Sorry, could you repeat that? The audio dropped for a second."
+  },
+  {
+   "who": "barista",
+   "en": "I said we should start with the budget. Can you see my shared screen?"
+  },
+  {
+   "who": "customer",
+   "en": "Yes, I can see it clearly, but could you zoom in a little?"
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Can everyone see the slides?"
+    },
+    {
+     "who": "customer",
+     "en": "I can see them, but there's an echo."
+    },
+    {
+     "who": "barista",
+     "en": "That's because two of us are in the same room. Please use headphones."
+    },
+    {
+     "who": "customer",
+     "en": "Good idea, I'll put mine on now."
+    }
+   ],
+   "q": {
+    "en": "Why is there an echo?",
+    "vi": "Vì sao có tiếng vọng?",
+    "es": "¿Por qué hay eco?",
+    "pt": "Por que há eco?",
+    "fr": "Pourquoi y a-t-il de l'écho ?",
+    "de": "Warum gibt es ein Echo?",
+    "id": "Mengapa ada gema?",
+    "th": "ทำไมจึงมีเสียงสะท้อน",
+    "zh": "为什么会有回声？",
+    "ja": "なぜエコーがかかっているのですか？",
+    "ko": "왜 에코가 생기나요?",
+    "hi": "इको क्यों आ रहा है?",
+    "ar": "لماذا يوجد صدى؟",
+    "ru": "Почему слышно эхо?",
+    "tr": "Neden yankı var?"
+   },
+   "answer": "two of us are in the same room"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "The call keeps freezing. Should I rejoin?"
+    },
+    {
+     "who": "barista",
+     "en": "Yes, try again, or use the dial-in number."
+    },
+    {
+     "who": "customer",
+     "en": "What time does the meeting continue?"
+    },
+    {
+     "who": "barista",
+     "en": "We'll continue at ten fifteen."
+    }
+   ],
+   "q": {
+    "en": "What time will the meeting continue?",
+    "vi": "Cuộc họp tiếp tục lúc mấy giờ?",
+    "es": "¿A qué hora continuará la reunión?",
+    "pt": "A que horas a reunião continua?",
+    "fr": "À quelle heure la réunion reprend-elle ?",
+    "de": "Um wie viel Uhr geht das Meeting weiter?",
+    "id": "Jam berapa rapat dilanjutkan?",
+    "th": "การประชุมจะดำเนินต่อกี่โมง",
+    "zh": "会议几点继续？",
+    "ja": "会議は何時に再開しますか？",
+    "ko": "회의는 몇 시에 이어지나요?",
+    "hi": "मीटिंग कितने बजे दोबारा शुरू होगी?",
+    "ar": "في أي ساعة سيُستأنف الاجتماع؟",
+    "ru": "Во сколько продолжится встреча?",
+    "tr": "Toplantı saat kaçta devam edecek?"
+   },
+   "answer": "ten fifteen"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "check",
+    "title": {
+     "en": "Check your sound",
+     "vi": "Kiểm tra âm thanh",
+     "es": "Comprueba tu sonido",
+     "pt": "Verifique seu som",
+     "fr": "Vérifier votre son",
+     "de": "Ton prüfen",
+     "id": "Periksa suaramu",
+     "th": "ตรวจสอบเสียงของคุณ",
+     "zh": "检查你的声音",
+     "ja": "音声を確認する",
+     "ko": "소리 확인하기",
+     "hi": "अपनी आवाज़ जाँचें",
+     "ar": "تحقق من صوتك",
+     "ru": "Проверь звук",
+     "tr": "Sesini kontrol et"
+    },
+    "intents": [
+     "v1"
+    ]
+   },
+   {
+    "id": "explain",
+    "title": {
+     "en": "Explain a weak connection",
+     "vi": "Nói về kết nối yếu",
+     "es": "Explica una mala conexión",
+     "pt": "Explique uma conexão fraca",
+     "fr": "Expliquer une connexion faible",
+     "de": "Schwache Verbindung erklären",
+     "id": "Jelaskan koneksi lemah",
+     "th": "อธิบายเรื่องสัญญาณอ่อน",
+     "zh": "说明网络信号弱",
+     "ja": "接続が弱いと説明する",
+     "ko": "연결이 약하다고 설명하기",
+     "hi": "कमज़ोर कनेक्शन के बारे में बताएँ",
+     "ar": "اشرح ضعف الاتصال",
+     "ru": "Объясни слабое соединение",
+     "tr": "Zayıf bağlantıyı anlat"
+    },
+    "intents": [
+     "v5"
+    ]
+   },
+   {
+    "id": "repeat",
+    "title": {
+     "en": "Ask someone to repeat",
+     "vi": "Nhờ người khác nhắc lại",
+     "es": "Pide que repitan",
+     "pt": "Peça para repetir",
+     "fr": "Demander de répéter",
+     "de": "Um Wiederholung bitten",
+     "id": "Minta diulangi",
+     "th": "ขอให้พูดซ้ำ",
+     "zh": "请对方重复",
+     "ja": "もう一度言ってもらう",
+     "ko": "다시 말해 달라고 요청하기",
+     "hi": "दोहराने के लिए कहें",
+     "ar": "اطلب الإعادة",
+     "ru": "Попроси повторить",
+     "tr": "Tekrar etmesini iste"
+    },
+    "intents": [
+     "v7"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "On video calls in English-speaking workplaces, it is polite to mute your microphone when you are not speaking and to say a short sorry if you are late. If the connection fails, say so quickly and offer to turn off your camera, rejoin or call in by phone.",
+  "vi": "Trong cuộc họp video ở nơi làm việc nói tiếng Anh, lịch sự là tắt micro khi không nói và nói một lời xin lỗi ngắn nếu đến muộn. Khi mạng yếu, hãy báo ngay và đề nghị tắt camera, vào lại hoặc gọi vào bằng điện thoại.",
+  "es": "En las videollamadas de los lugares de trabajo anglófonos es de buena educación silenciar el micrófono cuando no hablas y disculparte brevemente si llegas tarde. Si falla la conexión, avísalo pronto y ofrece apagar la cámara, volver a entrar o llamar por teléfono.",
+  "pt": "Em videochamadas de trabalho em inglês, é educado silenciar o microfone quando não estiver falando e pedir desculpas rapidamente se chegar atrasado. Se a conexão falhar, avise logo e ofereça desligar a câmera, entrar de novo ou ligar por telefone.",
+  "fr": "Lors des visioconférences dans les entreprises anglophones, il est poli de couper son micro quand on ne parle pas et de s'excuser brièvement en cas de retard. Si la connexion échoue, dites-le vite et proposez de couper la caméra, de vous reconnecter ou d'appeler par téléphone.",
+  "de": "Bei Videokonferenzen in englischsprachigen Betrieben schaltet man das Mikrofon stumm, wenn man nicht spricht, und entschuldigt sich kurz bei Verspätung. Bei Verbindungsproblemen sagt man es schnell und bietet an, die Kamera auszuschalten, neu beizutreten oder anzurufen.",
+  "id": "Dalam rapat video di tempat kerja berbahasa Inggris, sopan mematikan mikrofon saat tidak bicara dan meminta maaf singkat jika terlambat. Jika koneksi bermasalah, segera katakan dan tawarkan mematikan kamera, bergabung ulang, atau menelepon.",
+  "th": "ในการประชุมวิดีโอของที่ทำงานที่ใช้ภาษาอังกฤษ การปิดไมค์เมื่อไม่ได้พูดและขอโทษสั้นๆ ถ้ามาสายเป็นมารยาทที่ดี หากสัญญาณมีปัญหาให้แจ้งทันทีและเสนอปิดกล้อง เข้าร่วมใหม่ หรือโทรเข้าทางโทรศัพท์",
+  "zh": "在英语职场的视频会议中，不发言时把麦克风静音、迟到时简短道歉是有礼貌的做法。如果网络出问题，要尽快说明，并主动提出关闭摄像头、重新加入或改用电话接入。",
+  "ja": "英語圏の職場のビデオ会議では、話さないときはマイクをミュートにし、遅れたら短く謝るのが礼儀です。接続が不安定なときはすぐに伝え、カメラをオフにする、入り直す、電話で参加するなどを提案しましょう。",
+  "ko": "영어권 직장의 화상 회의에서는 말하지 않을 때 마이크를 끄고, 늦으면 짧게 사과하는 것이 예의예요. 연결에 문제가 생기면 바로 알리고 카메라 끄기, 다시 접속하기, 전화로 참여하기를 제안하세요.",
+  "hi": "अंग्रेज़ी भाषी कार्यस्थलों की वीडियो कॉल में न बोलते समय माइक म्यूट रखना और देर होने पर छोटा-सा माफ़ी कहना शिष्टाचार है। कनेक्शन गड़बड़ हो तो तुरंत बताएँ और कैमरा बंद करने, दोबारा जुड़ने या फ़ोन से जुड़ने का सुझाव दें।",
+  "ar": "في اجتماعات الفيديو بأماكن العمل الناطقة بالإنجليزية من اللباقة كتم الميكروفون عند عدم الكلام، والاعتذار باختصار عند التأخر. وإذا ضعف الاتصال فأخبر الجميع بسرعة واقترح إطفاء الكاميرا أو إعادة الانضمام أو الاتصال هاتفيًا.",
+  "ru": "На видеозвонках в англоязычных коллективах принято отключать микрофон, когда не говоришь, и коротко извиняться за опоздание. Если связь пропала, скажите об этом сразу и предложите выключить камеру, подключиться заново или позвонить по телефону.",
+  "tr": "İngilizce konuşulan iş yerlerindeki görüntülü görüşmelerde konuşmadığınızda mikrofonu kapatmak ve geç kalırsanız kısaca özür dilemek nezaket sayılır. Bağlantı koparsa hemen söyleyin; kamerayı kapatmayı, yeniden katılmayı ya da telefonla bağlanmayı önerin."
+ }
+}

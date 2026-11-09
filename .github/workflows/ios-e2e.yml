@@ -29,7 +29,7 @@ jobs:
           [ -n "$X" ] && sudo xcode-select -s "$X/Contents/Developer"; xcodebuild -version
       - name: Build web → mobile/www → cap sync → chèn harness
         run: |
-          npm ci --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
           ./scripts/build-mobile.sh
           bash scripts/test/ios-e2e/inject.sh
       - name: xcodebuild (iphonesimulator, không ký)

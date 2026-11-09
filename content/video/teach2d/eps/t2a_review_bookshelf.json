@@ -72,5 +72,46 @@
   "words": 37,
   "seconds": 23.3,
   "wpm": 95
+ },
+ "publish": {
+  "title": "What does \"bookshelf\" mean?",
+  "keyword": "bookshelf",
+  "value": "Bookshelf means a shelf for storing books.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=bookshelf",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"bookshelf\" mean?",
+    "description": "Bookshelf means a shelf for storing books.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bookshelf\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "bookshelf",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"bookshelf\" mean?\n\nBookshelf means a shelf for storing books.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bookshelf"
+   },
+   "instagram": {
+    "caption": "What does \"bookshelf\" mean?\n\nBookshelf means a shelf for storing books.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"bookshelf\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a shelf for storing books. Bookshelf means a shelf for storing books. More practice like this (free): {link}"
  }
 }

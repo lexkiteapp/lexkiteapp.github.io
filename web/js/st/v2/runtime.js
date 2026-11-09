@@ -31,7 +31,7 @@
   const LZ = ['review', 'practice', 'leagues', 'me', 'streak', 'exam-readiness', 'today-new', 'today-desk', 'today-rail'], cssOk = {};
   const css = (k, w) => { if (!LZ.includes(k) || cssOk[k] || !window.App || !App.loadCss) return; if (w) w.style.visibility = 'hidden';
     App.loadCss('css/st-v2-' + k + '.css').then(() => { cssOk[k] = 1; if (w) w.style.visibility = ''; }); };
-  let idle = false; const rest = () => { if (idle || (App.lean && App.lean())) return; idle = true; (self.requestIdleCallback || (f => setTimeout(f, 3000)))(() => LZ.forEach(x => css(x)), { timeout: 8000 }); };
+  let idle = false; const rest = () => { if (idle || (App.lean && App.lean())) return; idle = true; (self.requestIdleCallback || (f => setTimeout(f, 1200)))(() => LZ.forEach(x => css(x)), { timeout: 8000 }); };
   S.css = css;
   let bound = false;
   S.mount = (view, k, d, tab) => {

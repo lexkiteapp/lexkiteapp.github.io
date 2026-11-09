@@ -1,0 +1,893 @@
+{
+ "id": "presentation-qa",
+ "group": "work",
+ "cefr": "B2",
+ "title": {
+  "en": "Presentation Q&A",
+  "vi": "Hỏi đáp sau bài thuyết trình",
+  "es": "Presentación y turno de preguntas",
+  "pt": "Apresentação e perguntas",
+  "fr": "Présentation et questions",
+  "de": "Präsentation mit Fragerunde",
+  "id": "Presentasi dan tanya jawab",
+  "th": "นำเสนอและตอบคำถาม",
+  "zh": "演示与问答",
+  "ja": "プレゼンと質疑応答",
+  "ko": "발표와 질의응답",
+  "hi": "प्रेज़ेंटेशन और सवाल-जवाब",
+  "ar": "العرض التقديمي والأسئلة",
+  "ru": "Презентация и вопросы",
+  "tr": "Sunum ve soru-cevap"
+ },
+ "goal": {
+  "en": "Present clearly and answer questions with confidence!",
+  "vi": "Trình bày rõ ràng và tự tin trả lời câu hỏi!",
+  "es": "¡Presenta con claridad y responde con seguridad!",
+  "pt": "Apresente com clareza e responda com confiança!",
+  "fr": "Présentez clairement et répondez avec assurance !",
+  "de": "Präsentiere klar und beantworte Fragen souverän!",
+  "id": "Presentasi dengan jelas dan jawab pertanyaan dengan percaya diri!",
+  "th": "นำเสนออย่างชัดเจนและตอบคำถามอย่างมั่นใจ!",
+  "zh": "清晰地演示，自信地回答提问！",
+  "ja": "分かりやすく発表し、質問に自信を持って答えよう！",
+  "ko": "명확하게 발표하고 자신 있게 질문에 답해요!",
+  "hi": "साफ़ ढंग से प्रस्तुति दें और आत्मविश्वास से सवालों के जवाब दें!",
+  "ar": "قدّم بوضوح وأجب عن الأسئلة بثقة!",
+  "ru": "Выступай чётко и уверенно отвечай на вопросы!",
+  "tr": "Net bir sunum yap, soruları özgüvenle yanıtla!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "open",
+   "title": {
+    "en": "Open the talk",
+    "vi": "Mở đầu bài nói",
+    "es": "Abrir la charla",
+    "pt": "Abrir a apresentação",
+    "fr": "Ouvrir l'exposé",
+    "de": "Vortrag eröffnen",
+    "id": "Membuka presentasi",
+    "th": "เปิดการนำเสนอ",
+    "zh": "开场",
+    "ja": "発表を始める",
+    "ko": "발표 시작하기",
+    "hi": "प्रस्तुति शुरू करें",
+    "ar": "افتتاح العرض",
+    "ru": "Начало выступления",
+    "tr": "Sunuma başla"
+   },
+   "lines": [
+    "p1",
+    "p2",
+    "p3",
+    "p4"
+   ]
+  },
+  {
+   "id": "answer",
+   "title": {
+    "en": "Answer questions",
+    "vi": "Trả lời câu hỏi",
+    "es": "Responder preguntas",
+    "pt": "Responder perguntas",
+    "fr": "Répondre aux questions",
+    "de": "Fragen beantworten",
+    "id": "Menjawab pertanyaan",
+    "th": "ตอบคำถาม",
+    "zh": "回答提问",
+    "ja": "質問に答える",
+    "ko": "질문에 답하기",
+    "hi": "सवालों के जवाब दें",
+    "ar": "الإجابة عن الأسئلة",
+    "ru": "Ответы на вопросы",
+    "tr": "Soruları yanıtla"
+   },
+   "lines": [
+    "p5",
+    "p6",
+    "p7",
+    "p8"
+   ]
+  },
+  {
+   "id": "close",
+   "title": {
+    "en": "Clarify and close",
+    "vi": "Làm rõ và kết thúc",
+    "es": "Aclarar y cerrar",
+    "pt": "Esclarecer e encerrar",
+    "fr": "Clarifier et conclure",
+    "de": "Klären und abschließen",
+    "id": "Menjelaskan dan menutup",
+    "th": "ชี้แจงและสรุป",
+    "zh": "澄清与收尾",
+    "ja": "補足して締めくくる",
+    "ko": "보충 설명과 마무리",
+    "hi": "स्पष्ट करें और समाप्त करें",
+    "ar": "التوضيح والختام",
+    "ru": "Пояснения и завершение",
+    "tr": "Açıkla ve bitir"
+   },
+   "lines": [
+    "p9",
+    "p10",
+    "p11",
+    "p12"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "p1",
+   "who": "customer",
+   "en": "Thank you all for coming. I'll take about ten minutes, and questions are welcome at the end.",
+   "variants": {
+    "polite": "Thank you all for coming. I'll speak for about ten minutes, and I'd be glad to take questions at the end.",
+    "casual": "Thanks for coming. Ten minutes, then questions at the end."
+   },
+   "gloss": {
+    "en": "Opening the talk and telling the audience when to ask questions.",
+    "vi": "Cảm ơn mọi người đã đến. Mình sẽ nói khoảng mười phút, và phần câu hỏi để cuối buổi nhé.",
+    "es": "Gracias a todos por venir. Hablaré unos diez minutos y las preguntas serán bienvenidas al final.",
+    "pt": "Obrigado a todos por virem. Vou falar por uns dez minutos e as perguntas serão bem-vindas no final.",
+    "fr": "Merci à tous d'être venus. Je parlerai une dizaine de minutes, et les questions seront les bienvenues à la fin.",
+    "de": "Danke, dass Sie gekommen sind. Ich spreche etwa zehn Minuten, Fragen sind am Ende willkommen.",
+    "id": "Terima kasih sudah hadir. Saya akan bicara sekitar sepuluh menit, dan pertanyaan silakan diajukan di akhir.",
+    "th": "ขอบคุณทุกคนที่มา ฉันจะพูดประมาณสิบนาที และยินดีรับคำถามตอนท้าย",
+    "zh": "感谢大家到场。我会讲大约十分钟，欢迎在最后提问。",
+    "ja": "ご来場ありがとうございます。10分ほどお話しし、質問は最後にお受けします。",
+    "ko": "와 주셔서 감사합니다. 약 10분 동안 발표하고 질문은 마지막에 받겠습니다.",
+    "hi": "आने के लिए आप सबका धन्यवाद। मैं करीब दस मिनट बोलूँगा और सवालों का अंत में स्वागत है।",
+    "ar": "شكرًا لحضوركم جميعًا. سأتحدث نحو عشر دقائق، وأرحّب بالأسئلة في النهاية.",
+    "ru": "Спасибо, что пришли. Я буду говорить около десяти минут, а вопросы приветствуются в конце.",
+    "tr": "Geldiğiniz için hepinize teşekkürler. Yaklaşık on dakika konuşacağım, sorular sonunda memnuniyetle karşılanır."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p2",
+   "who": "customer",
+   "en": "As you can see on this slide, sales rose by twelve percent after we changed the packaging.",
+   "variants": {
+    "polite": "As you can see on this slide, sales rose by roughly twelve percent after the packaging changed.",
+    "casual": "On this slide, sales went up twelve percent after the new packaging."
+   },
+   "gloss": {
+    "en": "Pointing to a slide and stating a key result.",
+    "vi": "Như mọi người thấy trên slide này, doanh số tăng mười hai phần trăm sau khi đổi bao bì.",
+    "es": "Como pueden ver en esta diapositiva, las ventas subieron un doce por ciento tras cambiar el embalaje.",
+    "pt": "Como vocês podem ver neste slide, as vendas subiram doze por cento depois que mudamos a embalagem.",
+    "fr": "Comme vous le voyez sur cette diapositive, les ventes ont augmenté de douze pour cent après le changement d'emballage.",
+    "de": "Wie Sie auf dieser Folie sehen, stiegen die Verkäufe um zwölf Prozent, nachdem wir die Verpackung geändert hatten.",
+    "id": "Seperti terlihat di slide ini, penjualan naik dua belas persen setelah kami mengganti kemasan.",
+    "th": "อย่างที่เห็นในสไลด์นี้ ยอดขายเพิ่มขึ้นสิบสองเปอร์เซ็นต์หลังเราเปลี่ยนบรรจุภัณฑ์",
+    "zh": "如大家在这张幻灯片上所见，更换包装后销量增长了百分之十二。",
+    "ja": "このスライドのとおり、パッケージを変えたあと売上は12パーセント伸びました。",
+    "ko": "이 슬라이드에서 보시듯이 포장을 바꾼 뒤 매출이 12퍼센트 올랐습니다.",
+    "hi": "जैसा आप इस स्लाइड में देख सकते हैं, पैकेजिंग बदलने के बाद बिक्री बारह प्रतिशत बढ़ी।",
+    "ar": "كما ترون في هذه الشريحة، ارتفعت المبيعات بنسبة اثني عشر في المئة بعد تغيير العبوة.",
+    "ru": "Как видно на этом слайде, после смены упаковки продажи выросли на двенадцать процентов.",
+    "tr": "Bu slaytta gördüğünüz gibi, ambalajı değiştirdikten sonra satışlar yüzde on iki arttı."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "percent",
+     "ipa": "/pəˈsent/",
+     "hi": "SENT",
+     "note": {
+      "en": "Stress the second syllable: per-SENT.",
+      "vi": "Nhấn âm thứ hai: pơ-XENT.",
+      "es": "Acentúa la segunda sílaba: per-SENT.",
+      "pt": "Acentue a segunda sílaba: per-SÊNT.",
+      "fr": "Accentuez la deuxième syllabe : peur-SENT.",
+      "de": "Zweite Silbe betonen: per-SENT.",
+      "id": "Tekankan suku kata kedua: per-SENT.",
+      "th": "เน้นพยางค์ที่สอง: เพอร์-เซ็นต์",
+      "zh": "重音在第二个音节：per-SENT。",
+      "ja": "2番目の音節を強く：パ・セント。",
+      "ko": "두 번째 음절에 강세: 퍼-센트.",
+      "hi": "दूसरे अक्षर पर ज़ोर: पर-सेंट।",
+      "ar": "شدّد على المقطع الثاني: بَر-سِنت.",
+      "ru": "Ударение на втором слоге: пер-СЕНТ.",
+      "tr": "İkinci hece vurgulu: pır-SENT."
+     }
+    }
+   ]
+  },
+  {
+   "id": "p3",
+   "who": "barista",
+   "en": "Sorry to interrupt, but could you go back to the previous slide?",
+   "variants": {
+    "polite": "Sorry to interrupt, but would you mind going back to the previous slide, please?",
+    "casual": "Can you go back one slide?"
+   },
+   "gloss": {
+    "en": "An audience member politely interrupts to see an earlier slide.",
+    "vi": "Xin lỗi vì ngắt lời, anh/chị quay lại slide trước giúp tôi được không?",
+    "es": "Perdone la interrupción, ¿podría volver a la diapositiva anterior?",
+    "pt": "Desculpe interromper, mas poderia voltar ao slide anterior?",
+    "fr": "Désolé de vous interrompre, pourriez-vous revenir à la diapositive précédente ?",
+    "de": "Entschuldigung für die Unterbrechung, könnten Sie bitte zur vorherigen Folie zurückgehen?",
+    "id": "Maaf menyela, bisakah Anda kembali ke slide sebelumnya?",
+    "th": "ขอโทษที่ขัดจังหวะ ช่วยย้อนกลับไปสไลด์ก่อนหน้าได้ไหมคะ",
+    "zh": "不好意思打断一下，能回到上一张幻灯片吗？",
+    "ja": "お話の途中すみません、前のスライドに戻っていただけますか？",
+    "ko": "말씀 중에 죄송한데, 이전 슬라이드로 돌아가 주실 수 있나요?",
+    "hi": "बीच में रोकने के लिए माफ़ कीजिए, क्या आप पिछली स्लाइड पर वापस जा सकते हैं?",
+    "ar": "آسف على المقاطعة، هل يمكنك العودة إلى الشريحة السابقة؟",
+    "ru": "Простите, что перебиваю, не могли бы вы вернуться к предыдущему слайду?",
+    "tr": "Sözünüzü kestiğim için özür dilerim, önceki slayta dönebilir misiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "previous",
+     "ipa": "/ˈpriː.vi.əs/",
+     "hi": "PREE",
+     "note": {
+      "en": "Stress the first syllable: PREE-vee-us.",
+      "vi": "Nhấn âm đầu: PRI-vi-ợs.",
+      "es": "Acentúa la primera sílaba: PRI-vi-es.",
+      "pt": "Acentue a primeira sílaba: PRÍ-vi-as.",
+      "fr": "Accentuez la première syllabe : PRI-vi-euss.",
+      "de": "Erste Silbe betonen: PRIE-wi-es.",
+      "id": "Tekankan suku pertama: PRI-vi-es.",
+      "th": "เน้นพยางค์แรก: พรี-เวียส",
+      "zh": "重音在第一个音节：PREE-vee-us。",
+      "ja": "最初の音節を強く：プリー・ヴィ・アス。",
+      "ko": "첫 음절에 강세: 프리-비-어스.",
+      "hi": "पहले अक्षर पर ज़ोर: प्री-वि-अस।",
+      "ar": "شدّد على المقطع الأول: بري-في-يَس.",
+      "ru": "Ударение на первый слог: ПРИ-ви-эс.",
+      "tr": "İlk hece vurgulu: PRİ-vi-ıs."
+     }
+    }
+   ]
+  },
+  {
+   "id": "p4",
+   "who": "customer",
+   "en": "Of course. Let me clarify that figure, because it only covers the first quarter.",
+   "variants": {
+    "polite": "Certainly. Allow me to clarify that figure, as it only covers the first quarter.",
+    "casual": "Sure. That number is just for the first quarter."
+   },
+   "gloss": {
+    "en": "Agreeing and clarifying that a number covers only part of the year.",
+    "vi": "Được ạ. Để mình giải thích con số đó: nó chỉ tính cho quý đầu tiên.",
+    "es": "Por supuesto. Aclaro esa cifra: solo corresponde al primer trimestre.",
+    "pt": "Claro. Deixe-me esclarecer esse número, porque ele cobre só o primeiro trimestre.",
+    "fr": "Bien sûr. Je précise ce chiffre : il ne concerne que le premier trimestre.",
+    "de": "Natürlich. Ich erläutere diese Zahl: Sie umfasst nur das erste Quartal.",
+    "id": "Tentu. Biar saya jelaskan angka itu, karena hanya mencakup kuartal pertama.",
+    "th": "ได้เลย ขออธิบายตัวเลขนี้ เพราะครอบคลุมแค่ไตรมาสแรก",
+    "zh": "当然可以。我来说明一下这个数字，它只涵盖第一季度。",
+    "ja": "もちろんです。この数字は第1四半期分だけなので、補足させてください。",
+    "ko": "물론이죠. 그 수치는 1분기만 포함한 것이라서 설명드릴게요.",
+    "hi": "ज़रूर। मैं इस आँकड़े को स्पष्ट कर दूँ, क्योंकि यह सिर्फ़ पहली तिमाही का है।",
+    "ar": "بالتأكيد. اسمحوا لي بتوضيح هذا الرقم، فهو يغطي الربع الأول فقط.",
+    "ru": "Конечно. Поясню эту цифру: она охватывает только первый квартал.",
+    "tr": "Elbette. Bu rakamı açıklayayım, çünkü yalnızca ilk çeyreği kapsıyor."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p5",
+   "who": "barista",
+   "en": "Thanks for the talk. How reliable is your data, given the small sample?",
+   "variants": {
+    "polite": "Thank you for the talk. How reliable would you say the data is, given the small sample?",
+    "casual": "Nice talk. Is the data reliable with such a small sample?"
+   },
+   "gloss": {
+    "en": "A listener questions how trustworthy the data is.",
+    "vi": "Cảm ơn bài nói. Dữ liệu của anh/chị đáng tin đến đâu, khi mẫu khá nhỏ?",
+    "es": "Gracias por la charla. ¿Qué tan fiables son los datos, dado el tamaño reducido de la muestra?",
+    "pt": "Obrigado pela apresentação. Quão confiáveis são os dados, dada a amostra pequena?",
+    "fr": "Merci pour l'exposé. Vos données sont-elles fiables, vu le petit échantillon ?",
+    "de": "Danke für den Vortrag. Wie verlässlich sind Ihre Daten angesichts der kleinen Stichprobe?",
+    "id": "Terima kasih atas presentasinya. Seberapa andal datanya, mengingat sampelnya kecil?",
+    "th": "ขอบคุณสำหรับการนำเสนอ ข้อมูลของคุณน่าเชื่อถือแค่ไหน เมื่อกลุ่มตัวอย่างมีขนาดเล็ก",
+    "zh": "谢谢分享。样本这么小，你们的数据有多可靠？",
+    "ja": "発表ありがとうございます。サンプルが小さいですが、データはどの程度信頼できますか？",
+    "ko": "발표 감사합니다. 표본이 작은데 데이터는 얼마나 믿을 만한가요?",
+    "hi": "प्रस्तुति के लिए धन्यवाद। नमूना छोटा है, तो आपका डेटा कितना भरोसेमंद है?",
+    "ar": "شكرًا على العرض. ما مدى موثوقية بياناتكم مع صغر حجم العيّنة؟",
+    "ru": "Спасибо за выступление. Насколько надёжны ваши данные при такой небольшой выборке?",
+    "tr": "Sunum için teşekkürler. Örneklem bu kadar küçükken verileriniz ne kadar güvenilir?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "reliable",
+     "ipa": "/rɪˈlaɪ.ə.bəl/",
+     "hi": "LY",
+     "note": {
+      "en": "Stress the second syllable: ri-LY-uh-buhl.",
+      "vi": "Nhấn âm thứ hai: ri-LAI-ờ-bồ.",
+      "es": "Acentúa la segunda sílaba: ri-LAI-e-bel.",
+      "pt": "Acentue a segunda sílaba: ri-LAI-a-bol.",
+      "fr": "Accentuez la deuxième syllabe : ri-LAÏ-eu-beul.",
+      "de": "Zweite Silbe betonen: ri-LAI-e-bel.",
+      "id": "Tekankan suku kedua: ri-LAI-e-bel.",
+      "th": "เน้นพยางค์ที่สอง: ริ-ไล-อะ-เบิล",
+      "zh": "重音在第二个音节：ri-LY-uh-buhl。",
+      "ja": "2番目の音節を強く：リ・ライ・ア・ブル。",
+      "ko": "두 번째 음절에 강세: 리-라이-어-벌.",
+      "hi": "दूसरे अक्षर पर ज़ोर: रि-लाइ-अ-बल।",
+      "ar": "شدّد على المقطع الثاني: رِ-لاي-ا-بل.",
+      "ru": "Ударение на втором слоге: ри-ЛАЙ-э-бл.",
+      "tr": "İkinci hece vurgulu: ri-LAY-ı-bıl."
+     }
+    }
+   ]
+  },
+  {
+   "id": "p6",
+   "who": "customer",
+   "en": "That's a fair question. The sample is small, so we treat the results as an early indication.",
+   "variants": {
+    "polite": "That's a very fair question. The sample is small, so we regard the results as an early indication only.",
+    "casual": "Good question. The sample is small, so it's just an early sign."
+   },
+   "gloss": {
+    "en": "Admitting a limit honestly while explaining how to read the results.",
+    "vi": "Câu hỏi chính đáng. Mẫu còn nhỏ nên chúng tôi coi kết quả chỉ là dấu hiệu ban đầu.",
+    "es": "Es una pregunta legítima. La muestra es pequeña, así que tomamos los resultados como una primera señal.",
+    "pt": "É uma pergunta justa. A amostra é pequena, então tratamos os resultados como um primeiro indício.",
+    "fr": "C'est une question légitime. L'échantillon est petit, nous considérons donc les résultats comme une première indication.",
+    "de": "Das ist eine berechtigte Frage. Die Stichprobe ist klein, deshalb verstehen wir die Ergebnisse als ersten Hinweis.",
+    "id": "Itu pertanyaan yang wajar. Sampelnya kecil, jadi kami menganggap hasilnya baru indikasi awal.",
+    "th": "เป็นคำถามที่สมเหตุสมผล กลุ่มตัวอย่างมีขนาดเล็ก เราจึงถือว่าผลเป็นเพียงข้อบ่งชี้เบื้องต้น",
+    "zh": "这个问题问得合理。样本确实小，所以我们把结果看作初步迹象。",
+    "ja": "もっともなご質問です。サンプルは小さいので、結果は初期の目安として捉えています。",
+    "ko": "맞는 지적이에요. 표본이 작아서 결과는 초기 단서 정도로 보고 있어요.",
+    "hi": "यह उचित सवाल है। नमूना छोटा है, इसलिए हम नतीजों को शुरुआती संकेत ही मानते हैं।",
+    "ar": "سؤال وجيه. العيّنة صغيرة، لذلك نعدّ النتائج مؤشرًا أوليًا فقط.",
+    "ru": "Справедливый вопрос. Выборка небольшая, поэтому мы считаем результаты предварительным ориентиром.",
+    "tr": "Yerinde bir soru. Örneklem küçük, bu yüzden sonuçları ilk bir işaret olarak değerlendiriyoruz."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p7",
+   "who": "barista",
+   "en": "Could you explain why you chose that method rather than interviews?",
+   "variants": {
+    "polite": "Would you mind explaining why you chose that method rather than interviews?",
+    "casual": "Why that method and not interviews?"
+   },
+   "gloss": {
+    "en": "Asking the speaker to justify the research method.",
+    "vi": "Anh/chị giải thích vì sao chọn phương pháp đó thay vì phỏng vấn được không?",
+    "es": "¿Podría explicar por qué eligió ese método en lugar de entrevistas?",
+    "pt": "Poderia explicar por que escolheu esse método em vez de entrevistas?",
+    "fr": "Pourriez-vous expliquer pourquoi vous avez choisi cette méthode plutôt que des entretiens ?",
+    "de": "Könnten Sie erklären, warum Sie diese Methode statt Interviews gewählt haben?",
+    "id": "Bisakah Anda jelaskan mengapa memilih metode itu dan bukan wawancara?",
+    "th": "ช่วยอธิบายได้ไหมว่าทำไมจึงเลือกวิธีนั้นแทนการสัมภาษณ์",
+    "zh": "能解释一下为什么选这种方法而不是访谈吗？",
+    "ja": "なぜインタビューではなくその方法を選んだのか、説明していただけますか？",
+    "ko": "왜 인터뷰가 아니라 그 방법을 택했는지 설명해 주실 수 있나요?",
+    "hi": "क्या आप समझा सकते हैं कि आपने इंटरव्यू की जगह वही तरीका क्यों चुना?",
+    "ar": "هل يمكنك أن تشرح لماذا اخترت هذه الطريقة بدل المقابلات؟",
+    "ru": "Не могли бы вы объяснить, почему выбрали этот метод, а не интервью?",
+    "tr": "Görüşmeler yerine neden o yöntemi seçtiğinizi açıklayabilir misiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p8",
+   "who": "customer",
+   "en": "I'm afraid I don't have the exact figures with me, but I can email them to you this afternoon.",
+   "variants": {
+    "polite": "I'm afraid I don't have the exact figures to hand, but I'd be happy to email them to you this afternoon.",
+    "casual": "I don't have the numbers here. I'll email them to you this afternoon."
+   },
+   "gloss": {
+    "en": "Admitting you lack the numbers and promising to send them later.",
+    "vi": "Tiếc là tôi không mang theo số liệu chính xác, nhưng chiều nay tôi sẽ gửi email cho anh/chị.",
+    "es": "Lamentablemente no tengo las cifras exactas aquí, pero puedo enviárselas por correo esta tarde.",
+    "pt": "Infelizmente não tenho os números exatos comigo, mas posso enviá-los por e-mail esta tarde.",
+    "fr": "Je crains de ne pas avoir les chiffres exacts sous la main, mais je peux vous les envoyer par e-mail cet après-midi.",
+    "de": "Leider habe ich die genauen Zahlen nicht dabei, kann sie Ihnen aber heute Nachmittag per E-Mail schicken.",
+    "id": "Sayangnya saya tidak membawa angka pastinya, tetapi saya bisa mengirimkannya lewat email sore ini.",
+    "th": "เสียดายที่ฉันไม่ได้นำตัวเลขที่แน่นอนมาด้วย แต่จะส่งอีเมลให้ในบ่ายนี้",
+    "zh": "很抱歉，我手边没有确切数字，不过今天下午我可以用邮件发给您。",
+    "ja": "あいにく正確な数字を手元に持っていませんが、今日の午後にメールでお送りできます。",
+    "ko": "죄송하지만 정확한 수치는 지금 가지고 있지 않아요. 오늘 오후에 이메일로 보내 드릴게요.",
+    "hi": "माफ़ कीजिए, सटीक आँकड़े इस समय मेरे पास नहीं हैं, पर मैं उन्हें आज दोपहर ईमेल कर सकता हूँ।",
+    "ar": "للأسف لا أملك الأرقام الدقيقة معي الآن، لكن يمكنني إرسالها لك بالبريد الإلكتروني بعد ظهر اليوم.",
+    "ru": "К сожалению, точных цифр у меня с собой нет, но я могу отправить их вам по почте сегодня днём.",
+    "tr": "Maalesef kesin rakamlar yanımda değil ama bugün öğleden sonra size e-postayla gönderebilirim."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "figures",
+     "ipa": "/ˈfɪɡ.əz/",
+     "hi": "FIG",
+     "note": {
+      "en": "Stress the first syllable: FIG-uhrz, with a hard g.",
+      "vi": "Nhấn âm đầu: FIG-ờz, chữ g đọc cứng.",
+      "es": "Acentúa la primera sílaba: FI-guerz, con g fuerte.",
+      "pt": "Acentue a primeira sílaba: FI-guerz, com g forte.",
+      "fr": "Accentuez la première syllabe : FI-gueurz, avec un g dur.",
+      "de": "Erste Silbe betonen: FIG-erz, mit hartem g.",
+      "id": "Tekankan suku pertama: FIG-erz, g keras.",
+      "th": "เน้นพยางค์แรก: ฟิก-เกอร์ส ออกเสียง g แข็ง",
+      "zh": "重音在第一个音节：FIG-uhrz，g 发硬音。",
+      "ja": "最初の音節を強く：フィガーズ。gは濁った硬い音。",
+      "ko": "첫 음절에 강세: 피-거즈, g는 단단하게.",
+      "hi": "पहले अक्षर पर ज़ोर: फ़िग-अर्ज़, ‘ग’ कड़ा।",
+      "ar": "شدّد على المقطع الأول: فِغ-رز، بغين صلبة (g).",
+      "ru": "Ударение на первом слоге: ФИГ-эрз, г твёрдое.",
+      "tr": "İlk hece vurgulu: FİG-ırz, sert g."
+     }
+    }
+   ]
+  },
+  {
+   "id": "p9",
+   "who": "barista",
+   "en": "I'm not sure I follow your last point. Could you give an example?",
+   "variants": {
+    "polite": "I'm sorry, I'm not sure I followed your last point. Could you give an example, please?",
+    "casual": "I didn't get your last point. Can you give an example?"
+   },
+   "gloss": {
+    "en": "Saying you did not follow and asking for an example.",
+    "vi": "Tôi chưa theo kịp ý cuối của anh/chị. Anh/chị cho một ví dụ được không?",
+    "es": "No estoy seguro de haber entendido su último punto. ¿Podría dar un ejemplo?",
+    "pt": "Não tenho certeza de ter acompanhado seu último ponto. Poderia dar um exemplo?",
+    "fr": "Je ne suis pas sûr de suivre votre dernier point. Pourriez-vous donner un exemple ?",
+    "de": "Ich bin nicht sicher, ob ich Ihren letzten Punkt verstanden habe. Könnten Sie ein Beispiel geben?",
+    "id": "Saya kurang yakin memahami poin terakhir Anda. Bisakah Anda memberi contoh?",
+    "th": "ฉันตามประเด็นสุดท้ายของคุณไม่ค่อยทัน ช่วยยกตัวอย่างได้ไหม",
+    "zh": "我没太听懂您最后一点。能举个例子吗？",
+    "ja": "最後のポイントがよく理解できませんでした。例を挙げていただけますか？",
+    "ko": "마지막 요점을 잘 따라가지 못했어요. 예를 들어 주실 수 있나요?",
+    "hi": "मुझे आपकी आख़िरी बात ठीक से समझ नहीं आई। क्या आप कोई उदाहरण दे सकते हैं?",
+    "ar": "لست متأكدًا أنني فهمت نقطتك الأخيرة. هل يمكنك إعطاء مثال؟",
+    "ru": "Не уверен, что понял вашу последнюю мысль. Не могли бы вы привести пример?",
+    "tr": "Son noktanızı pek anlayamadım. Bir örnek verebilir misiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p10",
+   "who": "customer",
+   "en": "Let me put it another way: customers were buying more because the product was easier to find.",
+   "variants": {
+    "polite": "Let me try to put it another way: customers were buying more because the product became easier to find.",
+    "casual": "In other words, people bought more because it was easier to find."
+   },
+   "gloss": {
+    "en": "Rephrasing your point in simpler words.",
+    "vi": "Để tôi nói theo cách khác: khách mua nhiều hơn vì sản phẩm dễ tìm hơn.",
+    "es": "Lo diré de otra manera: los clientes compraban más porque el producto era más fácil de encontrar.",
+    "pt": "Vou dizer de outra forma: os clientes compravam mais porque o produto ficou mais fácil de achar.",
+    "fr": "Je le formule autrement : les clients achetaient davantage parce que le produit était plus facile à trouver.",
+    "de": "Ich sage es anders: Die Kunden kauften mehr, weil das Produkt leichter zu finden war.",
+    "id": "Biar saya sampaikan dengan cara lain: pelanggan membeli lebih banyak karena produknya lebih mudah ditemukan.",
+    "th": "ขอพูดอีกแบบหนึ่ง ลูกค้าซื้อมากขึ้นเพราะหาสินค้าเจอง่ายขึ้น",
+    "zh": "换个说法：顾客买得更多，是因为产品更容易找到。",
+    "ja": "言い換えます。商品が見つけやすくなったので、お客様がより多く買ったのです。",
+    "ko": "다르게 말씀드리면, 제품을 찾기 쉬워져서 고객이 더 많이 샀다는 뜻이에요.",
+    "hi": "मैं इसे दूसरे ढंग से कहता हूँ: ग्राहक ज़्यादा खरीद रहे थे क्योंकि उत्पाद ढूँढना आसान हो गया था।",
+    "ar": "دعني أقولها بطريقة أخرى: كان الزبائن يشترون أكثر لأن المنتج أصبح أسهل في العثور عليه.",
+    "ru": "Скажу иначе: покупатели стали покупать больше, потому что товар стало проще найти.",
+    "tr": "Başka türlü söyleyeyim: ürün bulunması kolaylaştığı için müşteriler daha çok satın aldı."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p11",
+   "who": "customer",
+   "en": "To sum up, the new packaging worked, and I'd recommend testing it in two more regions.",
+   "variants": {
+    "polite": "To sum up, the new packaging worked well, and I would recommend testing it in two more regions.",
+    "casual": "So, the packaging worked. I suggest testing it in two more regions."
+   },
+   "gloss": {
+    "en": "Giving the conclusion and one clear recommendation.",
+    "vi": "Tóm lại, bao bì mới hiệu quả, và tôi đề xuất thử ở thêm hai khu vực nữa.",
+    "es": "En resumen, el nuevo embalaje funcionó y recomiendo probarlo en dos regiones más.",
+    "pt": "Resumindo, a nova embalagem funcionou, e recomendo testá-la em mais duas regiões.",
+    "fr": "En résumé, le nouvel emballage a fonctionné, et je recommande de le tester dans deux régions de plus.",
+    "de": "Zusammengefasst: Die neue Verpackung hat funktioniert, und ich empfehle, sie in zwei weiteren Regionen zu testen.",
+    "id": "Singkatnya, kemasan baru berhasil, dan saya sarankan mengujinya di dua wilayah lagi.",
+    "th": "สรุปแล้ว บรรจุภัณฑ์ใหม่ได้ผล และฉันแนะนำให้ทดลองในอีกสองภูมิภาค",
+    "zh": "总之，新包装有效，我建议再在两个地区试行。",
+    "ja": "まとめると、新しいパッケージは効果があり、あと2つの地域で試すことをお勧めします。",
+    "ko": "정리하면 새 포장이 효과가 있었고, 두 지역에서 더 시험해 보길 권합니다.",
+    "hi": "संक्षेप में, नई पैकेजिंग कारगर रही, और मैं इसे दो और क्षेत्रों में आज़माने की सलाह दूँगा।",
+    "ar": "وخلاصة القول، نجحت العبوة الجديدة، وأوصي بتجربتها في منطقتين أخريين.",
+    "ru": "Подведу итог: новая упаковка сработала, и я рекомендую испытать её ещё в двух регионах.",
+    "tr": "Özetle, yeni ambalaj işe yaradı ve iki bölgede daha denenmesini öneriyorum."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p12",
+   "who": "barista",
+   "en": "Thank you, that was clear and well organised. We'll discuss the next steps this week.",
+   "variants": {
+    "polite": "Thank you, that was very clear and well organised. We'll discuss the next steps later this week.",
+    "casual": "Thanks, that was clear. We'll talk next steps this week."
+   },
+   "gloss": {
+    "en": "Thanking the speaker and moving on to next steps.",
+    "vi": "Cảm ơn anh/chị, bài nói rõ ràng và mạch lạc. Tuần này chúng ta sẽ bàn bước tiếp theo.",
+    "es": "Gracias, ha sido claro y bien organizado. Esta semana hablaremos de los próximos pasos.",
+    "pt": "Obrigado, foi claro e bem organizado. Esta semana vamos discutir os próximos passos.",
+    "fr": "Merci, c'était clair et bien structuré. Nous discuterons des prochaines étapes cette semaine.",
+    "de": "Danke, das war klar und gut gegliedert. Die nächsten Schritte besprechen wir diese Woche.",
+    "id": "Terima kasih, presentasinya jelas dan tertata. Minggu ini kita bahas langkah berikutnya.",
+    "th": "ขอบคุณ ชัดเจนและเป็นระเบียบดีมาก สัปดาห์นี้เราจะคุยเรื่องขั้นตอนต่อไป",
+    "zh": "谢谢，讲得清楚又有条理。我们本周会讨论后续步骤。",
+    "ja": "ありがとうございました。分かりやすく整理されていました。次のステップは今週話し合います。",
+    "ko": "감사합니다. 명확하고 체계적이었어요. 다음 단계는 이번 주에 논의할게요.",
+    "hi": "धन्यवाद, यह स्पष्ट और सुव्यवस्थित था। अगले कदमों पर हम इसी सप्ताह चर्चा करेंगे।",
+    "ar": "شكرًا لك، كان العرض واضحًا ومنظّمًا. سنناقش الخطوات التالية هذا الأسبوع.",
+    "ru": "Спасибо, всё было ясно и чётко выстроено. Следующие шаги обсудим на этой неделе.",
+    "tr": "Teşekkürler, açık ve düzenliydi. Sonraki adımları bu hafta konuşacağız."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "What was the main finding of your project?",
+   "keywords": [
+    "increase",
+    "rise",
+    "sales",
+    "customers",
+    "growth",
+    "results",
+    "data",
+    "survey",
+    "trend",
+    "percent",
+    "improvement",
+    "decrease"
+   ],
+   "variants": {
+    "polite": "Could you tell us the main finding of your project?",
+    "casual": "What did you find?"
+   },
+   "gloss": {
+    "en": "Asking what the main result of your project was.",
+    "vi": "Kết quả chính của dự án của anh/chị là gì?",
+    "es": "¿Cuál fue el principal hallazgo de su proyecto?",
+    "pt": "Qual foi a principal conclusão do seu projeto?",
+    "fr": "Quelle a été la principale conclusion de votre projet ?",
+    "de": "Was war das wichtigste Ergebnis Ihres Projekts?",
+    "id": "Apa temuan utama dari proyek Anda?",
+    "th": "ข้อค้นพบหลักของโครงการของคุณคืออะไร",
+    "zh": "你们项目的主要发现是什么？",
+    "ja": "プロジェクトの主な発見は何でしたか？",
+    "ko": "프로젝트의 주요 발견은 무엇이었나요?",
+    "hi": "आपके प्रोजेक्ट का मुख्य निष्कर्ष क्या रहा?",
+    "ar": "ما أبرز ما توصّل إليه مشروعكم؟",
+    "ru": "Каков главный вывод вашего проекта?",
+    "tr": "Projenizin ana bulgusu neydi?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "What would you do differently next time?",
+   "keywords": [
+    "sample",
+    "time",
+    "data",
+    "test",
+    "plan",
+    "survey",
+    "interviews",
+    "bigger",
+    "more",
+    "earlier",
+    "team",
+    "budget"
+   ],
+   "variants": {
+    "polite": "What would you change if you ran the project again?",
+    "casual": "What would you change?"
+   },
+   "gloss": {
+    "en": "Asking what you would change if you repeated the project.",
+    "vi": "Lần sau anh/chị sẽ làm khác đi điều gì?",
+    "es": "¿Qué haría de forma distinta la próxima vez?",
+    "pt": "O que você faria de diferente da próxima vez?",
+    "fr": "Que feriez-vous différemment la prochaine fois ?",
+    "de": "Was würden Sie beim nächsten Mal anders machen?",
+    "id": "Apa yang akan Anda lakukan secara berbeda lain kali?",
+    "th": "ครั้งหน้าคุณจะทำอะไรต่างออกไปบ้าง",
+    "zh": "下次你们会有什么不同的做法？",
+    "ja": "次回は何を変えますか？",
+    "ko": "다음에는 어떤 점을 다르게 하시겠어요?",
+    "hi": "अगली बार आप क्या अलग करेंगे?",
+    "ar": "ما الذي ستفعله بشكل مختلف في المرة القادمة؟",
+    "ru": "Что бы вы сделали иначе в следующий раз?",
+    "tr": "Bir dahaki sefer neyi farklı yapardınız?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Welcome, everyone. Please go ahead whenever you're ready."
+  },
+  {
+   "who": "customer",
+   "en": "Thank you all for coming. I'll take about ten minutes, and questions are welcome at the end."
+  },
+  {
+   "who": "barista",
+   "en": "Sorry to interrupt, but could you go back to the previous slide?"
+  },
+  {
+   "who": "customer",
+   "en": "Of course. Let me clarify that figure, because it only covers the first quarter."
+  },
+  {
+   "who": "barista",
+   "en": "Thanks. How reliable is your data, given the small sample?"
+  },
+  {
+   "who": "customer",
+   "en": "That's a fair question. The sample is small, so we treat the results as an early indication."
+  },
+  {
+   "who": "barista",
+   "en": "Could you explain why you chose that method rather than interviews?"
+  },
+  {
+   "who": "customer",
+   "en": "A survey reached more people quickly. I can email the exact figures this afternoon."
+  },
+  {
+   "who": "barista",
+   "en": "Thank you, that was clear and well organised."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Which slide are you on? I seem to have lost my place."
+    },
+    {
+     "who": "customer",
+     "en": "We're on slide six, the one with the bar chart."
+    },
+    {
+     "who": "barista",
+     "en": "Thanks. And what does the red bar show?"
+    },
+    {
+     "who": "customer",
+     "en": "The red bar shows last year's sales, and the blue bar shows this year's sales."
+    }
+   ],
+   "q": {
+    "en": "What does the blue bar show?",
+    "vi": "Cột màu xanh thể hiện điều gì?",
+    "es": "¿Qué muestra la barra azul?",
+    "pt": "O que a barra azul mostra?",
+    "fr": "Que montre la barre bleue ?",
+    "de": "Was zeigt der blaue Balken?",
+    "id": "Apa yang ditunjukkan batang biru?",
+    "th": "แท่งสีน้ำเงินแสดงอะไร",
+    "zh": "蓝色柱子表示什么？",
+    "ja": "青い棒は何を表していますか？",
+    "ko": "파란 막대는 무엇을 보여 주나요?",
+    "hi": "नीला बार क्या दर्शाता है?",
+    "ar": "ماذا يوضح العمود الأزرق؟",
+    "ru": "Что показывает синий столбец?",
+    "tr": "Mavi çubuk neyi gösteriyor?"
+   },
+   "answer": "this year's sales"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Could we have a short break before the questions?"
+    },
+    {
+     "who": "customer",
+     "en": "Of course. Shall we say ten minutes?"
+    },
+    {
+     "who": "barista",
+     "en": "Let's make it fifteen, because the coffee is outside."
+    },
+    {
+     "who": "customer",
+     "en": "Fine, we'll start again at eleven thirty."
+    }
+   ],
+   "q": {
+    "en": "When will the session start again?",
+    "vi": "Khi nào buổi họp bắt đầu lại?",
+    "es": "¿A qué hora se reanuda la sesión?",
+    "pt": "Quando a sessão recomeça?",
+    "fr": "À quelle heure la séance reprend-elle ?",
+    "de": "Wann geht die Sitzung weiter?",
+    "id": "Kapan sesi dimulai lagi?",
+    "th": "จะเริ่มต่ออีกครั้งกี่โมง",
+    "zh": "会议几点重新开始？",
+    "ja": "セッションは何時に再開しますか？",
+    "ko": "세션은 몇 시에 다시 시작하나요?",
+    "hi": "सत्र दोबारा कब शुरू होगा?",
+    "ar": "متى تُستأنف الجلسة؟",
+    "ru": "Во сколько возобновится сессия?",
+    "tr": "Oturum saat kaçta yeniden başlayacak?"
+   },
+   "answer": "eleven thirty"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "opening",
+    "title": {
+     "en": "Open your talk",
+     "vi": "Mở đầu bài nói",
+     "es": "Abre tu charla",
+     "pt": "Abra sua apresentação",
+     "fr": "Ouvrir votre exposé",
+     "de": "Vortrag eröffnen",
+     "id": "Buka presentasimu",
+     "th": "เปิดการนำเสนอ",
+     "zh": "开始你的演讲",
+     "ja": "発表を始める",
+     "ko": "발표 시작하기",
+     "hi": "अपनी प्रस्तुति शुरू करें",
+     "ar": "افتتح عرضك",
+     "ru": "Начни выступление",
+     "tr": "Sunumunu aç"
+    },
+    "intents": [
+     "p1"
+    ]
+   },
+   {
+    "id": "hardq",
+    "title": {
+     "en": "Answer a hard question",
+     "vi": "Trả lời câu hỏi khó",
+     "es": "Responde una pregunta difícil",
+     "pt": "Responda a uma pergunta difícil",
+     "fr": "Répondre à une question difficile",
+     "de": "Eine schwierige Frage beantworten",
+     "id": "Jawab pertanyaan sulit",
+     "th": "ตอบคำถามที่ยาก",
+     "zh": "回答一个难题",
+     "ja": "難しい質問に答える",
+     "ko": "어려운 질문에 답하기",
+     "hi": "कठिन सवाल का जवाब दें",
+     "ar": "أجب عن سؤال صعب",
+     "ru": "Ответь на сложный вопрос",
+     "tr": "Zor bir soruyu yanıtla"
+    },
+    "intents": [
+     "p6"
+    ]
+   },
+   {
+    "id": "followup",
+    "title": {
+     "en": "Promise a follow-up",
+     "vi": "Hứa phản hồi sau",
+     "es": "Promete responder después",
+     "pt": "Prometa um retorno",
+     "fr": "Promettre un suivi",
+     "de": "Eine Rückmeldung zusagen",
+     "id": "Janjikan tindak lanjut",
+     "th": "รับปากว่าจะตอบภายหลัง",
+     "zh": "承诺稍后跟进",
+     "ja": "後で連絡すると約束する",
+     "ko": "나중에 알려 주겠다고 약속하기",
+     "hi": "बाद में जवाब देने का वादा करें",
+     "ar": "عِد بمتابعة الأمر لاحقًا",
+     "ru": "Пообещай вернуться к вопросу",
+     "tr": "Daha sonra dönüş sözü ver"
+    },
+    "intents": [
+     "p8"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "In English-speaking workplaces, listeners often ask questions during or after a talk, and saying \"good question\" while you think is normal. If you do not know an answer, it is better to promise to follow up than to guess.",
+  "vi": "Ở môi trường công sở nói tiếng Anh, người nghe thường đặt câu hỏi trong hoặc sau bài nói, và nói “câu hỏi hay” để có thời gian nghĩ là bình thường. Nếu chưa biết câu trả lời, hứa sẽ phản hồi sau tốt hơn là đoán bừa.",
+  "es": "En los lugares de trabajo anglófonos, el público suele preguntar durante o después de la charla, y decir «buena pregunta» mientras piensas es normal. Si no sabes la respuesta, es mejor prometer que responderás después que adivinar.",
+  "pt": "Em ambientes de trabalho de língua inglesa, a plateia costuma fazer perguntas durante ou depois da apresentação, e dizer \"boa pergunta\" enquanto você pensa é normal. Se não souber a resposta, é melhor prometer retornar depois do que chutar.",
+  "fr": "Dans les entreprises anglophones, le public pose souvent des questions pendant ou après l'exposé, et dire « bonne question » le temps de réfléchir est normal. Si vous ne connaissez pas la réponse, mieux vaut promettre de revenir vers la personne que d'improviser.",
+  "de": "In englischsprachigen Arbeitsumfeldern stellt das Publikum oft während oder nach dem Vortrag Fragen, und „gute Frage“ zu sagen, während man nachdenkt, ist üblich. Wer eine Antwort nicht kennt, verspricht besser eine Rückmeldung, als zu raten.",
+  "id": "Di tempat kerja berbahasa Inggris, pendengar sering bertanya selama atau setelah presentasi, dan mengatakan “pertanyaan bagus” sambil berpikir itu wajar. Jika tidak tahu jawabannya, lebih baik berjanji menindaklanjuti daripada menebak.",
+  "th": "ในที่ทำงานที่ใช้ภาษาอังกฤษ ผู้ฟังมักถามระหว่างหรือหลังการนำเสนอ และการพูดว่า “คำถามดีนะ” เพื่อหาเวลาคิดเป็นเรื่องปกติ หากไม่รู้คำตอบ การรับปากว่าจะตอบกลับภายหลังดีกว่าการเดา",
+  "zh": "在英语职场中，听众常在演讲期间或结束后提问，一边思考一边说“问得好”很正常。如果不知道答案，承诺稍后答复比随便猜测更好。",
+  "ja": "英語圏の職場では、発表中や発表後に質問が出ることがよくあり、考える間に「いい質問ですね」と言うのは普通です。答えが分からないときは、推測で答えるより後で確認すると約束する方が好まれます。",
+  "ko": "영어권 직장에서는 발표 중이나 후에 청중이 질문하는 일이 흔하고, 생각할 시간을 벌려고 “좋은 질문이네요”라고 말해도 자연스러워요. 답을 모르면 추측하기보다 나중에 알려 주겠다고 약속하는 편이 좋아요.",
+  "hi": "अंग्रेज़ी भाषी कार्यस्थलों में श्रोता अक्सर प्रस्तुति के दौरान या बाद में सवाल पूछते हैं, और सोचते समय “अच्छा सवाल है” कहना सामान्य है। जवाब न पता हो तो अंदाज़ा लगाने के बजाय बाद में बताने का वादा करना बेहतर है।",
+  "ar": "في أماكن العمل الناطقة بالإنجليزية يطرح الحضور الأسئلة غالبًا أثناء العرض أو بعده، ومن الطبيعي أن تقول «سؤال وجيه» ريثما تفكر. وإن لم تعرف الجواب فمن الأفضل أن تعد بالرد لاحقًا بدل التخمين.",
+  "ru": "В англоязычных коллективах слушатели часто задают вопросы во время или после выступления, и сказать «хороший вопрос», пока думаешь, — нормально. Если не знаешь ответа, лучше пообещать вернуться к вопросу, чем гадать.",
+  "tr": "İngilizce konuşulan iş yerlerinde dinleyiciler konuşma sırasında veya sonrasında sık sık soru sorar; düşünürken “iyi bir soru” demek normaldir. Cevabı bilmiyorsan tahmin yürütmektense sonra döneceğini söylemek daha iyidir."
+ }
+}

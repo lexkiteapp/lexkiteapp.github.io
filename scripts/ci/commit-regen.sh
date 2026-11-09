@@ -10,8 +10,9 @@ case "$MSG" in *"[skip ci]"*) ;; *) MSG="$MSG [skip ci]";; esac   # đẩy bằn
 git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
 for i in 1 2 3 4 5 6; do
   git fetch -q origin main && git reset -q --hard origin/main || { sleep 5; continue; }
+  git clean -fdq -- "$@"   # tệp CHƯA track do lượt thử trước để lại trong chính các đường dẫn sinh (vd .ots của mục sổ đã bị sinh lại) → không đẩy nhầm (9/11: 2 .ots mồ côi làm protection đỏ trên main)
   bash -c "$REGEN" || exit 1
-  bash scripts/build-extension.sh >/dev/null   # bản add-on của tệp sinh phải khớp web/ (scripts/test/ext-sync.mjs)
+  [ "${COMMIT_REGEN_NO_EXT:-}" = 1 ] || bash scripts/build-extension.sh >/dev/null   # bản add-on của tệp sinh phải khớp web/ (scripts/test/ext-sync.mjs); COMMIT_REGEN_NO_EXT=1 = tệp sinh không thuộc web/ (sổ đăng ký)
   git add -- "$@"
   git diff --cached --quiet && { echo "commit-regen: không có thay đổi"; exit 0; }
   git commit -qm "$MSG" && git push -q origin HEAD:main && { echo "commit-regen: đã đẩy (lần $i)"; exit 0; }

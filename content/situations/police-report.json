@@ -1,0 +1,900 @@
+{
+ "id": "police-report",
+ "group": "services",
+ "cefr": "B1",
+ "title": {
+  "en": "Police report",
+  "vi": "Trình báo công an",
+  "es": "Denuncia a la policía",
+  "pt": "Boletim de ocorrência",
+  "fr": "Déposer plainte",
+  "de": "Anzeige bei der Polizei",
+  "id": "Lapor polisi",
+  "th": "แจ้งความตำรวจ",
+  "zh": "向警方报案",
+  "ja": "警察への届け出",
+  "ko": "경찰 신고",
+  "hi": "पुलिस में रिपोर्ट",
+  "ar": "تقديم بلاغ للشرطة",
+  "ru": "Заявление в полицию",
+  "tr": "Polise bildirim"
+ },
+ "goal": {
+  "en": "Report a theft and get your reference number!",
+  "vi": "Trình báo vụ trộm và nhận mã hồ sơ!",
+  "es": "¡Denuncia un robo y consigue tu número de referencia!",
+  "pt": "Registre um furto e consiga o número do registro!",
+  "fr": "Signalez un vol et obtenez votre numéro de dossier !",
+  "de": "Melde einen Diebstahl und erhalte deine Aktennummer!",
+  "id": "Laporkan pencurian dan dapatkan nomor referensinya!",
+  "th": "แจ้งความเรื่องถูกขโมยและขอหมายเลขอ้างอิง!",
+  "zh": "报案被盗并拿到案件编号！",
+  "ja": "盗難を届け出て、受理番号をもらおう！",
+  "ko": "도난 신고를 하고 접수 번호를 받아요!",
+  "hi": "चोरी की रिपोर्ट करें और संदर्भ नंबर लें!",
+  "ar": "أبلغ عن السرقة واحصل على الرقم المرجعي!",
+  "ru": "Заяви о краже и получи номер обращения!",
+  "tr": "Hırsızlığı bildir ve referans numaranı al!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "happened",
+   "title": {
+    "en": "Say what happened",
+    "vi": "Kể sự việc",
+    "es": "Contar lo ocurrido",
+    "pt": "Contar o que aconteceu",
+    "fr": "Raconter les faits",
+    "de": "Den Vorfall schildern",
+    "id": "Ceritakan kejadian",
+    "th": "เล่าเหตุการณ์",
+    "zh": "说明经过",
+    "ja": "状況を説明",
+    "ko": "상황 설명",
+    "hi": "घटना बताएँ",
+    "ar": "اروِ ما حدث",
+    "ru": "Рассказать о случившемся",
+    "tr": "Olayı anlat"
+   },
+   "lines": [
+    "r1",
+    "r2",
+    "r3",
+    "r4"
+   ]
+  },
+  {
+   "id": "details",
+   "title": {
+    "en": "Give details",
+    "vi": "Nêu chi tiết",
+    "es": "Dar detalles",
+    "pt": "Dar detalhes",
+    "fr": "Donner des détails",
+    "de": "Details nennen",
+    "id": "Beri rincian",
+    "th": "ให้รายละเอียด",
+    "zh": "提供细节",
+    "ja": "詳細を伝える",
+    "ko": "자세히 말하기",
+    "hi": "ब्यौरा दें",
+    "ar": "قدّم التفاصيل",
+    "ru": "Сообщить детали",
+    "tr": "Ayrıntı ver"
+   },
+   "lines": [
+    "d1",
+    "d2",
+    "d3",
+    "d4"
+   ]
+  },
+  {
+   "id": "next",
+   "title": {
+    "en": "Next steps",
+    "vi": "Bước tiếp theo",
+    "es": "Siguientes pasos",
+    "pt": "Próximos passos",
+    "fr": "Étapes suivantes",
+    "de": "Nächste Schritte",
+    "id": "Langkah berikutnya",
+    "th": "ขั้นตอนต่อไป",
+    "zh": "后续步骤",
+    "ja": "次の手続き",
+    "ko": "다음 단계",
+    "hi": "अगले कदम",
+    "ar": "الخطوات التالية",
+    "ru": "Дальнейшие шаги",
+    "tr": "Sonraki adımlar"
+   },
+   "lines": [
+    "n1",
+    "n2",
+    "n3",
+    "n4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "r1",
+   "who": "customer",
+   "en": "Hello, I'd like to report a theft.",
+   "variants": {
+    "polite": "Good afternoon, I'd like to report a theft, please.",
+    "casual": "Hi, I need to report a theft."
+   },
+   "gloss": {
+    "en": "Starting the report: you want to report a theft.",
+    "vi": "Xin chào, tôi muốn trình báo một vụ trộm.",
+    "es": "Hola, quisiera denunciar un robo.",
+    "pt": "Olá, gostaria de registrar um furto.",
+    "fr": "Bonjour, je voudrais signaler un vol.",
+    "de": "Guten Tag, ich möchte einen Diebstahl melden.",
+    "id": "Halo, saya ingin melaporkan pencurian.",
+    "th": "สวัสดีค่ะ ดิฉันต้องการแจ้งความเรื่องถูกขโมยค่ะ",
+    "zh": "您好，我想报一起盗窃案。",
+    "ja": "こんにちは、盗難の届け出をしたいのですが。",
+    "ko": "안녕하세요, 도난 신고를 하고 싶어요.",
+    "hi": "नमस्ते, मैं चोरी की रिपोर्ट दर्ज करवाना चाहता हूँ।",
+    "ar": "مرحبًا، أودّ الإبلاغ عن سرقة.",
+    "ru": "Здравствуйте, я хочу заявить о краже.",
+    "tr": "Merhaba, bir hırsızlığı bildirmek istiyorum."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "theft",
+     "ipa": "/θeft/",
+     "hi": "THEFT",
+     "note": {
+      "en": "Say THEFT with a 'th' as in 'think', and end with a clear 't'.",
+      "vi": "Đọc THEFT với “th” như trong “think” (lưỡi giữa hai hàm răng), kết thúc bằng âm “t” rõ.",
+      "es": "Pronuncia THEFT con la “th” de “think” (lengua entre los dientes) y termina con una “t” clara.",
+      "pt": "Pronuncie THEFT com o “th” de “think” (língua entre os dentes) e termine com um “t” claro.",
+      "fr": "Prononcez THEFT avec le « th » de « think » (langue entre les dents) et terminez par un « t » net.",
+      "de": "Sprich THEFT mit dem „th“ aus „think“ (Zunge zwischen den Zähnen) und beende es mit einem klaren „t“.",
+      "id": "Ucapkan THEFT dengan “th” seperti pada “think” (lidah di antara gigi) dan akhiri dengan “t” yang jelas.",
+      "th": "ออกเสียง THEFT โดยใช้ “th” เหมือนในคำว่า think (ลิ้นแตะระหว่างฟัน) และลงท้ายด้วยเสียง “t” ให้ชัด",
+      "zh": "THEFT 以 think 里的 th 开头（舌尖放在上下齿之间），结尾的 t 要清楚。",
+      "ja": "THEFT は think の th（舌を歯の間に）で始め、最後の t をはっきり発音します。",
+      "ko": "THEFT는 think의 th(혀를 이 사이에)로 시작하고, 끝의 t를 분명히 발음하세요.",
+      "hi": "THEFT को think वाले “th” (जीभ दाँतों के बीच) से शुरू करें और अंत में साफ़ “t” बोलें।",
+      "ar": "انطق THEFT بحرف th كما في think (اللسان بين الأسنان) واختمها بحرف t واضح.",
+      "ru": "Произносите THEFT с th как в think (язык между зубами) и чётко завершайте звуком t.",
+      "tr": "THEFT’i think’teki “th” ile (dil dişlerin arasında) söyleyin ve sonda net bir “t” duyurun."
+     }
+    }
+   ]
+  },
+  {
+   "id": "r2",
+   "who": "barista",
+   "en": "I'm sorry to hear that. What exactly happened?",
+   "variants": {
+    "polite": "I'm sorry to hear that. Could you tell me exactly what happened?",
+    "casual": "What happened?"
+   },
+   "gloss": {
+    "en": "The officer sympathises and asks what happened.",
+    "vi": "Tôi rất tiếc khi nghe vậy. Chính xác thì chuyện gì đã xảy ra?",
+    "es": "Lamento oír eso. ¿Qué ocurrió exactamente?",
+    "pt": "Sinto muito por isso. O que aconteceu exatamente?",
+    "fr": "Je suis désolé de l'apprendre. Que s'est-il passé exactement ?",
+    "de": "Das tut mir leid. Was genau ist passiert?",
+    "id": "Saya turut menyesal mendengarnya. Apa yang sebenarnya terjadi?",
+    "th": "เสียใจด้วยนะคะ เกิดอะไรขึ้นกันแน่คะ",
+    "zh": "很遗憾听到这个消息。具体发生了什么？",
+    "ja": "それはお気の毒に。具体的に何があったのですか？",
+    "ko": "안타깝네요. 정확히 무슨 일이 있었나요?",
+    "hi": "यह सुनकर दुख हुआ। ठीक-ठीक क्या हुआ था?",
+    "ar": "يؤسفني سماع ذلك. ماذا حدث بالضبط؟",
+    "ru": "Мне жаль это слышать. Что именно произошло?",
+    "tr": "Bunu duyduğuma üzüldüm. Tam olarak ne oldu?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "r3",
+   "who": "customer",
+   "en": "Someone stole my bag while I was waiting for the bus.",
+   "variants": {
+    "polite": "My bag was stolen while I was waiting for the bus.",
+    "casual": "Someone stole my bag at the bus stop."
+   },
+   "gloss": {
+    "en": "Explaining that your bag was stolen while you waited for the bus.",
+    "vi": "Có người đã lấy trộm túi của tôi khi tôi đang đợi xe buýt.",
+    "es": "Alguien me robó el bolso mientras esperaba el autobús.",
+    "pt": "Alguém roubou minha bolsa enquanto eu esperava o ônibus.",
+    "fr": "Quelqu'un m'a volé mon sac pendant que j'attendais le bus.",
+    "de": "Jemand hat meine Tasche gestohlen, während ich auf den Bus gewartet habe.",
+    "id": "Seseorang mencuri tas saya saat saya menunggu bus.",
+    "th": "มีคนขโมยกระเป๋าของดิฉันตอนที่รอรถเมล์ค่ะ",
+    "zh": "我在等公交车的时候，有人偷了我的包。",
+    "ja": "バスを待っている間に、誰かにカバンを盗まれました。",
+    "ko": "버스를 기다리는 동안 누군가 제 가방을 훔쳐 갔어요.",
+    "hi": "बस का इंतज़ार करते समय किसी ने मेरा बैग चुरा लिया।",
+    "ar": "سرق أحدهم حقيبتي بينما كنت أنتظر الحافلة.",
+    "ru": "Кто-то украл мою сумку, пока я ждал автобус.",
+    "tr": "Otobüs beklerken biri çantamı çaldı."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "r4",
+   "who": "barista",
+   "en": "When and where did this happen?",
+   "variants": {
+    "polite": "Could you tell me when and where it happened?",
+    "casual": "When and where was this?"
+   },
+   "gloss": {
+    "en": "The officer asks for the time and place.",
+    "vi": "Chuyện này xảy ra khi nào và ở đâu?",
+    "es": "¿Cuándo y dónde ocurrió?",
+    "pt": "Quando e onde isso aconteceu?",
+    "fr": "Quand et où cela s'est-il passé ?",
+    "de": "Wann und wo ist das passiert?",
+    "id": "Kapan dan di mana kejadiannya?",
+    "th": "เกิดขึ้นเมื่อไรและที่ไหนคะ",
+    "zh": "这是什么时候、在哪里发生的？",
+    "ja": "いつ、どこで起きたのですか？",
+    "ko": "언제, 어디에서 일어난 일인가요?",
+    "hi": "यह कब और कहाँ हुआ?",
+    "ar": "متى وأين حدث ذلك؟",
+    "ru": "Когда и где это случилось?",
+    "tr": "Bu ne zaman ve nerede oldu?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "d1",
+   "who": "customer",
+   "en": "It happened at around six in the evening, just outside the central market.",
+   "variants": {
+    "polite": "It happened at about six in the evening, just outside the central market.",
+    "casual": "Around six, outside the central market."
+   },
+   "gloss": {
+    "en": "Giving the time and place of the theft.",
+    "vi": "Chuyện xảy ra khoảng sáu giờ tối, ngay bên ngoài chợ trung tâm.",
+    "es": "Ocurrió sobre las seis de la tarde, justo afuera del mercado central.",
+    "pt": "Aconteceu por volta das seis da tarde, bem em frente ao mercado central.",
+    "fr": "C'était vers dix-huit heures, juste devant le marché central.",
+    "de": "Es war gegen sechs Uhr abends, direkt vor dem Zentralmarkt.",
+    "id": "Kejadiannya sekitar pukul enam sore, tepat di luar pasar pusat.",
+    "th": "เกิดขึ้นประมาณหกโมงเย็น หน้าตลาดกลางพอดีค่ะ",
+    "zh": "大约傍晚六点，就在中央市场外面。",
+    "ja": "夕方6時ごろ、中央市場のすぐ外で起きました。",
+    "ko": "저녁 6시쯤 중앙시장 바로 앞에서 일어났어요.",
+    "hi": "यह शाम को लगभग छह बजे, केंद्रीय बाज़ार के ठीक बाहर हुआ।",
+    "ar": "حدث ذلك نحو الساعة السادسة مساءً، أمام السوق المركزي مباشرةً.",
+    "ru": "Это случилось около шести вечера, прямо у центрального рынка.",
+    "tr": "Akşam altı civarında, merkez pazarın hemen dışında oldu."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "d2",
+   "who": "barista",
+   "en": "Did you see the person who took it?",
+   "variants": {
+    "polite": "Did you happen to see the person who took it?",
+    "casual": "Did you see who took it?"
+   },
+   "gloss": {
+    "en": "The officer asks if you saw the thief.",
+    "vi": "Bạn có nhìn thấy người đã lấy nó không?",
+    "es": "¿Vio a la persona que se lo llevó?",
+    "pt": "Você viu quem levou?",
+    "fr": "Avez-vous vu la personne qui l'a pris ?",
+    "de": "Haben Sie die Person gesehen, die es genommen hat?",
+    "id": "Apakah Anda melihat orang yang mengambilnya?",
+    "th": "คุณเห็นคนที่ขโมยไปไหมคะ",
+    "zh": "您看到偷东西的人了吗？",
+    "ja": "盗んだ人を見ましたか？",
+    "ko": "가져간 사람을 보셨나요?",
+    "hi": "क्या आपने उस व्यक्ति को देखा जिसने इसे लिया?",
+    "ar": "هل رأيت الشخص الذي أخذها؟",
+    "ru": "Вы видели человека, который её взял?",
+    "tr": "Çalan kişiyi gördünüz mü?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "d3",
+   "who": "customer",
+   "en": "He was tall, with short dark hair, and he was wearing a grey hoodie.",
+   "variants": {
+    "polite": "He was tall, with short dark hair, wearing a grey hooded top.",
+    "casual": "Tall guy, short dark hair, grey hoodie."
+   },
+   "gloss": {
+    "en": "Describing the person: height, hair and clothes.",
+    "vi": "Anh ta cao, tóc đen ngắn và mặc áo hoodie xám.",
+    "es": "Era alto, de pelo corto y oscuro, y llevaba una sudadera gris con capucha.",
+    "pt": "Ele era alto, de cabelo curto e escuro, e usava um moletom cinza com capuz.",
+    "fr": "Il était grand, avec les cheveux courts et foncés, et portait un sweat à capuche gris.",
+    "de": "Er war groß, hatte kurze dunkle Haare und trug einen grauen Kapuzenpulli.",
+    "id": "Dia tinggi, berambut pendek gelap, dan memakai hoodie abu-abu.",
+    "th": "เขาตัวสูง ผมสั้นสีเข้ม ใส่เสื้อฮู้ดสีเทาค่ะ",
+    "zh": "他个子很高，黑色短发，穿着一件灰色连帽衫。",
+    "ja": "背が高く、短い黒髪で、グレーのパーカーを着ていました。",
+    "ko": "키가 크고 짧은 검은 머리에 회색 후드티를 입고 있었어요.",
+    "hi": "वह लंबा था, उसके बाल छोटे और काले थे, और उसने ग्रे रंग का हुडी पहना था।",
+    "ar": "كان طويل القامة، بشعر قصير داكن، ويرتدي سترة رمادية بقبعة.",
+    "ru": "Он был высокий, с короткими тёмными волосами, в сером худи.",
+    "tr": "Uzun boyluydu, kısa koyu saçlıydı ve gri kapüşonlu bir sweatshirt giyiyordu."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "d4",
+   "who": "barista",
+   "en": "Can you list everything that was in the bag?",
+   "variants": {
+    "polite": "Could you list everything that was in the bag, please?",
+    "casual": "What was in it?"
+   },
+   "gloss": {
+    "en": "The officer asks for a list of what was inside the bag.",
+    "vi": "Bạn liệt kê giúp mọi thứ có trong túi được không?",
+    "es": "¿Puede enumerar todo lo que había en el bolso?",
+    "pt": "Pode listar tudo o que havia na bolsa?",
+    "fr": "Pouvez-vous énumérer tout ce qui se trouvait dans le sac ?",
+    "de": "Können Sie alles aufzählen, was in der Tasche war?",
+    "id": "Bisa sebutkan semua yang ada di dalam tas?",
+    "th": "ช่วยบอกรายการทุกอย่างที่อยู่ในกระเป๋าได้ไหมคะ",
+    "zh": "您能列出包里所有的东西吗？",
+    "ja": "バッグに入っていた物を全部挙げてもらえますか？",
+    "ko": "가방 안에 있던 물건을 전부 말씀해 주시겠어요?",
+    "hi": "क्या आप बैग में रखी सारी चीज़ों की सूची बता सकते हैं?",
+    "ar": "هل يمكنك ذكر كل ما كان في الحقيبة؟",
+    "ru": "Можете перечислить всё, что было в сумке?",
+    "tr": "Çantadaki her şeyi sıralayabilir misiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "n1",
+   "who": "customer",
+   "en": "There was a black leather wallet, my phone and my house keys.",
+   "variants": {
+    "polite": "In it there was a black leather wallet, my phone and my house keys.",
+    "casual": "A black leather wallet, my phone and my keys."
+   },
+   "gloss": {
+    "en": "Listing the stolen items: wallet, phone and keys.",
+    "vi": "Trong đó có một chiếc ví da màu đen, điện thoại và chìa khóa nhà của tôi.",
+    "es": "Había una cartera de cuero negra, mi teléfono y las llaves de mi casa.",
+    "pt": "Tinha uma carteira de couro preta, meu celular e as chaves de casa.",
+    "fr": "Il y avait un portefeuille en cuir noir, mon téléphone et mes clés de maison.",
+    "de": "Darin waren ein schwarzes Lederportemonnaie, mein Handy und mein Haustürschlüssel.",
+    "id": "Isinya dompet kulit hitam, ponsel, dan kunci rumah saya.",
+    "th": "ข้างในมีกระเป๋าสตางค์หนังสีดำ โทรศัพท์ และกุญแจบ้านของดิฉันค่ะ",
+    "zh": "里面有一个黑色皮钱包、我的手机和家门钥匙。",
+    "ja": "黒い革の財布、スマホ、家の鍵が入っていました。",
+    "ko": "검은 가죽 지갑, 휴대폰, 집 열쇠가 들어 있었어요.",
+    "hi": "उसमें काला चमड़े का बटुआ, मेरा फ़ोन और घर की चाबियाँ थीं।",
+    "ar": "كان فيها محفظة جلدية سوداء وهاتفي ومفاتيح منزلي.",
+    "ru": "Там были чёрный кожаный кошелёк, мой телефон и ключи от дома.",
+    "tr": "İçinde siyah deri bir cüzdan, telefonum ve ev anahtarlarım vardı."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "leather",
+     "ipa": "/ˈleð.ər/",
+     "hi": "LETH",
+     "note": {
+      "en": "Stress the first syllable: LETH-er. It rhymes with 'weather', not 'teacher'.",
+      "vi": "Nhấn âm tiết đầu: LETH-ờ. Vần giống “weather”, không giống “teacher”.",
+      "es": "Acentúa la primera sílaba: LETH-er. Rima con “weather”, no con “teacher”.",
+      "pt": "Acentue a primeira sílaba: LÉDH-er. Rima com “weather”, não com “teacher”.",
+      "fr": "Accentuez la première syllabe : LÈTH-eur. Elle rime avec « weather », pas avec « teacher ».",
+      "de": "Betone die erste Silbe: LETH-er. Es reimt sich auf „weather“, nicht auf „teacher“.",
+      "id": "Tekankan suku kata pertama: LETH-er. Berima dengan “weather”, bukan “teacher”.",
+      "th": "เน้นพยางค์แรก: เลธ-เธอะ สัมผัสกับ weather ไม่ใช่ teacher",
+      "zh": "重音在第一个音节：LETH-er。和 weather 押韵，不和 teacher 押韵。",
+      "ja": "最初の音節を強く：レザー（LETH-er）。weather と同じ韻で、teacher とは違います。",
+      "ko": "첫 음절에 강세를 두세요: 레더(LETH-er). weather와 운이 같고 teacher와는 달라요.",
+      "hi": "पहले अक्षर पर ज़ोर दें: लेद-र। यह weather से मिलता है, teacher से नहीं।",
+      "ar": "شدّد على المقطع الأول: لِذ-ر. تتوافق مع weather وليس teacher.",
+      "ru": "Ударение на первый слог: ЛЕЗ-э. Рифмуется с weather, а не с teacher.",
+      "tr": "Vurgu ilk hecede: LETH-ır. weather ile kafiyelidir, teacher ile değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "n2",
+   "who": "barista",
+   "en": "I'll file the report now. Please keep this reference number.",
+   "variants": {
+    "polite": "I'll file the report now. Please keep this reference number safe.",
+    "casual": "I'll file it now. Keep this reference number."
+   },
+   "gloss": {
+    "en": "The officer files the report and gives you a reference number.",
+    "vi": "Tôi sẽ lập biên bản ngay bây giờ. Bạn nhớ giữ mã tham chiếu này nhé.",
+    "es": "Voy a registrar la denuncia ahora. Guarde este número de referencia.",
+    "pt": "Vou registrar a ocorrência agora. Guarde este número de referência.",
+    "fr": "Je vais enregistrer le dépôt de plainte. Gardez ce numéro de référence.",
+    "de": "Ich nehme die Anzeige jetzt auf. Bitte bewahren Sie diese Referenznummer auf.",
+    "id": "Saya akan membuat laporannya sekarang. Mohon simpan nomor referensi ini.",
+    "th": "เดี๋ยวดิฉันจะบันทึกรายงานให้เลยนะคะ เก็บหมายเลขอ้างอิงนี้ไว้ด้วยค่ะ",
+    "zh": "我现在就为您登记报案。请保管好这个案件编号。",
+    "ja": "今から届出を作成します。この受理番号は大切に保管してください。",
+    "ko": "지금 신고서를 접수할게요. 이 접수 번호를 잘 보관해 주세요.",
+    "hi": "मैं अभी रिपोर्ट दर्ज करता हूँ। कृपया यह संदर्भ नंबर संभालकर रखें।",
+    "ar": "سأسجّل البلاغ الآن. من فضلك احتفظ بهذا الرقم المرجعي.",
+    "ru": "Сейчас я оформлю заявление. Пожалуйста, сохраните этот номер обращения.",
+    "tr": "Şimdi tutanağı hazırlıyorum. Lütfen bu referans numarasını saklayın."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "reference",
+     "ipa": "/ˈref.rəns/",
+     "hi": "REF",
+     "note": {
+      "en": "Stress the first syllable: REF-runs. Many speakers say only two syllables.",
+      "vi": "Nhấn âm tiết đầu: REF-rờnx. Nhiều người chỉ đọc hai âm tiết.",
+      "es": "Acentúa la primera sílaba: REF-rens. Muchos hablantes lo dicen con solo dos sílabas.",
+      "pt": "Acentue a primeira sílaba: RÉF-rens. Muitos falantes usam só duas sílabas.",
+      "fr": "Accentuez la première syllabe : RÈF-renss. Beaucoup ne prononcent que deux syllabes.",
+      "de": "Betone die erste Silbe: REF-rens. Viele sprechen nur zwei Silben.",
+      "id": "Tekankan suku kata pertama: REF-rens. Banyak penutur hanya mengucapkan dua suku kata.",
+      "th": "เน้นพยางค์แรก: เรฟ-เริน(ส์) หลายคนออกเสียงแค่สองพยางค์",
+      "zh": "重音在第一个音节：REF-runs。很多人只读两个音节。",
+      "ja": "最初の音節を強く：レフ・レンス。2音節で発音する人も多いです。",
+      "ko": "첫 음절에 강세를 두세요: 레프-런스. 두 음절로만 발음하는 사람도 많아요.",
+      "hi": "पहले अक्षर पर ज़ोर दें: रेफ़-रन्स। कई लोग इसे सिर्फ़ दो अक्षरों में बोलते हैं।",
+      "ar": "شدّد على المقطع الأول: ريف-رنس. ينطقها كثيرون بمقطعين فقط.",
+      "ru": "Ударение на первый слог: РЕФ-рнс. Многие произносят всего два слога.",
+      "tr": "Vurgu ilk hecede: REF-rıns. Birçok kişi yalnızca iki hece söyler."
+     }
+    }
+   ]
+  },
+  {
+   "id": "n3",
+   "who": "customer",
+   "en": "Will I get a copy of the report for my insurance?",
+   "variants": {
+    "polite": "Would it be possible to get a copy of the report for my insurance company?",
+    "casual": "Can I get a copy for my insurance?"
+   },
+   "gloss": {
+    "en": "Asking for a copy of the report for your insurance.",
+    "vi": "Tôi có thể nhận một bản sao biên bản để làm hồ sơ bảo hiểm không?",
+    "es": "¿Puedo obtener una copia de la denuncia para mi seguro?",
+    "pt": "Posso receber uma cópia do registro para o meu seguro?",
+    "fr": "Puis-je obtenir une copie du rapport pour mon assurance ?",
+    "de": "Bekomme ich eine Kopie der Anzeige für meine Versicherung?",
+    "id": "Bisakah saya mendapat salinan laporan untuk asuransi saya?",
+    "th": "ขอสำเนารายงานไปใช้กับประกันได้ไหมคะ",
+    "zh": "我能拿到一份报案记录的副本用于保险理赔吗？",
+    "ja": "保険の手続き用に、届出の写しをもらえますか？",
+    "ko": "보험 처리를 위해 신고서 사본을 받을 수 있을까요?",
+    "hi": "क्या मुझे बीमा के लिए रिपोर्ट की एक कॉपी मिल सकती है?",
+    "ar": "هل يمكنني الحصول على نسخة من البلاغ لشركة التأمين؟",
+    "ru": "Можно получить копию заявления для страховой?",
+    "tr": "Sigortam için raporun bir kopyasını alabilir miyim?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "insurance",
+     "ipa": "/ɪnˈʃɔː.rəns/",
+     "hi": "SHOR",
+     "note": {
+      "en": "Stress the second syllable: in-SHOR-ance (SHOR rhymes with 'more').",
+      "vi": "Nhấn âm tiết thứ hai: in-SHO-rờns (SHO vần như “more”).",
+      "es": "Acentúa la segunda sílaba: in-SHOR-ans (SHOR rima con “more”).",
+      "pt": "Acentue a segunda sílaba: in-CHÓR-ans (CHÓR rima com “more”).",
+      "fr": "Accentuez la deuxième syllabe : in-CHOR-ânce (CHOR rime avec « more »).",
+      "de": "Betone die zweite Silbe: in-SCHOR-ens (SCHOR reimt sich auf „more“).",
+      "id": "Tekankan suku kata kedua: in-SYOR-ens (SYOR berima dengan “more”).",
+      "th": "เน้นพยางค์ที่สอง: อิน-ชอร์-เริน(ส์) (ชอร์ สัมผัสกับ more)",
+      "zh": "重音在第二个音节：in-SHOR-ance（SHOR 与 more 押韵）。",
+      "ja": "2番目の音節を強く：イン・ショー・ランス（SHOR は more と同じ韻）。",
+      "ko": "두 번째 음절에 강세를 두세요: 인-쇼어-런스 (SHOR는 more와 운이 같아요).",
+      "hi": "दूसरे अक्षर पर ज़ोर दें: इन-शॉर-न्स (SHOR, more से मिलता है)।",
+      "ar": "شدّد على المقطع الثاني: إن-شُور-نس (شُور مثل more).",
+      "ru": "Ударение на второй слог: ин-ШОР-энс (ШОР рифмуется с more).",
+      "tr": "Vurgu ikinci hecede: in-ŞOR-ıns (ŞOR, more ile kafiyeli)."
+     }
+    }
+   ]
+  },
+  {
+   "id": "n4",
+   "who": "customer",
+   "en": "What should I do about my bank cards and my phone?",
+   "variants": {
+    "polite": "Could you advise me what to do about my bank cards and phone?",
+    "casual": "What about my cards and phone?"
+   },
+   "gloss": {
+    "en": "Asking for advice about blocking your cards and phone.",
+    "vi": "Tôi nên làm gì với thẻ ngân hàng và điện thoại của mình?",
+    "es": "¿Qué debo hacer con mis tarjetas bancarias y mi teléfono?",
+    "pt": "O que devo fazer com meus cartões do banco e meu celular?",
+    "fr": "Que dois-je faire pour mes cartes bancaires et mon téléphone ?",
+    "de": "Was soll ich wegen meiner Bankkarten und meines Handys tun?",
+    "id": "Apa yang harus saya lakukan dengan kartu bank dan ponsel saya?",
+    "th": "ดิฉันควรทำอย่างไรกับบัตรธนาคารและโทรศัพท์คะ",
+    "zh": "我的银行卡和手机该怎么处理？",
+    "ja": "銀行カードとスマホは、どうすればいいですか？",
+    "ko": "은행 카드와 휴대폰은 어떻게 해야 하나요?",
+    "hi": "मुझे अपने बैंक कार्ड और फ़ोन के बारे में क्या करना चाहिए?",
+    "ar": "ماذا أفعل بخصوص بطاقاتي المصرفية وهاتفي؟",
+    "ru": "Что мне делать с банковскими картами и телефоном?",
+    "tr": "Banka kartlarım ve telefonum için ne yapmalıyım?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "en": "Where were you when it happened?",
+   "open": true,
+   "keywords": [
+    "bus stop",
+    "station",
+    "market",
+    "street",
+    "shop",
+    "cafe",
+    "train",
+    "park",
+    "hotel",
+    "mall",
+    "beach",
+    "restaurant",
+    "airport"
+   ],
+   "variants": {
+    "polite": "Could you tell me where you were when it happened?",
+    "casual": "Where were you?"
+   },
+   "gloss": {
+    "en": "The officer asks where you were at the time.",
+    "vi": "Lúc đó bạn đang ở đâu?",
+    "es": "¿Dónde estaba cuando ocurrió?",
+    "pt": "Onde você estava quando aconteceu?",
+    "fr": "Où étiez-vous au moment des faits ?",
+    "de": "Wo waren Sie, als es passiert ist?",
+    "id": "Anda berada di mana saat kejadian itu?",
+    "th": "ตอนเกิดเหตุคุณอยู่ที่ไหนคะ",
+    "zh": "事发时您在哪里？",
+    "ja": "そのとき、どこにいましたか？",
+    "ko": "일이 일어났을 때 어디에 계셨나요?",
+    "hi": "जब यह हुआ तब आप कहाँ थे?",
+    "ar": "أين كنت عندما حدث ذلك؟",
+    "ru": "Где вы находились, когда это произошло?",
+    "tr": "Olay olduğunda neredeydiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "en": "Do you know what time it happened?",
+   "open": true,
+   "keywords": [
+    "morning",
+    "afternoon",
+    "evening",
+    "night",
+    "o'clock",
+    "around",
+    "about",
+    "noon",
+    "yesterday",
+    "today",
+    "minutes",
+    "ago"
+   ],
+   "variants": {
+    "polite": "Do you remember roughly what time it happened?",
+    "casual": "What time was it?"
+   },
+   "gloss": {
+    "en": "The officer asks what time it happened.",
+    "vi": "Bạn có biết chuyện xảy ra lúc mấy giờ không?",
+    "es": "¿Sabe a qué hora ocurrió?",
+    "pt": "Você sabe a que horas aconteceu?",
+    "fr": "Savez-vous à quelle heure cela s'est passé ?",
+    "de": "Wissen Sie, um wie viel Uhr es passiert ist?",
+    "id": "Apakah Anda tahu jam berapa kejadiannya?",
+    "th": "คุณพอทราบไหมคะว่าเกิดขึ้นกี่โมง",
+    "zh": "您知道事情发生在几点吗？",
+    "ja": "何時ごろだったかわかりますか？",
+    "ko": "몇 시쯤이었는지 아시나요?",
+    "hi": "क्या आपको पता है कि यह किस समय हुआ?",
+    "ar": "هل تعرف في أي وقت حدث ذلك؟",
+    "ru": "Вы знаете, во сколько это произошло?",
+    "tr": "Olayın saat kaçta olduğunu biliyor musunuz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Good evening. How can I help you?"
+  },
+  {
+   "who": "customer",
+   "en": "Hello, I'd like to report a theft."
+  },
+  {
+   "who": "barista",
+   "en": "I'm sorry to hear that. What exactly happened?"
+  },
+  {
+   "who": "customer",
+   "en": "Someone stole my bag while I was waiting for the bus."
+  },
+  {
+   "who": "barista",
+   "en": "When and where did this happen?"
+  },
+  {
+   "who": "customer",
+   "en": "It happened at around six in the evening, just outside the central market."
+  },
+  {
+   "who": "barista",
+   "en": "Did you see the person who took it?"
+  },
+  {
+   "who": "customer",
+   "en": "Yes, he was tall, with short dark hair, and he was wearing a grey hoodie."
+  },
+  {
+   "who": "barista",
+   "en": "Thank you. Can you list everything that was in the bag?"
+  },
+  {
+   "who": "customer",
+   "en": "There was a black leather wallet, my phone and my house keys."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Excuse me, I think my wallet was stolen on the train."
+    },
+    {
+     "who": "barista",
+     "en": "I'm sorry to hear that. Which train were you on?"
+    },
+    {
+     "who": "customer",
+     "en": "The eight fifteen from the city centre."
+    },
+    {
+     "who": "barista",
+     "en": "Okay. Please fill in this form, and I'll give you a reference number."
+    }
+   ],
+   "q": {
+    "en": "Which train was the passenger on?",
+    "vi": "Hành khách đã đi chuyến tàu nào?",
+    "es": "¿En qué tren iba el pasajero?",
+    "pt": "Em qual trem o passageiro estava?",
+    "fr": "Dans quel train le passager se trouvait-il ?",
+    "de": "In welchem Zug saß der Fahrgast?",
+    "id": "Penumpang itu naik kereta yang mana?",
+    "th": "ผู้โดยสารอยู่บนขบวนรถไฟขบวนไหน",
+    "zh": "乘客乘坐的是哪一班火车？",
+    "ja": "乗客はどの電車に乗っていましたか？",
+    "ko": "승객은 어느 기차를 탔나요?",
+    "hi": "यात्री किस ट्रेन में था?",
+    "ar": "في أي قطار كان المسافر؟",
+    "ru": "В каком поезде ехал пассажир?",
+    "tr": "Yolcu hangi trendeydi?"
+   },
+   "answer": "eight fifteen"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Your report is done. Your reference number is four seven two nine."
+    },
+    {
+     "who": "customer",
+     "en": "Four seven two nine. Do I need it for my insurance?"
+    },
+    {
+     "who": "barista",
+     "en": "Yes, your insurance company will ask for it, so please keep it safe."
+    },
+    {
+     "who": "customer",
+     "en": "I will. Thanks for your help."
+    }
+   ],
+   "q": {
+    "en": "Why should the customer keep the reference number?",
+    "vi": "Vì sao khách nên giữ mã tham chiếu?",
+    "es": "¿Por qué debe guardar el cliente el número de referencia?",
+    "pt": "Por que o cliente deve guardar o número de referência?",
+    "fr": "Pourquoi le client doit-il garder le numéro de référence ?",
+    "de": "Warum soll der Kunde die Referenznummer aufbewahren?",
+    "id": "Mengapa pelanggan harus menyimpan nomor referensi?",
+    "th": "ทำไมลูกค้าจึงควรเก็บหมายเลขอ้างอิงไว้",
+    "zh": "为什么顾客要保管好案件编号？",
+    "ja": "お客さんはなぜ受理番号を保管すべきですか？",
+    "ko": "손님은 왜 접수 번호를 보관해야 하나요?",
+    "hi": "ग्राहक को संदर्भ नंबर क्यों संभालकर रखना चाहिए?",
+    "ar": "لماذا يجب على الزبون الاحتفاظ بالرقم المرجعي؟",
+    "ru": "Почему клиенту нужно сохранить номер обращения?",
+    "tr": "Müşteri referans numarasını neden saklamalı?"
+   },
+   "answer": "your insurance company will ask for it"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "report-theft",
+    "title": {
+     "en": "Report the theft",
+     "vi": "Trình báo vụ trộm",
+     "es": "Denuncia el robo",
+     "pt": "Registre o furto",
+     "fr": "Signaler le vol",
+     "de": "Den Diebstahl melden",
+     "id": "Laporkan pencurian",
+     "th": "แจ้งความเรื่องถูกขโมย",
+     "zh": "报告盗窃",
+     "ja": "盗難を届け出る",
+     "ko": "도난 신고하기",
+     "hi": "चोरी की रिपोर्ट करें",
+     "ar": "أبلغ عن السرقة",
+     "ru": "Заяви о краже",
+     "tr": "Hırsızlığı bildir"
+    },
+    "intents": [
+     "r1",
+     "r3"
+    ]
+   },
+   {
+    "id": "describe-person",
+    "title": {
+     "en": "Describe the person",
+     "vi": "Mô tả người đó",
+     "es": "Describe a la persona",
+     "pt": "Descreva a pessoa",
+     "fr": "Décrire la personne",
+     "de": "Die Person beschreiben",
+     "id": "Gambarkan orangnya",
+     "th": "บรรยายลักษณะคนร้าย",
+     "zh": "描述那个人",
+     "ja": "犯人の特徴を伝える",
+     "ko": "그 사람 설명하기",
+     "hi": "उस व्यक्ति का वर्णन करें",
+     "ar": "صف الشخص",
+     "ru": "Опиши этого человека",
+     "tr": "Kişiyi tarif et"
+    },
+    "intents": [
+     "d3"
+    ]
+   },
+   {
+    "id": "ask-insurance",
+    "title": {
+     "en": "Ask about your insurance",
+     "vi": "Hỏi về bảo hiểm",
+     "es": "Pregunta por el seguro",
+     "pt": "Pergunte sobre o seguro",
+     "fr": "Demander pour l'assurance",
+     "de": "Nach der Versicherung fragen",
+     "id": "Tanya soal asuransi",
+     "th": "ถามเรื่องประกัน",
+     "zh": "询问保险事宜",
+     "ja": "保険について聞く",
+     "ko": "보험에 대해 묻기",
+     "hi": "बीमा के बारे में पूछें",
+     "ar": "اسأل عن التأمين",
+     "ru": "Узнай про страховку",
+     "tr": "Sigortayı sor"
+    },
+    "intents": [
+     "n3",
+     "n4"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "In many English-speaking countries, you can often report a minor theft by phone or online, but call the emergency number (999 in the UK, 911 in the US) if a crime is happening now or someone is in danger. The officer will usually give you a reference number: keep it, because your insurance company or bank will often ask for it. Stay calm and give facts in order: what, when, where, and a description.",
+  "vi": "Ở nhiều nước nói tiếng Anh, bạn thường có thể trình báo vụ trộm nhỏ qua điện thoại hoặc trực tuyến, nhưng hãy gọi số khẩn cấp (999 ở Anh, 911 ở Mỹ) nếu tội phạm đang xảy ra hoặc có người gặp nguy hiểm. Nhân viên thường sẽ cho bạn một mã tham chiếu: hãy giữ lại vì công ty bảo hiểm hoặc ngân hàng thường sẽ hỏi. Hãy bình tĩnh và kể theo thứ tự: chuyện gì, khi nào, ở đâu và đặc điểm nhận dạng.",
+  "es": "En muchos países de habla inglesa, a menudo se puede denunciar un robo menor por teléfono o en línea, pero llama al número de emergencias (999 en Reino Unido, 911 en EE. UU.) si el delito está ocurriendo ahora o alguien está en peligro. El agente suele darte un número de referencia: guárdalo, porque tu seguro o tu banco a menudo lo pedirán. Mantén la calma y cuenta los hechos en orden: qué, cuándo, dónde y una descripción.",
+  "pt": "Em muitos países de língua inglesa, muitas vezes é possível registrar um furto menor por telefone ou on-line, mas ligue para o número de emergência (999 no Reino Unido, 911 nos EUA) se um crime estiver acontecendo agora ou alguém estiver em perigo. O policial costuma dar um número de referência: guarde-o, pois o seguro ou o banco muitas vezes pedem. Mantenha a calma e conte os fatos em ordem: o quê, quando, onde e uma descrição.",
+  "fr": "Dans de nombreux pays anglophones, on peut souvent signaler un petit vol par téléphone ou en ligne, mais appelez le numéro d'urgence (999 au Royaume-Uni, 911 aux États-Unis) si un délit est en cours ou si quelqu'un est en danger. L'agent vous donne généralement un numéro de référence : gardez-le, car votre assurance ou votre banque le demandera souvent. Restez calme et donnez les faits dans l'ordre : quoi, quand, où et une description.",
+  "de": "In vielen englischsprachigen Ländern kann man einen kleineren Diebstahl oft telefonisch oder online melden, aber ruf die Notrufnummer (999 in Großbritannien, 911 in den USA), wenn gerade eine Straftat passiert oder jemand in Gefahr ist. Meist bekommst du eine Referenznummer: Bewahre sie auf, denn Versicherung oder Bank fragen oft danach. Bleib ruhig und schildere die Fakten der Reihe nach: was, wann, wo und eine Beschreibung.",
+  "id": "Di banyak negara berbahasa Inggris, pencurian kecil sering kali bisa dilaporkan lewat telepon atau daring, tetapi hubungi nomor darurat (999 di Inggris, 911 di AS) jika kejahatan sedang berlangsung atau ada orang dalam bahaya. Petugas biasanya memberi nomor referensi: simpanlah, karena perusahaan asuransi atau bank Anda sering memintanya. Tetap tenang dan sampaikan fakta secara berurutan: apa, kapan, di mana, dan ciri-cirinya.",
+  "th": "ในหลายประเทศที่พูดภาษาอังกฤษ มักแจ้งความเรื่องถูกขโมยเล็กน้อยทางโทรศัพท์หรือออนไลน์ได้ แต่ให้โทรเบอร์ฉุกเฉิน (999 ในอังกฤษ, 911 ในสหรัฐฯ) หากเหตุร้ายกำลังเกิดขึ้นหรือมีคนตกอยู่ในอันตราย เจ้าหน้าที่มักจะให้หมายเลขอ้างอิง ควรเก็บไว้ เพราะบริษัทประกันหรือธนาคารมักขอดู ตั้งสติและเล่าข้อเท็จจริงตามลำดับ: อะไร เมื่อไร ที่ไหน และลักษณะของคนร้าย",
+  "zh": "在许多英语国家，轻微盗窃往往可以通过电话或网上报案，但如果犯罪正在发生或有人处于危险中，请拨打紧急电话（英国 999，美国 911）。警察通常会给您一个案件编号，请保管好，因为保险公司或银行常会要求提供。保持冷静，按顺序陈述事实：什么事、何时、何地以及相貌特征。",
+  "ja": "英語圏の多くの国では、軽微な盗難は電話やオンラインで届け出られることが多いですが、犯罪が今まさに起きている場合や誰かが危険な場合は、緊急番号（イギリスは999、アメリカは911）に電話してください。警察官から受理番号をもらえることが多いので、保管しておきましょう。保険会社や銀行から求められることがよくあります。落ち着いて、何が、いつ、どこで、そして特徴の順に事実を伝えましょう。",
+  "ko": "영어권의 많은 나라에서는 경미한 도난은 전화나 온라인으로 신고할 수 있는 경우가 많지만, 지금 범죄가 벌어지고 있거나 누군가 위험하다면 긴급 전화(영국 999, 미국 911)로 연락하세요. 경찰관이 보통 접수 번호를 알려 주니 잘 보관하세요. 보험사나 은행이 요구하는 경우가 많습니다. 침착하게 무엇을, 언제, 어디서, 그리고 인상착의 순서로 사실을 말하세요.",
+  "hi": "अंग्रेज़ी बोलने वाले कई देशों में छोटी चोरी की रिपोर्ट अक्सर फ़ोन या ऑनलाइन की जा सकती है, लेकिन अगर अपराध अभी हो रहा है या किसी की जान को ख़तरा है तो आपातकालीन नंबर (ब्रिटेन में 999, अमेरिका में 911) पर कॉल करें। अधिकारी आमतौर पर एक संदर्भ नंबर देते हैं: उसे संभालकर रखें, क्योंकि बीमा कंपनी या बैंक अक्सर उसे माँगते हैं। शांत रहें और तथ्य क्रम से बताएँ: क्या, कब, कहाँ और हुलिया।",
+  "ar": "في كثير من الدول الناطقة بالإنجليزية يمكنك غالبًا الإبلاغ عن سرقة بسيطة عبر الهاتف أو الإنترنت، لكن اتصل برقم الطوارئ (999 في بريطانيا، 911 في الولايات المتحدة) إذا كانت الجريمة تحدث الآن أو كان أحدهم في خطر. وعادةً يعطيك الضابط رقمًا مرجعيًا: احتفظ به لأن شركة التأمين أو البنك كثيرًا ما يطلبانه. حافظ على هدوئك واذكر الوقائع بالترتيب: ماذا، ومتى، وأين، ووصف الشخص.",
+  "ru": "Во многих англоязычных странах о мелкой краже часто можно заявить по телефону или онлайн, но если преступление происходит прямо сейчас или кому-то грозит опасность, звоните в экстренную службу (999 в Великобритании, 911 в США). Сотрудник обычно даёт номер обращения: сохраните его, ведь страховая или банк часто его запрашивают. Сохраняйте спокойствие и излагайте факты по порядку: что, когда, где и приметы.",
+  "tr": "İngilizce konuşulan birçok ülkede küçük bir hırsızlık çoğunlukla telefonla veya çevrimiçi bildirilebilir; ancak suç şu anda işleniyorsa ya da biri tehlikedeyse acil numarayı (Birleşik Krallık’ta 999, ABD’de 911) arayın. Memur genellikle size bir referans numarası verir: saklayın, çünkü sigorta şirketiniz veya bankanız sık sık ister. Sakin kalın ve olguları sırayla anlatın: ne, ne zaman, nerede ve görünüş tarifi."
+ }
+}

@@ -79,5 +79,46 @@
   "words": 46,
   "seconds": 28.1,
   "wpm": 98
+ },
+ "publish": {
+  "title": "Line or queue? US vs UK English",
+  "keyword": "line vs queue",
+  "value": "Americans say line. British people say queue.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/line",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "Line or queue? US vs UK English",
+    "description": "Americans say line. British people say queue.\n\nLook up any word, free: https://lexkite.com/app/#/dict/line\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "line vs queue",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Line or queue? US vs UK English\n\nAmericans say line. British people say queue.\n\nLook up any word, free: https://lexkite.com/app/#/dict/line"
+   },
+   "instagram": {
+    "caption": "Line or queue? US vs UK English\n\nAmericans say line. British people say queue.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Line or queue? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Queue! Americans say line. British people say queue. More practice like this (free): {link}"
  }
 }

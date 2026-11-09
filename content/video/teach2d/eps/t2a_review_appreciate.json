@@ -72,5 +72,46 @@
   "words": 36,
   "seconds": 22.8,
   "wpm": 95
+ },
+ "publish": {
+  "title": "What does \"appreciate\" mean?",
+  "keyword": "appreciate",
+  "value": "Appreciate means to be thankful for.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=appreciate",
+  "script_words": 30,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"appreciate\" mean?",
+    "description": "Appreciate means to be thankful for.\n\nReview your words, free: https://lexkite.com/app/#/review?w=appreciate\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "appreciate",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"appreciate\" mean?\n\nAppreciate means to be thankful for.\n\nReview your words, free: https://lexkite.com/app/#/review?w=appreciate"
+   },
+   "instagram": {
+    "caption": "What does \"appreciate\" mean?\n\nAppreciate means to be thankful for.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"appreciate\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to be thankful for. Appreciate means to be thankful for. Try the full lesson and quiz here: {link}"
  }
 }

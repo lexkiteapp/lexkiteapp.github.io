@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"juice\" mean?",
+  "keyword": "juice",
+  "value": "Juice means the liquid from fruit or vegetables.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=juice",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"juice\" mean?",
+    "description": "Juice means the liquid from fruit or vegetables.\n\nReview your words, free: https://lexkite.com/app/#/review?w=juice\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "juice",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"juice\" mean?\n\nJuice means the liquid from fruit or vegetables.\n\nReview your words, free: https://lexkite.com/app/#/review?w=juice"
+   },
+   "instagram": {
+    "caption": "What does \"juice\" mean?\n\nJuice means the liquid from fruit or vegetables.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"juice\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means the liquid from fruit or vegetables. Juice means the liquid from fruit or vegetables. More practice like this (free): {link}"
  }
 }

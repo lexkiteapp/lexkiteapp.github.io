@@ -84,6 +84,21 @@ export function implicitSocialRules(allRules, cfgs) {
 /** Tài khoản không phải của Lexkite trong workspace GrabCast (OAuth Meta kéo kèm Page/IG "Grabcast.click" vào ws4, 05/11) hoặc bị tạm dừng đăng → không bao giờ là đích autopilot. */
 export const foreignAccount = a => /grab\s*cast/i.test([a && a.name, a && a.title, a && a.username, a && a.handle].filter(Boolean).join(' '));
 export const pausedAccount = a => /^(paused|disabled|inactive)$/i.test(String((a && (a.publishing || a.status)) || '')) || (a && (a.paused === true || a.publishing_paused === true));
+/** Tài khoản GrabCast (GET accounts, hợp đồng đọc thật 05/11) → hàng ext_sync. MỘT mapper cho mọi đường đồng bộ (autopilot, nút Đồng bộ, lk/auto/channels/sync):
+ *  trước đây 3 bản chép tay chỉ truyền needs_reconnect → trạng thái Pause/health/avatar đầy đủ bị rơi. GrabCast chưa trả trạng thái "Pause publishing" (05/11) –
+ *  trường publishing/paused/publishing_paused được truyền nguyên nếu có (pausedAccount đọc), docs/GRABCAST-API-REQUESTS.md xin thêm. Không có email quản trị: chỉ tên FB người nối. */
+export function extAccount(a) {
+  a = a && typeof a === 'object' ? a : {}; const h = a.health && typeof a.health === 'object' ? a.health : {}, lim = a.limits && typeof a.limits === 'object' ? a.limits : {};
+  const p = String(a.platform || a.provider || '').toLowerCase().replace(/^facebook$/, 'facebook_page'), id = String(a.id == null ? '' : a.id);
+  const ms = v => { const t = Date.parse(String(v || '')); return Number.isFinite(t) ? t : null; }, num = k => (k && Number.isFinite(+lim[k]) && lim[k] !== null ? +lim[k] : null);
+  const usedK = Object.keys(lim).find(k => /_24h$|^used$/.test(k)), capK = Object.keys(lim).find(k => /_cap$|^cap$/.test(k));
+  const reconnect = !!(a.needs_reconnect || h.needs_reconnect) || /reauth|revoked|expired|disconnected|error/i.test(String(a.status || ''));
+  const out = { platform: p, id, name: String(a.display_name || a.name || a.username || id), handle: String(a.username || a.handle || ''), avatar: String(a.avatar_url || a.avatar || a.thumb || ''),
+    status: reconnect ? 'error' : pausedAccount(a) ? 'paused' : 'ok', ext_id: String(a.external_id || ''), connected_at: ms(a.connected_at || a.created_at), admin: String(a.owner_email || a.email || a.fb_user_name || ''),
+    admin_kind: a.owner_email || a.email ? 'email' : a.fb_user_name ? 'fb_user' : '', last_pub: ms(a.last_published_at), used: num(usedK), cap: num(capK), token_exp: ms(h.expires_at), token_soon: !!h.expiring_soon, reason: h.reason || h.error_code || null };
+  for (const k of ['publishing', 'paused', 'publishing_paused']) if (a[k] != null) out[k] = a[k];
+  return out;
+}
 /** Rules editor "test a clip": why each rule wins / misses (off · no-match:<cond> · blocked:<cfg field> · shadowed = platform already taken) + final routes. */
 export function explain(rules, cfgs, clip, fallback) {
   const won = new Set(), trace = rules.map((r, i) => {

@@ -286,6 +286,8 @@ await pop2.selectOption('#selMode', 'icon').catch(() => {});
 await pop2.close(); await pop.close().catch(() => {});
 
 // ---------- 5. Tab mới ----------
+// Câu đố 10 s (#664) hiện TRƯỚC thẻ khi có thẻ đến hạn (tối đa 1 lần/30 phút) → các kiểm thẻ bên dưới chạy ở trạng thái "vừa hỏi xong"; câu đố có bước kiểm riêng ở cuối mục này.
+await sw.evaluate(() => chrome.storage.local.set({ ntQz: Date.now() }));
 const nt = await ctx.newPage(); await nt.setViewportSize({ width: 1366, height: 768 });
 await nt.goto(base + 'newtab.html', { waitUntil: 'domcontentloaded' }); await sleep(2500); await shot(nt, 'newtab-light');
 await nt.emulateMedia({ colorScheme: 'dark' }); await sleep(400); await shot(nt, 'newtab-dark'); await nt.emulateMedia({ colorScheme: 'light' });
@@ -298,6 +300,14 @@ rec('tab mới: có nút nghe giọng Anh', (await nt.locator('[data-acc="uk"]')
 if (await nt.locator('.more [data-g]').count()) rec('tab mới: họ từ/cụm từ… thu gọn mặc định', await nt.locator('#ntPanel').isHidden());
 const ntH = await nt.evaluate(() => { const a = document.querySelector('#ntCard').getBoundingClientRect(), b = document.querySelector('#ntSearch').getBoundingClientRect(); return Math.round(b.bottom - a.top); });
 rec('tab mới: thẻ + ô tìm ≤ 45 % màn 1366×768', ntH > 0 && ntH <= 768 * 0.45, ntH + ' px');
+// câu đố hết cooldown: nếu hiện thì đủ 4 lựa chọn + Bỏ qua; bỏ qua/hết giờ xong thẻ từ PHẢI hiện lại (không kẹt ở câu đố)
+await sw.evaluate(() => chrome.storage.local.remove('ntQz'));
+await nt.reload({ waitUntil: 'domcontentloaded' }); await sleep(1500);
+if (await nt.locator('.qz-o').count()) {
+  rec('tab mới: câu đố có 4 lựa chọn + Bỏ qua', (await nt.locator('.qz-o').count()) === 4 && (await nt.locator('#ntQzSkip').count()) === 1);
+  await nt.locator('#ntQzSkip').click(); await sleep(2500);
+}
+rec('tab mới: sau câu đố (hoặc không có câu đố) thẻ từ hiện đủ nhãn + nút nghe', (await nt.locator('.nt-word').count()) === 1 && (await nt.locator('.nt-chips .chip').count()) >= 1 && (await nt.locator('[data-acc="uk"]').count()) === 1 && (await nt.locator('.qz').count()) === 0);
 // nghe: ghi lại lời gọi play()/speak() (không phát thật) → UK, US, 🐢 đều phát; 🐢 có tốc độ < 1
 await nt.evaluate(() => { window.__au = []; HTMLMediaElement.prototype.play = function () { window.__au.push({ k: 'mp3', r: this.playbackRate, d: this.defaultPlaybackRate, pp: this.preservesPitch }); return Promise.resolve(); };
   speechSynthesis.speak = u => window.__au.push({ k: 'tts', r: u.rate, l: u.lang }); });
@@ -325,8 +335,9 @@ await nt.close();
 // ---------- 6. lexkite.com: học được dịch, đang thi bị khóa ----------
 const lx = await ctx.newPage();
 await lx.goto('https://lexkite.com/?hl=' + L + '#/welcome', { waitUntil: 'domcontentloaded' }); await sleep(5000);
+// (chữ tượng hình của font biểu tượng như ligature "language" và nhãn nút/menu đổi ngôn ngữ "English" KHÔNG phải từ để tra – bỏ qua đầu trang/điều hướng/nút, chọn từ trong nội dung)
 // bấm đúp vào một từ TIẾNG ANH trên trang (bỏ thẻ demo #wCard: bấm vào là thẻ LẬT → bấm đúp lật 2 lần, bố cục dịch chuyển, lần bấm thứ 2 trượt sang dòng IPA; ở ja thẻ này chứa chữ Anh đầu tiên) (giao diện ja/zh/ar có tiêu đề không phải tiếng Anh)
-const enWord = await lx.evaluate(() => { const tw = document.createTreeWalker(document.querySelector('#view') || document.body, NodeFilter.SHOW_TEXT); let n; while ((n = tw.nextNode())) { const m = /\b[A-Za-z]{6,}\b/.exec(n.nodeValue); if (m && n.parentElement && n.parentElement.offsetParent && !n.parentElement.closest('button,a,input,select,#wCard')) { const r = document.createRange(); r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length); const b = r.getBoundingClientRect(); if (b.width && b.top > 0 && b.top < innerHeight) return { x: b.x + b.width / 2, y: b.y + b.height / 2, w: m[0] }; } } return null; });
+const enWord = await lx.evaluate(() => { const tw = document.createTreeWalker(document.querySelector('#view') || document.body, NodeFilter.SHOW_TEXT); let n; while ((n = tw.nextNode())) { const m = /\b[A-Za-z]{6,}\b/.exec(n.nodeValue); if (m && n.parentElement && n.parentElement.offsetParent && !n.parentElement.closest('button,a,input,select,#wCard,header,nav,footer,[aria-hidden="true"],[role=button],[role=menu],[role=menuitem],[role=tab],[aria-haspopup],[aria-expanded]') && !/Material|Symbols|icon/i.test(getComputedStyle(n.parentElement).fontFamily + ' ' + n.parentElement.className)) { const r = document.createRange(); r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length); const b = r.getBoundingClientRect(); if (b.width && b.top > 0 && b.top < innerHeight) return { x: b.x + b.width / 2, y: b.y + b.height / 2, w: m[0] }; } } return null; });
 if (enWord) { await lx.mouse.dblclick(enWord.x, enWord.y); await sleep(6000); }
 c = await card(lx); const webBar = await lx.evaluate(() => { const b = document.querySelector('.sel-bar'); return !!(b && !b.hidden); });
 await shot(lx, 'lexkite-welcome');

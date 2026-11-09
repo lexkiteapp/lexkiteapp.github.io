@@ -72,5 +72,46 @@
   "words": 47,
   "seconds": 28.2,
   "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"circle\" mean?",
+  "keyword": "circle",
+  "value": "Circle means a perfectly round shape or a group arranged in that shape.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=circle",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"circle\" mean?",
+    "description": "Circle means a perfectly round shape or a group arranged in that shape.\n\nReview your words, free: https://lexkite.com/app/#/review?w=circle\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "circle",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"circle\" mean?\n\nCircle means a perfectly round shape or a group arranged in that shape.\n\nReview your words, free: https://lexkite.com/app/#/review?w=circle"
+   },
+   "instagram": {
+    "caption": "What does \"circle\" mean?\n\nCircle means a perfectly round shape or a group arranged in that shape.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"circle\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a perfectly round shape or a group arranged in that shape. Circle means a perfectly round shape or a group arranged in that shape. Practice it with a free quiz: {link}"
  }
 }

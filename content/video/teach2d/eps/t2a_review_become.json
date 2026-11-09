@@ -72,5 +72,46 @@
   "words": 37,
   "seconds": 23.3,
   "wpm": 95
+ },
+ "publish": {
+  "title": "What does \"become\" mean?",
+  "keyword": "become",
+  "value": "Become means to begin to be.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=become",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"become\" mean?",
+    "description": "Become means to begin to be.\n\nReview your words, free: https://lexkite.com/app/#/review?w=become\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "become",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"become\" mean?\n\nBecome means to begin to be.\n\nReview your words, free: https://lexkite.com/app/#/review?w=become"
+   },
+   "instagram": {
+    "caption": "What does \"become\" mean?\n\nBecome means to begin to be.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"become\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to begin to be. Become means to begin to be. Try the full lesson and quiz here: {link}"
  }
 }

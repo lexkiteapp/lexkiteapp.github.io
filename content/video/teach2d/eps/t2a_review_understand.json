@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"understand\" mean?",
+  "keyword": "understand",
+  "value": "Understand means to know the meaning of language, what someone says.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=understand",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"understand\" mean?",
+    "description": "Understand means to know the meaning of language, what someone says.\n\nReview your words, free: https://lexkite.com/app/#/review?w=understand\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "understand",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"understand\" mean?\n\nUnderstand means to know the meaning of language, what someone says.\n\nReview your words, free: https://lexkite.com/app/#/review?w=understand"
+   },
+   "instagram": {
+    "caption": "What does \"understand\" mean?\n\nUnderstand means to know the meaning of language, what someone says.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"understand\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to know the meaning of language, what someone says. Understand means to know the meaning of language, what someone says. More practice like this (free): {link}"
  }
 }
