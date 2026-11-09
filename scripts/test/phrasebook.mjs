@@ -26,13 +26,13 @@ ok(all.every(e => VIall[e.id] && VIall[e.id].name && VIall[e.id].note && VIall[e
 const viRe = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i, enSrc = JSON.parse(rd(EN));
 ok(pb.items.every(f => f.vi && viRe.test(f.vi.note) && viRe.test(f.vi.why)) && Object.keys(enSrc).every(k => viRe.test(k) || /^[^a-z]*$/i.test(k) === false) && Object.keys(enSrc).length >= pb.items.length * 2, 'gói mang vi; en-src có khóa Việt → en');
 // L1 trong phrase-book.js: vi dùng f.vi, L1 khác tra khóa vi, thiếu → en (không lộ tiếng Việt)
-const pbjs = rd('web/js/phrase-book.js'); ok(/to\(\) === 'vi' \? v \|\| en/.test(pbjs) && /l1\[v\] \|\| en/.test(pbjs), 'phrase-book.js: vi → f.vi; L1 khác → l1[khóa vi] || en');
+const pbjs = rd('web/cpack/framework/phrase-book.js'); ok(/to\(\) === 'vi' \? v \|\| en/.test(pbjs) && /l1\[v\] \|\| en/.test(pbjs), 'phrase-book.js: vi → f.vi; L1 khác → l1[khóa vi] || en');
 // 3) không thêm gì vào khung nạp ngay; chỉ gói lười 'pbook'; route phrases vẫn lười
 const first = firstLoadFiles();
 ok(!first.some(u => /phrase-book|cpack\/framework/.test(u)), 'phrase-book.js + cpack/framework KHÔNG nằm trong file nạp ngay');
 const app = rd('web/js/app.js'), a = app.indexOf("const G = 'js/grammar/', BUNDLES = {"), e = app.indexOf('\n  };', a);
 const BUNDLES = new Function(app.slice(a, e + 4) + '; return BUNDLES;')();
-ok(BUNDLES.pbook && BUNDLES.pbook.includes('cpack/framework/functions.js') && BUNDLES.pbook.includes('js/phrase-book.js'), "gói lười 'pbook' = dữ liệu + mã vẽ");
+ok(BUNDLES.pbook && BUNDLES.pbook.includes('cpack/framework/functions.js') && BUNDLES.pbook.includes('cpack/framework/phrase-book.js'), "gói lười 'pbook' = dữ liệu + mã vẽ");
 const r0 = app.indexOf('const ROUTE_BUNDLE = {'), RB = new Function(app.slice(r0, app.indexOf('};', r0) + 2) + '; return ROUTE_BUNDLE;')();
 ok([].concat(RB.phrases).join() === 'writing' && !Object.values(RB).flat().includes('pbook'), "route #/phrases vẫn chỉ nạp 'writing'; 'pbook' chỉ nạp khi mở mục (App.need)");
 ok(/App\.need\('pbook'\)/.test(rd('web/js/phrases-model.js')) && !/PHRASEBOOK/.test(rd('web/js/phrases-model.js')), 'phrases-model.js chỉ gọi App.need(pbook), không chứa dữ liệu');
