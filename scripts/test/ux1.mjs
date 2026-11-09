@@ -304,7 +304,7 @@ const fx = JSON.parse(fs.readFileSync('scripts/i18n-fixed.json', 'utf8'));
 {
   w.localStorage.setItem('lk.ux1', '1'); const P = w.document;
   await go('#/call', '.call-card');
-  const cards = $$('.call-card'), CL = w.CALLS;
+  const cards = $$('.call-card'), CL = w.CALLS.filter(c => !c.tl); // ngôn ngữ học = en → chỉ cuộc gọi tiếng Anh (cuộc gọi es có tl:'es', lọc theo Target.cur)
   ok(cards.length === CL.length && cards.every(a => /^#\/call\/[\w-]+$/.test(a.getAttribute('href'))) && !$$('#view img').some(i => /img\/call\//.test(i.getAttribute('src'))), 'call (v2): danh sách đủ ' + CL.length + ' cuộc gọi, ảnh giáo viên qua Chars (không img/call/mia)');
   const E = w.CallEngine, C0 = E.prep(CL[0]), WHO = C0.who, NM = w.Chars.name(WHO), N0 = C0.nodes[C0.start]; // giáo viên theo kịch bản (c.who Ama/Carlos – CallEngine #194)
   await go('#/call/' + CL[0].id, '#callGo');
