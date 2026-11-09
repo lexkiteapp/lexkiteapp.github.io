@@ -99,6 +99,7 @@
   ":scope > main > div > section:nth-child(5) > div > a:nth-child(1)": "hub-card min-h-[44px]",
   ":scope > main > div > section:nth-child(5) > div > a:nth-child(2)": "hub-card min-h-[44px]",
   ":scope > main > div > section:nth-child(5) > div > a:nth-child(3)": "hub-card min-h-[44px]",
-  ":scope > main": "v2-hub"
+  ":scope > main": "v2-hub",
+  ":scope > main > div > h1": "[font-family:var(--font-display)]"
  }
 }
