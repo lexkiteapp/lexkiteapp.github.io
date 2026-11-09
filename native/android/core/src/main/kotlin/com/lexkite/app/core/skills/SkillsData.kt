@@ -148,6 +148,20 @@ class Lexis(awl: Collection<String>, link: Collection<String>, phrases: List<Pai
     /** (awl stem or null, linking word or null). */
     fun classify(word: String): Pair<String?, String?> { val w = word.lowercase(); return bases(w).firstOrNull { it in awl } to (if (w in link) w else null) }
 
+    /** AWL stems, linking words and phrases of a spoken answer with their counts, in order of first occurrence (the part of web Lexis.analyze the speaking room shows). */
+    class Analysis(val awl: Map<String, Int>, val link: Map<String, Int>, val phrases: Map<String, Int>)
+    fun analyze(text: String): Analysis {
+        val clean = WS.replace(text, " ").trim()
+        val awlM = LinkedHashMap<String, Int>(); val linkM = LinkedHashMap<String, Int>(); val phr = LinkedHashMap<String, Int>()
+        for (m in ANALYZE_WORD.findAll(clean)) {
+            val (a, l) = classify(m.value.lowercase().replace('’', '\''))
+            if (a != null) awlM[a] = (awlM[a] ?: 0) + 1
+            if (l != null) linkM[l] = (linkM[l] ?: 0) + 1
+        }
+        phraseRe?.findAll(clean)?.forEach { m -> val k = m.value.lowercase().replace(WS, " "); phr[k] = (phr[k] ?: 0) + 1; if (phraseType[k] == "link") linkM[k] = (linkM[k] ?: 0) + 1 }
+        return Analysis(awlM, linkM, phr)
+    }
+
     private fun esc(s: String) = s
     /** One sentence -> alternating plain [String] and [Tok]; adjacent plain text is merged, empty pieces dropped. */
     fun markSentence(s: String, keywords: Set<String> = emptySet(), mine: (String) -> Boolean = { false }): List<Any> {
@@ -190,7 +204,7 @@ class Lexis(awl: Collection<String>, link: Collection<String>, phrases: List<Pai
         passage.flatten().flatten().filterIsInstance<Tok>().filter { t -> val c = t.cls.split(' '); if (k == "link") "link" in c || "col" in c else k in c }.map { it.ph ?: it.w }.toSet().size
 
     companion object {
-        private val WS = Regex("\\s+"); private val BLANK = Regex("\\n\\s*\\n")
+        private val WS = Regex("\\s+"); private val BLANK = Regex("\\n\\s*\\n"); private val ANALYZE_WORD = Regex("[A-Za-z][A-Za-z'’-]*")
         private val WORD = Regex("^([^A-Za-z]*)([A-Za-z][A-Za-z'’-]*[A-Za-z]|[A-Za-z])([^A-Za-z]*)$")
         private val SENT = Regex("[^.!?]+[.!?]+[\"”’)]*\\s*|[^.!?]+\\z")
         private val DOUBLE_ED = Regex("(.)\\1ed$"); private val DOUBLE_ING = Regex("(.)\\1ing$")
