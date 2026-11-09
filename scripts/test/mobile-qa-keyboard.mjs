@@ -116,7 +116,11 @@ for (const vp of VPS) for (const mode of ['visual', 'content']) {
       const order = [...list.keys()].sort((a, b) => must.some(re => re.test(list[b])) - must.some(re => re.test(list[a])) || a - b).slice(0, Math.max(MAX_PER_ROUTE, list.filter(k => must.some(re => re.test(k))).length));
       for (const i of order) {
         if (mode === 'content') await page.setViewportSize({ width: vp.w, height: vp.h - kbPx });
-        const r = await page.evaluate(probe, [i, mode, kbPx]).catch(e => ({ err: String(e.message).split('\n')[0].slice(0, 120) }));
+        let r = await page.evaluate(probe, [i, mode, kbPx]).catch(e => ({ err: String(e.message).split('\n')[0].slice(0, 120) }));
+        if (r.gone) { // trang dựng lại giữa lúc liệt kê và đo (gói lười như Phòng viết): liệt kê lại, tìm ô cùng bộ chọn, đo lại – không im lặng bỏ qua ô chính
+          await page.waitForTimeout(600); const again = await page.evaluate(LIST), j = again.indexOf(list[i]);
+          if (j >= 0) r = await page.evaluate(probe, [j, mode, kbPx]).catch(e => ({ err: String(e.message).split('\n')[0].slice(0, 120) }));
+        }
         if (mode === 'content') await page.setViewportSize({ width: vp.w, height: vp.h });
         if (r.gone) continue;
         if (r.unreachable) { unreachable.push(`${vp.w} ${mode} #/${route} ${r.unreachable}`); continue; }
