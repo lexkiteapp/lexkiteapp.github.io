@@ -156,7 +156,7 @@ fun PronSoundScreen(ui: PronSoundUi, a: PronSoundActions) {
     StudyPage(l.title, a.exit) {
         LKCard(fill = c.secondaryContainer) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.Top) {
-                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) { Flow { for (x in ui.chips) Tag(trs(x), c.onSecondaryContainer) }; Body(l.how, color = c.onSecondaryContainer) }
+                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) { Flow { for (x in ui.chips) Tag(trs(x), c.onSurface) }; Body(l.how, color = c.onSecondaryContainer) }
                 Box(Modifier.clip(card).background(c.card).padding(horizontal = LKSpacing.spaceSm, vertical = LKSpacing.spaceXs)) { EnLtr { Text(l.ipa, color = c.onSurface, style = LKType.headlineLg.toCompose()) } }
             }
         }
