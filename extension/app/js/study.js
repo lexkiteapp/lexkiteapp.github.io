@@ -154,7 +154,7 @@
     const pill = (v, l, col) => `<div class="rev-pill"><b${col ? ` style="color:var(${col})"` : ''}>${v}</b><span class="tiny muted">${l}</span></div>`;
     view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate rev-done">
       <div class="em kit-cele" aria-hidden="true">${window.Kit ? Kit.svg(mood, 120) : (nothing ? '🎉' : '🏆')}</div>
-      <h2>${nothing ? (Object.keys(state.cards).length ? t('Hôm nay bạn đã ôn hết!') : t('Không còn thẻ cần ôn – học từ mới nhé')) : t('Hoàn thành {n} lượt ôn!', { n: session.done })}</h2>
+      <h2>${nothing ? (Object.keys(state.cards).length ? t('Hôm nay bạn đã ôn hết!') : t('Chưa có flashcard nào')) : t('Hoàn thành {n} lượt ôn!', { n: session.done })}</h2>
       ${nothing ? '' : `<div class="rev-stats" role="group" aria-label="${t('Kết quả phiên ôn')}">
         ${pill('+' + session.xp, 'XP', '--gold')}${pill(acc + '%', t('Nhớ ngay'), '--good-text')}${pill('🔥 ' + streak, t('Chuỗi ngày'))}${pill('⏱ ' + t('{m} phút', { m: Math.max(1, Math.round((Date.now() - (session.t0 || Date.now())) / 6e4)) }), t('Thời gian'))}
       </div>
