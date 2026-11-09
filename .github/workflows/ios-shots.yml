@@ -33,6 +33,10 @@ jobs:
         run: |
           X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
           [ -n "$X" ] && sudo xcode-select -s "$X/Contents/Developer"; xcodebuild -version
+      - uses: actions/cache@v4   # sharp (mobile/, Capacitor) tải libvips ~7 MB từ github.com/lovell/sharp-libvips: lưu để lượt sau không phụ thuộc mạng (09/11 iOS E2E đỏ 'Request timed out' rồi biên dịch lỗi)
+        with:
+          path: ~/.npm/_libvips
+          key: sharp-libvips-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('mobile/package-lock.json') }}
       - name: Build web → mobile/www (+ script điều khiển chỉ cho bản chụp ảnh) → cap copy
         run: |
           bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
