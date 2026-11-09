@@ -156,6 +156,8 @@ struct FocusScreen: View {
             SkillsFocusScreen(route: route)   // M4 P06: listen-test · dictation
         } else if SpeakRoutes.handlesFocus(route.name) {
             SpeakFocusScreen(route: route)   // M4 P07: say · reflex · handsfree
+        } else if CallRoutes.handlesFocus(route.name) {
+            CallFocusScreen(route: route)   // M4 P08: call (list → ring → call → summary)
         } else {
             VStack(spacing: 0) {
                 TopBar(variant: .focus(progress: 0), title: "") { services.router.closeFocus() }
