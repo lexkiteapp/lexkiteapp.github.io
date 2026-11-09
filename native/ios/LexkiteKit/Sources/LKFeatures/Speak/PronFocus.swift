@@ -2,6 +2,7 @@ import SwiftUI
 import LKDesign
 import LKStore
 import LKCore
+import LKSync
 import LKStrings
 
 // M4 P07 – the two pron drills as full-screen focus screens (Stitch pron-pairs, pron-result): X + progress at the top, one scrolling column,
