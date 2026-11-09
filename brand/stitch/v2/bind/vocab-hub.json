@@ -98,6 +98,7 @@
   ":scope > main > div > section:nth-child(4)": "lg:grid lg:grid-cols-2 lg:gap-x-8",
   ":scope > main > div > section:nth-child(5) > div > a:nth-child(1)": "hub-card min-h-[44px]",
   ":scope > main > div > section:nth-child(5) > div > a:nth-child(2)": "hub-card min-h-[44px]",
-  ":scope > main > div > section:nth-child(5) > div > a:nth-child(3)": "hub-card min-h-[44px]"
+  ":scope > main > div > section:nth-child(5) > div > a:nth-child(3)": "hub-card min-h-[44px]",
+  ":scope > main": "v2-hub"
  }
 }
