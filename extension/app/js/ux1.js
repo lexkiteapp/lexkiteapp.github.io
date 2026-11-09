@@ -270,7 +270,7 @@
     let mist = 0; try { mist = demo ? 0 : ((await Core.Store.get('mistakes', [])) || []).filter(x => !x.fixed).length; } catch (e) { mist = 0; }
     if (location.hash !== tok) return;
     const name = (state.user && (state.user.displayName || state.user.email)) || '', ini = (String(name).trim()[0] || 'L').toUpperCase();
-    const trail = PathTrail.build(tp, false), pm = tp.render(trail).replace(/^<main[^>]*>/, '').replace(/<\/main>$/, ''), pathHtml = `<div class="v2s-path w-full"><div class="st v2 v2-path">${pm}</div></div>`; // một component cho điện thoại, người mới, máy tính
+    const trail = PathTrail.build(tp, false), pm = !(fresh || DSK()) ? '' : tp.render(trail).replace(/^<main[^>]*>/, '').replace(/<\/main>$/, ''), pathHtml = fresh || DSK() ? `<div class="v2s-path w-full"><div class="st v2 v2-path">${pm}</div></div>` : ''; // một component cho điện thoại, người mới, máy tính
     const SL = (self.LESSON_STORIES || []), sAt = (parseInt(ls.get('lk.lsn.s.story') || '0', 10) || 0), so0 = SL.slice(sAt % (SL.length || 1)).concat(SL.slice(0, sAt % (SL.length || 1))), sDn = (() => { try { const a = JSON.parse(ls.get('lk.lsn.sd' + (demo ? '.demo' : '')) || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; } })(), so = so0.filter(x => !sDn.includes(x.id)).concat(so0.filter(x => sDn.includes(x.id))); // truyện đã học xuống cuối, thẻ đầu luôn là bài mới
     const stories = so.map(x => ({ title: x.title, sub: x.kind === 'radio' ? 'Radio' : t('Truyện'), cefr: x.cefr || '', min: t('{n} phút', { n: KMIN[x.kind] || 4 }), href: '#/lesson/go' + (Q ? Q + '&' : '?') + 'story=' + encodeURIComponent(x.id) })); // giữ ?demo=1: truyện trong bài thử không ghi tiến độ thật
     const kind = (P[at] || {}).kind, ws = /^(story|radio|exam)$/.test(kind) ? [] : words(n, P.length, kind);
@@ -294,6 +294,8 @@
     }
     if (!fresh) oneReview(d);
     const k = fresh ? 'today-new' : DSK() && ST2['today-desk'] ? 'today-desk' : 'today';
+    const tpH = k === 'today' ? Object.assign({}, tp, { compact: 1, ic, xp: d.xpReady, say: d.say, tch: () => tch(fresh), render: x => ST2.today(Object.assign({}, d, x)).main }) : tp, trailH = k === 'today' ? PathTrail.build(tpH, false) : trail; // Home gọn: lộ trình nằm trong khung today, nút hiện tại là khối chính
+    if (k === 'today') Object.assign(d, trailH);
     const root = ST2.mount(view, k, d, null);
     sayIn(root, d.say, lost, fresh ? 'greet' : lost ? 'review' : !b.p.left && !due ? 'goal' : due ? 'review' : 'plan'); // người mới chào · xong kế hoạch khen · có từ cần ôn khuyến khích (không dọa) · còn việc chỉ nút Bắt đầu
     if (ST2.shell) root.insertAdjacentHTML('beforeend', ST2.shell(Object.assign({ hdr: ST2.hdr(), tabs: ST2.tabs('home') }, d)).nav); // thanh tab CHUNG (5 tab), thay thanh tab riêng của mẫu
@@ -302,7 +304,7 @@
     root.querySelectorAll(`[data-href="${(d.k || {}).href}"]`).forEach(x => x.classList.add('lsn-start', 'ux1-go')); // nút Bắt đầu chính = móc chung (lộ trình v1 cũng có) cho test/gác bố cục
     root.querySelectorAll('[data-act="path"]').forEach(x => x.addEventListener('click', e => { e.preventDefault(); const c = root.querySelector('[data-cur]'); if (c) try { c.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); } catch (er) { /* bỏ qua */ } }));
     o.demoNote(root); o.guide(root);
-    const pathSet = PathTrail.wire(root, tp, trail);
+    const pathSet = PathTrail.wire(root, tpH, trailH);
     if (/[?&]at=path\b/.test(location.hash)) { if (pathSet) pathSet(true, false); o.toCur(root); } // tới thẳng nút hiện tại (liên kết cũ "bản đồ")
     if (!demo && root.querySelector('[data-lg]')) fillLeague(root, null);
     return root;

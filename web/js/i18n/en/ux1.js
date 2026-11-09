@@ -2,6 +2,7 @@
 * English translations for UX1 "one app": 5 tabs, path map units, goal pick, practice hub, right rail (web/js/ux1.js) – docs/LEARNING-PATH.md
 */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
+'Bài tiếp theo': 'Next lesson',
 "Hoàn thành {x} để mở": "Finish {x} to unlock",
 "Ôn lại": "Practise again",
 "Từ sẽ luyện": "Words you'll practise",
