@@ -34,6 +34,7 @@ jobs:
           for l in $(grep -v '^#' scripts/i18n-langs.txt); do EXPLAIN_MIN=$(( 50 - (SECONDS / 60) )) node scripts/gen-explain.mjs "$l" || echo "lỗi lời giải $l"; done  # lời giải đề thi (chỉ câu mới)
           node scripts/i18n-backcheck.mjs || echo 'kiểm nghĩa lỗi mạng – lần sau làm tiếp'  # dịch ngược câu mới/đổi → web/i18n/backcheck.json (tab Chất lượng)
           node scripts/i18n-pack.mjs  # nguồn i18n/ui (khóa nguyên câu, bot/người sửa ở đây) → gói chạy khóa băm web/js/i18n/<lang>
+          node scripts/native/gen.mjs --check  # gác: bản dịch bot không được làm trôi chuỗi native (đỏ → không commit)
           node scripts/i18n-qa.mjs   # báo cáo chất lượng: đủ khóa, đúng biến, không lẫn tiếng (xem docs/I18N-PIPELINE.md)
       - name: Dịch sẵn nội dung bài học (dùng thời gian còn lại – dịch dần qua nhiều đêm, chỉ câu mới)
         timeout-minutes: 25

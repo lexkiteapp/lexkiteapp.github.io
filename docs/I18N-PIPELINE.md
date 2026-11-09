@@ -70,3 +70,5 @@ Khóa có `content/i18n/en-src/*.json` { "<chuỗi vi>": "<en GV bản xứ>" }:
 
 ## Nhóm ở web/cpack
 Nhóm `pathn` (nội dung nút Lộ trình): nguồn và bản en như mọi nhóm, gói chạy 13 ngôn ngữ ra `web/cpack/lesson/pn-<lang>.js` (`CPACK_GROUP` trong `scripts/lib/i18n-pack.mjs`), nạp qua `App.pathnPack` cùng dữ liệu nút; `scan-roots` và `i18n-pack` kiểm.
+
+**Chữ app native bị khóa** (#983): `i18n-fix.mjs` luôn đặt lại khóa nằm trong `native/shared/strings.json` theo đúng chữ đã phát hành ở `native/shared/gen/strings/<lang>.json`, nên bot dịch lại không làm trôi native được. Trong `i18n.yml`, bước `gen.mjs --check` chạy trước commit: đỏ thì không commit. Muốn đổi chữ native: mở PR, chạy `I18N_NATIVE_UNLOCK=1 node scripts/i18n-fix.mjs && node scripts/native/gen.mjs` và cập nhật ảnh trong cùng PR. Test: `scripts/test/native-strings-locked.mjs`.
