@@ -124,7 +124,7 @@ public struct ListenHub: Equatable, Sendable {
         var cur = num(query["t"])
         if !all.contains(cur) { cur = num(remembered) }
         if !all.contains(cur) { cur = all.first ?? 1 }
-        var h = ListenHub(persistedTest: String(cur))
+        var h = ListenHub(); h.persistedTest = String(cur)
         guard !all.isEmpty else { return h }
         let best = game["listenBest"] ?? .null, done = game["listenDone"] ?? .null
         h.empty = false; h.selected = cur; h.band = best[String(cur)]?.double; h.fullTest = "#/listen-test/\(cur)"

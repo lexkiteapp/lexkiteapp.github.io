@@ -45,7 +45,7 @@ public struct ReadingList: Equatable, Sendable {
         let lvs = Array(Set(data.readings.map { $0.s("level") }.filter { !$0.isEmpty })).sorted()
         var lv = query["lv"].flatMap { $0.isEmpty ? nil : $0 } ?? (remembered.flatMap { $0.isEmpty ? nil : $0 } ?? "all")
         if lv != "all" && !lvs.contains(lv) { lv = "all" }
-        var out = ReadingList(persistedLevel: lv)
+        var out = ReadingList(); out.persistedLevel = lv
         if lvs.count > 1 {
             out.tabs = [Tab(lv: "all", n: data.readings.count, selected: lv == "all")] + lvs.map { l in Tab(lv: l, n: data.readings.filter { $0.s("level") == l }.count, selected: lv == l) }
             out.selected = lv
