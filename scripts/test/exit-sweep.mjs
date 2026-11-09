@@ -32,7 +32,7 @@ const ctxOf = async (theme, flag = true) => {
   await ctx.addInitScript(th => { try { localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true, theme: th.th })); localStorage.setItem('lk.exitbar', th.flag ? '1' : '0'); } catch { /* */ } }, { th: theme, flag });
   return ctx;
 };
-const ready = page => page.waitForFunction(() => window.App && window.ExitGuard && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 30000 }).then(() => sleep(900));
+const ready = page => page.waitForFunction(() => window.App && (window.ExitGuard || (App.need ? App.need('exitguard').then(() => !!window.ExitGuard) : false)) && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 30000 }).then(() => sleep(900));
 const boot = async (page, hash) => { await page.goto(appUrl(hash), { waitUntil: 'load', timeout: 45000 }); await ready(page); };
 const go = async (page, hash) => { await page.evaluate(x => { location.hash = x; }, hash); await sleep(1300); };
 // Màn học: chờ ExitGuard nhận (lk-learn) + nút thoát vẽ xong (gói lười + mạng live chậm hơn 1,3 s → trước đây đỏ giả trên lexkite.com, run 42094308245)

@@ -24,6 +24,7 @@
   const flagOn = () => { try { const m = /[?&]exitbar=([01])\b/.exec(location.search + location.hash); if (m) sessionStorage.setItem('lk.exitbar.pv', m[1]); const pv = sessionStorage.getItem('lk.exitbar.pv'); return pv ? pv === '1' : localStorage.getItem('lk.exitbar') !== '0'; } catch (e) { return true; } };
 
   let backTo = '#/home', cur = '', dirty = false, done = false, saves = [], bypass = false, bar = null;
+  const whenReady = f => (document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', f) : f()); // gói lười: có thể nạp sau DOMContentLoaded
   const view = () => document.getElementById('view');
   const modalOpen = () => { const m = document.getElementById('modal'); return !!(m && !m.hidden); };
 
@@ -188,7 +189,7 @@
   // Màn vẽ lại đầu trang (câu kế tiếp…) → gắn lại nút thoát, đồng bộ tiến độ; gom theo khung hình
   let raf = 0;
   const reMark = () => { raf = 0; const v = view(); if (!cur || !v || parse(location.hash)[0] !== parse(cur)[0]) return; /* cur còn là màn học cũ khi đã sang trang khác (đua điều hướng): không gắn thanh thoát vào trang mới */ if (!v.querySelector('[data-exit]')) setup(...parse(cur)); syncBar(); };
-  if (g.MutationObserver) document.addEventListener('DOMContentLoaded', () => { const v = view(); if (v) new MutationObserver(() => { if (!cur) return; if (!v.querySelector('[data-exit]')) return reMark(); /* gắn thanh trước khi vẽ: gắn sau đẩy cả màn 64 px (CLS) */ if (!raf) raf = requestAnimationFrame(reMark); }).observe(v, { childList: true, subtree: true }); });
+  if (g.MutationObserver) whenReady(() => { const v = view(); if (v) new MutationObserver(() => { if (!cur) return; if (!v.querySelector('[data-exit]')) return reMark(); /* gắn thanh trước khi vẽ: gắn sau đẩy cả màn 64 px (CLS) */ if (!raf) raf = requestAnimationFrame(reMark); }).observe(v, { childList: true, subtree: true }); });
 
   // Mỗi lượt vẽ trang (App.afterRoute, gọi từ app.js)
   function after(name) {
@@ -203,7 +204,7 @@
   }
   const hook = () => { const A = g.App; if (!A) return false; const prev = A.afterRoute; A.afterRoute = name => { if (prev) prev(name); try { after(name); } catch (e) { /* không chặn vẽ trang */ } }; return true; };
   // app.js/ux1.js/path.js cùng nối App.afterRoute → nối sau cùng (sau DOMContentLoaded)
-  document.addEventListener('DOMContentLoaded', () => setTimeout(() => { hook(); if (g.App && App.route && view() && view().children.length) after(); }, 0));
+  whenReady(() => setTimeout(() => { hook(); if (g.App && App.route && view() && view().children.length) after(); }, 0));
   // Phông web nạp SAU khi nới (font-display swap/optional) → chữ trong nút rộng ra, nhưng hộp đã nới giữ cỡ đo lúc đầu → lệch bố cục
   // (exit-sweep: /mock/run @768 – mặt nút 51,7 px ≠ 54 px khi không nới). Phông đổi → gỡ nới, đo lại, nới lại theo cỡ thật.
   const regrow = () => { const x = exitEl(); if (!x || x.dataset.lkGrow == null) return; ungrow(x); const r = x.getBoundingClientRect(); if (r.width < 44 || r.height < 44) { x.classList.add('lk-hit44'); if (!noGrow) grow(x, r); } };

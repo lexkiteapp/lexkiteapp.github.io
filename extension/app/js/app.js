@@ -313,6 +313,7 @@
     rmodes: ['js/i18n/en/rmodes.js', 'js/study-modes.js'], // 🔁 Ôn tập đa chế độ (Gõ phản xạ · Nghe chọn nghĩa) + ✍️ thẻ "Câu của bạn" [P2-1.2/P2-1.1-UI]
     swipe: ['js/study-swipe.js'], // ⚡ Ghép thẻ + 🎙️ Phát âm · 👆 vuốt thẻ + 🐦 Kit mini (G2)
     wfeed: ['js/i18n/en/wfeed.js', 'js/widget-feed.js'], // 📱 widget "Từ mỗi giờ" (chỉ app gốc – native.js nạp)
+    exitguard: ['js/exit-guard.js'], // lối thoát/Esc/back mọi màn học: nạp trước mọi trang trừ Hôm nay (nạp rảnh sau lần vẽ đầu) – khỏi nằm trong khung
     lfx: ['js/i18n/en/lfx.js', 'js/choice-kit.js', 'js/lesson-fx.js'],
     adoffer: ['js/i18n/en/adoffer.js', 'js/ad-offers.js'], // 🎁 Cơ hội 2 · x2 XP ở thẻ kết quả (docs/ADS.md §1c)
     i18nx: ['structs', 'toefl', 'league', 'call', 'handoff'].map(n => `js/i18n/en/${n}.js`), // chuỗi giao diện trang tải lười (xem App.need)
@@ -483,10 +484,11 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     // Vẽ trước, kho từ sau: Hôm nay/Ôn vẽ bằng dữ liệu cơ bản (data.js + thẻ của người học); gói 'words' (~311 KB nén) nạp sau lần vẽ đầu – LCP khách cũ 5,4 → docs/PERF-SCROLL.md › Tải trang
     const late = PAINT_FIRST.has(name) ? b.filter(x => PAINT_LATE.has(x) && !App.loaded(x)) : [];
     if (late.length) b.splice(0, b.length, ...b.filter(x => !late.includes(x)));
+    if (name && name !== 'home' && !App.loaded('exitguard')) b.push('exitguard');
     if (ux1) b.unshift('ux1'); // 🧭 cờ ux1: 5 tab + bản đồ – gói nạp trước mọi trang (lần sau tức thì)
     // Khung màn đặt NGAY lúc chạm: docs/PERF-SCROLL.md
     const reviewHub = ux1 && name === 'review' && query.get('hub') === '1';
-    document.body.classList.toggle('focus', !reviewHub && (name === 'review' || (name === 'lesson' && !(ux1 && arg !== 'go')) || (name === 'practice' && !!arg) || !!(window.ExitGuard && ExitGuard.focusFor(name, arg, query.toString())))); document.documentElement.classList.remove('lk-fo'); // màn học mở thẳng từ link: gỡ lớp ẩn khung của script đầu trang (data-lkf) khi route() đã đặt focus
+    document.body.classList.toggle('focus', !reviewHub && (name === 'review' || (name === 'lesson' && !(ux1 && arg !== 'go')) || (name === 'practice' && !!arg) || !!(window.ExitGuard && ExitGuard.focusFor(name, arg, query.toString())))); if (window.ExitGuard) document.documentElement.classList.remove('lk-fo'); // màn học mở thẳng từ link: gỡ lớp ẩn khung của script đầu trang (data-lkf) khi route() đã đặt focus
     document.body.classList.toggle('v2pre', ux1 && (reviewHub || V2_ROUTES.has(name) || (name === 'lesson' && !!arg) || (name === 'league' && !!state.user)));
     try { localStorage.setItem('lk.ux1c', ux1 ? '1' : '0'); } catch (e) { /* bỏ qua */ }
     if (!ux1) document.body.classList.remove('ux1');
@@ -499,7 +501,9 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       const skelDefault = `<div class="skel-page" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="skel skel-h"></div><div class="skel skel-l"></div><div class="skel-grid">${'<div class="skel skel-card"></div>'.repeat(4)}</div></div>`;
       view.innerHTML = name === 'review' ? skelReview : name === 'home' || !name ? skelHome : skelDefault;
     }, 150);
+    const egWas = !!window.ExitGuard;
     if (b.length) { try { await App.need(...b); } catch (e) { if (my === routeSeq) errState(); throw e; } finally { clearTimeout(skel); } if (my !== routeSeq) return; }
+    if (!egWas && window.ExitGuard) { document.body.classList.toggle('focus', !reviewHub && (name === 'review' || (name === 'lesson' && !(ux1 && arg !== 'go')) || (name === 'practice' && !!arg) || ExitGuard.focusFor(name, arg, query.toString()))); document.documentElement.classList.remove('lk-fo'); } // thanh thoát nạp lười: đặt khung màn học ngay sau khi nạp xong, trước lần vẽ
     if (ux1 && window.Ux1) Ux1.init();
     if (!routes[name] && ROUTE_ALIAS[name]) { location.replace(location.pathname + location.search + '#/' + [ROUTE_ALIAS[name], arg && encodeURIComponent(arg)].filter(Boolean).join('/') + (query.toString() ? '?' + query : '')); return; } // gõ nhầm quen thuộc (#/wellcom…) → trang đúng
     const fn = routes[name] || (name ? notFound : routes.home);
@@ -1392,6 +1396,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       chrome.storage.onChanged.addListener(ch => { if (ch.cards) { state.cards = Cards.view(Object.assign(Object.create(null), ch.cards.newValue || {})); updateChrome(); } });
     }
     if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('/sw.js', { scope: '/app/' }).catch(() => {}); // app ở /app/ (trang / là trang giới thiệu tĩnh) – sw.js gốc tự chuyển bản cài cũ (phạm vi /) sang chế độ chuyển tiếp, xem web/sw.js. Đăng ký lúc này = sau lần vẽ đầu (JS khung nạp sau khung hình đầu – scripts/app-loader.mjs) nên không làm chậm màn đầu
+    App.painted.then(() => setTimeout(() => App.calm(() => { App.need('exitguard').catch(() => {}); }), 1500)); /* thanh thoát màn học: nạp rảnh sau lần vẽ đầu (trang chủ không cần) */
     setTimeout(() => Promise.all(BUNDLES.voice.map(f => fetch(f).catch(() => {}))).then(() => App.calm(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); })), 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
     App.painted.then(() => idle(() => App.need('remind').then(() => Remind.start()).catch(() => {}))); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)

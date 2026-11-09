@@ -125,6 +125,7 @@ const go = async (P, h) => {
 };
 
 const P0 = await mk(390, 'light');
+await P0.page.evaluate(() => (window.App && App.need ? App.need('exitguard') : null)).catch(() => {}); // thanh thoát là gói lười
 const live = await P0.page.evaluate(() => ({ routes: Object.keys(App.routes).filter(r => r && !/^_/.test(r)), withArg: (window.ExitGuard && ExitGuard.WITH_ARG) || [] }));
 // route cần tham số → bài mẫu (như exit-sweep/nav-sweep); còn lại mở không tham số
 const target = r => FIXED[r] ? FIXED[r] : '/' + r;
