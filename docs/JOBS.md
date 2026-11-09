@@ -157,6 +157,7 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/content-qa/sense-check.mjs` –  | bỏ qua: cổng nghĩa v2 kiểm mục trong content/lexicon/senses*.json đối chiếu kho viết tay (từ lõi, scripts/lexicon/core.mjs); mục mở rộng chưa có nghĩa gold – khi lô gold nhận mục mở rộng phải đổi sang loadAllPlus | — |
 | `scripts/native/web-ref.mjs` –  | bỏ qua: chạy JS web thật trong node:vm để sinh vector native (lib chỉ gồm từ mà vector dùng); không ghi/xuất kho | — |
 | `scripts/native/gen-vocab.mjs` –  | bỏ qua: chỉ lấy vài từ của các chủ đề cốt lõi làm mẫu thử cho vector test (vocab.json); dữ liệu từ thật thì app native tải lúc chạy như web, nên mục mở rộng 20k không đi qua script này | — |
+| `scripts/native/gen-skills.mjs` –  | bỏ qua: chỉ dựng bảng tách từ của Lexis (AWL/từ nối/cụm) và vector cho màn nghe/đọc từ IELTS_DATA nạp bằng data.js; không ghi/xuất kho, từ thật thì app native tải lúc chạy như web | — |
 | `scripts/native/gen-sync.mjs` –  | bỏ qua: chỉ tra các từ mà vector sync/migration dùng (map lib) để native dựng lại thẻ L:1; không ghi/xuất kho | — |
 | `scripts/lexicon/expand/left.mjs` – số việc còn cho ci-filler (20k − mục sống + retry), không ghi gì | `doneWords` | ci-filler.yml (probe infra/ci-backlog.json) |
 | **CÒN THIẾU** srs-topics | bộ chủ đề SRS/Từ vựng trong app (IELTS_DATA.TOPICS) chưa có bộ xw-*: từ mở rộng tra được (mảnh) nhưng chưa vào danh sách bộ học – cần bộ tải lười JSON từ mảnh (không thêm vào web/js, ngân sách 19 MB) | — |
