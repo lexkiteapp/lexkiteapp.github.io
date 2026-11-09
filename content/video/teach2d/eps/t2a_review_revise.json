@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"revise\" mean?",
+  "keyword": "revise",
+  "value": "Revise means to change something to improve or correct it.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=revise",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"revise\" mean?",
+    "description": "Revise means to change something to improve or correct it.\n\nReview your words, free: https://lexkite.com/app/#/review?w=revise\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "revise",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"revise\" mean?\n\nRevise means to change something to improve or correct it.\n\nReview your words, free: https://lexkite.com/app/#/review?w=revise"
+   },
+   "instagram": {
+    "caption": "What does \"revise\" mean?\n\nRevise means to change something to improve or correct it.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"revise\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to change something to improve or correct it. Revise means to change something to improve or correct it. More practice like this (free): {link}"
  }
 }

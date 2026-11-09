@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -97,7 +97,7 @@
     "pt": "já",
     "fr": "déjà",
     "de": "schon",
-    "vi": "đã",
+    "vi": "đã, rồi",
     "id": "sudah",
     "th": "แล้ว",
     "zh": "已经",
@@ -170,21 +170,21 @@
    "pos": "conj",
    "ipa": "ˈni",
    "gl": {
-    "en": "neither",
+    "en": "neither, nor",
     "es": "ni",
     "pt": "nem",
     "fr": "ni",
     "de": "weder",
-    "vi": "cũng không",
-    "id": "juga tidak",
+    "vi": "cũng không; không … cũng không",
+    "id": "tidak … maupun",
     "th": "ก็ไม่",
     "zh": "也不",
     "ja": "も…ない",
     "ko": "도 아니다",
-    "hi": "नही",
+    "hi": "न ... न",
     "ar": "ولا",
     "ru": "ни",
-    "tr": "ne"
+    "tr": "ne ... ne"
    },
    "ex": {
     "es": "No tengo ni tiempo ni dinero.",
@@ -367,10 +367,10 @@
   {
    "word": "luego",
    "pos": "adv",
-   "ipa": "luˈeɣo",
+   "ipa": "ˈlweɣo",
    "gl": {
     "vi": "sau đó",
-    "en": "later",
+    "en": "then, later",
     "es": "luego",
     "pt": "depois",
     "fr": "ensuite",
@@ -449,7 +449,7 @@
    "ipa": "ˈmutʃo",
    "gl": {
     "vi": "nhiều",
-    "en": "many",
+    "en": "much, a lot of; many",
     "es": "mucho",
     "pt": "muito",
     "fr": "beaucoup de",
@@ -570,8 +570,8 @@
    "pos": "v",
    "ipa": "espeˈɾaɾ",
    "gl": {
-    "vi": "chờ đợi",
-    "en": "to wait",
+    "vi": "chờ; hy vọng",
+    "en": "to wait; to hope",
     "es": "esperar",
     "pt": "esperar",
     "fr": "attendre",
@@ -685,5 +685,13 @@
     ]
    }
   }
- ]
+ ],
+ "review": {
+  "by": "sonnet-review-A",
+  "at": "2026-11-09",
+  "checked": 17,
+  "fixed": 5,
+  "dropped": 0,
+  "sample": 17
+ }
 }

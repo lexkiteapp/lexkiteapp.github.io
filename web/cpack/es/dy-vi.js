@@ -1,0 +1,1 @@
+self.ESX=self.ESX||{};(ESX.dyl=ESX.dyl||{})["vi"]=["Lộ trình ngày: tiếng Tây Ban Nha","Mỗi ngày một bài ngắn: từ mới, một điểm ngữ pháp, một âm và vài ngày một cuộc gọi.","Ngày {n}","Từ mới","Ngữ pháp","Phát âm","Cuộc gọi AI","Bắt đầu","Ngày {d}/{t} · hôm nay xong {p} bước","Đánh dấu xong","Xong ngày học! 🎉","Hôm nay"];

@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"intend\" mean?",
+  "keyword": "intend",
+  "value": "Intend means to plan or want to do something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=intend",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"intend\" mean?",
+    "description": "Intend means to plan or want to do something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=intend\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "intend",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"intend\" mean?\n\nIntend means to plan or want to do something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=intend"
+   },
+   "instagram": {
+    "caption": "What does \"intend\" mean?\n\nIntend means to plan or want to do something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"intend\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to plan or want to do something. Intend means to plan or want to do something. More practice like this (free): {link}"
  }
 }

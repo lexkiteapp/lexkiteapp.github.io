@@ -1,0 +1,872 @@
+{
+ "id": "party-invite",
+ "group": "social",
+ "cefr": "A2",
+ "title": {
+  "en": "Party invitation",
+  "vi": "Mời đi tiệc",
+  "es": "Invitar a una fiesta",
+  "pt": "Convite para uma festa",
+  "fr": "Inviter à une fête",
+  "de": "Einladung zur Party",
+  "id": "Undangan pesta",
+  "th": "ชวนไปปาร์ตี้",
+  "zh": "邀请参加派对",
+  "ja": "パーティーに誘う",
+  "ko": "파티 초대",
+  "hi": "पार्टी का न्योता",
+  "ar": "دعوة إلى حفلة",
+  "ru": "Приглашение на вечеринку",
+  "tr": "Parti daveti"
+ },
+ "goal": {
+  "en": "Invite a friend, and say yes or no politely!",
+  "vi": "Mời bạn đi tiệc, nhận lời hoặc từ chối thật lịch sự!",
+  "es": "¡Invita a un amigo y responde que sí o que no con educación!",
+  "pt": "Convide um amigo e responda sim ou não com educação!",
+  "fr": "Invitez un ami, et répondez poliment oui ou non !",
+  "de": "Lade einen Freund ein und sag höflich zu oder ab!",
+  "id": "Undang temanmu, lalu terima atau tolak dengan sopan!",
+  "th": "ชวนเพื่อน แล้วตอบรับหรือปฏิเสธอย่างสุภาพ!",
+  "zh": "邀请朋友，并礼貌地答应或拒绝！",
+  "ja": "友達を誘って、丁寧に受ける・断る練習をしよう！",
+  "ko": "친구를 초대하고 정중하게 수락하거나 거절해요!",
+  "hi": "दोस्त को बुलाएँ और शिष्टता से हाँ या ना कहें!",
+  "ar": "ادعُ صديقًا، وقل نعم أو لا بلباقة!",
+  "ru": "Пригласи друга и вежливо скажи «да» или «нет»!",
+  "tr": "Bir arkadaşını davet et, nazikçe evet ya da hayır de!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "invite",
+   "title": {
+    "en": "Invite",
+    "vi": "Mời",
+    "es": "Invitar",
+    "pt": "Convidar",
+    "fr": "Inviter",
+    "de": "Einladen",
+    "id": "Mengundang",
+    "th": "ชวน",
+    "zh": "邀请",
+    "ja": "誘う",
+    "ko": "초대하기",
+    "hi": "बुलाना",
+    "ar": "الدعوة",
+    "ru": "Приглашение",
+    "tr": "Davet"
+   },
+   "lines": [
+    "i1",
+    "i2",
+    "i3",
+    "i4"
+   ]
+  },
+  {
+   "id": "accept",
+   "title": {
+    "en": "Say yes",
+    "vi": "Nhận lời",
+    "es": "Aceptar",
+    "pt": "Aceitar",
+    "fr": "Accepter",
+    "de": "Zusagen",
+    "id": "Menerima",
+    "th": "ตอบรับ",
+    "zh": "答应",
+    "ja": "受ける",
+    "ko": "수락하기",
+    "hi": "हाँ कहना",
+    "ar": "القبول",
+    "ru": "Согласие",
+    "tr": "Kabul"
+   },
+   "lines": [
+    "a1",
+    "a2",
+    "a3",
+    "a4"
+   ]
+  },
+  {
+   "id": "decline",
+   "title": {
+    "en": "Say no politely",
+    "vi": "Từ chối lịch sự",
+    "es": "Rechazar con educación",
+    "pt": "Recusar com educação",
+    "fr": "Refuser poliment",
+    "de": "Höflich absagen",
+    "id": "Menolak dengan sopan",
+    "th": "ปฏิเสธอย่างสุภาพ",
+    "zh": "礼貌拒绝",
+    "ja": "丁寧に断る",
+    "ko": "정중히 거절하기",
+    "hi": "शिष्टता से मना करना",
+    "ar": "الرفض بلباقة",
+    "ru": "Вежливый отказ",
+    "tr": "Nazikçe reddet"
+   },
+   "lines": [
+    "d1",
+    "d2",
+    "d3",
+    "d4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "i1",
+   "who": "customer",
+   "en": "I'm having a party on Saturday. Can you come?",
+   "variants": {
+    "polite": "I'm having a party on Saturday. Would you like to come?",
+    "casual": "Party at mine on Saturday. Can you come?"
+   },
+   "gloss": {
+    "en": "I'm having a party on Saturday. Can you come?",
+    "vi": "Thứ Bảy tôi tổ chức một buổi tiệc. Bạn đến được không?",
+    "es": "El sábado hago una fiesta. ¿Puedes venir?",
+    "pt": "No sábado vou dar uma festa. Você pode vir?",
+    "fr": "Je fais une fête samedi. Tu peux venir ?",
+    "de": "Am Samstag gebe ich eine Party. Kannst du kommen?",
+    "id": "Sabtu ini aku mengadakan pesta. Kamu bisa datang?",
+    "th": "วันเสาร์ฉันจัดปาร์ตี้ มาได้ไหม",
+    "zh": "我周六办派对，你能来吗？",
+    "ja": "土曜日にパーティーをするんだ。来られる？",
+    "ko": "토요일에 파티를 열어. 올 수 있어?",
+    "hi": "शनिवार को मेरी पार्टी है। क्या तुम आ सकते हो?",
+    "ar": "سأقيم حفلة يوم السبت. هل تستطيع الحضور؟",
+    "ru": "В субботу у меня вечеринка. Ты сможешь прийти?",
+    "tr": "Cumartesi bir parti veriyorum. Gelebilir misin?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "party",
+     "ipa": "/ˈpɑː.ti/",
+     "hi": "PAR",
+     "note": {
+      "en": "Stress the first syllable: PAR-tee, with a long, open 'ar'.",
+      "vi": "Nhấn âm đầu: PÁ-ti, âm ‘a’ dài và mở.",
+      "es": "Acentúa la primera sílaba: PAR-ti, con una ‘a’ larga y abierta.",
+      "pt": "Acentue a primeira sílaba: PÁR-ti, com ‘a’ longo e aberto.",
+      "fr": "Accentuez la première syllabe : PAR-ti, avec un « a » long et ouvert.",
+      "de": "Betone die erste Silbe: PAR-ti, mit langem, offenem „a“.",
+      "id": "Tekankan suku kata pertama: PAR-ti, dengan ‘a’ panjang dan terbuka.",
+      "th": "เน้นพยางค์แรก: พาร์-ที สระอาเสียงยาว",
+      "zh": "重音在第一个音节：PAR-tee，a 要长而开。",
+      "ja": "最初の音節を強く、長く開いた「アー」で「パーティ」。",
+      "ko": "첫 음절에 강세를 두고 길게 ‘파-티’.",
+      "hi": "पहले अक्षर पर ज़ोर दें: पार-टी, लंबा ‘आ’।",
+      "ar": "شدّد على المقطع الأول: بار-تي، بألف طويلة ومفتوحة.",
+      "ru": "Ударение на первый слог: ПАР-ти, с долгим открытым «а».",
+      "tr": "Vurgu ilk hecede: PAR-ti, uzun ve açık bir a ile."
+     }
+    }
+   ]
+  },
+  {
+   "id": "i2",
+   "who": "barista",
+   "en": "Sounds fun! What time does it start?",
+   "variants": {
+    "polite": "That sounds lovely! What time does it start?",
+    "casual": "Cool! When does it start?"
+   },
+   "gloss": {
+    "en": "Sounds fun! What time does it start?",
+    "vi": "Nghe vui đấy! Mấy giờ bắt đầu?",
+    "es": "¡Suena divertido! ¿A qué hora empieza?",
+    "pt": "Parece divertido! A que horas começa?",
+    "fr": "Ça a l'air sympa ! Ça commence à quelle heure ?",
+    "de": "Klingt lustig! Wann geht es los?",
+    "id": "Kedengarannya seru! Mulai jam berapa?",
+    "th": "ฟังดูสนุกจัง! เริ่มกี่โมง",
+    "zh": "听起来很有趣！几点开始？",
+    "ja": "楽しそう！何時から？",
+    "ko": "재밌겠다! 몇 시에 시작해?",
+    "hi": "मज़ेदार लग रहा है! कितने बजे शुरू होगी?",
+    "ar": "تبدو ممتعة! متى تبدأ؟",
+    "ru": "Звучит весело! Во сколько начало?",
+    "tr": "Eğlenceli görünüyor! Saat kaçta başlıyor?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "i3",
+   "who": "customer",
+   "en": "It starts at seven at my place.",
+   "variants": {
+    "polite": "It starts at seven at my place. Does that suit you?",
+    "casual": "Seven, at my place."
+   },
+   "gloss": {
+    "en": "It starts at seven at my place.",
+    "vi": "Bảy giờ bắt đầu, ở nhà tôi.",
+    "es": "Empieza a las siete en mi casa.",
+    "pt": "Começa às sete na minha casa.",
+    "fr": "Ça commence à sept heures chez moi.",
+    "de": "Sie fängt um sieben bei mir an.",
+    "id": "Mulai jam tujuh di rumahku.",
+    "th": "เริ่มหนึ่งทุ่มที่บ้านฉัน",
+    "zh": "七点在我家开始。",
+    "ja": "7時から、うちで始まるよ。",
+    "ko": "7시에 우리 집에서 시작해.",
+    "hi": "सात बजे मेरे घर पर शुरू होगी।",
+    "ar": "تبدأ في السابعة في بيتي.",
+    "ru": "Начало в семь, у меня дома.",
+    "tr": "Saat yedide başlıyor, bende."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "i4",
+   "who": "customer",
+   "en": "Please bring a friend if you like.",
+   "variants": {
+    "polite": "Feel free to bring a friend, if you'd like.",
+    "casual": "Bring a friend if you want."
+   },
+   "gloss": {
+    "en": "Please bring a friend if you like.",
+    "vi": "Nếu muốn, bạn cứ dẫn thêm một người bạn nhé.",
+    "es": "Si quieres, trae a un amigo.",
+    "pt": "Se quiser, traga um amigo.",
+    "fr": "Amène un ami si tu veux.",
+    "de": "Bring gern einen Freund mit, wenn du magst.",
+    "id": "Ajak temanmu juga kalau mau.",
+    "th": "ชวนเพื่อนมาด้วยก็ได้นะ",
+    "zh": "如果你愿意，可以带个朋友来。",
+    "ja": "よかったら友達も連れてきてね。",
+    "ko": "원하면 친구도 데려와.",
+    "hi": "चाहो तो किसी दोस्त को भी ले आना।",
+    "ar": "يمكنك إحضار صديق إن أردت.",
+    "ru": "Приводи друга, если хочешь.",
+    "tr": "İstersen bir arkadaşını da getir."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "a1",
+   "who": "barista",
+   "en": "Thanks for inviting me. I'd love to come.",
+   "variants": {
+    "polite": "Thank you for inviting me. I'd love to come.",
+    "casual": "Thanks! I'll be there."
+   },
+   "gloss": {
+    "en": "Thanks for inviting me. I'd love to come.",
+    "vi": "Cảm ơn bạn đã mời. Mình rất muốn đến.",
+    "es": "Gracias por invitarme. Me encantaría ir.",
+    "pt": "Obrigado por me convidar. Eu adoraria ir.",
+    "fr": "Merci de m'inviter. J'adorerais venir.",
+    "de": "Danke für die Einladung. Ich komme sehr gern.",
+    "id": "Terima kasih sudah mengundangku. Aku senang sekali datang.",
+    "th": "ขอบคุณที่ชวนนะ อยากไปมากเลย",
+    "zh": "谢谢你邀请我，我很乐意去。",
+    "ja": "誘ってくれてありがとう。ぜひ行きたいな。",
+    "ko": "초대해 줘서 고마워. 꼭 가고 싶어.",
+    "hi": "बुलाने के लिए शुक्रिया। मुझे आना बहुत अच्छा लगेगा।",
+    "ar": "شكرًا على دعوتي. يسعدني الحضور.",
+    "ru": "Спасибо за приглашение. Я с удовольствием приду.",
+    "tr": "Davet ettiğin için teşekkürler. Çok isterim."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "inviting",
+     "ipa": "/ɪnˈvaɪ.tɪŋ/",
+     "hi": "VY",
+     "note": {
+      "en": "Stress the middle: in-VY-ting, not in-VIT-ing.",
+      "vi": "Nhấn âm giữa: in-VAI-ting, không phải in-VIT-ing.",
+      "es": "Acentúa la sílaba del medio: in-VAI-ting, no in-VIT-ing.",
+      "pt": "Acentue a sílaba do meio: in-VAI-ting, não in-VIT-ing.",
+      "fr": "Accentuez la syllabe du milieu : in-VAÏ-ting, pas in-VIT-ing.",
+      "de": "Betone die mittlere Silbe: in-WAI-ting, nicht in-WIT-ing.",
+      "id": "Tekankan suku kata tengah: in-VAI-ting, bukan in-VIT-ing.",
+      "th": "เน้นพยางค์กลาง: อิน-ไวท์-ทิง ไม่ใช่ อิน-วิท-ทิง",
+      "zh": "重音在中间：in-VY-ting，不是 in-VIT-ing。",
+      "ja": "真ん中を強く：イン・ヴァイ・ティング。「イン・ヴィット」ではありません。",
+      "ko": "가운데 음절을 강하게: 인-바이-팅. ‘인-빗-잉’이 아니에요.",
+      "hi": "बीच के अक्षर पर ज़ोर: इन-वाइ-टिंग, ‘इन-विट-इंग’ नहीं।",
+      "ar": "شدّد على المقطع الأوسط: إن-فاي-تينغ، وليس إن-فِت-ينغ.",
+      "ru": "Ударение на средний слог: ин-ВАЙ-тинг, а не ин-ВИТ-инг.",
+      "tr": "Vurgu ortadaki hecede: in-VAY-ting, in-VIT-ing değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2",
+   "who": "barista",
+   "en": "Shall I bring something to eat or drink?",
+   "variants": {
+    "polite": "Would you like me to bring anything?",
+    "casual": "Want me to bring anything?"
+   },
+   "gloss": {
+    "en": "Shall I bring something to eat or drink?",
+    "vi": "Mình mang theo gì đó để ăn hoặc uống nhé?",
+    "es": "¿Llevo algo de comer o de beber?",
+    "pt": "Levo alguma coisa para comer ou beber?",
+    "fr": "J'apporte quelque chose à manger ou à boire ?",
+    "de": "Soll ich etwas zu essen oder zu trinken mitbringen?",
+    "id": "Perlu kubawakan makanan atau minuman?",
+    "th": "ให้เอาอะไรไปกินหรือดื่มด้วยไหม",
+    "zh": "我要带点吃的或喝的吗？",
+    "ja": "何か食べ物か飲み物を持っていこうか？",
+    "ko": "먹을 거나 마실 것 좀 가져갈까?",
+    "hi": "क्या मैं खाने-पीने की कोई चीज़ ले आऊँ?",
+    "ar": "هل أحضر شيئًا للأكل أو الشرب؟",
+    "ru": "Принести что-нибудь поесть или попить?",
+    "tr": "Yiyecek ya da içecek bir şey getireyim mi?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "a3",
+   "who": "customer",
+   "en": "Just bring yourself! I'll get the food.",
+   "variants": {
+    "polite": "Just yourself, thank you. I'll take care of the food.",
+    "casual": "Just bring yourself!"
+   },
+   "gloss": {
+    "en": "Just bring yourself! I'll get the food.",
+    "vi": "Chỉ cần bạn đến thôi! Đồ ăn để mình lo.",
+    "es": "¡Solo ven tú! Yo me ocupo de la comida.",
+    "pt": "Só venha você! Eu cuido da comida.",
+    "fr": "Viens juste toi ! Je m'occupe de la nourriture.",
+    "de": "Komm einfach selbst! Ums Essen kümmere ich mich.",
+    "id": "Datang saja! Makanannya biar aku yang urus.",
+    "th": "มาตัวเปล่าก็พอ! อาหารฉันจัดการเอง",
+    "zh": "人来就行！吃的我来准备。",
+    "ja": "手ぶらで来てね！食べ物は私が用意するよ。",
+    "ko": "몸만 와! 음식은 내가 준비할게.",
+    "hi": "बस तुम आ जाना! खाने का इंतज़ाम मेरी ओर से रहेगा।",
+    "ar": "فقط تعال أنت! سأتولى أمر الطعام.",
+    "ru": "Приходи просто так! Еда за мной.",
+    "tr": "Sen sadece gel! Yemeği ben hallederim."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "a4",
+   "who": "barista",
+   "en": "Great. I'll see you on Saturday, then.",
+   "variants": {
+    "polite": "Wonderful. I'll see you on Saturday, then.",
+    "casual": "Great, see you Saturday!"
+   },
+   "gloss": {
+    "en": "Great. I'll see you on Saturday, then.",
+    "vi": "Tuyệt. Vậy thứ Bảy gặp nhé.",
+    "es": "Genial. Entonces nos vemos el sábado.",
+    "pt": "Ótimo. Então te vejo no sábado.",
+    "fr": "Super. Alors à samedi.",
+    "de": "Super. Dann sehen wir uns am Samstag.",
+    "id": "Bagus. Sampai jumpa hari Sabtu, ya.",
+    "th": "เยี่ยมเลย งั้นเจอกันวันเสาร์นะ",
+    "zh": "太好了，那周六见。",
+    "ja": "いいね。じゃあ土曜日に会おう。",
+    "ko": "좋아. 그럼 토요일에 보자.",
+    "hi": "बढ़िया। तो शनिवार को मिलते हैं।",
+    "ar": "رائع. إذن أراك يوم السبت.",
+    "ru": "Отлично. Тогда увидимся в субботу.",
+    "tr": "Harika. O zaman cumartesi görüşürüz."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "d1",
+   "who": "barista",
+   "en": "Thanks for asking, but I can't come.",
+   "variants": {
+    "polite": "Thank you for asking, but I'm afraid I can't come.",
+    "casual": "Thanks, but I can't make it."
+   },
+   "gloss": {
+    "en": "Thanks for asking, but I can't come.",
+    "vi": "Cảm ơn bạn đã mời, nhưng mình không đến được.",
+    "es": "Gracias por invitarme, pero no puedo ir.",
+    "pt": "Obrigado por convidar, mas não posso ir.",
+    "fr": "Merci de m'avoir invité, mais je ne peux pas venir.",
+    "de": "Danke für die Einladung, aber ich kann nicht kommen.",
+    "id": "Terima kasih sudah mengajak, tapi aku tidak bisa datang.",
+    "th": "ขอบคุณที่ชวนนะ แต่ไปไม่ได้จริง ๆ",
+    "zh": "谢谢你邀请我，但我去不了。",
+    "ja": "誘ってくれてありがとう、でも行けないんだ。",
+    "ko": "불러 줘서 고맙지만 못 갈 것 같아.",
+    "hi": "पूछने के लिए शुक्रिया, पर मेरा आना मुमकिन नहीं होगा।",
+    "ar": "شكرًا على دعوتي، لكن لا أستطيع الحضور.",
+    "ru": "Спасибо за приглашение, но прийти не смогу.",
+    "tr": "Davetin için sağ ol ama gelemeyeceğim."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "can't",
+     "ipa": "/kɑːnt/",
+     "hi": "KAANT",
+     "note": {
+      "en": "Say CAN'T with a long 'ah': KAANT. 'Can' is short and weak.",
+      "vi": "Đọc CAN'T với âm ‘a’ dài: KAANT. “Can” thì ngắn và nhẹ.",
+      "es": "Di CAN'T con una ‘a’ larga: KAANT. “Can” es corto y débil.",
+      "pt": "Diga CAN'T com ‘a’ longo: KAANT. “Can” é curto e fraco.",
+      "fr": "Dites CAN'T avec un « a » long : KAANT. « Can » est court et faible.",
+      "de": "Sprich CAN'T mit langem „a“: KAANT. „Can“ ist kurz und schwach.",
+      "id": "Ucapkan CAN'T dengan ‘a’ panjang: KAANT. “Can” pendek dan lemah.",
+      "th": "ออกเสียง CAN'T เป็นเสียงอายาว: คาานท์ ส่วน can สั้นและเบา",
+      "zh": "CAN'T 的 a 要读长：KAANT。can 则又短又弱。",
+      "ja": "CAN'T は長い「アー」で：カーント。can は短く弱く言います。",
+      "ko": "CAN'T는 ‘아’를 길게: 칸트. can은 짧고 약하게 말해요.",
+      "hi": "CAN'T में ‘आ’ लंबा बोलें: काअन्ट। can छोटा और हल्का होता है।",
+      "ar": "انطق CAN'T بألف طويلة: كانت. أما can فقصيرة وضعيفة.",
+      "ru": "В CAN'T «а» долгое: КААНТ. А can — короткое и слабое.",
+      "tr": "CAN'T'te a uzundur: KAANT. “Can” ise kısa ve zayıftır."
+     }
+    }
+   ]
+  },
+  {
+   "id": "d2",
+   "who": "barista",
+   "en": "I'm sorry. I have to work that evening.",
+   "variants": {
+    "polite": "I'm so sorry. I have to work that evening.",
+    "casual": "Sorry, I'm working that night."
+   },
+   "gloss": {
+    "en": "I'm sorry. I have to work that evening.",
+    "vi": "Mình xin lỗi. Tối hôm đó mình phải đi làm.",
+    "es": "Lo siento. Esa noche tengo que trabajar.",
+    "pt": "Desculpe. Tenho que trabalhar naquela noite.",
+    "fr": "Désolé. Je dois travailler ce soir-là.",
+    "de": "Tut mir leid. An dem Abend muss ich arbeiten.",
+    "id": "Maaf ya. Malam itu aku harus kerja.",
+    "th": "ขอโทษนะ คืนนั้นฉันต้องทำงาน",
+    "zh": "对不起，那天晚上我得上班。",
+    "ja": "ごめん。その夜は仕事なんだ。",
+    "ko": "미안해. 그날 저녁에 일해야 해.",
+    "hi": "माफ़ करना। उस शाम मुझे काम करना है।",
+    "ar": "المعذرة، عليّ العمل في تلك الأمسية.",
+    "ru": "Прости. В тот вечер мне нужно работать.",
+    "tr": "Üzgünüm. O akşam çalışmam gerekiyor."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "d3",
+   "who": "customer",
+   "en": "That's a pity. Maybe next time!",
+   "variants": {
+    "polite": "What a pity. Perhaps we can meet next time.",
+    "casual": "Shame! Next time, then."
+   },
+   "gloss": {
+    "en": "That's a pity. Maybe next time!",
+    "vi": "Tiếc quá. Để lần sau nhé!",
+    "es": "¡Qué pena! ¡Quizá la próxima vez!",
+    "pt": "Que pena. Quem sabe da próxima vez!",
+    "fr": "Dommage. Peut-être la prochaine fois !",
+    "de": "Schade. Vielleicht ein andermal!",
+    "id": "Sayang sekali. Mungkin lain kali!",
+    "th": "เสียดายจัง ไว้คราวหน้านะ!",
+    "zh": "真可惜。下次吧！",
+    "ja": "残念。また今度ね！",
+    "ko": "아쉽다. 다음에 또 보자!",
+    "hi": "अफ़सोस! शायद अगली बार!",
+    "ar": "يا للأسف. ربما في المرة القادمة!",
+    "ru": "Жаль. Может, в другой раз!",
+    "tr": "Ne yazık. Belki başka sefere!"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "d4",
+   "who": "barista",
+   "en": "Yes, let's meet next week instead.",
+   "variants": {
+    "polite": "Yes, shall we meet next week instead?",
+    "casual": "Yeah, let's meet up next week."
+   },
+   "gloss": {
+    "en": "Yes, let's meet next week instead.",
+    "vi": "Ừ, thay vào đó tuần sau mình gặp nhau nhé.",
+    "es": "Sí, mejor quedemos la semana que viene.",
+    "pt": "Sim, vamos nos encontrar na semana que vem.",
+    "fr": "Oui, voyons-nous plutôt la semaine prochaine.",
+    "de": "Ja, lass uns stattdessen nächste Woche treffen.",
+    "id": "Ya, bagaimana kalau kita bertemu minggu depan saja.",
+    "th": "ใช่ นัดเจอกันสัปดาห์หน้าแทนนะ",
+    "zh": "好啊，我们改成下周见面吧。",
+    "ja": "うん、代わりに来週会おう。",
+    "ko": "응, 대신 다음 주에 만나자.",
+    "hi": "हाँ, इसके बदले अगले हफ़्ते मिलते हैं।",
+    "ar": "نعم، لنلتقِ الأسبوع القادم بدلًا من ذلك.",
+    "ru": "Да, давай лучше встретимся на следующей неделе.",
+    "tr": "Evet, onun yerine gelecek hafta buluşalım."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "What kind of party is it?",
+   "keywords": [
+    "birthday",
+    "housewarming",
+    "farewell",
+    "dinner",
+    "barbecue",
+    "costume",
+    "graduation",
+    "surprise",
+    "welcome",
+    "small",
+    "big",
+    "celebration"
+   ],
+   "variants": {
+    "polite": "What kind of party will it be?",
+    "casual": "What's the party for?"
+   },
+   "gloss": {
+    "en": "What kind of party is it?",
+    "vi": "Đó là buổi tiệc gì vậy?",
+    "es": "¿Qué tipo de fiesta es?",
+    "pt": "Que tipo de festa é?",
+    "fr": "C'est quel genre de fête ?",
+    "de": "Was für eine Party ist es?",
+    "id": "Pesta apa itu?",
+    "th": "เป็นปาร์ตี้แบบไหนเหรอ",
+    "zh": "是什么样的派对？",
+    "ja": "どんなパーティーなの？",
+    "ko": "어떤 파티야?",
+    "hi": "यह किस तरह की पार्टी है?",
+    "ar": "أي نوع من الحفلات هي؟",
+    "ru": "Что это за вечеринка?",
+    "tr": "Nasıl bir parti bu?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "What should I wear?",
+   "keywords": [
+    "casual",
+    "smart",
+    "costume",
+    "jeans",
+    "dress",
+    "anything",
+    "comfortable",
+    "nothing special",
+    "formal",
+    "whatever",
+    "shirt",
+    "normal"
+   ],
+   "variants": {
+    "polite": "Is there a dress code I should know about?",
+    "casual": "What do I wear?"
+   },
+   "gloss": {
+    "en": "What should I wear?",
+    "vi": "Mình nên mặc gì nhỉ?",
+    "es": "¿Qué me pongo?",
+    "pt": "O que devo vestir?",
+    "fr": "Je mets quoi ?",
+    "de": "Was soll ich anziehen?",
+    "id": "Aku sebaiknya pakai apa?",
+    "th": "ควรใส่อะไรไปดี",
+    "zh": "我该穿什么？",
+    "ja": "何を着ていけばいい？",
+    "ko": "뭘 입고 가면 좋을까?",
+    "hi": "मुझे क्या पहनना चाहिए?",
+    "ar": "ماذا أرتدي؟",
+    "ru": "Что мне надеть?",
+    "tr": "Ne giymeliyim?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "customer",
+   "en": "I'm having a party on Saturday. Can you come?"
+  },
+  {
+   "who": "barista",
+   "en": "Sounds fun! What time does it start?"
+  },
+  {
+   "who": "customer",
+   "en": "It starts at seven at my place."
+  },
+  {
+   "who": "barista",
+   "en": "Thanks for inviting me. I'd love to come."
+  },
+  {
+   "who": "barista",
+   "en": "Shall I bring something to eat or drink?"
+  },
+  {
+   "who": "customer",
+   "en": "Just bring yourself! I'll get the food."
+  },
+  {
+   "who": "customer",
+   "en": "Please bring a friend if you like."
+  },
+  {
+   "who": "barista",
+   "en": "Great. I'll see you on Saturday, then."
+  },
+  {
+   "who": "customer",
+   "en": "See you then!"
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Can you come to my party on Friday?"
+    },
+    {
+     "who": "barista",
+     "en": "Thanks for asking, but I can't come."
+    },
+    {
+     "who": "barista",
+     "en": "I have to visit my grandmother."
+    },
+    {
+     "who": "customer",
+     "en": "That's a pity. Maybe next time!"
+    }
+   ],
+   "q": {
+    "en": "Why can't the friend come?",
+    "vi": "Vì sao người bạn không đến được?",
+    "es": "¿Por qué no puede ir el amigo?",
+    "pt": "Por que o amigo não pode ir?",
+    "fr": "Pourquoi l'ami ne peut-il pas venir ?",
+    "de": "Warum kann der Freund nicht kommen?",
+    "id": "Mengapa temannya tidak bisa datang?",
+    "th": "ทำไมเพื่อนถึงมาไม่ได้",
+    "zh": "为什么朋友来不了？",
+    "ja": "友達はなぜ来られませんか？",
+    "ko": "친구는 왜 올 수 없나요?",
+    "hi": "दोस्त क्यों नहीं आ सकता?",
+    "ar": "لماذا لا يستطيع الصديق الحضور؟",
+    "ru": "Почему друг не может прийти?",
+    "tr": "Arkadaş neden gelemiyor?"
+   },
+   "answer": "visit my grandmother"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "What time does the party start?"
+    },
+    {
+     "who": "customer",
+     "en": "At eight, and it ends at midnight."
+    },
+    {
+     "who": "barista",
+     "en": "Can I bring a cake?"
+    },
+    {
+     "who": "customer",
+     "en": "Yes, please. Chocolate is my favourite!"
+    }
+   ],
+   "q": {
+    "en": "What does the friend offer to bring?",
+    "vi": "Người bạn đề nghị mang gì?",
+    "es": "¿Qué se ofrece a llevar el amigo?",
+    "pt": "O que o amigo se oferece para levar?",
+    "fr": "Qu'est-ce que l'ami propose d'apporter ?",
+    "de": "Was bietet der Freund an mitzubringen?",
+    "id": "Apa yang ditawarkan temannya untuk dibawa?",
+    "th": "เพื่อนเสนอว่าจะเอาอะไรไป",
+    "zh": "朋友提出带什么？",
+    "ja": "友達は何を持っていくと言っていますか？",
+    "ko": "친구는 무엇을 가져가겠다고 하나요?",
+    "hi": "दोस्त क्या लाने की पेशकश करता है?",
+    "ar": "ماذا يعرض الصديق أن يحضر؟",
+    "ru": "Что друг предлагает принести?",
+    "tr": "Arkadaş ne getirmeyi öneriyor?"
+   },
+   "answer": "a cake"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "invite-friend",
+    "title": {
+     "en": "Invite a friend",
+     "vi": "Mời một người bạn",
+     "es": "Invita a un amigo",
+     "pt": "Convide um amigo",
+     "fr": "Invitez un ami",
+     "de": "Einen Freund einladen",
+     "id": "Undang seorang teman",
+     "th": "ชวนเพื่อน",
+     "zh": "邀请朋友",
+     "ja": "友達を誘う",
+     "ko": "친구 초대하기",
+     "hi": "दोस्त को बुलाएँ",
+     "ar": "ادعُ صديقًا",
+     "ru": "Пригласи друга",
+     "tr": "Bir arkadaşını davet et"
+    },
+    "intents": [
+     "i1",
+     "i3"
+    ]
+   },
+   {
+    "id": "accept-kindly",
+    "title": {
+     "en": "Accept kindly",
+     "vi": "Nhận lời một cách thân thiện",
+     "es": "Acepta con amabilidad",
+     "pt": "Aceite com simpatia",
+     "fr": "Acceptez avec plaisir",
+     "de": "Freundlich zusagen",
+     "id": "Terima dengan ramah",
+     "th": "ตอบรับอย่างอบอุ่น",
+     "zh": "热情地答应",
+     "ja": "気持ちよく受ける",
+     "ko": "기분 좋게 수락하기",
+     "hi": "खुशी से हाँ कहें",
+     "ar": "اقبل بودّ",
+     "ru": "Прими приглашение с радостью",
+     "tr": "Memnuniyetle kabul et"
+    },
+    "intents": [
+     "a1",
+     "a2"
+    ]
+   },
+   {
+    "id": "decline-politely",
+    "title": {
+     "en": "Decline politely",
+     "vi": "Từ chối lịch sự",
+     "es": "Rechaza con educación",
+     "pt": "Recuse com educação",
+     "fr": "Refusez poliment",
+     "de": "Höflich absagen",
+     "id": "Tolak dengan sopan",
+     "th": "ปฏิเสธอย่างสุภาพ",
+     "zh": "礼貌地拒绝",
+     "ja": "丁寧に断る",
+     "ko": "정중하게 거절하기",
+     "hi": "शिष्टता से मना करें",
+     "ar": "ارفض بلباقة",
+     "ru": "Вежливо откажись",
+     "tr": "Nazikçe reddet"
+    },
+    "intents": [
+     "d1",
+     "d2"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "When you decline, say thank you first and give a short reason; you do not need to give every detail. In many countries guests arrive a little after the start time for a house party, but ask if you are unsure. It is polite to ask if you should bring anything, and a small gift for the host is welcome but rarely required.",
+  "vi": "Khi từ chối, hãy cảm ơn trước rồi nêu lý do ngắn gọn; bạn không cần kể hết chi tiết. Ở nhiều nước, khách đến tiệc tại nhà trễ hơn giờ bắt đầu một chút, nhưng nếu không chắc thì cứ hỏi. Hỏi xem có cần mang gì không là lịch sự, và món quà nhỏ cho chủ nhà luôn được hoan nghênh nhưng hiếm khi bắt buộc.",
+  "es": "Al rechazar, da primero las gracias y explica el motivo en pocas palabras; no hace falta dar todos los detalles. En muchos países los invitados a una fiesta en casa llegan un poco después de la hora indicada, pero pregunta si no estás seguro. Es de buena educación preguntar si debes llevar algo, y un detalle para el anfitrión se agradece, aunque casi nunca es obligatorio.",
+  "pt": "Ao recusar, agradeça primeiro e dê um motivo curto; não precisa contar todos os detalhes. Em muitos países, os convidados de uma festa em casa chegam um pouco depois do horário combinado, mas pergunte se tiver dúvida. É educado perguntar se deve levar algo, e um presentinho para o anfitrião é bem-vindo, mas raramente obrigatório.",
+  "fr": "Pour refuser, remerciez d'abord et donnez une courte raison ; inutile d'entrer dans les détails. Dans beaucoup de pays, on arrive un peu après l'heure prévue à une fête chez quelqu'un, mais demandez en cas de doute. Il est poli de demander s'il faut apporter quelque chose, et un petit cadeau pour l'hôte est apprécié, mais rarement obligatoire.",
+  "de": "Wenn du absagst, bedanke dich zuerst und nenne kurz einen Grund; du musst nicht alles erklären. In vielen Ländern kommt man zu einer Hausparty etwas später als angegeben, frag aber nach, wenn du unsicher bist. Es ist höflich zu fragen, ob du etwas mitbringen sollst, und ein kleines Geschenk für den Gastgeber freut jeden, ist aber selten Pflicht.",
+  "id": "Saat menolak, ucapkan terima kasih dulu lalu beri alasan singkat; kamu tidak perlu menjelaskan semuanya. Di banyak negara, tamu pesta di rumah datang sedikit setelah jam yang tertera, tetapi bertanyalah jika ragu. Menanyakan apakah perlu membawa sesuatu itu sopan, dan hadiah kecil untuk tuan rumah selalu disambut baik meski jarang wajib.",
+  "th": "เมื่อปฏิเสธ ให้ขอบคุณก่อนแล้วบอกเหตุผลสั้น ๆ ไม่จำเป็นต้องเล่าทุกรายละเอียด ในหลายประเทศแขกปาร์ตี้ที่บ้านมักมาช้ากว่าเวลานัดเล็กน้อย แต่ถ้าไม่แน่ใจก็ถามได้ การถามว่าต้องเอาอะไรไปไหมถือว่าสุภาพ ของฝากเล็ก ๆ ให้เจ้าภาพเป็นที่ชื่นชอบแต่แทบไม่เคยเป็นข้อบังคับ",
+  "zh": "拒绝时先说谢谢，再简单说一个理由，不必解释所有细节。在许多国家，参加家庭派对通常会比约定时间稍晚到，不确定时可以问问主人。问一句要不要带点什么是有礼貌的，给主人带份小礼物会受欢迎，但很少是必须的。",
+  "ja": "断るときは、まずお礼を言い、短く理由を添えれば十分で、細かい説明は要りません。多くの国では、家でのパーティーは開始時刻より少し遅れて着くのが普通ですが、迷ったら聞いてみましょう。何か持っていこうかと尋ねるのは礼儀正しく、主催者への小さな手土産は喜ばれますが、必須であることはまれです。",
+  "ko": "거절할 때는 먼저 고맙다고 말하고 이유를 짧게 덧붙이면 돼요. 모든 사정을 설명할 필요는 없어요. 많은 나라에서 집들이 같은 파티에는 시작 시간보다 조금 늦게 도착하는데, 잘 모르겠으면 물어보세요. 뭘 가져갈지 묻는 건 예의 바른 일이고, 집주인을 위한 작은 선물은 환영받지만 꼭 필요하진 않아요.",
+  "hi": "मना करते समय पहले धन्यवाद कहें और छोटा-सा कारण बताएँ; हर बात समझाना ज़रूरी नहीं। कई देशों में घर की पार्टी में मेहमान तय समय से थोड़ी देर बाद पहुँचते हैं, पर पक्का न हो तो पूछ लें। कुछ लाना है या नहीं, यह पूछना शिष्टता है, और मेज़बान के लिए छोटा तोहफ़ा सराहा जाता है, पर शायद ही कभी ज़रूरी होता है।",
+  "ar": "عند الرفض، اشكر أولًا ثم اذكر سببًا قصيرًا؛ لا حاجة لشرح كل التفاصيل. في بلدان كثيرة يصل ضيوف حفلات المنازل متأخرين قليلًا عن الموعد المعلن، لكن اسأل إن لم تكن متأكدًا. من اللباقة أن تسأل إن كان عليك إحضار شيء، وهدية صغيرة للمضيف مرحَّب بها لكنها نادرًا ما تكون واجبة.",
+  "ru": "Отказывая, сначала поблагодарите и назовите короткую причину; подробно объяснять не нужно. Во многих странах на домашнюю вечеринку приходят чуть позже назначенного времени, но если не уверены, спросите. Вежливо уточнить, не нужно ли что-то принести, а небольшой подарок хозяину приятен, хотя редко обязателен.",
+  "tr": "Reddederken önce teşekkür edin, sonra kısa bir neden söyleyin; her ayrıntıyı anlatmanız gerekmez. Birçok ülkede ev partilerine belirtilen saatten biraz sonra gidilir, ama emin değilseniz sorun. Bir şey getirip getirmeyeceğinizi sormak naziktir; ev sahibine küçük bir hediye hoş karşılanır ama nadiren zorunludur."
+ }
+}

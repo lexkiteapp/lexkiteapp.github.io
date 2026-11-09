@@ -21,10 +21,10 @@
     const ix = (window.SPK_IDX || {})[id]; if (!ix) return Promise.resolve(undefined);
     const lang = I18N.lang(), k = id + '.' + lang;
     return sitP[k] || (sitP[k] = (async () => {
-      if (!(window.SPK_B || {})[id]) await ld('js/speak/s/' + id + '.js');
+      if (!(window.SPK_B || {})[id]) await ld(SPK_P[id]);
       const b = (window.SPK_B || {})[id]; if (!b) return null;
       if (lang === 'en' || !ix.l.split(' ').includes(lang)) return b;
-      if (!(window.SPK_T || {})[k]) await ld('js/speak/s/' + k + '.js');
+      if (!(window.SPK_T || {})[k]) await ld(((window.SPK_L || {})[id] || {})[lang]);
       const a = (window.SPK_T || {})[k]; return a ? SPK_fill(b, a, lang) : null;
     })().then(r => { if (r === null) delete sitP[k]; return r; }));
   };

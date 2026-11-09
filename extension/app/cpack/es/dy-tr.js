@@ -1,0 +1,1 @@
+self.ESX=self.ESX||{};(ESX.dyl=ESX.dyl||{})["tr"]=["Günlük yol: İspanyolca","Günde kısa bir ders: yeni kelimeler, bir dil bilgisi konusu, bir ses ve birkaç günde bir görüşme.","{n}. gün","Yeni kelimeler","Dil bilgisi","Telaffuz","Yapay zekâ görüşmesi","Başla","{t} günün {d}. günü · bugün {p} adım tamamlandı","Tamamlandı olarak işaretle","Gün tamamlandı! 🎉","Bugün"];

@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"fever\" mean?",
+  "keyword": "fever",
+  "value": "Fever means a body temperature higher than normal.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=fever",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"fever\" mean?",
+    "description": "Fever means a body temperature higher than normal.\n\nReview your words, free: https://lexkite.com/app/#/review?w=fever\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "fever",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"fever\" mean?\n\nFever means a body temperature higher than normal.\n\nReview your words, free: https://lexkite.com/app/#/review?w=fever"
+   },
+   "instagram": {
+    "caption": "What does \"fever\" mean?\n\nFever means a body temperature higher than normal.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"fever\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a body temperature higher than normal. Fever means a body temperature higher than normal. Practice it with a free quiz: {link}"
  }
 }

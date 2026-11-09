@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"hallway\" mean?",
+  "keyword": "hallway",
+  "value": "Hallway means a passage in a building.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=hallway",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"hallway\" mean?",
+    "description": "Hallway means a passage in a building.\n\nReview your words, free: https://lexkite.com/app/#/review?w=hallway\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "hallway",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"hallway\" mean?\n\nHallway means a passage in a building.\n\nReview your words, free: https://lexkite.com/app/#/review?w=hallway"
+   },
+   "instagram": {
+    "caption": "What does \"hallway\" mean?\n\nHallway means a passage in a building.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"hallway\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a passage in a building. Hallway means a passage in a building. Try the full lesson and quiz here: {link}"
  }
 }

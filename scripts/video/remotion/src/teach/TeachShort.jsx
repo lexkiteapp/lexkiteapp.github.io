@@ -175,11 +175,20 @@ function Node({ n, kids, t, ox, oy, T }) {
   );
 }
 
-const Canvas = ({ T, w, h, tint }) => (   // Stitch Kit canvas: flat tokens, static soft blobs (no moving background, no blur on the teacher)
+// Blob arrangements (mix.py 'canvas', 0-credit build bank): [left, top|bottom, size, 'b' = y is the bottom offset] as fractions of w / h / w,
+// blobs A (series tint) · B · C. Arrangement 0 is the original canvas, pixel for pixel, in both formats.
+// The series-tint blob always stays large and in the upper half, so the series is recognisable from frame 0 in every arrangement.
+const BLOBS = [
+  [[-0.25, -0.08, 0.9], [0.4, 0.32, 0.9], [0.1, -0.1, 0.8, 'b']],   // 0 = the original Kit canvas
+  [[0.35, -0.08, 0.9], [-0.3, 0.32, 0.9], [0.1, -0.1, 0.8, 'b']],   // 1 = mirrored
+  [[0.05, -0.14, 1.0], [-0.35, -0.05, 0.8, 'b'], [0.55, -0.15, 0.8, 'b']],   // 2 = tint crown, two low blobs
+  [[-0.3, 0.12, 0.95], [0.5, -0.1, 0.7], [0.3, -0.12, 0.9, 'b']],   // 3 = tint left-high, cool corner top-right
+];
+const Canvas = ({ T, w, h, tint, v = 0 }) => (   // Stitch Kit canvas: flat tokens, static soft blobs (no moving background, no blur on the teacher)
   <AbsoluteFill style={{ background: `linear-gradient(180deg, ${T.bg} 0%, ${T.bg2} 100%)` }}>
-    <div style={{ position: 'absolute', left: -w * 0.25, top: -h * 0.08, width: w * 0.9, height: w * 0.9, borderRadius: '50%', background: `radial-gradient(circle, ${tint || T.blobA} 0%, transparent 68%)` }} />
-    <div style={{ position: 'absolute', right: -w * 0.3, top: h * 0.32, width: w * 0.9, height: w * 0.9, borderRadius: '50%', background: `radial-gradient(circle, ${T.blobB} 0%, transparent 68%)` }} />
-    <div style={{ position: 'absolute', left: w * 0.1, bottom: -h * 0.1, width: w * 0.8, height: w * 0.8, borderRadius: '50%', background: `radial-gradient(circle, ${T.blobC} 0%, transparent 70%)` }} />
+    {(BLOBS[v] || BLOBS[0]).map(([x, y, s, b], i) => (
+      <div key={i} style={{ position: 'absolute', left: w * x, [b ? 'bottom' : 'top']: h * y, width: w * s, height: w * s, borderRadius: '50%',
+        background: `radial-gradient(circle, ${[tint || T.blobA, T.blobB, T.blobC][i]} 0%, transparent ${i === 2 ? 70 : 68}%)` }} />))}
   </AbsoluteFill>
 );
 
@@ -216,18 +225,18 @@ function Captions({ caps, box, t, T }) {
   const now = p.words.filter(w => t >= w.s - 0.02).length - 1, a = clamp01((t - p.t0) / 0.08);
   return (
     <div style={{ position: 'absolute', left: box[0], top: box[1], width: box[2] - box[0], height: box[3] - box[1], display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: a }}>
-      <div style={{ padding: '10px 26px', borderRadius: 24, background: T.cap_plate, fontFamily: JAK, fontWeight: 800, fontSize: 58, lineHeight: '74px', whiteSpace: 'pre' }}>
-        {p.words.map((w, i) => <span key={i} style={{ color: i === now ? T.cap_now : T.cap_ink }}>{(i ? ' ' : '') + w.w}</span>)}</div>
+      <div style={{ padding: '10px 26px', borderRadius: 24, textAlign: 'center', background: T.cap_plate, fontFamily: JAK, fontWeight: 800, fontSize: 58, lineHeight: '74px', whiteSpace: 'pre' }}>
+        {p.words.map((w, i) => <React.Fragment key={i}>{p.br && i === p.br ? <br /> : null}<span style={{ color: i === now ? T.cap_now : T.cap_ink }}>{(i && i !== p.br ? ' ' : '') + w.w}</span></React.Fragment>)}</div>
     </div>);
 }
 
-export const TeachShort = ({ nodes = [], caps = [], capBox = null, host = null, theme = 'dark', tint = null, audio = null, w = 1080, h = 1920 }) => {
+export const TeachShort = ({ nodes = [], caps = [], capBox = null, host = null, theme = 'dark', tint = null, canvas = 0, audio = null, w = 1080, h = 1920 }) => {
   useFonts();
   const f = useCurrentFrame(), { fps } = useVideoConfig(), t = f / fps, T = THEMES[theme] || THEMES.dark;
   const kids = {}; for (const n of nodes) if (n.parent) (kids[n.parent] = kids[n.parent] || []).push(n);
   return (
     <AbsoluteFill>
-      <Canvas T={T} w={w} h={h} tint={tint} />
+      <Canvas T={T} w={w} h={h} tint={tint} v={canvas} />
       {host ? <Host host={host} f={f} T={T} /> : null}
       {audio ? <Audio src={staticFile(audio)} /> : null}
       <AbsoluteFill>{nodes.filter(n => !n.parent).map(n => <Node key={n.id} n={n} kids={kids} t={t} ox={0} oy={0} T={T} />)}</AbsoluteFill>
