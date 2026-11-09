@@ -66873,16 +66873,16 @@
   },
   "reader#n": {
    "ex": "The magazine has thousands of readers.",
-   "ps": "a woman sits on a couch reading a glossy magazine",
-   "sc": "a woman sits on a couch reading a glossy magazine",
-   "check": "Is the woman reading a magazine?",
-   "cap": "a woman reading a glossy magazine",
+   "ps": "a woman sits at a table, eyes fixed on a blank white sheet, her index finger slides across it",
+   "sc": "a woman sits at a table, eyes fixed on a blank white sheet, her index finger slides across it",
+   "check": "Is the person looking closely at a blank sheet while moving a finger across it?",
+   "cap": "a woman focused on a blank page with her finger",
+   "key": "a blank white sheet; the woman's index finger sliding across it",
    "who": 1,
-   "draw": 5,
-   "v": "e4",
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T11:08:02.948Z"
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
   },
   "readily#adv": {
    "ex": "Spare parts are readily available from our online store.",
