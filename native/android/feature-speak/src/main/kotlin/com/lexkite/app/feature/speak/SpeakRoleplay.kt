@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
 import com.lexkite.app.design.toCompose
 import androidx.compose.foundation.layout.size
@@ -64,13 +65,25 @@ class RpActions(
 fun RoleplayListScreen(ui: RpListUi, a: RpActions) {
     val h = ui.hub; val pack = ui.pack
     StudyPage(trs(Tr("Hội thoại đóng vai")), a.exit) {
-        Muted(trs(Tr("Đóng vai hội thoại với AI – từ tình huống hằng ngày (A1–A2) đến công sở: nói bằng micro hoặc gõ phím, nhận điểm và câu viết lại hay hơn.")))
+        val c = LocalLKColors.current
+        LKCard(fill = c.surfaceContainerHighest) {   // Stitch hero: the stage badge + the one-line promise (the web has no random-scenario action, so no "quick practice" button)
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.Top) {
+                Box(Modifier.size(52.dp).clip(RoundedCornerShape(14.dp)).background(c.secondary), contentAlignment = Alignment.Center) { Body("🎭", style = LKType.headlineMd) }
+                Muted(trs(Tr("Đóng vai hội thoại với AI – từ tình huống hằng ngày (A1–A2) đến công sở: nói bằng micro hoặc gõ phím, nhận điểm và câu viết lại hay hơn.")), Modifier.weight(1f))
+            }
+        }
         if (h == null || pack == null) { EmptyState("🎭", trs(Tr("Đang cập nhật bài học…"))); return@StudyPage }
         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
             Muted(trs(Tr("Trình độ"))); Seg((0..2).map { Roleplay.levelButton(h, it) }, h.level, a.level, Modifier.weight(1f)) }
         for ((title, lv, list) in listOf(Triple(Tr("Tình huống hằng ngày"), h.dailyLevels.first() + " – " + h.dailyLevels.last(), h.everyday), Triple(Tr("Công sở"), h.workLevels.first() + " – " + h.workLevels.last(), h.work))) if (list.isNotEmpty()) {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) { Body(trs(title), style = LKType.headlineSm); Tag(lv) }
-            for (s in list) LKCard(onClick = { a.open("roleplay/${s.id}") }, label = trs(Roleplay.name(pack, s))) {
+            if (list === h.everyday) for (pair in list.chunked(2)) Row(Modifier.fillMaxWidth().height(androidx.compose.foundation.layout.IntrinsicSize.Max), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {   // Stitch: two columns
+                for (s in pair) LKCard(Modifier.weight(1f).fillMaxHeight(), onClick = { a.open("roleplay/${s.id}") }, label = trs(Roleplay.name(pack, s))) {
+                    Body(s.em, style = LKType.headlineMd); Body(trs(Roleplay.name(pack, s)), style = LKType.titlePill); EnLtr { Muted(s.title) }
+                    Body(trs(Tr("{n} lượt", mapOf("n" to s.turns.size))), color = LocalLKColors.current.secondary, style = LKType.labelBadge)
+                }
+                if (pair.size == 1) Box(Modifier.weight(1f))
+            } else for (s in list) LKCard(onClick = { a.open("roleplay/${s.id}") }, label = trs(Roleplay.name(pack, s))) {
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.CenterVertically) {
                     Body(s.em, style = LKType.headlineMd)
                     Column { Body(trs(Roleplay.name(pack, s)), style = LKType.titlePill); EnLtr { Muted(s.title + " · " + trs(Tr("{n} lượt", mapOf("n" to s.turns.size)))) } }

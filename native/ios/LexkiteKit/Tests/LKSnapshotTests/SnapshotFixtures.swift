@@ -20,7 +20,11 @@ enum SnapshotFixtures {
         return speakMain.contains(testName.replacingOccurrences(of: "()", with: "")) ? all : [all[0]]
     }
     /// the 23 main screens are shot at 1.5× (vi-light, the text-fit variant, at 1×); the other states (en-light only) at 1× to keep the image pack small
-    static func speakScale(_ testName: String, _ lang: String) -> CGFloat { speakMain.contains(testName.replacingOccurrences(of: "()", with: "")) && lang != "vi" ? 1.5 : 1.0 }
+    /// the five screens reused from the web templates (pas-sit, pas-drill, say-list/front/back) are also shot at 1× in ar-light (RTL check; image budget)
+    static let speakAr1x: Set<String> = ["testSpeakSituationHub", "testSpeakDrillListen", "testSayList", "testSayFront", "testSayBack"]
+    static func speakScale(_ testName: String, _ lang: String) -> CGFloat {
+        let n = testName.replacingOccurrences(of: "()", with: "")
+        return speakMain.contains(n) && lang != "vi" && !(lang == "ar" && speakAr1x.contains(n)) ? 1.5 : 1.0 }
     static func name(_ lang: String, _ scheme: ColorScheme) -> String { "\(lang)-\(scheme == .dark ? "dark" : "light")" }
 
     /// Fixed, realistic learner state (no clock, no network): computed with the web definitions from a fixed document.

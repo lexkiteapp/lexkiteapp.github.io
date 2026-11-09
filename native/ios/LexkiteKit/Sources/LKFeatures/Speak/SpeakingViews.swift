@@ -144,11 +144,9 @@ struct SpeakingView: View {
         SkillCard {
             VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
                 Text(t(.speakSpkKetQua)).studyText(LKType.headlineSm)
-                HStack(spacing: LKSpacing.spaceXs) {
-                    stat(t(.speakSpkThoiLuong), "\(a.seconds)s")
-                    stat(t(.speakSpkTuPhut), Speaking.wpmShown(a))
-                    stat(t(.speakSpkSoTu), String(a.words))
-                    stat(t(.speakSpkTuDem), String(a.fillers))
+                VStack(spacing: LKSpacing.spaceXs) {   // Stitch: 2 × 2 stat tiles
+                    HStack(spacing: LKSpacing.spaceXs) { stat(t(.speakSpkThoiLuong), "\(a.seconds)s"); stat(t(.speakSpkTuPhut), Speaking.wpmShown(a)) }
+                    HStack(spacing: LKSpacing.spaceXs) { stat(t(.speakSpkSoTu), String(a.words)); stat(t(.speakSpkTuDem), String(a.fillers)) }
                 }
                 if !a.transcript.isEmpty {
                     Text(t(.speakSpkBanChuMayNhan)).lkText(LKType.labelBadge).textCase(.uppercase).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
@@ -158,22 +156,27 @@ struct SpeakingView: View {
                     FlowLayout(spacing: 6) { ForEach(Array(a.chips.enumerated()), id: \.offset) { _, c in chip(c) } }
                 }
                 Text(t(.speakSpkNhanXet)).lkText(LKType.labelBadge).textCase(.uppercase).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme))
-                ForEach(Array(a.notes.enumerated()), id: \.offset) { _, n in
-                    HStack(alignment: .firstTextBaseline, spacing: 6) {
-                        Image(systemName: "text.bubble.fill").font(.system(size: 12)).foregroundStyle(LKColor.secondary.resolve(scheme)).accessibilityHidden(true)
+                ForEach(Array(a.notes.enumerated()), id: \.offset) { i, n in   // Stitch: stacked coloured feedback cards (green = all good, then amber / blue)
+                    let good = a.notes.count == 1 && n.s("k").hasPrefix("Rất tốt"); let tint = good ? LKColor.success : (i % 2 == 0 ? LKColor.tertiary : LKColor.secondary)
+                    HStack(alignment: .top, spacing: LKSpacing.spaceXs) {
+                        Image(systemName: good ? "checkmark.circle.fill" : "lightbulb.fill").font(.system(size: 16)).foregroundStyle(tint.resolve(scheme)).accessibilityHidden(true)
                         Text(StudyText.rich(SpeakText.render(n, t))).studyText(LKType.bodyMd).fixedSize(horizontal: false, vertical: true)
+                        Spacer(minLength: 0)
                     }
+                    .padding(LKSpacing.spaceSm)
+                    .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(tint.resolve(scheme).opacity(0.14)))
+                    .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).stroke(tint.resolve(scheme).opacity(0.4), lineWidth: 1))
                 }
                 Text(t(.speakSpkPhanTichTuDong)).studyText(LKType.bodySm, LKColor.onSurfaceVariant)
             }
         }
     }
     private func stat(_ label: String, _ value: String) -> some View {
-        VStack(spacing: 2) {
-            Text(verbatim: value).studyText(LKType.headlineSm).environment(\.layoutDirection, .leftToRight)
-            Text(verbatim: label).studyText(LKType.bodySm, LKColor.onSurfaceVariant).multilineTextAlignment(.center).lineLimit(2).minimumScaleFactor(0.8)
+        VStack(alignment: .leading, spacing: 2) {
+            Text(verbatim: label).studyText(LKType.bodySm, LKColor.onSurfaceVariant).multilineTextAlignment(.leading).lineLimit(2).minimumScaleFactor(0.8)
+            Text(verbatim: value).studyText(LKType.headlineMd).environment(\.layoutDirection, .leftToRight)
         }
-        .padding(.vertical, 8).frame(maxWidth: .infinity)
+        .padding(LKSpacing.spaceSm).frame(maxWidth: .infinity, alignment: .leading)
         .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(LKColor.surfaceContainer.resolve(scheme)))
         .accessibilityElement(children: .combine)
     }

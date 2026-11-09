@@ -83,20 +83,19 @@ struct SpeakSituationView: View {
                     Spacer()
                     Text(verbatim: Bidi.isolate(t(.speakSpBuocNM, ["n": h.stageN, "m": h.stageM]))).studyText(LKType.labelMetric, LKColor.onSurfaceVariant)
                 }
-                ForEach(Array(h.nodes.enumerated()), id: \.offset) { _, n in node(n) }
+                HStack(alignment: .top, spacing: 2) { ForEach(Array(h.nodes.enumerated()), id: \.offset) { _, n in node(n) } }   // Stitch: one horizontal row of round nodes
             }
         }
     }
     private func node(_ n: SpeakSit.Hub.Node) -> some View {
         Button { onRoute(AppRoute("speak", arg: model.id + "/drill", query: ["stage": n.stageId])) } label: {
-            HStack(spacing: LKSpacing.spaceSm) {
+            VStack(spacing: 4) {
                 Image(systemName: n.state == "done" ? "checkmark.circle.fill" : (n.state == "cur" ? "play.circle.fill" : "circle"))
-                    .font(.system(size: 24)).foregroundStyle((n.state == "todo" ? LKColor.outline : (n.state == "done" ? LKColor.success : LKColor.secondary)).resolve(scheme))
-                Text(verbatim: n.label).studyText(LKType.titlePill, n.state == "todo" ? LKColor.onSurfaceVariant : LKColor.onSurface).multilineTextAlignment(.leading)
-                Spacer(minLength: 0)
+                    .font(.system(size: 30)).foregroundStyle((n.state == "todo" ? LKColor.outline : (n.state == "done" ? LKColor.success : LKColor.secondary)).resolve(scheme))
+                Text(verbatim: n.label).studyText(LKType.labelBadge, n.state == "todo" ? LKColor.onSurfaceVariant : LKColor.onSurface).multilineTextAlignment(.center).lineLimit(2).minimumScaleFactor(0.8)
                 SpeakStars(n: n.stars)
             }
-            .frame(minHeight: 48)
+            .frame(maxWidth: .infinity, minHeight: 48)
         }
         .buttonStyle(.plain)
         .accessibilityAddTraits(n.state == "cur" ? .isSelected : [])

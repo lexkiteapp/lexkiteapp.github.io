@@ -116,8 +116,8 @@ struct HandsfreeView: View {
 
     private var switches: some View {
         VStack(spacing: LKSpacing.spaceXs) {
-            Toggle(isOn: Binding(get: { model.ex }, set: { model.setEx($0) })) { Text(verbatim: t(.vocabExampleSentence)).studyText(LKType.titlePill) }
-            Toggle(isOn: Binding(get: { model.mean }, set: { model.setMean($0) })) { Text(verbatim: t(.speakHfDocNghiaKhiMo)).studyText(LKType.titlePill) }
+            Toggle(isOn: Binding(get: { model.ex }, set: { model.setEx($0) })) { Text(verbatim: t(.vocabExampleSentence)).studyText(LKType.titlePill) }.toggleStyle(HandsfreeSwitchStyle())
+            Toggle(isOn: Binding(get: { model.mean }, set: { model.setMean($0) })) { Text(verbatim: t(.speakHfDocNghiaKhiMo)).studyText(LKType.titlePill) }.toggleStyle(HandsfreeSwitchStyle())
             Button { model.ambient = true } label: {
                 Label { Text(verbatim: t(.speakHfManToi)).studyText(LKType.titlePill, LKColor.secondary) } icon: { Image(systemName: "moon.fill").foregroundStyle(LKColor.secondary.resolve(scheme)) }
                     .frame(maxWidth: .infinity, minHeight: 44)
@@ -178,5 +178,28 @@ struct HandsfreeWave: View {
     private func height(_ i: Int, _ d: Date) -> CGFloat {
         guard active, animated, !reduceMotion else { return CGFloat(10 + (i % 3) * 6) }
         return CGFloat(10 + abs(sin(d.timeIntervalSinceReferenceDate * 3 + Double(i))) * 22)
+    }
+}
+
+
+/// A switch drawn in SwiftUI (track + knob) so it looks the same on a device and in the offscreen snapshot, where the system switch showed no knob. Still a `Toggle` for VoiceOver.
+struct HandsfreeSwitchStyle: ToggleStyle {
+    @Environment(\.colorScheme) private var scheme
+    func makeBody(configuration: Configuration) -> some View {
+        Button { configuration.isOn.toggle() } label: {
+            HStack(spacing: LKSpacing.spaceSm) {
+                configuration.label
+                Spacer(minLength: 0)
+                Capsule().fill((configuration.isOn ? LKColor.secondary : LKColor.surfaceContainerHighest).resolve(scheme)).frame(width: 52, height: 32)
+                    .overlay(Capsule().stroke(LKColor.outlineVariant.resolve(scheme), lineWidth: configuration.isOn ? 0 : 2))
+                    .overlay(alignment: configuration.isOn ? .trailing : .leading) {
+                        Circle().fill((configuration.isOn ? LKColor.onSecondary : LKColor.outline).resolve(scheme)).frame(width: 24, height: 24).padding(4)
+                    }
+                    .environment(\.layoutDirection, .leftToRight)
+            }
+            .frame(minHeight: 48)
+        }
+        .buttonStyle(.plain)
+        .accessibilityAddTraits(configuration.isOn ? .isSelected : [])
     }
 }

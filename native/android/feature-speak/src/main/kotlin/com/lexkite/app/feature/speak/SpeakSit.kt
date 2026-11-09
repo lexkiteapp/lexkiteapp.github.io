@@ -1,6 +1,7 @@
 package com.lexkite.app.feature.speak
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,6 +19,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -71,11 +74,12 @@ fun SpeakSituationScreen(ui: SitUi, a: SitActions) {
                 Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(LKSpacing.space2xs)) { Muted(trs(Tr("Nhiệm vụ tình huống"))); Body(h.mission, style = LKType.titlePill); Tag(trs(h.stage)) }
             }
         }
-        Column(verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
-            for (n in h.nodes) LKCard(onClick = { a.drill(n.stage) }, label = n.label) {
-                Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
-                    Text2(if (n.st == "done") "✓" else if (n.st == "cur") "▶" else "○", n.st != "todo")
-                    Body(n.label, Modifier.weight(1f), style = LKType.titlePill); StarsRow(n.stars, 3, trs(n.aria))
+        LKCard {   // Stitch: the adventure path as one horizontal row of round nodes (state glyph, label, stars)
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.space2xs)) {
+                for (n in h.nodes) Column(Modifier.weight(1f).clickable(onClickLabel = n.label) { a.drill(n.stage) }.semantics(mergeDescendants = true) { contentDescription = n.label }, horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Box(Modifier.size(40.dp).clip(androidx.compose.foundation.shape.CircleShape).background(if (n.st == "todo") c.surfaceContainerHighest else c.secondary), contentAlignment = Alignment.Center) {
+                        Body(if (n.st == "done") "✓" else if (n.st == "cur") "▶" else "○", color = if (n.st == "todo") c.outline else c.onSecondary, style = LKType.titlePill) }
+                    Body(n.label, style = LKType.labelBadge, maxLines = 2, align = androidx.compose.ui.text.style.TextAlign.Center); StarsRow(n.stars, 3, trs(n.aria))
                 }
             }
         }
@@ -145,7 +149,10 @@ fun SpeakDrillScreen(ui: DrillUi, a: DrillActions) {
         LKCard(fill = c.surfaceContainerHighest) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
                 Body(trs(Tr("Câu mẫu để nói")).uppercase(), color = c.onSurfaceVariant, style = LKType.labelBadge)
-                Row(horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) { GhostButton("🔊", a.play, ink = c.primary); GhostButton("🐢", a.slow, ink = c.primary) }
+                Row(horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
+                    val playLabel = trs(Tr("Nghe câu mẫu")); val slowLabel = trs(Tr("Nghe chậm"))   // icon-only as in the template: the existing translated labels are read out
+                    GhostButton("🔊", a.play, Modifier.semantics(mergeDescendants = true) { contentDescription = playLabel }, ink = c.primary)
+                    GhostButton("🐢", a.slow, Modifier.semantics(mergeDescendants = true) { contentDescription = slowLabel }, ink = c.primary) }
             }
             EnLtr { Flow { for (w in ui.words) Chip(w.text, w.tap, { if (w.tap) a.tapWord(w.index) }) } }   // English word order in RTL
         }

@@ -20,6 +20,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -85,6 +87,8 @@ fun SayCardScreen(ui: SayCardUi, a: SayActions2) {
                 GhostButton("↗ " + trs(Tr("Chia sẻ")), a.share, Modifier.weight(1f), ink = c.onSurface)
             } else {
                 MicButton(ui.listening, a.mic, micLabel)
+                val shareLabel = trs(Tr("Chia sẻ"))
+                GhostButton("↗", a.share, Modifier.semantics(mergeDescendants = true) { contentDescription = shareLabel }, ink = c.onSurface)   // icon only: the web's Share stays on the back, the label is read out
                 LKPrimaryButton(trs(Tr("Thẻ tiếp")) + " →", { a.open(b.next) }, Modifier.weight(1f))
             }
         }

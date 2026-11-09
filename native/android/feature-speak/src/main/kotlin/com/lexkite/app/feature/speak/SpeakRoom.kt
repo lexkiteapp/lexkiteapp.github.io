@@ -1,5 +1,9 @@
 package com.lexkite.app.feature.speak
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.draw.clip
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -71,6 +75,26 @@ fun SpeakingScreen(ui: SpeakingUi, a: SpeakingActions) {
         return
     }
     StudyPage(trs(Tr("Phòng luyện Speaking")), a.exit) {
+        if (ui.analysis != null) TeacherCard("ama", "point", "", trs(Tr("Bấm micro để trả lời lại")))   // Stitch speaking-result: the coach on top, then the tiles / transcript / feedback; recording listen-back is not ported yet
+        ui.analysis?.let { r -> LKCard(Modifier.testTag("speak-result")) {
+            Body("📊 " + trs(Tr("Kết quả")), style = LKType.titlePill)
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {   // Stitch: 2 × 2 stat tiles
+                StatTile("${r.seconds}s", trs(Tr("Thời lượng")), Modifier.weight(1f)); StatTile(if (r.wpm != 0) r.wpm.toString() else "—", trs(Tr("Từ/phút")), Modifier.weight(1f))
+            }
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
+                StatTile(r.words.toString(), trs(Tr("Số từ")), Modifier.weight(1f)); StatTile(r.fillers.toString(), trs(Tr("Từ đệm")), Modifier.weight(1f))
+            }
+            if (r.hasText) { Body("📝 " + trs(Tr("Bản chữ (máy nhận dạng)")), style = LKType.labelMetric); EnLtr { Body(ui.transcript) } }
+            if (r.chips.isNotEmpty()) Flow { for (x in r.chips) Tag((if (x.kind == "ok") "✓ " else if (x.kind == "lv") "🎓 " else "🧷 ") + x.text, if (x.kind == "ok") c.success else c.secondary) }
+            Body("💬 " + trs(Tr("Nhận xét")), style = LKType.labelMetric)
+            r.notes.forEachIndexed { i, n ->   // Stitch: stacked coloured feedback cards (green = all good, then amber / blue)
+                val good = r.notes.size == 1 && n.k.startsWith("Rất tốt"); val tint = if (good) c.success else if (i % 2 == 0) c.tertiary else c.secondary
+                Row(Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp)).background(tint.copy(alpha = 0.14f)).border(1.dp, tint.copy(alpha = 0.4f), RoundedCornerShape(14.dp)).padding(LKSpacing.spaceSm), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
+                    Body(if (good) "✓" else "💡", color = tint); RichBody(trs(n), Modifier.weight(1f))
+                }
+            }
+            Muted(trs(Tr("Phân tích tự động để luyện tập, không thay thế giám khảo.")))
+        } }
         Seg(ui.partNames.map { trs(it).substringBefore(" · ") }, listOf("p1", "p2", "p3").indexOf(p.part), { a.part(listOf("p1", "p2", "p3")[it]) })
         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
             GhostButton("📚 " + trs(Tr(p.topic.title)), { a.topics(true) }, Modifier.weight(1f)); GhostButton("🎲", a.random)
@@ -80,18 +104,6 @@ fun SpeakingScreen(ui: SpeakingUi, a: SpeakingActions) {
         TeacherCard("ama", "point", "", trs(Tr("Giám khảo đọc câu hỏi → bạn ghi âm câu trả lời → nghe lại, xem bản chữ và phân tích từ vựng. Ghi âm chỉ nằm trên máy bạn.")))
         SpeakingQuestionCard(ui, a)
         SpeakingClockCard(ui, a)
-        ui.analysis?.let { r -> LKCard(Modifier.testTag("speak-result")) {
-            Body("📊 " + trs(Tr("Kết quả")), style = LKType.titlePill)
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
-                StatTile("${r.seconds}s", trs(Tr("Thời lượng")), Modifier.weight(1f)); StatTile(if (r.wpm != 0) r.wpm.toString() else "—", trs(Tr("Từ/phút")), Modifier.weight(1f))
-                StatTile(r.words.toString(), trs(Tr("Số từ")), Modifier.weight(1f)); StatTile(r.fillers.toString(), trs(Tr("Từ đệm")), Modifier.weight(1f))
-            }
-            if (r.hasText) { Body("📝 " + trs(Tr("Bản chữ (máy nhận dạng)")), style = LKType.labelMetric); EnLtr { Body(ui.transcript) } }
-            if (r.chips.isNotEmpty()) Flow { for (x in r.chips) Tag((if (x.kind == "ok") "✓ " else if (x.kind == "lv") "🎓 " else "🧷 ") + x.text, if (x.kind == "ok") c.success else c.secondary) }
-            Body("💬 " + trs(Tr("Nhận xét")), style = LKType.labelMetric)
-            for (n in r.notes) RichBody("• " + trs(n))
-            Muted(trs(Tr("Phân tích tự động để luyện tập, không thay thế giám khảo.")))
-        } }
         LKCard {
             Body("💡 " + trs(Tr("Từ vựng nên dùng")), style = LKType.titlePill)
             for ((w, m) in ui.suggestions) Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {

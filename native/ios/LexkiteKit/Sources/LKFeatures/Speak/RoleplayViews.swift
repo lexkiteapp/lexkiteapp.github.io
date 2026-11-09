@@ -67,25 +67,59 @@ struct RoleplayListView: View {
     @State private var level = 1
     var body: some View {
         StudyPage(title: t(.speakRpHoiThoaiDongVai)) {
-            Text(verbatim: t(.speakRpDongVaiHoiThoai)).studyText(LKType.bodyMd, LKColor.onSurfaceVariant).fixedSize(horizontal: false, vertical: true)
-            HStack(spacing: LKSpacing.spaceSm) {
+            SkillCard {   // Stitch hero: the stage badge + the one-line promise
+                HStack(alignment: .top, spacing: LKSpacing.spaceSm) {
+                    Text(verbatim: "🎭").font(.system(size: 26)).frame(width: 52, height: 52)
+                        .background(RoundedRectangle(cornerRadius: 14).fill(LKColor.secondary.resolve(scheme))).accessibilityHidden(true)
+                    Text(verbatim: t(.speakRpDongVaiHoiThoai)).studyText(LKType.bodyMd, LKColor.onSurfaceVariant).fixedSize(horizontal: false, vertical: true)
+                    Spacer(minLength: 0)
+                }
+            }
+            VStack(alignment: .leading, spacing: LKSpacing.space2xs) {
                 Text(verbatim: t(.onbLevelWord)).studyText(LKType.bodySm, LKColor.onSurfaceVariant)
                 RoleplayLevelPicker(labels: model.levelLabels, selected: level) { level = $0; model.setLevel($0) }
             }
-            section(t(.speakRpTinhHuongHangNgay), "A1 – B1", model.sections.everyday)
-            section(t(.speakRpCongSo), "B1 – C1", model.sections.work)
+            section(t(.speakRpTinhHuongHangNgay), "A1 – B1", model.sections.everyday, grid: true)
+            section(t(.speakRpCongSo), "B1 – C1", model.sections.work, grid: false)
             Text(verbatim: model.signedIn ? t(.speakRpAiTrenMayChrome) : t(.speakRpKhachNHoiThoai, ["n": model.rules.guestAiPerDay]))
                 .studyText(LKType.bodySm, LKColor.onSurfaceVariant).fixedSize(horizontal: false, vertical: true)
         }
         .onAppear { level = model.level }
         .accessibilityIdentifier("roleplay-list")
     }
-    @ViewBuilder private func section(_ title: String, _ levels: String, _ list: [JSON]) -> some View {
+    @ViewBuilder private func section(_ title: String, _ levels: String, _ list: [JSON], grid: Bool) -> some View {
         if !list.isEmpty {
             HStack(spacing: LKSpacing.spaceXs) { Text(verbatim: title).studyText(LKType.headlineSm); StudyChip(text: levels) }
                 .accessibilityElement(children: .combine).accessibilityAddTraits(.isHeader)
-            ForEach(Array(list.enumerated()), id: \.offset) { _, s in card(s) }
+            if grid {   // Stitch: everyday scenarios in two columns
+                ForEach(Array(stride(from: 0, to: list.count, by: 2)), id: \.self) { i in
+                    HStack(alignment: .top, spacing: LKSpacing.spaceSm) {
+                        tile(list[i])
+                        if i + 1 < list.count { tile(list[i + 1]) } else { Color.clear.frame(maxWidth: .infinity) }
+                    }
+                    .fixedSize(horizontal: false, vertical: true)
+                }
+            } else {
+                ForEach(Array(list.enumerated()), id: \.offset) { _, s in card(s) }
+            }
         }
+    }
+    private func tile(_ s: JSON) -> some View {
+        Button { onRoute(AppRoute("roleplay", arg: s.s("id"))) } label: {
+            SkillCard {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(verbatim: s.s("em")).font(.system(size: 30)).accessibilityHidden(true)
+                    Text(verbatim: SpeakText.render(.string(Roleplay.nameKey(s, model.rules)), t)).studyText(LKType.titlePill).multilineTextAlignment(.leading)
+                    Text(verbatim: s.s("title")).studyText(LKType.bodySm, LKColor.onSurfaceVariant).englishText().multilineTextAlignment(.leading)
+                    Spacer(minLength: 0)
+                    Text(verbatim: t(.speakRpNLuot, ["n": s.list("turns").count])).studyText(LKType.labelBadge, LKColor.secondary)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .frame(minHeight: 44)
+            }
+        }
+        .buttonStyle(LKPressStyle()).frame(maxWidth: .infinity)
+        .accessibilityElement(children: .combine)
     }
     private func card(_ s: JSON) -> some View {
         Button { onRoute(AppRoute("roleplay", arg: s.s("id"))) } label: {
