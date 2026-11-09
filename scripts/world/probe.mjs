@@ -47,9 +47,7 @@ try {
   await page.route(/\/app\/\?hl=/, r => r.request().isNavigationRequest() && !/sandbox=1/.test(r.request().url()) ? r.fulfill({ status: 302, headers: { location: r.request().url().replace('/app/?', '/app/?sandbox=1&') } }) : r.fallback());
   await page.goto(`${O}/${LANG === 'vi' ? '' : LANG + '/'}`, { waitUntil: 'load' });
   if (!(await c.tap(CTA, 1200))) throw new Error('không thấy nút chính trang giới thiệu');
-  await page.waitForSelector('button.trk-opt, #noAcct', { timeout: 15000 });
-  await c.tap('#noAcct'); await c.tap('button.trk-opt'); await c.tap('#obNext', 250);
-  await c.tap('.trk-lv [data-lv]:not([data-lv="test"])');
+  await page.waitForSelector('#obNext, #go', { state: 'visible', timeout: 15000 }); // thiết lập Stitch v2 (#608): mặc định có sẵn mọi bước → chỉ bấm Tiếp (#obNext) tới nút Bắt đầu (#go)
   for (let i = 0; i < 8 && !(await vis('#go')); i++) if (!(await c.tap('#obNext', 250))) await sleep(300);
   if (!(await c.tap('#go', 1500))) throw new Error('không tới nút Bắt đầu (#go)');
   const sel = await toLesson(c); if (!sel) throw new Error('không tới màn học sau thiết lập: ' + page.url().replace(O, ''));
