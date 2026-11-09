@@ -1699,12 +1699,6 @@
    "why": "vision description-sentence sim 0.2455",
    "b": "42467148738"
   },
-  "reader#n": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "vision: no (thousands of readers); vision description-sentence sim 0.175",
-   "b": "40276144478"
-  },
   "realtor#n": {
    "at": "2026-11-09",
    "tries": 12,

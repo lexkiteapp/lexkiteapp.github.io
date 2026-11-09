@@ -178,6 +178,7 @@ node scripts/test/qa-classify.mjs
 node scripts/test/shorts-scale.mjs
 node scripts/test/yt-manual.mjs
 node scripts/test/clip-bulk.mjs
+node scripts/test/admin-flow.mjs
 node scripts/test/distribution.mjs
 node scripts/test/dist-roles.mjs
 node scripts/test/motion.mjs
@@ -365,3 +366,4 @@ node scripts/test/es-practice.mjs
 node scripts/test/es-pron.mjs
 node scripts/test/es-path.mjs
 node scripts/test/ext-version.mjs
+node scripts/test/native-strings-locked.mjs

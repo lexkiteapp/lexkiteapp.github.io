@@ -118,7 +118,7 @@ object Qx {
 /** The learner's "game" document pieces the P06 screens write (web Game.mutate callbacks), as pure functions. */
 object SkillsGame {
     private fun num(e: JsonElement?) = Js.num(e).let { if (it.isNaN()) 0.0 else it }
-    private fun put(game: JsonElement?, key: String, f: (LinkedHashMap<String, JsonElement>) -> Unit): JsonElement { val g = Js.spread(game); val m = Js.spread(g[key]); f(m); g[key] = JsonObject(m); return JsonObject(g) }
+    internal fun put(game: JsonElement?, key: String, f: (LinkedHashMap<String, JsonElement>) -> Unit): JsonElement { val g = Js.spread(game); val m = Js.spread(g[key]); f(m); g[key] = JsonObject(m); return JsonObject(g) }
     fun listenDone(game: JsonElement?, id: String, right: Int) = put(game, "listenDone") { it[id] = Js.number(maxOf(right.toDouble(), num(it[id]))) }
     fun dictDone(game: JsonElement?, id: String, pct: Int) = put(game, "dictDone") { it[id] = Js.number(maxOf(pct.toDouble(), num(it[id]))) }
     fun readDone(game: JsonElement?, id: String, text: String) = put(game, "readDone") { it[id] = JsonPrimitive(text) }
