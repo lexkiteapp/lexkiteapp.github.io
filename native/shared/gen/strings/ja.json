@@ -1169,6 +1169,8 @@
   "rev.speakingRoomHint": "パート 1 ～ 3、自分自身の記録、語彙の採点",
   "rev.spanishGrammarHint": "動詞の活用と文法を、あなたの言語で解説",
   "rev.speakScoreHint": "マイクに向かって話すとすぐに得点が得られます",
+  "rev.spanishExam": "DELE/SIELE 形式練習",
+  "rev.spanishExamHint": "試験の構成で読む・聞く・書く・話す",
   "skill.listen.moTaTranh": "写真描写",
   "skill.listen.hoiDap": "応答問題",
   "skill.listen.hoiThoai": "会話",
