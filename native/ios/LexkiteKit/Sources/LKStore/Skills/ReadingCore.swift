@@ -133,6 +133,9 @@ public enum WordPopup {
         /// the context box: the sentence with this word in bold
         public var sentence: String, ctxWord: String
         public var detailsHref: String
+        public init(entry: JSON, word: String, pos: String, level: String, ipa: String, mean: String, def: String, saved: Bool, sentence: String, ctxWord: String, detailsHref: String) {
+            self.entry = entry; self.word = word; self.pos = pos; self.level = level; self.ipa = ipa; self.mean = mean; self.def = def; self.saved = saved; self.sentence = sentence; self.ctxWord = ctxWord; self.detailsHref = detailsHref
+        }
     }
     public enum Phase: Equatable, Sendable {
         case notFound(word: String, translation: String?)
