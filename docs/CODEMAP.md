@@ -169,7 +169,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `content/mediation`: mediation
 - `content/protection`: commit-regen
 - `content/situations`: situations
-- `content/target`: es-pron
+- `content/target`: es-pron, es-exam (W5 DELE/SIELE: `scripts/target/exam-es-lib.mjs`, `content/exams/es/`, `cpack/es-app/exam-ui.js`)
 - `mobile`: crashlytics
 - `mobile/ios`: ai-local
 - `scripts/audio`: tts-sites

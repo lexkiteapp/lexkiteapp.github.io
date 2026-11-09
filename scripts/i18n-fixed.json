@@ -39703,5 +39703,35 @@
     "ar": "استمع واقرأ وتحدّث عن القانون والسلامة",
     "ru": "Слушайте, читайте и говорите о законе и безопасности",
     "tr": "Hukuk ve güvenlik hakkında dinle, oku ve konuş"
+  },
+  "Luyện định dạng DELE/SIELE": {
+    "es": "Práctica de formato DELE/SIELE",
+    "pt": "Prática no formato DELE/SIELE",
+    "fr": "Format DELE/SIELE",
+    "de": "DELE/SIELE-Format",
+    "id": "Format DELE/SIELE",
+    "th": "ฝึกรูปแบบ DELE/SIELE",
+    "zh": "DELE/SIELE 题型练习",
+    "ja": "DELE/SIELE 形式練習",
+    "ko": "DELE/SIELE 형식 연습",
+    "hi": "DELE/SIELE प्रारूप अभ्यास",
+    "ar": "تدريب بصيغة DELE/SIELE",
+    "ru": "Формат DELE/SIELE",
+    "tr": "DELE/SIELE biçimi"
+  },
+  "Đọc, nghe, viết, nói theo cấu trúc đề thi": {
+    "es": "Lectura, audición, escritura y habla con el formato del examen",
+    "pt": "Leitura, escuta, escrita e fala no formato da prova",
+    "fr": "Lecture, écoute, écriture et expression orale au format de l'examen",
+    "de": "Lesen, Hören, Schreiben und Sprechen im Prüfungsformat",
+    "id": "Membaca, menyimak, menulis, dan berbicara sesuai format ujian",
+    "th": "อ่าน ฟัง เขียน และพูดตามโครงสร้างข้อสอบ",
+    "zh": "按考试结构练习阅读、听力、写作和口语",
+    "ja": "試験の構成で読む・聞く・書く・話す",
+    "ko": "시험 구성에 맞춘 읽기·듣기·쓰기·말하기",
+    "hi": "परीक्षा की संरचना में पढ़ना, सुनना, लिखना और बोलना",
+    "ar": "القراءة والاستماع والكتابة والتحدث بهيكل الامتحان",
+    "ru": "Чтение, аудирование, письмо и говорение по структуре экзамена",
+    "tr": "Sınav yapısında okuma, dinleme, yazma ve konuşma"
   }
 }
