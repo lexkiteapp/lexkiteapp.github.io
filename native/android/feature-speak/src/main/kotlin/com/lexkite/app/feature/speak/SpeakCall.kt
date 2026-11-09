@@ -147,7 +147,7 @@ fun CallRoomScreen(ui: CallRoomUi, a: CallActions, gate: (() -> Unit) -> Unit) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly, verticalAlignment = Alignment.Bottom) {
             RoundCtl("🔊", trs(Tr("Nghe")), c.surfaceContainerHighest, c.onSurface, a.replay)
             Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                MicButton(listening, { gate(a.mic) }, trs(CallEngine.micTr(v.phase)), enabled = !v.micDisabled); Muted(trs(if (listening) Tr("Đang nghe") else Tr("Nói"))) }
+                MicButton(listening, { gate(a.mic) }, (if (listening) trs(CallEngine.micTr(v.phase)) else t(L10nKey.lessonKindSpeak)), enabled = !v.micDisabled); Muted(if (listening) trs(Tr("Đang nghe")) else t(L10nKey.lessonKindSpeak)) }
             RoundCtl("📵", trs(Tr("Kết thúc")), c.error, c.onError, a.hang)
         }
     }) {

@@ -1983,6 +1983,8 @@
   "call.ui.taiGoiNhanDang": "Chrome の音声パックをダウンロードします (デバイス上で実行)",
   "call.ui.nhanDangTrenMay": "Whisper を使用してデバイスを認識します (1 回の最大 40 MB のダウンロード、Wi-Fi を推奨)",
   "call.ui.dungDichVuCua": "ブラウザの音声サービスを使用します (音声は認識されるために送信されます)",
+  "call.ui.dungHeThongNative": "システムの音声認識を使う（音声は認識のために送信されます）",
+  "call.ui.dangDungHeThongNative": "システムの音声認識を使用中：音声は認識のためにサーバーへ送信されます。",
   "call.ui.chiChamGoiY": "候補をタップするか入力するだけです",
   "call.ui.dangTaiGoiNhan": "スピーチパックをダウンロードしています…",
   "call.ui.dangTaiMoHinh": "音声認識モデルをダウンロードしています… {p}%",

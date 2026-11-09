@@ -1983,6 +1983,8 @@
   "call.ui.taiGoiNhanDang": "Unduh paket ucapan Chrome (berjalan di perangkat Anda)",
   "call.ui.nhanDangTrenMay": "Kenali di perangkat Anda dengan Whisper (satu kali unduh ~40 MB, disarankan menggunakan Wi-Fi)",
   "call.ui.dungDichVuCua": "Gunakan layanan ucapan browser (audio Anda dikirim agar dapat dikenali)",
+  "call.ui.dungHeThongNative": "Gunakan pengenalan suara sistem (audiomu dikirim untuk dikenali)",
+  "call.ui.dangDungHeThongNative": "Memakai pengenalan suara sistem: audiomu dikirim ke server untuk dikenali.",
   "call.ui.chiChamGoiY": "Cukup ketuk saran atau ketik",
   "call.ui.dangTaiGoiNhan": "Mengunduh paket pidato…",
   "call.ui.dangTaiMoHinh": "Mengunduh model pengenalan suara… {p}%",

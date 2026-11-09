@@ -38,7 +38,7 @@ struct CallPrivacyLine: View {
         let p = CallAsr.privacy(mode)
         HStack(alignment: .firstTextBaseline, spacing: LKSpacing.spaceXs) {
             Image(systemName: CallPrivacyLine.symbol(mode)).font(.system(size: 14, weight: .bold)).foregroundStyle(LKColor.secondary.resolve(scheme)).accessibilityHidden(true)
-            Text(verbatim: t(p.key)).studyText(LKType.bodySm, LKColor.onSurfaceVariant).fixedSize(horizontal: false, vertical: true)
+            Text(verbatim: t(CallAsr.shown(p.key))).studyText(LKType.bodySm, LKColor.onSurfaceVariant).fixedSize(horizontal: false, vertical: true)
         }
         .accessibilityElement(children: .combine)
     }

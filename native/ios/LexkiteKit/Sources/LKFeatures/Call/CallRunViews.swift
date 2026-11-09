@@ -186,7 +186,7 @@ struct CallRunView: View {
         switch c {
         case .chrome: return t(.callUiTaiGoiNhanDang)
         case .device: return t(.callUiNhanDangTrenMay)
-        case .cloud: return t(.callUiDungDichVuCua)
+        case .cloud: return t(CallAsr.shown(.callUiDungDichVuCua))
         case .tap: return t(.callUiChiChamGoiY)
         }
     }
@@ -208,7 +208,7 @@ struct CallRunView: View {
                         .frame(width: 44, height: 44).contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
-                .accessibilityLabel(t(CallAsr.privacy(s.mode).key))
+                .accessibilityLabel(t(CallAsr.shown(CallAsr.privacy(s.mode).key)))
                 Button { s.toggleTyping() } label: {
                     Image(systemName: "keyboard").font(.system(size: 16, weight: .bold)).foregroundStyle(LKColor.secondary.resolve(scheme))
                         .frame(width: 44, height: 44).contentShape(Rectangle())

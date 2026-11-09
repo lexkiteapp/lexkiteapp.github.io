@@ -1983,6 +1983,8 @@
   "call.ui.taiGoiNhanDang": "Laden Sie das Sprachpaket von Chrome herunter (läuft auf Ihrem Gerät)",
   "call.ui.nhanDangTrenMay": "Erkennen Sie Ihr Gerät mit Whisper (einmaliger Download von ca. 40 MB, WLAN empfohlen)",
   "call.ui.dungDichVuCua": "Nutzen Sie den Sprachdienst des Browsers (Ihr Audio wird zur Erkennung verschickt)",
+  "call.ui.dungHeThongNative": "Spracherkennung des Systems verwenden (dein Audio wird zur Erkennung gesendet)",
+  "call.ui.dangDungHeThongNative": "Spracherkennung des Systems aktiv: Dein Audio wird zur Erkennung an einen Server gesendet.",
   "call.ui.chiChamGoiY": "Tippen Sie nur auf Vorschläge oder geben Sie etwas ein",
   "call.ui.dangTaiGoiNhan": "Das Sprachpaket wird heruntergeladen…",
   "call.ui.dangTaiMoHinh": "Das Spracherkennungsmodell wird heruntergeladen… {p}%",

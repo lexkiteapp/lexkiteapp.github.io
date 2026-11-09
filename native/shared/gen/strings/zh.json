@@ -1983,6 +1983,8 @@
   "call.ui.taiGoiNhanDang": "下载 Chrome 的语音包（在您的设备上运行）",
   "call.ui.nhanDangTrenMay": "使用 Whisper 在您的设备上进行识别（一次性下载约 40 MB，建议使用 Wi-Fi）",
   "call.ui.dungDichVuCua": "使用浏览器的语音服务（您的音频被发送出去以供识别）",
+  "call.ui.dungHeThongNative": "使用系统语音识别（你的音频会被发送出去进行识别）",
+  "call.ui.dangDungHeThongNative": "正在使用系统语音识别：你的音频会发送到服务器进行识别。",
   "call.ui.chiChamGoiY": "仅点按建议或键入",
   "call.ui.dangTaiGoiNhan": "正在下载语音包...",
   "call.ui.dangTaiMoHinh": "正在下载语音识别模型... {p}%",

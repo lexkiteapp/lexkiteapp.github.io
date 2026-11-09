@@ -1983,6 +1983,8 @@
   "call.ui.taiGoiNhanDang": "Chrome의 음성 팩 다운로드(기기에서 실행)",
   "call.ui.nhanDangTrenMay": "Whisper로 기기에서 인식(1회 최대 40MB 다운로드, Wi-Fi 권장)",
   "call.ui.dungDichVuCua": "브라우저의 음성 서비스를 사용하세요. (인식을 위해 오디오가 다른 곳으로 전송됩니다.)",
+  "call.ui.dungHeThongNative": "시스템 음성 인식 사용 (음성이 인식을 위해 전송됩니다)",
+  "call.ui.dangDungHeThongNative": "시스템 음성 인식 사용 중: 음성이 인식을 위해 서버로 전송됩니다.",
   "call.ui.chiChamGoiY": "제안을 탭하거나 입력만 하세요.",
   "call.ui.dangTaiGoiNhan": "음성 팩 다운로드 중…",
   "call.ui.dangTaiMoHinh": "음성 인식 모델을 다운로드하는 중… {p}%",

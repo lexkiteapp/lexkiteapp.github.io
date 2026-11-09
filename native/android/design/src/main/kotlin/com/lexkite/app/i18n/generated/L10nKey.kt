@@ -1987,6 +1987,8 @@ enum class L10nKey(val id: String) {
     callUiTaiGoiNhanDang("call.ui.taiGoiNhanDang"),
     callUiNhanDangTrenMay("call.ui.nhanDangTrenMay"),
     callUiDungDichVuCua("call.ui.dungDichVuCua"),
+    callUiDungHeThongNative("call.ui.dungHeThongNative"),
+    callUiDangDungHeThongNative("call.ui.dangDungHeThongNative"),
     callUiChiChamGoiY("call.ui.chiChamGoiY"),
     callUiDangTaiGoiNhan("call.ui.dangTaiGoiNhan"),
     callUiDangTaiMoHinh("call.ui.dangTaiMoHinh"),

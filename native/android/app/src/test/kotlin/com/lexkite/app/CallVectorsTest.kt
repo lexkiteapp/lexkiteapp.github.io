@@ -250,7 +250,7 @@ class CallVectorsTest {
                     wo.o("title").let { t -> if (t.containsKey("text")) assertEquals("$tag.cue.title", t.s("text"), cu.text) else assertEquals("$tag.cue.title", t.s("k"), cu.tr?.k) }
                     if (cu.points.isNotEmpty()) assertEquals(Tr("Bạn nên nói:").k, wo.o("hint").s("k")); if (cu.long) assertEquals("Tôi nói xong", wo.o("done").s("k")) }
                 st["clock"]?.let { w -> assertEquals("$tag.clock", w.s(), view.cue?.clock) }
-                st["longWords"]?.let { w -> assertEquals("$tag.longWords", w.o("v").n("n").toInt(), view.cue?.longWords) }
+                st["longWords"]?.let { w -> assertEquals("$tag.longWords", w.jsonObject.o("v").n("n").toInt(), view.cue?.longWords) }
                 st["ask"]?.let { w -> check("$tag.ask", w.jsonObject["choices"], view.ask!!.map { ch -> obj("id" to ch.id, "icon" to ch.icon, "k" to ch.label.k) }) }
                 st["toasts"]?.let { w -> check("$tag.toasts", w, f.toasts.drop(mToast).map { t -> if (t.first == "recError") obj("recError" to t.second) else obj("k" to t.second) }) }
                 st["rewards"]?.let { w -> check("$tag.rewards", w, f.rewards.drop(mRew)) }

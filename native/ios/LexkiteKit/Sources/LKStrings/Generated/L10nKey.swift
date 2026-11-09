@@ -1985,6 +1985,8 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case callUiTaiGoiNhanDang = "call.ui.taiGoiNhanDang"
     case callUiNhanDangTrenMay = "call.ui.nhanDangTrenMay"
     case callUiDungDichVuCua = "call.ui.dungDichVuCua"
+    case callUiDungHeThongNative = "call.ui.dungHeThongNative"
+    case callUiDangDungHeThongNative = "call.ui.dangDungHeThongNative"
     case callUiChiChamGoiY = "call.ui.chiChamGoiY"
     case callUiDangTaiGoiNhan = "call.ui.dangTaiGoiNhan"
     case callUiDangTaiMoHinh = "call.ui.dangTaiMoHinh"

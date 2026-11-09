@@ -1983,6 +1983,8 @@
   "call.ui.taiGoiNhanDang": "Descargue el paquete de voz de Chrome (se ejecuta en su dispositivo)",
   "call.ui.nhanDangTrenMay": "Reconocer en su dispositivo con Whisper (descarga única de ~40 MB, se recomienda Wi-Fi)",
   "call.ui.dungDichVuCua": "Utilice el servicio de voz del navegador (su audio se envía para ser reconocido)",
+  "call.ui.dungHeThongNative": "Usar el reconocimiento de voz del sistema (tu audio se envía para reconocerlo)",
+  "call.ui.dangDungHeThongNative": "Usando el reconocimiento de voz del sistema: tu audio se envía a un servidor para reconocerlo.",
   "call.ui.chiChamGoiY": "Solo toca sugerencias o escribe",
   "call.ui.dangTaiGoiNhan": "Descargando el paquete de discursos...",
   "call.ui.dangTaiMoHinh": "Descargando el modelo de reconocimiento de voz… {p}%",

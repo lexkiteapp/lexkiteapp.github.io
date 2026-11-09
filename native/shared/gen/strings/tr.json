@@ -1983,6 +1983,8 @@
   "call.ui.taiGoiNhanDang": "Chrome'un konuşma paketini indirin (cihazınızda çalışır)",
   "call.ui.nhanDangTrenMay": "Cihazınızı Whisper ile tanıyın (tek seferlik ~40 MB indirme, Wi-Fi önerilir)",
   "call.ui.dungDichVuCua": "Tarayıcının konuşma hizmetini kullanın (sesiniz tanınmak üzere gönderilir)",
+  "call.ui.dungHeThongNative": "Sistemin konuşma tanımasını kullan (sesin tanınmak üzere gönderilir)",
+  "call.ui.dangDungHeThongNative": "Sistemin konuşma tanıması kullanılıyor: sesin tanınmak üzere bir sunucuya gönderilir.",
   "call.ui.chiChamGoiY": "Yalnızca önerilere dokunun veya yazın",
   "call.ui.dangTaiGoiNhan": "Konuşma paketi indiriliyor…",
   "call.ui.dangTaiMoHinh": "Konuşma tanıma modeli indiriliyor… {p}%",

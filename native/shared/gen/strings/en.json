@@ -1983,6 +1983,8 @@
   "call.ui.taiGoiNhanDang": "Download Chrome’s speech pack (runs on your device)",
   "call.ui.nhanDangTrenMay": "Recognize on your device with Whisper (one-time ~40 MB download, Wi-Fi recommended)",
   "call.ui.dungDichVuCua": "Use the browser’s speech service (your audio is sent away to be recognized)",
+  "call.ui.dungHeThongNative": "Use the system’s speech recognition (your audio is sent away to be recognized)",
+  "call.ui.dangDungHeThongNative": "Using the system’s speech recognition: your audio is sent to a server to be recognized.",
   "call.ui.chiChamGoiY": "Only tap suggestions or type",
   "call.ui.dangTaiGoiNhan": "Downloading the speech pack…",
   "call.ui.dangTaiMoHinh": "Downloading the speech recognition model… {p}%",

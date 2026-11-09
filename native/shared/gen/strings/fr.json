@@ -1983,6 +1983,8 @@
   "call.ui.taiGoiNhanDang": "Téléchargez le pack vocal de Chrome (fonctionne sur votre appareil)",
   "call.ui.nhanDangTrenMay": "Reconnaître sur votre appareil avec Whisper (téléchargement unique d'environ 40 Mo, Wi-Fi recommandé)",
   "call.ui.dungDichVuCua": "Utilisez le service vocal du navigateur (votre audio est envoyé pour être reconnu)",
+  "call.ui.dungHeThongNative": "Utiliser la reconnaissance vocale du système (ton audio est envoyé pour être reconnu)",
+  "call.ui.dangDungHeThongNative": "Reconnaissance vocale du système en cours : ton audio est envoyé à un serveur pour être reconnu.",
   "call.ui.chiChamGoiY": "Appuyez uniquement sur les suggestions ou tapez",
   "call.ui.dangTaiGoiNhan": "Téléchargement du pack vocal…",
   "call.ui.dangTaiMoHinh": "Téléchargement du modèle de reconnaissance vocale… {p}%",

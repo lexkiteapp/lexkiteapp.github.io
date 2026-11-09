@@ -1984,6 +1984,8 @@
   "call.ui.taiGoiNhanDang": "Tải gói nhận dạng của Chrome (chạy trên máy)",
   "call.ui.nhanDangTrenMay": "Nhận dạng trên máy bằng Whisper (tải ~40 MB một lần, nên dùng Wi-Fi)",
   "call.ui.dungDichVuCua": "Dùng dịch vụ của trình duyệt (âm thanh được gửi đi để nhận dạng)",
+  "call.ui.dungHeThongNative": "Dùng nhận dạng giọng nói của hệ thống (âm thanh được gửi đi để nhận dạng)",
+  "call.ui.dangDungHeThongNative": "Đang dùng nhận dạng giọng nói của hệ thống: âm thanh được gửi tới máy chủ để nhận dạng.",
   "call.ui.chiChamGoiY": "Chỉ chạm gợi ý hoặc gõ phím",
   "call.ui.dangTaiGoiNhan": "Đang tải gói nhận dạng…",
   "call.ui.dangTaiMoHinh": "Đang tải mô hình nhận dạng giọng nói… {p}%",

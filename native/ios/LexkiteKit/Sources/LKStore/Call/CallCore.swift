@@ -575,6 +575,10 @@ public enum CallAsr {
         if pref == "cloud" && system { return .cloud }
         return system ? .ask : .tap
     }
+    /// What the phone shows for a web key: the web says "browser" for the cloud recogniser, the phone says "system" (vectors keep the web key, tests compare it).
+    public static func shown(_ k: L10nKey) -> L10nKey {
+        switch k { case .callUiDangDungNhanDang: return .callUiDangDungHeThongNative; case .callUiDungDichVuCua: return .callUiDungHeThongNative; default: return k }
+    }
     /// the privacy line of a mode: (icon, text id)
     public static func privacy(_ m: Mode) -> (icon: String, key: L10nKey) {
         switch m {
