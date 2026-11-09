@@ -2,17 +2,17 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 63.6 / 100**
+**Tổng: 61.5 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
 | Kho từ | **54.7** | 46.2 | 54.7% | 100% | 0 |
-| Ngữ pháp | **72.8** | 54.5 | 72.8% | 100% | 0 |
-| Giao tiếp | **52.3** | 15.2 | 52.3% | 100% | 0 |
-| 4 kỹ năng | **62.2** | 48.2 | 62.2% | 100% | 0 |
+| Ngữ pháp | **54.5** | 54.5 | 54.5% | 100% | 0 |
+| Giao tiếp | **67.7** | 15.2 | 67.7% | 100% | 0 |
+| 4 kỹ năng | **49.2** | 48.2 | 49.2% | 100% | 0 |
 | Đề thi | **31.7** | 30.4 | 31.7% | 100% | 0 |
-| Khung Can-do | **81.3** | 79.3 | 81.3% | 100% | 0 |
-| Dễ học – dễ nhớ | **91.4** | 90.7 | 91.4% | 100% | 0 |
+| Khung Can-do | **80.3** | 79.3 | 80.3% | 100% | 0 |
+| Dễ học – dễ nhớ | **91.5** | 90.7 | 91.5% | 100% | 0 |
 | i18n | **62.7** | 62.7 | 62.7% | 100% | 0 |
 
 ## Kho từ
@@ -32,16 +32,16 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| bài A1 | 15 / 15 | 100% | 8 |
+| bài A1 | 3 / 15 | 20% | 8 |
 | bài A2 | 14 / 15 | 93% | 8 |
 | bài B1 | 30 / 30 | 100% | 8 |
 | bài B2 | 27 / 27 | 100% | 8 |
 | bài C1 | 6 / 15 | 40% | 8 |
-| bài C2 (chưa làm) | 10 / 10 | 100% | 8 |
-| trắc nghiệm | 1320 / 3000 | 44% | 20 |
-| tự luận | 1461 / 3000 | 49% | 20 |
+| bài C2 (chưa làm) | 0 / 10 | 0% | 8 |
+| trắc nghiệm | 1056 / 3000 | 35% | 20 |
+| tự luận | 1125 / 3000 | 38% | 20 |
 | kho điểm ngữ pháp | 300 / 300 | 100% | 12 |
-| điểm đã có bài đúng cấp | 209 / 300 | 70% | 12 |
+| điểm đã có bài đúng cấp | 157 / 300 | 52% | 12 |
 
 ## Giao tiếp
 
@@ -51,7 +51,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | roleplay | 31 / 60 | 52% | 20 |
 | tình huống Play & Speak | 40 / 40 | 100% | 20 |
 | mục gold (giải thích cách dùng) | 284 / 1000 | 28% | 20 |
-| sổ mẫu câu theo chức năng (chưa làm) | 23 / 100 | 23% | 20 |
+| sổ mẫu câu theo chức năng (chưa làm) | 100 / 100 | 100% | 20 |
 
 ## 4 kỹ năng
 
@@ -68,7 +68,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Nói: chủ đề | 32 / 60 | 53% | 10 |
 | Nói: câu trả lời mẫu | 343 / 600 | 57% | 10 |
 | Viết: bài mẫu | 232 / 400 | 58% | 18 |
-| trung gian (mediation) (chưa làm) | 30 / 30 | 100% | 14 |
+| trung gian (mediation) (chưa làm) | 2 / 30 | 7% | 14 |
 
 ## Đề thi
 
@@ -98,14 +98,14 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 10647 / 10647 | 100% | 35 |
-| mục tiêu đã có nội dung luyện | 167 / 600 | 28% | 25 |
+| nội dung có lo hợp lệ | 10625 / 10625 | 100% | 35 |
+| mục tiêu đã có nội dung luyện | 142 / 600 | 24% | 25 |
 
 ## Dễ học – dễ nhớ
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| Ngữ pháp | 96 / 100 | 96% | 25 |
+| Ngữ pháp | 96.4 / 100 | 96% | 25 |
 | Bài lộ trình | 100 / 100 | 100% | 25 |
 | Bộ từ | 74.3 / 100 | 74% | 25 |
 | Kỹ năng | 95.4 / 100 | 95% | 25 |

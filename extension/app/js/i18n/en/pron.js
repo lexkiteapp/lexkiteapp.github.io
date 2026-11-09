@@ -80,4 +80,5 @@
 "Giọng bạn chậm": "Your voice, slow",
 "Mẫu rồi giọng bạn": "Model, then you",
 "Luyện tiếp:": "Practise next:",
+"Shadowing": "Shadowing",
 }); })(typeof self !== 'undefined' ? self : this);

@@ -1,24 +1,24 @@
 {
- "total": 59.6,
+ "total": 61.5,
  "areas": {
   "vocab": {
    "name": "Kho từ",
-   "score": 54.5,
-   "coverage": 54.5,
+   "score": 54.7,
+   "coverage": 54.7,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "từ#loại duy nhất",
-     "have": 9759,
+     "have": 9775,
      "std": 20000,
      "w": 25,
      "future": false
     },
     {
      "k": "IPA·nghĩa·định nghĩa·ví dụ·CEFR",
-     "have": 9759,
-     "std": 9759,
+     "have": 9775,
+     "std": 9775,
      "w": 20,
      "future": false
     },
@@ -31,28 +31,28 @@
     },
     {
      "k": "đồng nghĩa",
-     "have": 2917,
+     "have": 2923,
      "std": 20000,
      "w": 8,
      "future": false
     },
     {
      "k": "IPA Mỹ",
-     "have": 6472,
+     "have": 6486,
      "std": 20000,
      "w": 5,
      "future": false
     },
     {
      "k": "ảnh theo nghĩa",
-     "have": 7432,
+     "have": 7481,
      "std": 20000,
      "w": 15,
      "future": false
     },
     {
      "k": "C2",
-     "have": 672,
+     "have": 685,
      "std": 1000,
      "w": 10,
      "future": false
@@ -147,8 +147,8 @@
   },
   "comm": {
    "name": "Giao tiếp",
-   "score": 52.3,
-   "coverage": 52.3,
+   "score": 67.7,
+   "coverage": 67.7,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -182,7 +182,7 @@
     },
     {
      "k": "sổ mẫu câu theo chức năng",
-     "have": 23,
+     "have": 100,
      "std": 100,
      "w": 20,
      "future": true
@@ -433,8 +433,8 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 10609,
-     "std": 10609,
+     "have": 10625,
+     "std": 10625,
      "w": 35,
      "future": false
     },
