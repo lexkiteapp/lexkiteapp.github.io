@@ -2,19 +2,25 @@
  * js/lexicon-img.json {v:3, base, sv, on, n} + n shards js/vimg/NN.json chosen by FNV-1a(word) % n), run in node:vm with fetch served
  * from the repo's own web/js files. Native apps fetch the same head + shard from https://lexkite.com/js/… (cached), then
  * image = base + hash + '.webp'. Rules carried by the vector: exact word#pos (no other part of speech), scene images (s) need an
- * example sentence, dark mode hides cream-background images (a = false). Exports vimgVectors() → vectors/vimg.json. */
+ * example sentence, dark mode hides cream-background images (a = false). Exports vimgVectors() → vectors/vimg.json.
+ * DATA IS A FIXED FIXTURE (not web/js/vimg/*): the image bots add shards every few hours and commit straight to main ([skip ci]), which made
+ * `gen.mjs --check` drift on every PR (09/11, cpack PR #951). The vector tests the LOGIC (key/pos/shard/mode/scene/dark rules) of the real
+ * vocab-img.js on a deterministic head + shards derived from the word list; native apps fetch the live head/shards at run time. */
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
+import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const R = p => path.join(ROOT, p);
 
 export async function vimgVectors(words) {
+  const FIX_HEAD = { v: 3, base: 'https://media.lexkite.com/vimg/', sv: 's1', on: true, n: 64 }, fixShards = {};
   const fetchLocal = async u => {
-    const rel = new URL(u).pathname.replace(/^.*?\/js\//, 'js/'); const f = R('web/' + rel); // app pages load js/… (web/app/js = web/js on Pages)
-    return fs.existsSync(f) ? { ok: true, json: async () => JSON.parse(fs.readFileSync(f, 'utf8')) } : { ok: false, json: async () => null };
+    const rel = new URL(u).pathname.replace(/^.*?\/js\//, 'js/'); // app pages load js/… (web/app/js = web/js on Pages)
+    const m = /^js\/vimg\/(\d\d)\.json$/.exec(rel), j = rel === 'js/lexicon-img.json' ? FIX_HEAD : (m ? fixShards[+m[1]] || {} : null);
+    return j ? { ok: true, json: async () => j } : { ok: false, json: async () => null };
   };
   const store = {};
   const sb = { console, URL, Promise, Math, fetch: fetchLocal, navigator: {}, location: { href: 'https://lexkite.com/' },
@@ -22,8 +28,9 @@ export async function vimgVectors(words) {
   sb.self = sb; sb.globalThis = sb; vm.createContext(sb);
   vm.runInContext(fs.readFileSync(R('web/js/vocab-img.js'), 'utf8'), sb, { filename: 'web/js/vocab-img.js' });
   const V = sb.VImg;
-  const head = JSON.parse(fs.readFileSync(R('web/js/lexicon-img.json'), 'utf8'));
-  if (head.v !== 3 || !head.n) throw new Error('gen-vimg: expected the v3 image index head');
+  const head = FIX_HEAD;
+  const real = JSON.parse(fs.readFileSync(R('web/js/lexicon-img.json'), 'utf8'));
+  if (real.v !== 3 || !real.n) throw new Error('gen-vimg: expected the v3 image index head'); // the format the fixture mirrors
   // staged rollout: the REAL mode() for each device/config state (1 = on, 0 = off, -1 = rollout → on iff head.on). Native maps
   // Remote Config vocab_img ("on"/"off"/"") + vocab_img_pct + a fixed per-device bucket to the same inputs (lk.vimg / lk.vimg.adm = web-only test overrides).
   const modeCases = [];
@@ -41,7 +48,10 @@ export async function vimgVectors(words) {
   if (!shSrc) throw new Error('gen-vimg: SH not found in web/js/vocab-img.js');
   const SH = vm.runInNewContext('(' + shSrc[1] + ')');
   const posCases = ['n', 'noun', 'Noun', 'danh từ', 'v', 'verb', 'động từ', 'phr v', 'phrasal verb', 'adj', 'adjective', 'tính từ', 'adv', 'trạng từ', 'prep', '', null];
-  const shards = {}; for (let i = 0; i < head.n; i++) { const f = R(`web/js/vimg/${String(i).padStart(2, '0')}.json`); if (fs.existsSync(f)) shards[i] = JSON.parse(fs.readFileSync(f, 'utf8')); }
+  // fixture shards (deterministic from the word list): ~1/2 of word#pos have a picture (hash = sha1(key)[0..16]), 1/5 of those are scenes, 2/3 transparent
+  const shards = fixShards, h1 = k => crypto.createHash('sha1').update(k).digest();
+  for (const [w, p] of words) { const k = V.key(w, p), d = h1(k); if (d[0] % 2) continue; const sh = SH(w.trim(), head.n), s = shards[sh] || (shards[sh] = { m: {}, s: [], a: [] });
+    s.m[k] = d.toString('hex').slice(0, 16); if (d[1] % 5 === 0) s.s.push(k); if (d[2] % 3) s.a.push(k); }
   const cases = [];
   for (const [w, p] of words) {
     const k = V.key(w, p), sh = SH(w.trim(), head.n), s = shards[sh] || {};
