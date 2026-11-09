@@ -1,0 +1,923 @@
+{
+ "id": "office-intro",
+ "group": "work",
+ "cefr": "B1",
+ "title": {
+  "en": "Meeting new colleagues",
+  "vi": "Làm quen đồng nghiệp mới",
+  "es": "Conocer a los compañeros",
+  "pt": "Conhecer os colegas",
+  "fr": "Faire connaissance avec ses collègues",
+  "de": "Neue Kolleginnen und Kollegen kennenlernen",
+  "id": "Berkenalan dengan rekan kerja",
+  "th": "ทำความรู้จักเพื่อนร่วมงานใหม่",
+  "zh": "认识新同事",
+  "ja": "新しい同僚と知り合う",
+  "ko": "새 동료와 인사하기",
+  "hi": "नए सहकर्मियों से मिलना",
+  "ar": "التعرّف على زملاء العمل الجدد",
+  "ru": "Знакомство с новыми коллегами",
+  "tr": "Yeni iş arkadaşlarıyla tanışma"
+ },
+ "goal": {
+  "en": "Introduce yourself in your first week!",
+  "vi": "Tự giới thiệu ngay tuần đầu đi làm!",
+  "es": "¡Preséntate en tu primera semana!",
+  "pt": "Apresente-se na sua primeira semana!",
+  "fr": "Présentez-vous dès votre première semaine !",
+  "de": "Stell dich in deiner ersten Woche vor!",
+  "id": "Perkenalkan dirimu di minggu pertama!",
+  "th": "แนะนำตัวในสัปดาห์แรกของการทำงาน!",
+  "zh": "在入职第一周做好自我介绍！",
+  "ja": "入社1週目に自己紹介しよう！",
+  "ko": "첫 주에 자기소개를 해요!",
+  "hi": "पहले हफ़्ते में अपना परिचय दें!",
+  "ar": "قدّم نفسك في أسبوعك الأول!",
+  "ru": "Представься в первую неделю на работе!",
+  "tr": "İlk haftanda kendini tanıt!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "intro",
+   "title": {
+    "en": "Introduce yourself",
+    "vi": "Tự giới thiệu",
+    "es": "Preséntate",
+    "pt": "Apresente-se",
+    "fr": "Se présenter",
+    "de": "Sich vorstellen",
+    "id": "Perkenalkan diri",
+    "th": "แนะนำตัว",
+    "zh": "自我介绍",
+    "ja": "自己紹介",
+    "ko": "자기소개",
+    "hi": "अपना परिचय दें",
+    "ar": "قدّم نفسك",
+    "ru": "Представиться",
+    "tr": "Kendini tanıt"
+   },
+   "lines": [
+    "i1",
+    "i2",
+    "i3",
+    "i4"
+   ]
+  },
+  {
+   "id": "help",
+   "title": {
+    "en": "Ask for help",
+    "vi": "Nhờ giúp đỡ",
+    "es": "Pide ayuda",
+    "pt": "Peça ajuda",
+    "fr": "Demander de l'aide",
+    "de": "Um Hilfe bitten",
+    "id": "Minta bantuan",
+    "th": "ขอความช่วยเหลือ",
+    "zh": "请求帮助",
+    "ja": "助けを求める",
+    "ko": "도움 청하기",
+    "hi": "मदद माँगें",
+    "ar": "اطلب المساعدة",
+    "ru": "Попросить о помощи",
+    "tr": "Yardım iste"
+   },
+   "lines": [
+    "h1",
+    "h2",
+    "h3",
+    "h4"
+   ]
+  },
+  {
+   "id": "chat",
+   "title": {
+    "en": "Chat and plan",
+    "vi": "Trò chuyện và hẹn",
+    "es": "Charla y planes",
+    "pt": "Conversa e planos",
+    "fr": "Discuter et organiser",
+    "de": "Smalltalk und Pläne",
+    "id": "Mengobrol dan membuat rencana",
+    "th": "คุยและนัดหมาย",
+    "zh": "闲聊与约定",
+    "ja": "雑談と約束",
+    "ko": "대화와 약속",
+    "hi": "बातचीत और योजना",
+    "ar": "دردشة وخطط",
+    "ru": "Беседа и планы",
+    "tr": "Sohbet ve plan"
+   },
+   "lines": [
+    "c1",
+    "c2",
+    "c3",
+    "c4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "i1",
+   "who": "customer",
+   "en": "Hi, I'm Linh. I've just joined the marketing team this week.",
+   "variants": {
+    "polite": "Hello, my name is Linh, and I've just joined the marketing team this week.",
+    "casual": "Hi, I'm Linh. Just started in marketing."
+   },
+   "gloss": {
+    "en": "Introducing yourself as a new colleague.",
+    "vi": "Chào bạn, mình là Linh. Tuần này mình mới vào nhóm marketing.",
+    "es": "Hola, soy Linh. Esta semana me he incorporado al equipo de marketing.",
+    "pt": "Oi, eu sou a Linh. Entrei esta semana na equipe de marketing.",
+    "fr": "Bonjour, je suis Linh. Je viens d'intégrer l'équipe marketing cette semaine.",
+    "de": "Hallo, ich bin Linh. Ich bin diese Woche neu ins Marketingteam gekommen.",
+    "id": "Hai, saya Linh. Minggu ini saya baru bergabung dengan tim pemasaran.",
+    "th": "สวัสดีค่ะ ฉันชื่อลินห์ เพิ่งเข้ามาอยู่ทีมการตลาดเมื่อสัปดาห์นี้ค่ะ",
+    "zh": "你好，我是Linh。这周我刚加入市场部团队。",
+    "ja": "こんにちは、Linhです。今週マーケティングチームに入ったばかりです。",
+    "ko": "안녕하세요, 린이에요. 이번 주에 마케팅팀에 막 합류했어요.",
+    "hi": "नमस्ते, मैं लिन्ह हूँ। मैं इसी हफ़्ते मार्केटिंग टीम में शामिल हुई हूँ।",
+    "ar": "مرحبًا، أنا لينه. انضممتُ إلى فريق التسويق هذا الأسبوع.",
+    "ru": "Здравствуйте, я Линь. Я только на этой неделе пришла в команду маркетинга.",
+    "tr": "Merhaba, ben Linh. Bu hafta pazarlama ekibine yeni katıldım."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "joined",
+     "ipa": "/dʒɔɪnd/",
+     "hi": "JOYND",
+     "note": {
+      "en": "Say it as one syllable: JOYND, not jo-ined.",
+      "vi": "Đọc một âm tiết: JOYND, không tách thành “jo-in-đ”.",
+      "es": "Una sola sílaba: JOYND, no jo-ined.",
+      "pt": "Uma sílaba só: JOYND, não jo-ined.",
+      "fr": "Une seule syllabe : JOYND, pas jo-ined.",
+      "de": "Nur eine Silbe: JOYND, nicht jo-ined.",
+      "id": "Satu suku kata: JOYND, bukan jo-ined.",
+      "th": "ออกเสียงพยางค์เดียว: จอยน์ด ไม่ใช่ จอย-เอ็ด",
+      "zh": "只有一个音节：JOYND，不要读成 jo-ined。",
+      "ja": "1音節で「ジョインド」。「ジョイ・ネッド」ではありません。",
+      "ko": "한 음절로 ‘조인드’라고 하세요. ‘조이-인드’가 아니에요.",
+      "hi": "एक ही अक्षर में बोलें: जॉइन्ड, ‘जॉइ-एड’ नहीं।",
+      "ar": "مقطع واحد: جُوينْد، وليس جُوي-إد.",
+      "ru": "Один слог: ДЖОЙНД, а не джо-ин-эд.",
+      "tr": "Tek hece: CÖYND, jo-ined değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "i2",
+   "who": "barista",
+   "en": "Welcome aboard! I'm Daniel, and I work in finance on the second floor.",
+   "variants": {
+    "polite": "Welcome to the company. My name is Daniel, and I work in finance on the second floor.",
+    "casual": "Welcome! I'm Dan, finance, second floor."
+   },
+   "gloss": {
+    "en": "A colleague welcomes you and introduces himself.",
+    "vi": "Chào mừng bạn đến với công ty! Mình là Daniel, làm bên tài chính ở tầng hai.",
+    "es": "¡Bienvenida al equipo! Soy Daniel y trabajo en finanzas, en la segunda planta.",
+    "pt": "Bem-vinda à equipe! Sou o Daniel e trabalho no financeiro, no segundo andar.",
+    "fr": "Bienvenue à bord ! Moi, c'est Daniel, je travaille à la finance, au deuxième étage.",
+    "de": "Willkommen im Team! Ich bin Daniel und arbeite im Finanzbereich im zweiten Stock.",
+    "id": "Selamat bergabung! Saya Daniel, saya bekerja di bagian keuangan di lantai dua.",
+    "th": "ยินดีต้อนรับนะครับ ผมแดเนียล ทำงานฝ่ายการเงินอยู่ชั้นสองครับ",
+    "zh": "欢迎加入！我是Daniel，在二楼的财务部工作。",
+    "ja": "ようこそ！ダニエルです。2階の財務部で働いています。",
+    "ko": "환영해요! 저는 대니얼이고 2층 재무팀에서 일해요.",
+    "hi": "टीम में स्वागत है! मैं डैनियल हूँ और दूसरी मंज़िल पर फ़ाइनेंस विभाग में काम करता हूँ।",
+    "ar": "أهلًا بك معنا! أنا دانيال، وأعمل في قسم المالية في الطابق الثاني.",
+    "ru": "Добро пожаловать в команду! Я Даниэль, работаю в финансовом отделе на втором этаже.",
+    "tr": "Aramıza hoş geldin! Ben Daniel, ikinci kattaki finans bölümünde çalışıyorum."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "finance",
+     "ipa": "/ˈfaɪ.næns/",
+     "hi": "FY",
+     "note": {
+      "en": "Stress the first syllable: FY-nans, with the vowel of “eye”.",
+      "vi": "Nhấn âm tiết đầu: FY-nần, nguyên âm như trong “eye”.",
+      "es": "Acentúa la primera sílaba: FAI-nans, con la vocal de “eye”.",
+      "pt": "Acentue a primeira sílaba: FAI-nans, com a vogal de “eye”.",
+      "fr": "Accentuez la première syllabe : FAÏ-nans, avec la voyelle de « eye ».",
+      "de": "Betone die erste Silbe: FAI-nans, mit dem Vokal von „eye“.",
+      "id": "Tekankan suku kata pertama: FAI-nans, dengan vokal seperti “eye”.",
+      "th": "เน้นพยางค์แรก: ไฟ-แนนซ์ สระเหมือนคำว่า eye",
+      "zh": "重音在第一个音节：FY-nans，元音和 eye 一样。",
+      "ja": "最初の音節を強く：ファイ・ナンス。母音は eye と同じです。",
+      "ko": "첫 음절에 강세: 파이-낸스. 모음은 eye와 같아요.",
+      "hi": "पहले अक्षर पर ज़ोर दें: फ़ाइ-नैन्स, स्वर ‘eye’ जैसा।",
+      "ar": "شدّد على المقطع الأول: فاي-نانس، بحرف العلة نفسه في eye.",
+      "ru": "Ударение на первый слог: ФАЙ-нанс, гласный как в eye.",
+      "tr": "Vurgu ilk hecede: FAY-nıns, ünlü “eye” gibi."
+     }
+    }
+   ]
+  },
+  {
+   "id": "i3",
+   "who": "customer",
+   "en": "What does your team usually work on?",
+   "variants": {
+    "polite": "Could you tell me what your team usually works on?",
+    "casual": "So what does your team do?"
+   },
+   "gloss": {
+    "en": "Asking what the other team does.",
+    "vi": "Nhóm của bạn thường làm những việc gì vậy?",
+    "es": "¿En qué suele trabajar tu equipo?",
+    "pt": "Em que a sua equipe costuma trabalhar?",
+    "fr": "Sur quoi votre équipe travaille-t-elle habituellement ?",
+    "de": "Woran arbeitet euer Team normalerweise?",
+    "id": "Biasanya tim kamu mengerjakan apa saja?",
+    "th": "ปกติทีมของคุณทำงานเกี่ยวกับอะไรบ้างคะ",
+    "zh": "你们团队平时主要负责什么？",
+    "ja": "皆さんのチームは普段どんな仕事をしているんですか？",
+    "ko": "팀에서는 보통 어떤 일을 하세요?",
+    "hi": "आपकी टीम आमतौर पर किस पर काम करती है?",
+    "ar": "ما الذي يعمل عليه فريقكم عادةً؟",
+    "ru": "Над чем обычно работает ваша команда?",
+    "tr": "Ekibiniz genellikle neyle ilgileniyor?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "i4",
+   "who": "customer",
+   "en": "I used to work at a small agency, so everything here is quite new to me.",
+   "variants": {
+    "polite": "I used to work at a small agency, so everything here is still quite new to me.",
+    "casual": "I worked at a small agency before, so it's all new."
+   },
+   "gloss": {
+    "en": "Explaining your background and that you are still learning.",
+    "vi": "Trước đây mình làm ở một công ty nhỏ nên mọi thứ ở đây còn khá mới với mình.",
+    "es": "Antes trabajaba en una agencia pequeña, así que todo aquí me resulta bastante nuevo.",
+    "pt": "Eu trabalhava em uma agência pequena, então tudo aqui é bem novo para mim.",
+    "fr": "Je travaillais dans une petite agence, donc tout est assez nouveau pour moi ici.",
+    "de": "Früher habe ich in einer kleinen Agentur gearbeitet, deshalb ist hier alles ziemlich neu für mich.",
+    "id": "Dulu saya bekerja di agensi kecil, jadi semua hal di sini cukup baru bagi saya.",
+    "th": "ก่อนหน้านี้ฉันทำงานที่เอเจนซีเล็กๆ ที่นี่เลยมีอะไรใหม่สำหรับฉันเยอะมากค่ะ",
+    "zh": "我以前在一家小型公司工作，所以这里的一切对我来说都挺新鲜的。",
+    "ja": "以前は小さな代理店で働いていたので、ここのことは何もかも新鮮です。",
+    "ko": "예전에 작은 에이전시에서 일해서 여기는 모든 게 꽤 새로워요.",
+    "hi": "मैं पहले एक छोटी एजेंसी में काम करती थी, इसलिए यहाँ सब कुछ मेरे लिए काफ़ी नया है।",
+    "ar": "كنتُ أعمل في وكالة صغيرة، لذلك كل شيء هنا جديد عليّ تمامًا.",
+    "ru": "Раньше я работала в небольшом агентстве, поэтому здесь для меня всё довольно ново.",
+    "tr": "Eskiden küçük bir ajansta çalışıyordum, bu yüzden burada her şey benim için oldukça yeni."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "h1",
+   "who": "customer",
+   "en": "Sorry to bother you, but could you show me where the meeting rooms are?",
+   "variants": {
+    "polite": "Sorry to trouble you, but would you mind showing me where the meeting rooms are?",
+    "casual": "Hey, where are the meeting rooms?"
+   },
+   "gloss": {
+    "en": "Politely asking a colleague to show you the meeting rooms.",
+    "vi": "Xin lỗi làm phiền, bạn chỉ giúp mình phòng họp ở đâu được không?",
+    "es": "Perdona la molestia, ¿podrías indicarme dónde están las salas de reuniones?",
+    "pt": "Desculpe incomodar, você poderia me mostrar onde ficam as salas de reunião?",
+    "fr": "Désolé de vous déranger, pourriez-vous m'indiquer où sont les salles de réunion ?",
+    "de": "Entschuldige die Störung, kannst du mir zeigen, wo die Besprechungsräume sind?",
+    "id": "Maaf mengganggu, bisa tunjukkan di mana ruang rapatnya?",
+    "th": "ขอโทษที่รบกวนนะคะ ช่วยพาไปดูห้องประชุมหน่อยได้ไหมคะ",
+    "zh": "不好意思打扰一下，你能告诉我会议室在哪儿吗？",
+    "ja": "お忙しいところすみません、会議室の場所を教えてもらえますか？",
+    "ko": "바쁘신데 죄송한데, 회의실이 어디 있는지 알려 주시겠어요?",
+    "hi": "परेशान करने के लिए माफ़ कीजिए, क्या आप मुझे मीटिंग रूम की जगह दिखा सकते हैं?",
+    "ar": "آسفة على الإزعاج، هل يمكنك أن تدلّني على أماكن قاعات الاجتماعات؟",
+    "ru": "Простите, что отвлекаю, не подскажете, где находятся переговорные?",
+    "tr": "Rahatsız ettiğim için kusura bakma, toplantı odalarının nerede olduğunu gösterebilir misin?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "meeting",
+     "ipa": "/ˈmiː.tɪŋ/",
+     "hi": "MEE",
+     "note": {
+      "en": "Long vowel in the first syllable: MEE-ting, not mi-ting.",
+      "vi": "Nguyên âm dài ở âm đầu: MI-ting, kéo dài chữ i.",
+      "es": "Vocal larga en la primera sílaba: MII-ting, no mi-ting.",
+      "pt": "Vogal longa na primeira sílaba: MII-ting, não mi-ting.",
+      "fr": "Voyelle longue à la première syllabe : MII-ting, pas mi-ting.",
+      "de": "Langer Vokal in der ersten Silbe: MIE-ting, nicht mi-ting.",
+      "id": "Vokal panjang di suku kata pertama: MII-ting, bukan mi-ting.",
+      "th": "สระเสียงยาวในพยางค์แรก: มี-ทิง ไม่ใช่ มิ-ทิง",
+      "zh": "第一个音节是长音：MEE-ting，不要读成短的 mi。",
+      "ja": "最初の音節は長く「ミーティング」。短い「ミ」にしないでください。",
+      "ko": "첫 음절을 길게: 미-팅. 짧은 ‘미’가 아니에요.",
+      "hi": "पहले अक्षर में लंबा स्वर: मी-टिंग, छोटा ‘मि’ नहीं।",
+      "ar": "حرف علة طويل في المقطع الأول: مي-تِنغ، وليس مِ-تِنغ.",
+      "ru": "Долгий гласный в первом слоге: МИ-тинг, а не краткий «и».",
+      "tr": "İlk hecede uzun ünlü: Mİİ-ting, kısa “i” değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "h2",
+   "who": "barista",
+   "en": "Of course. Take the stairs up one floor and turn left at the kitchen.",
+   "variants": {
+    "polite": "Certainly. If you take the stairs up one floor, you'll find them just past the kitchen on your left.",
+    "casual": "Sure, up one floor, left at the kitchen."
+   },
+   "gloss": {
+    "en": "A colleague gives you directions.",
+    "vi": "Tất nhiên rồi. Bạn đi cầu thang lên một tầng rồi rẽ trái chỗ bếp nhỏ nhé.",
+    "es": "Claro. Sube un piso por las escaleras y gira a la izquierda en la cocina.",
+    "pt": "Claro. Suba um andar pela escada e vire à esquerda na copa.",
+    "fr": "Bien sûr. Montez d'un étage par l'escalier et tournez à gauche au niveau de la cuisine.",
+    "de": "Klar. Nimm die Treppe eine Etage hoch und biege an der Küche links ab.",
+    "id": "Tentu. Naik tangga satu lantai, lalu belok kiri di dekat dapur.",
+    "th": "ได้เลยครับ ขึ้นบันไดไปหนึ่งชั้นแล้วเลี้ยวซ้ายตรงห้องครัวครับ",
+    "zh": "当然可以。走楼梯上一层，在茶水间那里左转。",
+    "ja": "もちろん。階段で1階上がって、給湯室のところを左に曲がってください。",
+    "ko": "물론이죠. 계단으로 한 층 올라가서 탕비실에서 왼쪽으로 도세요.",
+    "hi": "ज़रूर। सीढ़ियों से एक मंज़िल ऊपर जाइए और किचन के पास बाएँ मुड़ जाइए।",
+    "ar": "بالتأكيد. اصعد الدرج طابقًا واحدًا ثم انعطف يسارًا عند المطبخ.",
+    "ru": "Конечно. Поднимитесь по лестнице на один этаж и у кухни поверните налево.",
+    "tr": "Tabii. Merdivenle bir kat çık, mutfağın orada sola dön."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "h3",
+   "who": "customer",
+   "en": "Do you know who I should ask about setting up my laptop?",
+   "variants": {
+    "polite": "Would you happen to know who I should ask about setting up my laptop?",
+    "casual": "Who do I ask about my laptop setup?"
+   },
+   "gloss": {
+    "en": "Asking who can help set up your laptop.",
+    "vi": "Bạn có biết mình nên hỏi ai về việc cài đặt laptop không?",
+    "es": "¿Sabes a quién debería pedirle que me configure el portátil?",
+    "pt": "Você sabe a quem devo pedir para configurar o meu notebook?",
+    "fr": "Savez-vous à qui je dois m'adresser pour configurer mon ordinateur portable ?",
+    "de": "Weißt du, an wen ich mich wegen der Einrichtung meines Laptops wenden soll?",
+    "id": "Kamu tahu siapa yang harus saya tanya soal pengaturan laptop saya?",
+    "th": "คุณรู้ไหมคะว่าต้องถามใครเรื่องตั้งค่าแล็ปท็อปของฉัน",
+    "zh": "你知道设置笔记本电脑该找谁吗？",
+    "ja": "ノートパソコンの設定は誰に聞けばいいか、ご存じですか？",
+    "ko": "노트북 설정은 누구한테 물어봐야 하는지 아세요?",
+    "hi": "क्या आपको पता है कि लैपटॉप सेट करवाने के लिए मुझे किससे पूछना चाहिए?",
+    "ar": "هل تعرف من يجب أن أسأله عن إعداد حاسوبي المحمول؟",
+    "ru": "Вы не знаете, к кому обратиться по поводу настройки ноутбука?",
+    "tr": "Dizüstü bilgisayarımın kurulumu için kime sormam gerektiğini biliyor musun?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "h4",
+   "who": "barista",
+   "en": "The IT desk handles that. Just send them a message and they'll sort it out.",
+   "variants": {
+    "polite": "The IT desk takes care of that. If you message them, they'll arrange it for you.",
+    "casual": "IT does that. Message them and it's done."
+   },
+   "gloss": {
+    "en": "A colleague tells you who to contact.",
+    "vi": "Bên IT lo việc đó. Bạn cứ nhắn cho họ là họ xử lý xong.",
+    "es": "De eso se encarga el soporte técnico. Solo escríbeles y lo resolverán.",
+    "pt": "O suporte de TI cuida disso. É só mandar uma mensagem e eles resolvem.",
+    "fr": "C'est le service informatique qui s'en occupe. Envoyez-leur un message et ils régleront ça.",
+    "de": "Das macht der IT-Support. Schreib ihnen einfach eine Nachricht, dann kümmern sie sich darum.",
+    "id": "Itu urusan bagian IT. Kirim saja pesan ke mereka, nanti mereka yang menyelesaikannya.",
+    "th": "ฝ่าย IT ดูแลเรื่องนี้ครับ ส่งข้อความไปหาเขา เดี๋ยวเขาจัดการให้",
+    "zh": "这个归IT部门负责。给他们发条消息，他们就会处理好。",
+    "ja": "それはIT部門の担当です。メッセージを送れば対応してくれますよ。",
+    "ko": "그건 IT팀에서 맡아요. 메시지만 보내면 알아서 처리해 줄 거예요.",
+    "hi": "यह काम आईटी डेस्क देखता है। बस उन्हें एक संदेश भेज दीजिए, वे सब ठीक कर देंगे।",
+    "ar": "هذا من اختصاص مكتب تقنية المعلومات. أرسل لهم رسالة فقط وسيتولون الأمر.",
+    "ru": "Этим занимается ИТ-отдел. Просто напишите им, и они всё настроят.",
+    "tr": "Onu BT masası hallediyor. Onlara bir mesaj at, işini çözerler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c1",
+   "who": "customer",
+   "en": "Would you like to grab lunch together sometime this week?",
+   "variants": {
+    "polite": "Would you be free to have lunch with me sometime this week?",
+    "casual": "Want to get lunch some time this week?"
+   },
+   "gloss": {
+    "en": "Inviting a colleague to lunch.",
+    "vi": "Tuần này mình đi ăn trưa cùng nhau nhé?",
+    "es": "¿Te apetece que comamos juntos algún día de esta semana?",
+    "pt": "Que tal almoçarmos juntos em algum dia desta semana?",
+    "fr": "Ça vous dirait de déjeuner ensemble un de ces jours cette semaine ?",
+    "de": "Hast du Lust, diese Woche mal zusammen zu Mittag zu essen?",
+    "id": "Mau makan siang bareng sekali-sekali minggu ini?",
+    "th": "สัปดาห์นี้ไปกินข้าวเที่ยงด้วยกันสักวันไหมคะ",
+    "zh": "这周找个时间一起吃午饭怎么样？",
+    "ja": "今週どこかで一緒にランチに行きませんか？",
+    "ko": "이번 주에 언제 같이 점심 먹을래요?",
+    "hi": "क्या इस हफ़्ते किसी दिन साथ में लंच करना चाहेंगे?",
+    "ar": "هل تودّ أن نتناول الغداء معًا في وقت ما هذا الأسبوع؟",
+    "ru": "Не хотите на этой неделе как-нибудь пообедать вместе?",
+    "tr": "Bu hafta bir ara birlikte öğle yemeği yemek ister misin?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c2",
+   "who": "barista",
+   "en": "I'd love to. Most of us head to the canteen around twelve thirty.",
+   "variants": {
+    "polite": "I'd be glad to. Most of us go to the canteen at around twelve thirty.",
+    "casual": "Sure! We usually go at half twelve."
+   },
+   "gloss": {
+    "en": "Accepting and saying when the team has lunch.",
+    "vi": "Rất sẵn lòng. Phần lớn bọn mình xuống căng-tin khoảng mười hai rưỡi.",
+    "es": "Encantado. La mayoría vamos a la cantina sobre las doce y media.",
+    "pt": "Com prazer. A maioria de nós vai ao refeitório por volta das doze e meia.",
+    "fr": "Avec plaisir. La plupart d'entre nous vont à la cantine vers midi et demi.",
+    "de": "Sehr gern. Die meisten von uns gehen gegen halb eins in die Kantine.",
+    "id": "Dengan senang hati. Kebanyakan dari kami pergi ke kantin sekitar pukul dua belas tiga puluh.",
+    "th": "ยินดีครับ ส่วนใหญ่พวกเราจะไปโรงอาหารราวเที่ยงครึ่งครับ",
+    "zh": "我很乐意。我们大多数人十二点半左右去食堂。",
+    "ja": "ぜひ。私たちはたいてい12時半ごろに食堂へ行きます。",
+    "ko": "좋아요. 저희는 대부분 12시 반쯤 구내식당에 가요.",
+    "hi": "ज़रूर, मुझे ख़ुशी होगी। हममें से ज़्यादातर लोग साढ़े बारह बजे के आसपास कैंटीन जाते हैं।",
+    "ar": "بكل سرور. معظمنا يذهب إلى المقصف حوالي الثانية عشرة والنصف.",
+    "ru": "С удовольствием. Большинство из нас идёт в столовую около половины первого.",
+    "tr": "Çok isterim. Çoğumuz yemekhaneye on iki buçuk civarında gideriz."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "canteen",
+     "ipa": "/kænˈtiːn/",
+     "hi": "TEEN",
+     "note": {
+      "en": "Stress the second syllable: kan-TEEN.",
+      "vi": "Nhấn âm tiết thứ hai: kan-TIN, kéo dài âm “in”.",
+      "es": "Acentúa la segunda sílaba: kan-TIIN.",
+      "pt": "Acentue a segunda sílaba: kan-TIIN.",
+      "fr": "Accentuez la deuxième syllabe : kan-TIIN.",
+      "de": "Betone die zweite Silbe: kän-TIEN.",
+      "id": "Tekankan suku kata kedua: kan-TIIN.",
+      "th": "เน้นพยางค์ที่สอง: แคน-ทีน",
+      "zh": "重音在第二个音节：kan-TEEN。",
+      "ja": "2番目の音節を強く：キャン・ティーン。",
+      "ko": "두 번째 음절에 강세: 캔-틴.",
+      "hi": "दूसरे अक्षर पर ज़ोर दें: कैन-टीन।",
+      "ar": "شدّد على المقطع الثاني: كان-تين.",
+      "ru": "Ударение на второй слог: кэн-ТИН.",
+      "tr": "Vurgu ikinci hecede: kan-TİİN."
+     }
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "who": "customer",
+   "en": "Could you let me know if there's anything I should read before Monday's meeting?",
+   "variants": {
+    "polite": "Would you mind letting me know whether there's anything I should read before Monday's meeting?",
+    "casual": "Is there anything I should read before Monday's meeting?"
+   },
+   "gloss": {
+    "en": "Asking what to prepare before a meeting.",
+    "vi": "Bạn cho mình biết có tài liệu nào nên đọc trước cuộc họp thứ Hai không?",
+    "es": "¿Podrías avisarme si hay algo que deba leer antes de la reunión del lunes?",
+    "pt": "Você poderia me avisar se há algo que eu deva ler antes da reunião de segunda?",
+    "fr": "Pourriez-vous me dire s'il y a quelque chose à lire avant la réunion de lundi ?",
+    "de": "Kannst du mir Bescheid geben, ob ich vor dem Meeting am Montag etwas lesen sollte?",
+    "id": "Bisa beri tahu saya kalau ada yang perlu dibaca sebelum rapat hari Senin?",
+    "th": "ช่วยบอกหน่อยได้ไหมคะว่ามีอะไรที่ควรอ่านก่อนประชุมวันจันทร์บ้าง",
+    "zh": "如果周一的会议前有什么需要看的资料，能告诉我一声吗？",
+    "ja": "月曜日の会議の前に読んでおくべきものがあれば、教えてもらえますか？",
+    "ko": "월요일 회의 전에 읽어 둘 만한 게 있으면 알려 주실래요?",
+    "hi": "क्या आप बता सकते हैं कि सोमवार की मीटिंग से पहले मुझे कुछ पढ़ना चाहिए?",
+    "ar": "هل يمكنك إخباري إن كان هناك ما ينبغي أن أقرأه قبل اجتماع يوم الاثنين؟",
+    "ru": "Не могли бы вы сказать, нужно ли мне что-нибудь прочитать перед встречей в понедельник?",
+    "tr": "Pazartesi toplantısından önce okumam gereken bir şey varsa haber verir misin?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c4",
+   "who": "barista",
+   "en": "Don't worry too much. Just look through the project notes in the shared folder.",
+   "variants": {
+    "polite": "There's no need to worry. It would help to look through the project notes in the shared folder.",
+    "casual": "No stress. Just skim the project notes in the shared folder."
+   },
+   "gloss": {
+    "en": "Reassuring you and pointing to the notes.",
+    "vi": "Đừng lo quá. Bạn chỉ cần xem qua ghi chú dự án trong thư mục chung là được.",
+    "es": "No te preocupes demasiado. Solo échale un vistazo a las notas del proyecto en la carpeta compartida.",
+    "pt": "Não se preocupe tanto. Basta dar uma olhada nas notas do projeto na pasta compartilhada.",
+    "fr": "Ne vous en faites pas trop. Parcourez simplement les notes du projet dans le dossier partagé.",
+    "de": "Mach dir keine allzu großen Sorgen. Schau einfach die Projektnotizen im gemeinsamen Ordner durch.",
+    "id": "Jangan terlalu khawatir. Cukup baca catatan proyek di folder bersama.",
+    "th": "ไม่ต้องกังวลมากนะครับ แค่ดูบันทึกโครงการในโฟลเดอร์กลางก็พอ",
+    "zh": "别太担心。看一下共享文件夹里的项目笔记就行。",
+    "ja": "あまり心配しないでください。共有フォルダにあるプロジェクトのメモに目を通せば十分です。",
+    "ko": "너무 걱정하지 마세요. 공유 폴더에 있는 프로젝트 메모만 훑어보면 돼요.",
+    "hi": "ज़्यादा चिंता मत कीजिए। बस शेयर्ड फ़ोल्डर में रखे प्रोजेक्ट नोट्स पर नज़र डाल लीजिए।",
+    "ar": "لا تقلق كثيرًا. يكفي أن تطّلع على ملاحظات المشروع في المجلد المشترك.",
+    "ru": "Не переживайте так сильно. Просто просмотрите заметки по проекту в общей папке.",
+    "tr": "Çok endişelenme. Ortak klasördeki proje notlarına göz atman yeterli."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "worry",
+     "ipa": "/ˈwʌr.i/",
+     "hi": "WUR",
+     "note": {
+      "en": "Rhymes with “hurry”: WUR-ee, not WOR-ee.",
+      "vi": "Vần với “hurry”: UƠ-ri, không đọc là “goo-ri”.",
+      "es": "Rima con “hurry”: UAR-i, no WOR-i.",
+      "pt": "Rima com “hurry”: UÂ-ri, não WOR-i.",
+      "fr": "Rime avec « hurry » : OUEUR-i, pas WOR-i.",
+      "de": "Reimt sich auf „hurry“: WÖR-i, nicht WOR-i.",
+      "id": "Berima dengan “hurry”: WER-i, bukan WOR-i.",
+      "th": "สัมผัสกับ hurry: เวอ-รี่ ไม่ใช่ วอ-รี่",
+      "zh": "和 hurry 押韵：WUR-ee，不是 WOR-ee。",
+      "ja": "hurry と同じ韻：「ワリー」で、「ウォリー」ではありません。",
+      "ko": "hurry와 운이 같아요: 워-리(WUR-ee), ‘월-리’가 아니에요.",
+      "hi": "‘hurry’ से मिलता है: वरी (WUR-ee), ‘वोरी’ नहीं।",
+      "ar": "يتقفّى مع hurry: وَري، وليس وُري.",
+      "ru": "Рифмуется с hurry: УОР-и, а не «ворри».",
+      "tr": "“hurry” ile aynı ses: VÖR-i, “vori” değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "So, what did you do before you came here?",
+   "keywords": [
+    "agency",
+    "company",
+    "university",
+    "student",
+    "marketing",
+    "design",
+    "finance",
+    "sales",
+    "engineer",
+    "teacher",
+    "bank",
+    "startup",
+    "freelance",
+    "worked",
+    "studied"
+   ],
+   "variants": {
+    "polite": "So, what were you doing before you joined us?",
+    "casual": "What were you up to before this?"
+   },
+   "gloss": {
+    "en": "Asking about your previous job.",
+    "vi": "Vậy trước khi vào đây bạn làm gì?",
+    "es": "Entonces, ¿a qué te dedicabas antes de venir aquí?",
+    "pt": "E então, o que você fazia antes de vir para cá?",
+    "fr": "Alors, qu'est-ce que vous faisiez avant d'arriver ici ?",
+    "de": "Und, was hast du gemacht, bevor du hierher gekommen bist?",
+    "id": "Jadi, apa yang kamu kerjakan sebelum datang ke sini?",
+    "th": "แล้วก่อนมาที่นี่คุณทำอะไรมาก่อนคะ",
+    "zh": "那你来这儿之前是做什么的？",
+    "ja": "ところで、ここに来る前は何をされていたんですか？",
+    "ko": "그런데 여기 오기 전에는 무슨 일을 하셨어요?",
+    "hi": "तो यहाँ आने से पहले आप क्या करते थे?",
+    "ar": "إذًا، ماذا كنتَ تفعل قبل أن تأتي إلى هنا؟",
+    "ru": "А чем вы занимались до того, как пришли сюда?",
+    "tr": "Peki, buraya gelmeden önce ne yapıyordun?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "How are you finding the first week so far?",
+   "keywords": [
+    "good",
+    "great",
+    "fine",
+    "busy",
+    "interesting",
+    "friendly",
+    "welcoming",
+    "overwhelming",
+    "a lot",
+    "nice",
+    "tiring",
+    "helpful",
+    "exciting",
+    "tired",
+    "enjoying"
+   ],
+   "variants": {
+    "polite": "How have you found your first week so far?",
+    "casual": "How's your first week going?"
+   },
+   "gloss": {
+    "en": "Asking how your first week is going.",
+    "vi": "Tuần đầu của bạn đến giờ thế nào rồi?",
+    "es": "¿Qué tal te va la primera semana hasta ahora?",
+    "pt": "Como está sendo a sua primeira semana até agora?",
+    "fr": "Comment trouvez-vous cette première semaine jusqu'ici ?",
+    "de": "Wie findest du deine erste Woche bisher?",
+    "id": "Bagaimana minggu pertamamu sejauh ini?",
+    "th": "สัปดาห์แรกของคุณเป็นอย่างไรบ้างคะ",
+    "zh": "第一周到现在感觉怎么样？",
+    "ja": "最初の1週間は、今のところいかがですか？",
+    "ko": "첫 주는 지금까지 어떠세요?",
+    "hi": "अब तक आपका पहला हफ़्ता कैसा रहा?",
+    "ar": "كيف تجد أسبوعك الأول حتى الآن؟",
+    "ru": "Как вам первая неделя на данный момент?",
+    "tr": "İlk haftan şimdiye kadar nasıl gidiyor?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "culture": {
+  "en": "In many English-speaking workplaces, everyone uses first names, even with managers. A short, friendly introduction followed by a question about the other person's work is a good way to start.",
+  "vi": "Ở nhiều nơi làm việc nói tiếng Anh, mọi người gọi nhau bằng tên riêng, kể cả với quản lý. Một lời giới thiệu ngắn gọn, thân thiện rồi hỏi về công việc của đối phương là cách mở đầu rất tự nhiên.",
+  "es": "En muchos lugares de trabajo anglófonos todo el mundo se llama por el nombre de pila, incluso con los jefes. Una presentación breve y amable, seguida de una pregunta sobre el trabajo del otro, es un buen comienzo.",
+  "pt": "Em muitos ambientes de trabalho de língua inglesa, todos se tratam pelo primeiro nome, até os chefes. Uma apresentação curta e simpática, seguida de uma pergunta sobre o trabalho da outra pessoa, é um bom começo.",
+  "fr": "Dans de nombreux bureaux anglophones, tout le monde s'appelle par son prénom, même les responsables. Une présentation courte et aimable, suivie d'une question sur le travail de l'autre, est une bonne façon de commencer.",
+  "de": "In vielen englischsprachigen Büros duzt man sich beim Vornamen, auch mit Vorgesetzten. Eine kurze, freundliche Vorstellung und eine Frage zur Arbeit des anderen sind ein guter Einstieg.",
+  "id": "Di banyak tempat kerja berbahasa Inggris, semua orang saling memanggil dengan nama depan, bahkan kepada atasan. Perkenalan singkat yang ramah, lalu pertanyaan tentang pekerjaan lawan bicara, adalah awal yang baik.",
+  "th": "ในที่ทำงานที่ใช้ภาษาอังกฤษหลายแห่ง ทุกคนเรียกกันด้วยชื่อต้น แม้แต่กับหัวหน้า การแนะนำตัวสั้นๆ อย่างเป็นมิตร แล้วถามเรื่องงานของอีกฝ่ายเป็นการเริ่มต้นที่ดี",
+  "zh": "在许多英语国家的职场，大家都直呼名字，对上司也一样。先简短友好地自我介绍，再问问对方的工作，是个不错的开场。",
+  "ja": "英語圏の職場の多くでは、上司に対しても名前で呼び合います。短く感じよく自己紹介をして、相手の仕事について質問するのが、よい切り出し方です。",
+  "ko": "영어권 직장에서는 상사에게도 이름을 부르는 경우가 많아요. 짧고 친근하게 자기소개를 한 뒤 상대방의 업무에 대해 물어보면 좋은 시작이 됩니다.",
+  "hi": "अंग्रेज़ी बोलने वाले कई दफ़्तरों में सब लोग एक-दूसरे को पहले नाम से बुलाते हैं, मैनेजर को भी। छोटा-सा दोस्ताना परिचय देकर सामने वाले के काम के बारे में पूछना बातचीत शुरू करने का अच्छा तरीका है।",
+  "ar": "في كثير من أماكن العمل الناطقة بالإنجليزية ينادي الجميع بعضهم بالاسم الأول، حتى المديرين. تعريف قصير ودود يتبعه سؤال عن عمل الطرف الآخر بداية جيدة.",
+  "ru": "Во многих англоязычных офисах все обращаются друг к другу по имени, даже к руководителям. Короткое дружелюбное знакомство и вопрос о работе собеседника — хороший способ начать разговор.",
+  "tr": "İngilizce konuşulan birçok iş yerinde herkes birbirine, yöneticilere bile, ilk adıyla hitap eder. Kısa ve samimi bir tanışma, ardından karşıdakinin işiyle ilgili bir soru iyi bir başlangıçtır."
+ },
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Hi, you must be the new person on the marketing team."
+  },
+  {
+   "who": "customer",
+   "en": "That's right. I'm Linh, and I started on Monday."
+  },
+  {
+   "who": "barista",
+   "en": "Nice to meet you, Linh. I'm Daniel from finance."
+  },
+  {
+   "who": "customer",
+   "en": "Nice to meet you too. Could you show me where the meeting rooms are?"
+  },
+  {
+   "who": "barista",
+   "en": "Of course. They're one floor up, just past the kitchen."
+  },
+  {
+   "who": "customer",
+   "en": "Thanks so much. Would you like to grab lunch together sometime this week?"
+  },
+  {
+   "who": "barista",
+   "en": "I'd love to. How about Thursday at twelve thirty?"
+  },
+  {
+   "who": "customer",
+   "en": "Thursday works well for me. See you then."
+  },
+  {
+   "who": "barista",
+   "en": "Great, see you then. Welcome aboard!"
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Hi, are you Sam? I'm Priya from the design team."
+    },
+    {
+     "who": "customer",
+     "en": "Yes, I'm Sam. I joined the sales team on Tuesday."
+    },
+    {
+     "who": "barista",
+     "en": "Welcome! If you need a desk pass, speak to reception."
+    },
+    {
+     "who": "customer",
+     "en": "Great, thanks. I'll go there now."
+    }
+   ],
+   "q": {
+    "en": "Which team did Sam join?",
+    "vi": "Sam đã vào nhóm nào?",
+    "es": "¿A qué equipo se unió Sam?",
+    "pt": "Em que equipe o Sam entrou?",
+    "fr": "Quelle équipe Sam a-t-il rejointe ?",
+    "de": "Welchem Team ist Sam beigetreten?",
+    "id": "Sam bergabung dengan tim mana?",
+    "th": "แซมเข้าร่วมทีมไหน",
+    "zh": "Sam加入了哪个团队？",
+    "ja": "サムはどのチームに入りましたか？",
+    "ko": "샘은 어느 팀에 들어갔나요?",
+    "hi": "सैम किस टीम में शामिल हुआ?",
+    "ar": "إلى أي فريق انضمّ سام؟",
+    "ru": "В какую команду пришёл Сэм?",
+    "tr": "Sam hangi ekibe katıldı?"
+   },
+   "answer": "sales team"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Excuse me, where can I find the printer?"
+    },
+    {
+     "who": "barista",
+     "en": "It's next to the kitchen, beside the tall window."
+    },
+    {
+     "who": "customer",
+     "en": "And who should I call if it breaks?"
+    },
+    {
+     "who": "barista",
+     "en": "Call the IT desk on extension forty-two."
+    }
+   ],
+   "q": {
+    "en": "Who should you call if the printer breaks?",
+    "vi": "Nếu máy in hỏng thì nên gọi ai?",
+    "es": "¿A quién hay que llamar si la impresora se estropea?",
+    "pt": "Para quem se deve ligar se a impressora quebrar?",
+    "fr": "Qui faut-il appeler si l'imprimante tombe en panne ?",
+    "de": "Wen ruft man an, wenn der Drucker kaputtgeht?",
+    "id": "Siapa yang harus dihubungi jika printer rusak?",
+    "th": "ถ้าเครื่องพิมพ์เสียต้องโทรหาใคร",
+    "zh": "打印机坏了应该打电话给谁？",
+    "ja": "プリンターが壊れたら誰に電話すればいいですか？",
+    "ko": "프린터가 고장 나면 누구에게 전화해야 하나요?",
+    "hi": "प्रिंटर ख़राब हो जाए तो किसे फ़ोन करना चाहिए?",
+    "ar": "بمن يجب الاتصال إذا تعطّلت الطابعة؟",
+    "ru": "Кому нужно позвонить, если сломается принтер?",
+    "tr": "Yazıcı bozulursa kimi aramak gerekir?"
+   },
+   "answer": "it desk"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "introduce",
+    "title": {
+     "en": "Introduce yourself",
+     "vi": "Tự giới thiệu",
+     "es": "Preséntate",
+     "pt": "Apresente-se",
+     "fr": "Présentez-vous",
+     "de": "Stell dich vor",
+     "id": "Perkenalkan dirimu",
+     "th": "แนะนำตัว",
+     "zh": "做自我介绍",
+     "ja": "自己紹介をする",
+     "ko": "자기소개하기",
+     "hi": "अपना परिचय दें",
+     "ar": "قدّم نفسك",
+     "ru": "Представься",
+     "tr": "Kendini tanıt"
+    },
+    "intents": [
+     "i1"
+    ]
+   },
+   {
+    "id": "directions",
+    "title": {
+     "en": "Ask where something is",
+     "vi": "Hỏi chỗ cần tìm",
+     "es": "Pregunta dónde está algo",
+     "pt": "Pergunte onde algo fica",
+     "fr": "Demander où se trouve un lieu",
+     "de": "Nach dem Weg fragen",
+     "id": "Tanyakan letak sesuatu",
+     "th": "ถามว่าที่ไหนอยู่ตรงไหน",
+     "zh": "询问地点在哪里",
+     "ja": "場所を尋ねる",
+     "ko": "어디 있는지 물어보기",
+     "hi": "पूछें कि कोई जगह कहाँ है",
+     "ar": "اسأل عن مكان شيء ما",
+     "ru": "Спроси, где что находится",
+     "tr": "Bir yerin nerede olduğunu sor"
+    },
+    "intents": [
+     "h1"
+    ]
+   },
+   {
+    "id": "lunch",
+    "title": {
+     "en": "Invite someone to lunch",
+     "vi": "Mời ai đó đi ăn trưa",
+     "es": "Invita a alguien a comer",
+     "pt": "Convide alguém para almoçar",
+     "fr": "Inviter quelqu'un à déjeuner",
+     "de": "Jemanden zum Mittagessen einladen",
+     "id": "Ajak seseorang makan siang",
+     "th": "ชวนใครสักคนไปกินข้าวเที่ยง",
+     "zh": "邀请别人一起吃午饭",
+     "ja": "ランチに誘う",
+     "ko": "점심 같이 먹자고 하기",
+     "hi": "किसी को लंच पर बुलाएँ",
+     "ar": "ادعُ أحدًا إلى الغداء",
+     "ru": "Пригласи кого-нибудь на обед",
+     "tr": "Birini öğle yemeğine davet et"
+    },
+    "intents": [
+     "c1"
+    ]
+   }
+  ]
+ }
+}

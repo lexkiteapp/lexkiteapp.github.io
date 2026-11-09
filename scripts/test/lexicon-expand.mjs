@@ -446,7 +446,7 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
     fs.rmSync(dir, { recursive: true, force: true }); } }
 // 08/11 nguồn câu người viết thứ 5–7: job.mjs nhận tiền tố, ghi giấy phép; workflow tải 3 dump (lỗi tải = như cũ)
 { const job = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'), wf = fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8');
-  ok(/\[\/\^wv\\d\/, 'wikivoyage'\]/.test(job) && /'wikinews'/.test(job) && /'wikibooks'/.test(job) && /\[\/\^wvs\\d\/, 'wikiversity'\]/.test(job) && /Wikivoyage CC BY-SA 4\.0/.test(job) && /Wikinews CC BY/.test(job), 'job.mjs: nguồn wv/wnw/wb + giấy phép');
+  ok(/\[\/\^wv\\d\/, 'wikivoyage'\]/.test(job) && /'wikinews'/.test(job) && /'wikibooks'/.test(job) && /\[\/\^wvs\\d\/, 'wikiversity'\]/.test(job) && /\[\/\^ew\\d\/, 'wikipedia'\]/.test(job) && /English Wikipedia CC BY-SA 4\.0/.test(job) && wf.includes('--prefix ew') && /Wikivoyage CC BY-SA 4\.0/.test(job) && /Wikinews CC BY/.test(job), 'job.mjs: nguồn wv/wnw/wb + giấy phép');
   ok(wf.includes('enwikivoyage:wv enwikinews:wnw enwikibooks:wb enwikiversity:wvs') && wf.includes('${d%%:*}-latest-pages-articles.xml.bz2') && wf.includes('--prefix "${d##*:}"'), 'lexicon-expand.yml: tải Wikivoyage/Wikinews/Wikibooks'); }
 // 08/11 shard song song (ci-filler): băm từ#loại chia hết, không trùng; retry shard khác giữ khoá; chỉ shard 0 soát/xuất/nối/trả thuê; probe đếm việc còn
 { const ks = Array.from({ length: 400 }, (_, i) => 'w' + i + '#n'), by = [0, 1, 2, 3].map(i => ks.filter(k => shardOf(k, 4) === i));
