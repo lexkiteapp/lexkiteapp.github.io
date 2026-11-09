@@ -642,6 +642,42 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
 .sx-r { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); }
 .sx-l { -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to left, #000 calc(100% - 36px), transparent); }
 .sx-l.sx-r { -webkit-mask-image: linear-gradient(to right, transparent, #000 36px, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to right, transparent, #000 36px, #000 calc(100% - 36px), transparent); }
+
+/* ---------- Dải luồng Nội dung & Video (js/admin-flow.js, docs/VIDEO.md §9) ---------- */
+.adm .flow { max-width: var(--a-max); margin: -.6rem 0 1.2rem; display: flex; flex-direction: row; /* style.css có .flow {column; align-items:center} cho app học – trong admin phải đặt lại, nếu không flex-basis 640/230 thành CHIỀU CAO và bước/ổ Drive xếp lệch → trang tràn ngang (guard shell 33, overflow 604) */ gap: .6rem; align-items: stretch; flex-wrap: wrap; }
+.adm .flow[hidden] { display: none; }
+.adm .flow-steps { flex: 1 1 640px; display: flex; align-items: stretch; gap: .25rem; min-width: 0; }
+.adm .flow-step, .adm .flow-drive { position: relative; flex: 1 1 0; min-width: 0; display: flex; gap: .55rem; align-items: flex-start; padding: .6rem .75rem; border: 1px solid var(--line); border-radius: var(--a-r-sm); background: var(--surface); color: var(--text); text-decoration: none; box-shadow: var(--a-card-shadow); transition: border-color .15s, box-shadow .15s, transform .15s; }
+.adm .flow-step:hover, .adm .flow-drive:hover { border-color: color-mix(in srgb, var(--primary) 45%, var(--line)); box-shadow: var(--a-card-hover-shadow); }
+.adm .flow-step[aria-current] { border-color: var(--primary); background: color-mix(in srgb, var(--primary) 7%, var(--surface)); }
+.adm .flow-n { flex: none; width: 1.5rem; height: 1.5rem; border-radius: 50%; display: grid; place-items: center; font-size: .75rem; font-weight: 700; background: var(--surface-2); color: var(--muted); }
+.adm .flow-step[aria-current] .flow-n { background: var(--primary); color: #fff; }
+.adm .flow-b { display: flex; flex-direction: column; min-width: 0; gap: .05rem; }
+.adm .flow-k { font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.adm .flow-t { font-weight: 650; font-size: .9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.adm .flow-l { font-size: .8rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.adm .flow-w { font-size: .75rem; font-weight: 600; color: var(--a-warn); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.adm .flow-step::after { content: ''; position: absolute; top: .55rem; right: .55rem; width: .5rem; height: .5rem; border-radius: 50%; background: var(--a-ok); }
+.adm .flow-step.st-todo::after { background: var(--primary); }
+.adm .flow-step.st-warn::after { background: var(--gold); }
+.adm .flow-step.st-none::after { background: var(--line); }
+.adm .flow-arr { flex: none; align-self: center; color: var(--muted); font-size: 1.1rem; padding: 0 .1rem; }
+.adm .flow-drive { flex: 0 1 230px; flex-direction: column; gap: .2rem; }
+.adm .flow-drive.st-bad { border-color: var(--a-bad); }
+.adm .flow-drive.st-bad .flow-w { color: var(--a-bad); }
+.adm .flow-bar { display: block; height: 5px; border-radius: 3px; background: var(--surface-2); overflow: hidden; }
+.adm .flow-bar i { display: block; height: 100%; background: var(--a-ok); border-radius: 3px; }
+.adm .flow-drive.st-warn .flow-bar i { background: var(--gold); }
+.adm .flow-drive.st-bad .flow-bar i { background: var(--a-bad); }
+.adm .flow-skel .skel { min-height: 4.1rem; background: linear-gradient(90deg, var(--surface-2), var(--surface), var(--surface-2)); background-size: 200% 100%; animation: flowSk 1.2s linear infinite; }
+@keyframes flowSk { to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) { .adm .flow-skel .skel { animation: none; } .adm .flow-step, .adm .flow-drive { transition: none; } }
+.adm .flow-err { flex: 1; display: flex; align-items: center; gap: .6rem; padding: .55rem .75rem; border: 1px dashed var(--line); border-radius: var(--a-r-sm); color: var(--muted); font-size: .85rem; }
+@media (max-width: 900px) {
+  .adm .flow-steps { flex-basis: 100%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .2rem; }
+  .adm .flow-step { flex: 0 0 min(72vw, 240px); scroll-snap-align: start; }
+  .adm .flow-drive { flex: 1 1 100%; }
+}
 /* Sổ tài khoản & khóa (js/admin-accounts.js): đầu thẻ gọn (tiêu đề đã có ở đầu trang), cảnh báo gia hạn 1 dòng, hàng sắp hết hạn = vạch đỏ bên trái */
 .acc-h { display: flex; align-items: flex-start; justify-content: space-between; gap: .8rem; }
 .acc-h p { margin: 0; max-width: 70ch; }

@@ -1,0 +1,130 @@
+{
+ "id": "m12",
+ "level": "B1",
+ "lo": "M.B1p.05",
+ "activity": "notes",
+ "title": "Planning the open day",
+ "scenario": "You were in the team meeting below. Your colleague Sam could not come, and the meeting gave Sam a job. Send Sam an email with the main points.",
+ "source": {
+  "kind": "dialogue",
+  "lines": [
+   {
+    "s": "Hana",
+    "t": "Right, three things today: the date, the budget and who does what."
+   },
+   {
+    "s": "Omar",
+    "t": "Can we hold the open day on 12 October? The hall is free that Saturday."
+   },
+   {
+    "s": "Hana",
+    "t": "Fine, let us confirm 12 October. We have 400 for food and posters."
+   },
+   {
+    "s": "Lena",
+    "t": "I would rather spend 150 on posters and the rest on food."
+   },
+   {
+    "s": "Hana",
+    "t": "OK. Omar, can you design the posters by next Friday?"
+   },
+   {
+    "s": "Omar",
+    "t": "Yes. And the coffee machine is broken again, but that is another story."
+   },
+   {
+    "s": "Hana",
+    "t": "Sam could not come, so Sam has a job: please ask every team how many people will come, and send the number to Lena by the 30th."
+   }
+  ]
+ },
+ "task": {
+  "mode": "write",
+  "audience": "a colleague who missed the meeting",
+  "prompt": "Write an email to Sam (50–80 words) with the decisions and Sam's own job.",
+  "min_words": 50,
+  "max_words": 80
+ },
+ "points": [
+  {
+   "id": "date",
+   "idea": "The open day is on Saturday 12 October.",
+   "checks": [
+    [
+     "12 october",
+     "october 12"
+    ]
+   ]
+  },
+  {
+   "id": "job",
+   "idea": "Sam must ask the teams how many people will come.",
+   "checks": [
+    [
+     "how many",
+     "headcount",
+     "number of people",
+     "numbers"
+    ],
+    [
+     "team"
+    ]
+   ]
+  },
+  {
+   "id": "deadline",
+   "idea": "Send the number to Lena by the 30th.",
+   "checks": [
+    [
+     "lena"
+    ],
+    [
+     "30"
+    ]
+   ]
+  },
+  {
+   "id": "posters",
+   "idea": "Omar will design the posters by next Friday.",
+   "checks": [
+    [
+     "omar"
+    ],
+    [
+     "poster"
+    ]
+   ]
+  }
+ ],
+ "leave_out": [
+  {
+   "idea": "The broken coffee machine.",
+   "checks": [
+    [
+     "coffee"
+    ]
+   ]
+  },
+  {
+   "idea": "The budget split (400 and 150).",
+   "checks": [
+    [
+     "400",
+     "150"
+    ]
+   ]
+  }
+ ],
+ "model": "Hi Sam, here is what we decided in the meeting. The open day will be on Saturday 12 October, and Omar is designing the posters by next Friday. Your job is to ask every team how many people are coming. Please send that number to Lena by the 30th, because she is ordering the food. Thanks, and let me know if anything is unclear.",
+ "useful": [
+  "Here is what we decided …",
+  "Your job is to …",
+  "Please send … to … by …",
+  "Let me know if anything is unclear."
+ ],
+ "tips": [
+  "Meeting notes for an absent person should separate decisions (\"what is fixed\") from actions (\"who does what by when\").",
+  "Put the reader's own task in its own sentence, with a name and a deadline, so it cannot be missed."
+ ],
+ "explain": "Sam needs the date, Omar's posters (as context) and, above all, Sam's own job with the person and deadline. The broken coffee machine is off-topic, and the exact budget split does not affect Sam."
+}
