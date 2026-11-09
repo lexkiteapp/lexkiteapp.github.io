@@ -1,0 +1,1265 @@
+[
+ {
+  "id": "es-mercado",
+  "em": "🍋",
+  "lv": "A2",
+  "kind": "role",
+  "who": "ama",
+  "title": "En el mercado: precios y regateo",
+  "tr": "At the market: prices and bargaining",
+  "role": "a friendly fruit seller at a street market",
+  "words": [
+   "mercado",
+   "fruta",
+   "verdura",
+   "kilo",
+   "precio",
+   "barato",
+   "caro",
+   "descuento",
+   "bolsa",
+   "cambio"
+  ],
+  "phrases": [
+   [
+    "¿Cuánto cuesta el kilo?",
+    "How much is a kilo?"
+   ],
+   [
+    "¿Me puede hacer un descuento?",
+    "Can you give me a discount?"
+   ],
+   [
+    "Me llevo dos kilos.",
+    "I'll take two kilos."
+   ],
+   [
+    "Está muy caro.",
+    "It is too expensive."
+   ],
+   [
+    "¿Me da la bolsa, por favor?",
+    "Can I have a bag, please?"
+   ]
+  ],
+  "start": "hola",
+  "nodes": {
+   "hola": {
+    "m": "¡Buenos días! Bienvenido a mi puesto. ¿Qué desea llevar hoy?",
+    "o": [
+     "Buenos días. Quiero comprar fruta fresca, por favor.",
+     "Hola. Busco mangos y limones para hoy.",
+     "Buenos días. Necesito frutas y verduras para la semana."
+    ],
+    "min": 4,
+    "kw": [
+     "fruta",
+     "mangos",
+     "verduras"
+    ],
+    "br": [
+     [
+      "prisa|rapido|apuro",
+      "Claro, vamos rápido entonces. Dígame qué lleva.",
+      "cantidad"
+     ]
+    ],
+    "re": "¡Muy bien! Tengo todo fresquito.",
+    "next": "que"
+   },
+   "que": {
+    "m": "Tengo mangos, papayas y limones muy buenos. ¿Cuál le gusta más?",
+    "o": [
+     "Me gustan los mangos. ¿Están maduros?",
+     "Quiero papayas y también unos limones.",
+     "Los mangos se ven muy buenos hoy."
+    ],
+    "min": 4,
+    "kw": [
+     "mangos",
+     "papayas",
+     "limones"
+    ],
+    "br": [
+     [
+      "mango",
+      "Los mangos son dulces y maduros, de esta mañana."
+     ],
+     [
+      "papaya",
+      "Las papayas están perfectas para hoy."
+     ]
+    ],
+    "re": "¡Buena elección!",
+    "next": "cantidad"
+   },
+   "cantidad": {
+    "m": "Perfecto. ¿Cuántos kilos va a llevar?",
+    "o": [
+     "Quiero dos kilos, por favor.",
+     "Voy a llevar tres kilos de mango.",
+     "Solo un kilo, porque somos pocos."
+    ],
+    "min": 4,
+    "kw": [
+     "kilo",
+     "kilos",
+     "dos",
+     "tres"
+    ],
+    "br": [
+     [
+      "un kilo|solo|poco",
+      "Está bien, un kilo es suficiente para probar."
+     ]
+    ],
+    "re": "Muy bien, se lo preparo.",
+    "next": "precio"
+   },
+   "precio": {
+    "m": "Son diez pesos el kilo. ¿Le parece bien el precio?",
+    "o": [
+     "Me parece un poco caro. ¿Hay descuento?",
+     "Está bien, me llevo todo.",
+     "Es un poco caro, pero la fruta se ve buena."
+    ],
+    "min": 4,
+    "kw": [
+     "caro",
+     "descuento",
+     "bien"
+    ],
+    "br": [
+     [
+      "caro|descuento|barato|rebaja",
+      "Ay, usted sabe regatear. Veamos qué puedo hacer.",
+      "regateo"
+     ],
+     [
+      "bien|perfecto|llevo|de acuerdo|gracias",
+      "¡Excelente! Entonces no hay problema.",
+      "pago"
+     ]
+    ],
+    "re": "Entiendo.",
+    "next": "regateo"
+   },
+   "regateo": {
+    "m": "Si lleva tres kilos, le hago un descuento. ¿Qué dice?",
+    "o": [
+     "Está bien, me llevo tres kilos con descuento.",
+     "Quiero ocho pesos por kilo, por favor.",
+     "Muchas gracias. Entonces llevo tres kilos."
+    ],
+    "min": 5,
+    "kw": [
+     "descuento",
+     "tres",
+     "pesos"
+    ],
+    "br": [
+     [
+      "ocho|nueve|menos",
+      "Ocho es muy poco, pero nueve pesos sí puedo."
+     ],
+     [
+      "tres|llevo|acepto",
+      "¡Trato hecho!"
+     ]
+    ],
+    "re": "Muy bien, lo arreglamos.",
+    "next": "pago"
+   },
+   "pago": {
+    "m": "Listo. ¿Va a pagar en efectivo o con tarjeta?",
+    "o": [
+     "Voy a pagar en efectivo. Tengo un billete grande.",
+     "Prefiero pagar con tarjeta, si se puede.",
+     "Pago en efectivo. ¿Tiene cambio, por favor?"
+    ],
+    "min": 5,
+    "kw": [
+     "efectivo",
+     "tarjeta",
+     "cambio"
+    ],
+    "br": [
+     [
+      "tarjeta",
+      "Aquí solo aceptamos efectivo, pero hay un cajero cerca.",
+      "cierre"
+     ],
+     [
+      "efectivo|billete|cambio",
+      "Claro, tengo cambio sin problema."
+     ]
+    ],
+    "re": "Perfecto.",
+    "next": "cierre"
+   },
+   "cierre": {
+    "m": "Aquí tiene su bolsa. ¿Necesita algo más para su cocina?",
+    "o": [
+     "No, gracias. Eso es todo por hoy.",
+     "Sí, quiero también unas verduras para la sopa.",
+     "Nada más, gracias. Todo se ve delicioso."
+    ],
+    "min": 4,
+    "kw": [
+     "gracias",
+     "todo",
+     "verduras"
+    ],
+    "re": "¡Qué bueno! Que disfrute su compra.",
+    "next": null
+   }
+  },
+  "end": "¡Muchas gracias por su visita! Que tenga un día muy bonito y vuelva pronto."
+ },
+ {
+  "id": "es-vacaciones",
+  "em": "🏖️",
+  "lv": "B1",
+  "kind": "chat",
+  "who": "carlos",
+  "title": "Planes para las vacaciones",
+  "tr": "Plans for the holidays",
+  "role": "a friendly colleague asking about your holiday plans",
+  "words": [
+   "vacaciones",
+   "viajar",
+   "playa",
+   "montaña",
+   "presupuesto",
+   "reservar",
+   "hotel",
+   "itinerario",
+   "descansar",
+   "aventura"
+  ],
+  "phrases": [
+   [
+    "Estoy pensando en viajar a…",
+    "I'm thinking of traveling to…"
+   ],
+   [
+    "Todavía no he reservado nada.",
+    "I haven't booked anything yet."
+   ],
+   [
+    "Prefiero un plan tranquilo.",
+    "I prefer a relaxed plan."
+   ],
+   [
+    "Lo que más me interesa es…",
+    "What interests me most is…"
+   ],
+   [
+    "Ojalá el clima sea bueno.",
+    "I hope the weather is good."
+   ]
+  ],
+  "start": "inicio",
+  "nodes": {
+   "inicio": {
+    "m": "¡Hola! Ya casi llegan las vacaciones. ¿Tienes algún plan para estos días?",
+    "o": [
+     "Sí, estoy pensando en viajar a la costa con mi familia.",
+     "Todavía no tengo nada decidido, pero me gustaría salir de la ciudad.",
+     "Sí, voy a visitar a unos amigos que viven en otra ciudad."
+    ],
+    "min": 5,
+    "kw": [
+     "viajar",
+     "costa",
+     "familia"
+    ],
+    "br": [
+     [
+      "no tengo|nada|no se|todavia no",
+      "No te preocupes, todavía hay tiempo para planear.",
+      "destino"
+     ],
+     [
+      "viajar|viaje|costa|playa|visitar",
+      "¡Qué bien! Eso suena muy emocionante.",
+      "destino"
+     ]
+    ],
+    "re": "Interesante.",
+    "next": "destino"
+   },
+   "destino": {
+    "m": "¿Prefieres la playa, la montaña o una ciudad con mucha cultura?",
+    "o": [
+     "Prefiero la playa, porque me gusta descansar y nadar.",
+     "Me encanta la montaña, sobre todo para caminar y respirar aire puro.",
+     "Me interesan las ciudades históricas, con museos y buena comida."
+    ],
+    "min": 6,
+    "kw": [
+     "playa",
+     "montaña",
+     "ciudad"
+    ],
+    "br": [
+     [
+      "playa|mar|nadar|costa",
+      "La playa es perfecta para desconectarse del trabajo.",
+      "presupuesto"
+     ],
+     [
+      "montana|caminar|naturaleza|aire",
+      "La montaña tiene paisajes increíbles.",
+      "presupuesto"
+     ],
+     [
+      "ciudad|museo|cultura|historia",
+      "Las ciudades históricas tienen mucho que mostrar.",
+      "presupuesto"
+     ]
+    ],
+    "re": "Buena opción.",
+    "next": "presupuesto"
+   },
+   "presupuesto": {
+    "m": "¿Y cuánto tiempo y dinero quieres gastar en el viaje?",
+    "o": [
+     "Tengo una semana y un presupuesto bastante limitado.",
+     "Quiero viajar diez días, pero sin gastar demasiado.",
+     "Tengo pocos días, pero me gustaría ir a un lugar especial."
+    ],
+    "min": 6,
+    "kw": [
+     "semana",
+     "presupuesto",
+     "dias"
+    ],
+    "br": [
+     [
+      "limitado|poco dinero|barato|ahorrar",
+      "Entonces conviene reservar con anticipación para ahorrar.",
+      "reserva"
+     ],
+     [
+      "semana|dias|tiempo",
+      "Es un buen tiempo para conocer un lugar con calma."
+     ]
+    ],
+    "re": "Entiendo.",
+    "next": "reserva"
+   },
+   "reserva": {
+    "m": "¿Ya reservaste el hotel o los pasajes?",
+    "o": [
+     "Todavía no he reservado nada, pero voy a hacerlo esta semana.",
+     "Ya reservé el hotel, pero me faltan los pasajes.",
+     "Sí, reservé todo hace un mes para conseguir mejores precios."
+    ],
+    "min": 6,
+    "kw": [
+     "reservado",
+     "hotel",
+     "pasajes"
+    ],
+    "br": [
+     [
+      "todavia no|no he|no reserve|falta",
+      "Yo en tu lugar lo haría pronto, los precios suben rápido."
+     ],
+     [
+      "ya reserve|reserve todo|hace un mes",
+      "¡Qué organizado eres! Así viajas más tranquilo."
+     ]
+    ],
+    "re": "Está bien.",
+    "next": "actividades"
+   },
+   "actividades": {
+    "m": "Cuéntame, ¿qué actividades te gustaría hacer allá?",
+    "o": [
+     "Lo que más me interesa es probar la comida local y caminar mucho.",
+     "Quiero hacer excursiones y tomar muchas fotos del paisaje.",
+     "Me gustaría descansar, leer un libro y no hacer nada especial."
+    ],
+    "min": 6,
+    "kw": [
+     "comida",
+     "excursiones",
+     "descansar"
+    ],
+    "br": [
+     [
+      "descansar|leer|tranquilo|nada especial",
+      "A veces descansar es el mejor plan de todos.",
+      "companeros"
+     ],
+     [
+      "comida|probar|restaurante",
+      "La comida local siempre es lo mejor de un viaje.",
+      "companeros"
+     ]
+    ],
+    "re": "Suena divertido.",
+    "next": "companeros"
+   },
+   "companeros": {
+    "m": "¿Con quién vas a viajar? ¿Solo o acompañado?",
+    "o": [
+     "Voy con mi pareja y dos amigos. Será muy divertido.",
+     "Prefiero viajar solo, porque así decido mi propio ritmo.",
+     "Voy con mi familia. Mis hijos están muy emocionados."
+    ],
+    "min": 6,
+    "kw": [
+     "familia",
+     "amigos",
+     "solo"
+    ],
+    "br": [
+     [
+      "solo|sola|mismo ritmo",
+      "Viajar solo da mucha libertad, es verdad."
+     ],
+     [
+      "familia|hijos|padres|hermanos",
+      "Los viajes en familia dejan los mejores recuerdos."
+     ]
+    ],
+    "re": "¡Qué bien!",
+    "next": "clima"
+   },
+   "clima": {
+    "m": "Ojalá tengan buen clima. ¿Qué esperas de este viaje?",
+    "o": [
+     "Espero volver con energía y con muchas fotos bonitas.",
+     "Ojalá el clima sea bueno y todo salga como lo planeamos.",
+     "Quiero olvidarme del trabajo y descansar de verdad."
+    ],
+    "min": 6,
+    "kw": [
+     "energia",
+     "descansar",
+     "clima"
+    ],
+    "re": "Seguro que lo van a pasar muy bien.",
+    "next": null
+   }
+  },
+  "end": "Qué emoción. Cuéntame todo cuando regreses. ¡Que tengas unas vacaciones increíbles!"
+ },
+ {
+  "id": "es-reclamar-pedido",
+  "em": "📦",
+  "lv": "B1",
+  "kind": "role",
+  "who": "ama",
+  "title": "Reclamar un pedido por teléfono",
+  "tr": "Complaining about an order by phone",
+  "role": "a polite customer service agent at an online store",
+  "words": [
+   "pedido",
+   "reclamo",
+   "número de pedido",
+   "retraso",
+   "producto dañado",
+   "reembolso",
+   "devolución",
+   "envío",
+   "garantía",
+   "atención al cliente"
+  ],
+  "phrases": [
+   [
+    "Llamo para hacer un reclamo.",
+    "I'm calling to make a complaint."
+   ],
+   [
+    "Mi pedido no ha llegado todavía.",
+    "My order hasn't arrived yet."
+   ],
+   [
+    "El producto llegó dañado.",
+    "The product arrived damaged."
+   ],
+   [
+    "Quisiera un reembolso, por favor.",
+    "I would like a refund, please."
+   ],
+   [
+    "¿En cuánto tiempo lo solucionarán?",
+    "How soon will you fix it?"
+   ]
+  ],
+  "start": "saludo",
+  "nodes": {
+   "saludo": {
+    "m": "Gracias por llamar a atención al cliente. ¿En qué puedo ayudarle?",
+    "o": [
+     "Buenas tardes. Llamo porque tengo un problema con mi pedido.",
+     "Hola, quisiera hacer un reclamo sobre una compra reciente.",
+     "Buenas tardes. Mi pedido llegó con un problema y necesito ayuda."
+    ],
+    "min": 5,
+    "kw": [
+     "pedido",
+     "problema",
+     "reclamo"
+    ],
+    "re": "Con gusto le ayudo.",
+    "next": "numero"
+   },
+   "numero": {
+    "m": "Por favor, dígame su nombre y el número de su pedido.",
+    "o": [
+     "Me llamo Laura Pérez y mi número de pedido es 4582.",
+     "Mi nombre es Pedro Díaz. El pedido es el número 7310.",
+     "Soy Ana Gómez. Tengo el número de pedido aquí, es el 2096."
+    ],
+    "min": 6,
+    "kw": [
+     "nombre",
+     "pedido",
+     "numero"
+    ],
+    "re": "Gracias, lo estoy buscando en el sistema.",
+    "next": "problema"
+   },
+   "problema": {
+    "m": "Ya lo encontré. ¿Cuál es el problema exactamente?",
+    "o": [
+     "El producto llegó dañado y la caja estaba rota.",
+     "Mi pedido no ha llegado y ya pasaron dos semanas.",
+     "Me enviaron un producto diferente al que pedí."
+    ],
+    "min": 6,
+    "kw": [
+     "dañado",
+     "retraso",
+     "diferente"
+    ],
+    "br": [
+     [
+      "danado|roto|rota|golpe",
+      "Lamento mucho que haya llegado dañado.",
+      "solucion"
+     ],
+     [
+      "no ha llegado|retraso|tarde|semanas|demora",
+      "Lamento la demora, vamos a revisar el envío.",
+      "retraso"
+     ],
+     [
+      "diferente|equivocado|otro|error",
+      "Lamento el error, se ve que hubo una confusión.",
+      "solucion"
+     ]
+    ],
+    "re": "Entiendo el problema.",
+    "next": "solucion"
+   },
+   "retraso": {
+    "m": "Veo que el paquete sigue en tránsito. ¿Prefiere esperar o cancelar el pedido?",
+    "o": [
+     "Prefiero cancelar y recibir mi dinero de vuelta.",
+     "Puedo esperar unos días más, pero necesito una fecha segura.",
+     "Quiero que lo envíen de nuevo con servicio urgente."
+    ],
+    "min": 6,
+    "kw": [
+     "cancelar",
+     "esperar",
+     "enviar"
+    ],
+    "re": "Entiendo su situación.",
+    "next": "solucion"
+   },
+   "solucion": {
+    "m": "Podemos ofrecerle un reembolso o un producto nuevo. ¿Qué prefiere?",
+    "o": [
+     "Prefiero un reembolso, porque ya no necesito el producto.",
+     "Quisiera un producto nuevo lo antes posible.",
+     "Me gustaría el reembolso completo, incluyendo el envío."
+    ],
+    "min": 6,
+    "kw": [
+     "reembolso",
+     "nuevo",
+     "envio"
+    ],
+    "br": [
+     [
+      "reembolso|dinero|devolver|devolucion",
+      "Perfecto, procesaremos el reembolso a su tarjeta."
+     ],
+     [
+      "nuevo|cambio|reemplazo|otro",
+      "Muy bien, le enviaremos uno nuevo sin costo."
+     ]
+    ],
+    "re": "Anotado.",
+    "next": "tiempo"
+   },
+   "tiempo": {
+    "m": "Necesito algunos datos más. ¿Puede enviarnos fotos del problema por correo?",
+    "o": [
+     "Sí, le envío las fotos hoy mismo por correo.",
+     "Claro, pero ¿cuánto tiempo tardará todo el proceso?",
+     "Por supuesto. ¿A qué dirección de correo las envío?"
+    ],
+    "min": 5,
+    "kw": [
+     "fotos",
+     "correo",
+     "tiempo"
+    ],
+    "br": [
+     [
+      "cuanto|tiempo|tardara|dias",
+      "El proceso tarda entre tres y cinco días hábiles."
+     ]
+    ],
+    "re": "Perfecto, gracias.",
+    "next": "cierre"
+   },
+   "cierre": {
+    "m": "Ya quedó registrado su reclamo. ¿Hay algo más en lo que pueda ayudarle?",
+    "o": [
+     "No, eso es todo. Gracias por su ayuda y su paciencia.",
+     "Sí, ¿me puede dar un número de seguimiento?",
+     "Solo quiero confirmar que recibiré un correo con la respuesta."
+    ],
+    "min": 5,
+    "kw": [
+     "gracias",
+     "seguimiento",
+     "correo"
+    ],
+    "re": "Con mucho gusto. Su número de seguimiento llegará por correo.",
+    "next": null
+   }
+  },
+  "end": "Gracias por su paciencia y disculpe las molestias. ¡Que tenga una excelente tarde!"
+ },
+ {
+  "id": "es-tecnologia",
+  "em": "📱",
+  "lv": "B2",
+  "kind": "chat",
+  "who": "carlos",
+  "title": "Opiniones sobre tecnología y redes sociales",
+  "tr": "Opinions about technology and social media",
+  "role": "a curious friend who likes discussing technology",
+  "words": [
+   "tecnología",
+   "redes sociales",
+   "aplicación",
+   "privacidad",
+   "adicción",
+   "pantalla",
+   "influencer",
+   "noticias falsas",
+   "comunicación",
+   "dependencia"
+  ],
+  "phrases": [
+   [
+    "En mi opinión,…",
+    "In my opinion,…"
+   ],
+   [
+    "Por un lado… por otro lado…",
+    "On one hand… on the other hand…"
+   ],
+   [
+    "Estoy convencido de que…",
+    "I'm convinced that…"
+   ],
+   [
+    "No estoy del todo de acuerdo.",
+    "I don't completely agree."
+   ],
+   [
+    "Hay que encontrar un equilibrio.",
+    "We need to find a balance."
+   ]
+  ],
+  "start": "inicio",
+  "nodes": {
+   "inicio": {
+    "m": "Oye, ¿cuánto tiempo pasas al día con el celular? A mí me preocupa un poco.",
+    "o": [
+     "Probablemente demasiado: unas cuatro horas al día, casi siempre en redes sociales.",
+     "Intento limitarlo, pero lo uso mucho para el trabajo y para hablar con mi familia.",
+     "Pasa más tiempo del que me gustaría admitir, sobre todo por las noches."
+    ],
+    "min": 7,
+    "kw": [
+     "horas",
+     "celular",
+     "redes"
+    ],
+    "br": [
+     [
+      "demasiado|mucho|horas|noches",
+      "Te entiendo, es muy fácil perder la noción del tiempo.",
+      "redes"
+     ],
+     [
+      "limitar|poco|trabajo|familia",
+      "Qué bien que tengas un propósito claro al usarlo.",
+      "redes"
+     ]
+    ],
+    "re": "Es un tema común.",
+    "next": "redes"
+   },
+   "redes": {
+    "m": "¿Crees que las redes sociales nos acercan o nos alejan de las personas?",
+    "o": [
+     "Por un lado nos conectan con gente lejana, pero por otro nos alejan de quienes están cerca.",
+     "Creo que depende de cómo se usen: pueden unir o aislar a las personas.",
+     "En mi opinión nos acercan, porque puedo hablar con mis amigos del extranjero cada día."
+    ],
+    "min": 8,
+    "kw": [
+     "conectan",
+     "alejan",
+     "depende"
+    ],
+    "br": [
+     [
+      "alejan|aislar|soledad|cerca",
+      "Es verdad, a veces estamos juntos pero cada quien en su pantalla.",
+      "privacidad"
+     ],
+     [
+      "acercan|unir|conectan|extranjero",
+      "Es cierto que acortan las distancias de forma increíble.",
+      "privacidad"
+     ]
+    ],
+    "re": "Punto interesante.",
+    "next": "privacidad"
+   },
+   "privacidad": {
+    "m": "Otro tema es la privacidad. ¿Te preocupa que las aplicaciones usen tus datos?",
+    "o": [
+     "Sí, me preocupa bastante, aunque acepto los términos sin leerlos casi siempre.",
+     "Estoy convencido de que debería haber leyes más estrictas para proteger nuestros datos.",
+     "No demasiado, pero trato de no compartir información personal en internet."
+    ],
+    "min": 8,
+    "kw": [
+     "datos",
+     "privacidad",
+     "leyes"
+    ],
+    "br": [
+     [
+      "preocupa|leyes|proteger|estrictas",
+      "Tienes razón, muchas empresas saben más de nosotros de lo que imaginamos."
+     ],
+     [
+      "no demasiado|no mucho|tranquilo",
+      "Es una actitud común, aunque conviene tener cuidado."
+     ]
+    ],
+    "re": "Es un punto importante.",
+    "next": "noticias"
+   },
+   "noticias": {
+    "m": "¿Y qué opinas de las noticias falsas? ¿Cómo sabes si algo es verdad?",
+    "o": [
+     "Siempre intento comparar varias fuentes antes de creer o compartir algo.",
+     "Es difícil saberlo, porque algunas noticias falsas parecen muy convincentes.",
+     "Desconfío de los titulares exagerados y reviso quién publica la información."
+    ],
+    "min": 8,
+    "kw": [
+     "fuentes",
+     "falsas",
+     "verdad"
+    ],
+    "re": "Es una buena costumbre.",
+    "next": "ninos"
+   },
+   "beneficios": {
+    "m": "Pero seamos justos: ¿qué beneficios te ha dado la tecnología en tu vida?",
+    "o": [
+     "Me ha permitido estudiar en línea y aprender idiomas desde mi casa.",
+     "Gracias a la tecnología trabajo de forma más flexible y ahorro mucho tiempo.",
+     "Puedo hablar con mi familia en cualquier momento, aunque estemos lejos."
+    ],
+    "min": 8,
+    "kw": [
+     "estudiar",
+     "trabajo",
+     "familia"
+    ],
+    "br": [
+     [
+      "estudiar|aprender|idiomas|cursos",
+      "Es cierto, hoy se puede aprender casi cualquier cosa en línea.",
+      "equilibrio"
+     ],
+     [
+      "trabajo|flexible|tiempo",
+      "El trabajo flexible ha cambiado la vida de muchísima gente.",
+      "equilibrio"
+     ]
+    ],
+    "re": "Totalmente de acuerdo.",
+    "next": "equilibrio"
+   },
+   "equilibrio": {
+    "m": "Entonces, ¿cómo lograr un equilibrio sano con la tecnología?",
+    "o": [
+     "Hay que fijar horarios y dejar el celular fuera del dormitorio por las noches.",
+     "Creo que lo importante es usarla con un propósito, no solo por costumbre.",
+     "Yo desactivo las notificaciones y dedico tiempo cada día a actividades sin pantallas."
+    ],
+    "min": 8,
+    "kw": [
+     "horarios",
+     "notificaciones",
+     "equilibrio"
+    ],
+    "re": "Me parece una excelente idea.",
+    "next": null
+   },
+   "ninos": {
+    "m": "¿A qué edad crees que los niños deberían tener su primer celular?",
+    "o": [
+     "Creo que no antes de los doce años, y siempre con reglas claras en casa.",
+     "En mi opinión depende de la madurez de cada niño, no solo de su edad.",
+     "Estoy convencido de que los padres deben dar el ejemplo y limitar su propio uso."
+    ],
+    "min": 8,
+    "kw": [
+     "niños",
+     "edad",
+     "padres"
+    ],
+    "br": [
+     [
+      "no antes|doce|reglas|limitar",
+      "Las reglas claras desde el principio ayudan muchísimo."
+     ],
+     [
+      "madurez|depende|ejemplo",
+      "Tienes razón, el ejemplo de los adultos pesa más que cualquier norma."
+     ]
+    ],
+    "re": "Es un tema delicado.",
+    "next": "beneficios"
+   }
+  },
+  "end": "Me encantó esta conversación. Voy a intentar usar menos el celular esta semana. ¡Hablamos pronto!"
+ },
+ {
+  "id": "es-reunion-trabajo",
+  "em": "💼",
+  "lv": "B2",
+  "kind": "role",
+  "who": "ama",
+  "title": "Reunión de trabajo: proponer y acordar",
+  "tr": "Work meeting: proposing and agreeing",
+  "role": "a project manager leading a team meeting",
+  "words": [
+   "reunión",
+   "propuesta",
+   "plazo",
+   "presupuesto",
+   "equipo",
+   "objetivo",
+   "prioridad",
+   "acuerdo",
+   "responsable",
+   "seguimiento"
+  ],
+  "phrases": [
+   [
+    "Quisiera proponer lo siguiente.",
+    "I would like to propose the following."
+   ],
+   [
+    "Estoy de acuerdo con esa idea.",
+    "I agree with that idea."
+   ],
+   [
+    "¿Qué les parece si…?",
+    "What do you think if…?"
+   ],
+   [
+    "Tendríamos que fijar un plazo.",
+    "We would need to set a deadline."
+   ],
+   [
+    "Quedamos en que…",
+    "We agreed that…"
+   ]
+  ],
+  "start": "apertura",
+  "nodes": {
+   "apertura": {
+    "m": "Buenos días a todos. Hoy hablaremos del lanzamiento del nuevo proyecto. ¿Alguien quiere empezar con una propuesta?",
+    "o": [
+     "Sí, quisiera proponer que lancemos el proyecto en dos fases para reducir riesgos.",
+     "Yo propongo que empecemos con una versión sencilla y mejoremos con los comentarios de los clientes.",
+     "Me gustaría sugerir que primero definamos bien los objetivos antes de repartir tareas."
+    ],
+    "min": 9,
+    "kw": [
+     "proponer",
+     "fases",
+     "objetivos"
+    ],
+    "br": [
+     [
+      "fases|dos etapas|version sencilla|riesgos",
+      "Me gusta la idea de reducir riesgos desde el principio.",
+      "plazo"
+     ],
+     [
+      "objetivos|definir|tareas|primero",
+      "Es cierto, sin objetivos claros el equipo se pierde.",
+      "plazo"
+     ]
+    ],
+    "re": "Es una propuesta interesante.",
+    "next": "plazo"
+   },
+   "plazo": {
+    "m": "Gracias. ¿Qué plazo les parece realista para terminar la primera fase?",
+    "o": [
+     "Creo que seis semanas es realista, siempre que no cambien los requisitos.",
+     "Tendríamos que fijar ocho semanas para tener un margen de seguridad.",
+     "Si tenemos todo el equipo disponible, podríamos terminar en un mes."
+    ],
+    "min": 8,
+    "kw": [
+     "semanas",
+     "plazo",
+     "equipo"
+    ],
+    "br": [
+     [
+      "seis|un mes|cuatro",
+      "Seis semanas es ajustado, pero posible si nos organizamos bien."
+     ],
+     [
+      "ocho|margen|seguridad",
+      "Ocho semanas da más tranquilidad al equipo."
+     ]
+    ],
+    "re": "Lo tendré en cuenta.",
+    "next": "presupuesto"
+   },
+   "presupuesto": {
+    "m": "El presupuesto es limitado. ¿Dónde recomiendan que invirtamos primero?",
+    "o": [
+     "Recomiendo invertir primero en las pruebas, porque los errores salen caros después.",
+     "Creo que deberíamos contratar a un diseñador externo para mejorar la imagen del producto.",
+     "Lo más importante es proteger el tiempo del equipo, así que sugiero comprar mejores herramientas."
+    ],
+    "min": 9,
+    "kw": [
+     "invertir",
+     "pruebas",
+     "herramientas"
+    ],
+    "br": [
+     [
+      "no estoy de acuerdo|caro|demasiado|reducir",
+      "Entiendo su preocupación; busquemos entonces una alternativa más económica.",
+      "objecion"
+     ],
+     [
+      "invertir|pruebas|disenador|herramientas|equipo",
+      "Es una inversión razonable, la valoraré.",
+      "responsables"
+     ]
+    ],
+    "re": "Lo tendré en cuenta.",
+    "next": "responsables"
+   },
+   "objecion": {
+    "m": "Hay una objeción: algunos creen que es demasiado dinero. ¿Cómo lo defenderían?",
+    "o": [
+     "Entiendo la duda, pero ahorraríamos más a largo plazo al evitar errores graves.",
+     "Podríamos empezar con una inversión menor y revisar los resultados en un mes.",
+     "Propongo repartir los gastos en dos etapas para no comprometer todo el presupuesto."
+    ],
+    "min": 9,
+    "kw": [
+     "ahorraríamos",
+     "inversión",
+     "etapas"
+    ],
+    "re": "Es un argumento válido.",
+    "next": "responsables"
+   },
+   "responsables": {
+    "m": "Muy bien. ¿Quién debería ser responsable de cada parte del proyecto?",
+    "o": [
+     "Propongo que Carla lidere el diseño y que yo coordine las pruebas con el equipo técnico.",
+     "Creo que cada área debería nombrar a un responsable que informe cada semana.",
+     "Yo me ofrezco a coordinar el proyecto, y que cada persona asuma una tarea concreta."
+    ],
+    "min": 9,
+    "kw": [
+     "responsable",
+     "coordinar",
+     "semana"
+    ],
+    "re": "Perfecto, así queda claro quién hace qué.",
+    "next": "seguimiento"
+   },
+   "seguimiento": {
+    "m": "¿Cómo haremos el seguimiento para saber si vamos por buen camino?",
+    "o": [
+     "Sugiero una reunión corta cada lunes para revisar avances y resolver bloqueos.",
+     "Podemos usar un tablero compartido donde todos actualicen el estado de sus tareas.",
+     "Tendríamos que enviar un informe breve cada viernes con los logros y los problemas."
+    ],
+    "min": 9,
+    "kw": [
+     "reunión",
+     "tablero",
+     "informe"
+    ],
+    "re": "Me parece muy práctico.",
+    "next": "acuerdo"
+   },
+   "acuerdo": {
+    "m": "Para cerrar, resumamos: ¿en qué quedamos todos?",
+    "o": [
+     "Quedamos en lanzar en dos fases, con seis semanas para la primera y reuniones cada lunes.",
+     "Entonces, el equipo empieza esta semana y yo envío el resumen de acuerdos hoy mismo.",
+     "Quedamos en priorizar las pruebas, revisar el presupuesto y volver a reunirnos en quince días."
+    ],
+    "min": 10,
+    "kw": [
+     "quedamos",
+     "fases",
+     "reunión"
+    ],
+    "re": "Excelente, queda todo claro.",
+    "next": null
+   }
+  },
+  "end": "Muchas gracias a todos por sus aportes. Les envío el resumen por correo hoy. ¡Buen trabajo, equipo!"
+ },
+ {
+  "id": "es-trabajo-remoto",
+  "em": "🏠",
+  "lv": "C1",
+  "kind": "chat",
+  "who": "carlos",
+  "title": "Debate: ventajas y desventajas del trabajo remoto",
+  "tr": "Debate: pros and cons of remote work",
+  "role": "a thoughtful debate partner who enjoys exploring both sides",
+  "words": [
+   "teletrabajo",
+   "productividad",
+   "flexibilidad",
+   "aislamiento",
+   "conciliación",
+   "desplazamiento",
+   "autodisciplina",
+   "colaboración",
+   "cultura empresarial",
+   "desconexión"
+  ],
+  "phrases": [
+   [
+    "Si bien es cierto que…, también…",
+    "While it is true that…, also…"
+   ],
+   [
+    "Eso depende en gran medida de…",
+    "That depends largely on…"
+   ],
+   [
+    "Cabe destacar que…",
+    "It is worth noting that…"
+   ],
+   [
+    "A mi juicio, lo decisivo es…",
+    "In my view, the decisive factor is…"
+   ],
+   [
+    "Planteado así, tiene sentido.",
+    "Put that way, it makes sense."
+   ]
+  ],
+  "start": "inicio",
+  "nodes": {
+   "inicio": {
+    "m": "Vamos a debatir algo actual: ¿el trabajo remoto es realmente mejor que el presencial? ¿Cuál es tu postura inicial?",
+    "o": [
+     "En términos generales, creo que es una gran ventaja, siempre que exista confianza entre el equipo y la empresa.",
+     "Tengo una postura intermedia: el modelo híbrido combina lo mejor de ambos mundos, a mi juicio.",
+     "Soy algo escéptico, porque creo que se pierde una parte esencial de la colaboración espontánea."
+    ],
+    "min": 10,
+    "kw": [
+     "ventaja",
+     "híbrido",
+     "escéptico"
+    ],
+    "br": [
+     [
+      "escepticismo|escéptico|escéptica|escéptic|pierde|espontane|presencial",
+      "Es una postura legítima; el contacto directo tiene un valor difícil de reemplazar.",
+      "desventajas"
+     ],
+     [
+      "ventaja|confianza|flexibilidad|mejor",
+      "Bien planteado; la confianza es sin duda un pilar de este modelo.",
+      "productividad"
+     ],
+     [
+      "hibrido|intermedia|ambos|equilibrio",
+      "El modelo híbrido es hoy el más popular, y por algo será.",
+      "productividad"
+     ]
+    ],
+    "re": "Interesante punto de partida.",
+    "next": "productividad"
+   },
+   "productividad": {
+    "m": "Hablemos de productividad. ¿Realmente se rinde más trabajando desde casa?",
+    "o": [
+     "Eso depende en gran medida de la persona: yo rindo más sin interrupciones, pero otros se distraen con facilidad.",
+     "Cabe destacar que se elimina el cansancio del traslado, y esa energía se invierte en trabajar mejor.",
+     "Los estudios son diversos, pero mi experiencia indica que la productividad mejora en tareas que exigen concentración."
+    ],
+    "min": 10,
+    "kw": [
+     "productividad",
+     "concentración",
+     "depende"
+    ],
+    "re": "Un análisis equilibrado, gracias.",
+    "next": "conciliacion"
+   },
+   "conciliacion": {
+    "m": "Se suele decir que mejora la conciliación entre vida personal y laboral. ¿Estás de acuerdo?",
+    "o": [
+     "En gran parte sí, aunque el riesgo es que el trabajo invada los espacios y horarios personales.",
+     "Sin duda, poder organizar mi día me permite atender a mi familia sin sacrificar mis responsabilidades.",
+     "Si bien es cierto que se gana tiempo, resulta difícil desconectarse cuando la oficina está en la sala."
+    ],
+    "min": 10,
+    "kw": [
+     "conciliación",
+     "horarios",
+     "desconectarse"
+    ],
+    "br": [
+     [
+      "desconect|invada|limite|limites|sala|horario",
+      "Muy cierto: sin límites claros, el hogar se convierte en una extensión de la oficina.",
+      "desventajas"
+     ],
+     [
+      "familia|organizar|tiempo|libertad",
+      "Esa libertad es, para muchos, el mayor beneficio de este modelo.",
+      "desventajas"
+     ]
+    ],
+    "re": "Es un matiz importante.",
+    "next": "desventajas"
+   },
+   "desventajas": {
+    "m": "¿Cuáles consideras las mayores desventajas, sobre todo a largo plazo?",
+    "o": [
+     "El aislamiento social es la principal, pues se debilitan los vínculos y el sentido de pertenencia al equipo.",
+     "A largo plazo, los trabajadores más jóvenes pierden oportunidades de aprender observando a colegas con experiencia.",
+     "Otro problema es la autodisciplina, que no todos poseen, y la desigualdad entre quienes tienen buen espacio en casa y quienes no."
+    ],
+    "min": 10,
+    "kw": [
+     "aislamiento",
+     "aprender",
+     "autodisciplina"
+    ],
+    "br": [
+     [
+      "aisl|soledad|vinculo|pertenencia",
+      "El aislamiento es un riesgo real, aunque algunas empresas lo compensan con encuentros presenciales.",
+      "soluciones"
+     ],
+     [
+      "joven|aprender|experiencia|mentor",
+      "Muy buen punto: el aprendizaje informal en una oficina es difícil de reproducir en pantalla.",
+      "soluciones"
+     ]
+    ],
+    "re": "Una observación muy acertada.",
+    "next": "soluciones"
+   },
+   "soluciones": {
+    "m": "Entonces, ¿qué medidas deberían tomar las empresas para minimizar esos riesgos?",
+    "o": [
+     "Deberían promover encuentros periódicos, fijar horarios claros y evaluar a las personas por resultados, no por presencia.",
+     "A mi juicio, lo decisivo es formar a los líderes para gestionar equipos a distancia con empatía y objetivos claros.",
+     "Habría que garantizar el derecho a la desconexión digital y ofrecer apoyo para montar un espacio de trabajo adecuado."
+    ],
+    "min": 11,
+    "kw": [
+     "resultados",
+     "desconexión",
+     "líderes"
+    ],
+    "re": "Planteado así, tiene mucho sentido.",
+    "next": "cultura"
+   },
+   "futuro": {
+    "m": "Para terminar: ¿cómo imaginas el futuro del trabajo dentro de diez años?",
+    "o": [
+     "Imagino que la mayoría de las empresas adoptará esquemas flexibles, donde la oficina sea un lugar de encuentro más que de rutina.",
+     "Creo que la tecnología permitirá una colaboración remota mucho más natural, aunque nunca reemplazará del todo el contacto humano.",
+     "Probablemente trabajaremos por proyectos y no por horarios, y lo decisivo será la capacidad de adaptarse con rapidez."
+    ],
+    "min": 11,
+    "kw": [
+     "flexibles",
+     "tecnología",
+     "adaptarse"
+    ],
+    "re": "Una visión muy sugerente.",
+    "next": null
+   },
+   "cultura": {
+    "m": "¿Y qué pasa con la cultura de la empresa? ¿Se puede mantener a distancia?",
+    "o": [
+     "Es más difícil, pero se logra con rituales compartidos, comunicación transparente y encuentros presenciales ocasionales.",
+     "A mi juicio, la cultura se construye con hábitos cotidianos, y eso exige un esfuerzo consciente de los líderes.",
+     "Cabe destacar que algunas empresas remotas tienen culturas muy sólidas, basadas en la confianza y la autonomía."
+    ],
+    "min": 10,
+    "kw": [
+     "cultura",
+     "confianza",
+     "líderes"
+    ],
+    "br": [
+     [
+      "dificil|esfuerzo|rituales|encuentros",
+      "Es un desafío real que requiere intención y constancia."
+     ],
+     [
+      "solida|confianza|autonomia",
+      "La autonomía bien gestionada fortalece mucho a los equipos."
+     ]
+    ],
+    "re": "Un punto de vista muy completo.",
+    "next": "futuro"
+   }
+  },
+  "end": "Ha sido un debate excelente, con argumentos muy sólidos de ambos lados. Gracias por tu tiempo y hasta la próxima."
+ }
+]

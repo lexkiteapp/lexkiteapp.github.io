@@ -123,6 +123,7 @@
   const nx = () => LV[(LV.indexOf(S.lv) + 1) % LV.length];
   // Màn kết Stitch (lesson-complete) dùng chung với cpack/es-app/pron-ui.js qua App.esEnd: o = { n, ok, first, best, chip, title, rev, revHref, again }
   async function end(o) {
+    try { if (sessionStorage.getItem('lk.es.dayctx')) App.need('esday').then(() => App.esDayMark('gp')); } catch (e) { /* bỏ qua */ } // lộ trình ngày TBN: bài ngữ pháp/phát âm xong → đánh dấu bước (cpack/es-app/day-ui.js)
     const n = o.n, acc = Math.round(o.ok / n * 100), xp = 10 + o.ok * 2 + (o.ok === n ? 5 : 0);
     try { await App.reward({ quizzes: 1, perfect: o.ok === n ? 1 : 0, xp }); } catch (e) { /* bỏ qua */ }
     const off = (v) => Math.round(490 * (1 - v)), ic = x => `<span class="material-symbols-outlined text-[16px]" aria-hidden="true">${x}</span>`;

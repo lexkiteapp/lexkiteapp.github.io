@@ -271,7 +271,7 @@
     if (location.hash !== tok) return;
     const name = (state.user && (state.user.displayName || state.user.email)) || '', ini = (String(name).trim()[0] || 'L').toUpperCase();
     const trail = PathTrail.build(tp, false), pm = tp.render(trail).replace(/^<main[^>]*>/, '').replace(/<\/main>$/, ''), pathHtml = `<div class="v2s-path w-full"><div class="st v2 v2-path">${pm}</div></div>`; // một component cho điện thoại, người mới, máy tính
-    const SL = (self.LESSON_STORIES || []), sAt = (parseInt(ls.get('lk.lsn.s.story') || '0', 10) || 0), so = SL.slice(sAt % (SL.length || 1)).concat(SL.slice(0, sAt % (SL.length || 1)));
+    const SL = (self.LESSON_STORIES || []), sAt = (parseInt(ls.get('lk.lsn.s.story') || '0', 10) || 0), so0 = SL.slice(sAt % (SL.length || 1)).concat(SL.slice(0, sAt % (SL.length || 1))), sDn = (() => { try { const a = JSON.parse(ls.get('lk.lsn.sd' + (demo ? '.demo' : '')) || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; } })(), so = so0.filter(x => !sDn.includes(x.id)).concat(so0.filter(x => sDn.includes(x.id))); // truyện đã học xuống cuối, thẻ đầu luôn là bài mới
     const stories = so.map(x => ({ title: x.title, sub: x.kind === 'radio' ? 'Radio' : t('Truyện'), cefr: x.cefr || '', min: t('{n} phút', { n: KMIN[x.kind] || 4 }), href: '#/lesson/go' + (Q ? Q + '&' : '?') + 'story=' + encodeURIComponent(x.id) })); // giữ ?demo=1: truyện trong bài thử không ghi tiến độ thật
     const kind = (P[at] || {}).kind, ws = /^(story|radio|exam)$/.test(kind) ? [] : words(n, P.length, kind);
     const h = new Date().getHours(), greet = h < 12 ? t('Chào buổi sáng!') : h < 18 ? t('Chào buổi chiều!') : t('Chào buổi tối!');

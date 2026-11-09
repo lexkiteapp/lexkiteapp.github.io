@@ -1,0 +1,194 @@
+{
+ "fixed": [
+  {
+   "word": "mientras",
+   "field": "ipa",
+   "from": "ˈmjɛntɾas",
+   "to": "ˈmjentɾas",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "significar",
+   "field": "ipa",
+   "from": "siɡnifiˈkaɾ",
+   "to": "siɣnifiˈkaɾ",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "gustar",
+   "field": "gl.vi",
+   "from": "muốn, thích",
+   "to": "thích, làm hài lòng",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "gustar",
+   "field": "gl.en",
+   "from": "would like",
+   "to": "to like, to be pleasing",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "gustar",
+   "field": "gl.pt",
+   "from": "gostaria",
+   "to": "gostar",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "gustar",
+   "field": "gl.fr",
+   "from": "aimerait",
+   "to": "plaire",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "gustar",
+   "field": "gl.de",
+   "from": "möchte",
+   "to": "gefallen, mögen",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "gustar",
+   "field": "gl.id",
+   "from": "ingin, menyukai",
+   "to": "menyukai, disukai",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "gustar",
+   "field": "gl.th",
+   "from": "อยาก, อยากจะ",
+   "to": "ชอบ, เป็นที่พอใจ",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "gustar",
+   "field": "gl.zh",
+   "from": "想要",
+   "to": "喜欢, 讨人喜欢",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "gustar",
+   "field": "gl.ja",
+   "from": "〜したい",
+   "to": "好まれる、気に入る",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "gustar",
+   "field": "gl.ko",
+   "from": "~하고 싶다",
+   "to": "마음에 들다, 좋아하다",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "gustar",
+   "field": "gl.hi",
+   "from": "पसंद करेगा/करेगी",
+   "to": "पसंद आना",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "gustar",
+   "field": "gl.ar",
+   "from": "يرغب في",
+   "to": "أعجب، يعجب",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "gustar",
+   "field": "gl.ru",
+   "from": "хотелось бы",
+   "to": "нравиться",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "gustar",
+   "field": "gl.tr",
+   "from": "isterdi, hoşlanırdı",
+   "to": "hoşlanılmak, beğenilmek",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "gustar",
+   "field": "ex.es",
+   "from": "Me gustaría comer una pizza.",
+   "to": "Me gusta mucho esta música.",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "gustar",
+   "field": "ex.en",
+   "from": "I would like to eat a pizza.",
+   "to": "I like this music a lot.",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "hora",
+   "field": "gl.en",
+   "from": "hours",
+   "to": "hour",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "ninguno",
+   "field": "ipa",
+   "from": "niŋˈɡuno",
+   "to": "ninˈɡuno",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "alguno",
+   "field": "ex.es",
+   "from": "Algunos niños juegan en el parque.",
+   "to": "¿Tienes alguno de estos libros?",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "alguno",
+   "field": "ex.en",
+   "from": "Some children are playing in the park.",
+   "to": "Do you have any of these books?",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "ello",
+   "field": "ipa",
+   "from": "ˈejjo",
+   "to": "ˈeʝo",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "tampoco",
+   "field": "gl.pt",
+   "from": "también não / tampouco",
+   "to": "tampouco, também não",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "tampoco",
+   "field": "gl.tr",
+   "from": "de değil / hem de değil",
+   "to": "de ... değil, ... da değil",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "frente",
+   "field": "ipa",
+   "from": "ˈfɾɛnte",
+   "to": "ˈfɾente",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "secreto",
+   "field": "gl.tr",
+   "from": "gizli",
+   "to": "sır, gizli",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  }
+ ],
+ "dropped": []
+}

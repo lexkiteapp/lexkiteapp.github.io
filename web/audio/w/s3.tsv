@@ -9269,3 +9269,15 @@ gasification	ok	ok
 anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
 porpoise	ok	ok
 systematics	ok	ok
+explicable	ok	ok
+flatfish	ok	ok
+conciliator	ok	ok
+ovule	cut_wordis: câu mang: "The word is of yule." · dot100:"of Yule." 0.72s · cut_wordis100:"of you." 0.76s · cut_wordis100:"Of Yule." 0.69s · cut_next: câu mang: "Next word of yule." · plain095:"of you." 0.67s · dot090:"of yours." 0.77s	cut_wordis:"Avule." 0.88s · cut_wordis:"Avule." 0.66s · dot100:"Avule." 0.63s · cut_wordis100: câu mang: "The word is avial." · cut_next:"Avual" 0.67s · cut_next:"Fuel." 0.45s · plain095:"Avial." 0.65s · dot090:"Avial" 0.72s
+machination	ok	ok
+ruthlessness	ok	ok
+penitent	ok	ok
+myopia	ok	ok
+mistrustful	ok	ok
+sacredness	ok	ok
+prophetess	ok	ok
+abortifacient	ok	ok
