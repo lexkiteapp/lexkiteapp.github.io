@@ -908,6 +908,7 @@ html.native .sheet, html.native [data-sheet] {
   padding-bottom: max(1.5rem, calc(.8rem + env(safe-area-inset-bottom, 0px)));
 }
 /* 3. Bàn phím không che ô nhập (keyboard avoidance & scroll-margin) */
+html { padding-bottom: var(--kb, 0px); } /* --kb: app.js đặt = chiều cao bàn phím khi chỉ visualViewport thấp lại → trang cuộn được để đưa ô nhập lên trên bàn phím */
 html.native input:not([type=checkbox]):not([type=radio]):not([type=range]),
 html.native select,
 html.native textarea {
