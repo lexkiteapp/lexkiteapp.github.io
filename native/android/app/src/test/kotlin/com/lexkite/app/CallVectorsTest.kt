@@ -106,7 +106,7 @@ class CallVectorsTest {
     // ====================================================== engine ======================================================
     @Test fun p08_prep_depth() {
         val en = v.o("engine")
-        for (c in cases(en.a("prep"))) { val call = Call(c.o("input")); check(cid(c), c["out"], obj("start" to call.start, "nodeIds" to call.nodes.keys.toList(), "nexts" to call.nodes.mapValues { it.value.next }, "flag" to true)) }
+        for (c in cases(en.a("prep"))) { if (c.getValue("input") !is JsonObject) { assertEquals(cid(c) + " non-object call stays null", JsonNull, c["out"]); continue }; val call = Call(c.o("input")); check(cid(c), c["out"], obj("start" to call.start, "nodeIds" to call.nodes.keys.toList(), "nexts" to call.nodes.mapValues { it.value.next }, "flag" to true)) }
         for (c in cases(en.a("depth"))) assertEquals(cid(c), c.n("out").toInt(), e.depth(Call(c.o("input"))))
     }
     @Test fun p08_step() {
@@ -117,7 +117,7 @@ class CallVectorsTest {
             if (w == null || w is JsonNull) assertNull(cid(c), f) else { assertNotNull(cid(c), f); check(cid(c), w, fixJ(f)) } }
     }
     @Test fun p08_slips() {
-        for (c in cases(v.o("engine").a("slips"))) { val i = c.o("input"); val call = Call(i.o("call")); val node = CNode("n", i.o("node")); check(cid(c), c["out"], e.slips(i.s("text"), call, node).map { slipJ(it) }) }
+        for (c in cases(v.o("engine").a("slips"))) { val i = c.o("input"); val none = JsonObject(emptyMap()); val call = Call(i["call"] as? JsonObject ?: none); val node = CNode("n", i["node"] as? JsonObject ?: none); check(cid(c), c["out"], e.slips(i.s("text"), call, node).map { slipJ(it) }) }
     }
     @Test fun p08_fluency() {
         for (c in cases(v.o("engine").a("fluency"))) { val i = c.o("input"); val f = e.fluency(i.s("text"), CNode("n", i.o("node")), i.n("secs"), i.sOrNull("tl"))
@@ -148,7 +148,7 @@ class CallVectorsTest {
             for ((k, st) in steps.withIndex()) { val id = cid(c) + ".step$k"
                 if (k > 0) { val a = actions[k - 1]; if (a.containsKey("filter")) flt = a.s("filter") else if (a.containsKey("changeAsr")) asr = null }
                 val o = st.o("out"); val cards = e.filtered(pack.english, flt); val (icon, priv) = e.privacy(envMode(env, ls, asr))
-                check("$id.filter", o["filter"], obj("buttons" to e.groups.map { g -> obj("group" to g, "pressed" to (g == flt), "label" to obj("k" to e.groupLabel(g).k)) }))
+                check("$id.filter", o["filter"], obj("label" to obj("k" to "Lọc theo kỳ thi"), "buttons" to e.groups.map { g -> obj("group" to g, "pressed" to (g == flt), "label" to obj("k" to e.groupLabel(g).k)) }))
                 if (o.containsKey("cards")) check("$id.cards", o["cards"], cards.map { x -> obj("id" to x.id, "em" to x.em, "name" to obj("k" to (e.nameKey(x)?.k ?: x.title)), "lv" to x.lv, "who" to x.teacher, "title" to x.title) })
                 else check("$id.cardIds", o["cardIds"], cards.map { it.id })
                 check("$id.privacy", o["privacy"], obj("icon" to icon, "k" to priv.k))
@@ -160,7 +160,7 @@ class CallVectorsTest {
         for (c in cases(v.a("ring"))) { val i = c.o("input"); val id = i.s("call"); val call = pack.call(id); val o = c.o("out")
             if (o.containsKey("list")) { assertNull(cid(c), call); continue }
             assertNotNull(cid(c), call); call!!; val (icon, priv) = e.privacy(envMode(i.o("env"), JsonObject(emptyMap()), null))
-            check(cid(c), o, obj("title" to obj("k" to (e.nameKey(call)?.k ?: call.title)), "lv" to listOf(call.lv, call.title), "teacher" to call.teacher, "role" to call.role, "privacy" to obj("icon" to icon, "k" to priv.k))) }
+            check(cid(c), o, obj("title" to obj("k" to (e.nameKey(call)?.k ?: call.title)), "lv" to listOf(call.lv, call.title), "teacher" to call.teacher, "role" to call.role, "privacy" to obj("icon" to icon, "k" to priv.k), "buttons" to listOf(obj("id" to "callGo", "label" to obj("k" to "Gọi ngay")), obj("href" to "#/call", "label" to obj("k" to "Cuộc gọi khác"))))) } // labels of CallRingScreen
     }
 
     // ====================================================== rewards / progress ======================================================
@@ -200,7 +200,7 @@ class CallVectorsTest {
         fun begin(cl: Call) { call = cl; val s = CallSession(e, cl, this, CallAskEnv(media = env.bool("media"), ext = env.bool("ext"), sr = env.bool("sr")), lang == "en"); session = s; s.begin() }
     }
 
-    private fun tipOf(t: CallTip): JsonObject = when (t) { is CallTip.FixTip -> obj("kind" to "fix", "bad" to t.fix.bad, "good" to t.fix.good, "why" to obj("k" to t.fix.why.k)); is CallTip.SlipTip -> obj("kind" to "slip", "said" to t.slip.said, "meant" to t.slip.meant); else -> obj("kind" to "default") }
+    private fun tipOf(t: CallTip): JsonObject = when (t) { is CallTip.FixTip -> obj("kind" to "fix", "bad" to t.fix.bad, "good" to t.fix.good, "why" to obj("k" to t.fix.why.k)); is CallTip.SlipTip -> obj("kind" to "slip", "said" to t.slip.said, "meant" to t.slip.meant); else -> obj("kind" to "default", "k" to "Gợi ý trả lời") } // the tip row label of SpeakCall.kt
     private fun r3(x: Double?) = x?.let { Math.round(it * 1000) / 1000.0 }
 
     @Test fun p08_flows() {
