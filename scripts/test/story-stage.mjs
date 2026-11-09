@@ -40,6 +40,7 @@ for (const m of js.matchAll(/\bT\('([^']+)'/g)) ok(en.includes(`'${m[1]}'`), `kh
 // bàn phím + rung + chip
 ok(/e\.key === 'Enter'/.test(ui) && /navigator\.vibrate/.test(ui), 'Enter = Kiểm tra / rung phản hồi thiếu');
 ok(/chip: sh\.chip/.test(ui), 'chip mục tiêu ở khung bài tập phải theo mẫu Stitch (sh.chip, ẩn khi không có mục tiêu)');
+ok(/stats\.thin/.test(tj) && /now - drawAt < 33/.test(tj) && /slowN >= 25/.test(tj), 'teacher.js: khi nói mà khung chậm (< 54 fps) phải hạ độ phân giải + vẽ miệng ≤ 30/s (fps màn Truyện ở CPU 4×)');
 ok(/L\.vids/.test(ui) && /ctx\.vids\(\)/.test(js), 'dừng video người im (park) thiếu'); ok(!/park\(on\)/.test(tj), 'teacher.js thuộc PR #760 – không sửa ở đây');
 // ---------- 2) trình duyệt ----------
 const lines = [];

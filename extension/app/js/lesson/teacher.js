@@ -56,7 +56,7 @@
     const calm = motionLow(); // giảm chuyển động: giữ khớp miệng + chớp mắt (thông tin), bỏ nghiêng/gật/liếc
     const stats = { frames: 0, long: 0, draws: 0, t0: 0, mode: 'idle', emo: '' };
     let idleEmo = '', idle = LF.machine(who, { dur: 120, seed: seed(who), calm }), emoUntil = 0;
-    let cv = null, hb = null, ctx = null, box = null, S = null, raf = 0, dead = false, last = '', prev = 0, openK = 0;
+    let cv = null, hb = null, ctx = null, box = null, S = null, raf = 0, dead = false, last = '', prev = 0, openK = 0, ema = 0, slowN = 0, drawAt = 0;
     const ac = audioCtx();
     const fit = () => { // canvas = đúng khung poster 1108×960 (CSS bài học/Call đặt canvas y như ảnh poster: contain căn đáy, hay phóng 172 % kiểu bán thân) – chỉ khi đổi cỡ
       const w = Math.max(rig.clientWidth || 200, cv.getBoundingClientRect().width || 0), W = Math.round(Math.min(1108, w * dpr));
@@ -70,6 +70,8 @@
       const dt = prev ? (now - prev) / 1000 : 1 / 60; prev = now; stats.frames++; if (dt > 0.05) stats.long++;
       // máy yếu (> 15 % khung dài sau 1,5 s): vẽ ở độ phân giải CSS (dpr 1) – ít điểm ảnh hơn tới 4×, miệng vẫn khớp đủ khung
       if (!stats.low && dpr > 1 && stats.frames >= 90 && stats.long > stats.frames * 0.15) { stats.low = 1; dpr = 1; if (cv) fit(); }
+      // đo THEO LÚC NÓI (tải thật: vẽ miệng gần mọi khung): trung bình trượt thời gian khung > 18,5 ms (< 54 fps) liên tục ~25 khung → hạ độ phân giải + vẽ miệng ≤ 30 lần/s (đủ khớp, nhường luồng chính cho cuộn/hoạt cảnh); khung nghỉ không tính nên không bị pha loãng
+      if (S && !stats.thin && dt < 0.5) { ema = ema ? ema + (dt - ema) * 0.15 : dt; slowN = ema > 0.0185 ? slowN + 1 : 0; if (slowN >= 25) { stats.thin = 1; if (dpr > 1) { stats.low = 1; dpr = 1; if (cv) fit(); } } }
       let s, talking = false;
       if (emoUntil && now > emoUntil) { emoUntil = 0; if (idleEmo !== 'listen') setIdle(held ? held[0] : ''); } // phản ứng ngắn đã hết → về tư thế đang giữ / nghỉ thường (câu đang nói giữ biểu cảm tới hết câu)
       stats.mode = S ? (S.L ? 'live' : 'pre') : 'idle';
@@ -82,8 +84,8 @@
       if (openK < 1) { s.mouth = LM.mix('X', s.mouth, openK); if (openK < 0.5) s.shape = 'X'; s.open *= openK; }
       // chỉ vẽ lại khi trạng thái đổi thấy được (bước 1/100)
       const m = s.mouth, k = [m.w, m.u, m.d, m.a, m.s, m.tt, m.tb, m.tg, m.tu, m.bite, m.lip, s.blink, s.look.x, s.look.y, s.brow, s.knit, s.open, s.tilt / 10, s.nod / 10].map(v => Math.round((v || 0) * 100)).join();
-      if (k !== last && ctx) {
-        last = k; stats.draws++;
+      if (k !== last && ctx && !(stats.thin && S && now - drawAt < 33)) {
+        last = k; drawAt = now; stats.draws++;
         ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height);
         ctx.setTransform(box[0], 0, 0, box[0], box[1], box[2]);
         if (s.tilt || s.nod) { ctx.translate(R.pivot[0], R.pivot[1]); ctx.rotate(-s.tilt * Math.PI / 180); ctx.translate(-R.pivot[0], -R.pivot[1] - s.nod); }
