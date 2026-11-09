@@ -2,13 +2,13 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 59.6 / 100**
+**Tổng: 61.5 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **54.5** | 46.2 | 54.5% | 100% | 0 |
+| Kho từ | **54.7** | 46.2 | 54.7% | 100% | 0 |
 | Ngữ pháp | **54.5** | 54.5 | 54.5% | 100% | 0 |
-| Giao tiếp | **52.3** | 15.2 | 52.3% | 100% | 0 |
+| Giao tiếp | **67.7** | 15.2 | 67.7% | 100% | 0 |
 | 4 kỹ năng | **49.2** | 48.2 | 49.2% | 100% | 0 |
 | Đề thi | **31.7** | 30.4 | 31.7% | 100% | 0 |
 | Khung Can-do | **80.3** | 79.3 | 80.3% | 100% | 0 |
@@ -19,13 +19,13 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| từ#loại duy nhất | 9759 / 20000 | 49% | 25 |
-| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 9759 / 9759 | 100% | 20 |
+| từ#loại duy nhất | 9775 / 20000 | 49% | 25 |
+| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 9775 / 9775 | 100% | 20 |
 | collocation | 4818 / 20000 | 24% | 12 |
-| đồng nghĩa | 2917 / 20000 | 15% | 8 |
-| IPA Mỹ | 6472 / 20000 | 32% | 5 |
-| ảnh theo nghĩa | 7432 / 20000 | 37% | 15 |
-| C2 | 672 / 1000 | 67% | 10 |
+| đồng nghĩa | 2923 / 20000 | 15% | 8 |
+| IPA Mỹ | 6486 / 20000 | 32% | 5 |
+| ảnh theo nghĩa | 7481 / 20000 | 37% | 15 |
+| C2 | 685 / 1000 | 69% | 10 |
 | A1 | 862 / 1000 | 86% | 5 |
 
 ## Ngữ pháp
@@ -51,7 +51,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | roleplay | 31 / 60 | 52% | 20 |
 | tình huống Play & Speak | 40 / 40 | 100% | 20 |
 | mục gold (giải thích cách dùng) | 284 / 1000 | 28% | 20 |
-| sổ mẫu câu theo chức năng (chưa làm) | 23 / 100 | 23% | 20 |
+| sổ mẫu câu theo chức năng (chưa làm) | 100 / 100 | 100% | 20 |
 
 ## 4 kỹ năng
 
@@ -98,7 +98,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 10609 / 10609 | 100% | 35 |
+| nội dung có lo hợp lệ | 10625 / 10625 | 100% | 35 |
 | mục tiêu đã có nội dung luyện | 142 / 600 | 24% | 25 |
 
 ## Dễ học – dễ nhớ
