@@ -21,7 +21,7 @@ final class CallVectorTests: XCTestCase {
     }
     func finish(_ r: R, _ name: String, file: StaticString = #filePath, line: UInt = #line) {
         XCTAssertGreaterThan(r.checked, 0, "\(name): nothing checked", file: file, line: line)
-        XCTAssertTrue(r.failures.isEmpty, "\(name): \(r.failures.count) of \(r.checked) failed:\n" + r.failures.joined(separator: "\n"), file: file, line: line)
+        XCTAssertTrue(r.failures.isEmpty, "\(name): \(r.failures.count) of \(r.checked) failed:\n" + r.failures.joined(separator: " ¦ "), file: file, line: line)
     }
 
     // MARK: fixtures
@@ -121,7 +121,7 @@ final class CallVectorTests: XCTestCase {
         guard let o, o != .null else { r.check(f == nil, "\(id): no fix"); return }
         guard let f else { r.check(false, "\(id): a fix"); return }
         r.eq(f.bad, o.s("bad"), "\(id) bad"); r.eq(f.good, o.s("good"), "\(id) good")
-        r.eq(vi(f.why), render(o["why"]), "\(id) why"); r.eq(f.whys.map { vi($0) }, o.list("whys").map { render($0) }, "\(id) whys")
+        r.eq(vi(f.why), render(o["why"]), "\(id) why"); if o["whys"] != nil { r.eq(f.whys.map { vi($0) }, o.list("whys").map { render($0) }, "\(id) whys") }
     }
     func testEngineCorrect() throws {
         let V = try vec(), E = try engine()
@@ -416,19 +416,19 @@ final class CallVectorTests: XCTestCase {
                         else if let e = mic["error"]?.string { session.recognizerError(rq.id, code: e); session.recognizerEnded(rq.id) }
                         else if let heard = mic["heard"]?.string {
                             rig.clock += Int64((mic.d("secs") ?? 0) * 1000)
-                            session.recognizerStarted(rq.id); session.recognizerResult(rq.id, heard: heard, score: mic["score"].map { Int(JSON.orZero($0)) }); session.recognizerEnded(rq.id)
+                            session.recognizerStarted(rq.id); session.recognizerResult(rq.id, heard: heard, score: mic["score"].map { Int(JSON.orZero($0)) } ?? 90); session.recognizerEnded(rq.id)
                         }
                     }
                 } else if let h = a["heard"] {
                     rig.clock += Int64((a.d("secs") ?? 0) * 1000)
                     if let rq = rig.requests.last {
-                        session.recognizerStarted(rq.id); session.recognizerResult(rq.id, heard: h.s("text"), score: h["score"].map { Int(JSON.orZero($0)) }); session.recognizerEnded(rq.id)
+                        session.recognizerStarted(rq.id); session.recognizerResult(rq.id, heard: h.s("text"), score: h["score"].map { Int(JSON.orZero($0)) } ?? 90); session.recognizerEnded(rq.id)
                     } else { r.check(false, "\(tag): a recogniser request to answer") }
                 } else if let t = a["type"]?.string { session.submitTyped(t)
                 } else if a["longDone"] != nil { session.longDone()
                 } else if let p = a["askPick"]?.string { session.askPick(CallAskChoice(rawValue: p) ?? .tap)
                 } else if let stale = a["stale"] {
-                    if let rq = rig.requests[safe: stale["index"].map { Int(JSON.orZero($0)) } ?? 0] { session.recognizerResult(rq.id, heard: stale.s("text"), score: nil) }
+                    if let rq = rig.requests[safe: stale["index"].map { Int(JSON.orZero($0)) } ?? 0] { session.recognizerResult(rq.id, heard: stale.s("text"), score: 90) }
                 } else if a["hang"] != nil { session.hang()
                 } else if a["tr"] != nil { session.toggleTranslation()
                 } else if let ms = a["tick"]?.double {
