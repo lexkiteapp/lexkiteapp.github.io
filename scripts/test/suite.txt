@@ -308,6 +308,7 @@ node scripts/test/probe-cta.mjs
 node scripts/test/haptics.mjs
 node scripts/test/aiearn.mjs
 node scripts/test/ext-newtab-quiz.mjs
+node scripts/test/i18n-native-score.mjs
 node scripts/test/cambridge.mjs
 node scripts/test/teacher-rig.mjs
 node scripts/test/teach2d-rig.mjs
