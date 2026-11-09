@@ -211,10 +211,9 @@
         </button>
       </div>
 
-      <!-- Teacher Slot (120x140) + Speech Bubble -->
-      <div class="flex items-center gap-4">
-        <!-- Empty Dashed Rounded 120x140 Teacher Slot -->
-        <div class="w-[120px] h-[140px] flex-shrink-0 rounded-2xl border-2 border-dashed border-[#136B66] bg-[#E6F5F3]/40 flex flex-col items-center justify-center p-3 text-center">
+      <!-- Hero: as the 390 hero -->
+<div role="region" aria-label="Today's Focus" class="tactile-card p-6 border-2 border-[#E6DCCB] space-y-4">
+<div class="flex flex-row-reverse items-start gap-5"><div class="w-[150px] h-[190px] flex-shrink-0 rounded-2xl border-2 border-dashed border-[#136B66] bg-[#E6F5F3]/40 flex flex-col items-center justify-center p-3 text-center">
           <div class="w-10 h-10 rounded-xl bg-white border border-[#BFE4E0] shadow-sm flex items-center justify-center text-[#136B66] mb-2">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.45 13.47L12 18.12l8.55-4.65V17L12 21.65 3.45 17v-3.53z"/>
@@ -223,69 +222,39 @@
           <span class="text-[11px] font-black uppercase tracking-wider text-[#136B66]">Teacher Slot</span>
           <span class="text-[10px] font-bold text-[#45555A] leading-tight mt-0.5">Stands grounded</span>
         </div>
-
-        <!-- Speech Bubble -->
-        <div class="flex-1 tactile-card p-5 relative border-2 border-[#E6DCCB]">
-          <!-- Speech triangle pointer -->
-          <div class="absolute -left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-l-2 border-b-2 border-[#E6DCCB] rotate-45"></div>
-          <div class="flex items-center gap-2 mb-1.5">
-            <span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span>
-            <span class="text-[11px] font-black uppercase tracking-wider text-[#136B66]">Today's Focus</span>
-            <span class="ml-auto text-[11px] font-extrabold text-[#136B66] bg-[#E6F5F3] px-2 py-0.5 rounded-full border border-[#BFE4E0]">+25 XP ready</span>
-          </div>
-          <p class="text-base font-extrabold text-[#162124] leading-snug">
-            “Good morning! 2 lessons and 8 words to review today.”
-          </p>
-        </div>
-      </div>
-
-      <!-- CONTINUE Hero Card -->
-      <div class="tactile-card p-6 border-2 border-[#E6DCCB] space-y-4">
-        <div class="flex items-center justify-between">
-          <span class="text-[11px] font-black tracking-widest uppercase text-[#136B66] bg-[#E6F5F3] px-2.5 py-1 rounded-md border border-[#BFE4E0]">
-            UNIT 1 · EVERYDAY ENGLISH
-          </span>
-          <span class="text-xs font-extrabold text-[#45555A]">Lesson 1/6</span>
-        </div>
-
-        <div>
-          <h2 class="text-2xl font-black text-[#162124] tracking-tight">Fix common mistakes</h2>
-          <p class="text-sm font-semibold text-[#45555A] mt-1">
+<div class="flex-1 min-w-0">
+<span class="block text-[11px] leading-4 font-black tracking-widest uppercase text-[#136B66]">UNIT 1 · EVERYDAY ENGLISH</span>
+<h2 class="m-0 mt-1 text-[32px] leading-10 font-black tracking-tight text-[#162124]">Fix common mistakes</h2>
+<div class="mt-2 flex flex-wrap items-center gap-2">
+<span class="text-xs font-extrabold px-2.5 py-1 rounded-lg bg-[#FBF7F1] border border-[#E6DCCB] text-[#45555A]">⏱ 3 min</span>
+<span class="text-xs font-black text-[#1C1003] bg-[#F59E0B] px-2.5 py-1 rounded-lg shadow-sm">A2</span>
+<span class="text-xs font-extrabold px-2.5 py-1 rounded-lg bg-[#FBF7F1] border border-[#E6DCCB] text-[#45555A]">Lesson 1/6</span>
+</div>
+<div class="relative mt-4 rounded-2xl border-2 px-4 py-3 bg-[#E6F5F3] border-[#BFE4E0] text-[#162124]">
+<p class="m-0 text-base leading-snug font-extrabold">“Good morning! 2 lessons and 8 words to review today.”</p>
+<span class="mt-2 inline-block text-[11px] leading-4 font-black px-2 rounded-lg border bg-white border-[#BFE4E0] text-[#136B66]">+25 XP ready</span>
+<div class="absolute top-6 -right-[8px] w-3.5 h-3.5 rotate-45 border-t-2 border-r-2 bg-[#E6F5F3] border-[#BFE4E0]"></div>
+</div>
+</div>
+</div>
+<p class="text-sm font-semibold text-[#45555A] mt-1">
             You'll learn 4 words: 
             <span class="font-extrabold text-[#136B66] underline decoration-2 decoration-[#136B66]/30">borrow</span>, 
             <span class="font-extrabold text-[#136B66] underline decoration-2 decoration-[#136B66]/30">lend</span>, 
             <span class="font-extrabold text-[#136B66] underline decoration-2 decoration-[#136B66]/30">advice</span>, 
             <span class="font-extrabold text-[#136B66] underline decoration-2 decoration-[#136B66]/30">furniture</span>
           </p>
-        </div>
-
-        <!-- Chips & Progress Bar -->
-        <div class="flex items-center gap-2.5 pt-1">
-          <span class="text-xs font-extrabold text-[#45555A] bg-[#FBF7F1] border border-[#E6DCCB] px-2.5 py-1 rounded-lg">
-            ⏱ 3 min
-          </span>
-          <span class="text-xs font-extrabold text-[#45555A] bg-[#FBF7F1] border border-[#E6DCCB] px-2.5 py-1 rounded-lg">
-            ✍️ 6 exercises
-          </span>
-          <span class="text-xs font-black text-[#1C1003] bg-[#F59E0B] px-2.5 py-1 rounded-lg shadow-sm">
-            A2
-          </span>
-          
-          <div class="flex-1 ml-2">
-            <div class="w-full bg-[#ECE4D7] h-2.5 rounded-full overflow-hidden">
-              <div class="bg-[#136B66] h-full rounded-full" style="width: 65%;"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Inline Tactile Orange CTA -->
-        <button class="tactile-button-orange w-full py-3.5 px-6 flex items-center justify-center gap-2 text-base font-black tracking-wide uppercase">
-          <span>CONTINUE</span>
+<div class="flex items-center gap-3">
+<div class="flex-1"><div class="w-full h-2.5 rounded-full overflow-hidden bg-[#ECE4D7]"><div class="bg-[#136B66] h-full rounded-full" style="width: 65%;"></div></div></div>
+<span class="text-xs font-black tabular-nums text-[#136B66]">65%</span>
+</div>
+<button class="tactile-button-orange w-full py-3.5 px-6 flex items-center justify-center gap-2 text-base font-black tracking-wide ">
+          <span>Continue</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
           </svg>
         </button>
-      </div>
+</div>
 
       <!-- Review Banner: '8 words are fading' -->
       <div class="tactile-card p-4 border-2 border-[#E6DCCB] bg-[#FFFFFF] flex items-center justify-between gap-4">
