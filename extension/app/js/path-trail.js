@@ -8,7 +8,8 @@
   const cell = (u, i, kind) => { const c = unitC(u.id); return c ? slotOf(c, kind === 'review' ? 'review' : SLOTS[i]) : null; }; // nextKind đổi nút thành ôn → dùng nội dung ô ôn
   const skip = (n, unitAt) => { let m = n; for (let g = 0; g < SLOTS.length; g++) { if (!hidden(unitAt(m, SLOTS.length), m % SLOTS.length)) break; m++; } return m; };
   const wordsOf = (n, unitAt, kind) => { const u = unitAt(n, SLOTS.length), it = cell(u, n % SLOTS.length, kind); if (!it || !it.words.length) return null;
-    return it.words.map(w => Object.assign({ word: w.w, pos: w.pos }, (u.words || []).find(x => x.word === w.w) || {}, { sentences: it.ex.filter(x => new RegExp('\\b' + w.w + '\\b', 'i').test(x.en)).map(x => ({ en: x.en, vi: x.vi })) })); };
+    return it.words.map(w => Object.assign({ word: w.w, pos: w.pos, vi: w.vi, def: w.def, ipa: w.ipa, ipaUS: w.ipaUS }, (u.words || []).find(x => x.word === w.w) || {}, { sentences: it.ex.filter(x => new RegExp('\\b' + w.w + '\\b', 'i').test(x.en)).map(x => ({ en: x.en, vi: x.vi })) })); };
+  const storyOf = (n, unitAt) => (cell(unitAt(n, SLOTS.length), n % SLOTS.length, 'story') || {}).story || ''; // nút Truyện mở đúng truyện đã hứa ở tấm chi tiết
   // o: { P, at, n, Q, unitAt, check, can, kmin, tch } → hàng cho khung path + bảng tra cho tấm chi tiết
   function build(o, full) {
     const { P, at, n, Q } = o, L = P.length, cu = Math.floor(n / L), from = full ? (cu < SPAN ? 0 : cu - 5) : cu, to = full ? from + SPAN - 1 : cu, rows = [], by = {}; let before = '';
@@ -43,5 +44,5 @@
     if ('requestIdleCallback' in self) requestIdleCallback(() => App.need('psheet').catch(() => {})); // tấm chi tiết sẵn sàng trước khi bấm, không đội màn đầu
     return set;
   }
-  self.PathTrail = { SLOTS, hidden, skip, wordsOf, build, wire };
+  self.PathTrail = { SLOTS, hidden, skip, wordsOf, storyOf, build, wire };
 })();
