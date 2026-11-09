@@ -15,14 +15,14 @@
 | t2a_review_analyze | 100.0 | 100.0 | banked | 42534524390 |
 | t2a_stress_artistic | 100.0 | 100.0 | banked | 42534524390 |
 | t2a_stress_athletic | 100.0 | 100.0 | banked | 42534524390 |
-| t2a_stress_attendee | – | 100.0 | red ×1: short: no render | 42534524390 |
+| t2a_stress_attendee | – | 100.0 | red ×2: short: no render | 42534524390 |
 | t2a_stress_historic | 100.0 | 100.0 | banked | 42534524390 |
 | t2a_stress_objective | 100.0 | 100.0 | banked | 42534524390 |
 | t2a_stress_organic | 100.0 | 100.0 | banked | 42534524390 |
 | t2a_stress_presenter | 100.0 | 100.0 | banked | 42534524390 |
 | t2a_stress_progressive | 100.0 | 100.0 | banked | 42534524390 |
 | t2a_usuk_apartment | 100.0 | 100.0 | banked | 42534524390 |
-| t2a_usuk_cookie | – | – | red ×1: short: no render; wide: no render | 42534524390 |
+| t2a_usuk_cookie | – | – | red ×2: short: no render; wide: no render | 42534524390 |
 | t2a_usuk_gas | 100.0 | 100.0 | banked | 42534524390 |
 | t2a_usuk_line | 100.0 | 100.0 | banked | 42534524390 |
 | t2a_usuk_mail | 100.0 | 100.0 | banked | 42534524390 |
