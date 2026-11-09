@@ -86,6 +86,7 @@ public struct AppShell: View {
         case "home": TodayView()
         case "me": MeHub(tab: tb)
         case "vocab": StudyVocabHub(tab: tb)   // M3 P04/P05
+        case "skills": SkillsHubView(tab: tb)   // M4 P06
         default: HubScreen(tab: tb)
         }
     }

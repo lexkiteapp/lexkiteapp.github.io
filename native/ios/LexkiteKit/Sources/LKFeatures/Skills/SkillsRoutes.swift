@@ -53,3 +53,40 @@ struct SkillsFocusScreen: View {
         Color.clear.onAppear { services.router.closeFocus(); services.router.open(AppRoute("listening")) }
     }
 }
+
+/// The Skills tab root: the two doors of M4 P06 (more skills join as their items land).
+struct SkillsHubView: View {
+    let tab: LKFrame.Tab
+    @Environment(AppServices.self) private var services
+    @Environment(\.l10n) private var t
+    @Environment(\.colorScheme) private var scheme
+    var body: some View {
+        VStack(spacing: 0) {
+            TopBar(variant: .hub, title: t(L10nKey(rawValue: tab.label) ?? .tabSkills))
+            ScrollView {
+                VStack(spacing: LKSpacing.spaceSm) {
+                    door("headphones", t(.skillListenLuyenNgheIelts), AppRoute("listening"))
+                    door("book.fill", t(.skillReadBaiDocIelts), AppRoute("reading"))
+                }
+                .padding(.horizontal, LKFrame.shared.gutter).padding(.top, LKSpacing.spaceSm)
+                .frame(maxWidth: LKFrame.shared.width).frame(maxWidth: .infinity)
+            }
+        }
+        .background(LKColor.background.resolve(scheme).ignoresSafeArea())
+        .accessibilityIdentifier("tab-skills")
+    }
+    private func door(_ icon: String, _ title: String, _ r: AppRoute) -> some View {
+        Button { services.router.open(r) } label: {
+            SkillCard {
+                HStack(spacing: LKSpacing.spaceSm) {
+                    Image(systemName: icon).font(.system(size: 22, weight: .bold)).foregroundStyle(LKColor.secondary.resolve(scheme)).frame(width: 36).accessibilityHidden(true)
+                    Text(verbatim: title).studyText(LKType.titlePill).multilineTextAlignment(.leading).fixedSize(horizontal: false, vertical: true)
+                    Spacer(minLength: 0)
+                    Image(systemName: "chevron.forward").font(.system(size: 13, weight: .bold)).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).accessibilityHidden(true)
+                }
+                .frame(minHeight: 44)
+            }
+        }
+        .buttonStyle(LKPressStyle())
+    }
+}

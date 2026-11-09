@@ -77,6 +77,8 @@ struct QuestionsView: View {
     let part: JSON
     let answers: QAnswers
     var results: [Int: QResult]?
+    /// retake: the questions already right are hidden
+    var hide: Set<Int> = []
     var tips = false
     var onEvidence: ((Int) -> Void)?
     let setOne: (Int, String) -> Void
@@ -96,7 +98,11 @@ struct QuestionsView: View {
         }
     }
 
-    private func group(_ gi: Int, _ g: JSON) -> some View {
+    private func shown(_ g: JSON) -> [(offset: Int, element: JSON)] { Array(g.list("items").enumerated()).filter { !hide.contains($0.element.i("n")) } }
+    @ViewBuilder private func group(_ gi: Int, _ g: JSON) -> some View {
+        if g.s("type") == "multi" ? !hide.contains(g.list("n").first.map { Int(JSON.orZero($0)) } ?? 0) : !shown(g).isEmpty { groupBody(gi, g) }
+    }
+    private func groupBody(_ gi: Int, _ g: JSON) -> some View {
         VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
             VStack(alignment: .leading, spacing: 4) {
                 if g.t("title") { EnglishText(text: g.s("title"), style: LKType.titlePill) }
@@ -108,11 +114,11 @@ struct QuestionsView: View {
                 SkillNote(icon: "lightbulb.fill", text: t(k), tint: LKColor.tertiary)
             }
             switch g.s("type") {
-            case "mcq": ForEach(Array(g.list("items").enumerated()), id: \.offset) { _, it in mcq(it) }
-            case "tfng", "ynng": ForEach(Array(g.list("items").enumerated()), id: \.offset) { _, it in tf(it, g.s("type")) }
+            case "mcq": ForEach(shown(g), id: \.offset) { _, it in mcq(it) }
+            case "tfng", "ynng": ForEach(shown(g), id: \.offset) { _, it in tf(it, g.s("type")) }
             case "match": match(g)
             case "multi": multi(gi, g)
-            default: ForEach(Array(g.list("items").enumerated()), id: \.offset) { _, it in gap(it) }
+            default: ForEach(shown(g), id: \.offset) { _, it in gap(it) }
             }
         }
     }
@@ -131,7 +137,7 @@ struct QuestionsView: View {
             stem(n, it.s("text").replacingOccurrences(of: "___", with: "_____"))
             TextField(String(n), text: Binding(get: { answers.one[n] ?? "" }, set: { setOne(n, $0) }))
                 .textInputAutocapitalization(.never).autocorrectionDisabled().englishText()
-                .disabled(results != nil)
+                .disabled(r != nil)
                 .padding(.horizontal, LKSpacing.spaceSm).frame(minHeight: 48)
                 .tactile(fill: LKColor.surfaceContainerHigh, line: LKColor.outlineVariant, radius: 14)
             feedback(r, it)
@@ -142,7 +148,7 @@ struct QuestionsView: View {
         return VStack(alignment: .leading, spacing: LKSpacing.spaceXs) {
             stem(n, it.s("q"))
             ForEach(Array(it.strs("options").enumerated()), id: \.offset) { k, o in
-                LessonOption(letter: QE.letters[min(k, 7)], text: o, state: state(chosen: answers.one[n] == String(k), right: r != nil && k == right), action: { setOne(n, String(k)) }).disabled(r != nil)
+                LessonOption(letter: QE.letters[min(k, 7)], text: o, state: state(marked: r != nil, chosen: answers.one[n] == String(k), right: k == right), action: { setOne(n, String(k)) }).disabled(r != nil)
             }
             feedback(r, it)
         }
@@ -169,7 +175,7 @@ struct QuestionsView: View {
                 .padding(LKSpacing.spaceSm).frame(maxWidth: .infinity, alignment: .leading)
                 .background(RoundedRectangle(cornerRadius: 12, style: .continuous).stroke(LKColor.outlineVariant.resolve(scheme), lineWidth: 2))
             }
-            ForEach(Array(g.list("items").enumerated()), id: \.offset) { _, it in
+            ForEach(shown(g), id: \.offset) { _, it in
                 let n = it.i("n"), r = results?[n]
                 VStack(alignment: .leading, spacing: LKSpacing.spaceXs) {
                     stem(n, it.s("text"))
@@ -192,15 +198,15 @@ struct QuestionsView: View {
             stem(ns.first ?? 0, g.s("q"))
             ForEach(Array(g.strs("options").enumerated()), id: \.offset) { _, o in
                 let c = QE.code(o)
-                LessonOption(letter: c, text: QE.label(o), state: state(chosen: picked.contains(c), right: r != nil && g.strs("a").contains(c)), action: { toggle(gi, c) }).disabled(r != nil)
+                LessonOption(letter: c, text: QE.label(o), state: state(marked: r != nil, chosen: picked.contains(c), right: g.strs("a").contains(c)), action: { toggle(gi, c) }).disabled(r != nil)
             }
             if let r { resultLine(ok: ns.compactMap { results?[$0] }.allSatisfy(\.ok), answer: r.answer, over: false, cue: g.s("cue"), n: ns.first ?? 0, explain: "") }
         }
     }
 
     // MARK: marking
-    private func state(chosen: Bool, right: Bool) -> LessonOption.State {
-        if results == nil { return chosen ? .selected : .idle }
+    private func state(marked: Bool, chosen: Bool, right: Bool) -> LessonOption.State {
+        if !marked { return chosen ? .selected : .idle }
         if right { return .correct }
         return chosen ? .wrong : .dim
     }

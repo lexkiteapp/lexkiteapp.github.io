@@ -95,7 +95,7 @@ final class SkillsSnapshotTests: XCTestCase {
             let c = self.ctx(lang), p = self.part("t1p2")
             let m = ListenPartModel.fixture(ctx: c, part: p, exam: false)
             m.fixtureSubmit(self.answers(p, 2))
-            return ListenPartView(model: m)
+            return ListenPartView(model: m, showResultOnly: true)
         }
     }
     func testListenExam() async {

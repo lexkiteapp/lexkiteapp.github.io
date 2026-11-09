@@ -277,7 +277,8 @@ const { lessonVectors } = await import('./gen-lesson.mjs');
 put(`${SHARED}/vectors/lesson.json`, lessonVectors());
 const { audioVectors } = await import('./gen-audio.mjs');
 put(`${SHARED}/vectors/audio.json`, audioVectors());
-{ const { skillsPack, PACK_PATH } = await import('./gen-skills.mjs'); put(PACK_PATH, await skillsPack()); }   // M4: full listening+reading content, served as https://lexkite.com/data/skills-pack.json (not in the extension / app shell: only web/js,css,cpack… are copied)
+{ const { skillsPack, PACK_PATH } = await import('./gen-skills.mjs'); put(PACK_PATH, await skillsPack());
+  const st = await (await import('./gen-skills.mjs')).skillsStarter(); put((await import('./gen-skills.mjs')).STARTER_PATH, st); put(`${IOS}/Sources/LKStore/Resources/skills-content.json`, st); }   // M4: full listening+reading content, served as https://lexkite.com/data/skills-pack.json (not in the extension / app shell: only web/js,css,cpack… are copied)
 const { vocabVectors, verbsTables } = await import('./gen-vocab.mjs');
 for (const p of [SHARED, `${IOS}/Sources/LKDesign/Resources`]) put(`${p}/verbs.json`, verbsTables());   // M3 verb tables of verbs-core.js
 put(`${SHARED}/vectors/skills.json`, await (await import('./gen-skills.mjs')).skillsVectors());   // M4 listening & reading screens (listening/listen/listen-test/dictation/reading/read)

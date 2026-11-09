@@ -168,6 +168,7 @@ final class SkillsVectorTests: XCTestCase {
                 r.eq(g.answer, w.s("answer"), "collect \(c.s("id")) #\(k) answer")
                 r.eq(g.kind, w.s("kind"), "collect \(c.s("id")) #\(k) kind")
                 r.eq(g.over, w["over"] == JSON.bool(true), "collect \(c.s("id")) #\(k) over")
+                if g.type != "multi" { r.eq(QE.recheck(g, picked: [], text: answers(c["input"]?["answers"]).one[g.n] ?? ""), g.ok, "recheck \(c.s("id")) #\(k)") }
             }
         }
         finish(r, "qe")
@@ -278,7 +279,7 @@ final class SkillsVectorTests: XCTestCase {
             r.diff(.array([.object(out.reward.mapValues { JSON.int($0) })]), o["rewards"], "\(id) rewards")
             r.diff(out.game["listenDone"], o["game"]?["listenDone"], "\(id) game.listenDone"); r.diff(out.game["qstat"], o["game"]?["qstat"], "\(id) game.qstat")
             r.diff(.array(out.mistakes.map(mistakeRow)), o["mistakes"], "\(id) mistakes")
-            var after = st; after.submitted = true; if !exam { after.playing = false }
+            var after = st; after.submitted = true; after.ended = false; if !exam { after.playing = false }
             let aft = o["after"] ?? .null
             r.eq(plain(aft.s("playLabel")), vi(after.label.key), "\(id) label after submit"); r.eq(!after.label.enabled, aft["playDisabled"] == JSON.bool(true), "\(id) enabled after submit")
             if exam { r.eq(vi(after.noteKey ?? .skillListenDaNgheXong), aft.s("note"), "\(id) note after submit") }

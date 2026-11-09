@@ -30,19 +30,15 @@ enum SkillsKeys {
 
 /// Kokoro voices of a part (web/js/listen/kvoice.js): a fixed pool per accent + gender, the narrator has its own, no voice is reused inside a part.
 public enum KVoice {
-    static let pool: [String: [String]] = [
-        "en-GB:f": ["bf_emma", "bf_isabella", "bf_alice", "bf_lily"], "en-GB:m": ["bm_lewis", "bm_daniel", "bm_fable", "bm_george"],
-        "en-US:f": ["af_heart", "af_bella", "af_nicole", "af_sarah"], "en-US:m": ["am_michael", "am_adam", "am_eric", "am_liam"],
-        "en-AU:f": ["bf_lily", "bf_alice", "bf_isabella", "bf_emma"], "en-AU:m": ["bm_fable", "bm_daniel", "bm_lewis", "bm_george"],
-    ]
-    public static let narrator = "bm_george"
+    static var pool: [String: [String]] { SkillsConsts.current.pools }
+    public static var narrator: String { SkillsConsts.current.narrator }
     /// speaker key → Kokoro voice, plus `_narrator`
     public static func voices(_ p: JSON) -> [String: String] {
         var used: Set<String> = [narrator], out = ["_narrator": narrator]
         let speakers = p["speakers"]?.object ?? [:]
         for k in speakers.keys.sorted() {
             let s = speakers[k]!, acc = s.t("accent") ? s.s("accent") : "en-GB"
-            let list = pool[acc + ":" + (s.s("gender") == "f" ? "f" : "m")] ?? pool["en-GB:m"]!
+            let list = pool[acc + ":" + (s.s("gender") == "f" ? "f" : "m")] ?? pool["en-GB:m"] ?? [narrator]
             let v = list.first { !used.contains($0) } ?? list[0]
             used.insert(v); out[k] = v
         }
@@ -178,8 +174,9 @@ public struct ListenPlayState: Equatable, Sendable {
     public var tapIgnored: Bool { exam && !submitted && plays > 0 && !blocked }
     /// SF Symbol + text key + enabled
     public var label: (icon: String, key: L10nKey, enabled: Bool) {
+        // the web's onEnd handler stays after the submit: the end of a (re)listen locks the exam button again
+        if exam && ended { return ("checkmark", .skillListenDaNgheXong, false) }
         if exam && !submitted {
-            if ended { return ("checkmark", .skillListenDaNgheXong, false) }
             if playing { return ("speaker.wave.2.fill", .skillListenDangPhat, false) }
             return ("play.fill", blocked ? .skillListenChamDeNghe : .lessonKindListen, true)
         }

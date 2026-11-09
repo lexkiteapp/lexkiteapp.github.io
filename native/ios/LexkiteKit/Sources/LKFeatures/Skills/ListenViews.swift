@@ -107,6 +107,8 @@ struct ListenHubView: View {
 /// Stitch `listen-player` (+ `listen-word-popup`): player, questions, transcript, result.
 struct ListenPartView: View {
     let model: ListenPartModel
+    /// fixtures: the part is longer than a phone, so the result is shown on its own
+    var showResultOnly = false
     var onRoute: (AppRoute) -> Void = { _ in }
     @Environment(\.colorScheme) private var scheme
     @Environment(\.l10n) private var t
@@ -118,11 +120,9 @@ struct ListenPartView: View {
                 VStack(alignment: .leading, spacing: LKSpacing.spaceMd) {
                     modeSwitch
                     SkillProgress(value: model.progress)
-                    if let o = model.outcome { result(o) }   // the score first: nothing to scroll for
-                    header
-                    player
-                    questions
-                    if !model.exam || model.submitted { transcript }
+                    if !showResultOnly { header; player; questions }
+                    if let o = model.outcome { result(o) }
+                    if !showResultOnly && (!model.exam || model.submitted) { transcript }
                 }
                 .onChange(of: model.scrollTo) { _, i in if let i { withAnimation { proxy.scrollTo(i, anchor: .center) } } }
             }
@@ -197,9 +197,10 @@ struct ListenPartView: View {
     private var questions: some View {
         SkillCard {
             VStack(alignment: .leading, spacing: LKSpacing.spaceMd) {
-                QuestionsView(part: model.part, answers: model.answers, results: model.outcome.map { o in Dictionary(uniqueKeysWithValues: o.results.map { ($0.n, $0) }) },
+                QuestionsView(part: model.part, answers: model.answers, results: model.marks, hide: model.hidden,
                               tips: model.page.tipsOn, onEvidence: model.submitted ? { model.hear($0) } : nil, setOne: { model.setOne($0, $1) }, toggle: { model.toggle(group: $0, $1) })
                 if !model.submitted { SkillAction(title: t(.skillListenNopBaiXemDap), icon: "checkmark.circle", primary: true) { Task { await model.tapSubmit() } } }
+                if model.retaking && model.retakeScore == nil { SkillAction(title: t(.actionCheck), primary: true) { model.recheck() } }
             }
         }
     }
@@ -217,7 +218,33 @@ struct ListenPartView: View {
                     SkillAction(title: t(.revTryAgain), icon: "arrow.counterclockwise") { model.again() }
                 }
             }
+            stats
             vocab
+        }
+    }
+
+    /// "Kết quả theo dạng câu hỏi": right / all and % per type (names as on the web), the wrong numbers, and "Làm lại N câu sai"
+    private var stats: some View {
+        SkillCard {
+            VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
+                Text(t(.skillQeKetQuaTheoDang)).studyText(LKType.headlineSm)
+                if model.retaking {
+                    if let s = model.retakeScore { Text(t(.skillQeLamLaiDungRight, ["right": s.right, "total": s.total])).studyText(LKType.titlePill).fixedSize(horizontal: false, vertical: true) }
+                    else { Text(t(.skillQeLamLaiCacCau)).studyText(LKType.titlePill) }
+                    SkillAction(title: t(.skillQeHienTatCaCau)) { model.showAll() }
+                } else {
+                    ForEach(model.stats, id: \.kind) { k in
+                        HStack(alignment: .firstTextBaseline, spacing: LKSpacing.spaceXs) {
+                            Text(verbatim: k.name).studyText(LKType.bodyMd).englishText().fixedSize(horizontal: false, vertical: true)
+                            Spacer(minLength: 0)
+                            Text(verbatim: "\(k.ok)/\(k.all) · \(k.pct)%").studyText(LKType.labelMetric, k.pct >= 75 ? LKColor.success : LKColor.onSurface)
+                        }
+                        if !k.wrong.isEmpty { Text(verbatim: t(.skillQeCauSai) + ": " + k.wrong.map(String.init).joined(separator: ", ")).studyText(LKType.bodySm, LKColor.onSurfaceVariant).fixedSize(horizontal: false, vertical: true) }
+                    }
+                    let wrong = model.stats.reduce(0) { $0 + $1.wrong.count }
+                    if wrong > 0 { SkillAction(title: t(.skillQeLamLaiNCau, ["n": wrong]), icon: "arrow.counterclockwise", primary: true) { model.startRetake() } }
+                }
+            }
         }
     }
 
@@ -371,6 +398,16 @@ struct ListenTestView: View {
                             }
                         }
                     }
+                }
+            }
+            SkillCard {
+                VStack(alignment: .leading, spacing: LKSpacing.spaceXs) {
+                    Text(t(.skillQeKetQuaTheoDang)).studyText(LKType.headlineSm)
+                    ForEach(QE.summary(r.sheet).rows, id: \.kind) { k in
+                        HStack { Text(verbatim: k.name).studyText(LKType.bodyMd).englishText().fixedSize(horizontal: false, vertical: true); Spacer(minLength: 0); Text(verbatim: "\(k.ok)/\(k.all) · \(k.pct)%").studyText(LKType.labelMetric) }
+                        SkillProgress(value: Double(k.pct) / 100)
+                    }
+                    if let w = QE.summary(r.sheet).weak, let tip = QuestionsView.tipKeys[w] { SkillNote(icon: "lightbulb.fill", text: t(tip), tint: LKColor.tertiary) }
                 }
             }
             SkillAction(title: t(.skillListenVeLuyenNghe), primary: true) { go("#/listening", onRoute) }

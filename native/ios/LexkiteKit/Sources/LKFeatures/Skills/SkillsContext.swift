@@ -69,6 +69,7 @@ enum SkillsContentStore {
     static func decode(_ text: String) -> SkillsData? {
         guard let j = try? JSON.parse(text) else { return nil }
         let d = SkillsData(json: j)
+        if !d.parts.isEmpty || !d.readings.isEmpty { SkillsConsts.install(j["consts"]) }
         return d.parts.isEmpty && d.readings.isEmpty ? nil : d
     }
     static func refresh(source: LessonTextSource = LessonRemote.shared) async {

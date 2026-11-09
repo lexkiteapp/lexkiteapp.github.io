@@ -26,11 +26,7 @@ public enum QE {
     static let letters = Array("ABCDEFGH").map(String.init)
     public static let tf: [String: [String]] = ["tfng": ["TRUE", "FALSE", "NOT GIVEN"], "ynng": ["YES", "NO", "NOT GIVEN"]]
     /// raw score → band: first row with raw ≥ min (published scales, reference only)
-    static let bandRows: [String: [(Int, Double)]] = [
-        "listening": [(39, 9), (37, 8.5), (35, 8), (32, 7.5), (30, 7), (26, 6.5), (23, 6), (18, 5.5), (16, 5), (13, 4.5), (10, 4), (8, 3.5), (6, 3), (4, 2.5), (3, 2), (1, 1), (0, 0)],
-        "reading-gt": [(40, 9), (39, 8.5), (37, 8), (36, 7.5), (34, 7), (32, 6.5), (30, 6), (27, 5.5), (23, 5), (19, 4.5), (15, 4), (12, 3.5), (9, 3), (6, 2.5), (3, 2), (1, 1), (0, 0)],
-        "reading": [(39, 9), (37, 8.5), (35, 8), (33, 7.5), (30, 7), (27, 6.5), (23, 6), (19, 5.5), (15, 5), (13, 4.5), (10, 4), (8, 3.5), (6, 3), (4, 2.5), (3, 2), (1, 1), (0, 0)],
-    ]
+    static var bandRows: [String: [(Int, Double)]] { SkillsConsts.current.band }
     public static func bandOf(_ raw: Int, skill: String = "listening") -> Double { (bandRows[skill] ?? []).first { raw >= $0.0 }?.1 ?? 0 }
     /// IELTS overall: mean of the bands, .25 → .5, .75 → next whole
     public static func overall(_ bands: [Double]) -> Double {
@@ -119,6 +115,46 @@ public enum QE {
             }
         }
         return res
+    }
+
+    // MARK: results by question type + retake
+    public struct KindStat: Equatable, Sendable {
+        public var kind: String, ok: Int, all: Int, wrong: [Int]
+        public var pct: Int { Vocab.round(Double(ok) / Double(max(1, all)) * 100) }
+        public var name: String { SkillsConsts.current.names[kind] ?? kind }
+    }
+    /// `QE.stats`: per kind right / all and the numbers of the wrong ones, in order of first appearance
+    public static func stats(_ results: [QResult]) -> [KindStat] {
+        var out: [KindStat] = []
+        for r in results.sorted(by: { $0.n < $1.n }) {
+            let k = r.kind.isEmpty ? r.type : r.kind
+            var i = out.firstIndex { $0.kind == k }
+            if i == nil { out.append(KindStat(kind: k, ok: 0, all: 0, wrong: [])); i = out.count - 1 }
+            let at = i!
+            out[at].all += 1
+            if r.ok { out[at].ok += 1 } else { out[at].wrong.append(r.n) }
+        }
+        return out
+    }
+    /// `QT.summary` (mock-test result): weakest kind first; the first kind under 75 % gets its tip
+    public static func summary(_ results: [QResult]) -> (rows: [KindStat], weak: String?) {
+        let rows = Vocab.stableSorted(stats(results)) { Double($0.ok) / Double($0.all) < Double($1.ok) / Double($1.all) }
+        return (rows, rows.first { Double($0.ok) / Double($0.all) < 0.75 }?.kind)
+    }
+    /// The item numbers (first number of a "choose 2" group) that were not fully right, and every number of those items
+    public static func wrongItems(_ p: JSON, _ res: [Int: QResult]) -> [[Int]] {
+        p.list("groups").flatMap { g -> [[Int]] in
+            if g.s("type") == "multi" { let ns = g.list("n").map { Int(JSON.orZero($0)) }; return ns.allSatisfy { res[$0]?.ok == true } ? [] : [ns] }
+            return g.list("items").map { [$0.i("n")] }.filter { res[$0[0]]?.ok != true }
+        }
+    }
+    /// "Kiểm tra" of a retake: the new answer against the stored accepted answers
+    public static func recheck(_ r: QResult, picked: [String], text: String) -> Bool {
+        switch r.type {
+        case "multi": return picked.count == r.alts.count && picked.allSatisfy { r.alts.contains($0) }
+        case "mcq", "tfng", "ynng", "match": return text == (r.alts.first ?? "\u{0}")
+        default: return gradeGap(a: r.alts, limit: r.limit, given: text).ok
+        }
     }
 
     // MARK: progress record (qtips.js `record`)

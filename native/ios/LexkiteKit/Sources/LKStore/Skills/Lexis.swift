@@ -34,6 +34,28 @@ public struct LexisData: Sendable {
     }
 }
 
+/// The constants of the web code that the ports must not retype (qengine BAND, kvoice POOL / NARRATOR, listening STOPW): `consts` of the content pack (or of the bundled starter).
+public struct SkillsConsts: Sendable {
+    public var band: [String: [(Int, Double)]] = [:]
+    public var narrator = "", pools: [String: [String]] = [:], stopwords: Set<String> = []
+    /// question-type names (qtips NAME): exam terms, shown untranslated in every language like the web
+    public var names: [String: String] = [:]
+    public init() {}
+    public init(_ j: JSON) {
+        band = (j["band"]?.object ?? [:]).mapValues { $0.array?.map { (Int(JSON.orZero($0.array?.first)), JSON.orZero($0.array?.last)) } ?? [] }
+        narrator = j["kvoice"]?.s("narrator") ?? ""
+        pools = (j["kvoice"]?["pools"]?.object ?? [:]).mapValues { ($0.array ?? []).compactMap(\.string) }
+        stopwords = Set(j.strs("stopwords"))
+        names = (j["names"]?.object ?? [:]).compactMapValues(\.string)
+    }
+    /// the active constants: the bundled starter until a pack is installed
+    nonisolated(unsafe) public static var current: SkillsConsts = {
+        guard let url = Bundle.module.url(forResource: "skills-content", withExtension: "json"), let d = try? Data(contentsOf: url), let j = try? JSON.parse(d) else { return SkillsConsts() }
+        return SkillsConsts(j["consts"] ?? .null)
+    }()
+    public static func install(_ j: JSON?) { if let c = j, c.isObject { current = SkillsConsts(c) } }
+}
+
 /// web `Lexis`: AWL / linking words / phrases of a text, as tappable word tokens.
 public final class Lexis: @unchecked Sendable {
     public enum Piece: Equatable, Sendable {

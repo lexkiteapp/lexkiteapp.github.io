@@ -6,7 +6,7 @@ public enum Dictation {
     public static let modes = ["mid", "hard", "full"]
     static let ratios = ["mid": 0.35, "hard": 0.65]
     /// words that are never picked while enough content words exist
-    static let stop: Set<String> = Set("a an the and or but of to in on at by for with from is are was were be been it this that these those i you he she we they my your his her our their as so if than then there here".split(separator: " ").map(String.init))
+    static var stop: Set<String> { SkillsConsts.current.stopwords }
     /// the sentences to copy: speaker lines of ≥ 4 words (whitespace separated), in order → (script index, speaker key, text)
     public static func lines(_ p: JSON) -> [(i: Int, speaker: String, text: String)] {
         p.list("script").enumerated().compactMap { i, l in

@@ -138,7 +138,7 @@ final class ListenPartModel {
     }
     func submit() async {
         guard !submitted else { return }
-        submitted = true; player?.stop()
+        submitted = true; ended = false; player?.stop()
         let out = ListenSubmit.submit(part, answers: answers, game: ctx.game, mistakes: ctx.bundle.mistakes, now: ctx.now)
         outcome = out
         rows = Transcript.rows(part, lexis: ctx.lexis, evidence: true); live = true
@@ -155,6 +155,47 @@ final class ListenPartModel {
         let out = ListenSubmit.submit(part, answers: a, game: ctx.game, mistakes: [], now: ctx.now)
         outcome = out; rows = Transcript.rows(part, lexis: ctx.lexis, evidence: true); live = true
     }
+
+    // MARK: results by question type + retake
+    private(set) var retaking = false
+    private(set) var retakeMarks: [Int: QResult] = [:]
+    private(set) var retakeScore: (right: Int, total: Int)?
+    private var retakeItems: [[Int]] = []
+    /// the marks the questions show: the submit's, or the retake's own
+    var marks: [Int: QResult]? {
+        guard let o = outcome else { return nil }
+        return retaking ? retakeMarks : Dictionary(uniqueKeysWithValues: o.results.map { ($0.n, $0) })
+    }
+    var stats: [QE.KindStat] { QE.stats(outcome?.results ?? []) }
+    /// numbers hidden while retaking (everything already right)
+    var hidden: Set<Int> {
+        guard retaking else { return [] }
+        return Set(QE.numbers(part)).subtracting(retakeItems.flatMap { $0 })
+    }
+    /// "Làm lại N câu sai": only the wrong questions come back, answers cleared
+    func startRetake() {
+        guard let o = outcome else { return }
+        let res = Dictionary(uniqueKeysWithValues: o.results.map { ($0.n, $0) })
+        retakeItems = QE.wrongItems(part, res)
+        for ns in retakeItems { for n in ns { answers.one[n] = nil } }
+        for (gi, g) in part.list("groups").enumerated() where g.s("type") == "multi" { if retakeItems.contains(where: { $0 == g.list("n").map { Int(JSON.orZero($0)) } }) { answers.multi[gi] = nil } }
+        retaking = true; retakeMarks = [:]; retakeScore = nil
+    }
+    /// "Kiểm tra": mark the retaken questions again (the stored answers decide)
+    func recheck() {
+        guard let o = outcome, retaking else { return }
+        var right = 0, total = 0
+        retakeMarks = [:]
+        for ns in retakeItems {
+            guard let first = o.results.first(where: { $0.n == ns[0] }) else { continue }
+            let gi = part.list("groups").firstIndex { $0.s("type") == "multi" && $0.list("n").first.map { Int(JSON.orZero($0)) } == ns[0] }
+            let ok = QE.recheck(first, picked: gi.flatMap { answers.multi[$0] } ?? [], text: answers.one[ns[0]] ?? "")
+            total += 1; if ok { right += 1 }
+            for n in ns { if var r = o.results.first(where: { $0.n == n }) { r.ok = ok; retakeMarks[n] = r } }
+        }
+        retakeScore = (right, total)
+    }
+    func showAll() { retaking = false; retakeMarks = [:]; retakeScore = nil }
 
     // MARK: words
     func tapWord(_ word: String, sentence: String) {
