@@ -1173,6 +1173,8 @@ enum class L10nKey(val id: String) {
     revSpeakingRoomHint("rev.speakingRoomHint"),
     revSpanishGrammarHint("rev.spanishGrammarHint"),
     revSpeakScoreHint("rev.speakScoreHint"),
+    revSpanishExam("rev.spanishExam"),
+    revSpanishExamHint("rev.spanishExamHint"),
     skillListenMoTaTranh("skill.listen.moTaTranh"),
     skillListenHoiDap("skill.listen.hoiDap"),
     skillListenHoiThoai("skill.listen.hoiThoai"),

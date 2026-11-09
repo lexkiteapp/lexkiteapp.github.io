@@ -56,7 +56,7 @@ const RT_MAX = 400, SHELL_SET = new Set(SHELL.map(u => new URL(u, location.origi
 const trimRt = cap(CACHE, RT_MAX, k => SHELL_SET.has(k.url));
 const putRt = (e, res) => bg(e, caches.open(CACHE).then(x => x.put(e.request, res)).then(trimRt).catch(() => {}));
 const HASHED = /^\/h\/(.+)\.[0-9a-f]{10}(\.(?:js|css))$/; // bản băm của scripts/build-hash.mjs → đường dẫn gốc: '/$1$2'
-const STATIC = /\.(png|svg|jpg|jpeg|webp|ico|woff2?|mp3)$|^\/cpack\/.+\.[0-9a-f]{10}\.js$/; // + gói nội dung /cpack/ (tên theo mã băm → cache-first, offline chạy lại bài đã mở) // âm thanh đặt tên theo nội dung → không bao giờ đổi
+const STATIC = /\.(png|svg|jpg|jpeg|webp|avif|ico|woff2?|mp3)$|^\/cpack\/.+\.[0-9a-f]{10}\.js$/; // + gói nội dung /cpack/ (tên theo mã băm → cache-first, offline chạy lại bài đã mở) // âm thanh đặt tên theo nội dung → không bao giờ đổi
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
   if (LEGACY) { // phạm vi "/" (bản cài cũ): mọi thứ đi mạng như không có SW; riêng mở "/" khi mất mạng → app trong cache /app/

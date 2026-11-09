@@ -1169,6 +1169,8 @@
   "rev.speakingRoomHint": "Bölüm 1-3, kendinizi kaydedin, sözcük puanlaması",
   "rev.spanishGrammarHint": "Fiil çekimi ve dilbilgisi, kendi dilinde anlatımla",
   "rev.speakScoreHint": "Mikrofona konuşun, anında puan alın",
+  "rev.spanishExam": "DELE/SIELE biçimi",
+  "rev.spanishExamHint": "Sınav yapısında okuma, dinleme, yazma ve konuşma",
   "skill.listen.moTaTranh": "Fotoğraflar",
   "skill.listen.hoiDap": "Soru–cevap",
   "skill.listen.hoiThoai": "Konuşmalar",
