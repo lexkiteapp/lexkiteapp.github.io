@@ -158,7 +158,7 @@ public enum WordPopup {
 // MARK: - questions of a reading
 
 public struct ReadingGrade: Sendable {
-    public struct Item: Sendable { public var chosen: String?, right: String, ok: Bool, explain: String }
+    public struct Item: Sendable { public var chosen: String?; public var right: String; public var ok: Bool; public var explain: String }
     public var score: Int, n: Int, pct: Int, xp: Int
     public var ok: Bool { pct >= 60 }
     public var items: [Item]

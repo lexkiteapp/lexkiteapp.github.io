@@ -109,7 +109,7 @@ object Qx {
     /** Raw score -> band, per skill: `[min raw, band]` rows of the pack (`consts.band`, qengine.js BAND), first row with raw >= min. */
     fun bandOf(raw: Int, skill: String = "listening"): Double = SkillsConsts.band.getValue(skill).firstOrNull { raw >= it.first }?.second ?: 0.0
     /** IELTS overall: mean of the skill bands, .25 up to .5, .75 up to the next whole band. */
-    fun overall(bands: List<Double>): Double { val avg = bands.sum() / bands.size; val f = avg - Math.floor(avg); return Math.floor(avg) + (if (f >= 0.75) 1 else if (f >= 0.25) 0.5 else 0.0) }
+    fun overall(bands: List<Double>): Double { val avg = bands.sum() / bands.size; val f = avg - Math.floor(avg); return Math.floor(avg) + (if (f >= 0.75) 1.0 else if (f >= 0.25) 0.5 else 0.0) }
 
     /** { type -> [right, total] } over the graded questions (qtips.js record). */
     fun tally(res: Collection<Res>): Map<String, IntArray> { val m = LinkedHashMap<String, IntArray>(); for (r in res) { val a = m.getOrPut(r.kind.ifEmpty { "mcq" }) { IntArray(2) }; a[1]++; if (r.ok) a[0]++ }; return m }
