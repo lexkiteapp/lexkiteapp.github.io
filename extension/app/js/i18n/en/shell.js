@@ -194,27 +194,13 @@
 'Thời điểm vàng!': 'Golden time!',
 
 // ---- Welcome & onboarding ----
-'NGSL, 570 từ học thuật AWL, 1.250 từ TOEIC, chủ đề IELTS, phrasal verb, collocation band 7+': 'NGSL, the 570-word AWL, 1,250 TOEIC words, IELTS topics, phrasal verbs, Band 7+ collocations',
 'Flashcard FSRS như Anki': 'FSRS flashcards, like Anki',
-'Thuật toán ghi nhớ hiện đại nhất nhắc bạn ôn đúng lúc sắp quên': 'A state-of-the-art memory algorithm reminds you right before you forget',
-'Từ gắn ngữ cảnh': 'Words in context',
-'Lưu từ kèm câu gốc từ bài đọc, báo, YouTube… nhớ lâu gấp nhiều lần': 'Save words with the original sentence from articles, news, YouTube… and remember them far longer',
-'Luyện phát âm có chấm điểm': 'Scored pronunciation practice',
-'Nói vào micro, AI nhận dạng giọng và chấm điểm ngay': 'Speak into the mic and get instant AI scoring',
-'Trò chơi & bài kiểm tra': 'Games & tests',
-'Ghép thẻ tính giờ, điền từ, nghe chép, test ước tính band': 'Timed matching, fill-in-the-blank, dictation, band estimate tests',
 'Add-on Chrome': 'Chrome add-on',
-'Bấm đúp tra từ, bôi đen dịch câu, tra từ trong phụ đề YouTube': 'Double-click to look up, highlight to translate, look up words in YouTube subtitles',
-'Thư viện phát âm 44 âm IPA': 'Pronunciation library: all 44 IPA sounds',
-'Khẩu hình, cặp từ dễ nhầm, trọng âm & ngữ điệu': 'Mouth shapes, minimal pairs, stress & intonation',
-'Thi thử IELTS 4 kỹ năng & TOEIC': 'Full IELTS & TOEIC mock tests',
-'Bấm giờ như thi thật, quy đổi band/điểm, chấm Writing & Speaking bằng AI': 'Timed like the real exam, band/score conversion, AI scoring for Writing & Speaking',
 'Từ vựng vững,': 'Solid vocabulary,',
 'band điểm bứt phá.': 'breakthrough band scores.',
 'Học 15 phút mỗi ngày với flashcard thông minh, trò chơi, bài đọc và luyện phát âm. Mọi từ đều có phiên âm chuẩn Anh–Anh, nghĩa tiếng Việt và câu ví dụ IELTS.': 'Study 15 minutes a day with smart flashcards, games, readings and pronunciation practice. Every word comes with British IPA, a clear meaning and IELTS example sentences.',
 'Bắt đầu miễn phí →': 'Start for free →',
 'Tôi đã có tài khoản': 'I already have an account',
-'Kiểm tra trình độ trước (5 phút) →': 'Take a placement test first (5 min) →',
 'Chọn chủ đề muốn học trước': 'Pick topics to start with',
 'Bắt đầu học': 'Start learning',
 'Bộ thẻ đã sẵn sàng – bắt đầu bài ôn đầu tiên nhé!': 'Your deck is ready. Time for your first review!',
@@ -259,7 +245,6 @@
 'Quảng cáo': 'Advertisement',
 'Xong mục tiêu hôm nay rồi! Giỏi quá 🎉': 'Today’s goal done! Amazing 🎉',
 'Học 5 phút với mình để giữ chuỗi nhé!': 'Study 5 minutes with me to keep your streak!',
-'6.800+ từ IELTS, TOEIC & TOEFL': '6,800+ IELTS, TOEIC & TOEFL words',
 'Âm thanh': 'Sound',
 'Nhắc học': 'Reminders',
 'Tính năng': 'Features',
@@ -313,7 +298,6 @@
 'Chơi nhanh 15 giây': '15-second Quick Play',
 '4 câu cực ngắn · Không sợ sai, giữ phản xạ': '4 bite-sized questions · No pressure, just reflexes',
 'Chơi ngay': 'Play now',
-'Phong cách tiếng Anh của bạn (1 phút) →': 'Your English style (1 minute) →',
 }); })(typeof self !== 'undefined' ? self : this);
 /* Lời mời cài add-on (web/js/ext-cta.js) */
 (function (g) { Object.assign(g.I18N_DICT.en, {"Thêm vào Chrome": "Add to Chrome", }); })(typeof self !== 'undefined' ? self : this);
