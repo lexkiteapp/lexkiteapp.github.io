@@ -70,9 +70,10 @@ function platform(sb, opt = {}) {
 
 /** One web "install" for the skills pages: real core + word data + the listening/reading scripts, recording App/Game/Store. */
 async function mk(o = {}) {
+  const voiceObjs = {}; // browsers return the same voice objects on every call; listening.js compares them with ===
   const calls = { ctx: [], tts: [], addWord: [], dict: [], rewards: [], speak: [] }, writes = [];
   const E = mkEnv({ hash: o.hash || '#/listening', lang: o.lang, learnLang: o.learnLang, meanLang: o.meanLang, ls: o.ls,
-    ui: { icon: () => '', splitSentences: SPLIT, voicesFor: acc => ((o.voices || {})[acc] || []).map(name => ({ name })), levelChip: () => '', posChip: () => '', ipaHtml: () => '',
+    ui: { icon: () => '', splitSentences: SPLIT, voicesFor: acc => (voiceObjs[acc] ||= ((o.voices || {})[acc] || []).map(name => ({ name }))), levelChip: () => '', posChip: () => '', ipaHtml: () => '',
       speak: (w, accent) => { calls.speak.push({ word: w, accent }); }, ctxBox: (s, w) => { calls.ctx.push({ sentence: s, word: w }); return ''; }, tts: (text, accent, x, opts) => { calls.tts.push({ text, accent, cb: !!opts }); if (opts) calls.ttsOpts = opts; }, ...(o.ui || {}) } });
   const sb = E.sb; sb.CSS = { escape: s => String(s) }; sb.confetti = n => { (sb._conf ||= []).push(n); }; sb.innerWidth = 1200; sb.confirm = o.confirm || (() => true);
   sb.document.body.contains = () => true;
