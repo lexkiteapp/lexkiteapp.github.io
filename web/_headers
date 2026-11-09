@@ -102,6 +102,11 @@
   Cache-Control: no-cache
   Access-Control-Allow-Origin: *
 
+# Gói nội dung P06 cho app native (scripts/native/gen-skills.mjs): luôn hỏi lại bản mới (ETag/304), khóa v trong JSON
+/data/skills-pack.json
+  Cache-Control: no-cache
+  Access-Control-Allow-Origin: *
+
 /i18n/*
   Cache-Control: public, max-age=86400
   Access-Control-Allow-Origin: *
