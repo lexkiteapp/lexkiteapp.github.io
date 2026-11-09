@@ -11,7 +11,6 @@ D.en = Object.assign(D.en || {}, {
 "Giao tiếp hằng ngày": "Everyday communication",
 "Học gói này": "Study this track",
 "Luyện Part 1–7, từ vựng công sở TSL và các bẫy hay gặp": "Practise Parts 1–7, TSL business vocabulary and common traps",
-"Làm bài kiểm tra đầu vào": "Take the placement test",
 "Mẹo & bẫy hay gặp": "Tips & common traps",
 "Mỗi gói giữ tiến độ riêng – XP và chuỗi ngày dùng chung.": "Each track keeps its own progress – XP and streak are shared.",
 "Mục tiêu của bạn là gì?": "What's your goal?",

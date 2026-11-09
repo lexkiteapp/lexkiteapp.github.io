@@ -735,6 +735,7 @@
 
 /* ---------- plan.js: today's plan ---------- */
 'Để Lexkite cá nhân hóa lộ trình cho bạn': 'So Lexkite can personalize your path',
+'Làm bài kiểm tra đầu vào': 'Take the placement test', // Hôm nay (plan.js, khung app) cần ngay – không để ở pathx (gói lười) kẻo ngôn ngữ khác hiện tiếng Việt
 'Ôn tập thẻ đến hạn': 'Review due cards',
 'Lặp lại ngắt quãng – ưu tiên số 1': 'Spaced repetition – top priority',
 'đã học {pct}%': '{pct}% learned',
