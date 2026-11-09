@@ -325,7 +325,7 @@ final class SkillsVectorTests: XCTestCase {
                 let s = await ListenSubmit.vocabSave(w, part: p, dict: nil, meaning: nil, translate: { "VI:" + $0 })
                 let want = v["addWord"]?.array?.first ?? .null
                 r.eq(s.entry.s("word"), want["entry"]?.s("word") ?? "", "\(id) save \(w.s("w")) word"); r.eq(s.entry.s("vi"), want["entry"]?.s("vi") ?? "", "\(id) save \(w.s("w")) meaning")
-                r.diff(s.ctx, want["ctx"], "\(id) save \(w.s("w")) context")
+                r.diff(s.ctx ?? .null, want["ctx"] ?? .null, "\(id) save \(w.s("w")) context")
             }
             _ = ans
         }
@@ -473,7 +473,7 @@ final class SkillsVectorTests: XCTestCase {
             r.eq(res.sheet.map { "\($0.n)|\($0.ok)|\($0.answer)|\($0.ok ? "" : $0.given)" }, want.list("sheet").map { "\($0.i("q"))|\($0["ok"] == JSON.bool(true))|\($0.s("answer"))|\($0.s("given"))" }, "\(id) answer sheet")
             r.diff(.array([.object(res.reward.mapValues { JSON.int($0) })]), o["rewards"], "\(id) rewards")
             for k in ["listenBest", "listenTests", "qstat"] { r.diff(res.game[k], o["game"]?[k], "\(id) game.\(k)") }
-            r.eq(res.mistakes.count, o.i("mistakes"), "\(id) mistakes"); r.diff(res.mistakes.first.map(mistakeRow), o["firstMistake"], "\(id) first mistake")
+            r.eq(res.mistakes.count, o.i("mistakes"), "\(id) mistakes"); r.diff(res.mistakes.first.map(mistakeRow) ?? .null, o["firstMistake"] ?? .null, "\(id) first mistake")
             // the sound effect names ("win") and the confetti count are the web's; natively a success haptic follows `celebrates`
             r.eq(res.celebrates, !(o["celebrate"]?.list("sfx").isEmpty ?? true), "\(id) celebrates")
         }
