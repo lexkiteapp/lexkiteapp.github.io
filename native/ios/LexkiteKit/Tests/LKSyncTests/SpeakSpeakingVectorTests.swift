@@ -52,7 +52,7 @@ final class SpeakSpeakingVectorTests: XCTestCase {
 
     // MARK: parity (P07, #/speak + #/speaking)
     /// The rules the owner named for P07 that no single vector case states by itself.
-    func testParityP07Speak() throws {
+    func testParityP07() throws {
         let V = try vec(), P = try pack()
         // pack: the real content has 40 topics, 3 parts with targets from the pack, fillers pattern present
         XCTAssertEqual(Speaking.bank(P).count, 40)
