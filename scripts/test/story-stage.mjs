@@ -121,13 +121,20 @@ async function browser() {
     // hiệu năng: Chromium CPU 4× – tác vụ dài > 50 ms ≤ 2 khi dòng hiện, fps ≥ 50, CLS 0
     if (eng === 'chromium') {
       const ctx = await boot(br, 'dark', { width: 360, height: 780 }), page = await ctx.newPage(), cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
-      await page.addInitScript(() => { window.__lt = 0; window.__cls = 0; new PerformanceObserver(l => l.getEntries().forEach(e => { if (e.duration > 50) window.__lt++; })).observe({ type: 'longtask', buffered: true }); new PerformanceObserver(l => l.getEntries().forEach(e => { if (!e.hadRecentInput) { window.__cls += e.value; (window.__clsSrc = window.__clsSrc || []).push(e.value.toFixed(4) + ' ' + (e.sources || []).map(s => (s.node && (s.node.id || s.node.className || s.node.nodeName)) + ':' + Math.round(s.previousRect.y) + '>' + Math.round(s.currentRect.y)).join(',').slice(0, 200)); } })).observe({ type: 'layout-shift', buffered: true }); });
-      await page.goto(`${base}#/lesson/go?story=s-cafe`, { waitUntil: 'load' }); await page.waitForSelector('.ss-stage', { timeout: 20000 }).catch(() => {}); await page.waitForTimeout(2500);
-      // cửa sổ đo 3 s TRỌN (gồm cú bấm + dòng mới hiện): đợi vòng đếm khung kết thúc rồi chia cho thời gian thật – đọc sớm khi mới trôi ~2 s mà vẫn chia 3 làm fps tụt giả (42 thay vì 61)
-      await page.evaluate(() => { window.__f = 0; window.__fdone = false; const t0 = performance.now(); (function f(now) { window.__f++; if (now - t0 < 3000) requestAnimationFrame(f); else { window.__fdt = now - t0; window.__fdone = true; } })(t0); window.__lt = 0; });
-      await page.evaluate(() => { window.__clk = performance.now(); }); await page.click('#lsnGo').catch(() => {}); await page.waitForFunction(() => window.__fdone, null, { timeout: 15000 });
-      const m = await page.evaluate(() => ({ lt: window.__lt, cls: window.__cls, fps: window.__f / (window.__fdt / 1000) }));
-      lines.push(`chromium 4×: longtask>50ms=${m.lt} cls=${m.cls.toFixed(3)} fps≈${m.fps.toFixed(0)}`);
+      await ctx.addInitScript(() => { window.__lt = 0; window.__cls = 0; new PerformanceObserver(l => l.getEntries().forEach(e => { if (e.duration > 50) window.__lt++; })).observe({ type: 'longtask', buffered: true }); new PerformanceObserver(l => l.getEntries().forEach(e => { if (!e.hadRecentInput) { window.__cls += e.value; (window.__clsSrc = window.__clsSrc || []).push(e.value.toFixed(4) + ' ' + (e.sources || []).map(s => (s.node && (s.node.id || s.node.className || s.node.nodeName)) + ':' + Math.round(s.previousRect.y) + '>' + Math.round(s.currentRect.y)).join(',').slice(0, 200)); } })).observe({ type: 'layout-shift', buffered: true }); });
+      // 09/11 phép đo ổn định hơn: 1 cửa sổ 3 s duy nhất (gồm cú bấm + chuyển cảnh) dao động 38–60 fps trên runner chung dù fps nhàn rỗi luôn ~61 (22 lượt CI hôm nay, mã y hệt
+      // lúc xanh lúc đỏ) → đo 5 LẦN trên 5 trang mới cùng máy, cổng lấy TRUNG VỊ (ngưỡng giữ nguyên fps ≥ 50, tác vụ dài ≤ 2); CLS phải = 0 ở MỌI lần. Không thử lại cho tới khi xanh.
+      const measure = async pg => {
+        await pg.goto(`${base}#/lesson/go?story=s-cafe`, { waitUntil: 'load' }); await pg.waitForSelector('.ss-stage', { timeout: 20000 }).catch(() => {}); await pg.waitForTimeout(2500);
+        // cửa sổ đo 3 s TRỌN (gồm cú bấm + dòng mới hiện): đợi vòng đếm khung kết thúc rồi chia cho thời gian thật – đọc sớm khi mới trôi ~2 s mà vẫn chia 3 làm fps tụt giả (42 thay vì 61)
+        await pg.evaluate(() => { window.__f = 0; window.__fdone = false; const t0 = performance.now(); (function f(now) { window.__f++; if (now - t0 < 3000) requestAnimationFrame(f); else { window.__fdt = now - t0; window.__fdone = true; } })(t0); window.__lt = 0; });
+        await pg.evaluate(() => { window.__clk = performance.now(); }); await pg.click('#lsnGo').catch(() => {}); await pg.waitForFunction(() => window.__fdone, null, { timeout: 15000 });
+        return await pg.evaluate(() => ({ lt: window.__lt, cls: window.__cls, fps: window.__f / (window.__fdt / 1000) }));
+      };
+      const ms = [await measure(page)];
+      for (let k = 1; k < 5; k++) { const pg = await ctx.newPage(), c = await ctx.newCDPSession(pg); await c.send('Emulation.setCPUThrottlingRate', { rate: 4 }); ms.push(await measure(pg)); await pg.close(); }
+      const med = k => [...ms].map(x => x[k]).sort((x, y) => x - y)[2], m = { lt: med('lt'), fps: med('fps'), cls: Math.max(...ms.map(x => x.cls)) };
+      lines.push(`chromium 4× (trung vị 5 lần): longtask>50ms=${m.lt} cls=${m.cls.toFixed(3)} fps≈${m.fps.toFixed(0)} · fps từng lần ${ms.map(x => x.fps.toFixed(0)).join('/')} · longtask ${ms.map(x => x.lt).join('/')}`);
       ok(m.lt <= 2, `4×: ${m.lt} tác vụ dài > 50 ms (tối đa 2)`); ok(m.cls === 0, `CLS ${m.cls} ≠ 0 ${JSON.stringify(await page.evaluate(() => window.__clsSrc || []))}`); ok(m.fps >= 50, `fps ${m.fps.toFixed(0)} < 50`);
       // chẩn đoán (không phải cổng): fps khi tắt dần từng nguồn vẽ → biết chi phí nằm ở đâu
       const fpsNow = async () => page.evaluate(() => new Promise(r => { let n = 0; const t0 = performance.now(); (function f() { n++; if (performance.now() - t0 < 2000) requestAnimationFrame(f); else r(n / 2); })(); }));
