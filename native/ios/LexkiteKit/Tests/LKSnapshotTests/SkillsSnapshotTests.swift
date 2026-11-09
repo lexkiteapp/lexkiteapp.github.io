@@ -98,6 +98,23 @@ final class SkillsSnapshotTests: XCTestCase {
             return ListenPartView(model: m, showResultOnly: true)
         }
     }
+    /// "Làm lại câu sai": the wrong questions come back empty, then after "Kiểm tra" re-marked (the results-by-type card is part of the result above)
+    func testListenPracticeRetake() async {
+        await shoot { lang in
+            let c = self.ctx(lang), p = self.part("t1p2")
+            let m = ListenPartModel.fixture(ctx: c, part: p, exam: false)
+            m.fixtureSubmit(self.answers(p, 2)); m.startRetake()
+            return ListenPartView(model: m)
+        }
+    }
+    func testListenPracticeRetakeChecked() async {
+        await shoot { lang in
+            let c = self.ctx(lang), p = self.part("t1p2")
+            let m = ListenPartModel.fixture(ctx: c, part: p, exam: false)
+            m.fixtureSubmit(self.answers(p, 2)); m.startRetake(); m.answers = self.answers(p, 1); m.recheck()
+            return ListenPartView(model: m)
+        }
+    }
     func testListenExam() async {
         await shoot { lang in
             let c = self.ctx(lang), p = self.part("t1p4")

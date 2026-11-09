@@ -174,6 +174,33 @@ final class SkillsVectorTests: XCTestCase {
         finish(r, "qe")
     }
 
+    /// "Results by question type" and "Làm lại câu sai" over the real graded part of the vector (t1p1-mixed: 8 notes gaps, 2 MCQ)
+    func testResultsByTypeAndRetake() throws {
+        let V = try vec(); var r = R()
+        let c = (V["shared"]?["qe"] ?? .null).list("collect").first { $0.s("id") == "t1p1-mixed" } ?? .null
+        let res = QE.collect(part(V, "t1p1"), answers(c["input"]?["answers"]))
+        let want = (c["out"]?.object ?? [:]).map { (Int($0.key) ?? 0, $0.value) }.sorted { $0.0 < $1.0 }
+        let stats = QE.stats(Array(res.values))
+        r.eq(stats.map(\.kind), ["notes", "mcq"], "kinds in order of first appearance")
+        for st in stats {
+            let rows = want.filter { $0.1.s("kind") == st.kind }
+            r.eq(st.ok, rows.filter { $0.1["ok"] == JSON.bool(true) }.count, "\(st.kind) right")
+            r.eq(st.all, rows.count, "\(st.kind) total")
+            r.eq(st.wrong, rows.filter { $0.1["ok"] != JSON.bool(true) }.map(\.0), "\(st.kind) wrong numbers")
+        }
+        r.eq(stats.map(\.pct), [63, 50], "percent per kind")
+        r.eq(stats.map(\.wrong), [[3, 5, 6], [9]], "wrong numbers per kind")
+        // retake: the right answer turns a wrong question right (also the one over the word limit), a wrong one stays wrong
+        for n in [3, 5, 6, 9] {
+            guard let g = res[n] else { r.check(false, "Q\(n) missing"); continue }
+            r.check(!g.ok, "Q\(n) was wrong")
+            r.check(QE.recheck(g, picked: [], text: g.alts.first ?? ""), "Q\(n) retaken right")
+            r.check(!QE.recheck(g, picked: [], text: "zzz"), "Q\(n) retaken wrong")
+        }
+        if let g5 = res[5] { r.check(!QE.recheck(g5, picked: [], text: "38 one two three four"), "Q5 over the limit stays wrong") }
+        finish(r, "qe stats + retake")
+    }
+
     func testTranscript() throws {
         let V = try vec(); var r = R()
         let T = V["shared"]?["transcript"] ?? .null, p = part(V, T.s("part")), lx = lexis(V)

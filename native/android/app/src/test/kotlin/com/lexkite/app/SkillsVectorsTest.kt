@@ -157,6 +157,28 @@ class SkillsVectorsTest {
         }
     }
 
+    /** "Results by question type" and "Làm lại câu sai" over the real graded part of the vector (t1p1-mixed: 8 notes gaps, 2 MCQ). */
+    @Test fun qe_stats_and_retake() {
+        val c = v.o("shared").o("qe").a("collect").map { it.jsonObject }.first { it.s("id") == "t1p1-mixed" }
+        val res = Qx.collect(part("t1p1"), answers(c.o("input").o("answers")))
+        val want = c.o("out").entries.map { (n, r) -> n.toInt() to r.jsonObject }
+        val stats = Qx.stats(res)
+        assertEquals(listOf("notes", "mcq"), stats.map { it.kind })
+        for (st in stats) {
+            val rows = want.filter { it.second.s("kind") == st.kind }
+            assertEquals(st.kind, rows.count { it.second["ok"]!!.jsonPrimitive.booleanOrNull!! }, st.right)
+            assertEquals(st.kind, rows.size, st.total)
+            assertEquals(st.kind, rows.filter { !it.second["ok"]!!.jsonPrimitive.booleanOrNull!! }.map { it.first }, st.wrong)
+            assertEquals(st.kind, Math.floor(st.right * 100.0 / st.total + 0.5).toInt(), st.pct)
+        }
+        assertEquals(63, stats[0].pct); assertEquals(listOf(3, 5, 6), stats[0].wrong); assertEquals(50, stats[1].pct); assertEquals(listOf(9), stats[1].wrong)
+        assertEquals("Form / Note / Table Completion", Qx.kindName("notes")); assertEquals("True / False / Not Given", Qx.kindName("tfng")); assertEquals("unknown-kind", Qx.kindName("unknown-kind"))
+        // retake: the right answer turns a wrong question right (also the one that was over the word limit), a wrong one stays wrong
+        for (n in listOf(3, 5, 6, 9)) { val r = res.getValue(n); assertFalse("Q$n was wrong", r.ok)
+            assertTrue("Q$n retaken right", Qx.recheck(r, r.alts.first()).ok); assertFalse("Q$n retaken wrong", Qx.recheck(r, "zzz").ok) }
+        assertFalse(Qx.recheck(res.getValue(5), "38 one two three four").ok)
+    }
+
     @Test fun shared_transcript() {
         val tr = v.o("shared").o("transcript"); val p = part(tr.s("part"))
         val plain = ListenPage.transcript(p, lexis, false)
@@ -338,7 +360,7 @@ class SkillsVectorsTest {
                 val p = parts[k]
                 // the 30 s read time, then the audio plays once from line 0; the next button opens when it ended (or after 20 s)
                 val r = run(p, VR, emptyList(), emptyList(), false, false, null, false, true)
-                if (held) r.io.hold(2)
+                if (held && k == 0) r.io.hold(2) // web: o.hold only on the first part
                 r.player.play(0); r.sched.advanceUntilIdle()
                 val ended = r.log.any { it.jsonArray[0].s() == "end" }
                 val firstSpeak = r.log.first { it.jsonArray[0].s() == "speak" }.jsonArray[1].s()
@@ -348,7 +370,7 @@ class SkillsVectorsTest {
                     "waits" to (r.io.waits.distinct() + ListenTest.STUCK_MS).distinct().sorted(), "answers" to w["answers"]))
                 if (ended) check("$id.part$k.listened", w["whenListened"], obj("count" to "✓ " + t("Hết phần nghe – kiểm tra lại đáp án"), "nextDisabled" to false, "now" to ""))
                 else check("$id.part$k.stuck", w["whenListened"], obj("count" to "🔊 " + t("Đang phát – chỉ nghe 1 lần"), "nextDisabled" to true, "now" to "🎙️ " + t("Lời dẫn")))
-                if (held) check("$id.part$k.fallback", w["stuck"], obj("fallbackMs" to ListenTest.STUCK_MS, "nextDisabledBefore" to true, "nextDisabledAfter" to false))
+                if (held && k == 0) check("$id.part$k.fallback", w["stuck"], obj("fallbackMs" to ListenTest.STUCK_MS, "nextDisabledBefore" to true, "nextDisabledAfter" to false))
                 for ((q, res) in Qx.collect(p, answers(w.o("answers")))) results[q] = res to p.id
             }
             val d = ListenTest.finish(n, parts, results, null, emptyList(), now)

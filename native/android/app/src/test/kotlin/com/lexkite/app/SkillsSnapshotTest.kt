@@ -89,6 +89,11 @@ class SkillsSnapshotTest {
             "popup" -> ListenScreen(practice.copy(live = true, popup = membership), ListenActions())
             "popupMiss" -> ListenScreen(practice.copy(live = true, popup = PopupUi("zzqx", "Oh, hello.")), ListenActions())
             "result" -> ListenScreen(practice.copy(submit = submit, live = true, rows = ListenPage.transcript(p, content.lexis, true), saved = setOf(0)), ListenActions())
+            // "Làm lại câu sai": the wrong answers cleared (retake) and, after Check, the re-graded rows (recheck); the results-by-type card is part of "result" above
+            "retake" -> ListenScreen(practice.copy(submit = submit, live = true, rows = ListenPage.transcript(p, content.lexis, true), retake = true, answers = answers.filterKeys { k -> k.toIntOrNull()?.let { submit.res.getValue(it).ok } == true }), ListenActions())
+            "retakeChecked" -> { val fixed = answers.filterKeys { k -> k.toIntOrNull()?.let { submit.res.getValue(it).ok } == true } + submit.res.filterValues { !it.ok }.mapValues { it.value.alts.first() }.mapKeys { it.key.toString() }
+                ListenScreen(practice.copy(submit = submit, live = true, rows = ListenPage.transcript(p, content.lexis, true), retake = true, answers = fixed,
+                    recheck = submit.res.filterValues { !it.ok }.mapValues { (n, r) -> Qx.recheck(r, Qx.answerFor(p, fixed, n)) }), ListenActions()) }
             "exam" -> ListenScreen(ListenUi(ListenPage.page(p, true, null), answers, playing = true, plays = 1, line = 2), ListenActions())
             "testIntro" -> ListenTestScreen(TestUi(1, TestUi.Phase.INTRO, parts = 4), TestActions())
             "testCount" -> ListenTestScreen(testPart.copy(left = 24), TestActions())
@@ -147,6 +152,14 @@ class SkillsSnapshotTest {
     @Test fun resultViLight() = shot("result", "vi", false)
     @Test fun resultArLight() = shot("result", "ar", false)
     @Test fun resultDeDark() = shot("result", "de", true)
+    @Test fun retakeEnLight() = shot("retake", "en", false)
+    @Test fun retakeViLight() = shot("retake", "vi", false)
+    @Test fun retakeArLight() = shot("retake", "ar", false)
+    @Test fun retakeDeDark() = shot("retake", "de", true)
+    @Test fun retakeCheckedEnLight() = shot("retakeChecked", "en", false)
+    @Test fun retakeCheckedViLight() = shot("retakeChecked", "vi", false)
+    @Test fun retakeCheckedArLight() = shot("retakeChecked", "ar", false)
+    @Test fun retakeCheckedDeDark() = shot("retakeChecked", "de", true)
     @Test fun examEnLight() = shot("exam", "en", false)
     @Test fun examViLight() = shot("exam", "vi", false)
     @Test fun examArLight() = shot("exam", "ar", false)

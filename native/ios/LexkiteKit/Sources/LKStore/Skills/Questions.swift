@@ -23,7 +23,7 @@ public struct QResult: Equatable, Sendable {
 }
 
 public enum QE {
-    static let letters = Array("ABCDEFGH").map(String.init)
+    public static let letters = Array("ABCDEFGH").map(String.init)
     public static let tf: [String: [String]] = ["tfng": ["TRUE", "FALSE", "NOT GIVEN"], "ynng": ["YES", "NO", "NOT GIVEN"]]
     /// raw score → band: first row with raw ≥ min (published scales, reference only)
     static var bandRows: [String: [(Int, Double)]] { SkillsConsts.current.band }
