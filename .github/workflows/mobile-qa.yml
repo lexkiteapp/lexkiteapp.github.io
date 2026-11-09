@@ -65,6 +65,7 @@ jobs:
           (cd web && npx -y esbuild@0.24.0 $(find js css cpack sw.js -type f \( -name '*.js' -o -name '*.css' \) | sort) --minify --charset=utf8 --log-level=warning --outdir=../out/site --outbase=. --allow-overwrite)
           node scripts/build-cpack.mjs out/site  # gói nội dung /cpack như dist/ (băm tên + sửa tham chiếu), sau minify – mqa-parity bắt thiếu
           node scripts/build-hash.mjs out/site  # JS/CSS bản /h/ theo mã băm như dist/ (sau cpack)
+          node scripts/csp-meta.mjs out/site  # CSP chặn thật như dist/ (bước CUỐI sửa HTML, sau băm) – kiểm đúng chính sách app chạy ở production
           (node scripts/test/serve-web.mjs out/site 8080 >/dev/null 2>&1 &) ; sleep 1
           node scripts/test/mobile-qa.mjs http://localhost:8080 out/mobile-qa
       - name: Bàn phím ảo không che ô đang nhập (visualViewport iOS/Chrome + adjustResize Android)
