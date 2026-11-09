@@ -39793,5 +39793,35 @@
     "ar": "القراءة والاستماع والكتابة والتحدث بهيكل الامتحان",
     "ru": "Чтение, аудирование, письмо и говорение по структуре экзамена",
     "tr": "Sınav yapısında okuma, dinleme, yazma ve konuşma"
+  },
+  "Shadowing": {
+    "ar": "المحاكاة",
+    "de": "Shadowing",
+    "es": "Shadowing",
+    "fr": "Shadowing",
+    "hi": "शैडोइंग",
+    "id": "Shadowing",
+    "ja": "シャドーイング",
+    "ko": "섀도잉",
+    "pt": "Shadowing",
+    "ru": "Шэдоуинг",
+    "th": "Shadowing",
+    "tr": "Gölge okuma",
+    "zh": "跟读"
+  },
+  "want + to V.": {
+    "ar": "want + to + verb.",
+    "de": "want + to + verb.",
+    "es": "want + to + verb.",
+    "fr": "want + to + verb.",
+    "hi": "want + to + verb.",
+    "id": "want + to + verb.",
+    "ja": "want + to + verb.",
+    "ko": "want + to + verb.",
+    "pt": "want + to + verb.",
+    "ru": "want + to + verb.",
+    "th": "want + to + verb.",
+    "tr": "want + to + verb.",
+    "zh": "want + to + verb."
   }
 }
