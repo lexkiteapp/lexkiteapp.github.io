@@ -100,6 +100,7 @@ final class SpeakSpeakingModelTests: XCTestCase {
     // MARK: #/speaking
     func testParityP07SpeakingModels() async throws {
         let (c, data) = ctx("speaking")
+        await c.reload()   // SkillsHost loads the learner data (settings.accent = us) before it builds a model
         let said = SayLog()
         let io = SpeakIO(recognizer: ScriptedRecognizer(),
                          say: { t, who, accent, slow, end in said.lines.append((t, accent, slow)); end?() }, random: { 0 })

@@ -187,9 +187,10 @@ object PronPage {
 
     /** The listening pair game: 8 rounds of the lesson pairs (cycled, shuffled), one word played per round (answer side random). */
     class Round(val pair: Pair<String, String>, val answer: Int) { val options get() = listOf(pair.first, pair.second); val spoken get() = options[answer] }
-    fun rounds(pairs: List<Pair<String, String>>, rnd: () -> Double): List<Round> {
+    /** [shuffle] false = keep the cycled order (the web test harness stubs UI.shuffle; only the answer sides draw numbers). */
+    fun rounds(pairs: List<Pair<String, String>>, rnd: () -> Double, shuffle: Boolean = true): List<Round> {
         val a = ArrayList((0 until PAIR_ROUNDS).map { pairs[it % pairs.size] })
-        for (i in a.size - 1 downTo 1) { val j = Math.floor(rnd() * (i + 1)).toInt(); val t = a[i]; a[i] = a[j]; a[j] = t }
+        if (shuffle) for (i in a.size - 1 downTo 1) { val j = Math.floor(rnd() * (i + 1)).toInt(); val t = a[i]; a[i] = a[j]; a[j] = t }
         return a.map { Round(it, if (rnd() < 0.5) 0 else 1) }
     }
     class PairEnd(val ok: Int, val n: Int, val pct: Int, val good: Boolean, val reward: Reward) { val final = listOf(Tr("Nghe đúng {ok}/{n}", mapOf("ok" to ok, "n" to n)), if (good) Tr("tai bạn đã phân biệt tốt!") else Tr("nghe chậm lại từng cặp và thử lần nữa.")) }

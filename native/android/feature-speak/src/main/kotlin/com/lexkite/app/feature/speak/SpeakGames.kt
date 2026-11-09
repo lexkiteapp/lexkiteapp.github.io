@@ -76,7 +76,7 @@ fun ReflexScreen(ui: ReflexUi, a: ReflexActions) {
                 Body(trs(e.final[0]), style = LKType.headlineLg); Body(trs(e.final[1]), style = LKType.headlineMd); Body(trs(e.final[2]), style = LKType.titlePill)
                 e.reward?.let { Tag("+${it.xp} XP", c.success) }
             }
-            ui.colored?.let { co -> LKCard { Flow { for ((w, ok) in co.words) EnLtr { Tag((if (ok) "✓ " else "✗ ") + w, if (ok) c.success else c.error) } }; Muted(trs(Tr("Bạn nói")) + ": “" + co.shown + "” · " + co.pct + "%") } }
+            ui.colored?.let { co -> LKCard { EnLtr { Flow { for ((w, ok) in co.words) Tag((if (ok) "✓ " else "✗ ") + w, if (ok) c.success else c.error) } }   // the sentence keeps its English word order in RTL; Muted(trs(Tr("Bạn nói")) + ": “" + co.shown + "” · " + co.pct + "%") } }
         }
         return
     }

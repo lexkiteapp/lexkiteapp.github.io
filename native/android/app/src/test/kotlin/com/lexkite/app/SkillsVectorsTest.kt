@@ -668,7 +668,7 @@ class SkillsVectorsTest {
         val nq = cases(sp.o("speaking").a("render")).first { cid(it) == "next-question" }; val pg3 = SpeakingRoom.page(p, nq.o("input").s("arg")); var qi = 0; val seen = ArrayList<String>()
         for (k in 0 until 3) { qi = SpeakingRoom.nextQuestion(pg3, qi); seen.add(SpeakingRoom.askText(pg3, qi)) }; assertEquals(strs(nq.o("out")["spoken"]), seen)
         for (c in cases(sp.o("speaking").a("timer"))) { val o = c.o("out"); val id = cid(c); val pg = SpeakingRoom.page(p, (c.o("input")["part"]?.s() ?: "p1") + "/0")
-            for ((k, st) in o["steps"]!!.jsonArray.withIndex()) { val s = st.jsonObject; assertEquals("$id[$k] text", s.s("text"), SpeakingRoom.clock(s.n("secs"))); val col = SpeakingRoom.clockColor(pg, s.n("secs"))
+            for ((k, st) in (o["steps"] ?: continue /* p2-prep: the prep countdown, no clock steps */).jsonArray.withIndex()) { val s = st.jsonObject; assertEquals("$id[$k] text", s.s("text"), SpeakingRoom.clock(s.n("secs"))); val col = SpeakingRoom.clockColor(pg, s.n("secs"))
                 assertEquals("$id[$k] colour", s.s("color"), when (col) { "again" -> "var(--again)"; "good" -> "var(--good)"; else -> "" }) } }
         for (c in cases(sp.o("speaking").a("analyse"))) { val i = c.o("input"); val id = cid(c); val o = c.o("out"); val pg = SpeakingRoom.page(p, i.s("arg"))
             val text = when (val r = i["recognised"]) { is JsonArray -> r.joinToString(" ") { it.s() }.trim(); else -> r.s().trim() }
@@ -729,7 +729,7 @@ class SkillsVectorsTest {
                 o["saved"]?.let { want -> check("$id.saved", want, PronPage.doneOf(game)) } }
             if (id.startsWith("sentence-mic")) for (st in i.a("script")) { val sc = st.jsonObject.n("score").toInt(); assertEquals(sc >= 70, PronPage.sentenceReward(sc) != null) }
         }
-        for (c in cases(sp.o("pron").a("pairGame"))) { val i = c.o("input"); val l = p.lesson(i.s("lesson"))!!; val rounds = PronPage.rounds(i["pairs"]?.jsonArray?.map { x -> x.jsonArray[0].s() to x.jsonArray[1].s() } ?: l.pairs, cyc(nums(i["random"]))); val o = c.o("out"); val rights = i.a("rights").map { it.jsonPrimitive.boolean }
+        for (c in cases(sp.o("pron").a("pairGame"))) { val i = c.o("input"); val l = p.lesson(i.s("lesson"))!!; val rounds = PronPage.rounds(i["pairs"]?.jsonArray?.map { x -> x.jsonArray[0].s() to x.jsonArray[1].s() } ?: l.pairs, cyc(nums(i["random"])), shuffle = false) /* the web harness leaves the order alone */; val o = c.o("out"); val rights = i.a("rights").map { it.jsonPrimitive.boolean }
             for ((k, r) in rounds.withIndex()) { val w = o.a("rounds")[k].jsonObject; assertEquals("${cid(c)}[$k] options", strs(w["options"]), r.options); assertEquals("${cid(c)}[$k] spoken", w.s("spoken"), r.spoken); assertEquals(w.n("answerIndex").toInt(), r.answer) }
             val e = PronPage.pairEnd(rights.count { it }, rounds.size); assertEquals(cid(c), o["good"]!!.jsonPrimitive.boolean, e.good); check(cid(c) + ".final", o["final"], listOf(e.final[0].json(), obj("k" to "– " + e.final[1].k))); check(cid(c) + ".reward", o.a("rewards")[0], e.reward.json()) }
     }

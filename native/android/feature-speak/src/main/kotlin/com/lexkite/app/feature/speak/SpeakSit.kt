@@ -138,7 +138,7 @@ fun SpeakDrillScreen(ui: DrillUi, a: DrillActions) {
         }
         Muted(ui.hint)
         LKCard {
-            Flow { for (w in ui.words) EnLtr { Chip(w.text, w.tap, { if (w.tap) a.tapWord(w.index) }) } }
+            EnLtr { Flow { for (w in ui.words) Chip(w.text, w.tap, { if (w.tap) a.tapWord(w.index) }) } }   // English word order in RTL
             Row(horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) { GhostButton("🔊 " + trs(Tr("Nghe câu mẫu")), a.play); GhostButton("🐢 " + trs(Tr("Nghe chậm")), a.slow) }
         }
         if (ui.blocked != null) MicBlocked(ui.blocked, null, "", a.alt)

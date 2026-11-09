@@ -19,6 +19,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
@@ -72,7 +74,8 @@ fun HandsFreeScreen(ui: HfUi, a: HfActions) {
     }
     StudyFocus((ui.i + 1) / ui.words.size.toFloat(), trs(Tr("Học rảnh tay")), a.exit, bottom = {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly, verticalAlignment = Alignment.CenterVertically) {
-            GhostButton("⏮ " + trs(Tr("Từ trước")), a.prev); LKPrimaryButton(if (ui.playing) "⏸ " + trs(Tr("Tạm dừng")) else "▶ " + trs(Tr(if (ui.i == 0 && !ui.playing) "Bắt đầu" else "Tiếp tục")), a.toggle, Modifier.weight(1f)); GhostButton(trs(Tr("Từ tiếp")) + " ⏭", a.next)
+            val prevLabel = trs(Tr("Từ trước")); val nextLabel = trs(Tr("Từ tiếp"))
+            GhostButton("⏮", a.prev, Modifier.semantics { contentDescription = prevLabel }); LKPrimaryButton(if (ui.playing) "⏸ " + trs(Tr("Tạm dừng")) else "▶ " + trs(Tr(if (ui.i == 0 && !ui.playing) "Bắt đầu" else "Tiếp tục")), a.toggle, Modifier.weight(1f)); GhostButton("⏭", a.next, Modifier.semantics { contentDescription = nextLabel })
         }
     }) {
         Muted(trs(Tr("Nghe từ, nghĩa và câu ví dụ liên tục – vừa đi bộ, lái xe hay làm việc nhà. Khóa màn hình vẫn nghe được, điều khiển từ màn hình khóa & tai nghe.")))

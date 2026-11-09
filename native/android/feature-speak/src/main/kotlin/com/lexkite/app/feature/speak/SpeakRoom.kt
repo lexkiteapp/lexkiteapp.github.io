@@ -36,6 +36,7 @@ import com.lexkite.app.feature.vocab.Muted
 import com.lexkite.app.feature.vocab.PickerDialog
 import com.lexkite.app.feature.vocab.RichBody
 import com.lexkite.app.feature.vocab.StatTile
+import com.lexkite.app.feature.vocab.StudyFocus
 import com.lexkite.app.feature.vocab.StudyPage
 import com.lexkite.app.feature.vocab.Tag
 import com.lexkite.app.feature.vocab.t
@@ -61,6 +62,11 @@ class SpeakingActions(
 @Composable
 fun SpeakingScreen(ui: SpeakingUi, a: SpeakingActions) {
     val c = LocalLKColors.current; val p = ui.page; var sampleOpen by remember { mutableStateOf(ui.shadow != null) }
+    if (ui.phase == "rec" || ui.phase == "prep") {   // Stitch speaking-record: a focus screen (X + target-zone bar), the clock and the stop button pinned at the bottom
+        val secs = ui.clock.split(":").let { (it.getOrNull(0)?.toIntOrNull() ?: 0) * 60 + (it.getOrNull(1)?.toIntOrNull() ?: 0) }
+        StudyFocus((secs / p.info.hi.toFloat()).coerceIn(0f, 1f), trs(Tr("Phòng luyện Speaking")), a.exit, bottom = { SpeakingClockCard(ui, a) }) { SpeakingQuestionCard(ui, a) }
+        return
+    }
     StudyPage(trs(Tr("Phòng luyện Speaking")), a.exit) {
         Muted(trs(Tr("Giám khảo đọc câu hỏi → bạn ghi âm câu trả lời → nghe lại, xem bản chữ và phân tích từ vựng. Ghi âm chỉ nằm trên máy bạn.")))
         Seg(ui.partNames.map { trs(it).substringBefore(" · ") }, listOf("p1", "p2", "p3").indexOf(p.part), { a.part(listOf("p1", "p2", "p3")[it]) })
@@ -69,22 +75,8 @@ fun SpeakingScreen(ui: SpeakingUi, a: SpeakingActions) {
         }
         Muted(trs(Tr("{n} chủ đề", mapOf("n" to ui.topics.size))))
         if (ui.showTopics) PickerDialog(trs(Tr("Chủ đề")), ui.topics.mapIndexed { i, x -> i.toString() to trs(Tr(x)) }, p.index.toString(), { a.topic(it.toInt()); a.topics(false) }, { a.topics(false) })
-        LKCard {
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) { Tag(trs(Tr(p.info.desc))); if (p.questions.size > 1) Muted(trs(Tr("Câu {i}/{n}", mapOf("i" to ui.qi + 1, "n" to p.questions.size)))) }
-            if (p.part == "p2") { EnLtr { Column(verticalArrangement = Arrangement.spacedBy(LKSpacing.space2xs)) { Body(p.topic.p2q, style = LKType.titlePill); Muted("You should say:"); for (x in p.topic.p2points) Body("• $x") } } }
-            else EnLtr { Body(p.questions[ui.qi % p.questions.size], style = LKType.titlePill) }
-            Flow { GhostButton("🔊 " + trs(Tr("Nghe giám khảo hỏi")), a.hear); if (ui.canNext) GhostButton(trs(Tr("Câu khác")) + " →", a.nextQ) }
-        }
-        LKCard(fill = c.surfaceContainerHighest) {
-            Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
-                Body(ui.clock, style = LKType.headlineLg, color = if (ui.clockTone == "again") c.error else if (ui.clockTone == "good") c.success else c.onSurface)
-                val link = Regex("<a[^>]*>(.*?)</a>").find(trs(ui.hint)); Muted(trs(ui.hint).replace(Regex("<a[^>]*>.*?</a>"), "").trim())
-                MicButton(ui.phase == "rec", a.mic, trs(Tr("Bắt đầu / dừng ghi âm")))
-                if (ui.phase == "prep" && link != null) GhostButton(link.groupValues[1], a.skipPrep)
-                if (ui.live.isNotEmpty()) EnLtr { Muted("…" + ui.live) }
-                ui.micError?.let { RichBody("⚠️ " + trs(it), color = c.error) }
-            }
-        }
+        SpeakingQuestionCard(ui, a)
+        SpeakingClockCard(ui, a)
         ui.analysis?.let { r -> LKCard(Modifier.testTag("speak-result")) {
             Body("📊 " + trs(Tr("Kết quả")), style = LKType.titlePill)
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
@@ -116,6 +108,32 @@ fun SpeakingScreen(ui: SpeakingUi, a: SpeakingActions) {
             }
         } }
     }
+}
+
+@Composable
+private fun SpeakingQuestionCard(ui: SpeakingUi, a: SpeakingActions) {
+    val p = ui.page
+    LKCard {
+            Flow { Tag(trs(Tr(p.info.desc))); if (p.questions.size > 1) Muted(trs(Tr("Câu {i}/{n}", mapOf("i" to ui.qi + 1, "n" to p.questions.size)))) }   // wraps: a long tag must not squeeze the counter to one letter per line
+            if (p.part == "p2") { EnLtr { Column(verticalArrangement = Arrangement.spacedBy(LKSpacing.space2xs)) { Body(p.topic.p2q, style = LKType.titlePill); Muted("You should say:"); for (x in p.topic.p2points) Body("• $x") } } }
+            else EnLtr { Body(p.questions[ui.qi % p.questions.size], style = LKType.titlePill) }
+            Flow { GhostButton("🔊 " + trs(Tr("Nghe giám khảo hỏi")), a.hear); if (ui.canNext) GhostButton(trs(Tr("Câu khác")) + " →", a.nextQ) }
+        }
+}
+
+@Composable
+private fun SpeakingClockCard(ui: SpeakingUi, a: SpeakingActions) {
+    val c = LocalLKColors.current
+        LKCard(fill = c.surfaceContainerHighest) {
+            Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
+                Body(ui.clock, style = LKType.headlineLg, color = if (ui.clockTone == "again") c.error else if (ui.clockTone == "good") c.success else c.onSurface)
+                val link = Regex("<a[^>]*>(.*?)</a>").find(trs(ui.hint)); Muted(trs(ui.hint).replace(Regex("<a[^>]*>.*?</a>"), "").trim())
+                MicButton(ui.phase == "rec", a.mic, trs(Tr("Bắt đầu / dừng ghi âm")))
+                if (ui.phase == "prep" && link != null) GhostButton(link.groupValues[1], a.skipPrep)
+                if (ui.live.isNotEmpty()) EnLtr { Muted("…" + ui.live) }
+                ui.micError?.let { RichBody("⚠️ " + trs(it), color = c.error) }
+            }
+        }
 }
 
 @Composable
