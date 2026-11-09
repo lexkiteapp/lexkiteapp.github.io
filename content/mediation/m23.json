@@ -1,0 +1,140 @@
+{
+ "id": "m23",
+ "level": "C1",
+ "lo": "M.C1.14",
+ "activity": "notes",
+ "title": "Database migration update",
+ "scenario": "You took part in the engineering meeting below. The Chief Operating Officer and the directors need a short email: what happened, what it means and what they must decide.",
+ "source": {
+  "kind": "dialogue",
+  "lines": [
+   {
+    "s": "Rui",
+    "t": "Status: the migration planned for 3 June cannot go ahead. The payment module failed two of the six acceptance tests last night."
+   },
+   {
+    "s": "Mina",
+    "t": "Both failures are in refund handling. If we went live like this, some refunds would be processed twice."
+   },
+   {
+    "s": "Rui",
+    "t": "Exactly. So we are proposing a new date of 24 June. That gives us three weeks to fix and retest."
+   },
+   {
+    "s": "Joel",
+    "t": "Can the current team do it by then?"
+   },
+   {
+    "s": "Mina",
+    "t": "Not without help. We need a specialist contractor for about three weeks. The quote is 12,000."
+   },
+   {
+    "s": "Rui",
+    "t": "We need a decision from management by Friday, otherwise even 24 June is at risk."
+   },
+   {
+    "s": "Joel",
+    "t": "Before we close, shall we change the dashboard colours to match the new brand? Blue looks better to me."
+   },
+   {
+    "s": "Mina",
+    "t": "That is for the design team. Let us stay on the migration."
+   }
+  ]
+ },
+ "task": {
+  "mode": "write",
+  "audience": "senior managers who were not at the meeting",
+  "prompt": "Write a short email to the Chief Operating Officer and the directors (85–130 words). State the situation, the cause, the cost and what you need from them.",
+  "min_words": 85,
+  "max_words": 130
+ },
+ "points": [
+  {
+   "id": "delay",
+   "idea": "The 3 June migration is postponed to 24 June.",
+   "checks": [
+    [
+     "3 june",
+     "june 3"
+    ],
+    [
+     "24 june",
+     "june 24"
+    ]
+   ]
+  },
+  {
+   "id": "cause",
+   "idea": "The payment module failed acceptance tests (refunds could be processed twice).",
+   "checks": [
+    [
+     "payment"
+    ],
+    [
+     "test"
+    ],
+    [
+     "refund",
+     "twice",
+     "double"
+    ]
+   ]
+  },
+  {
+   "id": "cost",
+   "idea": "A contractor costs 12,000 for about three weeks.",
+   "checks": [
+    [
+     "contractor"
+    ],
+    [
+     "12,000",
+     "12k",
+     "12 000"
+    ]
+   ]
+  },
+  {
+   "id": "decision",
+   "idea": "Management must approve by Friday or the new date is at risk.",
+   "checks": [
+    [
+     "approv",
+     "decision",
+     "sign off",
+     "authoris",
+     "authoriz"
+    ],
+    [
+     "friday"
+    ]
+   ]
+  }
+ ],
+ "leave_out": [
+  {
+   "idea": "The side discussion about dashboard colours.",
+   "checks": [
+    [
+     "dashboard",
+     "colour",
+     "color",
+     "brand"
+    ]
+   ]
+  }
+ ],
+ "model": "Dear all, a short update on the database migration. We cannot go live on 3 June, because two of the six acceptance tests for the payment module failed. The faults are in refund handling and could cause some refunds to be processed twice, so launching now would be unsafe. We propose a new date of 24 June, which allows three weeks to fix and retest. The current team cannot meet that date alone: a specialist contractor is needed for roughly three weeks, at a cost of 12,000. Could you please approve this by Friday? Without a decision by then, even 24 June is at risk. Kind regards.",
+ "useful": [
+  "A short update on …",
+  "We cannot go live on …, because …",
+  "We propose a new date of …",
+  "Could you please approve this by …?"
+ ],
+ "tips": [
+  "Senior readers want the decision first. Put the situation, the reason, the cost and the question in that order, in a few lines.",
+  "Give the consequence of delay (\"even 24 June is at risk\") so managers can see why the deadline for their answer is real."
+ ],
+ "explain": "The email needs the new date, the cause and its risk, the contractor cost and the approval deadline. The tangent about dashboard colours was dismissed in the meeting and has no place in a management briefing."
+}

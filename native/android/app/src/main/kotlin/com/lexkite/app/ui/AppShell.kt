@@ -80,6 +80,8 @@ class ShellSlots(
     val vocabHub: (@Composable (open: (String) -> Unit) -> Unit)? = null,
     /** M4 listening + reading screens (listening, listen, listen-test, dictation, reading, read): same arguments as [vocab]. */
     val skills: (@Composable (route: String, arg: String, query: String, onExit: () -> Unit, open: (String) -> Unit, replace: (String) -> Unit) -> Unit)? = null,
+    /** M4 speaking + pronunciation screens (speak, speaking, pron, say, reflex, rtype, roleplay, handsfree): same arguments as [vocab]. */
+    val speak: (@Composable (route: String, arg: String, query: String, onExit: () -> Unit, open: (String) -> Unit, replace: (String) -> Unit) -> Unit)? = null,
     /** Root of the Skills tab. */
     val skillsHub: (@Composable (open: (String) -> Unit) -> Unit)? = null,
 )
@@ -100,6 +102,8 @@ object Routes {
     fun vocab(route: String, arg: String = "", q: String = "") = "vocabgo/$route?arg=" + android.net.Uri.encode(arg) + "&q=" + android.net.Uri.encode(q)
     const val SKILLS_R = "skillsgo/{route}?arg={arg}&q={q}"
     fun skills(route: String, arg: String = "", q: String = "") = "skillsgo/$route?arg=" + android.net.Uri.encode(arg) + "&q=" + android.net.Uri.encode(q)
+    const val SPEAK_R = "speakgo/{route}?arg={arg}&q={q}"
+    fun speak(route: String, arg: String = "", q: String = "") = "speakgo/$route?arg=" + android.net.Uri.encode(arg) + "&q=" + android.net.Uri.encode(q)
     const val FOCUS_R = "focus/{kind}?story={story}"
     fun focus(kind: String, story: String? = null) = "focus/$kind" + (story?.let { "?story=" + android.net.Uri.encode(it) } ?: "")
     fun storyOf(query: String): String? = Regex("(?:^|&)story=([^&]+)").find(query)?.groupValues?.get(1)?.let { android.net.Uri.decode(it) }
@@ -113,6 +117,7 @@ fun NavHostController.open(link: DeepLink) {
         route in com.lexkite.app.feature.vocab.WORD_ROUTES -> navigate(Routes.words(route, link.arg, link.query)) { launchSingleTop = true }
         route in com.lexkite.app.feature.vocab.VOCAB_ROUTES -> navigate(Routes.vocab(route, link.arg, link.query))
         route in com.lexkite.app.feature.skills.SKILLS_ROUTES -> navigate(Routes.skills(route, link.arg, link.query))
+        route in com.lexkite.app.feature.speak.SPEAK_ROUTES -> navigate(Routes.speak(route, link.arg, link.query))
         route in FOCUS -> navigate(Routes.focus(route, Routes.storyOf(link.query))) { launchSingleTop = true }
         else -> selectTab(link.tab)
     }
@@ -198,6 +203,13 @@ fun AppShell(t: L10n, frame: LKFrame, slots: ShellSlots, initialTab: String = "h
                         val route = e.arguments?.getString("route").orEmpty()
                         val go = { r: String -> nav.open(DeepLink.parse("lexkite://$r") ?: DeepLink(DeepLink.HOME)) }
                         if (skills != null) skills(route, e.arguments?.getString("arg").orEmpty(), e.arguments?.getString("q").orEmpty(), { nav.popBackStack() }, go) { r -> nav.popBackStack(); go(r) }
+                        else LKScreen(TopBarVariant.Inner, route, t, onExit = { nav.popBackStack() }) {}
+                    }
+                    composable(Routes.SPEAK_R, arguments = listOf(navArgument("route") { type = NavType.StringType }, navArgument("arg") { type = NavType.StringType; defaultValue = "" }, navArgument("q") { type = NavType.StringType; defaultValue = "" })) { e ->
+                        val speak = slots.speak
+                        val route = e.arguments?.getString("route").orEmpty()
+                        val go = { r: String -> nav.open(DeepLink.parse("lexkite://$r") ?: DeepLink(DeepLink.HOME)) }
+                        if (speak != null) speak(route, e.arguments?.getString("arg").orEmpty(), e.arguments?.getString("q").orEmpty(), { nav.popBackStack() }, go) { r -> nav.popBackStack(); go(r) }
                         else LKScreen(TopBarVariant.Inner, route, t, onExit = { nav.popBackStack() }) {}
                     }
                     composable(Routes.FOCUS_R, arguments = listOf(navArgument("kind") { type = NavType.StringType }, navArgument("story") { type = NavType.StringType; nullable = true; defaultValue = null })) { e ->

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Speaking - Results & Feedback (Bright Day)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'cream-bg': '#FFF8F5',
+            'cream-surface': '#FFF1E8',
+            'card-white': '#FFFFFF',
+            'deep-teal': '#0F3D3E',
+            'teal-brand': '#136A63',
+            'teal-light': '#E6F4F2',
+            'teal-border': '#A4D2CE',
+            'coral-cta': '#EA580C',
+            'coral-ledge': '#C2410C',
+            'coral-subtle': '#FFEDD5',
+            'gold-badge': '#FEF3C7',
+            'gold-border': '#F59E0B',
+            'gold-dark': '#92400E',
+            'ink-primary': '#132226',
+            'ink-muted': '#3F565A',
+            'ink-soft': '#51686D'
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'tactile-card': '0 3px 0 0 #EAD8CD',
+            'tactile-btn': '0 4px 0 0 #C2410C',
+            'tactile-secondary': '0 3px 0 0 #D5C2B5',
+            'tactile-teal': '0 3px 0 0 #0C4E48',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFF8F5;
+      color: #132226;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Touch active state */
+    .tactile-press:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 transparent !important;
+    }
+  </style>
+</head>
+<body class="bg-cream-bg min-h-screen flex justify-center selection:bg-teal-light selection:text-deep-teal">
+
+  <!-- Mobile Screen Container 390px (Edge-to-edge native portrait, no frame) -->
+  <main class="w-full max-w-[390px] min-h-screen flex flex-col bg-cream-bg pb-10">
+
+    <!-- Top Bar: INNER variant (Back arrow 44px + Title, NO bottom tabs) -->
+    <header class="sticky top-0 z-30 bg-cream-bg/95 backdrop-blur-md border-b-2 border-[#E6DCCB] px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="#/speaking" aria-label="Go back" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-white border-2 border-[#E6DCCB] text-deep-teal shadow-sm active:translate-y-0.5 transition-transform">
+          <span class="material-symbols-rounded text-2xl">arrow_back</span>
+        </a>
+        <h1 class="text-xl font-extrabold text-ink-primary tracking-tight">Results</h1>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-teal-light border border-teal-border text-deep-teal text-xs font-bold tracking-wide">
+          <span class="w-2 h-2 rounded-full bg-teal-brand animate-pulse"></span>
+          Band 7.0 target
+        </span>
+      </div>
+    </header>
+
+    <!-- Main Content Flow (16px side gutters) -->
+    <div class="px-4 pt-4 flex flex-col gap-4">
+
+      <!-- Teacher Coaching Slot (Clean dashed empty placeholder as per design specification) -->
+      <section class="bg-white rounded-2xl border-2 border-dashed border-[#CCB8AB] p-3.5 flex items-center gap-3.5 shadow-tactile-card">
+        <div class="w-14 h-14 min-w-[56px] min-h-[56px] rounded-xl border-2 border-dashed border-[#136A63]/60 bg-teal-light/40 flex flex-col items-center justify-center text-center p-1">
+          <span class="text-[10px] font-black text-deep-teal uppercase tracking-widest leading-none">teacher</span>
+          <span class="text-[9px] font-bold text-teal-brand/90 tracking-tighter">slot</span>
+        </div>
+        <div class="flex-1 pr-1">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-teal-brand"></span>
+            <span class="text-xs font-black uppercase text-deep-teal tracking-wider">Coach Speaking Analysis</span>
+          </div>
+          <p class="text-sm font-semibold text-ink-primary leading-snug mt-0.5">
+            “Well-developed response with steady momentum. Focus on replacing pauses with organic transition clauses.”
+          </p>
+        </div>
+      </section>
+
+      <!-- 2x2 Grid of Stat Tiles -->
+      <section class="grid grid-cols-2 gap-3" aria-label="Speaking performance metrics">
+        <!-- Stat 1: Duration -->
+        <div class="bg-white border-2 border-[#E6DCCB] rounded-2xl p-3.5 shadow-tactile-card flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-xs font-bold text-ink-muted">Duration</span>
+            <div class="w-8 h-8 rounded-lg bg-teal-light text-deep-teal flex items-center justify-center">
+              <span class="material-symbols-rounded text-lg">timer</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-2xl font-black text-ink-primary tracking-tight">74s</div>
+            <p class="text-[11px] font-semibold text-teal-brand mt-0.5 leading-tight">Target: 60–90s • Met</p>
+          </div>
+        </div>
+
+        <!-- Stat 2: Words per minute -->
+        <div class="bg-white border-2 border-[#E6DCCB] rounded-2xl p-3.5 shadow-tactile-card flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-xs font-bold text-ink-muted leading-tight">Words / min</span>
+            <div class="w-8 h-8 rounded-lg bg-[#FEF3C7] text-gold-dark flex items-center justify-center">
+              <span class="material-symbols-rounded text-lg">speed</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-2xl font-black text-ink-primary tracking-tight">128 <span class="text-xs font-bold text-ink-muted">wpm</span></div>
+            <p class="text-[11px] font-semibold text-deep-teal mt-0.5 leading-tight">Natural cadence</p>
+          </div>
+        </div>
+
+        <!-- Stat 3: Words -->
+        <div class="bg-white border-2 border-[#E6DCCB] rounded-2xl p-3.5 shadow-tactile-card flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-xs font-bold text-ink-muted">Word Count</span>
+            <div class="w-8 h-8 rounded-lg bg-[#E0F2FE] text-[#0369A1] flex items-center justify-center">
+              <span class="material-symbols-rounded text-lg">record_voice_over</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-2xl font-black text-ink-primary tracking-tight">152 <span class="text-xs font-bold text-ink-muted">words</span></div>
+            <p class="text-[11px] font-semibold text-teal-brand mt-0.5 leading-tight">Rich volume</p>
+          </div>
+        </div>
+
+        <!-- Stat 4: Filler words -->
+        <div class="bg-white border-2 border-[#E6DCCB] rounded-2xl p-3.5 shadow-tactile-card flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-xs font-bold text-ink-muted">Filler Words</span>
+            <div class="w-8 h-8 rounded-lg bg-[#FEE2E2] text-[#B91C1C] flex items-center justify-center">
+              <span class="material-symbols-rounded text-lg">rule</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-2xl font-black text-ink-primary tracking-tight">2 <span class="text-xs font-bold text-[#B91C1C]">detected</span></div>
+            <p class="text-[11px] font-semibold text-ink-muted mt-0.5 leading-tight">um (1), like (1)</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Audio Player Row ("Listen back") -->
+      <section class="bg-white border-2 border-[#E6DCCB] rounded-2xl p-3.5 shadow-tactile-card flex flex-col gap-2.5">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-rounded text-deep-teal text-xl">graphic_eq</span>
+            <span class="text-sm font-extrabold text-ink-primary">Listen back to your recording</span>
+          </div>
+          <span class="text-xs font-bold text-ink-muted">0:38 / 1:14</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <!-- Play / Pause Button with min 44x44 tap target -->
+          <button type="button" aria-label="Play recording" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-teal-brand text-white flex items-center justify-center shadow-tactile-teal tactile-press transition-transform">
+            <span class="material-symbols-rounded text-2xl">play_arrow</span>
+          </button>
+
+          <!-- Waveform / Progress slider -->
+          <div class="flex-1 flex flex-col gap-1.5">
+            <div class="w-full bg-[#ECE4D7] h-2.5 rounded-full overflow-hidden relative cursor-pointer">
+              <div class="bg-teal-brand h-full rounded-full w-[52%] relative">
+                <span class="absolute right-0 top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-white border-2 border-teal-brand shadow-sm"></span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center text-[10px] font-bold text-ink-muted px-0.5">
+              <span>0:00</span>
+              <span class="text-deep-teal font-extrabold">Current: 0:38</span>
+              <span>1:14</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Transcript Card: "What the machine heard" -->
+      <section class="bg-white border-2 border-[#E6DCCB] rounded-2xl p-4 shadow-tactile-card flex flex-col gap-3">
+        <div class="flex items-center justify-between border-b border-[#E6DCCB] pb-2.5">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-rounded text-deep-teal text-xl">hearing</span>
+            <h2 class="text-base font-extrabold text-ink-primary">What the machine heard</h2>
+          </div>
+          <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-teal-light text-deep-teal border border-teal-border/70">Acoustic transcript</span>
+        </div>
+
+        <!-- Transcript Content with Markers -->
+        <div class="text-sm font-semibold leading-relaxed text-ink-primary bg-[#FBF7F1] p-3.5 rounded-xl border border-[#E6DCCB]">
+          “Well, when I think about a place I really love, I immediately think of the ancient library in my hometown. It has 
+          <span class="bg-[#B9E6E1] text-[#073F3A] px-1.5 py-0.5 rounded font-bold border border-[#79CAC3]">a profound influence</span> 
+          on my reading habits. <span class="bg-[#FEEFC3] text-[#78350F] px-1.5 py-0.5 rounded font-bold border border-[#FCD34D]">Furthermore</span>, the atmosphere is uniquely 
+          <span class="bg-[#B9E6E1] text-[#073F3A] px-1.5 py-0.5 rounded font-bold border border-[#79CAC3]">conducive to focused study</span>. 
+          I, <span class="text-[#991B1B] font-bold bg-[#FEE2E2] px-1 py-0.2 rounded line-through decoration-[#DC2626]">um</span>, visited there almost every weekend during high school. 
+          The architecture is remarkably 
+          <span class="underline decoration-2 decoration-coral-cta decoration-wavy underline-offset-4 font-bold text-ink-primary bg-coral-subtle/60 px-1 rounded">resilient</span>, 
+          retaining its original oak beams, <span class="text-[#991B1B] font-bold bg-[#FEE2E2] px-1 py-0.2 rounded line-through decoration-[#DC2626]">like</span>, even through multiple restorations.”
+        </div>
+
+        <!-- Legend (Clear High-Contrast Chips) -->
+        <div class="pt-1 flex flex-wrap gap-2 text-xs font-bold">
+          <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#E6F4F2] border border-[#79CAC3] text-[#073F3A]">
+            <span class="w-3 h-3 rounded bg-[#58B9AF]"></span>
+            <span>Academic vocabulary</span>
+          </div>
+          <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#FEF3C7] border border-[#FCD34D] text-[#78350F]">
+            <span class="w-3 h-3 rounded bg-[#F59E0B]"></span>
+            <span>Linking markers</span>
+          </div>
+          <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-coral-subtle border border-[#FDBA74] text-[#9A3412]">
+            <span class="w-3 h-1 bg-coral-cta rounded-full"></span>
+            <span>In your Word Deck</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feedback Card with 3 Bullets -->
+      <section class="bg-white border-2 border-[#E6DCCB] rounded-2xl p-4 shadow-tactile-card flex flex-col gap-3">
+        <div class="flex items-center gap-2 border-b border-[#E6DCCB] pb-2.5">
+          <span class="material-symbols-rounded text-deep-teal text-xl">recommend</span>
+          <h2 class="text-base font-extrabold text-ink-primary">Feedback</h2>
+        </div>
+
+        <ul class="flex flex-col gap-3">
+          <!-- Bullet 1 -->
+          <li class="flex items-start gap-3 bg-[#F0FDF4] border border-[#BBF7D0] p-3 rounded-xl">
+            <div class="w-6 h-6 rounded-full bg-[#22C55E] text-white flex items-center justify-center shrink-0 mt-0.5">
+              <span class="material-symbols-rounded text-base">check</span>
+            </div>
+            <div class="text-sm">
+              <span class="font-extrabold text-[#14532D] block">Good length and pace</span>
+              <span class="font-medium text-[#166534]">You sustained the response smoothly for 74s without long hesitation voids.</span>
+            </div>
+          </li>
+
+          <!-- Bullet 2 -->
+          <li class="flex items-start gap-3 bg-[#FBF7F1] border border-[#FED7AA] p-3 rounded-xl">
+            <div class="w-6 h-6 rounded-full bg-[#EA580C] text-white flex items-center justify-center shrink-0 mt-0.5">
+              <span class="material-symbols-rounded text-base">lightbulb</span>
+            </div>
+            <div class="text-sm">
+              <span class="font-extrabold text-[#7C2D12] block">Filler words notice</span>
+              <span class="font-medium text-[#9A3412]">You used 2 filler words (<em>um, like</em>) — try replacing them with <strong>“Let me think…”</strong> or <strong>“As I recall…”</strong> to gain natural thinking time.</span>
+            </div>
+          </li>
+
+          <!-- Bullet 3 -->
+          <li class="flex items-start gap-3 bg-[#F0F9FF] border border-[#BAE6FD] p-3 rounded-xl">
+            <div class="w-6 h-6 rounded-full bg-[#0284C7] text-white flex items-center justify-center shrink-0 mt-0.5">
+              <span class="material-symbols-rounded text-base">add_circle</span>
+            </div>
+            <div class="text-sm">
+              <span class="font-extrabold text-[#0C4A6E] block">Elevate discourse cohesion</span>
+              <span class="font-medium text-[#075985]">Add a deliberate linking word such as <strong>Firstly</strong>, <strong>For example</strong>, or <strong>Consequently</strong> to bridge sentences.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Collapsible Sample Answer (Band 7.5-8) -->
+      <section class="bg-white border-2 border-[#E6DCCB] rounded-2xl p-4 shadow-tactile-card flex flex-col gap-3.5">
+        <details class="group" open>
+          <summary class="list-none flex items-center justify-between cursor-pointer select-none py-1">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-rounded text-deep-teal text-xl">auto_stories</span>
+              <h2 class="text-base font-extrabold text-ink-primary">Sample answer (band 7.5–8)</h2>
+            </div>
+            <div class="w-8 h-8 rounded-lg bg-cream-surface border border-[#E6DCCB] flex items-center justify-center text-deep-teal transition-transform group-open:rotate-180">
+              <span class="material-symbols-rounded text-lg">expand_more</span>
+            </div>
+          </summary>
+
+          <div class="pt-3 flex flex-col gap-3 border-t border-[#E6DCCB] mt-2">
+            <p class="text-sm font-semibold leading-relaxed text-ink-primary bg-[#FBF7F1] p-3.5 rounded-xl border border-[#E6DCCB]">
+              “If I were to single out a truly cherished sanctuary, it would undoubtedly be our local central library. It has exerted 
+              <span class="bg-[#B9E6E1] text-[#073F3A] px-1.5 py-0.5 rounded font-bold border border-[#79CAC3]">a profound influence</span> 
+              on my intellectual upbringing. Not only does the grand interior foster a peaceful ambience, but it also remains 
+              <span class="bg-[#B9E6E1] text-[#073F3A] px-1.5 py-0.5 rounded font-bold border border-[#79CAC3]">immensely conducive to scholarly focus</span>. 
+              Whenever I require uninterrupted contemplation, it provides the ideal backdrop.”
+            </p>
+
+            <!-- Vocabulary Chips to Add to Deck -->
+            <div>
+              <span class="text-xs font-bold text-ink-muted uppercase tracking-wider block mb-2">High-Yield Vocabulary to Adopt:</span>
+              <div class="flex flex-wrap gap-2">
+                <button type="button" class="min-h-[44px] px-3.5 py-2 rounded-xl bg-teal-light border-2 border-teal-border text-deep-teal font-extrabold text-xs flex items-center gap-1.5 shadow-sm active:translate-y-0.5 transition-transform">
+                  <span class="material-symbols-rounded text-base">bookmark_add</span>
+                  + a profound influence
+                </button>
+                <button type="button" class="min-h-[44px] px-3.5 py-2 rounded-xl bg-teal-light border-2 border-teal-border text-deep-teal font-extrabold text-xs flex items-center gap-1.5 shadow-sm active:translate-y-0.5 transition-transform">
+                  <span class="material-symbols-rounded text-base">bookmark_add</span>
+                  + cherished sanctuary
+                </button>
+                <button type="button" class="min-h-[44px] px-3.5 py-2 rounded-xl bg-teal-light border-2 border-teal-border text-deep-teal font-extrabold text-xs flex items-center gap-1.5 shadow-sm active:translate-y-0.5 transition-transform">
+                  <span class="material-symbols-rounded text-base">bookmark_add</span>
+                  + foster an ambience
+                </button>
+              </div>
+            </div>
+
+            <!-- Action Buttons inside Sample Answer -->
+            <div class="flex flex-col gap-2.5 pt-2">
+              <!-- Secondary Action Button (44px min-height) -->
+              <button type="button" class="w-full min-h-[48px] h-12 rounded-xl bg-white border-2 border-deep-teal text-deep-teal font-extrabold text-sm flex items-center justify-center gap-2 shadow-tactile-secondary tactile-press transition-all">
+                <span class="material-symbols-rounded text-xl">volume_up</span>
+                Listen to the whole answer
+              </button>
+
+              <!-- Primary Action Button (Tactile Coral with bottom ledge, min-height 48px) -->
+              <button type="button" class="w-full min-h-[50px] h-13 rounded-xl bg-coral-cta border-2 border-coral-ledge text-[#1A0D00] font-black text-base flex items-center justify-center gap-2 shadow-tactile-btn tactile-press transition-all tracking-wide">
+                <span class="material-symbols-rounded text-2xl">record_voice_over</span>
+                Practise shadowing
+              </button>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <!-- Educational Disclaimer Footer Line -->
+      <footer class="pt-2 pb-6 text-center">
+        <p class="text-xs font-semibold text-ink-soft leading-normal px-2">
+          Automatic practice analysis, not a replacement for an examiner.
+        </p>
+      </footer>
+
+    </div>
+
+  </main>
+
+</body>
+</html>
