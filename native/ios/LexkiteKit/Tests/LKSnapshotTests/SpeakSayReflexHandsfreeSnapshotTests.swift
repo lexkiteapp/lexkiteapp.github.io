@@ -43,7 +43,7 @@ final class SpeakSayReflexHandsfreeSnapshotTests: XCTestCase {
     func shoot<V: View>(testName: String = #function, _ make: (String) -> V) {
         for (lang, scheme) in SnapshotFixtures.speakVariants(testName) {
             assertSnapshot(of: SnapshotFixtures.host(make(lang), lang: lang, scheme: scheme),
-                           as: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98, traits: UITraitCollection(displayScale: SnapshotFixtures.speakScale(testName))),
+                           as: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98, traits: UITraitCollection(displayScale: SnapshotFixtures.speakScale(testName, lang))),
                            named: SnapshotFixtures.name(lang, scheme), testName: testName)
         }
     }

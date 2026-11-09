@@ -62,7 +62,7 @@ final class SpeakRtypeRoleplaySnapshotTests: XCTestCase {
         for (lang, scheme) in SnapshotFixtures.speakVariants(testName) {
             let v = await make(lang)
             assertSnapshot(of: SnapshotFixtures.host(v, lang: lang, scheme: scheme),
-                           as: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98, traits: UITraitCollection(displayScale: SnapshotFixtures.speakScale(testName))),
+                           as: .image(on: .iPhone13, precision: 0.99, perceptualPrecision: 0.98, traits: UITraitCollection(displayScale: SnapshotFixtures.speakScale(testName, lang))),
                            named: SnapshotFixtures.name(lang, scheme), testName: testName)
         }
     }
