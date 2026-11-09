@@ -253,7 +253,7 @@
  ],
  "_contrast": "3/11: chữ phụ 11 px #8C7A6B trên #FFF9F3 = 3,93:1 < 4,5 (qa-bot) → #76665A (5,26:1, cùng tông) qua cls; mẫu Stitch giữ nguyên.",
  "addClass": {
-  "button.w-full.uppercase": "relative after:absolute after:-inset-y-1 after:inset-x-0 after:content-['']"
+  "button.w-full.uppercase": "[word-spacing:.22em] relative after:absolute after:-inset-y-1 after:inset-x-0 after:content-['']"
  },
  "_contrast_wk": "3/11: chuỗi 7 ngày – chữ nhãn ngày đạt ≥ 4,5:1 (qa/stitch-diff): bỏ opacity-40 trên cả khối 'off' (chữ 1,8:1, ô tròn vẫn nhạt), nhãn tối bỏ /60, nhãn 'hôm nay' cam 10 px → #92400E (6,4:1) ở bản sáng."
 }

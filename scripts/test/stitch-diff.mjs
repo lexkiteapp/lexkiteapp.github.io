@@ -188,6 +188,7 @@ for (const scheme of ['dark', 'light']) {
     await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
     await page.evaluate(() => { if (document.activeElement) document.activeElement.blur(); scrollTo(0, 0); document.querySelectorAll('*').forEach(e => { if (e.scrollTop) e.scrollTop = 0; }); }).catch(() => {}); await page.waitForTimeout(200);
     { const b = await page.screenshot(); fs.writeFileSync(path.join(OUT, `desk-${k}-${scheme}.png`), b); await auditContrast(page, b, `${k}-${scheme}-1366`); }
+    if (k === 'home') { const dh = await page.evaluate(() => { const v = document.getElementById('view'); return Math.min(4000, Math.ceil(Math.max(document.documentElement.scrollHeight, v ? v.scrollHeight + v.getBoundingClientRect().top : 0))); }); await page.setViewportSize({ width: 1366, height: Math.max(900, dh) }); await page.waitForTimeout(300); fs.writeFileSync(path.join(OUT, `desk-full-${k}-${scheme}.png`), await page.screenshot()); await page.setViewportSize({ width: 1366, height: 900 }); } // ảnh desktop đủ cao để thấy các khối dưới màn đầu (Lộ trình)
   }
   await ctx.close();
 }
