@@ -5850,7 +5850,11 @@
    },
    "note": "Tease only people who know you well and keep your tone warm, smiling and light. If they look uncomfortable, stop at once.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "gemini:gemini-3.6-flash": 5
+    }
    }
   },
   {
@@ -5974,7 +5978,11 @@
    },
    "note": "Give one or two specific examples, ask for their view, and agree on a plan with a date. Do it in private.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "gemini:gemini-3.6-flash": 5
+    }
    }
   },
   {
