@@ -282,3 +282,6 @@ div.dp-unit > h3 { flex: 1 1 calc(100% - 2.6rem); }
 }
 html.native body.bare.v2on #view:has(.w-head) { padding-top: 0; }
 html.native .v2 .w-head { padding-top: env(safe-area-inset-top, 0px); height: auto; min-height: calc(64px + env(safe-area-inset-top, 0px)); }
+.next-why { flex-basis: 100%; margin: var(--sp-1) 0 0; font-size: var(--fs-sm); color: var(--muted); }
+.listen-back { display: inline-flex; align-items: center; gap: var(--sp-2); min-height: 44px; }
+.listen-head { margin: var(--sp-1) 0 var(--sp-4); }

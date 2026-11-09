@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"clock\" mean?",
+  "keyword": "clock",
+  "value": "Clock means a device that shows the time.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=clock",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"clock\" mean?",
+    "description": "Clock means a device that shows the time.\n\nReview your words, free: https://lexkite.com/app/#/review?w=clock\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "clock",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"clock\" mean?\n\nClock means a device that shows the time.\n\nReview your words, free: https://lexkite.com/app/#/review?w=clock"
+   },
+   "instagram": {
+    "caption": "What does \"clock\" mean?\n\nClock means a device that shows the time.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"clock\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a device that shows the time. Clock means a device that shows the time. Practice it with a free quiz: {link}"
  }
 }

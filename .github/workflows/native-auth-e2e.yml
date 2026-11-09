@@ -52,7 +52,7 @@ jobs:
       - name: Build web → cap sync → chèn harness (chế độ auth)
         env: { E2E_MODE: auth }
         run: |
-          npm ci --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
           ./scripts/build-mobile.sh
           bash scripts/test/ios-e2e/inject.sh
       - name: xcodebuild (iphonesimulator, ký ad-hoc để có entitlement Sign in with Apple)
@@ -118,7 +118,7 @@ jobs:
         with: { distribution: temurin, java-version: 21 }
       - name: Build APK debug
         run: |
-          npm ci --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
           ./scripts/build-mobile.sh
           test -f mobile/android/app/google-services.json || { echo "::error::✗ thiếu mobile/android/app/google-services.json sau build-mobile (bị .gitignore hoặc cap sync xóa?)"; exit 1; }
           grep -q "com.google.gms:google-services" mobile/android/build.gradle || { echo "::error::✗ mobile/android/build.gradle mất classpath com.google.gms:google-services"; exit 1; }

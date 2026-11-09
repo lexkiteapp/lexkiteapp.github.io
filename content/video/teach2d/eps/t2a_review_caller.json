@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"caller\" mean?",
+  "keyword": "caller",
+  "value": "Caller means a person who makes a phone call.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=caller",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"caller\" mean?",
+    "description": "Caller means a person who makes a phone call.\n\nReview your words, free: https://lexkite.com/app/#/review?w=caller\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "caller",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"caller\" mean?\n\nCaller means a person who makes a phone call.\n\nReview your words, free: https://lexkite.com/app/#/review?w=caller"
+   },
+   "instagram": {
+    "caption": "What does \"caller\" mean?\n\nCaller means a person who makes a phone call.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"caller\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a person who makes a phone call. Caller means a person who makes a phone call. More practice like this (free): {link}"
  }
 }

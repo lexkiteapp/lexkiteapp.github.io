@@ -41,6 +41,7 @@
       <button class="btn sm" type="button" data-ao="xp2">▶ ${t('Nhận x2 XP')}</button></div>`);
     if (!rows.length) return;
     css();
+    if (host.parentElement) host.parentElement.appendChild(host); // về muộn → xuống cuối thẻ, không đẩy khối đã vẽ (CLS)
     host.innerHTML = `<div class="ad-offer">${rows.join('')}</div>`;
     const r = host.querySelector('[data-ao="retry"]'), x = host.querySelector('[data-ao="xp2"]');
     if (r) r.onclick = async () => {

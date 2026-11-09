@@ -1,0 +1,917 @@
+{
+ "id": "salary-talk",
+ "group": "work",
+ "cefr": "B2",
+ "title": {
+  "en": "Salary talk",
+  "vi": "Bàn về mức lương",
+  "es": "Conversación sobre el sueldo",
+  "pt": "Conversa sobre salário",
+  "fr": "Discussion sur le salaire",
+  "de": "Gehaltsgespräch",
+  "id": "Pembicaraan gaji",
+  "th": "เจรจาเรื่องเงินเดือน",
+  "zh": "谈薪资",
+  "ja": "給与の相談",
+  "ko": "연봉 협상",
+  "hi": "वेतन पर बातचीत",
+  "ar": "التفاوض على الراتب",
+  "ru": "Разговор о зарплате",
+  "tr": "Maaş görüşmesi"
+ },
+ "goal": {
+  "en": "Ask for a fair raise with confidence!",
+  "vi": "Tự tin đề nghị tăng lương xứng đáng!",
+  "es": "¡Pide un aumento justo con seguridad!",
+  "pt": "Peça um aumento justo com confiança!",
+  "fr": "Demandez une augmentation juste avec assurance !",
+  "de": "Bitte selbstbewusst um eine faire Gehaltserhöhung!",
+  "id": "Minta kenaikan gaji yang pantas dengan percaya diri!",
+  "th": "ขอขึ้นเงินเดือนที่เหมาะสมอย่างมั่นใจ!",
+  "zh": "自信地争取合理的加薪！",
+  "ja": "自信を持って適正な昇給を求めよう！",
+  "ko": "당당하게 합당한 인상을 요청해요!",
+  "hi": "आत्मविश्वास से उचित वेतन वृद्धि माँगें!",
+  "ar": "اطلب زيادة عادلة بثقة!",
+  "ru": "Уверенно проси справедливую прибавку!",
+  "tr": "Hak ettiğin zammı özgüvenle iste!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "case",
+   "title": {
+    "en": "Make your case",
+    "vi": "Trình bày lý do",
+    "es": "Expón tus argumentos",
+    "pt": "Apresente seus argumentos",
+    "fr": "Présenter vos arguments",
+    "de": "Argumente vorbringen",
+    "id": "Sampaikan alasanmu",
+    "th": "นำเสนอเหตุผล",
+    "zh": "陈述理由",
+    "ja": "根拠を伝える",
+    "ko": "근거 말하기",
+    "hi": "अपना पक्ष रखें",
+    "ar": "اعرض حجتك",
+    "ru": "Приведи доводы",
+    "tr": "Gerekçeni sun"
+   },
+   "lines": [
+    "s1",
+    "s2",
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "nego",
+   "title": {
+    "en": "Negotiate",
+    "vi": "Thương lượng",
+    "es": "Negociar",
+    "pt": "Negociar",
+    "fr": "Négocier",
+    "de": "Verhandeln",
+    "id": "Bernegosiasi",
+    "th": "เจรจาต่อรอง",
+    "zh": "协商",
+    "ja": "交渉する",
+    "ko": "협상하기",
+    "hi": "बातचीत करें",
+    "ar": "التفاوض",
+    "ru": "Договариваться",
+    "tr": "Pazarlık et"
+   },
+   "lines": [
+    "s5",
+    "s6",
+    "s7",
+    "s8"
+   ]
+  },
+  {
+   "id": "deal",
+   "title": {
+    "en": "Agree the deal",
+    "vi": "Chốt thỏa thuận",
+    "es": "Cerrar el acuerdo",
+    "pt": "Fechar o acordo",
+    "fr": "Conclure l'accord",
+    "de": "Einigung erzielen",
+    "id": "Menyepakati",
+    "th": "ตกลงข้อสรุป",
+    "zh": "达成协议",
+    "ja": "合意する",
+    "ko": "합의하기",
+    "hi": "समझौता तय करें",
+    "ar": "إبرام الاتفاق",
+    "ru": "Заключить договорённость",
+    "tr": "Anlaşmayı kapat"
+   },
+   "lines": [
+    "s9",
+    "s10",
+    "s11",
+    "s12"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "s1",
+   "who": "customer",
+   "en": "Thank you for making time. I'd like to talk about my salary and my role going forward.",
+   "variants": {
+    "polite": "Thank you for making time to see me. I'd like to discuss my salary and my role going forward.",
+    "casual": "Thanks for meeting. I'd like to talk about my pay and my role."
+   },
+   "gloss": {
+    "en": "Opening the conversation about pay and your future role.",
+    "vi": "Cảm ơn anh/chị đã dành thời gian. Tôi muốn trao đổi về mức lương và vai trò của tôi sắp tới.",
+    "es": "Gracias por hacerme un hueco. Me gustaría hablar de mi sueldo y de mi puesto de cara al futuro.",
+    "pt": "Obrigado por reservar um tempo. Gostaria de conversar sobre meu salário e meu papel daqui em diante.",
+    "fr": "Merci de m'accorder du temps. J'aimerais parler de mon salaire et de mon rôle à l'avenir.",
+    "de": "Danke, dass Sie sich Zeit nehmen. Ich möchte über mein Gehalt und meine künftige Rolle sprechen.",
+    "id": "Terima kasih sudah menyempatkan waktu. Saya ingin membahas gaji dan peran saya ke depan.",
+    "th": "ขอบคุณที่สละเวลา ฉันอยากคุยเรื่องเงินเดือนและบทบาทของฉันต่อจากนี้",
+    "zh": "谢谢您抽出时间。我想谈谈我的薪资和今后的职责。",
+    "ja": "お時間をいただきありがとうございます。給与と今後の役割についてお話ししたいです。",
+    "ko": "시간 내 주셔서 감사합니다. 제 연봉과 앞으로의 역할에 대해 이야기하고 싶어요.",
+    "hi": "समय निकालने के लिए धन्यवाद। मैं अपने वेतन और आगे की भूमिका के बारे में बात करना चाहता हूँ।",
+    "ar": "شكرًا لتخصيص وقتك. أودّ التحدث عن راتبي ودوري مستقبلًا.",
+    "ru": "Спасибо, что нашли время. Я хотел бы поговорить о своей зарплате и дальнейшей роли.",
+    "tr": "Zaman ayırdığınız için teşekkürler. Maaşım ve bundan sonraki rolüm hakkında konuşmak istiyorum."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "salary",
+     "ipa": "/ˈsæl.ər.i/",
+     "hi": "SAL",
+     "note": {
+      "en": "Stress the first syllable: SAL-uh-ree, three syllables.",
+      "vi": "Nhấn âm đầu: XEO-lờ-ri, ba âm tiết.",
+      "es": "Acentúa la primera sílaba: SA-le-ri, tres sílabas.",
+      "pt": "Acentue a primeira sílaba: SÉ-la-ri, três sílabas.",
+      "fr": "Accentuez la première syllabe : SA-leu-ri, trois syllabes.",
+      "de": "Erste Silbe betonen: SÄ-le-ri, drei Silben.",
+      "id": "Tekankan suku pertama: SEL-e-ri, tiga suku kata.",
+      "th": "เน้นพยางค์แรก: แซล-เลอ-รี มีสามพยางค์",
+      "zh": "重音在第一个音节：SAL-uh-ree，共三个音节。",
+      "ja": "最初の音節を強く：サラリー、3音節。",
+      "ko": "첫 음절에 강세: 쌜-러-리, 세 음절.",
+      "hi": "पहले अक्षर पर ज़ोर: सैल-अ-री, तीन अक्षर।",
+      "ar": "شدّد على المقطع الأول: سال-ري، ثلاثة مقاطع.",
+      "ru": "Ударение на первый слог: СЭЛ-э-ри, три слога.",
+      "tr": "İlk hece vurgulu: SEL-ı-ri, üç hece."
+     }
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "who": "barista",
+   "en": "Of course. What did you have in mind?",
+   "variants": {
+    "polite": "Of course. Please tell me what you have in mind.",
+    "casual": "Sure. What's on your mind?"
+   },
+   "gloss": {
+    "en": "The manager agrees and invites you to say what you want.",
+    "vi": "Được chứ. Anh/chị đang nghĩ đến điều gì?",
+    "es": "Por supuesto. ¿Qué tenías en mente?",
+    "pt": "Claro. O que você tinha em mente?",
+    "fr": "Bien sûr. Qu'aviez-vous en tête ?",
+    "de": "Natürlich. Woran hatten Sie gedacht?",
+    "id": "Tentu. Apa yang ingin Anda bicarakan?",
+    "th": "ได้เลย คุณมีอะไรอยู่ในใจ",
+    "zh": "当然。你想谈些什么？",
+    "ja": "もちろん。どのようなことをお考えですか？",
+    "ko": "물론이죠. 어떤 생각을 하고 계세요?",
+    "hi": "ज़रूर। आपके मन में क्या है?",
+    "ar": "بالتأكيد. ما الذي تفكّر فيه؟",
+    "ru": "Конечно. Что именно вы имели в виду?",
+    "tr": "Tabii. Aklınızda ne var?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "s3",
+   "who": "customer",
+   "en": "Over the past year I've taken on two new projects and trained three colleagues.",
+   "variants": {
+    "polite": "Over the past year, I've taken on two new projects and helped to train three colleagues.",
+    "casual": "This year I took on two new projects and trained three colleagues."
+   },
+   "gloss": {
+    "en": "Giving concrete evidence of what you have achieved.",
+    "vi": "Trong năm qua tôi nhận thêm hai dự án mới và đào tạo ba đồng nghiệp.",
+    "es": "En el último año he asumido dos proyectos nuevos y he formado a tres compañeros.",
+    "pt": "No último ano assumi dois novos projetos e treinei três colegas.",
+    "fr": "Au cours de l'année écoulée, j'ai pris en charge deux nouveaux projets et formé trois collègues.",
+    "de": "Im vergangenen Jahr habe ich zwei neue Projekte übernommen und drei Kollegen eingearbeitet.",
+    "id": "Selama setahun terakhir saya mengambil dua proyek baru dan melatih tiga rekan kerja.",
+    "th": "ตลอดปีที่ผ่านมา ฉันรับโครงการใหม่สองโครงการและฝึกเพื่อนร่วมงานสามคน",
+    "zh": "过去一年里，我接手了两个新项目，并培训了三位同事。",
+    "ja": "この1年で、新しいプロジェクトを2つ引き受け、同僚3人を指導しました。",
+    "ko": "지난 1년 동안 새 프로젝트 두 개를 맡았고 동료 세 명을 교육했어요.",
+    "hi": "पिछले एक साल में मैंने दो नए प्रोजेक्ट संभाले हैं और तीन सहकर्मियों को प्रशिक्षित किया है।",
+    "ar": "خلال العام الماضي توليت مشروعين جديدين ودرّبت ثلاثة زملاء.",
+    "ru": "За прошедший год я взял на себя два новых проекта и обучил трёх коллег.",
+    "tr": "Geçen yıl iki yeni projeyi üstlendim ve üç meslektaşımı eğittim."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "colleagues",
+     "ipa": "/ˈkɒl.iːɡz/",
+     "hi": "COL",
+     "note": {
+      "en": "Stress the first syllable: COL-eegz; the \"ue\" is silent.",
+      "vi": "Nhấn âm đầu: COL-ịch-z; “ue” không đọc.",
+      "es": "Acentúa la primera sílaba: COL-igs; la «ue» no suena.",
+      "pt": "Acentue a primeira sílaba: COL-igs; o \"ue\" é mudo.",
+      "fr": "Accentuez la première syllabe : COL-igz ; le « ue » est muet.",
+      "de": "Erste Silbe betonen: COL-iegs; das „ue“ bleibt stumm.",
+      "id": "Tekankan suku pertama: COL-igs; “ue” tidak dibaca.",
+      "th": "เน้นพยางค์แรก: ค็อล-ลีกส์ ตัว “ue” ไม่ออกเสียง",
+      "zh": "重音在第一个音节：COL-eegz，“ue” 不发音。",
+      "ja": "最初の音節を強く：コリーグズ。「ue」は発音しません。",
+      "ko": "첫 음절에 강세: 칼-리그즈, “ue”는 발음하지 않아요.",
+      "hi": "पहले अक्षर पर ज़ोर: कॉल-ईग्ज़; “ue” नहीं बोला जाता।",
+      "ar": "شدّد على المقطع الأول: كول-يغز، وحرفا “ue” صامتان.",
+      "ru": "Ударение на первый слог: КОЛ-игз; «ue» не читается.",
+      "tr": "İlk hece vurgulu: KOL-igz; “ue” okunmaz."
+     }
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "who": "customer",
+   "en": "Based on market research, I believe a raise of about eight percent would be fair.",
+   "variants": {
+    "polite": "Based on my research into the market, I believe a raise of around eight percent would be fair.",
+    "casual": "Going by market rates, I think an eight percent raise is fair."
+   },
+   "gloss": {
+    "en": "Asking for a specific raise and giving a reason.",
+    "vi": "Dựa trên khảo sát thị trường, tôi tin mức tăng khoảng tám phần trăm là hợp lý.",
+    "es": "Según mi análisis del mercado, creo que un aumento de alrededor del ocho por ciento sería justo.",
+    "pt": "Com base em pesquisa de mercado, acredito que um aumento de cerca de oito por cento seria justo.",
+    "fr": "D'après mes recherches sur le marché, je pense qu'une augmentation d'environ huit pour cent serait juste.",
+    "de": "Aufgrund meiner Marktrecherche halte ich eine Erhöhung von etwa acht Prozent für angemessen.",
+    "id": "Berdasarkan riset pasar, menurut saya kenaikan sekitar delapan persen itu wajar.",
+    "th": "จากการศึกษาตลาด ฉันเชื่อว่าการขึ้นเงินเดือนประมาณแปดเปอร์เซ็นต์ถือว่าเหมาะสม",
+    "zh": "根据市场调研，我认为加薪大约百分之八比较合理。",
+    "ja": "市場調査に基づくと、8パーセント前後の昇給が妥当だと考えています。",
+    "ko": "시장 조사를 바탕으로 볼 때 약 8퍼센트 인상이 합당하다고 생각해요.",
+    "hi": "बाज़ार के शोध के आधार पर मुझे लगता है कि करीब आठ प्रतिशत की वृद्धि उचित होगी।",
+    "ar": "استنادًا إلى بحثي في السوق، أرى أن زيادة بنحو ثمانية في المئة ستكون عادلة.",
+    "ru": "Исходя из анализа рынка, считаю справедливой прибавку примерно в восемь процентов.",
+    "tr": "Piyasa araştırmama göre yaklaşık yüzde sekizlik bir zammın adil olacağını düşünüyorum."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "s5",
+   "who": "barista",
+   "en": "I appreciate your work, but our budget is tight this year, so I can't offer eight percent.",
+   "variants": {
+    "polite": "I really appreciate your work, but our budget is tight this year, so I'm unable to offer eight percent.",
+    "casual": "Good work, but the budget is tight. I can't do eight percent."
+   },
+   "gloss": {
+    "en": "The manager values your work but explains a budget limit.",
+    "vi": "Tôi trân trọng công sức của bạn, nhưng ngân sách năm nay eo hẹp nên tôi không thể đồng ý tám phần trăm.",
+    "es": "Valoro tu trabajo, pero el presupuesto de este año es ajustado y no puedo ofrecerte un ocho por ciento.",
+    "pt": "Valorizo seu trabalho, mas o orçamento deste ano está apertado, então não posso oferecer oito por cento.",
+    "fr": "J'apprécie votre travail, mais notre budget est serré cette année, je ne peux donc pas offrir huit pour cent.",
+    "de": "Ich schätze Ihre Arbeit, aber unser Budget ist dieses Jahr knapp, daher kann ich keine acht Prozent anbieten.",
+    "id": "Saya menghargai kerja Anda, tetapi anggaran tahun ini ketat, jadi saya tidak bisa menawarkan delapan persen.",
+    "th": "ผมชื่นชมงานของคุณ แต่งบปีนี้ค่อนข้างตึง จึงเสนอแปดเปอร์เซ็นต์ให้ไม่ได้",
+    "zh": "我很看重你的工作，但今年预算紧张，所以给不了百分之八。",
+    "ja": "あなたの仕事は評価していますが、今年は予算が厳しく、8パーセントは出せません。",
+    "ko": "일을 잘해 주셔서 고맙지만 올해 예산이 빠듯해서 8퍼센트는 어렵습니다.",
+    "hi": "मैं आपके काम की सराहना करता हूँ, पर इस साल बजट तंग है, इसलिए आठ प्रतिशत देना संभव नहीं।",
+    "ar": "أقدّر عملك، لكن ميزانيتنا هذا العام محدودة، فلا أستطيع عرض ثمانية في المئة.",
+    "ru": "Я ценю вашу работу, но в этом году бюджет ограничен, поэтому восемь процентов предложить не могу.",
+    "tr": "Çalışmanızı takdir ediyorum ama bu yıl bütçemiz kısıtlı, bu yüzden yüzde sekiz öneremem."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "budget",
+     "ipa": "/ˈbʌdʒ.ɪt/",
+     "hi": "BUD",
+     "note": {
+      "en": "Say BUD-jit; the first vowel is short, as in \"cup\".",
+      "vi": "Đọc BẤT-chịt; nguyên âm đầu ngắn như trong “cup”.",
+      "es": "Di BAD-yit; la primera vocal es corta, como en «cup».",
+      "pt": "Diga BÂD-jit; a primeira vogal é curta, como em \"cup\".",
+      "fr": "Dites BEUD-djit ; la première voyelle est brève, comme dans « cup ».",
+      "de": "Sprich BAD-dschit; der erste Vokal ist kurz wie in „cup“.",
+      "id": "Ucapkan BAD-jit; vokal pertama pendek seperti pada “cup”.",
+      "th": "ออกเสียง บัด-จิท สระแรกสั้นเหมือนในคำว่า “cup”",
+      "zh": "读作 BUD-jit，第一个元音短，像 “cup”。",
+      "ja": "「バジット」。最初の母音は短く、cupのように。",
+      "ko": "‘버짓’처럼 읽고 첫 모음은 cup처럼 짧게 해요.",
+      "hi": "‘बज-इट’ बोलें; पहला स्वर “cup” की तरह छोटा है।",
+      "ar": "انطقها «بَد-جِت»، والحركة الأولى قصيرة كما في “cup”.",
+      "ru": "Читается БАД-жит; первая гласная краткая, как в «cup».",
+      "tr": "BAD-cit diye okunur; ilk ünlü “cup” gibi kısadır."
+     }
+    }
+   ]
+  },
+  {
+   "id": "s6",
+   "who": "customer",
+   "en": "I understand the budget is limited. Could we consider a smaller raise now and a review in six months?",
+   "variants": {
+    "polite": "I understand the budget is limited. Would it be possible to consider a smaller raise now and a review in six months?",
+    "casual": "I get that. How about a smaller raise now and a review in six months?"
+   },
+   "gloss": {
+    "en": "Offering a compromise: a smaller raise now and a later review.",
+    "vi": "Tôi hiểu ngân sách có hạn. Ta có thể tăng ít hơn bây giờ và xem xét lại sau sáu tháng không?",
+    "es": "Entiendo que el presupuesto es limitado. ¿Podríamos plantear un aumento menor ahora y una revisión en seis meses?",
+    "pt": "Entendo que o orçamento é limitado. Poderíamos considerar um aumento menor agora e uma revisão em seis meses?",
+    "fr": "Je comprends que le budget soit limité. Pourrions-nous envisager une augmentation moindre maintenant et un réexamen dans six mois ?",
+    "de": "Ich verstehe, dass das Budget begrenzt ist. Könnten wir jetzt eine kleinere Erhöhung und in sechs Monaten eine erneute Prüfung erwägen?",
+    "id": "Saya mengerti anggarannya terbatas. Bisakah kita pertimbangkan kenaikan yang lebih kecil sekarang dan peninjauan ulang dalam enam bulan?",
+    "th": "ฉันเข้าใจว่างบมีจำกัด เราพิจารณาขึ้นน้อยลงตอนนี้ แล้วทบทวนกันใหม่ในอีกหกเดือนได้ไหม",
+    "zh": "我理解预算有限。我们能不能先加少一点，六个月后再评估一次？",
+    "ja": "予算に限りがあるのは分かります。今回は小さめの昇給にして、半年後に見直すのはどうでしょうか？",
+    "ko": "예산이 한정적인 건 이해해요. 지금은 인상 폭을 줄이고 6개월 뒤에 다시 검토하면 어떨까요?",
+    "hi": "मैं समझता हूँ कि बजट सीमित है। क्या हम अभी छोटी वृद्धि पर विचार कर सकते हैं और छह महीने बाद समीक्षा कर सकते हैं?",
+    "ar": "أتفهّم أن الميزانية محدودة. هل يمكن النظر في زيادة أصغر الآن ومراجعة بعد ستة أشهر؟",
+    "ru": "Я понимаю, что бюджет ограничен. Можно ли рассмотреть меньшую прибавку сейчас и пересмотр через полгода?",
+    "tr": "Bütçenin sınırlı olduğunu anlıyorum. Şimdilik daha küçük bir zam yapıp altı ay sonra yeniden değerlendirsek olur mu?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "s7",
+   "who": "barista",
+   "en": "That's possible. Would you also want to look at benefits such as extra leave or training?",
+   "variants": {
+    "polite": "That could work. Would you also like to look at benefits such as extra leave or training?",
+    "casual": "Possibly. Want to talk about extra leave or training too?"
+   },
+   "gloss": {
+    "en": "The manager is open to the idea and suggests other benefits.",
+    "vi": "Cũng có thể. Bạn có muốn xem thêm các phúc lợi như nghỉ phép hay đào tạo không?",
+    "es": "Es posible. ¿Querrías considerar también beneficios como días libres extra o formación?",
+    "pt": "É possível. Você também gostaria de ver benefícios, como folgas extras ou treinamento?",
+    "fr": "C'est possible. Voudriez-vous aussi regarder des avantages comme des congés supplémentaires ou une formation ?",
+    "de": "Das ist möglich. Möchten Sie auch Zusatzleistungen wie mehr Urlaub oder Weiterbildung besprechen?",
+    "id": "Itu mungkin. Apakah Anda juga ingin membahas tunjangan seperti cuti tambahan atau pelatihan?",
+    "th": "เป็นไปได้ คุณอยากพิจารณาสวัสดิการอื่นด้วยไหม เช่น วันลาเพิ่มหรือการอบรม",
+    "zh": "有可能。你是否也想谈谈额外休假或培训之类的福利？",
+    "ja": "それは可能です。休暇の追加や研修といった福利厚生も検討したいですか？",
+    "ko": "가능해요. 휴가 추가나 교육 같은 복지도 함께 논의해 볼까요?",
+    "hi": "यह संभव है। क्या आप अतिरिक्त छुट्टी या प्रशिक्षण जैसे लाभों पर भी बात करना चाहेंगे?",
+    "ar": "هذا ممكن. هل تودّ أيضًا النظر في مزايا مثل إجازة إضافية أو تدريب؟",
+    "ru": "Это возможно. Хотите также обсудить дополнительные условия, например лишние дни отпуска или обучение?",
+    "tr": "Bu mümkün. Ek izin ya da eğitim gibi yan haklara da bakmak ister misiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "s8",
+   "who": "customer",
+   "en": "Yes, I'd appreciate that. An extra training budget would really help me grow in my role.",
+   "variants": {
+    "polite": "Yes, I'd appreciate that. An additional training budget would really help me grow in my role.",
+    "casual": "Yes. A training budget would help me grow."
+   },
+   "gloss": {
+    "en": "Accepting the offer and explaining why training matters to you.",
+    "vi": "Có, tôi rất muốn. Thêm ngân sách đào tạo sẽ giúp tôi phát triển trong vai trò này.",
+    "es": "Sí, lo agradecería. Un presupuesto extra de formación me ayudaría mucho a crecer en mi puesto.",
+    "pt": "Sim, eu agradeceria. Um orçamento extra de treinamento me ajudaria muito a crescer na função.",
+    "fr": "Oui, avec plaisir. Un budget de formation supplémentaire m'aiderait vraiment à progresser dans mon rôle.",
+    "de": "Ja, gern. Ein zusätzliches Weiterbildungsbudget würde mir wirklich helfen, in meiner Rolle zu wachsen.",
+    "id": "Ya, saya sangat menghargainya. Tambahan anggaran pelatihan akan sangat membantu saya berkembang dalam peran ini.",
+    "th": "ค่ะ ยินดีมาก งบอบรมเพิ่มจะช่วยให้ฉันเติบโตในบทบาทนี้ได้มาก",
+    "zh": "好的，我很乐意。额外的培训预算会很有助于我在岗位上成长。",
+    "ja": "はい、ぜひお願いします。研修予算が増えれば、今の役割で大きく成長できます。",
+    "ko": "네, 그러면 좋겠어요. 교육 예산이 더 있으면 제 역할에서 성장하는 데 큰 도움이 될 거예요.",
+    "hi": "जी हाँ, मुझे अच्छा लगेगा। प्रशिक्षण के लिए अतिरिक्त बजट मेरी भूमिका में आगे बढ़ने में सच में मदद करेगा।",
+    "ar": "نعم، سأقدّر ذلك. ميزانية تدريب إضافية ستساعدني كثيرًا على النمو في دوري.",
+    "ru": "Да, был бы признателен. Дополнительный бюджет на обучение действительно помог бы мне расти в должности.",
+    "tr": "Evet, çok isterim. Ek bir eğitim bütçesi bu görevde gelişmeme gerçekten yardımcı olur."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "s9",
+   "who": "barista",
+   "en": "In that case, I could offer five percent now, and we would review it again in June.",
+   "variants": {
+    "polite": "In that case, I could offer five percent now, and we would review it again in June.",
+    "casual": "I can do five percent now, and we review again in June."
+   },
+   "gloss": {
+    "en": "The manager makes a concrete counter-offer with a review date.",
+    "vi": "Vậy thì tôi có thể đề xuất năm phần trăm bây giờ, và ta xem xét lại vào tháng Sáu.",
+    "es": "En ese caso, podría ofrecerte un cinco por ciento ahora y lo revisaríamos de nuevo en junio.",
+    "pt": "Nesse caso, posso oferecer cinco por cento agora e revisaríamos novamente em junho.",
+    "fr": "Dans ce cas, je pourrais proposer cinq pour cent maintenant, et nous réexaminerions la question en juin.",
+    "de": "In dem Fall könnte ich jetzt fünf Prozent anbieten, und wir prüfen es im Juni erneut.",
+    "id": "Kalau begitu, saya bisa menawarkan lima persen sekarang, dan kita tinjau lagi pada bulan Juni.",
+    "th": "ถ้าอย่างนั้น ผมเสนอห้าเปอร์เซ็นต์ตอนนี้ และเรากลับมาทบทวนกันอีกครั้งในเดือนมิถุนายน",
+    "zh": "那样的话，我现在可以给百分之五，六月再重新评估。",
+    "ja": "それなら、今回は5パーセントとし、6月にもう一度見直しましょう。",
+    "ko": "그렇다면 지금은 5퍼센트를 제안하고 6월에 다시 검토하겠습니다.",
+    "hi": "तो फिर मैं अभी पाँच प्रतिशत की पेशकश कर सकता हूँ, और जून में हम फिर समीक्षा करेंगे।",
+    "ar": "في هذه الحالة يمكنني أن أعرض خمسة في المئة الآن، ونراجع الأمر مجددًا في يونيو.",
+    "ru": "В таком случае я мог бы предложить пять процентов сейчас и вернуться к вопросу в июне.",
+    "tr": "Bu durumda şimdi yüzde beş önerebilirim ve haziranda yeniden değerlendiririz."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "review",
+     "ipa": "/rɪˈvjuː/",
+     "hi": "VYOO",
+     "note": {
+      "en": "Stress the second syllable: ri-VYOO.",
+      "vi": "Nhấn âm thứ hai: ri-VIU.",
+      "es": "Acentúa la segunda sílaba: ri-VIÚ.",
+      "pt": "Acentue a segunda sílaba: ri-VIÚ.",
+      "fr": "Accentuez la deuxième syllabe : ri-VYOU.",
+      "de": "Zweite Silbe betonen: ri-WJUU.",
+      "id": "Tekankan suku kedua: ri-VYU.",
+      "th": "เน้นพยางค์ที่สอง: ริ-วิว",
+      "zh": "重音在第二个音节：ri-VYOO。",
+      "ja": "2番目の音節を強く：リ・ヴュー。",
+      "ko": "두 번째 음절에 강세: 리-뷰.",
+      "hi": "दूसरे अक्षर पर ज़ोर: रि-व्यू।",
+      "ar": "شدّد على المقطع الثاني: رِ-فيو.",
+      "ru": "Ударение на втором слоге: ри-ВЬЮ.",
+      "tr": "İkinci hece vurgulu: ri-VYU."
+     }
+    }
+   ]
+  },
+  {
+   "id": "s10",
+   "who": "customer",
+   "en": "Five percent is lower than I hoped, but I'm willing to accept it if the review is in writing.",
+   "variants": {
+    "polite": "Five percent is a little lower than I'd hoped, but I'm willing to accept it if the review date is confirmed in writing.",
+    "casual": "It's lower than I hoped, but OK if the review is in writing."
+   },
+   "gloss": {
+    "en": "Accepting a lower offer on one clear condition.",
+    "vi": "Năm phần trăm thấp hơn mong đợi, nhưng tôi chấp nhận nếu lần xem xét lại được ghi bằng văn bản.",
+    "es": "Un cinco por ciento es menos de lo que esperaba, pero lo acepto si la revisión queda por escrito.",
+    "pt": "Cinco por cento é menos do que eu esperava, mas aceito se a revisão ficar por escrito.",
+    "fr": "Cinq pour cent, c'est moins que je l'espérais, mais j'accepte si le réexamen est confirmé par écrit.",
+    "de": "Fünf Prozent sind weniger, als ich gehofft hatte, aber ich nehme an, wenn die Überprüfung schriftlich festgehalten wird.",
+    "id": "Lima persen lebih rendah dari harapan saya, tetapi saya bersedia menerimanya jika peninjauan ulang tercatat tertulis.",
+    "th": "ห้าเปอร์เซ็นต์ต่ำกว่าที่ฉันหวัง แต่ฉันยอมรับได้ถ้าการทบทวนครั้งต่อไปมีเป็นลายลักษณ์อักษร",
+    "zh": "百分之五比我期望的低，但如果复评以书面形式确定，我愿意接受。",
+    "ja": "5パーセントは期待より低いですが、見直しを書面で確認していただけるなら受け入れます。",
+    "ko": "5퍼센트는 기대보다 낮지만, 재검토를 서면으로 확정해 주신다면 받아들일게요.",
+    "hi": "पाँच प्रतिशत मेरी उम्मीद से कम है, पर अगर समीक्षा लिखित में तय हो तो मैं इसे स्वीकार करने को तैयार हूँ।",
+    "ar": "خمسة في المئة أقل مما كنت آمل، لكنني مستعد لقبولها إذا تأكدت المراجعة كتابةً.",
+    "ru": "Пять процентов — меньше, чем я надеялся, но я готов согласиться, если пересмотр будет зафиксирован письменно.",
+    "tr": "Yüzde beş umduğumdan düşük ama değerlendirme yazılı olarak teyit edilirse kabul etmeye hazırım."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "accept",
+     "ipa": "/əkˈsept/",
+     "hi": "SEPT",
+     "note": {
+      "en": "Stress the second syllable: ak-SEPT.",
+      "vi": "Nhấn âm thứ hai: ắc-XEPT.",
+      "es": "Acentúa la segunda sílaba: ak-SEPT.",
+      "pt": "Acentue a segunda sílaba: ak-SÉPT.",
+      "fr": "Accentuez la deuxième syllabe : ak-SÈPT.",
+      "de": "Zweite Silbe betonen: ak-SEPT.",
+      "id": "Tekankan suku kedua: ak-SEPT.",
+      "th": "เน้นพยางค์ที่สอง: แอก-เซ็ปต์",
+      "zh": "重音在第二个音节：ak-SEPT。",
+      "ja": "2番目の音節を強く：アク・セプト。",
+      "ko": "두 번째 음절에 강세: 악-셉트.",
+      "hi": "दूसरे अक्षर पर ज़ोर: अक-सेप्ट।",
+      "ar": "شدّد على المقطع الثاني: أك-سِبت.",
+      "ru": "Ударение на втором слоге: эк-СЕПТ.",
+      "tr": "İkinci hece vurgulu: ak-SEPT."
+     }
+    }
+   ]
+  },
+  {
+   "id": "s11",
+   "who": "customer",
+   "en": "Could you confirm the new salary and the review date in an email by the end of the week?",
+   "variants": {
+    "polite": "Would you be able to confirm the new salary and the review date in an email by the end of the week?",
+    "casual": "Can you email the new salary and review date by Friday?"
+   },
+   "gloss": {
+    "en": "Asking for the agreement to be confirmed in writing by a deadline.",
+    "vi": "Anh/chị xác nhận mức lương mới và ngày xem xét lại bằng email trước cuối tuần được không?",
+    "es": "¿Podrías confirmar por correo el nuevo sueldo y la fecha de revisión antes de que acabe la semana?",
+    "pt": "Você poderia confirmar por e-mail o novo salário e a data da revisão até o fim da semana?",
+    "fr": "Pourriez-vous confirmer par e-mail le nouveau salaire et la date de réexamen d'ici la fin de la semaine ?",
+    "de": "Könnten Sie das neue Gehalt und den Überprüfungstermin bis Ende der Woche per E-Mail bestätigen?",
+    "id": "Bisakah Anda mengonfirmasi gaji baru dan tanggal peninjauan lewat email sebelum akhir pekan ini?",
+    "th": "ช่วยยืนยันเงินเดือนใหม่และวันทบทวนทางอีเมลภายในสิ้นสัปดาห์นี้ได้ไหม",
+    "zh": "您能在本周末前用邮件确认新的薪资和复评日期吗？",
+    "ja": "週末までに、新しい給与と見直しの日付をメールで確認していただけますか？",
+    "ko": "이번 주 말까지 새 연봉과 재검토 날짜를 이메일로 확인해 주실 수 있을까요?",
+    "hi": "क्या आप सप्ताह के अंत तक नए वेतन और समीक्षा की तारीख़ की ईमेल से पुष्टि कर सकते हैं?",
+    "ar": "هل يمكنك تأكيد الراتب الجديد وموعد المراجعة بالبريد الإلكتروني بحلول نهاية الأسبوع؟",
+    "ru": "Не могли бы вы подтвердить новую зарплату и дату пересмотра письмом до конца недели?",
+    "tr": "Yeni maaşı ve değerlendirme tarihini hafta sonuna kadar e-postayla teyit edebilir misiniz?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "s12",
+   "who": "barista",
+   "en": "Absolutely. I'll send it on Friday. Thank you for raising this so clearly.",
+   "variants": {
+    "polite": "Absolutely. I'll send it on Friday, and thank you for raising this so clearly.",
+    "casual": "Sure, Friday. Thanks for being so clear."
+   },
+   "gloss": {
+    "en": "The manager agrees to confirm and thanks you for the clear conversation.",
+    "vi": "Chắc chắn rồi. Tôi sẽ gửi vào thứ Sáu. Cảm ơn bạn đã nêu vấn đề rất rõ ràng.",
+    "es": "Por supuesto. Lo envío el viernes. Gracias por plantearlo con tanta claridad.",
+    "pt": "Com certeza. Envio na sexta. Obrigado por colocar o assunto de forma tão clara.",
+    "fr": "Absolument. Je l'enverrai vendredi. Merci d'avoir abordé le sujet aussi clairement.",
+    "de": "Selbstverständlich. Ich schicke es am Freitag. Danke, dass Sie das so klar angesprochen haben.",
+    "id": "Tentu. Saya kirim hari Jumat. Terima kasih sudah menyampaikannya dengan sangat jelas.",
+    "th": "แน่นอน ผมจะส่งให้วันศุกร์ ขอบคุณที่พูดเรื่องนี้ได้ชัดเจนมาก",
+    "zh": "没问题，我周五发给你。谢谢你把这件事讲得这么清楚。",
+    "ja": "もちろんです。金曜日に送ります。はっきり話してくれてありがとう。",
+    "ko": "물론이죠. 금요일에 보내겠습니다. 이 이야기를 분명하게 해 줘서 고마워요.",
+    "hi": "बिल्कुल। मैं शुक्रवार को भेज दूँगा। इस बात को इतनी स्पष्टता से रखने के लिए धन्यवाद।",
+    "ar": "بالتأكيد. سأرسله يوم الجمعة. وشكرًا لأنك طرحت الموضوع بوضوح.",
+    "ru": "Безусловно. Отправлю в пятницу. Спасибо, что так ясно подняли этот вопрос.",
+    "tr": "Kesinlikle. Cuma günü göndereceğim. Konuyu bu kadar net dile getirdiğiniz için teşekkürler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "What achievements are you most proud of this year?",
+   "keywords": [
+    "project",
+    "team",
+    "client",
+    "training",
+    "sales",
+    "deadline",
+    "results",
+    "report",
+    "helped",
+    "led",
+    "improved",
+    "launched"
+   ],
+   "variants": {
+    "polite": "Which achievements are you most proud of this year?",
+    "casual": "What are you proudest of this year?"
+   },
+   "gloss": {
+    "en": "Asking which achievements you are proudest of this year.",
+    "vi": "Năm nay bạn tự hào nhất về thành tích nào?",
+    "es": "¿De qué logros te sientes más orgulloso este año?",
+    "pt": "De quais conquistas você mais se orgulha este ano?",
+    "fr": "De quelles réussites êtes-vous le plus fier cette année ?",
+    "de": "Auf welche Erfolge sind Sie in diesem Jahr am stolzesten?",
+    "id": "Pencapaian apa yang paling Anda banggakan tahun ini?",
+    "th": "ปีนี้คุณภูมิใจในผลงานอะไรมากที่สุด",
+    "zh": "今年你最自豪的成绩是什么？",
+    "ja": "今年、最も誇りに思う成果は何ですか？",
+    "ko": "올해 가장 자랑스러운 성과는 무엇인가요?",
+    "hi": "इस साल आपको किन उपलब्धियों पर सबसे ज़्यादा गर्व है?",
+    "ar": "ما أكثر إنجازاتك التي تفخر بها هذا العام؟",
+    "ru": "Какими достижениями этого года вы гордитесь больше всего?",
+    "tr": "Bu yıl en çok hangi başarılarınla gurur duyuyorsun?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "What would you like to be doing in two years?",
+   "keywords": [
+    "manager",
+    "lead",
+    "senior",
+    "promotion",
+    "skills",
+    "training",
+    "team",
+    "responsibility",
+    "grow",
+    "develop",
+    "course",
+    "role"
+   ],
+   "variants": {
+    "polite": "Where would you like to see yourself in two years?",
+    "casual": "Where do you see yourself in two years?"
+   },
+   "gloss": {
+    "en": "Asking what role you would like in two years.",
+    "vi": "Hai năm nữa bạn muốn mình đang làm gì?",
+    "es": "¿Qué te gustaría estar haciendo dentro de dos años?",
+    "pt": "O que você gostaria de estar fazendo daqui a dois anos?",
+    "fr": "Que souhaiteriez-vous faire dans deux ans ?",
+    "de": "Was würden Sie in zwei Jahren gern machen?",
+    "id": "Apa yang ingin Anda kerjakan dua tahun lagi?",
+    "th": "อีกสองปีข้างหน้าคุณอยากทำอะไรอยู่",
+    "zh": "两年后你希望自己在做什么？",
+    "ja": "2年後にはどんな仕事をしていたいですか？",
+    "ko": "2년 뒤에는 어떤 일을 하고 싶으세요?",
+    "hi": "दो साल बाद आप क्या कर रहे होना चाहेंगे?",
+    "ar": "ماذا تودّ أن تعمل بعد سنتين؟",
+    "ru": "Чем бы вы хотели заниматься через два года?",
+    "tr": "İki yıl sonra ne yapıyor olmak istersin?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Come in. You wanted to talk about your salary?"
+  },
+  {
+   "who": "customer",
+   "en": "Yes, thank you for making time. I'd like to discuss my salary and my role going forward."
+  },
+  {
+   "who": "barista",
+   "en": "Of course. What did you have in mind?"
+  },
+  {
+   "who": "customer",
+   "en": "Over the past year I've taken on two new projects and trained three colleagues."
+  },
+  {
+   "who": "barista",
+   "en": "That's impressive. What kind of raise are you thinking of?"
+  },
+  {
+   "who": "customer",
+   "en": "Based on market research, I believe a raise of about eight percent would be fair."
+  },
+  {
+   "who": "barista",
+   "en": "I appreciate your work, but our budget is tight this year."
+  },
+  {
+   "who": "customer",
+   "en": "Could we consider a smaller raise now and a review in six months?"
+  },
+  {
+   "who": "barista",
+   "en": "That's possible. I'll check the figures and get back to you."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "We can offer you a raise starting in July."
+    },
+    {
+     "who": "customer",
+     "en": "Could it start in June instead?"
+    },
+    {
+     "who": "barista",
+     "en": "I'm afraid not, but I can add two extra days of leave."
+    },
+    {
+     "who": "customer",
+     "en": "Then July is fine, thank you."
+    }
+   ],
+   "q": {
+    "en": "Which month will the raise start?",
+    "vi": "Khoản tăng lương bắt đầu từ tháng nào?",
+    "es": "¿En qué mes empezará el aumento?",
+    "pt": "Em que mês o aumento começa?",
+    "fr": "À quel mois l'augmentation commencera-t-elle ?",
+    "de": "In welchem Monat beginnt die Erhöhung?",
+    "id": "Bulan apa kenaikan gaji mulai berlaku?",
+    "th": "การขึ้นเงินเดือนจะเริ่มในเดือนอะไร",
+    "zh": "加薪从哪个月开始？",
+    "ja": "昇給は何月から始まりますか？",
+    "ko": "인상은 몇 월부터 시작되나요?",
+    "hi": "वेतन वृद्धि किस महीने से शुरू होगी?",
+    "ar": "في أي شهر ستبدأ الزيادة؟",
+    "ru": "С какого месяца начнётся повышение?",
+    "tr": "Zam hangi ay başlayacak?"
+   },
+   "answer": "July"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "What would be a realistic timeline for a promotion?"
+    },
+    {
+     "who": "barista",
+     "en": "Usually after two years in the role, if your reviews go well."
+    },
+    {
+     "who": "customer",
+     "en": "And what would help me get there faster?"
+    },
+    {
+     "who": "barista",
+     "en": "Leading a project on your own would help most."
+    }
+   ],
+   "q": {
+    "en": "What would help most to get promoted faster?",
+    "vi": "Điều gì giúp được thăng chức nhanh nhất?",
+    "es": "¿Qué ayudaría más a ascender antes?",
+    "pt": "O que mais ajudaria a ser promovido mais rápido?",
+    "fr": "Qu'est-ce qui aiderait le plus à être promu plus vite ?",
+    "de": "Was würde am meisten helfen, schneller befördert zu werden?",
+    "id": "Apa yang paling membantu agar lebih cepat dipromosikan?",
+    "th": "อะไรช่วยให้เลื่อนตำแหน่งได้เร็วที่สุด",
+    "zh": "什么最有助于更快晋升？",
+    "ja": "早く昇進するために最も役立つことは何ですか？",
+    "ko": "더 빨리 승진하는 데 가장 도움이 되는 것은 무엇인가요?",
+    "hi": "तेज़ी से पदोन्नति पाने में सबसे ज़्यादा क्या मदद करेगा?",
+    "ar": "ما الذي سيساعد أكثر على الترقّي بسرعة؟",
+    "ru": "Что больше всего поможет получить повышение быстрее?",
+    "tr": "Daha hızlı terfi etmek için en çok ne yardımcı olur?"
+   },
+   "answer": "leading a project"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "raise",
+    "title": {
+     "en": "Ask for a raise",
+     "vi": "Đề nghị tăng lương",
+     "es": "Pide un aumento",
+     "pt": "Peça um aumento",
+     "fr": "Demander une augmentation",
+     "de": "Um eine Erhöhung bitten",
+     "id": "Minta kenaikan gaji",
+     "th": "ขอขึ้นเงินเดือน",
+     "zh": "提出加薪",
+     "ja": "昇給を求める",
+     "ko": "인상 요청하기",
+     "hi": "वेतन वृद्धि माँगें",
+     "ar": "اطلب زيادة في الراتب",
+     "ru": "Попроси о повышении",
+     "tr": "Zam iste"
+    },
+    "intents": [
+     "s4"
+    ]
+   },
+   {
+    "id": "compromise",
+    "title": {
+     "en": "Suggest a compromise",
+     "vi": "Đề xuất phương án dung hòa",
+     "es": "Propón un término medio",
+     "pt": "Sugira um meio-termo",
+     "fr": "Proposer un compromis",
+     "de": "Einen Kompromiss vorschlagen",
+     "id": "Usulkan jalan tengah",
+     "th": "เสนอทางสายกลาง",
+     "zh": "提出折中方案",
+     "ja": "折衷案を提案する",
+     "ko": "절충안 제안하기",
+     "hi": "बीच का रास्ता सुझाएँ",
+     "ar": "اقترح حلًّا وسطًا",
+     "ru": "Предложи компромисс",
+     "tr": "Orta yol öner"
+    },
+    "intents": [
+     "s6"
+    ]
+   },
+   {
+    "id": "writing",
+    "title": {
+     "en": "Ask for it in writing",
+     "vi": "Nhờ xác nhận bằng văn bản",
+     "es": "Pídelo por escrito",
+     "pt": "Peça por escrito",
+     "fr": "Demander une confirmation écrite",
+     "de": "Um schriftliche Bestätigung bitten",
+     "id": "Minta konfirmasi tertulis",
+     "th": "ขอเป็นลายลักษณ์อักษร",
+     "zh": "请对方书面确认",
+     "ja": "書面での確認を求める",
+     "ko": "서면으로 확인 요청하기",
+     "hi": "लिखित पुष्टि माँगें",
+     "ar": "اطلب التأكيد كتابةً",
+     "ru": "Попроси подтвердить письменно",
+     "tr": "Yazılı teyit iste"
+    },
+    "intents": [
+     "s11"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "In many English-speaking workplaces it is acceptable to ask for a raise, usually at a yearly review. Support your request with specific results and a figure, stay calm and positive, and ask for the agreement to be confirmed in writing.",
+  "vi": "Ở nhiều nơi làm việc nói tiếng Anh, việc đề nghị tăng lương là bình thường, thường vào kỳ đánh giá hằng năm. Hãy dẫn kết quả cụ thể và một con số, giữ thái độ bình tĩnh, tích cực, và nhờ xác nhận thỏa thuận bằng văn bản.",
+  "es": "En muchos lugares de trabajo anglófonos es aceptable pedir un aumento, normalmente en la evaluación anual. Respalda tu petición con resultados concretos y una cifra, mantén la calma y el tono positivo, y pide que el acuerdo se confirme por escrito.",
+  "pt": "Em muitos ambientes de trabalho de língua inglesa é aceitável pedir aumento, geralmente na avaliação anual. Apoie o pedido com resultados concretos e um valor, mantenha a calma e o tom positivo, e peça que o acordo seja confirmado por escrito.",
+  "fr": "Dans beaucoup d'entreprises anglophones, demander une augmentation est acceptable, en général lors de l'entretien annuel. Appuyez votre demande sur des résultats précis et un chiffre, restez calme et positif, et faites confirmer l'accord par écrit.",
+  "de": "In vielen englischsprachigen Betrieben ist es üblich, um eine Gehaltserhöhung zu bitten, meist im Jahresgespräch. Belegen Sie Ihre Bitte mit konkreten Ergebnissen und einer Zahl, bleiben Sie ruhig und positiv und lassen Sie sich die Einigung schriftlich bestätigen.",
+  "id": "Di banyak tempat kerja berbahasa Inggris, meminta kenaikan gaji itu wajar, biasanya saat evaluasi tahunan. Dukung permintaan dengan hasil kerja yang konkret dan angka, tetap tenang dan positif, lalu minta kesepakatan dikonfirmasi tertulis.",
+  "th": "ในที่ทำงานที่ใช้ภาษาอังกฤษหลายแห่ง การขอขึ้นเงินเดือนเป็นเรื่องยอมรับได้ มักทำตอนประเมินผลประจำปี ควรยกผลงานที่เป็นรูปธรรมและตัวเลข รักษาท่าทีสงบและเป็นบวก และขอให้ยืนยันข้อตกลงเป็นลายลักษณ์อักษร",
+  "zh": "在许多英语职场，提出加薪是可以接受的，通常在年度评估时。用具体成果和一个数字支撑你的请求，保持冷静积极，并请对方以书面形式确认协议。",
+  "ja": "英語圏の多くの職場では、通常は年次評価の場で昇給を求めることが受け入れられています。具体的な成果と金額で裏付け、落ち着いて前向きに話し、合意内容は書面で確認してもらいましょう。",
+  "ko": "영어권의 많은 직장에서는 대개 연례 평가 때 인상을 요청하는 것이 자연스러워요. 구체적인 성과와 금액으로 뒷받침하고, 차분하고 긍정적인 태도를 유지하며, 합의 내용은 서면으로 확인받으세요.",
+  "hi": "अंग्रेज़ी भाषी कई कार्यस्थलों में वेतन वृद्धि माँगना स्वीकार्य है, आमतौर पर वार्षिक समीक्षा के समय। अपनी माँग को ठोस नतीजों और एक आँकड़े से पुष्ट करें, शांत और सकारात्मक रहें, और समझौते की लिखित पुष्टि माँगें।",
+  "ar": "في كثير من أماكن العمل الناطقة بالإنجليزية يُقبل طلب زيادة الراتب، وعادةً في التقييم السنوي. ادعم طلبك بنتائج محددة ورقم، وحافظ على الهدوء والإيجابية، واطلب تأكيد الاتفاق كتابةً.",
+  "ru": "Во многих англоязычных компаниях просить о повышении зарплаты нормально, обычно на ежегодной оценке. Подкрепите просьбу конкретными результатами и цифрой, сохраняйте спокойствие и позитив и попросите подтвердить договорённость письменно.",
+  "tr": "İngilizce konuşulan birçok iş yerinde zam istemek kabul edilebilir bir şeydir; genellikle yıllık değerlendirmede yapılır. Talebinizi somut sonuçlar ve bir rakamla destekleyin, sakin ve olumlu kalın, anlaşmanın yazılı olarak teyit edilmesini isteyin."
+ }
+}

@@ -79,5 +79,46 @@
   "words": 46,
   "seconds": 28.1,
   "wpm": 98
+ },
+ "publish": {
+  "title": "Apartment or flat? US vs UK English",
+  "keyword": "apartment vs flat",
+  "value": "Americans say apartment. British people say flat.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/apartment",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "Apartment or flat? US vs UK English",
+    "description": "Americans say apartment. British people say flat.\n\nLook up any word, free: https://lexkite.com/app/#/dict/apartment\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "apartment vs flat",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Apartment or flat? US vs UK English\n\nAmericans say apartment. British people say flat.\n\nLook up any word, free: https://lexkite.com/app/#/dict/apartment"
+   },
+   "instagram": {
+    "caption": "Apartment or flat? US vs UK English\n\nAmericans say apartment. British people say flat.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apartment or flat? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Flat! Americans say apartment. British people say flat. Practice it with a free quiz: {link}"
  }
 }

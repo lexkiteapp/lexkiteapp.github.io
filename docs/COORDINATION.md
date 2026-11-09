@@ -66,4 +66,4 @@ Mục đích: chia tải để không ai chạm giới hạn token, không sửa
 | Antigravity | thẻ trên BOARD, worktree riêng | file luồng khác đang giữ |
 Quy tắc: sửa file ngoài vùng → nhắn phiên chính trước; mỗi luồng làm nhánh/worktree riêng hoặc chỉ `git add` đúng file của mình; phiên chính là người duy nhất ship (ship2.sh) sau khi chạy `npm test` toàn bộ.
 
-**Gói nội dung lớn (5/11):** đặt ở `web/cpack/` (không `web/js/`, không nới `totalJs`): thêm `cpack/…` vào BUNDLES; build băm tên (`scripts/build-cpack.mjs`), `/cpack/*` immutable, SW cache-first (offline). Trần: mỗi gói ≤ `fileGz`, tổng ≤ `cpackTotal`; test `scripts/test/cpack.mjs`.
+**Gói nội dung lớn (5/11):** đặt ở `web/cpack/` (không `web/js/`, không nới `totalJs`): thêm `cpack/…` vào BUNDLES; build băm tên (`scripts/build-cpack.mjs`), `/cpack/*` immutable, SW cache-first (offline). Trần: mỗi gói ≤ `fileGz`, tổng ≤ `cpackTotal`; test `scripts/test/cpack.mjs`. Bộ quét toàn kho đọc gốc từ `scripts/lib/scan-roots.mjs` (`SCAN_ROOTS` = web/js + web/cpack; dữ liệu nằm ở cả hai nơi → `dataFiles(sub, re)`), test `scripts/test/scan-roots.mjs` chặn bộ quét gốc cứng.

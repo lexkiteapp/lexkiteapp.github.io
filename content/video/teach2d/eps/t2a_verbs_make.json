@@ -84,5 +84,46 @@
   "words": 50,
   "seconds": 30.5,
   "wpm": 98
+ },
+ "publish": {
+  "title": "Past of \"make\"? Not \"maked\"",
+  "keyword": "make made made",
+  "value": "Make → made → made. Never \"maked\".",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/verb/make",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Past of \"make\"? Not \"maked\"",
+    "description": "Make → made → made. Never \"maked\".\n\nPractice verb forms, free: https://lexkite.com/app/#/verb/make\n\nSeries: Verb Forms Challenge · Teacher: Carlos\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "make made made",
+     "Verb Forms Challenge",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Past of \"make\"? Not \"maked\"\n\nMake → made → made. Never \"maked\".\n\nPractice verb forms, free: https://lexkite.com/app/#/verb/make"
+   },
+   "instagram": {
+    "caption": "Past of \"make\"? Not \"maked\"\n\nMake → made → made. Never \"maked\".\n\nPractice verb forms: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Past of \"make\"? Not \"maked\" #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Quiz answer: Made! I made this cake myself. Practice it with a free quiz: {link}"
  }
 }

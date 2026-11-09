@@ -107,5 +107,45 @@
   "words": 39,
   "seconds": 28.8,
   "wpm": 81
+ },
+ "publish": {
+  "title": "Level check! Ready?",
+  "keyword": "Level Check",
+  "value": "3 quick questions to check your English level (A2).",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishtest",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/placement",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Level check! Ready?",
+    "description": "3 quick questions to check your English level (A2).\n\nTake the level test, free: https://lexkite.com/app/#/placement\n\nSeries: Level Check · Teacher: Ama\n\n#learnenglish #englishtips #englishtest #englishteacher",
+    "tags": [
+     "Level Check",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Level check! Ready?\n\n3 quick questions to check your English level (A2).\n\nTake the level test, free: https://lexkite.com/app/#/placement"
+   },
+   "instagram": {
+    "caption": "Level check! Ready?\n\n3 quick questions to check your English level (A2).\n\nTake the level test: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishtest",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Level check! Ready? #learnenglish #englishtips #englishtest"
+   }
+  },
+  "first_comment": "Did you get it? I started this job two years ago. 3 quick questions to check your English level (A2). More practice like this (free): {link}"
  }
 }

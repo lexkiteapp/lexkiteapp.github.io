@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 // 🎙️ Play & Speak – content/situations/*.json (MỘT nguồn, cổng scripts/test/situations.mjs) → gói lười 'pas':
-//   web/js/speak/data.js          mục lục nhẹ SPK_IDX {id: {g, c, l}} + SPK_fill (ghép bản dịch) – nạp cùng gói 'pas'
-//   web/js/speak/s/<id>.js        tình huống, chuỗi nhiều ngôn ngữ chỉ giữ {en} – nạp khi mở #/speak/<id>
-//   web/js/speak/s/<id>.<lang>.js bản dịch của MỘT ngôn ngữ: mảng chuỗi theo thứ tự duyệt các nút {en} – nạp khi mở, chỉ ngôn ngữ đang dùng
+//   web/js/speak/data.js          mục lục nhẹ SPK_IDX {id: {g, c, l}} + SPK_P {id: đường dẫn gói gốc, có chữ cpack/… đủ để build-cpack băm tên; đường dẫn bản dịch nằm trong gói gốc (SPK_L)} + SPK_fill (ghép bản dịch) – nạp cùng gói 'pas'
+//   web/cpack/speak/s/<id>.js     tình huống, chuỗi nhiều ngôn ngữ chỉ giữ {en} – nạp khi mở #/speak/<id>
+//   web/cpack/speak/s/<id>.<lang>.js bản dịch của MỘT ngôn ngữ: mảng chuỗi theo thứ tự duyệt các nút {en} – nạp khi mở, chỉ ngôn ngữ đang dùng
 // 3/11: trước đây MỘT gói chứa mọi tình huống × 15 ngôn ngữ (35 tình huống → 984 KB, gzip 517 KB > trần file) dù người học chỉ cần en + 1 ngôn ngữ của 1 tình huống.
 // Tệp lười không mang chú thích đầu (35 tình huống × 15 tệp → ~50 KB chỉ là chú thích); nguồn duy nhất ghi ở data.js.
 //   node scripts/speak/build.mjs           kiểm bản sinh khớp nguồn + ghép lại đúng nguyên bản mọi ngôn ngữ (npm test / prepush)
-//   node scripts/speak/build.mjs --write   sinh lại (xóa tệp thừa trong web/js/speak/s/)
+//   node scripts/speak/build.mjs --write   sinh lại (xóa tệp thừa trong web/cpack/speak/s/)
 import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url'; import { isDeepStrictEqual } from 'node:util';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..'), SRC = path.join(ROOT, 'content/situations');
-const OUT = path.join(ROOT, 'web/js/speak/data.js'), DIR = path.join(ROOT, 'web/js/speak/s');
+const OUT = path.join(ROOT, 'web/js/speak/data.js'), DIR = path.join(ROOT, 'web/cpack/speak/s');
 export const LANGS = ['en', 'vi', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
 const isObj = o => o && typeof o === 'object' && !Array.isArray(o);
 /** Nút nhiều ngôn ngữ trong nguồn: object có en (chuỗi), mọi khóa là mã ngôn ngữ, mọi giá trị là chuỗi. */
@@ -44,18 +44,21 @@ export function split(sit) {
 const only = (o, lang) => Array.isArray(o) ? o.map(x => only(x, lang)) : !isObj(o) ? o : isML(o) ? Object.fromEntries(Object.entries(o).filter(([k]) => k === 'en' || k === lang)) : Object.fromEntries(Object.entries(o).map(([k, v]) => [k, only(v, lang)]));
 const HEAD = '/* TỰ SINH bởi scripts/speak/build.mjs từ content/situations/*.json – KHÔNG sửa tay. */\n';
 export function build(all) {
-  const files = {}, idx = {};
+  const files = {}, idx = {}, paths = {};
   for (const s of all) {
     const { base, tr } = split(s);
     idx[s.id] = { g: s.group, c: s.cefr, l: Object.keys(tr).join(' ') };
-    files[`${s.id}.js`] = `(self.SPK_B || (self.SPK_B = {}))[${JSON.stringify(s.id)}] = ${JSON.stringify(base)};\n`;
+    const P = f => 'cpack/speak/s/' + f, lp = Object.fromEntries(Object.keys(tr).map(l => [l, P(`${s.id}.${l}.js`)]));
+    // gốc (en) mang luôn đường dẫn các bản dịch (chữ cpack/… đủ để build-cpack băm tên: lá trước, gói tham chiếu sau) → data.js không phình theo số ngôn ngữ
+    files[`${s.id}.js`] = `(self.SPK_B || (self.SPK_B = {}))[${JSON.stringify(s.id)}] = ${JSON.stringify(base)};\n(self.SPK_L || (self.SPK_L = {}))[${JSON.stringify(s.id)}] = ${JSON.stringify(lp)};\n`;
+    paths[s.id] = P(`${s.id}.js`);
     for (const [l, a] of Object.entries(tr)) files[`${s.id}.${l}.js`] = `(self.SPK_T || (self.SPK_T = {}))[${JSON.stringify(s.id + '.' + l)}] = ${JSON.stringify(a)};\n`;
     for (const l of LANGS) { // ghép lại phải đúng nguyên bản (en + l) – không mất chuỗi nào
       const got = l === 'en' ? base : SPK_fill(base, tr[l] || [], l);
       if (!isDeepStrictEqual(got, only(s, l))) throw new Error(`${s.id}: ghép lại ${l} khác nguồn`);
     }
   }
-  const data = `${HEAD}self.SPK_IDX = ${JSON.stringify(idx)};\nself.SPK_fill = ${SPK_fill.toString()};\n`;
+  const data = `${HEAD}self.SPK_IDX = ${JSON.stringify(idx)};\nself.SPK_P = ${JSON.stringify(paths)};\nself.SPK_fill = ${SPK_fill.toString()};\n`;
   return { data, files };
 }
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

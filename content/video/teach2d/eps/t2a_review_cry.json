@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"cry\" mean?",
+  "keyword": "cry",
+  "value": "Cry means to produce tears and sounds because of pain.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=cry",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"cry\" mean?",
+    "description": "Cry means to produce tears and sounds because of pain.\n\nReview your words, free: https://lexkite.com/app/#/review?w=cry\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cry",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"cry\" mean?\n\nCry means to produce tears and sounds because of pain.\n\nReview your words, free: https://lexkite.com/app/#/review?w=cry"
+   },
+   "instagram": {
+    "caption": "What does \"cry\" mean?\n\nCry means to produce tears and sounds because of pain.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"cry\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to produce tears and sounds because of pain. Cry means to produce tears and sounds because of pain. Try the full lesson and quiz here: {link}"
  }
 }

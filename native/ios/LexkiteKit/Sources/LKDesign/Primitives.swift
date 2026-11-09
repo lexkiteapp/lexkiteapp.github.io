@@ -34,6 +34,18 @@ public extension View {
     func lkText(_ s: LKTextStyle) -> some View { font(s.font).tracking(s.tracking * s.size).lineSpacing(max(0, s.lineHeight - s.size * 1.2)) }
 }
 
+/// Same as `lkText` but without letter spacing in right-to-left layouts (tracking breaks Arabic joining: "ا لتنسيق").
+struct LKTextRTLModifier: ViewModifier {
+    let style: LKTextStyle
+    @Environment(\.layoutDirection) private var dir
+    func body(content: Content) -> some View {
+        content.font(style.font).tracking(dir == .rightToLeft ? 0 : style.tracking * style.size).lineSpacing(max(0, style.lineHeight - style.size * 1.2))
+    }
+}
+public extension View {
+    func lkTextSafe(_ s: LKTextStyle) -> some View { modifier(LKTextRTLModifier(style: s)) }
+}
+
 /// The ONE app frame (docs/DESIGN-SYSTEM.md §5d), generated from web/js/st/v2/runtime.js.
 public struct LKFrame: Decodable, Sendable {
     public struct Tab: Decodable, Sendable, Identifiable { public let k, route, icon, sf, compose, label: String; public var id: String { k } }

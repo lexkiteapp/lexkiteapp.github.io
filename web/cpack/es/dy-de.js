@@ -1,0 +1,1 @@
+self.ESX=self.ESX||{};(ESX.dyl=ESX.dyl||{})["de"]=["Tagespfad: Spanisch","Jeden Tag eine kurze Lektion: neue Wörter, ein Grammatikpunkt, ein Laut und alle paar Tage ein Anruf.","Tag {n}","Neue Wörter","Grammatik","Aussprache","KI-Anruf","Starten","Tag {d} von {t} · heute {p} Schritte erledigt","Als erledigt markieren","Tag geschafft! 🎉","Heute"];

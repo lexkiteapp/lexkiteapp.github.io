@@ -15,7 +15,8 @@ object Fixtures {
     val gen = File("../../shared/gen")
     val frame: LKFrame by lazy { LKFrame.parse(File(gen, "frame.json").readText()) }
     private val en by lazy { L10n.parse(File(gen, "strings/en.json").readText()) }
-    fun t(lang: String) = L10n(lang, L10n.parse(File(gen, "strings/$lang.json").readText()), if (lang == "en") emptyMap() else en)
+    private val vi by lazy { L10n.parse(File(gen, "strings/vi.json").readText()) }
+    fun t(lang: String) = L10n(lang, L10n.parse(File(gen, "strings/$lang.json").readText()), if (lang == "en") emptyMap() else en, vi)
 
     val today = TodaySummary(
         target = "6.5", streak = 3, xp = 220, reviewedToday = 12, dailyGoal = 20, due = 8, mistakes = 5,

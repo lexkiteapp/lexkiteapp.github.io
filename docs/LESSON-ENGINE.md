@@ -15,7 +15,7 @@
 | Ảnh theo nghĩa `từ#loại` | `VImg.has/get` (`vocab-img.js`, cờ `vocab_img`) | dạng nhìn ảnh nói từ – chỉ khi có đúng `từ#loại` |
 | Đọc + nhận giọng | `UI.tts` (Kokoro nếu có, rồi máy), `UI.recognize` (Web Speech → Whisper trên máy) | nghe/nói |
 | Giải thích đáp án | `explain-card.js` (lược đồ `{why, wrong, ex, hook}`) | khung HTML giải thích |
-| Gold bank | `content/video/scripts/bank/*.jsonl` (`why`, `wrong`, `right`, `ex`) | dựng `web/js/lesson/gold.js` (theo từ) |
+| Gold bank | `content/video/scripts/bank/*.jsonl` (`why`, `wrong`, `right`, `ex`) | dựng `web/cpack/lesson/gold.js` (theo từ) |
 | Nhịp buổi học (combo, tạm tắt nghe/nói) | `confidence.js` | cùng tinh thần; bài học có máy trạng thái riêng nhỏ hơn |
 | Tiến trình ngày | `path-day.js` (dùng `dueList`) | sau duyệt: thêm bước "Bài học trộn" |
 

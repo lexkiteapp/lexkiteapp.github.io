@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"project\" mean?",
+  "keyword": "project",
+  "value": "Project means a planned piece of work for specific purpose.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=project",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"project\" mean?",
+    "description": "Project means a planned piece of work for specific purpose.\n\nReview your words, free: https://lexkite.com/app/#/review?w=project\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "project",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"project\" mean?\n\nProject means a planned piece of work for specific purpose.\n\nReview your words, free: https://lexkite.com/app/#/review?w=project"
+   },
+   "instagram": {
+    "caption": "What does \"project\" mean?\n\nProject means a planned piece of work for specific purpose.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"project\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a planned piece of work for specific purpose. Project means a planned piece of work for specific purpose. More practice like this (free): {link}"
  }
 }
