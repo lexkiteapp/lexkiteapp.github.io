@@ -43,6 +43,7 @@ function shim() {
 const LIST = () => {
   const sel = e => e.tagName.toLowerCase() + (e.id ? '#' + e.id : '') + [...e.classList].slice(0, 2).map(c => '.' + c).join('');
   const Q = 'input:not([type]),input[type=text],input[type=search],input[type=email],input[type=url],input[type=tel],input[type=number],input[type=password],textarea,[contenteditable="true"]';
+  document.querySelectorAll('[data-lk-kbd]').forEach(e => delete e.dataset.lkKbd); // dấu của lượt liệt kê trước còn sót trên ô sống qua đổi trang (thanh trên #gq) → probe(i) có thể trúng nhầm ô cũ, bỏ lỡ ô thật
   return [...document.querySelectorAll(Q)].filter(e => { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); return r.width > 2 && r.height > 2 && cs.visibility === 'visible' && +cs.opacity > 0 && !e.disabled && !e.readOnly && !e.closest('[hidden],[aria-hidden="true"]'); })
     .map((e, i) => { e.dataset.lkKbd = String(i); return sel(e); });
 };
