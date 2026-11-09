@@ -128,21 +128,25 @@ struct HandsfreeView: View {
         .frame(maxWidth: .infinity)
     }
 
-    /// the dark screen: the darkest Kit surface (surfaceContainerLowest, dark), the word dim, one big tap area to come back; playback goes on
+    /// the dark screen: the theme's darkest token surface (dark theme: surfaceContainerLowest · light theme: inverseSurface, a deep teal) with the matching ink,
+    /// the word dim, one big tap area to come back; playback goes on
     private var ambient: some View {
-        ZStack {
-            LKColor.surfaceContainerLowest.resolve(.dark).ignoresSafeArea()
+        let dark = scheme == .dark
+        let bg: LKDynamicColor = dark ? LKColor.surfaceContainerLowest : LKColor.inverseSurface
+        let ink: LKDynamicColor = dark ? LKColor.onSurfaceVariant : LKColor.inverseOnSurface
+        return ZStack {
+            bg.resolve(scheme).ignoresSafeArea()
             VStack(spacing: LKSpacing.spaceMd) {
-                Text(verbatim: model.word.s("word")).studyText(LKType.displayHero, LKColor.onSurfaceVariant).englishText().opacity(0.55)
-                Text(verbatim: model.position).studyText(LKType.labelMetric, LKColor.onSurfaceVariant).opacity(0.55)
-                Text(verbatim: "🔒 " + t(.speakHfKhoaManHinhVan, ["t": model.title.text(t)])).studyText(LKType.bodySm, LKColor.onSurfaceVariant).multilineTextAlignment(.center).opacity(0.55)
+                Text(verbatim: model.word.s("word")).studyText(LKType.displayHero, ink).englishText().opacity(0.7)
+                Text(verbatim: model.position).studyText(LKType.labelMetric, ink).opacity(0.7)
+                Text(verbatim: "🔒 " + t(.speakHfKhoaManHinhVan, ["t": model.title.text(t)])).studyText(LKType.bodySm, ink).multilineTextAlignment(.center).opacity(0.7)
                     .padding(.horizontal, LKSpacing.spaceLg)
             }
             VStack {
                 HStack {
                     Spacer()
                     Button { model.ambient = false } label: {
-                        Image(systemName: "xmark").font(.system(size: 20, weight: .bold)).foregroundStyle(LKColor.onSurfaceVariant.resolve(.dark))
+                        Image(systemName: "xmark").font(.system(size: 20, weight: .bold)).foregroundStyle(ink.resolve(scheme))
                             .frame(width: LKFrame.shared.minTap, height: LKFrame.shared.minTap).contentShape(Rectangle())
                     }
                     .accessibilityLabel(Text(verbatim: t(.actionClose)))
@@ -151,7 +155,6 @@ struct HandsfreeView: View {
             }
             .padding(LKSpacing.spaceXs)
         }
-        .environment(\.colorScheme, .dark)
     }
 }
 
