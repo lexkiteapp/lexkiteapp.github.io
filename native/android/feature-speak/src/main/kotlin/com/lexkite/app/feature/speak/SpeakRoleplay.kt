@@ -7,6 +7,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.border
+import com.lexkite.app.design.CardShape
+import com.lexkite.app.design.tactile
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
 import com.lexkite.app.design.toCompose
@@ -78,8 +84,9 @@ fun RoleplayListScreen(ui: RpListUi, a: RpActions) {
         for ((title, lv, list) in listOf(Triple(Tr("Tình huống hằng ngày"), h.dailyLevels.first() + " – " + h.dailyLevels.last(), h.everyday), Triple(Tr("Công sở"), h.workLevels.first() + " – " + h.workLevels.last(), h.work))) if (list.isNotEmpty()) {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) { Body(trs(title), style = LKType.headlineSm); Tag(lv) }
             if (list === h.everyday) for (pair in list.chunked(2)) Row(Modifier.fillMaxWidth().height(androidx.compose.foundation.layout.IntrinsicSize.Max), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {   // Stitch: two columns
-                for (s in pair) LKCard(Modifier.weight(1f).fillMaxHeight(), onClick = { a.open("roleplay/${s.id}") }, label = trs(Roleplay.name(pack, s))) {
+                for (s in pair) RpTile(Modifier.weight(1f).fillMaxHeight(), { a.open("roleplay/${s.id}") }, trs(Roleplay.name(pack, s))) {
                     Body(s.em, style = LKType.headlineMd); Body(trs(Roleplay.name(pack, s)), style = LKType.titlePill); EnLtr { Muted(s.title) }
+                    Spacer(Modifier.weight(1f))
                     Body(trs(Tr("{n} lượt", mapOf("n" to s.turns.size))), color = LocalLKColors.current.secondary, style = LKType.labelBadge)
                 }
                 if (pair.size == 1) Box(Modifier.weight(1f))
@@ -91,6 +98,16 @@ fun RoleplayListScreen(ui: RpListUi, a: RpActions) {
             }
         }
         ui.footnote?.let { Muted(trs(it)) }
+    }
+}
+
+/** The Kit card (2 dp lip) whose face fills the row height, so two tiles side by side stay equal. */
+@Composable
+private fun RpTile(modifier: Modifier, onClick: () -> Unit, label: String, content: @Composable androidx.compose.foundation.layout.ColumnScope.() -> Unit) {
+    val c = LocalLKColors.current
+    Box(modifier.tactile(onClick, label)) {
+        Box(Modifier.matchParentSize().offset(y = 3.dp).background(c.outlineVariant, CardShape))
+        Column(Modifier.fillMaxSize().clip(CardShape).background(c.card).border(2.dp, c.outlineVariant, CardShape).padding(LKSpacing.spaceSm), verticalArrangement = Arrangement.spacedBy(4.dp), content = content)
     }
 }
 

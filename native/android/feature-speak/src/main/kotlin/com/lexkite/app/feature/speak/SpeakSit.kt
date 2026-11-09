@@ -89,7 +89,7 @@ fun SpeakSituationScreen(ui: SitUi, a: SitActions) {
                 Text2(if (k.done) "✓" else if (k.st == "cur") "▶" else "○", k.st != "todo"); Column(Modifier.weight(1f)) { Body(k.title); EnLtr { Muted(k.ex) } } }
         }
         LKCard {
-            Body(h.mastered, style = LKType.headlineSm); Muted(trs(h.masteredSub)); Muted(trs(h.remain)); Muted(trs(h.week))
+            EnLtr { Body(h.mastered, style = LKType.headlineSm) }; Muted(trs(h.masteredSub)); Muted(trs(h.remain)); Muted(trs(h.week))
             Box(Modifier.fillMaxWidth().height(8.dp).clip(RoundedCornerShape(50)).background(c.surfaceContainerHighest)) { Box(Modifier.fillMaxWidth(h.pct / 100f).height(8.dp).clip(RoundedCornerShape(50)).background(c.primary)) }
         }
         if (h.addon.isNotEmpty()) LKCard { Body(trs(Tr("Từ vựng nên dùng")), style = LKType.titlePill); Flow { for (w in h.addon) Tag(w.w + if (w.ipa.isNotEmpty()) "  " + w.ipa else "") } }
@@ -158,7 +158,7 @@ fun SpeakDrillScreen(ui: DrillUi, a: DrillActions) {
         }
         ui.tip?.let { tp -> LKCard(fill = c.surfaceContainerHighest) {
             Row(horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs), verticalAlignment = Alignment.CenterVertically) { Body("💡 " + trs(Tr("Mẹo nhấn âm")).uppercase(), color = c.onSurfaceVariant, style = LKType.labelBadge); if (tp.ipa.isNotEmpty()) EnLtr { Muted(tp.ipa) } }
-            RichBody(tp.note) } }
+            EnLtr { RichBody(tp.note) } } }
         if (ui.blocked != null) MicBlocked(ui.blocked, null, "", a.alt)
         if (!ui.noMic) Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
             MicButton(ui.rec, a.mic, trs(if (ui.rec) Tr("Đang nghe… chạm để dừng") else Tr("Chạm mic để nói")))
