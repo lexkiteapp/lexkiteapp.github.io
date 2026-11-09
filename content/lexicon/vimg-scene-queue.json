@@ -679,12 +679,6 @@
    "why": "clip-sentence sim 0.2029; vision description-sentence sim 0.2031",
    "b": "42435663000"
   },
-  "download#v": {
-   "at": "2026-11-07",
-   "tries": 6,
-   "why": "meaning check: no (Is the person receiving data from the internet?)",
-   "b": "42371535046"
-  },
   "downstream#adv": {
    "at": "2026-11-08",
    "tries": 6,

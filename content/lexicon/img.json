@@ -54760,6 +54760,33 @@
    "b": "41775450761",
    "repo": "m4"
   },
+  "download#v": {
+   "h": "0c772031ad4f8d82",
+   "url": "https://media.lexkite.com/vimg/0c772031ad4f8d82.webp",
+   "alt": "download",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.347,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 3
+   },
+   "ph": "eb2a95b564919b4a",
+   "at": "2026-11-09",
+   "b": "42582555741",
+   "repo": "m4"
+  },
   "downpour#n": {
    "h": "3afc2aa604f71971",
    "url": "https://media.lexkite.com/vimg/3afc2aa604f71971.webp",
