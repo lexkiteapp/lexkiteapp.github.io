@@ -3,7 +3,7 @@ name: Chấm nội dung viết ngoài xưởng
 on:
   workflow_dispatch:
   pull_request:
-    paths: ['scripts/factory/judge-stored.mjs', '.github/workflows/content-judge.yml']
+    paths: ['content/framework/functions.json', 'scripts/factory/judge-stored.mjs', '.github/workflows/content-judge.yml']
 permissions:
   contents: read
   id-token: write   # OIDC cho ai-pool

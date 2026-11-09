@@ -59,7 +59,11 @@
    },
    "note": "Say your name or the company name first. On the phone, say 'this is' for yourself, not 'I am'.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 4,
+     "gemini:gemini-3.8-flash": 4
+    }
    }
   },
   {
@@ -837,7 +841,11 @@
    },
    "note": "If the problem was serious, you can add a reason to be kind, for example 'Everyone is late sometimes.'",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "gemini:gemini-3.8-flash": 5
+    }
    }
   },
   {
@@ -963,7 +971,11 @@
    },
    "note": "Add a short reason after 'I agree' to sound more natural, for example 'I agree, it's too expensive.'",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "gemini:gemini-3.8-flash": 5
+    }
    }
   },
   {
@@ -1220,7 +1232,11 @@
    },
    "note": "Say the day first, then the time. Spell your name slowly if the line is bad, and repeat the time to check.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "gemini:gemini-3.8-flash": 4
+    }
    }
   },
   {
@@ -1410,7 +1426,11 @@
    },
    "note": "Say 'I'm afraid' or 'I'm not sure' first to sound softer. A plain 'No, you're wrong' can sound rude.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "gemini:gemini-3.8-flash": 5
+    }
    }
   },
   {
@@ -1471,7 +1491,11 @@
    },
    "note": "Give one step at a time and use landmarks such as a bank or a corner. 'On foot' means walking.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "gemini:gemini-3.8-flash": 4
+    }
    }
   },
   {
@@ -1728,7 +1752,11 @@
    },
    "note": "After 'Why don't we', 'Shall we' and 'Let's', use the base verb: Why don't we go? Let's go.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 4
+    }
    }
   },
   {
@@ -1921,7 +1949,11 @@
    },
    "note": "After 'like', 'love', 'enjoy' and 'can't stand' we can use a noun or a verb with -ing: I enjoy cooking.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -2047,7 +2079,11 @@
    },
    "note": "Always ask the question back. Answering with just one word can end the chat, so add one small detail.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 4,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -2109,7 +2145,11 @@
    },
    "note": "'Advice' has no plural. Say 'some advice' or 'a piece of advice', never 'advices'.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 4,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -2170,7 +2210,11 @@
    },
    "note": "Name the part you do not understand. 'I did not follow the second step' helps more than just 'I don't understand'.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -2232,7 +2276,11 @@
    },
    "note": "Say what you need and how long it takes. Make it easy to say no, and thank the person afterwards.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -2293,7 +2341,11 @@
    },
    "note": "'What do you think?' asks for an opinion. 'What do you think of it?' asks if the person likes it. Both are common.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 4,
+     "qwen:qwen/qwen3.8-27b": 4
+    }
    }
   },
   {
@@ -2353,7 +2405,11 @@
    },
    "note": "State who you are and why you are calling in the first ten seconds. It saves time for both people.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -2414,7 +2470,11 @@
    },
    "note": "Tell people as early as possible and always offer a new time. This shows respect for their schedule.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 4,
+     "qwen:qwen/qwen3.8-27b": 4
+    }
    }
   },
   {
@@ -2475,7 +2535,11 @@
    },
    "note": "Use a small link phrase ('by the way', 'speaking of...') so the change does not feel sudden or rude.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -2536,7 +2600,11 @@
    },
    "note": "Ask about your explanation, not the listener. This keeps the other person comfortable about saying 'no'.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -2597,7 +2665,11 @@
    },
    "note": "'Congratulations' always ends in -s. Say it for success and good news, but not for birthdays: use 'Happy birthday'.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -2658,7 +2730,11 @@
    },
    "note": "Give a short reason and say something warm at the end. Never just walk away in the middle of a sentence.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 4
+    }
    }
   },
   {
@@ -2720,7 +2796,11 @@
    },
    "note": "'I prefer X to Y' compares two things. 'I'd rather' is followed by the base verb and has no 'to'.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -2780,7 +2860,11 @@
    },
    "note": "Raise your voice at the end of 'Really?' to show real interest. A flat voice can sound like you do not believe the person.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -2842,7 +2926,11 @@
    },
    "note": "'Should' and 'had better' are strong. Soft phrases like 'Why don't you' and 'If I were you' are kinder with friends.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -2903,7 +2991,11 @@
    },
    "note": "Compliment things people chose or worked on. Keep it about the thing, not about body or age.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -2965,7 +3057,11 @@
    },
    "note": "Give a reason after your opinion with 'because'. It makes you sound thoughtful, not just negative or positive.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -3027,7 +3123,11 @@
    },
    "note": "Give one short, true reason. Long explanations can sound like excuses, and sorry should come first.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 4
+    }
    }
   },
   {
@@ -3087,7 +3187,11 @@
    },
    "note": "Stay calm, explain the facts in one sentence, and ask a direct question. Staff can help faster this way.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -3148,7 +3252,11 @@
    },
    "note": "Wait for a short pause if you can. Raise a hand in a meeting, and always say what you want in few words.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -3209,7 +3317,11 @@
    },
    "note": "Give your name, your number, and the reason in that order. Repeat the number slowly so it can be written down.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -3271,7 +3383,11 @@
    },
    "note": "Stay calm, describe the problem, then say what you want. This works better than anger.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -3332,7 +3448,11 @@
    },
    "note": "Say sorry, give a short true reason, and offer another option if you can. This keeps the relationship good.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -3393,7 +3513,11 @@
    },
    "note": "Listen first and do not rush to give advice. A short, kind sentence works better than a long speech.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 4
+    }
    }
   },
   {
@@ -3454,7 +3578,11 @@
    },
    "note": "Mention allergies clearly and early. For taste preferences, ask 'Is it possible...?' so the staff can say yes or offer another option.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -3516,7 +3644,11 @@
    },
    "note": "Start with something you both share, like the place or the weather. Ask open questions, then listen and respond.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -3578,7 +3710,11 @@
    },
    "note": "For real danger, shout the short form first (Watch out!) and explain after. The long forms are for notices and calm talk.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -3639,7 +3775,11 @@
    },
    "note": "Say what you accept before naming the condition. 'As long as' and 'provided that' introduce the condition clearly.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -3699,7 +3839,11 @@
    },
    "note": "Use a short example for each claim: situation, action, result. Specific facts are more convincing than adjectives.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -3760,7 +3904,11 @@
    },
    "note": "Say the direction (rose), the speed (sharply or slowly) and the size (by ten percent). 'Rise' has no object; 'raise' does.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 4
+    }
    }
   },
   {
@@ -3822,7 +3970,11 @@
    },
    "note": "Agree with a small part, then disagree with the main point. Give your reason right after, so it does not sound personal.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -3883,7 +4035,11 @@
    },
    "note": "Begin with the reason for writing, make one clear request and give a date. End with thanks, not an apology.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -3944,7 +4100,11 @@
    },
    "note": "Give a short warning, then the facts, then what happens next. Do not hide the news in long explanations.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -4005,7 +4165,11 @@
    },
    "note": "Start with something real that works, then name one change with a reason. Offer help to make it happen.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -4066,7 +4230,11 @@
    },
    "note": "Repeat or rephrase the question so everyone hears it. If you do not know, say so honestly and promise a follow-up.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -4127,7 +4295,11 @@
    },
    "note": "Ask open questions and name quiet people kindly. Wait a few seconds in silence, as people often need time to think.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 4,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -4187,7 +4359,11 @@
    },
    "note": "State the idea, the benefit and the cost briefly. Invite questions so the proposal feels shared.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -4248,7 +4424,11 @@
    },
    "note": "Use short signpost phrases and pause briefly. Listeners can then follow the structure even if they were distracted.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -4308,7 +4488,11 @@
    },
    "note": "Offer a solution, such as what you need in return. Telling someone early is far better than missing a date.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -4369,7 +4553,11 @@
    },
    "note": "Never accept the first price. Offer something in return, like cash or a larger order, and be ready to walk away.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -4429,7 +4617,11 @@
    },
    "note": "Welcome people, say the purpose, and give the time limit. This helps everyone focus from the start.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 4,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -4490,7 +4682,11 @@
    },
    "note": "Greet, say what you will cover and how long it takes. An opening question or story helps keep attention.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 4
+    }
    }
   },
   {
@@ -4551,7 +4747,11 @@
    },
    "note": "Point out benefits for the other person, not only for yourself. A question such as 'What have we got to lose?' invites them to agree.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -4612,7 +4812,11 @@
    },
    "note": "Do not decide who is at fault. Say what you meant, ask what they understood, then agree on the next step.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -4673,7 +4877,11 @@
    },
    "note": "Apologise, show you understand, then act. Customers want a result more than an explanation.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -4734,7 +4942,11 @@
    },
    "note": "Hedges such as 'seems', 'tend to', 'a little' make an opinion sound open to discussion. Do not use too many in one sentence.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -4795,7 +5007,11 @@
    },
    "note": "'Must' is a strong guess, 'may' and 'could' are weaker. For the past, use have + participle: might have missed it.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -4855,7 +5071,11 @@
    },
    "note": "Name each action, the person responsible and the date. A written follow-up after the meeting makes it stronger.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 4
+    }
    }
   },
   {
@@ -4916,7 +5136,11 @@
    },
    "note": "Use a short signal like 'Can I just add...' to enter. To keep your turn, say 'Let me finish' and carry on at an even pace.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -4977,7 +5201,11 @@
    },
    "note": "Think about who reads it: their status, how well you know them, and the purpose. In doubt, be slightly more formal.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -5037,7 +5265,11 @@
    },
    "note": "Give the news first, then the reason, the impact and the next steps. Allow time for questions and acknowledge concerns.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -5099,7 +5331,11 @@
    },
    "note": "A short phrase gives you time and shows respect for the question. Always give a clear time when you will answer.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -5160,7 +5396,11 @@
    },
    "note": "Ask for the source or the reasoning rather than saying 'wrong'. A calm question makes weak claims fall on their own.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -5221,7 +5461,11 @@
    },
    "note": "Concede one point clearly and then return to your main argument if needed. It shows confidence, not weakness.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -5282,7 +5526,11 @@
    },
    "note": "Be specific: what is weak, why it matters, and how it could be improved. Balance your comments with real strengths.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -5342,7 +5590,11 @@
    },
    "note": "Thank them, explain your workload in facts, and offer an alternative. Let the senior person decide what comes first.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -5403,7 +5655,11 @@
    },
    "note": "Lower your voice, use 'we', and name the shared goal. Do not argue about who started it.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -5464,7 +5720,11 @@
    },
    "note": "Match the strength of your words to the evidence: certain, likely, possible, doubtful. Overstating certainty can cost you trust later.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -5525,7 +5785,11 @@
    },
    "note": "Challenge the argument, not the person. Acknowledge what is valid, then say what is missing, and back it with a concrete reason.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -5580,9 +5844,9 @@
     }
    ],
    "avoid": {
-    "wrong": "You are so fat, ha ha.",
-    "right": "You and your famous sense of direction again.",
-    "why": "Tease only about harmless habits, never about appearance, family or things the person cannot change."
+    "wrong": "You are joking me!",
+    "right": "You must be joking!",
+    "why": "'Joke' does not take a person as its object. Say 'You must be joking' or 'You're kidding me'."
    },
    "note": "Tease only people who know you well and keep your tone warm, smiling and light. If they look uncomfortable, stop at once.",
    "qa": {
@@ -5646,7 +5910,11 @@
    },
    "note": "Open with the problem, give the solution in one sentence, then state the benefit and what you need. Keep it brief and specific.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 4,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -5700,9 +5968,9 @@
     }
    ],
    "avoid": {
-    "wrong": "You are lazy and your work is terrible.",
-    "right": "I've noticed a pattern with the deadlines.",
-    "why": "Describe what you saw, using facts. Labels such as 'lazy' start a defence, not a solution."
+    "wrong": "I want to discuss about the last three reports.",
+    "right": "I want to discuss the last three reports.",
+    "why": "'Discuss' takes a direct object, so do not add 'about'. You can 'talk about' something, but you 'discuss' it."
    },
    "note": "Give one or two specific examples, ask for their view, and agree on a plan with a date. Do it in private.",
    "qa": {
@@ -5767,7 +6035,11 @@
    },
    "note": "Stay calm, repeat nothing negative, and correct the premise before answering. Speak slowly. The audience judges your composure more than the question.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -5827,7 +6099,11 @@
    },
    "note": "Summarise the agreed points aloud before you close. Everything must be written down afterwards, as oral agreements can be misremembered.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -5888,7 +6164,11 @@
    },
    "note": "Warmth comes from words such as 'glad', 'lovely' and 'just let me know'. Distance comes from passive, impersonal forms like 'it is not possible'.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -5949,7 +6229,11 @@
    },
    "note": "Acknowledge what was said, then offer a lighter topic as an invitation. Use it to protect people from awkward or painful subjects.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 4,
+     "qwen:qwen/qwen3.8-27b": 4
+    }
    }
   },
   {
@@ -6010,7 +6294,11 @@
    },
    "note": "Stay neutral, name what both sides share, and propose a process, such as taking turns. Do not decide who is right too early.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -6071,7 +6359,11 @@
    },
    "note": "Lead with care for those affected, state the facts you are sure of, and avoid guessing. Promise only what you can do.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -6132,7 +6424,11 @@
    },
    "note": "Thank the host, tell one short personal story and end with a toast. Keep it under three minutes and speak slowly.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   },
   {
@@ -6193,7 +6489,11 @@
    },
    "note": "Irony says the opposite of what is meant, and understatement says less. Both depend on tone of voice. In writing, be careful, as it can be misread.",
    "qa": {
-    "gen": "claude-sonnet-5-5"
+    "gen": "claude-sonnet-5-5",
+    "j": {
+     "gpt-oss:openai/gpt-oss-120b": 5,
+     "qwen:qwen/qwen3.8-27b": 5
+    }
    }
   }
  ]
