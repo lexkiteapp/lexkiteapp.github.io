@@ -7050,8 +7050,8 @@
    "cap": "a person looking at a rectangular graphic on a laptop",
    "who": 1,
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:58:46.912Z"
+   "e4bad": 5,
+   "badAt": "2026-11-09T16:30:01.350Z"
   },
   "banquet#n": {
    "ex": "The closing banquet will be held in the hotel ballroom.",
@@ -8528,8 +8528,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T11:08:02.933Z"
+   "e4bad": 5,
+   "badAt": "2026-11-09T16:30:02.898Z"
   },
   "boardroom#n": {
    "ex": "The directors are meeting in the boardroom to discuss the budget.",
@@ -8714,8 +8714,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:55:51.126Z"
+   "e4bad": 5,
+   "badAt": "2026-11-09T16:30:02.898Z"
   },
   "boolean#n": {
    "ex": "The flag is stored as a boolean in the settings table.",
@@ -9944,8 +9944,8 @@
    "draw": 5,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T11:08:02.948Z"
+   "e4bad": 5,
+   "badAt": "2026-11-09T16:30:01.351Z"
   },
   "bush#n": {
    "ex": "How do you like my rose bushes?",
@@ -16130,12 +16130,17 @@
   },
   "consent form#n": {
    "ex": "Parents must sign a consent form before children join the trip.",
-   "sc": "a parent sits at a table signing a document with a pen while a child stands nearby watching",
-   "cap": "a parent signing a document as a child watches",
+   "ps": "a parent hands a blank sheet with a big green tick to a smiling child",
+   "sc": "a parent hands a blank sheet with a big green tick to a smiling child",
+   "check": "Is a person giving a paper with a tick that shows permission?",
+   "cap": "a parent giving a ticked sheet to a child",
+   "key": "a blank sheet with a big green tick; the parent's outstretched hand",
    "who": 2,
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:55:51.989Z"
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "consent#n": {
    "ex": "All participants gave written consent before the study.",
@@ -22779,8 +22784,8 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "desktop#n": {
-   "e4bad": 3,
-   "badAt": "2026-11-07T11:44:35.516Z"
+   "e4bad": 4,
+   "badAt": "2026-11-09T16:30:02.804Z"
   },
   "despair#n": {
    "ex": "He came home in despair.",
@@ -24165,12 +24170,17 @@
   },
   "discount#n": {
    "ex": "Students get a ten percent discount.",
-   "sc": "person A (a student) stands at a shop counter while a shopkeeper hands over a product and a small pile of coins, leaving a larger pile of coins on the counter as the original price",
-   "cap": "a student paying less than the displayed price",
+   "ps": "a vendor hands a big blue backpack to a student who pays with a tiny coin",
+   "sc": "a vendor hands a big blue backpack to a student who pays with a tiny coin",
+   "check": "Is the customer paying much less money than the size of the item suggests?",
+   "cap": "a student receiving a large item for a tiny coin",
+   "key": "a tiny coin in hand; a large backpack being handed over",
    "who": 2,
+   "draw": 5,
+   "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T11:08:01.648Z"
+   "tries": 3,
+   "refix": 1
   },
   "discount#v": {
    "ex": "Can't you discount it a little?",
@@ -24784,8 +24794,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:58:50.385Z"
+   "e4bad": 5,
+   "badAt": "2026-11-09T16:30:02.804Z"
   },
   "distance#n": {
    "skip": "sentence refers to specific places; cannot depict without text or symbols",
@@ -24904,8 +24914,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:55:57.461Z"
+   "e4bad": 5,
+   "badAt": "2026-11-09T16:30:01.351Z"
   },
   "distractor#n": {
    "ex": "Read carefully because one option is a distractor.",
@@ -26413,8 +26423,8 @@
    "cap": "employees learning on computers in a meeting",
    "who": 2,
    "by": "openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:55:51.602Z"
+   "e4bad": 5,
+   "badAt": "2026-11-09T16:30:02.804Z"
   },
   "eager#adj": {
    "ex": "The new staff members are eager to learn about our products.",
@@ -28957,12 +28967,17 @@
   },
   "entrance exam#n": {
    "ex": "Thousands of students sat the entrance exam for the gifted school.",
-   "sc": "person A and person B sit at separate desks in a large exam hall, each with a test booklet and a pencil, while a proctor walks between rows.",
-   "cap": "two students taking a test in an exam hall",
+   "ps": "a student sits at a desk with a proctor handing a stack of blank sheets",
+   "sc": "a student sits at a desk with a proctor handing a stack of blank sheets",
+   "check": "Is a student taking a formal test while a proctor hands blank papers?",
+   "cap": "a student and a proctor in an exam hall with papers",
+   "key": "a stack of blank sheets on the desk; a proctor handing the sheets",
    "who": 2,
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T11:08:01.648Z"
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "entrance#n": {
    "ex": "Meet me at the main entrance of the museum.",
@@ -29541,12 +29556,17 @@
   },
   "essay#n": {
    "ex": "I have to write an essay on climate change.",
-   "sc": "person A sits at a desk, hunched over a laptop, typing while a stack of printed pages with a globe illustration lies beside them, indicating a climate change essay.",
-   "cap": "A student typing a paper about climate change.",
+   "ps": "a student sits at a desk holding a thick stack of lined pages, pen in hand",
+   "sc": "a student sits at a desk holding a thick stack of lined pages, pen in hand",
+   "check": "Is there a stack of pages that looks like a written assignment?",
+   "cap": "a student with many lined pages and a pen at a desk",
+   "key": "a thick stack of lined pages; a pen in hand",
    "who": 1,
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T11:44:35.515Z"
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "essence#n": {
    "ex": "The essence of good teaching is clear communication.",
@@ -29819,12 +29839,15 @@
   },
   "evaluation#n": {
    "ex": "Each course ends with a student evaluation.",
-   "sc": "a student sits at a desk, checking boxes on a printed questionnaire, looking thoughtful",
-   "cap": "a student completing a course feedback form",
+   "ps": "a woman looks at a new gadget and gives a thumbs up",
+   "sc": "a woman looks at a new gadget and gives a thumbs up",
+   "check": "Is the person showing approval of the object?",
+   "cap": "a woman giving a thumbs up to a gadget",
+   "key": "a thumbs up gesture; a gadget being examined",
    "who": 1,
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:56:05.911Z"
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "even#adv": {
    "ex": "It was so cold that even the river froze.",
@@ -36316,12 +36339,15 @@
   },
   "goal#n": {
    "ex": "My goal is to get a band seven in IELTS.",
-   "sc": "person A, a young adult, sits at a desk with IELTS study books, gazing up at a floating gold medal on a shelf, reaching toward it.",
-   "cap": "a student aiming for a top IELTS award",
+   "ps": "a man throws a dart aiming at a large bullseye target on a wall",
+   "sc": "a man throws a dart aiming at a large bullseye target on a wall",
+   "check": "Is the person trying to hit a target as an aim?",
+   "cap": "a person aiming a dart at a bullseye to represent an aim",
+   "key": "man throwing dart; bullseye target",
    "who": 1,
-   "by": "openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T11:08:02.948Z"
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "goalkeeper#n": {
    "ex": "The goalkeeper caught every ball.",
@@ -38299,8 +38325,8 @@
    "cap": "businesspeople examining a newspaper with a merger illustration",
    "who": 1,
    "by": "openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T12:07:00.586Z"
+   "e4bad": 5,
+   "badAt": "2026-11-09T16:29:55.511Z"
   },
   "headquarter#n": {
    "ex": "Our company headquarters are located in Tokyo, near the central station.",
@@ -39684,12 +39710,16 @@
   },
   "hourly#adj": {
    "ex": "Part-time staff in the store are paid an hourly wage.",
-   "sc": "person A, a store employee in a uniform, stands behind a checkout counter while person B, a manager, hands over a stack of bills; a wall clock shows an hour",
-   "cap": "store employee receiving cash as a clock indicates the time",
-   "who": 2,
+   "ps": "a person holds a large hourglass while a pile of coins rests beside them",
+   "sc": "a person holds a large hourglass while a pile of coins rests beside them",
+   "check": "Is the person being paid based on the passage of time shown by the hourglass?",
+   "cap": "a person holds a large hourglass while a pile of coins rests beside them",
+   "key": "a person holding a large hourglass; a pile of coins beside the person",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:56:01.303Z"
+   "tries": 3
   },
   "household registration#n": {
    "ex": "Household registration is now managed in a national database.",
@@ -45206,8 +45236,8 @@
    "cap": "a person reading a newspaper with a briefcase image",
    "who": 1,
    "by": "openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T11:08:02.933Z"
+   "e4bad": 5,
+   "badAt": "2026-11-09T16:30:02.898Z"
   },
   "job description#n": {
    "skip": "Concept relies on written text; cannot depict without symbols or letters.",
@@ -47303,12 +47333,16 @@
   },
   "letter of recommendation#n": {
    "ex": "Could you write me a letter of recommendation for graduate school?",
-   "sc": "person A (a student) hands a blank sheet of paper to person B (a teacher) sitting at a desk; both are smiling, the teacher nods while a laptop and books are on the desk",
-   "cap": "a student asking a teacher for a recommendation",
+   "ps": "a teacher holds a blank sheet with a big green tick while a student smiles",
+   "sc": "a teacher holds a blank sheet with a big green tick while a student smiles",
+   "check": "Is the teacher holding a blank paper marked with a green check for the student?",
+   "cap": "a teacher presenting a paper with a green check to a happy student",
+   "key": "a big green tick mark on a blank sheet; the teacher's supportive smile",
    "who": 2,
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:55:51.988Z"
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
   },
   "letter#n": {
    "ex": "I received a letter from my old school.",
@@ -50431,12 +50465,16 @@
   },
   "media#n": {
    "ex": "The media play a powerful role in shaping public opinion.",
-   "sc": "person A, a female news anchor, stands at a microphone with a TV, a radio, and an open laptop beside her; person B, a male viewer, listens attentively, nodding.",
-   "cap": "a news anchor speaking while devices broadcast to an attentive listener",
-   "who": 2,
+   "ps": "a man holds a microphone in one hand and a small radio in the other, speaking",
+   "sc": "a man holds a microphone in one hand and a small radio in the other, speaking",
+   "check": "Is the person using a microphone and a radio at the same time?",
+   "cap": "a man with a microphone and a radio",
+   "key": "a microphone in one hand; a radio in the other hand",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:55:59.756Z"
+   "tries": 2
   },
   "median#adj": {
    "skip": "the concept is abstract and involves numerical comparison, difficult to depict w",
@@ -55887,16 +55925,16 @@
   },
   "one-way#adj": {
    "ex": "A one-way ticket to Osaka costs almost as much as a return.",
-   "ps": "a woman holds one airline ticket while a man holds two airline tickets",
-   "sc": "a woman holds one airline ticket while a man holds two airline tickets",
-   "check": "Does the picture show a woman with only one ticket and a man with two tickets?",
-   "cap": "a woman and a man comparing the number of airline tickets they have",
-   "who": 2,
+   "ps": "a road with a solid center line and a single car traveling left to right",
+   "sc": "a road with a solid center line and a single car traveling left to right",
+   "check": "Is the road shown allowing traffic only in one direction?",
+   "cap": "a road with a solid line and one moving car",
+   "key": "a solid center line on the road; a single car moving in one direction",
+   "who": 1,
    "draw": 4,
-   "v": "e4",
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T11:08:02.933Z"
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3
   },
   "onerous#adj": {
    "ex": "Small firms find the new paperwork onerous.",
@@ -56968,8 +57006,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T11:07:57.720Z"
+   "e4bad": 5,
+   "badAt": "2026-11-09T16:30:02.804Z"
   },
   "outdoor#adj": {
    "ex": "The annual company picnic is an outdoor event held in the park.",
@@ -59783,8 +59821,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "peripheral#n": {
-   "e4bad": 3,
-   "badAt": "2026-11-07T11:44:19.833Z"
+   "e4bad": 4,
+   "badAt": "2026-11-09T16:30:02.804Z"
   },
   "perishable goods#n": {
    "ex": "Perishable goods receive priority handling at the airport.",
@@ -62129,12 +62167,16 @@
   },
   "powder#n": {
    "ex": "Mix the powder with warm water and stir until it dissolves completely.",
-   "sc": "person A standing at a kitchen counter holds a bowl of warm water, pours a small heap of fine white particles from a jar into the bowl, and stirs with a spoon; the fine particles are visible as they fall.",
-   "cap": "someone mixes a dry substance into warm water",
-   "who": 1,
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:58:45.320Z"
+   "ps": "a white bowl of fine dry particles being poured into a clear glass of water",
+   "sc": "a white bowl of fine dry particles being poured into a clear glass of water",
+   "check": "Is there a small dry substance made of many tiny pieces being mixed with liquid?",
+   "cap": "a bowl of fine white particles poured into a glass of water",
+   "key": "fine dry particles; the particles being poured into water",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
   },
   "power of attorney#n": {
    "ex": "She gave her son power of attorney to manage the house.",
@@ -63933,16 +63975,15 @@
   },
   "product life cycle#n": {
    "ex": "Smartphones have a very short product life cycle.",
-   "ps": "a woman takes an old smartphone off a shelf and puts a new one in its place",
-   "sc": "a woman takes an old smartphone off a shelf and puts a new one in its place",
-   "check": "Is a woman swapping an old smartphone for a new one on a shelf?",
-   "cap": "a shopper replaces an outdated phone with the latest model",
-   "who": 1,
+   "ps": "a shiny boxed gadget sits next to an older dusty gadget on a wooden shelf",
+   "sc": "a shiny boxed gadget sits next to an older dusty gadget on a wooden shelf",
+   "check": "Are the two items showing a new product and an older, worn-out version?",
+   "cap": "a new boxed device beside an old dusty one on a shelf",
+   "key": "a shiny boxed gadget; an older dusty gadget",
+   "who": 0,
    "draw": 4,
-   "v": "e4",
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T11:28:39.373Z"
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "product recall#n": {
    "ex": "The product recall affects about 10,000 heaters sold last winter.",
@@ -66879,8 +66920,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:55:51.601Z"
+   "e4bad": 5,
+   "badAt": "2026-11-09T16:30:02.898Z"
   },
   "ready#adj": {
    "ex": "Are you ready to order?",
@@ -68034,8 +68075,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:58:50.385Z"
+   "e4bad": 5,
+   "badAt": "2026-11-09T16:30:02.804Z"
   },
   "refurbish#v": {
    "ex": "I want you to refurbish the house.",
@@ -72776,8 +72817,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:56:00.556Z"
+   "e4bad": 5,
+   "badAt": "2026-11-09T16:29:55.728Z"
   },
   "scheme#n": {
    "ex": "The council started a recycling scheme.",
@@ -74970,16 +75011,15 @@
   },
   "sign-up sheet#n": {
    "ex": "There's a sign-up sheet outside my office for individual meetings.",
-   "ps": "a woman writes her name on a paper sheet pinned to a wall outside an office door",
-   "sc": "a woman writes her name on a paper sheet pinned to a wall outside an office door",
-   "check": "Is a person adding her name to a sign‑up sheet on the wall?",
-   "cap": "a woman signing up on a sheet posted by an office",
+   "ps": "a blank sheet on a stand with a big green tick mark, a hand reaching to touch it",
+   "sc": "a blank sheet on a stand with a big green tick mark, a hand reaching to touch it",
+   "check": "Is there a plain sheet with a mark showing someone has signed up?",
+   "cap": "a hand touching a ticked sheet on a stand",
+   "key": "a blank sheet with a big green tick mark; a hand reaching toward the sheet",
    "who": 1,
    "draw": 4,
-   "v": "e4",
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:55:51.966Z"
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "signal#n": {
    "ex": "There is no phone signal in the mountains.",
@@ -81306,12 +81346,16 @@
   },
   "tape#n": {
    "ex": "Fix the poster to the wall with tape.",
-   "sc": "person A holds a roll of tape, pulls it, and sticks a poster onto a wall; the tape strip is large in foreground, poster half‑attached.",
-   "cap": "a person applying adhesive to mount a poster",
-   "who": 1,
+   "ps": "a long brown adhesive strip being pressed onto a plain cardboard box on a wall",
+   "sc": "a long brown adhesive strip being pressed onto a plain cardboard box on a wall",
+   "check": "Is there a narrow sticky strip used to attach things together?",
+   "cap": "a brown strip of glue being applied to a cardboard box",
+   "key": "a long brown adhesive strip; the strip being pressed onto a plain cardboard box",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:55:51.966Z"
+   "tries": 2
   },
   "target audience#n": {
    "ex": "The video clearly speaks to its target audience of new parents.",
@@ -83737,8 +83781,8 @@
    "cap": "a truck raising a parked car from the street",
    "who": 1,
    "by": "openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:55:51.126Z"
+   "e4bad": 5,
+   "badAt": "2026-11-09T16:30:02.898Z"
   },
   "town#n": {
    "ex": "I grew up in a small town by the sea.",
@@ -86879,12 +86923,16 @@
   },
   "user#n": {
    "ex": "The app has more than a million users.",
-   "sc": "person A and person B, a woman and a man of different ages, sit side by side each holding a smartphone, with a faint crowd of silhouettes behind them suggesting many users",
-   "cap": "two diverse people scrolling on smartphones",
-   "who": 2,
+   "ps": "a man sits at a desk, his back to us, typing on a keyboard",
+   "sc": "a man sits at a desk, his back to us, typing on a keyboard",
+   "check": "Is the person working at a computer by typing?",
+   "cap": "a man typing on a keyboard while facing away from the viewer",
+   "key": "the man's back facing the desk; hands on a keyboard",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T11:08:02.948Z"
+   "tries": 3
   },
   "user-friendly#adj": {
    "ex": "The new banking app is extremely user-friendly, even for elderly people.",
@@ -87866,12 +87914,16 @@
   },
   "viewer#n": {
    "ex": "The final episode of the series attracted more than two million viewers.",
-   "sc": "person A and person B of different ages and skin tones sit on a couch facing a large TV screen, eyes focused, hands holding remote controls, popcorn bowl on coffee table.",
-   "cap": "two diverse people watching a TV show together",
-   "who": 2,
+   "ps": "a man sits on a couch, eyes fixed forward, holding a bowl of popcorn",
+   "sc": "a man sits on a couch, eyes fixed forward, holding a bowl of popcorn",
+   "check": "Is there a person looking attentively as if watching a video?",
+   "cap": "a man on a couch holding a popcorn bowl, eyes forward",
+   "key": "a person with eyes fixed forward; a bowl of popcorn in hand",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:56:00.556Z"
+   "tries": 2
   },
   "viewing platform#n": {
    "ex": "The new viewing platform gives a clear view across the whole valley.",
