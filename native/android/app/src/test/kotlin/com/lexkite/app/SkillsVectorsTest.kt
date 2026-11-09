@@ -52,6 +52,8 @@ import org.junit.Test
  */
 class SkillsVectorsTest {
     private val v = Json.parseToJsonElement(javaClass.classLoader!!.getResource("skills.json")!!.readText()).jsonObject
+    /** The downloaded pack (web/data/skills-pack.json): parsing it installs the band table, Kokoro pools and stopwords the assertions below check against the vectors. */
+    private val pack = SkillsContent.parse(Json.parseToJsonElement(javaClass.classLoader!!.getResource("skills-pack.json")!!.readText()).jsonObject)
     private val now = v.getValue("now").jsonPrimitive.long
     private val tx = Tx.RAW
     private fun t(key: String, vararg vars: Pair<String, Any>) = tx.t(key, if (vars.isEmpty()) null else vars.associate { it.first to it.second.toString() })
@@ -90,6 +92,12 @@ class SkillsVectorsTest {
     private fun answers(o: JsonObject): Map<String, Any?> = o.entries.associate { (k, x) -> k to (if (x is JsonArray) x.map { it.s() } else x.s()) }
 
     // ====================================================== shared ======================================================
+    @Test fun pack_is_complete_and_matches_the_vector_data() {
+        assertEquals(10, pack.tests.size); assertEquals(40, pack.listening.size); assertEquals(57, pack.readings.size)
+        for (p in content.listening) assertEquals(p.id, Js.stringify(p.j), Js.stringify(pack.part(p.id)!!.j))
+        for (r in content.readings) assertEquals(r.id, Js.stringify(r.j), Js.stringify(pack.reading(r.id)!!.j))
+        assertEquals(com.lexkite.app.core.skills.SkillsConsts.narrator, v.o("shared").o("kvoice").a("voices").map { it.jsonObject.o("out").s("_narrator") }.distinct().single())
+    }
     @Test fun shared_kvoice() {
         val k = v.o("shared").o("kvoice")
         for (c in k.a("hash").map { it.jsonObject }) assertEquals(c.s("input"), c.s("out"), AudioLogic.fnv36(c.s("input")))

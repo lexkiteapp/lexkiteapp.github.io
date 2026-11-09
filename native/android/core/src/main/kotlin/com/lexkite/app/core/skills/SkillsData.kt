@@ -8,6 +8,7 @@ import com.lexkite.app.core.vocab.gs
 import com.lexkite.app.core.vocab.jsTrim
 import com.lexkite.app.core.vocab.strs
 import com.lexkite.app.core.vocab.Topic
+import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
@@ -56,18 +57,31 @@ class SkillsContent(val listening: List<Part>, val readings: List<Reading>, val 
     val tests: List<Int> get() = listening.map { it.test }.distinct().sorted()
     fun partsOf(n: Int) = listening.filter { it.test == n }.sortedBy { it.part }
     companion object {
-        fun parse(data: JsonObject) = SkillsContent(data.ga("listening").map { Part(it as JsonObject) }, data.ga("readings").map { Reading(it as JsonObject) }, Lexis.fromJson(data.go("lexis")))
+        /** [data] = the pack root (or vectors/skills.json `data`). A `consts` block (band table, voice pools, stopwords) is installed into [SkillsConsts]. */
+        fun parse(data: JsonObject): SkillsContent { data.go("consts")?.let { SkillsConsts.install(it) }; return build(data) }
+        private fun build(data: JsonObject) = SkillsContent(data.ga("listening").map { Part(it as JsonObject) }, data.ga("readings").map { Reading(it as JsonObject) }, Lexis.fromJson(data.go("lexis")))
     }
+}
+
+/** Constants of the web code the ports must not retype (pack `consts`, generated from qengine.js BAND, kvoice.js POOL/NARRATOR, listening.js STOPW). Tests assert them against vectors/skills.json. */
+object SkillsConsts {
+    @Volatile private var c: Installed? = null
+    private class Installed(val band: Map<String, List<Pair<Int, Double>>>, val narrator: String, val pools: Map<String, List<String>>, val stopwords: Set<String>)
+    fun install(j: JsonObject) {
+        val kv = j.go("kvoice")
+        c = Installed(
+            j.go("band")!!.mapValues { (_, rows) -> (rows as JsonArray).map { r -> (r as JsonArray).let { (it[0] as JsonPrimitive).content.toDouble().toInt() to (it[1] as JsonPrimitive).content.toDouble() } } },
+            kv.gs("narrator"), kv.go("pools")!!.mapValues { (_, v) -> (v as JsonArray).map { (it as JsonPrimitive).content } }, j.strs("stopwords").toSet())
+    }
+    private fun get() = c ?: error("SkillsConsts: no content pack installed (the screens only open once SkillsContent.parse has run)")
+    val band get() = get().band; val narrator get() = get().narrator; val pools get() = get().pools; val stopwords get() = get().stopwords
 }
 
 /** KVoice (web/js/listen/kvoice.js): one fixed Kokoro voice per speaker (pool by accent + gender, none reused inside a part), the narrator has its own. */
 object KVoice {
-    const val NARRATOR = "bm_george"
-    private val POOL = mapOf(
-        "en-GB:f" to listOf("bf_emma", "bf_isabella", "bf_alice", "bf_lily"), "en-GB:m" to listOf("bm_lewis", "bm_daniel", "bm_fable", "bm_george"),
-        "en-US:f" to listOf("af_heart", "af_bella", "af_nicole", "af_sarah"), "en-US:m" to listOf("am_michael", "am_adam", "am_eric", "am_liam"),
-        "en-AU:f" to listOf("bf_lily", "bf_alice", "bf_isabella", "bf_emma"), "en-AU:m" to listOf("bm_fable", "bm_daniel", "bm_lewis", "bm_george"),
-    )
+    /** Narrator voice and per accent:gender pools come from the downloaded pack (`consts.kvoice`, read from kvoice.js) – nothing typed here. */
+    val NARRATOR get() = SkillsConsts.narrator
+    private val POOL get() = SkillsConsts.pools
     /** speaker key -> Kokoro voice; "_narrator" = the narrator voice. */
     fun voices(p: Part): Map<String, String> {
         val used = hashSetOf(NARRATOR); val out = linkedMapOf("_narrator" to NARRATOR)

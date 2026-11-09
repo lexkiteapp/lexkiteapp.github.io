@@ -198,6 +198,24 @@ const RV = T1.vectorJson, RD = T1.rigJson;
   if (SV.read.questions.find(c => c.id === 'repeat').out.rewards[0].readings !== 0 || SV.read.questions.find(c => c.id === 'perfect').out.rewards[0].readings !== 1 || SV.read.questions.find(c => c.id === 'blank-declined').out.graded !== false) b8.push('read first-completion / confirm');
   if (SV.data.listening.length !== 8 || SV.data.readings.length !== 6 || SV.data.lexis.awl.length < 400 || SV.data.lexis.phrases.length < 100 || SV.data.listening.some(p => !p.script.length || !p.groups.length)) b8.push('data block');
   ok(b8.length === 0, `skills vectors obey the web rules (hub selection, listen/listen-test/dictation/reading XP + band + rewards, hole counts, diff, first-completion)${b8.length ? ' – ' + b8.slice(0, 4).join('; ') : ''}`);
+  // the downloadable pack (web/data/skills-pack.json, https://lexkite.com/data/skills-pack.json): complete content, same shape as skills.json data.*, consts read from web code
+  {
+    const { skillsPack, PACK_PATH } = await import('../native/gen-skills.mjs'), zlib = await import('node:zlib');
+    const K1 = await skillsPack(), K2 = await skillsPack(), PK = JSON.parse(K1), gz = zlib.gzipSync(K1, { level: 9 }).length, bp = [];
+    ok(K1 === K2 && same(PACK_PATH, K1), 'skills-pack.json: two runs identical and equal to the committed file (else: node scripts/native/gen.mjs)');
+    ok(Buffer.byteLength(K1) < 700 * 1024 && gz < 250 * 1024, `skills-pack.json size: ${(Buffer.byteLength(K1) / 1024) | 0} KB raw (< 700) / ${(gz / 1024) | 0} KB gzip (< 250); not in the extension or app shell`);
+    if (!/^[0-9a-f]{12}$/.test(PK.v) || PK.schema !== 1) bp.push('v/schema');
+    if (PK.listening.length !== 40 || new Set(PK.listening.map(p => p.test)).size !== 10 || [...Array(10).keys()].some(t => [1, 2, 3, 4].some(k => !PK.listening.find(p => p.id === `t${t + 1}p${k}`)))) bp.push('listening is not 10 tests x 4 parts');
+    if (PK.readings.length !== 57 || new Set(PK.readings.map(r => r.id)).size !== 57) bp.push('readings is not 57 distinct passages');
+    const JS = x => JSON.stringify(x);
+    if (SV.data.listening.some(p => JS(PK.listening.find(q => q.id === p.id)) !== JS(p))) bp.push('listening parts differ from skills.json data.listening');
+    if (SV.data.readings.some(r => JS(PK.readings.find(q => q.id === r.id)) !== JS(r))) bp.push('readings differ from skills.json data.readings');
+    if (JS(PK.lexis) !== JS(SV.data.lexis)) bp.push('lexis differs from skills.json data.lexis');
+    for (const sk of Object.keys(Q.band)) if (JS(Q.band[sk]) !== JS(Array.from({ length: 41 }, (_, r) => (PK.consts.band[sk].find(([m]) => r >= m) || [0, 0])[1]))) bp.push('band ' + sk);
+    if (PK.consts.kvoice.narrator !== 'bm_george' || Object.keys(PK.consts.kvoice.pools).length !== 6 || SV.shared.kvoice.voices.some(c => c.out._narrator !== PK.consts.kvoice.narrator)) bp.push('kvoice consts');
+    if (PK.consts.stopwords.length < 40 || !PK.consts.stopwords.includes('the')) bp.push('stopwords');
+    ok(bp.length === 0, `skills-pack.json: 10 tests / 40 parts, 57 readings, shape = skills.json data.*, consts (band, voice pools, stopwords) match the vectors${bp.length ? ' – ' + bp.join('; ') : ''}`);
+  }
   // strings: every literal t() key on the P06 screens (listening, reading, qengine, qtips, choice-kit) is mapped by strings.json
   const have8 = new Set(Object.values(JSON.parse(rd('native/shared/strings.json')))), keys8 = new Set();
   for (const f of ['web/js/listening.js', 'web/js/reading.js', 'web/js/qengine.js', 'web/js/qtips.js', 'web/js/choice-kit.js', 'web/js/lexis.js']) for (const ln of rd(f).split('\n')) for (const m of ln.matchAll(/\bt\('((?:[^'\\]|\\.)*)'/g)) keys8.add(m[1].replace(/\\(['\\])/g, '$1'));

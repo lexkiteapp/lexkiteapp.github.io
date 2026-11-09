@@ -83,13 +83,8 @@ object Qx {
         return res
     }
 
-    /** Raw score -> band, per skill: `[min raw, band]` rows, first row with raw >= min (qengine.js BAND; verified against vectors/skills.json shared.qe.band). */
-    private val BAND = mapOf(
-        "listening" to "39:9 37:8.5 35:8 32:7.5 30:7 26:6.5 23:6 18:5.5 16:5 13:4.5 10:4 8:3.5 6:3 4:2.5 3:2 1:1 0:0",
-        "reading" to "39:9 37:8.5 35:8 33:7.5 30:7 27:6.5 23:6 19:5.5 15:5 13:4.5 10:4 8:3.5 6:3 4:2.5 3:2 1:1 0:0",
-        "reading-gt" to "40:9 39:8.5 37:8 36:7.5 34:7 32:6.5 30:6 27:5.5 23:5 19:4.5 15:4 12:3.5 9:3 6:2.5 3:2 1:1 0:0",
-    ).mapValues { (_, v) -> v.split(' ').map { r -> r.substringBefore(':').toInt() to r.substringAfter(':').toDouble() } }
-    fun bandOf(raw: Int, skill: String = "listening"): Double = BAND.getValue(skill).firstOrNull { raw >= it.first }?.second ?: 0.0
+    /** Raw score -> band, per skill: `[min raw, band]` rows of the pack (`consts.band`, qengine.js BAND), first row with raw >= min. */
+    fun bandOf(raw: Int, skill: String = "listening"): Double = SkillsConsts.band.getValue(skill).firstOrNull { raw >= it.first }?.second ?: 0.0
     /** IELTS overall: mean of the skill bands, .25 up to .5, .75 up to the next whole band. */
     fun overall(bands: List<Double>): Double { val avg = bands.sum() / bands.size; val f = avg - Math.floor(avg); return Math.floor(avg) + (if (f >= 0.75) 1 else if (f >= 0.25) 0.5 else 0.0) }
 
@@ -209,7 +204,7 @@ object ListenTest {
 
 /** #/dictation: line selection, holes, whole-sentence diff and the session score. */
 object Dictation {
-    private val STOPW = "a an the and or but of to in on at by for with from is are was were be been it this that these those i you he she we they my your his her our their as so if than then there here".split(" ").toSet()
+    private val STOPW get() = SkillsConsts.stopwords
     private val WS = Regex("\\s+"); private val HOLE = Regex("^([^A-Za-z0-9]*)(.*?)([^A-Za-z0-9%']*)$")
     val MODES = listOf("mid", "hard", "full")
     fun ratio(mode: String) = if (mode == "hard") 0.65 else 0.35

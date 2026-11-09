@@ -59,7 +59,7 @@ android {
     // Conformance vectors are test-only (not shipped in the APK).
     sourceSets["main"].assets.srcDirs("../../shared/gen")
     androidResources { ignoreAssetsPatterns += listOf("!.svn", "!.git", "!.ds_store", "!*.scc", ".*", "<dir>_*", "!CVS", "!thumbs.db", "!picasa.ini", "!*~", "<dir>vectors") }
-    sourceSets["test"].resources.srcDirs("../../shared/gen/vectors", "../../shared/gen/content-pack") // starter.json (bundled pack = main assets) is read by the onboarding test
+    sourceSets["test"].resources.srcDirs("../../shared/gen/vectors", "../../shared/gen/content-pack", "../../../web/data") // web/data/skills-pack.json = the downloaded P06 pack (test only) // starter.json (bundled pack = main assets) is read by the onboarding test
     testOptions { unitTests { isIncludeAndroidResources = true; all { it.systemProperty("user.timezone", "UTC") } } }
 }
 

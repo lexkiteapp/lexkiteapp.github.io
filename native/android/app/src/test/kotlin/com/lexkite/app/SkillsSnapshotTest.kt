@@ -60,6 +60,7 @@ class SkillsSnapshotTest {
     @get:Rule val rule = createComposeRule()
 
     // ---- fixed inputs (the vector data) ----
+    init { SkillsContent.parse(Json.parseToJsonElement(javaClass.classLoader!!.getResource("skills-pack.json")!!.readText()).jsonObject) } // installs the band/voice/stopword consts
     private val content = SkillsContent.parse(Json.parseToJsonElement(javaClass.classLoader!!.getResource("skills.json")!!.readText()).jsonObject.getValue("data").jsonObject)
     private val parts = content.partsOf(1); private val p = parts[0]
     private val reading = content.reading("urban-farming")!!
