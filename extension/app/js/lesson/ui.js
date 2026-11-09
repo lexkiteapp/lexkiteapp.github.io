@@ -73,6 +73,7 @@
   let footRO = null; // chân bài học cố định: đo chiều cao thật (phiếu đúng/sai + "Vì sao?") → chừa đủ chỗ cuối trang, không che nội dung
 
   // Tiến độ bản đồ: số nút đã xong (bền, không theo ngày – như lộ trình). Demo dùng khóa riêng.
+  let pnSeq = 0;
   const PKEY = demo => (demo ? 'lk.lsn.path.demo' : 'lk.lsn.path');
   const pathN = demo => Math.max(0, parseInt(ls.get(PKEY(demo)) || '0', 10) || 0);
   const Q = demo => (demo ? '?demo=1' : '');
@@ -104,7 +105,7 @@
     if (window.I18N && I18N.whenReady) await I18N.whenReady();
     if (arg === 'go' && !demo && !/[?&]story=/.test(location.hash) && window.Ux1 && Ux1.needLevel && Ux1.needLevel() && !((state.game || {}).xp)) { location.hash = '#/home'; Ux1.levelInvite(() => { location.hash = '#/lesson/go'; }); return; } // bài đầu của người chọn kỳ thi: mời kiểm tra trình độ, Bỏ qua thì vào học ngay
     const cards = demo ? DEMO() : Object.values(state.cards || {});
-    const ux = !!(window.Ux1 && App.ux1On && App.ux1On()), has = { story: STORIES('story').length, radio: STORIES('radio').length }; let n = pathN(demo); if (ux && window.PathTrail) { const h0 = location.hash; await App.need('pnodes').catch(() => {}); if (location.hash !== h0) return; /* đã sang route khác trong lúc tải: đừng vẽ đè */ const m = PathTrail.skip(n, Ux1.unitAt); if (m !== n) { ls.set(PKEY(demo), String(m)); n = m; } } // 🧭 cờ ux1: chặng theo mục tiêu + trình độ (docs/LEARNING-PATH.md)
+    const ux = !!(window.Ux1 && App.ux1On && App.ux1On()), has = { story: STORIES('story').length, radio: STORIES('radio').length }; let n = pathN(demo); if (ux && window.PathTrail) { const h0 = location.hash, sq = ++pnSeq; await App.need('pnodes').catch(() => {}); if (sq !== pnSeq || location.hash !== h0) return; /* có lượt vẽ mới hơn trong lúc tải: đừng vẽ đè */ const m = PathTrail.skip(n, Ux1.unitAt); if (m !== n) { ls.set(PKEY(demo), String(m)); n = m; } } // 🧭 cờ ux1: chặng theo mục tiêu + trình độ (docs/LEARNING-PATH.md)
     const redo = arg === 'go' && /[?&]redo=(\d+)/.test(location.hash) ? +RegExp.$1 : -1, xs = arg === 'go' && ((location.hash.match(/[?&]story=([\w-]+)/) || [])[1]), XS = xs ? (self.LESSON_STORIES || []).find(x => x.id === xs) : null; // Hôm nay v2: chạm thẻ truyện → mở đúng truyện đó (ngoài lộ trình: không tính nút bản đồ)
     const plan = ux ? Ux1.plan(E, cards, has, n) : E.pathPlan(cards, Date.now(), has), node = XS ? { kind: XS.kind } : redo >= 0 ? { kind: PathTrail.SLOTS[redo % plan.length] } : plan[n % plan.length], wn = redo >= 0 ? redo : n; // Ôn lại nút đã xong: đúng từ của nút đó, không đẩy tiến độ
     if (arg !== 'go') return ux ? Ux1.map({ demo, plan, n }) : map(demo, plan, n);

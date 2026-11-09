@@ -167,6 +167,7 @@
 
 // core.js – review interval previews
 '{n} phút': '{n} min',
+'{a}/{b} bài': '{a}/{b} lessons',
 '1 ngày': '1 day',
 '{n} ngày': '{n} days',
 '{n} tháng': '{n} mo',

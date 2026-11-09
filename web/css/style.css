@@ -1482,4 +1482,4 @@ body:has(.learn-bar,.grade-bar,.sheet,.sel-bar,.install-nudge,#modal:not([hidden
 .v2 nav a[data-tab]:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 .v2 nav a[data-tab]:active .st-ti { transform: scale(.88); }
 @media (prefers-reduced-motion: reduce) { .st-ti { transition: none; } .v2 nav a[data-tab]:active .st-ti { transform: none; } }
-
+.v2-path [data-pr]:has([data-cur]) span.truncate { max-width: calc(100% - 64px); } /* nút đang học: dòng phụ không chạy dưới Ama */
