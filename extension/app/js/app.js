@@ -260,7 +260,7 @@
   // ---------- Nạp module theo trang (lazy loading): trang đầu chỉ tải phần lõi, phần nặng tải khi cần ----------
   const G = 'js/grammar/', BUNDLES = {
     demo: ['js/app-demo.js'],
-    grammar: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/structures.js', ...['tenses', 'verbs', 'sentences', 'foundation', 'starter', 'lazy-a1', 'academic', 'lazy-c2', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'drills-own', 'bank-gen', 'check'].map(f => /^(lazy-|drills-own)/.test(f) ? 'cpack/grammar/' + f + '.js' : G + f + '.js'), 'js/grammar.js'],
+    grammar: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/structures.js', ...['tenses', 'verbs', 'sentences', 'foundation', 'starter', 'cpack/grammar/lazy-a1.js', 'academic', 'cpack/grammar/lazy-c2.js', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'cpack/grammar/drills-own.js', 'bank-gen', 'check'].map(f => f.startsWith('cpack/') ? f : G + f + '.js'), 'js/grammar.js'],
     grammarA1: ['cpack/grammar/starter2.js'], grammarC2: ['cpack/grammar/mastery.js'], // 12 bài A1 / 10 bài C2 (~29 KB nén mỗi gói): chỉ tải khi mở bài của cấp đó; gói 'grammar' mang mục lục gọn lazy-a1/c2.js (scripts/grammar/build-lazy-idx.mjs)
     pas: ['js/i18n/en/v2.js', 'js/i18n/en/speak.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/pas-sit.js', 'js/st/v2/pas-drill.js', 'js/characters.js', 'js/speak/data.js', 'js/speak/score.js', 'js/speak/app.js'], // 🎙️ Play & Speak (cờ speak_pack, docs/specs/play-and-speak.md)
     pron: ['js/i18n/en/pron.js', 'js/pron/sounds.js', 'js/pron/skills.js', 'js/pron/pairs.js', 'js/pron/sayit.js', 'js/pron/coach.js', 'js/pron/rhythm.js', 'js/pron.js'],
