@@ -281,7 +281,7 @@ fun PronRhythmScreen(ui: RhythmUi, title: String, band: (String) -> Tr, a: Rhyth
     StudyPage(title, a.exit) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) { Body("🎵 " + trs(Tr("Nhịp câu & shadowing")), style = LKType.titlePill); Tag(trs(if (ui.accent == "en-US") Tr("Giọng Mỹ") else Tr("Giọng Anh"))) }
         Muted(trs(Tr("Từ in to được nhấn; từ nhỏ đọc nhanh, nhẹ (dạng yếu). Nghe mẫu, rồi bấm Shadowing và nói theo ngay.")))
-        Flow { ui.sentences.forEachIndexed { i, _ -> Chip(if ((ui.done[i] ?: 0) >= 85) "✓" else "${i + 1}", i == ui.k, { a.pick(i) }) } }
+        LKCard { Flow { ui.sentences.forEachIndexed { i, _ -> Chip(if ((ui.done[i] ?: 0) >= 85) "✓" else "${i + 1}", i == ui.k, { a.pick(i) }) } } }
         LKCard { EnLtr { Flow { for (p in ui.plan) Column(horizontalAlignment = Alignment.CenterHorizontally) {
             if (p.stress) Text(p.w, color = c.onSurface, style = LKType.headlineSm.toCompose().copy(fontWeight = FontWeight.ExtraBold), modifier = Modifier.drawBehind { drawLine(c.secondary, Offset(0f, 0f), Offset(size.width, 0f), 6f) }.padding(top = 4.dp))
             else { Text(p.w, color = c.onSurfaceVariant, style = LKType.bodySm.toCompose()); if (p.weak.isNotEmpty()) Text(p.weak, color = c.secondary, style = LKType.labelBadge.toCompose()) } } } } }

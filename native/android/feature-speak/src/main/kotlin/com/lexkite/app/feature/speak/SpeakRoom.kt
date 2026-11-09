@@ -1,9 +1,12 @@
 package com.lexkite.app.feature.speak
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
+import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -64,17 +67,17 @@ fun SpeakingScreen(ui: SpeakingUi, a: SpeakingActions) {
     val c = LocalLKColors.current; val p = ui.page; var sampleOpen by remember { mutableStateOf(ui.shadow != null) }
     if (ui.phase == "rec" || ui.phase == "prep") {   // Stitch speaking-record: a focus screen (X + target-zone bar), the clock and the stop button pinned at the bottom
         val secs = ui.clock.split(":").let { (it.getOrNull(0)?.toIntOrNull() ?: 0) * 60 + (it.getOrNull(1)?.toIntOrNull() ?: 0) }
-        StudyFocus((secs / p.info.hi.toFloat()).coerceIn(0f, 1f), trs(Tr("Phòng luyện Speaking")), a.exit, bottom = { SpeakingClockCard(ui, a) }) { SpeakingQuestionCard(ui, a) }
+        StudyFocus((secs / p.info.hi.toFloat()).coerceIn(0f, 1f), trs(Tr("Phòng luyện Speaking")), a.exit, bottom = { SpeakingClockCard(ui, a) }) { SpeakingQuestionCard(ui, a, slot = true) }
         return
     }
     StudyPage(trs(Tr("Phòng luyện Speaking")), a.exit) {
-        Muted(trs(Tr("Giám khảo đọc câu hỏi → bạn ghi âm câu trả lời → nghe lại, xem bản chữ và phân tích từ vựng. Ghi âm chỉ nằm trên máy bạn.")))
         Seg(ui.partNames.map { trs(it).substringBefore(" · ") }, listOf("p1", "p2", "p3").indexOf(p.part), { a.part(listOf("p1", "p2", "p3")[it]) })
         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
             GhostButton("📚 " + trs(Tr(p.topic.title)), { a.topics(true) }, Modifier.weight(1f)); GhostButton("🎲", a.random)
         }
         Muted(trs(Tr("{n} chủ đề", mapOf("n" to ui.topics.size))))
         if (ui.showTopics) PickerDialog(trs(Tr("Chủ đề")), ui.topics.mapIndexed { i, x -> i.toString() to trs(Tr(x)) }, p.index.toString(), { a.topic(it.toInt()); a.topics(false) }, { a.topics(false) })
+        TeacherCard("ama", "point", "", trs(Tr("Giám khảo đọc câu hỏi → bạn ghi âm câu trả lời → nghe lại, xem bản chữ và phân tích từ vựng. Ghi âm chỉ nằm trên máy bạn.")))
         SpeakingQuestionCard(ui, a)
         SpeakingClockCard(ui, a)
         ui.analysis?.let { r -> LKCard(Modifier.testTag("speak-result")) {
@@ -111,10 +114,11 @@ fun SpeakingScreen(ui: SpeakingUi, a: SpeakingActions) {
 }
 
 @Composable
-private fun SpeakingQuestionCard(ui: SpeakingUi, a: SpeakingActions) {
+private fun SpeakingQuestionCard(ui: SpeakingUi, a: SpeakingActions, slot: Boolean = false) {
     val p = ui.page
     LKCard {
-            Flow { Tag(trs(Tr(p.info.desc))); if (p.questions.size > 1) Muted(trs(Tr("Câu {i}/{n}", mapOf("i" to ui.qi + 1, "n" to p.questions.size)))) }   // wraps: a long tag must not squeeze the counter to one letter per line
+            if (slot) Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm), verticalAlignment = Alignment.CenterVertically) { Box(Modifier.size(56.dp)) { LocalSpeakSlots.current.teacher("ama", "point", Modifier.size(56.dp)) }; Body(trs(Tr(p.info.desc)), Modifier.weight(1f), style = LKType.titlePill) }
+            else Flow { Tag(trs(Tr(p.info.desc))); if (p.questions.size > 1) Muted(trs(Tr("Câu {i}/{n}", mapOf("i" to ui.qi + 1, "n" to p.questions.size)))) }   // wraps: a long tag must not squeeze the counter to one letter per line
             if (p.part == "p2") { EnLtr { Column(verticalArrangement = Arrangement.spacedBy(LKSpacing.space2xs)) { Body(p.topic.p2q, style = LKType.titlePill); Muted("You should say:"); for (x in p.topic.p2points) Body("• $x") } } }
             else EnLtr { Body(p.questions[ui.qi % p.questions.size], style = LKType.titlePill) }
             Flow { GhostButton("🔊 " + trs(Tr("Nghe giám khảo hỏi")), a.hear); if (ui.canNext) GhostButton(trs(Tr("Câu khác")) + " →", a.nextQ) }
@@ -208,7 +212,7 @@ class SpeakingVm(private val env: SpeakEnv, private val arg: String) : ViewModel
     /** SpeechRecognizer ends after a pause: keep listening until the learner stops (the web restarts `onend` the same way). */
     private fun listenLoop() { if (phase != "rec") return
         env.listen(accent, { p -> interim = p; publish() }, { alts -> if (phase == "rec") { finalText += (alts.firstOrNull { it.isNotBlank() } ?: "").trim() + " "; interim = ""; restarts = 0; publish(); listenLoop() } },
-            { code -> if (phase != "rec") return@listen; if (com.lexkite.app.core.speak.RecError.blocked(code)) { micError = com.lexkite.app.core.speak.recText(code); publish(); stop() } else if (++restarts < 4) viewModelScope.launch { delay(300); listenLoop() } else stop() }) }
+            { code -> if (phase != "rec") return@listen; if (com.lexkite.app.core.speak.RecError.blocked(code)) { micError = recText(code); publish(); stop() } else if (++restarts < 4) viewModelScope.launch { delay(300); listenLoop() } else stop() }) }
     private fun stop() { if (phase != "rec") return; phase = "idle"; tickJob?.cancel(); env.stopListening()
         val secs = (System.currentTimeMillis() - t0) / 1000.0; val text = (finalText + " " + interim).trim(); transcript = text; interim = ""
         hint = Tr("Bấm micro để trả lời lại"); val a = SpeakingRoom.analyse(pack, page, text, secs, lexis, topicWords); analysis = a; publish(); viewModelScope.launch { env.pay(a.reward) } }
@@ -226,7 +230,7 @@ class SpeakingVm(private val env: SpeakEnv, private val arg: String) : ViewModel
     fun shadowHear(slow: Boolean) { val sh = shadow ?: return; env.speak(sh.sentence, accent, (if (slow) SpeakingRoom.SLOW_RATE else SpeakingRoom.SHADOW_DEFAULT_RATE).toFloat()) }
     fun shadowMic() { val sh = shadow ?: return; shadow = ShadowUi(sh.k, sh.n, sh.sentence, listening = true); publish()
         env.listen(accent, {}, { alts -> val b = SpeakScore.best(sh.sentence, alts); shadowScores.add(b.score); shadow = ShadowUi(sh.k, sh.n, sh.sentence, b.score, b.heard); publish() },
-            { code -> shadow = ShadowUi(sh.k, sh.n, sh.sentence, error = com.lexkite.app.core.speak.recText(code)); publish() }) }
+            { code -> shadow = ShadowUi(sh.k, sh.n, sh.sentence, error = recText(code)); publish() }) }
     fun shadowNext() { val sh = shadow ?: return; shadowStep(sh.k + 1) }
     class Factory(private val env: SpeakEnv, private val arg: String) : ViewModelProvider.Factory { @Suppress("UNCHECKED_CAST") override fun <T : ViewModel> create(modelClass: Class<T>): T = SpeakingVm(env, arg) as T }
 }
