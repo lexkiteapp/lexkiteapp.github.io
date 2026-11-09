@@ -121,7 +121,7 @@ const go = async (P, h) => {
   await P.waitFn(page, x => location.hash === '#' + x.split('#').pop() || true, h).catch(() => {});
   await sleep(1100);
   // Gói lười nạp nguội (vd. #/speak → 'pas' + 3 CSS) có thể quá 1.1s trên runner bận → đo lúc còn khung xương, thanh dưới chưa đánh dấu tab (lệch giả). Chờ App.route vẽ xong.
-  await P.page.waitForFunction(() => { const v = document.querySelector('#view'); return v && v.children.length && !v.querySelector(':scope > .skel-page, :scope > .skel-study'); }, null, { timeout: 15000 }).catch(() => {});
+  await waitFn(P.page, () => { const v = document.querySelector('#view'); return v && v.children.length && !v.querySelector(':scope > .skel-page, :scope > .skel-study'); }, null, { timeout: 15000 }).catch(() => {});
   await P.page.evaluate(() => window.scrollTo(0, 0));
 };
 
