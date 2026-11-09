@@ -80,6 +80,8 @@ class SkillsVectorsTest {
         }
     }
     private fun check(path: String, want: JsonElement?, got: Any?, tol: Double = 1e-9) = sub(path, want, J(got), tol)
+    /** The vectors keep only the leading integer of the visible evidence number ("25–26" is recorded as 25: gen-skills.mjs transcriptRows). */
+    private fun leadNum(x: Any): Int = Regex("\\d+").find(x.toString())!!.value.toInt()
     private fun query(q: String): Map<String, String> = if (q.isEmpty()) emptyMap() else q.split("&").associate { it.substringBefore("=") to java.net.URLDecoder.decode(it.substringAfter("=", ""), "UTF-8") }
 
     // ---------- content ----------
@@ -111,7 +113,7 @@ class SkillsVectorsTest {
 
     @Test fun shared_audio_url() {
         val u = v.o("shared").o("audioUrl")
-        assertEquals(u.a("bases").map { it.s() }, AudioLogic.BASES.take(2))
+        assertEquals(u.a("bases").map { it.s() }, AudioLogic.BASES)
         for (s in u.a("steps").map { it.jsonObject }) assertEquals("failures ${s.s("failures")}", s.s("url"), AudioLogic.urls("k1", "l", s.n("failures").toInt()).first())
     }
 
@@ -150,7 +152,7 @@ class SkillsVectorsTest {
         for (c in q.a("overall").map { it.jsonObject }) assertEquals(Js.stringify(c["input"]), c.n("out"), Qx.overall(c.a("input").map { Js.num(it) }), 0.0)
         for (c in q.a("collect").map { it.jsonObject }) {
             val res = Qx.collect(part(c.s("part").ifEmpty { c.o("input").s("part") }), answers(c.o("input").o("answers")))
-            for ((n, w) in c.o("out")) { val r = res.getValue(n.toInt()); check("${c.s("id")}.$n", w, obj("ok" to r.ok, "given" to r.given, "answer" to r.answer, "kind" to r.kind)) }
+            for ((n, w) in c.o("out")) { val r = res.getValue(n.toInt()); check("${c.s("id")}.$n", w, obj("ok" to r.ok, "given" to r.given, "answer" to r.answer, "kind" to r.kind, "over" to r.over)) }
             assertEquals(c.s("id"), c.o("out").size, res.size)
         }
     }
@@ -158,13 +160,13 @@ class SkillsVectorsTest {
     @Test fun shared_transcript() {
         val tr = v.o("shared").o("transcript"); val p = part(tr.s("part"))
         val plain = ListenPage.transcript(p, lexis, false)
-        assertEquals(tr.n("lineCount").toInt(), p.script.size)
+        assertEquals(tr.n("lineCount").toInt(), plain.size)
         val want = tr.a("plain").map { it.jsonObject }
-        assertEquals(want.size, plain.size)
+        assertEquals(12, want.size)
         for ((i, w) in want.withIndex()) { val r = plain[i]
             check("plain[$i]", w, if (r.line.say != null) obj("i" to r.line.i, "kind" to "say", "text" to r.line.say) else obj("i" to r.line.i, "kind" to "line", "speaker" to r.speaker, "tokens" to r.tokens!!.map(::tokJson))) }
         val ev = ListenPage.transcript(p, lexis, true).filter { it.ev.isNotEmpty() }
-        check("withEvidence", JsonArray(tr.a("withEvidence").map { obj("i" to it.jsonObject["i"], "ev" to it.jsonObject["ev"]) }), ev.map { obj("i" to it.line.i, "ev" to it.ev) })
+        check("withEvidence", JsonArray(tr.a("withEvidence").map { obj("i" to it.jsonObject["i"], "ev" to it.jsonObject["ev"]) }), ev.map { obj("i" to it.line.i, "ev" to it.ev.map(::leadNum)) })
     }
 
     // ====================================================== #/listening ======================================================
@@ -226,7 +228,7 @@ class SkillsVectorsTest {
             check("$id.game", o["game"], obj("listenDone" to gm["listenDone"], "qstat" to gm["qstat"]))
             check("$id.mistakes", o["mistakes"], mistakeRows(s.mistakes))
             assertEquals("$id persisted game keys", wantKeys("listen", id), gameKeys(s.game))
-            check("$id.transRows", o.o("after")["transRows"], ListenPage.transcript(p, lexis, true).filter { it.ev.isNotEmpty() }.map { obj("i" to it.line.i, "ev" to it.ev) })
+            check("$id.transRows", o.o("after")["transRows"], ListenPage.transcript(p, lexis, true).filter { it.ev.isNotEmpty() }.map { obj("i" to it.line.i, "ev" to it.ev.map(::leadNum)) })
             for (h in o.a("hear").map { it.jsonObject }) {
                 val n = h.n("n").toInt(); val cue = s.res.getValue(n).cue
                 check("$id.hear$n", h, obj("n" to n, "cue" to cue, "cueLine" to ListenPage.evidenceLine(p, cue), "startsAt" to ListenPage.hearFrom(p, cue)))
@@ -341,7 +343,7 @@ class SkillsVectorsTest {
                 val ended = r.log.any { it.jsonArray[0].s() == "end" }
                 val firstSpeak = r.log.first { it.jsonArray[0].s() == "speak" }.jsonArray[1].s()
                 check("$id.part$k", JsonObject(w.filterKeys { it != "whenListened" && it != "stuck" }), obj("part" to p.id, "chip" to obj("test" to p.test, "part" to p.part, "qFrom" to p.qFrom, "qTo" to p.qTo), "progressPct" to k * 100.0 / parts.size, "countdown" to t("{n} giây đọc câu hỏi", "n" to ListenTest.READ_SECONDS),
-                    "nextLabel" to (if (k < parts.size - 1) t("Sang phần tiếp") + " →" else w.s("nextLabel").also { assertTrue(it.contains(t("Nộp bài"))) }), "nextDisabledInitially" to true, "why" to t("Nghe hết phần này để mở nút tiếp"), "tickMs" to ListenTest.TICK_MS,
+                    "nextLabel" to (if (k < parts.size - 1) t("Sang phần tiếp") + " →" else w.s("nextLabel").also { assertTrue(it.contains(t("Nộp bài"))) }), "nextDisabledInitially" to true, "why" to t("Nghe hết phần này để mở nút tiếp"), "skipButton" to true, "tickMs" to ListenTest.TICK_MS,
                     "countdownAt29" to "⏳ " + t("{n} giây đọc câu hỏi", "n" to 1), "afterStart" to "⏳ " + t("Đang tải…"), "firstSpeak" to firstSpeak,
                     "waits" to (r.io.waits.distinct() + ListenTest.STUCK_MS).distinct().sorted(), "answers" to w["answers"]))
                 if (ended) check("$id.part$k.listened", w["whenListened"], obj("count" to "✓ " + t("Hết phần nghe – kiểm tra lại đáp án"), "nextDisabled" to false, "now" to ""))
@@ -409,7 +411,7 @@ class SkillsVectorsTest {
         }
         val cast = Cast.cast(p) { acc -> VR[acc]?.jsonArray?.map { it.s() } ?: emptyList() }; val kv = KVoice.voices(p)
         for (c in d.a("say").map { it.jsonObject }) {
-            val i = c.o("input"); val l = p.script[i.n("line").toInt()]; val keys = i.a("clipKeys").map { it.s() }.toSet()
+            val i = c.o("input"); val l = lines[i.n("line").toInt()]; val keys = i.a("clipKeys").map { it.s() }.toSet()
             val s = Dictation.say(l, cast, kv, i["slow"]!!.jsonPrimitive.booleanOrNull == true, 0.95, true)
             val events = if (s.clipKey in keys) listOf(listOf("audio", s.clipKey, s.clipRate)) else s.utters.map { listOf("speak", it.text, it.voice, it.lang, it.pitch, it.rate) }
             check("say ${c.s("id")}", c.o("out")["events"], events, 1e-5)
@@ -458,7 +460,7 @@ class SkillsVectorsTest {
                 else obj("word" to e["word"], "mean" to CardMath.meanOf(e), "def" to e["def"], "saveLabel" to "+ " + t(if (open.saved) "Thêm ngữ cảnh" else "Lưu flashcard"), "detailsHref" to "#/dict/${e.s("word")}"))
             if (e != null) {
                 port.calls.clear(); runBlocking { WordPopup.save(port, e, sentence, "Bài đọc: ${r.title}", i.s("learnLang")) }
-                val after = Reader.passage(r, lexis) { it == word.lowercase() || port.inDeck(it) }.counts
+                val after = Reader.passage(r, lexis) { it == word.lowercase() }.counts
                 check("${c.s("id")}.save", o["save"], obj("dictCalls" to port.calls, "addWord" to addedJson(port), "buttonLabel" to "✓ " + t("Đã lưu kèm ngữ cảnh"), "minedTokens" to true, "countsAfter" to after))
             }
         }

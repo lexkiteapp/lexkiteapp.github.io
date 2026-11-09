@@ -94,7 +94,7 @@ class ListenPlayer(
     private suspend fun playLine(my: Int, l: Line): Boolean {
         val k = key(l)
         if (k != null) {
-            val r = io.playClip(k, if (l.say != null) 1.0 else (rate() / 0.95).coerceIn(0.6, 1.3)) { audioDown = 0; sound() }.also { preloadNext() }
+            val r = io.playClip(k, if (l.say != null) 1.0 else (rate() / 0.95).coerceIn(0.6, 1.3)) { audioDown = 0; sound() }.also { if (it != Clip.MISSING) preloadNext() }
             if (my != seq) return true
             when (r) {
                 Clip.PLAYED -> { io.delay(if (l.say != null) NARRATOR_GAP else SPEECH_GAP); return true }
