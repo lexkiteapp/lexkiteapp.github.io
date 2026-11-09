@@ -1,0 +1,30 @@
+# Chấm 2 giám khảo cho mục sổ mẫu câu viết ngoài xưởng (scripts/factory/judge-stored.mjs). Chỉ ra artifact, không đẩy vào repo. $0: không neuron CF.
+name: Chấm nội dung viết ngoài xưởng
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['scripts/factory/judge-stored.mjs', '.github/workflows/content-judge.yml']
+permissions:
+  contents: read
+  id-token: write   # OIDC cho ai-pool
+concurrency:
+  group: content-judge-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+jobs:
+  judge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chấm
+        env:
+          GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
+          GROQ_POOL: ${{ secrets.GROQ_POOL }}
+          GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
+          AI_POOL_GC_MAX: '2000'
+        run: node scripts/factory/judge-stored.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: content-judged, path: out/factory/, retention-days: 14, if-no-files-found: ignore }
