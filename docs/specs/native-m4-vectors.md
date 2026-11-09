@@ -1,5 +1,5 @@
-> TL;DR: Lược đồ vector M4 `skills.json` (P06 Nghe & Đọc: 6 route), kiểm kê từng màn (trạng thái · mẫu Stitch · khóa vector · nguồn dữ liệu · âm thanh) và thứ được ghi vào kho nào – hợp đồng cho bản port Swift/Kotlin.
-> Đọc khi: port hoặc sửa #/listening #/listen #/listen-test #/dictation #/reading #/read trên iOS/Android, hoặc mở rộng `skills.json` cho P07 (TOEIC/TOEFL) và P09.
+> TL;DR: Lược đồ vector M4 `skills.json` (P06 Nghe & Đọc: 6 route), kiểm kê từng màn (trạng thái · mẫu Stitch · khóa vector · nguồn dữ liệu · âm thanh) và thứ được ghi vào kho nào – hợp đồng cho bản port Swift/Kotlin. P07 (Nói & phát âm: 8 route) có `speak.json` riêng – xem "Kiểm kê P07".
+> Đọc khi: port hoặc sửa #/listening #/listen #/listen-test #/dictation #/reading #/read trên iOS/Android, #/speak #/speaking #/pron #/say #/reflex #/rtype #/roleplay #/handsfree (P07, `speak.json`), hoặc mở rộng `skills.json` cho TOEIC/TOEFL và P09.
 
 ## M4 vectors – `vectors/skills.json` (P06: nghe & đọc) – sinh bởi `scripts/native/gen-skills.mjs`
 
@@ -42,6 +42,30 @@ Sinh bằng `scripts/stitch/batch.mjs` (khóa 1–3, hàng đợi `scripts/stitc
 | `reader` / `reader-word-popup` / `reader-result` | mới | #/read: bài + chip tô sáng + từ khóa · popup tra từ · câu hỏi sau khi chấm |
 Chưa có mẫu riêng (dùng khung + thành phần có sẵn): trạng thái rỗng (`empty-deck`/`search-empty` của Kit), chế độ thi thật của #/listen (= `listen-player` với thanh phát một lần, không tua/tốc độ/lời thoại), nút "Chạm ▶ để nghe", màn tiến trình tải. Bản tối dẫn xuất tự động: có vài chip nâu-trên-nền-vàng-nhạt tương phản thấp (ví dụ ô "Target band" của `listen-hub-dark`) – cổng `stitch-quality-qc` (CI) là chốt cuối, port dùng token tối của Kit, không sao chép màu từ HTML.
 
+### Mẫu Stitch P07 (Nói: #/speaking #/pron #/reflex #/rtype #/roleplay #/handsfree; `brand/stitch/v2/<màn>-{light,dark}.html`)
+Hàng đợi `scripts/stitch/queues/native-m4-p07-1109.json` (18 màn, khung §5d: màn con = mũi tên quay lại, không thanh tab; màn tập trung = nút X + thanh tiến độ + một nút chính ghim đáy), sinh bằng `scripts/stitch/batch.mjs` (khóa 1–3, project 8249827144850899735 cho khóa 1), bản tối dẫn xuất bằng `dark-from-light.mjs` + `scripts/stitch/dark-maps/<màn>.json` (vai màu theo độ sáng/sắc độ; cặp chữ–nền kiểm ≥ 4.5:1; khai báo CSS trong `<style>` đổi từng dòng) rồi `stitch-sync-palette.mjs`. Dùng lại mẫu có sẵn: `pas-sit`, `pas-drill`, `say-front`, `say-back`, `say-list` (#/pas, #/say). Ô giáo viên chỉ là chỗ trống `teacher-slot`; native vẽ Ama/Carlos bằng nhân vật 2D của app, không sao chép hình từ HTML. SVG khẩu hình của `pron-sound` giữ màu sáng trong thẻ tối (dark-from-light chỉ đổi class/`<style>`).
+| Màn Stitch | Route / trạng thái phủ | Khung |
+|---|---|---|
+| `speaking-hub` | #/speaking: tab Part 1/2/3, chủ đề + "chủ đề ngẫu nhiên", thẻ câu hỏi + "Nghe giám khảo hỏi", micro + đồng hồ, "Từ vựng nên dùng", mẹo | màn con |
+| `speaking-record` | #/speaking Part 2 đang ghi: thẻ đề + 4 gợi ý, đồng hồ mục tiêu 90–120 s, sóng, "Ghi âm chỉ nằm trên máy bạn" | tập trung |
+| `speaking-result` | #/speaking kết quả: 4 ô (thời lượng, từ/phút, số từ, từ đệm), nghe lại, bản chữ tô sáng, nhận xét, câu mẫu band 7.5–8 + shadowing | màn con |
+| `pron-hub` | #/pron: vòng tiến độ, lưới IPA (nguyên âm/phụ âm, ✓ đã xong, viền nét đứt = vô thanh), 3 kỹ năng nền | màn con |
+| `pron-sound` | #/pron/<âm>: thẻ IPA, khẩu hình, lỗi hay gặp của người Việt, luyện từ (🔊/🎙 + điểm), cặp từ, kiểm tra nhanh | màn con |
+| `pron-pairs` | cặp tối thiểu (nghe & chọn): vòng n/8, phát, hai thẻ đáp án, nghe chậm | tập trung |
+| `pron-result` | chấm nói từ trong cặp (điểm % + nghe lại giọng bạn; trường hợp nghe ra từ kia, không trừ điểm) | màn con |
+| `pron-rhythm` | "Say it like a native": nhịp câu, từ nhấn to/từ yếu nhỏ, nghe mẫu, shadowing, nhận xét + câu tiếp | màn con |
+| `reflex-run` | #/reflex đang chạy 60 s: đếm ngược, "Nghe kỹ…" → "Nhại lại câu vừa nghe…", micro, Bỏ qua | tập trung |
+| `reflex-result` | #/reflex hết giờ: "n câu · trung bình p%", 3 câu gần nhất (từ đúng/thiếu có nhãn chữ), Chơi lại | màn con |
+| `rtype-hub` | #/rtype: 8 dạng câu hỏi, % đúng, mục tiêu 75%, thanh tiến độ, "Chưa làm / Đã đạt" | màn con |
+| `rtype-run` | #/rtype/<dạng> đang làm: mẹo dạng, bài đọc, câu hỏi (ví dụ TFNG), "Kiểm tra" | tập trung |
+| `rtype-result` | sau "Kiểm tra": r/n đúng + % tích lũy, từng câu đúng/sai (icon + chữ), "Xem vị trí trong bài", giải thích, Nhóm tiếp | màn con |
+| `roleplay-list` | #/roleplay: trình độ A1/A2/B1, thẻ tình huống hằng ngày + công sở, ghi chú AI | màn con |
+| `roleplay-brief` | #/roleplay/<id>: vai AI, mục tiêu, từ vựng chủ đề (chạm để lưu), chọn trình độ, Bắt đầu | màn con |
+| `roleplay-chat` | hội thoại: bong bóng AI (🔊) / bạn, đang trả lời, ô nhập + micro, Gợi ý, Giúp tôi nói, Kết thúc & chấm điểm | tập trung |
+| `roleplay-result` | kết quả hội thoại: điểm tổng, 4 thanh (tự nhiên, lịch sự, rõ ý, ngữ pháp), 3 câu nói sắc hơn, Luyện lại | màn con |
+| `handsfree-run` | #/handsfree: từ + nghĩa + câu ví dụ, trước/phát-tạm dừng/tiếp, công tắc câu ví dụ & đọc nghĩa, màn tối, chú thích khóa màn hình | tập trung |
+Chưa có mẫu riêng: trạng thái rỗng ("Chưa có từ/câu để luyện"), micro bị chặn/không hỗ trợ nhận dạng giọng nói, "Đang chấm…" của roleplay, màn hoàn tất rtype ("Đã làm hết dạng"). Dùng khung + thành phần có sẵn.
+
 ---------------------------------------------------------------------------------------------------
 ### Kiểm kê từng màn (route → trạng thái · mẫu · vector · nguồn · âm thanh · GHI)
 
@@ -80,11 +104,49 @@ Chưa có mẫu riêng (dùng khung + thành phần có sẵn): trạng thái r�
 - Câu hỏi: chọn 1 phương án/câu (`TRUE|FALSE|NOT GIVEN` hoặc `A.. D`); "Chấm điểm": còn câu trống ⇒ `confirm` (từ chối ⇒ không ghi gì); chấm `String(answer) === lựa chọn`; mỗi câu khóa, đáp án đúng tô `right`, lựa chọn sai tô `wrong`, lời giải hiện (`❌` khi sai); sai ⇒ `logMistake({kind:'reading', q:'<tiêu đề>: <câu>', answer, given|'(bỏ trống)', explain, ref:id})`; `reward({readings: lần đầu ? 1 : 0, quizzes:1, perfect: 100 %, xp: 10 + 4·score})`; `game.readDone[id] = "score/n"`; thẻ `Kết quả: {score}/{n} ({pct}%)` + `+xp XP` (lớp `ok` khi ≥ 60 %), nút `Bài đọc khác`, `Học các từ vừa lưu` (`#/practice/learn?src=deck`).
 - GHI: `game.readDone`, `settings.hl`, Store `mistakes`, rewards, thẻ (`addWord`).
 
+### Kiểm kê P07 – Nói & phát âm (`vectors/speak.json`, `scripts/native/gen-speak.mjs`, ~385 KB, gác: `native-m2-vectors.mjs` mục 9)
+**Khác P06.** Tệp riêng (skills.json đã 326 KB; trần 500 KB giữ nguyên). Mã thật của web trong `node:vm` trên DOM giả; **micro/ASR/ghi âm/giọng nói/`<audio>`/hẹn giờ là đầu vào của nền tảng**, nằm trong `input` mỗi ca (chuỗi nghe được, các phương án, mã lỗi, ms đã trôi, dãy số ngẫu nhiên) và mã chấm điểm thật chạy trên đầu vào ghi sẵn. Chi tiết từng quy tắc nằm ở `why` của ca. Chữ trong `out` là KHÓA Việt như web truyền cho `t()` (có biến = `{k, v}`, lồng nhau được); ID `speak.<nhóm>.*`. TZ=UTC, `now = 2026-01-05T09:00:00Z`.
+**Khóa:** `shared.{recognize,speak}` · `speak.{situation,drill,fill}` · `speaking.{render,timer,analyse,shadow}` · `pron.{hub,lesson,mouth,pairGame,say,rhythm,logic.{pairs,coach}}` · `say.{list,card,mic,actions}` · `reflex.{pool,colorize,game}` · `rtype.{hub,kinds,flows}` · `roleplay.{hub,brief,chat,ai}` · `handsfree.{queue,play,controls}` · `persist` · `data` (bản cắt: 3 chủ đề nói, 3 bài phát âm + mọi bảng cặp/huấn luyện/WEAK, 2 kịch bản roleplay, 1 loạt Say, 2 tình huống #/speak, 1 nhóm câu mỗi dạng rtype).
+**Nội dung:** `web/data/speak-pack.json` (= `https://lexkite.com/data/speak-pack.json`, ~512 KB / ~176 KB gzip, `_headers` no-cache): `{schema:1, v, speaking{bank[40], samples, parts, fillers, tips}, pron{lessons[56], pairs{contrasts[23], ipa, hom, num, tips, labels}, coach{sentences[12], light}}, roleplay{scripts[31], names, confidence, rate, levels, guestAiPerDay, ack, polite, errors}, consts{weak, speakScore}, sources}`; khởi động offline `content-pack/speak-starter.json` (~99 KB: 8 chủ đề dựng sẵn, 8 bài, 6 kịch bản hằng ngày; bản sao iOS `LKStore/Resources/speak-content.json`). Không đóng âm thanh. Ngoài pack: `say.json` (`https://lexkite.com/data/say.json`, 4 loạt), tình huống #/speak (`cpack/speak/s/<id>.js`: thân JSON sau `= ` của câu lệnh đầu; bản dịch = mảng `SPK_T` ghép bằng `SPK_fill`, vector `speak.fill`; route sau cờ `speak_pack`, mặc định TẮT), bài thi đọc IELTS của #/rtype (gói P09; `rtype.hub[counts-full-data]` có số nhóm/câu toàn bộ).
+**Dùng chung.** ASR trả ≤ 5 phương án; app giữ phương án giống CÂU MẪU nhất (hoà: đầu), `score = round(similarity·100)` – cùng hàm với `lesson.json` (test mục 9 kiểm các cặp trùng). Sự kiện: `start → result | error → end`, hết phiên không `result` ⇒ `no-speech`. `Speak` (#/speak): `align` LCS theo từ, `text` = từ khớp/từ mẫu, `pass ⇔ text ≥ 0.8`. **Web không có động cơ GOP** (`Gop.score` chỉ chạy khi `r.audio` có, mà không đâu gán) ⇒ native chấm theo chữ.
+
+**7. `#/speak`** (`speak/app.js`, cờ `speak_pack`) · mẫu `pas-sit`, `pas-drill` · vector `speak.*`
+- Tình huống: nút giai đoạn (xong = mọi câu ≥ 1 sao, sao = MIN các câu), nhiệm vụ, `mastered` (≥ 2 sao), mục tiêu tuần `{n}/50` (`YYYY-Wn`), ≤ 4 từ tiện ích từ sổ từ; id lạ ⇒ `#/speak/cafe`, cờ tắt ⇒ `#/skills`.
+- Luyện `…/drill[?stage=]`: giai đoạn chọn trước rồi các giai đoạn còn lại, bắt đầu ở câu đầu < 2 sao; 3 nhịp (Nghe → Nói đuổi → Từ trí nhớ). Qua (`pass`) ⇒ sao 1/1/3 (nhịp 3 chỉ 3 sao khi xong trong `0.6·từ + 3` s kể từ chạm mic, không thì 2), ghi `lines[id]` (max), nhiệm vụ, tuần +1, `reward({spoken:1, xp:2·sao})`. Không nghe rõ: 2 lần nhắc, lần 3 cho qua (0 sao, `xp 0`). Mic lỗi ⇒ chạm từ ĐÚNG thứ tự, tối đa 1 sao, KHÔNG reward. Xong câu cuối ⇒ toast `Xong cả {n} mẫu câu!`.
+- Âm thanh: Ama (`Chars.voice`, en-US), chậm 0.6. GHI: `localStorage lk.spk`.
+
+**8. `#/speaking`** (`speaking.js`) · mẫu `speaking-hub/-record/-result` · vector `speaking.*`
+- `#/speaking/<p1|p2|p3>/<chủ đề>` (lạ ⇒ p1/0); ngân hàng = 8 chủ đề + `SPEAK_MORE` (40 trong pack); đọc câu hỏi 400 ms sau khi mở; mục tiêu p1 20–40 s, p2 90–120 s (chuẩn bị 60 s, tự dừng ở 120 s), p3 40–70 s; đồng hồ 250 ms.
+- `analyse`: `wpm`, từ đệm (`fillers`), ghi chú ngắn/dài (> mục tiêu cuối + 15, trừ p2)/chậm (< 90)/nhanh (> 180)/≥ 3 từ đệm/thiếu từ nối, cụm (`Lexis.analyze`); ≥ 10 từ ⇒ `reward({spoken:min(10, round(từ/10)), quizzes:1, xp:15})`. Shadowing mẫu: màu ≥ 80/≥ 60, trung bình = tổng/SỐ CÂU, xong `reward({spoken:3, xp:10})`. GHI: chỉ rewards.
+
+**9. `#/pron`** (`pron.js`, `pron/*`) · mẫu `pron-hub/-sound/-pairs/-result/-rhythm` · vector `pron.*`
+- Hub: 5 nhóm (IPA lưới ×3, `vn`, `stress`), vòng = bài có điểm/tổng. Nội dung bài chỉ có tiếng Việt. Bài: khẩu hình (`pron.mouth`), mic từ (màu ≥ 85/≥ 65; ≥ 65 ⇒ `{spoken:1, xp:2}`; đủ `min(5,n)` từ ⇒ `game.pronDone = max(cũ, tb)`), câu (≥ 70 ⇒ `{spoken:2, xp:4}`), nghe-chọn cặp 8 lượt (`xp 5+2·đúng`, ≥ 75 % khen), quiz (`xp 8+3·đúng`, `perfect`).
+- "Nói thử" cặp tối thiểu: `buildSession` (trọng số `1+3·(1−acc)`, chưa luyện 2, chia `1+used·0.5`), `decide` (HOM/NUM) ⇒ target/other (mẹo, `adapt` +3)/neither (≤ 2 lần thử lại); `reward({spoken:đúng, pron:1, xp:5+2·đúng})`, `localStorage lk.pronPairs`. Nhịp & shadowing: `PronCoach` (`score = sim·100 − 12·từ chính − 3·từ nhỏ`, band 85/65), mẫu 0.9 rồi mới mở mic, `vb.pron.rhythm`. GHI: `game.pronDone` + 2 khóa localStorage.
+
+**10. `#/say`** (`say.js`) · mẫu `say-front/-back` · vector `say.*`
+- Loạt (`say.json`): thẻ đầu CHƯA xem; loạt lạ ⇒ danh sách, thẻ lạ ⇒ replace thẻ đầu; mở thẻ ⇒ `lk.say.seen`. Mặt sau: nghĩa theo `learnLang` (thiếu ⇒ Anh), "Thực ra là", câu "đừng nói" (thô lỗ đã che, KHÔNG bao giờ đọc/chia sẻ), vòng sau thẻ cuối. 🔊/🎧(0.7) = giọng GIÁO VIÊN loạt (ama `af_heart`, carlos `am_michael`); 🎤 ≥ 85/≥ 60. Chia sẻ ảnh 1:1/4:5 + link. GHI: `localStorage lk.say.seen`.
+
+**11. `#/reflex`** (`reflex.js`) · mẫu `reflex-run/-result` · vector `reflex.*`
+- Pool: YouTube đã lưu (3–16 từ) → ví dụ 4–14 từ có clip → (nếu < 40) câu bài đọc 5–14 từ, cắt 40, vòng tròn. 60 s; clip hoặc embed 5 s; tô từ trái→phải, nhìn trước 4 từ, GIỮ dấu `'` (khác `Speak.align`); xong `{spoken:n, xp:5+2n}` khi n > 0. GHI: chỉ rewards.
+
+**12. `#/rtype`** (`rtype.js`) · mẫu `rtype-hub/-run/-result` · vector `rtype.*`
+- 8 dạng, % = `r/t` của `game.rtype`, mục tiêu 75 %; từng NHÓM câu hỏi của dạng; "Kiểm tra": `game.rtype[k] += {r,t}`, `game.qstat`, sổ lỗi, `reward({quizzes:1, readings:1, xp:5+2·đúng})`. GHI: `game.rtype`, `game.qstat`, `mistakes`.
+
+**13. `#/roleplay`** (`roleplay.js`) · mẫu `roleplay-list/-brief/-chat/-result` · vector `roleplay.*`
+- Cấp 0–2 (`vb.rp.level`, mặc định 1). Bộ não: AI trên máy (web-only, bỏ) → `/api/ai` (khách 2 hội thoại AI/ngày ở `vb.rp.day`, đăng nhập không giới hạn, offline không) → kịch bản (`scripted`: < 3 từ lần đầu ⇒ hỏi lại; phản ứng `br` đầu khớp, không thì ACK nếu `random < 0.5`). Chấm: AI nếu hợp lệ, không thì cục bộ (4 công thức kẹp 20–98); `reward({spoken, xp:max(5, 10+3·spoken−min(gợi ý,spoken))})`. `RP.chat` dùng lại ở #/confidence. GHI: `vb.rp.level`, `vb.rp.day`, thẻ (`addWord`).
+
+**14. `#/handsfree`** (`handsfree.js`) · mẫu `handsfree-run` · vector `handsfree.*`
+- Danh sách: `session` → chủ đề → thẻ đến hạn ≤ 24 h (≤ 60) → sổ từ → `ngsl1`. Mỗi từ: âm từ → nghỉ `gap` 900 → chờ 2200 ms + đọc nghĩa → ví dụ. Màn hình tắt: không tts, nối bằng WAV im lặng 1 s, chuyển bước ngay ở `ended`/`error`. MediaSession (6 hành động, metadata từ/ipa·nghĩa/album). GHI: `settings.hf`.
+
+**Port cần lưu ý:** dùng đúng vector (không dựng lại `similarity`/LCS/`decide`/`buildSession`; số ngẫu nhiên từ `input.random`); thời gian là đầu vào; xáo ngẫu nhiên chỉ cần ngẫu nhiên; khóa `{k,v}` lồng dịch từ trong ra ngoài, khóa có HTML hiển thị định dạng; `settings.accent` quyết định giọng (mặc định `en-GB`; #/speak, #/say, "Nói thử" luôn `en-US`); ngôn ngữ ≠ en: web chuyển Whisper trên máy, native dùng ASR hệ điều hành.
+
 ### Lưu ở đâu (`persist`, quan sát từ luồng thật)
 `listening`: `localStorage vb.listenT` · `listen`: `game.listenDone`, `game.qstat`, Store `mistakes` · `listen-test`: `game.listenBest`, `game.listenTests`, `game.qstat`, `mistakes` · `dictation`: `game.dictDone`, `settings.dictMode`/`dictAuto` · `reading`: `localStorage vb.readLv` · `read`: `game.readDone`, `settings.hl`, `mistakes`. `game.*` và `settings.*` nằm trong `sync.json` (đồng bộ Drive); `mistakes` và `vb.*` chỉ trên máy. XP/nhiệm vụ đi qua `App.reward` (M3).
+P07 (`speak.json` → `persist`): `speak`: `localStorage lk.spk` · `pron`: `game.pronDone`, `localStorage lk.pronPairs`, `vb.pron.rhythm` · `say`: `localStorage lk.say.seen` · `rtype`: `game.rtype`, `game.qstat`, Store `mistakes` · `roleplay`: `localStorage vb.rp.level`, `vb.rp.day` (+ thẻ qua `addWord`) · `handsfree`: `settings.hf` · `speaking`, `reflex`: chỉ rewards. Ghi âm KHÔNG lưu ở đâu.
 
 ### Chuỗi UI mới (M4)
 `strings.json` thêm 178 ID (`skill.listen.* skill.read.* skill.qe.* skill.qt.* skill.ck.*`), mỗi ID → khóa Việt đã có trong pipeline web (`gen.mjs --check` xanh, 15 ngôn ngữ, không thiếu bản dịch); tổng 198 khóa `t()` của `listening.js reading.js qengine.js qtips.js choice-kit.js lexis.js` đều đã ánh xạ (test mục 8). Khóa có `\\` trong mã (`<kbd>\\</kbd>`) là một dấu `\` thật. Khóa có HTML (`<b>…</b>`, `<kbd>`) hiển thị bằng văn bản có định dạng (AttributedString / AnnotatedString), không in thẻ.
+P07: `strings.json` thêm 586 ID (`speak.sp.* speak.spk.* speak.pron.* speak.say.* speak.reflex.* speak.rtype.* speak.rp.* speak.hf.* speak.ui.*`; tổng 637 khóa `t()` của các màn P07 gồm cả khóa tới từ dữ liệu – tên phần/chủ đề nói, nhóm phát âm, `cando`/`tip` roleplay – và khối lỗi nhận dạng/hạn mức của `ui.js`; hàm `speakStringKeys()` của `gen-speak.mjs` là nguồn danh sách, test mục 9 kiểm đủ). 91 khóa (cando/tip của 15 kịch bản roleplay mới + nhãn "Shadowing") web CHƯA có bản dịch nào: đã dịch tay đủ en + 13 ngôn ngữ vào `web/js/i18n/en/{rpbasic,pron}.js` và `i18n/ui/<lang>/{rpbasic,pron}.js`, `node scripts/i18n-pack.mjs`, `bash scripts/build-extension.sh`.
 
 ### Chưa phủ bằng vector / lưu ý cho agent port
 - **Gói nội dung đầy đủ** `web/data/skills-pack.json` (= `https://lexkite.com/data/skills-pack.json`, ~561 KB / ~178 KB gzip): `{_doc, schema:1, v, listening[40 phần], readings[57], lexis{awl,link,phrases}, consts{band{listening,reading,reading-gt: [[minRaw,band]…]}, kvoice{narrator,pools{"en-GB:f"…}}, stopwords[]}}`. `listening`/`readings`/`lexis` có ĐÚNG hình dạng `data.*` của `skills.json` (đề đã xoay phương án); `v` = băm nội dung (12 hex) để native cache; `consts` đọc từ mã web (`qengine.js` BAND, `kvoice.js` POOL/NARRATOR, `listening.js` STOPW), native không gõ lại. Sinh bởi `gen-skills.mjs skillsPack()` qua `node scripts/native/gen.mjs` (`--check` chặn lệch khi nội dung web đổi; test mục 8 của `native-m2-vectors.mjs` kiểm 10 đề/40 phần, 57 bài, trần cỡ, hình dạng, `consts` khớp vectors). Không nằm trong extension (`build-extension.sh` chỉ chép js/css/cpack…) lẫn khung app; `_headers`: `no-cache` (ETag/304). Không ký `native-content` (dữ liệu công khai, URL cố định, xác thực bằng HTTPS; ký cần khóa CI nên sẽ làm `--check` không tất định). Native: tải, ghi đè bản cache theo `v`, offline dùng cache; chưa có cache thì màn trống (gói khởi động 2 đề + 6 bài từ `skills.json` KHÔNG được đóng trong app: `vectors/` bị loại khỏi assets, cần quyết định riêng).

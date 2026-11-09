@@ -155,9 +155,21 @@ export function paletteCheck(img, opts) {
     if (a1 >= 0 && b1 >= 0 && a1 !== b1) cnt(a1, b1); else if (a2 >= 0 && b2 >= 0 && a2 !== b2) cnt(a2, b2);
   }
   const contrastBad = [];
+  // A colour that is ALSO a surface/container token (white = surface-bright/surface-container = on-error/on-primary) is ambiguous: nearest() may name it "on-error", and a white chip, card or progress track on the cream
+  // background would then be judged as 1.07:1 "text". Text is thin; a container is a filled shape (most of its pixels sit ≥ 2 css px inside it) → such a cluster is a container, not text.
+  const NON_ON = t => !/^(on-|inverse-on)/.test(t.name), ambiguous = c => c.token && !NON_ON(c.token) && pal.some(t => NON_ON(t) && deltaE2000(c.lab, t.lab) <= thresh.paletteDE);
+  let inner = null;
+  const filled = ci => {
+    if (!inner) {
+      const r = Math.max(2, Math.round(scale * 2)), tot = new Float64Array(clusters.length), ins = new Float64Array(clusters.length);
+      for (let y = r; y < h - r; y++) for (let x = r; x < w - r; x++) { const i = y * w + x, c = ids[i]; if (c < 0) continue; tot[c]++; if (ids[i - r] === c && ids[i + r] === c && ids[i - r * w] === c && ids[i + r * w] === c) ins[c]++; }
+      inner = clusters.map((_, k) => tot[k] ? ins[k] / tot[k] : 0);
+    }
+    return inner[ci];
+  };
   for (const [k, n] of pairs) {
     if (n < thresh.pairMinEdge * scale) continue; const A = clusters[Math.floor(k / 4096)], B = clusters[k % 4096];
-    const isText = c => c.token && c.de <= thresh.paletteDE && /^(on-|inverse-on)/.test(c.token.name);
+    const isText = c => c.token && c.de <= thresh.paletteDE && /^(on-|inverse-on)/.test(c.token.name) && !(ambiguous(c) && filled(clusters.indexOf(c)) >= 0.5);
     const t = isText(A) && !isText(B) ? A : isText(B) && !isText(A) ? B : null; if (!t) continue;
     const o = t === A ? B : A; if (o.area < thresh.contrastMinArea || t.area < thresh.contrastMinArea || t.area > thresh.textMaxArea) continue;
     const cr = contrast(A.rgb, B.rgb); if (cr < thresh.contrast) contrastBad.push({ fg: t.hex, fgToken: t.token.name, bg: o.hex, bgToken: o.token?.name, ratio: +cr.toFixed(2), edgePx: n });

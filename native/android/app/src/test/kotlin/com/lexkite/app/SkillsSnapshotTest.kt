@@ -41,6 +41,29 @@ import com.lexkite.app.feature.skills.ReadingListScreen
 import com.lexkite.app.feature.skills.ReadingUi
 import com.lexkite.app.feature.skills.TestActions
 import com.lexkite.app.feature.skills.TestUi
+import com.lexkite.app.core.speak.HandsFree
+import com.lexkite.app.core.speak.HfWord
+import com.lexkite.app.core.speak.MicOutcome
+import com.lexkite.app.core.speak.PairItem
+import com.lexkite.app.core.speak.PairSession
+import com.lexkite.app.core.speak.PronCoach
+import com.lexkite.app.core.speak.PronPage
+import com.lexkite.app.core.speak.PronPairs
+import com.lexkite.app.core.speak.Reflex
+import com.lexkite.app.core.speak.Roleplay
+import com.lexkite.app.core.speak.Rtype
+import com.lexkite.app.core.speak.SayData
+import com.lexkite.app.core.speak.SayLogic
+import com.lexkite.app.core.speak.SpeakDrill
+import com.lexkite.app.core.speak.SpeakHub
+import com.lexkite.app.core.speak.SpeakPack
+import com.lexkite.app.core.speak.SpeakingRoom
+import com.lexkite.app.core.speak.Situation
+import com.lexkite.app.core.speak.Tr
+import com.lexkite.app.feature.speak.*
+import kotlinx.serialization.json.jsonArray
+import kotlinx.serialization.json.jsonPrimitive
+import java.util.Locale
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.buildJsonObject
@@ -243,4 +266,169 @@ class SkillsSnapshotTest {
     @Test fun readerResultViLight() = shot("readerResult", "vi", false)
     @Test fun readerResultArLight() = shot("readerResult", "ar", false)
     @Test fun readerResultDeDark() = shot("readerResult", "de", true)
+
+    // ================================================================== P07: speaking & pronunciation snapshots (src/test/snapshots/speak-*) ==================================================================
+    private val spv by lazy { Json.parseToJsonElement(javaClass.classLoader!!.getResource("speak.json")!!.readText()).jsonObject }
+    private val spack by lazy { SpeakPack.parse(javaClass.classLoader!!.getResource("speak-pack.json")!!.readText())!! }
+    private val spData by lazy { spv.getValue("data").jsonObject }
+    private val cafe by lazy { Situation(spData.getValue("situations").jsonObject.getValue("cafe").jsonObject, "en") }
+    private val sayData by lazy { SayData(spData.getValue("say").jsonObject) }
+    private val rtPack by lazy { Rtype.Pack.parse(spData.getValue("readtests").jsonObject) }
+    private val spNowMs = 1767603600000L
+    private val spProgress by lazy { spv.getValue("speak").jsonObject.getValue("situation").jsonArray[1].jsonObject.getValue("input").jsonObject.getValue("progress").jsonObject }
+    private fun spFlow(name: String) = spv.getValue("rtype").jsonObject.getValue("flows").jsonArray.map { it.jsonObject }.first { it.getValue("id").jsonPrimitive.content == name }.getValue("input").jsonObject
+    private val spText = "However, I think living in a big city is a good thing. For example, there are many opportunities for young people. In addition, public transport is convenient. As a result, many residents prefer the urban lifestyle because it offers significant benefits and a sustainable future for everyone."
+
+    @Composable private fun speakScreen(name: String, lang: String) {
+        val pg = SpeakingRoom.page(spack, "p1/7"); val partNames = listOf("p1", "p2", "p3").map { Tr(spack.parts.getValue(it).name) }; val topics = spack.bank.map { it.title }; val sample = SpeakingRoom.sample(spack, pg, 0)
+        val sugg = listOf("congestion" to "sự tắc nghẽn", "commuter" to "người đi làm xa", "pedestrian" to "người đi bộ")
+        fun speaking(phase: String, clock: String, tone: String, hint: Tr, live: String, a: SpeakingRoom.Analysis?) = SpeakingUi(pg, partNames, topics, 0, phase, clock, tone, hint, live, a, if (a != null) spText else "", sugg, SpeakingRoom.tips(spack, "p1"), sample, sample?.let { SpeakingRoom.sentences(it) } ?: emptyList(), canNext = pg.questions.size > 1)
+        val s = sayData.series[0]; val l10n = Locale.forLanguageTag(lang)
+        fun back() = SayLogic.back(s, 0, if (lang == "en" || lang == "de" || lang == "ar" || lang == "vi") lang else "en") { x -> Locale.forLanguageTag(x).getDisplayLanguage(l10n) }
+        val pairs = PronPairs(spack); val ls = spack.lesson("iː")!!; val pc = PronCoach(spack)
+        val rp = spack.script("cafe")!!
+        fun chat(): Roleplay.Chat { val c = Roleplay.Chat(spack, rp, 1, "script"); c.open()
+            for (x in listOf("Could I get a medium latte with oat milk, please?", "A medium, please – not too hot, if possible.", "I'll have it here, thanks. Could I also get a croissant?", "Yes, by card, please – can I just tap?", "It's Sam – S, A, M. Thanks very much!")) { val t = c.begin(x)!!; c.answer(Roleplay.scripted(spack, rp, 1, c.i, t, c.retried) { 0.9 }) }
+            return c }
+        val hfWords = listOf(HfWord("sustainable", "/səˈsteɪnəbl/", "bền vững", "We need a sustainable way to travel.", "", ""), HfWord("resident", "/ˈrezɪdənt/", "cư dân", "Residents voted for the new park.", "", ""))
+        when (name) {
+            "speakHub" -> SpeakSituationScreen(SitUi(SpeakHub.hub(cafe, spProgress, mapOf("latte" to "/ˈlɑːteɪ/", "please" to ""), spNowMs), "cafe"), SitActions())
+            "speakDrill" -> SpeakDrillScreen(drillUi(cafe, SpeakDrill(cafe, null, null, false) { 0.5 }, false), DrillActions())
+            "speakDrillPass" -> { val d = SpeakDrill(cafe, null, null, false) { 0.5 }; d.recording(); d.onMic(MicOutcome("could i get a medium latte please", 0.0, null, 2000), spNowMs); SpeakDrillScreen(drillUi(cafe, d, false), DrillActions()) }
+            "speakDrillTap" -> { val d = SpeakDrill(cafe, null, null, true) { 0.5 }; d.tap(0, spNowMs); d.tap(1, spNowMs); SpeakDrillScreen(drillUi(cafe, d, false), DrillActions()) }
+            "sayList" -> SayListScreen(SayListUi(SayLogic.list(sayData, setOf("say-no/" + s.items[0].id))), SayActions2())
+            "sayFront" -> SayCardScreen(SayCardUi(s, 0, false, SayLogic.front(s, 0), back(), SayLogic.shareText(s, s.items[0])), SayActions2())
+            "sayBack" -> SayCardScreen(SayCardUi(s, 0, true, SayLogic.front(s, 0), back(), SayLogic.shareText(s, s.items[0]), SayLogic.micText(92, "its not my cup of tea").first, " · “its not my cup of tea”"), SayActions2())
+            "speakingHub" -> SpeakingScreen(speaking("idle", "00:00", "", SpeakingRoom.hintRecord(pg), "", null), SpeakingActions())
+            "speakingRec" -> SpeakingScreen(speaking("rec", "00:23", "good", SpeakingRoom.hintTarget(pg), "However, I think living in a big city is a good thing. For example, there are many opportunities", null), SpeakingActions())
+            "speakingResult" -> SpeakingScreen(speaking("idle", "00:25", "good", Tr("Bấm micro để trả lời lại"), "", SpeakingRoom.analyse(spack, pg, spText, 25.0, content.lexis, listOf("public transport"))), SpeakingActions())
+            "pronHub" -> { val done = mapOf("iː" to 90, "ɪ" to 70, "th-sounds" to 60); PronHubScreen(PronHubUi(PronPage.hub(spack, done)), done, PronHubActions()) }
+            "pronSound" -> PronSoundScreen(PronSoundUi(ls, null, spack.lesson("ɪ"), PronPage.mouth(ls.mouth), PronPage.chips(ls), mapOf(0 to 90, 1 to 70, 2 to 50), mapOf(0 to 80), null, null, "sheep", null, pairs.forSkill(ls.id).isNotEmpty(), false, QuizUi(), 70), PronSoundActions())
+            "pronPairs" -> PronPairsScreen(PairsUi(8, 2, listOf("fill", "feel"), null, 1, null, selected = 1), ls.title, PairsActions())
+            "pronSay" -> { val it0 = PairItem("th-s", listOf("think", "sink"), listOf("/θɪŋk/", "/sɪŋk/"), 0)
+                PronSayScreen(SaySessionUi("3/10", 0.2f, pairs.labelTr(spack.contrasts.first { it.id == "th-s" }), false, "think", "/θɪŋk/", "sink", false, PairSession.Step("other", Tr("Máy nghe thành “{heard}” – từ còn lại trong cặp.", mapOf("heard" to "sink")), pairs.tipOf(it0), "sink", true, false), null, null), spack.lesson("th-sounds")!!.title, SayActions()) }
+            "pronSayBlocked" -> PronSayScreen(SaySessionUi("1/10", 0f, Tr("/θ/ – /s/"), false, "think", "/θɪŋk/", "sink", false, null, MIC_DENIED_NATIVE, null), spack.lesson("th-sounds")!!.title, SayActions())
+            "pronRhythm" -> { val s0 = spack.coachSentences[0].s; val at = pc.attempt(s0, "I want go the shop", listOf("I want go the shop")); val rl = spack.lesson("weak-forms")!!
+                PronRhythmScreen(RhythmUi(0, spack.coachSentences.map { it.s }, pc.plan(spack.coachSentences[0], "en-GB"), "en-GB", mapOf(0 to 69), "idle", at, pc.next(pairs, emptyMap(), mapOf(0 to 69), rl.id), spack.lessons.associate { it.id to it.title } + spack.contrasts.associate { it.id to pairs.label(it) }, null), rl.title, { b -> pc.bandText(b) }, RhythmActions()) }
+            "reflexRun" -> ReflexScreen(ReflexUi("speak", 37, "I like to read the news every morning.", null, null, 0, false, null, null), ReflexActions())
+            "reflexResult" -> ReflexScreen(ReflexUi("end", 0, "", Reflex.colorize("She walks to school with her best friend today.", "she walks school"), null, 0, false, Reflex.end(167, 2), null), ReflexActions())
+            "reflexEmpty" -> ReflexScreen(ReflexUi("idle", 60, "", null, null, 0, false, null, null, empty = true), ReflexActions())
+            "rtypeHub" -> RtypeHubScreen(RtypeHubUi(Rtype.hub(rtPack, Json.parseToJsonElement("""{"rtype":{"completion":{"r":9,"t":12},"tfng":{"r":5,"t":10},"mcq":{"r":3,"t":3}}}""")), false), RtypeActions())
+            "rtypeRun" -> { val u = rtPack.of("tfng")[0]; RtypeRunScreen(RtypeRunUi(Rtype.kind("tfng")!!, 0, 1, u, mapOf("1" to "FALSE", "2" to "TRUE"), null, emptyMap(), null, false), RtypeActions()) }
+            "rtypeResult" -> { val u = rtPack.of("tfng")[0]; val inp = spFlow("tfng-mixed"); val ans = inp.getValue("answers").jsonObject.entries.associate { (k, x) -> k to (x.jsonPrimitive.content as Any?) }
+                val ck = Rtype.check(u, ans, null, emptyList(), rtPack.explain, spNowMs)
+                RtypeRunScreen(RtypeRunUi(Rtype.kind("tfng")!!, 0, 1, u, ans, ck, ck.res.keys.mapNotNull { n -> Rtype.explanation(rtPack, u, n)?.get("why")?.jsonPrimitive?.content?.let { w -> n to w } }.toMap(), null, false), RtypeActions()) }
+            "rpList" -> RoleplayListScreen(RpListUi(spack, Roleplay.hub(spack, 1), Roleplay.footnote(spack, false)), RpActions())
+            "rpBrief" -> RoleplayBriefScreen(RpBriefUi(spack, rp, 1, setOf(1), Tr("Đã lưu vào flashcard")), RpActions())
+            "rpChat" -> { val c = Roleplay.Chat(spack, rp, 1, "script"); c.open(); val t = c.begin("Could I get a medium latte with oat milk, please?")!!; c.answer(Roleplay.scripted(spack, rp, 1, c.i, t, c.retried) { 0.9 })
+                RoleplayChatScreen(RpChatUi(rp, 1, c.hist.toList(), "script", c.turnLabel, false, "", c.hint(), null, false, null, true, false), RpActions()) { go -> go() } }
+            "rpResult" -> { val c = chat(); val r = Roleplay.report(spack, rp, 1, c.hist.toList(), 0, null); RoleplayResultScreen(RpResultUi(rp, 1, r, setOf(0), Roleplay.confidence(spack, rp)), RpActions()) }
+            else -> HandsFreeScreen(HfUi(Tr("Từ đến hạn ôn"), hfWords, 0, true, HandsFree.Opt()), HfActions())
+        }
+    }
+
+    private fun speakShot(name: String, lang: String, dark: Boolean) {
+        val t = Fixtures.t(lang)
+        rule.setContent { LKTheme(t, dark, reduceMotion = true) { Box(Modifier.background(LocalLKColors.current.background)) { androidx.compose.runtime.CompositionLocalProvider(LocalSpeakSlots provides SpeakSlots(teacher = { who, pose, mod -> Box(mod) { com.lexkite.app.ui.TeacherStill(who, pose) } })) { speakScreen(name, lang) } } } }
+        // the long pages are captured where their state lives: the analysis, the checked group, the sharper sentences
+        when (name) { "speakingResult" -> rule.onNodeWithTag("speak-result").performScrollTo(); "rtypeResult" -> rule.onNodeWithTag("speak-rtype-result").performScrollTo(); "rpResult" -> rule.onNodeWithTag("speak-rp-rewrites").performScrollTo() }
+        rule.waitForIdle()
+        rule.onRoot().captureRoboImage("src/test/snapshots/speak-$name-$lang-${if (dark) "dark" else "light"}.png")
+    }
+    @Test fun speakSpeakHubEnLight() = speakShot("speakHub", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakSpeakHubViLight() = speakShot("speakHub", "vi", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakSpeakHubArLight() = speakShot("speakHub", "ar", false)
+    @Test fun speakSpeakHubDeDark() = speakShot("speakHub", "de", true)
+    @Test fun speakSpeakDrillEnLight() = speakShot("speakDrill", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakSpeakDrillViLight() = speakShot("speakDrill", "vi", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakSpeakDrillArLight() = speakShot("speakDrill", "ar", false)
+    @Test fun speakSpeakDrillDeDark() = speakShot("speakDrill", "de", true)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakSpeakDrillPassEnLight() = speakShot("speakDrillPass", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakSpeakDrillTapEnLight() = speakShot("speakDrillTap", "en", false)
+    @Test fun speakSayListEnLight() = speakShot("sayList", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakSayListViLight() = speakShot("sayList", "vi", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakSayListArLight() = speakShot("sayList", "ar", false)
+    @Test fun speakSayListDeDark() = speakShot("sayList", "de", true)
+    @Test fun speakSayFrontEnLight() = speakShot("sayFront", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakSayFrontViLight() = speakShot("sayFront", "vi", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakSayFrontArLight() = speakShot("sayFront", "ar", false)
+    @Test fun speakSayFrontDeDark() = speakShot("sayFront", "de", true)
+    @Test fun speakSayBackEnLight() = speakShot("sayBack", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakSayBackViLight() = speakShot("sayBack", "vi", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakSayBackArLight() = speakShot("sayBack", "ar", false)
+    @Test fun speakSayBackDeDark() = speakShot("sayBack", "de", true)
+    @Test fun speakSpeakingHubEnLight() = speakShot("speakingHub", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakSpeakingHubViLight() = speakShot("speakingHub", "vi", false)
+    @Test fun speakSpeakingHubArLight() = speakShot("speakingHub", "ar", false)
+    @Test fun speakSpeakingHubDeDark() = speakShot("speakingHub", "de", true)
+    @Test fun speakSpeakingRecEnLight() = speakShot("speakingRec", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakSpeakingRecViLight() = speakShot("speakingRec", "vi", false)
+    @Test fun speakSpeakingRecArLight() = speakShot("speakingRec", "ar", false)
+    @Test fun speakSpeakingRecDeDark() = speakShot("speakingRec", "de", true)
+    @Test fun speakSpeakingResultEnLight() = speakShot("speakingResult", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakSpeakingResultViLight() = speakShot("speakingResult", "vi", false)
+    @Test fun speakSpeakingResultArLight() = speakShot("speakingResult", "ar", false)
+    @Test fun speakSpeakingResultDeDark() = speakShot("speakingResult", "de", true)
+    @Test fun speakPronHubEnLight() = speakShot("pronHub", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakPronHubViLight() = speakShot("pronHub", "vi", false)
+    @Test fun speakPronHubArLight() = speakShot("pronHub", "ar", false)
+    @Test fun speakPronHubDeDark() = speakShot("pronHub", "de", true)
+    @Test fun speakPronSoundEnLight() = speakShot("pronSound", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakPronSoundViLight() = speakShot("pronSound", "vi", false)
+    @Test fun speakPronSoundArLight() = speakShot("pronSound", "ar", false)
+    @Test fun speakPronSoundDeDark() = speakShot("pronSound", "de", true)
+    @Test fun speakPronPairsEnLight() = speakShot("pronPairs", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakPronPairsViLight() = speakShot("pronPairs", "vi", false)
+    @Test fun speakPronPairsArLight() = speakShot("pronPairs", "ar", false)
+    @Test fun speakPronPairsDeDark() = speakShot("pronPairs", "de", true)
+    @Test fun speakPronSayEnLight() = speakShot("pronSay", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakPronSayViLight() = speakShot("pronSay", "vi", false)
+    @Test fun speakPronSayArLight() = speakShot("pronSay", "ar", false)
+    @Test fun speakPronSayDeDark() = speakShot("pronSay", "de", true)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakPronSayBlockedEnLight() = speakShot("pronSayBlocked", "en", false)
+    @Test fun speakPronRhythmEnLight() = speakShot("pronRhythm", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakPronRhythmViLight() = speakShot("pronRhythm", "vi", false)
+    @Test fun speakPronRhythmArLight() = speakShot("pronRhythm", "ar", false)
+    @Test fun speakPronRhythmDeDark() = speakShot("pronRhythm", "de", true)
+    @Test fun speakReflexRunEnLight() = speakShot("reflexRun", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakReflexRunViLight() = speakShot("reflexRun", "vi", false)
+    @Test fun speakReflexRunArLight() = speakShot("reflexRun", "ar", false)
+    @Test fun speakReflexRunDeDark() = speakShot("reflexRun", "de", true)
+    @Test fun speakReflexResultEnLight() = speakShot("reflexResult", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakReflexResultViLight() = speakShot("reflexResult", "vi", false)
+    @Test fun speakReflexResultArLight() = speakShot("reflexResult", "ar", false)
+    @Test fun speakReflexResultDeDark() = speakShot("reflexResult", "de", true)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakReflexEmptyEnLight() = speakShot("reflexEmpty", "en", false)
+    @Test fun speakRtypeHubEnLight() = speakShot("rtypeHub", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakRtypeHubViLight() = speakShot("rtypeHub", "vi", false)
+    @Test fun speakRtypeHubArLight() = speakShot("rtypeHub", "ar", false)
+    @Test fun speakRtypeHubDeDark() = speakShot("rtypeHub", "de", true)
+    @Test fun speakRtypeRunEnLight() = speakShot("rtypeRun", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakRtypeRunViLight() = speakShot("rtypeRun", "vi", false)
+    @Test fun speakRtypeRunArLight() = speakShot("rtypeRun", "ar", false)
+    @Test fun speakRtypeRunDeDark() = speakShot("rtypeRun", "de", true)
+    @Test fun speakRtypeResultEnLight() = speakShot("rtypeResult", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakRtypeResultViLight() = speakShot("rtypeResult", "vi", false)
+    @Test fun speakRtypeResultArLight() = speakShot("rtypeResult", "ar", false)
+    @Test fun speakRtypeResultDeDark() = speakShot("rtypeResult", "de", true)
+    @Test fun speakRpListEnLight() = speakShot("rpList", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakRpListViLight() = speakShot("rpList", "vi", false)
+    @Test fun speakRpListArLight() = speakShot("rpList", "ar", false)
+    @Test fun speakRpListDeDark() = speakShot("rpList", "de", true)
+    @Test fun speakRpBriefEnLight() = speakShot("rpBrief", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakRpBriefViLight() = speakShot("rpBrief", "vi", false)
+    @Test fun speakRpBriefArLight() = speakShot("rpBrief", "ar", false)
+    @Test fun speakRpBriefDeDark() = speakShot("rpBrief", "de", true)
+    @Test fun speakRpChatEnLight() = speakShot("rpChat", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakRpChatViLight() = speakShot("rpChat", "vi", false)
+    @Test fun speakRpChatArLight() = speakShot("rpChat", "ar", false)
+    @Test fun speakRpChatDeDark() = speakShot("rpChat", "de", true)
+    @Test fun speakRpResultEnLight() = speakShot("rpResult", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakRpResultViLight() = speakShot("rpResult", "vi", false)
+    @Test fun speakRpResultArLight() = speakShot("rpResult", "ar", false)
+    @Test fun speakRpResultDeDark() = speakShot("rpResult", "de", true)
+    @Test fun speakHfRunEnLight() = speakShot("hfRun", "en", false)
+    @Config(qualifiers = "w390dp-h844dp-mdpi") @Test fun speakHfRunViLight() = speakShot("hfRun", "vi", false)
+    @Test fun speakHfRunArLight() = speakShot("hfRun", "ar", false)
+    @Test fun speakHfRunDeDark() = speakShot("hfRun", "de", true)
 }

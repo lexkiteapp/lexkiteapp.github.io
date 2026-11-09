@@ -121,6 +121,7 @@ struct InnerScreen: View {
         if StudyRoutes.handlesInner(route.name) { StudyInnerScreen(route: route) }
         else if DictRoutes.handlesInner(route.name) { DictInnerScreen(route: route) }
         else if SkillsRoutes.handlesInner(route.name) { SkillsInnerScreen(route: route) }   // M4 P06: listening · listen · reading · read
+        else if SpeakRoutes.handlesInner(route.name) { SpeakInnerScreen(route: route) }   // M4 P07: speak · speaking · pron · rtype · roleplay
         else { placeholder }
     }
     @ViewBuilder private var placeholder: some View {
@@ -153,6 +154,8 @@ struct FocusScreen: View {
             StudyFocusScreen(route: route)   // M3 P04: review · practice · mistakes
         } else if SkillsRoutes.handlesFocus(route.name) {
             SkillsFocusScreen(route: route)   // M4 P06: listen-test · dictation
+        } else if SpeakRoutes.handlesFocus(route.name) {
+            SpeakFocusScreen(route: route)   // M4 P07: say · reflex · handsfree
         } else {
             VStack(spacing: 0) {
                 TopBar(variant: .focus(progress: 0), title: "") { services.router.closeFocus() }

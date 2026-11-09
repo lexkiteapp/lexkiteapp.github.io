@@ -39704,6 +39704,21 @@
     "ru": "Слушайте, читайте и говорите о законе и безопасности",
     "tr": "Hukuk ve güvenlik hakkında dinle, oku ve konuş"
   },
+  "Micro đang bị tắt. Mở Cài đặt của thiết bị, tìm Lexkite, bật Micro rồi quay lại thử nhé.": {
+    "es": "El micrófono está desactivado. Abre la app Ajustes del dispositivo, busca Lexkite, activa el micrófono y vuelve a intentarlo.",
+    "pt": "O microfone está desativado. Abra o app Ajustes do dispositivo, encontre o Lexkite, ative o microfone e tente de novo.",
+    "fr": "Le micro est désactivé. Ouvre l’app Réglages de ton appareil, trouve Lexkite, active le micro, puis réessaie.",
+    "de": "Das Mikrofon ist ausgeschaltet. Öffne die Einstellungen-App deines Geräts, suche Lexkite, aktiviere das Mikrofon und versuche es erneut.",
+    "id": "Mikrofon sedang mati. Buka aplikasi Pengaturan di perangkatmu, cari Lexkite, aktifkan Mikrofon, lalu coba lagi.",
+    "th": "ไมโครโฟนถูกปิดอยู่ เปิดแอปการตั้งค่าของอุปกรณ์ ค้นหา Lexkite เปิดไมโครโฟน แล้วลองอีกครั้ง",
+    "zh": "麦克风已关闭。请打开设备的“设置”应用，找到 Lexkite，开启麦克风后再试一次。",
+    "ja": "マイクがオフになっています。端末の「設定」アプリで Lexkite を探し、マイクをオンにしてからもう一度お試しください。",
+    "ko": "마이크가 꺼져 있어요. 기기의 설정 앱에서 Lexkite를 찾아 마이크를 켠 다음 다시 시도해 주세요.",
+    "hi": "माइक्रोफ़ोन बंद है। अपने डिवाइस का सेटिंग्स ऐप खोलें, Lexkite ढूँढें, माइक्रोफ़ोन चालू करें और फिर से कोशिश करें।",
+    "ar": "الميكروفون متوقف. افتح تطبيق الإعدادات في جهازك، وابحث عن Lexkite، وفعّل الميكروفون ثم حاول مرة أخرى.",
+    "ru": "Микрофон выключен. Откройте приложение «Настройки» на устройстве, найдите Lexkite, включите микрофон и попробуйте снова.",
+    "tr": "Mikrofon kapalı. Cihazının Ayarlar uygulamasını aç, Lexkite’ı bul, mikrofonu aç ve tekrar dene."
+  },
   "Luyện định dạng DELE/SIELE": {
     "es": "Práctica de formato DELE/SIELE",
     "pt": "Prática no formato DELE/SIELE",
@@ -39733,5 +39748,35 @@
     "ar": "القراءة والاستماع والكتابة والتحدث بهيكل الامتحان",
     "ru": "Чтение, аудирование, письмо и говорение по структуре экзамена",
     "tr": "Sınav yapısında okuma, dinleme, yazma ve konuşma"
+  },
+  "Shadowing": {
+    "ar": "المحاكاة",
+    "de": "Shadowing",
+    "es": "Shadowing",
+    "fr": "Shadowing",
+    "hi": "शैडोइंग",
+    "id": "Shadowing",
+    "ja": "シャドーイング",
+    "ko": "섀도잉",
+    "pt": "Shadowing",
+    "ru": "Шэдоуинг",
+    "th": "Shadowing",
+    "tr": "Gölge okuma",
+    "zh": "跟读"
+  },
+  "want + to V.": {
+    "ar": "want + to + verb.",
+    "de": "want + to + verb.",
+    "es": "want + to + verb.",
+    "fr": "want + to + verb.",
+    "hi": "want + to + verb.",
+    "id": "want + to + verb.",
+    "ja": "want + to + verb.",
+    "ko": "want + to + verb.",
+    "pt": "want + to + verb.",
+    "ru": "want + to + verb.",
+    "th": "want + to + verb.",
+    "tr": "want + to + verb.",
+    "zh": "want + to + verb."
   }
 }
