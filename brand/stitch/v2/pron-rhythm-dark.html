@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sentence rhythm and shadowing - Lexkite (dark – dark-from-light.mjs)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-container": "#a2cecf",
+            "on-primary-fixed-variant": "#00504c",
+            "text-muted": "#3f4947",
+            "secondary-container": "#fd6f4c",
+            "on-secondary-container": "#661200",
+            "secondary-fixed": "#ffdad2",
+            "inverse-primary": "#8fd3cd",
+            "on-tertiary-fixed": "#002020",
+            "on-background": "#1e1b17",
+            "surface": "#fff8f2",
+            "on-primary-container": "#8ed2cc",
+            "surface-container-low": "#f9f2ec",
+            "feedback-correct": "#1b7f52",
+            "surface-container-high": "#eee7e0",
+            "outline-variant": "#bec9c7",
+            "primary-fixed": "#abefe9",
+            "tertiary-container": "#2f595a",
+            "on-surface": "#1e1b17",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed": "#beebeb",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#e8e1db",
+            "ledge-coral": "#d94834",
+            "ledge-teal": "#062b29",
+            "error-container": "#ffdad6",
+            "on-primary": "#ffffff",
+            "feedback-incorrect": "#ba1a1a",
+            "surface-bright": "#fff8f2",
+            "inverse-surface": "#33302c",
+            "primary-fixed-dim": "#8fd3cd",
+            "border-tactile": "#e6e0d6",
+            "tertiary": "#154243",
+            "primary": "#004340",
+            "surface-linen": "#faf3eb",
+            "inverse-on-surface": "#f6f0e9",
+            "surface-tint": "#216964",
+            "background": "#fff8f2",
+            "error": "#ba1a1a",
+            "on-secondary-fixed-variant": "#8a1c00",
+            "on-surface-variant": "#3f4947",
+            "primary-container": "#0d5c58",
+            "secondary": "#ac3416",
+            "on-error": "#ffffff",
+            "surface-cream": "#fff8f1",
+            "on-tertiary-fixed-variant": "#224d4e",
+            "outline": "#6f7978",
+            "tertiary-fixed-dim": "#a3cfcf",
+            "surface-container-lowest": "#ffffff",
+            "surface-container": "#f4ede6",
+            "on-secondary-fixed": "#3c0700",
+            "on-tertiary": "#ffffff",
+            "text-primary": "#1e1b15",
+            "surface-dim": "#dfd9d2",
+            "on-primary-fixed": "#00201e",
+            "surface-variant": "#e8e1db",
+            "secondary-fixed-dim": "#ffb4a2"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-md": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "margin-md": "2rem",
+            "margin-lg": "3rem",
+            "gutter-lg": "2rem",
+            "margin": "1rem",
+            "gutter": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400" }],
+            "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#1D2F33] text-[#EAF2F2] antialiased min-h-screen font-body-md text-body-md select-none">
+<!-- Top level shell wrapper (Locked strictly to 390px portrait inner view) -->
+<div class="w-full max-w-[390px] mx-auto min-h-screen bg-[#1D2F33] flex flex-col relative pb-10">
+<!-- TopAppBar execution mapped strictly from Shared Components JSON -->
+<header class="fixed top-0 left-0 w-full z-40 flex items-center justify-between px-margin h-14 bg-[#1D2F33] dark:bg-[#263A3F] max-w-[390px] mx-auto border-b border-[#4A6870] dark:border-[#4A6870] shadow-[0_2px_0_0_#d8d1c5] dark:shadow-none">
+<div class="flex items-center gap-2">
+<button aria-label="Go back" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg hover:bg-[#1D2F33] dark:hover:bg-[#263A3F] transition-colors duration-150 active:translate-y-[2px] transition-transform duration-100 text-[#5EEAD4] dark:text-[#5EEAD4]">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<span class="text-headline-sm font-headline-sm text-[#EAF2F2] dark:text-inverse-on-surface truncate max-w-[240px]">
+          Sentence rhythm and shadowing
+        </span>
+</div>
+<button aria-label="Rhythm settings" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg hover:bg-[#1D2F33] dark:hover:bg-[#263A3F] transition-colors duration-150 active:translate-y-[2px] transition-transform duration-100 text-[#EAF2F2] dark:text-[#EAF2F2]">
+<span class="material-symbols-outlined text-[22px]">tune</span>
+</button>
+</header>
+<!-- Main Content Container with exactly 16px side gutters (px-margin = 16px / 1rem) -->
+<main class="flex-1 px-margin pt-20 flex flex-col gap-4">
+<!-- Eyebrow Badge & Screen Title Area -->
+<section class="flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#1D2F33] border border-[#4A6870] shadow-[0_2px_0_0_#e6e0d6] text-[#5EEAD4] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">graphic_eq</span>
+<span>SAY IT LIKE A NATIVE</span>
+</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-md bg-[#263A3F] text-[#5EEAD4] font-label-sm text-label-sm font-bold">
+            CEFR B2
+          </span>
+</div>
+<h1 class="text-headline-md font-headline-md text-[#5EEAD4] tracking-tight">
+          Sentence rhythm and shadowing
+        </h1>
+<p class="text-body-sm font-body-sm text-[#EAF2F2]">
+          Stressed words are big; small words are quick and light. Listen to the model, then shadow it straight away.
+        </p>
+</section>
+<!-- Sentence Progress & Picker Chips (1 to 4) -->
+<section class="flex items-center justify-between p-2 rounded-xl bg-[#162528] border border-[#4A6870] shadow-[0_2px_0_0_#d8d1c5]">
+<span class="font-label-md text-label-md text-[#5EEAD4] font-bold pl-2">
+          Sentence 2 of 4
+        </span>
+<div aria-label="Sentence selection" class="flex items-center gap-2" role="group">
+<!-- Chip 1 (Selectable) -->
+<button aria-label="Sentence 1" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-lg bg-[#1D2F33] border-2 border-[#4A6870] shadow-[0_3px_0_0_#e6e0d6] font-label-lg text-label-lg text-[#5EEAD4] flex items-center justify-center hover:bg-[#1D2F33] active:translate-y-[2px] active:shadow-[0_1px_0_0_#e6e0d6] transition-all" type="button">
+            1
+          </button>
+<!-- Chip 2 (Active/Selected) -->
+<button aria-current="true" aria-label="Sentence 2 selected" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-lg bg-[#12514D] border-2 border-[#12514D] text-on-primary shadow-[0_3px_0_0_#062b29] font-label-lg text-label-lg font-bold flex items-center justify-center transition-all" type="button">
+            2
+          </button>
+<!-- Chip 3 (Selectable) -->
+<button aria-label="Sentence 3" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-lg bg-[#1D2F33] border-2 border-[#4A6870] shadow-[0_3px_0_0_#e6e0d6] font-label-lg text-label-lg text-[#5EEAD4] flex items-center justify-center hover:bg-[#1D2F33] active:translate-y-[2px] active:shadow-[0_1px_0_0_#e6e0d6] transition-all" type="button">
+            3
+          </button>
+<!-- Chip 4 (Selectable) -->
+<button aria-label="Sentence 4" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-lg bg-[#1D2F33] border-2 border-[#4A6870] shadow-[0_3px_0_0_#e6e0d6] font-label-lg text-label-lg text-[#5EEAD4] flex items-center justify-center hover:bg-[#1D2F33] active:translate-y-[2px] active:shadow-[0_1px_0_0_#e6e0d6] transition-all" type="button">
+            4
+          </button>
+</div>
+</section>
+<!-- Teacher Slot Container -->
+<section class="rounded-xl border border-dashed border-[#12514D]/40 bg-[#1D2F33] p-3 flex flex-col gap-2 relative" data-slot="teacher-slot">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-[#12514D] text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">record_voice_over</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-[#5EEAD4] tracking-wide">
+            Ama · Pronunciation Mentor
+          </span>
+<span class="ml-auto font-label-sm text-label-sm text-[#FF9A86] font-semibold uppercase tracking-wider">Guide</span>
+</div>
+<div class="bg-[#162528] p-2.5 rounded-lg border border-[#4A6870] shadow-[0_2px_0_0_#e6e0d6]">
+<p class="font-body-sm text-body-sm text-[#EAF2F2] leading-snug">
+            “English is a stress-timed language: we bounce on stressed syllables and glide over function words.”
+          </p>
+</div>
+</section>
+<!-- Visual Rhythm Card (The Main Sentence Display) -->
+<section class="rounded-2xl bg-[#162528] border-[1.5px] border-[#4A6870] shadow-[0_4px_0_0_#d8d1c5] p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between border-b border-[#4A6870] pb-2">
+<span class="font-label-sm text-label-sm font-bold text-[#5EEAD4] uppercase tracking-wider flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#BA5138]"></span>
+            Stress Pulse Track
+          </span>
+<span class="font-label-sm text-label-sm text-[#EAF2F2]">4 beats · 120 bpm</span>
+</div>
+<!-- Dynamic Stress Waveform / Syllable Typography -->
+<div class="flex flex-wrap items-baseline justify-center gap-x-2.5 gap-y-3 py-3 px-1 text-center bg-[#1D2F33] rounded-xl border border-[#4A6870]">
+<!-- Weak: I -->
+<div class="inline-flex flex-col items-center">
+<span class="font-body-md text-body-md font-semibold text-[#5EEAD4]">I</span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#37525A] mt-1"></span>
+</div>
+<!-- Stressed: WANT -->
+<div class="inline-flex flex-col items-center">
+<span class="font-headline-lg text-headline-lg font-extrabold text-[#5EEAD4] scale-105">WANT</span>
+<span class="w-3.5 h-2 rounded-full bg-[#12514D] shadow-[0_2px_0_0_#062b29] mt-1"></span>
+</div>
+<!-- Weak: to -->
+<div class="inline-flex flex-col items-center">
+<span class="font-body-md text-body-md font-semibold text-[#5EEAD4]">to</span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#37525A] mt-1"></span>
+</div>
+<!-- Stressed: GO -->
+<div class="inline-flex flex-col items-center">
+<span class="font-headline-lg text-headline-lg font-extrabold text-[#5EEAD4] scale-105">GO</span>
+<span class="w-3.5 h-2 rounded-full bg-[#12514D] shadow-[0_2px_0_0_#062b29] mt-1"></span>
+</div>
+<!-- Weak: to the -->
+<div class="inline-flex flex-col items-center">
+<span class="font-body-md text-body-md font-semibold text-[#5EEAD4]">to the</span>
+<span class="w-2.5 h-1.5 rounded-full bg-[#37525A] mt-1"></span>
+</div>
+<!-- Stressed: SHOPS -->
+<div class="inline-flex flex-col items-center">
+<span class="font-headline-lg text-headline-lg font-extrabold text-[#5EEAD4] scale-105">SHOPS</span>
+<span class="w-3.5 h-2 rounded-full bg-[#12514D] shadow-[0_2px_0_0_#062b29] mt-1"></span>
+</div>
+<!-- Weak: on -->
+<div class="inline-flex flex-col items-center">
+<span class="font-body-md text-body-md font-semibold text-[#5EEAD4]">on</span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#37525A] mt-1"></span>
+</div>
+<!-- Stressed: SAT-ur-day -->
+<div class="inline-flex flex-col items-center">
+<div class="flex items-baseline">
+<span class="font-headline-lg text-headline-lg font-extrabold text-[#5EEAD4]">SAT</span>
+<span class="font-body-sm text-body-sm font-semibold text-[#5EEAD4] ml-0.5">urday</span>
+</div>
+<span class="w-3.5 h-2 rounded-full bg-[#12514D] shadow-[0_2px_0_0_#062b29] mt-1"></span>
+</div>
+</div>
+<!-- Tactile Acoustic Wave Bar representation -->
+<div class="flex items-center justify-between px-3 py-2 bg-[#263A3F] rounded-lg border border-[#4A6870]">
+<div class="flex items-end gap-1 h-5 w-full justify-around">
+<span class="w-1 h-2 bg-[#37525A] rounded-full"></span>
+<span class="w-1.5 h-5 bg-[#12514D] rounded-full"></span>
+<span class="w-1 h-1.5 bg-[#37525A] rounded-full"></span>
+<span class="w-1.5 h-4.5 bg-[#12514D] rounded-full"></span>
+<span class="w-1 h-2 bg-[#37525A] rounded-full"></span>
+<span class="w-1 h-1.5 bg-[#37525A] rounded-full"></span>
+<span class="w-1.5 h-5 bg-[#12514D] rounded-full"></span>
+<span class="w-1 h-2 bg-[#37525A] rounded-full"></span>
+<span class="w-1.5 h-4.5 bg-[#12514D] rounded-full"></span>
+<span class="w-1 h-2.5 bg-[#37525A] rounded-full"></span>
+<span class="w-1 h-1.5 bg-[#37525A] rounded-full"></span>
+</div>
+</div>
+</section>
+<!-- Practice Action Buttons -->
+<section class="flex flex-col gap-2.5">
+<!-- Button 1: Listen to the model (Secondary tactile button) -->
+<button class="w-full min-h-[48px] px-4 py-2.5 rounded-xl bg-[#1D2F33] hover:bg-[#1D2F33] text-[#5EEAD4] font-label-lg text-label-lg border-2 border-[#4A6870] shadow-[0_3px_0_0_#d8d1c5] active:translate-y-[2px] active:shadow-[0_1px_0_0_#d8d1c5] transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+<span>Listen to the model</span>
+</button>
+<!-- Primary Coral Button: Shadowing (Exactly ONE primary tactile button per spec) -->
+<button class="w-full min-h-[50px] px-4 py-3 rounded-xl bg-[#BB4F34] hover:bg-[#C24D30] text-on-secondary font-label-lg text-label-lg border-[1.5px] border-[#9D3A23] shadow-[0_4px_0_0_#d94834] active:translate-y-[3px] active:shadow-[0_1px_0_0_#d94834] transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[22px]">mic</span>
+<span class="tracking-wide">Shadowing</span>
+</button>
+</section>
+<!-- Result & Feedback Block -->
+<section class="rounded-2xl bg-[#162528] border-[1.5px] border-[#4A6870] shadow-[0_3px_0_0_#d8d1c5] p-3.5 flex flex-col gap-3">
+<!-- Status band -->
+<div class="flex items-start gap-2.5 p-2.5 rounded-xl bg-[#1D2F33] border border-[#7A5A2A]">
+<div class="w-7 h-7 rounded-lg bg-[#BA5138] text-on-secondary flex items-center justify-center shrink-0 shadow-[0_2px_0_0_#d94834]">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-[#FF9A86] font-bold leading-tight">
+              Close! Listen to the slow model and say it once more
+            </h4>
+<p class="font-body-sm text-body-sm text-[#EAF2F2] mt-1">
+              Heard: <span class="italic">I want to go to the <span class="bg-[#4A2A22] text-[#FF9A86] px-1 py-0.5 rounded font-bold underline decoration-[#FF9A86]">shop</span> Saturday</span>
+</p>
+</div>
+</div>
+<!-- Targeted tip box -->
+<div class="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#1D2F33] border border-[#4A6870] text-[#5EEAD4]">
+<span class="material-symbols-outlined text-[18px] text-[#5EEAD4] shrink-0">tips_and_updates</span>
+<span class="font-body-sm text-body-sm">
+            Stress the content words: <strong class="font-bold underline">shops</strong>
+</span>
+</div>
+<!-- Secondary audio inspection and next steps -->
+<div class="flex flex-col gap-2 pt-1 border-t border-[#4A6870]">
+<button class="w-full min-h-[44px] px-3 py-2 rounded-lg bg-[#1D2F33] hover:bg-[#1D2F33] border border-[#4A6870] shadow-[0_2px_0_0_#d8d1c5] font-label-md text-label-md text-[#5EEAD4] flex items-center justify-center gap-2 active:translate-y-[1px]" type="button">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+<span>Listen to your voice</span>
+</button>
+<div class="flex items-center justify-between gap-2 mt-1">
+<span class="font-label-sm text-label-sm text-[#EAF2F2]">Quick Jump:</span>
+<div class="flex items-center gap-2">
+<button class="min-h-[44px] px-3 rounded-lg bg-[#1D2F33] border border-[#4A6870] shadow-[0_2px_0_0_#d8d1c5] font-label-sm text-label-sm text-[#5EEAD4] flex items-center gap-1 active:translate-y-[1px]" type="button">
+<span>Sentence 3</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</button>
+<button class="min-h-[44px] px-3 rounded-lg bg-[#1D2F33] border border-[#4A6870] shadow-[0_2px_0_0_#d8d1c5] font-label-sm text-label-sm text-[#5EEAD4] flex items-center gap-1 active:translate-y-[1px]" type="button">
+<span>Sentence 4</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

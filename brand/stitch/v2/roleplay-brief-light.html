@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Speaking Role-play Brief</title>
+<!-- Material Symbols Outlined font -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Nunito Sans Font Family -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-container": "#ff765e",
+            "tertiary-fixed-dim": "#ffb4a6",
+            "surface": "#fdf9f3",
+            "on-primary-fixed": "#002020",
+            "on-error": "#ffffff",
+            "primary-fixed-dim": "#a3cfcf",
+            "secondary-fixed-dim": "#6bd8ce",
+            "tertiary-container": "#720a00",
+            "on-background": "#1c1c18",
+            "on-surface": "#1c1c18",
+            "inverse-surface": "#31302d",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed-variant": "#00504b",
+            "surface-variant": "#e6e2dc",
+            "on-secondary": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-container-low": "#f7f3ed",
+            "surface-bright": "#fdf9f3",
+            "secondary-fixed": "#88f5ea",
+            "on-surface-variant": "#404848",
+            "tertiary": "#4a0400",
+            "surface-container-highest": "#e6e2dc",
+            "on-tertiary": "#ffffff",
+            "on-secondary-container": "#00716a",
+            "outline-variant": "#c0c8c8",
+            "on-primary": "#ffffff",
+            "background": "#fdf9f3",
+            "surface-tint": "#3b6566",
+            "on-primary-container": "#7da8a8",
+            "on-tertiary-fixed": "#3f0300",
+            "error": "#ba1a1a",
+            "inverse-on-surface": "#f4f0ea",
+            "on-primary-fixed-variant": "#224d4e",
+            "surface-container": "#f1ede7",
+            "on-tertiary-fixed-variant": "#900f00",
+            "outline": "#717978",
+            "on-error-container": "#93000a",
+            "primary": "#002627",
+            "inverse-primary": "#a3cfcf",
+            "surface-dim": "#dddad4",
+            "secondary-container": "#88f5ea",
+            "primary-container": "#0f3d3e",
+            "secondary": "#006a64",
+            "surface-container-high": "#ebe8e2",
+            "on-secondary-fixed": "#00201e",
+            "primary-fixed": "#beebeb",
+            "tertiary-fixed": "#ffdad3"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "margin": "2rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Nunito Sans"],
+            "body-md": ["Nunito Sans"],
+            "headline-sm": ["Nunito Sans"],
+            "label-md": ["Nunito Sans"],
+            "headline-xl": ["Nunito Sans"],
+            "headline-md": ["Nunito Sans"],
+            "body-sm": ["Nunito Sans"],
+            "headline-lg": ["Nunito Sans"],
+            "body-lg": ["Nunito Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 22px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Tactile 3D bottom bevels */
+    .tactile-btn-coral {
+      background-color: #e76f51;
+      border-bottom: 4px solid #b84328;
+    }
+    .tactile-btn-coral:active {
+      transform: translateY(2px);
+      border-bottom-width: 2px;
+    }
+    
+    .tactile-card {
+      background-color: #ffffff;
+      border: 1.5px solid #eadec8;
+      box-shadow: 0 3px 0 0 #eadec8;
+    }
+    
+    .tactile-chip {
+      background-color: #ffffff;
+      border: 1.5px solid #dcd1be;
+      box-shadow: 0 2px 0 0 #dcd1be;
+    }
+    .tactile-chip:active {
+      transform: translateY(1px);
+      box-shadow: 0 1px 0 0 #dcd1be;
+    }
+
+    .tactile-segment-active {
+      background-color: #0f3d3e;
+      color: #ffffff;
+      border: 1.5px solid #002627;
+      box-shadow: 0 2.5px 0 0 #002020;
+    }
+    
+    .tactile-segment-inactive {
+      background-color: #ffffff;
+      color: #1c1c18;
+      border: 1.5px solid #dcd1be;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased flex justify-center min-h-screen p-0 sm:py-6">
+<!-- Mobile Inner Canvas Container (Fixed 390px for high-fidelity phone layout) -->
+<main class="w-full max-w-[390px] bg-surface min-h-screen flex flex-col justify-between shadow-xl sm:rounded-3xl border border-surface-variant/30 overflow-x-hidden relative">
+<!-- TOP APP BAR (Inner Screen: Dedicated back button, Title, Sound/CEFR Action) -->
+<header class="sticky top-0 z-30 bg-surface/95 backdrop-blur-md px-4 h-14 flex items-center justify-between border-b border-surface-variant/30 max-w-[390px] mx-auto w-full">
+<!-- Back Button: Strict 44x44px target -->
+<button aria-label="Go back" class="w-11 h-11 rounded-full flex items-center justify-center bg-surface-container hover:bg-surface-container-high text-primary active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Center Title: High contrast & Bold -->
+<div class="flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">Speaking brief</span>
+</div>
+<!-- Trailing Action: 44x44px target audio/mic test -->
+<button aria-label="Sound check" class="w-11 h-11 rounded-full flex items-center justify-center bg-surface-container hover:bg-surface-container-high text-primary active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-primary" data-icon="volume_up">volume_up</span>
+</button>
+</header>
+<!-- SCROLLABLE CONTENT BODY -->
+<div class="flex-1 px-4 pt-4 pb-6 flex flex-col gap-4">
+<!-- SCENARIO HERO SECTION -->
+<section class="flex flex-col gap-1.5">
+<!-- Metadata Pill Badge -->
+<div class="inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded-full bg-surface-container border border-surface-variant/70 text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[16px]" data-icon="bolt">bolt</span>
+<span class="font-label-sm text-label-sm font-semibold tracking-wide text-on-surface">Everyday English • Spoken Interaction • ~4 mins</span>
+</div>
+<!-- Headline -->
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight mt-1">
+          Ordering at a cafe
+        </h1>
+<!-- Subtitle: High contrast readable copy -->
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Backstage briefing: get familiar with your partner and goals before entering the practice room.
+        </p>
+</section>
+<!-- CARD 1: PARTNER & SETTING -->
+<section class="tactile-card rounded-[22px] p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="local_cafe">local_cafe</span>
+            AI Speaking Partner
+          </span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm font-bold">
+            Simulated Voice
+          </span>
+</div>
+<div class="flex items-start gap-3 bg-surface-container-low rounded-2xl p-3 border border-surface-variant/50">
+<div class="w-12 h-12 rounded-2xl bg-primary-container text-on-primary flex items-center justify-center font-bold text-headline-sm shadow-sm flex-shrink-0">
+            M
+          </div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Mia</h2>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">UK / AU</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              Barista • Friendly, patient, and a bit chatty
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm bg-surface-container/60 rounded-xl px-3 py-2 border border-surface-variant/40">
+<span class="material-symbols-outlined text-secondary text-[18px] flex-shrink-0" data-icon="info">info</span>
+<span class="text-on-surface font-medium leading-snug">Natural conversational pace with polite cafe micro-interactions.</span>
+</div>
+</section>
+<!-- CARD 2: YOUR OBJECTIVES -->
+<section class="tactile-card rounded-[22px] p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="flag">flag</span>
+            Your objectives
+          </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">3 milestones</span>
+</div>
+<!-- Objective Items -->
+<ul class="flex flex-col gap-2.5">
+<li class="flex items-start gap-3 bg-surface-container-low rounded-xl p-2.5 border border-surface-variant/40">
+<span class="w-6 h-6 rounded-full bg-primary-container text-on-primary font-label-md text-label-md font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
+              1
+            </span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">
+              Order a coffee and a snack politely
+            </span>
+</li>
+<li class="flex items-start gap-3 bg-surface-container-low rounded-xl p-2.5 border border-surface-variant/40">
+<span class="w-6 h-6 rounded-full bg-primary-container text-on-primary font-label-md text-label-md font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
+              2
+            </span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">
+              Ask about the price &amp; payment methods
+            </span>
+</li>
+<li class="flex items-start gap-3 bg-surface-container-low rounded-xl p-2.5 border border-surface-variant/40">
+<span class="w-6 h-6 rounded-full bg-primary-container text-on-primary font-label-md text-label-md font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
+              3
+            </span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">
+              Handle a common follow-up question (milk or sugar choice)
+            </span>
+</li>
+</ul>
+</section>
+<!-- CARD 3: TOPIC VOCABULARY & PHRASES -->
+<section class="tactile-card rounded-[22px] p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="bookmark_add">bookmark_add</span>
+            Topic vocabulary
+          </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tap to save</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant -mt-1">
+          Tap any phrase to pin to your personal flashcard deck:
+        </p>
+<!-- Chips Grid (All min-h 44px tap targets, high contrast) -->
+<div class="flex flex-wrap gap-2 pt-1">
+<button class="tactile-chip min-h-[44px] px-3.5 py-2 rounded-xl flex items-center gap-1.5 font-label-md text-label-md text-primary font-bold active:scale-95 transition-transform" type="button">
+<span class="text-secondary font-bold text-base">+</span> takeaway
+          </button>
+<button class="tactile-chip min-h-[44px] px-3.5 py-2 rounded-xl flex items-center gap-1.5 font-label-md text-label-md text-primary font-bold active:scale-95 transition-transform" type="button">
+<span class="text-secondary font-bold text-base">+</span> a flat white
+          </button>
+<button class="tactile-chip min-h-[44px] px-3.5 py-2 rounded-xl flex items-center gap-1.5 font-label-md text-label-md text-primary font-bold active:scale-95 transition-transform" type="button">
+<span class="text-secondary font-bold text-base">+</span> to go
+          </button>
+<button class="tactile-chip min-h-[44px] px-3.5 py-2 rounded-xl flex items-center gap-1.5 font-label-md text-label-md text-primary font-bold active:scale-95 transition-transform" type="button">
+<span class="text-secondary font-bold text-base">+</span> How much is that?
+          </button>
+<button class="tactile-chip min-h-[44px] px-3.5 py-2 rounded-xl flex items-center gap-1.5 font-label-md text-label-md text-primary font-bold active:scale-95 transition-transform" type="button">
+<span class="text-secondary font-bold text-base">+</span> Could I get an oat milk latte?
+          </button>
+<button class="tactile-chip min-h-[44px] px-3.5 py-2 rounded-xl flex items-center gap-1.5 font-label-md text-label-md text-primary font-bold active:scale-95 transition-transform" type="button">
+<span class="text-secondary font-bold text-base">+</span> Keep the change
+          </button>
+</div>
+</section>
+<!-- CARD 4: TARGET FLUENCY LEVEL SELECTION -->
+<section class="tactile-card rounded-[22px] p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="tune">tune</span>
+            Target fluency level
+          </span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">Standard mode</span>
+</div>
+<!-- 3-Way Segmented Control (Each button 44px+ hit area) -->
+<div class="grid grid-cols-3 gap-2 bg-surface-container p-1 rounded-2xl border border-surface-variant">
+<button class="tactile-segment-inactive h-11 rounded-xl font-label-sm text-label-sm font-bold flex flex-col items-center justify-center transition-all" type="button">
+<span>A1</span>
+<span class="text-[10px] opacity-80 leading-none">Beginner</span>
+</button>
+<!-- Selected: A2 Elementary -->
+<button class="tactile-segment-active h-11 rounded-xl font-label-sm text-label-sm font-bold flex flex-col items-center justify-center transition-all shadow-sm" type="button">
+<span>A2</span>
+<span class="text-[10px] opacity-90 leading-none">Elementary</span>
+</button>
+<button class="tactile-segment-inactive h-11 rounded-xl font-label-sm text-label-sm font-bold flex flex-col items-center justify-center transition-all" type="button">
+<span>B1</span>
+<span class="text-[10px] opacity-80 leading-none">Intermediate</span>
+</button>
+</div>
+</section>
+</div>
+<!-- PINNED ACTION FOOTER (Sticky Bottom) -->
+<footer class="sticky bottom-0 bg-surface/95 backdrop-blur-md px-4 pt-3 pb-6 border-t border-surface-variant/40 flex flex-col gap-2.5">
+<!-- Primary Action CTA with tactile 3D coral bevel -->
+<button class="tactile-btn-coral text-white h-[52px] w-full rounded-2xl flex items-center justify-center gap-2 font-headline-sm text-headline-sm font-bold shadow-md cursor-pointer transition-transform duration-100" type="button">
+<span class="material-symbols-outlined text-[24px]" data-icon="play_arrow">play_arrow</span>
+<span>Start conversation</span>
+</button>
+<!-- Secondary Ghost Action with 44px height minimum -->
+<button class="h-11 w-full rounded-xl border border-outline-variant bg-surface text-primary font-label-md text-label-md font-bold flex items-center justify-center gap-2 hover:bg-surface-container active:scale-[0.99] transition-all" type="button">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="swap_horiz">swap_horiz</span>
+<span>Choose another situation</span>
+</button>
+<!-- Micro reassurance note -->
+<p class="text-center font-body-sm text-body-sm text-on-surface-variant font-medium pt-0.5">
+        No timer pressure. Pause or repeat any turn during practice.
+      </p>
+</footer>
+</main>
+<script>
+    // Lightweight tactile chip interaction for vocabulary bookmarking
+    document.querySelectorAll('.tactile-chip').forEach(chip => {
+      chip.addEventListener('click', function() {
+        const isSelected = this.classList.contains('bg-secondary-container/40');
+        if (isSelected) {
+          this.classList.remove('bg-secondary-container/40', 'border-secondary');
+          const plusSpan = this.querySelector('span');
+          if (plusSpan) plusSpan.textContent = '+';
+        } else {
+          this.classList.add('bg-secondary-container/40', 'border-secondary');
+          const plusSpan = this.querySelector('span');
+          if (plusSpan) plusSpan.textContent = '✓';
+        }
+      });
+    });
+  </script>
+</body></html>

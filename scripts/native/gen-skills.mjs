@@ -15,9 +15,9 @@ import { rigVectorText } from './gen-teach.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const rd = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
-const clone = o => (o === undefined ? undefined : JSON.parse(JSON.stringify(o)));
+export const clone = o => (o === undefined ? undefined : JSON.parse(JSON.stringify(o)));
 const tick = () => new Promise(r => setImmediate(r));
-const settle = async (n = 40) => { for (let i = 0; i < n; i++) await tick(); };
+export const settle = async (n = 40) => { for (let i = 0; i < n; i++) await tick(); };
 const unesc = x => (typeof x === 'string' ? x.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&') : x);
 const strip = h => unesc(String(h || '').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim());
 
@@ -31,7 +31,7 @@ const CDN_SRC = UI_SRC.slice(UI_SRC.indexOf('let cdnFail = 0;'), UI_SRC.indexOf(
 const VIHTML = /App\.viHtml = (\(vi, en\) => \{[^\n]*\});/.exec(rd('web/js/app.js'))[1];
 
 // ---------- fake platform: speech, <audio>, timers (a recorder; completes every utterance/clip by itself unless a scenario holds it) ----------
-function platform(sb, opt = {}) {
+export function platform(sb, opt = {}) {
   const log = []; let hold = null, gen = 0, nT = 0, played = 0; const pending = new Set(); const preload = [];
   const ctl = { log, preload, long: [], longMs: 0, failSrc: new Set(), notAllowed: false, hold: n => { hold = n == null ? null : played + n; }, release: () => { hold = null; } };
   const held = () => hold != null && played >= hold;
@@ -55,13 +55,15 @@ function platform(sb, opt = {}) {
     get src() { return this._src; }
     set src(v) { this._src = v; setImmediate(() => { if (!this.used) preload.push(String(v).replace(/^.*\/audio\/l\//, '').replace(/\.mp3$/, '')); }); }
     pause() { this.dead = true; }
+    addEventListener(ev, fn) { (this._ls ||= {})[ev] = fn; }
+    setAttribute() {}
     play() {
       this.used = true;
       if (ctl.notAllowed) { const e = new Error('blocked'); e.name = 'NotAllowedError'; return Promise.reject(e); }
       played++; log.push(['audio', this._src.replace(/^.*\/audio\/l\//, '').replace(/\.mp3$/, ''), Math.round(this.playbackRate * 1e6) / 1e6]);
       if (held()) return Promise.resolve();
       const failing = [...ctl.failSrc].some(s => this._src.includes(s));
-      setImmediate(() => { if (this.dead) return; if (failing) { if (this.onerror) this.onerror(); return; } if (this.onplaying) this.onplaying(); if (this.onended) this.onended(); });
+      setImmediate(() => { if (this.dead) return; if (failing) { if (this.onerror) this.onerror(); else if (this._ls && this._ls.error) this._ls.error(); return; } if (this.onplaying) this.onplaying(); if (this.onended) this.onended(); else if (this._ls && this._ls.ended) this._ls.ended(); });
       return Promise.resolve();
     }
   };
@@ -69,7 +71,7 @@ function platform(sb, opt = {}) {
 }
 
 /** One web "install" for the skills pages: real core + word data + the listening/reading scripts, recording App/Game/Store. */
-async function mk(o = {}) {
+export async function mk(o = {}) {
   const voiceObjs = {}; // browsers return the same voice objects on every call; listening.js compares them with ===
   const calls = { ctx: [], tts: [], addWord: [], dict: [], rewards: [], speak: [] }, writes = [];
   const E = mkEnv({ hash: o.hash || '#/listening', lang: o.lang, learnLang: o.learnLang, meanLang: o.meanLang, ls: o.ls,
@@ -101,7 +103,7 @@ async function mk(o = {}) {
 }
 
 // ---------- element helpers for the recording DOM ----------
-function el(P, sel, o = {}) {
+export function el(P, sel, o = {}) {
   const e = P.E.dom.mkEl(sel); Object.assign(e, o); const cls = new Set(o.classes || []);
   e.classList = { add: (...c) => c.forEach(x => cls.add(x)), remove: (...c) => c.forEach(x => cls.delete(x)), toggle: (c, f) => { const on = f === undefined ? !cls.has(c) : !!f; if (on) cls.add(c); else cls.delete(c); return on; }, contains: c => cls.has(c) };
   e._cls = cls; return e;

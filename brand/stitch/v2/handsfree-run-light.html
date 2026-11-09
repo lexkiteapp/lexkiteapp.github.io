@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Hands-free learning</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#091518",
+            "on-surface": "#d8e5e9",
+            "surface-container-highest": "#2b373a",
+            "on-surface-variant": "#bcc9c7",
+            "tertiary-container": "#ba8b00",
+            "tertiary-fixed": "#ffdf9e",
+            "primary-fixed": "#88f5ea",
+            "outline-variant": "#3d4947",
+            "surface-dim": "#091518",
+            "tertiary": "#f4bf40",
+            "primary-container": "#2ba39a",
+            "surface-container-low": "#121d20",
+            "on-primary-fixed-variant": "#00504b",
+            "surface-tint": "#6bd8ce",
+            "error-container": "#93000a",
+            "primary": "#6bd8ce",
+            "on-tertiary": "#402e00",
+            "inverse-on-surface": "#263236",
+            "on-primary-fixed": "#00201e",
+            "surface-container-high": "#202c2f",
+            "on-background": "#d8e5e9",
+            "on-secondary-container": "#ffa493",
+            "surface-container-lowest": "#051013",
+            "surface-container": "#162125",
+            "on-primary-container": "#00322e",
+            "on-secondary": "#660800",
+            "outline": "#879391",
+            "secondary-fixed-dim": "#ffb4a6",
+            "secondary-fixed": "#ffdad3",
+            "on-primary": "#003733",
+            "inverse-surface": "#d8e5e9",
+            "on-tertiary-container": "#392900",
+            "on-error-container": "#ffdad6",
+            "primary-fixed-dim": "#6bd8ce",
+            "surface-variant": "#2b373a",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-secondary-fixed-variant": "#900f00",
+            "background": "#091518",
+            "on-secondary-fixed": "#3f0300",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-error": "#690005",
+            "surface-bright": "#2f3b3e",
+            "on-tertiary-fixed": "#261a00",
+            "error": "#ffb4ab",
+            "inverse-primary": "#006a64",
+            "secondary": "#ffb4a6",
+            "secondary-container": "#981201"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            label: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Subtle breathing animation for audio bars */
+    @keyframes barWave1 {
+      0%, 100% { height: 10px; }
+      50% { height: 26px; }
+    }
+    @keyframes barWave2 {
+      0%, 100% { height: 22px; }
+      50% { height: 12px; }
+    }
+    @keyframes barWave3 {
+      0%, 100% { height: 14px; }
+      50% { height: 28px; }
+    }
+    @keyframes barWave4 {
+      0%, 100% { height: 26px; }
+      50% { height: 10px; }
+    }
+    @keyframes barWave5 {
+      0%, 100% { height: 12px; }
+      50% { height: 22px; }
+    }
+    .bar-1 { animation: barWave1 1.4s ease-in-out infinite; }
+    .bar-2 { animation: barWave2 1.2s ease-in-out infinite 0.15s; }
+    .bar-3 { animation: barWave3 1.5s ease-in-out infinite 0.3s; }
+    .bar-4 { animation: barWave4 1.3s ease-in-out infinite 0.45s; }
+    .bar-5 { animation: barWave5 1.6s ease-in-out infinite 0.2s; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#F8F4EC] text-[#162124] font-body flex justify-center min-h-screen p-0 m-0 antialiased selection:bg-[#2DD4BF] selection:text-[#062426]">
+<!-- Mobile Viewport Container: 390px fixed canvas -->
+<div class="w-full max-w-[390px] min-h-screen bg-[#FBF7F1] flex flex-col relative pb-28 shadow-2xl">
+<!-- Top Bar: Task-focused Header (Close + Slim Progress + Audio Tag) -->
+<header class="w-full pt-4 pb-3 px-4 flex items-center justify-between gap-3 sticky top-0 z-30 bg-[#FBF7F1]/95 backdrop-blur-sm">
+<!-- Close Button (44x44px tactile tap target) -->
+<button aria-label="Exit audio focus session" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#FFFFFF] border-2 border-[#E6DCCB] shadow-[0_3px_0_0_#D9C6B4] flex items-center justify-center text-[#162124] active:translate-y-[2px] active:shadow-[0_1px_0_0_#D9C6B4] transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+<!-- Center Progress Indicator -->
+<div class="flex-1 flex flex-col items-center px-1">
+<div class="w-full flex items-center justify-between mb-1.5 px-0.5">
+<span class="text-[12px] font-extrabold tracking-wider text-[#136B66] uppercase">Walk Mode</span>
+<span class="text-[12px] font-extrabold text-[#162124] tracking-tight">12 / 40</span>
+</div>
+<!-- Slim Progress Bar -->
+<div class="w-full h-2 rounded-full bg-[#ECE4D7] overflow-hidden p-[1px]">
+<div class="h-full rounded-full bg-[#136B66] w-[30%] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.4)]"></div>
+</div>
+</div>
+<!-- Audio Badge -->
+<div class="h-10 px-3 rounded-full bg-[#FFFFFF] border-2 border-[#E6DCCB] shadow-[0_2px_0_0_#D9C6B4] flex items-center gap-1.5 text-[11px] font-extrabold text-[#0F3D3E] select-none">
+<span class="w-2 h-2 rounded-full bg-[#2DD4BF] animate-pulse"></span>
+<span>UK • 1.0x</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-4 flex flex-col gap-4 pt-1">
+<!-- Headline & Soundwave Rhythm Banner -->
+<section class="flex items-center justify-between bg-[#FFFFFF] rounded-2xl p-3.5 border-2 border-[#E6DCCB] shadow-[0_4px_0_0_#E6D5C3]">
+<div class="flex flex-col pr-2">
+<div class="flex items-center gap-1.5 mb-0.5">
+<span class="w-2 h-2 rounded-full bg-[#E11D48]"></span>
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#9E1C38]">Auto-play active</span>
+</div>
+<h1 class="text-[18px] font-extrabold text-[#162124] leading-tight font-headline">Hands-free learning</h1>
+<p class="text-[13px] font-semibold text-[#45555A] mt-0.5">Walking &amp; Commute Audio</p>
+</div>
+<!-- Animated Soundwave Equalizer (5 tactile pills) -->
+<div class="flex items-center gap-1 bg-[#FBF7F1] px-3 py-2 rounded-xl border border-[#E6DCCB] h-12">
+<span class="w-1.5 bg-[#0F3D3E] rounded-full bar-1"></span>
+<span class="w-1.5 bg-[#2DD4BF] rounded-full bar-2"></span>
+<span class="w-1.5 bg-[#E11D48] rounded-full bar-3"></span>
+<span class="w-1.5 bg-[#D97706] rounded-full bar-4"></span>
+<span class="w-1.5 bg-[#136B66] rounded-full bar-5"></span>
+</div>
+</section>
+<!-- Main Focal Vocabulary Word Card -->
+<article class="bg-[#FFFFFF] rounded-[22px] p-5 border-2 border-[#E6D7C8] shadow-[0_5px_0_0_#DFCDBA] flex flex-col gap-3 relative overflow-hidden">
+<!-- Header row of the card: Level pill + Listen prompt -->
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-[12px] font-extrabold bg-[#F8F4EC] border border-[#FCD7C6] text-[#B45309] tracking-wide">
+            B2 • Academic &amp; Core
+          </span>
+<span class="text-[11px] font-extrabold tracking-wider uppercase text-[#136B66] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-[#136B66]">hearing</span>
+            Audio loop 1/2
+          </span>
+</div>
+<!-- Primary Word Display -->
+<div class="flex flex-col gap-1 mt-1">
+<div class="flex items-start justify-between gap-3">
+<h2 class="text-[34px] font-extrabold text-[#162124] tracking-tight leading-none font-headline">
+              resilient
+            </h2>
+<!-- Fast Pronunciation Speaker Tap Button (44x44 target) -->
+<button aria-label="Replay pronunciation for resilient" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#E6F8F6] border-2 border-[#6BD8CE] text-[#006A64] shadow-[0_3px_0_0_#2BA39A] flex items-center justify-center active:translate-y-[2px] active:shadow-[0_1px_0_0_#2BA39A] transition-all" type="button">
+<span class="material-symbols-outlined text-[22px] fill-icon">volume_up</span>
+</button>
+</div>
+<!-- IPA Phonetic Notation -->
+<div class="inline-flex items-center self-start px-2.5 py-1 rounded-lg bg-[#F8F4EC] text-[#443831] font-mono text-[14px] font-semibold tracking-wide border border-[#E6DCCB]">
+            /rɪˈzɪliənt/
+          </div>
+</div>
+<!-- Definition Block -->
+<div class="mt-1 pt-3 border-t border-[#E6DCCB]">
+<p class="text-[11px] font-extrabold uppercase tracking-wider text-[#7A6A5E] mb-1">Meaning</p>
+<p class="text-[16px] font-bold text-[#162124] leading-snug">
+            Able to recover quickly after difficulty, change, or misfortune.
+          </p>
+</div>
+<!-- Example Sentence with Tactile Accent Cue -->
+<div class="p-3.5 rounded-xl bg-[#FBF7F1] border-2 border-[#B9E9E4] flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wide text-[#006A64]">
+<span class="material-symbols-outlined text-[15px]">record_voice_over</span>
+<span>Natural Example</span>
+</div>
+<p class="text-[15px] font-semibold text-[#163533] leading-relaxed italic">
+            “Children are often more resilient than adults expect during major transitions.”
+          </p>
+</div>
+</article>
+<!-- Player Controls (Centered Tactile Audio Console) -->
+<section class="bg-[#FFFFFF] rounded-2xl p-4 border-2 border-[#E6DCCB] shadow-[0_4px_0_0_#E6D5C3] flex flex-col gap-3.5">
+<div class="flex items-center justify-around px-2">
+<!-- Previous Button (48x48 min tap target) -->
+<button aria-label="Skip to previous word" class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-xl bg-[#FFFFFF] border-2 border-[#E2D2C3] shadow-[0_4px_0_0_#D4C1B0] flex items-center justify-center text-[#162124] active:translate-y-[2px] active:shadow-[0_2px_0_0_#D4C1B0] transition-all" type="button">
+<span class="material-symbols-outlined text-[28px]">skip_previous</span>
+</button>
+<!-- Primary Hero Coral Play/Pause Button (64x64 tactile button) -->
+<button aria-label="Pause audio playback" class="w-16 h-16 min-w-[64px] min-h-[64px] rounded-2xl bg-[#E11D48] border-2 border-[#B91C1C] shadow-[0_6px_0_0_#9F1239] flex items-center justify-center text-white active:translate-y-[3px] active:shadow-[0_2px_0_0_#9F1239] transition-all focus:outline-none focus:ring-4 focus:ring-[#FFB4A6]" type="button">
+<span class="material-symbols-outlined text-[36px] fill-icon">pause</span>
+</button>
+<!-- Next Button (48x48 min tap target) -->
+<button aria-label="Skip to next word" class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-xl bg-[#FFFFFF] border-2 border-[#E2D2C3] shadow-[0_4px_0_0_#D4C1B0] flex items-center justify-center text-[#162124] active:translate-y-[2px] active:shadow-[0_2px_0_0_#D4C1B0] transition-all" type="button">
+<span class="material-symbols-outlined text-[28px]">skip_next</span>
+</button>
+</div>
+<!-- Audio Speed & Loop Tactile Chips -->
+<div class="flex items-center justify-between pt-2 border-t border-[#E6DCCB] px-1">
+<div class="flex items-center gap-2">
+<button class="h-9 px-3 rounded-lg bg-[#FBF7F1] border-2 border-[#E6DCCB] shadow-[0_2px_0_0_#DFCDBA] text-[12px] font-extrabold text-[#162124] flex items-center gap-1 active:translate-y-[1px] active:shadow-none" type="button">
+<span class="material-symbols-outlined text-[16px] text-[#006A64]">speed</span>
+<span>1.0x speed</span>
+</button>
+<button class="h-9 px-3 rounded-lg bg-[#FBF7F1] border-2 border-[#E6DCCB] shadow-[0_2px_0_0_#DFCDBA] text-[12px] font-extrabold text-[#162124] flex items-center gap-1 active:translate-y-[1px] active:shadow-none" type="button">
+<span class="material-symbols-outlined text-[16px] text-[#B45309]">repeat</span>
+<span>Loop 2×</span>
+</button>
+</div>
+<!-- Dark Screen Mode Quick Action (min 44px height tap) -->
+<button aria-label="Activate pocket dark screen" class="h-11 min-h-[44px] px-3 rounded-xl bg-[#162125] text-[#D8E5E9] shadow-[0_3px_0_0_#051013] flex items-center gap-1.5 text-[12px] font-extrabold active:translate-y-[2px] active:shadow-[0_1px_0_0_#051013]" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#6BD8CE]">dark_mode</span>
+<span>Dim</span>
+</button>
+</div>
+</section>
+<!-- Preferences & Toggles (High Contrast, Accessible Switches) -->
+<section class="bg-[#FFFFFF] rounded-2xl p-4 border-2 border-[#E6DCCB] shadow-[0_4px_0_0_#E6D5C3] flex flex-col gap-3">
+<h3 class="text-[12px] font-extrabold uppercase tracking-wider text-[#7A6A5E] px-1">
+          Commute Audio Settings
+        </h3>
+<!-- Toggle Row 1 -->
+<label class="flex items-center justify-between p-2 rounded-xl bg-[#FBF7F1] border border-[#E6DCCB] cursor-pointer min-h-[48px]">
+<div class="flex items-center gap-2.5 pr-2">
+<span class="w-8 h-8 rounded-lg bg-[#E6F8F6] text-[#006A64] flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</span>
+<span class="text-[14px] font-bold text-[#162124]">Read example sentences</span>
+</div>
+<!-- Tactile switch active -->
+<div class="relative w-12 h-7 bg-[#2BA39A] rounded-full p-0.5 shadow-inner flex items-center justify-end pr-1">
+<div class="w-5 h-5 rounded-full bg-white shadow-md flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-[#006A64] font-bold">check</span>
+</div>
+</div>
+</label>
+<!-- Toggle Row 2 -->
+<label class="flex items-center justify-between p-2 rounded-xl bg-[#FBF7F1] border border-[#E6DCCB] cursor-pointer min-h-[48px]">
+<div class="flex items-center gap-2.5 pr-2">
+<span class="w-8 h-8 rounded-lg bg-[#F8F4EC] text-[#B45309] flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+</span>
+<span class="text-[14px] font-bold text-[#162124]">Speak definitions aloud</span>
+</div>
+<!-- Tactile switch active -->
+<div class="relative w-12 h-7 bg-[#2BA39A] rounded-full p-0.5 shadow-inner flex items-center justify-end pr-1">
+<div class="w-5 h-5 rounded-full bg-white shadow-md flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-[#006A64] font-bold">check</span>
+</div>
+</div>
+</label>
+</section>
+<!-- Footnote Mode Card (Lock Screen Info) -->
+<aside class="flex items-center gap-3 p-3.5 rounded-xl bg-[#F8F4EC] border-2 border-[#F9DFC8] text-[#3D2C20]">
+<div class="w-9 h-9 min-w-[36px] rounded-lg bg-[#FFFFFF] border border-[#E6DCCB] flex items-center justify-center text-[#B45309]">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+<p class="text-[12px] font-bold leading-snug">
+          Screen lock protected. Audio keeps streaming smoothly through your earbuds or car Bluetooth.
+        </p>
+</aside>
+</main>
+<!-- Pinned Bottom CTA Bar (Lexkite 3D Bottom Ledge Button) -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] px-4 py-3 bg-[#FBF7F1]/95 backdrop-blur-md border-t-2 border-[#E6DCCB] z-40">
+<button class="w-full h-14 min-h-[52px] rounded-2xl bg-gradient-to-r from-[#FF6B7A] via-[#E11D48] to-[#EA580C] border-2 border-[#9F1239] shadow-[0_5px_0_0_#9E1C38] flex items-center justify-center gap-2 text-white font-headline text-[17px] font-extrabold tracking-wide active:translate-y-[3px] active:shadow-[0_2px_0_0_#9E1C38] transition-all" type="button">
+<span>Next word</span>
+<span class="material-symbols-outlined text-[22px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>

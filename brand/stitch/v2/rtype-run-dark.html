@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - True / False / Not Given Drill (dark – dark-from-light.mjs)</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary": "#4a0400",
+            "on-primary": "#ffffff",
+            "primary-fixed": "#beebeb",
+            "on-error-container": "#93000a",
+            "tertiary-fixed-dim": "#ffb4a6",
+            "secondary-container": "#88f5ea",
+            "on-secondary-container": "#00716a",
+            "secondary-fixed-dim": "#6bd8ce",
+            "tertiary-container": "#720a00",
+            "surface-container-high": "#ebe8e2",
+            "on-background": "#1c1c18",
+            "on-primary-fixed": "#002020",
+            "surface": "#fdf9f3",
+            "inverse-on-surface": "#f4f0ea",
+            "primary-container": "#0f3d3e",
+            "primary": "#002627",
+            "outline-variant": "#c0c8c8",
+            "on-secondary-fixed": "#00201e",
+            "outline": "#717978",
+            "background": "#fdf9f3",
+            "surface-variant": "#e6e2dc",
+            "inverse-primary": "#a3cfcf",
+            "secondary": "#006a64",
+            "on-tertiary-container": "#ff765e",
+            "surface-container-highest": "#e6e2dc",
+            "on-primary-container": "#7da8a8",
+            "tertiary-fixed": "#ffdad3",
+            "surface-tint": "#3b6566",
+            "on-secondary": "#ffffff",
+            "inverse-surface": "#31302d",
+            "on-tertiary-fixed-variant": "#900f00",
+            "surface-bright": "#fdf9f3",
+            "primary-fixed-dim": "#a3cfcf",
+            "surface-container": "#f1ede7",
+            "on-tertiary-fixed": "#3f0300",
+            "surface-dim": "#dddad4",
+            "on-surface": "#1c1c18",
+            "on-tertiary": "#ffffff",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#88f5ea",
+            "on-primary-fixed-variant": "#224d4e",
+            "on-secondary-fixed-variant": "#00504b",
+            "on-error": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f7f3ed",
+            "error": "#ba1a1a",
+            "on-surface-variant": "#404848"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem"
+          },
+          fontFamily: {
+            "body-sm": ["Nunito Sans", "sans-serif"],
+            "label-md": ["Nunito Sans", "sans-serif"],
+            "headline-md": ["Nunito Sans", "sans-serif"],
+            "label-sm": ["Nunito Sans", "sans-serif"],
+            "body-lg": ["Nunito Sans", "sans-serif"],
+            "headline-sm": ["Nunito Sans", "sans-serif"],
+            "headline-xl": ["Nunito Sans", "sans-serif"],
+            "headline-lg": ["Nunito Sans", "sans-serif"],
+            "body-md": ["Nunito Sans", "sans-serif"]
+          },
+          fontSize: {
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+            "label-md": ["14px", { lineHeight: "20px", fontWeight: "600" }],
+            "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+            "label-sm": ["12px", { lineHeight: "16px", fontWeight: "600" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+            "headline-xl": ["40px", { lineHeight: "48px", fontWeight: "700" }],
+            "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Touch target guarantee */
+    .tap-target-44 {
+      min-width: 44px;
+      min-height: 44px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#1D2F33] text-[#EAF2F2] antialiased font-body-md selection:bg-[#1F4A4E] selection:text-[#5EEAD4]">
+<!-- Mobile Viewport Shell (390px centered screen simulation) -->
+<div class="w-full max-w-[390px] mx-auto min-h-screen bg-[#1D2F33] flex flex-col relative pb-32">
+<!-- TOP FOCUS HEADER (TopAppBar Shared Component Instance with back/close & progress) -->
+<header class="sticky top-0 z-30 bg-[#1D2F33]/95 backdrop-blur-md px-4 pt-3 pb-2.5">
+<!-- Top Row: Close target + group tracker & skip option -->
+<div class="flex items-center justify-between gap-3 min-h-[44px]">
+<button aria-label="Close Drill" class="tap-target-44 flex items-center justify-center -ml-2 rounded-full text-[#5EEAD4] hover:bg-[#263A3F] active:scale-95 transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-[24px]">chevron_left</span>
+</button>
+<!-- Progress Track & Label -->
+<div class="flex-1 px-1">
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-sm text-label-sm text-[#5EEAD4] font-bold tracking-tight">Group 2 of 5</span>
+<span class="font-label-sm text-label-sm text-[#EAF2F2] font-medium">40% complete</span>
+</div>
+<!-- Bar -->
+<div class="w-full h-2 bg-[#263A3F] rounded-full overflow-hidden">
+<div class="h-full bg-[#12514D] rounded-full transition-all duration-300 w-2/5"></div>
+</div>
+</div>
+<button class="tap-target-44 px-2 py-1 text-right font-label-md text-label-md text-[#EAF2F2] hover:text-[#5EEAD4] active:scale-95 transition-all duration-150" type="button">
+          Skip
+        </button>
+</div>
+<!-- Test Category Badge -->
+<div class="mt-2 flex items-center gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#263A3F] border border-[#4A6870]/40 text-[#EAF2F2] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-[#5EEAD4]">menu_book</span>
+          IELTS Academic • Reading Passage 1
+        </span>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT CANVAS -->
+<main class="flex-1 px-4 pt-2 pb-6 space-y-4">
+<!-- STRATEGY / TIP CARD (Tactile light teal container) -->
+<section class="rounded-2xl p-3.5 bg-[#1D2F33] border border-[#2D464D] shadow-sm flex items-start gap-3">
+<div class="w-7 h-7 rounded-lg bg-[#12514D] text-on-primary flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">lightbulb</span>
+</div>
+<div class="flex-1">
+<h2 class="font-label-md text-label-md text-[#5EEAD4] font-bold tracking-tight mb-0.5">Quick Strategy Anchor</h2>
+<p class="font-body-sm text-body-sm text-[#5EEAD4]/90 leading-snug">
+<strong class="font-bold text-[#FF9A86]">FALSE</strong> = the text directly contradicts the statement. 
+            <strong class="font-bold text-[#5EEAD4]">NOT GIVEN</strong> = the text does not contain enough info. Avoid assumptions!
+          </p>
+</div>
+</section>
+<!-- READING PASSAGE CARD -->
+<article class="bg-[#162528] rounded-2xl border border-[#4A6870]/40 p-4 shadow-sm space-y-3.5">
+<div class="flex items-center justify-between border-b border-[#37525A] pb-2.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-[#5EEAD4]">article</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-[#5EEAD4] font-bold">Reading Passage</span>
+</div>
+<span class="text-xs font-semibold px-2 py-0.5 rounded bg-[#263A3F] text-[#EAF2F2]">104 words</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm text-[#5EEAD4] tracking-tight">The history of the bicycle</h1>
+</div>
+<!-- Passage Text with clear paragraph anchors -->
+<div class="space-y-3 text-[#EAF2F2] font-body-md text-body-md leading-relaxed">
+<div class="p-3 rounded-xl bg-[#263A3F]/70 border border-[#4A6870]/25">
+<p>
+<span class="font-bold text-[#5EEAD4] mr-1">A •</span>
+              Early two-wheeled conveyances, such as the German Draisine invented by Karl Drais in 1817, lacked mechanical pedals and required riders to propel themselves by pushing their feet against the ground. These wooden devices became popular recreational novelties across western European capitals before being banned on pedestrian walkways.
+            </p>
+</div>
+<div class="p-3 rounded-xl bg-[#263A3F]/70 border border-[#4A6870]/25">
+<p>
+<span class="font-bold text-[#5EEAD4] mr-1">B •</span>
+              The introduction of pedals attached directly to the front wheel hub created the "velocipede" in 1860s Paris. Subsequent developments in chain drives and equal-sized pneumatic tires during the late 1880s transformed cycling from an athletic luxury into an affordable, ubiquitous mode of everyday urban transport.
+            </p>
+</div>
+</div>
+</article>
+<!-- DRILL QUESTIONS SECTION -->
+<section class="space-y-3.5 pt-1">
+<div class="flex items-center justify-between px-1">
+<h2 class="font-headline-sm text-headline-sm text-[#5EEAD4] tracking-tight">Statements 1–3</h2>
+<span class="font-label-sm text-label-sm text-[#EAF2F2] font-medium">True / False / Not Given</span>
+</div>
+<!-- QUESTION 1: SELECTED (True) -->
+<div class="bg-[#162528] rounded-2xl border border-[#4A6870]/50 p-4 shadow-sm space-y-3">
+<div class="flex items-start gap-2.5">
+<span class="w-6 h-6 rounded-full bg-[#263A3F] text-[#5EEAD4] font-bold font-label-sm text-label-sm flex items-center justify-center shrink-0 mt-0.5">1</span>
+<p class="font-body-md text-body-md text-[#EAF2F2] font-medium leading-snug">
+              The Draisine required the rider's feet to make direct contact with the ground for propulsion.
+            </p>
+</div>
+<!-- 3-option Segmented Pill Selectors -->
+<div aria-label="Question 1 Answer" class="grid grid-cols-3 gap-2 pt-1" role="radiogroup">
+<!-- True (Active State) -->
+<button aria-checked="true" class="tap-target-44 py-2.5 px-2 rounded-xl bg-[#12514D] text-on-primary flex items-center justify-center gap-1.5 shadow-sm border-b-[3px] border-[#12514D] active:translate-y-0.5 transition-all" role="radio" type="button">
+<span class="material-symbols-outlined text-[18px] fill-1">check_circle</span>
+<span class="font-label-md text-label-md font-bold">True</span>
+</button>
+<!-- False -->
+<button aria-checked="false" class="tap-target-44 py-2.5 px-2 rounded-xl bg-[#162528] border border-[#4A6870]/60 text-[#5EEAD4] hover:bg-[#263A3F] active:scale-[0.98] transition-all flex items-center justify-center" role="radio" type="button">
+<span class="font-label-md text-label-md">False</span>
+</button>
+<!-- Not Given -->
+<button aria-checked="false" class="tap-target-44 py-2.5 px-2 rounded-xl bg-[#162528] border border-[#4A6870]/60 text-[#5EEAD4] hover:bg-[#263A3F] active:scale-[0.98] transition-all flex items-center justify-center" role="radio" type="button">
+<span class="font-label-md text-label-md">Not given</span>
+</button>
+</div>
+</div>
+<!-- QUESTION 2: UNSELECTED (In progress) -->
+<div class="bg-[#162528] rounded-2xl border-2 border-dashed border-[#4A6870]/60 p-4 shadow-sm space-y-3">
+<div class="flex items-start gap-2.5">
+<span class="w-6 h-6 rounded-full bg-[#1F4A4E] text-[#5EEAD4] font-bold font-label-sm text-label-sm flex items-center justify-center shrink-0 mt-0.5">2</span>
+<p class="font-body-md text-body-md text-[#EAF2F2] font-medium leading-snug">
+              Karl Drais successfully patented his invention throughout Great Britain.
+            </p>
+</div>
+<!-- 3-option Segmented Pill Selectors -->
+<div aria-label="Question 2 Answer" class="grid grid-cols-3 gap-2 pt-1" role="radiogroup">
+<!-- True -->
+<button aria-checked="false" class="tap-target-44 py-2.5 px-2 rounded-xl bg-[#162528] border border-[#4A6870]/60 text-[#5EEAD4] hover:bg-[#263A3F] active:scale-[0.98] transition-all flex items-center justify-center" role="radio" type="button">
+<span class="font-label-md text-label-md">True</span>
+</button>
+<!-- False -->
+<button aria-checked="false" class="tap-target-44 py-2.5 px-2 rounded-xl bg-[#162528] border border-[#4A6870]/60 text-[#5EEAD4] hover:bg-[#263A3F] active:scale-[0.98] transition-all flex items-center justify-center" role="radio" type="button">
+<span class="font-label-md text-label-md">False</span>
+</button>
+<!-- Not Given -->
+<button aria-checked="false" class="tap-target-44 py-2.5 px-2 rounded-xl bg-[#162528] border border-[#4A6870]/60 text-[#5EEAD4] hover:bg-[#263A3F] active:scale-[0.98] transition-all flex items-center justify-center" role="radio" type="button">
+<span class="font-label-md text-label-md">Not given</span>
+</button>
+</div>
+</div>
+<!-- QUESTION 3: SELECTED (Not given) -->
+<div class="bg-[#162528] rounded-2xl border border-[#4A6870]/50 p-4 shadow-sm space-y-3">
+<div class="flex items-start gap-2.5">
+<span class="w-6 h-6 rounded-full bg-[#263A3F] text-[#5EEAD4] font-bold font-label-sm text-label-sm flex items-center justify-center shrink-0 mt-0.5">3</span>
+<p class="font-body-md text-body-md text-[#EAF2F2] font-medium leading-snug">
+              Velocipedes were initially more expensive than horses in nineteenth-century Paris.
+            </p>
+</div>
+<!-- 3-option Segmented Pill Selectors -->
+<div aria-label="Question 3 Answer" class="grid grid-cols-3 gap-2 pt-1" role="radiogroup">
+<!-- True -->
+<button aria-checked="false" class="tap-target-44 py-2.5 px-2 rounded-xl bg-[#162528] border border-[#4A6870]/60 text-[#5EEAD4] hover:bg-[#263A3F] active:scale-[0.98] transition-all flex items-center justify-center" role="radio" type="button">
+<span class="font-label-md text-label-md">True</span>
+</button>
+<!-- False -->
+<button aria-checked="false" class="tap-target-44 py-2.5 px-2 rounded-xl bg-[#162528] border border-[#4A6870]/60 text-[#5EEAD4] hover:bg-[#263A3F] active:scale-[0.98] transition-all flex items-center justify-center" role="radio" type="button">
+<span class="font-label-md text-label-md">False</span>
+</button>
+<!-- Not Given (Active State) -->
+<button aria-checked="true" class="tap-target-44 py-2.5 px-2 rounded-xl bg-[#12514D] text-on-primary flex items-center justify-center gap-1.5 shadow-sm border-b-[3px] border-[#12514D] active:translate-y-0.5 transition-all" role="radio" type="button">
+<span class="material-symbols-outlined text-[18px] fill-1">check_circle</span>
+<span class="font-label-md text-label-md font-bold">Not given</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- BOTTOM PINNED ACTION BAR -->
+<footer class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto bg-[#1D2F33]/95 backdrop-blur-md px-4 pt-3 pb-6 border-t border-[#37525A] z-40 shadow-[0_-4px_16px_rgba(0,38,39,0.06)]">
+<!-- Microcopy Counter -->
+<div class="flex items-center justify-between mb-2 px-1">
+<span class="font-label-sm text-label-sm text-[#EAF2F2] font-medium">2 of 3 questions answered</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-[#5EEAD4] font-bold">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+          +15 XP Drill
+        </span>
+</div>
+<!-- Tactile Coral Primary CTA -->
+<button class="tap-target-44 w-full h-[52px] rounded-2xl bg-[#B4573F] hover:bg-[#B85138] active:translate-y-1 text-white font-headline-sm text-headline-sm font-bold flex items-center justify-center gap-2 border-b-4 border-[#823422] shadow-md transition-all duration-150" type="button">
+<span>Check answers</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</footer>
+</div>
+</body></html>

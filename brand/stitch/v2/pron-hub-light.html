@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pronunciation library</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#ffdcbf",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#81c1ba",
+            "outline-variant": "#bec9c6",
+            "inverse-primary": "#92d2cb",
+            "tertiary-fixed": "#ffdf9b",
+            "on-secondary-container": "#633700",
+            "on-secondary-fixed": "#2d1600",
+            "on-surface-variant": "#3f4947",
+            "secondary-fixed-dim": "#ffb872",
+            "surface-container": "#faebe1",
+            "shadow-ledge-secondary": "#8c5000",
+            "secondary-container": "#fc9500",
+            "secondary": "#8b5000",
+            "button-text-contrast": "#1a0d00",
+            "primary-fixed-dim": "#92d2cb",
+            "surface-bright": "#fff8f5",
+            "primary": "#003734",
+            "on-primary-fixed-variant": "#00504b",
+            "on-surface": "#211a14",
+            "surface-tint": "#266863",
+            "error": "#ba1a1a",
+            "primary-container": "#136a63",
+            "on-error": "#ffffff",
+            "tertiary": "#3f2e00",
+            "surface-container-high": "#f4e5db",
+            "tertiary-fixed-dim": "#f5bf31",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-variant": "#eee0d6",
+            "background": "#fff8f5",
+            "surface-container-highest": "#efe0d6",
+            "shadow-ledge-primary": "#136a63",
+            "primary-fixed": "#aeefe7",
+            "on-error-container": "#93000a",
+            "inverse-surface": "#372f28",
+            "inverse-on-surface": "#fdeee4",
+            "surface-container-low": "#fff1e8",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed": "#251a00",
+            "on-tertiary-container": "#e1ad1c",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#5b4300",
+            "surface": "#fff8f5",
+            "on-background": "#211a14",
+            "surface-dim": "#e6d7cd",
+            "shadow-ledge-neutral": "#bec9c6",
+            "on-primary-fixed": "#00201d",
+            "outline": "#6f7977",
+            "on-tertiary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-lg": "3rem",
+            "margin-md": "2rem",
+            "space-xs": "0.25rem",
+            "gutter-lg": "2rem",
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            "gutter-md": "1.5rem",
+            "margin": "1rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+            "headline-lg-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "label-lg": ["16px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+            "label-md": ["14px", {"lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "display-lg": ["44px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex justify-center selection:bg-secondary-fixed selection:text-button-text-contrast">
+<!-- Mobile Max 390px Screen Container -->
+<main class="w-full max-w-[390px] min-h-screen bg-surface flex flex-col relative pb-32">
+<!-- 1. Top Bar Variant: Inner Screen Header (>=44px tap targets, NO bottom tabs) -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md px-space-md py-space-sm flex items-center justify-between shadow-[0_3px_0_0_#eee0d6]">
+<button aria-label="Back" class="w-11 h-11 flex items-center justify-center rounded-2xl bg-surface-container-lowest border-2 border-outline-variant/80 text-primary shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="text-headline-sm font-headline-sm text-primary tracking-tight text-center px-space-xs truncate">
+        Pronunciation library
+      </h1>
+<!-- Trailing item: Mastered Badge -->
+<div class="h-11 px-space-sm bg-surface-container-low border-2 border-outline-variant/80 rounded-2xl flex items-center gap-1.5 shadow-[0_3px_0_0_#bec9c6]">
+<span class="material-symbols-outlined text-secondary text-[20px]" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<div class="flex flex-col items-start leading-none pr-0.5">
+<span class="text-label-sm font-label-sm text-primary">12/68</span>
+<span class="text-[9px] text-on-surface-variant font-bold uppercase tracking-wider">done</span>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="px-space-md pt-space-md flex flex-col gap-space-lg">
+<!-- 2. Header / Intro Block & Calibration Slot -->
+<section class="flex flex-col gap-space-sm">
+<div class="bg-surface-container-lowest border-2 border-outline-variant/80 rounded-2xl p-space-md shadow-[0_3px_0_0_#bec9c6] flex flex-col gap-space-sm">
+<p class="text-body-md font-body-md text-on-surface">
+            Learn each IPA sound: mouth shape, listen, tell word pairs apart, speak and get scored.
+          </p>
+<!-- Audio Calibration & Teacher Slot Placeholder -->
+<div class="bg-surface-container-low border-2 border-outline-variant/70 rounded-xl p-space-sm flex items-center gap-space-sm">
+<!-- Strict teacher-slot dashed placeholder with NO people or photos drawn -->
+<div class="w-14 h-14 rounded-xl border-2 border-dashed border-outline flex flex-col items-center justify-center bg-surface-container p-1 text-center shrink-0">
+<span class="material-symbols-outlined text-[20px] text-primary">mic</span>
+<span class="text-[9px] font-bold text-on-surface-variant leading-none mt-1">teacher-slot</span>
+</div>
+<div class="flex flex-col justify-center flex-1 min-w-0">
+<div class="flex items-center gap-1">
+<span class="text-label-md font-label-md text-primary">Acoustic warm-up</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant truncate">
+                Calibrate mic &amp; pitch sensitivity
+              </p>
+</div>
+<button class="h-10 px-2.5 bg-surface-container-lowest border-2 border-outline-variant rounded-xl text-primary font-label-sm text-label-sm shadow-[0_2px_0_0_#bec9c6] active:translate-y-0.5 active:shadow-none transition-all flex items-center justify-center" type="button">
+              Check
+            </button>
+</div>
+</div>
+</section>
+<!-- 3. Section 1: Vowels (Nguyên âm) -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-baseline justify-between">
+<h2 class="text-headline-md font-headline-md text-primary">Vowels</h2>
+<span class="text-label-sm font-label-sm text-on-surface-variant">12 sounds</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+            12 pure vowels &amp; monophthongs with mouth position guides.
+          </p>
+</div>
+<!-- 4-Column IPA Grid (min tap >=44x44px, min-h 64px) -->
+<div class="grid grid-cols-4 gap-2">
+<!-- /i:/ "see" (checked) -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-outline-variant rounded-xl p-1.5 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="absolute top-1 right-1 text-primary-container leading-none">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/i:/</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">see</span>
+</button>
+<!-- /ɪ/ "sit" (checked) -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-outline-variant rounded-xl p-1.5 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="absolute top-1 right-1 text-primary-container leading-none">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/ɪ/</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">sit</span>
+</button>
+<!-- /e/ "bed" (checked) -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-outline-variant rounded-xl p-1.5 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="absolute top-1 right-1 text-primary-container leading-none">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/e/</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">bed</span>
+</button>
+<!-- /æ/ "cat" -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-outline-variant rounded-xl p-1.5 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/æ/</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">cat</span>
+</button>
+<!-- /ʌ/ "cup" -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-outline-variant rounded-xl p-1.5 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/ʌ/</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">cup</span>
+</button>
+<!-- /ɑ:/ "car" (checked) -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-outline-variant rounded-xl p-1.5 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="absolute top-1 right-1 text-primary-container leading-none">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/ɑ:/</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">car</span>
+</button>
+<!-- /ɒ/ "hot" -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-outline-variant rounded-xl p-1.5 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/ɒ/</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">hot</span>
+</button>
+<!-- /ɔ:/ "door" -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-outline-variant rounded-xl p-1.5 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/ɔ:/</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">door</span>
+</button>
+<!-- /ʊ/ "book" -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-outline-variant rounded-xl p-1.5 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/ʊ/</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">book</span>
+</button>
+<!-- /u:/ "too" -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-outline-variant rounded-xl p-1.5 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/u:/</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">too</span>
+</button>
+<!-- /ɜ:/ "bird" -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-outline-variant rounded-xl p-1.5 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/ɜ:/</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">bird</span>
+</button>
+<!-- /ə/ "about" (schwa highlight) -->
+<button class="relative min-h-[64px] min-w-[44px] bg-secondary-fixed/40 border-2 border-secondary rounded-xl p-1.5 flex flex-col items-center justify-center shadow-[0_3px_0_0_#8c5000] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-headline-sm font-headline-sm text-button-text-contrast leading-tight">/ə/</span>
+<span class="text-label-sm font-label-sm text-on-secondary-fixed font-bold">about</span>
+</button>
+</div>
+</section>
+<!-- 4. Section 2: Consonants (Phụ âm) -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-baseline justify-between">
+<h2 class="text-headline-md font-headline-md text-primary">Consonants</h2>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Pairs &amp; Contrasts</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+            Voiced &amp; voiceless consonant contrasts.
+          </p>
+</div>
+<!-- Wrapped tactile grid of consonant tiles -->
+<div class="grid grid-cols-5 gap-2">
+<!-- /p/ voiceless: light dashed border, check mark -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-dashed border-outline-variant rounded-xl p-1 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="absolute top-1 right-1 text-primary-container leading-none">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/p/</span>
+<span class="text-[11px] font-label-sm text-on-surface-variant truncate w-full text-center">pen</span>
+</button>
+<!-- /b/ voiced: solid border, check mark -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-solid border-outline-variant rounded-xl p-1 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="absolute top-1 right-1 text-primary-container leading-none">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/b/</span>
+<span class="text-[11px] font-label-sm text-on-surface-variant truncate w-full text-center">bad</span>
+</button>
+<!-- /t/ voiceless: light dashed border -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-dashed border-outline-variant rounded-xl p-1 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/t/</span>
+<span class="text-[11px] font-label-sm text-on-surface-variant truncate w-full text-center">tea</span>
+</button>
+<!-- /d/ voiced: solid border -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-solid border-outline-variant rounded-xl p-1 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/d/</span>
+<span class="text-[11px] font-label-sm text-on-surface-variant truncate w-full text-center">did</span>
+</button>
+<!-- /θ/ voiceless: active / focus badge -->
+<button class="relative min-h-[64px] min-w-[44px] bg-primary-fixed/30 border-2 border-dashed border-primary rounded-xl p-1 flex flex-col items-center justify-center shadow-[0_3px_0_0_#136a63] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/θ/</span>
+<span class="text-[11px] font-label-sm text-primary font-bold truncate w-full text-center">think</span>
+</button>
+<!-- /ð/ voiced -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-solid border-outline-variant rounded-xl p-1 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/ð/</span>
+<span class="text-[11px] font-label-sm text-on-surface-variant truncate w-full text-center">this</span>
+</button>
+<!-- /ʃ/ voiceless: light dashed border -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-dashed border-outline-variant rounded-xl p-1 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/ʃ/</span>
+<span class="text-[11px] font-label-sm text-on-surface-variant truncate w-full text-center">she</span>
+</button>
+<!-- /ʒ/ voiced -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-solid border-outline-variant rounded-xl p-1 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/ʒ/</span>
+<span class="text-[11px] font-label-sm text-on-surface-variant truncate w-full text-center">vision</span>
+</button>
+<!-- /tʃ/ voiceless: light dashed border -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-dashed border-outline-variant rounded-xl p-1 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/tʃ/</span>
+<span class="text-[11px] font-label-sm text-on-surface-variant truncate w-full text-center">check</span>
+</button>
+<!-- /dʒ/ voiced -->
+<button class="relative min-h-[64px] min-w-[44px] bg-surface-container-lowest border-2 border-solid border-outline-variant rounded-xl p-1 flex flex-col items-center justify-center shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="text-headline-sm font-headline-sm text-primary leading-tight">/dʒ/</span>
+<span class="text-[11px] font-label-sm text-on-surface-variant truncate w-full text-center">just</span>
+</button>
+</div>
+<!-- Legend Box -->
+<div class="p-space-sm bg-surface-container-low border border-outline-variant/60 rounded-xl flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">info</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+            Light dashed border = voiceless consonant · Each lesson: mouth shape, model, word pairs, speak and score
+          </p>
+</div>
+</section>
+<!-- 5. Section 3: Foundational Skills (Kỹ năng cốt lõi) -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-baseline justify-between">
+<h2 class="text-headline-md font-headline-md text-primary">Foundational Skills</h2>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Core 3</span>
+</div>
+<!-- Three tactile interactive cards (min-h >= 48px, >=44px tap target) -->
+<div class="flex flex-col gap-space-sm">
+<!-- Card 1 -->
+<button class="w-full text-left min-h-[56px] bg-surface-container-lowest border-2 border-outline-variant/80 rounded-2xl p-space-sm flex items-center gap-space-sm shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<div class="w-11 h-11 rounded-xl bg-surface-container border border-outline-variant/60 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[24px]">graphic_eq</span>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-label-lg font-label-lg text-primary truncate">
+                Say it like a native - rhythm and stress
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant truncate">
+                Sentence stress, content words &amp; rhythm reduction
+              </p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">chevron_right</span>
+</button>
+<!-- Card 2 -->
+<button class="w-full text-left min-h-[56px] bg-surface-container-lowest border-2 border-outline-variant/80 rounded-2xl p-space-sm flex items-center gap-space-sm shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<div class="w-11 h-11 rounded-xl bg-surface-container border border-outline-variant/60 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[24px]">compare_arrows</span>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-label-lg font-label-lg text-primary truncate">
+                Minimal pairs - ship or sheep?
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant truncate">
+                Spot subtle vowel length and acoustic differences
+              </p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">chevron_right</span>
+</button>
+<!-- Card 3 -->
+<button class="w-full text-left min-h-[56px] bg-surface-container-lowest border-2 border-outline-variant/80 rounded-2xl p-space-sm flex items-center gap-space-sm shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-all" type="button">
+<div class="w-11 h-11 rounded-xl bg-surface-container border border-outline-variant/60 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[24px]">tips_and_updates</span>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-label-lg font-label-lg text-primary truncate">
+                Vietnamese learner mistakes - final sounds
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant truncate">
+                Fix dropped endings /-t/, /-s/, /-d/ and clusters
+              </p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">chevron_right</span>
+</button>
+</div>
+</section>
+</div>
+<!-- 6. Pinned Bottom Primary CTA -->
+<div class="fixed bottom-0 left-0 right-0 z-50 flex justify-center pointer-events-none">
+<div class="w-full max-w-[390px] px-space-md pb-5 pt-3 bg-gradient-to-t from-surface via-surface/90 to-transparent pointer-events-auto">
+<button class="w-full h-14 bg-secondary-container text-button-text-contrast border-2 border-secondary rounded-2xl font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-[0_4px_0_0_#8c5000] active:translate-y-1 active:shadow-none transition-all duration-150" type="button">
+<span>Start 5-min pronunciation drill</span>
+<span class="material-symbols-outlined text-[22px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+</body></html>
