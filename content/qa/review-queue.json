@@ -1030895,6 +1030895,77 @@
     "qa": {},
     "senseLock": "wiktionary-1"
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "chestnut#n",
+   "batch": "20261109-r203",
+   "why": [
+    "dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo"
+   ],
+   "at": "2026-11-09",
+   "data": {
+    "w": "chestnut",
+    "pos": "n",
+    "ipa": "/ˈtʃes(t)nʌt/",
+    "ipaUS": "/ˈtʃesnʌt/",
+    "def": "a smooth brown nut that can be eaten, produced by certain trees",
+    "ex": [
+     "Do you want some chestnuts?",
+     "I'm going to roast some chestnuts."
+    ],
+    "col": [
+     "american chestnut",
+     "chinese chestnut",
+     "roasted chestnut"
+    ],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.46,
+    "emoji": "",
+    "topic": "food",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:chestnut.n.03",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.8-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:9345412",
+      "tatoeba:10921659"
+     ],
+     "tr": {
+      "es": "wiktionary+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "id": "wiktionary+ai",
+      "th": "wiktionary+ai",
+      "zh": "wiktionary+ai",
+      "ja": "wiktionary+ai",
+      "ko": "wiktionary+ai",
+      "hi": "wiktionary+ai",
+      "ar": "wiktionary+ai",
+      "ru": "wiktionary+ai",
+      "tr": "wiktionary+ai"
+     },
+     "trSense": "edible nut of the Spanish chestnut or sweet chestnut tree (Castanea sativa); nut from a related shrub or tree; similar n",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
   }
  ]
 }
