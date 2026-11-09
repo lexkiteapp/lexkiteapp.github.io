@@ -275,7 +275,7 @@ class CallVectorsTest {
         check("$tag.header.duration", h["duration"], obj("k" to "{m} phút {s} giây", "v" to obj("m" to r.secs / 60, "s" to r.secs % 60))); assertEquals("$tag.header.xp", h.s("xp"), "+${r.reward.xp} XP")
         check("$tag.answered", w["answered"], obj("k" to "Bạn đã trả lời {n} lượt, trong đó {s} lượt bằng giọng nói.", "v" to obj("n" to rc.turns.size, "s" to r.voiced)))
         check("$tag.words", w["words"], if (rc.words > 0) obj("k" to "{n} từ", "v" to obj("n" to rc.words)) else null)
-        check("$tag.topicWords", w["topicWords"], if (rc.target.isNotEmpty()) obj("title" to obj("k" to "Bạn đã dùng {n}/{k} từ chủ đề", "v" to obj("n" to rc.used.size, "k" to rc.target.size)), "chips" to rc.target.map { t -> obj("word" to t, "used" to (t in rc.used)) }) else null)
+        check("$tag.topicWords", w["topicWords"], if (rc.target.isNotEmpty()) obj("title" to obj("k" to "Bạn đã dùng {n}/{k} từ chủ đề", "v" to obj("n" to rc.used.size, "k" to rc.target.size)), "chips" to rc.target.filter { it in rc.used }.map { t -> obj("word" to t, "used" to true) }) else null) // the vector reads the used chips of the page (class "chip ok"), as iOS
         check("$tag.notes", w["notes"], rc.notes.map { n -> val t = e.noteText(n); if (t.v.isEmpty()) obj("k" to t.k) else obj("k" to t.k, "v" to t.v) })
         check("$tag.turns", w["turns"], rc.turns.map { x -> val shown = x.weak || x.picked
             obj("weak" to x.weak, "teacher" to call.teacher, "question" to (x.m ?: ""), "answer" to x.text, "picked" to x.picked, "fix" to x.fix?.let { f -> obj("bad" to f.bad, "good" to f.good, "why" to obj("k" to f.why.k)) },
