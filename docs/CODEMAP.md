@@ -6,15 +6,15 @@
 Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['web/js/app.js'])"` · `g.routes` · `g.workflows` · `g.tests` · `g.god`. Mỗi node: exports, imports, importedBy.
 
 ## Khu vực
-- `web/` (2319 file): App (SPA) + landing: shell web/app/index.html nạp web/js/*.js bằng <script> (toàn cục App/UI/Chars, KHÔNG import); lazy bundle: BUNDLES trong web/js/app.js; css web/css; trang tĩnh sinh bởi scripts/build-*.mjs → dist
-- `extension/` (1632 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
+- `web/` (2514 file): App (SPA) + landing: shell web/app/index.html nạp web/js/*.js bằng <script> (toàn cục App/UI/Chars, KHÔNG import); lazy bundle: BUNDLES trong web/js/app.js; css web/css; trang tĩnh sinh bởi scripts/build-*.mjs → dist
+- `extension/` (1827 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
 - `functions/` (91 file): Cloudflare Pages Functions = backend /api/* (file _*.js là helper dùng chung)
 - `workers/` (19 file): Cloudflare Workers riêng: audio, dict, gemini (AI), mail, media; workers/lib dùng chung
 - `scripts/` (1185 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
 - `.github/workflows/` (191 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (10 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
 - `brand/` (1558 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
-- `content/` (3255 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
+- `content/` (3268 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
 - `mobile/` (216 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (43 file): Hồ sơ listing Chrome/Edge/Apple/Play
 - `docs/` (219 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
@@ -197,9 +197,8 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `workers/mail`: mail-prefs
 - `workers/push`: fcm-push
 
-## Mô-đun JS chính (23/1571, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
-- `functions/api/` _keys.js: ALERT_MIN,MAIL_GAP,PROVIDERS,PROVIDER_IDS,cleanKey… →_quota.js,_schema.js ←7 (_meta_oauth.js,_meta_tokens.js,_social_auto.js) · _social_auto.js: AUTO_PLATS,AUTO_DEFAULT,PROVIDERS,cleanAuto,ytViaGc… →_clip_logic.js,_distribution.js,_first_comment.js ←4 (social-auto.js,social.js,callback.js) · admin-shorts.js: MANIFEST,okPath,signedPack,signed,_memo… →_d1guard.js,_shorts_data.js,admin.js ←6 (_social_auto.js,_social_mgr.js,admin-clips.js) · drive.js: isFootageRow,isBackupRow,isShortsRow,shortsCapacity,sha256Hex… →_backup.js,_d1b.js,_d1guard.js ←8 (admin-shorts.js,capacity.js,callback.js)
-- `scripts/footage/` lib.mjs: ROOT,DEFAULT_ROOT,MANIFEST_NAME,WANT,mimeOf… →library.mjs ←7 (archive.mjs,fetch.mjs,repo-size.mjs)
+## Mô-đun JS chính (23/1766, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
+- `functions/api/` _d1b.js: D1B_DEFAULT_DB,d1bMode,d1bReady,REST_TIMEOUT_MS,restDb… →- ←7 (_jobs.js,admin-shared.js,drive.js) · _keys.js: ALERT_MIN,MAIL_GAP,PROVIDERS,PROVIDER_IDS,cleanKey… →_quota.js,_schema.js ←7 (_meta_oauth.js,_meta_tokens.js,_social_auto.js) · _social_auto.js: AUTO_PLATS,AUTO_DEFAULT,PROVIDERS,cleanAuto,ytViaGc… →_clip_logic.js,_distribution.js,_first_comment.js ←4 (social-auto.js,social.js,callback.js) · admin-shorts.js: MANIFEST,okPath,signedPack,signed,_memo… →_d1guard.js,_shorts_data.js,admin.js ←6 (_social_auto.js,_social_mgr.js,admin-clips.js) · drive.js: isFootageRow,isBackupRow,isShortsRow,shortsCapacity,sha256Hex… →_backup.js,_d1b.js,_d1guard.js ←8 (admin-shorts.js,capacity.js,callback.js)
 - `scripts/lexicon/` ipa.mjs: ALLOWED,badChars,ukStyle,ukStyleBad,fixBroken… →- ←12 (build-lexicon.mjs,gate.mjs,gen-wordlist.mjs) · shards.mjs: loadBrowserIndex,mergeExpand,buildShards,writeShards →lib.mjs,lib.mjs,app.js ←9 (build.mjs,wordnet.mjs,gen-newtab.mjs)
 - `scripts/lib/` ai-pool.mjs: modelInfo,familyOf,pickModels,judgeKey,TASKS… →lexai.js,cf-pool.mjs,key-pool.mjs ←12 (lib.mjs,job.mjs,lib.mjs) · content-load.mjs: ROOT,DATA_DIRS,loadContent →scan-roots.mjs ←8 (exam-format-check.mjs,gate.mjs,grammar-map-check.mjs) · content-registry.mjs: REGISTRY,GENESIS,sha256,entryHash,readRegistry… →- ←8 (content-registry.mjs,evidence.mjs,ots.mjs) · is-main.mjs: isMain →- ←11 (build-hash.mjs,creds.mjs,cutover.mjs)
 - `scripts/native/` gen-vocab.mjs: NOW,slice,miniData,mkEnv,mkApp… →fake-idb.mjs,gen-teach.mjs,web-ref.mjs ←1 (gen.mjs)
@@ -209,4 +208,5 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `scripts/target/` lib.mjs: ROOT,MEAN_LANGS,POS,seedPath,coreFiles… →- ←10 (grammar-map-check.mjs,build.mjs,conj-check.mjs)
 - `scripts/vocab-img/` strict.mjs: fnv,STRICT_V,COLORS,SHAPES,ICONIC… →style.mjs ←8 (cards.mjs,gen.mjs,icons.mjs) · style.mjs: STYLE,PEOPLE,fnv,promptFor,altFor… →- ←12 (cards.mjs,concept.mjs,gen.mjs)
 - `web/` sw.js →ads.js,ai.js,app.js ←1 (world-scorecard.mjs)
-- `web/js/` core.js →app.js ←9 (content-pack.mjs,gen-lesson.mjs,gen-sync.mjs) · ui.js →app.js ←6 (ipa-audit.mjs,gen-audio.mjs,gen-lesson.mjs) · ux1.js: Ux1,teacherImg,navOf,crumb,afterRoute… →app.js,league.js,common.js ←6 (build-stitch-css.mjs,app.js,ui.js)
+- `web/js/` core.js →app.js ←9 (content-pack.mjs,gen-lesson.mjs,gen-sync.mjs) · ux1.js: Ux1,teacherImg,navOf,crumb,afterRoute… →app.js,league.js,common.js ←6 (build-stitch-css.mjs,app.js,ui.js)
+- `web/js/speak/` data.js →airport-checkin.js,bank.js,bus-ticket.js ←2 (build.mjs,app.js)
