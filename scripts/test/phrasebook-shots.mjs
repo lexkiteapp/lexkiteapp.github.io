@@ -5,8 +5,9 @@ import { chromium } from 'playwright';
 const BASE = (process.argv[2] || 'http://localhost:8080').replace(/\/$/, ''), OUT = process.argv[3] || 'out/phrasebook';
 fs.mkdirSync(OUT, { recursive: true });
 const browser = await chromium.launch(), errs = []; let shots = 0;
-for (const colorScheme of ['light', 'dark']) for (const lang of ['vi', 'en']) {
-  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, colorScheme }), page = await ctx.newPage(), tag = `${colorScheme}-${lang}`;
+const CASES = [...['light', 'dark'].flatMap(c => ['vi', 'en'].map(l => [c, l, 390])), ['light', 'de', 360]];
+for (const [colorScheme, lang, width] of CASES) {
+  const ctx = await browser.newContext({ viewport: { width, height: 844 }, deviceScaleFactor: 2, isMobile: true, colorScheme }), page = await ctx.newPage(), tag = `${colorScheme}-${lang}-${width}`;
   page.on('pageerror', e => errs.push(`${tag}: ${e.message}`));
   const url = r => `${BASE}/app/?sandbox=1&hl=${lang}#/${r}`;
   await page.goto(url('welcome/setup'), { waitUntil: 'networkidle' }).catch(() => {});

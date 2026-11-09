@@ -33,12 +33,12 @@
     const idx = items.map(f => (f.name + ' ' + L1(f, 'name', f.name) + ' ' + Object.values(f.phrases).flat().join(' ') + ' ' + (f.responses || []).join(' ')).toLowerCase());
     let lv = '';
     host.innerHTML = `<div class="row between" style="gap:.6rem;margin-bottom:.6rem"><div class="tabs seg" id="pbLv" role="group" aria-label="${t('Lọc theo cấp độ')}">${['', ...LV].map(v => `<button type="button" data-v="${v}" aria-pressed="false">${v || t('Tất cả')}</button>`).join('')}</div>
-      <input class="input" id="pbq" type="search" placeholder="${t('Tìm chức năng hoặc câu…')}" aria-label="${t('Tìm chức năng hoặc câu…')}" style="max-width:280px"></div>
+      <input class="input" id="pbq" type="search" placeholder="${t('Tìm chức năng hoặc câu…')}" aria-label="${t('Tìm chức năng hoặc câu…')}" style="width:100%"></div>
       <div id="pbList"></div>`;
     const draw = () => {
       const q = $('#pbq').value.trim().toLowerCase();
       const list = items.filter((f, i) => (!lv || f.level === lv) && (!q || idx[i].includes(q)));
-      $('#pbList').innerHTML = list.length ? list.map(f => `<details data-id="${esc(f.id)}"><summary class="row between" style="gap:.5rem;padding:.55rem 0"><b>${esc(L1(f, 'name', f.name))}</b><span class="chip">${esc(f.level)}</span></summary><div></div></details>`).join('')
+      $('#pbList').innerHTML = list.length ? list.map(f => `<details data-id="${esc(f.id)}"><summary class="row between" style="gap:.5rem;padding:.55rem 0;flex-wrap:nowrap"><b style="flex:1;min-width:0">${esc(L1(f, 'name', f.name))}</b><span class="chip" style="flex:none">${esc(f.level)}</span></summary><div></div></details>`).join('')
         : `<p class="muted small">${t('Chưa có mẫu câu phù hợp.')}</p>`;
       $$('#pbLv button').forEach(b => { const on = b.dataset.v === lv; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
     };
