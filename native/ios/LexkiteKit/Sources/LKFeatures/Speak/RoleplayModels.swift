@@ -94,7 +94,11 @@ final class RoleplayBriefModel {
 final class RoleplayChatModel {
     enum Phase: Equatable { case chat, scoring, report(Roleplay.Report) }
     enum Notice: Equatable { case quota, busy, mic(String) }
-    struct HintBox: Equatable { var tip: String?, line: String, help: Bool }
+    struct HintBox: Equatable {
+        var tip: String?
+        var line: String
+        var help: Bool
+    }
 
     let ctx: SkillsContext
     let script: JSON
