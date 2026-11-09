@@ -164,9 +164,10 @@ const RV = T1.vectorJson, RD = T1.rigJson;
   // strings: every literal t() key on the P04/P05 screens is mapped by strings.json (or consciously listed as not in the web pipeline)
   const map = JSON.parse(rd('native/shared/strings.json')), have = new Set(Object.values(map));
   const UNP = new Set(['“{w}” → {b}', 'V2 = V3', 'V1 = V3']); // not translated in ANY web language either (code-like labels) – native shows the key as is
-  const R3 = { 'web/js/study.js': [[1, 10], [96, 420]], 'web/js/plan.js': [[10, 110]], 'web/js/app.js': [[886, 1230]], 'web/js/dict-page.js': [[1, 220]], 'web/js/ideas.js': [[1, 30]], 'web/js/letters.js': [[1, 90]], 'web/js/paraphrase.js': [[1, 60]], 'web/js/phrases-model.js': [[1, 400]], 'web/js/verbs.js': [[85, 260]], 'web/js/usage.js': [[90, 480]] };
+  const R3 = { 'web/js/study.js': [[1, 10], [96, 420]], 'web/js/plan.js': [[10, 110]], 'web/js/app.js': [["t('Phản xạ 60 giây')", 345]], 'web/js/dict-page.js': [[1, 220]], 'web/js/ideas.js': [[1, 30]], 'web/js/letters.js': [[1, 90]], 'web/js/paraphrase.js': [[1, 60]], 'web/js/phrases-model.js': [[1, 400]], 'web/js/verbs.js': [[85, 260]], 'web/js/usage.js': [[90, 480]] };
   const keys = new Set();
-  for (const [f, rs] of Object.entries(R3)) { const L = rd(f).split('\n'); for (const [a, b] of rs) for (const ln of L.slice(a - 1, b)) for (const m of ln.matchAll(/\bt\('((?:[^'\\]|\\.)*)'/g)) keys.add(m[1].replace(/\\'/g, "'")); }
+  for (const [f, rs] of Object.entries(R3)) { const L = rd(f).split('\n'); for (let [a, b] of rs) { if (typeof a === 'string') { const at = L.findIndex(x => x.includes(a)); ok(at >= 0, `M3 strings: neo "${a}" không còn trong ${f}`); [a, b] = [at + 2, at + 1 + b]; } // neo theo dòng chứa chuỗi (số dòng trượt mỗi khi app.js thêm/bớt dòng): quét b dòng sau dòng neo
+      for (const ln of L.slice(a - 1, b)) for (const m of ln.matchAll(/\bt\('((?:[^'\\]|\\.)*)'/g)) keys.add(m[1].replace(/\\'/g, "'")); } }
   const miss = [...keys].filter(k => !have.has(k) && !UNP.has(k));
   ok(miss.length === 0, `M3 strings: ${keys.size} t() keys of the P04/P05 screens are mapped in native/shared/strings.json${miss.length ? ' – missing: ' + miss.slice(0, 3).join(' | ') : ''}`);
 }
