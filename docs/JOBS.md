@@ -138,6 +138,7 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/lexicon/i18n-job.mjs` –  | bỏ qua: mục mở rộng đã có nghĩa 13 ngôn ngữ qua 2 giám khảo trong nguồn (x: 1 bị lọc) | — |
 | `scripts/lexicon/expand/espeak-calib.mjs` –  | bỏ qua: chỉ lấy mẫu từ kho viết tay để hiệu chuẩn IPA Anh espeak ↔ Wiktionary; không ghi/xuất | — |
 | `scripts/lexicon/cefr-check.mjs` –  | bỏ qua: chỉ gắn cờ CEFR bộ viết tay; mục mở rộng có cổng CEFR riêng (gateEntry) | — |
+| `scripts/lesson/build-path-nodes.mjs` –  | bỏ qua: nội dung nút Lộ trình chọn tay từ bộ viết tay (đúng 12 từ IELTS_DATA.TOPICS mỗi chặng) và kiểm từ#loại + CEFR + ví dụ nguyên văn trong kho đó; mục mở rộng 20k không đi vào bài chốt sẵn | — |
 | `scripts/scriptbank/gold.mjs` –  | bỏ qua: bộ mẫu vàng cố định từ bộ viết tay | — |
 | `scripts/vocab-img/cards.mjs` – thẻ nghĩa vimg | `dist/lexicon.json` | vocab-img |
 | `scripts/vocab-img/publish.mjs` – đăng ảnh vimg | `dist/lexicon.json` | vocab-img |
