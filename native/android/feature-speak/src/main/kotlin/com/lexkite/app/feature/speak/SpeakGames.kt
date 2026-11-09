@@ -74,7 +74,7 @@ fun ReflexScreen(ui: ReflexUi, a: ReflexActions) {
         StudyPage(trs(Tr("Phản xạ 60 giây")), a.exit, bottom = { LKPrimaryButton("↻ " + trs(Tr("Chơi lại")), a.start) }) {
             Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
                 Body(trs(e.final[0]), style = LKType.headlineLg); Body(trs(e.final[1]), style = LKType.headlineMd); Body(trs(e.final[2]), style = LKType.titlePill)
-                if (e.reward != null) Tag("+${e.reward.xp} XP", c.success)
+                e.reward?.let { Tag("+${it.xp} XP", c.success) }
             }
             ui.colored?.let { co -> LKCard { Flow { for ((w, ok) in co.words) EnLtr { Tag((if (ok) "✓ " else "✗ ") + w, if (ok) c.success else c.error) } }; Muted(trs(Tr("Bạn nói")) + ": “" + co.shown + "” · " + co.pct + "%") } }
         }
