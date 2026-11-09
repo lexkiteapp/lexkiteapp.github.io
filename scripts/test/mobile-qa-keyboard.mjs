@@ -122,7 +122,7 @@ for (const vp of VPS) for (const mode of ['visual', 'content']) {
           if (j >= 0) r = await page.evaluate(probe, [j, mode, kbPx]).catch(e => ({ err: String(e.message).split('\n')[0].slice(0, 120) }));
         }
         if (mode === 'content') await page.setViewportSize({ width: vp.w, height: vp.h });
-        if (r.gone) continue;
+        if (r.gone) { errs.push(`${vp.w} ${mode} #/${route} ô ${list[i]}: biến mất khi đo (đo lại: ${JSON.stringify(await page.evaluate(() => ({ essay: !!document.querySelector('#essay'), n: document.querySelectorAll('[data-lk-kbd]').length, hash: location.hash })))})`); continue; }
         if (r.unreachable) { unreachable.push(`${vp.w} ${mode} #/${route} ${r.unreachable}`); continue; }
         if (r.err) { errs.push(`${vp.w} ${mode} #/${route} ô ${list[i]}: ${r.err}`); continue; }
         checked.push({ vp: vp.w, mode, route, k: r.k });
