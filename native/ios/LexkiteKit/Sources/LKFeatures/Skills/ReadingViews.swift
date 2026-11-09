@@ -48,12 +48,7 @@ struct DictationView: View {
             }
             SkillCard {
                 VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
-                    HStack(spacing: LKSpacing.spaceXs) {
-                        SkillAction(title: t(.skillListenCauTruoc), icon: "chevron.backward") { model.previous() }
-                        SkillAction(title: t(.lessonKindListen), icon: "speaker.wave.2.fill", primary: true) { model.say() }
-                        SkillAction(title: t(.lessonSlowShort), icon: "tortoise.fill") { model.say(slow: true) }
-                        SkillAction(title: t(.skillListenCauSau), icon: "chevron.forward") { model.skip() }
-                    }
+                    audioDock
                     if s.mode == "full" { fullBox } else { gaps }
                     if let fb = s.feedback { feedback(fb) }
                 }
@@ -69,6 +64,30 @@ struct DictationView: View {
             }
             .tint(LKColor.secondary.resolve(scheme)).frame(minHeight: 44)
         }
+    }
+
+    /// Stitch `dictation-fill` audio dock: round previous / big Listen / round slow (0.75x) / round next, always one row
+    private var audioDock: some View {
+        HStack(spacing: LKSpacing.spaceXs) {
+            roundButton(icon: "chevron.backward", label: t(.skillListenCauTruoc)) { model.previous() }
+            SkillAction(title: t(.lessonKindListen), icon: "speaker.wave.2.fill", primary: true) { model.say() }.frame(maxWidth: .infinity)
+            roundButton(icon: "tortoise.fill", caption: "0.75x", label: t(.lessonSlowShort)) { model.say(slow: true) }
+            roundButton(icon: "chevron.forward", label: t(.skillListenCauSau)) { model.skip() }
+        }
+        .frame(maxWidth: .infinity)
+    }
+    private func roundButton(icon: String, caption: String? = nil, label: String, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            VStack(spacing: 0) {
+                Image(systemName: icon).font(.system(size: caption == nil ? 18 : 15, weight: .bold))
+                if let caption { Text(verbatim: caption).font(.system(size: 9, weight: .heavy)).lineLimit(1).minimumScaleFactor(0.6) }
+            }
+            .foregroundStyle(LKColor.primary.resolve(scheme))
+            .frame(width: 48, height: 48)
+            .tactile(fill: LKColor.surfaceContainerHigh, radius: 24)
+        }
+        .buttonStyle(.plain).fixedSize()
+        .accessibilityLabel(label)
     }
 
     private var modeMenu: some View {
@@ -150,6 +169,7 @@ struct DictationView: View {
                     .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(LKColor.surfaceContainer.resolve(scheme)))
                 }
             }
+            .englishText()   // the English sentence reads left to right (also in the Arabic UI)
             FlowLayout(spacing: 10) {
                 legend("✓", .skillListenDung, .ok); legend("−", .skillListenBoSot, .miss); legend("+", .skillListenThuaSai, .extra)
             }
@@ -234,6 +254,7 @@ struct ReadingListView: View {
                     .padding(.vertical, 6).padding(.horizontal, 2)
                 }
             }
+            if l.cards.isEmpty { SkillCard { StudyEmpty(icon: "book.fill", title: t(.skillListenDangCapNhatDe)) } }
             ForEach(l.cards, id: \.id) { c in
                 Button { onRoute(AppRoute("read", arg: c.id)) } label: {
                     SkillCard {
@@ -405,7 +426,7 @@ struct ReaderView: View {
             VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
                 HStack(spacing: LKSpacing.spaceXs) {
                     Image(systemName: g.ok ? "checkmark.circle.fill" : "info.circle.fill").foregroundStyle((g.ok ? LKColor.success : LKColor.tertiary).resolve(scheme)).accessibilityHidden(true)
-                    Text(verbatim: t(.skillReadKetQuaScoreN, ["score": g.score, "n": g.n, "pct": g.pct]) + " · +\(g.xp) XP").studyText(LKType.headlineSm).fixedSize(horizontal: false, vertical: true)
+                    Text(verbatim: Bidi.isolate(t(.skillReadKetQuaScoreN, ["score": g.score, "n": g.n, "pct": g.pct]) + " · +\(g.xp) XP")).studyText(LKType.headlineSm).fixedSize(horizontal: false, vertical: true)
                 }
                 SkillAction(title: t(.skillReadBaiDocKhac)) { go(g.links[0], onRoute) }
                 SkillAction(title: t(.skillReadHocCacTuVua), icon: "brain.head.profile", primary: true) { go(g.links[1], onRoute) }

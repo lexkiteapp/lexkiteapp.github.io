@@ -140,3 +140,26 @@ internal fun StatsCard(res: Collection<Qx.Res>, onRetake: (() -> Unit)? = null) 
         if (wrong > 0 && onRetake != null) GhostButton("↻ " + t(L10nKey.skillQeLamLaiNCau, mapOf("n" to wrong)), onRetake)
     }
 }
+
+
+/** Bidi isolation for the Skills screens only: numeric runs ("1–10", "21/40", "62%", "+20 XP") and English labels keep their left-to-right order inside Arabic text. */
+internal object Bidi {
+    private const val LRI = "\u2066"; private const val PDI = "\u2069"
+    private val RUN = Regex("\\+?\\d+(?:[.,]\\d+)?(?:\\s?[–\\-/]\\s?\\d+(?:[.,]\\d+)?)?(?:\\s?%|\\s?XP)?")
+    fun ltr(s: String) = LRI + s + PDI
+    fun isolate(s: String) = RUN.replace(s) { ltr(it.value) }
+}
+
+/** "→" that mirrors in an RTL interface. */
+@Composable internal fun forwardArrow(): String = if (androidx.compose.ui.platform.LocalLayoutDirection.current == androidx.compose.ui.unit.LayoutDirection.Rtl) "←" else "→"
+
+/** A labelled on/off row (Stitch switch): the label wraps, the switch keeps a ≥ 48 dp target. */
+@Composable
+internal fun SwitchRow(label: String, on: Boolean, enabled: Boolean = true, onChange: (Boolean) -> Unit) {
+    val c = LocalLKColors.current
+    Row(Modifier.fillMaxWidth().heightIn(min = 48.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
+        Muted(label, Modifier.weight(1f))
+        androidx.compose.material3.Switch(on, onChange, enabled = enabled, colors = androidx.compose.material3.SwitchDefaults.colors(checkedTrackColor = c.secondary, checkedThumbColor = c.onSecondary, uncheckedTrackColor = c.surfaceContainerHighest,
+            uncheckedThumbColor = c.outline, uncheckedBorderColor = c.outline, checkedBorderColor = c.secondary, disabledCheckedTrackColor = c.secondary.copy(alpha = 0.5f), disabledUncheckedTrackColor = c.surfaceContainerHighest))
+    }
+}

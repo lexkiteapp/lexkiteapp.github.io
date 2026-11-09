@@ -404,3 +404,20 @@ struct WordPopupView: View {
         return a
     }
 }
+
+
+/// Bidi isolation for the Skills screens only: numeric runs ("1–10", "21/40", "62%", "+20 XP") and English labels keep their left-to-right order inside Arabic text.
+enum Bidi {
+    static let lri = "\u{2066}", pdi = "\u{2069}"
+    static func ltr(_ s: String) -> String { lri + s + pdi }
+    private static let run = try! NSRegularExpression(pattern: "\\+?\\d+(?:[.,]\\d+)?(?:\\s?[–\\-/]\\s?\\d+(?:[.,]\\d+)?)?(?:\\s?%|\\s?XP)?")
+    static func isolate(_ s: String) -> String {
+        let ns = s as NSString
+        var out = "", last = 0
+        for m in run.matches(in: s, range: NSRange(location: 0, length: ns.length)) {
+            out += ns.substring(with: NSRange(location: last, length: m.range.location - last)) + ltr(ns.substring(with: m.range))
+            last = m.range.location + m.range.length
+        }
+        return out + ns.substring(from: last)
+    }
+}

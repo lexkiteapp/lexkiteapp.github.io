@@ -10,6 +10,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -147,9 +150,7 @@ private fun PlayerBar(ui: ListenUi, a: ListenActions) {
                 GhostButton("⏪ " + t(L10nKey.skillListenCauTruoc), a.back)
                 for (r in ui.page.rates) Chip(r.label?.let { it } ?: t(L10nKey.skillListenChuan), r.selected, { a.rate(r.v) })
             }
-            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
-                Chip(if (ui.live || submitted) "✓" else "–", ui.live || submitted, { if (!submitted) a.live(!ui.live) }); Muted(t(L10nKey.skillListenHienLoiThoaiKhi), Modifier.weight(1f))
-            }
+            SwitchRow(t(L10nKey.skillListenHienLoiThoaiKhi), ui.live || submitted, enabled = !submitted) { a.live(it) }
         }
         val now = if (l == null) (if (exam && ui.ended && !submitted) t(L10nKey.skillListenHetBaiNgheKiem) else "") else if (l.pause != null) "… (" + t(L10nKey.skillListenKhoangLang) + ")" else if (l.say != null) "🎙️ " + t(L10nKey.skillListenLoiDan) else "🗣️ " + p.speakerName(l.s)
         if (now.isNotEmpty()) Muted(now)
@@ -181,13 +182,13 @@ internal fun Transcript(ui: ListenUi, a: ListenActions) {
 fun ListenScreen(ui: ListenUi, a: ListenActions) {
     val c = LocalLKColors.current; val pg = ui.page; val p = pg.part; val s = ui.submit
     val answered = p.qNums.count { n -> val v = ui.answers[n.toString()]; (v as? String)?.isNotBlank() == true }
-    StudyPage(t(if (pg.toeic) L10nKey.skillListenHoiThoai else L10nKey.skillListenLuyenNghe), a.exit, bottom = {
+    StudyPage(t(if (pg.toeic) L10nKey.skillListenHoiThoai else PART_NAME.getValue(p.part)), a.exit, bottom = {
         ui.popup?.let { PopupCard(it, a.closePopup, a.savePopup, a.speakWord, {}) }
         if (s == null) LKPrimaryButton(t(L10nKey.skillListenNopBaiXemDap), a.submit)
     }) {
         GhostButton(t(if (pg.exam) L10nKey.skillListenCheDoLuyenTap else L10nKey.skillListenCheDoThiThat), a.switchMode)
         LKProgress(if (p.qNums.isEmpty()) 0f else answered / p.qNums.size.toFloat(), label = t(L10nKey.skillListenCauAB, mapOf("a" to p.qFrom, "b" to p.qTo)), track = c.surfaceContainerHighest)
-        Muted("Test ${p.test} · Part ${p.part} · " + t(PART_NAME.getValue(p.part)) + " · " + t(L10nKey.skillListenCauAB, mapOf("a" to p.qFrom, "b" to p.qTo)))
+        Muted(Bidi.ltr("Test ${p.test} · Part ${p.part}") + " · " + t(PART_NAME.getValue(p.part)) + " · " + Bidi.isolate(t(L10nKey.skillListenCauAB, mapOf("a" to p.qFrom, "b" to p.qTo))))
         Body(p.title, style = LKType.headlineMd); Muted(p.context); SpeakerChips(ListenHub.speakers(p))
         PlayerBar(ui, a)
         if (!pg.exam || s != null) Transcript(ui, a)
@@ -230,14 +231,14 @@ fun ListenTestScreen(ui: TestUi, a: TestActions) {
             EmptyState("🎧", "IELTS Listening – Test ${ui.test}", t(L10nKey.skillListen4Phan40Cau).replace(Regex("<[^>]+>"), ""), t(L10nKey.skillListenBatDauThi), a.start, t(L10nKey.actionLater), a.exit)
         }
         TestUi.Phase.PART -> { val p = ui.part!!; val last = ui.partIdx == ui.parts - 1
-            StudyPage("Test ${ui.test} · Part ${p.part}/${ui.parts} · " + t(L10nKey.skillListenCauAB, mapOf("a" to p.qFrom, "b" to p.qTo)), a.exit, bottom = {
-                LKPrimaryButton((if (last) t(L10nKey.skillListenNopBai) else t(L10nKey.skillListenSangPhanTiep) + " →"), a.next, enabled = ui.nextOpen)
+            StudyPage(Bidi.ltr("Test ${ui.test} · Part ${p.part}/${ui.parts}") + " · " + Bidi.isolate(t(L10nKey.skillListenCauAB, mapOf("a" to p.qFrom, "b" to p.qTo))), a.exit, bottom = {
+                LKPrimaryButton((if (last) t(L10nKey.skillListenNopBai) else t(L10nKey.skillListenSangPhanTiep) + " " + forwardArrow()), a.next, enabled = ui.nextOpen)
                 if (!ui.nextOpen) Muted(t(L10nKey.skillListenNgheHetPhanNay))
             }) {
                 LKProgress(ui.partIdx / ui.parts.toFloat(), track = c.surfaceContainerHighest)
                 LKCard {
                     val l = p.script.getOrNull(ui.line)
-                    Body(when { ui.ended -> "✓ " + t(L10nKey.skillListenHetPhanNgheKiem); ui.sounding -> "🔊 " + t(L10nKey.skillListenDangPhatChiNghe); ui.started -> "⏳ " + t(L10nKey.actionLoading); else -> "⏳ " + t(L10nKey.skillListenNGiayDocCau, n(ui.left)) }, style = LKType.titlePill)
+                    if (!ui.blocked) Body(when { ui.ended -> "✓ " + t(L10nKey.skillListenHetPhanNgheKiem); ui.sounding -> "🔊 " + t(L10nKey.skillListenDangPhatChiNghe); ui.started -> "⏳ " + t(L10nKey.actionLoading); else -> "⏳ " + Bidi.isolate(t(L10nKey.skillListenNGiayDocCau, n(ui.left))) }, style = LKType.titlePill)
                     if (!ui.started) GhostButton(t(L10nKey.skillListenBatDauNgheNgay), a.skipRead)
                     if (ui.blocked) { LKPrimaryButton("▶ " + t(L10nKey.skillListenChamDeNghe), a.tap); Muted(t(L10nKey.skillListenAmThanhChuaPhat)) }
                     if (l != null && !ui.ended) Muted(if (l.say != null) "🎙️ " + t(L10nKey.skillListenLoiDan) else if (l.pause != null) "" else "🗣️ " + p.speakerName(l.s))
@@ -246,13 +247,16 @@ fun ListenTestScreen(ui: TestUi, a: TestActions) {
             }
             if (ui.confirmNext) Confirm(t(L10nKey.skillListenPhanNgheChuaPhat), t(L10nKey.actionContinue), t(L10nKey.actionCancel), { a.confirm(true) }, { a.confirm(false) }) }
         TestUi.Phase.RESULT -> { val d = ui.done!!
-            StudyPage("Band ${d.band.let { if (it == Math.floor(it)) it.toInt().toString() else it.toString() }}", a.exit) {
+            StudyPage(Bidi.ltr("Band ${d.band.let { if (it == Math.floor(it)) it.toInt().toString() else it.toString() }}"), a.exit) {
                 LKCard(fill = c.surfaceContainerHighest) {
-                    Body("Band ${d.band.let { if (it == Math.floor(it)) it.toInt().toString() else it.toString() }} · " + t(L10nKey.skillListenABCauDung, mapOf("a" to d.raw, "b" to 40)), style = LKType.headlineMd)
-                    Muted(t(L10nKey.skillListenQuyDoiTheoThang))
+                    Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
+                        Text(if (d.band >= 7) "🎉" else "🎧", style = LKType.headlineMd.toCompose())
+                        Body(Bidi.ltr("Band ${d.band.let { if (it == Math.floor(it)) it.toInt().toString() else it.toString() }}") + " · " + Bidi.isolate(t(L10nKey.skillListenABCauDung, mapOf("a" to d.raw, "b" to 40))), style = LKType.headlineMd, align = androidx.compose.ui.text.style.TextAlign.Center)
+                        Muted(t(L10nKey.skillListenQuyDoiTheoThang))
+                    }
                 }
                 for ((k, id) in ui.partIds.withIndex()) LKCard(onClick = { a.open("#/listen/$id") }) {
-                    Body("Part ${k + 1} · ${d.byPart[k]}/10", style = LKType.titlePill); LKProgress(d.byPart[k] / 10f, track = c.surfaceContainerHighest); Muted(t(L10nKey.skillListenBamDeLuyenLai))
+                    Body(Bidi.ltr("Part ${k + 1} · ${d.byPart[k]}/10"), style = LKType.titlePill); LKProgress(d.byPart[k] / 10f, track = c.surfaceContainerHighest); Muted(t(L10nKey.skillListenBamDeLuyenLai))
                 }
                 StatsCard(ui.sheet.map { it.second })
                 LKCard {
@@ -295,7 +299,14 @@ fun DictationScreen(ui: DictUi, a: DictActions) {
         LKProgress(ui.k / ui.total.toFloat(), track = c.surfaceContainerHighest)
         Flow { for ((m, key) in listOf("mid" to L10nKey.skillListenDienTuTrungBinh, "hard" to L10nKey.skillListenDienTuKho, "full" to L10nKey.skillListenChepCaCau)) Chip(t(key), ui.mode == m, { a.mode(m) }) }
         Muted(ui.part.title + " · " + ui.part.speakerName(l.s))
-        Flow { GhostButton("‹ " + t(L10nKey.skillListenCauTruoc), a.prev); GhostButton("🔊 " + t(L10nKey.lessonKindListen), { a.say(false) }); GhostButton("🐢", { a.say(true) }); GhostButton(t(L10nKey.skillListenCauSau) + " ›", a.next) }
+        // Stitch audio dock: previous · big Listen · labelled slow · next, always one row
+        val dPrev = t(L10nKey.skillListenCauTruoc); val dSlow = t(L10nKey.lessonSlowShort); val dNext = t(L10nKey.skillListenCauSau)
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs), verticalAlignment = Alignment.CenterVertically) {
+            GhostButton("‹", a.prev, Modifier.semantics { contentDescription = dPrev }.widthIn(min = 48.dp))
+            LKPrimaryButton("🔊 " + t(L10nKey.lessonKindListen), { a.say(false) }, Modifier.weight(1f))
+            GhostButton("🐢 0.75x", { a.say(true) }, Modifier.semantics { contentDescription = dSlow })
+            GhostButton("›", a.next, Modifier.semantics { contentDescription = dNext }.widthIn(min = 48.dp))
+        }
         LKCard(fill = c.surfaceContainerHighest) {
             if (ui.mode == "full") {
                 StudyField(ui.full, a.full, t(L10nKey.skillListenGoLaiCaCau), singleLine = false, minHeight = 96.dp, enabled = ck == null)
@@ -312,7 +323,7 @@ fun DictationScreen(ui: DictUi, a: DictActions) {
                 if (ck != null) { Body(t(L10nKey.skillListenABODung, mapOf("a" to ck.right, "b" to ck.of)), style = LKType.titlePill, color = if (ck.ok) c.success else c.error); EnLtr { Muted(l.t.orEmpty()) } }
             }
         }
-        Flow { Chip(if (ui.auto) "✓" else "–", ui.auto, { a.auto(!ui.auto) }); Muted(t(L10nKey.skillListenTuDongPhatLai)) }
+        SwitchRow(t(L10nKey.skillListenTuDongPhatLai), ui.auto) { a.auto(it) }
         LKCard {
             Flow { Chip(if (ui.trOpen) "▾" else "▸", ui.trOpen, { a.tr(!ui.trOpen) }); Body("📜 " + t(L10nKey.skillListenTranscriptBanDich), style = LKType.titlePill) }
             if (ui.trOpen) { val lines = Dictation.lines(ui.part); for ((n, x) in lines.withIndex()) EnLtr { Muted(ui.part.speakerName(x.s) + " · " + if (n <= ui.k) x.t.orEmpty() else t(L10nKey.skillListenChepXongCauNay)) }; for (v in ui.tr) Muted(v) }
@@ -330,6 +341,7 @@ fun ReadingListScreen(ui: ReadingUi, a: ReadingActions) {
     StudyPage(t(L10nKey.skillReadBaiDocIelts), a.exit) {
         Muted(t(L10nKey.skillReadDocBaiTheoPhong))
         if (m.tabs.isNotEmpty()) Flow { for (tab in m.tabs) Chip((if (tab.lv == "all") t(L10nKey.vocabAll) else tab.lv) + " ${tab.n}", tab.selected, { a.level(tab.lv) }) }
+        if (m.cards.isEmpty()) EmptyState("📖", t(L10nKey.skillListenDangCapNhatDe))
         for (k in m.cards) LKCard(onClick = { a.open("#/read/${k.r.id}") }, fill = c.surfaceContainerHighest) {
             Row(horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs), verticalAlignment = Alignment.CenterVertically) { Text(k.r.emoji, style = LKType.headlineMd.toCompose()); Tag(k.r.level) }
             Body(k.r.title, style = LKType.titlePill); Muted(k.summary)
@@ -379,7 +391,7 @@ fun ReaderScreen(ui: ReaderUi, a: ReaderActions) {
             if (item != null) Muted((if (item.wrong) "❌ " else "✓ ") + q.explain)
         } }
         if (g == null) LKPrimaryButton(t(L10nKey.skillReadChamDiem), a.grade) else LKCard(fill = if (g.ok) c.surfaceContainerHighest else c.errorContainer) {
-            Body(t(L10nKey.skillReadKetQuaScoreN, mapOf("score" to g.score, "n" to g.n, "pct" to g.pct)) + " · +${g.xp} XP", style = LKType.headlineSm)
+            Body(Bidi.isolate(t(L10nKey.skillReadKetQuaScoreN, mapOf("score" to g.score, "n" to g.n, "pct" to g.pct)) + " · +${g.xp} XP"), style = LKType.headlineSm)
             Flow { GhostButton(t(L10nKey.skillReadBaiDocKhac), { a.open("#/reading") }); GhostButton("🧠 " + t(L10nKey.skillReadHocCacTuVua), { a.open("#/practice/learn?src=deck") }) }
         }
     }

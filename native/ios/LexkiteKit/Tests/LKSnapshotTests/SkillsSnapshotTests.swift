@@ -126,7 +126,9 @@ final class SkillsSnapshotTests: XCTestCase {
         await shoot { lang in
             let f = WordPopup.Found(entry: .null, word: "membership", pos: "noun", level: "B1", ipa: "/ˈmem.bə.ʃɪp/", mean: "tư cách hội viên", def: "the state of belonging to a group", saved: false,
                                     sentence: "Oh, hello. I'd like to sign up for a membership, if that's possible over the phone.", ctxWord: "membership", detailsHref: "#/dict/membership")
-            return WordPopupView(model: .fixture(.found(f), word: "membership", sentence: f.sentence), onClose: {}).frame(maxHeight: .infinity, alignment: .bottom)
+            let c = self.ctx(lang), p = self.part("t1p1")
+            let m = ListenPartModel.fixture(ctx: c, part: p, exam: false); m.answers = self.answers(p, 2)
+            return SheetOver(screen: ListenPartView(model: m), sheet: WordPopupView(model: .fixture(.found(f), word: "membership", sentence: f.sentence), onClose: {}))
         }
     }
 
@@ -209,7 +211,8 @@ final class SkillsSnapshotTests: XCTestCase {
         await shoot { lang in
             let f = WordPopup.Found(entry: .null, word: "sustainable", pos: "adj", level: "B2", ipa: "/səˈsteɪ.nə.bəl/", mean: "bền vững", def: "able to continue over a long period of time", saved: true,
                                     sentence: "Supporters argue that this can reduce pollution and help cities become more sustainable.", ctxWord: "sustainable", detailsHref: "#/dict/sustainable")
-            return WordPopupView(model: .fixture(.found(f), word: "sustainable", sentence: f.sentence, saved: true), onDetails: { _ in }, onClose: {}).frame(maxHeight: .infinity, alignment: .bottom)
+            let r = Self.content.reading("urban-farming") ?? .null
+            return SheetOver(screen: ReaderView(model: ReaderModel(ctx: self.ctx(lang), reading: r)), sheet: WordPopupView(model: .fixture(.found(f), word: "sustainable", sentence: f.sentence, saved: true), onDetails: { _ in }, onClose: {}))
         }
     }
     func testReaderResult() async {
@@ -217,6 +220,19 @@ final class SkillsSnapshotTests: XCTestCase {
             let r = Self.content.reading("urban-farming") ?? .null, m = ReaderModel(ctx: self.ctx(lang), reading: r)
             m.fixtureGrade(["FALSE", "TRUE", "TRUE", "1", "3"])
             return ReaderView(model: m, onlyQuestions: true)
+        }
+    }
+}
+
+/// A bottom sheet over the real screen with the design's veil (`bg-on-surface/35`), token colours only
+struct SheetOver<Screen: View, Sheet: View>: View {
+    let screen: Screen, sheet: Sheet
+    @Environment(\.colorScheme) private var scheme
+    var body: some View {
+        ZStack(alignment: .bottom) {
+            screen
+            LKColor.onSurface.resolve(scheme).opacity(0.35).ignoresSafeArea()
+            sheet.clipShape(UnevenRoundedRectangle(topLeadingRadius: 24, topTrailingRadius: 24, style: .continuous))
         }
     }
 }

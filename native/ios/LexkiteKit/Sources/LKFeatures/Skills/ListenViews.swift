@@ -70,7 +70,7 @@ struct ListenHubView: View {
         SkillCard {
             VStack(alignment: .leading, spacing: LKSpacing.spaceSm) {
                 FlowLayout {
-                    StudyChip(text: "Part \(c.part) · " + t(c.partKey), tint: LKColor.secondary)
+                    StudyChip(text: Bidi.ltr("Part \(c.part)") + " · " + t(c.partKey), tint: LKColor.secondary)
                     if let b = c.best { StudyChip(text: "✓ \(JSON.jsNumberString(b))/10", tint: LKColor.success) }
                 }
                 Text(verbatim: c.title).studyText(LKType.headlineSm).englishText().fixedSize(horizontal: false, vertical: true)
@@ -146,7 +146,7 @@ struct ListenPartView: View {
     private var header: some View {
         let p = model.page
         return VStack(alignment: .leading, spacing: LKSpacing.spaceXs) {
-            Text(verbatim: "Test \(p.test) · Part \(p.part) · " + t(p.partKey) + " · " + t(.skillListenCauAB, ["a": p.qFrom, "b": p.qTo]))
+            Text(verbatim: Bidi.ltr("Test \(p.test) · Part \(p.part)") + " · " + t(p.partKey) + " · " + Bidi.isolate(t(.skillListenCauAB, ["a": p.qFrom, "b": p.qTo])))
                 .studyText(LKType.labelBadge, LKColor.onSurfaceVariant).fixedSize(horizontal: false, vertical: true)
             Text(verbatim: p.title).studyText(LKType.headlineMd).englishText().fixedSize(horizontal: false, vertical: true)
             if !p.context.isEmpty { EnglishText(text: p.context, style: LKType.bodyMd, color: LKColor.onSurfaceVariant) }
@@ -337,7 +337,7 @@ struct ListenTestView: View {
         let c = f.chip
         return VStack(alignment: .leading, spacing: LKSpacing.spaceMd) {
             HStack(spacing: LKSpacing.spaceXs) {
-                StudyChip(text: "Test \(c.test) · Part \(c.part)/\(f.parts.count) · " + t(.skillListenCauAB, ["a": c.qFrom, "b": c.qTo]), tint: LKColor.secondary)
+                StudyChip(text: Bidi.ltr("Test \(c.test) · Part \(c.part)/\(f.parts.count)") + " · " + Bidi.isolate(t(.skillListenCauAB, ["a": c.qFrom, "b": c.qTo])), tint: LKColor.secondary)
             }
             SkillProgress(value: f.progressPct / 100)
             SkillCard {
@@ -368,7 +368,7 @@ struct ListenTestView: View {
             SkillCard {
                 VStack(spacing: LKSpacing.spaceSm) {
                     Image(systemName: r.celebrates ? "party.popper.fill" : "headphones").font(.system(size: 40, weight: .semibold)).foregroundStyle(LKColor.secondary.resolve(scheme)).accessibilityHidden(true)
-                    Text(verbatim: "Band \(JSON.jsNumberString(r.band)) · " + t(.skillListenABCauDung, ["a": r.raw, "b": 40])).studyText(LKType.headlineMd).multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
+                    Text(verbatim: Bidi.ltr("Band \(JSON.jsNumberString(r.band))") + " · " + Bidi.isolate(t(.skillListenABCauDung, ["a": r.raw, "b": 40]))).studyText(LKType.headlineMd).multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
                     Text(t(.skillListenQuyDoiTheoThang)).studyText(LKType.bodySm, LKColor.onSurfaceVariant).multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
                 }
                 .frame(maxWidth: .infinity)
@@ -377,7 +377,7 @@ struct ListenTestView: View {
                 Button { go(p.href, onRoute) } label: {
                     SkillCard {
                         VStack(alignment: .leading, spacing: 6) {
-                            Text(verbatim: "Part \(p.part) · \(p.right)/10").studyText(LKType.titlePill)
+                            Text(verbatim: Bidi.ltr("Part \(p.part) · \(p.right)/10")).studyText(LKType.titlePill)
                             SkillProgress(value: Double(p.right) / 10)
                             Text(t(.skillListenBamDeLuyenLai)).studyText(LKType.bodySm, LKColor.onSurfaceVariant).fixedSize(horizontal: false, vertical: true)
                         }

@@ -74,11 +74,23 @@ class SkillsSnapshotTest {
     private fun entry(word: String, ipa: String, vi: String, def: String) = buildJsonObject { put("word", word); put("ipa", ipa); put("pos", "noun"); put("level", "B1"); put("vi", vi); put("def", def) }
     private val membership = PopupUi("membership", p.script[3].t!!, entry = entry("membership", "/ˈmem.bə.ʃɪp/", "tư cách hội viên", "the state of belonging to a group"), translation = "tư cách hội viên", saved = false)
     private val sustainable = PopupUi("sustainable", "Supporters argue that this can reduce pollution and help cities become more sustainable.", entry = entry("sustainable", "/səˈsteɪ.nə.bəl/", "bền vững", "able to continue over a long period"), translation = "bền vững", details = true)
-    private fun results() = java.util.TreeMap<Int, Pair<Qx.Res, String>>().also { m -> for (x in parts) for ((q, r) in Qx.collect(x, if (x === p) answers else emptyMap())) m[q] = r to x.id }
+    /** answers of [part]: the first [k] questions right (accepted answer), the rest wrong; [wrongEvery2] = every second question wrong instead */
+    private fun answersOf(part: com.lexkite.app.core.skills.Part, k: Int = Int.MAX_VALUE, wrongEvery2: Boolean = false): Map<String, Any?> {
+        val out = linkedMapOf<String, Any?>(); val res = Qx.collect(part, emptyMap()); var i = 0
+        for ((n, r) in res) { i++; val right = i <= k && !(wrongEvery2 && i % 2 == 0)
+            if (r.type == "multi") { val gi = Qx.groupIndex(part, n) ?: continue; out["m$gi"] = if (right) r.alts else emptyList<String>(); continue }
+            out[n.toString()] = if (right) r.alts.firstOrNull().orEmpty() else "zzz" }
+        return out
+    }
+    private val p2 = parts[1]; private val a2 = answersOf(p2, wrongEvery2 = true); private val submit2 = ListenPage.submit(p2, a2, null, emptyList(), 0L)
+    private val keepRight2 = a2.filterKeys { k -> k.toIntOrNull()?.let { submit2.res.getValue(it).ok } == true }
+    private fun practiceOf(part: com.lexkite.app.core.skills.Part, ans: Map<String, Any?>) = ListenUi(ListenPage.page(part, false, null), ans, rows = ListenPage.transcript(part, content.lexis, false))
+    private fun results() = java.util.TreeMap<Int, Pair<Qx.Res, String>>().also { m -> for ((k, x) in parts.withIndex()) for ((q, r) in Qx.collect(x, answersOf(x, if (k == 0) 6 else 5))) m[q] = r to x.id } // 21 of 40: Band 5.5
     private fun typedRight(k: Int, mode: String) = Dictation.cells(Dictation.toks(dictLines[k].t!!), mode).filter { it.hole }.map { Dictation.answerOf(it) }
 
     @Composable private fun screen(name: String, lang: String) {
         val read = Reader.passage(reading, content.lexis) { it == "residents" }
+        val summary = Reader.list(content, emptyMap(), null, game, lang).cards.first { it.r.id == reading.id }.summary
         val testPart = TestUi(1, TestUi.Phase.PART, p, 0, 4, partIds = parts.map { it.id }, answers = answers)
         when (name) {
             "hub" -> ListenHubScreen(HubUi(ListenHub.hub(content, emptyMap(), null, game, lang), lang), HubActions())
@@ -88,13 +100,13 @@ class SkillsSnapshotTest {
             "blocked" -> ListenScreen(practice.copy(plays = 1, blocked = true), ListenActions())
             "popup" -> ListenScreen(practice.copy(live = true, popup = membership), ListenActions())
             "popupMiss" -> ListenScreen(practice.copy(live = true, popup = PopupUi("zzqx", "Oh, hello.")), ListenActions())
-            "result" -> ListenScreen(practice.copy(submit = submit, live = true, rows = ListenPage.transcript(p, content.lexis, true), saved = setOf(0)), ListenActions())
+            "result" -> ListenScreen(practiceOf(p2, a2).copy(submit = submit2, live = true, rows = ListenPage.transcript(p2, content.lexis, true), saved = setOf(0)), ListenActions())
             // "Làm lại câu sai": the wrong answers cleared (retake) and, after Check, the re-graded rows (recheck); the results-by-type card is part of "result" above
-            "retake" -> ListenScreen(practice.copy(submit = submit, live = true, rows = ListenPage.transcript(p, content.lexis, true), retake = true, answers = answers.filterKeys { k -> k.toIntOrNull()?.let { submit.res.getValue(it).ok } == true }), ListenActions())
-            "retakeChecked" -> { val fixed = answers.filterKeys { k -> k.toIntOrNull()?.let { submit.res.getValue(it).ok } == true } + submit.res.filterValues { !it.ok }.mapValues { it.value.alts.first() }.mapKeys { it.key.toString() }
-                ListenScreen(practice.copy(submit = submit, live = true, rows = ListenPage.transcript(p, content.lexis, true), retake = true, answers = fixed,
-                    recheck = submit.res.filterValues { !it.ok }.mapValues { (n, r) -> Qx.recheck(r, Qx.answerFor(p, fixed, n)) }), ListenActions()) }
-            "exam" -> ListenScreen(ListenUi(ListenPage.page(p, true, null), answers, playing = true, plays = 1, line = 2), ListenActions())
+            "retake" -> ListenScreen(practiceOf(p2, keepRight2).copy(submit = submit2, live = true, rows = ListenPage.transcript(p2, content.lexis, true), retake = true), ListenActions())
+            "retakeChecked" -> { val fixed = a2 + answersOf(p2).filterKeys { k -> k !in keepRight2 }
+                ListenScreen(practiceOf(p2, fixed).copy(submit = submit2, live = true, rows = ListenPage.transcript(p2, content.lexis, true), retake = true,
+                    recheck = submit2.res.filterValues { !it.ok }.mapValues { (n, r) -> Qx.recheck(r, Qx.answerFor(p2, fixed, n)) }), ListenActions()) }
+            "exam" -> ListenScreen(ListenUi(ListenPage.page(parts[3], true, null), emptyMap()), ListenActions())
             "testIntro" -> ListenTestScreen(TestUi(1, TestUi.Phase.INTRO, parts = 4), TestActions())
             "testCount" -> ListenTestScreen(testPart.copy(left = 24), TestActions())
             "testPlaying" -> ListenTestScreen(testPart.copy(started = true, sounding = true, line = 2), TestActions())
@@ -107,10 +119,10 @@ class SkillsSnapshotTest {
             "dictDiff" -> DictationScreen(DictUi(p, "full", 2, dictLines.size, dictLine(2, "full"), full = "yes of course i can take your details now then you really pop in", check = Dictation.check(dictLines[2], "full", emptyList(), "yes of course i can take your details now then you really pop in")), DictActions())
             "dictFin" -> DictationScreen(DictUi(p, "mid", 4, dictLines.size, dictLine(4, "mid"), fin = Dictation.finish(p.id, "mid", 3.2, 4, null)), DictActions())
             "readList" -> ReadingListScreen(ReadingUi(Reader.list(content, emptyMap(), null, game, lang)), ReadingActions())
-            "reader" -> ReaderScreen(ReaderUi(reading, reading.summaryEn, read, active = "sustainable"), ReaderActions())
-            "readerPopup" -> ReaderScreen(ReaderUi(reading, reading.summaryEn, read, active = "sustainable", popup = sustainable), ReaderActions())
+            "reader" -> ReaderScreen(ReaderUi(reading, summary, read, active = "sustainable"), ReaderActions())
+            "readerPopup" -> ReaderScreen(ReaderUi(reading, summary, read, active = "sustainable", popup = sustainable), ReaderActions())
             else -> { val picks = listOf("FALSE", "TRUE", "TRUE", "1", "3"); val g = Reader.grade(reading, picks, null, emptyList(), 0L)
-                ReaderScreen(ReaderUi(reading, reading.summaryEn, read, picks = picks.mapIndexed { i, v -> i to v }.toMap(), graded = g), ReaderActions()) }
+                ReaderScreen(ReaderUi(reading, summary, read, picks = picks.mapIndexed { i, v -> i to v }.toMap(), graded = g), ReaderActions()) }
         }
     }
 
@@ -148,18 +160,18 @@ class SkillsSnapshotTest {
     @Test fun popupMissViLight() = shot("popupMiss", "vi", false)
     @Test fun popupMissArLight() = shot("popupMiss", "ar", false)
     @Test fun popupMissDeDark() = shot("popupMiss", "de", true)
-    @Test fun resultEnLight() = shot("result", "en", false)
-    @Test fun resultViLight() = shot("result", "vi", false)
-    @Test fun resultArLight() = shot("result", "ar", false)
-    @Test fun resultDeDark() = shot("result", "de", true)
-    @Test fun retakeEnLight() = shot("retake", "en", false)
-    @Test fun retakeViLight() = shot("retake", "vi", false)
-    @Test fun retakeArLight() = shot("retake", "ar", false)
-    @Test fun retakeDeDark() = shot("retake", "de", true)
-    @Test fun retakeCheckedEnLight() = shot("retakeChecked", "en", false)
-    @Test fun retakeCheckedViLight() = shot("retakeChecked", "vi", false)
-    @Test fun retakeCheckedArLight() = shot("retakeChecked", "ar", false)
-    @Test fun retakeCheckedDeDark() = shot("retakeChecked", "de", true)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun resultEnLight() = shot("result", "en", false)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun resultViLight() = shot("result", "vi", false)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun resultArLight() = shot("result", "ar", false)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun resultDeDark() = shot("result", "de", true)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun retakeEnLight() = shot("retake", "en", false)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun retakeViLight() = shot("retake", "vi", false)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun retakeArLight() = shot("retake", "ar", false)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun retakeDeDark() = shot("retake", "de", true)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun retakeCheckedEnLight() = shot("retakeChecked", "en", false)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun retakeCheckedViLight() = shot("retakeChecked", "vi", false)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun retakeCheckedArLight() = shot("retakeChecked", "ar", false)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun retakeCheckedDeDark() = shot("retakeChecked", "de", true)
     @Test fun examEnLight() = shot("exam", "en", false)
     @Test fun examViLight() = shot("exam", "vi", false)
     @Test fun examArLight() = shot("exam", "ar", false)
@@ -184,10 +196,10 @@ class SkillsSnapshotTest {
     @Test fun testEndedViLight() = shot("testEnded", "vi", false)
     @Test fun testEndedArLight() = shot("testEnded", "ar", false)
     @Test fun testEndedDeDark() = shot("testEnded", "de", true)
-    @Test fun testResultEnLight() = shot("testResult", "en", false)
-    @Test fun testResultViLight() = shot("testResult", "vi", false)
-    @Test fun testResultArLight() = shot("testResult", "ar", false)
-    @Test fun testResultDeDark() = shot("testResult", "de", true)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun testResultEnLight() = shot("testResult", "en", false)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun testResultViLight() = shot("testResult", "vi", false)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun testResultArLight() = shot("testResult", "ar", false)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun testResultDeDark() = shot("testResult", "de", true)
     @Test fun dictFillEnLight() = shot("dictFill", "en", false)
     @Test fun dictFillViLight() = shot("dictFill", "vi", false)
     @Test fun dictFillArLight() = shot("dictFill", "ar", false)
@@ -216,8 +228,8 @@ class SkillsSnapshotTest {
     @Test fun readerPopupViLight() = shot("readerPopup", "vi", false)
     @Test fun readerPopupArLight() = shot("readerPopup", "ar", false)
     @Test fun readerPopupDeDark() = shot("readerPopup", "de", true)
-    @Test fun readerResultEnLight() = shot("readerResult", "en", false)
-    @Test fun readerResultViLight() = shot("readerResult", "vi", false)
-    @Test fun readerResultArLight() = shot("readerResult", "ar", false)
-    @Test fun readerResultDeDark() = shot("readerResult", "de", true)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun readerResultEnLight() = shot("readerResult", "en", false)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun readerResultViLight() = shot("readerResult", "vi", false)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun readerResultArLight() = shot("readerResult", "ar", false)
+    @Config(qualifiers = "w390dp-h2600dp-hdpi") @Test fun readerResultDeDark() = shot("readerResult", "de", true)
 }
