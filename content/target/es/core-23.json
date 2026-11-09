@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -55,7 +55,7 @@
    "pos": "adj",
    "ipa": "maˈʝoɾ",
    "gl": {
-    "vi": "lớn hơn",
+    "vi": "lớn tuổi hơn, lớn hơn",
     "en": "older, bigger",
     "es": "mayor",
     "pt": "maior",
@@ -177,7 +177,7 @@
    "pos": "n",
    "gender": "m",
    "plural": "reyes",
-   "ipa": "ˈreɪ",
+   "ipa": "ˈrej",
    "gl": {
     "vi": "vua",
     "en": "king",
@@ -196,8 +196,8 @@
     "tr": "kral"
    },
    "ex": {
-    "es": "El rey es la figura de la monarquía.",
-    "en": "The king is the figure of the monarchy."
+    "es": "El rey vive en un castillo grande.",
+    "en": "The king lives in a big castle."
    },
    "rank": 585,
    "qa": {
@@ -224,7 +224,7 @@
     "vi": "vị trí",
     "en": "position",
     "es": "puesto",
-    "pt": "posto",
+    "pt": "posto, cargo",
     "fr": "poste",
     "de": "Stelle",
     "id": "posisi",
@@ -235,7 +235,7 @@
     "hi": "पद",
     "ar": "منصب",
     "ru": "должность",
-    "tr": "makam"
+    "tr": "pozisyon, görev"
    },
    "ex": {
     "es": "Él consiguió un nuevo puesto en la empresa.",
@@ -303,9 +303,9 @@
    "pos": "n",
    "gender": "mf",
    "plural": "agentes",
-   "ipa": "aˈxɛnte",
+   "ipa": "aˈxente",
    "gl": {
-    "vi": "đại lý",
+    "vi": "nhân viên, đại lý",
     "en": "agent",
     "es": "agente",
     "pt": "agente",
@@ -510,7 +510,7 @@
    "pos": "n",
    "gender": "f",
    "plural": "mentes",
-   "ipa": "ˈmɛnte",
+   "ipa": "ˈmente",
    "gl": {
     "vi": "tâm trí",
     "en": "mind",
@@ -633,7 +633,7 @@
    "pos": "n",
    "gender": "m",
    "plural": "centros",
-   "ipa": "ˈsɛntɾo",
+   "ipa": "ˈsentɾo",
    "gl": {
     "vi": "trung tâm",
     "en": "center",
@@ -990,5 +990,13 @@
     ]
    }
   }
- ]
+ ],
+ "review": {
+  "by": "sonnet-review-B",
+  "at": "2026-11-09",
+  "checked": 24,
+  "fixed": 6,
+  "dropped": 0,
+  "sample": 6
+ }
 }

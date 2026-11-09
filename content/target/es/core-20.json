@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -53,7 +53,7 @@
   {
    "word": "aunque",
    "pos": "conj",
-   "ipa": "ˈaʊnke",
+   "ipa": "ˈawnke",
    "gl": {
     "vi": "mặc dù",
     "en": "although, even though",
@@ -62,7 +62,7 @@
     "fr": "bien que, même si",
     "de": "obwohl",
     "id": "meskipun",
-    "th": "although, ถึงแม้ว่า",
+    "th": "แม้ว่า, ถึงแม้ว่า",
     "zh": "虽然",
     "ja": "〜けれども",
     "ko": "비록 ~일지라도",
@@ -296,11 +296,11 @@
    "ipa": "aðeˈmas",
    "gl": {
     "es": "además",
-    "en": "also",
+    "en": "also, besides",
     "pt": "também",
     "fr": "aussi",
     "de": "auch",
-    "vi": "cũng",
+    "vi": "hơn nữa, ngoài ra",
     "id": "juga",
     "th": "อีกด้วย",
     "zh": "也",
@@ -329,5 +329,13 @@
     ]
    }
   }
- ]
+ ],
+ "review": {
+  "by": "sonnet-review-B",
+  "at": "2026-11-09",
+  "checked": 8,
+  "fixed": 2,
+  "dropped": 0,
+  "sample": 5
+ }
 }

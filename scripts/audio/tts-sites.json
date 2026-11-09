@@ -6,6 +6,7 @@
   "web/js/lesson/teacher.js": { "engine": "LessonTeacher.say → UI.tts giọng nhân vật" },
   "web/js/grammar.js": { "groups": ["grammar", "gold-examples"] },
   "web/js/espr.js": { "groups": [], "dynamic": "câu tiếng TBN của bài luyện W2b: dựng sẵn ở corpus riêng scripts/sentence-audio/corpus-es.mjs (gen-audio.mjs --tl es, giọng ef_dora) – nhóm tiếng Anh không đo; chưa có file thì UI.tts đọc giọng máy es-419" },
+  "web/cpack/es-app/day-ui.js": { "groups": [], "dynamic": "từ + câu ví dụ tiếng TBN của lộ trình ngày W4: dựng sẵn ở corpus riêng scripts/sentence-audio/corpus-es.mjs (path-lib.pathLines, Ama ef_dora); chưa có file thì UI.tts đọc giọng máy es-419" },
   "web/cpack/es-app/pron-ui.js": { "groups": [], "dynamic": "từ/cụm tiếng TBN của bài phát âm W3: dựng sẵn ở corpus riêng scripts/sentence-audio/corpus-es.mjs (px-lib.pxLines, giọng ef_dora); chưa có file thì UI.tts đọc giọng máy es-419" },
   "web/js/confidence.js": { "groups": ["confidence"] },
   "web/js/teacher-bubble.js": { "groups": [], "dynamic": "lời Ama trên Hôm nay ghép số liệu thật (việc trong kế hoạch, từ cần ôn) – chỉ đọc khi bấm 🔊" },

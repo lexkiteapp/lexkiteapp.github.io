@@ -26,7 +26,7 @@
   },
   {
    "id": "x",
-   "text": "Can I have another cookie?",
+   "text": "Can I have another cookie, please?",
    "pause": 0.42
   },
   {
@@ -76,9 +76,9 @@
   "text": "US or UK?"
  },
  "est": {
-  "words": 44,
-  "seconds": 27.1,
-  "wpm": 97
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
  },
  "publish": {
   "title": "Cookie or biscuit? US vs UK English",
@@ -91,7 +91,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/cookie",
-  "script_words": 31,
+  "script_words": 32,
   "platforms": {
    "youtube": {
     "title": "Cookie or biscuit? US vs UK English",
