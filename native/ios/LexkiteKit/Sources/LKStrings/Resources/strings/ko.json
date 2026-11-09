@@ -1169,6 +1169,8 @@
   "rev.speakingRoomHint": "파트 1~3, 본인 녹음, 어휘 채점",
   "rev.spanishGrammarHint": "동사 활용과 문법을 내 언어로 설명해 드려요",
   "rev.speakScoreHint": "마이크에 대고 말하고 즉시 점수를 받으세요",
+  "rev.spanishExam": "DELE/SIELE 형식 연습",
+  "rev.spanishExamHint": "시험 구성에 맞춘 읽기·듣기·쓰기·말하기",
   "skill.listen.moTaTranh": "사진 묘사",
   "skill.listen.hoiDap": "질의응답",
   "skill.listen.hoiThoai": "대화",

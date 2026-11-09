@@ -2,6 +2,7 @@
 import { readJSON } from './lib.mjs';
 import { form, conjugate, TENSES } from './conjugate.mjs';
 import { buildPx } from './px-lib.mjs';
+import { buildExam } from './exam-es-lib.mjs';
 import { buildPath } from './path-lib.mjs';
 
 export const D = 'content/target/es/', LV = ['A1', 'A2', 'B1'];
@@ -48,6 +49,7 @@ export function build() {
     files[`gx-${l}.js`] = `self.ESX=self.ESX||{};(ESX.gx=ESX.gx||{})[${JSON.stringify(l)}]=${JSON.stringify(o)};\n`;
   }
   Object.assign(files, buildPx().files); // gói phát âm W3 (px.js + px-<ngôn ngữ>.js) cùng thư mục, cùng kiểm 'cũ so với nguồn' / mồ côi
+  Object.assign(files, buildExam().files); // gói luyện định dạng DELE/SIELE W5 (x-<cấp>.js + x-ui-<ngôn ngữ>.js)
   Object.assign(files, buildPath(pts, buildPx().topics).files); // gói lộ trình ngày W4 (wd/dy/cl + bản dịch 15 ngôn ngữ)
   return { files, dr, pts, cloze };
 }
