@@ -157,6 +157,8 @@ p { margin: .4rem 0; }
 .btn.lg { padding: 14px var(--sp-5); font-size: var(--fs-md); border-radius: var(--r-md); }
 .btn.block { width: 100%; white-space: normal; text-align: center; line-height: 1.35; overflow-wrap: anywhere; } /* nút rộng hết khung: chữ dài tự xuống dòng, không tràn (vd. Bắt đầu: …) */
 .btn[disabled] { opacity: .5; cursor: default; pointer-events: none; }
+/* Nút bị vô hiệu vẫn đọc được (AA ≥ 4.5:1 cả sáng/tối): nền nhạt + chữ muted + viền đứt, không làm mờ cả nút. Lý do chưa bấm được: .next-why ngay dưới */
+.btn.btn[disabled] { opacity: 1; background: var(--surface-2); color: var(--muted); border: 1px dashed color-mix(in srgb, var(--muted) 55%, transparent); box-shadow: none; }
 
 .input, select.input, textarea.input { width: 100%; padding: .7rem .9rem; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); outline: none; transition: border-color .15s, box-shadow .15s; }
 /* iOS Safari: ô ngày/giờ có bề rộng nội tại > khung → tràn (24/10). Ép co theo khung, căn trái như ô khác. */
@@ -183,6 +185,7 @@ label.field > span { display: block; font-weight: 600; margin-bottom: .35rem; fo
 .chip { display: inline-flex; align-items: center; gap: .25rem; padding: .14rem .6rem; border-radius: 999px; background: var(--surface-2); font-size: .78rem; color: var(--muted); font-weight: 600; white-space: nowrap; }
 a.chip:hover { background: var(--primary-soft); color: var(--primary-text); }
 .chip.lv { background: var(--primary-soft); color: var(--primary-text); }
+#lkHero .chip { white-space: normal; max-width: 100%; line-height: 1.35; padding-block: var(--sp-1); } /* câu giới thiệu dài (vi/de/fr…) bị cắt ngang ở điện thoại 375 px → xuống dòng */
 .chip.lv.B1 { background: var(--good-soft); color: var(--good-text); }
 .chip.lv.C1, .chip.lv.C2 { background: var(--gold-soft); color: var(--gold-text); }
 .chip.pos { font-style: italic; }
@@ -463,6 +466,7 @@ html:has(.grade-bar) { scroll-padding-bottom: 6.5rem; }
   .bottom-nav { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 25; justify-content: space-around; background: var(--surface); border-top: 1px solid var(--line); padding: .25rem .25rem calc(.25rem + env(safe-area-inset-bottom)); }
   .bottom-nav a { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: .25rem .2rem; min-height: 44px; min-width: 44px; font-size: .6875rem; font-weight: 700; color: var(--muted); flex: 1; box-sizing: border-box; }
   .bottom-nav a span { font-size: 1.3rem; line-height: 1; }
+  .bottom-nav.st-nav > .st { height: 100%; } /* thanh Stitch (h-20 = 80 px) nằm trong #bnav cao 64 px + safe-area (tactile.css): ô tab tràn đáy 4 px → vừa đúng chiều cao thanh, tính cả safe-area */
   .bottom-nav a.active { color: var(--primary); }
   .bottom-nav .badge { position: absolute; top: 4px; right: calc(50% - 16px); margin: 0; min-width: 0; width: 9px; height: 9px; padding: 0; border-radius: 50%; font-size: 11px; line-height: 0; color: transparent; overflow: visible; background: var(--accent, var(--again)); box-shadow: 0 0 0 2px var(--surface); } /* tab Từ vựng: chấm nhỏ thay số đỏ (số vẫn trong DOM cho trình đọc màn hình) */
   .view { --view-pb: 6.5rem; padding-bottom: var(--view-pb); }
@@ -946,6 +950,9 @@ a, button, label, .option, .card.hover, [role="button"] { touch-action: manipula
 #view:focus, #view:focus-visible { outline: none; } /* focus chuyển về nội dung khi đổi trang – không viền quanh cả trang */
 @keyframes viewIn { from { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { #view { animation: none; } }
+/* Thanh tab Stitch (shell.js, trong #view): dính đáy NGAY cả khi CSS màn (css/st-v2-*.css) chưa nạp xong – loadCss thôi chờ sau 1,5 s; trước đây lần nạp đầu
+   trên máy chậm (WebKit/iPhone) thanh tab nằm trong luồng ở cuối trang. Cùng giá trị với lớp Tailwind fixed bottom-0 w-full z-50 → không đổi giao diện. */
+body.v2on #view nav.fixed.bottom-0 { position: fixed; bottom: 0; width: 100%; z-index: 50; }
 /* Khung chờ khi tải */
 .skel-page { display: grid; gap: .9rem; padding-top: .4rem; }
 .skel { border-radius: 14px; background: linear-gradient(90deg, var(--surface-2) 25%, var(--surface-3, var(--line)) 50%, var(--surface-2) 75%); background-size: 200% 100%; animation: skel 1.2s ease-in-out infinite; }

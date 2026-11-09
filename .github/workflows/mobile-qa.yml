@@ -5,10 +5,10 @@ name: Mobile QA
 on:
   pull_request:
     branches: [main]
-    paths: ['web/app/**', 'web/js/**', 'web/css/**', 'scripts/test/mobile-qa*', 'scripts/app-loader.mjs', 'scripts/build-hash.mjs', '.github/workflows/mobile-qa.yml']
+    paths: ['web/app/**', 'web/js/**', 'web/css/**', 'scripts/test/mobile-qa*', 'scripts/test/mobile-nav*', 'scripts/app-loader.mjs', 'scripts/build-hash.mjs', '.github/workflows/mobile-qa.yml']
   push:
     branches: [main]
-    paths: ['web/app/**', 'web/js/**', 'web/css/**', 'scripts/test/mobile-qa*', 'scripts/app-loader.mjs', 'scripts/build-hash.mjs', '.github/workflows/mobile-qa.yml']
+    paths: ['web/app/**', 'web/js/**', 'web/css/**', 'scripts/test/mobile-qa*', 'scripts/test/mobile-nav*', 'scripts/app-loader.mjs', 'scripts/build-hash.mjs', '.github/workflows/mobile-qa.yml']
   workflow_dispatch:
   schedule:
     - cron: '40 3 * * 1'   # thứ Hai 10:40 giờ Việt Nam
@@ -67,6 +67,12 @@ jobs:
           node scripts/build-hash.mjs out/site  # JS/CSS bản /h/ theo mã băm như dist/ (sau cpack)
           (node scripts/test/serve-web.mjs out/site 8080 >/dev/null 2>&1 &) ; sleep 1
           node scripts/test/mobile-qa.mjs http://localhost:8080 out/mobile-qa
+      - name: Chạm tab Tôi (Cá nhân) 375×812 sáng/tối + IndexedDB treo
+        if: ${{ !cancelled() }}
+        run: |
+          curl -sf -o /dev/null http://localhost:8080/app/ || { (node scripts/test/serve-web.mjs out/site 8080 >/dev/null 2>&1 &) ; sleep 1; }
+          bash scripts/ci/pw-install.sh --with-deps webkit
+          MNAV_BROWSERS=chromium,webkit node scripts/test/mobile-nav.mjs http://localhost:8080 out/mobile-qa/nav
       - if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
         with: { name: mobile-qa, path: out/mobile-qa, retention-days: 7 }

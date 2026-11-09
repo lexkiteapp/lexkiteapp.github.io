@@ -48,7 +48,7 @@ function whyLangs() { // ngôn ngữ có "why" trong content/explain/*.json + we
   const scan = o => { if (!o || typeof o !== 'object') return; for (const [k, v] of Object.entries(o)) { if (/^[a-z]{2}$/.test(k) && v && typeof v === 'object' && typeof v.why === 'string' && v.why.trim()) add(k); else scan(v); } };
   for (const f of ls('content/explain').filter(f => f.endsWith('.json'))) scan(json('content/explain/' + f));
   for (const d of ls('web/js/explain')) for (const f of ls('web/js/explain/' + d).filter(f => /^[a-z]{2}\.json$/.test(f))) { const o = json(`web/js/explain/${d}/${f}`); if (o) add(f.slice(0, 2), Object.values(o).filter(v => v && v.why).length); }
-  const g = read('web/js/lesson/gold.js'); if (g) add('en', (g.match(/"why":"[^"]+"/g) || []).length);
+  const g = read('web/cpack/lesson/gold.js'); if (g) add('en', (g.match(/"why":"[^"]+"/g) || []).length);
   return cnt;
 }
 function measure(ax) {

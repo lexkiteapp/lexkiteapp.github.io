@@ -424,7 +424,7 @@ public enum LessonEngine {
                     let extra = Array(shuffle(words.filter { w in !T.contains { $0.lowercased() == w } }, &r).prefix(2))
                     it.type = "build"; it.sent = st.lines[li].en; it.who = st.lines[li].who; it.answer = T.joined(separator: " "); it.tiles = shuffle(T + extra, &r)
                 } else if c.type == "q", let opts = c.options, let a = c.answer {
-                    it.prompt = c.q; it.answer = opts[a]; it.options = c.keep == true ? opts : shuffle(opts, &r)
+                    it.prompt = c.q; it.answer = opts[a]; it.why = c.why ?? ""; it.options = c.keep == true ? opts : shuffle(opts, &r)
                 } else if c.type == "match", let ps = c.pairs {
                     it.pairs = ps.map { LessonPair(card: nil, word: $0.en, mean: $0.m[lang] ?? $0.m["en"] ?? "") }
                 } else { id -= 1; continue }

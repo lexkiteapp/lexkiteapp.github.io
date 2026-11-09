@@ -11,7 +11,7 @@ const pulse = st.filter(f => /animate-pulse/.test(rd(f)));
 ok(!pulse.length, '§0 không nhấp nháy: web/js/st không còn animate-pulse' + (pulse.length ? ' → ' + pulse.join(', ') : ''));
 const dashed = st.filter(f => /<div[^<>]*border-dashed[^<>]*>\$\{d\.teacher/.test(rd(f)));
 ok(!dashed.length, '§5d ô giáo viên không khung nét đứt' + (dashed.length ? ' → ' + dashed.join(', ') : ''));
-ok(/<\/header><div class="px-4 \$\{'py-4'\}/.test(rd('web/js/st/v2/today.js')), '§5d nội dung Hôm nay cách thanh trên 16 px, như Hôm nay người mới');
+ok(/<\/header><div class="px-4 py-4 /.test(rd('web/js/st/v2/today.js')), '§5d nội dung Hôm nay cách thanh trên 16 px, như Hôm nay người mới');
 const ux = rd('web/js/ux1.js'), line = (ux.match(/const oneReview = [^\n]+/) || [''])[0];
 ok(/if \(!fresh\) oneReview\(d\);/.test(ux) && !!line, 'home2 gọi quy tắc một lối nhắc ôn');
 const oneReview = new Function(line + '; return oneReview;')();

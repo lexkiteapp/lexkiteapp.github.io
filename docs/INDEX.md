@@ -18,6 +18,7 @@
 - [CHARACTERS.md](CHARACTERS.md) — 1 bộ nhân vật duy nhất: 2 giáo viên 2D Ama/Carlos cho app, add-on, social, video; registry web/teach/characters.json + cổng; đọc khi: đụng bất cứ chỗ nào hiện giáo viên
 - [samples-visual](specs/samples-visual.md) — thư viện công khai lướt bằng mắt (huy hiệu, bento, thẻ, cổng SEO); đọc khi sửa /samples/ và các tab cùng họ
 - [SYNC-NOTES.md](SYNC-NOTES.md) — ghi chú giải thích web/js/sync.js; đọc khi: sửa đồng bộ tài khoản
+- [specs/learnability.md](specs/learnability.md) — Spec P0-H Dễ học – dễ nhớ: 12 tiêu chí sư phạm → luật máy đo tầng 0, trọng số, điểm sàn; đọc khi: sửa bộ chấm learnability.mjs hoặc nội dung bài để tăng điểm
 - [specs/home-upgrade.md](specs/home-upgrade.md) — Spec nâng cấp Home 3/11: so 5 app lớn, lát L1–L5 (cô giáo vòng nghỉ mắt mở, Home v2, lưới màn học, thử thách, lộ trình nhiều chặng), cổng CI; đọc khi: sửa Home/#/home hoặc giáo viên trên Home
 - [specs/upgrade-2026-11.md](specs/upgrade-2026-11.md) — Spec nâng cấp toàn diện 11/2026: 12 hạng mục chủ gửi 04/11 (top bar, linh vật, nhập tài liệu, Tab mới, đầu vào, shadowing, sổ lỗi, lượt AI, 1v1, kho cộng đồng) so main, 3 đợt; đọc khi: làm bất kỳ hạng mục nào trong đó
 - [specs/cambridge.md](specs/cambridge.md) — Định dạng đề Cambridge A2–C2 (web/cpack/cambridge/<cấp>/t<N>.js), màn #/cambridge, cổng exam-format-check + cambridge.mjs; đọc khi: viết/soát lô S-CAM hoặc sửa màn Cambridge
@@ -25,6 +26,7 @@
 - [specs/teach-assets-cdn.md](specs/teach-assets-cdn.md) — Spec kho riêng ảnh/clip giáo viên teach.lexkite.com (Pages tĩnh, băm sha256, CORS, dự phòng /teach/); đọc khi: đổi nơi tải ảnh/clip giáo viên
 - [specs/native-apps.md](specs/native-apps.md) — Spec app iOS (SwiftUI) + Android (Compose) native thay bản Capacitor: 29 mục parity (native/shared/parity.json), một nguồn sinh tokens/chuỗi 15 ngôn ngữ/khung/luật chấm điểm (scripts/native/gen.mjs), kiến trúc MVVM + SwiftData/Room, giáo viên = port TeacherRig web, CI native-ios/native-android, lộ trình M0–M6; đọc khi: sửa native/, thêm route web, thay app trên store
 - [specs/native-m2-vectors.md](specs/native-m2-vectors.md) — Lược đồ vector M2 (bài học, rig giáo viên, âm thanh) + ảnh giáo viên đóng gói cho bản port Swift/Kotlin; đọc khi: port/sửa trình học bài, giáo viên, âm thanh native
+- [specs/native-m3-vectors.md](specs/native-m3-vectors.md) — Lược đồ vector M3 `vocab.json` (P04/P05) và kiểm kê màn từ vựng
 - [specs/admin-audit.md](specs/admin-audit.md) — Kiểm toán Quản trị 05/11: 12 lỗi gốc R1–R12, IA 6 nhóm/hub, kế hoạch 3 PR, kiểm kê từng tab; đọc khi: sửa trang /admin.html
 - [specs/video-learn.md](specs/video-learn.md) — Spec "Học qua video": #/watch (chủ đề CEFR × mục tiêu, dán link, tìm), trình phát YouTube chính thức (A-B, tốc độ, ghi chú, lưu từ), /api/watch (oEmbed, RSS, Data API có trần), add-on youtube.com; điều khoản YouTube đã kiểm; đọc khi: sửa watch*.js, functions/api/watch.js, phần YouTube của add-on
 - [welcome](specs/welcome.md) — màn chào + thiết lập lần đầu: ai thấy gì, đi đâu; đọc khi sửa welcome.js, onboard.js, gen-hero

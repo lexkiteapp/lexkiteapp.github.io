@@ -10,7 +10,7 @@
 import { setupMgr, boardSync, contentHash, pushClip, bodyFor, PLAT, platOf, healthOf, validateCompose, boardStateOf } from './_social_mgr.js';
 import { setupDist, DIST, clipOf, socialSetup, socialChannels } from './distribution.js';
 import { previewClip, pickPreviewClip, PREVIEW_CLIP_RE } from './_social_preview.js';
-import { foreignAccount, pausedAccount } from './_distribution.js';
+import { foreignAccount, pausedAccount, extAccount } from './_distribution.js';
 import { setup as ytSetup } from './youtube.js';
 import { field } from './_clip_logic.js';
 import { gcClient, gcConfigured } from './_grabcast.js';
@@ -390,7 +390,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
     // 1) Đồng bộ trạng thái nền (thưa: ≥ sync_h giờ)
     if (force_sync || now - (+(st.last_sync && st.last_sync.at) || 0) >= cfg.sync_h * 36e5) {
       const accs = await getAccounts(), hadCh = +(st.last_sync && st.last_sync.channels) || 0;
-      await DIST.ext_sync(db, { accounts: accs.map(a => ({ platform: platOf(a), id: String(a.id), name: a.display_name || a.username || String(a.id), avatar: a.avatar_url || a.avatar || '', status: a.needs_reconnect ? 'error' : 'ok' })) });
+      await DIST.ext_sync(db, { accounts: accs.map(extAccount) }, env); // MỘT mapper (extAccount): Pause/health/avatar/ngày nối đầy đủ
       const pr = await call('GET', 'posts', null, { limit: 100 });
       if (pr.status < 400) await boardSync(db, (pr.data && pr.data.posts) || []);
       const pub = await mirrorPublished(db, (+(st.last_sync && st.last_sync.at) || 0) - 36e5);
@@ -745,13 +745,17 @@ const AUTO_OPS = {
     return { preview: previewClip({ ...c, cover: c.cover || it.cover || '' }, await socialSetup(db).catch(() => ({}))), posted: 0, grabcast_calls: 0 };
   },
   /** Làm mới bảng Kênh sau khi nối kênh trên grabcast.click: 1 lượt GET accounts (API GrabCast có sẵn) → dist_ext (DIST.ext_sync, như bước đồng bộ của runAuto). Không tạo/đăng bài. */
-  'POST auto/channels/sync': async ({ env, db, gc }) => {
+  'POST auto/channels/sync': async ({ env, db, gc, b }) => {
     if (!gcConfigured(env)) throw Object.assign(new Error('no-key'), { status: 412, code: 'no-key' });
-    await setupDist(db); const ar = await (gc || gcClient(env))('GET', 'accounts');
+    await setupDist(db); const t = Date.now(), last = await getMeta(db, 'ch_sync', {}), lim = b && b.force ? 20e3 : 5 * 60e3, gap = t - (+last.at || 0);
+    // Giới hạn: tự Sync khi mở trang ≤ 1 lần/5 phút, bấm tay (force) ≤ 1 lần/20 giây → trả dữ liệu đã lưu, 0 lượt GrabCast (ngân sách ≤ 3000 lượt/ngày)
+    if (gap >= 0 && gap < lim) return { n: null, cached: true, at: +last.at || null, retry_s: Math.ceil((lim - gap) / 1000), channels: await socialChannels(db) };
+    await setMeta(db, 'ch_sync', { at: t });
+    const ar = await (gc || gcClient(env))('GET', 'accounts');
     if (ar.status >= 400) throw Object.assign(new Error('grabcast'), { status: ar.status === 401 || ar.status === 403 ? 502 : ar.status, code: ar.code || 'grabcast-' + ar.status }); // lỗi → KHÔNG ext_sync (danh sách rỗng sẽ đánh dấu mọi kênh 'gone')
     const accs = (ar.data && ar.data.accounts) || [];
-    await DIST.ext_sync(db, { accounts: accs.map(a => ({ platform: platOf(a), id: String(a.id), name: a.display_name || a.username || String(a.id), avatar: a.avatar_url || a.avatar || '', status: a.needs_reconnect ? 'error' : 'ok' })) });
-    return { n: accs.length, channels: await socialChannels(db) };
+    await DIST.ext_sync(db, { accounts: accs.map(extAccount) }, env); // MỘT mapper (extAccount): Pause/health/avatar/ngày nối đầy đủ
+    return { n: accs.length, at: t, channels: await socialChannels(db) };
   },
   'POST auto/run': async ({ env, request, b }) => ({ run: await runAuto(env, { src: 'admin', origin: request.url, force_sync: !!b.sync }) }),
   /** Nút chuyển tay provider: auto (failover tự động) | grabcast | meta. */

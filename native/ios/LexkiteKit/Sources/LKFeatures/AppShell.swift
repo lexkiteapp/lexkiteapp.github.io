@@ -85,6 +85,7 @@ public struct AppShell: View {
         switch tb.k {
         case "home": TodayView()
         case "me": MeHub(tab: tb)
+        case "vocab": StudyVocabHub(tab: tb)   // M3 P04/P05
         default: HubScreen(tab: tb)
         }
     }
@@ -116,6 +117,11 @@ struct InnerScreen: View {
     @Environment(\.colorScheme) private var scheme
     @Environment(\.l10n) private var t
     var body: some View {
+        if StudyRoutes.handlesInner(route.name) { StudyInnerScreen(route: route) }
+        else if DictRoutes.handlesInner(route.name) { DictInnerScreen(route: route) }
+        else { placeholder }
+    }
+    @ViewBuilder private var placeholder: some View {
         let tab = LKFrame.shared.tabs.first { $0.k == route.tab }
         ScrollView { Color.clear.frame(height: 1) }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -141,6 +147,8 @@ struct FocusScreen: View {
     var body: some View {
         if route.name == "lesson" && route.arg == "go" {
             LessonView(route: route) { services.router.closeFocus() }   // P03
+        } else if StudyRoutes.handlesFocus(route.name) {
+            StudyFocusScreen(route: route)   // M3 P04: review · practice · mistakes
         } else {
             VStack(spacing: 0) {
                 TopBar(variant: .focus(progress: 0), title: "") { services.router.closeFocus() }
