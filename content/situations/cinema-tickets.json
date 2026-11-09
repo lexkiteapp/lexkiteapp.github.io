@@ -1,0 +1,872 @@
+{
+ "id": "cinema-tickets",
+ "group": "leisure",
+ "cefr": "A2",
+ "title": {
+  "en": "Cinema tickets",
+  "vi": "Mua vé xem phim",
+  "es": "Entradas de cine",
+  "pt": "Ingressos de cinema",
+  "fr": "Billets de cinéma",
+  "de": "Kinokarten kaufen",
+  "id": "Tiket bioskop",
+  "th": "ซื้อตั๋วหนัง",
+  "zh": "买电影票",
+  "ja": "映画のチケット",
+  "ko": "영화 티켓 사기",
+  "hi": "सिनेमा टिकट",
+  "ar": "تذاكر السينما",
+  "ru": "Билеты в кино",
+  "tr": "Sinema bileti"
+ },
+ "goal": {
+  "en": "Get two seats for tonight's film!",
+  "vi": "Mua hai vé xem phim tối nay!",
+  "es": "¡Consigue dos entradas para la película de esta noche!",
+  "pt": "Garanta dois ingressos para o filme de hoje à noite!",
+  "fr": "Prenez deux places pour le film de ce soir !",
+  "de": "Besorg zwei Plätze für den Film heute Abend!",
+  "id": "Dapatkan dua kursi untuk film malam ini!",
+  "th": "จองที่นั่งสองที่สำหรับหนังคืนนี้!",
+  "zh": "买两张今晚电影的票！",
+  "ja": "今夜の映画の席を2つ取ろう！",
+  "ko": "오늘 밤 영화 두 자리를 예매해요!",
+  "hi": "आज रात की फ़िल्म के लिए दो सीटें लें!",
+  "ar": "احصل على مقعدين لفيلم الليلة!",
+  "ru": "Возьми два места на сегодняшний фильм!",
+  "tr": "Bu akşamki film için iki koltuk al!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "tickets",
+   "title": {
+    "en": "Tickets",
+    "vi": "Mua vé",
+    "es": "Entradas",
+    "pt": "Ingressos",
+    "fr": "Billets",
+    "de": "Tickets",
+    "id": "Tiket",
+    "th": "ซื้อตั๋ว",
+    "zh": "买票",
+    "ja": "チケット",
+    "ko": "티켓",
+    "hi": "टिकट",
+    "ar": "التذاكر",
+    "ru": "Билеты",
+    "tr": "Bilet"
+   },
+   "lines": [
+    "c1",
+    "c2",
+    "c3",
+    "c4"
+   ]
+  },
+  {
+   "id": "seats",
+   "title": {
+    "en": "Seats",
+    "vi": "Chọn chỗ ngồi",
+    "es": "Asientos",
+    "pt": "Assentos",
+    "fr": "Places",
+    "de": "Sitzplätze",
+    "id": "Tempat duduk",
+    "th": "ที่นั่ง",
+    "zh": "座位",
+    "ja": "座席",
+    "ko": "좌석",
+    "hi": "सीटें",
+    "ar": "المقاعد",
+    "ru": "Места",
+    "tr": "Koltuklar"
+   },
+   "lines": [
+    "s1",
+    "s2",
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "pay",
+   "title": {
+    "en": "Pay",
+    "vi": "Thanh toán",
+    "es": "Pagar",
+    "pt": "Pagar",
+    "fr": "Payer",
+    "de": "Bezahlen",
+    "id": "Membayar",
+    "th": "จ่ายเงิน",
+    "zh": "付款",
+    "ja": "支払い",
+    "ko": "계산",
+    "hi": "भुगतान",
+    "ar": "الدفع",
+    "ru": "Оплата",
+    "tr": "Ödeme"
+   },
+   "lines": [
+    "p1",
+    "p2",
+    "p3",
+    "p4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "c1",
+   "who": "customer",
+   "en": "Two tickets for the seven o'clock film, please.",
+   "variants": {
+    "polite": "Could I have two tickets for the seven o'clock film?",
+    "casual": "Two for the seven o'clock film, please."
+   },
+   "gloss": {
+    "en": "Two tickets for the seven o'clock film, please.",
+    "vi": "Cho tôi hai vé xem phim lúc bảy giờ nhé.",
+    "es": "Dos entradas para la película de las siete, por favor.",
+    "pt": "Dois ingressos para o filme das sete, por favor.",
+    "fr": "Deux places pour le film de sept heures, s'il vous plaît.",
+    "de": "Zwei Karten für den Film um sieben Uhr, bitte.",
+    "id": "Tolong dua tiket untuk film jam tujuh.",
+    "th": "ขอตั๋วสองใบสำหรับหนังรอบเจ็ดโมงค่ะ",
+    "zh": "请给我两张七点那场电影的票。",
+    "ja": "7時の回のチケットを2枚お願いします。",
+    "ko": "7시 영화 티켓 두 장 주세요.",
+    "hi": "कृपया सात बजे की फ़िल्म के दो टिकट दीजिए।",
+    "ar": "تذكرتان لفيلم الساعة السابعة من فضلك.",
+    "ru": "Два билета на фильм в семь часов, пожалуйста.",
+    "tr": "Saat yedideki film için iki bilet lütfen."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "tickets",
+     "ipa": "/ˈtɪk.ɪts/",
+     "hi": "TIK",
+     "note": {
+      "en": "Say TIK-its with a short 'i', not 'tee-kets'.",
+      "vi": "Đọc TÍCH-ịt với âm i ngắn, không đọc “ti-két”.",
+      "es": "Di TIK-its con i corta, no ti-kets.",
+      "pt": "Diga TIK-its com i curto, não ti-quets.",
+      "fr": "Dites TIK-its avec un i court, pas ti-kets.",
+      "de": "Sprich TIK-its mit kurzem i, nicht ti-kets.",
+      "id": "Ucapkan TIK-its dengan i pendek, bukan ti-ket.",
+      "th": "ออกเสียง ทิก-อิทส์ สระอิสั้น ไม่ใช่ ที-เก็ต",
+      "zh": "读作 TIK-its，i 要短，不是 ti-kets。",
+      "ja": "短いiで「ティキッツ」と言います。「ティケッツ」ではありません。",
+      "ko": "짧은 ‘이’로 ‘티킷츠’라고 하세요. ‘티케츠’가 아니에요.",
+      "hi": "छोटी ‘इ’ के साथ टिक-इट्स बोलें, ‘टी-केट्स’ नहीं।",
+      "ar": "انطقها تِك-إتس بكسرة قصيرة، وليس تي-كتس.",
+      "ru": "Говорите ТИК-итс с коротким «и», а не ти-кетс.",
+      "tr": "Kısa i ile TİK-its deyin, ti-kets değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "c2",
+   "who": "barista",
+   "en": "Adult or student tickets?",
+   "variants": {
+    "polite": "Would you like adult or student tickets?",
+    "casual": "Adults or students?"
+   },
+   "gloss": {
+    "en": "Adult or student tickets?",
+    "vi": "Vé người lớn hay vé sinh viên ạ?",
+    "es": "¿Entradas de adulto o de estudiante?",
+    "pt": "Ingressos de adulto ou de estudante?",
+    "fr": "Des billets adulte ou étudiant ?",
+    "de": "Erwachsene oder Studenten?",
+    "id": "Tiket dewasa atau pelajar?",
+    "th": "ตั๋วผู้ใหญ่หรือนักเรียนนักศึกษาคะ",
+    "zh": "要成人票还是学生票？",
+    "ja": "大人券ですか、学生券ですか？",
+    "ko": "성인 티켓인가요, 학생 티켓인가요?",
+    "hi": "वयस्क टिकट चाहिए या विद्यार्थी टिकट?",
+    "ar": "تذاكر للبالغين أم للطلاب؟",
+    "ru": "Взрослые или студенческие билеты?",
+    "tr": "Yetişkin mi öğrenci bileti mi?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c3",
+   "who": "customer",
+   "en": "Two adults, please. What time does it finish?",
+   "variants": {
+    "polite": "Two adults, please. Could you tell me when it finishes?",
+    "casual": "Two adults. When does it end?"
+   },
+   "gloss": {
+    "en": "Two adults, please. What time does it finish?",
+    "vi": "Hai vé người lớn. Phim kết thúc lúc mấy giờ?",
+    "es": "Dos de adulto, por favor. ¿A qué hora termina?",
+    "pt": "Dois de adulto, por favor. A que horas termina?",
+    "fr": "Deux adultes, s'il vous plaît. Ça finit à quelle heure ?",
+    "de": "Zweimal Erwachsene, bitte. Wann ist der Film zu Ende?",
+    "id": "Dua dewasa. Filmnya selesai jam berapa?",
+    "th": "ขอผู้ใหญ่สองใบค่ะ หนังจบกี่โมงคะ",
+    "zh": "两张成人票。几点结束？",
+    "ja": "大人2枚で。何時に終わりますか？",
+    "ko": "성인 두 장이요. 몇 시에 끝나나요?",
+    "hi": "दो वयस्क टिकट दीजिए। फ़िल्म कितने बजे ख़त्म होती है?",
+    "ar": "تذكرتان للبالغين من فضلك. متى ينتهي الفيلم؟",
+    "ru": "Два взрослых, пожалуйста. Во сколько он заканчивается?",
+    "tr": "İki yetişkin lütfen. Film saat kaçta bitiyor?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "finish",
+     "ipa": "/ˈfɪn.ɪʃ/",
+     "hi": "FIN",
+     "note": {
+      "en": "Stress the first syllable: FIN-ish, with a short 'i'.",
+      "vi": "Nhấn âm tiết đầu: FIN-ish, âm i ngắn.",
+      "es": "Acentúa la primera sílaba: FIN-ish, con i corta.",
+      "pt": "Acentue a primeira sílaba: FIN-ish, com i curto.",
+      "fr": "Accentuez la première syllabe : FIN-ish, avec un i court.",
+      "de": "Betone die erste Silbe: FIN-isch, mit kurzem i.",
+      "id": "Tekankan suku kata pertama: FIN-ish, dengan i pendek.",
+      "th": "เน้นพยางค์แรก: ฟิน-นิช สระอิสั้น",
+      "zh": "重音在第一个音节：FIN-ish，i 要短。",
+      "ja": "最初の音節を強く、短いiで「フィニッシュ」。",
+      "ko": "첫 음절에 강세를 두고 짧은 ‘이’로 ‘피니시’.",
+      "hi": "पहले अक्षर पर ज़ोर दें: फ़िन-इश, छोटी ‘इ’ के साथ।",
+      "ar": "شدّد على المقطع الأول: فِن-يش بكسرة قصيرة.",
+      "ru": "Ударение на первый слог: ФИН-иш, с коротким «и».",
+      "tr": "Vurgu ilk hecede: FİN-iş, kısa i ile."
+     }
+    }
+   ]
+  },
+  {
+   "id": "c4",
+   "who": "customer",
+   "en": "Is there a later show tonight?",
+   "variants": {
+    "polite": "Could you tell me if there's a later show tonight?",
+    "casual": "Any later shows tonight?"
+   },
+   "gloss": {
+    "en": "Is there a later show tonight?",
+    "vi": "Tối nay còn suất chiếu muộn hơn không ạ?",
+    "es": "¿Hay una sesión más tarde esta noche?",
+    "pt": "Tem uma sessão mais tarde hoje à noite?",
+    "fr": "Il y a une séance plus tard ce soir ?",
+    "de": "Gibt es heute Abend eine spätere Vorstellung?",
+    "id": "Apakah ada jadwal tayang yang lebih malam malam ini?",
+    "th": "คืนนี้มีรอบที่ดึกกว่านี้ไหมคะ",
+    "zh": "今晚有更晚的场次吗？",
+    "ja": "今夜、もっと遅い回はありますか？",
+    "ko": "오늘 밤에 더 늦은 상영이 있나요?",
+    "hi": "क्या आज रात इससे बाद का कोई शो है?",
+    "ar": "هل يوجد عرض متأخر أكثر الليلة؟",
+    "ru": "Есть сегодня вечером более поздний сеанс?",
+    "tr": "Bu akşam daha geç bir seans var mı?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "s1",
+   "who": "barista",
+   "en": "Where would you like to sit?",
+   "variants": {
+    "polite": "Where would you prefer to sit?",
+    "casual": "Where do you want to sit?"
+   },
+   "gloss": {
+    "en": "Where would you like to sit?",
+    "vi": "Anh/chị muốn ngồi ở đâu ạ?",
+    "es": "¿Dónde le gustaría sentarse?",
+    "pt": "Onde você gostaria de sentar?",
+    "fr": "Où voulez-vous vous asseoir ?",
+    "de": "Wo möchten Sie sitzen?",
+    "id": "Anda mau duduk di mana?",
+    "th": "อยากนั่งตรงไหนคะ",
+    "zh": "您想坐哪里？",
+    "ja": "どのあたりの席がよろしいですか？",
+    "ko": "어디에 앉으시겠어요?",
+    "hi": "आप कहाँ बैठना चाहेंगे?",
+    "ar": "أين تودّ أن تجلس؟",
+    "ru": "Где бы вы хотели сидеть?",
+    "tr": "Nerede oturmak istersiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "s2",
+   "who": "customer",
+   "en": "Can we sit near the back, please?",
+   "variants": {
+    "polite": "Could we possibly sit near the back, please?",
+    "casual": "Near the back, please."
+   },
+   "gloss": {
+    "en": "Can we sit near the back, please?",
+    "vi": "Cho chúng tôi ngồi gần phía cuối được không?",
+    "es": "¿Podemos sentarnos cerca del fondo, por favor?",
+    "pt": "Podemos sentar perto do fundo, por favor?",
+    "fr": "On peut s'asseoir vers le fond, s'il vous plaît ?",
+    "de": "Können wir bitte weiter hinten sitzen?",
+    "id": "Boleh kami duduk dekat bagian belakang?",
+    "th": "ขอนั่งใกล้แถวหลังได้ไหมคะ",
+    "zh": "我们可以坐靠后面的位置吗？",
+    "ja": "後ろの方の席にできますか？",
+    "ko": "뒤쪽 자리로 앉을 수 있을까요?",
+    "hi": "क्या हम पीछे की तरफ़ बैठ सकते हैं?",
+    "ar": "هل يمكننا الجلوس قرب الخلف من فضلك؟",
+    "ru": "Можно нам сесть ближе к задним рядам?",
+    "tr": "Arka tarafa yakın oturabilir miyiz?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "s3",
+   "who": "customer",
+   "en": "Are two seats together still free?",
+   "variants": {
+    "polite": "Could you check if two seats together are free?",
+    "casual": "Any two seats together?"
+   },
+   "gloss": {
+    "en": "Are two seats together still free?",
+    "vi": "Còn hai ghế cạnh nhau không ạ?",
+    "es": "¿Quedan dos asientos juntos?",
+    "pt": "Ainda há dois assentos juntos?",
+    "fr": "Il reste deux places côte à côte ?",
+    "de": "Sind noch zwei Plätze nebeneinander frei?",
+    "id": "Apakah masih ada dua kursi bersebelahan?",
+    "th": "ยังมีที่นั่งติดกันสองที่ว่างอยู่ไหมคะ",
+    "zh": "还有两个挨在一起的座位吗？",
+    "ja": "隣同士の席が2つ空いていますか？",
+    "ko": "나란히 붙은 두 자리가 아직 있나요?",
+    "hi": "क्या साथ-साथ दो सीटें अभी खाली हैं?",
+    "ar": "هل ما زال هناك مقعدان متجاوران؟",
+    "ru": "Остались два места рядом?",
+    "tr": "Yan yana iki koltuk hâlâ boş mu?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "s4",
+   "who": "barista",
+   "en": "Sorry, the back rows are full. Row F is free.",
+   "variants": {
+    "polite": "I'm sorry, the back rows are full. Row F is free.",
+    "casual": "Back's full. Row F is free."
+   },
+   "gloss": {
+    "en": "Sorry, the back rows are full. Row F is free.",
+    "vi": "Xin lỗi, các hàng cuối đã hết chỗ. Hàng F còn trống.",
+    "es": "Lo siento, las filas de atrás están llenas. La fila F está libre.",
+    "pt": "Desculpe, as últimas fileiras estão cheias. A fila F está livre.",
+    "fr": "Désolé, les derniers rangs sont complets. Le rang F est libre.",
+    "de": "Tut mir leid, die hinteren Reihen sind voll. Reihe F ist frei.",
+    "id": "Maaf, baris belakang penuh. Baris F masih kosong.",
+    "th": "ขออภัยค่ะ แถวหลังเต็มแล้ว แถว F ยังว่างอยู่ค่ะ",
+    "zh": "抱歉，后排满了。F 排还有空位。",
+    "ja": "申し訳ありません、後ろの列は満席です。F列なら空いています。",
+    "ko": "죄송해요, 뒷줄은 다 찼어요. F열은 비어 있어요.",
+    "hi": "माफ़ कीजिए, पीछे की कतारें भरी हैं। पंक्ति F खाली है।",
+    "ar": "عذرًا، الصفوف الخلفية ممتلئة. الصف F متاح.",
+    "ru": "Извините, задние ряды заняты. Ряд F свободен.",
+    "tr": "Üzgünüm, arka sıralar dolu. F sırası boş."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p1",
+   "who": "customer",
+   "en": "How much is that altogether?",
+   "variants": {
+    "polite": "Could you tell me the total, please?",
+    "casual": "How much is that?"
+   },
+   "gloss": {
+    "en": "How much is that altogether?",
+    "vi": "Tất cả hết bao nhiêu tiền ạ?",
+    "es": "¿Cuánto es todo junto?",
+    "pt": "Quanto fica tudo junto?",
+    "fr": "Ça fait combien en tout ?",
+    "de": "Wie viel kostet das insgesamt?",
+    "id": "Totalnya berapa?",
+    "th": "ทั้งหมดเท่าไหร่คะ",
+    "zh": "一共多少钱？",
+    "ja": "全部でいくらですか？",
+    "ko": "전부 얼마예요?",
+    "hi": "कुल मिलाकर कितना हुआ?",
+    "ar": "كم المجموع؟",
+    "ru": "Сколько всего с меня?",
+    "tr": "Hepsi toplam ne kadar?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p2",
+   "who": "barista",
+   "en": "That's twenty-four in total. Cash or card?",
+   "variants": {
+    "polite": "That's twenty-four in total. Will you pay by cash or card?",
+    "casual": "Twenty-four. Cash or card?"
+   },
+   "gloss": {
+    "en": "That's twenty-four in total. Cash or card?",
+    "vi": "Tổng cộng là hai mươi bốn. Trả tiền mặt hay thẻ ạ?",
+    "es": "Son veinticuatro en total. ¿Efectivo o tarjeta?",
+    "pt": "São vinte e quatro no total. Dinheiro ou cartão?",
+    "fr": "Ça fait vingt-quatre en tout. Espèces ou carte ?",
+    "de": "Das macht vierundzwanzig. Bar oder mit Karte?",
+    "id": "Totalnya dua puluh empat. Tunai atau kartu?",
+    "th": "รวมทั้งหมดยี่สิบสี่ค่ะ จ่ายเงินสดหรือบัตรคะ",
+    "zh": "一共二十四。现金还是刷卡？",
+    "ja": "合計24です。現金ですか、カードですか？",
+    "ko": "모두 24예요. 현금인가요, 카드인가요?",
+    "hi": "कुल चौबीस हुए। नकद या कार्ड?",
+    "ar": "المجموع أربعة وعشرون. نقدًا أم بالبطاقة؟",
+    "ru": "Всего двадцать четыре. Наличными или картой?",
+    "tr": "Toplam yirmi dört. Nakit mi kart mı?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p3",
+   "who": "customer",
+   "en": "Card, please. Can I have a receipt?",
+   "variants": {
+    "polite": "I'll pay by card, please. Could I have a receipt?",
+    "casual": "Card. And a receipt, please."
+   },
+   "gloss": {
+    "en": "Card, please. Can I have a receipt?",
+    "vi": "Tôi trả bằng thẻ. Cho tôi xin hóa đơn được không?",
+    "es": "Con tarjeta, por favor. ¿Me da el recibo?",
+    "pt": "No cartão, por favor. Pode me dar o recibo?",
+    "fr": "Par carte, s'il vous plaît. Je peux avoir un reçu ?",
+    "de": "Mit Karte, bitte. Kann ich einen Beleg haben?",
+    "id": "Pakai kartu. Boleh minta struknya?",
+    "th": "ขอจ่ายด้วยบัตรค่ะ ขอใบเสร็จได้ไหมคะ",
+    "zh": "刷卡。可以给我小票吗？",
+    "ja": "カードでお願いします。レシートをもらえますか？",
+    "ko": "카드로 할게요. 영수증 주실 수 있나요?",
+    "hi": "कार्ड से, कृपया। क्या रसीद मिल सकती है?",
+    "ar": "بالبطاقة من فضلك. هل يمكنني الحصول على إيصال؟",
+    "ru": "Картой, пожалуйста. Можно чек?",
+    "tr": "Kartla lütfen. Fiş alabilir miyim?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "receipt",
+     "ipa": "/rɪˈsiːt/",
+     "hi": "SEET",
+     "note": {
+      "en": "The 'p' is silent: ri-SEET.",
+      "vi": "Chữ ‘p’ câm: ri-XÍT.",
+      "es": "La ‘p’ no se pronuncia: ri-SIT.",
+      "pt": "O ‘p’ é mudo: ri-SIT.",
+      "fr": "Le « p » est muet : ri-SIT.",
+      "de": "Das „p“ bleibt stumm: ri-SIET.",
+      "id": "Huruf ‘p’ tidak dibaca: ri-SIT.",
+      "th": "ตัว p ไม่ออกเสียง: ริ-ซีท",
+      "zh": "p 不发音：ri-SEET。",
+      "ja": "pは発音しません：リ・スィート。",
+      "ko": "p는 소리 나지 않아요: 리-씨-트.",
+      "hi": "‘p’ नहीं बोला जाता: रि-सीट।",
+      "ar": "حرف p صامت: ري-سيت.",
+      "ru": "Буква p не читается: ри-СИТ.",
+      "tr": "p harfi okunmaz: ri-SİT."
+     }
+    }
+   ]
+  },
+  {
+   "id": "p4",
+   "who": "barista",
+   "en": "Here are your tickets. Enjoy the film!",
+   "variants": {
+    "polite": "Here are your tickets. I hope you enjoy the film!",
+    "casual": "Here you go. Enjoy!"
+   },
+   "gloss": {
+    "en": "Here are your tickets. Enjoy the film!",
+    "vi": "Vé của anh/chị đây ạ. Chúc xem phim vui vẻ!",
+    "es": "Aquí tiene sus entradas. ¡Disfrute de la película!",
+    "pt": "Aqui estão seus ingressos. Aproveite o filme!",
+    "fr": "Voici vos billets. Bon film !",
+    "de": "Hier sind Ihre Karten. Viel Spaß beim Film!",
+    "id": "Ini tiketnya. Selamat menonton!",
+    "th": "นี่ตั๋วของคุณค่ะ ขอให้สนุกกับหนังนะคะ",
+    "zh": "这是您的票。祝您观影愉快！",
+    "ja": "チケットです。映画をお楽しみください！",
+    "ko": "티켓 여기 있습니다. 영화 즐겁게 보세요!",
+    "hi": "ये रहे आपके टिकट। फ़िल्म का आनंद लें!",
+    "ar": "تفضّل تذاكرك. استمتع بالفيلم!",
+    "ru": "Вот ваши билеты. Приятного просмотра!",
+    "tr": "Biletleriniz burada. İyi seyirler!"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "Which film would you like to see?",
+   "keywords": [
+    "comedy",
+    "action",
+    "horror",
+    "cartoon",
+    "thriller",
+    "drama",
+    "romance",
+    "animated",
+    "documentary",
+    "superhero",
+    "new",
+    "film"
+   ],
+   "variants": {
+    "polite": "Which film would you prefer to see?",
+    "casual": "Which film do you want?"
+   },
+   "gloss": {
+    "en": "Which film would you like to see?",
+    "vi": "Anh/chị muốn xem phim nào ạ?",
+    "es": "¿Qué película le gustaría ver?",
+    "pt": "Qual filme você gostaria de ver?",
+    "fr": "Quel film voulez-vous voir ?",
+    "de": "Welchen Film möchten Sie sehen?",
+    "id": "Anda ingin menonton film apa?",
+    "th": "อยากดูหนังเรื่องไหนคะ",
+    "zh": "您想看哪部电影？",
+    "ja": "どの映画をご覧になりますか？",
+    "ko": "어떤 영화를 보시겠어요?",
+    "hi": "आप कौन-सी फ़िल्म देखना चाहेंगे?",
+    "ar": "أي فيلم تودّ مشاهدته؟",
+    "ru": "Какой фильм вы хотите посмотреть?",
+    "tr": "Hangi filmi izlemek istersiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "Would you like any snacks today?",
+   "keywords": [
+    "popcorn",
+    "nachos",
+    "candy",
+    "chocolate",
+    "soda",
+    "water",
+    "drink",
+    "hot dog",
+    "ice cream",
+    "nothing",
+    "no thanks",
+    "just tickets"
+   ],
+   "variants": {
+    "polite": "Would you care for any snacks today?",
+    "casual": "Any snacks today?"
+   },
+   "gloss": {
+    "en": "Would you like any snacks today?",
+    "vi": "Hôm nay anh/chị có muốn mua đồ ăn vặt không ạ?",
+    "es": "¿Quiere algo de picar hoy?",
+    "pt": "Quer algum lanche hoje?",
+    "fr": "Voulez-vous des snacks aujourd'hui ?",
+    "de": "Möchten Sie heute etwas zu knabbern?",
+    "id": "Mau camilan hari ini?",
+    "th": "วันนี้รับขนมอะไรไหมคะ",
+    "zh": "今天要点小吃吗？",
+    "ja": "今日は軽食はいかがですか？",
+    "ko": "오늘 간식도 드릴까요?",
+    "hi": "आज कुछ स्नैक्स लेंगे?",
+    "ar": "هل تودّ بعض الوجبات الخفيفة اليوم؟",
+    "ru": "Хотите сегодня что-нибудь перекусить?",
+    "tr": "Bugün atıştırmalık ister misiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Hello. How can I help you?"
+  },
+  {
+   "who": "customer",
+   "en": "Two tickets for the seven o'clock film, please."
+  },
+  {
+   "who": "barista",
+   "en": "Adult or student tickets?"
+  },
+  {
+   "who": "customer",
+   "en": "Two adults, please. Can we sit near the back?"
+  },
+  {
+   "who": "barista",
+   "en": "Sorry, the back rows are full. Row F is free."
+  },
+  {
+   "who": "customer",
+   "en": "That's fine. How much is that altogether?"
+  },
+  {
+   "who": "barista",
+   "en": "That's twenty-four in total. Cash or card?"
+  },
+  {
+   "who": "customer",
+   "en": "Card, please. Can I have a receipt?"
+  },
+  {
+   "who": "barista",
+   "en": "Here are your tickets. Enjoy the film!"
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Hi, two tickets for the late show, please."
+    },
+    {
+     "who": "barista",
+     "en": "Sure. It starts at nine thirty."
+    },
+    {
+     "who": "customer",
+     "en": "Do you have two seats together?"
+    },
+    {
+     "who": "barista",
+     "en": "Yes, I have row H."
+    }
+   ],
+   "q": {
+    "en": "Which row do they get?",
+    "vi": "Họ được chỗ ở hàng nào?",
+    "es": "¿Qué fila les dan?",
+    "pt": "Que fileira eles conseguem?",
+    "fr": "Quel rang obtiennent-ils ?",
+    "de": "Welche Reihe bekommen sie?",
+    "id": "Mereka dapat baris mana?",
+    "th": "พวกเขาได้แถวไหน",
+    "zh": "他们拿到哪一排？",
+    "ja": "どの列の席になりましたか？",
+    "ko": "어느 줄에 앉게 되나요?",
+    "hi": "उन्हें कौन-सी पंक्ति मिलती है?",
+    "ar": "أي صف يحصلان عليه؟",
+    "ru": "Какой ряд им достаётся?",
+    "tr": "Hangi sırayı alıyorlar?"
+   },
+   "answer": "row H"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Excuse me, what time does the film finish?"
+    },
+    {
+     "who": "barista",
+     "en": "It finishes at ten forty-five."
+    },
+    {
+     "who": "customer",
+     "en": "Thanks. And where is screen three?"
+    },
+    {
+     "who": "barista",
+     "en": "Up the stairs, on the left."
+    }
+   ],
+   "q": {
+    "en": "Where is screen three?",
+    "vi": "Phòng chiếu số ba ở đâu?",
+    "es": "¿Dónde está la sala tres?",
+    "pt": "Onde fica a sala três?",
+    "fr": "Où se trouve la salle trois ?",
+    "de": "Wo ist Saal drei?",
+    "id": "Di mana studio tiga?",
+    "th": "โรงฉายที่สามอยู่ที่ไหน",
+    "zh": "三号厅在哪里？",
+    "ja": "3番スクリーンはどこですか？",
+    "ko": "3관은 어디에 있나요?",
+    "hi": "स्क्रीन तीन कहाँ है?",
+    "ar": "أين القاعة الثالثة؟",
+    "ru": "Где находится третий зал?",
+    "tr": "Üç numaralı salon nerede?"
+   },
+   "answer": "on the left"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "get-tickets",
+    "title": {
+     "en": "Buy the tickets",
+     "vi": "Mua vé",
+     "es": "Compra las entradas",
+     "pt": "Compre os ingressos",
+     "fr": "Achetez les billets",
+     "de": "Karten kaufen",
+     "id": "Beli tiketnya",
+     "th": "ซื้อตั๋ว",
+     "zh": "买票",
+     "ja": "チケットを買う",
+     "ko": "티켓 사기",
+     "hi": "टिकट ख़रीदें",
+     "ar": "اشترِ التذاكر",
+     "ru": "Купи билеты",
+     "tr": "Biletleri al"
+    },
+    "intents": [
+     "c1",
+     "c3"
+    ]
+   },
+   {
+    "id": "pick-seats",
+    "title": {
+     "en": "Choose your seats",
+     "vi": "Chọn chỗ ngồi",
+     "es": "Elige los asientos",
+     "pt": "Escolha os assentos",
+     "fr": "Choisissez vos places",
+     "de": "Plätze auswählen",
+     "id": "Pilih tempat duduk",
+     "th": "เลือกที่นั่ง",
+     "zh": "选座位",
+     "ja": "席を選ぶ",
+     "ko": "좌석 고르기",
+     "hi": "सीटें चुनें",
+     "ar": "اختر المقاعد",
+     "ru": "Выбери места",
+     "tr": "Koltukları seç"
+    },
+    "intents": [
+     "s2",
+     "s3"
+    ]
+   },
+   {
+    "id": "pay-receipt",
+    "title": {
+     "en": "Pay and get a receipt",
+     "vi": "Thanh toán và lấy hóa đơn",
+     "es": "Paga y pide el recibo",
+     "pt": "Pague e peça o recibo",
+     "fr": "Payez et demandez un reçu",
+     "de": "Bezahlen und Beleg holen",
+     "id": "Bayar dan minta struk",
+     "th": "จ่ายเงินและขอใบเสร็จ",
+     "zh": "付款并拿小票",
+     "ja": "支払ってレシートをもらう",
+     "ko": "계산하고 영수증 받기",
+     "hi": "भुगतान करें और रसीद लें",
+     "ar": "ادفع واحصل على إيصال",
+     "ru": "Оплати и возьми чек",
+     "tr": "Öde ve fiş al"
+    },
+    "intents": [
+     "p1",
+     "p3"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "In many cinemas you pick an exact seat when you buy, but some have open seating, so it is worth asking. The listed time is often when the adverts start, so the film itself may begin 10 to 20 minutes later. Student or senior prices usually need ID, so keep it with you.",
+  "vi": "Nhiều rạp cho chọn đúng số ghế khi mua vé, nhưng một số rạp để ngồi tự do, nên hãy hỏi trước. Giờ ghi trên vé thường là lúc bắt đầu chiếu quảng cáo, nên phim thật có thể bắt đầu muộn hơn 10 đến 20 phút. Giá vé sinh viên hoặc người cao tuổi thường cần giấy tờ chứng minh, nên hãy mang theo.",
+  "es": "En muchos cines eliges el asiento exacto al comprar, pero en algunos la ubicación es libre, así que conviene preguntar. La hora anunciada suele ser la de los anuncios, por lo que la película puede empezar entre 10 y 20 minutos después. Las tarifas de estudiante o de mayores suelen exigir un documento, así que llévalo.",
+  "pt": "Em muitos cinemas você escolhe o assento exato ao comprar, mas alguns têm lugares livres, então vale perguntar. O horário anunciado costuma ser o dos comerciais, e o filme pode começar de 10 a 20 minutos depois. Preços de estudante ou idoso geralmente exigem documento, então leve o seu.",
+  "fr": "Dans beaucoup de cinémas, on choisit sa place précise à l'achat, mais certains ont un placement libre : mieux vaut demander. L'horaire affiché est souvent celui des publicités, donc le film peut commencer 10 à 20 minutes plus tard. Les tarifs étudiant ou senior demandent généralement un justificatif ; gardez-le sur vous.",
+  "de": "In vielen Kinos wählt man beim Kauf einen festen Platz, manche haben aber freie Platzwahl – fragen lohnt sich. Die angegebene Zeit ist oft der Beginn der Werbung, der Film selbst startet dann 10 bis 20 Minuten später. Für Studenten- oder Seniorenpreise braucht man meist einen Ausweis, also hab ihn dabei.",
+  "id": "Di banyak bioskop kamu bisa memilih kursi tertentu saat membeli, tetapi beberapa bioskop bebas memilih tempat duduk, jadi sebaiknya bertanya. Jam yang tertera sering kali jam mulai iklan, sehingga film bisa mulai 10 sampai 20 menit kemudian. Harga pelajar atau lansia biasanya butuh kartu identitas, jadi bawalah.",
+  "th": "โรงหนังหลายแห่งให้เลือกเลขที่นั่งตอนซื้อ แต่บางแห่งนั่งได้อิสระ จึงควรถามก่อน เวลาที่ประกาศมักเป็นเวลาเริ่มฉายโฆษณา หนังจริงอาจเริ่มช้าไป 10-20 นาที ราคานักเรียนหรือผู้สูงอายุมักต้องแสดงบัตร จึงควรพกไว้",
+  "zh": "很多影院买票时可以选具体座位，但有些是自由入座，所以最好先问一下。票上的时间通常是广告开始的时间，正片可能要晚 10 到 20 分钟才开始。学生票或老人票通常需要出示证件，记得随身带着。",
+  "ja": "多くの映画館では購入時に座席を指定できますが、自由席の館もあるので、確認しておくと安心です。表示されている時刻は広告の開始時刻のことが多く、本編は10〜20分ほど遅れて始まることがあります。学生や高齢者の料金には身分証が必要なことが多いので、持っていきましょう。",
+  "ko": "많은 영화관에서는 예매할 때 정확한 좌석을 고를 수 있지만, 자유석인 곳도 있으니 물어보는 게 좋아요. 표시된 시간은 광고가 시작되는 시간인 경우가 많아서 본 영화는 10~20분 뒤에 시작할 수 있어요. 학생이나 경로 요금은 보통 신분증이 필요하니 챙겨 가세요.",
+  "hi": "कई सिनेमाघरों में टिकट लेते समय अपनी सीट चुन सकते हैं, लेकिन कुछ में कोई भी सीट ली जा सकती है, इसलिए पूछ लेना अच्छा है। लिखा हुआ समय अक्सर विज्ञापन शुरू होने का होता है, इसलिए फ़िल्म 10 से 20 मिनट बाद शुरू हो सकती है। विद्यार्थी या वरिष्ठ दरों के लिए आमतौर पर पहचान-पत्र चाहिए, इसलिए साथ रखें।",
+  "ar": "في كثير من دور السينما تختار مقعدك بالتحديد عند الشراء، لكن بعضها يتيح الجلوس الحر، فمن المفيد أن تسأل. الوقت المعلن غالبًا هو بداية الإعلانات، لذا قد يبدأ الفيلم نفسه بعد 10 إلى 20 دقيقة. أسعار الطلاب أو كبار السن تتطلب عادةً إثبات هوية، فاحتفظ به معك.",
+  "ru": "Во многих кинотеатрах место выбирают при покупке, но в некоторых рассадка свободная, поэтому лучше уточнить. Указанное время часто означает начало рекламы, так что сам фильм может начаться на 10–20 минут позже. Для студенческих и пенсионных билетов обычно нужен документ, возьмите его с собой.",
+  "tr": "Birçok sinemada bilet alırken tam koltuğunuzu seçersiniz, ama bazılarında oturma serbesttir; sormakta fayda var. Yazan saat çoğu zaman reklamların başladığı saattir, film 10-20 dakika sonra başlayabilir. Öğrenci veya yaşlı indirimleri için genelde kimlik gerekir, yanınızda bulundurun."
+ }
+}

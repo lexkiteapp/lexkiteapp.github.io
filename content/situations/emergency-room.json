@@ -1,0 +1,891 @@
+{
+ "id": "emergency-room",
+ "group": "health",
+ "cefr": "A2",
+ "title": {
+  "en": "Emergency room",
+  "vi": "Phòng cấp cứu",
+  "es": "Urgencias",
+  "pt": "Pronto-socorro",
+  "fr": "Urgences",
+  "de": "Notaufnahme",
+  "id": "Unit gawat darurat",
+  "th": "ห้องฉุกเฉิน",
+  "zh": "急诊室",
+  "ja": "救急外来",
+  "ko": "응급실",
+  "hi": "आपातकालीन कक्ष",
+  "ar": "قسم الطوارئ",
+  "ru": "Приёмное отделение",
+  "tr": "Acil servis"
+ },
+ "goal": {
+  "en": "Get help fast and explain what hurts!",
+  "vi": "Nhờ giúp nhanh và nói mình đau ở đâu!",
+  "es": "¡Pide ayuda rápido y explica qué te duele!",
+  "pt": "Peça ajuda rápido e explique o que dói!",
+  "fr": "Obtenez de l'aide vite et expliquez où vous avez mal !",
+  "de": "Hol schnell Hilfe und erkläre, was wehtut!",
+  "id": "Minta bantuan dengan cepat dan jelaskan apa yang sakit!",
+  "th": "ขอความช่วยเหลือให้ไว และบอกว่าเจ็บตรงไหน!",
+  "zh": "快速求助，说明哪里不舒服！",
+  "ja": "すぐに助けを求めて、どこが痛いか伝えよう！",
+  "ko": "빨리 도움을 청하고 어디가 아픈지 말해요!",
+  "hi": "जल्दी मदद माँगें और बताएँ कि कहाँ दर्द है!",
+  "ar": "اطلب المساعدة بسرعة واشرح ما يؤلمك!",
+  "ru": "Быстро позови на помощь и объясни, что болит!",
+  "tr": "Hızlıca yardım iste ve nerenin ağrıdığını anlat!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "arrive",
+   "title": {
+    "en": "Ask for help",
+    "vi": "Nhờ giúp đỡ",
+    "es": "Pedir ayuda",
+    "pt": "Pedir ajuda",
+    "fr": "Demander de l'aide",
+    "de": "Hilfe holen",
+    "id": "Minta bantuan",
+    "th": "ขอความช่วยเหลือ",
+    "zh": "求助",
+    "ja": "助けを求める",
+    "ko": "도움 요청",
+    "hi": "मदद माँगें",
+    "ar": "طلب المساعدة",
+    "ru": "Позвать на помощь",
+    "tr": "Yardım iste"
+   },
+   "lines": [
+    "e1",
+    "e2",
+    "e3",
+    "e4"
+   ]
+  },
+  {
+   "id": "symptoms",
+   "title": {
+    "en": "Symptoms",
+    "vi": "Triệu chứng",
+    "es": "Síntomas",
+    "pt": "Sintomas",
+    "fr": "Symptômes",
+    "de": "Beschwerden",
+    "id": "Gejala",
+    "th": "อาการ",
+    "zh": "症状",
+    "ja": "症状",
+    "ko": "증상",
+    "hi": "लक्षण",
+    "ar": "الأعراض",
+    "ru": "Симптомы",
+    "tr": "Belirtiler"
+   },
+   "lines": [
+    "e5",
+    "e6",
+    "e7",
+    "e8"
+   ]
+  },
+  {
+   "id": "treatment",
+   "title": {
+    "en": "Treatment",
+    "vi": "Điều trị",
+    "es": "Tratamiento",
+    "pt": "Tratamento",
+    "fr": "Soins",
+    "de": "Behandlung",
+    "id": "Perawatan",
+    "th": "การรักษา",
+    "zh": "治疗",
+    "ja": "治療",
+    "ko": "치료",
+    "hi": "इलाज",
+    "ar": "العلاج",
+    "ru": "Лечение",
+    "tr": "Tedavi"
+   },
+   "lines": [
+    "e9",
+    "e10",
+    "e11",
+    "e12"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "e1",
+   "who": "customer",
+   "en": "I need help, please. It's an emergency!",
+   "variants": {
+    "polite": "Excuse me, I need help urgently, please.",
+    "casual": "Help! I need a doctor now!"
+   },
+   "gloss": {
+    "en": "Calling for urgent help when you arrive.",
+    "vi": "Kêu cứu khẩn cấp khi vừa đến nơi.",
+    "es": "Necesito ayuda, por favor. ¡Es una emergencia!",
+    "pt": "Preciso de ajuda, por favor. É uma emergência!",
+    "fr": "J'ai besoin d'aide, s'il vous plaît. C'est une urgence !",
+    "de": "Ich brauche Hilfe, bitte. Es ist ein Notfall!",
+    "id": "Tolong saya. Ini darurat!",
+    "th": "ช่วยด้วยค่ะ เป็นเรื่องฉุกเฉิน!",
+    "zh": "请帮帮我，这是紧急情况！",
+    "ja": "助けてください。緊急です！",
+    "ko": "도와주세요. 응급 상황이에요!",
+    "hi": "कृपया मेरी मदद करें। यह इमरजेंसी है!",
+    "ar": "أحتاج إلى مساعدة من فضلك. إنها حالة طارئة!",
+    "ru": "Помогите, пожалуйста. Это срочно!",
+    "tr": "Yardıma ihtiyacım var, lütfen. Acil durum!"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "emergency",
+     "ipa": "/ɪˈmɜːr.dʒən.si/",
+     "hi": "MUR",
+     "note": {
+      "en": "Stress the second syllable: i-MUR-juhn-see.",
+      "vi": "Nhấn âm tiết thứ hai: i-MƠ-jần-xi.",
+      "es": "Acentúa la segunda sílaba: i-MER-yen-si.",
+      "pt": "Acentue a segunda sílaba: i-MÉR-djen-si.",
+      "fr": "Accentuez la deuxième syllabe : i-MEUR-djeun-si.",
+      "de": "Betone die zweite Silbe: i-MÖR-dschen-si.",
+      "id": "Tekankan suku kata kedua: i-MÖR-jen-si.",
+      "th": "เน้นพยางค์ที่สอง: อิ-เมอร์-เจน-ซี",
+      "zh": "重音在第二个音节：i-MUR-juhn-see。",
+      "ja": "2番目を強く：イ・マー・ジェン・シー。",
+      "ko": "두 번째 음절에 강세: 이-머-전-시.",
+      "hi": "दूसरे अक्षर पर ज़ोर: इ-मर-जन-सी।",
+      "ar": "شدّد على المقطع الثاني: إي-مير-جن-سي.",
+      "ru": "Ударение на второй слог: и-МЁР-джен-си.",
+      "tr": "Vurgu ikinci hecede: i-MÖR-cın-si."
+     }
+    }
+   ]
+  },
+  {
+   "id": "e2",
+   "who": "barista",
+   "en": "Okay. Tell me what happened.",
+   "variants": {
+    "polite": "I'm here to help. Can you tell me what happened?",
+    "casual": "What happened?"
+   },
+   "gloss": {
+    "en": "The nurse stays calm and asks what happened.",
+    "vi": "Y tá bình tĩnh hỏi chuyện gì đã xảy ra.",
+    "es": "Vale. Dígame qué ha pasado.",
+    "pt": "Certo. Conte-me o que aconteceu.",
+    "fr": "D'accord. Dites-moi ce qui s'est passé.",
+    "de": "In Ordnung. Sagen Sie mir, was passiert ist.",
+    "id": "Baik. Ceritakan apa yang terjadi.",
+    "th": "ได้ค่ะ เล่าให้ฟังหน่อยว่าเกิดอะไรขึ้น",
+    "zh": "好的，告诉我发生了什么。",
+    "ja": "わかりました。何があったか教えてください。",
+    "ko": "알겠어요. 무슨 일이 있었는지 말해 주세요.",
+    "hi": "ठीक है। बताइए, क्या हुआ।",
+    "ar": "حسنًا. أخبرني ماذا حدث.",
+    "ru": "Хорошо. Расскажите, что случилось.",
+    "tr": "Tamam. Ne olduğunu anlatın."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "e3",
+   "who": "customer",
+   "en": "I fell down the stairs, and my ankle really hurts.",
+   "variants": {
+    "polite": "I'm afraid I fell down the stairs, and my ankle hurts badly.",
+    "casual": "I fell on the stairs. My ankle hurts."
+   },
+   "gloss": {
+    "en": "Saying how you got hurt and where it hurts.",
+    "vi": "Nói bạn bị thương thế nào và đau ở đâu.",
+    "es": "Me caí por las escaleras y me duele mucho el tobillo.",
+    "pt": "Caí da escada e meu tornozelo dói muito.",
+    "fr": "Je suis tombé dans l'escalier et ma cheville me fait très mal.",
+    "de": "Ich bin die Treppe hinuntergefallen, und mein Knöchel tut sehr weh.",
+    "id": "Saya jatuh dari tangga dan pergelangan kaki saya sangat sakit.",
+    "th": "ฉันตกบันได ข้อเท้าเจ็บมากค่ะ",
+    "zh": "我从楼梯上摔下来了，脚踝很疼。",
+    "ja": "階段から落ちて、足首がとても痛いです。",
+    "ko": "계단에서 넘어졌는데 발목이 너무 아파요.",
+    "hi": "मैं सीढ़ियों से गिर गया/गई और मेरे टखने में बहुत दर्द है।",
+    "ar": "سقطت على الدرج وكاحلي يؤلمني كثيرًا.",
+    "ru": "Я упал с лестницы, и лодыжка сильно болит.",
+    "tr": "Merdivenden düştüm ve bileğim çok ağrıyor."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "ankle",
+     "ipa": "/ˈæŋ.kəl/",
+     "hi": "ANG",
+     "note": {
+      "en": "Say ANG-kuhl; the k sounds like a hard “ng-k”.",
+      "vi": "Đọc ANG-kồl; “nk” phát âm như “ng-k”.",
+      "es": "Di ANG-kel; el grupo “nk” suena como “ng-k”.",
+      "pt": "Diga ANG-kl; o grupo “nk” soa como “ng-k”.",
+      "fr": "Dites ANG-keul ; « nk » sonne comme « ng-k ».",
+      "de": "Sprich ANG-kel; „nk“ klingt wie „ng-k“.",
+      "id": "Ucapkan ANG-kel; “nk” dibaca “ng-k”.",
+      "th": "ออกเสียง แองก์-เคิล ตัว n ออกเสียงเป็น ng",
+      "zh": "读作 ANG-kuhl，“nk” 发 “ng-k” 的音。",
+      "ja": "「アンクル」。nkは「ンク」と鼻にかけます。",
+      "ko": "‘앵-클’이라고 읽어요. nk는 ‘응-ㅋ’ 소리예요.",
+      "hi": "“ऐंग-कल” बोलें; nk की आवाज़ “ng-k” जैसी है।",
+      "ar": "انطق أنغ-كل، وصوت nk مثل “نغ-ك”.",
+      "ru": "Произносите ЭНГ-кл; «nk» звучит как «нг-к».",
+      "tr": "ANG-kıl diye okunur; “nk” burada “ng-k” gibidir."
+     }
+    }
+   ]
+  },
+  {
+   "id": "e4",
+   "who": "barista",
+   "en": "Can you move your foot? Is the pain getting worse?",
+   "variants": {
+    "polite": "Are you able to move your foot? Is the pain getting worse?",
+    "casual": "Can you move it? Is it getting worse?"
+   },
+   "gloss": {
+    "en": "The nurse checks if you can move the foot and if the pain is increasing.",
+    "vi": "Y tá hỏi bạn có cử động được bàn chân và cơn đau có nặng hơn không.",
+    "es": "¿Puede mover el pie? ¿El dolor está empeorando?",
+    "pt": "Consegue mexer o pé? A dor está piorando?",
+    "fr": "Pouvez-vous bouger le pied ? La douleur s'aggrave ?",
+    "de": "Können Sie den Fuß bewegen? Wird der Schmerz schlimmer?",
+    "id": "Bisakah Anda menggerakkan kaki? Apakah rasa sakitnya makin parah?",
+    "th": "ขยับเท้าได้ไหมคะ อาการปวดแย่ลงหรือเปล่า",
+    "zh": "您能动一动脚吗？疼得越来越厉害了吗？",
+    "ja": "足は動かせますか？痛みはひどくなっていますか？",
+    "ko": "발을 움직일 수 있나요? 통증이 더 심해지고 있나요?",
+    "hi": "क्या आप पैर हिला सकते हैं? क्या दर्द बढ़ रहा है?",
+    "ar": "هل تستطيع تحريك قدمك؟ هل الألم يزداد سوءًا؟",
+    "ru": "Вы можете пошевелить ногой? Боль усиливается?",
+    "tr": "Ayağınızı oynatabiliyor musunuz? Ağrı artıyor mu?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "e5",
+   "who": "customer",
+   "en": "It hurts a lot, and my foot is swollen.",
+   "variants": {
+    "polite": "It hurts a lot, and I think my foot is swollen.",
+    "casual": "It hurts a lot. My foot is swollen."
+   },
+   "gloss": {
+    "en": "Describing strong pain and swelling.",
+    "vi": "Mô tả cơn đau nhiều và bàn chân bị sưng.",
+    "es": "Me duele mucho y tengo el pie hinchado.",
+    "pt": "Dói muito e meu pé está inchado.",
+    "fr": "J'ai très mal et mon pied est gonflé.",
+    "de": "Es tut sehr weh, und mein Fuß ist geschwollen.",
+    "id": "Sakit sekali dan kaki saya bengkak.",
+    "th": "เจ็บมากเลยค่ะ แล้วเท้าก็บวมด้วย",
+    "zh": "很疼，而且我的脚肿了。",
+    "ja": "とても痛くて、足が腫れています。",
+    "ko": "많이 아프고 발이 부었어요.",
+    "hi": "बहुत दर्द हो रहा है और मेरा पैर सूज गया है।",
+    "ar": "يؤلمني كثيرًا وقدمي متورمة.",
+    "ru": "Очень больно, и нога опухла.",
+    "tr": "Çok ağrıyor ve ayağım şişti."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "swollen",
+     "ipa": "/ˈswoʊ.lən/",
+     "hi": "SWOH",
+     "note": {
+      "en": "Say SWOH-luhn; the o is long, like “go”.",
+      "vi": "Đọc SƠ-lần; âm o dài như “go”.",
+      "es": "Di SUOU-len; la o es larga, como en “go”.",
+      "pt": "Diga SUOU-len; o “o” é longo, como em “go”.",
+      "fr": "Dites SOUO-leun ; le o est long, comme dans « go ».",
+      "de": "Sprich SWOU-len; das o ist lang wie in „go“.",
+      "id": "Ucapkan SWOU-len; bunyi o panjang seperti “go”.",
+      "th": "ออกเสียง สโวล-เลิน เสียง โอ ยาว",
+      "zh": "读作 SWOH-luhn，o 是长音，像 “go”。",
+      "ja": "「スウォウルン」。oは「go」のように長く。",
+      "ko": "‘스워-런’으로 읽어요. o는 “go”처럼 길게 발음해요.",
+      "hi": "“स्वोह-लन” बोलें; o लंबा है, जैसे “go”।",
+      "ar": "انطق سوو-لن، وصوت o طويل مثل “go”.",
+      "ru": "Произносите СВОУ-лэн; o долгое, как в “go”.",
+      "tr": "SWOU-lın diye okunur; o uzundur, “go” gibi."
+     }
+    }
+   ]
+  },
+  {
+   "id": "e6",
+   "who": "barista",
+   "en": "Do you have any allergies, or take any medicine?",
+   "variants": {
+    "polite": "Do you have any allergies, or are you taking any medicine?",
+    "casual": "Any allergies? Do you take any medicine?"
+   },
+   "gloss": {
+    "en": "The nurse asks about allergies and medicines.",
+    "vi": "Y tá hỏi bạn có dị ứng hay đang dùng thuốc không.",
+    "es": "¿Tiene alguna alergia o toma algún medicamento?",
+    "pt": "Tem alguma alergia ou toma algum remédio?",
+    "fr": "Avez-vous des allergies ou prenez-vous des médicaments ?",
+    "de": "Haben Sie Allergien, oder nehmen Sie Medikamente?",
+    "id": "Apakah Anda punya alergi atau minum obat?",
+    "th": "แพ้อะไรไหมคะ หรือกินยาอะไรอยู่หรือเปล่า",
+    "zh": "您有过敏史吗？在服用什么药吗？",
+    "ja": "アレルギーはありますか？飲んでいる薬はありますか？",
+    "ko": "알레르기가 있거나 먹는 약이 있나요?",
+    "hi": "क्या आपको कोई एलर्जी है, या आप कोई दवा लेते हैं?",
+    "ar": "هل لديك حساسية، أو تتناول أي دواء؟",
+    "ru": "У вас есть аллергия или вы принимаете лекарства?",
+    "tr": "Alerjiniz var mı ya da ilaç kullanıyor musunuz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "e7",
+   "who": "customer",
+   "en": "I'm allergic to penicillin. I don't take any other medicine.",
+   "variants": {
+    "polite": "I'm allergic to penicillin, and I don't take any other medicine.",
+    "casual": "I'm allergic to penicillin. No other medicine."
+   },
+   "gloss": {
+    "en": "Telling the nurse about your allergy.",
+    "vi": "Nói với y tá về dị ứng của bạn.",
+    "es": "Soy alérgico a la penicilina. No tomo ningún otro medicamento.",
+    "pt": "Sou alérgico à penicilina. Não tomo nenhum outro remédio.",
+    "fr": "Je suis allergique à la pénicilline. Je ne prends pas d'autre médicament.",
+    "de": "Ich bin allergisch gegen Penicillin. Andere Medikamente nehme ich nicht.",
+    "id": "Saya alergi penisilin. Saya tidak minum obat lain.",
+    "th": "ฉันแพ้เพนิซิลลินค่ะ ไม่ได้กินยาอย่างอื่น",
+    "zh": "我对青霉素过敏，没有服用其他药物。",
+    "ja": "ペニシリンアレルギーです。ほかに飲んでいる薬はありません。",
+    "ko": "페니실린 알레르기가 있어요. 다른 약은 먹지 않아요.",
+    "hi": "मुझे पेनिसिलिन से एलर्जी है। मैं और कोई दवा नहीं लेता/लेती।",
+    "ar": "لدي حساسية من البنسلين. ولا أتناول أي دواء آخر.",
+    "ru": "У меня аллергия на пенициллин. Других лекарств я не принимаю.",
+    "tr": "Penisiline alerjim var. Başka ilaç kullanmıyorum."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "allergic",
+     "ipa": "/əˈlɜːr.dʒɪk/",
+     "hi": "LUR",
+     "note": {
+      "en": "Stress the second syllable: uh-LUR-jik.",
+      "vi": "Nhấn âm tiết thứ hai: ơ-LƠ-jịc.",
+      "es": "Acentúa la segunda sílaba: a-LER-yik.",
+      "pt": "Acentue a segunda sílaba: a-LÉR-djik.",
+      "fr": "Accentuez la deuxième syllabe : eu-LEUR-djik.",
+      "de": "Betone die zweite Silbe: ə-LÖR-dschik.",
+      "id": "Tekankan suku kata kedua: e-LÖR-jik.",
+      "th": "เน้นพยางค์ที่สอง: อะ-เลอร์-จิก",
+      "zh": "重音在第二个音节：uh-LUR-jik。",
+      "ja": "2番目を強く：ア・ラー・ジック。",
+      "ko": "두 번째 음절에 강세: 얼-러-직.",
+      "hi": "दूसरे अक्षर पर ज़ोर: अ-लर-जिक।",
+      "ar": "شدّد على المقطع الثاني: ا-لير-جك.",
+      "ru": "Ударение на второй слог: э-ЛЁР-джик.",
+      "tr": "Vurgu ikinci hecede: ı-LÖR-cik."
+     }
+    }
+   ]
+  },
+  {
+   "id": "e8",
+   "who": "customer",
+   "en": "I feel dizzy and a little sick too.",
+   "variants": {
+    "polite": "I'm also feeling dizzy and a little sick, I'm afraid.",
+    "casual": "I feel dizzy and sick too."
+   },
+   "gloss": {
+    "en": "Adding that you feel dizzy and unwell.",
+    "vi": "Nói thêm rằng bạn thấy chóng mặt và hơi buồn nôn.",
+    "es": "También me siento mareado y un poco mal.",
+    "pt": "Também me sinto tonto e um pouco enjoado.",
+    "fr": "Je me sens aussi étourdi et un peu nauséeux.",
+    "de": "Mir ist auch schwindelig und etwas übel.",
+    "id": "Saya juga merasa pusing dan agak mual.",
+    "th": "รู้สึกเวียนหัวและคลื่นไส้นิดหน่อยด้วยค่ะ",
+    "zh": "我还觉得头晕，有点恶心。",
+    "ja": "めまいもして、少し気分も悪いです。",
+    "ko": "어지럽고 속도 조금 안 좋아요.",
+    "hi": "मुझे चक्कर भी आ रहे हैं और थोड़ी मतली भी है।",
+    "ar": "أشعر أيضًا بدوار وغثيان خفيف.",
+    "ru": "Ещё у меня кружится голова и немного тошнит.",
+    "tr": "Başım da dönüyor ve biraz midem bulanıyor."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "e9",
+   "who": "barista",
+   "en": "The doctor will see you soon, after an X-ray.",
+   "variants": {
+    "polite": "The doctor will see you shortly, but we need an X-ray first.",
+    "casual": "Doctor's coming soon. First, an X-ray."
+   },
+   "gloss": {
+    "en": "The nurse says you will have an X-ray before seeing the doctor.",
+    "vi": "Y tá nói bạn sẽ chụp X-quang trước khi gặp bác sĩ.",
+    "es": "El médico le verá pronto, después de una radiografía.",
+    "pt": "O médico vai atender você logo, depois de um raio-X.",
+    "fr": "Le médecin vous verra bientôt, après une radio.",
+    "de": "Der Arzt kommt gleich zu Ihnen, nach einem Röntgenbild.",
+    "id": "Dokter akan segera menemui Anda, setelah rontgen.",
+    "th": "คุณหมอจะมาตรวจเร็ว ๆ นี้ค่ะ หลังจากเอกซเรย์",
+    "zh": "医生很快会来看您，先去拍个X光。",
+    "ja": "先にレントゲンを撮ってから、すぐ医師が診ます。",
+    "ko": "X-ray를 찍은 뒤 곧 의사 선생님이 보실 거예요.",
+    "hi": "डॉक्टर जल्दी ही आपको देखेंगे, पहले एक्स-रे होगा।",
+    "ar": "سيراك الطبيب قريبًا، بعد التصوير بالأشعة.",
+    "ru": "Врач скоро вас осмотрит, сначала сделаем рентген.",
+    "tr": "Doktor yakında sizi görecek, önce röntgen çekeceğiz."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "e10",
+   "who": "customer",
+   "en": "Can I have something for the pain, please?",
+   "variants": {
+    "polite": "Could I have something for the pain, please?",
+    "casual": "Can I get a painkiller?"
+   },
+   "gloss": {
+    "en": "Asking for medicine to ease the pain.",
+    "vi": "Xin thuốc giảm đau.",
+    "es": "¿Puede darme algo para el dolor, por favor?",
+    "pt": "Pode me dar algo para a dor, por favor?",
+    "fr": "Pouvez-vous me donner quelque chose contre la douleur ?",
+    "de": "Kann ich bitte etwas gegen die Schmerzen bekommen?",
+    "id": "Boleh saya minta sesuatu untuk meredakan sakit?",
+    "th": "ขอยาแก้ปวดหน่อยได้ไหมคะ",
+    "zh": "可以给我点止痛的东西吗？",
+    "ja": "痛みを和らげる薬をいただけますか？",
+    "ko": "통증을 줄여 줄 약을 받을 수 있을까요?",
+    "hi": "क्या मुझे दर्द के लिए कुछ मिल सकता है?",
+    "ar": "هل يمكنني الحصول على شيء للألم من فضلك؟",
+    "ru": "Можно мне что-нибудь от боли, пожалуйста?",
+    "tr": "Ağrı için bir şey alabilir miyim, lütfen?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "e11",
+   "who": "barista",
+   "en": "I'll ask the doctor. It should be about twenty minutes.",
+   "variants": {
+    "polite": "I'll check with the doctor. It should be about twenty minutes.",
+    "casual": "I'll ask. It'll be about twenty minutes."
+   },
+   "gloss": {
+    "en": "The nurse will ask the doctor and gives the waiting time.",
+    "vi": "Y tá sẽ hỏi bác sĩ và cho biết thời gian chờ.",
+    "es": "Se lo preguntaré al médico. Serán unos veinte minutos.",
+    "pt": "Vou perguntar ao médico. Deve levar uns vinte minutos.",
+    "fr": "Je vais demander au médecin. Comptez environ vingt minutes.",
+    "de": "Ich frage den Arzt. Es dauert etwa zwanzig Minuten.",
+    "id": "Saya akan tanya dokter. Kira-kira dua puluh menit.",
+    "th": "เดี๋ยวถามคุณหมอให้นะคะ รอประมาณยี่สิบนาทีค่ะ",
+    "zh": "我去问医生，大概要等二十分钟。",
+    "ja": "医師に聞いてきます。20分ほどお待ちください。",
+    "ko": "의사 선생님께 여쭤볼게요. 20분쯤 걸릴 거예요.",
+    "hi": "मैं डॉक्टर से पूछती हूँ। इसमें लगभग बीस मिनट लगेंगे।",
+    "ar": "سأسأل الطبيب. سيستغرق الأمر نحو عشرين دقيقة.",
+    "ru": "Я спрошу врача. Подождать нужно минут двадцать.",
+    "tr": "Doktora soracağım. Yaklaşık yirmi dakika sürer."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "e12",
+   "who": "customer",
+   "en": "Thank you. I'll tell you if it gets worse.",
+   "variants": {
+    "polite": "Thank you. I'll let you know if the pain gets worse.",
+    "casual": "Thanks. I'll tell you if it gets worse."
+   },
+   "gloss": {
+    "en": "Thanking the nurse and promising to say if you feel worse.",
+    "vi": "Cảm ơn y tá và hứa sẽ báo nếu thấy tệ hơn.",
+    "es": "Gracias. Le avisaré si empeora.",
+    "pt": "Obrigado. Aviso se piorar.",
+    "fr": "Merci. Je vous préviendrai si ça empire.",
+    "de": "Danke. Ich sage Bescheid, wenn es schlimmer wird.",
+    "id": "Terima kasih. Saya akan bilang kalau makin parah.",
+    "th": "ขอบคุณค่ะ ถ้าอาการแย่ลงจะบอกนะคะ",
+    "zh": "谢谢。如果更严重了我会告诉您。",
+    "ja": "ありがとうございます。悪化したらお知らせします。",
+    "ko": "감사합니다. 더 심해지면 말씀드릴게요.",
+    "hi": "धन्यवाद। अगर दर्द बढ़ा तो मैं आपको बता दूँगा/दूँगी।",
+    "ar": "شكرًا لك. سأخبرك إذا ازداد الألم سوءًا.",
+    "ru": "Спасибо. Я скажу, если станет хуже.",
+    "tr": "Teşekkürler. Daha kötü olursa size söylerim."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "keywords": [
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+    "ten",
+    "a lot",
+    "mild",
+    "terrible",
+    "bad"
+   ],
+   "en": "On a scale of one to ten, how bad is the pain?",
+   "variants": {
+    "polite": "How would you rate the pain, from one to ten?",
+    "casual": "How bad is the pain, one to ten?"
+   },
+   "gloss": {
+    "en": "The nurse asks you to rate your pain from one to ten.",
+    "vi": "Y tá hỏi mức đau của bạn từ một đến mười.",
+    "es": "Del uno al diez, ¿cuánto le duele?",
+    "pt": "De um a dez, quanto está doendo?",
+    "fr": "Sur une échelle de un à dix, quelle est l'intensité de la douleur ?",
+    "de": "Auf einer Skala von eins bis zehn, wie stark sind die Schmerzen?",
+    "id": "Dari skala satu sampai sepuluh, seberapa sakit?",
+    "th": "ถ้าให้คะแนนหนึ่งถึงสิบ ปวดมากแค่ไหนคะ",
+    "zh": "如果用一到十分来打分，疼痛有多严重？",
+    "ja": "痛みは1から10でいくつですか？",
+    "ko": "통증이 1에서 10 중 어느 정도인가요?",
+    "hi": "एक से दस के पैमाने पर दर्द कितना है?",
+    "ar": "على مقياس من واحد إلى عشرة، ما شدة الألم؟",
+    "ru": "По шкале от одного до десяти, насколько сильная боль?",
+    "tr": "Birden ona kadar ağrınız kaç?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "keywords": [
+    "head",
+    "stomach",
+    "chest",
+    "back",
+    "arm",
+    "leg",
+    "foot",
+    "ankle",
+    "knee",
+    "throat",
+    "hand",
+    "neck"
+   ],
+   "en": "Where does it hurt?",
+   "variants": {
+    "polite": "Could you show me where it hurts?",
+    "casual": "Where does it hurt?"
+   },
+   "gloss": {
+    "en": "The nurse asks where the pain is.",
+    "vi": "Y tá hỏi bạn đau ở đâu.",
+    "es": "¿Dónde le duele?",
+    "pt": "Onde dói?",
+    "fr": "Où avez-vous mal ?",
+    "de": "Wo tut es weh?",
+    "id": "Di bagian mana yang sakit?",
+    "th": "เจ็บตรงไหนคะ",
+    "zh": "哪里疼？",
+    "ja": "どこが痛いですか？",
+    "ko": "어디가 아프세요?",
+    "hi": "कहाँ दर्द हो रहा है?",
+    "ar": "أين يؤلمك؟",
+    "ru": "Где болит?",
+    "tr": "Neresi ağrıyor?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "customer",
+   "en": "Excuse me, I need help. It's an emergency!"
+  },
+  {
+   "who": "barista",
+   "en": "Okay. Tell me what happened."
+  },
+  {
+   "who": "customer",
+   "en": "I fell down the stairs, and my ankle really hurts."
+  },
+  {
+   "who": "barista",
+   "en": "Can you move your foot? Is the pain getting worse?"
+  },
+  {
+   "who": "customer",
+   "en": "It hurts a lot, and my foot is swollen."
+  },
+  {
+   "who": "barista",
+   "en": "Do you have any allergies, or take any medicine?"
+  },
+  {
+   "who": "customer",
+   "en": "I'm allergic to penicillin. I don't take any other medicine."
+  },
+  {
+   "who": "barista",
+   "en": "The doctor will see you soon, after an X-ray."
+  },
+  {
+   "who": "customer",
+   "en": "Thank you. I'll tell you if it gets worse."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "What's your name, and what's the problem?"
+    },
+    {
+     "who": "customer",
+     "en": "I'm Anna Lee. I have a high fever and a bad cough."
+    },
+    {
+     "who": "barista",
+     "en": "How long have you had the fever?"
+    },
+    {
+     "who": "customer",
+     "en": "Since yesterday morning."
+    }
+   ],
+   "q": {
+    "en": "How long has the patient had a fever?",
+    "vi": "Bệnh nhân bị sốt từ khi nào?",
+    "es": "¿Desde cuándo tiene fiebre el paciente?",
+    "pt": "Há quanto tempo o paciente está com febre?",
+    "fr": "Depuis quand le patient a-t-il de la fièvre ?",
+    "de": "Seit wann hat der Patient Fieber?",
+    "id": "Sejak kapan pasien demam?",
+    "th": "ผู้ป่วยมีไข้มาตั้งแต่เมื่อไร",
+    "zh": "病人发烧多久了？",
+    "ja": "患者はいつから熱がありますか？",
+    "ko": "환자는 언제부터 열이 났나요?",
+    "hi": "मरीज़ को बुख़ार कब से है?",
+    "ar": "منذ متى يعاني المريض من الحمى؟",
+    "ru": "С каких пор у пациента температура?",
+    "tr": "Hasta ne zamandır ateşli?"
+   },
+   "answer": "since yesterday morning"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Are you allergic to anything?"
+    },
+    {
+     "who": "customer",
+     "en": "No, but I'm taking medicine for my heart."
+    },
+    {
+     "who": "barista",
+     "en": "Thanks. Please wait in room three."
+    }
+   ],
+   "q": {
+    "en": "Which room should the patient wait in?",
+    "vi": "Bệnh nhân nên chờ ở phòng nào?",
+    "es": "¿En qué sala debe esperar el paciente?",
+    "pt": "Em que sala o paciente deve esperar?",
+    "fr": "Dans quelle salle le patient doit-il attendre ?",
+    "de": "In welchem Raum soll der Patient warten?",
+    "id": "Di ruang mana pasien harus menunggu?",
+    "th": "ผู้ป่วยควรรอที่ห้องไหน",
+    "zh": "病人应该在哪个房间等候？",
+    "ja": "患者はどの部屋で待つべきですか？",
+    "ko": "환자는 어느 방에서 기다려야 하나요?",
+    "hi": "मरीज़ को किस कमरे में इंतज़ार करना चाहिए?",
+    "ar": "في أي غرفة ينتظر المريض؟",
+    "ru": "В какой палате нужно ждать пациенту?",
+    "tr": "Hasta hangi odada beklemeli?"
+   },
+   "answer": "room three"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "help",
+    "title": {
+     "en": "Ask for urgent help",
+     "vi": "Nhờ giúp đỡ khẩn cấp",
+     "es": "Pide ayuda urgente",
+     "pt": "Peça ajuda urgente",
+     "fr": "Demander de l'aide en urgence",
+     "de": "Dringend um Hilfe bitten",
+     "id": "Minta bantuan darurat",
+     "th": "ขอความช่วยเหลือเร่งด่วน",
+     "zh": "紧急求助",
+     "ja": "緊急で助けを求める",
+     "ko": "긴급하게 도움 요청하기",
+     "hi": "तुरंत मदद माँगें",
+     "ar": "اطلب مساعدة عاجلة",
+     "ru": "Позови на помощь",
+     "tr": "Acil yardım iste"
+    },
+    "intents": [
+     "e1"
+    ]
+   },
+   {
+    "id": "hurt",
+    "title": {
+     "en": "Say what happened and where it hurts",
+     "vi": "Nói chuyện gì xảy ra và đau ở đâu",
+     "es": "Explica qué pasó y dónde te duele",
+     "pt": "Diga o que aconteceu e onde dói",
+     "fr": "Dire ce qui s'est passé et où vous avez mal",
+     "de": "Sagen, was passiert ist und wo es wehtut",
+     "id": "Ceritakan kejadian dan bagian yang sakit",
+     "th": "บอกว่าเกิดอะไรขึ้นและเจ็บตรงไหน",
+     "zh": "说明发生了什么、哪里疼",
+     "ja": "何があったか、どこが痛いかを伝える",
+     "ko": "무슨 일이 있었고 어디가 아픈지 말하기",
+     "hi": "बताएँ क्या हुआ और कहाँ दर्द है",
+     "ar": "قل ماذا حدث وأين يؤلمك",
+     "ru": "Расскажи, что случилось и где болит",
+     "tr": "Ne olduğunu ve nerenin ağrıdığını söyle"
+    },
+    "intents": [
+     "e3"
+    ]
+   },
+   {
+    "id": "pain",
+    "title": {
+     "en": "Ask for something for the pain",
+     "vi": "Xin thuốc giảm đau",
+     "es": "Pide algo para el dolor",
+     "pt": "Peça algo para a dor",
+     "fr": "Demander quelque chose contre la douleur",
+     "de": "Um etwas gegen die Schmerzen bitten",
+     "id": "Minta obat pereda sakit",
+     "th": "ขอยาแก้ปวด",
+     "zh": "要求止痛药",
+     "ja": "痛み止めを頼む",
+     "ko": "진통제 요청하기",
+     "hi": "दर्द की दवा माँगें",
+     "ar": "اطلب شيئًا للألم",
+     "ru": "Попроси обезболивающее",
+     "tr": "Ağrı için bir şey iste"
+    },
+    "intents": [
+     "e10"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "In an emergency, call the local emergency number first (for example 911 in the US and Canada, 112 in the EU, 999 in the UK). In the emergency room, the most serious cases are seen first, so waiting is normal, but tell the staff at once if you feel worse. Bring your ID, insurance details, and a list of your allergies and medicines if you can.",
+  "vi": "Khi khẩn cấp, hãy gọi số cấp cứu của địa phương trước (ví dụ 911 ở Mỹ và Canada, 112 ở EU, 999 ở Anh). Tại phòng cấp cứu, ca nặng nhất được khám trước nên phải chờ là bình thường, nhưng hãy báo ngay cho nhân viên nếu bạn thấy tệ hơn. Nếu được, hãy mang giấy tờ tùy thân, thông tin bảo hiểm và danh sách dị ứng, thuốc đang dùng.",
+  "es": "En una emergencia, llama primero al número de emergencias local (por ejemplo, el 911 en EE. UU. y Canadá, el 112 en la UE, el 999 en el Reino Unido). En urgencias se atiende primero a los casos más graves, así que esperar es normal, pero avisa enseguida si te sientes peor. Si puedes, lleva tu documento de identidad, los datos del seguro y una lista de tus alergias y medicamentos.",
+  "pt": "Em uma emergência, ligue primeiro para o número de emergência local (por exemplo, 911 nos EUA e no Canadá, 112 na UE, 999 no Reino Unido). No pronto-socorro, os casos mais graves são atendidos primeiro, então esperar é normal, mas avise logo a equipe se piorar. Se puder, leve documento de identidade, dados do seguro e uma lista de alergias e remédios.",
+  "fr": "En cas d'urgence, appelez d'abord le numéro d'urgence local (par exemple le 911 aux États-Unis et au Canada, le 112 dans l'UE, le 999 au Royaume-Uni). Aux urgences, les cas les plus graves passent en premier ; attendre est donc normal, mais prévenez vite le personnel si vous vous sentez plus mal. Si possible, apportez une pièce d'identité, vos informations d'assurance et la liste de vos allergies et médicaments.",
+  "de": "Im Notfall wähle zuerst die örtliche Notrufnummer (zum Beispiel 911 in den USA und Kanada, 112 in der EU, 999 in Großbritannien). In der Notaufnahme werden die schwersten Fälle zuerst behandelt, Warten ist also normal; sag aber sofort Bescheid, wenn es dir schlechter geht. Bring nach Möglichkeit Ausweis, Versicherungsdaten und eine Liste deiner Allergien und Medikamente mit.",
+  "id": "Dalam keadaan darurat, hubungi dulu nomor darurat setempat (misalnya 911 di AS dan Kanada, 112 di Uni Eropa, 999 di Inggris). Di UGD, kasus yang paling parah ditangani lebih dulu, jadi menunggu itu wajar, tetapi segera beri tahu petugas jika kondisimu memburuk. Jika bisa, bawa tanda pengenal, data asuransi, serta daftar alergi dan obat yang kamu minum.",
+  "th": "ในเหตุฉุกเฉิน ให้โทรเบอร์ฉุกเฉินของท้องถิ่นก่อน (เช่น 911 ในสหรัฐฯ และแคนาดา 112 ในสหภาพยุโรป 999 ในสหราชอาณาจักร) ที่ห้องฉุกเฉินจะรักษาผู้ป่วยอาการหนักก่อน การรอจึงเป็นเรื่องปกติ แต่ถ้ารู้สึกแย่ลงให้แจ้งเจ้าหน้าที่ทันที ถ้าทำได้ ให้นำบัตรประจำตัว ข้อมูลประกัน และรายการยาที่ใช้กับสิ่งที่แพ้ไปด้วย",
+  "zh": "遇到紧急情况，请先拨打当地急救电话（例如美国和加拿大是911，欧盟是112，英国是999）。急诊室会优先处理最严重的病人，所以等候是正常的，但如果感觉更糟，要马上告诉工作人员。如果可以，请带上身份证件、保险信息，以及过敏和用药清单。",
+  "ja": "緊急時は、まず現地の緊急電話番号にかけましょう（例：アメリカ・カナダは911、EUは112、イギリスは999）。救急外来では重症の人から診るため待つのは普通ですが、具合が悪くなったらすぐスタッフに伝えてください。可能なら、身分証明書、保険の情報、アレルギーと服用中の薬のリストを持参しましょう。",
+  "ko": "응급 상황에서는 먼저 현지 응급 전화번호로 전화하세요(예: 미국·캐나다는 911, EU는 112, 영국은 999). 응급실에서는 더 위급한 환자를 먼저 보기 때문에 기다리는 건 흔한 일이지만, 더 나빠지면 바로 직원에게 알리세요. 가능하면 신분증, 보험 정보, 알레르기와 복용 중인 약 목록을 챙겨 가세요.",
+  "hi": "आपात स्थिति में पहले अपने इलाक़े का आपातकालीन नंबर मिलाएँ (जैसे अमेरिका और कनाडा में 911, EU में 112, ब्रिटेन में 999)। आपातकालीन कक्ष में सबसे गंभीर मरीज़ों को पहले देखा जाता है, इसलिए इंतज़ार करना सामान्य है, पर हालत बिगड़े तो तुरंत स्टाफ़ को बताएँ। हो सके तो पहचान-पत्र, बीमा की जानकारी और अपनी एलर्जी व दवाओं की सूची साथ रखें।",
+  "ar": "في حالات الطوارئ اتصل أولًا برقم الطوارئ المحلي (مثل 911 في أمريكا وكندا، و112 في الاتحاد الأوروبي، و999 في بريطانيا). في قسم الطوارئ تُعالَج الحالات الأشد خطورة أولًا، لذا الانتظار أمر عادي، لكن أخبر الموظفين فورًا إذا ازدادت حالتك سوءًا. وإن أمكن فاحمل هويتك وبيانات التأمين وقائمة بحساسيتك وأدويتك.",
+  "ru": "В экстренной ситуации сначала позвоните на местный номер экстренной помощи (например, 911 в США и Канаде, 112 в ЕС, 999 в Великобритании). В приёмном отделении сначала принимают самых тяжёлых больных, поэтому ожидание — это нормально, но если станет хуже, сразу скажите персоналу. По возможности возьмите удостоверение личности, данные страховки и список аллергий и лекарств.",
+  "tr": "Acil durumda önce bulunduğunuz yerin acil numarasını arayın (örneğin ABD ve Kanada'da 911, AB'de 112, Birleşik Krallık'ta 999). Acil serviste en ağır hastalar önce görülür, bu yüzden beklemek normaldir; ama kendinizi daha kötü hissederseniz hemen görevlilere söyleyin. Mümkünse kimliğinizi, sigorta bilgilerinizi ve alerji ile ilaç listenizi yanınıza alın."
+ }
+}

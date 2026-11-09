@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -406,7 +406,7 @@
   {
    "word": "mientras",
    "pos": "conj",
-   "ipa": "ˈmjɛntɾas",
+   "ipa": "ˈmjentɾas",
    "gl": {
     "vi": "trong khi",
     "en": "while",
@@ -606,7 +606,7 @@
   {
    "word": "significar",
    "pos": "v",
-   "ipa": "siɡnifiˈkaɾ",
+   "ipa": "siɣnifiˈkaɾ",
    "gl": {
     "vi": "có nghĩa là",
     "en": "to mean",
@@ -690,27 +690,27 @@
    "pos": "v",
    "ipa": "ɡusˈtaɾ",
    "gl": {
-    "vi": "muốn, thích",
-    "en": "would like",
+    "vi": "thích, làm hài lòng",
+    "en": "to like, to be pleasing",
     "es": "gustar",
-    "pt": "gostaria",
-    "fr": "aimerait",
-    "de": "möchte",
-    "id": "ingin, menyukai",
-    "th": "อยาก, อยากจะ",
-    "zh": "想要",
-    "ja": "〜したい",
-    "ko": "~하고 싶다",
-    "hi": "पसंद करेगा/करेगी",
-    "ar": "يرغب في",
-    "ru": "хотелось бы",
-    "tr": "isterdi, hoşlanırdı"
+    "pt": "gostar",
+    "fr": "plaire",
+    "de": "gefallen, mögen",
+    "id": "menyukai, disukai",
+    "th": "ชอบ, เป็นที่พอใจ",
+    "zh": "喜欢, 讨人喜欢",
+    "ja": "好まれる、気に入る",
+    "ko": "마음에 들다, 좋아하다",
+    "hi": "पसंद आना",
+    "ar": "أعجب، يعجب",
+    "ru": "нравиться",
+    "tr": "hoşlanılmak, beğenilmek"
    },
    "ex": {
-    "es": "Me gustaría comer una pizza.",
-    "en": "I would like to eat a pizza."
+    "es": "Me gusta mucho esta música.",
+    "en": "I like this music a lot."
    },
-   "exForm": "gustaría",
+   "exForm": "gusta",
    "rank": 341,
    "qa": {
     "gen": "gemini-3.6-flash",
@@ -775,7 +775,7 @@
    "ipa": "ˈoɾa",
    "gl": {
     "vi": "giờ",
-    "en": "hours",
+    "en": "hour",
     "es": "hora",
     "pt": "horas",
     "fr": "heures",
@@ -855,7 +855,7 @@
   {
    "word": "ninguno",
    "pos": "det",
-   "ipa": "niŋˈɡuno",
+   "ipa": "ninˈɡuno",
    "gl": {
     "vi": "không có",
     "en": "no, none",
@@ -1075,10 +1075,9 @@
     "tr": "bazı"
    },
    "ex": {
-    "es": "Algunos niños juegan en el parque.",
-    "en": "Some children are playing in the park."
+    "es": "¿Tienes alguno de estos libros?",
+    "en": "Do you have any of these books?"
    },
-   "exForm": "algunos",
    "rank": 402,
    "qa": {
     "gen": "gemini-3.6-flash",
@@ -1337,7 +1336,7 @@
   {
    "word": "ello",
    "pos": "pron",
-   "ipa": "ˈejjo",
+   "ipa": "ˈeʝo",
    "gl": {
     "vi": "điều đó",
     "en": "it",
@@ -1503,7 +1502,7 @@
     "vi": "cũng không",
     "en": "neither / not either",
     "es": "tampoco",
-    "pt": "también não / tampouco",
+    "pt": "tampouco, também não",
     "fr": "non plus",
     "de": "auch nicht",
     "id": "juga tidak",
@@ -1514,7 +1513,7 @@
     "hi": "भी नहीं",
     "ar": "ولا ... أيضاً",
     "ru": "тоже не",
-    "tr": "de değil / hem de değil"
+    "tr": "de ... değil, ... da değil"
    },
    "ex": {
     "es": "No tengo hambre y tampoco tengo sed.",
@@ -2308,7 +2307,7 @@
    "pos": "n",
    "gender": "f",
    "plural": "frentes",
-   "ipa": "ˈfɾɛnte",
+   "ipa": "ˈfɾente",
    "gl": {
     "vi": "trán",
     "en": "forehead",
@@ -2406,7 +2405,7 @@
     "hi": "रहस्य",
     "ar": "سر",
     "ru": "секрет",
-    "tr": "gizli"
+    "tr": "sır, gizli"
    },
    "ex": {
     "es": "No le cuentes el secreto a nadie.",
@@ -2588,5 +2587,13 @@
     ]
    }
   }
- ]
+ ],
+ "review": {
+  "by": "sonnet-review-B",
+  "at": "2026-11-09",
+  "checked": 64,
+  "fixed": 10,
+  "dropped": 0,
+  "sample": 8
+ }
 }

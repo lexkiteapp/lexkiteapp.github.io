@@ -72,5 +72,46 @@
   "words": 46,
   "seconds": 27.7,
   "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"sender\" mean?",
+  "keyword": "sender",
+  "value": "Sender means a person who sends a letter or message.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=sender",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"sender\" mean?",
+    "description": "Sender means a person who sends a letter or message.\n\nReview your words, free: https://lexkite.com/app/#/review?w=sender\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "sender",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"sender\" mean?\n\nSender means a person who sends a letter or message.\n\nReview your words, free: https://lexkite.com/app/#/review?w=sender"
+   },
+   "instagram": {
+    "caption": "What does \"sender\" mean?\n\nSender means a person who sends a letter or message.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"sender\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a person who sends a letter or message. Sender means a person who sends a letter or message. Practice it with a free quiz: {link}"
  }
 }

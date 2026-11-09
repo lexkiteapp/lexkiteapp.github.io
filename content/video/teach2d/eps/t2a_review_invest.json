@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"invest\" mean?",
+  "keyword": "invest",
+  "value": "Invest means to use resources to build for the future.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=invest",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"invest\" mean?",
+    "description": "Invest means to use resources to build for the future.\n\nReview your words, free: https://lexkite.com/app/#/review?w=invest\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "invest",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"invest\" mean?\n\nInvest means to use resources to build for the future.\n\nReview your words, free: https://lexkite.com/app/#/review?w=invest"
+   },
+   "instagram": {
+    "caption": "What does \"invest\" mean?\n\nInvest means to use resources to build for the future.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"invest\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to use resources to build for the future. Invest means to use resources to build for the future. Practice it with a free quiz: {link}"
  }
 }

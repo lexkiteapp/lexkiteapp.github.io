@@ -19,7 +19,7 @@
 
   // ---------- 5 tab ----------
   const TABS = () => [['home', '#/home', 'house', t('Hôm nay')], ['vocab', '#/vocab', 'book-open', t('Từ vựng')], ['skills', '#/skills', 'target', t('Kỹ năng')], ['tests', '#/tests', 'flag', t('Thi')], ['me', '#/me', 'user', t('Tôi')]];
-  const ME = ['me', 'goal', 'stats', 'mistakes', 'settings', 'class', 'method', 'resources', 'tracks', 'streak', 'contact'];
+  const ME = ['me', 'goal', 'stats', 'mistakes', 'settings', 'class', 'method', 'resources', 'tracks', 'streak', 'contact', 'outcome'];
   const tabOf = (name, arg) => { if (!name || ['home', 'lesson', 'path', 'day', 'league'].includes(name)) return 'home'; if (ME.includes(name)) return 'me'; const o = (navOf0 ? navOf0(name, arg) : [])[0]; return o === 'vocab' || o === 'tests' ? o : 'skills'; }; // còn lại (#/train, #/say, #/call…) thuộc Kỹ năng
   const SKN = () => ({ listening: t('Nghe hiểu'), reading: t('Đọc hiểu'), writing: t('Viết'), speaking: t('Nói') });
   const navOf0 = App.navOf, crumb0 = App.crumb, after0 = App.afterRoute;
@@ -61,15 +61,18 @@
   const PICK = { ielts: ['5.5', '6.5', '7.5'], toeic: ['600', '750', '900'], toefl: ['4', '4.5', '5.5'], general: ['A2', 'B1', 'B2'] };
   const picked = () => { const s = state.settings || {}; return !!(s.goal || s.goalPick || s.examTarget || ls.get('lk.ux1.pk')); };
   const exam = () => (App.exam ? App.exam() : 'ielts');
-  const target = () => { const s = state.settings || {}; return s.examTarget || (s.goal && App.goalLabel ? App.goalLabel(s.goal) : '') || ''; };
-  const level = () => { const p = (state.settings || {}).placement; if (p) { const n = cefrN(p.vCefr || p.gCefr); if (n) return n; if (p.band) return p.band >= 7 ? 5 : p.band >= 5.5 ? 4 : p.band >= 4.5 ? 3 : 2; } return 2; }; // chưa kiểm tra → A2
+  const target = () => { const s = state.settings || {}; if (App.fixExamTarget) App.fixExamTarget(s); return s.examTarget || (s.goal && App.goalLabel ? App.goalLabel(s.goal) : '') || ''; };
+  // tracks.js tải lười: cấp thấp nhất mỗi gói (test home-logic đối chiếu)
+  const TRACK_LO = { comm: 1, toeic: 2, toefl: 3, work: 2 };
+  const selfLevel = c => { const sid = c && c.lv && c.lv[c.cur] && c.lv[c.cur].s, m = /^([a-z]+)(\d)$/.exec(sid || ''); return m && TRACK_LO[m[1]] ? TRACK_LO[m[1]] + (+m[2] - 1) : 0; };
+  const level = () => { const p = (state.settings || {}).placement; if (p) { const n = cefrN(p.vCefr || p.gCefr); if (n) return n; if (p.band) return p.band >= 7 ? 5 : p.band >= 5.5 ? 4 : p.band >= 4.5 ? 3 : 2; } return selfLevel((state.settings || {}).tracks) || 2; }; // chưa kiểm tra → tự chọn lúc thiết lập, không có → A2
   // Điểm hiện tại (dự đoán) từ dữ liệu có sẵn: thi thử TOEIC · kiểm tra trình độ (band/CEFR); IELTS thi thử 4 kỹ năng đọc bất đồng bộ
   const current = ex => { const s = state.settings || {}, g = state.game || {}, p = s.placement;
     if (ex === 'toeic') { const x = (g.toeicTests || []).slice(-1)[0]; return x ? String(x.total) : ''; }
     if (ex === 'general') return p ? (p.vCefr || '') : '';
     if (ex === 'ielts' || ex === 'ieltsgt') return p && p.band ? String(p.band) : '';
     return ''; };
-  const pctOf = (ex, cur, tg) => { const c = ex === 'general' ? cefrN(cur) : +cur, g = ex === 'general' ? cefrN(tg) : +tg; if (!c || !g) return null; const lo = ex === 'toeic' ? 10 : ex === 'general' ? 0 : ex === 'toefl' ? 1 : 3; return Math.max(4, Math.min(100, Math.round((c - lo) / Math.max(.1, g - lo) * 100))); };
+  const pctOf = (ex, cur, tg) => { const c = ex === 'general' ? cefrN(cur) : parseFloat(cur), g = ex === 'general' ? cefrN(tg) : parseFloat(tg); if (!c || !g) return null; const lo = ex === 'toeic' ? 10 : ex === 'general' ? 0 : ex === 'toefl' ? 1 : 3; return Math.max(4, Math.min(100, Math.round((c - lo) / Math.max(.1, g - lo) * 100))); };
   const MOCK = { ielts: '#/mock', ieltsgt: '#/mock', toeic: '#/toeic', toefl: '#/toefl', general: '#/placement' };
   function examCard(cls) {
     const ex = exam(), X = (App.EXAMS || {})[ex] || { short: 'IELTS', ic: 'graduation-cap' }, tg = target(), cur = current(ex), p = pctOf(ex, cur, tg);
@@ -151,8 +154,9 @@
   }
 
   // ---------- Bản đồ (gọi từ lesson/ui.js) ----------
-  const KNAME = k => ({ lesson: t('Bài học'), listen: t('Nghe'), speak: t('Nói'), review: t('Ôn lỗi'), story: t('Truyện'), radio: 'Radio' }[k] || k);
+  const KNAME = k => ({ lesson: t('Bài học'), listen: t('Nghe'), speak: t('Nói'), review: Object.values(state.cards || {}).some(c => c && c.srs && c.srs.lapses > 0) ? t('Ôn lỗi') : t('Ôn tập'), story: t('Truyện'), radio: 'Radio' }[k] || k);
   const KICON = { lesson: 'star', listen: 'headphones', speak: 'mic', review: 'repeat', story: 'book-open', radio: 'audio-lines' };
+  const KDESC = { story: 'Đọc một đoạn hội thoại ngắn rồi trả lời câu hỏi.', radio: 'Nghe một đoạn radio ngắn rồi trả lời câu hỏi.', exam: 'Luyện một kỹ năng thi để qua mốc kiểm tra.' }; // dòng mô tả thẻ bài Hôm nay khi bài không có danh sách từ (khóa t() gọi lúc vẽ)
   const KMIN = { lesson: 4, listen: 3, speak: 3, review: 3, story: 4, radio: 3, exam: 5 }; // phút ước tính mỗi loại bài (nhãn "· 4 phút")
   const stars = () => { try { return JSON.parse(ls.get('lk.ux1.st') || '{}'); } catch (e) { return {}; } }; // sao thật mỗi nút đã học (lesson/ui.js ghi khi xong bài)
   function map(o) {
@@ -208,8 +212,13 @@
   // Chỉ dữ liệu THẬT; khối không có dữ liệu → data-show=0 → gỡ (không hiện số giả). Điện thoại: today / today-new · máy tính ≥ 1024 px: today-desk + cột phải today-rail.
   const DSK = () => matchMedia('(min-width: 1024px)').matches;
   const MINS = { ielts: 165, ieltsgt: 165, toeic: 120, toefl: 120 };
-  const PLAN_TTL = 30e3; let planC = null; // kế hoạch hôm nay: nhớ 30 s (cột phải vẽ lại mỗi lần đổi trang)
-  const planOf = async () => { if (planC && Date.now() - planC.at < PLAN_TTL) return planC.v; let v = []; try { v = (App.todayPlan ? await App.todayPlan() : []) || []; } catch (e) { v = []; } planC = { at: Date.now(), v }; return v; };
+  const PLAN_TTL = 30e3; let planC = null; // nhớ 30 s; đổi kỳ thi / vừa học → tính lại
+  const dcOf = () => (window.Core && Core.Cards ? Core.Cards.dueCount(state.cards || {}, state.settings, state.stats) : { due: 0, total: 0 });
+  const planSig = () => [exam(), dcOf().total, ((state.stats || {}).days || {})[window.Core && Core.todayKey ? Core.todayKey() : ''] || 0, (state.game || {}).xp || 0].join('|');
+  const planOf = async () => { const sig = planSig(); if (planC && planC.sig === sig && Date.now() - planC.at < PLAN_TTL) return planC.v; let v = []; try { v = (App.todayPlan ? await App.todayPlan() : []) || []; } catch (e) { v = []; } planC = { at: Date.now(), v, sig }; return v; };
+  // <goal-left>
+  const goalLeftOf = (rv, goal, total) => (rv >= goal ? t('Đã đạt mục tiêu ngày') : total >= goal - rv ? t('Còn {n} thẻ', { n: goal - rv }) : total > 0 ? t('{n} đến hạn', { n: total }) : t('Không còn thẻ đến hạn'));
+  // </goal-left>
   const mockOverall = async () => { const ex = exam(); if ((ex !== 'ielts' && ex !== 'ieltsgt') || !window.Core || !Core.Store) return ''; try { const m = await Core.Store.get('mocks', []), x = (m || [])[0]; return x && x.overall != null ? String(x.overall) : ''; } catch (e) { return ''; } };
   const lgInvite = () => ({ tier: t('Giải đấu'), rank: t('Tham gia ngay'), zone: '', left: '' }); // chưa tham gia: thẻ vẫn hiện (lối vào duy nhất của Giải đấu trên Hôm nay), giữ chỗ để không nhảy bố cục
   const lgGet = () => { try { return JSON.parse(ls.get('lk.ux1.lg') || 'null'); } catch (e) { return null; } };
@@ -227,12 +236,12 @@
     const lg = lgGet() || lgInvite();
     return { lang: lang.toUpperCase(), ex, Xe, tg, left,
       c: { tg: tg || '–', tgL: tg ? t('Mục tiêu điểm') : t('Đặt mục tiêu'), tgHref: tg ? '#/goal' : '#/lesson?pick=1', streak: String(streak), xp: (g.xp || 0).toLocaleString(lang), goal: `${Math.min(rv, goal)}/${goal}`, ring: `${gp}, 100`,
-        exName: Xe.name || Xe.short, streakDays: t('{n} ngày', { n: streak }), flame: streak ? t('Chuỗi đang cháy') : t('Học hôm nay để bắt đầu chuỗi'), xpToday: t('+{n} XP hôm nay', { n: ((g.days || {})[k] || {}).xp || 0 }), goalLeft: rv >= goal ? t('Đã đạt mục tiêu ngày') : t('Còn {n} thẻ', { n: goal - rv }) },
+        exName: Xe.name || Xe.short, streakDays: t('{n} ngày', { n: streak }), flame: streak ? t('Chuỗi đang cháy') : t('Học hôm nay để bắt đầu chuỗi'), xpToday: t('+{n} XP hôm nay', { n: ((g.days || {})[k] || {}).xp || 0 }), goalLeft: goalLeftOf(rv, goal, dcOf().total) },
       x: { p: pc, pct: pc != null ? pc + '%' : '', ready: pc != null ? t('Sẵn sàng {p}%', { p: pc }) : '', href: MOCK[ex] || '#/tests',
         title: [Xe.short + (tg ? ' · ' + t('mục tiêu {s}', { s: tg }) : ''), left > 0 ? t('còn {n} ngày', { n: left }) : ''].filter(Boolean).join(' · '), title2: Xe.short + (tg ? ' · ' + tg : ''),
         sub: cur ? t('Dự đoán ~{s}', { s: cur }) : t('Chưa có điểm dự đoán'), left: [cur ? t('Dự đoán ~{s}', { s: cur }) : '', left > 0 ? t('còn {n} ngày', { n: left }) : ''].filter(Boolean).join(' · '),
         mock: t('Thi thử {x} đầy đủ', { x: Xe.short }) + (MINS[ex] ? ' · ' + t('{n} phút', { n: MINS[ex] }) : '') },
-      p: { items, count: t('{n} mục tiêu', { n: tot }), done: `${dn}/${tot}`, ring: `${tot ? (88 * dn / tot).toFixed(1) : 0}, 88`, left: tot - dn },
+      p: { items, count: t('{n} việc', { n: tot }), done: `${dn}/${tot}`, ring: `${tot ? (88 * dn / tot).toFixed(1) : 0}, 88`, left: tot - dn },
       wk: { days, n: `${wn}/7`, n2: t('{a}/7 đã xong', { a: wn }) }, lg };
   }
   // 🏆 Giải đấu thật (Sync.league): vá chữ vào thẻ có sẵn ([data-lg]) – không có tài khoản/chưa tham gia → thẻ ẩn (cột phải: thẻ giải đấu cũ thay vào)
@@ -248,6 +257,8 @@
     if (!v && legacy && window.League && League.renderHomeCard) League.renderHomeCard(legacy);
   }
   const prune = root => root.querySelectorAll('[data-show="0"]').forEach(x => x.remove());
+  // Một lối nhắc ôn: kế hoạch còn việc ôn → gỡ khối "phai dần" + số trên ô Từ cần ôn (ô vẫn dẫn tới #/review)
+  const oneReview = d => { if (d.p.items.some(x => x.href === '#/review' && x.tag !== '✓')) { d.r.due = 0; d.q.dueN = 0; } };
   // Đầu màn Hôm nay trên điện thoại (thanh trên của app ẩn dưới 1024 px): dùng lại đúng ô tìm #gq, bảng #notifBtn, nút sáng/tối và bộ chọn kỳ thi – không viết chức năng thứ hai
   const headBtns = root => { const el = id => document.getElementById(id), on = (a, f) => root.querySelectorAll(`[data-act="${a}"]`).forEach(b => b.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); f(); }));
     on('search', () => { const i = el('gq'); if (!i) return; document.body.classList.add('v2-gs'); i.focus(); i.addEventListener('blur', () => setTimeout(() => { if (!i.parentNode.contains(document.activeElement)) document.body.classList.remove('v2-gs'); }, 300), { once: true }); });
@@ -258,25 +269,31 @@
   async function home2(o) {
     const tok = location.hash, { demo, fresh, Q, P, at, n, u, nodes, dp, xpTo, nxMin } = o;
     const b = await homeBase(); if (location.hash !== tok) return;
-    const s0 = window.Core && Core.Cards ? Core.Cards.dueCount(state.cards || {}, state.settings, state.stats).total : 0, due = demo ? 0 : s0;
+    const dc = dcOf(), due = demo ? 0 : dc.due, all = demo ? 0 : dc.total;
     let mist = 0; try { mist = demo ? 0 : ((await Core.Store.get('mistakes', [])) || []).filter(x => !x.fixed).length; } catch (e) { mist = 0; }
     if (location.hash !== tok) return;
     const name = (state.user && (state.user.displayName || state.user.email)) || '', ini = (String(name).trim()[0] || 'L').toUpperCase();
-    const pm = ST2.path(Object.assign({ hdr: ST2.hdr(), tabs: [] }, dp)).main.replace(/^<main([^>]*)>/, '<div$1>').replace(/<\/main>$/, '</div>').replace(' pt-14 pb-20', '').replace(/ lt:bg-\[#\w{6}\] dk:bg-\[#\w{6}\]/, '') /* bỏ nền riêng của khung Lộ trình khi lồng vào Hôm nay (nền thẻ Hôm nay giữ) */;
-    const pathHtml = `<div class="v2s-path w-full"><div class="st v2 v2-path">${pm}</div></div>`;
-    const SL = (self.LESSON_STORIES || []), sAt = (parseInt(ls.get('lk.lsn.s.story') || '0', 10) || 0), so = SL.slice(sAt % (SL.length || 1)).concat(SL.slice(0, sAt % (SL.length || 1)));
+    const lazyPath = !fresh; // điện thoại: khối Your path thu gọn 3 nút như mẫu, lộ trình ĐẦY ĐỦ vẽ lười khi mở (không cắt tính năng)
+    const mkPath = () => { const pm = ST2.path(Object.assign({ hdr: ST2.hdr(), tabs: [] }, dp)).main.replace(/^<main([^>]*)>/, '<div$1>').replace(/<\/main>$/, '</div>').replace(' pt-14 pb-20', '').replace(/ lt:bg-\[#\w{6}\] dk:bg-\[#\w{6}\]/, '') /* bỏ nền riêng của khung Lộ trình khi lồng vào Hôm nay (nền thẻ Hôm nay giữ) */;
+    return `<div class="v2s-path w-full"><div class="st v2 v2-path">${pm}</div></div>`; }, pathHtml = lazyPath ? '' : mkPath();
+    const SL = (self.LESSON_STORIES || []), sAt = (parseInt(ls.get('lk.lsn.s.story') || '0', 10) || 0), so0 = SL.slice(sAt % (SL.length || 1)).concat(SL.slice(0, sAt % (SL.length || 1))), sDn = (() => { try { const a = JSON.parse(ls.get('lk.lsn.sd' + (demo ? '.demo' : '')) || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; } })(), so = so0.filter(x => !sDn.includes(x.id)).concat(so0.filter(x => sDn.includes(x.id))); // truyện đã học xuống cuối, thẻ đầu luôn là bài mới
     const stories = so.map(x => ({ title: x.title, sub: x.kind === 'radio' ? 'Radio' : t('Truyện'), cefr: x.cefr || '', min: t('{n} phút', { n: KMIN[x.kind] || 4 }), href: '#/lesson/go' + (Q ? Q + '&' : '?') + 'story=' + encodeURIComponent(x.id) })); // giữ ?demo=1: truyện trong bài thử không ghi tiến độ thật
     const kind = (P[at] || {}).kind, ws = /^(story|radio|exam)$/.test(kind) ? [] : words(n, P.length);
     const h = new Date().getHours(), greet = h < 12 ? t('Chào buổi sáng!') : h < 18 ? t('Chào buổi chiều!') : t('Chào buổi tối!');
     const lost = !fresh && App.streakLost ? App.streakLost() : 0;
-    const say = lost ? t('{g} Không sao đâu, ai cũng có ngày bận. Hôm nay mình bắt đầu lại cùng nhau nhé!', { g: greet }) : b.p.left ? (due ? t('{g} Hôm nay còn {a} việc trong kế hoạch và {b} từ cần ôn.', { g: greet, a: b.p.left, b: due }) : t('{g} Hôm nay còn {a} việc trong kế hoạch.', { g: greet, a: b.p.left })) : due ? t('{g} Hôm nay có {b} từ cần ôn.', { g: greet, b: due }) : t('{g} Bạn đã xong kế hoạch hôm nay – tuyệt vời!', { g: greet });
+    const say = lost ? t('{g} Không sao đâu, ai cũng có ngày bận. Hôm nay mình bắt đầu lại cùng nhau nhé!', { g: greet }) : b.p.left ? t('{g} Hôm nay còn {a} việc trong kế hoạch.', { g: greet, a: b.p.left }) : all ? t('{g} Hôm nay có {b} từ cần ôn.', { g: greet, b: all }) : t('{g} Bạn đã xong kế hoạch hôm nay – tuyệt vời!', { g: greet });
     // teacher-pose-map: Ama sau bệ – người mới vẫy chào (wave), đang học vòng nghỉ (idle, happy)
     const tch = fresh => Chars.slot('ama', Object.assign(fresh ? { pose: 'wave', clip: true, loop: 6000 } : lost ? { pose: 'empathy' } : { pose: 'happy', idle: true }, { size: 'm', hip: true, lazy: false, style: 'margin-left:auto' })); // hip: lộ tới hông như mẫu streak (chủ 06/11) · sát bong bóng: khung cắt rộng 1,4 khung-cao lòi mép màn 360 px nếu căn giữa ô 120 px
-    const d = Object.assign(b, { ini, say: `“${say}”`, xpReady: xpTo ? t('+{x} XP tới mốc kiểm tra', { x: xpTo }) : '', teacher: tch(fresh), pathHtml, unitName: u.name,
+    const pathPeek = () => { const XS = [52, 96, 64, 104, 56, 92, 68], W = Math.min(7, P.length), from = Math.max(0, Math.min(at - 2, P.length - W)), pct = Math.round(at / P.length * 100); let y = 0;
+      const pv = nodes.slice(from, from + W).map((x, i) => { const cur = x.st === 'next', h = cur ? 124 : 84, cy = cur ? 78 : 42, r = { v: cur ? 'cur' : x.st === 'done' ? 'done' : x.cp ? 'chk' : 'lock', h, cy, x: XS[i], y: y + cy, label: x.label, sub: x.st === 'done' ? t('Đã hoàn thành') : x.sub, aria: `${x.label} – ${t(cur ? 'Đang học' : x.st === 'done' ? 'Đã hoàn thành' : 'Đã khóa')}` }; y += h;
+        return cur ? Object.assign(r, { href: x.href, start: x.start, of: t('Bài {a}/{b}', { a: at + 1, b: P.length }), off: (238.76 * (1 - pct / 100)).toFixed(1), tch: Chars.slot('ama', { pose: 'point', size: 'm', lazy: false, hip: true }) }) : r; });
+      const seg = p => p.reduce((d, a, i) => { const b = p[i + 1]; if (!b) return d; const m = (a.y + b.y) / 2; return `${d} C${a.x} ${m} ${b.x} ${m} ${b.x} ${b.y}`; }, p.length ? `M${p[0].x} ${p[0].y}` : ''), c = pv.findIndex(r => r.v === 'cur');
+      return { pv, ph: { of: t('Bài {a}/{b}', { a: Math.min(at + 1, P.length), b: P.length }), unit: u.name, stage: t('Chặng học {n}', { n: u.no }), pct, h: y, all: seg(pv), done: seg(pv.slice(0, c + 1)) } }; };
+    const d = Object.assign(b, { ini, say: `“${say}”`, xpReady: xpTo ? t('+{x} XP tới mốc kiểm tra', { x: xpTo }) : '', teacher: tch(fresh), pathHtml, unitName: u.name, ...pathPeek(), // bản thu gọn: 5–7 nút quanh bài hiện tại (dữ liệu thật) – mẫu Stitch path-block, docs/HOME-V2.md
       k: { unit: t('Chặng học {n}', { n: u.no }) + ' · ' + u.name, of: t('Bài {a}/{b}', { a: Math.min(at + 1, P.length), b: P.length }), title: (nodes[at] || {}).label || t('Bài học'), mins: t('{n} phút', { n: nxMin }), lvl: u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))], pct: Math.round(at / P.length * 100), href: `#/lesson/go${Q}`,
-        words: ws.length ? `${esc(t('Bạn sẽ học {n} từ:', { n: ws.length }))} ${ws.map(w => `<span class="font-black lt:text-[#17595A] dk:text-[#2BA39A]">${esc(w.word)}</span>`).join(', ')}` : '' },
+        words: ws.length ? `${esc(t('Bạn sẽ học {n} từ:', { n: ws.length }))} ${ws.map(w => `<span class="font-black lt:text-[#17595A] dk:text-[#2BA39A]">${esc(w.word)}</span>`).join(', ')}` : KDESC[kind] ? esc(t(KDESC[kind])) : '' }, // bài không dạy danh sách từ (truyện/radio/kiểm tra) vẫn có 1 dòng nói rõ sẽ làm gì – thẻ đủ cấu trúc mẫu Stitch
       r: { due, title: t('{n} từ đang phai dần', { n: due }), sub: t('Ôn ngay ({m} phút)', { m: Math.max(1, Math.ceil(due / 6)) }) },
-      q: { mistN: mist, mist: t('{n} cần sửa', { n: mist }), mistHref: mist ? '#/mistakes?retry=1' : '#/mistakes', dueN: due, due: t('{n} đến hạn', { n: due }), dueHref: due ? '#/review' : '#/quick' },
+      q: { mistN: mist, mist: t('{n} cần sửa', { n: mist }), mistHref: mist ? '#/mistakes?retry=1' : '#/mistakes', dueN: due, due: t('{n} đến hạn', { n: due }), dueHref: all ? '#/review' : '#/quick' },
       s: stories.slice(0, DSK() ? 3 : 2), mock: MOCK[b.ex] || '#/mock', story: stories[0] ? stories[0].href : '#/lesson/go' });
     if (fresh) { // người mới: 3 bước, bước đang làm = khuôn nổi bật
       const S = [{ k: 'goal', done: picked(), t: t('Chọn mục tiêu'), sub: t('IELTS, TOEIC, giao tiếp'), href: '#/lesson?pick=1' }, { k: 'level', done: !!((state.settings || {}).placement || (state.settings || {}).plSkip), t: t('Kiểm tra trình độ nhanh'), sub: t('Bài kiểm tra thích ứng, có khoảng band'), min: t('{n} phút', { n: 5 }), href: '#/placement' }, { k: 'lesson', done: false, t: t('Bài học đầu tiên'), sub: t('Từ vựng thông dụng theo mục tiêu'), min: t('{n} phút', { n: KMIN.lesson }), href: `#/lesson/go${Q}` }];
@@ -285,15 +302,20 @@
       d.c.tgL = picked() ? t('Mục tiêu điểm') : t('Đặt mục tiêu'); d.say = `“${t('Chào bạn, mình là Ama! Cùng sẵn sàng qua 3 bước nhỏ nhé.')}”`;
       d.pathSec = picked() ? `<section class="v2-hpath" data-blk="path">${pathHtml}</section>` : ''; // chưa chọn mục tiêu → chưa có lộ trình (bước 1)
     }
+    if (!fresh) oneReview(d);
     const k = fresh ? 'today-new' : DSK() && ST2['today-desk'] ? 'today-desk' : 'today';
     const root = ST2.mount(view, k, d, null);
     sayIn(root, d.say, lost, fresh ? 'greet' : lost ? 'review' : !b.p.left && !due ? 'goal' : due ? 'review' : 'plan'); // người mới chào · xong kế hoạch khen · có từ cần ôn khuyến khích (không dọa) · còn việc chỉ nút Bắt đầu
     if (ST2.shell) root.insertAdjacentHTML('beforeend', ST2.shell(Object.assign({ hdr: ST2.hdr(), tabs: ST2.tabs('home') }, d)).nav); // thanh tab CHUNG (5 tab), thay thanh tab riêng của mẫu
+    if (k === 'today-desk') { const lb = document.getElementById('langBtn'); if (lb && lb.offsetParent) root.querySelectorAll('[data-act="lang"]').forEach(x => x.remove()); }
     prune(root); langBtn(root); headBtns(root);
     root.querySelectorAll(`[data-href="${(d.k || {}).href}"]`).forEach(x => x.classList.add('lsn-start', 'ux1-go')); // nút Bắt đầu chính = móc chung (lộ trình v1 cũng có) cho test/gác bố cục
     root.querySelectorAll('[data-act="path"]').forEach(x => x.addEventListener('click', e => { e.preventDefault(); const c = root.querySelector('[data-cur]'); if (c) try { c.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); } catch (er) { /* bỏ qua */ } }));
     o.demoNote(root); o.guide(root);
-    if (/[?&]at=path\b/.test(location.hash)) o.toCur(root); // tới thẳng nút hiện tại (liên kết cũ "bản đồ") – mặc định trang mở ở đầu "Hôm nay"
+    const px = root.querySelector('[data-act="pathx"]'), pf = root.querySelector('[data-pathfull]'), pv = root.querySelector('[data-pv]');
+    const pathOpen = (on, go) => { if (on && !pf.firstChild) { pf.innerHTML = mkPath(); o.guide(pf); } pf.hidden = !on; pv.style.display = on ? 'none' : ''; px.setAttribute('aria-expanded', String(on)); px.textContent = on ? t('Thu gọn lộ trình') : t('Xem toàn bộ lộ trình →'); if (on && go) o.toCur(pf); }; // mở/đóng tại chỗ: nút thật (Enter/Space), aria-expanded; vẽ lười lần đầu mở
+    if (px && pf && pv) px.addEventListener('click', e => { e.preventDefault(); pathOpen(px.getAttribute('aria-expanded') !== 'true', true); });
+    if (/[?&]at=path\b/.test(location.hash)) { if (px && pf && pv) pathOpen(true, false); o.toCur(root); } // tới thẳng nút hiện tại (liên kết cũ "bản đồ") – mặc định trang mở ở đầu "Hôm nay"
     if (!demo && root.querySelector('[data-lg]')) fillLeague(root, null);
     return root;
   }
@@ -418,6 +440,7 @@
 .ux1-tiles.big .ux1-tile b{font-size:var(--fs-md)}
 .ux1-rail{display:none}
 @media (min-width:1024px){
+  body.ux1 .v2s-today-desk main{margin-inline:auto}
   body.ux1:not(.focus):not(.bare) .ux1-rail{display:flex;flex-direction:column;gap:.8rem;position:sticky;top:0;height:100vh;overflow-y:auto;padding:1.2rem 1.2rem 1.2rem .4rem}
   body.ux1 .ux1-exam-top{display:none}
 }

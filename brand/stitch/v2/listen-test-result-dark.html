@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — IELTS Listening Mock Result (Band 7.0) (dark – dark-from-light.mjs)</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Google Material Symbols Rounded -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'cream-bg': '#FFF8F4',
+            'cream-surface': '#FFF1E6',
+            'teal-brand': '#0F3D3E',
+            'teal-primary': '#136B66',
+            'teal-dark': '#0B2C2D',
+            'teal-soft': '#E6F4F2',
+            'coral-cta': '#FF5252',
+            'coral-ledge': '#C92A2A',
+            'amber-tag': '#F59E0B',
+            'amber-ledge': '#B45309',
+            'ink-primary': '#1A2426',
+            'ink-muted': '#4A5B5E',
+            'card-border': '#ECDDCF',
+            'card-ledge': '#E2D3C4'
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #1E2F33;
+      color: #E8F1F0;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-cream-bg flex justify-center selection:bg-teal-primary selection:text-[#1B0B04] pb-10">
+
+  <!-- Mobile Container: exactly 390px, no outer frame/bezel, 16px gutter -->
+  <main class="w-full max-w-[390px] min-h-screen bg-cream-bg flex flex-col relative px-4">
+
+    <!-- Top App Bar: Inner Screen Variant (Back arrow 44px + Title "Result", no bottom tabs) -->
+    <header class="w-full pt-3 pb-3 flex items-center justify-between sticky top-0 bg-cream-bg/95 backdrop-blur-sm z-30 border-b border-card-border/60">
+      <div class="flex items-center gap-2">
+        <a href="#back" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-2xl bg-[#162528] border border-card-border text-teal-brand shadow-[0_3px_0_0_#E2D3C4] active:translate-y-[2px] active:shadow-none transition-transform" aria-label="Go back">
+          <span class="material-symbols-rounded text-[22px]">arrow_back</span>
+        </a>
+        <h1 class="text-xl font-black text-ink-primary tracking-tight ml-1">Result</h1>
+      </div>
+      
+      <!-- Quick Share or Exam Tag Badge -->
+      <div class="flex items-center gap-1.5 bg-[#162528] border border-card-border px-3 py-1.5 rounded-full shadow-[0_2px_0_0_#E2D3C4]">
+        <span class="w-2 h-2 rounded-full bg-teal-primary animate-pulse"></span>
+        <span class="text-xs font-black text-teal-brand tracking-wider uppercase">IELTS CBT #04</span>
+      </div>
+    </header>
+
+    <!-- Main Content Flow -->
+    <div class="w-full flex flex-col gap-4 pt-3">
+
+      <!-- HERO SECTION: Big Glossy Ring with Band 7.0 & 31/40 Correct -->
+      <section class="w-full bg-[#162528] rounded-3xl p-5 border-2 border-card-border shadow-[0_5px_0_0_#E2D3C4] flex flex-col items-center text-center relative overflow-hidden">
+        
+        <!-- Subtle background decorative glow -->
+        <div class="absolute -top-12 -right-12 w-36 h-36 bg-amber-100/60 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="absolute -bottom-12 -left-12 w-36 h-36 bg-teal-50 rounded-full blur-2xl pointer-events-none"></div>
+
+        <!-- Section Eyebrow -->
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cream-surface border border-card-border text-xs font-bold text-ink-muted mb-4">
+          <span class="material-symbols-rounded text-sm text-teal-primary">headphones</span>
+          <span>Full Listening Test • 40 Questions</span>
+        </div>
+
+        <!-- Glossy Score Ring Container -->
+        <div class="relative w-44 h-44 flex items-center justify-center my-1">
+          <!-- Circular SVG for glossy progress gauge -->
+          <svg class="w-44 h-44 -rotate-90 transform" viewBox="0 0 160 160">
+            <!-- Background Track -->
+            <circle cx="80" cy="80" r="66" stroke="#F1E3D3" stroke-width="12" fill="none" stroke-linecap="round" />
+            <!-- Progress Arc (31/40 = 77.5%, Circumference = 2 * PI * 66 ≈ 414.7, 77.5% ≈ 321.4) -->
+            <circle cx="80" cy="80" r="66" stroke="url(#tealGlowGrad)" stroke-width="12" fill="none" stroke-linecap="round"
+                    stroke-dasharray="414.7" stroke-dashoffset="93.3" />
+            
+            <defs>
+              <linearGradient id="tealGlowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2DD4BF" />
+                <stop offset="60%" stop-color="#136B66" />
+                <stop offset="100%" stop-color="#0F3D3E" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <!-- Inner Tactile Plate -->
+          <div class="absolute w-32 h-32 rounded-full bg-gradient-to-b from-white via-cream-bg to-[#1E2F33] border-2 border-card-border shadow-[inset_0_3px_6px_rgba(255,255,255,0.9),0_6px_10px_rgba(15,61,62,0.08)] flex flex-col items-center justify-center">
+            <span class="text-[11px] font-black uppercase tracking-widest text-teal-primary">Estimated</span>
+            <div class="text-3xl font-black text-ink-primary tracking-tight leading-none my-0.5">Band 7.0</div>
+            <span class="text-xs font-extrabold text-teal-brand bg-teal-soft px-2 py-0.5 rounded-full border border-teal-200/60 mt-0.5">
+              31 / 40 correct
+            </span>
+          </div>
+        </div>
+
+        <!-- Muted Disclaimer Note (>= 4.5:1 text contrast) -->
+        <p class="text-xs font-semibold text-ink-muted mt-3 px-2 leading-relaxed">
+          Converted with the common IELTS Listening scale — for reference only.
+        </p>
+
+        <!-- Accuracy & Time Summary Ribbon -->
+        <div class="w-full grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-card-border/80">
+          <div class="flex flex-col items-center py-1 bg-cream-bg rounded-xl border border-card-border/80">
+            <span class="text-[11px] font-bold text-ink-muted uppercase tracking-wider">Accuracy</span>
+            <span class="text-base font-black text-teal-brand mt-0.5">77.5%</span>
+          </div>
+          <div class="flex flex-col items-center py-1 bg-cream-bg rounded-xl border border-card-border/80">
+            <span class="text-[11px] font-bold text-ink-muted uppercase tracking-wider">Time Taken</span>
+            <span class="text-base font-black text-teal-brand mt-0.5">29m 40s</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEACHER SLOT CARD: Proud Coach bubble + empty dashed teacher slot -->
+      <section class="w-full bg-[#162528] rounded-3xl p-4 border-2 border-card-border shadow-[0_4px_0_0_#E2D3C4] flex items-center gap-3">
+        <!-- Empty dashed teacher slot placeholder (No photos/drawn people) -->
+        <div class="w-[84px] h-[84px] shrink-0 rounded-2xl border-2 border-dashed border-teal-primary/70 bg-teal-soft/60 flex flex-col items-center justify-center p-1 text-center" title="Teacher slot placeholder">
+          <span class="material-symbols-rounded text-teal-primary text-xl">school</span>
+          <span class="text-[10px] font-black uppercase text-teal-brand tracking-wider mt-1">teacher-slot</span>
+        </div>
+
+        <!-- Proud Feedback Bubble -->
+        <div class="flex-1 bg-cream-bg rounded-2xl p-3 border border-card-border relative shadow-[0_2px_0_0_#E2D3C4]">
+          <div class="flex items-center gap-1.5 mb-1">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            <span class="text-xs font-black text-amber-900 uppercase tracking-wide">Coach Insight</span>
+          </div>
+          <p class="text-sm font-extrabold text-ink-primary leading-snug">
+            “Solid work — Part 3 is your next win.”
+          </p>
+          <span class="text-xs font-semibold text-ink-muted block mt-1">
+            You scored 90% on everyday conversations.
+          </span>
+        </div>
+      </section>
+
+      <!-- FOUR PART TILES: 2x2 Grid -->
+      <section class="w-full flex flex-col gap-2">
+        <div class="flex items-center justify-between px-1">
+          <h2 class="text-sm font-black text-ink-primary uppercase tracking-wider">Section Breakdown</h2>
+          <span class="text-xs font-bold text-teal-primary">4 parts total</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2.5">
+          <!-- Part 1 Tile -->
+          <article class="bg-[#162528] rounded-2xl p-3 border-2 border-card-border shadow-[0_3px_0_0_#E2D3C4] flex flex-col justify-between min-h-[120px] active:translate-y-[1px] transition-transform">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-black uppercase px-2 py-0.5 rounded-md bg-teal-soft text-teal-brand border border-teal-200/60">Social 1-on-1</span>
+                <span class="material-symbols-rounded text-teal-primary text-lg">check_circle</span>
+              </div>
+              <h3 class="text-sm font-black text-ink-primary mt-2">Part 1 · 9/10</h3>
+              <p class="text-[11px] font-medium text-ink-muted leading-tight mt-0.5">Hotel booking form</p>
+            </div>
+            
+            <div class="mt-2.5">
+              <!-- Progress Bar -->
+              <div class="w-full bg-[#37525A] rounded-full h-2 overflow-hidden">
+                <div class="bg-teal-primary h-full rounded-full" style="width: 90%;"></div>
+              </div>
+              <span class="text-[10px] font-extrabold text-teal-primary block mt-1.5 flex items-center gap-0.5">
+                <span class="material-symbols-rounded text-xs">subtitles</span>
+                Tap to practise with transcript
+              </span>
+            </div>
+          </article>
+
+          <!-- Part 2 Tile -->
+          <article class="bg-[#162528] rounded-2xl p-3 border-2 border-card-border shadow-[0_3px_0_0_#E2D3C4] flex flex-col justify-between min-h-[120px] active:translate-y-[1px] transition-transform">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-black uppercase px-2 py-0.5 rounded-md bg-teal-soft text-teal-brand border border-teal-200/60">Monologue</span>
+                <span class="material-symbols-rounded text-teal-primary text-lg">check_circle</span>
+              </div>
+              <h3 class="text-sm font-black text-ink-primary mt-2">Part 2 · 8/10</h3>
+              <p class="text-[11px] font-medium text-ink-muted leading-tight mt-0.5">City museum tour guide</p>
+            </div>
+            
+            <div class="mt-2.5">
+              <!-- Progress Bar -->
+              <div class="w-full bg-[#37525A] rounded-full h-2 overflow-hidden">
+                <div class="bg-teal-primary h-full rounded-full" style="width: 80%;"></div>
+              </div>
+              <span class="text-[10px] font-extrabold text-teal-primary block mt-1.5 flex items-center gap-0.5">
+                <span class="material-symbols-rounded text-xs">subtitles</span>
+                Tap to practise with transcript
+              </span>
+            </div>
+          </article>
+
+          <!-- Part 3 Tile (Focus area) -->
+          <article class="bg-[#162528] rounded-2xl p-3 border-2 border-amber-300 shadow-[0_3px_0_0_#D97706] flex flex-col justify-between min-h-[120px] active:translate-y-[1px] transition-transform relative overflow-hidden">
+            <div class="absolute -top-6 -right-6 w-14 h-14 bg-amber-100/70 rounded-full blur-md"></div>
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-black uppercase px-2 py-0.5 rounded-md bg-amber-100 text-amber-900 border border-amber-300">Target Focus</span>
+                <span class="material-symbols-rounded text-amber-600 text-lg">flag</span>
+              </div>
+              <h3 class="text-sm font-black text-ink-primary mt-2">Part 3 · 6/10</h3>
+              <p class="text-[11px] font-medium text-ink-muted leading-tight mt-0.5">Academic tutorial debate</p>
+            </div>
+            
+            <div class="mt-2.5">
+              <!-- Progress Bar -->
+              <div class="w-full bg-[#37525A] rounded-full h-2 overflow-hidden">
+                <div class="bg-amber-500 h-full rounded-full" style="width: 60%;"></div>
+              </div>
+              <span class="text-[10px] font-extrabold text-amber-800 block mt-1.5 flex items-center gap-0.5">
+                <span class="material-symbols-rounded text-xs">subtitles</span>
+                Tap to practise with transcript
+              </span>
+            </div>
+          </article>
+
+          <!-- Part 4 Tile -->
+          <article class="bg-[#162528] rounded-2xl p-3 border-2 border-card-border shadow-[0_3px_0_0_#E2D3C4] flex flex-col justify-between min-h-[120px] active:translate-y-[1px] transition-transform">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-black uppercase px-2 py-0.5 rounded-md bg-teal-soft text-teal-brand border border-teal-200/60">Lecture</span>
+                <span class="material-symbols-rounded text-teal-primary text-lg">check_circle</span>
+              </div>
+              <h3 class="text-sm font-black text-ink-primary mt-2">Part 4 · 8/10</h3>
+              <p class="text-[11px] font-medium text-ink-muted leading-tight mt-0.5">Marine biodiversity talk</p>
+            </div>
+            
+            <div class="mt-2.5">
+              <!-- Progress Bar -->
+              <div class="w-full bg-[#37525A] rounded-full h-2 overflow-hidden">
+                <div class="bg-teal-primary h-full rounded-full" style="width: 80%;"></div>
+              </div>
+              <span class="text-[10px] font-extrabold text-teal-primary block mt-1.5 flex items-center gap-0.5">
+                <span class="material-symbols-rounded text-xs">subtitles</span>
+                Tap to practise with transcript
+              </span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ANSWER SHEET CARD: Compact 1-40 Question Matrix with Correct/Wrong Indicators -->
+      <section class="w-full bg-[#162528] rounded-3xl p-4 border-2 border-card-border shadow-[0_4px_0_0_#E2D3C4] flex flex-col gap-3.5">
+        <div class="flex items-center justify-between border-b border-card-border/80 pb-2.5">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-rounded text-teal-primary text-xl">fact_check</span>
+            <h2 class="text-base font-black text-ink-primary tracking-tight">Answer Sheet</h2>
+          </div>
+          <!-- Legend pill -->
+          <div class="flex items-center gap-2 text-xs font-extrabold">
+            <span class="inline-flex items-center gap-1 text-emerald-800">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> 31
+            </span>
+            <span class="inline-flex items-center gap-1 text-rose-800">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span> 9
+            </span>
+          </div>
+        </div>
+
+        <!-- Diagnostic Highlight Box: First wrong items breakdown with correct answers & learner attempts -->
+        <div class="w-full bg-cream-bg rounded-2xl p-3 border border-card-border flex flex-col gap-2">
+          <div class="flex items-center justify-between text-xs font-black text-rose-800">
+            <span class="flex items-center gap-1">
+              <span class="material-symbols-rounded text-sm">error</span>
+              Review Priority Slips
+            </span>
+            <span class="text-ink-muted text-[11px] font-semibold">9 missed in test</span>
+          </div>
+
+          <div class="space-y-1.5">
+            <!-- Wrong Item 1: Q10 -->
+            <div class="flex items-center justify-between bg-[#162528] px-2.5 py-1.5 rounded-xl border border-card-border text-xs">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-rose-100 text-rose-800 font-black flex items-center justify-center text-xs">10</span>
+                <span class="font-extrabold text-ink-primary">railway station</span>
+              </div>
+              <span class="font-bold text-rose-700 bg-rose-50 px-2 py-0.5 rounded-md border border-rose-200">
+                (you: 12)
+              </span>
+            </div>
+
+            <!-- Wrong Item 2: Q14 -->
+            <div class="flex items-center justify-between bg-[#162528] px-2.5 py-1.5 rounded-xl border border-card-border text-xs">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-rose-100 text-rose-800 font-black flex items-center justify-center text-xs">14</span>
+                <span class="font-extrabold text-ink-primary">Thursday</span>
+              </div>
+              <span class="font-bold text-rose-700 bg-rose-50 px-2 py-0.5 rounded-md border border-rose-200">
+                (you: Tuesday)
+              </span>
+            </div>
+
+            <!-- Wrong Item 3: Q23 -->
+            <div class="flex items-center justify-between bg-[#162528] px-2.5 py-1.5 rounded-xl border border-card-border text-xs">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-rose-100 text-rose-800 font-black flex items-center justify-center text-xs">23</span>
+                <span class="font-extrabold text-ink-primary">C (literature review)</span>
+              </div>
+              <span class="font-bold text-rose-700 bg-rose-50 px-2 py-0.5 rounded-md border border-rose-200">
+                (you: B)
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1-40 Question Matrix Grid: Compact, touchable, clear -->
+        <div class="w-full">
+          <div class="text-[11px] font-black uppercase text-ink-muted mb-2 tracking-wider">
+            All 40 Questions (Tap to view audio timestamp)
+          </div>
+          
+          <!-- 8 columns x 5 rows grid = 40 cells -->
+          <div class="grid grid-cols-8 gap-1.5" role="list" aria-label="Question result grid">
+            <!-- Questions 1 - 40 -->
+            <!-- Q1 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 1: Correct">
+              <span>1</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q2 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 2: Correct">
+              <span>2</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q3 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 3: Correct">
+              <span>3</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q4 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 4: Correct">
+              <span>4</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q5 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 5: Correct">
+              <span>5</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q6 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 6: Correct">
+              <span>6</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q7 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 7: Correct">
+              <span>7</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q8 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 8: Correct">
+              <span>8</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+
+            <!-- Row 2: 9-16 -->
+            <!-- Q9 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 9: Correct">
+              <span>9</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q10 (Wrong) -->
+            <button class="h-9 rounded-lg bg-rose-50 border-2 border-rose-400 text-rose-900 font-black text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 10: Wrong (you: 12)">
+              <span>10</span>
+              <span class="material-symbols-rounded text-[11px] text-rose-700">close</span>
+            </button>
+            <!-- Q11 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 11: Correct">
+              <span>11</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q12 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 12: Correct">
+              <span>12</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q13 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 13: Correct">
+              <span>13</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q14 (Wrong) -->
+            <button class="h-9 rounded-lg bg-rose-50 border-2 border-rose-400 text-rose-900 font-black text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 14: Wrong (you: Tuesday)">
+              <span>14</span>
+              <span class="material-symbols-rounded text-[11px] text-rose-700">close</span>
+            </button>
+            <!-- Q15 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 15: Correct">
+              <span>15</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q16 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 16: Correct">
+              <span>16</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+
+            <!-- Row 3: 17-24 -->
+            <!-- Q17 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 17: Correct">
+              <span>17</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q18 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 18: Correct">
+              <span>18</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q19 (Wrong) -->
+            <button class="h-9 rounded-lg bg-rose-50 border-2 border-rose-400 text-rose-900 font-black text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 19: Wrong">
+              <span>19</span>
+              <span class="material-symbols-rounded text-[11px] text-rose-700">close</span>
+            </button>
+            <!-- Q20 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 20: Correct">
+              <span>20</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q21 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 21: Correct">
+              <span>21</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q22 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 22: Correct">
+              <span>22</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q23 (Wrong) -->
+            <button class="h-9 rounded-lg bg-rose-50 border-2 border-rose-400 text-rose-900 font-black text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 23: Wrong (you: B)">
+              <span>23</span>
+              <span class="material-symbols-rounded text-[11px] text-rose-700">close</span>
+            </button>
+            <!-- Q24 (Wrong) -->
+            <button class="h-9 rounded-lg bg-rose-50 border-2 border-rose-400 text-rose-900 font-black text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 24: Wrong">
+              <span>24</span>
+              <span class="material-symbols-rounded text-[11px] text-rose-700">close</span>
+            </button>
+
+            <!-- Row 4: 25-32 -->
+            <!-- Q25 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 25: Correct">
+              <span>25</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q26 (Wrong) -->
+            <button class="h-9 rounded-lg bg-rose-50 border-2 border-rose-400 text-rose-900 font-black text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 26: Wrong">
+              <span>26</span>
+              <span class="material-symbols-rounded text-[11px] text-rose-700">close</span>
+            </button>
+            <!-- Q27 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 27: Correct">
+              <span>27</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q28 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 28: Correct">
+              <span>28</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q29 (Wrong) -->
+            <button class="h-9 rounded-lg bg-rose-50 border-2 border-rose-400 text-rose-900 font-black text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 29: Wrong">
+              <span>29</span>
+              <span class="material-symbols-rounded text-[11px] text-rose-700">close</span>
+            </button>
+            <!-- Q30 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 30: Correct">
+              <span>30</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q31 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 31: Correct">
+              <span>31</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q32 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 32: Correct">
+              <span>32</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+
+            <!-- Row 5: 33-40 -->
+            <!-- Q33 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 33: Correct">
+              <span>33</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q34 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 34: Correct">
+              <span>34</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q35 (Wrong) -->
+            <button class="h-9 rounded-lg bg-rose-50 border-2 border-rose-400 text-rose-900 font-black text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 35: Wrong">
+              <span>35</span>
+              <span class="material-symbols-rounded text-[11px] text-rose-700">close</span>
+            </button>
+            <!-- Q36 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 36: Correct">
+              <span>36</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q37 (Wrong) -->
+            <button class="h-9 rounded-lg bg-rose-50 border-2 border-rose-400 text-rose-900 font-black text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 37: Wrong">
+              <span>37</span>
+              <span class="material-symbols-rounded text-[11px] text-rose-700">close</span>
+            </button>
+            <!-- Q38 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 38: Correct">
+              <span>38</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q39 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 39: Correct">
+              <span>39</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+            <!-- Q40 (Correct) -->
+            <button class="h-9 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-extrabold text-xs flex flex-col items-center justify-center leading-none active:scale-95 transition-transform" title="Question 40: Correct">
+              <span>40</span>
+              <span class="material-symbols-rounded text-[11px] text-emerald-700">check</span>
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TWO ACTION BUTTONS (One primary coral button per screen rules) -->
+      <section class="w-full flex flex-col gap-3 pt-2 pb-6">
+        <!-- Primary Button: Full-width Coral CTA with tactile bottom ledge -->
+        <button class="w-full min-h-[52px] rounded-2xl bg-coral-cta text-[#1B0B04] font-black text-base tracking-wide flex items-center justify-center gap-2 border-2 border-[#FF6B52] shadow-[0_5px_0_0_#C92A2A] active:translate-y-[2px] active:shadow-[0_2px_0_0_#C92A2A] transition-all">
+          <span>Back to Listening</span>
+          <span class="material-symbols-rounded text-xl">arrow_forward</span>
+        </button>
+
+        <!-- Secondary Button: Open Mistake Book -->
+        <button class="w-full min-h-[48px] rounded-2xl bg-[#162528] text-teal-brand font-extrabold text-sm tracking-wide flex items-center justify-center gap-2 border-2 border-card-border shadow-[0_3px_0_0_#E2D3C4] active:translate-y-[1px] active:shadow-none hover:bg-cream-surface transition-all">
+          <span class="material-symbols-rounded text-lg text-teal-primary">auto_stories</span>
+          <span>Open Mistake book (9 items)</span>
+        </button>
+      </section>
+
+      <!-- Minimal Pedagogical Accreditation Footer -->
+      <footer class="text-center text-xs font-semibold text-ink-muted pb-4 border-t border-card-border/60 pt-3">
+        Lexkite IELTS Engine • Aligned with CEFR &amp; Cambridge Exam Scales
+      </footer>
+
+    </div>
+
+  </main>
+
+</body>
+</html>

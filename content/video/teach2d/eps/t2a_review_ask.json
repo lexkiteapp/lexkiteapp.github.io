@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"ask\" mean?",
+  "keyword": "ask",
+  "value": "Ask means to say to someone that you want something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=ask",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"ask\" mean?",
+    "description": "Ask means to say to someone that you want something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=ask\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "ask",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"ask\" mean?\n\nAsk means to say to someone that you want something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=ask"
+   },
+   "instagram": {
+    "caption": "What does \"ask\" mean?\n\nAsk means to say to someone that you want something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"ask\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to say to someone that you want something. Ask means to say to someone that you want something. Try the full lesson and quiz here: {link}"
  }
 }

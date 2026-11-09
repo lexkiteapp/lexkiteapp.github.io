@@ -1,0 +1,19 @@
+{
+ "fixed": [
+  {
+   "word": "todo",
+   "field": "ex.es",
+   "from": "Todo es posible.",
+   "to": "Trabajo todo el día.",
+   "why": "ví dụ dùng todo như đại từ, trong khi pos là adj"
+  },
+  {
+   "word": "todo",
+   "field": "ex.en",
+   "from": "Everything is possible.",
+   "to": "I work all day.",
+   "why": "ví dụ dùng todo như đại từ, trong khi pos là adj"
+  }
+ ],
+ "dropped": []
+}

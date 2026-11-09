@@ -1,0 +1,910 @@
+{
+ "id": "tour-booking",
+ "group": "travel",
+ "cefr": "B2",
+ "title": {
+  "en": "Booking a tour",
+  "vi": "Đặt tour",
+  "es": "Reservar una excursión",
+  "pt": "Reservar um passeio",
+  "fr": "Réserver une excursion",
+  "de": "Eine Tour buchen",
+  "id": "Memesan tur",
+  "th": "จองทัวร์",
+  "zh": "预订旅游行程",
+  "ja": "ツアーの予約",
+  "ko": "투어 예약하기",
+  "hi": "टूर बुक करना",
+  "ar": "حجز جولة سياحية",
+  "ru": "Бронирование экскурсии",
+  "tr": "Tur rezervasyonu"
+ },
+ "goal": {
+  "en": "Compare tours and book the right one!",
+  "vi": "So sánh các tour và đặt tour phù hợp!",
+  "es": "¡Compara excursiones y reserva la mejor!",
+  "pt": "Compare passeios e reserve o ideal!",
+  "fr": "Comparez les excursions et réservez la bonne !",
+  "de": "Vergleiche Touren und buche die passende!",
+  "id": "Bandingkan tur dan pesan yang tepat!",
+  "th": "เปรียบเทียบทัวร์และจองอันที่ใช่!",
+  "zh": "比较行程，订下最合适的一个！",
+  "ja": "ツアーを比べて、ぴったりのものを予約しよう！",
+  "ko": "투어를 비교하고 알맞은 걸 예약해요!",
+  "hi": "टूर की तुलना करें और सही टूर बुक करें!",
+  "ar": "قارن الجولات واحجز الأنسب!",
+  "ru": "Сравни экскурсии и забронируй подходящую!",
+  "tr": "Turları karşılaştır, doğru olanı ayırt!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "compare",
+   "title": {
+    "en": "Compare options",
+    "vi": "So sánh lựa chọn",
+    "es": "Comparar opciones",
+    "pt": "Comparar opções",
+    "fr": "Comparer les offres",
+    "de": "Angebote vergleichen",
+    "id": "Bandingkan pilihan",
+    "th": "เปรียบเทียบตัวเลือก",
+    "zh": "比较选项",
+    "ja": "比較する",
+    "ko": "옵션 비교",
+    "hi": "विकल्पों की तुलना",
+    "ar": "مقارنة الخيارات",
+    "ru": "Сравнение вариантов",
+    "tr": "Seçenekleri karşılaştır"
+   },
+   "lines": [
+    "t1",
+    "t2",
+    "t3",
+    "t4"
+   ]
+  },
+  {
+   "id": "conditions",
+   "title": {
+    "en": "Conditions",
+    "vi": "Điều kiện",
+    "es": "Condiciones",
+    "pt": "Condições",
+    "fr": "Conditions",
+    "de": "Bedingungen",
+    "id": "Ketentuan",
+    "th": "เงื่อนไข",
+    "zh": "条款",
+    "ja": "条件",
+    "ko": "조건",
+    "hi": "शर्तें",
+    "ar": "الشروط",
+    "ru": "Условия",
+    "tr": "Koşullar"
+   },
+   "lines": [
+    "t5",
+    "t6",
+    "t7",
+    "t8"
+   ]
+  },
+  {
+   "id": "book",
+   "title": {
+    "en": "Book",
+    "vi": "Đặt chỗ",
+    "es": "Reservar",
+    "pt": "Reservar",
+    "fr": "Réserver",
+    "de": "Buchen",
+    "id": "Memesan",
+    "th": "จอง",
+    "zh": "预订",
+    "ja": "予約する",
+    "ko": "예약하기",
+    "hi": "बुकिंग",
+    "ar": "الحجز",
+    "ru": "Бронирование",
+    "tr": "Rezervasyon"
+   },
+   "lines": [
+    "t9",
+    "t10",
+    "t11",
+    "t12"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "t1",
+   "who": "customer",
+   "en": "I'm interested in the day trip to the national park. Could you give me some details?",
+   "variants": {
+    "polite": "I'm interested in the day trip to the national park. Could you tell me a little more about it?",
+    "casual": "I'm after the national park day trip. What does it include?"
+   },
+   "gloss": {
+    "en": "Showing interest in a tour and asking for details.",
+    "vi": "Tỏ ý quan tâm đến chuyến đi trong ngày và hỏi chi tiết.",
+    "es": "Me interesa la excursión de un día al parque nacional. ¿Podría darme más detalles?",
+    "pt": "Tenho interesse no passeio de um dia ao parque nacional. Poderia me dar mais detalhes?",
+    "fr": "La sortie d'une journée au parc national m'intéresse. Pourriez-vous me donner des détails ?",
+    "de": "Ich interessiere mich für den Tagesausflug zum Nationalpark. Könnten Sie mir Details nennen?",
+    "id": "Saya tertarik dengan tur sehari ke taman nasional. Bisa beri saya detailnya?",
+    "th": "สนใจทริปหนึ่งวันไปอุทยานแห่งชาติค่ะ ขอรายละเอียดหน่อยได้ไหมคะ",
+    "zh": "我对去国家公园的一日游很感兴趣，能给我介绍一下详情吗？",
+    "ja": "国立公園の日帰りツアーに興味があります。詳しく教えていただけますか？",
+    "ko": "국립공원 당일 투어에 관심이 있어요. 자세히 알려 주실 수 있나요?",
+    "hi": "मुझे राष्ट्रीय उद्यान की एक दिन की सैर में दिलचस्पी है। क्या आप कुछ जानकारी दे सकते हैं?",
+    "ar": "أنا مهتم برحلة اليوم الواحد إلى المتنزه الوطني. هل يمكنك إعطائي بعض التفاصيل؟",
+    "ru": "Меня интересует однодневная поездка в национальный парк. Не могли бы вы рассказать подробнее?",
+    "tr": "Milli parka günübirlik geziyle ilgileniyorum. Bana biraz ayrıntı verebilir misiniz?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "t2",
+   "who": "barista",
+   "en": "Certainly. It runs daily and includes transport, a guide and lunch.",
+   "variants": {
+    "polite": "Certainly. It departs daily and includes transport, an English-speaking guide and lunch.",
+    "casual": "Sure. Every day. Transport, guide and lunch are included."
+   },
+   "gloss": {
+    "en": "The agent explains what the tour includes.",
+    "vi": "Nhân viên giải thích tour đã bao gồm những gì.",
+    "es": "Por supuesto. Sale a diario e incluye transporte, guía y almuerzo.",
+    "pt": "Claro. Sai todos os dias e inclui transporte, guia e almoço.",
+    "fr": "Bien sûr. Elle part tous les jours et comprend le transport, un guide et le déjeuner.",
+    "de": "Gern. Sie findet täglich statt und beinhaltet Transport, Reiseleiter und Mittagessen.",
+    "id": "Tentu. Berangkat setiap hari dan sudah termasuk transportasi, pemandu, dan makan siang.",
+    "th": "ได้ค่ะ ออกเดินทางทุกวัน รวมค่าเดินทาง ไกด์ และอาหารกลางวัน",
+    "zh": "当然可以。每天出发，包含交通、导游和午餐。",
+    "ja": "もちろんです。毎日出発で、交通費、ガイド、昼食が含まれます。",
+    "ko": "물론이죠. 매일 출발하고 교통, 가이드, 점심이 포함돼 있어요.",
+    "hi": "ज़रूर। यह रोज़ चलता है और इसमें परिवहन, गाइड और दोपहर का भोजन शामिल है।",
+    "ar": "بالتأكيد. تنطلق يوميًا وتشمل المواصلات ومرشدًا وغداءً.",
+    "ru": "Конечно. Она отправляется ежедневно, в стоимость входят транспорт, гид и обед.",
+    "tr": "Tabii. Her gün kalkıyor; ulaşım, rehber ve öğle yemeği dahil."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "t3",
+   "who": "customer",
+   "en": "How does it compare with the coastal tour in terms of price and duration?",
+   "variants": {
+    "polite": "Could you tell me how it compares with the coastal tour in terms of price and duration?",
+    "casual": "How's it different from the coastal tour, price-wise?"
+   },
+   "gloss": {
+    "en": "Asking the agent to compare two tours.",
+    "vi": "Nhờ nhân viên so sánh hai tour.",
+    "es": "¿Cómo se compara con la excursión por la costa en precio y duración?",
+    "pt": "Como ele se compara com o passeio pelo litoral em preço e duração?",
+    "fr": "Comment se compare-t-elle à l'excursion côtière en termes de prix et de durée ?",
+    "de": "Wie schneidet sie im Vergleich zur Küstentour bei Preis und Dauer ab?",
+    "id": "Bagaimana perbandingannya dengan tur pantai dari segi harga dan durasi?",
+    "th": "เทียบกับทัวร์ชายฝั่งแล้วราคาและระยะเวลาต่างกันอย่างไรคะ",
+    "zh": "和海岸线行程相比，价格和时长有什么区别？",
+    "ja": "海岸ツアーと比べて、料金や所要時間はどう違いますか？",
+    "ko": "해안 투어와 비교하면 가격과 소요 시간은 어떤가요?",
+    "hi": "तटीय टूर की तुलना में कीमत और अवधि के हिसाब से यह कैसा है?",
+    "ar": "كيف تقارن بالجولة الساحلية من حيث السعر والمدة؟",
+    "ru": "Как она соотносится с прибрежным туром по цене и продолжительности?",
+    "tr": "Kıyı turuyla fiyat ve süre açısından nasıl bir fark var?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "duration",
+     "ipa": "/dʊˈreɪ.ʃən/",
+     "hi": "RAY",
+     "note": {
+      "en": "Stress the second syllable: du-RAY-shun.",
+      "vi": "Nhấn âm tiết thứ hai: đu-RÂY-shần.",
+      "es": "Acentúa la segunda sílaba: du-REI-shen.",
+      "pt": "Acentue a segunda sílaba: du-REI-chn.",
+      "fr": "Accentuez la deuxième syllabe : dou-REÏ-cheune.",
+      "de": "Betone die zweite Silbe: du-REI-schn.",
+      "id": "Tekankan suku kata kedua: du-REI-syen.",
+      "th": "เน้นพยางค์ที่สอง: ดู-เร-ชั่น",
+      "zh": "重音在第二个音节：du-RAY-shun。",
+      "ja": "2番目を強く：デュ・レイ・ション。",
+      "ko": "두 번째 음절에 강세: 듀-레이-션.",
+      "hi": "दूसरे अक्षर पर ज़ोर: ड्यु-रे-शन।",
+      "ar": "شدّد على المقطع الثاني: دو-ري-شن.",
+      "ru": "Ударение на второй слог: дю-РЕЙ-шн.",
+      "tr": "Vurgu ikinci hecede: du-REY-şın."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t4",
+   "who": "barista",
+   "en": "The coastal tour is cheaper, but it's longer and involves a lot of walking.",
+   "variants": {
+    "polite": "The coastal tour is cheaper, though it's longer and involves quite a lot of walking.",
+    "casual": "Coastal's cheaper, but it's longer with lots of walking."
+   },
+   "gloss": {
+    "en": "The agent compares the two tours.",
+    "vi": "Nhân viên so sánh hai tour.",
+    "es": "La excursión por la costa es más barata, pero es más larga e implica caminar mucho.",
+    "pt": "O passeio pelo litoral é mais barato, mas é mais longo e exige muita caminhada.",
+    "fr": "L'excursion côtière est moins chère, mais elle est plus longue et demande beaucoup de marche.",
+    "de": "Die Küstentour ist günstiger, dauert aber länger und beinhaltet viel Laufen.",
+    "id": "Tur pantai lebih murah, tetapi lebih lama dan banyak berjalan kaki.",
+    "th": "ทัวร์ชายฝั่งถูกกว่า แต่ใช้เวลานานกว่าและต้องเดินเยอะค่ะ",
+    "zh": "海岸线行程更便宜，但时间更长，要走很多路。",
+    "ja": "海岸ツアーの方が安いですが、時間が長く、歩く距離も多いです。",
+    "ko": "해안 투어가 더 저렴하지만 시간이 더 길고 많이 걸어야 해요.",
+    "hi": "तटीय टूर सस्ता है, लेकिन यह लंबा है और इसमें काफ़ी पैदल चलना पड़ता है।",
+    "ar": "الجولة الساحلية أرخص، لكنها أطول وتتطلب مشيًا كثيرًا.",
+    "ru": "Прибрежный тур дешевле, но он дольше и там много ходьбы.",
+    "tr": "Kıyı turu daha ucuz ama daha uzun ve çok yürüyüş içeriyor."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "t5",
+   "who": "customer",
+   "en": "What's the cancellation policy if I need to change my plans?",
+   "variants": {
+    "polite": "Could you explain your cancellation policy in case I need to change my plans?",
+    "casual": "What if I need to cancel?"
+   },
+   "gloss": {
+    "en": "Asking what happens if you have to cancel.",
+    "vi": "Hỏi chính sách hủy nếu phải đổi kế hoạch.",
+    "es": "¿Cuál es la política de cancelación si tengo que cambiar de planes?",
+    "pt": "Qual é a política de cancelamento se eu precisar mudar meus planos?",
+    "fr": "Quelle est la politique d'annulation si je dois changer mes plans ?",
+    "de": "Wie sind die Stornobedingungen, falls sich meine Pläne ändern?",
+    "id": "Bagaimana kebijakan pembatalan jika rencana saya berubah?",
+    "th": "ถ้าต้องเปลี่ยนแผน นโยบายการยกเลิกเป็นอย่างไรคะ",
+    "zh": "如果我需要改变计划，取消政策是怎样的？",
+    "ja": "予定が変わった場合のキャンセルポリシーを教えてください。",
+    "ko": "계획이 바뀌면 취소 규정이 어떻게 되나요?",
+    "hi": "अगर मुझे अपनी योजना बदलनी पड़े तो रद्द करने की नीति क्या है?",
+    "ar": "ما سياسة الإلغاء إذا احتجت إلى تغيير خططي؟",
+    "ru": "Каковы условия отмены, если мне придётся изменить планы?",
+    "tr": "Planlarım değişirse iptal politikanız nedir?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "cancellation",
+     "ipa": "/ˌkæn.səˈleɪ.ʃən/",
+     "hi": "LAY",
+     "note": {
+      "en": "The main stress is on LAY: can-suh-LAY-shun.",
+      "vi": "Trọng âm chính ở LÂY: ken-sờ-LÂY-shần.",
+      "es": "El acento principal va en LEI: can-se-LEI-shen.",
+      "pt": "A sílaba tônica é LEI: can-se-LEI-chn.",
+      "fr": "L'accent principal est sur LEÏ : kan-se-LEÏ-cheune.",
+      "de": "Die Hauptbetonung liegt auf LEI: kän-se-LEI-schn.",
+      "id": "Tekanan utama pada LEI: ken-se-LEI-syen.",
+      "th": "เน้นเสียงหลักที่ เล: แคน-เซอะ-เล-ชั่น",
+      "zh": "主重音在 LAY：can-suh-LAY-shun。",
+      "ja": "「レイ」を強く：キャン・セ・レイ・ション。",
+      "ko": "주 강세는 ‘레이’예요: 캔-설-레이-션.",
+      "hi": "मुख्य ज़ोर “ले” पर है: कैन-स-ले-शन।",
+      "ar": "التشديد الرئيسي على لاي: كان-سل-لاي-شن.",
+      "ru": "Главное ударение на ЛЕЙ: кэн-сэ-ЛЕЙ-шн.",
+      "tr": "Ana vurgu LEY üzerindedir: ken-sı-LEY-şın."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t6",
+   "who": "barista",
+   "en": "You get a full refund up to forty-eight hours before departure.",
+   "variants": {
+    "polite": "You can cancel free of charge up to forty-eight hours before departure. After that, it's non-refundable.",
+    "casual": "Free cancellation up to 48 hours before. After that, no refund."
+   },
+   "gloss": {
+    "en": "The agent explains when you can cancel for free.",
+    "vi": "Nhân viên cho biết đến khi nào được hủy miễn phí.",
+    "es": "Se le reembolsa todo hasta cuarenta y ocho horas antes de la salida.",
+    "pt": "Você recebe reembolso total até quarenta e oito horas antes da saída.",
+    "fr": "Vous êtes intégralement remboursé jusqu'à quarante-huit heures avant le départ.",
+    "de": "Bis achtundvierzig Stunden vor Abfahrt erhalten Sie den vollen Betrag zurück.",
+    "id": "Anda mendapat pengembalian penuh hingga empat puluh delapan jam sebelum keberangkatan.",
+    "th": "คืนเงินเต็มจำนวนหากยกเลิกก่อนออกเดินทางไม่น้อยกว่า 48 ชั่วโมงค่ะ",
+    "zh": "出发前48小时以内可以全额退款。",
+    "ja": "出発の48時間前までなら全額返金されます。",
+    "ko": "출발 48시간 전까지는 전액 환불돼요.",
+    "hi": "प्रस्थान से अड़तालीस घंटे पहले तक पूरा रिफ़ंड मिलता है।",
+    "ar": "تحصل على استرداد كامل حتى ثماني وأربعين ساعة قبل المغادرة.",
+    "ru": "Полный возврат возможен не позднее чем за сорок восемь часов до отправления.",
+    "tr": "Hareketten kırk sekiz saat öncesine kadar tam iade alırsınız."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "t7",
+   "who": "customer",
+   "en": "Is travel insurance included, or should I arrange my own?",
+   "variants": {
+    "polite": "Is travel insurance included, or would I need to arrange my own?",
+    "casual": "Does it cover insurance, or do I sort my own?"
+   },
+   "gloss": {
+    "en": "Asking whether insurance comes with the tour.",
+    "vi": "Hỏi tour đã gồm bảo hiểm du lịch chưa.",
+    "es": "¿Incluye seguro de viaje o debo contratar el mío?",
+    "pt": "O seguro-viagem está incluído ou preciso contratar o meu?",
+    "fr": "L'assurance voyage est-elle comprise, ou dois-je prendre la mienne ?",
+    "de": "Ist eine Reiseversicherung enthalten, oder muss ich mich selbst darum kümmern?",
+    "id": "Apakah asuransi perjalanan sudah termasuk, atau saya harus mengurus sendiri?",
+    "th": "รวมประกันการเดินทางไหมคะ หรือต้องทำเอง",
+    "zh": "包含旅行保险吗？还是要自己买？",
+    "ja": "旅行保険は含まれていますか？それとも自分で手配しますか？",
+    "ko": "여행자 보험이 포함돼 있나요, 아니면 직접 가입해야 하나요?",
+    "hi": "क्या यात्रा बीमा शामिल है, या मुझे ख़ुद करवाना होगा?",
+    "ar": "هل التأمين على السفر مشمول، أم عليّ ترتيبه بنفسي؟",
+    "ru": "Входит ли туристическая страховка, или мне нужно оформить свою?",
+    "tr": "Seyahat sigortası dahil mi, yoksa kendim mi yaptırmalıyım?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "insurance",
+     "ipa": "/ɪnˈʃʊr.əns/",
+     "hi": "SHUR",
+     "note": {
+      "en": "Stress the second syllable: in-SHUR-uhns.",
+      "vi": "Nhấn âm tiết thứ hai: in-SHƯ-rần-s.",
+      "es": "Acentúa la segunda sílaba: in-SHUR-ens.",
+      "pt": "Acentue a segunda sílaba: in-SHUR-ens.",
+      "fr": "Accentuez la deuxième syllabe : in-CHOUR-eunce.",
+      "de": "Betone die zweite Silbe: in-SCHUR-ens.",
+      "id": "Tekankan suku kata kedua: in-SYUR-ens.",
+      "th": "เน้นพยางค์ที่สอง: อิน-ชัวร์-เรินส์",
+      "zh": "重音在第二个音节：in-SHUR-uhns。",
+      "ja": "2番目を強く：イン・シュア・ランス。",
+      "ko": "두 번째 음절에 강세: 인-슈어-런스.",
+      "hi": "दूसरे अक्षर पर ज़ोर: इन-शुअर-न्स।",
+      "ar": "شدّد على المقطع الثاني: إن-شور-نس.",
+      "ru": "Ударение на второй слог: ин-ШУР-энс.",
+      "tr": "Vurgu ikinci hecede: in-ŞUR-ıns."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t8",
+   "who": "barista",
+   "en": "It isn't included, but we can add basic cover for fifteen euros.",
+   "variants": {
+    "polite": "I'm afraid it isn't included, but we can add basic cover for fifteen euros.",
+    "casual": "No, but basic cover is fifteen euros extra."
+   },
+   "gloss": {
+    "en": "The agent says insurance is extra and gives the price.",
+    "vi": "Nhân viên nói bảo hiểm tính thêm và cho biết giá.",
+    "es": "No está incluido, pero podemos añadir una cobertura básica por quince euros.",
+    "pt": "Não está incluído, mas podemos adicionar uma cobertura básica por quinze euros.",
+    "fr": "Elle n'est pas comprise, mais nous pouvons ajouter une couverture de base pour quinze euros.",
+    "de": "Sie ist nicht enthalten, aber wir können für fünfzehn Euro einen Basisschutz hinzufügen.",
+    "id": "Tidak termasuk, tetapi kami bisa menambahkan perlindungan dasar seharga lima belas euro.",
+    "th": "ไม่รวมค่ะ แต่เพิ่มความคุ้มครองพื้นฐานได้ในราคา 15 ยูโร",
+    "zh": "不包含，但可以加购基础保障，十五欧元。",
+    "ja": "含まれていませんが、15ユーロで基本補償を追加できます。",
+    "ko": "포함되어 있지 않지만 15유로에 기본 보장을 추가할 수 있어요.",
+    "hi": "यह शामिल नहीं है, लेकिन हम पंद्रह यूरो में बुनियादी कवर जोड़ सकते हैं।",
+    "ar": "غير مشمول، لكن يمكننا إضافة تغطية أساسية مقابل خمسة عشر يورو.",
+    "ru": "Она не входит, но мы можем добавить базовое покрытие за пятнадцать евро.",
+    "tr": "Dahil değil, ama on beş euroya temel teminat ekleyebiliriz."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "t9",
+   "who": "customer",
+   "en": "Are there any discounts for groups, or if we pay in advance?",
+   "variants": {
+    "polite": "Would there be any discount for a group of four, or for paying in advance?",
+    "casual": "Any group discount if we pay upfront?"
+   },
+   "gloss": {
+    "en": "Asking about group or early-payment discounts.",
+    "vi": "Hỏi có giảm giá cho nhóm hoặc khi trả trước không.",
+    "es": "¿Hay descuentos para grupos o por pagar por adelantado?",
+    "pt": "Há descontos para grupos ou para pagamento antecipado?",
+    "fr": "Y a-t-il des réductions pour les groupes ou en cas de paiement anticipé ?",
+    "de": "Gibt es Rabatte für Gruppen oder bei Vorauszahlung?",
+    "id": "Apakah ada diskon untuk grup atau jika membayar di muka?",
+    "th": "มีส่วนลดสำหรับกลุ่มหรือถ้าจ่ายล่วงหน้าไหมคะ",
+    "zh": "团体或提前付款有优惠吗？",
+    "ja": "グループ割引や前払い割引はありますか？",
+    "ko": "단체 할인이나 선결제 할인이 있나요?",
+    "hi": "क्या समूह के लिए या पहले भुगतान करने पर कोई छूट है?",
+    "ar": "هل توجد خصومات للمجموعات أو للدفع المسبق؟",
+    "ru": "Есть ли скидки для групп или при предоплате?",
+    "tr": "Grup ya da peşin ödeme için indirim var mı?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "t10",
+   "who": "barista",
+   "en": "Groups of four or more get ten percent off, and a deposit secures your place.",
+   "variants": {
+    "polite": "Groups of four or more receive ten percent off, and a deposit will secure your places.",
+    "casual": "Four or more get ten percent off. A deposit holds your spot."
+   },
+   "gloss": {
+    "en": "The agent offers a group discount and mentions a deposit.",
+    "vi": "Nhân viên báo giảm giá nhóm và nhắc đến tiền đặt cọc.",
+    "es": "Los grupos de cuatro o más tienen un diez por ciento de descuento, y un depósito asegura su plaza.",
+    "pt": "Grupos de quatro ou mais têm dez por cento de desconto, e um sinal garante suas vagas.",
+    "fr": "Les groupes de quatre ou plus ont dix pour cent de réduction, et un acompte garantit votre place.",
+    "de": "Gruppen ab vier Personen erhalten zehn Prozent Rabatt, und eine Anzahlung sichert Ihre Plätze.",
+    "id": "Grup empat orang atau lebih mendapat diskon sepuluh persen, dan uang muka mengamankan tempat Anda.",
+    "th": "กลุ่มสี่คนขึ้นไปลด 10 เปอร์เซ็นต์ และวางมัดจำเพื่อจองที่นั่งได้ค่ะ",
+    "zh": "四人及以上团体可享九折，交订金即可保留名额。",
+    "ja": "4名以上のグループは10パーセント割引で、予約金で席を確保できます。",
+    "ko": "4인 이상 단체는 10퍼센트 할인되고, 보증금을 내시면 자리가 확보돼요.",
+    "hi": "चार या उससे अधिक लोगों के समूह को दस प्रतिशत की छूट मिलती है, और जमा राशि से आपकी जगह पक्की हो जाती है।",
+    "ar": "المجموعات من أربعة أشخاص فأكثر تحصل على خصم عشرة في المئة، والعربون يضمن أماكنكم.",
+    "ru": "Группам от четырёх человек — скидка десять процентов, а залог закрепляет за вами места.",
+    "tr": "Dört ve üzeri kişilik gruplara yüzde on indirim var, depozito de yerinizi garantiler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "deposit",
+     "ipa": "/dɪˈpɑː.zɪt/",
+     "hi": "POZ",
+     "note": {
+      "en": "Stress the second syllable: di-POZ-it.",
+      "vi": "Nhấn âm tiết thứ hai: đi-PÓ-zịt.",
+      "es": "Acentúa la segunda sílaba: di-POS-it.",
+      "pt": "Acentue a segunda sílaba: di-PÓ-zit.",
+      "fr": "Accentuez la deuxième syllabe : di-PO-zit.",
+      "de": "Betone die zweite Silbe: di-POS-it.",
+      "id": "Tekankan suku kata kedua: di-PO-zit.",
+      "th": "เน้นพยางค์ที่สอง: ดิ-พอ-ซิท",
+      "zh": "重音在第二个音节：di-POZ-it。",
+      "ja": "2番目を強く：ディ・パー・ズィット。",
+      "ko": "두 번째 음절에 강세: 디-파-짓.",
+      "hi": "दूसरे अक्षर पर ज़ोर: डि-पॉ-ज़िट।",
+      "ar": "شدّد على المقطع الثاني: دي-بوز-ت.",
+      "ru": "Ударение на второй слог: ди-ПО-зит.",
+      "tr": "Vurgu ikinci hecede: di-PO-zit."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t11",
+   "who": "customer",
+   "en": "In that case, we'd like to book four places for Saturday, please.",
+   "variants": {
+    "polite": "In that case, we'd like to book four places for this Saturday, if that's available.",
+    "casual": "Okay, four places for Saturday, please."
+   },
+   "gloss": {
+    "en": "Deciding and booking four places.",
+    "vi": "Quyết định và đặt bốn chỗ.",
+    "es": "En ese caso, queremos reservar cuatro plazas para el sábado, por favor.",
+    "pt": "Nesse caso, queremos reservar quatro vagas para sábado, por favor.",
+    "fr": "Dans ce cas, nous aimerions réserver quatre places pour samedi, s'il vous plaît.",
+    "de": "Dann möchten wir bitte vier Plätze für Samstag buchen.",
+    "id": "Kalau begitu, kami ingin memesan empat tempat untuk hari Sabtu.",
+    "th": "งั้นขอจองสี่ที่นั่งสำหรับวันเสาร์ค่ะ",
+    "zh": "那我们想预订周六的四个名额。",
+    "ja": "それでは、土曜日の4名分を予約したいです。",
+    "ko": "그럼 토요일 자리 네 개를 예약하고 싶어요.",
+    "hi": "तो हम शनिवार के लिए चार सीटें बुक करना चाहेंगे।",
+    "ar": "في هذه الحالة نود حجز أربعة أماكن ليوم السبت من فضلك.",
+    "ru": "В таком случае мы хотели бы забронировать четыре места на субботу.",
+    "tr": "O zaman cumartesi için dört yer ayırtmak istiyoruz."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "t12",
+   "who": "customer",
+   "en": "Could you email me the itinerary and the meeting point, please?",
+   "variants": {
+    "polite": "Would you mind emailing me the full itinerary and the meeting point?",
+    "casual": "Can you email me the itinerary and meeting point?"
+   },
+   "gloss": {
+    "en": "Asking for the schedule and meeting place by email.",
+    "vi": "Nhờ gửi email lịch trình và điểm hẹn.",
+    "es": "¿Podría enviarme por correo el itinerario y el punto de encuentro?",
+    "pt": "Poderia me enviar por e-mail o roteiro e o ponto de encontro?",
+    "fr": "Pourriez-vous m'envoyer l'itinéraire et le point de rendez-vous par e-mail ?",
+    "de": "Könnten Sie mir bitte den Ablauf und den Treffpunkt per E-Mail schicken?",
+    "id": "Bisakah Anda mengirim jadwal perjalanan dan titik kumpul lewat email?",
+    "th": "ช่วยส่งกำหนดการและจุดนัดพบทางอีเมลให้หน่อยได้ไหมคะ",
+    "zh": "可以把行程安排和集合地点发到我邮箱吗？",
+    "ja": "旅程表と集合場所をメールで送っていただけますか？",
+    "ko": "일정표와 집합 장소를 이메일로 보내 주시겠어요?",
+    "hi": "क्या आप यात्रा-कार्यक्रम और मिलने की जगह मुझे ईमेल कर सकते हैं?",
+    "ar": "هل يمكنك إرسال برنامج الرحلة ونقطة التجمع إليّ بالبريد الإلكتروني؟",
+    "ru": "Не могли бы вы отправить мне по почте программу и место встречи?",
+    "tr": "Programı ve buluşma noktasını bana e-postayla gönderebilir misiniz?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "itinerary",
+     "ipa": "/aɪˈtɪn.ə.rer.i/",
+     "hi": "TIN",
+     "note": {
+      "en": "Stress the second syllable: eye-TIN-uh-rer-ee.",
+      "vi": "Nhấn âm tiết thứ hai: ai-TIN-ờ-re-ri.",
+      "es": "Acentúa la segunda sílaba: ai-TIN-e-re-ri.",
+      "pt": "Acentue a segunda sílaba: ai-TIN-e-re-ri.",
+      "fr": "Accentuez la deuxième syllabe : aï-TIN-e-re-ri.",
+      "de": "Betone die zweite Silbe: ai-TIN-e-re-ri.",
+      "id": "Tekankan suku kata kedua: ai-TIN-e-re-ri.",
+      "th": "เน้นพยางค์ที่สอง: ไอ-ทิน-เนอ-เร-รี",
+      "zh": "重音在第二个音节：eye-TIN-uh-rer-ee。",
+      "ja": "2番目を強く：アイ・ティン・ナ・レリー。",
+      "ko": "두 번째 음절에 강세: 아이-티너-레리.",
+      "hi": "दूसरे अक्षर पर ज़ोर: आइ-टिन-अ-रे-री।",
+      "ar": "شدّد على المقطع الثاني: آي-تين-ا-ري-ري.",
+      "ru": "Ударение на второй слог: ай-ТИН-э-рэ-ри.",
+      "tr": "Vurgu ikinci hecede: ay-TİN-ı-re-ri."
+     }
+    }
+   ]
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "keywords": [
+    "two",
+    "three",
+    "four",
+    "family",
+    "friends",
+    "couple",
+    "kids",
+    "children",
+    "hiking",
+    "beach",
+    "museums",
+    "food",
+    "culture",
+    "adventure"
+   ],
+   "en": "How many people are travelling, and what do you enjoy doing?",
+   "variants": {
+    "polite": "Could you tell me how many of you are travelling, and what you enjoy doing?",
+    "casual": "Who's coming, and what do you like doing?"
+   },
+   "gloss": {
+    "en": "The agent asks about your group and interests.",
+    "vi": "Nhân viên hỏi nhóm bạn có mấy người và sở thích.",
+    "es": "¿Cuántas personas viajan y qué les gusta hacer?",
+    "pt": "Quantas pessoas vão viajar e do que vocês gostam?",
+    "fr": "Combien de personnes voyagent, et qu'aimez-vous faire ?",
+    "de": "Wie viele Personen reisen, und was machen Sie gern?",
+    "id": "Berapa orang yang bepergian, dan apa yang kalian sukai?",
+    "th": "เดินทางกันกี่คนคะ แล้วชอบทำกิจกรรมแบบไหน",
+    "zh": "一共几位出行？你们喜欢做什么？",
+    "ja": "何名様でのご旅行ですか？どんなことがお好きですか？",
+    "ko": "몇 분이 여행하시고 어떤 활동을 좋아하세요?",
+    "hi": "कितने लोग यात्रा कर रहे हैं, और आपको क्या करना पसंद है?",
+    "ar": "كم شخصًا سيسافر، وما الذي تحبون فعله؟",
+    "ru": "Сколько вас едет и чем вы любите заниматься?",
+    "tr": "Kaç kişi seyahat ediyorsunuz ve ne yapmaktan hoşlanıyorsunuz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "keywords": [
+    "euros",
+    "dollars",
+    "cheap",
+    "budget",
+    "around",
+    "under",
+    "expensive",
+    "per person",
+    "no limit",
+    "flexible",
+    "up to"
+   ],
+   "en": "Do you have a budget in mind for the tour?",
+   "variants": {
+    "polite": "Is there a budget you'd like me to work within?",
+    "casual": "What's your budget?"
+   },
+   "gloss": {
+    "en": "The agent asks about your budget.",
+    "vi": "Nhân viên hỏi ngân sách của bạn.",
+    "es": "¿Tiene un presupuesto en mente para la excursión?",
+    "pt": "Você tem um orçamento em mente para o passeio?",
+    "fr": "Avez-vous un budget en tête pour l'excursion ?",
+    "de": "Haben Sie ein Budget für die Tour im Kopf?",
+    "id": "Apakah Anda punya anggaran untuk tur ini?",
+    "th": "มีงบประมาณสำหรับทัวร์นี้ในใจไหมคะ",
+    "zh": "您对这次行程有预算吗？",
+    "ja": "ツアーの予算はお決まりですか？",
+    "ko": "투어 예산은 생각해 두셨나요?",
+    "hi": "क्या आपने इस टूर के लिए कोई बजट सोच रखा है?",
+    "ar": "هل لديك ميزانية محددة للجولة؟",
+    "ru": "Есть ли у вас бюджет на эту экскурсию?",
+    "tr": "Tur için aklınızda bir bütçe var mı?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Hello! How can I help you today?"
+  },
+  {
+   "who": "customer",
+   "en": "I'm interested in the day trip to the national park. Could you give me some details?"
+  },
+  {
+   "who": "barista",
+   "en": "Certainly. It runs daily and includes transport, a guide and lunch."
+  },
+  {
+   "who": "customer",
+   "en": "How does it compare with the coastal tour in terms of price and duration?"
+  },
+  {
+   "who": "barista",
+   "en": "The coastal tour is cheaper, but it's longer and involves a lot of walking."
+  },
+  {
+   "who": "customer",
+   "en": "What's the cancellation policy if I need to change my plans?"
+  },
+  {
+   "who": "barista",
+   "en": "You get a full refund up to forty-eight hours before departure."
+  },
+  {
+   "who": "customer",
+   "en": "In that case, we'd like to book four places for Saturday, please."
+  },
+  {
+   "who": "barista",
+   "en": "Lovely. Groups of four or more get ten percent off."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "I'm afraid Saturday's tour is fully booked. We still have places on Sunday morning."
+    },
+    {
+     "who": "customer",
+     "en": "Sunday works for me. What time does it leave?"
+    },
+    {
+     "who": "barista",
+     "en": "Nine thirty from the main square."
+    }
+   ],
+   "q": {
+    "en": "Where does the tour leave from?",
+    "vi": "Tour khởi hành từ đâu?",
+    "es": "¿Desde dónde sale la excursión?",
+    "pt": "De onde o passeio sai?",
+    "fr": "D'où part l'excursion ?",
+    "de": "Wo startet die Tour?",
+    "id": "Dari mana tur itu berangkat?",
+    "th": "ทัวร์ออกเดินทางจากที่ไหน",
+    "zh": "行程从哪里出发？",
+    "ja": "ツアーはどこから出発しますか？",
+    "ko": "투어는 어디에서 출발하나요?",
+    "hi": "टूर कहाँ से रवाना होता है?",
+    "ar": "من أين تنطلق الجولة؟",
+    "ru": "Откуда отправляется экскурсия?",
+    "tr": "Tur nereden kalkıyor?"
+   },
+   "answer": "main square"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Can I get a refund? My flight has been cancelled."
+    },
+    {
+     "who": "barista",
+     "en": "If you send us proof, we can offer a full refund or move you to another date."
+    },
+    {
+     "who": "customer",
+     "en": "I'd rather move to another date."
+    }
+   ],
+   "q": {
+    "en": "What does the customer choose?",
+    "vi": "Khách chọn gì?",
+    "es": "¿Qué elige el cliente?",
+    "pt": "O que o cliente escolhe?",
+    "fr": "Que choisit le client ?",
+    "de": "Was wählt der Kunde?",
+    "id": "Apa yang dipilih pelanggan?",
+    "th": "ลูกค้าเลือกอะไร",
+    "zh": "顾客选择了什么？",
+    "ja": "お客さんは何を選びましたか？",
+    "ko": "손님은 무엇을 선택하나요?",
+    "hi": "ग्राहक क्या चुनता है?",
+    "ar": "ماذا يختار الزبون؟",
+    "ru": "Что выбирает клиент?",
+    "tr": "Müşteri ne seçiyor?"
+   },
+   "answer": "move to another date"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "compare",
+    "title": {
+     "en": "Compare two tours",
+     "vi": "So sánh hai tour",
+     "es": "Compara dos excursiones",
+     "pt": "Compare dois passeios",
+     "fr": "Comparer deux excursions",
+     "de": "Zwei Touren vergleichen",
+     "id": "Bandingkan dua tur",
+     "th": "เปรียบเทียบทัวร์สองแบบ",
+     "zh": "比较两个行程",
+     "ja": "2つのツアーを比べる",
+     "ko": "두 투어 비교하기",
+     "hi": "दो टूर की तुलना करें",
+     "ar": "قارن بين جولتين",
+     "ru": "Сравни две экскурсии",
+     "tr": "İki turu karşılaştır"
+    },
+    "intents": [
+     "t3"
+    ]
+   },
+   {
+    "id": "cancel",
+    "title": {
+     "en": "Ask about cancelling",
+     "vi": "Hỏi về việc hủy",
+     "es": "Pregunta por la cancelación",
+     "pt": "Pergunte sobre o cancelamento",
+     "fr": "Se renseigner sur l'annulation",
+     "de": "Nach der Stornierung fragen",
+     "id": "Tanyakan soal pembatalan",
+     "th": "ถามเรื่องการยกเลิก",
+     "zh": "询问取消政策",
+     "ja": "キャンセルについて聞く",
+     "ko": "취소 규정 묻기",
+     "hi": "रद्द करने के बारे में पूछें",
+     "ar": "اسأل عن الإلغاء",
+     "ru": "Узнай про отмену",
+     "tr": "İptal koşullarını sor"
+    },
+    "intents": [
+     "t5"
+    ]
+   },
+   {
+    "id": "book",
+    "title": {
+     "en": "Book four places",
+     "vi": "Đặt bốn chỗ",
+     "es": "Reserva cuatro plazas",
+     "pt": "Reserve quatro vagas",
+     "fr": "Réserver quatre places",
+     "de": "Vier Plätze buchen",
+     "id": "Pesan empat tempat",
+     "th": "จองสี่ที่นั่ง",
+     "zh": "预订四个名额",
+     "ja": "4名分を予約する",
+     "ko": "네 자리 예약하기",
+     "hi": "चार सीटें बुक करें",
+     "ar": "احجز أربعة أماكن",
+     "ru": "Забронируй четыре места",
+     "tr": "Dört yer ayırt"
+    },
+    "intents": [
+     "t11"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "Tour prices usually cover the guide and transport, but entrance fees, meals and insurance can cost extra, so always ask exactly what is included. Read the cancellation and refund terms before you pay a deposit, and keep your confirmation. Popular tours can sell out in high season, so book early and arrive at the meeting point a few minutes ahead.",
+  "vi": "Giá tour thường đã gồm hướng dẫn viên và phương tiện, nhưng vé vào cổng, bữa ăn và bảo hiểm có thể tính thêm, nên hãy luôn hỏi rõ gói đã bao gồm những gì. Hãy đọc điều khoản hủy và hòan tiền trước khi đặt cọc, và giữ lại xác nhận đặt chỗ. Tour hot có thể hết chỗ vào mùa cao điểm, nên hãy đặt sớm và đến điểm hẹn trước vài phút.",
+  "es": "El precio de una excursión suele cubrir guía y transporte, pero las entradas, las comidas y el seguro pueden costar aparte, así que pregunta siempre qué incluye exactamente. Lee las condiciones de cancelación y reembolso antes de pagar un depósito y guarda tu confirmación. Las excursiones populares se agotan en temporada alta: reserva con tiempo y llega unos minutos antes al punto de encuentro.",
+  "pt": "O preço de um passeio geralmente cobre guia e transporte, mas ingressos, refeições e seguro podem custar à parte, então pergunte sempre o que está incluído. Leia as regras de cancelamento e reembolso antes de pagar um sinal e guarde sua confirmação. Passeios populares esgotam na alta temporada: reserve cedo e chegue ao ponto de encontro com alguns minutos de antecedência.",
+  "fr": "Le prix d'une excursion couvre généralement le guide et le transport, mais les entrées, les repas et l'assurance peuvent être en supplément ; demandez toujours ce qui est inclus. Lisez les conditions d'annulation et de remboursement avant de verser un acompte, et gardez votre confirmation. Les excursions populaires affichent complet en haute saison : réservez tôt et arrivez quelques minutes avant l'heure au point de rendez-vous.",
+  "de": "Der Tourpreis deckt meist Reiseleiter und Transport ab, aber Eintritt, Mahlzeiten und Versicherung können extra kosten; frag also immer genau nach, was enthalten ist. Lies die Stornierungs- und Erstattungsbedingungen, bevor du eine Anzahlung leistest, und bewahre deine Bestätigung auf. Beliebte Touren sind in der Hochsaison schnell ausgebucht: Buche früh und sei ein paar Minuten vor dem Treffpunkt da.",
+  "id": "Harga tur biasanya mencakup pemandu dan transportasi, tetapi tiket masuk, makan, dan asuransi bisa dikenai biaya tambahan, jadi selalu tanyakan apa saja yang termasuk. Baca ketentuan pembatalan dan pengembalian dana sebelum membayar uang muka, dan simpan konfirmasimu. Tur populer bisa penuh saat musim ramai, jadi pesan lebih awal dan tiba di titik kumpul beberapa menit lebih cepat.",
+  "th": "ราคาทัวร์มักรวมไกด์และการเดินทาง แต่ค่าเข้าชม อาหาร และประกันอาจคิดเพิ่ม จึงควรถามให้ชัดว่ารวมอะไรบ้าง อ่านเงื่อนไขการยกเลิกและการคืนเงินก่อนจ่ายมัดจำ และเก็บหลักฐานการจองไว้ ทัวร์ยอดนิยมอาจเต็มในช่วงไฮซีซัน ควรจองล่วงหน้าและไปถึงจุดนัดพบก่อนเวลาสักสองสามนาที",
+  "zh": "行程价格通常包含导游和交通，但门票、餐食和保险可能要另外付费，所以一定要问清楚包含哪些项目。支付订金前先读懂取消和退款条款，并保存好确认信息。热门行程在旺季可能订满，请提前预订，并提前几分钟到达集合地点。",
+  "ja": "ツアー料金には通常ガイドと交通が含まれますが、入場料、食事、保険は別料金のことがあるので、何が含まれるか必ず確認しましょう。予約金を払う前にキャンセルと返金の条件を読み、予約確認書は保管しておきます。人気のツアーは繁忙期に満席になりやすいので、早めに予約し、集合場所には数分前に着くようにしましょう。",
+  "ko": "투어 가격에는 보통 가이드와 교통이 포함되지만 입장료, 식사, 보험은 별도일 수 있으니 무엇이 포함인지 꼭 물어보세요. 보증금을 내기 전에 취소·환불 조건을 읽고 예약 확인서를 보관하세요. 인기 있는 투어는 성수기에 마감될 수 있으니 일찍 예약하고 집합 장소에는 몇 분 일찍 도착하세요.",
+  "hi": "टूर की कीमत में आमतौर पर गाइड और परिवहन शामिल होते हैं, लेकिन प्रवेश शुल्क, भोजन और बीमा अलग से लग सकते हैं, इसलिए हमेशा पूछें कि ठीक-ठीक क्या शामिल है। जमा राशि देने से पहले रद्द करने और रिफ़ंड की शर्तें पढ़ें और अपनी पुष्टि सँभालकर रखें। लोकप्रिय टूर पर्यटन के मौसम में भर जाते हैं, इसलिए जल्दी बुक करें और मिलने की जगह पर कुछ मिनट पहले पहुँचें।",
+  "ar": "تشمل أسعار الجولات عادةً المرشد والمواصلات، لكن رسوم الدخول والوجبات والتأمين قد تُدفع بشكل منفصل، لذا اسأل دائمًا عمّا هو مشمول بالضبط. اقرأ شروط الإلغاء والاسترداد قبل دفع العربون، واحتفظ بتأكيد الحجز. قد تنفد الجولات الشهيرة في موسم الذروة، فاحجز مبكرًا وصل إلى نقطة التجمع قبل الموعد ببضع دقائق.",
+  "ru": "В стоимость экскурсии обычно входят гид и транспорт, но билеты, питание и страховка могут оплачиваться отдельно, поэтому всегда уточняйте, что именно включено. Прочтите условия отмены и возврата до внесения залога и сохраните подтверждение. Популярные экскурсии в высокий сезон быстро раскупают, так что бронируйте заранее и приходите на место встречи за несколько минут до начала.",
+  "tr": "Tur fiyatı genellikle rehber ve ulaşımı kapsar, ancak giriş ücretleri, yemekler ve sigorta ayrıca ücretlendirilebilir; bu yüzden neyin dahil olduğunu mutlaka sorun. Depozito ödemeden önce iptal ve iade koşullarını okuyun ve onayınızı saklayın. Popüler turlar yoğun sezonda dolabilir; erken rezervasyon yapın ve buluşma noktasına birkaç dakika önce gelin."
+ }
+}
