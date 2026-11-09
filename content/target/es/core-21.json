@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -14,7 +14,7 @@
    "pos": "n",
    "gender": "f",
    "plural": "calles",
-   "ipa": "ˈkajje",
+   "ipa": "ˈkaʝe",
    "gl": {
     "vi": "đường",
     "en": "street",
@@ -298,7 +298,7 @@
    "pos": "conj",
    "ipa": "ˈsino",
    "gl": {
-    "vi": "nhưng mà",
+    "vi": "mà là, chứ không",
     "en": "but (rather)",
     "es": "sino",
     "pt": "mas sim",
@@ -376,7 +376,7 @@
    "pos": "n",
    "gender": "m",
    "plural": "aires",
-   "ipa": "ˈaɪɾe",
+   "ipa": "ˈajɾe",
    "gl": {
     "vi": "không khí",
     "en": "air",
@@ -497,7 +497,7 @@
    "pos": "n",
    "gender": "m",
    "plural": "accidentes",
-   "ipa": "aksiˈðɛnte",
+   "ipa": "aksiˈðente",
    "gl": {
     "vi": "tai nạn",
     "en": "accident",
@@ -539,7 +539,7 @@
    "pos": "n",
    "gender": "f",
    "plural": "tiendas",
-   "ipa": "ˈtjɛnda",
+   "ipa": "ˈtjenda",
    "gl": {
     "vi": "cửa hàng",
     "en": "store, shop",
@@ -664,7 +664,7 @@
    "plural": "profesores",
    "ipa": "pɾofeˈsoɾ",
    "gl": {
-    "vi": "thầy giáo",
+    "vi": "giáo viên, thầy giáo",
     "en": "teacher",
     "es": "profesor",
     "pt": "professor",
@@ -703,7 +703,7 @@
    "pos": "n",
    "gender": "f",
    "plural": "reuniones",
-   "ipa": "reʊˈnjon",
+   "ipa": "rewˈnjon",
    "gl": {
     "vi": "cuộc họp",
     "en": "meeting",
@@ -786,7 +786,7 @@
    "pos": "n",
    "gender": "f",
    "plural": "maldiciones",
-   "ipa": "malðiˈsjon",
+   "ipa": "maldiˈsjon",
    "gl": {
     "vi": "lời nguyền",
     "en": "curse",
@@ -1238,7 +1238,7 @@
    "pos": "v",
    "ipa": "anˈdaɾ",
    "gl": {
-    "vi": "đi bộ",
+    "vi": "đi, đi bộ",
     "en": "to walk",
     "es": "andar",
     "pt": "andar",
@@ -1366,17 +1366,17 @@
     "es": "rato",
     "en": "while",
     "vi": "khoảng thời gian",
-    "pt": "período",
+    "pt": "momento, um tempo",
     "fr": "moment",
     "de": "Zeitspanne",
     "id": "waktu",
     "th": "ช่วงเวลา",
-    "zh": "段时间",
+    "zh": "一会儿",
     "ja": "しばらく",
     "ko": "잠시",
-    "hi": "क्षण",
+    "hi": "कुछ समय",
     "ar": "فترة",
-    "ru": "мгновение",
+    "ru": "некоторое время",
     "tr": "süre"
    },
    "ex": {
@@ -1484,19 +1484,19 @@
    "gl": {
     "es": "tía",
     "en": "aunt",
-    "vi": "cô",
+    "vi": "cô, dì",
     "pt": "tia",
     "fr": "tante",
     "de": "Tante",
     "id": "bibi",
     "th": "ป้า",
-    "zh": "姑妈",
+    "zh": "姑姑, 阿姨",
     "ja": "おば",
-    "ko": "이모",
-    "hi": "चाची",
-    "ar": "عمة",
+    "ko": "이모, 고모",
+    "hi": "चाची, मौसी, बुआ",
+    "ar": "عمة، خالة",
     "ru": "тётя",
-    "tr": "teyze"
+    "tr": "teyze, hala"
    },
    "ex": {
     "es": "Mi tía vive en México.",
@@ -1601,7 +1601,7 @@
    "pos": "n",
    "gender": "f",
    "plural": "escenas",
-   "ipa": "eˈsena",
+   "ipa": "esˈsena",
    "gl": {
     "es": "escena",
     "en": "scene",
@@ -1721,5 +1721,13 @@
     "spot": true
    }
   }
- ]
+ ],
+ "review": {
+  "by": "sonnet-review-B",
+  "at": "2026-11-09",
+  "checked": 42,
+  "fixed": 12,
+  "dropped": 0,
+  "sample": 8
+ }
 }

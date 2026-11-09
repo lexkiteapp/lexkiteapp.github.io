@@ -150,6 +150,16 @@ if (V2) {
     const vt = w.document.getElementById('view').textContent;
     ok(st && vt.includes(st.lines[0].en.slice(0, 18)) && (st === cur || !vt.includes(cur.lines[0].en.slice(0, 18))) && w.localStorage.getItem('lk.lsn.path') === '2', 'thẻ truyện (?story=) mở đúng truyện đó (không theo vòng xoay), không đẩy nút lộ trình');
     w.location.hash = '#/home'; await tick(10); }
+  { // Học xong truyện mở từ Hôm nay: "Bài khác" phải sang bài mới, Hôm nay không mời lại truyện vừa xong
+    const zz = { id: 'zz-next', kind: 'story', cefr: 'A1', title: 'ZZ', lines: [{ who: 'ama', en: 'Zebra line one here.' }, { who: 'carlos', en: 'Zebra line two here.' }], checks: [] }; w.LESSON_STORIES.unshift(zz); const p0 = w.localStorage.getItem('lk.lsn.path');
+    w.location.hash = '#/lesson/go?story=zz-next'; await tick(10); await App.routes.lesson('go'); await tick(300);
+    for (let i = 0; i < 40 && !$('#lsnAgain'); i++) { const o = $('#lsnBody .lsn-opt'), c = $('#lsnCheck'), g = $('#lsnNext') || $('#lsnGo'); if (g) g.click(); else if (c && c.disabled && o) o.click(); else if (c) c.click(); await tick(260); }
+    ok($('#lsnAgain'), 'truyện từ Hôm nay: học hết tới màn kết');
+    ok(JSON.parse(w.localStorage.getItem('lk.lsn.sd') || '[]').includes('zz-next') && w.localStorage.getItem('lk.lsn.path') === p0, 'xong truyện: ghi đã học, không đẩy nút lộ trình');
+    $('#lsnAgain').click(); await tick(400);
+    ok(w.location.hash === '#/lesson/go' && !w.document.getElementById('view').textContent.includes('Zebra line'), `"Bài khác" sang bài mới, không học lại truyện vừa xong (hash ${w.location.hash})`);
+    await go('#/home', '.v2-today'); const first = ($('.v2-today [data-blk="stories"] a[href^="#/lesson/go?story="]') || { getAttribute: () => '' }).getAttribute('href'); ok(first && !first.includes('zz-next'), `Hôm nay: thẻ truyện đầu không phải truyện vừa học (${first})`);
+    w.LESSON_STORIES.shift(); w.localStorage.removeItem('lk.lsn.sd'); }
   w.localStorage.setItem('lk.lsn.path', '0');
 } else {
 const start = $$('.ux1-home .lsn-start');
@@ -294,7 +304,7 @@ const fx = JSON.parse(fs.readFileSync('scripts/i18n-fixed.json', 'utf8'));
 {
   w.localStorage.setItem('lk.ux1', '1'); const P = w.document;
   await go('#/call', '.call-card');
-  const cards = $$('.call-card'), CL = w.CALLS;
+  const cards = $$('.call-card'), CL = w.CALLS.filter(c => !c.tl); // ngôn ngữ học = en → chỉ cuộc gọi tiếng Anh (cuộc gọi es có tl:'es', lọc theo Target.cur)
   ok(cards.length === CL.length && cards.every(a => /^#\/call\/[\w-]+$/.test(a.getAttribute('href'))) && !$$('#view img').some(i => /img\/call\//.test(i.getAttribute('src'))), 'call (v2): danh sách đủ ' + CL.length + ' cuộc gọi, ảnh giáo viên qua Chars (không img/call/mia)');
   const E = w.CallEngine, C0 = E.prep(CL[0]), WHO = C0.who, NM = w.Chars.name(WHO), N0 = C0.nodes[C0.start]; // giáo viên theo kịch bản (c.who Ama/Carlos – CallEngine #194)
   await go('#/call/' + CL[0].id, '#callGo');
