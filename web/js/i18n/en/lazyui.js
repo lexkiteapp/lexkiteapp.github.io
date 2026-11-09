@@ -778,4 +778,18 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
   'Làm bài 5 phút để mình xếp bạn vào đúng chặng và chọn bộ từ vừa sức nhé!': 'Take this 5-minute test so I can place you at the right stage and pick words at your level!',
   'Bỏ qua thì bạn học từ chặng đầu – làm bài sau ở Hôm nay cũng được.': 'If you skip, you start from the first stage – you can take the test later from Today.',
   'Đã thêm {n} từ hợp trình độ {cefr} vào bộ thẻ.': 'Added {n} words at your {cefr} level to your deck.',
+// ← Sổ mẫu câu theo chức năng (#/phrases, js/phrase-book.js)
+'Sổ mẫu câu theo chức năng': 'Phrase book by function',
+'Biết nói gì khi gọi điện, nhờ giúp, xin lỗi… – 3 mức trang trọng, câu đáp, hội thoại mẫu.': 'What to say when you phone, ask for help or apologise – in three registers, with replies and a sample dialogue.',
+'Mẫu câu trang trọng': 'Formal',
+'Mẫu câu trung tính': 'Neutral',
+'Mẫu câu thân mật': 'Informal',
+'Câu đáp thường gặp': 'Common replies',
+'Hội thoại mẫu': 'Sample dialogue',
+'Tránh nói': 'Avoid',
+'Lưu cụm này vào sổ': 'Save this phrase',
+'Lọc theo cấp độ': 'Filter by level',
+'Tìm chức năng hoặc câu…': 'Search a function or phrase…',
+'Chưa có mẫu câu phù hợp.': 'No matching phrases yet.',
+'Không tải được sổ mẫu câu. Thử lại sau.': 'Could not load the phrase book. Try again later.',
 }); })(typeof self !== 'undefined' ? self : this);
