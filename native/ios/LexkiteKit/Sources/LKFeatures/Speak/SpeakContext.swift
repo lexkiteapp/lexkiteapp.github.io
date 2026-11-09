@@ -151,14 +151,6 @@ public struct RecognizeOutcome: Equatable, Sendable {
     }
 }
 
-/// The accent of the learner's voices and recogniser (web `settings.accent`, default en-GB); #/speak, #/say and pair practice always use en-US.
-public enum SpeakAccent {
-    public static func locale(_ settings: JSON) -> String { settings.s("accent") == "us" ? "en-US" : "en-GB" }
-    public static let us = "en-US"
-    /// teacher names of the web → voice owner of `LKVoicePlayer`
-    public static let ama = "ama", carlos = "carlos"
-}
-
 /// The P07 packs: the bundled starter at first, the full https://lexkite.com/data/speak-pack.json and say.json once fetched (cached on disk by `LessonRemote`).
 @MainActor
 public enum SpeakContentStore {

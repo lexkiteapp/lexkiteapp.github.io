@@ -134,3 +134,11 @@ public enum SpeakScore {
         return r
     }
 }
+
+/// The accent of the learner's voices and recogniser (web `settings.accent`, default en-GB); #/speak, #/say and pair practice always use en-US.
+public enum SpeakAccent {
+    public static func locale(_ settings: JSON) -> String { settings.s("accent") == "us" ? "en-US" : "en-GB" }
+    public static let us = "en-US"
+    /// teacher names of the web → voice owner of `LKVoicePlayer`
+    public static let ama = "ama", carlos = "carlos"
+}
