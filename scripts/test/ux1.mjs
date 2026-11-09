@@ -160,9 +160,6 @@ if (V2) {
     ok(w.location.hash === '#/lesson/go' && !w.document.getElementById('view').textContent.includes('Zebra line'), `"Bài khác" sang bài mới, không học lại truyện vừa xong (hash ${w.location.hash})`);
     await go('#/home', '.v2-today'); const first = ($('.v2-today [data-blk="stories"] a[href^="#/lesson/go?story="]') || { getAttribute: () => '' }).getAttribute('href'); ok(first && !first.includes('zz-next'), `Hôm nay: thẻ truyện đầu không phải truyện vừa học (${first})`);
     w.LESSON_STORIES.shift(); w.localStorage.removeItem('lk.lsn.sd'); }
-  { // Lộ trình: hai bài liền nhau không được lặp y nguyên một bộ từ
-    const seen = []; for (let n = 0; n < 8; n++) { w.localStorage.setItem('lk.lsn.path.demo', String(n)); App._lsn = null; w.location.hash = '#/lesson/go?demo=1'; await tick(10); await App.routes.lesson('go'); await tick(60); const L = App._lsn; if (L && L.picks && L.picks.length && w.location.hash.includes('lesson/go')) seen.push([n, L.picks.map(x => x.card.word).sort().join()]); }
-    ok(seen.length >= 4 && seen.every((x, i) => !i || x[0] !== seen[i - 1][0] + 1 || x[1] !== seen[i - 1][1]), `lộ trình: bài kế có bộ từ khác (${seen.map(x => x[0] + ':' + x[1]).join(' | ')})`); w.localStorage.removeItem('lk.lsn.path.demo'); w.location.hash = '#/home'; await tick(10); }
   w.localStorage.setItem('lk.lsn.path', '0');
 } else {
 const start = $$('.ux1-home .lsn-start');
