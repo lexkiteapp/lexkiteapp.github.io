@@ -21,7 +21,7 @@
         const r = { v: st === 'done' ? 'done' : st === 'cur' ? 'cur' : SLOTS[i] === 'exam' ? 'chk' : 'lock', id, h, cy, x, pin: `M${a} 0 C${a} ${cy / 2} ${x} ${cy / 2} ${x} ${cy}`, pout: `M${x} ${cy} C${x} ${(cy + h) / 2} ${b} ${(cy + h) / 2} ${b} ${h}`, label, sub: it ? t(it.sub) : minT, aria: `${label} – ${t(st === 'done' ? 'Đã xong' : st === 'cur' ? 'Đang học' : 'Đã khóa')}` };
         if (st === 'cur') Object.assign(r, { href: `#/lesson/go${Q}`, start: t('Bắt đầu'), min: minT, off: (RING * (1 - dn / vis.length)).toFixed(1), tch: o.tch() });
         const redo = SLOTS[i] === 'exam' ? o.check(abs).href : it && it.story ? `#/lesson/go${Q ? Q + '&' : '?'}story=${encodeURIComponent(it.story)}` : `#/lesson/go${Q ? Q + '&' : '?'}redo=${abs}`;
-        by[id] = { st, label, sub: r.sub, minT, over: `${stage} · ${unit}`, words: it ? it.words.map(w => w.w) : [], ex: it ? it.ex.map(x => ({ en: x.en, tr: t(x.vi) })) : [], href: st === 'cur' ? r.href : st === 'done' ? redo : '', before };
+        by[id] = { st, label, sub: r.sub, minT, over: `${stage} · ${unit}`, words: it ? it.words.map(w => w.w) : [], ex: it ? it.ex.map(x => { const tr = t(x.vi); return { en: x.en, tr: tr === x.en ? '' : tr }; }) : [], href: st === 'cur' ? r.href : st === 'done' ? redo : '', before };
         before = label; rows.push(r); });
     }
     return { rows, by, ph: { open: String(!!full), more: full ? t('Thu gọn lộ trình') : t('Xem toàn bộ lộ trình →') } };
