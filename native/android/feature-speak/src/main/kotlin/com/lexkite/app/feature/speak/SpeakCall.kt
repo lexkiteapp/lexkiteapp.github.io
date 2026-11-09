@@ -63,6 +63,8 @@ import com.lexkite.app.feature.vocab.StudyField
 import com.lexkite.app.feature.vocab.StudyFocus
 import com.lexkite.app.feature.vocab.StudyPage
 import com.lexkite.app.feature.vocab.Tag
+import com.lexkite.app.feature.vocab.t
+import com.lexkite.app.i18n.generated.L10nKey
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive

@@ -254,7 +254,10 @@ public final class CallRules: @unchecked Sendable {
     public struct Score: Sendable {
         public var base = 40.0, doneWeight = 20.0, shareWeight = 20.0, cleanWeight = 20.0, max = 100.0, great = 85.0, good = 70.0, slowWpm = 70.0, fillerShare = 0.08, fillerMinWords = 20.0, maxSlips = 2
     }
-    struct Rule { var past = false, own = false, why: L10nKey, fix: (String) -> String }
+    struct Rule {
+        var past: Bool, own: Bool, why: L10nKey, fix: (String) -> String
+        init(past: Bool = false, own: Bool = false, why: L10nKey, fix: @escaping (String) -> String) { self.past = past; self.own = own; self.why = why; self.fix = fix }
+    }
     public let score: Score
     public let xpBase: Int, xpPerTurn: Int, xpPerVoiced: Int, xpUsedWords: Int, pctMax: Int, longSeconds: Int
     /// card title key of a call (Vietnamese web key; "" = none, the English title is shown)
