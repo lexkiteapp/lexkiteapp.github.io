@@ -1030836,6 +1030836,65 @@
      "work.n"
     ]
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "contemptuous#adj",
+   "batch": "20261109-r198",
+   "why": [
+    "dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo"
+   ],
+   "at": "2026-11-09",
+   "data": {
+    "w": "contemptuous",
+    "pos": "adj",
+    "ipa": "/kənˈtem(p)tʃuəs/",
+    "ipaUS": "/kənˈtemptʃuəs/",
+    "def": "showing strong dislike and disrespect",
+    "ex": [
+     "I don't know that guy, but he just gave me a contemptuous look.",
+     "Lord Alan Brooke, the British Chief of Staff, was even more contemptuous of China."
+    ],
+    "col": [],
+    "syn": [
+     "insulting"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 2.64,
+    "emoji": "",
+    "topic": "xw-feelings",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:contemptuous.s.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "octanove",
+     "ex": [
+      "wiktionary",
+      "wikipedia:ew193819.2"
+     ],
+     "tr": {
+      "fr": "wiktionary+omw+ai",
+      "zh": "omw+ai",
+      "ja": "wiktionary+ai"
+     },
+     "trSense": "showing contempt",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
   }
  ]
 }
