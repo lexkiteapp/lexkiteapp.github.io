@@ -102,5 +102,46 @@
   "words": 46,
   "seconds": 30.0,
   "wpm": 92
+ },
+ "publish": {
+  "title": "A client reports a bug?",
+  "keyword": "I'll look into it",
+  "value": "\"I'll look into it\" means a promise to investigate a problem.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#phrasalverbs",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "A client reports a bug?",
+    "description": "\"I'll look into it\" means a promise to investigate a problem.\n\nLearn real phrases, free: https://lexkite.com/app/#/phrases\n\nSeries: Say it like a native · Teacher: Carlos\n\n#learnenglish #englishtips #phrasalverbs #englishteacher",
+    "tags": [
+     "I'll look into it",
+     "Say it like a native",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "A client reports a bug?\n\n\"I'll look into it\" means a promise to investigate a problem.\n\nLearn real phrases, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "A client reports a bug?\n\n\"I'll look into it\" means a promise to investigate a problem.\n\nLearn real phrases: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#phrasalverbs",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "A client reports a bug? #learnenglish #englishtips #phrasalverbs"
+   }
+  },
+  "first_comment": "Quiz answer: I'll look into it. \"I'll look into it\" means a promise to investigate a problem. Practice it with a free quiz: {link}"
  }
 }

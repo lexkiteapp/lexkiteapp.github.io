@@ -1,0 +1,68 @@
+{
+ "fixed": [
+  {
+   "word": "a",
+   "field": "gl.tr",
+   "from": "e",
+   "to": "-e, -a",
+   "why": "\"e\" mơ hồ, ru \"к\" hẹp"
+  },
+  {
+   "word": "a",
+   "field": "gl.ru",
+   "from": "к",
+   "to": "в, к",
+   "why": "\"e\" mơ hồ, ru \"к\" hẹp"
+  },
+  {
+   "word": "te",
+   "field": "gl.vi",
+   "from": "bạn",
+   "to": "bạn (tân ngữ)",
+   "why": "nêu vai trò tân ngữ"
+  },
+  {
+   "word": "sí",
+   "field": "gl.vi",
+   "from": "đúng",
+   "to": "vâng, có",
+   "why": "\"đúng\" là nghĩa tính từ, không phải sí=yes"
+  },
+  {
+   "word": "su",
+   "field": "gl.vi",
+   "from": "của anh ấy/của cô ấy",
+   "to": "của anh/chị ấy, của họ, của ngài",
+   "why": "thiếu nghĩa họ/ngài"
+  },
+  {
+   "word": "nada",
+   "field": "gl.vi",
+   "from": "không gì",
+   "to": "không có gì",
+   "why": "\"không gì\" cụt nghĩa"
+  },
+  {
+   "word": "ese",
+   "field": "gl.de",
+   "from": "dieser",
+   "to": "jener",
+   "why": "dieser = este, lẫn với este"
+  },
+  {
+   "word": "solo",
+   "field": "gl.vi",
+   "from": "cô đơn",
+   "to": "một mình",
+   "why": "\"cô đơn\" = lonely, lệch nghĩa alone; ru \"одинокий\" = lonely"
+  },
+  {
+   "word": "solo",
+   "field": "gl.ru",
+   "from": "одинокий",
+   "to": "один, в одиночестве",
+   "why": "\"cô đơn\" = lonely, lệch nghĩa alone; ru \"одинокий\" = lonely"
+  }
+ ],
+ "dropped": []
+}

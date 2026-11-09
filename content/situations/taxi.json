@@ -1,0 +1,876 @@
+{
+ "id": "taxi",
+ "group": "transport",
+ "cefr": "A2",
+ "title": {
+  "en": "Taxi",
+  "vi": "Taxi",
+  "es": "Taxi",
+  "pt": "Táxi",
+  "fr": "Taxi",
+  "de": "Taxi",
+  "id": "Taksi",
+  "th": "แท็กซี่",
+  "zh": "出租车",
+  "ja": "タクシー",
+  "ko": "택시",
+  "hi": "टैक्सी",
+  "ar": "سيارة الأجرة",
+  "ru": "Такси",
+  "tr": "Taksi"
+ },
+ "goal": {
+  "en": "Get there safely!",
+  "vi": "Đi đến nơi an toàn!",
+  "es": "¡Llega sin problemas!",
+  "pt": "Chegue com segurança!",
+  "fr": "Arrivez sans souci !",
+  "de": "Komm sicher an!",
+  "id": "Sampai dengan selamat!",
+  "th": "ไปถึงที่หมายอย่างปลอดภัย!",
+  "zh": "平安抵达目的地！",
+  "ja": "無事に目的地へ！",
+  "ko": "안전하게 도착해요!",
+  "hi": "सुरक्षित पहुँचें!",
+  "ar": "صل بأمان!",
+  "ru": "Доберись без проблем!",
+  "tr": "Güvenle var!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "book",
+   "title": {
+    "en": "Get a taxi",
+    "vi": "Gọi taxi",
+    "es": "Conseguir un taxi",
+    "pt": "Chamar um táxi",
+    "fr": "Prendre un taxi",
+    "de": "Ein Taxi nehmen",
+    "id": "Mendapat taksi",
+    "th": "เรียกแท็กซี่",
+    "zh": "打到车",
+    "ja": "タクシーを拾う",
+    "ko": "택시 잡기",
+    "hi": "टैक्सी लेना",
+    "ar": "الحصول على سيارة أجرة",
+    "ru": "Поймать такси",
+    "tr": "Taksi bulma"
+   },
+   "lines": [
+    "g1",
+    "g2",
+    "g3",
+    "g4"
+   ]
+  },
+  {
+   "id": "ride",
+   "title": {
+    "en": "During the ride",
+    "vi": "Trong chuyến đi",
+    "es": "Durante el viaje",
+    "pt": "Durante a viagem",
+    "fr": "Pendant la course",
+    "de": "Während der Fahrt",
+    "id": "Selama perjalanan",
+    "th": "ระหว่างเดินทาง",
+    "zh": "途中",
+    "ja": "乗車中",
+    "ko": "이동 중",
+    "hi": "यात्रा के दौरान",
+    "ar": "أثناء الرحلة",
+    "ru": "Во время поездки",
+    "tr": "Yolculuk sırasında"
+   },
+   "lines": [
+    "r1",
+    "r2",
+    "r3",
+    "r4"
+   ]
+  },
+  {
+   "id": "arrive",
+   "title": {
+    "en": "Arrive and pay",
+    "vi": "Đến nơi và trả tiền",
+    "es": "Llegar y pagar",
+    "pt": "Chegar e pagar",
+    "fr": "Arriver et payer",
+    "de": "Ankommen und zahlen",
+    "id": "Tiba dan bayar",
+    "th": "ถึงที่หมายและจ่ายเงิน",
+    "zh": "到达并付款",
+    "ja": "到着と支払い",
+    "ko": "도착과 요금 지불",
+    "hi": "पहुँचना और भुगतान",
+    "ar": "الوصول والدفع",
+    "ru": "Приехать и заплатить",
+    "tr": "Varış ve ödeme"
+   },
+   "lines": [
+    "a1",
+    "a2",
+    "a3",
+    "a4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "g1",
+   "who": "customer",
+   "en": "Hi, could you take me to the airport, please?",
+   "variants": {
+    "polite": "Hello, could you take me to the airport, please?",
+    "casual": "To the airport, please."
+   },
+   "gloss": {
+    "en": "Telling the driver where to go.",
+    "vi": "Nói với tài xế điểm đến.",
+    "es": "Dice al conductor el destino.",
+    "pt": "Diz ao motorista o destino.",
+    "fr": "Dire au chauffeur la destination.",
+    "de": "Dem Fahrer das Ziel nennen.",
+    "id": "Menyebut tujuan kepada sopir.",
+    "th": "บอกคนขับว่าจะไปไหน",
+    "zh": "告诉司机目的地。",
+    "ja": "運転手に行き先を伝えます。",
+    "ko": "기사에게 목적지를 말해요.",
+    "hi": "ड्राइवर को गंतव्य बताना।",
+    "ar": "إخبار السائق بالوجهة.",
+    "ru": "Назвать водителю пункт назначения.",
+    "tr": "Şoföre gideceğiniz yeri söyleme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "airport",
+     "ipa": "/ˈer.pɔːrt/",
+     "hi": "AIR",
+     "note": {
+      "en": "Stress the first syllable: AIR-port. It sounds like \"air\" plus \"port\".",
+      "vi": "Nhấn âm đầu: E-pót. Đọc như \"air\" cộng \"port\".",
+      "es": "Acentúa la primera sílaba: AIR-port. Suena como \"air\" más \"port\".",
+      "pt": "Acentue a primeira sílaba: ÉR-port. Soa como \"air\" mais \"port\".",
+      "fr": "Accentuez la première syllabe : AIR-port. Comme « air » plus « port ».",
+      "de": "Betone die erste Silbe: ER-port. Wie „air“ plus „port“.",
+      "id": "Tekankan suku kata pertama: ER-port. Seperti \"air\" plus \"port\".",
+      "th": "เน้นพยางค์แรก: แอร์-พอร์ต เหมือน \"air\" รวม \"port\"",
+      "zh": "重音在第一音节：AIR-port，像 air 加 port。",
+      "ja": "最初を強く：AIR・ポート。air と port をつなげた音です。",
+      "ko": "첫 음절에 강세: AIR-포트. air와 port를 이은 소리예요.",
+      "hi": "पहले अक्षर पर ज़ोर: AIR-पोर्ट। air और port जोड़कर।",
+      "ar": "النبر على المقطع الأول: AIR-port، أي air ثم port.",
+      "ru": "Ударение на первый слог: ЭР-порт. Как «air» плюс «port».",
+      "tr": "Vurgu ilk hecede: EYR-port. \"air\" ve \"port\" birleşimi gibi."
+     }
+    }
+   ]
+  },
+  {
+   "id": "g2",
+   "who": "barista",
+   "en": "Sure, hop in. Which terminal?",
+   "variants": {
+    "polite": "Certainly. Please get in. Which terminal do you need?",
+    "casual": "Hop in. Which terminal?"
+   },
+   "gloss": {
+    "en": "The driver asks for details.",
+    "vi": "Tài xế hỏi thêm chi tiết.",
+    "es": "El conductor pide detalles.",
+    "pt": "O motorista pede detalhes.",
+    "fr": "Le chauffeur demande des précisions.",
+    "de": "Der Fahrer fragt nach Details.",
+    "id": "Sopir menanyakan detail.",
+    "th": "คนขับถามรายละเอียด",
+    "zh": "司机问具体信息。",
+    "ja": "運転手が詳細を尋ねます。",
+    "ko": "기사가 자세한 정보를 물어봐요.",
+    "hi": "ड्राइवर और जानकारी पूछता है।",
+    "ar": "السائق يسأل عن التفاصيل.",
+    "ru": "Водитель уточняет детали.",
+    "tr": "Şoför ayrıntı sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "g3",
+   "who": "customer",
+   "en": "Terminal two, please. How long will it take?",
+   "variants": {
+    "polite": "Terminal two, please. Roughly how long will it take?",
+    "casual": "Terminal two. How long?"
+   },
+   "gloss": {
+    "en": "Asking about the journey time.",
+    "vi": "Hỏi thời gian đi.",
+    "es": "Pregunta cuánto dura el viaje.",
+    "pt": "Pergunta quanto dura a viagem.",
+    "fr": "Demander la durée du trajet.",
+    "de": "Nach der Fahrzeit fragen.",
+    "id": "Menanyakan lama perjalanan.",
+    "th": "ถามเวลาเดินทาง",
+    "zh": "问路程要多久。",
+    "ja": "所要時間を尋ねます。",
+    "ko": "소요 시간을 물어봐요.",
+    "hi": "यात्रा का समय पूछना।",
+    "ar": "السؤال عن مدة الرحلة.",
+    "ru": "Спросить время в пути.",
+    "tr": "Yolculuk süresini sorma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "g4",
+   "who": "barista",
+   "en": "About twenty-five minutes, if the traffic is okay.",
+   "variants": {
+    "polite": "About twenty-five minutes, as long as the traffic is light.",
+    "casual": "Twenty-five minutes. Maybe more."
+   },
+   "gloss": {
+    "en": "The driver estimates the time.",
+    "vi": "Tài xế ước tính thời gian.",
+    "es": "El conductor estima el tiempo.",
+    "pt": "O motorista estima o tempo.",
+    "fr": "Le chauffeur estime la durée.",
+    "de": "Der Fahrer schätzt die Zeit.",
+    "id": "Sopir memperkirakan waktu.",
+    "th": "คนขับประเมินเวลา",
+    "zh": "司机估计所需时间。",
+    "ja": "運転手が所要時間を伝えます。",
+    "ko": "기사가 시간을 예상해요.",
+    "hi": "ड्राइवर समय का अंदाज़ा बताता है।",
+    "ar": "السائق يقدّر المدة.",
+    "ru": "Водитель оценивает время.",
+    "tr": "Şoför süreyi tahmin eder."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "traffic",
+     "ipa": "/ˈtræf.ɪk/",
+     "hi": "TRAF",
+     "note": {
+      "en": "Stress the first syllable: TRAF-ik. The \"a\" is short, and the end is weak.",
+      "vi": "Nhấn âm đầu: TRÁ-phìc. \"a\" ngắn, phần cuối nhẹ.",
+      "es": "Acentúa la primera sílaba: TRAF-ik. La \"a\" es corta y el final débil.",
+      "pt": "Acentue a primeira sílaba: TRÁ-fik. O \"a\" é curto e o final fraco.",
+      "fr": "Accentuez la première syllabe : TRAF-ik. Le « a » est bref, la fin faible.",
+      "de": "Betone die erste Silbe: TRÄ-fik. Kurzes „a“, schwaches Ende.",
+      "id": "Tekankan suku kata pertama: TRAF-ik. \"a\" pendek, akhir lemah.",
+      "th": "เน้นพยางค์แรก: แทร-ฟิก \"a\" สั้น ท้ายคำเบา",
+      "zh": "重音在第一音节：TRAF-ik，a 读短音，结尾很轻。",
+      "ja": "最初を強く：TRAF・イク。a は短く、語尾は弱く。",
+      "ko": "첫 음절에 강세: TRAF-익. a는 짧고 끝은 약해요.",
+      "hi": "पहले अक्षर पर ज़ोर: TRAF-इक। a छोटा है, अंत हल्का।",
+      "ar": "النبر على المقطع الأول: TRAF-ik، وa قصيرة والنهاية خفيفة.",
+      "ru": "Ударение на первый слог: ТРЭФ-ик. «a» короткий, конец слабый.",
+      "tr": "Vurgu ilk hecede: TREF-ik. \"a\" kısa, son hece zayıf."
+     }
+    }
+   ]
+  },
+  {
+   "id": "r1",
+   "who": "customer",
+   "en": "Excuse me, is the meter on?",
+   "variants": {
+    "polite": "Excuse me, could you turn the meter on, please?",
+    "casual": "Is the meter on?"
+   },
+   "gloss": {
+    "en": "Checking the meter.",
+    "vi": "Kiểm tra đồng hồ tính tiền.",
+    "es": "Comprueba el taxímetro.",
+    "pt": "Confere o taxímetro.",
+    "fr": "Vérifier le compteur.",
+    "de": "Das Taxameter prüfen.",
+    "id": "Memeriksa argo.",
+    "th": "ตรวจมิเตอร์",
+    "zh": "确认计价器。",
+    "ja": "メーターを確認します。",
+    "ko": "미터기를 확인해요.",
+    "hi": "मीटर चालू है या नहीं देखना।",
+    "ar": "التحقق من العداد.",
+    "ru": "Проверить счётчик.",
+    "tr": "Taksimetreyi kontrol etme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "r2",
+   "who": "barista",
+   "en": "Yes, it's running. Sorry, I forgot to press it.",
+   "variants": {
+    "polite": "Yes, it's on now. I'm sorry, I forgot to start it.",
+    "casual": "It's on now. Sorry!"
+   },
+   "gloss": {
+    "en": "The driver apologises.",
+    "vi": "Tài xế xin lỗi.",
+    "es": "El conductor se disculpa.",
+    "pt": "O motorista pede desculpas.",
+    "fr": "Le chauffeur s'excuse.",
+    "de": "Der Fahrer entschuldigt sich.",
+    "id": "Sopir meminta maaf.",
+    "th": "คนขับขอโทษ",
+    "zh": "司机道歉。",
+    "ja": "運転手が謝ります。",
+    "ko": "기사가 사과해요.",
+    "hi": "ड्राइवर माफ़ी माँगता है।",
+    "ar": "السائق يعتذر.",
+    "ru": "Водитель извиняется.",
+    "tr": "Şoför özür diler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "r3",
+   "who": "customer",
+   "en": "Could you turn the air conditioning up? It's hot.",
+   "variants": {
+    "polite": "Would you mind turning the air conditioning up? It's quite hot.",
+    "casual": "Can you turn the air on?"
+   },
+   "gloss": {
+    "en": "Asking for a small change.",
+    "vi": "Xin chỉnh điều hòa.",
+    "es": "Pide ajustar el aire.",
+    "pt": "Pede para ajustar o ar.",
+    "fr": "Demander de régler la clim.",
+    "de": "Um die Klimaanlage bitten.",
+    "id": "Meminta mengatur AC.",
+    "th": "ขอปรับแอร์",
+    "zh": "请调一下空调。",
+    "ja": "エアコンを調整してもらいます。",
+    "ko": "에어컨을 조절해 달라고 해요.",
+    "hi": "एसी ठीक करने को कहना।",
+    "ar": "طلب ضبط المكيف.",
+    "ru": "Попросить изменить кондиционер.",
+    "tr": "Klimayı ayarlamasını isteme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "r4",
+   "who": "customer",
+   "en": "Could you slow down a little, please?",
+   "variants": {
+    "polite": "Would you mind driving a little more slowly, please?",
+    "casual": "Please go a bit slower."
+   },
+   "gloss": {
+    "en": "Asking the driver to slow down.",
+    "vi": "Nhờ tài xế chạy chậm lại.",
+    "es": "Pide al conductor ir más despacio.",
+    "pt": "Pede ao motorista para ir mais devagar.",
+    "fr": "Demander au chauffeur de ralentir.",
+    "de": "Den Fahrer bitten, langsamer zu fahren.",
+    "id": "Meminta sopir pelan-pelan.",
+    "th": "ขอให้คนขับขับช้าลง",
+    "zh": "请司机开慢一点。",
+    "ja": "運転手にスピードを落としてもらいます。",
+    "ko": "기사에게 천천히 가 달라고 해요.",
+    "hi": "ड्राइवर से धीमा चलाने को कहना।",
+    "ar": "طلب من السائق أن يبطئ.",
+    "ru": "Попросить водителя ехать медленнее.",
+    "tr": "Şoförden yavaşlamasını isteme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "a1",
+   "who": "customer",
+   "en": "Here is fine, thanks. How much is it?",
+   "variants": {
+    "polite": "This is fine, thank you. How much do I owe you?",
+    "casual": "Here's fine. How much?"
+   },
+   "gloss": {
+    "en": "Asking the fare.",
+    "vi": "Hỏi giá cước.",
+    "es": "Pregunta la tarifa.",
+    "pt": "Pergunta a tarifa.",
+    "fr": "Demander le tarif.",
+    "de": "Nach dem Fahrpreis fragen.",
+    "id": "Menanyakan tarif.",
+    "th": "ถามค่าโดยสาร",
+    "zh": "问车费。",
+    "ja": "運賃を尋ねます。",
+    "ko": "요금을 물어봐요.",
+    "hi": "किराया पूछना।",
+    "ar": "السؤال عن الأجرة.",
+    "ru": "Спросить стоимость.",
+    "tr": "Ücreti sorma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "a2",
+   "who": "barista",
+   "en": "That's thirty-two pounds fifty.",
+   "variants": {
+    "polite": "That comes to thirty-two pounds fifty, please.",
+    "casual": "Thirty-two fifty."
+   },
+   "gloss": {
+    "en": "The driver says the fare.",
+    "vi": "Tài xế báo giá cước.",
+    "es": "El conductor dice la tarifa.",
+    "pt": "O motorista diz a tarifa.",
+    "fr": "Le chauffeur annonce le tarif.",
+    "de": "Der Fahrer nennt den Preis.",
+    "id": "Sopir menyebut tarif.",
+    "th": "คนขับบอกค่าโดยสาร",
+    "zh": "司机报车费。",
+    "ja": "運転手が運賃を伝えます。",
+    "ko": "기사가 요금을 말해요.",
+    "hi": "ड्राइवर किराया बताता है।",
+    "ar": "السائق يذكر الأجرة.",
+    "ru": "Водитель называет сумму.",
+    "tr": "Şoför ücreti söyler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "a3",
+   "who": "customer",
+   "en": "Can I pay by card? And could I have a receipt?",
+   "variants": {
+    "polite": "Could I pay by card, and may I have a receipt, please?",
+    "casual": "Card okay? And a receipt?"
+   },
+   "gloss": {
+    "en": "Paying and asking for a receipt.",
+    "vi": "Hỏi trả bằng thẻ và xin biên lai.",
+    "es": "Pregunta por la tarjeta y el recibo.",
+    "pt": "Pergunta pelo cartão e pelo recibo.",
+    "fr": "Demander la carte et un reçu.",
+    "de": "Nach Karte und Quittung fragen.",
+    "id": "Menanyakan kartu dan struk.",
+    "th": "ถามเรื่องบัตรและขอใบเสร็จ",
+    "zh": "问能否刷卡并要收据。",
+    "ja": "カード払いとレシートを頼みます。",
+    "ko": "카드 결제와 영수증을 요청해요.",
+    "hi": "कार्ड और रसीद के बारे में पूछना।",
+    "ar": "السؤال عن البطاقة والإيصال.",
+    "ru": "Спросить об оплате картой и чеке.",
+    "tr": "Kart ve fiş isteme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "receipt",
+     "ipa": "/rɪˈsiːt/",
+     "hi": "SEET",
+     "note": {
+      "en": "Say ri-SEET. The \"p\" is silent, so it does not sound like \"re-sep-t\".",
+      "vi": "Đọc ri-SIT. Chữ \"p\" câm, không đọc \"ri-sép-t\".",
+      "es": "Di ri-SIT. La \"p\" es muda; no suena \"re-sep-t\".",
+      "pt": "Diga ri-SIT. O \"p\" é mudo; não soa \"re-sep-t\".",
+      "fr": "Dites ri-SIT. Le « p » est muet, pas « re-sept ».",
+      "de": "Sprich ri-SIT. Das „p“ ist stumm, nicht „re-sept“.",
+      "id": "Ucapkan ri-SIT. \"p\" tidak dibaca, bukan \"re-sep-t\".",
+      "th": "ออกเสียง ริ-SEET ตัว \"p\" เป็นตัวเงียบ ไม่ใช่ \"รี-เซ็ปท์\"",
+      "zh": "读作 ri-SEET，p 不发音，不是 re-sep-t。",
+      "ja": "ri・SEET と読みます。p は発音しません。",
+      "ko": "ri-SEET로 읽어요. p는 소리 나지 않아요.",
+      "hi": "ri-SEET बोलें। p मौन है।",
+      "ar": "تُنطق ri-SEET، وحرف p صامت.",
+      "ru": "Читается ри-СИТ. «p» не читается.",
+      "tr": "ri-SEET diye okunur. \"p\" okunmaz."
+     }
+    }
+   ]
+  },
+  {
+   "id": "a4",
+   "who": "barista",
+   "en": "Sure. Here's your receipt. Have a safe flight!",
+   "variants": {
+    "polite": "Of course. Here's your receipt. Have a safe flight!",
+    "casual": "Here you go. Safe flight!"
+   },
+   "gloss": {
+    "en": "The driver wishes you well.",
+    "vi": "Tài xế chúc bạn thượng lộ bình an.",
+    "es": "El conductor te desea buen viaje.",
+    "pt": "O motorista deseja boa viagem.",
+    "fr": "Le chauffeur vous souhaite bon voyage.",
+    "de": "Der Fahrer wünscht dir einen guten Flug.",
+    "id": "Sopir mendoakan perjalanan Anda.",
+    "th": "คนขับอวยพรให้เดินทางปลอดภัย",
+    "zh": "司机祝你一路平安。",
+    "ja": "運転手が旅の無事を祈ってくれます。",
+    "ko": "기사가 안전한 여행을 빌어 줘요.",
+    "hi": "ड्राइवर शुभ यात्रा की कामना करता है।",
+    "ar": "السائق يتمنى لك رحلة آمنة.",
+    "ru": "Водитель желает счастливого пути.",
+    "tr": "Şoför iyi yolculuklar diler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "Where are you heading to today?",
+   "keywords": [
+    "airport",
+    "station",
+    "hotel",
+    "centre",
+    "center",
+    "street",
+    "road",
+    "mall",
+    "hospital",
+    "museum",
+    "please",
+    "address",
+    "square",
+    "downtown"
+   ],
+   "variants": {
+    "polite": "Where would you like to go today?",
+    "casual": "Where to?"
+   },
+   "gloss": {
+    "en": "The driver asks the destination.",
+    "vi": "Tài xế hỏi bạn đi đâu.",
+    "es": "El conductor pregunta el destino.",
+    "pt": "O motorista pergunta o destino.",
+    "fr": "Le chauffeur demande la destination.",
+    "de": "Der Fahrer fragt nach dem Ziel.",
+    "id": "Sopir menanyakan tujuan.",
+    "th": "คนขับถามว่าจะไปไหน",
+    "zh": "司机问你去哪里。",
+    "ja": "行き先を尋ねられます。",
+    "ko": "기사가 목적지를 물어봐요.",
+    "hi": "ड्राइवर पूछता है कि कहाँ जाना है।",
+    "ar": "السائق يسأل عن الوجهة.",
+    "ru": "Водитель спрашивает, куда ехать.",
+    "tr": "Şoför nereye gideceğinizi sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "Do you have any luggage for the boot?",
+   "keywords": [
+    "suitcase",
+    "bag",
+    "bags",
+    "luggage",
+    "backpack",
+    "yes",
+    "no",
+    "one",
+    "two",
+    "small",
+    "big",
+    "just",
+    "nothing",
+    "boot"
+   ],
+   "variants": {
+    "polite": "Would you like me to put your luggage in the boot?",
+    "casual": "Any bags for the boot?"
+   },
+   "gloss": {
+    "en": "The driver asks about luggage.",
+    "vi": "Tài xế hỏi về hành lý.",
+    "es": "El conductor pregunta por el equipaje.",
+    "pt": "O motorista pergunta sobre a bagagem.",
+    "fr": "Le chauffeur demande pour les bagages.",
+    "de": "Der Fahrer fragt nach Gepäck.",
+    "id": "Sopir menanyakan bagasi.",
+    "th": "คนขับถามเรื่องสัมภาระ",
+    "zh": "司机问有没有行李。",
+    "ja": "荷物があるか尋ねられます。",
+    "ko": "짐이 있는지 물어봐요.",
+    "hi": "ड्राइवर सामान के बारे में पूछता है।",
+    "ar": "السائق يسأل عن الأمتعة.",
+    "ru": "Водитель спрашивает о багаже.",
+    "tr": "Şoför bagajınız olup olmadığını sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Good morning. Where to?"
+  },
+  {
+   "who": "customer",
+   "en": "The central station, please."
+  },
+  {
+   "who": "barista",
+   "en": "Sure. Do you have any luggage?"
+  },
+  {
+   "who": "customer",
+   "en": "Just one small suitcase."
+  },
+  {
+   "who": "barista",
+   "en": "No problem. It should take about fifteen minutes."
+  },
+  {
+   "who": "customer",
+   "en": "Great. Is the meter on?"
+  },
+  {
+   "who": "barista",
+   "en": "Yes, it is. Here we are."
+  },
+  {
+   "who": "customer",
+   "en": "Thank you. How much is it?"
+  },
+  {
+   "who": "barista",
+   "en": "That's twelve pounds. Have a good trip!"
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Where are you going?"
+    },
+    {
+     "who": "customer",
+     "en": "The Grand Hotel on Park Street, please."
+    },
+    {
+     "who": "barista",
+     "en": "Is that near the bridge?"
+    },
+    {
+     "who": "customer",
+     "en": "Yes. It's just after the bridge, on the left."
+    }
+   ],
+   "q": {
+    "en": "Where is the hotel?",
+    "vi": "Khách sạn nằm ở đâu?",
+    "es": "¿Dónde está el hotel?",
+    "pt": "Onde fica o hotel?",
+    "fr": "Où se trouve l'hôtel ?",
+    "de": "Wo liegt das Hotel?",
+    "id": "Di mana letak hotelnya?",
+    "th": "โรงแรมอยู่ตรงไหน",
+    "zh": "酒店在哪里？",
+    "ja": "ホテルはどこにありますか？",
+    "ko": "호텔은 어디에 있나요?",
+    "hi": "होटल कहाँ है?",
+    "ar": "أين يقع الفندق؟",
+    "ru": "Где находится отель?",
+    "tr": "Otel nerede?"
+   },
+   "answer": "after the bridge"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Excuse me, can you stop here?"
+    },
+    {
+     "who": "barista",
+     "en": "Sure. That's eighteen pounds."
+    },
+    {
+     "who": "customer",
+     "en": "Here you are. Keep the change."
+    },
+    {
+     "who": "barista",
+     "en": "Thank you very much! Don't forget your bag."
+    }
+   ],
+   "q": {
+    "en": "What does the driver remind the customer about?",
+    "vi": "Tài xế nhắc khách điều gì?",
+    "es": "¿Qué le recuerda el conductor al cliente?",
+    "pt": "O que o motorista lembra ao cliente?",
+    "fr": "De quoi le chauffeur fait-il souvenir le client ?",
+    "de": "Woran erinnert der Fahrer den Kunden?",
+    "id": "Apa yang diingatkan sopir kepada pelanggan?",
+    "th": "คนขับเตือนลูกค้าเรื่องอะไร",
+    "zh": "司机提醒顾客什么？",
+    "ja": "運転手はお客さんに何を忘れないよう言っていますか？",
+    "ko": "기사는 손님에게 무엇을 상기시켰나요?",
+    "hi": "ड्राइवर ग्राहक को क्या याद दिलाता है?",
+    "ar": "ماذا يذكّر السائق الزبون؟",
+    "ru": "О чём водитель напоминает клиенту?",
+    "tr": "Şoför müşteriye neyi hatırlatıyor?"
+   },
+   "answer": "your bag"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "name-place",
+    "title": {
+     "en": "Say where you are going",
+     "vi": "Nói bạn đi đâu",
+     "es": "Di adónde vas",
+     "pt": "Diga aonde vai",
+     "fr": "Dire où vous allez",
+     "de": "Sagen, wohin du willst",
+     "id": "Sebutkan tujuan",
+     "th": "บอกว่าจะไปไหน",
+     "zh": "说明去哪里",
+     "ja": "行き先を伝える",
+     "ko": "목적지 말하기",
+     "hi": "बताएँ कहाँ जाना है",
+     "ar": "قل إلى أين تذهب",
+     "ru": "Назвать пункт назначения",
+     "tr": "Gideceğin yeri söyle"
+    },
+    "intents": [
+     "g1",
+     "g3"
+    ]
+   },
+   {
+    "id": "ask-ride",
+    "title": {
+     "en": "Ask for a small change",
+     "vi": "Nhờ một thay đổi nhỏ",
+     "es": "Pide un pequeño cambio",
+     "pt": "Peça uma pequena mudança",
+     "fr": "Demander un petit changement",
+     "de": "Um eine kleine Änderung bitten",
+     "id": "Minta perubahan kecil",
+     "th": "ขอให้ปรับเล็กน้อย",
+     "zh": "提一个小要求",
+     "ja": "ちょっとしたお願いをする",
+     "ko": "작은 부탁하기",
+     "hi": "छोटा बदलाव माँगें",
+     "ar": "اطلب تعديلًا بسيطًا",
+     "ru": "Попросить о мелочи",
+     "tr": "Küçük bir istekte bulun"
+    },
+    "intents": [
+     "r1",
+     "r3"
+    ]
+   },
+   {
+    "id": "pay-fare",
+    "title": {
+     "en": "Pay the fare",
+     "vi": "Trả tiền cước",
+     "es": "Paga la tarifa",
+     "pt": "Pague a tarifa",
+     "fr": "Payer la course",
+     "de": "Die Fahrt bezahlen",
+     "id": "Bayar tarif",
+     "th": "จ่ายค่าโดยสาร",
+     "zh": "支付车费",
+     "ja": "運賃を払う",
+     "ko": "요금 지불하기",
+     "hi": "किराया चुकाएँ",
+     "ar": "ادفع الأجرة",
+     "ru": "Оплатить поездку",
+     "tr": "Ücreti öde"
+    },
+    "intents": [
+     "a1",
+     "a3"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "In most English-speaking cities you can hail a taxi on the street, find one at a taxi rank, or book one by phone or app. Check that the meter is on, or agree the price before you start. A tip of about 10 per cent, or rounding up the fare, is common but not always expected. Wear your seat belt and say the full address clearly.",
+  "vi": "Ở hầu hết thành phố nói tiếng Anh, bạn có thể vẫy taxi trên đường, ra bến taxi, hoặc đặt qua điện thoại hay ứng dụng. Kiểm tra đồng hồ tính tiền đã bật chưa, hoặc thỏa thuận giá trước khi đi. Tiền boa khoảng 10% hoặc làm tròn cước là phổ biến nhưng không phải lúc nào cũng bắt buộc. Hãy thắt dây an toàn và nói rõ địa chỉ đầy đủ.",
+  "es": "En la mayoría de las ciudades de habla inglesa puedes parar un taxi en la calle, buscarlo en una parada o pedirlo por teléfono o app. Comprueba que el taxímetro esté encendido o acuerda el precio antes de salir. Una propina de cerca del 10 % o redondear la tarifa es habitual, aunque no siempre se espera. Ponte el cinturón y di la dirección completa con claridad.",
+  "pt": "Na maioria das cidades de língua inglesa você pode chamar um táxi na rua, pegar num ponto ou pedir por telefone ou aplicativo. Confira se o taxímetro está ligado ou combine o preço antes de partir. Gorjeta de cerca de 10% ou arredondar a tarifa é comum, mas nem sempre esperada. Use o cinto e diga o endereço completo com clareza.",
+  "fr": "Dans la plupart des villes anglophones, on peut héler un taxi, en prendre un à une station ou le réserver par téléphone ou appli. Vérifiez que le compteur tourne ou convenez du prix avant de partir. Un pourboire d'environ 10 % ou un arrondi est courant, sans être toujours attendu. Bouclez votre ceinture et dites clairement l'adresse complète.",
+  "de": "In den meisten englischsprachigen Städten kann man ein Taxi anhalten, am Taxistand nehmen oder per Telefon oder App bestellen. Prüfe, ob das Taxameter läuft, oder vereinbare den Preis vorher. Etwa 10 Prozent Trinkgeld oder Aufrunden sind üblich, aber nicht immer erwartet. Schnall dich an und nenne die vollständige Adresse deutlich.",
+  "id": "Di sebagian besar kota berbahasa Inggris, Anda bisa melambaikan taksi di jalan, mencarinya di pangkalan, atau memesan lewat telepon atau aplikasi. Pastikan argo menyala atau sepakati harga sebelum berangkat. Tip sekitar 10 persen atau pembulatan tarif itu lazim, tetapi tidak selalu diharapkan. Kenakan sabuk pengaman dan sebutkan alamat lengkap dengan jelas.",
+  "th": "ในเมืองส่วนใหญ่ที่พูดภาษาอังกฤษ คุณโบกแท็กซี่ริมถนน ไปที่จุดจอดแท็กซี่ หรือเรียกผ่านโทรศัพท์หรือแอปได้ ตรวจว่ามิเตอร์เปิดอยู่ หรือตกลงราคาก่อนออกเดินทาง ทิปประมาณ 10% หรือปัดเศษค่าโดยสารเป็นเรื่องปกติแต่ไม่ได้คาดหวังเสมอไป คาดเข็มขัดนิรภัยและบอกที่อยู่เต็มให้ชัดเจน",
+  "zh": "在大多数英语国家的城市，你可以在路边招手叫出租车、到出租车站排队，或用电话和手机应用叫车。上车后确认计价器已打开，或先谈好价格。给大约 10% 的小费或把车费凑整很常见，但不一定必须。请系好安全带，并清楚说出完整地址。",
+  "ja": "英語圏のほとんどの都市では、道端でタクシーを止めたり、乗り場で乗ったり、電話やアプリで呼んだりできます。メーターが動いているか、または出発前に料金を決めておきましょう。10％ほどのチップや端数の切り上げが一般的ですが、必須ではありません。シートベルトを締め、住所は最後まではっきり伝えます。",
+  "ko": "영어권 대부분의 도시에서는 길에서 택시를 잡거나, 승강장에서 타거나, 전화나 앱으로 부를 수 있어요. 미터기가 켜져 있는지 확인하거나 출발 전에 요금을 정하세요. 10% 정도의 팁이나 요금을 올림해 주는 것이 흔하지만 항상 기대하는 건 아니에요. 안전벨트를 매고 주소를 끝까지 또렷이 말하세요.",
+  "hi": "अधिकांश अंग्रेज़ी-भाषी शहरों में आप सड़क पर टैक्सी रोक सकते हैं, टैक्सी स्टैंड से ले सकते हैं, या फ़ोन/ऐप से बुला सकते हैं। देखें कि मीटर चालू है या चलने से पहले किराया तय कर लें। लगभग 10% टिप या किराया पूरा करके देना आम है, पर हमेशा ज़रूरी नहीं। सीट बेल्ट लगाएँ और पूरा पता साफ़ बोलें।",
+  "ar": "في معظم مدن الدول الناطقة بالإنجليزية يمكنك إيقاف سيارة أجرة في الشارع أو من موقف السيارات أو طلبها بالهاتف أو التطبيق. تأكد أن العداد يعمل أو اتفق على السعر قبل الانطلاق. البقشيش بنحو 10٪ أو تقريب الأجرة شائع لكنه ليس متوقعًا دائمًا. اربط حزام الأمان وقل العنوان كاملًا بوضوح.",
+  "ru": "В большинстве городов англоязычных стран такси можно поймать на улице, взять на стоянке или вызвать по телефону или через приложение. Проверьте, что счётчик включён, или договоритесь о цене заранее. Чаевые около 10% или округление суммы — обычное дело, но ждут их не всегда. Пристегните ремень и чётко назовите полный адрес.",
+  "tr": "İngilizce konuşulan şehirlerin çoğunda taksiyi yoldan durdurabilir, duraktan alabilir veya telefon ya da uygulamayla çağırabilirsiniz. Taksimetrenin açık olduğunu kontrol edin ya da yola çıkmadan önce fiyatı konuşun. Yaklaşık yüzde 10 bahşiş veya ücreti yuvarlamak yaygındır ama her zaman beklenmez. Emniyet kemerinizi takın ve adresin tamamını net söyleyin."
+ }
+}

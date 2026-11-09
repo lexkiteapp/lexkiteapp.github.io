@@ -72,5 +72,46 @@
   "words": 36,
   "seconds": 22.8,
   "wpm": 95
+ },
+ "publish": {
+  "title": "What does \"wake\" mean?",
+  "keyword": "wake",
+  "value": "Wake means to stop sleeping.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=wake",
+  "script_words": 30,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"wake\" mean?",
+    "description": "Wake means to stop sleeping.\n\nReview your words, free: https://lexkite.com/app/#/review?w=wake\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "wake",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"wake\" mean?\n\nWake means to stop sleeping.\n\nReview your words, free: https://lexkite.com/app/#/review?w=wake"
+   },
+   "instagram": {
+    "caption": "What does \"wake\" mean?\n\nWake means to stop sleeping.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"wake\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to stop sleeping. Wake means to stop sleeping. Try the full lesson and quiz here: {link}"
  }
 }

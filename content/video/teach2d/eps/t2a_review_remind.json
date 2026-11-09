@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"remind\" mean?",
+  "keyword": "remind",
+  "value": "Remind means to make someone remember something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=remind",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"remind\" mean?",
+    "description": "Remind means to make someone remember something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=remind\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "remind",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"remind\" mean?\n\nRemind means to make someone remember something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=remind"
+   },
+   "instagram": {
+    "caption": "What does \"remind\" mean?\n\nRemind means to make someone remember something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"remind\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to make someone remember something. Remind means to make someone remember something. More practice like this (free): {link}"
  }
 }

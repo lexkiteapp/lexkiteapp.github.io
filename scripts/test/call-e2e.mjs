@@ -23,7 +23,10 @@ const serve = route => {
   let p = decodeURIComponent(new URL(route.request().url()).pathname); if (p.endsWith('/')) p += 'index.html';
   const f = path.join(ROOT, path.normalize(p));
   if (!f.startsWith(ROOT) || !fs.existsSync(f) || !fs.statSync(f).isFile()) return route.fulfill({ status: 404, body: '' });
-  const body = fs.readFileSync(f); served += /\.(js|css|json|html)$/.test(f) ? zlib.gzipSync(body).length : body.length;
+  const body = fs.readFileSync(f);
+  // Tải sẵn nền (App.prefetchAll: <link rel=prefetch> mọi gói, ưu tiên thấp) KHÔNG phải chi phí vào cuộc gọi → không tính; nếu tính, kết quả phụ thuộc đúng lúc hàng đợi prefetch chạy (28 KB ↔ 1 MB cùng mã).
+  const rq = route.request(), pf = /prefetch/i.test((rq.headers()['sec-purpose'] || '') + (rq.headers().purpose || '')) || (rq.resourceType() === 'other' && /\.js$/.test(f));
+  if (!pf) served += /\.(js|css|json|html)$/.test(f) ? zlib.gzipSync(body).length : body.length;
   return route.fulfill({ status: 200, contentType: MIME[path.extname(f)] || 'application/octet-stream', body });
 };
 
@@ -78,6 +81,8 @@ async function open(o = {}) {
   await ctx.route(BASE + '**', serve);
   // tiếng: KHÔNG gọi kho media/audio thật trên CI – o.audio: tiếng GIẢ đúng độ dài + độ lớn của mốc CI (fixtureAudio) → mặt vẽ chạy chế độ pre như máy thật
   await ctx.route(/audio\.lexkite\.com|github\.io\/(lexkite-media|audio)|lexkite-media/, r => o.audio ? fixtureAudio(r) : r.abort());
+  // welcome.js/hubs.js dò blog theo ngôn ngữ (App.blogLive) qua https://lexkite.com/blog-langs.json: KHÔNG chạm prod (thật thì trả không có CORS → console lỗi CORS, đỏ giả)
+  await ctx.route('https://lexkite.com/blog-langs.json', r => r.fulfill({ status: 200, contentType: 'application/json', headers: { 'Access-Control-Allow-Origin': '*' }, body: '["en","vi"]' }));
   await ctx.route('https://lexkite.com/api/**', r => r.request().method() === 'OPTIONS' ? r.fulfill({ status: 204, headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*' } })
     : r.fulfill({ status: 200, contentType: 'application/json', headers: { 'Access-Control-Allow-Origin': '*' }, body: JSON.stringify({ ok: true, notices: [], unread_count: 0 }) }));
   const page = await ctx.newPage(), errs = [];

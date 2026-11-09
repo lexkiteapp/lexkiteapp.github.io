@@ -1,0 +1,53 @@
+{
+ "ui": {
+  "ti": "Prononciation de l’espagnol",
+  "pk": "Choisissez un son à travailler",
+  "ex": "Écouter des exemples",
+  "pp": "Paires minimales",
+  "dc": "Dictée",
+  "sy": "Répétez",
+  "qp": "Quel mot entendez-vous ?",
+  "qd": "Écrivez ce que vous entendez",
+  "qs": "Touchez le micro et dites le mot",
+  "mic": "Touchez pour parler",
+  "hd": "J’ai entendu : « {h} »",
+  "rt": "Je n’ai pas compris. Réessayez.",
+  "sk": "Passer",
+  "nm": "Pas de micro ici. Entraînez-vous avec les paires ou la dictée.",
+  "tp": "Astuce"
+ },
+ "tp": {
+  "vow": {
+   "t": "Cinq voyelles pures",
+   "x": "L’espagnol n’a que cinq voyelles, a, e, i, o, u, et chacune sonne toujours pareil : brève, claire, stable, sans glisser vers un second son. Dites « casa » et « solo » sans bouger la bouche du début à la fin."
+  },
+  "rr": {
+   "t": "R battu et rr roulé",
+   "x": "Un r simple entre deux voyelles est un coup de langue rapide : « pero ». En début de mot ou écrit rr, il est roulé : « rojo », « perro ». Une lettre change le sens : « pero » (mais) et « perro » (chien)."
+  },
+  "bv": {
+   "t": "b et v sonnent pareil",
+   "x": "Les lettres b et v notent un seul son. En début de mot ou après m ou n, c’est un /b/ net (« vaca », « bola »). Entre voyelles, les lèvres se touchent à peine (« uva », « lobo »). Ne mettez jamais les dents sur la lèvre comme pour le v français. Choisir b ou v relève de l’orthographe, pas du son."
+  },
+  "seseo": {
+   "t": "c, z et s : un seul son",
+   "x": "En espagnol d’Amérique latine, c (devant e, i), z et s donnent tous /s/ : « cielo », « zapato », « casa ». Il n’y a pas de « th » comme en Espagne. Donc « casa » et « caza » sonnent pareil ; le contexte donne le sens et l’orthographe s’apprend."
+  },
+  "stress": {
+   "t": "Accent tonique et accent écrit",
+   "x": "L’accent tombe sur l’avant-dernière syllabe si le mot finit par une voyelle, n ou s ; sinon sur la dernière. L’accent écrit rompt la règle et marque la voyelle tonique : « papa » (pomme de terre) et « papá » (papa), « canto » (je chante) et « cantó » (il a chanté). L’accent peut changer le sens."
+  },
+  "link": {
+   "t": "Enchaîner les mots",
+   "x": "L’espagnol coule : la voyelle finale d’un mot se lie à la voyelle initiale du suivant, sans pause. « la hora » sonne « laora », « mi amigo » sonne « miamigo ». Ne vous arrêtez pas entre les mots."
+  },
+  "jg": {
+   "t": "j, g et gu",
+   "x": "j, et g devant e ou i, est un /x/ soufflé au fond de la gorge, comme un h fort : « jarra », « gente ». g devant a, o, u est un /g/ dur : « gato ». Pour garder g dur devant e ou i, on écrit gu sans prononcer le u : « guerra »."
+  },
+  "hq": {
+   "t": "ñ, ll, h, ch, qu",
+   "x": "ñ sonne comme « gn » dans « agneau » : « año ». ll et y sonnent comme un « y » ou un « j » doux : « pollo ». Le h est toujours muet : « hola », « hora ». qu se lit /k/ et le u est muet : « queso ». ch comme dans « tchat » : « chico »."
+  }
+ }
+}

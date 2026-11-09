@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"button\" mean?",
+  "keyword": "button",
+  "value": "Button means a small round object used to fasten clothes.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=button",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"button\" mean?",
+    "description": "Button means a small round object used to fasten clothes.\n\nReview your words, free: https://lexkite.com/app/#/review?w=button\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "button",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"button\" mean?\n\nButton means a small round object used to fasten clothes.\n\nReview your words, free: https://lexkite.com/app/#/review?w=button"
+   },
+   "instagram": {
+    "caption": "What does \"button\" mean?\n\nButton means a small round object used to fasten clothes.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"button\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a small round object used to fasten clothes. Button means a small round object used to fasten clothes. Practice it with a free quiz: {link}"
  }
 }

@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"tend\" mean?",
+  "keyword": "tend",
+  "value": "Tend means to regularly behave in a certain way.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=tend",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"tend\" mean?",
+    "description": "Tend means to regularly behave in a certain way.\n\nReview your words, free: https://lexkite.com/app/#/review?w=tend\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "tend",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"tend\" mean?\n\nTend means to regularly behave in a certain way.\n\nReview your words, free: https://lexkite.com/app/#/review?w=tend"
+   },
+   "instagram": {
+    "caption": "What does \"tend\" mean?\n\nTend means to regularly behave in a certain way.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"tend\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to regularly behave in a certain way. Tend means to regularly behave in a certain way. Try the full lesson and quiz here: {link}"
  }
 }
