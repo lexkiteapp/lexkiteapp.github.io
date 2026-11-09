@@ -122,6 +122,11 @@
   Cache-Control: no-cache
   Access-Control-Allow-Origin: *
 
+# Gói nội dung P07 (nói & phát âm) cho app native (scripts/native/gen-speak.mjs): như skills-pack
+/data/speak-pack.json
+  Cache-Control: no-cache
+  Access-Control-Allow-Origin: *
+
 /i18n/*
   Cache-Control: public, max-age=86400
   Access-Control-Allow-Origin: *

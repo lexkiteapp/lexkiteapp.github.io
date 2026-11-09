@@ -1,0 +1,130 @@
+{
+ "id": "m27",
+ "level": "C2",
+ "lo": "M.C2.06",
+ "activity": "summarise",
+ "title": "Must students attend lectures?",
+ "scenario": "You write for a faculty newsletter. You attended a panel debate on compulsory attendance at lectures. Summarise the debate in a few sentences so that no speaker is misrepresented.",
+ "source": {
+  "kind": "dialogue",
+  "lines": [
+   {
+    "s": "Professor Hale",
+    "t": "I support compulsory attendance. When students sit in a room together, we notice who is struggling within the first weeks and can step in. When I was a student, my own lecturers did exactly that for me."
+   },
+   {
+    "s": "Ms Ito",
+    "t": "I understand that, but many of us work part-time or care for relatives. A fixed attendance rule punishes the students with the least flexibility, and absence is not the same as disengagement."
+   },
+   {
+    "s": "Dr Reyes",
+    "t": "I think both of you are right about different things. Large lectures are the weakest place to demand presence. In seminars, where discussion is the point, attendance really matters, and I would require it only there."
+   },
+   {
+    "s": "Professor Hale",
+    "t": "Then how would we notice a student who simply disappears?"
+   },
+   {
+    "s": "Dr Reyes",
+    "t": "Through other signals: handed-in work, online activity, a short check-in with a tutor."
+   },
+   {
+    "s": "Ms Ito",
+    "t": "I could accept that, as long as recorded lectures stay available. On that at least, I think we all agree."
+   },
+   {
+    "s": "Professor Hale",
+    "t": "Yes, recordings should stay. I would still say that they are no substitute for being there."
+   }
+  ]
+ },
+ "task": {
+  "mode": "write",
+  "audience": "faculty newsletter readers",
+  "prompt": "Write a neutral summary of the debate (90–140 words). Give each position fairly, note any agreement, and do not take a side.",
+  "min_words": 90,
+  "max_words": 140
+ },
+ "points": [
+  {
+   "id": "hale",
+   "idea": "Professor Hale favours compulsory attendance because teachers can spot struggling students early.",
+   "checks": [
+    [
+     "hale"
+    ],
+    [
+     "struggl",
+     "early",
+     "notice"
+    ]
+   ]
+  },
+  {
+   "id": "ito",
+   "idea": "Ms Ito opposes it because many students work or care for relatives and need flexibility.",
+   "checks": [
+    [
+     "ito"
+    ],
+    [
+     "work",
+     "care",
+     "flexib"
+    ]
+   ]
+  },
+  {
+   "id": "reyes",
+   "idea": "Dr Reyes would require attendance only in seminars and use other signals for lectures.",
+   "checks": [
+    [
+     "reyes"
+    ],
+    [
+     "seminar"
+    ]
+   ]
+  },
+  {
+   "id": "agree",
+   "idea": "All three agreed that recorded lectures should remain available.",
+   "checks": [
+    [
+     "record"
+    ],
+    [
+     "all",
+     "agreed",
+     "common ground",
+     "shared"
+    ]
+   ]
+  }
+ ],
+ "leave_out": [
+  {
+   "idea": "Professor Hale's personal memory of his own student days.",
+   "checks": [
+    [
+     "student days",
+     "when he was a student",
+     "his own lecturers",
+     "own lecturers"
+    ]
+   ]
+  }
+ ],
+ "model": "The panel discussed whether lecture attendance should be compulsory and did not reach a single conclusion. Professor Hale argued in favour, saying that regular presence helps staff to notice students who are struggling and to step in early. Ms Ito disagreed, pointing out that many students work or look after relatives, so a fixed rule penalises those with the least flexibility, and absence does not necessarily mean disengagement. Dr Reyes took a middle position: attendance should be required only in seminars, with other signals such as submitted work used elsewhere. All three agreed on one point, that recorded lectures should remain available, although Professor Hale stressed that recordings cannot replace being in the room.",
+ "useful": [
+  "The panel discussed whether … and did not reach …",
+  "… argued in favour, saying that …",
+  "… took a middle position:",
+  "All three agreed on one point, that …"
+ ],
+ "tips": [
+  "In a fair summary each speaker gets the same kind of space: position, then main reason, in similar wording. Counting sentences is a good check.",
+  "Report agreement as well as conflict, and keep each speaker's own qualifications (\"only in seminars\"). Hiding a qualification distorts the position."
+ ],
+ "explain": "A balanced summary has each of the three positions with its reason, plus the one point of agreement. Hale's memory of his own studies is colour and not part of the argument."
+}

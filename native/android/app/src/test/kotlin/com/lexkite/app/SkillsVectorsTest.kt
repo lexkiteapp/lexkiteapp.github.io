@@ -21,6 +21,7 @@ import com.lexkite.app.core.skills.WordPopup
 import com.lexkite.app.core.skills.WordPort
 import com.lexkite.app.core.sync.Js
 import com.lexkite.app.core.vocab.CardMath
+import com.lexkite.app.core.vocab.gs
 import com.lexkite.app.core.vocab.Tx
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -39,6 +40,32 @@ import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import kotlinx.serialization.json.long
+import com.lexkite.app.core.speak.ContrastStat
+import com.lexkite.app.core.speak.HandsFree
+import com.lexkite.app.core.speak.HfIO
+import com.lexkite.app.core.speak.HfWord
+import com.lexkite.app.core.speak.MicOutcome
+import com.lexkite.app.core.speak.MouthSpec
+import com.lexkite.app.core.speak.PairItem
+import com.lexkite.app.core.speak.PairSession
+import com.lexkite.app.core.speak.PronCoach
+import com.lexkite.app.core.speak.PronGroups
+import com.lexkite.app.core.speak.PronPage
+import com.lexkite.app.core.speak.PronPairs
+import com.lexkite.app.core.speak.Reflex
+import com.lexkite.app.core.speak.Roleplay
+import com.lexkite.app.core.speak.Rtype
+import com.lexkite.app.core.speak.SayData
+import com.lexkite.app.core.speak.SayLogic
+import com.lexkite.app.core.speak.SpeakDrill
+import com.lexkite.app.core.speak.SpeakHub
+import com.lexkite.app.core.speak.SpeakPack
+import com.lexkite.app.core.speak.SpeakScore
+import com.lexkite.app.core.speak.SpeakingRoom
+import com.lexkite.app.core.speak.Situation
+import com.lexkite.app.core.speak.SpkProgress
+import com.lexkite.app.core.speak.Tr
+import kotlinx.serialization.json.boolean
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
@@ -535,5 +562,292 @@ class SkillsVectorsTest {
             check("$id.mistakes", o["mistakes"], mistakeRows(g.mistakes))
             assertEquals("$id persisted game keys", wantKeys("read", id), gameKeys(g.game))
         }
+    }
+
+    // ================================================================== P07: speaking & pronunciation (vectors/speak.json, web/data/speak-pack.json) ==================================================================
+    private val sp by lazy { Json.parseToJsonElement(javaClass.classLoader!!.getResource("speak.json")!!.readText()).jsonObject }
+    private val spackFull: SpeakPack by lazy { SpeakPack.parse(javaClass.classLoader!!.getResource("speak-pack.json")!!.readText())!! }
+    private val spStarter: SpeakPack? by lazy { SpeakPack.parse(javaClass.classLoader!!.getResource("speak-starter.json")!!.readText()) }
+    private val spNow by lazy { sp.getValue("now").jsonPrimitive.long }
+    private fun cyc(a: List<Double>): () -> Double { var i = 0; return { a[i++ % a.size] } }
+    private fun nums(j: JsonElement?): List<Double> = (j as JsonArray).map { it.jsonPrimitive.content.toDouble() }
+    private fun strs(j: JsonElement?): List<String> = (j as JsonArray).map { it.s() }
+    private fun trk(x: Tr) = x.json()
+    private fun cases(o: JsonElement?): List<JsonObject> = (o as JsonArray).map { it.jsonObject }
+    private fun cid(c: JsonObject) = c["id"]?.s() ?: "case"
+
+    /** P07: the downloaded pack and the bundled starter parse, carry the contract numbers and the scoring calibration of score.js. */
+    @Test fun parity_P07() {
+        val p = spackFull
+        assertEquals(56, p.lessons.size); assertEquals(40, p.bank.size); assertEquals(31, p.scripts.size); assertEquals(23, p.contrasts.size); assertEquals(12, p.coachSentences.size)
+        assertEquals(15, p.scripts.count { it.daily }); assertEquals(16, p.scripts.count { !it.daily })
+        val st = spStarter!!; assertEquals(8, st.bank.size); assertEquals(8, st.lessons.size); assertEquals(6, st.scripts.size)
+        assertTrue(SpeakScore.pass(0.8)); assertFalse(SpeakScore.pass(0.7999)); assertFalse(SpeakScore.pass(1.0, unclear = true))
+        assertTrue(p.weak.containsKey("the") && p.light.contains("i"))
+        assertEquals(setOf("speak", "speaking", "pron", "say", "reflex", "rtype", "roleplay", "handsfree"), com.lexkite.app.feature.speak.SPEAK_ROUTES)
+    }
+
+    @Test fun p07_recognize() {
+        for (c in cases(sp.o("shared").o("recognize").a("best"))) { val i = c.o("input"); val h = SpeakScore.best(i.s("target"), strs(i.a("alts"))); assertEquals(cid(c), c.o("out").s("heard"), h.heard); assertEquals(cid(c), c.o("out").n("score").toInt(), h.score) }
+    }
+
+    @Test fun p07_speakScore() {
+        val sh = sp.o("shared").o("speak")
+        for (c in cases(sh.a("align"))) { val i = c.o("input"); val w = SpeakScore.align(i.s("target"), i.s("heard")); check(cid(c), c["out"], w.map { obj("w" to it.w, "ok" to it.ok) }) }
+        for ((k, c) in cases(sh.a("pass")).withIndex()) { val i = c["input"]; val want = c["out"]!!.jsonPrimitive.booleanOrNull!!
+            val got = if (i is JsonObject) SpeakScore.pass(i.n("text"), i["unclear"]?.jsonPrimitive?.booleanOrNull == true) else false; assertEquals("pass[$k]", want, got) }
+        for ((k, c) in cases(sh.a("intentOf")).withIndex()) { val i = c.o("input"); val intents = i.a("intents").map { it.jsonObject.s("id") to strs(it.jsonObject.a("keywords")) }
+            val want = c["out"].let { if (it is JsonNull) null else it.s() }; assertEquals("intentOf[$k]", want, SpeakScore.intentOf(i.s("heard"), intents)) }
+        for ((k, c) in cases(sh.a("toks")).withIndex()) assertEquals("toks[$k]", strs(c["out"]), SpeakScore.toks(c.s("input")))
+        for (c in cases(sh.a("flows"))) { val o = c.o("input").o("opts"); val ev = c.o("input").a("script").map { it.jsonObject }; val start = ev.firstOrNull { it.s("ev") == "start" }?.n("at") ?: 0.0 /* no start event: the clock starts at the call */; val res = ev.firstOrNull { it.s("ev") == "result" } /* errors / unsupported: nothing heard */
+            val heard = res?.s("heard") ?: ""; val words = SpeakScore.align(o.s("target"), heard); val r = c.o("out").o("result")
+            check(cid(c) + ".text", r["text"], SpeakScore.text(words), 1e-6); check(cid(c) + ".words", r["words"], words.map { obj("w" to it.w, "ok" to it.ok) })
+            assertEquals(cid(c) + " wpm", r.o("fluency").n("wpm").toInt(), if (res == null) 0 else SpeakScore.wpm(heard, (res.n("at") - start).toLong())) }
+    }
+
+    // ---- #/speak: the three-beat drill replays every case; the situation hub reads the same progress ----
+    private val spSit by lazy { Situation(sp.o("data").o("situations").o("cafe"), "en") }
+    @Test fun p07_situation() {
+        for (c in cases(sp.o("speak").a("situation"))) { val i = c["input"] as? JsonObject ?: continue; val o = c.o("out"); if (!i.containsKey("progress")) continue
+            val s = Situation(sp.o("data").o("situations").o(i.s("arg")), "en"); val cards = strs(i.a("cards")).associateWith { "" }
+            val h = SpeakHub.hub(s, i["progress"] as JsonObject, cards, i.n("now").toLong()); val id = cid(c)
+            check("$id.nodes", o["nodes"]?.let { JsonArray(it.jsonArray.map { n -> JsonObject(n.jsonObject.filterKeys { k -> k != "label" }) }) }, h.nodes.map { obj("st" to it.st, "stars" to it.stars, "href" to "#/speak/${s.id}/drill?stage=${it.stage}", "starsAria" to it.aria.json()) })
+            check("$id.tasks", o["tasks"]?.let { JsonArray(it.jsonArray.map { n -> JsonObject(n.jsonObject.filterKeys { k -> k == "done" || k == "st" || k == "ex" }) }) }, h.tasks.map { obj("done" to it.done, "st" to it.st, "ex" to it.ex) })
+            check("$id.stage", o["stage"], h.stage.json()); check("$id.taskDone", o["taskDone"], h.taskDone.json()); assertEquals("$id mastered", o.s("mastered"), h.mastered); check("$id.remain", o["remain"], h.remain.json())
+            assertEquals("$id pct", o.n("pct").toInt(), h.pct); check("$id.week", o["week"], h.week.json()); check("$id.addon", JsonArray(o.a("addon").map { obj("w" to it.jsonObject["w"]) }), h.addon.map { obj("w" to it.w) })
+        }
+    }
+
+    @Test fun p07_drill() {
+        val line0 = spSit.line(spSit.order(null)[0])!!
+        for (c in cases(sp.o("speak").a("drill"))) { val i = c.o("input"); val id = cid(c); val trace = c.o("out").a("trace").map { it.jsonObject }
+            val prog = i["progress"] as? JsonObject; val stage = query(i.s("query"))["stage"]
+            val d = SpeakDrill(spSit, prog, stage, false) { 0.5 }
+            assertEquals("$id limit", i.n("quickLimitMs"), SpeakDrill(spSit, null, null, false) { 0.5 }.limitMs, 1e-6)
+            fun state(step: JsonObject, tag: String) {
+                step["line"]?.let { assertEquals("$tag line", it.jsonObject.o("v").n("n").toInt(), d.i + 1); assertEquals("$tag total", it.jsonObject.o("v").n("m").toInt(), d.total) }
+                step["pct"]?.let { assertEquals("$tag pct", it.jsonPrimitive.content.toDouble().toInt(), d.pct) }
+                step["say"]?.let { assertEquals("$tag say", it.jsonObject.s("k"), d.say.k) }
+                step["res"]?.let { assertEquals("$tag res", it.jsonPrimitive.boolean, d.res != null) }
+                step["stars"]?.let { assertEquals("$tag stars", it.jsonPrimitive.content.toInt(), d.res?.stars ?: 0) }
+                step["canNext"]?.let { assertEquals("$tag canNext", it.jsonPrimitive.boolean, d.canNext) }
+                step["noMic"]?.let { assertEquals("$tag noMic", it.jsonPrimitive.boolean, d.noMic) }
+                step["score"]?.let { assertEquals("$tag score", it.s(), (d.res?.score ?: 0).toString()) }
+                step["beats"]?.let { b -> assertEquals("$tag beats", strs(b).indexOfFirst { x -> x.endsWith("*") }, d.b) }
+            }
+            state(trace[0], "$id.open")
+            val script = i.a("script").map { it.jsonObject }
+            for ((k, st) in script.withIndex()) { val tr = trace[k + 1]; val tag = "$id.step$k"
+                when {
+                    st.containsKey("mic") -> { val m = st.o("mic"); d.recording(); d.onMic(MicOutcome(if (m.s("heard") == "=") d.line.en else m.s("heard"), 0.0, m["error"]?.s(), m.n("ms").toLong()), spNow)
+                        if (tr.containsKey("writes") && tr.a("writes").isNotEmpty()) check("$tag.writes", tr.a("writes")[0].jsonObject["lk.spk"], d.progress, 1e-6)
+                        val rw = tr["rewards"]; if (rw is JsonArray && rw.isNotEmpty()) { assertEquals("$tag spoken", rw[0].jsonObject.n("spoken").toInt(), d.paid?.spoken); assertEquals("$tag xp", rw[0].jsonObject.n("xp").toInt(), d.paid?.xp) } else assertNull("$tag no reward", d.paid) }
+                    st["act"]?.s() == "spkNext" -> { d.settled(); d.next() }
+                    st["act"]?.s() == "spkRetry" -> d.retry()
+                    st.containsKey("tap") -> { d.tap(st.n("tap").toInt(), spNow); if (tr.containsKey("writes") && tr.a("writes").isNotEmpty()) check("$tag.writes", tr.a("writes")[0].jsonObject["lk.spk"], d.progress, 1e-6); val rw = tr["rewards"]; assertTrue("$tag no reward in tap mode", rw == null || (rw as JsonArray).isEmpty()) }
+                }
+                if (!d.finished) state(tr, tag) else assertTrue("$tag finished toast", tr.containsKey("toast") || tr["hash"] != null)
+            }
+        }
+        assertEquals("o1", line0.id)
+    }
+    @Test fun p07_week() { assertEquals("2026-W2", SpkProgress.week(spNow, java.time.ZoneOffset.UTC)) }
+    @Test fun p07_fill() { val c = cases(sp.o("speak").a("fill"))[0]; val i = c.o("input"); check("fill", c["out"], Situation.fill(i["base"]!!, i.a("arr").toList(), i.s("lang"))) }
+
+    // ---- #/speaking ----
+    @Test fun p07_speaking() {
+        val p = spackFull; val lx = pack.lexis
+        for (c in cases(sp.o("speaking").a("render"))) { val i = c.o("input"); val id = cid(c)
+            if (id == "navigation" || id == "next-question") continue
+            val pg = SpeakingRoom.page(p, i.s("arg")); val o = c.o("out")
+            check("$id.tabs", o["tabs"]?.let { JsonArray(it.jsonArray.map { t -> JsonObject(t.jsonObject.filterKeys { k -> k == "part" || k == "on" }) }) }, listOf("p1", "p2", "p3").map { obj("part" to it, "on" to (it == pg.part)) })
+            if (pg.part == "p2") org.junit.Assert.assertTrue("$id cue card", o.s("question").startsWith(pg.topic.p2q)) /* the vector reads the whole card: question + "You should say" bullets */ else assertEquals("$id question", o.s("question").ifEmpty { pg.questions[0] }, pg.questions[0])
+            o["clockHint"]?.let { check("$id.clockHint", it, SpeakingRoom.hintTarget(pg).json()) }; o["recHint"]?.let { check("$id.recHint", it, SpeakingRoom.hintRecord(pg).json()) }
+            o["spoken"]?.let { assertEquals("$id spoken", it.jsonArray[0].jsonObject.s("text"), SpeakingRoom.askText(pg, 0)) }
+        }
+        val nq = cases(sp.o("speaking").a("render")).first { cid(it) == "next-question" }; val pg3 = SpeakingRoom.page(p, nq.o("input").s("arg")); var qi = 0; val seen = ArrayList<String>()
+        for (k in 0 until 3) { qi = SpeakingRoom.nextQuestion(pg3, qi); seen.add(SpeakingRoom.askText(pg3, qi)) }; assertEquals(strs(nq.o("out")["spoken"]), seen)
+        for (c in cases(sp.o("speaking").a("timer"))) { val o = c.o("out"); val id = cid(c); val pg = SpeakingRoom.page(p, (c.o("input")["part"]?.s() ?: "p1") + "/0")
+            for ((k, st) in (o["steps"] ?: continue /* p2-prep: the prep countdown, no clock steps */).jsonArray.withIndex()) { val s = st.jsonObject; assertEquals("$id[$k] text", s.s("text"), SpeakingRoom.clock(s.n("secs"))); val col = SpeakingRoom.clockColor(pg, s.n("secs"))
+                assertEquals("$id[$k] colour", s.s("color"), when (col) { "again" -> "var(--again)"; "good" -> "var(--good)"; else -> "" }) } }
+        for (c in cases(sp.o("speaking").a("analyse"))) { val i = c.o("input"); val id = cid(c); val o = c.o("out"); val pg = SpeakingRoom.page(p, i.s("arg"))
+            val text = when (val r = i["recognised"]) { is JsonArray -> r.joinToString(" ") { it.s() }.trim(); else -> r.s().trim() }
+            if (!i.containsKey("seconds") || !o.containsKey("stats")) continue
+            val a = SpeakingRoom.analyse(p, pg, text, i.n("seconds"), lx)
+            assertEquals("$id seconds", o.a("stats")[0].jsonObject.s("value"), "${a.seconds}s"); assertEquals("$id wpm", o.a("stats")[1].jsonObject.s("value"), if (a.wpm != 0) a.wpm.toString() else "—")
+            assertEquals("$id words", o.a("stats")[2].jsonObject.s("value"), a.words.toString()); assertEquals("$id fillers", o.a("stats")[3].jsonObject.s("value"), a.fillers.toString())
+            check("$id.notes", o["notes"], a.notes.map { it.json() })
+            val rw = o["rewards"] as JsonArray; if (rw.isEmpty()) assertNull("$id reward", a.reward) else check("$id.reward", rw[0], a.reward!!.json())
+            if (o.containsKey("chips")) { val want = o.a("chips").map { it.jsonObject }.filter { it.s("kind") == "lv" || it.s("kind") == "link" }.map { it.s("kind") + ":" + it.s("text") }; assertEquals("$id chips", want, a.chips.filter { it.kind == "lv" || it.kind == "link" }.map { it.kind + ":" + it.text }) }
+        }
+        for (c in cases(sp.o("speaking").a("shadow"))) { val id = cid(c); val i = c.o("input")
+            if (id == "sample-box") { val smp = p.samples[i.s("question")]!!; assertEquals(strs(c.o("out")["sentences"]), SpeakingRoom.sentences(smp)); assertEquals(c.o("out").a("vocab").map { it.jsonArray.map { x -> x.s() } }, smp.vocab.map { listOf(it.first, it.second) }) }
+        }
+        assertEquals(60, SpeakingRoom.shadowDone(listOf(90, 30), 2).pct); assertEquals(30, SpeakingRoom.shadowDone(listOf(90), 3).pct); assertEquals("good", SpeakingRoom.shadowColor(80)); assertEquals("medium", SpeakingRoom.shadowColor(79)); assertEquals("again", SpeakingRoom.shadowColor(59))
+    }
+
+    // ---- #/pron ----
+    @Test fun p07_pronLogic() {
+        val p = spackFull; val P = PronPairs(p); val C = PronCoach(p); val lg = sp.o("pron").o("logic"); val pr = lg.o("pairs"); val co = lg.o("coach")
+        for ((k, c) in cases(pr.a("norm")).withIndex()) assertEquals("norm[$k]", strs(c["out"]), P.norm(c.s("input")))
+        for (c in cases(pr.a("decide"))) { val i = c.o("input"); val alts = (i["alts"] as? JsonArray)?.map { if (it is JsonNull) null else it.s() } ?: listOf(i["alts"].s()); val d = P.decide(alts, i.s("target"), i.s("other")); assertEquals(cid(c), c.o("out").s("res"), d.res); assertEquals(cid(c) + " heard", c.o("out").s("heard"), d.heard) }
+        for (c in cases(pr.a("sessions"))) { val i = c.o("input"); val cs = strs(i.a("contrasts")).map { id -> p.contrasts.first { it.id == id } }
+            val stats = P.load(i["stats"]); val got = P.buildSession(cs, stats, i.n("n").toInt(), cyc(nums(i["random"])))
+            check(cid(c), c["out"], got.map { obj("c" to it.c, "words" to it.words, "side" to it.side) }) }
+        for (c in cases(pr.a("adapt"))) { val i = c.o("input"); val q = i.a("queue").map { x -> val o = x.jsonObject; PairItem(o.s("c"), strs(o.a("words")), emptyList(), o.n("side").toInt()) }.toMutableList()
+            val idx = i.n("index").toInt(); P.adapt(q, idx, q[idx]); check(cid(c), c["out"], q.map { obj("c" to it.c, "words" to it.words, "side" to it.side).let { o -> if (it.retry) JsonObject(o + ("retry" to JsonPrimitive(true))) else o } }) }
+        run { val c = cases(pr.a("stats"))[0]; val i = c.o("input"); val stats = LinkedHashMap<String, com.lexkite.app.core.speak.ContrastStat>(); for (op in i.a("ops")) P.record(stats, op.jsonArray[0].s(), op.jsonArray[1].jsonPrimitive.boolean)
+            check("stats", c.o("out")["stats"], P.save(stats)); assertEquals(strs(c.o("out")["weak"]), P.weak(stats))
+            val sess = i.o("session").entries.associate { (k, x) -> k to (x.jsonObject.n("ok").toInt() to x.jsonObject.n("n").toInt()) }; P.endSession(stats, sess, i.s("day")); check("afterEnd", c.o("out")["afterEnd"], P.save(stats)) }
+        for (c in cases(pr.a("pairsOf"))) { val ct = p.contrasts.first { it.id == c.o("input").s("contrast") }; check(cid(c), c["out"], P.pairsOf(ct).take(4).map { obj("c" to it.c, "words" to it.words, "ipa" to it.ipa) }) }
+        for ((k, c) in cases(pr.a("forSkill")).withIndex()) assertEquals("forSkill[$k]", strs(c["out"]), P.forSkill(c.s("input")).map { it.id })
+        for (c in cases(co.a("plan"))) { val i = c.o("input"); val s = i["sentence"]; val plan = if (s is JsonObject) C.plan(s.s("s"), strs(s["w"]), i.s("accent")) else C.plan(s.s(), null, i.s("accent"))
+            check(cid(c), c["out"], plan.map { obj("w" to it.w, "stress" to it.stress, "weak" to it.weak, "light" to it.light) }) }
+        for (c in cases(co.a("diff"))) { val i = c.o("input"); val d = C.diff(i.s("heard"), i.s("target")); val o = c.o("out"); assertEquals(cid(c), strs(o["missing"]), d.missing); assertEquals(strs(o["missingContent"]), d.missingContent); assertEquals(strs(o["missingWeak"]), d.missingWeak); assertEquals(strs(o["extra"]), d.extra); assertEquals(o.n("cover"), d.cover, 1e-6) }
+        for (c in cases(co.a("band"))) assertEquals(c.s("out"), C.band(c.o("input").n("score").toInt()))
+        for (c in cases(co.a("score"))) { val i = c.o("input"); val d = C.diff(i.s("heard"), i.s("target")); assertEquals(cid(c), c.o("out").n("score").toInt(), C.score(i.n("sim"), d)) }
+        for (c in cases(co.a("next"))) { val i = c.o("input"); val stats = P.load(i["stats"]); val rh = i.o("rhythm").entries.associate { (k, x) -> k.toInt() to x.jsonPrimitive.content.toDouble().toInt() }
+            check(cid(c), c["out"], C.next(if (i["usePairs"]?.jsonPrimitive?.booleanOrNull == true) P else null, stats, rh, i.s("skill")).map { n -> if (n.kind == "rhythm") obj("kind" to n.kind, "k" to n.k) else if (n.kind == "pair") obj("kind" to n.kind, "id" to n.id, "skill" to n.skill) else obj("kind" to n.kind, "id" to n.id) }) }
+    }
+
+    @Test fun p07_pronPage() {
+        val p = spackFull
+        for (c in cases(sp.o("pron").a("hub"))) { val done = PronPage.doneOf(obj("pronDone" to c.o("input")["pronDone"])); val h = PronPage.hub(p, done); val o = c.o("out")
+            assertEquals(cid(c), o.n("ring").toInt(), jsRoundForTest(h.ring)); assertEquals(o.s("ringLabel"), h.ringLabel); assertEquals(o.n("lessonCount").toInt(), h.total)
+            for (g in h.groups) assertEquals(cid(c) + " " + g.g.id, o.o("counts").n(g.g.name).toInt(), g.lessons.size) }
+        for (c in cases(sp.o("pron").a("mouth"))) { val i = c.o("input"); val m = PronPage.mouth(MouthSpec(JsonObject(mapOf("lips" to JsonPrimitive(i.s("lips")), "jaw" to JsonPrimitive(i.s("jaw")), "tongue" to JsonPrimitive(i.s("tongue"))))))!!; val o = c.o("out")
+            for ((nm, got) in listOf("outerLip" to m.outerLip, "innerMouth" to m.innerMouth, "tongue" to m.tongue)) { val want = o.a(nm).map { it.jsonPrimitive.content.toDouble() }; assertEquals(nm, want.size, got.size); for (z in want.indices) assertEquals(nm, want[z], got[z], 1e-6) }
+            assertEquals(o.s("caption"), m.caption.joinToString(" · ") { it.k }) }
+        for (c in cases(sp.o("pron").a("lesson"))) { val id = cid(c); val i = c.o("input"); val l = p.lesson(i.s("lesson")) ?: continue; val o = c.o("out")
+            if (id.startsWith("render")) { assertEquals("$id ipa", o.s("ipa"), l.ipa); assertEquals("$id title", o.s("title"), l.title); check("$id.chips", o["chips"], PronPage.chips(l).map { it.json() }); assertEquals("$id words", o.n("words").toInt(), l.words.size); assertEquals("$id pairs", o.n("pairs").toInt(), l.pairs.size)
+                assertEquals("$id sentences", o.n("sentences").toInt(), l.sentences.size); assertEquals("$id quiz", o.n("quiz").toInt(), l.quiz.size); assertEquals("$id rules", o.n("rules").toInt(), l.rules.size); assertEquals("$id mouth", o["hasMouth"]!!.jsonPrimitive.boolean, PronPage.mouth(l.mouth) != null)
+                assertEquals("$id sayIt", o.o("sections")["sayIt"]!!.jsonPrimitive.boolean, PronPairs(p).forSkill(l.id).isNotEmpty()); assertEquals("$id rhythm", o.o("sections")["rhythm"]!!.jsonPrimitive.boolean, l.id in PronGroups.RHYTHM); assertEquals("$id pairGame", o.o("sections")["pairGame"]!!.jsonPrimitive.boolean, l.pairs.isNotEmpty()) }
+            if (id.startsWith("word-mic")) { var scores = emptyMap<Int, Int>(); var game: JsonElement? = obj("pronDone" to i["pronDone"]); val steps = o.a("steps").map { it.jsonObject }; val script = i.a("script").map { it.jsonObject }
+                for ((k, st) in script.withIndex()) { val sc = st.n("score").toInt(); scores = PronPage.bestOf(scores, st.n("k").toInt(), sc); val want = steps[k]
+                    assertEquals("$id[$k] colour", want.s("colour"), "--" + PronPage.scoreColor(sc).let { x -> if (x == "medium") "hard" else x }); val rw = want["rewards"] as JsonArray; if (rw.isEmpty()) assertNull(PronPage.wordReward(sc)) else check("$id[$k].reward", rw[0], PronPage.wordReward(sc)!!.json())
+                    PronPage.lessonBest(scores, l.words.size)?.let { b -> game = PronPage.saveBest(game, l.id, b) } }
+                o["saved"]?.let { want -> check("$id.saved", want, PronPage.doneOf(game)) } }
+            if (id.startsWith("sentence-mic")) for (st in i.a("script")) { val sc = st.jsonObject.n("score").toInt(); assertEquals(sc >= 70, PronPage.sentenceReward(sc) != null) }
+        }
+        for (c in cases(sp.o("pron").a("pairGame"))) { val i = c.o("input"); val l = p.lesson(i.s("lesson"))!!; val rounds = PronPage.rounds(i["pairs"]?.jsonArray?.map { x -> x.jsonArray[0].s() to x.jsonArray[1].s() } ?: l.pairs, cyc(nums(i["random"])), shuffle = false) /* the web harness leaves the order alone */; val o = c.o("out"); val rights = i.a("rights").map { it.jsonPrimitive.boolean }
+            for ((k, r) in rounds.withIndex()) { val w = o.a("rounds")[k].jsonObject; assertEquals("${cid(c)}[$k] options", strs(w["options"]), r.options); assertEquals("${cid(c)}[$k] spoken", w.s("spoken"), r.spoken); assertEquals(w.n("answerIndex").toInt(), r.answer) }
+            val e = PronPage.pairEnd(rights.count { it }, rounds.size); assertEquals(cid(c), o["good"]!!.jsonPrimitive.boolean, e.good); check(cid(c) + ".final", o["final"], listOf(e.final[0].json(), obj("k" to "– " + e.final[1].k))); check(cid(c) + ".reward", o.a("rewards")[0], e.reward.json()) }
+    }
+    private fun jsRoundForTest(x: Double) = Math.floor(x + 0.5).toInt()
+
+    @Test fun p07_pronSay() {
+        val p = spackFull; val P = PronPairs(p)
+        for (c in cases(sp.o("pron").a("say"))) { val i = c.o("input"); val id = cid(c); val o = c.o("out"); val cs = strs(i.a("contrasts")).map { x -> p.contrasts.first { it.id == x } }
+            val stats = P.load(i["stats"]); val s = PairSession(P, cs, stats, "2026-01-05", cyc(nums(i["random"])))
+            val steps = o.a("steps").map { it.jsonObject }; var si = 0
+            if (!i.a("script").all { it.jsonObject.containsKey("o") }) continue
+            for (sc in i.a("script").map { it.jsonObject }) { if (s.finished) break; val want = steps.getOrNull(si) ?: break
+                assertEquals("$id[$si] target", want.s("target"), s.item.target); assertEquals("$id[$si] index", want.s("index"), "${s.i + 1}/${s.total}")
+                if (want.containsKey("blocked")) { org.junit.Assert.assertTrue("$id[$si] blocked", com.lexkite.app.core.speak.RecError.blocked(sc.s("error"))); break } // the mic panel replaces the step (no state / next button in the vector)
+                val outcome = sc.s("o"); val alts = when (outcome) { "good" -> listOf(s.item.target); "other" -> listOf(s.item.other); else -> emptyList() }
+                val st = s.heard(alts); if (want.containsKey("state")) check("$id[$si].state", want["state"], st.state.json()); assertEquals("$id[$si] next", want["nextButton"]!!.jsonPrimitive.boolean, st.next)
+                si++; if (st.next) s.next() }
+            if (s.finished && o["final"] != null && o["final"] !is JsonNull) { val f = s.finish(); assertEquals("$id final", o.o("final").o("score").o("v").n("ok").toInt(), f.reward.add["spoken"]); check("$id.reward", o.a("rewards")[0], f.reward.json()) } }
+        for (c in cases(sp.o("pron").a("rhythm"))) { val i = c.o("input"); val C = PronCoach(p); val s = p.coachSentences[i.n("sentence").toInt()].s; val at = C.attempt(s, i.s("heard"), strs(i.a("alts"))); val o = c.o("out")
+            if (o.containsKey("score")) assertEquals(cid(c), o.n("score").toInt(), at.score); o["tips"]?.let { check(cid(c) + ".tips", it, listOfNotNull(at.tip).map { x -> x.json() }) }
+            o["rewards"]?.let { r -> val rr = r as JsonArray; if (rr.isEmpty()) assertNull(at.reward) else check(cid(c) + ".reward", rr[0], at.reward!!.json()) } }
+    }
+
+    // ---- #/say ----
+    @Test fun p07_say() {
+        val d = SayData(sp.o("data").o("say")); val s = d.series[0]
+        val rows = SayLogic.list(d, setOf("say-no/${s.items[0].id}", "say-no/${s.items[1].id}")); assertEquals(s.items[2].id, rows[0].firstCard.id); assertEquals(Math.floor(100.0 * 2 / s.items.size + 0.5).toInt(), rows[0].pct)
+        assertEquals(s.items[0].id, SayLogic.list(d, s.items.map { "say-no/" + it.id }.toSet())[0].firstCard.id)
+        val front = SayLogic.front(s, 0); val cf = cases(sp.o("say").a("card")).first { cid(it) == "card-front-vi" }.o("out").o("data")
+        assertEquals(cf.s("ipa"), front.ipa); assertEquals(cf.n("pct"), front.pct, 1e-9); check("front.step", JsonPrimitive(cf.s("step").substringBefore("⟦")), JsonPrimitive(front.step.k)); assertEquals(cf.s("regLbl"), front.regLabelText())
+        val back = cases(sp.o("say").a("card")).first { cid(it) == "back-vi" }.o("out").o("data"); val b = SayLogic.back(s, 0, "vi") { "Tiếng Việt" }
+        assertEquals(back.s("meaning"), b.meaning); assertEquals(back.s("mLang"), b.mLang); assertEquals(back.s("dont"), b.dont); assertEquals(back.s("swap"), b.swap); assertEquals(back.s("next").removePrefix("#/"), b.next); assertEquals(back.s("dontAria"), b.dontAria!!.k)
+        val en = SayLogic.back(s, 0, "en") { "English" }; assertEquals("en", en.mLang); assertNull(en.real); assertEquals("Nghĩa dễ hiểu", en.meaningLabel.k)
+        for (c in cases(sp.o("say").a("mic"))) { val i = c.o("input"); val id = cid(c); val o = c.o("out"); if (id.startsWith("mic-error")) { check(id, o["text"], SayLogic.micError(i.s("error")).json()); continue }
+            val sc = i.n("score").toInt(); val (t, h) = SayLogic.micText(sc, i.s("heard")); check(id, o["result"], t.json()); assertEquals(id + " heard", o["heardAppended"]!!.jsonPrimitive.boolean, h.isNotEmpty()) }
+        val share = SayLogic.shareText(s, s.items[0]); assertEquals("https://lexkite.com/app/#/say/say-no/${s.items[0].id}", share.v["url"]); assertEquals("lexkite-say-${s.items[0].id}-1x1.png", SayLogic.fileName(s.items[0], false)); assertEquals("lexkite-say-${s.items[0].id}-4x5.png", SayLogic.fileName(s.items[0], true))
+        assertEquals("say/say-no/${s.items[0].id}", SayLogic.nextId(s, s.items.size - 1)); assertEquals("af_heart", SayLogic.voiceOf("ama")); assertEquals("am_michael", SayLogic.voiceOf("carlos"))
+        assertTrue(SayLogic.route(d, "").list); assertEquals("say/say-no/${s.items[0].id}", SayLogic.route(d, "say-no").replace); assertTrue(SayLogic.route(d, "zzz").list)
+    }
+    private fun SayLogic.Front.regLabelText() = regLbl.k
+
+    // ---- #/reflex ----
+    @Test fun p07_reflex() {
+        for (c in cases(sp.o("reflex").a("colorize"))) { val i = c.o("input"); val r = Reflex.colorize(i.s("target"), i.s("heard")); val o = c.o("out")
+            check(cid(c) + ".words", o["words"], r.words.map { listOf(it.first, it.second) }); assertEquals(cid(c) + " pct", o.n("pct").toInt(), r.pct); assertEquals(cid(c) + " shown", o.s("shown"), r.shown); }
+        val g = cases(sp.o("reflex").a("game"))[0]; val items = strs(g.o("input")["items"]); var score = 0; var done = 0; val heard = strs(g.o("input")["heard"])
+        for ((k, t) in items.withIndex()) { score += Reflex.colorize(t, heard[k]).pct; done++ }; val e = Reflex.end(score, done); check("reflex.final", g.o("out")["final"], e.final.map { it.json() }); check("reflex.reward", g.o("out").a("rewards")[0], e.reward!!.json())
+        assertNull(Reflex.end(0, 0).reward); assertEquals(Pair("abcDEF12345", 65), Reflex.ytOf("https://www.youtube.com/watch?v=abcDEF12345&t=65s")); assertEquals(Pair("shortID1234", 30), Reflex.ytOf("https://youtu.be/shortID1234?t=30")); assertNull(Reflex.ytOf("https://example.com/x"))
+        val pool = cases(sp.o("reflex").a("pool")).first { cid(it) == "sources-order" }; val inp = pool.o("input")
+        val contexts = inp.o("cards").entries.flatMap { (_, v) -> v.jsonArray.map { it.jsonObject.s("text") to it.jsonObject.s("source") } }
+        val got = Reflex.sources(contexts, emptyList(), emptyList(), { true }, { it })
+        assertEquals(strs(pool.o("out")["targets"]).take(3), got.map { it.text }.take(3))
+    }
+
+    // ---- #/rtype ----
+    @Test fun p07_rtype() {
+        val rt = Rtype.Pack.parse(sp.o("data").o("readtests")); assertEquals(8, Rtype.KINDS.size)
+        for (c in cases(sp.o("rtype").a("hub")).take(2)) { val i = c.o("input"); val cards = Rtype.hub(rt, obj("rtype" to i["rtype"])); val o = c.o("out").a("cards"); for (k in cards) { val want = o.map { it.jsonObject }.firstOrNull { it.s("kind") == k.kind.id } ?: continue; /* the progress case lists only the kinds with attempts */ check(cid(c) + "." + k.kind.id, want["chip"], k.chip.json()); assertEquals(want.n("bar").toInt(), k.bar); check(cid(c) + ".note", want["note"], if (k.reached) obj("k" to "✅ " + k.note.k) else k.note.json()) } }
+        for (c in cases(sp.o("rtype").a("flows"))) { val i = c.o("input"); val kind = i.s("kind"); val u = rt.of(kind)[0]; val prev = i["previous"] as JsonObject
+            val ck = Rtype.check(u, answers(i.o("answers")), obj("rtype" to prev), emptyList(), rt.explain, spNow); val o = c.o("out"); val id = cid(c)
+            check("$id.result", o["result"], ck.result.json()); check("$id.game", o["game"], JsonObject(mapOf("rtype" to (ck.game as JsonObject).getValue("rtype")))); check("$id.qstat", o["qstat"], (ck.game as JsonObject)["qstat"], 1e-9)
+            check("$id.rewards", o.a("rewards")[0], ck.reward.json()); assertEquals("$id class", o.s("feedbackClass"), if (ck.ok) "ok" else "no")
+            check("$id.mistakes", o["mistakes"], ck.mistakes.map { m -> obj("kind" to m["kind"], "q" to m["qK"], "answer" to m["answer"], "given" to (m["givenK"] ?: m["given"]), "explain" to m["explain"], "ref" to m["ref"]) }) }
+    }
+
+    // ---- #/roleplay ----
+    @Test fun p07_roleplay() {
+        val p = spackFull
+        for (c in cases(sp.o("roleplay").a("chat"))) { val id = cid(c); val o = c.o("out"); val i = c.o("input")
+            if (id.startsWith("server") || id == "offline-script" || id == "rp-chat-help" || id == "mic-turn" || id == "end-early") continue
+            val s = p.script(i.s("script"))!!; val L = i.n("level").toInt(); val chat = Roleplay.Chat(p, s, L, "script"); chat.open(); val rnd = cyc(nums(i["random"])); val steps = o.a("steps").map { it.jsonObject }
+            assertEquals("$id open", steps[0].a("bubbles")[0].jsonObject.s("text"), chat.hist[0].text)
+            var k = 1
+            for (a in i.a("actions").map { it.jsonObject }) { val want = steps[k++]
+                when {
+                    a.containsKey("say") -> { val t = chat.begin(a.s("say"))!!; val r = Roleplay.scripted(p, s, L, chat.i, t, chat.retried, rnd); chat.answer(r)
+                        assertEquals("$id say", want.a("newBubbles")[1].jsonObject.s("text"), chat.hist.last().text); assertEquals("$id turn", want.s("turnLabel"), chat.turnLabel.k + "⟦" + chat.turnLabel.json().jsonObject["v"].toString() + "⟧") }
+                    a.containsKey("hint") -> chat.hint()
+                }
+            }
+            val rep = Roleplay.report(p, s, L, chat.hist.toList(), chat.hints, null)
+            if (o.containsKey("report") && o["report"] !is JsonNull && rep != null) { val r = o.o("report"); assertEquals("$id ring", r.n("ring").toInt(), rep.ring); check("$id.meters", r["meters"], rep.meters.map { obj("label" to it.first.json(), "value" to it.second) }); check("$id.rewrites", r["rewrites"], rep.scores.rewrites.map { w -> obj("you" to w.you, "better" to w.better, "why" to w.why?.json()) }); check("$id.reward", o.a("rewards")[0], rep.reward.json()) }
+        }
+        for (c in cases(sp.o("roleplay").a("hub"))) { val i = c.o("input"); val h = Roleplay.hub(p, Roleplay.level(i["level"])); val o = c.o("out"); if (o.containsKey("everyday")) { assertEquals(o.n("everyday").toInt(), h.everyday.size); assertEquals(o.n("work").toInt(), h.work.size); assertEquals(o.n("scriptCount").toInt(), p.scripts.size) } }
+        val b = cases(sp.o("roleplay").a("brief"))[0]; val sv = Roleplay.saveVocab(p.script("cafe")!!, 1); check("brief", b.o("out").a("saved")[0], obj("entry" to sv.entry, "ctx" to sv.context))
+        val ai = cases(sp.o("roleplay").a("ai")); val day = ai[0].o("input"); var d: Roleplay.Day? = null; val modes = ArrayList<String>()
+        repeat(4) { val left = Roleplay.aiLeft(p, false, d, day.s("today")); val m = Roleplay.mode(left, true); modes.add(m); if (m != "script") d = Roleplay.useAi(d, day.s("today")) }
+        assertEquals(listOf("server", "server", "script", "script"), modes); assertEquals(Roleplay.UNLIMITED, Roleplay.aiLeft(p, true, null, "2026-01-05")); assertEquals("2026-01-06", Roleplay.useAi(Roleplay.Day("2026-01-05", 2), "2026-01-06").d); assertEquals(1, Roleplay.useAi(Roleplay.Day("2026-01-05", 2), "2026-01-06").n)
+        val pr = ai[1].o("out"); val sc = p.script("cafe")!!; assertEquals(pr.s("systemPrompt"), Roleplay.systemPrompt(sc, 1) + "\nReturn JSON only.")
+        val ch = Roleplay.Chat(p, sc, 1, "server"); ch.open(); ch.begin("Could I get a latte, please?"); assertEquals(pr.s("turnPrompt"), Roleplay.turnPrompt(sc, 1, ch.hist.toList(), 0))
+        assertNull(Roleplay.aiScore(JsonObject(mapOf("natural" to JsonPrimitive("x"))))); assertNotNull(Roleplay.serverReply(JsonObject(mapOf("reply" to JsonPrimitive("Hi"))), false))
+    }
+
+    // ---- #/handsfree ----
+    @Test fun p07_handsfree() {
+        fun card(w: String, due: Long, added: Long, reps: Int = 1) = obj("word" to w, "vi" to "nghĩa $w", "ex" to "Example of $w.", "added" to added, "srs" to obj("reps" to reps, "last" to 1L, "due" to due))
+        val now0 = spNow; val cards = linkedMapOf("a" to card("a", now0 + 1000, 1), "b" to card("b", now0 - 5000, 2), "c" to card("c", now0 + 3 * HandsFree.DAY_MS, 3))
+        val q = HandsFree.queue("", cards, null, { null }, now0); assertEquals("Từ đến hạn ôn", q.title.k); assertEquals(listOf("b", "a"), q.words.map { it.gs("word") })
+        val book = HandsFree.queue("", linkedMapOf("c" to cards.getValue("c")), null, { null }, now0); assertEquals("Sổ từ của bạn", book.title.k)
+        val sess = HandsFree.queue("session", cards, listOf("a", "missing", "c"), { null }, now0); assertEquals(listOf("a", "c"), sess.words.map { it.gs("word") }); assertEquals("Phiên ôn tập ({n} thẻ)", sess.title.k)
+        val log = ArrayList<String>()
+        class Stop : RuntimeException()
+        class Io(override val hidden: Boolean, val clips: Set<String>) : HfIO {
+            private fun tick() { if (log.size > 40) throw Stop() }
+            override suspend fun clip(text: String): Boolean { tick(); if (text in clips) { log.add("clip:$text"); return true }; return false }
+            override suspend fun url(u: String) { tick(); log.add("url:$u") }; override suspend fun silence() { tick(); log.add("silence") }
+            override suspend fun speak(text: String, lang: String, rate: Double) { tick(); log.add("speak:$text:$lang") }
+            override suspend fun wait(ms: Long) { tick(); log.add("wait:$ms") }
+        }
+        val words = listOf(HfWord("alpha", "/a/", "chữ cái đầu", "Alpha is first.", "", ""), HfWord("beta", "/b/", "chữ cái thứ hai", "Beta is second.", "https://dict.example/beta", ""))
+        fun run(hidden: Boolean, opt: HandsFree.Opt, clips: Set<String>): List<String> { log.clear(); try { runBlocking { HandsFree.Engine(words, opt, Io(hidden, clips), "en-GB", "vi-VN").run() } } catch (e: Stop) { }; return log.toList() }
+        val visible = run(false, HandsFree.Opt(), setOf("alpha", "Alpha is first.")).take(7)
+        assertEquals(listOf("clip:alpha", "wait:900", "wait:2200", "speak:chữ cái đầu:vi-VN", "wait:900", "clip:Alpha is first.", "wait:900"), visible)
+        val hiddenRun = run(true, HandsFree.Opt(), emptySet()).take(6); assertEquals(listOf("silence", "silence", "url:https://dict.example/beta", "silence", "silence", "silence"), hiddenRun)
+        assertFalse("no speech and no waits while the screen is off", hiddenRun.any { it.startsWith("speak") || it.startsWith("wait") })
+        val off = run(false, HandsFree.Opt(ex = false, mean = false), emptySet()).take(5); assertEquals(listOf("speak:alpha:en-GB", "wait:900", "wait:2200", "wait:900", "wait:900"), off)
+        val e = HandsFree.Engine(words, HandsFree.Opt(), Io(false, emptySet()), "en-GB", "vi-VN"); e.next(); assertEquals(1, e.i); e.next(); assertEquals(0, e.i); e.prev(); assertEquals(1, e.i)
+        val m = HandsFree.meta(words[0], "Từ đến hạn ôn"); assertEquals("/a/ · chữ cái đầu", m.artist); assertEquals("Lexkite · Từ đến hạn ôn", m.album); assertEquals(900L, HandsFree.Opt.of(null).gap); assertFalse(HandsFree.Opt.of(obj("ex" to false)).ex)
+        assertEquals("vi-VN", HandsFree.meaningLang("vi", "vi")); assertEquals("de-DE", HandsFree.meaningLang("en", "de"))
     }
 }

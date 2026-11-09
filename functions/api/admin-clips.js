@@ -2,6 +2,7 @@
  *   query {filter, cursor, limit}  → 1 trang đã lọc/sắp xếp (phân trang con trỏ) + bìa ký sẵn CHỈ cho trang đó + facet cho ô lọc
  *   ids {filter}                   → mọi id khớp bộ lọc (≤ 20 000) cho "chọn tất cả N kết quả"
  *   export {ids ≤ 300}             → dòng CSV
+ *   flow {}                        → số thật cho dải luồng Studio → Thư viện → Phân phối → Đăng (web/js/admin-flow.js), đệm 60 s/isolate
  *   bulk {action, ids ≤ 100, params} → thao tác hàng loạt, kết quả TỪNG clip (client chia lô + tiếp tục khi gián đoạn)
  *     approve · unapprove · pause · resume · reject{reason} · restore · web_on · web_off · reschedule{start,days,from,to,offset,total} · channel{channel_id} · delete{hard}
  *     delete = DANGER (đăng nhập ≤ 15 phút). Xóa mềm: ẩn clip, giữ công thức; hard=true (+ confirm = 'DELETE <n>'): deleted = 2, bỏ khỏi hàng đợi/kế hoạch → drive-shorts.yml
@@ -40,6 +41,36 @@ async function matching(env, db, filter) {
     if (matches(it, v, base)) { const sec = sectionOf(it, v); counts[sec]++; if (f.section ? sec === f.section : f.hidden || sec !== 'archive' || f.status === 'rejected' || f.status === 'paused') rows.push({ it, v }); } }
   return { f, rows: sortRows(rows, f.sort, f.dir, f.group), items: m.items, ctx: c, counts, typeCounts };
 }
+// Dải luồng: mỗi số 1 nguồn thật; bảng chưa có (môi trường mới) → null = "chưa có dữ liệu", không bịa 0.
+const one = async (db, sql) => { try { return await all(db, sql); } catch (e) { return null; } };
+const byKey = (rows, k = 'k') => rows ? Object.fromEntries(rows.map(r => [r[k] == null ? '' : String(r[k]), +r.n || 0])) : null;
+let flowMemo = null;
+export async function flowStats(env, db, now = Date.now()) {
+  if (flowMemo && now - flowMemo.at < 60e3) return flowMemo.data;
+  const { counts, typeCounts, ctx } = await matching(env, db, {});
+  const jobs = byKey(await one(db, 'SELECT status AS k, COUNT(*) AS n FROM video_jobs GROUP BY status'));
+  const packs = await one(db, 'SELECT COUNT(*) AS n FROM yt_pack WHERE file_id IS NOT NULL AND (retired IS NULL OR retired = 0)');
+  const ytRows = await one(db, "SELECT c.channel_id, k.cfg FROM yt_channel c LEFT JOIN yt_chan_cfg k ON k.channel_id = c.channel_id WHERE c.status = 'ok'");
+  const embedCh = ytRows && ytRows.filter(r => { try { const x = JSON.parse(r.cfg || '{}'); return x.role === 'embed' && x.active !== 0; } catch (e) { return false; } }).length; // cùng luật youtube.js (embed + active)
+  const ext = byKey(await one(db, 'SELECT status AS k, COUNT(*) AS n FROM dist_ext GROUP BY status'));
+  const social = byKey(await one(db, 'SELECT state AS k, COUNT(*) AS n FROM dist_social GROUP BY state'));
+  const board = byKey(await one(db, 'SELECT state AS k, COUNT(*) AS n FROM soc_board GROUP BY state'));
+  const drives = await one(db, "SELECT COUNT(*) AS n, SUM(quota_used) AS used, SUM(quota_total) AS total FROM drives WHERE status IN ('ok', 'pending')");
+  const alerts = await one(db, "SELECT level, COUNT(*) AS n FROM drive_alerts GROUP BY level");
+  const embedded = Object.keys(ctx.web).length, packN = packs ? +packs[0].n || 0 : null;
+  const sum = (o, ks) => o ? ks.reduce((a, k) => a + (o[k] || 0), 0) : null;
+  const data = {
+    at: now,
+    studio: jobs && { total: Object.values(jobs).reduce((a, b) => a + b, 0), active: sum(jobs, ['idea', 'script', 'script_ok', 'rendering']), qa: sum(jobs, ['rendered']), qa_fail: jobs.qa_fail || 0 },
+    library: { total: Object.values(typeCounts).reduce((a, b) => a + b, 0), ...counts },
+    dist: { embedded, ready: packN == null ? null : Math.max(0, packN - embedded), embed_channels: ytRows ? embedCh : null, yt_channels: ytRows ? ytRows.length : null, social_channels: ext ? Object.entries(ext).filter(([k]) => k !== 'gone').reduce((a, [, n]) => a + n, 0) : null },
+    publish: { planned: sum(social, ['planned', 'pushed']), published: sum(social, ['published']), failed: sum(social, ['failed']), review: sum(board, ['review']), scheduled: sum(board, ['approved', 'scheduled']), posted: sum(board, ['published']) },
+    drive: drives && +drives[0].n ? { drives: +drives[0].n, used: +drives[0].used || 0, total: +drives[0].total || 0, crit: (alerts || []).filter(a => a.level === 'crit').reduce((a, r) => a + r.n, 0), warn: (alerts || []).filter(a => a.level !== 'crit').reduce((a, r) => a + r.n, 0) } : null,
+  };
+  flowMemo = { at: now, data };
+  return data;
+}
+export const _resetFlow = () => { flowMemo = null; };
 const slim = ({ it, v }, covers) => ({ ...it, cover_url: covers[it.cover] || null, drive: undefined, _v: v });
 
 const OPS = {
@@ -51,6 +82,7 @@ const OPS = {
     let groups; if (f.group && !(+b.cursor > 0)) { groups = {}; for (const r of rows) { const k = groupKey(r.it, f.group); groups[k] = (groups[k] || 0) + 1; } }
     return { rows: pg.rows.map(r => slim(r, covers)), total: pg.total, next: pg.next, filter: f, facets, counts, typeCounts, groups, taxonomy: facets ? { types: TYPES, topics: TOPICS, skills: SKILLS, exams: EXAMS, cefr: CEFR } : undefined };
   },
+  async flow(db, b, who, env) { return await flowStats(env, db); },
   async ids(db, b, who, env) { const { rows } = await matching(env, db, b.filter); return { ids: rows.slice(0, MAX_ALL).map(r => r.it.id), total: rows.length, capped: rows.length > MAX_ALL }; },
   async export(db, b, who, env) {
     const want = new Set((Array.isArray(b.ids) ? b.ids : []).map(String).filter(x => CLIP.test(x)).slice(0, 300)), m = await manifest(env), c = await context(db);
