@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.background
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -91,9 +93,14 @@ fun SkillsHubRoute(open: (String) -> Unit) {
     val c = LocalLKColors.current
     Column(Modifier.fillMaxSize().background(c.background)) {
         TopBar(TopBarVariant.Hub, t(L10nKey.tabSkills), t)
-        Column(Modifier.padding(horizontal = LKSpacing.gutter, vertical = LKSpacing.spaceXs), verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
+        Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = LKSpacing.gutter, vertical = LKSpacing.spaceXs), verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
             LKCard(onClick = { open("listening") }, label = t(L10nKey.skillListenLuyenNgheIelts)) { Body("🎧 " + t(L10nKey.skillListenLuyenNgheIelts), style = LKType.titlePill); Muted(t(L10nKey.skillListenThiThu40Cau)) }
             LKCard(onClick = { open("reading") }, label = t(L10nKey.skillReadBaiDocIelts)) { Body("📖 " + t(L10nKey.skillReadBaiDocIelts), style = LKType.titlePill); Muted(t(L10nKey.skillReadNCauTrueFalse, mapOf("n" to 5))) }
+            // M4 P07: speaking, pronunciation and the other speaking games (screens in :feature-speak; titles are the web's source keys, translated from the speak.* ids)
+            val tr = t
+            for ((r, emoji, key) in listOf(Triple("speaking", "🗣️", "Phòng luyện Speaking"), Triple("pron", "🔤", "Thư viện phát âm"), Triple("say", "💬", "Nói như người bản xứ"), Triple("reflex", "⚡", "Phản xạ 60 giây"),
+                Triple("rtype", "🎯", "Luyện Reading theo dạng câu hỏi"), Triple("roleplay", "🎭", "Hội thoại đóng vai"), Triple("handsfree", "🎧", "Học rảnh tay")))
+                LKCard(onClick = { open(r) }, label = tr.src(key)) { Body(emoji + " " + tr.src(key), style = LKType.titlePill) }
         }
     }
 }

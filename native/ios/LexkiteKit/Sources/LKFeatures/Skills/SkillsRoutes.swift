@@ -56,7 +56,7 @@ struct SkillsFocusScreen: View {
     }
 }
 
-/// The Skills tab root: the two doors of M4 P06 (more skills join as their items land).
+/// The Skills tab root: the doors of M4 P06 (Listening, Reading) and P07 (speaking); more skills join as their items land.
 struct SkillsHubView: View {
     let tab: LKFrame.Tab
     @Environment(AppServices.self) private var services
@@ -69,6 +69,15 @@ struct SkillsHubView: View {
                 VStack(spacing: LKSpacing.spaceSm) {
                     door("headphones", t(.skillListenLuyenNgheIelts), AppRoute("listening"))
                     door("book.fill", t(.skillReadBaiDocIelts), AppRoute("reading"))
+                    // M4 P07: the speaking doors (#/speak only behind the speak_pack flag, like the web)
+                    if SpeakRoutes.speakPackOn() { door("figure.walk", t(.speakSpLuyenNoiTheoCau), AppRoute("speak")) }
+                    door("mic.fill", t(.speakSpkPhongLuyenSpeaking), AppRoute("speaking"))
+                    door("waveform", t(.speakPronThuVienPhatAm), AppRoute("pron"))
+                    door("bubble.left.and.bubble.right.fill", t(.speakRpHoiThoaiDongVai), AppRoute("roleplay"))
+                    door("quote.bubble.fill", t(.speakSayNoiNhuNguoiBan), AppRoute("say"))
+                    door("bolt.fill", t(.speakReflexPhanXa60Giay), AppRoute("reflex"))
+                    door("list.bullet.rectangle.fill", t(.speakRtypeCacDangCauHoi), AppRoute("rtype"))
+                    door("headphones.circle.fill", t(.revHandsFreeMode), AppRoute("handsfree"))
                 }
                 .padding(.horizontal, LKFrame.shared.gutter).padding(.top, LKSpacing.spaceSm)
                 .frame(maxWidth: LKFrame.shared.width).frame(maxWidth: .infinity)

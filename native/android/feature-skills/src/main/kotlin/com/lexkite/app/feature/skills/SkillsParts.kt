@@ -82,7 +82,7 @@ internal fun Opt(letter: String, text: String, selected: Boolean, mark: Boolean?
  * [graded] != null = after submitting: inputs lock, each question shows its verdict, the answer, the explanation and (listening) the evidence button.
  */
 @Composable
-internal fun QuestionGroups(p: Part, answers: Map<String, Any?>, graded: Map<Int, Qx.Res>?, tips: Boolean, onAnswer: (String, Any?) -> Unit, onHear: ((Int) -> Unit)? = null, hide: Set<Int> = emptySet()) {
+fun QuestionGroups(p: Part, answers: Map<String, Any?>, graded: Map<Int, Qx.Res>?, tips: Boolean, onAnswer: (String, Any?) -> Unit, onHear: ((Int) -> Unit)? = null, hide: Set<Int> = emptySet()) {
     val c = LocalLKColors.current
     p.groups.forEachIndexed { gi, gr ->
         val type = gr.gs("type"); val kind = Qx.kindOf(gr)
@@ -161,7 +161,7 @@ internal object Bidi {
 
 /** A labelled on/off row (Stitch switch): the label wraps, the switch keeps a ≥ 48 dp target. */
 @Composable
-internal fun SwitchRow(label: String, on: Boolean, enabled: Boolean = true, onChange: (Boolean) -> Unit) {
+fun SwitchRow(label: String, on: Boolean, enabled: Boolean = true, onChange: (Boolean) -> Unit) {
     val c = LocalLKColors.current
     Row(Modifier.fillMaxWidth().heightIn(min = 48.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
         Muted(label, Modifier.weight(1f))

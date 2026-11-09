@@ -67,6 +67,8 @@ targets:
         UISupportedInterfaceOrientations~iphone: [UIInterfaceOrientationPortrait]
         UISupportedInterfaceOrientations~ipad: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
         ITSAppUsesNonExemptEncryption: false
+        # P07 #/handsfree keeps playing with the screen locked (audio chained on ended, lock-screen controls)
+        UIBackgroundModes: [audio]
         # P03 speaking exercises: asked on the first tap of the microphone button; "Can't speak now" keeps the lesson usable without it
         NSMicrophoneUsageDescription: Lexkite listens while you say a word or sentence in a speaking exercise, to tell you how close it was. Audio is not stored.
         NSSpeechRecognitionUsageDescription: Lexkite uses speech recognition to check the English you say in speaking exercises.
