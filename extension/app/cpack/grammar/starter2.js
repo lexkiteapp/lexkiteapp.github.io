@@ -52,9 +52,9 @@ quiz: [
 ],
 drills: [
 { t: 'rewrite', q: "I walk to school every day. (My sister)", start: "My sister", a: ["My sister walks to school every day."], ex: "My sister = she → walk thêm -s thành walks." },
-{ t: 'fill', q: "My uncle ___ in a small village.", a: ["lives"], ex: 'My uncle = he → live + s = lives.' },
+{ t: 'fill', q: "My uncle ___ in a small village.", a: ["lives"], ex: 'My uncle = he (ngôi thứ ba số ít) → live + s = lives.' },
 { t: 'fill', q: "They ___ lunch at noon.", a: ["have"], ex: 'They đi với dạng nguyên mẫu have.' },
-{ t: 'fill', q: "The bus ___ at nine o'clock.", a: ["leaves"], ex: 'The bus = it → leave + s = leaves.' },
+{ t: 'fill', q: "The bus ___ at nine o'clock.", a: ["leaves"], ex: 'The bus = it (ngôi thứ ba số ít) → leave + s = leaves.' },
 { t: 'verb', q: "My mother ___ (watch) the news every evening.", a: ["watches"], ex: 'Tận cùng ch → thêm -es: watches.' },
 { t: 'verb', q: "He ___ (study) in the library after class.", a: ["studies"], ex: 'Phụ âm + y → -ies: studies. Câu hoàn chỉnh: He studies in the library after class.' },
 { t: 'verb', q: "Ana ___ (have) two cats.", a: ["has"], ex: 'Have bất quy tắc: she has. Câu hoàn chỉnh: Ana has two cats.' },
@@ -310,7 +310,7 @@ quiz: [
 drills: [
 { t: 'rewrite', q: "There is a bank near here. (phủ định)", start: "There", a: ["There isn't a bank near here.","There is not a bank near here."], ex: "Phủ định: There isn't + a bank (số ít)." },
 { t: 'fill', q: "We ___ a big family.", a: ["have"], ex: 'We + have (sở hữu). Câu hoàn chỉnh: We have a big family.' },
-{ t: 'fill', q: "My teacher ___ a red car.", a: ["has"], ex: 'My teacher = she / he → has.' },
+{ t: 'fill', q: "My teacher ___ a red car.", a: ["has"], ex: 'My teacher = she / he (ngôi thứ ba số ít) → has.' },
 { t: 'fill', q: "There ___ a hotel on this street.", a: ["is"], ex: 'A hotel số ít → There is. Câu hoàn chỉnh: There is a hotel on this street.' },
 { t: 'fill', q: "There ___ many people in the square.", a: ["are"], ex: 'Many people số nhiều → There are.' },
 { t: 'fill', q: "___ there a bank near here?", a: ["Is"], ex: 'Số ít → Is there. Câu hoàn chỉnh: Is there a bank near here?' },

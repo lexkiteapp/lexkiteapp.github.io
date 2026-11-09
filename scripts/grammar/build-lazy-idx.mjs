@@ -2,11 +2,11 @@
 // Ngữ pháp tải lười theo cấp: starter2.js (A1) và mastery.js (C2) mỗi file ~29 KB nén – không nạp khi mở màn Ngữ pháp.
 // Gói 'grammar' chỉ mang mục lục gọn của các bài đó (id, unit, order, tên, cấp, emoji, tóm tắt) → danh sách, đếm, tìm bài vẫn đủ;
 // bài mở ra thì grammar.js nạp gói grammarA1 / grammarC2 (BUNDLES trong app.js) rồi file nguồn thay bài rút gọn theo id, không trùng.
-//   web/js/grammar/lazy-a1.js  ← starter2.js        web/js/grammar/lazy-c2.js  ← mastery.js
+//   web/cpack/grammar/lazy-a1.js  ← starter2.js        web/cpack/grammar/lazy-c2.js  ← mastery.js
 //   node scripts/grammar/build-lazy-idx.mjs           kiểm file sinh khớp nguồn (npm test)
 //   node scripts/grammar/build-lazy-idx.mjs --write   sinh lại (prepush)
 import fs from 'node:fs'; import vm from 'node:vm'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..'), DIR = path.join(ROOT, 'web/js/grammar');
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..'), DIR = path.join(ROOT, 'web/cpack/grammar');
 /** Gói lười: tệp mục lục sinh ra ← tệp nguồn; `lazy` trên bài rút gọn = tên gói trong BUNDLES (app.js). */
 export const LAZY = [{ idx: 'lazy-a1.js', src: 'starter2.js', bundle: 'grammarA1' }, { idx: 'lazy-c2.js', src: 'mastery.js', bundle: 'grammarC2' }];
 export const FIELDS = ['id', 'unit', 'order', 'title', 'en', 'level', 'emoji', 'summary'];
@@ -25,7 +25,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   for (const L of LAZY) {
     const ls = lessonsOf(L.src), out = path.join(DIR, L.idx), want = render(L, ls), cur = fs.existsSync(out) ? fs.readFileSync(out, 'utf8') : '';
     if (cur === want) { console.log(`✓ ${L.idx}: ${ls.length} bài khớp ${L.src}`); continue; }
-    if (write) { fs.writeFileSync(out, want); console.log(`${L.idx}: ${ls.length} bài · ${want.length} B`); } else { console.error(`✗ web/js/grammar/${L.idx} cũ so với ${L.src} – chạy: node scripts/grammar/build-lazy-idx.mjs --write`); bad = 1; }
+    if (write) { fs.writeFileSync(out, want); console.log(`${L.idx}: ${ls.length} bài · ${want.length} B`); } else { console.error(`✗ web/cpack/grammar/${L.idx} cũ so với ${L.src} – chạy: node scripts/grammar/build-lazy-idx.mjs --write`); bad = 1; }
   }
   process.exit(bad);
 }

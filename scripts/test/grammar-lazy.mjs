@@ -10,17 +10,17 @@ const BUNDLES = cut("const G = 'js/grammar/', BUNDLES = {", '\n  };'), ROUTE_BUN
 
 // 1. Gói: 'grammar' không chứa file nặng; hai gói lười đúng 1 file nguồn, không gắn vào route nào (chỉ grammar.js gọi khi cần)
 for (const L of LAZY) {
-  assert.ok(!BUNDLES.grammar.includes('js/grammar/' + L.src), `BUNDLES.grammar còn chứa ${L.src}`);
-  assert.deepEqual(BUNDLES[L.bundle], ['js/grammar/' + L.src], `BUNDLES.${L.bundle} phải chỉ có ${L.src}`);
-  assert.ok(BUNDLES.grammar.includes('js/grammar/' + L.idx), `BUNDLES.grammar thiếu mục lục ${L.idx}`);
+  assert.ok(!BUNDLES.grammar.includes('cpack/grammar/' + L.src), `BUNDLES.grammar còn chứa ${L.src}`);
+  assert.deepEqual(BUNDLES[L.bundle], ['cpack/grammar/' + L.src], `BUNDLES.${L.bundle} phải chỉ có ${L.src}`);
+  assert.ok(BUNDLES.grammar.includes('cpack/grammar/' + L.idx), `BUNDLES.grammar thiếu mục lục ${L.idx}`);
   assert.ok(![].concat(...Object.values(ROUTE_BUNDLE)).includes(L.bundle), `${L.bundle} không được nằm trong ROUTE_BUNDLE`);
-  assert.ok(fs.existsSync(W('js/grammar/' + L.src)), L.src);
+  assert.ok(fs.existsSync(W('cpack/grammar/' + L.src)), L.src);
 }
 // mục lục nằm đúng chỗ file nguồn cũ (thứ tự bài trong danh sách không đổi)
 assert.deepEqual(BUNDLES.grammar.map(f => f.replace(/^.*\//, '')).filter(f => /^(starter|lazy-a1|academic|lazy-c2|chapters)\.js$/.test(f)), ['starter.js', 'lazy-a1.js', 'academic.js', 'lazy-c2.js', 'chapters.js']);
 
 // 2. Mục lục khớp nguồn (sinh bằng scripts/grammar/build-lazy-idx.mjs --write)
-for (const L of LAZY) assert.equal(read('js/grammar/' + L.idx), render(L, lessonsOf(L.src)), `${L.idx} cũ so với ${L.src}: node scripts/grammar/build-lazy-idx.mjs --write`);
+for (const L of LAZY) assert.equal(read('cpack/grammar/' + L.idx), render(L, lessonsOf(L.src)), `${L.idx} cũ so với ${L.src}: node scripts/grammar/build-lazy-idx.mjs --write`);
 
 // 3. Nạp như trình duyệt: dữ liệu của gói grammar (đúng thứ tự BUNDLES), rồi từng gói lười
 const mkCtx = () => { const c = { console, Date, Math, JSON, setTimeout, clearTimeout }; c.self = c.window = c; return vm.createContext(c); };
@@ -38,7 +38,7 @@ const full = loadContent();
   assert.equal(c.GRAMMAR.length, full.GRAMMAR.length, 'danh sách phải đủ số bài như nạp đầy đủ');
   const n = c.GRAMMAR.length;
   for (const L of LAZY) { // thay theo id: không trùng, đúng chỗ, bài tập gắn trước (drills-own) vẫn còn; nạp lần 2 không đổi gì
-    run(c, 'js/grammar/' + L.src); const a = sig(c); run(c, 'js/grammar/' + L.src);
+    run(c, 'cpack/grammar/' + L.src); const a = sig(c); run(c, 'cpack/grammar/' + L.src);
     assert.equal(c.GRAMMAR.length, n, `${L.src}: nạp xong số bài đổi (trùng?)`);
     assert.deepEqual(sig(c), a, `${L.src}: nạp lần 2 không idempotent`);
     assert.ok(!c.GRAMMAR.some(x => x.lazy === L.bundle), `${L.src}: còn bài rút gọn`);
@@ -60,7 +60,7 @@ async function boot(fail) {
   c.document = { getElementById: () => ({}), createElement: () => ({}), head: { appendChild() {} }, querySelector: () => null, querySelectorAll: () => [] };
   c.UI = new Proxy({ esc: s => String(s == null ? '' : s).replace(/[&<>"]/g, ch => `&#${ch.charCodeAt(0)};`), $: () => null, $$: () => [], shuffle: a => a, toast: m => log.push('toast:' + m) }, { get: (o, k) => (k in o ? o[k] : stub) });
   const state = { game: {}, settings: {} }, routes = {}, seq = { n: 0 }; let bundleOk = !fail;
-  const need = async n => { if (/^grammar/.test(n)) log.push('need:' + n); if (bundleOk) { const L = LAZY.find(l => l.bundle === n); if (!c.GRAMMAR.some(x => x.lazy === n)) return; run(c, 'js/grammar/' + L.src); } };
+  const need = async n => { if (/^grammar/.test(n)) log.push('need:' + n); if (bundleOk) { const L = LAZY.find(l => l.bundle === n); if (!c.GRAMMAR.some(x => x.lazy === n)) return; run(c, 'cpack/grammar/' + L.src); } };
   c.App = { state, routes, view, bindCommon() {}, lazy: (...n) => Promise.all(n.map(need)), reneed: n => { log.push('reneed:' + n); bundleOk = true; return need(n); }, reward() {} };
   run(c, 'js/grammar.js');
   return { c, log, view, routes };
@@ -80,7 +80,7 @@ const q = new URLSearchParams();
   const c2 = lessonsOf('mastery.js')[0].id; routes.grammar(c2, new URLSearchParams('view=full')); await flush();
   assert.deepEqual(log, ['need:grammarC2'], 'bài C2 tải gói C2');
   assert.ok(view.innerHTML.includes('g-hero') || view.innerHTML.includes(c.GRAMMAR.find(x => x.id === c2).en), 'xem toàn bài C2 vẽ được');
-  log.length = 0; routes.grammar(lessonsOf('foundation.js')[0].id, q); await flush();
+  log.length = 0; routes.grammar(c.GRAMMAR.find(x => !x.lazy).id, q); await flush();
   assert.ok(!log.length, 'bài thường không đụng gói lười');
 }
 { // gói hỏng: loadScript nuốt lỗi → vẫn rút gọn → thử tải lại 1 lần → toast + về danh sách; lần bấm sau tải lại và mở được
