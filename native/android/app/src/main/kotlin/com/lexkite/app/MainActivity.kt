@@ -59,6 +59,9 @@ import com.lexkite.app.feature.lesson.LessonEnv
 import com.lexkite.app.feature.lesson.LessonRequest
 import com.lexkite.app.feature.lesson.LessonRoute
 import com.lexkite.app.feature.lesson.LessonSlots
+import com.lexkite.app.feature.skills.SkillsEnv
+import com.lexkite.app.feature.skills.SkillsHubRoute
+import com.lexkite.app.feature.skills.SkillsRoute
 import com.lexkite.app.feature.vocab.StudySlots
 import com.lexkite.app.feature.vocab.StudyTx
 import com.lexkite.app.feature.vocab.StudyWords
@@ -158,6 +161,8 @@ class MainActivity : ComponentActivity() {
         },
         vocab = { route, arg, query, onExit, open, replace -> VocabRoute(vocabEnv(lang), route, arg, query, vocabSlots, open, replace, onExit) },
         vocabHub = { open -> VocabHubRoute(vocabEnv(lang), open) },
+        skills = { route, arg, query, onExit, open, replace -> SkillsRoute(skillsEnv(lang), route, arg, query, open, replace, onExit) },
+        skillsHub = { open -> SkillsHubRoute(open) },
         words = { route, arg, query, onExit, open ->
             val t = com.lexkite.app.design.LocalL10n.current
             val env = remember(lang) { WordEnv(app.store, app.audio, UrlHttp, { name -> assets.open(name).bufferedReader().use { it.readText() } }, lang, wordIndex = { StudyWords.load(UrlHttp, cacheDir)?.index ?: emptyMap() }, tx = StudyTx.of(t, L10n.load(this@MainActivity, "vi"))) }
@@ -171,6 +176,17 @@ class MainActivity : ComponentActivity() {
         val dark = com.lexkite.app.design.LocalLKColors.current.dark
         val t = com.lexkite.app.design.LocalL10n.current
         return remember(lang, dark) { VocabEnv(app.store, app.audio, UrlHttp, cacheDir, StudyTx.of(t, L10n.load(this@MainActivity, "vi")), words = { StudyWords.load(UrlHttp, cacheDir) }, imageUrl = { w, p -> app.vimg.urlFor(w, p, dark) }) }
+    }
+    /** M4 listening + reading screens: the vocabulary env (store, audio, mistakes, rewards) + the word env (dictionary, cards) + the content pack (cached download). */
+    @Composable
+    private fun skillsEnv(lang: String): SkillsEnv {
+        val dark = com.lexkite.app.design.LocalLKColors.current.dark
+        val t = com.lexkite.app.design.LocalL10n.current
+        val vocab = vocabEnv(lang)
+        return remember(lang, dark) {
+            val word = WordEnv(app.store, app.audio, UrlHttp, { name -> assets.open(name).bufferedReader().use { it.readText() } }, lang, wordIndex = { StudyWords.load(UrlHttp, cacheDir)?.index ?: emptyMap() }, tx = StudyTx.of(t, L10n.load(this@MainActivity, "vi")))
+            SkillsEnv(vocab, word, lang) { SkillsEnv.fetchPack(UrlHttp, cacheDir, starter = { assets.open("content-pack/skills-starter.json").bufferedReader().use { it.readText() } }) }
+        }
     }
     private val vocabSlots = StudySlots(image = { url, desc, mod -> RemoteImage(url, desc, mod) })
 

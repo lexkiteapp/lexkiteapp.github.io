@@ -95,7 +95,7 @@ class VocabEnv(
 }
 
 /** "game" totals for a finished activity: mirrors LessonWriter.reward (day counters, lifetime totals only for keys that exist, xp). */
-internal object StudyReward {
+object StudyReward {
     fun track(game: JsonElement?, add: Map<String, Int>, xp: Int, now: Long): JsonElement {
         val g = Js.spread(game); val days = Js.spread(g["days"]); val k = CardMath.todayKey(now); val d = Js.spread(days[k]); val total = Js.spread(g["total"])
         fun num(e: JsonElement?) = Js.num(e).let { if (it.isNaN()) 0.0 else it }
