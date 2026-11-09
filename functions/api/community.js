@@ -14,6 +14,7 @@
 import { claims, limit } from './sync.js';
 import { gate } from './_quota.js';
 import { once } from './_schema.js';
+import { readJSON, bodyFail } from './_body.js';
 import { cleanNick } from './league.js';
 import { adminGate, adminAudit } from './admin.js';
 import { RULES_V, COLORS, HIDE_AT, REPORTS_PER_DAY, BLOCK_MAX, REASONS, KINDS, ageBand, checkText, trust, penalty, muted } from './_cm.js';
@@ -181,7 +182,8 @@ export async function admin(db, req, now = Date.now()) {
 export async function onRequestPost({ request, env }) {
   if (env.COMMUNITY !== '1') return json(request, 404, { error: 'off' }); // cờ tính năng – mặc định TẮT
   if (!env.DB) return json(request, 500, { error: 'no-db' });
-  let req; try { req = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
+  let req; try { req = await readJSON(request, 16384); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); } // thân ≤ 16 KB (_body.js, 413 khi vượt)
+  if (!req || typeof req !== 'object') return json(request, 400, { error: 'json' });
   if (String(req.op || '').startsWith('adm-')) {
     const g = await adminGate(request, env, 'admcm'); if (g.error) return json(request, g.status, { error: g.error });
     try { await setup(env.DB); const [s, d] = await admin(env.DB, req); await adminAudit(env, request, g.who.email, 'community:' + req.op, s === 200); return json(request, s, d); } catch (e) { return json(request, 500, { error: 'server' }); }

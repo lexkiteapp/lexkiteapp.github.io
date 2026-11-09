@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - run: |
-          npm i --no-save --no-audit --no-fund playwright@1.48.2 tesseract.js@5.1.1
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 tesseract.js@5.1.1 wasm-feature-detect@1.8.0   # 09/11: wasm-feature-detect 1.10.0 (phát hành cùng ngày) có index.cjs lỗi cú pháp → ghim bản cũ ổn định
           bash scripts/ci/pw-install.sh --with-deps chromium
         timeout-minutes: 12
       - run: node scripts/report-shot-bench.mjs
