@@ -97,9 +97,9 @@ class WebWords(val topics: List<Topic>, val groups: List<WordGroup>) {
             fun list(n: Int): List<String> = if (g(n).isEmpty()) emptyList() else g(n).split("|")
             return jo("word" to g(0), "ipa" to g(1), "pos" to g(2), "vi" to g(3), "def" to g(4), "ex" to g(5), "col" to list(6), "syn" to list(7), "level" to g(8), "emoji" to g(9), "ipaUS" to g(10), "topic" to id)
         }
-        private val CALL = Regex("(?m)^(add|T)\\(")
+        private val CALL = Regex("(?m)^[ \\t]*(add|T)\\(")
         /** `const NAME = ['text', ...];` - only arrays of plain strings (the lib files keep their description there); code-like arrays are not touched. */
-        private val CONST = Regex("(?m)^const (\\w+) = (\\[\\s*(?:'[^'\\n]*'|\"[^\"\\n]*\")(?:\\s*,\\s*(?:'[^'\\n]*'|\"[^\"\\n]*\"))*\\s*,?\\s*\\]);")
+        private val CONST = Regex("(?m)^[ \\t]*const (\\w+) = (\\[\\s*(?:'[^'\\n]*'|\"[^\"\\n]*\")(?:\\s*,\\s*(?:'[^'\\n]*'|\"[^\"\\n]*\"))*\\s*,?\\s*\\]);")
 
         /** Topics declared in one script (`T(...)` in data.js, `add(...)` in js/lib/ files), in file order. */
         fun parseTopics(text: String): List<Topic> {
