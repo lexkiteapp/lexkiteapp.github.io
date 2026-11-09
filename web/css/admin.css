@@ -644,7 +644,7 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
 .sx-l.sx-r { -webkit-mask-image: linear-gradient(to right, transparent, #000 36px, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to right, transparent, #000 36px, #000 calc(100% - 36px), transparent); }
 
 /* ---------- Dải luồng Nội dung & Video (js/admin-flow.js, docs/VIDEO.md §9) ---------- */
-.adm .flow { max-width: var(--a-max); min-width: 0; contain: inline-size; /* chữ nowrap của 5 bước làm min-content rộng hơn khung → cả trang tràn ngang (guard shell 33 ở 768–1024 px); contain:inline-size bỏ phần đó khỏi cỡ nội tại */ margin: -.6rem 0 1.2rem; display: flex; gap: .6rem; align-items: stretch; flex-wrap: wrap; }
+.adm .flow { max-width: var(--a-max); margin: -.6rem 0 1.2rem; display: flex; flex-direction: row; /* style.css có .flow {column; align-items:center} cho app học – trong admin phải đặt lại, nếu không flex-basis 640/230 thành CHIỀU CAO và bước/ổ Drive xếp lệch → trang tràn ngang (guard shell 33, overflow 604) */ gap: .6rem; align-items: stretch; flex-wrap: wrap; }
 .adm .flow[hidden] { display: none; }
 .adm .flow-steps { flex: 1 1 640px; display: flex; align-items: stretch; gap: .25rem; min-width: 0; }
 .adm .flow-step, .adm .flow-drive { position: relative; flex: 1 1 0; min-width: 0; display: flex; gap: .55rem; align-items: flex-start; padding: .6rem .75rem; border: 1px solid var(--line); border-radius: var(--a-r-sm); background: var(--surface); color: var(--text); text-decoration: none; box-shadow: var(--a-card-shadow); transition: border-color .15s, box-shadow .15s, transform .15s; }
