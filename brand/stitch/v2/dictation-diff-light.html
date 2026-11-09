@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Lexkite Dictation - Diff Feedback</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Material Symbols Rounded -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              'teal-dark': '#092526',
+              'teal-light': '#1A5354',
+              coral: '#F97316', // Vibrant coral/amber
+              'coral-deep': '#EA580C',
+              'coral-ink': '#1A0D00',
+              cream: '#FFF8F5',
+              'surface-warm': '#FDF4ED',
+              outline: '#EAD7CD',
+            }
+          },
+          boxShadow: {
+            'tactile-coral': '0 4px 0 0 #C2410C',
+            'tactile-card': '0 3px 0 0 #E2CEBF',
+            'tactile-teal': '0 4px 0 0 #082223',
+            'tactile-subtle': '0 2px 0 0 #EAD7CD',
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    /* Prevent text selection quirks & ensure clean tap boundaries */
+    * {
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #FFF8F5;
+      color: #1A2826;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-rounded.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-[#FBF7F1] min-h-screen flex justify-center items-start antialiased text-[#1A2826]">
+
+  <!-- Dedicated 390px Mobile Viewport Container -->
+  <div class="w-full max-w-[390px] min-h-screen bg-[#FBF7F1] flex flex-col justify-between relative shadow-sm pb-24">
+
+    <!-- TOP SECTION: LESSON / FOCUS SCREEN HEADER (§5d) -->
+    <!-- Close X (44px) + Slim progress bar + Counter "5/24", No bottom tabs -->
+    <header class="sticky top-0 z-40 bg-[#FBF7F1]/95 backdrop-blur-md px-4 pt-3 pb-2 border-b border-[#EAD7CD]/60">
+      <div class="flex items-center justify-between gap-3 h-11">
+        <!-- Close Button (Strict 44x44px target) -->
+        <button type="button" aria-label="Close drill" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center text-[#1A2826] bg-[#F8F4EC] hover:bg-[#EEDBCF] active:translate-y-0.5 transition-all">
+          <span class="material-symbols-rounded text-[22px]">close</span>
+        </button>
+
+        <!-- Slim Progress Bar -->
+        <div class="flex-1 flex flex-col justify-center px-1">
+          <div class="w-full h-2.5 bg-[#ECE4D7] rounded-full overflow-hidden p-0.5">
+            <div class="h-full bg-[#0F3D3E] rounded-full transition-all duration-300" style="width: 21%;"></div>
+          </div>
+        </div>
+
+        <!-- Exercise Counter Badge (min 44px hit-box) -->
+        <div class="h-11 min-w-[56px] px-3 rounded-full bg-[#ECE4D7] flex items-center justify-center border border-[#E5D1C3]">
+          <span class="text-xs font-bold text-[#0F3D3E] tracking-tight">5/24</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN SCROLLABLE CONTENT (16px side gutters) -->
+    <main class="flex-1 px-4 pt-3 pb-6 flex flex-col gap-4">
+
+      <!-- SUB-HEADER METADATA CHIPS -->
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <div class="flex items-center gap-1.5 bg-[#ECE4D7] px-3 py-1.5 rounded-full border border-[#E5D1C3]">
+          <span class="material-symbols-rounded text-[18px] text-[#0F3D3E]">hearing</span>
+          <span class="text-xs font-bold text-[#0F3D3E] leading-tight">Dictation · A tour of the botanic garden · Priya</span>
+        </div>
+      </div>
+
+      <!-- MODE SELECTOR PILL -->
+      <div class="flex items-center justify-between bg-[#F8F4EC] p-1 rounded-xl border border-[#E5D1C3]">
+        <div class="flex-1 flex items-center justify-center py-2 px-3 rounded-lg bg-white shadow-sm border border-[#DEC4B0]">
+          <span class="material-symbols-rounded text-[16px] text-[#0F3D3E] mr-1.5">edit_note</span>
+          <span class="text-xs font-bold text-[#0F3D3E]">Copy whole sentence</span>
+        </div>
+        <div class="px-3 py-2 text-xs font-semibold text-[#6E5C50]">
+          <span>Speed: 1.0x</span>
+        </div>
+      </div>
+
+      <!-- AUDIO CONTROLS ROW (44px min tap targets) -->
+      <div class="bg-white rounded-2xl p-3 border border-[#EAD7CD] shadow-[0_3px_0_0_#EAD7CD] flex items-center justify-between gap-2">
+        <!-- Previous Audio Clip (44x44px) -->
+        <button type="button" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-[#F8F4EC] hover:bg-[#EEDBCF] active:translate-y-0.5 text-[#0F3D3E] flex items-center justify-center border border-[#E2CEBF] transition-all" title="Previous clip">
+          <span class="material-symbols-rounded text-[22px]">skip_previous</span>
+        </button>
+
+        <!-- Big Coral "Listen" Button with Tactile Ledge (Strictly ink text on coral) -->
+        <button type="button" class="flex-1 h-12 min-h-[44px] rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-[#1A0D00] font-extrabold text-sm flex items-center justify-center gap-2 shadow-tactile-coral active:translate-y-1 active:shadow-none transition-all px-4">
+          <span class="material-symbols-rounded text-[22px] filled">play_arrow</span>
+          <span>Listen audio</span>
+        </button>
+
+        <!-- Slow Turtle Playback (44x44px) -->
+        <button type="button" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-[#F8F4EC] hover:bg-[#EEDBCF] active:translate-y-0.5 text-[#0F3D3E] flex items-center justify-center border border-[#E2CEBF] transition-all" title="Listen slower">
+          <span class="material-symbols-rounded text-[22px]">pets</span>
+        </button>
+
+        <!-- Next Audio Clip (44x44px) -->
+        <button type="button" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-[#F8F4EC] hover:bg-[#EEDBCF] active:translate-y-0.5 text-[#0F3D3E] flex items-center justify-center border border-[#E2CEBF] transition-all" title="Replay section">
+          <span class="material-symbols-rounded text-[22px]">replay</span>
+        </button>
+      </div>
+
+      <!-- LEARNER'S TYPED TRANSCRIPTION CARD -->
+      <div class="bg-white rounded-2xl p-3.5 border border-[#EAD7CD] shadow-[0_2px_0_0_#EAD7CD] flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#635347]">Your typed sentence</span>
+          <span class="text-[11px] font-semibold text-[#0F3D3E] bg-[#E7F3F2] px-2 py-0.5 rounded-full border border-[#BCDEDB]">13 words typed</span>
+        </div>
+        <div class="p-3 bg-[#FBF7F1] rounded-xl border border-[#EAD7CD] text-sm text-[#1A2826] font-medium leading-relaxed">
+          "The glasshouse opens at nine thirty and shuts at four on week days"
+        </div>
+      </div>
+
+      <!-- TEACHER SLOT PLACEHOLDER (Programmatic Slot, NO people drawn) -->
+      <div class="w-full rounded-2xl border-2 border-dashed border-[#0F3D3E]/35 bg-[#F8F4EC]/70 p-2.5 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-[#EAD7CD] flex items-center justify-center text-[#0F3D3E]">
+            <span class="material-symbols-rounded text-[18px]">school</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-[11px] font-black uppercase tracking-wider text-[#0F3D3E]">teacher-slot</span>
+            <span class="text-xs text-[#52443A] font-medium">Coach Ama analyzing acoustic diff</span>
+          </div>
+        </div>
+        <span class="text-[11px] font-bold text-[#0F3D3E] bg-[#E1F1F0] px-2.5 py-1 rounded-full border border-[#BCE1DE]">Band 7.5 Target</span>
+      </div>
+
+      <!-- DIFF FEEDBACK CARD (Coach Marking Experience) -->
+      <div class="bg-white rounded-2xl p-4 border border-[#EAD7CD] shadow-[0_3px_0_0_#EAD7CD] flex flex-col gap-3.5">
+        
+        <!-- Score Bar & Accuracy Badge -->
+        <div class="flex items-center justify-between border-b border-[#E6DCCB] pb-3">
+          <div class="flex items-center gap-2">
+            <div class="w-10 h-10 rounded-xl bg-[#E6F4EA] border border-[#A6D5B4] flex items-center justify-center text-[#137333]">
+              <span class="material-symbols-rounded text-[24px]">verified</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-lg font-extrabold text-[#0F3D3E] tracking-tight">86% accurate</span>
+              </div>
+              <p class="text-[11px] text-[#55463C] font-semibold">1 missed word · 1 substituted trap</p>
+            </div>
+          </div>
+          <span class="text-xs font-extrabold text-[#1A0D00] bg-[#FED7AA] border border-[#FDBA74] px-2.5 py-1 rounded-lg">
+            +35 XP
+          </span>
+        </div>
+
+        <!-- WORD-BY-WORD ANNOTATED TARGET SENTENCE (Accessible 3-style markings) -->
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-[#635347] block mb-2">Word-by-word comparison</span>
+          
+          <div class="p-3.5 bg-[#FFFFFF] rounded-xl border border-[#EAD7CD] leading-loose flex flex-wrap items-center gap-x-2 gap-y-2.5 text-base">
+            
+            <!-- 1. The (Correct) -->
+            <span class="inline-flex items-center gap-1 bg-[#E6F4EA] text-[#137333] px-2 py-0.5 rounded-md border border-[#B7E1CD] font-bold">
+              <span class="material-symbols-rounded text-[14px]">check</span>
+              The
+            </span>
+
+            <!-- 2. glasshouse (Correct) -->
+            <span class="inline-flex items-center gap-1 bg-[#E6F4EA] text-[#137333] px-2 py-0.5 rounded-md border border-[#B7E1CD] font-bold">
+              <span class="material-symbols-rounded text-[14px]">check</span>
+              glasshouse
+            </span>
+
+            <!-- 3. opens (Correct) -->
+            <span class="inline-flex items-center gap-1 bg-[#E6F4EA] text-[#137333] px-2 py-0.5 rounded-md border border-[#B7E1CD] font-bold">
+              <span class="material-symbols-rounded text-[14px]">check</span>
+              opens
+            </span>
+
+            <!-- 4. at (Correct) -->
+            <span class="inline-flex items-center gap-1 bg-[#E6F4EA] text-[#137333] px-2 py-0.5 rounded-md border border-[#B7E1CD] font-bold">
+              <span class="material-symbols-rounded text-[14px]">check</span>
+              at
+            </span>
+
+            <!-- 5. nine (Correct) -->
+            <span class="inline-flex items-center gap-1 bg-[#E6F4EA] text-[#137333] px-2 py-0.5 rounded-md border border-[#B7E1CD] font-bold">
+              <span class="material-symbols-rounded text-[14px]">check</span>
+              nine
+            </span>
+
+            <!-- 6. thirty (Correct) -->
+            <span class="inline-flex items-center gap-1 bg-[#E6F4EA] text-[#137333] px-2 py-0.5 rounded-md border border-[#B7E1CD] font-bold">
+              <span class="material-symbols-rounded text-[14px]">check</span>
+              thirty
+            </span>
+
+            <!-- 7. and (Correct) -->
+            <span class="inline-flex items-center gap-1 bg-[#E6F4EA] text-[#137333] px-2 py-0.5 rounded-md border border-[#B7E1CD] font-bold">
+              <span class="material-symbols-rounded text-[14px]">check</span>
+              and
+            </span>
+
+            <!-- 8. closes (Missed in audio dictation -> typed 'shuts') -->
+            <span class="inline-flex items-center gap-1 bg-[#FEE2E2] text-[#B91C1C] px-2 py-0.5 rounded-md border-b-2 border-dashed border-[#B91C1C] font-bold" title="Missed word in target sentence">
+              <span class="material-symbols-rounded text-[14px]">remove</span>
+              closes
+            </span>
+
+            <!-- [Wrong word that was typed]: shuts -->
+            <span class="inline-flex items-center gap-1 bg-[#FEF3C7] text-[#92400E] px-2 py-0.5 rounded-md border border-[#FDE68A] line-through font-bold" title="Wrong word typed instead of 'closes'">
+              <span class="material-symbols-rounded text-[14px] no-underline inline-block">add</span>
+              shuts
+            </span>
+
+            <!-- 9. at (Correct) -->
+            <span class="inline-flex items-center gap-1 bg-[#E6F4EA] text-[#137333] px-2 py-0.5 rounded-md border border-[#B7E1CD] font-bold">
+              <span class="material-symbols-rounded text-[14px]">check</span>
+              at
+            </span>
+
+            <!-- 10. four (Correct) -->
+            <span class="inline-flex items-center gap-1 bg-[#E6F4EA] text-[#137333] px-2 py-0.5 rounded-md border border-[#B7E1CD] font-bold">
+              <span class="material-symbols-rounded text-[14px]">check</span>
+              four
+            </span>
+
+            <!-- 11. on (Correct) -->
+            <span class="inline-flex items-center gap-1 bg-[#E6F4EA] text-[#137333] px-2 py-0.5 rounded-md border border-[#B7E1CD] font-bold">
+              <span class="material-symbols-rounded text-[14px]">check</span>
+              on
+            </span>
+
+            <!-- 12. weekdays (Wrongly split as 'week days') -->
+            <span class="inline-flex items-center gap-1 bg-[#FEE2E2] text-[#B91C1C] px-2 py-0.5 rounded-md border-b-2 border-dashed border-[#B91C1C] font-bold" title="Compound noun written as two words">
+              <span class="material-symbols-rounded text-[14px]">remove</span>
+              weekdays
+            </span>
+
+          </div>
+        </div>
+
+        <!-- ACCESSIBLE DIFF LEGEND (Does not rely on color alone) -->
+        <div class="bg-[#F8F4EC] p-3 rounded-xl border border-[#E5D1C3] flex items-center justify-between flex-wrap gap-2 text-xs">
+          <!-- Correct -->
+          <div class="flex items-center gap-1.5">
+            <span class="w-4 h-4 rounded-full bg-[#E6F4EA] border border-[#137333] text-[#137333] flex items-center justify-center font-bold text-[10px]">✓</span>
+            <span class="font-bold text-[#1A2826]">Correct</span>
+          </div>
+
+          <!-- Missed -->
+          <div class="flex items-center gap-1.5">
+            <span class="w-4 h-4 rounded-full bg-[#FEE2E2] border border-[#B91C1C] text-[#B91C1C] flex items-center justify-center font-bold text-[10px]">−</span>
+            <span class="font-bold text-[#1A2826]">Missed</span>
+          </div>
+
+          <!-- Extra / Wrong -->
+          <div class="flex items-center gap-1.5">
+            <span class="w-4 h-4 rounded-full bg-[#FEF3C7] border border-[#92400E] text-[#92400E] flex items-center justify-center font-bold text-[10px]">+</span>
+            <span class="font-bold text-[#1A2826]">Extra / Wrong</span>
+          </div>
+        </div>
+
+        <!-- COACHING ADVICE NOTE -->
+        <div class="p-3 bg-[#F8F4EC] rounded-xl border border-[#B2DBD7] flex items-start gap-2.5">
+          <span class="material-symbols-rounded text-[#0F3D3E] text-[20px] mt-0.5">tips_and_updates</span>
+          <div class="text-xs text-[#0F3D3E] leading-relaxed">
+            <strong class="font-extrabold text-[#092526]">Examiner Note:</strong> Priya said <em>"closes"</em> (/ˈkloʊ.zɪz/), not <em>"shuts"</em>. Also remember that <em>"weekdays"</em> is a closed compound noun.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SECONDARY ACTION BUTTON: "Show answer" Ghost button (>=44px height) -->
+      <button type="button" class="w-full h-11 min-h-[44px] rounded-xl border border-[#D6C2B4] bg-[#F8F4EC] hover:bg-[#EEDBCF] active:translate-y-0.5 text-[#0F3D3E] font-bold text-sm flex items-center justify-center gap-2 transition-all">
+        <span class="material-symbols-rounded text-[18px]">visibility</span>
+        <span>Show answer & full explanation</span>
+      </button>
+
+    </main>
+
+    <!-- FIXED PINNED BOTTOM ACTION BAR (Lesson / Focus Screen Requirement: One primary button pinned at bottom) -->
+    <div class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto z-50 bg-[#FBF7F1]/95 backdrop-blur-md px-4 py-3 border-t border-[#EAD7CD]">
+      <!-- Single Full-Width Primary CTA with Tactile Ledge (Strictly ink text on coral) -->
+      <button type="button" class="w-full h-12 min-h-[44px] rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-[#1A0D00] font-extrabold text-base flex items-center justify-center gap-2 shadow-tactile-coral active:translate-y-1 active:shadow-none transition-all">
+        <span>Next sentence</span>
+        <span class="material-symbols-rounded text-[20px] font-bold">keyboard_return</span>
+      </button>
+    </div>
+
+  </div>
+
+</body>
+</html>

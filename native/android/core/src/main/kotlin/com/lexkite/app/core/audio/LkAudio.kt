@@ -11,6 +11,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
+import com.lexkite.app.core.skills.Clip
 import java.io.File
 import kotlin.coroutines.resume
 
@@ -31,7 +32,14 @@ interface PlayCallback { fun onStart(durSec: Double); fun onEnd(); fun onError()
 interface PlayHandle { fun stop(); /** seconds since the start of the file (interpolated between player samples) */ fun positionSec(): Double }
 
 /** Last-resort system speech. */
-interface TtsBackend { fun speak(text: String, accent: String, gender: String, rate: Float, cb: TtsCallback): PlayHandle; fun stop() }
+interface TtsBackend {
+    fun speak(text: String, accent: String, gender: String, rate: Float, cb: TtsCallback): PlayHandle
+    fun stop()
+    /** The listening cast: the device voice named [voice] (null = best of [lang]) with an explicit [pitch]; sentences queue behind each other. Default: the plain best voice. */
+    fun speakCast(text: String, voice: String?, lang: String, pitch: Float, rate: Float, cb: TtsCallback): PlayHandle = speak(text, lang, "", rate, cb)
+    /** Names of the device voices of an accent (en-GB, en-US, en-AU). */
+    fun voiceNames(lang: String): List<String> = emptyList()
+}
 interface TtsCallback { fun onStart(); fun onEnd(); fun onError() }
 
 /** The audible piece the lip sync follows: one sentence (CDN file) or one TTS utterance. */
@@ -105,6 +113,21 @@ class LkAudio(
     }
 
     fun stop() { seq++; job?.cancel(); job = null; cur?.stop(); cur = null; tts.stop() }
+
+    /**
+     * One whole-line clip by its key (listening parts: the key is of the line, not of a sentence). Does not stop what plays: the caller sequences the lines.
+     * MISSING = no origin has the file (use the device voice); FAILED = an origin failed (counts as one CDN failure).
+     */
+    suspend fun playKey(key: String, rate: Float, onStart: () -> Unit = {}): Clip {
+        val before = fails
+        val file = resolve(key) ?: return if (fails > before) Clip.FAILED else Clip.MISSING
+        var started = false
+        val ok = playFile(seq, 0, "", file, rate, object : SpeakListener { override fun onSegment(seg: Segment) { started = true; onStart() } })
+        return if (ok) Clip.PLAYED else if (started) Clip.FAILED_AFTER_START else Clip.FAILED
+    }
+    /** Device voice cast (see [TtsBackend.speakCast]); [stop] cancels it. */
+    fun speakCast(text: String, voice: String?, lang: String, pitch: Float, rate: Float, cb: TtsCallback) { tts.speakCast(text, voice, lang, pitch, rate, cb) }
+    fun voiceNames(lang: String): List<String> = tts.voiceNames(lang)
 
     /** Reads `text` aloud as [who] (ama / carlos / Kokoro id). */
     fun speak(text: String, who: String, rate: Float = 0.95f, listener: SpeakListener = object : SpeakListener {}) {
