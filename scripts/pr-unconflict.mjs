@@ -20,6 +20,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { REGISTRIES } from './lib/fmt-registry.mjs';
+import { loadDictFile, writeSrc } from './lib/i18n-pack.mjs';
 
 const REGISTRY_FILES = [...new Set(REGISTRIES.map(r => r.file))];
 
@@ -30,7 +31,8 @@ export const UNION = ['scripts/test/suite.txt', 'docs/INDEX.md']; // danh sách 
 export const GENERATED = /^(web\/js\/i18n\/(?!en[./])[a-z]{2,3}(\.js|\/)|web\/cpack\/lesson\/pn-[a-z]{2,3}\.js$|extension\/app\/|web\/css\/st-[\w-]+\.css$)/;
 // Danh sách "mỗi mục một dòng" (scripts/fmt-stable.mjs): nguồn dịch i18n/ui + tệp có registry. Gỡ = giữ mục của CẢ HAI phía trong từng khối xung đột,
 // chỉ khi khối toàn dòng mục `khóa: giá trị,` / chú thích; fmt-stable sắp lại và NÉM LỖI nếu trùng khóa (hai PR sửa cùng mục → người gỡ).
-export const ENTRY_FILES = f => /^i18n\/ui\/.+\.js$/.test(f) || REGISTRY_FILES.includes(f);
+export const ENTRY_FILES = f => REGISTRY_FILES.includes(f);
+export const DICT_FILES = f => /^i18n\/ui\/.+\.js$/.test(f); // nguồn dịch: gộp 3 bên THEO KHÓA (không theo dòng) – đúng cả khi hai phía khác định dạng
 export const ENTRY_LINE = /^\s*(\/\/.*|("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|[A-Za-z_$][\w$]*)\s*:.*,(\s*\/\/.*)?)$/;
 export const ACTIVE_H = 24, MAX = 4;
 
@@ -41,8 +43,20 @@ export function plan(conflicted) {
   for (const f of conflicted) {
     if (TAKE_MAIN.includes(f) || GENERATED.test(f)) out.push({ f, how: 'main' });
     else if (UNION.includes(f)) out.push({ f, how: 'union' });
+    else if (DICT_FILES(f)) out.push({ f, how: 'dict3' });
     else if (ENTRY_FILES(f)) out.push({ f, how: 'entries' });
     else return null;
+  }
+  return out;
+}
+
+/** Gộp 3 bên một từ điển (thuần): lấy main (theirs), áp thay đổi của PR so với gốc (thêm/sửa/xoá khóa). Hai phía sửa cùng khóa khác giá trị → null (người gỡ). */
+export function merge3(base, ours, theirs) {
+  const out = { ...theirs };
+  for (const k of new Set([...Object.keys(base), ...Object.keys(ours)])) {
+    if (base[k] === ours[k]) continue;                       // PR không đổi khóa này → giữ bản main
+    if (k in theirs && theirs[k] !== base[k] && theirs[k] !== ours[k]) return null; // cả hai cùng sửa khác nhau
+    if (k in ours) out[k] = ours[k]; else delete out[k];
   }
   return out;
 }
@@ -112,7 +126,13 @@ export function fix(p, dry) {
   if (!steps) { tryGit('merge', '--abort'); console.log(`#${p.number}: xung đột ở tệp người viết (${conflicted.join(', ')}) – để phiên phụ trách`); return 'manual'; }
   for (const { f, how } of steps) {
     if (how === 'main') git('checkout', '--theirs', '--', f);
-    else if (how === 'entries') {
+    else if (how === 'dict3') {
+      const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'unc-')), side = k => { const o = tryGit('show', `:${k}:${f}`); fs.writeFileSync(`${tmp}/${k}.js`, o.ok ? o.out : ''); try { return loadDictFile(`${tmp}/${k}.js`); } catch { return null; } };
+      const [b, o, t] = [side(1), side(2), side(3)], d = b && o && t ? merge3(b, o, t) : null;
+      const m3 = /^i18n\/ui\/([a-z]{2,3})(?:\/([\w-]+))?\.js$/.exec(f);
+      if (!d || !m3) { tryGit('merge', '--abort'); console.log(`#${p.number}: ${f} hai phía cùng sửa một khóa dịch – để phiên phụ trách`); return 'manual'; }
+      writeSrc(m3[1], m3[2] || '', d);
+    } else if (how === 'entries') {
       const t = mergeEntries(fs.readFileSync(f, 'utf8'));
       if (t === null) { tryGit('merge', '--abort'); console.log(`#${p.number}: ${f} xung đột ngoài dòng mục (sửa cùng chỗ) – để phiên phụ trách`); return 'manual'; }
       fs.writeFileSync(f, t);
