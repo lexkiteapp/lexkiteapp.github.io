@@ -861,6 +861,8 @@
   "model.originalModelAnswersWith": "Bài mẫu tự biên soạn, có đánh dấu cụm từ hay, từ nối và vai trò từng câu. Bấm vào cụm để lưu vào sổ.",
   "model.searchByTopicOr": "Tìm theo chủ đề, dạng bài…",
   "model.phrasesStructures": "Sổ cụm từ & cấu trúc",
+  "model.phraseBookByFunction": "Sổ mẫu câu theo chức năng",
+  "model.phraseBookByFunctionSub": "Biết nói gì khi gọi điện, nhờ giúp, xin lỗi… – 3 mức trang trọng, câu đáp, hội thoại mẫu.",
   "model.learningInChunksMakes": "Học theo <b>cụm</b> (chunk) giúp nói và viết tự nhiên hơn học từng từ rời. Lưu cụm từ, cấu trúc câu kèm nghĩa theo cụm, cách dùng và câu ví dụ – ôn đúng thời điểm vàng như từ vựng.",
   "model.addPhraseStructure": "Thêm cụm / cấu trúc",
   "model.studyPhrases": "Học các cụm",

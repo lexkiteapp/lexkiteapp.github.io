@@ -861,6 +861,8 @@
   "model.originalModelAnswersWith": "Originale Musterantworten mit nützlichen Phrasen, Verknüpfungswörtern und hervorgehobener Rolle jedes Satzes. Tippen Sie auf eine Phrase, um sie zu speichern.",
   "model.searchByTopicOr": "Nach Thema oder Aufgabentyp suchen…",
   "model.phrasesStructures": "Wendungen & Strukturen",
+  "model.phraseBookByFunction": "Redemittel nach Funktion",
+  "model.phraseBookByFunctionSub": "Was man beim Telefonieren, Um-Hilfe-Bitten oder Entschuldigen sagt – in drei Stilebenen, mit Antworten und einem Beispieldialog.",
   "model.learningInChunksMakes": "Das Lernen in <b>Blöcken</b> macht Ihr Sprechen und Schreiben natürlicher als das Lernen einzelner Wörter. Speichern Sie Phrasen und Satzstrukturen mit ihrer Bedeutung, Verwendung und Beispielsätzen – und wiederholen Sie sie im richtigen Moment, genau wie Vokabeln.",
   "model.addPhraseStructure": "Phrase/Struktur hinzufügen",
   "model.studyPhrases": "Wendungen lernen",

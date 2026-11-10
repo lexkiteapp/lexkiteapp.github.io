@@ -223,6 +223,21 @@ ok(bad.status === 403, 'unsigned sync refused');
   const li = box.querySelector('.vx-un [data-vid="MMMMMMMMMMM"]'); ok(li && li.querySelector('img') && li.querySelector('a[href="https://youtu.be/MMMMMMMMMMM"]') && /Queued clip/.test(li.textContent), 'unmatched video: thumb + link + clip picker (approved clip without video)');
   li.querySelector('[data-pick]').value = 'cafe-q'; li.querySelector('[data-bind]').click(); await new Promise(res => setTimeout(res, 5));
   ok(calls.some(c => c[0] === 'link' && c[1].id === 'cafe-q' && c[1].url === 'MMMMMMMMMMM'), 'Gắn với clip… → op link {id: clip, url: video_id}');
+  // Phát hành: thanh trạng thái (không lặp số), meter hạn mức 2 nhóm (PR #997) + dự phòng API cũ, tab kênh nhúng/social giữ lựa chọn
+  const meters = () => [...box.querySelectorAll('.vx-qc [role=meter]')], idle = async f => { for (let i = 0; i < 40 && !f(); i++) await new Promise(res => setTimeout(res, 10)); };
+  ok(meters().length === 1 && /Hạn mức API/.test(box.querySelector('.vx-qc').textContent) && box.querySelectorAll('#yt-sy').length === 1 && /Kênh mặc định/.test(box.querySelector('.vx-sb-k').textContent) && /Đăng tay qua Studio/.test(box.querySelector('.vx-sb-k').textContent), 'status bar: default channel + upload path; old API (no inserts) → one units meter');
+  st.quota = { used: 2450, limit: 60000, left: 57550, inserts: 12, insert_limit: 1000, uploads_left: 988 }; box.querySelector('#yt-sync').click(); await idle(() => meters().length === 2);
+  const [mi, mu] = meters();
+  ok(mi && mi.getAttribute('aria-valuenow') === '12' && mi.getAttribute('aria-valuemax') === '1000' && /videos\.insert/.test(mi.getAttribute('aria-label')) && mu && mu.getAttribute('aria-valuenow') === '2450' && mu.getAttribute('aria-valuemax') === '60000' && /≈ 988 video/.test(box.textContent), 'quota meters: videos.insert 12/1,000 calls + default 2,450/60,000 units + uploads left');
+  st.quota = { used: 70000, limit: 60000, inserts: 990, insert_limit: 1000, uploads_left: 0 }; box.querySelector('#yt-sync').click(); await idle(() => (meters()[1] || {}).getAttribute && meters()[1].getAttribute('aria-valuenow') === '60000');
+  ok(meters()[0].classList.contains('bad') && meters()[1].getAttribute('aria-valuenow') === '60000' && parseFloat(meters()[1].querySelector('i').style.width) === 100, 'quota meter: over the limit clamps to 100 % and turns red');
+  const tabs = [...box.querySelectorAll('.vx-segs [role=tab]')];
+  ok(tabs.length === 2 && tabs[0].getAttribute('aria-selected') === 'true' && box.querySelector('#vx-ln-social').hidden && !box.querySelector('#vx-ln-embed').hidden, 'channel tabs: embed first, social panel hidden');
+  tabs[1].click(); ok(!box.querySelector('#vx-ln-social').hidden && box.querySelector('#vx-ln-embed').hidden && tabs[1].getAttribute('aria-selected') === 'true' && tabs[1].tabIndex === 0 && tabs[0].tabIndex === -1, 'tab click → social panel (roving tabindex)');
+  box.querySelector('#yt-sync').click(); await idle(() => box.querySelector('#vx-tb-social') && box.querySelector('#vx-tb-social') !== tabs[1]);
+  ok(box.querySelector('#vx-tb-social').getAttribute('aria-selected') === 'true' && !box.querySelector('#vx-ln-social').hidden, 'tab choice survives a re-render (sync)');
+  const mn = box.querySelector('.vid-ch[data-ch="UCy"] .vx-menu'); mn.open = true; box.querySelector('.vx-sb').click();
+  ok(mn.querySelector('[data-off="UCy"]') && !mn.open, 'channel ⋯ menu holds disconnect and closes on an outside click');
 }
 
 console.log(`yt-manual: ${n - fails}/${n} ok`);
