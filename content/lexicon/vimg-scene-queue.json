@@ -229,6 +229,12 @@
    "why": "meaning check: no (Is there a room with a large table and several emp)",
    "b": "42567126266"
   },
+  "bomber#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "vision: no (blue sky and gray color)",
+   "b": "42816802274"
+  },
   "bullet#n": {
    "at": "2026-11-09",
    "tries": 12,
@@ -318,6 +324,18 @@
    "tries": 18,
    "why": "vision: text",
    "b": "42567126266"
+  },
+  "checkmate#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "vision: no (empty squares and full view)",
+   "b": "42816802274"
+  },
+  "chromium#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "clip-sentence sim 0.1904",
+   "b": "42816802274"
   },
   "chronicle#v": {
    "at": "2026-11-10",
@@ -667,6 +685,12 @@
    "why": "vision description-sentence sim 0.2964",
    "b": "42736556174"
   },
+  "ebony#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "vision description-sentence sim 0.272",
+   "b": "42816802274"
+  },
   "economist#n": {
    "at": "2026-11-09",
    "tries": 18,
@@ -798,6 +822,12 @@
    "tries": 24,
    "why": "vision: no (empty lot not visible)",
    "b": "42736556174"
+  },
+  "feral#adj": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "text: 44",
+   "b": "42816802274"
   },
   "fiend#n": {
    "at": "2026-11-10",
@@ -1159,6 +1189,12 @@
    "why": "vision description-sentence sim 0.2335",
    "b": "42811181042"
   },
+  "inhalation#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "duplicate (pHash)",
+   "b": "42816802274"
+  },
   "initial public offering#n": {
    "at": "2026-11-09",
    "tries": 18,
@@ -1513,6 +1549,12 @@
    "why": "meaning check: no (Is the adult taking away the child's toy as a puni)",
    "b": "42567126266"
   },
+  "perpetually#adv": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "meaning check: no (Is the person sweeping the floor in a way that nev)",
+   "b": "42816802274"
+  },
   "petition#n": {
    "at": "2026-11-09",
    "tries": 18,
@@ -1759,6 +1801,12 @@
    "why": "vision: text",
    "b": "42567126266"
   },
+  "repetitive#adj": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "vision: no (third box not visible)",
+   "b": "42816802274"
+  },
   "representation#n": {
    "at": "2026-11-10",
    "tries": 24,
@@ -1926,6 +1974,12 @@
    "tries": 18,
    "why": "meaning check: no (Is the adult speaking on behalf of a group at the )",
    "b": "42567126266"
+  },
+  "spore#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "meaning check: no (Is there a tiny round particle on a leaf that can )",
+   "b": "42816802274"
   },
   "stanza#n": {
    "at": "2026-11-10",
