@@ -6,7 +6,10 @@
 Code: `functions/api/youtube.js` (+ `youtube/callback.js`) · `scripts/video/yt-upload.mjs` · `.github/workflows/youtube-upload.yml` ·
 nút trong **Quản trị → 🎬 Thư viện video** (`web/js/admin-video.js`). Lưu trữ: `docs/VIDEO-STORAGE.md`.
 
-## 0. Hiện tại: ĐĂNG TAY qua YouTube Studio (tới khi qua kiểm định API, §3)
+## 0. Hiện tại: ĐĂNG TAY qua YouTube Studio – sẵn sàng chuyển sang API
+
+> **10/11/2026: Google đã duyệt hạn mức** cho project `813846697347` (§3). Từ 02/11/2026 Google cũng bỏ khoá private với project chưa kiểm định.
+> → Chuyển sang API chỉ cần chủ bấm **Tự động qua API** + **Kết nối lại YouTube** (thêm quyền `youtube.upload`).
 
 Video tải bằng API từ project chưa kiểm định bị khoá **private** → không nhúng được. Nên mặc định `mode = manual`: chủ bấm tải lên trong Studio
 (ở chế độ **Unlisted**), mọi việc còn lại tự động. Cờ: Quản trị → Thư viện video → **Cách đăng** (D1 `yt_meta.mode`, mặc định env
@@ -65,9 +68,11 @@ Google khoá mọi video tải qua API từ project **chưa kiểm định** ở
 1. Mở form: https://support.google.com/youtube/contact/yt_api_form → chọn **"I would like to request an API audit / quota extension"**.
 2. Điền: project number (https://console.cloud.google.com/home/dashboard → Project number), tên app "Lexkite", website https://lexkite.com,
    chính sách https://lexkite.com/en/privacy, mục đích: "Upload our own educational English shorts to our own channel; owner approves every video;
-   ~6 uploads/day; no third-party users". Kèm ảnh chụp trang Quản trị (nút Duyệt) nếu được hỏi.
-3. Xin tăng hạn mức cùng form nếu cần > 6 video/ngày (ví dụ 50.000 đơn vị/ngày ≈ 30 video).
-4. Google trả lời qua email (thường 1–4 tuần). Trong lúc chờ: video vẫn lên ở private – chủ có thể đổi tay sang public trong YouTube Studio.
+   no third-party users". Hạn mức chỉ dùng đúng mục đích này – đổi mục đích phải xin lại. Kèm ảnh chụp trang Quản trị (nút Duyệt) nếu được hỏi.
+3. **ĐÃ DUYỆT 10/11/2026** (project `813846697347`): nhóm mặc định **60.000 đơn vị/ngày** (thumbnails.set 50, videos.list/playlistItems.list 1)
+   + nhóm riêng `videos.insert` **1.000 lượt/ngày** (1 đơn vị/lượt, hệ hạn mức chi tiết của Google từ 01/06/2026) → tối đa 1.000 video/ngày.
+   Code: `QUOTA` + `uploadsLeft` trong `functions/api/youtube.js` (D1 `yt_quota`, dòng `<ngày>#insert` = nhóm insert). Có thể bị kiểm toán lại / phải xin lại khi hết hạn.
+4. Lưu ý: Google có thể giảm hạn mức nếu dùng ít hoặc vi phạm điều khoản/[nguyên tắc thương hiệu](https://developers.google.com/youtube/terms/branding-guidelines).
 Điều khoản: https://developers.google.com/youtube/terms/developer-policies · hạn mức: https://console.cloud.google.com/apis/api/youtube.googleapis.com/quotas
 
 ## 4. Bảo mật
