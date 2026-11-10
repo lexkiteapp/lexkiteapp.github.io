@@ -1290,9 +1290,9 @@ button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weig
 @media (max-width: 560px) { .btn { white-space: normal; text-align: center; } } /* tiêu đề chặng chiếm cả dòng cạnh icon; chip/nút xuống dòng dưới thay vì ép chữ thành cột */ /* tên đơn vị dài (de/ru/es) không bị nút + thanh tiến độ ép thành cột */
 @media (pointer: fine) { /* desktop: nút ≥ 36px, breadcrumb ≥ 24px (quality-sweep, WCAG 2.5.8) */
   .btn, .btn.sm { min-height: 36px; }
-  .btn.sm.primary, .mk-nav .btn { min-height: 44px; } /* nút chính + hàng chuyển phần của đề thi: ≥ 44 px mọi khổ (journey-matrix) */
   .crumb a { display: inline-flex; align-items: center; min-height: 24px; }
 }
+@media (pointer: fine) and (min-width: 561px) { .btn.sm.primary, .mk-nav .btn { min-height: 44px; } } /* nút chính + hàng chuyển phần của đề thi ≥ 44 px trên desktop (journey-matrix); khổ hẹp: chuột giả lập không đẩy ô nhập khỏi vùng nhìn thấy khi có bàn phím (mobile-qa-keyboard), cảm ứng thật đã có --tap */
 @media (pointer: coarse) { /* vùng chạm tối thiểu: MỘT token --tap (quality-sweep, WCAG 2.5.8) */
   :root { --tap: 2.8rem; }
   .btn, a.chip, button.chip, .lsw-b, .gsi, .goal-chip, .icon-btn, .fi-btn, .ctx-say, .me-more, .quest-line, .rings-legend a, .brand, select, summary, button.on, a.on, button.linkish, .row > a.small, .grid > a.small, .crumb a, .tabs button, .view > a.small, .page-head > div > a.small:first-child, .word-row .w { min-height: var(--tap) !important; }
