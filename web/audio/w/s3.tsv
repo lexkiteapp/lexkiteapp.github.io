@@ -9555,15 +9555,12 @@ saboteur	ok	ok
 unreliability	ok	ok
 probity	ok	ok
 educative	ok	ok
-pyrotechnic	ok	ok
 phylum	ok	ok
 isothermal	ok	ok
 tracheal	ok	ok
-encirclement	ok	ok
 antitank	ok	ok
 argumentation	ok	ok
 permutation	ok	ok
-proviso	ok	ok
 mutate	ok	ok
 reverie	ok	ok
 maltreatment	ok	ok
@@ -9571,7 +9568,6 @@ theocracy	ok	ok
 tactician	ok	ok
 electromechanical	ok	ok
 subroutine	ok	ok
-mandibular	ok	ok
 coherently	ok	ok
 ionosphere	ok	ok
 agronomy	ok	ok
@@ -9591,7 +9587,6 @@ supposition	ok	ok
 astrophysicist	ok	ok
 surfactant	ok	ok
 garish	ok	ok
-nematode	ok	ok
 nullification	ok	ok
 barometric	ok	ok
 irrationality	ok	ok
@@ -9628,3 +9623,33 @@ gateau	cut_wordis: câu mang: "The word is gato." · dot100:"Gattoo" 0.73s · cu
 contestable	ok	ok
 dovecote	cut_wordis:"Dove Goatee" 0.88s · cut_wordis:"Dovegoat" 0.80s · dot100:"Dovegoat" 0.75s · cut_wordis100: câu mang: "The word is dovecoat." · cut_next: câu mang: "The next word to dovego to." · plain095:"Dove coat" 0.72s · dot090:"Dove coat" 0.83s	ok
 abrade	cut_wordis: câu mang: "The word is a braid." · dot100:"A Braid" 1.19s · cut_wordis100: câu mang: "The word is a braid." · cut_next: câu mang: "Next word a braid" · plain095:"A braid" 0.71s · dot090:"The Braid" 0.90s	cut_wordis: câu mang: "The word is a braid." · dot100:"A braid." 0.70s · cut_wordis100:"A braid." 0.79s · cut_wordis100:"A braid." 0.72s · cut_next: câu mang: "Next word, a braid." · plain095:"A braid." 0.70s · dot090:"A braid." 0.79s
+electromagnet	ok	ok
+anatomist	ok	cut_wordis:"It's anatomist." 0.98s · cut_wordis:"Anonymist" 0.78s · dot100:"Anoramist" 0.78s · cut_wordis100: câu mang: "The word is anonymist." · cut_next:"Anonymist" 0.79s · cut_next:"I never missed." 0.64s · plain095:"Anoramist" 0.79s · dot090:"Anoramist." 0.85s
+demoralize	ok	ok
+recrimination	ok	ok
+incompressible	ok	ok
+detoxify	ok	ok
+forebrain	cut_wordis:"to full-brain." 0.93s · cut_wordis:"Full Brain." 0.85s · dot100:"Full Brain." 1.30s · cut_wordis100: câu mang: "The word is full-brain." · cut_next: câu mang: "Next word, full brain." · plain095:"Full Brain" 0.81s · dot090:"Full brains." 0.97s	ok
+protozoan	ok	ok
+acclimation	ok	ok
+mineralogist	ok	ok
+mollify	ok	cut_wordis:"Molify." 0.96s · cut_wordis:"Molify." 0.80s · dot100:"Molify." 0.77s · cut_wordis100:"Molify." 0.93s · cut_wordis100:"Molify." 0.78s · cut_next:"Molify." 0.87s · cut_next:"Allify." 0.72s · plain095:"Molify." 0.76s · dot090:"Molify." 0.85s
+anthropomorphism	ok	ok
+persecutor	ok	ok
+misstatement	ok	ok
+supergiant	ok	ok
+perplex	cut_wordis: câu mang: "The word is perplexi." · dot100:"for plexi" 1.14s · cut_wordis100: câu mang: "The word is perplexi." · cut_next: câu mang: "Next word, perplexi." · plain095:"Vaplex" 0.76s · dot090:"and perplexing." 0.86s	ok
+deregulate	ok	ok
+misjudge	ok	ok
+overcook	ok	ok
+treeless	ok	ok
+dyspnea	ok	ok
+strategical	ok	ok
+calligrapher	ok	ok
+skeptically	ok	ok
+superimpose	ok	ok
+steepness	cut_wordis: câu mang: "The word is steepnessa." · dot100:"steepnesser" 0.88s · cut_wordis100: câu mang: "The word is steepnessa." · cut_next: câu mang: "Next word is steepnessa." · plain095:"A steepness." 0.74s · dot090:"A steepnesser." 0.97s	ok
+zither	ok	ok
+reconnoitre	cut_wordis: câu mang: "The word is reconoiter." · dot100:"reconnoiter" 1.01s · cut_wordis100: câu mang: "The word is reconoiter." · cut_next: câu mang: "Next word, reconoiter." · plain095:"reconnoiter" 0.97s · dot090:"reconnoiter" 1.11s	cut_wordis: câu mang: "The word is reconnoiter." · dot100:"Reconnoiter." 0.83s · cut_wordis100: câu mang: "The word is reconnoiter." · cut_next: câu mang: "Next word, reconnoiter." · plain095:"Reconniter." 0.85s · dot090:"Re-connoiter" 0.91s
+stringency	ok	ok
+sinusoid	ok	ok
