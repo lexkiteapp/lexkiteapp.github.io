@@ -68,6 +68,41 @@ Developer Dashboard → item → Store listing. The Language dropdown takes `en`
 | Marquee promo tile | `cws/promo-1400x560.png` |
 | Promo video (YouTube URL) | Same Unlisted YouTube URL as Play, or the existing add-on video (`store/chrome/YOUTUBE.md`) |
 
+## Self-review per file
+
+Owner rule (10/11): upload only when **every row is ✅** and the set was captured from a main that already contains #934 (path) and #971 (skills).
+
+**Gates:**
+
+| Gate | Pass condition |
+|---|---|
+| A | Size and colour type correct (checked by the script) |
+| B | No text overflow or broken line wraps |
+| C | No leaked icon names |
+| D | Contrast OK |
+| E | Light and dark both look good |
+| F | Copy has no spelling errors and no cut-off words |
+
+**Status of each gate:** ✅ = passed · ⏳ = not done yet · ❌ = failed.
+
+| File (both `en` and `vi` unless noted) | A | B | C | D | E | F | Note |
+|---|---|---|---|---|---|---|---|
+| `appstore/<lang>/iphone-69-1..7.png` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | run 42757513629 |
+| `appstore/<lang>/iphone-65-1..7.png` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | same layout as 6.9" |
+| `appstore/<lang>/ipad-13-1..7.png` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Real tablet layout. Shots 3 and 7 leave the lower half fairly empty because the app content is short |
+| `play/<lang>/phone-1..7.png` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | |
+| `play/<lang>/feature-1024x500.png` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 2 real screens, light and dark |
+| `play/icon-512.png` | ✅ | – | – | – | – | – | current icon, unchanged |
+| `cws/<lang>/screenshot-1..5.png` | ✅ | ✅ | ✅ | ✅ | – | ✅ | vi line-wrap fixed in run 4 |
+| `cws/promo-440x280.png` | ✅ | ✅ | ✅ | ✅ | – | ✅ | |
+| `cws/promo-1400x560.png` | ✅ | ✅ | ✅ | ✅ | – | ✅ | |
+| `video/app-preview-886x1920.mp4` | ✅ | ✅ | ✅ | ✅ | – | ✅ | H.264 High yuv420p, 30 fps, AAC 48 kHz stereo, −16.5 LUFS, 29.3 s. Real taps: Today → lesson (correct answer) → Vocab → Skills |
+| `video/promo-1080x1920.mp4` | ✅ | ✅ | ✅ | ✅ | – | ✅ | same cut |
+| **Captured after #934 + #971 merged** | ⏳ | | | | | | Both still open on 10/11; re-run and re-check before upload |
+
+**Known app-UI items visible in the shots** (app bugs, not frame bugs, so they are not fixed here):
+- In vi, the Today CTA "Bắt đầu Ngày 1 · IELTS · ≈ 14 phút →" wraps its arrow onto a second line at 390 px.
+
 ## Checklist before upload
 
 - The run summary lists every file, with `cws=success app=success video=success`.
