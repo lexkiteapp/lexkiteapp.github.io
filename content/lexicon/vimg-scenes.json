@@ -59890,8 +59890,8 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "oscilloscope#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-10T20:00:02.298Z"
+   "e4bad": 2,
+   "badAt": "2026-11-10T20:33:12.306Z"
   },
   "ostensibly#adv": {
    "ex": "The road was ostensibly built for farmers, but mainly served the army.",
@@ -76512,8 +76512,17 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "satirize#v": {
-   "e4bad": 1,
-   "badAt": "2026-11-10T20:00:19.241Z"
+   "ex": "The series satirizes European variety shows.",
+   "ps": "a man laughing while pointing at a large exaggerated caricature drawing",
+   "sc": "a man laughing while pointing at a large exaggerated caricature drawing",
+   "check": "Is the person making a mocking gesture toward a large exaggerated drawing?",
+   "cap": "a man laughing while pointing at a big caricature",
+   "key": "the person's laughing face and pointing hand; a large exaggerated caricature drawing",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
   },
   "satisfaction survey#n": {
    "skip": "cannot depict email survey without text",
@@ -78540,8 +78549,18 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "sharpshooter#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-10T19:59:53.268Z"
+   "ex": "Police forces typically deploy such sharpshooters in hostage scenarios.",
+   "ps": "a man stands beside a large round target with a perfect bullseye, pointing at it",
+   "sc": "a man stands beside a large round target with a perfect bullseye, pointing at it",
+   "check": "Is the person aiming precisely at the center of a target?",
+   "cap": "a man pointing at a perfect bullseye on a target",
+   "key": "a perfect bullseye on a large target; a person pointing at the bullseye",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "shatter#v": {
    "ex": "Several windows at the school were shattered.",
