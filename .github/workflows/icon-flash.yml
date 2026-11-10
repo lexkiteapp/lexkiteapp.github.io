@@ -1,0 +1,33 @@
+# Chữ ligature phông icon (Material Symbols) không bao giờ được hiện thành chữ thường (P1 07/11): đo trên dist thật, 4G chậm + CPU ×4, 6 màn × en/vi.
+# scripts/test/icon-flash.mjs (rAF mỗi khung hình: .material-symbols-* hiện mà rộng > 1,8× cỡ chữ). Chạy trên PR đụng CSS/font/loader hoặc tay (strict=1: đỏ nếu lộ).
+name: Icon flash
+on:
+  workflow_dispatch:
+    inputs:
+      strict: { description: 'đỏ nếu có màn lộ chữ ligature (1) hay chỉ đo (0)', default: '0' }
+  pull_request:
+    paths: ['web/css/**', 'web/fonts/**', 'web/app/index.html', 'scripts/app-loader.mjs', 'scripts/build-fonts.mjs', 'scripts/build-stitch-css.mjs', 'scripts/test/icon-flash.mjs', '.github/workflows/icon-flash.yml']
+permissions: { contents: read }
+concurrency:
+  group: icon-flash-${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.head_ref || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  flash:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Dựng dist + phục vụ có nén
+        timeout-minutes: 10
+        run: |
+          npm ci --no-audit --no-fund >/dev/null && bash scripts/build-web.sh >/dev/null
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 >/dev/null
+          (node scripts/test/serve-web.mjs dist 8080 >/dev/null 2>&1 &) ; sleep 2
+      - name: Cài Chromium
+        timeout-minutes: 8
+        run: bash scripts/ci/pw-install.sh chromium
+      - name: Đo chữ ligature lộ ra
+        timeout-minutes: 10
+        run: node scripts/test/icon-flash.mjs http://localhost:8080 ${{ (github.event_name == 'pull_request' || inputs.strict == '1') && '--strict' || '' }}
