@@ -29,7 +29,24 @@ public struct RecognizeOutcome: Equatable, Sendable {
 @MainActor public protocol SpeakRecognizing: AnyObject {
     /// `locale` = en-US | en-GB … (settings.accent; the learner's language for non-English recognition); `onPartial` = the text heard so far
     func listen(locale: String, maxSeconds: Double, onPartial: ((String) -> Void)?) async -> RecognizeOutcome
+    /// P08 (calls): `onDevice` ⇒ the audio never leaves the phone (`requiresOnDeviceRecognition`; unsupported ⇒ `unsupported`, never the cloud silently);
+    /// `phrases` ⇒ the words of the turn as contextual strings
+    func listen(locale: String, maxSeconds: Double, onDevice: Bool, phrases: [String], onPartial: ((String) -> Void)?) async -> RecognizeOutcome
     func cancel()
+    /// stop listening softly: what was heard so far is still delivered (default = cancel)
+    func stop()
+    /// the OS can recognise this locale on the device / at all (system = may use the cloud)
+    func supportsOnDevice(locale: String) -> Bool
+    func systemAvailable(locale: String) -> Bool
+}
+extension SpeakRecognizing {
+    public func listen(locale: String, maxSeconds: Double, onDevice: Bool, phrases: [String], onPartial: ((String) -> Void)?) async -> RecognizeOutcome {
+        if onDevice && !supportsOnDevice(locale: locale) { return .failed("unsupported") }
+        return await listen(locale: locale, maxSeconds: maxSeconds, onPartial: onPartial)
+    }
+    public func stop() { cancel() }
+    public func supportsOnDevice(locale: String) -> Bool { false }
+    public func systemAvailable(locale: String) -> Bool { true }
 }
 
 /// Test / fixture recogniser: answers from a queue, then `no-speech`.
@@ -57,9 +74,16 @@ public struct RecognizeOutcome: Equatable, Sendable {
     public init() {}
 
     public func listen(locale: String, maxSeconds: Double, onPartial: ((String) -> Void)?) async -> RecognizeOutcome {
+        await listen(locale: locale, maxSeconds: maxSeconds, onDevice: false, phrases: [], onPartial: onPartial)
+    }
+    public func supportsOnDevice(locale: String) -> Bool { SFSpeechRecognizer(locale: Locale(identifier: locale))?.supportsOnDeviceRecognition ?? false }
+    public func systemAvailable(locale: String) -> Bool { SFSpeechRecognizer(locale: Locale(identifier: locale))?.isAvailable ?? false }
+    public func stop() { request?.endAudio() }
+    public func listen(locale: String, maxSeconds: Double, onDevice: Bool, phrases: [String], onPartial: ((String) -> Void)?) async -> RecognizeOutcome {
         cancel()
         guard await SFSpeechScorer.authorized() else { return .failed("not-allowed") }
         guard let rec = SFSpeechRecognizer(locale: Locale(identifier: locale)), rec.isAvailable else { return .failed("unsupported") }
+        if onDevice && !rec.supportsOnDeviceRecognition { return .failed("unsupported") }
         return await withCheckedContinuation { (c: CheckedContinuation<RecognizeOutcome, Never>) in
             var done = false
             let started = Date()
@@ -70,6 +94,8 @@ public struct RecognizeOutcome: Equatable, Sendable {
             finish = end
             let req = SFSpeechAudioBufferRecognitionRequest()
             req.shouldReportPartialResults = true
+            if onDevice { req.requiresOnDeviceRecognition = true }
+            if !phrases.isEmpty { req.contextualStrings = phrases }
             request = req
             let s = AVAudioSession.sharedInstance()
             do { try s.setCategory(.playAndRecord, mode: .measurement, options: [.duckOthers, .defaultToSpeaker]); try s.setActive(true, options: .notifyOthersOnDeactivation) }
