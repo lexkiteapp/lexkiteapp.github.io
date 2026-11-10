@@ -1,4 +1,4 @@
-// Native M2–M4 – the shared layer's vectors (lesson engine P03, teacher rig C05, audio C04, lesson strings, M3 vocab P04/P05, M4 skills P06, speak P07, call P08): they regenerate byte-identically from the real web JS,
+// Native M2–M4 – the shared layer's vectors (lesson engine P03, teacher rig C05, audio C04, lesson strings, M3 vocab P04/P05, M4 skills P06, speak P07, call P08, write P09): they regenerate byte-identically from the real web JS,
 // and they are internally sane, so the SwiftUI / Compose ports can trust them. Light (a few seconds, no browser, no Mac heavy work). docs/specs/native-apps.md §3, §5.
 import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
 import { lessonVectors } from '../native/gen-lesson.mjs';
@@ -361,6 +361,50 @@ const RV = T1.vectorJson, RD = T1.rigJson;
     const vk = new Set(); const walk = o => { if (o && typeof o === 'object') { if (typeof o.k === 'string' && Object.keys(o).every(x => x === 'k' || x === 'v' || x === 'icon')) vk.add(o.k); for (const v of Object.values(o)) walk(v); } }; walk({ list: V.list, ring: V.ring, flow: V.flow, engine: V.engine.correct });
     const unmapped = [...vk].filter(k => !have10.has(k) && /[À-ỹ]/.test(k));
     ok(unmapped.length === 0, `call.json: every Vietnamese key in the vector outputs exists in strings.json${unmapped.length ? ' – missing: ' + unmapped.slice(0, 3).join(' | ') : ''}`);
+  }
+}
+
+// ---- 11) M4 write vectors (P09 Writing & grammar: #/write #/task1 #/qstats #/criteria) ----
+{
+  const WR = await import('../native/gen-write.mjs');
+  const W1 = await WR.writeVectors(), W2 = await WR.writeVectors();
+  ok(W1 === W2 && same(`${SH}/vectors/write.json`, W1), 'write.json: two runs identical and equal to the committed file (else: node scripts/native/gen.mjs)');
+  ok(Buffer.byteLength(W1) < 300 * 1024, `write.json < 300 KB (${(Buffer.byteLength(W1) / 1024) | 0} KB; owner cap, incl. the word-library index of Lexis.analyze)`);
+  const V = JSON.parse(W1), bad = [];
+  const selfD = a => Array.isArray(a) && a.length > 0 && a.every(c => c && typeof c.why === 'string' && c.why.length > 8 && c.input !== undefined && c.out !== undefined);
+  for (const k of ['write.analyze', 'write.flow', 'task1.score', 'task1.flow', 'qstats.cases']) if (!selfD(k.split('.').reduce((x, y) => (x ? x[y] : undefined), V))) bad.push(k);
+  ok(bad.length === 0, `write.json: every vector list is present and each case has why + input + out${bad.length ? ' – missing/invalid: ' + bad.join(', ') : ''}`);
+  const b11 = [], an = id => V.write.analyze.find(c => c.id === id).out, sc = id => V.task1.score.find(c => c.id === id).out;
+  // rules that the web code states and the ports must keep (cheap re-derivations from the vectors themselves)
+  for (const c of V.write.analyze.filter(c => c.id !== 'too-short')) { const o = c.out, w = o.words;
+    const cap = w < 150 ? 5 : w < 250 ? 6 : 8.5; if (o.band > cap || o.band < 4 || o.band * 2 !== Math.round(o.band * 2)) b11.push('band ' + c.id);
+    if ((w < 250) !== o.tips.some(t => /^Bài mới có/.test(t.k))) b11.push('short tip ' + c.id);
+    if (o.overused.some(([, n]) => n < 4) || o.overused.length > 8) b11.push('overused ' + c.id);
+    if (o.writes[0].value[0].prompt !== 'p1' || o.writes[0].value[0].words !== w || JSON.stringify(o.rewards) !== '[{"quizzes":1,"writes":1,"xp":25}]') b11.push('saves ' + c.id); }
+  if (an('band-8-essay').band <= an('band-5-essay').band || an('repeat').overused.length < 2 || !an('long-sentences').tips.some(t => /^Câu trung bình hơi dài/.test(t.k)) || !an('even-lengths').tips.some(t => /^Câu có độ dài khá giống/.test(t.k))) b11.push('analyse ordering/tips');
+  const ta = V.write.analyze.find(c => c.id === 'too-short').out; if (ta.reported || ta.writes.length || ta.rewards.length || ta.toast.length !== 1) b11.push('too-short');
+  if (sc('good-line').band !== 8 || sc('under-100').band > 4.5 || sc('120-words').band > 5.5 || !sc('opinion').notes.some(n => /^Task 1 <b>không nêu/.test(n.k)) || !sc('process-active').notes.some(n => /^Với quy trình/.test(n.k)) || !sc('map-passive').notes.some(n => /^Với bản đồ/.test(n.k))) b11.push('task1 score rules');
+  const fl = V.write.flow.find(c => c.id === 'saved-list').out; if (fl.keptAfter !== 20 || fl.newest !== 'p5' || fl.shownCount !== 6) b11.push('saved list');
+  const qs = id => V.qstats.cases.find(c => c.id === id).out; if (!qs('empty').empty || qs('unknown-skill').cards.length || qs('listening-reading').cards.map(c => c.name).join() !== 'IELTS Listening,IELTS Reading' || JSON.stringify(V.qstats.skills.map(s => s[0])) !== '["il","ir","tl","tr","fr","fl","fw"]') b11.push('qstats');
+  ok(b11.length === 0, `write vectors obey the web rules (Lexis.analyze band caps + tips, saved essays, Task 1 score, qstats cards)${b11.length ? ' – ' + b11.slice(0, 4).join(' | ') : ''}`);
+  // the downloadable pack (web/data/write-pack.json, https://lexkite.com/data/write-pack.json)
+  {
+    const P1 = await WR.writePack(), P2 = await WR.writePack(), PK = JSON.parse(P1), bp = [];
+    ok(P1 === P2 && same(WR.WRITE_PACK_PATH, P1), 'write-pack.json: two runs identical and equal to the committed file (else: node scripts/native/gen.mjs)');
+    ok(Buffer.byteLength(P1) < 80 * 1024, `write-pack.json size: ${(Buffer.byteLength(P1) / 1024) | 0} KB (< 80); not in the extension or app shell`);
+    if (!/^[0-9a-f]{12}$/.test(PK.v) || PK.schema !== 1) bp.push('v/schema');
+    if (JSON.stringify(PK.write.outline) !== JSON.stringify(V.write.static.outline) || JSON.stringify(PK.write.trends) !== JSON.stringify(V.write.static.trends) || JSON.stringify(PK.task1.vocab) !== JSON.stringify(V.task1.static.vocab) || JSON.stringify(PK.lexis.stop) !== JSON.stringify(V.data.stop)) bp.push('tables differ from the vectors');
+    for (const sk of ['writing', 'speaking']) { const d = PK.criteria[sk]; if (!d || d.criteria.length !== 4 || Object.keys(d.models).join() !== '5.0,6.5,8.0' || d.jumpTips.length < 2 || d.criteria.some(c => Object.keys(c.bands).join() !== '4,5,6,7,8,9') || PK.scoreKeys[sk].length !== 4) bp.push('criteria ' + sk); }
+    if (PK.qstats.skills.length !== 7 || !PK.write.connectors.includes('Firstly,') || PK.lexis.stop.length < 100) bp.push('qstats/connectors/stop');
+    ok(bp.length === 0, `write-pack.json: criteria (writing + speaking: 4 criteria × bands 4–9, 3 models, roadmap) + STOP table + page tables; shape = write.json criteria rules${bp.length ? ' – ' + bp.join(' | ') : ''}`);
+  }
+  // strings: every t() key of the P09 screens (write.js, task1.js, qtips.js #/qstats, criteria.js + their data) is mapped by strings.json
+  {
+    const have11 = new Set(Object.values(JSON.parse(rd('native/shared/strings.json')))), keys11 = await WR.writeStringKeys(), miss11 = keys11.filter(k => !have11.has(k.key)).map(k => k.key);
+    ok(miss11.length === 0 && keys11.length > 300, `M4 strings: ${keys11.length} t() keys of the P09 writing screens are mapped in native/shared/strings.json${miss11.length ? ' – missing: ' + miss11.slice(0, 3).join(' | ') : ''}`);
+    const vk = new Set(); const walk = o => { if (o && typeof o === 'object') { if (typeof o.k === 'string' && Object.keys(o).every(x => x === 'k' || x === 'v')) vk.add(o.k); for (const v of Object.values(o)) walk(v); } }; walk(V);
+    const unmapped = [...vk].filter(k => !have11.has(k) && /[À-ỹ]/.test(k));
+    ok(unmapped.length === 0, `write.json: every Vietnamese key in the vector outputs exists in strings.json${unmapped.length ? ' – missing: ' + unmapped.slice(0, 3).join(' | ') : ''}`);
   }
 }
 
