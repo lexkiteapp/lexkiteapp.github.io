@@ -105,7 +105,8 @@
       "title": "Live call with Ama/Carlos (on-device/edge AI tiers, captions, lip sync)",
       "routes": [
         "#/call"
-      ]
+      ],
+      "status": "done"
     },
     {
       "id": "P09",

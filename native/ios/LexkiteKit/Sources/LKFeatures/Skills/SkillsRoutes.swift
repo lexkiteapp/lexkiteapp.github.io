@@ -74,6 +74,7 @@ struct SkillsHubView: View {
                     door("mic.fill", t(.speakSpkPhongLuyenSpeaking), AppRoute("speaking"))
                     door("waveform", t(.speakPronThuVienPhatAm), AppRoute("pron"))
                     door("bubble.left.and.bubble.right.fill", t(.speakRpHoiThoaiDongVai), AppRoute("roleplay"))
+                    door("phone.fill", t(.callUiGoiChoAmaCarlos), AppRoute("call"))   // M4 P08
                     door("quote.bubble.fill", t(.speakSayNoiNhuNguoiBan), AppRoute("say"))
                     door("bolt.fill", t(.speakReflexPhanXa60Giay), AppRoute("reflex"))
                     door("list.bullet.rectangle.fill", t(.speakRtypeCacDangCauHoi), AppRoute("rtype"))
