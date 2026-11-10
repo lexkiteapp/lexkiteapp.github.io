@@ -26,7 +26,8 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           bash scripts/ci/pw-install.sh chromium
-          sudo timeout 300 apt-get -o DPkg::Lock::Timeout=120 install -y -qq fonts-noto-cjk fonts-noto-core >/dev/null || true
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-cjk fonts-noto-core }
       - name: Kiểm sáng + tối
         run: node scripts/test/theme-static.mjs dist --shots theme-shots
       - name: Mặc định theo máy + nút sáng/tối trong màn học (như người dùng thật)
