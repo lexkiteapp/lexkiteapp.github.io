@@ -861,6 +861,8 @@
   "model.originalModelAnswersWith": "役立つフレーズ、単語の接続、各文の役割を強調したオリジナルの模範解答。フレーズをタップして保存します。",
   "model.searchByTopicOr": "トピックまたはタスクの種類で検索…",
   "model.phrasesStructures": "フレーズと構文",
+  "model.phraseBookByFunction": "機能別フレーズブック",
+  "model.phraseBookByFunctionSub": "電話をかける、助けを求める、謝るときに何と言うか。3つの丁寧さのレベル、返答例、会話例つき。",
   "model.learningInChunksMakes": "<b>チャンク</b> で学習すると、単一の単語を学習するよりも自然なスピーキングとライティングが可能になります。フレーズと文構造をその意味、使用法、例文とともに保存し、語彙と同じように最適なタイミングで復習します。",
   "model.addPhraseStructure": "フレーズ/構造を追加する",
   "model.studyPhrases": "フレーズを学ぶ",

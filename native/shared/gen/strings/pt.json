@@ -861,6 +861,8 @@
   "model.originalModelAnswersWith": "O modelo original responde com frases úteis, palavras de ligação e a função de cada frase destacada. Toque em uma frase para salvá-la.",
   "model.searchByTopicOr": "Pesquise por tópico ou tipo de tarefa…",
   "model.phrasesStructures": "Frases e estruturas",
+  "model.phraseBookByFunction": "Frases por função",
+  "model.phraseBookByFunctionSub": "O que dizer ao telefonar, pedir ajuda ou pedir desculpa: em três registros, com respostas e um diálogo de exemplo.",
   "model.learningInChunksMakes": "Aprender em <b>blocos</b> torna sua fala e escrita mais naturais do que aprender palavras isoladas. Salve frases e estruturas de frases com seu significado, uso e frases de exemplo – e revise-as no momento perfeito, assim como o vocabulário.",
   "model.addPhraseStructure": "Adicionar frase/estrutura",
   "model.studyPhrases": "Estudar expressões",

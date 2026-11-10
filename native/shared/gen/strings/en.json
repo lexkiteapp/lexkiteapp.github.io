@@ -861,6 +861,8 @@
   "model.originalModelAnswersWith": "Original model answers with useful phrases, linking words and the role of each sentence highlighted. Tap a phrase to save it.",
   "model.searchByTopicOr": "Search by topic or task type…",
   "model.phrasesStructures": "Phrases & Structures",
+  "model.phraseBookByFunction": "Phrase book by function",
+  "model.phraseBookByFunctionSub": "What to say when you phone, ask for help or apologise – in three registers, with replies and a sample dialogue.",
   "model.learningInChunksMakes": "Learning in <b>chunks</b> makes your speaking and writing more natural than learning single words. Save phrases and sentence structures with their meaning, usage and example sentences – and review them at the perfect moment, just like vocabulary.",
   "model.addPhraseStructure": "Add phrase / structure",
   "model.studyPhrases": "Study phrases",
