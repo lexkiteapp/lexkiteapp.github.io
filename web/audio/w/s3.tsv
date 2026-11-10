@@ -9372,3 +9372,33 @@ infantry	ok	ok
 dodge	ok	ok
 fallout	ok	ok
 unanimously	ok	ok
+mommy	cut_wordis:"It's Mommy." 0.79s · cut_wordis:"Mummy." 0.68s · dot100:"Mummy" 0.95s · cut_wordis100:"It's Mommy." 0.71s · cut_wordis100:"Mummy" 0.65s · cut_next:"But mommy..." 0.82s · cut_next:"And Mommy." 0.81s · plain095:"It's Mummy." 0.55s · dot090:"Mummy" 1.06s	ok
+abnormal	ok	ok
+hardship	ok	ok
+boldly	ok	ok
+unafraid	ok	ok
+bomber	ok	ok
+athletics	ok	ok
+vocalist	ok	ok
+motorist	ok	ok
+impossibility	cut_wordis:"It's impossibility" 1.49s · cut_wordis:"Imposibility" 1.42s · dot100:"Imposibility" 1.17s · cut_wordis100:"It's impossibility" 1.18s · cut_wordis100:"Imposibility" 1.12s · cut_next:"Imposibility" 1.16s · cut_next:"Possibility" 0.99s · plain095:"Imposibility" 1.22s · dot090:"Imposibility"	ok
+workbench	ok	ok
+aircrew	ok	ok
+astray	ok	ok
+methodical	ok	ok
+mountaineer	ok	ok
+persuasively	ok	ok
+punitive	ok	ok
+inflationary	ok	ok
+inflow	ok	ok
+instantaneous	ok	ok
+plumage	ok	ok
+minefield	ok	ok
+squirm	ok	ok
+stipulate	ok	ok
+saint	ok	ok
+guardian	ok	ok
+chapel	ok	ok
+cowboy	ok	ok
+questionable	ok	ok
+blockade	ok	ok
