@@ -19,10 +19,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import com.lexkite.app.core.verbs.Verbs
+import com.lexkite.app.core.skills.Lexis
+import com.lexkite.app.core.vocab.Topic
 import com.lexkite.app.core.vocab.Tx
 import com.lexkite.app.core.vocab.WordBook
 import com.lexkite.app.core.write.Lemmatizer
 import com.lexkite.app.core.write.Models
+import com.lexkite.app.core.write.WritePack
 import com.lexkite.app.core.write.WritingData
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
@@ -50,7 +53,9 @@ class WordEnv(
     private val wordIndex: suspend () -> Map<String, JsonObject> = { emptyMap() },
     private val clock: () -> Long = System::currentTimeMillis,
     /** Words of the dictionary credit / notes text keyed by the web's Vietnamese source strings. */
-    private val tx: Tx = Tx.RAW,
+    val tx: Tx = Tx.RAW,
+    /** The word library's topics (web IELTS_DATA.TOPICS) – the suggested words of #/write and the word tables of Lexis. */
+    private val wordTopics: suspend () -> List<Topic> = { emptyList() },
 ) {
     val learnLang: String get() = uiLang
     val meanLang: String get() = if (uiLang == "vi") "vi" else "en"
@@ -124,6 +129,10 @@ class WordEnv(
     }
 
     // ---------- game ----------
+    suspend fun game(): JsonElement? = store.doc().game
+    /** `App.reward(add, xp)` of the writing screens: the day counters, the lifetime totals and XP of the game document. */
+    suspend fun reward(add: Map<String, Int>, xp: Int) { val now = clock(); store.mutate { d -> d.copy(game = StudyReward.track(d.game, add, xp, now)) } }
+    fun now(): Long = clock()
     private val lookedUp = HashSet<String>()
     /** App.reward({lookups: 1}) once per word per day (dict-page.js): the day counter and the lifetime total of the game document. */
     suspend fun rewardLookup(word: String) {
@@ -198,6 +207,15 @@ class WordEnv(
             if (w.models.isNotEmpty() || w.ideas.isNotEmpty()) writingV = w
             w
         }
+    }
+
+    /** The criteria data and the page tables of #/write, #/task1, #/qstats, #/criteria (https://lexkite.com/data/write-pack.json); null when offline and never fetched. */
+    suspend fun writePack(): WritePack? = lock.withLock { packV } ?: WritePack.parse(script("data/write-pack.json")).also { p -> if (p != null) lock.withLock { packV = p } }
+    suspend fun topics(): List<Topic> = runCatching { wordTopics() }.getOrDefault(emptyList())
+    /** web `Lexis` built from the word library, the way lexis.js does (AWL, linking words, collocations). */
+    suspend fun essayLexis(): Lexis {
+        val tp = topics()
+        return lock.withLock { essayLexisV ?: Lexis.fromTopics(tp).also { if (tp.isNotEmpty()) essayLexisV = it } }
     }
 
     companion object {
