@@ -47,9 +47,9 @@
 /* Sân khấu giáo viên (lesson/teacher.js stage, chủ 10/11): hộp #lsnTch giữ position:relative (đè .lsn-v2 .tch{absolute;inset:0}); hàng giáo viên cao 192 px
    kéo thẻ đề bài lên che 32 px đáy khung (hông + dải mờ khuất sau mặt thẻ đục – final-qc not-pasted-on), KHÔNG bệ/viên/sàn giả; bóng tiếp xúc mềm trên mép thẻ dưới người */
 .lsn-fx .ex-seat #lsnTch{position:relative;inset:auto;flex:none}
-.lsn-fx .ex-seat{position:relative;display:block;height:auto;padding:0;margin-bottom:-40px}
-.lsn-fx #lsnBub>.sr-only+small{font-size:20px;line-height:1.35;font-weight:600;color:inherit;margin-top:0} /* đề bài đã lên bong bóng → câu cần dịch/nghĩa là nội dung chính của thẻ */
-.lsn-fx .ex-seat+.lsn-qcard::before{content:"";position:absolute;z-index:11;top:0;inset-inline-start:37px;width:120px;height:12px;background:radial-gradient(50% 100% at 50% 0,var(--lf-shade),transparent);pointer-events:none}
+.lsn-fx .ex-seat{position:relative;display:block;height:auto;padding:0;margin-bottom:calc(-1*(var(--sp-5) + var(--sp-4)))}
+.lsn-fx #lsnBub>.sr-only+small{font-size:var(--fs-lg);line-height:1.35;font-weight:600;color:inherit;margin-top:0} /* đề bài đã lên bong bóng → câu cần dịch/nghĩa là nội dung chính của thẻ */
+.lsn-fx .ex-seat+.lsn-qcard::before{content:"";position:absolute;z-index:11;top:0;inset-inline-start:calc(var(--sp-5) + var(--sp-3) + 1px);width:120px;height:12px;background:radial-gradient(50% 100% at 50% 0,var(--lf-shade),transparent);pointer-events:none}
 /* đường kẻ trả lời: 2 dòng kẻ sẵn, thẻ từ bay vào ngồi trên dòng; ngân hàng giữ ô trống nên không xô bố cục */
 .lsn-fx div.lsn-ans{--p:3.5rem;min-height:calc(var(--p)*2);padding:0!important;gap:0 var(--sp-2)!important;align-content:flex-start;border:0!important;
  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent calc(var(--p) - 2px),var(--ex-rule) calc(var(--p) - 2px),var(--ex-rule) var(--p))}
