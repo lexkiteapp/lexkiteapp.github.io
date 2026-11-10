@@ -179,7 +179,7 @@ public final class FixEngine: @unchecked Sendable {
         case "more-er": return whole([m.g(2)])
         case "then-than":
             let w = m.g(1)
-            if F.test("^(other|rather|more|less|better|worse)$", w, ci: true) { return nil }
+            if F.test("^(other|rather|more|less|better|worse)$", w, ci: true) { return Hit(s: end - 4, e: end, reps: ["than"]) }
             if F.test("er$", w, ci: true) && !F.test("^(after|never|whether|ever|over|under|together|however|either|neither|order|offer|enter|answer|consider|remember|wonder|matter|number|water|paper|later|layer|player|teacher|user|power|computer)$", w, ci: true) {
                 return Hit(s: end - 4, e: end, reps: ["than"])
             }

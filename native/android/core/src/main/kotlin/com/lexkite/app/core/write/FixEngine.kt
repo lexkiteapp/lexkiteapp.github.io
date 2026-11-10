@@ -166,7 +166,7 @@ class FixEngine(private val j: JsonObject) {
             "more-er" -> return whole(listOf(m.g(2)))
             "then-than" -> {
                 val w = m.g(1)
-                if (test("^(other|rather|more|less|better|worse)$", w, true)) return null
+                if (test("^(other|rather|more|less|better|worse)$", w, true)) return Hit(end - 4, end, listOf("than"))
                 if (test("er$", w, true) && !test("^(after|never|whether|ever|over|under|together|however|either|neither|order|offer|enter|answer|consider|remember|wonder|matter|number|water|paper|later|layer|player|teacher|user|power|computer)$", w, true)) return Hit(end - 4, end, listOf("than"))
                 return null
             }
