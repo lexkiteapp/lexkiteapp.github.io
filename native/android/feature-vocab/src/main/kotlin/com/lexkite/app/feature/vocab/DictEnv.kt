@@ -1,6 +1,7 @@
 package com.lexkite.app.feature.vocab
 
 import com.lexkite.app.core.audio.LkAudio
+import com.lexkite.app.core.audio.SpeakListener
 import com.lexkite.app.core.data.LexStore
 import com.lexkite.app.core.dict.Dict
 import com.lexkite.app.core.dict.DictCfg
@@ -23,6 +24,9 @@ import com.lexkite.app.core.skills.Lexis
 import com.lexkite.app.core.vocab.Topic
 import com.lexkite.app.core.vocab.Tx
 import com.lexkite.app.core.vocab.WordBook
+import com.lexkite.app.core.vocab.Mistakes
+import com.lexkite.app.core.write.GrammarPack
+import com.lexkite.app.core.write.LearnContent
 import com.lexkite.app.core.write.Lemmatizer
 import com.lexkite.app.core.write.Models
 import com.lexkite.app.core.write.WritePack
@@ -145,6 +149,8 @@ class WordEnv(
     fun speakWord(word: String, region: String, slow: Boolean = false) = audio.speakWord(word, if (region == "US") "en-US" else "en-GB", slow)
     fun speak(text: String, slow: Boolean = false, who: String = "ama") = audio.speak(text, who, if (slow) 0.7f else 0.95f)
     fun stopAudio() = audio.stop()
+    /** speak a line and call [done] when it ended (or could not be played): the confidence dialogue plays line by line */
+    fun speakThen(text: String, who: String, slow: Boolean, done: () -> Unit) = audio.speak(text, who, if (slow) 0.7f else 0.95f, object : SpeakListener { override fun onEnd() { done() }; override fun onFail() { done() } })
 
     // ---------- data sets ----------
     private val lock = Mutex()
@@ -217,6 +223,40 @@ class WordEnv(
         val tp = topics()
         return lock.withLock { essayLexisV ?: Lexis.fromTopics(tp).also { if (tp.isNotEmpty()) essayLexisV = it } }
     }
+
+    // ---------- P09 part 2: #/fix #/grammar #/method #/quick #/style #/confidence ----------
+    private var learnV: LearnContent? = null
+    private var grammarV: GrammarPack? = null
+    private var idsV: Pair<List<String>, List<String>>? = null
+    /** `content-pack/learn-content.json` (bundled): the fix rules, the style quiz, the confidence units, the method texts. */
+    fun learn(): LearnContent = learnV ?: LearnContent.parse(asset("content-pack/learn-content.json")).also { learnV = it } ?: error("learn-content.json is missing")
+    /** The grammar lessons: the downloaded pack when reachable (https://lexkite.com/data/grammar-pack.json), else the bundled starter (all lessons listed, three complete). */
+    suspend fun grammar(): GrammarPack {
+        lock.withLock { grammarV }?.takeIf { it.full }?.let { return it }
+        val full = GrammarPack.parse(script("data/grammar-pack.json"))
+        return lock.withLock {
+            if (full != null) { grammarV = full; full } else grammarV ?: (GrammarPack.parse(asset("content-pack/grammar-starter.json")) ?: GrammarPack(JsonObject(emptyMap()))).also { grammarV = it }
+        }
+    }
+    /** ids of the readings and listening parts (the P06 pack): the "next item" links of #/method. Empty when offline and never fetched. */
+    suspend fun skillIds(): Pair<List<String>, List<String>> {
+        lock.withLock { idsV }?.let { return it }
+        val j = runCatching { kotlinx.serialization.json.Json.parseToJsonElement(script("data/skills-pack.json")) as? JsonObject }.getOrNull()
+        val r = (j?.get("readings") as? JsonArray)?.mapNotNull { (it as? JsonObject)?.get("id")?.let { x -> (x as? JsonPrimitive)?.content } } ?: emptyList()
+        val l = (j?.get("listening") as? JsonArray)?.mapNotNull { (it as? JsonObject)?.get("id")?.let { x -> (x as? JsonPrimitive)?.content } } ?: emptyList()
+        return (r to l).also { if (r.isNotEmpty()) lock.withLock { idsV = it } }
+    }
+    suspend fun settingsObj(): JsonObject = (store.doc().settings as? JsonObject) ?: JsonObject(emptyMap())
+    suspend fun stats(): JsonObject = (store.doc().stats as? JsonObject) ?: JsonObject(emptyMap())
+    /** `settings.<k> = v` (synced like the web's saveSettings) */
+    suspend fun putSetting(k: String, v: JsonElement) { store.mutate { d -> d.copy(settings = JsonObject(LinkedHashMap((d.settings as? JsonObject) ?: JsonObject(emptyMap())).also { it[k] = v })) } }
+    /** the game document (day counters, XP, per-lesson results) */
+    suspend fun gameObj(): JsonObject = (store.doc().game as? JsonObject) ?: JsonObject(emptyMap())
+    suspend fun putGame(g: JsonObject) { store.mutate { d -> d.copy(game = g) } }
+    suspend fun mistakes(): List<JsonObject> = (kv(LexStore.K_MISTAKES) as? JsonArray)?.mapNotNull { it as? JsonObject } ?: emptyList()
+    /** App.logMistake(m): same record as the practice screens (device only) */
+    suspend fun logMistake(m: JsonObject) { store.put(mapOf(LexStore.K_MISTAKES to JsonArray(Mistakes.log(mistakes(), m, clock(), tx))), local = false) }
+    suspend fun essayPrompts(): List<String> = (kv("essays") as? JsonArray)?.mapNotNull { (it as? JsonObject)?.let { o -> (o["prompt"] as? JsonPrimitive)?.content } } ?: emptyList()
 
     companion object {
         val USAGE_FILES = listOf("adv.js", "pair.js", "prep-adj.js", "prep-noun.js", "prep-verb.js", "struct.js", "verb.js")

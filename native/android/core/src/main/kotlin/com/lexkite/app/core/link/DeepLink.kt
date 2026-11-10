@@ -17,7 +17,7 @@ data class DeepLink(val tab: String, val route: String = "", val arg: String = "
             "vocab" to VOCAB, "review" to VOCAB, "word" to VOCAB, "words" to VOCAB, "dict" to VOCAB, "mistakes" to VOCAB,
             "verb" to VOCAB, "usage" to VOCAB, "phrases" to VOCAB, "letters" to SKILLS, "ideas" to SKILLS, "paraphrase" to SKILLS, "models" to SKILLS, "model" to SKILLS,
             "skills" to SKILLS, "train" to SKILLS, "listen" to SKILLS, "listening" to SKILLS, "listen-test" to SKILLS, "dictation" to SKILLS, "reading" to SKILLS, "read" to SKILLS, "speak" to SKILLS, "speaking" to SKILLS, "pron" to SKILLS, "say" to SKILLS, "reflex" to SKILLS, "rtype" to SKILLS, "roleplay" to SKILLS, "handsfree" to SKILLS, "call" to SKILLS, "write" to SKILLS, "grammar" to SKILLS, "read" to SKILLS,
-            "task1" to SKILLS, "criteria" to SKILLS, "qstats" to SKILLS,
+            "task1" to SKILLS, "criteria" to SKILLS, "qstats" to SKILLS, "fix" to SKILLS, "grammar" to SKILLS, "method" to SKILLS, "quick" to SKILLS, "style" to SKILLS, "confidence" to SKILLS,
             "tests" to TESTS, "mock" to TESTS, "toeic" to TESTS, "toefl" to TESTS, "exam" to TESTS,
             "me" to ME, "stats" to ME, "settings" to ME, "account" to ME, "goal" to ME, "notif" to ME, "search" to VOCAB,
         )
