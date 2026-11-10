@@ -195,12 +195,13 @@ async function appMode() {
   let tts = null; for (let k = 1; k <= 4 && !tts; k++) { try { tts = await KokoroTTS.from_pretrained('onnx-community/Kokoro-82M-v1.0-ONNX', { dtype: 'q8', device: 'cpu' }); } catch (e) { console.error(`  tải Kokoro lỗi (lần ${k})`); await sleep(10000 * k); } }
   if (!tts) throw new Error('không tải được mô hình Kokoro');
   const total = +(dur + END).toFixed(2); const wavs = [], AT = [0.4, M.item + 0.2, M.vocab + 0.3, M.skills + 0.3];
-  for (const [i, text] of NARR.entries()) { const at = AT[i];
+  let prev = 0; // lời bắt đầu ở mốc cảnh, hoặc ngay sau lời trước nếu lời trước còn đang nói (không bao giờ đè)
+  for (const [i, text] of NARR.entries()) {
     const raw = path.join(TMP, `n${i}.raw.wav`), w = path.join(TMP, `n${i}.wav`); await (await tts.generate(text, { voice: 'af_bella', speed: 1 })).save(raw);
-    ff(['-i', raw, '-af', 'silenceremove=start_periods=1:start_threshold=-50dB,aresample=48000', '-ac', '1', w]); wavs.push([at, w]);
+    ff(['-i', raw, '-af', 'silenceremove=start_periods=1:start_threshold=-50dB,aresample=48000', '-ac', '1', w]);
     const wd = +execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', w], { encoding: 'utf8' });
+    const at = Math.max(AT[i], prev + 0.25); prev = at + wd; wavs.push([at, w]);
     if (at + wd > total - 0.3) throw new Error(`lời ${i} dài quá khung (${(at + wd).toFixed(1)} > ${total})`);
-    if (i < NARR.length - 1 && at + wd > AT[i + 1] - 0.1) throw new Error(`lời ${i} đè lời sau`);
   }
   ff([...wavs.flatMap(([, w]) => ['-i', w]), '-filter_complex', wavs.map(([at], i) => `[${i}:a]adelay=${Math.round(at * 1000)}:all=1[a${i}]`).join(';') + `;${wavs.map((_, i) => `[a${i}]`).join('')}amix=inputs=${wavs.length}:normalize=0,apad,atrim=0:${total},loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000[a]`, '-map', '[a]', '-ac', '2', path.join(TMP, 'narr.wav')]);
 
