@@ -8,7 +8,7 @@
 import { manifest, signed } from './admin-shorts.js';
 import { field } from './_clip_logic.js';
 import { runModel } from './ai.js';
-import { normCfg, allowed, schedule } from './_distribution.js';
+import { normCfg, allowed, schedule, SOCIAL_DAY_MAX } from './_distribution.js';
 
 // ---------------- Hàm thuần (test: scripts/test/social-mgr.mjs) ----------------
 export const STATES = ['idea', 'draft', 'review', 'approved', 'scheduled', 'published', 'failed'];
@@ -71,10 +71,10 @@ export function validateCompose(d, plats) {
   return out.map(x => ({ lv: 'error', ...x }));
 }
 
-export const DEFAULT_RULES = { perDay: { facebook_page: 2, instagram: 2, tiktok: 2, youtube: 1, threads: 3 }, minGapH: 3, hours: [8, 12, 19], tz: 'America/New_York', tzBy: {}, dupDays: 30, days: 7, skipWeekend: false };
+export const DEFAULT_RULES = { perDay: { facebook_page: 2, instagram: 2, tiktok: 2, youtube: 1, threads: 2 }, minGapH: 3, hours: [8, 12, 19], tz: 'America/New_York', tzBy: {}, dupDays: 30, days: 7, skipWeekend: false };
 export function cleanRules(r) {
   r = r && typeof r === 'object' ? r : {}; const d = DEFAULT_RULES, perDay = {};
-  for (const p of Object.keys(PLAT)) perDay[p] = Math.max(0, Math.min(PLAT[p].cap, Math.round(+((r.perDay || {})[p] ?? d.perDay[p]) || 0)));
+  for (const p of Object.keys(PLAT)) perDay[p] = Math.max(0, Math.min(PLAT[p].cap, SOCIAL_DAY_MAX, Math.round(+((r.perDay || {})[p] ?? d.perDay[p]) || 0)));
   const tzOk = z => { try { new Intl.DateTimeFormat('en', { timeZone: z }); return true; } catch (e) { return false; } };
   const tzBy = {}; for (const [k, v] of Object.entries(r.tzBy || {})) if (/^[A-Za-z0-9_-]{1,40}$/.test(k) && typeof v === 'string' && tzOk(v)) tzBy[k] = v;
   const hours = [...new Set((Array.isArray(r.hours) ? r.hours : d.hours).map(Math.round).filter(h => h >= 0 && h <= 23))].sort((a, b) => a - b).slice(0, 12);

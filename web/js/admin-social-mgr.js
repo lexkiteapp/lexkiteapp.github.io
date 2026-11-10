@@ -552,7 +552,7 @@
     if (!sel) sel = accs().map(a => String(a.id));
     const paintR = () => {
       $('#smgR').innerHTML = `<details open><summary class="small" style="font-weight:600">${M('Luật chống spam')}</summary><p class="tiny muted">${M('Đây là trần riêng của Lexkite (chống spam), luôn thấp hơn trần nền tảng.')}</p>
-        <div class="soc-form">${Object.keys(PN).map(p => `<label>${PI[p]} ${PN[p]} – ${M('Tối đa/ngày')}<input type="number" min="0" max="30" data-pd="${p}" value="${R.perDay[p] || 0}"></label>`).join('')}
+        <div class="soc-form">${Object.keys(PN).map(p => `<label>${PI[p]} ${PN[p]} – ${M('Tối đa/ngày')}<input type="number" min="0" max="2" data-pd="${p}" value="${R.perDay[p] || 0}"></label>`).join('')}
         <label>${M('Giãn cách tối thiểu (giờ)')}<input type="number" min="1" max="24" id="rGap" value="${R.minGapH}"></label><label>${M('Khung giờ (giờ địa phương của kênh)')}<input id="rH" value="${esc(R.hours.join(', '))}"></label>
         <label>${M('Múi giờ mặc định')}<input id="rTz" value="${esc(R.tz)}"></label><label>${M('Không lặp clip trên cùng kênh (ngày)')}<input type="number" min="1" max="365" id="rDup" value="${R.dupDays}"></label>
         <label>${M('Số ngày lập kế hoạch')}<input type="number" min="1" max="31" id="rDays" value="${R.days}"></label><label class="row" style="gap:.3rem"><input type="checkbox" id="rWe" ${R.skipWeekend ? 'checked' : ''}>${M('Bỏ thứ 7, CN')}</label></div>

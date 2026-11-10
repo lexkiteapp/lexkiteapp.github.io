@@ -76,7 +76,7 @@ const now = Date.UTC(2026, 9, 22, 12); // 22/10/2026 12:00 UTC
   const rt = M.planQueue({ clips: [{ id: 'c-long', type: 'long' }, { id: 'c-short', type: 'short' }], accounts: [{ id: '2', platform: 'facebook_page', state: 'ok', used: 0, cap: 30 }], rules: { ...rules, cfgBy: { 2: { types: ['short'], daily_cap: 2, min_gap_min: 180, windows: [{ from: '08:00', to: '08:59' }], tz: 'America/New_York' } } }, now });
   ok(rt.slots.map(s => s.clip).join() === 'c-short' && rt.skipped.some(s => s.clip === 'c-long' && s.why === 'not-routed'), 'định tuyến bằng bộ máy Kênh & phân phối (_distribution.allowed): kênh chỉ nhận short');
   ok(M.cfgFor({ id: '3', p: 'instagram' }, M.cleanRules(rules)).tz === 'Asia/Ho_Chi_Minh' && M.cfgFor({ id: '3', p: 'instagram' }, M.cleanRules(rules)).daily_cap === 1, 'cfg kênh social cùng dạng normCfg (múi giờ, trần/ngày)');
-  ok(M.cleanRules({ perDay: { facebook_page: 99 }, tz: 'Mars/Base', hours: [25, 7, 7] }).perDay.facebook_page === 30 && M.cleanRules({ tz: 'Mars/Base' }).tz === 'America/New_York' && M.cleanRules({ hours: [25, 7, 7] }).hours.join() === '7', 'luật bị kẹp: trần ≤ trần nền tảng, múi giờ hợp lệ, giờ 0–23 duy nhất');
+  ok(M.cleanRules({ perDay: { facebook_page: 99 }, tz: 'Mars/Base', hours: [25, 7, 7] }).perDay.facebook_page === 2 && M.cleanRules({ tz: 'Mars/Base' }).tz === 'America/New_York' && M.cleanRules({ hours: [25, 7, 7] }).hours.join() === '7', 'luật bị kẹp: trần ≤ 2 bài/ngày/kênh (chủ 10/11 đăng dần) và ≤ trần nền tảng, múi giờ hợp lệ, giờ 0–23 duy nhất');
 }
 // ---------- 5) Số liệu & trọng số ----------
 {

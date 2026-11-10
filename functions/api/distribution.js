@@ -115,7 +115,7 @@ const OPS = {
   },
   async cfg_set(db, b, who) {
     const id = String(b.channel_id || ''); if (!CHID.test(id) || !(await knownIds(db)).has(id)) return { status: 404, error: 'not-found' };
-    const cfg = normCfg(b.cfg); if (isExt(id)) cfg.role = 'social'; // embed = YouTube only (lessons play YouTube ids)
+    const cfg = normCfg(isExt(id) ? { ...b.cfg, role: 'social' } : b.cfg); // embed = YouTube only (lessons play YouTube ids)
     const was = await chanCfg(db, id);
     await run(db, 'INSERT INTO yt_chan_cfg (channel_id, cfg, paused_reason, updated) VALUES (?, ?, ?, ?) ON CONFLICT(channel_id) DO UPDATE SET cfg = excluded.cfg, paused_reason = excluded.paused_reason, updated = excluded.updated', id, JSON.stringify(cfg), cfg.active ? '' : was.paused_reason, Date.now());
     return { ok: true, cfg };

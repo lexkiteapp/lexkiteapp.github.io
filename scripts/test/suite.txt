@@ -135,6 +135,7 @@ node scripts/test/cron-watch.mjs
 node scripts/test/cron-kick.mjs
 node scripts/test/ci-hog.mjs
 node scripts/test/queue-report.mjs
+node scripts/test/busy-gate.mjs
 node scripts/test/reminders.mjs
 node scripts/test/notify-ux.mjs
 node scripts/test/fcm-push.mjs

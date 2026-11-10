@@ -2,16 +2,18 @@
  * route(): ordered rules, first match wins, fallback = default channel · schedule(): per-channel daily cap, minimum spacing, posting windows in the channel's own time zone,
  * ±20 min jitter, no repeated title / cover, no same template back-to-back · zoned time helpers (DST-safe). */
 const MIN = 60e3, DAY = 864e5;
+/** Chủ 10/11/2026 "đăng dần hiệu quả": kênh social tối đa 2 bài/ngày (embed = kho bài học, không đăng công khai → giữ trần 50). */
+export const SOCIAL_DAY_MAX = 2;
 export const DEFAULT_CFG = { role: 'social', types: [], topics: [], skills: [], cefr: [], regions: [], lang: 'en', daily_cap: 2, min_gap_min: 240, windows: [{ from: '09:00', to: '21:00' }], tz: 'America/New_York', active: 1 };
 const list = v => (Array.isArray(v) ? v : typeof v === 'string' ? v.split(/[,\s]+/) : []).map(x => String(x).trim()).filter(Boolean);
 const hm = t => { const m = /^(\d{2}):(\d{2})$/.exec(String(t)); return m && +m[1] < 24 && +m[2] < 60 ? +m[1] * 60 + +m[2] : null; };
 export const validTz = tz => { try { new Intl.DateTimeFormat('en-US', { timeZone: tz }); return typeof tz === 'string' && tz.length < 60; } catch (e) { return false; } };
 /** Untrusted channel settings → canonical (caps clamped, windows validated). */
 export function normCfg(c = {}) {
-  const d = DEFAULT_CFG, cap = Math.floor(+c.daily_cap), gap = Math.floor(+c.min_gap_min);
+  const d = DEFAULT_CFG, cap = Math.floor(+c.daily_cap), gap = Math.floor(+c.min_gap_min), embed = c.role === 'embed';
   const wins = (Array.isArray(c.windows) ? c.windows : d.windows).map(w => ({ from: String(w && w.from), to: String(w && w.to) })).filter(w => hm(w.from) != null && hm(w.to) != null && hm(w.to) > hm(w.from)).slice(0, 6);
   return { label: String(c.label || '').slice(0, 60), purpose: String(c.purpose || '').slice(0, 200), account: String(c.account || '').slice(0, 80), types: list(c.types).filter(x => ['short', 'long', 'podcast'].includes(x)), topics: list(c.topics).slice(0, 30), skills: list(c.skills).slice(0, 10), cefr: list(c.cefr).map(x => x.toUpperCase()).slice(0, 6),
-    regions: list(c.regions).map(x => x.toUpperCase()).slice(0, 40), role: c.role === 'embed' ? 'embed' : 'social', lang: String(c.lang || d.lang).slice(0, 8), daily_cap: cap >= 1 && cap <= 50 ? cap : d.daily_cap, min_gap_min: gap >= 0 && gap <= 1440 ? gap : d.min_gap_min,
+    regions: list(c.regions).map(x => x.toUpperCase()).slice(0, 40), role: embed ? 'embed' : 'social', lang: String(c.lang || d.lang).slice(0, 8), daily_cap: cap >= 1 && cap <= 50 ? (embed ? cap : Math.min(cap, SOCIAL_DAY_MAX)) : d.daily_cap, min_gap_min: gap >= 0 && gap <= 1440 ? gap : d.min_gap_min,
     windows: wins.length ? wins : d.windows, tz: validTz(c.tz) ? c.tz : d.tz, active: c.active === 0 || c.active === false ? 0 : 1 };
 }
 /** clip: {type, topic, sub, skill, cefr, exam, template, region?}. Empty list in a channel's settings = anything allowed. */

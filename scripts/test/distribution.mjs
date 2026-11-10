@@ -8,6 +8,7 @@ const H = 3600e3, MIN = 60e3;
 // ---- config normalisation ----
 const c0 = D.normCfg({ daily_cap: 999, min_gap_min: -5, windows: [{ from: '21:00', to: '09:00' }, { from: '8:00', to: '10:00' }], tz: 'Mars/Base', types: 'short, bad', regions: 'in,pk' });
 ok(c0.daily_cap === 2 && c0.min_gap_min === 240 && c0.windows.length === 1 && c0.tz === 'America/New_York' && c0.types.join() === 'short' && c0.regions.join() === 'IN,PK', 'normCfg clamps cap/gap, drops bad windows / tz / types, upper-cases regions');
+ok(D.SOCIAL_DAY_MAX === 2 && D.normCfg({ daily_cap: 9 }).daily_cap === 2 && D.normCfg({ daily_cap: 1 }).daily_cap === 1 && D.normCfg({ role: 'embed', daily_cap: 6 }).daily_cap === 6, 'social ≤ 2 bài/ngày/kênh (chủ 10/11 đăng dần), embed giữ trần riêng');
 // ---- routing ----
 const cfgs = { A: D.normCfg({ label: 'Lexkite English' }), B: D.normCfg({ types: ['podcast'] }), C: D.normCfg({ topics: ['exam'] }), P: D.normCfg({ active: 0 }), S: D.normCfg({ types: ['short'] }) };
 const rules = [{ cond: { type: 'podcast' }, channel_id: 'B' }, { cond: { topic: 'exam/ielts,exam/toeic' }, channel_id: 'C' }, { cond: { region: 'IN,PK' }, channel_id: 'P' }, { cond: { type: 'long' }, channel_id: 'S' }];
