@@ -33,6 +33,7 @@ export function fingerprint(html) {
 }
 // URL đã chuyển có chủ đích: link cũ chỉ được coi là còn khi trang có link tới đúng URL mới (4/11: trang chủ tiếng Việt / → /vi/, docs/SEO-ARCH.md §10)
 const MOVED = { '/': '/vi/' };
+// 10/11 (#1019): "Liên hệ" ở chân trang chuyển từ /app/#/contact sang mục tĩnh /<lang>/about/#contact (trang tĩnh cho AdSense duyệt): chỉ chấp nhận khi trang có đúng link mới.
 // Cùng lần chuyển đó trong JSON-LD: crumb "Trang chủ" của trang vi trỏ /vi/ thay vì / (5/11). Chỉ đúng chuỗi này, mọi đổi khác vẫn đỏ.
 const LD_MOVED = [['"name":"Trang chủ","item":"https://lexkite.com/"', '"name":"Trang chủ","item":"https://lexkite.com/vi/"']];
 const ldMoved = v => LD_MOVED.reduce((s, [a, b]) => s.split(a).join(b), v);
@@ -40,7 +41,7 @@ export function diffPage(a, b) {
   const miss = (x, y) => x.filter(v => !y.includes(v)), out = [];
   if (a.title !== b.title) out.push(`title đổi: ${a.title} → ${b.title}`);
   for (const k of ['metas', 'links', 'ld']) { const m = miss(a[k], b[k]).filter(v => !(k === 'ld' && ldMoved(v) !== v && b.ld.includes(ldMoved(v)))); if (m.length) out.push(`${k} đổi: ${m[0].slice(0, 160)}`); }
-  const h = miss(a.hrefs, b.hrefs).filter(x => !(MOVED[x] && b.hrefs.includes(MOVED[x]))); if (h.length) out.push(`mất ${h.length} link nội bộ: ${h.slice(0, 3).join(' ')}`);
+  const h = miss(a.hrefs, b.hrefs).filter(x => !(MOVED[x] && b.hrefs.includes(MOVED[x])) && !(x === '/app/#/contact' && b.hrefs.some(v => /\/about\/#contact$/.test(v)))); if (h.length) out.push(`mất ${h.length} link nội bộ: ${h.slice(0, 3).join(' ')}`);
   const w = miss(a.words, b.words); if (w.length) out.push(`mất ${w.length} từ khỏi phần hiển thị: ${w.slice(0, 8).join(' ')}`);
   return out;
 }
