@@ -101674,6 +101674,33 @@
    "at": "2026-10-24",
    "b": "40077252813"
   },
+  "kingship#n": {
+   "h": "8a527181fdbc0c86",
+   "url": "https://media.lexkite.com/vimg/8a527181fdbc0c86.webp",
+   "alt": "kingship",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.305,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 100,
+    "tries": 1
+   },
+   "ph": "bb9dc466c8e58562",
+   "at": "2026-11-10",
+   "b": "42829078494",
+   "repo": "m4"
+  },
   "kiss#n": {
    "h": "20fae0ed9157d1d0",
    "url": "https://media.lexkite.com/vimg/20fae0ed9157d1d0.webp",

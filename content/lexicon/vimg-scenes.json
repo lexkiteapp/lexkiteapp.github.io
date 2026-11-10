@@ -47567,8 +47567,16 @@
    "refix": 1
   },
   "kingship#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-10T13:35:25.774Z"
+   "ex": "The dual kingship did not last long.",
+   "ps": "a man wearing a gold crown sits on an ornate throne while a woman bows before him",
+   "sc": "a man wearing a gold crown sits on an ornate throne while a woman bows before him",
+   "check": "Is there a person wearing a crown and sitting on a throne being honored?",
+   "cap": "a crowned man on a throne as a woman bows",
+   "key": "a man wearing a gold crown; the man sitting on an ornate throne",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "kinship#n": {
    "skip": "relationship concept requires multiple people, exceeds picture limits",
