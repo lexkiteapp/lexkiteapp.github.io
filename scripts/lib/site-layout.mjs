@@ -326,7 +326,7 @@ export const footGroups = (lang, extra = [], coExtra = []) => {
   const product = [[app, f[3]], [`${app}#/settings`, f[4]], ...(PLAY_STORE ? [[PLAY_STORE, fe(22), ' rel="noopener"']] : [])];
   const learn = [[`${lg}/blog/`, f[5]], [vi ? '/tu-vung/' : '/en/vocabulary/', f[6]], ...(vi ? [['/ngu-phap/', f[9]]] : []), [vi ? '/samples/' : '/en/samples/', f[7]], [vi ? '/speaking/' : '/en/speaking/', f[8]], ...(SP[lang] ? [[`/${lang}/words/`, SP[lang].words], [`/${lang}/conversations/`, SP[lang].conv]] : []), ...extra]; // trang tĩnh Từ điển + Giao tiếp (docs/SEO-ARCH.md)
   const tools = toolFoot(lang); // công cụ miễn phí (scripts/lib/tools-links.mjs)
-  const co = [[authAbout(lang) || `${lg}/blog/${ABOUT[lang] || 'about'}/`, f[10]], ...authFoot(lang), [`${app}#/contact`, f[11]], [`${lg}/privacy`, f[12]], [`${lg}/terms`, f[13]], [`${lg}/privacy#cookies`, f[14]], [`${lg}/privacy#delete`, f[15]], [`${lg}/credits`, fe(17)], ...coExtra];
+  const co = [[authAbout(lang) || `${lg}/blog/${ABOUT[lang] || 'about'}/`, f[10]], ...authFoot(lang), [authAbout(lang) ? `${authAbout(lang)}#contact` : `${app}#/contact`, f[11]], [`${lg}/privacy`, f[12]], [`${lg}/terms`, f[13]], [`${lg}/privacy#cookies`, f[14]], [`${lg}/privacy#delete`, f[15]], [`${lg}/credits`, fe(17)], ...coExtra];
   return { cur, f, product, learn, tools, co };
 };
 // Chân trang theo thiết kế Stitch (docs: PR #303): cột thương hiệu (logo diều + câu giới thiệu + "Mở app" + "Add to Chrome") · 4 nhóm
@@ -396,7 +396,7 @@ export const SEO_L = {
     nav: [['/vi/blog/', 'Blog'], ['/tu-vung/', 'Từ vựng'], ['/ngu-phap/', 'Ngữ pháp'], ['/samples/', 'Bài mẫu'], ['/speaking/', 'Speaking']],
     sections: [['/tu-vung/', 'Từ vựng'], ['/ngu-phap/', 'Ngữ pháp'], ['/samples/', 'Bài mẫu Writing'], ['/speaking/', 'IELTS Speaking'], ['/viet-thu/', 'Thư mẫu IELTS General'], ['/phat-am/', 'Phát âm']],
     foot: 'Lexkite – học từ vựng & luyện thi IELTS, TOEIC, TOEFL miễn phí. Nội dung tự biên soạn, miễn phí cho người học.',
-    tm: 'IELTS, TOEIC, TOEFL là nhãn hiệu của chủ sở hữu tương ứng; Lexkite là sản phẩm độc lập.',
+    tm: 'IELTS, TOEIC, TOEFL là nhãn hiệu của chủ sở hữu tương ứng. Lexkite là sản phẩm độc lập, không liên kết và không được British Council, IDP, Cambridge hay ETS bảo trợ.',
     links: [['/vi/blog/', 'Blog'], ['/app/', 'Ứng dụng'], ['/vi/privacy', 'Quyền riêng tư'], ['/vi/terms', 'Điều khoản']],
     switchTo: ['English', 'en'], sectionsL: 'Chuyên mục', search: 'Lọc theo tên, chủ đề…', searchL: 'Lọc danh sách', found: n => `${n} kết quả`, none: 'Không có mục nào khớp – thử từ khóa khác.',
     play: w => `Nghe phát âm “${w}”`, related: 'Có thể bạn quan tâm', ext: ['Tra từ ngay khi đọc web.', 'Cài add-on Lexkite cho Chrome: bấm đúp vào từ bất kỳ để xem nghĩa, phiên âm và lưu vào flashcard.', 'Xem add-on', 'Ẩn'], extHref: '/app/#/settings',
@@ -407,7 +407,7 @@ export const SEO_L = {
     nav: [['/en/blog/', 'Blog'], ['/en/vocabulary/', 'Vocabulary'], ['/en/grammar/', 'Grammar'], ['/en/ielts-writing/', 'Writing'], ['/en/speaking/', 'Speaking']],
     sections: [['/en/vocabulary/', 'Vocabulary'], ['/en/grammar/', 'Grammar'], ['/en/pronunciation/', 'Pronunciation'], ['/en/ielts-writing/', 'IELTS Writing'], ['/en/samples/', 'Writing Task 2'], ['/en/speaking/', 'IELTS Speaking']],
     foot: 'Lexkite – free vocabulary and IELTS, TOEIC, TOEFL practice. Original learning content, free for learners.',
-    tm: 'IELTS, TOEIC and TOEFL are trademarks of their respective owners; Lexkite is independent.',
+    tm: 'IELTS, TOEIC and TOEFL are trademarks of their respective owners. Lexkite is independent and not affiliated with or endorsed by the British Council, IDP, Cambridge or ETS.',
     links: [['/en/blog/', 'Blog'], ['/app/?hl=en', 'App'], ['/en/privacy', 'Privacy'], ['/en/terms', 'Terms']],
     switchTo: ['Tiếng Việt', 'vi'], sectionsL: 'Sections', search: 'Filter by name or topic…', searchL: 'Filter the list', found: n => `${n} results`, none: 'Nothing matches – try another word.',
     play: w => `Play pronunciation of “${w}”`, related: 'You may also like', ext: ['Look up words while you read.', 'Get the Lexkite add-on for Chrome: double-click any word for its meaning and IPA, then save it to your flashcards.', 'See the add-on', 'Hide'], extHref: '/app/?hl=en#/settings',
