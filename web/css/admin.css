@@ -697,3 +697,7 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
   .drv-banner a { margin-left: 0; }
   .acc-h { flex-direction: column; gap: .4rem; }
 }
+
+/* Meter dùng chung (AdminChart.meter – #998 hạn mức YouTube, Quản trị › Quảng cáo sẵn sàng) */
+.vx-m-h{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem;font-size:.84rem;color:var(--muted);margin-bottom:.45rem}.vx-m-v{color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap}.vx-m-v b{font-size:1.15rem}.vx-mb{height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden}.vx-mb i{display:block;height:100%;border-radius:inherit;background:var(--primary)}.vx-mb.warn i{background:var(--gold)}.vx-mb.bad i{background:var(--again)}.vx-mb.ok i{background:var(--good)}
+.vx-ms{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1rem 1.8rem}
