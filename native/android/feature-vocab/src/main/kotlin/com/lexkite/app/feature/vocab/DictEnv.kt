@@ -155,6 +155,7 @@ class WordEnv(
     // ---------- data sets ----------
     private val lock = Mutex()
     private var dictV: Dict? = null; private var verbsV: Verbs? = null; private var usageV: Usage? = null; private var writingV: WritingData? = null
+    private var packV: WritePack? = null; private var essayLexisV: Lexis? = null
 
     private val dictStore = object : DictStore {
         override suspend fun get(key: String): JsonElement? = store.get(key)

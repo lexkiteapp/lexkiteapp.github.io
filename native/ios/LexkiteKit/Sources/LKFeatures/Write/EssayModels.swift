@@ -39,7 +39,9 @@ final class EssayModel {
     private(set) var loaded = false
     private(set) var offline = false
     private(set) var pack = WritePack()
-    private(set) var prompts: [JSON] = [], sets: [JSON] = [], models: [JSON] = []
+    private(set) var prompts: [JSON] = []
+    private(set) var sets: [JSON] = []
+    private(set) var models: [JSON] = []
     private(set) var catalog = TopicCatalog()
     private(set) var current: JSON = .null
     private(set) var report: Report?

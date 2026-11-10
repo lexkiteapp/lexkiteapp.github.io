@@ -236,7 +236,7 @@ public enum GrammarCore {
 }
 
 // MARK: - #/method
-public enum Method {
+public enum StudyMethod {
     public struct Input: Sendable {
         public var now: Int64, clock: VocabClock
         public var cards: [JSON], reviewDays: JSON, game: JSON, settings: JSON
@@ -258,7 +258,7 @@ public enum Method {
         /// average chance of recall after `days` more days without review
         public func at(_ days: Double) -> Double {
             guard !cards.isEmpty else { return 0 }
-            return cards.reduce(0) { $0 + Method.recall(max(0, Double(now - $1.last) / 86_400_000) + days, $1.S) } / Double(cards.count)
+            return cards.reduce(0) { $0 + StudyMethod.recall(max(0, Double(now - $1.last) / 86_400_000) + days, $1.S) } / Double(cards.count)
         }
         public var any: Bool { !cards.isEmpty }
     }

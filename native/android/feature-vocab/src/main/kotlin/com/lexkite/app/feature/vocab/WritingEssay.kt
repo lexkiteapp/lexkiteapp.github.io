@@ -365,7 +365,7 @@ private fun Task2Side(tx: Tx, d: EssayData, x: JsonObject, saved: List<JsonEleme
         saved.take(Essay.SHOW_SAVED).forEachIndexed { i, e ->
             val o = e as JsonObject
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs), verticalAlignment = Alignment.CenterVertically) {
-                VText(t.s(L10nKey.writeWriteDeN, "n" to Essay.sessionNumber(o.gs("prompt"))) + " · " + t.s(L10nKey.vocabWords, "n" to (o["words"] as? JsonPrimitive)?.content?.toDoubleOrNull()?.toInt()), LKType.bodySm, c.onSurface, Modifier.weight(1f))
+                VText(t.s(L10nKey.writeWriteDeN, "n" to Essay.sessionNumber(o.gs("prompt"))) + " · " + t.s(L10nKey.vocabWords, "n" to (o["words"] as? JsonPrimitive)?.content?.toDoubleOrNull()?.toInt() ?: 0), LKType.bodySm, c.onSurface, Modifier.weight(1f))
                 VBadge("LR ~" + Essay.bandText(((o["band"] as? JsonPrimitive)?.content?.toDoubleOrNull()) ?: 0.0))
                 LKPillButton(t(L10nKey.writeWriteMo), { openSaved(i) })
             }

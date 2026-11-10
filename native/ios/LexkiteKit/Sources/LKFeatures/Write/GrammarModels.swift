@@ -81,9 +81,15 @@ final class GrammarLessonModel {
     private(set) var pack: GrammarPack
     private(set) var loaded = false
     private(set) var cur = 0
-    private(set) var formulaOrder: [Int] = [], formulaNext = 0, formulaWrong = false
-    private(set) var revealedUses = Set<Int>(), revealedMistakes = Set<Int>()
-    private(set) var builds: [String] = [], pool: [[(Int, String)]] = [], built: [[Int]] = [], arrangeOK: [Bool?] = []
+    private(set) var formulaOrder: [Int] = []
+    private(set) var formulaNext = 0
+    private(set) var formulaWrong = false
+    private(set) var revealedUses = Set<Int>()
+    private(set) var revealedMistakes = Set<Int>()
+    private(set) var builds: [String] = []
+    private(set) var pool: [[(Int, String)]] = []
+    private(set) var built: [[Int]] = []
+    private(set) var arrangeOK: [Bool?] = []
     private(set) var quizPicked: [Int: Int] = [:]
     private(set) var quizSummary: (right: Int, pct: Int, xp: Int)?
     private(set) var drills: [DrillState] = []
@@ -247,7 +253,8 @@ final class GrammarMixModel {
     let chapterN: Int?, count: Int
     private(set) var pack: GrammarPack
     private(set) var items: [Item] = []
-    private(set) var i = 0, right = 0
+    private(set) var i = 0
+    private(set) var right = 0
     private(set) var picked: Int?
     private(set) var drill = DrillState()
     private(set) var loaded = false

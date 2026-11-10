@@ -72,7 +72,7 @@ final class LearnSnapshotTests: XCTestCase {
             let srs: (Int64, Double) -> JSON = { d, s in ["last": .number(Double(Self.now - d * 86_400_000)), "S": .number(s), "reps": 3, "interval": .number(s), "due": .number(Double(Self.now - 1))] }
             let cards: [JSON] = ["alpha", "beta", "gamma", "delta"].enumerated().map { ["word": .string($0.element), "srs": srs(Int64($0.offset + 1), Double($0.offset + 2))] }
             let game: JSON = ["xp": 340, "days": [key(0): ["readings": 1, "newWords": 6, "grammar": 1], key(1): ["listens": 2, "spoken": 3]], "total": [:], "readDone": ["r1": 1], "listenDone": [:], "grammarDone": ["g1": 90], "pronDone": [:]]
-            let inp = Method.Input(now: Self.now, clock: clock, cards: cards, reviewDays: [key(0): 12], game: game, settings: ["placement": ["stage": "s2", "band": "6.0"]], essayPrompts: ["p1"], mistakes: 3,
+            let inp = StudyMethod.Input(now: Self.now, clock: clock, cards: cards, reviewDays: [key(0): 12], game: game, settings: ["placement": ["stage": "s2", "band": "6.0"]], essayPrompts: ["p1"], mistakes: 3,
                                    readings: ["r1", "r2"], listening: ["l1", "l2"], grammar: ["g1", "g2"], prompts: ["p1", "p2"])
             return MethodView(model: MethodModel.fixture(ctx: self.ctx(lang), input: inp))
         }

@@ -172,7 +172,7 @@ struct MethodView: View {
         .accessibilityIdentifier("method")
     }
 
-    @ViewBuilder private func content(_ r: Method.Result) -> some View {
+    @ViewBuilder private func content(_ r: StudyMethod.Result) -> some View {
         loop(r)
         memory(r)
         strands(r)
@@ -183,7 +183,7 @@ struct MethodView: View {
     }
 
     // MARK: daily loop
-    private func loop(_ r: Method.Result) -> some View {
+    private func loop(_ r: StudyMethod.Result) -> some View {
         let steps = model.content.method.list("loop")
         return SkillCard {
             HStack {
@@ -211,9 +211,9 @@ struct MethodView: View {
     }
 
     // MARK: memory curve
-    private func memory(_ r: Method.Result) -> some View {
+    private func memory(_ r: StudyMethod.Result) -> some View {
         let m = r.memory, d = model.days
-        let pct = Vocab.round((m.any ? m.at(d) : Method.recall(d, 3)) * 100)
+        let pct = Vocab.round((m.any ? m.at(d) : StudyMethod.recall(d, 3)) * 100)
         return SkillCard {
             HStack {
                 Text(verbatim: t.lv("Bộ nhớ từ vựng của bạn")).studyText(LKType.headlineSm)
@@ -252,7 +252,7 @@ struct MethodView: View {
     }
 
     // MARK: strands
-    private func strands(_ r: Method.Result) -> some View {
+    private func strands(_ r: StudyMethod.Result) -> some View {
         let meta: [String: (String, String, String)] = ["in": ("Đầu vào có nghĩa", "Đọc, nghe", "Nghe 1 phần"), "out": ("Đầu ra có nghĩa", "Nói, viết, tự đặt câu", "Luyện Speaking"), "lang": ("Tập trung ngôn ngữ", "Flashcard, ngữ pháp, phát âm", "Học ngữ pháp"), "flu": ("Luyện trôi chảy", "Ghép thẻ tính giờ, chép chính tả, thi thử", "Ghép thẻ tính giờ")]
         let href: [String: String] = ["in": r.hrefs.listening, "out": r.hrefs.speak, "lang": r.hrefs.grammar, "flu": "#/practice/match?src=deck"]
         let total = r.strands.reduce(0) { $0 + $1.pct }
@@ -298,8 +298,8 @@ struct MethodView: View {
     }
 
     // MARK: principles + FAQ
-    private func principle(_ i: Int, _ p: JSON, _ r: Method.Result) -> some View {
-        let stat = i < r.stats.count ? r.stats[i] : Method.Line(key: "")
+    private func principle(_ i: Int, _ p: JSON, _ r: StudyMethod.Result) -> some View {
+        let stat = i < r.stats.count ? r.stats[i] : StudyMethod.Line(key: "")
         var how = t.lvj(p["how"]); how = how.replacingOccurrences(of: "{ic}", with: "")
         return SkillCard {
             Text(verbatim: t.lvj(p["title"])).studyText(LKType.headlineSm).fixedSize(horizontal: false, vertical: true).accessibilityAddTraits(.isHeader)
@@ -328,7 +328,7 @@ struct MethodView: View {
 
 /// The forgetting curve of the memory card (web `curveSvg`): the learner's average recall over 60 days, the "golden moment" review saw-tooth and a marker at the chosen day.
 struct CurveView: View {
-    let memory: Method.Memory, mark: Double, keep: Double, label: String
+    let memory: StudyMethod.Memory, mark: Double, keep: Double, label: String
     @Environment(\.colorScheme) private var scheme
     var body: some View {
         let line = LKColor.outlineVariant.resolve(scheme), dim = LKColor.onSurfaceVariant.resolve(scheme)
@@ -337,7 +337,7 @@ struct CurveView: View {
             let W = 560.0, H = 190.0, P = 34.0, days = 60.0, k = size.width / W
             func x(_ d: Double) -> Double { (P + d / days * (W - P - 10)) * k }
             func y(_ r: Double) -> Double { (12 + (1 - r) * (H - 40)) * k }
-            let f: (Double) -> Double = memory.any ? { memory.at($0) } : { Method.recall($0, 3) }
+            let f: (Double) -> Double = memory.any ? { memory.at($0) } : { StudyMethod.recall($0, 3) }
             for r in [1.0, 0.8, 0.6, 0.4] {
                 var g = Path(); g.move(to: CGPoint(x: P * k, y: y(r))); g.addLine(to: CGPoint(x: (W - 10) * k, y: y(r)))
                 c.stroke(g, with: .color(line), lineWidth: 1)
@@ -347,9 +347,9 @@ struct CurveView: View {
             var s = Path(); s.move(to: CGPoint(x: x(0), y: y(max(keep, f(0)))))
             var t0 = 0.0, S = 2.0
             while t0 < days {
-                let ivl = max(1, Method.interval(S, keep)), t2 = min(days, t0 + ivl)
+                let ivl = max(1, StudyMethod.interval(S, keep)), t2 = min(days, t0 + ivl)
                 var d = t0 + 1
-                while d <= t2 { s.addLine(to: CGPoint(x: x(d), y: y(Method.recall(d - t0, S)))); d += 1 }
+                while d <= t2 { s.addLine(to: CGPoint(x: x(d), y: y(StudyMethod.recall(d - t0, S)))); d += 1 }
                 s.addLine(to: CGPoint(x: x(t2), y: y(1))); t0 = t2; S *= 2.6
             }
             c.stroke(s, with: .color(saw.opacity(0.85)), style: StrokeStyle(lineWidth: 2 * k, dash: [4 * k, 3 * k]))

@@ -13,12 +13,15 @@ final class QuickModel {
     let ctx: SkillsContext
     private(set) var stage: Stage = .loading
     private(set) var questions: [Q] = []
-    private(set) var index = 0, score = 0, secondsLeft = Quick.limit
+    private(set) var index = 0
+    private(set) var score = 0
+    private(set) var secondsLeft = Quick.limit
     private(set) var picked: Int?
     private(set) var busy = false
     private var picks: [JSON] = []
     private var others: [JSON] = []
-    private var started = Date(), paused = 0.0
+    private var started = Date()
+    private var paused = 0.0
     private let rng: () -> Double
 
     init(ctx: SkillsContext, rng: @escaping () -> Double = { Double.random(in: 0..<1) }) { self.ctx = ctx; self.rng = rng }
@@ -129,13 +132,13 @@ final class StyleModel {
 final class MethodModel {
     let ctx: SkillsContext
     let content: LearnContent
-    private(set) var result: Method.Result?
+    private(set) var result: StudyMethod.Result?
     var days = 7.0
     private var defaults: UserDefaults
     init(ctx: SkillsContext, content: LearnContent = .shared, defaults: UserDefaults = .standard) { self.ctx = ctx; self.content = content; self.defaults = defaults }
-    static func fixture(ctx: SkillsContext, input: Method.Input, days: Double = 7) -> MethodModel {
+    static func fixture(ctx: SkillsContext, input: StudyMethod.Input, days: Double = 7) -> MethodModel {
         let m = MethodModel(ctx: ctx)
-        m.result = Method.compute(input); m.days = days
+        m.result = StudyMethod.compute(input); m.days = days
         return m
     }
     func load() async {
@@ -144,11 +147,11 @@ final class MethodModel {
         let essays = EssayStore.read(EssayStore.essaysKey, defaults)?.array ?? []
         let b = ctx.bundle
         await GrammarStore.refresh()
-        var inp = Method.Input(now: ctx.now, clock: ctx.core.clock, cards: b.cards.filter { !$0.s("word").isEmpty }, reviewDays: b.stats["days"] ?? .object([:]), game: b.game, settings: b.settings,
+        var inp = StudyMethod.Input(now: ctx.now, clock: ctx.core.clock, cards: b.cards.filter { !$0.s("word").isEmpty }, reviewDays: b.stats["days"] ?? .object([:]), game: b.game, settings: b.settings,
                                essayPrompts: essays.map { $0.s("prompt") }, mistakes: b.mistakes.filter { !$0.t("fixed") }.count,
                                readings: ctx.data.readings.map { $0.s("id") }, listening: ctx.data.parts.map { $0.s("id") }, grammar: GrammarStore.pack.index.map { $0.s("id") }, prompts: await prompts.map { $0.s("id") })
         inp.speakBank = 0
-        result = Method.compute(inp)
+        result = StudyMethod.compute(inp)
     }
     var stage: String { result?.stage.flatMap { ["s0", "s1", "s2", "s3"].contains($0) ? $0 : nil } ?? "s1" }
     var hasPlacement: Bool { ctx.settings["placement"]?.isObject == true }

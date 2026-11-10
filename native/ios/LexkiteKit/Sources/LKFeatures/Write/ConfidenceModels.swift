@@ -19,8 +19,13 @@ final class ConfidenceModel {
     private(set) var progress: JSON
     // unit run
     private(set) var runStep: Int?
-    private(set) var shadow: [String: Int] = [:], shadowIndex = 0, gapIndex = 0, gapsRight = 0
-    private(set) var feedback: [String: String] = [:], heardText: [String: String] = [:], marks: [String: [(word: String, heard: Bool?)]] = [:]
+    private(set) var shadow: [String: Int] = [:]
+    private(set) var shadowIndex = 0
+    private(set) var gapIndex = 0
+    private(set) var gapsRight = 0
+    private(set) var feedback: [String: String] = [:]
+    private(set) var heardText: [String: String] = [:]
+    private(set) var marks: [String: [(word: String, heard: Bool?)]] = [:]
     private(set) var gapState: String?            // nil | "ok" | "miss"
     private(set) var hint = false
     private(set) var listening: String?
@@ -29,12 +34,18 @@ final class ConfidenceModel {
     private(set) var savedCards: Int?
     private var playToken = 0
     // daily
-    private(set) var recording = false, secsLeft = Confidence.dailySeconds
+    private(set) var recording = false
+    private(set) var secsLeft = Confidence.dailySeconds
     private(set) var live = ""
     private(set) var metrics: Metrics?
     private(set) var rating: Int?
-    private(set) var dailyScore: Int?, newRecord = false
-    private var said = "", t0 = Date(), partialAt: Date?, pauseCount = 0, recordID = ""
+    private(set) var dailyScore: Int?
+    private(set) var newRecord = false
+    private var said = ""
+    private var t0 = Date()
+    private var partialAt: Date?
+    private var pauseCount = 0
+    private var recordID = ""
     private var dailyTask: Task<Void, Never>?
 
     init(ctx: SkillsContext, page: Page, io: SpeakIO, content: LearnContent = .shared, defaults: UserDefaults = .standard) {

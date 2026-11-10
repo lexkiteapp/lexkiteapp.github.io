@@ -106,9 +106,9 @@ final class LearnVectorTests: XCTestCase {
             let cards: [JSON] = i.list("cards").map { c in
                 JSON.obj([("word", c["word"] ?? .null), ("srs", c["srs"] ?? .null), ("contexts", .array(c.strs("ctx").map { .obj([("title", .string($0)), ("at", .number(Double(now - day)))]) }))])
             }
-            let inp = Method.Input(now: now, clock: clock, cards: cards, reviewDays: .object([:]), game: .object(game), settings: i["settings"] ?? .object([:]), essayPrompts: i.list("essays").map { $0.s("prompt") },
+            let inp = StudyMethod.Input(now: now, clock: clock, cards: cards, reviewDays: .object([:]), game: .object(game), settings: i["settings"] ?? .object([:]), essayPrompts: i.list("essays").map { $0.s("prompt") },
                                    mistakes: i.list("mistakes").filter { !$0.t("fixed") }.count, readings: ["r1", "r2", "r3"], listening: ["l1", "l2"], grammar: ["g1", "g2"], prompts: ["p1", "p2", "p3"])
-            let m = Method.compute(inp)
+            let m = StudyMethod.compute(inp)
             r.eq(m.loopDone, o.i("loopDone"), "\(id) loopDone")
             for (k, w) in o.list("loop").enumerated() where k < m.loop.count {
                 let s = m.loop[k]
