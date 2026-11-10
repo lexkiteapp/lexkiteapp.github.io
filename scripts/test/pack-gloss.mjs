@@ -63,4 +63,4 @@ console.log(`✓ pack-gloss: ${n} kiểm · ${applied} nghĩa tay đã áp · c�
 
 // hồi quy 06/11 (a6bf18c13): bot lexicon-i18n phải ÁP LẠI bảng tay sau rebase + chạy pack-gloss trước khi đẩy main
 { const y = (await import('node:fs')).readFileSync('.github/workflows/lexicon-i18n.yml', 'utf8'); const i = y.indexOf('rebase');
-  if (!(/gen-word-packs\.mjs "\$L" --gloss-only/.test(y) && /pack-gloss\.mjs \|\|[^\n]*KHÔNG đẩy/.test(y) && y.indexOf('--gloss-only') < y.indexOf('git push -q origin HEAD:main &&'))) { console.error('✗ lexicon-i18n.yml: sau rebase phải áp lại bảng tay (--gloss-only) và chạy pack-gloss trước khi push'); process.exit(1); } }
+  if (!(/gen-word-packs\.mjs "\$L" --gloss-only/.test(y) && /pack-gloss\.mjs \|\|[^\n]*KHÔNG đẩy/.test(y) && /PUSH_MAIN_REGEN=[^\n]*--gloss-only[^\n]*pack-gloss\.mjs/.test(y) && y.indexOf('--gloss-only') < y.indexOf('scripts/ci/push-main.sh'))) { console.error('✗ lexicon-i18n.yml: sau rebase phải áp lại bảng tay (--gloss-only) và chạy pack-gloss trước khi push'); process.exit(1); } }

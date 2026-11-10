@@ -76,11 +76,7 @@ jobs:
       - name: Lưu kết quả
         if: github.ref == 'refs/heads/main'
         run: |
-          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add reports/world content/pipeline/WORLD.md content/pipeline/world.budget.json docs/UX-BENCHMARK.md content/pipeline/TOP1.md content/pipeline/top1.budget.json; git diff --cached --quiet && exit 0
-          git commit -qm "Bảng World $(date -u +%F) [CF-Pages-Skip] [skip ci]"
-          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
-          echo "::error::không đẩy được lên main (BOT_DEPLOY_KEY / ruleset?)"; exit 1
+          bash scripts/ci/push-main.sh "Bảng World $(date -u +%F)" reports/world content/pipeline/WORLD.md content/pipeline/world.budget.json docs/UX-BENCHMARK.md content/pipeline/TOP1.md content/pipeline/top1.budget.json
       - name: Đỏ nếu probe hoặc sàn trượt
         if: steps.probe.outcome != 'success' || steps.score.outcome != 'success' || steps.top1.outcome != 'success'
         run: |
