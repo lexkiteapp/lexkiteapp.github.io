@@ -18,7 +18,7 @@ object Essay {
     /** `App.reward({ quizzes: 1, writes: 1, xp: 25 })` */
     val REWARD: Map<String, Int> = mapOf("quizzes" to 1, "writes" to 1); const val REWARD_XP = 25
     private val WORD = Regex("[A-Za-z][A-Za-z'\u2019-]*")
-    /** `(text.match(/[A-Za-z][A-Za-z'’-]*/g) || []).length` */
+    // web: (text.match(/[A-Za-z][A-Za-z'’-]*/g) || []).length
     fun words(s: String): Int = WORD.findAll(s).count()
     /** the same tokens, lower-cased with the right quote turned into ' */
     fun tokens(s: String): List<String> = WORD.findAll(s).map { it.value.lowercase().replace('\u2019', '\'') }.toList()

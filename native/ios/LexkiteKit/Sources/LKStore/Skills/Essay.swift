@@ -24,6 +24,7 @@ public enum Essay {
         var order: [String] = [], map: [String: Int] = [:]
         public init() {}
         mutating func add(_ k: String) { if map[k] == nil { order.append(k); map[k] = 0 }; map[k]! += 1 }
+        public var count: Int { order.count }
         public var entries: [Count] { order.map { Count(w: $0, n: map[$0] ?? 0) } }
         public var total: Int { map.values.reduce(0, +) }
     }
