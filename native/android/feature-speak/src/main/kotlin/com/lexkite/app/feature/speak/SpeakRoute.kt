@@ -16,6 +16,9 @@ import com.lexkite.app.i18n.generated.L10nKey
 /** Web hash routes (first path segment) that [SpeakRoute] draws. */
 val SPEAK_ROUTES: Set<String> = setOf("speak", "speaking", "pron", "say", "reflex", "rtype", "roleplay", "handsfree")
 
+/** P08: the call screens (`call`, `call/<id>`) are drawn by [SpeakRoute] too, on the same destination (the P07 route set above stays as it was). */
+val CALL_ROUTES: Set<String> = setOf("call")
+
 @Composable
 private fun Loading(exit: () -> Unit) = StudyPage(t(L10nKey.actionLoading), exit) {}
 
@@ -104,6 +107,22 @@ fun SpeakRoute(env: SpeakEnv, slots: SpeakSlots, page: String, arg: String, quer
                     result != null -> RoleplayResultScreen(result, RpActions(open = acts.open, speak = acts.speak, saveRewrite = acts.saveRewrite, again = acts.again, back = { vm.toList() }, exit = { vm.toBrief() }))
                     brief != null -> RoleplayBriefScreen(brief, RpActions(level = acts.level, save = acts.save, start = acts.start, back = { vm.toList() }, exit = { vm.toList() }))
                     list != null -> RoleplayListScreen(list, RpActions(open = acts.open, level = acts.level, exit = exit))
+                    else -> Loading(exit)
+                }
+            }
+            "call" -> {
+                val vm: CallVm = viewModel(key = "call-$key", factory = CallVm.Factory(env, arg, lang))
+                Fallback(vm.gone, replace)
+                val acts = CallActions(open = open, filter = { vm.filter(it) }, changeAsr = { vm.changeAsr() }, go = { vm.go() }, back = { vm.toList() }, mic = { vm.mic() }, typed = { vm.typedInput(it) }, submit = { vm.submit() }, tap = { vm.tap(it) },
+                    longDone = { vm.longDone() }, ask = { vm.pick(it) }, toggleTyping = { vm.toggleTyping() }, replay = { vm.replay() }, hang = { vm.hang() }, retry = { vm.retry() }, save = { vm.save() }, speak = { x, r -> vm.speak(x, r) }, exit = exit)
+                val room = vm.room; val summary = vm.summary; val ring = vm.ring; val list = vm.list
+                BackHandler(enabled = room != null || summary != null || ring != null) { if (room != null) vm.hang() else vm.toList() }
+                when {
+                    room != null -> CallRoomScreen(room, acts) { go -> gate(go) { vm.micDenied() } }
+                    summary != null -> CallSummaryScreen(summary, CallActions(open = { r -> if (r.startsWith("call/")) vm.open(r.removePrefix("call/")) else open(r) }, speak = acts.speak, retry = acts.retry, save = acts.save, back = acts.back, exit = { vm.toList() }))
+                    ring != null -> CallRingScreen(ring, CallActions(go = acts.go, back = acts.back, exit = { vm.toList() }))
+                    list != null -> CallListScreen(list, CallActions(open = { r -> vm.open(r.removePrefix("call/")) }, filter = acts.filter, changeAsr = acts.changeAsr, exit = exit))
+                    vm.empty -> StudyPage(trs(com.lexkite.app.core.speak.Tr("Gọi cho Ama & Carlos")), exit) { com.lexkite.app.feature.vocab.EmptyState("📞", trs(com.lexkite.app.core.speak.Tr("Không tải được – thử lại sau"))) }
                     else -> Loading(exit)
                 }
             }
