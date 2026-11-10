@@ -17226,8 +17226,8 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "consular#adj": {
-   "e4bad": 2,
-   "badAt": "2026-11-10T13:14:18.439Z"
+   "e4bad": 3,
+   "badAt": "2026-11-10T13:25:10.802Z"
   },
   "consult#v": {
    "ex": "You should consult a doctor before taking this medicine.",
@@ -77464,8 +77464,16 @@
    "refix": 1
   },
   "silky#adj": {
-   "e4bad": 2,
-   "badAt": "2026-11-10T13:14:18.439Z"
+   "ex": "His hair is silky smooth.",
+   "ps": "two rectangular fabric pieces side by side, left one glossy smooth, right one rough matte on a plain surface",
+   "sc": "two rectangular fabric pieces side by side, left one glossy smooth, right one rough matte on a plain surface",
+   "check": "Is the left fabric piece smooth and shiny compared to the right one?",
+   "cap": "a glossy smooth cloth beside a dull rough cloth",
+   "key": "left fabric piece glossy smooth; right fabric piece rough matte",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "silly#adj": {
    "ex": "Don't be silly; of course you can come.",
