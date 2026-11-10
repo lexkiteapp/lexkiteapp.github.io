@@ -11,12 +11,12 @@ export const TARGETS = {
   'iphone-65': { w: 1284, h: 2778, kind: 'phone', os: 'ios' },
   'ipad-13': { w: 2064, h: 2752, kind: 'tablet', os: 'ios' },
 };
-export const CAPTURE = { phone: { width: 390, height: 844, dsf: 3 }, tablet: { width: 1024, height: 1366, dsf: 2 } };
+export const CAPTURE = { phone: { width: 390, height: 844, dsf: 3 }, tablet: { width: 834, height: 1112, dsf: 2.5 } };
 
 const css = (t, bar) => {
   const u = t.kind === 'phone' ? t.w / 1080 : t.w / 1560, px = n => `${(n * u).toFixed(1)}px`;
   const cap = CAPTURE[t.kind], ratio = cap.width / cap.height;
-  const top = t.h * (t.kind === 'phone' ? 0.055 : 0.05), text = t.kind === 'phone' ? (t.h / t.w > 2 ? 560 : 500) : 470;
+  const top = t.h * (t.kind === 'phone' ? 0.055 : 0.05), text = t.kind === 'phone' ? (t.h / t.w > 2 ? 520 : 500) : 470;
   const devTop = top + text * u, bez = (t.kind === 'phone' ? 20 : 26) * u;
   const sbF = !bar ? 0 : (t.kind === 'tablet' ? 24 : t.os === 'ios' ? 50 : 34) / cap.width; // thanh trạng thái theo tỉ lệ bề rộng màn
   let sw = (t.h - devTop + t.h * 0.035 - 2 * bez) / (sbF + 1 / ratio); // máy tràn nhẹ qua mép dưới (3,5 %) – có chủ ý

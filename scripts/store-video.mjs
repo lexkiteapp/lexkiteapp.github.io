@@ -101,44 +101,80 @@ function still(png, d, out) { // 1 ảnh → d giây, phóng to chậm (zoompan 
 // ───────── MODE=app: video xem trước ứng dụng (App Store app preview 886×1920 + Play/YouTube 1080×1920), quay từ web app THẬT ─────────
 // Dùng: MODE=app BASE=http://localhost:8080/ node scripts/store-video.mjs <out>   (CI: cd web && python3 -m http.server 8080; cần ffmpeg + kokoro-js qua KOKORO_NODE_PATH như video-motion.yml)
 // Ra: app-preview-886x1920.mp4 · promo-1080x1920.mp4 · poster.png. Giọng: Kokoro af_bella = giọng Ama (content/video/cine/teachers.json), không nhạc nền (repo chưa có bản nhạc miễn phí).
-const NARR = [ // [giây bắt đầu, câu] – chỉ nêu tính năng có thật, không "tốt nhất/số 1", không giá
-  [0.4, 'Meet Lexkite. Your daily English plan is ready the moment you open the app.'],
-  [6.2, 'Short lessons mix listening, speaking and sentence building.'],
-  [13.0, 'Review your own words, and watch your vocabulary grow.'],
-  [18.2, 'Practice every skill. Lexkite: learn English a little every day.'],
+const NARR = [ // lời đọc (chỉ nêu tính năng có thật, không "tốt nhất/số 1", không giá); giờ bắt đầu lấy theo mốc cảnh thật khi quay
+  'Meet Lexkite. Your daily English plan is ready the moment you open the app.',
+  'Short lessons mix listening, speaking and sentence building.',
+  'Review your own words, and watch your vocabulary grow.',
+  'Practice every skill. Lexkite: learn English a little every day.',
 ];
 async function appMode() {
   const AW = 886, AH = 1920, BASE = process.env.BASE || 'http://localhost:8080/', END = 2.8;
   const { BASECSS, HIDE } = await import('./lib/app-shots-copy.mjs');
   const RIPPLE = `addEventListener('pointerdown', e => { const r = document.createElement('div'); r.style.cssText = 'position:fixed;z-index:2147483647;pointer-events:none;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(255,176,84,.55);border:3px solid #fff;left:' + e.clientX + 'px;top:' + e.clientY + 'px;transition:transform .5s ease-out,opacity .5s ease-out;transform:scale(.4)'; (document.body || document.documentElement).appendChild(r); requestAnimationFrame(() => { r.style.transform = 'scale(1.5)'; r.style.opacity = '0'; }); setTimeout(() => r.remove(), 600); }, true);`;
   const br = await chromium.launch();
-  const ctx = await br.newContext({ viewport: { width: 443, height: 960 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2, colorScheme: 'light', locale: 'en-US',
-    recordVideo: { dir: path.join(TMP, 'raw'), size: { width: AW, height: AH } } });
-  await ctx.addInitScript(([css, rip]) => { addEventListener('DOMContentLoaded', () => { const s = document.createElement('style'); s.textContent = css; document.head.appendChild(s); }); new Function(rip)(); }, [HIDE, RIPPLE]);
+  const ctx = await br.newContext({ viewport: { width: 443, height: 960 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2, colorScheme: 'light', locale: 'en-US' }); // KHÔNG dùng recordVideo (Playwright bỏ qua deviceScaleFactor → app nằm góc trái-trên); quay bằng CDP screencast đúng điểm ảnh thiết bị
+  await ctx.addInitScript(([css, rip]) => { addEventListener('DOMContentLoaded', () => { const s = document.createElement('style'); s.textContent = css; document.head.appendChild(s); }); new Function(rip)();
+    setInterval(() => { try { // móc: ghi lại câu mà bài học đang đọc (đáp án của xếp câu / điền chỗ trống nằm ở đó, DOM không có)
+      const note = x => { window.__said = String(x || ''); }, T = window.LessonTeacher;
+      if (T && !T.__h) { T.__h = 1; const m = T.mount; T.mount = function () { const api = m.apply(this, arguments); if (api && api.say) { const sy = api.say; api.say = function (tx) { note(tx); return sy.apply(this, arguments); }; } return api; }; }
+      if (window.UI && UI.tts && !UI.tts.__h) { const t = UI.tts; UI.tts = function (tx) { note(tx); return t.apply(this, arguments); }; UI.tts.__h = 1; }
+    } catch (e) {} }, 40); }, [HIDE, RIPPLE]);
   const q = `?sandbox=1&demo=1&hl=en`;
   const warm = await ctx.newPage(); await go(warm, `${BASE}${q}#/home`); await sleep(5000); await warm.close(); // demo=1 gieo dữ liệu mẫu vào kho của context; video trang này bỏ đi
   const p = await ctx.newPage(); await go(p, `${BASE}${q}#/home`); await p.waitForLoadState('load').catch(() => {}); await sleep(2500);
-  const t0 = Date.now(), mark = () => (Date.now() - t0) / 1000;
+  // Quay bằng CDP screencast: khung JPEG 886×1920 (= 443×960 × dsf 2) kèm timestamp → ghép CFR 30 fps bằng concat demuxer
+  const cdp = await ctx.newCDPSession(p), FR = path.join(TMP, 'fr'), frames = []; fs.mkdirSync(FR);
+  cdp.on('Page.screencastFrame', async ev => { const f = path.join(FR, `f${String(frames.length).padStart(5, '0')}.jpg`); fs.writeFileSync(f, Buffer.from(ev.data, 'base64')); frames.push({ ts: ev.metadata.timestamp, f }); await cdp.send('Page.screencastFrameAck', { sessionId: ev.sessionId }).catch(() => {}); });
+  await cdp.send('Page.startScreencast', { format: 'jpeg', quality: 95, maxWidth: AW, maxHeight: AH, everyNthFrame: 1 });
+  for (let i = 0; i < 100 && !frames.length; i++) await sleep(100);
+  if (!frames.length) throw new Error('✗ screencast không có khung nào');
+  const t0 = Date.now(), mark = () => (Date.now() - t0) / 1000, M = {};
   const hash = h => p.evaluate(h => { location.hash = h; }, h);
-  const tap = async (sel, h) => { // chạm thật vào phần tử (có gợn tròn); không thấy → đổi hash để cảnh vẫn chạy
+  const tap = async (sel, h) => { // chạm thật vào phần tử (có gợn tròn); không thấy → đổi hash (chỉ cho tab dưới), không có h → lỗi
     try { const el = p.locator(sel).first(); await el.scrollIntoViewIfNeeded({ timeout: 3000 }); const b = await el.boundingBox(); await p.touchscreen.tap(b.x + b.width / 2, b.y + b.height / 2); return true; }
-    catch (e) { console.log(`  ⚠ không chạm được ${sel} → hash ${h}`); if (h) await hash(h); return false; }
+    catch (e) { if (!h) throw new Error(`✗ không chạm được ${sel}`); console.log(`  ⚠ không chạm được ${sel} → hash ${h}`); await hash(h); return false; }
   };
   const swipe = async dy => { for (let k = 0; k < 6; k++) { await p.mouse.wheel(0, dy / 6); await sleep(120); } };
+  const norm = x => String(x || '').toLowerCase().replace(/[^a-z0-9' ]+/g, ' ').replace(/\s+/g, ' ').trim();
   // 1. Hôm nay
-  await sleep(1800); await swipe(260); await sleep(900); await swipe(-260); await sleep(900);
-  // 2. Bài học demo: bản đồ → Bắt đầu → trả lời 2 câu
-  await hash('#/lesson?demo=1'); await sleep(2200);
-  await tap('.lsn-start', '#/lesson/go?demo=1'); await sleep(2800);
-  for (let i = 0; i < 2; i++) { await tap('.lsn-opts button[data-o]'); await sleep(1500); await tap('#lsnGo'); await sleep(1700); }
-  // 3. Từ vựng → 4. Kỹ năng (chạm tab dưới)
-  await tap('#bnav a[href="#/vocab"], nav a[data-route="vocab"]', '#/vocab'); await sleep(2800); await swipe(240); await sleep(1500);
-  await tap('#bnav a[href="#/skills"], nav a[data-route="skills"]', '#/skills'); await sleep(2800); await swipe(240); await sleep(1500);
-  const dur = Math.min(mark(), 26.5); // video trang bắt đầu từ lúc tạo trang → cắt bỏ phần tải đầu theo độ dài thực
-  await p.close(); const vid = await p.video().path(); await ctx.close(); await br.close();
-  const full = +execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', vid], { encoding: 'utf8' });
-  const start = Math.max(0, full - dur - 0.2);
-  console.log(`  quay ${full.toFixed(1)} s · lấy ${dur.toFixed(1)} s từ ${start.toFixed(1)} s`);
+  M.home = mark(); await sleep(1200); await swipe(260); await sleep(500);
+  // 2. Bài học demo: bản đồ → Bắt đầu → làm đúng 2 câu (đáp án lấy từ câu đang đọc: window.__said)
+  M.map = mark(); await hash('#/lesson?demo=1'); await sleep(1600);
+  await tap('.lsn-start'); await sleep(2000);
+  let done = 0;
+  for (let guard = 0; guard < 8 && done < 2; guard++) {
+    const kind = await p.waitForSelector('#lsnBank .lsn-tile, .lsn-opts [data-o], #lsnGo', { timeout: 8000 }).then(h => h.evaluate(e => e.id === 'lsnGo' ? 'go' : e.classList.contains('lsn-tile') ? 'tiles' : 'opts'));
+    if (kind === 'go') { await tap('#lsnGo'); await sleep(1500); continue; } // lời thoại/video xen kẽ → Tiếp tục
+    if (done === 0) M.item = mark();
+    for (let i = 0; i < 30 && !(await p.evaluate(() => window.__said)); i++) await sleep(100);
+    const said = norm(await p.evaluate(() => window.__said)); if (!said) throw new Error('✗ không bắt được câu đang đọc để suy ra đáp án');
+    if (kind === 'tiles') {
+      for (const w of said.split(' ')) { // chạm từng chip theo thứ tự câu
+        const idx = await p.evaluate(w => { const ts = [...document.querySelectorAll('#lsnBank .lsn-tile')].filter(e => !e.disabled && e.offsetParent); return ts.findIndex(e => e.textContent.toLowerCase().replace(/[^a-z0-9' ]+/g, ' ').trim() === w); }, w);
+        if (idx < 0) throw new Error(`✗ không có chip "${w}" cho câu "${said}"`);
+        const b = await p.locator('#lsnBank .lsn-tile:visible').nth(idx).boundingBox(); await p.touchscreen.tap(b.x + b.width / 2, b.y + b.height / 2); await sleep(380);
+      }
+    } else { // trắc nghiệm: chọn đáp án khớp câu/từ đang đọc
+      const idx = await p.evaluate(sd => { const o = [...document.querySelectorAll('.lsn-opts [data-o]')].map(e => e.dataset.o.toLowerCase()); let i = o.findIndex(x => x === sd); if (i < 0) i = o.findIndex(x => (' ' + sd + ' ').includes(' ' + x + ' ')); return i; }, said);
+      if (idx < 0) throw new Error(`✗ không có lựa chọn khớp "${said}"`);
+      const b = await p.locator('.lsn-opts [data-o]').nth(idx).boundingBox(); await p.touchscreen.tap(b.x + b.width / 2, b.y + b.height / 2); await sleep(500);
+    }
+    await tap('#lsnCheck'); await sleep(1500); // hiện phản hồi đúng
+    if (!(await p.locator('#lsnNext').count())) throw new Error('✗ không thấy tấm phản hồi sau khi Kiểm tra');
+    await tap('#lsnNext'); done++; await p.evaluate(() => { window.__said = ''; }); await sleep(900);
+  }
+  if (done < 2) throw new Error('✗ chưa làm được 2 câu bài học');
+  // 3. Từ vựng → 4. Kỹ năng (chạm tab dưới) – mỗi 2–3 s có chuyển động
+  M.vocab = mark(); await tap('#bnav a[href="#/vocab"], nav a[data-route="vocab"]', '#/vocab'); await sleep(1300); await swipe(240); await sleep(900); await swipe(240); await sleep(900); await swipe(-480); await sleep(600);
+  M.skills = mark(); await tap('#bnav a[href="#/skills"], nav a[data-route="skills"]', '#/skills'); await sleep(1300); await swipe(240); await sleep(1100);
+  await cdp.send('Page.stopScreencast').catch(() => {});
+  await p.close(); await ctx.close(); await br.close();
+  const dur = Math.min(+(frames[frames.length - 1].ts - frames[0].ts + 0.5).toFixed(2), 26.5);
+  const dim = execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=width,height', '-of', 'csv=p=0:s=x', frames[0].f], { encoding: 'utf8' }).trim();
+  if (dim !== `${AW}x${AH}`) throw new Error(`✗ khung screencast ${dim}, cần ${AW}x${AH}`);
+  const lst = path.join(TMP, 'frames.txt'); // concat demuxer: mỗi khung giữ đến timestamp khung sau
+  fs.writeFileSync(lst, frames.map((x, i) => `file '${x.f}'\nduration ${Math.max(0.01, (frames[i + 1] ? frames[i + 1].ts - x.ts : 0.5)).toFixed(4)}`).join('\n') + `\nfile '${frames[frames.length - 1].f}'\n`);
+  console.log(`  ${frames.length} khung · ${dur.toFixed(1)} s · mốc ${JSON.stringify(Object.fromEntries(Object.entries(M).map(([k, v]) => [k, +v.toFixed(1)])))}`);
 
   // Thẻ cuối 886×1920 theo thương hiệu (nền teal đậm, chữ nhấn dải nắng→san hô) – không logo mới
   const end = path.join(TMP, 'end.png'), cb = await chromium.launch(); const cp = await cb.newPage({ viewport: { width: AW, height: AH }, deviceScaleFactor: 1 });
@@ -150,19 +186,19 @@ async function appMode() {
   const { KokoroTTS } = createRequire(np ? np.split(':')[0] + '/' : import.meta.url)('kokoro-js');
   let tts = null; for (let k = 1; k <= 4 && !tts; k++) { try { tts = await KokoroTTS.from_pretrained('onnx-community/Kokoro-82M-v1.0-ONNX', { dtype: 'q8', device: 'cpu' }); } catch (e) { console.error(`  tải Kokoro lỗi (lần ${k})`); await sleep(10000 * k); } }
   if (!tts) throw new Error('không tải được mô hình Kokoro');
-  const total = +(dur + END).toFixed(2); const wavs = [];
-  for (const [i, [at, text]] of NARR.entries()) {
+  const total = +(dur + END).toFixed(2); const wavs = [], AT = [0.4, M.item + 0.2, M.vocab + 0.3, M.skills + 0.3];
+  for (const [i, text] of NARR.entries()) { const at = AT[i];
     const raw = path.join(TMP, `n${i}.raw.wav`), w = path.join(TMP, `n${i}.wav`); await (await tts.generate(text, { voice: 'af_bella', speed: 1 })).save(raw);
     ff(['-i', raw, '-af', 'silenceremove=start_periods=1:start_threshold=-50dB,aresample=48000', '-ac', '1', w]); wavs.push([at, w]);
     const wd = +execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', w], { encoding: 'utf8' });
     if (at + wd > total - 0.3) throw new Error(`lời ${i} dài quá khung (${(at + wd).toFixed(1)} > ${total})`);
-    if (i < NARR.length - 1 && at + wd > NARR[i + 1][0]) throw new Error(`lời ${i} đè lời sau`);
+    if (i < NARR.length - 1 && at + wd > AT[i + 1] - 0.1) throw new Error(`lời ${i} đè lời sau`);
   }
   ff([...wavs.flatMap(([, w]) => ['-i', w]), '-filter_complex', wavs.map(([at], i) => `[${i}:a]adelay=${Math.round(at * 1000)}:all=1[a${i}]`).join(';') + `;${wavs.map((_, i) => `[a${i}]`).join('')}amix=inputs=${wavs.length}:normalize=0,apad,atrim=0:${total},loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000[a]`, '-map', '[a]', '-ac', '2', path.join(TMP, 'narr.wav')]);
 
   // Ghép: đoạn quay + thẻ cuối + giọng → app preview (H.264 High, yuv420p, 30 fps không đổi, AAC stereo 48 kHz 256k)
   const mp4 = path.join(OUT, 'app-preview-886x1920.mp4'), promo = path.join(OUT, 'promo-1080x1920.mp4');
-  ff(['-ss', String(start), '-t', String(dur), '-i', vid, '-loop', '1', '-t', String(END), '-framerate', String(FPS), '-i', end, '-i', path.join(TMP, 'narr.wav'), '-filter_complex',
+  ff(['-f', 'concat', '-safe', '0', '-t', String(dur), '-i', lst, '-loop', '1', '-t', String(END), '-framerate', String(FPS), '-i', end, '-i', path.join(TMP, 'narr.wav'), '-filter_complex',
     `[0:v]scale=${AW}:${AH}:flags=lanczos,setsar=1,fps=${FPS},fade=t=in:st=0:d=0.3[a];[1:v]scale=${AW}:${AH},setsar=1,fps=${FPS},fade=t=in:st=0:d=0.4[b];[a][b]concat=n=2:v=1:a=0,format=yuv420p[v]`,
     '-map', '[v]', '-map', '2:a', '-r', String(FPS), '-fps_mode', 'cfr', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-crf', '17', '-c:a', 'aac', '-b:a', '256k', '-ar', '48000', '-ac', '2', '-t', String(total), '-movflags', '+faststart', mp4]);
   ff(['-i', mp4, '-vf', `scale=-2:1920:flags=lanczos,pad=1080:1920:(ow-iw)/2:0:color=0x0F3D3E,setsar=1,format=yuv420p`, '-r', String(FPS), '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-crf', '18', '-c:a', 'copy', '-movflags', '+faststart', promo]);
@@ -179,6 +215,11 @@ async function appMode() {
     if (+j.format.size > 500 * 1048576) bad.push('quá 500 MB');
     if (bad.length) throw new Error(`✗ ${path.basename(f)}: ${bad.join('; ')}`);
     console.log(`✓ ${path.basename(f)} ${d.toFixed(1)} s ${(j.format.size / 1048576).toFixed(1)} MB`);
+  }
+  { // góc dưới-phải 40×40 của khung giữa video không được là xám phẳng (lỗi app chỉ chiếm 1/4 khung)
+    const buf = execFileSync('ffmpeg', ['-loglevel', 'error', '-ss', String(total / 2), '-i', mp4, '-frames:v', '1', '-vf', 'crop=40:40:iw-40:ih-40', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], { maxBuffer: 1 << 20 });
+    let lo = 255, hi = 0, gr = 0; for (let i = 0; i < buf.length; i += 3) { lo = Math.min(lo, buf[i]); hi = Math.max(hi, buf[i]); gr += Math.abs(buf[i] - buf[i + 1]) < 8 && Math.abs(buf[i + 1] - buf[i + 2]) < 8 && buf[i] > 100 && buf[i] < 170; }
+    if (buf.length !== 4800 || (hi - lo < 6 && gr / 1600 > 0.95)) throw new Error('✗ góc dưới-phải là xám phẳng – app không phủ kín khung');
   }
   const pj = fs.readFileSync(path.join(OUT, 'poster.png')); if (pj.readUInt32BE(16) !== AW || pj.readUInt32BE(20) !== AH || pj[25] !== 2) throw new Error('✗ poster.png phải 886×1920 RGB không alpha');
 }

@@ -2,8 +2,6 @@
 // Chữ trên ảnh chỉ nói đúng tính năng có thật trong web/js; không "best/#1", không giá, không tên nền tảng khác.
 import fs from 'fs';
 export const ICON = 'data:image/svg+xml;base64,' + fs.readFileSync('web/icons/icon.svg').toString('base64');
-// Linh vật Kit: chỉ từ nguồn duy nhất web/js/kit.js (docs/BRAND-RULES.md)
-export const KIT = (() => { const g = {}; new Function('window', 'self', fs.readFileSync('web/js/kit.js', 'utf8'))(g, g); return g.Kit.svg('cheer', 230, false); })();
 export const FONT = '<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&display=block" rel="stylesheet">';
 
 // Màn hình (giao diện Stitch v2, 10/11): route, chữ theo ngôn ngữ [nhãn, tiêu đề (<em> = chữ nhấn), phụ đề], chip nổi 'emoji|chữ' tuỳ chọn.
@@ -12,7 +10,7 @@ export const SCREENS = [
   { r: 'home', wait: 6000, chip: { en: '🔥|Daily streak', vi: '🔥|Chuỗi ngày học' },
     en: ['Your daily path', 'Learn English <em>a little every day</em>', 'A short daily path of new words, reviews and practice – built around your goal.'],
     vi: ['Lộ trình mỗi ngày', 'Học tiếng Anh <em>mỗi ngày một chút</em>', 'Lộ trình ngắn mỗi ngày: từ mới, ôn tập và luyện tập theo mục tiêu của bạn.'] },
-  { r: 'lesson?demo=1', wait: 6000, en: ['Bite-size lessons', 'Short lessons <em>that really stick</em>', 'Listen, tap, speak and type – every answer checked instantly.'],
+  { r: 'lesson?demo=1', wait: 6000, tap: ['.lsn-map .lsn-start'], en: ['Bite-size lessons', 'Short lessons <em>that really stick</em>', 'Listen, tap, speak and type – every answer checked instantly.'],
     vi: ['Bài học ngắn', 'Bài học ngắn, <em>nhớ thật lâu</em>', 'Nghe, chạm, nói và gõ – mỗi câu trả lời được chấm ngay.'] },
   { r: 'vocab', en: ['Vocabulary', 'Words you will <em>actually remember</em>', 'FSRS spaced repetition brings each word back right before you forget.'],
     vi: ['Từ vựng', 'Từ vựng <em>nhớ thật sự</em>', 'Lặp lại ngắt quãng FSRS đưa từ quay lại đúng lúc bạn sắp quên.'] },
