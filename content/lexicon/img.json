@@ -50258,6 +50258,33 @@
    "b": "42315140853",
    "repo": "m4"
   },
+  "dictionary#n": {
+   "h": "5c07f20ade96cc84",
+   "url": "https://media.lexkite.com/vimg/5c07f20ade96cc84.webp",
+   "alt": "dictionary",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.293,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 100,
+    "tries": 1
+   },
+   "ph": "9fe1d0c8a1871e1f",
+   "at": "2026-11-10",
+   "b": "42750924567",
+   "repo": "m4"
+  },
   "didactic#adj": {
    "h": "2ec3ff610f7433a2",
    "url": "https://media.lexkite.com/vimg/2ec3ff610f7433a2.webp",
