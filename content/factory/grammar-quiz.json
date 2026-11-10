@@ -1,4 +1,465 @@
 {
  "_doc": "Câu trắc nghiệm ngữ pháp do xưởng nội dung sinh (scripts/factory/grammar.mjs – docs/CONTENT-FACTORY.md §4). Sinh tự động, đừng sửa tay; sửa → content/factory/review.jsonl. web/js/grammar/bank-gen.js được dựng từ tệp này.",
- "items": {}
+ "items": {
+  "determiners": [
+   {
+    "q": "I have two jackets. One is black and ___ is dark blue.",
+    "options": [
+     "other",
+     "the other",
+     "another",
+     "others"
+    ],
+    "answer": 1,
+    "explain": "Khi nói đến hai đối tượng, sau khi đề cập đến một đối tượng (one), đối tượng còn lại duy nhất được xác định bằng 'the other'.",
+    "qa": {
+     "gen": "gemini-3.6-flash",
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 4
+     }
+    }
+   },
+   {
+    "q": "___ student in the class was given a new textbook on the first day.",
+    "options": [
+     "All",
+     "Both",
+     "Many",
+     "Every"
+    ],
+    "answer": 3,
+    "explain": "Từ xác định 'every' đi với danh từ đếm được số ít, chỉ tất cả các thành viên trong một nhóm.",
+    "qa": {
+     "gen": "gemini-3.6-flash",
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 4
+     }
+    }
+   },
+   {
+    "q": "___ of the two answers provided by the applicant was correct.",
+    "options": [
+     "Neither",
+     "Either",
+     "Both",
+     "All"
+    ],
+    "answer": 0,
+    "explain": "'Neither' được dùng với động từ số ít để chỉ 'không ai/không cái nào trong hai'.",
+    "qa": {
+     "gen": "gemini-3.6-flash",
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 4
+     }
+    }
+   },
+   {
+    "q": "Could you please bring me ___ cup of coffee when you have time?",
+    "options": [
+     "other",
+     "others",
+     "another",
+     "the other"
+    ],
+    "answer": 2,
+    "explain": "'Another' đi với danh từ đếm được số ít để chỉ 'một cái/người khác' chưa xác định.",
+    "qa": {
+     "gen": "gemini-3.6-flash",
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 4
+     }
+    }
+   },
+   {
+    "q": "We don't have ___ milk left in the fridge, so we need to buy some.",
+    "options": [
+     "some",
+     "any",
+     "no",
+     "every"
+    ],
+    "answer": 1,
+    "explain": "Trong câu phủ định, ta dùng 'any' trước danh từ không đếm được hoặc danh từ số nhiều để chỉ lượng.",
+    "qa": {
+     "gen": "gemini-3.6-flash",
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 4
+     }
+    }
+   }
+  ],
+  "present-continuous": [
+   {
+    "q": "Right now, the children ___ (play) in the garden.",
+    "options": [
+     "are playing",
+     "is playing",
+     "play",
+     "were playing"
+    ],
+    "answer": 0,
+    "explain": "Thì hiện tại tiếp diễn dùng ‘am/is/are + V‑ing’ để nói việc đang diễn ra tại thời điểm nói.",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.6-flash": 5
+     }
+    }
+   },
+   {
+    "q": "She ___ (study) for her exam this week.",
+    "options": [
+     "studies",
+     "is studying",
+     "was studying",
+     "are studying"
+    ],
+    "answer": 1,
+    "explain": "‘Is studying’ là dạng đúng của present continuous; các dạng khác sai về chủ ngữ hoặc thì.",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.6-flash": 5
+     }
+    }
+   },
+   {
+    "q": "We ___ (watch) a movie at the moment.",
+    "options": [
+     "are watching",
+     "watch",
+     "was watching",
+     "is watching"
+    ],
+    "answer": 0,
+    "explain": "Với chủ ngữ số nhiều, dùng ‘are + V‑ing’; các lựa chọn còn lại không khớp với cấu trúc.",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.6-flash": 5
+     }
+    }
+   },
+   {
+    "q": "Are you ___ (use) the new software right now?",
+    "options": [
+     "using",
+     "to use",
+     "use",
+     "used"
+    ],
+    "answer": 0,
+    "explain": "Sau ‘are you’, cần dạng V‑ing để tạo câu hỏi ở thì hiện tại tiếp diễn.",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.6-flash": 5
+     }
+    }
+   },
+   {
+    "q": "The weather ___ (change) quickly these days.",
+    "options": [
+     "changes",
+     "is changing",
+     "are changing",
+     "changed"
+    ],
+    "answer": 1,
+    "explain": "‘Is changing’ là dạng đúng; các lựa chọn khác sai về thì hoặc số.",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.6-flash": 5
+     }
+    }
+   }
+  ],
+  "questions": [
+   {
+    "q": "___ you like coffee?",
+    "options": [
+     "Do",
+     "Does",
+     "Are",
+     "Is"
+    ],
+    "answer": 0,
+    "explain": "Câu hỏi Yes/No dùng trợ động từ \"Do\" trước chủ ngữ.",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.6-flash": 5
+     }
+    }
+   },
+   {
+    "q": "___ she live in London?",
+    "options": [
+     "Do",
+     "Does",
+     "Is",
+     "Has"
+    ],
+    "answer": 1,
+    "explain": "Với chủ ngữ số ít 3rd person hiện tại, dùng \"Does\".",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.6-flash": 5
+     }
+    }
+   },
+   {
+    "q": "What ___ you do yesterday?",
+    "options": [
+     "did",
+     "do",
+     "does",
+     "was"
+    ],
+    "answer": 0,
+    "explain": "Câu hỏi Wh‑question ở quá khứ dùng trợ động từ \"did\" trước chủ ngữ.",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.6-flash": 5
+     }
+    }
+   },
+   {
+    "q": "I wonder ___ the train arrives on time.",
+    "options": [
+     "when does",
+     "when",
+     "when did",
+     "when is"
+    ],
+    "answer": 1,
+    "explain": "Câu hỏi gián tiếp không đảo trợ động từ, chỉ dùng \"when\".",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.6-flash": 5
+     }
+    }
+   },
+   {
+    "q": "___ they ready for the exam?",
+    "options": [
+     "Are",
+     "Is",
+     "Do",
+     "Does"
+    ],
+    "answer": 0,
+    "explain": "Câu hỏi Yes/No với động từ \"be\" đảo \"Are\" lên đầu.",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.6-flash": 5
+     }
+    }
+   }
+  ],
+  "so-such-too-enough": [
+   {
+    "q": "The soup was ___ hot that I couldn't eat it.",
+    "options": [
+     "so",
+     "such",
+     "too",
+     "enough"
+    ],
+    "answer": 0,
+    "explain": "\"so + Adj + that\" diễn tả mức độ quá mức dẫn đến kết quả.",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.7-flash": 5
+     }
+    }
+   },
+   {
+    "q": "It was ___ a difficult problem that everyone gave up.",
+    "options": [
+     "so",
+     "such",
+     "too",
+     "enough"
+    ],
+    "answer": 1,
+    "explain": "\"such + a/an + Adj + N + that\" dùng để nhấn mạnh mức độ.",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.7-flash": 5
+     }
+    }
+   },
+   {
+    "q": "The box was ___ heavy to lift.",
+    "options": [
+     "too",
+     "so",
+     "such",
+     "enough"
+    ],
+    "answer": 0,
+    "explain": "\"too + Adj + to V\" nghĩa \"quá... đến nỗi không thể\".",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.7-flash": 5
+     }
+    }
+   },
+   {
+    "q": "She had ___ time to finish the report.",
+    "options": [
+     "so",
+     "such",
+     "enough",
+     "too"
+    ],
+    "answer": 2,
+    "explain": "\"enough + N + to V\" diễn tả đủ khả năng thực hiện.",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.7-flash": 5
+     }
+    }
+   },
+   {
+    "q": "There were ___ people in the room that we couldn't find a seat.",
+    "options": [
+     "too many",
+     "such many",
+     "enough many",
+     "so many"
+    ],
+    "answer": 3,
+    "explain": "\"so many + N + that\" chỉ số lượng quá nhiều gây hậu quả.",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.7-flash": 5
+     }
+    }
+   }
+  ],
+  "there-is-empty-it": [
+   {
+    "q": "___ a strange noise coming from the engine.",
+    "options": [
+     "There is",
+     "There are",
+     "It is",
+     "It has"
+    ],
+    "answer": 0,
+    "explain": "Dùng ‘there is’ để giới thiệu một hiện tượng hoặc vật duy nhất tồn tại.",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.7-flash": 5
+     }
+    }
+   },
+   {
+    "q": "___ three books on the shelf that need repair.",
+    "options": [
+     "There is",
+     "There are",
+     "It is",
+     "It has"
+    ],
+    "answer": 1,
+    "explain": "‘There are’ được dùng khi nói về nhiều đối tượng (số nhiều).",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.7-flash": 5
+     }
+    }
+   },
+   {
+    "q": "___ likely to rain this afternoon.",
+    "options": [
+     "It is",
+     "There is",
+     "It has",
+     "There are"
+    ],
+    "answer": 0,
+    "explain": "‘It is’ là cấu trúc giả chủ ngữ dùng cho thời tiết, thời gian.",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.7-flash": 5
+     }
+    }
+   },
+   {
+    "q": "___ about two hours to drive to the coast.",
+    "options": [
+     "There is",
+     "It is",
+     "It takes",
+     "There takes"
+    ],
+    "answer": 2,
+    "explain": "‘It takes’ diễn tả khoảng thời gian cần thiết cho một hành động.",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.7-flash": 5
+     }
+    }
+   },
+   {
+    "q": "___ a lot of work left before the deadline.",
+    "options": [
+     "It is",
+     "There are",
+     "There is",
+     "It has"
+    ],
+    "answer": 2,
+    "explain": "Khi muốn giới thiệu một lượng lớn thứ không đếm được, dùng ‘There is’.",
+    "qa": {
+     "gen": "openai/gpt-oss-120b",
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gemini:gemini-3.7-flash": 5
+     }
+    }
+   }
+  ]
+ }
 }

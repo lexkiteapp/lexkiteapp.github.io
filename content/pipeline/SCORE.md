@@ -2,17 +2,17 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 61.5 / 100**
+**Tổng: 63.2 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
 | Kho từ | **54.7** | 46.2 | 54.7% | 100% | 0 |
-| Ngữ pháp | **54.5** | 54.5 | 54.5% | 100% | 0 |
+| Ngữ pháp | **54.7** | 54.5 | 54.7% | 100% | 0 |
 | Giao tiếp | **67.7** | 15.2 | 67.7% | 100% | 0 |
-| 4 kỹ năng | **49.2** | 48.2 | 49.2% | 100% | 0 |
+| 4 kỹ năng | **62.2** | 48.2 | 62.2% | 100% | 0 |
 | Đề thi | **31.7** | 30.4 | 31.7% | 100% | 0 |
 | Khung Can-do | **80.3** | 79.3 | 80.3% | 100% | 0 |
-| Dễ học – dễ nhớ | **91.5** | 90.7 | 91.5% | 100% | 0 |
+| Dễ học – dễ nhớ | **91.6** | 90.7 | 91.6% | 100% | 0 |
 | i18n | **62.7** | 62.7 | 62.7% | 100% | 0 |
 
 ## Kho từ
@@ -38,7 +38,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | bài B2 | 27 / 27 | 100% | 8 |
 | bài C1 | 6 / 15 | 40% | 8 |
 | bài C2 (chưa làm) | 0 / 10 | 0% | 8 |
-| trắc nghiệm | 1056 / 3000 | 35% | 20 |
+| trắc nghiệm | 1081 / 3000 | 36% | 20 |
 | tự luận | 1125 / 3000 | 38% | 20 |
 | kho điểm ngữ pháp | 300 / 300 | 100% | 12 |
 | điểm đã có bài đúng cấp | 157 / 300 | 52% | 12 |
@@ -68,7 +68,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Nói: chủ đề | 32 / 60 | 53% | 10 |
 | Nói: câu trả lời mẫu | 343 / 600 | 57% | 10 |
 | Viết: bài mẫu | 232 / 400 | 58% | 18 |
-| trung gian (mediation) (chưa làm) | 2 / 30 | 7% | 14 |
+| trung gian (mediation) (chưa làm) | 30 / 30 | 100% | 14 |
 
 ## Đề thi
 
@@ -105,7 +105,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| Ngữ pháp | 96.4 / 100 | 96% | 25 |
+| Ngữ pháp | 96.5 / 100 | 97% | 25 |
 | Bài lộ trình | 100 / 100 | 100% | 25 |
 | Bộ từ | 74.3 / 100 | 74% | 25 |
 | Kỹ năng | 95.4 / 100 | 95% | 25 |

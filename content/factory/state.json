@@ -6,27 +6,42 @@
   "mcq:future-continuous-perfect#0": 1,
   "mcq:determiners#0": 1,
   "mcq:ed-s-endings#0": 1,
-  "mcq:future-forms#0": 1,
+  "mcq:future-forms#0": 2,
   "mcq:future-in-past#0": 1,
   "mcq:gerund-infinitive#0": 1,
   "mcq:ing-ed-adjectives-prepositions#0": 1,
-  "mcq:mixed-conditionals-wish#0": 1,
+  "mcq:mixed-conditionals-wish#0": 2,
   "mcq:modals-ability-permission#0": 1,
-  "mcq:adjectives-adverbs#0": 1,
+  "mcq:adjectives-adverbs#0": 2,
   "mcq:adjectives-special#0": 1,
   "mcq:adverbial-clauses#0": 1,
   "mcq:adverbs-position#0": 1,
   "mcq:articles#0": 1,
   "mcq:as-if-unreal-past#0": 1,
   "mcq:comparatives-superlatives#0": 1,
-  "mcq:complex-sentences#0": 1,
+  "mcq:complex-sentences#0": 2,
   "mcq:conditionals-0-1#0": 1,
   "mcq:conditionals-2-3#0": 1,
   "mcq:conjunctions#0": 1,
   "mcq:countable-uncountable#0": 1,
   "mcq:dependent-prepositions#0": 1,
-  "mcq:idioms-style#0": 1,
-  "mcq:imperatives-suggestions#0": 1
+  "mcq:idioms-style#0": 2,
+  "mcq:imperatives-suggestions#0": 1,
+  "mcq:noun-plurals#0": 1,
+  "mcq:parallel-structure#0": 1,
+  "mcq:parts-of-speech-patterns#0": 1,
+  "mcq:preference-advice#0": 1,
+  "mcq:present-perfect-continuous#0": 1,
+  "mcq:purpose-result#0": 1,
+  "mcq:subject-verb-agreement#0": 1,
+  "mcq:nominalisation#0": 1,
+  "mcq:a-an-plurals#1": 1,
+  "mcq:adjectives-adverbs#1": 1,
+  "mcq:adverbs-position#1": 1,
+  "mcq:complex-sentences#1": 1,
+  "mcq:conditionals-0-1#1": 1,
+  "mcq:future-in-past#1": 1,
+  "mcq:noun-clauses#1": 1
  },
  "done": {
   "functions:greeting-hello": 1,
@@ -51,7 +66,12 @@
   "functions:shopping-sizes-returns": 1,
   "functions:checking-in-hotel": 1,
   "functions:reporting-simple-problem": 1,
-  "functions:apologising": 1
+  "functions:apologising": 1,
+  "mcq:determiners#0": 1,
+  "mcq:present-continuous#0": 1,
+  "mcq:questions#0": 1,
+  "mcq:so-such-too-enough#0": 1,
+  "mcq:there-is-empty-it#0": 1
  },
  "nights": [
   {
@@ -59,6 +79,12 @@
    "accepted": {
     "comm/functions": 23,
     "grammar/mcq": 15
+   }
+  },
+  {
+   "at": "2026-11-10",
+   "accepted": {
+    "grammar/mcq": 5
    }
   }
  ]

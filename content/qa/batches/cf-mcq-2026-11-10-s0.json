@@ -1,0 +1,14 @@
+{
+ "id": "cf-mcq-2026-11-10-s0",
+ "source": "content-factory",
+ "kind": "mcq",
+ "n": 5,
+ "checked": [
+  {
+   "id": "determiners#0",
+   "ok": true,
+   "by": "gemini-3.8-flash"
+  }
+ ],
+ "status": "accepted"
+}
