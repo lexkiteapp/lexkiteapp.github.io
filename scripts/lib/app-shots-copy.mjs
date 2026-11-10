@@ -8,8 +8,8 @@ export const FONT = '<link rel="preconnect" href="https://fonts.gstatic.com"><li
 // Chữ chỉ nói đúng tính năng có thật trong web/js (home = Hôm nay + Lộ trình, lesson = js/lesson, vocab-hub.js, hubs.js skills, call.js, retention.js streak).
 export const SCREENS = [
   { r: 'home', wait: 6000, chip: { en: '🔥|Daily streak', vi: '🔥|Chuỗi ngày học' },
-    en: ['Your daily path', 'Learn English <em>a little every day</em>', 'A short daily path of new words, reviews and practice – built around your goal.'],
-    vi: ['Lộ trình mỗi ngày', 'Học tiếng Anh <em>mỗi ngày một chút</em>', 'Lộ trình ngắn mỗi ngày: từ mới, ôn tập và luyện tập theo mục tiêu của bạn.'] },
+    en: ['Your daily path', 'Learn English <em>a&nbsp;little every&nbsp;day</em>', 'A short daily path of new words, reviews and practice – built around your goal.'],
+    vi: ['Lộ trình mỗi ngày', 'Học tiếng Anh <em>mỗi&nbsp;ngày một&nbsp;chút</em>', 'Lộ trình ngắn mỗi ngày: từ mới, ôn tập và luyện tập theo mục tiêu của bạn.'] },
   { r: 'lesson?demo=1', wait: 6000, tap: ['.lsn-map .lsn-start'], en: ['Bite-size lessons', 'Short lessons <em>that really stick</em>', 'Listen, tap, speak and type – every answer checked instantly.'],
     vi: ['Bài học ngắn', 'Bài học ngắn, <em>nhớ thật lâu</em>', 'Nghe, chạm, nói và gõ – mỗi câu trả lời được chấm ngay.'] },
   { r: 'vocab', en: ['Vocabulary', 'Words you will <em>actually remember</em>', 'FSRS spaced repetition brings each word back right before you forget.'],
