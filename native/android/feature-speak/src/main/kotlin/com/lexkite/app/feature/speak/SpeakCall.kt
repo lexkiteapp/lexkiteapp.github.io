@@ -226,7 +226,7 @@ private fun RoundCtl(icon: ImageVector, label: String, bg: Color, ink: Color, on
 /** The round microphone (72 dp): idle = mic, listening = stop (material icons). */
 @Composable
 private fun CallMic(listening: Boolean, onClick: () -> Unit, label: String, enabled: Boolean) {
-    val c = LocalLKColors.current; val bg = if (listening) c.error else if (enabled) c.primary else c.cardHigh; val ink = if (listening) c.onError else if (enabled) c.onPrimary else c.onSurfaceVariant
+    val c = LocalLKColors.current; val bg = if (listening) c.error else if (enabled) c.secondary else c.cardHigh; val ink = if (listening) c.onError else if (enabled) c.onSecondary else c.onSurfaceVariant
     Box(Modifier.size(72.dp).clip(CircleShape).background(bg).let { if (enabled) it.tactile(onClick, label) else it }.semantics { contentDescription = label }, contentAlignment = Alignment.Center) { Ico(if (listening) Icons.Filled.Stop else Icons.Filled.Mic, ink, 32.dp) }
 }
 
