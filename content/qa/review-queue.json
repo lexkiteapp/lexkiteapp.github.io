@@ -1024215,6 +1024215,302 @@
     "qa": {},
     "senseLock": "wiktionary-1"
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "reconnoitre#v",
+   "batch": "20261110-r214",
+   "why": [
+    "soát mẫu AI 1/3: sense: wrong sense, should be related to reconnaissance"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "reconnoitre",
+    "pos": "v",
+    "ipa": "/ˌrekəˈnɔɪtə/",
+    "ipaUS": "/ˌriːkəˈnɔɪtər/",
+    "def": "to explore an area, especially to gather information about something or someone",
+    "ex": [
+     "The secondary mission objective is to reconnoitre ground installations.",
+     "Soon new battery positions had to be reconnoitred as the advance gathered pace."
+    ],
+    "col": [],
+    "syn": [
+     "scout"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 1.84,
+    "emoji": "",
+    "topic": "military",
+    "vi": "trinh sát; do thám",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:scout.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew89271.3",
+      "commonvoice:cv1.140888"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "es": "omw+ai",
+      "fr": "omw+ai",
+      "zh": "omw+ai"
+     },
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:gpt-oss-120b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "mistral:mistral-small-3.1-24b-instruct": 4
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       2,
+       4,
+       5
+      ],
+      "pt": [],
+      "fr": [
+       2,
+       5,
+       5
+      ],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [
+       5,
+       5,
+       5
+      ],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "reconnaissance; espionage",
+      "trinh sát; do thám; khám phá",
+      "to scout; to explore"
+     ],
+     "viLem": [
+      "scout",
+      "reconnoiter"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {
+      "es": "pos",
+      "fr": "pos"
+     },
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "fr": true,
+       "zh": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "b",
+      "c"
+     ],
+     "trDrop": {
+      "es": "khác từ loại/khác từ, cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "pt": "rỗng",
+      "fr": "khác từ loại/khác từ, cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "xw-everyday.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "intraspecific#adj",
+   "batch": "20261110-r214",
+   "why": [
+    "soát mẫu AI 1/3: vi: translation should be \"cùng loài\" rather than \"trong loài\""
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "intraspecific",
+    "pos": "adj",
+    "ipa": "/ˌɪntrəspɪˈsɪfɪk/",
+    "ipaUS": "/ˌɪntrəspəˈsɪfək/",
+    "def": "occurring within the same species",
+    "ex": [
+     "The possible cause may instead have been intraspecific combat.",
+     "When resources are infinite, intraspecific competition does not occur and populations can grow exponentially."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 1.9,
+    "emoji": "",
+    "topic": "xw-nature",
+    "vi": "trong loài",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:intraspecies.a.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew30467.51",
+      "commonvoice:cv2.1074422"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "fr": "wiktionary+ai",
+      "ja": "wiktionary+ai"
+     },
+     "trSense": "Occurring among members of the same species",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:gpt-oss-120b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "mistral:mistral-small-3.1-24b-instruct": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [],
+      "pt": [],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [
+       5,
+       5,
+       5
+      ],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "within species",
+      "within species",
+      "within a species"
+     ],
+     "viLem": [
+      "intraspecies"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "fr": true,
+       "ja": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "b",
+      "c"
+     ],
+     "trDrop": {
+      "es": "rỗng",
+      "pt": "rỗng",
+      "fr": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "xw-nature.d"
+    ]
+   }
   }
  ]
 }
