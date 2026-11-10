@@ -40,6 +40,7 @@ Trước khi chủ bấm: workflow đã có sẵn, không ảnh hưởng gì (ch
 | `scripts/test/suite.txt`, `docs/INDEX.md` | người, chỉ thêm dòng | union + khử trùng |
 | `i18n/ui/**` | người/bot dịch | gộp 3 bên theo khóa (`merge3`); cùng sửa một khóa → người gỡ |
 | registry (`REGISTRIES`) | người | giữ dòng mục cả hai phía; trùng khóa → người gỡ |
+
 Chưa tự gỡ (xung đột hiếm, cần người): `content/pipeline/score.budget.json`, `targets.json` (sàn chỉ tăng). Tệp sinh mới → thêm vào `TAKE_MAIN`/`REGEN`/`GENERATED` cùng PR.
 
 ## Rủi ro
