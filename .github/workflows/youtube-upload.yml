@@ -1,6 +1,6 @@
 # Upload owner-approved shorts to YouTube (scripts/video/yt-upload.mjs, functions/api/youtube.js, docs/YOUTUBE-SETUP.md).
 # Only clips queued by "Duyệt & lên YouTube" (Admin › Video library); privacy private/unlisted (+ publishAt from the approved calendar slot).
-# Quota 10,000 units/day (≈ 6 uploads) – the rest stays queued; every 6 h so a fresh approval goes up the same day. $0.
+# Quota (approved 10/11/2026): videos.insert bucket 1,000/day + default 60,000 units/day; ≤ 6 per run (runtime), 4 runs/day; rest stays queued. $0.
 name: youtube-upload
 on:
   workflow_dispatch:

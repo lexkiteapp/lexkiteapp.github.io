@@ -63,7 +63,8 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
       - name: Chặn lexkite.com khi chạy dist cục bộ (0 lượt chạm prod)
         if: env.BASE_URL == ''
         run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
@@ -134,7 +135,11 @@ jobs:
           npm ci --no-audit --no-fund
           npm i --no-save --no-audit --no-fund playwright@1.50.1
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
+      - name: Cài Playwright (tiếp)
+        timeout-minutes: 14
+        run: |
           echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
       - name: Chụp + quét nhánh gốc (cùng bot, cùng đầu dò của PR)
         run: node scripts/test/qa-bot.mjs --root base/dist --out out/base --only ui || true

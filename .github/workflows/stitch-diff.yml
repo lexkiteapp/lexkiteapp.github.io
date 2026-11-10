@@ -51,7 +51,12 @@ jobs:
         if: always()
         run: |
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo timeout 600 apt-get install -y -qq imagemagick fonts-noto-core fonts-noto-color-emoji >/dev/null || true
+      - uses: ./.github/actions/apt
+        with: { packages: imagemagick fonts-noto-core fonts-noto-color-emoji }
+        if: always()
+      - name: Vẽ HTML Stitch v2 tĩnh (tắt hoạt ảnh) → tờ duyệt tối/sáng (tiếp)
+        if: always()
+        run: |
           node scripts/test/stitch-render.mjs brand/stitch/v2 out/stitch-v2
       - if: always()
         uses: actions/upload-artifact@v4

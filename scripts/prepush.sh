@@ -13,6 +13,7 @@ node scripts/confidence/build.mjs        # sửa content/confidence → web/js/c
 node scripts/speak/build.mjs --write    # sửa content/situations → web/js/speak/data.js + s/ (Play & Speak, tải lười theo tình huống × ngôn ngữ)
 node scripts/lesson/build-gold.mjs       # sửa gold bank → web/cpack/lesson/gold.js (Giải thích của #/lesson)
 node scripts/lesson/build-stories.mjs    # sửa content/lesson/stories.json → web/cpack/lesson/stories.js (Truyện + Radio)
+node scripts/framework/build-functions.mjs --write   # sửa content/framework/functions.json → web/cpack/framework/functions.js + en-src (Sổ mẫu câu theo chức năng, #/phrases)
 node scripts/lesson/build-path-nodes.mjs   # sửa content/lesson/path-nodes.json → web/cpack/lesson/path-nodes.js (nội dung nút Lộ trình)
 bash scripts/build-extension.sh >/dev/null && git checkout -q -- extension/academic.json 2>/dev/null || true   # web/ → extension/app (bỏ thay đổi phụ academic.json)
 node scripts/test/ext-sync.mjs

@@ -2,14 +2,14 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 61.5 / 100**
+**Tổng: 63.2 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
 | Kho từ | **54.7** | 46.2 | 54.7% | 100% | 0 |
 | Ngữ pháp | **54.5** | 54.5 | 54.5% | 100% | 0 |
 | Giao tiếp | **67.7** | 15.2 | 67.7% | 100% | 0 |
-| 4 kỹ năng | **49.2** | 48.2 | 49.2% | 100% | 0 |
+| 4 kỹ năng | **62.2** | 48.2 | 62.2% | 100% | 0 |
 | Đề thi | **31.7** | 30.4 | 31.7% | 100% | 0 |
 | Khung Can-do | **80.3** | 79.3 | 80.3% | 100% | 0 |
 | Dễ học – dễ nhớ | **91.5** | 90.7 | 91.5% | 100% | 0 |
@@ -24,7 +24,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | collocation | 4818 / 20000 | 24% | 12 |
 | đồng nghĩa | 2923 / 20000 | 15% | 8 |
 | IPA Mỹ | 6486 / 20000 | 32% | 5 |
-| ảnh theo nghĩa | 7481 / 20000 | 37% | 15 |
+| ảnh theo nghĩa | 7501 / 20000 | 38% | 15 |
 | C2 | 685 / 1000 | 69% | 10 |
 | A1 | 862 / 1000 | 86% | 5 |
 
@@ -68,7 +68,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Nói: chủ đề | 32 / 60 | 53% | 10 |
 | Nói: câu trả lời mẫu | 343 / 600 | 57% | 10 |
 | Viết: bài mẫu | 232 / 400 | 58% | 18 |
-| trung gian (mediation) (chưa làm) | 2 / 30 | 7% | 14 |
+| trung gian (mediation) (chưa làm) | 30 / 30 | 100% | 14 |
 
 ## Đề thi
 

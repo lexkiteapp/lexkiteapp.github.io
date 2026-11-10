@@ -1,0 +1,35 @@
+# Merge queue (docs/specs/merge-queue.md – PR chống xung đột #1009): GitHub dựng nhánh tạm gh-readonly-queue/main/… = main + PR (+ các PR xếp trước) rồi chờ check bắt buộc.
+# Check bắt buộc DUY NHẤT của ruleset là status "required-gate" – bộ canh required-gate.yml chỉ đánh giá head PR, nên lượt này chạy bộ test lõi
+# (npm-test.yml, cùng một định nghĩa với PR/Prod release) trên KẾT QUẢ ĐÃ GỘP và tự ghi status required-gate cho sha của hàng đợi.
+# Đỏ → GitHub tự rút PR khỏi hàng, PR sau không bị kéo theo; xanh → GitHub gộp tuần tự, không còn "update branch" hàng loạt.
+# ci-policy: all-paths – merge_group không hỗ trợ paths; mỗi PR vào hàng đúng một lượt npm test (việc nặng đã chạy trên head PR)
+name: merge-queue
+on:
+  merge_group:
+    types: [checks_requested]
+permissions: { contents: read }
+concurrency:
+  group: merge-queue-${{ github.event.merge_group.head_sha }}
+  cancel-in-progress: true
+jobs:
+  test:
+    uses: ./.github/workflows/npm-test.yml
+    with: { sha: '${{ github.event.merge_group.head_sha }}' }
+  gate:
+    needs: test
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: { statuses: write }
+    steps:
+      - name: ghi status required-gate cho sha hàng đợi
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OK: ${{ needs.test.result == 'success' }}
+          SHA: ${{ github.event.merge_group.head_sha }}
+          URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          st=$([ "$OK" = true ] && echo success || echo failure)
+          curl -sf -X POST -H "Authorization: Bearer $GH_TOKEN" -H 'Accept: application/vnd.github+json' \
+            "https://api.github.com/repos/${{ github.repository }}/statuses/$SHA" \
+            -d "{\"state\":\"$st\",\"context\":\"required-gate\",\"description\":\"merge queue: npm test trên bản đã gộp – $st\",\"target_url\":\"$URL\"}"

@@ -30,7 +30,11 @@ jobs:
       - name: So với mẫu Stitch + axe + chạm + CLS
         run: |
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo timeout 600 apt-get install -y -qq imagemagick fonts-noto-core fonts-noto-color-emoji fonts-liberation >/dev/null || true  # Liberation = font dự phòng khớp số đo (như Arial trên máy người dùng) → CLS đo đúng
+      # Liberation = font dự phòng khớp số đo (như Arial trên máy người dùng) → CLS đo đúng
+      - uses: ./.github/actions/apt
+        with: { packages: imagemagick fonts-noto-core fonts-noto-color-emoji fonts-liberation }
+      - name: So với mẫu Stitch + axe + chạm + CLS (tiếp)
+        run: |
           node scripts/test/stitch-web-diff.mjs dist out/stitch-web
       - name: Lighthouse mobile – không thấp hơn bản đang chạy
         if: ${{ !cancelled() }}

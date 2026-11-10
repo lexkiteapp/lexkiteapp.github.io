@@ -865,6 +865,8 @@ enum class L10nKey(val id: String) {
     modelOriginalModelAnswersWith("model.originalModelAnswersWith"),
     modelSearchByTopicOr("model.searchByTopicOr"),
     modelPhrasesStructures("model.phrasesStructures"),
+    modelPhraseBookByFunction("model.phraseBookByFunction"),
+    modelPhraseBookByFunctionSub("model.phraseBookByFunctionSub"),
     modelLearningInChunksMakes("model.learningInChunksMakes"),
     modelAddPhraseStructure("model.addPhraseStructure"),
     modelStudyPhrases("model.studyPhrases"),

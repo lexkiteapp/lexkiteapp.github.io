@@ -41,9 +41,9 @@ final class ParityC05Tests: XCTestCase {
     }
 
     func testParityC05() throws {
-        // 1. both teachers, rig + bundled offline art (head + 9 poses each)
+        // 1. both teachers, rig + bundled offline art (head + 10 poses each)
         XCTAssertEqual(Set(rig.def.people.keys), ["ama", "carlos"])
-        XCTAssertEqual(rig.def.bundle.poses.count, 9)
+        XCTAssertEqual(rig.def.bundle.poses.count, 10)
         for who in ["ama", "carlos"] {
             let art = TeacherArtwork.shared(who, rig: rig)
             XCTAssertNotNil(art.head, "\(who) head-bare-2x.webp")

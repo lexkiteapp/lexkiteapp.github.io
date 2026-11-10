@@ -863,6 +863,8 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case modelOriginalModelAnswersWith = "model.originalModelAnswersWith"
     case modelSearchByTopicOr = "model.searchByTopicOr"
     case modelPhrasesStructures = "model.phrasesStructures"
+    case modelPhraseBookByFunction = "model.phraseBookByFunction"
+    case modelPhraseBookByFunctionSub = "model.phraseBookByFunctionSub"
     case modelLearningInChunksMakes = "model.learningInChunksMakes"
     case modelAddPhraseStructure = "model.addPhraseStructure"
     case modelStudyPhrases = "model.studyPhrases"
