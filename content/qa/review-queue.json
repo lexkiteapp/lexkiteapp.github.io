@@ -1024576,6 +1024576,131 @@
     "qa": {},
     "senseLock": "wiktionary-1"
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "ignominious#adj",
+   "batch": "20261110-r217",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "ignominious",
+    "pos": "adj",
+    "ipa": "/ˌɪɡnə(ʊ)ˈmɪniəs/",
+    "ipaUS": "/ˌɪɡnəˈmɪniəs/",
+    "def": "deserving of disgrace or dishonour; contemptible and despicable",
+    "ex": [
+     "The director was an ignominious person.",
+     "The band came to an ignominious end."
+    ],
+    "col": [],
+    "syn": [
+     "black",
+     "disgraceful",
+     "shameful"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 2.34,
+    "emoji": "",
+    "topic": "society",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:black.s.12",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "octanove",
+     "ex": [
+      "commonvoice:cv0.41784",
+      "commonvoice:cv2.1013508"
+     ],
+     "tr": {
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "id": "omw+ai",
+      "ja": "omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "causing or marked by disgrace or dishonour — see also disgraceful, dishonourable",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "functionary#n",
+   "batch": "20261110-r217",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "functionary",
+    "pos": "n",
+    "ipa": "/ˈfʌŋ(k)ʃnəri/",
+    "ipaUS": "/ˈfʌŋkʃəneri/",
+    "def": "a low-level official who carries out a simple task with little authority",
+    "ex": [
+     "A number of regional trade union leaders and mid-level functionaries were active supporters.",
+     "The school was intended to train an elite of party and trade union functionaries."
+    ],
+    "col": [],
+    "syn": [
+     "official"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.34,
+    "emoji": "",
+    "topic": "government",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:official.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew23326.4",
+      "wikipedia:ew173758.5"
+     ],
+     "tr": {
+      "es": "wiktionary+omw+ai",
+      "pt": "wiktionary+ai",
+      "fr": "wiktionary+omw+ai",
+      "id": "omw+ai",
+      "zh": "wiktionary+omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "a person employed as an official in a bureaucracy",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
   }
  ]
 }
