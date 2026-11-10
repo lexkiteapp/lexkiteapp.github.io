@@ -143,7 +143,7 @@ async function appMode() {
   await tap('.lsn-start'); await sleep(2000);
   let done = 0;
   for (let guard = 0; guard < 8 && done < 2; guard++) {
-    const kind = await p.waitForSelector('#lsnBank .lsn-tile, .lsn-opts [data-o], #lsnGo', { timeout: 8000 }).then(h => h.evaluate(e => e.id === 'lsnGo' ? 'go' : e.classList.contains('lsn-tile') ? 'tiles' : 'opts')).catch(() => null);
+    const kind = await p.waitForSelector('#lsnBank .lsn-tile, .lsn-opts [data-o], #lsnGo', { timeout: done ? 1500 : 8000 }).then(h => h.evaluate(e => e.id === 'lsnGo' ? 'go' : e.classList.contains('lsn-tile') ? 'tiles' : 'opts')).catch(() => null);
     if (!kind) { if (done) break; throw new Error('✗ bài học không có câu ghép chữ/trắc nghiệm'); } // câu tiếp là dạng nói/gõ → dừng ở đó (người xem thấy câu mới)
     if (kind === 'go') { await tap('#lsnGo'); await sleep(1500); continue; } // lời thoại/video xen kẽ → Tiếp tục
     if (done === 0) M.item = mark();
