@@ -117,7 +117,7 @@ fun NavHostController.open(link: DeepLink) {
         route in com.lexkite.app.feature.vocab.WORD_ROUTES -> navigate(Routes.words(route, link.arg, link.query)) { launchSingleTop = true }
         route in com.lexkite.app.feature.vocab.VOCAB_ROUTES -> navigate(Routes.vocab(route, link.arg, link.query))
         route in com.lexkite.app.feature.skills.SKILLS_ROUTES -> navigate(Routes.skills(route, link.arg, link.query))
-        route in com.lexkite.app.feature.speak.SPEAK_ROUTES -> navigate(Routes.speak(route, link.arg, link.query))
+        route in com.lexkite.app.feature.speak.SPEAK_ROUTES || route in com.lexkite.app.feature.speak.CALL_ROUTES -> navigate(Routes.speak(route, link.arg, link.query))
         route in FOCUS -> navigate(Routes.focus(route, Routes.storyOf(link.query))) { launchSingleTop = true }
         else -> selectTab(link.tab)
     }
