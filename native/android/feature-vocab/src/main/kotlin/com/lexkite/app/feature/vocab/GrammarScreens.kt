@@ -187,6 +187,9 @@ class LessonState(val pack: GrammarPack, val id: String, val full: Boolean, priv
 @Composable
 fun GrammarLessonRoute(env: WordEnv, pack: GrammarPack, id: String, full: Boolean, game: JsonObject, onExit: () -> Unit, open: (String) -> Unit, changed: () -> Unit) {
     val st = remember(pack, id, full) { LessonState(pack, id, full) }
+    // web `IELTS_DATA.INDEX`: a typo that is another real word of the library is not forgiven (same as iOS LibraryWords)
+    var knownWords by remember { mutableStateOf<Set<String>>(emptySet()) }
+    LaunchedEffect(Unit) { knownWords = env.index().keys }
     val scope = rememberCoroutineScope()
     val io = GrammarIo(
         speak = { env.speak(GrammarCore.plain(it)) },
@@ -247,7 +250,6 @@ fun GrammarLessonRoute(env: WordEnv, pack: GrammarPack, id: String, full: Boolea
     GrammarLessonLayout(st, game, io, open, onExit)
 }
 
-private val knownWords: Set<String> = emptySet()
 private suspend fun saveDone(env: WordEnv, id: String, pct: Int) {
     val g = env.gameObj(); val gd = g.lObj("grammarDone"); val old = (gd[id] as? JsonPrimitive)?.content?.toDoubleOrNull()?.toInt() ?: 0
     env.putGame(JsonObject(LinkedHashMap(g).also { m -> m["grammarDone"] = JsonObject(LinkedHashMap(gd).also { it[id] = JsonPrimitive(maxOf(pct, old)) }) }))
