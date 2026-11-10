@@ -273,6 +273,8 @@ node scripts/target/drill-pack.mjs --check
 node scripts/target/exam-es-check.mjs
 node scripts/test/es-exam.mjs
 node scripts/test/grammar-inventory.mjs
+node scripts/grammar/build-lazy-idx.mjs
+node scripts/test/grammar-lazy.mjs
 node scripts/test/explain-let.mjs
 node scripts/content-qa/sense-check.mjs
 node scripts/test/sense-check.mjs

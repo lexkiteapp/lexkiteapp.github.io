@@ -64,6 +64,17 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
   // Ví dụ đánh dấu [[…]] = phần cấu trúc mục tiêu. Tách 1 lần: ex = chữ thuần (đọc, xếp câu, lưu), exm = bản đánh dấu (chỉ để vẽ)
   const prepHL = () => { for (const x of window.GRAMMAR || []) { if (x._hl) continue; x._hl = 1; for (const b of x.blocks || []) for (const o of b.type === 'uses' ? b.items : b.type === 'formula' ? b.rows : b.type === 'ielts' ? [b] : []) if (typeof o.ex === 'string' && o.ex.includes('[[')) { o.exm = o.ex; o.ex = o.ex.replace(/\[\[|\]\]/g, ''); } } };
   prepHL();
+  // Bài rút gọn (x.lazy = tên gói, lazy-a1/c2.js): đủ tên/cấp/tóm tắt để lên danh sách, đếm, tìm; nội dung ở gói grammarA1/grammarC2 → chờ nạp rồi file nguồn thay bài tại chỗ.
+  // loadScript nuốt lỗi mạng (gói báo xong mà bài vẫn rút gọn) → tải lại 1 lần; vẫn hỏng thì ném lỗi, lần bấm sau tải lại tiếp.
+  const stubKeys = ls => [...new Set(ls.map(x => x && x.lazy).filter(Boolean))].filter(k => (window.GRAMMAR || []).some(x => x.lazy === k));
+  const needFull = async ls => {
+    const ks = stubKeys(ls); if (!ks.length) return;
+    await App.lazy(...ks);
+    const miss = stubKeys(ls); if (miss.length) { await Promise.all(miss.map(App.reneed)); if (stubKeys(ls).length) throw new Error('grammar bundle'); }
+    prepHL();
+  };
+  const loading = () => { view.innerHTML = `<div class="skel-page" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="skel skel-h"></div><div class="skel skel-l"></div></div>`; };
+  const loadFail = () => UI.toast(t('Không tải được – thử lại sau'));
   const hx = o => o.exm ? esc(o.exm).replace(/\[\[(.+?)\]\]/g, '<mark class="g-hl">$1</mark>') : esc(o.ex || '');
   // CSS riêng của bài ngữ pháp: nạp cùng gói grammar (tải lười) – không làm nặng khung app (style.css nằm trong SHELL)
   if (!document.getElementById('gCss')) { const st = document.createElement('style'); st.id = 'gCss'; st.textContent = G_CSS; document.head.appendChild(st); }
@@ -153,8 +164,9 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
   function mix(query) {
     const ch = query && +query.get('ch'), n = (query && +query.get('n')) || 20;
     const chap = ch && CHAPTERS.find(c => c.n === ch);
-    const all = chap ? lessonsOf(chap) : L(), d = done();
-    const pool = (!chap && Object.keys(d).length >= 3 ? all.filter(x => d[x.id] != null) : all).flatMap(x => [...x.quiz.map(q => ({ q, x })), ...drillsOf(x).map(d => ({ d, x }))]);
+    const all = chap ? lessonsOf(chap) : L(), d = done(), pick = !chap && Object.keys(d).length >= 3 ? all.filter(x => d[x.id] != null) : all;
+    if (pick.some(x => x.lazy)) { loading(); return needFull(pick).then(() => mix(query), () => { loadFail(); routes.grammar(); }); }
+    const pool = pick.flatMap(x => [...x.quiz.map(q => ({ q, x })), ...drillsOf(x).map(d => ({ d, x }))]);
     const qs = UI.shuffle(pool).slice(0, n);
     let i = 0, right = 0;
     const next = () => {
@@ -353,6 +365,8 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       <p style="margin:.6rem 0 0;opacity:.95">${esc(x.summary)}</p></div>`;
 
   function lesson(id, query) {
+    const st = L().find(x => x.id === id);
+    if (st && st.lazy) { loading(); return needFull([st]).then(() => lesson(id, query), () => { loadFail(); routes.grammar(); }); }
     prepHL();
     if (query && query.get('view') === 'full') return lessonFull(id);
     return lessonSteps(id);
