@@ -9506,33 +9506,10 @@ modicum	ok	ok
 trachea	ok	ok
 depose	ok	ok
 terse	ok	cut_wordis:"TURSE" 0.79s · cut_wordis:"TURSE" 0.60s · dot100:"TURSE" 0.62s · cut_wordis100:"TURSE" 0.69s · cut_wordis100:"TURSE" 0.54s · cut_next:"TURSE" 0.61s · cut_next:"First." 0.40s · plain095:"TURS" 0.61s · dot090:"TURSE" 0.68s
-retaliate	ok	ok
-alimony	ok	ok
-incoherent	ok	ok
-workmanship	ok	ok
-credence	ok	ok
-henceforth	ok	ok
-indignation	ok	ok
-orthography	ok	ok
-parallelism	ok	ok
-conflagration	ok	ok
-electrophoresis	ok	ok
-bicker	ok	ok
-rectification	ok	ok
-eavesdrop	ok	ok
-superconductivity	ok	ok
-emanate	ok	ok
-phonetics	ok	ok
-falsify	ok	ok
-gasification	ok	ok
-anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
-porpoise	ok	ok
-systematics	ok	ok
 abdicate	ok	ok
 defibrillator	ok	ok
 inoculation	ok	ok
 bombard	ok	ok
-architecturally	ok	ok
 massif	cut_wordis: câu mang: "The word is massive." · dot100:"The Massive." 1.08s · cut_wordis100: câu mang: "The word is massive." · cut_next: câu mang: "Next word Massific" · plain095:"Massive." 0.71s · dot090:"Massive." 1.19s	cut_wordis: câu mang: "The word is, massive." · dot100:"Massive." 0.70s · cut_wordis100: câu mang: "The word is, massive." · cut_next: câu mang: "Next word, massive." · plain095:"Massive." 0.71s · dot090:"Massive." 0.76s
 misappropriation	ok	ok
 arsonist	ok	ok
@@ -9616,6 +9593,28 @@ dentition	ok	ok
 expansionism	ok	ok
 ignominy	ok	ok
 oceanographer	ok	ok
+retaliate	ok	ok
+alimony	ok	ok
+incoherent	ok	ok
+workmanship	ok	ok
+credence	ok	ok
+henceforth	ok	ok
+indignation	ok	ok
+orthography	ok	ok
+parallelism	ok	ok
+conflagration	ok	ok
+electrophoresis	ok	ok
+bicker	ok	ok
+rectification	ok	ok
+eavesdrop	ok	ok
+superconductivity	ok	ok
+emanate	ok	ok
+phonetics	ok	ok
+falsify	ok	ok
+gasification	ok	ok
+anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
+porpoise	ok	ok
+systematics	ok	ok
 surrealistic	ok	ok
 intraspecific	ok	ok
 determinable	ok	ok
@@ -9625,8 +9624,6 @@ dovecote	cut_wordis:"Dove Goatee" 0.88s · cut_wordis:"Dovegoat" 0.80s · dot100
 abrade	cut_wordis: câu mang: "The word is a braid." · dot100:"A Braid" 1.19s · cut_wordis100: câu mang: "The word is a braid." · cut_next: câu mang: "Next word a braid" · plain095:"A braid" 0.71s · dot090:"The Braid" 0.90s	cut_wordis: câu mang: "The word is a braid." · dot100:"A braid." 0.70s · cut_wordis100:"A braid." 0.79s · cut_wordis100:"A braid." 0.72s · cut_next: câu mang: "Next word, a braid." · plain095:"A braid." 0.70s · dot090:"A braid." 0.79s
 electromagnet	ok	ok
 anatomist	ok	cut_wordis:"It's anatomist." 0.98s · cut_wordis:"Anonymist" 0.78s · dot100:"Anoramist" 0.78s · cut_wordis100: câu mang: "The word is anonymist." · cut_next:"Anonymist" 0.79s · cut_next:"I never missed." 0.64s · plain095:"Anoramist" 0.79s · dot090:"Anoramist." 0.85s
-demoralize	ok	ok
-recrimination	ok	ok
 incompressible	ok	ok
 detoxify	ok	ok
 forebrain	cut_wordis:"to full-brain." 0.93s · cut_wordis:"Full Brain." 0.85s · dot100:"Full Brain." 1.30s · cut_wordis100: câu mang: "The word is full-brain." · cut_next: câu mang: "Next word, full brain." · plain095:"Full Brain" 0.81s · dot090:"Full brains." 0.97s	ok
@@ -9645,13 +9642,8 @@ overcook	ok	ok
 treeless	ok	ok
 dyspnea	ok	ok
 strategical	ok	ok
-calligrapher	ok	ok
-skeptically	ok	ok
 superimpose	ok	ok
-steepness	cut_wordis: câu mang: "The word is steepnessa." · dot100:"steepnesser" 0.88s · cut_wordis100: câu mang: "The word is steepnessa." · cut_next: câu mang: "Next word is steepnessa." · plain095:"A steepness." 0.74s · dot090:"A steepnesser." 0.97s	ok
-zither	ok	ok
 reconnoitre	cut_wordis: câu mang: "The word is reconoiter." · dot100:"reconnoiter" 1.01s · cut_wordis100: câu mang: "The word is reconoiter." · cut_next: câu mang: "Next word, reconoiter." · plain095:"reconnoiter" 0.97s · dot090:"reconnoiter" 1.11s	cut_wordis: câu mang: "The word is reconnoiter." · dot100:"Reconnoiter." 0.83s · cut_wordis100: câu mang: "The word is reconnoiter." · cut_next: câu mang: "Next word, reconnoiter." · plain095:"Reconniter." 0.85s · dot090:"Re-connoiter" 0.91s
-stringency	ok	ok
 sinusoid	ok	ok
 reclassify	ok	ok
 shipowner	ok	ok
@@ -9659,7 +9651,6 @@ inimical	ok	ok
 satirize	cut_wordis: câu mang: "The word is satiriser." · dot100:"Saturizer" 1.00s · cut_wordis100: câu mang: "The word is satirise." · cut_next: câu mang: "Next word, satiriser." · plain095:"Asaturize." 0.93s · dot090:"Saturizae" 1.10s	cut_wordis: câu mang: "The word is Saturize." · dot100:"SatyRise" 0.79s · cut_wordis100: câu mang: "The word is Saturize." · cut_next:"Saturize." 0.89s · cut_next:"How to rise." 0.63s · plain095:"A Saturday Rise." 0.82s · dot090:"Is that a rise?" 0.87s
 certitude	ok	ok
 adroitly	ok	cut_wordis: câu mang: "The word is a-drightly." · dot100:"Edge rightly." 0.75s · cut_wordis100: câu mang: "The word is a drytly." · cut_next: câu mang: "Next word, a drytly." · plain095:"Edge rightly." 0.77s · dot090:"Edge rightly." 0.84s
-threateningly	ok	ok
 transoceanic	ok	ok
 unaccountably	ok	ok
 intertribal	ok	ok
