@@ -2,13 +2,13 @@
 
 Tiêu chí & nguồn nghiên cứu: `docs/specs/learnability.md` · kế hoạch P0-H `docs/CONTENT-WORLD-PLAN.md` §5. Mỗi tiêu chí 0–100, "–" = không áp dụng cho loại bài.
 
-**Tổng: 91.4 / 100**
+**Tổng: 91.7 / 100**
 
 | Mảng | Đơn vị | Điểm | a | b | c | d | e | f | g | h | i | j | k | l |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Ngữ pháp | 102 | **96** | 99.5 | 96.1 | 99.8 | 96.2 | 100 | 88.7 | 91.3 | 100 | 97.1 | 100 | 100 | 75.8 |
+| Ngữ pháp | 102 | **96.9** | 99.5 | 96.1 | 99.8 | 96.2 | 100 | 99.5 | 91.3 | 100 | 97.1 | 100 | 100 | 75.8 |
 | Bài lộ trình | 5 | **100** | 100 | – | 100 | 100 | – | 100 | 100 | – | 100 | 100 | – | 100 |
-| Bộ từ | 117 | **74.3** | – | – | – | 96.5 | 56.9 | 80.5 | – | – | 99.2 | – | 4.2 | – |
+| Bộ từ | 117 | **74.3** | – | – | – | 96.5 | 56.9 | 80.6 | – | – | 99.2 | – | 4.2 | – |
 | Kỹ năng | 257 | **95.4** | 81.8 | – | 97.5 | 99.7 | 99.3 | 100 | 95.4 | – | 100 | 86.9 | – | 100 |
 
 a = Truy hồi chủ động · b = Lặp lại giãn cách · c = Tải nhận thức · d = i+1 (từ không vượt cấp) · e = Ví dụ + cặp ✗/✓ · f = Mã hoá kép (audio + hình) · g = Phản hồi "vì sao" · h = Xen kẽ luật cũ · i = Ngữ cảnh (câu gốc) · j = Đầu ra nói/viết · k = Mẹo nhớ · l = Thời lượng vừa vòng 30′
@@ -35,17 +35,17 @@ a = Truy hồi chủ động · b = Lặp lại giãn cách · c = Tải nhận 
 | 16 | Bộ từ | nawl5 | C1 | 61.5 | mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 17 | Bộ từ | bsl4 | B2 | 61.8 | mẹo nhớ cho từ dễ nhầm (gold "why"): 4% · ví dụ: thiếu collocation/đồng nghĩa |
 | 18 | Bộ từ | nawl1 | C1 | 62.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 4% · ví dụ: thiếu collocation/đồng nghĩa |
-| 19 | Bộ từ | nawl3 | C1 | 62.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 5% · ví dụ: thiếu collocation/đồng nghĩa |
-| 20 | Bộ từ | office-meeting | B2 | 62.2 | mã hoá kép 56% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 19 | Bộ từ | office-meeting | B2 | 62.2 | mã hoá kép 56% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 20 | Bộ từ | nawl3 | C1 | 62.3 | mẹo nhớ cho từ dễ nhầm (gold "why"): 5% · ví dụ: thiếu collocation/đồng nghĩa |
 | 21 | Bộ từ | xw-military | C1 | 62.5 | mã hoá kép 55% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 22 | Bộ từ | xw-religion-history | B2 | 62.8 | mã hoá kép 61% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 23 | Bộ từ | nawl2 | C1 | 63.3 | mẹo nhớ cho từ dễ nhầm (gold "why"): 9% · ví dụ: thiếu collocation/đồng nghĩa |
 | 24 | Bộ từ | bộ lẻ (< 10 từ) | B2 | 63.3 | mã hoá kép 62% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 25 | Bộ từ | office-email | B1 | 64 | mã hoá kép 54% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 26 | Bộ từ | nawl4 | C1 | 64.4 | mẹo nhớ cho từ dễ nhầm (gold "why"): 20% · ví dụ: thiếu collocation/đồng nghĩa |
-| 27 | Bộ từ | xw-people | B2 | 64.4 | mã hoá kép 60% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
-| 28 | Bộ từ | xw-everyday | B2 | 64.6 | mã hoá kép 61% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
-| 29 | Bộ từ | xw-actions | B2 | 64.7 | mã hoá kép 61% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 27 | Bộ từ | xw-people | B2 | 64.6 | mã hoá kép 60% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 28 | Bộ từ | xw-actions | B2 | 64.8 | mã hoá kép 61% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 29 | Bộ từ | xw-everyday | B2 | 64.9 | mã hoá kép 63% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 30 | Bộ từ | office-interview | B1 | 66 | mã hoá kép 53% (ảnh/audio từ/audio câu) · ví dụ: thiếu collocation/đồng nghĩa |
 
 ## Lỗi theo tiêu chí (số đơn vị < 60 điểm ở tiêu chí đó)
@@ -57,7 +57,7 @@ a = Truy hồi chủ động · b = Lặp lại giãn cách · c = Tải nhận 
 | c Tải nhận thức | 0/102 | 0/5 | – | 0/72 |
 | d i+1 (từ không vượt cấp) | 3/102 | 0/5 | 0/117 | 0/97 |
 | e Ví dụ + cặp ✗/✓ | 0/102 | – | 70/117 | 0/160 |
-| f Mã hoá kép (audio + hình) | 22/102 | 0/5 | 10/117 | 0/129 |
+| f Mã hoá kép (audio + hình) | 1/102 | 0/5 | 10/117 | 0/129 |
 | g Phản hồi "vì sao" | 0/102 | 0/5 | – | 0/225 |
 | h Xen kẽ luật cũ | 0/102 | – | – | – |
 | i Ngữ cảnh (câu gốc) | 2/102 | 0/5 | 0/117 | 0/97 |
