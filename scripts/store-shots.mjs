@@ -68,6 +68,8 @@ async function run(lang) {
     args: [`--disable-extensions-except=${EXT}`, `--load-extension=${EXT}`, `--lang=${locale}`],
   });
   let [sw] = ctx.serviceWorkers(); if (!sw) sw = await ctx.waitForEvent('serviceworker');
+  // sự kiện serviceworker có thể đến trước khi Chrome gắn API add-on → chờ chrome.storage (cùng cách scripts/test/ext-e2e.mjs)
+  for (let i = 0; i < 75 && !(await sw.evaluate(() => !!(self.chrome && chrome.storage && chrome.storage.local)).catch(() => false)); i++) await sleep(200);
   const id = new URL(sw.url()).host, base = `chrome-extension://${id}/`;
   const setSettings = s => sw.evaluate(s => chrome.storage.local.get('settings').then(({ settings }) => chrome.storage.local.set({ settings: { ...(settings || {}), ...s } })), s);
   await sw.evaluate(l => chrome.storage.local.set({ uiLang: l }), lang);
