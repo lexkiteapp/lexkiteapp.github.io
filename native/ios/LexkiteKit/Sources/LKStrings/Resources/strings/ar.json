@@ -3242,5 +3242,8 @@
   "learn.conf.moTaBangLoai": "صِفها بنوعها",
   "learn.conf.moTaBangCach": "صِفها بمقارنتها بشيء",
   "learn.conf.moTaBangCong": "صِف ما تُستخدم له",
-  "learn.conf.hoiCachNoiBang": "اسأل كيف تقول شيئًا بالإنجليزية"
+  "learn.conf.hoiCachNoiBang": "اسأل كيف تقول شيئًا بالإنجليزية",
+  "learn.quick.choiNhanh15Giay": "اللعب السريع في 15 ثانية",
+  "learn.grammar.dungRoiChiSai": "صحيح – مجرد خطأ إملائي بسيط",
+  "learn.grammar.vietDungLa": "الكتابة الصحيحة: {a}"
 }

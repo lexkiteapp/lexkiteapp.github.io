@@ -3242,5 +3242,8 @@
   "learn.conf.moTaBangLoai": "Jelaskan dari jenisnya",
   "learn.conf.moTaBangCach": "Jelaskan dengan membandingkannya dengan sesuatu",
   "learn.conf.moTaBangCong": "Jelaskan kegunaannya",
-  "learn.conf.hoiCachNoiBang": "Tanyakan cara mengatakan sesuatu dalam bahasa Inggris"
+  "learn.conf.hoiCachNoiBang": "Tanyakan cara mengatakan sesuatu dalam bahasa Inggris",
+  "learn.quick.choiNhanh15Giay": "Main Cepat 15 Detik",
+  "learn.grammar.dungRoiChiSai": "Benar – hanya salah ketik kecil",
+  "learn.grammar.vietDungLa": "Ejaan yang benar: {a}"
 }

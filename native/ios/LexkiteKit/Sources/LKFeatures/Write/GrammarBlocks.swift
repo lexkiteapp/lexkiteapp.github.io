@@ -295,7 +295,7 @@ struct DrillView: View {
     @ViewBuilder private var feedback: some View {
         if case .graded(let ok, _, let answer, let typo)? = state.outcome {
             if ok {
-                SkillNote(icon: "checkmark.circle.fill", text: typo != nil ? t.lv("Gần đúng – sửa chính tả: ") + (typo ?? []).map(\.w).joined(separator: " ") : t.lv("Chính xác!"), tint: LKColor.success)
+                SkillNote(icon: "checkmark.circle.fill", text: typo != nil ? t.lv("Đúng rồi – chỉ sai chính tả nhỏ") + " – " + t.lv("Viết đúng là: {a}", ["a": (typo ?? []).map(\.w).joined(separator: " ")]) : t.lv("Chính xác!"), tint: LKColor.success)
             } else {
                 SkillNote(icon: "xmark.circle.fill", text: t.lv("Đáp án: <b>{a}</b>", ["a": answer]).replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: ""), tint: LKColor.error)
             }

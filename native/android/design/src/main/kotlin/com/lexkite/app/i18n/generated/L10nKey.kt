@@ -3246,7 +3246,10 @@ enum class L10nKey(val id: String) {
     learnConfMoTaBangLoai("learn.conf.moTaBangLoai"),
     learnConfMoTaBangCach("learn.conf.moTaBangCach"),
     learnConfMoTaBangCong("learn.conf.moTaBangCong"),
-    learnConfHoiCachNoiBang("learn.conf.hoiCachNoiBang");
+    learnConfHoiCachNoiBang("learn.conf.hoiCachNoiBang"),
+    learnQuickChoiNhanh15Giay("learn.quick.choiNhanh15Giay"),
+    learnGrammarDungRoiChiSai("learn.grammar.dungRoiChiSai"),
+    learnGrammarVietDungLa("learn.grammar.vietDungLa");
 }
 
 object L10nLangs {

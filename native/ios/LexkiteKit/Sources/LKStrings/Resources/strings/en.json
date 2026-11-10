@@ -3242,5 +3242,8 @@
   "learn.conf.moTaBangLoai": "Describe it by its type",
   "learn.conf.moTaBangCach": "Describe it by comparing it to something",
   "learn.conf.moTaBangCong": "Describe what it is for",
-  "learn.conf.hoiCachNoiBang": "Ask how to say something in English"
+  "learn.conf.hoiCachNoiBang": "Ask how to say something in English",
+  "learn.quick.choiNhanh15Giay": "15-second Quick Play",
+  "learn.grammar.dungRoiChiSai": "Correct – just a small typo",
+  "learn.grammar.vietDungLa": "Correct spelling: {a}"
 }

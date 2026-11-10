@@ -3242,5 +3242,8 @@
   "learn.conf.moTaBangLoai": "Türüyle tarif et",
   "learn.conf.moTaBangCach": "Bir şeyle karşılaştırarak tarif et",
   "learn.conf.moTaBangCong": "Ne işe yaradığını tarif et",
-  "learn.conf.hoiCachNoiBang": "Bir şeyin İngilizcesini sor"
+  "learn.conf.hoiCachNoiBang": "Bir şeyin İngilizcesini sor",
+  "learn.quick.choiNhanh15Giay": "15 saniyelik Hızlı Oyun",
+  "learn.grammar.dungRoiChiSai": "Doğru – sadece küçük bir yazım hatası",
+  "learn.grammar.vietDungLa": "Doğru yazılışı: {a}"
 }

@@ -3242,5 +3242,8 @@
   "learn.conf.moTaBangLoai": "उसके प्रकार से बताएँ",
   "learn.conf.moTaBangCach": "किसी चीज़ से तुलना करके बताएँ",
   "learn.conf.moTaBangCong": "बताएँ कि वह किस काम आता है",
-  "learn.conf.hoiCachNoiBang": "पूछें कि कुछ अंग्रेज़ी में कैसे कहते हैं"
+  "learn.conf.hoiCachNoiBang": "पूछें कि कुछ अंग्रेज़ी में कैसे कहते हैं",
+  "learn.quick.choiNhanh15Giay": "15 सेकंड का क्विक प्ले",
+  "learn.grammar.dungRoiChiSai": "सही – बस एक छोटी टाइपिंग गलती",
+  "learn.grammar.vietDungLa": "सही वर्तनी: {a}"
 }

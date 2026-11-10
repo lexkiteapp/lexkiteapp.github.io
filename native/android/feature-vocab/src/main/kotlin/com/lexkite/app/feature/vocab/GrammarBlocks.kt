@@ -185,7 +185,7 @@ fun DrillCard(d: JsonObject, st: DrillState, setInput: (String) -> Unit, check: 
             if (st.note) LNote(t.lv("Hãy viết một câu hoàn chỉnh (ít nhất 4 từ)."))
         }
         (st.outcome as? DrillOutcome.Graded)?.let { o ->
-            if (o.ok) LNote("✓ " + (if (o.typo != null) t.lv("Gần đúng – sửa chính tả: ") + o.typo!!.joinToString(" ") { it.w } else t.lv("Chính xác!")), c.success)
+            if (o.ok) LNote("✓ " + (if (o.typo != null) t.lv("Đúng rồi – chỉ sai chính tả nhỏ") + " – " + t.lv("Viết đúng là: {a}", "a" to o.typo!!.joinToString(" ") { it.w }) else t.lv("Chính xác!")), c.success)
             else LNote("✗ " + t.lv("Đáp án: <b>{a}</b>", "a" to o.answer).noTags(), c.error)
             if (d.lStr("ex").isNotEmpty()) VMuted(d.lStr("ex"))
         }

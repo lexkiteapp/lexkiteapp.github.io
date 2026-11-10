@@ -3242,5 +3242,8 @@
   "learn.conf.moTaBangLoai": "종류로 설명하기",
   "learn.conf.moTaBangCach": "무언가에 비유해서 설명하기",
   "learn.conf.moTaBangCong": "쓰임새로 설명하기",
-  "learn.conf.hoiCachNoiBang": "영어로 어떻게 말하는지 묻기"
+  "learn.conf.hoiCachNoiBang": "영어로 어떻게 말하는지 묻기",
+  "learn.quick.choiNhanh15Giay": "15초 퀵 플레이",
+  "learn.grammar.dungRoiChiSai": "정답 – 작은 오타만 있어요",
+  "learn.grammar.vietDungLa": "올바른 철자: {a}"
 }

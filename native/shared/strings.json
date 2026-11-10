@@ -3243,5 +3243,8 @@
   "learn.conf.moTaBangLoai": "Mô tả bằng loại của nó",
   "learn.conf.moTaBangCach": "Mô tả bằng cách so sánh",
   "learn.conf.moTaBangCong": "Mô tả bằng công dụng",
-  "learn.conf.hoiCachNoiBang": "Hỏi cách nói bằng tiếng Anh"
+  "learn.conf.hoiCachNoiBang": "Hỏi cách nói bằng tiếng Anh",
+  "learn.quick.choiNhanh15Giay": "Chơi nhanh 15 giây",
+  "learn.grammar.dungRoiChiSai": "Đúng rồi – chỉ sai chính tả nhỏ",
+  "learn.grammar.vietDungLa": "Viết đúng là: {a}"
 }

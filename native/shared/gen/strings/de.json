@@ -3242,5 +3242,8 @@
   "learn.conf.moTaBangLoai": "Es nach seiner Art beschreiben",
   "learn.conf.moTaBangCach": "Es durch einen Vergleich beschreiben",
   "learn.conf.moTaBangCong": "Beschreiben, wofür es gedacht ist",
-  "learn.conf.hoiCachNoiBang": "Fragen, wie man etwas auf Englisch sagt"
+  "learn.conf.hoiCachNoiBang": "Fragen, wie man etwas auf Englisch sagt",
+  "learn.quick.choiNhanh15Giay": "15-Sekunden-Schnellspiel",
+  "learn.grammar.dungRoiChiSai": "Richtig – nur ein kleiner Tippfehler",
+  "learn.grammar.vietDungLa": "Richtige Schreibweise: {a}"
 }

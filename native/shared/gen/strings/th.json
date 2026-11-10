@@ -3242,5 +3242,8 @@
   "learn.conf.moTaBangLoai": "อธิบายตามประเภทของมัน",
   "learn.conf.moTaBangCach": "อธิบายโดยเปรียบเทียบกับสิ่งอื่น",
   "learn.conf.moTaBangCong": "อธิบายว่ามันใช้ทำอะไร",
-  "learn.conf.hoiCachNoiBang": "ถามว่าพูดสิ่งนี้เป็นภาษาอังกฤษอย่างไร"
+  "learn.conf.hoiCachNoiBang": "ถามว่าพูดสิ่งนี้เป็นภาษาอังกฤษอย่างไร",
+  "learn.quick.choiNhanh15Giay": "เล่นด่วน 15 วินาที",
+  "learn.grammar.dungRoiChiSai": "ถูกต้อง – แค่พิมพ์ผิดเล็กน้อย",
+  "learn.grammar.vietDungLa": "สะกดที่ถูกต้อง: {a}"
 }

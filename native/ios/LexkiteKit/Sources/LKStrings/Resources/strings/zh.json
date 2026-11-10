@@ -3242,5 +3242,8 @@
   "learn.conf.moTaBangLoai": "说出它属于哪一类",
   "learn.conf.moTaBangCach": "用比较的方式来描述",
   "learn.conf.moTaBangCong": "描述它的用途",
-  "learn.conf.hoiCachNoiBang": "询问某个东西用英语怎么说"
+  "learn.conf.hoiCachNoiBang": "询问某个东西用英语怎么说",
+  "learn.quick.choiNhanh15Giay": "15秒快玩",
+  "learn.grammar.dungRoiChiSai": "正确——只是有个小拼写错误",
+  "learn.grammar.vietDungLa": "正确拼写：{a}"
 }

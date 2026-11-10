@@ -3242,5 +3242,8 @@
   "learn.conf.moTaBangLoai": "種類で説明する",
   "learn.conf.moTaBangCach": "何かに例えて説明する",
   "learn.conf.moTaBangCong": "何に使うかで説明する",
-  "learn.conf.hoiCachNoiBang": "英語でどう言うか尋ねる"
+  "learn.conf.hoiCachNoiBang": "英語でどう言うか尋ねる",
+  "learn.quick.choiNhanh15Giay": "15秒クイックプレイ",
+  "learn.grammar.dungRoiChiSai": "正解 – 小さなタイプミスがあります",
+  "learn.grammar.vietDungLa": "正しいつづり：{a}"
 }

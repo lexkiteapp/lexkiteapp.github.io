@@ -3242,5 +3242,8 @@
   "learn.conf.moTaBangLoai": "Le décrire par sa catégorie",
   "learn.conf.moTaBangCach": "Le décrire en le comparant à autre chose",
   "learn.conf.moTaBangCong": "Décrire à quoi il sert",
-  "learn.conf.hoiCachNoiBang": "Demander comment dire quelque chose en anglais"
+  "learn.conf.hoiCachNoiBang": "Demander comment dire quelque chose en anglais",
+  "learn.quick.choiNhanh15Giay": "Partie rapide de 15 secondes",
+  "learn.grammar.dungRoiChiSai": "Correct – juste une petite faute de frappe",
+  "learn.grammar.vietDungLa": "Orthographe correcte : {a}"
 }

@@ -3242,5 +3242,8 @@
   "learn.conf.moTaBangLoai": "Descrever pelo tipo",
   "learn.conf.moTaBangCach": "Descrever comparando com outra coisa",
   "learn.conf.moTaBangCong": "Descrever para que serve",
-  "learn.conf.hoiCachNoiBang": "Perguntar como se diz algo em inglês"
+  "learn.conf.hoiCachNoiBang": "Perguntar como se diz algo em inglês",
+  "learn.quick.choiNhanh15Giay": "Jogo rápido de 15 segundos",
+  "learn.grammar.dungRoiChiSai": "Correto – só um pequeno erro de digitação",
+  "learn.grammar.vietDungLa": "Grafia correta: {a}"
 }

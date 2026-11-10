@@ -3242,5 +3242,8 @@
   "learn.conf.moTaBangLoai": "Описать по типу",
   "learn.conf.moTaBangCach": "Описать через сравнение с чем-то",
   "learn.conf.moTaBangCong": "Описать, для чего это нужно",
-  "learn.conf.hoiCachNoiBang": "Спросить, как что-то сказать по-английски"
+  "learn.conf.hoiCachNoiBang": "Спросить, как что-то сказать по-английски",
+  "learn.quick.choiNhanh15Giay": "Быстрая игра на 15 секунд",
+  "learn.grammar.dungRoiChiSai": "Верно – только небольшая опечатка",
+  "learn.grammar.vietDungLa": "Правильно пишется: {a}"
 }

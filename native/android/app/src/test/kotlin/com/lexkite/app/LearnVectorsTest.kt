@@ -144,5 +144,30 @@ class LearnVectorsTest {
         assertEquals(pack.index.size, starter!!.index.size); assertEquals(3, starter.lessons.size)
         assertEquals(22, GrammarCore.quizXp(4)); assertEquals(26, GrammarCore.drillXp(4)); assertEquals(18, GrammarCore.mixXp(4))
     }
-}
 
+    /** P09 end to end: the ten routes are wired, the rule engine fixes a draft, a grammar lesson of the offline starter is graded the way the web grades it, the style quiz and the confidence score follow the web rules. */
+    @Test fun parity_P09() {
+        val all = setOf("write", "task1", "qstats", "criteria", "fix", "grammar", "method", "quick", "style", "confidence")
+        assertTrue(com.lexkite.app.feature.vocab.WORD_ROUTES.containsAll(all))
+        for (r in all) assertEquals(r, com.lexkite.app.core.link.DeepLink.SKILLS, com.lexkite.app.core.link.DeepLink.parse("lexkite://$r")!!.tab)
+        val mix = com.lexkite.app.core.link.DeepLink.parse("lexkite://grammar/mix?ch=3&n=40")!!
+        assertEquals("mix", mix.arg); assertEquals("ch=3&n=40", mix.query)
+        // #/fix
+        val eng = content.fix!!; val text = "i am agree with you."; val issues = eng.check(text)
+        assertEquals(listOf("lk:i-lower", "lk:be-agree"), issues.map { it.rule }); assertEquals("I agree with you.", FixEngine.fixed(text, issues))
+        // #/grammar: the starter lists every lesson and carries three; a quiz answer is graded by the lesson data, a drill by matchAnswer
+        val starter = GrammarPack.parse(res("grammar-starter.json"))!!
+        assertEquals(80, starter.index.size); val l = starter.lessons.getValue("present-simple")
+        assertEquals(12, l.lList("quiz").size); assertTrue(l.lList("drills").isNotEmpty())
+        val d = l.lList("drills").first { it.lStr("t") == "fill" || it.lStr("t") == "verb" }
+        val right = GrammarCore.grade(d, d.lStrs("a").first(), null, null) as com.lexkite.app.core.write.DrillOutcome.Graded
+        assertTrue(right.ok); assertEquals(d.lStrs("a").first(), right.answer)
+        val wrong = GrammarCore.grade(d, "zzz qqq", null, null) as com.lexkite.app.core.write.DrillOutcome.Graded
+        assertTrue(!wrong.ok)
+        assertEquals(GrammarCore.quizXp(11), 43); assertEquals(GrammarCore.pct(11, 12), 92)
+        // #/style and #/confidence
+        assertEquals("precision", StyleQuiz.winner(List(6) { "precision" }))
+        assertEquals(68, Confidence.score(120.0, 120.0, 1.0, 2, null))
+        assertTrue(Confidence.score(120.0, 120.0, 1.0, 2, 5) > Confidence.score(120.0, 120.0, 1.0, 2, 1))
+    }
+}

@@ -315,7 +315,6 @@ struct ConfidenceView: View {
             if !m.used.isEmpty { Text(verbatim: "✨ " + t.lv("Bạn đã dùng:") + " " + m.used.joined(separator: " · ")).studyText(LKType.bodySm).englishText().fixedSize(horizontal: false, vertical: true) }
             else { Text(verbatim: t.lv("Lần sau thử dùng 1–2 cụm câu từ bài học hoặc bộ công cụ nhé.")).studyText(LKType.bodySm, LKColor.onSurfaceVariant).fixedSize(horizontal: false, vertical: true) }
             if !model.transcript.isEmpty { DisclosureGroup(t.lv("Xem chữ máy nghe được")) { Text(verbatim: model.transcript).studyText(LKType.bodySm).englishText().padding(.top, 4) } }
-            else { Text(verbatim: t.lv("Trình duyệt này không chuyển giọng nói thành chữ – điểm dựa trên độ lưu loát và tự đánh giá.").replacingOccurrences(of: "Trình duyệt", with: "Thiết bị")).studyText(LKType.bodySm, LKColor.onSurfaceVariant).fixedSize(horizontal: false, vertical: true) }
             Text(verbatim: t.lv("Bạn cảm thấy tự tin đến mức nào?")).studyText(LKType.titlePill)
             HStack(spacing: 6) {
                 ForEach(Array(["😟", "😕", "🙂", "😊", "🤩"].enumerated()), id: \.offset) { k, e in
