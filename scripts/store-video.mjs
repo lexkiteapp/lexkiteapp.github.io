@@ -208,8 +208,8 @@ async function appMode() {
   // Ghép: đoạn quay + thẻ cuối + giọng → app preview (H.264 High, yuv420p, 30 fps không đổi, AAC stereo 48 kHz 256k)
   const mp4 = path.join(OUT, 'app-preview-886x1920.mp4'), promo = path.join(OUT, 'promo-1080x1920.mp4');
   ff(['-f', 'concat', '-safe', '0', '-t', String(dur), '-i', lst, '-loop', '1', '-t', String(END), '-framerate', String(FPS), '-i', end, '-i', path.join(TMP, 'narr.wav'), '-filter_complex',
-    `[0:v]scale=${AW}:${AH}:flags=lanczos,setsar=1,fps=${FPS},fade=t=in:st=0:d=0.3[a];[1:v]scale=${AW}:${AH},setsar=1,fps=${FPS},fade=t=in:st=0:d=0.4[b];[a][b]concat=n=2:v=1:a=0,format=yuv420p[v]`,
-    '-map', '[v]', '-map', '2:a', '-r', String(FPS), '-fps_mode', 'cfr', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-crf', '17', '-c:a', 'aac', '-b:a', '256k', '-ar', '48000', '-ac', '2', '-t', String(total), '-movflags', '+faststart', mp4]);
+    `[0:v]scale=${AW}:${AH}:flags=lanczos:in_range=pc:out_range=tv,format=yuv420p,setsar=1,fps=${FPS},fade=t=in:st=0:d=0.3[a];[1:v]scale=${AW}:${AH},setsar=1,fps=${FPS},fade=t=in:st=0:d=0.4[b];[a][b]concat=n=2:v=1:a=0,format=yuv420p[v]`,
+    '-map', '[v]', '-map', '2:a', '-r', String(FPS), '-fps_mode', 'cfr', '-c:v', 'libx264', '-profile:v', 'high', '-pix_fmt', 'yuv420p', '-preset', 'slow', '-crf', '17', '-c:a', 'aac', '-b:a', '256k', '-ar', '48000', '-ac', '2', '-t', String(total), '-movflags', '+faststart', mp4]);
   ff(['-i', mp4, '-vf', `scale=-2:1920:flags=lanczos,pad=1080:1920:(ow-iw)/2:0:color=0x0F3D3E,setsar=1,format=yuv420p`, '-r', String(FPS), '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-crf', '18', '-c:a', 'copy', '-movflags', '+faststart', promo]);
   ff(['-ss', '3', '-i', mp4, '-frames:v', '1', '-pix_fmt', 'rgb24', path.join(OUT, 'poster.png')]);
 
