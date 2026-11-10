@@ -188,6 +188,7 @@ jobs:
     needs: [lease, native]
     if: needs.lease.outputs.skip != '1'
     uses: ./.github/workflows/journey-e2e.yml
+    permissions: { contents: read, checks: read }   # journey-e2e job gate xin checks: read; thiếu → startup_failure (scripts/test/workflow-call-perms.mjs)
     with:
       native: ${{ needs.native.outputs.jn || '0' }}
 

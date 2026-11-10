@@ -729,7 +729,8 @@ export const REG = {
    "id": "video-auto",
    "workflow": "video-auto.yml",
    "cron": [
-    "17 23 * * *"
+    "17 23 * * *",
+    "53 3,6 * * *"
    ],
    "priority": "render",
    "resources": [

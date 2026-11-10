@@ -273,7 +273,7 @@ jobs:
           python3 scripts/video/teach2d/store.py art bank $RUNNER_TEMP/bank-delta.json /tmp/shorts ${{ github.run_number }} ${{ github.sha }}
           bash scripts/cine/archive_new.sh /tmp/shorts
           cd /tmp/shorts; git add --sparse -A shorts .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "teach-video #${{ github.run_number }} [CF-Pages-Skip]" || exit 0
-          pushed=; for k in 1 2 3 4; do git push -q origin HEAD:main && { pushed=1; break; }; git pull -q --rebase --autostash origin main; done
+          pushed=; for k in 1 2 3 4; do git push -q origin HEAD:main && { pushed=1; break; }; { git fetch -q origin main && git rebase -q origin/main || git rebase --abort 2>/dev/null; }; done
           rm -f ~/.ssh/shorts
           [ -n "$pushed" ] || { echo "::error::could not push lexkite-shorts after 4 tries"; exit 1; }
       - name: bank.json + BANK.md -> main (batch on main only; regenerated on the newest main – scripts/ci/commit-regen.sh)

@@ -16,7 +16,7 @@ const b = buildShards(), now = b.E.size, keys = b.core.reduce((n, c) => n + Obje
 const raw = b.core.reduce((n, c) => n + JSON.stringify(c.d).length, 0), perKey = raw / keys;
 const pub = loadExpand(), perNew = pub.length ? pub.reduce((n, x) => n + JSON.stringify(x.e).length, 0) / pub.length : 1100; // nguồn có 13 ngôn ngữ + qa
 const perNewShard = perKey * 1.35, add = Math.max(0, TARGET - now);                              // mục mở rộng có ex2 + ghi chú
-const core = Math.ceil((raw + add * perNewShard) / 9000), lang = 13 * Math.ceil(core / 4);
+const core = Math.ceil((raw + add * perNewShard) / 9900), lang = 13 * Math.ceil(core / 4);
 const f = {
   at: new Date().toISOString().slice(0, 10), words_now: now, target: TARGET, add,
   pages_files: { lex_now: b.core.length + 13 * Math.ceil(b.core.length / 4) + 2, lex_at_target: core + lang + 2, dist_now: DIST || null, dist_at_target: DIST ? DIST - (b.core.length + 13 * Math.ceil(b.core.length / 4)) + core + lang : null, gate: 18000 },
