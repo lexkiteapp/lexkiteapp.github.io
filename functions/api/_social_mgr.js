@@ -17,7 +17,7 @@ export const PLAT = {
   facebook_page: { cap: 30, used: 'reels_24h', capKey: 'reels_cap', kind: 'reel' },
   instagram: { cap: 100, used: 'posts_24h', capKey: 'posts_cap', kind: 'reel', cap2200: true },
   tiktok: { cap: 15, kind: 'video' }, // Direct Post của app GrabCast được duyệt 03/11/2026 → hết giới hạn SELF_ONLY
-  youtube: { cap: 6, kind: 'short' }, // GrabCast qua audit YouTube API (chủ báo 10/11/2026) → hết giới hạn private; bài đầu vẫn duyệt tay (manual_first)
+  youtube: { cap: 6, kind: 'short' }, // GrabCast qua audit YouTube API (chủ báo 10/11/2026) → hết giới hạn private; chủ 10/11: tự duyệt tự đăng (ownerPolicy)
   threads: { cap: 250, kind: 'post' },
 };
 export const platOf = a => { const p = String((a && (a.platform || a.provider)) || '').toLowerCase(); return p === 'facebook' ? 'facebook_page' : p; };

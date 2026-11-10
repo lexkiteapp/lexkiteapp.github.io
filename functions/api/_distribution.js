@@ -131,7 +131,9 @@ const norm = t => String(t || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim
  * skips a clip whose title/cover already exists on the channel, avoids the same template back-to-back (reorders when possible).
  * → { slots: [{id, ms}], skipped: [{id, why}] }
  */
-export function schedule({ clips, cfg, existing = [], now = Date.now(), horizonDays = 45, jitterMin = 20, rand = hash }) {
+/** Chủ 10/11/2026: lên lịch sẵn vài tháng khi có nhiều clip – vẫn giữ daily_cap + min_gap từng kênh nên không dồn bài vào một ngày. */
+export const PLAN_DAYS = 120;
+export function schedule({ clips, cfg, existing = [], now = Date.now(), horizonDays = PLAN_DAYS, jitterMin = 20, rand = hash }) {
   const gap = cfg.min_gap_min * MIN, taken = existing.map(e => e.ms).sort((a, b) => a - b), perDay = {}, titles = new Set(existing.map(e => norm(e.title)).filter(Boolean)), covers = new Set(existing.map(e => e.cover).filter(Boolean));
   for (const ms of taken) { const d = localDate(ms, cfg.tz); perDay[d] = (perDay[d] || 0) + 1; }
   let lastTpl = (existing.slice().sort((a, b) => a.ms - b.ms).pop() || {}).template || '';

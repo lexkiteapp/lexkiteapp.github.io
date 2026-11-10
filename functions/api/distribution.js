@@ -9,7 +9,7 @@ import { guardBg } from './_d1guard.js';
 import { limit } from './sync.js';
 import { manifest } from './admin-shorts.js';
 import { setup, chanCfg, pauseChannel } from './youtube.js';
-import { langOfChannel, foreignAccount, pausedAccount, extAccount, normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM } from './_distribution.js';
+import { langOfChannel, foreignAccount, pausedAccount, extAccount, normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM, PLAN_DAYS } from './_distribution.js';
 import { embedMeta, socialMeta, PLATFORMS } from './_role_meta.js';
 import { viewOf, typeOf } from './_clip_logic.js';
 import { TOPICS, SKILLS, EXAMS, CEFR, TYPES } from './_taxonomy.js';
@@ -168,7 +168,7 @@ const OPS = {
     return { ok: true, planned: made.length, social: posts, skipped };
   },
   async plan_get(db, b) {
-    const ch = CHID.test(String(b.channel_id || '')) ? b.channel_id : null, to = Date.now() + Math.min(Math.max(+b.days || 14, 1), 90) * 864e5;
+    const ch = CHID.test(String(b.channel_id || '')) ? b.channel_id : null, to = Date.now() + Math.min(Math.max(+b.days || 14, 1), PLAN_DAYS) * 864e5;
     const rows = await all(db, `SELECT p.clip, p.channel_id, p.slot_ms, p.source, p.rule, q.title, q.status FROM yt_plan p LEFT JOIN yt_queue q ON q.clip = p.clip WHERE p.slot_ms IS NOT NULL AND p.slot_ms <= ? ${ch ? 'AND p.channel_id = ?' : ''} ORDER BY p.slot_ms LIMIT 500`, ...(ch ? [to, ch] : [to]));
     for (const r of await all(db, `SELECT s.clip, s.channel_id, s.slot_ms, s.source, s.rule, s.state AS status, s.post_id, q.title FROM dist_social s LEFT JOIN yt_queue q ON q.clip = s.clip WHERE s.slot_ms IS NOT NULL AND s.slot_ms <= ? ${ch ? 'AND s.channel_id = ?' : ''} ORDER BY s.slot_ms LIMIT 500`, ...(ch ? [to, ch] : [to]))) rows.push({ ...r, social: 1 });
     rows.sort((a, b) => a.slot_ms - b.slot_ms);
