@@ -290,6 +290,8 @@ put(`${SHARED}/vectors/skills.json`, await (await import('./gen-skills.mjs')).sk
 { const CL = await import('./gen-call.mjs'); put(`${SHARED}/vectors/call.json`, await CL.callVectors()); put(CL.CALL_PACK_PATH, await CL.callPack());
   const st = await CL.callStarter(); put(CL.CALL_STARTER_PATH, st); put(`${IOS}/Sources/LKStore/Resources/call-content.json`, st); }   // M4 P08 Call Ama/Carlos: vectors (engine, list, ring, flow, rewards, progress, persist, data) + full content pack https://lexkite.com/data/call-pack.json + offline starter (Android assets content-pack/call-starter.json, iOS call-content.json)
 { const WR = await import('./gen-write.mjs'); put(`${SHARED}/vectors/write.json`, await WR.writeVectors()); put(WR.WRITE_PACK_PATH, await WR.writePack()); }   // M4 P09 writing & grammar: vectors (write, task1, qstats, criteria) + download pack https://lexkite.com/data/write-pack.json (criteria data)
+{ const LN = await import('./gen-learn.mjs'); put(`${SHARED}/vectors/learn.json`, await LN.learnVectors()); const lc = await LN.learnContent(); put(LN.LEARN_CONTENT_PATH, lc); put(`${IOS}/Sources/LKStore/Resources/learn-content.json`, lc);
+  put(LN.GRAMMAR_PACK_PATH, await LN.grammarPack()); const gst = await LN.grammarStarter(); put(LN.GRAMMAR_STARTER_PATH, gst); put(`${IOS}/Sources/LKStore/Resources/grammar-content.json`, gst); }   // M4 P09 part 2: #/fix #/grammar #/method #/quick #/style #/confidence – vectors (learn.json), bundled content (rules, style quiz, confidence units, method texts), grammar download pack https://lexkite.com/data/grammar-pack.json + offline starter
 put(`${SHARED}/vectors/vocab.json`, await vocabVectors());   // M3 vocabulary screens (review/practice/mistakes/deck/dict/library/topic/letters/verb/phrases/model/models/usage/ideas/paraphrase)
 const { vimgVectors } = await import('./gen-vimg.mjs'); // lesson "pic" images: VImg v3 lookup (exact word#pos, shard by FNV) on the lesson + starter words
 {
@@ -367,6 +369,6 @@ for (const [rel, s] of out) {
   if (CHECK) { drift++; console.error(`DRIFT ${rel} (run: node scripts/native/gen.mjs)`); if (!bin && cur && rel.endsWith('.json')) jsonDiff(cur, s).forEach(d => console.error('  ' + d)); }
   else { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, s); console.log('wrote', rel); }
 }
-if (missing.length) { console.error(`MISSING translations (${missing.length}): ${missing.slice(0, 20).join(', ')} – add them through the web i18n pipeline, never in native code`); process.exit(1); }
+if (missing.length) { console.error(`MISSING translations (${missing.length}): ${missing.slice(0, +(process.env.GEN_MISSING_MAX || 20)).join(', ')} – add them through the web i18n pipeline, never in native code`); process.exit(1); }
 if (drift) process.exit(1);
 console.log(`native gen ${CHECK ? 'check' : 'write'} OK: ${colors.length} colours, ${ids.length} strings × ${LANGS.length} langs, ${frame.tabs.length} tabs, ${fsrs.length} FSRS seqs, ${answer.norm.length + answer.check.length} answer vectors, ${G.sync.merge.length} merge + ${G.sync.scenarios.length} sync scenarios, ${G.migration.cases.length} migration cases, content pack ${CP.bytes} B, starter ${ST.bytes} B, ${flagIds.length} flags, ${COMPAT.cases.length} compat cases`);
