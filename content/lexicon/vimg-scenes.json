@@ -17226,8 +17226,8 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "consular#adj": {
-   "e4bad": 1,
-   "badAt": "2026-11-10T12:36:24.856Z"
+   "e4bad": 2,
+   "badAt": "2026-11-10T13:14:18.439Z"
   },
   "consult#v": {
    "ex": "You should consult a doctor before taking this medicine.",
@@ -77464,8 +77464,8 @@
    "refix": 1
   },
   "silky#adj": {
-   "e4bad": 1,
-   "badAt": "2026-11-10T12:36:19.749Z"
+   "e4bad": 2,
+   "badAt": "2026-11-10T13:14:18.439Z"
   },
   "silly#adj": {
    "ex": "Don't be silly; of course you can come.",
@@ -77945,8 +77945,18 @@
    "refix": 2
   },
   "skunk#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-10T12:37:16.472Z"
+   "ex": "The skunk lives under the house.",
+   "ps": "a black and white skunk lifts its tail and sprays a cloud of stink",
+   "sc": "a black and white skunk lifts its tail and sprays a cloud of stink",
+   "check": "Is there a black and white mammal that can release a strong odor when threatened?",
+   "cap": "a striped animal lifts its tail and emits a stinky cloud",
+   "key": "black and white fur on the animal; raised tail releasing a visible spray",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "skyline#n": {
    "ex": "The city skyline has changed dramatically over the past twenty years.",
