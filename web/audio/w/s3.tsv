@@ -9653,3 +9653,13 @@ zither	ok	ok
 reconnoitre	cut_wordis: câu mang: "The word is reconoiter." · dot100:"reconnoiter" 1.01s · cut_wordis100: câu mang: "The word is reconoiter." · cut_next: câu mang: "Next word, reconoiter." · plain095:"reconnoiter" 0.97s · dot090:"reconnoiter" 1.11s	cut_wordis: câu mang: "The word is reconnoiter." · dot100:"Reconnoiter." 0.83s · cut_wordis100: câu mang: "The word is reconnoiter." · cut_next: câu mang: "Next word, reconnoiter." · plain095:"Reconniter." 0.85s · dot090:"Re-connoiter" 0.91s
 stringency	ok	ok
 sinusoid	ok	ok
+reclassify	ok	ok
+shipowner	ok	ok
+inimical	ok	ok
+satirize	cut_wordis: câu mang: "The word is satiriser." · dot100:"Saturizer" 1.00s · cut_wordis100: câu mang: "The word is satirise." · cut_next: câu mang: "Next word, satiriser." · plain095:"Asaturize." 0.93s · dot090:"Saturizae" 1.10s	cut_wordis: câu mang: "The word is Saturize." · dot100:"SatyRise" 0.79s · cut_wordis100: câu mang: "The word is Saturize." · cut_next:"Saturize." 0.89s · cut_next:"How to rise." 0.63s · plain095:"A Saturday Rise." 0.82s · dot090:"Is that a rise?" 0.87s
+certitude	ok	ok
+adroitly	ok	cut_wordis: câu mang: "The word is a-drightly." · dot100:"Edge rightly." 0.75s · cut_wordis100: câu mang: "The word is a drytly." · cut_next: câu mang: "Next word, a drytly." · plain095:"Edge rightly." 0.77s · dot090:"Edge rightly." 0.84s
+threateningly	ok	ok
+transoceanic	ok	ok
+unaccountably	ok	ok
+intertribal	ok	ok
