@@ -17,6 +17,7 @@
  *   skills   scripts/native/gen-skills.mjs: web/js/{listening,reading,qengine,qtips,lexis,listen/kvoice,plan}.js + listen/readings data → vectors/skills.json (M4: parity P06 listening & reading screens; P07/P09 extend)
  *   skillspack scripts/native/gen-skills.mjs skillsPack(): complete LISTENING (10×4) + READINGS (57) + lexis + band/voice/stopword consts → web/data/skills-pack.json (https://lexkite.com/data/skills-pack.json)
  *   speak    scripts/native/gen-speak.mjs: web/js/{speak/*,speaking,pron,pron/*,say,reflex,rtype,roleplay,handsfree}.js → vectors/speak.json (M4: parity P07 speaking & pronunciation) + web/data/speak-pack.json (https://lexkite.com/data/speak-pack.json) + content-pack/speak-starter.json
+ *   call     scripts/native/gen-call.mjs: web/js/{call,call/engine,call/calls*,pron/pairs}.js → vectors/call.json (M4: parity P08 Call Ama/Carlos #/call) + web/data/call-pack.json (https://lexkite.com/data/call-pack.json) + content-pack/call-starter.json
  *   vocab    scripts/native/gen-vocab.mjs: web/js/{core,study,plan,app (deck/library/topic),dictionary,lex,dict-page,ideas,letters,paraphrase,phrases-model,usage-core,verbs-core}.js → vectors/vocab.json (M3: parity P04 + P05 screens)
  * Usage: node scripts/native/gen.mjs          (write)
  *        node scripts/native/gen.mjs --check  (CI drift gate: exit 1 if any generated file differs or a string is missing)
@@ -285,6 +286,8 @@ for (const p of [SHARED, `${IOS}/Sources/LKDesign/Resources`]) put(`${p}/verbs.j
 put(`${SHARED}/vectors/skills.json`, await (await import('./gen-skills.mjs')).skillsVectors());
 { const SP = await import('./gen-speak.mjs'); put(`${SHARED}/vectors/speak.json`, await SP.speakVectors()); put(SP.SPEAK_PACK_PATH, await SP.speakPack());
   const st = await SP.speakStarter(); put(SP.SPEAK_STARTER_PATH, st); put(`${IOS}/Sources/LKStore/Resources/speak-content.json`, st); }   // M4 P07 speaking & pronunciation: vectors (speak, speaking, pron, say, reflex, rtype, roleplay, handsfree) + full content pack https://lexkite.com/data/speak-pack.json + offline starter   // M4 listening & reading screens (listening/listen/listen-test/dictation/reading/read)
+{ const CL = await import('./gen-call.mjs'); put(`${SHARED}/vectors/call.json`, await CL.callVectors()); put(CL.CALL_PACK_PATH, await CL.callPack());
+  const st = await CL.callStarter(); put(CL.CALL_STARTER_PATH, st); put(`${IOS}/Sources/LKStore/Resources/call-content.json`, st); }   // M4 P08 Call Ama/Carlos: vectors (engine, list, ring, flow, rewards, progress, persist, data) + full content pack https://lexkite.com/data/call-pack.json + offline starter (Android assets content-pack/call-starter.json, iOS call-content.json)
 put(`${SHARED}/vectors/vocab.json`, await vocabVectors());   // M3 vocabulary screens (review/practice/mistakes/deck/dict/library/topic/letters/verb/phrases/model/models/usage/ideas/paraphrase)
 const { vimgVectors } = await import('./gen-vimg.mjs'); // lesson "pic" images: VImg v3 lookup (exact word#pos, shard by FNV) on the lesson + starter words
 {

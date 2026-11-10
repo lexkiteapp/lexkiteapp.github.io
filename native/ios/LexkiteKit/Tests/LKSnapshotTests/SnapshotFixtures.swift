@@ -25,6 +25,9 @@ enum SnapshotFixtures {
     static func speakScale(_ testName: String, _ lang: String) -> CGFloat {
         let n = testName.replacingOccurrences(of: "()", with: "")
         return speakMain.contains(n) && lang != "vi" && !(lang == "ar" && speakAr1x.contains(n)) ? 1.5 : 1.0 }
+    /// M4 P08 (#/call): all six states in the four variants; en-light and de-dark at 1.5×, vi-light and ar-light at 1× (the whole PR's images stay small)
+    static func callVariants(_ testName: String) -> [(String, ColorScheme)] { [("en", .light), ("vi", .light), ("ar", .light), ("de", .dark)] }
+    static func callScale(_ testName: String, _ lang: String) -> CGFloat { lang == "vi" || lang == "ar" ? 1.0 : 1.5 }
     static func name(_ lang: String, _ scheme: ColorScheme) -> String { "\(lang)-\(scheme == .dark ? "dark" : "light")" }
 
     /// Fixed, realistic learner state (no clock, no network): computed with the web definitions from a fixed document.
