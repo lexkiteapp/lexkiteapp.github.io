@@ -228,6 +228,7 @@ struct CallRunView: View {
             Text(verbatim: t(.callUiGoiYTraLoi)).studyText(LKType.titlePill)
         case .fix(let f):
             VStack(alignment: .leading, spacing: 2) {
+                Text(verbatim: t(.callUiNameHieuYBan, ["name": s.teacherName])).studyText(LKType.titlePill).fixedSize(horizontal: false, vertical: true) // web call.js: the gentle-fix intro line
                 (Text(verbatim: f.bad).strikethrough() + Text(verbatim: " → ") + Text(verbatim: f.good).fontWeight(.bold))
                     .studyText(LKType.bodyMd).englishText().fixedSize(horizontal: false, vertical: true)
                 Text(verbatim: t(f.why)).studyText(LKType.bodySm, LKColor.onSurfaceVariant).fixedSize(horizontal: false, vertical: true)

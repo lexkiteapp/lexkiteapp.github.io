@@ -290,7 +290,7 @@ fun CallRoomScreen(ui: CallRoomUi, a: CallActions, gate: (() -> Unit) -> Unit) {
                 IconTap(if (optionsOpen) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown, trs(Tr("Gợi ý trả lời")), { optionsOpen = !optionsOpen })
                 Column(Modifier.weight(1f).padding(top = 10.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
                     when (val tip = v.tip) {
-                        is CallTip.FixTip -> { EnLtr { FixLine(tip.fix.bad, tip.fix.good) }; Muted(trs(tip.fix.why)) }
+                        is CallTip.FixTip -> { Body(trs(Tr("{name} hiểu ý bạn! Nói tự nhiên hơn:", mapOf("name" to call.teacher))), style = LKType.titlePill); EnLtr { FixLine(tip.fix.bad, tip.fix.good) }; Muted(trs(tip.fix.why)) } // web call.js: the gentle-fix intro line
                         is CallTip.SlipTip -> Body("👂 " + trs(Tr("Nghe giống “{said}” – bạn muốn nói “{meant}”? Hai từ này chỉ khác một âm.", mapOf("said" to tip.slip.said, "meant" to tip.slip.meant))))
                         else -> Body(trs(Tr("Gợi ý trả lời")), style = LKType.titlePill)
                     }
