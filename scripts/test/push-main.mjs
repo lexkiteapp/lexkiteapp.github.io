@@ -5,8 +5,9 @@ import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path'
 const ROOT = process.cwd(), SH = path.join(ROOT, 'scripts/ci/push-main.sh');
 let bad = 0; const ok = (c, m) => { if (!c) { bad++; console.error('✗', m); } else console.log('  ✓', m); };
 const T = fs.mkdtempSync(path.join(process.env.TMPDIR || os.tmpdir(), 'pushmain-'));
-const g = (cwd, ...a) => execFileSync('git', a, { cwd, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
+// danh tính git qua biến môi trường cho MỌI lệnh (runner CI không có user.name/email toàn cục – commit trong bản sao tạm sẽ bị từ chối)
 const ENV = { ...process.env, GIT_AUTHOR_NAME: 't', GIT_AUTHOR_EMAIL: 't@t', GIT_COMMITTER_NAME: 't', GIT_COMMITTER_EMAIL: 't@t', PUSH_MAIN_SLEEP: '0' };
+const g = (cwd, ...a) => execFileSync('git', a, { cwd, env: ENV, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
 const run = (cwd, args, env = {}) => spawnSync('bash', [SH, ...args], { cwd, env: { ...ENV, ...env }, encoding: 'utf8' });
 const W = (d, f, s) => { fs.mkdirSync(path.dirname(path.join(d, f)), { recursive: true }); fs.writeFileSync(path.join(d, f), s); };
 const R = (d, f) => { try { return fs.readFileSync(path.join(d, f), 'utf8'); } catch { return null; } };
