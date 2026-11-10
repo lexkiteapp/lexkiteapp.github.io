@@ -99,7 +99,9 @@ fun SkillsHubRoute(open: (String) -> Unit) {
             // M4 P07: speaking, pronunciation and the other speaking games (screens in :feature-speak; titles are the web's source keys, translated from the speak.* ids)
             val tr = t
             for ((r, emoji, key) in listOf(Triple("speaking", "🗣️", "Phòng luyện Speaking"), Triple("pron", "🔤", "Thư viện phát âm"), Triple("say", "💬", "Nói như người bản xứ"), Triple("reflex", "⚡", "Phản xạ 60 giây"),
-                Triple("rtype", "🎯", "Luyện Reading theo dạng câu hỏi"), Triple("roleplay", "🎭", "Hội thoại đóng vai"), Triple("call", "📞", "Gọi cho Ama & Carlos"), Triple("handsfree", "🎧", "Học rảnh tay")))
+                Triple("rtype", "🎯", "Luyện Reading theo dạng câu hỏi"), Triple("roleplay", "🎭", "Hội thoại đóng vai"), Triple("call", "📞", "Gọi cho Ama & Carlos"), Triple("handsfree", "🎧", "Học rảnh tay"),
+                // M4 P09: writing (screens in :feature-vocab, WORD_ROUTES)
+                Triple("write", "✍️", "Phòng viết"), Triple("task1", "📈", "Writing Task 1"), Triple("criteria", "📊", "Tiêu chí chấm IELTS"), Triple("qstats", "📊", "Tiến bộ theo kỹ năng và dạng câu hỏi")))
                 LKCard(onClick = { open(r) }, label = tr.src(key)) { Body(emoji + " " + tr.src(key), style = LKType.titlePill) }
         }
     }

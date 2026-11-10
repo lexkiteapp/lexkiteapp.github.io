@@ -175,7 +175,7 @@ class MainActivity : ComponentActivity() {
         speak = { route, arg, query, onExit, open, replace -> SpeakRoute(speakEnv(lang), speakSlots, route, arg, query, open, replace, onExit) },
         words = { route, arg, query, onExit, open ->
             val t = com.lexkite.app.design.LocalL10n.current
-            val env = remember(lang) { WordEnv(app.store, app.audio, UrlHttp, { name -> assets.open(name).bufferedReader().use { it.readText() } }, lang, wordIndex = { StudyWords.load(UrlHttp, cacheDir)?.index ?: emptyMap() }, tx = StudyTx.of(t, L10n.load(this@MainActivity, "vi"))) }
+            val env = remember(lang) { WordEnv(app.store, app.audio, UrlHttp, { name -> assets.open(name).bufferedReader().use { it.readText() } }, lang, wordIndex = { StudyWords.load(UrlHttp, cacheDir)?.index ?: emptyMap() }, wordTopics = { StudyWords.load(UrlHttp, cacheDir)?.topics ?: emptyList() }, tx = StudyTx.of(t, L10n.load(this@MainActivity, "vi"))) }
             WordRoute(env, route, arg, query, onExit, open)
         },
     )

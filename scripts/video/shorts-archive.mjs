@@ -40,6 +40,15 @@ export function planArchive(items, keep, now = Date.now(), { maxRetire = 50 } = 
 }
 
 /** Cân bằng chuyển file sang Drive khác và cho bản cũ vào thùng rác → ghi fileId/driveId mới vào index, không thì URL ký vẫn trỏ file cũ. */
+export const REBALANCE_MAX_BYTES = 256 * 1024 * 1024;   // 1 file ≤ 256 MB/lượt: chép chéo xong trong < 100 s (giới hạn phản hồi Cloudflare)
+/** Lượt cân bằng bị cắt (524) có thể ĐÃ chuyển file: hỏi `where` theo sha, file cũ không còn 'ok' mà có bản 'ok' ở Drive khác → cập nhật index. */
+export async function reconcileMove(api, items, x) {
+  if (!x || !x.sha) return 0;
+  let copies; try { copies = (await api('where', { q: x.sha })).copies || []; } catch { return 0; }
+  if (copies.some(c => c.file_id === x.file_id && c.status === 'ok')) return 0;   // chưa chuyển: index vẫn đúng
+  const nu = copies.find(c => c.status === 'ok' && c.drive_id === x.to) || copies.find(c => c.status === 'ok' && c.drive_id !== x.from);
+  return nu ? applyMoves(items, [{ file_id: x.file_id, new_file_id: nu.file_id, to: nu.drive_id }]) : 0;
+}
 export function applyMoves(items, done) {
   let n = 0;
   for (const x of done) for (const it of items) for (const k of ['video', 'cover']) {
@@ -90,10 +99,20 @@ export async function runArchive({ repo, dry = false, maxRetire = 50, rebalanceC
     await sleep(pause);
   }
   let moved = 0;
-  for (let k = 0; k < rebalanceCalls; k++) {   // background rebalance with resume + rate limit
+  // Cân bằng: 1 file/lượt gọi (chép chéo tài khoản đi qua Worker; 10 file/lượt vượt 100 s của Cloudflare → 524, 09/11 drive-shorts đỏ và
+  // các file đã chuyển trong lượt đó KHÔNG về được index). 5xx/524 → đối chiếu sự thật bằng `where` theo sha rồi dừng tới mai (không đỏ).
+  for (let k = 0; k < rebalanceCalls; k++) {
     const plan = await api('rebalance', {}); rep.remaining = (plan.plan || []).length;
     if (!rep.remaining) break;
-    const r = await api('rebalance', { apply: true, max_files: 10 }); rep.rebalanced += (r.done || []).length; rep.remaining = r.remaining || 0;
+    let r;
+    try { r = await api('rebalance', { apply: true, max_files: 1, max_bytes: REBALANCE_MAX_BYTES }); }
+    catch (e) {
+      if (!(e.status >= 500)) throw e;
+      const x = plan.plan[0]; moved += await reconcileMove(api, idx.items, x);
+      log(`::warning::cân bằng: Worker ${e.status} khi chuyển ${x && x.name} – đã đối chiếu index theo sha, dừng cân bằng tới lượt sau (còn ${rep.remaining})`);
+      rep.interrupted = e.status; break;
+    }
+    rep.rebalanced += (r.done || []).length; rep.remaining = r.remaining || 0;
     moved += applyMoves(idx.items, r.done || []);
     if ((r.failed || []).length) { rep.failed = (rep.failed || 0) + r.failed.length; log(`::warning::cân bằng lỗi ${r.failed.length} file: ${[...new Set(r.failed.map(x => x.error))].join(', ')}`); }
     if (!(r.done || []).length) break; await sleep(pause);

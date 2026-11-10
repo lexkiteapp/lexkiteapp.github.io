@@ -135,6 +135,7 @@ node scripts/test/cron-watch.mjs
 node scripts/test/cron-kick.mjs
 node scripts/test/ci-hog.mjs
 node scripts/test/queue-report.mjs
+node scripts/test/busy-gate.mjs
 node scripts/test/reminders.mjs
 node scripts/test/notify-ux.mjs
 node scripts/test/fcm-push.mjs
@@ -317,6 +318,8 @@ node scripts/test/cambridge.mjs
 node scripts/test/teacher-rig.mjs
 node scripts/test/teach2d-rig.mjs
 node scripts/test/workflow-yaml.mjs
+node scripts/test/workflow-call-perms.mjs
+node scripts/test/push-main.mjs
 node scripts/test/samples-seo-parity.mjs --self-test
 node scripts/native/gen.mjs --check
 node scripts/test/native-one-source.mjs --self-test
