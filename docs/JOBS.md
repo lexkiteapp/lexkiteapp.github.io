@@ -76,6 +76,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 03:41 | `content-evidence` | `41 3 * * *`<br>`23 4 1 * *` | reports | gh_minutes | 30 | — | — |
 | 03:41 | `storage-watch` | `41 3 * * 1` | reports | gh_minutes | 5 | d1_internal_reads≈10 | ✓ |
 | 03:47 | `drive-repair` | `47 3 * * *` | archive | drive_pool | 30 | drive_calls≈100 | — |
+| 03:53 | `video-auto` | `17 23 * * *`<br>`53 3,6 * * *` | render | gh_minutes | 90 | — | — |
 | 04:17 | `ads-demo` | `17 4 * * 1` | reports | gh_minutes | 30 | — | — |
 | 04:23 | `drive-shorts` | `23 4 * * *` | archive | drive_pool, d1_internal | 20 | d1_internal_reads≈20000, drive_calls≈1500 | ✓ |
 | 04:40 | `capacity-sim` | `40 4 * * 1` | reports | gh_minutes | 10 | — | — |
@@ -102,7 +103,6 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 22:00 | `i18n-leak` | `0 22 * * *` | reports | gh_minutes | 20 | — | — |
 | 22:40 | `quality-sweep` | `40 22 * * *` | reports | gh_minutes | 45 | — | ✓ |
 | 23:10 | `content-qa` | `10 23 * * *` | reports | gh_minutes | 5 | — | — |
-| 23:17 | `video-auto` | `17 23 * * *` | render | gh_minutes | 90 | — | — |
 | 23:30 | `blog-daily` | `30 23 * * *` | publishing | gemini, gh_minutes | 30 | — | — |
 
 Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: việc nền "đăng bài" trước, rồi dựng, lưu trữ (footage-archive 01:45 → drive-shorts → d1b-migrate 05:30), báo cáo.

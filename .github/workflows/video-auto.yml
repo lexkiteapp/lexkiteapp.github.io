@@ -4,7 +4,7 @@ name: Video tự động (hằng ngày)
 on:
   schedule:
     - cron: '17 23 * * *' # 06:17 giờ VN – video xong trước giờ vàng New York 7·8 giờ
-    - cron: '17 3,6 * * *' # lượt thấp điểm dự phòng (chủ 10/11): chỉ chạy khi lượt chính bị dời vì hàng CI đông
+    - cron: '53 3,6 * * *' # lượt thấp điểm dự phòng (chủ 10/11): chỉ chạy khi lượt chính bị dời vì hàng CI đông
   workflow_dispatch:
     inputs:
       n: { description: 'Số video tạo lần này (1–5)', required: false, default: '1' }
