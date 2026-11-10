@@ -37,7 +37,7 @@ class FixIssue(val s: Int, val e: Int, val type: String, val reps: List<String>,
  * M4 P09 - #/fix: the offline rule engine `LK_WRITE.check` of web/js/writecheck-rules.js. The rule table (regex source, flags, type, title, why, lesson) and the word tables come from
  * `content-pack/learn-content.json` (`fix`, generated from the web file); only the per-rule replacement functions are ported here. Verified against vectors/learn.json `fix` (LearnVectorsTest).
  */
-class FixEngine(j: JsonObject) {
+class FixEngine(private val j: JsonObject) {
     private class Rule(val id: String, val re: Pattern, val type: String, val title: String, val why: String, val lesson: String)
     private class Hit(val s: Int, val e: Int, val reps: List<String>, val levels: List<String>? = null)
     private class M(val m: Matcher, val text: String) {

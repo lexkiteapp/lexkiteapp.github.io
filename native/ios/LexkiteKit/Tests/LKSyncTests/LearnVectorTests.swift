@@ -84,9 +84,9 @@ final class LearnVectorTests: XCTestCase {
         }
         for c in V.list("rpLevel") { let x = Confidence.rpLevel(c.s("level")); r.check(x.0 == c.i("L") && x.1 == c.strs("lv"), "rpLevel \(c.s("level"))") }
         for c in V.list("dailyIdx") { r.eq(Confidence.dailyIndex(now: Int64(c.i("epochDay")) * 86_400_000, tzOffsetMinutes: 0, count: conf.list("daily").count), c.i("idx"), "daily index") }
-        r.eq(conf.units.count, V["counts"]?.i("units") ?? 0, "units"); r.eq(conf.list("toolkit").count, V["counts"]?.i("toolkit") ?? 0, "toolkit"); r.eq(conf.list("daily").count, V["counts"]?.i("daily") ?? 0, "daily")
+        r.eq(conf.list("units").count, V["counts"]?.i("units") ?? 0, "units"); r.eq(conf.list("toolkit").count, V["counts"]?.i("toolkit") ?? 0, "toolkit"); r.eq(conf.list("daily").count, V["counts"]?.i("daily") ?? 0, "daily")
         // the role-play scenario of a unit has every line for the three levels
-        for u in conf.units { let s = Confidence.roleplayScript(u); r.check(s.list("turns").allSatisfy { $0.list("a").count == 3 && $0.list("h").count == 3 } && s.list("end").count == 3, "roleplay script \(u.s("id"))") }
+        for u in conf.list("units") { let s = Confidence.roleplayScript(u); r.check(s.list("turns").allSatisfy { $0.list("a").count == 3 && $0.list("h").count == 3 } && s.list("end").count == 3, "roleplay script \(u.s("id"))") }
         finish(r, "confidence")
     }
 
