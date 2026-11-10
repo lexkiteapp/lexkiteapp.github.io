@@ -50,6 +50,16 @@ export function collect() {
     for (const q of [...(p.phases || []).flatMap(x => [...(x.q || []), ...(x.extended ? [x.extended] : [])]), p.prompt, ...(p.follow || [])]) if (q) addOne(GEN['en-GB'], q, 'cambridge-speaking');
     for (const l of p.partnerLines || []) addOne(GEN['en-US'], l, 'cambridge-speaking');
   }
+  // Trung gian (#/mediate, docs/specs/mediation.md): nguồn đọc/nói/hội thoại đọc to bằng giọng cố định của MediateCore.voices (web/js/mediate.js play()) – biểu đồ không đọc
+  if (fs.existsSync('web/cpack/mediation')) {
+    vm.runInContext(fs.readFileSync('web/js/mediate-core.js', 'utf8'), c);
+    for (const f of fs.readdirSync('web/cpack/mediation').filter(f => /^m\d+\.js$/.test(f)).sort()) vm.runInContext(fs.readFileSync('web/cpack/mediation/' + f, 'utf8'), c);
+    for (const X of Object.values(c.MEDIATION || {})) {
+      const S = X.source, V = c.MediateCore.voices(S);
+      if (S.kind === 'dialogue') for (const l of S.lines || []) oneSplit(V[l.s], l.t, 'mediation-source');
+      else if (S.kind !== 'chart') oneSplit(V._narrator, c.MediateCore.sourceText(S), 'mediation-source');
+    }
+  }
   for (const u of (c.TOEFL || {}).speaking || []) { const v = GEN[u.accent] || GEN['en-GB']; for (const x of u.sentences || []) x.t && addOne(v, x.t, 'toefl-speaking'); for (const x of u.questions || []) x.q && addOne(v, x.q, 'toefl-speaking'); }
   {
     const sp = fs.readFileSync('web/js/speaking.js', 'utf8'), i0 = sp.indexOf('const BANK = [') + 13;

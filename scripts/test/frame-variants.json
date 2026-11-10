@@ -23,6 +23,7 @@
   "ideas": {"variant": "inner", "surface": ["info"]},
   "league": {"variant": "inner", "surface": ["leagues"]},
   "lesson": {"variant": "focus", "surface": ["lesson-question"]},
+  "mediate": {"variant": "focus", "surface": ["mediate"]},
   "letters": {"variant": "inner", "surface": ["verbs"]},
   "library": {"variant": "inner", "surface": ["library"]},
   "listen": {"variant": "inner", "surface": ["listening"]},

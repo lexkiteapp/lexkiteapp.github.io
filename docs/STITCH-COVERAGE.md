@@ -1,6 +1,6 @@
 # Phủ Stitch – màn nào đã port, màn nào còn viết tay
 
-> TL;DR: 17 bề mặt đã port từ Stitch (id + cổng SSIM); còn 51 chia 17 lô ≤5 màn. Nguồn: `docs/stitch-coverage.json` (sinh bằng `node scripts/test/stitch-coverage.mjs --write`); CI cảnh báo route/màn thiếu id (chưa fail).
+> TL;DR: 17 bề mặt đã port từ Stitch (id + cổng SSIM); còn 52 chia 18 lô ≤5 màn. Nguồn: `docs/stitch-coverage.json` (sinh bằng `node scripts/test/stitch-coverage.mjs --write`); CI cảnh báo route/màn thiếu id (chưa fail).
 > Đọc khi: chọn lô port Stitch kế tiếp, thêm route/màn mới (phải thêm vào JSON), hoặc kiểm cổng.
 
 Chuẩn: Lexkite Kit (assets/1b7a8a3d3d52404bb332d9ba3f783547), cách port [STITCH-V2-PORT.md](STITCH-V2-PORT.md), trang web [WEB-PAGES.md](WEB-PAGES.md). Cổng `diff:k` = khóa trong `scripts/test/stitch-screens.mjs` (SSIM + tương phản + a11y).
@@ -46,6 +46,7 @@ Chuẩn: Lexkite Kit (assets/1b7a8a3d3d52404bb332d9ba3f783547), cách port [STIT
 | W4 Admin | Admin: KPI · bảng · media · studio · khóa (5 kiểu) | có screen Kit, chưa port |
 | X1 Add-on | Add-on: popup · Add-on: tab mới · Add-on: popup từ trên trang + FAB/tooltip/toast · Add-on: gạch chân & gợi ý viết | có screen Kit, chưa port |
 | E1 Email · OG | Thư tuần (weekly-digest) · Ảnh OG / mạng xã hội | có screen Kit, chưa port |
+| -  | Trung gian: luyện chuyển ý | PR chờ duyệt |
 
 Không cần Stitch: Ảnh cửa hàng (Chrome/iOS/Play) (chụp từ màn khác); web/design/gallery.html (QA nội bộ). Sitemap/rss/robots không hiển thị.
 Brief từng lô (≤15 dòng): side-session-notes `stitch-batches.md`. Mỗi lô cần chủ duyệt ảnh; tối đa 2 phiên port cùng lúc.
