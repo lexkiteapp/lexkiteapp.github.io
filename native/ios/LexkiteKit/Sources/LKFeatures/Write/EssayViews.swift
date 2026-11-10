@@ -86,8 +86,8 @@ struct EssayView: View {
                 if !task1 {
                     Menu {
                         ForEach(model.prompts, id: \.self) { p in Button(p.s("type") + " · " + t(.writeWriteDeN, ["n": Essay.sessionNumber(p.s("id"))])) { model.select(p.s("id")) } }
-                    } label: { Label(t(.writeWriteChonDe), systemImage: "list.bullet").labelStyle(.iconOnly).frame(width: LKFrame.shared.minTap, height: LKFrame.shared.minTap) }
-                    Button { model.randomPrompt() } label: { Image(systemName: "dice.fill").frame(width: LKFrame.shared.minTap, height: LKFrame.shared.minTap) }
+                    } label: { Label(t(.writeWriteChonDe), systemImage: "list.bullet").labelStyle(.iconOnly).frame(width: LKFrame.shared.minTap, height: LKFrame.shared.minTap).foregroundStyle(LKColor.primary.resolve(scheme)) }
+                    Button { model.randomPrompt() } label: { Image(systemName: "dice.fill").frame(width: LKFrame.shared.minTap, height: LKFrame.shared.minTap).foregroundStyle(LKColor.primary.resolve(scheme)) }
                         .accessibilityLabel(t(.writeWriteDeNgauNhien))
                 }
             }
