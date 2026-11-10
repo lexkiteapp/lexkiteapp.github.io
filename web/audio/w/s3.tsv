@@ -9593,30 +9593,7 @@ dentition	ok	ok
 expansionism	ok	ok
 ignominy	ok	ok
 oceanographer	ok	ok
-retaliate	ok	ok
-alimony	ok	ok
-incoherent	ok	ok
-workmanship	ok	ok
-credence	ok	ok
-henceforth	ok	ok
-indignation	ok	ok
-orthography	ok	ok
-parallelism	ok	ok
-conflagration	ok	ok
-electrophoresis	ok	ok
-bicker	ok	ok
-rectification	ok	ok
-eavesdrop	ok	ok
-superconductivity	ok	ok
-emanate	ok	ok
-phonetics	ok	ok
-falsify	ok	ok
-gasification	ok	ok
-anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
-porpoise	ok	ok
-systematics	ok	ok
 surrealistic	ok	ok
-intraspecific	ok	ok
 determinable	ok	ok
 gateau	cut_wordis: câu mang: "The word is gato." · dot100:"Gattoo" 0.73s · cut_wordis100: câu mang: "The word is gato." · cut_next: câu mang: "Next word, gato." · plain095:"I got to" 0.67s · dot090:"I got to." 0.78s	cut_wordis: câu mang: "The word is gatto." · dot100:"Gatto." 0.61s · cut_wordis100: câu mang: "The word is gatto." · cut_next: câu mang: "Next word, gatto." · plain095:"Gatto." 0.61s · dot090:"Gatto." 0.65s
 contestable	ok	ok
@@ -9643,7 +9620,6 @@ treeless	ok	ok
 dyspnea	ok	ok
 strategical	ok	ok
 superimpose	ok	ok
-reconnoitre	cut_wordis: câu mang: "The word is reconoiter." · dot100:"reconnoiter" 1.01s · cut_wordis100: câu mang: "The word is reconoiter." · cut_next: câu mang: "Next word, reconoiter." · plain095:"reconnoiter" 0.97s · dot090:"reconnoiter" 1.11s	cut_wordis: câu mang: "The word is reconnoiter." · dot100:"Reconnoiter." 0.83s · cut_wordis100: câu mang: "The word is reconnoiter." · cut_next: câu mang: "Next word, reconnoiter." · plain095:"Reconniter." 0.85s · dot090:"Re-connoiter" 0.91s
 sinusoid	ok	ok
 reclassify	ok	ok
 shipowner	ok	ok
@@ -9654,3 +9630,25 @@ adroitly	ok	cut_wordis: câu mang: "The word is a-drightly." · dot100:"Edge rig
 transoceanic	ok	ok
 unaccountably	ok	ok
 intertribal	ok	ok
+retaliate	ok	ok
+alimony	ok	ok
+incoherent	ok	ok
+workmanship	ok	ok
+credence	ok	ok
+henceforth	ok	ok
+indignation	ok	ok
+orthography	ok	ok
+parallelism	ok	ok
+conflagration	ok	ok
+electrophoresis	ok	ok
+bicker	ok	ok
+rectification	ok	ok
+eavesdrop	ok	ok
+superconductivity	ok	ok
+emanate	ok	ok
+phonetics	ok	ok
+falsify	ok	ok
+gasification	ok	ok
+anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
+porpoise	ok	ok
+systematics	ok	ok
