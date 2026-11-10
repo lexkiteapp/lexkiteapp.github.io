@@ -1,4 +1,4 @@
-> TL;DR: Kiểm kê P09 (Viết & ngữ pháp: #/write #/task1 #/qstats #/criteria xong; #/fix #/grammar #/method #/quick #/style #/confidence chưa): vector `write.json`, gói `write-pack.json`, nguồn dữ liệu, chỗ lưu, chỗ khác web.
+> TL;DR: Kiểm kê P09 (Viết & ngữ pháp: đủ 10 route: #/write #/task1 #/qstats #/criteria #/fix #/grammar #/method #/quick #/style #/confidence): vector `write.json` + `learn.json`, gói `write-pack.json` + `grammar-pack.json`, nguồn dữ liệu, chỗ lưu, chỗ khác web.
 > Đọc khi: port hoặc sửa các màn viết trên iOS/Android, hoặc làm tiếp 6 route còn lại của P09.
 
 ### Kiểm kê P09 – Viết & ngữ pháp (`vectors/write.json`, `gen-write.mjs`, ~172 KB, gác: `native-m2-vectors.mjs` mục 11)
