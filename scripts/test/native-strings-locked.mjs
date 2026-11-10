@@ -11,5 +11,5 @@ if (bad.length) { console.error(`✗ ${bad.length} chuỗi native chưa khoá b�
 console.log(`✓ native-strings-locked: ${Object.keys(E).length} chuỗi, không chuỗi nào chờ bot dịch máy`);
 // Gốc rễ #983: bot i18n dịch lại khóa native rồi commit [skip ci] → native trôi. Máy gác: i18n-fix khóa chữ native đã phát hành, bot kiểm gen --check trước commit.
 { const fix = fs.readFileSync('scripts/i18n-fix.mjs', 'utf8'), wf = fs.readFileSync('.github/workflows/i18n.yml', 'utf8');
-  const errs = [!/native\/shared\/gen\/strings/.test(fix) && 'scripts/i18n-fix.mjs mất khóa native', !/native\/gen\.mjs --check(?! *\|)/.test(wf) && 'i18n.yml thiếu bước gen.mjs --check (không pipe) trước commit', wf.indexOf('gen.mjs --check') > wf.indexOf('git commit') && 'i18n.yml: gen.mjs --check phải chạy trước git commit'].filter(Boolean);
+  const errs = [!/native\/shared\/gen\/strings/.test(fix) && 'scripts/i18n-fix.mjs mất khóa native', !/native\/gen\.mjs --check(?! *\|)/.test(wf) && 'i18n.yml thiếu bước gen.mjs --check (không pipe) trước commit', wf.indexOf('gen.mjs --check') > wf.search(/git commit|scripts\/ci\/push-main\.sh/) && 'i18n.yml: gen.mjs --check phải chạy trước git commit'].filter(Boolean);
   if (errs.length) { console.error('✗ native-strings-locked: ' + errs.join('; ')); process.exit(1); } }

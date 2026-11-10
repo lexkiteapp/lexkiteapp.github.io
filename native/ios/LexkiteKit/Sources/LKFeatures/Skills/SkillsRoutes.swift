@@ -74,10 +74,16 @@ struct SkillsHubView: View {
                     door("mic.fill", t(.speakSpkPhongLuyenSpeaking), AppRoute("speaking"))
                     door("waveform", t(.speakPronThuVienPhatAm), AppRoute("pron"))
                     door("bubble.left.and.bubble.right.fill", t(.speakRpHoiThoaiDongVai), AppRoute("roleplay"))
+                    door("phone.fill", t(.callUiGoiChoAmaCarlos), AppRoute("call"))   // M4 P08
                     door("quote.bubble.fill", t(.speakSayNoiNhuNguoiBan), AppRoute("say"))
                     door("bolt.fill", t(.speakReflexPhanXa60Giay), AppRoute("reflex"))
                     door("list.bullet.rectangle.fill", t(.speakRtypeCacDangCauHoi), AppRoute("rtype"))
                     door("headphones.circle.fill", t(.revHandsFreeMode), AppRoute("handsfree"))
+                    // M4 P09: writing
+                    door("pencil.line", t(.revWritingRoom), AppRoute("write"))
+                    door("chart.line.uptrend.xyaxis", "Writing Task 1", AppRoute("task1"))
+                    door("chart.bar.fill", t(.writeCriteriaTieuChiChamIelts), AppRoute("criteria"))
+                    door("chart.pie.fill", t(.skillQtTienBoTheoKy), AppRoute("qstats"))
                 }
                 .padding(.horizontal, LKFrame.shared.gutter).padding(.top, LKSpacing.spaceSm)
                 .frame(maxWidth: LKFrame.shared.width).frame(maxWidth: .infinity)

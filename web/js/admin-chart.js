@@ -28,5 +28,11 @@
     const leg = keys.length > 1 || keys[0].l ? `<div class="ach-leg">${keys.map(k => `<span><i style="background:${k.c || 'var(--primary)'}"></i>${esc(k.l || '')}</span>`).join('')}</div>` : '';
     return `<figure class="ach${line ? ' line' : ''}" role="img" aria-label="${esc(o.aria || '')}" style="--ach-h:${o.h || 200}px"><div class="ach-p"><div class="ach-g" aria-hidden="true">${grid}</div>${svg}<div class="ach-cs" aria-hidden="true">${cols}</div></div>${leg}</figure>`;
   }
-  window.AdminChart = { chart, bars: (rows, o) => chart(rows, o), line: (rows, o) => chart(rows, { ...o, type: 'line' }), nice };
+  // Meter dùng chung (#998 hạn mức YouTube · #ads sẵn sàng): o.fmt định dạng số; mặc định là HẠN MỨC (≥ 70 % vàng, ≥ 90 % đỏ), o.goal = MỤC TIÊU (đủ = xanh, chưa đủ = vàng). Kiểu .vx-m*/.vx-mb ở css/admin.css.
+  function meter(label, used, limit, unit = '', o = {}) {
+    const f = o.fmt || num, u = +used || 0, lim = +limit || 0, p = lim ? Math.min(100, u / lim * 100) : 0, tail = f(lim) + (unit ? ' ' + unit : '');
+    const tone = o.goal ? (p >= 100 ? ' ok' : ' warn') : p >= 90 ? ' bad' : p >= 70 ? ' warn' : '';
+    return `<div class="vx-m"><div class="vx-m-h"><span>${esc(label)}</span><span class="vx-m-v"><b>${esc(f(u))}</b> / ${esc(tail)}</span></div><div class="vx-mb${tone}" role="meter" aria-label="${esc(label)}" aria-valuemin="0" aria-valuemax="${lim}" aria-valuenow="${Math.min(u, lim)}" aria-valuetext="${esc(f(u) + ' / ' + tail)}"><i style="width:${u ? Math.max(1, p).toFixed(1) : 0}%"></i></div></div>`;
+  }
+  window.AdminChart = { chart, bars: (rows, o) => chart(rows, o), line: (rows, o) => chart(rows, { ...o, type: 'line' }), nice, meter };
 })();

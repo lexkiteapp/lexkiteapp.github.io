@@ -8,6 +8,7 @@ import com.lexkite.app.core.vocab.gs
 import com.lexkite.app.core.vocab.jsTrim
 import com.lexkite.app.core.vocab.strs
 import com.lexkite.app.core.vocab.Topic
+import com.lexkite.app.core.write.Essay
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
@@ -160,6 +161,26 @@ class Lexis(awl: Collection<String>, link: Collection<String>, phrases: List<Pai
         }
         phraseRe?.findAll(clean)?.forEach { m -> val k = m.value.lowercase().replace(WS, " "); phr[k] = (phr[k] ?: 0) + 1; if (phraseType[k] == "link") linkM[k] = (linkM[k] ?: 0) + 1 }
         return Analysis(awlM, linkM, phr)
+    }
+
+    /** web `Lexis.analyze(text)` in full (the report of #/write): [stop] = the STOP table of lexis.js (write pack `lexis.stop`), [indexed] = membership of the word library (IELTS_DATA.INDEX). */
+    fun essay(text: String, stop: Set<String>, indexed: (String) -> Boolean): Essay.Analysis {
+        val clean = WS.replace(text, " ").trim()
+        val sents = if (clean.isEmpty()) emptyList() else sentencesOf(clean).map { it.trim() }.filter { it.isNotEmpty() }
+        val words = Essay.tokens(clean)
+        val content = words.filter { it !in stop && it.length > 2 }
+        val freq = LinkedHashMap<String, Int>(); val awlC = Essay.Counter(); val linkC = Essay.Counter(); val phr = Essay.Counter()
+        for (w in content) { val b = bases(w).firstOrNull(indexed) ?: w; freq[b] = (freq[b] ?: 0) + 1 }
+        for (w in words) { val (a, l) = classify(w); if (a != null) awlC.add(a); if (l != null) linkC.add(l) }
+        phraseRe?.findAll(clean)?.forEach { m -> val k = m.value.lowercase().replace(WS, " "); phr.add(k); if (phraseType[k] == "link") linkC.add(k) }
+        val lens = sents.map { Essay.words(it) }
+        val avg = if (lens.isEmpty()) 0.0 else lens.sum().toDouble() / lens.size
+        val sd = if (lens.isEmpty()) 0.0 else Math.sqrt(lens.sumOf { (it - avg) * (it - avg) } / lens.size)
+        val diversity = if (content.isEmpty()) 0.0 else content.map { bases(it).last() }.toSet().size.toDouble() / content.size
+        val overused = freq.entries.filter { it.value >= 4 && it.key !in awl && it.key !in link }.sortedByDescending { it.value }.take(8).map { Essay.Count(it.key, it.value) }
+        val awlRatio = if (words.isEmpty()) 0.0 else awlC.total.toDouble() / words.size
+        return Essay.Analysis(words.size, sents.size, avg, sd, diversity, awlC.entries, linkC.entries, phr.entries, overused, awlRatio,
+            Essay.lexicalBand(words.size, awlRatio, phr.entries.size, linkC.entries.size, diversity, overused.size))
     }
 
     private fun esc(s: String) = s

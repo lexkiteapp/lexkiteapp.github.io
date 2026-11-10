@@ -115,7 +115,7 @@ const ENV = { DB, GRABCAST_API_KEY: 'gk_live_SECRET_auto_123456', SHORTS_READ_TO
 await MGR.setupMgr(DB);
 sql.exec('CREATE TABLE yt_queue (clip TEXT PRIMARY KEY, lesson TEXT, status TEXT, privacy TEXT, publish_at TEXT, approved_by TEXT, approved_at INTEGER, video_id TEXT, upload_url TEXT, session_at INTEGER, attempts INTEGER DEFAULT 0, err TEXT, updated INTEGER, thumb INTEGER, title TEXT, channel_id TEXT); CREATE TABLE clip_review (clip TEXT PRIMARY KEY, state TEXT, deleted INTEGER, web INTEGER)');
 for (const c of [CA, CB, CC]) sql.prepare("INSERT INTO yt_queue (clip, status) VALUES (?, 'manual')").run(c);
-const setCfg = o => sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v").run(JSON.stringify({ plats: { tiktok: false }, plan_daily: false, sync_h: 6, provider: 'grabcast', ...o }), now);
+const setCfg = o => sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v").run(JSON.stringify({ policy: 'owner-1011', plats: { tiktok: false }, plan_daily: false, sync_h: 6, provider: 'grabcast', ...o }), now);
 setCfg({});
 await A.runAuto({ ...ENV, GRABCAST_API_KEY: '' }, { now }); // tạo bảng
 const ext = sql.prepare('INSERT INTO dist_ext (channel_id, platform, account_id, title, status, updated) VALUES (?, ?, ?, ?, ?, ?)');

@@ -1,4 +1,4 @@
-// Native M2–M4 – the shared layer's vectors (lesson engine P03, teacher rig C05, audio C04, lesson strings, M3 vocab P04/P05, M4 skills P06): they regenerate byte-identically from the real web JS,
+// Native M2–M4 – the shared layer's vectors (lesson engine P03, teacher rig C05, audio C04, lesson strings, M3 vocab P04/P05, M4 skills P06, speak P07, call P08, write P09): they regenerate byte-identically from the real web JS,
 // and they are internally sane, so the SwiftUI / Compose ports can trust them. Light (a few seconds, no browser, no Mac heavy work). docs/specs/native-apps.md §3, §5.
 import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
 import { lessonVectors } from '../native/gen-lesson.mjs';
@@ -286,6 +286,182 @@ const RV = T1.vectorJson, RD = T1.rigJson;
   {
     const have9 = new Set(Object.values(JSON.parse(rd('native/shared/strings.json')))), keys9 = await SP.speakStringKeys(), miss9 = keys9.filter(k => !have9.has(k.key)).map(k => k.key);
     ok(miss9.length === 0, `M4 strings: ${keys9.length} t() keys of the P07 screens are mapped in native/shared/strings.json${miss9.length ? ' – missing: ' + miss9.slice(0, 3).join(' | ') : ''}`);
+  }
+}
+
+// ---- 10) M4 call vectors (P08 Call Ama / Carlos: #/call) ----
+{
+  const CL = await import('../native/gen-call.mjs');
+  const C1 = await CL.callVectors(), C2 = await CL.callVectors();
+  ok(C1 === C2 && same(`${SH}/vectors/call.json`, C1), 'call.json: two runs identical and equal to the committed file (else: node scripts/native/gen.mjs)');
+  ok(Buffer.byteLength(C1) < 300 * 1024, `call.json < 300 KB (${(Buffer.byteLength(C1) / 1024) | 0} KB; owner cap, incl. the cut-down content "data")`);
+  const V = JSON.parse(C1), at = (o, k) => k.split('.').reduce((x, y) => (x ? x[y] : undefined), o), bad = [];
+  const selfD = a => Array.isArray(a) && a.length > 0 && a.every(c => c && typeof c.why === 'string' && c.why.length > 8 && c.input !== undefined && c.out !== undefined);
+  for (const k of ['engine.prep', 'engine.depth', 'engine.step', 'engine.correct', 'engine.slips', 'engine.fluency', 'engine.recap', 'engine.retry', 'engine.asrMode', 'engine.asrModeNative', 'list', 'ring', 'flow', 'rewards', 'progress']) if (!selfD(at(V, k))) bad.push(k);
+  ok(bad.length === 0, `call.json: every vector list is present and each case has why + input + out${bad.length ? ' – missing/invalid: ' + bad.join(', ') : ''}`);
+  // rules that the web code states and the ports must keep (cheap re-derivations from the vectors themselves)
+  const b10 = [], byId = (l, id) => l.find(c => c.id === id), J = JSON.stringify, E = V.engine, flowOf = id => byId(V.flow, id).out, steps = (f, name) => f.steps.filter(s => s.step === name);
+  { const ex = k => E.correct.find(c => c.id === 'correct-' + k).out;
+    for (const [k, good] of [['agree', 'I agree with you'], ['doesnt', "She doesn't like coffee"], ['modal-to', 'I can help you'], ['more-better', 'This is better'], ['very-like', 'I really like this place'], ['past-own', 'I saw him yesterday'], ['past-prompt', 'I went to the park with my friends']]) if (!ex(k) || ex(k).good !== good) b10.push('correct ' + k);
+    if (ex('past-own-no-marker') !== null || ex('past-prompt-no-own') !== null || ex('already-ok') !== null || ex('third-person-modal') !== null) b10.push('correct past/own/modal conditions'); if (ex('several-rules').whys.length !== 2) b10.push('correct applies every rule'); }
+  { const sl = id => E.slips.find(c => c.id === 'slips-' + id).out; if (J(sl('bread-breast')) !== '[{"said":"breast","meant":"bread","id":"final-drop","skill":"final-consonants"}]' || sl('already-said').length || sl('stem-variant').length || sl('max-two').length !== 2) b10.push('slips'); }
+  { const f = id => E.fluency.find(c => c.id === 'fluency-' + id).out; if (f('fillers').words !== 6 || f('fillers').fillers !== 3 || !f('short').short || f('min-zero').short || f('secs-one').wpm !== 0 || f('plain').wpm !== 70 || !f('link').link) b10.push('fluency'); }
+  { const st = id => E.step.find(c => c.id === 'step-' + id).out; if (st('branch-null-ends').next !== null || st('branch-keeps-next').next !== 'b' || st('default').br !== -1 || st('invalid-regex').react !== 'good' || st('unknown-node').next !== null || st('word-start').br !== 0 || st('word-start-no').br !== -1 || st('tl-fold-text').br !== 0) b10.push('step'); }
+  { const rc = id => E.recap.find(c => c.id === 'recap-' + id).out, edge = E.recap.filter(c => /^recap-edge-/.test(c.id));
+    if (rc('all-good').score !== 100 || rc('all-good').band !== 'great' || rc('empty-log').score !== 0 || J(rc('all-picked').notes) !== '[{"id":"speak"}]' || rc('all-picked').weak.length || rc('floor-40').score < 40) b10.push('recap score / floor / picked');
+    for (const c of edge) { const s = c.out.score; if (c.out.band !== (s >= 85 ? 'great' : s >= 70 ? 'good' : 'keep')) b10.push('recap band ' + s); } if (!edge.some(c => c.out.score === 70) || !edge.some(c => c.out.score === 85)) b10.push('recap band edges 70/85 not both covered');
+    const ids = new Set(E.recap.flatMap(c => c.out.notes.map(n => n.id))); for (const n of ['short', 'link', 'fillers', 'slips', 'slow', 'speak', 'good']) if (!ids.has(n)) b10.push('recap note ' + n + ' not covered');
+    if (rc('asr-ignored').weak.length || !rc('weak-fix').weak.includes('name') || rc('slow-boundary-70').notes.some(n => n.id === 'slow') || !rc('slow-boundary-69').notes.some(n => n.id === 'slow') || rc('note-link-everyday').notes.some(n => n.id === 'link') || rc('tl-es').turns[0].fix !== null) b10.push('recap rules'); }
+  { const r = id => E.retry.find(c => c.id === 'retry-' + id).out; if (!r('two-nodes').retry || r('two-nodes').start !== 'job' || J(Object.keys(r('two-nodes').nodes)) !== '["job","name"]' || r('two-nodes').nodes.job.next !== 'name' || r('two-nodes').nodes.name.next !== null || r('two-nodes').nodes.job.br.some(b => b.length !== 2) || r('dedupe-unknown').nodes.job === undefined) b10.push('retry'); }
+  { const a = E.asrMode, one = (p, o) => a.find(c => c.input.pref === p && Object.entries(o).every(([k, v]) => c.input[k] === v)).out;
+    if (a.length < 128 || one('tap', { local: true, sr: true, media: true, ext: false, whisper: true }) !== 'tap' || one(null, { local: true, sr: true, media: false, ext: false, whisper: false }) !== 'local' || one('cloud', { local: false, sr: true, media: false, ext: false, whisper: false }) !== 'cloud' || one(null, { local: false, sr: true, media: false, ext: false, whisper: false }) !== 'ask' || one(null, { local: false, sr: false, media: false, ext: false, whisper: false }) !== 'tap' || one(null, { local: false, sr: false, media: true, ext: false, whisper: true }) !== 'whisper' || one('device', { local: false, sr: false, media: true, ext: false, whisper: false }) !== 'whisper') b10.push('asrMode table');
+    const nat = Object.fromEntries(E.asrModeNative.map(c => [c.id, c.out])); if (nat['native-none-11'] !== 'local' || nat['native-tap-11'] !== 'tap' || nat['native-cloud-01'] !== 'cloud' || nat['native-none-01'] !== 'ask' || nat['native-none-00'] !== 'tap') b10.push('asrModeNative'); }
+  { const d = byId(E.depth, 'depth-all-calls').out; if (d.coffee !== 6 || Object.keys(d).length < 30 || V.data.calls.some(c => !(c.id in d))) b10.push('depth table'); }
+  { const l0 = byId(V.list, 'list-default').out.steps[0].out, g = id => byId(V.list, id).out.steps.at(-1).out.cardIds;
+    if (l0.cards.length < 30 || l0.filter.buttons.map(b => b.group).join() !== 'all,ielts,toeic,everyday' || !l0.filter.buttons[0].pressed || l0.cards.find(c => c.id === 'coffee').name.k !== 'Mua cà phê cho cả nhóm' || l0.cards.find(c => c.id === 'hobbies').name.k !== l0.cards.find(c => c.id === 'hobbies').title || g('list-filter-ielts').some(i => !/^ielts/.test(i)) || J(g('list-filter-toeic')) !== '["toeic-reschedule"]' || g('list-filter-everyday').some(i => /^ielts|^toeic/.test(i)) || g('list-filter-all').length !== l0.cards.length) b10.push('list groups / names');
+    if (byId(V.list, 'list-filter-ielts').out.steps[1].writes[0].key !== 'vb.call.flt' || byId(V.list, 'list-asr-change').out.steps[1].asrPrefAfter !== null || byId(V.list, 'list-asr-change').out.steps[1].out.changeAsr) b10.push('list persist'); }
+  { const f = flowOf('tap-through-coffee'), say = f.steps[1].say, last = f.steps.find(s => s.summary); if (J(say) !== J(['Great choice!', 'Do you want it hot or iced?']) || J(f.steps[1].phases) !== '["think","talk","you"]' || f.steps[1].progress !== '17%' || !last || last.rewards[0].xp !== 17 || last.rewards[0].spoken !== 0 || last.progress !== '100%' || f.teacher.voice !== 'af_heart') b10.push('flow tap-through say order / phases / progress / xp'); }
+  { const f = flowOf('unsafe-reask'), s = steps(f, 'type'); if (s[0].say[0] !== "Let's keep our chat friendly and on topic!" || s[0].say[1] !== f.steps[0].say[0] || s[0].state.logged !== 0 || s[0].state.node !== f.steps[0].state.node || s[2].state.node === s[0].state.node || s[2].state.logged !== 1) b10.push('flow unsafe keeps node and re-asks'); }
+  { const f = flowOf('long-turn-buffering'), c = f.steps.filter(s => s.cue && s.cue.kind === 'prep'), lg = f.steps.find(s => s.cue && s.cue.kind === 'long' && s.longWords);
+    if (!c.length || !c.some(s => s.clock === '00:59') || !c.some(s => s.clock === '00:29') || !lg || lg.longWords.v.n < 20 || lg.state.logged !== 0 || f.steps.some(s => s.log && s.log.some(x => x.id === 'intro')) || !f.steps.some(s => s.log && s.log.some(x => x.id === 'talk' && x.text.split('. ').length >= 4))) b10.push('flow long turn: prep clock, buffering, word count, 120 s'); }
+  { const d = flowOf('long-turn-silent').steps.flatMap(s => s.log || []).find(x => x.id === 'talk'), t = flowOf('long-turn-tap-option').steps.flatMap(s => s.log || []).find(x => x.id === 'talk'); if (!d || !d.picked || !t || !t.picked || t.text.length < 300) b10.push('flow long turn silent/tap ⇒ model answer'); }
+  { const f = flowOf('voice-fix-slip-retry'), sm = f.steps.filter(s => s.summary).map(s => s.summary), tip = f.steps.find(s => s.tip && s.tip.kind === 'fix');
+    if (sm.length !== 2 || !tip || sm[0].turns[1].slips[0].said !== 'breast' || sm[0].buttons.retry.v.n !== 2 || sm[1].header.retry === null || f.steps.find(s => s.step === 'retry').state.logged !== 0 || J(f.steps.find(s => s.step === 'retry').say) !== J([sm[0].turns[1].question])) b10.push('flow fix tip / slip / retry call'); }
+  { const f = flowOf('voice-full-call'); if (f.steps.flatMap(s => s.log || []).some(x => !x.secs || x.asr == null)) b10.push('flow voice log secs/asr'); }
+  { const f = flowOf('save-cards-fixes'), cards = f.steps.find(s => s.cards).cards; if (cards.length !== 6 || cards[0].entry.topic !== 'call' || cards[0].entry.pos !== 'phrase' || cards[0].entry.emoji !== '📞' || cards[0].opts.silent !== true || cards[5].entry.word !== 'I agree, yes a latte please' || cards[5].entry.ex !== cards[5].entry.word || !/^Call Ama: /.test(cards[0].ctx.title)) b10.push('flow save-cards phrases + fixes'); }
+  { for (const r of V.rewards) { const x = r.input, xp = 5 + x.turns * 2 + x.voiced * 2 + (x.usedWords > 0 ? 3 : 0); if (r.out.xp !== xp || r.out.spoken !== x.voiced) b10.push('reward ' + r.id); } if (V.rewards.length < 5) b10.push('rewards: too few flows'); }
+  { for (const p of V.progress) { const x = p.input, want = x.ended ? '100%' : Math.min(95, Math.round(x.logged / Math.max(1, x.depth) * 100)) + '%'; if (p.out !== want) b10.push('progress ' + p.id); } if (V.progress.length < 20) b10.push('progress: too few'); }
+  { const m = flowOf('asr-ask-cloud'), ask = m.steps.find(s => s.ask).ask; if (ask.choices.map(c => c.id).join() !== 'cloud,tap' || !m.store.includes('vb.call.asr') || steps(m, 'recognized')[0].state.mode !== 'cloud' || flowOf('asr-tap-only').steps[1].toasts[0].k !== 'Trên thiết bị này hãy chạm gợi ý hoặc gõ câu trả lời.' || flowOf('asr-errors').steps[1].toasts[0].recError !== 'no-speech' || flowOf('asr-errors').steps[2].toasts[0].recError !== 'not-allowed' || flowOf('stale-result-ignored').steps.at(-1).state.logged !== 1 || flowOf('hang-no-log').steps.at(-1).hash[0] !== '#/call' || !flowOf('hang-with-log').steps.at(-1).summary) b10.push('flow asr modes / errors / stale / hang'); }
+  { const r = flowOf('asr-whisper').steps.find(s => s.recognizer).recognizer[0]; if (!r.whisper || r.maxMs !== Math.min(15000, 3000 + (V.data.calls[0].nodes.t0.min || 8) * 450)) b10.push('whisper maxMs'); }
+  { const t = flowOf('subtitles-vi'); if (t.translateRequests[0].lang !== 'vi' || t.translateRequests[0].pieces < 10 || J(t.steps.flatMap(s => s.writes || []).map(w => w.value)) !== '["0","1"]') b10.push('subtitles'); }
+  { const p = V.persist.localStorage; if (J(p) !== '["vb.call.asr","vb.call.flt","vb.call.tr"]') b10.push('persist keys'); }
+  if (V.data.calls.length !== 6 || V.data.pron.contrasts.length < 20 || !V.data.calls.some(c => c.who === 'ama') || !V.data.calls.some(c => c.who === 'carlos') || !V.data.calls.some(c => c.nodes.talk && c.nodes.talk.long) || !V.data.calls.some(c => c.exam === 'toeic')) b10.push('data block');
+  ok(b10.length === 0, `call vectors obey the web rules (engine correct/slips/fluency/recap/retry/asrMode, list groups + names, say order, phases, unsafe, long turn, tips, retry, rewards xp, progress %, asr modes, persist)${b10.length ? ' – ' + b10.slice(0, 4).join('; ') : ''}`);
+  // the downloadable pack (web/data/call-pack.json, https://lexkite.com/data/call-pack.json) + the offline starter (Android assets content-pack/call-starter.json, iOS Resources/call-content.json)
+  {
+    const zlib = await import('node:zlib'), K1 = await CL.callPack(), K2 = await CL.callPack(), S1 = await CL.callStarter(), PK = JSON.parse(K1), ST = JSON.parse(S1), gz = zlib.gzipSync(K1, { level: 9 }).length, bp = [], JS = x => JSON.stringify(x);
+    ok(K1 === K2 && same(CL.CALL_PACK_PATH, K1), 'call-pack.json: two runs identical and equal to the committed file (else: node scripts/native/gen.mjs)');
+    ok(Buffer.byteLength(K1) < 200 * 1024 && gz < 60 * 1024, `call-pack.json size: ${(Buffer.byteLength(K1) / 1024) | 0} KB raw (< 200) / ${(gz / 1024) | 0} KB gzip (< 60); not in the extension or app shell, no audio`);
+    ok(S1 === (await CL.callStarter()) && same(CL.CALL_STARTER_PATH, S1) && same('native/ios/LexkiteKit/Sources/LKStore/Resources/call-content.json', S1) && Buffer.byteLength(S1) < 48 * 1024, `call-starter.json: deterministic, equal to the committed copies (shared content-pack = Android assets + iOS resource), ${(Buffer.byteLength(S1) / 1024) | 0} KB < 48`);
+    ok(/Resources\/call-content\.json/.test(fs.readFileSync(R('native/ios/LexkiteKit/Package.swift'), 'utf8')), 'Package.swift copies Resources/call-content.json (iOS bundle) – Android reads content-pack/call-starter.json from assets (srcDirs shared/gen)');
+    if (!/^[0-9a-f]{12}$/.test(PK.v) || PK.schema !== 1) bp.push('v/schema');
+    if (PK.calls.length < 30 || PK.calls.some(c => !c.nodes || !c.start || c.turns || c._ok || !c.phrases || !c.who || !c.exam || !c.end) || !PK.calls.some(c => c.who === 'ama') || !PK.calls.some(c => c.who === 'carlos')) bp.push('calls');
+    if (PK.calls.some(c => c.tl)) bp.push('English calls only');
+    if (PK.pron.contrasts.length !== 23 || Object.keys(PK.consts.engine.extraPairs).length < 8 || !PK.consts.engine.past.go || PK.consts.engine.filler.flags !== 'gi' || PK.consts.call.names['coffee'] !== 'Mua cà phê cho cả nhóm' || PK.consts.call.longSeconds !== 120 || !/fuck/.test(PK.consts.call.unsafe.en.source) || PK.consts.engine.score.great !== 85) bp.push('consts');
+    if (V.data.calls.some(c => JS(PK.calls.find(q => q.id === c.id)) !== JS(c)) || JS(V.data.pron.contrasts) !== JS(PK.pron.contrasts)) bp.push('data.* differs from the pack');
+    if (ST.calls.length < 6 || ST.calls.length > 10 || !ST.calls.some(c => /^ielts/.test(c.exam)) || !ST.calls.some(c => c.exam === 'toeic') || !ST.calls.some(c => c.exam === 'everyday') || !ST.calls.some(c => c.who === 'ama') || !ST.calls.some(c => c.who === 'carlos') || ST.calls.some(c => JS(PK.calls.find(q => q.id === c.id)) !== JS(c)) || JS(ST.pron) !== JS(PK.pron) || JS(ST.consts) !== JS(PK.consts)) bp.push('starter is not a subset of the pack');
+    // every call the pack carries is walkable: ids resolve, depth > 0, every branch target exists, every node has a question and ≥ 1 suggestion
+    const eng = CL.engine(); for (const c of PK.calls) { const e = JSON.parse(JS(c)); if (!(eng.depth(e) > 0) || !e.nodes[e.start]) bp.push('walk ' + c.id); for (const [k, n] of Object.entries(c.nodes)) { if (!n.m || !(n.o || []).length) bp.push(`node ${c.id}/${k}`); for (const to of [n.next, ...(n.br || []).map(b => b[2])]) if (to && !c.nodes[to]) bp.push(`dangling ${c.id}/${k}→${to}`); } }
+    ok(bp.length === 0, `call-pack.json: ${PK.calls.length} English calls as prepared graphs (Ama + Carlos; IELTS/TOEIC/everyday), pair index data + engine tables + page constants; shape = call.json data.*; starter = ${ST.calls.length} calls${bp.length ? ' – ' + bp.slice(0, 4).join('; ') : ''}`);
+  }
+  // strings: every t() key of the call screens (call.js, engine.js, teacher-call frame, recogniser errors; NAME/GROUP labels included) is mapped by strings.json
+  {
+    const have10 = new Set(Object.values(JSON.parse(rd('native/shared/strings.json')))), keys10 = CL.callStringKeys(), miss10 = keys10.filter(k => !have10.has(k.key)).map(k => k.key);
+    ok(miss10.length === 0 && keys10.length > 100, `M4 strings: ${keys10.length} t() keys of the P08 call screens are mapped in native/shared/strings.json${miss10.length ? ' – missing: ' + miss10.slice(0, 3).join(' | ') : ''}`);
+    const vk = new Set(); const walk = o => { if (o && typeof o === 'object') { if (typeof o.k === 'string' && Object.keys(o).every(x => x === 'k' || x === 'v' || x === 'icon')) vk.add(o.k); for (const v of Object.values(o)) walk(v); } }; walk({ list: V.list, ring: V.ring, flow: V.flow, engine: V.engine.correct });
+    const unmapped = [...vk].filter(k => !have10.has(k) && /[À-ỹ]/.test(k));
+    ok(unmapped.length === 0, `call.json: every Vietnamese key in the vector outputs exists in strings.json${unmapped.length ? ' – missing: ' + unmapped.slice(0, 3).join(' | ') : ''}`);
+  }
+}
+
+// ---- 11) M4 write vectors (P09 Writing & grammar: #/write #/task1 #/qstats #/criteria) ----
+{
+  const WR = await import('../native/gen-write.mjs');
+  const W1 = await WR.writeVectors(), W2 = await WR.writeVectors();
+  ok(W1 === W2 && same(`${SH}/vectors/write.json`, W1), 'write.json: two runs identical and equal to the committed file (else: node scripts/native/gen.mjs)');
+  ok(Buffer.byteLength(W1) < 300 * 1024, `write.json < 300 KB (${(Buffer.byteLength(W1) / 1024) | 0} KB; owner cap, incl. the word-library index of Lexis.analyze)`);
+  const V = JSON.parse(W1), bad = [];
+  const selfD = a => Array.isArray(a) && a.length > 0 && a.every(c => c && typeof c.why === 'string' && c.why.length > 8 && c.input !== undefined && c.out !== undefined);
+  for (const k of ['write.analyze', 'write.flow', 'task1.score', 'task1.flow', 'qstats.cases']) if (!selfD(k.split('.').reduce((x, y) => (x ? x[y] : undefined), V))) bad.push(k);
+  ok(bad.length === 0, `write.json: every vector list is present and each case has why + input + out${bad.length ? ' – missing/invalid: ' + bad.join(', ') : ''}`);
+  const b11 = [], an = id => V.write.analyze.find(c => c.id === id).out, sc = id => V.task1.score.find(c => c.id === id).out;
+  // rules that the web code states and the ports must keep (cheap re-derivations from the vectors themselves)
+  for (const c of V.write.analyze.filter(c => c.id !== 'too-short')) { const o = c.out, w = o.words;
+    const cap = w < 150 ? 5 : w < 250 ? 6 : 8.5; if (o.band > cap || o.band < 4 || o.band * 2 !== Math.round(o.band * 2)) b11.push('band ' + c.id);
+    if ((w < 250) !== o.tips.some(t => /^Bài mới có/.test(t.k))) b11.push('short tip ' + c.id);
+    if (o.overused.some(([, n]) => n < 4) || o.overused.length > 8) b11.push('overused ' + c.id);
+    if (o.writes[0].value[0].prompt !== 'p1' || o.writes[0].value[0].words !== w || JSON.stringify(o.rewards) !== '[{"quizzes":1,"writes":1,"xp":25}]') b11.push('saves ' + c.id); }
+  if (an('band-8-essay').band <= an('band-5-essay').band || an('repeat').overused.length < 2 || !an('long-sentences').tips.some(t => /^Câu trung bình hơi dài/.test(t.k)) || !an('even-lengths').tips.some(t => /^Câu có độ dài khá giống/.test(t.k))) b11.push('analyse ordering/tips');
+  const ta = V.write.analyze.find(c => c.id === 'too-short').out; if (ta.reported || ta.writes.length || ta.rewards.length || ta.toast.length !== 1) b11.push('too-short');
+  if (sc('good-line').band !== 8 || sc('under-100').band > 4.5 || sc('120-words').band > 5.5 || !sc('opinion').notes.some(n => /^Task 1 <b>không nêu/.test(n.k)) || !sc('process-active').notes.some(n => /^Với quy trình/.test(n.k)) || !sc('map-passive').notes.some(n => /^Với bản đồ/.test(n.k))) b11.push('task1 score rules');
+  const fl = V.write.flow.find(c => c.id === 'saved-list').out; if (fl.keptAfter !== 20 || fl.newest !== 'p5' || fl.shownCount !== 6) b11.push('saved list');
+  const qs = id => V.qstats.cases.find(c => c.id === id).out; if (!qs('empty').empty || qs('unknown-skill').cards.length || qs('listening-reading').cards.map(c => c.name).join() !== 'IELTS Listening,IELTS Reading' || JSON.stringify(V.qstats.skills.map(s => s[0])) !== '["il","ir","tl","tr","fr","fl","fw"]') b11.push('qstats');
+  ok(b11.length === 0, `write vectors obey the web rules (Lexis.analyze band caps + tips, saved essays, Task 1 score, qstats cards)${b11.length ? ' – ' + b11.slice(0, 4).join(' | ') : ''}`);
+  // the downloadable pack (web/data/write-pack.json, https://lexkite.com/data/write-pack.json)
+  {
+    const P1 = await WR.writePack(), P2 = await WR.writePack(), PK = JSON.parse(P1), bp = [];
+    ok(P1 === P2 && same(WR.WRITE_PACK_PATH, P1), 'write-pack.json: two runs identical and equal to the committed file (else: node scripts/native/gen.mjs)');
+    ok(Buffer.byteLength(P1) < 80 * 1024, `write-pack.json size: ${(Buffer.byteLength(P1) / 1024) | 0} KB (< 80); not in the extension or app shell`);
+    if (!/^[0-9a-f]{12}$/.test(PK.v) || PK.schema !== 1) bp.push('v/schema');
+    if (JSON.stringify(PK.write.outline) !== JSON.stringify(V.write.static.outline) || JSON.stringify(PK.write.trends) !== JSON.stringify(V.write.static.trends) || JSON.stringify(PK.task1.vocab) !== JSON.stringify(V.task1.static.vocab) || JSON.stringify(PK.lexis.stop) !== JSON.stringify(V.data.stop)) bp.push('tables differ from the vectors');
+    for (const sk of ['writing', 'speaking']) { const d = PK.criteria[sk]; if (!d || d.criteria.length !== 4 || Object.keys(d.models).join() !== '5.0,6.5,8.0' || d.jumpTips.length < 2 || d.criteria.some(c => Object.keys(c.bands).join() !== '4,5,6,7,8,9') || PK.scoreKeys[sk].length !== 4) bp.push('criteria ' + sk); }
+    if (PK.qstats.skills.length !== 7 || !PK.write.connectors.includes('Firstly,') || PK.lexis.stop.length < 100) bp.push('qstats/connectors/stop');
+    ok(bp.length === 0, `write-pack.json: criteria (writing + speaking: 4 criteria × bands 4–9, 3 models, roadmap) + STOP table + page tables; shape = write.json criteria rules${bp.length ? ' – ' + bp.join(' | ') : ''}`);
+  }
+  // strings: every t() key of the P09 screens (write.js, task1.js, qtips.js #/qstats, criteria.js + their data) is mapped by strings.json
+  {
+    const have11 = new Set(Object.values(JSON.parse(rd('native/shared/strings.json')))), keys11 = await WR.writeStringKeys(), miss11 = keys11.filter(k => !have11.has(k.key)).map(k => k.key);
+    ok(miss11.length === 0 && keys11.length > 300, `M4 strings: ${keys11.length} t() keys of the P09 writing screens are mapped in native/shared/strings.json${miss11.length ? ' – missing: ' + miss11.slice(0, 3).join(' | ') : ''}`);
+    const vk = new Set(); const walk = o => { if (o && typeof o === 'object') { if (typeof o.k === 'string' && Object.keys(o).every(x => x === 'k' || x === 'v')) vk.add(o.k); for (const v of Object.values(o)) walk(v); } }; walk(V);
+    const unmapped = [...vk].filter(k => !have11.has(k) && /[À-ỹ]/.test(k));
+    ok(unmapped.length === 0, `write.json: every Vietnamese key in the vector outputs exists in strings.json${unmapped.length ? ' – missing: ' + unmapped.slice(0, 3).join(' | ') : ''}`);
+  }
+}
+
+// ---- 12) M4 learn vectors (P09 part 2: #/fix #/grammar #/method #/quick #/style #/confidence) ----
+{
+  const LN = await import('../native/gen-learn.mjs');
+  const L1 = await LN.learnVectors(), L2 = await LN.learnVectors();
+  ok(L1 === L2 && same(`${SH}/vectors/learn.json`, L1), 'learn.json: two runs identical and equal to the committed file (else: node scripts/native/gen.mjs)');
+  ok(Buffer.byteLength(L1) < 400 * 1024, `learn.json < 400 KB (${(Buffer.byteLength(L1) / 1024) | 0} KB)`);
+  const V = JSON.parse(L1), b12 = [];
+  const selfD = a => Array.isArray(a) && a.length > 0 && a.every(c => c && typeof c.id === 'string');
+  for (const k of ['fix.cases', 'style.cases', 'method.cases']) if (!selfD(k.split('.').reduce((x, y) => (x ? x[y] : undefined), V))) b12.push(k);
+  // fix: every rule of the web table fires in at least one case; the engine's guards (empty / clean / overlap) hold
+  const ruleIds = new Set(V.fix.cases.flatMap(c => c.issues.map(i => i.rule))); const content = JSON.parse(await LN.learnContent());
+  const missingRules = content.fix.rules.map(r => 'lk:' + r.id).filter(r => !ruleIds.has(r));
+  if (missingRules.length) b12.push('fix rules never hit: ' + missingRules.join(','));
+  if (content.fix.rules.length !== 40) b12.push('fix rule count ' + content.fix.rules.length);
+  const fx = id => V.fix.cases.find(c => c.id === id);
+  if (fx('empty').issues.length || fx('clean').issues.length || fx('whitespace').issues.length || fx('long-repeat').issues.length > 400) b12.push('fix guards');
+  const ov = fx('overlap').issues; for (let i = 1; i < ov.length; i++) if (ov[i].s < ov[i - 1].e) b12.push('fix overlap');
+  if (fx('sample').fixed === fx('sample').text) b12.push('fix sample not fixed');
+  // style: four styles, six questions of four options, the winner of "all same" is that style, ties go to the latest pick
+  const stc = id => V.style.cases.find(c => c.id === id).winner;
+  if (stc('natural-all') !== 'natural' || stc('precision-all') !== 'precision' || stc('pragmatic-all') !== 'pragmatic' || stc('curious-all') !== 'curious' || stc('tie-last-wins') !== 'precision') b12.push('style winners');
+  if (content.style.questions.length !== 6 || content.style.questions.some(q => q.opts.length !== 4) || Object.keys(content.style.styles).length !== 4) b12.push('style data');
+  // method: loop of 6, four strands, 12 principles with a stat each, 5 FAQ, four plans
+  if (content.method.principles.length !== 12 || content.method.faq.length !== 5 || content.method.loop.length !== 6 || Object.keys(content.method.plans).join() !== 's0,s1,s2,s3') b12.push('method content');
+  if (V.method.cases.some(c => c.out.prin.length !== 12 || c.out.loop.length !== 6 || c.out.strands.length !== 4)) b12.push('method cases shape');
+  // confidence + grammar
+  if (content.conf.units.length < 20 || !content.conf.toolkit.length || !content.conf.daily.length) b12.push('confidence data');
+  if (V.grammar.counts.lessons !== 80 || V.grammar.missingListed.length || V.grammar.counts.l1.length !== 14) b12.push('grammar counts');
+  if (V.quick.limit !== 15 || V.quick.n !== 4) b12.push('quick constants');
+  ok(b12.length === 0, `learn vectors obey the web rules (fix rule table + guards, style winners, method content, grammar tables, quick constants)${b12.length ? ' – ' + b12.slice(0, 4).join(' | ') : ''}`);
+  // bundled content + download pack (grammar-pack.json = https://lexkite.com/data/grammar-pack.json; the app bundles learn-content.json and grammar-starter.json)
+  {
+    const C1 = await LN.learnContent(), G1 = await LN.grammarPack(), G2 = await LN.grammarPack(), S1 = await LN.grammarStarter(), bp = [];
+    ok(same(LN.LEARN_CONTENT_PATH, C1) && same('native/ios/LexkiteKit/Sources/LKStore/Resources/learn-content.json', C1), 'learn-content.json: equal to the committed file and the iOS copy (else: node scripts/native/gen.mjs)');
+    ok(G1 === G2 && same(LN.GRAMMAR_PACK_PATH, G1), 'grammar-pack.json: two runs identical and equal to the committed file');
+    ok(same(LN.GRAMMAR_STARTER_PATH, S1) && same('native/ios/LexkiteKit/Sources/LKStore/Resources/grammar-content.json', S1), 'grammar-starter.json: equal to the committed file and the iOS copy');
+    ok(Buffer.byteLength(C1) < 200 * 1024 && Buffer.byteLength(S1) < 100 * 1024, `bundled size: learn-content ${(Buffer.byteLength(C1) / 1024) | 0} KB (< 200) + grammar starter ${(Buffer.byteLength(S1) / 1024) | 0} KB (< 100)`);
+    ok(Buffer.byteLength(G1) < 1400 * 1024, `grammar-pack.json size: ${(Buffer.byteLength(G1) / 1024) | 0} KB (< 1400; downloaded, never bundled)`);
+    const GP = JSON.parse(G1), GS = JSON.parse(S1);
+    if (!/^[0-9a-f]{12}$/.test(GP.v) || GP.schema !== 1 || GP.lessons.length !== 80 || GP.index.length !== 80) bp.push('shape');
+    if (GS.index.length !== 80 || GS.lessons.length !== 3 || GS.lessons.some(l => !GP.lessons.find(x => x.id === l.id))) bp.push('starter');
+    if (GP.lessons.some(l => !l.quiz.length || !l.blocks.length)) bp.push('lessons without quiz/blocks');
+    ok(bp.length === 0, `grammar pack: 80 lessons with blocks + quiz, 14 L1 languages, starter lists all and carries 3${bp.length ? ' – ' + bp.join(' | ') : ''}`);
+  }
+  // strings: every t() key of the part-2 screens (+ their data) and every `lv("…")` literal of the new native code is mapped by strings.json
+  {
+    const have12 = new Set(Object.values(JSON.parse(rd('native/shared/strings.json')))), keys12 = await LN.learnStringKeys(), miss12 = keys12.filter(k => !have12.has(k.key) && /[À-ỹ]/.test(k.key)).map(k => k.key);
+    ok(miss12.length === 0 && keys12.length > 600, `M4 strings: ${keys12.length} t() keys of the P09 part-2 screens are mapped in native/shared/strings.json${miss12.length ? ' – missing: ' + miss12.slice(0, 3).join(' | ') : ''}`);
+    const files = ['native/ios/LexkiteKit/Sources/LKStore/Skills/LearnCore.swift', 'native/ios/LexkiteKit/Sources/LKStore/Skills/FixEngine.swift', 'native/android/core/src/main/kotlin/com/lexkite/app/core/write/Learn.kt',
+      ...fs.readdirSync(R('native/ios/LexkiteKit/Sources/LKFeatures/Write')).filter(f => /^(Fix|Grammar|Learn|Confidence)/.test(f)).map(f => 'native/ios/LexkiteKit/Sources/LKFeatures/Write/' + f),
+      ...fs.readdirSync(R('native/android/feature-vocab/src/main/kotlin/com/lexkite/app/feature/vocab')).filter(f => /^(Fix|Grammar|Learn|Confidence)/.test(f)).map(f => 'native/android/feature-vocab/src/main/kotlin/com/lexkite/app/feature/vocab/' + f)];
+    const lit = [];
+    for (const f of files) rd(f).split('\n').forEach((ln, i) => { if (/^\s*(\/\/|\*|\/\*)/.test(ln)) return; for (const m of ln.matchAll(/"((?:[^"\\]|\\.)*)"/g)) { if (!/[À-ỹ]/.test(m[1])) continue; const s = m[1].replace(/\\"/g, '"').replace(/\\\\/g, '\\').replace(/\\u([0-9a-fA-F]{4})/g, (_, h) => String.fromCharCode(parseInt(h, 16))).replace(/\\\$/g, '$'); if (!have12.has(s)) lit.push(`${f.split('/').pop()}:${i + 1} ${s.slice(0, 50)}`); } });
+    ok(lit.length === 0, `P09 part-2 native code: every Vietnamese literal (lv("…") / Line("…")) is a key of strings.json (${files.length} files)${lit.length ? ' – missing: ' + lit.slice(0, 3).join(' | ') : ''}`);
   }
 }
 

@@ -120,9 +120,12 @@ export function packs(en, read = rd) { const p = {}, fx = read(FIXED, {}); for (
 function loadCache() { const c = {}; if (fs.existsSync(CACHE_DIR)) for (const f of fs.readdirSync(CACHE_DIR).filter(f => f.endsWith('.json'))) Object.assign(c, rd(CACHE_DIR + '/' + f, {})); return c; }
 
 /** chuỗi tiếng Việt đang hiển thị của các bài ngữ pháp (trừ trường vi = bản dịch câu ví dụ) – để viết en gốc (lô S-EN) */
-export async function lessonKeys(ids, dir = 'web/js/grammar') {
+/** tệp bài ngữ pháp: web/js/grammar + web/cpack/grammar (bài tải lười dời sang cpack để trả byte người học); bỏ mục lục lười lazy-*.js (bài rút gọn – bản đầy đủ ở cùng thư mục) */
+export const grammarFiles = (dirs = GRAMMAR_DIRS) => dirs.filter(d => fs.existsSync(d)).flatMap(d => fs.readdirSync(d).filter(f => f.endsWith('.js') && !/^lazy-/.test(f)).sort().map(f => d + '/' + f));
+export const GRAMMAR_DIRS = ['web/js/grammar', 'web/cpack/grammar'];
+export async function lessonKeys(ids, dirs = GRAMMAR_DIRS) {
   const vm = await import('vm'), VI = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i, g = {}, ctx = vm.createContext({ window: g, self: g, globalThis: g });
-  for (const f of fs.readdirSync(dir).filter(f => f.endsWith('.js')).sort()) { try { vm.runInContext(fs.readFileSync(dir + '/' + f, 'utf8'), ctx); } catch { /* file phụ không tự chạy được */ } }
+  for (const f of grammarFiles([].concat(dirs))) { try { vm.runInContext(fs.readFileSync(f, 'utf8'), ctx); } catch { /* file phụ không tự chạy được */ } }
   const G = g.GRAMMAR || ctx.GRAMMAR || [], res = {};
   for (const id of ids) {
     const l = G.find(x => x.id === id); if (!l) { res[id] = null; continue; }

@@ -1,6 +1,14 @@
 /* Lexkite v2 – khung ứng dụng: router, trạng thái, trang chủ, thư viện, từ điển, sổ từ, tiến độ, cài đặt. */
 (function () {
   const { Store, SRS, Cards, Stats, Golden, DEFAULT_SETTINGS, todayKey, endOfToday, DAY } = Core;
+  // Chữ ligature phông icon không bao giờ lộ thành chữ thường (icon-flash, P1): phông Material Symbols khai báo trong CSS tải lười của từng màn → trên mạng chậm
+  // font-display:block hết 3 s rồi hiện chữ "dark_mode" tới khi phông về. Ẩn (trong suốt, rộng 1em) theo TỪNG họ phông cho tới khi FontFace của họ đó 'loaded'.
+  (function iconGuard() {
+    const F = document.fonts, h = document.documentElement; if (!F || !F.addEventListener) return;
+    const fam = { o: 'Material Symbols Outlined', r: 'Material Symbols Rounded' }; h.classList.add('ic-wait-o', 'ic-wait-r');
+    const chk = () => { for (const k in fam) if (h.classList.contains('ic-wait-' + k)) F.forEach(ff => { if (ff.status === 'loaded' && ff.family.replace(/"/g, '') === fam[k]) h.classList.remove('ic-wait-' + k); }); };
+    F.addEventListener('loadingdone', chk); chk();
+  })();
   const { TOPICS, INDEX, GROUPS } = IELTS_DATA;
   const { $, $$, esc, highlight, toast, modal, closeModal, speak, pic, levelChip, posChip, ring, download, xpFloat } = UI;
   const view = $('#view');
@@ -260,7 +268,8 @@
   // ---------- Nạp module theo trang (lazy loading): trang đầu chỉ tải phần lõi, phần nặng tải khi cần ----------
   const G = 'js/grammar/', BUNDLES = {
     demo: ['js/app-demo.js'],
-    grammar: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/structures.js', ...['tenses', 'verbs', 'sentences', 'foundation', 'starter', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'drills-own', 'bank-gen', 'check'].map(f => f === 'drills-own' ? 'cpack/grammar/drills-own.js' : G + f + '.js'), 'js/grammar.js'],
+    grammar: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/structures.js', ...['tenses', 'verbs', 'sentences', 'foundation', 'cpack/grammar/starter.js', 'cpack/grammar/lazy-a1.js', 'academic', 'cpack/grammar/lazy-c2.js', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'cpack/grammar/drills-own.js', 'bank-gen', 'check'].map(f => f.startsWith('cpack/') ? f : G + f + '.js'), 'js/grammar.js'],
+    grammarA1: ['cpack/grammar/starter2.js'], grammarC2: ['cpack/grammar/mastery.js'], // 12 bài A1 / 10 bài C2 (~29 KB nén mỗi gói): chỉ tải khi mở bài của cấp đó; gói 'grammar' mang mục lục gọn lazy-a1/c2.js (scripts/grammar/build-lazy-idx.mjs)
     pas: ['js/i18n/en/v2.js', 'js/i18n/en/speak.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/pas-sit.js', 'js/st/v2/pas-drill.js', 'js/characters.js', 'js/speak/data.js', 'js/speak/score.js', 'js/speak/app.js'], // 🎙️ Play & Speak (cờ speak_pack, docs/specs/play-and-speak.md)
     pron: ['js/i18n/en/pron.js', 'js/pron/sounds.js', 'js/pron/skills.js', 'js/pron/pairs.js', 'js/pron/sayit.js', 'js/pron/coach.js', 'js/pron/rhythm.js', 'js/pron.js'],
     words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/ngsl2.js', 'js/lib/office.js', 'js/distract.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
@@ -326,6 +335,7 @@
   const EXT_NO = ['klocal']; if (Store.isExtension) EXT_NO.forEach(n => { BUNDLES[n] = []; }); // gói mà build-extension.sh loại khỏi add-on (CWS cấm mã tải từ xa) → không nạp, khỏi 404 + nạp lại. Test: ext-bundles
   const PAINT_FIRST = new Set(['home', 'review']), PAINT_LATE = new Set(['words']); // route vẽ trước khi có kho từ (mọi chỗ dùng kho đều có dự phòng: study.js libNorm/distractors, ux1 units = data.js)
 App.pathnPack = { es: 'cpack/lesson/pn-es.js', pt: 'cpack/lesson/pn-pt.js', fr: 'cpack/lesson/pn-fr.js', de: 'cpack/lesson/pn-de.js', id: 'cpack/lesson/pn-id.js', th: 'cpack/lesson/pn-th.js', zh: 'cpack/lesson/pn-zh.js', ja: 'cpack/lesson/pn-ja.js', ko: 'cpack/lesson/pn-ko.js', hi: 'cpack/lesson/pn-hi.js', ar: 'cpack/lesson/pn-ar.js', ru: 'cpack/lesson/pn-ru.js', tr: 'cpack/lesson/pn-tr.js' }; // bản dịch nội dung nút Lộ trình (nhóm i18n pathn, scripts/lib/i18n-pack.mjs), nạp cùng dữ liệu nút
+App.cpackI18n = { criteria: { es: 'cpack/i18n/criteria-es.js', pt: 'cpack/i18n/criteria-pt.js', fr: 'cpack/i18n/criteria-fr.js', de: 'cpack/i18n/criteria-de.js', id: 'cpack/i18n/criteria-id.js', th: 'cpack/i18n/criteria-th.js', zh: 'cpack/i18n/criteria-zh.js', ja: 'cpack/i18n/criteria-ja.js', ko: 'cpack/i18n/criteria-ko.js', hi: 'cpack/i18n/criteria-hi.js', ar: 'cpack/i18n/criteria-ar.js', ru: 'cpack/i18n/criteria-ru.js', tr: 'cpack/i18n/criteria-tr.js' }, confidence: { es: 'cpack/i18n/confidence-es.js', pt: 'cpack/i18n/confidence-pt.js', fr: 'cpack/i18n/confidence-fr.js', de: 'cpack/i18n/confidence-de.js', id: 'cpack/i18n/confidence-id.js', th: 'cpack/i18n/confidence-th.js', zh: 'cpack/i18n/confidence-zh.js', ja: 'cpack/i18n/confidence-ja.js', ko: 'cpack/i18n/confidence-ko.js', hi: 'cpack/i18n/confidence-hi.js', ar: 'cpack/i18n/confidence-ar.js', ru: 'cpack/i18n/confidence-ru.js', tr: 'cpack/i18n/confidence-tr.js' } }; // bản dịch nhóm criteria/confidence nằm ở web/cpack (scripts/lib/i18n-pack.mjs CPACK_I18N); build-cpack chỉ băm đường dẫn viết đủ chữ
 App.esGx = { en: 'cpack/es/gx-en.js', vi: 'cpack/es/gx-vi.js', es: 'cpack/es/gx-es.js', pt: 'cpack/es/gx-pt.js', fr: 'cpack/es/gx-fr.js', de: 'cpack/es/gx-de.js', id: 'cpack/es/gx-id.js', th: 'cpack/es/gx-th.js', zh: 'cpack/es/gx-zh.js', ja: 'cpack/es/gx-ja.js', ko: 'cpack/es/gx-ko.js', hi: 'cpack/es/gx-hi.js', ar: 'cpack/es/gx-ar.js', ru: 'cpack/es/gx-ru.js', tr: 'cpack/es/gx-tr.js' }; // giải thích ngữ pháp TBN theo ngôn ngữ người học, tải lười 1 gói (js/espr.js)
 App.esX = { lv: { A1: 'cpack/es/x-A1.js', A2: 'cpack/es/x-A2.js', B1: 'cpack/es/x-B1.js' }, ui: { en: 'cpack/es/x-ui-en.js', vi: 'cpack/es/x-ui-vi.js', es: 'cpack/es/x-ui-es.js', pt: 'cpack/es/x-ui-pt.js', fr: 'cpack/es/x-ui-fr.js', de: 'cpack/es/x-ui-de.js', id: 'cpack/es/x-ui-id.js', th: 'cpack/es/x-ui-th.js', zh: 'cpack/es/x-ui-zh.js', ja: 'cpack/es/x-ui-ja.js', ko: 'cpack/es/x-ui-ko.js', hi: 'cpack/es/x-ui-hi.js', ar: 'cpack/es/x-ui-ar.js', ru: 'cpack/es/x-ui-ru.js', tr: 'cpack/es/x-ui-tr.js' } }; // luyện định dạng DELE/SIELE W5 (cpack/es-app/exam-ui.js): đề theo cấp + nhãn theo ngôn ngữ người học, tải lười
 App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-es.js', pt: 'cpack/es/px-pt.js', fr: 'cpack/es/px-fr.js', de: 'cpack/es/px-de.js', id: 'cpack/es/px-id.js', th: 'cpack/es/px-th.js', zh: 'cpack/es/px-zh.js', ja: 'cpack/es/px-ja.js', ko: 'cpack/es/px-ko.js', hi: 'cpack/es/px-hi.js', ar: 'cpack/es/px-ar.js', ru: 'cpack/es/px-ru.js', tr: 'cpack/es/px-tr.js' }; // gói phát âm TBN W3 theo ngôn ngữ người học (js/espr-pron.js): nhãn giao diện + giải thích 8 chủ đề
@@ -352,7 +362,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       }
     }
     const m = src.match(/^js\/i18n\/en\/([^/]+)\.js$/);
-    if (m && window.I18N) { const l = I18N.lang(); if (l !== 'en' && l !== 'vi') await loadOne(m[1] === 'pathn' ? App.pathnPack[l] : `js/i18n/${l}/${m[1]}.js`); }
+    if (m && window.I18N) { const l = I18N.lang(); if (l !== 'en' && l !== 'vi') await loadOne(m[1] === 'pathn' ? App.pathnPack[l] : App.cpackI18n[m[1]] ? App.cpackI18n[m[1]][l] : `js/i18n/${l}/${m[1]}.js`); }
   };
   // Tải song song nhưng chạy đúng thứ tự (async=false); file thiếu được bỏ qua
   // i18nx: chuỗi giao diện của các trang tải lười (TOEFL, Giải đấu, Call Ama & Carlos, Chuyển dữ liệu, Cấu trúc câu) – ra khỏi en.js (khung app),
@@ -372,6 +382,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   const need1 = n => bundleP[n] || (inflight++, bundleP[n] = Promise.all(BUNDLES[n].map(loadScript).concat([].concat(BCSS[n] || [], n === 'ux1' ? UX1X() : [], LZCSS(n)).map(loadCss))).finally(() => { inflight--; }));
   App.need = (...names) => Promise.all([...(window.I18N && I18N.lang() !== 'vi' ? ['i18nx', 'i18nl'].map(need1) : []), ...names.map(need1)]);
   App.loaded = n => !!bundleP[n];
+  App.reneed = n => { delete bundleP[n]; return App.need(n); }; // tải lại gói đã báo xong mà thiếu dữ liệu (loadScript nuốt lỗi mạng) → bấm thử lại được
   App.loadScript = src => Promise.all([loadScript(src), loadCss('css/lazy-ui.css')]).then(() => {}); // 1 tệp lười theo nhu cầu (vd. tình huống Play & Speak)
   App.anki = async (tab, opts) => { try { await App.need('anki'); if (!window.AnkiUI) throw new Error('anki'); await AnkiUI.open(tab, opts || {}); } catch (e) { toast(t('Không tải được – thử lại sau')); } };
   const ankiAll = () => ({ cards: Object.values(state.cards), name: t('Sổ từ') });
@@ -389,7 +400,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   // Tải sẵn mọi gói vào bộ đệm trình duyệt KHÔNG thực thi (<link rel=prefetch>, ưu tiên thấp) → trang đầu không bị khựng,
   // vào trang khác thì gói đã có sẵn, chỉ còn bước thực thi.
   // Chỉ bắt đầu khi trang đã tải xong (load) và không còn gói nào đang tải; xếp hàng 3 file một lúc (200+ file cùng lúc làm 4G chậm nghẽn gói của trang kế tiếp – mobile-qa LCP)
-  App.prefetchAll = () => { if (!Store.isExtension && lean()) return; const go = () => (inflight || document.readyState !== 'complete' ? setTimeout(go, 700) : idle(() => { const have = new Set([...document.querySelectorAll('script[src],link[rel=prefetch]')].map(x => x.getAttribute('src') || x.getAttribute('href'))); const q = [...new Set(Object.values(BUNDLES).flat())].filter(f => typeof f === 'string' && /\.js$/.test(f) && !have.has(f)); const next = () => { if (inflight) return setTimeout(next, 700); const f = q.shift(); if (!f) return; const l = document.createElement('link'); l.rel = 'prefetch'; l.as = 'script'; l.href = f; l.onload = l.onerror = next; document.head.appendChild(l); }; for (let i = 0; i < 3; i++) next(); })); App.painted.then(() => setTimeout(go, 2500)); };
+  App.prefetchAll = () => { if (!Store.isExtension && lean()) return; const go = () => (inflight || document.readyState !== 'complete' ? setTimeout(go, 700) : idle(() => { const have = new Set([...document.querySelectorAll('script[src],link[rel=prefetch]')].map(x => x.getAttribute('src') || x.getAttribute('href'))); const q = [...new Set(Object.values(BUNDLES).flat())].filter(f => typeof f === 'string' && /\.js$/.test(f) && !have.has(f) && !/grammar\/(starter2|mastery)/.test(f)); const next = () => { if (inflight) return setTimeout(next, 700); const f = q.shift(); if (!f) return; const l = document.createElement('link'); l.rel = 'prefetch'; l.as = 'script'; l.href = f; l.onload = l.onerror = next; document.head.appendChild(l); }; for (let i = 0; i < 3; i++) next(); })); App.painted.then(() => setTimeout(go, 2500)); };
 
 
   // Làm mới phiên âm của thẻ lưu từ bản cũ (trước khi chọn IPA theo từ loại): chạy ngầm lúc rảnh, chậm rãi, mỗi thẻ 1 lần

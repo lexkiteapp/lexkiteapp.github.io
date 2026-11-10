@@ -307,6 +307,73 @@ const OWN = {
 'idioms-style': [
 { t: 'own', q: "Use an idiom to describe a busy or easy day.", hint: "It was a piece of cake / I felt under the weather …", a: ["The test was a piece of cake.", "I felt under the weather last week, so I stayed home."], ex: "Thành ngữ thân mật (a piece of cake = rất dễ, under the weather = hơi ốm) hợp văn nói; tránh dùng trong bài viết học thuật." },
 ],
+// Bài mới A1 (starter2.js) và C2 (mastery.js)
+'present-simple-a1': [
+{ t: 'own', q: "Describe the daily routine of someone in your family.", hint: "My brother ... every day / He usually ...", a: ["My brother usually gets up at six.","My mother works in a hospital."], ex: "He / she / it + động từ thêm -s / -es; trạng từ tần suất đứng trước động từ thường. → My brother usually gets up at six." },
+],
+'do-does-a1': [
+{ t: 'own', q: "Ask a new classmate about his or her free time.", hint: "Do you ...? / Does your ...?", a: ["Do you like playing football?","Does your sister live near here?"], ex: "Câu hỏi hiện tại đơn: Do / Does + chủ ngữ + động từ nguyên mẫu." },
+],
+'pronouns-a1': [
+{ t: 'own', q: "Introduce a friend and say something about his or her family.", hint: "This is ... Her / His ...", a: ["This is Mai and her brother is a doctor.","I like him because he is kind."], ex: "Trước danh từ dùng his / her / my; sau động từ dùng him / her / me." },
+],
+'this-that-possessive-a1': [
+{ t: 'own', q: "Show two things in your room and say who they belong to.", hint: "This is ... 's ... / Those are ...", a: ["This is my father's old watch.","Those are my sister's books."], ex: "This / that + is (số ít), these / those + are (số nhiều); sở hữu dùng 's." },
+],
+'have-got-there-is': [
+{ t: 'own', q: "Describe your bedroom: what is in it and what you have.", hint: "There is ... / I have got ...", a: ["There is a small desk next to the window.","I have got two big bookshelves."], ex: "There is / are cho vật có ở đâu; have (got) cho vật bạn sở hữu. → There is a small desk next to the window." },
+],
+'can-a1': [
+{ t: 'own', q: "Say two things you can do and one thing you can't do.", hint: "I can ... but I can't ...", a: ["I can cook fried rice, but I can't bake a cake.","My brother can swim very fast."], ex: "can / can't + động từ nguyên mẫu, không to và không -s. → I can cook fried rice, but I can't bake a cake." },
+],
+'imperatives-lets-a1': [
+{ t: 'own', q: "Invite a friend to do something together this weekend.", hint: "Let's ... / Don't forget ...", a: ["Let's go to the beach on Saturday.","Don't forget your hat."], ex: "Let's + V để rủ; Don't + V để dặn không làm. → Let's go to the beach on Saturday." },
+],
+'wh-questions-a1': [
+{ t: 'own', q: "Ask a new neighbour a question about where he or she works.", hint: "Where do you ...? / What ...?", a: ["Where do you work?","What time do you start work?"], ex: "Từ để hỏi + do / does + chủ ngữ + V, hoặc từ để hỏi + be + chủ ngữ." },
+],
+'now-and-next-a1': [
+{ t: 'own', q: "Say what you are doing now and what you are going to do tomorrow.", hint: "I'm ... now. Tomorrow I'm going to ...", a: ["I'm studying English right now.","Tomorrow I'm going to visit my grandmother."], ex: "am / is / are + V-ing cho lúc này; be going to + V cho kế hoạch. → I'm studying English right now." },
+],
+'past-basics-a1': [
+{ t: 'own', q: "Say where you were yesterday and one thing you did.", hint: "I was ... / I played ...", a: ["I was at home yesterday evening.","I watched a film and cooked dinner."], ex: "Quá khứ của be: was / were; động từ có quy tắc thêm -ed. → I was at home yesterday evening." },
+],
+'the-some-any-a1': [
+{ t: 'own', q: "Say what there is in your fridge.", hint: "There is some ... / There isn't any ...", a: ["There is some milk in the fridge.","There aren't any eggs, but the milk is fresh."], ex: "some trong câu khẳng định, any trong câu phủ định và câu hỏi; the khi vật đã biết." },
+],
+'would-like-a1': [
+{ t: 'own', q: "Order a drink politely and say one thing you love doing.", hint: "I'd like ... / I love ...-ing", a: ["I'd like a glass of orange juice, please.","I love listening to music."], ex: "I'd like + danh từ / to + V khi gọi món; like / love + V-ing khi nói sở thích." },
+],
+'inversion-range-c2': [
+{ t: 'own', q: "Describe a scene in which someone enters a room, using inversion.", hint: "Into the room walked ... / So ... was ...", a: ["Into the hall walked a woman in a long red coat.","So loud was the music that nobody could talk."], ex: "Nơi chốn + động từ chính + chủ ngữ; So + adj + be + chủ ngữ + that. → Into the hall walked a woman in a long red coat." },
+],
+'information-packaging-c2': [
+{ t: 'own', q: "Correct a mistaken assumption using a cleft sentence.", hint: "It was ... that ... / What ... is ...", a: ["It was the lack of time that caused the problem.","What I need is a few quiet days."], ex: "It-cleft nhấn một thành phần; wh-cleft đưa thông tin mới về cuối. → It was the lack of time that caused the problem." },
+],
+'subjunctive-formal-c2': [
+{ t: 'own', q: "Make a formal recommendation to a committee.", hint: "I recommend that ... be ...", a: ["I recommend that the fee be waived for students.","It is essential that every member vote before Friday."], ex: "Mandative subjunctive: that + S + động từ nguyên mẫu (be, vote), không -s. → I recommend that the fee be waived for students." },
+],
+'conditionals-nuance-c2': [
+{ t: 'own', q: "Leave a polite message for a colleague using a low-probability condition.", hint: "Should you ... / If you should ...", a: ["Should you see Anna, please ask her to call me.","If you should need any help, just let me know."], ex: "Should + S + V (hoặc If you should) diễn đạt khả năng thấp, lịch sự. → Should you see Anna, please ask her to call me." },
+],
+'ellipsis-substitution-c2': [
+{ t: 'own', q: "Answer a friend's question briefly and naturally.", hint: "I hope so / I'm afraid not / So do I", a: ["I hope so, but I'm not sure.","I'm afraid not, and neither can she."], ex: "Dùng so / not thay mệnh đề; nor / so + trợ động từ + chủ ngữ." },
+],
+'hedging-distance-c2': [
+{ t: 'own', q: "Write a cautious claim about a research finding.", hint: "It would seem that ... / The data suggest ...", a: ["It would seem that the new policy reduced waste.","The data suggest that sleep may improve memory."], ex: "would seem, suggest, may, tend to làm khẳng định dè dặt, chính xác. → It would seem that the new policy reduced waste." },
+],
+'stance-irony-c2': [
+{ t: 'own', q: "Open a sentence with an adverb showing your attitude.", hint: "Admittedly, ... / Regrettably, ...", a: ["Admittedly, the plan is expensive.","Regrettably, the funding was cut."], ex: "Trạng từ thái độ đứng đầu câu, theo sau là dấu phẩy." },
+],
+'nominal-style-c2': [
+{ t: 'own', q: "Rewrite a clause as a noun phrase in formal style.", hint: "The failure of ... / It is widely believed ...", a: ["The failure of the talks led to renewed violence.","It is widely believed that the policy has failed."], ex: "Danh từ hóa (the failure of …) và bị động tường thuật cho văn phong trang trọng. → The failure of the talks led to renewed violence." },
+],
+'discourse-register-c2': [
+{ t: 'own', q: "Link two ideas with a formal connector.", hint: "Notwithstanding ... / ..., albeit ...", a: ["Notwithstanding the risks, the board went ahead.","The result was good, albeit modest."], ex: "notwithstanding + danh từ; albeit + tính từ hoặc cụm ngắn. → Notwithstanding the risks, the board went ahead." },
+],
+'modal-aspect-c2': [
+{ t: 'own', q: "Make a deduction about something that happened in the past.", hint: "She must have ... / He can't have ...", a: ["She must have been waiting for hours.","He can't have known about the changes."], ex: "must / can't / might have + V-ed hoặc have been + V-ing để suy đoán quá khứ. → She must have been waiting for hours." },
+],
 };
 (g.GRAMMAR || []).forEach(l => { if (OWN[l.id]) l.drills = (l.drills || []).concat(OWN[l.id]); });
 })(typeof self !== 'undefined' ? self : this);
