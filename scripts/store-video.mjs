@@ -131,7 +131,7 @@ async function appMode() {
   const t0 = Date.now(), mark = () => (Date.now() - t0) / 1000, M = {};
   const hash = h => p.evaluate(h => { location.hash = h; }, h);
   const tap = async (sel, h) => { // chạm thật vào phần tử (có gợn tròn); không thấy → đổi hash (chỉ cho tab dưới), không có h → lỗi
-    try { const el = p.locator(sel).first(); await el.scrollIntoViewIfNeeded({ timeout: 3000 }); const b = await el.boundingBox(); await p.touchscreen.tap(b.x + b.width / 2, b.y + b.height / 2); return true; }
+    try { const el = p.locator(sel).first(); await el.waitFor({ state: 'visible', timeout: 8000 }); await el.evaluate(e => e.scrollIntoView({ block: 'center' })); await sleep(250); /* nút nhún (lsnBob) không bao giờ 'đứng yên' → không dùng chờ ổn định của Playwright */ const b = await el.boundingBox(); await p.touchscreen.tap(b.x + b.width / 2, b.y + b.height / 2); return true; }
     catch (e) { if (!h) throw new Error(`✗ không chạm được ${sel}`); console.log(`  ⚠ không chạm được ${sel} → hash ${h}`); await hash(h); return false; }
   };
   const swipe = async dy => { for (let k = 0; k < 6; k++) { await p.mouse.wheel(0, dy / 6); await sleep(120); } };

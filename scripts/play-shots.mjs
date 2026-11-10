@@ -59,7 +59,7 @@ async function shoot(page, url, s) {
   for (const sel of s.tap || []) { // bấm thật (vd. bắt đầu bài học) – thiếu nút = ảnh sai màn → dừng
     const el = await page.waitForSelector(sel, { timeout: 8000 }).catch(() => null);
     if (!el) throw new Error(`✗ #/${s.r}: không thấy ${sel}`);
-    await el.click(); await sleep(3000);
+    await el.evaluate(e => e.click()); await sleep(3000); // nút nhún liên tục (lsnBob) → Playwright click chờ 'ổn định' mãi
   }
   await page.evaluate(() => scrollTo(0, 0)).catch(() => {}); await sleep(300);
   return page.screenshot();
