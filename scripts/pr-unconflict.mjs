@@ -24,7 +24,15 @@ import { loadDictFile, writeSrc } from './lib/i18n-pack.mjs';
 
 const REGISTRY_FILES = [...new Set(REGISTRIES.map(r => r.file))];
 
-export const TAKE_MAIN = ['docs/CODEMAP.md', 'docs/codemap.json'];
+// Báo cáo/bảng điểm do bot TRÊN MAIN sinh lại sau mỗi lần gộp (codemap, content:score đêm, world-scorecard, qa-backlog) và không có cổng "khớp nguồn" trên PR
+// → lấy bản main, PR không cần giữ bản riêng (10/11: #985 xung đột LEARN.md sau content:score). Danh sách đầy đủ: docs/specs/merge-queue.md › Tệp sinh.
+export const TAKE_MAIN = ['docs/CODEMAP.md', 'docs/codemap.json', 'content/pipeline/SCORE.md', 'content/pipeline/LEARN.md', 'content/pipeline/WORLD.md', 'docs/QA-BACKLOG.md',
+  'reports/content-score.json', 'reports/learnability.json'];
+// Tệp sinh CÓ cổng khớp nguồn trên PR → lấy main rồi chạy lại đúng lệnh sinh trên nguồn đã gộp (regenCmds).
+export const REGEN = [
+  { re: /^(docs\/JOBS\.md|infra\/jobs\.json|infra\/lexicon-consumers\.json)$/, cmd: ['node', 'scripts/jobs/gen.mjs', '--write'] },
+  { re: /^docs\/DESIGN-SYSTEM\.md$/, cmd: ['node', 'scripts/build-tokens.mjs'] },
+];
 export const UNION = ['scripts/test/suite.txt', 'docs/INDEX.md']; // danh sách chỉ thêm dòng: gộp union + khử trùng (docs-budget vẫn kiểm INDEX)
 // 10/11 (#934 dirty 3 lần/ngày): tệp SINH từ nguồn trong repo → lấy bản main rồi DỰNG LẠI từ nguồn đã gộp (regen), không bao giờ giữ bản sửa tay.
 //   web/js/i18n/<lang> trừ en (en là nguồn), gói pathn web/cpack/lesson/pn-*, bản sao add-on extension/app, CSS Stitch biên dịch web/css/st-*.css.
@@ -41,7 +49,7 @@ export function plan(conflicted) {
   if (!conflicted.length) return null;
   const out = [];
   for (const f of conflicted) {
-    if (TAKE_MAIN.includes(f) || GENERATED.test(f)) out.push({ f, how: 'main' });
+    if (TAKE_MAIN.includes(f) || GENERATED.test(f) || REGEN.some(r => r.re.test(f))) out.push({ f, how: 'main' });
     else if (UNION.includes(f)) out.push({ f, how: 'union' });
     else if (DICT_FILES(f)) out.push({ f, how: 'dict3' });
     else if (ENTRY_FILES(f)) out.push({ f, how: 'entries' });
@@ -161,11 +169,12 @@ export function fix(p, dry) {
 export function regenCmds(steps) { // steps: [{ f }] tệp đổi so với nhánh PR
   const fs_ = steps.map(s => s.f), any = re => fs_.some(f => re.test(f)), cmds = [];
   if (any(/^(i18n\/ui\/|web\/js\/i18n\/|web\/cpack\/lesson\/pn-|extension\/app\/)/) || fs_.some(f => REGISTRY_FILES.includes(f))) cmds.push(['node', 'scripts/fmt-stable.mjs'], ['node', 'scripts/i18n-pack.mjs']);
+  for (const r of REGEN) if (any(r.re)) cmds.push(r.cmd);
   if (any(/^web\/css\/st-/) || fs_.includes('scripts/build-stitch-css.mjs')) cmds.push(['node', 'scripts/build-stitch-css.mjs']);
   if (any(/^(extension\/app\/|web\/)/) || fs_.some(f => REGISTRY_FILES.includes(f)) || any(/^i18n\/ui\//)) cmds.push(['bash', 'scripts/build-extension.sh']);
   return cmds;
 }
-const REGEN_PATHS = ['i18n/ui', 'web/js/i18n', 'web/cpack/lesson', 'web/css', 'extension/app', ...REGISTRY_FILES];
+const REGEN_PATHS = ['docs/JOBS.md', 'infra/jobs.json', 'infra/lexicon-consumers.json', 'docs/DESIGN-SYSTEM.md', 'i18n/ui', 'web/js/i18n', 'web/cpack/lesson', 'web/css', 'extension/app', ...REGISTRY_FILES];
 function regen(steps) {
   if (!steps.length) return '';
   for (const c of regenCmds(steps)) { try { execFileSync(c[0], c.slice(1), { stdio: ['ignore', 'ignore', 'pipe'], encoding: 'utf8' }); } catch (e) { return `${c.join(' ')}: ${String(e.stderr || e.message).trim().split('\n').pop()}`; } }
