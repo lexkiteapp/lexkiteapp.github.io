@@ -861,6 +861,8 @@
   "model.originalModelAnswersWith": "Orijinal model, yararlı ifadelerle, bağlantılı sözcüklerle ve vurgulanan her cümlenin rolüyle yanıt verir. Kaydetmek için bir ifadeye dokunun.",
   "model.searchByTopicOr": "Konuya veya görev türüne göre arayın…",
   "model.phrasesStructures": "Kalıplar ve yapılar",
+  "model.phraseBookByFunction": "İşleve göre kalıp kitabı",
+  "model.phraseBookByFunctionSub": "Telefonda konuşurken, yardım isterken ya da özür dilerken ne söyleneceği: üç resmîlik düzeyi, yanıtlar ve örnek bir diyalogla.",
   "model.learningInChunksMakes": "<b>Parçalar halinde</b> öğrenmek, konuşmanızı ve yazmanızı tek kelimeleri öğrenmekten daha doğal hale getirir. İfadeleri ve cümle yapılarını anlamları, kullanımları ve örnek cümleleriyle birlikte kaydedin ve bunları tıpkı kelimeler gibi mükemmel zamanda gözden geçirin.",
   "model.addPhraseStructure": "İfade / yapı ekle",
   "model.studyPhrases": "Kalıpları çalış",

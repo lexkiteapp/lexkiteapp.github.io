@@ -861,6 +861,8 @@
   "model.originalModelAnswersWith": "Modelo original de respuestas con frases útiles, palabras de enlace y el papel de cada frase resaltada. Toca una frase para guardarla.",
   "model.searchByTopicOr": "Buscar por tema o tipo de tarea...",
   "model.phrasesStructures": "Frases y estructuras",
+  "model.phraseBookByFunction": "Frases por función",
+  "model.phraseBookByFunctionSub": "Qué decir al llamar por teléfono, pedir ayuda o disculparte: en tres registros, con respuestas y un diálogo de ejemplo.",
   "model.learningInChunksMakes": "Aprender en <b>porciones</b> hace que hablar y escribir sea más natural que aprender palabras sueltas. Guarde frases y estructuras de oraciones con su significado, uso y oraciones de ejemplo, y revíselas en el momento perfecto, como si fuera vocabulario.",
   "model.addPhraseStructure": "Agregar frase/estructura",
   "model.studyPhrases": "Estudiar frases",

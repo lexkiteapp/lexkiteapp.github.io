@@ -18,8 +18,8 @@ const r6 = x => (typeof x === 'number' ? Number(x.toFixed(6)) : x);
 const FPS = 60, EVERY = 6; // reference frames: the machine is stepped at 1/60 s, every EVERY-th frame is recorded
 export const TEACHERS = ['ama', 'carlos'];
 /** Poses bundled offline (byte-for-byte web/teach/<who>/still-<pose>.webp, ≤ 60 KB each): feedback sheet (cheer / concern / encourage), complete + streak (cheer, laugh, empathy),
- * rig defaults (happy, thinking, point) and the gesture-bank thumbs_up. Anything else (explain, wave, surprise, clap, hold_card, talk, listen) is fetched like web (CDN) with `happy` as fallback. */
-export const BUNDLED_POSES = ['happy', 'cheer', 'point', 'thinking', 'concern', 'encourage', 'laugh', 'empathy', 'thumbs_up'];
+ * rig defaults (happy, thinking, point), the gesture-bank thumbs_up and talk (first beat of Say-it drills, pron, reflex: shown on the first frame and offline; snapshot tests never hit the CDN – #983 flake). Anything else (explain, wave, surprise, clap, hold_card, listen) is fetched like web (CDN) with `happy` as fallback. */
+export const BUNDLED_POSES = ['happy', 'cheer', 'point', 'thinking', 'concern', 'encourage', 'laugh', 'empathy', 'thumbs_up', 'talk'];
 export const HEAD_FILE = 'head-bare-2x.webp';
 const STILL_MAX = 60 * 1024;
 

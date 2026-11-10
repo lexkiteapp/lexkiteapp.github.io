@@ -861,6 +861,8 @@
   "model.originalModelAnswersWith": "Jawaban model orisinal dengan frasa yang berguna, kata penghubung, dan peran setiap kalimat yang disorot. Ketuk frasa untuk menyimpannya.",
   "model.searchByTopicOr": "Cari berdasarkan topik atau jenis tugas…",
   "model.phrasesStructures": "Frasa & struktur",
+  "model.phraseBookByFunction": "Buku frasa menurut fungsi",
+  "model.phraseBookByFunctionSub": "Apa yang harus dikatakan saat menelepon, meminta bantuan, atau meminta maaf – dalam tiga tingkat bahasa, lengkap dengan jawaban dan contoh dialog.",
   "model.learningInChunksMakes": "Belajar dalam <b>potongan</b> membuat kemampuan berbicara dan menulis Anda lebih alami dibandingkan mempelajari satu kata. Simpan frasa dan struktur kalimat beserta makna, penggunaan, dan contoh kalimatnya – dan tinjau di saat yang tepat, seperti halnya kosa kata.",
   "model.addPhraseStructure": "Tambahkan frase/struktur",
   "model.studyPhrases": "Pelajari frasa",

@@ -23393,16 +23393,15 @@
   },
   "dictionary#n": {
    "ex": "Look up any unfamiliar words in a good learner's dictionary before class.",
-   "ps": "a woman opens a thick book on a table that looks like a dictionary",
-   "sc": "a woman opens a thick book on a table that looks like a dictionary",
-   "check": "Is a person opening a book that looks like a dictionary?",
-   "cap": "a woman opening a thick book on a table",
+   "ps": "a woman stands beside a large board covered with many small pictures of different objects",
+   "sc": "a woman stands beside a large board covered with many small pictures of different objects",
+   "check": "Is there a collection of pictures that shows the meanings of many words?",
+   "cap": "a woman examining a board filled with various object images",
+   "key": "a large board covered with many small pictures of objects; a woman standing beside the board",
    "who": 1,
-   "draw": 5,
-   "v": "e4",
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:55:51.125Z"
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "didactic#adj": {
    "ex": "The novel is too didactic for many young readers.",
