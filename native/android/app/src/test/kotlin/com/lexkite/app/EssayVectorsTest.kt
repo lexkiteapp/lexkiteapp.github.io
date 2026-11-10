@@ -62,7 +62,7 @@ class EssayVectorsTest {
             val st = o.a("stats").map { it.jsonObject }
             assertEquals("$id stats", listOf(a.words.toString(), a.awlTotal.toString(), a.link.size.toString(), "${Math.floor(a.diversity * 100 + 0.5).toInt()}%"), st.map { it.gs("n") })
             assertEquals("$id AWL label pct", Essay.pct1(a.awlRatio), st[1].o("label").o("v").gs("pct"))
-            val saved = o.a("writes")[0].jsonObject.o("value").jsonArray[0].jsonObject
+            val saved = o.a("writes")[0].jsonObject.a("value")[0].jsonObject
             assertEquals("$id saved prompt", "p1", saved.gs("prompt")); assertEquals("$id saved words", a.words, saved.i("words")); near(saved.n("band"), a.band, "$id saved band")
             assertEquals("$id reward", o.a("rewards")[0].jsonObject.let { r -> r.entries.associate { it.key to it.value.s().toDouble().toInt() } }, Essay.REWARD + ("xp" to Essay.REWARD_XP))
         }

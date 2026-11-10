@@ -248,9 +248,15 @@ final class GrammarLessonModel {
 // MARK: - mixed test (#/grammar/mix)
 @MainActor @Observable
 final class GrammarMixModel {
-    struct Item: Identifiable { let id = UUID(); var q: JSON?, d: JSON?, lesson: JSON }
+    struct Item: Identifiable {
+        let id = UUID()
+        var q: JSON? = nil
+        var d: JSON? = nil
+        var lesson: JSON
+    }
     let ctx: SkillsContext
-    let chapterN: Int?, count: Int
+    let chapterN: Int?
+    let count: Int
     private(set) var pack: GrammarPack
     private(set) var items: [Item] = []
     private(set) var i = 0
