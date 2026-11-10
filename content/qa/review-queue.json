@@ -1021115,6 +1021115,128 @@
     "qa": {},
     "senseLock": "wiktionary-1"
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "surprise#v",
+   "batch": "20261110-r215",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "surprise",
+    "pos": "v",
+    "ipa": "/sə(ː)ˈpraɪz/",
+    "ipaUS": "/sərˈpraɪz/",
+    "def": "to make someone feel shocked or delighted by something unexpected",
+    "ex": [
+     "Every time you do that, it surprises me.",
+     "He surprised me with flowers on our anniversary."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "B1",
+    "cefrF": "A2",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 4.75,
+    "emoji": "",
+    "topic": "xw-feelings",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:surprise.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:9409186",
+      "wiktionary"
+     ],
+     "tr": {
+      "es": "wiktionary+omw+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "id": "omw+ai",
+      "th": "wiktionary+omw+ai",
+      "ja": "omw+ai",
+      "ko": "wiktionary+ai",
+      "ru": "wiktionary+ai",
+      "tr": "wiktionary+ai"
+     },
+     "trSense": "cause (someone) to feel surprise",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "grindstone#n",
+   "batch": "20261110-r215",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "grindstone",
+    "pos": "n",
+    "ipa": "/ˈɡraɪn(d)ˌstəʊn/",
+    "ipaUS": "/ˈɡraɪndstoʊn/",
+    "def": "a round stone that rotates to grind, sharpen or polish tool edges",
+    "ex": [
+     "Why not just use a grindstone?"
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.38,
+    "emoji": "",
+    "topic": "technology",
+    "vi": "đá mài",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:grindstone.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikibooks:wb446992.3"
+     ],
+     "tr": {
+      "vi": "wiktionary",
+      "es": "wiktionary+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "zh": "wiktionary+omw+ai",
+      "ja": "wiktionary+omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "wheel for grinding",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
   }
  ]
 }
