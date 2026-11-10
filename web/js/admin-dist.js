@@ -6,7 +6,10 @@
  *     trình sửa luật (thứ tự, kéo thả, thử 1 clip), lịch từng kênh + ghi đè tay/hàng loạt, xem trước metadata social (tiêu đề A/B, điểm SEO).
  * Mô hình luật thuần: js/lib/dist-rules.js (window.DistRules). docs/DISTRIBUTION.md. */
 (function () {
+  /** = SOCIAL_LANGS (functions/api/_distribution.js; test dist-roles giữ khớp). '' = tự nhận từ tên page (langOfChannel). */
+  const PAGE_LANGS = ['vi', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr', 'en'];
   const EN = {
+    'Ngôn ngữ trang': 'Page language', 'Tự nhận từ tên': 'Detect from name', 'Đang dùng: {l} ({s})': 'In use: {l} ({s})', 'đặt tay': 'set manually', 'nhận từ tên': 'from name', 'mặc định': 'default',
     'Kênh & phân phối': 'Channels & distribution', 'Hệ thống (web/app)': 'System (web/app)', 'Social': 'Social', 'Đang tải…': 'Loading…', 'Lỗi: {e}': 'Error: {e}',
     'Kênh nhúng': 'Embed channels', 'Bài học chỉ nhúng video từ kênh có vai trò Nhúng (unlisted, metadata tối giản + lk:).': 'Lessons only embed videos from channels with the Embed role (unlisted, minimal metadata + lk:).',
     'Xoay vòng giữa {n} kênh nhúng': 'Rotating across {n} embed channels', '{n} clip': '{n} clips', 'Cần kết nối lại': 'Needs reconnect', 'Nhúng': 'Embed', 'Vai trò': 'Role', 'Đặt làm kênh nhúng': 'Make embed channel', 'Chuyển sang social': 'Switch to social', 'Chưa có kênh nhúng – bài học đang dùng bản tự lưu trữ.': 'No embed channel yet – lessons use the self-hosted copy.',
@@ -50,6 +53,8 @@
     const err = e => `<p class="ds-err" role="alert">${esc(V('Lỗi: {e}', { e: e.code || e.message }))}</p>`;
     const chName = id => { const c = ((G && G.channels) || []).find(x => x.channel_id === id); return c ? (PLAT[c.platform] || c.platform) + ' · ' + (c.cfg.label || c.title || id) : id || '–'; };
     const tx = () => (G && G.taxonomy) || { types: [], topics: [], skills: [], exams: [], cefr: [] };
+    const LANG_SRC = { cfg: 'đặt tay', name: 'nhận từ tên', default: 'mặc định' };
+    const langName = l => { try { return new Intl.DisplayNames([lang() === 'en' ? 'en' : 'vi'], { type: 'language' }).of(l) + ` (${l})`; } catch (e) { return l; } };
     const nm = (x, i) => (lang() === 'en' ? x[2] || x[i || 1] : x[1]);
     main.innerHTML = `<div class="ds"><div class="ds-row"><h2 style="margin:0">🛰️ ${esc(V('Kênh & phân phối'))}</h2></div>
       <div class="ds-seg" role="group"><button class="btn sm ghost" data-area="system" type="button">🌐 ${esc(V('Hệ thống (web/app)'))}</button><button class="btn sm ghost" data-area="social" type="button">📣 ${esc(V('Social'))}</button></div><div id="ds-body"></div></div>`;
@@ -89,7 +94,7 @@
       const chs = G.channels, al = G.alerts || [];
       body.innerHTML = `${al.length ? `<section class="ds-card"><h3>⚠️ ${esc(V('Cảnh báo kênh'))}</h3><ul>${al.map(a => `<li>${esc(a.title)} – ${esc(a.reason)} <button class="btn sm ghost" type="button" data-res="${esc(a.channel_id)}">${esc(V('Bật lại'))}</button></li>`).join('')}</ul><button class="btn sm ghost" id="ds-alc" type="button">${esc(V('Xóa cảnh báo'))}</button></section>` : ''}
         <div class="ds-g2"><section class="ds-card" aria-labelledby="ds-sc"><div class="ds-row"><h3 id="ds-sc" style="flex:1">📡 ${esc(V('Kênh mạng xã hội'))}</h3><button class="btn sm ghost" id="ds-gc" type="button">⟳ ${esc(V('Đồng bộ từ GrabCast'))}</button></div>
-          ${chs.map(c => `<div class="ds-ch">${c.thumb ? `<img src="${esc(c.thumb)}" alt="" width="28" height="28" loading="lazy">` : ''}<span class="grow"><b>${esc(PLAT[c.platform] || c.platform)}</b> · ${esc(c.cfg.label || c.title || c.channel_id)}<br><span class="ds-muted">${esc(c.cfg.role === 'embed' ? V('Nhúng') : V('Social'))} · ${c.cfg.daily_cap}/${esc(lang() === 'en' ? 'day' : 'ngày')} · ${esc(c.cfg.tz)}</span></span>
+          ${chs.map(c => `<div class="ds-ch">${c.thumb ? `<img src="${esc(c.thumb)}" alt="" width="28" height="28" loading="lazy">` : ''}<span class="grow"><b>${esc(PLAT[c.platform] || c.platform)}</b> · ${esc(c.cfg.label || c.title || c.channel_id)}<br><span class="ds-muted">${esc(c.cfg.role === 'embed' ? V('Nhúng') : V('Social'))} · ${c.ext ? `${esc(c.cfg.lang || 'en')} · ` : ''}${c.cfg.daily_cap}/${esc(lang() === 'en' ? 'day' : 'ngày')} · ${esc(c.cfg.tz)}</span></span>
             <span class="ds-b ${c.status === 'ok' && c.cfg.active ? 'ok' : 'bad'}">${esc(c.status !== 'ok' ? c.status : c.cfg.active ? V('Bật') : V('Tạm dừng'))}</span><button class="btn sm ghost" type="button" data-cfg="${esc(c.channel_id)}">⚙ ${esc(V('Cài đặt'))}</button></div>`).join('')}
           ${chs.some(c => c.ext) ? '' : `<p class="ds-muted">${esc(V('Chưa nối GrabCast – kênh FB/IG/TikTok/Threads hiện khi tác tử social đồng bộ.'))}</p>`}</section>
         <section class="ds-card" aria-labelledby="ds-tc"><h3 id="ds-tc">🧪 ${esc(V('Thử clip'))}</h3><div class="ds-form"><label>${esc(V('Mã clip (hoặc để trống và chọn thuộc tính)'))}<input id="ds-tid" autocomplete="off" spellcheck="false"></label><div class="ds-f" id="ds-tsm">${condFields({}, 't')}</div>
@@ -181,6 +186,7 @@
       const topics = t.topics.flatMap(x => [[x.id, lang() === 'en' ? x.en : x.vi], ...x.sub.map(s => [x.id + '/' + s.id, '› ' + (lang() === 'en' ? s.en : s.vi)])]);
       dialog(`<h3>⚙ ${esc(chName(c.channel_id))}</h3><div class="ds-form">
         <label>${esc(V('Nhãn'))}<input id="cf-label" value="${esc(cf.label)}"></label>
+        ${c.ext ? `<label>${esc(V('Ngôn ngữ trang'))}<select id="cf-lang"><option value="">${esc(V('Tự nhận từ tên'))}</option>${PAGE_LANGS.map(l => `<option value="${l}"${c.lang_src === 'cfg' && cf.lang === l ? ' selected' : ''}>${esc(langName(l))}</option>`).join('')}</select><span class="ds-muted">${esc(V('Đang dùng: {l} ({s})', { l: langName(cf.lang || 'en'), s: V(LANG_SRC[c.lang_src] || 'mặc định') }))}</span></label>` : ''}
         ${c.platform === 'youtube' ? `<label>${esc(V('Vai trò'))}<select id="cf-role"><option value="social"${cf.role !== 'embed' ? ' selected' : ''}>${esc(V('Social'))}</option><option value="embed"${cf.role === 'embed' ? ' selected' : ''}>${esc(V('Nhúng'))}</option></select></label>` : ''}
         <fieldset><legend>${esc(V('Loại'))}</legend>${chk('types', t.types.map(x => [x[0], x[1]]))}</fieldset><fieldset><legend>${esc(V('Chủ đề'))}</legend>${chk('topics', topics)}</fieldset>
         <fieldset><legend>${esc(V('Kỹ năng'))}</legend>${chk('skills', t.skills.map(x => [x[0], nm(x)]))}</fieldset><fieldset><legend>CEFR</legend>${chk('cefr', t.cefr.map(x => [x, x]))}</fieldset>
@@ -191,7 +197,7 @@
         <div class="ds-row"><button class="btn primary" id="cf-save" type="button">${esc(V('Lưu'))}</button><button class="btn ghost" data-x type="button">${esc(V('Hủy'))}</button></div></div>`, (d, close) => {
         d.querySelector('#cf-save').onclick = async () => {
           const pick = k => [...d.querySelectorAll(`[data-k="${k}"]:checked`)].map(x => x.value), q = s => d.querySelector(s);
-          const cfg = { ...cf, label: q('#cf-label').value, role: q('#cf-role') ? q('#cf-role').value : 'social', types: pick('types'), topics: pick('topics'), skills: pick('skills'), cefr: pick('cefr'), regions: q('#cf-regions').value,
+          const cfg = { ...cf, label: q('#cf-label').value, role: q('#cf-role') ? q('#cf-role').value : 'social', types: pick('types'), topics: pick('topics'), skills: pick('skills'), cefr: pick('cefr'), regions: q('#cf-regions').value, ...(q('#cf-lang') ? { lang: q('#cf-lang').value } : {}),
             daily_cap: +q('#cf-cap').value, min_gap_min: +q('#cf-gap').value, tz: q('#cf-tz').value.trim(), windows: q('#cf-win').value.split(',').map(x => x.trim().split('-')).filter(x => x.length === 2).map(([from, to]) => ({ from: from.trim(), to: to.trim() })), active: q('#cf-act').checked ? 1 : 0 };
           try { await dapi('cfg_set', { channel_id: c.channel_id, cfg }); toast(V('Đã lưu')); close(); G = null; paint(); } catch (e) { toast(V('Lỗi: {e}', { e: e.code || e.message })); }
         };
