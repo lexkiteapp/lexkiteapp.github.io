@@ -111,7 +111,7 @@ async function appMode() {
   const AW = 886, AH = 1920, BASE = process.env.BASE || 'http://localhost:8080/', END = 2.8;
   const { BASECSS, HIDE } = await import('./lib/app-shots-copy.mjs');
   const RIPPLE = `addEventListener('pointerdown', e => { const r = document.createElement('div'); r.style.cssText = 'position:fixed;z-index:2147483647;pointer-events:none;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(255,176,84,.55);border:3px solid #fff;left:' + e.clientX + 'px;top:' + e.clientY + 'px;transition:transform .5s ease-out,opacity .5s ease-out;transform:scale(.4)'; (document.body || document.documentElement).appendChild(r); requestAnimationFrame(() => { r.style.transform = 'scale(1.5)'; r.style.opacity = '0'; }); setTimeout(() => r.remove(), 600); }, true);`;
-  const br = await chromium.launch();
+  const br = await chromium.launch({ args: ['--force-device-scale-factor=2'] }); // để screencast gửi khung điểm ảnh thật 886×1920
   const ctx = await br.newContext({ viewport: { width: 443, height: 960 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2, colorScheme: 'light', locale: 'en-US' }); // KHÔNG dùng recordVideo (Playwright bỏ qua deviceScaleFactor → app nằm góc trái-trên); quay bằng CDP screencast đúng điểm ảnh thiết bị
   await ctx.addInitScript(([css, rip]) => { addEventListener('DOMContentLoaded', () => { const s = document.createElement('style'); s.textContent = css; document.head.appendChild(s); }); new Function(rip)();
     setInterval(() => { try { // móc: ghi lại câu mà bài học đang đọc (đáp án của xếp câu / điền chỗ trống nằm ở đó, DOM không có)
@@ -166,13 +166,14 @@ async function appMode() {
   }
   if (done < 1) throw new Error('✗ chưa làm được câu bài học nào');
   // 3. Từ vựng → 4. Kỹ năng (chạm tab dưới) – mỗi 2–3 s có chuyển động
-  M.vocab = mark(); await tap('#bnav a[href="#/vocab"], nav a[data-route="vocab"]', '#/vocab'); await sleep(1300); await swipe(240); await sleep(900); await swipe(240); await sleep(900); await swipe(-480); await sleep(600);
-  M.skills = mark(); await tap('#bnav a[href="#/skills"], nav a[data-route="skills"]', '#/skills'); await sleep(1300); await swipe(240); await sleep(1100);
+  M.vocab = mark(); await tap('#bnav a[data-tab="vocab"]', '#/vocab'); await sleep(1300); await swipe(240); await sleep(900); await swipe(240); await sleep(900); await swipe(-480); await sleep(600);
+  M.skills = mark(); await tap('#bnav a[data-tab="skills"]', '#/skills'); await sleep(1300); await swipe(240); await sleep(1100);
   await cdp.send('Page.stopScreencast').catch(() => {});
   await p.close(); await ctx.close(); await br.close();
   const dur = Math.min(+(frames[frames.length - 1].ts - frames[0].ts + 0.5).toFixed(2), 26.5);
   const dim = execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=width,height', '-of', 'csv=p=0:s=x', frames[0].f], { encoding: 'utf8' }).trim();
-  if (dim !== `${AW}x${AH}`) throw new Error(`✗ khung screencast ${dim}, cần ${AW}x${AH}`);
+  if (dim !== `${AW}x${AH}` && dim !== `${AW / 2}x${AH / 2}`) throw new Error(`✗ khung screencast ${dim}, cần ${AW}x${AH}`);
+  if (dim !== `${AW}x${AH}`) console.log(`  ⚠ screencast ${dim} (CSS px) → phóng ×2 lanczos`); // headless có thể gửi khung theo CSS px dù dsf 2
   const lst = path.join(TMP, 'frames.txt'); // concat demuxer: mỗi khung giữ đến timestamp khung sau
   fs.writeFileSync(lst, frames.map((x, i) => `file '${x.f}'\nduration ${Math.max(0.01, (frames[i + 1] ? frames[i + 1].ts - x.ts : 0.5)).toFixed(4)}`).join('\n') + `\nfile '${frames[frames.length - 1].f}'\n`);
   console.log(`  ${frames.length} khung · ${dur.toFixed(1)} s · mốc ${JSON.stringify(Object.fromEntries(Object.entries(M).map(([k, v]) => [k, +v.toFixed(1)])))}`);
