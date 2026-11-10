@@ -45,7 +45,7 @@ jobs:
         run: |
           python3 scripts/video/teach2d/gen.py -q
           git status --porcelain content/video/teach2d/eps | grep . && { echo "::error::eps/*.json differ from gen.py output (pilots.json + auto.json) – regenerate and review"; exit 1; }
-          python3 scripts/test/teach2d-gen.py && python3 scripts/test/teach2d-autopub.py   # batch generator gates (data / level / hook / dup) + spelling syllables, regression cases
+          python3 scripts/test/teach2d-gen.py && python3 scripts/test/teach2d-autopub.py && python3 scripts/test/teach2d-store.py   # batch generator gates (data / level / hook / dup) + spelling syllables, regression cases
           python3 scripts/video/teach2d/mix.py --check   # 0-credit build bank: mix.json regenerates identically, 0 repeats in the window, diversity >= 70
           python3 scripts/test/teach2d-mix.py
           python3 scripts/video/teach2d/publish.py --check   # publish block of every episode (title / platforms) valid – docs/specs/video-production-v2.md §2
@@ -259,10 +259,26 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: 'tv-bank-${{ github.run_id }}', path: 'bank/', retention-days: 90, if-no-files-found: ignore }   # banked videos (phone 9:16, embed 16:9, poster)
+      - name: Clips through autopub_gate -> lexkite-shorts (never posts; no Drive/prod call here, the daily drive-shorts + shorts-migrate move media)
+        if: always() && github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch'
+        env: { KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}' }
+        run: |
+          [ -d bank ] || { echo "no banked video"; exit 0; }
+          [ -n "$KEY" ] || { echo "::warning::SHORTS_DEPLOY_KEY missing - clips stay in the 90-day artifact"; exit 0; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/shorts && chmod 600 ~/.ssh/shorts
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --sparse git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
+          python3 scripts/video/teach2d/store.py art bank $RUNNER_TEMP/bank-delta.json /tmp/shorts ${{ github.run_number }} ${{ github.sha }}
+          bash scripts/cine/archive_new.sh /tmp/shorts
+          cd /tmp/shorts; git add --sparse -A shorts .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "teach-video #${{ github.run_number }} [CF-Pages-Skip]" || exit 0
+          pushed=; for k in 1 2 3 4; do git push -q origin HEAD:main && { pushed=1; break; }; git pull -q --rebase --autostash origin main; done
+          rm -f ~/.ssh/shorts
+          [ -n "$pushed" ] || { echo "::error::could not push lexkite-shorts after 4 tries"; exit 1; }
       - name: bank.json + BANK.md -> main (batch on main only; regenerated on the newest main – scripts/ci/commit-regen.sh)
         if: always() && github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch'
         run: |
-          bash scripts/ci/commit-regen.sh "teach-video: bank ${{ github.run_id }} [CF-Pages-Skip] [skip ci]" "python3 scripts/video/teach2d/bank.py merge $RUNNER_TEMP/bank-delta.json" content/video/teach2d/bank.json content/video/teach2d/BANK.md
+          bash scripts/ci/commit-regen.sh "teach-video: bank ${{ github.run_id }} [CF-Pages-Skip] [skip ci]" "python3 scripts/video/teach2d/bank.py merge $RUNNER_TEMP/bank-delta.json" content/video/teach2d/bank.json content/video/teach2d/BANK.md content/video/teach2d/PUBLISH.md
       - name: Review sheet + score table (red when any episode < 90 or a gate fails, or nothing rendered)
         if: always()
         env: { LIST: '${{ needs.preqc.outputs.list }}' }
