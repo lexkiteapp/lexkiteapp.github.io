@@ -9285,7 +9285,6 @@ gasification	ok	ok
 anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
 porpoise	ok	ok
 systematics	ok	ok
-dishonest	ok	ok
 idol	ok	cut_wordis: câu mang: "The word is idle." · dot100:"Idle." 0.57s · cut_wordis100: câu mang: "The word is idle." · cut_next: câu mang: "Next word, idle." · plain095:"Idle." 0.57s · dot090:"Idle." 0.66s
 calf	cut_wordis: câu mang: "The word is karfi." · dot100:"Cuff." 0.81s · cut_wordis100: câu mang: "The word is cough." · cut_next: câu mang: "Next word, a coffee." · plain095:"Cursed." 0.57s · dot090:"Cuff." 0.91s	ok
 reunify	ok	ok
@@ -9301,12 +9300,10 @@ eyelid	ok	ok
 unhelpful	ok	ok
 overhear	cut_wordis: câu mang: "The word is over here." · dot100:"Over here." 0.85s · cut_wordis100: câu mang: "The word is over here." · cut_next: câu mang: "Next word over here." · plain095:"Over here." 0.78s · dot090:"Over here." 0.93s	cut_wordis: câu mang: "The word is over here." · dot100:"Over here." 0.70s · cut_wordis100: câu mang: "The word is over here." · cut_next: câu mang: "Next word, over here." · plain095:"Over here." 0.70s · dot090:"Over here." 0.78s
 quotable	ok	ok
-injustice	ok	ok
 rein	cut_wordis: câu mang: "The word is rain." · dot100:"Reins." 0.95s · cut_wordis100: câu mang: "The word is rain." · cut_next: câu mang: "Next word rain" · plain095:"RAINED" 0.59s · dot090:"Reigns" 0.72s	cut_wordis: câu mang: "The word is rain." · dot100:"Rain." 0.58s · cut_wordis100: câu mang: "The word is rain." · cut_next: câu mang: "Next word, rain." · plain095:"Rain." 0.57s · dot090:"Rain." 0.65s
 reorganization	ok	ok
 extortion	ok	ok
 aimlessly	ok	ok
-archetypal	ok	ok
 revaluation	ok	ok
 glitz	ok	ok
 hotelier	ok	ok
@@ -9315,7 +9312,6 @@ demystify	ok	ok
 unpromising	ok	ok
 township	ok	ok
 rabbi	ok	ok
-efficacy	ok	cut_wordis:"It's efficacy." 0.96s · cut_wordis:"Advocacy" 0.76s · dot100:"Advocacy." 0.71s · cut_wordis100:"Advocacy." 0.87s · cut_wordis100:"Advocacy." 0.71s · cut_next:"Advocacy" 0.79s · plain095:"Advocacy." 0.77s · dot090:"Advocacy." 0.81s
 thunder	ok	ok
 hatred	ok	ok
 ginger	ok	ok
@@ -9323,10 +9319,7 @@ stubborn	ok	ok
 hopeless	ok	ok
 anonymous	ok	ok
 furious	ok	ok
-hollow	ok	ok
-weakly	cut_wordis: câu mang: "The word is weekly." · dot100:"Weekly" 0.70s · cut_wordis100: câu mang: "The word is weekly." · cut_next: câu mang: "Next word, weekly." · plain095:"Weekly." 0.62s · dot090:"Weekly" 0.74s	cut_wordis: câu mang: "The word is weekly." · dot100:"Weekly." 0.68s · cut_wordis100: câu mang: "The word is weekly." · cut_next: câu mang: "Next word, weekly." · plain095:"Weekly." 0.68s · dot090:"Weekly." 0.75s
 unwise	ok	ok
-humiliate	ok	ok
 lawmaker	ok	ok
 uncomfortably	ok	ok
 infringe	ok	ok
@@ -9374,7 +9367,6 @@ fallout	ok	ok
 unanimously	ok	ok
 mommy	cut_wordis:"It's Mommy." 0.79s · cut_wordis:"Mummy." 0.68s · dot100:"Mummy" 0.95s · cut_wordis100:"It's Mommy." 0.71s · cut_wordis100:"Mummy" 0.65s · cut_next:"But mommy..." 0.82s · cut_next:"And Mommy." 0.81s · plain095:"It's Mummy." 0.55s · dot090:"Mummy" 1.06s	ok
 abnormal	ok	ok
-hardship	ok	ok
 boldly	ok	ok
 unafraid	ok	ok
 bomber	ok	ok
@@ -9388,7 +9380,6 @@ astray	ok	ok
 methodical	ok	ok
 mountaineer	ok	ok
 persuasively	ok	ok
-punitive	ok	ok
 inflationary	ok	ok
 inflow	ok	ok
 instantaneous	ok	ok
@@ -9396,10 +9387,8 @@ plumage	ok	ok
 minefield	ok	ok
 squirm	ok	ok
 stipulate	ok	ok
-saint	ok	ok
 guardian	ok	ok
 chapel	ok	ok
-cowboy	ok	ok
 questionable	ok	ok
 blockade	ok	ok
 jeopardy	ok	ok
@@ -9421,3 +9410,93 @@ observable	ok	ok
 deliberation	ok	ok
 betterment	ok	ok
 disprove	ok	ok
+societal	ok	ok
+toxicity	ok	ok
+unnamed	ok	ok
+condemnation	ok	ok
+decency	ok	ok
+implant	ok	ok
+serpent	ok	ok
+postwar	ok	ok
+oxidation	ok	ok
+arid	ok	ok
+infirmary	ok	ok
+sturgeon	ok	ok
+feral	ok	ok
+unrestricted	ok	ok
+fad	ok	ok
+pelvis	ok	ok
+silky	ok	ok
+inorganic	ok	ok
+catalytic	ok	ok
+algebraic	ok	ok
+augment	ok	ok
+functionally	ok	ok
+deflect	ok	ok
+asymmetric	ok	ok
+inhalation	ok	ok
+diseased	ok	ok
+rebuttal	ok	ok
+susceptibility	ok	ok
+repressive	ok	ok
+snout	ok	ok
+extracellular	ok	ok
+duchy	ok	ok
+normalize	ok	ok
+meritorious	ok	ok
+paladin	ok	ok
+eloquently	ok	ok
+assassination	ok	ok
+repetitive	ok	ok
+waiver	ok	ok
+mythical	ok	ok
+outpost	ok	ok
+foreseeable	ok	ok
+eyewitness	ok	ok
+cholera	ok	ok
+consular	ok	ok
+overtly	ok	ok
+perpetually	ok	ok
+raptor	ok	ok
+chromium	ok	ok
+steadfast	ok	ok
+secretion	ok	ok
+conical	ok	ok
+skunk	ok	ok
+boundless	ok	ok
+merciless	ok	ok
+embezzlement	ok	ok
+indiscriminate	ok	ok
+metastatic	ok	ok
+progeny	ok	ok
+accuser	ok	ok
+confiscation	ok	ok
+arbitrator	ok	ok
+nothingness	ok	ok
+shale	ok	ok
+anterior	ok	ok
+digestive	ok	ok
+forcibly	ok	ok
+lineage	ok	ok
+penal	ok	ok
+subcommittee	ok	ok
+neuroscience	ok	ok
+downright	ok	ok
+ebony	ok	ok
+goblin	cut_wordis:"Goblins" 0.81s · cut_wordis:"Goblins." 0.73s · dot100:"Goblins." 1.15s · cut_wordis100:"It's goblin." 0.79s · cut_wordis100:"Goblins" 0.68s · cut_next:"Goblins." 0.71s · cut_next:"Blins." 0.55s · plain095:"The Goblin." 0.67s · dot090:"Goblins." 1.24s	ok
+choreographer	ok	ok
+baseless	ok	ok
+pedagogical	ok	ok
+planar	ok	ok
+dredge	ok	ok
+winch	ok	ok
+overuse	ok	ok
+uncensored	ok	ok
+quell	cut_wordis:"Twelve." 0.70s · cut_wordis:"Twelve." 0.67s · dot100:"Quill." 0.71s · cut_wordis100:"12." 0.61s · cut_wordis100:"Quelved" 0.59s · cut_next:"Quel." 0.67s · plain095:"Squelled" 0.54s · dot090:"De Quel." 0.65s	ok
+spore	ok	ok
+arbiter	ok	ok
+checkmate	ok	ok
+centrifugal	ok	ok
+handover	ok	ok
+audacious	ok	ok
+invisibility	ok	ok
