@@ -28,7 +28,8 @@
 - [specs/native-apps.md](specs/native-apps.md) — Spec app iOS (SwiftUI) + Android (Compose) native thay bản Capacitor: 29 mục parity (native/shared/parity.json), một nguồn sinh tokens/chuỗi 15 ngôn ngữ/khung/luật chấm điểm (scripts/native/gen.mjs), kiến trúc MVVM + SwiftData/Room, giáo viên = port TeacherRig web, CI native-ios/native-android, lộ trình M0–M6; đọc khi: sửa native/, thêm route web, thay app trên store
 - [specs/native-m2-vectors.md](specs/native-m2-vectors.md) — Lược đồ vector M2 (bài học, rig giáo viên, âm thanh) + ảnh giáo viên đóng gói cho bản port Swift/Kotlin; đọc khi: port/sửa trình học bài, giáo viên, âm thanh native
 - [specs/native-m3-vectors.md](specs/native-m3-vectors.md) — Lược đồ vector M3 `vocab.json` (P04/P05) và kiểm kê màn từ vựng
-- [specs/native-m4-vectors.md](specs/native-m4-vectors.md) — Lược đồ vector M4 `skills.json` (P06 nghe & đọc: 6 route), mẫu Stitch, kiểm kê màn và thứ được ghi vào kho; đọc khi: port nghe/đọc/chép chính tả native, mở rộng cho P07/P09
+- [specs/native-m4-vectors.md](specs/native-m4-vectors.md) — Vector M4 `skills.json` (P06 nghe & đọc), kiểm kê màn; đọc khi: port nghe/đọc native
+- [specs/native-m4-write.md](specs/native-m4-write.md) — P09 viết native (`write.json`); đọc khi: port #/write #/task1 #/criteria
 - [specs/admin-audit.md](specs/admin-audit.md) — Kiểm toán Quản trị 05/11: 12 lỗi gốc R1–R12, IA 6 nhóm/hub, kế hoạch 3 PR, kiểm kê từng tab; đọc khi: sửa trang /admin.html
 - [specs/video-learn.md](specs/video-learn.md) — Spec "Học qua video": #/watch (chủ đề CEFR × mục tiêu, dán link, tìm), trình phát YouTube chính thức (A-B, tốc độ, ghi chú, lưu từ), /api/watch (oEmbed, RSS, Data API có trần), add-on youtube.com; điều khoản YouTube đã kiểm; đọc khi: sửa watch*.js, functions/api/watch.js, phần YouTube của add-on
 - [welcome](specs/welcome.md) — màn chào + thiết lập lần đầu: ai thấy gì, đi đâu; đọc khi sửa welcome.js, onboard.js, gen-hero

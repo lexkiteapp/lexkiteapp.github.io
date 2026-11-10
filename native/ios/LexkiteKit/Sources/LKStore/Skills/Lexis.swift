@@ -192,3 +192,35 @@ extension String {
         return replacingCharacters(in: r, with: with)
     }
 }
+
+public extension Lexis {
+    /// web `Lexis.analyze(text)` in full (the report of #/write): `stop` = the STOP table of lexis.js (write-pack `lexis.stop`), `indexed` = membership of the word library (IELTS_DATA.INDEX).
+    func essay(_ text: String, stop: Set<String>, indexed: (String) -> Bool) -> Essay.Analysis {
+        let clean = text.split(whereSeparator: { $0.isWhitespace }).joined(separator: " ")
+        let sents = clean.isEmpty ? [] : Self.sentences(of: clean).map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }.filter { !$0.isEmpty }
+        let words = Essay.tokens(clean)
+        let content = words.filter { !stop.contains($0) && $0.utf16.count > 2 }
+        var freq = Essay.Counter(), awl = Essay.Counter(), link = Essay.Counter(), phrases = Essay.Counter()
+        for w in content { freq.add(Self.bases(w).first(where: indexed) ?? w) }
+        for w in words {
+            let c = classify(w)
+            if let a = c.awl { awl.add(a) }
+            if let l = c.link { link.add(l) }
+        }
+        if let re = phraseRe {
+            for m in re.matches(in: clean, range: NSRange(location: 0, length: (clean as NSString).length)) {
+                let k = (clean as NSString).substring(with: m.range).lowercased().split(whereSeparator: { $0.isWhitespace }).joined(separator: " ")
+                phrases.add(k)
+                if phraseType[k] == "link" { link.add(k) }
+            }
+        }
+        let lens = sents.map { Essay.words($0) }
+        let avg = lens.isEmpty ? 0 : Double(lens.reduce(0, +)) / Double(lens.count)
+        let sd = lens.isEmpty ? 0 : (lens.reduce(0.0) { $0 + pow(Double($1) - avg, 2) } / Double(lens.count)).squareRoot()
+        let diversity = content.isEmpty ? 0 : Double(Set(content.map { Self.bases($0).last ?? $0 }).count) / Double(content.count)
+        let overused = Vocab.stableSorted(freq.entries.filter { $0.n >= 4 && !data.awl.contains($0.w) && !data.link.contains($0.w) }) { $0.n > $1.n }.prefix(8)
+        let awlRatio = words.isEmpty ? 0 : Double(awl.total) / Double(words.count)
+        return Essay.Analysis(words: words.count, sentences: sents.count, avg: avg, sd: sd, diversity: diversity, awl: awl.entries, link: link.entries, phrases: phrases.entries,
+                              overused: Array(overused), awlRatio: awlRatio, band: Essay.lexicalBand(words: words.count, awlRatio: awlRatio, phrases: phrases.count, link: link.count, diversity: diversity, overused: overused.count))
+    }
+}

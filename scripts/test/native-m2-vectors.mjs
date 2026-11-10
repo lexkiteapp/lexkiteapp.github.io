@@ -1,4 +1,4 @@
-// Native M2–M4 – the shared layer's vectors (lesson engine P03, teacher rig C05, audio C04, lesson strings, M3 vocab P04/P05, M4 skills P06, speak P07, call P08): they regenerate byte-identically from the real web JS,
+// Native M2–M4 – the shared layer's vectors (lesson engine P03, teacher rig C05, audio C04, lesson strings, M3 vocab P04/P05, M4 skills P06, speak P07, call P08, write P09): they regenerate byte-identically from the real web JS,
 // and they are internally sane, so the SwiftUI / Compose ports can trust them. Light (a few seconds, no browser, no Mac heavy work). docs/specs/native-apps.md §3, §5.
 import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
 import { lessonVectors } from '../native/gen-lesson.mjs';
@@ -361,6 +361,107 @@ const RV = T1.vectorJson, RD = T1.rigJson;
     const vk = new Set(); const walk = o => { if (o && typeof o === 'object') { if (typeof o.k === 'string' && Object.keys(o).every(x => x === 'k' || x === 'v' || x === 'icon')) vk.add(o.k); for (const v of Object.values(o)) walk(v); } }; walk({ list: V.list, ring: V.ring, flow: V.flow, engine: V.engine.correct });
     const unmapped = [...vk].filter(k => !have10.has(k) && /[À-ỹ]/.test(k));
     ok(unmapped.length === 0, `call.json: every Vietnamese key in the vector outputs exists in strings.json${unmapped.length ? ' – missing: ' + unmapped.slice(0, 3).join(' | ') : ''}`);
+  }
+}
+
+// ---- 11) M4 write vectors (P09 Writing & grammar: #/write #/task1 #/qstats #/criteria) ----
+{
+  const WR = await import('../native/gen-write.mjs');
+  const W1 = await WR.writeVectors(), W2 = await WR.writeVectors();
+  ok(W1 === W2 && same(`${SH}/vectors/write.json`, W1), 'write.json: two runs identical and equal to the committed file (else: node scripts/native/gen.mjs)');
+  ok(Buffer.byteLength(W1) < 300 * 1024, `write.json < 300 KB (${(Buffer.byteLength(W1) / 1024) | 0} KB; owner cap, incl. the word-library index of Lexis.analyze)`);
+  const V = JSON.parse(W1), bad = [];
+  const selfD = a => Array.isArray(a) && a.length > 0 && a.every(c => c && typeof c.why === 'string' && c.why.length > 8 && c.input !== undefined && c.out !== undefined);
+  for (const k of ['write.analyze', 'write.flow', 'task1.score', 'task1.flow', 'qstats.cases']) if (!selfD(k.split('.').reduce((x, y) => (x ? x[y] : undefined), V))) bad.push(k);
+  ok(bad.length === 0, `write.json: every vector list is present and each case has why + input + out${bad.length ? ' – missing/invalid: ' + bad.join(', ') : ''}`);
+  const b11 = [], an = id => V.write.analyze.find(c => c.id === id).out, sc = id => V.task1.score.find(c => c.id === id).out;
+  // rules that the web code states and the ports must keep (cheap re-derivations from the vectors themselves)
+  for (const c of V.write.analyze.filter(c => c.id !== 'too-short')) { const o = c.out, w = o.words;
+    const cap = w < 150 ? 5 : w < 250 ? 6 : 8.5; if (o.band > cap || o.band < 4 || o.band * 2 !== Math.round(o.band * 2)) b11.push('band ' + c.id);
+    if ((w < 250) !== o.tips.some(t => /^Bài mới có/.test(t.k))) b11.push('short tip ' + c.id);
+    if (o.overused.some(([, n]) => n < 4) || o.overused.length > 8) b11.push('overused ' + c.id);
+    if (o.writes[0].value[0].prompt !== 'p1' || o.writes[0].value[0].words !== w || JSON.stringify(o.rewards) !== '[{"quizzes":1,"writes":1,"xp":25}]') b11.push('saves ' + c.id); }
+  if (an('band-8-essay').band <= an('band-5-essay').band || an('repeat').overused.length < 2 || !an('long-sentences').tips.some(t => /^Câu trung bình hơi dài/.test(t.k)) || !an('even-lengths').tips.some(t => /^Câu có độ dài khá giống/.test(t.k))) b11.push('analyse ordering/tips');
+  const ta = V.write.analyze.find(c => c.id === 'too-short').out; if (ta.reported || ta.writes.length || ta.rewards.length || ta.toast.length !== 1) b11.push('too-short');
+  if (sc('good-line').band !== 8 || sc('under-100').band > 4.5 || sc('120-words').band > 5.5 || !sc('opinion').notes.some(n => /^Task 1 <b>không nêu/.test(n.k)) || !sc('process-active').notes.some(n => /^Với quy trình/.test(n.k)) || !sc('map-passive').notes.some(n => /^Với bản đồ/.test(n.k))) b11.push('task1 score rules');
+  const fl = V.write.flow.find(c => c.id === 'saved-list').out; if (fl.keptAfter !== 20 || fl.newest !== 'p5' || fl.shownCount !== 6) b11.push('saved list');
+  const qs = id => V.qstats.cases.find(c => c.id === id).out; if (!qs('empty').empty || qs('unknown-skill').cards.length || qs('listening-reading').cards.map(c => c.name).join() !== 'IELTS Listening,IELTS Reading' || JSON.stringify(V.qstats.skills.map(s => s[0])) !== '["il","ir","tl","tr","fr","fl","fw"]') b11.push('qstats');
+  ok(b11.length === 0, `write vectors obey the web rules (Lexis.analyze band caps + tips, saved essays, Task 1 score, qstats cards)${b11.length ? ' – ' + b11.slice(0, 4).join(' | ') : ''}`);
+  // the downloadable pack (web/data/write-pack.json, https://lexkite.com/data/write-pack.json)
+  {
+    const P1 = await WR.writePack(), P2 = await WR.writePack(), PK = JSON.parse(P1), bp = [];
+    ok(P1 === P2 && same(WR.WRITE_PACK_PATH, P1), 'write-pack.json: two runs identical and equal to the committed file (else: node scripts/native/gen.mjs)');
+    ok(Buffer.byteLength(P1) < 80 * 1024, `write-pack.json size: ${(Buffer.byteLength(P1) / 1024) | 0} KB (< 80); not in the extension or app shell`);
+    if (!/^[0-9a-f]{12}$/.test(PK.v) || PK.schema !== 1) bp.push('v/schema');
+    if (JSON.stringify(PK.write.outline) !== JSON.stringify(V.write.static.outline) || JSON.stringify(PK.write.trends) !== JSON.stringify(V.write.static.trends) || JSON.stringify(PK.task1.vocab) !== JSON.stringify(V.task1.static.vocab) || JSON.stringify(PK.lexis.stop) !== JSON.stringify(V.data.stop)) bp.push('tables differ from the vectors');
+    for (const sk of ['writing', 'speaking']) { const d = PK.criteria[sk]; if (!d || d.criteria.length !== 4 || Object.keys(d.models).join() !== '5.0,6.5,8.0' || d.jumpTips.length < 2 || d.criteria.some(c => Object.keys(c.bands).join() !== '4,5,6,7,8,9') || PK.scoreKeys[sk].length !== 4) bp.push('criteria ' + sk); }
+    if (PK.qstats.skills.length !== 7 || !PK.write.connectors.includes('Firstly,') || PK.lexis.stop.length < 100) bp.push('qstats/connectors/stop');
+    ok(bp.length === 0, `write-pack.json: criteria (writing + speaking: 4 criteria × bands 4–9, 3 models, roadmap) + STOP table + page tables; shape = write.json criteria rules${bp.length ? ' – ' + bp.join(' | ') : ''}`);
+  }
+  // strings: every t() key of the P09 screens (write.js, task1.js, qtips.js #/qstats, criteria.js + their data) is mapped by strings.json
+  {
+    const have11 = new Set(Object.values(JSON.parse(rd('native/shared/strings.json')))), keys11 = await WR.writeStringKeys(), miss11 = keys11.filter(k => !have11.has(k.key)).map(k => k.key);
+    ok(miss11.length === 0 && keys11.length > 300, `M4 strings: ${keys11.length} t() keys of the P09 writing screens are mapped in native/shared/strings.json${miss11.length ? ' – missing: ' + miss11.slice(0, 3).join(' | ') : ''}`);
+    const vk = new Set(); const walk = o => { if (o && typeof o === 'object') { if (typeof o.k === 'string' && Object.keys(o).every(x => x === 'k' || x === 'v')) vk.add(o.k); for (const v of Object.values(o)) walk(v); } }; walk(V);
+    const unmapped = [...vk].filter(k => !have11.has(k) && /[À-ỹ]/.test(k));
+    ok(unmapped.length === 0, `write.json: every Vietnamese key in the vector outputs exists in strings.json${unmapped.length ? ' – missing: ' + unmapped.slice(0, 3).join(' | ') : ''}`);
+  }
+}
+
+// ---- 12) M4 learn vectors (P09 part 2: #/fix #/grammar #/method #/quick #/style #/confidence) ----
+{
+  const LN = await import('../native/gen-learn.mjs');
+  const L1 = await LN.learnVectors(), L2 = await LN.learnVectors();
+  ok(L1 === L2 && same(`${SH}/vectors/learn.json`, L1), 'learn.json: two runs identical and equal to the committed file (else: node scripts/native/gen.mjs)');
+  ok(Buffer.byteLength(L1) < 400 * 1024, `learn.json < 400 KB (${(Buffer.byteLength(L1) / 1024) | 0} KB)`);
+  const V = JSON.parse(L1), b12 = [];
+  const selfD = a => Array.isArray(a) && a.length > 0 && a.every(c => c && typeof c.id === 'string');
+  for (const k of ['fix.cases', 'style.cases', 'method.cases']) if (!selfD(k.split('.').reduce((x, y) => (x ? x[y] : undefined), V))) b12.push(k);
+  // fix: every rule of the web table fires in at least one case; the engine's guards (empty / clean / overlap) hold
+  const ruleIds = new Set(V.fix.cases.flatMap(c => c.issues.map(i => i.rule))); const content = JSON.parse(await LN.learnContent());
+  const missingRules = content.fix.rules.map(r => 'lk:' + r.id).filter(r => !ruleIds.has(r));
+  if (missingRules.length) b12.push('fix rules never hit: ' + missingRules.join(','));
+  if (content.fix.rules.length !== 40) b12.push('fix rule count ' + content.fix.rules.length);
+  const fx = id => V.fix.cases.find(c => c.id === id);
+  if (fx('empty').issues.length || fx('clean').issues.length || fx('whitespace').issues.length || fx('long-repeat').issues.length > 400) b12.push('fix guards');
+  const ov = fx('overlap').issues; for (let i = 1; i < ov.length; i++) if (ov[i].s < ov[i - 1].e) b12.push('fix overlap');
+  if (fx('sample').fixed === fx('sample').text) b12.push('fix sample not fixed');
+  // style: four styles, six questions of four options, the winner of "all same" is that style, ties go to the latest pick
+  const stc = id => V.style.cases.find(c => c.id === id).winner;
+  if (stc('natural-all') !== 'natural' || stc('precision-all') !== 'precision' || stc('pragmatic-all') !== 'pragmatic' || stc('curious-all') !== 'curious' || stc('tie-last-wins') !== 'precision') b12.push('style winners');
+  if (content.style.questions.length !== 6 || content.style.questions.some(q => q.opts.length !== 4) || Object.keys(content.style.styles).length !== 4) b12.push('style data');
+  // method: loop of 6, four strands, 12 principles with a stat each, 5 FAQ, four plans
+  if (content.method.principles.length !== 12 || content.method.faq.length !== 5 || content.method.loop.length !== 6 || Object.keys(content.method.plans).join() !== 's0,s1,s2,s3') b12.push('method content');
+  if (V.method.cases.some(c => c.out.prin.length !== 12 || c.out.loop.length !== 6 || c.out.strands.length !== 4)) b12.push('method cases shape');
+  // confidence + grammar
+  if (content.conf.units.length < 20 || !content.conf.toolkit.length || !content.conf.daily.length) b12.push('confidence data');
+  if (V.grammar.counts.lessons !== 80 || V.grammar.missingListed.length || V.grammar.counts.l1.length !== 14) b12.push('grammar counts');
+  if (V.quick.limit !== 15 || V.quick.n !== 4) b12.push('quick constants');
+  ok(b12.length === 0, `learn vectors obey the web rules (fix rule table + guards, style winners, method content, grammar tables, quick constants)${b12.length ? ' – ' + b12.slice(0, 4).join(' | ') : ''}`);
+  // bundled content + download pack (grammar-pack.json = https://lexkite.com/data/grammar-pack.json; the app bundles learn-content.json and grammar-starter.json)
+  {
+    const C1 = await LN.learnContent(), G1 = await LN.grammarPack(), G2 = await LN.grammarPack(), S1 = await LN.grammarStarter(), bp = [];
+    ok(same(LN.LEARN_CONTENT_PATH, C1) && same('native/ios/LexkiteKit/Sources/LKStore/Resources/learn-content.json', C1), 'learn-content.json: equal to the committed file and the iOS copy (else: node scripts/native/gen.mjs)');
+    ok(G1 === G2 && same(LN.GRAMMAR_PACK_PATH, G1), 'grammar-pack.json: two runs identical and equal to the committed file');
+    ok(same(LN.GRAMMAR_STARTER_PATH, S1) && same('native/ios/LexkiteKit/Sources/LKStore/Resources/grammar-content.json', S1), 'grammar-starter.json: equal to the committed file and the iOS copy');
+    ok(Buffer.byteLength(C1) < 200 * 1024 && Buffer.byteLength(S1) < 100 * 1024, `bundled size: learn-content ${(Buffer.byteLength(C1) / 1024) | 0} KB (< 200) + grammar starter ${(Buffer.byteLength(S1) / 1024) | 0} KB (< 100)`);
+    ok(Buffer.byteLength(G1) < 1400 * 1024, `grammar-pack.json size: ${(Buffer.byteLength(G1) / 1024) | 0} KB (< 1400; downloaded, never bundled)`);
+    const GP = JSON.parse(G1), GS = JSON.parse(S1);
+    if (!/^[0-9a-f]{12}$/.test(GP.v) || GP.schema !== 1 || GP.lessons.length !== 80 || GP.index.length !== 80) bp.push('shape');
+    if (GS.index.length !== 80 || GS.lessons.length !== 3 || GS.lessons.some(l => !GP.lessons.find(x => x.id === l.id))) bp.push('starter');
+    if (GP.lessons.some(l => !l.quiz.length || !l.blocks.length)) bp.push('lessons without quiz/blocks');
+    ok(bp.length === 0, `grammar pack: 80 lessons with blocks + quiz, 14 L1 languages, starter lists all and carries 3${bp.length ? ' – ' + bp.join(' | ') : ''}`);
+  }
+  // strings: every t() key of the part-2 screens (+ their data) and every `lv("…")` literal of the new native code is mapped by strings.json
+  {
+    const have12 = new Set(Object.values(JSON.parse(rd('native/shared/strings.json')))), keys12 = await LN.learnStringKeys(), miss12 = keys12.filter(k => !have12.has(k.key) && /[À-ỹ]/.test(k.key)).map(k => k.key);
+    ok(miss12.length === 0 && keys12.length > 600, `M4 strings: ${keys12.length} t() keys of the P09 part-2 screens are mapped in native/shared/strings.json${miss12.length ? ' – missing: ' + miss12.slice(0, 3).join(' | ') : ''}`);
+    const files = ['native/ios/LexkiteKit/Sources/LKStore/Skills/LearnCore.swift', 'native/ios/LexkiteKit/Sources/LKStore/Skills/FixEngine.swift', 'native/android/core/src/main/kotlin/com/lexkite/app/core/write/Learn.kt',
+      ...fs.readdirSync(R('native/ios/LexkiteKit/Sources/LKFeatures/Write')).filter(f => /^(Fix|Grammar|Learn|Confidence)/.test(f)).map(f => 'native/ios/LexkiteKit/Sources/LKFeatures/Write/' + f),
+      ...fs.readdirSync(R('native/android/feature-vocab/src/main/kotlin/com/lexkite/app/feature/vocab')).filter(f => /^(Fix|Grammar|Learn|Confidence)/.test(f)).map(f => 'native/android/feature-vocab/src/main/kotlin/com/lexkite/app/feature/vocab/' + f)];
+    const lit = [];
+    for (const f of files) rd(f).split('\n').forEach((ln, i) => { if (/^\s*(\/\/|\*|\/\*)/.test(ln)) return; for (const m of ln.matchAll(/"((?:[^"\\]|\\.)*)"/g)) { if (!/[À-ỹ]/.test(m[1])) continue; const s = m[1].replace(/\\"/g, '"').replace(/\\\\/g, '\\').replace(/\\u([0-9a-fA-F]{4})/g, (_, h) => String.fromCharCode(parseInt(h, 16))).replace(/\\\$/g, '$'); if (!have12.has(s)) lit.push(`${f.split('/').pop()}:${i + 1} ${s.slice(0, 50)}`); } });
+    ok(lit.length === 0, `P09 part-2 native code: every Vietnamese literal (lv("…") / Line("…")) is a key of strings.json (${files.length} files)${lit.length ? ' – missing: ' + lit.slice(0, 3).join(' | ') : ''}`);
   }
 }
 
