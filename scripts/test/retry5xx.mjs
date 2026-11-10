@@ -43,4 +43,11 @@ for (const f of fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f))) fs.readFileS
   if (/\/dispatches\b/.test(l) && /curl/.test(l) && !/gh-retry\.sh/.test(l)) naked.push(`${f}:${i + 1} (curl)`);
 });
 ok(!naked.length, 'gọi dispatch trần, thiếu gh-retry.sh: ' + naked.join(', '));
+// 4) vòng thăm dò `for …; do x=$(curl …)` dưới bash -e: curl lỗi mạng (mã 56) làm đỏ cả bước (09/11 vocab-img-scene) → phải `|| true`
+const polls = [];
+for (const f of fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f))) fs.readFileSync(path.join(WF, f), 'utf8').split('\n').forEach((l, i) => {
+  const m = !/^\s*#/.test(l) && /\bfor\b[^\n]*\bdo\b[^\n]*\b\w+=\$\(curl\b([^()]|\([^()]*\))*\)/.exec(l);
+  if (m && !/\|\|\s*(true|echo|:)|\|\s*\w/.test(m[0])) polls.push(`${f}:${i + 1}`);
+});
+ok(!polls.length, 'vòng thăm dò curl thiếu `|| true` (bash -e làm đỏ cả bước khi mạng chập chờn): ' + polls.join(', '));
 if (bad) process.exit(1); console.log('✓ retry5xx: dispatch workflow thử lại 5xx 3 lần, 4xx đỏ ngay, không còn gọi trần');

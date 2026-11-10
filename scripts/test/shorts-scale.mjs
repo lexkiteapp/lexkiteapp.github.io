@@ -150,6 +150,30 @@ ok(f.st.yt === 0 && f.slot.querySelector('video source'), 'facade: China region 
 f = await facade({ ytOk: true, items: [it0] });
 ok(f.st.yt === 0 && f.slot.querySelector('video source'), 'facade: no youtube_id → self-hosted');
 
+// ---------- archive: rebalance 1 file/lượt; Worker 524 giữa lượt (file đã chuyển) → index đối chiếu theo sha, không đỏ (09/11 drive-shorts) ----------
+{
+  const { runArchive } = await imp('scripts/video/shorts-archive.mjs');
+  const repo = fs.mkdtempSync(path.join(tmp, 'arch-')); fs.mkdirSync(`${repo}/shorts`);
+  const items = [{ id: 'c1', created: '2026-11-08T00:00:00Z', drive: { video: { fileId: 'F_OLD', driveId: 1, sha256: 'a'.repeat(64) } } }];
+  fs.writeFileSync(`${repo}/shorts/index.json`, JSON.stringify({ items }));
+  const calls = [], logs = [];
+  const api = async (op, b) => {
+    calls.push([op, b]);
+    if (op === 'rebalance' && !b.apply) return { plan: [{ file_id: 'F_OLD', sha: 'a'.repeat(64), from: 1, to: 2, name: 'c1.mp4', size: 9 }] };
+    if (op === 'rebalance') throw Object.assign(new Error('Drive rebalance → 524'), { status: 524 });
+    if (op === 'where') return { copies: [{ drive_id: 1, file_id: 'F_OLD', status: 'trashed' }, { drive_id: 2, file_id: 'F_NEW', status: 'ok' }] };
+    return { done: [], remaining: 0 };
+  };
+  const rep = await runArchive({ repo, api, yt: async () => ({ approved: ['c1'] }), purged: async () => {}, log: m => logs.push(m), pause: 0, now: Date.parse('2026-11-09T00:00:00Z') });
+  const apply = calls.find(([op, b]) => op === 'rebalance' && b.apply);
+  ok(apply && apply[1].max_files === 1 && apply[1].max_bytes <= 256 * 1024 * 1024, 'archive: rebalance 1 file ≤ 256 MB mỗi lượt (dưới 100 s Cloudflare)');
+  ok(rep.interrupted === 524 && logs.some(l => /::warning::cân bằng: Worker 524/.test(l)), 'archive: 524 → cảnh báo + dừng, không ném lỗi');
+  const v = JSON.parse(fs.readFileSync(`${repo}/shorts/index.json`, 'utf8')).items[0].drive.video;
+  ok(v.fileId === 'F_NEW' && v.driveId === 2, 'archive: file đã chuyển trong lượt 524 được đối chiếu `where` → index trỏ bản mới');
+  let thrown = null; try { await runArchive({ repo, api: async (op, b) => { if (op === 'rebalance' && b.apply) throw Object.assign(new Error('403'), { status: 403 }); return op === 'rebalance' ? { plan: [{ file_id: 'F_NEW', sha: 'a'.repeat(64), from: 2, to: 1 }] } : { done: [] }; }, yt: async () => ({ approved: ['c1'] }), purged: async () => {}, log: () => {}, pause: 0 }); } catch (e) { thrown = e; }
+  ok(thrown && thrown.status === 403, 'archive: lỗi 4xx (khoá/quyền) vẫn đỏ – không nuốt');
+}
+
 fs.rmSync(tmp, { recursive: true, force: true });
 console.log(fails ? `✗ shorts-scale: ${fails}/${n} FAIL` : `✓ shorts-scale: ${n} checks`);
 process.exit(fails ? 1 : 0);
