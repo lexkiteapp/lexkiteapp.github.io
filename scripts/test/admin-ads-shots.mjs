@@ -23,7 +23,6 @@ if (process.argv[2] === '--compare') { // TRƯỚC (trái) | SAU (phải), cùng
   await browser.close(); console.log(made.join('\n') || 'no pairs'); process.exit(0);
 }
 const OUT = process.argv[2] || 'out/admin-ads', TAG = process.argv[3] || 'after', WEB = process.argv[4] || 'web'; fs.mkdirSync(OUT, { recursive: true });
-const LIVE = { series: Array.from({ length: 14 }, (_, i) => ({ day: shift(today, i - 13), views: 300, visitors: 40 + i })) }; // người thật/ngày mẫu (op live)
 const AXE = fs.readFileSync(createRequire(import.meta.url).resolve('axe-core/axe.min.js'), 'utf8');
 // Dữ liệu mẫu: fixture 20→26/10 + tuần trước (×0,9) để có ▲▼; ngày báo cáo hôm nay = 27/10
 const today = '2026-10-27', { rows } = buildRows(readFixture('scripts/test/fixtures/ads-report'), unitMap());
@@ -38,6 +37,7 @@ const STATES = {
 };
 const page0 = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/admin.css"></head>
 <body class="adm" style="--a-top:0px"><main class="adm-main" id="main" style="padding:16px"></main><script src="/js/admin-chart.js"></script><script src="/js/admin-ads.js"></script></body></html>`;
+const LIVE = { series: Array.from({ length: 14 }, (_, i) => ({ day: shift(today, i - 13), views: 300, visitors: 40 + i })) }; // người thật/ngày mẫu (op live)
 const report = [], fails = [];
 for (const [state, S] of Object.entries(STATES)) for (const sec of SECS) for (const theme of ['light', 'dark']) for (const [vp, size] of VPS) {
   const ctx = await browser.newContext({ viewport: size, colorScheme: theme, deviceScaleFactor: 1 }), page = await ctx.newPage(), errs = [];

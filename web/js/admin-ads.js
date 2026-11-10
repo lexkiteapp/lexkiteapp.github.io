@@ -109,7 +109,7 @@
     'AdMob › Policy center: xử lý vi phạm rồi bấm Request review.': 'AdMob › Policy center: resolve the issues, then click Request review.',
     'Sau khi AdMob duyệt: Apps › iOS › Add store (App Store) để Google kiểm app-ads.txt.': 'Once AdMob approves: Apps › iOS › Add store (App Store) so Google can verify app-ads.txt.',
     'AdSense/AdMob › Privacy & messaging: tạo thông điệp GDPR + luật bang Mỹ rồi Publish.': 'AdSense/AdMob › Privacy & messaging: create the GDPR + US state messages, then Publish.',
-    'Đổi tài khoản nhận tiền sang tên LLC trước ngưỡng thanh toán $100 – không khoá nút Bật.': 'Move the payout account to the LLC’s name before the $100 threshold – does not lock Turn on.',
+    'Đổi tài khoản nhận tiền sang tên LLC trước ngưỡng thanh toán $100 – không khóa nút Bật.': 'Move the payout account to the LLC’s name before the $100 threshold – does not lock Turn on.',
     'Có dòng google.com, pub-…, DIRECT đúng mã nhà xuất bản.': 'Has the google.com, pub-…, DIRECT line with the right publisher id.',
     'Không tải được tệp – thử lại sau.': 'Could not fetch the file – try again later.', 'Thiếu dòng google.com, pub-…, DIRECT.': 'Missing the google.com, pub-…, DIRECT line.',
     'Đang là mã giữ chỗ pub-0000….': 'Still the pub-0000… placeholder.', 'Mã trong tệp khác mã ở web/js/ads/config.js.': 'The id in the file differs from web/js/ads/config.js.',
@@ -118,9 +118,9 @@
     'Chưa có mã nhà xuất bản.': 'No publisher id yet.', 'Chưa dán mã ô (home, blog…) vào config.js.': 'No ad unit ids (home, blog…) in config.js yet.', 'Tạo ô hiển thị ở AdSense › Ads › By ad unit rồi dán mã vào config.js.': 'Create display units in AdSense › Ads › By ad unit, then paste the ids into config.js.',
     'native.testing: true – app đang dùng mã THỬ của Google.': 'native.testing: true – the app uses Google TEST ad units.', 'Bản phát hành: testing: false + build ADS_NATIVE=1.': 'Release build: testing: false + build with ADS_NATIVE=1.',
     'Đặt biến Pages ADS_SSV=1 và dán URL /api/ads-reward vào ô có thưởng trong AdMob.': 'Set the Pages variable ADS_SSV=1 and paste the /api/ads-reward URL into the AdMob rewarded unit.',
-    'Người thật/ngày (TB 7 ngày)': 'Real users/day (7-day avg)', 'gợi ý ≥ {m}': 'suggested ≥ {m}', 'Không đọc được số liệu Phân tích.': 'Could not read Analytics.', 'Khuyến nghị, không khoá nút Bật: đủ người để lấp đầy và cổng giữ chân có mẫu.': 'Advisory, does not lock Turn on: enough users for fill and a meaningful retention guard.',
+    'Người thật/ngày (TB 7 ngày)': 'Real users/day (7-day avg)', 'gợi ý ≥ {m}': 'suggested ≥ {m}', 'Không đọc được số liệu Phân tích.': 'Could not read Analytics.', 'Khuyến nghị, không khóa nút Bật: đủ người để lấp đầy và cổng giữ chân có mẫu.': 'Advisory, does not lock Turn on: enough users for fill and a meaningful retention guard.',
     'Đã đạt.': 'Done.', 'Đã lưu trạng thái': 'Status saved',
-    'Khoá – còn {n} điều kiện': 'Locked – {n} conditions left', 'Đủ điều kiện': 'Ready', 'Còn: {x}': 'Left: {x}', 'mã ô web': 'web ad units', 'mã app thật': 'real app units',
+    'Khóa – còn {n} điều kiện': 'Locked – {n} conditions left', 'Đủ điều kiện': 'Ready', 'Còn: {x}': 'Left: {x}', 'mã ô web': 'web ad units', 'mã app thật': 'real app units',
     'Chưa có doanh thu': 'No revenue yet', 'Quảng cáo đang tắt. Doanh thu hiện ở đây vài giờ sau lượt hiển thị đầu tiên.': 'Ads are off. Revenue shows here a few hours after the first impressions.',
     'Xem điều kiện còn thiếu': 'See what is missing', 'Ước tính vs thật · Thanh toán · Hiệu quả – chưa có dữ liệu': 'Estimate vs actual · Payments · Efficiency – no data yet', 'Chi tiết theo vị trí/nền tảng/quốc gia – chưa có dữ liệu': 'Breakdown by placement/platform/country – no data yet',
     'Không có số trong khoảng ngày này. Thử khoảng dài hơn hoặc bỏ bộ lọc.': 'No figures in this date range. Try a longer range or clear the filters.',
@@ -193,8 +193,8 @@
   }
   /** CSV (RFC 4180, ; không – dấu phẩy) cho bảng chi tiết. */
   const csvOf = (head, rows) => [head, ...rows].map(r => r.map(v => { const s = v == null ? '' : String(v); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; }).join(',')).join('\n');
-  // ---------- Sẵn sàng bật quảng cáo (thuần – test qua AdminAds.readyOf): một nguồn cho checklist đầu trang + khoá nút "Bật" theo nền tảng ----------
-  // k · g nhóm · p nền tảng bị khoá khi chưa đạt · who: o = việc của chủ, d = kỹ thuật · m = nhập tay (khóa quản trị ads_ready, JSON; giá trị = mặc định theo lần kiểm 10/11) · soft = khuyến nghị, không khoá
+  // ---------- Sẵn sàng bật quảng cáo (thuần – test qua AdminAds.readyOf): một nguồn cho checklist đầu trang + khóa nút "Bật" theo nền tảng ----------
+  // k · g nhóm · p nền tảng bị khóa khi chưa đạt · who: o = việc của chủ, d = kỹ thuật · m = nhập tay (khóa quản trị ads_ready, JSON; giá trị = mặc định theo lần kiểm 10/11) · soft = khuyến nghị, không khóa
   const ALL = ['web', 'android', 'ios'], APP = ['android', 'ios'], ST = ['ok', 'wait', 'block'];
   const READY = [
     { k: 'irs', g: 'acct', p: ALL, who: 'o', m: 'wait' }, { k: 'adsense', g: 'acct', p: ['web'], who: 'o', m: 'block' }, { k: 'admob', g: 'acct', p: APP, who: 'o', m: 'block' },
@@ -385,19 +385,19 @@
         box.addEventListener('keydown', e => { if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); show(at + (e.key === 'ArrowRight' ? 1 : -1)); } else if (e.key === 'Escape') hide(); });
       });
     }
-    // ---- Thẻ "Sẵn sàng bật quảng cáo" (mẫu Stitch 10/11): chữ từng điều kiện, trạng thái tay (ads_ready), lý do khoá nút Bật ----
+    // ---- Thẻ "Sẵn sàng bật quảng cáo" (mẫu Stitch 10/11): chữ từng điều kiện, trạng thái tay (ads_ready), lý do khóa nút Bật ----
     const RT = { irs: ['Thư IRS (EIN của LLC)', 'Chờ thư IRS gửi về LLC; nhận được thì đánh dấu Đạt.'], adsense: ['Tài khoản AdSense được duyệt', 'Sửa theo chính sách chương trình rồi bấm Request review ở AdSense › Sites.'],
       admob: ['Tài khoản AdMob được duyệt', 'AdMob › Policy center: xử lý vi phạm rồi bấm Request review.'], ios_store: ['App iOS liên kết App Store trong AdMob', 'Sau khi AdMob duyệt: Apps › iOS › Add store (App Store) để Google kiểm app-ads.txt.'],
-      cmp: ['Thông điệp đồng ý (CMP) đã xuất bản', 'AdSense/AdMob › Privacy & messaging: tạo thông điệp GDPR + luật bang Mỹ rồi Publish.'], pingpong: ['Nhận tiền: PingPong đứng tên LLC', 'Đổi tài khoản nhận tiền sang tên LLC trước ngưỡng thanh toán $100 – không khoá nút Bật.'],
+      cmp: ['Thông điệp đồng ý (CMP) đã xuất bản', 'AdSense/AdMob › Privacy & messaging: tạo thông điệp GDPR + luật bang Mỹ rồi Publish.'], pingpong: ['Nhận tiền: PingPong đứng tên LLC', 'Đổi tài khoản nhận tiền sang tên LLC trước ngưỡng thanh toán $100 – không khóa nút Bật.'],
       ads_txt: ['ads.txt hợp lệ', 'Có dòng google.com, pub-…, DIRECT đúng mã nhà xuất bản.'], app_ads_txt: ['app-ads.txt hợp lệ', 'Có dòng google.com, pub-…, DIRECT đúng mã nhà xuất bản.'],
       code_web: ['Mã ô AdSense cho web', 'Tạo ô hiển thị ở AdSense › Ads › By ad unit rồi dán mã vào config.js.'], code_app: ['Bản app phát hành dùng mã thật', 'Bản phát hành: testing: false + build ADS_NATIVE=1.'],
       ssv: ['Xác minh thưởng phía máy chủ (SSV)', 'Đặt biến Pages ADS_SSV=1 và dán URL /api/ads-reward vào ô có thưởng trong AdMob.'], enabled: ['Mã quảng cáo bật trong code (enabled: true)', 'Đổi enabled: true trong lần ship bật quảng cáo.'],
-      traffic: ['Người thật mỗi ngày', 'Khuyến nghị, không khoá nút Bật: đủ người để lấp đầy và cổng giữ chân có mẫu.'] };
+      traffic: ['Người thật mỗi ngày', 'Khuyến nghị, không khóa nút Bật: đủ người để lấp đầy và cổng giữ chân có mẫu.'] };
     const WHY = { 'adsense:block': 'Google: "Your account wasn\'t approved – Meet program policies" (kiểm 10/11).', 'admob:block': 'Google: "Your account wasn\'t approved – Meet program policies" (kiểm 10/11).',
       http: 'Không tải được tệp – thử lại sau.', missing: 'Thiếu dòng google.com, pub-…, DIRECT.', placeholder: 'Đang là mã giữ chỗ pub-0000….', mismatch: 'Mã trong tệp khác mã ở web/js/ads/config.js.', nocfg: 'Không đọc được web/js/ads/config.js.',
       pub: 'Chưa có mã nhà xuất bản.', slots: 'Chưa dán mã ô (home, blog…) vào config.js.', testing: 'native.testing: true – app đang dùng mã THỬ của Google.', off: 'web/js/ads/config.js đang enabled: false (đúng khi còn chờ duyệt).', na: 'Không đọc được số liệu Phân tích.' };
     const STL = { ok: 'Đạt', wait: 'Chờ', block: 'Chặn' }, CHIP = { ok: 'ok', wait: 'warn', block: 'bad' }, ICO = { ok: '✓', wait: '…', block: '✕' }, GRP = [['acct', 'Tài khoản & giấy tờ'], ['tech', 'Kỹ thuật'], ['reach', 'Lưu lượng']];
-    const SHORT = { irs: 'IRS', adsense: 'AdSense', admob: 'AdMob', ios_store: 'App Store', cmp: 'CMP', ads_txt: 'ads.txt', app_ads_txt: 'app-ads.txt', code_web: 'mã ô web', code_app: 'mã app thật', ssv: 'SSV', enabled: 'enabled' }; // tên ngắn cho lý do khoá trên thẻ nền tảng
+    const SHORT = { irs: 'IRS', adsense: 'AdSense', admob: 'AdMob', ios_store: 'App Store', cmp: 'CMP', ads_txt: 'ads.txt', app_ads_txt: 'app-ads.txt', code_web: 'mã ô web', code_app: 'mã app thật', ssv: 'SSV', enabled: 'enabled' }; // tên ngắn cho lý do khóa trên thẻ nền tảng
     const PS = { web: 'Web', android: 'Android', ios: 'iOS' }, man = () => { try { return JSON.parse(cv('ads_ready') || '{}') || {}; } catch (e) { return {}; } };
     const readyCard = rd => {
       const row = i => {
@@ -416,10 +416,10 @@
       const req = S.places.reduce((a, x) => a + x.req, 0), fill = req ? S.places.reduce((a, x) => a + x.imp + x.show, 0) / req : null;
       const rev30 = S.series.reduce((a, x) => a + x.rev, 0), ecpm = imp30 ? rev30 / imp30 * 1000 : null, gf = +(cv('ads_guard') || 1);
       const R = S.real || {};
-      // Nút Bật khoá (disabled + lý do aria-describedby) khi nền tảng còn điều kiện bắt buộc chưa đạt; Tắt + công tắc khẩn cấp luôn bấm được
+      // Nút Bật khóa (disabled + lý do aria-describedby) khi nền tảng còn điều kiện bắt buộc chưa đạt; Tắt + công tắc khẩn cấp luôn bấm được
       const plat = p => { const bl = rd.block[p], lock = !on(p) && bl.length > 0, names = bl.map(i => A(SHORT[i.k] || i.k)).join(' · ');
         return `<div class="card ax-plat"><div class="row"><b>${esc(A(PF[p]))}</b><span class="chip ${on(p) && !kill ? 'ok' : 'muted'}">${esc(A(on(p) && !kill ? 'Đang bật' : 'Đang tắt'))}</span></div>
-          <p class="ax-why${bl.length ? '' : ' ok'}" id="ax-why-${p}">${bl.length ? `🔒 ${esc(A('Khoá – còn {n} điều kiện', { n: bl.length }))} · ${esc(A('Còn: {x}', { x: names }))}` : `✓ ${esc(A('Đủ điều kiện'))}`}</p>
+          <p class="ax-why${bl.length ? '' : ' ok'}" id="ax-why-${p}">${bl.length ? `🔒 ${esc(A('Khóa – còn {n} điều kiện', { n: bl.length }))} · ${esc(A('Còn: {x}', { x: names }))}` : `✓ ${esc(A('Đủ điều kiện'))}`}</p>
           <div class="row"><span class="small muted">${esc(usd((S.plat[p] || {}).rev || 0))} · ${num((S.plat[p] || {}).imp || 0)}</span><button class="btn sm ${on(p) || lock ? 'ghost' : 'primary'}" type="button" data-flag="ads_${p}" data-v="${on(p) ? '0' : '1'}"${lock ? ` disabled aria-describedby="ax-why-${p}"` : ''}>${lock ? '🔒 ' : ''}${esc(A(on(p) ? 'Tắt' : 'Bật'))}</button></div></div>`; };
       const flags = (kill ? `<div class="card ax-kill" role="alert">${esc(A('Công tắc khẩn cấp đang BẬT – mọi quảng cáo dừng trên mọi nền tảng (≤ 1 giờ do bộ đệm cấu hình).'))}</div>` : !['web', 'android', 'ios'].some(on) ? `<p class="ax-note">${esc(A('Mọi cờ đang tắt: app không tải mã quảng cáo nào. Bật cần cả mã nhà xuất bản trong web/js/ads/config.js (enabled: true).'))}</p>` : '')
         + `<h3 class="h3">${esc(A('Trạng thái theo nền tảng'))}</h3><div class="ax-plats">${['web', 'android', 'ios'].map(plat).join('')}
@@ -439,7 +439,7 @@
       el.addEventListener('click', e => { if (!e.target.closest('[data-to-rd]')) return; e.preventDefault(); const c = el.querySelector('#ax-rd'); c.scrollIntoView({ behavior: 'smooth', block: 'start' }); c.focus({ preventScroll: true }); });
       const hb = el.querySelector('[data-howto]');
       if (hb) hb.onclick = () => { const p = el.querySelector('#ax-howto'), open = p.hidden; p.hidden = !open; hb.setAttribute('aria-expanded', String(open)); };
-      el.querySelectorAll('[data-man]').forEach(sel => { sel.onchange = async () => { // trạng thái tay (không phải cờ quảng cáo): lưu ngay, vẽ lại thẻ + khoá nút
+      el.querySelectorAll('[data-man]').forEach(sel => { sel.onchange = async () => { // trạng thái tay (không phải cờ quảng cáo): lưu ngay, vẽ lại thẻ + khóa nút
         const m = man(); m[sel.dataset.man] = { st: sel.value, at: Date.now() };
         if (await setCfg({ ads_ready: JSON.stringify(m) })) { await load(); go('overview'); } }; });
       el.querySelectorAll('[data-flag]').forEach(b => { b.onclick = async () => {

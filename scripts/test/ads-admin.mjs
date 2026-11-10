@@ -47,7 +47,7 @@ for (const lang of ['vi', 'en']) {
   ok(main.querySelector('table'), `${lang}: lịch sử tự giảm`);
   main.querySelector('[data-sec="consent"]').click(); await tick(30);
   ok(main.querySelectorAll('tbody tr').length === 2, `${lang}: đồng ý theo 2 vùng`);
-  // Thẻ "Sẵn sàng bật quảng cáo" ở trên, rồi trạng thái nền tảng, doanh thu ở dưới; nút Bật khoá có lý do; công tắc khẩn cấp luôn bấm được
+  // Thẻ "Sẵn sàng bật quảng cáo" ở trên, rồi trạng thái nền tảng, doanh thu ở dưới; nút Bật khóa có lý do; công tắc khẩn cấp luôn bấm được
   main.querySelector('[data-sec="overview"]').click(); await tick(30);
   const rd = main.querySelector('#ax-rd'), plats = main.querySelector('.ax-plats'), rev = main.querySelector('.ax-rev');
   ok(rd && plats && rev && (rd.compareDocumentPosition(plats) & 4) && (plats.compareDocumentPosition(rev) & 4), `${lang}: thứ tự sẵn sàng → nền tảng → doanh thu`);
@@ -55,10 +55,10 @@ for (const lang of ['vi', 'en']) {
   ok(rd && rd.querySelector('.ax-rd-i.block') && rd.querySelectorAll('select[data-man]').length === w.AdminAds.READY.filter(x => x.m).length, `${lang}: AdSense/AdMob mặc định Chặn + chọn trạng thái tay`);
   ok(/42/.test(rd.textContent) && rd.querySelector('.ax-rd-i [role="meter"][aria-valuenow="42"]'), `${lang}: người thật/ngày 7 ngày trọn (42, không tính hôm nay) từ op live`);
   const an = main.querySelector('[data-flag="ads_android"]'), wb = main.querySelector('[data-flag="ads_web"]'), ks = main.querySelector('[data-flag="ads_kill"]');
-  ok(an.disabled && an.getAttribute('aria-describedby') === 'ax-why-android' && /🔒/.test(main.querySelector('#ax-why-android').textContent), `${lang}: Bật Android bị khoá kèm lý do`);
+  ok(an.disabled && an.getAttribute('aria-describedby') === 'ax-why-android' && /🔒/.test(main.querySelector('#ax-why-android').textContent), `${lang}: Bật Android bị khóa kèm lý do`);
   ok(!wb.disabled && wb.dataset.v === '0' && !ks.disabled, `${lang}: Tắt (web đang bật) + công tắc khẩn cấp luôn bấm được`);
   if (lang === 'vi') {
-    const n0 = sent.length; an.click(); await tick(30); ok(sent.length === n0, 'nút Bật bị khoá không gửi configSet');
+    const n0 = sent.length; an.click(); await tick(30); ok(sent.length === n0, 'nút Bật bị khóa không gửi configSet');
     const sel = main.querySelector('select[data-man="irs"]'); sel.value = 'ok'; sel.dispatchEvent(new w.Event('change')); await tick(40);
     const last = sent.find(v => v.ads_ready); ok(last && JSON.parse(last.ads_ready).irs.st === 'ok' && !Object.keys(last).some(k => /^ads_(web|android|ios|kill)$/.test(k)), 'trạng thái tay → configSet ads_ready (không đụng cờ quảng cáo)');
     ok(main.querySelector('.ax-rd-i.ok select[data-man="irs"]'), 'thẻ vẽ lại: IRS = Đạt');
@@ -90,10 +90,10 @@ for (const lang of ['vi', 'en']) {
   ok(txtWhy({ ok: true, text: real }, pub) === '' && txtWhy({ ok: true, text: fs.readFileSync('web/app-ads.txt', 'utf8') }, pub) === '', 'ads.txt + app-ads.txt trong repo hợp lệ');
   ok(txtWhy(null, pub) === 'http' && txtWhy({ ok: true, text: '# trống' }, pub) === 'missing' && txtWhy({ ok: true, text: 'google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0' }, pub) === 'placeholder' && txtWhy({ ok: true, text: real.replace(pub, '1111111111111111') }, pub) === 'mismatch', 'ads.txt: http / thiếu / giữ chỗ / sai mã');
   const now = readyOf({ conf: w.ADS_CONFIG, txt: { ads: { ok: true, text: real }, app: { ok: true, text: real } }, traffic: { avg: 42 } });
-  ok(now.block.web.some(i => i.k === 'adsense') && now.block.android.some(i => i.k === 'admob') && now.block.ios.some(i => i.k === 'ios_store') && !now.block.web.some(i => i.k === 'traffic' || i.k === 'pingpong'), 'hiện tại: AdSense/AdMob khoá, lưu lượng + PingPong chỉ khuyến nghị');
+  ok(now.block.web.some(i => i.k === 'adsense') && now.block.android.some(i => i.k === 'admob') && now.block.ios.some(i => i.k === 'ios_store') && !now.block.web.some(i => i.k === 'traffic' || i.k === 'pingpong'), 'hiện tại: AdSense/AdMob khóa, lưu lượng + PingPong chỉ khuyến nghị');
   const all = Object.fromEntries(READY.filter(x => x.m).map(x => [x.k, { st: 'ok', at: 1 }])), conf = { enabled: true, web: { client: 'ca-pub-' + pub, slots: { home: '1' } }, native: { testing: false } };
   const go = readyOf({ man: all, conf, txt: { ads: { ok: true, text: real }, app: { ok: true, text: real } }, traffic: { avg: 10 } });
-  ok(!go.block.web.length && !go.block.android.length && !go.block.ios.length, 'đủ điều kiện bắt buộc → mở khoá cả 3 nền tảng (lưu lượng thấp vẫn không khoá)');
+  ok(!go.block.web.length && !go.block.android.length && !go.block.ios.length, 'đủ điều kiện bắt buộc → mở khóa cả 3 nền tảng (lưu lượng thấp vẫn không khóa)');
   ok(readyOf({ man: { adsense: { st: 'x' } }, conf }).items.find(i => i.k === 'adsense').st === 'block', 'trạng thái tay lạ → giữ mặc định');
   ok(JSON.stringify(routesOf(/^(class|ta)(-.*)?$/)) === '["class*","ta*"]' && JSON.stringify(routesOf(/^admin/)) === '["admin*"]' && JSON.stringify(routesOf(/^(mock|exam-.+|plans?)$/)) === '["mock","exam-*","plan(s)"]', 'routesOf đọc ZONES');
 }
