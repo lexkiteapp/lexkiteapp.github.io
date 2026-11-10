@@ -1,0 +1,108 @@
+{
+ "_doc": "Tab Từ vựng (#/vocab) – d do web/js/vocab-hub.js dựng từ dữ liệu thật. Đầu trang + thanh tab = shell chung. Giáo viên = Chars.slot (d.teacher). Ô tra từ gửi sang #/dict/<từ>. hub-card trên nút tra cứu: lối vào chung các test nhận diện (px/py/flex của mẫu vẫn thắng nhờ phạm vi v2s).",
+ "remove": [
+  ":scope > main > nav"
+ ],
+ "styles": true,
+ "swap": {
+  "pb-[84px]": "pb-4",
+  "px-5": "",
+  "min-h-screen": "min-h-0",
+  "text-[32px]": ""
+ },
+ "text": {
+  "Vocabulary": "d.title",
+  "18": "d.count",
+  "words to review today": "d.label",
+  "342 words · 96 mastered": "d.stats",
+  "Review now": "d.cta",
+  "Vocabulary path": "d.r[0].t",
+  "Structured CEFR B2 → C1 roadmap": "d.r[0].s",
+  "Word library": "d.r[1].t",
+  "36 curated academic & topic decks": "d.r[1].s",
+  "My notebook": "d.r[2].t",
+  "Saved words, personal examples & notes": "d.r[2].s",
+  "Word games": "d.r[3].t",
+  "Speed match, collocations & reflex": "d.r[3].s",
+  "Look up tools": "d.tools",
+  "Verb forms": "d.p[0].t",
+  "Word usage": "d.p[1].t",
+  "Phrases": "d.p[2].t",
+  "Look up any word": "d.ph"
+ },
+ "attr": {
+  ":scope > main > div > form": {
+   "data-vh": "'search'"
+  },
+  ":scope > main > div > form > input": {
+   "placeholder": "d.ph",
+   "data-vh": "'q'",
+   "autocomplete": "'off'",
+   "enterkeyhint": "'search'",
+   "autocapitalize": "'none'",
+   "spellcheck": "'false'"
+  },
+  ":scope > main > div > section:nth-child(3) > div > div:nth-child(1) > a": {
+   "href": "d.href"
+  },
+  ":scope > main > div > section:nth-child(4)": {
+   "aria-label": "d.title"
+  },
+  ":scope > main > div > section:nth-child(4) > a:nth-child(1)": {
+   "href": "d.r[0].href"
+  },
+  ":scope > main > div > section:nth-child(4) > a:nth-child(2)": {
+   "href": "d.r[1].href"
+  },
+  ":scope > main > div > section:nth-child(4) > a:nth-child(3)": {
+   "href": "d.r[2].href"
+  },
+  ":scope > main > div > section:nth-child(4) > a:nth-child(4)": {
+   "href": "d.r[3].href"
+  },
+  ":scope > main > div > section:nth-child(5) > div > a:nth-child(1)": {
+   "href": "d.p[0].href"
+  },
+  ":scope > main > div > section:nth-child(5) > div > a:nth-child(2)": {
+   "href": "d.p[1].href"
+  },
+  ":scope > main > div > section:nth-child(5) > div > a:nth-child(3)": {
+   "href": "d.p[2].href"
+  }
+ },
+ "html": {
+  ":scope > main > div > section:nth-child(3) > div > div:nth-child(2)": "d.teacher"
+ },
+ "addClass": {
+  ":scope > main > div > section:nth-child(3) > div > div:nth-child(1)": "min-w-0",
+  ":scope > main > div > section:nth-child(3) > div > div:nth-child(1) > div": "flex-wrap",
+  ":scope > main > div > section:nth-child(3) > div > div:nth-child(1) > div > span:nth-child(2)": "min-w-0 [overflow-wrap:anywhere]",
+  ":scope > main > div > section:nth-child(3) > div > div:nth-child(1) > a": "min-h-[48px] max-w-full",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(1)": "min-h-[64px]",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(2)": "min-h-[64px]",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(3)": "min-h-[64px]",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(4)": "min-h-[64px]",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(1) > div:nth-child(1)": "min-w-0 flex-1",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(2) > div:nth-child(1)": "min-w-0 flex-1",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(3) > div:nth-child(1)": "min-w-0 flex-1",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(4) > div:nth-child(1)": "min-w-0 flex-1",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(1) > div:nth-child(1) > div:nth-child(2)": "min-w-0",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(2) > div:nth-child(1) > div:nth-child(2)": "min-w-0",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(3) > div:nth-child(1) > div:nth-child(2)": "min-w-0",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(4) > div:nth-child(1) > div:nth-child(2)": "min-w-0",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(1) > div:nth-child(1) > div:nth-child(1)": "shrink-0",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(2) > div:nth-child(1) > div:nth-child(1)": "shrink-0",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(3) > div:nth-child(1) > div:nth-child(1)": "shrink-0",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(4) > div:nth-child(1) > div:nth-child(1)": "shrink-0",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(1) > div:nth-child(2)": "shrink-0",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(2) > div:nth-child(2)": "shrink-0",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(3) > div:nth-child(2)": "shrink-0",
+  ":scope > main > div > section:nth-child(4) > a:nth-child(4) > div:nth-child(2)": "shrink-0",
+  ":scope > main > div > section:nth-child(4)": "lg:grid lg:grid-cols-2 lg:gap-x-8",
+  ":scope > main > div > section:nth-child(5) > div > a:nth-child(1)": "hub-card min-h-[44px]",
+  ":scope > main > div > section:nth-child(5) > div > a:nth-child(2)": "hub-card min-h-[44px]",
+  ":scope > main > div > section:nth-child(5) > div > a:nth-child(3)": "hub-card min-h-[44px]",
+  ":scope > main": "v2-hub",
+  ":scope > main > div > h1": "[font-family:var(--font-display)]"
+ }
+}
