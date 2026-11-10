@@ -1024026,6 +1024026,195 @@
      "science.n"
     ]
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "neutron#n",
+   "batch": "20261110-r215",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "neutron",
+    "pos": "n",
+    "ipa": "/ˈn(j)uːtrɒn/",
+    "ipaUS": "/ˈnuːtrɑːn/",
+    "def": "a subatomic particle in an atom’s nucleus with no charge and mass like a proton",
+    "ex": [
+     "Neutrons can make other objects, or material, radioactive.",
+     "Then the neutrons are whatever number is left over."
+    ],
+    "col": [
+     "neutron star",
+     "neutron bomb",
+     "neutron radiation"
+    ],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.44,
+    "emoji": "",
+    "topic": "science",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:neutron.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew25856.6",
+      "wikibooks:wb215352.5"
+     ],
+     "tr": {
+      "es": "wiktionary+omw+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "id": "omw+ai",
+      "th": "wiktionary+omw+ai",
+      "zh": "wiktionary+ai",
+      "ja": "wiktionary+omw+ai",
+      "ko": "wiktionary+ai",
+      "ar": "wiktionary+omw+ai",
+      "ru": "wiktionary+ai",
+      "tr": "wiktionary+ai"
+     },
+     "trSense": "subatomic particle",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "unrecognizable#adj",
+   "batch": "20261110-r215",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "unrecognizable",
+    "pos": "adj",
+    "ipa": "/ʌnˈrekə(ɡ)naɪzəbəl/",
+    "ipaUS": "/ənˌrekəɡˈnaɪzəbl/",
+    "def": "cannot be recognized because it has been greatly changed or damaged",
+    "ex": [
+     "Some are obvious, while others are almost unrecognizable.",
+     "Without the head, the whole protein becomes unrecognizable to antibodies."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.76,
+    "emoji": "",
+    "topic": "xw-everyday",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:unrecognizable.s.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "commonvoice:cv2.469480",
+      "commonvoice:cv2.360082"
+     ],
+     "tr": {
+      "es": "wiktionary+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "that cannot be recognized",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "duodenum#n",
+   "batch": "20261110-r215",
+   "why": [
+    "dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "duodenum",
+    "pos": "n",
+    "ipa": "/ˌdjuːə(ʊ)ˈdiːnəm/",
+    "ipaUS": "/duˈɑːdənəm/",
+    "def": "the first part of the small intestine, between the stomach and jejunum",
+    "ex": [
+     "Duodenum site of most intestinal digestion.",
+     "The duodenum is divided into four portions."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.28,
+    "emoji": "",
+    "topic": "health",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:duodenum.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikibooks:wb2266.2",
+      "wikibooks:wb31236.4"
+     ],
+     "tr": {
+      "es": "wiktionary+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "zh": "wiktionary+ai",
+      "ja": "wiktionary+omw+ai",
+      "ko": "wiktionary+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "first part of the small intestine",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
   }
  ]
 }
