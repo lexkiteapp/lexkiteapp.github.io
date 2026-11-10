@@ -248,7 +248,10 @@ public enum StudyMethod {
             self.essayPrompts = essayPrompts; self.mistakes = mistakes; self.readings = readings; self.listening = listening; self.grammar = grammar; self.prompts = prompts
         }
     }
-    public struct Line: Equatable, Sendable { public var key: String, vars: [String: String] = [:] }
+    public struct Line: Equatable, Sendable {
+        public var key: String, vars: [String: String] = [:]
+        public init(key: String, vars: [String: String] = [:]) { self.key = key; self.vars = vars }
+    }
     public struct LoopStep: Equatable, Sendable { public var href: String, done: Bool, sub: Line }
     public struct Strand: Equatable, Sendable { public var id: String, pct: Int, weak: Bool }
     public struct Memory: Sendable {
