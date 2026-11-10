@@ -127793,6 +127793,33 @@
    "b": "41775450761",
    "repo": "m4"
   },
+  "oscilloscope#n": {
+   "h": "8d60c5e162effd2d",
+   "url": "https://media.lexkite.com/vimg/8d60c5e162effd2d.webp",
+   "alt": "oscilloscope",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.304,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "ac96926bcb99cc2c",
+   "at": "2026-11-10",
+   "b": "42914298458",
+   "repo": "m4"
+  },
   "ostensibly#adv": {
    "h": "83e1bbe588de8fb7",
    "url": "https://media.lexkite.com/vimg/83e1bbe588de8fb7.webp",
