@@ -49,7 +49,11 @@ import com.lexkite.app.i18n.L10n
 import com.lexkite.app.i18n.generated.L10nKey
 
 /** A web `t()` text in the UI language: the Vietnamese source key looked up in the language table, variables substituted, nested keys translated from the inside out. Latin digits. */
-fun L10n.tr(x: Tr): String { var s = if (x.k == "@speak.micDeniedNative") this(L10nKey.speakMicDeniedNative) else src(x.k); for ((k, v) in x.v) s = s.replace("{$k}", if (v is Tr) tr(v) else v.toString()); return s }
+fun L10n.tr(x: Tr): String { var s = if (x.k == "@speak.micDeniedNative") this(L10nKey.speakMicDeniedNative) else NATIVE_WORDING[x.k]?.let { this(it) } ?: src(x.k); for ((k, v) in x.v) s = s.replace("{$k}", if (v is Tr) tr(v) else v.toString()); return s }
+/** The web says "browser" for the cloud recogniser; the phone says "system" (vectors keep the web key). */
+private val NATIVE_WORDING = mapOf(
+    "Đang dùng nhận dạng của trình duyệt: âm thanh được gửi tới máy chủ của trình duyệt." to L10nKey.callUiDangDungHeThongNative,
+    "Dùng dịch vụ của trình duyệt (âm thanh được gửi đi để nhận dạng)" to L10nKey.callUiDungHeThongNative)
 @Composable fun trs(x: Tr): String = t.tr(x)
 
 /** Native wording of "the microphone is blocked" (key speak.micDeniedNative: OS settings, never a browser address bar). */
