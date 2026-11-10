@@ -2,5 +2,5 @@ web/i18n/explain/*.json merge=ours
 content/i18n-backcheck-cache.json merge=ours
 web/i18n/backcheck.json merge=ours
 scripts/test/suite.txt merge=union
-# nguồn dịch: mỗi khóa một dòng có dấu phẩy cuối (scripts/fmt-stable.mjs) → union an toàn khi gộp cục bộ; GitHub không dùng driver này (bot pr-unconflict lo)
+# nguồn dịch: mỗi khóa một dòng có dấu phẩy cuối (scripts/fmt-stable.mjs) → union an toàn khi gộp cục bộ; GitHub không dùng driver này → bot pr-unconflict gỡ (scripts/pr-unconflict.mjs mergeEntries)
 i18n/ui/**/*.js merge=union

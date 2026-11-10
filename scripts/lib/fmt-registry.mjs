@@ -73,11 +73,11 @@ export function formatRegistry(src, { mark, sort = true, file = '' }) {
   const i0 = at + mark.length, { end, items, tailComments } = scanObject(src, i0);
   const ind = /^[ \t]*/.exec(src.slice(src.lastIndexOf('\n', at) + 1))[0], in2 = ind + '  ';
   let list = items;
+  const keys = items.map(it => keyOf(it.text)), dup = keys.find((k, j) => k !== null && keys.indexOf(k) !== j);
+  if (dup) throw new Error(`fmt-registry: ${file} ${mark.trim()} trùng khóa "${dup}"`); // khóa sau đè mất khóa trước – cũng là chốt an toàn khi bot gộp union
   if (sort) {
     const bad = items.find(it => keyOf(it.text) === null);
     if (bad) throw new Error(`fmt-registry: ${file} ${mark.trim()} có mục không khóa (${bad.text.slice(0, 40)}) – không sắp được`);
-    const keys = items.map(it => keyOf(it.text)), dup = keys.find((k, j) => keys.indexOf(k) !== j);
-    if (dup) throw new Error(`fmt-registry: ${file} ${mark.trim()} trùng khóa "${dup}"`);
     list = [...items].sort((a, b) => (keyOf(a.text) < keyOf(b.text) ? -1 : keyOf(a.text) > keyOf(b.text) ? 1 : 0));
   }
   const lines = list.flatMap(it => [...it.lead.map(c => in2 + c), in2 + it.text + ',' + (it.trail.length ? ' ' + it.trail.join(' ') : '')]);

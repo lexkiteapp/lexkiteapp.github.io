@@ -19,9 +19,19 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { REGISTRIES } from './lib/fmt-registry.mjs';
+
+const REGISTRY_FILES = [...new Set(REGISTRIES.map(r => r.file))];
 
 export const TAKE_MAIN = ['docs/CODEMAP.md', 'docs/codemap.json'];
 export const UNION = ['scripts/test/suite.txt', 'docs/INDEX.md']; // danh sách chỉ thêm dòng: gộp union + khử trùng (docs-budget vẫn kiểm INDEX)
+// 10/11 (#934 dirty 3 lần/ngày): tệp SINH từ nguồn trong repo → lấy bản main rồi DỰNG LẠI từ nguồn đã gộp (regen), không bao giờ giữ bản sửa tay.
+//   web/js/i18n/<lang> trừ en (en là nguồn), gói pathn web/cpack/lesson/pn-*, bản sao add-on extension/app, CSS Stitch biên dịch web/css/st-*.css.
+export const GENERATED = /^(web\/js\/i18n\/(?!en[./])[a-z]{2,3}(\.js|\/)|web\/cpack\/lesson\/pn-[a-z]{2,3}\.js$|extension\/app\/|web\/css\/st-[\w-]+\.css$)/;
+// Danh sách "mỗi mục một dòng" (scripts/fmt-stable.mjs): nguồn dịch i18n/ui + tệp có registry. Gỡ = giữ mục của CẢ HAI phía trong từng khối xung đột,
+// chỉ khi khối toàn dòng mục `khóa: giá trị,` / chú thích; fmt-stable sắp lại và NÉM LỖI nếu trùng khóa (hai PR sửa cùng mục → người gỡ).
+export const ENTRY_FILES = f => /^i18n\/ui\/.+\.js$/.test(f) || REGISTRY_FILES.includes(f);
+export const ENTRY_LINE = /^\s*(\/\/.*|("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|[A-Za-z_$][\w$]*)\s*:.*,(\s*\/\/.*)?)$/;
 export const ACTIVE_H = 24, MAX = 4;
 
 /** Kế hoạch gỡ cho danh sách tệp xung đột: null nếu có tệp ngoài danh sách tự gỡ. */
@@ -29,11 +39,27 @@ export function plan(conflicted) {
   if (!conflicted.length) return null;
   const out = [];
   for (const f of conflicted) {
-    if (TAKE_MAIN.includes(f)) out.push({ f, how: 'main' });
+    if (TAKE_MAIN.includes(f) || GENERATED.test(f)) out.push({ f, how: 'main' });
     else if (UNION.includes(f)) out.push({ f, how: 'union' });
+    else if (ENTRY_FILES(f)) out.push({ f, how: 'entries' });
     else return null;
   }
   return out;
+}
+
+/** Gỡ khối xung đột của tệp "mỗi mục một dòng": giữ dòng của cả hai phía (bỏ dòng trùng y hệt). null nếu có khối chứa dòng không phải mục. Thuần. */
+export function mergeEntries(text) {
+  const lines = text.split('\n'), out = [];
+  for (let i = 0; i < lines.length; i++) {
+    if (!lines[i].startsWith('<<<<<<< ')) { out.push(lines[i]); continue; }
+    const block = []; let side = 'o';
+    for (i++; i < lines.length && !lines[i].startsWith('>>>>>>> '); i++) {
+      if (lines[i].startsWith('||||||| ')) side = 'b'; else if (lines[i] === '=======') side = 't'; else if (side !== 'b') block.push(lines[i]);
+    }
+    if (i >= lines.length || block.some(l => l.trim() && !ENTRY_LINE.test(l))) return null;
+    const seen = new Set(); for (const l of block) if (!l.trim() || !seen.has(l)) { seen.add(l); out.push(l); }
+  }
+  return out.join('\n');
 }
 
 /** Bỏ dòng lệnh trùng y hệt sau union, giữ thứ tự lần xuất hiện đầu; dòng trống/chú thích giữ nguyên. */
@@ -79,14 +105,18 @@ async function full(n) {
 export function fix(p, dry) {
   const br = p.head.ref;
   git('fetch', '-q', 'origin', 'main', `${br}:refs/remotes/origin/${br}`);
-  git('checkout', '-q', '-B', 'unconflict', `origin/${br}`);
+  git('checkout', '-q', '-f', '-B', 'unconflict', `origin/${br}`); // -f: bỏ phần dựng lại còn sót của PR trước trong cùng lượt
   const m = tryGit('merge', '--no-edit', '-m', `Gộp main vào ${br} (pr-unconflict: tự gỡ tệp tự sinh)`, 'origin/main');
   const conflicted = git('diff', '--name-only', '--diff-filter=U').split('\n').filter(Boolean);
   const steps = m.ok ? [] : plan(conflicted);   // gộp sạch cục bộ (GitHub tính cũ) → vẫn đẩy bản gộp để PR hết dirty
   if (!steps) { tryGit('merge', '--abort'); console.log(`#${p.number}: xung đột ở tệp người viết (${conflicted.join(', ')}) – để phiên phụ trách`); return 'manual'; }
   for (const { f, how } of steps) {
     if (how === 'main') git('checkout', '--theirs', '--', f);
-    else {
+    else if (how === 'entries') {
+      const t = mergeEntries(fs.readFileSync(f, 'utf8'));
+      if (t === null) { tryGit('merge', '--abort'); console.log(`#${p.number}: ${f} xung đột ngoài dòng mục (sửa cùng chỗ) – để phiên phụ trách`); return 'manual'; }
+      fs.writeFileSync(f, t);
+    } else {
       const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'unc-')), side = k => { const out = tryGit('show', `:${k}:${f}`); fs.writeFileSync(`${tmp}/${k}`, out.ok ? out.out + '\n' : ''); return `${tmp}/${k}`; };
       const o = side(2), b = side(1), t = side(3);
       tryGit('merge-file', '--union', o, b, t);             // mã thoát = số xung đột, union không để lại dấu xung đột
@@ -96,12 +126,32 @@ export function fix(p, dry) {
   }
   // merge=union (.gitattributes) có thể gộp "sạch" mà nhân đôi dòng (06/11: #757 trùng voice-source.mjs) → luôn khử trùng tệp UNION
   for (const f of UNION) if (fs.existsSync(f)) { const a = fs.readFileSync(f, 'utf8'), b = dedupeLines(a); if (a !== b) { fs.writeFileSync(f, b); git('add', '--', f); } }
+  // Dựng lại tệp sinh từ nguồn ĐÃ GỘP (định dạng + gói dịch + add-on + CSS Stitch); lỗi (vd. hai phía cùng sửa một khóa → fmt-stable báo trùng) → để người gỡ
+  const rg = regen(git('diff', '--name-only', `origin/${br}`).split('\n').filter(Boolean).map(f => ({ f }))); // mọi tệp main mang vào, kể cả phần gộp sạch
+  if (rg) { tryGit('merge', '--abort'); tryGit('reset', '-q', '--hard', `origin/${br}`); console.log(`#${p.number}: dựng lại lỗi (${rg}) – để phiên phụ trách`); return 'manual'; }
   if (!m.ok) git('commit', '-q', '--no-edit');
   else if (tryGit('diff', '--cached', '--quiet').ok === false) git('commit', '-q', '--amend', '--no-edit');
   if (dry) { console.log(`#${p.number}: [dry] gỡ được ${(steps.map(s => `${s.f}=${s.how}`).join(', ') || 'gộp sạch')}`); return 'dry'; }
   const push = tryGit('push', '-q', 'origin', `HEAD:refs/heads/${br}`);   // không force: nhánh vừa đổi thì bỏ qua, lượt sau thử lại
   console.log(push.ok ? `#${p.number}: ✓ đã gỡ ${steps.map(s => s.f).join(', ') || '(gộp sạch)'} và đẩy ${br}` : `#${p.number}: nhánh vừa đổi, không đẩy (${push.out.split('\n')[0]})`);
   return push.ok ? 'fixed' : 'raced';
+}
+
+/** Lệnh dựng lại sau khi gộp (thuần, để test): theo loại tệp đã gỡ. */
+export function regenCmds(steps) { // steps: [{ f }] tệp đổi so với nhánh PR
+  const fs_ = steps.map(s => s.f), any = re => fs_.some(f => re.test(f)), cmds = [];
+  if (any(/^(i18n\/ui\/|web\/js\/i18n\/|web\/cpack\/lesson\/pn-|extension\/app\/)/) || fs_.some(f => REGISTRY_FILES.includes(f))) cmds.push(['node', 'scripts/fmt-stable.mjs'], ['node', 'scripts/i18n-pack.mjs']);
+  if (any(/^web\/css\/st-/) || fs_.includes('scripts/build-stitch-css.mjs')) cmds.push(['node', 'scripts/build-stitch-css.mjs']);
+  if (any(/^(extension\/app\/|web\/)/) || fs_.some(f => REGISTRY_FILES.includes(f)) || any(/^i18n\/ui\//)) cmds.push(['bash', 'scripts/build-extension.sh']);
+  return cmds;
+}
+const REGEN_PATHS = ['i18n/ui', 'web/js/i18n', 'web/cpack/lesson', 'web/css', 'extension/app', ...REGISTRY_FILES];
+function regen(steps) {
+  if (!steps.length) return '';
+  for (const c of regenCmds(steps)) { try { execFileSync(c[0], c.slice(1), { stdio: ['ignore', 'ignore', 'pipe'], encoding: 'utf8' }); } catch (e) { return `${c.join(' ')}: ${String(e.stderr || e.message).trim().split('\n').pop()}`; } }
+  if (fs.existsSync('scripts/fmt-stable.mjs')) { try { execFileSync('node', ['scripts/fmt-stable.mjs', '--check'], { stdio: 'ignore' }); } catch { return 'fmt-stable --check'; } }
+  const ps = REGEN_PATHS.filter(f => fs.existsSync(f)); if (ps.length) git('add', '-A', '--', ...ps);
+  return '';
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
