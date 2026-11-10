@@ -9534,3 +9534,36 @@ republicanism	ok	ok
 trachea	ok	ok
 depose	ok	ok
 terse	ok	cut_wordis:"TURSE" 0.79s · cut_wordis:"TURSE" 0.60s · dot100:"TURSE" 0.62s · cut_wordis100:"TURSE" 0.69s · cut_wordis100:"TURSE" 0.54s · cut_next:"TURSE" 0.61s · cut_next:"First." 0.40s · plain095:"TURS" 0.61s · dot090:"TURSE" 0.68s
+abdicate	ok	ok
+defibrillator	ok	ok
+inoculation	ok	ok
+bombard	ok	ok
+architecturally	ok	ok
+massif	cut_wordis: câu mang: "The word is massive." · dot100:"The Massive." 1.08s · cut_wordis100: câu mang: "The word is massive." · cut_next: câu mang: "Next word Massific" · plain095:"Massive." 0.71s · dot090:"Massive." 1.19s	cut_wordis: câu mang: "The word is, massive." · dot100:"Massive." 0.70s · cut_wordis100: câu mang: "The word is, massive." · cut_next: câu mang: "Next word, massive." · plain095:"Massive." 0.71s · dot090:"Massive." 0.76s
+misappropriation	ok	ok
+arsonist	ok	ok
+hypertext	ok	ok
+denture	ok	ok
+unhindered	ok	ok
+cockatoo	ok	ok
+helmsman	ok	ok
+patrimony	ok	ok
+disastrously	ok	ok
+embryology	ok	ok
+circumspect	ok	ok
+macrophage	ok	ok
+physiologic	ok	ok
+thalamus	ok	ok
+overwrite	ok	ok
+positivism	ok	ok
+otherness	ok	ok
+saboteur	ok	ok
+unreliability	ok	ok
+probity	ok	ok
+educative	ok	ok
+pyrotechnic	ok	ok
+phylum	ok	ok
+isothermal	ok	ok
+tracheal	ok	ok
+encirclement	ok	ok
+antitank	ok	ok
