@@ -47,7 +47,7 @@ class FixEngine(private val j: JsonObject) {
         val all get() = m.group(0) ?: ""
     }
     private val rules: List<Rule> = j.lList("rules").map { r ->
-        Rule(r.lStr("id"), Pattern.compile(r.lStr("re"), if (r.lStr("flags").contains('i')) Pattern.CASE_INSENSITIVE else 0), r.lStr("type"), r.lStr("title"), r.lStr("why"), r.lStr("lesson"))
+        Rule(r.lStr("id"), Pattern.compile(jsRe(r.lStr("re")), if (r.lStr("flags").contains('i')) Pattern.CASE_INSENSITIVE else 0), r.lStr("type"), r.lStr("title"), r.lStr("why"), r.lStr("lesson"))
     }
     private fun table(k: String): Map<String, String> = j.lObj(k).mapValues { it.value.lStr() }
     private val spell = table("spell"); private val v3 = table("v3"); private val base = table("base")
@@ -58,8 +58,23 @@ class FixEngine(private val j: JsonObject) {
     val ruleCount: Int get() = rules.size
 
     companion object {
+        /** JS `\s` (ECMAScript WhiteSpace + LineTerminator) as a Java class body; Java `\s` is ASCII only, so "bigger then" would be missed. */
+        private const val WS = "\\t\\n\\x0B\\f\\r \\u00A0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF"
+        private val JS_SPACES = Regex("[$WS]+")
+        /** a web regex source with `\s` / `\S` as the JS sets (inside a class too: Java unions nested classes) */
+        private fun jsRe(p: String): String {
+            val b = StringBuilder(); var i = 0
+            while (i < p.length) {
+                val c = p[i]
+                if (c == '\\' && i + 1 < p.length) {
+                    when (val n = p[i + 1]) { 's' -> b.append("[$WS]"); 'S' -> b.append("[^$WS]"); else -> b.append(c).append(n) }
+                    i += 2
+                } else { b.append(c); i++ }
+            }
+            return b.toString()
+        }
         private val cache = HashMap<String, Pattern>()
-        private fun rx(p: String, ci: Boolean = false): Pattern = synchronized(cache) { cache.getOrPut((if (ci) "i:" else "s:") + p) { Pattern.compile(p, if (ci) Pattern.CASE_INSENSITIVE else 0) } }
+        private fun rx(p: String, ci: Boolean = false): Pattern = synchronized(cache) { cache.getOrPut((if (ci) "i:" else "s:") + p) { Pattern.compile(jsRe(p), if (ci) Pattern.CASE_INSENSITIVE else 0) } }
         private fun test(p: String, s: String, ci: Boolean = false): Boolean = rx(p, ci).matcher(s).find()
         /** `s.replace(/p/, with)`: first match only (the patterns are anchored with `$`) */
         private fun sub(s: String, p: String, with: String): String { val m = rx(p).matcher(s); return if (m.find()) s.substring(0, m.start()) + expand(m, with) + s.substring(m.end()) else s }
@@ -226,7 +241,7 @@ class FixEngine(private val j: JsonObject) {
                 return whole(listOf(cap(a0, r)))
             }
             "upgrade" -> {
-                val k = a0.lowercase().split(Regex("\\s+")).filter { it.isNotEmpty() }.joinToString(" ")
+                val k = a0.lowercase().split(JS_SPACES).filter { it.isNotEmpty() }.joinToString(" ")
                 val opts = upg[k]?.takeIf { it.isNotEmpty() } ?: return null
                 return Hit(i, end, opts.map { cap(a0, it.firstOrNull() ?: "") }, opts.map { if (it.size > 1) it[1] else "" })
             }
