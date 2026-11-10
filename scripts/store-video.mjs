@@ -143,7 +143,8 @@ async function appMode() {
   await tap('.lsn-start'); await sleep(2000);
   let done = 0;
   for (let guard = 0; guard < 8 && done < 2; guard++) {
-    const kind = await p.waitForSelector('#lsnBank .lsn-tile, .lsn-opts [data-o], #lsnGo', { timeout: 8000 }).then(h => h.evaluate(e => e.id === 'lsnGo' ? 'go' : e.classList.contains('lsn-tile') ? 'tiles' : 'opts'));
+    const kind = await p.waitForSelector('#lsnBank .lsn-tile, .lsn-opts [data-o], #lsnGo', { timeout: 8000 }).then(h => h.evaluate(e => e.id === 'lsnGo' ? 'go' : e.classList.contains('lsn-tile') ? 'tiles' : 'opts')).catch(() => null);
+    if (!kind) { if (done) break; throw new Error('✗ bài học không có câu ghép chữ/trắc nghiệm'); } // câu tiếp là dạng nói/gõ → dừng ở đó (người xem thấy câu mới)
     if (kind === 'go') { await tap('#lsnGo'); await sleep(1500); continue; } // lời thoại/video xen kẽ → Tiếp tục
     if (done === 0) M.item = mark();
     for (let i = 0; i < 30 && !(await p.evaluate(() => window.__said)); i++) await sleep(100);
@@ -163,7 +164,7 @@ async function appMode() {
     if (!(await p.locator('#lsnNext').count())) throw new Error('✗ không thấy tấm phản hồi sau khi Kiểm tra');
     await tap('#lsnNext'); done++; await p.evaluate(() => { window.__said = ''; }); await sleep(900);
   }
-  if (done < 2) throw new Error('✗ chưa làm được 2 câu bài học');
+  if (done < 1) throw new Error('✗ chưa làm được câu bài học nào');
   // 3. Từ vựng → 4. Kỹ năng (chạm tab dưới) – mỗi 2–3 s có chuyển động
   M.vocab = mark(); await tap('#bnav a[href="#/vocab"], nav a[data-route="vocab"]', '#/vocab'); await sleep(1300); await swipe(240); await sleep(900); await swipe(240); await sleep(900); await swipe(-480); await sleep(600);
   M.skills = mark(); await tap('#bnav a[href="#/skills"], nav a[data-route="skills"]', '#/skills'); await sleep(1300); await swipe(240); await sleep(1100);
