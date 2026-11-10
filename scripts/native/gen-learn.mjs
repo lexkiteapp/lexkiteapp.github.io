@@ -175,7 +175,7 @@ async function methodVectors() {
   return { _doc: 'The real routes.method of web/js/method.js (now fixed at 2026-01-05 09:00 UTC; days keys = N days ago): loop (6 steps: done flag, href, sub key+vars, why), loopDone, strands (7-day share %, weak = the amber bar, sub), weakest strand, plan (name + items), memory stats (cards remembered / average retrievability / due / learning), the 12 principles (title, who, idea, how, stat key+vars, links) and the FAQ. State inputs are small stand-ins: READINGS 3, LISTENING 2, GRAMMAR 2, WRITE_PROMPTS 3.', cases: out };
 }
 async function methodContent() {
-  const r = await methodRun({}); // static texts
+  const r = await methodRun({ readings: [], listening: [], grammar: [], prompts: [] }); // static texts; empty lists ⇒ the fall-back links (#/reading #/listening #/grammar #/write) the app swaps for the next item
   const plans = {}; for (const st of ['s0', 's1', 's2', 's3']) { const x = await methodRun({ settings: { placement: { stage: st, band: '5' } } }); plans[st] = { name: x.planName, items: x.plan }; }
   return { loop: r.loop.map(l => ({ href: l.href, title: l.title, why: l.why })), principles: r.prin.map(p => ({ title: p.title, who: p.who, idea: p.idea, how: p.how, links: p.links })), faq: r.faq, plans,
     icons: { loop: ['layers', 'headphones', 'pin', 'ruler', 'message-circle', 'book-x'] } };
