@@ -27,9 +27,9 @@ const now = Date.UTC(2026, 9, 22, 12); // 22/10/2026 12:00 UTC
   ok(M.healthOf({ ...fb, limits: {}, health: { expires_at: new Date(now + 3 * 864e5).toISOString() } }, [], now).flags.includes('expiring'), 'token còn 3 ngày → sắp hết hạn');
   const ig = M.healthOf({ id: 3, platform: 'instagram', limits: {} }, [{ targets: [{ account_id: 3, published_at: new Date(now - 3600e3).toISOString() }, { account_id: 3, published_at: new Date(now - 30 * 3600e3).toISOString() }] }], now);
   ok(ig.used === 1 && ig.cap === 100, 'IG: đếm bài 24 h từ lịch sử khi GrabCast không trả limits, trần 100');
-  ok(M.healthOf({ id: 4, platform: 'tiktok' }, [], now).state !== 'private_only' && M.healthOf({ id: 5, platform: 'youtube' }, [], now).privateOnly, 'TikTok đã duyệt Direct Post (03/11) → công khai; YouTube vẫn riêng tư (chờ Google)');
+  ok(M.healthOf({ id: 4, platform: 'tiktok' }, [], now).state !== 'private_only' && M.healthOf({ id: 5, platform: 'youtube' }, [], now).state === 'ok' && !M.healthOf({ id: 5, platform: 'youtube' }, [], now).privateOnly, 'TikTok đã duyệt Direct Post (03/11), YouTube GrabCast qua audit (10/11) → cả hai công khai');
   { const tk = M.bodyFor({ id: 'c1', title: 'T', description: 'D' }, 'm1', [{ id: 4, p: 'tiktok' }]).targets[0], yt = M.bodyFor({ id: 'c1', title: 'T', description: 'D' }, 'm1', [{ id: 5, p: 'youtube' }]).targets[0];
-    ok(tk.options.privacy_level === 'PUBLIC_TO_EVERYONE' && tk.options.is_aigc === true && tk.options.commercial_content === false && yt.options.privacy_status === 'private', 'bài TikTok công khai, gắn nhãn AI; YouTube private'); }
+    ok(tk.options.privacy_level === 'PUBLIC_TO_EVERYONE' && tk.options.is_aigc === true && tk.options.commercial_content === false && yt.options.privacy_status === 'public' && yt.options.made_for_kids === false && yt.options.contains_synthetic_media === true && yt.kind === 'short', 'bài TikTok công khai, gắn nhãn AI; YouTube private'); }
 }
 // ---------- 2) Dấu băm nội dung duyệt ----------
 {
