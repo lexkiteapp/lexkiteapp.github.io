@@ -74,13 +74,8 @@ jobs:
         if: github.ref == 'refs/heads/main'
         shell: bash
         run: |
-          git config user.name lexkite-bot; git config user.email bot@lexkite.com
-          git add content/say-native/meanings.json web/data/say.json reports/ai-pool-say-native.json 2>/dev/null || true
-          git diff --cached --quiet && { echo "· nothing new"; cat out/say-native/report.md >> "$GITHUB_STEP_SUMMARY"; exit 0; }
-          git commit -qm "say-native: nghĩa 14 ngôn ngữ (ai-pool, 2 giám khảo) [CF-Pages-Skip] [skip ci]"
           cat out/say-native/report.md >> "$GITHUB_STEP_SUMMARY"
-          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 7)); done
-          echo "::error::could not push to main (BOT_DEPLOY_KEY / ruleset?)"; exit 1
+          bash scripts/ci/push-main.sh "say-native: nghĩa 14 ngôn ngữ (ai-pool, 2 giám khảo)" content/say-native/meanings.json web/data/say.json reports/ai-pool-say-native.json
       - name: Branch – artifact + summary + PR comment (no push)
         if: always() && github.ref != 'refs/heads/main'
         uses: ./.github/actions/bot-output

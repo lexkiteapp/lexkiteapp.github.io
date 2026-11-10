@@ -28,11 +28,8 @@ jobs:
       - name: Ghi vào main nếu đổi
         id: push
         run: |
-          git config user.name "Lexkite CI"; git config user.email "lexkiteapp@users.noreply.github.com"
-          git add web/native/content
-          git diff --cached --quiet && { echo "nội dung ký không đổi"; exit 0; }
-          git commit -qm "native-content #${{ github.run_number }}: ký + đăng nội dung app native [CF-Pages-Skip] [skip ci]"
-          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && { echo "pushed=1" >> "$GITHUB_OUTPUT"; exit 0; }; sleep 5; done; exit 1
+          [ -n "$(git status --porcelain web/native/content)" ] || { echo "nội dung ký không đổi"; exit 0; }
+          bash scripts/ci/push-main.sh "native-content #${{ github.run_number }}: ký + đăng nội dung app native" web/native/content && echo "pushed=1" >> "$GITHUB_OUTPUT"
       - name: Yêu cầu deploy Pages (gom qua pages-deploy.yml – docs/FREE-TIER.md §7)
         if: steps.push.outputs.pushed == '1'
         env: { GH_TOKEN: '${{ github.token }}' }
