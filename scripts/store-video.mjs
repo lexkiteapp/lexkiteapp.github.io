@@ -170,12 +170,18 @@ async function appMode() {
   M.skills = mark(); await tap('#bnav a[data-tab="skills"]', '#/skills'); await sleep(1300); await swipe(240); await sleep(1100);
   await cdp.send('Page.stopScreencast').catch(() => {});
   await p.close(); await ctx.close(); await br.close();
-  const dur = Math.min(+(frames[frames.length - 1].ts - frames[0].ts + 0.5).toFixed(2), 26.5);
+  // Nén thời gian chết: khung đứng yên (chờ giọng/tải) giữ tối đa HOLD s; còn dài hơn 26,5 s thì tăng tốc đều. Mốc M đổi theo cùng trục.
+  const HOLD = 1.1, T0 = frames[0].ts; let acc = 0;
+  const nt = frames.map((x, i) => (i ? (acc += Math.min(x.ts - frames[i - 1].ts, HOLD)) : 0));
+  const warp = t => { const a = T0 + t, i = frames.findIndex(x => x.ts > a); const j = (i < 0 ? frames.length : i) - 1; return j < 0 ? 0 : nt[j] + Math.min(a - frames[j].ts, HOLD); };
+  const k = Math.min(1, 26.5 / (nt[nt.length - 1] + 0.5));
+  for (const key of Object.keys(M)) M[key] = warp(M[key]) * k;
+  const dur = +((nt[nt.length - 1] + 0.5) * k).toFixed(2);
   const dim = execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=width,height', '-of', 'csv=p=0:s=x', frames[0].f], { encoding: 'utf8' }).trim();
   if (dim !== `${AW}x${AH}` && dim !== `${AW / 2}x${AH / 2}`) throw new Error(`✗ khung screencast ${dim}, cần ${AW}x${AH}`);
   if (dim !== `${AW}x${AH}`) console.log(`  ⚠ screencast ${dim} (CSS px) → phóng ×2 lanczos`); // headless có thể gửi khung theo CSS px dù dsf 2
   const lst = path.join(TMP, 'frames.txt'); // concat demuxer: mỗi khung giữ đến timestamp khung sau
-  fs.writeFileSync(lst, frames.map((x, i) => `file '${x.f}'\nduration ${Math.max(0.01, (frames[i + 1] ? frames[i + 1].ts - x.ts : 0.5)).toFixed(4)}`).join('\n') + `\nfile '${frames[frames.length - 1].f}'\n`);
+  fs.writeFileSync(lst, frames.map((x, i) => `file '${x.f}'\nduration ${Math.max(0.01, (frames[i + 1] ? nt[i + 1] - nt[i] : 0.5) * k).toFixed(4)}`).join('\n') + `\nfile '${frames[frames.length - 1].f}'\n`);
   console.log(`  ${frames.length} khung · ${dur.toFixed(1)} s · mốc ${JSON.stringify(Object.fromEntries(Object.entries(M).map(([k, v]) => [k, +v.toFixed(1)])))}`);
 
   // Thẻ cuối 886×1920 theo thương hiệu (nền teal đậm, chữ nhấn dải nắng→san hô) – không logo mới
