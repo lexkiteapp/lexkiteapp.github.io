@@ -50,6 +50,10 @@ ok(/WITH_ARG = \[[^\]]*'mediate'/.test(eg), 'ExitGuard: #/mediate/<bài> là mà
 ok(/mediation-source/.test(corpus) && JSON.parse(fs.readFileSync('web/audio/coverage.json', 'utf8')).groups['mediation-source'], 'corpus Kokoro nhóm mediation-source có sàn độ phủ');
 const ms = fs.readFileSync('web/js/mediate.js', 'utf8');
 ok(/LISTEN_FIRST = \['B2', 'C1', 'C2'\]/.test(ms) && /btn\.disabled = n < T\.min_words/.test(ms) && /Chars\.slot\(/.test(ms), 'màn: Nghe trước từ B2, nút Kiểm tra tắt tới khi đủ số từ, giáo viên 2D qua Chars.slot');
+// build-cpack.mjs đổi tên gói sang bản băm và chỉ sửa đường dẫn viết nguyên văn → mỗi bài cần src literal trong index, màn không được ghép đường dẫn
+{ const g = {}; new Function('self', fs.readFileSync('web/cpack/mediation/index.js', 'utf8'))(g);
+  ok(g.MEDIATION_INDEX.every(x => x.src === `cpack/mediation/${x.id}.js` && fs.existsSync('web/' + x.src)), 'index: mọi bài có src nguyên văn trỏ tới gói có thật (cho build-cpack băm tên)');
+  ok(!/loadScript\(`cpack\/mediation\/\$\{/.test(ms), 'màn: không ghép đường dẫn gói bài (sẽ 404 sau khi băm)'); }
 const src = JSON.parse(fs.readFileSync('content/qa/sources.json', 'utf8')).sources.find(s => s.paths.includes('content/mediation'));
 ok(src && (src.delegate || []).includes('content-qa/mediation-check.mjs'), 'content/mediation đăng ký trong content/qa/sources.json, giao cổng mediation-check');
 console.log(fails ? `✗ mediation: ${fails} lỗi` : '✓ mediation: xanh');
