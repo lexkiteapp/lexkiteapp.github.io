@@ -158,7 +158,7 @@
   const SLOW = 'absolute top-[1.2rem] right-[1.5rem] z-20 w-7 h-7 flex items-center justify-center rounded-[9999px] active:scale-95 transition-transform lt:bg-[#FFFFFF] lt:text-[#0D6964] dk:bg-[#142328] dk:text-[#2BA39A] motion-reduce:transition-none after:absolute after:-inset-2 after:content-[\'\']';
   function v2shell(sh) {
     const d = { close: sh.close, title: sh.title, pct: 0, combo: '', chip: sh.chip, play: t('Nghe lại'), who: sh.who,
-      teacher: '<div id="lsnTch" class="relative w-[170px] h-[144px] max-w-full"></div><i class="ss-floor" aria-hidden="true"></i>',
+      teacher: LessonTeacher.stage('lsnTch'), // sân khấu chuẩn: người to đứng sau thẻ đề bài (thẻ che hông) + bong bóng lời – lesson/teacher.js stage()
       slow: `<button id="lsnSlow" type="button" class="${SLOW}" hidden aria-label="${esc(t('Nghe chậm hơn'))}"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">slow_motion_video</span></button>`,
       opts: ['off', 'on', 'off', 'off'].map((v, i) => ({ v, o: '', k: LET[i], t: '' })) };
     const root = ST2.mount(view, 'lesson-question', d, null); root.id = 'lsn'; root.classList.add('lsn-v2');
@@ -187,7 +187,7 @@
     const T = (L.teachers && who && L.teachers[who]) || L.teacher, rate = slow ? 0.7 : 0.95;
     if (L.teachers) { ['ama', 'carlos'].forEach(k => { const el = $(k === 'ama' ? '#lsnTch' : '#lsnTch2'); if (el) el.classList.toggle('talk', k === who); }); }
     const done = onEnd; if (L.ss) { L.ss.speaker(who); onEnd = () => { if (L && L.ss) L.ss.speaker(''); if (done) done(); }; }
-    if (T) T.say(text, { rate, voice: VOICE(who), onEnd, caption: cap }); else { if (cap) cap.clock(cap.est * 70); UI.tts(text, 'en-US', rate, { voice: VOICE(who), onEnd }); }
+    if (T) T.say(text, { rate, voice: VOICE(who), onEnd, caption: cap, show: cap ? false : RADIO }); // câu đọc = đáp án → bong bóng chỉ hiện 🔊 · · · (không lộ chữ) else { if (cap) cap.clock(cap.est * 70); UI.tts(text, 'en-US', rate, { voice: VOICE(who), onEnd }); }
   };
   // Chip kỳ thi trên thẻ câu hỏi (Tactile): "IELTS · Mục tiêu 7.5" – lấy từ mục tiêu đã chọn, không có thì ẩn
   const examChip = () => { const s = state.settings || {}, X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = s.examTarget; return X ? `<div class="lsn-ex"><span class="tk-chip gold">${esc(X.short)}${tg ? ' · ' + esc(t('Mục tiêu {s}', { s: tg })) : ''}</span></div>` : ''; };
@@ -243,7 +243,8 @@
     else if (it.type === 'mean') sub = meanOf(it.card);
     else if (it.type === 'type') sub = [it.mean, it.noAudio || !it.mean ? it.def : '', t('bắt đầu bằng “{letter}”, {n} ký tự', { letter: it.first, n: it.len })].filter(Boolean).join(' · '); // nghĩa tiếng mẹ đẻ + định nghĩa EN + độ dài/chữ đầu (gợi ý mở sẵn)
     else if (it.type === 'build') sub = it.prompt; // bản dịch CÂU (không bao giờ là định nghĩa của từ)
-    bub.innerHTML = tag + (L.v2 && it.type === 'gap' ? `<span class="sr-only">${esc(TITLE(it))}</span>` : esc(TITLE(it))) + (sub ? ST.lsnSub(sub, '') : '');
+    bub.innerHTML = tag + (L.v2 ? `<span class="sr-only">${esc(TITLE(it))}</span>` : esc(TITLE(it))) + (sub ? ST.lsnSub(sub, '') : ''); // v2: đề bài = lời giáo viên trong bong bóng (trình đọc màn hình đọc bản sr-only)
+    if (L.v2 && L.teacher && L.teacher.line) L.teacher.line(TITLE(it));
     const V = L.v2, snd = LISTENS(it) && !V ? ST.lsnSnd({ play: t('Nghe lại'), slow: t('Nghe chậm hơn'), label: t('Mẫu âm thanh'), name: TNAME(it.who || L.who) }) : '';
     const fill = (html, grid) => { if (V) body.className = grid ? GRID : FLOW; body.innerHTML = V && grid ? '' : html; }; // v2: lưới 2 cột cho trắc nghiệm (bindItem vẽ thẻ), dạng khác = cột dọc cùng ô
     const audioText = it.type === 'gap' || it.type === 'build' ? it.sent : it.answer;
@@ -251,7 +252,7 @@
     if (it.type === 'video') return video(it);
     const chat = $('#lsnChat'); if (chat) chat.hidden = true; // bài kiểm giữa truyện: ẩn lời thoại (không lộ đáp án)
     if (it.type === 'q') {
-      bub.innerHTML = tag + esc(TITLE(it)) + ST.lsnSub(it.prompt, 'en');
+      bub.innerHTML = tag + (L.v2 && L.teacher && L.teacher.line ? `<span class="sr-only">${esc(TITLE(it))}</span>` : esc(TITLE(it))) + ST.lsnSub(it.prompt, 'en');
       fill(ST.lsnOpts(it.options), true);
     } else if (it.type === 'gap') {
       const T = it.blank.toks, sent = T.map((w, i) => (i === it.blank.i ? ST.GAP : i > it.blank.i && i < it.blank.i + it.blank.n ? '' : esc(w))).filter(Boolean).join(' ');
