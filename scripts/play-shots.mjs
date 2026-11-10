@@ -19,13 +19,13 @@ import { ICON, FONT, SCREENS, FEATURE, HIDE, BASECSS } from './lib/app-shots-cop
 // Ảnh nổi bật Play 1024×500: cùng phong cách khung dọc – tiêu đề + nhãn bên trái, 2 màn thật (sáng: Hôm nay, tối: chuỗi) nghiêng bên phải
 async function feature(page, lang, light, dark) {
   const [title, tags] = FEATURE[lang];
-  const css = `${BASECSS}body{width:1024px;height:500px;background:radial-gradient(520px 420px at 100% 0,rgba(255,176,84,.34),transparent 62%),radial-gradient(600px 380px at 70% 120%,rgba(242,85,59,.30),transparent 62%),linear-gradient(165deg,#0A2E30,#0F3D3E 48%,#0C3436)}
+  const css = `${BASECSS}body{width:1024px;height:500px;background:radial-gradient(520px 420px at 100% 0,rgba(255,176,84,.20),transparent 62%),radial-gradient(600px 380px at 70% 120%,rgba(242,85,59,.30),transparent 62%),linear-gradient(165deg,#0A2E30,#0F3D3E 48%,#0C3436)}
     .r{position:absolute;left:64px;top:92px;width:470px}.brand{font-size:34px}.brand img{width:52px;height:52px}
     h1{font-size:46px;line-height:1.06;font-weight:800;letter-spacing:-.03em;margin-top:22px;text-wrap:balance}
     .tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.tags span{font-size:17px;font-weight:700;padding:7px 14px;border-radius:99px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.22)}
     .ph{position:absolute;width:230px;height:470px;padding:9px;border-radius:40px;background:linear-gradient(155deg,#33494a,#0b1617 55%,#1d2c2d);box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 0 1.5px rgba(255,255,255,.14) inset}
     .ph div{width:100%;height:100%;border-radius:32px;overflow:hidden}.ph img{display:block;width:100%}
-    .a{left:600px;top:40px;transform:rotate(-6deg)}.b{left:790px;top:70px;transform:rotate(5deg)}`;
+    .a{left:570px;top:44px;transform:rotate(-6deg)}.b{left:760px;top:72px;transform:rotate(5deg)}`;
   const ph = (c, img) => `<div class="ph ${c}"><div><img src="data:image/png;base64,${img.toString('base64')}"></div></div>`;
   await page.setViewportSize({ width: 1024, height: 500 });
   await page.setContent(`<!doctype html><html lang="${lang}"><head><meta charset="utf-8">${FONT}<style>${css}</style></head><body>

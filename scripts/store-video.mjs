@@ -150,9 +150,9 @@ async function appMode() {
     const said = norm(await p.evaluate(() => window.__said)); if (!said) throw new Error('✗ không bắt được câu đang đọc để suy ra đáp án');
     if (kind === 'tiles') {
       for (const w of said.split(' ')) { // chạm từng chip theo thứ tự câu
-        const idx = await p.evaluate(w => { const ts = [...document.querySelectorAll('#lsnBank .lsn-tile')].filter(e => !e.disabled && e.offsetParent); return ts.findIndex(e => e.textContent.toLowerCase().replace(/[^a-z0-9' ]+/g, ' ').trim() === w); }, w);
+        const idx = await p.evaluate(w => { document.querySelectorAll('[data-lkpick]').forEach(e => e.removeAttribute('data-lkpick')); const e = [...document.querySelectorAll('#lsnBank .lsn-tile')].filter(e => !e.disabled && e.offsetParent).find(e => e.textContent.toLowerCase().replace(/[^a-z0-9' ]+/g, ' ').trim() === w); if (e) e.setAttribute('data-lkpick', '1'); return e ? 0 : -1; }, w); // đánh dấu đúng chip (chip đã dùng vẫn hiện, chỉ bị khoá → không dùng chỉ số)
         if (idx < 0) throw new Error(`✗ không có chip "${w}" cho câu "${said}"`);
-        const b = await p.locator('#lsnBank .lsn-tile:visible').nth(idx).boundingBox(); await p.touchscreen.tap(b.x + b.width / 2, b.y + b.height / 2); await sleep(380);
+        const b = await p.locator('[data-lkpick="1"]').boundingBox(); await p.touchscreen.tap(b.x + b.width / 2, b.y + b.height / 2); await sleep(380);
       }
     } else { // trắc nghiệm: chọn đáp án khớp câu/từ đang đọc
       const idx = await p.evaluate(sd => { const o = [...document.querySelectorAll('.lsn-opts [data-o]')].map(e => e.dataset.o.toLowerCase()); let i = o.findIndex(x => x === sd); if (i < 0) i = o.findIndex(x => (' ' + sd + ' ').includes(' ' + x + ' ')); return i; }, said);

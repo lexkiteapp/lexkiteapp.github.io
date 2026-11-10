@@ -19,7 +19,8 @@ const css = (t, bar) => {
   const top = t.h * (t.kind === 'phone' ? 0.055 : 0.05), text = t.kind === 'phone' ? (t.h / t.w > 2 ? 520 : 500) : 470;
   const devTop = top + text * u, bez = (t.kind === 'phone' ? 20 : 26) * u;
   const sbF = !bar ? 0 : (t.kind === 'tablet' ? 24 : t.os === 'ios' ? 50 : 34) / cap.width; // thanh trạng thái theo tỉ lệ bề rộng màn
-  let sw = (t.h - devTop + t.h * 0.035 - 2 * bez) / (sbF + 1 / ratio); // máy tràn nhẹ qua mép dưới (3,5 %) – có chủ ý
+  const bleed = t.kind === 'phone' && t.h / t.w < 2 ? 0.12 : 0.035; // máy tràn qua mép dưới có chủ ý; khung 16:9 (Play) tràn nhiều hơn để máy đủ to
+  let sw = (t.h - devTop + t.h * bleed - 2 * bez) / (sbF + 1 / ratio);
   if (sw + 2 * bez > t.w * 0.84) sw = t.w * 0.84 - 2 * bez;
   const devW = sw + 2 * bez, devH = sw * (sbF + 1 / ratio) + 2 * bez;
   const big = t.h / t.w > 2;
@@ -36,7 +37,7 @@ p.sub{font-size:${px(big ? 36 : 33)};line-height:1.38;color:rgba(255,255,255,.84
 .sb i{display:flex;gap:${px(10)};align-items:center}.sb i b{display:block;width:${px(34)};height:${px(17)};border-radius:${px(5)};border:${px(2.5)} solid currentColor;position:relative}.sb i b:after{content:"";position:absolute;inset:${px(2)};right:${px(6)};background:currentColor;border-radius:${px(2)}}
 .sb i s{display:block;width:${px(26)};height:${px(18)};background:linear-gradient(90deg,currentColor 22%,transparent 22% 26%,currentColor 26% 48%,transparent 48% 52%,currentColor 52% 74%,transparent 74% 78%,currentColor 78%);clip-path:polygon(0 100%,100% 0,100% 100%)}
 .isl{position:absolute;left:50%;top:${px(t.os === 'ios' ? 18 : 22)};transform:translateX(-50%);width:${px(t.os === 'ios' ? 190 : 30)};height:${px(t.os === 'ios' ? 54 : 30)};border-radius:99px;background:#050909;display:${t.kind === 'phone' ? 'block' : 'none'}}
-.chip{position:absolute;right:${px(54)};top:${devTop + devH * 0.36}px;display:flex;align-items:center;gap:${px(14)};background:#fff;color:#14302F;font-size:${px(30)};font-weight:800;padding:${px(20)} ${px(30)};border-radius:${px(30)};box-shadow:0 ${px(24)} ${px(60)} rgba(0,0,0,.4);transform:rotate(-3deg)}
+.chip{position:absolute;right:${Math.max(24 * u, (t.w - devW) / 2 - 70 * u)}px;top:${devTop - 34 * u}px;display:flex;align-items:center;gap:${px(14)};background:#fff;color:#14302F;font-size:${px(30)};font-weight:800;padding:${px(20)} ${px(30)};border-radius:${px(30)};box-shadow:0 ${px(24)} ${px(60)} rgba(0,0,0,.4);transform:rotate(-3deg)}
 .chip span{font-size:${px(40)}}`;
 };
 
