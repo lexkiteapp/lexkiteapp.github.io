@@ -6,22 +6,25 @@ export const ICON = 'data:image/svg+xml;base64,' + fs.readFileSync('web/icons/ic
 export const KIT = (() => { const g = {}; new Function('window', 'self', fs.readFileSync('web/js/kit.js', 'utf8'))(g, g); return g.Kit.svg('cheer', 230, false); })();
 export const FONT = '<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&display=block" rel="stylesheet">';
 
-// Màn hình: [route, chữ trên ảnh theo ngôn ngữ, tùy chọn]. Chữ chỉ nói đúng tính năng có thật trong web/js.
+// Màn hình (giao diện Stitch v2, 10/11): route, chữ theo ngôn ngữ [nhãn, tiêu đề (<em> = chữ nhấn), phụ đề], chip nổi 'emoji|chữ' tuỳ chọn.
+// Chữ chỉ nói đúng tính năng có thật trong web/js (home = Hôm nay + Lộ trình, lesson = js/lesson, vocab-hub.js, hubs.js skills, call.js, retention.js streak).
 export const SCREENS = [
-  { r: 'home', en: ['No login needed', 'Learn English words <em>a little every day</em>', 'A daily plan of new words and reviews, built around your goal.'],
-    vi: ['Không cần đăng nhập', 'Học từ vựng tiếng Anh <em>mỗi ngày một chút</em>', 'Kế hoạch học từ mới và ôn tập mỗi ngày theo mục tiêu của bạn.'] },
-  { r: 'review', flip: true, en: ['FSRS spaced repetition', 'Review right <em>before you forget</em>', 'Rate how well you remembered – FSRS schedules the next review.'],
-    vi: ['Lặp lại ngắt quãng FSRS', 'Ôn đúng lúc <em>sắp quên</em>', 'Chấm mức độ nhớ – FSRS tự hẹn lần ôn tiếp theo.'] },
-  { r: 'dict/resilience', wait: 6000, en: ['Dictionary', 'Every word, <em>clearly explained</em>', 'UK & US pronunciation, meanings by part of speech and examples.'],
-    vi: ['Tra từ', 'Mỗi từ <em>giải thích rõ ràng</em>', 'Phát âm Anh–Anh, Anh–Mỹ, nghĩa theo từ loại và ví dụ.'] },
-  { r: 'tests', en: ['IELTS · TOEIC · TOEFL', 'Practice tests <em>with explanations</em>', 'Placement test, timed mock tests and your score history.'],
+  { r: 'home', wait: 6000, chip: { en: '🔥|Daily streak', vi: '🔥|Chuỗi ngày học' },
+    en: ['Your daily path', 'Learn English <em>a little every day</em>', 'A short daily path of new words, reviews and practice – built around your goal.'],
+    vi: ['Lộ trình mỗi ngày', 'Học tiếng Anh <em>mỗi ngày một chút</em>', 'Lộ trình ngắn mỗi ngày: từ mới, ôn tập và luyện tập theo mục tiêu của bạn.'] },
+  { r: 'lesson?demo=1', wait: 6000, en: ['Bite-size lessons', 'Short lessons <em>that really stick</em>', 'Listen, tap, speak and type – every answer checked instantly.'],
+    vi: ['Bài học ngắn', 'Bài học ngắn, <em>nhớ thật lâu</em>', 'Nghe, chạm, nói và gõ – mỗi câu trả lời được chấm ngay.'] },
+  { r: 'vocab', en: ['Vocabulary', 'Words you will <em>actually remember</em>', 'FSRS spaced repetition brings each word back right before you forget.'],
+    vi: ['Từ vựng', 'Từ vựng <em>nhớ thật sự</em>', 'Lặp lại ngắt quãng FSRS đưa từ quay lại đúng lúc bạn sắp quên.'] },
+  { r: 'skills', en: ['Four skills', 'Listening, speaking, <em>reading &amp; writing</em>', 'See which skill to practise next and watch every level grow.'],
+    vi: ['Bốn kỹ năng', 'Nghe, nói, <em>đọc &amp; viết</em>', 'Biết ngay nên luyện kỹ năng nào tiếp và thấy từng cấp độ tăng lên.'] },
+  { r: 'call', wait: 6000, chip: { en: '🎙️|Speak out loud', vi: '🎙️|Nói thành tiếng' },
+    en: ['Speaking practice', 'Video calls with <em>Ama &amp; Carlos</em>', 'Your teachers ask, you answer out loud – then see fixes and a fluency note.'],
+    vi: ['Luyện nói', 'Gọi video cùng <em>Ama &amp; Carlos</em>', 'Giáo viên hỏi, bạn trả lời thành tiếng – rồi xem lỗi đã sửa và nhận xét độ trôi chảy.'] },
+  { r: 'streak', dark: true, en: ['Streaks &amp; goals', 'Keep your <em>streak alive</em>', 'Daily goals, streaks and XP – day or night, in 15 languages.'],
+    vi: ['Chuỗi &amp; mục tiêu', 'Giữ <em>chuỗi ngày học</em>', 'Mục tiêu ngày, chuỗi ngày và XP – ngày hay đêm, 15 ngôn ngữ.'] },
+  { r: 'tests', dark: true, en: ['IELTS · TOEIC · TOEFL', 'Practice tests <em>with explanations</em>', 'Placement test, timed mock tests and your score history.'],
     vi: ['IELTS · TOEIC · TOEFL', 'Đề luyện thi <em>có giải thích</em>', 'Kiểm tra trình độ, thi thử tính giờ và lịch sử điểm.'] },
-  { r: 'usage/affect-effect', en: ['Usage & grammar', 'Fix the mistakes <em>learners often make</em>', 'Affect or effect? Short, clear notes with examples.'],
-    vi: ['Cách dùng & ngữ pháp', 'Sửa những lỗi <em>người học hay mắc</em>', 'Affect hay effect? Giải thích ngắn gọn, có ví dụ.'] },
-  { r: 'stats', en: ['Progress', 'Watch your <em>streak grow</em>', 'Daily goals, streaks, XP and words you have mastered.'],
-    vi: ['Tiến độ', 'Chuỗi ngày học <em>dài thêm mỗi ngày</em>', 'Mục tiêu ngày, chuỗi ngày, XP và số từ đã thuộc.'] },
-  { r: 'practice', dark: true, en: ['Dark mode · 15 languages', 'Study your way, <em>day or night</em>', 'Flashcards, games, listening and speaking practice.'],
-    vi: ['Chế độ tối · 15 ngôn ngữ', 'Học theo cách của bạn, <em>ngày hay đêm</em>', 'Flashcard, trò chơi, luyện nghe và luyện nói.'] },
 ];
 export const FEATURE = {
   en: ['English vocabulary <em>&amp; exam practice</em>', ['No login', 'Works offline', 'FSRS flashcards', 'IELTS · TOEIC · TOEFL']],

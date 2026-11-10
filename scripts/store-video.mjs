@@ -1,5 +1,6 @@
 // Video giới thiệu add-on (≈40 giây, 1920×1080, MP4) quay từ add-on THẬT – dùng cho Chrome Web Store (ô Promo video) & YouTube.
 // Mỗi cảnh: quay trang thật (Playwright recordVideo, con trỏ giả để người xem thấy thao tác) → ghép lên nền thương hiệu bằng ffmpeg.
+// MODE=app → video xem trước ứng dụng (xem khối MODE=app bên dưới): MODE=app BASE=http://localhost:8080/ node scripts/store-video.mjs <out>
 // Chạy trên GitHub Actions (.github/workflows/store-video.yml). Dùng: LANG_V=en node scripts/store-video.mjs <thư-mục-ra>
 import { chromium } from 'playwright';
 import { execFileSync } from 'child_process';
@@ -7,11 +8,13 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 import http from 'http';
+import { createRequire } from 'module';
 import { CAP, VIDEO } from './store-copy.mjs';
 
 const OUT = path.resolve(process.argv[2] || 'store-video');
 const TMP = fs.mkdtempSync(path.join(os.tmpdir(), 'lkv-'));
 const EXT = path.resolve('extension');
+const MODE = process.env.MODE || 'addon';
 const LANG = process.env.LANG_V || 'en';
 const LOCALE = { en: 'es-ES', pt: 'pt-BR', zh: 'zh-CN' }[LANG] || LANG; // en: minh họa dịch EN → ES
 const VW = 1280, VH = 800, CW = 1920, CH = 1080, FPS = 30;
@@ -94,6 +97,92 @@ function still(png, d, out) { // 1 ảnh → d giây, phóng to chậm (zoompan 
   ff(['-i', png, '-vf', `scale=${CW * 2}:${CH * 2},zoompan=z='1+0.035*on/${n}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=${n}:s=${CW}x${CH}:fps=${FPS},format=yuv420p,fade=t=in:st=0:d=0.4,fade=t=out:st=${(d - 0.4).toFixed(2)}:d=0.4`,
     '-frames:v', String(n), '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-an', out]);
 }
+
+// ───────── MODE=app: video xem trước ứng dụng (App Store app preview 886×1920 + Play/YouTube 1080×1920), quay từ web app THẬT ─────────
+// Dùng: MODE=app BASE=http://localhost:8080/ node scripts/store-video.mjs <out>   (CI: cd web && python3 -m http.server 8080; cần ffmpeg + kokoro-js qua KOKORO_NODE_PATH như video-motion.yml)
+// Ra: app-preview-886x1920.mp4 · promo-1080x1920.mp4 · poster.png. Giọng: Kokoro af_bella = giọng Ama (content/video/cine/teachers.json), không nhạc nền (repo chưa có bản nhạc miễn phí).
+const NARR = [ // [giây bắt đầu, câu] – chỉ nêu tính năng có thật, không "tốt nhất/số 1", không giá
+  [0.4, 'Meet Lexkite. Your daily English plan is ready the moment you open the app.'],
+  [6.2, 'Short lessons mix listening, speaking and sentence building.'],
+  [13.0, 'Review your own words, and watch your vocabulary grow.'],
+  [18.2, 'Practice every skill. Lexkite: learn English a little every day.'],
+];
+async function appMode() {
+  const AW = 886, AH = 1920, BASE = process.env.BASE || 'http://localhost:8080/', END = 2.8;
+  const { BASECSS, HIDE } = await import('./lib/app-shots-copy.mjs');
+  const RIPPLE = `addEventListener('pointerdown', e => { const r = document.createElement('div'); r.style.cssText = 'position:fixed;z-index:2147483647;pointer-events:none;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(255,176,84,.55);border:3px solid #fff;left:' + e.clientX + 'px;top:' + e.clientY + 'px;transition:transform .5s ease-out,opacity .5s ease-out;transform:scale(.4)'; (document.body || document.documentElement).appendChild(r); requestAnimationFrame(() => { r.style.transform = 'scale(1.5)'; r.style.opacity = '0'; }); setTimeout(() => r.remove(), 600); }, true);`;
+  const br = await chromium.launch();
+  const ctx = await br.newContext({ viewport: { width: 443, height: 960 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2, colorScheme: 'light', locale: 'en-US',
+    recordVideo: { dir: path.join(TMP, 'raw'), size: { width: AW, height: AH } } });
+  await ctx.addInitScript(([css, rip]) => { addEventListener('DOMContentLoaded', () => { const s = document.createElement('style'); s.textContent = css; document.head.appendChild(s); }); new Function(rip)(); }, [HIDE, RIPPLE]);
+  const q = `?sandbox=1&demo=1&hl=en`;
+  const warm = await ctx.newPage(); await go(warm, `${BASE}${q}#/home`); await sleep(5000); await warm.close(); // demo=1 gieo dữ liệu mẫu vào kho của context; video trang này bỏ đi
+  const p = await ctx.newPage(); await go(p, `${BASE}${q}#/home`); await p.waitForLoadState('load').catch(() => {}); await sleep(2500);
+  const t0 = Date.now(), mark = () => (Date.now() - t0) / 1000;
+  const hash = h => p.evaluate(h => { location.hash = h; }, h);
+  const tap = async (sel, h) => { // chạm thật vào phần tử (có gợn tròn); không thấy → đổi hash để cảnh vẫn chạy
+    try { const el = p.locator(sel).first(); await el.scrollIntoViewIfNeeded({ timeout: 3000 }); const b = await el.boundingBox(); await p.touchscreen.tap(b.x + b.width / 2, b.y + b.height / 2); return true; }
+    catch (e) { console.log(`  ⚠ không chạm được ${sel} → hash ${h}`); if (h) await hash(h); return false; }
+  };
+  const swipe = async dy => { for (let k = 0; k < 6; k++) { await p.mouse.wheel(0, dy / 6); await sleep(120); } };
+  // 1. Hôm nay
+  await sleep(1800); await swipe(260); await sleep(900); await swipe(-260); await sleep(900);
+  // 2. Bài học demo: bản đồ → Bắt đầu → trả lời 2 câu
+  await hash('#/lesson?demo=1'); await sleep(2200);
+  await tap('.lsn-start', '#/lesson/go?demo=1'); await sleep(2800);
+  for (let i = 0; i < 2; i++) { await tap('.lsn-opts button[data-o]'); await sleep(1500); await tap('#lsnGo'); await sleep(1700); }
+  // 3. Từ vựng → 4. Kỹ năng (chạm tab dưới)
+  await tap('#bnav a[href="#/vocab"], nav a[data-route="vocab"]', '#/vocab'); await sleep(2800); await swipe(240); await sleep(1500);
+  await tap('#bnav a[href="#/skills"], nav a[data-route="skills"]', '#/skills'); await sleep(2800); await swipe(240); await sleep(1500);
+  const dur = Math.min(mark(), 26.5); // video trang bắt đầu từ lúc tạo trang → cắt bỏ phần tải đầu theo độ dài thực
+  await p.close(); const vid = await p.video().path(); await ctx.close(); await br.close();
+  const full = +execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', vid], { encoding: 'utf8' });
+  const start = Math.max(0, full - dur - 0.2);
+  console.log(`  quay ${full.toFixed(1)} s · lấy ${dur.toFixed(1)} s từ ${start.toFixed(1)} s`);
+
+  // Thẻ cuối 886×1920 theo thương hiệu (nền teal đậm, chữ nhấn dải nắng→san hô) – không logo mới
+  const end = path.join(TMP, 'end.png'), cb = await chromium.launch(); const cp = await cb.newPage({ viewport: { width: AW, height: AH }, deviceScaleFactor: 1 });
+  await cp.setContent(`<!doctype html><html><head><meta charset="utf-8">${FONT}<style>${BASECSS}body{width:${AW}px;height:${AH}px}.c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 80px}.c img{width:190px;height:190px;border-radius:22%;box-shadow:0 24px 60px rgba(0,0,0,.4)}.n{font-size:92px;font-weight:800;letter-spacing:-.03em;margin-top:40px}.n b{color:#FFB054}h1{font-size:60px;line-height:1.12;font-weight:800;letter-spacing:-.02em;margin-top:30px}</style></head><body><div class="c"><img src="${ICON}"><div class="n">lex<b>kite</b></div><h1>Learn English <em>a little every day</em></h1></div></body></html>`);
+  await cp.evaluate(() => document.fonts.ready); await sleep(400); await cp.screenshot({ path: end }); await cb.close();
+
+  // Giọng Kokoro (cùng đường với scripts/video/render.mjs: kokoro-js q8, giọng Ama af_bella, loudnorm −16 LUFS)
+  const np = process.env.KOKORO_NODE_PATH || process.env.NODE_PATH;
+  const { KokoroTTS } = createRequire(np ? np.split(':')[0] + '/' : import.meta.url)('kokoro-js');
+  let tts = null; for (let k = 1; k <= 4 && !tts; k++) { try { tts = await KokoroTTS.from_pretrained('onnx-community/Kokoro-82M-v1.0-ONNX', { dtype: 'q8', device: 'cpu' }); } catch (e) { console.error(`  tải Kokoro lỗi (lần ${k})`); await sleep(10000 * k); } }
+  if (!tts) throw new Error('không tải được mô hình Kokoro');
+  const total = +(dur + END).toFixed(2); const wavs = [];
+  for (const [i, [at, text]] of NARR.entries()) {
+    const raw = path.join(TMP, `n${i}.raw.wav`), w = path.join(TMP, `n${i}.wav`); await (await tts.generate(text, { voice: 'af_bella', speed: 1 })).save(raw);
+    ff(['-i', raw, '-af', 'silenceremove=start_periods=1:start_threshold=-50dB,aresample=48000', '-ac', '1', w]); wavs.push([at, w]);
+    const wd = +execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', w], { encoding: 'utf8' });
+    if (at + wd > total - 0.3) throw new Error(`lời ${i} dài quá khung (${(at + wd).toFixed(1)} > ${total})`);
+    if (i < NARR.length - 1 && at + wd > NARR[i + 1][0]) throw new Error(`lời ${i} đè lời sau`);
+  }
+  ff([...wavs.flatMap(([, w]) => ['-i', w]), '-filter_complex', wavs.map(([at], i) => `[${i}:a]adelay=${Math.round(at * 1000)}:all=1[a${i}]`).join(';') + `;${wavs.map((_, i) => `[a${i}]`).join('')}amix=inputs=${wavs.length}:normalize=0,apad,atrim=0:${total},loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000[a]`, '-map', '[a]', '-ac', '2', path.join(TMP, 'narr.wav')]);
+
+  // Ghép: đoạn quay + thẻ cuối + giọng → app preview (H.264 High, yuv420p, 30 fps không đổi, AAC stereo 48 kHz 256k)
+  const mp4 = path.join(OUT, 'app-preview-886x1920.mp4'), promo = path.join(OUT, 'promo-1080x1920.mp4');
+  ff(['-ss', String(start), '-t', String(dur), '-i', vid, '-loop', '1', '-t', String(END), '-framerate', String(FPS), '-i', end, '-i', path.join(TMP, 'narr.wav'), '-filter_complex',
+    `[0:v]scale=${AW}:${AH}:flags=lanczos,setsar=1,fps=${FPS},fade=t=in:st=0:d=0.3[a];[1:v]scale=${AW}:${AH},setsar=1,fps=${FPS},fade=t=in:st=0:d=0.4[b];[a][b]concat=n=2:v=1:a=0,format=yuv420p[v]`,
+    '-map', '[v]', '-map', '2:a', '-r', String(FPS), '-fps_mode', 'cfr', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-crf', '17', '-c:a', 'aac', '-b:a', '256k', '-ar', '48000', '-ac', '2', '-t', String(total), '-movflags', '+faststart', mp4]);
+  ff(['-i', mp4, '-vf', `scale=-2:1920:flags=lanczos,pad=1080:1920:(ow-iw)/2:0:color=0x0F3D3E,setsar=1,format=yuv420p`, '-r', String(FPS), '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-crf', '18', '-c:a', 'copy', '-movflags', '+faststart', promo]);
+  ff(['-ss', '3', '-i', mp4, '-frames:v', '1', '-pix_fmt', 'rgb24', path.join(OUT, 'poster.png')]);
+
+  // Kiểm: thời lượng 15–30 s, kích thước, fps, codec, ≤ 500 MB
+  const pr = f => JSON.parse(execFileSync('ffprobe', ['-v', 'error', '-show_streams', '-show_format', '-of', 'json', f], { encoding: 'utf8' }));
+  for (const [f, w, h] of [[mp4, AW, AH], [promo, 1080, 1920]]) {
+    const j = pr(f), v = j.streams.find(s => s.codec_type === 'video'), a = j.streams.find(s => s.codec_type === 'audio'), d = +j.format.duration, bad = [];
+    if (!(d >= 15 && d <= 30)) bad.push(`thời lượng ${d}`); if (+v.width !== w || +v.height !== h) bad.push(`kích thước ${v.width}×${v.height}`);
+    if (v.codec_name !== 'h264' || v.profile !== 'High' || v.pix_fmt !== 'yuv420p') bad.push(`video ${v.codec_name}/${v.profile}/${v.pix_fmt}`);
+    if (v.r_frame_rate !== `${FPS}/1` || v.avg_frame_rate !== `${FPS}/1`) bad.push(`fps ${v.r_frame_rate}/${v.avg_frame_rate}`);
+    if (!a || a.codec_name !== 'aac' || +a.sample_rate !== 48000 || +a.channels !== 2) bad.push('âm thanh không phải AAC stereo 48 kHz');
+    if (+j.format.size > 500 * 1048576) bad.push('quá 500 MB');
+    if (bad.length) throw new Error(`✗ ${path.basename(f)}: ${bad.join('; ')}`);
+    console.log(`✓ ${path.basename(f)} ${d.toFixed(1)} s ${(j.format.size / 1048576).toFixed(1)} MB`);
+  }
+  const pj = fs.readFileSync(path.join(OUT, 'poster.png')); if (pj.readUInt32BE(16) !== AW || pj.readUInt32BE(20) !== AH || pj[25] !== 2) throw new Error('✗ poster.png phải 886×1920 RGB không alpha');
+}
+if (MODE === 'app') { await appMode(); process.exit(0); }
 
 const prof = fs.mkdtempSync(path.join(os.tmpdir(), 'lk-'));
 const ctx = await chromium.launchPersistentContext(prof, {
