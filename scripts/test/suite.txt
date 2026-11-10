@@ -30,6 +30,7 @@ node scripts/test/speak-split.mjs
 node scripts/test/speak.mjs
 node scripts/test/i18n-single.mjs
 node scripts/test/i18n-pack.mjs
+node scripts/test/fmt-stable.mjs
 node scripts/test/lexicon-expand.mjs
 node scripts/test/sentence-asr.mjs
 node scripts/test/i18n-english.mjs
