@@ -158,7 +158,7 @@ r = await call(ADM, { method: 'GET', path: 'lk/health' }); ok(r.s === 200 && r.j
 ok((await call(ADM, { method: 'POST', path: 'lk/sets/save', body: { name: 'All FB', ids: ['2', '../x', '3'] } })).s === 200 && JSON.stringify((await call(ADM, { method: 'GET', path: 'lk/sets' })).j.sets) === JSON.stringify([{ name: 'All FB', ids: ['2', '3'] }]), 'bộ kênh: lưu + lọc id xấu');
 ok((await call(ADM, { method: 'POST', path: 'lk/lib/save', body: { kind: 'tpl', items: [{ name: 'A', body: 'B', evil: 1 }] } })).s === 200 && JSON.stringify((await call(ADM, { method: 'GET', path: 'lk/lib' })).j.tpl) === '[{"name":"A","body":"B"}]', 'mẫu caption lưu D1 (chỉ trường đã biết)');
 ok((await call(ADM, { method: 'POST', path: 'lk/lib/save', body: { kind: 'x', items: [] } })).s === 400, 'kho mẫu: loại lạ → 400');
-ok((await call(ADM, { method: 'POST', path: 'lk/rules/save', body: { rules: { perDay: { instagram: 500 } } } })).j.rules.perDay.instagram === 100, 'luật: kẹp theo trần nền tảng');
+ok((await call(ADM, { method: 'POST', path: 'lk/rules/save', body: { rules: { perDay: { instagram: 500 } } } })).j.rules.perDay.instagram === 2, 'luật: kẹp ≤ 2 bài/ngày/kênh (chủ 10/11) và ≤ trần nền tảng');
 r = await call(ADM, { method: 'POST', path: 'lk/metrics/import', body: { rows: [{ post_id: 'p_1', platform: 'instagram', views: 1000, saves: 40, shares: 10 }, { post_id: 'bad id!', views: 5 }] } });
 ok(r.s === 200 && r.j.imported === 1 && r.j.weights.by.template.tpl1, 'nhập số liệu → gắn template/hook từ mục duyệt, tính trọng số');
 r = await call(ADM, { method: 'POST', path: 'lk/metrics/sync', body: {} });
