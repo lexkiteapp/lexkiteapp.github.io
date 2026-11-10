@@ -84,10 +84,10 @@ class SpeakEnv(
 
     // ---------- Lexkite AI proxy (/api/ai, kind "rp") ----------
     private suspend fun deviceId(): String = kvStr("lk.dev") ?: java.util.UUID.randomUUID().toString().also { putKv("lk.dev", JsonPrimitive(it)) }
-    suspend fun ai(sys: String, prompt: String): AiResult {
+    suspend fun ai(task: String, rp: JsonObject, prompt: String): AiResult {
         val headers = LinkedHashMap<String, String>(); headers["Content-Type"] = "application/json"; headers["X-Lexkite-Device"] = deviceId()
         runCatching { idToken() }.getOrNull()?.let { headers["Authorization"] = "Bearer $it" }
-        val body = JsonObject(mapOf("prompt" to JsonPrimitive(prompt), "sys" to JsonPrimitive(sys), "kind" to JsonPrimitive("rp"))).toString().toByteArray()
+        val body = JsonObject(mapOf("prompt" to JsonPrimitive(prompt), "task" to JsonPrimitive(task), "rp" to rp, "kind" to JsonPrimitive("rp"))).toString().toByteArray()
         val r = runCatching { vocab.http.send(Http.Req("POST", AI_URL, headers, body)) }.getOrNull() ?: return AiResult.Failed
         val j = runCatching { Json.parseToJsonElement(r.text) as? JsonObject }.getOrNull()
         if (r.status == 429) return AiResult.Quota(j)

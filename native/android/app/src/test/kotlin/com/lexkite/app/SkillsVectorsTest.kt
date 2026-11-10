@@ -818,7 +818,7 @@ class SkillsVectorsTest {
         val ai = cases(sp.o("roleplay").a("ai")); val day = ai[0].o("input"); var d: Roleplay.Day? = null; val modes = ArrayList<String>()
         repeat(4) { val left = Roleplay.aiLeft(p, false, d, day.s("today")); val m = Roleplay.mode(left, true); modes.add(m); if (m != "script") d = Roleplay.useAi(d, day.s("today")) }
         assertEquals(listOf("server", "server", "script", "script"), modes); assertEquals(Roleplay.UNLIMITED, Roleplay.aiLeft(p, true, null, "2026-01-05")); assertEquals("2026-01-06", Roleplay.useAi(Roleplay.Day("2026-01-05", 2), "2026-01-06").d); assertEquals(1, Roleplay.useAi(Roleplay.Day("2026-01-05", 2), "2026-01-06").n)
-        val pr = ai[1].o("out"); val sc = p.script("cafe")!!; assertEquals(pr.s("systemPrompt"), Roleplay.systemPrompt(sc, 1) + "\nReturn JSON only.")
+        val pr = ai[1].o("out"); val sc = p.script("cafe")!!; assertEquals("rp", pr.s("task")); assertEquals(pr["rp"], Roleplay.rpArgs(sc, 1))
         val ch = Roleplay.Chat(p, sc, 1, "server"); ch.open(); ch.begin("Could I get a latte, please?"); assertEquals(pr.s("turnPrompt"), Roleplay.turnPrompt(sc, 1, ch.hist.toList(), 0))
         assertNull(Roleplay.aiScore(JsonObject(mapOf("natural" to JsonPrimitive("x"))))); assertNotNull(Roleplay.serverReply(JsonObject(mapOf("reply" to JsonPrimitive("Hi"))), false))
     }

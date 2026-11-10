@@ -48,15 +48,9 @@ object Roleplay {
     fun modeEmoji(mode: String) = if (mode == "server") "☁️" else "📜"
 
     // ---------- prompts ----------
-    private fun descOf(s: RpScript, L: Int) = (if (s.daily) listOf("very short, simple sentences with the most common words", "short, simple sentences with common everyday words", "natural everyday English")
-        else listOf("short simple sentences, common words", "natural everyday business English", "fluent, idiomatic professional English"))[L]
-    fun systemPrompt(s: RpScript, L: Int): String {
-        val lv = s.levels[L]
-        return "You are role-playing ${if (s.daily) "an everyday" else "a workplace"} English conversation to help a $lv English learner practise speaking.\n" +
-            "Your character: ${s.aiName}, ${s.aiRole}. Personality: ${s.aiPersona}. Your goal: ${s.aiGoal}.\n" +
-            "Scenario: ${s.title}. The learner's goal: ${s.you}\n" +
-            "Rules: stay in character; speak natural spoken English at $lv level (${descOf(s, L)}); never correct the learner during the conversation; never mention you are an AI; keep each reply under 45 words."
-    }
+    /** /api/ai body `rp` of task "rp": the SERVER builds the character prompt from these (functions/api/ai.js rpSys; 02/11 security – no client `sys`). Same keys as web roleplay.js rpArgs. */
+    fun rpArgs(s: RpScript, L: Int) = JsonObject(mapOf("kind" to JsonPrimitive(if (s.daily) "everyday" else "work"), "lv" to JsonPrimitive(s.levels[L]), "L" to JsonPrimitive(L),
+        "name" to JsonPrimitive(s.aiName), "role" to JsonPrimitive(s.aiRole), "persona" to JsonPrimitive(s.aiPersona), "goal" to JsonPrimitive(s.aiGoal), "title" to JsonPrimitive(s.title), "you" to JsonPrimitive(s.you)))
     class Bubble(val who: String, val text: String, val turn: Int)
     fun transcript(hist: List<Bubble>, s: RpScript) = hist.joinToString("\n") { (if (it.who == "ai") s.aiName else "Learner") + ": " + it.text }
     fun turnPrompt(s: RpScript, L: Int, hist: List<Bubble>, i: Int): String {
@@ -71,7 +65,8 @@ object Roleplay {
             "Assess ONLY the learner's lines. Return JSON: {\"natural\": 0-100, \"polite\": 0-100, \"clarity\": 0-100, \"grammar\": 0-100, \"summary\": string (2 sentences of feedback written in $langNameEn), " +
             "\"rewrites\": [ {\"you\": exact learner line, \"better\": a sharper, more natural and professional version in English (keep their idea, ${s.levels[minOf(2, L + 1)]} level), " +
             "\"why\": string (1-2 sentences in $langNameEn explaining what improved), \"meaning\": string (translation of \"better\" into $langNameEn)} ] exactly 3 items, choosing the learner lines that would improve most}"
-    fun scoringSystem(s: RpScript) = "You are a strict but encouraging ${if (s.daily) "everyday" else "business"} English coach. Be accurate: very short or off-topic answers get low scores. Return JSON only."
+    /** body `rp` of task "rpcoach" (the server picks the coach prompt). */
+    fun coachArgs(s: RpScript) = JsonObject(mapOf("kind" to JsonPrimitive(if (s.daily) "everyday" else "work")))
 
     // ---------- the conversation ----------
     /** What the AI says next and whether the turn advances. */

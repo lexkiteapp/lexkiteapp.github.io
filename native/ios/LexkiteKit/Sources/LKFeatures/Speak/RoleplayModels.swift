@@ -30,13 +30,13 @@ struct LexkiteAIServer: RoleplayServer {
         if let s = d.string(forKey: "lk.deviceId"), !s.isEmpty { return s }
         let s = UUID().uuidString.lowercased(); d.set(s, forKey: "lk.deviceId"); return s
     }
-    func ask(sys: String, prompt: String) async throws -> JSON {
+    func ask(task: String, rp: JSON, prompt: String) async throws -> JSON {
         var rq = URLRequest(url: Self.url, timeoutInterval: 30)
         rq.httpMethod = "POST"
         rq.setValue("application/json", forHTTPHeaderField: "Content-Type")
         rq.setValue(device, forHTTPHeaderField: "X-Lexkite-Device")
         if let tk = await token() { rq.setValue("Bearer " + tk, forHTTPHeaderField: "Authorization") }
-        rq.httpBody = JSON.obj([("prompt", .string(prompt)), ("sys", .string(sys)), ("kind", .string("rp"))]).stableString.data(using: .utf8)
+        rq.httpBody = JSON.obj([("prompt", .string(prompt)), ("task", .string(task)), ("rp", rp), ("kind", .string("rp"))]).stableString.data(using: .utf8)
         let data: Data, resp: URLResponse
         do { (data, resp) = try await session.data(for: rq) } catch { throw RoleplayServerError.failed }
         guard let h = resp as? HTTPURLResponse else { throw RoleplayServerError.failed }

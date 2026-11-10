@@ -31,9 +31,9 @@ public struct RoleplayRules: Sendable {
     var errorRegexes: [NSRegularExpression] { errors.compactMap { Self.compile($0.source, $0.flags) } }
 }
 
-/// the other side of a conversation: POST /api/ai {prompt, sys, kind:"rp"} → `out` of the answer
+/// the other side of a conversation: POST /api/ai {prompt, task, rp, kind:"rp"} → `out` of the answer
 public protocol RoleplayServer: Sendable {
-    func ask(sys: String, prompt: String) async throws -> JSON
+    func ask(task: String, rp: JSON, prompt: String) async throws -> JSON
 }
 public enum RoleplayServerError: Error, Equatable, Sendable { case quota, failed }
 
@@ -125,14 +125,11 @@ public enum Roleplay {
     }
 
     // MARK: prompts (server)
-    public static func systemPrompt(_ s: JSON, level L: Int, rules: RoleplayRules) -> String {
-        let daily = isDaily(s), lv = levels(s, rules)[L], ai = s["ai"] ?? .null
-        let style = (daily ? ["very short, simple sentences with the most common words", "short, simple sentences with common everyday words", "natural everyday English"]
-                           : ["short simple sentences, common words", "natural everyday business English", "fluent, idiomatic professional English"])[L]
-        return "You are role-playing \(daily ? "an everyday" : "a workplace") English conversation to help a \(lv) English learner practise speaking.\n"
-            + "Your character: \(ai.s("name")), \(ai.s("role")). Personality: \(ai.s("persona")). Your goal: \(ai.s("goal")).\n"
-            + "Scenario: \(s.s("title")). The learner's goal: \(s.s("you"))\n"
-            + "Rules: stay in character; speak natural spoken English at \(lv) level (\(style)); never correct the learner during the conversation; never mention you are an AI; keep each reply under 45 words."
+    /// /api/ai body `rp` of task "rp": the SERVER builds the character prompt from these (functions/api/ai.js rpSys; 02/11 security – no client `sys`). Same keys as web roleplay.js rpArgs.
+    public static func rpArgs(_ s: JSON, level L: Int, rules: RoleplayRules) -> JSON {
+        let ai = s["ai"] ?? .null
+        return .obj([("kind", .string(isDaily(s) ? "everyday" : "work")), ("lv", .string(levels(s, rules)[L])), ("L", .number(Double(L))), ("name", .string(ai.s("name"))), ("role", .string(ai.s("role"))),
+                     ("persona", .string(ai.s("persona"))), ("goal", .string(ai.s("goal"))), ("title", .string(s.s("title"))), ("you", .string(s.s("you")))])
     }
     public static func transcript(_ hist: [Bubble], _ s: JSON) -> String {
         hist.map { ($0.who == "ai" ? (s["ai"]?.s("name") ?? "") : "Learner") + ": " + $0.text }.joined(separator: "\n")
@@ -148,9 +145,8 @@ public enum Roleplay {
         return "\(isDaily(s) ? "Everyday" : "Workplace") role-play for a \(lv[L]) English learner. Scenario: \(s.s("title")). Learner's goal: \(s.s("you"))\nTranscript:\n\(transcript(hist, s))\n\n"
             + "Assess ONLY the learner's lines. Return JSON: {\"natural\": 0-100, \"polite\": 0-100, \"clarity\": 0-100, \"grammar\": 0-100, \"summary\": string (2 sentences of feedback written in \(language)), \"rewrites\": [ {\"you\": exact learner line, \"better\": a sharper, more natural and professional version in English (keep their idea, \(better) level), \"why\": string (1-2 sentences in \(language) explaining what improved), \"meaning\": string (translation of \"better\" into \(language))} ] exactly 3 items, choosing the learner lines that would improve most}"
     }
-    public static func scoreSystem(_ s: JSON) -> String {
-        "You are a strict but encouraging \(isDaily(s) ? "everyday" : "business") English coach. Be accurate: very short or off-topic answers get low scores. Return JSON only."
-    }
+    /// body `rp` of task "rpcoach" (the server picks the coach prompt).
+    public static func coachArgs(_ s: JSON) -> JSON { .obj([("kind", .string(isDaily(s) ? "everyday" : "work"))]) }
 
     // MARK: transcript
     public struct Bubble: Equatable, Sendable { public var who: String, text: String, turn: Int
@@ -281,7 +277,7 @@ public final class RoleplayChat {
     private func reply(_ text: String, _ toasts: inout [Toast]) async -> Roleplay.Reply {
         if mode == .server, let server {
             do {
-                let out = try await server.ask(sys: Roleplay.systemPrompt(script, level: level, rules: rules) + "\nReturn JSON only.",
+                let out = try await server.ask(task: "rp", rp: Roleplay.rpArgs(script, level: level, rules: rules),
                                                prompt: Roleplay.turnPrompt(script, level: level, i: i, hist: hist))
                 let line = out.s("reply")
                 if !line.isEmpty { return Roleplay.Reply(text: Vocab.prefix(line, 400), advance: retried || out["advance"] != .bool(false)) }
@@ -305,7 +301,7 @@ public final class RoleplayChat {
     public func finish(signedIn: Bool, language: String) async -> Roleplay.Report {
         var ai: JSON?
         if hist.contains(where: { $0.who == "me" }), (mode != .script || signedIn), let server {
-            ai = try? await server.ask(sys: Roleplay.scoreSystem(script), prompt: Roleplay.scorePrompt(script, level: level, hist: hist, rules: rules, language: language))
+            ai = try? await server.ask(task: "rpcoach", rp: Roleplay.coachArgs(script), prompt: Roleplay.scorePrompt(script, level: level, hist: hist, rules: rules, language: language))
         }
         return Roleplay.report(script, level: level, hist: hist, hintsUsed: hintsUsed, ai: ai, rules: rules)
     }

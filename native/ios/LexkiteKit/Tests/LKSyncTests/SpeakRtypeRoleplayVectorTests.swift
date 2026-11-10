@@ -174,9 +174,9 @@ final class SpeakRtypeRoleplayVectorTests: XCTestCase {
     final class FakeServer: RoleplayServer, @unchecked Sendable {
         var turnReplies: [Result<JSON, RoleplayServerError>] = []
         var scoreReply: JSON?
-        private(set) var asks: [(sys: String, prompt: String)] = []
-        func ask(sys: String, prompt: String) async throws -> JSON {
-            asks.append((sys, prompt))
+        private(set) var asks: [(task: String, rp: JSON, prompt: String)] = []
+        func ask(task: String, rp: JSON, prompt: String) async throws -> JSON {
+            asks.append((task, rp, prompt))
             if prompt.contains("Transcript:") { if let s = scoreReply { return s }; throw RoleplayServerError.failed }
             guard !turnReplies.isEmpty else { throw RoleplayServerError.failed }
             return try turnReplies.removeFirst().get()
@@ -250,7 +250,7 @@ final class SpeakRtypeRoleplayVectorTests: XCTestCase {
             r.eq(report?.reward ?? [:], wantReward.map { ["spoken": $0.i("spoken"), "xp": $0.i("xp")] } ?? [:], "\(id) reward")
             r.eq(chat.day.map { Roleplay.dayJSON($0) }.map { $0.stableString } ?? "", o.list("store").first?["vb.rp.day"]?.string ?? "", "\(id) vb.rp.day")
             r.eq(server.asks.count, o.list("fetches").count, "\(id) fetches")
-            r.check(server.asks.allSatisfy { !$0.sys.isEmpty }, "\(id) system prompt on every request")
+            r.check(server.asks.allSatisfy { !$0.task.isEmpty && $0.rp.isObject }, "\(id) task + rp on every request")
             if let w = o["report"], let rep = report { checkReport(&r, id, s, rep, w, R_) }
             else { r.check(o["report"] == nil, "\(id) no report expected") }
         }
@@ -295,7 +295,7 @@ final class SpeakRtypeRoleplayVectorTests: XCTestCase {
             } else {
                 guard let s = scripts(V).first(where: { $0.s("id") == c["input"]?.s("script") }) else { r.check(false, "\(id) script"); continue }
                 let L = c["input"]?.i("level") ?? 1
-                r.eq(Roleplay.systemPrompt(s, level: L, rules: R_) + "\nReturn JSON only.", o.s("systemPrompt"), "\(id) system prompt")
+                r.eq("rp", o.s("task"), "\(id) task"); r.check(Roleplay.rpArgs(s, level: L, rules: R_) == o["rp"], "\(id) rp args")
                 let hist = [Roleplay.Bubble(who: "ai", text: Roleplay.turnLine(s, 0, L), turn: 0), Roleplay.Bubble(who: "me", text: "Could I get a latte, please?", turn: 0)]
                 r.eq(Roleplay.turnPrompt(s, level: L, i: 0, hist: hist), o.s("turnPrompt"), "\(id) turn prompt")
             }
