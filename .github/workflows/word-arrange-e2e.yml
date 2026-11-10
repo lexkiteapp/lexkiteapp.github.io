@@ -29,7 +29,8 @@ jobs:
             echo "::warning::playwright install lượt $i lỗi/treo quá 4 phút – thử lại"; tail -25 /tmp/pw-install.log
             [ "$i" = 3 ] && exit 1; sudo pkill -f apt-get || true; sleep 5
           done
-          sudo timeout 300 apt-get -o DPkg::Lock::Timeout=120 install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null || true
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
       - name: E2E (390 px + máy tính · sáng/tối · vi/en/ar · chạm/kéo/bàn phím · chấm)
         env: { PW_BROWSER: '${{ matrix.browser }}' }
         run: node scripts/test/word-arrange-e2e.mjs web out/word-arrange

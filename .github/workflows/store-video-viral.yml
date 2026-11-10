@@ -24,7 +24,10 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo timeout 600 apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
+      - name: Quay + dựng (tiếp)
+        run: |
           bash scripts/build-extension.sh
           for i in 1 2 3; do RAW_OUT=/tmp/raw LANG_V=en node scripts/store-video.mjs /tmp/x && break; echo "thử lại $i"; done
           node scripts/store-video-viral.mjs /tmp/raw /tmp/viral
