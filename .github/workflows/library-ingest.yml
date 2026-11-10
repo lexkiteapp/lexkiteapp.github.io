@@ -31,7 +31,8 @@ jobs:
       - uses: ./.github/actions/setup-ffmpeg
       - name: ffmpeg
         timeout-minutes: 12
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq libegl1 libgl1 libgles2 >/dev/null
+        uses: ./.github/actions/apt
+        with: { packages: libegl1 libgl1 libgles2 }
       - name: Cache mô hình (rembg isnet-anime, MediaPipe)
         uses: actions/cache@v4
         with:
