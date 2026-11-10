@@ -601,6 +601,12 @@
    "why": "vision description-sentence sim 0.1852",
    "b": "42567126266"
   },
+  "depose#v": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "vision: no (man pulling crown off)",
+   "b": "42825472268"
+  },
   "deputy#n": {
    "at": "2026-11-10",
    "tries": 24,
@@ -726,6 +732,12 @@
    "tries": 18,
    "why": "meaning check: no (Is there a grand building where foreign officials )",
    "b": "42567126266"
+  },
+  "emissary#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "duplicate (pHash)",
+   "b": "42825472268"
   },
   "enrich#v": {
    "at": "2026-11-09",
@@ -1014,6 +1026,12 @@
    "tries": 18,
    "why": "size > 6 KB",
    "b": "42567126266"
+  },
+  "grout#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "duplicate (pHash)",
+   "b": "42825472268"
   },
   "guarantee#n": {
    "at": "2026-11-10",
