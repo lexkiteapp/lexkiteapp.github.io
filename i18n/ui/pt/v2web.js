@@ -1,3 +1,29 @@
 /* UI pt – v2web (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["pt"] = Object.assign(D["pt"] || {}, {"Add-on trên Chrome Web Store":"Extensão na Chrome Web Store","Bấm đúp là có thẻ":"Clique duplo e pronto, cartão criado","Chấm điểm sát đề thật":"Nota como na prova real","Cuộc gọi thoại · 02:14":"Chamada de voz · 02:14","Giao diện 15 ngôn ngữ":"Interface em 15 idiomas","Học bằng tiếng mẹ đẻ":"Aprenda no seu idioma","Không gian luyện nói an toàn":"Um espaço seguro para falar","Không quảng cáo chặn bài học":"Sem anúncios bloqueando as lições","Lặp lại ngắt quãng miễn phí":"Repetição espaçada grátis","Lộ trình theo khung CEFR":"Trilha alinhada ao QECR","Miễn phí 100%":"100% grátis","Mãi mãi, không tường phí":"Para sempre, sem paywall","Mọi điều bạn cần biết khi học với Lexkite.":"Tudo o que você precisa saber para aprender com o Lexkite.","Một thói quen nhỏ, đơn giản, vừa vặn với ngày của bạn.":"Um hábito pequeno e simples que cabe sem esforço no seu dia.","Sửa ngữ pháp nhẹ nhàng":"Correção gramatical gentil","Thêm vào Chrome":"Adicionar ao Chrome","Trình độ A1 đến C2":"Níveis A1 a C2","Tập trung, không bị ngắt":"Foco sem interrupções","Tối ưu: 94%":"Ideal: 94%","thẻ trình duyệt":"aba do navegador","Ôn lại sau 3 ngày":"Revisão em 3 dias","Điểm: Band 7.5":"Nota: Band 7.5","Đã thêm vào bộ thẻ":"Adicionada ao seu baralho","“Chào bạn! Học 5 phút hôm nay nhé?”":"“Oi! Vamos de 5 minutos hoje?”","“Từng bước, cùng nhau.”":"“Passo a passo, juntos.”"});
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["pt"] = Object.assign(D["pt"] || {}, {
+"Add-on trên Chrome Web Store":"Extensão na Chrome Web Store",
+"Bấm đúp là có thẻ":"Clique duplo e pronto, cartão criado",
+"Chấm điểm sát đề thật":"Nota como na prova real",
+"Cuộc gọi thoại · 02:14":"Chamada de voz · 02:14",
+"Giao diện 15 ngôn ngữ":"Interface em 15 idiomas",
+"Học bằng tiếng mẹ đẻ":"Aprenda no seu idioma",
+"Không gian luyện nói an toàn":"Um espaço seguro para falar",
+"Không quảng cáo chặn bài học":"Sem anúncios bloqueando as lições",
+"Lặp lại ngắt quãng miễn phí":"Repetição espaçada grátis",
+"Lộ trình theo khung CEFR":"Trilha alinhada ao QECR",
+"Miễn phí 100%":"100% grátis",
+"Mãi mãi, không tường phí":"Para sempre, sem paywall",
+"Mọi điều bạn cần biết khi học với Lexkite.":"Tudo o que você precisa saber para aprender com o Lexkite.",
+"Một thói quen nhỏ, đơn giản, vừa vặn với ngày của bạn.":"Um hábito pequeno e simples que cabe sem esforço no seu dia.",
+"Sửa ngữ pháp nhẹ nhàng":"Correção gramatical gentil",
+"Thêm vào Chrome":"Adicionar ao Chrome",
+"Trình độ A1 đến C2":"Níveis A1 a C2",
+"Tập trung, không bị ngắt":"Foco sem interrupções",
+"Tối ưu: 94%":"Ideal: 94%",
+"thẻ trình duyệt":"aba do navegador",
+"Ôn lại sau 3 ngày":"Revisão em 3 dias",
+"Điểm: Band 7.5":"Nota: Band 7.5",
+"Đã thêm vào bộ thẻ":"Adicionada ao seu baralho",
+"“Chào bạn! Học 5 phút hôm nay nhé?”":"“Oi! Vamos de 5 minutos hoje?”",
+"“Từng bước, cùng nhau.”":"“Passo a passo, juntos.”",
+});
 })(typeof self !== 'undefined' ? self : this);

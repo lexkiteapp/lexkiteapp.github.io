@@ -350,6 +350,7 @@ node scripts/test/site-footer.mjs
 node scripts/test/v2pre-ring.mjs
 node scripts/test/zombie-pages.mjs
 node scripts/test/ci-guards.mjs
+node scripts/test/i18n-src.mjs
 node scripts/test/pr-unconflict.mjs
 node scripts/test/main-red-sweep.mjs
 node scripts/test/ci-queue-gate.mjs

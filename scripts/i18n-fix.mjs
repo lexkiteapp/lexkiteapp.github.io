@@ -1,5 +1,6 @@
 // Áp bản dịch tay (scripts/i18n-fixed.json) đè lên bản dịch máy trong NGUỒN i18n/ui/<lang>.js và các nhóm tải lười, rồi sinh lại gói khóa băm web/js/i18n/<lang>
 import fs from 'fs';
+import { normSrc } from './lib/i18n-src.mjs';
 import path from 'path';
 import vm from 'vm';
 import { fileURLToPath } from 'url';
@@ -78,7 +79,7 @@ for (const lang of ['es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 
   }
 
   for (const [f, s] of filesMap) {
-    fs.writeFileSync(f, s);
+    fs.writeFileSync(f, normSrc(s));   // khóa mới chèn đầu từ điển → sắp lại mỗi khóa một dòng (scripts/lib/i18n-src.mjs)
   }
 }
 console.log('✓ i18n-fix: ' + n + ' nhãn đã áp bản dịch tay');

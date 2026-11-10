@@ -6,6 +6,7 @@ MH="$(git rev-parse --git-dir)/MERGE_HEAD"  # worktree: .git là tệp, MERGE_HE
 if [ ! -f "$MH" ]; then
   D=$(git status --porcelain --untracked-files=no | grep -v ' brand/\| out/\|content/video/qa-log.md' )
   [ -n "$D" ] && { echo "ABORT: thư mục chính có thay đổi chưa commit (agent khác đang làm?):"; echo "$D" | head; exit 1; }
+  git config merge.i18n-gen.name "gói dịch sinh: giữ một bên, i18n-pack sinh lại ngay sau"; git config merge.i18n-gen.driver true   # .gitattributes
   git merge --no-commit --no-ff "$1" >/dev/null 2>&1
   [ -f "$MH" ] || { git merge-base --is-ancestor "$1" HEAD && { echo "đã gộp sẵn"; exit 0; }; echo "ABORT: git merge không chạy"; exit 1; }
 fi

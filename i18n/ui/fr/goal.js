@@ -1,3 +1,30 @@
 /* UI fr – goal (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["fr"] = Object.assign(D["fr"] || {}, {"Điểm ước tính":"Score estimé","{p}% sẵn sàng":"Prêt à {p} %","Chưa có điểm ước tính":"Pas encore de score estimé","Làm một bài thi thử để Lexkite ước tính điểm hiện tại, mức sẵn sàng và kỹ năng cần luyện.":"Passez un examen blanc pour que Lexkite estime votre score actuel, votre niveau de préparation et les compétences à travailler.","Làm bài kiểm tra trình độ":"Passer le test de niveau","Thi thử ngay":"Examen blanc maintenant","Chẩn đoán từng kỹ năng":"Diagnostic par compétence","Cần luyện thêm":"À travailler","Đạt nhịp mục tiêu":"En bonne voie","{n} chọn cho bạn":"Choisi par {n}","Luyện {s} có trọng tâm":"Entraînement ciblé : {s}","Kỹ năng thấp nhất của bạn – luyện 5 phút mỗi ngày để kéo điểm tổng lên.":"Votre compétence la plus faible – entraînez-vous 5 minutes par jour pour relever votre score global.","Thi thử tiếp theo: {date}":"Prochain examen blanc : {date}","Thi thử ngay tuần này để đo điểm":"Passez un examen blanc cette semaine pour mesurer votre score","Còn {n} ngày đến kỳ thi":"Plus que {n} jours avant l’examen","~{h} giờ luyện còn lại":"~{h} h d’entraînement restantes","Phần 3–4: bám ý người nói":"Parties 3–4 : suivre l’interlocuteur","Đọc lướt tìm ý nhanh":"Lecture rapide des idées clés","Task 2: liên kết ý":"Task 2 : cohésion","Trôi chảy & từ nối":"Aisance et connecteurs","Khoảng cách":"Écart","Trọng tâm:":"Priorité :","Đủ 4 kỹ năng":"Les 4 compétences","Dự báo tổng":"Projection globale","Tối thiểu":"Min.","Tối đa":"Max."});
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["fr"] = Object.assign(D["fr"] || {}, {
+"Chưa có điểm ước tính":"Pas encore de score estimé",
+"Chẩn đoán từng kỹ năng":"Diagnostic par compétence",
+"Còn {n} ngày đến kỳ thi":"Plus que {n} jours avant l’examen",
+"Cần luyện thêm":"À travailler",
+"Dự báo tổng":"Projection globale",
+"Khoảng cách":"Écart",
+"Kỹ năng thấp nhất của bạn – luyện 5 phút mỗi ngày để kéo điểm tổng lên.":"Votre compétence la plus faible – entraînez-vous 5 minutes par jour pour relever votre score global.",
+"Luyện {s} có trọng tâm":"Entraînement ciblé : {s}",
+"Làm bài kiểm tra trình độ":"Passer le test de niveau",
+"Làm một bài thi thử để Lexkite ước tính điểm hiện tại, mức sẵn sàng và kỹ năng cần luyện.":"Passez un examen blanc pour que Lexkite estime votre score actuel, votre niveau de préparation et les compétences à travailler.",
+"Phần 3–4: bám ý người nói":"Parties 3–4 : suivre l’interlocuteur",
+"Task 2: liên kết ý":"Task 2 : cohésion",
+"Thi thử ngay":"Examen blanc maintenant",
+"Thi thử ngay tuần này để đo điểm":"Passez un examen blanc cette semaine pour mesurer votre score",
+"Thi thử tiếp theo: {date}":"Prochain examen blanc : {date}",
+"Trôi chảy & từ nối":"Aisance et connecteurs",
+"Trọng tâm:":"Priorité :",
+"Tối thiểu":"Min.",
+"Tối đa":"Max.",
+"{n} chọn cho bạn":"Choisi par {n}",
+"{p}% sẵn sàng":"Prêt à {p} %",
+"~{h} giờ luyện còn lại":"~{h} h d’entraînement restantes",
+"Điểm ước tính":"Score estimé",
+"Đạt nhịp mục tiêu":"En bonne voie",
+"Đọc lướt tìm ý nhanh":"Lecture rapide des idées clés",
+"Đủ 4 kỹ năng":"Les 4 compétences",
+});
 })(typeof self !== 'undefined' ? self : this);

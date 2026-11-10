@@ -1,3 +1,30 @@
 /* UI id – goal (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["id"] = Object.assign(D["id"] || {}, {"Điểm ước tính":"Skor perkiraan","{p}% sẵn sàng":"{p}% siap","Chưa có điểm ước tính":"Belum ada skor perkiraan","Làm một bài thi thử để Lexkite ước tính điểm hiện tại, mức sẵn sàng và kỹ năng cần luyện.":"Kerjakan tes latihan agar Lexkite bisa memperkirakan skormu saat ini, kesiapanmu, dan keterampilan yang perlu dilatih.","Làm bài kiểm tra trình độ":"Ikuti tes level","Thi thử ngay":"Tes latihan sekarang","Chẩn đoán từng kỹ năng":"Diagnosis per keterampilan","Cần luyện thêm":"Perlu latihan","Đạt nhịp mục tiêu":"Sesuai target","{n} chọn cho bạn":"Dipilih oleh {n}","Luyện {s} có trọng tâm":"Latihan terarah: {s}","Kỹ năng thấp nhất của bạn – luyện 5 phút mỗi ngày để kéo điểm tổng lên.":"Keterampilan terendahmu – latih 5 menit sehari untuk menaikkan skor keseluruhan.","Thi thử tiếp theo: {date}":"Tes latihan berikutnya: {date}","Thi thử ngay tuần này để đo điểm":"Kerjakan tes latihan minggu ini untuk mengukur skormu","Còn {n} ngày đến kỳ thi":"{n} hari lagi menuju ujian","~{h} giờ luyện còn lại":"~{h} jam belajar tersisa","Phần 3–4: bám ý người nói":"Bagian 3–4: ikuti pembicara","Đọc lướt tìm ý nhanh":"Membaca cepat ide pokok","Task 2: liên kết ý":"Task 2: kohesi","Trôi chảy & từ nối":"Kelancaran & kata penghubung","Khoảng cách":"Selisih","Trọng tâm:":"Fokus:","Đủ 4 kỹ năng":"Ke-4 keterampilan","Dự báo tổng":"Proyeksi total","Tối thiểu":"Min","Tối đa":"Maks"});
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["id"] = Object.assign(D["id"] || {}, {
+"Chưa có điểm ước tính":"Belum ada skor perkiraan",
+"Chẩn đoán từng kỹ năng":"Diagnosis per keterampilan",
+"Còn {n} ngày đến kỳ thi":"{n} hari lagi menuju ujian",
+"Cần luyện thêm":"Perlu latihan",
+"Dự báo tổng":"Proyeksi total",
+"Khoảng cách":"Selisih",
+"Kỹ năng thấp nhất của bạn – luyện 5 phút mỗi ngày để kéo điểm tổng lên.":"Keterampilan terendahmu – latih 5 menit sehari untuk menaikkan skor keseluruhan.",
+"Luyện {s} có trọng tâm":"Latihan terarah: {s}",
+"Làm bài kiểm tra trình độ":"Ikuti tes level",
+"Làm một bài thi thử để Lexkite ước tính điểm hiện tại, mức sẵn sàng và kỹ năng cần luyện.":"Kerjakan tes latihan agar Lexkite bisa memperkirakan skormu saat ini, kesiapanmu, dan keterampilan yang perlu dilatih.",
+"Phần 3–4: bám ý người nói":"Bagian 3–4: ikuti pembicara",
+"Task 2: liên kết ý":"Task 2: kohesi",
+"Thi thử ngay":"Tes latihan sekarang",
+"Thi thử ngay tuần này để đo điểm":"Kerjakan tes latihan minggu ini untuk mengukur skormu",
+"Thi thử tiếp theo: {date}":"Tes latihan berikutnya: {date}",
+"Trôi chảy & từ nối":"Kelancaran & kata penghubung",
+"Trọng tâm:":"Fokus:",
+"Tối thiểu":"Min",
+"Tối đa":"Maks",
+"{n} chọn cho bạn":"Dipilih oleh {n}",
+"{p}% sẵn sàng":"{p}% siap",
+"~{h} giờ luyện còn lại":"~{h} jam belajar tersisa",
+"Điểm ước tính":"Skor perkiraan",
+"Đạt nhịp mục tiêu":"Sesuai target",
+"Đọc lướt tìm ý nhanh":"Membaca cepat ide pokok",
+"Đủ 4 kỹ năng":"Ke-4 keterampilan",
+});
 })(typeof self !== 'undefined' ? self : this);

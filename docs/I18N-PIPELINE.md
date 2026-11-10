@@ -16,6 +16,11 @@ Mục tiêu: 15 ngôn ngữ giao diện, **không lẫn tiếng, không sót, kh
 
 Một khóa chỉ có **một** bản tiếng Anh: không khai báo trùng khóa ở hai file `en/*.js` (bản sau sẽ đè bản trước).
 
+### 1a. Định dạng nguồn: mỗi khóa một dòng (từ 10/11/2026)
+- `i18n/ui/**` ghi qua **một** thư viện `scripts/lib/i18n-src.mjs` (`fmtSrc/normSrc`): mỗi khóa một dòng `"khóa":"bản dịch",`, sắp xếp theo khóa. Hai PR thêm/sửa khóa khác nhau → git tự gộp (trước đây cả tệp là 1 dòng JSON → #934/#983 xung đột liên tục).
+- Tệp lệch dạng (sửa tay, gộp union): `node scripts/i18n-dedupe.cjs` (chuẩn hóa, khóa trùng: dòng sau thắng). Cổng: `scripts/test/i18n-src.mjs`.
+- Gói sinh `web/js/i18n/<lang>` + `extension/app/js/i18n/**` có `merge=i18n-gen` trong `.gitattributes`: **xung đột thì không gộp tay** – lấy một bên rồi `node scripts/i18n-pack.mjs && bash scripts/build-extension.sh`. Bot `pr-unconflict` / `preview-resolve` làm việc này tự động.
+
 ### 1b. Gói chạy khóa băm (từ 3/11/2026)
 - Trước 3/11 mỗi gói ngôn ngữ lặp nguyên câu tiếng Việt làm khóa: 3,5 MB trên 7,9 MB chỉ là khóa. Nay **nguồn** (dễ đọc, như cũ) nằm ở `i18n/ui/`, ngoài `web/` (không triển khai, không tính ngân sách `totalJs`). **Gói chạy** trong `web/js/i18n/<lang>` lưu khóa `hk(câu)` = `"_"` + FNV-1a 32 bit base36 (≤ 8 ký tự). Đo 3/11: web/js bớt 2 764 645 B; mỗi người học tải ít hơn ~30 % gzip (de: 193 → 134 KB nếu mở hết nhóm).
 - Tra cứu: `web/js/i18n.js` thử `D[lang][câu]` rồi `D[lang][hk(câu)]` (chỉ khi en có khóa đó → chuỗi lạ không trùng nhầm). Hai khóa trùng băm, hoặc khóa có bản dịch mà en không có → gói giữ **nguyên câu** làm khóa. Khóa nguyên câu dạng `_abc12` bị cấm (lỗi khi dựng).

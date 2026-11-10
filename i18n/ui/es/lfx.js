@@ -1,3 +1,32 @@
 /* UI es – lfx (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["es"] = Object.assign(D["es"] || {}, {"{n} đúng liền":"{n} seguidas","Tỉ lệ đúng":"Precisión","{n} câu đúng liền!":"¡{n} aciertos seguidos!","Câu khó · +{n} XP":"Pregunta difícil · +{n} XP","Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"Esto parece demasiado fácil para ti. ¿Probamos preguntas más difíciles (escribir en vez de elegir) para ganar XP extra?","Thử mức khó":"Más difícil","Giữ mức này":"Seguir igual","Đúng rồi – chỉ sai chính tả nhỏ":"Correcto: solo un pequeño error de escritura","Viết đúng là: {a}":"Se escribe: {a}","Ẩn giải thích":"Ocultar explicación","Không trượt câu nào – Kit phải ngả mũ!":"Ni un solo fallo: ¡Kit se quita el sombrero!","Tuyệt đối 100%! Bộ não bạn đang chạy hết công suất.":"¡Un 100% limpio! Tu cerebro va a toda máquina.","Phong độ rất cao hôm nay!":"¡Hoy estás en plena forma!","Gần như hoàn hảo – chỉ còn chút xíu nữa!":"Casi impecable: ¡solo un poquito más!","Đang lên tay rồi đấy!":"¡Vas tomando ritmo!","Câu sai hôm nay là điểm cộng ngày mai.":"Los fallos de hoy son los aciertos de mañana.","Kết quả lượt học":"Resultados de la sesión","Chuỗi dài nhất":"Mejor racha","Khoe kết quả":"Compartir resultado","Tắt âm thanh 15 phút":"Sin audio 15 min","Tắt micro 15 phút":"Sin micrófono 15 min","Đã tạm tắt bài nghe 15 phút – câu nghe đổi sang dạng gõ nghĩa.":"Escucha en pausa 15 min: las preguntas de audio pasan a ser de escribir.","Đã tạm tắt bài nói 15 phút – làm trắc nghiệm nghĩa thay thế.":"Expresión oral en pausa 15 min: en su lugar, un test de significado.","Bật lại":"Reactivar","Cần gợi ý?":"¿Necesitas una pista?","Thêm gợi ý":"Otra pista","Hiện bản dịch":"Mostrar traducción","Ẩn bản dịch":"Ocultar traducción"});
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["es"] = Object.assign(D["es"] || {}, {
+"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"Esto parece demasiado fácil para ti. ¿Probamos preguntas más difíciles (escribir en vez de elegir) para ganar XP extra?",
+"Bật lại":"Reactivar",
+"Chuỗi dài nhất":"Mejor racha",
+"Câu khó · +{n} XP":"Pregunta difícil · +{n} XP",
+"Câu sai hôm nay là điểm cộng ngày mai.":"Los fallos de hoy son los aciertos de mañana.",
+"Cần gợi ý?":"¿Necesitas una pista?",
+"Giữ mức này":"Seguir igual",
+"Gần như hoàn hảo – chỉ còn chút xíu nữa!":"Casi impecable: ¡solo un poquito más!",
+"Hiện bản dịch":"Mostrar traducción",
+"Khoe kết quả":"Compartir resultado",
+"Không trượt câu nào – Kit phải ngả mũ!":"Ni un solo fallo: ¡Kit se quita el sombrero!",
+"Kết quả lượt học":"Resultados de la sesión",
+"Phong độ rất cao hôm nay!":"¡Hoy estás en plena forma!",
+"Thêm gợi ý":"Otra pista",
+"Thử mức khó":"Más difícil",
+"Tuyệt đối 100%! Bộ não bạn đang chạy hết công suất.":"¡Un 100% limpio! Tu cerebro va a toda máquina.",
+"Tắt micro 15 phút":"Sin micrófono 15 min",
+"Tắt âm thanh 15 phút":"Sin audio 15 min",
+"Tỉ lệ đúng":"Precisión",
+"Viết đúng là: {a}":"Se escribe: {a}",
+"{n} câu đúng liền!":"¡{n} aciertos seguidos!",
+"{n} đúng liền":"{n} seguidas",
+"Đang lên tay rồi đấy!":"¡Vas tomando ritmo!",
+"Đã tạm tắt bài nghe 15 phút – câu nghe đổi sang dạng gõ nghĩa.":"Escucha en pausa 15 min: las preguntas de audio pasan a ser de escribir.",
+"Đã tạm tắt bài nói 15 phút – làm trắc nghiệm nghĩa thay thế.":"Expresión oral en pausa 15 min: en su lugar, un test de significado.",
+"Đúng rồi – chỉ sai chính tả nhỏ":"Correcto: solo un pequeño error de escritura",
+"Ẩn bản dịch":"Ocultar traducción",
+"Ẩn giải thích":"Ocultar explicación",
+});
 })(typeof self !== 'undefined' ? self : this);

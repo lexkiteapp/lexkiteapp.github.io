@@ -1,3 +1,29 @@
 /* UI id – v2web (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["id"] = Object.assign(D["id"] || {}, {"Add-on trên Chrome Web Store":"Ekstensi di Chrome Web Store","Bấm đúp là có thẻ":"Klik dua kali, kartu langsung jadi","Chấm điểm sát đề thật":"Penilaian seperti ujian asli","Cuộc gọi thoại · 02:14":"Panggilan suara · 02:14","Giao diện 15 ngôn ngữ":"Antarmuka 15 bahasa","Học bằng tiếng mẹ đẻ":"Belajar dalam bahasamu","Không gian luyện nói an toàn":"Ruang aman untuk berbicara","Không quảng cáo chặn bài học":"Tanpa iklan yang menghalangi pelajaran","Lặp lại ngắt quãng miễn phí":"Pengulangan berjeda gratis","Lộ trình theo khung CEFR":"Kurikulum sesuai CEFR","Miễn phí 100%":"100% gratis","Mãi mãi, không tường phí":"Selamanya, tanpa paywall","Mọi điều bạn cần biết khi học với Lexkite.":"Semua yang perlu kamu ketahui tentang belajar dengan Lexkite.","Một thói quen nhỏ, đơn giản, vừa vặn với ngày của bạn.":"Kebiasaan kecil dan sederhana yang mudah masuk ke harimu.","Sửa ngữ pháp nhẹ nhàng":"Koreksi tata bahasa yang ramah","Thêm vào Chrome":"Tambahkan ke Chrome","Trình độ A1 đến C2":"Level A1 hingga C2","Tập trung, không bị ngắt":"Fokus tanpa gangguan","Tối ưu: 94%":"Optimal: 94%","thẻ trình duyệt":"tab browser","Ôn lại sau 3 ngày":"Ulangi dalam 3 hari","Điểm: Band 7.5":"Skor: Band 7.5","Đã thêm vào bộ thẻ":"Ditambahkan ke dekmu","“Chào bạn! Học 5 phút hôm nay nhé?”":"“Hai! Siap belajar 5 menit hari ini?”","“Từng bước, cùng nhau.”":"“Selangkah demi selangkah, bersama.”"});
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["id"] = Object.assign(D["id"] || {}, {
+"Add-on trên Chrome Web Store":"Ekstensi di Chrome Web Store",
+"Bấm đúp là có thẻ":"Klik dua kali, kartu langsung jadi",
+"Chấm điểm sát đề thật":"Penilaian seperti ujian asli",
+"Cuộc gọi thoại · 02:14":"Panggilan suara · 02:14",
+"Giao diện 15 ngôn ngữ":"Antarmuka 15 bahasa",
+"Học bằng tiếng mẹ đẻ":"Belajar dalam bahasamu",
+"Không gian luyện nói an toàn":"Ruang aman untuk berbicara",
+"Không quảng cáo chặn bài học":"Tanpa iklan yang menghalangi pelajaran",
+"Lặp lại ngắt quãng miễn phí":"Pengulangan berjeda gratis",
+"Lộ trình theo khung CEFR":"Kurikulum sesuai CEFR",
+"Miễn phí 100%":"100% gratis",
+"Mãi mãi, không tường phí":"Selamanya, tanpa paywall",
+"Mọi điều bạn cần biết khi học với Lexkite.":"Semua yang perlu kamu ketahui tentang belajar dengan Lexkite.",
+"Một thói quen nhỏ, đơn giản, vừa vặn với ngày của bạn.":"Kebiasaan kecil dan sederhana yang mudah masuk ke harimu.",
+"Sửa ngữ pháp nhẹ nhàng":"Koreksi tata bahasa yang ramah",
+"Thêm vào Chrome":"Tambahkan ke Chrome",
+"Trình độ A1 đến C2":"Level A1 hingga C2",
+"Tập trung, không bị ngắt":"Fokus tanpa gangguan",
+"Tối ưu: 94%":"Optimal: 94%",
+"thẻ trình duyệt":"tab browser",
+"Ôn lại sau 3 ngày":"Ulangi dalam 3 hari",
+"Điểm: Band 7.5":"Skor: Band 7.5",
+"Đã thêm vào bộ thẻ":"Ditambahkan ke dekmu",
+"“Chào bạn! Học 5 phút hôm nay nhé?”":"“Hai! Siap belajar 5 menit hari ini?”",
+"“Từng bước, cùng nhau.”":"“Selangkah demi selangkah, bersama.”",
+});
 })(typeof self !== 'undefined' ? self : this);

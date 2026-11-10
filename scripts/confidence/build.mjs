@@ -5,6 +5,7 @@
 //                                               khóa lõi/nhãn ngắn → scripts/i18n-fixed.json, content/confidence/i18n/_source.json (đầu vào người dịch), ids.lock.json
 //   Sau --write: bash scripts/build-i18n.sh && node scripts/i18n-fix.mjs
 import fs from 'node:fs';
+import { fmtSrc } from '../lib/i18n-src.mjs';   // nguồn i18n/ui: mỗi khóa một dòng (docs/I18N-PIPELINE.md)
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
@@ -133,7 +134,7 @@ const OUT = {
   'web/js/confidence/data.js': `/* 🗣️ Giao tiếp tự tin – FILE SINH TỰ ĐỘNG từ content/confidence/*.json bằng scripts/confidence/build.mjs. Đừng sửa tay. */\nself.CONF = ${JSON.stringify(data)};\n`,
   'web/js/i18n/en/confidence.js': `/* English UI – confidence (lazy group, LAZY in scripts/build-i18n.sh). GENERATED from content/confidence by scripts/confidence/build.mjs – do not edit. */\n(function (g) {\n  const D = g.I18N_DICT = g.I18N_DICT || {};\n  D.en = Object.assign(D.en || {}, ${JSON.stringify(GROUP, null, 1).replace(/\n/g, '\n  ')});\n})(typeof self !== 'undefined' ? self : this);\n`,
 };
-for (const l of LANGS) OUT[`i18n/ui/${l}/confidence.js`] = `/* UI ${l} – confidence (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["${l}"] = Object.assign(D["${l}"] || {}, ${JSON.stringify(Object.fromEntries(Object.keys(GROUP).map(k => [k, TR[l][k] ?? GROUP[k]])))}); })(typeof self !== 'undefined' ? self : this);\n`;
+for (const l of LANGS) OUT[`i18n/ui/${l}/confidence.js`] = fmtSrc(`/* UI ${l} – confidence (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */`, l, Object.fromEntries(Object.keys(GROUP).map(k => [k, TR[l][k] ?? GROUP[k]])));
 const short = v => String(v).trim().split(/\s+/).length <= 3 && !/[{<]/.test(v);
 const FIX = 'scripts/i18n-fixed.json', fixed = J(FIX);
 for (const [k, en] of Object.entries(ALL)) if (EXTRA[k] != null || short(en)) fixed[k] = Object.assign(fixed[k] || {}, Object.fromEntries(LANGS.filter(l => TR[l][k]).map(l => [l, TR[l][k]])));

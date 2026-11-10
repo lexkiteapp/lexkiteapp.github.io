@@ -1,3 +1,21 @@
 /* UI hi – cambridge (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["hi"] = Object.assign(D["hi"] || {}, {"Đề tự biên soạn đúng định dạng Cambridge từ A2 Key đến C2 Proficiency: Đọc & Viết, Nghe, Nói – có lời giải, bài mẫu và tiêu chí chấm.":"A2 Key से C2 Proficiency तक Cambridge फ़ॉर्मेट में खुद तैयार किए गए अभ्यास टेस्ट: Reading & Writing, Listening और Speaking – हल की व्याख्या, नमूना उत्तर और अंक-निर्धारण मानदंड के साथ।","Đang soạn đề cho cấp này.":"इस स्तर के टेस्ट तैयार किए जा रहे हैं।","Điểm trong ứng dụng là tỉ lệ câu đúng để tự theo dõi, không phải điểm Cambridge English Scale chính thức.":"ऐप में दिया गया स्कोर आपकी प्रगति देखने के लिए सही उत्तरों का प्रतिशत है, यह आधिकारिक Cambridge English Scale स्कोर नहीं है।","Viết {n} từ trở lên.":"{n} या उससे ज़्यादा शब्द लिखें।","Đã nghe 2 lần (như thi thật)":"2 बार सुना (असली परीक्षा की तरह)","Nghe lần 2":"फिर से सुनें","Kết quả: {a}/{b} câu đúng ({p}%)":"परिणाम: {a}/{b} सही ({p}%)","Xem lời giải dưới từng câu. Phần viết có nhận xét riêng ngay dưới bài.":"हर प्रश्न के नीचे व्याख्या देखें। लेखन पर अलग प्रतिक्रिया ठीक उसके नीचे मिलेगी।","{n} từ (tối thiểu {m})":"{n} शब्द (कम से कम {m})","Từ nối đã dùng: {w}":"इस्तेमाल किए गए जोड़ने वाले शब्द: {w}","Tiêu chí chấm (0–5 mỗi tiêu chí)":"अंक-निर्धारण मानदंड (हर मानदंड 0–5)","Trả lời":"उत्तर","Bạn cùng thi nói:":"आपका परीक्षा-साथी कहता है:","Mẫu câu hữu ích:":"काम के वाक्यांश:","{n} từ – nên nói khoảng {m} từ trở lên":"{n} शब्द – लगभग {m} या उससे ज़्यादा शब्द बोलने की कोशिश करें","Thêm lý do hoặc ví dụ (because, so, for example…)":"कोई कारण या उदाहरण जोड़ें (because, so, for example…)","Câu trả lời mẫu":"नमूना उत्तर"});
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["hi"] = Object.assign(D["hi"] || {}, {
+"Bạn cùng thi nói:":"आपका परीक्षा-साथी कहता है:",
+"Câu trả lời mẫu":"नमूना उत्तर",
+"Kết quả: {a}/{b} câu đúng ({p}%)":"परिणाम: {a}/{b} सही ({p}%)",
+"Mẫu câu hữu ích:":"काम के वाक्यांश:",
+"Nghe lần 2":"फिर से सुनें",
+"Thêm lý do hoặc ví dụ (because, so, for example…)":"कोई कारण या उदाहरण जोड़ें (because, so, for example…)",
+"Tiêu chí chấm (0–5 mỗi tiêu chí)":"अंक-निर्धारण मानदंड (हर मानदंड 0–5)",
+"Trả lời":"उत्तर",
+"Từ nối đã dùng: {w}":"इस्तेमाल किए गए जोड़ने वाले शब्द: {w}",
+"Viết {n} từ trở lên.":"{n} या उससे ज़्यादा शब्द लिखें।",
+"Xem lời giải dưới từng câu. Phần viết có nhận xét riêng ngay dưới bài.":"हर प्रश्न के नीचे व्याख्या देखें। लेखन पर अलग प्रतिक्रिया ठीक उसके नीचे मिलेगी।",
+"{n} từ (tối thiểu {m})":"{n} शब्द (कम से कम {m})",
+"{n} từ – nên nói khoảng {m} từ trở lên":"{n} शब्द – लगभग {m} या उससे ज़्यादा शब्द बोलने की कोशिश करें",
+"Đang soạn đề cho cấp này.":"इस स्तर के टेस्ट तैयार किए जा रहे हैं।",
+"Điểm trong ứng dụng là tỉ lệ câu đúng để tự theo dõi, không phải điểm Cambridge English Scale chính thức.":"ऐप में दिया गया स्कोर आपकी प्रगति देखने के लिए सही उत्तरों का प्रतिशत है, यह आधिकारिक Cambridge English Scale स्कोर नहीं है।",
+"Đã nghe 2 lần (như thi thật)":"2 बार सुना (असली परीक्षा की तरह)",
+"Đề tự biên soạn đúng định dạng Cambridge từ A2 Key đến C2 Proficiency: Đọc & Viết, Nghe, Nói – có lời giải, bài mẫu và tiêu chí chấm.":"A2 Key से C2 Proficiency तक Cambridge फ़ॉर्मेट में खुद तैयार किए गए अभ्यास टेस्ट: Reading & Writing, Listening और Speaking – हल की व्याख्या, नमूना उत्तर और अंक-निर्धारण मानदंड के साथ।",
+});
 })(typeof self !== 'undefined' ? self : this);

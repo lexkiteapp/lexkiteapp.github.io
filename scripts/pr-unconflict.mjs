@@ -19,10 +19,15 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { normSrc } from './lib/i18n-src.mjs';
 
 export const TAKE_MAIN = ['docs/CODEMAP.md', 'docs/codemap.json'];
 export const UNION = ['scripts/test/suite.txt', 'docs/INDEX.md']; // danh sách chỉ thêm dòng: gộp union + khử trùng (docs-budget vẫn kiểm INDEX)
 export const ACTIVE_H = 24, MAX = 4;
+// i18n (10/11 #934/#983 xung đột liên tục): nguồn i18n/ui mỗi khóa một dòng → hợp dòng + chuẩn hóa (scripts/lib/i18n-src.mjs);
+// gói SINH (khóa băm web/js/i18n/<lang> ngoài en, bản chép extension/app/js/i18n) → lấy main rồi SINH LẠI từ nguồn đã gộp (i18n-pack + build-extension).
+export const I18N_SRC = /^i18n\/ui\/[a-z]{2}(\/[^/]+)?\.js$/;
+export const I18N_GEN = /^(web\/js\/i18n\/(?!en[./])[a-z]{2}(\.js|\/[^/]+\.js)|extension\/app\/js\/i18n\/.+\.js)$/;
 
 /** Kế hoạch gỡ cho danh sách tệp xung đột: null nếu có tệp ngoài danh sách tự gỡ. */
 export function plan(conflicted) {
@@ -31,6 +36,8 @@ export function plan(conflicted) {
   for (const f of conflicted) {
     if (TAKE_MAIN.includes(f)) out.push({ f, how: 'main' });
     else if (UNION.includes(f)) out.push({ f, how: 'union' });
+    else if (I18N_SRC.test(f)) out.push({ f, how: 'i18n-src' });
+    else if (I18N_GEN.test(f)) out.push({ f, how: 'regen' });
     else return null;
   }
   return out;
@@ -85,14 +92,19 @@ export function fix(p, dry) {
   const steps = m.ok ? [] : plan(conflicted);   // gộp sạch cục bộ (GitHub tính cũ) → vẫn đẩy bản gộp để PR hết dirty
   if (!steps) { tryGit('merge', '--abort'); console.log(`#${p.number}: xung đột ở tệp người viết (${conflicted.join(', ')}) – để phiên phụ trách`); return 'manual'; }
   for (const { f, how } of steps) {
-    if (how === 'main') git('checkout', '--theirs', '--', f);
+    if (how === 'main' || how === 'regen') git('checkout', '--theirs', '--', f);
     else {
       const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'unc-')), side = k => { const out = tryGit('show', `:${k}:${f}`); fs.writeFileSync(`${tmp}/${k}`, out.ok ? out.out + '\n' : ''); return `${tmp}/${k}`; };
       const o = side(2), b = side(1), t = side(3);
       tryGit('merge-file', '--union', o, b, t);             // mã thoát = số xung đột, union không để lại dấu xung đột
-      fs.writeFileSync(f, dedupeLines(fs.readFileSync(o, 'utf8')));
+      const u = fs.readFileSync(o, 'utf8');
+      fs.writeFileSync(f, how === 'i18n-src' ? normSrc(u) : dedupeLines(u));
     }
     git('add', '--', f);
+  }
+  if (steps.some(s => s.how === 'regen' || s.how === 'i18n-src')) {   // gói sinh khớp nguồn đã gộp (i18n-pack --check trong npm test)
+    execFileSync('bash', ['scripts/build-extension.sh'], { stdio: 'ignore' });   // chạy i18n-pack rồi chép sang add-on
+    git('add', '-A', '--', 'web/js/i18n', 'extension/app/js/i18n');
   }
   // merge=union (.gitattributes) có thể gộp "sạch" mà nhân đôi dòng (06/11: #757 trùng voice-source.mjs) → luôn khử trùng tệp UNION
   for (const f of UNION) if (fs.existsSync(f)) { const a = fs.readFileSync(f, 'utf8'), b = dedupeLines(a); if (a !== b) { fs.writeFileSync(f, b); git('add', '--', f); } }

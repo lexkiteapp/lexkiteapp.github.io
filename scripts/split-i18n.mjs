@@ -6,6 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
+import { writeSrc } from './lib/i18n-src.mjs';   // mỗi khóa một dòng, sắp xếp → git tự gộp (docs/I18N-PIPELINE.md)
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIR = path.join(ROOT, 'web/js/i18n'), SRC = path.join(ROOT, 'i18n/ui'); // en ở web/js/i18n, 13 ngôn ngữ còn lại: nguồn i18n/ui
@@ -59,8 +60,7 @@ for (const lang of LANGS) {
       else groupDict[k] = groupEn[k]; // fallback tiếng Anh nếu thiếu
     }
     const gf = path.join(langDir, `${g}.js`);
-    const content = `/* UI ${lang} – ${g} (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["${lang}"] = Object.assign(D["${lang}"] || {}, ${JSON.stringify(groupDict, null, 0)});\n})(typeof self !== 'undefined' ? self : this);\n`;
-    fs.writeFileSync(gf, content);
+    writeSrc(gf, `/* UI ${lang} – ${g} (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */`, lang, groupDict);
   }
 
   // Ghi file core
@@ -69,8 +69,7 @@ for (const lang of LANGS) {
     if (allDict[k] !== undefined) coreDict[k] = allDict[k];
     else coreDict[k] = enCore[k]; // fallback tiếng Anh nếu thiếu
   }
-  const coreContent = `/* UI ${lang} – SINH TỰ ĐỘNG từ en.js bằng scripts/gen-i18n.mjs (có thể hiệu đính tay; chạy lại chỉ dịch khóa mới). */\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["${lang}"] = Object.assign(D["${lang}"] || {}, ${JSON.stringify(coreDict, null, 0)});\n})(typeof self !== 'undefined' ? self : this);\n`;
-  fs.writeFileSync(langFile, coreContent);
+  writeSrc(langFile, `/* UI ${lang} – SINH TỰ ĐỘNG từ en.js bằng scripts/gen-i18n.mjs (có thể hiệu đính tay; chạy lại chỉ dịch khóa mới). */`, lang, coreDict);
 }
 
 console.log(`✓ split-i18n: đã tách ${LAZY.length} nhóm lười cho ${LANGS.length} ngôn ngữ.`);

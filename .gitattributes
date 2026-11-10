@@ -2,3 +2,10 @@ web/i18n/explain/*.json merge=ours
 content/i18n-backcheck-cache.json merge=ours
 web/i18n/backcheck.json merge=ours
 scripts/test/suite.txt merge=union
+# Gói dịch SINH (khóa băm, scripts/i18n-pack.mjs) + bản chép add-on: không gộp tay – gặp xung đột lấy 1 bên rồi SINH LẠI từ nguồn i18n/ui đã gộp:
+#   node scripts/i18n-pack.mjs && bash scripts/build-extension.sh   (bot: scripts/pr-unconflict.mjs, scripts/ci/preview-resolve.mjs; máy: scripts/mergecheck.sh
+#   đăng ký driver `git config merge.i18n-gen.driver true`). Nguồn i18n/ui mỗi khóa một dòng → git tự gộp (docs/I18N-PIPELINE.md).
+web/js/i18n/** merge=i18n-gen
+web/js/i18n/en.js merge
+web/js/i18n/en/** merge
+extension/app/js/i18n/** merge=i18n-gen

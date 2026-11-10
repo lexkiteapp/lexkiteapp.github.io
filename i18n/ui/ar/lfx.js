@@ -1,3 +1,32 @@
 /* UI ar – lfx (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {"{n} đúng liền":"{n} على التوالي","Tỉ lệ đúng":"الدقة","{n} câu đúng liền!":"{n} إجابات صحيحة متتالية!","Câu khó · +{n} XP":"سؤال صعب · +{n} XP","Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"يبدو هذا سهلًا جدًا عليك. هل تجرّب أسئلة أصعب (الكتابة بدل الاختيار) لتحصل على XP إضافية؟","Thử mức khó":"أصعب","Giữ mức này":"إبقاء المستوى","Đúng rồi – chỉ sai chính tả nhỏ":"صحيح – مجرد خطأ إملائي بسيط","Viết đúng là: {a}":"الكتابة الصحيحة: {a}","Ẩn giải thích":"إخفاء الشرح","Không trượt câu nào – Kit phải ngả mũ!":"ولا خطأ واحد – Kit يرفع لك القبعة!","Tuyệt đối 100%! Bộ não bạn đang chạy hết công suất.":"100% كاملة! عقلك يعمل بكامل طاقته.","Phong độ rất cao hôm nay!":"أنت في أفضل حالاتك اليوم!","Gần như hoàn hảo – chỉ còn chút xíu nữa!":"شبه مثالي – بقي القليل فقط!","Đang lên tay rồi đấy!":"بدأت تأخذ الإيقاع!","Câu sai hôm nay là điểm cộng ngày mai.":"أخطاء اليوم هي نجاحات الغد.","Kết quả lượt học":"نتائج الجلسة","Chuỗi dài nhất":"أطول سلسلة","Khoe kết quả":"مشاركة النتيجة","Tắt âm thanh 15 phút":"بدون صوت 15 دقيقة","Tắt micro 15 phút":"بدون ميكروفون 15 دقيقة","Đã tạm tắt bài nghe 15 phút – câu nghe đổi sang dạng gõ nghĩa.":"تم إيقاف الاستماع 15 دقيقة – تتحول أسئلة الصوت إلى كتابة.","Đã tạm tắt bài nói 15 phút – làm trắc nghiệm nghĩa thay thế.":"تم إيقاف التحدث 15 دقيقة – يحل محله اختبار المعاني.","Bật lại":"إعادة التشغيل","Cần gợi ý?":"تحتاج تلميحًا؟","Thêm gợi ý":"تلميح إضافي","Hiện bản dịch":"إظهار الترجمة","Ẩn bản dịch":"إخفاء الترجمة"});
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {
+"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"يبدو هذا سهلًا جدًا عليك. هل تجرّب أسئلة أصعب (الكتابة بدل الاختيار) لتحصل على XP إضافية؟",
+"Bật lại":"إعادة التشغيل",
+"Chuỗi dài nhất":"أطول سلسلة",
+"Câu khó · +{n} XP":"سؤال صعب · +{n} XP",
+"Câu sai hôm nay là điểm cộng ngày mai.":"أخطاء اليوم هي نجاحات الغد.",
+"Cần gợi ý?":"تحتاج تلميحًا؟",
+"Giữ mức này":"إبقاء المستوى",
+"Gần như hoàn hảo – chỉ còn chút xíu nữa!":"شبه مثالي – بقي القليل فقط!",
+"Hiện bản dịch":"إظهار الترجمة",
+"Khoe kết quả":"مشاركة النتيجة",
+"Không trượt câu nào – Kit phải ngả mũ!":"ولا خطأ واحد – Kit يرفع لك القبعة!",
+"Kết quả lượt học":"نتائج الجلسة",
+"Phong độ rất cao hôm nay!":"أنت في أفضل حالاتك اليوم!",
+"Thêm gợi ý":"تلميح إضافي",
+"Thử mức khó":"أصعب",
+"Tuyệt đối 100%! Bộ não bạn đang chạy hết công suất.":"100% كاملة! عقلك يعمل بكامل طاقته.",
+"Tắt micro 15 phút":"بدون ميكروفون 15 دقيقة",
+"Tắt âm thanh 15 phút":"بدون صوت 15 دقيقة",
+"Tỉ lệ đúng":"الدقة",
+"Viết đúng là: {a}":"الكتابة الصحيحة: {a}",
+"{n} câu đúng liền!":"{n} إجابات صحيحة متتالية!",
+"{n} đúng liền":"{n} على التوالي",
+"Đang lên tay rồi đấy!":"بدأت تأخذ الإيقاع!",
+"Đã tạm tắt bài nghe 15 phút – câu nghe đổi sang dạng gõ nghĩa.":"تم إيقاف الاستماع 15 دقيقة – تتحول أسئلة الصوت إلى كتابة.",
+"Đã tạm tắt bài nói 15 phút – làm trắc nghiệm nghĩa thay thế.":"تم إيقاف التحدث 15 دقيقة – يحل محله اختبار المعاني.",
+"Đúng rồi – chỉ sai chính tả nhỏ":"صحيح – مجرد خطأ إملائي بسيط",
+"Ẩn bản dịch":"إخفاء الترجمة",
+"Ẩn giải thích":"إخفاء الشرح",
+});
 })(typeof self !== 'undefined' ? self : this);

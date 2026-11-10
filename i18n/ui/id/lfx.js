@@ -1,3 +1,32 @@
 /* UI id – lfx (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["id"] = Object.assign(D["id"] || {}, {"{n} đúng liền":"{n} beruntun","Tỉ lệ đúng":"Akurasi","{n} câu đúng liền!":"{n} jawaban benar beruntun!","Câu khó · +{n} XP":"Soal sulit · +{n} XP","Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"Sepertinya ini terlalu mudah untukmu. Coba soal yang lebih sulit (mengetik, bukan memilih) untuk bonus XP?","Thử mức khó":"Lebih sulit","Giữ mức này":"Tetap level ini","Đúng rồi – chỉ sai chính tả nhỏ":"Benar – hanya salah ketik kecil","Viết đúng là: {a}":"Ejaan yang benar: {a}","Ẩn giải thích":"Sembunyikan penjelasan","Không trượt câu nào – Kit phải ngả mũ!":"Tak satu pun meleset – Kit angkat topi!","Tuyệt đối 100%! Bộ não bạn đang chạy hết công suất.":"100% sempurna! Otakmu bekerja dengan kekuatan penuh.","Phong độ rất cao hôm nay!":"Kamu sedang dalam performa terbaik hari ini!","Gần như hoàn hảo – chỉ còn chút xíu nữa!":"Hampir sempurna – sedikit lagi!","Đang lên tay rồi đấy!":"Kamu mulai lancar!","Câu sai hôm nay là điểm cộng ngày mai.":"Kesalahan hari ini adalah kemenangan esok hari.","Kết quả lượt học":"Hasil sesi","Chuỗi dài nhất":"Beruntun terbaik","Khoe kết quả":"Bagikan hasil","Tắt âm thanh 15 phút":"Tanpa audio 15 mnt","Tắt micro 15 phút":"Tanpa mikrofon 15 mnt","Đã tạm tắt bài nghe 15 phút – câu nghe đổi sang dạng gõ nghĩa.":"Mendengarkan dijeda 15 mnt – soal audio diganti soal mengetik.","Đã tạm tắt bài nói 15 phút – làm trắc nghiệm nghĩa thay thế.":"Berbicara dijeda 15 mnt – diganti kuis arti kata.","Bật lại":"Aktifkan lagi","Cần gợi ý?":"Butuh petunjuk?","Thêm gợi ý":"Petunjuk lagi","Hiện bản dịch":"Tampilkan terjemahan","Ẩn bản dịch":"Sembunyikan terjemahan"});
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["id"] = Object.assign(D["id"] || {}, {
+"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"Sepertinya ini terlalu mudah untukmu. Coba soal yang lebih sulit (mengetik, bukan memilih) untuk bonus XP?",
+"Bật lại":"Aktifkan lagi",
+"Chuỗi dài nhất":"Beruntun terbaik",
+"Câu khó · +{n} XP":"Soal sulit · +{n} XP",
+"Câu sai hôm nay là điểm cộng ngày mai.":"Kesalahan hari ini adalah kemenangan esok hari.",
+"Cần gợi ý?":"Butuh petunjuk?",
+"Giữ mức này":"Tetap level ini",
+"Gần như hoàn hảo – chỉ còn chút xíu nữa!":"Hampir sempurna – sedikit lagi!",
+"Hiện bản dịch":"Tampilkan terjemahan",
+"Khoe kết quả":"Bagikan hasil",
+"Không trượt câu nào – Kit phải ngả mũ!":"Tak satu pun meleset – Kit angkat topi!",
+"Kết quả lượt học":"Hasil sesi",
+"Phong độ rất cao hôm nay!":"Kamu sedang dalam performa terbaik hari ini!",
+"Thêm gợi ý":"Petunjuk lagi",
+"Thử mức khó":"Lebih sulit",
+"Tuyệt đối 100%! Bộ não bạn đang chạy hết công suất.":"100% sempurna! Otakmu bekerja dengan kekuatan penuh.",
+"Tắt micro 15 phút":"Tanpa mikrofon 15 mnt",
+"Tắt âm thanh 15 phút":"Tanpa audio 15 mnt",
+"Tỉ lệ đúng":"Akurasi",
+"Viết đúng là: {a}":"Ejaan yang benar: {a}",
+"{n} câu đúng liền!":"{n} jawaban benar beruntun!",
+"{n} đúng liền":"{n} beruntun",
+"Đang lên tay rồi đấy!":"Kamu mulai lancar!",
+"Đã tạm tắt bài nghe 15 phút – câu nghe đổi sang dạng gõ nghĩa.":"Mendengarkan dijeda 15 mnt – soal audio diganti soal mengetik.",
+"Đã tạm tắt bài nói 15 phút – làm trắc nghiệm nghĩa thay thế.":"Berbicara dijeda 15 mnt – diganti kuis arti kata.",
+"Đúng rồi – chỉ sai chính tả nhỏ":"Benar – hanya salah ketik kecil",
+"Ẩn bản dịch":"Sembunyikan terjemahan",
+"Ẩn giải thích":"Sembunyikan penjelasan",
+});
 })(typeof self !== 'undefined' ? self : this);

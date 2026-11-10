@@ -6,6 +6,8 @@
 // Dùng: node scripts/ci/preview-resolve.mjs [--dry]   (--dry: chỉ phân loại, không ghi)
 import { execFileSync, spawnSync } from 'node:child_process';
 import fs from 'node:fs';
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 export const GENERATED = [
   /^web\/js\/i18n\/[A-Za-z_]+\.js$/,                 // gói dịch lõi (build-i18n.sh / gen-i18n / i18n-fix)
@@ -31,6 +33,15 @@ function unionDict(ours, theirs) {
   try { return theirs.replace(DICT, (_, p, __, s) => p + JSON.stringify({ ...JSON.parse(a[2]), ...JSON.parse(b[2]) }) + s); } catch { return null; }
 }
 
+// Nguồn i18n/ui: mỗi khóa một dòng (scripts/lib/i18n-src.mjs) → hợp dòng 3 bên rồi chuẩn hóa (khóa trùng: bên PR đến thắng vì đứng sau).
+// Lib nạp từ cây đang gộp (tệp này được chép ra /tmp nên không import tương đối được).
+async function unionSrc(ours, base, theirs) {
+  const d = fs.mkdtempSync((process.env.TMPDIR || '/tmp') + '/pv-'); fs.writeFileSync(d + '/o', ours); fs.writeFileSync(d + '/b', base || ''); fs.writeFileSync(d + '/t', theirs);
+  spawnSync('git', ['merge-file', '--union', d + '/o', d + '/b', d + '/t']); const u = fs.readFileSync(d + '/o', 'utf8'); fs.rmSync(d, { recursive: true });
+  const { normSrc } = await import(pathToFileURL(path.resolve('scripts/lib/i18n-src.mjs')).href);
+  try { return normSrc(u); } catch { return unionDict(ours.toString(), theirs.toString()) || theirs.toString(); }   // nguồn dạng cũ 1 dòng
+}
+
 const unmerged = [...new Set(git('diff', '--name-only', '--diff-filter=U').split('\n').filter(Boolean))];
 const dry = process.argv.includes('--dry');
 if (!unmerged.length) { console.log('(không có tệp xung đột)'); process.exit(0); }
@@ -53,7 +64,8 @@ for (const f of unmerged) {
   } else if (f === 'web/fonts/msym.json') {
     out = Buffer.from(JSON.stringify([...new Set([...JSON.parse(ours.toString()), ...JSON.parse(theirs.toString())])].sort()) + '\n'); fonts = true;
   } else if (/^web\/fonts\/msymr?\.woff2$/.test(f)) { out = theirs; fonts = true; } // dựng lại theo danh sách hợp ở bước sinh
-  else if (/^web\/js\/i18n\//.test(f) || I18N_SRC.test(f)) out = unionDict(ours.toString(), theirs.toString()) ? Buffer.from(unionDict(ours.toString(), theirs.toString())) : theirs;
+  else if (I18N_SRC.test(f)) out = Buffer.from(await unionSrc(ours, base, theirs));
+  else if (/^web\/js\/i18n\//.test(f)) out = unionDict(ours.toString(), theirs.toString()) ? Buffer.from(unionDict(ours.toString(), theirs.toString())) : theirs;
   else if (isUnion(f)) {
     const d = fs.mkdtempSync((process.env.TMPDIR || '/tmp') + '/pv-'); fs.writeFileSync(d + '/o', ours); fs.writeFileSync(d + '/b', base || ''); fs.writeFileSync(d + '/t', theirs);
     spawnSync('git', ['merge-file', '--union', d + '/o', d + '/b', d + '/t']); out = fs.readFileSync(d + '/o'); fs.rmSync(d, { recursive: true });
