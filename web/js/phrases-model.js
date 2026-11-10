@@ -364,6 +364,7 @@
       <div class="page-head"><div><h1>${UI.icon('puzzle')} ${t('Sổ cụm từ & cấu trúc')}</h1><p class="muted">${t('Học theo <b>cụm</b> (chunk) giúp nói và viết tự nhiên hơn học từng từ rời. Lưu cụm từ, cấu trúc câu kèm nghĩa theo cụm, cách dùng và câu ví dụ – ôn đúng thời điểm vàng như từ vựng.')}</p></div>
         <div class="row"><button class="btn primary" id="addP">＋ ${t('Thêm cụm / cấu trúc')}</button>${list.length >= 4 ? `<a class="btn" href="#/practice/learn?src=phrases">🧠 ${t('Học các cụm')}</a>` : ''}</div></div>
       <a class="card hover hub-card" href="#/models" style="margin-bottom:1rem"><span class="hub-ic" aria-hidden="true">${UI.icon('file-text')}</span><span class="hub-tx"><b>${t('Bài mẫu band 8 có đánh dấu cụm từ')}</b><small>${t('Đọc bài mẫu, bấm vào cụm hay để lưu vào sổ này')}</small></span><span class="hub-meta">${models.length ? t('{n} bài', { n: models.length }) : ''} ›</span></a>
+      <details class="card" id="pbook" style="margin-top:1rem"><summary><b>🗣️ ${t('Sổ mẫu câu theo chức năng')}</b><div class="muted small">${t('Biết nói gì khi gọi điện, nhờ giúp, xin lỗi… – 3 mức trang trọng, câu đáp, hội thoại mẫu.')}</div></summary><div id="pbHost" style="margin-top:.8rem"></div></details>
       <div class="card" style="margin-top:1rem" id="pList">${list.length ? list.map(c => `<div class="deck-row" style="grid-template-columns:minmax(0,1.2fr) minmax(0,1.6fr) auto">
           <div style="min-width:0"><b>${esc(c.word)}</b><div class="small" style="color:var(--accent-text);font-weight:700">${esc(App.meanOf(c))}</div>${c.note ? `<div class="tiny muted">${UI.icon('ruler')} ${esc(c.note)}</div>` : ''}</div>
           <div class="small muted hide-sm">${c.contexts[0] ? `“${UI.highlight(c.contexts[0].text.slice(0, 140), c.word)}”` : esc(c.ex || '')}</div>
@@ -371,6 +372,8 @@
         : `<div class="empty"><div class="em">🧩</div>${t('Chưa có cụm từ nào. Bôi đen một cụm trong bài đọc, bài mẫu hay ví dụ từ điển rồi bấm “🧩 Lưu cụm này”, hoặc thêm thủ công.')}${models.length ? `<div style="margin-top:1rem"><button class="btn primary" id="starter">✨ ${t('Thêm nhanh 20 cụm hay từ bài mẫu')}</button></div>` : ''}</div>`}</div>`;
     App.bindCommon();
     $('#addP').onclick = () => savePhraseDialog({ phrase: '' });
+    // Sổ mẫu câu theo chức năng: dữ liệu + mã vẽ ở gói lười 'pbook', chỉ nạp khi mở mục lần đầu
+    $('#pbook').addEventListener('toggle', async e => { const d = e.target; if (!d.open || d.dataset.ready) return; d.dataset.ready = '1'; await App.need('pbook'); if (!(await App.phraseBook($('#pbHost')))) delete d.dataset.ready; });
     // Gói khởi đầu: 20 cụm học thuật hay gặp nhất trong các bài mẫu (kèm câu gốc làm ngữ cảnh) → sổ không bao giờ trống
     const st = $('#starter'); if (st) st.onclick = async () => {
       st.disabled = true;

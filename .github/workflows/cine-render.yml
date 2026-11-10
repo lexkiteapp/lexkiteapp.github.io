@@ -80,7 +80,10 @@ jobs:
       - name: Cài thư viện + ffmpeg
         run: |
           pip install -q -r scripts/cine/requirements.txt
-          sudo timeout 600 apt-get update -qq && sudo timeout 600 apt-get install -y -qq tesseract-ocr >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: tesseract-ocr }
+      - name: Cài thư viện + ffmpeg (tiếp)
+        run: |
           ffmpeg -hide_banner -version | head -1
       - uses: actions/cache@v4
         with: { path: .footage-cache, key: 'footage-cine0-${{ hashFiles(''brand/library/cine/archive-manifest.json'') }}', restore-keys: 'footage-cine0-' }
@@ -194,7 +197,7 @@ jobs:
           python scripts/cine/store_shorts.py out /tmp/shorts "${{ github.run_number }}" "${{ github.sha }}"
           bash scripts/cine/archive_new.sh /tmp/shorts
           cd /tmp/shorts; git add --sparse -A shorts recipes .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} ($LX_SCENE) [CF-Pages-Skip]" || exit 0
-          pushed=; for k in 1 2 3 4; do git push -q origin HEAD:main && { pushed=1; break; }; git pull -q --rebase --autostash origin main; done
+          pushed=; for k in 1 2 3 4; do git push -q origin HEAD:main && { pushed=1; break; }; { git fetch -q origin main && git rebase -q origin/main || git rebase --abort 2>/dev/null; }; done
           rm -f ~/.ssh/shorts
           [ -n "$pushed" ] || { echo "::error::không đẩy được lexkite-shorts sau 4 lần"; exit 1; }
       - uses: actions/upload-artifact@v4
@@ -361,7 +364,8 @@ jobs:
         timeout-minutes: 12
         run: |
           pip install -q -r scripts/cine/requirements.txt scipy==1.14.1 faster-whisper==1.0.3 requests==2.32.3
-          sudo apt-get update -qq && sudo apt-get install -y -qq tesseract-ocr >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: tesseract-ocr }
       - uses: actions/cache@v4
         with: { path: .footage-cache, key: 'footage-cine3-${{ hashFiles(''brand/library/cine/archive-manifest.json'') }}', restore-keys: 'footage-cine3-' }
       - name: Lấy footage news (anchor/green + anchor/bg + meta, sparse)
@@ -532,7 +536,7 @@ jobs:
           python scripts/cine/store_shorts.py out /tmp/shorts "${{ github.run_number }}" "${{ github.sha }}"
           bash scripts/cine/archive_new.sh /tmp/shorts
           cd /tmp/shorts; git add --sparse -A shorts recipes .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} (news) [CF-Pages-Skip]" || exit 0
-          pushed=; for k in 1 2 3 4 5 6; do git push -q origin HEAD:main && { pushed=1; break; }; git pull -q --rebase --autostash origin main; done
+          pushed=; for k in 1 2 3 4 5 6; do git push -q origin HEAD:main && { pushed=1; break; }; { git fetch -q origin main && git rebase -q origin/main || git rebase --abort 2>/dev/null; }; done
           rm -f ~/.ssh/shorts
           [ -n "$pushed" ] || { echo "::error::không đẩy được lexkite-shorts sau 6 lần"; exit 1; }
       - uses: actions/upload-artifact@v4   # small QC-only artifact for news-auto.yml (ledger record) - no media

@@ -8,6 +8,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { serve } from '../quality/serve.mjs';
 import { waitFn } from '../lib/pw-wait.mjs';
+import { RUNS, medianRuns } from './lib/perf-median.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const ROOT = path.resolve(arg('root', 'dist')), OUT = path.resolve(arg('out', 'sp-out')), DEVICE = arg('device', 'phone');
@@ -187,9 +188,16 @@ for (const theme of THEMES) {
   for (const sc of SCREENS) {
     if (ONLY && !ONLY.includes(sc.id)) continue;
     let r; try { r = await measure(ctx, sc); } catch (e) { r = { id: sc.id, crash: String(e.message).split('\n')[0].slice(0, 200) }; }
-    // Runner CI ồn: khung rớt/task dài vượt ngưỡng → đo lại 1 lần, lấy lượt tốt hơn. CLS, nhảy cuộn, listener… là tất định, không đo lại.
-    const noisy = x => !x.crash && DEVICE !== 'webkit' && x.dist > 40 && (x.droppedPct > (BUDGET[DEVICE] || {}).droppedPct || ((x.trace || {}).longMax ?? 0) > (BUDGET[DEVICE] || {}).longMaxMs);
-    if (noisy(r)) { try { const r2 = await measure(ctx, sc); if (!r2.crash && r2.droppedPct <= r.droppedPct) { r2.retried = 1; r = r2; } } catch (e) { /* giữ lượt đầu */ } }
+    // Runner CI ồn: số đo thời gian (khung rớt/task dài/layout) vượt ngưỡng → đo đủ RUNS lượt, chấm TRUNG VỊ từng chỉ số (lib/perf-median.mjs).
+    // Ngưỡng giữ nguyên; khựng thật lặp ở đa số lượt vẫn đỏ. CLS, nhảy cuộn, listener… tất định – lấy từ lượt đầu, không đo lại.
+    const B0 = BUDGET[DEVICE] || {}, tr = x => x.trace || {};
+    const noisy = x => !x.crash && DEVICE !== 'webkit' && x.dist > 40 && (x.droppedPct > B0.droppedPct || (tr(x).longMax ?? 0) > B0.longMaxMs || (tr(x).layoutMs ?? 0) > B0.layoutMs);
+    if (noisy(r)) {
+      const runs = [r];
+      for (let i = 1; i < RUNS; i++) { try { runs.push(await measure(ctx, sc)); } catch (e) { runs.push({ crash: String(e.message).slice(0, 120) }); } }
+      console.log(`    ↻ ${sc.id}: ${runs.length} lượt ` + runs.map(x => x.crash ? 'lỗi' : `rớt ${x.droppedPct}% long ${tr(x).longMax ?? 0}ms layout ${tr(x).layoutMs ?? 0}ms`).join(' · ') + ' → trung vị');
+      r = medianRuns(runs, ['droppedPct', 'p95', 'worst', 'jank50'], ['longMax', 'longN', 'layoutMs']);
+    }
     r.theme = theme; r.device = DEVICE; all.push(r);
     const t = r.trace || {};
     console.log(`${DEVICE}/${theme} ${sc.id.padEnd(10)} ${r.crash ? 'CRASH ' + r.crash : `h=${r.dist}${r.nested ? ' lồng' : ''} rớt ${r.droppedPct}% p95 ${r.p95} worst ${r.worst} | CLS ${r.cls} (cuộn ${r.scrollCls}) | long ${t.longN ?? '–'}/${t.longMax ?? '–'}ms | layout ${t.layoutN ?? '–'}×${t.layoutMs ?? '–'}ms paint ${t.paintN ?? '–'}×${t.paintMs ?? '–'}ms | nhảy ${r.reversal} Δcao ${r.heightChange} bar ${JSON.stringify(r.barDelta)} | chặn ${r.blocking.length} blur ${r.blur} mut ${r.mutN} ${r.hash}${r.noEnter ? ' KHÔNG-VÀO-ĐƯỢC' : ''}`}`);

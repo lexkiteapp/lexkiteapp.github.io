@@ -127,6 +127,11 @@
   Cache-Control: no-cache
   Access-Control-Allow-Origin: *
 
+# Gói nội dung P08 (Gọi Ama & Carlos) cho app native (scripts/native/gen-call.mjs): như skills-pack
+/data/call-pack.json
+  Cache-Control: no-cache
+  Access-Control-Allow-Origin: *
+
 /i18n/*
   Cache-Control: public, max-age=86400
   Access-Control-Allow-Origin: *

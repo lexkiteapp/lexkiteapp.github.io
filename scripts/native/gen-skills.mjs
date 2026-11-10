@@ -21,7 +21,7 @@ export const settle = async (n = 40) => { for (let i = 0; i < n; i++) await tick
 const unesc = x => (typeof x === 'string' ? x.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&') : x);
 const strip = h => unesc(String(h || '').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim());
 
-const LFILES = [...Array.from({ length: 9 }, (_, i) => `web/js/listen/test${i + 1}.js`), 'web/cpack/listen/test10.js'];
+const LFILES = [...Array.from({ length: 8 }, (_, i) => `web/js/listen/test${i + 1}.js`), 'web/cpack/listen/test9.js', 'web/cpack/listen/test10.js'];
 const KEEP_TESTS = [1, 2];                         // listening tests carried whole in skills.json (data.listening); the rest is fetched like the web does
 const KEEP_READ = { A2: 1, B1: 2, B2: 2, C1: 1 };  // readings carried (first N of each level in load order)
 const LISTEN_FILES = ['web/js/lexis.js', 'web/js/qengine.js', 'web/js/qtips.js', 'web/js/listen/kvoice.js'];

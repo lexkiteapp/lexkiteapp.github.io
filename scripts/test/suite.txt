@@ -230,6 +230,7 @@ node scripts/test/pw-wait.mjs
 node scripts/test/static-routes.mjs
 node scripts/test/layout-guards.mjs
 node scripts/test/home-logic.mjs
+node scripts/test/vocab-hub.mjs
 node scripts/test/inline-box.mjs
 node scripts/test/st2-href.mjs
 node scripts/test/card-actions.mjs
@@ -326,6 +327,8 @@ node scripts/test/cambridge.mjs
 node scripts/test/teacher-rig.mjs
 node scripts/test/teach2d-rig.mjs
 node scripts/test/workflow-yaml.mjs
+node scripts/test/workflow-call-perms.mjs
+node scripts/test/push-main.mjs
 node scripts/test/samples-seo-parity.mjs --self-test
 node scripts/native/gen.mjs --check
 node scripts/test/native-one-source.mjs --self-test
@@ -359,6 +362,8 @@ node scripts/test/site-footer.mjs
 node scripts/test/v2pre-ring.mjs
 node scripts/test/zombie-pages.mjs
 node scripts/test/ci-guards.mjs
+node scripts/test/apt-install.mjs
+node scripts/test/perf-median.mjs
 node scripts/test/pr-unconflict.mjs
 node scripts/test/main-red-sweep.mjs
 node scripts/test/ci-queue-gate.mjs
@@ -375,4 +380,5 @@ node scripts/test/es-practice.mjs
 node scripts/test/es-pron.mjs
 node scripts/test/es-path.mjs
 node scripts/test/ext-version.mjs
+node scripts/test/phrasebook.mjs
 node scripts/test/native-strings-locked.mjs

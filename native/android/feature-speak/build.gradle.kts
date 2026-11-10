@@ -1,4 +1,4 @@
-// :feature-speak – M4 speaking + pronunciation screens (#/speak, #/speaking, #/pron, #/say, #/reflex, #/rtype, #/roleplay, #/handsfree): Compose screens + view models over core/speak;
+// :feature-speak – M4 speaking + pronunciation screens (#/speak, #/speaking, #/pron, #/say, #/reflex, #/rtype, #/roleplay, #/handsfree) + P08 #/call (Call Ama & Carlos: list, ring, live call, summary): Compose screens + view models over core/speak;
 // colours/spacing/text only from :design (generated tokens, L10nKey). Logic and vector parity live in :core (com.lexkite.app.core.speak); the speech recogniser seam is :feature-lesson's SpeechInput.
 plugins {
     id("com.android.library")

@@ -23,7 +23,8 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund --ignore-scripts playwright@1.50.1
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
       - name: Số "trước" (main, không chặn)
         if: github.event_name == 'pull_request'
         continue-on-error: true

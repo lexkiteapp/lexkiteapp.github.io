@@ -70,7 +70,8 @@ jobs:
           npm ci --no-audit --no-fund
           npm i --no-save --no-audit --no-fund $PW pngjs@7.0.0 pixelmatch@5.3.0
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core fonts-noto-ui-core >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core fonts-noto-ui-core }
       - name: Ảnh nền (lần chạy tốt gần nhất)
         uses: actions/cache@v4
         with:
@@ -132,7 +133,11 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo timeout 600 apt-get install -y -qq fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core }
+      - name: ext-e2e ${{ matrix.lang }} (dùng lại scripts/test/ext-e2e.mjs) (tiếp)
+        continue-on-error: true
+        run: |
           bash scripts/build-extension.sh
           LANG_T=${{ matrix.lang }} node scripts/test/ext-e2e.mjs /tmp/ext-qa
       - uses: actions/upload-artifact@v4
@@ -185,6 +190,7 @@ jobs:
     needs: [lease, native]
     if: needs.lease.outputs.skip != '1'
     uses: ./.github/workflows/journey-e2e.yml
+    permissions: { contents: read, checks: read }   # journey-e2e job gate xin checks: read; thiếu → startup_failure (scripts/test/workflow-call-perms.mjs)
     with:
       native: ${{ needs.native.outputs.jn || '0' }}
 

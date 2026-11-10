@@ -67,7 +67,7 @@ jobs:
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
-        with: { ssh-key: '${{ github.event_name != ''pull_request'' && secrets.BOT_DEPLOY_KEY || '''' }}', ref: "${{ github.event_name == 'pull_request' && github.sha || 'main' }}" }
+        with: { ssh-key: "${{ github.event_name != 'pull_request' && secrets.BOT_DEPLOY_KEY || '' }}", ref: "${{ github.event_name == 'pull_request' && github.sha || 'main' }}" }
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: npm }
       - uses: actions/download-artifact@v4

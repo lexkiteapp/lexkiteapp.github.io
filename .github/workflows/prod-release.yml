@@ -37,6 +37,7 @@ jobs:
   gate:
     # npm test: một định nghĩa dùng chung với cổng PR (.github/workflows/npm-test.yml)
     uses: ./.github/workflows/npm-test.yml
+    permissions: { contents: read, actions: write }   # job `heavy` của npm-test xin actions: write; thiếu → startup_failure cả lượt (scripts/test/workflow-call-perms.mjs)
     with: { sha: '${{ github.event.inputs.sha || github.sha }}' }
   smoke:
     needs: tag

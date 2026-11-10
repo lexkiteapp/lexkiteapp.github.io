@@ -624,8 +624,8 @@
       "kind": "video",
       "purpose": "Đăng TAY (mặc định, tới khi qua kiểm định API): clip chủ duyệt → gói đăng (scripts/video/yt-pack.mjs, Kho Drive shorts/_ytpack, bảng D1 yt_pack) → chủ tải lên YouTube Studio ở chế độ Unlisted → youtube-manual.yml + nút Đồng bộ đọc kênh (chỉ quyền youtube.readonly, playlistItems ≈ 1 đơn vị) tìm dòng lk:<clip> → youtube_id lên web. Đăng API (cờ yt_meta mode=api): hàng chờ D1 yt_queue → youtube-upload.yml (scripts/video/yt-upload.mjs) – docs/YOUTUBE-SETUP.md.",
       "console": "https://console.cloud.google.com/apis/api/youtube.googleapis.com/quotas",
-      "free": "10.000 đơn vị/ngày (videos.insert ≈ 1.600 + thumbnails.set 50 → ≈ 6 video/ngày); dự án chưa qua kiểm định (API compliance audit) → video tải lên bị khoá private",
-      "upgrade": "Gửi YouTube API Services audit + xin tăng hạn mức (miễn phí) – docs/YOUTUBE-SETUP.md §3",
+      "free": "Đã duyệt 10/11/2026 (project 813846697347): nhóm videos.insert 1.000 lượt/ngày (1 đơn vị/lượt) + nhóm mặc định 60.000 đơn vị/ngày (thumbnails.set 50, list 1) → ≤ 1.000 video/ngày; từ 02/11/2026 không còn khoá private",
+      "upgrade": "Đã cấp; xin lại nếu đổi mục đích sử dụng hoặc khi hết hạn cấp phép – docs/YOUTUBE-SETUP.md §3",
       "status": "Đăng tay – chờ chủ kết nối (youtube.readonly)",
       "match": [
         "youtube.googleapis.com",

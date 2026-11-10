@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.lexkite.app.core.audio.AudioLogic
 import com.lexkite.app.core.audio.SpeakListener
+import com.lexkite.app.core.call.CallPack
+import com.lexkite.app.core.rig.TeacherSignal
 import com.lexkite.app.core.skills.Reward
 import com.lexkite.app.core.skills.SkillsContent
 import com.lexkite.app.core.speak.Rtype
@@ -25,7 +27,11 @@ import kotlinx.serialization.json.JsonPrimitive
 import java.io.File
 
 /** Teacher art slot filled by :app (the 2D Ama / Carlos stills); the screens only reserve the place. */
-class SpeakSlots(val teacher: @Composable (who: String, pose: String, modifier: Modifier) -> Unit = { _, _, _ -> })
+class SpeakSlots(
+    val teacher: @Composable (who: String, pose: String, modifier: Modifier) -> Unit = { _, _, _ -> },
+    /** The live 2D teacher rig (P08 call): driven by the [TeacherSignal] the call sends; without it the still teacher is shown. */
+    val live: @Composable (who: String, signal: TeacherSignal?, modifier: Modifier) -> Unit = { who, _, modifier -> teacher(who, "point", modifier) },
+)
 
 /** Answer of the Lexkite AI proxy: a JSON `out`, a quota refusal (HTTP 429, with the body), or a failure. */
 sealed class AiResult { class Ok(val out: JsonObject) : AiResult(); class Quota(val body: JsonObject?) : AiResult(); object Failed : AiResult() }
@@ -44,7 +50,19 @@ class SpeakEnv(
     /** The screen is off (hands-free): no speech synthesis, silent chaining. */
     val screenOff: () -> Boolean = { false },
     val random: () -> Double = { Math.random() },
+    /** The call pack (P08, `#/call`): downloaded `call-pack.json`, then the cache, then the bundled starter. */
+    private val loadCall: suspend () -> CallPack? = { null },
 ) {
+    @Volatile private var callMemo: CallPack? = null
+    suspend fun callPack(): CallPack? = callMemo ?: loadCall()?.also { callMemo = it }
+    /** The `vb.call.*` device preferences of the call screens (`flt`, `asr`, `tr`): never synced; a null value removes the key. */
+    suspend fun callPref(k: String): String? = kvStr("vb.call.$k")
+    suspend fun setCallPref(k: String, v: String?) = vocab.store.put(mapOf("vb.call.$k" to v?.let { JsonPrimitive(it) }), local = false)
+    /** An on-device recogniser exists (audio stays on the phone); the call screens use "local" only with it. */
+    val onDevice: Boolean get() = speech.onDevice
+    fun listenOffline(lang: String, onPartial: (String) -> Unit, onResult: (List<String>) -> Unit, onError: (String) -> Unit) = speech.startOffline(lang, onPartial, onResult, onError)
+    fun finishListening() = speech.finish()
+
     @Volatile private var packMemo: SpeakPack? = null
     suspend fun pack(): SpeakPack? = packMemo ?: loadPack()?.also { packMemo = it }
     suspend fun say(): SayData? = loadSay()
@@ -96,7 +114,7 @@ class SpeakEnv(
     }
 
     companion object {
-        const val PACK_URL = "https://lexkite.com/data/speak-pack.json"; const val READTESTS_URL = "https://lexkite.com/data/readtests-pack.json"; const val SAY_URL = "https://lexkite.com/data/say.json"; const val AI_URL = "https://lexkite.com/api/ai"
+        const val CALL_URL = "https://lexkite.com/data/call-pack.json"; const val PACK_URL = "https://lexkite.com/data/speak-pack.json"; const val READTESTS_URL = "https://lexkite.com/data/readtests-pack.json"; const val SAY_URL = "https://lexkite.com/data/say.json"; const val AI_URL = "https://lexkite.com/api/ai"
         const val SITE = "https://lexkite.com/"
 
         /** A downloaded JSON text with a disk cache: a good download replaces the cache, a failed one falls back to it, then to [starter]. */
