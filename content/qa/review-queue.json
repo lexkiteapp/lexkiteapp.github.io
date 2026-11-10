@@ -1021115,6 +1021115,3592 @@
     "qa": {},
     "senseLock": "wiktionary-1"
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "surprise#v",
+   "batch": "20261110-r215",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "surprise",
+    "pos": "v",
+    "ipa": "/sə(ː)ˈpraɪz/",
+    "ipaUS": "/sərˈpraɪz/",
+    "def": "to make someone feel shocked or delighted by something unexpected",
+    "ex": [
+     "Every time you do that, it surprises me.",
+     "He surprised me with flowers on our anniversary."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "B1",
+    "cefrF": "A2",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 4.75,
+    "emoji": "",
+    "topic": "xw-feelings",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:surprise.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:9409186",
+      "wiktionary"
+     ],
+     "tr": {
+      "es": "wiktionary+omw+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "id": "omw+ai",
+      "th": "wiktionary+omw+ai",
+      "ja": "omw+ai",
+      "ko": "wiktionary+ai",
+      "ru": "wiktionary+ai",
+      "tr": "wiktionary+ai"
+     },
+     "trSense": "cause (someone) to feel surprise",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "grindstone#n",
+   "batch": "20261110-r215",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "grindstone",
+    "pos": "n",
+    "ipa": "/ˈɡraɪn(d)ˌstəʊn/",
+    "ipaUS": "/ˈɡraɪndstoʊn/",
+    "def": "a round stone that rotates to grind, sharpen or polish tool edges",
+    "ex": [
+     "Why not just use a grindstone?"
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.38,
+    "emoji": "",
+    "topic": "technology",
+    "vi": "đá mài",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:grindstone.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikibooks:wb446992.3"
+     ],
+     "tr": {
+      "vi": "wiktionary",
+      "es": "wiktionary+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "zh": "wiktionary+omw+ai",
+      "ja": "wiktionary+omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "wheel for grinding",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "unfurl#v",
+   "batch": "20261110-r215",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "unfurl",
+    "pos": "v",
+    "ipa": "/ʌnˈfəːl/",
+    "ipaUS": "/ənˈfɜːrl/",
+    "def": "to open or spread out something that was rolled up",
+    "ex": [
+     "Tom unfurled a huge Russian flag in the park.",
+     "They unfurled the flag at the start of the festival."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.23,
+    "emoji": "",
+    "topic": "everyday",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:unfurl.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:3902410",
+      "wiktionary"
+     ],
+     "tr": {
+      "es": "omw+ai",
+      "de": "wiktionary+ai",
+      "zh": "omw+ai"
+     },
+     "trSense": "to unroll or release",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "daub#n",
+   "batch": "20261110-r215",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)",
+    "dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "daub",
+    "pos": "n",
+    "ipa": "/dɔːb/",
+    "ipaUS": "/dɔːb/",
+    "def": "a sticky material, such as clay or dung, used to cover walls",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.16,
+    "emoji": "",
+    "topic": "architecture",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:daub.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "amniocentesis#n",
+   "batch": "20261110-r215",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "amniocentesis",
+    "pos": "n",
+    "ipa": "/ˌæmnɪə(ʊ)senˈtiːsɪs/",
+    "ipaUS": "/ˌæmnioʊsenˈtiːsɪs/",
+    "def": "a medical test that removes fluid from a pregnant woman's womb to check the baby",
+    "ex": [
+     "Outline the technique of amniocentesis.",
+     "A serious risk of amniocentesis is pregnancy loss."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 1.92,
+    "emoji": "",
+    "topic": "health",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:amniocentesis.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikibooks:wb72808.41",
+      "wikipedia:ew187698.9"
+     ],
+     "tr": {
+      "es": "wiktionary+omw+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "id": "wiktionary+ai",
+      "ja": "omw+ai"
+     },
+     "trSense": "procedure for obtaining amniotic fluid",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1-2of3+semcor"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1-2of3+semcor"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "kapok#n",
+   "batch": "20261110-r215",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)",
+    "dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "kapok",
+    "pos": "n",
+    "ipa": "/ˈkeɪpɒk/",
+    "ipaUS": "/ˈkeɪpɑːk/",
+    "def": "a soft fibre from kapok tree seed pods used for stuffing and insulation",
+    "ex": [
+     "Kapok has recently been replaced in commercial use by synthetic fibers."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 1.72,
+    "emoji": "",
+    "topic": "environment",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:kapok.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew64723.4"
+     ],
+     "tr": {},
+     "trSense": "silky fibre obtained from seed pods of the silk-cotton tree (Ceiba pentandra)",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "architecturally#adv",
+   "batch": "20261110-r213",
+   "why": [
+    "soát mẫu AI 1/3: ex: unnatural phrasing"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "architecturally",
+    "pos": "adv",
+    "ipa": "/ɑːkɪˈtektʃərəli/",
+    "ipaUS": "/ˌɑːrkɪˈtektʃərəli/",
+    "def": "in a way that relates to architecture",
+    "ex": [
+     "Washington still retains a number of architecturally historical buildings.",
+     "Christ Church has a number of architecturally significant buildings."
+    ],
+    "col": [
+     "architecturally significant",
+     "architecturally notable"
+    ],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 2.62,
+    "emoji": "",
+    "topic": "architecture",
+    "vi": "về mặt kiến trúc",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:architecturally.r.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew112191.9",
+      "wikipedia:ew128325.7"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "fr": "omw+ai"
+     },
+     "trSense": "",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [],
+      "pt": [],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "in terms of architecture",
+      "in terms of architecture",
+      "with regard to architecture"
+     ],
+     "viLem": [],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "fr": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "a",
+      "b",
+      "c"
+     ],
+     "trDrop": {
+      "es": "rỗng",
+      "pt": "rỗng",
+      "fr": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "architecture.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "zither#n",
+   "batch": "20261110-r214",
+   "why": [
+    "soát mẫu AI 1/3: vi: 'đàn tranh' is a specific Vietnamese instrument (dan tranh), not the general term for zither (which is 'đàn zither' or 'đàn sắt')"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "zither",
+    "pos": "n",
+    "ipa": "/ˈzɪðə/",
+    "ipaUS": "/ˈzɪðər/",
+    "def": "a flat musical instrument with many strings, played with a pick or fingers",
+    "ex": [
+     "Is the zither a hard instrument to learn?",
+     "Presence of the concert zither in classical music remains sparse."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 2.01,
+    "emoji": "",
+    "topic": "culture",
+    "vi": "đàn tranh",
+    "note_vi": "",
+    "m": {
+     "es": "cítara",
+     "pt": "cítara",
+     "fr": "cithare"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:zither.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:2060651",
+      "wikipedia:ew194819.10"
+     ],
+     "tr": {
+      "vi": "wiktionary",
+      "es": "wiktionary+omw+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "musical instrument",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:gpt-oss-120b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "mistral:mistral-small-3.1-24b-instruct": 4
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5,
+       5
+      ],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [
+       5,
+       5,
+       5
+      ],
+      "tr": []
+     },
+     "bt": 0.23,
+     "viBtw": [
+      "zither",
+      "đàn tranh; đàn dây",
+      "zither"
+     ],
+     "viLem": [
+      "cither",
+      "zithern"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "pt": true,
+       "fr": true,
+       "de": true,
+       "ru": true
+      }
+     },
+     "viSrc": [
+      "wk",
+      "a",
+      "c"
+     ],
+     "trDrop": {
+      "de": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "tr": "rỗng"
+     },
+     "trKeep": [
+      "es",
+      "pt",
+      "fr"
+     ]
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "culture.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "stringency#n",
+   "batch": "20261110-r214",
+   "why": [
+    "soát mẫu AI 1/3: sense: incorrect sense, should be stringency.n.01"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "stringency",
+    "pos": "n",
+    "ipa": "/ˈstrɪndʒənsi/",
+    "ipaUS": "/ˈstrɪndʒənsi/",
+    "def": "strict attention to rules and details; imposing high standards",
+    "ex": [
+     "Another difficulty is the current stringency of environmental legislation.",
+     "Scoring can be done with several degrees of stringency."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 1.84,
+    "emoji": "",
+    "topic": "work",
+    "vi": "tính nghiêm ngặt",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:strictness.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew167578.47",
+      "wikibooks:wb74180.7"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "es": "omw+ai",
+      "pt": "omw+ai"
+     },
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:gpt-oss-120b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "mistral:mistral-small-3.1-24b-instruct": 4
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "strictness; rigor",
+      "tính nghiêm ngặt; sự nghiêm khắc",
+      "strictness"
+     ],
+     "viLem": [
+      "strictness"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "pt": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "b",
+      "c"
+     ],
+     "trDrop": {
+      "es": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "pt": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "fr": "rỗng",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "work.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "demoralize#v",
+   "batch": "20261110-r214",
+   "why": [
+    "soát mẫu AI 1/3: sense: wrong sense, should be demoralize.v.01"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "demoralize",
+    "pos": "v",
+    "ipa": "/dɪˈmɒrəlaɪz/",
+    "ipaUS": "/dɪˈmɔːrəlaɪz/",
+    "def": "to make someone lose confidence or feel discouraged",
+    "ex": [
+     "The air raid was demoralizing for the enemy.",
+     "An effective tactical method is to demoralize the enemy."
+    ],
+    "col": [],
+    "syn": [
+     "depress",
+     "dismay"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 2.2,
+    "emoji": "",
+    "topic": "work",
+    "vi": "làm mất tinh thần; làm nản lòng",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:depress.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:3923668",
+      "simplewiki:sw469705.9"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "pt": "omw+ai",
+      "fr": "omw+ai"
+     },
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:gpt-oss-120b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "mistral:mistral-small-3.1-24b-instruct": 4
+     },
+     "f": [],
+     "tr": {
+      "es": [],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "to demoralize; to discourage",
+      "demoralize"
+     ],
+     "viLem": [
+      "depress",
+      "deject",
+      "cast down",
+      "get down"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "pt": true,
+       "fr": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "a",
+      "b",
+      "c"
+     ],
+     "trDrop": {
+      "es": "rỗng",
+      "pt": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "fr": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "work.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "steepness#n",
+   "batch": "20261110-r214",
+   "why": [
+    "soát mẫu AI 1/3: def: definition does not match the given sense"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "steepness",
+    "pos": "n",
+    "ipa": "/ˈstiːpnəs/",
+    "ipaUS": "/ˈstiːpnəs/",
+    "def": "the quality of being very steep",
+    "ex": [
+     "The steepness of the south side makes the many natural bays hard to reach.",
+     "There are two common ways to describe the steepness of a road or railroad."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "trBad": {
+     "es": [
+      "empinamiento"
+     ]
+    },
+    "z": 2.09,
+    "emoji": "",
+    "topic": "science",
+    "vi": "độ dốc",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:abruptness.n.02",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew226332.6",
+      "wikipedia:ew29368.16"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "es": "wiktionary+ai",
+      "ja": "omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "state or quality of being steep",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:gpt-oss-120b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "mistral:mistral-small-3.1-24b-instruct": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [],
+      "fr": [],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [
+       5,
+       5,
+       5
+      ],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [
+       5,
+       5,
+       5
+      ],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "steepness; slope",
+      "steepness; degree of slope",
+      "steepness"
+     ],
+     "viLem": [
+      "abruptness",
+      "precipitousness"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "ja": true,
+       "ru": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "a",
+      "b",
+      "c"
+     ],
+     "trDrop": {
+      "es": "cần 2 nguồn độc lập (Wiktionary / OMW / AI), từ không có thật (wordfreq: empinamiento)",
+      "pt": "rỗng",
+      "fr": "rỗng",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "science.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "recrimination#n",
+   "batch": "20261110-r214",
+   "why": [
+    "soát mẫu AI 1/3: ex: 'From now on there would be recriminations' is unnatural and misleading; the word implies a specific context of mutual blame (e.g., after a failure or conflict), which is missing here."
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "recrimination",
+    "pos": "n",
+    "ipa": "/rɪˌkrɪmɪˈneɪʃən/",
+    "ipaUS": "/rɪˌkrɪmɪˈneɪʃn/",
+    "def": "mutual accusations between people",
+    "ex": [
+     "From now on there would be recriminations.",
+     "Recriminations between the various factions involved developed over time."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 2.2,
+    "emoji": "",
+    "topic": "society",
+    "vi": "sự buộc tội lẫn nhau",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:recrimination.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wikiversity:wvs99051.171",
+      "commonvoice:cv1.118697"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "es": "omw+ai"
+     },
+     "trSense": "counter- or mutual accusation",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-2+semcor"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:gpt-oss-120b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "mistral:mistral-small-3.1-24b-instruct": 4
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [],
+      "fr": [],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "mutual accusation",
+      "recrimination"
+     ],
+     "viLem": [],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C2",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "b",
+      "c"
+     ],
+     "trDrop": {
+      "es": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "pt": "rỗng",
+      "fr": "rỗng",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-2+semcor",
+    "tp": [
+     "society.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "calligrapher#n",
+   "batch": "20261110-r214",
+   "why": [
+    "soát mẫu AI 1/3: ex: 'making a rough draft' is unnatural for a calligrapher, who typically produces finished, artistic work, not rough drafts."
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "calligrapher",
+    "pos": "n",
+    "ipa": "/kæˈlɪɡrəfə/",
+    "ipaUS": "/kəˈlɪɡrəfər/",
+    "def": "a person who writes beautifully by hand",
+    "ex": [
+     "The calligrapher is making a rough draft.",
+     "Calligraphers usually had a higher status than other artists."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "trBad": {
+     "hi": [
+      "खक"
+     ]
+    },
+    "z": 2.1,
+    "emoji": "",
+    "topic": "xw-arts",
+    "vi": "nhà thư pháp",
+    "note_vi": "",
+    "m": {
+     "es": "calígrafo",
+     "pt": "calígrafo",
+     "fr": "calligraphe",
+     "ja": "書家"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:calligrapher.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew803.15",
+      "wikipedia:ew167020.6"
+     ],
+     "tr": {
+      "vi": "wiktionary",
+      "es": "wiktionary+omw+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "zh": "wiktionary+ai",
+      "ja": "wiktionary+omw+ai",
+      "ko": "wiktionary+ai",
+      "hi": "wiktionary+ai",
+      "ar": "wiktionary+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "one who practices calligraphy",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:gpt-oss-120b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "mistral:mistral-small-3.1-24b-instruct": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [
+       5,
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5,
+       5
+      ],
+      "ko": [
+       5,
+       5,
+       5
+      ],
+      "hi": [
+       5,
+       5,
+       5
+      ],
+      "ar": [
+       5,
+       5,
+       5
+      ],
+      "ru": [
+       5,
+       5,
+       5
+      ],
+      "tr": []
+     },
+     "bt": 0.31,
+     "viBtw": [
+      "calligrapher",
+      "person who writes beautifully",
+      "calligrapher"
+     ],
+     "viLem": [
+      "calligraphist"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "pt": true,
+       "fr": true,
+       "zh": true,
+       "ja": true,
+       "ko": true,
+       "hi": true,
+       "ar": true,
+       "ru": true
+      }
+     },
+     "viSrc": [
+      "wk",
+      "wv",
+      "a",
+      "b"
+     ],
+     "trDrop": {
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ko": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "hi": "cần 2 nguồn độc lập (Wiktionary / OMW / AI), từ không có thật (wordfreq: खक)",
+      "ar": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ru": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "tr": "rỗng"
+     },
+     "trKeep": [
+      "es",
+      "pt",
+      "fr",
+      "ja"
+     ]
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "xw-arts.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "skeptically#adv",
+   "batch": "20261110-r214",
+   "why": [
+    "soát mẫu AI 1/3: vi: not an adverbial form, should be a phrase like “một cách hoài nghi”"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "skeptically",
+    "pos": "adv",
+    "ipa": "/ˈskeptɪkli/",
+    "ipaUS": "/ˈskeptɪkəli/",
+    "def": "in a doubtful, questioning way",
+    "ex": [
+     "Tom shook his head skeptically.",
+     "Tom looked at Mary skeptically."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 2.1,
+    "emoji": "",
+    "topic": "xw-feelings",
+    "vi": "hoài nghi",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:sceptically.r.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:9463828",
+      "tatoeba:9525482"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "es": "wiktionary+ai",
+      "th": "omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "in a skeptical manner",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:gpt-oss-120b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "mistral:mistral-small-3.1-24b-instruct": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [],
+      "fr": [],
+      "de": [],
+      "id": [],
+      "th": [
+       5,
+       5,
+       5
+      ],
+      "zh": [],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [
+       5,
+       5,
+       5
+      ],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "doubtful; skeptical",
+      "with doubt",
+      "skeptically"
+     ],
+     "viLem": [
+      "sceptically"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "th": true,
+       "ru": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "a",
+      "b",
+      "c"
+     ],
+     "trDrop": {
+      "es": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "pt": "rỗng",
+      "fr": "rỗng",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "zh": "rỗng",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "xw-feelings.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "threateningly#adv",
+   "batch": "20261110-r214",
+   "why": [
+    "soát mẫu AI 1/3: vi: translation is a verb phrase, not an adverb; should be an adverbial form such as \"một cách đe dọa\""
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "threateningly",
+    "pos": "adv",
+    "ipa": "/ˈθretənɪŋli/",
+    "ipaUS": "/ˈθretənɪŋli/",
+    "def": "in a way that seems dangerous or scary",
+    "ex": [
+     "The river moved slowly and threateningly.",
+     "Unexpectedly, Richard walks threateningly out of the fog."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 2,
+    "emoji": "",
+    "topic": "xw-feelings",
+    "vi": "đe doạ",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:menacingly.r.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:10040040",
+      "commonvoice:cv2.1267827"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "es": "wiktionary+ai",
+      "pt": "wiktionary+ai",
+      "zh": "omw+ai"
+     },
+     "trSense": "In a threatening manner",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:gpt-oss-120b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "mistral:mistral-small-3.1-24b-instruct": 4
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [
+       5,
+       5,
+       5
+      ],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "threateningly; in a threatening way",
+      "menacingly; threateningly; intimidatingly",
+      "threateningly"
+     ],
+     "viLem": [
+      "menacingly"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C1",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "pt": true,
+       "zh": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "a"
+     ],
+     "trDrop": {
+      "es": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "pt": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "fr": "rỗng",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "xw-feelings.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "steeple#n",
+   "batch": "20261110-r215",
+   "why": [
+    "dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "steeple",
+    "pos": "n",
+    "ipa": "/ˈsti(ː)pəl/",
+    "ipaUS": "/ˈstiːpl/",
+    "def": "a tall tower, often on a church, that tapers to a point",
+    "ex": [
+     "The slated little steeple explains the common name.",
+     "The tower does not resemble the original steeple."
+    ],
+    "col": [
+     "church steeple"
+    ],
+    "syn": [
+     "spire"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.74,
+    "emoji": "",
+    "topic": "architecture",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:steeple.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "commonvoice:cv1.184318",
+      "wikipedia:ew60068.2"
+     ],
+     "tr": {
+      "ja": "wiktionary+omw+ai"
+     },
+     "trSense": "a tall tower, often on a church",
+     "col": "wordnet/tatoeba",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "toller#n",
+   "batch": "20261110-r215",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)",
+    "dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "toller",
+    "pos": "n",
+    "ipa": "/ˈtəʊlə/",
+    "ipaUS": "/ˈtoʊlər/",
+    "def": "a person who rings a church bell to call people to service",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "ringer"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.11,
+    "emoji": "",
+    "topic": "xw-religion-history",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:toller.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "yachtsman#n",
+   "batch": "20261110-r215",
+   "why": [
+    "dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "yachtsman",
+    "pos": "n",
+    "ipa": "/ˈjɒtsmən/",
+    "ipaUS": "/ˈjɑːtsmən/",
+    "def": "a person who owns or sails a yacht",
+    "ex": [
+     "Heath was a keen yachtsman.",
+     "The river is used by yachtsmen as a very safe harbour."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.11,
+    "emoji": "",
+    "topic": "travel",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:yachtsman.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew52269.15",
+      "commonvoice:cv2.277453"
+     ],
+     "tr": {
+      "ja": "wiktionary+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "man who sails a yacht",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "tympanic#adj",
+   "batch": "20261110-r215",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)",
+    "dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "tympanic",
+    "pos": "adj",
+    "ipa": "/tɪmˈpænɪk/",
+    "ipaUS": "/tɪmˈpænɪk/",
+    "def": "like or related to a drum",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.1,
+    "emoji": "",
+    "topic": "health",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:tympanic.a.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "wholesomeness#n",
+   "batch": "20261110-r215",
+   "why": [
+    "dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "wholesomeness",
+    "pos": "n",
+    "ipa": "/ˈhəʊlsʌmnəs/",
+    "ipaUS": "/ˈhoʊlsəmnəs/",
+    "def": "the quality of being good for you",
+    "ex": [
+     "This is a movie that promotes American wholesomeness.",
+     "There is something to be said about the wholesomeness of that."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.1,
+    "emoji": "",
+    "topic": "health",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:wholesomeness.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:8783285",
+      "tatoeba:9143352"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "fenugreek#n",
+   "batch": "20261110-r215",
+   "why": [
+    "dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "fenugreek",
+    "pos": "n",
+    "ipa": "/ˈfenəˌɡriːk/",
+    "ipaUS": "/ˈfenuːɡrik/",
+    "def": "a plant with off‑white flowers whose seeds are used as a spice",
+    "ex": [
+     "The best known member is the herb fenugreek.",
+     "Fenugreek is believed to have been brought into cultivation in the Near East."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.09,
+    "emoji": "",
+    "topic": "food",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:fenugreek.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "commonvoice:cv2.1094567",
+      "commonvoice:cv2.241284"
+     ],
+     "tr": {
+      "fr": "omw+ai"
+     },
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "atonal#adj",
+   "batch": "20261110-r215",
+   "why": [
+    "dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "atonal",
+    "pos": "adj",
+    "ipa": "/eɪˈtəʊnəl/",
+    "ipaUS": "/eɪˈtoʊnl/",
+    "def": "music that does not follow a traditional key",
+    "ex": [
+     "The music is again atonal.",
+     "The string quartet is atonal and uses twelve-tone technique."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.08,
+    "emoji": "",
+    "topic": "culture",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:atonal.a.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "commonvoice:cv2.888091",
+      "wikipedia:ew217452.1"
+     ],
+     "tr": {
+      "pt": "omw+ai",
+      "fr": "omw+ai"
+     },
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "bagman#n",
+   "batch": "20261110-r215",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)",
+    "dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "bagman",
+    "pos": "n",
+    "ipa": "/ˈbæɡmən/",
+    "ipaUS": "/ˈbæɡmən/",
+    "def": "a person who collects or moves illegal money",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.06,
+    "emoji": "",
+    "topic": "crime",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:bagman.n.02",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "cryogenics#n",
+   "batch": "20261110-r215",
+   "why": [
+    "dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "cryogenics",
+    "pos": "n",
+    "ipa": "/ˌkraɪəʊˈdʒenɪks/",
+    "ipaUS": "/ˈkraɪədʒenɪks/",
+    "def": "the science of producing very low temperatures",
+    "ex": [
+     "Helium at low temperatures is used in cryogenics.",
+     "Helium cryogenics are used to reduce radiation damage in protein crystals."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.05,
+    "emoji": "",
+    "topic": "science",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:cryogenics.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "simplewiki:sw357.12",
+      "wikipedia:ew34151.6"
+     ],
+     "tr": {
+      "pt": "omw+ai",
+      "fr": "omw+ai"
+     },
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "stakeout#n",
+   "batch": "20261110-r215",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)",
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "stakeout",
+    "pos": "n",
+    "ipa": "/ˈsteɪkaʊt/",
+    "ipaUS": "/ˈsteɪkaʊt/",
+    "def": "the covert watching of a place or person by police",
+    "ex": [
+     "The police had a stakeout in place where they expected the crime to occur."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.05,
+    "emoji": "",
+    "topic": "crime",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:stakeout.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wiktionary"
+     ],
+     "tr": {
+      "ja": "omw+ai"
+     },
+     "trSense": "covertly watching a location",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "tricuspid#adj",
+   "batch": "20261110-r215",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)",
+    "dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "tricuspid",
+    "pos": "adj",
+    "ipa": "/ˈtraɪkəˌspɪd/",
+    "ipaUS": "/traɪˈkʌspəd/",
+    "def": "having three cusps or points, especially on a tooth",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.05,
+    "emoji": "",
+    "topic": "health",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:tricuspid.s.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {
+      "pt": "omw+ai",
+      "zh": "omw+ai"
+     },
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "cauterize#v",
+   "batch": "20261110-r215",
+   "why": [
+    "giám khảo nêu lỗi: definition omits freeze; vi too generic"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "cauterize",
+    "pos": "v",
+    "ipa": "/ˈkɔːtəraɪz/",
+    "ipaUS": "/ˈkɔːtəraɪz/",
+    "def": "to burn tissue with a hot iron, electricity or a caustic agent",
+    "ex": [
+     "The medic cauterized the wound.",
+     "She had to cauterize the wound."
+    ],
+    "col": [],
+    "syn": [
+     "burn"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "trBad": {
+     "de": [
+      "kauterisieren"
+     ]
+    },
+    "z": 2.04,
+    "emoji": "",
+    "topic": "health",
+    "vi": "đốt",
+    "note_vi": "",
+    "m": {
+     "es": "cauterizar",
+     "pt": "cauterizar",
+     "fr": "cautériser",
+     "de": "kauterisieren",
+     "zh": "灼烧",
+     "ja": "焼灼する",
+     "ar": "حرق",
+     "ru": "прижигать"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:cauterize.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:11204524",
+      "tatoeba:7071535"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "es": "wiktionary+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "zh": "omw+ai",
+      "ja": "wiktionary+omw+ai",
+      "ar": "omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "burn tissue",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 4,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [
+      "definition omits freeze; vi too generic"
+     ],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5,
+       5
+      ],
+      "id": [],
+      "th": [],
+      "zh": [
+       4,
+       4,
+       5
+      ],
+      "ja": [
+       5,
+       5,
+       5
+      ],
+      "ko": [],
+      "hi": [],
+      "ar": [
+       4,
+       2,
+       4
+      ],
+      "ru": [
+       4,
+       5,
+       5
+      ],
+      "tr": []
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "to cauterize",
+       "to cauterize",
+       "to burn; to cauterize"
+      ],
+      "pt": [
+       "to cauterize",
+       "to cauterize",
+       "to burn; to cauterize"
+      ],
+      "fr": [
+       "to cauterize",
+       "to cauterize",
+       "to burn; to cauterize"
+      ],
+      "de": [
+       "to cauterize",
+       "to cauterize",
+       "to burn; to cauterize"
+      ],
+      "id": [],
+      "th": [],
+      "zh": [
+       "to scorch; to burn",
+       "to burn; to sear",
+       "to burn; to scorch"
+      ],
+      "ja": [
+       "to cauterize; to scorch",
+       "to cauterize; to burn",
+       "to burn; to scorch"
+      ],
+      "ko": [],
+      "hi": [],
+      "ar": [
+       "to burn",
+       "to burn",
+       "to burn; to scorch"
+      ],
+      "ru": [
+       "to scorch; to burn",
+       "to cauterize; to burn",
+       "to burn; to cauterize"
+      ],
+      "tr": []
+     },
+     "viBtw": [
+      "to burn",
+      "to burn; to sear",
+      "to burn; to scorch"
+     ],
+     "viLem": [
+      "cauterise",
+      "burn"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C1",
+      "C1"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "pt": true,
+       "fr": true,
+       "de": true,
+       "zh": true,
+       "ja": true,
+       "ar": true,
+       "ru": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "b",
+      "c"
+     ]
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "health.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "interrelationship#n",
+   "batch": "20261110-r215",
+   "why": [
+    "dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "interrelationship",
+    "pos": "n",
+    "ipa": "/ˌɪntərɪˈleɪʃənʃɪp/",
+    "ipaUS": "/ˌɪntərriˈleɪʃənʃɪp/",
+    "def": "a mutual or reciprocal relation between things",
+    "ex": [
+     "You consider interrelationships when making decisions.",
+     "There are interrelationships between depression and physical health."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.04,
+    "emoji": "",
+    "topic": "education",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:interrelation.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikiversity:wvs272696.8",
+      "wikibooks:wb360138.1"
+     ],
+     "tr": {
+      "es": "omw+ai",
+      "zh": "omw+ai",
+      "ja": "omw+ai"
+     },
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "windowpane#n",
+   "batch": "20261110-r215",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "windowpane",
+    "pos": "n",
+    "ipa": "/ˈwɪndəʊˌpeɪn/",
+    "ipaUS": "/ˈwɪndoʊpeɪn/",
+    "def": "a piece of glass that fills a window",
+    "ex": [
+     "John broke the windowpane yesterday.",
+     "The rain beat heavily against the windowpane."
+    ],
+    "col": [],
+    "syn": [
+     "window"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.04,
+    "emoji": "",
+    "topic": "architecture",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:windowpane.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:8838724",
+      "tatoeba:12177577"
+     ],
+     "tr": {
+      "es": "omw+ai",
+      "fr": "wiktionary+ai",
+      "th": "omw+ai",
+      "zh": "wiktionary+ai",
+      "ja": "wiktionary+omw+ai",
+      "tr": "wiktionary+ai"
+     },
+     "trSense": "piece of glass filling a window",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "capstan#n",
+   "batch": "20261110-r215",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)",
+    "dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "capstan",
+    "pos": "n",
+    "ipa": "/ˈkæpstən/",
+    "ipaUS": "/ˈkæpstn/",
+    "def": "a vertical rotating machine on ships used to pull ropes or raise anchors",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.03,
+    "emoji": "",
+    "topic": "technology",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:capstan.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {
+      "fr": "omw+ai",
+      "zh": "omw+ai"
+     },
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "faller#n",
+   "batch": "20261110-r215",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)",
+    "dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "faller",
+    "pos": "n",
+    "ipa": "/ˈfɔːlə/",
+    "ipaUS": "/ˈfɔːlər/",
+    "def": "a person who falls",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.03,
+    "emoji": "",
+    "topic": "health",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:faller.n.02",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "toxicologist#n",
+   "batch": "20261110-r215",
+   "why": [
+    "giám khảo: có giám khảo chấm < 4",
+    "giám khảo nêu lỗi: Vietnamese term unnatural"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "toxicologist",
+    "pos": "n",
+    "ipa": "/ˌtɒksɪˈkɒləˌdʒɪst/",
+    "ipaUS": "/ˌtɑːksɪˈkɑːlədʒɪst/",
+    "def": "a scientist who studies poisons and how to treat them",
+    "ex": [
+     "Dr. Jackson is a toxicologist.",
+     "Nearly all toxicologists agree on that."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.03,
+    "emoji": "",
+    "topic": "science",
+    "vi": "nhà độc chất học",
+    "note_vi": "",
+    "m": {
+     "de": "Toxikologe",
+     "th": "นักพิษวิทยา",
+     "ru": "токсиколог"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:toxicologist.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:12235553",
+      "commonvoice:cv0.31316"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "de": "wiktionary+ai",
+      "th": "omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "scientist or physician who speciality is toxicology",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 3,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [
+      "Vietnamese term unnatural"
+     ],
+     "tr": {
+      "es": [],
+      "pt": [],
+      "fr": [],
+      "de": [
+       5,
+       5,
+       5
+      ],
+      "id": [],
+      "th": [
+       5,
+       5,
+       5
+      ],
+      "zh": [],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [
+       5,
+       5,
+       5
+      ],
+      "tr": []
+     },
+     "bt": null,
+     "btw": {
+      "es": [],
+      "pt": [],
+      "fr": [],
+      "de": [
+       "toxicologist",
+       "toxicologist",
+       "toxicologist; expert on poisons"
+      ],
+      "id": [],
+      "th": [
+       "toxicologist",
+       "toxicologist; poison specialist",
+       "toxicologist; poison expert"
+      ],
+      "zh": [],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [
+       "toxicologist",
+       "toxicologist",
+       "toxicologist; expert on poisons"
+      ],
+      "tr": []
+     },
+     "viBtw": [
+      "poison scholar; toxicologist",
+      "toxicologist; poison scientist",
+      "poison expert; toxicologist"
+     ],
+     "viLem": [],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C1",
+      "C1"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "de": true,
+       "th": true,
+       "ru": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "b",
+      "c"
+     ]
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "science.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "neutron#n",
+   "batch": "20261110-r215",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "neutron",
+    "pos": "n",
+    "ipa": "/ˈn(j)uːtrɒn/",
+    "ipaUS": "/ˈnuːtrɑːn/",
+    "def": "a subatomic particle in an atom’s nucleus with no charge and mass like a proton",
+    "ex": [
+     "Neutrons can make other objects, or material, radioactive.",
+     "Then the neutrons are whatever number is left over."
+    ],
+    "col": [
+     "neutron star",
+     "neutron bomb",
+     "neutron radiation"
+    ],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.44,
+    "emoji": "",
+    "topic": "science",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:neutron.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew25856.6",
+      "wikibooks:wb215352.5"
+     ],
+     "tr": {
+      "es": "wiktionary+omw+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "id": "omw+ai",
+      "th": "wiktionary+omw+ai",
+      "zh": "wiktionary+ai",
+      "ja": "wiktionary+omw+ai",
+      "ko": "wiktionary+ai",
+      "ar": "wiktionary+omw+ai",
+      "ru": "wiktionary+ai",
+      "tr": "wiktionary+ai"
+     },
+     "trSense": "subatomic particle",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "unrecognizable#adj",
+   "batch": "20261110-r215",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "unrecognizable",
+    "pos": "adj",
+    "ipa": "/ʌnˈrekə(ɡ)naɪzəbəl/",
+    "ipaUS": "/ənˌrekəɡˈnaɪzəbl/",
+    "def": "cannot be recognized because it has been greatly changed or damaged",
+    "ex": [
+     "Some are obvious, while others are almost unrecognizable.",
+     "Without the head, the whole protein becomes unrecognizable to antibodies."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.76,
+    "emoji": "",
+    "topic": "xw-everyday",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:unrecognizable.s.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "commonvoice:cv2.469480",
+      "commonvoice:cv2.360082"
+     ],
+     "tr": {
+      "es": "wiktionary+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "that cannot be recognized",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "duodenum#n",
+   "batch": "20261110-r215",
+   "why": [
+    "dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "duodenum",
+    "pos": "n",
+    "ipa": "/ˌdjuːə(ʊ)ˈdiːnəm/",
+    "ipaUS": "/duˈɑːdənəm/",
+    "def": "the first part of the small intestine, between the stomach and jejunum",
+    "ex": [
+     "Duodenum site of most intestinal digestion.",
+     "The duodenum is divided into four portions."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.28,
+    "emoji": "",
+    "topic": "health",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:duodenum.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikibooks:wb2266.2",
+      "wikibooks:wb31236.4"
+     ],
+     "tr": {
+      "es": "wiktionary+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "zh": "wiktionary+ai",
+      "ja": "wiktionary+omw+ai",
+      "ko": "wiktionary+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "first part of the small intestine",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "reconnoitre#v",
+   "batch": "20261110-r214",
+   "why": [
+    "soát mẫu AI 1/3: sense: wrong sense, should be related to reconnaissance"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "reconnoitre",
+    "pos": "v",
+    "ipa": "/ˌrekəˈnɔɪtə/",
+    "ipaUS": "/ˌriːkəˈnɔɪtər/",
+    "def": "to explore an area, especially to gather information about something or someone",
+    "ex": [
+     "The secondary mission objective is to reconnoitre ground installations.",
+     "Soon new battery positions had to be reconnoitred as the advance gathered pace."
+    ],
+    "col": [],
+    "syn": [
+     "scout"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 1.84,
+    "emoji": "",
+    "topic": "military",
+    "vi": "trinh sát; do thám",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:scout.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew89271.3",
+      "commonvoice:cv1.140888"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "es": "omw+ai",
+      "fr": "omw+ai",
+      "zh": "omw+ai"
+     },
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:gpt-oss-120b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "mistral:mistral-small-3.1-24b-instruct": 4
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       2,
+       4,
+       5
+      ],
+      "pt": [],
+      "fr": [
+       2,
+       5,
+       5
+      ],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [
+       5,
+       5,
+       5
+      ],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "reconnaissance; espionage",
+      "trinh sát; do thám; khám phá",
+      "to scout; to explore"
+     ],
+     "viLem": [
+      "scout",
+      "reconnoiter"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {
+      "es": "pos",
+      "fr": "pos"
+     },
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "fr": true,
+       "zh": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "b",
+      "c"
+     ],
+     "trDrop": {
+      "es": "khác từ loại/khác từ, cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "pt": "rỗng",
+      "fr": "khác từ loại/khác từ, cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "xw-everyday.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "intraspecific#adj",
+   "batch": "20261110-r214",
+   "why": [
+    "soát mẫu AI 1/3: vi: translation should be \"cùng loài\" rather than \"trong loài\""
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "intraspecific",
+    "pos": "adj",
+    "ipa": "/ˌɪntrəspɪˈsɪfɪk/",
+    "ipaUS": "/ˌɪntrəspəˈsɪfək/",
+    "def": "occurring within the same species",
+    "ex": [
+     "The possible cause may instead have been intraspecific combat.",
+     "When resources are infinite, intraspecific competition does not occur and populations can grow exponentially."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 1.9,
+    "emoji": "",
+    "topic": "xw-nature",
+    "vi": "trong loài",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:intraspecies.a.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew30467.51",
+      "commonvoice:cv2.1074422"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "fr": "wiktionary+ai",
+      "ja": "wiktionary+ai"
+     },
+     "trSense": "Occurring among members of the same species",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:gpt-oss-120b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "mistral:mistral-small-3.1-24b-instruct": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [],
+      "pt": [],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [
+       5,
+       5,
+       5
+      ],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "within species",
+      "within species",
+      "within a species"
+     ],
+     "viLem": [
+      "intraspecies"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "fr": true,
+       "ja": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "b",
+      "c"
+     ],
+     "trDrop": {
+      "es": "rỗng",
+      "pt": "rỗng",
+      "fr": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "xw-nature.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "homeostasis#n",
+   "batch": "20261110-r217",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "homeostasis",
+    "pos": "n",
+    "ipa": "/ˌhɒmɪə(ʊ)ˈsteɪsɪs/",
+    "ipaUS": "/ˌhoʊmioʊˈsteɪsəs/",
+    "def": "the process by which a body keeps its internal conditions stable",
+    "ex": [
+     "The body always tries to stay in homeostasis.",
+     "Human iron homeostasis is regulated at two different levels."
+    ],
+    "col": [
+     "maintain homeostasis"
+    ],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.74,
+    "emoji": "",
+    "topic": "health",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:homeostasis.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "simplewiki:sw307142.7",
+      "commonvoice:cv2.1215850"
+     ],
+     "tr": {
+      "es": "wiktionary+omw+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "id": "wiktionary+omw+ai",
+      "zh": "omw+ai",
+      "ja": "wiktionary+ai",
+      "ko": "wiktionary+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "ability to stabilize internal environment",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "ignominious#adj",
+   "batch": "20261110-r217",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "ignominious",
+    "pos": "adj",
+    "ipa": "/ˌɪɡnə(ʊ)ˈmɪniəs/",
+    "ipaUS": "/ˌɪɡnəˈmɪniəs/",
+    "def": "deserving of disgrace or dishonour; contemptible and despicable",
+    "ex": [
+     "The director was an ignominious person.",
+     "The band came to an ignominious end."
+    ],
+    "col": [],
+    "syn": [
+     "black",
+     "disgraceful",
+     "shameful"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 2.34,
+    "emoji": "",
+    "topic": "society",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:black.s.12",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "octanove",
+     "ex": [
+      "commonvoice:cv0.41784",
+      "commonvoice:cv2.1013508"
+     ],
+     "tr": {
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "id": "omw+ai",
+      "ja": "omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "causing or marked by disgrace or dishonour — see also disgraceful, dishonourable",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "functionary#n",
+   "batch": "20261110-r217",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-10",
+   "data": {
+    "w": "functionary",
+    "pos": "n",
+    "ipa": "/ˈfʌŋ(k)ʃnəri/",
+    "ipaUS": "/ˈfʌŋkʃəneri/",
+    "def": "a low-level official who carries out a simple task with little authority",
+    "ex": [
+     "A number of regional trade union leaders and mid-level functionaries were active supporters.",
+     "The school was intended to train an elite of party and trade union functionaries."
+    ],
+    "col": [],
+    "syn": [
+     "official"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.34,
+    "emoji": "",
+    "topic": "government",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:official.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew23326.4",
+      "wikipedia:ew173758.5"
+     ],
+     "tr": {
+      "es": "wiktionary+omw+ai",
+      "pt": "wiktionary+ai",
+      "fr": "wiktionary+omw+ai",
+      "id": "omw+ai",
+      "zh": "wiktionary+omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "a person employed as an official in a bureaucracy",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
   }
  ]
 }
