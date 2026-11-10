@@ -14,6 +14,7 @@
 
 ## Đo
 - `node scripts/test/scroll-perf.mjs --root dist --device phone|desktop|webkit [--themes light,dark] [--only a,b] [--variant noblur|noshadow|nocv|noanim|nofilter] [--check]`. Chỉ chạy trên CI, kết quả ở tóm tắt job và artifact `scroll-perf-*`.
+- Runner ồn: màn vượt ngưỡng khung rớt/task dài/layout được đo đủ 3 lượt và chấm **trung vị** từng chỉ số (`scripts/test/lib/perf-median.mjs`, log `↻`); ngưỡng không đổi, khựng lặp ở đa số lượt vẫn đỏ.
 - Dữ liệu `?demo=1` + `lk.ux1=1`, KHÔNG `?sandbox=1`: sandbox không ghi `lk.onb` nên shell ẩn lúc tải (CLS giả). Thiếu `lk.ux1` là đo nhầm giao diện cũ vì `/api/config` hermetic rỗng.
 - Điện thoại 390×844 (màn trong phiên 360×640), CPU 4×, mạng 4G chậm; ảnh ngoài về chậm 500 ms với cỡ thật để lộ chỗ thiếu giữ chỗ.
 - iOS: `ios-e2e.yml` đo trong WKWebView thật trên Simulator (dòng `SCROLL` trong log driver); đổi chiều cao > 100 px, nhảy ngược hoặc thanh dính lệch thành lỗi.
