@@ -133,7 +133,8 @@
     "encourage",
     "laugh",
     "empathy",
-    "thumbs_up"
+    "thumbs_up",
+    "talk"
    ],
    "gestures": {
     "nod": {
@@ -322,7 +323,8 @@
     "encourage",
     "laugh",
     "empathy",
-    "thumbs_up"
+    "thumbs_up",
+    "talk"
    ],
    "gestures": {
     "nod": {
@@ -1065,7 +1067,8 @@
    "encourage",
    "laugh",
    "empathy",
-   "thumbs_up"
+   "thumbs_up",
+   "talk"
   ],
   "maxStillBytes": 61440,
   "fallbackPose": "happy"
