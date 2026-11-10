@@ -1,5 +1,6 @@
 package com.lexkite.app
 
+import androidx.compose.runtime.Composable
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.ui.Modifier
@@ -73,7 +74,7 @@ class WriteSnapshotTest {
         return EssayUi(task1, data, x, text, report, if (task1) emptyList() else saved, if (task1) 1200 else 2400, false, "")
     }
 
-    private fun screen(name: String, lang: String) {
+    @Composable private fun screen(name: String, lang: String) {
         val tx = StudyTx.of(Fixtures.t(lang), Fixtures.t("vi"))
         when (name) {
             "room" -> EssayLayout(ui(false, "Some people believe that university education should be free", false), tx, EssayActions(), {})

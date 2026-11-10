@@ -7,7 +7,7 @@ import LKStore
 actor WriteContentStore {
     static let shared = WriteContentStore()
     static let path = "data/write-pack.json"
-    private var memo: WritePack?
+    private var memo: WritePack? = nil
     func pack(source: LessonTextSource = LessonRemote.shared) async -> WritePack? {
         if let memo { return memo }
         guard let t = await source.text(Self.path), let p = WritePack(text: t) else { return nil }
@@ -44,15 +44,15 @@ final class EssayModel {
     private(set) var models: [JSON] = []
     private(set) var catalog = TopicCatalog()
     private(set) var current: JSON = .null
-    private(set) var report: Report?
+    private(set) var report: Report? = nil
     private(set) var saved: [JSON] = []
-    private(set) var notice: Notice?
+    private(set) var notice: Notice? = nil
     enum Notice: Equatable { case tooShort, timeUp }
     var text = "" { didSet { if text != oldValue { textChanged() } } }
     private(set) var running = false
     private(set) var left: Int
-    private var arg: String?
-    private var saveTask: Task<Void, Never>?
+    private var arg: String? = nil
+    private var saveTask: Task<Void, Never>? = nil
 
     init(ctx: SkillsContext, kind: Kind, arg: String?, defaults: UserDefaults = .standard) {
         self.ctx = ctx; self.kind = kind; self.arg = arg; self.defaults = defaults

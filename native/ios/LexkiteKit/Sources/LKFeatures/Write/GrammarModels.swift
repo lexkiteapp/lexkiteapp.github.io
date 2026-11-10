@@ -91,11 +91,11 @@ final class GrammarLessonModel {
     private(set) var built: [[Int]] = []
     private(set) var arrangeOK: [Bool?] = []
     private(set) var quizPicked: [Int: Int] = [:]
-    private(set) var quizSummary: (right: Int, pct: Int, xp: Int)?
+    private(set) var quizSummary: (right: Int, pct: Int, xp: Int)? = nil
     private(set) var drills: [DrillState] = []
-    private(set) var drillSummary: (right: Int, pct: Int, xp: Int)?
+    private(set) var drillSummary: (right: Int, pct: Int, xp: Int)? = nil
     var ownText = ""
-    private(set) var ownResult: (ok: Bool, hit: String, first: Bool)?
+    private(set) var ownResult: (ok: Bool, hit: String, first: Bool)? = nil
     private(set) var ownShort = false
     private let shuffle: Bool
 
@@ -255,10 +255,10 @@ final class GrammarMixModel {
     private(set) var items: [Item] = []
     private(set) var i = 0
     private(set) var right = 0
-    private(set) var picked: Int?
+    private(set) var picked: Int? = nil
     private(set) var drill = DrillState()
     private(set) var loaded = false
-    private(set) var summary: (right: Int, pct: Int, xp: Int)?
+    private(set) var summary: (right: Int, pct: Int, xp: Int)? = nil
     private let shuffle: Bool
     init(ctx: SkillsContext, chapter: Int?, count: Int, pack: GrammarPack? = nil, shuffle: Bool = true) {
         self.ctx = ctx; chapterN = chapter; self.count = max(1, count); self.pack = pack ?? GrammarStore.pack; self.shuffle = shuffle

@@ -18,7 +18,7 @@ final class ConfidenceModel {
     private let defaults: UserDefaults
     private(set) var progress: JSON
     // unit run
-    private(set) var runStep: Int?
+    private(set) var runStep: Int? = nil
     private(set) var shadow: [String: Int] = [:]
     private(set) var shadowIndex = 0
     private(set) var gapIndex = 0
@@ -26,27 +26,27 @@ final class ConfidenceModel {
     private(set) var feedback: [String: String] = [:]
     private(set) var heardText: [String: String] = [:]
     private(set) var marks: [String: [(word: String, heard: Bool?)]] = [:]
-    private(set) var gapState: String?            // nil | "ok" | "miss"
+    private(set) var gapState: String? = nil            // nil | "ok" | "miss"
     private(set) var hint = false
-    private(set) var listening: String?
-    private(set) var micError: String?
-    private(set) var playing: Int?
-    private(set) var savedCards: Int?
+    private(set) var listening: String? = nil
+    private(set) var micError: String? = nil
+    private(set) var playing: Int? = nil
+    private(set) var savedCards: Int? = nil
     private var playToken = 0
     // daily
     private(set) var recording = false
     private(set) var secsLeft = Confidence.dailySeconds
     private(set) var live = ""
-    private(set) var metrics: Metrics?
-    private(set) var rating: Int?
-    private(set) var dailyScore: Int?
+    private(set) var metrics: Metrics? = nil
+    private(set) var rating: Int? = nil
+    private(set) var dailyScore: Int? = nil
     private(set) var newRecord = false
     private var said = ""
     private var t0 = Date()
-    private var partialAt: Date?
+    private var partialAt: Date? = nil
     private var pauseCount = 0
     private var recordID = ""
-    private var dailyTask: Task<Void, Never>?
+    private var dailyTask: Task<Void, Never>? = nil
 
     init(ctx: SkillsContext, page: Page, io: SpeakIO, content: LearnContent = .shared, defaults: UserDefaults = .standard) {
         self.ctx = ctx; self.page = page; self.io = io; self.content = content; self.defaults = defaults

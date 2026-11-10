@@ -16,7 +16,7 @@ final class QuickModel {
     private(set) var index = 0
     private(set) var score = 0
     private(set) var secondsLeft = Quick.limit
-    private(set) var picked: Int?
+    private(set) var picked: Int? = nil
     private(set) var busy = false
     private var picks: [JSON] = []
     private var others: [JSON] = []
@@ -100,8 +100,8 @@ final class StyleModel {
     let styles: [String: JSON], questions: [JSON]
     private(set) var index = 0
     private(set) var picks: [String] = []
-    private(set) var chosen: Int?
-    private(set) var winner: String?
+    private(set) var chosen: Int? = nil
+    private(set) var winner: String? = nil
     init(ctx: SkillsContext, content: LearnContent = .shared) {
         self.ctx = ctx
         styles = content.style["styles"]?.object ?? [:]; questions = content.style.list("questions")
@@ -132,7 +132,7 @@ final class StyleModel {
 final class MethodModel {
     let ctx: SkillsContext
     let content: LearnContent
-    private(set) var result: StudyMethod.Result?
+    private(set) var result: StudyMethod.Result? = nil
     var days = 7.0
     private var defaults: UserDefaults
     init(ctx: SkillsContext, content: LearnContent = .shared, defaults: UserDefaults = .standard) { self.ctx = ctx; self.content = content; self.defaults = defaults }

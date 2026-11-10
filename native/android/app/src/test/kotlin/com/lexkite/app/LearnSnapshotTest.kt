@@ -1,5 +1,6 @@
 package com.lexkite.app
 
+import androidx.compose.runtime.Composable
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.ui.Modifier
@@ -72,7 +73,7 @@ class LearnSnapshotTest {
     private fun key(t: Long) = Instant.ofEpochMilli(t).atZone(ZoneOffset.UTC).toLocalDate().toString()
     private fun obj(s: String) = Json.parseToJsonElement(s) as JsonObject
 
-    private fun screen(name: String) {
+    @Composable private fun screen(name: String) {
         when (name) {
             "fix" -> { val e = content.fix!!; FixLayout(FixUi(e, e.sample, e.check(e.sample), emptySet(), 1, false, ""), FixActions(), {}) }
             "hub" -> GrammarHubLayout(pack, mapOf("be-am-is-are" to 100, "present-simple" to 90, "present-continuous" to 60), {}, {})

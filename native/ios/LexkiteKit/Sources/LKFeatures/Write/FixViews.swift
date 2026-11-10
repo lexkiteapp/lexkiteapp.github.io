@@ -18,13 +18,13 @@ final class FixModel {
     private let defaults: UserDefaults
     private let live: Bool
     private var suppress = false
-    private var checkTask: Task<Void, Never>?
-    private var saveTask: Task<Void, Never>?
+    private var checkTask: Task<Void, Never>? = nil
+    private var saveTask: Task<Void, Never>? = nil
     var text = "" { didSet { if text != oldValue && !suppress { textChanged() } } }
     private(set) var issues: [FixIssue] = []
-    private(set) var sel: Int?
+    private(set) var sel: Int? = nil
     private(set) var undo: [String] = []
-    private(set) var notice: Notice?
+    private(set) var notice: Notice? = nil
     private(set) var off: Set<String> = FixModel.offSession
 
     init(engine: FixEngine? = LearnContent.shared.fix, defaults: UserDefaults = .standard, live: Bool = true) {
