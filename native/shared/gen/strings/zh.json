@@ -861,6 +861,8 @@
   "model.originalModelAnswersWith": "原始模型用有用的短语、连接词和突出显示的每个句子的作用来回答。点击一个短语即可保存它。",
   "model.searchByTopicOr": "按主题或任务类型搜索...",
   "model.phrasesStructures": "短语与句型本",
+  "model.phraseBookByFunction": "按功能分类的短语手册",
+  "model.phraseBookByFunctionSub": "打电话、求助、道歉时该说什么——分三种语体，附常见回应和示范对话。",
   "model.learningInChunksMakes": "以<b>块</b>学习使你的口语和写作比学习单个单词更加自然。保存短语和句子结构及其含义、用法和例句，并在适当的时刻复习它们，就像词汇一样。",
   "model.addPhraseStructure": "添加短语/结构",
   "model.studyPhrases": "学习短语",

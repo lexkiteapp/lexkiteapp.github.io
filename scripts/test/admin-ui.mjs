@@ -311,7 +311,9 @@ $('#tabs a[data-tab="video"]').click(); await tick(80);
   leak('#video thư viện');
   await sec('qc'); ok(/No QC report yet/.test(m.textContent) && m.querySelector('[data-go="studio"]'), 'Sản xuất & QC: trạng thái trống + liên kết Video Studio'); leak('#video QC');
   await sec('scripts'); ok(m.querySelectorAll('.vid-cov .none').length === 1 && m.querySelectorAll('.vid-cov .gap').length === 2, 'Kịch bản: độ phủ (thiếu/chưa có)'); leak('#video kịch bản');
-  await sec('channels'); await tick(40); ok(m.querySelector('[data-go="dist"]') && m.querySelector('#vx-web'), 'Kênh & phân phối: liên kết tab Kênh + hiệu quả web'); leak('#video kênh');
+  await sec('channels'); await tick(40); ok(m.querySelector('[data-go="dist"]') && m.querySelector('#vx-web'), 'Phát hành: liên kết tab Kênh & phân phối + hiệu quả web'); leak('#video kênh');
+  { const distL = $('#tabs a[data-tab="dist"] .nav-l').textContent.trim(), cur = m.querySelector('.vx-tab[aria-current=page]'), head = m.querySelector('.vx-h').textContent;
+    ok(cur && !cur.textContent.includes(distL) && !head.includes(distL) && !/routing rules live|tab Kênh/i.test(head), 'Phát hành: tên mục con/tiêu đề khác mục sidebar "' + distL + '", mô tả không tự chỉ sang chính nó'); }
   await sec('archive'); ok(/No clips in the archive/.test(m.textContent) && m.querySelector('[data-go="drive"]'), 'Lưu trữ: trống + liên kết Kho Drive'); leak('#video lưu trữ');
   w.history.replaceState(null, '', '#video/qc'); $('#tabs a[data-tab="video"]').click(); await tick(80);
   ok(true, 'mở lại tab'); await sec('overview');
