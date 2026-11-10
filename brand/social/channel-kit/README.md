@@ -15,6 +15,10 @@ Bố cục từ Stitch (Lexkite Kit, queue `scripts/stitch/queues/social-brandki
 | | `youtube/lexkite-youtube-watermark-150.png` | 150×150 | Studio → Thương hiệu → Hình mờ video | PNG trong suốt, ≤ 1 MB |
 | | `youtube/lexkite-youtube-thumbnail-template-1280x720.png` | 1280×720 | Studio → video → Hình thu nhỏ | ≤ 2 MB; mẫu – đổi chữ ở `COPY.thumb` trong script; góc dưới phải để trống (nhãn thời lượng) |
 
+**Bản tiếng Việt** (page "Lexkite - Học Tiếng Anh"): cùng bố cục/code, chỉ đổi chữ (`COPY.vi`), file hậu tố `-vi`:
+`facebook/lexkite-facebook-cover-1640x624-vi.png`, `youtube/lexkite-youtube-banner-2560x1440-vi.png`, `youtube/lexkite-youtube-thumbnail-template-1280x720-vi.png`.
+Avatar/watermark không có chữ nên dùng chung bản trên. Cổng riêng cho `-vi`: dấu hiển thị đúng bằng phông kit (Plus Jakarta Sans), không rơi về phông hệ thống; các cổng còn lại như bản EN.
+
 `contact-sheet.jpg`: xem trước crop tròn (300/96/40 px), điện thoại/máy tính bảng/máy tính/TV. `manifest.json`: số đo QC (tương phản, cỡ chữ, dung lượng).
 
 ## Dựng lại (chỉ trên CI)
