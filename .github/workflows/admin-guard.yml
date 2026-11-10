@@ -27,7 +27,8 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null || true
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
       - name: Ảnh TRƯỚC (main, chỉ chụp)
         run: |
           B=$(git merge-base HEAD origin/main); [ "$B" = "$(git rev-parse HEAD)" ] && B=HEAD~1

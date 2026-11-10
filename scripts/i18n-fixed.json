@@ -1,4 +1,19 @@
 {
+  "Thẻ cần ôn hôm nay": {
+    "es": "tarjetas para repasar hoy",
+    "pt": "cartões para revisar hoje",
+    "fr": "cartes à réviser aujourd'hui",
+    "de": "Karten heute wiederholen",
+    "id": "kartu untuk diulas hari ini",
+    "th": "การ์ดที่ต้องทบทวนวันนี้",
+    "zh": "张卡片今天待复习",
+    "ja": "枚のカードを今日復習",
+    "ko": "장의 카드 오늘 복습",
+    "hi": "कार्ड आज दोहराने हैं",
+    "ar": "بطاقات للمراجعة اليوم",
+    "ru": "карточек на повторение сегодня",
+    "tr": "kart bugün tekrar edilecek"
+  },
   "TOEIC Listening: luyện 1 phần": {
     "ar": "TOEIC Listening: تدريب على جزء واحد",
     "de": "TOEIC Listening: 1 Teil üben",
@@ -39778,5 +39793,20 @@
     "th": "want + to + verb.",
     "tr": "want + to + verb.",
     "zh": "want + to + verb."
+  },
+  "Lượt nói dài: 1–2 phút": {
+    "ar": "حديث مطوّل: تحدّث لمدة 1–2 دقيقة",
+    "de": "Langer Redebeitrag: 1–2 Minuten sprechen",
+    "es": "Turno largo: habla durante 1–2 minutos",
+    "fr": "Prise de parole longue : parlez pendant 1 à 2 minutes",
+    "hi": "लंबा उत्तर: 1–2 मिनट बोलें",
+    "id": "Giliran bicara panjang: bicara selama 1–2 menit",
+    "ja": "ロングターン：1〜2分間話しましょう",
+    "ko": "긴 답변: 1~2분 동안 말하세요",
+    "pt": "Fala longa: fale por 1–2 minutos",
+    "ru": "Длинный ответ: говорите 1–2 минуты",
+    "th": "พูดยาว: พูดต่อเนื่อง 1–2 นาที",
+    "tr": "Uzun konuşma: 1–2 dakika konuşun",
+    "zh": "长段发言：请讲 1–2 分钟"
   }
 }

@@ -4,7 +4,7 @@
 const MIN = 60e3, DAY = 864e5;
 /** Chủ 10/11/2026 "đăng dần hiệu quả": kênh social tối đa 2 bài/ngày (embed = kho bài học, không đăng công khai → giữ trần 50). */
 export const SOCIAL_DAY_MAX = 2;
-export const DEFAULT_CFG = { role: 'social', types: [], topics: [], skills: [], cefr: [], regions: [], lang: 'en', daily_cap: 2, min_gap_min: 240, windows: [{ from: '09:00', to: '21:00' }], tz: 'America/New_York', active: 1 };
+export const DEFAULT_CFG = { role: 'social', types: [], topics: [], skills: [], cefr: [], regions: [], lang: '', daily_cap: 2, min_gap_min: 240, windows: [{ from: '09:00', to: '21:00' }], tz: 'America/New_York', active: 1 };
 const list = v => (Array.isArray(v) ? v : typeof v === 'string' ? v.split(/[,\s]+/) : []).map(x => String(x).trim()).filter(Boolean);
 const hm = t => { const m = /^(\d{2}):(\d{2})$/.exec(String(t)); return m && +m[1] < 24 && +m[2] < 60 ? +m[1] * 60 + +m[2] : null; };
 export const validTz = tz => { try { new Intl.DateTimeFormat('en-US', { timeZone: tz }); return typeof tz === 'string' && tz.length < 60; } catch (e) { return false; } };
@@ -13,7 +13,7 @@ export function normCfg(c = {}) {
   const d = DEFAULT_CFG, cap = Math.floor(+c.daily_cap), gap = Math.floor(+c.min_gap_min), embed = c.role === 'embed';
   const wins = (Array.isArray(c.windows) ? c.windows : d.windows).map(w => ({ from: String(w && w.from), to: String(w && w.to) })).filter(w => hm(w.from) != null && hm(w.to) != null && hm(w.to) > hm(w.from)).slice(0, 6);
   return { label: String(c.label || '').slice(0, 60), purpose: String(c.purpose || '').slice(0, 200), account: String(c.account || '').slice(0, 80), types: list(c.types).filter(x => ['short', 'long', 'podcast'].includes(x)), topics: list(c.topics).slice(0, 30), skills: list(c.skills).slice(0, 10), cefr: list(c.cefr).map(x => x.toUpperCase()).slice(0, 6),
-    regions: list(c.regions).map(x => x.toUpperCase()).slice(0, 40), role: embed ? 'embed' : 'social', lang: String(c.lang || d.lang).slice(0, 8), daily_cap: cap >= 1 && cap <= 50 ? (embed ? cap : Math.min(cap, SOCIAL_DAY_MAX)) : d.daily_cap, min_gap_min: gap >= 0 && gap <= 1440 ? gap : d.min_gap_min,
+    regions: list(c.regions).map(x => x.toUpperCase()).slice(0, 40), role: embed ? 'embed' : 'social', lang: SOCIAL_LANGS.includes(String(c.lang || '').toLowerCase()) ? String(c.lang).toLowerCase() : '', daily_cap: cap >= 1 && cap <= 50 ? (embed ? cap : Math.min(cap, SOCIAL_DAY_MAX)) : d.daily_cap, min_gap_min: gap >= 0 && gap <= 1440 ? gap : d.min_gap_min,
     windows: wins.length ? wins : d.windows, tz: validTz(c.tz) ? c.tz : d.tz, active: c.active === 0 || c.active === false ? 0 : 1 };
 }
 /** clip: {type, topic, sub, skill, cefr, exam, template, region?}. Empty list in a channel's settings = anything allowed. */
@@ -63,9 +63,12 @@ const LANG_NAMES = { vi: ['tiếng việt', 'việt nam', 'vietnam', 'vietnamese
   ja: ['日本語', 'japanese', 'nhật bản', 'tiếng nhật'], ko: ['한국어', 'korean', 'hàn quốc', 'tiếng hàn'], hi: ['हिन्दी', 'हिंदी', 'hindi'], ar: ['العربية', 'arabic', 'ả rập'], ru: ['русский', 'russian', 'tiếng nga'],
   tr: ['türkçe', 'turkce', 'turkish', 'thổ nhĩ kỳ'], en: ['english', 'global', 'tiếng anh'] };
 export const SOCIAL_LANGS = Object.keys(LANG_NAMES);
+/** Tên page nói người HỌC là ai: "Học tiếng Anh/Nhật…" = page cho người Việt (10/11: "Lexkite - Học Tiếng Anh" bị nhận nhầm 'en' vì chứa "tiếng anh"). Xét trước LANG_NAMES. */
+const LEARNER_VI = /(?:^|[^\p{L}])(?:học|hoc)\s+(?:tiếng|tieng)(?:[^\p{L}]|$)/u;
 export function langOfChannel(title) {
   const t = String(title || '').toLowerCase().normalize('NFC'), code = /(?:\(|\[|[-–—|·]\s*)([a-z]{2})(?:\)|\]|\s*$)/.exec(t);
   if (code && LANG_NAMES[code[1]]) return code[1];
+  if (LEARNER_VI.test(t)) return 'vi';
   for (const [k, names] of Object.entries(LANG_NAMES)) if (names.some(n => t.includes(n))) return k;
   return '';
 }

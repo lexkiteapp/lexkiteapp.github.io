@@ -15,6 +15,12 @@ interface SpeechInput {
     /** Same with the recogniser language (BCP-47, e.g. en-GB) and the live partial text (speaking room); a fake without these ignores them. */
     fun start(lang: String, onPartial: (String) -> Unit, onResult: (List<String>) -> Unit, onError: (String) -> Unit) = start(onResult, onError)
     fun stop()
+    /** An on-device recogniser exists (Android 12+): audio never leaves the phone. A fake / older device says no. */
+    val onDevice: Boolean get() = false
+    /** Like [start] but ONLY on the device (never a server); without an on-device recogniser it reports "unsupported" – never a silent fall back to the cloud. */
+    fun startOffline(lang: String, onPartial: (String) -> Unit, onResult: (List<String>) -> Unit, onError: (String) -> Unit) = onError("unsupported")
+    /** The learner is done speaking: the result is still delivered (default: same as [stop]). */
+    fun finish() = stop()
 }
 
 /** android.speech.SpeechRecognizer (needs RECORD_AUDIO granted by the caller). Main thread only. */
@@ -24,10 +30,16 @@ class AndroidSpeech(private val ctx: Context) : SpeechInput {
 
     override fun start(onResult: (List<String>) -> Unit, onError: (String) -> Unit) = start("en-US", {}, onResult, onError)
 
-    override fun start(lang: String, onPartial: (String) -> Unit, onResult: (List<String>) -> Unit, onError: (String) -> Unit) {
+    override val onDevice: Boolean get() = android.os.Build.VERSION.SDK_INT >= 31 && runCatching { SpeechRecognizer.isOnDeviceRecognitionAvailable(ctx) }.getOrDefault(false)
+    override fun startOffline(lang: String, onPartial: (String) -> Unit, onResult: (List<String>) -> Unit, onError: (String) -> Unit) { if (!onDevice) onError("unsupported") else begin(lang, true, onPartial, onResult, onError) }
+    override fun finish() { rec?.let { runCatching { it.stopListening() } } }
+
+    override fun start(lang: String, onPartial: (String) -> Unit, onResult: (List<String>) -> Unit, onError: (String) -> Unit) = begin(lang, false, onPartial, onResult, onError)
+
+    private fun begin(lang: String, offline: Boolean, onPartial: (String) -> Unit, onResult: (List<String>) -> Unit, onError: (String) -> Unit) {
         if (!available) { onError("unsupported"); return }
         stop()
-        val r = runCatching { SpeechRecognizer.createSpeechRecognizer(ctx) }.getOrNull() ?: run { onError("unsupported"); return }
+        val r = runCatching { if (offline && android.os.Build.VERSION.SDK_INT >= 31) SpeechRecognizer.createOnDeviceSpeechRecognizer(ctx) else SpeechRecognizer.createSpeechRecognizer(ctx) }.getOrNull() ?: run { onError("unsupported"); return }
         rec = r
         r.setRecognitionListener(object : RecognitionListener {
             override fun onResults(results: Bundle?) { val l = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION).orEmpty(); if (l.isEmpty()) onError("no-speech") else onResult(l); stop() }
@@ -52,7 +64,8 @@ class AndroidSpeech(private val ctx: Context) : SpeechInput {
             override fun onEvent(eventType: Int, params: Bundle?) {}
         })
         r.startListening(Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-            .putExtra(RecognizerIntent.EXTRA_LANGUAGE, lang).putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true).putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5))
+            .putExtra(RecognizerIntent.EXTRA_LANGUAGE, lang).putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true).putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5)
+            .also { if (offline) it.putExtra(RecognizerIntent.EXTRA_PREFER_OFFLINE, true) })
     }
 
     override fun stop() { rec?.let { runCatching { it.cancel() }; runCatching { it.destroy() } }; rec = null }

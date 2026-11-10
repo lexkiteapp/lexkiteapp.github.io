@@ -7,7 +7,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
-import { hk, LANGS, LAZY, ROOT, loadSrc, loadDictFile, outPath, packAll, packText, sources, unpack, verbatimKeys } from '../lib/i18n-pack.mjs';
+import { CPACK_I18N, hk, LANGS, LAZY, ROOT, loadSrc, loadDictFile, outPath, packAll, packText, sources, unpack, verbatimKeys } from '../lib/i18n-pack.mjs';
 
 let n = 0, fails = 0;
 const ok = (c, m) => { n++; if (!c) { fails++; console.error('  ✗ ' + m); } };
@@ -33,6 +33,10 @@ for (const l of LANGS) for (const g of LAZY) ok(list.some(s => s.lang === l && s
 { const app = fs.readFileSync(path.join(ROOT, 'web/js/app.js'), 'utf8'); // nhóm pathn ở web/cpack: build-cpack chỉ băm đường dẫn viết đủ chữ, thiếu là mất bản dịch nút Lộ trình
   ok(/App\.pathnPack\[l\]/.test(app) && /pnodes: \['js\/i18n\/en\/pathn\.js'/.test(app), 'gói pnodes nạp nhóm pathn qua App.pathnPack');
   for (const l of LANGS) { const f = outPath(l, 'pathn'); ok(f.startsWith('web/cpack/') && app.includes(`${l}: '${f.replace(/^web\//, '')}'`) && fs.existsSync(path.join(ROOT, f)), `App.pathnPack thiếu ${l} → ${f}`); ok(!fs.existsSync(path.join(ROOT, `web/js/i18n/${l}/pathn.js`)), `pathn của ${l} không được nằm trong gói web/js`); } }
+{ const app = fs.readFileSync(path.join(ROOT, 'web/js/app.js'), 'utf8'); // nhóm criteria/confidence (CPACK_I18N) ở web/cpack/i18n: nạp qua App.cpackI18n[nhóm][ngôn ngữ] TRƯỚC khi vẽ màn (cùng bước nạp gói, không lộ khóa/chữ Việt)
+  ok(/App\.cpackI18n\[m\[1\]\]\[l\]/.test(app), 'bộ nạp gói phải đọc App.cpackI18n[nhóm][l] (loadOne chờ xong rồi mới vẽ)');
+  for (const g of CPACK_I18N) { ok(new RegExp(`'js/i18n/en/${g}\\.js'`).test(app), `gói màn ${g} phải nạp en/${g}.js (kích hoạt bản dịch cpack)`);
+    for (const l of LANGS) { const f = outPath(l, g); ok(f.startsWith('web/cpack/i18n/') && app.includes(`${l}: '${f.replace(/^web\//, '')}'`) && fs.existsSync(path.join(ROOT, f)), `App.cpackI18n.${g} thiếu ${l} → ${f}`); ok(!fs.existsSync(path.join(ROOT, `web/js/i18n/${l}/${g}.js`)), `${g} của ${l} không được nằm trong gói web/js`); } } }
 for (const { lang, group } of list) {
   const src = loadSrc(lang, group), packed = loadDictFile(outPath(lang, group)), keys = Object.keys(src);
   const back = unpack(packed, keys);

@@ -18541,17 +18541,17 @@
   },
   "counterpoint#n": {
    "ex": "The first species is note-against-note counterpoint.",
-   "ps": "a man playing a violin and a woman playing a flute, each concentrating on their own music",
-   "sc": "a man playing a violin and a woman playing a flute, each concentrating on their own music",
-   "check": "Are the two musicians performing separate melodies at the same time?",
-   "cap": "two musicians each playing a different instrument together",
-   "key": "a man with a violin; a woman with a flute",
+   "ps": "a man plays a violin while a woman plays a flute, both standing side by side",
+   "sc": "a man plays a violin while a woman plays a flute, both standing side by side",
+   "check": "Are two musicians performing different melodies at the same time?",
+   "cap": "two musicians play different instruments together on stage",
+   "key": "a man playing a violin; a woman playing a flute",
    "who": 2,
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "counterrevolution#n": {
    "ex": "A very large portion of the people are disposed to a counterrevolution.",
@@ -21993,17 +21993,17 @@
   },
   "demographer#n": {
    "ex": "Demographers may consider population ageing and labour-force requirements.",
-   "ps": "a woman holding a globe, looking thoughtfully at it",
-   "sc": "a woman holding a globe, looking thoughtfully at it",
-   "check": "Is the adult examining a globe as if analyzing people numbers?",
-   "cap": "a thoughtful woman holding a globe",
-   "key": "a person holding a globe; the person's thoughtful expression",
+   "ps": "a man stands next to a tall pile of many small human silhouettes, holding a magnifying glass",
+   "sc": "a man stands next to a tall pile of many small human silhouettes, holding a magnifying glass",
+   "check": "Is the adult analyzing a large number of people to study their statistics?",
+   "cap": "a man examining a stack of tiny figures with a magnifier",
+   "key": "a tall pile of many small human silhouettes; a magnifying glass in the man's hand",
    "who": 1,
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "demographic#adj": {
    "skip": "abstract concept difficult to depict without symbols",
@@ -23393,16 +23393,15 @@
   },
   "dictionary#n": {
    "ex": "Look up any unfamiliar words in a good learner's dictionary before class.",
-   "ps": "a woman opens a thick book on a table that looks like a dictionary",
-   "sc": "a woman opens a thick book on a table that looks like a dictionary",
-   "check": "Is a person opening a book that looks like a dictionary?",
-   "cap": "a woman opening a thick book on a table",
+   "ps": "a woman stands beside a large board covered with many small pictures of different objects",
+   "sc": "a woman stands beside a large board covered with many small pictures of different objects",
+   "check": "Is there a collection of pictures that shows the meanings of many words?",
+   "cap": "a woman examining a board filled with various object images",
+   "key": "a large board covered with many small pictures of objects; a woman standing beside the board",
    "who": 1,
-   "draw": 5,
-   "v": "e4",
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:55:51.125Z"
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "didactic#adj": {
    "ex": "The novel is too didactic for many young readers.",
@@ -27620,8 +27619,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:55:59.755Z"
+   "e4bad": 5,
+   "badAt": "2026-11-10T01:35:49.055Z"
   },
   "email#v": {
    "e4bad": 3,
@@ -39922,16 +39921,17 @@
   },
   "humankind#n": {
    "ex": "There's no hope for humankind.",
-   "ps": "a man and a woman stand side by side, looking thoughtfully at a large blue globe",
-   "sc": "a man and a woman stand side by side, looking thoughtfully at a large blue globe",
-   "check": "Is this picture about all human beings living on Earth?",
-   "cap": "two adults gaze thoughtfully at a globe of Earth",
-   "key": "a large blue globe of Earth; two adults with concerned faces",
+   "ps": "two adults of different ethnicities stand side by side, arms around each other",
+   "sc": "two adults of different ethnicities stand side by side, arms around each other",
+   "check": "Is there a pair of adults of different backgrounds standing together?",
+   "cap": "two adults of different backgrounds stand side by side, arms around each other",
+   "key": "two adults of different ethnicities standing side by side; arms around each other",
    "who": 2,
-   "draw": 5,
+   "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "tries": 2
+   "tries": 3,
+   "refix": 2
   },
   "humble#adj": {
    "ex": "You should be more humble.",
@@ -40799,17 +40799,17 @@
   },
   "immunology#n": {
    "ex": "Collins is a professor of immunology.",
-   "ps": "a scientist in a lab coat peers into a microscope at a slide filled with many tiny round cells",
-   "sc": "a scientist in a lab coat peers into a microscope at a slide filled with many tiny round cells",
-   "check": "Is the person studying many tiny cells that protect the body?",
-   "cap": "a lab scientist examining tiny cells under a microscope",
-   "key": "a scientist looking into a microscope; a slide with many tiny round cells",
+   "ps": "a scientist in a lab coat examines a clear model of a human body surrounded by many white spheres",
+   "sc": "a scientist in a lab coat examines a clear model of a human body surrounded by many white spheres",
+   "check": "Is a person studying a model that shows the body's defense cells?",
+   "cap": "a lab scientist studies a model of the body's defense system",
+   "key": "scientist in a lab coat examining a clear model; model shows many white spheres around a human body",
    "who": 1,
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "impact factor#n": {
    "ex": "Universities often reward publications in journals with a high impact factor.",
@@ -41464,16 +41464,16 @@
   },
   "incidental charges#n": {
    "ex": "We hold a small amount on your card for incidental charges.",
-   "ps": "a woman gives a credit card to a hotel clerk beside a minibar bottle and a phone",
-   "sc": "a woman gives a credit card to a hotel clerk beside a minibar bottle and a phone",
-   "check": "Is the woman handing her card to the clerk for extra hotel services?",
-   "cap": "a guest provides a card to cover extra hotel amenities",
-   "who": 2,
+   "ps": "a guest holds a small stack of coins while a minibar bottle sits on the desk",
+   "sc": "a guest holds a small stack of coins while a minibar bottle sits on the desk",
+   "check": "Is the person receiving extra money for using a minibar?",
+   "cap": "a guest receiving coins beside a minibar bottle",
+   "key": "a small stack of coins; a minibar bottle",
+   "who": 1,
    "draw": 4,
-   "v": "e4",
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:56:00.556Z"
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
   },
   "incinerator#n": {
    "ex": "Does Algeria have garbage incinerators?",
@@ -51422,16 +51422,17 @@
   },
   "midterm#n": {
    "ex": "The midterm will cover chapters one to six of the textbook.",
-   "ps": "a man writes on an exam paper while an open textbook lies on the desk beside him",
-   "sc": "a man writes on an exam paper while an open textbook lies on the desk beside him",
-   "check": "Is the student writing an exam with an open textbook on the desk?",
-   "cap": "a student writes an exam with a textbook open nearby",
+   "ps": "a student sits at a desk with a large stack of blank sheets and a pencil, looking focused",
+   "sc": "a student sits at a desk with a large stack of blank sheets and a pencil, looking focused",
+   "check": "Is there a person taking a large test with many blank sheets?",
+   "cap": "a student with many blank papers and a pencil at a desk",
+   "key": "a large stack of blank sheets; the student's focused expression",
    "who": 1,
    "draw": 4,
-   "v": "e4",
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T10:56:00.556Z"
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "midwife#n": {
    "ex": "My mother was a midwife.",
@@ -52133,12 +52134,17 @@
   },
   "mock exam#n": {
    "ex": "Students sit a mock exam in March to prepare for finals.",
-   "sc": "person A and person B sit at desks with practice test papers, a teacher at the front smiles and holds a clipboard, indicating a rehearsal exam.",
-   "cap": "students taking a practice test with a teacher nearby",
+   "ps": "a student sits at a desk with a thick test booklet, while a teacher behind gives a thumbs‑up",
+   "sc": "a student sits at a desk with a thick test booklet, while a teacher behind gives a thumbs‑up",
+   "check": "Is the student taking a test that is being shown as a practice version?",
+   "cap": "a student with a test booklet and a teacher giving a thumbs‑up",
+   "key": "the thick test booklet held by the student; the teacher's thumbs‑up gesture",
    "who": 2,
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 4,
-   "badAt": "2026-11-07T11:08:01.649Z"
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "mock-up#n": {
    "ex": "The designer sent a mock-up of the new packaging for approval.",
@@ -67222,15 +67228,17 @@
   },
   "recapitulate#v": {
    "ex": "Let me recapitulate what was said.",
-   "ps": "a man holds three colored blocks in one hand, gesturing to a small group listening",
-   "sc": "a man holds three colored blocks in one hand, gesturing to a small group listening",
-   "check": "Is the man presenting three items to summarize the main points again?",
-   "cap": "a man showing three colored blocks to listeners",
-   "key": "three colored blocks held in hand; the man's gesturing pose",
+   "ps": "a man stands beside a large white board displaying three simple shapes and points at them with his right hand",
+   "sc": "a man stands beside a large white board displaying three simple shapes and points at them with his right hand",
+   "check": "Is the person pointing at a few simple pictures to repeat the main ideas?",
+   "cap": "a man points at three simple shapes on a large board",
+   "key": "a man pointing with his right hand; three simple shapes on a large white board",
    "who": 1,
    "draw": 4,
    "v": "e6",
-   "by": "openai/gpt-oss-120b"
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "recapture#v": {
    "ex": "He had scarcely escaped when he was recaptured.",
@@ -72613,17 +72621,17 @@
   },
   "scabbard#n": {
    "ex": "The men drew their swords from their scabbards.",
-   "ps": "a leather scabbard with a curved opening hanging on a wall",
-   "sc": "a leather scabbard with a curved opening hanging on a wall",
-   "check": "Is there a leather case designed to store a sword?",
-   "cap": "a leather sheath with a curved opening hanging on a wall",
-   "key": "a leather scabbard with a curved opening; the scabbard hanging on a wall",
+   "ps": "a leather tube shaped like a sheath hangs from a belt on a wooden rack",
+   "sc": "a leather tube shaped like a sheath hangs from a belt on a wooden rack",
+   "check": "Is there a leather sheath used for holding a sword?",
+   "cap": "a leather sheath hanging from a belt on a rack",
+   "key": "a leather tube shaped like a sheath; hanging from a belt on a rack",
    "who": 0,
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "scaffolding#n": {
    "ex": "The scaffolding must be inspected by a supervisor every morning.",
@@ -81727,17 +81735,17 @@
   },
   "teetotaler#n": {
    "ex": "I've always been a teetotaler.",
-   "ps": "a woman holds up a glass with a big red cross mark, shaking her head",
-   "sc": "a woman holds up a glass with a big red cross mark, shaking her head",
-   "check": "Is the person refusing to drink alcohol?",
-   "cap": "a woman rejecting a drink marked with a red cross",
-   "key": "a woman holding a glass with a big red cross mark; the woman's head shaking in refusal",
+   "ps": "a woman holds a glass of water while turning away from a bottle of liquor on a table",
+   "sc": "a woman holds a glass of water while turning away from a bottle of liquor on a table",
+   "check": "Is the person refusing the bottle of liquor and drinking water instead?",
+   "cap": "a woman drinking water while ignoring a bottle of liquor",
+   "key": "a glass of water being held; a bottle of liquor left untouched",
    "who": 1,
-   "draw": 4,
+   "draw": 5,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "telecom#n": {
    "ex": "She works in marketing for a large telecom company based in Singapore.",

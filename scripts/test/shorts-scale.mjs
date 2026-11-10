@@ -33,13 +33,14 @@ m2.items[0].youtube_id = 'bad id<>'; ok(validateManifest(m2).some(e => /youtube_
 
 // ---------- 3. YouTube queue (functions/api/youtube.js pure helpers) ----------
 const YT = await imp('functions/api/youtube.js');
-ok(YT.uploadsLeft(0) === 5 || YT.uploadsLeft(0) === 6, `quota: ≈ 6 uploads/day (got ${YT.uploadsLeft(0)})`);
-ok(YT.uploadsLeft(9000) === 0, 'quota: nothing left near 10,000 units');
+ok(YT.uploadsLeft(0) === 1000, `quota: videos.insert bucket caps at 1,000 uploads/day (got ${YT.uploadsLeft(0)})`);
+ok(YT.uploadsLeft(0, 999) === 1 && YT.uploadsLeft(0, 1000) === 0, 'quota: insert bucket counted separately (999 → 1 left, 1,000 → 0)');
+ok(YT.uploadsLeft(58948) === 1 && YT.uploadsLeft(59000) === 0, 'quota: default 60,000-unit bucket (thumbnail + 2 list per upload, 1,000 reserve) also limits');
 const now = Date.parse('2026-10-22T12:00:00Z');
 const rows = [{ clip: 'a', status: 'queued', approved_at: 3 }, { clip: 'b', status: 'done', approved_at: 1 }, { clip: 'c', status: 'failed', attempts: 3, approved_at: 1 },
   { clip: 'd', status: 'failed', attempts: 1, approved_at: 2 }, { clip: 'e', status: 'uploading', session_at: now - 3 * 3600e3, approved_at: 4 }, { clip: 'f', status: 'uploading', session_at: now - 60e3, approved_at: 0 }];
 ok(YT.pickNext(rows, 0, now).map(r => r.clip).join() === 'd,a,e', 'queue: oldest approval first; skips done, exhausted retries, fresh uploads');
-ok(YT.pickNext(rows, 8000, now).length === 1 && YT.pickNext(rows, 9900, now).length === 0, 'queue: limited by remaining quota');
+ok(YT.pickNext(rows, 58948, now).length === 1 && YT.pickNext(rows, 59000, now).length === 0 && YT.pickNext(rows, 0, now, 6, 1000).length === 0, 'queue: limited by remaining quota (either bucket)');
 const res = YT.videoResource({ privacy: 'public', title: 't' }, { title: 'Hook <b>', description: 'Lesson', tags: ['a', 'b'] });
 ok(res.status.privacyStatus === 'private', 'privacy: "public" is never sent (forced private)');
 ok(res.status.containsSyntheticMedia === true && res.status.selfDeclaredMadeForKids === false && res.snippet.categoryId === '27' && res.snippet.defaultLanguage === 'en', 'metadata: AI disclosure, not for kids, Education, en');
