@@ -861,6 +861,8 @@
   "model.originalModelAnswersWith": "원래 모델은 유용한 문구, 연결 단어 및 각 문장의 역할을 강조하여 답변합니다. 저장하려면 문구를 탭하세요.",
   "model.searchByTopicOr": "주제 또는 작업 유형으로 검색…",
   "model.phrasesStructures": "구문 노트",
+  "model.phraseBookByFunction": "기능별 표현집",
+  "model.phraseBookByFunctionSub": "전화할 때, 도움을 청할 때, 사과할 때 무슨 말을 할지 알려 줍니다. 격식 수준 3단계와 응답, 예시 대화를 담았습니다.",
   "model.learningInChunksMakes": "<b>청크</b> 단위로 학습하면 단일 단어를 배우는 것보다 말하기와 쓰기가 더 자연스러워집니다. 구문과 문장 구조의 의미, 사용법, 예문을 저장하고 단어처럼 완벽한 순간에 복습하세요.",
   "model.addPhraseStructure": "구문/구조 추가",
   "model.studyPhrases": "구문 학습",

@@ -861,6 +861,8 @@
   "model.originalModelAnswersWith": "Le modèle original répond avec des phrases utiles, des mots de liaison et le rôle de chaque phrase mis en évidence. Appuyez sur une phrase pour l'enregistrer.",
   "model.searchByTopicOr": "Recherche par sujet ou type de tâche…",
   "model.phrasesStructures": "Expressions et structures",
+  "model.phraseBookByFunction": "Phrases par fonction",
+  "model.phraseBookByFunctionSub": "Que dire pour téléphoner, demander de l’aide ou s’excuser : trois registres, des réponses et un dialogue type.",
   "model.learningInChunksMakes": "L'apprentissage par <b>morceaux</b> rend votre expression orale et écrite plus naturelle que l'apprentissage de mots isolés. Enregistrez les expressions et les structures de phrases avec leur signification, leur utilisation et leurs exemples de phrases – et révisez-les au moment idéal, tout comme le vocabulaire.",
   "model.addPhraseStructure": "Ajouter une phrase/une structure",
   "model.studyPhrases": "Étudier les expressions",
