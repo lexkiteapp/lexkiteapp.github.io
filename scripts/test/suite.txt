@@ -237,6 +237,7 @@ node scripts/test/brand-check.mjs
 node scripts/test/token-contrast.mjs
 node scripts/stitch-sync-palette.mjs --check
 node scripts/social/build-channel-kit.mjs --check
+node scripts/social/build-page-info.mjs --check
 node scripts/test/characters-gate.mjs
 node scripts/test/teacher-native.mjs
 node scripts/test/samples-ui.mjs
