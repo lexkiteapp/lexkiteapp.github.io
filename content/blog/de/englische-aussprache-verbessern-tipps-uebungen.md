@@ -26,10 +26,10 @@ quiz: [
   {
     q: "Wie wird das Wort electricity betont?",
     options: [
-      "E-lec-tri-ci-ty",
-      "e-LEC-tri-ci-ty",
-      "e-lec-TRI-ci-ty",
-      "e-lec-tri-CI-ty"
+      "ˈe-lec-tri-ci-ty",
+      "e-ˈlec-tri-ci-ty",
+      "e-lec-ˈtri-ci-ty",
+      "e-lec-tri-ˈci-ty"
     ],
     answer: 2,
     explain: "Vor der Endung -ity liegt der Akzent auf der Silbe direkt davor, hier auf tri."
@@ -48,10 +48,10 @@ quiz: [
   {
     q: "Wie wird das Wort environment betont?",
     options: [
-      "EN-vi-ron-ment",
-      "en-VI-ron-ment",
-      "en-vi-RON-ment",
-      "en-vi-ron-MENT"
+      "ˈen-vi-ron-ment",
+      "en-ˈvi-ron-ment",
+      "en-vi-ˈron-ment",
+      "en-vi-ron-ˈment"
     ],
     answer: 1,
     explain: "Der Hauptakzent liegt auf der zweiten Silbe. Die Endung -ment trägt ihn nicht."
