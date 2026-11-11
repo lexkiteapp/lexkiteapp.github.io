@@ -237,52 +237,96 @@ x Take advantage [of] the sale while it lasts.
 # Collocations: *heavy dependence on foreign aid, drug dependence*. | Economic staple: *reduce reliance and dependence on imported oil*.
 @n desire
 + for | khao khát | a strong wish for | People have a natural desire [for] freedom.
+! She had a strong desire with becoming an artist. => She had a strong desire for becoming an artist. | Niềm khao khát/mong muốn điều gì dùng *desire for*, không dùng *with*. | A strong wish takes *desire for*, not *with*.
+# Phân biệt: *desire for* + danh từ/V-ing (*desire for success*), *desire to* + V-bare (*desire to learn*). | Use *desire for* with nouns and *desire to* with verbs.
 @n doubt
 + about | sự nghi ngờ về | uncertainty about | I have doubts [about] his story.
+! There is little doubt for his innocence. => There is little doubt about his innocence. | Sự nghi ngờ/hoài nghi về điều gì dùng *doubt about*, không dùng *for*. | A feeling of uncertainty takes *doubt about*, not *for*.
+# Cấu trúc: *no doubt that*, *in doubt* (chưa chắc chắn), *cast doubt on* (gieo nghi ngờ). | Common idioms: *beyond reasonable doubt, without a shadow of doubt*.
 @n exception
 + to | ngoại lệ đối với | something not following a rule | There is an exception [to] every rule.
+! There is no exception of this strict safety rule. => There is no exception to this strict safety rule. | Ngoại lệ đối với một quy tắc/luật lệ dùng *exception to*, không dùng *of*. | An exclusion from a general rule takes *exception to*, not *of*.
+# Thành ngữ quen thuộc: *with the exception of* (ngoại trừ); *make an exception for* (châm chước cho ai). | Idioms: *with the exception of*, *the exception proves the rule*.
 @n fear
 + of | nỗi sợ | the feeling of being afraid of | Fear [of] failure stops many people.
+! Many people have a deep fear with dark enclosed spaces. => Many people have a deep fear of dark enclosed spaces. | Nỗi sợ hãi cái gì luôn dùng *fear of*, không dùng *with*. | An unpleasant emotion caused by danger takes *fear of*, not *with*.
+# Collocations: *fear of heights, fear of flying, for fear of* (vì sợ rằng). | Common phrases: *for fear of doing something, live in fear of*.
 @n focus
 + on | sự tập trung vào | special attention to | There is a strong focus [on] speaking skills.
+! The main focus for the meeting was budget allocation. => The main focus of the meeting was budget allocation. | Trọng tâm của cuộc họp/bài viết dùng *focus of*; sự tập trung vào điều gì dùng *focus on*. | Core point takes *focus of*; concentration takes *focus on*.
+# Phân biệt: *the focus of something* (trọng tâm của sự việc) và *a focus on something* (sự chú trọng vào). | Distinguish *the focus of the debate* from *a sharp focus on quality*.
 @n insight
 + into | hiểu biết sâu về | deep understanding of | The book gives insight [into] Japanese culture.
+! The lecture provided deep insights about ancient history. => The lecture provided deep insights into ancient history. | Cái nhìn sâu sắc/sự hiểu biết thấu đáo về điều gì luôn dùng *insight into*. | Deep understanding of a complex topic takes *insight into*, not *about*.
+# Cụm từ vàng trong IELTS Writing: *offer valuable insights into consumer behavior*. | Academic staple: *provide fresh insights into biological processes*.
 @n invitation
 + to | lời mời đến | a request to come to | Thanks for the invitation [to] your wedding.
+! I received a formal invitation for their wedding. => I received a formal invitation to their wedding. | Thư mời/lời mời tham dự sự kiện gì luôn dùng *invitation to*, không dùng *for*. | A request to attend an event takes *invitation to*, not *for*.
+# Cấu trúc: *an invitation to a party/conference*; thành ngữ: *an open invitation to* (cơ hội mở). | Collocations: *extend an invitation to, accept/decline an invitation to*.
 @n knowledge
 + of | kiến thức về | understanding of | She has a good knowledge [of] history.
+! He has extensive knowledge about international trade. => He has extensive knowledge of international trade. | Kiến thức/sự am hiểu sâu rộng về lĩnh vực gì dùng *knowledge of*. | Theoretical or practical understanding takes *knowledge of*, rather than *about*.
+# Cả *knowledge of* và *knowledge about* đều dùng, nhưng *knowledge of* trang trọng và chuẩn mực hơn. | Both occur, but *knowledge of* is preferred in formal/academic contexts.
 @n limit
 + on | giới hạn đối với | a restriction on | There's a limit [on] how much you can bring.
 + to | giới hạn (của) | the furthest point of | There is a limit [to] my patience.
+! There is a legal limit on the noise level. => There is a legal limit to the noise level. | Giới hạn đối với cái gì dùng *limit to*, không dùng *limit on* trong mẫu này. | A point beyond which something cannot extend takes *limit to*.
+# Phân biệt: *a limit to something* (giới hạn chịu đựng/tối đa), *a limit on something* (mức trần quy định). | Distinguish *a limit to human endurance* from *a speed limit of 50 mph*.
 @n preference
 + for | sự ưa thích hơn | liking one thing more | Many people have a preference [for] working from home.
+! Many students have a clear preference with morning classes. => Many students have a clear preference for morning classes. | Sự ưu tiên/sở thích thiên về cái gì dùng *preference for*, không dùng *with*. | A greater liking for one alternative takes *preference for*, not *with*.
+# Dùng *preference for A over B* (thích A hơn B); *give preference to* (dành ưu tiên cho ai). | Pattern: *preference for something over another*; *in preference to*.
 @n pressure
 + on | áp lực lên | demands made on | There is pressure [on] students to succeed.
+! Teenagers often face heavy pressure with their peers. => Teenagers often face heavy pressure from their peers. | Áp lực từ ai dùng *pressure from*; áp lực đặt lên ai dùng *pressure on*. | Stress exerted by an agent takes *pressure from*; impact takes *pressure on*.
+# Cấu trúc: *pressure on somebody to do something*; *under pressure* (chịu áp lực). | Key collocations: *put pressure on someone, perform well under pressure*.
 @n protection
 + from | sự bảo vệ khỏi | keeping safe from | Trees give protection [from] the wind.
 + against | sự bảo vệ chống | keeping safe against | Vaccines offer protection [against] the flu.
+! Helmets offer essential protection with head trauma. => Helmets offer essential protection from head trauma. | Sự bảo vệ khỏi mối nguy hại dùng *protection from* hoặc *protection against*. | Shielding from damage takes *protection from* or *protection against*, not *with*.
+# Cả *protection from* và *protection against* đều chuẩn: *protection against disease*. | Both *protection from* and *protection against* are standard.
 @n respect
 + for | sự tôn trọng | admiration or consideration for | Show respect [for] other cultures.
+! Children should show respect with their elders. => Children should show respect for their elders. | Sự tôn trọng/kính trọng dành cho ai dùng *respect for*, không dùng *with*. | Due regard for feelings or rights takes *respect for*, not *with*.
+# Cấu trúc: *have respect for somebody*; thành ngữ: *with respect to* (liên quan tới). | Note: *have respect for someone*, but formal idiom *with respect to*.
 @n restriction
 + on | sự hạn chế | a rule limiting | There are restrictions [on] water use in summer.
+! The city imposed strict restrictions for parking. => The city imposed strict restrictions on parking. | Sự hạn chế/ràng buộc đối với hoạt động gì dùng *restriction on*. | A limiting condition takes *restriction on*, not *for*.
+# Collocations chính sách: *restrictions on imports, lift travel restrictions*. | Policy staple: *impose tight restrictions on hazardous chemicals*.
 @n result
 + of | kết quả của | something caused by | The flood was the result [of] heavy rain.
 x As a result [of] the strike, schools closed.
+! High profits were the direct result from hard teamwork. => High profits were the direct result of hard teamwork. | Kết quả của quá trình/nguyên nhân nào dùng *result of*. | An outcome arising from an action takes *result of*, not *from*.
+# Danh từ dùng *the result of*, nhưng động từ dùng: *result from* (bắt nguồn từ), *result in* (dẫn tới). | Note: noun is *result of*; verb is *result from* or *result in*.
 @n sympathy
 + for | sự cảm thông với | feeling sorry for | I have no sympathy [for] people who drink and drive.
+! We express our heartfelt sympathy with the victims. => We express our heartfelt sympathy for the victims. | Sự thương cảm/chia buồn sâu sắc với ai dùng *sympathy for*. | Feelings of pity or sorrow take *sympathy for*, rather than *with*.
+# Dùng *sympathy for somebody* (thương cảm), nhưng *in sympathy with* (đồng tình/ủng hộ lý tưởng). | Distinguish *sympathy for the bereaved* from *in sympathy with the strike*.
 @n victory
 + over | chiến thắng trước | a win against | It was a great victory [over] the champions.
+! The team celebrated a thrilling victory with their rivals. => The team celebrated a thrilling victory over their rivals. | Chiến thắng/sự vượt qua đối thủ nào dùng *victory over*, không dùng *with*. | Triumph in a contest takes *victory over* an opponent, not *with*.
+# Collocations: *a landslide victory over, claim victory over, victory in the finals*. | Standard sports and political phrase: *scored a decisive victory over*.
 @n attack
 + on | cuộc tấn công vào | a violent act against | The newspaper printed an attack [on] the minister.
+! The article launched a fierce attack with the government. => The article launched a fierce attack on the government. | Cuộc tấn công/công kích nhắm vào ai/cái gì dùng *attack on*. | An aggressive action or criticism takes *attack on*, not *with*.
+# Dùng *attack on somebody/something*: *a cyber attack on national servers*. | Common collocations: *heart attack, launch an attack on, under attack*.
 @n cost
 + of | chi phí của | the price of | The cost [of] living keeps rising.
+! Living in the city centre has a high cost of daily commuting. => Living in the city centre has a high cost for daily commuting. | Chi phí bỏ ra cho một dịch vụ/mục đích gì dùng *cost for*. | Expenses incurred for a service take *cost for*.
+# Phân biệt: *cost of living* (giá cả chi phí sinh hoạt), *at the cost of* (với cái giá phải trả). | Distinguish *the cost of an item* from *at all costs*.
 @n price
 + of | giá của | the money needed to buy | The price [of] petrol went up again.
+! Consumers are unwilling to pay a high price on designer clothes. => Consumers are unwilling to pay a high price for designer clothes. | Mức giá trả cho món hàng/dịch vụ nào dùng *price for*. | Amount of money expected in payment takes *price for*, not *on*.
+# Phân biệt: *the price of goods* (giá của món đồ), nhưng *pay a price for something* (trả giá cho việc gì). | Distinguish *the price of oil* from idiom *pay the price for reckless driving*.
 @n rate
 + of | tỉ lệ | a measure of how often | The rate [of] unemployment fell last year.
+! The graph illustrates the birth rate of developed nations. => The graph illustrates the birth rate in developed nations. | Tỷ lệ trong một quốc gia/khu vực dùng *rate in*; tốc độ tăng dùng *rate of*. | Frequency or ratio takes *rate in* (location) or *rate of* (metric).
+# Collocations: *interest rate, crime rate, unemployment rate, rate of inflation*. | Task 1 staple: *the mortality rate in rural regions*.
 @n proportion
 + of | tỉ lệ (phần của tổng) | a part of a whole | A large proportion [of] students work part-time.
 ~ academic | Task 1: *the proportion of…* thay cho *the percentage of*. | Task 1 alternative to *the percentage of*.
+! The chart shows the proportion for renewable energy users. => The chart shows the proportion of renewable energy users. | Tỷ trọng/tỷ lệ của một thành phần trong tổng thể dùng *proportion of*. | A part or share considered in relation to a whole takes *proportion of*, not *for*.
+# Cực kỳ quan trọng trong IELTS Writing Task 1: *the proportion of people who...* | Essential for Task 1: *a significant proportion of the workforce*.
 @n number
 + of | số lượng (danh từ đếm được) | an amount of countable things | The number [of] tourists has doubled.
 ! The number of student are increasing. => The number of students is increasing. | *the number of + N số nhiều + V số ít*. | *the number of + plural noun + singular verb*.
@@ -293,9 +337,13 @@ x As a result [of] the strike, schools closed.
 > countable-uncountable
 @n participation
 + in | sự tham gia vào | taking part in | Participation [in] sport improves health.
+! School clubs encourage active participation to sports. => School clubs encourage active participation in sports. | Sự tham gia vào hoạt động nào luôn dùng *participation in*, không dùng *to*. | Taking part in an event takes *participation in*, never *to*.
+# Danh từ tương tự động từ: *participate in* → *participation in*. | Pattern: *participation in political processes / sports activities*.
 @n spending
 + on | chi tiêu cho | money spent on | Government spending [on] health rose in 2020.
 ~ academic | Task 1/2: *spending on education/healthcare*. | Task 1/2: *spending on education/healthcare*.
+! The report highlights government spending for healthcare. => The report highlights government spending on healthcare. | Ngân sách chi tiêu cho lĩnh vực nào dùng *spending on*, không dùng *for*. | Money expended on a category takes *spending on*, not *for*.
+# Collocations kinh tế: *consumer spending on luxuries, public spending on education*. | Task 1 staple: *spending on recreation and culture accounted for 15%*.
 @n research
 + into | nghiên cứu về | detailed study of | More research [into] the causes is needed.
 + on | nghiên cứu về | study of a topic | There is new research [on] sleep and memory.

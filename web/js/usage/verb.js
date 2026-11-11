@@ -39,6 +39,8 @@
 + to | định, có ý định | intend | I didn't mean [to hurt] you.
 + ing | có nghĩa là, kéo theo | involve | A new job would mean [moving] to Da Nang.
 ? Taking the job meant [leaving|to leave] my family.
+! Accepting this promotion means to relocate to Tokyo. => Accepting this promotion means relocating to Tokyo. | Khi *mean* mang nghĩa 'kéo theo/có nghĩa là', động từ theo sau phải là V-ing. | When *mean* implies involving or entailing, it takes a gerund.
+# Phân biệt: *mean to do something* (có ý định làm gì) và *mean doing something* (kéo theo việc gì). | Distinguish *mean to do* (intend) from *mean doing* (involve).
 @v need
 + to | cần làm | must do | I need [to finish] this report.
 + ing | cần được (làm) – nghĩa bị động | need to be done | The car needs [washing].
@@ -47,6 +49,8 @@
 @v go on
 + ing | tiếp tục (việc đang làm) | continue the same activity | She went on [talking] for an hour.
 + to | chuyển sang làm (việc tiếp theo) | do something next | After the intro, he went on [to explain] the rules.
+! After graduating, he went on working in academia. => After graduating, he went on to work in academia. | Chuyển sang một bước/hoạt động mới tiếp theo dùng *go on to do*. | Moving on to a new action takes *go on to do*, not *go on doing*.
+# Phân biệt: *go on doing* (tiếp tục việc đang làm dở) và *go on to do* (chuyển sang làm việc mới). | Distinguish *go on doing* (continue same action) from *go on to do* (proceed to next).
 @v like
 + ing | thích (sở thích nói chung) | enjoy generally | I like [swimming].
 + to | thích, thấy nên (thói quen chọn lựa) | prefer as a habit | I like [to get] up early on weekdays.
@@ -58,8 +62,12 @@
 @v love
 + ing | rất thích | enjoy very much | She loves [reading] detective novels.
 x I'd love [to come] to your party.
+! I would love going out for dinner tonight. => I would love to go out for dinner tonight. | Sau cấu trúc *would love*, bắt buộc dùng to-V (*would love to do*). | With *would love*, always use an infinitive (*would love to do*), never gerund.
+# Dùng *love doing/to do* cho sở thích chung; dùng *would love to do* cho mong muốn cụ thể lúc nói. | General preference: *love doing*; specific occasion: *would love to do*.
 @v hate
 + ing | ghét | dislike very much | I hate [waiting] in queues.
+! I would hate being late for the job interview. => I would hate to be late for the job interview. | Sau *would hate*, bắt buộc dùng to-V, không dùng V-ing. | With *would hate*, always use the full infinitive (*would hate to do*).
+# Thói quen/sở thích: *hate doing/to do*; tình huống giả định: *would hate to do*. | General aversion: *hate doing*; hypothetical scenario: *would hate to do*.
 @v prefer
 + ing | thích hơn (+ to + V-ing) | like better | I prefer [walking] to driving.
 + to | thích làm (hơn) | would rather | I prefer [to stay] at home tonight.
@@ -68,12 +76,18 @@ x I'd love [to come] to your party.
 @v begin
 + to | bắt đầu | start | It began [to rain].
 + ing | bắt đầu | start | She began [learning] the piano at six.
+! It is beginning raining heavily right now. => It is beginning to rain heavily right now. | Khi *begin* đang chia ở thì tiếp diễn (*beginning*), tránh dùng V-ing liền sau. | When *begin* is in continuous form (*is beginning*), use to-infinitive to avoid double -ing.
+# Cả *begin to do* và *begin doing* đều đúng; khi *begin* ở thì tiếp diễn thì ưu tiên *begin to do*. | Both gerund and infinitive are acceptable, but avoid two consecutive -ing forms.
 @v start
 + ing | bắt đầu | begin | When did you start [learning] English?
 + to | bắt đầu | begin | Prices started [to rise] in March.
+! It is starting snowing on the hill. => It is starting to snow on the hill. | Khi *start* đang chia tiếp diễn (*is starting*), ưu tiên dùng to-V để tránh lặp âm -ing. | When *start* is in progressive tense, follow with to-infinitive.
+# Cả *start doing* và *start to do* đều chuẩn; thường không có sự khác biệt lớn về nghĩa. | *start to do* and *start doing* are generally interchangeable in modern English.
 @v continue
 + to | tiếp tục | keep doing | Prices continue [to rise].
 + ing | tiếp tục | keep doing | He continued [working] after 65.
+! The company continues in investing in AI systems. => The company continues to invest in AI systems. | Động từ *continue* đi với to-V hoặc V-ing, không chèn giới từ *in*. | *continue* takes either to-infinitive or gerund directly, without preposition.
+# Cả *continue to do* và *continue doing* đều hoàn toàn chuẩn mực trong văn phong học thuật. | Both *continue to do* and *continue doing* are fully accepted in formal writing.
 @v enjoy
 + ing | thích, tận hưởng | like doing | I enjoy [cooking] for my friends.
 ! I enjoy to cook. => I enjoy cooking. | *enjoy* chỉ đi với V-ing. | *enjoy* only takes -ing.
@@ -84,6 +98,8 @@ x I'd love [to come] to your party.
 ! You should avoid to go out. => You should avoid going out. | *avoid + V-ing*. | *avoid + -ing*.
 @v finish
 + ing | hoàn thành | complete | Have you finished [writing] your essay?
+! Have you finished to read the financial report? => Have you finished reading the financial report? | Sau *finish*, bắt buộc dùng V-ing, tuyệt đối không dùng to-V. | The verb *finish* always requires a gerund, never a to-infinitive.
+# Quy tắc ngữ pháp kinh điển: *finish doing something*, không bao giờ dùng *finish to do*. | Fundamental exam rule: *finish doing*, never *finish to do*.
 @v mind
 + ing | phiền, ngại | object to | Would you mind [opening] the window?
 # *Would you mind + V-ing?* = lời nhờ lịch sự; trả lời đồng ý: *No, not at all.* | *Would you mind -ing?* is a polite request; to agree say *No, not at all*.
@@ -104,43 +120,71 @@ x I'd love [to come] to your party.
 @v keep
 + ing | cứ, liên tục | continue doing | Keep [practising] and you will improve.
 + oing | giữ ai/cái gì ở trạng thái | make someone continue | Sorry to keep you [waiting].
+! Why do you keep to interrupt our meeting? => Why do you keep interrupting our meeting? | *keep* mang nghĩa liên tục/cứ tiếp tục làm gì luôn đi với V-ing. | Expressing repetitive or continual action requires *keep doing*, not *keep to do*.
+# Cấu trúc: *keep (on) doing something*: *keep trying, keep improving*. | Pattern: *keep on doing something*; *keep someone waiting*.
 @v practise
 + ing | luyện tập | do regularly to improve | Practise [speaking] every day.
 # Anh–Anh: động từ *practise*, danh từ *practice*; Anh–Mỹ: *practice* cho cả hai. | UK: verb *practise*, noun *practice*; US: *practice* for both.
 @v miss
 + ing | lỡ; nhớ (việc từng làm) | fail to do; feel sad not doing | I miss [living] near the sea.
+! I truly miss to travel with my old friends. => I truly miss traveling with my old friends. | Nhớ việc từng làm trong quá khứ dùng *miss* + V-ing, không dùng to-V. | Yearning for a past activity takes *miss* + gerund, not to-infinitive.
+# Sau *miss* là V-ing: *miss having dinner together, miss meeting colleagues*. | Always followed by a gerund: *miss seeing you*.
 @v risk
 + ing | liều | do something that may cause harm | Don't risk [losing] your job.
+! You risk to lose all your life savings. => You risk losing all your life savings. | Sau động từ *risk*, bắt buộc dùng V-ing, không dùng to-V. | Taking a chance on a negative outcome requires *risk doing*, not *risk to do*.
+# Cấu trúc: *risk doing something*: *risk damaging one's reputation*. | Essential collocation: *risk losing market share, risk getting caught*.
 @v deny
 + ing | phủ nhận | say you did not do | He denied [taking] the money.
 + that | phủ nhận rằng | say that something is not true | She denied [that] she was there.
+! The suspect denied to take the missing money. => The suspect denied taking the missing money. | Phủ nhận đã làm việc gì bắt buộc dùng *deny* + V-ing, không dùng to-V. | Refusing to admit an action requires *deny doing*, never *deny to do*.
+# Có thể dùng: *deny doing something* hoặc *deny that + mệnh đề*. | Pattern: *deny doing something* or *deny that an incident occurred*.
 @v admit
 + ing | thừa nhận | confess | He admitted [breaking] the window.
 + that | thừa nhận rằng | confess that | I admit [that] I was wrong.
+! The driver admitted to cause the traffic accident. => The driver admitted to causing the traffic accident. | Sau *admit to*, từ *to* là giới từ nên động từ phải thêm -ing. | When followed by *to*, it functions as a preposition requiring a gerund.
+# Cả *admit doing* và *admit to doing* đều đúng: *admit making a mistake*. | Both *admit doing* and *admit to doing* are standard.
 @v imagine
 + ing | tưởng tượng | picture in your mind | Imagine [living] on Mars!
+! Can you imagine to live on another planet? => Can you imagine living on another planet? | Tưởng tượng/hình dung việc gì luôn dùng *imagine* + V-ing, không dùng to-V. | Forming a mental picture of an action takes *imagine doing*, not *to do*.
+# Cấu trúc: *imagine doing something* hoặc *imagine somebody doing something*. | Pattern: *imagine life without smartphones, imagine working remotely*.
 @v postpone
 + ing | hoãn | delay | They postponed [making] a decision.
+! They decided to postpone to launch the mobile app. => They decided to postpone launching the mobile app. | Hoãn lại việc làm gì luôn dùng *postpone* + V-ing, không dùng to-V. | Delaying an event or action takes *postpone doing*, never *postpone to do*.
+# Đồng nghĩa với *put off*. Luôn đi với V-ing: *postpone making a decision*. | Synonymous with *put off*: always takes a gerund.
 @v delay
 + ing | trì hoãn | put off | Don't delay [replying] to the email.
+! Bad weather delayed to take off the flight. => Bad weather delayed taking off the flight. | Làm chậm trễ/trì hoãn việc gì dùng *delay* + V-ing, không dùng to-V. | Causing something to happen later takes *delay doing*, not *delay to do*.
+# Thường gặp trong TOEIC: *delay announcing the results*. | Common workplace pattern: *delay submitting the quarterly report*.
 @v dislike
 + ing | không thích | not like | Many people dislike [speaking] in public.
+! He strongly dislikes to work overtime on weekends. => He strongly dislikes working overtime on weekends. | Không thích/ghét việc gì dùng *dislike* + V-ing, không dùng to-V. | Feeling an aversion to an activity takes *dislike doing*, not *dislike to do*.
+# Sau *dislike* luôn là V-ing hoặc danh từ: *dislike eating spicy food*. | Standard rule: *dislike* takes gerunds or nouns exclusively.
 @v fancy
 + ing | muốn, thích (thân mật) | want to (informal) | Do you fancy [going] out tonight?
 ~ informal | Anh–Anh, văn nói. | British, spoken.
+! Do you fancy to go for a coffee with me? => Do you fancy going for a coffee with me? | Có hứng thú/thích làm gì dùng *fancy* + V-ing, không dùng to-V. | Wanting or desiring an activity in spoken English takes *fancy doing*.
+# Rất phổ biến trong tiếng Anh-Anh giao tiếp: *fancy seeing a movie?* | British English conversational classic: *fancy doing something*.
 @v appreciate
 + ing | trân trọng, cảm kích | be grateful for | I'd appreciate [hearing] your views.
 x I would appreciate it if you [could] reply soon.
 ~ formal | Email trang trọng: *I would appreciate it if you could…* | Formal emails.
+! We would greatly appreciate to receive your prompt feedback. => We would greatly appreciate receiving your prompt feedback. | Đánh giá cao/rất cảm kích việc gì dùng *appreciate* + V-ing, không dùng to-V. | Being grateful for an action requires *appreciate doing*, not *to do*.
+# Câu kinh điển trong email công sở: *I would appreciate hearing from you soon*. | Business correspondence staple: *appreciate your helping us*.
 @v can't help
 + ing | không thể không | be unable to stop | I can't help [laughing] when I see that video.
+! I cannot help to laugh at his funny jokes. => I cannot help laughing at his funny jokes. | Không thể nhịn được/không kìm được việc gì dùng *can't help* + V-ing. | Being unable to stop oneself from an action takes *can't help doing*.
+# Thành ngữ quen thuộc: *can't help feeling worried, can't help smiling*. | Very common idiom: *couldn't help noticing your accent*.
 @v can't stand
 + ing | không chịu nổi | hate | I can't stand [waiting] in traffic.
+! She cannot stand to wait in long grocery lines. => She cannot stand waiting in long grocery lines. | Không thể chịu đựng nổi việc gì dùng *can't stand* + V-ing. | Being unable to tolerate an experience takes *can't stand doing*.
+# Cả *can't stand doing* và *can't stand to do* đều gặp, nhưng V-ing phổ biến và tự nhiên hơn. | While infinitive occurs, gerund is the standard preference.
 @v feel like
 + ing | muốn (làm gì lúc này) | want to do now | I don't feel like [cooking] tonight.
 ! I feel like to sleep. => I feel like sleeping. | *feel like + V-ing* (like là giới từ). | *feel like + -ing* (*like* is a preposition).
 @v give up
 + ing | từ bỏ | stop trying | Don't give up [learning] English!
+! He finally gave up to smoke after ten years. => He finally gave up smoking after ten years. | Từ bỏ một thói quen/hành động dùng *give up* + V-ing, không dùng to-V. | Abandoning an action or routine takes *give up doing*, not *to do*.
+# Cụm động từ đi với giới từ *up*, do đó bắt buộc theo sau là V-ing. | Prepositional phrasal verb: always followed by gerunds (*give up trying*).
 @v look forward to
 + ping | mong chờ | wait happily for | We look forward to [seeing] you.
 ! I look forward to see you. => I look forward to seeing you. | *to* là giới từ → V-ing. | *to* is a preposition → -ing.
@@ -152,40 +196,68 @@ x I would appreciate it if you [could] reply soon.
 > gerund-infinitive
 @v waste
 + oing | phí (thời gian) làm gì | use time badly doing | Don't waste time [worrying] about it.
+! Do not waste time to scroll on social networks. => Do not waste time scrolling on social networks. | Lãng phí thời gian làm gì dùng cấu trúc *waste time doing something*. | Spending time uselessly takes the pattern *waste time doing*, not *to do*.
+# Mẫu câu: *waste time/money (in) doing something*. | Pattern: *waste precious hours arguing over trivial details*.
 @v end up
 + ing | rốt cuộc lại | finally do (unplanned) | We ended up [staying] at home.
+! We ended up to pay twice the normal price. => We ended up paying twice the normal price. | Kết cục/rốt cuộc phải làm gì dùng *end up* + V-ing, không dùng to-V. | Eventually doing something after a process takes *end up doing*.
+# Cấu trúc: *end up doing something* hoặc *end up with/in*. | Extremely frequent: *end up buying, end up working overseas*.
 @v carry on
 + ing | tiếp tục | continue | Carry on [working] – I'll wait.
+! Please carry on to read your prepared speech. => Please carry on reading your prepared speech. | Tiếp tục làm điều gì đang dang dở dùng *carry on* + V-ing. | Continuing an ongoing action takes *carry on doing*, not *to do*.
+# Đồng nghĩa với *continue/keep on*: *carry on working hard*. | Phrasal verb: *carry on doing something* is standard British English.
 @v put off
 + ing | trì hoãn | postpone | Stop putting off [doing] your homework.
+! Never put off to complete your homework assignments. => Never put off completing your homework assignments. | Trì hoãn việc gì bắt buộc dùng *put off* + V-ing, không dùng to-V. | Postponing an action requires *put off doing*, never *to do*.
+# Đồng nghĩa với *delay/postpone*: *put off making a hard decision*. | Classic rule: phrasal verbs ending with prepositions take gerunds.
 @v insist
 + ping | khăng khăng làm | demand firmly | She insisted on [paying].
 + sub | khăng khăng rằng ai phải | demand that | They insisted that he [stay|stays|to stay] for dinner.
+! He insisted to pay for everyone's dinner. => He insisted on paying for everyone's dinner. | Khăng khăng/nhất quyết làm gì dùng *insist on* + V-ing, không dùng *insist to V*. | Demanding something forcefully takes *insist on doing*, not *to do*.
+# Có thể dùng: *insist on doing* hoặc *insist that + mệnh đề giả định* (*insist that he pay*). | Pattern: *insist on doing* or subjunctive *insist that he leave*.
 @v succeed
 + ping | thành công trong việc | manage | He succeeded in [getting] a visa.
+! She finally succeeded to pass the difficult bar exam. => She finally succeeded in passing the difficult bar exam. | Thành công trong việc làm gì luôn dùng *succeed in* + V-ing, không dùng to-V. | Achieving an aim requires *succeed in doing*, never *succeed to do*.
+# Rất nhiều người nhầm dùng to-V; ghi nhớ: *succeed in doing something*. | Essential exam distinction: *manage to do* vs *succeed in doing*.
 @v object
 + ping | phản đối việc | oppose | Many people object to [paying] more tax.
+! They strongly objected to work on holiday weekends. => They strongly objected to working on holiday weekends. | Phản đối việc gì dùng *object to* + V-ing, vì *to* là giới từ. | Expressing opposition takes *object to doing*, because *to* is a preposition.
+# Lưu ý giới từ *to*: *object to paying higher fees, object to being treated rudely*. | Crucial exam point: *to* is a preposition, requiring a gerund.
 @v be worth
 + ing | đáng để | deserve doing | This museum is worth [visiting].
 ? The film is really worth [watching|to watch|watch].
 > so-such-too-enough
+! The ancient museum is well worth to visit once. => The ancient museum is well worth visiting once. | Đáng để làm gì luôn dùng cấu trúc *be worth* + V-ing, không dùng to-V. | Meriting action requires *be worth doing*, never *be worth to do*.
+# Rất thông dụng trong giao tiếp: *It is worth noting that...*, *worth trying*. | Essential writing phrase: *it is worth considering the implications*.
 @v afford
 + to | đủ khả năng (chi trả) | have enough money or time to | We can't afford [to buy] a house yet.
 ! I can't afford buying it. => I can't afford to buy it. | *afford + to V*. | *afford + to V*.
 @v agree
 + to | đồng ý làm | say yes to doing | She agreed [to help] us.
 + that | đồng ý rằng | share the opinion that | Most experts agree [that] exercise is vital.
+! Both parties agreed signing the final trade deal. => Both parties agreed to sign the final trade deal. | Đồng ý làm việc gì dùng *agree* + to-V, không dùng V-ing. | Consenting to perform an action takes *agree to do*, not *agree doing*.
+# Phân biệt: *agree to do something* (đồng ý làm gì), *agree with somebody* (đồng tình với ai). | Distinguish *agree to do* (action) from *agree with* (person/view).
 @v aim
 + to | nhằm mục đích | intend | This book aims [to explain] grammar simply.
+! The campaign aims raising community environmental awareness. => The campaign aims to raise community environmental awareness. | Nhắm tới mục tiêu làm gì dùng *aim to* + V-bare (hoặc *aim at* + V-ing). | Directing efforts toward a goal takes *aim to do* or *aim at doing*.
+# Cả *aim to do* và *aim at doing* đều chuẩn: *aim to improve efficiency*. | Both *aim to do* and *aim at doing* are standard in academic writing.
 @v appear
 + to | có vẻ như | seem | The plan appears [to work].
+! The economy appears improving gradually this quarter. => The economy appears to be improving gradually this quarter. | Có vẻ/dường như đang làm gì dùng *appear to do*, không dùng V-ing đơn lẻ. | Giving the impression of an action requires *appear to do*.
+# Cấu trúc: *appear to be + Adj/V-ing*, *appear to have done* (có vẻ đã làm). | Formal academic verb: *findings appear to confirm the hypothesis*.
 @v arrange
 + to | sắp xếp để | make plans to | We arranged [to meet] at 7.
+! We arranged meeting the project manager on Friday. => We arranged to meet the project manager on Friday. | Sắp xếp để làm việc gì dùng *arrange to do*, không dùng V-ing. | Making plans for an action takes *arrange to do*, not *arrange doing*.
+# Cấu trúc: *arrange to do something*, *arrange for somebody to do something*. | Standard patterns: *arrange a meeting*, *arrange to see a specialist*.
 @v attempt
 + to | cố gắng | try | He attempted [to climb] the mountain alone.
 ~ formal | Trang trọng hơn *try*. | More formal than *try*.
+! The mountaineer attempted climbing the steep cliff alone. => The mountaineer attempted to climb the steep cliff alone. | Nỗ lực/cố gắng làm việc khó dùng *attempt to do*, không dùng V-ing. | Trying to make an effort takes *attempt to do*, not *attempt doing*.
+# *attempt to do something* là mẫu chuẩn trang trọng, tương đương *try to do*. | Formal equivalent of *try*: *attempt to establish dialogue*.
 @v choose
 + to | chọn (làm) | decide to | She chose [to study] abroad.
+! Many young graduates choose living in suburban areas. => Many young graduates choose to live in suburban areas. | Quyết định/chọn lựa làm gì dùng *choose to do*, không dùng V-ing. | Selecting an action among options takes *choose to do*, not *choose doing*.
+# Cấu trúc: *choose to do something*, *choose between A and B*. | Core pattern: *choose to pursue higher education*.
 @v decide
 + to | quyết định | make a choice to | I've decided [to learn] Japanese.
 ! I decided going home. => I decided to go home. | *decide + to V*. | *decide + to V*.
