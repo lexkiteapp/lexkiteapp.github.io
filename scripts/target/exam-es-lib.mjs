@@ -14,7 +14,7 @@ const toks = s => s.toLowerCase().match(/[\p{L}]+/gu) || [];
 export function build(tsv, freqTxt) {
   const rank = new Map(); freqTxt.split('\n').forEach((l, i) => { const w = l.split(' ')[0]; if (w && !rank.has(w)) rank.set(w, i + 1); });
   const kho = new Map(), gen = new Map(); // từ kho (1 chữ) → pos / giống
-  for (const f of fs.readdirSync('content/target/es').filter(f => /^core-\d+\.json$/.test(f))) for (const w of readJSON('content/target/es/' + f).words) if (!/[\s-]/.test(w.word)) { kho.set(w.word.toLowerCase(), w.pos); if (w.gender) gen.set(w.word.toLowerCase(), w.gender); }
+  for (const f of fs.readdirSync('content/target/es').filter(f => /^core-\d+\.json$/.test(f))) for (const w of readJSON('content/target/es/' + f).words) if (!/[\s-]/.test(w.word)) { kho.set(w.word.toLowerCase(), w.pos); if (w.gender === 'm' || w.gender === 'f') gen.set(w.word.toLowerCase(), w.gender); }
   const rows = tsv.split('\n').map(l => l.split('\t')).filter(r => r[1] === 'spa' && r[2]), big = new Set();
   for (const r of rows) { const t = toks(r[2]); for (let i = 0; i < t.length - 1; i++) big.add(t[i] + ' ' + t[i + 1]); }
   const inv = new Map(); // từ → tập id câu (chặn bẫy từng xuất hiện CÙNG câu với một từ nội dung của câu này)
