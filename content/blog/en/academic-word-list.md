@@ -145,3 +145,11 @@ At 8–12 families a day with regular reviews, most learners can work through th
 ### Is the AWL still relevant if it was published in 2000?
 
 Yes. Core academic vocabulary changes slowly, and words like *analyse*, *evidence* and *approach* remain central to academic English. Newer lists exist, notably the New Academic Word List (Browne and colleagues, 2013) and the Academic Vocabulary List (Gardner and Davies, 2014), which were built from larger, more recent corpora. They overlap heavily with the AWL, so the AWL remains a sound and widely used starting point, especially for exam preparation.
+
+## Exploring detailed AWL meanings and related vocabulary
+
+For sublist-by-sublist definitions, collocations, and related lexical sets, explore our focused guides:
+- Complete family definitions: [Academic Word List with meanings](/en/blog/academic-word-list-meanings/)
+- Automated test vocabulary: [PTE academic vocabulary list](/en/blog/pte-academic-vocabulary-list/)
+- Common grammatical confusion: [Affect vs effect meaning](/en/blog/confusing-words-affect-effect-meaning/)
+- Everyday business verbs: [Phrasal verbs for work meaning](/en/blog/phrasal-verbs-for-work-meanings/)

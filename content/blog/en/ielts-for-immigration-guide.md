@@ -183,3 +183,13 @@ Do not assume you can. Australia said fully remote-proctored tests were not acce
 ### Do I need a separate test for each country?
 
 Not always. A single IELTS result might satisfy more than one system if the version and scores fit and the result is still valid for each. But rules differ, for example General Training only for Express Entry, so confirm each one separately.
+
+## Exploring specific country rules and test variants
+
+Depending on your migration destination, examine our focused spoke guides for granular requirements:
+- Choosing between test versions: [IELTS General vs Academic for immigration](/en/blog/ielts-general-vs-academic-immigration/)
+- Point thresholds for Australia: [IELTS score for Australia PR](/en/blog/ielts-score-australia-pr/)
+- Secure UK visas: [IELTS for UKVI explained](/en/blog/ielts-ukvi-explained/)
+- New Zealand points benchmarks: [IELTS score for New Zealand residence](/en/blog/ielts-new-zealand-skilled-migrant/)
+- General Training letter strategies: [IELTS General Training Task 1 for migrants](/en/blog/ielts-general-letter-newcomers/)
+- Comparing tests: [PTE vs IELTS for Australia](/en/blog/pte-vs-ielts-australia/) and [CELPIP vs IELTS for Canada](/en/blog/celpip-vs-ielts-canada/)

@@ -213,3 +213,11 @@ In Australia and New Zealand, a *bond* is the money you pay as security at the s
 ### What does "bills included" mean?
 
 It means the rent includes some or all of the household bills, such as water, electricity, gas and internet. It may not mean all of them, so ask which ones.
+
+## Newcomer communication across essential settlement services
+
+Beyond finding a home, settling into a new community involves mastering English across daily civic and commercial systems:
+- Healthcare: [English phrases at the doctor](/en/blog/english-for-newcomers-doctor/)
+- Banking and finance: [English phrases at the bank](/en/blog/english-for-newcomers-bank/)
+- Career and employment: [Job interview English for immigrants](/en/blog/job-interview-english-newcomers/) and [Salary negotiation phrases in English](/en/blog/salary-negotiation-english-phrases/)
+- Canadian migration tests: [CELPIP speaking phrases](/en/blog/celpip-speaking-everyday-phrases/)
