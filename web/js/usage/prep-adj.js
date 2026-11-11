@@ -31,10 +31,16 @@ x She was afraid [of] losing her job.
 @a scared
 + of | sợ | afraid of | He's scared [of] flying, so he always takes the train.
 ~ informal | *scared* thân mật hơn *afraid*; văn viết trang trọng dùng *afraid* hoặc *fearful*. | *scared* is more informal than *afraid*.
+! She is scared with spiders. => She is scared of spiders. | *scared* luôn đi với *of*, không dùng *with*. | *scared* takes *of*, never *with*.
+# Tương tự *afraid of*: *scared of heights, scared of failure*. | Followed by noun or gerund: *scared of making mistakes*.
 @a frightened
 + of | sợ hãi | afraid of | The kitten was frightened [of] the loud music.
+! The child was frightened with the thunder. => The child was frightened of the thunder. | Sợ hãi điều gì dùng *frightened of*, không dùng *with*. | When fearful of something, use *frightened of*, not *with*.
+# Cũng có thể dùng *frightened by* khi nói về hành động gây sợ hãi tức thì. | Can also use *frightened by* for an immediate external cause.
 @a terrified
 + of | vô cùng sợ | extremely afraid of | My aunt is terrified [of] spiders.
+! He was terrified from public speaking. => He was terrified of public speaking. | Cực kỳ sợ hãi điều gì luôn dùng *terrified of*. | Extreme fear takes *terrified of*, not *from*.
+# Mẫu câu: *terrified of dogs, terrified of being alone*. | Standard pattern: *terrified of* + noun or gerund.
 @a angry
 + with | giận (ai) | annoyed with a person | Are you still angry [with] me?
 + about | giận (chuyện gì) | annoyed about a situation | Residents are angry [about] the new parking rules.
@@ -45,12 +51,18 @@ x She was afraid [of] losing her job.
 @a annoyed
 + with | bực mình với (ai) | irritated by a person | The teacher was annoyed [with] us for being late.
 + about | bực mình về (việc gì) | irritated by a situation | I'm annoyed [about] the delay.
+! He was annoyed at his colleague for the mistake. => He was annoyed with his colleague for the mistake. | Bực mình với ai dùng *annoyed with*; bực về việc gì dùng *annoyed about/at*. | Use *annoyed with* for people, and *annoyed about/at* for things.
+# Phân biệt: *annoyed with somebody* (người) và *annoyed about something* (sự việc). | Distinguish *annoyed with somebody* from *annoyed about something*.
 @a furious
 + with | tức giận với (ai) | extremely angry with a person | The coach was furious [with] the referee.
 + about | rất giận về (việc gì) | extremely angry about | Customers were furious [about] the price rise.
+! The manager was furious to the late delivery. => The manager was furious about the late delivery. | Vô cùng tức giận về việc gì dùng *furious about/at*; giận ai dùng *furious with*. | Angry about an event: *furious about*; angry at a person: *furious with*.
+# Mẫu câu: *furious with somebody for doing something*. | Highly emphatic: *furious with someone for doing something*.
 @a upset
 + about | buồn, khó chịu về (việc gì) | unhappy about something | He was upset [about] the exam results.
 + with | phật lòng với (ai) | unhappy with a person | Don't be upset [with] her; she didn't mean it.
+! She was deeply upset to the cancellation. => She was deeply upset about the cancellation. | Buồn phiền/khó chịu về sự việc dùng *upset about*, không dùng *to*. | Feeling unhappy about an occurrence takes *upset about*, not *to*.
+# Phân biệt: *upset about something* (chuyện gì) và *upset with somebody* (giận ai). | Distinguish *upset about something* from *upset with someone*.
 @a aware
 + of | nhận thức được, biết | knowing that something exists | Are you aware [of] the risks?
 ! People should be aware about pollution. => People should be aware of pollution. | *aware* luôn đi với *of* (hoặc *aware that* + mệnh đề). | *aware* takes *of* (or *aware that* + clause).
@@ -59,6 +71,8 @@ x She was afraid [of] losing her job.
 & awareness, unaware
 @a unaware
 + of | không biết, không nhận ra | not knowing about | Many users are unaware [of] how their data is used.
+! Drivers were unaware about the closed road ahead. => Drivers were unaware of the closed road ahead. | Không nhận biết/không hay biết gì luôn dùng *unaware of*. | To lack knowledge or perception, always use *unaware of*, not *about*.
+# Trái nghĩa với *aware of*. Thường gặp trong bài thi đọc: *unaware of the danger*. | Opposite of *aware of*. Common in academic texts: *unaware of the consequences*.
 @a capable
 + of | có khả năng (làm gì) | able to do | The new robot is capable [of] lifting 200 kilograms.
 ! She is capable to do it. => She is capable of doing it. | *capable of* + V-ing (khác *able to* + V). | *capable of* + -ing (unlike *able to* + verb).
@@ -66,12 +80,18 @@ x She was afraid [of] losing her job.
 @a careful
 + with | cẩn thận với (đồ vật, tiền) | taking care when using | Be careful [with] that knife.
 + about | thận trọng về | cautious about | You should be careful [about] what you post online.
+! You must be careful of your spending habits. => You must be careful with your spending habits. | Cẩn thận trong chi tiêu/sử dụng đồ vật dùng *careful with*. | Use *careful with* for money, possessions, or tools.
+# Dùng *careful with* (đồ vật/tiền), *careful about* (hành động/lời nói). | Use *careful with* for physical objects/money, *careful about* for actions.
 @a certain
 + of | chắc chắn về | completely sure about | We are certain [of] victory.
 + about | chắc chắn về | completely sure about | I'm not certain [about] the exact date.
+! We are not certain for the project deadline. => We are not certain of the project deadline. | Chắc chắn về điều gì dùng *certain of* hoặc *certain about*. | To be sure, use *certain of* or *certain about*, not *for*.
+# Cả *certain of* và *certain about* đều chuẩn; có thể theo sau bởi mệnh đề: *certain that*. | Both *certain of* and *certain about* are standard; or use *certain that*.
 @a sure
 + of | chắc chắn, tin chắc | confident about | She was sure [of] her answer.
 + about | chắc chắn về | certain about | Are you sure [about] that?
+! Are you completely sure for his honesty? => Are you completely sure of his honesty? | Tin chắc/chắc chắn về điều gì dùng *sure of* hoặc *sure about*. | Confidence in a fact takes *sure of* or *sure about*, not *for*.
+# Giao tiếp hàng ngày: *Are you sure about that?*, *be sure of oneself*. | Daily spoken English: *sure about that*; *sure of success*.
 @a close
 + to | gần; thân với | near; emotionally near | Our hotel is close [to] the beach.
 x I'm very close [to] my grandmother.
@@ -87,28 +107,44 @@ x I'm very close [to] my grandmother.
 @a anxious
 + about | lo âu về | worried about | She felt anxious [about] the interview.
 + for | nóng lòng mong (điều gì) | eager for | Fans are anxious [for] news of the new album.
+! Parents are anxious for their children safety. => Parents are anxious about their children's safety. | Lo lắng/bồn chồn về điều gì dùng *anxious about*. | When experiencing anxiety, use *anxious about*, not *for*.
+# Phân biệt: *anxious about* (lo lắng về điều xấu) và *anxious for/to* (khao khát, mong đợi điều gì). | Distinguish *anxious about* (worried) from *anxious for/to* (eager).
 @a nervous
 + about | hồi hộp, lo về | worried about | I always get nervous [about] speaking in public.
+! The speaker felt nervous from the large audience. => The speaker felt nervous about the large audience. | Hồi hộp/lo sợ về tình huống nào dùng *nervous about*. | Feeling apprehensive takes *nervous about*, not *from*.
+# Cụm từ thông dụng: *nervous about the interview / exam / presentation*. | Very common collocations: *nervous about exams, nervous about the future*.
 @a confident
 + in | tin vào (ai, khả năng) | trusting in | We are confident [in] our team.
 + of | tin chắc sẽ (đạt được) | certain of | The company is confident [of] success this year.
 + about | tự tin về | self-assured about | She feels confident [about] her speaking test.
+! She is highly confident on her test score. => She is highly confident of her test score. | Tự tin về kết quả/khả năng dùng *confident of* hoặc *confident in*. | Confidence in an outcome takes *confident of*; in abilities takes *confident in*.
+# *confident of* + kết quả (*confident of winning*); *confident in* + năng lực (*confident in abilities*). | Use *confident of* for outcomes, and *confident in* for skills/people.
 @a connected
 + with | có liên quan đến | linked with | The illness may be connected [with] poor diet.
 + to | được nối với | joined to | Is the printer connected [to] the network?
+! The crime is directly connected with the gang. => The crime is directly connected to the gang. | Có liên hệ/kết nối với cái gì dùng *connected to* (hoặc *connected with*). | Related or linked: use *connected to* or *connected with*.
+# *connected to* thường dùng cho kết nối vật lý/mạng lưới; *connected with* cho mối liên hệ xã hội/logic. | *connected to* often implies physical link; *connected with* denotes association.
 @a crazy
 + about | mê mẩn, cuồng | very enthusiastic about | My son is crazy [about] football.
 ~ informal | Văn nói; văn viết dùng *passionate about* hoặc *very keen on*. | Spoken; in writing use *passionate about* or *very keen on*.
+! Teenagers are crazy on K-pop music today. => Teenagers are crazy about K-pop music today. | Say mê/cuồng nhiệt cái gì luôn dùng *crazy about*. | To be passionately fond of something, always use *crazy about*.
+# Thân mật, tương đương với *mad about* hoặc *obsessed with*. | Informal and common: synonymous with *wild about* or *obsessed with*.
 @a critical
 + of | chỉ trích, phê bình | disapproving of | The report was highly critical [of] the government.
+! The report was very critical on the government. => The report was very critical of the government. | Chỉ trích gay gắt ai/điều gì luôn dùng *critical of*. | Expressing adverse judgment requires *critical of*, not *on*.
+# *critical of* mang nghĩa chỉ trích; khác với *critical to/for* (mang tính quyết định, cực kỳ quan trọng). | Distinguish *critical of* (fault-finding) from *critical to/for* (vital/crucial).
 @a curious
 + about | tò mò về | wanting to know about | Children are naturally curious [about] the world.
+! Young children are curious for everything around them. => Young children are curious about everything around them. | Tò mò/hiếu kỳ về thế giới xung quanh luôn dùng *curious about*. | Having a desire to know takes *curious about*, not *for*.
+# Cấu trúc: *curious about something* hoặc *curious to know / learn*. | Pattern: *curious about* + noun, or *curious to* + infinitive.
 @a dependent
 + on | phụ thuộc vào | needing something to survive | The town is heavily dependent [on] tourism.
 ! Many countries are dependent of oil. => Many countries are dependent on oil. | Giống động từ *depend on*, tính từ *dependent* đi với *on* (*independent* thì đi với *of*). | Like *depend on*, *dependent* takes *on* (but *independent of*).
 = heavily dependent, economically dependent, increasingly dependent
 @a independent
 + of | độc lập với, không phụ thuộc | not relying on | She became financially independent [of] her parents.
+! Teenagers want to be independent with their parents. => Teenagers want to be independent of their parents. | Độc lập, không phụ thuộc vào ai/cái gì dùng *independent of*. | Free from outside control takes *independent of*, not *with*.
+# Cả *independent of* và *independent from* đều đúng, nhưng *independent of* phổ biến hơn. | Both *independent of* and *independent from* exist; *of* is standard.
 @a different
 + from | khác với | not the same as | My opinion is different [from] yours.
 + to | khác với (Anh–Anh) | not the same as (British English) | British English is slightly different [to] American English.
@@ -120,30 +156,46 @@ x I'm very close [to] my grandmother.
 ! Her style is similar with her sister's. => Her style is similar to her sister's. | *similar* đi với *to*, không đi với *with*. | *similar* takes *to*, not *with*.
 @a identical
 + to | giống hệt | exactly the same as | This phone is identical [to] the one I lost.
+! This copy is identical with the original document. => This copy is identical to the original document. | Giống hệt với cái gì dùng *identical to* (hoặc *identical with*). | Being exactly alike takes *identical to*, commonly used in comparisons.
+# *identical to* là dạng chuẩn và thường gặp nhất trong các đề thi quốc tế. | While *identical with* occurs, *identical to* is standard in IELTS/TOEIC.
 @a disappointed
 + with | thất vọng với (người, kết quả) | unhappy with | The manager was disappointed [with] the sales figures.
 + in | thất vọng về (ai) | let down by a person | I'm disappointed [in] you.
 + by | thất vọng vì | upset because of | We were disappointed [by] the ending of the film.
 + about | thất vọng về (việc gì) | unhappy about | She was disappointed [about] missing the concert.
+! Customers were disappointed for the poor service. => Customers were disappointed with the poor service. | Thất vọng về chất lượng/người nào dùng *disappointed with/in*. | When dissatisfied with an item or person, use *disappointed with* or *in*.
+# Dùng *disappointed with/in* (người/vật), *disappointed about/at* (kết quả/sự kiện). | Use *with/in* for objects and people; *about/at* for events and results.
 @a engaged
 + to | đính hôn với | having agreed to marry | Tom is engaged [to] a doctor.
 + in | tham gia, bận làm | involved in | Most students are engaged [in] part-time work.
+! She has been engaged with him for two years. => She has been engaged to him for two years. | Đính hôn với ai bắt buộc dùng *engaged to*, không dùng *with*. | Having agreed to marry someone takes *engaged to*, never *with*.
+# Phân biệt: *engaged to somebody* (đính hôn), nhưng *engaged in something* (tham gia vào việc gì). | Distinguish *engaged to* (marriage) from *engaged in* (involved in activity).
 @a envious
 + of | ghen tị với | wanting what someone else has | She was envious [of] her friend's success.
+! He was envious with his colleague's promotion. => He was envious of his colleague's promotion. | Ghen tị/đố kỵ với ai/điều gì dùng *envious of*. | Feeling or showing envy takes *envious of*, not *with*.
+# Tương tự *jealous of*: *envious of someone's success / talent / wealth*. | Similar to *jealous of*: *envious of somebody's achievements*.
 @a jealous
 + of | ghen tị, ghen | unhappy because someone has what you want | He's jealous [of] his brother's new car.
+! He is always jealous with his brother's success. => He is always jealous of his brother's success. | Ghen ghét/đố kỵ điều gì luôn dùng *jealous of*. | Feeling resentful of someone's advantages takes *jealous of*, not *with*.
+# Collocations: *jealous of his popularity, fiercely jealous of*. | Standard collocation: *jealous of somebody's popularity or wealth*.
 @a equal
 + to | bằng với | the same in size or value as | One kilometre is equal [to] 1,000 metres.
+! All humans are born equal with each other. => All humans are born equal to each other. | Bình đẳng/ngang bằng với ai/cái gì dùng *equal to*. | Having the same value or rights takes *equal to*, not *with*.
+# Thành ngữ: *be equal to the task* (đủ sức/năng lực gánh vác nhiệm vụ khó khăn). | Idiom: *equal to the challenge* (capable of meeting a difficulty).
 @a essential
 + for | thiết yếu cho (ai/mục đích) | absolutely necessary for | Water is essential [for] life.
 + to | thiết yếu đối với | vital to | Good communication is essential [to] the success of any team.
 ~ academic | *It is essential for sb to V* – cấu trúc ăn điểm Writing. | *It is essential for sb to V* – a strong Writing structure.
+! Clean water is essential with human survival. => Clean water is essential to human survival. | Cực kỳ thiết yếu/cần thiết cho cái gì dùng *essential to* hoặc *essential for*. | Indispensable or vital takes *essential to* or *essential for*, not *with*.
+# Cả *essential to* và *essential for* đều chuẩn và dùng tương đương nhau. | Both *essential to* and *essential for* are interchangeable in academic texts.
 @a excited
 + about | háo hức về | very happy and enthusiastic about | The kids are excited [about] the school trip.
 ! I'm exciting about the trip. => I'm excited about the trip. | Cảm xúc của người dùng *-ed*: *excited*; vật gây cảm xúc dùng *-ing*: *exciting*. | Feelings use *-ed* (excited); the cause uses *-ing* (exciting).
 > ing-ed-adjectives-prepositions
 @a experienced
 + in | có kinh nghiệm về | having skill from practice in | We need someone experienced [in] project management.
+! She is highly experienced on digital marketing. => She is highly experienced in digital marketing. | Có nhiều kinh nghiệm trong ngành nghề/lĩnh vực gì dùng *experienced in*. | Having knowledge in a domain takes *experienced in*, not *on*.
+# Collocations học thuật: *experienced in teaching, experienced in financial management*. | Academic collocation: *highly experienced in clinical practice*.
 @a familiar
 + with | quen thuộc với, biết rõ (người biết cái gì) | knowing something well | Are you familiar [with] this software?
 + to | quen thuộc với (cái gì quen với ai) | known to someone | Her face looks familiar [to] me.
@@ -154,6 +206,8 @@ x I'm very close [to] my grandmother.
 & fame, well-known
 @a well-known
 + for | nổi tiếng vì | famous for | The region is well-known [for] its coffee.
+! The city is well-known about its ancient temples. => The city is well-known for its ancient temples. | Nổi tiếng vì điều gì dùng *well-known for*, không dùng *about*. | Renowned for a feature takes *well-known for*, not *about*.
+# Đồng nghĩa với *famous for*; phân biệt với *well-known to somebody* (được ai biết đến nhiều). | Distinguish *well-known for* (reason) from *well-known to* (audience).
 @a fond
 + of | thích, quý mến | liking someone or something | My grandfather is fond [of] gardening.
 ! I'm fond with cats. => I'm fond of cats. | *fond* luôn đi với *of*. | *fond* always takes *of*.
@@ -164,50 +218,76 @@ x I'm very close [to] my grandmother.
 @a free
 + from | không bị (điều xấu) | without something unpleasant | The city centre is free [from] traffic on Sundays.
 + of | không có, miễn | without | All meals are free [of] charge.
+! The product is completely free with artificial chemicals. => The product is completely free from artificial chemicals. | Không chứa/thoát khỏi điều gì dùng *free from* hoặc *free of*. | Devoid of an unwanted substance takes *free from* or *free of*, not *with*.
+# Thường gặp trên nhãn mác: *sugar-free*, *free of charge*, *free from bias*. | Common idioms: *free of charge* (without cost), *free from pain*.
 @a friendly
 + to | thân thiện với | kind and pleasant to | The staff were very friendly [to] us.
 + with | thân thiện, thân với (ai) | on good terms with | She's friendly [with] everyone in the office.
+! The locals were exceptionally friendly with foreign visitors. => The locals were exceptionally friendly to foreign visitors. | Thân thiện đối với ai dùng *friendly to* hoặc *friendly towards*. | Behaving in a kindly manner takes *friendly to* or *towards*, not *with*.
+# *friendly to/towards somebody*; khi là bạn bè với ai thì dùng: *be friends with somebody*. | Note: *be friendly to somebody*, but *be friends with somebody*.
 @a full
 + of | đầy | containing a lot of | The streets were full [of] tourists.
 ! The room was full with people. => The room was full of people. | Đầy cái gì: *full of* (*filled with* thì dùng *with*). | Containing a lot: *full of* (but *filled with*).
 @a filled
 + with | được lấp đầy bằng | made full of | The room was filled [with] laughter.
+! The old chest was filled by precious jewelry. => The old chest was filled with precious jewelry. | Được lấp đầy/chứa đầy bằng cái gì dùng *filled with*. | Containing all that can be held takes *filled with*, not *by*.
+# Phân biệt: *filled with* (chứa đầy) và *full of* (đầy ắp). | Distinguish *filled with* (participial adjective) from *full of*.
 @a grateful
 + to | biết ơn (ai) | thankful to a person | I'm grateful [to] my teachers.
 + for | biết ơn vì (điều gì) | thankful for something | We are grateful [for] your support.
 # *grateful to sb for sth*: I'm grateful to you for your help. | *grateful to sb for sth*: I'm grateful to you for your help.
 @a thankful
 + for | biết ơn vì | grateful for | We're thankful [for] the good weather.
+! We are deeply thankful to your timely support. => We are deeply thankful for your timely support. | Biết ơn vì điều gì dùng *thankful for*; biết ơn ai dùng *thankful to*. | Grateful for a favor takes *thankful for*; grateful to a person takes *thankful to*.
+# Cấu trúc: *thankful to somebody for something*. | Pattern: *thankful to someone for their generosity*.
 @a guilty
 + of | phạm tội, có lỗi về | having done something wrong | He was found guilty [of] fraud.
+! The jury found the defendant guilty with murder. => The jury found the defendant guilty of murder. | Có tội/phạm tội gì dùng *guilty of*, không dùng *with*. | Legally responsible for a crime takes *guilty of*, not *with*.
+# Trong tâm lý/cảm xúc: *feel guilty about doing something* (cảm thấy áy náy). | Distinguish legal *guilty of a crime* from psychological *guilty about*.
 @a innocent
 + of | vô tội | not guilty of | She was innocent [of] the crime.
+! The suspect was declared innocent from all charges. => The suspect was declared innocent of all charges. | Vô tội/không vướng vào tội lỗi gì dùng *innocent of*. | Free from guilt or blame takes *innocent of*, not *from*.
+# Trái nghĩa trực tiếp với *guilty of*: *innocent of any wrongdoing*. | Direct antonym of *guilty of*: *innocent of the accusation*.
 @a happy
 + with | hài lòng với | satisfied with | Are you happy [with] your new phone?
 + about | vui về | pleased about | Everyone was happy [about] the decision.
 + for | mừng cho (ai) | glad for someone else | I'm so happy [for] you!
+! We are extremely happy for our exam results. => We are extremely happy with our exam results. | Hài lòng/vui mừng về kết quả/sự việc của mình dùng *happy with/about*. | Pleased with an outcome takes *happy with* or *happy about*.
+# Dùng *happy for somebody* khi chung vui với niềm vui của người khác: *I'm happy for you!* | Use *happy for somebody* when sharing in their good fortune.
 @a pleased
 + with | hài lòng với | satisfied with | The teacher was pleased [with] our progress.
 + about | vui về | glad about | We're pleased [about] the results.
+! The manager was pleased about the quarterly profits. => The manager was pleased with the quarterly profits. | Hài lòng/vừa ý với điều gì/ai đó dùng *pleased with*. | Feeling satisfaction takes *pleased with*, not *about*.
+# Cấu trúc: *pleased with something/somebody*; hoặc *pleased to do something*. | Pattern: *pleased with the result*, or *pleased to meet you*.
 @a satisfied
 + with | hài lòng với | content with | Most customers are satisfied [with] the service.
 ! I'm satisfied about my score. => I'm satisfied with my score. | Hài lòng với: *satisfied with*. | Content with: *satisfied with*.
 @a content
 + with | bằng lòng với | happy with what you have | He is content [with] a simple life.
+! He seems quite content by his simple modest life. => He seems quite content with his simple modest life. | Bằng lòng/thỏa mãn với cái mình đang có dùng *content with*. | Satisfied with a state of affairs takes *content with*, not *by*.
+# *content with* + danh từ (*content with little*); *content to* + V-bare (*content to wait*). | Use *content with* + noun, or *content to* + infinitive.
 @a harmful
 + to | có hại cho | causing damage to | Plastic waste is harmful [to] marine life.
 ~ academic | Dùng nhiều trong Writing chủ đề môi trường, sức khỏe. | Common in Writing about the environment and health.
+! Smoking is extremely harmful for your lungs and heart. => Smoking is extremely harmful to your lungs and heart. | Có hại/gây tổn hại cho sức khỏe/môi trường dùng *harmful to*. | Causing injury or damage takes *harmful to*, not *for*.
+# Rất phổ biến trong đề thi: *harmful to human health, harmful to the environment*. | Essential collocations: *harmful to wildlife, harmful to children*.
 @a beneficial
 + to | có lợi cho | good for | Regular exercise is beneficial [to] mental health.
 + for | có lợi cho | good for | Bilingual education can be beneficial [for] young learners.
+! Daily exercise is highly beneficial for mental wellbeing. => Daily exercise is highly beneficial to mental wellbeing. | Có lợi/mang lại lợi ích cho ai/cái gì dùng *beneficial to*. | Resulting in good takes *beneficial to*, rather than *for* in formal usage.
+# Cả *beneficial to* và *beneficial for* đều gặp, nhưng *beneficial to* được ưu tiên trong văn bản học thuật. | Both occur, but *beneficial to* is favored in academic writing.
 @a impressed
 + by | ấn tượng bởi | admiring because of | I was impressed [by] her presentation.
 + with | ấn tượng với | admiring | The judges were impressed [with] his performance.
+! The interviewers were impressed of her leadership skills. => The interviewers were impressed by her leadership skills. | Bị ấn tượng bởi điều gì dùng *impressed by* hoặc *impressed with*. | Feeling admiration takes *impressed by* or *impressed with*, not *of*.
+# Cả *impressed by* và *impressed with* đều đúng và tự nhiên trong giao tiếp. | Both *impressed by* and *impressed with* are completely standard.
 @a inferior
 + to | kém hơn | worse than | The copy is inferior [to] the original.
 ! This product is inferior than that one. => This product is inferior to that one. | *inferior/superior* đã mang nghĩa so sánh nên dùng *to*, không dùng *than*. | *inferior/superior* already compare, so use *to*, not *than*.
 @a superior
 + to | tốt hơn, vượt trội | better than | The new model is superior [to] the old one.
+! This new processor is clearly superior than older chips. => This new processor is clearly superior to older chips. | Vượt trội/hơn hẳn cái gì bắt buộc dùng *superior to*, không dùng *than*. | Being higher in quality takes *superior to*, never *superior than*.
+# Rất nhiều người nhầm dùng *than*; các từ có gốc Latin (*superior, inferior, senior, junior*) đều đi với *to*. | Key grammar rule: Latin comparatives take *to*, never *than*.
 @a involved
 + in | tham gia vào | taking part in | Many volunteers were involved [in] the project.
 + with | có quan hệ với, dính líu | connected with | He got involved [with] a bad crowd.
