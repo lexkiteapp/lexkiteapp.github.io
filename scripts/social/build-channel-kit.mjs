@@ -183,7 +183,7 @@ html,body{width:${W}px;background:transparent;overflow:hidden}
 .hide-text [data-t]{visibility:hidden}
 .only-fig .bg,.only-fig .deco,.only-fig [data-t],.only-fig .pill,.only-fig .chip,.only-fig .logo{visibility:hidden!important}
 .only-fig .pill,.only-fig .chip{background:none!important;box-shadow:none!important}
-${lang === 'ar' || lang === 'hi' ? '.stage *{letter-spacing:0!important}.h,.sub{line-height:1.3}.chip{text-transform:none}' : ''}
+${lang === 'ar' || lang === 'hi' ? '.stage *{letter-spacing:0!important}.h,.sub{line-height:1.18}.pill,.chip{line-height:1.2;text-transform:none}' : ''}
 `;
 
 function pageAvatar(a) {
