@@ -9,8 +9,9 @@ let n = 0; const ok = (c, m) => { assert.ok(c, m); n++; };
 const tick = (ms = 0) => new Promise(r => setTimeout(r, ms));
 
 function env({ ua, touch = 0, sr = true, denied = false }) {
-  const dom = new JSDOM('<!doctype html><body></body>', { url: 'https://lexkite.com/app/', runScripts: 'outside-only', pretendToBeVisual: true, userAgent: ua });
+  const dom = new JSDOM('<!doctype html><body></body>', { url: 'https://lexkite.com/app/', runScripts: 'outside-only', pretendToBeVisual: true });
   const w = dom.window, log = { gum: 0, srs: [] };
+  Object.defineProperty(w.navigator, 'userAgent', { value: ua, configurable: true });
   Object.defineProperty(w.navigator, 'maxTouchPoints', { value: touch, configurable: true });
   const track = { stop() { log.stopped = (log.stopped || 0) + 1; } };
   Object.defineProperty(w.navigator, 'mediaDevices', { configurable: true, value: { getUserMedia: () => { log.gum++; return denied ? Promise.reject(new Error('denied')) : Promise.resolve({ getTracks: () => [track] }); } } });
@@ -89,3 +90,4 @@ for (const code of ['no-speech', 'not-allowed', 'audio-capture']) { // mọi l�
 for (const f of ['speaking', 'confidence', 'mock']) ok(!/new (SR|MediaRecorder)\(|getUserMedia\(\{[^)]*\}\);? ?media =/.test(fs.readFileSync(`web/js/${f}.js`, 'utf8').replace(/st\.getTracks\(\)/g, '')), `${f}: dùng speechSession chung, không tự mở mic + SR`);
 ok(/UI\.micParallel\(/.test(fs.readFileSync('web/js/toeic.js', 'utf8')), 'toeic: tôn trọng mic độc quyền');
 console.log(`✓ mic-exclusive: ${n} ok`);
+process.exit(0); // bộ đếm còn lại của jsdom không giữ suite
