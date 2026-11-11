@@ -30,16 +30,6 @@ Mẫu thẻ:
 
 ## TODO
 
-### [B6-GAP] Lấp đủ SEO mọi ngôn ngữ: 17 bài en CPM cao + 57 bài bản địa còn thiếu · @antigravity · ưu tiên: RẤT CAO
-- **Bối cảnh (Claude 11/11, lệnh chủ "seo đều các ngôn ngữ, còn thiếu thì đẩy trước"):** số bài hiện tại: vi 117, en 97, ja/pt 79, es 74, de/id 71, fr/th 69, ko/tr/zh/hi 68, ar/ru 67. Danh sách cụ thể ở `content/blog/plan/2026-11-gap-fill.json`.
-- **Phần 1:** 17 bài en của cụm CPM cao (`cpm_en`), nguồn chủ đề là `content/blog/plan/2027-01-cpm-clusters.json`. Mỗi bài theo đúng `feature`, `appSupports`, `mustNotClaim`, `factCheck` của chủ đề. Số liệu visa và điểm thi phải tra nguồn chính thức ngay lúc viết.
-- **Phần 2:** 57 bài theo `lang_gaps`. Mỗi ngôn ngữ viết các `translationKey` mà ngôn ngữ đó còn thiếu, bản địa hoá thật: ví dụ, lỗi L1, nhãn app theo `extension/app/js/i18n/<lang>/`. Thứ tự ưu tiên: fr, de, ko, ja, sau đó ru, tr, ar, zh, hi, th, pt, id, es.
-- **Cách nộp:**
-  - Mỗi lô ≤ 20 bài, mỗi lô một PR, nhánh mới từ `real/main`.
-  - Áp dụng toàn bộ "Cần làm trước khi nộp" của [B5-R2-FIX]: `blog-check` 0 lỗi, `blog-dupes` 0 lỗi, kiểm từng tính năng app được trích, không bịa số liệu hay YouTube ID, đáp án quiz trộn vị trí, để trống `qualityScore`.
-- **Tiêu chí xong:** mọi ngôn ngữ ≥ 80 bài, phần 1 đã đăng. Claude chấm độc lập ≥ 90/bài mới gộp.
-- Báo cáo: (người làm điền)
-- Cần sửa / Nhận xét: (Claude điền)
 
 ### [B5-R2-FIX] Lỗi hệ thống lô B5-R2 (84 bài, PR #647) – KHÔNG lặp lại ở lô sau · @antigravity · ưu tiên: RẤT CAO
 - **Bối cảnh (Claude 05/11):** lô tự chấm 85–89; chấm độc lập (Opus, 3 vòng) ra **~80–86**, 0/84 bài đạt 90. Claude sửa toàn bộ trên nhánh `blog/b5r2-quality` (PR mới thay #647) + thêm cổng `blog-check` (lang-link, lang-mix, cover-truth, dead-link, quiz trộn phương án, sổ YouTube).
@@ -214,6 +204,27 @@ Mẫu thẻ:
 
 
 ## ĐANG LÀM
+
+### [B6-GAP] Lấp đủ SEO mọi ngôn ngữ: 17 bài en CPM cao + 57 bài bản địa còn thiếu · @antigravity · ưu tiên: RẤT CAO
+- **Bối cảnh (Claude 11/11, lệnh chủ "seo đều các ngôn ngữ, còn thiếu thì đẩy trước"):** số bài ban đầu: vi 117, en 97, ja/pt 79, es 74, de/id 71, fr/th 69, ko/tr/zh/hi 68, ar/ru 67. Danh sách cụ thể ở `content/blog/plan/2026-11-gap-fill.json`.
+- **Phần 1:** 17 bài en của cụm CPM cao (`cpm_en`), nguồn chủ đề là `content/blog/plan/2027-01-cpm-clusters.json`. Mỗi bài theo đúng `feature`, `appSupports`, `mustNotClaim`, `factCheck` của chủ đề. Số liệu visa và điểm thi phải tra nguồn chính thức ngay lúc viết.
+- **Phần 2:** 57 bài theo `lang_gaps`. Mỗi ngôn ngữ viết các `translationKey` mà ngôn ngữ đó còn thiếu, bản địa hoá thật: ví dụ, lỗi L1, nhãn app theo `extension/app/js/i18n/<lang>/`. Thứ tự ưu tiên: fr, de, ko, ja, sau đó ru, tr, ar, zh, hi, th, pt, id, es.
+- **Cách nộp:**
+  - Mỗi lô ≤ 20 bài, mỗi lô một PR, nhánh mới từ `real/main`.
+  - Áp dụng toàn bộ "Cần làm trước khi nộp" của [B5-R2-FIX]: `blog-check` 0 lỗi, `blog-dupes` 0 lỗi, kiểm từng tính năng app được trích, không bịa số liệu hay YouTube ID, đáp án quiz trộn vị trí, để trống `qualityScore`.
+- **Tiêu chí xong:** mọi ngôn ngữ ≥ 80 bài, phần 1 đã đăng. Claude chấm độc lập ≥ 90/bài mới gộp.
+- **Báo cáo tiến độ:**
+  - **Lô 1 (17 bài en CPM cao):** PR #1041 (`blog/b6-gap-cpm-en`, commit `02102ca3e`). Kiểm thử: `blog-check` 0 lỗi, `blog-dupes` 12.0% (<= 12.0%). Đang chờ Claude duyệt.
+  - **Lô 2 (16 bài bản địa hoá cho fr, de, ko, ja):** PR #1048 (`blog/b6-gap-fr-de-ko-ja`, commit `2eef9e9fb`).
+    - fr (6 bài): `matching-headings-ielts-reading-methode.md`, `ielts-speaking-part-3-conseils-et-questions.md`, `comment-ameliorer-sa-prononciation-en-anglais-guide.md`, `phrasal-verbs-anglais-les-plus-utilises-liste.md`, `propositions-relatives-en-anglais-who-which-that.md`, `anglais-pour-voyager-a-letranger-phrases-cles.md`.
+    - de (4 bài): `matching-headings-ielts-reading-strategie.md`, `ielts-speaking-part-3-tipps-leitfaden.md`, `englische-aussprache-verbessern-tipps-uebungen.md`, `die-wichtigsten-englischen-phrasal-verbs-liste.md`.
+    - ko (4 bài): `make-wa-do-chayi-yeongeo-dongsa-gubyeol.md`, `ielts-speaking-part-3-tipp-daebi.md`, `ganjeop-hwabeop-yeongeo-reported-speech.md`, `haewoe-yeohaeng-yeongeo-hoehwa-pilsu-pyohyeon.md`.
+    - ja (2 bài): `matching-headings-ielts-reading-kaisetsu.md`, `ielts-speaking-part-3-taisaku-kotsu.md`.
+    - Kiểm thử: `node scripts/blog-check.mjs <16 file>`: 0 lỗi, 16 cảnh báo; `node scripts/blog-dupes.mjs`: 0 lỗi, max 12.0%.
+    - Đã nộp PR #1048, đang chờ Claude chấm điểm độc lập (qualityScore để trống).
+  - **Lô 3 tiếp theo:** Chuẩn bị viết các bài bản địa cho ru, tr, ar...
+- **Cần sửa / Nhận xét:** (Claude điền)
+
 
 ### [CL1] Lớp học (Teacher/Classroom mode) · @claude (phiên gifted-cori) · ĐÃ LIVE 22/10
 - File riêng: `functions/api/class.js`, `web/js/classroom.js`, `web/js/i18n/*/classroom.js`, `scripts/test/classroom.mjs`, `content/legal/{en,vi}/schools.html` (→ `/<lang>/schools`), `docs/CLASSROOM.md` (kèm ước tính chi phí D1).
