@@ -10,13 +10,13 @@ Rubric (0-100): visual hierarchy and one clear primary action; spacing and align
 Anchors: 95 = indistinguishable from Duolingo's best screens. 85 = polished, small nits. 70 = decent but generic or uneven. 50 = visibly unfinished. 30 = broken layout or looks like a default HTML page.
 Reply with ONLY compact JSON: {"score":<int>,"problems":["<concrete visual problem, max 15 words>", ...max 3]}.`;
 const raws = fs.readdirSync(DIR).filter(f => /^data-.*\.json$/.test(f)).flatMap(f => JSON.parse(fs.readFileSync(path.join(DIR, f), 'utf8')));
-const pool = createPool({ log: () => {} }), out = {}; let n = 0, ok = 0;
+const pool = createPool({ log: m => console.log(String(m).slice(0, 200)) }), out = {}; let n = 0, ok = 0;
 for (const r of raws) {
   const res = [];
   for (const k of ['390l', '390d', '1440l', '1280l'].filter(k => r.shots && r.shots[k])) {
     n++;
     const a = await pool.vision({ question: PROMPT, ask: PROMPT, image: fs.readFileSync(path.join(DIR, r.shots[k])).toString('base64') }).catch(() => null);
-    const s = a && a.out && Number(a.out.score);
+    const s = a && a.out ? Number(a.out.score) : NaN;
     if (s >= 0 && s <= 100) res.push({ k, s, p: Array.isArray(a.out.problems) ? a.out.problems : [], model: a.route + ':' + a.model });
   }
   if (res.length) { ok++; out[r.id] = { score: Math.round(res.reduce((a, x) => a + x.s, 0) / res.length), problems: [...new Set(res.flatMap(x => x.p))].slice(0, 4), model: res[0].model, shots: res.length }; }

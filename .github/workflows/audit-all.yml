@@ -18,6 +18,7 @@ concurrency:
   cancel-in-progress: false
 env:
   PW_VER: playwright@1.50.1
+  AUDIT_ONLY: ${{ inputs.only }}   # lượt thử vài mục: không đòi đủ mục, không ghi đè bảng
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -61,11 +62,10 @@ jobs:
         if: startsWith(matrix.job, 'ext')
         run: bash scripts/build-extension.sh
       - name: Quét ${{ matrix.job }}
-        env: { ONLY: '${{ inputs.only }}' }
         run: |
           J='${{ matrix.job }}'; K=${J%-*}; I=${J##*-}
           N=$(case $K in app) echo 14;; page) echo 4;; *) echo 1;; esac)
-          if [ -n "$ONLY" ]; then [ "$I" = 0 ] || exit 0; node scripts/audit/scan.mjs --kind "$K" --shard 0/1 --only "$ONLY" --out out/audit
+          if [ -n "$AUDIT_ONLY" ]; then [ "$I" = 0 ] || exit 0; node scripts/audit/scan.mjs --kind "$K" --shard 0/1 --only "$AUDIT_ONLY" --out out/audit
           else node scripts/audit/scan.mjs --kind "$K" --shard "$I/$N" --out out/audit; fi
       - uses: actions/upload-artifact@v4
         if: always()
@@ -103,6 +103,7 @@ jobs:
           head -8 out/pub/SCORE.md >> "$GITHUB_STEP_SUMMARY"
           echo "Bảng đầy đủ: https://github.com/$GITHUB_REPOSITORY/blob/audit-report/SCORE.md" >> "$GITHUB_STEP_SUMMARY"
       - name: Đẩy bảng lên nhánh audit-report (ghi đè – repo không phình)
+        if: env.AUDIT_ONLY == ''
         env: { GH_TOKEN: '${{ github.token }}', REPO: '${{ github.repository }}' }
         run: |
           cd out/pub && git init -q && git checkout -q -b audit-report

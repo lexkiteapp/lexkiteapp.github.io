@@ -2,6 +2,7 @@
 // Dùng: node scripts/audit/scan.mjs --kind app|page|ext --shard 0/12 [--root dist] [--out out/audit] [--only id,id]
 import { chromium, devices } from 'playwright';
 import fs from 'node:fs';
+import http from 'node:http';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { serve } from '../quality/serve.mjs';
@@ -190,6 +191,7 @@ async function scanPage(item) {
   return rec;
 }
 
+const testPage = (() => { let p; return () => p ||= new Promise(res => { const s = http.createServer((q, r) => { r.setHeader('content-type', 'text/html'); r.end('<!doctype html><p style="font:20px sans-serif;margin:80px">The sustainable budget is a resilience plan.</p>'); }).listen(0, '127.0.0.1', () => { s.unref(); res({ port: s.address().port }); }); }); })();
 async function scanExt(list) { // Add-on thật trong Chromium (cùng cách nạp ext-e2e)
   const EXT = path.resolve('extension'), out = [];
   for (const th of ['light', 'dark']) {
@@ -217,7 +219,7 @@ async function scanExt(list) { // Add-on thật trong Chromium (cùng cách nạ
       const rec = out.find(r => r.id === bubble.id) || (out.push({ ...bubble, variants: [], shots: {}, exit: { na: true } }), out.at(-1));
       const page = await ctx.newPage(), errs = track(page), tag = `1280${th[0]}`;
       try {
-        await page.goto(base + 'newtab.html'); await page.setContent('<!doctype html><p style="font:20px sans-serif;margin:80px">The sustainable budget is a resilience plan.</p>');
+        await page.goto(`http://127.0.0.1:${(await testPage()).port}/`); await sleep(800); // content script chỉ chạy trên http(s)
         await page.dblclick('p', { position: { x: 60, y: 10 } }); await sleep(3000);
         const t = await page.evaluate(() => { const h = document.querySelector('ielts-lexi-popup'), b = h && h.shadowRoot && h.shadowRoot.querySelector('.box'); return b && !b.hidden ? b.innerText.trim().length : 0; });
         if (t) { const shot = `shots/${slug(bubble.id)}-${tag}.jpg`; await page.screenshot({ path: path.join(OUT, shot), type: 'jpeg', quality: 70 }); rec.shots[tag] = shot; rec.variants.push({ tag, painted: { viewText: t }, errs, scan: [], axe: [] }); } else rec.fatal = 'bong bóng không mở trong môi trường đo';

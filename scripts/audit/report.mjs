@@ -24,4 +24,4 @@ fs.writeFileSync(path.join(OUT, `runs/${R.at.slice(0, 10)}-${String(R.sha).slice
 for (const i of R.items) fs.writeFileSync(path.join(OUT, 'items', i.id.replace(/[^\w.-]+/g, '_') + '.md'), itemMd(i));
 const web = all.length, got = raws.filter(r => r.kind !== 'native' && r.variants && r.variants.length).length;
 console.log(`Audit: TB ${R.summary.avg} · ${R.summary.scored}/${R.summary.items} có điểm · đo được ${got}/${web}`);
-if (got < web * .9) { console.error(`✗ chỉ đo được ${got}/${web} mục – kết quả không đủ tin`); process.exit(1); }
+if (!process.env.AUDIT_ONLY && got < web * .9) { console.error(`✗ chỉ đo được ${got}/${web} mục – kết quả không đủ tin`); process.exit(1); }
