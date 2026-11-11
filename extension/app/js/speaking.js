@@ -153,7 +153,7 @@
     const clock = s => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
     const startRec = async () => {
       UI.stopSpeak();
-      sess = await UI.speechSession({ lang: state.settings.accent, slot: 'speak', onText: x => { const l = $('#live'); if (l) l.textContent = x.slice(-160); }, onError: c => toast(UI.recErrorText(c)) });
+      sess = await UI.speechSession({ lang: state.settings.accent, slot: 'speak', onText: x => { const l = $('#live'); if (l) l.textContent = x.slice(-160); }, onError: c => toast(c === 'not-allowed' ? '⚠️ ' + t('Cần cho phép dùng micro (biểu tượng 🎙️ trên thanh địa chỉ)') : UI.recErrorText(c)) });
       if (!sess) return;
       recording = true; t0 = Date.now();
       $('#recBtn').classList.add('rec'); $('#recBtn').textContent = '⏹';

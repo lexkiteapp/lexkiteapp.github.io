@@ -276,7 +276,7 @@
     const start = async () => {
       UI.stopSpeak();
       samples = [];
-      sess = await UI.speechSession({ lang: accent(), slot: 'conf', onText: x => { const l = $('#cfLive'); if (l) l.textContent = x.slice(-140); }, onError: c => toast(UI.recErrorText(c)) });
+      sess = await UI.speechSession({ lang: accent(), slot: 'conf', onText: x => { const l = $('#cfLive'); if (l) l.textContent = x.slice(-140); }, onError: c => toast(c === 'not-allowed' ? '⚠️ ' + t('Cần cho phép dùng micro (biểu tượng 🎙️ trên thanh địa chỉ)') : UI.recErrorText(c)) });
       if (!sess) return;
       if (sess.stream) try { // đo ngập ngừng trên máy: năng lượng âm thanh mỗi 100 ms
         ac = new (window.AudioContext || window.webkitAudioContext)(); const an = ac.createAnalyser(); an.fftSize = 1024; ac.createMediaStreamSource(sess.stream).connect(an);

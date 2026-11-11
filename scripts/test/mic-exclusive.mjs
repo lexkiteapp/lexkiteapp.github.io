@@ -20,7 +20,7 @@ function env({ ua, touch = 0, sr = true, denied = false }) {
   w.speechSynthesis = { cancel() {}, getVoices: () => [], speak() {}, addEventListener() {} };
   if (sr) w.webkitSpeechRecognition = class { constructor() { log.srs.push(this); this.starts = 0; } start() { this.starts++; } stop() { if (this.onend) this.onend(); } abort() { this.aborted = true; if (this.onend) this.onend(); } };
   w.I18N = { t: s => s, lang: () => 'vi', apply() {} }; w.t = s => s;
-  w.eval(fs.readFileSync('web/js/ui.js', 'utf8'));
+  w.eval(fs.readFileSync('web/js/ui.js', 'utf8')); w.eval(fs.readFileSync('web/js/speech-session.js', 'utf8'));
   return { w, log, UI: w.UI };
 }
 const say = (r, txt, fin = true) => r.onresult({ resultIndex: 0, results: [Object.assign([{ transcript: txt }], { isFinal: fin })] });
