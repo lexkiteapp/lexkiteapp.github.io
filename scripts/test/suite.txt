@@ -304,6 +304,7 @@ node scripts/test/whisper-det.mjs
 node scripts/test/logic-invariants.mjs
 node scripts/test/top1-score.mjs
 node scripts/test/vocab-img-judge-budget.mjs
+node scripts/test/vocab-img-worth.mjs
 node scripts/test/lastmod.mjs
 node scripts/test/outcomes.mjs
 node scripts/test/today-debt.mjs
