@@ -41,6 +41,8 @@ jobs:
       # 11/11 (48 h: mọi lượt nFresh 0, 4,2 % đạt, ~35 phút × 4 shard cho 7–16 mục/shard): cron/ci-filler/dispatch thường qua cổng laneEmpty (lib.mjs) TRƯỚC khi thuê 1–6 runner tải nguồn nặng
       - uses: actions/checkout@v4
         if: ${{ github.event.inputs.words == '' && github.event.inputs.audit == '' && github.event.inputs.force != '1' }}
+      - uses: ./.github/actions/no-prod
+        if: ${{ github.event.inputs.words == '' && github.event.inputs.audit == '' && github.event.inputs.force != '1' }}
       - id: idle
         if: ${{ github.event.inputs.words == '' && github.event.inputs.audit == '' && github.event.inputs.force != '1' }}
         run: if node scripts/lexicon/expand/left.mjs --idle; then echo "idle=1" >> $GITHUB_OUTPUT; echo '⏹ lượt gần nhất gần rỗng (< EMPTY_RUN mục, retry chưa tăng, < 24 h) – bỏ lượt (force=1 để chạy)'; fi
