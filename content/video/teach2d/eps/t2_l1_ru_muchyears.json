@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_muchyears",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Ask about age the right way!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How much years do you have?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: How old are you?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For age, ask how old.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Old! How old is your brother?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How much years do you have?",
+  "right": "How old are you?",
+  "strike": "much",
+  "why": "For age, ask how old.",
+  "memory": "How old are you?",
+  "quiz": {
+   "stem": "How ___ is your brother?",
+   "options": [
+    "years",
+    "old"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Спрашиваем возраст правильно!",
+   "tip": "По-английски не говорят “how much years”. Спроси: “How old are you?”",
+   "caption": "Ты тоже спрашиваешь “How much years do you have”? 😅 По-английски возраст спрашивают так: “How old are you”. Послушай Ама и повтори за ней! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “old”. Возраст в английском — это how old. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Ask about age the right way!",
+   "tip": "In English we do not say “how much years”. Ask: “How old are you?”",
+   "caption": "Do you also ask “How much years do you have”? 😅 In English, we ask about age like this: “How old are you”. Listen to Ama and repeat with her! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Спрашиваем возраст правильно!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Спрашиваем возраст правильно!",
+  "keyword": "How old are you?",
+  "value": "По-английски не говорят “how much years”. Спроси: “How old are you?”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "Спрашиваем возраст правильно!",
+    "description": "Ты тоже спрашиваешь “How much years do you have”? 😅 По-английски возраст спрашивают так: “How old are you”. Послушай Ама и повтори за ней! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "How old are you?",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже спрашиваешь “How much years do you have”? 😅 По-английски возраст спрашивают так: “How old are you”. Послушай Ама и повтори за ней! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Ты тоже спрашиваешь “How much years do you have”? 😅 По-английски возраст спрашивают так: “How old are you”. Послушай Ама и повтори за ней! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Спрашиваем возраст правильно! #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “old”. Возраст в английском — это how old. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

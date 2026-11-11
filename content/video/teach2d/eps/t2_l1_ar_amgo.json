@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_amgo",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do not say am go!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am go to school.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I go to school.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Do not use am before a verb like go.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Goes! She goes to work every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am go to school.",
+  "right": "I go to school.",
+  "strike": "am",
+  "why": "Do not use am before a verb like go.",
+  "memory": "I go. Not I am go.",
+  "quiz": {
+   "stem": "She ___ to work every day.",
+   "options": [
+    "is go",
+    "goes"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “I am go”؟",
+   "tip": "لا نضع am قبل الفعل: نقول “I go to school” وليس “I am go”.",
+   "caption": "هل تقول أحيانًا “I am go to school”؟ 😅 في الإنجليزية لا نستخدم am قبل الفعل، فالجملة الصحيحة “I go to school”. استمع إلى Ama وكرّر معها! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “goes”. لا تضع am أو is قبل الفعل العادي. تدرّب مع اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I am go”?",
+   "tip": "We do not put am before a verb: say “I go to school”, not “I am go”.",
+   "caption": "Do you sometimes say “I am go to school”? 😅 In English we do not use am before the verb, so the right sentence is “I go to school”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “I am go”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "هل تقول “I am go”؟",
+  "keyword": "I go to school.",
+  "value": "لا نضع am قبل الفعل: نقول “I go to school” وليس “I am go”.",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “I am go”؟",
+    "description": "هل تقول أحيانًا “I am go to school”؟ 😅 في الإنجليزية لا نستخدم am قبل الفعل، فالجملة الصحيحة “I go to school”. استمع إلى Ama وكرّر معها! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I go to school.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا “I am go to school”؟ 😅 في الإنجليزية لا نستخدم am قبل الفعل، فالجملة الصحيحة “I go to school”. استمع إلى Ama وكرّر معها! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول أحيانًا “I am go to school”؟ 😅 في الإنجليزية لا نستخدم am قبل الفعل، فالجملة الصحيحة “I go to school”. استمع إلى Ama وكرّر معها! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “I am go”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “goes”. لا تضع am أو is قبل الفعل العادي. تدرّب مع اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}
