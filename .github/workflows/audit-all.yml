@@ -8,7 +8,7 @@ on:
     inputs:
       only: { description: 'id mục, phẩy (trống = tất cả; vd app:home,web:/L/)', required: false, default: '' }
   push:
-    branches: [main, audit-try]   # audit-try: thử trước khi gộp (workflow mới chưa dispatch được)
+    branches: [main]
     paths: ['scripts/audit/**', '.github/workflows/audit-all.yml']
 permissions:
   contents: write
