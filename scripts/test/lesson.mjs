@@ -240,6 +240,10 @@ ok($('#lsnFoot.bad') && (!L0.items[0].card || $('#lsnFoot').textContent.includes
 ok($('#lsnTch').classList.contains('shake') || !$('#lsnTch .tch-rig') , 'giáo viên phản ứng khi sai');
 $('#lsnWhy').click(); await tick(40);
 ok($('#lsnXp') && !$('#lsnXp').hidden && $('#lsnXp').textContent.length > 10, 'Giải thích hiện ngay (0 AI)');
+{ const it0 = L0.items[0], xp = $('#lsnXp'), S = s => String(s || '').toLowerCase().replace(/[^a-z' ]/g, '').trim();
+  ok(!['build', 'tr', 'type', 'gap', 'mean', 'pic'].includes(it0.type) || xp.querySelector('.lsn-why-list'), `Vì sao? giải thích theo câu (${it0.type}): lỗi/cấu trúc/từ nhiễu/ví dụ`);
+  ok(![...xp.querySelectorAll('.lsn-why-ex [lang=en]')].some(x => it0.sent && S(x.textContent) === S(it0.sent)), 'Vì sao?: ví dụ không lặp câu bài tập');
+  ok(!/\{\w+\}/.test(xp.textContent), 'Vì sao?: không sót biến {x}'); }
 $('#lsnNext').click(); await tick();
 let sawRetry = false, sawCombo = false, guard = 0;
 while (st() && st().sess && !st().sess.done && guard++ < 60) {

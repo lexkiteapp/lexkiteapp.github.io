@@ -420,7 +420,7 @@
   }
 
   function submit(ans, heard) {
-    if (!L || L.checked) return; L.checked = true;
+    if (!L || L.checked) return; L.checked = true; L.ans = ans; // câu trả lời người học → "Vì sao?" so với đáp án
     const it = L.sess.cur, ok = E.check(it, ans), r = L.sess.answer(ok);
     document.querySelectorAll('#lsnBody button, #lsnIn').forEach(x => { x.disabled = true; }); // đã chấm: khóa đáp án (luật QA)
     bar();
@@ -551,7 +551,12 @@
     try { await App.need('lgold'); } catch (e) { /* ngoại tuyến → phần từ điển bên dưới */ }
     const c = it.card, G = (window.LESSON_GOLD || {})[E.norm(c.word)] || [];
     const own = c.ctx ? c.ctx : ((c.contexts || [])[0] || {}).text;
-    let h = '';
+    // Phần CÂU trước (lỗi vừa mắc · cấu trúc · từ nhiễu · ví dụ MỚI) – why.js, dùng chung mọi dạng bài; phần TỪ (trọng âm, IPA, định nghĩa) giữ nguyên bên dưới
+    const W = window.LessonWhy, byWord = w => (L.pool || []).find(x => x && E.norm(x.word) === E.norm(w));
+    const sents = (G[0] && G[0].ex || []).concat(c.ex ? [c.ex] : [], (c.sentences || []).map(x => x && x.en), own ? [own] : []);
+    const wr = W ? W.explain(it, L.ans, { gloss: w => { const x = byWord(w); return x ? meanOf(x) : ''; }, pos: w => (byWord(w) || {}).pos || '', examples: sents }) : null;
+    let h = wr ? W.html(wr, t, esc) : '';
+    if (h) h += `<p class="tiny muted"><b>${esc(t('Từ: {w}', { w: c.word }))}</b></p>`;
     const st = E.stress(c.ipaUS || c.ipa), uu = E.usuk(c);
     if (st) h += `<p class="small">${t('Trọng âm rơi vào âm tiết {n}/{m}', { n: st.syl, m: st.of })}</p>`;
     if (uu) h += `<p class="small">${t('Anh – Mỹ đọc khác:')} UK <span class="ipa">${esc(uu.uk)}</span> · US <span class="ipa">${esc(uu.us)}</span></p>`;
@@ -561,9 +566,9 @@
       if (x.mem) h += `<p class="small">🧠 ${t('Mẹo nhớ:')} <span lang="en">${esc(x.mem)}</span></p>`;
     });
     if (!G.length && c.def) h += `<p><span class="tiny muted">${t('Định nghĩa:')}</span> <span lang="en">${esc(c.def)}</span></p>`;
-    const ex = (G[0] && G[0].ex || []).concat(c.ex ? [c.ex] : []).filter((x, i, a) => x && a.indexOf(x) === i).slice(0, 2);
-    if (ex.length) h += `<p class="small"><span class="tiny muted">${t('Ví dụ:')}</span> ${ex.map(x => `<span lang="en">${esc(x)}</span>`).join(' · ')}</p>`;
-    if (own) h += `<p class="small"><span class="tiny muted">🔎 ${t('Từ bạn đã tra')}:</span> <span lang="en">${esc(own)}</span></p>`;
+    const ex = (G[0] && G[0].ex || []).concat(c.ex ? [c.ex] : []).filter((x, i, a) => x && a.indexOf(x) === i && (!W || (W.notSame(x, it.sent || it.answer) && !(wr && wr.ex.includes(x))))).slice(0, 2); // ví dụ không bao giờ lặp câu bài tập
+    if (ex.length) h += `<p class="small lsn-why-ex"><span class="tiny muted">${t('Ví dụ:')}</span> ${ex.map(x => `<span lang="en">${esc(x)}</span>`).join(' · ')}</p>`;
+    if (own && (!W || W.notSame(own, it.sent || it.answer))) h += `<p class="small"><span class="tiny muted">🔎 ${t('Từ bạn đã tra')}:</span> <span lang="en">${esc(own)}</span></p>`;
     box.innerHTML = h || `<p class="small">${t('Chưa có giải thích riêng cho từ này.')}</p>`;
   }
 
