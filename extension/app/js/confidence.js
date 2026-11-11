@@ -270,26 +270,18 @@
         <div class="cf-bar" style="justify-content:center">${mic('cfRec', t('Bắt đầu nói'))}</div><p class="small muted" id="cfLive" lang="en" style="min-height:1.5em;text-align:center"></p>
         <p class="tiny muted">🔒 ${t('Âm thanh chỉ ở trong trình duyệt này và bị xóa khi rời trang. Chữ được chuyển bằng trình nhận dạng của trình duyệt (hoặc Whisper ngay trên máy nếu bạn đã bật).')}</p></section><div id="cfRes"></div>`;
     bindSay(view);
-    let on = false, t0 = 0, tick = null, stream = null, media = null, sr = null, ac = null, chunks = [], text = '', interim = '', samples = [];
-    const stopAll = () => { on = false; clearInterval(tick); try { sr && sr.stop(); } catch (e) { /* */ } sr = null; if (ac) { try { ac.close(); } catch (e) { /* */ } ac = null; } };
-    App.onCleanup(() => { stopAll(); if (media && media.state !== 'inactive') try { media.stop(); } catch (e) { /* */ } if (stream) stream.getTracks().forEach(x => x.stop()); });
+    let on = false, t0 = 0, tick = null, sess = null, ac = null, samples = [];
+    const stopAll = () => { on = false; clearInterval(tick); if (ac) { try { ac.close(); } catch (e) { /* */ } ac = null; } };
+    App.onCleanup(() => { stopAll(); if (sess) sess.cancel(); sess = null; });
     const start = async () => {
       UI.stopSpeak();
-      try { stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true } }); }
-      catch (e) { toast('⚠️ ' + t('Cần cho phép dùng micro (biểu tượng 🎙️ trên thanh địa chỉ)')); return; }
-      chunks = []; text = ''; interim = ''; samples = [];
-      try { media = new MediaRecorder(stream); media.ondataavailable = e => e.data.size && chunks.push(e.data); media.start(); } catch (e) { media = null; }
-      try { // đo ngập ngừng trên máy: năng lượng âm thanh mỗi 100 ms
-        ac = new (window.AudioContext || window.webkitAudioContext)(); const an = ac.createAnalyser(); an.fftSize = 1024; ac.createMediaStreamSource(stream).connect(an);
+      samples = [];
+      sess = await UI.speechSession({ lang: accent(), slot: 'conf', onText: x => { const l = $('#cfLive'); if (l) l.textContent = x.slice(-140); }, onError: c => toast(UI.recErrorText(c)) });
+      if (!sess) return;
+      if (sess.stream) try { // đo ngập ngừng trên máy: năng lượng âm thanh mỗi 100 ms
+        ac = new (window.AudioContext || window.webkitAudioContext)(); const an = ac.createAnalyser(); an.fftSize = 1024; ac.createMediaStreamSource(sess.stream).connect(an);
         const buf = new Float32Array(an.fftSize); samples.read = () => { an.getFloatTimeDomainData(buf); let s = 0; for (const v of buf) s += v * v; return Math.sqrt(s / buf.length); };
       } catch (e) { ac = null; }
-      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-      if (SR) {
-        sr = new SR(); sr.lang = accent(); sr.continuous = true; sr.interimResults = true;
-        sr.onresult = e => { interim = ''; for (let i = e.resultIndex; i < e.results.length; i++) { const r = e.results[i]; if (r.isFinal) text += r[0].transcript + ' '; else interim += r[0].transcript; } const l = $('#cfLive'); if (l) l.textContent = (text + interim).slice(-140); };
-        sr.onend = () => { if (on && sr) try { sr.start(); } catch (e) { /* đang chạy */ } };
-        try { sr.start(); } catch (e) { /* */ }
-      }
       on = true; t0 = Date.now(); $('#cfRec').classList.add('on'); $('#cfRec').textContent = '⏹'; $('#cfRec').setAttribute('aria-label', t('Dừng'));
       tick = setInterval(() => {
         const s = (Date.now() - t0) / 1000, left = Math.max(0, 120 - s), el = $('#cfClock');
@@ -302,8 +294,7 @@
       if (!on) return;
       const secs = Math.min(120, (Date.now() - t0) / 1000); stopAll();
       const b = $('#cfRec'); if (b) { b.classList.remove('on'); b.textContent = '🎙️'; b.setAttribute('aria-label', t('Bắt đầu nói')); }
-      const finish = () => { if (stream) stream.getTracks().forEach(x => x.stop()); result(secs, (text + ' ' + interim).trim(), chunks.length ? UI.recUrl(new Blob(chunks, { type: (media && media.mimeType) || 'audio/webm' }), 'conf') : ''); };
-      if (media && media.state !== 'inactive') { media.onstop = () => setTimeout(finish, 250); media.stop(); } else setTimeout(finish, 250);
+      const cur = sess; sess = null; if (cur) cur.stop().then(o => result(secs, o.text, o.audio));
     };
     $('#cfRec').onclick = () => (on ? stop() : start());
 
