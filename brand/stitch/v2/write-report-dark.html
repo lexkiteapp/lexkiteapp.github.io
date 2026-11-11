@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite - write-report (dark – dark-from-light.mjs)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#5EEAD4',
+              'teal-dark': '#C9F5EE',
+              'teal-light': '#1F4A4E',
+              coral: '#C94731',
+              'coral-hover': '#B73F28',
+              'coral-shadow': '#7D2C1E',
+              cream: '#1D2F33',
+              'card-border': '#4A6870',
+              'ink-dark': '#E8F1F0',
+              'ink-muted': '#BFD3D0',
+            }
+          },
+          boxShadow: {
+            'tactile': '0 4px 0 #0E1618',
+            'tactile-coral': '0 4px 0 #7D2C1E',
+            'tactile-subtle': '0 3px 0 #0E1618',
+            'tactile-press': '0 1px 0 #7D2C1E',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+    body {
+      background-color: #1D2F33;
+      color: #E8F1F0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Touch target guarantee */
+    .touch-target-44 {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  </style>
+</head>
+<body class="flex justify-center bg-[#1D2F33] min-h-screen text-[#EAF2F2]">
+  <main class="w-[390px] max-w-[390px] min-h-screen flex flex-col bg-[#1D2F33] pb-10">
+    <header class="sticky top-0 z-30 bg-[#1D2F33]/95 backdrop-blur-md border-b-2 border-[#4A6870] px-4 py-2 flex items-center gap-3">
+      <button type="button" aria-label="Back" class="touch-target-44 flex items-center justify-center rounded-xl bg-[#162528] border-2 border-[#4A6870] shadow-tactile-subtle text-[#5EEAD4]"><span class="material-symbols-rounded text-2xl">arrow_back</span></button>
+      <div><h1 class="text-[20px] font-extrabold text-[#5EEAD4] leading-tight">Essay report</h1><p class="text-[12px] font-semibold text-[#BFD3D0]">Lexical resource</p></div>
+    </header>
+    <div class="px-4 pt-3 flex flex-col gap-4">
+ <div class="bg-[#162528] rounded-2xl border-2 border-[#4A6870] p-4 shadow-tactile flex flex-col gap-3"><div class="flex items-center gap-4"><div class="w-20 h-20 rounded-full border-[6px] border-[#2BA39A] flex items-center justify-center text-[22px] font-extrabold text-[#5EEAD4]">6.5</div><div><span class="text-[12px] font-extrabold text-[#6EE7B7] bg-[#14301F] px-2 py-0.5 rounded-md border border-[#1F5B3F]">Good range</span><p class="text-[13px] font-semibold text-[#BFD3D0] leading-snug">278 words · 14 sentences</p></div></div></div>
+ <div class="bg-[#162528] rounded-2xl border-2 border-[#4A6870] p-4 shadow-tactile flex flex-col gap-3"><h2 class="text-[16px] font-extrabold text-[#EAF2F2] leading-tight">Notes</h2><p class="text-[13px] font-semibold text-[#BFD3D0] leading-snug">Add more linking words (Moreover, Consequently).</p><p class="text-[13px] font-semibold text-[#BFD3D0] leading-snug">Try collocations: pose a threat, play a pivotal role.</p><p class="text-[13px] font-semibold text-[#BFD3D0] leading-snug">Overused: important ×5, people ×4</p></div>
+ <div class="bg-[#162528] rounded-2xl border-2 border-[#4A6870] p-4 shadow-tactile flex flex-col gap-3"><h2 class="text-[16px] font-extrabold text-[#EAF2F2] leading-tight">Academic words</h2><div class="flex flex-wrap gap-2"><span class="touch-target-44 inline-flex items-center px-3.5 py-2 rounded-full bg-[#1F4A4E] border-2 border-[#2BA39A] text-[#5EEAD4] font-bold text-[14px]">significant</span><span class="touch-target-44 inline-flex items-center px-3.5 py-2 rounded-full bg-[#1F4A4E] border-2 border-[#2BA39A] text-[#5EEAD4] font-bold text-[14px]">approach</span><span class="touch-target-44 inline-flex items-center px-3.5 py-2 rounded-full bg-[#1F4A4E] border-2 border-[#2BA39A] text-[#5EEAD4] font-bold text-[14px]">impact</span></div></div></div>
+  </main>
+</body>
+</html>

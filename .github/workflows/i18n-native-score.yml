@@ -62,10 +62,6 @@ jobs:
           node scripts/i18n-native-score.mjs --merge
       - name: Lưu kết quả
         run: |
-          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add content/i18n-native-score.json content/i18n/native-score content/i18n/native-fixed.json
-          git diff --cached --quiet && { echo 'không có thay đổi'; exit 0; }
-          git commit -qm "native-score O5: chấm + sửa L1 (lô tự động) [CF-Pages-Skip] [skip ci]"
-          for i in 1 2 3 4 5; do git pull -q --rebase --autostash -X theirs origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 7)); done; exit 1
+          bash scripts/ci/push-main.sh "native-score O5: chấm + sửa L1 (lô tự động)" content/i18n-native-score.json content/i18n/native-score content/i18n/native-fixed.json
       - name: Cổng native-score (avg ≥ 4,3 · không mục < 3,5)
         run: node scripts/i18n-native-score.mjs --check
