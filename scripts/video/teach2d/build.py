@@ -348,8 +348,8 @@ def T_l1():
     """Clip L1 (docs/VIDEO-TEACH2D.md): native-language hook slams in on frame 0, then the mistake bubble (✗) -> the right bubble (✓) -> a tip card in the page language + the plain English reason, quiz, save card.
     The teacher and the captions stay English (<= B1); only the hook, the tip and the post text are native (data.native, checked by scripts/rig/native-qa.mjs)."""
     D = EP['data']; N = D['native']; series_chip(); t_out = start('q') - 0.2; t_h = start('w') - 0.2
-    title([[N['hook'], 'coral']], 76, RY0 + 100, None, t_h, hook=True)
-    c = Card(RY0 + 230, tone='bubble_bad', w=RW - 70, badge='cross', t_badge=start('w')); c.tail = 'l'
+    title([[N['hook'], 'coral']], 84, RY0 + 120, None, t_h, hook=True)
+    c = Card(RY0, tone='bubble_bad', w=RW - 70, badge='cross', t_badge=start('w')); c.tail = 'l'   # the hook headline leaves at t_h, so the bubbles reuse its space (as in T_mistake)
     tn = c.text([[D['wrong'], 'onbad']], S['body'], start('w'))[0]; b1 = c.place(start('w'), t_out, 'a')
     strike_on(tn, D['strike'], at('w', D['strike'].split()[0]) + 0.15)
     c = Card(b1[3] + 30, tone='bubble_good', x0=RX0 + 70, w=RW - 70, badge='check', t_badge=at('r', 'better')); c.tail = 'r'
