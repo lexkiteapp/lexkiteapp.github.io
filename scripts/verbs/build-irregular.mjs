@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Bảng động từ bất quy tắc (#/irregular, docs/IRREGULAR-VERBS.md). Dạng V1/V2/V3 chỉ có MỘT nguồn: IRR trong web/js/verbs-core.js.
+// Bảng động từ bất quy tắc (#/irregular, docs/LEXICON.md). Dạng V1/V2/V3 chỉ có MỘT nguồn: IRR trong web/js/verbs-core.js.
 // Nguồn nội dung: content/verbs/irregular.json (CEFR, IPA Anh/Mỹ, nghĩa en, 2 câu ví dụ) + content/verbs/i18n/<lang>.json (nghĩa + ví dụ bản ngữ).
 // Đối chiếu: content/verbs/sources/{wordnet-forms,cmudict-forms}.json. Ra: web/cpack/irv/core.json + web/cpack/irv/<lang>.json (tải lười).
 // Dùng: node scripts/verbs/build-irregular.mjs        → kiểm + ghi · --check → kiểm + đỏ khi bản đã commit lệch (npm test)
