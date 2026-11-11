@@ -291,21 +291,31 @@ x I'm very close [to] my grandmother.
 @a involved
 + in | tham gia vào | taking part in | Many volunteers were involved [in] the project.
 + with | có quan hệ với, dính líu | connected with | He got involved [with] a bad crowd.
+! She was involved to several community projects. => She was involved in several community projects. | Tham gia/dính líu vào hoạt động gì dùng *involved in*, không dùng *to*. | When actively taking part in an activity, use *involved in*, not *to*.
+# Phân biệt: *involved in* (tham gia hoạt động) và *involved with* (có quan hệ tình cảm/hợp tác với ai). | Distinguish *involved in* (activity/crime) from *involved with* (person/group).
 @a kind
 + to | tử tế với | caring towards | Be kind [to] animals.
 + of | (It's kind of sb to V) ai đó thật tốt bụng khi… | used in “It's kind of sb to V” | It was very kind [of] you to help.
 # *It's kind of sb to V* = ai đó thật tốt bụng khi làm gì. | *It's kind of sb to V* = it is a kind thing for someone to do.
 @a nice
 + to | tốt, dễ chịu với | kind to | She was really nice [to] me on my first day.
+! It was very nice with you to help me. => It was very nice of you to help me. | Thật tử tế/tốt bụng khi ai làm gì dùng *nice of somebody*. | Praising someone's action requires *nice of someone*, not *with*.
+# Phân biệt: *nice of somebody* (lòng tốt của ai) và *nice to somebody* (đối xử tử tế với ai). | Distinguish *nice of somebody* (action) from *nice to somebody* (behavior toward).
 @a polite
 + to | lịch sự với | well-mannered towards | Always be polite [to] customers.
+! Always be polite with the elderly people. => Always be polite to elderly people. | Lịch sự/nhã nhặn với ai dùng *polite to*, không dùng *with*. | Behaving courteously toward someone takes *polite to*, not *with*.
+# Trái nghĩa là *impolite to* hoặc *rude to*; khen hành động: *polite of somebody*. | Opposite: *impolite to*; praising behavior: *polite of someone to do something*.
 @a rude
 + to | thô lỗ với | impolite to | The waiter was rude [to] us.
+! It is unacceptable to be rude with customers. => It is unacceptable to be rude to customers. | Bất lịch sự/thô lỗ với ai dùng *rude to*, không dùng *with*. | Showing a lack of respect takes *rude to*, never *with*.
+# Cấu trúc: *rude to somebody*; khen/chê hành vi: *rude of somebody to say so*. | Pattern: *rude to someone*; or *rude of someone to do something*.
 @a late
 + for | muộn (giờ học, buổi họp…) | not on time for | Don't be late [for] class.
 ! I was late to the meeting 10 minutes. => I was 10 minutes late for the meeting. | Thời gian muộn đặt TRƯỚC *late*; muộn giờ gì dùng *late for*. | Amount of time goes before *late*; *late for* an event.
 @a limited
 + to | giới hạn ở | restricted to | The offer is limited [to] new customers.
+! Access is strictly limited with authorized staff. => Access is strictly limited to authorized staff. | Giới hạn đối với ai/cái gì dùng *limited to*, không dùng *with*. | Restricted to a specific group takes *limited to*, not *with*.
+# Rất thường gặp trong thông báo trang trọng: *places are limited to 30 participants*. | Formal notice classic: *limited to a maximum of two tickets per person*.
 @a married
 + to | kết hôn với | husband or wife of | She is married [to] a pilot.
 ! He married with a teacher. => He married a teacher. | Động từ *marry* KHÔNG có giới từ; tính từ *married* dùng *to*. | The verb *marry* has no preposition; the adjective *married* takes *to*.
@@ -315,28 +325,46 @@ x I'm opposed [to] building more roads.
 # *to* ở đây là giới từ nên theo sau là V-ing. | *to* here is a preposition, so it is followed by -ing.
 @a patient
 + with | kiên nhẫn với | calm with | Teachers need to be patient [with] beginners.
+! Teachers should be patient to slow learners. => Teachers should be patient with slow learners. | Kiên nhẫn với ai/điều gì dùng *patient with*, không dùng *to*. | Showing forbearance takes *patient with*, not *to*.
+# Cấu trúc: *be patient with somebody/something*. Trái nghĩa: *impatient with*. | Pattern: *patient with someone/something*. Antonym: *impatient with*.
 @a popular
 + with | được (ai) ưa chuộng | liked by | The app is popular [with] teenagers.
 + among | được ưa chuộng trong (nhóm) | liked by many in a group | Cycling is popular [among] students.
+! This singer is extremely popular to teenagers. => This singer is extremely popular with teenagers. | Được ưa chuộng/yêu mến bởi nhóm người nào dùng *popular with* hoặc *popular among*. | Well-liked by a group takes *popular with* or *popular among*, rarely *to*.
+# Dùng *popular with/among* + nhóm đối tượng: *popular with young consumers*. | Common collocation: *popular with students, popular among tourists*.
 @a proud
 + of | tự hào về | pleased about an achievement | We're proud [of] our daughter.
 ! I'm proud about my country. => I'm proud of my country. | Tự hào về: *proud of*. | Pleased about an achievement: *proud of*.
 @a ashamed
 + of | xấu hổ về | embarrassed about something wrong | He was ashamed [of] his behaviour.
+! He felt deeply ashamed with his rude behavior. => He felt deeply ashamed of his rude behavior. | Xấu hổ/hổ thẹn về điều gì dùng *ashamed of*, không dùng *with*. | Feeling guilt or embarrassment takes *ashamed of*, not *with*.
+# Cấu trúc: *ashamed of oneself*, *ashamed of doing something*. | Pattern: *ashamed of something / doing something*; never *ashamed with*.
 @a qualified
 + for | đủ điều kiện cho | having the right skills for | She is well qualified [for] the job.
 + in | có bằng cấp về | trained in a subject | He is qualified [in] nursing.
+! She is fully qualified to the managerial post. => She is fully qualified for the managerial post. | Đủ trình độ/tiêu chuẩn cho vị trí nào dùng *qualified for*. | Meeting requirements for a role takes *qualified for*, not *to* + noun.
+# Phân biệt: *qualified for* + danh từ, nhưng *qualified to* + V-bare (*qualified to teach*). | Use *qualified for* + noun (*the job*), but *qualified to* + infinitive.
 @a ready
 + for | sẵn sàng cho | prepared for | Are you ready [for] the test?
+! Are you ready to the long flight ahead? => Are you ready for the long flight ahead? | Sẵn sàng cho chuyến đi/sự kiện gì dùng *ready for*, không dùng *to* + danh từ. | Prepared for an event takes *ready for*, not *to*.
+# Dùng *ready for* + danh từ, nhưng *ready to* + V-bare (*ready to leave*). | Use *ready for* + noun (*ready for action*), and *ready to* + infinitive.
 @a prepared
 + for | được chuẩn bị cho | ready for | We were not prepared [for] the storm.
+! Candidates must be prepared to unexpected questions. => Candidates must be prepared for unexpected questions. | Chuẩn bị sẵn sàng cho điều gì dùng *prepared for*. | Fully ready for a situation takes *prepared for*, not *to* + noun.
+# Collocation: *well prepared for the worst*, *be prepared to do something* (sẵn lòng làm). | Common phrase: *prepared for the exam*; *prepared to negotiate*.
 @a related
 + to | liên quan đến; có họ với | connected with | Stress is often related [to] lack of sleep.
+! Unemployment is closely related with economic slowdown. => Unemployment is closely related to economic slowdown. | Có liên quan đến điều gì dùng *related to*, không dùng *with*. | Connected in some way takes *related to*, never *related with*.
+# Collocations học thuật: *directly related to, closely related to, interrelated*. | Academic pattern: *factors closely related to academic performance*.
 @a relevant
 + to | liên quan, phù hợp với | connected to the subject | Only include information relevant [to] the question.
 ~ academic | IELTS Task 2: chỉ viết ý *relevant to the question*. | IELTS Task 2: keep ideas *relevant to the question*.
+! Submit documents that are relevant with the case. => Submit documents that are relevant to the case. | Thích đáng/có liên quan trực tiếp đến vấn đề dùng *relevant to*. | Bearing upon the matter in hand takes *relevant to*, not *with*.
+# Rất quan trọng trong IELTS Writing: *relevant to the topic*. Trái nghĩa: *irrelevant to*. | Key academic word: *relevant to the discussion*. Antonym: *irrelevant to*.
 @a reliant
 + on | phụ thuộc vào | dependent on | The island is reliant [on] imported food.
+! Many elderly people are reliant with social care. => Many elderly people are reliant on social care. | Dựa dẫm/phụ thuộc vào cái gì dùng *reliant on* (hoặc *reliant upon*). | Depending on someone/something takes *reliant on*, not *with*.
+# Tương tự *dependent on*: *heavily reliant on imported energy*. | Synonymous with *dependent on*: *increasingly reliant on digital technology*.
 @a responsible
 + for | chịu trách nhiệm về (việc gì) | in charge of; the cause of | Who is responsible [for] this mess?
 + to | chịu trách nhiệm trước (ai/cấp trên) | answerable to | The manager is responsible [to] the board.
@@ -345,19 +373,33 @@ x I'm opposed [to] building more roads.
 & responsibility
 @a rich
 + in | giàu (chất gì) | containing a lot of | Spinach is rich [in] iron.
+! Fresh citrus fruits are rich of vitamin C. => Fresh citrus fruits are rich in vitamin C. | Giàu có/chứa nhiều chất dinh dưỡng gì dùng *rich in*, không dùng *of*. | Containing large quantities of something takes *rich in*, not *of*.
+# Collocations khoa học: *rich in minerals, rich in biodiversity, rich in protein*. | Scientific collocations: *rich in nutrients, rich in natural resources*.
 @a sad
 + about | buồn về | unhappy about | I was sad [about] leaving my old school.
+! She was very sad for her pet's sudden illness. => She was very sad about her pet's sudden illness. | Buồn rầu về chuyện gì dùng *sad about*. | Feeling sorrow about an event takes *sad about*, not *for*.
+# Dùng *sad about something* (sự việc), *sad for somebody* (thương cảm cho ai). | Distinguish *sad about a situation* from *sad for a person* (pity).
 @a safe
 + from | an toàn khỏi | protected from | The children are safe [from] danger here.
+! Keep password files safe against unauthorized hackers. => Keep password files safe from unauthorized hackers. | An toàn, thoát khỏi nguy cơ bị hại dùng *safe from*. | Protected from danger or harm takes *safe from*, not *against*.
+# Cụm từ quen thuộc: *safe from harm, safe from danger, safe from prying eyes*. | Classic collocations: *safe from attack, safe from prosecution*.
 @a sensitive
 + to | nhạy cảm với | easily affected by | My skin is sensitive [to] sunlight.
+! My teeth are very sensitive with cold drinks. => My teeth are very sensitive to cold drinks. | Nhạy cảm với tác nhân/nhiệt độ/ý kiến dùng *sensitive to*. | Quick to detect or respond to stimuli takes *sensitive to*, not *with*.
+# Collocations: *sensitive to light, price-sensitive, culturally sensitive*. | Common patterns: *sensitive to criticism, sensitive to changes in price*.
 @a serious
 + about | nghiêm túc về | sincere about | Are you serious [about] moving abroad?
+! Is he really serious with starting a business? => Is he really serious about starting a business? | Nghiêm túc về một dự định/việc gì luôn dùng *serious about*. | In earnest or committed to an idea takes *serious about*, not *with*.
+# Cấu trúc: *serious about something / doing something*. | Pattern: *serious about one's career / marriage / study*.
 @a short
 + of | thiếu | not having enough | We're short [of] staff this week.
+! The startup is currently short in working capital. => The startup is currently short of working capital. | Thiếu hụt/không đủ cái gì dùng *short of*, không dùng *in*. | Lacking a sufficient amount takes *short of*, not *in*.
+# Collocations: *short of breath* (khó thở), *short of money* (thiếu tiền), *short of time*. | Common idioms: *short of breath, run short of cash*.
 @a sick
 + of | chán ngấy | bored or annoyed by | I'm sick [of] waiting.
 ~ informal | Văn nói. Trang trọng hơn: *tired of*, *fed up with*. | Spoken; also *tired of*, *fed up with*.
+! I am completely sick with waiting for the bus. => I am completely sick of waiting for the bus. | Phát chán/ngán ngẩm điều gì dùng *sick of*, không dùng *with*. | Thoroughly tired of an ongoing annoyance takes *sick of*, not *with*.
+# Thành ngữ quen thuộc: *sick and tired of something* (vô cùng chán ngấy). | Idiomatic emphasis: *sick and tired of excuses*.
 @a tired
 + of | chán | bored with | She's tired [of] eating the same food every day.
 + from | mệt vì | exhausted because of | I'm tired [from] the long journey.
@@ -371,24 +413,38 @@ x I'm opposed [to] building more roads.
 @a skilled
 + at | giỏi, thạo (việc) | good at | He is skilled [at] negotiating.
 + in | thành thạo (lĩnh vực) | trained in | We need workers skilled [in] coding.
+! She is highly skilled on data visualization. => She is highly skilled in data visualization. | Lành nghề/thành thạo trong lĩnh vực nào dùng *skilled in* hoặc *skilled at*. | Having specialized ability takes *skilled in* (field) or *skilled at* (task).
+# Cả *skilled in* và *skilled at* đều đúng; *skilled in* phổ biến hơn cho ngành nghề. | Both *skilled in* and *skilled at* are standard: *skilled in diplomacy*.
 @a sorry
 + for | xin lỗi vì; thương (ai) | apologising for; feeling pity for | I'm sorry [for] the noise last night.
 x I feel sorry [for] him.
 + about | tiếc về (sự việc) | regretting a situation | I'm sorry [about] the mix-up.
+! I am truly sorry with the late reply. => I am truly sorry for the late reply. | Xin lỗi vì việc gì dùng *sorry for* hoặc *sorry about*. | Apologizing for an action takes *sorry for* or *sorry about*, not *with*.
+# Cảm thương cho ai: *feel sorry for somebody* (*I feel sorry for him*). | To feel pity: *feel sorry for someone*; to apologize: *sorry for the mistake*.
 @a successful
 + in | thành công trong | achieving the aim in | She was successful [in] her application.
+! The campaign was highly successful to raising funds. => The campaign was highly successful in raising funds. | Thành công trong việc gì dùng *successful in* + danh từ/V-ing. | Achieving desired goals takes *successful in*, not *to*.
+# Sau *successful in* là V-ing hoặc danh từ: *successful in business / in passing the exam*. | Followed by gerund or noun: *successful in achieving objectives*.
 @a suitable
 + for | phù hợp với | right for | This film isn't suitable [for] children.
 ! This job is suitable with me. => This job is suitable for me. | Phù hợp với ai/mục đích: *suitable for*. | Right for a person or purpose: *suitable for*.
 @a surprised
 + at | ngạc nhiên về | astonished at | We were surprised [at] the news.
 + by | bất ngờ bởi | astonished by | I was surprised [by] how cheap it was.
+! We were surprised with his sudden decision. => We were surprised at his sudden decision. | Ngạc nhiên về điều gì dùng *surprised at* hoặc *surprised by*. | Caught unawares takes *surprised at* or *surprised by*, rarely *with*.
+# Cả *surprised at* và *surprised by* đều chuẩn và phổ biến như nhau. | Both *surprised at* and *surprised by* are fully acceptable.
 @a suspicious
 + of | nghi ngờ | not trusting | The guard was suspicious [of] the stranger.
+! Neighbors became suspicious with his late night trips. => Neighbors became suspicious of his late night trips. | Nghi ngờ/ngờ vực ai/điều gì dùng *suspicious of*, không dùng *with*. | Having a feeling of distrust takes *suspicious of*, not *with*.
+# Collocations: *deeply suspicious of strangers, suspicious of motives*. | Standard pattern: *suspicious of someone's intentions*.
 @a terrible
 + at | rất dở | very bad at | I'm terrible [at] cooking.
+! I have always been terrible in remembering names. => I have always been terrible at remembering names. | Rất kém/dở trong kỹ năng gì luôn dùng *terrible at*. | Extremely incompetent at an activity takes *terrible at*, not *in*.
+# Trái nghĩa với *good at*; tương tự: *bad at, awful at, hopeless at*. | Opposite of *good at*; parallels *bad at, poor at*.
 @a typical
 + of | điển hình của | characteristic of | Spicy food is typical [of] this region.
+! This cold rainy weather is typical for London in autumn. => This cold rainy weather is typical of London in autumn. | Đặc trưng/điển hình của ai/cái gì dùng *typical of*. | Characteristic of a person, place, or thing takes *typical of*, not *for*.
+# *typical of somebody/something*. Trong giao tiếp mỉa mai: *That's typical of him!* | Common conversational phrase: *That is so typical of her!*
 @a used
 + to | quen với | familiar with through experience | I'm used [to] working late.
 ! I'm used to work late. => I'm used to working late. | *to* trong *be used to* là giới từ → + V-ing. | *to* in *be used to* is a preposition → + -ing.
@@ -396,22 +452,34 @@ x I feel sorry [for] him.
 @a accustomed
 + to | quen với | used to | She's accustomed [to] the cold weather.
 ~ formal | Trang trọng hơn *used to*. | More formal than *used to*.
+! He is not accustomed with waking up early. => He is not accustomed to waking up early. | Quen thuộc với điều gì dùng *accustomed to* + danh từ/V-ing. | Familiar with something through habit takes *accustomed to*, not *with*.
+# *to* là giới từ, bắt buộc theo sau là V-ing: *accustomed to living alone*. | The *to* is a preposition: followed by a gerund (*accustomed to working*).
 @a useful
 + for | hữu ích cho (mục đích) | helpful for | This app is useful [for] learning vocabulary.
 + to | hữu ích đối với (ai) | helpful to someone | Your advice was very useful [to] me.
+! This digital dictionary is useful to all students. => This digital dictionary is useful for all students. | Hữu ích cho ai/mục đích gì dùng *useful for* (hoặc *useful to*). | Serving a practical purpose takes *useful for* or *useful to*.
+# *useful for doing something* (mục đích), *useful to somebody* (đối tượng hưởng lợi). | Use *useful for* + purpose/gerund; *useful to* + recipient.
 @a addicted
 + to | nghiện | unable to stop | Many teenagers are addicted [to] social media.
 ! He is addicted with games. => He is addicted to games. | Nghiện cái gì: *addicted to* (+ danh từ/V-ing). | *addicted to* (+ noun/-ing).
 @a allergic
 + to | dị ứng với | having an allergy to | I'm allergic [to] peanuts.
+! Many children are allergic with cow milk. => Many children are allergic to cow milk. | Bị dị ứng với chất gì luôn dùng *allergic to*, không dùng *with*. | Having an adverse medical reaction takes *allergic to*, never *with*.
+# Nghĩa bóng hài hước: *allergic to hard work* (dị ứng với công việc nặng nhọc). | Figurative humorous usage: *allergic to authority / exercise*.
 @a associated
 + with | gắn liền với | connected with | Smoking is associated [with] heart disease.
 ~ academic | Văn học thuật: *X is closely associated with Y*. | Academic: *X is closely associated with Y*.
+! Poor diet is strongly associated to obesity risks. => Poor diet is strongly associated with obesity risks. | Gắn liền/liên kết với cái gì dùng *associated with*. | Connected in the mind or causal link takes *associated with*, not *to*.
+# Rất phổ biến trong y khoa và thống kê: *health risks associated with smoking*. | Academic and scientific staple: *associated with higher incidence*.
 @a attached
 + to | gắn bó với; gắn vào | emotionally close to; fixed to | She's very attached [to] her old car.
+! Children become emotionally attached with their toys. => Children become emotionally attached to their toys. | Gắn bó tình cảm hoặc đính kèm vào cái gì dùng *attached to*. | Emotionally connected or physically joined takes *attached to*, not *with*.
+# Collocations: *deeply attached to, emotionally attached to, attached file*. | Common collocations: *attached to one's family, attached to tradition*.
 @a available
 + to | có sẵn cho (ai) | able to be used by | The library is available [to] all students.
 + for | sẵn có, rảnh cho | free for | Are you available [for] a meeting tomorrow?
+! Technical support is available with all registered users. => Technical support is available to all registered users. | Có sẵn/phục vụ cho đối tượng nào dùng *available to* hoặc *available for*. | Accessible to a group takes *available to*, not *with*.
+# *available to somebody* (cho người dùng), *available for something* (cho mục đích gì). | Distinguish *available to customers* from *available for purchase*.
 @a based
 + on | dựa trên | using as a foundation | The film is based [on] a true story.
 + in | có trụ sở ở | located in | The company is based [in] Singapore.
@@ -421,63 +489,115 @@ x I feel sorry [for] him.
 ! We are committed to reduce waste. => We are committed to reducing waste. | *to* là giới từ → + V-ing. | *to* is a preposition → + -ing.
 @a dedicated
 + to | cống hiến cho | devoted to | She is dedicated [to] her students.
+! She is deeply dedicated for improving public education. => She is deeply dedicated to improving public education. | Tận tụy/cống hiến hết mình cho điều gì dùng *dedicated to* + V-ing. | Wholly committed to a pursuit takes *dedicated to* + gerund, not *for*.
+# Giới từ *to* đi kèm V-ing: *dedicated to protecting endangered species*. | Followed by a gerund: *dedicated to serving the public*.
 @a devoted
 + to | hết lòng vì | very loving or loyal to | He is devoted [to] his family.
+! The doctor was devoted for curing rare diseases. => The doctor was devoted to curing rare diseases. | Hết lòng tận tụy với ai/việc gì dùng *devoted to* + danh từ/V-ing. | Loyal and committed takes *devoted to* + gerund/noun, not *for*.
+# Tương tự *dedicated to*: *devoted to his family, a mother devoted to her children*. | Pattern: *devoted to somebody/something*; *devoted husband*.
 @a compatible
 + with | tương thích với | able to work with | This charger is compatible [with] most phones.
+! This charger is not compatible to your phone model. => This charger is not compatible with your phone model. | Tương thích/phù hợp với thiết bị hoặc người khác dùng *compatible with*. | Able to exist or work together without conflict takes *compatible with*, not *to*.
+# Rất hay gặp trong công nghệ: *compatible with iOS, backward compatible*. | Technology essential: *compatible with multiple operating systems*.
 @a comparable
 + to | có thể so sánh với, tương đương | similar to | Prices here are comparable [to] those in London.
 + with | so được với | able to be compared with | Our results are comparable [with] previous studies.
+! The results are not directly comparable with each other. => The results are not directly comparable to each other. | Có thể so sánh tương đương với cái gì dùng *comparable to* (hoặc *comparable with*). | Able to be compared takes *comparable to* or *comparable with*.
+# *comparable to* là cách dùng tiêu chuẩn nhất khi so sánh sự tương đương về mức độ. | *comparable to* is standard when denoting equivalence in scale.
 @a consistent
 + with | nhất quán, phù hợp với | in agreement with | The results are consistent [with] our theory.
+! His actions are not consistent to his public promises. => His actions are not consistent with his public promises. | Nhất quán/phù hợp với lời hứa hoặc dữ liệu dùng *consistent with*. | In agreement or harmony takes *consistent with*, never *to*.
+# Thuật ngữ học thuật và khoa học: *findings consistent with previous studies*. | Academic staple: *consistent with the hypothesis / the evidence*.
 @a crowded
 + with | đông nghịt | full of people | The market was crowded [with] shoppers.
+! The morning train was crowded of daily commuters. => The morning train was crowded with daily commuters. | Đông đúc/chật ních người hoặc vật dùng *crowded with*. | Packed full of people takes *crowded with*, not *of*.
+# Tránh nhầm với *full of*: dùng *crowded with*, không dùng *crowded of*. | Distinguish *crowded with* from *full of*; never say *crowded of*.
 @a doubtful
 + about | nghi ngờ về | uncertain about | I'm doubtful [about] his story.
+! Scientists are doubtful on the effectiveness of this pill. => Scientists are doubtful about the effectiveness of this pill. | Hoài nghi/nghi ngờ về điều gì dùng *doubtful about*. | Feeling uncertain takes *doubtful about*, not *on*.
+# Có thể theo sau bởi mệnh đề: *doubtful whether/if*. Trái nghĩa: *confident about*. | Followed by *about* or clause: *doubtful whether the plan will work*.
 @a eager
 + for | háo hức, khao khát | wanting very much | The fans were eager [for] news.
+! Students were eager about the school holiday trip. => Students were eager for the school holiday trip. | Háo hức/mong mỏi điều gì dùng *eager for*, háo hức làm gì dùng *eager to* + V-bare. | Keenly expectant takes *eager for* + noun, or *eager to* + infinitive.
+# Phân biệt: *eager for* + danh từ (*eager for success*), *eager to do something*. | Use *eager for* with nouns and *eager to* with verbs.
 @a eligible
 + for | đủ điều kiện | allowed to have or do | You may be eligible [for] a scholarship.
+! Only citizens are eligible to the government grant. => Only citizens are eligible for the government grant. | Đủ điều kiện/tiêu chuẩn hưởng quyền lợi dùng *eligible for*. | Qualified or entitled to receive something takes *eligible for*, not *to* + noun.
+# Dùng *eligible for* + danh từ (*eligible for a scholarship*), nhưng *eligible to vote*. | Use *eligible for* + noun, but *eligible to* + infinitive.
 @a enthusiastic
 + about | nhiệt tình, hào hứng về | very interested in and excited about | The students were enthusiastic [about] the new course.
+! She is very enthusiastic for learning foreign languages. => She is very enthusiastic about learning foreign languages. | Nhiệt huyết/hào hứng về lĩnh vực gì dùng *enthusiastic about*. | Showing intense enjoyment takes *enthusiastic about*, not *for*.
+# Cấu trúc: *enthusiastic about something / doing something*. | Pattern: *enthusiastic about an idea / project / opportunity*.
 @a exposed
 + to | tiếp xúc với, bị phơi ra | not protected from | Children are exposed [to] advertising every day.
+! Workers were directly exposed with toxic chemical fumes. => Workers were directly exposed to toxic chemical fumes. | Bị phơi nhiễm/tiếp xúc với nguy cơ độc hại dùng *exposed to*. | Left unprotected against harmful elements takes *exposed to*, not *with*.
+# Rất phổ biến trong y học và an toàn lao động: *exposed to radiation / sunlight*. | Critical in occupational health: *exposed to high levels of lead*.
 @a faithful
 + to | trung thành với | loyal to | The film is faithful [to] the book.
+! The dog remained loyal and faithful with its owner. => The dog remained loyal and faithful to its owner. | Trung thành/tận tụy với ai dùng *faithful to*, không dùng *with*. | Remaining true or loyal takes *faithful to*, not *with*.
+# Dùng cho người: *faithful to one's spouse*; hoặc bản dịch: *a faithful translation*. | Can describe loyalty or accuracy: *faithful to the original text*.
 @a fit
 + for | đủ sức, phù hợp cho | suitable or healthy enough for | Is he fit [for] work after the injury?
+! This tap water is not fit to human consumption. => This tap water is not fit for human consumption. | Phù hợp/đủ tiêu chuẩn cho mục đích gì dùng *fit for*. | Suitable or qualified for a purpose takes *fit for*, not *to* + noun.
+# Thành ngữ quen thuộc: *fit for purpose* (đạt chuẩn sử dụng), *fit to be seen*. | Common phrases: *fit for a king*, *fit for service*.
 @a generous
 + to | hào phóng với (ai) | giving freely to | She is always generous [to] her friends.
 + with | hào phóng (cho đi cái gì) | giving a lot of | He's generous [with] his time.
+! It was very generous with you to sponsor our team. => It was very generous of you to sponsor our team. | Thật hào phóng khi ai làm gì dùng *generous of somebody*. | Praising someone's open-handed action takes *generous of somebody*.
+# Phân biệt: *generous of somebody* (hành động hào phóng) và *generous with something* (hào phóng tiền bạc/thời gian). | Distinguish *generous of someone* from *generous with time/money*.
 @a hopeful
 + about | hy vọng về | optimistic about | We are hopeful [about] the future.
+! Doctors are hopeful for a full and rapid recovery. => Doctors are hopeful of a full and rapid recovery. | Đầy hy vọng về một kết quả tốt dùng *hopeful of* hoặc *hopeful about*. | Feeling optimism takes *hopeful of* or *hopeful about*, not *for*.
+# *hopeful of* + danh từ (*hopeful of winning*); *hopeful that* + mệnh đề. | Use *hopeful of/about* with nouns, or *hopeful that* with a clause.
 @a ignorant
 + of | không biết | not knowing about | He was ignorant [of] the rules.
+! He was completely ignorant on the local traffic laws. => He was completely ignorant of the local traffic laws. | Thiếu hiểu biết/không biết gì về điều gì dùng *ignorant of*. | Lacking knowledge or awareness takes *ignorant of*, not *on*.
+# Thường đi với giới từ *of*: *ignorant of the facts*. Tránh nhầm với nghĩa thô lỗ. | In formal English, *ignorant of* means uninformed, not necessarily rude.
 @a immune
 + to | miễn dịch với; không bị ảnh hưởng | protected against | Some bacteria are now immune [to] antibiotics.
+! Vaccinated citizens are largely immune from the severe virus. => Vaccinated citizens are largely immune to the severe virus. | Miễn dịch/miễn nhiễm trước mầm bệnh hoặc sự chỉ trích dùng *immune to*. | Resistant to infection or unaffected by criticism takes *immune to*, not *from*.
+# Dùng *immune to* cho sinh học (*immune to disease*); *immune from* cho miễn trừ pháp lý (*immune from prosecution*). | Distinguish *immune to disease* from legal *immune from prosecution*.
 @a native
 + to | bản địa của | originally growing or living in | Kangaroos are native [to] Australia.
+! The giant panda is native in southwest China forests. => The giant panda is native to southwest China forests. | Bản địa/có nguồn gốc tự nhiên ở đâu dùng *native to*. | Indigenous to an area takes *native to*, not *in*.
+# Rất hay gặp trong IELTS Reading: *species native to Australia*. | Academic reading staple: *plants native to tropical regions*.
 @a necessary
 + for | cần thiết cho | needed for | Sleep is necessary [for] good health.
+! English proficiency is necessary with global careers. => English proficiency is necessary for global careers. | Cần thiết/thiết yếu cho điều gì dùng *necessary for* (hoặc *necessary to*). | Required to achieve an end takes *necessary for*, not *with*.
+# Dùng *necessary for* + danh từ (*necessary for survival*), *necessary to* + V-bare. | Standard: *necessary for success*, *necessary to take action*.
 @a obsessed
 + with | bị ám ảnh, mê | thinking about something all the time | He's obsessed [with] his phone.
+! Modern society is obsessed by wealth and status. => Modern society is obsessed with wealth and status. | Bị ám ảnh/quá say mê điều gì luôn dùng *obsessed with*. | Preoccupied continually takes *obsessed with*, not *by*.
+# Rất thông dụng trong giao tiếp và văn viết: *obsessed with fitness / perfection*. | Extremely common: *obsessed with video games / social media*.
 @a open
 + to | cởi mở với, sẵn sàng đón nhận | willing to consider | I'm open [to] suggestions.
+! Researchers should remain open with constructive criticism. => Researchers should remain open to constructive criticism. | Cởi mở/sẵn sàng đón nhận ý kiến mới dùng *open to*. | Receptive to ideas or suggestions takes *open to*, not *with*.
+# Collocations: *open to suggestions, open to negotiation, open to doubt*. | Common phrases: *open to debate, open to new experiences*.
 @a prone
 + to | dễ bị | likely to suffer from | This area is prone [to] flooding.
+! Coastal areas are particularly prone for severe floods. => Coastal areas are particularly prone to severe floods. | Dễ bị ảnh hưởng/dễ mắc phải điều xấu dùng *prone to*. | Susceptible or vulnerable to negative events takes *prone to*, not *for*.
+# Giới từ *to* đi kèm danh từ hoặc V-ing: *accident-prone*, *prone to making mistakes*. | Followed by noun or gerund: *prone to injury, prone to depression*.
 @a resistant
 + to | kháng lại, chống lại | not harmed or affected by | This watch is resistant [to] water.
+! Bacteria can become resistant with common antibiotics. => Bacteria can become resistant to common antibiotics. | Kháng cự/chống lại tác nhân nào dùng *resistant to*. | Able to withstand the action of something takes *resistant to*, not *with*.
+# Collocations khoa học: *water-resistant, heat-resistant, resistant to disease*. | Scientific and technical terms: *fire-resistant, resistant to wear*.
 @a sceptical
 + about | hoài nghi về | doubtful about | Many experts are sceptical [about] the claims.
 + of | hoài nghi | doubtful about | She was sceptical [of] the new diet.
 # Anh–Mỹ viết *skeptical*. | American spelling: *skeptical*.
 @a sufficient
 + for | đủ cho | enough for | The money was sufficient [for] our needs.
+! One hour is sufficient with completing this task. => One hour is sufficient for completing this task. | Đầy đủ/thỏa đáng cho mục đích gì dùng *sufficient for*. | Adequate for the purpose takes *sufficient for*, not *with*.
+# Dùng *sufficient for* + danh từ/V-ing; hoặc *sufficient to* + V-bare. | Pattern: *sufficient for our needs*, or *sufficient to prove guilt*.
 @a tolerant
 + of | khoan dung với | accepting of | Young people tend to be more tolerant [of] different lifestyles.
+! Society should be more tolerant with diverse opinions. => Society should be more tolerant of diverse opinions. | Bao dung/khoan dung đối với điều gì dùng *tolerant of*. | Showing willingness to accept others takes *tolerant of*, not *with*.
+# Cấu trúc chuẩn: *tolerant of differing views*; cây cối: *drought-tolerant*. | Standard academic usage: *tolerant of ambiguity / uncertainty*.
 @a vital
 + to | sống còn, thiết yếu với | essential to | Bees are vital [to] food production.
 + for | thiết yếu cho | essential for | Clean water is vital [for] survival.
+! Teamwork is vital with our project success. => Teamwork is vital to our project success. | Cực kỳ quan trọng/sống còn đối với cái gì dùng *vital to* hoặc *vital for*. | Crucial or essential takes *vital to* or *vital for*, never *with*.
+# Cả *vital to* và *vital for* đều chuẩn; *vital to* phổ biến hơn trong văn bản học thuật. | Both *vital to* and *vital for* are standard: *vital to national security*.
 @a vulnerable
 + to | dễ bị tổn thương bởi | easily harmed by | Older people are more vulnerable [to] heat.
 ~ academic | Writing: *particularly vulnerable to*, *the most vulnerable groups*. | Writing: *particularly vulnerable to*, *the most vulnerable groups*.
