@@ -382,16 +382,22 @@ def T_mistake():
 
 
 def T_l1():
-    """Clip L1 (docs/VIDEO-TEACH2D.md): native-language hook slams in on frame 0, then the mistake bubble (✗) -> the right bubble (✓) -> a tip card in the page language + the plain English reason, quiz, save card.
-    The teacher and the captions stay English (<= B1); only the hook, the tip and the post text are native (data.native, checked by scripts/rig/native-qa.mjs)."""
+    """Clip L1 (docs/VIDEO-TEACH2D.md): native-language hook slams in on frame 0, then the mistake bubble (✗) -> the right bubble (✓) -> a tip card in the page language, quiz, save card.
+    The teacher and the captions stay English (<= B1); only the hook, the tip and the post text are native (data.native, checked by scripts/video/teach2d/native-qa.mjs).
+    The three cards must share one region, so the text sizes step down until they fit (CJK / long German tips)."""
     D = EP['data']; N = D['native']; series_chip(); t_out = start('q') - 0.2; t_h = start('w') - 0.2; rtl = EP.get('lang') in ('ar', 'he', 'fa', 'ur')   # right-to-left page language: native lines only, the English stays left-to-right
+    tip = [['⚡ ', 'accent'], [N['tip'], 'ink']]
+    def ch(runs, sz, **kw):
+        c = Card(0, **kw); return 2 * PAD + LEDGE + sum(round(sz * 1.22) + 6 for _ in c.wrap(runs, sz)) - 6
+    for sb, st in [(60, 48), (54, 44), (50, 40), (46, 36), (42, 34)]:
+        if ch([[D['wrong'], 'x']], sb, w=RW - 70, badge='cross', t_badge=0) + ch([[D['right'], 'x']], sb, x0=RX0 + 70, w=RW - 70, badge='check', t_badge=0) + ch(tip, st) + 60 <= RY1 - RY0 - 4: break
     title([[N['hook'], 'coral']], 84, RY0 + 120, None, t_h, hook=True, rtl=rtl)
     c = Card(RY0, tone='bubble_bad', w=RW - 70, badge='cross', t_badge=start('w')); c.tail = 'l'   # the hook headline leaves at t_h, so the bubbles reuse its space (as in T_mistake)
-    tn = c.text([[D['wrong'], 'onbad']], S['body'], start('w'))[0]; b1 = c.place(start('w'), t_out, 'a')
+    tn = c.text([[D['wrong'], 'onbad']], sb, start('w'))[0]; b1 = c.place(start('w'), t_out, 'a')
     strike_on(tn, D['strike'], at('w', D['strike'].split()[0]) + 0.15)
     c = Card(b1[3] + 30, tone='bubble_good', x0=RX0 + 70, w=RW - 70, badge='check', t_badge=at('r', 'better')); c.tail = 'r'
-    c.text([[D['right'], 'ongood']], S['body'], at('r', 'better')); b2 = c.place(at('r', 'better'), t_out, 'b')
-    c = Card(b2[3] + 30, tone='card'); c.text([['⚡ ', 'accent'], [N['tip'], 'ink']], S['sub'], start('y'), **(dict(align='r', extra=dict(rtl=True)) if rtl else {})); c.text([[D['why'], 'muted']], S['sub'], start('y')); c.place(start('y'), t_out, 'c')
+    c.text([[D['right'], 'ongood']], sb, at('r', 'better')); b2 = c.place(at('r', 'better'), t_out, 'b')
+    c = Card(b2[3] + 30, tone='card'); c.text(tip, st, start('y'), **(dict(align='r', extra=dict(rtl=True)) if rtl else {})); c.place(start('y'), t_out, 'c')
     q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)
     save_card([[[D['right'], 'good']], [[D['memory'], 'muted']]], start('sh'), start('c') - 0.2)
     end_card()
