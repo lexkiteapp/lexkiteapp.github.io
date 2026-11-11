@@ -75,5 +75,17 @@
  "cta": "Train your listening on lexkite.com",
  "est": 20.9,
  "no_intro": true,
- "end_alt": "n_4b67fc_e2"
+ "end_alt": "n_4b67fc_e2",
+ "publish": {
+  "title": "How to ask for subway directions in English",
+  "keyword": "subway directions",
+  "value": "Which line to take, where to transfer, and how many stops.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#a2english"
+  ],
+  "first_comment": "If you get lost, \"Is this the right way to...?\" works in any station. Practice the full directions lesson: {link}"
+ }
 }

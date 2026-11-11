@@ -162,6 +162,8 @@ publishAt: 2026-11-20T12:42:00+08:00
 
 {{youtube: | 视频创意：托福 Complete the Words——用五个线索现场补全一段短文}}
 
+想了解新版托福的整体结构，可以先看[托福新题型2026全解析](/zh/blog/toefl-xin-ti-xing-2026-bei-kao-zhi-nan/)。
+
 ## 常见问题
 
 ### 托福 Complete the Words 拼错一个字母算对吗？

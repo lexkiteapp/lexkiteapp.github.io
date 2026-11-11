@@ -136,6 +136,8 @@ A precisão nos tempos verbais é indispensável para quem redige comunicações
 
 {{youtube: | Resumo completo dos 12 tempos verbais em inglês com linha do tempo}}
 
+Para treinar os tempos verbais sob pressão, resolva questões do [TOEIC Part 5](/pt/blog/toeic-part-5-estrategias-gramatica-tempo/) com limite de tempo.
+
 ## Perguntas frequentes
 
 ### Preciso memorizar todos os 12 tempos verbais para falar inglês no trabalho?

@@ -44,5 +44,5 @@ jobs:
         if: steps.sync.outputs.pending != '0' && steps.sync.outputs.pending != ''
         env: { GH_TOKEN: '${{ github.token }}' }
         run: |
-          curl -sf -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+          bash scripts/ci/gh-retry.sh curl -sSf -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
             "https://api.github.com/repos/${{ github.repository }}/actions/workflows/video-web.yml/dispatches" -d '{"ref":"main"}' && echo "video-web đã chạy"

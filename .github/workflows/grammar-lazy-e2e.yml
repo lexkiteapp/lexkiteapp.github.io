@@ -1,0 +1,25 @@
+# Trình duyệt thật cho bài ngữ pháp nạp lười (scripts/test/grammar-lazy-e2e.mjs).
+name: Grammar lazy e2e
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['web/cpack/grammar/**', 'web/js/grammar.js', 'scripts/test/grammar-lazy-e2e.mjs', '.github/workflows/grammar-lazy-e2e.yml']
+permissions:
+  contents: read
+concurrency:
+  group: grammar-lazy-e2e-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chạy
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/grammar-lazy-e2e.mjs http://localhost:8080

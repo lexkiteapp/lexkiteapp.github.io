@@ -16,11 +16,15 @@ export const LANGS = fs.readFileSync(path.join(ROOT, 'scripts/i18n-langs.txt'), 
 export const LAZY = ((fs.readFileSync(path.join(ROOT, 'scripts/build-i18n.sh'), 'utf8').match(/^LAZY="([^"]*)"/m) || [])[1] || '').split(/\s+/).filter(Boolean);
 
 /** Khóa ngắn – PHẢI giống hệt hk trong web/js/i18n.js và extension/*.js (test i18n-pack.mjs so khớp). */
-export function hk(s) { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 0x01000193); } return '_' + (x >>> 0).toString(36); }
+export function hk(s) { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 0x01000193); } return '_' + ((x >>> 0) % 1679616).toString(36); }
 
 /** Đường dẫn nguồn (tương đối ROOT): nhóm rỗng = gói lõi <lang>.js. */
 export const srcPath = (lang, group) => (group ? `${SRC}/${lang}/${group}.js` : `${SRC}/${lang}.js`);
-export const outPath = (lang, group) => (group ? `${OUT}/${lang}/${group}.js` : `${OUT}/${lang}.js`);
+// Nhóm nội dung nút Lộ trình: gói chạy nằm ở web/cpack (giữ gói ngôn ngữ web/js dưới langPackMax; tiền lệ #788) – nguồn và bản en vẫn như mọi nhóm; đường dẫn đủ chữ ở App.pathnPack (web/js/app.js) để build-cpack thay mã băm.
+export const CPACK_GROUP = 'pathn';
+// 10/11: criteria + confidence (nhóm lazy nặng, chỉ nạp cùng gói màn của chúng) cũng ra web/cpack/i18n/<nhóm>-<lang>.js – gói hi/th trở lại dưới 90 % langPackMax (đường dẫn viết đủ ở App.cpackI18n, web/js/app.js)
+export const CPACK_I18N = ['criteria', 'confidence'];
+export const outPath = (lang, group) => (group === CPACK_GROUP ? `web/cpack/lesson/pn-${lang}.js` : CPACK_I18N.includes(group) ? `web/cpack/i18n/${group}-${lang}.js` : group ? `${OUT}/${lang}/${group}.js` : `${OUT}/${lang}.js`);
 
 /** Chạy một tệp từ điển (định dạng D[l] = Object.assign(…)) → từ điển của ngôn ngữ đầu tiên trong tệp. */
 export function loadDictFile(file) {
@@ -62,8 +66,12 @@ export function verbatimKeys(keys) {
 }
 /** Tệp chạy gọn từ một từ điển nguồn. Thuần. Giữ "});" ngay sau từ điển (background.js của add-on cắt JSON theo mốc này). */
 export function packText(lang, group, dict, keep = verbatimKeys(Object.keys(dict))) {
-  const body = Object.entries(dict).map(([k, v]) => `${JSON.stringify(keep.has(k) ? k : hk(k))}:${JSON.stringify(v)}`).join(',');
-  return `/* SINH từ ${srcPath(lang, group)} bằng scripts/i18n-pack.mjs – đừng sửa tay */\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D[${JSON.stringify(lang)}] = Object.assign(D[${JSON.stringify(lang)}] || {}, {${body}});\n})(typeof self !== 'undefined' ? self : this);\n`;
+  // Khóa băm viết TRẦN (không ngoặc kép: "_ab12" hợp lệ làm tên thuộc tính) – bớt 2 B/mục; khóa nguyên câu vẫn có ngoặc.
+  // background.js (add-on) gỡ ngoặc bằng regex /([{,])(_[0-9a-z]+):/ → cấm giá trị chứa chuỗi trông như vậy (không bao giờ có trong bản dịch thật).
+  const body = Object.entries(dict).map(([k, v]) => { const j = JSON.stringify(v); if (/[{,]_[0-9a-z]+:/.test(j)) throw new Error(`i18n-pack: bản dịch ${lang}/${group || 'core'} chứa chuỗi giống khóa băm – ${j.slice(0, 60)}`); return `${keep.has(k) ? JSON.stringify(k) : hk(k)}:${j}`; }).join(',');
+  if (!/^[a-z]{2,3}$/.test(lang)) throw new Error(`i18n-pack: mã ngôn ngữ lạ ${lang}`);
+  const L = '.' + lang;
+  return `/* SINH từ ${srcPath(lang, group)} – đừng sửa tay (scripts/i18n-pack.mjs) */\n(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D${L}=Object.assign(D${L}||{},{${body}});})(typeof self!=='undefined'?self:this);\n`;
 }
 /** Giải gói chạy về từ điển khóa tiếng Việt (để test/đối chiếu): keys = vũ trụ khóa nguồn. Thuần. */
 export function unpack(packed, keys) {

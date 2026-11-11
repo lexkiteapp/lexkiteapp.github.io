@@ -18,10 +18,12 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Cài
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chrome >/dev/null
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core fonts-noto-cjk >/dev/null || true
+          bash scripts/ci/pw-install.sh --with-deps chrome
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core fonts-noto-cjk }
       - name: Fixture (artifact video-motion embed)
         env: { GH_TOKEN: '${{ github.token }}', REPO: '${{ github.repository }}', RUN_ID: '${{ inputs.run_id }}' }
         run: |

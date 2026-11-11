@@ -1,0 +1,42 @@
+# 💾 Lưu trữ phía máy người học sau 7 ngày học giả lập: localStorage / IndexedDB / Cache Storage, main (trước) vs nhánh (sau), cùng runner.
+# Hermetic: dist cục bộ + ?demo=1, *.lexkite.com chặn qua /etc/hosts (0 lượt chạm prod). Đỏ khi nhánh vượt scripts/test/storage-audit.budget.json (chỉ siết).
+# Tài liệu: docs/PERF-SCROLL.md › Lưu trữ.
+name: Storage audit
+on:
+  pull_request:
+    paths: ['web/sw.js', 'web/js/core.js', 'web/js/app.js', 'web/js/settings*.js', 'web/js/lex*.js', 'scripts/test/storage-audit.mjs', 'scripts/test/storage-audit.budget.json', '.github/workflows/storage-audit.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - name: Dựng dist nhánh + main
+        timeout-minutes: 14
+        run: |
+          npm ci --no-audit --no-fund && bash scripts/build-web.sh >/dev/null
+          git fetch -q --depth 1 origin main && git worktree add -q ../base FETCH_HEAD && (cd ../base && npm ci --no-audit --no-fund >/dev/null && bash scripts/build-web.sh >/dev/null)
+      - name: Cài Playwright
+        timeout-minutes: 14
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - name: Chặn lexkite.com (0 lượt chạm prod)
+        run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
+      - name: 7 ngày học – trước (main) / sau (nhánh)
+        timeout-minutes: 20
+        run: |
+          (node scripts/test/serve-web.mjs ../base/dist 8081 >/dev/null 2>&1 &) ; (node scripts/test/serve-web.mjs dist 8080 >/dev/null 2>&1 &) ; sleep 2
+          echo "### TRƯỚC (main)"; node scripts/test/storage-audit.mjs http://localhost:8081 out/before.json || true
+          echo "### SAU (nhánh)"; node scripts/test/storage-audit.mjs http://localhost:8080 out/after.json $( [ -f scripts/test/storage-audit.budget.json ] && echo --check scripts/test/storage-audit.budget.json )
+      - if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with: { name: storage-audit, path: out, retention-days: 14 }

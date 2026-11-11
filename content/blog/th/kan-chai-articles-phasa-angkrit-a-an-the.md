@@ -168,6 +168,6 @@ publishAt: 2026-12-01T09:38:00+07:00
 | *I like the coffee.* (ทั่วไป) | แปลตรงตัวจากภาษาไทยว่าชอบกาแฟ | *I like coffee.* |
 | *She has a headache.* | ประโยคนี้ถูกต้องแล้ว (อาการปวดหัวนับได้) | *She has a headache.* |
 
-หากต้องการพัฒนาพื้นฐานไวยากรณ์ของคุณอย่างรอบด้าน ขอแนะนำให้อ่านเพิ่มเติมเกี่ยวกับ [ความแตกต่างระหว่าง Present Perfect และ Past Simple](/th/blog/present-perfect-kap-past-simple/), รวม [คำเชื่อมภาษาอังกฤษ linking words](/th/blog/kham-chueam-phasa-angkrit-linking-words/), สรุปหลัก [If-Clause ทุกแบบ](/th/blog/if-clause-phasa-angkrit-sarup-khrap-thuk-type/), และการใช้ [คำบุพบท in on at](/th/blog/kham-bubbhabot-in-on-at-phasa-angkrit/) นอกจากนี้คุณยังสามารถเพิ่มคลังคำศัพท์วิชาการได้ที่ [/tu-vung/](/tu-vung/)
+หากต้องการพัฒนาพื้นฐานไวยากรณ์ของคุณอย่างรอบด้าน ขอแนะนำให้อ่านเพิ่มเติมเกี่ยวกับ [ความแตกต่างระหว่าง Present Perfect และ Past Simple](/th/blog/present-perfect-kap-past-simple/), รวม [คำเชื่อมภาษาอังกฤษ linking words](/th/blog/kham-chueam-phasa-angkrit-linking-words/), สรุปหลัก [If-Clause ทุกแบบ](/th/blog/if-clause-phasa-angkrit-sarup-khrap-thuk-type/), และการใช้ [คำบุพบท in on at](/th/blog/kham-bubbhabot-in-on-at-phasa-angkrit/) นอกจากนี้คุณยังสามารถเพิ่มคลังคำศัพท์วิชาการได้ที่ [/tu-vung/](/en/vocabulary/)
 
 เมื่อฝึกฝนมองคำนามผ่านมิติของความชี้เฉพาะและการมีขอบเขตจนติดเป็นนิสัย คุณจะสามารถใช้ Articles ได้อย่างมั่นใจ แม่นยำ และเป็นธรรมชาติเหมือนเจ้าของภาษา

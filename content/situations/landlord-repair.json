@@ -1,0 +1,891 @@
+{
+ "id": "landlord-repair",
+ "group": "housing",
+ "cefr": "B1",
+ "title": {
+  "en": "Reporting a repair",
+  "vi": "Báo chủ nhà sửa chữa",
+  "es": "Avisar de una avería",
+  "pt": "Pedir um conserto",
+  "fr": "Signaler une réparation",
+  "de": "Reparatur melden",
+  "id": "Melaporkan perbaikan",
+  "th": "แจ้งซ่อมกับเจ้าของห้อง",
+  "zh": "向房东报修",
+  "ja": "大家さんに修理を依頼",
+  "ko": "집주인에게 수리 요청",
+  "hi": "मकान मालिक को मरम्मत बताना",
+  "ar": "إبلاغ المالك بعطل",
+  "ru": "Сообщить о поломке хозяину",
+  "tr": "Ev sahibine arıza bildirme"
+ },
+ "goal": {
+  "en": "Report a problem and get a fix booked!",
+  "vi": "Báo sự cố và hẹn lịch sửa!",
+  "es": "¡Avisa del problema y concierta la reparación!",
+  "pt": "Relate o problema e agende o conserto!",
+  "fr": "Signalez le problème et fixez la réparation !",
+  "de": "Melde das Problem und vereinbare einen Termin!",
+  "id": "Laporkan masalahnya dan atur jadwal perbaikan!",
+  "th": "แจ้งปัญหาและนัดวันซ่อมให้ได้!",
+  "zh": "报告问题，约好维修时间！",
+  "ja": "問題を伝えて、修理の日程を決めよう！",
+  "ko": "문제를 알리고 수리 일정을 잡아요!",
+  "hi": "समस्या बताएँ और मरम्मत का समय तय करें!",
+  "ar": "أبلغ عن المشكلة واتفق على موعد الإصلاح!",
+  "ru": "Сообщи о проблеме и договорись о ремонте!",
+  "tr": "Sorunu bildir ve tamir için randevu al!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "report",
+   "title": {
+    "en": "Report it",
+    "vi": "Báo sự cố",
+    "es": "Avisar",
+    "pt": "Relatar",
+    "fr": "Signaler",
+    "de": "Melden",
+    "id": "Melapor",
+    "th": "แจ้งปัญหา",
+    "zh": "报修",
+    "ja": "連絡する",
+    "ko": "문제 알리기",
+    "hi": "समस्या बताएँ",
+    "ar": "الإبلاغ",
+    "ru": "Сообщить",
+    "tr": "Bildirme"
+   },
+   "lines": [
+    "r1",
+    "r2",
+    "r3",
+    "r4"
+   ]
+  },
+  {
+   "id": "follow",
+   "title": {
+    "en": "Follow up politely",
+    "vi": "Nhắc lại lịch sự",
+    "es": "Insistir con cortesía",
+    "pt": "Insistir com educação",
+    "fr": "Relancer poliment",
+    "de": "Höflich nachhaken",
+    "id": "Menagih dengan sopan",
+    "th": "ตามเรื่องอย่างสุภาพ",
+    "zh": "礼貌地催促",
+    "ja": "丁寧に催促",
+    "ko": "정중히 재촉하기",
+    "hi": "विनम्रता से याद दिलाएँ",
+    "ar": "المتابعة بلباقة",
+    "ru": "Вежливо напомнить",
+    "tr": "Nazikçe takip"
+   },
+   "lines": [
+    "c1",
+    "c2",
+    "c3",
+    "c4"
+   ]
+  },
+  {
+   "id": "book",
+   "title": {
+    "en": "Book the visit",
+    "vi": "Hẹn lịch sửa",
+    "es": "Fijar la visita",
+    "pt": "Marcar a visita",
+    "fr": "Fixer le rendez-vous",
+    "de": "Termin vereinbaren",
+    "id": "Atur jadwal",
+    "th": "นัดวันเข้าซ่อม",
+    "zh": "约定上门",
+    "ja": "訪問の予約",
+    "ko": "방문 약속 잡기",
+    "hi": "विज़िट तय करें",
+    "ar": "تحديد الموعد",
+    "ru": "Назначить визит",
+    "tr": "Randevu ayarlama"
+   },
+   "lines": [
+    "a1",
+    "a2",
+    "a3",
+    "a4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "r1",
+   "who": "customer",
+   "en": "Hello, this is Alex from flat four. I'm calling about a repair.",
+   "variants": {
+    "polite": "Good morning, this is Alex from flat four. I'm calling to report a problem.",
+    "casual": "Hi, it's Alex in flat four. Something's broken."
+   },
+   "gloss": {
+    "en": "Introducing yourself and saying why you are calling.",
+    "vi": "Xin chào, tôi là Alex ở căn hộ số bốn. Tôi gọi để báo cần sửa chữa.",
+    "es": "Hola, soy Alex, del piso cuatro. Llamo por una reparación.",
+    "pt": "Olá, aqui é o Alex, do apartamento quatro. Estou ligando por causa de um conserto.",
+    "fr": "Bonjour, c'est Alex, de l'appartement quatre. J'appelle pour une réparation.",
+    "de": "Hallo, hier ist Alex aus Wohnung vier. Ich rufe wegen einer Reparatur an.",
+    "id": "Halo, ini Alex dari unit empat. Saya menelepon soal perbaikan.",
+    "th": "สวัสดีค่ะ อเล็กซ์จากห้องสี่นะคะ โทรมาแจ้งเรื่องซ่อมค่ะ",
+    "zh": "你好，我是四号房的 Alex，打电话是想报修。",
+    "ja": "こんにちは、4号室のアレックスです。修理のことでお電話しました。",
+    "ko": "안녕하세요, 4호 세입자 알렉스예요. 수리 때문에 전화드렸어요.",
+    "hi": "नमस्ते, फ़्लैट चार से एलेक्स का फ़ोन है। मरम्मत के सिलसिले में कॉल किया है।",
+    "ar": "مرحبًا، معك أليكس من الشقة رقم أربعة. أتصل بخصوص إصلاح.",
+    "ru": "Здравствуйте, это Алекс из четвёртой квартиры. Звоню по поводу ремонта.",
+    "tr": "Merhaba, ben dört numaralı daireden Alex. Bir tamir konusunda arıyorum."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "r2",
+   "who": "customer",
+   "en": "The heating hasn't been working since Monday, and it's getting very cold.",
+   "variants": {
+    "polite": "I'm afraid the heating hasn't worked since Monday, and it's getting quite cold.",
+    "casual": "The heating's been broken since Monday."
+   },
+   "gloss": {
+    "en": "Reporting that the heating has been broken for days.",
+    "vi": "Hệ thống sưởi hỏng từ thứ Hai, và trời đang rất lạnh.",
+    "es": "La calefacción no funciona desde el lunes y empieza a hacer mucho frío.",
+    "pt": "O aquecimento não funciona desde segunda-feira e está ficando muito frio.",
+    "fr": "Le chauffage ne marche plus depuis lundi et il commence à faire très froid.",
+    "de": "Die Heizung funktioniert seit Montag nicht, und es wird sehr kalt.",
+    "id": "Pemanasnya tidak berfungsi sejak Senin, dan udaranya makin dingin.",
+    "th": "เครื่องทำความร้อนเสียตั้งแต่วันจันทร์ และตอนนี้หนาวมากแล้วค่ะ",
+    "zh": "暖气从周一起就不工作了，现在越来越冷。",
+    "ja": "月曜日から暖房が動かなくて、かなり寒くなってきました。",
+    "ko": "월요일부터 난방이 안 되고 있고, 점점 많이 추워져요.",
+    "hi": "सोमवार से हीटिंग काम नहीं कर रही है, और बहुत ठंड होने लगी है।",
+    "ar": "التدفئة لا تعمل منذ يوم الاثنين، والجو يزداد برودة.",
+    "ru": "Отопление не работает с понедельника, и становится очень холодно.",
+    "tr": "Isıtma pazartesiden beri çalışmıyor ve hava çok soğumaya başladı."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "heating",
+     "ipa": "/ˈhiː.tɪŋ/",
+     "hi": "HEE",
+     "note": {
+      "en": "The first syllable rhymes with “feet”: HEE-ting.",
+      "vi": "Âm tiết đầu vần với “feet”: HI-ting (i dài).",
+      "es": "La primera sílaba rima con “feet”: JII-ting.",
+      "pt": "A primeira sílaba rima com “feet”: HII-ting.",
+      "fr": "La première syllabe rime avec « feet » : HII-ting.",
+      "de": "Die erste Silbe reimt sich auf „feet“: HIE-ting.",
+      "id": "Suku kata pertama berima dengan “feet”: HII-ting.",
+      "th": "พยางค์แรกเสียงเหมือน “feet”: ฮี-ติ้ง",
+      "zh": "第一个音节和 feet 押韵：HEE-ting。",
+      "ja": "最初の音節は feet と同じ音：ヒー・ティング。",
+      "ko": "첫 음절은 feet처럼 길게: ‘히-팅’.",
+      "hi": "पहला अक्षर feet की तरह: ही-टिंग।",
+      "ar": "المقطع الأول يشبه feet: هي-تينغ.",
+      "ru": "Первый слог как в «feet»: ХИ-тинг.",
+      "tr": "İlk hece “feet” gibi: Hİİ-ting."
+     }
+    }
+   ]
+  },
+  {
+   "id": "r3",
+   "who": "barista",
+   "en": "I'm sorry to hear that. Can you tell me exactly what's happening?",
+   "variants": {
+    "polite": "I'm very sorry to hear that. Could you describe exactly what's happening?",
+    "casual": "Sorry about that. What's it doing?"
+   },
+   "gloss": {
+    "en": "The landlord apologises and asks for details.",
+    "vi": "Tôi rất tiếc khi nghe vậy. Anh/chị cho tôi biết chính xác chuyện gì đang xảy ra nhé?",
+    "es": "Lamento oírlo. ¿Puede decirme exactamente qué está pasando?",
+    "pt": "Sinto muito por isso. Pode me dizer exatamente o que está acontecendo?",
+    "fr": "Je suis désolé de l'apprendre. Pouvez-vous me dire exactement ce qui se passe ?",
+    "de": "Das tut mir leid. Können Sie mir genau sagen, was passiert?",
+    "id": "Maaf mendengarnya. Bisa jelaskan persisnya apa yang terjadi?",
+    "th": "เสียใจด้วยนะคะ ช่วยบอกหน่อยได้ไหมคะว่าเกิดอะไรขึ้นแน่ ๆ",
+    "zh": "很抱歉听到这个。能具体说说是什么情况吗？",
+    "ja": "それは申し訳ありません。具体的にどんな状況か教えていただけますか？",
+    "ko": "그러셨다니 죄송해요. 정확히 어떤 상황인지 말씀해 주시겠어요?",
+    "hi": "यह सुनकर खेद है। क्या आप बता सकते हैं कि ठीक-ठीक क्या हो रहा है?",
+    "ar": "يؤسفني سماع ذلك. هل يمكنك أن تخبرني بالضبط بما يحدث؟",
+    "ru": "Мне очень жаль. Можете точно рассказать, что происходит?",
+    "tr": "Bunu duyduğuma üzüldüm. Tam olarak ne olduğunu anlatır mısınız?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "r4",
+   "who": "customer",
+   "en": "There's a leak under the kitchen sink, and water is getting onto the floor.",
+   "variants": {
+    "polite": "I've noticed a leak under the kitchen sink, and water is reaching the floor.",
+    "casual": "The kitchen sink is leaking onto the floor."
+   },
+   "gloss": {
+    "en": "Describing a water leak in the kitchen.",
+    "vi": "Bồn rửa bếp bị rò nước bên dưới, và nước đang chảy ra sàn.",
+    "es": "Hay una fuga bajo el fregadero de la cocina y el agua llega al suelo.",
+    "pt": "Há um vazamento embaixo da pia da cozinha e a água está chegando ao chão.",
+    "fr": "Il y a une fuite sous l'évier de la cuisine et l'eau coule par terre.",
+    "de": "Unter der Küchenspüle ist ein Leck, und Wasser läuft auf den Boden.",
+    "id": "Ada kebocoran di bawah bak cuci piring dapur, dan airnya sampai ke lantai.",
+    "th": "ใต้อ่างล้างจานในครัวมีน้ำรั่ว น้ำไหลลงพื้นแล้วค่ะ",
+    "zh": "厨房水槽下面漏水，水都流到地上了。",
+    "ja": "キッチンのシンクの下から水が漏れていて、床に流れ出しています。",
+    "ko": "주방 싱크대 밑에서 물이 새서 바닥까지 흘러요.",
+    "hi": "किचन के सिंक के नीचे से पानी लीक हो रहा है और फ़र्श पर आ रहा है।",
+    "ar": "هناك تسرّب تحت حوض المطبخ، والماء يصل إلى الأرض.",
+    "ru": "Под кухонной раковиной течёт, и вода попадает на пол.",
+    "tr": "Mutfak lavabosunun altından su sızıyor ve su yere akıyor."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "leak",
+     "ipa": "/liːk/",
+     "hi": "LEEK",
+     "note": {
+      "en": "Say LEEK with a long EE sound, not “lick”.",
+      "vi": "Đọc LEEK với âm EE dài, không phải “lick”.",
+      "es": "Di LIIK con una i larga, no “lik”.",
+      "pt": "Diga LIIK com i longo, não “lik”.",
+      "fr": "Dites LIIK avec un i long, pas « lik ».",
+      "de": "Sprich LIIK mit langem I, nicht „lick“.",
+      "id": "Ucapkan LIIK dengan i panjang, bukan “lik”.",
+      "th": "ออกเสียง ลีค (สระอีเสียงยาว) ไม่ใช่ ลิก",
+      "zh": "读 LEEK，元音是长的 ee，不要读成短的 lick。",
+      "ja": "「リーク」と長く伸ばします。「リック」ではありません。",
+      "ko": "‘리이크’처럼 길게 발음해요. 짧은 ‘릭’이 아니에요.",
+      "hi": "लीक (लंबी ई) बोलें, छोटी ‘लिक’ नहीं।",
+      "ar": "انطقها لييك بياء طويلة، وليس لِك قصيرة.",
+      "ru": "Говори ЛИИК с долгим «и», а не короткое «лик».",
+      "tr": "Uzun i ile LİİK de, kısa “lik” değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "c1",
+   "who": "customer",
+   "en": "I reported this two weeks ago, but nobody has come yet.",
+   "variants": {
+    "polite": "I reported this two weeks ago, and unfortunately nobody has come yet.",
+    "casual": "I told you two weeks ago, but no one's come."
+   },
+   "gloss": {
+    "en": "Politely pointing out that nothing has happened yet.",
+    "vi": "Tôi đã báo việc này hai tuần trước, nhưng đến giờ chưa có ai đến.",
+    "es": "Avisé de esto hace dos semanas, pero todavía no ha venido nadie.",
+    "pt": "Avisei isso há duas semanas, mas ninguém veio até agora.",
+    "fr": "J'ai signalé ce problème il y a deux semaines, mais personne n'est encore venu.",
+    "de": "Ich habe das vor zwei Wochen gemeldet, aber bisher ist niemand gekommen.",
+    "id": "Saya sudah melaporkan ini dua minggu lalu, tetapi belum ada yang datang.",
+    "th": "แจ้งเรื่องนี้ไปตั้งแต่สองสัปดาห์ก่อน แต่ยังไม่มีใครมาเลยค่ะ",
+    "zh": "这个问题我两周前就报过了，但到现在还没人来。",
+    "ja": "2週間前に連絡したのに、まだ誰も来てくれていません。",
+    "ko": "이 문제는 2주 전에 알렸는데, 아직 아무도 오지 않았어요.",
+    "hi": "मैंने यह दो हफ़्ते पहले बताया था, पर अब तक कोई नहीं आया।",
+    "ar": "أبلغتُ عن هذا قبل أسبوعين، لكن لم يأتِ أحد حتى الآن.",
+    "ru": "Заявка на ремонт подана две недели назад, но никто так и не пришёл.",
+    "tr": "Bunu iki hafta önce bildirmiştim ama henüz kimse gelmedi."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c2",
+   "who": "customer",
+   "en": "I understand you're busy, but this is getting quite urgent.",
+   "variants": {
+    "polite": "I do understand you're busy, but it's becoming rather urgent.",
+    "casual": "I know you're busy, but it's urgent now."
+   },
+   "gloss": {
+    "en": "Showing understanding while stressing that it is urgent.",
+    "vi": "Tôi hiểu anh/chị bận, nhưng việc này đang khá gấp.",
+    "es": "Entiendo que está ocupado, pero esto se está volviendo bastante urgente.",
+    "pt": "Entendo que você está ocupado, mas isso está ficando bem urgente.",
+    "fr": "Je comprends que vous êtes occupé, mais cela devient assez urgent.",
+    "de": "Ich verstehe, dass Sie viel zu tun haben, aber es wird ziemlich dringend.",
+    "id": "Saya mengerti Anda sibuk, tetapi ini sudah cukup mendesak.",
+    "th": "เข้าใจว่าคุณยุ่งอยู่ แต่เรื่องนี้เริ่มเร่งด่วนมากแล้วค่ะ",
+    "zh": "我理解您很忙，但这件事已经相当紧急了。",
+    "ja": "お忙しいのは分かりますが、かなり急ぎの状況になってきています。",
+    "ko": "바쁘신 건 알지만, 이제 꽤 급한 상황이에요.",
+    "hi": "आपकी व्यस्तता समझ में आती है, पर अब यह काफ़ी ज़रूरी हो गया है।",
+    "ar": "أتفهّم أنك مشغول، لكن الأمر أصبح عاجلًا إلى حد ما.",
+    "ru": "Я понимаю, что вы заняты, но дело становится довольно срочным.",
+    "tr": "Meşgul olduğunuzu anlıyorum ama bu iş artık oldukça acil."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "urgent",
+     "ipa": "/ˈɜː.dʒənt/",
+     "hi": "UR",
+     "note": {
+      "en": "Stress the first syllable: UR-jent.",
+      "vi": "Nhấn âm tiết đầu: ƠR-chần.",
+      "es": "Acentúa la primera sílaba: ER-yent.",
+      "pt": "Acentue a primeira sílaba: ÉR-djent.",
+      "fr": "Accentuez la première syllabe : EUR-djeunt.",
+      "de": "Betone die erste Silbe: ÖR-dschent.",
+      "id": "Tekankan suku kata pertama: ER-jen.",
+      "th": "เน้นพยางค์แรก: เออร์-เจินท์",
+      "zh": "重音在第一个音节：UR-jent。",
+      "ja": "最初の音節を強く：アージェント。",
+      "ko": "첫 음절에 강세: ‘어-전트’.",
+      "hi": "पहले अक्षर पर ज़ोर दें: अर-जेंट।",
+      "ar": "شدّد على المقطع الأول: إيرجنت.",
+      "ru": "Ударение на первый слог: ЁР-джент.",
+      "tr": "Vurgu ilk hecede: ÖR-cınt."
+     }
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "who": "customer",
+   "en": "Could you please send someone as soon as possible?",
+   "variants": {
+    "polite": "Would it be possible to send someone as soon as you can?",
+    "casual": "Can you send someone soon?"
+   },
+   "gloss": {
+    "en": "Asking for someone to come as soon as possible.",
+    "vi": "Anh/chị có thể cử người đến sớm nhất có thể không?",
+    "es": "¿Podría enviar a alguien lo antes posible, por favor?",
+    "pt": "Poderia mandar alguém o quanto antes, por favor?",
+    "fr": "Pourriez-vous envoyer quelqu'un dès que possible, s'il vous plaît ?",
+    "de": "Könnten Sie bitte so bald wie möglich jemanden schicken?",
+    "id": "Bisakah Anda mengirim seseorang secepatnya?",
+    "th": "ช่วยส่งช่างมาโดยเร็วที่สุดได้ไหมคะ",
+    "zh": "能请您尽快派人来吗？",
+    "ja": "できるだけ早く誰か来てもらえませんか？",
+    "ko": "가능한 한 빨리 사람을 보내 주실 수 있을까요?",
+    "hi": "क्या आप जल्द से जल्द किसी को भेज सकते हैं?",
+    "ar": "هل يمكنك إرسال أحد في أقرب وقت ممكن من فضلك؟",
+    "ru": "Не могли бы вы как можно скорее прислать кого-нибудь?",
+    "tr": "Lütfen mümkün olan en kısa sürede birini gönderebilir misiniz?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c4",
+   "who": "customer",
+   "en": "If it can't be fixed this week, I'll have to contact the housing office.",
+   "variants": {
+    "polite": "If it can't be fixed this week, I may need to contact the housing office.",
+    "casual": "If it's not fixed this week, I'll call the housing office."
+   },
+   "gloss": {
+    "en": "A firmer warning: you will ask an official office for help.",
+    "vi": "Nếu tuần này không sửa được, tôi sẽ phải liên hệ văn phòng quản lý nhà ở.",
+    "es": "Si no se puede arreglar esta semana, tendré que contactar con la oficina de vivienda.",
+    "pt": "Se não puder ser consertado esta semana, terei que contatar o órgão de habitação.",
+    "fr": "Si ce n'est pas réparé cette semaine, je devrai contacter le service du logement.",
+    "de": "Wenn es diese Woche nicht repariert werden kann, muss ich mich an das Wohnungsamt wenden.",
+    "id": "Jika tidak bisa diperbaiki minggu ini, saya terpaksa menghubungi kantor perumahan.",
+    "th": "ถ้าสัปดาห์นี้ยังซ่อมไม่ได้ ฉันคงต้องติดต่อหน่วยงานดูแลที่อยู่อาศัยค่ะ",
+    "zh": "如果这周修不好，我只能联系住房管理部门了。",
+    "ja": "今週中に直らなければ、住宅の相談窓口に連絡せざるを得ません。",
+    "ko": "이번 주 안에 수리되지 않으면 주택 관련 기관에 연락해야 할 것 같아요.",
+    "hi": "अगर इस हफ़्ते तक ठीक नहीं हुआ, तो मुझे आवास कार्यालय से संपर्क करना पड़ेगा।",
+    "ar": "إذا لم يتم الإصلاح هذا الأسبوع، فسأضطر إلى التواصل مع مكتب الإسكان.",
+    "ru": "Если на этой неделе не починят, мне придётся обратиться в жилищную службу.",
+    "tr": "Bu hafta onarılmazsa konut bürosuyla iletişime geçmek zorunda kalacağım."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "a1",
+   "who": "barista",
+   "en": "I can send a plumber tomorrow morning. Will you be in?",
+   "variants": {
+    "polite": "I can arrange for a plumber to come tomorrow morning. Will someone be at home?",
+    "casual": "The plumber's free tomorrow morning. Are you in?"
+   },
+   "gloss": {
+    "en": "The landlord offers a plumber and asks if you will be home.",
+    "vi": "Sáng mai tôi cử thợ ống nước đến được. Anh/chị có ở nhà không?",
+    "es": "Puedo enviar a un fontanero mañana por la mañana. ¿Estará en casa?",
+    "pt": "Posso mandar um encanador amanhã de manhã. Você estará em casa?",
+    "fr": "Je peux envoyer un plombier demain matin. Serez-vous là ?",
+    "de": "Ich kann morgen früh einen Klempner schicken. Sind Sie zu Hause?",
+    "id": "Saya bisa kirim tukang ledeng besok pagi. Apakah Anda ada di rumah?",
+    "th": "พรุ่งนี้เช้าส่งช่างประปาไปได้ค่ะ คุณอยู่บ้านไหมคะ",
+    "zh": "我明天上午可以派水管工过去。您在家吗？",
+    "ja": "明日の午前中に配管工を手配できます。ご在宅ですか？",
+    "ko": "내일 오전에 배관공을 보낼 수 있어요. 집에 계실 건가요?",
+    "hi": "कल सुबह प्लंबर को भेजा जा सकता है। क्या आप घर पर होंगे?",
+    "ar": "يمكنني إرسال سبّاك صباح الغد. هل ستكون في المنزل؟",
+    "ru": "Я могу прислать сантехника завтра утром. Вы будете дома?",
+    "tr": "Yarın sabah bir tesisatçı gönderebilirim. Evde olacak mısınız?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "plumber",
+     "ipa": "/ˈplʌm.ər/",
+     "hi": "PLUM",
+     "note": {
+      "en": "The “b” is silent: PLUM-er.",
+      "vi": "Chữ “b” là âm câm: PLÂM-ờ.",
+      "es": "La “b” es muda: PLAM-er.",
+      "pt": "O “b” é mudo: PLÂM-er.",
+      "fr": "Le « b » est muet : PLEUM-eur.",
+      "de": "Das „b“ bleibt stumm: PLAM-er.",
+      "id": "Huruf “b” tidak dibaca: PLAM-er.",
+      "th": "ตัว b ไม่ออกเสียง: พลัม-เมอร์",
+      "zh": "b 不发音：PLUM-er。",
+      "ja": "bは発音しません：プラマー。",
+      "ko": "b는 소리 나지 않아요: ‘플러머’.",
+      "hi": "‘b’ नहीं बोला जाता: प्लम-र।",
+      "ar": "حرف b صامت: بلام-ر.",
+      "ru": "Буква b не читается: ПЛАМ-ер.",
+      "tr": "“b” harfi okunmaz: PLAM-ır."
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2",
+   "who": "customer",
+   "en": "Tomorrow morning works for me. What time will the plumber arrive?",
+   "variants": {
+    "polite": "Tomorrow morning suits me well. Do you know roughly what time the plumber will arrive?",
+    "casual": "Tomorrow's fine. What time's the plumber coming?"
+   },
+   "gloss": {
+    "en": "Accepting the day and asking for the arrival time.",
+    "vi": "Sáng mai được ạ. Thợ sẽ đến lúc mấy giờ?",
+    "es": "Mañana por la mañana me viene bien. ¿A qué hora llegará el fontanero?",
+    "pt": "Amanhã de manhã serve para mim. A que horas o encanador chega?",
+    "fr": "Demain matin me convient. À quelle heure le plombier arrivera-t-il ?",
+    "de": "Morgen früh passt mir. Um wie viel Uhr kommt der Klempner?",
+    "id": "Besok pagi cocok untuk saya. Jam berapa tukangnya tiba?",
+    "th": "พรุ่งนี้เช้าสะดวกค่ะ ช่างจะมากี่โมงคะ",
+    "zh": "明天上午可以。水管工几点到？",
+    "ja": "明日の午前中で大丈夫です。配管工は何時ごろ来ますか？",
+    "ko": "내일 오전 좋아요. 배관공은 몇 시쯤 오나요?",
+    "hi": "कल सुबह मेरे लिए ठीक है। प्लंबर कितने बजे आएगा?",
+    "ar": "صباح الغد مناسب لي. في أي ساعة سيصل السبّاك؟",
+    "ru": "Завтра утром мне подходит. Во сколько придёт сантехник?",
+    "tr": "Yarın sabah bana uyar. Tesisatçı saat kaçta gelir?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "a3",
+   "who": "customer",
+   "en": "I'm at work until five, but my flatmate will be home all day.",
+   "variants": {
+    "polite": "I'm at work until five, but my flatmate will be home all day and can let the plumber in.",
+    "casual": "I'm out till five, but my flatmate's in all day."
+   },
+   "gloss": {
+    "en": "Explaining who will be at home to let the plumber in.",
+    "vi": "Tôi đi làm đến năm giờ, nhưng bạn cùng nhà ở nhà cả ngày.",
+    "es": "Estoy en el trabajo hasta las cinco, pero mi compañero de piso estará en casa todo el día.",
+    "pt": "Estou no trabalho até as cinco, mas meu colega de apartamento ficará em casa o dia todo.",
+    "fr": "Je suis au travail jusqu'à dix-sept heures, mais mon colocataire sera là toute la journée.",
+    "de": "Ich bin bis fünf bei der Arbeit, aber mein Mitbewohner ist den ganzen Tag zu Hause.",
+    "id": "Saya bekerja sampai jam lima, tetapi teman serumah saya ada di rumah sepanjang hari.",
+    "th": "ฉันทำงานถึงห้าโมงเย็น แต่เพื่อนร่วมห้องอยู่บ้านทั้งวันค่ะ",
+    "zh": "我五点前都在上班，但室友整天都在家。",
+    "ja": "私は5時まで仕事ですが、ルームメイトは一日中家にいます。",
+    "ko": "저는 5시까지 일하지만, 룸메이트가 하루 종일 집에 있어요.",
+    "hi": "पाँच बजे तक मेरा काम चलता है, लेकिन मेरा रूममेट दिन भर घर पर रहेगा।",
+    "ar": "أنا في العمل حتى الخامسة، لكن زميلي في السكن سيكون في البيت طوال اليوم.",
+    "ru": "Я на работе до пяти, но сосед по квартире весь день дома.",
+    "tr": "Beşe kadar işteyim ama ev arkadaşım bütün gün evde olacak."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "a4",
+   "who": "customer",
+   "en": "Could you send me a text to confirm the time, please?",
+   "variants": {
+    "polite": "Would you mind sending me a message to confirm the time?",
+    "casual": "Can you text me to confirm?"
+   },
+   "gloss": {
+    "en": "Asking for a text message to confirm the appointment.",
+    "vi": "Anh/chị nhắn tin xác nhận giờ cho tôi được không?",
+    "es": "¿Podría enviarme un mensaje para confirmar la hora, por favor?",
+    "pt": "Poderia me mandar uma mensagem para confirmar o horário, por favor?",
+    "fr": "Pourriez-vous m'envoyer un SMS pour confirmer l'heure, s'il vous plaît ?",
+    "de": "Könnten Sie mir bitte eine SMS schicken, um die Uhrzeit zu bestätigen?",
+    "id": "Bisakah Anda mengirim pesan untuk mengonfirmasi jamnya?",
+    "th": "ช่วยส่งข้อความยืนยันเวลาให้หน่อยได้ไหมคะ",
+    "zh": "能发条短信跟我确认一下时间吗？",
+    "ja": "時間の確認をメッセージで送ってもらえますか？",
+    "ko": "시간을 확인할 수 있게 문자 하나 보내 주실 수 있을까요?",
+    "hi": "क्या आप समय की पुष्टि के लिए मुझे एक मैसेज भेज सकते हैं?",
+    "ar": "هل يمكنك إرسال رسالة نصية لتأكيد الموعد من فضلك؟",
+    "ru": "Не могли бы вы отправить мне сообщение, чтобы подтвердить время?",
+    "tr": "Saati onaylamak için bana bir mesaj atabilir misiniz?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "Is anything else broken in the flat?",
+   "keywords": [
+    "window",
+    "door",
+    "light",
+    "shower",
+    "toilet",
+    "oven",
+    "fridge",
+    "lock",
+    "boiler",
+    "mould",
+    "nothing",
+    "no"
+   ],
+   "variants": {
+    "polite": "Is there anything else that needs repairing?",
+    "casual": "Anything else broken?"
+   },
+   "gloss": {
+    "en": "The landlord asks if anything else needs fixing.",
+    "vi": "Trong nhà còn gì hỏng nữa không?",
+    "es": "¿Hay algo más roto en el piso?",
+    "pt": "Tem mais alguma coisa quebrada no apartamento?",
+    "fr": "Y a-t-il autre chose de cassé dans l'appartement ?",
+    "de": "Ist sonst noch etwas in der Wohnung kaputt?",
+    "id": "Apakah ada hal lain yang rusak di apartemen?",
+    "th": "ในห้องมีอย่างอื่นเสียอีกไหมคะ",
+    "zh": "房子里还有别的东西坏了吗？",
+    "ja": "ほかにも壊れているところはありますか？",
+    "ko": "집에 다른 고장 난 곳도 있나요?",
+    "hi": "क्या फ़्लैट में और कुछ भी ख़राब है?",
+    "ar": "هل هناك شيء آخر معطّل في الشقة؟",
+    "ru": "В квартире есть что-то ещё сломанное?",
+    "tr": "Dairede bozuk başka bir şey var mı?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "When is the best time for the plumber to come?",
+   "keywords": [
+    "morning",
+    "afternoon",
+    "evening",
+    "tomorrow",
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "o'clock",
+    "after work",
+    "weekend"
+   ],
+   "variants": {
+    "polite": "What time of day would be best for the plumber to come?",
+    "casual": "When's best for the plumber?"
+   },
+   "gloss": {
+    "en": "The landlord asks when the plumber should come.",
+    "vi": "Thợ nên đến vào lúc nào thì tiện nhất?",
+    "es": "¿Cuándo le viene mejor que venga el fontanero?",
+    "pt": "Qual o melhor horário para o encanador ir?",
+    "fr": "Quel est le meilleur moment pour la venue du plombier ?",
+    "de": "Wann passt es Ihnen am besten für den Klempner?",
+    "id": "Kapan waktu terbaik untuk tukang ledeng datang?",
+    "th": "ช่างประปามาตอนไหนสะดวกที่สุดคะ",
+    "zh": "水管工什么时候来最方便？",
+    "ja": "配管工はいつ来るのが一番都合がいいですか？",
+    "ko": "배관공이 언제 오는 게 가장 편하세요?",
+    "hi": "प्लंबर के आने का सबसे सही समय कौन-सा रहेगा?",
+    "ar": "ما أنسب وقت لحضور السبّاك؟",
+    "ru": "Когда сантехнику удобнее прийти?",
+    "tr": "Tesisatçının gelmesi için en uygun zaman ne zaman?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "customer",
+   "en": "Hello, this is Alex from flat four. I'm calling about a repair."
+  },
+  {
+   "who": "barista",
+   "en": "Hi Alex. What seems to be the problem?"
+  },
+  {
+   "who": "customer",
+   "en": "The heating hasn't been working since Monday, and it's getting very cold."
+  },
+  {
+   "who": "barista",
+   "en": "I'm sorry to hear that. Has anything else gone wrong?"
+  },
+  {
+   "who": "customer",
+   "en": "Yes, there's a leak under the kitchen sink. I reported it two weeks ago, but nobody has come yet."
+  },
+  {
+   "who": "barista",
+   "en": "I apologise for the delay. I can send a plumber tomorrow morning. Will you be in?"
+  },
+  {
+   "who": "customer",
+   "en": "Tomorrow morning works for me. Could you text me to confirm the time?"
+  },
+  {
+   "who": "barista",
+   "en": "Of course. I'll send a message tonight."
+  },
+  {
+   "who": "customer",
+   "en": "Thank you very much."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Hi, this is the plumber. I'm outside your building."
+    },
+    {
+     "who": "customer",
+     "en": "Oh, sorry, I'm still at work. My flatmate is home, though."
+    },
+    {
+     "who": "barista",
+     "en": "No problem. I'll ring the bell, and I'll be done in an hour."
+    }
+   ],
+   "q": {
+    "en": "Who is at home?",
+    "vi": "Ai đang ở nhà?",
+    "es": "¿Quién está en casa?",
+    "pt": "Quem está em casa?",
+    "fr": "Qui est à la maison ?",
+    "de": "Wer ist zu Hause?",
+    "id": "Siapa yang ada di rumah?",
+    "th": "ใครอยู่บ้าน",
+    "zh": "谁在家？",
+    "ja": "家にいるのは誰ですか？",
+    "ko": "집에 있는 사람은 누구인가요?",
+    "hi": "घर पर कौन है?",
+    "ar": "من الموجود في المنزل؟",
+    "ru": "Кто дома?",
+    "tr": "Evde kim var?"
+   },
+   "answer": "my flatmate"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Hello, it's Alex again. The boiler is still not working."
+    },
+    {
+     "who": "barista",
+     "en": "I'm sorry, Alex. The engineer can come on Thursday afternoon."
+    },
+    {
+     "who": "customer",
+     "en": "Thursday is a bit late. Is there anything earlier?"
+    },
+    {
+     "who": "barista",
+     "en": "Let me check. Yes, I can do Wednesday at nine."
+    }
+   ],
+   "q": {
+    "en": "When will the repair visit be?",
+    "vi": "Lịch sửa chữa vào lúc nào?",
+    "es": "¿Cuándo será la visita de reparación?",
+    "pt": "Quando será a visita do conserto?",
+    "fr": "Quand aura lieu la visite de réparation ?",
+    "de": "Wann ist der Reparaturtermin?",
+    "id": "Kapan jadwal perbaikannya?",
+    "th": "นัดซ่อมวันไหน",
+    "zh": "维修上门是什么时候？",
+    "ja": "修理の訪問はいつですか？",
+    "ko": "수리 방문은 언제인가요?",
+    "hi": "मरम्मत की विज़िट कब है?",
+    "ar": "متى موعد زيارة الإصلاح؟",
+    "ru": "Когда будет ремонтный визит?",
+    "tr": "Tamir ziyareti ne zaman?"
+   },
+   "answer": "wednesday at nine"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "report",
+    "title": {
+     "en": "Report the problem",
+     "vi": "Báo sự cố",
+     "es": "Informa del problema",
+     "pt": "Relate o problema",
+     "fr": "Signaler le problème",
+     "de": "Das Problem melden",
+     "id": "Laporkan masalahnya",
+     "th": "แจ้งปัญหา",
+     "zh": "报告问题",
+     "ja": "問題を伝える",
+     "ko": "문제 알리기",
+     "hi": "समस्या बताएँ",
+     "ar": "أبلغ عن المشكلة",
+     "ru": "Сообщи о проблеме",
+     "tr": "Sorunu bildir"
+    },
+    "intents": [
+     "r2"
+    ]
+   },
+   {
+    "id": "complain",
+    "title": {
+     "en": "Complain politely",
+     "vi": "Phàn nàn lịch sự",
+     "es": "Reclama con educación",
+     "pt": "Reclame com educação",
+     "fr": "Se plaindre poliment",
+     "de": "Höflich beschweren",
+     "id": "Sampaikan keluhan dengan sopan",
+     "th": "ร้องเรียนอย่างสุภาพ",
+     "zh": "礼貌地投诉",
+     "ja": "丁寧に苦情を言う",
+     "ko": "정중하게 항의하기",
+     "hi": "विनम्रता से शिकायत करें",
+     "ar": "اشتكِ بلباقة",
+     "ru": "Вежливо пожалуйся",
+     "tr": "Nazikçe şikayet et"
+    },
+    "intents": [
+     "c1",
+     "c2"
+    ]
+   },
+   {
+    "id": "appointment",
+    "title": {
+     "en": "Book the repair visit",
+     "vi": "Hẹn lịch sửa chữa",
+     "es": "Concierta la visita",
+     "pt": "Marque a visita",
+     "fr": "Fixer la visite",
+     "de": "Reparaturtermin ausmachen",
+     "id": "Atur jadwal perbaikan",
+     "th": "นัดวันซ่อม",
+     "zh": "约好维修时间",
+     "ja": "修理の日程を決める",
+     "ko": "수리 일정 잡기",
+     "hi": "मरम्मत का समय तय करें",
+     "ar": "حدّد موعد الإصلاح",
+     "ru": "Договорись о визите",
+     "tr": "Tamir randevusu al"
+    },
+    "intents": [
+     "a2",
+     "a4"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "Tenants usually report repairs to the landlord or agent first, ideally in writing (a text or email) so there is a record. Say clearly what is wrong, since when, and how it affects you, and stay polite but firm if it is not fixed. Who is responsible for repairs and how fast they must act depends on your country and contract, so check both.",
+  "vi": "Người thuê thường báo sửa chữa cho chủ nhà hoặc đơn vị quản lý trước, tốt nhất bằng văn bản (tin nhắn hoặc email) để có bằng chứng. Hãy nói rõ hỏng gì, từ bao giờ và ảnh hưởng ra sao; nếu chưa được sửa, vẫn lịch sự nhưng kiên quyết. Ai chịu trách nhiệm sửa và phải sửa nhanh đến đâu còn tùy nước và hợp đồng, nên hãy kiểm tra cả hai.",
+  "es": "Los inquilinos suelen avisar primero al propietario o a la agencia, mejor por escrito (mensaje o correo) para que quede constancia. Explica con claridad qué falla, desde cuándo y cómo te afecta, y sé cortés pero firme si no se arregla. Quién debe encargarse de las reparaciones y en qué plazo depende de tu país y de tu contrato, así que revisa ambos.",
+  "pt": "Os inquilinos geralmente avisam primeiro o proprietário ou a imobiliária, de preferência por escrito (mensagem ou e-mail) para ficar registrado. Diga com clareza o que está errado, desde quando e como isso afeta você, e seja educado, mas firme, se não for resolvido. Quem responde pelos reparos e em que prazo depende do seu país e do seu contrato, então confira os dois.",
+  "fr": "Les locataires préviennent d'abord le propriétaire ou l'agence, de préférence par écrit (SMS ou e-mail) pour garder une trace. Expliquez clairement ce qui ne va pas, depuis quand et comment cela vous gêne, et restez poli mais ferme si rien n'est fait. Qui doit réparer et dans quel délai dépend de votre pays et de votre bail : vérifiez les deux.",
+  "de": "Mieter melden Schäden meist zuerst dem Vermieter oder der Hausverwaltung, am besten schriftlich (SMS oder E-Mail), damit es einen Nachweis gibt. Sag klar, was kaputt ist, seit wann und wie es dich beeinträchtigt, und bleib höflich, aber bestimmt, wenn nichts passiert. Wer für Reparaturen zuständig ist und wie schnell gehandelt werden muss, hängt von deinem Land und deinem Vertrag ab – prüfe beides.",
+  "id": "Penyewa biasanya melapor perbaikan lebih dulu kepada pemilik atau agen, sebaiknya tertulis (pesan atau email) agar ada catatan. Jelaskan dengan jelas apa yang rusak, sejak kapan, dan bagaimana dampaknya; tetap sopan tetapi tegas jika belum diperbaiki. Siapa yang bertanggung jawab atas perbaikan dan seberapa cepat harus ditangani tergantung negara dan kontrak Anda, jadi periksa keduanya.",
+  "th": "ผู้เช่ามักแจ้งซ่อมกับเจ้าของห้องหรือนายหน้าก่อน และควรแจ้งเป็นลายลักษณ์อักษร (ข้อความหรืออีเมล) เพื่อให้มีหลักฐาน บอกให้ชัดว่าอะไรเสีย เสียมาตั้งแต่เมื่อไหร่ และกระทบคุณอย่างไร หากยังไม่ได้รับการแก้ไขให้ยังคงสุภาพแต่หนักแน่น ใครต้องรับผิดชอบการซ่อมและต้องทำเร็วแค่ไหนขึ้นอยู่กับประเทศและสัญญาของคุณ จึงควรตรวจสอบทั้งสองอย่าง",
+  "zh": "租客通常先向房东或中介报修，最好用文字（短信或邮件）留下记录。要说清楚哪里坏了、从什么时候开始、对你有什么影响；如果一直没修，要保持礼貌但态度坚定。谁负责维修、多久内必须处理，取决于你所在的国家和合同，请两者都查一查。",
+  "ja": "借りている人は、まず大家さんか管理会社に修理を連絡するのが普通で、記録が残るようメッセージやメールなど書面で伝えるのがおすすめです。何が壊れているか、いつからか、どんな影響があるかをはっきり伝え、直らない場合は丁寧にしつつも毅然と対応しましょう。修理の責任者や対応期限は国や契約によって違うので、両方を確認してください。",
+  "ko": "세입자는 보통 먼저 집주인이나 중개 업체에 수리를 요청하는데, 기록이 남도록 문자나 이메일처럼 글로 남기는 것이 좋아요. 무엇이 고장 났는지, 언제부터인지, 어떤 불편이 있는지 분명히 말하고, 수리가 안 되면 공손하지만 단호하게 요청하세요. 수리 책임자와 처리 기한은 나라와 계약에 따라 다르니 둘 다 확인하세요.",
+  "hi": "किरायेदार आमतौर पर पहले मकान मालिक या एजेंट को मरम्मत की सूचना देते हैं, बेहतर है कि लिखित में (मैसेज या ईमेल) ताकि रिकॉर्ड रहे। साफ़ बताएँ कि क्या ख़राब है, कब से और इससे आपको क्या दिक़्क़त है; ठीक न होने पर विनम्र रहें पर दृढ़ भी। मरम्मत की ज़िम्मेदारी किसकी है और कितनी जल्दी करनी होगी, यह आपके देश और अनुबंध पर निर्भर है, इसलिए दोनों देखें।",
+  "ar": "يبلغ المستأجرون عادةً المالك أو الوكيل أولًا بالإصلاحات، ويفضّل كتابةً (رسالة أو بريد إلكتروني) ليبقى هناك سجلّ. وضّح ما العطل ومنذ متى وكيف يؤثر عليك، وكن مهذبًا لكن حازمًا إذا لم يُصلَح. تختلف مسؤولية الإصلاح والمدة المطلوبة بحسب بلدك وعقدك، فتحقّق من الاثنين.",
+  "ru": "Арендаторы обычно сначала сообщают о поломке владельцу или агентству, лучше письменно (сообщением или письмом), чтобы осталась запись. Чётко объясни, что сломалось, с каких пор и как это мешает, а если не чинят — оставайся вежливым, но настойчивым. Кто отвечает за ремонт и в какие сроки, зависит от страны и договора, поэтому проверь и то, и другое.",
+  "tr": "Kiracılar genellikle arızayı önce ev sahibine veya emlakçıya bildirir; kayıt kalması için mesaj ya da e-posta gibi yazılı yapmak daha iyidir. Neyin bozuk olduğunu, ne zamandan beri bozuk olduğunu ve seni nasıl etkilediğini açıkça söyle; onarılmazsa kibar ama kararlı ol. Onarımdan kimin sorumlu olduğu ve ne kadar sürede yapılacağı ülkene ve sözleşmene göre değişir, ikisini de kontrol et."
+ }
+}

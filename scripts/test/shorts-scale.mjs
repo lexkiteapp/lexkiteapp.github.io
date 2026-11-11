@@ -33,13 +33,14 @@ m2.items[0].youtube_id = 'bad id<>'; ok(validateManifest(m2).some(e => /youtube_
 
 // ---------- 3. YouTube queue (functions/api/youtube.js pure helpers) ----------
 const YT = await imp('functions/api/youtube.js');
-ok(YT.uploadsLeft(0) === 5 || YT.uploadsLeft(0) === 6, `quota: ≈ 6 uploads/day (got ${YT.uploadsLeft(0)})`);
-ok(YT.uploadsLeft(9000) === 0, 'quota: nothing left near 10,000 units');
+ok(YT.uploadsLeft(0) === 1000, `quota: videos.insert bucket caps at 1,000 uploads/day (got ${YT.uploadsLeft(0)})`);
+ok(YT.uploadsLeft(0, 999) === 1 && YT.uploadsLeft(0, 1000) === 0, 'quota: insert bucket counted separately (999 → 1 left, 1,000 → 0)');
+ok(YT.uploadsLeft(58948) === 1 && YT.uploadsLeft(59000) === 0, 'quota: default 60,000-unit bucket (thumbnail + 2 list per upload, 1,000 reserve) also limits');
 const now = Date.parse('2026-10-22T12:00:00Z');
 const rows = [{ clip: 'a', status: 'queued', approved_at: 3 }, { clip: 'b', status: 'done', approved_at: 1 }, { clip: 'c', status: 'failed', attempts: 3, approved_at: 1 },
   { clip: 'd', status: 'failed', attempts: 1, approved_at: 2 }, { clip: 'e', status: 'uploading', session_at: now - 3 * 3600e3, approved_at: 4 }, { clip: 'f', status: 'uploading', session_at: now - 60e3, approved_at: 0 }];
 ok(YT.pickNext(rows, 0, now).map(r => r.clip).join() === 'd,a,e', 'queue: oldest approval first; skips done, exhausted retries, fresh uploads');
-ok(YT.pickNext(rows, 8000, now).length === 1 && YT.pickNext(rows, 9900, now).length === 0, 'queue: limited by remaining quota');
+ok(YT.pickNext(rows, 58948, now).length === 1 && YT.pickNext(rows, 59000, now).length === 0 && YT.pickNext(rows, 0, now, 6, 1000).length === 0, 'queue: limited by remaining quota (either bucket)');
 const res = YT.videoResource({ privacy: 'public', title: 't' }, { title: 'Hook <b>', description: 'Lesson', tags: ['a', 'b'] });
 ok(res.status.privacyStatus === 'private', 'privacy: "public" is never sent (forced private)');
 ok(res.status.containsSyntheticMedia === true && res.status.selfDeclaredMadeForKids === false && res.snippet.categoryId === '27' && res.snippet.defaultLanguage === 'en', 'metadata: AI disclosure, not for kids, Education, en');
@@ -95,13 +96,18 @@ let exp = ''; try { await UP.putResumable('https://up', buf, { fetcher: async ()
 const AR = await imp('scripts/video/shorts-archive.mjs');
 const old = '2026-09-01T00:00:00Z', items = [
   { id: 'a', lesson: 'la', created: old, drive: { video: { sha256: 'v1' }, cover: { sha256: 'c1' } } },
-  { id: 'b', lesson: 'lb', created: old, drive: { video: { sha256: 'v2' } } },
+  { id: 'b', lesson: 'lb', created: old, rejected: true, drive: { video: { sha256: 'v2' } } },
+  { id: 'f', lesson: 'lf', created: old, drive: { video: { sha256: 'v6' } } },
+  { id: 'g', lesson: 'lg', created: old, rejected: true, paused: true, drive: { video: { sha256: 'v7' } } },
   { id: 'c', lesson: 'lc', created: new Date(now - 5 * 86400e3).toISOString(), drive: { video: { sha256: 'v3' } } },
   { id: 'd', lesson: 'ld', created: old, drive: { video: { sha256: 'v4', retired: '2026-10-01' } } },
   { id: 'e', lesson: 'le', created: old, youtube_id: 'abc', drive: { video: { sha256: 'v5' } } }];
 const keep = AR.keepSet(items, { approved: ['la'], youtube: { approved: [], uploaded: {} } }), plan = AR.planArchive(items, keep, now);
 ok(plan.promote.sort().join() === 'c1,v1,v5', 'archive: approved + published masters/covers → 2 copies');
-ok(plan.retire.map(x => x.id).join() === 'b', 'archive: only unapproved > 30 days retire (new, retired, kept skipped)');
+// 414b5b5ed: retention retires only REJECTED (not paused) clips; unapproved-but-pending masters wait for a decision, never auto-deleted
+ok(plan.retire.map(x => x.id).join() === 'b', 'archive: only rejected > 30 days retire (new, retired, kept, pending-unapproved, paused skipped)');
+const young = { ...items.find(x => x.id === 'c'), rejected: true };
+ok(AR.planArchive([young], keep, now).retire.length === 0, 'archive: rejected but < 30 days → kept');
 const DR = await imp('functions/api/drive.js');
 const cap = DR.shortsCapacity([{ status: 'ok', weight: 100, quota_total: 15e9, quota_used: 1.2e9 }, { status: 'ok', weight: 0, quota_total: 15e9, quota_used: 0 }, { status: 'ok', weight: 100, quota_total: 15e9, quota_used: 14e9 }]);
 ok(cap.clips === Math.floor(12.3e9 / 10485760), `capacity: ≈ ${cap.clips} clips (paused / ≥ 90 % Drives excluded)`);
@@ -143,6 +149,30 @@ f = await facade({ ytOk: true, blocked: true, items: [ytItem] });
 ok(f.st.yt === 0 && f.slot.querySelector('video source'), 'facade: China region / zh → self-hosted directly, YouTube never loaded');
 f = await facade({ ytOk: true, items: [it0] });
 ok(f.st.yt === 0 && f.slot.querySelector('video source'), 'facade: no youtube_id → self-hosted');
+
+// ---------- archive: rebalance 1 file/lượt; Worker 524 giữa lượt (file đã chuyển) → index đối chiếu theo sha, không đỏ (09/11 drive-shorts) ----------
+{
+  const { runArchive } = await imp('scripts/video/shorts-archive.mjs');
+  const repo = fs.mkdtempSync(path.join(tmp, 'arch-')); fs.mkdirSync(`${repo}/shorts`);
+  const items = [{ id: 'c1', created: '2026-11-08T00:00:00Z', drive: { video: { fileId: 'F_OLD', driveId: 1, sha256: 'a'.repeat(64) } } }];
+  fs.writeFileSync(`${repo}/shorts/index.json`, JSON.stringify({ items }));
+  const calls = [], logs = [];
+  const api = async (op, b) => {
+    calls.push([op, b]);
+    if (op === 'rebalance' && !b.apply) return { plan: [{ file_id: 'F_OLD', sha: 'a'.repeat(64), from: 1, to: 2, name: 'c1.mp4', size: 9 }] };
+    if (op === 'rebalance') throw Object.assign(new Error('Drive rebalance → 524'), { status: 524 });
+    if (op === 'where') return { copies: [{ drive_id: 1, file_id: 'F_OLD', status: 'trashed' }, { drive_id: 2, file_id: 'F_NEW', status: 'ok' }] };
+    return { done: [], remaining: 0 };
+  };
+  const rep = await runArchive({ repo, api, yt: async () => ({ approved: ['c1'] }), purged: async () => {}, log: m => logs.push(m), pause: 0, now: Date.parse('2026-11-09T00:00:00Z') });
+  const apply = calls.find(([op, b]) => op === 'rebalance' && b.apply);
+  ok(apply && apply[1].max_files === 1 && apply[1].max_bytes <= 256 * 1024 * 1024, 'archive: rebalance 1 file ≤ 256 MB mỗi lượt (dưới 100 s Cloudflare)');
+  ok(rep.interrupted === 524 && logs.some(l => /::warning::cân bằng: Worker 524/.test(l)), 'archive: 524 → cảnh báo + dừng, không ném lỗi');
+  const v = JSON.parse(fs.readFileSync(`${repo}/shorts/index.json`, 'utf8')).items[0].drive.video;
+  ok(v.fileId === 'F_NEW' && v.driveId === 2, 'archive: file đã chuyển trong lượt 524 được đối chiếu `where` → index trỏ bản mới');
+  let thrown = null; try { await runArchive({ repo, api: async (op, b) => { if (op === 'rebalance' && b.apply) throw Object.assign(new Error('403'), { status: 403 }); return op === 'rebalance' ? { plan: [{ file_id: 'F_NEW', sha: 'a'.repeat(64), from: 2, to: 1 }] } : { done: [] }; }, yt: async () => ({ approved: ['c1'] }), purged: async () => {}, log: () => {}, pause: 0 }); } catch (e) { thrown = e; }
+  ok(thrown && thrown.status === 403, 'archive: lỗi 4xx (khoá/quyền) vẫn đỏ – không nuốt');
+}
 
 fs.rmSync(tmp, { recursive: true, force: true });
 console.log(fails ? `✗ shorts-scale: ${fails}/${n} FAIL` : `✓ shorts-scale: ${n} checks`);

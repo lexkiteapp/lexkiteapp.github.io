@@ -72,5 +72,46 @@
   "words": 47,
   "seconds": 28.2,
   "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"write\" mean?",
+  "keyword": "write",
+  "value": "Write means to make letters and words on paper or a screen.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=write",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"write\" mean?",
+    "description": "Write means to make letters and words on paper or a screen.\n\nReview your words, free: https://lexkite.com/app/#/review?w=write\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "write",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"write\" mean?\n\nWrite means to make letters and words on paper or a screen.\n\nReview your words, free: https://lexkite.com/app/#/review?w=write"
+   },
+   "instagram": {
+    "caption": "What does \"write\" mean?\n\nWrite means to make letters and words on paper or a screen.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"write\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to make letters and words on paper or a screen. Write means to make letters and words on paper or a screen. More practice like this (free): {link}"
  }
 }

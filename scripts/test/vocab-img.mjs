@@ -103,11 +103,15 @@ const html = rd('web/app/index.html'), appjs = rd('web/js/app.js'), sw = rd('web
 ok(!/vocab-img|lexicon-img/.test(html), 'app/index.html không nạp vocab-img / chỉ mục');
 ok(!/lexicon-img\.json/.test(appjs) && !/<script[^>]*vocab-img/.test(appjs), 'app.js không nạp tĩnh module/chỉ mục');
 ok((appjs.match(/vocab-img\.js/g) || []).length === 1 && /vimg: \['js\/vocab-img\.js'\]/.test(appjs), 'app.js chỉ nhắc vocab-img.js trong bó tải lười BUNDLES.vimg');
-{ const m = /const vimgOn = [^\n]*\n\s*App\.vimgReady = [^\n]*\n\s*App\.vimg = [^\n]*\n\s*App\.vimgReady\(\);/.exec(appjs); ok(!!m, 'app.js có vimgOn/App.vimgReady/App.vimg');
+{ const m = /const vimgOn = [^\n]*\n\s*App\.vimgReady = [^\n]*\n\s*App\.vimg = [^\n]*\n\s*(?:\s*\/\/[^\n]*\n)*\s*[^\n]*App\.vimgReady\(\)[^\n]*\n/.exec(appjs); ok(!!m, 'app.js có vimgOn/App.vimgReady/App.vimg');
   for (const [store, want] of [[{}, 1], [{ 'lk.cfg': JSON.stringify({ v: { vocab_img: false } }) }, 0], [{ 'lk.vimg': '0', 'lk.cfg': JSON.stringify({ v: { vocab_img: true } }) }, 0], [{ 'lk.vimg': '1' }, 1], [{ 'lk.cfg': JSON.stringify({ v: { vocab_img: true } }) }, 1]]) {
-    const need = []; const ctx = { localStorage: { getItem: k => (k in store ? store[k] : null) }, App: { need: n => { need.push(n); return Promise.resolve(); } }, window: {} };
+    const need = []; const ctx = { localStorage: { getItem: k => (k in store ? store[k] : null) }, App: { need: n => { need.push(n); return Promise.resolve(); } }, window: {}, location: { hash: '#/study' }, idle: f => f() };
     vm.runInNewContext(m[0], ctx); ok(need.length === want && (!want || need[0] === 'vimg'), `cờ ${JSON.stringify(store)} → ${want ? 'tải bó vimg' : 'KHÔNG tải gì'}`);
     ok(ctx.App.vimg('apple', 'n') === '', 'App.vimg khi chưa có module → chuỗi rỗng (không hộp)'); } }
+{ const m = /const vimgOn = [^\n]*\n\s*App\.vimgReady = [^\n]*\n\s*App\.vimg = [^\n]*\n(?:\s*\/\/[^\n]*\n)*\s*[^\n]*App\.vimgReady\(\)[^\n]*\n/.exec(appjs);
+  for (const [hash, deferred] of [['', 1], ['#/welcome', 1], ['#/home', 1], ['#/home?x=1', 1], ['#/study', 0], ['#/dict/hello', 0], ['#/homework', 0]]) {
+    const need = [], q = []; vm.runInNewContext(m[0], { localStorage: { getItem: () => null }, App: { need: n => { need.push(n); return Promise.resolve(); } }, window: {}, location: { hash }, idle: f => q.push(f) });
+    ok(deferred ? !need.length && q.length === 1 : need.length === 1 && !q.length, `màn đầu '${hash}' → ${deferred ? 'hoãn nạp ảnh tới lúc rảnh (TBT)' : 'nạp ngay'}`); q.forEach(f => f()); ok(!deferred || need.length === 1, `'${hash}': lúc rảnh vẫn nạp bó vimg`); } }
 const SHELL = (/const SHELL = \[([\s\S]*?)\];/.exec(sw) || [])[1] || ''; ok(!/vocab-img|lexicon-img/.test(SHELL), 'SW SHELL không chứa vocab-img/chỉ mục');
 { const dictjs = rd('web/js/dict-page.js'); ok(/await vimgP;/.test(dictjs) && /App\.vimg\(e\.word, e\.pos, App\.meanOf\(e\), \{ w: 'dict', photo: true, capt: false \}/.test(dictjs), "tra từ: chờ ready() rồi vẽ hộp vai dict 160 px (ưu tiên ảnh Wikimedia – chỉ trang từ điển, js/dict-page.js)"); }
 // 3b. quy tắc tích hợp hình (docs/LEXICON.md § Quy tắc tích hợp hình): vai → cỡ, ảnh cảnh luôn kèm câu ví dụ, nền trong suốt cho chế độ tối, tiết kiệm dữ liệu → tắt
@@ -230,7 +234,7 @@ ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng 
     const { execFileSync } = await import('child_process'), par = h => +execFileSync('bash', ['-c', line.replace('>> $GITHUB_OUTPUT', '') + ' >/dev/null; echo $par'], { env: { ...process.env, VIMG_HOUR: String(h) }, encoding: 'utf8' }).trim();
     const day = [...Array(14).keys()].map(i => par(i + 1)), night = [0, 15, 16, 18, 20, 22, 23].map(par);
     ok(/max-parallel: \$\{\{ fromJSON\(needs\.plan\.outputs\.par \|\| '5'\) \}\}/.test(fillJob) && /par: \$\{\{ steps\.p\.outputs\.par \}\}/.test(wf) && day.every(x => x >= 1 && x <= 3) && night.every(x => x >= 1 && x <= 5), 'fill: ban ngày VN (01–15 UTC) ≤ 3 máy, đêm ≤ 5 (chừa máy cho giao diện/npm test/Prod release)');
-    ok(/n=\$\{\{ github\.event\.inputs\.shards \|\| \(github\.event\.inputs\.judge_run != '' && '6' \|\| '10'\) \}\}/.test(wf), 'fill vẫn 10 việc (judge_run mặc định 6) (cùng trần ảnh mỗi việc) – bớt máy song song không bớt ảnh/ngày'); }
+    ok(/n=\$\{\{ github\.event\.inputs\.shards \|\| \(github\.event\.inputs\.judge_run != '' && '6' \|\| '\$par'\) \}\}/.test(wf), 'fill: số việc mặc định = số máy song song (par) – không có đợt chờ (04/11: 10 việc/par 3 → lượt >6 giờ, giữ nhóm concurrency); judge_run mặc định 6; tổng ảnh/lượt = trần G chia đều'); }
   ok(/\[ "\$CHAIN" = 0 \]/.test(wf) && /gh workflow run vocab-img-scene\.yml/.test(wf), 'tự nối lượt: biến repo so trong bash');
   const all = fs.readdirSync(new URL('../../.github/workflows/', import.meta.url)).map(f => rd('.github/workflows/' + f)).join('\n');
   ok(!/if:.*vars\.[A-Z_]+ *[!=]= *'0'/.test(all), "không workflow nào so vars.X với '0' trong if: (GitHub coi '' == '0')");
@@ -279,7 +283,7 @@ ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng 
   const fillTo = +(wf.match(/\n  fill:[\s\S]*?timeout-minutes: (\d+)/) || [])[1];
   ok(MIN > 0 && fillTo && MIN <= fillTo / 2 && /Date\.now\(\) < END/.test(src), 'viết thẻ có hạn ≤ nửa giờ job fill (còn giờ vẽ + ghi)');
   ok(CONC >= 2 && /Promise\.all\(Array\.from\(\{ length: CONC \}/.test(src), 'viết thẻ chạy song song các lô');
-  ok(/e4bad \|\| 0\) < 3/.test(src), 'thẻ e4 hỏng 3 lần → thôi viết lại mỗi lượt');
+  ok(/e4bad \|\| 0\) < CARD_DEAD/.test(src) && /\|\| cardResting\(c\)\) continue/.test(src), 'thẻ e4 hỏng 3 lần → thôi viết lại mỗi lượt (nghỉ VIMG_QUEUE_RETRY_DAYS ngày rồi viết lại từ đầu – 07/11)');
   const i = wf.indexOf('scene.mjs --cards --keys keys.json --write', wf.indexOf('\n  fill:')), j = wf.indexOf('scene.mjs --prune --keys keys.json');
   const { cardWins: W, SCENE_V: V } = await import('../vocab-img/scene.mjs'), e3 = { sc: 'x', v: 'e3' }, e4 = { ps: 'y', v: V };
   ok(W(undefined, e4) && W(e3, e4) && !W(e4, e3) && !W(e4, { ...e4, ps: 'z' }) && W(e3, { ...e3, e4bad: 1 }) && !W({ ...e3, e4bad: 2 }, { ...e3, e4bad: 1 }), 'scene-publish: thẻ e4 viết lại ĐÈ thẻ e3 (trước chỉ THÊM → mất), không đè thẻ e4 hiện hành');
@@ -372,5 +376,53 @@ else:
   ok(originUrls('https://media.lexkite.com/m1/vimg/0123456789abcdef.webp').length === 1 && originUrls('https://media.lexkite.com/vimg/x.webp') === null, 'originUrls khớp regex/thứ tự của Worker');
   const s2 = []; await cdnCheck(img, 1, 's', { viaCdn: true, fetcher: async u => { s2.push(u); return { ok: true, status: 200 }; } });
   ok(s2.every(u => u.startsWith('https://media.lexkite.com/vimg/')), '--via-cdn vẫn kiểm qua Worker thật khi chạy tay');
+}
+// 07/11 gốc 06/11 (91 ảnh/ngày, kho CF còn 56/61): thẻ hỏng ≥ 3 lần không bị bỏ vĩnh viễn mà nghỉ rồi viết lại; --gaps không đếm thẻ đang nghỉ;
+// thẻ văn bản đi kho Groq/Gemini miễn phí trước cf2; plan chia việc theo số nghĩa vẽ được.
+{ const sc = await import('../vocab-img/scene.mjs'), src = rd('scripts/vocab-img/scene.mjs'), wf = rd('.github/workflows/vocab-img-scene.yml'), now = Date.parse('2026-11-07T00:00:00Z');
+  ok(!sc.cardResting({ e4bad: 3 }, now) && !sc.cardResting({ e4bad: 2, badAt: '2026-11-06T23:00:00Z' }, now) && !sc.cardResting(undefined, now), 'thẻ hỏng cũ (chưa badAt) / chưa đủ 3 lần → viết lại, không nghỉ');
+  ok(sc.cardResting({ e4bad: 3, badAt: '2026-11-06T00:00:00Z' }, now, {}) && !sc.cardResting({ e4bad: 3, badAt: '2026-11-04T00:00:00Z' }, now, {}), 'hỏng ≥ 3 lần → nghỉ VIMG_QUEUE_RETRY_DAYS (2) ngày rồi viết lại');
+  ok(/!cardResting\(cards\.items\[k\]\)/.test(src) && /\|\| cardResting\(c\)\) continue/.test(src) && !/\(c\.e4bad \|\| 0\) < 3\) todo\.push/.test(src), '--gaps bỏ thẻ đang nghỉ; --cards viết lại thẻ hỏng đã nghỉ xong (không bỏ vĩnh viễn)');
+  ok(/e4bad: \(o\.e4bad \|\| 0\) \+ 1, badAt:/.test(src), 'thẻ hỏng ghi badAt (cả nghĩa chưa có thẻ) – không viết lại mỗi lượt');
+  ok(sc.CARD_CHAIN.indexOf('groq') === 0 && sc.CARD_CHAIN.indexOf('gem') < sc.CARD_CHAIN.indexOf('cf2') && /chain: CARD_CHAIN/.test(src), 'thẻ văn bản: Groq/Gemini miễn phí trước cf2 (neuron CF để vẽ)');
+  ok((wf.match(/GROQ_POOL: \$\{\{ secrets\.GROQ_POOL \}\}/g) || []).length >= 3 && (wf.match(/GEMINI_POOL: \$\{\{ secrets\.GEMINI_POOL \}\}/g) || []).length >= 3, 'prep/shard/fill nhận GROQ_POOL + GEMINI_POOL');
+  ok(/scene\.mjs --gaps 1000000 --shard 0\/1/.test(wf) && /m=\$\(\( \(G \+ 39\) \/ 40 \)\)/.test(wf), 'plan: số việc theo số nghĩa vẽ được, 0 nghĩa → bỏ lượt (không cài giám khảo 10 máy cho 1 nghĩa)');
+}
+// Hồi quy: bài học đọc chỉ mục ảnh v2 (`j.m`) trong khi lexicon-img.json đã là v3 (đầu + mảnh) → dạng "pic" không bao giờ sinh. Chạy trên chỉ mục v3 THẬT.
+{
+  const head = J('web/js/lexicon-img.json'), store = { 'lk.vimg': '1' }, D = { theme: 'light' };
+  ok(head.v === 3 && !head.m && head.n > 0, 'lexicon-img.json là đầu v3 (không có m) – đúng ca gây lỗi');
+  const local = u => { const f = 'web/js/' + new URL(u).pathname.split('/js/').pop(); return fs.existsSync(f) ? { ok: true, json: async () => J(f) } : { ok: false, json: async () => null }; };
+  const sb = { console, URL, Promise, Math, setTimeout, navigator: {}, location: { href: 'https://lexkite.com/' }, fetch: async u => local(u), localStorage: { getItem: k => (k in store ? store[k] : null), setItem: (k, v) => { store[k] = String(v); } }, document: { documentElement: { getAttribute: () => D.theme } } };
+  sb.self = sb; sb.globalThis = sb; vm.createContext(sb);
+  vm.runInContext(rd('web/js/vocab-img.js'), sb); vm.runInContext(rd('web/js/lesson/engine.js'), sb);
+  const shards = fs.readdirSync('web/js/vimg').filter(f => f.endsWith('.json')).map(f => J('web/js/vimg/' + f));
+  const find = fn => { for (const sh of shards) for (const [k, h] of Object.entries(sh.m || {})) { const S = new Set(sh.s || []), A = new Set(sh.a || []); if (/^[a-z]+#n$/.test(k) && fn(S.has(k), A.has(k))) return { k, h, word: k.split('#')[0], pos: 'n' }; } return null; };
+  const plain = find(s => !s), scene = find(s => s), V = sb.VImg; // chỉ mục hiện chỉ có ảnh cảnh + ảnh nền kem (a rỗng)
+  ok(plain && scene, 'chỉ mục thật có ảnh thường và ảnh cảnh');
+  await V.ready([plain.word, scene.word]);
+  ok(V.quizUrl(plain.word, plain.pos) === head.base + plain.h + '.webp', 'quizUrl đọc được mảnh v3');
+  ok(V.quizUrl(plain.word, 'v') === '', 'quizUrl: sai loại từ → không lấy ảnh');
+  ok(V.quizUrl(scene.word, scene.pos) === '', 'quizUrl: ảnh cảnh cần câu ví dụ → không dùng');
+  const items = sb.LessonEngine.build([{ card: { word: plain.word, pos: plain.pos, vi: 'x', def: 'x' }, why: 'new' }], { seed: 3, perWord: 1, hasImg: (w, p) => !!V.quizUrl(w, p), match: false });
+  ok(items.some(i => i.type === 'pic'), 'chỉ mục v3 thật → bài học sinh dạng pic');
+  D.theme = 'dark'; ok(V.quizUrl(plain.word, plain.pos) === (shards.some(x => (x.a || []).includes(plain.k)) ? head.base + plain.h + '.webp' : ''), 'chế độ tối: ẩn ảnh nền kem (như .vimg:not([data-a]))'); D.theme = 'light';
+  store['lk.vimg'] = '0'; ok(V.quizUrl(plain.word, plain.pos) === '', 'cờ tắt → không có ảnh');
+  const ui = rd('web/js/lesson/ui.js'); ok(/VImg\.quizUrl/.test(ui) && /App\.vimgReady\(picks/.test(ui) && !/lexicon-img\.json/.test(ui), 'lesson/ui.js dùng VImg, không tự đọc chỉ mục');
+}
+// 09/11 (job 129143630777): tầng miễn phí 0 ảnh đạt → tờ soát Image 0 px → đỏ cả lượt. Pillow thật nếu có, không thì PIL giả (nhánh 0 ảnh không vẽ gì).
+{ const { execFileSync } = await import('child_process'), os = await import('os'), path = await import('path');
+  const d = fs.mkdtempSync(path.join(os.tmpdir(), 'vimgfree0-')), sh = path.join(d, 'sheet.jpg');
+  const py = `import sys,types,runpy
+try:
+    import PIL.Image, PIL.ImageDraw
+except Exception:
+    P = types.ModuleType('PIL')
+    for n in ('Image', 'ImageDraw'): m = types.ModuleType('PIL.' + n); setattr(P, n, m); sys.modules['PIL.' + n] = m
+    sys.modules['PIL'] = P
+sheet_path = sys.argv[2]; sys.argv = ['free_tier.py', sys.argv[1]]
+runpy.run_path('scripts/vocab-img/free_tier.py')['sheet']({}, sheet_path)`;
+  const out = execFileSync('python3', ['-c', py, d, sh], { encoding: 'utf8' });
+  ok(/0 ảnh đạt/.test(out) && !fs.existsSync(sh), 'free_tier.py: 0 ảnh → log rõ, không tạo tờ soát, không đỏ cả lượt');
 }
 console.log(`✓ vocab-img: ${n} kiểm`);

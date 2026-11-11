@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"download\" mean?",
+  "keyword": "download",
+  "value": "Download means to copy data from the internet to a computer.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=download",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"download\" mean?",
+    "description": "Download means to copy data from the internet to a computer.\n\nReview your words, free: https://lexkite.com/app/#/review?w=download\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "download",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"download\" mean?\n\nDownload means to copy data from the internet to a computer.\n\nReview your words, free: https://lexkite.com/app/#/review?w=download"
+   },
+   "instagram": {
+    "caption": "What does \"download\" mean?\n\nDownload means to copy data from the internet to a computer.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"download\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to copy data from the internet to a computer. Download means to copy data from the internet to a computer. Try the full lesson and quiz here: {link}"
  }
 }

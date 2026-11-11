@@ -1,3 +1,2 @@
-/* SINH từ i18n/ui/tr/lvideo.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {"_ynnmea":"20 saniye izle","_10u46hz":"Günün videosu","_t0qfll":"Ders videosu","_1cw0djl":"Videoyu oynat: {t}","_1uf5ws0":"Videoyu kapat","_6bifv9":"Video oynatılamadı. Daha sonra tekrar dene.","_apvbgs":"Hızlı soru","_dek07p":"Doğru! Tekrar kartlarına eklendi.","_ha39cs":"Tam değil. Cevap: {a} – tekrar kartlarına eklendi.","_1b3yrgg":"Sonraki video","_2ykj2p":"Video bölümleri"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/tr/lvideo.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.tr=Object.assign(D.tr||{},{_nmea:"20 saniye izle",_46hz:"Günün videosu",_qfll:"Ders videosu",_djl:"Videoyu oynat: {t}",_5ws0:"Videoyu kapat",_ifv9:"Video oynatılamadı. Daha sonra tekrar dene.",_vbgs:"Hızlı soru",_k07p:"Doğru! Tekrar kartlarına eklendi.",_39cs:"Tam değil. Cevap: {a} – tekrar kartlarına eklendi.",_yrgg:"Sonraki video",_kj2p:"Video bölümleri"});})(typeof self!=='undefined'?self:this);

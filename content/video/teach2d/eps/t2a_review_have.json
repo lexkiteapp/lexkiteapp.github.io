@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"have\" mean?",
+  "keyword": "have",
+  "value": "Have means to own, possess, or hold something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=have",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"have\" mean?",
+    "description": "Have means to own, possess, or hold something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=have\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "have",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"have\" mean?\n\nHave means to own, possess, or hold something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=have"
+   },
+   "instagram": {
+    "caption": "What does \"have\" mean?\n\nHave means to own, possess, or hold something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"have\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to own, possess, or hold something. Have means to own, possess, or hold something. More practice like this (free): {link}"
  }
 }

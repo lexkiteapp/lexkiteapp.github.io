@@ -139,6 +139,6 @@
     };
     show();
   }
-    return { runMatch, runSpeak };
+    return { runMatch, runSpeak, runBlitz: (src, q) => window.PlayBlitz.run(H, src, q) }; // ⏱️ cpack/play-app/play-blitz.js (cùng gói pgames)
   };
 })();

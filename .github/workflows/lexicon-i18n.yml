@@ -45,8 +45,11 @@ jobs:
       - name: Lưu kết quả
         if: env.SKIP != '1'
         run: |
-          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add web/packs
-          git diff --cached --quiet && exit 0
-          git commit -qm "Nghĩa 13 ngôn ngữ: dịch theo nghĩa + duyệt AI (lô tự động) [CF-Pages-Skip] [skip ci]"
-          for i in 1 2 3 4 5; do git pull -q --rebase --autostash -X theirs origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 7)); done; exit 1
+          # 06/11 (commit a6bf18c13): `-X theirs` đè bảng tay vừa vào main (ko/maturity cờ 1 ≠ 2) rồi đẩy [skip ci] → main đỏ pack-gloss.
+          # Nay: mỗi lần thử, trên main mới nhất đặt lại gói bot đổi rồi ÁP LẠI bảng tay (--gloss-only), pack-gloss làm cổng, đỏ thì KHÔNG đẩy.
+          SAVE=$(mktemp -d); export SAVE
+          git status --porcelain -uall web/packs | cut -c4- > "$SAVE/list"
+          [ -s "$SAVE/list" ] || { echo "gói nghĩa không đổi"; exit 0; }
+          tar -cf "$SAVE/packs.tar" -T "$SAVE/list"
+          PUSH_MAIN_REGEN='tar -xf "$SAVE/packs.tar"; for L in $(sed -n "s#^web/packs/\([a-z][a-z]\)\.json\$#\1#p" "$SAVE/list"); do node scripts/gen-word-packs.mjs "$L" --gloss-only; done; node scripts/test/pack-gloss.mjs || { echo "::error::pack-gloss đỏ sau khi đặt lại – KHÔNG đẩy main"; exit 1; }' \
+            bash scripts/ci/push-main.sh "Nghĩa 13 ngôn ngữ: dịch theo nghĩa + duyệt AI (lô tự động)" web/packs

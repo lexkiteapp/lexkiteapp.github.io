@@ -27,8 +27,8 @@
 .pill.fire.flaming i.flame-icon,.streak-flame i.flame-icon{display:inline-block;font-style:normal;will-change:transform,filter;animation:streakFlameBurn 1.6s ease-in-out infinite alternate}
 @keyframes streakFlameBurn{0%{transform:scale(1) rotate(-1deg);filter:drop-shadow(0 0 2px rgba(249,115,22,.4))}50%{transform:scale(1.12) rotate(2deg);filter:drop-shadow(0 0 7px rgba(234,88,12,.7))}100%{transform:scale(.96) rotate(-2deg);filter:drop-shadow(0 0 3px rgba(245,158,11,.5))}}
 .shimmer-fx,.pill-shimmer{position:relative;overflow:hidden}
-.shimmer-fx::after,.pill-shimmer::after{content:'';position:absolute;top:0;left:-150%;width:100%;height:100%;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.16) 50%,transparent 100%);animation:shimmerSweep 3s infinite ease-in-out;pointer-events:none}
-@keyframes shimmerSweep{0%{left:-150%}35%,100%{left:150%}}
+.shimmer-fx::after,.pill-shimmer::after{content:'';position:absolute;top:0;left:0;transform:translateX(-150%);width:100%;height:100%;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.16) 50%,transparent 100%);animation:shimmerSweep 3s infinite ease-in-out;pointer-events:none}
+@keyframes shimmerSweep{0%{transform:translateX(-150%)}35%,100%{transform:translateX(150%)}}
 @media (prefers-reduced-motion: reduce){.pill.fire.flaming i.flame-icon,.streak-flame i.flame-icon{animation:none!important;transform:none!important;filter:none!important}.shimmer-fx::after,.pill-shimmer::after{animation:none!important;display:none!important}}`;
 
   const StreakUI = {

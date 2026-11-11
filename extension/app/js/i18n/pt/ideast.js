@@ -1,3 +1,2 @@
-/* SINH từ i18n/ui/pt/ideast.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["pt"] = Object.assign(D["pt"] || {}, {"_7wvw1g":"Cidades","_1h20f9m":"Sociedade","_btdut":"Criminalidade","_e0bdb4":"Nota cultural","_4bk8s4":"Economia","_1h6g5hg":"Família e filhos"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/pt/ideast.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.pt=Object.assign(D.pt||{},{_vw1g:"Cidades",_f9m:"Sociedade",_tdut:"Criminalidade",_bdb4:"Nota cultural",_k8s4:"Economia",_g5hg:"Família e filhos"});})(typeof self!=='undefined'?self:this);

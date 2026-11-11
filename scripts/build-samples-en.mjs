@@ -6,7 +6,7 @@ import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar
 import { lastmodStore } from './lib/lastmod.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail } from './lib/samples-ui.mjs';
-import { art, typeArt, topicArt, toneArt, task1Art, vocabArt, unitArt, pronArt, t2Key, t1Key, bento } from './lib/samples-visual.mjs';
+import { art, typeArt, topicArt, toneArt, task1Art, vocabArt, unitArt, pronArt, t2Key, t1Key, catNav } from './lib/samples-visual.mjs';
 const SITE = 'https://lexkite.com/', OG = `${SITE}og-default.png`, L = SEO_L.en, U = SU.en;
 const LM = lastmodStore();
 // URL công khai không đuôi .html (Cloudflare Pages chuyển 308 /x.html → /x); file trên đĩa vẫn là *.html
@@ -46,7 +46,7 @@ const SEEN = new Set(), uniqT = (a, b) => { const v = SEEN.has(a) ? b : a; SEEN.
 
 // ---- Writing Task 2 ---- (giao diện bài mẫu: scripts/lib/samples-ui.mjs – nhãn vai trò đoạn/câu bằng tiếng Anh, không có nghĩa tiếng Việt)
 {
-  lm = gitDate('web/js/write.js', 'web/js/models.js', 'web/js/write');
+  lm = gitDate('web/js/write.js', 'web/js/models.js', 'web/js/write', 'web/cpack/write');
   const { PROMPTS: P, MODELS } = loadWriting();
   const done = []; for (const p of P) { const m = MODELS.find(x => x.id === 't2-' + p.id); if (m) done.push([p, m]); }
   const t2Card = ([p, m]) => smpCard({ href: `/en/samples/${p.id}`, cls: typeCls(p.type), art: topicArt(p.topic), title: t2Key(p.id, 'en', p.text), desc: p.text, band: m.band, meta: [['vm-w', m.words, U.words], ['vm-p', docStats(m.text).phrases, U.phrases], ['vm-t', mins(m.words), U.minL]], key: `${p.type} ${p.topic}` });
@@ -73,15 +73,15 @@ ${pwaBox('en', 'samples')}</article>${smpTail('en')}`, `Band ${m.band}: ${short(
     `<div class="page smp">${hero2({ h1: esc(`${done.length} IELTS Writing Task 2 sample essays (band 8)`), lead: 'Original model answers grouped by question type, with high-scoring phrases highlighted.', mood: 'think',
       statsHtml: stats([[done.length, U.statEss], [types.length, U.statTypes], ['8.0', 'Band', 'band'], [gls.toLocaleString('en'), U.statGl]]) })}
 ${sectionNav('en', '/en/samples/')}
-${bento(types.map(([ty, xs], i) => [`t${i}`, ty, xs.length, typeCls(ty), typeArt(ty)]), U.types, esc)}
-${filterBox('en', typeFilter(types.map(([ty, xs], i) => [`t${i}`, ty, xs.length, typeCls(ty)]), done.length, 'en'))}
+${filterBox('en')}
+${catNav(types.map(([ty, xs], i) => [`t${i}`, ty, xs.length, typeCls(ty), typeArt(ty)]), done.length, 'en', U.types, esc)}
 ${types.map(([ty, xs], i) => group2(`t${i}`, ty, `${xs.length} ${L.items}`, xs.map(t2Card), typeCls(ty), typeArt(ty))).join('\n')}</div>${smpTail('en')}`, undefined,
     { ld: [itemList('IELTS Writing Task 2 sample essays', done.map(([p]) => `${SITE}en/samples/${p.id}`))] }));
 }
 
 // ---- Speaking ----
 {
-  lm = gitDate('web/js/speaking.js', 'web/js/speak');
+  lm = gitDate('web/js/speaking.js', 'web/js/speak', 'web/cpack/speak');
   const { BANK, S } = loadSpeaking();
   const slug = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   // Bản tiếng Việt đổi cả Đ → D ('Đọc sách' → speaking/doc-sach); URL tiếng Anh giữ nguyên (oc-sach) nhưng hreflang phải trỏ đúng bản vi
@@ -149,8 +149,8 @@ ${pwaBox('en', 'vocab')}`, nm));
     `<div class="page smp">${hero2({ h1: esc(`Vocabulary lists (${TP.length} sets)`), lead: `${total.toLocaleString('en')} words with IPA, definitions, examples and audio. Pick a set to see the list, then learn it with free flashcards.`, mood: 'cheer',
   statsHtml: stats([[TP.length, F[2], '', 'v-topics'], [total.toLocaleString('en'), F[3], '', 'v-core'], [Object.keys(by).length, F[4], '', 'shapes'], [nAu.toLocaleString('en'), F[5], '', 'audio']]) })}
 ${sectionNav('en', '/en/vocabulary/')}
-${bento(Object.entries(by).map(([k, xs]) => [k, G[k] || k, xs.length, '', vocabArt('', k)]), F[1], esc)}
-${filterBox('en', typeFilter(Object.entries(by).map(([k, xs]) => [k, G[k] || k, xs.length, '']), TP.length, 'en', F[1]))}
+${filterBox('en')}
+${catNav(Object.entries(by).map(([k, xs]) => [k, G[k] || k, xs.length, '', vocabArt('', k)]), TP.length, 'en', F[1], esc)}
 ${Object.entries(by).map(([k, xs]) => group2(k, G[k] || k, `${xs.length} ${L.sets}`, xs.map(vCard), '', vocabArt('', k))).join('\n')}</div>`));
 }
 // ===== Bài học app → trang tiếng Anh (docs/SEO-ARCH.md §6): ngữ pháp, phát âm, IELTS Writing Task 1 / General Task 1 =====
@@ -211,8 +211,8 @@ ${pwaBox('en', 'grammar')}</article>`;
   outL('en/grammar/', 'ngu-phap/', page(`English Grammar Lessons: ${G.length} Topics from Basics to IELTS | Lexkite`, `${G.length} free English grammar lessons: all 12 tenses, conditionals, the passive, relative clauses and more, with formulas, examples, common mistakes and quizzes.`, 'en/grammar/', 'ngu-phap/',
     `<div class="page smp">${hero2({ h1: esc(`English grammar (${G.length} lessons)`), lead: 'From the basics to band 7+: formulas, uses, signal words, common mistakes and quick quizzes with answers.', mood: 'think', statsHtml: stats([[G.length, L.lessons, '', 'notebook'], [order.length, FIND_I18N.en[4], '', 'shapes']]) })}
 ${sectionNav('en', '/en/grammar/')}
-${bento(order.map(k => [k, UN[k] || k, units[k].length, '', unitArt(k)]), L.sectionsL, esc)}
-${filterBox('en', typeFilter(order.map(k => [k, UN[k] || k, units[k].length, '']), G.length, 'en'))}
+${filterBox('en')}
+${catNav(order.map(k => [k, UN[k] || k, units[k].length, '', unitArt(k)]), G.length, 'en', L.sectionsL, esc)}
 ${order.map(k => group2(k, UN[k] || k, `${units[k].length} ${L.lessons}`, units[k].map(gCard), '', unitArt(k)).replace('</h2>', `</h2>${UD[k] ? `<p>${esc(UD[k])}</p>` : ''}`)).join('\n')}</div>`, undefined,
     { ld: [itemList('English grammar lessons', G.map(l => `${SITE}en/grammar/${l.id}`))] }), 'grammar', true);
 }
@@ -255,15 +255,15 @@ ${pwaBox('en', 'pron')}</article>`;
   outL('en/pronunciation/', 'phat-am/', page(`English Pronunciation: All 44 IPA Sounds with Audio & Minimal Pairs | Lexkite`, `Learn all 44 English IPA sounds plus word stress, -ed/-s endings and intonation: mouth position, example words with audio and minimal pairs. Free.`, 'en/pronunciation/', 'phat-am/',
     `<div class="page smp">${hero2({ h1: esc(`English pronunciation (${P.length} lessons)`), lead: 'The 44 IPA sounds of English plus stress, endings and intonation – with example words, audio and minimal pairs.', mood: 'happy', statsHtml: stats([[P.length, L.lessons, '', 'notebook'], ['44', 'IPA', '', 'p-vowels']]) })}
 ${sectionNav('en', '/en/pronunciation/')}
-${bento(Object.entries(by).map(([k, xs]) => [k, GN[k] || k, xs.length, '', pronArt(k)]), L.sectionsL, esc)}
-${filterBox('en', typeFilter(Object.entries(by).map(([k, xs]) => [k, GN[k] || k, xs.length, '']), P.length, 'en'))}
+${filterBox('en')}
+${catNav(Object.entries(by).map(([k, xs]) => [k, GN[k] || k, xs.length, '', pronArt(k)]), P.length, 'en', L.sectionsL, esc)}
 ${Object.entries(by).map(([k, xs]) => group2(k, GN[k] || k, `${xs.length} ${L.lessons}`, xs.map(pCard), '', pronArt(k))).join('\n')}</div>`, undefined,
     { ld: [itemList('English pronunciation lessons', P.map(x => `${SITE}en/pronunciation/${slugP(x)}`))] }), 'pronunciation', true);
 }
 
 // ---- IELTS Writing: Academic Task 1 (mới) + General Task 1 (bản en của /viet-thu/); Task 2 đã có ở /en/samples/ (không nhân đôi) ----
 {
-  lm = gitDate('web/js/task1.js', 'web/js/models.js', 'web/js/write');
+  lm = gitDate('web/js/task1.js', 'web/js/models.js', 'web/js/write', 'web/cpack/write');
   const { SETS, MODELS } = loadTask1(), TY = { line: 'Line graph', bar: 'Bar chart', pie: 'Pie chart', table: 'Table', process: 'Process diagram', map: 'Maps' };
   const made = SETS.map(x => [x, MODELS.find(m => m.id === 't1-' + x.id)]).filter(([, m]) => m);
   const dataHtml = x => {
@@ -296,8 +296,7 @@ ${extBox('en', 'samples')}</article>${smpTail('en')}`;
     `<div class="page smp">${hero2({ h1: esc(`${made.length} IELTS Writing Task 1 samples`), lead: 'Original band 8 reports for every Academic Task 1 type, with the data and key phrases.', mood: 'think', statsHtml: stats([[made.length, U.statEss], [byT.length, U.statTypes], ['8.0', 'Band', 'band']]) })}
 ${sectionNav('en', '/en/ielts-writing/')}
 ${filterBox('en')}
-${bento(byT.map(([k, xs]) => [k, TY[k], xs.length, 't-x', task1Art(k)]), U.types, esc)}
-${typeFilter(byT.map(([k, xs]) => [k, TY[k], xs.length, 't-x']), made.length, 'en')}
+${catNav(byT.map(([k, xs]) => [k, TY[k], xs.length, 't-x', task1Art(k)]), made.length, 'en', U.types, esc)}
 ${byT.map(([k, xs]) => group2(k, TY[k], `${xs.length} ${L.items}`, xs.map(c1), 't-x', task1Art(k))).join('\n')}</div>${smpTail('en')}`, undefined,
     { ld: [itemList('IELTS Academic Writing Task 1 samples', made.map(([x]) => `${SITE}en/ielts-writing/task-1/${x.id}`))] }), 'ielts-writing', true);
 
@@ -325,8 +324,7 @@ ${extBox('en', 'letters')}</article>${smpTail('en')}`;
     `<div class="page smp">${hero2({ h1: esc(`${ml.length} IELTS General Task 1 letters`), lead: 'Formal, semi-formal and informal model letters with useful phrases highlighted.', mood: 'happy', statsHtml: stats([[ml.length, U.statLt], [tones.length, U.statTone], ['8.0', 'Band', 'band']]) })}
 ${sectionNav('en', '/en/ielts-writing/')}
 ${filterBox('en')}
-${bento(tones.map(([k, xs]) => [k, TONE[k], xs.length, toneCls(k), toneArt(k)]), U.tones, esc)}
-${typeFilter(tones.map(([k, xs]) => [k, TONE[k], xs.length, toneCls(k)]), ml.length, 'en', U.tones)}
+${catNav(tones.map(([k, xs]) => [k, TONE[k], xs.length, toneCls(k), toneArt(k)]), ml.length, 'en', U.tones, esc)}
 ${tones.map(([k, xs]) => group2(k, TONE[k], `${xs.length} ${L.items}`, xs.map(c2), toneCls(k), toneArt(k))).join('\n')}</div>${smpTail('en')}`, undefined,
     { ld: [itemList('IELTS General Training Writing Task 1 letters', ml.map(([x]) => `${SITE}en/ielts-writing/general-task-1/${x.id}`))] }), 'ielts-writing', true);
   // Mục lục IELTS Writing: Task 1 (Academic) · Task 1 (General) · Task 2 (/en/samples/) · Speaking (/en/speaking/)

@@ -72,5 +72,46 @@
   "words": 38,
   "seconds": 23.7,
   "wpm": 96
+ },
+ "publish": {
+  "title": "What does \"bore\" mean?",
+  "keyword": "bore",
+  "value": "Bore means to make someone not interested in something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=bore",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"bore\" mean?",
+    "description": "Bore means to make someone not interested in something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bore\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "bore",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"bore\" mean?\n\nBore means to make someone not interested in something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bore"
+   },
+   "instagram": {
+    "caption": "What does \"bore\" mean?\n\nBore means to make someone not interested in something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"bore\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to make someone not interested in something. Bore means to make someone not interested in something. Try the full lesson and quiz here: {link}"
  }
 }

@@ -72,5 +72,46 @@
   "words": 40,
   "seconds": 24.7,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"improve\" mean?",
+  "keyword": "improve",
+  "value": "Improve means to make, or become, something better.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=improve",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"improve\" mean?",
+    "description": "Improve means to make, or become, something better.\n\nReview your words, free: https://lexkite.com/app/#/review?w=improve\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "improve",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"improve\" mean?\n\nImprove means to make, or become, something better.\n\nReview your words, free: https://lexkite.com/app/#/review?w=improve"
+   },
+   "instagram": {
+    "caption": "What does \"improve\" mean?\n\nImprove means to make, or become, something better.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"improve\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to make, or become, something better. Improve means to make, or become, something better. Practice it with a free quiz: {link}"
  }
 }

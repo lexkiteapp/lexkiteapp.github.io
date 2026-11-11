@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"swim\" mean?",
+  "keyword": "swim",
+  "value": "Swim means to move through water by moving parts of the body.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=swim",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"swim\" mean?",
+    "description": "Swim means to move through water by moving parts of the body.\n\nReview your words, free: https://lexkite.com/app/#/review?w=swim\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "swim",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"swim\" mean?\n\nSwim means to move through water by moving parts of the body.\n\nReview your words, free: https://lexkite.com/app/#/review?w=swim"
+   },
+   "instagram": {
+    "caption": "What does \"swim\" mean?\n\nSwim means to move through water by moving parts of the body.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"swim\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to move through water by moving parts of the body. Swim means to move through water by moving parts of the body. Try the full lesson and quiz here: {link}"
  }
 }

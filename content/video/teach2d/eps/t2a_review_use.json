@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"use\" mean?",
+  "keyword": "use",
+  "value": "Use means to do something with, for a task or purpose.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=use",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"use\" mean?",
+    "description": "Use means to do something with, for a task or purpose.\n\nReview your words, free: https://lexkite.com/app/#/review?w=use\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "use",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"use\" mean?\n\nUse means to do something with, for a task or purpose.\n\nReview your words, free: https://lexkite.com/app/#/review?w=use"
+   },
+   "instagram": {
+    "caption": "What does \"use\" mean?\n\nUse means to do something with, for a task or purpose.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"use\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to do something with, for a task or purpose. Use means to do something with, for a task or purpose. More practice like this (free): {link}"
  }
 }

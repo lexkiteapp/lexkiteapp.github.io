@@ -51,7 +51,7 @@ Voici la sélection des 50 verbes à particule les plus utiles, accompagnés de 
 | **look for** | chercher | *I am looking for my keys; have you seen them?* |
 | **find out** | découvrir, apprendre une info | *She was shocked when she found out the truth.* |
 
-Pour enrichir votre stock de mots et vérifier vos équivalences de sens, consultez également notre [répertoire de vocabulaire anglais](/tu-vung/).
+Pour enrichir votre stock de mots et vérifier vos équivalences de sens, consultez également notre [répertoire de vocabulaire anglais](/en/vocabulary/).
 
 ### 2. Travail, études et réunions
 

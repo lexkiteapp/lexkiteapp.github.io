@@ -1,0 +1,53 @@
+{
+ "ui": {
+  "ti": "İspanyolca telaffuz",
+  "pk": "Çalışmak için bir ses seçin",
+  "ex": "Örnekleri dinle",
+  "pp": "En küçük çiftler",
+  "dc": "Dikte",
+  "sy": "Söyle",
+  "qp": "Hangi kelimeyi duyuyorsun?",
+  "qd": "Duyduğunu yaz",
+  "qs": "Mikrofona dokun ve kelimeyi söyle",
+  "mic": "Konuşmak için dokun",
+  "hd": "Duyduğum: “{h}”",
+  "rt": "Anlaşılmadı. Tekrar dene.",
+  "sk": "Atla",
+  "nm": "Burada mikrofon yok. Çiftler veya dikte ile çalış.",
+  "tp": "İpucu"
+ },
+ "tp": {
+  "vow": {
+   "t": "Beş saf ünlü",
+   "x": "İspanyolcada yalnızca beş ünlü vardır: a, e, i, o, u; her biri her zaman aynı duyulur: kısa, net ve sabit, ikinci bir sese kaymadan (İngilizce “go”dan farklı). “casa” ve “solo” kelimelerini ağzını baştan sona sabit tutarak söyle."
+  },
+  "rr": {
+   "t": "Tek vuruşlu r ve titreşimli rr",
+   "x": "İki ünlü arasındaki tek r, dilin hızlı bir vuruşudur: “pero”. Kelime başında veya rr yazıldığında titreşimlidir: “rojo”, “perro”. Tek bir harf anlamı değiştirir: “pero” (ama) ve “perro” (köpek)."
+  },
+  "bv": {
+   "t": "b ve v aynı sesi verir",
+   "x": "b ve v harfleri tek bir sesi gösterir. Kelime başında veya m, n’den sonra net bir /b/’dir (“vaca”, “bola”). Ünlüler arasında dudaklar neredeyse hiç değmez (“uva”, “lobo”). İngilizce v gibi dişlerini dudağına koyma. Hangi harfin yazılacağı yazım meselesidir, ses meselesi değil."
+  },
+  "seseo": {
+   "t": "c, z ve s: tek ses",
+   "x": "Latin Amerika İspanyolcasında c (e, i’den önce), z ve s hep aynı /s/ sesidir: “cielo”, “zapato”, “casa”. İspanya’daki “th” sesi yoktur. Bu yüzden “casa” ve “caza” aynı duyulur; anlam bağlamdan gelir, yazım ezberlenir."
+  },
+  "stress": {
+   "t": "Vurgu ve vurgu işareti",
+   "x": "Kelime ünlü, n veya s ile bitiyorsa vurgu sondan bir önceki hecededir; aksi hâlde son hecededir. Vurgu işareti kuralı bozar ve vurgulu ünlüyü gösterir: “papa” (patates) ve “papá” (baba), “canto” (şarkı söylerim) ve “cantó” (şarkı söyledi). Vurgu anlamı değiştirebilir."
+  },
+  "link": {
+   "t": "Kelimeleri birleştirme",
+   "x": "İspanyolca akıcı söylenir: kelimenin sonundaki ünlü, bir sonraki kelimenin başındaki ünlüyle duraksamadan birleşir. “la hora” “laora” gibi, “mi amigo” “miamigo” gibi duyulur. Kelimeler arasında durma."
+  },
+  "jg": {
+   "t": "j, g ve gu",
+   "x": "j ve e, i’den önceki g, boğazın derininden çıkan nefesli bir /x/’tir, güçlü bir “h” gibi: “jarra”, “gente”. a, o, u’dan önceki g sert /g/’dir: “gato”. g’yi e, i’den önce sert tutmak için gu yazılır ve u söylenmez: “guerra”."
+  },
+  "hq": {
+   "t": "ñ, ll, h, ch, qu",
+   "x": "ñ, “kanyon” sözcüğündeki “ny” gibidir: “año”. ll ve y, “y” veya hafif bir “j” gibi duyulur: “pollo”. h her zaman sessizdir: “hola”, “hora”. qu /k/ okunur ve u söylenmez: “queso”. ch, “çay”daki ç gibidir: “chico”."
+  }
+ }
+}

@@ -1,0 +1,941 @@
+{
+ "id": "laundry",
+ "group": "services",
+ "cefr": "A2",
+ "title": {
+  "en": "Laundry & dry cleaning",
+  "vi": "Giặt là & giặt khô",
+  "es": "Lavandería y tintorería",
+  "pt": "Lavanderia e lavagem a seco",
+  "fr": "Laverie et pressing",
+  "de": "Wäscherei & Reinigung",
+  "id": "Binatu & dry cleaning",
+  "th": "ร้านซักรีดและซักแห้ง",
+  "zh": "洗衣店和干洗",
+  "ja": "クリーニング・コインランドリー",
+  "ko": "세탁소와 드라이클리닝",
+  "hi": "लॉन्ड्री और ड्राई क्लीनिंग",
+  "ar": "المغسلة والتنظيف الجاف",
+  "ru": "Прачечная и химчистка",
+  "tr": "Çamaşırhane ve kuru temizleme"
+ },
+ "goal": {
+  "en": "Drop off your clothes and pick them up!",
+  "vi": "Gửi quần áo đi giặt và đi lấy về!",
+  "es": "¡Deja tu ropa y recógela!",
+  "pt": "Deixe suas roupas e vá buscá-las!",
+  "fr": "Déposez votre linge et venez le récupérer !",
+  "de": "Gib deine Wäsche ab und hol sie wieder ab!",
+  "id": "Titipkan pakaianmu dan ambil kembali!",
+  "th": "ฝากเสื้อผ้าไปซักแล้วไปรับคืน!",
+  "zh": "送洗衣服，再去取回！",
+  "ja": "服を預けて、受け取ろう！",
+  "ko": "옷을 맡기고 찾아와요!",
+  "hi": "अपने कपड़े दें और वापस ले आएँ!",
+  "ar": "سلّم ملابسك واستلمها لاحقًا!",
+  "ru": "Сдай одежду и забери её!",
+  "tr": "Kıyafetlerini bırak ve geri al!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "drop",
+   "title": {
+    "en": "Drop off",
+    "vi": "Gửi đồ",
+    "es": "Dejar la ropa",
+    "pt": "Deixar as roupas",
+    "fr": "Déposer le linge",
+    "de": "Abgeben",
+    "id": "Menitipkan",
+    "th": "ฝากซัก",
+    "zh": "送洗",
+    "ja": "預ける",
+    "ko": "맡기기",
+    "hi": "कपड़े देना",
+    "ar": "التسليم",
+    "ru": "Сдача вещей",
+    "tr": "Teslim etme"
+   },
+   "lines": [
+    "d1",
+    "d2",
+    "d3",
+    "d4"
+   ]
+  },
+  {
+   "id": "price",
+   "title": {
+    "en": "Price & time",
+    "vi": "Giá & thời gian",
+    "es": "Precio y plazo",
+    "pt": "Preço e prazo",
+    "fr": "Prix et délai",
+    "de": "Preis & Zeit",
+    "id": "Harga & waktu",
+    "th": "ราคาและเวลา",
+    "zh": "价格和时间",
+    "ja": "料金と時間",
+    "ko": "가격과 시간",
+    "hi": "कीमत और समय",
+    "ar": "السعر والموعد",
+    "ru": "Цена и срок",
+    "tr": "Ücret ve süre"
+   },
+   "lines": [
+    "t1",
+    "t2",
+    "t3",
+    "t4"
+   ]
+  },
+  {
+   "id": "collect",
+   "title": {
+    "en": "Collect & complain",
+    "vi": "Lấy đồ & phản ánh",
+    "es": "Recoger y reclamar",
+    "pt": "Buscar e reclamar",
+    "fr": "Récupérer et signaler",
+    "de": "Abholen & reklamieren",
+    "id": "Ambil & komplain",
+    "th": "รับคืนและแจ้งปัญหา",
+    "zh": "取衣和投诉",
+    "ja": "受け取り・クレーム",
+    "ko": "찾기와 문의",
+    "hi": "वापस लेना और शिकायत",
+    "ar": "الاستلام والشكوى",
+    "ru": "Получение и жалоба",
+    "tr": "Teslim alma ve şikâyet"
+   },
+   "lines": [
+    "c1",
+    "c2",
+    "c3",
+    "c4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "d1",
+   "who": "customer",
+   "en": "Hi, I'd like these washed and dried, please.",
+   "variants": {
+    "polite": "Hello, could I have these washed and dried, please?",
+    "casual": "Wash and dry these, please."
+   },
+   "gloss": {
+    "en": "Asking the staff to wash and dry your clothes.",
+    "vi": "Chào, tôi muốn giặt và sấy những món này.",
+    "es": "Hola, quisiera que me laven y sequen esto, por favor.",
+    "pt": "Oi, eu gostaria de lavar e secar estas peças, por favor.",
+    "fr": "Bonjour, je voudrais faire laver et sécher ceci, s'il vous plaît.",
+    "de": "Hallo, ich möchte das hier waschen und trocknen lassen, bitte.",
+    "id": "Halo, tolong cucikan dan keringkan pakaian ini.",
+    "th": "สวัสดีค่ะ ขอซักและอบเสื้อผ้าพวกนี้หน่อยนะคะ",
+    "zh": "你好，请帮我把这些衣服洗干净并烘干。",
+    "ja": "こんにちは、これを洗って乾燥してください。",
+    "ko": "안녕하세요, 이것들을 세탁하고 건조해 주세요.",
+    "hi": "नमस्ते, कृपया इन कपड़ों को धो और सुखा दीजिए।",
+    "ar": "مرحبًا، أودّ غسل هذه الملابس وتجفيفها من فضلك.",
+    "ru": "Здравствуйте, постирайте и высушите это, пожалуйста.",
+    "tr": "Merhaba, bunları yıkayıp kurutmanızı rica ediyorum."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "washed",
+     "ipa": "/wɒʃt/",
+     "hi": "one syllable",
+     "note": {
+      "en": "Say 'washed' in one syllable: wosht. The -ed sounds like /t/.",
+      "vi": "Đọc 'washed' một âm tiết: wosht. Đuôi -ed phát âm là /t/.",
+      "es": "Pronuncia 'washed' en una sola sílaba: wosht. La terminación -ed suena /t/.",
+      "pt": "Pronuncie 'washed' em uma sílaba: wosht. O -ed soa como /t/.",
+      "fr": "Prononcez « washed » en une syllabe : wosht. Le -ed se prononce /t/.",
+      "de": "Sprich 'washed' einsilbig: wosht. Das -ed klingt wie /t/.",
+      "id": "Ucapkan 'washed' satu suku kata: wosht. Akhiran -ed dibaca /t/.",
+      "th": "ออกเสียง washed พยางค์เดียว: วอชท์ ส่วน -ed ออกเสียงเป็น /t/",
+      "zh": "washed 只有一个音节：wosht。-ed 读作 /t/。",
+      "ja": "washed は1音節で「ウォシュト」。-ed は /t/ の音です。",
+      "ko": "washed는 한 음절로 '워쉬트'. -ed는 /t/로 발음해요.",
+      "hi": "washed को एक अक्षर में बोलें: वॉश्ट। -ed की आवाज़ /t/ है।",
+      "ar": "انطق washed بمقطع واحد: wosht. النهاية -ed تُنطق /t/.",
+      "ru": "Слово washed — один слог: вошт. Окончание -ed звучит как /t/.",
+      "tr": "'washed' tek hecedir: vosht. -ed sonu /t/ okunur."
+     }
+    }
+   ]
+  },
+  {
+   "id": "d2",
+   "who": "barista",
+   "en": "Sure. Are there any stains I should know about?",
+   "variants": {
+    "polite": "Certainly. Are there any stains I should look at?",
+    "casual": "Any stains on these?"
+   },
+   "gloss": {
+    "en": "The staff asks if any clothes have stains.",
+    "vi": "Vâng. Có vết bẩn nào tôi cần lưu ý không?",
+    "es": "Claro. ¿Hay alguna mancha que deba conocer?",
+    "pt": "Claro. Há alguma mancha que eu deva saber?",
+    "fr": "Bien sûr. Y a-t-il des taches que je dois connaître ?",
+    "de": "Gern. Gibt es Flecken, von denen ich wissen sollte?",
+    "id": "Baik. Apakah ada noda yang perlu saya ketahui?",
+    "th": "ได้ค่ะ มีคราบอะไรที่ต้องแจ้งให้ทราบไหมคะ",
+    "zh": "好的。有什么污渍需要我留意吗？",
+    "ja": "かしこまりました。気をつけるべき汚れはありますか？",
+    "ko": "네. 제가 알아야 할 얼룩이 있나요?",
+    "hi": "ज़रूर। क्या कोई दाग़ है जिसके बारे में मुझे जानना चाहिए?",
+    "ar": "بالتأكيد. هل هناك بقع يجب أن أعرف عنها؟",
+    "ru": "Конечно. Есть пятна, о которых мне нужно знать?",
+    "tr": "Tabii. Haberim olması gereken leke var mı?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "d3",
+   "who": "customer",
+   "en": "Yes, there's a coffee stain on this shirt.",
+   "variants": {
+    "polite": "Yes, I'm afraid there's a coffee stain on this shirt.",
+    "casual": "Yeah, this shirt has a coffee stain."
+   },
+   "gloss": {
+    "en": "Telling the staff about a stain.",
+    "vi": "Có, áo sơ mi này dính vết cà phê.",
+    "es": "Sí, esta camisa tiene una mancha de café.",
+    "pt": "Sim, esta camisa tem uma mancha de café.",
+    "fr": "Oui, cette chemise a une tache de café.",
+    "de": "Ja, auf diesem Hemd ist ein Kaffeefleck.",
+    "id": "Ya, kemeja ini ada noda kopi.",
+    "th": "มีค่ะ เสื้อเชิ้ตตัวนี้มีคราบกาแฟ",
+    "zh": "有，这件衬衫上有一块咖啡渍。",
+    "ja": "はい、このシャツにコーヒーのしみがあります。",
+    "ko": "네, 이 셔츠에 커피 얼룩이 있어요.",
+    "hi": "हाँ, इस शर्ट पर कॉफ़ी का दाग़ है।",
+    "ar": "نعم، هناك بقعة قهوة على هذا القميص.",
+    "ru": "Да, на этой рубашке пятно от кофе.",
+    "tr": "Evet, bu gömlekte kahve lekesi var."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "stain",
+     "ipa": "/steɪn/",
+     "hi": "rhymes with 'rain'",
+     "note": {
+      "en": "'Stain' rhymes with 'rain': STAYN, not 'stan'.",
+      "vi": "'Stain' vần với 'rain': xtên, không đọc là 'xtan'.",
+      "es": "'Stain' rima con 'rain': stein, no 'stan'.",
+      "pt": "'Stain' rima com 'rain': stêin, não 'stan'.",
+      "fr": "« Stain » rime avec « rain » : stéïn, pas « stan ».",
+      "de": "'Stain' reimt sich auf 'rain': stein, nicht 'stan'.",
+      "id": "'Stain' berima dengan 'rain': stein, bukan 'stan'.",
+      "th": "stain สัมผัสกับ rain อ่านว่า สเตน ไม่ใช่ แสตน",
+      "zh": "stain 和 rain 押韵，读 stein，不是 stan。",
+      "ja": "stain は rain と同じ母音で「ステイン」。「スタン」ではありません。",
+      "ko": "stain은 rain과 운이 같아요: 스테인, '스탠'이 아니에요.",
+      "hi": "stain, rain से तुकबंदी करता है: स्टेन, 'स्टैन' नहीं।",
+      "ar": "كلمة stain تُقفّى مع rain: ستين، وليس 'ستان'.",
+      "ru": "Stain рифмуется с rain: стейн, а не «стан».",
+      "tr": "'Stain', 'rain' ile kafiyelidir: steyn, 'stan' değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "d4",
+   "who": "customer",
+   "en": "Can you dry-clean this jacket, please?",
+   "variants": {
+    "polite": "Could you dry-clean this jacket for me, please?",
+    "casual": "Dry-clean this jacket, please."
+   },
+   "gloss": {
+    "en": "Asking for a jacket to be dry-cleaned.",
+    "vi": "Anh/chị giặt khô giúp tôi chiếc áo khoác này được không?",
+    "es": "¿Puede limpiar en seco esta chaqueta, por favor?",
+    "pt": "Pode lavar esta jaqueta a seco, por favor?",
+    "fr": "Pouvez-vous nettoyer cette veste à sec, s'il vous plaît ?",
+    "de": "Können Sie diese Jacke bitte chemisch reinigen?",
+    "id": "Bisakah jaket ini di-dry clean, tolong?",
+    "th": "ช่วยซักแห้งเสื้อแจ็กเก็ตตัวนี้ให้หน่อยได้ไหมคะ",
+    "zh": "请问可以干洗这件外套吗？",
+    "ja": "このジャケットをドライクリーニングしてもらえますか？",
+    "ko": "이 재킷 드라이클리닝 해 주실 수 있나요?",
+    "hi": "क्या आप इस जैकेट को ड्राई क्लीन कर सकते हैं?",
+    "ar": "هل يمكنك تنظيف هذه السترة بالتنظيف الجاف من فضلك؟",
+    "ru": "Можете сделать химчистку этой куртки, пожалуйста?",
+    "tr": "Bu ceketi kuru temizlemeye alabilir misiniz?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "t1",
+   "who": "customer",
+   "en": "How much is it per kilo?",
+   "variants": {
+    "polite": "Could you tell me how much it is per kilo?",
+    "casual": "How much per kilo?"
+   },
+   "gloss": {
+    "en": "Asking the price for each kilo.",
+    "vi": "Giá bao nhiêu một ký?",
+    "es": "¿Cuánto cuesta el kilo?",
+    "pt": "Quanto custa o quilo?",
+    "fr": "Combien coûte le kilo ?",
+    "de": "Wie viel kostet es pro Kilo?",
+    "id": "Berapa harganya per kilo?",
+    "th": "กิโลกรัมละเท่าไรคะ",
+    "zh": "每公斤多少钱？",
+    "ja": "1キロいくらですか？",
+    "ko": "1킬로에 얼마예요?",
+    "hi": "प्रति किलो कितना लगेगा?",
+    "ar": "كم السعر للكيلوغرام؟",
+    "ru": "Сколько стоит килограмм?",
+    "tr": "Kilosu ne kadar?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "kilo",
+     "ipa": "/ˈkiː.ləʊ/",
+     "hi": "first syllable",
+     "note": {
+      "en": "Stress the first syllable: KEE-loh.",
+      "vi": "Nhấn âm tiết đầu: KI-lô.",
+      "es": "Acentúa la primera sílaba: KI-lou.",
+      "pt": "Acentue a primeira sílaba: QUI-lou.",
+      "fr": "Insistez sur la première syllabe : KI-lo.",
+      "de": "Betone die erste Silbe: KIE-lo.",
+      "id": "Tekankan suku kata pertama: KI-lo.",
+      "th": "เน้นพยางค์แรก: คี-โล",
+      "zh": "重音在第一个音节：KEE-loh。",
+      "ja": "最初の音節を強く：キー・ロウ。",
+      "ko": "첫 음절에 강세: 키-로.",
+      "hi": "पहले अक्षर पर ज़ोर दें: की-लो।",
+      "ar": "شدّد على المقطع الأول: كي-لو.",
+      "ru": "Ударение на первый слог: КИ-ло.",
+      "tr": "Vurgu ilk hecede: Kİ-lo."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t2",
+   "who": "barista",
+   "en": "It's five dollars a kilo. Let me weigh them.",
+   "variants": {
+    "polite": "It's five dollars a kilo. May I weigh them?",
+    "casual": "Five a kilo. I'll weigh them."
+   },
+   "gloss": {
+    "en": "The staff gives the price and weighs the clothes.",
+    "vi": "Năm đô la một ký. Để tôi cân nhé.",
+    "es": "Son cinco dólares el kilo. Déjeme pesarlo.",
+    "pt": "São cinco dólares o quilo. Deixe-me pesar.",
+    "fr": "C'est cinq dollars le kilo. Je vais peser le linge.",
+    "de": "Fünf Dollar pro Kilo. Ich wiege es kurz.",
+    "id": "Lima dolar per kilo. Saya timbang dulu ya.",
+    "th": "กิโลละห้าดอลลาร์ค่ะ ขอชั่งน้ำหนักก่อนนะคะ",
+    "zh": "每公斤五美元。我先称一下重量。",
+    "ja": "1キロ5ドルです。重さを量りますね。",
+    "ko": "1킬로에 5달러예요. 무게를 달아 볼게요.",
+    "hi": "पाँच डॉलर प्रति किलो है। मैं वज़न कर लेता हूँ।",
+    "ar": "خمسة دولارات للكيلوغرام. دعني أزنها.",
+    "ru": "Пять долларов за килограмм. Сейчас взвешу.",
+    "tr": "Kilosu beş dolar. Bir tartayım."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "t3",
+   "who": "customer",
+   "en": "When will they be ready?",
+   "variants": {
+    "polite": "Could you tell me when they will be ready?",
+    "casual": "When will they be done?"
+   },
+   "gloss": {
+    "en": "Asking when you can collect them.",
+    "vi": "Khi nào thì xong ạ?",
+    "es": "¿Cuándo estarán listas?",
+    "pt": "Quando ficam prontas?",
+    "fr": "Quand seront-ils prêts ?",
+    "de": "Wann sind sie fertig?",
+    "id": "Kapan selesainya?",
+    "th": "จะเสร็จเมื่อไรคะ",
+    "zh": "什么时候能洗好？",
+    "ja": "いつ仕上がりますか？",
+    "ko": "언제 다 되나요?",
+    "hi": "ये कब तक तैयार होंगे?",
+    "ar": "متى ستكون جاهزة؟",
+    "ru": "Когда будет готово?",
+    "tr": "Ne zaman hazır olur?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "ready",
+     "ipa": "/ˈred.i/",
+     "hi": "short vowel of 'red'",
+     "note": {
+      "en": "'Ready' starts with the short vowel of 'red': RED-ee, not 'ree-dy'.",
+      "vi": "'Ready' bắt đầu bằng nguyên âm ngắn như trong 'red': RE-đi, không đọc 'ri-đi'.",
+      "es": "'Ready' empieza con la vocal corta de 'red': RE-di, no 'ri-di'.",
+      "pt": "'Ready' começa com a vogal curta de 'red': RÉ-di, não 'ri-di'.",
+      "fr": "« Ready » commence par la voyelle brève de « red » : RÈ-di, pas « ri-di ».",
+      "de": "'Ready' beginnt mit dem kurzen Vokal von 'red': RE-di, nicht 'ri-di'.",
+      "id": "'Ready' diawali vokal pendek seperti 'red': RE-di, bukan 'ri-di'.",
+      "th": "ready ขึ้นต้นด้วยเสียงสั้นเหมือนใน red: เรด-ดี ไม่ใช่ รี-ดี",
+      "zh": "ready 以 red 里的短元音开头：RED-ee，不是 ree-dy。",
+      "ja": "ready は red の短い母音で始まります：レディ。「リーディ」ではありません。",
+      "ko": "ready는 red의 짧은 모음으로 시작해요: 레디, '리디'가 아니에요.",
+      "hi": "ready की शुरुआत red की छोटी ध्वनि से होती है: रेडी, 'रीडी' नहीं।",
+      "ar": "تبدأ ready بحركة قصيرة كما في red: ريدي بدون مدّ طويل، وليس 'ريـــدي'.",
+      "ru": "Ready начинается с краткого звука как в red: РЕ-ди, а не «ри-ди».",
+      "tr": "'Ready', 'red' sözcüğündeki kısa ünlüyle başlar: RE-di, 'ri-di' değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t4",
+   "who": "barista",
+   "en": "They'll be ready tomorrow afternoon, after three.",
+   "variants": {
+    "polite": "They will be ready tomorrow afternoon, after three o'clock.",
+    "casual": "Tomorrow, after three."
+   },
+   "gloss": {
+    "en": "The staff says when the clothes will be ready.",
+    "vi": "Ngày mai sau ba giờ chiều là xong.",
+    "es": "Estarán listas mañana por la tarde, después de las tres.",
+    "pt": "Ficam prontas amanhã à tarde, depois das três.",
+    "fr": "Ce sera prêt demain après-midi, après quinze heures.",
+    "de": "Sie sind morgen Nachmittag ab drei Uhr fertig.",
+    "id": "Siap besok siang, setelah jam tiga.",
+    "th": "จะเสร็จพรุ่งนี้ช่วงบ่าย หลังสามโมงค่ะ",
+    "zh": "明天下午三点以后就能取。",
+    "ja": "明日の午後3時以降にご用意できます。",
+    "ko": "내일 오후 3시 이후에 준비돼요.",
+    "hi": "ये कल दोपहर तीन बजे के बाद तैयार होंगे।",
+    "ar": "ستكون جاهزة غدًا بعد الظهر، بعد الساعة الثالثة.",
+    "ru": "Будет готово завтра после трёх часов дня.",
+    "tr": "Yarın öğleden sonra, saat üçten sonra hazır olur."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c1",
+   "who": "customer",
+   "en": "Hi, I'm here to pick up my clothes.",
+   "variants": {
+    "polite": "Hello, I've come to collect my clothes, please.",
+    "casual": "Hi, I'm picking up my laundry."
+   },
+   "gloss": {
+    "en": "Saying you want to collect your clothes.",
+    "vi": "Chào, tôi đến lấy quần áo của mình.",
+    "es": "Hola, vengo a recoger mi ropa.",
+    "pt": "Oi, vim buscar minhas roupas.",
+    "fr": "Bonjour, je viens récupérer mes vêtements.",
+    "de": "Hallo, ich möchte meine Kleidung abholen.",
+    "id": "Halo, saya mau mengambil pakaian saya.",
+    "th": "สวัสดีค่ะ มารับเสื้อผ้าที่ฝากซักค่ะ",
+    "zh": "你好，我来取我的衣服。",
+    "ja": "こんにちは、服を受け取りに来ました。",
+    "ko": "안녕하세요, 맡긴 옷을 찾으러 왔어요.",
+    "hi": "नमस्ते, मैं अपने कपड़े लेने आया हूँ।",
+    "ar": "مرحبًا، جئت لاستلام ملابسي.",
+    "ru": "Здравствуйте, я за своими вещами.",
+    "tr": "Merhaba, kıyafetlerimi almaya geldim."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c2",
+   "who": "barista",
+   "en": "Can I have your ticket or your name, please?",
+   "variants": {
+    "polite": "May I have your ticket or name, please?",
+    "casual": "Ticket or name, please?"
+   },
+   "gloss": {
+    "en": "The staff asks for your ticket or name.",
+    "vi": "Cho tôi xin phiếu nhận hoặc tên của anh/chị nhé?",
+    "es": "¿Me da su comprobante o su nombre, por favor?",
+    "pt": "Pode me dar o seu comprovante ou o seu nome, por favor?",
+    "fr": "Puis-je avoir votre ticket ou votre nom, s'il vous plaît ?",
+    "de": "Darf ich bitte Ihren Abholschein oder Ihren Namen haben?",
+    "id": "Boleh minta nota atau nama Anda?",
+    "th": "ขอใบรับฝากหรือชื่อด้วยนะคะ",
+    "zh": "请出示取衣单或告诉我您的姓名。",
+    "ja": "引換券かお名前をお願いします。",
+    "ko": "접수증이나 성함을 말씀해 주시겠어요?",
+    "hi": "कृपया अपनी पर्ची या अपना नाम बताइए।",
+    "ar": "هل يمكنني الحصول على إيصالك أو اسمك من فضلك؟",
+    "ru": "Можно ваш талон или фамилию, пожалуйста?",
+    "tr": "Fişinizi ya da adınızı alabilir miyim?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c3",
+   "who": "customer",
+   "en": "Excuse me, one shirt is missing.",
+   "variants": {
+    "polite": "Excuse me, I think one of my shirts is missing.",
+    "casual": "One shirt's missing."
+   },
+   "gloss": {
+    "en": "Telling the staff that an item is missing.",
+    "vi": "Xin lỗi, thiếu một chiếc áo sơ mi.",
+    "es": "Disculpe, falta una camisa.",
+    "pt": "Com licença, está faltando uma camisa.",
+    "fr": "Excusez-moi, il manque une chemise.",
+    "de": "Entschuldigung, ein Hemd fehlt.",
+    "id": "Permisi, ada satu kemeja yang hilang.",
+    "th": "ขอโทษนะคะ เสื้อเชิ้ตหายไปหนึ่งตัวค่ะ",
+    "zh": "打扰一下，少了一件衬衫。",
+    "ja": "すみません、シャツが1枚足りません。",
+    "ko": "저기요, 셔츠가 한 벌 없어요.",
+    "hi": "सुनिए, एक शर्ट कम है।",
+    "ar": "عذرًا، ينقص قميص واحد.",
+    "ru": "Извините, не хватает одной рубашки.",
+    "tr": "Pardon, bir gömlek eksik."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "missing",
+     "ipa": "/ˈmɪs.ɪŋ/",
+     "hi": "two short i sounds",
+     "note": {
+      "en": "'Missing' has two short i sounds: MIS-ing, not 'mee-sing'.",
+      "vi": "'Missing' có hai âm i ngắn: MIS-sing, đừng kéo dài thành 'mii-sing'.",
+      "es": "'Missing' tiene dos íes cortas: MIS-ing, sin alargarlas como 'mii-sing'.",
+      "pt": "'Missing' tem dois sons de i curtos: MIS-sing, sem alongar como 'mii-sing'.",
+      "fr": "« Missing » a deux i brefs : MIS-ing, sans allonger en « mii-sing ».",
+      "de": "'Missing' hat zwei kurze i-Laute: MIS-sing, nicht gedehnt wie 'mii-sing'.",
+      "id": "'Missing' punya dua bunyi i pendek: MIS-ing, jangan dipanjangkan jadi 'mii-sing'.",
+      "th": "missing มีเสียง อิ สั้นสองเสียง: มิส-ซิง ไม่ใช่ มี-ซิง",
+      "zh": "missing 里有两个短 i：MIS-ing，不要拖长成 mee-sing。",
+      "ja": "missing は短い「イ」が2つ：ミッシング。「ミーシング」と伸ばさないで。",
+      "ko": "missing에는 짧은 i가 두 번 나와요: 미싱, '미이싱'처럼 늘이지 마세요.",
+      "hi": "missing में दो छोटी 'इ' ध्वनियाँ हैं: मिसिंग, 'मीसिंग' नहीं।",
+      "ar": "في missing صوتا كسرة قصيران: مِسِنغ، دون مدّها إلى 'ميسنغ'.",
+      "ru": "В missing два кратких звука «и»: МИ-син, без долгого «ии».",
+      "tr": "'Missing'de iki kısa i vardır: MİS-ing, 'miis-ing' gibi uzatılmaz."
+     }
+    }
+   ]
+  },
+  {
+   "id": "c4",
+   "who": "customer",
+   "en": "This sweater has shrunk. Can you check it?",
+   "variants": {
+    "polite": "I'm sorry, but this sweater has shrunk. Could you check, please?",
+    "casual": "This sweater's shrunk. What happened?"
+   },
+   "gloss": {
+    "en": "Politely complaining that a sweater got smaller.",
+    "vi": "Chiếc áo len này bị co lại. Anh/chị kiểm tra giúp được không?",
+    "es": "Este suéter ha encogido. ¿Puede revisarlo?",
+    "pt": "Este suéter encolheu. Pode verificar?",
+    "fr": "Ce pull a rétréci. Pouvez-vous vérifier ?",
+    "de": "Dieser Pullover ist eingelaufen. Können Sie das prüfen?",
+    "id": "Sweter ini menyusut. Bisa tolong dicek?",
+    "th": "เสื้อสเวตเตอร์ตัวนี้หดค่ะ ช่วยตรวจดูให้หน่อยได้ไหมคะ",
+    "zh": "这件毛衣缩水了。您能检查一下吗？",
+    "ja": "このセーターが縮んでいます。確認してもらえますか？",
+    "ko": "이 스웨터가 줄었어요. 확인해 주시겠어요?",
+    "hi": "यह स्वेटर सिकुड़ गया है। क्या आप जाँच सकते हैं?",
+    "ar": "هذا البلوفر انكمش. هل يمكنك التحقق منه؟",
+    "ru": "Этот свитер сел. Вы можете проверить?",
+    "tr": "Bu kazak çekmiş. Kontrol edebilir misiniz?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "shrunk",
+     "ipa": "/ʃrʌŋk/",
+     "hi": "vowel of 'cup'",
+     "note": {
+      "en": "'Shrunk' has the vowel of 'cup', not the vowel of 'shrank'.",
+      "vi": "'Shrunk' có nguyên âm như trong 'cup', không phải như trong 'shrank'.",
+      "es": "'Shrunk' lleva la vocal de 'cup', no la de 'shrank'.",
+      "pt": "'Shrunk' tem a vogal de 'cup', não a de 'shrank'.",
+      "fr": "« Shrunk » a la voyelle de « cup », pas celle de « shrank ».",
+      "de": "'Shrunk' hat den Vokal von 'cup', nicht den von 'shrank'.",
+      "id": "'Shrunk' memakai vokal 'cup', bukan vokal 'shrank'.",
+      "th": "shrunk ใช้เสียงสระเหมือน cup ไม่ใช่เสียงสระของ shrank",
+      "zh": "shrunk 的元音和 cup 相同，不是 shrank 的元音。",
+      "ja": "shrunk の母音は cup と同じ音で、shrank の母音ではありません。",
+      "ko": "shrunk의 모음은 cup과 같고 shrank의 모음이 아니에요.",
+      "hi": "shrunk में cup वाली ध्वनि है, shrank वाली नहीं।",
+      "ar": "في shrunk صوت الحرف المتحرك كما في cup وليس كما في shrank.",
+      "ru": "В shrunk гласный как в cup, а не как в shrank.",
+      "tr": "'Shrunk'ta 'cup' sözcüğündeki ünlü vardır, 'shrank'takı değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "x1",
+   "who": "barista",
+   "open": true,
+   "keywords": [
+    "wash",
+    "dry",
+    "wash and dry",
+    "dry-clean",
+    "dry clean",
+    "iron",
+    "press",
+    "fold",
+    "clean"
+   ],
+   "en": "What would you like us to do with these?",
+   "variants": {
+    "polite": "What would you like us to do with these items?",
+    "casual": "What do you need done?"
+   },
+   "gloss": {
+    "en": "Asking what service you want.",
+    "vi": "Anh/chị muốn chúng tôi xử lý những món này thế nào?",
+    "es": "¿Qué le gustaría que hagamos con esto?",
+    "pt": "O que você gostaria que fizéssemos com isto?",
+    "fr": "Que voulez-vous que nous fassions avec ceci ?",
+    "de": "Was sollen wir mit diesen Sachen machen?",
+    "id": "Mau kami apakan pakaian ini?",
+    "th": "อยากให้เราทำอะไรกับเสื้อผ้าพวกนี้คะ",
+    "zh": "这些衣服您想怎么处理？",
+    "ja": "こちらはどのようにいたしましょうか？",
+    "ko": "이 옷들을 어떻게 해 드릴까요?",
+    "hi": "आप इन कपड़ों का क्या करवाना चाहेंगे?",
+    "ar": "ماذا تريد أن نفعل بهذه الملابس؟",
+    "ru": "Что вы хотите сделать с этими вещами?",
+    "tr": "Bunlara ne yapmamızı istersiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "x2",
+   "who": "barista",
+   "open": true,
+   "keywords": [
+    "today",
+    "tomorrow",
+    "tonight",
+    "Friday",
+    "Monday",
+    "next week",
+    "morning",
+    "afternoon",
+    "evening",
+    "two days",
+    "soon",
+    "no hurry"
+   ],
+   "en": "When do you need them back?",
+   "variants": {
+    "polite": "When would you like to collect them?",
+    "casual": "When do you need them?"
+   },
+   "gloss": {
+    "en": "Asking when you need the clothes.",
+    "vi": "Khi nào anh/chị cần lấy lại?",
+    "es": "¿Cuándo los necesita?",
+    "pt": "Para quando você precisa delas?",
+    "fr": "Pour quand en avez-vous besoin ?",
+    "de": "Wann brauchen Sie die Sachen zurück?",
+    "id": "Kapan Anda butuh pakaiannya kembali?",
+    "th": "ต้องการรับคืนเมื่อไรคะ",
+    "zh": "您什么时候要取？",
+    "ja": "いつまでに必要ですか？",
+    "ko": "언제까지 필요하세요?",
+    "hi": "आपको ये कब तक वापस चाहिए?",
+    "ar": "متى تحتاجها؟",
+    "ru": "К какому сроку вам нужно?",
+    "tr": "Ne zaman lazım?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Good morning. How can I help you?"
+  },
+  {
+   "who": "customer",
+   "en": "Hi, I'd like these washed and dried, please."
+  },
+  {
+   "who": "barista",
+   "en": "Sure. Are there any stains I should know about?"
+  },
+  {
+   "who": "customer",
+   "en": "Yes, there's a coffee stain on this shirt."
+  },
+  {
+   "who": "barista",
+   "en": "No problem. It's five dollars a kilo."
+  },
+  {
+   "who": "customer",
+   "en": "OK. When will they be ready?"
+  },
+  {
+   "who": "barista",
+   "en": "Tomorrow afternoon, after three."
+  },
+  {
+   "who": "customer",
+   "en": "Great. Thank you."
+  },
+  {
+   "who": "barista",
+   "en": "Here's your ticket. See you tomorrow!"
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Hello, can you dry-clean this coat?"
+    },
+    {
+     "who": "barista",
+     "en": "Yes. It's twelve dollars, and it'll be ready on Friday."
+    },
+    {
+     "who": "customer",
+     "en": "Can I get it sooner?"
+    },
+    {
+     "who": "barista",
+     "en": "Sorry, not before Friday."
+    }
+   ],
+   "q": {
+    "en": "When will the coat be ready?",
+    "vi": "Khi nào áo khoác xong?",
+    "es": "¿Cuándo estará listo el abrigo?",
+    "pt": "Quando o casaco ficará pronto?",
+    "fr": "Quand le manteau sera-t-il prêt ?",
+    "de": "Wann ist der Mantel fertig?",
+    "id": "Kapan mantelnya selesai?",
+    "th": "เสื้อโค้ตจะเสร็จเมื่อไร",
+    "zh": "大衣什么时候能好？",
+    "ja": "コートはいつ仕上がりますか？",
+    "ko": "코트는 언제 다 되나요?",
+    "hi": "कोट कब तक तैयार होगा?",
+    "ar": "متى سيكون المعطف جاهزًا؟",
+    "ru": "Когда будет готово пальто?",
+    "tr": "Palto ne zaman hazır olur?"
+   },
+   "answer": "on Friday"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Hi, I'm here to pick up my laundry."
+    },
+    {
+     "who": "barista",
+     "en": "Name, please?"
+    },
+    {
+     "who": "customer",
+     "en": "Lena Brown."
+    },
+    {
+     "who": "barista",
+     "en": "Here you are. That's eighteen dollars for four kilos."
+    }
+   ],
+   "q": {
+    "en": "How much does the customer pay?",
+    "vi": "Khách phải trả bao nhiêu?",
+    "es": "¿Cuánto paga el cliente?",
+    "pt": "Quanto o cliente paga?",
+    "fr": "Combien le client paie-t-il ?",
+    "de": "Wie viel zahlt der Kunde?",
+    "id": "Berapa yang dibayar pelanggan?",
+    "th": "ลูกค้าจ่ายเท่าไร",
+    "zh": "顾客要付多少钱？",
+    "ja": "お客さんはいくら払いますか？",
+    "ko": "손님은 얼마를 내나요?",
+    "hi": "ग्राहक कितना भुगतान करता है?",
+    "ar": "كم يدفع الزبون؟",
+    "ru": "Сколько платит клиент?",
+    "tr": "Müşteri ne kadar öder?"
+   },
+   "answer": "eighteen dollars"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "drop-off",
+    "title": {
+     "en": "Drop off your laundry",
+     "vi": "Gửi đồ đi giặt",
+     "es": "Deja tu ropa a lavar",
+     "pt": "Deixe sua roupa para lavar",
+     "fr": "Déposer votre linge",
+     "de": "Wäsche abgeben",
+     "id": "Titipkan cucianmu",
+     "th": "ฝากซักเสื้อผ้า",
+     "zh": "送洗衣物",
+     "ja": "洗濯物を預ける",
+     "ko": "세탁물 맡기기",
+     "hi": "अपने कपड़े धुलने दें",
+     "ar": "سلّم الملابس للغسيل",
+     "ru": "Сдать вещи в стирку",
+     "tr": "Çamaşırı bırak"
+    },
+    "intents": [
+     "d1",
+     "d3"
+    ]
+   },
+   {
+    "id": "price-time",
+    "title": {
+     "en": "Ask the price and time",
+     "vi": "Hỏi giá và thời gian",
+     "es": "Pregunta el precio y el plazo",
+     "pt": "Pergunte o preço e o prazo",
+     "fr": "Demander le prix et le délai",
+     "de": "Nach Preis und Zeit fragen",
+     "id": "Tanya harga dan waktu",
+     "th": "ถามราคาและเวลา",
+     "zh": "询问价格和时间",
+     "ja": "料金と時間を尋ねる",
+     "ko": "가격과 시간 묻기",
+     "hi": "कीमत और समय पूछें",
+     "ar": "اسأل عن السعر والموعد",
+     "ru": "Спросить цену и срок",
+     "tr": "Ücreti ve süreyi sor"
+    },
+    "intents": [
+     "t1",
+     "t3"
+    ]
+   },
+   {
+    "id": "collect",
+    "title": {
+     "en": "Collect and report a problem",
+     "vi": "Lấy đồ và báo vấn đề",
+     "es": "Recoge y avisa de un problema",
+     "pt": "Busque e avise de um problema",
+     "fr": "Récupérer et signaler un problème",
+     "de": "Abholen und ein Problem melden",
+     "id": "Ambil dan laporkan masalah",
+     "th": "รับคืนและแจ้งปัญหา",
+     "zh": "取衣并反映问题",
+     "ja": "受け取って問題を伝える",
+     "ko": "찾고 문제 알리기",
+     "hi": "कपड़े लें और समस्या बताएँ",
+     "ar": "استلم ملابسك وأبلغ عن مشكلة",
+     "ru": "Забрать вещи и сообщить о проблеме",
+     "tr": "Teslim al ve sorunu bildir"
+    },
+    "intents": [
+     "c1",
+     "c3"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "In many places you can use a self-service launderette (with coins or a card), or drop your clothes off so the staff wash, dry and fold them, usually priced per kilo and ready in a day. Dry cleaning is for delicate items such as suits, coats and wool, and is usually priced per item. Point out any stains and keep your ticket.",
+  "vi": "Ở nhiều nơi nói tiếng Anh, bạn có thể tự giặt ở tiệm giặt tự phục vụ (bỏ xu hoặc quẹt thẻ), hoặc gửi đồ để nhân viên giặt, sấy và gấp, thường tính theo ký và lấy sau một ngày. Giặt khô dành cho đồ mỏng manh như vest, áo khoác, đồ len và thường tính theo món. Hãy báo trước vết bẩn và giữ phiếu nhận đồ.",
+  "es": "En muchos lugares puedes usar una lavandería de autoservicio (con monedas o tarjeta) o dejar la ropa para que el personal la lave, la seque y la doble, normalmente por kilo y lista en un día. La limpieza en seco es para prendas delicadas como trajes, abrigos o lana y suele cobrarse por prenda. Avisa de las manchas y guarda el comprobante.",
+  "pt": "Em muitos lugares você pode usar uma lavanderia de autoatendimento (com moedas ou cartão) ou deixar a roupa para a equipe lavar, secar e dobrar, geralmente cobrada por quilo e pronta em um dia. A lavagem a seco é para peças delicadas, como ternos, casacos e lã, e costuma ser cobrada por peça. Avise sobre manchas e guarde o comprovante.",
+  "fr": "Dans beaucoup d'endroits, on peut utiliser une laverie en libre-service (pièces ou carte) ou déposer son linge pour que le personnel le lave, le sèche et le plie, souvent au kilo et prêt en un jour. Le nettoyage à sec convient aux vêtements délicats comme les costumes, manteaux et lainages, et se paie en général à la pièce. Signalez les taches et gardez votre ticket.",
+  "de": "An vielen Orten kannst du einen Selbstbedienungs-Waschsalon nutzen (mit Münzen oder Karte) oder deine Wäsche abgeben: Das Personal wäscht, trocknet und faltet sie, meist nach Kilo abgerechnet und nach einem Tag fertig. Die chemische Reinigung ist für empfindliche Stücke wie Anzüge, Mäntel und Wolle gedacht und kostet meist pro Teil. Sag Bescheid, wenn es Flecken gibt, und bewahre den Abholschein auf.",
+  "id": "Di banyak tempat kamu bisa memakai binatu swalayan (dengan koin atau kartu) atau menitipkan cucian agar staf mencuci, mengeringkan, dan melipatnya, biasanya dihitung per kilo dan siap dalam sehari. Dry cleaning untuk pakaian halus seperti jas, mantel, dan wol, biasanya dihitung per potong. Beri tahu jika ada noda dan simpan nota.",
+  "th": "ในหลายที่ คุณใช้ร้านซักผ้าหยอดเหรียญแบบบริการตัวเอง (ใช้เหรียญหรือบัตร) หรือฝากให้พนักงานซัก อบ และพับให้ ซึ่งมักคิดเป็นกิโลและรับได้ภายในหนึ่งวัน ส่วนการซักแห้งใช้กับผ้าบอบบาง เช่น สูท เสื้อโค้ต และผ้าขนสัตว์ มักคิดเป็นชิ้น ควรแจ้งคราบก่อนและเก็บใบรับฝากไว้",
+  "zh": "在许多地方，你可以去自助洗衣店（用硬币或刷卡）自己洗，也可以把衣服交给店员代洗、烘干和折叠，通常按公斤计价，一天后可取。干洗适合西装、大衣和羊毛等娇贵衣物，一般按件收费。请提前说明污渍，并保管好取衣单。",
+  "ja": "多くの地域では、コインやカードで使うセルフサービスのコインランドリーを利用できます。また、スタッフが洗濯・乾燥・たたみまでしてくれる預け入れサービスもあり、多くはキロ単位の料金で、1日ほどで仕上がります。ドライクリーニングはスーツ、コート、ウールなどデリケートな衣類向けで、通常は1点ごとの料金です。汚れは先に伝え、引換券は大切に保管しましょう。",
+  "ko": "많은 곳에서 동전이나 카드로 쓰는 셀프 빨래방을 이용하거나, 직원이 세탁·건조·개기까지 해 주는 맡김 서비스를 이용할 수 있어요. 보통 킬로그램 단위로 계산하고 하루 뒤에 찾을 수 있어요. 드라이클리닝은 정장, 코트, 울처럼 섬세한 옷에 쓰며 보통 한 벌당 요금이에요. 얼룩은 미리 알리고 접수증을 잘 보관하세요.",
+  "hi": "कई जगहों पर आप सेल्फ़-सर्विस लॉन्ड्री (सिक्कों या कार्ड से) में खुद कपड़े धो सकते हैं, या कपड़े देकर स्टाफ़ से धुलवा, सुखवा और तह करवा सकते हैं, जिसका दाम आमतौर पर प्रति किलो होता है और एक दिन में तैयार हो जाते हैं। ड्राई क्लीनिंग सूट, कोट और ऊनी जैसे नाज़ुक कपड़ों के लिए होती है और आमतौर पर प्रति पीस लगती है। दाग़ के बारे में पहले बताएँ और पर्ची संभालकर रखें।",
+  "ar": "في أماكن كثيرة يمكنك استخدام مغسلة ذاتية الخدمة (بالعملات أو البطاقة)، أو تسليم ملابسك للموظفين ليغسلوها ويجففوها ويطووها، وغالبًا يُحسب السعر بالكيلوغرام وتكون جاهزة خلال يوم. أما التنظيف الجاف فهو للملابس الحساسة مثل البدلات والمعاطف والصوف، ويُحسب عادةً لكل قطعة. أخبرهم بالبقع مسبقًا واحتفظ بالإيصال.",
+  "ru": "Во многих местах можно воспользоваться прачечной самообслуживания (за монеты или по карте) или сдать вещи: сотрудники постирают, высушат и сложат их. Обычно цена считается за килограмм, а готово через день. Химчистка нужна для деликатных вещей — костюмов, пальто, шерсти, и обычно оплачивается за предмет. Заранее скажите о пятнах и сохраните талон.",
+  "tr": "Birçok yerde self servis çamaşırhaneyi (bozuk para ya da kartla) kullanabilir veya çamaşırlarını bırakıp görevlilerin yıkamasını, kurutmasını ve katlamasını isteyebilirsin; ücret genellikle kilo başınadır ve bir günde hazır olur. Kuru temizleme takım elbise, mont ve yün gibi hassas parçalar içindir ve genellikle parça başına ücretlendirilir. Lekeleri önceden söyle ve fişini sakla."
+ }
+}

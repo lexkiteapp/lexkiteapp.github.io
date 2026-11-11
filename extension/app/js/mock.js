@@ -137,15 +137,17 @@
         view.innerHTML = `${bar('Listening', `<span class="mk-clock" id="mkClock" role="timer" aria-live="off">00:30</span>`)}
           <div class="card lplayer"><b id="mkState">⏳ ${t('Đọc câu hỏi Part {n}', { n: p.part })}</b><button class="btn sm ghost" id="mkSkip">${t('Nghe ngay')}</button><span class="lnow small muted" id="lNow"></span></div>
           <div class="card" id="lQs"><div class="tiny muted">Part ${p.part} · ${t('Câu {a}–{b}', { a: App.listening.qNums(p)[0], b: App.listening.qNums(p).slice(-1)[0] })}</div>${QE.questionsHtml(p)}
-          <div class="row" style="margin-top:1rem"><button class="btn primary" id="mkNext" disabled>${k < parts.length - 1 ? t('Sang phần tiếp') + ' →' : t('Kết thúc Listening') + ' →'}</button></div></div>`;
+          <div class="row" style="margin-top:1rem"><button class="btn primary" id="mkNext" aria-describedby="mkNextWhy" disabled>${k < parts.length - 1 ? t('Sang phần tiếp') + ' →' : t('Kết thúc Listening') + ' →'}</button><p class="next-why" id="mkNextWhy">${t('Nghe hết phần này để mở nút tiếp')}</p></div></div>`;
         bindQuit(); QE.bind($('#lQs'));
         let started = false;
         const start = () => {
           if (started) return; started = true; clearAll(); $('#mkSkip').remove(); $('#mkClock').textContent = '🔊';
-          $('#mkState').textContent = '🔊 ' + t('Đang phát – chỉ nghe 1 lần');
-          M.player = App.listening.Player(p, { onLine: i => { const l = p.script[i]; const n = $('#lNow'); if (n) n.textContent = !l || l.pause != null ? '' : l.say ? '🎙️ ' + t('Lời dẫn') : '🗣️ ' + ((p.speakers[l.s] || {}).name || ''); }, onEnd: () => { const s = $('#mkState'); if (s) s.textContent = '✓ ' + t('Hết phần nghe – kiểm tra đáp án'); const b = $('#mkNext'); if (b) b.disabled = false; } });
+          // Chỉ ghi "Đang phát" khi THẬT có tiếng (onSound); iOS chặn → nút ▶, lượt nghe 1 lần chưa bị tính (phát tiếp từ đúng câu)
+          $('#mkState').textContent = '⏳ ' + t('Đang tải…');
+          const blockedUI = () => { const s = $('#mkState'); if (!s) return; s.innerHTML = `<button class="btn primary" id="mkTap">▶ ${t('Chạm ▶ để nghe')}</button> <span class="small muted">${t('Âm thanh chưa phát được – chạm để nghe (chưa tính lượt nghe)')}</span>`; $('#mkTap').onclick = () => { s.textContent = '⏳ ' + t('Đang tải…'); M.player.play(); }; };
+          M.player = App.listening.Player(p, { onSound: () => { const s = $('#mkState'); if (s) s.textContent = '🔊 ' + t('Đang phát – chỉ nghe 1 lần'); }, onBlocked: blockedUI, onLine: i => { const l = p.script[i]; const n = $('#lNow'); if (n) n.textContent = !l || l.pause != null ? '' : l.say ? '🎙️ ' + t('Lời dẫn') : '🗣️ ' + ((p.speakers[l.s] || {}).name || ''); }, onEnd: () => { const s = $('#mkState'); if (s) s.textContent = '✓ ' + t('Hết phần nghe – kiểm tra đáp án'); const b = $('#mkNext'); if (b) { b.disabled = false; $('#mkNextWhy')?.remove(); } } });
           M.player.play(0);
-          setTimeout(() => { const b = $('#mkNext'); if (b) b.disabled = false; }, 30000);
+          setTimeout(() => { const b = $('#mkNext'); if (b) { b.disabled = false; $('#mkNextWhy')?.remove(); } }, 30000);
         };
         countdown(30, '#mkClock', start);
         $('#mkSkip').onclick = start;

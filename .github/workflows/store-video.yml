@@ -27,11 +27,15 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/setup-ffmpeg
       - name: Dựng video ${{ matrix.lang }}
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
-          npx playwright install --with-deps chromium
-          sudo apt-get install -y -qq ffmpeg fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core }
+      - name: Dựng video ${{ matrix.lang }} (tiếp)
+        run: |
           bash scripts/build-extension.sh
           LANG_V=${{ matrix.lang }} node scripts/store-video.mjs /tmp/store-video
       - uses: actions/upload-artifact@v4

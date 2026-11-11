@@ -72,5 +72,46 @@
   "words": 38,
   "seconds": 23.7,
   "wpm": 96
+ },
+ "publish": {
+  "title": "What does \"flight\" mean?",
+  "keyword": "flight",
+  "value": "Flight means a journey by plane.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=flight",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"flight\" mean?",
+    "description": "Flight means a journey by plane.\n\nReview your words, free: https://lexkite.com/app/#/review?w=flight\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "flight",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"flight\" mean?\n\nFlight means a journey by plane.\n\nReview your words, free: https://lexkite.com/app/#/review?w=flight"
+   },
+   "instagram": {
+    "caption": "What does \"flight\" mean?\n\nFlight means a journey by plane.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"flight\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a journey by plane. Flight means a journey by plane. Practice it with a free quiz: {link}"
  }
 }

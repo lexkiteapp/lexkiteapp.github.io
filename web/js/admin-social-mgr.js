@@ -54,6 +54,61 @@
     'Sắp đăng (72 giờ)': 'Coming up (72 h)', 'Chưa có bài nào trong lịch – chạy “Lập lịch” ở Kênh & phân phối.': 'Nothing planned – run “Plan” in Channels & distribution.',
     'Đã xếp lịch': 'Planned', 'Đã đẩy lên GrabCast': 'Pushed to GrabCast', 'Đã đăng': 'Published', 'Lỗi': 'Failed', 'Đã hủy': 'Cancelled', 'Webhook GrabCast': 'GrabCast webhook', 'sẵn sàng': 'ready', 'chưa cấu hình': 'not configured',
     'Xong: tạo {c} · lên lịch {s} · chờ duyệt {r} · {n} lượt GrabCast': 'Done: {c} created · {s} scheduled · {r} in review · {n} GrabCast calls',
+    // Bảng điều khiển: Kênh, tạm dừng, xem trước, duyệt bài đầu, nhật ký lỗi
+    '📡 Kênh': '📡 Channels', '🔄 Làm mới kênh': '🔄 Refresh channels', '⏸ Tạm dừng toàn bộ': '⏸ Pause everything', '▶️ Chạy lại': '▶️ Resume', '⏸ Đang tạm dừng': '⏸ Paused',
+    'Autopilot không tạo, không lên lịch bài nào cho tới khi anh bấm Chạy lại. Bài đã gỡ lịch nằm ở cột Chờ duyệt.': 'The autopilot creates and schedules nothing until you press Resume. Unscheduled posts wait in the In review column.',
+    'Tạm dừng TOÀN BỘ autopilot?\n\n• Tắt autopilot: không tạo, không lên lịch bài mới.\n• Gỡ lịch các bài autopilot ĐÃ lên lịch trên GrabCast (tối đa 20 bài mỗi lần bấm) – bài về cột Chờ duyệt, KHÔNG bị xóa.\n• Bài anh tự soạn tay không bị đụng tới.\n\nBật lại bất cứ lúc nào bằng nút Chạy lại.': 'Pause the WHOLE autopilot?\n\n• Turns the autopilot off: no new posts are created or scheduled.\n• Unschedules autopilot posts ALREADY scheduled on GrabCast (up to 20 per click) – they go back to In review and are NOT deleted.\n• Posts you composed by hand are not touched.\n\nTurn it back on any time with Resume.',
+    'Chạy lại autopilot? Lượt nền kế tiếp (mỗi 2 giờ) sẽ lấy bài đến hạn. Bài đã gỡ lịch nằm ở cột Chờ duyệt – anh duyệt lại để đăng.': 'Resume the autopilot? The next background run (every 2 hours) picks up due posts. Unscheduled posts are in In review – approve them again to publish.',
+    '✓ Đã tạm dừng toàn bộ: gỡ lịch {u} bài · còn {l} bài chưa gỡ.': '✓ Everything paused: {u} posts unscheduled · {l} still scheduled.', 'Lỗi gỡ lịch: {e}': 'Unschedule errors: {e}', '⏸ Gỡ tiếp {n} bài': '⏸ Unschedule {n} more',
+    '✓ Autopilot đã chạy lại.': '✓ Autopilot resumed.', 'Autopilot đang chạy': 'Autopilot running',
+    'Đã nối {n}': ['{n} connected', '{n} connected'], 'Chưa kết nối': 'Not connected', 'Autopilot bật': 'Autopilot on', 'Autopilot tắt': 'Autopilot off', 'Chờ anh duyệt bài đầu': 'Waiting for your first-post approval',
+    '✅ Duyệt bài đầu': '✅ Approve the first post', '✅ Mở để duyệt': '✅ Open to approve', 'Chưa có bài chờ duyệt – bài đầu tiên sẽ vào cột Chờ duyệt để anh duyệt.': 'No post waiting yet – the first one will land in In review for you to approve.',
+    'Chưa có trang nào.': 'No pages yet.', 'chưa đồng bộ': 'not synced yet', 'Đã gỡ khỏi GrabCast': 'Removed from GrabCast', 'Ngôn ngữ trang: {l}': 'Page language: {l}',
+    'Không nhận ra ngôn ngữ từ tên – coi là trang chung tiếng Anh. Đặt tên “Lexkite <ngôn ngữ>” để định tuyến đúng.': 'Language not recognised from the name – treated as the shared English page. Name it “Lexkite <language>” to route correctly.',
+    'Token Meta hết hạn {d}': 'Meta token expires {d}', 'Token Meta không hết hạn': 'Meta token never expires', 'Token Meta cần kết nối lại': 'Meta token needs reconnecting', 'Meta tạm dừng': 'Meta paused',
+    '🔗 Kết nối': '🔗 Connect', '📋 Hướng dẫn': '📋 Guide', 'Mở GrabCast ↗': 'Open GrabCast ↗', 'Kết nối {p} trên GrabCast': 'Connect {p} on GrabCast',
+    'Bấm <b>Mở GrabCast</b> (cửa sổ riêng) và đăng nhập grabcast.click.': 'Press <b>Open GrabCast</b> (separate window) and sign in to grabcast.click.',
+    'Chọn workspace <b>Lexkite (#{ws})</b> ở góc trên – bắt buộc, nếu không kênh sẽ vào workspace khác.': 'Pick the <b>Lexkite (#{ws})</b> workspace at the top – required, otherwise the channel lands in another workspace.',
+    'Vào <b>Accounts</b> → bấm <b>Connect {p}</b>.': 'Go to <b>Accounts</b> → press <b>Connect {p}</b>.',
+    'Đăng nhập Facebook bằng tài khoản quản trị các Page → tích đúng các Page Lexkite cần đăng.': 'Sign in to Facebook with the account that admins the Pages → tick exactly the Lexkite Pages to post to.',
+    'Đăng nhập qua Facebook → chọn tài khoản Instagram Business/Creator đã liên kết với Page Lexkite cùng ngôn ngữ.': 'Sign in through Facebook → pick the Instagram Business/Creator account linked to the Lexkite Page of the same language.',
+    'Đăng nhập TikTok của Lexkite → cho phép đăng video.': 'Sign in to Lexkite’s TikTok → allow video posting.', 'Đăng nhập Threads bằng tài khoản Instagram của Lexkite → cho phép đăng bài.': 'Sign in to Threads with Lexkite’s Instagram account → allow posting.',
+    'Chỉ nối YouTube trên GrabCast khi GrabCast đã được YouTube duyệt – trước đó video bị khóa Riêng tư.': 'Only connect YouTube on GrabCast once YouTube has approved GrabCast – until then videos are locked Private.',
+    'Đặt tên theo bộ 16 fanpage: <b>Lexkite</b> (tiếng Anh, trang chung) hoặc <b>Lexkite + tên ngôn ngữ</b>. Lexkite nhận ngôn ngữ từ tên để đăng đúng clip.': 'Name it per the 16-page set: <b>Lexkite</b> (English, shared page) or <b>Lexkite + language name</b>. Lexkite reads the language from the name to post the right clips.',
+    'Cấp đủ quyền được hỏi → Lưu, rồi đóng cửa sổ GrabCast: bảng Kênh tự làm mới.': 'Grant every requested permission → Save, then close the GrabCast window: the Channels panel refreshes itself.',
+    'Tên trang:': 'Page names:', '⏳ Đang chờ anh kết nối trong cửa sổ GrabCast… đóng cửa sổ khi xong, bảng tự làm mới.': '⏳ Waiting for you to connect in the GrabCast window… close it when done and this panel refreshes.',
+    'Trình duyệt chặn cửa sổ bật lên – bấm Mở GrabCast trong hướng dẫn hoặc cho phép popup.': 'The browser blocked the popup – use Open GrabCast in the guide or allow popups.',
+    'Đang làm mới kênh…': 'Refreshing channels…', '✓ Kênh mới: {s}': '✓ New channels: {s}', '✓ Đã làm mới – chưa thấy kênh mới.': '✓ Refreshed – no new channel yet.', 'Không đồng bộ được GrabCast ({e}) – hiện dữ liệu đã lưu.': 'Could not sync GrabCast ({e}) – showing saved data.',
+    'Hết 15 phút chờ – bấm Làm mới kênh khi đã kết nối xong.': 'Stopped waiting after 15 minutes – press Refresh channels once you are done.',
+    'Qua GrabCast: chờ GrabCast được YouTube duyệt': 'Via GrabCast: waiting for YouTube to approve GrabCast', 'Kênh YouTube trên GrabCast: {s}': 'YouTube channels on GrabCast: {s}',
+    'Tự bật YouTube khi có kênh YouTube trên GrabCast (bài đầu vẫn chờ anh duyệt)': 'Turn YouTube on automatically once a GrabCast YouTube channel exists (the first post still waits for your approval)',
+    '🎬 Trong lúc chờ: YouTube thủ công': '🎬 Meanwhile: YouTube by hand', 'Tab Video › Gói chờ đăng tay: tải gói, chép tiêu đề/mô tả/thẻ/hashtag/giờ hẹn, mở Studio.': 'Video tab › Manual upload packs: download the pack, copy title/description/tags/hashtags/schedule time, open Studio.',
+    'Dự phòng: API YouTube trực tiếp': 'Fallback: direct YouTube API', '🔗 Kết nối API trực tiếp': '🔗 Connect the direct API', 'Kênh API: {s}': 'API channels: {s}',
+    'Chỉ dùng khi thật cần: app chưa qua audit của Google nên video tải bằng API bị khóa Riêng tư và KHÔNG chuyển Công khai được (phải tải lại).': 'Only when really needed: the app has not passed Google’s audit, so API uploads are locked Private and CANNOT be made Public (they must be re-uploaded).',
+    'Đang mở trang đăng nhập Google…': 'Opening the Google sign-in page…', 'Kết nối YouTube lỗi: {e}': 'YouTube connection failed: {e}',
+    '👁 Xem trước': '👁 Preview', 'Xem trước': 'Preview', '👁 Xem trước: {c}': '👁 Preview: {c}', 'Chỉ xem trước – 0 lượt GrabCast, không đăng gì.': 'Preview only – 0 GrabCast calls, nothing is posted.',
+    'Trang đích': 'Target page', 'Chưa có trang đích': 'No target page', 'chưa nối kênh': 'no channel connected', 'không có trang cùng ngôn ngữ ({l})': 'no page in the same language ({l})', 'Ngôn ngữ clip': 'Clip language',
+    'Caption': 'Caption', 'Hashtag': 'Hashtags', 'Ảnh bìa': 'Cover', 'Vấn đề': 'Issues', 'Không có vấn đề.': 'No issues.',
+    'Instagram: cover_url (đường Meta) – GrabCast chưa có tùy chọn bìa': 'Instagram: cover_url (Meta route) – GrabCast has no cover option yet', 'YouTube: đặt ảnh bìa qua API trực tiếp': 'YouTube: cover set through the direct API',
+    'GrabCast chưa có tùy chọn ảnh bìa': 'GrabCast has no cover option yet', 'Clip không có ảnh bìa': 'The clip has no cover image',
+    'Clip thiếu tiêu đề/điểm học – sẽ không đăng': 'The clip has no title/learning point – it will not be posted', 'Hashtag bị cắt khỏi caption': 'Hashtags were cut off the caption', 'Caption dài quá giới hạn nền tảng': 'The caption is over the platform limit',
+    'Thiếu caption': 'No caption', 'Thiếu tiêu đề': 'No title', 'Số hashtag vượt giới hạn nền tảng': 'More hashtags than the platform allows', 'YouTube không nhận ký tự < >': 'YouTube rejects the < > characters',
+    '🧾 Nhật ký lỗi': '🧾 Error log', 'Lỗi bền của autopilot (50 mục gần nhất) và lý do bỏ qua ở lượt chạy cuối – mới nhất ở trên.': 'Persistent autopilot errors (last 50) and the reasons posts were skipped in the last run – newest first.',
+    'Lỗi gần đây': 'Recent errors', 'Chưa có lỗi nào.': 'No errors so far.', 'Lần chạy cuối bỏ qua': 'Skipped in the last run', 'Lần chạy cuối không bỏ qua bài nào.': 'The last run skipped nothing.',
+    // lý do bỏ qua (state.last_run.skipped[].why)
+    'Clip chưa được duyệt (hoặc đã bị loại/tạm dừng) – không đăng.': 'The clip is not approved (or was rejected/paused) – not posted.', 'Kênh không còn trên GrabCast – kết nối lại ở bảng Kênh.': 'The channel is gone from GrabCast – reconnect it in the Channels panel.',
+    'Kênh cần kết nối lại trên GrabCast.': 'The channel needs reconnecting on GrabCast.', 'Kênh hết lượt đăng 24 giờ – để lượt sau.': 'The channel hit its 24 h posting limit – left for a later run.',
+    'Nội dung không qua kiểm tra của nền tảng (độ dài/định dạng).': 'The content failed the platform checks (length/format).', 'Clip thiếu tiêu đề/điểm học – không đăng.': 'The clip has no title/learning point – not posted.',
+    'Đang chờ anh duyệt.': 'Waiting for your approval.', 'Lỗi lặp lại 2 lần – dừng thử, chờ anh xem (nút Mở lại).': 'Failed twice – retries stopped until you check it (Reset button).', 'Bài đã có trên GrabCast – không tạo trùng.': 'The post already exists on GrabCast – no duplicate created.',
+    'Bài này đang đi đường Meta.': 'This post is going through Meta.', 'Lỗi tự xếp lịch.': 'Automatic planning failed.', 'Lỗi tự duyệt clip.': 'Automatic clip approval failed.', 'Quá giờ đăng hơn 12 giờ – bỏ bài này.': 'More than 12 h past the slot – this post was dropped.',
+    'Bài đang được xử lý ở lượt khác.': 'The post is being handled by another run.', 'Instagram đang xử lý video – lượt sau đăng tiếp.': 'Instagram is still processing the video – the next run continues.', 'Container Instagram hết hạn – tạo lại ở lượt sau.': 'The Instagram container expired – recreated next run.',
+    'Instagram hết lượt đăng 24 giờ.': 'Instagram hit its 24 h posting limit.', 'Kênh chưa có token Meta.': 'The channel has no Meta token.', 'Kênh Meta đang tạm dừng (token/cầu dao).': 'The Meta channel is paused (token/breaker).',
+    'Meta lỗi lặp lại – dừng thử, chờ anh xem.': 'Meta failed repeatedly – retries stopped until you check it.', 'Chờ tới giờ đăng (Meta).': 'Waiting for the slot (Meta).',
+    'GrabCast không tạo được bài (mã {c}).': 'GrabCast could not create the post (code {c}).', 'Meta báo lỗi ({c}).': 'Meta returned an error ({c}).', 'GrabCast không đọc được bài (mã {c}).': 'GrabCast could not read the post (code {c}).',
+    'GrabCast từ chối khi kiểm tra ({c}).': 'GrabCast rejected the post on validation ({c}).', 'Xung đột trạng thái trên GrabCast ({c}).': 'State conflict on GrabCast ({c}).', 'GrabCast không lên lịch được (mã {c}).': 'GrabCast could not schedule it (code {c}).', 'Lý do khác ({c}).': 'Other reason ({c}).',
+    // loại lỗi trong nhật ký (state.log[].k)
+    'Bài đăng lỗi': 'Post failed', 'Dừng thử lại': 'Retries stopped', 'Clip thiếu tiêu đề': 'Clip missing title', 'Chưa nối kênh': 'No channel connected', 'Chưa có clip duyệt': 'No approved clips', 'Lịch trống': 'Nothing planned',
+    'Đăng trùng': 'Duplicate post', 'Kho không có clip mới': 'No new clips', 'Danh mục clip cũ': 'Clip manifest stale', 'Chuyển sang Meta': 'Switched to Meta', 'Đã hồi phục': 'Recovered', 'Khóa GrabCast lỗi': 'GrabCast key error', 'Token Meta': 'Meta token', 'Meta lỗi': 'Meta down',
     // Hàng đợi
     '🤖 Hàng đợi tự động': '🤖 Auto queue', 'Rải clip ĐÃ DUYỆT trong kho Lexkite vào khung giờ vàng từng kênh, theo trần/ngày, giãn cách và chống trùng. Kết quả là bài NHÁP chờ duyệt – không tự đăng.': 'Spread APPROVED Lexkite clips across each channel’s prime slots, respecting daily caps, spacing and duplicate rules. Results are DRAFTS awaiting approval – nothing auto-publishes.',
     'Luật chống spam': 'Anti-spam rules', 'Tối đa/ngày': 'Max/day', 'Giãn cách tối thiểu (giờ)': 'Minimum gap (hours)', 'Khung giờ (giờ địa phương của kênh)': 'Slots (channel local time)', 'Múi giờ mặc định': 'Default time zone',
@@ -67,7 +122,7 @@
     'Tất cả nền tảng': 'All platforms', 'Mọi trạng thái': 'Any status', 'Nhóm theo': 'Group by', 'Không nhóm': 'No grouping', 'Nền tảng': 'Platform', 'Nhóm': 'Group', 'Sắp xếp': 'Sort', 'Tên': 'Name', 'Dùng 24 giờ': '24 h usage', 'Bài gần nhất': 'Last post',
     '24 giờ': '24 h', 'Hết hạn': 'Expires', 'Quyền': 'Permissions', 'đăng': 'publish', 'số liệu': 'insights', 'đọc bình luận': 'read comments', 'trả lời': 'reply', 'bình luận đầu': 'first comment', 'thiếu quyền: {s}': 'missing: {s}',
     'Workspace Lexkite (#{ws}) chưa có kênh nào.': 'The Lexkite workspace (#{ws}) has no channels yet.', 'Kết nối lại ↗': 'Reconnect ↗', '(chưa nhóm)': '(ungrouped)',
-    'YouTube & TikTok trên GrabCast đang “Riêng tư đến khi được duyệt”: bài lên ở chế độ riêng tư (TikTok SELF_ONLY, YouTube private) cho tới khi Google/TikTok duyệt app GrabCast.': 'YouTube & TikTok on GrabCast are “Private until review”: posts go up private (TikTok SELF_ONLY, YouTube private) until Google/TikTok approve the GrabCast app.',
+    'YouTube trên GrabCast đang “Riêng tư đến khi được duyệt”: bài lên ở chế độ private cho tới khi Google duyệt app GrabCast. TikTok đã được duyệt: bài lên công khai.': 'YouTube on GrabCast is “Private until review”: posts go up private until Google approves the GrabCast app. TikTok is approved: posts go up public.',
     '🔗 Kết nối kênh': '🔗 Connect channels', 'Kết nối Facebook & Instagram': 'Connect Facebook & Instagram', 'Kết nối TikTok': 'Connect TikTok', 'Kết nối YouTube': 'Connect YouTube', 'Kết nối Threads': 'Connect Threads',
     'Đăng nhập dùng app Meta đã được duyệt của GrabCast – Lexkite không cần app Meta riêng.': 'Sign-in uses GrabCast’s approved Meta app – Lexkite needs no Meta app of its own.',
     '⏳ Đang chờ kết nối trong cửa sổ GrabCast… (tự nhận kênh mới)': '⏳ Waiting for the connection in the GrabCast window… (new channels are detected automatically)',
@@ -90,15 +145,47 @@
     // Chọn clip, AI, bộ kênh
     '📚 Kho Lexkite (đã duyệt)': '📚 Lexkite library (approved)', 'Tìm clip…': 'Search clips…', 'Chưa có clip đã duyệt.': 'No approved clips yet.', 'đã dùng trên {n} kênh': 'used on {n} channels', 'Chọn': 'Pick',
     '✨ Gợi ý AI': '✨ AI suggestions', 'Hook gợi ý': 'Suggested hooks', 'Dùng caption này': 'Use this caption', 'Thêm hashtag': 'Add hashtags', 'Dùng làm bình luận đầu': 'Use as first comment', '⏳ AI đang viết…': '⏳ AI is writing…',
+    // Bình luận đầu + click về web app (§6c)
+    '💬 Bình luận đầu & click về web app (28 ngày)': '💬 First comment & clicks to the web app (28 days)',
+    'Mỗi bài tối đa 1 bình luận của kênh mang link (FB, YouTube: bình luận · Threads: tự trả lời) – nội dung viết lúc sản xuất. Instagram/TikTok không bình luận link (không bấm được): caption ghi "link in bio". Không nền tảng nào có API ghim bình luận.': 'At most 1 channel comment with the link per post (FB, YouTube: comment · Threads: self-reply), written at production. Instagram/TikTok get no link comment (not clickable): the caption says "link in bio". No platform offers an API to pin comments.',
+    'Bật bình luận đầu': 'First comment on', 'Tối đa/kênh/ngày': 'Max per channel per day', 'Click': 'Clicks', 'Từ bình luận': 'From comments', 'Từ link bio': 'From bio links',
+    'Theo nền tảng': 'By platform', 'Clip nhiều click nhất': 'Top clips by clicks', 'Chưa có click nào.': 'No clicks yet.', 'Bài có bình luận đã duyệt tay {m}/{n}': 'Posts with a comment approved by hand {m}/{n}',
+    'Bình luận đường Meta': 'Comments via Meta', 'Clip chưa có bình luận đầu (viết lúc sản xuất)': 'Clip has no first comment (written at production)', 'Bình luận đầu phải có đúng 1 chỗ {link}': 'First comment needs exactly one {link}', 'Bình luận đầu có link trần': 'First comment has a raw link', 'Bình luận đầu có hashtag/@': 'First comment has a hashtag/@', 'Bình luận đầu có câu mồi': 'First comment has bait wording', 'Bình luận đầu dài/ngắn quá': 'First comment too long/short', 'Bình luận đầu quá giới hạn nền tảng': 'First comment over the platform limit', 'Id clip sai dạng': 'Bad clip id', 'Bình luận đầu': 'First comment', 'Không có (clip chưa có bình luận viết lúc sản xuất)': 'None (this clip has no comment written at production)', 'Link bio (dán vào hồ sơ)': 'Bio link (paste into the profile)', 'Bình luận hôm nay': 'Comments today',
     'Bộ kênh:': 'Channel sets:', 'Tất cả FB': 'All FB', 'Tất cả IG': 'All IG', 'Tất cả': 'All', '💾 Lưu bộ': '💾 Save as set', 'Tên bộ kênh:': 'Set name:', 'Xóa bộ “{n}”?': 'Delete set “{n}”?', 'Chọn kênh trước.': 'Pick channels first.',
   };
-  const CSS = `.smg-kb{display:grid;grid-template-columns:repeat(7,minmax(180px,1fr));gap:.5rem;overflow-x:auto;padding-bottom:.4rem}.smg-col{background:var(--bg2,rgba(127,127,127,.06));border-radius:10px;padding:.45rem;min-height:120px}.smg-col h4{margin:0 0 .4rem;font-size:.8rem;display:flex;justify-content:space-between}.smg-col.drop{outline:2px dashed var(--accent,#0d9488)}
-.smg-card{background:var(--card,#fff);border:1px solid var(--line);border-radius:8px;padding:.45rem;margin-bottom:.4rem;font-size:.78rem;cursor:grab}.smg-card b{display:block;overflow-wrap:anywhere}.smg-card .acts{display:flex;flex-wrap:wrap;gap:.25rem;margin-top:.35rem}.smg-card .warn-t{color:#b45309}
-.smg-bar{height:6px;border-radius:3px;background:rgba(127,127,127,.2);overflow:hidden;min-width:60px}.smg-bar i{display:block;height:100%;background:#0d9488}.smg-bar i.w{background:#d97706}.smg-bar i.b{background:#dc2626}
+  const SMG_CSS = `.smg-kb{display:grid;grid-template-columns:repeat(7,minmax(180px,1fr));gap:.5rem;overflow-x:auto;padding-bottom:.4rem}.smg-col{background:var(--bg2,rgba(127,127,127,.06));border-radius:10px;padding:.45rem;min-height:120px}.smg-col h4{margin:0 0 .4rem;font-size:.8rem;display:flex;justify-content:space-between}.smg-col.drop{outline:2px dashed var(--primary)}
+.smg-card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.45rem;margin-bottom:.4rem;font-size:.78rem;cursor:grab}.smg-card b{display:block;overflow-wrap:anywhere}.smg-card .acts{display:flex;flex-wrap:wrap;gap:.25rem;margin-top:.35rem}.smg-card .warn-t{color:var(--a-warn)}
+.smg-bar{height:6px;border-radius:3px;background:rgba(127,127,127,.2);overflow:hidden;min-width:60px}.smg-bar i{display:block;height:100%;background:var(--a-ok)}.smg-bar i.w{background:var(--a-warn)}.smg-bar i.b{background:var(--a-bad)}
 .smg-flt{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin:.5rem 0}.smg-chip{display:inline-block;font-size:.68rem;padding:.05rem .35rem;border-radius:6px;background:rgba(127,127,127,.14);margin:.1rem .15rem 0 0}
-.smg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.4rem}.smg-clip{border:1px solid var(--line);border-radius:8px;padding:.4rem;font-size:.75rem;text-align:left;background:none;color:inherit;cursor:pointer}.smg-clip:hover{border-color:var(--accent,#0d9488)}
+.smg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.4rem}.smg-clip{border:1px solid var(--line);border-radius:8px;padding:.4rem;font-size:.75rem;text-align:left;background:none;color:inherit;cursor:pointer}.smg-clip:hover{border-color:var(--primary)}
 .smg-scroll{max-height:60vh;overflow:auto}.smg-kpi{display:flex;flex-wrap:wrap;gap:.6rem}.smg-kpi div{border:1px solid var(--line);border-radius:8px;padding:.4rem .6rem;min-width:90px}.smg-kpi b{display:block;font-size:1.05rem}
-@media (max-width:640px){.smg-kb{grid-template-columns:repeat(7,80vw)}}`;
+/* Bảng điều khiển Autopilot (Stitch adm-social): thẻ kênh, thanh tạm dừng, xem trước, nhật ký – chỉ token admin (tự đúng sáng/tối) */
+.smg-hd{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:space-between}.smg-hd h3{margin:0}.smg-hd .acts{display:flex;flex-wrap:wrap;gap:.4rem}
+.smg-lbl{font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:.8rem 0 .35rem}
+.smg-stop{background:var(--a-bad-bg);color:var(--a-bad);border:1.5px solid color-mix(in srgb,var(--a-bad) 45%,transparent);font-weight:700}.smg-stop:hover{background:color-mix(in srgb,var(--a-bad) 18%,var(--surface))}
+.smg-banner{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between;background:var(--a-warn-bg);color:var(--a-warn);border:1px solid color-mix(in srgb,var(--a-warn) 35%,transparent);border-radius:var(--a-r,14px);padding:.7rem .9rem;margin:.7rem 0}.smg-banner b{font-size:1rem}.smg-banner p{margin:.15rem 0 0;color:var(--text)}
+.smg-res{border-left:3px solid var(--a-info);background:var(--a-info-bg);border-radius:0 var(--a-r-sm,10px) var(--a-r-sm,10px) 0;padding:.5rem .7rem;margin:.5rem 0;font-size:.85rem}
+.smg-chs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.7rem;margin-top:.6rem}
+.smg-pc{background:var(--surface);border:1px solid var(--line);border-radius:var(--a-r,14px);padding:.75rem .85rem;box-shadow:var(--a-card-shadow,none);display:flex;flex-direction:column;gap:.45rem;min-width:0}
+.smg-pc header{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center}.smg-pc header b{font-size:.95rem;margin-right:auto}.smg-pi{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--surface-2);font-size:1rem}
+.smg-first{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;background:var(--a-warn-bg);border-radius:var(--a-r-sm,10px);padding:.4rem .5rem}
+.smg-accs{list-style:none;margin:0;padding:0;display:grid;gap:.3rem}.smg-accs li{display:flex;flex-wrap:wrap;gap:.3rem;align-items:center;font-size:.82rem;border-top:1px solid color-mix(in srgb,var(--line) 70%,transparent);padding-top:.3rem;min-width:0}.smg-accs li>span:first-child{font-weight:600;overflow-wrap:anywhere;margin-right:auto}
+.smg-acts{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:auto}.smg-steps{margin:.2rem 0;padding-left:1.25rem;font-size:.82rem;line-height:1.55}.smg-steps li{margin:.15rem 0}
+.smg-guide{border:1px dashed color-mix(in srgb,var(--primary) 45%,var(--line));border-radius:var(--a-r-sm,10px);padding:.5rem .6rem;background:color-mix(in srgb,var(--primary) 5%,transparent)}
+.smg-names{display:flex;flex-wrap:wrap;gap:.2rem;margin:.3rem 0}.smg-yt{border-top:1px solid var(--line);padding-top:.45rem}.smg-yt details summary{cursor:pointer;font-size:.82rem}
+.smg-pv{border:1px solid var(--line);border-radius:var(--a-r,14px);padding:.7rem;margin:.6rem 0;background:var(--surface)}.smg-ptabs{display:flex;flex-wrap:wrap;gap:.3rem;margin:.5rem 0}
+.smg-ptabs button{border:1.5px solid var(--line);background:var(--surface);color:inherit;font:inherit;font-size:.8rem;font-weight:600;border-radius:999px;padding:.3rem .7rem;cursor:pointer}.smg-ptabs button[aria-selected=true]{border-color:var(--primary);background:color-mix(in srgb,var(--primary) 12%,transparent)}
+.smg-cap{white-space:pre-line;overflow-wrap:anywhere;font-size:.86rem;background:var(--surface-2);border-radius:var(--a-r-sm,10px);padding:.55rem .65rem;max-height:240px;overflow:auto}
+.smg-cnt{font-size:.75rem;font-weight:700;font-variant-numeric:tabular-nums;color:var(--a-ok)}.smg-cnt.w{color:var(--a-warn)}.smg-cnt.x{color:var(--a-bad)}
+.smg-log{list-style:none;margin:0;padding:0;display:grid;gap:.35rem}.smg-log li{display:grid;grid-template-columns:auto 1fr;gap:.15rem .6rem;font-size:.84rem;border-left:3px solid var(--a-bad);background:var(--surface-2);border-radius:0 8px 8px 0;padding:.4rem .6rem;overflow-wrap:anywhere}.smg-log li.sk{border-left-color:var(--a-warn)}.smg-log time,.smg-log .n{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.75rem;white-space:nowrap}
+.smg-tw{overflow-x:auto;max-width:100%}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .smg-pc,:root:not([data-theme="light"]) .smg-pv{border-color:color-mix(in srgb,var(--line) 70%,var(--text) 12%)}:root:not([data-theme="light"]) .smg-banner{border-color:color-mix(in srgb,var(--a-warn) 55%,transparent)}}
+:root[data-theme="dark"] .smg-pc,:root[data-theme="dark"] .smg-pv{border-color:color-mix(in srgb,var(--line) 70%,var(--text) 12%)}:root[data-theme="dark"] .smg-banner{border-color:color-mix(in srgb,var(--a-warn) 55%,transparent)}
+@media (max-width:640px){.smg-kb{grid-template-columns:repeat(7,80vw)}.smg-chs{grid-template-columns:1fr}.smg-hd .acts,.smg-acts{width:100%}.smg-hd .acts .btn,.smg-acts .btn,.smg-banner .btn{flex:1 1 auto}
+.smg-ap .btn,.smg-ch .btn,.smg-lg .btn,.smg-pv .btn,.smg-ptabs button{min-height:44px}.smg-ch input[type=checkbox],.smg-ap input[type=checkbox]{width:22px;height:22px}
+.smg-tc thead{display:none}.smg-tc,.smg-tc tbody,.smg-tc tr,.smg-tc td{display:block;width:100%}.smg-tc tr{border:1px solid var(--line);border-radius:var(--a-r-sm,10px);padding:.35rem .5rem;margin-bottom:.45rem;box-sizing:border-box}
+.smg-tc td{border:0;padding:.2rem 0;display:flex;flex-wrap:wrap;gap:.3rem;align-items:center}.smg-tc td[data-l]::before{content:attr(data-l);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);min-width:5.5rem}
+.smg-log li{grid-template-columns:1fr}}`;
   const PI = { facebook_page: '📘', instagram: '📸', tiktok: '🎵', youtube: '▶️', threads: '🧵' }, PN = { facebook_page: 'Facebook Page', instagram: 'Instagram', tiktok: 'TikTok', youtube: 'YouTube', threads: 'Threads' };
   const COLS = [['idea', '💡 Ý tưởng'], ['draft', '📝 Nháp'], ['review', '👀 Chờ duyệt'], ['approved', '✅ Đã duyệt'], ['scheduled', '🕒 Đã lên lịch'], ['published', '🚀 Đã đăng'], ['failed', '⚠️ Lỗi']];
   const HS = { ok: ['ok', 'Hoạt động'], reconnect: ['bad', 'Cần kết nối lại'], expiring: ['warn', 'Sắp hết hạn'], near_limit: ['warn', 'Gần trần 24 giờ'], limit: ['bad', 'Hết lượt 24 giờ'], private_only: ['muted', 'Chỉ riêng tư (chờ duyệt app)'] };
@@ -109,16 +196,35 @@
   const parseQueueCsv = t => String(t || '').split(/\r?\n/).map(l => l.split(/[,\t]/).map(x => x.trim())).filter(c => /^[a-z0-9-]{3,120}$/.test(c[0] || '') && c[1] && c[2]).map(c => ({ clip: c[0], account_ids: c[1].split(/[;|\s]+/).filter(x => /^[A-Za-z0-9_-]{1,40}$/.test(x)), at: +new Date(c[2]) })).filter(x => x.account_ids.length && x.at > Date.now());
   const rate = r => (r.views ? ((r.saves || 0) * 3 + (r.shares || 0) * 4 + (r.comments || 0) * 2 + (r.likes || 0)) / r.views : 0);
   const sumBy = (rows, key) => { const m = new Map(); for (const r of rows) { const k = key(r) || '–'; const o = m.get(k) || m.set(k, { k, views: 0, likes: 0, comments: 0, saves: 0, shares: 0, watch_s: 0, n: 0 }).get(k); for (const f of ['views', 'likes', 'comments', 'saves', 'shares', 'watch_s']) o[f] += +r[f] || 0; o.n++; } return [...m.values()].sort((a, b) => b.views - a.views); };
+  // Bảng điều khiển Autopilot: thứ tự nền tảng, tên ngôn ngữ (bộ 16 fanpage), lý do bỏ qua, loại lỗi nhật ký, vấn đề khi xem trước
+  const PAUSE_Q = 'Tạm dừng TOÀN BỘ autopilot?\n\n• Tắt autopilot: không tạo, không lên lịch bài mới.\n• Gỡ lịch các bài autopilot ĐÃ lên lịch trên GrabCast (tối đa 20 bài mỗi lần bấm) – bài về cột Chờ duyệt, KHÔNG bị xóa.\n• Bài anh tự soạn tay không bị đụng tới.\n\nBật lại bất cứ lúc nào bằng nút Chạy lại.'; // hỏi trước khi Tạm dừng toàn bộ (EN: cùng khóa trong EN)
+  const CH_PLATS = ['facebook_page', 'instagram', 'tiktok', 'threads', 'youtube'];
+  const LANGN = { en: 'English', vi: 'Tiếng Việt', es: 'Español', pt: 'Português', fr: 'Français', de: 'Deutsch', id: 'Bahasa Indonesia', th: 'ไทย', zh: '中文', ja: '日本語', ko: '한국어', hi: 'हिन्दी', ar: 'العربية', ru: 'Русский', tr: 'Türkçe' };
+  const GSTEP = { facebook_page: 'Đăng nhập Facebook bằng tài khoản quản trị các Page → tích đúng các Page Lexkite cần đăng.', instagram: 'Đăng nhập qua Facebook → chọn tài khoản Instagram Business/Creator đã liên kết với Page Lexkite cùng ngôn ngữ.',
+    tiktok: 'Đăng nhập TikTok của Lexkite → cho phép đăng video.', threads: 'Đăng nhập Threads bằng tài khoản Instagram của Lexkite → cho phép đăng bài.', youtube: 'Chỉ nối YouTube trên GrabCast khi GrabCast đã được YouTube duyệt – trước đó video bị khóa Riêng tư.' };
+  const SKIP = { 'clip-not-approved': 'Clip chưa được duyệt (hoặc đã bị loại/tạm dừng) – không đăng.', 'account-gone': 'Kênh không còn trên GrabCast – kết nối lại ở bảng Kênh.', reconnect: 'Kênh cần kết nối lại trên GrabCast.',
+    limit: 'Kênh hết lượt đăng 24 giờ – để lượt sau.', invalid: 'Nội dung không qua kiểm tra của nền tảng (độ dài/định dạng).', 'no-metadata': 'Clip thiếu tiêu đề/điểm học – không đăng.', 'waiting-approval': 'Đang chờ anh duyệt.',
+    'gave-up': 'Lỗi lặp lại 2 lần – dừng thử, chờ anh xem (nút Mở lại).', exists: 'Bài đã có trên GrabCast – không tạo trùng.', meta: 'Bài này đang đi đường Meta.', 'plan-error': 'Lỗi tự xếp lịch.', 'auto-queue-error': 'Lỗi tự duyệt clip.',
+    'too-late': 'Quá giờ đăng hơn 12 giờ – bỏ bài này.', locked: 'Bài đang được xử lý ở lượt khác.', 'ig-processing': 'Instagram đang xử lý video – lượt sau đăng tiếp.', 'ig-expired': 'Container Instagram hết hạn – tạo lại ở lượt sau.',
+    'ig-limit': 'Instagram hết lượt đăng 24 giờ.', 'meta-no-token': 'Kênh chưa có token Meta.', 'meta-channel-paused': 'Kênh Meta đang tạm dừng (token/cầu dao).', 'meta-gave-up': 'Meta lỗi lặp lại – dừng thử, chờ anh xem.', 'meta-wait': 'Chờ tới giờ đăng (Meta).' };
+  const SKIP_PRE = [['create-', 'GrabCast không tạo được bài (mã {c}).'], ['get-', 'GrabCast không đọc được bài (mã {c}).'], ['validate:', 'GrabCast từ chối khi kiểm tra ({c}).'], ['conflict-', 'Xung đột trạng thái trên GrabCast ({c}).'], ['schedule-', 'GrabCast không lên lịch được (mã {c}).'], ['meta-', 'Meta báo lỗi ({c}).']];
+  /** Mã lý do bỏ qua → [chuỗi VI, biến] (dịch qua M ở nơi dùng). */
+  const skipWhy = w => { w = String(w || ''); if (Object.prototype.hasOwnProperty.call(SKIP, w)) return [SKIP[w]]; const x = SKIP_PRE.find(([k]) => w.startsWith(k)); return x ? [x[1], { c: w.slice(x[0].length) }] : ['Lý do khác ({c}).', { c: w || '?' }]; };
+  const LOGK = { 'post-failed': 'Bài đăng lỗi', 'gave-up': 'Dừng thử lại', 'no-metadata': 'Clip thiếu tiêu đề', 'no-channels': 'Chưa nối kênh', 'no-approved': 'Chưa có clip duyệt', 'nothing-planned': 'Lịch trống', 'dup-published': 'Đăng trùng',
+    'no-new-clips': 'Kho không có clip mới', 'manifest-stale': 'Danh mục clip cũ', failover: 'Chuyển sang Meta', recovered: 'Đã hồi phục', 'gc-auth': 'Khóa GrabCast lỗi', 'meta-token': 'Token Meta', 'meta-down': 'Meta lỗi' };
+  const ISS = { 'no-metadata': 'Clip thiếu tiêu đề/điểm học – sẽ không đăng', 'hashtag-cut': 'Hashtag bị cắt khỏi caption', 'too-long': 'Caption dài quá giới hạn nền tảng', 'no-caption': 'Thiếu caption', 'no-title': 'Thiếu tiêu đề', hashtags: 'Số hashtag vượt giới hạn nền tảng', angle: 'YouTube không nhận ký tự < >', 'first-comment-missing': 'Clip chưa có bình luận đầu (viết lúc sản xuất)', 'first-comment-link-slot': 'Bình luận đầu phải có đúng 1 chỗ {link}', 'first-comment-raw-url': 'Bình luận đầu có link trần', 'first-comment-tag': 'Bình luận đầu có hashtag/@', 'first-comment-spam': 'Bình luận đầu có câu mồi', 'first-comment-length': 'Bình luận đầu dài/ngắn quá', 'first-comment-too-long': 'Bình luận đầu quá giới hạn nền tảng', 'first-comment-bad-clip': 'Id clip sai dạng' };
+  const HFLAG = ['reconnect', 'limit', 'expiring', 'near_limit', 'private_only'];
   // Phát hiện kênh mới sau khi kết nối (popup GrabCast)
   const newAccounts = (before, after) => { const b = new Set(before.map(a => String(a.id))); return after.filter(a => !b.has(String(a.id))); };
 
   function mk(ctx) {
     const esc = ctx.esc, M = (vi, vars) => { if (ctx.lang() !== 'en' || !Object.prototype.hasOwnProperty.call(EN, vi)) return ctx.L(vi, vars); let s = EN[vi]; if (Array.isArray(s)) s = s[vars && +vars.n === 1 ? 0 : 1]; return vars ? s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)) : s; };
-    if (!document.getElementById('admSmgCss')) { const st = document.createElement('style'); st.id = 'admSmgCss'; st.textContent = CSS; document.head.appendChild(st); }
+    if (!document.getElementById('admSmgCss')) { const st = document.createElement('style'); st.id = 'admSmgCss'; st.textContent = SMG_CSS; document.head.appendChild(st); }
     const err = e => M('✗ {e}', { e: ctx.errText(e) });
     const pill = (c, t) => `<span class="pill ${c}">${esc(t)}</span>`;
     const accN = id => { const a = ctx.accById(id); return a ? (PI[String(a.platform)] || '•') + ' ' + (a.display_name || a.username || a.name || id) : '#' + id; };
-    return { M, esc, err, pill, accN };
+    const when = ms => (ms ? new Date(ms).toLocaleString(ctx.lang() === 'en' ? 'en-US' : 'vi-VN', { dateStyle: 'short', timeStyle: 'short' }) : '—');
+    return { M, esc, err, pill, accN, when };
   }
 
   // ======================= DUYỆT BÀI (KANBAN) =======================
@@ -149,7 +255,7 @@
       kb.innerHTML = COLS.map(([k, t]) => { const xs = items.filter(i => i.state === k), lim = more[k] || 40; return `<div class="smg-col" data-col="${k}"><h4><span>${M(t)}</span><span class="muted">${xs.length}</span></h4>${xs.slice(0, lim).map(card).join('') || `<p class="tiny muted">${M('Trống')}</p>`}${xs.length > lim ? `<button type="button" class="btn sm ghost" data-more="${k}">${M('Xem thêm {n}', { n: xs.length - lim })}</button>` : ''}</div>`; }).join('');
     }
     const byId = id => items.find(i => i.id === id);
-    const focus = () => { if (!ctx.focus) return; const c = el.querySelector(`.smg-card[data-id="${CSS.escape(ctx.focus)}"]`); if (c) { c.style.outline = '2px solid #0d9488'; c.scrollIntoView({ block: 'nearest', inline: 'center' }); } ctx.focus = null; };
+    const focus = () => { if (!ctx.focus) return; const c = el.querySelector(`.smg-card[data-id="${CSS.escape(ctx.focus)}"]`); if (c) { c.style.outline = '2px solid var(--primary)'; c.scrollIntoView({ block: 'nearest', inline: 'center' }); } ctx.focus = null; };
     async function act(a, id) {
       const it = byId(id); if (!it) return; const t = it.title || it.clip || id;
       try {
@@ -184,8 +290,10 @@
   // ======================= HÀNG ĐỢI TỰ ĐỘNG =======================
   // ---- Autopilot (máy chủ: functions/api/_social_auto.js, cron .github/workflows/social-auto.yml) ----
   async function autoCard(box, ctx) {
-    const { M, esc, err } = mk(ctx); let A = null;
-    const when = ms => (ms ? new Date(ms).toLocaleString(ctx.lang() === 'en' ? 'en-US' : 'vi-VN', { dateStyle: 'short', timeStyle: 'short' }) : '—');
+    const { M, esc, err, pill, when } = mk(ctx); let A = null;
+    // Bảng Kênh (#smgCh) + Nhật ký lỗi (#smgLog) cạnh thẻ: cùng dữ liệu lk/auto, vẽ lại sau mỗi lần tải
+    const host = box.parentElement || box, S = { A: null, H: null, guide: null, pauseRes: null, pv: null, load: null };
+    const side = () => { S.A = A; const ch = host.querySelector('#smgCh'), lg = host.querySelector('#smgLog'); if (ch) chanPanel(ch, ctx, S); if (lg) logPanel(lg, ctx, S); };
     const STOP = { off: 'Đang tắt', breaker: 'Cầu dao đang mở', 'no-key': 'Thiếu khóa GrabCast', budget: 'Hết ngân sách hôm nay' };
     const PW = { late: 'GrabCast trễ (chưa đăng sau giờ hẹn + 30 phút)', 'no-key': 'Thiếu khóa GrabCast', auth: 'Khóa GrabCast sai/hết quyền', db_budget_guard: 'GrabCast quá tải / hết DB', overload: 'GrabCast quá tải / hết DB', down: 'GrabCast lỗi máy chủ lặp lại', manual: 'Chuyển tay', 'meta-not-configured': 'Meta chưa cấu hình' };
     const TW = { 'refresh-failed': 'refresh lỗi', revoked: 'bị thu hồi', expiring: 'sắp hết hạn', 'data-access-expiring': 'quyền dữ liệu sắp hết hạn', 'missing-scope': 'thiếu quyền', error: 'lỗi kiểm' };
@@ -193,7 +301,26 @@
     const why = w => { if (!w) return ''; const k = String(w).replace(/^manual:/, '').split(/[-:]/)[0]; return (PW[w] ? M(PW[w]) : PW[k] ? M(PW[k]) : '') + ' (' + w + ')'; };
     const DS = { planned: 'Đã xếp lịch', pushed: 'Đã đẩy lên GrabCast', published: 'Đã đăng', failed: 'Lỗi', cancelled: 'Đã hủy' }, BS = Object.fromEntries(COLS);
     const msg = (t, c) => { const m = box.querySelector('#apM'); if (m) { m.textContent = t; m.className = 'small ' + (c === true ? 'ok-t' : c === false ? 'bad-t' : 'muted'); } };
-    const load = async () => { try { A = await ctx.sapi('GET', 'lk/auto'); paint(); } catch (e) { box.innerHTML = `<p class="small bad-t">${esc(err(e))}</p>`; } };
+    const load = async () => { try { A = await ctx.sapi('GET', 'lk/auto'); paint(); side(); } catch (e) { box.innerHTML = `<p class="small bad-t">${esc(err(e))}</p>`; } };
+    S.load = load;
+    /** Cờ sức khỏe từng tài khoản GrabCast (reconnect/limit/expiring…) – cùng nguồn tab Sức khỏe kênh; lỗi → bảng Kênh dùng trạng thái D1. */
+    S.health = () => ctx.sapi('GET', 'lk/health').then(h => { S.H = h && Array.isArray(h.accounts) ? h : null; if (A) side(); }).catch(() => {});
+    const goBoard = id => (ctx.goBoard ? ctx.goBoard(id) : (location.hash = '#social/board/' + id)); S.goBoard = goBoard;
+    const firstWait = p => A && (+((A.manual || {})[p]) || 0) < A.cfg.manual_first;
+    /** Bình luận đầu + click (§6c): công tắc, hạn mức, số click 28 ngày (functions/api/go → ext_events), trạng thái bình luận Meta, link bio IG/TikTok. */
+    function fcBlock() {
+      const c = A.cfg, f = c.fc || { on: true, per_ch_day: 6 }, k = A.clicks || { total: 0, plats: [], kinds: { fc: 0, bio: 0 }, top: [] }, F = A.fc || {}, CP = { fb: 'facebook_page', yt: 'youtube', th: 'threads', x: 'x', ig: 'instagram', tt: 'tiktok' };
+      const today = Object.values(F.today || {}).reduce((a, b) => a + (+b || 0), 0), meta = Object.entries(F.meta || {}).map(([s, n]) => esc(s) + ' ' + esc(String(n))).join(' · ') || '—';
+      const bio = ['instagram', 'tiktok'].map(p => `<li>${PI[p]} ${PN[p]}: <code>https://lexkite.com/api/go/${p === 'instagram' ? 'ig' : 'tt'}/bio</code></li>`).join('');
+      return `<details><summary class="small" style="font-weight:600">${M('💬 Bình luận đầu & click về web app (28 ngày)')}</summary>
+        <p class="tiny muted">${M('Mỗi bài tối đa 1 bình luận của kênh mang link (FB, YouTube: bình luận · Threads: tự trả lời) – nội dung viết lúc sản xuất. Instagram/TikTok không bình luận link (không bấm được): caption ghi "link in bio". Không nền tảng nào có API ghim bình luận.')}</p>
+        <div class="soc-form"><label class="row" style="gap:.3rem"><input type="checkbox" id="apFc" ${f.on ? 'checked' : ''}>${M('Bật bình luận đầu')}</label><label>${M('Tối đa/kênh/ngày')}<input type="number" min="1" max="20" id="apFcN" value="${esc(String(f.per_ch_day))}"></label></div>
+        <div class="smg-kpi">${[['Click', k.total], ['Từ bình luận', k.kinds.fc], ['Từ link bio', k.kinds.bio], ['Bình luận hôm nay', today]].map(([t, v]) => `<div><b>${esc(String(v))}</b><span class="tiny muted">${M(t)}</span></div>`).join('')}</div>
+        <p class="tiny"><b>${M('Theo nền tảng')}:</b> ${k.plats.length ? k.plats.map(x => `${PI[CP[x.k]] || ''} ${esc(PN[CP[x.k]] || x.k)} ${esc(String(x.n))}`).join(' · ') : M('Chưa có click nào.')}</p>
+        ${k.top.length ? `<p class="tiny"><b>${M('Clip nhiều click nhất')}:</b> ${k.top.map(x => `${PI[CP[x.plat]] || ''} ${esc(x.clip)} (${esc(String(x.n))})`).join(' · ')}</p>` : ''}
+        <p class="tiny muted">${Object.keys(PN).filter(p => p !== 'instagram' && p !== 'tiktok').map(p => `${PI[p]} ${M('Bài có bình luận đã duyệt tay {m}/{n}', { m: (F.manual || {})[p] || 0, n: c.manual_first })}`).join(' · ')} · <b>${M('Bình luận đường Meta')}:</b> ${meta}</p>
+        <p class="tiny" style="margin-bottom:.2rem"><b>${M('Link bio (dán vào hồ sơ)')}:</b></p><ul class="tiny" style="margin:0">${bio}</ul></details>`;
+    }
     function provBlock() {
       const P = A.provider || { cur: 'grabcast' }, me = A.meta || {}, c = A.cfg, tks = me.tokens || [];
       const tokTxt = t => { const h = t.health, exp = (h && h.expires_at) || t.expires_at; if (t.breaker) return M('⛔ Meta tạm dừng tới {d} ({c}).', { d: when(t.breaker.until), c: t.breaker.kind + ':' + t.breaker.code }); if (h && !h.ok) return '⚠️ ' + (TW[h.why] ? M(TW[h.why]) : h.why || '✗'); if (t.status && t.status !== 'ok') return '⚠️ ' + (TW[t.status] ? M(TW[t.status]) : t.status); return t.platform === 'facebook_page' && !exp ? M('không hết hạn') : exp ? M('hết hạn {d}', { d: when(exp) }) : M('chưa kiểm'); };
@@ -227,15 +354,16 @@
         <div class="smg-kpi">${[['Đến hạn', lr ? lr.due : 0], ['Đã tạo', lr ? lr.created : 0], ['Đã lên lịch', lr ? lr.scheduled : 0], ['Chờ duyệt', lr ? lr.review : 0], ['Lượt GrabCast còn hôm nay', A.budget_left + '/' + c.daily_calls]].map(([k, v]) => `<div><b>${esc(String(v))}</b><span class="tiny muted">${M(k)}</span></div>`).join('')}</div>
         <div class="soc-form" style="margin-top:.6rem"><label class="row" style="gap:.3rem"><input type="checkbox" id="apOn" ${c.on ? 'checked' : ''}>${M('Bật autopilot (công tắc khẩn: tắt = dừng mọi lượt gọi GrabCast)')}</label>
           <label class="row" style="gap:.3rem"><input type="checkbox" id="apAA" ${c.auto_approve ? 'checked' : ''}>${M('Tự động duyệt')}</label>
-          <label>${M('Duyệt tay trước (bài/nền tảng)')}<input type="number" min="1" max="50" id="apN" value="${c.manual_first}"></label></div>
+          <label>${M('Duyệt tay trước (bài/nền tảng)')}<input type="number" min="0" max="50" id="apN" value="${c.manual_first}"></label></div>
         <p class="tiny muted">${M('Tắt: mọi bài autopilot vào cột Chờ duyệt, anh duyệt tay (giữ đúng giờ đã xếp). Bật: chỉ nền tảng đã có đủ số bài duyệt tay mới tự lên lịch.')}</p>
         <div class="small" style="font-weight:600;margin:.4rem 0 .2rem">${M('Nền tảng tự đăng')}</div><div class="soc-targets">${Object.keys(PN).map(p => `<label><input type="checkbox" data-ap="${p}" ${c.plats[p] ? 'checked' : ''}> ${PI[p]} ${PN[p]} <span class="tiny muted">${M('Đã duyệt tay {m}/{n}', { m: (A.manual || {})[p] || 0, n: c.manual_first })}${p === 'tiktok' || p === 'youtube' ? ' · ' + M('chỉ bật khi app GrabCast được duyệt') : ''}</span></label>`).join('')}</div>
         <div class="row" style="gap:.4rem;margin-top:.5rem"><button type="button" class="btn sm" id="apSave">${M('💾 Lưu cài đặt')}</button><button type="button" class="btn sm ghost" id="apRun" ${A.key && c.on ? '' : 'disabled'}>${M('▶️ Chạy ngay')}</button></div>
+        ${fcBlock()}
         <p class="small" id="apM" role="status" aria-live="polite"></p>
-        <details${(A.upcoming || []).length ? ' open' : ''}><summary class="small" style="font-weight:600">${M('Sắp đăng (72 giờ)')}</summary>${(A.upcoming || []).length ? `<div class="smg-scroll"><table class="soc-tbl"><thead><tr><th>${M('Giờ')}</th><th>${M('Clip')}</th><th>${M('Kênh')}</th><th>${M('Trạng thái')}</th><th>${M('Đường')}</th></tr></thead><tbody>${A.upcoming.map(r => `<tr><td>${esc(when(r.slot_ms))}</td><td>${esc(r.clip)}</td><td>${PI[r.platform] || ''} ${esc(r.channel || r.channel_id)}</td><td>${esc(r.board && BS[r.board] ? M(BS[r.board]) : DS[r.state] ? M(DS[r.state]) : r.state || '')}${r.err ? ` <span class="tiny bad-t">${esc(r.err)}</span>` : ''}</td><td>${r.provider === 'meta' ? 'Meta' : r.provider === 'grabcast' || r.board ? 'GrabCast' : ''}${r.permalink && /^https:\/\/www\.(facebook|instagram)\.com\//.test(r.permalink) ? ` <a href="${esc(r.permalink)}" target="_blank" rel="noopener">${M('Mở ↗')}</a>` : ''}${r.board === 'review' && (A.provider || {}).cur === 'meta' && r.board_id ? ` <button type="button" class="btn sm ghost" data-apv="${esc(r.board_id)}">${M('Duyệt (Meta)')}</button>` : ''}</td></tr>`).join('')}</tbody></table></div>` : `<p class="small muted">${M('Chưa có bài nào trong lịch – chạy “Lập lịch” ở Kênh & phân phối.')}</p>`}</details>`;
+        <details${(A.upcoming || []).length ? ' open' : ''}><summary class="small" style="font-weight:600">${M('Sắp đăng (72 giờ)')}</summary>${(A.upcoming || []).length ? `<div class="smg-scroll smg-tw"><table class="soc-tbl smg-tc"><thead><tr><th>${M('Giờ')}</th><th>${M('Clip')}</th><th>${M('Kênh')}</th><th>${M('Trạng thái')}</th><th>${M('Đường')}</th><th>${M('Xem trước')}</th></tr></thead><tbody>${A.upcoming.map(r => `<tr><td data-l="${esc(M('Giờ'))}">${esc(when(r.slot_ms))}</td><td data-l="${esc(M('Clip'))}">${esc(r.clip)}</td><td data-l="${esc(M('Kênh'))}">${PI[r.platform] || ''} ${esc(r.channel || r.channel_id)}</td><td data-l="${esc(M('Trạng thái'))}">${esc(r.board && BS[r.board] ? M(BS[r.board]) : DS[r.state] ? M(DS[r.state]) : r.state || '')}${r.board === 'review' && firstWait(r.platform) ? ' ' + pill('warn', M('Chờ anh duyệt bài đầu')) : ''}${r.err ? ` <span class="tiny bad-t">${esc(r.err)}</span>` : ''}</td><td data-l="${esc(M('Đường'))}">${r.provider === 'meta' ? 'Meta' : r.provider === 'grabcast' || r.board ? 'GrabCast' : ''}${r.permalink && /^https:\/\/www\.(facebook|instagram)\.com\//.test(r.permalink) ? ` <a href="${esc(r.permalink)}" target="_blank" rel="noopener">${M('Mở ↗')}</a>` : ''}${r.board === 'review' && (A.provider || {}).cur === 'meta' && r.board_id ? ` <button type="button" class="btn sm ghost" data-apv="${esc(r.board_id)}">${M('Duyệt (Meta)')}</button>` : ''}${r.board === 'review' && (A.provider || {}).cur !== 'meta' && r.board_id ? ` <button type="button" class="btn sm primary" data-gob="${esc(r.board_id)}">${M('✅ Mở để duyệt')}</button>` : ''}</td><td><button type="button" class="btn sm ghost" data-pv="${esc(r.clip)}">${M('👁 Xem trước')}</button></td></tr>`).join('')}</tbody></table></div>` : `<p class="small muted">${M('Chưa có bài nào trong lịch – chạy “Lập lịch” ở Kênh & phân phối.')}</p>`}</details><div id="apPv"></div>`;
       const $ = s => box.querySelector(s);
       $('#apSave').onclick = async () => {
-        const cfg = { on: $('#apOn').checked, auto_approve: $('#apAA').checked, manual_first: +$('#apN').value || 1, plats: Object.fromEntries([...box.querySelectorAll('[data-ap]')].map(i => [i.dataset.ap, i.checked])) };
+        const cfg = { on: $('#apOn').checked, auto_approve: $('#apAA').checked, manual_first: Math.max(0, +$('#apN').value || 0), fc: { ...(A.cfg.fc || {}), on: !!($('#apFc') && $('#apFc').checked), per_ch_day: +(($('#apFcN') || {}).value) || 6 }, plats: Object.fromEntries([...box.querySelectorAll('[data-ap]')].map(i => [i.dataset.ap, i.checked])) };
         if (cfg.auto_approve && !A.cfg.auto_approve && !confirm(M('Bật tự động duyệt? Bài autopilot sẽ được lên lịch công khai không cần anh duyệt – chỉ cho nền tảng đã có đủ bài duyệt tay.'))) return;
         try { A.cfg = (await ctx.sapi('POST', 'lk/auto/save', { cfg })).cfg; paint(); msg(M('✓ Đã lưu cài đặt'), true); } catch (e) { msg(err(e), false); }
       };
@@ -263,8 +391,41 @@
       box.querySelectorAll('[data-tdel]').forEach(bt => { bt.onclick = async () => { if (!confirm(M('Xóa token Meta của kênh {c}?', { c: bt.dataset.tdel }))) return; try { await ctx.sapi('POST', 'lk/auto/token/del', { channel_id: bt.dataset.tdel }); await load(); } catch (e) { msg(err(e), false); } }; });
       box.querySelectorAll('[data-apv]').forEach(bt => { bt.onclick = async () => { if (!confirm(M('Duyệt bài này để đăng qua Meta đúng giờ đã xếp?'))) return; try { await ctx.sapi('POST', 'lk/auto/approve', { id: bt.dataset.apv }); await load(); msg(M('✓ Xong'), true); } catch (e) { msg(err(e), false); } }; });
       const rs = $('#apReset'); if (rs) rs.onclick = async () => { try { await ctx.sapi('POST', 'lk/auto/reset', {}); await load(); } catch (e) { msg(err(e), false); } };
+      box.querySelectorAll('[data-gob]').forEach(bt => { bt.onclick = () => goBoard(bt.dataset.gob); });
+      box.querySelectorAll('[data-pv]').forEach(bt => { bt.onclick = () => openPv(bt.dataset.pv); });
+      pvPaint();
     }
-    await load(); await oauthReturn();
+    // ---- Xem trước từng nền tảng (lk/auto/preview: 0 lượt GrabCast, không ghi) ----
+    async function openPv(clip) {
+      S.pv = { clip, loading: true }; pvPaint(); const el = box.querySelector('#apPv'); if (el && el.scrollIntoView) el.scrollIntoView({ block: 'nearest' });
+      try { const r = await ctx.sapi('POST', 'lk/auto/preview', { clip }); if (!S.pv || S.pv.clip !== clip) return; const ps = ((r && r.preview) || {}).posts || []; S.pv = { clip, data: r.preview, tab: (ps[0] || {}).platform }; }
+      catch (e) { if (S.pv && S.pv.clip === clip) S.pv = { clip, error: err(e) }; }
+      pvPaint();
+    }
+    function pvPaint() {
+      const el = box.querySelector('#apPv'); if (!el) return; const v = S.pv; if (!v) { el.innerHTML = ''; el.className = ''; return; }
+      el.className = 'smg-pv'; el.setAttribute('aria-live', 'polite');
+      const head = `<div class="smg-hd"><h4 style="margin:0">${esc(M('👁 Xem trước: {c}', { c: v.clip }))}</h4><button type="button" class="btn sm ghost" data-pvx>${M('Đóng')}</button></div><p class="tiny muted" style="margin:.2rem 0">${M('Chỉ xem trước – 0 lượt GrabCast, không đăng gì.')}</p>`;
+      if (v.loading || v.error) { el.innerHTML = head + (v.error ? `<p class="small bad-t">${esc(v.error)}</p>` : `<p class="small muted">${M('Đang tải…')}</p>`); }
+      else {
+        const posts = (v.data && v.data.posts) || [], x = posts.find(q => q.platform === v.tab) || posts[0] || null, chs = A.channels || [];
+        const tabs = `<div class="smg-ptabs" role="tablist" aria-label="${esc(M('Nền tảng'))}">${posts.map(q => `<button type="button" role="tab" data-pvt="${esc(q.platform)}" aria-selected="${!!x && q.platform === x.platform}">${PI[q.platform] || ''} ${esc(PN[q.platform] || q.platform)}${q.issues.some(i => /^error:/.test(i)) ? ' ⚠️' : ''}</button>`).join('')}</div>`;
+        const whyT = w => { const m = /\((\w+)\)/.exec(w || ''); return /ngôn ngữ/.test(w || '') && m ? M('không có trang cùng ngôn ngữ ({l})', { l: m[1] }) : M('chưa nối kênh'); };
+        const coverT = c => (/^cover_url/.test(c) ? M('Instagram: cover_url (đường Meta) – GrabCast chưa có tùy chọn bìa') : /^thumbnails/.test(c) ? M('YouTube: đặt ảnh bìa qua API trực tiếp') : /^không có/.test(c) ? M('Clip không có ảnh bìa') : M('GrabCast chưa có tùy chọn ảnh bìa'));
+        const cnt = (n, max) => `<span class="smg-cnt ${n > max ? 'x' : n > max * 0.9 ? 'w' : ''}">${n}/${max}</span>`;
+        const body = !x ? '' : `<div class="smg-lbl">${M('Trang đích')}</div><p class="small" style="margin:0">${x.channel_id ? `${PI[x.platform] || ''} <b>${esc((chs.find(c => c.channel_id === x.channel_id) || {}).title || x.channel_id)}</b>` : `<span class="bad-t">${M('Chưa có trang đích')}: ${esc(whyT(x.why))}</span>`} · <span class="tiny muted">${M('Ngôn ngữ clip')}: ${esc(String(v.data.lang || 'en').toUpperCase())}</span></p>
+          ${x.title ? `<div class="smg-lbl">${M('Tiêu đề')} ${cnt([...x.title].length, 100)}</div><p class="small" style="margin:0;overflow-wrap:anywhere">${esc(x.title)}</p>` : ''}
+          <div class="smg-lbl">${M('Caption')} ${cnt(x.caption_len, x.caption_max)}</div><div class="smg-cap">${esc(x.caption)}</div>
+          <div class="smg-lbl">${M('Hashtag')}</div><div>${(x.hashtags || []).map(h => `<span class="smg-chip">${esc(h)}</span>`).join('') || '—'}</div>
+          <div class="smg-lbl">${x.fc_mode === 'bio' ? M('Link bio (dán vào hồ sơ)') : M('Bình luận đầu')}</div>${x.fc_mode === 'bio' ? `<p class="small" style="margin:0;overflow-wrap:anywhere"><code>${esc(x.fc_link || '')}</code></p>` : x.first_comment ? `<div class="smg-cap">${esc(x.first_comment)}</div>` : `<p class="small muted" style="margin:0">${M('Không có (clip chưa có bình luận viết lúc sản xuất)')}</p>`}
+          <div class="smg-lbl">${M('Ảnh bìa')}</div><p class="small" style="margin:0">${esc(coverT(x.cover || ''))}</p>
+          <div class="smg-lbl">${M('Vấn đề')}</div>${x.issues.length ? `<div>${x.issues.map(i => { const [lv, code] = String(i).split(':'); return pill(lv === 'error' ? 'bad' : 'warn', ISS[code] ? M(ISS[code]) : code); }).join(' ')}</div>` : `<p class="small ok-t" style="margin:0">${M('Không có vấn đề.')}</p>`}`;
+        el.innerHTML = head + tabs + body;
+        el.querySelectorAll('[data-pvt]').forEach(b => { b.onclick = () => { S.pv.tab = b.dataset.pvt; pvPaint(); const t = box.querySelector(`[data-pvt="${b.dataset.pvt}"]`); if (t) t.focus(); }; });
+      }
+      const xb = el.querySelector('[data-pvx]'); if (xb) xb.onclick = () => { S.pv = null; pvPaint(); };
+    }
+    await load(); if (A && A.key) S.health(); await oauthReturn();
     /** Quay về từ /api/social/meta/callback (?meta=ok|pick|lỗi) hoặc link cảnh báo (?meta_reconnect=<kênh>) – xử lý 1 lần rồi xóa khỏi URL. */
     async function oauthReturn() {
       const q = new URLSearchParams(location.search), r = q.get('meta'), rc = q.get('meta_reconnect'); if (!r && !rc) return;
@@ -279,9 +440,109 @@
       el.querySelector('#apPickGo').onclick = async () => { try { const o = await ctx.sapi('POST', 'lk/auto/oauth/pick', { id, page_id: el.querySelector('#apPickSel').value }); el.innerHTML = ''; await load(); msg(M('✓ Đã kết nối {c}', { c: o.name || o.target_id }), true); } catch (e) { msg(err(e), false); } };
     }
   }
+  // ---- Bảng Kênh: 1 thẻ/nền tảng – trang đã nối + ngôn ngữ, sức khỏe/token, duyệt bài đầu, Kết nối (GrabCast popup / YouTube) + Tạm dừng toàn bộ ----
+  function chanPanel(host, ctx, S) {
+    const { M, esc, err, pill, when } = mk(ctx), A = S.A, c = A.cfg, chs = A.channels || [], toks = ((A.meta || {}).tokens) || [], hacc = S.H ? S.H.accounts : null;
+    const plats = CH_PLATS.filter(p => PN[p]), mf = c.manual_first;
+    const accRow = ch => {
+      const h = hacc && hacc.find(a => String(a.id) === String(ch.account_id) && a.platform === ch.platform), f = h ? HFLAG.find(x => (h.flags || []).includes(x)) : null;
+      const st = ch.unsynced ? pill('muted', M('chưa đồng bộ')) : ch.status === 'gone' ? pill('muted', M('Đã gỡ khỏi GrabCast')) : f ? pill(HS[f][0], M(HS[f][1])) : ch.status === 'error' ? pill('bad', M('Cần kết nối lại')) : pill('ok', M('Hoạt động'));
+      const t = toks.find(x => x.channel_id === ch.channel_id), hx = t && t.health, exp = t && ((hx && hx.expires_at) || t.expires_at);
+      const tok = !t ? '' : t.breaker ? pill('bad', M('Meta tạm dừng')) : (hx && !hx.ok) || (t.status && t.status !== 'ok') ? pill('bad', M('Token Meta cần kết nối lại')) : `<span class="tiny muted">${esc(exp ? M('Token Meta hết hạn {d}', { d: when(exp) }) : M('Token Meta không hết hạn'))}</span>`;
+      const l = ch.lang || '', lt = l ? `${l.toUpperCase()} · ${LANGN[l] || l}` : '?';
+      return `<li data-ch="${esc(ch.channel_id || '')}"><span>${esc(ch.title || ch.channel_id || '')}</span><span class="smg-chip" title="${esc(ch.lang_src === 'default' ? M('Không nhận ra ngôn ngữ từ tên – coi là trang chung tiếng Anh. Đặt tên “Lexkite <ngôn ngữ>” để định tuyến đúng.') : M('Ngôn ngữ trang: {l}', { l: lt }))}">🌐 ${esc(lt)}${ch.lang_src === 'default' ? ' ?' : ''}</span>${st}${tok}</li>`;
+    };
+    const listOf = p => {
+      const xs = chs.filter(x => x.platform === p), have = new Set(xs.map(x => String(x.account_id)));
+      const extra = ((ctx.D && ctx.D.accounts) || []).filter(a => String(a.platform) === p && !have.has(String(a.id))).map(a => ({ channel_id: '', platform: p, account_id: a.id, title: a.display_name || a.username || a.name || String(a.id), lang: '', unsynced: true }));
+      return [...xs, ...extra];
+    };
+    const guide = p => `<div class="smg-guide" id="chG-${p}"><b class="small">${esc(M('Kết nối {p} trên GrabCast', { p: PN[p] }))}</b><ol class="smg-steps">
+      <li>${M('Bấm <b>Mở GrabCast</b> (cửa sổ riêng) và đăng nhập grabcast.click.')}</li><li>${M('Chọn workspace <b>Lexkite (#{ws})</b> ở góc trên – bắt buộc, nếu không kênh sẽ vào workspace khác.', { ws: WS })}</li>
+      <li>${M('Vào <b>Accounts</b> → bấm <b>Connect {p}</b>.', { p: esc(PN[p]) })}</li><li>${M(GSTEP[p])}</li>
+      <li>${M('Đặt tên theo bộ 16 fanpage: <b>Lexkite</b> (tiếng Anh, trang chung) hoặc <b>Lexkite + tên ngôn ngữ</b>. Lexkite nhận ngôn ngữ từ tên để đăng đúng clip.')}</li><li>${M('Cấp đủ quyền được hỏi → Lưu, rồi đóng cửa sổ GrabCast: bảng Kênh tự làm mới.')}</li></ol>
+      <div class="tiny muted">${M('Tên trang:')}</div><div class="smg-names">${Object.keys(LANGN).map(k => `<span class="smg-chip" lang="${k}">${esc(k === 'en' ? 'Lexkite' : 'Lexkite ' + LANGN[k])}</span>`).join('')}</div>
+      <button type="button" class="btn sm primary" data-gco="${p}">${M('Mở GrabCast ↗')}</button></div>`;
+    const card = p => {
+      const xs = listOf(p), on = p === 'youtube' ? !!(c.plats.youtube || A.yt_via_gc) : !!c.plats[p], m = +((A.manual || {})[p]) || 0;
+      const rv = (A.upcoming || []).find(r => r.platform === p && r.board === 'review' && r.board_id);
+      const first = on && m < mf ? `<div class="smg-first">${pill('warn', M('Chờ anh duyệt bài đầu'))}<span class="tiny">${M('Đã duyệt tay {m}/{n}', { m, n: mf })}</span>${rv ? `<button type="button" class="btn sm primary" data-gob="${esc(rv.board_id)}">${M('✅ Duyệt bài đầu')}</button>` : `<span class="tiny muted">${M('Chưa có bài chờ duyệt – bài đầu tiên sẽ vào cột Chờ duyệt để anh duyệt.')}</span>`}</div>` : '';
+      const yt = p !== 'youtube' ? '' : `<div class="smg-yt"><p class="small" style="margin:0"><b>${M('Qua GrabCast: chờ GrabCast được YouTube duyệt')}</b></p>${(A.yt_gc_channels || []).length ? `<p class="tiny muted" style="margin:.15rem 0">${esc(M('Kênh YouTube trên GrabCast: {s}', { s: A.yt_gc_channels.map(x => x.title || x.channel_id).join(', ') }))}</p>` : ''}
+        <label class="row small" style="gap:.4rem;align-items:center;margin:.3rem 0"><input type="checkbox" id="chYtAuto" ${c.yt_gc_auto !== false ? 'checked' : ''}><span>${M('Tự bật YouTube khi có kênh YouTube trên GrabCast (bài đầu vẫn chờ anh duyệt)')}</span></label>
+        <a class="btn sm ghost" href="#video" data-ytman>${M('🎬 Trong lúc chờ: YouTube thủ công')}</a><p class="tiny muted" style="margin:.2rem 0">${M('Tab Video › Gói chờ đăng tay: tải gói, chép tiêu đề/mô tả/thẻ/hashtag/giờ hẹn, mở Studio.')}</p>
+        <details><summary>${M('Dự phòng: API YouTube trực tiếp')}</summary><p class="tiny warn-t" style="margin:.3rem 0">⚠️ ${M('Chỉ dùng khi thật cần: app chưa qua audit của Google nên video tải bằng API bị khóa Riêng tư và KHÔNG chuyển Công khai được (phải tải lại).')}</p>${(A.yt_direct || []).length ? `<p class="tiny muted" style="margin:.2rem 0">${esc(M('Kênh API: {s}', { s: A.yt_direct.map(x => (x.title || x.channel_id) + (x.status && x.status !== 'ok' ? ' (' + x.status + ')' : '')).join(', ') }))}</p>` : ''}<button type="button" class="btn sm ghost" data-ytapi>${M('🔗 Kết nối API trực tiếp')}</button></details></div>`;
+      return `<article class="smg-pc" data-plat="${p}"><header><span class="smg-pi" aria-hidden="true">${PI[p]}</span><b>${PN[p]}</b>${xs.length ? pill('ok', M('Đã nối {n}', { n: xs.length })) : pill('muted', M('Chưa kết nối'))}${pill(on ? 'info' : 'muted', M(on ? 'Autopilot bật' : 'Autopilot tắt'))}</header>
+        ${first}${xs.length ? `<ul class="smg-accs">${xs.map(accRow).join('')}</ul>` : `<p class="tiny muted" style="margin:0">${M('Chưa có trang nào.')}</p>`}
+        <div class="smg-acts"><button type="button" class="btn sm ${xs.length ? '' : 'primary'}" data-gc="${p}">${M('🔗 Kết nối')}</button><button type="button" class="btn sm ghost" data-guide="${p}" aria-expanded="${S.guide === p}" aria-controls="chG-${p}">${M('📋 Hướng dẫn')}</button></div>
+        ${S.guide === p ? guide(p) : ''}${yt}</article>`;
+    };
+    const pr = S.pauseRes, prHtml = !pr ? '' : `<div class="smg-res" role="status">${esc(M('✓ Đã tạm dừng toàn bộ: gỡ lịch {u} bài · còn {l} bài chưa gỡ.', { u: pr.unscheduled || 0, l: pr.left || 0 }))}${(pr.errors || []).length ? `<div class="bad-t">${esc(M('Lỗi gỡ lịch: {e}', { e: pr.errors.map(e => `${e.post_id} (${e.status}${e.code ? ' ' + e.code : ''})`).join(', ') }))}</div>` : ''}${pr.left > 0 ? `<button type="button" class="btn sm smg-stop" id="chMore" style="margin-top:.4rem">${M('⏸ Gỡ tiếp {n} bài', { n: pr.left })}</button>` : ''}</div>`;
+    host.innerHTML = `<div class="smg-hd"><h3>${M('📡 Kênh')}</h3><div class="acts"><button type="button" class="btn sm ghost" id="chRe">${M('🔄 Làm mới kênh')}</button>${c.on ? `<button type="button" class="btn sm smg-stop" id="chPause">${M('⏸ Tạm dừng toàn bộ')}</button>` : ''}</div></div>
+      ${c.on ? '' : `<div class="smg-banner" role="status" id="chPaused"><div><b>${M('⏸ Đang tạm dừng')}</b><p class="small">${M('Autopilot không tạo, không lên lịch bài nào cho tới khi anh bấm Chạy lại. Bài đã gỡ lịch nằm ở cột Chờ duyệt.')}</p></div><button type="button" class="btn primary" id="chResume">${M('▶️ Chạy lại')}</button></div>`}
+      ${prHtml}<p class="small" id="chM" role="status" aria-live="polite">${esc(S.chMsg ? S.chMsg[0] : '')}</p><div class="smg-chs">${plats.map(card).join('')}</div>`;
+    if (S.chMsg) host.querySelector('#chM').className = 'small ' + (S.chMsg[1] === true ? 'ok-t' : S.chMsg[1] === false ? 'bad-t' : 'muted');
+    const $ = q => host.querySelector(q), msg = (t, k) => { S.chMsg = [t, k]; const m = $('#chM'); if (m) { m.textContent = t; m.className = 'small ' + (k === true ? 'ok-t' : k === false ? 'bad-t' : 'muted'); } };
+    const pauseAll = async ask => {
+      if (ask && !confirm(M(PAUSE_Q))) return;
+      msg(M('Đang tải…')); try { S.pauseRes = await ctx.sapi('POST', 'lk/auto/pause_all', {}); S.chMsg = null; await S.load(); } catch (e) { msg(err(e), false); }
+    };
+    if ($('#chPause')) $('#chPause').onclick = () => pauseAll(true);
+    if ($('#chMore')) $('#chMore').onclick = () => pauseAll(true);
+    if ($('#chResume')) $('#chResume').onclick = async () => {
+      if (!confirm(M('Chạy lại autopilot? Lượt nền kế tiếp (mỗi 2 giờ) sẽ lấy bài đến hạn. Bài đã gỡ lịch nằm ở cột Chờ duyệt – anh duyệt lại để đăng.'))) return;
+      try { await ctx.sapi('POST', 'lk/auto/save', { cfg: { on: true } }); S.pauseRes = null; S.chMsg = [M('✓ Autopilot đã chạy lại.'), true]; await S.load(); } catch (e) { msg(err(e), false); }
+    };
+    const yta = $('#chYtAuto'); if (yta) yta.onchange = async () => { try { await ctx.sapi('POST', 'lk/auto/save', { cfg: { yt_gc_auto: yta.checked } }); S.chMsg = [M('✓ Đã lưu cài đặt'), true]; await S.load(); } catch (e) { yta.checked = !yta.checked; msg(err(e), false); } };
+    host.querySelectorAll('[data-gob]').forEach(b => { b.onclick = () => S.goBoard(b.dataset.gob); });
+    host.querySelectorAll('[data-guide]').forEach(b => { b.onclick = () => { S.guide = S.guide === b.dataset.guide ? null : b.dataset.guide; chanPanel(host, ctx, S); }; });
+    host.querySelectorAll('[data-gc],[data-gco]').forEach(b => { b.onclick = () => connect(b.dataset.gc || b.dataset.gco); });
+    const ya = host.querySelector('[data-ytapi]'); if (ya) ya.onclick = async () => {
+      if (!ctx.yapi) { location.hash = '#video'; return; }
+      try { msg(M('Đang mở trang đăng nhập Google…')); const r = await ctx.yapi('connect'); if (/^https:\/\/accounts\.google\.com\//.test((r && r.url) || '')) location.assign(r.url); } catch (e) { msg(M('Kết nối YouTube lỗi: {e}', { e: (e && (e.code || e.message)) || e }), false); }
+    };
+    /** Làm mới sau khi nối kênh: 1 lượt GET accounts → dist_ext (lk/auto/channels/sync) + danh sách tài khoản admin + sức khỏe, báo kênh mới. */
+    async function refresh() {
+      if (S.busy) return; S.busy = true; const before = new Set(((S.A && S.A.channels) || []).map(x => x.channel_id)); msg(M('Đang làm mới kênh…')); let syncErr = null;
+      try { await ctx.sapi('POST', 'lk/auto/channels/sync', {}); } catch (e) { syncErr = e; }
+      try { if (ctx.reloadAccounts) await ctx.reloadAccounts(); await S.load(); await S.health(); } finally { S.busy = false; }
+      const nw = ((S.A && S.A.channels) || []).filter(x => !before.has(x.channel_id));
+      if (syncErr) msg(M('Không đồng bộ được GrabCast ({e}) – hiện dữ liệu đã lưu.', { e: err(syncErr) }), false);
+      else if (nw.length) msg(M('✓ Kênh mới: {s}', { s: nw.map(x => `${PI[x.platform] || ''} ${x.title} (${String(x.lang || 'en').toUpperCase()})`).join(', ') }), true);
+      else msg(M('✓ Đã làm mới – chưa thấy kênh mới.'), true);
+    }
+    S.refresh = refresh; $('#chRe').onclick = refresh;
+    /** Kết nối: API GrabCast chặn connect/* với khóa API (403 api_key_not_allowed) → anh nối trên grabcast.click trong popup; đóng popup / quay lại tab → tự làm mới. */
+    function connect(p) {
+      S.guide = p; // YouTube qua GrabCast cũng mở trang Accounts – bước hướng dẫn nói rõ chỉ nối sau khi GrabCast được YouTube duyệt
+      const w = window.open(GC_ACC, 'gc-connect', 'width=1100,height=800');
+      chanPanel(host, ctx, S);
+      if (!w) return msg(M('Trình duyệt chặn cửa sổ bật lên – bấm Mở GrabCast trong hướng dẫn hoặc cho phép popup.'), false);
+      msg(M('⏳ Đang chờ anh kết nối trong cửa sổ GrabCast… đóng cửa sổ khi xong, bảng tự làm mới.'));
+      stopWatch(); const t0 = Date.now(), W = S.watch = { w };
+      W.onFocus = () => { if (S.watch === W && Date.now() - (W.last || 0) > 5000) { W.last = Date.now(); refresh(); } };
+      window.addEventListener('focus', W.onFocus);
+      W.iv = setInterval(() => {
+        if (!host.isConnected) return stopWatch();
+        if (w.closed) { stopWatch(); W.last = Date.now(); refresh(); return; }
+        if (Date.now() - t0 > 15 * 60e3) { stopWatch(); msg(M('Hết 15 phút chờ – bấm Làm mới kênh khi đã kết nối xong.'), false); }
+      }, 1000);
+    }
+    function stopWatch() { const W = S.watch; if (!W) return; clearInterval(W.iv); window.removeEventListener('focus', W.onFocus); S.watch = null; }
+  }
+
+  // ---- Nhật ký lỗi: state.log (bền, ≤ 50) mới nhất trước + lý do bỏ qua của lượt chạy cuối (đã dịch) ----
+  function logPanel(host, ctx, S) {
+    const { M, esc, when } = mk(ctx), st = S.A.state || {}, log = [...(st.log || [])].sort((a, b) => (+b.at || 0) - (+a.at || 0)), sk = ((st.last_run || {}).skipped) || [];
+    const groups = new Map(); for (const x of sk) { const k = String(x.why || ''); const g = groups.get(k) || groups.set(k, { why: k, n: 0, ex: [] }).get(k); g.n++; if (x.clip && g.ex.length < 3) g.ex.push(x.clip + (x.ch ? ' → ' + x.ch : '')); }
+    const kLbl = k => { const b = String(k || '').split(':')[0]; return LOGK[b] ? M(LOGK[b]) : b; };
+    host.innerHTML = `<div class="smg-hd"><h3>${M('🧾 Nhật ký lỗi')}</h3></div><p class="tiny muted">${M('Lỗi bền của autopilot (50 mục gần nhất) và lý do bỏ qua ở lượt chạy cuối – mới nhất ở trên.')}</p>
+      <div class="smg-lbl">${M('Lỗi gần đây')}</div>${log.length ? `<ol class="smg-log" id="lgErr">${log.map(e => `<li data-at="${+e.at || 0}"><time datetime="${e.at ? new Date(+e.at).toISOString() : ''}">${esc(when(e.at))}</time><span><b>${esc(kLbl(e.k))}</b> · ${esc(e.text || '')}</span></li>`).join('')}</ol>` : `<p class="small ok-t">${M('Chưa có lỗi nào.')}</p>`}
+      <div class="smg-lbl">${M('Lần chạy cuối bỏ qua')}${st.last_run ? ' · ' + esc(when(st.last_run.at)) : ''}</div>${groups.size ? `<ul class="smg-log" id="lgSkip">${[...groups.values()].sort((a, b) => b.n - a.n).map(g => { const [t, v] = skipWhy(g.why); return `<li class="sk" data-why="${esc(g.why)}"><span class="n">${g.n}×</span><span>${esc(M(t, v))}${g.ex.length ? `<br><span class="tiny muted">${esc(g.ex.join(' · '))}</span>` : ''}</span></li>`; }).join('')}</ul>` : `<p class="small muted">${M('Lần chạy cuối không bỏ qua bài nào.')}</p>`}`;
+  }
+
   async function queue(el, ctx) {
     const { M, esc, err, accN } = mk(ctx); let R = null, plan = null, sel = ctx.LS.get('qacc', null);
-    el.innerHTML = `<section class="card" id="smgAP"><p class="small muted">${M('Đang tải…')}</p></section><section class="card"><h3 style="margin-top:0">${M('🤖 Hàng đợi tự động')}</h3><p class="small muted">${M('Rải clip ĐÃ DUYỆT trong kho Lexkite vào khung giờ vàng từng kênh, theo trần/ngày, giãn cách và chống trùng. Kết quả là bài NHÁP chờ duyệt – không tự đăng.')}</p>
+    el.innerHTML = `<section class="card smg-ch" id="smgCh" aria-live="polite"><p class="small muted">${M('Đang tải…')}</p></section><section class="card smg-ap" id="smgAP"><p class="small muted">${M('Đang tải…')}</p></section><section class="card smg-lg" id="smgLog"></section><section class="card"><h3 style="margin-top:0">${M('🤖 Hàng đợi tự động')}</h3><p class="small muted">${M('Rải clip ĐÃ DUYỆT trong kho Lexkite vào khung giờ vàng từng kênh, theo trần/ngày, giãn cách và chống trùng. Kết quả là bài NHÁP chờ duyệt – không tự đăng.')}</p>
       <div id="smgR"><p class="small muted">${M('Đang tải…')}</p></div><div class="row" style="gap:.4rem;margin-top:.6rem"><button type="button" class="btn sm" id="smgPlan">${M('📋 Lập kế hoạch')}</button><button type="button" class="btn sm ghost" id="smgCsv">${M('⬆️ Nhập CSV')}</button><button type="button" class="btn sm primary" id="smgGo" disabled>${M('Tạo {n} bài nháp & gửi duyệt', { n: 0 })}</button></div>
       <p class="small" id="smgQm" role="status" aria-live="polite"></p><div id="smgOut" class="smg-scroll"></div></section>`;
     const $ = s => el.querySelector(s), msg = (t, c) => { const m = $('#smgQm'); if (m) { m.textContent = t; m.className = 'small ' + (c === true ? 'ok-t' : c === false ? 'bad-t' : 'muted'); } };
@@ -291,7 +552,7 @@
     if (!sel) sel = accs().map(a => String(a.id));
     const paintR = () => {
       $('#smgR').innerHTML = `<details open><summary class="small" style="font-weight:600">${M('Luật chống spam')}</summary><p class="tiny muted">${M('Đây là trần riêng của Lexkite (chống spam), luôn thấp hơn trần nền tảng.')}</p>
-        <div class="soc-form">${Object.keys(PN).map(p => `<label>${PI[p]} ${PN[p]} – ${M('Tối đa/ngày')}<input type="number" min="0" max="30" data-pd="${p}" value="${R.perDay[p] || 0}"></label>`).join('')}
+        <div class="soc-form">${Object.keys(PN).map(p => `<label>${PI[p]} ${PN[p]} – ${M('Tối đa/ngày')}<input type="number" min="0" max="2" data-pd="${p}" value="${R.perDay[p] || 0}"></label>`).join('')}
         <label>${M('Giãn cách tối thiểu (giờ)')}<input type="number" min="1" max="24" id="rGap" value="${R.minGapH}"></label><label>${M('Khung giờ (giờ địa phương của kênh)')}<input id="rH" value="${esc(R.hours.join(', '))}"></label>
         <label>${M('Múi giờ mặc định')}<input id="rTz" value="${esc(R.tz)}"></label><label>${M('Không lặp clip trên cùng kênh (ngày)')}<input type="number" min="1" max="365" id="rDup" value="${R.dupDays}"></label>
         <label>${M('Số ngày lập kế hoạch')}<input type="number" min="1" max="31" id="rDays" value="${R.days}"></label><label class="row" style="gap:.3rem"><input type="checkbox" id="rWe" ${R.skipWeekend ? 'checked' : ''}>${M('Bỏ thứ 7, CN')}</label></div>
@@ -337,7 +598,7 @@
   // ======================= SỨC KHỎE KÊNH =======================
   async function health(el, ctx) {
     const { M, esc, err, pill } = mk(ctx); let H = null; const F = ctx.LS.get('hf', { p: '', s: '', g: 'platform', sort: 'name' });
-    el.innerHTML = `<section class="card"><h3 style="margin-top:0">${M('🩺 Sức khỏe kênh')}</h3><p class="small muted">${M('YouTube & TikTok trên GrabCast đang “Riêng tư đến khi được duyệt”: bài lên ở chế độ riêng tư (TikTok SELF_ONLY, YouTube private) cho tới khi Google/TikTok duyệt app GrabCast.')}</p>
+    el.innerHTML = `<section class="card"><h3 style="margin-top:0">${M('🩺 Sức khỏe kênh')}</h3><p class="small muted">${M('YouTube trên GrabCast đang “Riêng tư đến khi được duyệt”: bài lên ở chế độ private cho tới khi Google duyệt app GrabCast. TikTok đã được duyệt: bài lên công khai.')}</p>
       <div class="smg-flt"><select id="hP" aria-label="${esc(M('Nền tảng'))}"><option value="">${M('Tất cả nền tảng')}</option>${Object.keys(PN).map(p => `<option value="${p}" ${F.p === p ? 'selected' : ''}>${PN[p]}</option>`).join('')}</select>
       <select id="hS" aria-label="${esc(M('Trạng thái'))}"><option value="">${M('Mọi trạng thái')}</option>${Object.keys(HS).map(s => `<option value="${s}" ${F.s === s ? 'selected' : ''}>${M(HS[s][1])}</option>`).join('')}</select>
       <label class="small">${M('Nhóm theo')} <select id="hG"><option value="">${M('Không nhóm')}</option><option value="platform" ${F.g === 'platform' ? 'selected' : ''}>${M('Nền tảng')}</option><option value="group" ${F.g === 'group' ? 'selected' : ''}>${M('Nhóm')}</option></select></label>
@@ -464,5 +725,5 @@
   }
 
   const TABS = { board, queue, health, stats, inbox };
-  window.AdminSocialMgr = { paint: (t, el, ctx) => TABS[t](el, ctx), pickClip, aiSuggest, setsBar, _t: { groupSlots, parseCsv, parseQueueCsv, rate, sumBy, newAccounts, COLS, EN } };
+  window.AdminSocialMgr = { paint: (t, el, ctx) => TABS[t](el, ctx), pickClip, aiSuggest, setsBar, _t: { PAUSE_Q, skipWhy, SKIP, SKIP_PRE, LOGK, ISS, GSTEP, LANGN, groupSlots, parseCsv, parseQueueCsv, rate, sumBy, newAccounts, COLS, EN } };
 })();

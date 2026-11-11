@@ -165,7 +165,7 @@
       { k: 'rules', icon: 'info', title: t('Quy tắc giải đấu tuần'), sub: t('Bảng xếp hạng 30 người học cùng hạng · Cập nhật theo tuần'), btn: t('Xem'), act: 'rules', aria: t('Quy tắc giải đấu tuần') });
     const d = { tier: curTier.name(), left: leftTime || '', lead: canUp ? t('Top {n} lên', { n: upCut }) : t('Top {n} giữ hạng', { n: upCut }), next: canUp ? nextTier.name() : curTier.name(),
       zoneMsg: me.zone === 'up' ? t('Đang trong vùng thăng hạng') : me.zone === 'down' ? t('Cần thêm XP để tránh xuống hạng') : t('Vị trí an toàn'), rows, cards };
-    const root = window.ST2.mount(view, 'leagues', d, 'league');
+    const root = window.ST2.mount(view, 'leagues', d, 'home');
     root.addEventListener('click', e => {
       const b = e.target.closest && e.target.closest('[data-act]'); const a = b && b.getAttribute('data-act'); if (!a) return;
       if (a === 'nick') League.promptChangeNick(data.member.nick);

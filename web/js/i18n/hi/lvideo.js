@@ -1,3 +1,2 @@
-/* SINH từ i18n/ui/hi/lvideo.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["hi"] = Object.assign(D["hi"] || {}, {"_ynnmea":"20 सेकंड देखें","_10u46hz":"आज का वीडियो","_t0qfll":"पाठ वीडियो","_1cw0djl":"वीडियो चलाएँ: {t}","_1uf5ws0":"वीडियो बंद करें","_6bifv9":"वीडियो नहीं चल सका – बाद में फिर कोशिश करें।","_apvbgs":"झटपट सवाल","_dek07p":"सही! आपके रिव्यू कार्ड में जोड़ दिया गया।","_ha39cs":"सही नहीं। उत्तर: {a} – रिव्यू कार्ड में जोड़ दिया गया।","_1b3yrgg":"अगला वीडियो","_2ykj2p":"वीडियो के अध्याय"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/hi/lvideo.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.hi=Object.assign(D.hi||{},{_nmea:"20 सेकंड देखें",_46hz:"आज का वीडियो",_qfll:"पाठ वीडियो",_djl:"वीडियो चलाएँ: {t}",_5ws0:"वीडियो बंद करें",_ifv9:"वीडियो नहीं चल सका – बाद में फिर कोशिश करें।",_vbgs:"झटपट सवाल",_k07p:"सही! आपके रिव्यू कार्ड में जोड़ दिया गया।",_39cs:"सही नहीं। उत्तर: {a} – रिव्यू कार्ड में जोड़ दिया गया।",_yrgg:"अगला वीडियो",_kj2p:"वीडियो के अध्याय"});})(typeof self!=='undefined'?self:this);

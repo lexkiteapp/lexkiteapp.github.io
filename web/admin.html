@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/admin.css">
   <link rel="stylesheet" href="css/adm.css">
 </head>
-<body class="adm">
+<body class="adm adm-boot">
   <a class="adm-skip" href="#main" data-l="Bỏ qua tới nội dung">Bỏ qua tới nội dung</a>
   <header class="adm-top">
     <button type="button" class="adm-ibtn adm-burger" id="navBtn" aria-controls="side" aria-expanded="false"><span aria-hidden="true">☰</span><span class="sr-only" data-l="Mở menu">Mở menu</span></button>
@@ -25,6 +25,7 @@
     <div class="side-scrim" id="scrim" hidden></div>
     <div class="adm-content">
       <div class="pg-head" id="pgHead"></div>
+      <nav class="flow" id="flowStrip" hidden></nav>
       <main class="adm-main" id="main" tabindex="-1"><div class="card center adm-login"><h1 class="adm-login-t" data-l="Trang quản trị Lexkite">Trang quản trị Lexkite</h1><p class="muted" data-l="Chỉ tài khoản quản trị được cấp quyền.">Chỉ tài khoản quản trị được cấp quyền.</p><button class="btn primary" id="signin" data-l="Đăng nhập bằng Google">Đăng nhập bằng Google</button><p class="small muted" id="loginMsg"></p></div></main>
     </div>
   </div>

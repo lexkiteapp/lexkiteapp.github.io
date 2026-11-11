@@ -22,7 +22,8 @@ jobs:
         with: { node-version: 22 }
       - run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
+        timeout-minutes: 12
       - name: Hồ sơ
         run: |
           rm -rf out/site && mkdir -p out && cp -R web out/site && rm -rf out/site/audio
