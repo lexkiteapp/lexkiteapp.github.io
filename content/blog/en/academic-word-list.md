@@ -35,6 +35,8 @@ The list is split into **10 sublists**. Sublists 1 to 9 contain 60 families each
 | 5 | academy, capacity, challenge, decline, generate, logic, objective, trend |
 | 10 | adjacent, albeit, forthcoming, notwithstanding, persist, whereby |
 
+For a definition of each word family, see the [Academic Word List with meanings](/en/blog/academic-word-list-meanings/); PTE candidates will also find the [PTE academic vocabulary list](/en/blog/pte-academic-vocabulary-list/) useful.
+
 ## Why the academic word list matters for IELTS Academic and TOEFL
 
 In her original study, Coxhead reported that AWL words made up roughly one in ten words of the academic texts she analysed (about 10%), compared with under 2% of a fiction corpus of similar size. That contrast is the whole point of the list: these words are common in lectures and journals but rare in everyday reading, so most learners do not pick them up by accident. That may sound modest, but those words often carry the key idea of a sentence. Compare:
