@@ -9,7 +9,7 @@ tags: [ielts, pte, australia, immigration, study-plan]
 keyword: "pte vs ielts for australia"
 cover: mock
 coverAlt: "Lexkite IELTS mock test: choose Listening, Reading, Writing or Speaking, pick a paper, see your mock history and the test structure"
-publishAt:
+publishAt: 2027-02-08T21:09:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
 qualityScore: 91

@@ -9,7 +9,7 @@ tags: [celpip, speaking, everyday-english, fluency, newcomers]
 keyword: "celpip speaking phrases"
 cover: practice-speak
 coverAlt: "Lexkite scored pronunciation practice: the phrase cut down on, a microphone button to speak and scoring by voice"
-publishAt:
+publishAt: 2027-01-21T20:33:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
 qualityScore: 90

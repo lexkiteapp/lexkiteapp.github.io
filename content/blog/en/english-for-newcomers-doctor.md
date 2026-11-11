@@ -9,7 +9,7 @@ tags: [newcomers, everyday-english, speaking, health, healthcare]
 keyword: "english phrases at the doctor"
 cover: pron
 coverAlt: "Lexkite IPA pronunciation library with vowels, diphthongs and consonants, example words and practice for each sound"
-publishAt:
+publishAt: 2027-01-29T20:39:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
 qualityScore: 90

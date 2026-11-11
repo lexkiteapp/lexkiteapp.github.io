@@ -9,7 +9,7 @@ tags: [ielts, celpip, canada, express-entry, immigration]
 keyword: "celpip vs ielts for canada"
 cover: home
 coverAlt: "Lexkite Today page: Kit greeting, number of cards to review today, daily tasks with XP, start buttons, exam date goal and today's plan"
-publishAt:
+publishAt: 2027-01-22T21:26:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
 qualityScore: 90

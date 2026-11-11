@@ -9,7 +9,7 @@ tags: [grammar, vocabulary, spelling, writing, confusing-words]
 keyword: "affect vs effect meaning"
 cover: practice-test
 coverAlt: "Lexkite multiple-choice test question with four answer options"
-publishAt:
+publishAt: 2027-01-23T09:43:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
 qualityScore: 90

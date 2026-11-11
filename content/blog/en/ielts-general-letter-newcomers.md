@@ -9,7 +9,7 @@ tags: [ielts, ielts-general, writing, newcomers, immigration]
 keyword: "ielts general training task 1 for migrants"
 cover: mock
 coverAlt: "Lexkite IELTS mock test screen where you choose Listening, Reading, Writing or Speaking, pick a test and see your history"
-publishAt:
+publishAt: 2027-01-30T09:34:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
 qualityScore: 90

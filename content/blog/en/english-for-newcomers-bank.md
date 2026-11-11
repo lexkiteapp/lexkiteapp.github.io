@@ -9,7 +9,7 @@ tags: [newcomers, everyday-english, speaking, banking, finance]
 keyword: "english phrases at the bank"
 cover: phrases
 coverAlt: "Lexkite phrase notebook where you add phrases and sentences, with tags for Task and band"
-publishAt:
+publishAt: 2027-01-24T20:46:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
 qualityScore: 90

@@ -9,7 +9,7 @@ tags: [ielts, immigration, ielts-general, ielts-academic, study-plan]
 keyword: "ielts general vs academic for immigration"
 cover: reading
 coverAlt: "Lexkite IELTS reading practice screen with passages by level A2 to C1"
-publishAt:
+publishAt: 2027-01-31T07:21:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
 qualityScore: 90

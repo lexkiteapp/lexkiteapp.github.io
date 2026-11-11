@@ -9,7 +9,7 @@ tags: [newcomers, job-interview, business-english, speaking, career]
 keyword: "job interview english for immigrants"
 cover: speaking
 coverAlt: "Lexkite Speaking room with Part 1, 2 and 3 by topic, sample questions, sample answers and useful vocabulary"
-publishAt:
+publishAt: 2027-02-04T08:53:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
 qualityScore: 90

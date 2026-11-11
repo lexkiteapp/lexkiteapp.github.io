@@ -9,7 +9,7 @@ tags: [ielts, new-zealand, immigration, study-plan, permanent-residency]
 keyword: "ielts score for new zealand residence"
 cover: path
 coverAlt: "Lexkite IELTS study path screen with stages by band"
-publishAt:
+publishAt: 2027-02-01T19:24:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
 qualityScore: 91

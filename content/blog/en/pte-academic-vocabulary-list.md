@@ -9,7 +9,7 @@ tags: [pte, vocabulary, academic-vocabulary, spaced-repetition, study-plan]
 keyword: "pte academic vocabulary"
 cover: practice-match
 coverAlt: "Lexkite timed matching exercise pairing English words with their meanings, with a countdown timer"
-publishAt:
+publishAt: 2027-02-06T12:57:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
 qualityScore: 90

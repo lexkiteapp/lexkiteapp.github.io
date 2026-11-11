@@ -9,7 +9,7 @@ tags: [vocabulary, phrasal-verbs, business-english, workplace, career]
 keyword: "phrasal verbs for work"
 cover: method
 coverAlt: "The Lexkite method page showing a daily study loop of reviews, new words, practice, reading or listening and speaking"
-publishAt:
+publishAt: 2027-02-05T20:38:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
 qualityScore: 90

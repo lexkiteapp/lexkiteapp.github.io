@@ -9,7 +9,7 @@ tags: [newcomers, salary-negotiation, business-english, speaking, career]
 keyword: "salary negotiation phrases in english"
 cover: practice-learn
 coverAlt: "Lexkite smart-learn card for the phrase come up with, showing its meaning, an example, a memory tip and a common mistake"
-publishAt:
+publishAt: 2027-02-09T20:42:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
 qualityScore: 90

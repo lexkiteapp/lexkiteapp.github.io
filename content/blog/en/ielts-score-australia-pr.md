@@ -9,7 +9,7 @@ tags: [ielts, australia, immigration, study-plan, permanent-residency]
 keyword: "ielts score for australia pr"
 cover: stats
 coverAlt: "Lexkite progress screen with level, XP, streak and a six-month study calendar"
-publishAt:
+publishAt: 2027-02-02T20:09:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
 qualityScore: 90

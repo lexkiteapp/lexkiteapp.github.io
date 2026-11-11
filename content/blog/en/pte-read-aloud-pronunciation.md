@@ -9,7 +9,7 @@ tags: [pte, pronunciation, speaking, fluency, study-plan]
 keyword: "pte read aloud pronunciation tips"
 cover: practice-speak
 coverAlt: "Lexkite pronunciation practice with a phrase to read, a microphone button and a voice score"
-publishAt:
+publishAt: 2027-02-07T21:13:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
 qualityScore: 91

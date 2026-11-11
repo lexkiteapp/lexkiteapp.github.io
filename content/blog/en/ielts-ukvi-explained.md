@@ -9,7 +9,7 @@ tags: [ielts, ukvi, selt, immigration, study-plan]
 keyword: "ielts for ukvi"
 cover: mock
 coverAlt: "Lexkite IELTS mock test screen: choose a skill, choose a test, history of mock tests"
-publishAt:
+publishAt: 2027-02-03T12:21:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
 qualityScore: 90
