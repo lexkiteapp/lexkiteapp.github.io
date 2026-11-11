@@ -278,6 +278,17 @@ async function j2(h) {
     try { await h.go('#/say'); await h.wait('#sayList a', 8000); await h.shot('say-list-dark'); await h.click('#sayList a', { wait: 1200 }); await h.shot('say-front-dark'); await h.click('#sFlip', { wait: 900 }); await h.shot('say-back-dark'); }
     finally { await page.emulateMedia({ colorScheme: 'light' }); }
   } else console.log('⚠ journey: chưa có web/data/say.json (CI say-native.yml chưa dịch xong) – bỏ qua bước Say it like a native');
+  // 🔤 Động từ bất quy tắc (#/irregular): bảng → tờ chi tiết → luyện; sáng + tối (ảnh để soát với ref Stitch irv-*)
+  if (await page.evaluate(() => fetch('cpack/irv/core.json').then(r => r.ok, () => false))) {
+    await h.go('#/irregular'); await h.wait('#irvList article', 8000);
+    h.ok(await page.locator('#irvList article').count() >= 20, 'Động từ bất quy tắc: bảng có hàng');
+    await h.audit('irregular-table'); await h.shot('irregular-table');
+    await h.go('#/irregular/go'); await h.wait('#irvH', 8000); await h.audit('irregular-detail'); await h.shot('irregular-detail');
+    await h.go('#/irregular/practice'); await h.wait('#irvIn', 8000); await h.audit('irregular-drill'); await h.shot('irregular-drill');
+    await page.emulateMedia({ colorScheme: 'dark' });
+    try { await h.go('#/irregular'); await h.wait('#irvList article', 8000); await h.shot('irregular-table-dark'); await h.go('#/irregular/go'); await h.wait('#irvH', 8000); await h.shot('irregular-detail-dark'); await h.go('#/irregular/practice'); await h.wait('#irvIn', 8000); await h.shot('irregular-drill-dark'); }
+    finally { await page.emulateMedia({ colorScheme: 'light' }); }
+  } else console.log('⚠ journey: chưa có web/cpack/irv/core.json – bỏ qua bước Động từ bất quy tắc');
   await h.go('#/roleplay/salary');
   const lv = await page.locator('.rp-seg button[aria-pressed="true"]').first().innerText().catch(() => '');
   h.ok(/B2/.test(lv), 'nhập vai: mức chọn sẵn B2 (' + lv + ')');

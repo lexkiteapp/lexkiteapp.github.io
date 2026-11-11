@@ -64,6 +64,7 @@
     const sents = (e.sentences || []).filter(s => s !== exS), noDup = d => d.ex && !sameEx(d.ex);
     const vh = App.vimg(e.word, e.pos, App.meanOf(e), { w: 'dict', photo: true, capt: false }, ex0); // ảnh (đúng từ#loại) + capt:false: câu nằm ở khối Ví dụ của cột nội dung, không lặp dưới ảnh
     const media = vh || (e.image || e.emoji ? pic(e) : ''); // không ảnh → không ô: chữ dùng hết bề ngang (lưới .entry-head cột auto, ảnh ẩn ở chế độ tối cũng co về 0)
+    const ib = window.LK_VERBS && LK_VERBS.verbOf(e), ir = ib && LK_VERBS.isIrregular(ib) ? LK_VERBS.forms(ib) : null; // động từ bất quy tắc: dòng gọn go · went · gone → #/irregular/<động từ>
     $('#result').innerHTML = `
       <div class="card">
         <div class="entry-head">
@@ -87,6 +88,7 @@
             <a class="btn" href="#/practice/speak?w=${encodeURIComponent(e.word)}">${UI.icon('mic')} ${t('Luyện phát âm')}</a>
             ${window.LK_VERBS && LK_VERBS.verbOf(e) ? `<a class="btn" href="#/verb/${encodeURIComponent(LK_VERBS.verbOf(e))}">${UI.icon('a-large-small')} ${t('Chia động từ')}</a>` : ''}${window.LK_USAGE_IDX && LK_USAGE_IDX.w[e.word.toLowerCase()] ? `<a class="btn" href="#/usage/${encodeURIComponent(e.word.toLowerCase())}">${UI.icon('book-a')} ${t('Cách dùng')}</a>` : ''}
           </div>
+          ${ir ? `<a class="chip" href="#/irregular/${encodeURIComponent(ir.base)}" lang="en" translate="no" style="margin-top:.5rem">${esc([ir.base, ir.past.map(x => x.w).join('/'), ir.pp.map(x => x.w).join('/')].join(' · '))}</a>` : ''}
           ${media}
         </div>
         ${App.chipsHtml(e.col, '🔗', t('Hay đi với'))}${App.chipsHtml(e.syn, '≈', t('Đồng nghĩa'))}

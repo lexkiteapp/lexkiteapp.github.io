@@ -405,6 +405,7 @@ async function wcMistake(m) {
 }
 
 // ---------- Tin nhắn từ content script / popup / app ----------
+let irvMap = null;
 chrome.runtime.onMessage.addListener((msg, sender, reply) => {
   (async () => { try {
     switch (msg.type) {
@@ -485,6 +486,9 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
       case 'nanoEnable': return reply(await nanoEnable());
       case 'testNotify': await sendReminder(true); return reply({ ok: true });
       case 'logErr': logErr(msg.where || 'cs', msg.m); return reply({ ok: true });
+      case 'irv': { // bong bóng tra từ → hàng 3 dạng động từ bất quy tắc; đọc đúng dữ liệu của bảng trong gói (không chép, không quyền mới)
+        irvMap = irvMap || fetch(chrome.runtime.getURL('app/cpack/irv/core.json')).then(r => r.json()).then(d => { const m = new Map(); for (const r of d.rows) for (const f of Object.keys(r[4])) if (!m.has(f)) m.set(f, [r[0], r[10]]); return m; });
+        const hit = (await irvMap).get(String(msg.w || '').toLowerCase()); return reply(hit ? { base: hit[0], trio: hit[1] } : {}); }
       case 'openApp': await openApp(msg.hash); return reply({ ok: true });
       case 'syncNow': {
         // Trang Lexkite (đã đăng nhập) tự gộp dữ liệu qua cầu nối rồi gửi 'linked' → chờ tín hiệu đó, tối đa 25 giây

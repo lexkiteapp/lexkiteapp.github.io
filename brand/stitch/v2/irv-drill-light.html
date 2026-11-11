@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Lexkite Lesson Drill - Type the past form (Bright Day)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            surface: '#fff8f5',
+            'surface-card': '#ffffff',
+            'surface-subtle': '#fff1e8',
+            'surface-border': '#e6d7cd',
+            'brand-teal': '#00504b',
+            'brand-teal-dark': '#003834',
+            'teal-soft': '#e1f8f3',
+            'teal-border': '#2ba39a',
+            'coral-primary': '#f06400',
+            'coral-pressed': '#d45500',
+            'ink-dark': '#132226',
+            'ink-muted': '#4a5d61',
+            'ink-soft': '#697b7e',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          boxShadow: {
+            'tactile-btn': '0 4px 0 #ba4c00',
+            'tactile-card': '0 3px 0 #e6d7cd',
+            'tactile-control': '0 2px 0 #d9c5b8',
+            'tactile-input': 'inset 0 2px 0 rgba(0,0,0,0.04), 0 2px 0 #e6d7cd',
+            'tactile-input-focus': '0 0 0 2px #00504b, 0 3px 0 #003834',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #fff8f5;
+      color: #132226;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+    .material-symbols-rounded.fill-current {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-surface flex flex-col justify-between max-w-[390px] mx-auto antialiased select-none">
+  <!-- Top Bar: FOCUS with Close X & Progress Bar 3 of 10 -->
+  <header class="w-full pt-4 pb-3 px-4 flex items-center gap-3">
+    <button type="button" aria-label="Close" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center text-ink-muted hover:text-ink-dark hover:bg-surface-subtle active:scale-95 transition-all">
+      <span class="material-symbols-rounded text-2xl">close</span>
+    </button>
+    <div class="flex-1 flex items-center gap-2.5">
+      <div class="w-full bg-[#ebdcd3] h-2.5 rounded-full overflow-hidden p-[1px]">
+        <div class="bg-brand-teal h-full rounded-full transition-all duration-300" style="width: 30%;"></div>
+      </div>
+      <span class="text-xs font-bold text-ink-muted tracking-wide shrink-0">3/10</span>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 px-4 py-2 flex flex-col justify-between">
+    <div class="w-full flex flex-col gap-4">
+      
+      <!-- Teacher Slot & Speech Bubble Header -->
+      <section class="flex items-center gap-3 pt-1">
+        <!-- Empty Teacher Slot Box (Strictly labeled "teacher-slot", no person/face) -->
+        <div class="w-16 h-16 min-w-[64px] min-h-[64px] rounded-2xl border-2 border-dashed border-[#b8a69a] bg-surface-subtle flex flex-col items-center justify-center p-1 text-center shrink-0">
+          <span class="text-[10px] font-extrabold text-[#786b62] tracking-wider uppercase leading-tight">teacher<br>slot</span>
+        </div>
+
+        <!-- Speech Bubble -->
+        <div class="relative bg-surface-card border-2 border-surface-border rounded-2xl px-4 py-3 shadow-tactile-card flex-1">
+          <!-- Speech triangle pointer pointing toward teacher-slot -->
+          <div class="absolute -left-2 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-r-[8px] border-r-surface-border"></div>
+          <div class="absolute -left-[6px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[5px] border-t-transparent border-b-[5px] border-b-transparent border-r-[7px] border-r-surface-card"></div>
+          
+          <p class="text-xs font-extrabold uppercase tracking-wider text-brand-teal mb-0.5">Quick Warm-Up</p>
+          <p class="text-base font-bold text-ink-dark leading-snug">Type the past form.</p>
+        </div>
+      </section>
+
+      <!-- Sentence & Prompt Card -->
+      <article class="bg-surface-card border-2 border-surface-border rounded-3xl p-5 shadow-tactile-card flex flex-col gap-4">
+        <!-- Context & Audio row -->
+        <div class="flex items-center justify-between">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-soft text-brand-teal text-xs font-bold border border-[#a2dfd6]">
+            <span class="material-symbols-rounded text-sm">edit_note</span>
+            Verb Exercise
+          </span>
+          <button type="button" aria-label="Listen to sentence" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-teal-soft text-brand-teal border border-[#9ed9d0] flex items-center justify-center shadow-tactile-control active:translate-y-0.5 active:shadow-none hover:bg-[#d0f4ec] transition-all">
+            <span class="material-symbols-rounded text-xl">volume_up</span>
+          </button>
+        </div>
+
+        <!-- The Target Sentence -->
+        <div class="py-2">
+          <p class="text-xl sm:text-2xl font-extrabold text-ink-dark leading-relaxed">
+            She 
+            <span class="inline-block px-3 py-0.5 mx-1 border-b-4 border-brand-teal font-extrabold text-brand-teal bg-teal-soft/60 rounded">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </span> 
+            home early last night.
+          </p>
+        </div>
+
+        <!-- Hint Chip -->
+        <div class="pt-2 border-t border-[#f0e3da] flex items-center gap-2">
+          <span class="text-xs font-bold text-ink-soft">Clue:</span>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#fff2e3] border border-[#f5cc9b] text-[#8c4b00] text-xs font-extrabold">
+            <span class="material-symbols-rounded text-sm">lightbulb</span>
+            <span>go, past simple</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Text Input Field Card -->
+      <div class="flex flex-col gap-2 pt-1">
+        <label for="verb-input" class="text-xs font-extrabold uppercase tracking-wider text-ink-muted px-1">
+          Your Answer
+        </label>
+        <div class="relative">
+          <input 
+            type="text" 
+            id="verb-input" 
+            name="verb-answer"
+            placeholder="Type the verb" 
+            autocomplete="off" 
+            autocorrect="off" 
+            autocapitalize="off" 
+            spellcheck="false"
+            class="w-full h-14 min-h-[56px] px-4 rounded-2xl bg-surface-card border-2 border-surface-border text-lg font-bold text-ink-dark placeholder-ink-soft/70 shadow-tactile-input focus:outline-none focus:border-brand-teal focus:ring-0 focus:shadow-tactile-input-focus transition-all"
+          />
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Actions Container -->
+    <div class="w-full pt-6 pb-6 flex flex-col items-center gap-3">
+      <!-- Full-width Coral Primary Button with Tactile Raised Feel -->
+      <button 
+        type="button" 
+        class="w-full h-14 min-h-[56px] px-6 rounded-2xl bg-coral-primary hover:bg-[#e45f00] active:bg-coral-pressed active:translate-y-1 active:shadow-none text-[#1a0d00] text-lg font-extrabold tracking-wide shadow-tactile-btn flex items-center justify-center gap-2 transition-all">
+        <span>Check</span>
+        <span class="material-symbols-rounded text-2xl font-black">arrow_forward</span>
+      </button>
+
+      <!-- Quiet Secondary Link Beside / Under: "I don't know" -->
+      <button 
+        type="button" 
+        class="min-h-[44px] px-4 flex items-center justify-center text-sm font-bold text-ink-muted hover:text-ink-dark active:underline rounded-xl transition-colors">
+        I don't know
+      </button>
+    </div>
+  </main>
+</body>
+</html>

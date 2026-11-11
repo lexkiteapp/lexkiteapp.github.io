@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Irregular Verb Spotlight</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#FFF8F4",
+            "surface-dim": "#F5ECE6",
+            "surface-bright": "#FFFFFF",
+            "surface-container-lowest": "#FFFFFF",
+            "surface-container-low": "#FDF3EB",
+            "surface-container": "#F8EAE1",
+            "surface-container-high": "#F0DFD4",
+            "surface-container-highest": "#E6D3C6",
+            "on-surface": "#1C1003",
+            "on-surface-variant": "#5F5046",
+            "inverse-surface": "#263236",
+            "inverse-on-surface": "#D8E5E9",
+            "outline": "#8C7C73",
+            "outline-variant": "#DFCFC5",
+            "surface-tint": "#136B66",
+            "primary": "#136B66",
+            "on-primary": "#FFFFFF",
+            "primary-container": "#D2EBE9",
+            "on-primary-container": "#083734",
+            "inverse-primary": "#6BD8CE",
+            "secondary": "#B53A22",
+            "on-secondary": "#FFFFFF",
+            "secondary-container": "#FFDAD3",
+            "on-secondary-container": "#660800",
+            "tertiary": "#8A6500",
+            "on-tertiary": "#FFFFFF",
+            "tertiary-container": "#FFDF9E",
+            "on-tertiary-container": "#392900",
+            "error": "#BA1A1A",
+            "on-error": "#FFFFFF",
+            "error-container": "#FFDAD6",
+            "on-error-container": "#410002",
+            "background": "#FFF8F4",
+            "on-background": "#1C1003",
+            "surface-variant": "#E6D3C6"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "1rem",
+            "2xl": "1.25rem",
+            "3xl": "1.75rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            "headline": ["Plus Jakarta Sans", "sans-serif"],
+            "display": ["Plus Jakarta Sans", "sans-serif"],
+            "body": ["Plus Jakarta Sans", "sans-serif"],
+            "label": ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0E1617;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Smooth physical button press simulation */
+    .tactile-btn {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px) !important;
+      box-shadow: 0 1px 0 0 var(--ledge-color, #DFCFC5) !important;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex items-center justify-center p-0 sm:p-4">
+<!-- Mobile Screen Container 390px Viewport -->
+<main class="w-[390px] h-[844px] max-h-[844px] overflow-hidden relative bg-[#091518] shadow-2xl flex flex-col justify-end">
+<!-- Dimmed & Blurred Background Content (The Irregular Verbs List) -->
+<div class="absolute inset-0 bg-[#091518]/90 z-0 p-5 flex flex-col pointer-events-none filter blur-[3px] select-none opacity-40">
+<!-- Mock background header -->
+<div class="flex items-center justify-between py-3 border-b border-outline-variant/30 text-surface">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="text-sm font-extrabold tracking-wide uppercase">Irregular Verbs A-Z</span>
+<span class="material-symbols-outlined">filter_list</span>
+</div>
+<!-- Mock list items -->
+<div class="mt-4 space-y-3">
+<div class="p-3.5 bg-surface-container-high/40 rounded-xl flex items-center justify-between">
+<div>
+<p class="font-extrabold text-base text-surface">fly · flew · flown</p>
+<p class="text-xs text-outline">To move through the air with wings</p>
+</div>
+<span class="text-xs font-bold px-2 py-0.5 bg-surface-tint/20 text-surface-tint rounded">B1</span>
+</div>
+<div class="p-3.5 bg-surface-container-high/60 rounded-xl flex items-center justify-between border-2 border-primary/50">
+<div>
+<p class="font-extrabold text-base text-surface">go · went · gone</p>
+<p class="text-xs text-outline">To move from one place to another place</p>
+</div>
+<span class="text-xs font-bold px-2 py-0.5 bg-primary text-on-primary rounded">A1</span>
+</div>
+<div class="p-3.5 bg-surface-container-high/40 rounded-xl flex items-center justify-between">
+<div>
+<p class="font-extrabold text-base text-surface">grow · grew · grown</p>
+<p class="text-xs text-outline">To increase in size or develop</p>
+</div>
+<span class="text-xs font-bold px-2 py-0.5 bg-surface-tint/20 text-surface-tint rounded">A2</span>
+</div>
+</div>
+</div>
+<!-- Scrim / Dim Overlay -->
+<div class="absolute inset-0 bg-black/60 backdrop-blur-[2px] z-10"></div>
+<!-- TACTILE BOTTOM SHEET MODAL (Lexkite Bright Day Theme) -->
+<section class="relative z-20 w-full max-h-[800px] bg-surface rounded-t-3xl shadow-[0_-8px_32px_rgba(0,0,0,0.35)] flex flex-col overflow-hidden border-t-2 border-outline-variant">
+<!-- Sticky Modal Top Bar with Drag Handle & Close -->
+<div class="w-full pt-3 px-5 pb-2 flex flex-col items-center shrink-0 bg-surface">
+<!-- Tactile centered drag handle -->
+<div class="w-12 h-1.5 rounded-full bg-outline-variant/80 mb-2"></div>
+<div class="w-full flex items-center justify-between">
+<!-- Subtle sheet context label -->
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px] font-bold">menu_book</span>
+<span class="text-[12px] font-extrabold tracking-wider uppercase text-on-surface-variant font-label">LEXKITE SPOTLIGHT</span>
+</div>
+<!-- Close button (Min 44x44px touch target) -->
+<button aria-label="Close" class="w-11 h-11 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center tactile-btn border border-outline-variant/60 shadow-[0_2px_0_0_#DFCFC5]" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</div>
+<!-- Scrollable Sheet Content -->
+<div class="px-5 pb-6 overflow-y-auto space-y-4 max-h-[720px] overscroll-contain">
+<!-- CARD HEADER & VERB SPOTLIGHT -->
+<div class="pt-1">
+<div class="flex items-baseline justify-between gap-2">
+<h1 class="text-4xl font-extrabold text-on-surface tracking-tight font-display">go</h1>
+<span class="text-xs font-semibold text-outline tracking-normal">Irregular Verb</span>
+</div>
+<p class="text-[15px] font-medium text-on-surface-variant leading-relaxed mt-1">
+            to move from one place to another place
+          </p>
+<!-- Chips Row -->
+<div class="flex flex-wrap items-center gap-2 mt-3">
+<!-- Level chip -->
+<div class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary-container/70 border border-primary/30 text-primary text-[11px] font-extrabold uppercase tracking-wide shadow-[0_2px_0_0_#9DC8C5]">
+<span class="material-symbols-outlined text-[14px]">stars</span>
+<span>A1 · Essential</span>
+</div>
+<!-- Pattern chip -->
+<div class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-secondary-container/70 border border-secondary/30 text-secondary text-[11px] font-extrabold uppercase tracking-wide shadow-[0_2px_0_0_#E0A89D]">
+<span class="material-symbols-outlined text-[14px]">pattern</span>
+<span>Pattern: A-B-C (Irregular)</span>
+</div>
+</div>
+</div>
+<!-- TEACHER SLOT (Strictly dashed placeholder, no avatars) -->
+<div class="w-full rounded-2xl border-2 border-dashed border-[#136B66] bg-[#136B66]/5 px-4 py-3 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center shrink-0 shadow-[0_2px_0_0_#0D4845]">
+<span class="material-symbols-outlined text-[22px]">school</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="text-[12px] font-extrabold text-[#136B66] uppercase tracking-wider font-label">teacher-slot</span>
+<span class="inline-block w-2 h-2 rounded-full bg-[#136B66] animate-pulse"></span>
+</div>
+<p class="text-xs font-medium text-on-surface-variant leading-snug mt-0.5">
+              Coach Ama / Carlos cue loads here
+            </p>
+</div>
+</div>
+<!-- ACCENT TOGGLE (Min 44px height touch area) -->
+<div class="w-full bg-surface-container-high/70 p-1 rounded-2xl flex items-center border border-outline-variant/70 min-h-[48px]">
+<!-- UK Active Tab -->
+<button class="flex-1 min-h-[40px] rounded-xl bg-surface-bright text-[#136B66] font-extrabold text-xs tracking-wide shadow-[0_2px_0_0_#C5B5AA] flex items-center justify-center gap-1.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px] font-bold">record_voice_over</span>
+<span>UK (RP)</span>
+</button>
+<!-- US Inactive Tab -->
+<button class="flex-1 min-h-[40px] rounded-xl text-on-surface-variant font-bold text-xs tracking-wide hover:text-on-surface flex items-center justify-center gap-1.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">record_voice_over</span>
+<span>US (GA)</span>
+</button>
+</div>
+<!-- THREE-FORM VERB TILES (Base V1, Past V2, Past Participle V3) -->
+<div>
+<h2 class="text-xs font-extrabold uppercase tracking-wider text-outline mb-2 font-label">Three Verb Forms</h2>
+<div class="grid grid-cols-3 gap-2.5">
+<!-- Tile 1: Base (V1) -->
+<div class="bg-surface-bright rounded-2xl p-2.5 flex flex-col items-center text-center border-2 border-outline-variant shadow-[0_4px_0_0_#DFCFC5]">
+<span class="text-[11px] font-extrabold text-on-surface-variant/80 uppercase font-label">Base (V1)</span>
+<p class="text-lg font-extrabold text-on-surface mt-1 leading-tight">go</p>
+<span class="text-[11px] font-medium text-outline mt-0.5">/ɡəʊ/</span>
+<button aria-label="Listen to go pronunciation" class="mt-3 w-11 h-11 rounded-full bg-surface-container hover:bg-primary-container text-primary flex items-center justify-center tactile-btn border border-primary/20 shadow-[0_2px_0_0_#DFCFC5]" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+<!-- Tile 2: Past (V2) -->
+<div class="bg-surface-bright rounded-2xl p-2.5 flex flex-col items-center text-center border-2 border-primary/40 bg-primary-container/10 shadow-[0_4px_0_0_#9DC8C5]">
+<span class="text-[11px] font-extrabold text-primary uppercase font-label">Past (V2)</span>
+<p class="text-lg font-extrabold text-primary mt-1 leading-tight">went</p>
+<span class="text-[11px] font-medium text-outline mt-0.5">/went/</span>
+<button aria-label="Listen to went pronunciation" class="mt-3 w-11 h-11 rounded-full bg-primary text-white flex items-center justify-center tactile-btn shadow-[0_2px_0_0_#0D4845]" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+<!-- Tile 3: Participle (V3) -->
+<div class="bg-surface-bright rounded-2xl p-2.5 flex flex-col items-center text-center border-2 border-outline-variant shadow-[0_4px_0_0_#DFCFC5]">
+<span class="text-[11px] font-extrabold text-on-surface-variant/80 uppercase font-label">Participle (V3)</span>
+<p class="text-lg font-extrabold text-on-surface mt-1 leading-tight">gone</p>
+<span class="text-[11px] font-medium text-outline mt-0.5">/ɡɒn/</span>
+<button aria-label="Listen to gone pronunciation" class="mt-3 w-11 h-11 rounded-full bg-surface-container hover:bg-primary-container text-primary flex items-center justify-center tactile-btn border border-primary/20 shadow-[0_2px_0_0_#DFCFC5]" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+</div>
+</div>
+<!-- MNEMONIC RHYTHM NOTE -->
+<div class="bg-tertiary-container/30 border-2 border-tertiary/30 rounded-2xl p-3.5 flex items-start gap-3 shadow-[0_3px_0_0_#E0BC6B]">
+<div class="w-9 h-9 rounded-xl bg-tertiary text-on-tertiary flex items-center justify-center shrink-0 shadow-[0_2px_0_0_#5B4300] mt-0.5">
+<span class="material-symbols-outlined text-[20px]">lightbulb</span>
+</div>
+<div>
+<h3 class="text-xs font-extrabold uppercase tracking-wider text-on-tertiary-container font-label">Mnemonic cadence</h3>
+<p class="text-xs font-semibold text-on-surface mt-1 leading-relaxed">
+              Say all three aloud: <span class="font-extrabold text-on-tertiary-container">go — went — gone</span>. The natural 3-beat rhythm helps lock the forms into permanent memory.
+            </p>
+</div>
+</div>
+<!-- EXAMPLE SENTENCES -->
+<div class="space-y-2.5">
+<h2 class="text-xs font-extrabold uppercase tracking-wider text-outline font-label">Example Sentences</h2>
+<!-- Example 1 -->
+<div class="bg-surface-bright rounded-2xl p-3.5 border-2 border-outline-variant shadow-[0_3px_0_0_#DFCFC5] flex items-center justify-between gap-3">
+<div class="flex-1">
+<span class="inline-block px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wider bg-surface-container text-on-surface-variant font-label mb-1">Past Simple (V2)</span>
+<p class="text-[14px] font-bold text-on-surface leading-snug">
+                She <span class="text-primary underline decoration-primary decoration-2 font-extrabold">went</span> home early last night.
+              </p>
+<p class="text-xs font-medium text-on-surface-variant mt-1">
+                Cô ấy đã về nhà sớm tối qua.
+              </p>
+</div>
+<button aria-label="Play example 1 audio" class="w-11 h-11 rounded-full bg-surface-container hover:bg-surface-container-high text-primary flex items-center justify-center shrink-0 tactile-btn border border-outline-variant shadow-[0_2px_0_0_#DFCFC5]" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+<!-- Example 2 -->
+<div class="bg-surface-bright rounded-2xl p-3.5 border-2 border-outline-variant shadow-[0_3px_0_0_#DFCFC5] flex items-center justify-between gap-3">
+<div class="flex-1">
+<span class="inline-block px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wider bg-surface-container text-on-surface-variant font-label mb-1">Present Perfect (V3)</span>
+<p class="text-[14px] font-bold text-on-surface leading-snug">
+                They have <span class="text-primary underline decoration-primary decoration-2 font-extrabold">gone</span> to the beach for the weekend.
+              </p>
+<p class="text-xs font-medium text-on-surface-variant mt-1">
+                Họ đã đi ra bãi biển vào dịp cuối tuần.
+              </p>
+</div>
+<button aria-label="Play example 2 audio" class="w-11 h-11 rounded-full bg-surface-container hover:bg-surface-container-high text-primary flex items-center justify-center shrink-0 tactile-btn border border-outline-variant shadow-[0_2px_0_0_#DFCFC5]" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+</div>
+<!-- ACTION BUTTONS -->
+<div class="pt-2 pb-2 space-y-2.5">
+<!-- Primary CTA Button (Tactile Coral with bottom ledge) -->
+<button class="w-full min-h-[54px] rounded-2xl bg-[#FF5252] text-white font-extrabold text-base tracking-wide flex items-center justify-center gap-2 shadow-[0_5px_0_0_#D93838] active:translate-y-1 active:shadow-[0_1px_0_0_#D93838] transition-all tactile-btn" type="button">
+<span class="material-symbols-outlined text-[22px]">bookmark_add</span>
+<span>Save to review</span>
+</button>
+<!-- Two Secondary Buttons Side by Side -->
+<div class="flex items-center gap-2.5">
+<button class="flex-1 min-h-[46px] rounded-2xl border-2 border-outline-variant bg-surface-container-lowest font-bold text-xs text-on-surface hover:bg-surface-container shadow-[0_3px_0_0_#DFCFC5] active:translate-y-1 active:shadow-[0_1px_0_0_#DFCFC5] flex items-center justify-center gap-1.5 transition-all tactile-btn" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">menu_book</span>
+<span class="truncate">Full conjugation</span>
+</button>
+<button class="flex-1 min-h-[46px] rounded-2xl border-2 border-outline-variant bg-surface-container-lowest font-bold text-xs text-on-surface hover:bg-surface-container shadow-[0_3px_0_0_#DFCFC5] active:translate-y-1 active:shadow-[0_1px_0_0_#DFCFC5] flex items-center justify-center gap-1.5 transition-all tactile-btn" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">auto_stories</span>
+<span class="truncate">Dictionary</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<script>
+    // Lightweight audio feedback simulation and active toggles
+    document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Visual touch ripple/bounce feedback
+        this.classList.add('scale-[0.98]');
+        setTimeout(() => this.classList.remove('scale-[0.98]'), 90);
+      });
+    });
+  </script>
+</body></html>
