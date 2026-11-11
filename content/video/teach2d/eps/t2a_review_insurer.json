@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"insurer\" mean?",
+  "keyword": "insurer",
+  "value": "Insurer means a company that provides insurance.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=insurer",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"insurer\" mean?",
+    "description": "Insurer means a company that provides insurance.\n\nReview your words, free: https://lexkite.com/app/#/review?w=insurer\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "insurer",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"insurer\" mean?\n\nInsurer means a company that provides insurance.\n\nReview your words, free: https://lexkite.com/app/#/review?w=insurer"
+   },
+   "instagram": {
+    "caption": "What does \"insurer\" mean?\n\nInsurer means a company that provides insurance.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"insurer\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a company that provides insurance. Insurer means a company that provides insurance. Practice it with a free quiz: {link}"
  }
 }

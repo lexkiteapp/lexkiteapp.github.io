@@ -22,8 +22,11 @@ jobs:
       - name: Chụp
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
-          npx playwright install --with-deps chromium
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core }
+      - name: Chụp (tiếp)
+        run: |
           bash scripts/build-extension.sh
           node scripts/store-shots.mjs /tmp/store-shots
       - name: Lưu vào nhánh store-shots

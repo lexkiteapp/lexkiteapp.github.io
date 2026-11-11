@@ -43,6 +43,8 @@ When you learn to decode the IPA, you no longer have to wonder how to pronounce 
 
 Modern English inherits vocabulary from Germanic roots, Old French, Latin, and Classical Greek, yet its spelling system froze centuries ago during the Great Vowel Shift while oral pronunciation kept evolving. As a result, the 26 letters of the Latin alphabet must struggle to represent roughly 44 distinct phonemes in British Received Pronunciation and General American.
 
+To put this into practice, try [how to practice English pronunciation](/en/blog/how-to-practice-english-pronunciation/).
+
 A single letter can represent multiple sounds: the letter *a* sounds different in *cat* (/æ/), *father* (/ɑː/), *name* (/eɪ/), and *about* (/ə/). Conversely, identical sounds are routinely written with different letter combinations: *meet*, *meat*, *scene*, and *receive* all share the long vowel sound /iː/.
 
 The International Phonetic Alphabet cuts through this historical chaos. In the IPA, every symbol represents exactly one physical mouth configuration and sound quality. When you see `/ʃ/`, your lips round and the tongue blade approaches the hard palate regardless of whether the printed word says *shoe*, *sugar*, *chef*, or *action*.

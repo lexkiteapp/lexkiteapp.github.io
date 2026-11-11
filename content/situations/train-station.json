@@ -1,0 +1,930 @@
+{
+ "id": "train-station",
+ "group": "transport",
+ "cefr": "A2",
+ "title": {
+  "en": "Train station",
+  "vi": "Ga tàu hỏa",
+  "es": "Estación de tren",
+  "pt": "Estação de trem",
+  "fr": "Gare",
+  "de": "Am Bahnhof",
+  "id": "Stasiun kereta",
+  "th": "สถานีรถไฟ",
+  "zh": "火车站",
+  "ja": "駅",
+  "ko": "기차역",
+  "hi": "रेलवे स्टेशन",
+  "ar": "محطة القطار",
+  "ru": "Железнодорожный вокзал",
+  "tr": "Tren garı"
+ },
+ "goal": {
+  "en": "Buy a ticket and catch your train!",
+  "vi": "Mua vé và lên đúng chuyến tàu!",
+  "es": "¡Compra tu billete y toma tu tren!",
+  "pt": "Compre a passagem e pegue seu trem!",
+  "fr": "Achetez votre billet et prenez votre train !",
+  "de": "Kauf eine Fahrkarte und erwisch deinen Zug!",
+  "id": "Beli tiket dan naik kereta Anda!",
+  "th": "ซื้อตั๋วแล้วขึ้นรถไฟให้ทัน!",
+  "zh": "买好票，赶上你的火车！",
+  "ja": "切符を買って電車に乗ろう！",
+  "ko": "표를 사고 기차를 타요!",
+  "hi": "टिकट खरीदें और अपनी ट्रेन पकड़ें!",
+  "ar": "اشترِ تذكرتك والحق بقطارك!",
+  "ru": "Купи билет и успей на поезд!",
+  "tr": "Biletini al ve trenine yetiş!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "ticket",
+   "title": {
+    "en": "Buy a ticket",
+    "vi": "Mua vé",
+    "es": "Comprar el billete",
+    "pt": "Comprar a passagem",
+    "fr": "Acheter un billet",
+    "de": "Fahrkarte kaufen",
+    "id": "Beli tiket",
+    "th": "ซื้อตั๋ว",
+    "zh": "买票",
+    "ja": "切符を買う",
+    "ko": "표 사기",
+    "hi": "टिकट खरीदें",
+    "ar": "شراء التذكرة",
+    "ru": "Покупка билета",
+    "tr": "Bilet alma"
+   },
+   "lines": [
+    "b1",
+    "b2",
+    "b3",
+    "b4"
+   ]
+  },
+  {
+   "id": "times",
+   "title": {
+    "en": "Times & platform",
+    "vi": "Giờ tàu & sân ga",
+    "es": "Horarios y andén",
+    "pt": "Horários e plataforma",
+    "fr": "Horaires et quai",
+    "de": "Zeiten & Gleis",
+    "id": "Jadwal & peron",
+    "th": "เวลาและชานชาลา",
+    "zh": "时间和站台",
+    "ja": "時刻とホーム",
+    "ko": "시간과 승강장",
+    "hi": "समय और प्लेटफ़ॉर्म",
+    "ar": "المواعيد والرصيف",
+    "ru": "Время и платформа",
+    "tr": "Saat ve peron"
+   },
+   "lines": [
+    "p1",
+    "p2",
+    "p3",
+    "p4"
+   ]
+  },
+  {
+   "id": "seat",
+   "title": {
+    "en": "Connections & seat",
+    "vi": "Đổi tàu & chỗ ngồi",
+    "es": "Transbordo y asiento",
+    "pt": "Baldeação e assento",
+    "fr": "Correspondance et place",
+    "de": "Umsteigen & Sitzplatz",
+    "id": "Transit & kursi",
+    "th": "ต่อรถไฟและที่นั่ง",
+    "zh": "换乘和座位",
+    "ja": "乗り換えと座席",
+    "ko": "환승과 좌석",
+    "hi": "ट्रेन बदलना और सीट",
+    "ar": "التبديل والمقعد",
+    "ru": "Пересадка и место",
+    "tr": "Aktarma ve koltuk"
+   },
+   "lines": [
+    "c1",
+    "c2",
+    "c3",
+    "c4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "b1",
+   "who": "customer",
+   "en": "Could I have a ticket to Oxford, please?",
+   "variants": {
+    "polite": "Could I please have a ticket to Oxford?",
+    "casual": "A ticket to Oxford, please."
+   },
+   "gloss": {
+    "en": "Asking politely for a ticket to Oxford.",
+    "vi": "Cho tôi một vé đi Oxford nhé.",
+    "es": "¿Me da un billete para Oxford, por favor?",
+    "pt": "Pode me dar uma passagem para Oxford, por favor?",
+    "fr": "Je pourrais avoir un billet pour Oxford, s'il vous plaît ?",
+    "de": "Könnte ich bitte eine Fahrkarte nach Oxford bekommen?",
+    "id": "Boleh saya beli satu tiket ke Oxford?",
+    "th": "ขอตั๋วไปอ็อกซ์ฟอร์ดหนึ่งใบค่ะ",
+    "zh": "请给我一张去牛津的票。",
+    "ja": "オックスフォード行きの切符をお願いできますか？",
+    "ko": "옥스퍼드행 표를 한 장 주시겠어요?",
+    "hi": "क्या मुझे ऑक्सफ़ोर्ड का एक टिकट मिल सकता है?",
+    "ar": "هل يمكنني الحصول على تذكرة إلى أكسفورد من فضلك؟",
+    "ru": "Можно мне билет до Оксфорда, пожалуйста?",
+    "tr": "Oxford'a bir bilet alabilir miyim, lütfen?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "ticket",
+     "ipa": "/ˈtɪk.ɪt/",
+     "hi": "TICK",
+     "note": {
+      "en": "Stress the first syllable: TICK-it, not tick-ET.",
+      "vi": "Nhấn âm đầu: TÍC-kịt, không phải tic-KÉT.",
+      "es": "Acentúa la primera sílaba: TIC-it, no tic-ET.",
+      "pt": "Acentue a primeira sílaba: TÍ-quit, não ti-QUÊ.",
+      "fr": "Accentuez la première syllabe : TIK-it, pas ti-KET.",
+      "de": "Betone die erste Silbe: TICK-it, nicht tick-ET.",
+      "id": "Tekankan suku kata pertama: TIK-it, bukan tik-ET.",
+      "th": "เน้นพยางค์แรก: ทิก-คิท ไม่ใช่ ทิก-เกท",
+      "zh": "重音在第一个音节：TICK-it，不是 tick-ET。",
+      "ja": "最初の音節を強く：TICK-it。tick-ETではありません。",
+      "ko": "첫 음절에 강세: TICK-it(틱-킷). tick-ET가 아니에요.",
+      "hi": "पहले अक्षर पर ज़ोर दें: TICK-it (टिक-इट), tick-ET नहीं।",
+      "ar": "شدّد على المقطع الأول: TICK-it (تيك-إت) وليس tick-ET.",
+      "ru": "Ударение на первый слог: ТИК-ит, а не тик-ЕТ.",
+      "tr": "Vurgu ilk hecede: TİK-it, tik-ET değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "who": "barista",
+   "en": "Certainly. Would you like a single or a return?",
+   "variants": {
+    "polite": "Certainly. Would you prefer a single or a return?",
+    "casual": "Sure. Single or return?"
+   },
+   "gloss": {
+    "en": "The clerk asks if you want a one-way or a round-trip ticket.",
+    "vi": "Nhân viên hỏi bạn muốn vé một chiều hay khứ hồi.",
+    "es": "El empleado pregunta si quiere un billete de ida o de ida y vuelta.",
+    "pt": "O atendente pergunta se você quer passagem só de ida ou de ida e volta.",
+    "fr": "L'employé demande si vous voulez un aller simple ou un aller-retour.",
+    "de": "Der Mitarbeiter fragt, ob Sie einfach oder hin und zurück fahren.",
+    "id": "Petugas bertanya apakah Anda mau tiket sekali jalan atau pulang-pergi.",
+    "th": "พนักงานถามว่าจะเอาตั๋วเที่ยวเดียวหรือไป-กลับคะ",
+    "zh": "售票员问您要单程票还是往返票。",
+    "ja": "駅員が片道か往復かを尋ねています。",
+    "ko": "직원이 편도인지 왕복인지 묻고 있어요.",
+    "hi": "कर्मचारी पूछ रहा है कि आपको एकतरफ़ा टिकट चाहिए या आना-जाना।",
+    "ar": "الموظف يسأل هل تريد تذكرة ذهاب فقط أم ذهاب وعودة.",
+    "ru": "Кассир спрашивает, нужен билет в один конец или туда и обратно.",
+    "tr": "Görevli tek yön mü, gidiş-dönüş mü istediğinizi soruyor."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "b3",
+   "who": "customer",
+   "en": "A return, please. I'm coming back tonight.",
+   "variants": {
+    "polite": "A return, please. I'll be coming back tonight.",
+    "casual": "Return, please. Back tonight."
+   },
+   "gloss": {
+    "en": "Asking for a round-trip ticket and saying you return tonight.",
+    "vi": "Xin một vé khứ hồi và nói tối nay quay về.",
+    "es": "Pide un billete de ida y vuelta y dice que vuelve esta noche.",
+    "pt": "Pede passagem de ida e volta e diz que volta hoje à noite.",
+    "fr": "Vous demandez un aller-retour et dites que vous rentrez ce soir.",
+    "de": "Sie bitten um eine Hin- und Rückfahrkarte und kommen heute Abend zurück.",
+    "id": "Meminta tiket pulang-pergi dan bilang akan kembali malam ini.",
+    "th": "ขอตั๋วไป-กลับ และบอกว่าจะกลับคืนนี้",
+    "zh": "要一张往返票，并说明今晚回来。",
+    "ja": "往復切符を頼み、今夜戻ると伝えています。",
+    "ko": "왕복표를 요청하고 오늘 밤에 돌아온다고 말해요.",
+    "hi": "आना-जाना टिकट माँगना और बताना कि आप आज रात लौट रहे हैं।",
+    "ar": "تطلب تذكرة ذهاب وعودة وتقول إنك ستعود الليلة.",
+    "ru": "Просите билет туда и обратно и говорите, что вернётесь вечером.",
+    "tr": "Gidiş-dönüş bilet isteyip bu akşam döneceğinizi söylüyorsunuz."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "return",
+     "ipa": "/rɪˈtɜːrn/",
+     "hi": "TURN",
+     "note": {
+      "en": "Stress the second syllable: ri-TURN. Say it like the word \"turn\".",
+      "vi": "Nhấn âm thứ hai: ri-TỐN. Đọc như từ \"turn\".",
+      "es": "Acentúa la segunda sílaba: ri-TURN. Suena como la palabra \"turn\".",
+      "pt": "Acentue a segunda sílaba: ri-TÂRN. Soa como a palavra \"turn\".",
+      "fr": "Accentuez la deuxième syllabe : ri-TEURN. Comme le mot « turn ».",
+      "de": "Betone die zweite Silbe: ri-TÖRN. Wie das Wort „turn“.",
+      "id": "Tekankan suku kata kedua: ri-TERN. Seperti kata \"turn\".",
+      "th": "เน้นพยางค์ที่สอง: ริ-เทิร์น ออกเสียงเหมือนคำว่า \"turn\"",
+      "zh": "重音在第二个音节：ri-TURN，后半读得像 \"turn\"。",
+      "ja": "2番目の音節を強く：ri-TURN。「turn」と同じ音です。",
+      "ko": "두 번째 음절에 강세: ri-TURN(리-턴). \"turn\"과 같은 소리예요.",
+      "hi": "दूसरे अक्षर पर ज़ोर दें: ri-TURN (रि-टर्न)। यह \"turn\" जैसा बोला जाता है।",
+      "ar": "شدّد على المقطع الثاني: ri-TURN (ري-تيرن). ينطق مثل كلمة \"turn\".",
+      "ru": "Ударение на второй слог: ри-ТЁРН. Звучит как слово \"turn\".",
+      "tr": "Vurgu ikinci hecede: ri-TÖRN. \"turn\" sözcüğü gibi okunur."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b4",
+   "who": "barista",
+   "en": "That's twenty-four pounds. Card or cash?",
+   "variants": {
+    "polite": "That will be twenty-four pounds. Card or cash?",
+    "casual": "Twenty-four pounds. Card or cash?"
+   },
+   "gloss": {
+    "en": "The clerk gives the price and asks how you will pay.",
+    "vi": "Nhân viên báo giá và hỏi bạn trả bằng gì.",
+    "es": "El empleado dice el precio y pregunta cómo va a pagar.",
+    "pt": "O atendente diz o preço e pergunta como você vai pagar.",
+    "fr": "L'employé annonce le prix et demande comment vous payez.",
+    "de": "Der Mitarbeiter nennt den Preis und fragt, wie Sie zahlen.",
+    "id": "Petugas menyebutkan harga dan menanyakan cara bayar.",
+    "th": "พนักงานบอกราคาและถามว่าจะจ่ายอย่างไร",
+    "zh": "售票员报出价格，问您如何付款。",
+    "ja": "駅員が料金を伝え、支払い方法を尋ねています。",
+    "ko": "직원이 가격을 말하고 결제 방법을 물어요.",
+    "hi": "कर्मचारी दाम बताता है और पूछता है कि भुगतान कैसे करेंगे।",
+    "ar": "الموظف يذكر السعر ويسأل كيف ستدفع.",
+    "ru": "Кассир называет цену и спрашивает, как вы будете платить.",
+    "tr": "Görevli fiyatı söyleyip nasıl ödeyeceğinizi soruyor."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p1",
+   "who": "customer",
+   "en": "What time is the next train to Oxford?",
+   "variants": {
+    "polite": "Could you tell me when the next train to Oxford is?",
+    "casual": "When's the next train to Oxford?"
+   },
+   "gloss": {
+    "en": "Asking when the next train to Oxford leaves.",
+    "vi": "Hỏi chuyến tàu tiếp theo đi Oxford mấy giờ.",
+    "es": "Pregunta a qué hora sale el próximo tren a Oxford.",
+    "pt": "Pergunta a que horas sai o próximo trem para Oxford.",
+    "fr": "Vous demandez l'heure du prochain train pour Oxford.",
+    "de": "Sie fragen, wann der nächste Zug nach Oxford fährt.",
+    "id": "Menanyakan jam berapa kereta berikutnya ke Oxford.",
+    "th": "ถามว่ารถไฟขบวนถัดไปไปอ็อกซ์ฟอร์ดออกกี่โมง",
+    "zh": "询问下一班去牛津的火车几点开。",
+    "ja": "次のオックスフォード行きの電車の時刻を尋ねています。",
+    "ko": "다음 옥스퍼드행 기차가 몇 시에 출발하는지 물어요.",
+    "hi": "पूछना कि ऑक्सफ़ोर्ड की अगली ट्रेन कब चलेगी।",
+    "ar": "تسأل متى يغادر القطار التالي إلى أكسفورد.",
+    "ru": "Спрашиваете, когда отправляется следующий поезд до Оксфорда.",
+    "tr": "Oxford'a giden bir sonraki trenin saatini soruyorsunuz."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p2",
+   "who": "barista",
+   "en": "It leaves at ten thirty from platform four.",
+   "variants": {
+    "polite": "The next one leaves at ten thirty, from platform four.",
+    "casual": "Ten thirty, platform four."
+   },
+   "gloss": {
+    "en": "The clerk gives the departure time and platform.",
+    "vi": "Nhân viên báo giờ tàu chạy và sân ga.",
+    "es": "El empleado indica la hora de salida y el andén.",
+    "pt": "O atendente informa o horário de saída e a plataforma.",
+    "fr": "L'employé indique l'heure de départ et le quai.",
+    "de": "Der Mitarbeiter nennt Abfahrtszeit und Gleis.",
+    "id": "Petugas menyebutkan jam berangkat dan peron.",
+    "th": "พนักงานบอกเวลาออกและชานชาลา",
+    "zh": "售票员告诉您发车时间和站台。",
+    "ja": "駅員が出発時刻とホームを伝えています。",
+    "ko": "직원이 출발 시간과 승강장을 알려 줘요.",
+    "hi": "कर्मचारी रवाना होने का समय और प्लेटफ़ॉर्म बताता है।",
+    "ar": "الموظف يذكر وقت المغادرة والرصيف.",
+    "ru": "Кассир называет время отправления и платформу.",
+    "tr": "Görevli kalkış saatini ve peronu söylüyor."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "platform",
+     "ipa": "/ˈplæt.fɔːrm/",
+     "hi": "PLAT",
+     "note": {
+      "en": "Stress the first syllable: PLAT-form, not plat-FORM.",
+      "vi": "Nhấn âm đầu: PLÁT-fo(r)m, không phải plat-FORM.",
+      "es": "Acentúa la primera sílaba: PLAT-form, no plat-FORM.",
+      "pt": "Acentue a primeira sílaba: PLÁT-form, não plat-FORM.",
+      "fr": "Accentuez la première syllabe : PLAT-form, pas plat-FORM.",
+      "de": "Betone die erste Silbe: PLAT-form, nicht plat-FORM.",
+      "id": "Tekankan suku kata pertama: PLAT-form, bukan plat-FORM.",
+      "th": "เน้นพยางค์แรก: PLAT-form (แพลต-ฟอร์ม) ไม่ใช่ plat-FORM",
+      "zh": "重音在第一个音节：PLAT-form，不是 plat-FORM。",
+      "ja": "最初の音節を強く：PLAT-form。plat-FORMではありません。",
+      "ko": "첫 음절에 강세: PLAT-form(플랫-폼). plat-FORM이 아니에요.",
+      "hi": "पहले अक्षर पर ज़ोर दें: PLAT-form (प्लैट-फ़ॉर्म), plat-FORM नहीं।",
+      "ar": "شدّد على المقطع الأول: PLAT-form (بلات-فورم) وليس plat-FORM.",
+      "ru": "Ударение на первый слог: ПЛАТ-форм, а не плат-ФОРМ.",
+      "tr": "Vurgu ilk hecede: PLAT-form, plat-FORM değil."
+     }
+    },
+    {
+     "l1": "*",
+     "w": "thirty",
+     "ipa": "/ˈθɜːr.ti/",
+     "hi": "THIR",
+     "note": {
+      "en": "Say THIR-ty with the stress first. Thirteen is thir-TEEN.",
+      "vi": "Nhấn âm đầu: THƠ-ti. Còn thirteen là thơ-TIN.",
+      "es": "Acentúa el inicio: THIR-ti. Thirteen es thir-TIN.",
+      "pt": "Acentue o início: THÂR-ti. Já thirteen é thâr-TIN.",
+      "fr": "Accentuez le début : THEUR-ti. Thirteen se dit theur-TIN.",
+      "de": "Betone den Anfang: THÖR-ti. Thirteen ist thör-TIEN.",
+      "id": "Tekankan awal: THER-ti. Thirteen dibaca ther-TIN.",
+      "th": "เน้นพยางค์แรก: เธอร์-ที ส่วน thirteen คือ เธอร์-ทีน",
+      "zh": "重音在前：THIR-ty。thirteen 才是重音在后：thir-TEEN。",
+      "ja": "最初を強く：THIR-ty。thirteenはthir-TEENと後ろを強く言います。",
+      "ko": "앞에 강세: THIR-ty(써-티). thirteen은 thir-TEEN(써-틴)이에요.",
+      "hi": "शुरू में ज़ोर दें: THIR-ty (थर-टी)। thirteen में ज़ोर अंत पर: thir-TEEN।",
+      "ar": "شدّد على البداية: THIR-ty (ثيرتي). أما thirteen فتُنطق thir-TEEN.",
+      "ru": "Ударение в начале: ТЁР-ти. А в thirteen — на конце: тёр-ТИН.",
+      "tr": "Vurgu başta: THIR-ti. Thirteen ise thir-TİN diye okunur."
+     }
+    }
+   ]
+  },
+  {
+   "id": "p3",
+   "who": "customer",
+   "en": "Is my train late? Has the platform changed?",
+   "variants": {
+    "polite": "Excuse me, is my train late? Has the platform changed?",
+    "casual": "Is it late? Platform still four?"
+   },
+   "gloss": {
+    "en": "Asking if your train is late and if the platform changed.",
+    "vi": "Hỏi tàu có trễ không và sân ga có đổi không.",
+    "es": "Pregunta si el tren va con retraso y si ha cambiado el andén.",
+    "pt": "Pergunta se o trem está atrasado e se a plataforma mudou.",
+    "fr": "Vous demandez si le train est en retard et si le quai a changé.",
+    "de": "Sie fragen, ob der Zug verspätet ist und ob sich das Gleis geändert hat.",
+    "id": "Menanyakan apakah kereta terlambat dan apakah peron berubah.",
+    "th": "ถามว่ารถไฟล่าช้าไหม และเปลี่ยนชานชาลาหรือเปล่า",
+    "zh": "询问火车是否晚点、站台有没有变。",
+    "ja": "電車が遅れているか、ホームが変わったかを尋ねています。",
+    "ko": "기차가 연착됐는지, 승강장이 바뀌었는지 물어요.",
+    "hi": "पूछना कि ट्रेन लेट है या नहीं और प्लेटफ़ॉर्म बदला है या नहीं।",
+    "ar": "تسأل هل القطار متأخر وهل تغيّر الرصيف.",
+    "ru": "Спрашиваете, опаздывает ли поезд и не сменилась ли платформа.",
+    "tr": "Trenin gecikmeli olup olmadığını ve peronun değişip değişmediğini soruyorsunuz."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p4",
+   "who": "barista",
+   "en": "Yes, ten minutes late. It's now platform six.",
+   "variants": {
+    "polite": "I'm afraid it's ten minutes late, and now on platform six.",
+    "casual": "Late, and now platform six."
+   },
+   "gloss": {
+    "en": "The clerk says the train is late and the platform has changed.",
+    "vi": "Nhân viên nói tàu trễ và đã đổi sân ga.",
+    "es": "El empleado dice que el tren llega con retraso y que cambió el andén.",
+    "pt": "O atendente diz que o trem está atrasado e a plataforma mudou.",
+    "fr": "L'employé dit que le train est en retard et que le quai a changé.",
+    "de": "Der Mitarbeiter sagt, der Zug ist verspätet und das Gleis hat gewechselt.",
+    "id": "Petugas bilang kereta terlambat dan peronnya berubah.",
+    "th": "พนักงานบอกว่ารถไฟล่าช้าและเปลี่ยนชานชาลาแล้ว",
+    "zh": "售票员说火车晚点了，站台也换了。",
+    "ja": "駅員が、電車が遅れていてホームも変わったと伝えています。",
+    "ko": "직원이 기차가 연착됐고 승강장도 바뀌었다고 말해요.",
+    "hi": "कर्मचारी बताता है कि ट्रेन लेट है और प्लेटफ़ॉर्म बदल गया है।",
+    "ar": "الموظف يقول إن القطار متأخر وإن الرصيف تغيّر.",
+    "ru": "Кассир говорит, что поезд опаздывает и платформа изменилась.",
+    "tr": "Görevli trenin gecikmeli olduğunu ve peronun değiştiğini söylüyor."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c1",
+   "who": "customer",
+   "en": "Do I need to change trains?",
+   "variants": {
+    "polite": "Could you tell me if I need to change trains?",
+    "casual": "Do I have to change?"
+   },
+   "gloss": {
+    "en": "Asking whether you have to change trains.",
+    "vi": "Hỏi có phải đổi tàu không.",
+    "es": "Pregunta si tiene que hacer transbordo.",
+    "pt": "Pergunta se precisa fazer baldeação.",
+    "fr": "Vous demandez s'il faut changer de train.",
+    "de": "Sie fragen, ob Sie umsteigen müssen.",
+    "id": "Menanyakan apakah harus berganti kereta.",
+    "th": "ถามว่าต้องเปลี่ยนรถไฟไหม",
+    "zh": "询问是否需要换乘。",
+    "ja": "乗り換えが必要かどうかを尋ねています。",
+    "ko": "기차를 갈아타야 하는지 물어요.",
+    "hi": "पूछना कि ट्रेन बदलनी पड़ेगी या नहीं।",
+    "ar": "تسأل هل عليك تغيير القطار.",
+    "ru": "Спрашиваете, нужна ли пересадка.",
+    "tr": "Aktarma yapmanız gerekip gerekmediğini soruyorsunuz."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c2",
+   "who": "barista",
+   "en": "Yes, change at Reading. It's a short wait.",
+   "variants": {
+    "polite": "Yes, you change at Reading. The wait is short.",
+    "casual": "Yes, at Reading. Short wait."
+   },
+   "gloss": {
+    "en": "The clerk says to change at Reading after a short wait.",
+    "vi": "Nhân viên bảo đổi tàu ở Reading, chờ một chút.",
+    "es": "El empleado dice que haga transbordo en Reading tras una breve espera.",
+    "pt": "O atendente diz para trocar em Reading, com uma espera curta.",
+    "fr": "L'employé dit de changer à Reading, avec une courte attente.",
+    "de": "Der Mitarbeiter sagt, Sie steigen in Reading nach kurzer Wartezeit um.",
+    "id": "Petugas bilang ganti kereta di Reading dengan waktu tunggu singkat.",
+    "th": "พนักงานบอกให้เปลี่ยนรถไฟที่เรดดิง รอไม่นาน",
+    "zh": "售票员说在雷丁换乘，等待时间很短。",
+    "ja": "駅員が、レディングで短い待ち時間で乗り換えると伝えています。",
+    "ko": "직원이 레딩에서 잠깐 기다렸다가 갈아타라고 해요.",
+    "hi": "कर्मचारी बताता है कि रीडिंग में थोड़ा इंतज़ार करके ट्रेन बदलें।",
+    "ar": "الموظف يقول غيّر القطار في ريدينغ بعد انتظار قصير.",
+    "ru": "Кассир говорит пересесть в Рединге, ждать недолго.",
+    "tr": "Görevli kısa bir bekleyişle Reading'de aktarma yapmanızı söylüyor."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "change",
+     "ipa": "/tʃeɪndʒ/",
+     "hi": "CHAYNJ",
+     "note": {
+      "en": "Say CHAYNJ with a long \"ay\" sound, not \"chang\".",
+      "vi": "Đọc CHEINJ với âm \"ây\" dài, không phải \"chang\".",
+      "es": "Di CHEINCH con una \"ei\" larga, no \"chang\".",
+      "pt": "Diga CHEINJ com um \"ei\" longo, não \"chang\".",
+      "fr": "Dites TCHEINDJ avec un « eï » long, pas « chang ».",
+      "de": "Sprich TSCHEINDSCH mit langem „ei“, nicht „tschang“.",
+      "id": "Ucapkan CHEINJ dengan bunyi \"ei\" panjang, bukan \"chang\".",
+      "th": "ออกเสียง เชนจ์ ด้วยเสียง \"เอ\" ยาว ไม่ใช่ \"แชง\"",
+      "zh": "读 CHAYNJ，\"ay\" 要拖长，不是 \"chang\"。",
+      "ja": "「ay」を長く伸ばして CHAYNJ。「chang」ではありません。",
+      "ko": "\"ay\"를 길게 CHAYNJ(체인지)로 읽으세요. \"chang\"이 아니에요.",
+      "hi": "लंबी \"ए\" ध्वनि के साथ CHAYNJ (चेंज) बोलें, \"चैंग\" नहीं।",
+      "ar": "انطقها CHAYNJ بصوت \"ay\" طويل، وليس \"chang\".",
+      "ru": "Говорите ЧЕЙНДЖ с долгим «эй», а не «чанг».",
+      "tr": "CHAYNJ deyin, \"ay\" uzun olsun; \"chang\" değil."
+     }
+    },
+    {
+     "l1": "*",
+     "w": "Reading",
+     "ipa": "/ˈred.ɪŋ/",
+     "hi": "RED",
+     "note": {
+      "en": "The town Reading is said RED-ing, not REE-ding.",
+      "vi": "Tên thị trấn Reading đọc là RẾT-ing, không phải RI-ding.",
+      "es": "La ciudad Reading se dice RED-ing, no REE-ding.",
+      "pt": "A cidade Reading se diz RED-ing, não REE-ding.",
+      "fr": "La ville de Reading se dit RED-ing, pas REE-ding.",
+      "de": "Die Stadt Reading spricht man RED-ing, nicht REE-ding.",
+      "id": "Kota Reading diucapkan RED-ing, bukan REE-ding.",
+      "th": "เมือง Reading อ่านว่า เร็ด-ดิง ไม่ใช่ รี-ดิง",
+      "zh": "城市 Reading 读作 RED-ing，不是 REE-ding。",
+      "ja": "町の名前 Reading は RED-ing と読み、REE-ding ではありません。",
+      "ko": "도시 이름 Reading은 RED-ing(레딩)이라고 읽고, REE-ding이 아니에요.",
+      "hi": "शहर Reading को RED-ing (रेडिंग) बोला जाता है, REE-ding नहीं।",
+      "ar": "تُنطق مدينة Reading هكذا RED-ing (ريدينغ) وليس REE-ding.",
+      "ru": "Город Reading читается РЕД-инг, а не РИ-динг.",
+      "tr": "Reading kenti RED-ing diye okunur, REE-ding değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "who": "customer",
+   "en": "Could I reserve a seat, please?",
+   "variants": {
+    "polite": "Could I please reserve a seat on that train?",
+    "casual": "Can I get a seat reservation?"
+   },
+   "gloss": {
+    "en": "Asking to reserve a seat on the train.",
+    "vi": "Xin đặt trước một chỗ ngồi trên tàu.",
+    "es": "Pide reservar un asiento en el tren.",
+    "pt": "Pede para reservar um assento no trem.",
+    "fr": "Vous demandez à réserver une place dans le train.",
+    "de": "Sie bitten darum, einen Sitzplatz im Zug zu reservieren.",
+    "id": "Meminta reservasi tempat duduk di kereta.",
+    "th": "ขอจองที่นั่งบนรถไฟ",
+    "zh": "请求预订火车上的座位。",
+    "ja": "電車の座席の予約をお願いしています。",
+    "ko": "기차 좌석을 예약해 달라고 요청해요.",
+    "hi": "ट्रेन में सीट आरक्षित करने को कहना।",
+    "ar": "تطلب حجز مقعد في القطار.",
+    "ru": "Просите забронировать место в поезде.",
+    "tr": "Trende yer ayırtmak istiyorsunuz."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c4",
+   "who": "barista",
+   "en": "Coach C, seat twenty-two. Validate your ticket first.",
+   "variants": {
+    "polite": "Certainly, coach C, seat twenty-two. Please validate your ticket first.",
+    "casual": "Coach C, seat twenty-two. Validate it first."
+   },
+   "gloss": {
+    "en": "The clerk gives your coach and seat and reminds you to validate your ticket.",
+    "vi": "Nhân viên báo toa và số ghế, nhắc bạn bấm/xác nhận vé trước.",
+    "es": "El empleado da vagón y asiento y le recuerda validar el billete.",
+    "pt": "O atendente informa o vagão e o assento e lembra de validar a passagem.",
+    "fr": "L'employé donne la voiture et la place et rappelle de valider le billet.",
+    "de": "Der Mitarbeiter nennt Wagen und Platz und erinnert ans Entwerten.",
+    "id": "Petugas menyebutkan gerbong dan kursi, lalu mengingatkan untuk memvalidasi tiket.",
+    "th": "พนักงานบอกตู้และที่นั่ง และเตือนให้ประทับตรายืนยันตั๋วก่อนขึ้นรถ",
+    "zh": "售票员告知车厢和座位号，并提醒您先验票。",
+    "ja": "駅員が車両と座席番号を伝え、先に切符を刻印するよう念を押しています。",
+    "ko": "직원이 객차와 좌석을 알려 주고 먼저 표를 개찰하라고 일러 줘요.",
+    "hi": "कर्मचारी कोच और सीट बताता है और पहले टिकट वैलिडेट करने की याद दिलाता है।",
+    "ar": "الموظف يعطيك العربة والمقعد ويذكّرك بتصديق التذكرة أولًا.",
+    "ru": "Кассир называет вагон и место и напоминает сначала прокомпостировать билет.",
+    "tr": "Görevli vagon ve koltuk numarasını verip önce bileti doğrulamanızı hatırlatıyor."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "keywords": [
+    "today",
+    "tomorrow",
+    "tonight",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+    "weekend",
+    "next week"
+   ],
+   "en": "Which day would you like to travel?",
+   "variants": {
+    "polite": "Which day would you like to travel on?",
+    "casual": "What day are you going?"
+   },
+   "gloss": {
+    "en": "Asking which day you want to travel.",
+    "vi": "Anh/chị muốn đi vào ngày nào?",
+    "es": "¿Qué día quiere viajar?",
+    "pt": "Em que dia você quer viajar?",
+    "fr": "Quel jour voulez-vous voyager ?",
+    "de": "An welchem Tag möchten Sie reisen?",
+    "id": "Mau berangkat hari apa?",
+    "th": "จะเดินทางวันไหนคะ",
+    "zh": "您想哪天出行？",
+    "ja": "どの日にご利用ですか？",
+    "ko": "어느 날 이용하시겠어요?",
+    "hi": "आप किस दिन यात्रा करना चाहेंगे?",
+    "ar": "في أي يوم تريد السفر؟",
+    "ru": "В какой день хотите ехать?",
+    "tr": "Hangi gün seyahat etmek istersiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "keywords": [
+    "window",
+    "aisle",
+    "table",
+    "quiet",
+    "quiet coach",
+    "forwards",
+    "backwards",
+    "facing",
+    "next to",
+    "anywhere",
+    "either"
+   ],
+   "en": "Would you like a window or an aisle seat?",
+   "variants": {
+    "polite": "Would you prefer a window seat or an aisle seat?",
+    "casual": "Window or aisle?"
+   },
+   "gloss": {
+    "en": "Asking which kind of seat you prefer.",
+    "vi": "Anh/chị muốn ngồi cạnh cửa sổ hay lối đi?",
+    "es": "¿Prefiere ventanilla o pasillo?",
+    "pt": "Prefere janela ou corredor?",
+    "fr": "Vous préférez côté fenêtre ou côté couloir ?",
+    "de": "Möchten Sie Fensterplatz oder Gangplatz?",
+    "id": "Mau kursi dekat jendela atau lorong?",
+    "th": "รับที่นั่งริมหน้าต่างหรือริมทางเดินคะ",
+    "zh": "您想要靠窗还是靠过道的座位？",
+    "ja": "窓側と通路側、どちらがよろしいですか？",
+    "ko": "창가 쪽과 복도 쪽 중 어느 쪽이 좋으세요?",
+    "hi": "आप खिड़की वाली सीट लेंगे या गलियारे वाली?",
+    "ar": "هل تفضّل مقعدًا بجانب النافذة أم بجانب الممر؟",
+    "ru": "Вам место у окна или у прохода?",
+    "tr": "Cam kenarı mı, koridor tarafı mı tercih edersiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Good morning. How can I help?"
+  },
+  {
+   "who": "customer",
+   "en": "Could I have a ticket to Oxford, please?"
+  },
+  {
+   "who": "barista",
+   "en": "Certainly. Single or return?"
+  },
+  {
+   "who": "customer",
+   "en": "A return, please. What time is the next train?"
+  },
+  {
+   "who": "barista",
+   "en": "Ten thirty, from platform four."
+  },
+  {
+   "who": "customer",
+   "en": "Is it a direct train, or do I need to change?"
+  },
+  {
+   "who": "barista",
+   "en": "It's direct. No need to change."
+  },
+  {
+   "who": "customer",
+   "en": "Could I reserve a seat, please?"
+  },
+  {
+   "who": "barista",
+   "en": "Of course. Coach C, seat twenty-two. That's twenty-four pounds."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Excuse me, which platform is the Bristol train?"
+    },
+    {
+     "who": "barista",
+     "en": "Platform six, but it's delayed by fifteen minutes."
+    },
+    {
+     "who": "customer",
+     "en": "Fifteen minutes? OK, thank you."
+    }
+   ],
+   "q": {
+    "en": "How late is the Bristol train?",
+    "vi": "Tàu đi Bristol trễ bao lâu?",
+    "es": "¿Cuánto retraso lleva el tren a Bristol?",
+    "pt": "Quanto o trem para Bristol está atrasado?",
+    "fr": "De combien le train pour Bristol est-il en retard ?",
+    "de": "Wie viel Verspätung hat der Zug nach Bristol?",
+    "id": "Kereta ke Bristol terlambat berapa lama?",
+    "th": "รถไฟไปบริสตอลล่าช้าไปนานแค่ไหน",
+    "zh": "去布里斯托尔的火车晚点多久？",
+    "ja": "ブリストル行きの電車はどれくらい遅れていますか？",
+    "ko": "브리스톨행 기차는 얼마나 연착됐나요?",
+    "hi": "ब्रिस्टल की ट्रेन कितनी लेट है?",
+    "ar": "كم يتأخر القطار المتجه إلى بريستول؟",
+    "ru": "На сколько опаздывает поезд до Бристоля?",
+    "tr": "Bristol treni ne kadar gecikmeli?"
+   },
+   "answer": "fifteen minutes"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Two singles to Leeds, please."
+    },
+    {
+     "who": "barista",
+     "en": "That's thirty pounds. Would you like to reserve seats?"
+    },
+    {
+     "who": "customer",
+     "en": "Yes, by the window, please."
+    }
+   ],
+   "q": {
+    "en": "Where does the customer want to sit?",
+    "vi": "Khách muốn ngồi ở đâu?",
+    "es": "¿Dónde quiere sentarse el cliente?",
+    "pt": "Onde o cliente quer sentar?",
+    "fr": "Où le client veut-il s'asseoir ?",
+    "de": "Wo möchte der Fahrgast sitzen?",
+    "id": "Pelanggan ingin duduk di mana?",
+    "th": "ลูกค้าอยากนั่งตรงไหน",
+    "zh": "顾客想坐在哪里？",
+    "ja": "お客さんはどこに座りたいですか？",
+    "ko": "손님은 어디에 앉고 싶어 하나요?",
+    "hi": "ग्राहक कहाँ बैठना चाहता है?",
+    "ar": "أين يريد الزبون أن يجلس؟",
+    "ru": "Где хочет сидеть пассажир?",
+    "tr": "Yolcu nerede oturmak istiyor?"
+   },
+   "answer": "by the window"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "buy-return",
+    "title": {
+     "en": "Buy a return ticket",
+     "vi": "Mua vé khứ hồi",
+     "es": "Compra un billete de ida y vuelta",
+     "pt": "Compre passagem de ida e volta",
+     "fr": "Acheter un aller-retour",
+     "de": "Hin- und Rückfahrkarte kaufen",
+     "id": "Beli tiket pulang-pergi",
+     "th": "ซื้อตั๋วไป-กลับ",
+     "zh": "买一张往返票",
+     "ja": "往復切符を買う",
+     "ko": "왕복표 사기",
+     "hi": "आना-जाना टिकट खरीदें",
+     "ar": "اشترِ تذكرة ذهاب وعودة",
+     "ru": "Купи билет туда и обратно",
+     "tr": "Gidiş-dönüş bileti al"
+    },
+    "intents": [
+     "b3"
+    ]
+   },
+   {
+    "id": "check-delay",
+    "title": {
+     "en": "Check delay and platform",
+     "vi": "Hỏi tàu trễ và sân ga",
+     "es": "Pregunta por retrasos y andén",
+     "pt": "Pergunte sobre atraso e plataforma",
+     "fr": "Demander retard et quai",
+     "de": "Nach Verspätung und Gleis fragen",
+     "id": "Tanya keterlambatan dan peron",
+     "th": "ถามเรื่องความล่าช้าและชานชาลา",
+     "zh": "询问晚点和站台",
+     "ja": "遅れとホームを確認する",
+     "ko": "연착과 승강장 확인하기",
+     "hi": "देरी और प्लेटफ़ॉर्म पूछें",
+     "ar": "اسأل عن التأخير والرصيف",
+     "ru": "Узнай о задержке и платформе",
+     "tr": "Gecikme ve peronu sor"
+    },
+    "intents": [
+     "p3"
+    ]
+   },
+   {
+    "id": "reserve-seat",
+    "title": {
+     "en": "Reserve a seat",
+     "vi": "Đặt trước chỗ ngồi",
+     "es": "Reserva un asiento",
+     "pt": "Reserve um assento",
+     "fr": "Réserver une place",
+     "de": "Einen Sitzplatz reservieren",
+     "id": "Pesan tempat duduk",
+     "th": "จองที่นั่ง",
+     "zh": "预订座位",
+     "ja": "座席を予約する",
+     "ko": "좌석 예약하기",
+     "hi": "सीट आरक्षित करें",
+     "ar": "احجز مقعدًا",
+     "ru": "Забронируй место",
+     "tr": "Yer ayırt"
+    },
+    "intents": [
+     "c3"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "Many stations have both a ticket office and ticket machines, and people usually queue in turn. A single is one way and a return is there and back; fares are often cheaper off-peak. In some countries you must validate a paper ticket at a machine before boarding. Platforms can change at short notice, so check the screens and listen for announcements.",
+  "vi": "Nhiều ga có cả quầy bán vé lẫn máy bán vé tự động, và mọi người thường xếp hàng lần lượt. Vé một chiều chỉ đi một lượt, vé khứ hồi gồm cả đi lẫn về; giá thường rẻ hơn ngoài giờ cao điểm. Ở một số nước, bạn phải bấm/xác nhận vé giấy ở máy trước khi lên tàu. Sân ga có thể đổi vào phút chót, nên hãy xem bảng điện tử và nghe thông báo.",
+  "es": "Muchas estaciones tienen taquilla y máquinas expendedoras, y la gente suele hacer cola por turnos. Un billete sencillo es solo de ida y uno de ida y vuelta incluye el regreso; las tarifas suelen ser más baratas fuera de las horas punta. En algunos países hay que validar el billete de papel en una máquina antes de subir. Los andenes pueden cambiar con poco aviso, así que mira los paneles y escucha los avisos.",
+  "pt": "Muitas estações têm bilheteria e máquinas de venda, e as pessoas costumam esperar na fila. Passagem só de ida vale para um trecho, e a de ida e volta inclui o retorno; as tarifas costumam ser mais baratas fora do horário de pico. Em alguns países é preciso validar a passagem de papel numa máquina antes de embarcar. A plataforma pode mudar de última hora, então confira os painéis e ouça os avisos.",
+  "fr": "Beaucoup de gares ont un guichet et des distributeurs, et on fait généralement la queue chacun son tour. Un aller simple ne couvre qu'un trajet, un aller-retour inclut le retour ; les tarifs sont souvent moins chers en heures creuses. Dans certains pays, il faut composter un billet papier dans une borne avant de monter. Le quai peut changer au dernier moment : regardez les écrans et écoutez les annonces.",
+  "de": "In vielen Bahnhöfen gibt es Schalter und Automaten, und man stellt sich meist der Reihe nach an. Eine einfache Fahrt gilt nur in eine Richtung, die Hin- und Rückfahrt umfasst beides; außerhalb der Stoßzeiten ist es oft günstiger. In manchen Ländern muss man eine Papierfahrkarte vor dem Einsteigen an einem Automaten entwerten. Gleise können kurzfristig wechseln, achte also auf die Anzeigen und Durchsagen.",
+  "id": "Banyak stasiun punya loket dan mesin tiket, dan orang biasanya antre sesuai giliran. Tiket sekali jalan hanya untuk satu arah, sedangkan pulang-pergi mencakup perjalanan kembali; tarif sering lebih murah di luar jam sibuk. Di beberapa negara, tiket kertas harus divalidasi di mesin sebelum naik. Peron bisa berubah mendadak, jadi periksa layar dan dengarkan pengumuman.",
+  "th": "สถานีหลายแห่งมีทั้งช่องขายตั๋วและตู้ขายตั๋ว และคนมักต่อแถวตามลำดับ ตั๋วเที่ยวเดียวใช้ไปทางเดียว ส่วนตั๋วไป-กลับรวมขากลับด้วย ราคามักถูกกว่านอกช่วงเร่งด่วน ในบางประเทศต้องนำตั๋วกระดาษไปประทับตรายืนยันที่เครื่องก่อนขึ้นรถไฟ ชานชาลาอาจเปลี่ยนกะทันหัน จึงควรดูป้ายและฟังประกาศ",
+  "zh": "许多车站既有售票窗口也有自动售票机，人们通常按顺序排队。单程票只能去一趟，往返票包含回程；非高峰时段票价往往更便宜。在一些国家，乘车前必须在机器上给纸质车票验票。站台可能临时变动，所以要看显示屏、听广播。",
+  "ja": "多くの駅には窓口と券売機があり、人は普通順番に並びます。片道は行きだけ、往復は帰りも含み、ピーク時間を外すと運賃が安いことがよくあります。国によっては、乗る前に機械で紙の切符を刻印する必要があります。ホームは直前に変わることがあるので、案内表示を見てアナウンスに耳を傾けましょう。",
+  "ko": "많은 역에 매표소와 발권기가 함께 있고, 사람들은 보통 순서대로 줄을 서요. 편도는 한 방향이고 왕복은 돌아오는 표까지 포함하며, 혼잡하지 않은 시간대에는 요금이 더 싼 경우가 많아요. 어떤 나라에서는 종이 표를 타기 전에 기계에서 개찰해야 해요. 승강장은 갑자기 바뀔 수 있으니 전광판을 확인하고 안내 방송을 들으세요.",
+  "hi": "कई स्टेशनों पर टिकट खिड़की और टिकट मशीनें दोनों होती हैं, और लोग आमतौर पर बारी से कतार में लगते हैं। सिंगल टिकट एक तरफ़ का होता है और रिटर्न टिकट आना-जाना दोनों का; भीड़ के समय के बाद किराया अक्सर कम होता है। कुछ देशों में चढ़ने से पहले काग़ज़ का टिकट मशीन पर वैलिडेट करना पड़ता है। प्लेटफ़ॉर्म अचानक बदल सकता है, इसलिए स्क्रीन देखें और घोषणाएँ सुनें।",
+  "ar": "في محطات كثيرة يوجد شباك تذاكر وأجهزة بيع، وعادةً يقف الناس في طابور بالدور. تذكرة الذهاب فقط لاتجاه واحد، وتذكرة الذهاب والعودة تشمل الرحلتين؛ وتكون الأسعار غالبًا أرخص خارج ساعات الذروة. في بعض البلدان يجب تصديق التذكرة الورقية في جهاز قبل الصعود. قد يتغير الرصيف في اللحظة الأخيرة، لذا انظر إلى الشاشات واستمع إلى الإعلانات.",
+  "ru": "На многих вокзалах есть и касса, и автоматы, а люди обычно стоят в очереди. Билет в один конец действует в одну сторону, а «туда и обратно» включает возвращение; вне часов пик он часто дешевле. В некоторых странах бумажный билет нужно прокомпостировать в автомате перед посадкой. Платформу могут сменить в последний момент, поэтому смотрите на табло и слушайте объявления.",
+  "tr": "Birçok istasyonda hem gişe hem bilet makinesi bulunur ve insanlar genellikle sırayla bekler. Tek yön bilet yalnızca bir yönde geçerlidir, gidiş-dönüş ise dönüşü de kapsar; yoğun olmayan saatlerde fiyatlar çoğu zaman daha ucuzdur. Bazı ülkelerde kâğıt bileti binmeden önce makinede doğrulamanız gerekir. Peron son anda değişebilir; ekranlara bakın ve anonsları dinleyin."
+ }
+}

@@ -12,7 +12,7 @@ const DAPI_TTL = 30 * 86400, DAPI_MISS_TTL = 86400, GTX_TTL = 86400, FAIL_TTL = 
 const BROWSER_TTL = { dapi: 86400, gtx: 3600 };
 const LANG = /^(auto|[a-z]{2,3}(-[A-Za-z]{2,4})?)$/, DT = /^(t|bd|md|ex|ss|at|rm|rw|qca|ld)$/;
 const WORD = /^[\p{L}\p{M}][\p{L}\p{M}' .-]{0,63}$/u, MAX_Q = 5000, UPSTREAM_MS = 6000;
-const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/(localhost|127\.0\.0\.1|\[::1\])(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
+const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite(-preview)?\.pages\.dev)|https?:\/\/(localhost|127\.0\.0\.1|\[::1\])(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
 
 // CORS gắn lúc trả (không nằm trong bản đệm dùng chung): app di động (capacitor/localhost) và add-on gọi https://lexkite.com/api/dictlookup
 const withCors = (req, res) => { const o = req.headers.get('Origin') || ''; if (ORIGINS.test(o)) { res.headers.set('Access-Control-Allow-Origin', o); res.headers.set('Vary', 'Origin'); } return res; };

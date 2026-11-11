@@ -54,6 +54,6 @@ const qs = fs.readFileSync('.github/workflows/quality-sweep.yml', 'utf8'), ws = 
 assert.match(qs, /scripts\/top1\/score\.mjs --qs qs-report[^\n]*--ci[^\n]*--check[^\n]*--issue/, 'quality-sweep chấm Top-1 mỗi đêm');
 assert.match(qs, /name: qs-report/, 'quality-sweep lưu artifact qs-report cho lượt tuần');
 assert.match(ws, /scripts\/top1\/score\.mjs --qs-latest[^\n]*--raise/, 'world-scorecard nâng sàn Top-1 hằng tuần');
-assert.match(ws, /git add [^\n]*content\/pipeline\/top1\.budget\.json/, 'world-scorecard commit sàn Top-1');
+assert.match(ws, /(git add|push-main\.sh "[^"]*") [^\n]*content\/pipeline\/top1\.budget\.json/, 'world-scorecard commit sàn Top-1');
 for (const [n, y] of [['quality-sweep', qs], ['world-scorecard', ws]]) assert.ok(!/^\s+pull_request/m.test(y), n + ' không chạy trên PR');
 console.log(`✓ top1-score: ${AXES.length} trục (tổng trọng số 100), Top 10 theo lợi ích/công sức, sàn chỉ tăng${main ? ' (so origin/main)' : ''}, gắn đêm + tuần`);

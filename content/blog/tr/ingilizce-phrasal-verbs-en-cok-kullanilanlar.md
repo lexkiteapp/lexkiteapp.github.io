@@ -129,7 +129,7 @@ Phrasal verbs konusunda yapılan en yaygın gramer hatası, zamirlerin (it, them
 
 Kelimelerin cümle içindeki yerleşimini ve gramer yapılarını kavramak için [İngilizce Zamanlar Tablosu](/tr/blog/ingilizce-zamanlar-tablosu/) ve [İngilizce Nasıl Öğrenilir](/tr/blog/ingilizce-nasil-ogrenilir/) rehberlerimize göz atabilirsiniz. Telaffuzunuzu geliştirmek için [İngilizce Telaffuz Geliştirme](/tr/blog/ingilizce-telaffuz-gelistirme/) tekniklerimizi, kelimeleri kalıcı kılmak için ise [İngilizce Kelime Ezberleme](/tr/blog/ingilizce-kelime-ezberleme/) stratejilerimizi uygulayabilirsiniz. İş yazışmalarında deyimsel fiillerin yerine resmi alternatiflerini görmek için [İngilizce İş Maili Nasıl Yazılır](/tr/blog/ingilizce-is-maili-nasil-yazilir/) yazımızı inceleyebilirsiniz.
 
-Daha geniş kelime listelerine [Statik Kelime Kılavuzumuzdan](/tu-vung/) erişebilirsiniz.
+Daha geniş kelime listelerine [Statik Kelime Kılavuzumuzdan](/en/vocabulary/) erişebilirsiniz.
 
 {{youtube: | En Çok Kullanılan 50 İngilizce Phrasal Verb: Edat Mantığı ve Örnek Cümleler}}
 

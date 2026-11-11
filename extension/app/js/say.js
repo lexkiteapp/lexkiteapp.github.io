@@ -36,7 +36,7 @@
 
   // 📚 Các loạt – ref Stitch brand/stitch/v2/say-list-{light,dark}.html (khung say-front, thân = danh sách thẻ 88 px + thanh tiến độ)
   function list(view, D) {
-    const sn = seen(), d = { tabs: ST2.tabs('train') };
+    const sn = seen(), d = { tabs: ST2.tabs('skills') };
     const rows = D.series.map(s => { const n = s.items.filter(x => sn[s.id + '/' + x.id]).length, first = s.items.find(x => !sn[s.id + '/' + x.id]) || s.items[0];
       const pct = Math.round(100 * n / s.items.length);
       return `<a href="#/say/${esc(s.id)}/${esc(first.id)}" class="h-[88px] w-full rounded-[16px] border-2 px-3 flex items-center justify-between gap-2 transition-transform active:translate-y-[2px] lt:bg-[#ffffff] lt:border-[#eae1d8] lt:shadow-[0_5px_0_0_#e2d5c7] lt:active:shadow-[0_3px_0_0_#e2d5c7] dk:bg-[#10252b] dk:border-[#234e57] dk:shadow-[0_6px_0_0_#051013] dk:active:shadow-[0_3px_0_0_#051013]">
@@ -59,7 +59,7 @@
     const it = s.items[i], R = REG(), W = WHY(), total = s.items.length, who = s.teacher, l = learn();
     const nextIt = s.items[(i + 1) % total], key = s.id + '/' + it.id;
     const meaning = l !== 'en' && it.m && it.m[l] ? it.m[l] : it.mean, mLang = meaning === it.mean ? 'en' : l;
-    const base = { tabs: ST2.tabs('train'), back: '#/say', say: it.say, regLbl: R[it.reg] || it.reg, heard: '<p id="sHeard" class="min-h-[20px] text-center text-[14px] leading-[20px] font-bold pt-2 lt:text-[#00514d] dk:text-[#2dd4bf]" aria-live="polite"></p>' };
+    const base = { tabs: ST2.tabs('skills'), back: '#/say', say: it.say, regLbl: R[it.reg] || it.reg, heard: '<p id="sHeard" class="min-h-[20px] text-center text-[14px] leading-[20px] font-bold pt-2 lt:text-[#00514d] dk:text-[#2dd4bf]" aria-live="polite"></p>' };
     base.nav = navHtml(base);
     const navPad = base.nav + '<div class="h-[92px] shrink-0 lg:hidden" aria-hidden="true"></div>'; // mặt sau dài: chừa chỗ cho thanh tab cố định
     const front = Object.assign({}, base, { series: `${s.title} · ${i + 1}/${total}`, step: t('Thẻ {n}/{total}', { n: i + 1, total }), ipa: it.ipa ? `/${String(it.ipa).replace(/^\/|\/$/g, '')}/` : '',

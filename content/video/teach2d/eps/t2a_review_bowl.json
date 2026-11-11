@@ -72,5 +72,46 @@
   "words": 46,
   "seconds": 27.7,
   "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"bowl\" mean?",
+  "keyword": "bowl",
+  "value": "Bowl means a round container used for holding things like rice or soup.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=bowl",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"bowl\" mean?",
+    "description": "Bowl means a round container used for holding things like rice or soup.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bowl\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "bowl",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"bowl\" mean?\n\nBowl means a round container used for holding things like rice or soup.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bowl"
+   },
+   "instagram": {
+    "caption": "What does \"bowl\" mean?\n\nBowl means a round container used for holding things like rice or soup.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"bowl\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a round container used for holding things like rice or soup. Bowl means a round container used for holding things like rice or soup. Try the full lesson and quiz here: {link}"
  }
 }

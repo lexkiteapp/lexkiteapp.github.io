@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"text\" mean?",
+  "keyword": "text",
+  "value": "Text means the written words in a book or document.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=text",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"text\" mean?",
+    "description": "Text means the written words in a book or document.\n\nReview your words, free: https://lexkite.com/app/#/review?w=text\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "text",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"text\" mean?\n\nText means the written words in a book or document.\n\nReview your words, free: https://lexkite.com/app/#/review?w=text"
+   },
+   "instagram": {
+    "caption": "What does \"text\" mean?\n\nText means the written words in a book or document.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"text\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means the written words in a book or document. Text means the written words in a book or document. More practice like this (free): {link}"
  }
 }

@@ -15,14 +15,7 @@
     return s;
   };
   // Phản hồi xúc giác chuẩn Duolingo: đúng = rung ngắn 35ms; sai = rung đôi [50, 40, 50]ms (tôn trọng prefers-reduced-motion & tắt âm)
-  const haptic = ok => {
-    try {
-      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      if (navigator.vibrate && (!state.settings || state.settings.sfx !== false)) {
-        navigator.vibrate(ok ? 35 : [50, 40, 50]);
-      }
-    } catch (e) { /* bỏ qua */ }
-  };
+  const haptic = ok => { try { if (window.Sfx && Sfx.haptic) Sfx.haptic(ok ? 'correct' : 'wrong'); } catch (e) { /* bỏ qua */ } };
 
   // ---------- Nguồn từ ----------
   // Nghĩa hiển thị theo ngôn ngữ người học: tiếng Việt, hoặc định nghĩa tiếng Anh cho người học quốc tế
@@ -66,7 +59,7 @@
   // Báo hoàn thành lượt (lộ trình ghi bước đã xong + màn thưởng cuối bài – path.js)
   const practiceDone = detail => window.dispatchEvent(new CustomEvent('lexkite:practice-done', { detail }));
   let libN = null, libW = null;
-  const libNorm = () => libN && libN.length === TOPICS.length ? libN.list : (libN = { length: TOPICS.length, list: TOPICS.flatMap(t => t.words).filter(x => x.vi || x.def).map(norm) }).list;
+  const libNorm = () => libN && (libN.length === TOPICS.length || libW) ? libN.list : (libN = { length: TOPICS.length, list: TOPICS.flatMap(t => t.words).filter(x => x.vi || x.def).map(norm) }).list;
   // Lượt trắc nghiệm đầu: chuẩn hóa kho (~20k từ) + làm đầy bộ nhớ của Distract theo LÁT ≤ 8 ms, nhường luồng chính giữa các lát
   // (trước đây 1 tác vụ ~100 ms ngay câu đầu → CPU chậm 4× ≈ 400 ms, TBT mobile #/practice > 200 ms). Kết quả y hệt libNorm().
   const yieldMain = () => new Promise(r => (window.scheduler && scheduler.yield ? scheduler.yield().then(r) : setTimeout(r, 0)));
@@ -83,6 +76,7 @@
       if (window.Distract && Distract.warm) await Distract.warm(list, { mean, yieldMain });
     })().catch(() => {}).then(() => { libW = null; });
   };
+  addEventListener('lk:soft', () => { if (/^#\/practice\//.test(location.hash)) warmLib(); }); // kho từ về sau lần vẽ: chuẩn hóa theo lát
   // Câu đầu vẽ khi p xong (kho đã làm nóng); giữ thanh "Ngày n" mà path-day.js chèn vào view trong lúc chờ
   // Bỏ khi đã có lượt điều hướng mới (token) – kể cả đi rồi quay lại đúng hash cũ (A→B→A: hash trùng nhưng phiên cũ đã bị thay) – hoặc hash đã đổi
   const startWhen = (p, next) => { const h0 = location.hash, tok = App.routeToken(); p.then(() => { if (App.routeStale(tok) || location.hash !== h0) return; const bar = view.querySelector('.day-bar'); next(); if (bar && !view.querySelector('.day-bar')) view.prepend(bar); }); };
@@ -124,12 +118,13 @@
     // Từ thông báo "sắp quên" (checkReminder): ôn đúng nhóm từ sắp quên bằng chế độ học nhanh (nguồn 'forgetting')
     if (query && query.get && query.get('src') === 'forgetting' && App.forgetting().length) { location.hash = '#/practice/learn?src=forgetting'; return; }
     const ahead = Math.min(7, Math.max(0, +((query && query.get && query.get('ahead')) || 0)));
+    // 🎨 Stitch v2 (cờ ux1): vào bằng thanh tab (#/review?hub=1) → màn "Ôn" của Stitch (Ux1.reviewHub); nút Bắt đầu mở phiên ôn này (#/review). Mọi lối cũ (?ahead= ?src= ?w=, #/review trần) vẫn vào thẳng phiên ôn.
+    if (query && query.get && query.get('hub') === '1' && window.Ux1 && Ux1.reviewHub && self.ST2 && ST2.review && App.ux1On && App.ux1On()) { Ux1.reviewHub(); return; }
     if (!Object.keys(state.cards).length) {
+      document.body.classList.remove('focus'); // chưa có thẻ → không có phiên ôn: giữ thanh tab để người dùng đi tiếp (không kẹt)
       view.innerHTML = `<div class="study-wrap"><div class="card empty"><div class="em">🃏</div><h2>${t('Chưa có flashcard nào')}</h2><p>${t('Thêm từ từ thư viện hoặc tra từ điển để bắt đầu.')}</p><div class="row center"><a class="btn primary" href="#/library">${t('Mở thư viện')}</a><a class="btn" href="#/dict">${t('Tra từ')}</a></div></div></div>`;
       return;
     }
-    // 🎨 Stitch v2 (cờ ux1): vào bằng thanh tab (#/review?hub=1) → màn "Ôn" của Stitch (Ux1.reviewHub); nút Bắt đầu mở phiên ôn này (#/review). Mọi lối cũ (?ahead= ?src= ?w=, #/review trần) vẫn vào thẳng phiên ôn.
-    if (query && query.get && query.get('hub') === '1' && window.Ux1 && Ux1.reviewHub && self.ST2 && ST2.review && App.ux1On && App.ux1On()) { Ux1.reviewHub(); return; }
     session = { queue: buildQueue(ahead), done: 0, again: 0, missed: [], total: 0, xp: 0, g: [0, 0, 0, 0], t0: Date.now(), reverse: !!session && session.reverse, mode: session && session.mode };
     // Từ widget màn hình chính/khóa (#/review?w=từ): đưa đúng thẻ đang hiện lên đầu phiên ôn
     const pin = query && query.get && String(query.get('w') || '').toLowerCase();
@@ -400,7 +395,7 @@
   // ⚡ Ghép thẻ & 🎙️ Phát âm: study-games.js (tải lười)
   let games = null;
   const lazyGame = k => (...a) => { const h = location.hash; return App.lazy('pgames').then(() => { if (location.hash !== h || !window.StudyGames) return; games = games || StudyGames({ accent, emptySource, haptic, head, mean, norm, picOk, pool, practiceDone, runQuiz, srcName }); games[k](...a); }).catch(() => toast(t('Không tải được – thử lại sau'))); };
-  const runMatch = lazyGame('runMatch'), runSpeak = lazyGame('runSpeak');
+  const runMatch = lazyGame('runMatch'), runSpeak = lazyGame('runSpeak'), runBlitz = lazyGame('runBlitz');
 
   // ================= TRUNG TÂM LUYỆN TẬP =================
   const MODES = {
@@ -409,8 +404,12 @@
     cloze: { em: '✍️', get name() { return t('Điền từ vào câu'); }, run: src => runQuiz(src, 'cloze') },
     listen: { em: '🎧', get name() { return t('Nghe & chép'); }, run: src => runQuiz(src, 'listen') },
     test: { em: '📝', get name() { return t('Bài kiểm tra'); }, run: src => runQuiz(src, 'test') },
+    blitz: { em: '⏱️', get name() { return t('Thử thách 60 giây'); }, run: runBlitz },
     match: { em: '⚡', get name() { return t('Ghép thẻ'); }, run: runMatch },
     speak: { em: '🎙️', get name() { return t('Luyện phát âm'); }, run: runSpeak },
+    esp: { em: '🇪🇸', get name() { return t('Luyện phát âm'); }, run: (src, q) => App.need('espr').then(() => App.espron && App.espron(q.get('tp'), q.get('m'))) }, // phát âm TBN W3 (js/cpack/es-app/pron-ui.js; danh sách chủ đề khi không có m)
+    esx: { em: '🇪🇸', get name() { return t('Luyện định dạng DELE/SIELE'); }, run: (src, q) => App.need('esx').then(() => App.esexam && App.esexam(q.get('lv'), q.get('e'), q.get('p'))) }, // luyện định dạng DELE/SIELE W5 (cpack/es-app/exam-ui.js; không có lv → danh sách đề)
+    esd: { em: '📅', get name() { return t('Luyện tiếng Tây Ban Nha'); }, run: (src, q) => App.need('esday').then(() => App.esday && App.esday(q.get('d'))) }, es: { em: '🇪🇸', get name() { return t('Luyện tiếng Tây Ban Nha'); }, run: (src, q) => App.need('espr').then(() => App.espr && App.espr(q.get('lv'), q.get('p'))) }, // phiên luyện TBN W2b (js/espr.js, cờ es_course ở lối vào)
   };
 
   routes.practice = function (mode, query) {
@@ -437,10 +436,14 @@
     const w = q.w;
     let answered = false;
     const FX = window.LessonFx, mute = () => !!(FX && FX.audioOff());
+    const later = f => requestAnimationFrame(() => setTimeout(f, 0)); // sau lần vẽ kế tiếp (không chặn khung phản hồi)
     const finish = (ok, given, ty) => {
       if (answered) return; answered = true;
-      if (!ok && App.logMistake) App.logMistake({ kind: 'vocab', q: q.type === 'type-listen' ? I18N.tk('Gõ lại từ bạn nghe được') : q.type === 'mcq-vi' ? I18N.tk('Nghĩa của “{word}”?', { word: w.word }) : q.type === 'type-cloze' && w.ex ? I18N.tk('Điền từ: {sentence}', { sentence: w.ex.replace(UI.wordRegex(w.word), '___') }) : I18N.tk('Từ tiếng Anh nghĩa là “{vi}”?', { vi: mean(w) }), /* đề khớp đáp án: chỉ câu chọn nghĩa hỏi Nghĩa của X */ answer: q.type === 'mcq-vi' ? w.vi : (q.answer || w.word), given: given || '', explain: `${w.word} ${w.ipa || ''} = ${mean(w)}`, ref: w.word });
-      Sfx.answer(ok, { badge: false }); // huy hiệu chuỗi: lượt quiz đã có chip LessonFx.decorate
+      // INP: lượt bấm chỉ làm phần nhìn thấy (tô đáp án + bảng phản hồi); ghi lỗi, âm/rung, đọc to, 💡 giải thích chạy SAU lần vẽ đó
+      later(() => {
+        if (!ok && App.logMistake) App.logMistake({ kind: 'vocab', q: q.type === 'type-listen' ? I18N.tk('Gõ lại từ bạn nghe được') : q.type === 'mcq-vi' ? I18N.tk('Nghĩa của “{word}”?', { word: w.word }) : q.type === 'type-cloze' && w.ex ? I18N.tk('Điền từ: {sentence}', { sentence: w.ex.replace(UI.wordRegex(w.word), '___') }) : I18N.tk('Từ tiếng Anh nghĩa là “{vi}”?', { vi: mean(w) }), /* đề khớp đáp án: chỉ câu chọn nghĩa hỏi Nghĩa của X */ answer: q.type === 'mcq-vi' ? w.vi : (q.answer || w.word), given: given || '', explain: `${w.word} ${w.ipa || ''} = ${mean(w)}`, ref: w.word });
+        Sfx.answer(ok, { badge: false }); // huy hiệu chuỗi: lượt quiz đã có chip LessonFx.decorate
+      });
       const fb = $('#fb', box);
       fb.innerHTML = `<div class="sheet ${ok ? 'ok' : 'no'}"><div class="sheet-in">
         <div class="sheet-head">${ty && ty.typo ? FX.typoHead(ty.marks) : ok ? ['✅ ' + t('Chính xác!'), '🎉 ' + t('Tuyệt vời!'), '👏 ' + t('Giỏi lắm!')][Math.floor(Math.random() * 3)] : '❌ ' + (q.answer && q.answer.toLowerCase() !== w.word.toLowerCase() ? t('Chưa đúng · Đáp án: {answer}', { answer: esc(q.answer) }) : t('Chưa đúng'))}</div>
@@ -448,12 +451,12 @@
         ${w.ex ? `<div class="sheet-ex"><div class="say-line" data-sent="${esc(w.ex)}"><span class="say-tx">${highlight(w.ex, w.word)}</span><button class="ctx-say sm" data-saysent="${esc(w.ex)}" title="${t('Nghe câu')}" aria-label="${t('Nghe câu')}">🔊</button><button class="ctx-say sm" data-tr title="${t('Dịch câu')}" aria-label="${t('Dịch câu')}">🌐</button></div><div class="sheet-tr" hidden></div></div>` : ''}
         <button class="btn lg block sheet-next" id="nextQ">${t('Tiếp tục')}<span class="kbd-hint" aria-hidden="true"> ↵</span></button></div></div>`;
       // chừa đáy đúng chiều cao bảng phản hồi
-      const fit = () => { const sh = $('.sheet', fb), wrap = box.closest('.study-wrap'); if (sh && wrap) wrap.style.setProperty('--sheet-h', (sh.offsetHeight || 280) + 'px'); }; fit();
-      requestAnimationFrame(() => { const sh = $('.sheet', fb), tg = $('.option.right', box) || $('.q-card', box) || box; if (!sh || !tg) return; const top = sh.getBoundingClientRect().top, r = tg.getBoundingClientRect(); if (r.bottom > top - 12) scrollBy({ top: Math.min(r.bottom - top + 16, Math.max(0, r.top - 72)), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); }); // đáp án đúng không bị khung kết quả che
-      if (FX && (!ok || (ty && ty.typo))) FX.explain(fb, w.word, fit); // 💡 Giải thích: chỉ khi từ có ghi chú "Hiểu sâu"
+      const fit = () => { const sh = $('.sheet', fb), wrap = box.closest('.study-wrap'); if (sh && wrap) wrap.style.setProperty('--sheet-h', (sh.offsetHeight || 280) + 'px'); };
+      requestAnimationFrame(() => { fit(); const sh = $('.sheet', fb), tg = $('.option.right', box) || $('.q-card', box) || box; if (!sh || !tg) return; const top = sh.getBoundingClientRect().top, r = tg.getBoundingClientRect(); if (r.bottom > top - 12) scrollBy({ top: Math.min(r.bottom - top + 16, Math.max(0, r.top - 72)), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); }); // đáp án đúng không bị khung kết quả che
+      if (FX && (!ok || (ty && ty.typo))) later(() => FX.explain(fb, w.word, fit)); // 💡 Giải thích: chỉ khi từ có ghi chú "Hiểu sâu"
       const tr = $('[data-tr]', fb); if (tr) tr.onclick = async () => { const t = $('.sheet-tr', fb); if (!t.hidden) { t.hidden = true; return; } t.hidden = false; t.textContent = '…'; const L = I18N.learnLang(); t.textContent = L === 'vi' ? await Dict.translateVi(w.ex) : await Dict.translateTo(w.ex, L); };
       $('[data-sayw]', fb).onclick = () => speak(w.word, accent(), UI.audioFor(w, accent()));
-      if ((!ok || q.type.startsWith('type')) && !mute()) speak(w.word, accent(), UI.audioFor(w, accent()));
+      if ((!ok || q.type.startsWith('type')) && !mute()) later(() => speak(w.word, accent(), UI.audioFor(w, accent())));
       $('#nextQ').focus({ preventScroll: true });
       let went = false; const t1 = Date.now();
       $('#nextQ').onclick = () => { if (went || Date.now() - t1 < 250) return; went = true; onDone(ok, $('#nextQ')); };
@@ -484,8 +487,6 @@
         }
         const qc = $('.q-card', box);
         if (qc) {
-          qc.classList.remove('ans-bounce', 'ans-shake');
-          void qc.offsetWidth;
           qc.classList.add(ok ? 'ans-bounce' : 'ans-shake');
         }
         finish(ok);

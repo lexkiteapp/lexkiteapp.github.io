@@ -234,6 +234,15 @@ ok(!!CUR, 'sw: có hằng CACHE');
   const off = await sw('https://lexkite.com/app/', { cache: { [CUR]: { '/app/': 'app shell' } }, online: false });
   const r = await (await off.wait('fetch', { request: { url: 'https://lexkite.com/app/?hl=ja', mode: 'navigate', method: 'GET' } }));
   ok(r && (await r.text()) === 'app shell', 'sw /app/: mất mạng → mở app từ cache');
+  { // Hồi quy mobile-qa (webkit): fetch tới lexkite.com/api/* khác nguồn khi mất mạng + không có trong cache → respondWith(undefined) = 'Returned response is null'
+    const x = await sw('https://localhost:8080/app/', { online: false });
+    const rsp = await x.wait('fetch', { request: { url: 'https://lexkite.com/api/notices?lang=vi', mode: 'cors', method: 'GET' } });
+    ok(rsp !== undefined, 'sw: gọi lexkite.com khác nguồn có respondWith');
+    const v = await rsp;
+    ok(v instanceof Response && !v.ok && v.status === 503, 'sw: lexkite.com khác nguồn, mất mạng + chưa có cache → trả phản hồi 503 hợp lệ, thân rỗng (không phải null/undefined, không nội dung sai)');
+    const c = await sw('https://localhost:8080/app/', { cache: { [CUR]: { '/api/notices': 'cached' } }, online: false });
+    ok((await (await c.wait('fetch', { request: { url: 'https://lexkite.com/api/notices?lang=vi', mode: 'cors', method: 'GET' } })).text()) === 'cached', 'sw: lexkite.com khác nguồn, mất mạng, đã có cache → trả bản cache');
+  }
   ok(/'\/app\/#\/review'/.test(SW) && !/'\.\/#\//.test(SW), 'sw: thông báo mở /app/#/review (không còn ./#/ = trang giới thiệu)');
   ok(!/indexedDB|localStorage/.test(SW.replace(/\/\*[\s\S]*?\*\/|\/\/.*$/gm, '')), 'sw: không đụng tới IndexedDB/localStorage (dữ liệu học an toàn)');
 }

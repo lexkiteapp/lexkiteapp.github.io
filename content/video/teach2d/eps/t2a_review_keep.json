@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"keep\" mean?",
+  "keyword": "keep",
+  "value": "Keep means to have and continue to hold something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=keep",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"keep\" mean?",
+    "description": "Keep means to have and continue to hold something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=keep\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "keep",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"keep\" mean?\n\nKeep means to have and continue to hold something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=keep"
+   },
+   "instagram": {
+    "caption": "What does \"keep\" mean?\n\nKeep means to have and continue to hold something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"keep\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to have and continue to hold something. Keep means to have and continue to hold something. Try the full lesson and quiz here: {link}"
  }
 }

@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"flood\" mean?",
+  "keyword": "flood",
+  "value": "Flood means a large amount of water covering land that is usually dry.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=flood",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"flood\" mean?",
+    "description": "Flood means a large amount of water covering land that is usually dry.\n\nReview your words, free: https://lexkite.com/app/#/review?w=flood\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "flood",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"flood\" mean?\n\nFlood means a large amount of water covering land that is usually dry.\n\nReview your words, free: https://lexkite.com/app/#/review?w=flood"
+   },
+   "instagram": {
+    "caption": "What does \"flood\" mean?\n\nFlood means a large amount of water covering land that is usually dry.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"flood\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a large amount of water covering land that is usually dry. Flood means a large amount of water covering land that is usually dry. Try the full lesson and quiz here: {link}"
  }
 }

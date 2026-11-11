@@ -19,7 +19,7 @@ const require = createRequire(import.meta.url);
 const Lex = require(path.join(ROOT, 'web/js/lex.js'));
 const arg = k => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : null; };
 const OUT = arg('--out'), CHECK = process.argv.includes('--check');
-const CORE_RAW = +(arg('--core-bytes') || 9000), LANG_GROUP = +(arg('--lang-group') || 4), TOP_N = +(arg('--top') || 300);
+const CORE_RAW = +(arg('--core-bytes') || 9900), LANG_GROUP = +(arg('--lang-group') || 4), TOP_N = +(arg('--top') || 300);
 
 // ---- Nạp dữ liệu như trình duyệt: data.js → gói 'words' → gói 'tsl' (thứ tự lấy từ BUNDLES trong app.js – một nguồn)
 export function loadBrowserIndex({ expand = true } = {}) {

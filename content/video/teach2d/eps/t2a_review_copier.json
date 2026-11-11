@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"copier\" mean?",
+  "keyword": "copier",
+  "value": "Copier means a machine that makes copies of documents.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=copier",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"copier\" mean?",
+    "description": "Copier means a machine that makes copies of documents.\n\nReview your words, free: https://lexkite.com/app/#/review?w=copier\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "copier",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"copier\" mean?\n\nCopier means a machine that makes copies of documents.\n\nReview your words, free: https://lexkite.com/app/#/review?w=copier"
+   },
+   "instagram": {
+    "caption": "What does \"copier\" mean?\n\nCopier means a machine that makes copies of documents.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"copier\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a machine that makes copies of documents. Copier means a machine that makes copies of documents. More practice like this (free): {link}"
  }
 }

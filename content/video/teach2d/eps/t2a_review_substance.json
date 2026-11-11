@@ -72,5 +72,46 @@
   "words": 40,
   "seconds": 24.7,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"substance\" mean?",
+  "keyword": "substance",
+  "value": "Substance means a particular type of material.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=substance",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"substance\" mean?",
+    "description": "Substance means a particular type of material.\n\nReview your words, free: https://lexkite.com/app/#/review?w=substance\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "substance",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"substance\" mean?\n\nSubstance means a particular type of material.\n\nReview your words, free: https://lexkite.com/app/#/review?w=substance"
+   },
+   "instagram": {
+    "caption": "What does \"substance\" mean?\n\nSubstance means a particular type of material.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"substance\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a particular type of material. Substance means a particular type of material. Practice it with a free quiz: {link}"
  }
 }

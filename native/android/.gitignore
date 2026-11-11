@@ -1,0 +1,6 @@
+# Copied at build time from mobile/android/app/google-services.json (single source) – never commit a second copy
+app/google-services.json
+.gradle/
+build/
+*/build/
+local.properties

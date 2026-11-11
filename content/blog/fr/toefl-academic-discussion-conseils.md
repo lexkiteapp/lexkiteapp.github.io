@@ -54,6 +54,8 @@ Voici le format, une méthode minutée, un exemple commenté et les erreurs que 
 
 Depuis le 21 janvier 2026, le TOEFL iBT est plus court et adaptatif. La section Writing comprend trois types de tâches : *Build a Sentence*, *Write an Email* et *Write for an Academic Discussion*. Si vous hésitez encore entre deux certifications, notre comparatif [TOEFL ou IELTS : lequel choisir](/fr/blog/toefl-ou-ielts-lequel-choisir/) vous aidera à trancher.
 
+Pour aller plus loin, lisez aussi [notre guide du nouveau format TOEFL iBT 2026](/fr/blog/nouveau-format-toefl-ibt-2026/).
+
 À l'écran, trois blocs :
 
 - **La question du professeur.** Elle présente un sujet (études, technologie, environnement, travail) et se termine par une question précise, par exemple *Which policy would be more effective, and why?*

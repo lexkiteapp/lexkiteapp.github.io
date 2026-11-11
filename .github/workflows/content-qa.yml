@@ -1,6 +1,6 @@
 # 🛡️ Cổng QA nội dung hằng đêm (docs/CONTENT-QA.md) – 0 token AI, chỉ đọc repo: lược đồ + kho từ · ✗/✓ · CEFR · 2 giám khảo · dịch · kiểm mẫu lô · tự ẩn.
 # Cùng cổng chạy ở mỗi push (ci.yml, npm test) và trước khi job sinh nội dung commit (explain.yml). Đêm: báo cáo xu hướng (reports/content-qa.json → job summary).
-# Job score (P0.7, docs/CONTENT-WORLD-PLAN.md §3.5): bảng điểm 6 mảng `npm run content:score` ở PR/push nội dung + đêm; đỏ khi điểm < sàn
+# Job score (P0.7, docs/CONTENT-WORLD-PLAN.md §3.5): bảng điểm các mảng (gồm "Dễ học" P0-H → LEARN.md) `npm run content:score` ở PR/push nội dung + đêm; đỏ khi điểm < sàn
 # (content/pipeline/score.budget.json), sàn bị hạ so với main, hoặc một nguồn đếm = 0. Đêm trên main: commit content/pipeline/SCORE.md nếu đổi.
 # Sổ: infra/jobs.json (id content-qa). Tắt: disable workflow; cổng push vẫn chạy.
 name: Content QA gate
@@ -69,14 +69,15 @@ jobs:
       - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - name: Dễ học – dễ nhớ (P0-H, docs/specs/learnability.md) – test bộ chấm
+        run: node scripts/test/learnability.mjs
       - name: Bảng điểm nội dung (chỉ tăng)
         run: node scripts/content-score.mjs --base origin/main
       - name: Tóm tắt
         if: always()
-        run: test -f content/pipeline/SCORE.md && cat content/pipeline/SCORE.md >> "$GITHUB_STEP_SUMMARY" || true
+        run: test -f content/pipeline/SCORE.md && cat content/pipeline/SCORE.md >> "$GITHUB_STEP_SUMMARY" && sed -n '1,12p' content/pipeline/LEARN.md >> "$GITHUB_STEP_SUMMARY" || true
       - name: Đêm – commit SCORE.md nếu đổi
         if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
         run: |
-          git diff --quiet -- content/pipeline/SCORE.md && exit 0
-          git config user.name 'github-actions[bot]' && git config user.email '41898283+github-actions[bot]@users.noreply.github.com'
-          git add content/pipeline/SCORE.md && git commit -m 'content:score – cập nhật SCORE.md [skip ci] [CF-Pages-Skip]' && git pull --rebase --autostash -q && git push
+          git diff --quiet -- content/pipeline/SCORE.md content/pipeline/LEARN.md && exit 0
+          bash scripts/ci/push-main.sh 'content:score – cập nhật SCORE.md + LEARN.md' content/pipeline/SCORE.md content/pipeline/LEARN.md

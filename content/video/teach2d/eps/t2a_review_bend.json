@@ -72,5 +72,46 @@
   "words": 40,
   "seconds": 24.7,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"bend\" mean?",
+  "keyword": "bend",
+  "value": "Bend means to make something not straight.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=bend",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"bend\" mean?",
+    "description": "Bend means to make something not straight.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bend\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "bend",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"bend\" mean?\n\nBend means to make something not straight.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bend"
+   },
+   "instagram": {
+    "caption": "What does \"bend\" mean?\n\nBend means to make something not straight.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"bend\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to make something not straight. Bend means to make something not straight. Try the full lesson and quiz here: {link}"
  }
 }

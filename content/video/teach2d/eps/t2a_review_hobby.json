@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"hobby\" mean?",
+  "keyword": "hobby",
+  "value": "Hobby means an activity you do for fun in your free time.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=hobby",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"hobby\" mean?",
+    "description": "Hobby means an activity you do for fun in your free time.\n\nReview your words, free: https://lexkite.com/app/#/review?w=hobby\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "hobby",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"hobby\" mean?\n\nHobby means an activity you do for fun in your free time.\n\nReview your words, free: https://lexkite.com/app/#/review?w=hobby"
+   },
+   "instagram": {
+    "caption": "What does \"hobby\" mean?\n\nHobby means an activity you do for fun in your free time.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"hobby\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means an activity you do for fun in your free time. Hobby means an activity you do for fun in your free time. Try the full lesson and quiz here: {link}"
  }
 }

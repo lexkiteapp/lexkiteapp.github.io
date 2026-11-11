@@ -48,6 +48,8 @@ quiz: [
 
 Les **niveaux d'anglais CECRL** sont les six étapes du *Cadre européen commun de référence pour les langues* : **A1 et A2** pour l'utilisateur élémentaire, **B1 et B2** pour l'utilisateur indépendant, **C1 et C2** pour l'utilisateur expérimenté. En A1, vous vous débrouillez avec des phrases apprises par cœur. En B1, vous gérez un voyage et le quotidien. En B2, vous discutez spontanément et comprenez l'essentiel d'une conversation. En C1, vous travaillez et étudiez en anglais avec aisance. En C2, vous vous exprimez avec une précision proche de celle d'un natif cultivé. Ces niveaux décrivent ce que vous savez *faire*, pas le nombre de mots que vous connaissez.
 
+Pour savoir quel niveau demandent le Canada, l'Australie ou le Royaume-Uni, voyez [IELTS pour immigrer](/fr/blog/ielts-pour-immigrer-canada-australie-royaume-uni/).
+
 En France, le CECRL est partout : programmes du lycée, offres d'emploi, conditions d'admission des écoles, certifications universitaires. Si vous avez déjà croisé le DELF ou le DALF, vous connaissez l'échelle : ces diplômes de français langue étrangère utilisent exactement les mêmes niveaux. Voici ce que signifie chaque niveau en anglais, comment il se compare aux examens internationaux et comment estimer le vôtre en cinq minutes.
 
 ## Niveaux d'anglais CECRL : six étapes en trois paires

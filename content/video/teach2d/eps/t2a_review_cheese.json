@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"cheese\" mean?",
+  "keyword": "cheese",
+  "value": "Cheese means a yellow or white food made from milk.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=cheese",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"cheese\" mean?",
+    "description": "Cheese means a yellow or white food made from milk.\n\nReview your words, free: https://lexkite.com/app/#/review?w=cheese\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cheese",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"cheese\" mean?\n\nCheese means a yellow or white food made from milk.\n\nReview your words, free: https://lexkite.com/app/#/review?w=cheese"
+   },
+   "instagram": {
+    "caption": "What does \"cheese\" mean?\n\nCheese means a yellow or white food made from milk.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"cheese\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a yellow or white food made from milk. Cheese means a yellow or white food made from milk. More practice like this (free): {link}"
  }
 }

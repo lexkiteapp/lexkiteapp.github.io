@@ -1,65 +1,65 @@
 {
- "total": 48.5,
+ "total": 61.5,
  "areas": {
   "vocab": {
    "name": "Kho từ",
-   "score": 46.4,
-   "coverage": 46.4,
+   "score": 54.7,
+   "coverage": 54.7,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "từ#loại duy nhất",
-     "have": 9183,
+     "have": 9775,
      "std": 20000,
      "w": 25,
      "future": false
     },
     {
      "k": "IPA·nghĩa·định nghĩa·ví dụ·CEFR",
-     "have": 9183,
-     "std": 9183,
+     "have": 9775,
+     "std": 9775,
      "w": 20,
      "future": false
     },
     {
      "k": "collocation",
-     "have": 4669,
+     "have": 4818,
      "std": 20000,
      "w": 12,
      "future": false
     },
     {
      "k": "đồng nghĩa",
-     "have": 2724,
+     "have": 2923,
      "std": 20000,
      "w": 8,
      "future": false
     },
     {
      "k": "IPA Mỹ",
-     "have": 6015,
+     "have": 6486,
      "std": 20000,
      "w": 5,
      "future": false
     },
     {
      "k": "ảnh theo nghĩa",
-     "have": 3088,
+     "have": 7481,
      "std": 20000,
      "w": 15,
      "future": false
     },
     {
      "k": "C2",
-     "have": 289,
+     "have": 685,
      "std": 1000,
      "w": 10,
      "future": false
     },
     {
      "k": "A1",
-     "have": 858,
+     "have": 862,
      "std": 1000,
      "w": 5,
      "future": false
@@ -68,8 +68,8 @@
   },
   "grammar": {
    "name": "Ngữ pháp",
-   "score": 53.7,
-   "coverage": 53.7,
+   "score": 54.5,
+   "coverage": 54.5,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -124,7 +124,7 @@
     },
     {
      "k": "tự luận",
-     "have": 980,
+     "have": 1125,
      "std": 3000,
      "w": 20,
      "future": false
@@ -147,42 +147,42 @@
   },
   "comm": {
    "name": "Giao tiếp",
-   "score": 18.7,
-   "coverage": 18.7,
+   "score": 67.7,
+   "coverage": 67.7,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "cuộc gọi Ama/Carlos",
-     "have": 11,
+     "have": 35,
      "std": 60,
      "w": 20,
      "future": false
     },
     {
      "k": "roleplay",
-     "have": 16,
+     "have": 31,
      "std": 60,
      "w": 20,
      "future": false
     },
     {
      "k": "tình huống Play & Speak",
-     "have": 1,
+     "have": 40,
      "std": 40,
      "w": 20,
      "future": false
     },
     {
      "k": "mục gold (giải thích cách dùng)",
-     "have": 228,
+     "have": 284,
      "std": 1000,
      "w": 20,
      "future": false
     },
     {
      "k": "sổ mẫu câu theo chức năng",
-     "have": 23,
+     "have": 100,
      "std": 100,
      "w": 20,
      "future": true
@@ -191,8 +191,8 @@
   },
   "skills": {
    "name": "4 kỹ năng",
-   "score": 48.2,
-   "coverage": 48.2,
+   "score": 49.2,
+   "coverage": 49.2,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -275,7 +275,7 @@
     },
     {
      "k": "trung gian (mediation)",
-     "have": 0,
+     "have": 2,
      "std": 30,
      "w": 14,
      "future": true
@@ -284,8 +284,8 @@
   },
   "exam": {
    "name": "Đề thi",
-   "score": 30.4,
-   "coverage": 30.4,
+   "score": 31.7,
+   "coverage": 31.7,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -375,7 +375,7 @@
     },
     {
      "k": "Cambridge A2",
-     "have": 0,
+     "have": 1,
      "std": 6,
      "w": 8,
      "future": true
@@ -412,8 +412,8 @@
   },
   "lkf": {
    "name": "Khung Can-do",
-   "score": 79.3,
-   "coverage": 79.3,
+   "score": 80.3,
+   "coverage": 80.3,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -433,15 +433,52 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 9955,
-     "std": 9955,
+     "have": 10625,
+     "std": 10625,
      "w": 35,
      "future": false
     },
     {
      "k": "mục tiêu đã có nội dung luyện",
-     "have": 119,
+     "have": 142,
      "std": 600,
+     "w": 25,
+     "future": false
+    }
+   ]
+  },
+  "learn": {
+   "name": "Dễ học – dễ nhớ",
+   "score": 91.5,
+   "coverage": 91.5,
+   "pass": 100,
+   "errors": 0,
+   "parts": [
+    {
+     "k": "Ngữ pháp",
+     "have": 96.4,
+     "std": 100,
+     "w": 25,
+     "future": false
+    },
+    {
+     "k": "Bài lộ trình",
+     "have": 100,
+     "std": 100,
+     "w": 25,
+     "future": false
+    },
+    {
+     "k": "Bộ từ",
+     "have": 74.3,
+     "std": 100,
+     "w": 25,
+     "future": false
+    },
+    {
+     "k": "Kỹ năng",
+     "have": 95.4,
+     "std": 100,
      "w": 25,
      "future": false
     }

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IELTS Listening Mock Focus (dark – dark-from-light.mjs)</title>
+<!-- Plus Jakarta Sans & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24..48,400..700,0..1,0&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background-page": "#FFF7EA",
+            "border-subtle": "#EADEC8",
+            "ledge-subtle": "#D8CFBC",
+            "text-headline": "#0F3D3E",
+            "text-body": "#2C4E50",
+            "text-secondary": "#4E6668",
+            "primary-teal": "#2BA39A",
+            "primary-teal-dark": "#00504B",
+            "primary-teal-light": "#E8F7F6",
+            "coral-accent": "#F2553B",
+            "coral-ledge": "#B53A22",
+            "amber-warm": "#FAF2DF"
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            'title-md': ['"Plus Jakarta Sans"'],
+            'label-xs': ['"Plus Jakarta Sans"'],
+            'body-md': ['"Plus Jakarta Sans"'],
+            'label-sm': ['"Plus Jakarta Sans"'],
+            'body-sm': ['"Plus Jakarta Sans"'],
+            'title-sm': ['"Plus Jakarta Sans"'],
+            'label-md': ['"Plus Jakarta Sans"'],
+            'display': ['"Plus Jakarta Sans"'],
+            'title-lg': ['"Plus Jakarta Sans"']
+          },
+          spacing: {
+            'gutter': '16px',
+            'space-xs': '4px',
+            'space-sm': '8px',
+            'space-md': '16px',
+            'space-lg': '24px',
+            'space-xl': '32px'
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-rounded, .material-symbols-outlined {
+      font-family: 'Material Symbols Rounded', 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      vertical-align: middle;
+    }
+    
+    /* Subtle wave animation for audio simulator */
+    @keyframes barPulse {
+      0%, 100% { height: 6px; }
+      50% { height: 26px; }
+    }
+    .wave-bar {
+      animation: barPulse 1.2s ease-in-out infinite;
+    }
+    .wave-bar:nth-child(2) { animation-delay: 0.15s; }
+    .wave-bar:nth-child(3) { animation-delay: 0.3s; }
+    .wave-bar:nth-child(4) { animation-delay: 0.45s; }
+    .wave-bar:nth-child(5) { animation-delay: 0.2s; }
+    .wave-bar:nth-child(6) { animation-delay: 0.35s; }
+    .wave-bar:nth-child(7) { animation-delay: 0.5s; }
+    .wave-bar:nth-child(8) { animation-delay: 0.1s; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#37525A] text-[#5EEAD4] font-sans antialiased min-h-screen flex justify-center selection:bg-[#2BA39A] selection:text-[#1B0B04]">
+<!-- Mobile Frame Container: strict 390px native view -->
+<main class="w-[390px] max-w-[390px] bg-[#1D2F33] min-h-screen flex flex-col relative pb-32 border-x border-[#7A5A2A] shadow-2xl">
+<!-- 1. Frame & Shell: Lesson/Focus Top Bar -->
+<header class="sticky top-0 z-40 bg-[#1D2F33]/95 backdrop-blur-md px-4 pt-3 pb-3 border-b border-[#7A5A2A] flex items-center justify-between gap-3">
+<!-- 44x44px circular tactile Close X button -->
+<button aria-label="Exit session" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#162528] border-2 border-[#7A5A2A] shadow-[0_3px_0_0_#D8CFBC] active:translate-y-[2px] active:shadow-[0_1px_0_0_#D8CFBC] flex items-center justify-center text-[#5EEAD4] hover:bg-[#1D2F33] transition-all" type="button">
+<span class="material-symbols-rounded text-2xl font-bold">close</span>
+</button>
+<!-- Slim Progress Bar (25% progress in teal on light track) -->
+<div class="flex-1 px-1">
+<div class="w-full bg-[#37525A] h-3 rounded-full overflow-hidden p-[2px] border border-[#7A5A2A]">
+<div class="bg-[#2BA39A] h-full w-1/4 rounded-full transition-all duration-300 relative">
+<span class="absolute inset-x-0 top-0 h-[1.5px] bg-[#162528]/40 rounded-full"></span>
+</div>
+</div>
+</div>
+<!-- Exam Timer Indicator -->
+<div class="h-11 min-h-[44px] px-3.5 bg-[#162528] border-2 border-[#7A5A2A] shadow-[0_3px_0_0_#D8CFBC] rounded-full flex items-center gap-1.5 text-[#5EEAD4] font-bold text-xs tracking-wider">
+<span class="material-symbols-rounded text-base text-[#FF8A80]" style="font-variation-settings: 'FILL' 1;">timer</span>
+<span>03:45</span>
+</div>
+</header>
+<!-- Main Content Area -->
+<div class="px-4 pt-4 flex flex-col gap-4">
+<!-- 2. Top Chip & Exam Context -->
+<section class="flex flex-col gap-1.5">
+<div class="inline-flex self-start items-center gap-1.5 px-3 py-1 bg-[#1D2F33] border-2 border-[#7A5A2A] rounded-full text-[#5EEAD4] text-[11px] font-extrabold uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-[#2BA39A]"></span>
+<span>Test 1 · Part 1/4 · Questions 1–10</span>
+</div>
+<h1 class="text-2xl font-extrabold text-[#5EEAD4] tracking-tight leading-tight">
+          Joining a Sports Centre
+        </h1>
+</section>
+<!-- 3. Audio Status Card -->
+<section class="bg-[#162528] border-2 border-[#7A5A2A] rounded-2xl p-4 shadow-[0_4px_0_0_#D8CFBC] flex flex-col gap-3">
+<!-- Status Badge -->
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-2 px-2.5 py-1 bg-[#18353A] border border-[#2BA39A]/30 rounded-lg text-[#5EEAD4] font-extrabold text-[11px] tracking-wide">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2BA39A] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-[#2BA39A]"></span>
+</span>
+<span>PLAYING · SINGLE PLAY</span>
+</div>
+<span class="text-xs font-bold text-[#C9D6D4]">Audio Track 1 of 1</span>
+</div>
+<!-- Audio Interactive / Visual Display -->
+<div class="flex items-center gap-3.5 pt-1">
+<!-- 64x64px tactile button with audio glyph -->
+<button aria-label="Audio playing state indicator" class="w-16 h-16 min-w-[64px] min-h-[64px] rounded-2xl bg-[#2BA39A] text-[#1B0B04] border-2 border-[#2BA39A] shadow-[0_4px_0_0_#00504B] flex items-center justify-center relative active:translate-y-[2px] active:shadow-[0_2px_0_0_#00504B]" type="button">
+<span class="absolute inset-x-2 top-1.5 h-1.5 bg-[#162528]/40 rounded-full"></span>
+<span class="material-symbols-rounded text-3xl" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</button>
+<!-- Audio Meta & Pulsing Waveform -->
+<div class="flex-1 flex flex-col justify-center min-w-0">
+<p class="text-sm font-extrabold text-[#5EEAD4] leading-tight truncate">
+              Playing — you hear it once
+            </p>
+<p class="text-xs font-semibold text-[#C9D6D4] mt-0.5 truncate">
+              Speaking: Joanna (Resident)
+            </p>
+<!-- Animated Waveform Bars -->
+<div class="flex items-center gap-1.5 mt-2 h-7 bg-[#1D2F33]/70 px-2.5 py-1 rounded-lg border border-[#7A5A2A]/80">
+<div class="wave-bar w-1 bg-[#2BA39A] rounded-full"></div>
+<div class="wave-bar w-1 bg-[#2BA39A] rounded-full"></div>
+<div class="wave-bar w-1 bg-[#FF6B52] rounded-full"></div>
+<div class="wave-bar w-1 bg-[#2BA39A] rounded-full"></div>
+<div class="wave-bar w-1 bg-[#2BA39A] rounded-full"></div>
+<div class="wave-bar w-1 bg-[#FF6B52] rounded-full"></div>
+<div class="wave-bar w-1 bg-[#2BA39A] rounded-full"></div>
+<div class="wave-bar w-1 bg-[#2BA39A] rounded-full"></div>
+<span class="ml-auto text-[10px] font-bold text-[#C9D6D4] tracking-tight">Part 1 of 4</span>
+</div>
+</div>
+<!-- Speaker Avatar -->
+<div class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-2xl bg-[#18353A] border-2 border-[#2BA39A]/40 flex items-center justify-center text-[#5EEAD4] shadow-sm shrink-0" title="Audio Stream">
+<span class="material-symbols-rounded text-2xl" style="font-variation-settings: 'FILL' 1;">headphones</span>
+</div>
+</div>
+</section>
+<!-- 4. Questions Card (Note Completion & Multiple Choice) -->
+<section class="bg-[#162528] border-2 border-[#7A5A2A] rounded-[20px] p-4 shadow-[0_4px_0_0_#D8CFBC] flex flex-col gap-4">
+<!-- Instruction Banner -->
+<div class="p-3 bg-[#1D2F33] rounded-xl border border-[#7A5A2A] flex gap-2.5 items-start">
+<span class="material-symbols-rounded text-[#5EEAD4] text-lg mt-0.5 shrink-0" style="font-variation-settings: 'FILL' 1;">info</span>
+<p class="text-xs font-semibold text-[#5EEAD4] leading-relaxed">
+            Complete the notes below. Write <strong class="font-extrabold text-[#FF8A80] underline decoration-coral-accent/40">NO MORE THAN TWO WORDS AND/OR A NUMBER</strong> for each answer.
+          </p>
+</div>
+<!-- Registration Form Notes Block -->
+<div class="flex flex-col gap-3.5 border-t border-[#7A5A2A]/70 pt-3">
+<h2 class="text-sm font-extrabold tracking-wide text-[#5EEAD4] uppercase flex items-center gap-1.5">
+<span class="material-symbols-rounded text-[#5EEAD4] text-base">fact_check</span>
+            Kingscote Sports Centre Registration
+          </h2>
+<!-- Q1 Example -->
+<div class="flex items-center justify-between p-2.5 bg-[#1D2F33]/70 rounded-xl border border-[#7A5A2A]">
+<span class="text-xs font-semibold text-[#5EEAD4]">1. Facility address:</span>
+<span class="text-xs font-extrabold text-[#5EEAD4] bg-[#162528] px-2.5 py-1 rounded-md border border-[#7A5A2A]">Caulfield Street</span>
+</div>
+<!-- Q2 Note Gap -->
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-bold text-[#5EEAD4] flex items-center gap-1" for="gap-contact">
+<span>2. Preferred contact time:</span>
+</label>
+<div class="relative">
+<input class="w-full h-11 px-3 text-sm font-bold text-[#5EEAD4] placeholder:text-[#C9D6D4]/70 placeholder:font-normal bg-[#1D2F33] rounded-xl border-2 border-[#2BA39A] shadow-inner focus:outline-none focus:ring-2 focus:ring-[#2BA39A] focus:bg-[#162528] transition-all" id="gap-contact" placeholder="e.g. morning / 6 PM" type="text"/>
+<span class="absolute right-3 top-3 material-symbols-rounded text-[#5EEAD4] text-lg">edit</span>
+</div>
+</div>
+<!-- Q3 Note Gap -->
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-bold text-[#5EEAD4] flex items-center justify-between" for="gap-membership">
+<span>3. Membership type:</span>
+<span class="text-[11px] font-bold text-[#C9D6D4]">[ ______ ] pass</span>
+</label>
+<div class="relative">
+<input class="w-full h-11 px-3 text-sm font-bold text-[#5EEAD4] placeholder:text-[#C9D6D4]/70 placeholder:font-normal bg-[#1D2F33] rounded-xl border-2 border-[#7A5A2A] focus:border-[#2BA39A] focus:bg-[#162528] focus:outline-none focus:ring-1 focus:ring-[#2BA39A] transition-all" id="gap-membership" placeholder="Type membership keyword..." type="text"/>
+</div>
+</div>
+<!-- Q4 Note Gap -->
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-bold text-[#5EEAD4]" for="gap-emergency">
+              4. Emergency contact number:
+            </label>
+<div class="relative">
+<input class="w-full h-11 px-3 text-sm font-bold text-[#5EEAD4] placeholder:text-[#C9D6D4]/70 placeholder:font-normal bg-[#1D2F33] rounded-xl border-2 border-[#7A5A2A] focus:border-[#2BA39A] focus:bg-[#162528] focus:outline-none focus:ring-1 focus:ring-[#2BA39A] transition-all" id="gap-emergency" placeholder="e.g. 07700 900461" type="text"/>
+</div>
+</div>
+<!-- Q5 Multiple Choice Question -->
+<div class="flex flex-col gap-2.5 pt-2">
+<p class="text-xs font-extrabold text-[#5EEAD4] leading-snug">
+              5. Which facility requires advance booking?
+            </p>
+<div class="flex flex-col gap-2">
+<!-- Option A: Selected -->
+<button class="min-h-[50px] w-full px-3.5 py-2.5 rounded-xl border-2 border-[#2BA39A] bg-[#18353A] text-left flex items-center justify-between shadow-[0_3px_0_0_#2BA39A] active:translate-y-[1px] active:shadow-[0_1px_0_0_#2BA39A] transition-all" type="button">
+<span class="text-xs font-extrabold text-[#5EEAD4]">A. Squash courts</span>
+<span class="w-5 h-5 rounded-full bg-[#2BA39A] text-[#1B0B04] flex items-center justify-center">
+<span class="material-symbols-rounded text-sm font-bold">check</span>
+</span>
+</button>
+<!-- Option B -->
+<button class="min-h-[50px] w-full px-3.5 py-2.5 rounded-xl border-2 border-[#7A5A2A] bg-[#162528] text-left flex items-center justify-between shadow-[0_3px_0_0_#D8CFBC] hover:border-[#2BA39A]/60 active:translate-y-[1px] active:shadow-[0_1px_0_0_#D8CFBC] transition-all" type="button">
+<span class="text-xs font-bold text-[#5EEAD4]">B. Swimming pool</span>
+<span class="w-5 h-5 rounded-full border-2 border-[#7A5A2A]"></span>
+</button>
+<!-- Option C -->
+<button class="min-h-[50px] w-full px-3.5 py-2.5 rounded-xl border-2 border-[#7A5A2A] bg-[#162528] text-left flex items-center justify-between shadow-[0_3px_0_0_#D8CFBC] hover:border-[#2BA39A]/60 active:translate-y-[1px] active:shadow-[0_1px_0_0_#D8CFBC] transition-all" type="button">
+<span class="text-xs font-bold text-[#5EEAD4]">C. Weight training gym</span>
+<span class="w-5 h-5 rounded-full border-2 border-[#7A5A2A]"></span>
+</button>
+</div>
+</div>
+<!-- Q6 Note Gap -->
+<div class="flex flex-col gap-1.5 pt-1">
+<label class="text-xs font-bold text-[#5EEAD4]" for="gap-deposit">
+              6. Deposit payment due by:
+            </label>
+<div class="relative">
+<input class="w-full h-11 px-3 text-sm font-bold text-[#5EEAD4] placeholder:text-[#C9D6D4]/70 placeholder:font-normal bg-[#1D2F33] rounded-xl border-2 border-[#7A5A2A] focus:border-[#2BA39A] focus:bg-[#162528] focus:outline-none focus:ring-1 focus:ring-[#2BA39A] transition-all" id="gap-deposit" placeholder="e.g. 15th October" type="text"/>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Pinned Bottom CTA Bar (Focus Screen: NO bottom tab bar) -->
+<footer class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] max-w-[390px] bg-[#1D2F33]/95 backdrop-blur-md px-4 py-3 border-t border-[#7A5A2A] z-50 flex flex-col items-center">
+<!-- Full-width tactile button: disabled/listening state (amber-coral with 4px ledge #B53A22) -->
+<button aria-disabled="true" class="w-full h-14 min-h-[56px] rounded-2xl bg-[#FF6B52]/80 text-[#1B0B04] font-extrabold text-base tracking-wide flex items-center justify-center gap-2 border-2 border-[#FF6B52] shadow-[0_4px_0_0_#B53A22] cursor-not-allowed relative" disabled="" type="button">
+<span class="absolute inset-x-4 top-1.5 h-1.5 bg-[#162528]/30 rounded-full"></span>
+<span class="material-symbols-rounded text-xl" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span>Next part</span>
+</button>
+<!-- Readable Helper Caption (>= 4.5:1 contrast against #FFF7EA) -->
+<p class="text-xs font-bold text-[#C9D6D4] mt-2 text-center tracking-tight">
+        Finish listening to unlock the next button
+      </p>
+</footer>
+</main>
+</body></html>

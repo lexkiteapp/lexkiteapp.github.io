@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"take\" mean?",
+  "keyword": "take",
+  "value": "Take means to pick up something and go away with it.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=take",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"take\" mean?",
+    "description": "Take means to pick up something and go away with it.\n\nReview your words, free: https://lexkite.com/app/#/review?w=take\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "take",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"take\" mean?\n\nTake means to pick up something and go away with it.\n\nReview your words, free: https://lexkite.com/app/#/review?w=take"
+   },
+   "instagram": {
+    "caption": "What does \"take\" mean?\n\nTake means to pick up something and go away with it.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"take\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to pick up something and go away with it. Take means to pick up something and go away with it. Try the full lesson and quiz here: {link}"
  }
 }

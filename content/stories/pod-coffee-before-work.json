@@ -1,0 +1,136 @@
+{
+  "id": "pod-coffee-before-work",
+  "kind": "podcast",
+  "level": "A2",
+  "title": "Coffee Before Work",
+  "summary": "Ama and Carlos meet at a café and talk about their plans for the week.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Podcast, episode 1",
+    "author": "Lexkite",
+    "note": "Original dialogue written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama",
+      "carlos"
+    ],
+    "scene": "Flat 2D illustration: Ama and Carlos sitting at a small café table with two cups of coffee, morning light, no text"
+  },
+  "speakers": {
+    "A": "ama",
+    "B": "carlos"
+  },
+  "audio": {
+    "wpm": 125,
+    "voice": "kokoro:af_heart+am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "Plans for the Week",
+      "sentences": [
+        {
+          "who": "A",
+          "text": "Good morning, Carlos! You look tired today."
+        },
+        {
+          "who": "B",
+          "text": "Morning, Ama. I am a bit tired. I went to bed very late."
+        },
+        {
+          "who": "A",
+          "text": "Oh no. Were you working?"
+        },
+        {
+          "who": "B",
+          "text": "No, I was watching a football match with my brother."
+        },
+        {
+          "who": "A",
+          "text": "Then you need a big coffee. What would you like?"
+        },
+        {
+          "who": "B",
+          "text": "A large cappuccino, please. And maybe a croissant."
+        },
+        {
+          "who": "A",
+          "text": "Good idea. I will have a small black coffee."
+        },
+        {
+          "who": "B",
+          "text": "So, what are your plans for this week?"
+        },
+        {
+          "who": "A",
+          "text": "I have an important meeting on Wednesday."
+        },
+        {
+          "who": "A",
+          "text": "I am a little nervous about it."
+        },
+        {
+          "who": "B",
+          "text": "Don't worry. You always prepare very well."
+        },
+        {
+          "who": "A",
+          "text": "Thanks. What about you?"
+        },
+        {
+          "who": "B",
+          "text": "On Saturday I am visiting my grandmother in the countryside."
+        },
+        {
+          "who": "A",
+          "text": "That sounds lovely. Say hello to her from me!"
+        }
+      ],
+      "words": [
+        "bit",
+        "match",
+        "nervous",
+        "worry",
+        "prepare",
+        "countryside",
+        "lovely"
+      ],
+      "quiz": [
+        {
+          "q": "Why is Carlos tired?",
+          "options": [
+            "He worked all night.",
+            "He watched a football match late.",
+            "He walked to the café."
+          ],
+          "answer": 1,
+          "explain": "He went to bed late because he was watching football with his brother."
+        },
+        {
+          "q": "What is happening on Wednesday?",
+          "options": [
+            "Ama has an important meeting.",
+            "Carlos visits his grandmother.",
+            "They go to a football match."
+          ],
+          "answer": 0,
+          "explain": "Ama says she has an important meeting on Wednesday."
+        },
+        {
+          "q": "How does Ama feel about the meeting?",
+          "options": [
+            "Bored",
+            "Angry",
+            "A little nervous"
+          ],
+          "answer": 2,
+          "explain": "She says, \"I am a little nervous about it.\""
+        }
+      ]
+    }
+  ]
+}

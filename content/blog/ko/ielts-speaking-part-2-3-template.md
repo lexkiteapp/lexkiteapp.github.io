@@ -147,6 +147,8 @@ quiz: [
 
 {{cta: /app/#/speaking | Lexkite에서 아이엘츠 스피킹 모의 연습 시작하기}}
 
+
+비자 심사용으로 스피킹 점수가 필요하다면 먼저 [이민 IELTS 점수와 시험 종류](/ko/blog/ielts-imin-jeomsu-kaenada-hoju-yeongguk/)를 확인해 두세요.
 {{youtube: | 아이엘츠 스피킹 파트2 템플릿과 2분 완벽 발화 전략}}
 
 ## 실전 기출 큐카드 완벽 시뮬레이션: Band 8.0 모범 답변

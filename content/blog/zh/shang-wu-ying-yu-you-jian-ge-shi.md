@@ -72,7 +72,7 @@ qualityScore: 94
 - *Due to an unforeseen technical glitch, the system deployment has been postponed by 48 hours.*（由于突发技术故障，系统部署工作将推迟48小时。）
 - *Thank you for your patience and understanding while we resolve this issue.*（在我们解决这一问题的过程中，非常感谢您的耐心与理解。）
 
-日常积累商业词汇搭配有助于摆脱用词贫乏，可查阅[商业与职场核心词汇库](/tu-vung/)。词汇记忆技巧可参考[背单词的方法](/zh/blog/bei-dan-ci-de-fang-fa/)。
+日常积累商业词汇搭配有助于摆脱用词贫乏，可查阅[商业与职场核心词汇库](/en/vocabulary/)。词汇记忆技巧可参考[背单词的方法](/zh/blog/bei-dan-ci-de-fang-fa/)。
 
 ![Lexkite 6800+ 词汇库：NGSL 核心词、按主题的雅思词汇、写作、口语与托业，A1–B2 分级](media:library "按级别和考试分类的词汇集 – 商务英语邮件写作")
 

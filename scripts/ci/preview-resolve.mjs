@@ -15,7 +15,7 @@ export const GENERATED = [
   /^web\/css\/st-[^/]+\.css$/,                       // scripts/build-stitch-css.mjs
   /^docs\/CODEMAP\.md$/, /^docs\/codemap\.json$/,
   /^infra\/jobs\.json$/, /^docs\/JOBS\.md$/, /^functions\/api\/_jobs_reg\.js$/, // scripts/jobs/gen.mjs --write
-  /^web\/js\/(path-mix|confidence\/data|lesson\/gold|lesson\/stories)\.js$/, // scripts/path|confidence|lesson build (prepush)
+  /^web\/js\/(path-mix|confidence\/data|lesson\/stories)\.js$/, // scripts/path|confidence|lesson build (prepush)
 ];
 const UNION_TEXT = [/^docs\/STITCH-V2-PORT\.md$/]; // tài liệu liệt kê thêm mục: hợp hai bên (tệp mã như stitch-v2-convert.mjs KHÔNG nằm đây)
 const isGen = f => GENERATED.some(r => r.test(f)), isUnion = f => UNION_TEXT.some(r => r.test(f));

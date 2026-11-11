@@ -17,7 +17,7 @@ paras: [
 ],
 groups: [
 { type: 'tfng',
-instr: 'Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+instr: g.RTI[1],
 items: [
 { n: 1, text: 'Ancient collections such as the library of Alexandria were open to ordinary members of the public.', a: 'FALSE', cue: 'However, these early collections were not public in the modern sense' },
 { n: 2, text: 'People who joined a subscription library paid a yearly charge.', a: 'TRUE', cue: 'members paid an annual fee' },
@@ -27,7 +27,7 @@ items: [
 { n: 6, text: 'Mobile libraries were used more often than town libraries by people in the countryside.', a: 'NOT GIVEN', cue: 'mobile libraries that carried books to rural villages' },
 ] },
 { type: 'sentence',
-instr: 'Complete the sentences below. Choose NO MORE THAN TWO WORDS from the passage for each answer.', limit: 2,
+instr: g.RTI[8], limit: 2,
 items: [
 { n: 7, text: 'Nineteenth-century supporters of free libraries hoped they would give workers somewhere to go instead of the ___.', a: ['tavern'], cue: 'offer workers an alternative to the tavern' },
 { n: 8, text: 'From the late 1990s, the number of library visitors fell less steeply than the number of ___.', a: ['loans'], cue: 'fell far less sharply than the number of loans' },
@@ -35,7 +35,7 @@ items: [
 { n: 10, text: 'Because funding has not matched their new duties, some branches rely a great deal on ___.', a: ['volunteers'], cue: 'some branches now depend heavily on volunteers' },
 ] },
 { type: 'match',
-instr: 'Reading Passage 1 has seven paragraphs, A–G. Which paragraph contains the following information? NB You may use any letter more than once.',
+instr: g.RTI[5],
 options: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
 items: [
 { n: 11, text: 'a reason why some families were unable to use libraries that charged fees', a: 'B', cue: 'many working families had neither the money nor the leisure time to use them' },
@@ -74,7 +74,7 @@ paras: [
 ],
 groups: [
 { type: 'match',
-instr: 'Reading Passage 2 has seven paragraphs, A–G. Choose the correct heading for each paragraph from the list of headings below.',
+instr: g.RTI[15],
 options: [
 'i The difficulty of recognising what has been collected',
 'ii How swallowed plastic harms marine animals',
@@ -96,7 +96,7 @@ items: [
 { n: 19, text: 'Paragraph F', a: 'vi', cue: "Part of this 'missing plastic' is thought to sink" },
 { n: 20, text: 'Paragraph G', a: 'ix', cue: 'agreement on common methods' },
 ] },
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 21, q: 'According to paragraph C, why do manta trawl surveys probably underestimate the amount of microplastics?',
 options: ['The nets are towed too slowly to collect enough material.', 'Many of the smallest particles are not caught by the net.', 'Samples are often damaged on the way to the laboratory.', 'The method has only been in use for a short time.'],
@@ -109,7 +109,7 @@ options: ['Most of the particles in the river travelled near the surface.', 'Par
 a: 3, cue: 'more than half of the yearly load of particles passed their sampling point during just a few days of heavy rain' },
 ] },
 { type: 'summary', title: 'Where does the plastic go?',
-instr: 'Complete the summary below. Choose ONE WORD ONLY from the passage for each answer.', limit: 1,
+instr: g.RTI[19], limit: 1,
 items: [
 { n: 24, text: 'Surveys detect far less ___ plastic at sea than calculations predict.', a: ['floating'], cue: 'far more should be found floating than surveys actually detect' },
 { n: 25, text: 'Some particles are thought to sink after being covered in bacteria and ___, which add to their weight.', a: ['algae'], cue: 'coated with bacteria and algae, which make the particles heavier' },
@@ -147,7 +147,7 @@ paras: [
 ],
 groups: [
 { type: 'ynng',
-instr: 'Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+instr: g.RTI[0],
 items: [
 { n: 27, text: 'The effect of AI on educational inequality will be decided mainly by what the technology is able to do.', a: 'NO', cue: 'will depend far more on the choices of governments, schools and families than on the capabilities of the software' },
 { n: 28, text: 'Individual tutoring has traditionally been available mostly to families who can afford it.', a: 'YES', cue: 'it has therefore been concentrated among families who can pay for it' },

@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"buy\" mean?",
+  "keyword": "buy",
+  "value": "Buy means to get something by paying money for it.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=buy",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"buy\" mean?",
+    "description": "Buy means to get something by paying money for it.\n\nReview your words, free: https://lexkite.com/app/#/review?w=buy\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "buy",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"buy\" mean?\n\nBuy means to get something by paying money for it.\n\nReview your words, free: https://lexkite.com/app/#/review?w=buy"
+   },
+   "instagram": {
+    "caption": "What does \"buy\" mean?\n\nBuy means to get something by paying money for it.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"buy\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to get something by paying money for it. Buy means to get something by paying money for it. More practice like this (free): {link}"
  }
 }

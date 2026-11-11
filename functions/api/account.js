@@ -31,6 +31,9 @@ export const DELETE_SQL = [
   'DELETE FROM class_member WHERE uid = ?1 OR cls IN (SELECT id FROM classes WHERE owner = ?1)',
   'DELETE FROM class_task WHERE cls IN (SELECT id FROM classes WHERE owner = ?1)',
   'DELETE FROM classes WHERE owner = ?1',
+  'DELETE FROM cm_block WHERE uid = ?1 OR other = ?1', // cộng đồng: chặn (2 chiều), báo cáo tôi gửi, hồ sơ công khai
+  'DELETE FROM cm_report WHERE by = ?1',
+  'DELETE FROM cm_profile WHERE uid = ?1',
   "UPDATE reports SET uid = '', email = '', notify = 0 WHERE uid = ?1",
   'DELETE FROM users WHERE uid = ?1',
 ];

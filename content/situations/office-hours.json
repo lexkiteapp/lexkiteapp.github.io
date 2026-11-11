@@ -1,0 +1,899 @@
+{
+ "id": "office-hours",
+ "group": "study",
+ "cefr": "B2",
+ "title": {
+  "en": "Office hours with a lecturer",
+  "vi": "Gặp giảng viên ngoài giờ học",
+  "es": "Tutoría con el profesor",
+  "pt": "Atendimento com o professor",
+  "fr": "Rendez-vous avec un enseignant",
+  "de": "Sprechstunde bei der Dozentin",
+  "id": "Konsultasi dengan dosen",
+  "th": "พบอาจารย์ในช่วงให้คำปรึกษา",
+  "zh": "找老师答疑面谈",
+  "ja": "教員のオフィスアワー",
+  "ko": "교수님 면담 시간",
+  "hi": "प्रोफ़ेसर से मुलाक़ात का समय",
+  "ar": "الساعات المكتبية مع الأستاذ",
+  "ru": "Консультация у преподавателя",
+  "tr": "Öğretim üyesiyle görüşme saati"
+ },
+ "goal": {
+  "en": "Discuss feedback and agree on next steps!",
+  "vi": "Trao đổi nhận xét và thống nhất bước tiếp theo!",
+  "es": "¡Comenta la retroalimentación y acordad los siguientes pasos!",
+  "pt": "Converse sobre o feedback e combine os próximos passos!",
+  "fr": "Discutez des commentaires et convenez de la suite !",
+  "de": "Besprich das Feedback und vereinbart die nächsten Schritte!",
+  "id": "Diskusikan masukan dan sepakati langkah berikutnya!",
+  "th": "คุยเรื่องคำแนะนำและตกลงขั้นตอนต่อไป!",
+  "zh": "讨论反馈意见，并商定下一步！",
+  "ja": "フィードバックを話し合い、次の一歩を決めよう！",
+  "ko": "피드백을 논의하고 다음 단계를 정해요!",
+  "hi": "फ़ीडबैक पर चर्चा करें और अगले क़दम तय करें!",
+  "ar": "ناقش الملاحظات واتفق على الخطوات التالية!",
+  "ru": "Обсуди замечания и договорись о следующих шагах!",
+  "tr": "Geri bildirimi tartış ve sonraki adımlarda anlaş!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "open",
+   "title": {
+    "en": "Open the meeting",
+    "vi": "Mở đầu buổi gặp",
+    "es": "Abrir la reunión",
+    "pt": "Abrir a conversa",
+    "fr": "Ouvrir l'entretien",
+    "de": "Das Gespräch eröffnen",
+    "id": "Membuka pertemuan",
+    "th": "เริ่มการพูดคุย",
+    "zh": "开启面谈",
+    "ja": "面談を切り出す",
+    "ko": "면담 시작하기",
+    "hi": "बातचीत की शुरुआत",
+    "ar": "افتتاح اللقاء",
+    "ru": "Начало встречи",
+    "tr": "Görüşmeyi başlat"
+   },
+   "lines": [
+    "a1",
+    "a2",
+    "a3",
+    "a4"
+   ]
+  },
+  {
+   "id": "clarify",
+   "title": {
+    "en": "Clarify",
+    "vi": "Làm rõ vấn đề",
+    "es": "Aclarar dudas",
+    "pt": "Esclarecer dúvidas",
+    "fr": "Clarifier",
+    "de": "Nachfragen",
+    "id": "Meminta penjelasan",
+    "th": "ทำความเข้าใจให้ชัด",
+    "zh": "澄清疑问",
+    "ja": "内容を確認する",
+    "ko": "명확히 하기",
+    "hi": "बात साफ़ करें",
+    "ar": "التوضيح",
+    "ru": "Уточнить",
+    "tr": "Netleştir"
+   },
+   "lines": [
+    "c1",
+    "c2",
+    "c3",
+    "c4"
+   ]
+  },
+  {
+   "id": "next",
+   "title": {
+    "en": "Next steps",
+    "vi": "Bước tiếp theo",
+    "es": "Próximos pasos",
+    "pt": "Próximos passos",
+    "fr": "Prochaines étapes",
+    "de": "Nächste Schritte",
+    "id": "Langkah berikutnya",
+    "th": "ขั้นตอนต่อไป",
+    "zh": "后续安排",
+    "ja": "次のステップ",
+    "ko": "다음 단계",
+    "hi": "अगले क़दम",
+    "ar": "الخطوات التالية",
+    "ru": "Следующие шаги",
+    "tr": "Sonraki adımlar"
+   },
+   "lines": [
+    "n1",
+    "n2",
+    "n3",
+    "n4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "a1",
+   "who": "customer",
+   "en": "Thank you for seeing me. I wanted to discuss the feedback on my first essay.",
+   "variants": {
+    "polite": "Thank you very much for making time to see me. I'd like to discuss the feedback on my first essay.",
+    "casual": "Thanks for seeing me. I wanted to talk about the feedback on my essay."
+   },
+   "gloss": {
+    "en": "Opening the meeting with a clear purpose.",
+    "vi": "Cảm ơn thầy/cô đã dành thời gian gặp em. Em muốn trao đổi về nhận xét cho bài luận đầu tiên của em.",
+    "es": "Gracias por recibirme. Quería comentar la retroalimentación de mi primer ensayo.",
+    "pt": "Obrigado por me receber. Eu queria conversar sobre o feedback do meu primeiro ensaio.",
+    "fr": "Merci de me recevoir. Je voulais discuter des commentaires sur ma première dissertation.",
+    "de": "Danke, dass Sie sich Zeit für mich nehmen. Ich wollte das Feedback zu meinem ersten Essay besprechen.",
+    "id": "Terima kasih sudah menemui saya. Saya ingin membahas masukan untuk esai pertama saya.",
+    "th": "ขอบคุณที่สละเวลาให้พบนะคะ ดิฉันอยากคุยเรื่องคำแนะนำของเรียงความชิ้นแรกค่ะ",
+    "zh": "谢谢您抽空见我。我想谈谈您对我第一篇论文的反馈意见。",
+    "ja": "お時間をいただきありがとうございます。最初のエッセイへのフィードバックについてお話ししたいのですが。",
+    "ko": "시간 내 주셔서 감사합니다. 첫 번째 에세이에 대한 피드백을 이야기하고 싶었어요.",
+    "hi": "मुझसे मिलने के लिए धन्यवाद। मैं अपने पहले निबंध पर मिले फ़ीडबैक पर चर्चा करना चाहता था।",
+    "ar": "شكرًا لاستقبالك لي. أردت أن أناقش الملاحظات على مقالي الأول.",
+    "ru": "Спасибо, что приняли меня. Я хотел обсудить отзыв на моё первое эссе.",
+    "tr": "Beni kabul ettiğiniz için teşekkürler. İlk denememle ilgili geri bildirimi konuşmak istiyordum."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "feedback",
+     "ipa": "/ˈfiːd.bæk/",
+     "hi": "FEED",
+     "note": {
+      "en": "Stress the first syllable: FEED-back, a single word with no plural.",
+      "vi": "Nhấn âm tiết đầu: FID-bec, và “feedback” không có dạng số nhiều.",
+      "es": "Acentúa la primera sílaba: FIID-bak; “feedback” no se usa en plural.",
+      "pt": "Acentue a primeira sílaba: FIID-bék; “feedback” não tem plural.",
+      "fr": "Accentuez la première syllabe : FIIDE-bak ; « feedback » ne prend pas de pluriel.",
+      "de": "Betone die erste Silbe: FIED-bäk; „feedback“ hat keinen Plural.",
+      "id": "Tekankan suku kata pertama: FIID-bek; “feedback” tidak dipakai dalam bentuk jamak.",
+      "th": "เน้นพยางค์แรก: ฟีด-แบ็ก และ feedback ไม่ใช้รูปพหูพจน์",
+      "zh": "重音在第一个音节：FEED-back，而且 feedback 不加复数。",
+      "ja": "最初の音節を強く：フィードバック。feedback は複数形にしません。",
+      "ko": "첫 음절에 강세: 피드-백. feedback은 복수형이 없어요.",
+      "hi": "पहले अक्षर पर ज़ोर दें: फ़ीड-बैक, और feedback का बहुवचन नहीं बनता।",
+      "ar": "شدّد على المقطع الأول: فيد-باك، وكلمة feedback لا تُجمع.",
+      "ru": "Ударение на первый слог: ФИД-бэк; у feedback нет множественного числа.",
+      "tr": "Vurgu ilk hecede: FİİD-bek; feedback çoğul yapılmaz."
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2",
+   "who": "barista",
+   "en": "Of course. Overall it was a solid draft, but your argument lost focus in the middle.",
+   "variants": {
+    "polite": "Certainly. On the whole it was a solid draft, although the argument lost its focus in the middle section.",
+    "casual": "Sure. It's a decent draft, but the argument drifts in the middle."
+   },
+   "gloss": {
+    "en": "The lecturer gives a balanced first comment.",
+    "vi": "Tất nhiên rồi. Nhìn chung đây là bản nháp khá vững, nhưng lập luận bị loãng ở phần giữa.",
+    "es": "Claro. En general era un borrador sólido, pero tu argumento perdía foco en la parte central.",
+    "pt": "Claro. No geral foi um bom rascunho, mas seu argumento perdeu o foco no meio.",
+    "fr": "Bien sûr. Dans l'ensemble, c'était un brouillon solide, mais votre argumentation perdait en netteté au milieu.",
+    "de": "Natürlich. Insgesamt war es ein solider Entwurf, aber Ihre Argumentation hat in der Mitte an Schärfe verloren.",
+    "id": "Tentu. Secara keseluruhan drafnya cukup kuat, tetapi argumentasi Anda kehilangan fokus di bagian tengah.",
+    "th": "ได้เลย โดยรวมเป็นร่างที่ดีทีเดียว แต่ข้อโต้แย้งของคุณขาดโฟกัสในช่วงกลางเรื่อง",
+    "zh": "当然可以。总体来说这是一份扎实的草稿，但你的论点在中间部分失去了重点。",
+    "ja": "もちろん。全体としてはしっかりした草稿でしたが、中盤で論点がぼやけていました。",
+    "ko": "물론이죠. 전반적으로 탄탄한 초안이었지만, 중간 부분에서 논점이 흐려졌어요.",
+    "hi": "ज़रूर। कुल मिलाकर मसौदा ठोस था, लेकिन बीच में आपका तर्क अपना केंद्र खो बैठा।",
+    "ar": "بالتأكيد. كانت مسودة جيدة في مجملها، لكن حجتك فقدت تركيزها في المنتصف.",
+    "ru": "Конечно. В целом черновик был добротным, но в середине аргументация теряла чёткость.",
+    "tr": "Tabii. Genel olarak sağlam bir taslaktı ama savunduğunuz görüş ortada odağını kaybetti."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "argument",
+     "ipa": "/ˈɑːr.ɡjə.mənt/",
+     "hi": "AR",
+     "note": {
+      "en": "Stress the first syllable: AR-gyoo-ment, and keep the “u” sound.",
+      "vi": "Nhấn âm tiết đầu: AR-giu-mần, giữ âm “iu” ở giữa.",
+      "es": "Acentúa la primera sílaba: AR-guiu-ment, sin perder el sonido “iu”.",
+      "pt": "Acentue a primeira sílaba: AR-guiu-ment, mantendo o som “iu”.",
+      "fr": "Accentuez la première syllabe : AR-guiou-ment, sans perdre le son « iou ».",
+      "de": "Betone die erste Silbe: AR-gju-ment, den „ju“-Laut nicht weglassen.",
+      "id": "Tekankan suku kata pertama: AR-gyu-men, jangan hilangkan bunyi “yu”.",
+      "th": "เน้นพยางค์แรก: อาร์-กิว-เมินท์ อย่าตัดเสียง “ยู” ทิ้ง",
+      "zh": "重音在第一个音节：AR-gyoo-ment，别漏掉中间的 u 音。",
+      "ja": "最初の音節を強く：アーギュメント。真ん中の「ュ」を落とさないで。",
+      "ko": "첫 음절에 강세: 아-규-먼트. 가운데 ‘규’ 소리를 빼지 마세요.",
+      "hi": "पहले अक्षर पर ज़ोर दें: आर-ग्यू-मेंट, बीच की ‘यू’ ध्वनि न छोड़ें।",
+      "ar": "شدّد على المقطع الأول: آر-غيو-مِنت، ولا تُسقط صوت “يو”.",
+      "ru": "Ударение на первый слог: АР-гью-мент, не теряйте звук «ю».",
+      "tr": "Vurgu ilk hecede: AR-gyu-ment, “yu” sesini atlama."
+     }
+    }
+   ]
+  },
+  {
+   "id": "a3",
+   "who": "customer",
+   "en": "That's helpful to know. Could you point out where exactly it becomes unclear?",
+   "variants": {
+    "polite": "That's very helpful. Would you be able to point out exactly where it becomes unclear?",
+    "casual": "Good to know. Where exactly does it get unclear?"
+   },
+   "gloss": {
+    "en": "Asking for the exact place of the problem.",
+    "vi": "Em hiểu rồi ạ. Thầy/cô chỉ giúp em chính xác chỗ nào bắt đầu thiếu rõ ràng được không?",
+    "es": "Es útil saberlo. ¿Podría señalarme dónde exactamente se vuelve confuso?",
+    "pt": "Bom saber. O senhor poderia apontar exatamente onde fica confuso?",
+    "fr": "Voilà qui est utile. Pourriez-vous m'indiquer où exactement cela devient flou ?",
+    "de": "Das ist gut zu wissen. Könnten Sie genau zeigen, wo es unklar wird?",
+    "id": "Itu informasi yang berguna. Bisakah Anda tunjukkan tepatnya di mana mulai tidak jelas?",
+    "th": "เป็นประโยชน์มากค่ะ ช่วยชี้ได้ไหมคะว่าตรงไหนที่เริ่มไม่ชัดเจน",
+    "zh": "这很有帮助。您能具体指出是从哪里开始不清楚的吗？",
+    "ja": "それは参考になります。どこから分かりにくくなるのか、具体的に教えていただけますか？",
+    "ko": "알려 주셔서 도움이 됐어요. 정확히 어디서부터 불분명해지는지 짚어 주실 수 있을까요?",
+    "hi": "यह जानना काम का है। क्या आप ठीक-ठीक बता सकते हैं कि बात कहाँ से अस्पष्ट होने लगती है?",
+    "ar": "هذا مفيد جدًا. هل يمكنك أن تحدد بدقة أين يصبح الكلام غير واضح؟",
+    "ru": "Это полезно знать. Не могли бы вы указать, где именно текст становится неясным?",
+    "tr": "Bunu bilmek faydalı oldu. Tam olarak nerede belirsizleştiğini gösterebilir misiniz?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "a4",
+   "who": "barista",
+   "en": "Around the third paragraph. You introduce two ideas without linking them to your thesis.",
+   "variants": {
+    "polite": "It begins around the third paragraph, where two ideas are introduced without being linked to your thesis.",
+    "casual": "Third paragraph. Two ideas, no link to your thesis."
+   },
+   "gloss": {
+    "en": "The lecturer pinpoints the weakness.",
+    "vi": "Khoảng đoạn thứ ba. Em đưa ra hai ý mà không nối chúng với luận điểm chính.",
+    "es": "Hacia el tercer párrafo. Introduces dos ideas sin conectarlas con tu tesis.",
+    "pt": "Por volta do terceiro parágrafo. Você apresenta duas ideias sem ligá-las à sua tese.",
+    "fr": "Vers le troisième paragraphe. Vous introduisez deux idées sans les relier à votre thèse.",
+    "de": "Etwa im dritten Absatz. Sie führen zwei Gedanken ein, ohne sie mit Ihrer These zu verbinden.",
+    "id": "Sekitar paragraf ketiga. Anda memperkenalkan dua gagasan tanpa mengaitkannya dengan tesis Anda.",
+    "th": "ประมาณย่อหน้าที่สาม คุณเสนอสองแนวคิดโดยไม่เชื่อมโยงกับประเด็นหลักของคุณ",
+    "zh": "大约在第三段。你引入了两个观点，却没有把它们和你的中心论点联系起来。",
+    "ja": "3段落目あたりです。二つの考えを出していますが、主張とつなげられていません。",
+    "ko": "세 번째 문단쯤이에요. 두 가지 아이디어를 제시하면서 논지와 연결하지 않았어요.",
+    "hi": "तीसरे अनुच्छेद के आसपास। आप दो विचार रखते हैं, पर उन्हें अपने मुख्य तर्क से नहीं जोड़ते।",
+    "ar": "حول الفقرة الثالثة. تطرح فكرتين دون ربطهما بأطروحتك.",
+    "ru": "Примерно в третьем абзаце. Вы вводите две идеи, не связав их с вашим тезисом.",
+    "tr": "Üçüncü paragraf civarında. İki fikir ortaya atıyorsunuz ama bunları tezinizle ilişkilendirmiyorsunuz."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c1",
+   "who": "customer",
+   "en": "If I understand correctly, you're suggesting that I narrow the topic. Is that right?",
+   "variants": {
+    "polite": "If I've understood you correctly, you're suggesting that I narrow the topic. Is that right?",
+    "casual": "So you mean I should narrow the topic?"
+   },
+   "gloss": {
+    "en": "Checking your understanding.",
+    "vi": "Nếu em hiểu đúng thì thầy/cô gợi ý em thu hẹp đề tài, phải không ạ?",
+    "es": "Si lo entiendo bien, me sugiere que acote el tema. ¿Es así?",
+    "pt": "Se entendi bem, o senhor está sugerindo que eu restrinja o tema. É isso?",
+    "fr": "Si je comprends bien, vous me suggérez de resserrer le sujet. C'est bien cela ?",
+    "de": "Wenn ich richtig verstehe, schlagen Sie vor, dass ich das Thema eingrenze. Stimmt das?",
+    "id": "Jika saya paham dengan benar, Anda menyarankan agar saya mempersempit topik. Benar begitu?",
+    "th": "ถ้าดิฉันเข้าใจถูก อาจารย์แนะนำให้ดิฉันจำกัดขอบเขตหัวข้อให้แคบลง ใช่ไหมคะ",
+    "zh": "如果我没理解错，您是建议我缩小选题范围，对吗？",
+    "ja": "私の理解が正しければ、テーマを絞るべきだということでしょうか。",
+    "ko": "제가 제대로 이해했다면 주제를 좁히라는 말씀이시죠? 맞나요?",
+    "hi": "अगर मैं सही समझा हूँ, तो आप सुझाव दे रहे हैं कि मैं विषय को सीमित करूँ। क्या यह सही है?",
+    "ar": "إن كنتُ قد فهمتُ جيدًا، فأنت تقترح أن أضيّق الموضوع. أهذا صحيح؟",
+    "ru": "Если я правильно понимаю, вы предлагаете сузить тему. Это так?",
+    "tr": "Doğru anladıysam konuyu daraltmamı öneriyorsunuz. Öyle mi?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c2",
+   "who": "barista",
+   "en": "Exactly. Choose one case study and analyse it in depth rather than comparing several.",
+   "variants": {
+    "polite": "Precisely. I'd recommend choosing one case study and analysing it in depth instead of comparing several.",
+    "casual": "Right. Pick one case study and go deep."
+   },
+   "gloss": {
+    "en": "The lecturer confirms and explains.",
+    "vi": "Đúng vậy. Hãy chọn một trường hợp nghiên cứu và phân tích sâu thay vì so sánh nhiều trường hợp.",
+    "es": "Exacto. Elige un solo estudio de caso y analízalo a fondo en lugar de comparar varios.",
+    "pt": "Exatamente. Escolha um estudo de caso e analise-o a fundo, em vez de comparar vários.",
+    "fr": "Exactement. Choisissez une seule étude de cas et analysez-la en profondeur plutôt que d'en comparer plusieurs.",
+    "de": "Genau. Wählen Sie eine Fallstudie und analysieren Sie sie gründlich, statt mehrere zu vergleichen.",
+    "id": "Tepat. Pilih satu studi kasus dan analisis secara mendalam, bukan membandingkan beberapa sekaligus.",
+    "th": "ถูกต้อง เลือกกรณีศึกษาเดียวแล้ววิเคราะห์ให้ลึก แทนที่จะเปรียบเทียบหลายกรณี",
+    "zh": "没错。选一个案例深入分析，而不是比较好几个。",
+    "ja": "その通りです。複数を比べるより、事例を一つ選んで深く分析してください。",
+    "ko": "맞아요. 여러 개를 비교하기보다 사례 하나를 골라 깊이 분석하세요.",
+    "hi": "बिल्कुल। कई की तुलना करने के बजाय एक केस स्टडी चुनिए और उसका गहराई से विश्लेषण कीजिए।",
+    "ar": "تمامًا. اختر دراسة حالة واحدة وحلّلها بعمق بدل مقارنة عدة حالات.",
+    "ru": "Именно. Выберите один кейс и проанализируйте его глубоко, вместо того чтобы сравнивать несколько.",
+    "tr": "Aynen öyle. Birkaçını karşılaştırmak yerine tek bir vaka çalışması seçin ve derinlemesine inceleyin."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "analyse",
+     "ipa": "/ˈæn.ə.laɪz/",
+     "hi": "AN",
+     "note": {
+      "en": "Stress the first syllable: AN-uh-lyze, ending in the sound “-lyze”.",
+      "vi": "Nhấn âm tiết đầu: AN-ờ-lai-z, kết thúc bằng âm “-lyze”.",
+      "es": "Acentúa la primera sílaba: AN-a-laiz, terminando en “-lyze”.",
+      "pt": "Acentue a primeira sílaba: ÉN-a-laiz, terminando em “-lyze”.",
+      "fr": "Accentuez la première syllabe : AN-a-laïz, qui finit par « -lyze ».",
+      "de": "Betone die erste Silbe: ÄN-a-lais, am Ende „-lyze“.",
+      "id": "Tekankan suku kata pertama: EN-a-laiz, berakhir dengan “-lyze”.",
+      "th": "เน้นพยางค์แรก: แอน-นะ-ไลซ์ ลงท้ายเสียง -lyze",
+      "zh": "重音在第一个音节：AN-uh-lyze，结尾是 -lyze 的音。",
+      "ja": "最初の音節を強く：アナライズ。語尾は「ライズ」です。",
+      "ko": "첫 음절에 강세: 애-널-라이즈. 끝은 ‘-lyze’ 소리예요.",
+      "hi": "पहले अक्षर पर ज़ोर दें: ऐन-ए-लाइज़, अंत ‘-lyze’ जैसा।",
+      "ar": "شدّد على المقطع الأول: آن-ا-لايز، وينتهي بصوت -lyze.",
+      "ru": "Ударение на первый слог: ЭН-э-лайз, окончание «-лайз».",
+      "tr": "Vurgu ilk hecede: EN-ı-layz, sonu “-lyze” sesiyle biter."
+     }
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "who": "customer",
+   "en": "I'm not entirely sure how critical the analysis should be. Could you give me an example?",
+   "variants": {
+    "polite": "I'm not entirely sure how critical the analysis ought to be. Might you give me an example?",
+    "casual": "How critical should I be? Can you give an example?"
+   },
+   "gloss": {
+    "en": "Asking for an example to understand better.",
+    "vi": "Em chưa chắc phần phân tích nên phê phán đến mức nào. Thầy/cô có thể cho em một ví dụ không ạ?",
+    "es": "No estoy del todo seguro de cuán crítico debe ser el análisis. ¿Podría darme un ejemplo?",
+    "pt": "Não tenho certeza de quão crítica a análise deve ser. O senhor poderia me dar um exemplo?",
+    "fr": "Je ne sais pas trop à quel point l'analyse doit être critique. Pourriez-vous me donner un exemple ?",
+    "de": "Ich bin mir nicht ganz sicher, wie kritisch die Analyse sein soll. Könnten Sie mir ein Beispiel geben?",
+    "id": "Saya belum sepenuhnya yakin seberapa kritis analisisnya. Bisakah Anda memberi contoh?",
+    "th": "ดิฉันยังไม่แน่ใจว่าการวิเคราะห์ควรเชิงวิพากษ์มากแค่ไหน ช่วยยกตัวอย่างให้ฟังได้ไหมคะ",
+    "zh": "我不太确定分析应该批判到什么程度，您能举个例子吗？",
+    "ja": "分析はどの程度批判的であるべきか、よく分かりません。例を挙げていただけますか？",
+    "ko": "분석이 어느 정도로 비판적이어야 하는지 잘 모르겠어요. 예를 하나 들어 주실 수 있을까요?",
+    "hi": "मुझे पूरी तरह पक्का नहीं है कि विश्लेषण कितना आलोचनात्मक होना चाहिए। क्या आप कोई उदाहरण दे सकते हैं?",
+    "ar": "لست متأكدًا تمامًا إلى أي حد ينبغي أن يكون التحليل نقديًا. هل يمكنك أن تعطيني مثالًا؟",
+    "ru": "Я не совсем уверен, насколько критичным должен быть анализ. Можете привести пример?",
+    "tr": "Analizin ne kadar eleştirel olması gerektiğinden tam emin değilim. Bir örnek verebilir misiniz?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c4",
+   "who": "barista",
+   "en": "Instead of describing the policy, question its assumptions and test them against the evidence.",
+   "variants": {
+    "polite": "Rather than simply describing the policy, I'd encourage you to question its assumptions and test them against the evidence.",
+    "casual": "Don't just describe the policy. Question it and check it against the evidence."
+   },
+   "gloss": {
+    "en": "The lecturer explains what critical analysis means.",
+    "vi": "Thay vì chỉ mô tả chính sách, hãy đặt câu hỏi về các giả định của nó và kiểm chứng chúng bằng bằng chứng.",
+    "es": "En lugar de describir la política, cuestiona sus supuestos y contrástalos con las pruebas.",
+    "pt": "Em vez de descrever a política, questione seus pressupostos e teste-os com as evidências.",
+    "fr": "Au lieu de décrire la politique, interrogez ses hypothèses et confrontez-les aux preuves.",
+    "de": "Statt die Maßnahme nur zu beschreiben, hinterfragen Sie ihre Annahmen und prüfen Sie sie anhand der Belege.",
+    "id": "Daripada hanya menggambarkan kebijakannya, pertanyakan asumsinya dan uji dengan bukti.",
+    "th": "แทนที่จะอธิบายนโยบายเฉยๆ ให้ตั้งคำถามกับข้อสมมติของมัน แล้วทดสอบกับหลักฐาน",
+    "zh": "不要只描述这项政策，而要质疑它的前提假设，并用证据来检验。",
+    "ja": "政策を説明するだけでなく、その前提を疑い、証拠に照らして検証してください。",
+    "ko": "정책을 설명하는 데 그치지 말고 그 전제를 의심하고 증거로 검증해 보세요.",
+    "hi": "केवल नीति का वर्णन करने के बजाय उसकी मान्यताओं पर सवाल उठाइए और उन्हें प्रमाणों की कसौटी पर परखिए।",
+    "ar": "بدلًا من وصف السياسة فقط، شكّك في افتراضاتها واختبرها في ضوء الأدلة.",
+    "ru": "Вместо того чтобы просто описывать политику, ставьте под сомнение её предпосылки и проверяйте их фактами.",
+    "tr": "Politikayı yalnızca anlatmak yerine varsayımlarını sorgulayın ve kanıtlarla sınayın."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "n1",
+   "who": "customer",
+   "en": "Would it be possible to submit a revised outline before I rewrite the whole essay?",
+   "variants": {
+    "polite": "Would it be possible for me to send you a revised outline before I rewrite the whole essay?",
+    "casual": "Can I send you a new outline before I rewrite it all?"
+   },
+   "gloss": {
+    "en": "Proposing a sensible next step.",
+    "vi": "Em có thể nộp dàn ý đã chỉnh sửa trước khi viết lại toàn bộ bài luận được không ạ?",
+    "es": "¿Sería posible entregar un esquema revisado antes de reescribir todo el ensayo?",
+    "pt": "Seria possível entregar um esboço revisado antes de reescrever o ensaio inteiro?",
+    "fr": "Serait-il possible de vous soumettre un plan révisé avant que je réécrive toute la dissertation ?",
+    "de": "Wäre es möglich, vor der Überarbeitung des ganzen Essays eine überarbeitete Gliederung einzureichen?",
+    "id": "Bolehkah saya mengirim kerangka revisi sebelum menulis ulang seluruh esai?",
+    "th": "ขอส่งโครงร่างฉบับแก้ไขก่อนที่จะเขียนเรียงความใหม่ทั้งหมดได้ไหมคะ",
+    "zh": "在重写整篇论文之前，我可以先提交一份修改后的提纲吗？",
+    "ja": "エッセイ全体を書き直す前に、修正したアウトラインを提出してもよろしいでしょうか。",
+    "ko": "에세이 전체를 다시 쓰기 전에 수정한 개요를 먼저 제출해도 될까요?",
+    "hi": "क्या पूरा निबंध दोबारा लिखने से पहले मैं संशोधित रूपरेखा जमा कर सकता हूँ?",
+    "ar": "هل يمكنني تقديم مخطط معدَّل قبل أن أعيد كتابة المقال كاملًا؟",
+    "ru": "Можно ли сначала отправить вам исправленный план, прежде чем я перепишу всё эссе?",
+    "tr": "Tüm denemeyi baştan yazmadan önce gözden geçirilmiş bir taslak sunabilir miyim?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "n2",
+   "who": "barista",
+   "en": "That sounds sensible. Send it by Friday and I'll reply with comments before the weekend.",
+   "variants": {
+    "polite": "That sounds very sensible. If you send it by Friday, I'll reply with comments before the weekend.",
+    "casual": "Good idea. Send it by Friday, and I'll reply by the weekend."
+   },
+   "gloss": {
+    "en": "The lecturer agrees and sets a deadline.",
+    "vi": "Nghe hợp lý đấy. Em gửi trước thứ Sáu, tôi sẽ nhận xét trước cuối tuần.",
+    "es": "Me parece sensato. Envíalo antes del viernes y te responderé con comentarios antes del fin de semana.",
+    "pt": "Parece sensato. Envie até sexta e eu respondo com comentários antes do fim de semana.",
+    "fr": "Cela me paraît raisonnable. Envoyez-le d'ici vendredi et je vous répondrai avec mes commentaires avant le week-end.",
+    "de": "Das klingt vernünftig. Schicken Sie es bis Freitag, dann antworte ich vor dem Wochenende mit Anmerkungen.",
+    "id": "Itu masuk akal. Kirim paling lambat Jumat, nanti saya balas dengan komentar sebelum akhir pekan.",
+    "th": "ฟังดูสมเหตุสมผล ส่งมาภายในวันศุกร์ แล้วฉันจะตอบพร้อมความเห็นก่อนสุดสัปดาห์",
+    "zh": "这样很合理。周五之前发给我，我会在周末前回复意见。",
+    "ja": "それは賢明ですね。金曜日までに送ってくれれば、週末までにコメントを返します。",
+    "ko": "합리적인 생각이에요. 금요일까지 보내 주면 주말 전에 의견을 달아서 답장할게요.",
+    "hi": "यह समझदारी भरा लगता है। शुक्रवार तक भेज दीजिए, मैं सप्ताहांत से पहले टिप्पणियों के साथ जवाब दे दूँगी।",
+    "ar": "يبدو هذا معقولًا. أرسله بحلول الجمعة وسأردّ عليك بملاحظاتي قبل نهاية الأسبوع.",
+    "ru": "Звучит разумно. Пришлите к пятнице, и я отвечу с комментариями до выходных.",
+    "tr": "Mantıklı görünüyor. Cumaya kadar gönderin, hafta sonundan önce yorumlarımla yanıtlarım."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "n3",
+   "who": "customer",
+   "en": "I'd also appreciate it if you could recommend a couple of sources on this topic.",
+   "variants": {
+    "polite": "I would also be very grateful if you could recommend a couple of sources on this topic.",
+    "casual": "Could you recommend a couple of sources too?"
+   },
+   "gloss": {
+    "en": "Asking for reading recommendations.",
+    "vi": "Em cũng rất biết ơn nếu thầy/cô giới thiệu giúp em vài nguồn tài liệu về đề tài này.",
+    "es": "También le agradecería que me recomendara un par de fuentes sobre este tema.",
+    "pt": "Também agradeceria se o senhor pudesse recomendar algumas fontes sobre esse tema.",
+    "fr": "Je vous serais également reconnaissant de me recommander quelques sources sur ce sujet.",
+    "de": "Ich wäre Ihnen auch dankbar, wenn Sie mir ein paar Quellen zu diesem Thema empfehlen könnten.",
+    "id": "Saya juga akan sangat berterima kasih jika Anda bisa merekomendasikan beberapa sumber tentang topik ini.",
+    "th": "และดิฉันจะขอบคุณมากถ้าอาจารย์แนะนำแหล่งข้อมูลเกี่ยวกับหัวข้อนี้ให้สักสองสามแหล่งค่ะ",
+    "zh": "如果您还能推荐几份关于这个主题的参考资料，我会非常感激。",
+    "ja": "このテーマについて、参考文献をいくつか薦めていただけるとありがたいです。",
+    "ko": "이 주제와 관련된 자료도 몇 가지 추천해 주시면 감사하겠습니다.",
+    "hi": "अगर आप इस विषय पर कुछ स्रोत भी सुझा दें तो मैं बहुत आभारी रहूँगा।",
+    "ar": "وسأكون ممتنًا أيضًا إن رشّحتَ لي بعض المصادر حول هذا الموضوع.",
+    "ru": "Буду также признателен, если вы порекомендуете несколько источников по этой теме.",
+    "tr": "Bu konuyla ilgili birkaç kaynak da önerirseniz çok memnun olurum."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "recommend",
+     "ipa": "/ˌrek.əˈmend/",
+     "hi": "MEND",
+     "note": {
+      "en": "Stress the last syllable: rek-uh-MEND.",
+      "vi": "Nhấn âm tiết cuối: rek-ờ-MEND.",
+      "es": "Acentúa la última sílaba: rek-a-MEND.",
+      "pt": "Acentue a última sílaba: rek-a-MEND.",
+      "fr": "Accentuez la dernière syllabe : rek-a-MEND.",
+      "de": "Betone die letzte Silbe: rek-a-MEND.",
+      "id": "Tekankan suku kata terakhir: rek-a-MEND.",
+      "th": "เน้นพยางค์สุดท้าย: เร็ก-คะ-เมนด์",
+      "zh": "重音在最后一个音节：rek-uh-MEND。",
+      "ja": "最後の音節を強く：レカ・メンド。",
+      "ko": "마지막 음절에 강세: 레-커-멘드.",
+      "hi": "आख़िरी अक्षर पर ज़ोर दें: रेक-अ-मेंड।",
+      "ar": "شدّد على المقطع الأخير: ريك-ا-مند.",
+      "ru": "Ударение на последний слог: рек-э-МЕНД.",
+      "tr": "Vurgu son hecede: rek-ı-MEND."
+     }
+    }
+   ]
+  },
+  {
+   "id": "n4",
+   "who": "barista",
+   "en": "I'll email you a short reading list this afternoon. Start with the first article.",
+   "variants": {
+    "polite": "I'll email you a short reading list this afternoon, and I suggest starting with the first article.",
+    "casual": "I'll email a short reading list today. Start with the first article."
+   },
+   "gloss": {
+    "en": "The lecturer promises a reading list.",
+    "vi": "Chiều nay tôi sẽ gửi email cho em một danh sách đọc ngắn. Hãy bắt đầu với bài báo đầu tiên.",
+    "es": "Esta tarde te enviaré por correo una breve lista de lecturas. Empieza por el primer artículo.",
+    "pt": "Esta tarde envio por e-mail uma lista curta de leituras. Comece pelo primeiro artigo.",
+    "fr": "Je vous enverrai cet après-midi une courte liste de lectures par e-mail. Commencez par le premier article.",
+    "de": "Ich schicke Ihnen heute Nachmittag eine kurze Literaturliste per E-Mail. Beginnen Sie mit dem ersten Artikel.",
+    "id": "Sore ini saya akan mengirim daftar bacaan singkat lewat email. Mulailah dari artikel pertama.",
+    "th": "บ่ายนี้ฉันจะส่งรายการอ่านสั้นๆ ให้ทางอีเมล เริ่มจากบทความแรกได้เลย",
+    "zh": "今天下午我会用邮件发给你一份简短的阅读书单，先从第一篇文章读起。",
+    "ja": "今日の午後に短い文献リストをメールで送ります。最初の記事から読み始めてください。",
+    "ko": "오늘 오후에 짧은 읽기 목록을 이메일로 보낼게요. 첫 번째 글부터 읽어 보세요.",
+    "hi": "मैं आज दोपहर आपको एक छोटी पठन-सूची ईमेल कर दूँगी। पहले लेख से शुरू कीजिए।",
+    "ar": "سأرسل لك بالبريد الإلكتروني قائمة قراءة قصيرة بعد ظهر اليوم. ابدأ بالمقال الأول.",
+    "ru": "Сегодня днём я пришлю вам по почте короткий список литературы. Начните с первой статьи.",
+    "tr": "Bu öğleden sonra size kısa bir okuma listesi e-postayla göndereceğim. İlk makaleyle başlayın."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "What do you think is the strongest part of your argument?",
+   "keywords": [
+    "conclusion",
+    "introduction",
+    "evidence",
+    "data",
+    "example",
+    "case study",
+    "thesis",
+    "analysis",
+    "methodology",
+    "comparison",
+    "structure",
+    "statistics",
+    "point",
+    "argument",
+    "research"
+   ],
+   "variants": {
+    "polite": "Which part of your argument do you consider the strongest?",
+    "casual": "What's the strongest bit of your argument?"
+   },
+   "gloss": {
+    "en": "Asking you to judge your own argument.",
+    "vi": "Em nghĩ phần mạnh nhất trong lập luận của mình là gì?",
+    "es": "¿Cuál crees que es la parte más sólida de tu argumento?",
+    "pt": "Qual você acha que é a parte mais forte do seu argumento?",
+    "fr": "Quelle est selon vous la partie la plus solide de votre argumentation ?",
+    "de": "Was halten Sie für den stärksten Teil Ihrer Argumentation?",
+    "id": "Menurut Anda, bagian mana dari argumen Anda yang paling kuat?",
+    "th": "คุณคิดว่าส่วนไหนของข้อโต้แย้งของคุณแข็งแรงที่สุด",
+    "zh": "你觉得自己论证中最有力的部分是什么？",
+    "ja": "あなたの議論の中で、いちばん強い部分はどこだと思いますか？",
+    "ko": "본인 논증에서 가장 탄탄한 부분이 무엇이라고 생각하나요?",
+    "hi": "आपके विचार से आपके तर्क का सबसे मज़बूत हिस्सा कौन-सा है?",
+    "ar": "ما الجزء الذي تراه أقوى في حجتك؟",
+    "ru": "Какую часть вашей аргументации вы считаете самой сильной?",
+    "tr": "Savunduğunuz görüşün en güçlü kısmı sizce hangisi?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "How confident do you feel about the deadline?",
+   "keywords": [
+    "confident",
+    "worried",
+    "nervous",
+    "fine",
+    "enough time",
+    "tight",
+    "comfortable",
+    "stressed",
+    "on track",
+    "extension",
+    "manage",
+    "not sure",
+    "behind",
+    "deadline",
+    "busy"
+   ],
+   "variants": {
+    "polite": "How confident are you that you can meet the deadline?",
+    "casual": "Are you OK with the deadline?"
+   },
+   "gloss": {
+    "en": "Asking how you feel about the deadline.",
+    "vi": "Em cảm thấy tự tin đến đâu về hạn nộp bài?",
+    "es": "¿Qué tan seguro te sientes con respecto a la fecha de entrega?",
+    "pt": "Quão confiante você se sente em relação ao prazo?",
+    "fr": "Dans quelle mesure vous sentez-vous confiant par rapport à l'échéance ?",
+    "de": "Wie zuversichtlich sind Sie, was die Abgabefrist angeht?",
+    "id": "Seberapa yakin Anda dengan tenggat waktunya?",
+    "th": "คุณรู้สึกมั่นใจกับกำหนดส่งงานแค่ไหน",
+    "zh": "你对截止日期有多大把握？",
+    "ja": "提出期限については、どれくらい自信がありますか？",
+    "ko": "제출 기한에 대해 얼마나 자신 있나요?",
+    "hi": "आप समय-सीमा को लेकर कितने आश्वस्त हैं?",
+    "ar": "ما مدى ثقتك بقدرتك على الالتزام بالموعد النهائي؟",
+    "ru": "Насколько вы уверены в том, что успеете к сроку?",
+    "tr": "Teslim tarihi konusunda ne kadar kendinize güveniyorsunuz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "culture": {
+  "en": "At English-speaking universities, office hours are a normal part of study, not a sign of weakness. Book a slot or arrive on time, bring your draft and specific questions, and thank the lecturer for their time.",
+  "vi": "Ở các trường đại học nói tiếng Anh, giờ gặp giảng viên là một phần bình thường của việc học, không phải dấu hiệu yếu kém. Hãy đặt lịch hoặc đến đúng giờ, mang theo bản nháp và câu hỏi cụ thể, rồi cảm ơn thầy cô đã dành thời gian.",
+  "es": "En las universidades anglófonas, las tutorías forman parte normal del estudio y no son señal de debilidad. Reserva un hueco o llega puntual, lleva tu borrador y preguntas concretas, y agradece al profesor su tiempo.",
+  "pt": "Nas universidades de língua inglesa, o atendimento ao aluno é parte normal dos estudos, não sinal de fraqueza. Marque um horário ou chegue pontualmente, leve seu rascunho e perguntas específicas e agradeça ao professor pelo tempo dedicado.",
+  "fr": "Dans les universités anglophones, les heures de permanence font partie du parcours normal et ne signalent pas une faiblesse. Prenez rendez-vous ou arrivez à l'heure, apportez votre brouillon et des questions précises, et remerciez l'enseignant de son temps.",
+  "de": "An englischsprachigen Universitäten gehört die Sprechstunde ganz selbstverständlich zum Studium und ist kein Zeichen von Schwäche. Buche einen Termin oder komm pünktlich, bring deinen Entwurf und konkrete Fragen mit und bedanke dich für die Zeit.",
+  "id": "Di universitas berbahasa Inggris, jam konsultasi adalah bagian wajar dari proses belajar, bukan tanda lemah. Buat janji atau datang tepat waktu, bawa draf dan pertanyaan yang spesifik, lalu ucapkan terima kasih atas waktunya.",
+  "th": "ในมหาวิทยาลัยที่ใช้ภาษาอังกฤษ การเข้าพบอาจารย์ในช่วงให้คำปรึกษาเป็นเรื่องปกติของการเรียน ไม่ใช่สัญญาณว่าอ่อน ควรจองคิวหรือไปให้ตรงเวลา เตรียมร่างงานและคำถามที่ชัดเจน แล้วขอบคุณอาจารย์ที่สละเวลา",
+  "zh": "在英语国家的大学里，答疑时间是学习的正常环节，并不代表你不行。请预约时段或准时到场，带上草稿和具体的问题，并感谢老师抽出时间。",
+  "ja": "英語圏の大学では、オフィスアワーの利用は学びの普通の一部であり、できないことの印ではありません。予約するか時間通りに行き、草稿と具体的な質問を持参して、時間を割いてもらったことにお礼を伝えましょう。",
+  "ko": "영어권 대학에서 면담 시간은 학업의 자연스러운 일부이지 부족하다는 신호가 아니에요. 시간을 예약하거나 정시에 가고, 초안과 구체적인 질문을 준비해서 시간을 내 주신 데 감사 인사를 전하세요.",
+  "hi": "अंग्रेज़ी भाषी विश्वविद्यालयों में प्रोफ़ेसर से मिलने का समय पढ़ाई का सामान्य हिस्सा है, कमज़ोरी की निशानी नहीं। समय तय करके या समय पर पहुँचें, अपना मसौदा और ठोस सवाल साथ लाएँ, और समय देने के लिए धन्यवाद कहें।",
+  "ar": "في الجامعات الناطقة بالإنجليزية تُعدّ الساعات المكتبية جزءًا طبيعيًا من الدراسة وليست علامة ضعف. احجز موعدًا أو احضر في الوقت المحدد، وأحضر مسودتك وأسئلة محددة، واشكر الأستاذ على وقته.",
+  "ru": "В англоязычных университетах консультации — обычная часть учёбы, а не признак слабости. Запишитесь на время или приходите вовремя, возьмите черновик и конкретные вопросы и поблагодарите преподавателя за уделённое время.",
+  "tr": "İngilizce eğitim veren üniversitelerde görüşme saatleri öğrenimin olağan bir parçasıdır, zayıflık işareti değildir. Randevu alın ya da zamanında gelin, taslağınızı ve somut sorularınızı getirin, ayırdığı zaman için hocanıza teşekkür edin."
+ },
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Come in. What would you like to discuss today?"
+  },
+  {
+   "who": "customer",
+   "en": "Thank you for seeing me. I wanted to discuss the feedback on my first essay."
+  },
+  {
+   "who": "barista",
+   "en": "Of course. It was a solid draft, but your argument lost focus in the middle."
+  },
+  {
+   "who": "customer",
+   "en": "If I understand correctly, you're suggesting that I narrow the topic. Is that right?"
+  },
+  {
+   "who": "barista",
+   "en": "Exactly. Choose one case study and analyse it in depth."
+  },
+  {
+   "who": "customer",
+   "en": "Would it be possible to submit a revised outline before I rewrite the whole essay?"
+  },
+  {
+   "who": "barista",
+   "en": "That sounds sensible. Send it by Friday and I'll reply with comments."
+  },
+  {
+   "who": "customer",
+   "en": "Thank you, that's really helpful. I'll send it on Thursday."
+  },
+  {
+   "who": "barista",
+   "en": "Good. Let me know if anything is still unclear."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Professor, my group project deadline clashes with another assignment."
+    },
+    {
+     "who": "barista",
+     "en": "Which assignment is it?"
+    },
+    {
+     "who": "customer",
+     "en": "A lab report that is due on the same Monday."
+    },
+    {
+     "who": "barista",
+     "en": "I can give you an extension until Wednesday, but not longer."
+    }
+   ],
+   "q": {
+    "en": "Until which day is the extension?",
+    "vi": "Gia hạn đến ngày nào?",
+    "es": "¿Hasta qué día se concede la prórroga?",
+    "pt": "Até que dia vai a prorrogação?",
+    "fr": "Jusqu'à quel jour va la prolongation ?",
+    "de": "Bis zu welchem Tag gilt die Fristverlängerung?",
+    "id": "Perpanjangan waktunya sampai hari apa?",
+    "th": "ขยายเวลาให้ถึงวันไหน",
+    "zh": "延期到哪一天？",
+    "ja": "延長は何曜日までですか？",
+    "ko": "연장은 무슨 요일까지인가요?",
+    "hi": "समय-सीमा किस दिन तक बढ़ाई गई है?",
+    "ar": "إلى أي يوم تمتد المهلة؟",
+    "ru": "До какого дня продлён срок?",
+    "tr": "Süre hangi güne kadar uzatıldı?"
+   },
+   "answer": "wednesday"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Your results are strong, but your referencing needs attention."
+    },
+    {
+     "who": "customer",
+     "en": "Which style should I follow?"
+    },
+    {
+     "who": "barista",
+     "en": "Use the department guide. Every source must appear in the bibliography."
+    },
+    {
+     "who": "customer",
+     "en": "Understood. I'll fix it tonight."
+    }
+   ],
+   "q": {
+    "en": "What needs more attention in the student's work?",
+    "vi": "Phần nào trong bài của sinh viên cần chú ý hơn?",
+    "es": "¿Qué necesita más atención en el trabajo del estudiante?",
+    "pt": "O que precisa de mais atenção no trabalho do aluno?",
+    "fr": "Qu'est-ce qui demande plus d'attention dans le travail de l'étudiant ?",
+    "de": "Was braucht in der Arbeit des Studenten mehr Aufmerksamkeit?",
+    "id": "Apa yang perlu diperhatikan lebih lagi dalam karya mahasiswa itu?",
+    "th": "งานของนักศึกษาส่วนไหนต้องใส่ใจมากขึ้น",
+    "zh": "这位学生的作业哪方面需要多加注意？",
+    "ja": "学生の課題で、より注意が必要なのはどこですか？",
+    "ko": "학생의 과제에서 더 신경 써야 할 부분은 무엇인가요?",
+    "hi": "छात्र के काम में किस चीज़ पर ज़्यादा ध्यान देने की ज़रूरत है?",
+    "ar": "ما الذي يحتاج إلى مزيد من الانتباه في عمل الطالب؟",
+    "ru": "Чему в работе студента нужно уделить больше внимания?",
+    "tr": "Öğrencinin çalışmasında en çok neye dikkat edilmesi gerekiyor?"
+   },
+   "answer": "referencing"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "feedback",
+    "title": {
+     "en": "Ask about your feedback",
+     "vi": "Hỏi về nhận xét của bài",
+     "es": "Pregunta por tus comentarios",
+     "pt": "Pergunte sobre o seu feedback",
+     "fr": "Interroger sur vos commentaires",
+     "de": "Nach dem Feedback fragen",
+     "id": "Tanyakan soal masukan",
+     "th": "ถามเรื่องคำแนะนำของงาน",
+     "zh": "询问反馈意见",
+     "ja": "フィードバックについて尋ねる",
+     "ko": "피드백에 대해 묻기",
+     "hi": "अपने फ़ीडबैक के बारे में पूछें",
+     "ar": "اسأل عن ملاحظات عملك",
+     "ru": "Спроси об отзыве",
+     "tr": "Geri bildirimi sor"
+    },
+    "intents": [
+     "a3"
+    ]
+   },
+   {
+    "id": "check",
+    "title": {
+     "en": "Check you understood",
+     "vi": "Kiểm tra mình hiểu đúng chưa",
+     "es": "Comprueba que has entendido",
+     "pt": "Confirme se entendeu",
+     "fr": "Vérifier que vous avez compris",
+     "de": "Das Verständnis absichern",
+     "id": "Pastikan kamu paham",
+     "th": "ตรวจว่าเข้าใจถูกหรือไม่",
+     "zh": "确认自己理解无误",
+     "ja": "理解を確かめる",
+     "ko": "이해했는지 확인하기",
+     "hi": "जाँचें कि आपने सही समझा",
+     "ar": "تأكد من فهمك",
+     "ru": "Убедись, что понял",
+     "tr": "Doğru anladığını teyit et"
+    },
+    "intents": [
+     "c1"
+    ]
+   },
+   {
+    "id": "plan",
+    "title": {
+     "en": "Agree on next steps",
+     "vi": "Thống nhất bước tiếp theo",
+     "es": "Acuerda los próximos pasos",
+     "pt": "Combine os próximos passos",
+     "fr": "Convenir de la suite",
+     "de": "Nächste Schritte vereinbaren",
+     "id": "Sepakati langkah berikutnya",
+     "th": "ตกลงขั้นตอนต่อไป",
+     "zh": "商定后续安排",
+     "ja": "次のステップを決める",
+     "ko": "다음 단계 정하기",
+     "hi": "अगले क़दम तय करें",
+     "ar": "اتفق على الخطوات التالية",
+     "ru": "Договорись о следующих шагах",
+     "tr": "Sonraki adımlarda anlaş"
+    },
+    "intents": [
+     "n1"
+    ]
+   }
+  ]
+ }
+}

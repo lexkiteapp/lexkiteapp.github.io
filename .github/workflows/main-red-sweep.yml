@@ -1,0 +1,24 @@
+# Máy gác "main luôn xanh" cho workflow tự chạy (schedule/push): lượt mới nhất trên main đỏ → issue `main-red-wf`, xanh hết → đóng.
+# scripts/ci/main-red-sweep.mjs · test scripts/test/main-red-sweep.mjs · docs/CI-RUNNERS.md. Mỗi giờ 1 lượt ~1 phút; không workflow_run (ci-fanout-rule).
+name: main-red-sweep
+on:
+  schedule:
+    - cron: '41 * * * *'
+  workflow_dispatch:
+  pull_request:
+    paths: ['scripts/ci/main-red-sweep.mjs', '.github/workflows/main-red-sweep.yml']
+permissions: { contents: read, actions: write, issues: write }   # actions: write = gọi tay Prod release cho commit main chưa được đánh giá (blindHead)
+concurrency:
+  group: main-red-sweep-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: "scripts\n.github/workflows", sparse-checkout-cone-mode: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/ci/main-red-sweep.mjs ${{ github.event_name == 'pull_request' && '--dry' || '' }}
+        env: { GITHUB_TOKEN: '${{ github.token }}' }

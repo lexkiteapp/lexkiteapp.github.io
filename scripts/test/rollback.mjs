@@ -66,10 +66,14 @@ ok(P.pick(deps, 'd-old-0000').target.id === 'd-old-0000' && P.pick(deps, 'd-fail
 
 // 4) smoke
 const S0 = await import(new URL('../ops/smoke.mjs', import.meta.url));
-const resp = (st, body) => ({ ok: st < 400, status: st, text: async () => body, json: async () => JSON.parse(body) });
-const good = async (u, o = {}) => { const p = new URL(u).pathname; if (p === '/api/sync') return resp(401, '{}'); if (p === '/api/config') return resp(200, '{}'); if (p === '/packs/ja.json') return resp(200, JSON.stringify(Object.fromEntries(Array.from({ length: 7100 }, (_, i) => ['k' + i, 1])))); if (p.startsWith('/api/')) return resp(400, '{}'); const must = Object.fromEntries(S0.PAGES); return resp(200, (must[p] || '') + ' lexkite-123'); };
+const resp = (st, body, ct = 'text/html', redirected = false) => ({ ok: st < 400, status: st, redirected, headers: new Headers({ 'content-type': ct }), text: async () => body, json: async () => JSON.parse(body) });
+const good = async (u, o = {}) => { const p = new URL(u).pathname; if (p === '/api/sync') return resp(401, '{}'); if (p === '/api/config') return resp(200, '{}'); if (p.startsWith('/.well-known/')) return resp(200, '{"applinks":{}}', 'application/json'); if (p === '/packs/ja.json') return resp(200, JSON.stringify(Object.fromEntries(Array.from({ length: 7100 }, (_, i) => ['k' + i, 1])))); if (p.startsWith('/api/')) return resp(400, '{}'); const must = Object.fromEntries(S0.PAGES); return resp(200, (must[p] || '') + ' lexkite-123'); };
 const g1 = await S0.runSmoke('https://x.test', { getter: good }); ok(g1.bad.length === 0 && g1.ok.length === S0.PAGES.length + S0.APIS.length, 'smoke: bản tốt đạt hết ' + g1.bad.slice(0, 2));
 const g2 = await S0.runSmoke('https://x.test', { getter: async (u, o) => (new URL(u).pathname === '/app/' ? resp(500, '') : new URL(u).pathname === '/api/sync' ? resp(200, '{}') : good(u, o)) }); ok(g2.bad.length === 2 && /\/app\//.test(g2.bad[0]) && /\/api\/sync/.test(g2.bad[1]), 'smoke: bắt 5xx trang + /api/sync nhận token giả');
+
+const wk = '/.well-known/apple-app-site-association';
+const g3 = await S0.runSmoke('https://x.test', { getter: async (u, o) => (new URL(u).pathname === wk ? resp(200, '{}', 'application/octet-stream') : new URL(u).pathname === '/.well-known/assetlinks.json' ? resp(200, '[]', 'application/json', true) : good(u, o)) });
+ok(g3.bad.length === 2 && g3.bad.some(b => b.startsWith(wk)) && g3.bad.some(b => b.startsWith('/.well-known/assetlinks.json')), 'smoke: bắt AASA sai Content-Type + assetlinks bị chuyển hướng ' + g3.bad);
 
 // 5) retention (giữ N mới nhất, không retire sha còn dùng)
 const L = await import(new URL('../ops/lib.mjs', import.meta.url));

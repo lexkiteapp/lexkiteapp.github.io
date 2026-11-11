@@ -1,0 +1,13 @@
+{
+ "_note": "Cấu trúc đã đối chiếu trang chính thức 09/11/2026 (docs/specs/spanish-exam-w5.md §1). null = CHƯA xác minh, cấm đoán số. Mô tả định dạng, không phải đề thật; không liên kết Cervantes.",
+ "dele": {
+  "A1": {"src": "dele.org/dele/dele-levels/level-a1", "read": {"min": 45, "tareas": 4}, "write": {"min": 25, "tareas": 2}, "listen": {"min": 20, "tareas": 4}, "speak": {"min": 15, "tareas": null}, "groupMinPct": null, "items": null},
+  "A2": {"src": "dele.org/dele/dele-levels/level-a2", "read": {"min": 60, "tareas": 5}, "write": {"min": 50, "tareas": 2}, "listen": {"min": 35, "tareas": 5}, "speak": {"min": 15, "tareas": null}, "groupMinPct": null, "items": null},
+  "B1": {"src": "dele.org/dele/dele-levels/intermediate-mid-threshold-level", "read": {"min": 70, "tareas": 5}, "write": {"min": 60, "tareas": 2}, "listen": {"min": 40, "tareas": 5}, "speak": {"min": 15, "tareas": null}, "groupMinPct": 60, "items": null}
+ },
+ "siele": {
+  "src": "siele.org/examenes",
+  "global": {"read": {"tareas": 5, "items": 38, "min": 60}, "listen": {"tareas": 6, "items": 38, "min": 55}, "write": {"tareas": 2, "items": null, "min": 50}, "speak": {"tareas": 5, "items": null, "min": 15}, "perPrueba": 250, "total": 1000, "totalBands": null},
+  "bands": {"read": {"A1": 33, "A2": 66, "B1": 118, "B2": 178, "C1": 217}, "listen": {"A1": 33, "A2": 66, "B1": 112, "B2": 164, "C1": 211}, "write": {"A1": 34, "A2": 69, "B1": 104, "B2": 167, "C1": 215}, "speak": {"A1": 40, "A2": 76, "B1": 125, "B2": 176, "C1": 215}}
+ }
+}

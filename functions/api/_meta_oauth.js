@@ -16,6 +16,9 @@ import { once } from './_schema.js';
 
 export const REDIRECT = 'https://lexkite.com/api/social/meta/callback';
 export const SCOPES = { fb: 'pages_show_list,pages_read_engagement,pages_manage_posts', ig: 'instagram_business_basic,instagram_business_content_publish' };
+/** Quyền TÙY CHỌN (xin cùng lúc, không bắt buộc khi kiểm): pages_manage_engagement để Page đăng bình luận đầu mang link (§6c).
+ *  Thiếu → bài vẫn đăng, chỉ bình luận đầu báo 'no-perm' + 1 cảnh báo "Kết nối lại". */
+export const SCOPES_OPT = { fb: 'pages_manage_engagement' };
 export const APP_DEFAULT = { fb: '1719433119146024', ig: '1421796229590607' }; // "Lexkite Autopilot" / "Lexkite Autopilot-IG" (Development, không gắn Business Portfolio)
 export const STATE_TTL = 600, PENDING_TTL = 600e3, COOKIE = 'lk_meta';
 const PLAT = { fb: 'facebook_page', ig: 'instagram' }, ENV = { fb: ['META_APP_ID', 'META_APP_SECRET'], ig: ['IG_APP_ID', 'IG_APP_SECRET'] };
@@ -93,7 +96,7 @@ export async function startOAuth(env, db, b, who, now = Date.now()) {
   const c = await appCreds(env, db, kind); if (!c.secret) throw fail(412, 'no-app-secret');
   const { state, nonce } = await signState(env, { kind, channel_id: ch, email: who }, now);
   const url = kind === 'fb'
-    ? `https://www.facebook.com/${VER}/dialog/oauth?` + new URLSearchParams({ client_id: c.id, redirect_uri: REDIRECT, state, response_type: 'code', auth_type: 'rerequest', ...(okId(env.META_LOGIN_CONFIG_ID) ? { config_id: String(env.META_LOGIN_CONFIG_ID) } : { scope: SCOPES.fb }) })
+    ? `https://www.facebook.com/${VER}/dialog/oauth?` + new URLSearchParams({ client_id: c.id, redirect_uri: REDIRECT, state, response_type: 'code', auth_type: 'rerequest', ...(okId(env.META_LOGIN_CONFIG_ID) ? { config_id: String(env.META_LOGIN_CONFIG_ID) } : { scope: SCOPES.fb + ',' + SCOPES_OPT.fb }) })
     : 'https://www.instagram.com/oauth/authorize?' + new URLSearchParams({ enable_fb_login: '0', force_authentication: '1', client_id: c.id, redirect_uri: REDIRECT, response_type: 'code', scope: SCOPES.ig, state });
   return { url, _cookie: `${COOKIE}=${nonce}; Path=/api/social/meta; Max-Age=${STATE_TTL}; HttpOnly; Secure; SameSite=Lax` };
 }

@@ -1,0 +1,1000 @@
+{
+ "at": "2026-11-05T02:45:34.332Z",
+ "accepted": 50,
+ "rejected": [
+  {
+   "form": "le",
+   "word": "él",
+   "why": [
+    "giám khảo A: Lemma mismatched (word given as \"él\" instead of \"le\")."
+   ]
+  },
+  {
+   "form": "nos",
+   "word": "nosotros",
+   "why": [
+    "giám khảo A: Lemma should be \"nos\" (clitic) not \"nosotros\"; entry inconsistent."
+   ]
+  },
+  {
+   "form": "dije",
+   "word": "decir",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "podemos",
+   "word": "poder",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "nuestro",
+   "word": "nuestro",
+   "why": [
+    "giám khảo A: Example uses 'coche', which is Spain-only vocabulary; Latin American Spanish uses 'carro' or 'auto'.",
+    "giám khảo B: The example uses 'coche', which is Spain-specific vocabulary and strictly prohibited for neutral Latin American Spanish (es-419).",
+    "dịch ngược lệch: id,ar",
+    "cổng: nuestro: ngôn ngữ nghĩa lạ it"
+   ]
+  },
+  {
+   "form": "conmigo",
+   "word": "conmigo",
+   "why": [
+    "cổng: conmigo: ngôn ngữ nghĩa lạ it"
+   ]
+  },
+  {
+   "form": "toda",
+   "word": "todo",
+   "why": [
+    "giám khảo A: IPA contains 'ð' (ˈto.ða), which is not standard Latin American Spanish (typically /d/ or /ð/ depending on region, but the prompt explicitly flags θ/ð issues or non-Latin American IPA; more critically, 'todo' is masculine, 'toda' is feminine, but the entry key is 'toda' while the word field is 'todo' and IPA is for 'todo'. The mismatch between the key 'toda' and the entry data for 'todo' is a structural error, and the IPA ˈto.ða is often associated with Spain or specific dialects, but the main issue is the key/word mismatch and potential IPA non-compliance if strict es-419 /d/ is expected, though /ð/ is common. However, the prompt says 'IPA has θ or is not Latin American'. ˈto.ða is acceptable in many LA dialects, but the key 'toda' vs word 'todo' is a mismatch. Let's look closer. The key is 'toda', the word is 'todo'. This is a mismatch. Also, the example uses 'toda' (feminine) which matches the key, but the entry data is for 'todo'. This is inconsistent. Furthermore, 'todo' IPA ˈto.ða is fine, but the key/word mismatch makes it invalid.",
+    "cổng: todo: ngôn ngữ nghĩa lạ it"
+   ]
+  },
+  {
+   "form": "tanto",
+   "word": "tanto",
+   "why": [
+    "dịch ngược lệch: vi,ja",
+    "cổng: tanto: ngôn ngữ nghĩa lạ it; tanto: exForm thừa"
+   ]
+  },
+  {
+   "form": "hora",
+   "word": "hora",
+   "why": [
+    "cổng: hora: ngôn ngữ nghĩa lạ it"
+   ]
+  },
+  {
+   "form": "estos",
+   "word": "este",
+   "why": [
+    "giám khảo A: Key is 'estos' (plural) but the entry word is 'este' (singular) and IPA is for 'estos' (ˈes.tos). The mismatch between the key 'estos' and the word field 'este' is an error. The IPA matches the key, but the word field does not.",
+    "dịch ngược lệch: vi",
+    "cổng: este: ngôn ngữ nghĩa lạ it; este: câu ví dụ không chứa \"este\""
+   ]
+  },
+  {
+   "form": "salir",
+   "word": "salir",
+   "why": [
+    "cổng: salir: ngôn ngữ nghĩa lạ it; salir: exForm thừa"
+   ]
+  },
+  {
+   "form": "ah",
+   "word": "ah",
+   "why": [
+    "cổng: ah: ngôn ngữ nghĩa lạ it; ah: nghĩa vi = nguyên từ es"
+   ]
+  },
+  {
+   "form": "iba",
+   "word": "ir",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "hice",
+   "word": "hacer",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "lado",
+   "word": "lado",
+   "why": [
+    "dịch ngược lệch: de"
+   ]
+  },
+  {
+   "form": "camino",
+   "word": "camino",
+   "why": [
+    "dịch ngược lệch: zh",
+    "cổng: camino: nghĩa ru sai chữ viết: put'"
+   ]
+  },
+  {
+   "form": "deja",
+   "word": "dejar",
+   "why": [
+    "dịch ngược lệch: ja,ko,hi,ru"
+   ]
+  },
+  {
+   "form": "adelante",
+   "word": "adelante",
+   "why": [
+    "dịch ngược lệch: tr"
+   ]
+  },
+  {
+   "form": "viejo",
+   "word": "viejo",
+   "why": [
+    "dịch ngược lệch: fr"
+   ]
+  },
+  {
+   "form": "pueda",
+   "word": "poder",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "dices",
+   "word": "decir",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "deberías",
+   "word": "deber",
+   "why": [
+    "dịch ngược lệch: pt,fr",
+    "cổng: deber: câu ví dụ không chứa \"deber\""
+   ]
+  },
+  {
+   "form": "necesitamos",
+   "word": "necesitar",
+   "why": [
+    "giám khảo B: IPA is wrong: ne.seˈsiˈtaɾ has double stress marks instead of /ne.se.siˈtaɾ/.",
+    "cổng: necesitar: câu ví dụ không chứa \"necesitar\""
+   ]
+  },
+  {
+   "form": "podrías",
+   "word": "poder",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "creer",
+   "word": "creer",
+   "why": [
+    "cổng: creer: câu ví dụ không chứa \"creer\""
+   ]
+  },
+  {
+   "form": "saben",
+   "word": "saber",
+   "why": [
+    "giám khảo B: IPA corresponds to 'saben' not lemma 'saber'"
+   ]
+  },
+  {
+   "form": "siendo",
+   "word": "ser",
+   "why": [
+    "giám khảo B: IPA matches gerund not lemma 'ser'"
+   ]
+  },
+  {
+   "form": "murió",
+   "word": "morir",
+   "why": [
+    "giám khảo B: IPA matches 'murió' not lemma 'morir'"
+   ]
+  },
+  {
+   "form": "pienso",
+   "word": "pensar",
+   "why": [
+    "giám khảo B: IPA matches 'pienso' not lemma 'pensar'"
+   ]
+  },
+  {
+   "form": "estaré",
+   "word": "estar",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "quieras",
+   "word": "querer",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "otras",
+   "word": "otro",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "prueba",
+   "word": "prueba",
+   "why": [
+    "dịch ngược lệch: id"
+   ]
+  },
+  {
+   "form": "millones",
+   "word": "millón",
+   "why": [
+    "dịch ngược lệch: de"
+   ]
+  },
+  {
+   "form": "atención",
+   "word": "atención",
+   "why": [
+    "dịch ngược lệch: pt"
+   ]
+  },
+  {
+   "form": "quiera",
+   "word": "querer",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "hablas",
+   "word": "hablar",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "haz",
+   "word": "hacer",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "seas",
+   "word": "ser",
+   "why": [
+    "dịch ngược lệch: id"
+   ]
+  },
+  {
+   "form": "siente",
+   "word": "sentir",
+   "why": [
+    "dịch ngược lệch: ko"
+   ]
+  },
+  {
+   "form": "lamento",
+   "word": "lamentar",
+   "why": [
+    "dịch ngược lệch: pt,tr"
+   ]
+  },
+  {
+   "form": "io",
+   "why": "skip: not standard es-419"
+  },
+  {
+   "form": "tendrás",
+   "word": "tener",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "dan",
+   "word": "dar",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "hambre",
+   "word": "hambre",
+   "why": [
+    "LanguageTool: AGREEMENT_ADJ_NOUN_AREA: mucho hambre – Error de concordancia. Ante la palabra «hambre» solo adoptan la forma masculina los determinantes ‘el’ y ‘un’ (y opcionalmente ‘algún’ y ‘ningún’)."
+   ]
+  },
+  {
+   "form": "bonito",
+   "word": "bonito",
+   "why": [
+    "dịch ngược lệch: ja"
+   ]
+  },
+  {
+   "form": "normal",
+   "word": "normal",
+   "why": [
+    "cổng: normal: nghĩa ko sai chữ viết: normal"
+   ]
+  },
+  {
+   "form": "sean",
+   "word": "ser",
+   "why": [
+    "giám khảo A: IPA \"ˈsean\" is incorrect for the verb \"ser\"; lemma/IPA mismatch."
+   ]
+  },
+  {
+   "form": "hermosa",
+   "word": "hermoso",
+   "why": [
+    "giám khảo A: IPA corresponds to feminine form but lemma is masculine; IPA should match lemma \"hermoso\".",
+    "dịch ngược lệch: fr"
+   ]
+  },
+  {
+   "form": "ten",
+   "word": "tener",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "pudiera",
+   "word": "poder",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "salió",
+   "word": "salir",
+   "why": [
+    "giám khảo A: IPA incorrect for Latin American Spanish (should be /saˈliɾ/)",
+    "giám khảo B: IPA 'saˈljo' is incorrect for Latin American Spanish (should be 'saˈli.o' or 'saˈljo' only if yod is present, but standard is /i/); more critically, the gloss 'rời đi' is Vietnamese for 'leave', but the entry is for 'salir' which is correct, however the IPA for 'salió' in the key is for the lemma 'salir' which is fine, but the example 'Él salió' uses the preterite. The main issue is likely the IPA representation or a subtle translation error. Actually, looking closer, 'salir' IPA is often /saˈliɾ/. 'saˈljo' implies a diphthong which is not standard for 'salir'. Also, 'rời đi' is correct. Let's look at 'llamó'. 'llamar' IPA 'ʝaˈmo' is correct. 'basura' is fine. 'disculpa' is fine. 'peligro' is fine. 'espacio' is fine. 'aun' is fine. 'consejo' is fine. Wait, 'salió' IPA 'saˈljo' is definitely wrong for 'salir' (it should be /saˈliɾ/). The 'j' sound is not in 'salir'."
+   ]
+  },
+  {
+   "form": "llamó",
+   "word": "llamar",
+   "why": [
+    "giám khảo A: IPA incorrect for infinitive (should be /ʝaˈmaɾ/)"
+   ]
+  },
+  {
+   "form": "basura",
+   "word": "basura",
+   "why": [
+    "dịch ngược lệch: fr"
+   ]
+  },
+  {
+   "form": "disculpa",
+   "word": "disculpa",
+   "why": [
+    "dịch ngược lệch: ja"
+   ]
+  },
+  {
+   "form": "peligro",
+   "word": "peligro",
+   "why": [
+    "dịch ngược lệch: vi"
+   ]
+  },
+  {
+   "form": "aun",
+   "word": "aun",
+   "why": [
+    "giám khảo A: IPA wrong (should be /aˈun/)"
+   ]
+  },
+  {
+   "form": "consejo",
+   "word": "consejo",
+   "why": [
+    "giám khảo A: IPA incorrect (should use /x/ for \"j\")",
+    "cổng: consejo: nghĩa ru sai chữ viết: soviet"
+   ]
+  },
+  {
+   "form": "tendría",
+   "word": "tener",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "enseguida",
+   "word": "enseguida",
+   "why": [
+    "dịch ngược lệch: pt"
+   ]
+  },
+  {
+   "form": "conocer",
+   "word": "conocer",
+   "why": [
+    "cổng: conocer: câu ví dụ không chứa \"conocer\""
+   ]
+  },
+  {
+   "form": "listos",
+   "word": "listo",
+   "why": [
+    "giám khảo A: IPA given for plural form (ˈlistos) instead of lemma listo (/ˈlisto/)"
+   ]
+  },
+  {
+   "form": "puso",
+   "word": "poner",
+   "why": [
+    "giám khảo A: IPA corresponds to past tense 'puso' not to lemma 'poner' (/poˈneɽ/)"
+   ]
+  },
+  {
+   "form": "público",
+   "word": "público",
+   "why": [
+    "cổng: público: nghĩa ru sai chữ viết: publika"
+   ]
+  },
+  {
+   "form": "tenían",
+   "word": "tener",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "iremos",
+   "word": "ir",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "podamos",
+   "word": "poder",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "ése",
+   "word": "ése",
+   "why": [
+    "LanguageTool: ESTE_ESE_AQUEL_NOTILDE: Ése – La tilde es innecesaria según la norma actual. Se puede usar en caso de ambigüedad cuando es un pronombre."
+   ]
+  },
+  {
+   "form": "coronel",
+   "word": "coronel",
+   "why": [
+    "dịch ngược lệch: vi,ar"
+   ]
+  },
+  {
+   "form": "órdenes",
+   "word": "orden",
+   "why": [
+    "cổng: orden: câu ví dụ không chứa \"orden\""
+   ]
+  },
+  {
+   "form": "salida",
+   "word": "salida",
+   "why": [
+    "dịch ngược lệch: id",
+    "cổng: salida: IPA sai ký tự: saˈlið̞a"
+   ]
+  },
+  {
+   "form": "estáis",
+   "why": "skip: Peninsular Spanish variant (vosotros form)"
+  },
+  {
+   "form": "tratar",
+   "word": "tratar",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "llevas",
+   "word": "llevar",
+   "why": [
+    "giám khảo B: IPA 'ʝeˈβas' is incorrect for 'llevas' (should be 'ʎeˈβas' or 'ʝeˈβas' depending on dialect, but 'ʝ' is not standard for the initial cluster in most neutral transcriptions, and the stress is on the second syllable, so 'ʝeˈβas' is phonetically plausible but the first sound is usually transcribed as /ʎ/ or /ʝ/; however, the main issue is that 'llevas' is a conjugated form, not the lemma. The entry key is 'llevas' but the word is 'llevar'. The IPA provided 'ʝeˈβas' corresponds to 'llevas' (2nd person singular present). Wait, 'llevar' is /ʎeˈβaɾ/. 'llevas' is /ʎeˈβas/. The IPA given is 'ʝeˈβas'. In many Latin American dialects, /ʎ/ merges with /ʝ/. So the IPA is acceptable for es-419. However, the gloss 'mang' in Vietnamese is correct. The example is neutral. Let's re-evaluate. Is there a concrete error? The IPA 'ʝeˈβas' is a valid representation for the merged sound in Latin America. The translation is correct. The example is correct. Why would it be false? Maybe the IPA should be 'ʎeˈβas' for a neutral deck? The prompt says 'IPA has θ or is not Latin American'. 'ʝ' is Latin American (yeísmo). So it is correct. Let's look closer. 'llevas' is the exForm. The word is 'llevar'. The IPA is for the exForm? Usually IPA is for the lemma. If IPA is for 'llevar', it should be 'ʝeˈβaɾ'. The provided IPA is 'ʝeˈβas', which is for 'llevas'. This is a mismatch if the IPA is intended for the lemma. Standard decks provide IPA for the lemma. If the IPA is for the lemma 'llevar', it is wrong (ends in /s/ instead of /ɾ/). If the IPA is for the exForm, it is correct. Given the ambiguity, and that most decks list IPA for the headword, this is likely an error. Also, 'mang' is a bit informal for 'carry' in Vietnamese, 'mang' is fine. Let's assume the IPA is for the lemma. 'llevar' -> /ʝeˈβaɾ/. Provided: /ʝeˈβas/. Mismatch. Score 2."
+   ]
+  },
+  {
+   "form": "ojo",
+   "word": "ojo",
+   "why": [
+    "cổng: ojo: câu ví dụ không chứa \"ojo\""
+   ]
+  },
+  {
+   "form": "bienvenido",
+   "word": "bienvenido",
+   "why": [
+    "dịch ngược lệch: ja,ko"
+   ]
+  },
+  {
+   "form": "quedar",
+   "word": "quedar",
+   "why": [
+    "cổng: quedar: câu ví dụ không chứa \"quedar\""
+   ]
+  },
+  {
+   "form": "parís",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "um",
+   "why": "skip: interjection noise"
+  },
+  {
+   "form": "hacerme",
+   "word": "hacer",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "traído",
+   "word": "traer",
+   "why": [
+    "giám khảo B: IPA contains 'ð' (tɾaˈiðo) which is not standard Latin American Spanish (should be tɾaˈiðo or tɾaˈiðo depending on region, but typically /d/ or /ð/ is not the primary issue, wait, Latin American Spanish often has /d/ or /ð/ in intervocalic position? No, standard es-419 usually uses /d/ or /ð/ is Castilian. Actually, the main issue is the IPA uses 'ð' which is often associated with Castilian, but more importantly, the gloss 'brought' for the lemma 'traer' (infinitive) is slightly mismatched if the entry is treated as the verb itself, but the exForm is 'traído'. However, the strict rule is 'IPA has θ or is not Latin American'. 'ð' is not 'θ'. Let's re-evaluate. The IPA for 'traído' in es-419 is typically [tɾaˈiðo] or [tɾaˈido]. The use of 'ð' is acceptable in some transcriptions. BUT, looking at the other items, 'pedido' has 'peˈðiðo'. 'ð' is standard for Castilian. In Latin America, it is often [d]. However, the prompt says 'IPA has θ'. It does not have θ. It has ð. Is ð 'not Latin American'? Many Latin American dialects have [d] or [ð]. It's borderline. Let's look for a clearer error. The gloss for 'traído' is 'brought'. The lemma is 'traer'. The entry word is 'traído'. The glosses are for the participle. This is consistent. Let's look at 'vos'. 'Vos' is used in Argentina, Uruguay, etc. The example '¿Vos sos de Argentina?' is correct for that region. Is it 'neutral Latin American'? 'Vos' is not used in Mexico, Colombia, etc. The prompt asks for a 'neutral Latin American Spanish (es-419) learner deck'. 'Vos' is region-specific (Rioplatense). Using 'vos' in a 'neutral' deck might be considered non-neutral or region-specific. However, 'vos' is a valid es-419 word. The example is natural for that region. But is it 'neutral'? Usually, neutral decks use 'tú'. If the deck is strictly neutral, 'vos' might be flagged. Let's look at 'traído' again. The IPA 'tɾaˈiðo' uses 'ð'. In many es-419 contexts, the intervocalic d is [d]. 'ð' is specifically Castilian. So 'traído' and 'pedido' might have non-Latin American IPA. 'Pedido' IPA: 'peˈðiðo'. 'Traído' IPA: 'tɾaˈiðo'. Both use 'ð'. In Latin America, it is typically [d]. Therefore, the IPA is not strictly Latin American. I will mark them false based on IPA not being Latin American (using Castilian ð instead of d)."
+   ]
+  },
+  {
+   "form": "vos",
+   "word": "vos",
+   "why": [
+    "giám khảo B: 'Vos' is region-specific (Rioplatense) and not 'neutral' Latin American Spanish, which typically uses 'tú' in a general learner deck context. Additionally, the example is specific to Argentina/Uruguay."
+   ]
+  },
+  {
+   "form": "pedido",
+   "word": "pedido",
+   "why": [
+    "giám khảo B: IPA 'peˈðiðo' uses 'ð' which is characteristic of Castilian Spanish; Latin American Spanish typically uses [d] in this position."
+   ]
+  },
+  {
+   "form": "jane",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "johnny",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "estén",
+   "word": "estar",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "perros",
+   "word": "perro",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "motivo",
+   "word": "motivo",
+   "why": [
+    "dịch ngược lệch: de,ru"
+   ]
+  },
+  {
+   "form": "cuántas",
+   "word": "cuánto",
+   "why": [
+    "dịch ngược lệch: ja"
+   ]
+  },
+  {
+   "form": "elección",
+   "word": "elección",
+   "why": [
+    "giám khảo A: IPA \"elekˈsjon\" contains an extra /k/; correct Latin American IPA is /eleˈsjon/."
+   ]
+  },
+  {
+   "form": "cálmate",
+   "word": "calmarse",
+   "why": [
+    "dịch ngược lệch: vi,id,zh"
+   ]
+  },
+  {
+   "form": "coño",
+   "why": "skip: vulgar"
+  },
+  {
+   "form": "will",
+   "why": "skip: not standard es-419"
+  },
+  {
+   "form": "hubiese",
+   "word": "haber",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "decidido",
+   "word": "decidido",
+   "why": [
+    "giám khảo A: IPA contains Spain‑only θ and non‑Latin‑American pronunciation",
+    "dịch ngược lệch: vi,zh"
+   ]
+  },
+  {
+   "form": "sospechoso",
+   "word": "sospechoso",
+   "why": [
+    "dịch ngược lệch: pt,fr"
+   ]
+  },
+  {
+   "form": "ideas",
+   "word": "idea",
+   "why": [
+    "giám khảo A: IPA is wrong for ‘idea’ and gloss uses plural while word is singular",
+    "dịch ngược lệch: th,hi"
+   ]
+  },
+  {
+   "form": "tener",
+   "word": "tener",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "venir",
+   "word": "venir",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "dar",
+   "word": "dar",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  }
+ ],
+ "tried": [
+  "estoy",
+  "ahora",
+  "muy",
+  "ha",
+  "esta",
+  "así",
+  "vamos",
+  "algo",
+  "hay",
+  "bueno",
+  "o",
+  "he",
+  "ser",
+  "tiene",
+  "puedo",
+  "ella",
+  "quiero",
+  "fue",
+  "gracias",
+  "sólo",
+  "tan",
+  "quién",
+  "sus",
+  "tiempo",
+  "dos",
+  "esa",
+  "nunca",
+  "dónde",
+  "va",
+  "oh",
+  "favor",
+  "mucho",
+  "mí",
+  "quieres",
+  "siento",
+  "señor",
+  "mejor",
+  "hace",
+  "has",
+  "decir",
+  "también",
+  "sobre",
+  "dios",
+  "sin",
+  "tenemos",
+  "están",
+  "ti",
+  "puedes",
+  "ver",
+  "hombre",
+  "vida",
+  "alguien",
+  "cosas",
+  "siempre",
+  "hasta",
+  "ahí",
+  "ir",
+  "años",
+  "antes",
+  "estar",
+  "estamos",
+  "quiere",
+  "podría",
+  "vas",
+  "ellos",
+  "tal",
+  "pasa",
+  "fuera",
+  "después",
+  "han",
+  "desde",
+  "y",
+  "se",
+  "eso",
+  "le",
+  "nos",
+  "tienes",
+  "hola",
+  "otra",
+  "dijo",
+  "había",
+  "podemos",
+  "nuestro",
+  "dije",
+  "conmigo",
+  "toda",
+  "tanto",
+  "hora",
+  "estos",
+  "salir",
+  "ah",
+  "lado",
+  "hice",
+  "camino",
+  "iba",
+  "semana",
+  "venir",
+  "deja",
+  "justo",
+  "adelante",
+  "viejo",
+  "suficiente",
+  "doctor",
+  "dices",
+  "pueda",
+  "deberías",
+  "necesitamos",
+  "vivir",
+  "fuerte",
+  "atrás",
+  "dame",
+  "creer",
+  "podrías",
+  "saben",
+  "seis",
+  "matar",
+  "siendo",
+  "ayudar",
+  "murió",
+  "minuto",
+  "pienso",
+  "otras",
+  "prueba",
+  "afuera",
+  "piensas",
+  "millones",
+  "perder",
+  "tratando",
+  "quieras",
+  "estaré",
+  "atención",
+  "seas",
+  "siente",
+  "haz",
+  "dolor",
+  "lamento",
+  "sistema",
+  "hotel",
+  "hablas",
+  "quiera",
+  "montón",
+  "bonito",
+  "dan",
+  "hambre",
+  "normal",
+  "sean",
+  "ley",
+  "hermosa",
+  "decisión",
+  "tendrás",
+  "io",
+  "salió",
+  "llamó",
+  "pudiera",
+  "ten",
+  "basura",
+  "disculpa",
+  "peligro",
+  "espacio",
+  "aun",
+  "consejo",
+  "señal",
+  "inteligente",
+  "enseguida",
+  "conocer",
+  "listos",
+  "puso",
+  "opinión",
+  "tendría",
+  "público",
+  "cenar",
+  "cliente",
+  "coronel",
+  "podamos",
+  "ventana",
+  "ése",
+  "iremos",
+  "tenían",
+  "pidió",
+  "órdenes",
+  "salida",
+  "tratar",
+  "llevas",
+  "precio",
+  "ojo",
+  "reglas",
+  "bienvenido",
+  "estáis",
+  "ojalá",
+  "quedar",
+  "común",
+  "objetivo",
+  "cuello",
+  "verano",
+  "traído",
+  "vos",
+  "pedido",
+  "refiero",
+  "hacerme",
+  "parís",
+  "um",
+  "nombres",
+  "jane",
+  "motivo",
+  "perros",
+  "cuántas",
+  "elección",
+  "refieres",
+  "johnny",
+  "cálmate",
+  "estén",
+  "decidido",
+  "vender",
+  "volar",
+  "código",
+  "coño",
+  "hubiese",
+  "sospechoso",
+  "ideas",
+  "quedó",
+  "will",
+  "sirve",
+  "huellas",
+  "emergencia",
+  "roto",
+  "viento",
+  "tiro",
+  "descanso",
+  "magia",
+  "vergüenza",
+  "enferma"
+ ],
+ "spot": [
+  "ventana",
+  "pedir",
+  "objetivo"
+ ],
+ "stats": {
+  "used": {
+   "lexai": 0,
+   "gc": 0,
+   "cf2": 0,
+   "cfLeak": 0,
+   "cf2Dead": [],
+   "gem": 15,
+   "groq": 47
+  },
+  "budget": {
+   "lexai": 0,
+   "gc": 10000,
+   "cf2": 0
+  },
+  "by": {
+   "gem|gemini-3.8-flash": {
+    "ok": 0,
+    "fail": 3,
+    "bad": 0
+   },
+   "gem|gemini-3.6-flash": {
+    "ok": 15,
+    "fail": 3,
+    "bad": 0
+   },
+   "groq|openai/gpt-oss-120b": {
+    "ok": 27,
+    "fail": 3,
+    "bad": 0
+   },
+   "groq|qwen/qwen3.8-27b": {
+    "ok": 20,
+    "fail": 0,
+    "bad": 0
+   },
+   "gem|gemini-3.7-flash": {
+    "ok": 0,
+    "fail": 3,
+    "bad": 0
+   },
+   "lexai|gemini-3.5-flash": {
+    "ok": 0,
+    "fail": 3,
+    "bad": 0
+   }
+  },
+  "keys": {
+   "gem": {
+    "size": 85,
+    "live": 77,
+    "parked": {
+     "auth": 2,
+     "day": 6
+    }
+   },
+   "groq": {
+    "size": 109,
+    "live": 109,
+    "parked": {}
+   }
+  }
+ },
+ "wiktFlags": []
+}
