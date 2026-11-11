@@ -79,7 +79,11 @@
     "planTop": "Como continuar melhorando",
     "you": "Seu resultado no teste: {lv}",
     "takeTest": "Confira seu nível – teste grátis de 15 minutos",
-    "otherLevels": "Todos os níveis CEFR"
+    "otherLevels": "Todos os níveis CEFR",
+    "wordsH": "Palavras para aprender no nível {lv}",
+    "wordsLead": "Palavras do dicionário Lexkite classificadas no nível {lv}, cada uma com o significado e uma frase de exemplo. Abra uma palavra para ver a pronúncia, as colocações e os erros comuns.",
+    "sampleH": "Perguntas de exemplo do nível {lv}",
+    "answer": "Ver resposta"
   },
   "toeic": {
     "title": "Simulado TOEIC Part 5 online – grátis, com explicações",
