@@ -30,17 +30,6 @@ Mẫu thẻ:
 
 ## TODO
 
-### [B6-GAP] Lấp đủ SEO mọi ngôn ngữ: 17 bài en CPM cao + 57 bài bản địa còn thiếu · @antigravity · ưu tiên: RẤT CAO
-- **Bối cảnh (Claude 11/11, lệnh chủ "seo đều các ngôn ngữ, còn thiếu thì đẩy trước"):** số bài hiện tại: vi 117, en 97, ja/pt 79, es 74, de/id 71, fr/th 69, ko/tr/zh/hi 68, ar/ru 67. Danh sách cụ thể ở `content/blog/plan/2026-11-gap-fill.json`.
-- **Phần 1:** 17 bài en của cụm CPM cao (`cpm_en`), nguồn chủ đề là `content/blog/plan/2027-01-cpm-clusters.json`. Mỗi bài theo đúng `feature`, `appSupports`, `mustNotClaim`, `factCheck` của chủ đề. Số liệu visa và điểm thi phải tra nguồn chính thức ngay lúc viết.
-- **Phần 2:** 57 bài theo `lang_gaps`. Mỗi ngôn ngữ viết các `translationKey` mà ngôn ngữ đó còn thiếu, bản địa hoá thật: ví dụ, lỗi L1, nhãn app theo `extension/app/js/i18n/<lang>/`. Thứ tự ưu tiên: fr, de, ko, ja, sau đó ru, tr, ar, zh, hi, th, pt, id, es.
-- **Cách nộp:**
-  - Mỗi lô ≤ 20 bài, mỗi lô một PR, nhánh mới từ `real/main`.
-  - Áp dụng toàn bộ "Cần làm trước khi nộp" của [B5-R2-FIX]: `blog-check` 0 lỗi, `blog-dupes` 0 lỗi, kiểm từng tính năng app được trích, không bịa số liệu hay YouTube ID, đáp án quiz trộn vị trí, để trống `qualityScore`.
-- **Tiêu chí xong:** mọi ngôn ngữ ≥ 80 bài, phần 1 đã đăng. Claude chấm độc lập ≥ 90/bài mới gộp.
-- Báo cáo: (người làm điền)
-- Cần sửa / Nhận xét: (Claude điền)
-
 ### [B5-R2-FIX] Lỗi hệ thống lô B5-R2 (84 bài, PR #647) – KHÔNG lặp lại ở lô sau · @antigravity · ưu tiên: RẤT CAO
 - **Bối cảnh (Claude 05/11):** lô tự chấm 85–89; chấm độc lập (Opus, 3 vòng) ra **~80–86**, 0/84 bài đạt 90. Claude sửa toàn bộ trên nhánh `blog/b5r2-quality` (PR mới thay #647) + thêm cổng `blog-check` (lang-link, lang-mix, cover-truth, dead-link, quiz trộn phương án, sổ YouTube).
 - **Trả lại 7 bài trùng chủ đề bài đã đăng** (không lên main): en/es/fr/vi `toefl-ibt-writing-academic-discussion*` (≡ `toefl-academic-discussion*`), ko `yeong-eolo-saeng-gag-hagi-beon-yeog-eobs-i`, th `thikhnik-khit-pen-phasa-angkrit-mai-plae`, hi `daily-use-english-sentences-conversation-guide` – 3 bài sau **đã bị trả ở [B5-MEGA100-P2-FIX]** mà vẫn nộp lại.
@@ -221,6 +210,29 @@ Mẫu thẻ:
 - KHÔNG đụng: extension/, web/index.html, landing/blog, native.js, widget-feed.js, lesson-fx/path-*/study.js, swipe/Kit/streak-freeze.
 
 ## CHỜ DUYỆT
+
+### [B6-GAP] Lấp đủ SEO mọi ngôn ngữ: 17 bài en CPM cao + 57 bài bản địa còn thiếu · @antigravity · ưu tiên: RẤT CAO
+- **Bối cảnh (Claude 11/11, lệnh chủ "seo đều các ngôn ngữ, còn thiếu thì đẩy trước"):** số bài hiện tại: vi 117, en 97, ja/pt 79, es 74, de/id 71, fr/th 69, ko/tr/zh/hi 68, ar/ru 67. Danh sách cụ thể ở `content/blog/plan/2026-11-gap-fill.json`.
+- **Phần 1:** 17 bài en của cụm CPM cao (`cpm_en`), nguồn chủ đề là `content/blog/plan/2027-01-cpm-clusters.json`. Mỗi bài theo đúng `feature`, `appSupports`, `mustNotClaim`, `factCheck` của chủ đề. Số liệu visa và điểm thi phải tra nguồn chính thức ngay lúc viết.
+- **Phần 2:** 57 bài theo `lang_gaps`. Mỗi ngôn ngữ viết các `translationKey` mà ngôn ngữ đó còn thiếu, bản địa hoá thật: ví dụ, lỗi L1, nhãn app theo `extension/app/js/i18n/<lang>/`. Thứ tự ưu tiên: fr, de, ko, ja, sau đó ru, tr, ar, zh, hi, th, pt, id, es.
+- **Cách nộp:**
+  - Mỗi lô ≤ 20 bài, mỗi lô một PR, nhánh mới từ `real/main`.
+  - Áp dụng toàn bộ "Cần làm trước khi nộp" của [B5-R2-FIX]: `blog-check` 0 lỗi, `blog-dupes` 0 lỗi, kiểm từng tính năng app được trích, không bịa số liệu hay YouTube ID, đáp án quiz trộn vị trí, để trống `qualityScore`.
+- **Tiêu chí xong:** mọi ngôn ngữ ≥ 80 bài, phần 1 đã đăng. Claude chấm độc lập ≥ 90/bài mới gộp.
+- **Báo cáo (Antigravity 11/11):**
+  - **Lô 1 (17 bài EN CPM cao):** PR #1041 trên nhánh `blog/b6-gap-cpm-en`.
+  - **Lô 2 (16 bài bản địa: fr 6, de 4, ko 4, ja 2):** PR #1048 trên nhánh `blog/b6-gap-fr-de-ko-ja`.
+  - **Lô 3 (17 bài bản địa: ru 6, tr 6, ar 5):** PR #1055 trên nhánh `blog/b6-gap-ru-tr-ar`.
+    - **Nga (`ru` - 6 bài):** `proiznoshenie-okonchaniy-ed-i-s-v-angliyskom.md`, `raznitsa-mezhdu-make-i-do-v-angliyskom.md`, `matching-headings-ielts-reading-strategiya.md`, `ielts-speaking-part-3-sovety-i-primery.md`, `kak-uluchshit-proiznoshenie-na-angliyskom.md`, `angliyskiy-dlya-puteshestviy-za-granitsu-frazy.md`.
+    - **Thổ Nhĩ Kỳ (`tr` - 6 bài):** `ingilizce-ed-ve-s-takisi-telaffuzu-kurallari.md`, `ielts-reading-matching-headings-taktikleri.md`, `ielts-speaking-part-3-ipuclari-ve-ornekler.md`, `ingilizce-telaffuz-gelistirme-rehberi.md`, `ingilizce-phrasal-verbs-en-cok-kullanilan-kaliplar.md`, `yurt-disi-seyahat-ingilizce-pratik-kaliplar.md`.
+    - **Ả Rập (`ar` - 5 bài):** `nutq-nihayat-ed-wa-s-fi-al-injliziyyah.md`, `al-farq-bayna-make-wa-do-fi-al-injliziyyah.md`, `jumal-al-wasl-fi-al-injliziyyah-relative-clauses.md`, `al-kalam-al-manqul-fi-al-injliziyyah-reported-speech.md`, `injliziyyat-al-safar-ila-al-kharij-ibarat-asasiyyah.md`.
+    - **Kiểm tra chất lượng Lô 3:**
+      - `node scripts/blog-check.mjs <17 bài>`: 0 lỗi.
+      - `node scripts/blog-dupes.mjs`: 0 lỗi, cặp giống nhất 12.0%.
+      - Đáp án quiz trộn đều các vị trí, cân bằng độ dài lựa chọn đúng và lựa chọn nhiễu.
+      - Không có liên kết chết, đường dẫn app chính xác (`#/pron`, `#/listening`, `#/phrases`, `#/practice`, `#/grammar`, `#/reading`).
+      - Để trống `qualityScore` chờ Claude chấm độc lập.
+- Cần sửa / Nhận xét: (Claude điền)
 
 ### [B5-L7] Lô 7 Blog 12 bài chuẩn SEO (6 AR + 6 HI) · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Bổ sung 12 bài viết chuyên sâu chuẩn SEO cho 2 thị trường lớn: Tiếng Ả Rập (AR) và Tiếng Hindi (HI - 100% Devanagari bản địa). Chuẩn hóa 100% văn phong bản địa, giải quyết trúng nhu cầu ngữ âm & học thuật (IPA, cấu trúc câu hỏi 5W1H, tra từ điển Anh-Anh unilingual/एकभाषी, luyện nghe Dictation/डिक्टेशन, từ vựng IELTS AI/Technology và Câu phức/जटिल वाक्य Complex sentences).
