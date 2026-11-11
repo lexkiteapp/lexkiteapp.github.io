@@ -288,7 +288,7 @@
     $('#swHear').onclick = () => UI.tts(u.text, accent, 0.95);
     const start = async () => {
       swStop(); UI.stopSpeak(); go.textContent = '⏹'; $('#swPrepB').disabled = true; phase.textContent = '🔴 ' + t('Đang ghi âm – bấm lần nữa để dừng');
-      const SR = window.SpeechRecognition || window.webkitSpeechRecognition, segs = [], tStart = performance.now(); let t0 = 0;
+      const SRC = window.SpeechRecognition || window.webkitSpeechRecognition, SR = UI.micParallel(SRC) ? SRC : null, segs = [], tStart = performance.now(); let t0 = 0; // mic độc quyền: bài này giữ ghi âm để nghe lại (LX-1003)
       if (SR) { try { const r = sw.sr = new SR(); r.lang = accent; r.continuous = true; r.interimResults = false; r.onspeechstart = () => { t0 = t0 || performance.now(); }; r.onresult = e => { for (let k = e.resultIndex; k < e.results.length; k++) if (e.results[k].isFinal) { t0 = t0 || tStart; /* SỬA LỖI: trình duyệt không phát onspeechstart → trước đây lấy (kết quả đầu − 1,5 s), nhưng cụm đầu thường dài 5–10 s → từ/phút bị thổi phồng; nay lấy lúc bắt đầu ghi */ segs.push({ text: e.results[k][0].transcript.trim(), t: performance.now() }); } }; r.onerror = () => {}; r.start(); } catch (e) { sw.sr = null; } }
       const ok = await swRecord(u.secs, left => { clock.textContent = mmss(left); clock.classList.toggle('warn', left <= 10); }, url => {
         try { if (sw.sr) sw.sr.stop(); } catch (e) { /* đã dừng */ }

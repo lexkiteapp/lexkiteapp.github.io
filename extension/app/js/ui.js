@@ -438,7 +438,7 @@
     if (cb.setup) try { cb.setup(r); } catch (e) { /* thuộc tính mới (processLocally, phrases) chưa có */ }
     // Ghi âm giọng người học song song để nghe lại so với giọng mẫu
     let media = null, chunks = [], stream = null, audioP = null;
-    if (navigator.mediaDevices && g.MediaRecorder) {
+    if (navigator.mediaDevices && g.MediaRecorder && micParallel(SR)) {
       navigator.mediaDevices.getUserMedia(MIC).then(st => {
         if (r._stale || r._ended) { st.getTracks().forEach(t => t.stop()); return; }
         stream = st;
@@ -474,6 +474,8 @@
     cb.start && cb.start();
     return { stop: () => { try { r.stop(); } catch (e) { /* đã dừng */ } } };
   }
+  // LX-1003: Android/iOS cấp mic cho 1 bên → không ghi âm song song với SpeechRecognition (nhận dạng chỉ nghe im lặng)
+  const micParallel = SR => !(SR && (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || navigator.maxTouchPoints > 1 && /Mac/.test(navigator.userAgent)));
   const stopRecognize = () => { if (activeRec) { activeRec._stale = true; try { activeRec.abort(); } catch (e) { /* đã dừng */ } activeRec = null; } };
 
   // Ảnh minh họa kèm ghi nguồn theo giấy phép Creative Commons
@@ -647,5 +649,5 @@
     e.preventDefault(); const st = prefs();
     if (b.dataset.speak != null) speak(b.dataset.speak, b.dataset.accent || st.accent, b.dataset.url || ''); else speak(b.dataset.speakText, st.accent);
   });
-  g.UI = { whisperModel, sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, ttsClean, stopSpeak, recognize, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
+  g.UI = { whisperModel, sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, ttsClean, stopSpeak, recognize, micParallel, MIC, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
 })(typeof self !== 'undefined' ? self : this);

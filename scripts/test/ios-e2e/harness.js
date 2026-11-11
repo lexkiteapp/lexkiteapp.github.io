@@ -429,7 +429,11 @@
           if (!a || !vis(a)) add('auth', 'Không thấy nút đăng nhập đầu trang');
           else {
             a.click(); await sleep(1500);
-            const m = document.getElementById('modal'), open = m && !m.hidden;
+            const m = document.getElementById('modal');
+            // từ 9dd7763c0 (06/11) màn hẹp: avatar → menu tài khoản (.ux1-menu) có nút "Đăng nhập" [in] → bảng chọn Apple + Google
+            const menuIn = m && !m.hidden && m.querySelector('.ux1-menu [data-acct="in"]');
+            if (menuIn && vis(menuIn)) { emit({ type: 'info', key: 'auth-menu', via: 'ux1-menu' }); menuIn.click(); await sleep(1500); }
+            const open = m && !m.hidden;
             const ks = open ? [...m.querySelectorAll('[data-acct]')].filter(vis).map(b => b.dataset.acct) : [];
             emit({ type: 'info', key: 'auth-chooser', ks });
             if (!(ks.includes('apple') && ks.includes('google'))) add('auth', 'Bảng chọn đăng nhập iOS thiếu Apple/Google: [' + ks.join(',') + ']');
