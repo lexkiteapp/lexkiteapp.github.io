@@ -261,6 +261,28 @@ ok((await call(raw, { cli: Date.now() + '.' + 'a'.repeat(64) })).s === 403, 'HMA
 const old = String(Date.now() - 600e3); ok((await call(raw, { cli: old + '.' + await R.cliSign(CLI_KEY, old, raw) })).s === 403, 'HMAC quá 5 phút → 403');
 const rawL = JSON.stringify({ op: 'list' }), tsL = String(Date.now()); ok((await call(rawL, { cli: tsL + '.' + await R.cliSign(CLI_KEY, tsL, rawL) })).s === 403, 'HMAC không dùng được cho lệnh khác (list)');
 ok((await signQ({ op: 'queue' })).s === 200 && (await call(raw, { env: { ...ENV, LEXKITE_REPORT_CLI_KEY: '' }, cli: Date.now() + '.' + 'a'.repeat(64) })).s === 403, 'chưa đặt khóa CLI → 403');
+// act: thao tác nhanh + mẫu theo ngôn ngữ người báo; lô quá trần bị từ chối; không gửi thư cho báo lỗi thử
+{ const admin = b => call(b, { token: ADM });
+  const mkR = (lang, notify, sandbox = 0) => sql.prepare("INSERT INTO reports (tok, at, upd, status, cat, area, msg, lang, email, notify, sandbox, spam) VALUES (?, ?, ?, 'new', 'bug', 'vocab', 'act test message', ?, ?, ?, ?, 0) RETURNING id").get('A'.repeat(14) + String(Math.random()).slice(2, 12).padEnd(10, '0'), Date.now(), Date.now(), lang, notify ? 'act@example.com' : '', notify ? 1 : 0, sandbox).id;
+  const LX = id => 'LX-' + (1000 + id), row = id => sql.prepare('SELECT status, reply, fixed_at, dup_of FROM reports WHERE id = ?').get(id);
+  const zh = mkR('zh', 0), fr = mkR('fr', 0), dupId = mkR('ja', 0), sb = mkR('en', 1, 1);
+  sql.prepare("UPDATE reports SET status = 'dup', dup_of = ? WHERE id = ?").run(zh, dupId);
+  const m0 = mails.length, ac = await admin({ op: 'act', ids: [LX(zh), LX(fr)], status: 'fixed', tpl: 'fixed' });
+  ok(ac.s === 200 && row(zh).status === 'fixed' && row(fr).status === 'fixed', 'act: đánh dấu đã sửa nhiều phiếu');
+  ok(/修复/.test(row(zh).reply) && /corrig/.test(row(fr).reply), 'act: mẫu đúng ngôn ngữ từng người báo (zh, fr)');
+  ok(row(dupId).status === 'fixed' && /修正/.test(row(dupId).reply) && ac.j.rows[0].dups === 1, 'act: Đã sửa kéo theo phiếu trùng, đúng ngôn ngữ của người đó (ja)');
+  const again = await admin({ op: 'act', ids: [LX(zh)], status: 'fixed', tpl: 'fixed' }); ok(again.j.rows[0].changed === false && mails.length === m0, 'act lặp lại: không đổi gì, không báo trùng');
+  const sbA = await admin({ op: 'act', ids: [LX(sb)], status: 'fixed', tpl: 'fixed' }); ok(sbA.s === 200 && mails.length === m0, 'báo lỗi thử (sandbox) không bao giờ gửi thư thật');
+  const custom = mkR('zh', 0); await admin({ op: 'act', ids: [LX(custom)], tpl: 'thanks', status: 'ack' }); ok(row(custom).status === 'ack' && /感谢/.test(row(custom).reply), 'act: cảm ơn + Đã tiếp nhận');
+  await admin({ op: 'act', ids: [LX(custom)], reply: 'Sửa tay' }); ok(row(custom).reply === 'Sửa tay' && row(custom).status === 'ack', 'act: chữ quản trị sửa được giữ nguyên');
+  ok((await admin({ op: 'act', ids: Array.from({ length: 11 }, (_, i) => 'LX-' + (5000 + i)), status: 'ack' })).s === 400, 'act: quá trần 10 phiếu/lệnh → từ chối (máy khách chia lô)');
+  ok((await admin({ op: 'act', ids: [LX(custom)], status: 'dup' })).s === 400 && (await admin({ op: 'act', ids: [LX(custom)], tpl: 'constructor' })).s === 400, 'act: không nhận trạng thái Trùng lặp / khóa mẫu lạ');
+  const g = await admin({ op: 'get', id: LX(custom) }); ok(/感谢/.test(g.j.tpl.thanks) && /Cảm ơn/.test(g.j.tpl_vi.thanks) && Object.keys(g.j.tpl).length === 4, 'get: trả 4 mẫu theo ngôn ngữ người báo + bản tiếng Việt');
+  const tok = sql.prepare('SELECT tok FROM reports WHERE id = ?').get(custom).tok, seenOf = () => sql.prepare('SELECT seen_at, upd FROM reports WHERE id = ?').get(custom);
+  await call({ op: 'seen', t: tok }); const s1 = seenOf(); ok(s1.seen_at >= s1.upd, 'seen: máy người báo xác nhận đã hiện');
+  await call({ op: 'seen', t: tok }); ok(seenOf().seen_at === s1.seen_at, 'seen lặp: không ghi thêm');
+  ok((await call({ op: 'seen', t: 'short' })).s === 400, 'seen: mã sai → 400'); }
+
 // resolve: Đã sửa + phiên bản + báo người báo & phiếu trùng
 mails.length = 0;
 const rs = await signQ({ op: 'resolve', id: g1.j.id, note: 'Audio now plays after the first tap.', commit: 'abc1234def' });

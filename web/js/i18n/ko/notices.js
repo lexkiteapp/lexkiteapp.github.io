@@ -1,2 +1,2 @@
 /* SINH từ i18n/ui/ko/notices.js – đừng sửa tay (scripts/i18n-pack.mjs) */
-(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ko=Object.assign(D.ko||{},{_zwis:"모두 읽음으로 표시",_pffv:"새로운 알림이 없습니다",_dlnl:"중요 공지",_m4lx:"방금",_lyra:"읽지 않음",_ub36:"{n} 읽지 않음"});})(typeof self!=='undefined'?self:this);
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ko=Object.assign(D.ko||{},{_zwis:"모두 읽음으로 표시",_pffv:"새로운 알림이 없습니다",_dlnl:"중요 공지",_m4lx:"방금",_lyra:"읽지 않음",_ub36:"{n} 읽지 않음",_z2ii:"신고 {id}이(가) 접수되었습니다",_tb6i:"감사합니다. Lexkite가 진행 상황을 여기에서 알려 드릴게요.",_2tyo:"신고 {id}이(가) 해결되었습니다",_uu8l:"알려 주셔서 감사합니다. 새 버전은 앱을 다시 불러오면 사용할 수 있어요.",_62kr:"신고 {id}에 새 소식이 있습니다",_wyuq:"탭하여 최신 상태를 확인하세요.",_erjf:"신고 보기"});})(typeof self!=='undefined'?self:this);

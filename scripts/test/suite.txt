@@ -110,6 +110,7 @@ node scripts/test/social-first-comment.mjs
 node scripts/test/studio.mjs
 node scripts/test/report.mjs
 node scripts/test/report-ui.mjs
+node scripts/test/admin-reports-ui.mjs
 node scripts/test/quota.mjs
 node scripts/test/capacity.mjs
 node scripts/test/admin-rollup.mjs
