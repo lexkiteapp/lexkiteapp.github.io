@@ -166,8 +166,9 @@ async function appMode() {
   }
   if (done < 1) throw new Error('✗ chưa làm được câu bài học nào');
   // 3. Từ vựng → 4. Kỹ năng (chạm tab dưới) – mỗi 2–3 s có chuyển động
-  M.vocab = mark(); await hash('#/vocab'); // màn bài học (focus) không có thanh tab → đổi hash, khỏi chờ 8 s await sleep(1300); await swipe(240); await sleep(900); await swipe(240); await sleep(900); await swipe(-480); await sleep(600);
-  M.skills = mark(); await tap('#bnav a[data-tab="skills"]', '#/skills'); await sleep(1300); await swipe(240); await sleep(1100);
+  M.vocab = mark(); await hash('#/vocab'); await sleep(1300); // màn bài học (focus) không có thanh tab → đổi hash, khỏi chờ 8 s
+  await swipe(240); await sleep(900); await swipe(240); await sleep(900); await swipe(-480); await sleep(600);
+  M.skills = mark(); await tap('#bnav a[data-tab="skills"]', '#/skills'); await sleep(1300); await swipe(240); await sleep(1100); await swipe(-240); await sleep(900); // đủ chỗ cho lời cuối
   await cdp.send('Page.stopScreencast').catch(() => {});
   await p.close(); await ctx.close(); await br.close();
   // Nén thời gian chết: khung đứng yên (chờ giọng/tải) giữ tối đa HOLD s; còn dài hơn 26,5 s thì tăng tốc đều. Mốc M đổi theo cùng trục.
