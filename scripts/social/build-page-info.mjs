@@ -10,7 +10,7 @@ import { COPY, INFO, KIT_LANGS, RTL, SCRIPT, FB_CATEGORY } from './channel-copy.
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const OUT = path.join(ROOT, 'brand/social/channel-kit');
 export const LANGS = ['vi', ...KIT_LANGS.filter(l => l !== 'vi')];
-export const NAMES = { vi: 'Tiếng Việt', es: 'Español', pt: 'Português', de: 'Deutsch', fr: 'Français', ru: 'Русский', tr: 'Türkçe', ar: 'العربية', hi: 'हिन्दी' };
+export const NAMES = { vi: 'Tiếng Việt', es: 'Español', pt: 'Português', de: 'Deutsch', fr: 'Français', ru: 'Русский', tr: 'Türkçe', ar: 'العربية', hi: 'हिन्दी', ja: '日本語', ko: '한국어', zh: '简体中文' };
 export const BIO_MAX = 100;
 const cp = s => [...String(s)].length;
 
@@ -19,11 +19,12 @@ export function installLinks() {
   const self = {}; new Function('self', fs.readFileSync(path.join(ROOT, 'web/js/ext-config.js'), 'utf8'))(self);
   return { addon: self.LK_EXT.store, play: self.LK_APPS.play, ios: self.LK_APPS.ios || '' };
 }
+const HL = { zh: 'zh-CN' }; // mã hl của cửa hàng
 const utm = lang => `utm_source=facebook&utm_medium=page&utm_campaign=${lang}`;
 export const webUrl = lang => `https://lexkite.com/${lang}/?${utm(lang)}`;
 export function linksOf(lang, L = installLinks()) {
   const referrer = encodeURIComponent(utm(lang));
-  const out = { web: webUrl(lang), addon: `${L.addon}?hl=${lang}`, play: `${L.play}&hl=${lang}&referrer=${referrer}` };
+  const out = { web: webUrl(lang), addon: `${L.addon}?hl=${HL[lang] || lang}`, play: `${L.play}&hl=${HL[lang] || lang}&referrer=${referrer}` };
   if (L.ios) out.ios = `${L.ios}${L.ios.includes('?') ? '&' : '?'}ct=facebook_${lang}`;
   return out;
 }
@@ -122,8 +123,9 @@ export function problems(L = installLinks()) {
   for (const lang of LANGS) {
     const i = INFO[lang], c = COPY[lang]; if (!i) { errs.push(`${lang}: thiếu INFO`); continue; } if (!c) { errs.push(`${lang}: thiếu COPY (ảnh)`); continue; }
     if (cp(i.bio) > BIO_MAX) errs.push(`${lang}: bio ${cp(i.bio)} > ${BIO_MAX} ký tự`);
-    if (cp(i.bio) < 40) errs.push(`${lang}: bio quá ngắn`);
-    if (i.about.length < 150 || i.about.length > 900) errs.push(`${lang}: Giới thiệu dài ${i.about.length} (150–900)`);
+    const dense = ['ja', 'ko', 'zh'].includes(lang); // chữ CJK mỗi ký tự mang nhiều nghĩa → ngưỡng độ dài thấp hơn
+    if (cp(i.bio) < (dense ? 25 : 40)) errs.push(`${lang}: bio quá ngắn`);
+    if (i.about.length < (dense ? 90 : 150) || i.about.length > 900) errs.push(`${lang}: Giới thiệu dài ${i.about.length} (150–900)`);
     for (const k of ['name', 'bio', 'about', 'cta', 'back']) if (!String(i[k] || '').trim()) errs.push(`${lang}: INFO.${k} trống`);
     if (!/Lexkite/.test(i.name) || !/IELTS/.test(i.bio) || !/TOEIC/.test(i.about)) errs.push(`${lang}: thiếu tên Lexkite/IELTS/TOEIC (giữ nguyên tên riêng)`);
     if (!/100\s?%|%\s?100/.test(i.bio + i.about)) errs.push(`${lang}: không nói "miễn phí 100%"`);
