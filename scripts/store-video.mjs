@@ -171,7 +171,7 @@ async function appMode() {
   if (done < 1) throw new Error('✗ chưa làm được câu bài học nào');
   // 3. Từ vựng → 4. Kỹ năng (chạm tab dưới) – mỗi 2–3 s có chuyển động
   M.vocab = mark(); await hash('#/vocab'); await sleep(1300); // màn bài học (focus) không có thanh tab → đổi hash, khỏi chờ 8 s
-  await swipe(240); await sleep(900); await swipe(240); await sleep(900); await swipe(-480); await sleep(600);
+  await swipe(240); await sleep(900); await swipe(-240); await sleep(900); await swipe(240); await sleep(600); // trang Từ vựng ngắn → xuống/lên/xuống để luôn có chuyển động
   M.skills = mark(); await tap('#bnav a[data-tab="skills"]', '#/skills'); await sleep(1300); await swipe(240); await sleep(1100); await swipe(-240); await sleep(900); // đủ chỗ cho lời cuối
   await cdp.send('Page.stopScreencast').catch(() => {});
   await p.close(); await ctx.close(); await br.close();
