@@ -3,7 +3,6 @@
 # (lấy về: bash scripts/ci/bot-output.sh exam-es <nhánh>; tự commit – không đẩy vào nhánh PR). Chạy tay: workflow_dispatch ref=<nhánh>.
 name: exam-es-build
 on:
-  push: { branches: ['ci/es-exam-build'] }   # nhánh tạm để chạy lần đầu khi workflow chưa có trên main (dispatch cần file ở main)
   workflow_dispatch:
     inputs:
       levels: { description: 'Cấp dựng lại nguồn (cách nhau dấu phẩy; cấp khác giữ nguyên)', default: 'B2,C1,C2' }
