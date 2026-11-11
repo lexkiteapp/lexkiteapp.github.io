@@ -145,6 +145,7 @@ async function runCombo(c) {
     window.__cls = 0; window.__lt = []; window.__rej = [];
     try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput && !(window.__navAt && e.startTime < window.__navAt + 400)) { window.__cls += e.value; (window.__clsSrc = window.__clsSrc || []).push(((e.sources && e.sources[0] && e.sources[0].node && (e.sources[0].node.id ? '#' + e.sources[0].node.id : (e.sources[0].node.className || e.sources[0].node.nodeName || '')).toString().slice(0, 40)) || '?') + ' ' + e.value.toFixed(3)); } }).observe({ type: 'layout-shift', buffered: true }); } catch { /* */ }
     try { new PerformanceObserver(l => { for (const e of l.getEntries()) window.__lt.push(Math.round(e.duration)); }).observe({ type: 'longtask', buffered: true }); } catch { /* */ }
+    try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (e.duration > 150) (window.__loaf = window.__loaf || []).push(Math.round(e.duration) + 'ms ' + (e.scripts || []).slice(0, 3).map(x => (x.sourceURL || '').split('/').slice(-2).join('/') + '#' + (x.sourceFunctionName || x.invoker || x.invokerType) + ' ' + Math.round(x.duration)).join(' | ')); }).observe({ type: 'long-animation-frame', buffered: true }); } catch { /* */ } // gốc tác vụ dài (Chromium ≥123)
     addEventListener('unhandledrejection', e => { window.__rej.push(String((e.reason && (e.reason.stack || e.reason.message)) || e.reason).slice(0, 200)); });
     try { localStorage.setItem('vb-onboarded', '1'); } catch { /* */ }
   });
@@ -168,11 +169,11 @@ async function runCombo(c) {
     await page.waitForTimeout(kind === 'app' ? 1100 : 900);
     const p = { kind, id, tag, bad: 0 };
     const found = [...bag]; bag = [];
-    const extra = await page.evaluate(() => ({ cls: window.__cls, src: (window.__clsSrc || []).slice(0, 4).join(', '), lt: window.__lt.slice(), rej: window.__rej.slice() })).catch(() => ({ cls: 0, src: '', lt: [], rej: [] }));
+    const extra = await page.evaluate(() => ({ cls: window.__cls, src: (window.__clsSrc || []).slice(0, 4).join(', '), lt: window.__lt.slice(), loaf: (window.__loaf || []).slice(0, 2).join(' ; '), rej: window.__rej.slice() })).catch(() => ({ cls: 0, src: '', lt: [], rej: [] }));
     const r = await page.evaluate(probe, !!vp.isMobile).catch(e => [{ t: 'probe-error', k: '', x: String(e.message).slice(0, 80) }]);
     for (const f of r) if (f.t !== 'probe-error') found.push({ type: f.t, key: f.k, msg: f.x });
     if (extra.cls > 0.1) found.push({ type: 'cls', key: 'layout-shift', msg: `CLS ${extra.cls.toFixed(3)} > 0.1 [${extra.src}]` });
-    const lt = Math.max(0, ...extra.lt); if (lt > 200) found.push({ type: 'longtask', key: 'longtask', msg: `tác vụ dài ${lt} ms > 200` });
+    const lt = Math.max(0, ...extra.lt); if (lt > 200) found.push({ type: 'longtask', key: 'longtask', msg: `tác vụ dài ${lt} ms > 200` + (extra.loaf ? ` [${extra.loaf}]` : '') });
     for (const m of extra.rej) found.push({ type: 'rejection', key: norm(m), msg: norm(m) });
     let cvAll = null;
     try {
