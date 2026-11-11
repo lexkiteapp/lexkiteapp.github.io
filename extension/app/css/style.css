@@ -908,7 +908,7 @@ html.native .sheet, html.native [data-sheet] {
   padding-bottom: max(1.5rem, calc(.8rem + env(safe-area-inset-bottom, 0px)));
 }
 /* 3. Bàn phím không che ô nhập (keyboard avoidance & scroll-margin) */
-#ansForm:focus-within { padding-bottom: 50dvh; } /* câu hỏi dài + trang ngắn: còn chỗ cuộn ô trả lời lên trên bàn phím */
+@media (pointer:coarse) { #ansForm:focus-within { padding-bottom: 50dvh; } } /* chỉ máy cảm ứng (có bàn phím ảo): câu hỏi dài + trang ngắn còn chỗ cuộn ô trả lời lên trên bàn phím; máy tính để yên bố cục khi gõ (tránh vòng ResizeObserver) */
 html.native input:not([type=checkbox]):not([type=radio]):not([type=range]),
 html.native select,
 html.native textarea {
