@@ -293,6 +293,8 @@ node scripts/test/lesson-drag.mjs
 node scripts/test/theme-switch.mjs web
 node scripts/test/review-lookup.js web
 node scripts/test/hit-retry.mjs
+node scripts/test/tr-race.mjs
+node scripts/test/tr-packs.mjs
 node scripts/test/ci-policy.mjs
 node scripts/test/ffmpeg-setup-policy.mjs
 node scripts/test/scroll-boot.mjs

@@ -845,6 +845,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "tr-packs",
+   "workflow": "tr-packs.yml",
+   "cron": [
+    "20 22 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 90,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "wordlists",
    "workflow": "wordlists.yml",
    "cron": [

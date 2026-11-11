@@ -23742,7 +23742,7 @@
     "id": "Tambahkan ke Chrome",
     "th": "เพิ่มลงใน Chrome",
     "zh": "添加到 Chrome",
-    "ja": "Chromeに追加",
+    "ja": "Chrome に追加",
     "ko": "Chrome에 추가",
     "hi": "Chrome में जोड़ें",
     "ar": "أضِف إلى Chrome",
@@ -31888,6 +31888,21 @@
     "ar": "متابعة التعلّم",
     "ru": "Продолжить",
     "tr": "Öğrenmeye devam et"
+  },
+  "Nghĩa từng từ (tạm):": {
+    "es": "Palabra por palabra (aprox.):",
+    "pt": "Palavra por palavra (aprox.):",
+    "fr": "Mot à mot (approx.) :",
+    "de": "Wort für Wort (grob):",
+    "id": "Kata per kata (perkiraan):",
+    "th": "แปลทีละคำ (คร่าวๆ):",
+    "zh": "逐词释义（草稿）：",
+    "ja": "単語ごとの意味（仮）：",
+    "ko": "단어별 뜻 (임시):",
+    "hi": "शब्द-दर-शब्द अर्थ (अस्थायी):",
+    "ar": "معنى كل كلمة (مؤقت):",
+    "ru": "Пословно (черновик):",
+    "tr": "Kelime kelime (taslak):"
   },
   "Lịch sự": {
     "es": "Cortés",

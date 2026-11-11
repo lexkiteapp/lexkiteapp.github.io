@@ -223,7 +223,7 @@
       const L = (I18N && I18N.lang && I18N.lang()) || 'vi';
       const flg = (I18N && I18N.flag ? I18N.flag(L) : (L === 'vi' ? '🇻🇳' : UI.icon('globe')));
       sents.forEach(async (x, i) => {
-        const v = L === 'vi' ? await Dict.translateVi(x.s) : await Dict.translateTo(x.s, L);
+        const v = await App.translateSafe(x.s, L); // kho dịch sẵn → bộ đệm → mạng song song (một đường cho mọi điểm dịch, #320)
         const el = box.querySelector(`.line[data-i="${i}"] .lhint`);
         if (el) el.innerHTML = `${flg} <b>${esc(v || t('(không dịch được)'))}</b>`;
       });

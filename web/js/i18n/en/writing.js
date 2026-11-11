@@ -45,6 +45,7 @@
 'Đang tra “{text}”…': 'Looking up “{text}”…',
 'Đang dịch “{text}”…': 'Translating “{text}”…',
 'Chưa dịch được cả câu – nghĩa từng từ:': 'Couldn’t translate the whole sentence. Word meanings:',
+'Nghĩa từng từ (tạm):': 'Word by word (rough):',
 'Bản dịch': 'Translation',
 'Không dịch được – thử lại sau.': 'Couldn’t translate – please try again later.',
 'Cấu trúc trong đoạn': 'Structures in this text',
