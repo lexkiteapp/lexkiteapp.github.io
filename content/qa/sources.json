@@ -1,6 +1,7 @@
 {
  "_doc": "Sổ đăng ký MỌI nguồn nội dung học – cổng QA (docs/CONTENT-QA.md, scripts/content-qa/gate.mjs). Thư mục nội dung mới chưa có ở đây → CI đỏ. checks: schema · lexicon · pair (✗/✓) · cefr · judges (2 giám khảo) · translation · spot (≥5%/lô) · reports (tự ẩn). gen=true: có nội dung sinh tự động → bắt buộc judges + translation + spot.",
  "sources": [
+  {"id": "irregular-verbs", "paths": ["content/verbs", "web/cpack/irv"], "owner": "claude", "gen": false, "checks": ["schema", "cefr"], "delegate": ["test/verbs.mjs"], "doc": "docs/LEXICON.md"},
   {"id": "outcomes", "paths": ["web/cpack/outcomes"], "owner": "claude", "gen": false, "checks": ["schema", "cefr"], "delegate": ["test/outcomes.mjs"], "doc": "docs/specs/outcomes-3-6m.md"},
   {
    "id": "stories",
