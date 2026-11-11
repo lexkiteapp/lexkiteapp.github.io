@@ -1,3 +1,4 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
 # 🤖 QA bot (scripts/test/qa-bot.mjs · docs/QA-BOT.md): hành trình học thật (sandbox) + đầu dò lỗi giao diện ẩn 390/768/1440 × sáng/tối
 # + hiệu năng (FPS/INP/long task/CLS) + dung lượng sau N bài. Chỉ chạy trên CI (không bao giờ trên máy anh chủ).
 # - PR đụng app/web: chạy trên dist của PR (hermetic, 0 lượt chạm prod) + trước/sau: chụp cùng trạng thái trên nhánh gốc vs PR → summary + artifact.
@@ -23,8 +24,27 @@ concurrency:
   group: qa-bot-${{ github.event_name }}-${{ github.event.workflow_run.name || '' }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'   # như job bot: workflow_run không thành công → skipped lan xuống
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha → go=$go"
   bot:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    if: ${{ (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') && needs.gate.outputs.go == 'true' }}
+    needs: gate
     runs-on: ubuntu-latest
     timeout-minutes: 45
     env:
@@ -43,7 +63,8 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
       - name: Chặn lexkite.com khi chạy dist cục bộ (0 lượt chạm prod)
         if: env.BASE_URL == ''
         run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
@@ -70,7 +91,8 @@ jobs:
 
   # 🧭 nav-sweep (docs/specs/learn-flow-nav.md): mỗi màn học đi hết tới màn kết chỉ bằng bàn phím – song song với bot, chỉ trên dist của PR/nhánh
   nav:
-    if: github.event_name != 'workflow_run'
+    if: ${{ (github.event_name != 'workflow_run') && needs.gate.outputs.go == 'true' }}
+    needs: gate
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -92,8 +114,8 @@ jobs:
 
   before-after:
     # !cancelled(): vẫn so khi bot đỏ (có artifact), KHÔNG chạy khi lượt bị huỷ (bot huỷ = không có artifact qa-bot → đỏ giả; ci-policy luật 4)
-    if: ${{ !cancelled() && github.event_name == 'pull_request' && needs.bot.result != 'skipped' }}
-    needs: bot
+    if: ${{ (!cancelled() && github.event_name == 'pull_request' && needs.bot.result != 'skipped') && needs.gate.outputs.go == 'true' }}
+    needs: [bot, gate]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -113,7 +135,11 @@ jobs:
           npm ci --no-audit --no-fund
           npm i --no-save --no-audit --no-fund playwright@1.50.1
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
+      - name: Cài Playwright (tiếp)
+        timeout-minutes: 14
+        run: |
           echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
       - name: Chụp + quét nhánh gốc (cùng bot, cùng đầu dò của PR)
         run: node scripts/test/qa-bot.mjs --root base/dist --out out/base --only ui || true

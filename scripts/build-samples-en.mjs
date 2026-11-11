@@ -46,7 +46,7 @@ const SEEN = new Set(), uniqT = (a, b) => { const v = SEEN.has(a) ? b : a; SEEN.
 
 // ---- Writing Task 2 ---- (giao diện bài mẫu: scripts/lib/samples-ui.mjs – nhãn vai trò đoạn/câu bằng tiếng Anh, không có nghĩa tiếng Việt)
 {
-  lm = gitDate('web/js/write.js', 'web/js/models.js', 'web/js/write');
+  lm = gitDate('web/js/write.js', 'web/js/models.js', 'web/js/write', 'web/cpack/write');
   const { PROMPTS: P, MODELS } = loadWriting();
   const done = []; for (const p of P) { const m = MODELS.find(x => x.id === 't2-' + p.id); if (m) done.push([p, m]); }
   const t2Card = ([p, m]) => smpCard({ href: `/en/samples/${p.id}`, cls: typeCls(p.type), art: topicArt(p.topic), title: t2Key(p.id, 'en', p.text), desc: p.text, band: m.band, meta: [['vm-w', m.words, U.words], ['vm-p', docStats(m.text).phrases, U.phrases], ['vm-t', mins(m.words), U.minL]], key: `${p.type} ${p.topic}` });
@@ -81,7 +81,7 @@ ${types.map(([ty, xs], i) => group2(`t${i}`, ty, `${xs.length} ${L.items}`, xs.m
 
 // ---- Speaking ----
 {
-  lm = gitDate('web/js/speaking.js', 'web/js/speak');
+  lm = gitDate('web/js/speaking.js', 'web/js/speak', 'web/cpack/speak');
   const { BANK, S } = loadSpeaking();
   const slug = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   // Bản tiếng Việt đổi cả Đ → D ('Đọc sách' → speaking/doc-sach); URL tiếng Anh giữ nguyên (oc-sach) nhưng hreflang phải trỏ đúng bản vi
@@ -263,7 +263,7 @@ ${Object.entries(by).map(([k, xs]) => group2(k, GN[k] || k, `${xs.length} ${L.le
 
 // ---- IELTS Writing: Academic Task 1 (mới) + General Task 1 (bản en của /viet-thu/); Task 2 đã có ở /en/samples/ (không nhân đôi) ----
 {
-  lm = gitDate('web/js/task1.js', 'web/js/models.js', 'web/js/write');
+  lm = gitDate('web/js/task1.js', 'web/js/models.js', 'web/js/write', 'web/cpack/write');
   const { SETS, MODELS } = loadTask1(), TY = { line: 'Line graph', bar: 'Bar chart', pie: 'Pie chart', table: 'Table', process: 'Process diagram', map: 'Maps' };
   const made = SETS.map(x => [x, MODELS.find(m => m.id === 't1-' + x.id)]).filter(([, m]) => m);
   const dataHtml = x => {

@@ -42,7 +42,7 @@ jobs:
       - name: Cài ffmpeg + kokoro-js
         if: env.PHASE != 'dryrun'
         run: |
-          case "$PHASE" in kokoro|free) npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null;; esac
+          case "$PHASE" in kokoro|free) bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null;; esac
       - uses: actions/cache@v4
         if: env.PHASE == 'kokoro'
         with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: kokoro-82m-v1-q8 }
@@ -85,7 +85,7 @@ jobs:
         # như sentence-audio-asr.yml (PyAV < 19) và news-voice.yml (Rhubarb 1.13.0)
         run: |
           pip install -q 'faster-whisper==1.2.1' 'av==18.1.0' 'whisper-normalizer==0.1.12' 'numpy==2.1.3'
-          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip && mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
+          curl -fsSL --retry 5 --retry-delay 10 --retry-all-errors -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip && mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
           R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"; echo "RHUBARB=$R" >> "$GITHUB_ENV"
       - uses: actions/cache@v4
         if: env.PHASE != 'dryrun'

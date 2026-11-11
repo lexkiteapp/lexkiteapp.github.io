@@ -23,6 +23,7 @@ và người trong danh sách cho phép được dùng không giới hạn.
 | `/api/aiearn` (ôn thẻ → +lượt AI, đợt 1 #10) | D1 đọc gói đồng bộ | 3 lần/tính năng/ngày/uid (mỗi 10 thẻ: ai +2, chat +5) | giữ `sync`; bằng chứng = min(bộ đếm meta, số thẻ có `srs.last` trong ngày), sổ `rv|…` idempotent; cộng bằng `credit()` |
 | `/api/league` | D1 | 12/phút/uid | giữ + tính năng `league` (đếm ở biên) |
 | `/api/class` | D1 | 30/phút/uid · tham gia lớp 10/10 phút (chống dò mã) | giữ + tính năng `classroom` (đếm ở biên) |
+| `/api/community` (cờ `COMMUNITY`, mặc định tắt) | D1 | 30/phút/uid · báo cáo 5/phút, 20/ngày | giữ + tính năng `community` (đếm ở biên) |
 | `/api/hit` (thống kê) | Functions + D1 ghi | add-on 20/giờ/máy; `hit_rate` lấy mẫu | giữ + tính năng `hit` theo IP (vượt → bỏ qua im lặng, 204) |
 | `/api/img` (ảnh minh họa) | Wikipedia/Openverse khi trượt bộ đệm | bộ đệm biên 7–30 ngày | tính năng `img` – **chỉ lượt trượt bộ đệm** |
 | `/api/dictlookup` (từ điển + dịch máy gtx của web/app) | dictionaryapi.dev, Google gtx khi trượt bộ đệm | đệm biên: từ điển 30 ngày, dịch 1 ngày, lỗi nguồn 60 s; trình duyệt 1 ngày/1 giờ | tính năng `translate` – **chỉ lượt trượt bộ đệm**; vượt/nguồn lỗi → 200 `null` (không 429, máy khách tự dự phòng). Add-on gọi thẳng (host_permissions, không tốn trần Functions) |

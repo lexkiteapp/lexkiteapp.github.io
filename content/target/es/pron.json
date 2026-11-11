@@ -1,0 +1,260 @@
+{
+ "_doc": "Phát âm tiếng Tây Ban Nha Mỹ Latinh trung tính (spanish-course.md W3). Cặp tối thiểu 'a/b' (phải KHÁC âm: test es-pron chặn đồng âm vd casa/caza, si/sí); dict = từ/cụm nghe-chép; say = từ/cụm nói theo; IPA sinh bằng scripts/target/es-g2p.mjs (không gõ tay). Giải thích 15 ngôn ngữ: px/<lang>.json.",
+ "topics": [
+  {
+   "id": "vow",
+   "level": "A1",
+   "ex": [
+    "casa",
+    "pero",
+    "ni",
+    "solo",
+    "luz"
+   ],
+   "pairs": [
+    "peso/piso",
+    "mesa/misa",
+    "pelo/palo",
+    "poso/puso",
+    "sola/sala"
+   ],
+   "dict": [
+    "casa",
+    "mesa",
+    "piso",
+    "palo",
+    "luz",
+    "solo"
+   ],
+   "say": [
+    "casa",
+    "pero",
+    "ni",
+    "solo",
+    "luz"
+   ]
+  },
+  {
+   "id": "rr",
+   "level": "A1",
+   "ex": [
+    "pero",
+    "perro",
+    "caro",
+    "carro",
+    "rojo",
+    "radio"
+   ],
+   "pairs": [
+    "pero/perro",
+    "caro/carro",
+    "coro/corro",
+    "para/parra",
+    "vara/barra"
+   ],
+   "dict": [
+    "pero",
+    "perro",
+    "caro",
+    "carro",
+    "rojo",
+    "tres"
+   ],
+   "say": [
+    "perro",
+    "carro",
+    "rojo",
+    "radio",
+    "tres"
+   ]
+  },
+  {
+   "id": "bv",
+   "level": "A1",
+   "ex": [
+    "vaca",
+    "bola",
+    "uva",
+    "vivir",
+    "lobo",
+    "huevo"
+   ],
+   "dict": [
+    "vaca",
+    "bola",
+    "uva",
+    "vivir",
+    "lobo",
+    "huevo",
+    "abril",
+    "volver"
+   ],
+   "say": [
+    "vaca",
+    "bola",
+    "uva",
+    "vivir",
+    "huevo"
+   ]
+  },
+  {
+   "id": "seseo",
+   "level": "A1",
+   "ex": [
+    "casa",
+    "cielo",
+    "zapato",
+    "ciudad",
+    "gracias",
+    "hacer"
+   ],
+   "dict": [
+    "cielo",
+    "zapato",
+    "ciudad",
+    "gracias",
+    "hacer",
+    "coser"
+   ],
+   "say": [
+    "cielo",
+    "zapato",
+    "ciudad",
+    "gracias",
+    "hacer"
+   ]
+  },
+  {
+   "id": "stress",
+   "level": "A1",
+   "ex": [
+    "papá",
+    "está",
+    "canción",
+    "teléfono",
+    "árbol",
+    "café"
+   ],
+   "pairs": [
+    "papa/papá",
+    "esta/está",
+    "canto/cantó",
+    "hablo/habló",
+    "termino/terminó",
+    "practico/practicó"
+   ],
+   "dict": [
+    "papá",
+    "está",
+    "canción",
+    "teléfono",
+    "árbol",
+    "café"
+   ],
+   "say": [
+    "papá",
+    "canción",
+    "teléfono",
+    "árbol",
+    "café"
+   ]
+  },
+  {
+   "id": "link",
+   "level": "A2",
+   "ex": [
+    "la hora",
+    "mi amigo",
+    "de la escuela",
+    "un poco",
+    "buenos días",
+    "voy a ir"
+   ],
+   "dict": [
+    "la hora",
+    "mi amigo",
+    "de la escuela",
+    "un poco",
+    "buenos días",
+    "voy a ir"
+   ],
+   "say": [
+    "la hora",
+    "mi amigo",
+    "de la escuela",
+    "un poco",
+    "buenos días",
+    "voy a ir"
+   ]
+  },
+  {
+   "id": "jg",
+   "level": "A1",
+   "ex": [
+    "jarra",
+    "gente",
+    "gato",
+    "guerra",
+    "jugo",
+    "gusto"
+   ],
+   "pairs": [
+    "jarra/garra",
+    "jota/gota",
+    "jala/gala",
+    "gira/guía"
+   ],
+   "dict": [
+    "jarra",
+    "gente",
+    "gato",
+    "guerra",
+    "jugo",
+    "gusto"
+   ],
+   "say": [
+    "jarra",
+    "gente",
+    "gato",
+    "guerra",
+    "jugo"
+   ]
+  },
+  {
+   "id": "hq",
+   "level": "A1",
+   "ex": [
+    "año",
+    "pollo",
+    "hola",
+    "hora",
+    "queso",
+    "chico"
+   ],
+   "pairs": [
+    "ano/año",
+    "pena/peña",
+    "cana/caña",
+    "mono/moño",
+    "pollo/polo"
+   ],
+   "dict": [
+    "hola",
+    "hora",
+    "hay",
+    "hecho",
+    "hombre",
+    "ahora",
+    "queso",
+    "chico"
+   ],
+   "say": [
+    "año",
+    "pollo",
+    "hola",
+    "queso",
+    "chico"
+   ]
+  }
+ ]
+}

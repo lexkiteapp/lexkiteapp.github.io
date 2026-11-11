@@ -64,6 +64,7 @@
 'Nghe ngay': 'Play now',
 'Kết thúc Listening': 'Finish Listening',
 'Hết phần nghe – kiểm tra đáp án': 'Recording finished – check your answers',
+'Nghe hết phần này để mở nút tiếp': 'Listen to the whole part to continue',
 '3 bài đọc · 40 câu · <b>60 phút</b>. Chuyển qua lại giữa các bài bằng thanh phía dưới. Bôi đen chữ rồi bấm “Tô sáng” để đánh dấu.': '3 passages · 40 questions · <b>60 minutes</b>. Switch between passages with the bar at the bottom. Select text and tap “Highlight” to mark it.',
 'Nộp bài Reading': 'Submit Reading',
 'Bôi đen chữ trong bài đọc trước': 'Select some text in the passage first',

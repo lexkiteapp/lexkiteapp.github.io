@@ -61,7 +61,7 @@ jobs:
       - name: Cài kokoro-js (chỉ khi có câu trượt)
         run: |
           [ "$(cat .sa/fail.json)" = "[]" ] && exit 0
-          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
       - uses: actions/cache@v4
         with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: kokoro-82m-v1-fp32 }
       - name: Render lại câu trượt (Kokoro fp32, cùng giọng)

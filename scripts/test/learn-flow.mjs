@@ -159,7 +159,7 @@ ok(h && /Band/.test(h.textContent) && (pl.lo === pl.hi || h.textContent.includes
 ok(h && cs(h).color !== cs($('.pl-how')).color, 'tiêu đề dùng màu chữ chính (không xám như chữ phụ)');
 ok($$('.pl-skill').length === 2 && $$('.pl-skill .ring b').every(b => /^\d\.\d$/.test(b.textContent)), 'vòng kỹ năng hiện band từng kỹ năng (nhất quán với band tổng)');
 const ctas = $$('.pl-cta .btn');
-ok(ctas.length === 2 && ctas[0].classList.contains('primary') && /home/.test(ctas[0].getAttribute('href')) && !ctas[1].classList.contains('primary'), 'CTA: “Xem kế hoạch hôm nay” chính, “Lộ trình” phụ');
+ok(ctas.length === 3 && ctas[0].classList.contains('primary') && /home/.test(ctas[0].getAttribute('href')) && !ctas[1].classList.contains('primary') && /path/.test(ctas[1].getAttribute('href')) && !ctas[2].classList.contains('primary') && /outcome/.test(ctas[2].getAttribute('href')), 'CTA: “Xem kế hoạch hôm nay” chính, “Lộ trình” và “Đo nói + viết” (#/outcome) phụ');
 
 // ===== 5) Kế hoạch & lộ trình đổi theo kết quả =====
 w.App.state.settings.placement = { ...pl, weak: 'grammar', gCefr: 'B2', stage: 's2' };
@@ -222,7 +222,7 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   // Nội dung đích của mọi bước (đọc thẳng file dữ liệu – không cần nạp từng gói)
   const src = (...fs) => fs.map(f => fs0(f)).join('\n'), fs0 = f => { try { return fs.readFileSync(path.join(WEB, 'js', f), 'utf8'); } catch (e) { return ''; } };
   const dir = d => fs.readdirSync(path.join(WEB, 'js', d)).map(f => d + '/' + f);
-  const C = { roleplay: src(...dir('roleplay')), call: src('call/calls.js', 'call/calls-exam.js'), listen: src(...dir('listen'), ...dir('toeic')), task1: src('task1.js'), write: src('write.js'), letters: src('write/gt-letters.js'),
+  const C = { roleplay: src(...dir('roleplay')), call: src('call/calls.js', 'call/calls-exam.js'), listen: src(...dir('listen'), ...dir('../cpack/listen'), ...dir('toeic')), task1: src('task1.js'), write: src('write.js'), letters: src('write/gt-letters.js'),
     rtype: src('rtype.js'), toefl: src('toefl.js'), toeic: src('toeic.js'), treading: src(...dir('toeic')), grammar: src(...dir('grammar')) };
   const has = (txt, id) => new RegExp(`id: '${id}'|T\\('${id}'`).test(txt);
   const exists = h => { const [, r, a = '', q = ''] = /^#\/([a-z0-9-]+)\/?([^?]*)\??(.*)$/.exec(h) || [];

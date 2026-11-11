@@ -54,6 +54,12 @@
   },
   "ddl": "67529faa7384ddf4"
  },
+ "community.js": {
+  "vers": {
+   "community": 1
+  },
+  "ddl": "bf29f22f85da6dac"
+ },
  "hit.js": {
   "vers": {
    "hit": 1

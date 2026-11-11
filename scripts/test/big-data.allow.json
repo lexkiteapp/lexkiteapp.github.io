@@ -1,0 +1,20 @@
+{
+ "_note": "Tệp dữ liệu/mã > 150 KB trong web/js (mỗi người học tải lười nhưng vẫn tính vào ngân sách totalJs). MỚI > 150 KB phải đặt ở web/cpack (mẫu #726). Danh sách này chỉ được GIẢM: dời tệp sang web/cpack rồi xoá khỏi đây (test đỏ nếu tệp đã nhỏ/biến mất mà còn trong danh sách).",
+ "maxKB": 150,
+ "files": [
+  "web/js/app.js",
+  "web/js/lib/domain-a.js",
+  "web/js/lib/domain-b.js",
+  "web/js/lib/exam-vocab.js",
+  "web/js/lib/ngsl.js",
+  "web/js/listen/audio-index.js",
+  "web/js/notes/a.json",
+  "web/js/notes/c.json",
+  "web/js/notes/d.json",
+  "web/js/notes/i.json",
+  "web/js/notes/p.json",
+  "web/js/notes/r.json",
+  "web/js/notes/s.json",
+  "web/js/notes/t.json"
+ ]
+}

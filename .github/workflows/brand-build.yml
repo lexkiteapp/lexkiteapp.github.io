@@ -51,7 +51,10 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo timeout 600 apt-get install -y -qq imagemagick fonts-noto-color-emoji fonts-noto-core >/dev/null || true
+      - uses: ./.github/actions/apt
+        with: { packages: imagemagick fonts-noto-color-emoji fonts-noto-core }
+      - name: Chụp (tiếp)
+        run: |
           git worktree add -q /tmp/before "$(git merge-base origin/main HEAD)"
           node scripts/test/brand-shots.mjs "$PWD" /tmp/before out/brand
       - if: always()

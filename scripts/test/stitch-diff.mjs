@@ -130,8 +130,12 @@ for (const scheme of ['dark', 'light']) for (const QW of [360, 412]) {
     await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1500); { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); } if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); } await SEED_SCREEN(page, k);
     if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(() => {}); if (READY[k] && !(await page.waitForSelector(READY[k], { state: 'attached', timeout: 6000 }).catch(() => null))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn · có: ${await page.evaluate(sel => sel.split(' ').map((_, i, a) => a.slice(0, i + 1).join(' ')).map(x => { try { return x + '=' + document.querySelectorAll(x).length; } catch (e) { return x + '=?'; } }).join(' | ') + ' · hash ' + location.hash + ' · data-st ' + [...document.querySelectorAll('[data-st]')].map(e => e.dataset.st + (e.hasAttribute('data-cur') ? '*' : '')).join(','), READY[k]).catch(e => e.message)}`);
     await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
+    // phông icon (Material Symbols) nạp lười khi có chữ cần vẽ: đo "chữ bị cắt" khi phông chưa xong thấy chữ ligature (arrow_back, check…) rộng hơn ô 1em → báo cắt GIẢ (07/11: onb-level-dark-412, welcome-desk-dark-412)
+    await page.evaluate(async () => { if (!document.fonts) return; await Promise.race([Promise.all(['Outlined', 'Rounded'].map(n => document.fonts.load('24px "Material Symbols ' + n + '"', 'home'))).then(() => document.fonts.ready), new Promise(r => setTimeout(r, 4000))]); }).catch(() => {});
     qc[`${k}-${scheme}-${QW}`] = await page.evaluate(() => { const W = innerWidth, over = [], clip = [], tap = [];
-      for (const e of document.querySelectorAll('.st *, .topbar *, .bottom-nav *')) { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); if (!r.width || cs.visibility === 'hidden' || e.closest('.sr-only')) continue;
+      // ca đối chứng DƯƠNG (gác không được yếu đi): chữ thường bị overflow:hidden cắt thật PHẢI bị đúng phép đo dưới đây bắt (chỉ chờ phông icon, không loại phần tử nào)
+      const cn = document.createElement('div'); cn.style.cssText = 'width:40px;overflow:hidden;white-space:nowrap;position:absolute;left:0;top:0'; cn.textContent = 'CANARY clipped text'; cn.setAttribute('data-qc-canary', ''); document.body.prepend(cn);   // màn không có .st/.topbar/.bottom-nav (review) vẫn có canary trong phạm vi quét
+      for (const e of document.querySelectorAll('.st *, .topbar *, .bottom-nav *, [data-qc-canary]')) { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); if (!r.width || cs.visibility === 'hidden' || e.closest('.sr-only')) continue;
         if (r.right > W + 1 || r.left < -1) if (!e.closest('[class*="overflow-hidden"],[class*="overflow-x"]') ) over.push(e.className.toString().slice(0, 40));
         if (e.children.length === 0 && e.textContent.trim() && !e.closest('.sr-only') && cs.textOverflow !== 'ellipsis' && e.scrollWidth > e.clientWidth + 2 && cs.overflow !== 'visible') clip.push(e.textContent.trim().slice(0, 24));
         if (e.matches('a,button,[role=button],input') && (() => { // vùng bấm thật = khung ∪ hộp ::after (absolute: tính theo khối chứa định vị gần nhất – nới vô hình hoặc "stretched link" phủ cả thẻ)
@@ -142,8 +146,9 @@ for (const scheme of ['dark', 'light']) for (const QW of [360, 412]) {
             const aw = L != null && R != null ? R - L : parseFloat(x.width) || 0, ah = T != null && B != null ? B - T : parseFloat(x.height) || 0;
             w = Math.max(w, aw); h = Math.max(h, ah); }
           return w < 43.5 || h < 43.5; })()) tap.push(`${(e.textContent.trim() || e.getAttribute('aria-label') || e.tagName).slice(0, 14)} ${Math.round(r.width)}x${Math.round(r.height)}`); }
+      const canary = clip.includes('CANARY clipped text'.slice(0, 24)); cn.remove(); if (canary) clip.splice(clip.indexOf('CANARY clipped text'.slice(0, 24)), 1);
       const lg = document.querySelector('.topbar .brand img'), lr = lg && lg.getBoundingClientRect();
-      return { hscroll: document.documentElement.scrollWidth > W + 1, over: over.slice(0, 5), clip: clip.slice(0, 5), tap: tap.slice(0, 8), tapN: tap.length, logo: lg ? { src: lg.getAttribute('src'), w: Math.round(lr.width), h: Math.round(lr.height), nat: lg.naturalWidth } : null }; }).catch(e => ({ error: e.message }));
+      return { canary, hscroll: document.documentElement.scrollWidth > W + 1, over: over.slice(0, 5), clip: clip.slice(0, 5), tap: tap.slice(0, 8), tapN: tap.length, logo: lg ? { src: lg.getAttribute('src'), w: Math.round(lr.width), h: Math.round(lr.height), nat: lg.naturalWidth } : null }; }).catch(e => ({ error: e.message }));
     const fullH = await page.evaluate(() => { scrollTo(0, 0); const v = document.getElementById('view'); return Math.max(document.documentElement.scrollHeight, v ? v.scrollHeight + v.getBoundingClientRect().top : 0); });
     await page.setViewportSize({ width: QW, height: Math.min(2600, Math.max(844, Math.ceil(fullH))) }); await page.waitForTimeout(250);
     { const b = await page.screenshot(); fs.writeFileSync(path.join(OUT, `w${QW}-${k}-${scheme}.png`), b); await auditContrast(page, b, `${k}-${scheme}-${QW}`); } await page.setViewportSize({ width: QW, height: 844 });
@@ -177,6 +182,7 @@ for (const scheme of ['dark', 'light']) {
     await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
     await page.evaluate(() => { if (document.activeElement) document.activeElement.blur(); scrollTo(0, 0); document.querySelectorAll('*').forEach(e => { if (e.scrollTop) e.scrollTop = 0; }); }).catch(() => {}); await page.waitForTimeout(200);
     { const b = await page.screenshot(); fs.writeFileSync(path.join(OUT, `desk-${k}-${scheme}.png`), b); await auditContrast(page, b, `${k}-${scheme}-1366`); }
+    if (k === 'home') { const dh = await page.evaluate(() => { const v = document.getElementById('view'); return Math.min(4000, Math.ceil(Math.max(document.documentElement.scrollHeight, v ? v.scrollHeight + v.getBoundingClientRect().top : 0))); }); await page.setViewportSize({ width: 1366, height: Math.max(900, dh) }); await page.waitForTimeout(300); fs.writeFileSync(path.join(OUT, `desk-full-${k}-${scheme}.png`), await page.screenshot()); await page.setViewportSize({ width: 1366, height: 900 }); } // ảnh desktop đủ cao để thấy các khối dưới màn đầu (Lộ trình)
   }
   await ctx.close();
 }
@@ -196,7 +202,7 @@ try { for (const k of Object.keys(SCREENS)) { const a = []; for (const sc of ['d
 // ---- cổng ----
 const bad = [];
 for (const [k, v] of Object.entries(res)) { const l = LIM[k] || {}; for (const m of ['ssim', 'rows']) if (l[m] != null && v[m] < l[m]) bad.push(`${k} ${m} ${v[m]} < ${l[m]}`); for (const [n, lim] of Object.entries(l.reg || {})) if (v.reg && v.reg[n] < lim) bad.push(`${k} vùng ${n} ssim ${v.reg[n]} < ${lim}`); }
-for (const [k, v] of Object.entries(qc)) { if (v.hscroll || (v.over || []).length) bad.push(`tràn ngang ${k}: ${(v.over || []).join(' | ')}`); if ((v.clip || []).length) bad.push(`chữ bị cắt ${k}: ${v.clip.join(' | ')}`); if (v.logo && !/icon\.svg/.test(v.logo.src)) bad.push(`logo ${k}: ${v.logo.src}`); }
+for (const [k, v] of Object.entries(qc)) { if (!v.error && !v.canary) bad.push(`gác QC khổ máy ${k} KHÔNG bắt chữ bị cắt giả lập (ca đối chứng dương) – phép đo chữ cắt bị vô hiệu`); if (v.hscroll || (v.over || []).length) bad.push(`tràn ngang ${k}: ${(v.over || []).join(' | ')}`); if ((v.clip || []).length) bad.push(`chữ bị cắt ${k}: ${v.clip.join(' | ')}`); if (v.logo && !/icon\.svg/.test(v.logo.src)) bad.push(`logo ${k}: ${v.logo.src}`); }
 const cmiss = Object.entries(contrast).flatMap(([k, v]) => v.miss.map(m => ({ k, ...m }))).sort((a, b) => a.cr / a.need - b.cr / b.need);
 if (cmiss.length) bad.push(`tương phản: ${cmiss.length} chỗ < ngưỡng (xem bảng)`);
 for (const [k, v] of Object.entries(ph)) if (v.length) bad.push(`giữ chỗ ${k}: ${v.join(' | ')}`);

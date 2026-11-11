@@ -27,6 +27,7 @@ export const DEFAULTS = {
   sync:      { anon: [0, 0],     free: [6, 1500],  ipx: 10, store: 'edge' },                                        // đồng bộ D1 (bắt buộc đăng nhập)
   league:    { anon: [0, 0],     free: [12, 300],  ipx: 10, store: 'edge' },                                        // bảng xếp hạng tuần
   classroom: { anon: [0, 0],     free: [30, 1500], ipx: 20, store: 'edge' },                                        // lớp học: giáo viên + học sinh (cả lớp chung 1 IP trường)
+  community: { anon: [0, 0],     free: [30, 600],  ipx: 10, store: 'edge' },                                        // cộng đồng: hồ sơ, chặn, báo cáo, kiểm tin (cờ community)
   img:       { anon: [30, 300],  free: [30, 300],  ipx: 3,  store: 'edge' },                                        // ảnh minh họa – chỉ tính lượt trượt bộ đệm
   hit:       { anon: [120, 10000], free: [120, 10000], ipx: 1, store: 'edge' },                                   // thống kê (sendBeacon, theo IP) – vượt → bỏ qua im lặng
   translate: { anon: [60, 2000], free: [60, 2000], ipx: 3,  store: 'edge' },                                        // /api/dictlookup (từ điển + dịch máy gtx của web/app) – chỉ tính lượt trượt bộ đệm

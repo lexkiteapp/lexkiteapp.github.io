@@ -9,7 +9,7 @@ import { guardBg } from './_d1guard.js';
 import { limit } from './sync.js';
 import { manifest } from './admin-shorts.js';
 import { setup, chanCfg, pauseChannel } from './youtube.js';
-import { langOfChannel, foreignAccount, pausedAccount, normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM } from './_distribution.js';
+import { langOfChannel, foreignAccount, pausedAccount, extAccount, normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM, PLAN_DAYS } from './_distribution.js';
 import { embedMeta, socialMeta, PLATFORMS } from './_role_meta.js';
 import { viewOf, typeOf } from './_clip_logic.js';
 import { TOPICS, SKILLS, EXAMS, CEFR, TYPES } from './_taxonomy.js';
@@ -23,8 +23,48 @@ const setMeta = (db, k, v) => run(db, 'INSERT INTO yt_meta (k, v) VALUES (?, ?) 
 const rules = async db => (await all(db, 'SELECT * FROM yt_rules ORDER BY pos, id')).map(r => { let cond = {}; try { cond = JSON.parse(r.cond || '{}'); } catch (e) { /* empty */ } return { id: r.id, name: r.name, cond, channel_id: r.channel_id, active: r.active }; });
 async function channels(db) {
   const out = []; for (const c of await all(db, 'SELECT channel_id, title, thumb, status, email FROM yt_channel ORDER BY id')) { const x = await chanCfg(db, c.channel_id); out.push({ channel_id: c.channel_id, title: c.title, thumb: c.thumb, status: c.status, cfg: x.cfg, paused_reason: x.paused_reason }); }
-  for (const c of await all(db, 'SELECT channel_id, platform, title, thumb, status FROM dist_ext ORDER BY platform, title')) { const x = await chanCfg(db, c.channel_id); out.push({ ...c, cfg: { ...x.cfg, role: 'social', lang: x.explicit_lang ? x.cfg.lang : (langOfChannel(c.title) || x.cfg.lang) }, paused_reason: x.paused_reason, ext: 1 }); }
+  for (const c of await all(db, 'SELECT channel_id, platform, account_id, title, thumb, status, info, updated FROM dist_ext ORDER BY platform, title')) { const x = await chanCfg(db, c.channel_id), info = parseInfo(c.info); delete c.info;
+    out.push({ ...c, thumb: avatarUrl(info) || c.thumb, thumb_src: c.thumb, info, lang_src: x.explicit_lang ? 'cfg' : langOfChannel(c.title) ? 'name' : 'default', cfg: { ...x.cfg, role: 'social', lang: x.explicit_lang ? x.cfg.lang : (langOfChannel(c.title) || x.cfg.lang) }, paused_reason: x.paused_reason, ext: 1 }); }
   return out.map(c => ({ ...c, platform: c.platform || platformOf(c.channel_id) }));
+}
+const parseInfo = v => { try { const o = JSON.parse(v || '{}'); return o && typeof o === 'object' && !Array.isArray(o) ? o : {}; } catch (e) { return {}; } };
+/** Avatar cùng origin (băm nội dung → URL bất biến, không đoán được). Không có bản cache → null (client dùng URL gốc, onerror → avatar dự phòng). */
+export const avatarUrl = info => (info && /^[a-f0-9]{32}$/.test(String(info.av || '')) ? '/api/distribution?av=' + info.av : null);
+// Chỉ tải avatar từ CDN ảnh của nền tảng (không SSRF), ≤ 256 KB, ảnh thật
+export const AV_HOST = /(^|\.)(fbcdn\.net|cdninstagram\.com|tiktokcdn(-us|-eu)?\.com|ggpht\.com|googleusercontent\.com|ytimg\.com|threads\.net)$/i;
+const AV_MAX = 262144, AV_TTL = 864e5;
+const hex = buf => [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
+const b64 = u8 => { let s = ''; for (let i = 0; i < u8.length; i += 32768) s += String.fromCharCode.apply(null, u8.subarray(i, i + 32768)); return btoa(s); };
+/** Tải 1 avatar → { h, ct, b64 } | null (lỗi/hết hạn/không phải ảnh → null, giữ bản cũ). */
+export async function fetchAvatar(url, fetcher = globalThis.fetch) {
+  let u; try { u = new URL(String(url || '')); } catch (e) { return null; }
+  if (u.protocol !== 'https:' || !AV_HOST.test(u.hostname) || typeof fetcher !== 'function') return null;
+  const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), 4000);
+  try {
+    const r = await fetcher(u.toString(), { redirect: 'follow', signal: ctl.signal, headers: { Accept: 'image/avif,image/webp,image/jpeg,image/png,image/*' } });
+    const ct = String((r.headers && r.headers.get && r.headers.get('content-type')) || '').split(';')[0].trim().toLowerCase();
+    if (!r.ok || !/^image\/(jpeg|png|webp|gif|avif)$/.test(ct)) return null;
+    const buf = new Uint8Array(await r.arrayBuffer()); if (!buf.length || buf.length > AV_MAX) return null;
+    return { h: hex(await crypto.subtle.digest('SHA-256', buf)).slice(0, 32), ct, b64: b64(buf) };
+  } catch (e) { return null; } finally { clearTimeout(t); }
+}
+/** Làm mới avatar mỗi lần sync: URL đổi hoặc bản cache > 24 giờ → tải lại; lỗi → giữ bản cũ (không bao giờ xóa avatar đang dùng). */
+async function refreshAvatars(db, rows, info, fetcher, now) {
+  const need = rows.filter(r => r.avatar && (!info[r.key].av || info[r.key].av_src !== r.avatar || now - (+info[r.key].av_at || 0) > AV_TTL)).slice(0, 40);
+  const got = await Promise.all(need.map(r => fetchAvatar(r.avatar, fetcher)));
+  for (let i = 0; i < need.length; i++) {
+    const g = got[i], I = info[need[i].key]; if (!g) { I.av_err = now; continue; }
+    await run(db, 'INSERT INTO dist_avatar (h, ct, b64, updated) VALUES (?, ?, ?, ?) ON CONFLICT(h) DO UPDATE SET updated = excluded.updated', g.h, g.ct, g.b64, now);
+    Object.assign(I, { av: g.h, av_src: need[i].avatar, av_at: now }); delete I.av_err;
+  }
+  await run(db, 'DELETE FROM dist_avatar WHERE updated < ?', now - 30 * 864e5); // bảng nhỏ (≤ vài chục ảnh): dọn bản không còn kênh nào làm mới
+}
+/** Số bài theo kênh (chỉ mục dist_social_ch): hôm nay (theo múi giờ kênh) · 7 ngày · tổng · bài gần nhất · lịch kế tiếp. */
+async function chanStats(db, id, tz, now) {
+  const agg = (await db.prepare("SELECT SUM(CASE WHEN state = 'published' THEN 1 ELSE 0 END) AS total, MAX(CASE WHEN state = 'published' THEN slot_ms END) AS last, MIN(CASE WHEN state IN ('planned', 'pushed') AND slot_ms > ? THEN slot_ms END) AS next, SUM(CASE WHEN state = 'failed' THEN 1 ELSE 0 END) AS failed FROM dist_social WHERE channel_id = ?").bind(now, id).first()) || {};
+  const today = localDate(now, tz); let d1 = 0, d7 = 0;
+  for (const r of await all(db, "SELECT slot_ms FROM dist_social WHERE channel_id = ? AND slot_ms BETWEEN ? AND ? AND state = 'published'", id, now - 7 * 864e5, now)) { d7++; if (localDate(r.slot_ms, tz) === today) d1++; }
+  return { today: d1, d7, total: +agg.total || 0, last: agg.last || null, next: agg.next || null, failed: +agg.failed || 0 };
 }
 let DS = false;
 export async function setupDist(db) {
@@ -32,7 +72,12 @@ export async function setupDist(db) {
     db.prepare('CREATE TABLE IF NOT EXISTS dist_ext (channel_id TEXT PRIMARY KEY, platform TEXT, account_id TEXT, title TEXT, thumb TEXT, status TEXT, updated INTEGER)'),
     db.prepare('CREATE TABLE IF NOT EXISTS dist_social (clip TEXT NOT NULL, channel_id TEXT NOT NULL, platform TEXT, slot_ms INTEGER, source TEXT, rule INTEGER, state TEXT, post_id TEXT, err TEXT, updated INTEGER, PRIMARY KEY (clip, channel_id))'),
     db.prepare('CREATE INDEX IF NOT EXISTS dist_social_slot ON dist_social (slot_ms)'), // social_due theo slot_ms (autopilot mỗi ≥ 30 phút) – không quét cả bảng
-  ]); DS = true;
+    db.prepare('CREATE INDEX IF NOT EXISTS dist_social_ch ON dist_social (channel_id, slot_ms)'), // số bài/kênh (hôm nay · 7 ngày · tổng · kế tiếp) theo kênh – không quét bảng
+    db.prepare('CREATE TABLE IF NOT EXISTS yt_meta (k TEXT PRIMARY KEY, v TEXT)'), // ext_sync gọi thẳng từ autopilot (DIST) trước khi youtube.setup chạy
+    db.prepare('CREATE TABLE IF NOT EXISTS dist_avatar (h TEXT PRIMARY KEY, ct TEXT, b64 TEXT, updated INTEGER)'), // avatar kênh tải về phía máy chủ (URL ký Meta hết hạn/không nhúng được)
+  ]);
+  await db.prepare('ALTER TABLE dist_ext ADD COLUMN info TEXT').run().catch(() => {}); // JSON: handle, ext_id, connected_at, admin, last_pub, used/cap, token, av (băm avatar)
+  DS = true;
 }
 const isExt = id => /^gc-[a-z_]+-[A-Za-z0-9_-]{1,80}$/.test(String(id || ''));
 const knownIds = async db => new Set([...(await all(db, 'SELECT channel_id FROM yt_channel')), ...(await all(db, 'SELECT channel_id FROM dist_ext'))].map(r => r.channel_id));
@@ -64,11 +109,13 @@ const dflt = async db => (await meta(db, 'default_channel')) || null;
 const OPS = {
   async get(db) {
     let alerts = []; try { alerts = JSON.parse((await meta(db, 'alerts')) || '[]'); } catch (e) { /* none */ }
-    return { channels: await channels(db), rules: await rules(db), fallback: await dflt(db), alerts, taxonomy: { types: TYPES, topics: TOPICS, skills: SKILLS, exams: EXAMS, cefr: CEFR }, now: Date.now() };
+    const chs = await channels(db), now = Date.now(); for (const c of chs) if (c.ext) c.stats = await chanStats(db, c.channel_id, c.cfg.tz, now);
+    let foreign = []; try { foreign = JSON.parse((await meta(db, 'ext_foreign')) || '[]').map(f => ({ ...f, thumb: avatarUrl(f) || f.avatar || null })); } catch (e) { /* none */ }
+    return { channels: chs, foreign, synced_at: +(await meta(db, 'ext_sync_at')) || null, rules: await rules(db), fallback: await dflt(db), alerts, taxonomy: { types: TYPES, topics: TOPICS, skills: SKILLS, exams: EXAMS, cefr: CEFR }, now };
   },
   async cfg_set(db, b, who) {
     const id = String(b.channel_id || ''); if (!CHID.test(id) || !(await knownIds(db)).has(id)) return { status: 404, error: 'not-found' };
-    const cfg = normCfg(b.cfg); if (isExt(id)) cfg.role = 'social'; // embed = YouTube only (lessons play YouTube ids)
+    const cfg = normCfg(isExt(id) ? { ...b.cfg, role: 'social' } : b.cfg); // embed = YouTube only (lessons play YouTube ids)
     const was = await chanCfg(db, id);
     await run(db, 'INSERT INTO yt_chan_cfg (channel_id, cfg, paused_reason, updated) VALUES (?, ?, ?, ?) ON CONFLICT(channel_id) DO UPDATE SET cfg = excluded.cfg, paused_reason = excluded.paused_reason, updated = excluded.updated', id, JSON.stringify(cfg), cfg.active ? '' : was.paused_reason, Date.now());
     return { ok: true, cfg };
@@ -121,7 +168,7 @@ const OPS = {
     return { ok: true, planned: made.length, social: posts, skipped };
   },
   async plan_get(db, b) {
-    const ch = CHID.test(String(b.channel_id || '')) ? b.channel_id : null, to = Date.now() + Math.min(Math.max(+b.days || 14, 1), 90) * 864e5;
+    const ch = CHID.test(String(b.channel_id || '')) ? b.channel_id : null, to = Date.now() + Math.min(Math.max(+b.days || 14, 1), PLAN_DAYS) * 864e5;
     const rows = await all(db, `SELECT p.clip, p.channel_id, p.slot_ms, p.source, p.rule, q.title, q.status FROM yt_plan p LEFT JOIN yt_queue q ON q.clip = p.clip WHERE p.slot_ms IS NOT NULL AND p.slot_ms <= ? ${ch ? 'AND p.channel_id = ?' : ''} ORDER BY p.slot_ms LIMIT 500`, ...(ch ? [to, ch] : [to]));
     for (const r of await all(db, `SELECT s.clip, s.channel_id, s.slot_ms, s.source, s.rule, s.state AS status, s.post_id, q.title FROM dist_social s LEFT JOIN yt_queue q ON q.clip = s.clip WHERE s.slot_ms IS NOT NULL AND s.slot_ms <= ? ${ch ? 'AND s.channel_id = ?' : ''} ORDER BY s.slot_ms LIMIT 500`, ...(ch ? [to, ch] : [to]))) rows.push({ ...r, social: 1 });
     rows.sort((a, b) => a.slot_ms - b.slot_ms);
@@ -139,19 +186,38 @@ const OPS = {
     return { ok: true, count: ids.length };
   },
   /** Social agent → mirror of GrabCast accounts (platform + id + name). Ids become "gc-<platform>-<id>"; accounts missing from the list are marked gone. */
-  async ext_sync(db, b) {
+  async ext_sync(db, b, who, env) {
     const list = Array.isArray(b.accounts) ? b.accounts.slice(0, 200) : null; if (!list) return { status: 400, error: 'bad-input' };
-    const now = Date.now(), keep = [];
-    for (const a of list) {
-      const p = String((a && a.platform) || '').toLowerCase().replace(/^facebook$/, 'facebook_page'), aid = String((a && a.id) || '');
-      if (!PLATFORMS[p] || !/^[A-Za-z0-9_-]{1,80}$/.test(aid) || foreignAccount(a)) continue; // không phản chiếu Page/IG GrabCast.click → bị gỡ khỏi dist_ext như tài khoản đã mất
-      const id = `gc-${p}-${aid}`; keep.push(id);
-      await run(db, 'INSERT INTO dist_ext (channel_id, platform, account_id, title, thumb, status, updated) VALUES (?, ?, ?, ?, ?, ?, ?) ON CONFLICT(channel_id) DO UPDATE SET title = excluded.title, thumb = excluded.thumb, status = excluded.status, updated = excluded.updated',
-        id, p, aid, String(a.name || a.title || aid).slice(0, 80), /^https:\/\//.test(String(a.thumb || a.avatar || '')) ? String(a.thumb || a.avatar).slice(0, 300) : null, a.status === 'error' || a.status === 'disconnected' ? 'error' : pausedAccount(a) ? 'paused' : 'ok', now);
+    const now = Date.now(), keep = [], rows = [], info = {}, foreign = [];
+    const old = new Map((await all(db, 'SELECT channel_id, info FROM dist_ext')).map(r => [r.channel_id, parseInfo(r.info)]));
+    let oldF = []; try { oldF = JSON.parse((await meta(db, 'ext_foreign')) || '[]'); } catch (e) { /* none */ }
+    for (const raw of list) {
+      if (!raw || typeof raw !== 'object') continue;
+      const a = raw.health || raw.display_name || raw.avatar_url || raw.needs_reconnect != null ? { ...raw, ...extAccount(raw) } : raw; // nhận cả bản GrabCast thô lẫn bản đã map (hợp đồng §3)
+      const p = String(a.platform || '').toLowerCase().replace(/^facebook$/, 'facebook_page'), aid = String(a.id == null ? '' : a.id);
+      if (!PLATFORMS[p] || !/^[A-Za-z0-9_-]{1,80}$/.test(aid)) continue;
+      const av = /^https:\/\//.test(String(a.thumb || a.avatar || '')) ? String(a.thumb || a.avatar).slice(0, 2048) : null; // URL ký FB/IG dài 400–550 ký tự: cắt ở 300 làm hỏng chữ ký → 403 (lỗi 05/11)
+      const I = { handle: String(a.handle || a.username || '').slice(0, 80), ext_id: String(a.ext_id || a.external_id || '').slice(0, 40), connected_at: +a.connected_at || null, admin: String(a.admin || '').slice(0, 120), admin_kind: String(a.admin_kind || ''),
+        last_pub: +a.last_pub || null, used: a.used == null ? null : +a.used, cap: a.cap == null ? null : +a.cap, token_exp: +a.token_exp || null, token_soon: !!a.token_soon, reason: a.reason ? String(a.reason).slice(0, 80) : null, gc_paused: pausedAccount(a) };
+      if (foreignAccount(a)) { // không phản chiếu Page/IG GrabCast.click (token dùng chung workspace 1) → chỉ liệt kê để xem, khóa ngắt kết nối
+        const f = oldF.find(x => x.platform === p && x.id === aid) || {}; foreign.push({ platform: p, id: aid, name: String(a.name || aid).slice(0, 80), ...I, avatar: av, av: f.av, av_src: f.av_src, av_at: f.av_at, key: 'f:' + p + ':' + aid }); continue;
+      }
+      const id = `gc-${p}-${aid}`; keep.push(id); const prev = old.get(id) || {};
+      info[id] = { ...I, av: prev.av, av_src: prev.av_src, av_at: prev.av_at };
+      rows.push({ key: id, avatar: av, id, p, aid, name: String(a.name || a.title || aid).slice(0, 80), status: a.status === 'error' || a.status === 'disconnected' ? 'error' : pausedAccount(a) ? 'paused' : 'ok' });
     }
+    for (const f of foreign) info[f.key] = f;
+    await refreshAvatars(db, [...rows, ...foreign], info, (env && env.AVATAR_FETCH) || globalThis.fetch, now).catch(() => {});
+    for (const r of rows) {
+      const I = { ...info[r.id] }; delete I.key;
+      await run(db, 'INSERT INTO dist_ext (channel_id, platform, account_id, title, thumb, status, info, updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT(channel_id) DO UPDATE SET title = excluded.title, thumb = excluded.thumb, status = excluded.status, info = excluded.info, updated = excluded.updated',
+        r.id, r.p, r.aid, r.name, r.avatar, r.status, JSON.stringify(I), now);
+    }
+    await setMeta(db, 'ext_foreign', JSON.stringify(foreign.map(f => { const o = { ...info[f.key] }; delete o.key; return o; }).slice(0, 20)));
+    await setMeta(db, 'ext_sync_at', String(now));
     const gone = (await all(db, 'SELECT channel_id FROM dist_ext')).map(r => r.channel_id).filter(x => !keep.includes(x));
     for (const id of gone) await run(db, "UPDATE dist_ext SET status = 'gone', updated = ? WHERE channel_id = ?", now, id);
-    return { ok: true, channels: keep, gone };
+    return { ok: true, channels: keep, gone, foreign: foreign.length };
   },
   /** Rules editor: test one clip (library id) or a sample {type, topic, sub, skill, cefr, exam, region, template, scene} against the CURRENT or the draft rules. */
   async test_clip(db, b, who, env) {
@@ -203,8 +269,24 @@ const OPS = {
   },
 };
 /** Hợp đồng §3 cho autopilot máy chủ (functions/api/_social_auto.js) – gọi thẳng, cùng hàm với op qua HTTP. */
-export const DIST = { ext_sync: (db, b) => OPS.ext_sync(db, b), social_due: (db, b, env) => OPS.social_due(db, b, null, env), social_ack: (db, b) => OPS.social_ack(db, b), plan_run: (db, b, env) => OPS.plan_run(db, b, null, env) };
+export const DIST = { ext_sync: (db, b, env) => OPS.ext_sync(db, b, null, env), social_due: (db, b, env) => OPS.social_due(db, b, null, env), social_ack: (db, b) => OPS.social_ack(db, b), plan_run: (db, b, env) => OPS.plan_run(db, b, null, env) };
+export const OPS_FOR_TEST = OPS; // test máy chủ (scripts/test/dist-channels.mjs) gọi op thẳng, không qua adminGate
 const WRITE = new Set(['cfg_set', 'rules_set', 'plan_run', 'plan_set', 'resume', 'alerts_clear', 'ext_sync', 'social_ack']);
+/** GET /api/distribution?av=<băm 32 hex> → avatar kênh đã tải về phía máy chủ (cùng origin, bất biến theo nội dung). Không cần đăng nhập: chỉ là ảnh đại diện công khai của Page/kênh,
+ *  khóa là băm SHA-256 nội dung (không đoán/liệt kê được). Bộ đệm trình duyệt + edge 1 năm → gần như 0 lượt đọc D1. */
+export async function onRequestGet({ request, env, waitUntil }) {
+  const h = new URL(request.url).searchParams.get('av') || '', miss = s => new Response(null, { status: s, headers: { 'Cache-Control': 'no-store' } });
+  if (!/^[a-f0-9]{32}$/.test(h)) return miss(400);
+  const cache = typeof caches !== 'undefined' ? caches.default : null, hit = cache ? await cache.match(request).catch(() => null) : null; if (hit) return hit;
+  if (!env.DB) return miss(404);
+  if (await limit('dav:' + (request.headers.get('CF-Connecting-IP') || '?'), 300, 60)) return miss(429);
+  await setupDist(env.DB);
+  const r = await env.DB.prepare('SELECT ct, b64 FROM dist_avatar WHERE h = ?').bind(h).first().catch(() => null); if (!r || !r.b64) return miss(404);
+  const bin = Uint8Array.from(atob(r.b64), c => c.charCodeAt(0));
+  const res = new Response(bin, { headers: { 'Content-Type': /^image\/(jpeg|png|webp|gif|avif)$/.test(r.ct) ? r.ct : 'application/octet-stream', 'Cache-Control': 'public, max-age=31536000, immutable', 'X-Content-Type-Options': 'nosniff', 'Cross-Origin-Resource-Policy': 'same-origin', 'Content-Security-Policy': "default-src 'none'; sandbox" } });
+  if (cache) { const p = cache.put(request, res.clone()).catch(() => {}); if (waitUntil) waitUntil(p); }
+  return res;
+}
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 export async function onRequestPost({ request, env }) {
   const g = await adminGate(request, env, 'dst'); if (!g.who) return json(request, g.status, { error: g.error });

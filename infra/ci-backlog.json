@@ -21,7 +21,7 @@
   { "id": "lighthouse", "workflow": "lighthouse.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 24 }, "note": "Lighthouse/CWV 14 trang (ghi reports/lighthouse.json)" },
   { "id": "ext-e2e", "workflow": "ext-e2e.yml", "cpu_bound": true, "quota_bound": false, "jobs": 6, "probe": { "stale_hours": 12 }, "note": "E2E add-on 6 ngôn ngữ" },
   { "id": "vocab-img-scene", "workflow": "vocab-img-scene.yml", "cpu_bound": false, "quota_bound": true, "eligible": false, "probe": {}, "note": "CF_POOL ảnh – hạn mức neuron, thêm runner không giúp" },
-  { "id": "lexicon-expand", "workflow": "lexicon-expand.yml", "cpu_bound": false, "quota_bound": true, "eligible": false, "probe": {}, "note": "Gemini/CF_POOL lexicon – hạn mức" },
+  {"id": "lexicon-expand", "workflow": "lexicon-expand.yml", "cpu_bound": true, "quota_bound": false, "shards_input": "shards", "max_shards": 4, "min_shards": 2, "probe": {"cmd": "node scripts/lexicon/expand/left.mjs", "left_re": "còn (\\d+) mục"}, "note": "08/11: không bị hạn mức (CF_POOL phần chữ gần như chưa dùng, Groq/Gemini xoay khoá) – shard theo băm từ#loại, trần neuron chia đều; cổng chất lượng + cầu dao sản lượng giữ nguyên"},
   { "id": "lexicon-i18n", "workflow": "lexicon-i18n.yml", "cpu_bound": false, "quota_bound": true, "eligible": false, "probe": {}, "note": "Dịch AI – hạn mức" }
  ]
 }

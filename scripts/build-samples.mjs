@@ -35,7 +35,7 @@ const indexHero = (h1, lead, sec) => `${hero(esc(h1), { lead })}\n${sectionNav('
 const related = (items, card) => items.length ? `<section class="grp" aria-labelledby="rel"><h2 id="rel">${L.related}</h2><div class="grid">${items.map(card).join('')}</div></section>` : '';
 const group = (id, title, sub, cards) => `<section class="grp" aria-labelledby="g-${id}"><h2 id="g-${id}">${esc(title)} <small>${sub}</small></h2><div class="grid">${cards.join('')}</div></section>`;
 const short = (s, n) => s.length > n ? s.slice(0, n - 3).replace(/\s+\S*$/, '') + '…' : s;
-const wmDate = gitDate('web/js/models.js', 'web/js/write').replace(/-/g, '');
+const wmDate = gitDate('web/js/models.js', 'web/js/write', 'web/cpack/write').replace(/-/g, '');
 const wm = (html, id) => embedWatermark(html, `LK:${id}:${wmDate}`); // thủy ấn tàng hình (P1) trong bài mẫu – ngày = lần sửa dữ liệu cuối (build ổn định)
 
 // ===== Writing Task 2 =====
@@ -120,7 +120,7 @@ ${sectionNav('vi', '/speaking/')}
 ${filterBox('vi')}
 ${group2('all', 'Chủ đề', `${made.length} ${L.items}`, made.map(spCard), '', 'v-speaking')}</div>`, undefined, undefined,
     { smp: 1, ld: [itemList('IELTS Speaking', made.map(([id]) => `${SITE}speaking/${id}`))] }));
-  addSm([`${SITE}speaking/`, ...made.map(([id]) => `${SITE}speaking/${id}`)], 'web/js/speaking.js', 'web/js/speak');
+  addSm([`${SITE}speaking/`, ...made.map(([id]) => `${SITE}speaking/${id}`)], 'web/js/speaking.js', 'web/js/speak', 'web/cpack/speak');
   console.log(`✓ SEO: ${made.length} trang chủ đề Speaking + mục lục`);
 }
 

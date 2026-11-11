@@ -25,7 +25,10 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo timeout 600 apt-get install -y -qq fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core }
+      - name: Chụp (tiếp)
+        run: |
           node scripts/play-shots.mjs /tmp/play-shots
       - name: Lưu vào nhánh play-shots
         run: |

@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"consume\" mean?",
+  "keyword": "consume",
+  "value": "Consume means to eat, drink, buy or use up something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=consume",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"consume\" mean?",
+    "description": "Consume means to eat, drink, buy or use up something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=consume\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "consume",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"consume\" mean?\n\nConsume means to eat, drink, buy or use up something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=consume"
+   },
+   "instagram": {
+    "caption": "What does \"consume\" mean?\n\nConsume means to eat, drink, buy or use up something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"consume\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to eat, drink, buy or use up something. Consume means to eat, drink, buy or use up something. More practice like this (free): {link}"
  }
 }

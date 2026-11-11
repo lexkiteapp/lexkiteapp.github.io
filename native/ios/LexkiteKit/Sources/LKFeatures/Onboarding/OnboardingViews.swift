@@ -33,16 +33,47 @@ struct OnbSplashView: View {
     var body: some View {
         ZStack {
             LKColor.background.resolve(scheme).ignoresSafeArea()
-            Circle().fill(LKColor.glowSecondary.resolve(scheme).opacity(0.22)).frame(width: 280, height: 280).blur(radius: 48)
-            VStack(spacing: LKSpacing.spaceMd) {
-                LexkiteMark(size: 96)
-                Text(t(.appName)).lkText(LKType.headlineLg).foregroundStyle(LKColor.onSurface.resolve(scheme))
+            // Soft glow as a radial gradient (cheap, and drawn by snapshots too – .blur is not); only the glow fades in.
+            // The mark + name are visible from the first frame so the hand-off from the system launch screen never flashes empty (C17 QC).
+            RadialGradient(colors: [LKColor.glowSecondary.resolve(scheme).opacity(0.22), .clear], center: .center, startRadius: 0, endRadius: 190)
+                .frame(width: 380, height: 380)
+                .opacity(shown || reduceMotion ? 1 : 0)
+            // Stitch splash: mark 96 + wordmark + tagline, the group 48 pt above the middle, a 3 pt indeterminate track at the bottom
+            VStack(spacing: LKSpacing.spaceXs) {
+                LexkiteMark(size: 96).padding(.bottom, LKSpacing.spaceXs)
+                Text(t(.appName)).lkText(LKType.headlineLg).foregroundStyle(LKColor.onBackground.resolve(scheme))
+                Text(t(.onbFree)).lkText(LKType.titlePill).foregroundStyle(LKColor.onSurfaceVariant.resolve(scheme)).multilineTextAlignment(.center)
+                    .padding(.horizontal, LKSpacing.spaceLg)
             }
-            .opacity(shown || reduceMotion ? 1 : 0)
+            .offset(y: -48)
+            VStack {
+                Spacer()
+                OnbSplashTrack(animate: !reduceMotion).padding(.horizontal, LKSpacing.space2xl).padding(.bottom, LKSpacing.space2xl)
+            }
         }
         .onAppear { withAnimation(LKMotionPolicy.progressAnimation(reduce: reduceMotion)) { shown = true } }
         .accessibilityElement(children: .combine)
         .accessibilityIdentifier("onb-splash")
+    }
+}
+
+/// 3 pt track with a teal segment sweeping across (static third when Reduce Motion is on).
+struct OnbSplashTrack: View {
+    let animate: Bool
+    @Environment(\.colorScheme) private var scheme
+    @State private var go = false
+    var body: some View {
+        GeometryReader { geo in
+            let w = geo.size.width / 3
+            ZStack(alignment: .leading) {
+                Capsule().fill(LKColor.outlineVariant.resolve(scheme))
+                Capsule().fill(LKColor.secondaryContainer.resolve(scheme)).frame(width: w)
+                    .offset(x: animate && go ? geo.size.width - w : 0)
+            }
+        }
+        .frame(height: 3)
+        .onAppear { if animate { withAnimation(.easeInOut(duration: 1.1).repeatForever(autoreverses: true)) { go = true } } }
+        .accessibilityHidden(true)
     }
 }
 
@@ -152,10 +183,13 @@ struct OnbProgress: View {
 /// Selectable card row (radio semantics) – Stitch tactile card, selected = secondary outline + check.
 struct OnbChoiceRow: View {
     let symbol: String?, title: String, sub: String?, selected: Bool, action: () -> Void
+    /// level meter (filled of total) in place of the icon – Stitch onb-level
+    var meter: (filled: Int, total: Int)? = nil
     @Environment(\.colorScheme) private var scheme
     var body: some View {
         Button(action: action) {
             HStack(spacing: LKSpacing.spaceSm) {
+                if let meter { OnbLevelBars(filled: meter.filled, total: meter.total) }
                 if let symbol {
                     Image(systemName: symbol).font(.system(size: 20, weight: .bold)).foregroundStyle(LKColor.onSecondary.resolve(scheme))
                         .frame(width: 44, height: 44)
@@ -176,8 +210,9 @@ struct OnbChoiceRow: View {
             .padding(LKSpacing.spaceSm)
             .frame(minHeight: 56)
             .background {
-                RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous)
-                    .fill(selected ? LKColor.secondaryFixed.resolve(scheme).opacity(0.35) : LKColor.surfaceContainer.resolve(scheme))
+                RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous).fill(LKColor.outlineVariant.resolve(scheme)).offset(y: 4)   // tactile ledge (Stitch tactile-card), neutral also when selected
+                RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous).fill(LKColor.surfaceContainer.resolve(scheme))   // opaque base: the ledge must not show through the tint
+                if selected { RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous).fill(LKColor.secondaryFixed.resolve(scheme).opacity(0.35)) }
                 RoundedRectangle(cornerRadius: LKRadius.xl * 2, style: .continuous)
                     .strokeBorder(selected ? LKColor.secondary.resolve(scheme) : LKColor.outlineVariant.resolve(scheme), lineWidth: 2)
             }
@@ -185,6 +220,24 @@ struct OnbChoiceRow: View {
         .buttonStyle(LKPressStyle())
         .accessibilityAddTraits(.isButton)
         .accessibilityAddTraits(selected ? AccessibilityTraits.isSelected : AccessibilityTraits())
+    }
+}
+
+/// Level meter: 4 bars of growing height, filled = secondary, empty = outlined slot in `outline` (≥ 3:1 on the card, WCAG 1.4.11).
+struct OnbLevelBars: View {
+    let filled: Int, total: Int
+    @Environment(\.colorScheme) private var scheme
+    var body: some View {
+        let on = Int((Double(filled) / Double(max(1, total)) * 4).rounded(.up))
+        HStack(alignment: .bottom, spacing: 3) {
+            ForEach(0..<4, id: \.self) { j in
+                Capsule().fill(j < on ? LKColor.secondary.resolve(scheme) : Color.clear)
+                    .overlay(Capsule().strokeBorder(j < on ? Color.clear : LKColor.outline.resolve(scheme), lineWidth: 1.5))
+                    .frame(width: 6, height: CGFloat(10 + 6 * j))
+            }
+        }
+        .frame(width: 44, height: 44, alignment: .bottom)
+        .accessibilityHidden(true)
     }
 }
 
@@ -318,8 +371,9 @@ struct OnbLevelStep: View {
                 VStack(spacing: LKSpacing.spaceXs) {
                     // optional quick placement test (Skip also stays available)
                     OnbChoiceRow(symbol: "safari.fill", title: t(.onbLevelTest), sub: nil, selected: flow.pick.level == "test") { flow.pick.level = "test" }
-                    ForEach(tr.stages, id: \.id) { st in
-                        OnbChoiceRow(symbol: nil, title: st.label(ielts: tr.id == "ielts"), sub: nil, selected: flow.pick.level == st.id) { flow.pick.level = st.id }
+                    ForEach(Array(tr.stages.enumerated()), id: \.element.id) { i, st in
+                        OnbChoiceRow(symbol: nil, title: tr.id == "ielts" ? st.cefr : st.label(ielts: false), sub: st.band.isEmpty ? nil : st.band, selected: flow.pick.level == st.id,
+                                     action: { flow.pick.level = st.id }, meter: (i + 1, tr.stages.count))
                     }
                 }
             }

@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -27,8 +27,8 @@
     "ko": "에",
     "hi": "को",
     "ar": "إلى",
-    "ru": "к",
-    "tr": "e"
+    "ru": "в, к",
+    "tr": "-e, -a"
    },
    "ex": {
     "es": "Voy a la tienda.",
@@ -58,7 +58,7 @@
     "pt": "te",
     "fr": "te",
     "de": "dich",
-    "vi": "bạn",
+    "vi": "bạn (tân ngữ)",
     "id": "kamu",
     "th": "คุณ",
     "zh": "你",
@@ -97,7 +97,7 @@
     "pt": "sim",
     "fr": "oui",
     "de": "ja",
-    "vi": "đúng",
+    "vi": "vâng, có",
     "id": "ya",
     "th": "ใช่",
     "zh": "是",
@@ -137,7 +137,7 @@
     "pt": "seu",
     "fr": "son/sa",
     "de": "sein/ihr",
-    "vi": "của anh ấy/của cô ấy",
+    "vi": "của anh/chị ấy, của họ, của ngài",
     "id": "nya",
     "th": "ของเขา/ของเธอ",
     "zh": "他的/她的",
@@ -255,7 +255,7 @@
     "pt": "nada",
     "fr": "rien",
     "de": "nichts",
-    "vi": "không gì",
+    "vi": "không có gì",
     "id": "tidak ada",
     "th": "ไม่มีอะไร",
     "zh": "没有",
@@ -334,7 +334,7 @@
     "es": "ese",
     "pt": "esse",
     "fr": "ce",
-    "de": "dieser",
+    "de": "jener",
     "id": "itu",
     "th": "นั้น",
     "zh": "那个",
@@ -368,7 +368,7 @@
    "pos": "adj",
    "ipa": "ˈsolo",
    "gl": {
-    "vi": "cô đơn",
+    "vi": "một mình",
     "en": "alone",
     "es": "solo",
     "pt": "sozinho",
@@ -381,7 +381,7 @@
     "ko": "혼자",
     "hi": "अकेला",
     "ar": "وحيد",
-    "ru": "одинокий",
+    "ru": "один, в одиночестве",
     "tr": "yalnız"
    },
    "ex": {
@@ -566,5 +566,13 @@
     ]
    }
   }
- ]
+ ],
+ "review": {
+  "by": "sonnet-review-A",
+  "at": "2026-11-09",
+  "checked": 14,
+  "fixed": 7,
+  "dropped": 0,
+  "sample": 14
+ }
 }

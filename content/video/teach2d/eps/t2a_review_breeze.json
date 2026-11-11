@@ -72,5 +72,46 @@
   "words": 37,
   "seconds": 23.3,
   "wpm": 95
+ },
+ "publish": {
+  "title": "What does \"breeze\" mean?",
+  "keyword": "breeze",
+  "value": "Breeze means a light and gentle wind.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=breeze",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"breeze\" mean?",
+    "description": "Breeze means a light and gentle wind.\n\nReview your words, free: https://lexkite.com/app/#/review?w=breeze\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "breeze",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"breeze\" mean?\n\nBreeze means a light and gentle wind.\n\nReview your words, free: https://lexkite.com/app/#/review?w=breeze"
+   },
+   "instagram": {
+    "caption": "What does \"breeze\" mean?\n\nBreeze means a light and gentle wind.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"breeze\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a light and gentle wind. Breeze means a light and gentle wind. Try the full lesson and quiz here: {link}"
  }
 }

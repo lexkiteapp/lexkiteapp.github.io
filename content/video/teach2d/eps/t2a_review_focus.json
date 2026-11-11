@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"focus\" mean?",
+  "keyword": "focus",
+  "value": "Focus means to give all your attention to one thing.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=focus",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"focus\" mean?",
+    "description": "Focus means to give all your attention to one thing.\n\nReview your words, free: https://lexkite.com/app/#/review?w=focus\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "focus",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"focus\" mean?\n\nFocus means to give all your attention to one thing.\n\nReview your words, free: https://lexkite.com/app/#/review?w=focus"
+   },
+   "instagram": {
+    "caption": "What does \"focus\" mean?\n\nFocus means to give all your attention to one thing.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"focus\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to give all your attention to one thing. Focus means to give all your attention to one thing. Try the full lesson and quiz here: {link}"
  }
 }

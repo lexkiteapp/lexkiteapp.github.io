@@ -6,6 +6,7 @@
 //   mục trong hàng duyệt bị xuất · lô thiếu kiểm mẫu 5% / sai > 2% mà chưa "rejected" · dịch sinh tự động hỏng biến/ô/chữ viết · thẻ lời giải không lọc mục bị báo lỗi.
 // Lỗi CŨ (nội dung soạn tay trước cổng): đếm theo nguồn × loại kiểm → content/qa/baseline.json, chỉ được giảm (sửa theo LOẠI, METHODS "Làm đúng 1 lần").
 import fs from 'node:fs';
+import { SCAN_ROOTS } from '../lib/scan-roots.mjs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
@@ -24,7 +25,7 @@ const LANGS = ['en', ...fs.readFileSync(P('scripts/i18n-langs.txt'), 'utf8').spl
 // ---------- 0) Sổ đăng ký nguồn: MỌI thư mục nội dung phải có chủ + cách kiểm (thư mục mới chưa đăng ký → đỏ) ----------
 const REG = J('content/qa/sources.json');
 const dirs = [...fs.readdirSync(P('content'), { withFileTypes: true }).filter(d => d.isDirectory()).map(d => 'content/' + d.name),
-  ...fs.readdirSync(P('web/js'), { withFileTypes: true }).filter(d => d.isDirectory() && !['vendor', 'i18n'].includes(d.name)).map(d => 'web/js/' + d.name)];
+  ...SCAN_ROOTS.filter(r => fs.existsSync(P(r))).flatMap(r => fs.readdirSync(P(r), { withFileTypes: true }).filter(d => d.isDirectory() && !['vendor', 'i18n'].includes(d.name)).map(d => r + '/' + d.name))]; // web/js + gói tải lười web/cpack
 for (const d of dirs) if (!REG.sources.some(s => (s.paths || []).some(p => p === d || p.startsWith(d + '/') || d.startsWith(p + '/'))) && !(REG.skip || {})[d]) H('đăng ký', `${d} chưa có trong content/qa/sources.json (thêm nguồn + cách kiểm, hoặc "skip" kèm lý do)`);
 const NPM_TEST = fs.readFileSync(P('package.json'), 'utf8') + (fs.existsSync(P('scripts/test/suite.txt')) ? fs.readFileSync(P('scripts/test/suite.txt'), 'utf8') : ''); // npm test = package.json "test" + danh sách scripts/test/suite.txt (run-suite)
 for (const s of REG.sources) { if (!s.owner || !s.checks || !s.checks.length) H('đăng ký', `${s.id}: thiếu owner/checks`); for (const t of s.delegate || []) if (!NPM_TEST.includes(t)) H('đăng ký', `${s.id}: test uỷ quyền "${t}" không có trong npm test`); }

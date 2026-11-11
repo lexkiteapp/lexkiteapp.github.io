@@ -5,6 +5,11 @@
 (function (g) {
   const t = (s, v) => (g.t ? g.t(s, v) : s);
 
+  // Ngôn ngữ đích ≠ en (c.tl = 'es'…): so khớp/đếm từ trên chữ đã bỏ dấu + hạ chữ thường (regex nhánh viết không dấu, `\b` của JS chỉ hiểu ASCII);
+  // sửa ngữ pháp / nhầm cặp âm là luật riêng của tiếng Anh nên bỏ qua; độ trôi chảy dùng bảng đệm/liên từ của ngôn ngữ đó.
+  const fold = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const TLX = { es: { fill: /\b(e+h+|e+m+|m{2,}|o sea)\b/g, link: /\b(porque|pero|entonces|aunque|ademas|tambien|por ejemplo|cuando|mientras|sin embargo|por eso|ya que|asi que|ademas)\b/ } };
+
   // ---------- Đồ thị ----------
   function prep(c) {
     if (!c || c._ok) return c;
@@ -24,11 +29,11 @@
   /** step → { react, next (id|null), br (chỉ số nhánh, -1 = mặc định) } */
   function step(c, id, text) {
     prep(c); const n = c.nodes[id]; if (!n) return { react: '', next: null, br: -1 };
-    const s = String(text || '');
+    const s = c.tl ? fold(text) : String(text || '');
     const brs = n.br || [];
     for (let k = 0; k < brs.length; k++) {
       const [re, line, to] = brs[k];
-      try { if (new RegExp('\\b(' + re + ')', 'i').test(s)) return { react: line, next: to !== undefined ? to : (n.next || null), br: k }; } catch (e) { /* regex hỏng → bỏ nhánh */ }
+      try { if (new RegExp('\\b(' + (c.tl ? fold(re) : re) + ')', 'i').test(s)) return { react: line, next: to !== undefined ? to : (n.next || null), br: k }; } catch (e) { /* regex hỏng → bỏ nhánh */ }
     }
     return { react: n.re || '', next: n.next || null, br: -1 };
   }
@@ -88,7 +93,7 @@
   const STOP = new Set('this that there their they them then than with have from what when were will would your yours some like just very much make made'.split(' '));
   // id đối lập → bài phát âm để luyện (#/pron/<bài>): bài đầu tiên của đối lập trong pairs.js
   const skillOf = id => { const c = g.PronPairs && g.PronPairs.CONTRASTS && g.PronPairs.CONTRASTS.find(x => x.id === id); return (c && c.skills && c.skills[0]) || 'final-consonants'; };
-  const words = s => String(s || '').toLowerCase().replace(/[’']/g, "'").match(/[a-z][a-z']*/g) || [];
+  const words = (s, tl) => tl ? (fold(s).match(/[a-z]+/g) || []) : (String(s || '').toLowerCase().replace(/[’']/g, "'").match(/[a-z][a-z']*/g) || []);
   function slips(text, c, n) {
     const heard = new Set(words(text)), idx = pairIndex(), out = [];
     // Từ "cần nói": từ khóa của lượt + từ chủ đề + từ nội dung (≥ 4 chữ) trong câu gợi ý – từ ngắn (see/she, live/life…) dễ báo nhầm nên bỏ
@@ -103,10 +108,10 @@
   // ---------- Độ trôi chảy (đếm trên máy, không cần mô hình) ----------
   const FILL = /\b(um+|uh+|er+m?|hmm+|you know)\b/gi;
   const LINK = /\b(because|so|but|although|though|however|for example|for instance|actually|also|then|which|when|if|while|instead|especially)\b/i;
-  function fluency(text, n = {}, secs = 0) {
-    const ws = words(text), fillers = (String(text || '').match(FILL) || []).length, real = ws.length - fillers;
+  function fluency(text, n = {}, secs = 0, tl) {
+    const X = tl && TLX[tl], ws = words(text, tl), fillers = (X ? fold(text).match(X.fill) || [] : String(text || '').match(FILL) || []).length, real = ws.length - fillers;
     const min = n.min || 0;
-    return { words: real, fillers, short: !!min && real < min, link: LINK.test(text || ''), wpm: secs > 1 ? Math.round(real / secs * 60) : 0 };
+    return { words: real, fillers, short: !!min && real < min, link: (X ? X.link : LINK).test(X ? fold(text) : text || ''), wpm: secs > 1 ? Math.round(real / secs * 60) : 0 };
   }
 
   // ---------- Tổng kết ----------
@@ -116,18 +121,18 @@
     const exam = /^ielts/.test(c.exam || '');
     const turns = log.map(x => {
       const n = c.nodes[x.id] || {};
-      const fix = x.picked ? null : correct(x.text, n.m);
-      const sl = x.picked ? [] : slips(x.text, c, n);
-      const fl = fluency(x.text, n, x.secs);
+      const fix = x.picked || c.tl ? null : correct(x.text, n.m);
+      const sl = x.picked || c.tl ? [] : slips(x.text, c, n);
+      const fl = fluency(x.text, n, x.secs, c.tl);
       const weak = !x.picked && (!!fix || sl.length > 0 || fl.short); // không dùng điểm nhận dạng: câu tự do khác câu mẫu vẫn là câu tốt
       return { id: x.id, m: n.m, text: x.text, picked: !!x.picked, fix, slips: sl, fl, weak, model: (n.o || [])[0] || '' };
     });
     const spoken = turns.filter(x => !x.picked);
-    const said = new Set(spoken.flatMap(x => words(x.text)).map(stem));
+    const said = new Set(spoken.flatMap(x => words(x.text, c.tl)).map(stem));
     const target = [...new Set((c.words || []).map(w => w.toLowerCase()))];
-    const used = target.filter(w => w.split(/\s+/).every(p => said.has(stem(p))));
+    const used = target.filter(w => (c.tl ? fold(w) : w).split(/\s+/).every(p => said.has(stem(p))));
     const allWords = spoken.reduce((s, x) => s + x.fl.words, 0), fillers = spoken.reduce((s, x) => s + x.fl.fillers, 0);
-    const uniq = new Set(spoken.flatMap(x => words(x.text))).size;
+    const uniq = new Set(spoken.flatMap(x => words(x.text, c.tl))).size;
     const notes = [];
     const shortN = spoken.filter(x => x.fl.short).length;
     if (shortN) notes.push({ id: 'short', n: shortN });
@@ -169,5 +174,5 @@
     return e.sr ? (e.pref === 'cloud' ? 'cloud' : 'ask') : 'tap';
   }
 
-  g.CallEngine = { prep, depth, step, correct, slips, fluency, recap, retry, asrMode, words, pairIndex, EXTRA };
+  g.CallEngine = { fold, prep, depth, step, correct, slips, fluency, recap, retry, asrMode, words, pairIndex, EXTRA };
 })(typeof self !== 'undefined' ? self : this);

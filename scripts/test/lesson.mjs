@@ -132,6 +132,7 @@ const C = {
   ok(E.storyItems(ra, 'vi', 1).filter(i => i.type === 'q').length === 3 && E.storyItems(ra, 'vi', 1).every(i => i.type !== 'line' || i.radio), 'radio: nghe hết rồi 3 câu hỏi, không hiện chữ');
 }
 try { execFileSync('node', ['scripts/lesson/build-stories.mjs', '--check'], { stdio: 'pipe' }); ok(true, 'stories.js khớp nội dung + lược đồ (15 ngôn ngữ cặp ghép)'); } catch (e) { ok(false, 'stories: ' + String(e.stderr || e.message).slice(0, 300)); }
+try { execFileSync('node', ['scripts/lesson/build-path-nodes.mjs', '--check'], { stdio: 'pipe' }); ok(true, 'path-nodes.js khớp nội dung Lộ trình + kiểm kho/CEFR/ví dụ nguyên văn'); } catch (e) { ok(false, 'path-nodes: ' + String(e.stderr || e.message).split('\n').slice(0, 4).join(' | ')); }
 try { execFileSync('node', ['scripts/lesson/build-gold.mjs', '--check'], { stdio: 'pipe' }); ok(true, 'gold.js khớp gold bank'); } catch (e) { ok(false, 'gold.js cũ – chạy node scripts/lesson/build-gold.mjs'); }
 
 // ---------- B. jsdom: chạy trọn 1 bài ----------

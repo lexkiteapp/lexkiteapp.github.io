@@ -85,6 +85,8 @@ public struct AppShell: View {
         switch tb.k {
         case "home": TodayView()
         case "me": MeHub(tab: tb)
+        case "vocab": StudyVocabHub(tab: tb)   // M3 P04/P05
+        case "skills": SkillsHubView(tab: tb)   // M4 P06
         default: HubScreen(tab: tb)
         }
     }
@@ -116,6 +118,14 @@ struct InnerScreen: View {
     @Environment(\.colorScheme) private var scheme
     @Environment(\.l10n) private var t
     var body: some View {
+        if StudyRoutes.handlesInner(route.name) { StudyInnerScreen(route: route) }
+        else if DictRoutes.handlesInner(route.name) { DictInnerScreen(route: route) }
+        else if SkillsRoutes.handlesInner(route.name) { SkillsInnerScreen(route: route) }   // M4 P06: listening · listen · reading · read
+        else if SpeakRoutes.handlesInner(route.name) { SpeakInnerScreen(route: route) }   // M4 P07: speak · speaking · pron · rtype · roleplay
+        else if WriteRoutes.handlesInner(route.name) { WriteInnerScreen(route: route) }   // M4 P09: write · task1 · qstats · criteria · fix · grammar · method · style · confidence
+        else { placeholder }
+    }
+    @ViewBuilder private var placeholder: some View {
         let tab = LKFrame.shared.tabs.first { $0.k == route.tab }
         ScrollView { Color.clear.frame(height: 1) }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -132,19 +142,33 @@ struct InnerScreen: View {
     }
 }
 
-/// Focus flow (lesson, review, mock…): no tab bar, Close X ≥ 44 pt top-leading, Esc closes. Players land in M2+.
+/// Focus flow (lesson, review, mock…): no tab bar, Close X ≥ 44 pt top-leading, Esc closes. The lesson player is P03; the other players land in M3+.
 struct FocusScreen: View {
     let route: AppRoute
     @Environment(AppServices.self) private var services
     @Environment(\.colorScheme) private var scheme
     @Environment(\.l10n) private var t
     var body: some View {
-        VStack(spacing: 0) {
-            TopBar(variant: .focus(progress: 0), title: "") { services.router.closeFocus() }
-            Spacer()
+        if route.name == "lesson" && route.arg == "go" {
+            LessonView(route: route) { services.router.closeFocus() }   // P03
+        } else if StudyRoutes.handlesFocus(route.name) {
+            StudyFocusScreen(route: route)   // M3 P04: review · practice · mistakes
+        } else if SkillsRoutes.handlesFocus(route.name) {
+            SkillsFocusScreen(route: route)   // M4 P06: listen-test · dictation
+        } else if SpeakRoutes.handlesFocus(route.name) {
+            SpeakFocusScreen(route: route)   // M4 P07: say · reflex · handsfree
+        } else if WriteRoutes.handlesFocus(route.name) {
+            WriteFocusScreen(route: route)   // M4 P09: quick
+        } else if CallRoutes.handlesFocus(route.name) {
+            CallFocusScreen(route: route)   // M4 P08: call (list → ring → call → summary)
+        } else {
+            VStack(spacing: 0) {
+                TopBar(variant: .focus(progress: 0), title: "") { services.router.closeFocus() }
+                Spacer()
+            }
+            .background(LKColor.background.resolve(scheme).ignoresSafeArea())
+            .accessibilityIdentifier("focus-\(route.name)")
         }
-        .background(LKColor.background.resolve(scheme).ignoresSafeArea())
-        .accessibilityIdentifier("focus-\(route.name)")
     }
 }
 

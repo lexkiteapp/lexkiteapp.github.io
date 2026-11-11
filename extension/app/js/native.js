@@ -125,4 +125,11 @@
   if (P.CapacitorUpdater) P.CapacitorUpdater.notifyAppReady().catch(() => {});
   if (P.CapacitorUpdater || P.AppUpdate) window.addEventListener('load', () => setTimeout(() => g.App && g.App.need('ota').then(() => g.VBOta.start()).catch(() => {}), 8000));
   window.addEventListener('load', () => setTimeout(() => scheduleReminder({ ask: false }), 3000));
+  // Crashlytics: lỗi JS từ đầu vào hàng đợi; js/crash.js (sau load) lọc dữ liệu cá nhân rồi gửi non-fatal
+  if (P.FirebaseCrashlytics) {
+    const q = g.__lkCrashQ = [], put = (k, m, s) => (g.LKCrash ? g.LKCrash.report(k, m, s) : q.length < 20 && q.push([k, m, s]));
+    g.addEventListener('error', e => { if (e && e.message) put('js', e.message, (e.error && e.error.stack) || (e.filename ? e.filename + ':' + e.lineno : '')); });
+    g.addEventListener('unhandledrejection', e => { const r = e && e.reason; put('promise', r && (r.message || String(r)), r && r.stack); });
+    window.addEventListener('load', () => { const s = document.createElement('script'); s.src = 'js/crash.js'; document.head.appendChild(s); });
+  }
 })(typeof self !== 'undefined' ? self : this);

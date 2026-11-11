@@ -115,7 +115,7 @@ const ENV = { DB, GRABCAST_API_KEY: 'gk_live_SECRET_auto_123456', SHORTS_READ_TO
 await MGR.setupMgr(DB);
 sql.exec('CREATE TABLE yt_queue (clip TEXT PRIMARY KEY, lesson TEXT, status TEXT, privacy TEXT, publish_at TEXT, approved_by TEXT, approved_at INTEGER, video_id TEXT, upload_url TEXT, session_at INTEGER, attempts INTEGER DEFAULT 0, err TEXT, updated INTEGER, thumb INTEGER, title TEXT, channel_id TEXT); CREATE TABLE clip_review (clip TEXT PRIMARY KEY, state TEXT, deleted INTEGER, web INTEGER)');
 for (const c of [CA, CB, CC]) sql.prepare("INSERT INTO yt_queue (clip, status) VALUES (?, 'manual')").run(c);
-const setCfg = o => sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v").run(JSON.stringify({ plats: { tiktok: false }, plan_daily: false, sync_h: 6, provider: 'grabcast', ...o }), now);
+const setCfg = o => sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v").run(JSON.stringify({ policy: 'owner-1011', plats: { tiktok: false }, plan_daily: false, sync_h: 6, provider: 'grabcast', ...o }), now);
 setCfg({});
 await A.runAuto({ ...ENV, GRABCAST_API_KEY: '' }, { now }); // tạo bảng
 const ext = sql.prepare('INSERT INTO dist_ext (channel_id, platform, account_id, title, status, updated) VALUES (?, ?, ?, ?, ?, ?)');
@@ -137,7 +137,7 @@ const h1 = await MGR.contentHash(pa), h2 = await MGR.contentHash({ ...pa, target
 ok(h1 !== h2, 'bình luận đầu nằm trong dấu băm duyệt: sửa bình luận sau khi duyệt = phải duyệt lại');
 // tự duyệt: đã có 1 bài FB duyệt tay KHÔNG bình luận → bài CÓ bình luận vẫn chờ duyệt tay (bài đầu mỗi nền tảng)
 sql.prepare("INSERT INTO soc_board (id, post_id, clip, accounts, plats, state, approved_by, approved_at, created, updated, by_who) VALUES ('b_old', 'p_old', 'old', '[\"2\"]', '[\"facebook_page\"]', 'published', 'boss@lexkite.com', ?, ?, ?, 'boss@lexkite.com')").run(now, now, now);
-setCfg({ auto_approve: true, manual_first: 1 });
+setCfg({ auto_approve: true, autopub: { facebook_page: true, instagram: true, tiktok: true, youtube: true, threads: true }, manual_first: 1 });
 due(CB, 'gc-facebook_page-2', 6); due(CB, 'gc-facebook_page-5', 7);
 calls = []; r = await A.runAuto(ENV, { now: now + 60e3 });
 const pb = post(CB, 2), pb5 = post(CB, 5);
@@ -149,7 +149,7 @@ ok((await A.manualCounts(DB, { fc: true })).facebook_page === 1, 'sau khi chủ 
 calls = []; r = await A.runAuto(ENV, { now: now + 2 * 60e3 });
 ok(post(CB, 2).status === 'scheduled' && board(post(CB, 2).id).approved_by === 'autopilot', 'bài có bình luận tiếp theo tự lên lịch');
 // hạn mức kênh/ngày + clip thiếu bình luận + công tắc
-setCfg({ auto_approve: true, manual_first: 1, fc: { per_ch_day: 2 } });
+setCfg({ auto_approve: true, autopub: { facebook_page: true, instagram: true, tiktok: true, youtube: true, threads: true }, manual_first: 1, fc: { per_ch_day: 2 } });
 due(CC, 'gc-facebook_page-2', 8);
 calls = []; r = await A.runAuto(ENV, { now: now + 3 * 60e3 });
 const pc = post(CC, 2);

@@ -1,6 +1,7 @@
 {
  "_doc": "Sổ đăng ký MỌI nguồn nội dung học – cổng QA (docs/CONTENT-QA.md, scripts/content-qa/gate.mjs). Thư mục nội dung mới chưa có ở đây → CI đỏ. checks: schema · lexicon · pair (✗/✓) · cefr · judges (2 giám khảo) · translation · spot (≥5%/lô) · reports (tự ẩn). gen=true: có nội dung sinh tự động → bắt buộc judges + translation + spot.",
  "sources": [
+  {"id": "outcomes", "paths": ["web/cpack/outcomes"], "owner": "claude", "gen": false, "checks": ["schema", "cefr"], "delegate": ["test/outcomes.mjs"], "doc": "docs/specs/outcomes-3-6m.md"},
   {
    "id": "stories",
    "paths": [
@@ -80,7 +81,8 @@
   {
    "id": "grammar",
    "paths": [
-    "web/js/grammar"
+    "web/js/grammar",
+    "web/cpack/grammar"
    ],
    "owner": "claude",
    "gen": false,
@@ -149,7 +151,8 @@
   {
    "id": "reading",
    "paths": [
-    "web/js/readtest"
+    "web/js/readtest",
+    "web/cpack/readings"
    ],
    "owner": "claude",
    "gen": false,
@@ -165,7 +168,8 @@
   {
    "id": "listening",
    "paths": [
-    "web/js/listen"
+    "web/js/listen",
+    "web/cpack/listen"
    ],
    "owner": "claude",
    "gen": false,
@@ -196,7 +200,8 @@
   {
    "id": "toefl",
    "paths": [
-    "web/js/toefl"
+    "web/js/toefl",
+    "web/cpack/toefl"
    ],
    "owner": "claude",
    "gen": false,
@@ -207,6 +212,24 @@
    "delegate": [
     "test/content-check.mjs"
    ]
+  },
+  {
+   "id": "cambridge",
+   "paths": [
+    "web/cpack/cambridge"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr",
+    "format"
+   ],
+   "delegate": [
+    "content-qa/exam-format-check.mjs",
+    "test/cambridge.mjs"
+   ],
+   "doc": "docs/specs/cambridge.md"
   },
   {
    "id": "exam-spec",
@@ -260,9 +283,27 @@
    "_note": "Ngôn ngữ đích (docs/specs/target-language.md): seed soát tay; bộ lõi do scripts/target/gen.mjs sinh – 2 giám khảo khác họ + dịch ngược en + mẫu soát ≥5 %"
   },
   {
+   "id": "target-es-drills",
+   "paths": [
+    "web/cpack/es"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "target/drill-pack.mjs --check",
+    "test/es-practice.mjs"
+   ],
+   "_note": "Gói luyện tập tiếng TBN W2b (spanish-course.md §10): dựng từ content/target/es/{drills,gx}; drill-pack --check = khớp nguồn + đủ 15 ngôn ngữ + ví dụ TBN nguyên văn, CI thêm LanguageTool 0 lỗi (--lt)"
+  },
+  {
    "id": "writing",
    "paths": [
-    "web/js/write"
+    "web/js/write",
+    "web/cpack/write"
    ],
    "owner": "antigravity",
    "gen": true,
@@ -280,7 +321,8 @@
   {
    "id": "speaking",
    "paths": [
-    "web/js/speak"
+    "web/js/speak",
+    "web/cpack/speak"
    ],
    "owner": "antigravity",
    "gen": true,
@@ -333,6 +375,7 @@
    "id": "lesson",
    "paths": [
     "web/js/lesson",
+    "web/cpack/lesson",
     "content/lesson"
    ],
    "owner": "claude",
@@ -505,9 +548,13 @@
    "delegate": [
     "test/content-factory.mjs"
    ]
-  }
+  },
+  { "id": "phrase-book", "paths": ["web/cpack/framework", "content/framework/functions.json"], "owner": "claude", "gen": true, "checks": ["schema"], "delegate": ["test/phrasebook.mjs", "test/content-factory.mjs"], "doc": "docs/CONTENT-FACTORY.md" }
  ],
  "skip": {
+  "web/cpack/es-app": "MÃ giao diện bài phát âm TBN (pron-ui.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu ở web/cpack/es (nguồn px), test scripts/test/es-pron.mjs",
+  "web/cpack/play-app": "MÃ giao diện Thử thách 60 giây (play-blitz.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/play-blitz.mjs",
+  "web/cpack/outcomes-app": "MÃ giao diện bài đo (outcomes.js, outcomes-core.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu đề ở web/cpack/outcomes (nguồn 'outcomes'), test scripts/test/outcomes.mjs",
   "content/seo": "sổ máy sinh lastmod.json (URL → băm nội dung chính + ngày sửa thật cho sitemap) – không phải nội dung học; scripts/lib/lastmod.mjs, test scripts/test/lastmod.mjs",
   "web/js/st": "khuôn giao diện 4 màn port thẳng từ Google Stitch (DOM + class Tailwind, chữ qua t()) – không phải nội dung học; kiểm bởi scripts/test/stitch-diff.mjs + build-stitch-css.mjs --check",
   "web/js/vimg": "mảnh chỉ mục ảnh minh hoạ (khoá từ#loại → mã băm ảnh) SINH bởi build-lexicon từ content/lexicon/img.json – không phải nội dung học; ảnh đã qua cổng vocab-img (OCR, NSFW, giám khảo), kiểm bởi scripts/test/vocab-img.mjs",

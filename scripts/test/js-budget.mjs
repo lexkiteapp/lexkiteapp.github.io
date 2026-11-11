@@ -40,14 +40,8 @@ ok(vals.length >= 12 && !('en' in pk), `langPacks: ≥ 12 gói ngoài en (có ${
 ok(LB.topSize === Math.max(...vals) && pk[LB.topLang] === LB.topSize, 'gói lớn nhất = max thật, không phải trung bình');
 ok(LB.learner === LB.total - LB.sum + LB.topSize, 'learner = total − Σ gói + gói lớn nhất');
 ok(LB.learner < LB.total && LB.learner > LB.total - LB.sum, 'thước mới nằm giữa: nhỏ hơn tổng cả kho, lớn hơn nền thuần (vẫn tính 1 gói)');
-// Bản dịch tình huống Play & Speak (speak/s/<id>.<lang>.js) tải lười theo ngôn ngữ đang dùng (speak/app.js `sit`) → tính vào gói ngôn ngữ đó, không vào nền
-{ const S = 'web/js/speak/s'; const tr = fs.readdirSync(S).filter(f => /^[\w-]+\.[a-z]{2}\.js$/.test(f) && !f.endsWith('.en.js'));
-  ok(tr.length >= 13, `có bản dịch tình huống để kiểm (${tr.length})`);
-  const by = {}; for (const f of tr) { const l = f.match(/\.([a-z]{2})\.js$/)[1]; by[l] = (by[l] || 0) + fs.statSync(S + '/' + f).size; }
-  for (const [l, n] of Object.entries(by)) ok(pk[l] >= n, `gói ${l} đã gồm ${n} B bản dịch tình huống`);
-  ok(fs.readFileSync('web/js/speak/app.js', 'utf8').includes("'js/speak/s/' + k + '.js'"), 'loader tình huống vẫn nạp đúng 1 bản dịch (id.lang) theo ngôn ngữ đang dùng – nếu đổi loader phải đổi thước');
-  const base = tr.length && fs.readdirSync(S).filter(f => /^[\w-]+\.js$/.test(f) && !/\.[a-z]{2}\.js$/.test(f));
-  ok(base.length >= 1 && LB.total - LB.sum >= base.reduce((a, f) => a + fs.statSync(S + '/' + f).size, 0), 'gốc tình huống (en) vẫn nằm trong nền'); }
+// Tình huống Play & Speak (speak/s/<id>[.<lang>].js) nay ở web/cpack/speak/s (tải lười, băm tên) → KHÔNG tính vào nền hay gói ngôn ngữ; kho JS không được mọc lại thư mục này
+ok(!fs.existsSync('web/js/speak/s'), 'tình huống Play & Speak nằm trong web/cpack/speak/s, không phải web/js/speak/s');
 const bj = JSON.parse(fs.readFileSync('scripts/test/budget.json', 'utf8'));
 ok(Math.max(...vals) <= bj.langPackMax, `gói ${LB.topLang} ${LB.topSize} B ≤ langPackMax ${bj.langPackMax}`);
 ok(LB.total <= bj.totalAll && bj.totalAll >= bj.totalJs, 'totalAll (chặn tổng cả kho) tồn tại và ≥ totalJs');

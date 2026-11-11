@@ -11,6 +11,8 @@
     "sync_drive_enabled": false,
     "sync_push_every_ms": 600000,
     "teacher_rive_enabled": true,
-    "today_banner_enabled": true
+    "today_banner_enabled": true,
+    "vocab_img": "",
+    "vocab_img_pct": 10
   }
 }

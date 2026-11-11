@@ -4,7 +4,7 @@
   --brand-ink: #0F3D3E;
   --radius: var(--r-lg);
   --radius-sm: var(--r-sm);
-  --font: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --font: "Be Vietnam Pro", "Be Vietnam Pro Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   --ipa: "Segoe UI", "Charis SIL", "Doulos SIL", "Gentium Plus", "Lucida Sans Unicode", "Arial Unicode MS", "Noto Sans", "DejaVu Sans", Roboto, sans-serif; /* đủ ɪ ʊ ə ː ˈ ˌ trên Windows/macOS/Android/Linux, không tải file font */
   /* Design tokens (docs/DESIGN-SYSTEM.md): khoảng cách 4/8/12/16/24/32 · bo góc · cỡ chữ (Be Vietnam Pro đã nạp) · độ nổi · chuyển động M3 */
   --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 32px;
@@ -157,6 +157,8 @@ p { margin: .4rem 0; }
 .btn.lg { padding: 14px var(--sp-5); font-size: var(--fs-md); border-radius: var(--r-md); }
 .btn.block { width: 100%; white-space: normal; text-align: center; line-height: 1.35; overflow-wrap: anywhere; } /* nút rộng hết khung: chữ dài tự xuống dòng, không tràn (vd. Bắt đầu: …) */
 .btn[disabled] { opacity: .5; cursor: default; pointer-events: none; }
+/* Nút bị vô hiệu vẫn đọc được (AA ≥ 4.5:1 cả sáng/tối): nền nhạt + chữ muted + viền đứt, không làm mờ cả nút. Lý do chưa bấm được: .next-why ngay dưới */
+.btn.btn[disabled] { opacity: 1; background: var(--surface-2); color: var(--muted); border: 1px dashed color-mix(in srgb, var(--muted) 55%, transparent); box-shadow: none; }
 
 .input, select.input, textarea.input { width: 100%; padding: .7rem .9rem; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); outline: none; transition: border-color .15s, box-shadow .15s; }
 /* iOS Safari: ô ngày/giờ có bề rộng nội tại > khung → tràn (24/10). Ép co theo khung, căn trái như ô khác. */
@@ -183,6 +185,7 @@ label.field > span { display: block; font-weight: 600; margin-bottom: .35rem; fo
 .chip { display: inline-flex; align-items: center; gap: .25rem; padding: .14rem .6rem; border-radius: 999px; background: var(--surface-2); font-size: .78rem; color: var(--muted); font-weight: 600; white-space: nowrap; }
 a.chip:hover { background: var(--primary-soft); color: var(--primary-text); }
 .chip.lv { background: var(--primary-soft); color: var(--primary-text); }
+#lkHero .chip { white-space: normal; max-width: 100%; line-height: 1.35; padding-block: var(--sp-1); } /* câu giới thiệu dài (vi/de/fr…) bị cắt ngang ở điện thoại 375 px → xuống dòng */
 .chip.lv.B1 { background: var(--good-soft); color: var(--good-text); }
 .chip.lv.C1, .chip.lv.C2 { background: var(--gold-soft); color: var(--gold-text); }
 .chip.pos { font-style: italic; }
@@ -463,6 +466,7 @@ html:has(.grade-bar) { scroll-padding-bottom: 6.5rem; }
   .bottom-nav { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 25; justify-content: space-around; background: var(--surface); border-top: 1px solid var(--line); padding: .25rem .25rem calc(.25rem + env(safe-area-inset-bottom)); }
   .bottom-nav a { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: .25rem .2rem; min-height: 44px; min-width: 44px; font-size: .6875rem; font-weight: 700; color: var(--muted); flex: 1; box-sizing: border-box; }
   .bottom-nav a span { font-size: 1.3rem; line-height: 1; }
+  .bottom-nav.st-nav > .st { height: 100%; } /* thanh Stitch (h-20 = 80 px) nằm trong #bnav cao 64 px + safe-area (tactile.css): ô tab tràn đáy 4 px → vừa đúng chiều cao thanh, tính cả safe-area */
   .bottom-nav a.active { color: var(--primary); }
   .bottom-nav .badge { position: absolute; top: 4px; right: calc(50% - 16px); margin: 0; min-width: 0; width: 9px; height: 9px; padding: 0; border-radius: 50%; font-size: 11px; line-height: 0; color: transparent; overflow: visible; background: var(--accent, var(--again)); box-shadow: 0 0 0 2px var(--surface); } /* tab Từ vựng: chấm nhỏ thay số đỏ (số vẫn trong DOM cho trình đọc màn hình) */
   .view { --view-pb: 6.5rem; padding-bottom: var(--view-pb); }
@@ -820,7 +824,7 @@ html:has(.learn-bar) { scroll-padding-bottom: 140px; } .wi .wc-sec, .wi-sec { sc
 /* Màn hình chào trên điện thoại: logo trái – chọn ngôn ngữ gọn bên phải; nút chính rộng hết màn hình */
 @media (max-width: 560px) {
 }
-@media (max-width: 1023px) { body:not(.bare) .toast { bottom: calc(84px + env(safe-area-inset-bottom)); } } /* không che thanh điều hướng dưới */
+@media (max-width: 1023px) { .toast { bottom: calc(84px + env(safe-area-inset-bottom)); } } /* không che thanh điều hướng dưới; KHÔNG phụ thuộc body.bare: gỡ 'bare' lúc đổi màn khi toast đang hiện làm toast nhảy 56 px = CLS (mqa #/home 360, 07/11) */
 /* Cảm giác app gốc trên điện thoại: không nháy ô xanh khi chạm, không kéo giãn trang, nút không bị bôi đen chữ */
 html { -webkit-tap-highlight-color: transparent; overscroll-behavior-y: none; }
 button, .btn, .option, .tabs, .bottom-nav { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
@@ -946,6 +950,9 @@ a, button, label, .option, .card.hover, [role="button"] { touch-action: manipula
 #view:focus, #view:focus-visible { outline: none; } /* focus chuyển về nội dung khi đổi trang – không viền quanh cả trang */
 @keyframes viewIn { from { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { #view { animation: none; } }
+/* Thanh tab Stitch (shell.js, trong #view): dính đáy NGAY cả khi CSS màn (css/st-v2-*.css) chưa nạp xong – loadCss thôi chờ sau 1,5 s; trước đây lần nạp đầu
+   trên máy chậm (WebKit/iPhone) thanh tab nằm trong luồng ở cuối trang. Cùng giá trị với lớp Tailwind fixed bottom-0 w-full z-50 → không đổi giao diện. */
+body.v2on #view nav.fixed.bottom-0 { position: fixed; bottom: 0; width: 100%; z-index: 50; }
 /* Khung chờ khi tải */
 .skel-page { display: grid; gap: .9rem; padding-top: .4rem; }
 .skel { border-radius: 14px; background: linear-gradient(90deg, var(--surface-2) 25%, var(--surface-3, var(--line)) 50%, var(--surface-2) 75%); background-size: 200% 100%; animation: skel 1.2s ease-in-out infinite; }
@@ -1175,10 +1182,10 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 /* Phản hồi chạm: nút & thẻ nảy nhẹ khi bấm */
 .btn:active, .card.hover:active, .hub-card:active, .plan-item:active, .option:active { transform: scale(.97); transition: transform 80ms; }
 /* Chế độ tập trung khi ôn thẻ/luyện: ẩn menu bên, thanh trên và thanh dưới */
-body.focus .sidebar, body.focus .bottom-nav { display: none; }
-body.focus .shell { grid-template-columns: 1fr; }
-/* Thanh trên GIỮ chỗ (không display:none, không đổi padding .view) → vào/thoát màn học không đẩy nội dung (CLS ≈ 0, mqa); chỉ ẩn bằng transform/visibility */
-body.focus .topbar { visibility: hidden; transform: translateY(-100%); pointer-events: none; }
+body.focus .sidebar, body.focus .bottom-nav, .lk-fo .sidebar, .lk-fo .bottom-nav { display: none; }
+body.focus .shell, .lk-fo .shell { grid-template-columns: 1fr; }
+/* Màn học: thanh trên ra khỏi luồng để không để lại dải trống ở đầu màn */
+.lk-fo .topbar, body.focus .topbar { position: absolute; inset-inline: 0; visibility: hidden; transform: translateY(-100%); pointer-events: none; }
 
 .contact-form { display: flex; flex-direction: column; gap: 1rem; position: relative; }
 .contact-form label { display: flex; flex-direction: column; gap: .35rem; font-weight: 600; font-size: .92rem; }
@@ -1335,6 +1342,8 @@ body:has(.sheet) .view { padding-bottom: calc(18rem + env(safe-area-inset-bottom
 .pill.fire .i { color: #F2553B; fill: #FFB054; fill-opacity: .55; }
 .pill.xp .i { color: var(--gold); fill: currentColor; fill-opacity: .9; }
 .pill .pill-sub { display: inline-flex; align-items: center; gap: 2px; margin-inline-start: var(--sp-1); color: var(--accent-text); }
+/* lượt đóng băng điền SAU khi nạp dữ liệu (App.updateChrome): huy hiệu nổi ở góc pill chuỗi – không đổi bề rộng hàng chỉ số (CLS top-stats 0,041, mqa #/home 360 07/11); min-width làm ô tra từ < 44 px */
+.top-stats .pill.fire { position: relative; } .top-stats .pill.fire .pill-sub { position: absolute; top: calc(-1 * var(--sp-2)); inset-inline-end: calc(-1 * var(--sp-1)); margin: 0; padding: 0 var(--sp-1); border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: var(--fs-xs); line-height: 1.3; }
 .pill.fire i.flame-icon { display: inline-grid; place-items: center; font-style: normal; }
 .set-h .i, .set-nav .i { width: 1.15em; height: 1.15em; vertical-align: -.2em; }
 .set-h .i { width: 1.35em; height: 1.35em; color: var(--accent-text); }
@@ -1473,3 +1482,5 @@ body:has(.learn-bar,.grade-bar,.sheet,.sel-bar,.install-nudge,#modal:not([hidden
 .v2 nav a[data-tab]:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 .v2 nav a[data-tab]:active .st-ti { transform: scale(.88); }
 @media (prefers-reduced-motion: reduce) { .st-ti { transition: none; } .v2 nav a[data-tab]:active .st-ti { transform: none; } }
+/* icon-flash: chữ ligature chưa có phông → trong suốt, rộng 1em (lớp do iconGuard trong js/app.js gắn/gỡ theo họ phông) */
+html.ic-wait-o .material-symbols-outlined,html.ic-wait-r .material-symbols-rounded{color:transparent!important;display:inline-block;max-width:1em;overflow:hidden;white-space:nowrap}

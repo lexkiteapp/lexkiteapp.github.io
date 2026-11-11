@@ -37,6 +37,7 @@ jobs:
   gate:
     # npm test: một định nghĩa dùng chung với cổng PR (.github/workflows/npm-test.yml)
     uses: ./.github/workflows/npm-test.yml
+    permissions: { contents: read, actions: write }   # job `heavy` của npm-test xin actions: write; thiếu → startup_failure cả lượt (scripts/test/workflow-call-perms.mjs)
     with: { sha: '${{ github.event.inputs.sha || github.sha }}' }
   smoke:
     needs: tag
@@ -121,6 +122,6 @@ jobs:
         if: steps.key.outputs.has == '1'
         run: |
           npm ci --no-audit --no-fund
-          npm ci --prefix mobile --no-audit --no-fund --ignore-scripts
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund --ignore-scripts
           OTA_ONLY=1 ./scripts/build-mobile.sh
           node scripts/ota/release.mjs publish --sha "$SHA"

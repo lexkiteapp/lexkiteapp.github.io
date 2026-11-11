@@ -63,7 +63,7 @@ ok(eagerFiles().every(u => first.includes(u)) && swShell().every(u => first.incl
   ok(rd2.indexOf('if (late.length) App.calm(() => App.need(...late)') > rd2.indexOf('await fn(arg, query)'), "gói 'words' nạp SAU khi trang vẽ (App.calm), không bỏ hẳn");
   ok(/skelHome/.test(app) && /skelReview/.test(app), 'Hôm nay/Ôn vẫn có khung chờ (skeleton) khi gói còn lại tải lâu');
   const st = rd('web/js/study.js');
-  ok(/const libNorm = \(\) => libN && libN\.length === TOPICS\.length/.test(st) && /if \(window\.Distract\)/.test(st) && /!window\.Distract \|\| !Distract\.pickAsync/.test(st), 'Ôn: phương án nhiễu có dự phòng khi chưa có distract.js, kho tự làm mới khi TOPICS lớn thêm');
+  ok(/const libNorm = \(\) => libN && \(?libN\.length === TOPICS\.length/.test(st) && /if \(window\.Distract\)/.test(st) && /!window\.Distract \|\| !Distract\.pickAsync/.test(st), 'Ôn: phương án nhiễu có dự phòng khi chưa có distract.js, kho tự làm mới khi TOPICS lớn thêm');
   const ux = rd('web/js/ux1.js'), data = rd('web/js/data.js');
   const ids = ((/ielts: \[([^\]]*)\]/.exec(ux.slice(ux.indexOf('const ORDER'))) || [])[1] || '').match(/'[a-z]+'/g) || [];
   ok(ids.length >= 8 && ids.every(id => data.includes('T(' + id)), 'Hôm nay (ux1): mọi chặng của lộ trình lấy từ data.js (khung), không cần kho words: ' + ids.join(' '));

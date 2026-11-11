@@ -15,6 +15,15 @@ export function hedged(get, g, ms = HEDGE_MS) {
   });
 }
 
+/** Cắt bản đầy đủ theo header Range (GitHub/Chrome đều dùng bytes=a-b, bytes=a-, bytes=-n) → 206; đích ngoài file → 416; header lạ → trả nguyên bản 200. */
+export function sliceRange(res, range) {
+  const m = /^bytes=(\d*)-(\d*)$/.exec(String(range || '').trim()), body = res.body, size = body.length;
+  if (!m || (m[1] === '' && m[2] === '')) return { ...res, headers: { ...res.headers, 'accept-ranges': 'bytes' } };
+  const start = m[1] === '' ? Math.max(0, size - +m[2]) : +m[1], end = m[1] === '' || m[2] === '' ? size - 1 : Math.min(+m[2], size - 1);
+  if (start >= size || end < start) return { status: 416, headers: { ...res.headers, 'accept-ranges': 'bytes', 'content-range': `bytes */${size}` }, body: Buffer.alloc(0) };
+  return { status: 206, headers: { ...res.headers, 'accept-ranges': 'bytes', 'content-range': `bytes ${start}-${end}/${size}` }, body: body.subarray(start, end + 1) };
+}
+
 export function makeOriginFetcher({ hedgeMs = HEDGE_MS } = {}) {
   const memo = new Map(), stats = { fetched: 0, shared: 0, failed: 0 };
   /** candidates: mảng URL gốc; get(g) → {status, headers, body} | null (null = thử gốc kế). key: URL CDN (không memo nếu falsy, vd. request Range). */

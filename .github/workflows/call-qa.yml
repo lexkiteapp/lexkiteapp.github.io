@@ -23,7 +23,11 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo apt-get install -y -qq espeak-ng >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: espeak-ng }
+      - name: Playwright + espeak-ng (tiếp)
+        timeout-minutes: 14
+        run: |
           python3 -m pip install -q pillow
       - name: Mẫu âm thanh (giọng espeak-ng, 16 kHz mono, có khoảng lặng)
         run: |

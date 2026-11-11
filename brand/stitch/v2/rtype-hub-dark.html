@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Reading by question type (dark – dark-from-light.mjs)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ba1a1a",
+            "surface-container": "#f1ede7",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed": "#ffdad3",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed-variant": "#224d4e",
+            "surface-container-high": "#ebe8e2",
+            "surface-container-highest": "#e6e2dc",
+            "on-error": "#ffffff",
+            "on-secondary-fixed-variant": "#00504b",
+            "inverse-primary": "#a3cfcf",
+            "on-error-container": "#93000a",
+            "tertiary": "#4a0400",
+            "inverse-on-surface": "#f4f0ea",
+            "error-container": "#ffdad6",
+            "surface-bright": "#fdf9f3",
+            "tertiary-container": "#720a00",
+            "outline": "#717978",
+            "on-tertiary-container": "#ff765e",
+            "inverse-surface": "#31302d",
+            "background": "#fdf9f3",
+            "on-primary-container": "#7da8a8",
+            "primary": "#002627",
+            "secondary-container": "#88f5ea",
+            "primary-fixed-dim": "#a3cfcf",
+            "on-secondary-fixed": "#00201e",
+            "surface-variant": "#e6e2dc",
+            "on-surface-variant": "#404848",
+            "on-surface": "#1c1c18",
+            "secondary": "#006a64",
+            "on-primary-fixed": "#002020",
+            "on-tertiary-fixed-variant": "#900f00",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#6bd8ce",
+            "surface-tint": "#3b6566",
+            "surface-container-low": "#f7f3ed",
+            "tertiary-fixed-dim": "#ffb4a6",
+            "surface": "#fdf9f3",
+            "outline-variant": "#c0c8c8",
+            "on-secondary-container": "#00716a",
+            "secondary-fixed": "#88f5ea",
+            "surface-dim": "#dddad4",
+            "primary-fixed": "#beebeb",
+            "primary-container": "#0f3d3e",
+            "on-tertiary-fixed": "#3f0300",
+            "on-background": "#1c1c18"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "body-md": ["Nunito Sans"],
+            "headline-xl": ["Nunito Sans"],
+            "label-md": ["Nunito Sans"],
+            "headline-sm": ["Nunito Sans"],
+            "headline-md": ["Nunito Sans"],
+            "body-lg": ["Nunito Sans"],
+            "headline-lg": ["Nunito Sans"],
+            "label-sm": ["Nunito Sans"],
+            "body-sm": ["Nunito Sans"]
+          },
+          "fontSize": {
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Tactile button ledge styles */
+    .tactile-coral {
+      background-color: #BB4F36;
+      box-shadow: 0 4px 0 #743121;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-coral:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #0E1618;
+    }
+    .tactile-teal {
+      background-color: #12514D;
+      box-shadow: 0 4px 0 #0B3230;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-teal:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #0E1618;
+    }
+    .tactile-secondary {
+      background-color: #172427;
+      border: 1.5px solid #4A6870;
+      box-shadow: 0 3px 0 #0E1618;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-secondary:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #0E1618;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#1D2F33] text-[#EAF2F2] antialiased min-h-screen flex justify-center selection:bg-[#1F4A4E] selection:text-[#5EEAD4]">
+<!-- Mobile Viewport Shell (390px width constraint) -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#1D2F33] flex flex-col pb-10 relative">
+<!-- Top Bar (Inner screen variant, strictly 44x44px back button, no bottom bar) -->
+<header class="sticky top-0 z-40 bg-[#1D2F33]/95 backdrop-blur-md px-4 h-14 flex items-center justify-between border-b border-[#37525A]/40">
+<button aria-label="Back to reading overview" class="w-11 h-11 flex items-center justify-center rounded-xl text-[#5EEAD4] hover:bg-[#263A3F] active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-bold text-[#5EEAD4] tracking-tight text-center truncate px-2">
+        Reading by question type
+      </h1>
+<!-- Trailing Action: EN • VN language pill per shared spec -->
+<button aria-label="Language selection" class="h-11 px-2.5 flex items-center justify-center font-label-sm text-label-sm text-[#EAF2F2] rounded-xl hover:bg-[#263A3F] active:translate-y-0.5 transition-transform" type="button">
+<span>EN • VN</span>
+</button>
+</header>
+<!-- Content Canvas -->
+<div class="px-4 pt-4 flex flex-col gap-4">
+<!-- Intro Coaching Card -->
+<section class="bg-[#162528] rounded-3xl p-5 border border-[#4A6870] shadow-sm flex flex-col gap-3.5">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-2xl bg-[#1F4A4E]/30 flex items-center justify-center shrink-0 text-[#5EEAD4]">
+<span class="material-symbols-outlined text-[22px]">lightbulb</span>
+</div>
+<div class="flex-1">
+<div class="font-label-md text-label-md font-bold text-[#5EEAD4]">Strategic study order</div>
+<p class="font-body-sm text-body-sm text-[#EAF2F2] mt-1 leading-relaxed">
+              Focus on one type until your accuracy reaches 70–80% before moving on. Suggested order: Completion, True/False/Not Given, Multiple choice, Matching.
+            </p>
+</div>
+</div>
+<div class="pt-2 border-t border-[#37525A]">
+<a class="min-h-[44px] flex items-center justify-between px-3 py-2 -mx-1 rounded-2xl hover:bg-[#263A3F] transition-colors group" href="#progress-breakdown">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[#5EEAD4] text-[22px]">analytics</span>
+<span class="font-label-md text-label-md text-[#5EEAD4] font-bold group-hover:text-[#5EEAD4] transition-colors">See progress by skill and type</span>
+</div>
+<span class="material-symbols-outlined text-[#EAF2F2] text-[20px] group-hover:translate-x-0.5 transition-transform">chevron_right</span>
+</a>
+</div>
+</section>
+<!-- Section Title & Meta Count -->
+<div class="flex items-center justify-between px-1 pt-1">
+<span class="font-label-md text-label-md font-bold text-[#5EEAD4] tracking-wide">5 question categories</span>
+<span class="font-label-sm text-label-sm text-[#EAF2F2]">IELTS Academic</span>
+</div>
+<!-- Question Type Cards Stack -->
+<div class="flex flex-col gap-3.5">
+<!-- Card 1: Sentence / summary completion (Mastered) -->
+<article class="bg-[#162528] rounded-3xl p-4 sm:p-5 border border-[#4A6870] shadow-sm flex flex-col gap-3.5">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3 min-w-0">
+<div class="w-12 h-12 rounded-2xl bg-primary-container text-[#5EEAD4] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]">edit_note</span>
+</div>
+<div class="min-w-0">
+<h2 class="font-headline-sm text-headline-sm font-bold text-[#5EEAD4] leading-tight break-words">Sentence / summary completion</h2>
+<p class="font-body-sm text-body-sm text-[#EAF2F2] mt-0.5">12 questions · 3 groups</p>
+</div>
+</div>
+<!-- Accuracy Chip -->
+<div class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#263A3F] text-[#5EEAD4] font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined fill-icon text-[18px]">check_circle</span>
+<span>78%</span>
+</div>
+</div>
+<!-- Progress Bar & Status -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="w-full h-2 bg-[#263A3F] rounded-full overflow-hidden">
+<div class="h-full bg-[#12514D] rounded-full" style="width: 78%;"></div>
+</div>
+<div class="flex items-center gap-1.5 text-[#5EEAD4]">
+<span class="material-symbols-outlined fill-icon text-[16px]">verified</span>
+<p class="font-label-sm text-label-sm font-bold">Goal reached – move on to the next type</p>
+</div>
+</div>
+<!-- Tactile Secondary Tap Button (≥44px height) -->
+<button class="w-full min-h-[44px] py-2.5 px-4 tactile-secondary rounded-2xl flex items-center justify-center gap-2 font-label-md text-label-md font-bold text-[#5EEAD4]" type="button">
+<span>Review completed answers</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</article>
+<!-- Card 2: True / False / Not Given (In Progress) -->
+<article class="bg-[#162528] rounded-3xl p-4 sm:p-5 border-2 border-[#12514D]/40 shadow-sm flex flex-col gap-3.5 relative overflow-hidden">
+<!-- Active Target Accent Pill -->
+<div class="absolute top-0 right-0 bg-[#12514D]/10 px-3 py-0.5 rounded-bl-xl">
+<span class="font-label-sm text-[11px] font-bold text-[#5EEAD4] uppercase tracking-wider">Recommended next</span>
+</div>
+<div class="flex items-start justify-between gap-3 pt-1">
+<div class="flex items-start gap-3 min-w-0">
+<div class="w-12 h-12 rounded-2xl bg-[#12514D]/10 text-[#5EEAD4] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]">fact_check</span>
+</div>
+<div class="min-w-0">
+<h2 class="font-headline-sm text-headline-sm font-bold text-[#5EEAD4] leading-tight break-words">True / False / Not Given</h2>
+<p class="font-body-sm text-body-sm text-[#EAF2F2] mt-0.5">18 questions · 4 groups</p>
+</div>
+</div>
+<!-- Accuracy Chip -->
+<div class="shrink-0 px-2.5 py-1 rounded-full bg-[#263A3F] text-[#FFC94A] font-label-md text-label-md font-bold">
+<span>61%</span>
+</div>
+</div>
+<!-- Progress Bar & Status -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="w-full h-2 bg-[#263A3F] rounded-full overflow-hidden">
+<div class="h-full bg-[#A95D05] rounded-full" style="width: 61%;"></div>
+</div>
+<div class="flex items-center justify-between text-[#EAF2F2]">
+<p class="font-label-sm text-label-sm font-semibold text-[#5EEAD4]">Goal: 75% accuracy</p>
+<span class="font-label-sm text-label-sm font-bold text-[#FFC94A] bg-[#263A3F]/70 px-2 py-0.5 rounded-md">14% left</span>
+</div>
+</div>
+<!-- Tactile Primary Teal CTA Button (≥44px height) -->
+<button class="w-full min-h-[48px] py-3 px-4 tactile-teal text-on-primary rounded-2xl flex items-center justify-center gap-2 font-label-md text-label-md font-bold" type="button">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+<span>Practise (10 min)</span>
+</button>
+</article>
+<!-- Card 3: Multiple choice (A–D) (Not Started - Priority Coral CTA) -->
+<article class="bg-[#162528] rounded-3xl p-4 sm:p-5 border border-[#4A6870] shadow-sm flex flex-col gap-3.5">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3 min-w-0">
+<div class="w-12 h-12 rounded-2xl bg-[#263A3F] text-[#EAF2F2] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]">checklist</span>
+</div>
+<div class="min-w-0">
+<h2 class="font-headline-sm text-headline-sm font-bold text-[#5EEAD4] leading-tight break-words">Multiple choice (A–D)</h2>
+<p class="font-body-sm text-body-sm text-[#EAF2F2] mt-0.5">15 questions · 3 groups</p>
+</div>
+</div>
+<!-- Accuracy Chip: Neutral Not Started -->
+<div class="shrink-0 px-2.5 py-1 rounded-full bg-[#263A3F] text-[#EAF2F2] font-label-md text-label-md font-bold">
+<span>Not started</span>
+</div>
+</div>
+<!-- Progress Bar & Status -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="w-full h-2 bg-[#263A3F] rounded-full overflow-hidden">
+<div class="h-full bg-[#37525A] rounded-full" style="width: 0%;"></div>
+</div>
+<p class="font-label-sm text-label-sm text-[#EAF2F2]">Not started – Start practising</p>
+</div>
+<!-- Tactile Coral CTA Button (#ff6b4a with bottom ledge) -->
+<button class="w-full min-h-[48px] py-3 px-4 tactile-coral text-white rounded-2xl flex items-center justify-center gap-2 font-label-md text-label-md font-bold" type="button">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+<span>Start practising</span>
+</button>
+</article>
+<!-- Card 4: Matching headings -->
+<article class="bg-[#162528] rounded-3xl p-4 sm:p-5 border border-[#4A6870] shadow-sm flex flex-col gap-3.5">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3 min-w-0">
+<div class="w-12 h-12 rounded-2xl bg-[#263A3F] text-[#EAF2F2] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]">view_agenda</span>
+</div>
+<div class="min-w-0">
+<h2 class="font-headline-sm text-headline-sm font-bold text-[#5EEAD4] leading-tight break-words">Matching headings</h2>
+<p class="font-body-sm text-body-sm text-[#EAF2F2] mt-0.5">16 questions · 4 groups</p>
+</div>
+</div>
+<!-- Accuracy Chip -->
+<div class="shrink-0 px-2.5 py-1 rounded-full bg-[#4A2A22] text-[#FF9A86] font-label-md text-label-md font-bold">
+<span>40%</span>
+</div>
+</div>
+<!-- Progress Bar & Status -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="w-full h-2 bg-[#263A3F] rounded-full overflow-hidden">
+<div class="h-full bg-[#D33C3C] rounded-full" style="width: 40%;"></div>
+</div>
+<div class="flex items-center justify-between text-[#EAF2F2]">
+<p class="font-label-sm text-label-sm font-semibold text-[#5EEAD4]">Goal: 75% accuracy</p>
+<span class="font-label-sm text-label-sm text-[#EAF2F2]">35% to goal</span>
+</div>
+</div>
+<!-- Tactile Secondary Button -->
+<button class="w-full min-h-[44px] py-2.5 px-4 tactile-secondary rounded-2xl flex items-center justify-center gap-2 font-label-md text-label-md font-bold text-[#5EEAD4]" type="button">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+<span>Practise</span>
+</button>
+</article>
+<!-- Card 5: Matching information & features (Locked / Sequence) -->
+<article class="bg-[#263A3F]/70 rounded-3xl p-4 sm:p-5 border border-[#37525A] flex flex-col gap-3">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3 min-w-0">
+<div class="w-12 h-12 rounded-2xl bg-[#263A3F] text-[#EAF2F2] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">hub</span>
+</div>
+<div class="min-w-0">
+<h2 class="font-headline-sm text-headline-sm font-bold text-[#EAF2F2]/80 leading-tight break-words">Matching information &amp; features</h2>
+<p class="font-body-sm text-body-sm text-[#EAF2F2] mt-0.5">10 questions · 2 groups</p>
+</div>
+</div>
+<!-- Lock Indicator -->
+<div class="w-9 h-9 rounded-full bg-[#263A3F] flex items-center justify-center text-[#EAF2F2] shrink-0">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+</div>
+<div class="pt-1 flex items-center gap-2 text-[#EAF2F2] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-[#EAF2F2]">info</span>
+<span>Not started · Unlocks after Headings reaches 70%</span>
+</div>
+</article>
+</div>
+<!-- Quick Session Footer Note -->
+<footer class="mt-2 text-center pb-6">
+<p class="font-body-sm text-body-sm text-[#EAF2F2]">
+          Pacing: 1.5 minutes per question recommended for band 7.5+
+        </p>
+</footer>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,893 @@
+{
+ "id": "client-complaint",
+ "group": "work",
+ "cefr": "B2",
+ "title": {
+  "en": "Handling a complaint",
+  "vi": "Xử lý khiếu nại của khách",
+  "es": "Atender la queja de un cliente",
+  "pt": "Lidar com a reclamação de um cliente",
+  "fr": "Gérer la réclamation d'un client",
+  "de": "Eine Kundenbeschwerde bearbeiten",
+  "id": "Menangani keluhan pelanggan",
+  "th": "รับมือกับเรื่องร้องเรียนของลูกค้า",
+  "zh": "处理客户投诉",
+  "ja": "お客様のクレーム対応",
+  "ko": "고객 불만 응대",
+  "hi": "ग्राहक की शिकायत संभालना",
+  "ar": "التعامل مع شكوى عميل",
+  "ru": "Работа с жалобой клиента",
+  "tr": "Müşteri şikâyetini yönetme"
+ },
+ "goal": {
+  "en": "Calm the caller and solve the problem!",
+  "vi": "Trấn an khách và giải quyết vấn đề!",
+  "es": "¡Calma al cliente y resuelve el problema!",
+  "pt": "Acalme o cliente e resolva o problema!",
+  "fr": "Rassurez le client et réglez le problème !",
+  "de": "Beruhige den Anrufer und löse das Problem!",
+  "id": "Tenangkan penelepon dan selesaikan masalahnya!",
+  "th": "ทำให้ลูกค้าใจเย็นและแก้ปัญหา!",
+  "zh": "安抚来电者并解决问题！",
+  "ja": "お客様を落ち着かせて問題を解決しよう！",
+  "ko": "고객을 진정시키고 문제를 해결해요!",
+  "hi": "कॉल करने वाले को शांत करें और समस्या सुलझाएँ!",
+  "ar": "هدّئ المتصل وحُلّ المشكلة!",
+  "ru": "Успокой клиента и реши проблему!",
+  "tr": "Arayanı sakinleştir ve sorunu çöz!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "calm",
+   "title": {
+    "en": "Listen and calm",
+    "vi": "Lắng nghe và trấn an",
+    "es": "Escuchar y calmar",
+    "pt": "Ouvir e acalmar",
+    "fr": "Écouter et apaiser",
+    "de": "Zuhören und beruhigen",
+    "id": "Mendengar dan menenangkan",
+    "th": "รับฟังและทำให้สงบ",
+    "zh": "倾听与安抚",
+    "ja": "聞いて落ち着かせる",
+    "ko": "듣고 진정시키기",
+    "hi": "सुनें और शांत करें",
+    "ar": "الإصغاء والتهدئة",
+    "ru": "Выслушать и успокоить",
+    "tr": "Dinle ve sakinleştir"
+   },
+   "lines": [
+    "c1",
+    "c2",
+    "c3",
+    "c4"
+   ]
+  },
+  {
+   "id": "options",
+   "title": {
+    "en": "Offer options",
+    "vi": "Đưa ra phương án",
+    "es": "Ofrecer opciones",
+    "pt": "Oferecer opções",
+    "fr": "Proposer des options",
+    "de": "Optionen anbieten",
+    "id": "Menawarkan pilihan",
+    "th": "เสนอทางเลือก",
+    "zh": "提供方案",
+    "ja": "選択肢を示す",
+    "ko": "선택지 제시하기",
+    "hi": "विकल्प दें",
+    "ar": "عرض الخيارات",
+    "ru": "Предложить варианты",
+    "tr": "Seçenek sun"
+   },
+   "lines": [
+    "c5",
+    "c6",
+    "c7",
+    "c8"
+   ]
+  },
+  {
+   "id": "agree",
+   "title": {
+    "en": "Agree and follow up",
+    "vi": "Thống nhất và theo dõi",
+    "es": "Acordar y dar seguimiento",
+    "pt": "Combinar e acompanhar",
+    "fr": "Convenir et assurer le suivi",
+    "de": "Vereinbaren und nachfassen",
+    "id": "Menyepakati dan menindaklanjuti",
+    "th": "ตกลงและติดตามผล",
+    "zh": "达成一致并跟进",
+    "ja": "合意してフォローする",
+    "ko": "합의하고 후속 조치하기",
+    "hi": "सहमति बनाएँ और फ़ॉलो-अप करें",
+    "ar": "الاتفاق والمتابعة",
+    "ru": "Договориться и проследить",
+    "tr": "Anlaş ve takip et"
+   },
+   "lines": [
+    "c9",
+    "c10",
+    "c11",
+    "c12"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "c1",
+   "who": "barista",
+   "en": "I'm calling because my order arrived three days late, and half of it was damaged.",
+   "variants": {
+    "polite": "I'm sorry to trouble you, but my order arrived three days late and half of it was damaged.",
+    "casual": "My order came three days late, and half of it was broken."
+   },
+   "gloss": {
+    "en": "A caller explains that their order was late and partly damaged.",
+    "vi": "Tôi gọi vì đơn hàng của tôi đến trễ ba ngày, mà một nửa lại bị hư hỏng.",
+    "es": "Llamo porque mi pedido llegó con tres días de retraso y la mitad estaba dañada.",
+    "pt": "Estou ligando porque meu pedido chegou com três dias de atraso e metade estava danificada.",
+    "fr": "J'appelle parce que ma commande est arrivée avec trois jours de retard et la moitié était abîmée.",
+    "de": "Ich rufe an, weil meine Bestellung drei Tage zu spät kam und die Hälfte beschädigt war.",
+    "id": "Saya menelepon karena pesanan saya terlambat tiga hari dan separuhnya rusak.",
+    "th": "ฉันโทรมาเพราะออเดอร์มาถึงช้าไปสามวัน และเสียหายไปครึ่งหนึ่ง",
+    "zh": "我打电话是因为订单晚到了三天，而且有一半损坏了。",
+    "ja": "注文が3日遅れて届き、しかも半分が破損していたのでお電話しました。",
+    "ko": "주문이 사흘이나 늦게 왔고 절반은 파손되어 있어서 전화드렸어요.",
+    "hi": "मैं इसलिए फ़ोन कर रहा हूँ कि मेरा ऑर्डर तीन दिन देर से आया और आधा सामान टूटा हुआ था।",
+    "ar": "أتصل لأن طلبي وصل متأخرًا ثلاثة أيام وكان نصفه تالفًا.",
+    "ru": "Звоню, потому что мой заказ пришёл на три дня позже, и половина товаров повреждена.",
+    "tr": "Siparişim üç gün geç geldi ve yarısı hasarlıydı, bu yüzden arıyorum."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "damaged",
+     "ipa": "/ˈdæm.ɪdʒd/",
+     "hi": "DAM",
+     "note": {
+      "en": "Stress the first syllable: DAM-ijd, with an \"ijd\" ending.",
+      "vi": "Nhấn âm đầu: ĐEM-ịt, kết thúc bằng âm “ịt”.",
+      "es": "Acentúa la primera sílaba: DA-mid, que termina en «ijd».",
+      "pt": "Acentue a primeira sílaba: DÃ-mijd, terminando em \"ijd\".",
+      "fr": "Accentuez la première syllabe : DA-midj, finale en « idj ».",
+      "de": "Erste Silbe betonen: DÄ-midsch, Endung „idsch“.",
+      "id": "Tekankan suku pertama: DEM-ijd, berakhir dengan bunyi “ijd”.",
+      "th": "เน้นพยางค์แรก: แดม-มิจ ลงท้ายเสียง “อิจด์”",
+      "zh": "重音在第一个音节：DAM-ijd，结尾读“ijd”。",
+      "ja": "最初の音節を強く：ダミジド。語末は「イジド」。",
+      "ko": "첫 음절에 강세: 대-미지드, 끝은 ‘이지드’.",
+      "hi": "पहले अक्षर पर ज़ोर: डैम-इज्ड, अंत में ‘इज्ड’।",
+      "ar": "شدّد على المقطع الأول: دام-ِجد، وتنتهي بـ «ijd».",
+      "ru": "Ударение на первый слог: ДЭМ-иджд, окончание «иджд».",
+      "tr": "İlk hece vurgulu: DEM-ijd, sonu “ijd” ile biter."
+     }
+    }
+   ]
+  },
+  {
+   "id": "c2",
+   "who": "customer",
+   "en": "I'm very sorry to hear that. Could you tell me your order number so I can look into it?",
+   "variants": {
+    "polite": "I'm so sorry to hear that. Would you mind giving me your order number so that I can look into it?",
+    "casual": "Sorry about that. What's your order number?"
+   },
+   "gloss": {
+    "en": "Apologising and asking for the order number to investigate.",
+    "vi": "Tôi rất tiếc khi nghe vậy. Anh/chị cho tôi mã đơn hàng để tôi kiểm tra nhé?",
+    "es": "Lamento mucho oírlo. ¿Me dice su número de pedido para que lo revise?",
+    "pt": "Sinto muito por isso. Poderia me informar o número do pedido para eu verificar?",
+    "fr": "Je suis vraiment désolé de l'apprendre. Pouvez-vous me donner votre numéro de commande pour que je regarde ?",
+    "de": "Das tut mir sehr leid. Könnten Sie mir Ihre Bestellnummer nennen, damit ich der Sache nachgehen kann?",
+    "id": "Saya sangat menyesal mendengarnya. Boleh sebutkan nomor pesanannya agar saya bisa memeriksanya?",
+    "th": "ขออภัยอย่างยิ่งที่ได้ยินเรื่องนี้ ช่วยแจ้งหมายเลขออเดอร์เพื่อให้ฉันตรวจสอบได้ไหมคะ",
+    "zh": "听到这个我很抱歉。能告诉我订单号吗？我来查一下。",
+    "ja": "それは大変申し訳ありません。調べますので、ご注文番号を教えていただけますか？",
+    "ko": "그런 일이 있었다니 정말 죄송합니다. 확인해 드릴 수 있도록 주문번호를 말씀해 주시겠어요?",
+    "hi": "यह सुनकर मुझे बहुत खेद है। क्या आप अपना ऑर्डर नंबर बता सकते हैं ताकि मैं जाँच कर सकूँ?",
+    "ar": "يؤسفني سماع ذلك. هل يمكنك إخباري برقم طلبك حتى أتحقق من الأمر؟",
+    "ru": "Мне очень жаль это слышать. Назовите, пожалуйста, номер заказа, чтобы я мог разобраться.",
+    "tr": "Bunu duyduğuma çok üzüldüm. İnceleyebilmem için sipariş numaranızı söyler misiniz?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c3",
+   "who": "barista",
+   "en": "It's the third time this has happened, and honestly I'm losing patience.",
+   "variants": {
+    "polite": "I understand you're busy, but this is the third time this has happened, and I'm losing patience.",
+    "casual": "This is the third time. I've had enough."
+   },
+   "gloss": {
+    "en": "The caller shows frustration that the problem keeps happening.",
+    "vi": "Đây là lần thứ ba rồi, và thật lòng tôi sắp hết kiên nhẫn.",
+    "es": "Es la tercera vez que pasa y, sinceramente, estoy perdiendo la paciencia.",
+    "pt": "É a terceira vez que isso acontece e, sinceramente, estou perdendo a paciência.",
+    "fr": "C'est la troisième fois que ça arrive et, franchement, je perds patience.",
+    "de": "Das ist schon das dritte Mal, und ehrlich gesagt verliere ich die Geduld.",
+    "id": "Ini sudah ketiga kalinya, dan jujur saja kesabaran saya mulai habis.",
+    "th": "นี่เป็นครั้งที่สามแล้ว และบอกตามตรงว่าฉันเริ่มหมดความอดทน",
+    "zh": "这已经是第三次了，说实话我快没耐心了。",
+    "ja": "これで3回目で、正直もう我慢の限界です。",
+    "ko": "이번이 벌써 세 번째예요. 솔직히 인내심이 바닥나고 있어요.",
+    "hi": "यह तीसरी बार हुआ है, और सच कहूँ तो मेरा धैर्य टूट रहा है।",
+    "ar": "هذه ثالث مرة يحدث فيها ذلك، وبصراحة بدأ صبري ينفد.",
+    "ru": "Это уже третий раз, и, честно говоря, моё терпение заканчивается.",
+    "tr": "Bu üçüncü kez oluyor ve açıkçası sabrım tükeniyor."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "patience",
+     "ipa": "/ˈpeɪ.ʃəns/",
+     "hi": "PAY",
+     "note": {
+      "en": "Say PAY-shuns: the first syllable sounds like \"pay\".",
+      "vi": "Đọc PÂY-sần: âm đầu giống từ “pay”.",
+      "es": "Di PEI-shens: la primera sílaba suena como «pay».",
+      "pt": "Diga PEI-chens: a primeira sílaba soa como \"pay\".",
+      "fr": "Dites PÈ-cheunce : la première syllabe sonne comme « pay ».",
+      "de": "Sprich PEI-schens: Die erste Silbe klingt wie „pay“.",
+      "id": "Ucapkan PEI-syens: suku pertama seperti kata “pay”.",
+      "th": "ออกเสียง เพ-เชินส์ พยางค์แรกเหมือนคำว่า “pay”",
+      "zh": "读作 PAY-shuns，第一个音节像 “pay”。",
+      "ja": "「ペイシェンス」。最初は “pay” と同じ音。",
+      "ko": "‘페이션스’로 읽어요. 첫 음절은 “pay”와 같아요.",
+      "hi": "‘पे-शन्स’ बोलें; पहला अक्षर “pay” जैसा है।",
+      "ar": "انطقها «بيي-شنس»، والمقطع الأول مثل “pay”.",
+      "ru": "Читается ПЭЙ-шнс: первый слог как «pay».",
+      "tr": "PEY-şıns diye okunur; ilk hece “pay” gibidir."
+     }
+    }
+   ]
+  },
+  {
+   "id": "c4",
+   "who": "customer",
+   "en": "I completely understand your frustration, and I apologise for the inconvenience this has caused.",
+   "variants": {
+    "polite": "I completely understand your frustration, and I sincerely apologise for the inconvenience this has caused.",
+    "casual": "I get why you're annoyed, and I'm sorry for the trouble."
+   },
+   "gloss": {
+    "en": "Showing empathy and apologising for the inconvenience.",
+    "vi": "Tôi hoàn toàn hiểu sự bực bội của anh/chị và xin lỗi vì sự bất tiện này.",
+    "es": "Entiendo perfectamente su frustración y le pido disculpas por las molestias.",
+    "pt": "Entendo totalmente a sua frustração e peço desculpas pelo transtorno.",
+    "fr": "Je comprends tout à fait votre frustration et je m'excuse pour ce désagrément.",
+    "de": "Ich verstehe Ihren Ärger vollkommen und entschuldige mich für die Unannehmlichkeiten.",
+    "id": "Saya sepenuhnya mengerti kekesalan Anda dan meminta maaf atas ketidaknyamanan ini.",
+    "th": "ฉันเข้าใจความหงุดหงิดของคุณอย่างเต็มที่ และขออภัยในความไม่สะดวกที่เกิดขึ้น",
+    "zh": "我完全理解您的沮丧，对由此造成的不便深表歉意。",
+    "ja": "ご不満はもっともです。ご迷惑をおかけしたことをお詫びいたします。",
+    "ko": "답답하신 마음 충분히 이해합니다. 불편을 끼쳐 드려 죄송합니다.",
+    "hi": "मैं आपकी निराशा पूरी तरह समझता हूँ और इस असुविधा के लिए क्षमा चाहता हूँ।",
+    "ar": "أتفهّم إحباطك تمامًا، وأعتذر عن الإزعاج الذي سبّبه ذلك.",
+    "ru": "Я полностью понимаю ваше раздражение и приношу извинения за доставленные неудобства.",
+    "tr": "Hayal kırıklığınızı tamamen anlıyorum ve yaşattığımız rahatsızlık için özür dilerim."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "apologise",
+     "ipa": "/əˈpɒl.ə.dʒaɪz/",
+     "hi": "POL",
+     "note": {
+      "en": "Stress the second syllable: uh-POL-uh-jize.",
+      "vi": "Nhấn âm thứ hai: ờ-PỌL-ờ-chai-z.",
+      "es": "Acentúa la segunda sílaba: e-POL-e-yais.",
+      "pt": "Acentue a segunda sílaba: a-PÓL-a-jaiz.",
+      "fr": "Accentuez la deuxième syllabe : eu-POL-eu-djaïz.",
+      "de": "Zweite Silbe betonen: e-POL-e-dschaiz.",
+      "id": "Tekankan suku kedua: e-POL-e-jaiz.",
+      "th": "เน้นพยางค์ที่สอง: อะ-พอล-อะ-ไจซ์",
+      "zh": "重音在第二个音节：uh-POL-uh-jize。",
+      "ja": "2番目の音節を強く：ア・ポロ・ジャイズ。",
+      "ko": "두 번째 음절에 강세: 어-팔-러-자이즈.",
+      "hi": "दूसरे अक्षर पर ज़ोर: अ-पॉल-अ-जाइज़।",
+      "ar": "شدّد على المقطع الثاني: أ-بول-ا-جايز.",
+      "ru": "Ударение на втором слоге: э-ПОЛ-э-джайз.",
+      "tr": "İkinci hece vurgulu: ı-POL-ı-caylz."
+     }
+    }
+   ]
+  },
+  {
+   "id": "c5",
+   "who": "customer",
+   "en": "Let me check what went wrong. It looks like the shipment was held up at the warehouse.",
+   "variants": {
+    "polite": "Allow me to check what went wrong. It appears the shipment was held up at the warehouse.",
+    "casual": "Let me check. The shipment got stuck at the warehouse."
+   },
+   "gloss": {
+    "en": "Checking the cause and explaining where the delay happened.",
+    "vi": "Để tôi kiểm tra xem sai ở đâu. Có vẻ lô hàng bị giữ lại ở kho.",
+    "es": "Déjeme comprobar qué falló. Parece que el envío se quedó retenido en el almacén.",
+    "pt": "Deixe-me verificar o que deu errado. Parece que a remessa ficou retida no depósito.",
+    "fr": "Laissez-moi vérifier ce qui s'est passé. Il semble que l'expédition ait été retenue à l'entrepôt.",
+    "de": "Ich prüfe, was schiefgelaufen ist. Offenbar blieb die Sendung im Lager hängen.",
+    "id": "Biar saya periksa apa yang salah. Sepertinya kiriman tertahan di gudang.",
+    "th": "ขอตรวจสอบว่าผิดพลาดตรงไหน ดูเหมือนว่าพัสดุถูกกักไว้ที่คลังสินค้า",
+    "zh": "让我查一下哪里出了问题。看起来货物被压在了仓库里。",
+    "ja": "何が起きたか確認します。出荷が倉庫で止まっていたようです。",
+    "ko": "무엇이 잘못됐는지 확인해 볼게요. 배송이 창고에서 지연된 것 같습니다.",
+    "hi": "मुझे देखने दीजिए कि क्या गड़बड़ हुई। लगता है माल गोदाम में अटक गया था।",
+    "ar": "دعني أتحقق مما حدث. يبدو أن الشحنة تأخرت في المستودع.",
+    "ru": "Позвольте проверить, что пошло не так. Похоже, отправка задержалась на складе.",
+    "tr": "Neyin ters gittiğine bakayım. Görünüşe göre sevkiyat depoda bekletilmiş."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "warehouse",
+     "ipa": "/ˈweə.haʊs/",
+     "hi": "WAIR",
+     "note": {
+      "en": "Stress the first syllable: WAIR-house.",
+      "vi": "Nhấn âm đầu: UE-hao-x.",
+      "es": "Acentúa la primera sílaba: UER-jaus.",
+      "pt": "Acentue a primeira sílaba: UÉR-raus.",
+      "fr": "Accentuez la première syllabe : OUÈR-haouss.",
+      "de": "Erste Silbe betonen: WÄR-haus.",
+      "id": "Tekankan suku pertama: WER-haus.",
+      "th": "เน้นพยางค์แรก: แวร์-เฮาส์",
+      "zh": "重音在第一个音节：WAIR-house。",
+      "ja": "最初を強く：ウェアハウス。",
+      "ko": "첫 음절에 강세: 웨어-하우스.",
+      "hi": "पहले अक्षर पर ज़ोर: वेयर-हाउस।",
+      "ar": "شدّد على المقطع الأول: وير-هاوس.",
+      "ru": "Ударение на первый слог: УЭР-хаус.",
+      "tr": "İlk hece vurgulu: VER-haus."
+     }
+    }
+   ]
+  },
+  {
+   "id": "c6",
+   "who": "customer",
+   "en": "I can offer you a full refund for the damaged items, or send replacements free of charge.",
+   "variants": {
+    "polite": "I can offer you a full refund for the damaged items, or alternatively send replacements free of charge.",
+    "casual": "I can refund the broken items or send new ones for free."
+   },
+   "gloss": {
+    "en": "Offering two clear options: a refund or free replacements.",
+    "vi": "Tôi có thể hoàn tiền đầy đủ cho các món hỏng, hoặc gửi đồ thay thế miễn phí.",
+    "es": "Puedo ofrecerle el reembolso completo de los artículos dañados o enviarle repuestos sin coste.",
+    "pt": "Posso oferecer o reembolso total dos itens danificados ou enviar substitutos sem custo.",
+    "fr": "Je peux vous proposer un remboursement intégral des articles abîmés ou vous envoyer des remplacements gratuitement.",
+    "de": "Ich kann Ihnen die beschädigten Artikel voll erstatten oder kostenlos Ersatz schicken.",
+    "id": "Saya bisa menawarkan pengembalian dana penuh untuk barang yang rusak, atau mengirim penggantinya tanpa biaya.",
+    "th": "ฉันเสนอคืนเงินเต็มจำนวนสำหรับสินค้าที่เสียหาย หรือส่งสินค้าทดแทนให้ฟรีได้ค่ะ",
+    "zh": "损坏的商品我可以给您全额退款，或者免费寄送替换品。",
+    "ja": "破損した商品は全額返金するか、無料で交換品をお送りできます。",
+    "ko": "파손된 상품은 전액 환불해 드리거나 무료로 교환품을 보내 드릴 수 있어요.",
+    "hi": "मैं टूटे सामान का पूरा पैसा लौटा सकता हूँ, या बिना शुल्क के बदले का सामान भेज सकता हूँ।",
+    "ar": "يمكنني أن أعرض عليك استردادًا كاملًا للأصناف التالفة، أو إرسال بدائل مجانًا.",
+    "ru": "Я могу предложить полный возврат средств за повреждённые товары или бесплатно отправить замену.",
+    "tr": "Hasarlı ürünler için tam iade önerebilirim ya da ücretsiz yenilerini gönderebilirim."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c7",
+   "who": "barista",
+   "en": "I'd prefer the replacements, but only if they arrive by Friday.",
+   "variants": {
+    "polite": "I'd prefer the replacements, if they could possibly arrive by Friday.",
+    "casual": "Replacements, but they must arrive by Friday."
+   },
+   "gloss": {
+    "en": "The caller chooses replacements but sets a deadline.",
+    "vi": "Tôi muốn nhận đồ thay thế, nhưng chỉ khi chúng đến trước thứ Sáu.",
+    "es": "Prefiero los repuestos, pero solo si llegan antes del viernes.",
+    "pt": "Prefiro os substitutos, mas só se chegarem até sexta-feira.",
+    "fr": "Je préfère les remplacements, mais seulement s'ils arrivent d'ici vendredi.",
+    "de": "Ich hätte lieber den Ersatz, aber nur, wenn er bis Freitag eintrifft.",
+    "id": "Saya lebih suka penggantinya, tetapi hanya jika tiba paling lambat Jumat.",
+    "th": "ฉันขอรับสินค้าทดแทน แต่ต้องมาถึงภายในวันศุกร์เท่านั้น",
+    "zh": "我想要替换品，但前提是周五之前能送到。",
+    "ja": "交換品がいいですが、金曜までに届く場合に限ります。",
+    "ko": "교환품이 좋겠어요. 다만 금요일까지 도착해야 해요.",
+    "hi": "मैं बदले का सामान लेना चाहूँगा, पर तभी जब वह शुक्रवार तक पहुँच जाए।",
+    "ar": "أفضّل البدائل، لكن فقط إذا وصلت قبل يوم الجمعة.",
+    "ru": "Предпочту замену, но только если она придёт до пятницы.",
+    "tr": "Yenilerini tercih ederim ama yalnızca cumaya kadar ulaşırlarsa."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c8",
+   "who": "customer",
+   "en": "I can't promise Friday, but I'll ask the warehouse to send them with priority delivery.",
+   "variants": {
+    "polite": "I can't guarantee Friday, but I'll ask the warehouse to send them with priority delivery.",
+    "casual": "I can't promise Friday, but I'll ask for priority delivery."
+   },
+   "gloss": {
+    "en": "Being honest about what you cannot promise while offering an effort.",
+    "vi": "Tôi không dám hứa thứ Sáu, nhưng tôi sẽ nhờ kho gửi ưu tiên.",
+    "es": "No puedo prometer el viernes, pero pediré al almacén que lo envíe con entrega prioritaria.",
+    "pt": "Não posso prometer sexta-feira, mas vou pedir ao depósito que envie com entrega prioritária.",
+    "fr": "Je ne peux pas promettre vendredi, mais je demanderai à l'entrepôt une livraison prioritaire.",
+    "de": "Freitag kann ich nicht versprechen, aber ich bitte das Lager um einen Prioritätsversand.",
+    "id": "Saya tidak bisa menjanjikan Jumat, tetapi akan meminta gudang mengirimnya dengan prioritas.",
+    "th": "ฉันสัญญาวันศุกร์ไม่ได้ แต่จะขอให้คลังสินค้าส่งแบบเร่งด่วนให้",
+    "zh": "周五我不能保证，但我会请仓库优先发货。",
+    "ja": "金曜日はお約束できませんが、倉庫に優先配送を依頼します。",
+    "ko": "금요일은 약속드리기 어렵지만, 창고에 우선 배송을 요청해 볼게요.",
+    "hi": "मैं शुक्रवार का वादा नहीं कर सकता, पर गोदाम से प्राथमिकता वाली डिलीवरी के लिए कहूँगा।",
+    "ar": "لا أستطيع أن أعد بيوم الجمعة، لكنني سأطلب من المستودع إرسالها بتوصيل ذي أولوية.",
+    "ru": "Пятницу обещать не могу, но попрошу склад отправить заказ с приоритетной доставкой.",
+    "tr": "Cumayı garanti edemem ama depodan öncelikli teslimatla göndermesini isteyeceğim."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c9",
+   "who": "barista",
+   "en": "How do I know this won't happen again? I need something more than an apology.",
+   "variants": {
+    "polite": "Forgive me, but how can I be sure this won't happen again? I'd need more than an apology.",
+    "casual": "How do I know it won't happen again? Sorry isn't enough."
+   },
+   "gloss": {
+    "en": "The caller asks for a real guarantee, not only an apology.",
+    "vi": "Làm sao tôi biết chuyện này không lặp lại? Tôi cần nhiều hơn một lời xin lỗi.",
+    "es": "¿Cómo sé que no volverá a pasar? Necesito algo más que una disculpa.",
+    "pt": "Como sei que isso não vai se repetir? Preciso de algo mais que um pedido de desculpas.",
+    "fr": "Comment être sûr que cela ne se reproduira pas ? Il me faut plus qu'une excuse.",
+    "de": "Woher weiß ich, dass das nicht wieder passiert? Eine Entschuldigung allein reicht mir nicht.",
+    "id": "Bagaimana saya tahu ini tidak terulang? Saya butuh lebih dari sekadar permintaan maaf.",
+    "th": "ฉันจะมั่นใจได้อย่างไรว่าจะไม่เกิดขึ้นอีก ฉันต้องการมากกว่าคำขอโทษ",
+    "zh": "我怎么知道这种事不会再发生？光道歉是不够的。",
+    "ja": "二度と起きないとどう信じればいいのでしょう。謝罪だけでは足りません。",
+    "ko": "다시는 이런 일이 없을 거라는 걸 어떻게 알죠? 사과만으로는 부족해요.",
+    "hi": "मुझे कैसे पता चलेगा कि यह दोबारा नहीं होगा? मुझे सिर्फ़ माफ़ी से ज़्यादा कुछ चाहिए।",
+    "ar": "كيف أتأكد أن هذا لن يتكرر؟ أحتاج إلى أكثر من اعتذار.",
+    "ru": "Как мне быть уверенным, что это не повторится? Мне нужно больше, чем извинения.",
+    "tr": "Bunun tekrarlanmayacağını nereden bileceğim? Özürden fazlasına ihtiyacım var."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c10",
+   "who": "customer",
+   "en": "That's a fair concern. I'll flag your account so a manager reviews every future order.",
+   "variants": {
+    "polite": "That's a very fair concern. I'll flag your account so that a manager reviews every future order.",
+    "casual": "Fair enough. I'll flag your account so a manager checks your orders."
+   },
+   "gloss": {
+    "en": "Accepting the concern and promising a concrete safeguard.",
+    "vi": "Lo ngại đó chính đáng. Tôi sẽ đánh dấu tài khoản để quản lý xem xét mọi đơn sau này.",
+    "es": "Es una preocupación justificada. Marcaré su cuenta para que un responsable revise cada pedido futuro.",
+    "pt": "É uma preocupação justa. Vou sinalizar sua conta para que um gerente revise todos os pedidos futuros.",
+    "fr": "C'est une inquiétude légitime. Je vais signaler votre compte pour qu'un responsable vérifie chaque commande à venir.",
+    "de": "Die Sorge ist berechtigt. Ich markiere Ihr Konto, damit ein Vorgesetzter jede künftige Bestellung prüft.",
+    "id": "Kekhawatiran itu wajar. Saya akan menandai akun Anda agar manajer meninjau setiap pesanan berikutnya.",
+    "th": "ความกังวลนี้สมเหตุสมผล ฉันจะทำเครื่องหมายบัญชีของคุณให้ผู้จัดการตรวจสอบทุกออเดอร์ต่อจากนี้",
+    "zh": "您的担心有道理。我会给您的账户加标记，今后每笔订单都由经理复核。",
+    "ja": "ご心配はもっともです。今後のご注文はすべて責任者が確認するよう、アカウントに印を付けておきます。",
+    "ko": "충분히 이해되는 걱정이에요. 앞으로 모든 주문을 관리자가 검토하도록 계정에 표시해 두겠습니다.",
+    "hi": "आपकी चिंता उचित है। मैं आपके खाते को चिह्नित कर दूँगा ताकि आगे का हर ऑर्डर कोई प्रबंधक देखे।",
+    "ar": "مخاوفك مشروعة. سأضع علامة على حسابك ليراجع مدير كل طلب مستقبلي.",
+    "ru": "Опасение справедливое. Я отмечу вашу учётную запись, чтобы руководитель проверял каждый следующий заказ.",
+    "tr": "Endişeniz yerinde. Hesabınızı işaretleyeceğim, böylece bir yönetici sonraki her siparişi inceleyecek."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c11",
+   "who": "customer",
+   "en": "To make up for the delay, I'd like to give you a discount on your next order.",
+   "variants": {
+    "polite": "To make up for the delay, I'd be glad to give you a discount on your next order.",
+    "casual": "To make up for it, you'll get a discount on your next order."
+   },
+   "gloss": {
+    "en": "Offering compensation to repair the relationship.",
+    "vi": "Để bù cho sự chậm trễ, tôi xin tặng anh/chị một khoản giảm giá cho đơn tiếp theo.",
+    "es": "Para compensar el retraso, me gustaría ofrecerle un descuento en su próximo pedido.",
+    "pt": "Para compensar o atraso, gostaria de oferecer um desconto no seu próximo pedido.",
+    "fr": "Pour compenser le retard, j'aimerais vous accorder une remise sur votre prochaine commande.",
+    "de": "Als Ausgleich für die Verspätung möchte ich Ihnen einen Rabatt auf Ihre nächste Bestellung gewähren.",
+    "id": "Sebagai kompensasi keterlambatan, saya ingin memberi Anda diskon untuk pesanan berikutnya.",
+    "th": "เพื่อชดเชยความล่าช้า ฉันขอมอบส่วนลดสำหรับออเดอร์ครั้งถัดไป",
+    "zh": "为了弥补这次延误，我想给您下一单一个折扣。",
+    "ja": "遅延のお詫びとして、次回のご注文を割引させていただきます。",
+    "ko": "지연에 대한 보상으로 다음 주문에 할인을 드리고 싶어요.",
+    "hi": "देरी की भरपाई के लिए मैं आपके अगले ऑर्डर पर छूट देना चाहूँगा।",
+    "ar": "تعويضًا عن التأخير، أودّ أن أمنحك خصمًا على طلبك القادم.",
+    "ru": "В качестве компенсации за задержку я хотел бы предоставить вам скидку на следующий заказ.",
+    "tr": "Gecikmeyi telafi etmek için bir sonraki siparişinizde size indirim yapmak istiyorum."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c12",
+   "who": "barista",
+   "en": "That sounds reasonable. Please send me a confirmation email with everything we agreed.",
+   "variants": {
+    "polite": "That sounds reasonable. Could you please send me a confirmation email with everything we agreed?",
+    "casual": "OK, fine. Email me a confirmation of all this."
+   },
+   "gloss": {
+    "en": "Accepting the solution and asking for it in writing.",
+    "vi": "Nghe hợp lý đấy. Vui lòng gửi email xác nhận mọi điều ta đã thống nhất.",
+    "es": "Me parece razonable. Envíeme por favor un correo de confirmación con todo lo acordado.",
+    "pt": "Parece razoável. Por favor, envie-me um e-mail de confirmação com tudo o que combinamos.",
+    "fr": "Cela me paraît raisonnable. Envoyez-moi s'il vous plaît un e-mail de confirmation de tout ce dont nous avons convenu.",
+    "de": "Das klingt vernünftig. Bitte schicken Sie mir eine Bestätigungs-E-Mail mit allem, was wir vereinbart haben.",
+    "id": "Kedengarannya masuk akal. Tolong kirimkan email konfirmasi berisi semua yang kita sepakati.",
+    "th": "ฟังดูสมเหตุสมผล ช่วยส่งอีเมลยืนยันสิ่งที่เราตกลงกันทั้งหมดมาให้ด้วย",
+    "zh": "听起来合理。请给我发一封确认邮件，写明我们商定的所有内容。",
+    "ja": "それなら納得です。合意した内容をすべて記した確認メールを送ってください。",
+    "ko": "합리적이네요. 합의한 내용을 모두 적은 확인 이메일을 보내 주세요.",
+    "hi": "यह ठीक लगता है। कृपया हमारी तय की गई सारी बातों के साथ एक पुष्टि वाला ईमेल भेज दीजिए।",
+    "ar": "يبدو ذلك معقولًا. من فضلك أرسل لي بريدًا إلكترونيًا للتأكيد يتضمن كل ما اتفقنا عليه.",
+    "ru": "Это звучит разумно. Пришлите, пожалуйста, письмо с подтверждением всего, о чём мы договорились.",
+    "tr": "Makul görünüyor. Lütfen üzerinde anlaştığımız her şeyi içeren bir onay e-postası gönderin."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "What can you do to solve this problem for me?",
+   "keywords": [
+    "refund",
+    "replacement",
+    "discount",
+    "exchange",
+    "credit",
+    "compensation",
+    "resend",
+    "investigate",
+    "deliver",
+    "apology",
+    "manager",
+    "priority"
+   ],
+   "variants": {
+    "polite": "What can you do to resolve this problem for me?",
+    "casual": "So what are you going to do?"
+   },
+   "gloss": {
+    "en": "The caller asks what you can do to fix the problem.",
+    "vi": "Anh/chị có thể làm gì để giải quyết vấn đề này cho tôi?",
+    "es": "¿Qué puede hacer para resolver este problema?",
+    "pt": "O que você pode fazer para resolver este problema para mim?",
+    "fr": "Que pouvez-vous faire pour régler ce problème ?",
+    "de": "Was können Sie tun, um dieses Problem für mich zu lösen?",
+    "id": "Apa yang bisa Anda lakukan untuk menyelesaikan masalah ini bagi saya?",
+    "th": "คุณช่วยแก้ปัญหานี้ให้ฉันได้อย่างไรบ้าง",
+    "zh": "你们能做些什么来解决这个问题？",
+    "ja": "この問題を解決するために、何をしていただけますか？",
+    "ko": "이 문제를 해결하려면 무엇을 해 주실 수 있나요?",
+    "hi": "इस समस्या को सुलझाने के लिए आप मेरे लिए क्या कर सकते हैं?",
+    "ar": "ماذا يمكنك أن تفعل لحل هذه المشكلة من أجلي؟",
+    "ru": "Что вы можете сделать, чтобы решить эту проблему?",
+    "tr": "Bu sorunu benim için çözmek adına neler yapabilirsiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "When can I expect to hear back from you?",
+   "keywords": [
+    "today",
+    "tomorrow",
+    "hours",
+    "morning",
+    "afternoon",
+    "Friday",
+    "Monday",
+    "week",
+    "email",
+    "call",
+    "soon",
+    "minutes"
+   ],
+   "variants": {
+    "polite": "When should I expect to hear back from you?",
+    "casual": "When will you get back to me?"
+   },
+   "gloss": {
+    "en": "The caller asks when you will get back to them.",
+    "vi": "Khi nào tôi có thể nhận phản hồi từ anh/chị?",
+    "es": "¿Cuándo puedo esperar una respuesta suya?",
+    "pt": "Quando posso esperar um retorno seu?",
+    "fr": "Quand puis-je espérer une réponse de votre part ?",
+    "de": "Wann kann ich mit einer Rückmeldung von Ihnen rechnen?",
+    "id": "Kapan saya bisa mengharapkan kabar dari Anda?",
+    "th": "ฉันจะได้รับคำตอบจากคุณเมื่อไร",
+    "zh": "我什么时候能收到你们的回复？",
+    "ja": "いつ頃ご連絡いただけますか？",
+    "ko": "언제쯤 답변을 받을 수 있을까요?",
+    "hi": "मुझे आपसे जवाब कब तक मिलने की उम्मीद करनी चाहिए?",
+    "ar": "متى يمكنني أن أتوقع ردًّا منك؟",
+    "ru": "Когда мне ждать от вас ответа?",
+    "tr": "Sizden ne zaman dönüş bekleyebilirim?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Hello, I'm calling because my order arrived three days late, and half of it was damaged."
+  },
+  {
+   "who": "customer",
+   "en": "I'm very sorry to hear that. Could you tell me your order number so I can look into it?"
+  },
+  {
+   "who": "barista",
+   "en": "It's the third time this has happened, and honestly I'm losing patience."
+  },
+  {
+   "who": "customer",
+   "en": "I completely understand your frustration. I can offer you a full refund, or send replacements free of charge."
+  },
+  {
+   "who": "barista",
+   "en": "I'd prefer the replacements, but only if they arrive by Friday."
+  },
+  {
+   "who": "customer",
+   "en": "I can't promise Friday, but I'll ask for priority delivery."
+  },
+  {
+   "who": "barista",
+   "en": "How do I know this won't happen again?"
+  },
+  {
+   "who": "customer",
+   "en": "I'll flag your account so a manager reviews every future order."
+  },
+  {
+   "who": "barista",
+   "en": "That sounds reasonable. Please send me a confirmation email."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Thanks for holding. I've found your order."
+    },
+    {
+     "who": "barista",
+     "en": "Good. Where is it now?"
+    },
+    {
+     "who": "customer",
+     "en": "It's at the local depot and should reach you tomorrow morning."
+    },
+    {
+     "who": "barista",
+     "en": "Fine. Please text me when it's on its way."
+    }
+   ],
+   "q": {
+    "en": "When should the order arrive?",
+    "vi": "Đơn hàng sẽ đến khi nào?",
+    "es": "¿Cuándo debería llegar el pedido?",
+    "pt": "Quando o pedido deve chegar?",
+    "fr": "Quand la commande doit-elle arriver ?",
+    "de": "Wann soll die Bestellung ankommen?",
+    "id": "Kapan pesanan seharusnya tiba?",
+    "th": "ออเดอร์ควรมาถึงเมื่อไร",
+    "zh": "订单应该什么时候到？",
+    "ja": "注文はいつ届く予定ですか？",
+    "ko": "주문은 언제 도착할 예정인가요?",
+    "hi": "ऑर्डर कब पहुँचना चाहिए?",
+    "ar": "متى يُفترض أن يصل الطلب؟",
+    "ru": "Когда должен прийти заказ?",
+    "tr": "Sipariş ne zaman ulaşmalı?"
+   },
+   "answer": "tomorrow morning"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "I was charged twice for the same item."
+    },
+    {
+     "who": "customer",
+     "en": "I'm sorry about that. I can see two payments for the same amount."
+    },
+    {
+     "who": "barista",
+     "en": "Please fix it today."
+    },
+    {
+     "who": "customer",
+     "en": "I'll refund one payment now, and it will appear in your account within five working days."
+    }
+   ],
+   "q": {
+    "en": "How long will the refund take to appear?",
+    "vi": "Khoản hoàn tiền mất bao lâu để hiện lên?",
+    "es": "¿Cuánto tardará en aparecer el reembolso?",
+    "pt": "Quanto tempo o reembolso leva para aparecer?",
+    "fr": "Combien de temps le remboursement mettra-t-il à apparaître ?",
+    "de": "Wie lange dauert es, bis die Erstattung erscheint?",
+    "id": "Berapa lama pengembalian dana akan masuk?",
+    "th": "เงินคืนจะเข้าบัญชีภายในกี่วัน",
+    "zh": "退款多久能到账？",
+    "ja": "返金が反映されるまでどのくらいかかりますか？",
+    "ko": "환불이 반영되기까지 얼마나 걸리나요?",
+    "hi": "रिफ़ंड दिखने में कितना समय लगेगा?",
+    "ar": "كم سيستغرق ظهور المبلغ المسترد؟",
+    "ru": "Сколько времени займёт возврат средств?",
+    "tr": "İadenin görünmesi ne kadar sürecek?"
+   },
+   "answer": "five working days"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "apologise",
+    "title": {
+     "en": "Apologise and show empathy",
+     "vi": "Xin lỗi và đồng cảm",
+     "es": "Pide disculpas y muestra empatía",
+     "pt": "Peça desculpas e mostre empatia",
+     "fr": "S'excuser avec empathie",
+     "de": "Sich entschuldigen und Verständnis zeigen",
+     "id": "Minta maaf dan tunjukkan empati",
+     "th": "ขอโทษและแสดงความเห็นอกเห็นใจ",
+     "zh": "道歉并表示理解",
+     "ja": "謝罪して共感を示す",
+     "ko": "사과하고 공감하기",
+     "hi": "माफ़ी माँगें और सहानुभूति दिखाएँ",
+     "ar": "اعتذر وأظهر التعاطف",
+     "ru": "Извинись и прояви сочувствие",
+     "tr": "Özür dile ve empati göster"
+    },
+    "intents": [
+     "c4"
+    ]
+   },
+   {
+    "id": "twoopts",
+    "title": {
+     "en": "Offer two options",
+     "vi": "Đưa ra hai phương án",
+     "es": "Ofrece dos opciones",
+     "pt": "Ofereça duas opções",
+     "fr": "Proposer deux options",
+     "de": "Zwei Optionen anbieten",
+     "id": "Tawarkan dua pilihan",
+     "th": "เสนอสองทางเลือก",
+     "zh": "提供两个方案",
+     "ja": "選択肢を二つ示す",
+     "ko": "선택지 두 가지 제시하기",
+     "hi": "दो विकल्प दें",
+     "ar": "اعرض خيارين",
+     "ru": "Предложи два варианта",
+     "tr": "İki seçenek sun"
+    },
+    "intents": [
+     "c6"
+    ]
+   },
+   {
+    "id": "makeup",
+    "title": {
+     "en": "Make up for the problem",
+     "vi": "Bù đắp cho sự cố",
+     "es": "Compensa el problema",
+     "pt": "Compense o problema",
+     "fr": "Compenser le problème",
+     "de": "Das Problem wiedergutmachen",
+     "id": "Beri kompensasi atas masalahnya",
+     "th": "ชดเชยปัญหาที่เกิดขึ้น",
+     "zh": "弥补这次问题",
+     "ja": "問題の埋め合わせをする",
+     "ko": "문제에 대해 보상하기",
+     "hi": "समस्या की भरपाई करें",
+     "ar": "عوّض عن المشكلة",
+     "ru": "Компенсируй проблему",
+     "tr": "Sorunu telafi et"
+    },
+    "intents": [
+     "c11"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "In English-speaking customer service, staff usually apologise first, then explain and offer a solution. Phrases like \"I understand how frustrating this is\" calm the caller. Avoid blaming anyone, and never promise what you cannot deliver.",
+  "vi": "Trong dịch vụ khách hàng nói tiếng Anh, nhân viên thường xin lỗi trước, rồi giải thích và đưa ra giải pháp. Câu như “Tôi hiểu việc này gây bực bội thế nào” giúp khách dịu lại. Đừng đổ lỗi cho ai và đừng hứa điều mình không làm được.",
+  "es": "En la atención al cliente anglófona se suele empezar pidiendo disculpas, luego explicar y ofrecer una solución. Frases como «entiendo lo frustrante que es» calman a quien llama. Evita culpar a nadie y no prometas lo que no puedes cumplir.",
+  "pt": "No atendimento ao cliente em inglês, costuma-se pedir desculpas primeiro, depois explicar e oferecer uma solução. Frases como \"entendo como isso é frustrante\" acalmam quem liga. Evite culpar alguém e nunca prometa o que não pode cumprir.",
+  "fr": "Dans le service client anglophone, on s'excuse d'abord, puis on explique et on propose une solution. Des phrases comme « je comprends à quel point c'est frustrant » apaisent l'interlocuteur. Évitez de blâmer qui que ce soit et ne promettez jamais ce que vous ne pouvez pas tenir.",
+  "de": "Im englischsprachigen Kundenservice entschuldigt man sich zuerst, erklärt dann und bietet eine Lösung an. Sätze wie „Ich verstehe, wie ärgerlich das ist“ beruhigen den Anrufer. Schuldzuweisungen vermeiden und nichts versprechen, was man nicht halten kann.",
+  "id": "Dalam layanan pelanggan berbahasa Inggris, petugas biasanya meminta maaf dulu, lalu menjelaskan dan menawarkan solusi. Kalimat seperti “Saya mengerti betapa menjengkelkannya ini” menenangkan penelepon. Hindari menyalahkan siapa pun dan jangan menjanjikan hal yang tak bisa dipenuhi.",
+  "th": "ในงานบริการลูกค้าภาษาอังกฤษ พนักงานมักขอโทษก่อน แล้วจึงอธิบายและเสนอทางแก้ไข ประโยคอย่าง “เข้าใจเลยว่าน่าหงุดหงิดแค่ไหน” ช่วยให้ลูกค้าใจเย็นลง หลีกเลี่ยงการโทษใคร และอย่ารับปากในสิ่งที่ทำไม่ได้",
+  "zh": "在英语客服中，通常先道歉，再解释并提出解决办法。“我理解这有多令人沮丧”这类话能让来电者平静下来。不要指责任何人，也不要承诺自己做不到的事。",
+  "ja": "英語圏のカスタマーサービスでは、まずお詫びし、次に説明して解決策を示すのが一般的です。「ご不快な思いをされたこと、よく分かります」のような言葉が相手を落ち着かせます。誰かを責めず、守れない約束はしないようにしましょう。",
+  "ko": "영어권 고객 응대에서는 보통 먼저 사과하고, 그다음 설명한 뒤 해결책을 제시해요. “얼마나 답답하실지 이해합니다” 같은 말이 고객을 진정시켜요. 누구를 탓하지 말고, 지킬 수 없는 약속은 하지 마세요.",
+  "hi": "अंग्रेज़ी भाषी ग्राहक सेवा में आम तौर पर पहले माफ़ी माँगी जाती है, फिर कारण बताकर समाधान दिया जाता है। “मैं समझता हूँ यह कितना निराशाजनक है” जैसे वाक्य कॉल करने वाले को शांत करते हैं। किसी को दोष न दें और ऐसा वादा न करें जो निभा न सकें।",
+  "ar": "في خدمة العملاء الناطقة بالإنجليزية يعتذر الموظف عادةً أولًا، ثم يشرح ويعرض حلًّا. عبارات مثل «أتفهّم مدى إحباط هذا الأمر» تهدّئ المتصل. تجنّب إلقاء اللوم على أحد، ولا تَعِد بما لا تستطيع تنفيذه.",
+  "ru": "В англоязычной службе поддержки сначала принято извиниться, затем объяснить и предложить решение. Фразы вроде «я понимаю, как это неприятно» успокаивают клиента. Не обвиняйте никого и не обещайте того, чего не можете выполнить.",
+  "tr": "İngilizce müşteri hizmetlerinde genellikle önce özür dilenir, sonra açıklama yapılıp çözüm sunulur. “Bunun ne kadar sinir bozucu olduğunu anlıyorum” gibi cümleler arayanı sakinleştirir. Kimseyi suçlamayın ve yerine getiremeyeceğiniz sözler vermeyin."
+ }
+}

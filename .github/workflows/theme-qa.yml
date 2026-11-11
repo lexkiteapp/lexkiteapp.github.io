@@ -5,7 +5,7 @@ name: Giao diện sáng/tối trang tĩnh
 on:
   workflow_dispatch:
   pull_request:
-    paths: ['scripts/lib/site-layout.mjs', 'scripts/build-blog.mjs', 'scripts/build-landing.mjs', 'scripts/build-legal.mjs', 'scripts/build-tools.mjs', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-words.mjs', 'scripts/lib/blog-words.mjs', 'scripts/build-authority.mjs', 'scripts/build-video-pages.mjs', 'scripts/build-samples*.mjs', 'web/*.html', 'web/*/index.html', 'web/*/privacy.html', 'web/*/terms.html', 'brand/tokens.json', 'web/js/site-ui.js', 'web/js/lkt.js', 'web/js/app.js', 'web/app/index.html', 'scripts/test/theme-*.mjs', '.github/workflows/theme-qa.yml']
+    paths: ['scripts/lib/site-layout.mjs', 'scripts/build-blog.mjs', 'scripts/build-landing.mjs', 'scripts/build-legal.mjs', 'scripts/build-tools.mjs', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-words.mjs', 'scripts/lib/blog-words.mjs', 'scripts/build-authority.mjs', 'scripts/build-video-pages.mjs', 'scripts/build-samples*.mjs', 'web/*.html', 'web/*/index.html', 'web/*/privacy.html', 'web/*/terms.html', 'brand/tokens.json', 'web/js/site-ui.js', 'web/js/lkt.js', 'web/js/app.js', 'web/css/style.css', 'scripts/test/theme-default.mjs', 'web/app/index.html', 'scripts/test/theme-*.mjs', '.github/workflows/theme-qa.yml']
 permissions:
   contents: read
 concurrency:
@@ -26,9 +26,13 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           bash scripts/ci/pw-install.sh chromium
-          sudo timeout 300 apt-get -o DPkg::Lock::Timeout=120 install -y -qq fonts-noto-cjk fonts-noto-core >/dev/null || true
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-cjk fonts-noto-core }
       - name: Kiểm sáng + tối
         run: node scripts/test/theme-static.mjs dist --shots theme-shots
+      - name: Mặc định theo máy + nút sáng/tối trong màn học (như người dùng thật)
+        if: always()
+        run: node scripts/test/theme-default.mjs dist --shots theme-shots
       # GIF chỉ là ảnh minh hoạ: ffmpeg qua action chung setup-ffmpeg (cache), hỏng = lỗi HẠ TẦNG → không làm đỏ check theme
       - if: always()
         continue-on-error: true

@@ -38,9 +38,7 @@ jobs:
       - name: Keep verdicts on main (idempotent re-runs)
         run: |
           git diff --quiet -- "$TD" && exit 0
-          git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "tpl1b: hook verdicts batch ${{ inputs.batch }} (video-tpl1b #${{ github.run_number }}) [CF-Pages-Skip] [skip ci]" -- "$TD"
-          ok=0; for k in 1 2 3 4; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && { ok=1; break; }; sleep 5; done
-          [ "$ok" = 1 ] || { echo "::error::không đẩy được lên main (BOT_DEPLOY_KEY / ruleset?)"; exit 1; }
+          bash scripts/ci/push-main.sh "tpl1b: hook verdicts batch ${{ inputs.batch }} (video-tpl1b #${{ github.run_number }})" "$TD"
       - name: Matrix (≤ 10 jobs)
         id: m
         run: |
@@ -78,7 +76,10 @@ jobs:
         run: |
           cp /tmp/lessons/*.json "$TD/"
           pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3
-          sudo timeout 600 apt-get update -qq && sudo timeout 600 apt-get install -y -qq librsvg2-bin fontconfig >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: librsvg2-bin fontconfig }
+      - name: Lessons with verdicts + libraries + ffmpeg (tiếp)
+        run: |
           mkdir -p ~/.local/share/fonts && find brand -path "*src/fonts/*.ttf" -exec cp {} ~/.local/share/fonts/ \; && fc-cache -f >/dev/null   # brand SVGs (logo wordmark) rasterize with the brand font
       - name: Footage (host clips + topic plates, sparse)
         env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
@@ -108,8 +109,8 @@ jobs:
         with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: video-models-kokoro82m-q8-cine-v1 }
       - name: kokoro-js + Rhubarb (required – the lip-sync gate fails without it)
         run: |
-          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
-          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL --retry 5 --retry-delay 10 --retry-all-errors -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
           mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
           R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"
           "$R" --version | grep -q 1.13 || { echo "::error::Rhubarb not runnable – refusing to estimate visemes"; exit 1; }
@@ -168,7 +169,7 @@ jobs:
           python3 scripts/video/tpl/store_tpl.py out/batch /tmp/shorts "${{ github.run_number }}" "${{ github.sha }}"
           bash scripts/cine/archive_new.sh /tmp/shorts
           cd /tmp/shorts; git add --sparse -A shorts .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "video-tpl1b #${{ github.run_number }} batch ${{ inputs.batch }} [CF-Pages-Skip]" || exit 0
-          for k in 1 2 3 4 5 6; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && break; sleep 4; done
+          for k in 1 2 3 4 5 6; do { git fetch -q origin main && git rebase -q origin/main || git rebase --abort 2>/dev/null; } && git push -q origin HEAD:main && break; sleep 4; done
           rm -f ~/.ssh/shorts
       - uses: actions/upload-artifact@v4
         if: always()

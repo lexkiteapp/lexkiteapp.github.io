@@ -377,15 +377,19 @@
   function clearRecs() { Object.keys(recUrls).forEach(k => { URL.revokeObjectURL(recUrls[k]); delete recUrls[k]; }); }
   // ---------- Whisper trên máy (dự phòng khi trình duyệt không có nhận dạng giọng nói: Firefox, app Android…) ----------
   // Mô hình mã nguồn mở whisper-tiny.en (~40 MB, tải 1 lần khi người dùng đồng ý), chạy bằng WebAssembly – âm thanh không gửi đi đâu.
-  let whisperP = null;
+  // Tiếng Anh: whisper-tiny.en. Ngôn ngữ đích khác (es, pt…): Whisper ĐA NGÔN NGỮ chạy trên máy, tầng theo thiết bị (RAM ≥ 4 GB → base, còn lại tiny); model chỉ tải khi người dùng đồng ý, không nằm trong bundle.
+  const whisperP = {}, WLANG = { es: 'spanish', pt: 'portuguese' };
+  const whisperTl = accent => (g.Target && !g.Target.isEn(accent) && g.Target.tlOfAccent(accent)) || 'en';
+  const whisperModel = tl => tl === 'en' ? 'onnx-community/whisper-tiny.en' : (navigator.deviceMemory >= 4 ? 'onnx-community/whisper-base' : 'onnx-community/whisper-tiny');
   const whisperOK = () => { try { return localStorage.getItem('vb.whisper') === '1'; } catch (e) { return false; } };
-  async function whisper(onProgress) {
-    if (!whisperP) whisperP = import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.5/dist/transformers.min.js')
-      .then(m => m.pipeline('automatic-speech-recognition', 'onnx-community/whisper-tiny.en', { dtype: 'q8', device: 'wasm', progress_callback: p => { if (p && p.status === 'progress' && onProgress) onProgress(p.progress); } }))
-      .catch(e => { whisperP = null; throw e; });
-    return whisperP;
+  async function whisper(onProgress, tl = 'en') {
+    const id = whisperModel(tl);
+    if (!whisperP[id]) whisperP[id] = import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.5/dist/transformers.min.js')
+      .then(m => m.pipeline('automatic-speech-recognition', id, { dtype: 'q8', device: 'wasm', progress_callback: p => { if (p && p.status === 'progress' && onProgress) onProgress(p.progress); } }))
+      .catch(e => { delete whisperP[id]; throw e; });
+    return whisperP[id];
   }
-  function recognizeWhisper(target, cb) {
+  function recognizeWhisper(target, cb, tl = 'en') {
     const run = () => {
       const words = String(target).split(/\s+/).length, ms = cb.maxMs || Math.min(12000, Math.max(2500, 1500 + words * 600));
       let stream = null, media = null, chunks = [], stopped = false;
@@ -398,8 +402,8 @@
           const blob = new Blob(chunks, { type: media.mimeType || 'audio/webm' }), audio = recUrl(blob);
           try {
             const ac = new (g.AudioContext || g.webkitAudioContext)({ sampleRate: 16000 }), buf = await ac.decodeAudioData(await blob.arrayBuffer()); ac.close && ac.close();
-            const asr = await whisper(p => toast(t('Đang tải mô hình nhận dạng giọng nói… {p}%', { p: Math.round(p) })));
-            const out = await asr(boost(buf.getChannelData(0))), heard = String((out && out.text) || '').replace(/\[[^\]]*\]|\([^)]*\)/g, ' ').replace(/\s+/g, ' ').trim(); // bỏ nhãn [BLANK_AUDIO], (music)…
+            const asr = await whisper(p => toast(t('Đang tải mô hình nhận dạng giọng nói… {p}%', { p: Math.round(p) })), tl);
+            const out = await asr(boost(buf.getChannelData(0)), tl === 'en' ? undefined : { language: WLANG[tl] || tl, task: 'transcribe' }), heard = String((out && out.text) || '').replace(/\[[^\]]*\]|\([^)]*\)/g, ' ').replace(/\s+/g, ' ').trim(); // bỏ nhãn [BLANK_AUDIO], (music)…
             cb.result && cb.result({ heard, score: Math.round(similarity(heard, target) * 100), audio, alts: [heard] });
           } catch (e) { cb.error && cb.error('whisper'); }
           cb.end && cb.end();
@@ -410,7 +414,7 @@
     };
     if (whisperOK()) return run();
     modal(`<h2 style="margin-top:0">🎙️ ${t('Bật nhận dạng giọng nói trên máy')}</h2><p class="small">${t('Trình duyệt này chưa có nhận dạng giọng nói. Lexkite có thể dùng <b>Whisper</b> (mã nguồn mở) chạy ngay trên máy của bạn: miễn phí, riêng tư – âm thanh không gửi đi đâu.')}</p><p class="small muted">${t('Cần tải mô hình khoảng 40 MB một lần (nên dùng Wi-Fi).')}</p><div class="row"><button class="btn primary" id="wOk">${t('Tải & bật')}</button><button class="btn ghost" data-close>${t('Để sau')}</button></div>`);
-    const b = document.getElementById('wOk'); if (b) b.onclick = () => { try { localStorage.setItem('vb.whisper', '1'); } catch (e) { /* bỏ qua */ } closeModal(); whisper().catch(() => {}); toast(t('Đang chuẩn bị… bấm micro lần nữa để nói')); };
+    const b = document.getElementById('wOk'); if (b) b.onclick = () => { try { localStorage.setItem('vb.whisper', '1'); } catch (e) { /* bỏ qua */ } closeModal(); whisper(null, tl).catch(() => {}); toast(t('Đang chuẩn bị… bấm micro lần nữa để nói')); };
     cb.end && cb.end();
     return null;
   }
@@ -419,12 +423,12 @@
   const SR_DOWN = { network: 1, 'service-not-allowed': 1, 'language-not-supported': 1 };
   let srDown = false;
   function recognize(target, accent, cb = {}) {
-    const SR = g.SpeechRecognition || g.webkitSpeechRecognition, en = !g.Target || g.Target.isEn(accent); // Whisper trên máy = whisper-tiny.en → chỉ tiếng Anh
-    const canWhisper = en && !(g.Core && g.Core.Store.isExtension) && navigator.mediaDevices && g.MediaRecorder; // add-on: CSP không cho tải mô hình
-    if (cb.whisper && en && navigator.mediaDevices && g.MediaRecorder) return recognizeWhisper(target, cb); // gọi viên chọn "trên máy" (call.js)
-    if (SR && en && prefs().whisperMode && whisperOK() && navigator.mediaDevices && g.MediaRecorder) return recognizeWhisper(target, cb);
-    if (SR && srDown && canWhisper) return recognizeWhisper(target, cb);
-    if (!SR) { if (!en || g.Core && g.Core.Store.isExtension || !(navigator.mediaDevices && g.MediaRecorder)) { cb.error && cb.error('unsupported'); return null; } return recognizeWhisper(target, cb); }
+    const SR = g.SpeechRecognition || g.webkitSpeechRecognition, en = !g.Target || g.Target.isEn(accent), tl = whisperTl(accent), wl = en || !!WLANG[tl]; // Whisper trên máy: tiếng Anh (tiny.en) hoặc ngôn ngữ đích có trong WLANG (mô hình đa ngôn ngữ)
+    const canWhisper = wl && !(g.Core && g.Core.Store.isExtension) && navigator.mediaDevices && g.MediaRecorder; // add-on: CSP không cho tải mô hình
+    if (cb.whisper && en && navigator.mediaDevices && g.MediaRecorder) return recognizeWhisper(target, cb, tl); // gọi viên chọn "trên máy" (call.js)
+    if (SR && en && prefs().whisperMode && whisperOK() && navigator.mediaDevices && g.MediaRecorder) return recognizeWhisper(target, cb, tl);
+    if (SR && srDown && canWhisper) return recognizeWhisper(target, cb, tl);
+    if (!SR) { if (!wl || g.Core && g.Core.Store.isExtension || !(navigator.mediaDevices && g.MediaRecorder)) { cb.error && cb.error('unsupported'); return null; } return recognizeWhisper(target, cb, tl); }
     if (activeRec) { const old = activeRec; activeRec = null; old._stale = true; try { old.abort(); } catch (e) { /* đã dừng */ } }
     stopSpeak();
     const r = new SR();
@@ -456,7 +460,7 @@
     r.onerror = e => {
       if (r._stale || e.error === 'aborted' || r._fin) return;
       r._fin = true;
-      if (SR_DOWN[e.error] && canWhisper) { srDown = true; r._fell = true; recognizeWhisper(target, cb); return; } // Whisper tự gọi result/error/end
+      if (SR_DOWN[e.error] && canWhisper) { srDown = true; r._fell = true; recognizeWhisper(target, cb, tl); return; } // Whisper tự gọi result/error/end
       cb.error && cb.error(e.error);
     };
     r.onend = () => {
@@ -642,5 +646,5 @@
     e.preventDefault(); const st = prefs();
     if (b.dataset.speak != null) speak(b.dataset.speak, b.dataset.accent || st.accent, b.dataset.url || ''); else speak(b.dataset.speakText, st.accent);
   });
-  g.UI = { sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, ttsClean, stopSpeak, recognize, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
+  g.UI = { whisperModel, sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, ttsClean, stopSpeak, recognize, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
 })(typeof self !== 'undefined' ? self : this);

@@ -1,0 +1,1402 @@
+{
+ "_doc": "Reference outputs of web/js/audio.js + the CDN/word-key/ttsClean source lines of web/js/ui.js + web/js/listen/kvoice.js (REAL code in node:vm). English accents only (web without Target tables). Schema: docs/specs/native-m2-vectors.md.",
+ "bases": [
+  "https://audio.lexkite.com/audio/l/",
+  "https://lexkiteapp.github.io/lexkite-media-2/audio/l/",
+  "https://lexkiteapp.github.io/audio/l/"
+ ],
+ "wordSuffix": "|s3",
+ "rules": {
+  "sentence": "GET <base>/<key>.mp3 (kind l); cue version: <key>-ls.mp3. key = KVoice.lineKey(voice, text) = fnv36(voice + \"|\" + text.trim()). \"-s2\" is appended to <key> (not to <key>-ls) when the key is in LISTEN_AUDIO_S2.",
+  "word": "GET <base with /l/ → /w/>/<key>.mp3, key = fnv36(voice + \"|\" + headword.trim() + wordSuffix) (voice = Target.wordVoice(accent): en-US af_heart, en-GB bf_emma). Headword = the dictionary entry word, case as stored.",
+  "origins": "urls = bases.slice(baseAt) mapped to URLs, baseAt = min(bases.length-1, fails >> 1) (each origin gets 2 failures before the next is the first choice); a request that errors / 404s / takes > 7 s moves to the next URL in the list; list exhausted → system TTS. A blocked autoplay is NOT a miss."
+ },
+ "urls": [
+  {
+   "kind": "l",
+   "key": "abc123",
+   "fails": 0,
+   "s2": [],
+   "urls": [
+    "https://audio.lexkite.com/audio/l/abc123.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/abc123.mp3",
+    "https://lexkiteapp.github.io/audio/l/abc123.mp3"
+   ]
+  },
+  {
+   "kind": "l",
+   "key": "abc123",
+   "fails": 1,
+   "s2": [],
+   "urls": [
+    "https://audio.lexkite.com/audio/l/abc123.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/abc123.mp3",
+    "https://lexkiteapp.github.io/audio/l/abc123.mp3"
+   ]
+  },
+  {
+   "kind": "l",
+   "key": "abc123",
+   "fails": 2,
+   "s2": [],
+   "urls": [
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/abc123.mp3",
+    "https://lexkiteapp.github.io/audio/l/abc123.mp3"
+   ]
+  },
+  {
+   "kind": "l",
+   "key": "abc123",
+   "fails": 3,
+   "s2": [],
+   "urls": [
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/abc123.mp3",
+    "https://lexkiteapp.github.io/audio/l/abc123.mp3"
+   ]
+  },
+  {
+   "kind": "l",
+   "key": "abc123",
+   "fails": 4,
+   "s2": [],
+   "urls": [
+    "https://lexkiteapp.github.io/audio/l/abc123.mp3"
+   ]
+  },
+  {
+   "kind": "l",
+   "key": "abc123",
+   "fails": 5,
+   "s2": [],
+   "urls": [
+    "https://lexkiteapp.github.io/audio/l/abc123.mp3"
+   ]
+  },
+  {
+   "kind": "l",
+   "key": "abc123",
+   "fails": 6,
+   "s2": [],
+   "urls": [
+    "https://lexkiteapp.github.io/audio/l/abc123.mp3"
+   ]
+  },
+  {
+   "kind": "l",
+   "key": "abc123",
+   "fails": 9,
+   "s2": [],
+   "urls": [
+    "https://lexkiteapp.github.io/audio/l/abc123.mp3"
+   ]
+  },
+  {
+   "kind": "w",
+   "key": "k9z8",
+   "fails": 0,
+   "s2": [],
+   "urls": [
+    "https://audio.lexkite.com/audio/w/k9z8.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/w/k9z8.mp3",
+    "https://lexkiteapp.github.io/audio/w/k9z8.mp3"
+   ]
+  },
+  {
+   "kind": "w",
+   "key": "k9z8",
+   "fails": 2,
+   "s2": [],
+   "urls": [
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/w/k9z8.mp3",
+    "https://lexkiteapp.github.io/audio/w/k9z8.mp3"
+   ]
+  },
+  {
+   "kind": "w",
+   "key": "k9z8",
+   "fails": 4,
+   "s2": [],
+   "urls": [
+    "https://lexkiteapp.github.io/audio/w/k9z8.mp3"
+   ]
+  },
+  {
+   "kind": "w",
+   "key": "k9z8",
+   "fails": 5,
+   "s2": [],
+   "urls": [
+    "https://lexkiteapp.github.io/audio/w/k9z8.mp3"
+   ]
+  },
+  {
+   "kind": "l",
+   "key": "abc123",
+   "fails": 0,
+   "s2": [
+    "abc123"
+   ],
+   "urls": [
+    "https://audio.lexkite.com/audio/l/abc123-s2.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/abc123-s2.mp3",
+    "https://lexkiteapp.github.io/audio/l/abc123-s2.mp3"
+   ]
+  },
+  {
+   "kind": "l",
+   "key": "abc123-ls",
+   "fails": 0,
+   "s2": [
+    "abc123"
+   ],
+   "urls": [
+    "https://audio.lexkite.com/audio/l/abc123-ls.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/abc123-ls.mp3",
+    "https://lexkiteapp.github.io/audio/l/abc123-ls.mp3"
+   ]
+  },
+  {
+   "kind": "l",
+   "key": "abc123-ls",
+   "fails": 2,
+   "s2": [
+    "abc123-ls"
+   ],
+   "urls": [
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/abc123-ls-s2.mp3",
+    "https://lexkiteapp.github.io/audio/l/abc123-ls-s2.mp3"
+   ]
+  },
+  {
+   "kind": "w",
+   "key": "k9z8",
+   "fails": 0,
+   "s2": [
+    "k9z8"
+   ],
+   "urls": [
+    "https://audio.lexkite.com/audio/w/k9z8.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/w/k9z8.mp3",
+    "https://lexkiteapp.github.io/audio/w/k9z8.mp3"
+   ]
+  }
+ ],
+ "fnv36": [
+  {
+   "in": "",
+   "out": "ztntfp"
+  },
+  {
+   "in": "a",
+   "out": "1r9wi7g"
+  },
+  {
+   "in": "af_heart|consider|s3",
+   "out": "1twqqye"
+  },
+  {
+   "in": "bf_emma|key card|s3",
+   "out": "39eh21"
+  },
+  {
+   "in": "af_heart|We decided to stay at home.",
+   "out": "4dc30d"
+  },
+  {
+   "in": "am_michael|Có dấu tiếng Việt",
+   "out": "bnvore"
+  },
+  {
+   "in": "af_heart|don't|s3",
+   "out": "1v7ffun"
+  }
+ ],
+ "voices": {
+  "ama": "af_heart",
+  "carlos": "am_michael"
+ },
+ "sentence": [
+  {
+   "who": "ama",
+   "voice": "af_heart",
+   "text": "Hi! What can I get for you?",
+   "key": "1ksw9u3",
+   "urls": [
+    "https://audio.lexkite.com/audio/l/1ksw9u3.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/1ksw9u3.mp3",
+    "https://lexkiteapp.github.io/audio/l/1ksw9u3.mp3"
+   ],
+   "cueUrls": [
+    "https://audio.lexkite.com/audio/l/1ksw9u3-ls.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/1ksw9u3-ls.mp3",
+    "https://lexkiteapp.github.io/audio/l/1ksw9u3-ls.mp3"
+   ]
+  },
+  {
+   "who": "ama",
+   "voice": "af_heart",
+   "text": "Hi! Can I have a large coffee, please?",
+   "key": "14v4x23",
+   "urls": [
+    "https://audio.lexkite.com/audio/l/14v4x23.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/14v4x23.mp3",
+    "https://lexkiteapp.github.io/audio/l/14v4x23.mp3"
+   ],
+   "cueUrls": [
+    "https://audio.lexkite.com/audio/l/14v4x23-ls.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/14v4x23-ls.mp3",
+    "https://lexkiteapp.github.io/audio/l/14v4x23-ls.mp3"
+   ]
+  },
+  {
+   "who": "ama",
+   "voice": "af_heart",
+   "text": "It's so hot today.",
+   "key": "x2bhay",
+   "urls": [
+    "https://audio.lexkite.com/audio/l/x2bhay.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/x2bhay.mp3",
+    "https://lexkiteapp.github.io/audio/l/x2bhay.mp3"
+   ],
+   "cueUrls": [
+    "https://audio.lexkite.com/audio/l/x2bhay-ls.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/x2bhay-ls.mp3",
+    "https://lexkiteapp.github.io/audio/l/x2bhay-ls.mp3"
+   ]
+  },
+  {
+   "who": "ama",
+   "voice": "af_heart",
+   "text": "We decided to stay at home tonight.",
+   "key": "w0dg4q",
+   "urls": [
+    "https://audio.lexkite.com/audio/l/w0dg4q.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/w0dg4q.mp3",
+    "https://lexkiteapp.github.io/audio/l/w0dg4q.mp3"
+   ],
+   "cueUrls": [
+    "https://audio.lexkite.com/audio/l/w0dg4q-ls.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/w0dg4q-ls.mp3",
+    "https://lexkiteapp.github.io/audio/l/w0dg4q-ls.mp3"
+   ]
+  },
+  {
+   "who": "ama",
+   "voice": "af_heart",
+   "text": "She said \"hello\" to everyone.",
+   "key": "ti7xwk",
+   "urls": [
+    "https://audio.lexkite.com/audio/l/ti7xwk.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/ti7xwk.mp3",
+    "https://lexkiteapp.github.io/audio/l/ti7xwk.mp3"
+   ],
+   "cueUrls": [
+    "https://audio.lexkite.com/audio/l/ti7xwk-ls.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/ti7xwk-ls.mp3",
+    "https://lexkiteapp.github.io/audio/l/ti7xwk-ls.mp3"
+   ]
+  },
+  {
+   "who": "ama",
+   "voice": "af_heart",
+   "text": " Padded sentence. ",
+   "key": "1n56ik8",
+   "urls": [
+    "https://audio.lexkite.com/audio/l/1n56ik8.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/1n56ik8.mp3",
+    "https://lexkiteapp.github.io/audio/l/1n56ik8.mp3"
+   ],
+   "cueUrls": [
+    "https://audio.lexkite.com/audio/l/1n56ik8-ls.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/1n56ik8-ls.mp3",
+    "https://lexkiteapp.github.io/audio/l/1n56ik8-ls.mp3"
+   ]
+  },
+  {
+   "who": "carlos",
+   "voice": "am_michael",
+   "text": "Hi! What can I get for you?",
+   "key": "qizt73",
+   "urls": [
+    "https://audio.lexkite.com/audio/l/qizt73.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/qizt73.mp3",
+    "https://lexkiteapp.github.io/audio/l/qizt73.mp3"
+   ],
+   "cueUrls": [
+    "https://audio.lexkite.com/audio/l/qizt73-ls.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/qizt73-ls.mp3",
+    "https://lexkiteapp.github.io/audio/l/qizt73-ls.mp3"
+   ]
+  },
+  {
+   "who": "carlos",
+   "voice": "am_michael",
+   "text": "Hi! Can I have a large coffee, please?",
+   "key": "166t8v3",
+   "urls": [
+    "https://audio.lexkite.com/audio/l/166t8v3.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/166t8v3.mp3",
+    "https://lexkiteapp.github.io/audio/l/166t8v3.mp3"
+   ],
+   "cueUrls": [
+    "https://audio.lexkite.com/audio/l/166t8v3-ls.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/166t8v3-ls.mp3",
+    "https://lexkiteapp.github.io/audio/l/166t8v3-ls.mp3"
+   ]
+  },
+  {
+   "who": "carlos",
+   "voice": "am_michael",
+   "text": "It's so hot today.",
+   "key": "bofbyu",
+   "urls": [
+    "https://audio.lexkite.com/audio/l/bofbyu.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/bofbyu.mp3",
+    "https://lexkiteapp.github.io/audio/l/bofbyu.mp3"
+   ],
+   "cueUrls": [
+    "https://audio.lexkite.com/audio/l/bofbyu-ls.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/bofbyu-ls.mp3",
+    "https://lexkiteapp.github.io/audio/l/bofbyu-ls.mp3"
+   ]
+  },
+  {
+   "who": "carlos",
+   "voice": "am_michael",
+   "text": "We decided to stay at home tonight.",
+   "key": "1cnfu1i",
+   "urls": [
+    "https://audio.lexkite.com/audio/l/1cnfu1i.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/1cnfu1i.mp3",
+    "https://lexkiteapp.github.io/audio/l/1cnfu1i.mp3"
+   ],
+   "cueUrls": [
+    "https://audio.lexkite.com/audio/l/1cnfu1i-ls.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/1cnfu1i-ls.mp3",
+    "https://lexkiteapp.github.io/audio/l/1cnfu1i-ls.mp3"
+   ]
+  },
+  {
+   "who": "carlos",
+   "voice": "am_michael",
+   "text": "She said \"hello\" to everyone.",
+   "key": "1i164zs",
+   "urls": [
+    "https://audio.lexkite.com/audio/l/1i164zs.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/1i164zs.mp3",
+    "https://lexkiteapp.github.io/audio/l/1i164zs.mp3"
+   ],
+   "cueUrls": [
+    "https://audio.lexkite.com/audio/l/1i164zs-ls.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/1i164zs-ls.mp3",
+    "https://lexkiteapp.github.io/audio/l/1i164zs-ls.mp3"
+   ]
+  },
+  {
+   "who": "carlos",
+   "voice": "am_michael",
+   "text": " Padded sentence. ",
+   "key": "oympt0",
+   "urls": [
+    "https://audio.lexkite.com/audio/l/oympt0.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/oympt0.mp3",
+    "https://lexkiteapp.github.io/audio/l/oympt0.mp3"
+   ],
+   "cueUrls": [
+    "https://audio.lexkite.com/audio/l/oympt0-ls.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/l/oympt0-ls.mp3",
+    "https://lexkiteapp.github.io/audio/l/oympt0-ls.mp3"
+   ]
+  }
+ ],
+ "split": [
+  {
+   "text": "One. Two! Three?",
+   "out": [
+    "One.",
+    "Two!",
+    "Three?"
+   ]
+  },
+  {
+   "text": "Hello, how are you today? I am fine; thank you.",
+   "out": [
+    "Hello, how are you today?",
+    "I am fine;",
+    "thank you."
+   ]
+  },
+  {
+   "text": "No punctuation here",
+   "out": [
+    "No punctuation here"
+   ]
+  },
+  {
+   "text": "  Spaced   out.   text ",
+   "out": [
+    "Spaced out.",
+    "text"
+   ]
+  },
+  {
+   "text": "A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence ends here.",
+   "out": [
+    "A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long",
+    "sentence A very long sentence A very long sentence A very long sentence A very long sentence ends here."
+   ]
+  },
+  {
+   "text": "Dr. Smith said: go.",
+   "out": [
+    "Dr.",
+    "Smith said:",
+    "go."
+   ]
+  }
+ ],
+ "word": [
+  {
+   "accent": "en-US",
+   "word": "consider",
+   "voice": "af_heart",
+   "key": "1twqqye",
+   "urls": [
+    "https://audio.lexkite.com/audio/w/1twqqye.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/w/1twqqye.mp3",
+    "https://lexkiteapp.github.io/audio/w/1twqqye.mp3"
+   ]
+  },
+  {
+   "accent": "en-US",
+   "word": "key card",
+   "voice": "af_heart",
+   "key": "m1gtsy",
+   "urls": [
+    "https://audio.lexkite.com/audio/w/m1gtsy.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/w/m1gtsy.mp3",
+    "https://lexkiteapp.github.io/audio/w/m1gtsy.mp3"
+   ]
+  },
+  {
+   "accent": "en-US",
+   "word": "Monday",
+   "voice": "af_heart",
+   "key": "uiwa6j",
+   "urls": [
+    "https://audio.lexkite.com/audio/w/uiwa6j.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/w/uiwa6j.mp3",
+    "https://lexkiteapp.github.io/audio/w/uiwa6j.mp3"
+   ]
+  },
+  {
+   "accent": "en-US",
+   "word": "don't",
+   "voice": "af_heart",
+   "key": "1v7ffun",
+   "urls": [
+    "https://audio.lexkite.com/audio/w/1v7ffun.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/w/1v7ffun.mp3",
+    "https://lexkiteapp.github.io/audio/w/1v7ffun.mp3"
+   ]
+  },
+  {
+   "accent": "en-US",
+   "word": "ice-cream",
+   "voice": "af_heart",
+   "key": "o322z5",
+   "urls": [
+    "https://audio.lexkite.com/audio/w/o322z5.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/w/o322z5.mp3",
+    "https://lexkiteapp.github.io/audio/w/o322z5.mp3"
+   ]
+  },
+  {
+   "accent": "en-GB",
+   "word": "consider",
+   "voice": "bf_emma",
+   "key": "16dtqhl",
+   "urls": [
+    "https://audio.lexkite.com/audio/w/16dtqhl.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/w/16dtqhl.mp3",
+    "https://lexkiteapp.github.io/audio/w/16dtqhl.mp3"
+   ]
+  },
+  {
+   "accent": "en-GB",
+   "word": "key card",
+   "voice": "bf_emma",
+   "key": "39eh21",
+   "urls": [
+    "https://audio.lexkite.com/audio/w/39eh21.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/w/39eh21.mp3",
+    "https://lexkiteapp.github.io/audio/w/39eh21.mp3"
+   ]
+  },
+  {
+   "accent": "en-GB",
+   "word": "Monday",
+   "voice": "bf_emma",
+   "key": "1iw0rbc",
+   "urls": [
+    "https://audio.lexkite.com/audio/w/1iw0rbc.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/w/1iw0rbc.mp3",
+    "https://lexkiteapp.github.io/audio/w/1iw0rbc.mp3"
+   ]
+  },
+  {
+   "accent": "en-GB",
+   "word": "don't",
+   "voice": "bf_emma",
+   "key": "9el5wi",
+   "urls": [
+    "https://audio.lexkite.com/audio/w/9el5wi.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/w/9el5wi.mp3",
+    "https://lexkiteapp.github.io/audio/w/9el5wi.mp3"
+   ]
+  },
+  {
+   "accent": "en-GB",
+   "word": "ice-cream",
+   "voice": "bf_emma",
+   "key": "18vt45k",
+   "urls": [
+    "https://audio.lexkite.com/audio/w/18vt45k.mp3",
+    "https://lexkiteapp.github.io/lexkite-media-2/audio/w/18vt45k.mp3",
+    "https://lexkiteapp.github.io/audio/w/18vt45k.mp3"
+   ]
+  }
+ ],
+ "ttsClean": [
+  {
+   "in": "Hello world",
+   "out": "Hello world"
+  },
+  {
+   "in": "📚 curriculum /kəˈrɪkjələm/ UK US n 💬 Ví dụ Many people have a curriculum.",
+   "out": "Many people have a curriculum."
+  },
+  {
+   "in": "the US economy",
+   "out": "the US economy"
+  },
+  {
+   "in": "  spaced   out  ",
+   "out": "spaced out"
+  },
+  {
+   "in": "🎉 Great job!",
+   "out": "Great job!"
+  },
+  {
+   "in": "It is /fine/ today",
+   "out": "It is today"
+  },
+  {
+   "in": "cat /kæt/ n",
+   "out": "cat"
+  },
+  {
+   "in": "💬 Ví dụ: She sells shells.",
+   "out": "She sells shells."
+  },
+  {
+   "in": "",
+   "out": ""
+  }
+ ],
+ "genderOf": [
+  {
+   "name": "Samantha",
+   "out": "f"
+  },
+  {
+   "name": "Daniel",
+   "out": "m"
+  },
+  {
+   "name": "Karen",
+   "out": "f"
+  },
+  {
+   "name": "Moira",
+   "out": "f"
+  },
+  {
+   "name": "Fred",
+   "out": "m"
+  },
+  {
+   "name": "Alex",
+   "out": "m"
+  },
+  {
+   "name": "Microsoft Libby Online (Natural) - English (United Kingdom)",
+   "out": "f"
+  },
+  {
+   "name": "Microsoft Ryan Online (Natural) - English (United Kingdom)",
+   "out": "m"
+  },
+  {
+   "name": "Google UK English Female",
+   "out": "f"
+  },
+  {
+   "name": "Google US English",
+   "out": ""
+  },
+  {
+   "name": "Siri Voice 2",
+   "out": ""
+  },
+  {
+   "name": "Ava (Premium)",
+   "out": "f"
+  },
+  {
+   "name": "Evan (Enhanced)",
+   "out": "m"
+  },
+  {
+   "name": "Serena",
+   "out": "f"
+  },
+  {
+   "name": "Rishi",
+   "out": "m"
+  },
+  {
+   "name": "en-us-x-tpd-network",
+   "out": ""
+  },
+  {
+   "name": "Male Voice",
+   "out": "m"
+  },
+  {
+   "name": "Female Voice",
+   "out": "f"
+  },
+  {
+   "name": "Unknown Voice",
+   "out": ""
+  },
+  {
+   "name": "Daniel Samantha",
+   "out": ""
+  },
+  {
+   "name": "Whisper",
+   "out": ""
+  },
+  {
+   "name": "Zarvox",
+   "out": ""
+  }
+ ],
+ "kokoro": [
+  {
+   "id": "af_heart",
+   "out": {
+    "accent": "en-US",
+    "gender": "f"
+   }
+  },
+  {
+   "id": "am_michael",
+   "out": {
+    "accent": "en-US",
+    "gender": "m"
+   }
+  },
+  {
+   "id": "bf_emma",
+   "out": {
+    "accent": "en-GB",
+    "gender": "f"
+   }
+  },
+  {
+   "id": "bm_george",
+   "out": {
+    "accent": "en-GB",
+    "gender": "m"
+   }
+  },
+  {
+   "id": "xx_foo",
+   "out": null
+  },
+  {
+   "id": "",
+   "out": null
+  },
+  {
+   "id": null,
+   "out": null
+  },
+  {
+   "id": "af",
+   "out": null
+  }
+ ],
+ "genderFor": [
+  {
+   "who": "ama",
+   "out": "f"
+  },
+  {
+   "who": "carlos",
+   "out": "m"
+  },
+  {
+   "who": "f",
+   "out": "f"
+  },
+  {
+   "who": "m",
+   "out": "m"
+  },
+  {
+   "who": "af_heart",
+   "out": "f"
+  },
+  {
+   "who": "bm_george",
+   "out": "m"
+  },
+  {
+   "who": "nobody",
+   "out": ""
+  },
+  {
+   "who": "",
+   "out": ""
+  },
+  {
+   "who": null,
+   "out": ""
+  }
+ ],
+ "sampleVoices": [
+  {
+   "name": "Samantha",
+   "lang": "en-US",
+   "localService": true
+  },
+  {
+   "name": "Daniel",
+   "lang": "en-GB",
+   "localService": true
+  },
+  {
+   "name": "Karen",
+   "lang": "en-AU",
+   "localService": true
+  },
+  {
+   "name": "Moira",
+   "lang": "en-IE",
+   "localService": true
+  },
+  {
+   "name": "Fred",
+   "lang": "en-US",
+   "localService": true
+  },
+  {
+   "name": "Alex",
+   "lang": "en-US",
+   "localService": true
+  },
+  {
+   "name": "Serena (Premium)",
+   "lang": "en-GB",
+   "localService": true
+  },
+  {
+   "name": "Evan (Enhanced)",
+   "lang": "en-US",
+   "localService": true
+  },
+  {
+   "name": "Ava (Premium)",
+   "lang": "en-US",
+   "localService": true
+  },
+  {
+   "name": "Microsoft Libby Online (Natural) - English (United Kingdom)",
+   "lang": "en-GB",
+   "localService": false
+  },
+  {
+   "name": "Microsoft Ryan Online (Natural) - English (United Kingdom)",
+   "lang": "en-GB",
+   "localService": false
+  },
+  {
+   "name": "Google UK English Female",
+   "lang": "en-GB",
+   "localService": false
+  },
+  {
+   "name": "Google US English",
+   "lang": "en_US",
+   "localService": false
+  },
+  {
+   "name": "Thomas",
+   "lang": "fr-FR",
+   "localService": true
+  },
+  {
+   "name": "Anna",
+   "lang": "de-DE",
+   "localService": true
+  },
+  {
+   "name": "en-us-x-tpd-network",
+   "lang": "en-US",
+   "localService": false
+  },
+  {
+   "name": "en-gb-x-gbd-local",
+   "lang": "en-GB",
+   "localService": true
+  },
+  {
+   "name": "Rishi",
+   "lang": "en-IN",
+   "localService": true
+  },
+  {
+   "name": "Zarvox",
+   "lang": "en-US",
+   "localService": true
+  }
+ ],
+ "rank": [
+  {
+   "accent": "en-GB",
+   "gender": "",
+   "out": [
+    "Serena (Premium)",
+    "Microsoft Libby Online (Natural) - English (United Kingdom)",
+    "Microsoft Ryan Online (Natural) - English (United Kingdom)",
+    "Google UK English Female",
+    "Daniel",
+    "en-gb-x-gbd-local",
+    "Evan (Enhanced)",
+    "Ava (Premium)",
+    "Google US English",
+    "Samantha",
+    "en-us-x-tpd-network",
+    "Karen",
+    "Moira",
+    "Alex",
+    "Rishi"
+   ]
+  },
+  {
+   "accent": "en-GB",
+   "gender": "f",
+   "out": [
+    "Serena (Premium)",
+    "Microsoft Libby Online (Natural) - English (United Kingdom)",
+    "Google UK English Female",
+    "Ava (Premium)",
+    "Samantha",
+    "Karen",
+    "Moira",
+    "en-gb-x-gbd-local",
+    "Google US English",
+    "Microsoft Ryan Online (Natural) - English (United Kingdom)",
+    "en-us-x-tpd-network"
+   ]
+  },
+  {
+   "accent": "en-GB",
+   "gender": "m",
+   "out": [
+    "Microsoft Ryan Online (Natural) - English (United Kingdom)",
+    "Daniel",
+    "Evan (Enhanced)",
+    "Alex",
+    "Rishi",
+    "en-gb-x-gbd-local",
+    "Google US English",
+    "Serena (Premium)",
+    "Microsoft Libby Online (Natural) - English (United Kingdom)",
+    "en-us-x-tpd-network",
+    "Google UK English Female"
+   ]
+  },
+  {
+   "accent": "en-US",
+   "gender": "",
+   "out": [
+    "Evan (Enhanced)",
+    "Ava (Premium)",
+    "Google US English",
+    "Samantha",
+    "en-us-x-tpd-network",
+    "Alex",
+    "Serena (Premium)",
+    "Microsoft Libby Online (Natural) - English (United Kingdom)",
+    "Microsoft Ryan Online (Natural) - English (United Kingdom)",
+    "Google UK English Female",
+    "Daniel",
+    "Karen",
+    "Moira",
+    "en-gb-x-gbd-local",
+    "Rishi"
+   ]
+  },
+  {
+   "accent": "en-US",
+   "gender": "f",
+   "out": [
+    "Ava (Premium)",
+    "Samantha",
+    "Serena (Premium)",
+    "Microsoft Libby Online (Natural) - English (United Kingdom)",
+    "Google UK English Female",
+    "Karen",
+    "Moira",
+    "Google US English",
+    "en-us-x-tpd-network",
+    "Evan (Enhanced)",
+    "en-gb-x-gbd-local"
+   ]
+  },
+  {
+   "accent": "en-US",
+   "gender": "m",
+   "out": [
+    "Evan (Enhanced)",
+    "Alex",
+    "Microsoft Ryan Online (Natural) - English (United Kingdom)",
+    "Daniel",
+    "Rishi",
+    "Google US English",
+    "en-us-x-tpd-network",
+    "Fred",
+    "Ava (Premium)",
+    "en-gb-x-gbd-local"
+   ]
+  }
+ ],
+ "pick": [
+  {
+   "accent": "en-GB",
+   "gender": "",
+   "want": "",
+   "out": "Serena (Premium)"
+  },
+  {
+   "accent": "en-GB",
+   "gender": "f",
+   "want": "",
+   "out": "Serena (Premium)"
+  },
+  {
+   "accent": "en-GB",
+   "gender": "m",
+   "want": "",
+   "out": "Microsoft Ryan Online (Natural) - English (United Kingdom)"
+  },
+  {
+   "accent": "en-US",
+   "gender": "",
+   "want": "",
+   "out": "Evan (Enhanced)"
+  },
+  {
+   "accent": "en-US",
+   "gender": "f",
+   "want": "",
+   "out": "Ava (Premium)"
+  },
+  {
+   "accent": "en-US",
+   "gender": "m",
+   "want": "",
+   "out": "Evan (Enhanced)"
+  },
+  {
+   "accent": "en-GB",
+   "gender": "m",
+   "want": "Daniel",
+   "out": "Daniel"
+  },
+  {
+   "accent": "en-GB",
+   "gender": "f",
+   "want": "Daniel",
+   "out": "Serena (Premium)"
+  },
+  {
+   "accent": "en-US",
+   "gender": "",
+   "want": "Fred",
+   "out": "Evan (Enhanced)"
+  },
+  {
+   "accent": "en-US",
+   "gender": "f",
+   "want": "Ava (Premium)",
+   "out": "Ava (Premium)"
+  },
+  {
+   "accent": "en-AU",
+   "gender": "f",
+   "want": "",
+   "out": "Karen"
+  }
+ ],
+ "score": [
+  {
+   "name": "Samantha",
+   "accent": "en-GB",
+   "gender": "",
+   "out": 30
+  },
+  {
+   "name": "Samantha",
+   "accent": "en-US",
+   "gender": "f",
+   "out": 270
+  },
+  {
+   "name": "Samantha",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": -120
+  },
+  {
+   "name": "Daniel",
+   "accent": "en-GB",
+   "gender": "",
+   "out": 120
+  },
+  {
+   "name": "Daniel",
+   "accent": "en-US",
+   "gender": "f",
+   "out": -120
+  },
+  {
+   "name": "Daniel",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": 270
+  },
+  {
+   "name": "Karen",
+   "accent": "en-GB",
+   "gender": "",
+   "out": 10
+  },
+  {
+   "name": "Karen",
+   "accent": "en-US",
+   "gender": "f",
+   "out": 160
+  },
+  {
+   "name": "Karen",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": -140
+  },
+  {
+   "name": "Moira",
+   "accent": "en-GB",
+   "gender": "",
+   "out": 10
+  },
+  {
+   "name": "Moira",
+   "accent": "en-US",
+   "gender": "f",
+   "out": 160
+  },
+  {
+   "name": "Moira",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": -140
+  },
+  {
+   "name": "Fred",
+   "accent": "en-GB",
+   "gender": "",
+   "out": -190
+  },
+  {
+   "name": "Fred",
+   "accent": "en-US",
+   "gender": "f",
+   "out": -250
+  },
+  {
+   "name": "Fred",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": -40
+  },
+  {
+   "name": "Alex",
+   "accent": "en-GB",
+   "gender": "",
+   "out": 10
+  },
+  {
+   "name": "Alex",
+   "accent": "en-US",
+   "gender": "f",
+   "out": -50
+  },
+  {
+   "name": "Alex",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": 160
+  },
+  {
+   "name": "Serena (Premium)",
+   "accent": "en-GB",
+   "gender": "",
+   "out": 165
+  },
+  {
+   "name": "Serena (Premium)",
+   "accent": "en-US",
+   "gender": "f",
+   "out": 225
+  },
+  {
+   "name": "Serena (Premium)",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": 15
+  },
+  {
+   "name": "Evan (Enhanced)",
+   "accent": "en-GB",
+   "gender": "",
+   "out": 75
+  },
+  {
+   "name": "Evan (Enhanced)",
+   "accent": "en-US",
+   "gender": "f",
+   "out": 15
+  },
+  {
+   "name": "Evan (Enhanced)",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": 225
+  },
+  {
+   "name": "Ava (Premium)",
+   "accent": "en-GB",
+   "gender": "",
+   "out": 75
+  },
+  {
+   "name": "Ava (Premium)",
+   "accent": "en-US",
+   "gender": "f",
+   "out": 315
+  },
+  {
+   "name": "Ava (Premium)",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": -75
+  },
+  {
+   "name": "Microsoft Libby Online (Natural) - English (United Kingdom)",
+   "accent": "en-GB",
+   "gender": "",
+   "out": 165
+  },
+  {
+   "name": "Microsoft Libby Online (Natural) - English (United Kingdom)",
+   "accent": "en-US",
+   "gender": "f",
+   "out": 225
+  },
+  {
+   "name": "Microsoft Libby Online (Natural) - English (United Kingdom)",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": 15
+  },
+  {
+   "name": "Microsoft Ryan Online (Natural) - English (United Kingdom)",
+   "accent": "en-GB",
+   "gender": "",
+   "out": 165
+  },
+  {
+   "name": "Microsoft Ryan Online (Natural) - English (United Kingdom)",
+   "accent": "en-US",
+   "gender": "f",
+   "out": -75
+  },
+  {
+   "name": "Microsoft Ryan Online (Natural) - English (United Kingdom)",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": 315
+  },
+  {
+   "name": "Google UK English Female",
+   "accent": "en-GB",
+   "gender": "",
+   "out": 155
+  },
+  {
+   "name": "Google UK English Female",
+   "accent": "en-US",
+   "gender": "f",
+   "out": 215
+  },
+  {
+   "name": "Google UK English Female",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": 5
+  },
+  {
+   "name": "Google US English",
+   "accent": "en-GB",
+   "gender": "",
+   "out": 65
+  },
+  {
+   "name": "Google US English",
+   "accent": "en-US",
+   "gender": "f",
+   "out": 155
+  },
+  {
+   "name": "Google US English",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": 65
+  },
+  {
+   "name": "Thomas",
+   "accent": "en-GB",
+   "gender": "",
+   "out": -1
+  },
+  {
+   "name": "Thomas",
+   "accent": "en-US",
+   "gender": "f",
+   "out": -1
+  },
+  {
+   "name": "Thomas",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": -1
+  },
+  {
+   "name": "Anna",
+   "accent": "en-GB",
+   "gender": "",
+   "out": -1
+  },
+  {
+   "name": "Anna",
+   "accent": "en-US",
+   "gender": "f",
+   "out": -1
+  },
+  {
+   "name": "Anna",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": -1
+  },
+  {
+   "name": "en-us-x-tpd-network",
+   "accent": "en-GB",
+   "gender": "",
+   "out": 15
+  },
+  {
+   "name": "en-us-x-tpd-network",
+   "accent": "en-US",
+   "gender": "f",
+   "out": 105
+  },
+  {
+   "name": "en-us-x-tpd-network",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": 15
+  },
+  {
+   "name": "en-gb-x-gbd-local",
+   "accent": "en-GB",
+   "gender": "",
+   "out": 100
+  },
+  {
+   "name": "en-gb-x-gbd-local",
+   "accent": "en-US",
+   "gender": "f",
+   "out": 10
+  },
+  {
+   "name": "en-gb-x-gbd-local",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": 100
+  },
+  {
+   "name": "Rishi",
+   "accent": "en-GB",
+   "gender": "",
+   "out": 10
+  },
+  {
+   "name": "Rishi",
+   "accent": "en-US",
+   "gender": "f",
+   "out": -140
+  },
+  {
+   "name": "Rishi",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": 160
+  },
+  {
+   "name": "Zarvox",
+   "accent": "en-GB",
+   "gender": "",
+   "out": -190
+  },
+  {
+   "name": "Zarvox",
+   "accent": "en-US",
+   "gender": "f",
+   "out": -100
+  },
+  {
+   "name": "Zarvox",
+   "accent": "en-GB",
+   "gender": "m",
+   "out": -190
+  }
+ ]
+}

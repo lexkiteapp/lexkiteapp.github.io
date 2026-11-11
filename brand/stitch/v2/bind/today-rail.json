@@ -102,9 +102,6 @@
    "w-[320px]": "'w-full'",
    "py-8": "''",
    "pr-8": "''"
-  },
-  "[class~=\"lt:text-[#8C7A6B]\"]": {
-   "lt:text-[#8C7A6B]": "'lt:text-[#76665A]'"
   }
  },
  "tag": {
@@ -180,11 +177,6 @@
      },
      "addClass": {
       ":scope": "relative after:absolute after:-inset-y-1 after:inset-x-0 after:content-['']"
-     },
-     "cls": {
-      "[class~=\"lt:text-[#8C7A6B]\"]": {
-       "lt:text-[#8C7A6B]": "'lt:text-[#76665A]'"
-      }
      }
     },
     "lis": {
@@ -205,11 +197,6 @@
      },
      "addClass": {
       ":scope": "relative after:absolute after:-inset-y-1 after:inset-x-0 after:content-['']"
-     },
-     "cls": {
-      "[class~=\"lt:text-[#8C7A6B]\"]": {
-       "lt:text-[#8C7A6B]": "'lt:text-[#76665A]'"
-      }
      }
     }
    }
@@ -249,11 +236,6 @@
       ":scope": {
        "title": "x.aria"
       }
-     },
-     "cls": {
-      "span": {
-       "text-[#F59E0B]": "'lt:text-[#92400E] dk:text-[#F59E0B]'"
-      }
      }
     },
     "off": {
@@ -263,14 +245,6 @@
      "attr": {
       ":scope": {
        "title": "x.aria"
-      }
-     },
-     "cls": {
-      "[class~=\"lt:text-[#8C7A6B]\"]": {
-       "lt:text-[#8C7A6B]": "'lt:text-[#76665A]'"
-      },
-      "span.font-bold": {
-       "dk:text-[#A5C7CB]/60": "'dk:text-[#A5C7CB]'"
       }
      }
     }

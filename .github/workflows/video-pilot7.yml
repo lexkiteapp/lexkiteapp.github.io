@@ -45,8 +45,8 @@ jobs:
         with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: video-models-kokoro82m-q8-cine-v1 }
       - name: kokoro-js + Rhubarb (required – lip-sync fails without it)
         run: |
-          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
-          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL --retry 5 --retry-delay 10 --retry-all-errors -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
           mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
           R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"
           "$R" --version | grep -q 1.13 || { echo "::error::Rhubarb not runnable"; exit 1; }

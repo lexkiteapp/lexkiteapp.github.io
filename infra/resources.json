@@ -219,7 +219,7 @@
       "key": "fcm",
       "name": "Firebase Cloud Messaging (lexkite-app)",
       "kind": "push",
-      "purpose": "Thông báo đẩy app gốc (iOS qua APNs key tải lên Firebase, Android) – chỉ kéo lại sau ≥ 3 ngày + tiến bộ tuần; cờ FCM_ON",
+      "purpose": "Thông báo đẩy app gốc (iOS qua APNs key tải lên Firebase, Android) – chỉ kéo lại sau ≥ 3 ngày (ngày 0–2 = lịch cục bộ); cờ FCM_ON mặc định bật, chỉ hiệu lực khi Worker có FCM_SA",
       "console": "https://console.firebase.google.com/project/lexkite-app/settings/cloudmessaging",
       "free": "Miễn phí, không giới hạn",
       "upgrade": "Không cần",
@@ -347,6 +347,39 @@
       "free": "D1: 'mine'/'report' vài lượt đọc mỗi lần mở trang lớp; mỗi lượt xong bài của học sinh = 1 batch ghi; giới hạn 30 lượt/phút/uid, 1.500/ngày",
       "upgrade": "Trường lớn (> 300 học sinh/lớp hoặc báo cáo nặng) → gộp truy vấn report, phân trang",
       "status": "Miễn phí",
+      "match": []
+    },
+    {
+      "key": "community",
+      "name": "Cộng đồng người học (/api/community)",
+      "kind": "feature",
+      "purpose": "Phòng học nhóm, chat, phòng nói, mời bạn, học chung (docs/specs/community.md). Đợt 1: hồ sơ công khai (pid + biệt danh, không email), Quy tắc, nhóm tuổi 13–17/18+, chặn 2 chiều, báo cáo tự ẩn, kiểm tin (functions/api/_cm.js), hàng duyệt Quản trị ← functions/api/community.js. D1 lexkite-sync: cm_profile, cm_block, cm_report. CỜ env COMMUNITY=1 (mặc định TẮT → 404).",
+      "console": "https://lexkite.com/app/#/community",
+      "free": "D1: 1–3 lượt đọc/thao tác, ghi chỉ khi đổi hồ sơ/chặn/báo cáo; 30 lượt/phút/uid, 600/ngày; báo cáo 5/phút, 20/ngày",
+      "upgrade": "Nhiều phòng hoạt động → tin nhắn ở Durable Object (đợt 3), D1 chỉ siêu dữ liệu",
+      "status": "Miễn phí · cờ tắt",
+      "match": []
+    },
+    {
+      "key": "cf-durable-objects",
+      "name": "Cloudflare Durable Objects (SQLite) – RoomDO của Cộng đồng",
+      "kind": "worker",
+      "purpose": "Đợt 3+: 1 DO/phòng giữ tin nhắn 30 ngày, hiện diện, tín hiệu WebRTC qua WebSocket Hibernation (Worker lexkite-community). Chưa triển khai ở đợt 1.",
+      "console": "https://dash.cloudflare.com/?to=/:account/workers/durable-objects",
+      "free": "Workers Free (kiểm 03/11/2026 tại developers.cloudflare.com/durable-objects/platform/pricing): 100.000 lượt/ngày (chung trần Workers), 13.000 GB-s/ngày, SQLite 5 triệu dòng đọc + 100.000 dòng ghi/ngày, 5 GB tổng; gói Free CHỈ có DO SQLite; tin WebSocket vào tính 20:1; DO ngủ đông không tính thời gian; vượt trần → lỗi (không tính phí), đặt lại 00:00 UTC",
+      "upgrade": "Workers Paid 5 USD/tháng – chỉ chủ quyết; trước đó free-tier-guard cảnh báo 60/80 %",
+      "status": "Miễn phí · chưa dùng",
+      "match": []
+    },
+    {
+      "key": "cf-realtime-turn",
+      "name": "Cloudflare Realtime TURN (turn.cloudflare.com) – gọi thoại Cộng đồng",
+      "kind": "worker",
+      "purpose": "Đợt 5: TURN relay cho phòng nói WebRTC (iceTransportPolicy 'relay' → người lạ không thấy IP). Worker cấp credential ngắn hạn (TTL ≤ 48 h, dùng 1 h). STUN stun.cloudflare.com:3478. Chưa triển khai ở đợt 1.",
+      "console": "https://dash.cloudflare.com/?to=/:account/calls",
+      "free": "1.000 GB/tháng miễn phí, CHUNG cho SFU + TURN (kiểm 03/11/2026 tại developers.cloudflare.com/realtime/pricing), sau đó 0,05 USD/GB → free-tier-guard: ≥ 70 % tháng thì tự tắt phòng nói (chat vẫn chạy), không bao giờ sang trả phí",
+      "upgrade": "Không nâng – giữ $0; nhiều người gọi → giảm bitrate Opus / giới hạn phút/ngày",
+      "status": "Miễn phí · chưa dùng",
       "match": []
     },
     {
@@ -605,8 +638,8 @@
       "kind": "video",
       "purpose": "Đăng TAY (mặc định, tới khi qua kiểm định API): clip chủ duyệt → gói đăng (scripts/video/yt-pack.mjs, Kho Drive shorts/_ytpack, bảng D1 yt_pack) → chủ tải lên YouTube Studio ở chế độ Unlisted → youtube-manual.yml + nút Đồng bộ đọc kênh (chỉ quyền youtube.readonly, playlistItems ≈ 1 đơn vị) tìm dòng lk:<clip> → youtube_id lên web. Đăng API (cờ yt_meta mode=api): hàng chờ D1 yt_queue → youtube-upload.yml (scripts/video/yt-upload.mjs) – docs/YOUTUBE-SETUP.md.",
       "console": "https://console.cloud.google.com/apis/api/youtube.googleapis.com/quotas",
-      "free": "10.000 đơn vị/ngày (videos.insert ≈ 1.600 + thumbnails.set 50 → ≈ 6 video/ngày); dự án chưa qua kiểm định (API compliance audit) → video tải lên bị khoá private",
-      "upgrade": "Gửi YouTube API Services audit + xin tăng hạn mức (miễn phí) – docs/YOUTUBE-SETUP.md §3",
+      "free": "Đã duyệt 10/11/2026 (project 813846697347): nhóm videos.insert 1.000 lượt/ngày (1 đơn vị/lượt) + nhóm mặc định 60.000 đơn vị/ngày (thumbnails.set 50, list 1) → ≤ 1.000 video/ngày; từ 02/11/2026 không còn khoá private",
+      "upgrade": "Đã cấp; xin lại nếu đổi mục đích sử dụng hoặc khi hết hạn cấp phép – docs/YOUTUBE-SETUP.md §3",
       "status": "Đăng tay – chờ chủ kết nối (youtube.readonly)",
       "match": [
         "youtube.googleapis.com",

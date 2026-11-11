@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -109,8 +109,8 @@
     "tr": "her, bütün"
    },
    "ex": {
-    "es": "Todo es posible.",
-    "en": "Everything is possible."
+    "es": "Trabajo todo el día.",
+    "en": "I work all day."
    },
    "rank": 39,
    "qa": {
@@ -250,5 +250,13 @@
     "spot": true
    }
   }
- ]
+ ],
+ "review": {
+  "by": "sonnet-review-A",
+  "at": "2026-11-09",
+  "checked": 6,
+  "fixed": 1,
+  "dropped": 0,
+  "sample": 6
+ }
 }

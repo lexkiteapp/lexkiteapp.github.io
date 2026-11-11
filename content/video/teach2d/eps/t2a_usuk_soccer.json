@@ -79,5 +79,46 @@
   "words": 45,
   "seconds": 27.6,
   "wpm": 98
+ },
+ "publish": {
+  "title": "Soccer or football? US vs UK English",
+  "keyword": "soccer vs football",
+  "value": "Americans say soccer. British people say football.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/soccer",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Soccer or football? US vs UK English",
+    "description": "Americans say soccer. British people say football.\n\nLook up any word, free: https://lexkite.com/app/#/dict/soccer\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "soccer vs football",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Soccer or football? US vs UK English\n\nAmericans say soccer. British people say football.\n\nLook up any word, free: https://lexkite.com/app/#/dict/soccer"
+   },
+   "instagram": {
+    "caption": "Soccer or football? US vs UK English\n\nAmericans say soccer. British people say football.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Soccer or football? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Football! Americans say soccer. British people say football. Practice it with a free quiz: {link}"
  }
 }

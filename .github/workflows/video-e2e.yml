@@ -41,9 +41,14 @@ jobs:
         if: steps.s.outputs.ok == '1'
         run: |
           pip install -q -r scripts/cine/requirements.txt scipy==1.14.1 faster-whisper==1.0.3 requests==2.32.3
-          sudo timeout 600 apt-get update -qq && sudo timeout 600 apt-get install -y -qq tesseract-ocr >/dev/null
-          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
-          curl -fsSL -m 120 -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip && mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
+      - uses: ./.github/actions/apt
+        with: { packages: tesseract-ocr }
+        if: steps.s.outputs.ok == '1'
+      - name: Tools (tiếp)
+        if: steps.s.outputs.ok == '1'
+        run: |
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL --retry 5 --retry-delay 10 --retry-all-errors -m 120 -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip && mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
           R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"; echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
       - name: 1-3 pick + materialize (bank -> lesson)
         if: steps.s.outputs.ok == '1'

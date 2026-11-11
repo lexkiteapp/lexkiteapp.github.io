@@ -7,7 +7,7 @@
 //     --base mặc định https://audio.lexkite.com/audio/l/ ; gốc Pages kho m2: https://lexkiteapp.github.io/lexkite-media-2/audio/l/
 //     --sample N: kiểm N file ngẫu nhiên (mặc định: tất cả)
 // Thoát mã 1 nếu có file thiếu (sau khi thử lại --retries lần, cách nhau 30 s – chờ Pages lan truyền).
-import { pagesPending, MAX_MIN } from './lib/pages-lag.mjs';
+import { pagesPending, MAX_MIN, mirrorPending, MIRROR_MAX_MIN } from './lib/pages-lag.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -84,7 +84,12 @@ let pend = null;
 console.log(`audio-cdn-check ${base}: tổng ${total}, OK ${okAll.length}, 404 ${res.nf.length}, khác ${res.other.length}`);
 if (res.nf.length) console.log('404:', res.nf.slice(0, 30).join(' ') + (res.nf.length > 30 ? ' …' : ''));
 if (res.other.length) console.log('khác:', res.other.slice(0, 30).join(' '));
+// --origin URL (gốc Pages của cùng đường dẫn): CDN R2 chép từ Pages mỗi giờ → file 404 ở CDN nhưng đã có ở gốc Pages và mới (≤ MIRROR_MAX_MIN) = chờ lượt chép, không đỏ
+let mirrorWait = false;
+{ const og = opt('origin', ''); if (og && res.nf.length && !res.other.length) { const lm = await Promise.all(res.nf.slice(0, 60).map(async k => { try { const r = await fetch(og + k + '.mp3', { method: 'HEAD' }); return r.status === 200 && mirrorPending(r.headers.get('last-modified')).pending; } catch { return false; } }));
+  mirrorWait = lm.length === res.nf.length && lm.every(Boolean); } }
 const out = opt('out', '');
 if (out) fs.writeFileSync(out, JSON.stringify({ base, total, ok: okAll.length, missing: res.nf, other: res.other }, null, 1));
 if (pend && !res.other.length) { console.log(`⏳ ${res.nf.length} file chờ Pages kho dựng xong (bản dựng đang chạy ${pend.ageMin} phút ≤ ${MAX_MIN}) – không tính lỗi; lượt sau kiểm lại`); process.exit(0); }
+if (mirrorWait) { console.log(`⏳ ${res.nf.length} file đã có ở gốc Pages (≤ ${MIRROR_MAX_MIN} phút) chờ cdn-mirror chép sang R2 (mỗi giờ) – không tính lỗi; lượt sau kiểm lại`); process.exit(0); }
 process.exit(res.nf.length + res.other.length ? 1 : 0);

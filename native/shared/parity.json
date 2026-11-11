@@ -13,7 +13,7 @@
         "#/tests",
         "#/me"
       ],
-      "status": "skeleton"
+      "status": "done"
     },
     {
       "id": "P02",
@@ -26,7 +26,8 @@
         "#/tracks",
         "#/course",
         "#/courses"
-      ]
+      ],
+      "status": "done"
     },
     {
       "id": "P03",
@@ -34,7 +35,8 @@
       "title": "Lesson player: match/type/gap/build/say/pic/tr, segmented bar, Check, feedback sheet + teacher, gold bank, combo, retries, stories/radio, lesson complete + celebration",
       "routes": [
         "#/lesson"
-      ]
+      ],
+   "status": "done"
     },
     {
       "id": "P04",
@@ -45,7 +47,8 @@
         "#/practice",
         "#/mistakes",
         "#/deck"
-      ]
+      ],
+      "status": "done"
     },
     {
       "id": "P05",
@@ -63,7 +66,8 @@
         "#/usage",
         "#/ideas",
         "#/paraphrase"
-      ]
+      ],
+      "status": "done"
     },
     {
       "id": "P06",
@@ -76,7 +80,8 @@
         "#/dictation",
         "#/reading",
         "#/read"
-      ]
+      ],
+      "status": "done"
     },
     {
       "id": "P07",
@@ -91,7 +96,8 @@
         "#/rtype",
         "#/roleplay",
         "#/handsfree"
-      ]
+      ],
+      "status": "done"
     },
     {
       "id": "P08",
@@ -99,7 +105,8 @@
       "title": "Live call with Ama/Carlos (on-device/edge AI tiers, captions, lip sync)",
       "routes": [
         "#/call"
-      ]
+      ],
+      "status": "done"
     },
     {
       "id": "P09",
@@ -116,12 +123,13 @@
         "#/style",
         "#/confidence",
         "#/qstats"
-      ]
+      ],
+      "status": "done"
     },
     {
       "id": "P10",
       "m": 5,
-      "title": "Tests: readiness/goal, mock, CBT, placement, TOEIC (R, SW, test), TOEFL (+practice), IELTS",
+      "title": "Tests: readiness/goal, mock, CBT, placement, TOEIC (R, SW, test), TOEFL (+practice), IELTS, Cambridge",
       "routes": [
         "#/goal",
         "#/mock",
@@ -132,7 +140,8 @@
         "#/toeic-sw",
         "#/toeic-test",
         "#/toefl",
-        "#/toefl-p"
+        "#/toefl-p",
+        "#/cambridge"
       ]
     },
     {
@@ -164,31 +173,36 @@
       "id": "C01",
       "m": 1,
       "title": "Auth: Firebase Google + Apple sign-in, same project, guest mode, delete account",
-      "routes": []
+      "routes": [],
+      "status": "done"
     },
     {
       "id": "C02",
       "m": 1,
       "title": "Offline-first store (SwiftData/Room) + sync: Drive appDataFolder primary, D1 /api/sync fallback, deterministic 2-way merge with tombstones",
-      "routes": []
+      "routes": [],
+      "status": "done"
     },
     {
       "id": "C03",
       "m": 1,
       "title": "Migration from the Capacitor app: import IndexedDB data (cards, stats, settings, streak) on first native launch, zero loss",
-      "routes": []
+      "routes": [],
+      "status": "done"
     },
     {
       "id": "C04",
       "m": 2,
       "title": "Audio: Kokoro prerendered files from the CDN (multi-origin fallback), offline pack, live free TTS tier, system TTS last; Ama female / Carlos male",
-      "routes": []
+      "routes": [],
+   "status": "done"
     },
     {
       "id": "C05",
       "m": 2,
-      "title": "Teachers Ama/Carlos 2D via Rive native runtime, viseme lip sync ±33 ms, gestures/emotions, reduced motion",
-      "routes": []
+      "title": "Teachers Ama/Carlos 2D: native port of the web TeacherRig (Rive-style viseme/emotion/gesture inputs, no Rive runtime), viseme lip sync ±33 ms, gestures/emotions, reduced motion",
+      "routes": [],
+   "status": "done"
     },
     {
       "id": "C06",
@@ -206,25 +220,29 @@
       "id": "C08",
       "m": 1,
       "title": "Deep links: lexkite://review, lexkite://word/<w>, https://lexkite.com universal/app links to routes",
-      "routes": []
+      "routes": [],
+      "status": "done"
     },
     {
       "id": "C09",
       "m": 1,
       "title": "Haptics (correct/wrong/complete), respects system settings",
-      "routes": []
+      "routes": [],
+      "status": "done"
     },
     {
       "id": "C10",
       "m": 1,
       "title": "i18n 15 languages + RTL (ar) + +40 % text growth; generated from web i18n",
-      "routes": []
+      "routes": [],
+      "status": "done"
     },
     {
       "id": "C11",
       "m": 1,
       "title": "Themes: Bright Day (light) / Tactile Night (dark) / follow system; generated tokens; contrast ≥4.5:1",
-      "routes": []
+      "routes": [],
+      "status": "done"
     },
     {
       "id": "C12",
@@ -260,7 +278,8 @@
       "id": "C17",
       "m": 1,
       "title": "First-run onboarding: splash → Welcome → native language/goal/level/daily time → Today first lesson; never the blog; try before sign-up",
-      "routes": []
+      "routes": [],
+      "status": "done"
     }
   ]
 }

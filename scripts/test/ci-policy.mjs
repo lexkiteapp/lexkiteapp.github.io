@@ -24,10 +24,19 @@
 //  9) (05/11 – e2e webkit / ux1 bị huỷ sau 20–40 phút vì `playwright install --with-deps` / `apt-get install` treo trên runner, #760): mọi lệnh
 //     cài Playwright/apt phải có giới hạn thời gian: bước CHỈ cài có `timeout-minutes` mức bước; bước vừa cài vừa chạy việc dài (render, e2e) bọc
 //     riêng lệnh cài bằng `timeout <giây>` (không giới hạn nhầm phần việc chính). Treo → bước đỏ rõ ràng sau vài phút thay vì job bị huỷ.
+//  11) (07/11 – hàng chờ 245 job / 40 runner, 43 % lượt nặng chạy trên sha mà npm test đỏ/bị huỷ) LÀN NHANH TRƯỚC LÀN NẶNG: 11 workflow nặng trên PR
+//     (QA bot, Journey E2E, UX cards, Scroll perf, Stitch diff, Font audit, Frame consistency, Visual QA, Mobile QA, Web sweep, size-guard – HEAVY dưới đây)
+//     có dòng `# ci-policy: heavy-gate – …`, job `gate` (đọc check-run `npm test` cùng sha) và MỌI job khác `needs: gate` + `if` chứa
+//     needs.gate.outputs.go == 'true'; npm-test.yml có job `heavy` chạy scripts/ci/heavy-rerun.mjs để chạy lại lượt nặng khi npm test xanh.
+//  12) Workflow chạy trên PR có concurrency cancel-in-progress: true (đẩy commit mới huỷ lượt cũ cùng ref, không dồn hàng), hoặc `# ci-policy: queue – <lý do>`.
+//  13) (08/11 – native-m1 đỏ: ký Automatic + -allowProvisioningUpdates tạo 1 chứng chỉ Development mỗi máy CI → tài khoản Apple đầy hạn mức)
+//     cấm ký iOS Automatic trên CI (`-allowProvisioningUpdates`, `CODE_SIGN_STYLE=Automatic`, ExportOptions signingStyle automatic): ký Manual
+//     bằng chứng chỉ Distribution cố định – scripts/native/ios-sign.sh, docs/CI-SIGNING-IOS.md.
 // Không có danh sách miễn trừ ngầm: ngoại lệ nằm ngay trong file workflow, kèm lý do. Chạy: node scripts/test/ci-policy.mjs
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const WF = path.join(ROOT, '.github/workflows');
@@ -100,6 +109,7 @@ export function installSteps(src) {
   return out;
 }
 /** Lỗi chính sách của 1 workflow (thuần, có test) → [chuỗi]. */
+const SIGN_AUTO = /-allowProvisioningUpdates\b|CODE_SIGN_STYLE\s*=\s*"?Automatic|signingStyle<\/key>\s*<string>automatic/i;
 export function violations(file, src) {
   const out = [], t = triggers(src);
   for (const j of jobs(src)) if (!/^    uses:/m.test(j.text) && !/^    timeout-minutes:/m.test(j.text)) out.push(`${file}: job "${j.id}" thiếu timeout-minutes`);
@@ -126,10 +136,17 @@ export function violations(file, src) {
   }
   if ((t.events.has('pull_request') || t.events.has('pull_request_target')) && !reason(src, 'matrix'))
     for (const j of jobs(src)) { const n = matrixLegs(j.text); if (n > MATRIX_MAX) out.push(`${file}: job "${j.id}" chạy trên PR với matrix ${n} nhánh (> ${MATRIX_MAX}) – gộp phần nhỏ nối tiếp trong 1 job (mỗi nhánh = 1 lượt xin runner + setup), hoặc dòng "# ci-policy: matrix – <lý do>"`); }
+  if ((t.events.has('pull_request') || t.events.has('pull_request_target')) && !/cancel-in-progress:\s*["']?(true|\$\{\{)/.test(src) && !reason(src, 'queue')) out.push(`${file}: chạy trên PR mà concurrency không có cancel-in-progress (luật 12) – commit mới phải huỷ lượt cũ (hoặc dòng "# ci-policy: queue – <lý do>")`);
+  if (/^# ci-policy: heavy-gate\b/m.test(src)) {   // luật 11
+    const js = jobs(src), g = js.find(j => j.id === 'gate');
+    if (!g || !/check_name=npm%20test/.test(g.text) || !/outputs:\s*\{\s*go:/.test(g.text)) out.push(`${file}: heavy-gate cần job "gate" đọc check-run npm test và xuất output go`);
+    for (const j of js) if (j.id !== 'gate' && !/^    uses:/m.test(j.text) ? !(/^    needs:[^\n]*\bgate\b/m.test(j.text) && /^    if:[^\n]*needs\.gate\.outputs\.go == 'true'/m.test(j.text)) : false) out.push(`${file}: job "${j.id}" phải needs: gate và if: … needs.gate.outputs.go == 'true' (luật 11: việc nặng chờ npm test xanh)`);
+  }
   // 10) (06/11 – stitch-web đỏ vì `timeout 600 npx playwright install --with-deps` treo apt hết 600 s, #780): cài Playwright qua scripts/ci/pw-install.sh
   //     (mỗi lượt ≤ 4 phút, thử lại 3 lượt, giết apt treo) – một lượt treo không còn làm đỏ job. Trừ mobile-qa.yml (nội dung bị mqa-parity khoá) và vòng thử lại tự viết.
   if (!/(^|\/)mobile-qa\.yml$/.test(file)) String(src).split('\n').forEach((l, n) => { if (!/^\s*#/.test(l) && /npx\s+(?:--yes\s+)?playwright(?:@[\w.]+)?\s+install\b/.test(l) && !/\bif timeout \d+ npx/.test(l)) out.push(`${file}:${n + 1}: cài Playwright trần – dùng \`bash scripts/ci/pw-install.sh [--with-deps] <trình duyệt>\` (trần + thử lại, luật 10)`); });
   for (const st of installSteps(src)) if (!st.bounded) out.push(`${file}:${st.start + 1}: bước cài Playwright/apt không giới hạn thời gian – bước chỉ cài: thêm timeout-minutes; bước còn việc khác: bọc lệnh cài bằng \`timeout 600 …\` (luật 9)`);
+  String(src).split('\n').forEach((l, n) => { if (!/^\s*#/.test(l) && SIGN_AUTO.test(l)) out.push(`${file}:${n + 1}: ký iOS Automatic/-allowProvisioningUpdates trên CI – mỗi máy CI tạo 1 chứng chỉ mới → đầy hạn mức; ký Manual qua scripts/native/ios-sign.sh (luật 13)`); });
   return out;
 }
 /** Tên các workflow trong workflow_run.workflows (dạng [a, b] hoặc danh sách - 'a'). */
@@ -168,7 +185,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   ok(violations('d.yml', disp).some(v => /no-concurrency/.test(v)), 'dispatch không concurrency, không lý do → lỗi');
   ok(violations('d.yml', '# ci-policy: no-concurrency – mỗi lượt khác input, nhóm chung huỷ lượt chờ\n' + disp).length === 0, 'dispatch có lý do → đạt');
   ok(violations('d.yml', '# ci-policy: no-concurrency – x\n' + disp).length === 1, 'lý do quá ngắn không tính');
-  const pr = base.replace('  push:\n    branches: [main]\n', '  pull_request:\n');
+  const pr = base.replace('  push:\n    branches: [main]\n', '  pull_request:\n').replace('concurrency: { group: x }', 'concurrency: { group: x, cancel-in-progress: true }');
   const nd = pr.replace('    runs-on: ubuntu-latest\n', "    needs: b\n    if: always() && github.event_name == 'pull_request'\n    runs-on: ubuntu-latest\n");
   ok(violations('x.yml', nd).some(v => /always\(\)/.test(v)), 'job needs + always() trần → lỗi (before-after đỏ khi bot bị huỷ)');
   ok(violations('x.yml', nd.replace('always()', '!cancelled()')).length === 0, 'job needs + !cancelled() → đạt');
@@ -221,9 +238,30 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     ok(v10('      - run: |\n          for i in 1 2 3; do\n            if timeout 240 npx playwright install chromium; then break; fi\n          done\n') === 0, 'luật 10: vòng thử lại tự viết → đạt');
     ok(!violations('mobile-qa.yml', job('      - timeout-minutes: 12\n        run: npx playwright install chromium\n')).some(x => /luật 10/.test(x)), 'luật 10: mobile-qa.yml được miễn');
   }
+  { const hv = "# ci-policy: heavy-gate – x\n" + base.replace("  push:\n    branches: [main]\n    paths: ['a/**']", "  pull_request:\n    paths: ['a/**']").replace('concurrency: { group: x }', 'concurrency: { group: x, cancel-in-progress: true }');
+    const gate = "  gate:\n    runs-on: ubuntu-latest\n    timeout-minutes: 3\n    outputs: { go: '${{ steps.g.outputs.go }}' }\n    steps:\n      - run: gh api 'x?check_name=npm%20test'\n";
+    const good = hv.replace('jobs:\n', 'jobs:\n' + gate).replace('  a:\n', "  a:\n    needs: gate\n    if: needs.gate.outputs.go == 'true'\n");
+    ok(violations('h.yml', good).length === 0, 'luật 11: gate + needs + if → đạt');
+    ok(violations('h.yml', hv.replace('jobs:\n', 'jobs:\n' + gate)).some(v => /luật 11/.test(v)), 'luật 11: job không needs gate → lỗi');
+    ok(violations('h.yml', hv).some(v => /gate/.test(v)), 'luật 11: thiếu job gate → lỗi');
+    ok(violations('h.yml', good.replace('cancel-in-progress: true', 'cancel-in-progress: false')).some(v => /luật 12/.test(v)), 'luật 12: PR không cancel-in-progress → lỗi');
+    ok(violations('h.yml', '# ci-policy: queue – việc tuần tự không được huỷ\n' + good.replace('cancel-in-progress: true', 'cancel-in-progress: false')).length === 0, 'luật 12: có lý do queue → đạt'); }
+  { const sg = l => violations('s.yml', base.replace('    steps: []\n', `    steps:\n      - run: |\n          ${l}\n`)).filter(v => /luật 13/.test(v)).length;
+    ok(sg('xcodebuild archive -allowProvisioningUpdates') === 1, 'luật 13: -allowProvisioningUpdates → lỗi (đầy hạn mức chứng chỉ 08/11)');
+    ok(sg('xcodebuild DEVELOPMENT_TEAM=X CODE_SIGN_STYLE=Automatic archive') === 1, 'luật 13: CODE_SIGN_STYLE=Automatic → lỗi');
+    ok(sg('<key>signingStyle</key><string>automatic</string>') === 1, 'luật 13: ExportOptions automatic → lỗi');
+    ok(sg('bash scripts/native/ios-sign.sh App.xcodeproj/project.pbxproj com.lexkite.app:P') === 0, 'luật 13: ký Manual qua ios-sign.sh → đạt');
+    ok(sg('# không dùng -allowProvisioningUpdates') === 0, 'luật 13: dòng chú thích không tính'); }
   // --- quét repo
   const files = fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f)), srcs = files.map(f => [f, fs.readFileSync(path.join(WF, f), 'utf8')]);
   for (const [f, s] of srcs) for (const v of violations(f, s)) ok(false, v);
+  const HEAVY = ['teach-video', 'video-motion', 'qa-bot', 'journey-e2e', 'ux-cards', 'scroll-perf', 'stitch-diff', 'font-audit', 'frame-consistency', 'visual-qa', 'mobile-qa', 'web-sweep', 'size-guard'];
+  for (const h of HEAVY) { const src = (srcs.find(([f]) => f === h + '.yml') || [])[1] || ''; ok(/^# ci-policy: heavy-gate\b/m.test(src), `${h}.yml thiếu dòng "# ci-policy: heavy-gate – …" (luật 11)`); }
+  // luật 11b: teach-video trên PR chỉ smoke (preqc + ≤ 2 tập; render đầy đủ khi dispatch/ci-filler), video-motion PR chỉ 1 mẫu
+  { let n = -1; try { n = JSON.parse(execFileSync('python3', ['scripts/video/teach2d/gen.py', '--pick', '', '0', 'pull_request', '24'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] })).length; } catch (e) { console.log('• ci-policy: python3/gen.py không chạy được – bỏ qua kiểm shard teach-video'); }
+    ok(n < 0 || (n >= 1 && n <= 2), `teach-video trên PR chọn ${n} tập (phải 1–2: smoke, không render 24 shard)`);
+    const vm = (srcs.find(([f]) => f === 'video-motion.yml') || [])[1] || ''; ok(/github\.event_name == 'pull_request' && 'drill' \|\|/.test(vm), 'video-motion.yml: PR phải chạy 1 mẫu (drill), không 4'); }
+  { const np = (srcs.find(([f]) => f === 'npm-test.yml') || [])[1] || ''; ok(/^  heavy:/m.test(np) && /heavy-rerun\.mjs/.test(np) && /needs:\s*test/.test(np), 'npm-test.yml thiếu job heavy (chạy heavy-rerun.mjs sau job test) – luật 11'); }
   for (const c of chainCycles(srcs)) ok(false, `vòng workflow_run: ${c}`);
   for (const k of ciParity(fs.readFileSync(path.join(WF, 'ci.yml'), 'utf8'), fs.readFileSync(path.join(ROOT, 'scripts/test/suite.txt'), 'utf8'))) ok(false, `ci.yml chạy "${k}" nhưng suite.txt (cổng PR) không có → PR xanh vẫn làm main đỏ`);
   ok(ciParity('run: node scripts/a.mjs\n- run: npx tsc -p x.json', 'node scripts/a.mjs').join() === 'tsc -p', 'ciParity bắt lệnh thiếu');

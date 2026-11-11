@@ -1,3 +1,4 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
 # Rà font chữ web/app/add-on từng phần trên Chromium thật – 2 job song song: "app" (nặng nhất, ~3 phút) và "site" (static, landing, legal, admin,
 # blog, ext chạy nối tiếp trong 1 job). 05/11: trước là 7 job/commit, 6 job < 90 s = 20 % số job PR khởi động trong hàng chờ 40 runner;
 # gộp giữ NGUYÊN mọi phần + --strict, phần nào đỏ thì job đỏ (chạy hết các phần rồi mới báo). Kết quả ở Summary + artifact font-<nhóm>.
@@ -17,8 +18,27 @@ concurrency:
   group: font-audit-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha → go=$go"
   audit:
     name: audit (${{ matrix.group.name }})
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 25
     strategy:
@@ -34,7 +54,9 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           bash scripts/ci/pw-install.sh chromium   # không --with-deps: runner đã có thư viện của Chrome; apt hay kẹt khoá do cập nhật nền
-          sudo timeout 300 apt-get -o DPkg::Lock::Timeout=120 install -y -qq fonts-noto-cjk fonts-noto-core >/dev/null || true
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-cjk fonts-noto-core }
+        if: matrix.group.parts != 'static'
       - if: contains(format(' {0} ', matrix.group.parts), ' blog ')
         run: node scripts/build-blog.mjs
       - name: Kiểm ${{ matrix.group.parts }}

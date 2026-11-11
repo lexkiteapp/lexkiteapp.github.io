@@ -24,7 +24,7 @@ jobs:
       - name: Cài Playwright + sharp
         timeout-minutes: 14
         run: |
-          npm i --no-save --no-audit --no-fund playwright@1.48.2 sharp@0.33.5
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund playwright@1.48.2 sharp@0.33.5
           bash scripts/ci/pw-install.sh --with-deps chromium
       - name: Dựng + QC
         run: node scripts/social/build-channel-kit.mjs

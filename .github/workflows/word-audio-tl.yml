@@ -30,7 +30,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
       - uses: ./.github/actions/setup-ffmpeg
-      - run: npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
+      - run: bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
       - uses: actions/cache@v4
         with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: 'kokoro-82m-v1-fp32' }
       - name: G2P theo bảng (misaki EspeakG2P + espeak-ng đầy đủ – kokoro-js chỉ kèm espeak tiếng Anh)

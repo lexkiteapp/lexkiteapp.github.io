@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -278,8 +278,8 @@
     "tr": "sevgili"
    },
    "ex": {
-    "es": "Mi hermana es la novia de Juan.",
-    "en": "My sister is Juan's girlfriend."
+    "es": "Ana es la novia de Juan.",
+    "en": "Ana is Juan's girlfriend."
    },
    "rank": 720,
    "qa": {
@@ -395,7 +395,7 @@
     "ko": "약속",
     "hi": "नियुक्ति",
     "ar": "موعد",
-    "ru": "прием",
+    "ru": "встреча, приём",
     "tr": "randevu"
    },
    "ex": {
@@ -706,10 +706,10 @@
    "pos": "n",
    "gender": "f",
    "plural": "pruebas",
-   "ipa": "pɾuˈeβa",
+   "ipa": "ˈpɾweβa",
    "gl": {
     "vi": "bằng chứng",
-    "en": "proof",
+    "en": "proof, evidence",
     "es": "prueba",
     "pt": "prova",
     "fr": "preuve",
@@ -990,7 +990,7 @@
    "pos": "n",
    "gender": "m",
    "plural": "clubs",
-   "ipa": "ˈklub",
+   "ipa": "ˈkluβ",
    "gl": {
     "vi": "câu lạc bộ",
     "en": "club",
@@ -1114,7 +1114,7 @@
    "pos": "adj",
    "ipa": "aˈmaβle",
    "gl": {
-    "vi": "đáng yêu",
+    "vi": "tử tế, thân thiện",
     "en": "kind",
     "es": "amable",
     "pt": "amável",
@@ -1194,10 +1194,10 @@
    "pos": "n",
    "gender": "f",
    "plural": "investigaciones",
-   "ipa": "imbestiɣaˈsjon",
+   "ipa": "inbestiɣaˈsjon",
    "gl": {
-    "vi": "nghiên cứu",
-    "en": "research",
+    "vi": "cuộc điều tra, nghiên cứu",
+    "en": "investigation, research",
     "es": "investigación",
     "pt": "pesquisa",
     "fr": "recherche",
@@ -1395,5 +1395,13 @@
     "ipaAi": "liβeɾˈtað"
    }
   }
- ]
+ ],
+ "review": {
+  "by": "sonnet-review-B",
+  "at": "2026-11-09",
+  "checked": 34,
+  "fixed": 6,
+  "dropped": 0,
+  "sample": 7
+ }
 }

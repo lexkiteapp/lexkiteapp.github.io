@@ -32,7 +32,7 @@ import com.lexkite.app.design.toCompose
 import com.lexkite.app.i18n.L10n
 import com.lexkite.app.i18n.generated.L10nKey
 
-sealed interface TopBarVariant { data object Hub : TopBarVariant; data object Inner : TopBarVariant; data class Focus(val progress: Float) : TopBarVariant }
+sealed interface TopBarVariant { data object Hub : TopBarVariant; data object Inner : TopBarVariant; data class Focus(val progress: Float, val track: androidx.compose.ui.graphics.Color? = null) : TopBarVariant }
 
 /** The three fixed top-bar variants (DESIGN-SYSTEM §5d). Back/X = 48 dp (≥ 44); system back runs the same `onExit`
  *  (which may confirm softly when progress would be lost) – never traps the learner. */
@@ -49,7 +49,7 @@ fun TopBar(variant: TopBarVariant, title: String, t: L10n, onExit: (() -> Unit)?
             }
             is TopBarVariant.Focus -> {
                 IconButton(onClick = { onExit?.invoke() }, modifier = Modifier.size(48.dp).testTag(EXIT_TAG)) { Icon(Icons.Filled.Close, t(L10nKey.actionClose), tint = c.onSurface) }
-                LKProgress(variant.progress, Modifier.weight(1f).padding(end = LKSpacing.spaceXs), label = title)
+                LKProgress(variant.progress, Modifier.weight(1f).padding(end = LKSpacing.spaceXs), label = title, track = variant.track ?: LocalLKColors.current.cardHigh)
             }
         }
     }

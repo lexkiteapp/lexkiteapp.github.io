@@ -12,6 +12,8 @@ public enum FlagKey: String, CaseIterable, Sendable {
     case syncPushEveryMs = "sync_push_every_ms"
     case teacherRiveEnabled = "teacher_rive_enabled"
     case todayBannerEnabled = "today_banner_enabled"
+    case vocabImg = "vocab_img"
+    case vocabImgPct = "vocab_img_pct"
 }
 
 public enum FlagDefaults {
@@ -37,6 +39,10 @@ public enum FlagDefaults {
     public static let teacherRiveEnabled: Bool = true
     /// Show signed banners/events on Today
     public static let todayBannerEnabled: Bool = true
-    public static let bounds: [FlagKey: ClosedRange<Int>] = [.contentMaxSchema: 1...1000, .syncPushEveryMs: 60000...86400000]
-    public static let all: [FlagKey: Any] = [.adsEnabled: adsEnabled, .aiEnabled: aiEnabled, .contentMaxSchema: contentMaxSchema, .contentRemoteEnabled: contentRemoteEnabled, .migrationCapacitorEnabled: migrationCapacitorEnabled, .minSupportedApp: minSupportedApp, .syncD1Fallback: syncD1Fallback, .syncDriveEnabled: syncDriveEnabled, .syncPushEveryMs: syncPushEveryMs, .teacherRiveEnabled: teacherRiveEnabled, .todayBannerEnabled: todayBannerEnabled]
+    /// Vocabulary pictures (lesson pic exercise, word cards) – same tri-state as web config v.vocab_img: "on" = everyone, "off" = nobody, "" = staged rollout by vocab_img_pct over a fixed per-device bucket 0–99 (web/js/vocab-img.js mode(), vectors/vimg.json mode)
+    public static let vocabImg: String = ""
+    /// Staged rollout % for vocabulary pictures when vocab_img is "" (web vocab_img_pct, default PCT = 10); raise only after the web journey-e2e 'images on' gate (docs/LEXICON.md)
+    public static let vocabImgPct: Int = 10
+    public static let bounds: [FlagKey: ClosedRange<Int>] = [.contentMaxSchema: 1...1000, .syncPushEveryMs: 60000...86400000, .vocabImgPct: 0...100]
+    public static let all: [FlagKey: Any] = [.adsEnabled: adsEnabled, .aiEnabled: aiEnabled, .contentMaxSchema: contentMaxSchema, .contentRemoteEnabled: contentRemoteEnabled, .migrationCapacitorEnabled: migrationCapacitorEnabled, .minSupportedApp: minSupportedApp, .syncD1Fallback: syncD1Fallback, .syncDriveEnabled: syncDriveEnabled, .syncPushEveryMs: syncPushEveryMs, .teacherRiveEnabled: teacherRiveEnabled, .todayBannerEnabled: todayBannerEnabled, .vocabImg: vocabImg, .vocabImgPct: vocabImgPct]
 }

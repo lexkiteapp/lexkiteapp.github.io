@@ -72,5 +72,46 @@
   "words": 36,
   "seconds": 22.8,
   "wpm": 95
+ },
+ "publish": {
+  "title": "What does \"plane\" mean?",
+  "keyword": "plane",
+  "value": "Plane means an airplane.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=plane",
+  "script_words": 30,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"plane\" mean?",
+    "description": "Plane means an airplane.\n\nReview your words, free: https://lexkite.com/app/#/review?w=plane\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "plane",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"plane\" mean?\n\nPlane means an airplane.\n\nReview your words, free: https://lexkite.com/app/#/review?w=plane"
+   },
+   "instagram": {
+    "caption": "What does \"plane\" mean?\n\nPlane means an airplane.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"plane\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means an airplane. Plane means an airplane. More practice like this (free): {link}"
  }
 }

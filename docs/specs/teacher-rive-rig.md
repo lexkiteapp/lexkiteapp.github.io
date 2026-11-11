@@ -71,3 +71,4 @@ Ngưỡng chỉ được siết, không nới.
 - lớp tư thế = ảnh tư thế đã duyệt (Chars.still, footage registry) mờ chéo 180 ms trong CÙNG 1 canvas (0 thay đổi DOM mỗi khung)
 - API: TeacherRig.mount(el, who, o) → { speak(audio, visemes, o), setEmotion(name), gesture(name), listen(on), pause(on), destroy(), stats }
 - Lõi thuần (Node + trình duyệt): TeacherRig.core – cổng CI chạy đúng lõi này. Tải lười: chỉ màn có giáo viên nạp tệp này (shell không đổi).
+- [x] App native (iOS SwiftUI / Android Compose, mốc M2): port đúng rig này (cùng input `viseme`/`emotion`/`gesture`), không dùng runtime Rive – xem `docs/specs/native-apps.md` §5 (C05); định nghĩa + vector sinh bởi `scripts/native/gen-teach.mjs`.

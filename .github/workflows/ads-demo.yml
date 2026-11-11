@@ -48,9 +48,9 @@ jobs:
       - name: Build APK debug (ADS_NATIVE=1)
         run: |
           npm ci --no-audit --no-fund
-          npm ci --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
           ADS_NATIVE=1 node scripts/mobile-ads.mjs --enable
-          npm install --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh install --prefix mobile --no-audit --no-fund
           ADS_NATIVE=1 bash scripts/build-mobile.sh
           grep -q 'com.google.android.gms.ads.APPLICATION_ID' mobile/android/app/src/main/AndroidManifest.xml
           grep -o 'ca-app-pub-[0-9~/]*' mobile/android/app/src/main/AndroidManifest.xml

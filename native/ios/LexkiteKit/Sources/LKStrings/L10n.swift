@@ -16,6 +16,14 @@ public final class L10n: @unchecked Sendable {
         return s
     }
     public func has(_ key: L10nKey) -> Bool { table[key.rawValue] != nil }
+    /// Source text (the Vietnamese key a web `t()` call receives) → id, built once from the Vietnamese table.
+    private static let sourceIndex: [String: String] = Dictionary(load("vi").map { ($0.value, $0.key) }, uniquingKeysWith: { a, _ in a })
+    /// Translate a stored web key such as `{k:"Nghĩa của “{word}”?", v:{word}}` (mistakes book); nil when no id carries that text.
+    public func translate(source k: String, _ vars: [String: String] = [:]) -> String? {
+        guard let id = Self.sourceIndex[k], var s = table[id] ?? fallback[id] else { return nil }
+        for (n, v) in vars { s = s.replacingOccurrences(of: "{\(n)}", with: v) }
+        return s
+    }
     /// Best UI language for the device's preferred languages (zh-Hans → zh, pt-BR → pt…).
     public static func preferred(_ prefs: [String] = Locale.preferredLanguages) -> String {
         for p in prefs { let base = String(p.prefix(2)).lowercased(); if L10nLangs.all.contains(base) { return base } }

@@ -5,6 +5,7 @@
 // có tên cũ mang nội dung mới. Chu trình tham chiếu → giữ tên gốc. Không băm: js/i18n/** (loadScript suy gói ngôn ngữ từ đường dẫn),
 // file tự tìm vị trí của mình (currentScript / script[src*= / import.meta). CSS: url() tương đối đổi sang tuyệt đối (/fonts/…) trước khi băm.
 // Chạy trong scripts/build-web.sh sau build-cpack, trước khi gắn phiên bản sw:  node scripts/build-hash.mjs dist   (NO_HASH=1 → bỏ qua: app di động)
+import { isMain } from './lib/is-main.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -50,7 +51,7 @@ export function plan(files, scan) {
   return { map, out, skipped };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMain(import.meta.url)) {
   const root = process.argv[2] || 'dist';
   if (process.env.NO_HASH === '1') { console.log('✓ build-hash: bỏ qua (NO_HASH=1)'); process.exit(0); }
   const walk = d => fs.existsSync(d) ? fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]) : [];

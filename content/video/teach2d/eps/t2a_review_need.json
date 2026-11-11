@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"need\" mean?",
+  "keyword": "need",
+  "value": "Need means to be unable to manage without something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=need",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"need\" mean?",
+    "description": "Need means to be unable to manage without something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=need\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "need",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"need\" mean?\n\nNeed means to be unable to manage without something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=need"
+   },
+   "instagram": {
+    "caption": "What does \"need\" mean?\n\nNeed means to be unable to manage without something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"need\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to be unable to manage without something. Need means to be unable to manage without something. Try the full lesson and quiz here: {link}"
  }
 }

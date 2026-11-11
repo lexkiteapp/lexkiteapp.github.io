@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"deal\" mean?",
+  "keyword": "deal",
+  "value": "Deal means an agreement, especially in business.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=deal",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"deal\" mean?",
+    "description": "Deal means an agreement, especially in business.\n\nReview your words, free: https://lexkite.com/app/#/review?w=deal\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "deal",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"deal\" mean?\n\nDeal means an agreement, especially in business.\n\nReview your words, free: https://lexkite.com/app/#/review?w=deal"
+   },
+   "instagram": {
+    "caption": "What does \"deal\" mean?\n\nDeal means an agreement, especially in business.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"deal\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means an agreement, especially in business. Deal means an agreement, especially in business. Try the full lesson and quiz here: {link}"
  }
 }
