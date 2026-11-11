@@ -798,8 +798,6 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
   // ← en/xcore.js
   'Mọi thì, bị động, cách đọc -ed/-s': 'All tenses, the passive, -ed/-s pronunciation',
   'Học từng bước': 'Step by step',
-  'Mức sẵn sàng thi': 'Exam readiness',
-  'Mục tiêu hôm nay': "Today's goal",
   // ← en/study.js
   'Ghép thẻ tính giờ': 'Timed matching',
   // ← en/shell.js

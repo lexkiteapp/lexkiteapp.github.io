@@ -445,6 +445,7 @@
 
 /* English UI – khóa của nhóm tải lười verbs, exams, skills mà khung app, add-on hoặc dữ liệu dùng chung cần ngay → giữ trong en.js. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
+  'Mức sẵn sàng thi': 'Exam readiness', 'Mục tiêu hôm nay': "Today's goal", // khung (shell.js) dùng – không chuyển lazy
 // ---------- từ en/verbs.js (khung app / add-on / trang tĩnh dùng) ----------
 'Chia': 'Conjugate',
 'Bất quy tắc': 'Irregular',
