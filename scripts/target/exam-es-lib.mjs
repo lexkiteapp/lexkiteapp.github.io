@@ -8,7 +8,7 @@ import { form } from './conjugate.mjs';
 export const EX_LV = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], EX_NEW = ['B2', 'C1', 'C2'], EX_N = 2, EX_CLOZE = 10, EX_LISTEN = 6; // mỗi cấp 2 đề × (10 điền từ + 6 nghe)
 export const SRC = lv => `content/exams/es/src/tatoeba-${lv}.json`;
 const CAP = { A1: [600, 9, 70], A2: [1500, 12, 95], B1: [4000, 16, 130], B2: [9000, 22, 160], C1: [20000, 28, 200], C2: [50000, 34, 240] }; export const MAXLEN = Object.fromEntries(Object.entries(CAP).map(([k, v]) => [k, v[2]])); const MINTOK = { A1: 4, A2: 6, B1: 8, B2: 10, C1: 12, C2: 14 }; // [rank tối đa, số từ tối đa, ký tự tối đa]
-const BAN = /(^|[^\p{L}])(tom|mary|bob|ken|jim|tomás|imbécil\w*|idiota\w*|demonio\w*|maldición|teniente|abogado|cita|hospital|sangre|perdedor|maría|john|muert\w*|muri\w+|matar\w*|mató|asesin\w*|sexo|sexual\w*|guerra|dios|jesús|iglesia|religi\w+|suicid\w*|droga\w*|violen\w*|violad\w*|polític\w*|president\w*|gobierno|terror\w*|bomba|armas?|racis\w+|gay|judíos?|musulman\w*|cáncer|hospital)(?=$|[^\p{L}])/iu;
+const BAN = /(^|[^\p{L}])(tom|mary|bob|ken|jim|tomás|imbécil\w*|idiota\w*|demonio\w*|maldición|teniente|abogado|cita|hospital|sangre|perdedor|maría|john|muert\w*|muri\w+|matar\w*|mató|asesin\w*|sexo|sexual\w*|guerra|dios|jesús|iglesia|religi\w+|suicid\w*|droga\w*|violen\w*|violad\w*|polític\w*|president\w*|gobierno|terror\w*|bomba|armas?|racis\w+|gay|judíos?|musulman\w*|cáncer|hospital|noé|arca|diluvio)(?=$|[^\p{L}])/iu;
 const toks = s => s.toLowerCase().match(/[\p{L}]+/gu) || [];
 
 export function build(tsv, freqTxt) {
