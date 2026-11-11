@@ -30,7 +30,7 @@ Education (Giáo dục)
 - Web app: https://lexkite.com/es/?utm_source=facebook&utm_medium=page&utm_campaign=es
 - Add-on Chrome/Edge: https://chromewebstore.google.com/detail/idalfipabpfcajpkfkifbdlpejcdmfcd?hl=es
 - Google Play: https://play.google.com/store/apps/details?id=com.lexkite.app&hl=es&referrer=utm_source%3Dfacebook%26utm_medium%3Dpage%26utm_campaign%3Des
-- App Store: chưa có link trong `web/js/ext-config.js` (`LK_APPS.ios`) – thêm ở đó thì file này tự cập nhật
+- App Store: https://apps.apple.com/app/id6824714708?ct=facebook_es
 
 ## Khi đăng bài
 Caption luôn có link web có UTM (`utm_source`, `utm_medium=social`, `utm_campaign=<id clip>`, `utm_term=es`); với Facebook/YouTube/Threads/X link còn nằm ở **bình luận đầu** (nếu kênh GrabCast có quyền). **Không ghim được**: GrabCast và API nền tảng không có lệnh ghim bình luận – chủ ghim tay nếu muốn.
