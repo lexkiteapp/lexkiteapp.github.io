@@ -114,7 +114,7 @@ Konsistensi harian jauh lebih penting daripada kuantitas impulsif. Menambahkan 1
 
 {{cta: /tu-vung/ | Akses Bank Kosakata Esensial}}
 
-Mulai perjalanan penguasaan kosakata terstruktur Anda dengan mengakses ribuan kata berfrekuensi tinggi yang telah dikurasi pada [daftar kosakata esensial](/tu-vung/).
+Mulai perjalanan penguasaan kosakata terstruktur Anda dengan mengakses ribuan kata berfrekuensi tinggi yang telah dikurasi pada [daftar kosakata esensial](/en/vocabulary/).
 
 {{youtube: | Spaced Repetition FSRS Vocabulary Mastery}}
 

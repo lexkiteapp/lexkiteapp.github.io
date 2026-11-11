@@ -26,7 +26,7 @@
 'Tìm lỗi sai': 'Find the mistake',
 'Bấm vào phần sai.': 'Tap the incorrect part.',
 'Viết câu của bạn…': 'Write your sentence…',
-'Đáp án: <b>{a}</b>': 'Answer: <b>{a}</b>',
+
 'Bài tập tự luận ({n} câu)': 'Written exercises ({n} questions)',
 'Tóm tắt bài học': 'Lesson recap',
 'Các dạng bài quen thuộc trong đề thi: chia động từ, viết lại câu, nối câu, tìm lỗi sai. Gõ đáp án rồi bấm Kiểm tra (hoặc Enter).': 'Common exam formats: verb forms, sentence rewriting, combining sentences and error spotting. Type your answer, then press Check (or Enter).',
@@ -43,7 +43,7 @@
 'Xếp các từ thành câu đúng': 'Put the words in the correct order',
 'Đáp án: <i>{a}</i>': 'Answer: <i>{a}</i>',
 'Tự luận': 'Writing',
-'Luyện tập': 'Practice',
+
 'Xem toàn bài': 'Full lesson',
 // Chapters
 'Các thì': 'Tenses',
@@ -112,7 +112,7 @@
 'Rất tốt! Độ dài, tốc độ và từ vựng đều ổn – hãy thử câu khác hoặc chủ đề khác.': 'Great job! Length, pace and vocabulary all look good – try another question or topic.',
 'Thời lượng': 'Duration',
 'Từ/phút': 'Words/min',
-'Số từ': 'Words',
+
 'Từ đệm': 'Fillers',
 'Bản chữ (máy nhận dạng)': 'Transcript (auto-recognized)',
 'Phân tích tự động để luyện tập, không thay thế giám khảo.': 'Automatic analysis for practice only – not a substitute for a real examiner.',
@@ -175,7 +175,7 @@
 'Nghe đúng {ok}/{n}': '{ok}/{n} heard correctly',
 'tai bạn đã phân biệt tốt!': 'your ear can tell them apart well!',
 'nghe chậm lại từng cặp và thử lần nữa.': 'listen to each pair more slowly and try again.',
-'Chơi lại': 'Play again',
+
 'Nghe lại ({i}/{n})': 'Replay ({i}/{n})',
 
 // ---------- reading.js ----------

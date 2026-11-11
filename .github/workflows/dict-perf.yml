@@ -21,9 +21,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Cài Chromium
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
       - name: Trước
         run: |
           BASE="${{ inputs.base }}"; [ -n "$BASE" ] || BASE=$([ "${{ github.ref_name }}" = main ] && echo "${{ github.event.before }}" || git merge-base origin/main HEAD)

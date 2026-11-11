@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"metal\" mean?",
+  "keyword": "metal",
+  "value": "Metal means a hard material such as iron, gold or steel.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=metal",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"metal\" mean?",
+    "description": "Metal means a hard material such as iron, gold or steel.\n\nReview your words, free: https://lexkite.com/app/#/review?w=metal\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "metal",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"metal\" mean?\n\nMetal means a hard material such as iron, gold or steel.\n\nReview your words, free: https://lexkite.com/app/#/review?w=metal"
+   },
+   "instagram": {
+    "caption": "What does \"metal\" mean?\n\nMetal means a hard material such as iron, gold or steel.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"metal\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a hard material such as iron, gold or steel. Metal means a hard material such as iron, gold or steel. More practice like this (free): {link}"
  }
 }

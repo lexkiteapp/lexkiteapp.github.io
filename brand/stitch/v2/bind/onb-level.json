@@ -1,0 +1,109 @@
+{
+ "_doc": "Thiết lập – bước Trình độ (web/js/onboard.js). Hàng = chặng thật của gói (Tracks.TR), nhãn CEFR/band thật, không dùng câu mẫu (Band 6.5, '3-minute'). Bỏ X 'Skip question' của mẫu: thanh trên chỉ có Back (§5d). Cột cao theo số chặng (r.bars).",
+ "styles": true,
+ "text": {
+  "Calibration": "d.kicker",
+  "How good is your English?": "d.q",
+  "Step 2 of 4": "d.stepTxt",
+  "50%": "d.pct + '%'",
+  "Continue": "t('Tiếp tục')",
+  "Not sure? Take a quick 3-minute placement test": "t('Kiểm tra trình độ (5 phút)')",
+  "Adaptive diagnostic with immediate score": "t('Để Lexkite cá nhân hóa lộ trình cho bạn')"
+ },
+ "html": {
+  ":scope > main > div:nth-child(2) > section:nth-child(1) > div:nth-child(1)": "d.teacher",
+  ":scope > main > div:nth-child(2) > section:nth-child(1) > div:nth-child(2) > p": "e(d.say)"
+ },
+ "attr": {
+  ":scope > main > header > button:nth-child(1)": {
+   "id": "'onbBack'",
+   "type": "'button'",
+   "aria-label": "t('Quay lại')"
+  },
+  ":scope > main > header > div > div:nth-child(2)": {
+   "role": "'progressbar'",
+   "aria-label": "d.progAria",
+   "aria-valuemin": "1",
+   "aria-valuemax": "d.steps",
+   "aria-valuenow": "d.step"
+  },
+  ":scope > main > header > div > div:nth-child(2) > div": {
+   "style": "'width:' + d.pct + '%'"
+  },
+  ":scope > main > div:nth-child(2) > section:nth-child(1) > div:nth-child(2) > p": {
+   "role": "'status'",
+   "aria-live": "'polite'",
+   "id": "'onbSay'"
+  },
+  ":scope > main > div:nth-child(2) > div:nth-child(2) > h1": {
+   "id": "'onbQ'"
+  },
+  ":scope > main > div:nth-child(2) > div:nth-child(3)": {
+   "aria-labelledby": "'onbQ'",
+   "aria-label": "d.q"
+  },
+  ":scope > main > div:nth-child(2) > section:nth-child(1)": {
+   "aria-label": "d.kicker"
+  },
+  ":scope > main > footer > button": {
+   "id": "'obNext'",
+   "type": "'button'"
+  },
+  ":scope > main > div:nth-child(2) > section:nth-child(4) > button": {
+   "data-lv": "'test'",
+   "aria-pressed": "d.isTest ? 'true' : 'false'"
+  }
+ },
+ "setClass": {
+  ":scope > main > div:nth-child(2) > section:nth-child(1) > div:nth-child(1)": "w-[140px] h-[170px] shrink-0"
+ },
+ "addClass": {
+  ":scope > main > header > button:nth-child(1)": "relative after:absolute after:-inset-1 after:content-[''] ms-flip",
+  ":scope > main > div:nth-child(2) > section:nth-child(4) > button": "aria-[pressed=true]:!border-[#2BA39A] aria-[pressed=true]:!shadow-[0_5px_0_0_#1D7B74]"
+ },
+ "remove": [
+  ":scope > main > header > button:nth-child(3)"
+ ],
+ "repeat": [
+  {
+   "list": "d.lvs",
+   "as": "r",
+   "variants": {
+    "on": ":scope > main > div:nth-child(2) > div:nth-child(3) > button:nth-child(3)",
+    "off": ":scope > main > div:nth-child(2) > div:nth-child(3) > button:nth-child(1)"
+   },
+   "samples": ":scope > main > div:nth-child(2) > div:nth-child(3) > button",
+   "pick": "r.on ? 'on' : 'off'",
+   "bind": {
+    "on": {
+     "attr": {
+      ":scope": {
+       "data-lv": "r.id",
+       "aria-checked": "'true'",
+       "type": "'button'"
+      }
+     },
+     "html": {
+      ":scope > div:nth-child(2) > div:nth-child(1)": "r.bars",
+      ":scope > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)": "e(r.ti)",
+      ":scope > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)": "e(r.sub)"
+     }
+    },
+    "off": {
+     "attr": {
+      ":scope": {
+       "data-lv": "r.id",
+       "aria-checked": "'false'",
+       "type": "'button'"
+      }
+     },
+     "html": {
+      ":scope > div:nth-child(1) > div:nth-child(1)": "r.bars",
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)": "e(r.ti)",
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(2)": "e(r.sub)"
+     }
+    }
+   }
+  }
+ ]
+}

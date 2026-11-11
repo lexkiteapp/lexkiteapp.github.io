@@ -7,7 +7,8 @@
   "Share results": "Chia sẻ kết quả",
   "TOTAL XP": "Tổng XP",
   "ACCURACY": "Chính xác",
-  "STREAK": "Chuỗi"
+  "STREAK": "Chuỗi",
+  "Toggle theme": "Đổi giao diện sáng/tối"
  },
  "text": {
   "Active Drill Session": "d.title",
@@ -22,7 +23,7 @@
   "REVIEW LESSON": "d.rev"
  },
  "attr": {
-  ":scope > header > div > button": {
+  ":scope > header > div > button:nth-child(1)": {
    "href": "d.close",
    "id": "'lsnX'",
    "aria-label": "t('Thoát bài học')"
@@ -40,7 +41,7 @@
   ":scope > header > div > div:nth-child(2) > div:nth-child(2) > div": {
    "style": "'width:100%'"
   },
-  ":scope > header > div > div:nth-child(3)": {
+  ":scope > header > div > div:nth-child(4)": {
    "data-href": "'#/me'",
    "type": "'button'",
    "aria-label": "t('Hồ sơ người học')"
@@ -70,6 +71,10 @@
   },
   ":scope .material-symbols-outlined": {
    "aria-hidden": "'true'"
+  },
+  ":scope > header > div > button:nth-child(3)": {
+   "id": "'lkTheme'",
+   "aria-label": "t('Đổi giao diện sáng/tối')"
   }
  },
  "cls": {
@@ -84,10 +89,10 @@
   }
  },
  "tag": {
-  ":scope > header > div > button": {
+  ":scope > header > div > button:nth-child(1)": {
    "to": "a"
   },
-  ":scope > header > div > div:nth-child(3)": {
+  ":scope > header > div > div:nth-child(4)": {
    "to": "button"
   },
   ":scope > main > div > div:nth-child(1) > button:nth-child(1)": {
@@ -98,7 +103,7 @@
   }
  },
  "addClass": {
-  ":scope > header > div > div:nth-child(3)": "relative after:absolute after:-inset-1.5 after:content-['']",
+  ":scope > header > div > div:nth-child(4)": "relative after:absolute after:-inset-1.5 after:content-['']",
   ":scope > main > div > div:nth-child(1) > button:nth-child(1)": "relative after:absolute after:-inset-1 after:content-['']",
   ":scope > main > div > div:nth-child(1) > button:nth-child(3)": "relative after:absolute after:-inset-1 after:content-['']",
   ":scope > main > div > div:nth-child(1) > div:nth-child(2)": "max-w-[60%]",

@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/pt/arrange.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.pt=Object.assign(D.pt||{},{_qcv1:"{w} removido",_p2yi:"{w}: posição {n} de {m}",_gty8:"Toque em um bloco para adicioná-lo ao final ou removê-lo; arraste-o para o meio para inseri-lo; as setas o movem, Delete remove e Ctrl+Z desfaz"});})(typeof self!=='undefined'?self:this);

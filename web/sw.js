@@ -17,6 +17,7 @@ self.addEventListener('install', e => {
 });
 self.addEventListener('activate', e => {
   e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => !KEEP(k)).map(k => caches.delete(k))))
+    .then(() => (LEGACY ? null : Promise.all([trimAudio(), trimVimg()]))) // máy cài cũ (FIFO/không trần) → về trần ngay khi lên bản này
     .then(() => LEGACY && self.registration.periodicSync ? self.registration.periodicSync.unregister('vb-daily').catch(() => {}) : null) // nhắc học chạy ở đăng ký /app/ – tránh nhắc 2 lần
     .then(() => self.clients.claim()));
 });
@@ -25,16 +26,37 @@ self.addEventListener('activate', e => {
 // Âm thanh lưu riêng, tối đa 2000 file gần nhất (~40 MB) – nghe lại tức thì, offline được, không gọi lại Worker audio.lexkite.com
 // (Worker = lượt tính hạn mức 100k/ngày – docs/CAPACITY.md §Kiến trúc A3; trước 600 file → người học nhiều bị đẩy ra rồi tải lại)
 const AUDIO = 'lk-audio', AUDIO_MAX = 2000;
-const trimAudio = c => c.keys().then(ks => { if (ks.length > AUDIO_MAX) return Promise.all(ks.slice(0, ks.length - AUDIO_MAX).map(k => c.delete(k))); });
+// Trần + LRU dùng chung: keys() theo thứ tự ghi → mục trúng được ghi lại (touch, thành mới nhất), vượt trần thì xóa cũ nhất.
+// cap(): gộp các lượt dọn chồng nhau (mở app = hàng chục put cùng lúc → 1 lượt dọn + 1 lượt bù cuối), không bao giờ ném lỗi.
+// touched: mỗi URL làm mới LRU 1 lần giữa 2 lượt xóa của cache đó (mở app ~40 file trúng cache ≠ 40 lần xóa+ghi mỗi lần mở) – có xóa thì
+// thứ tự lại quan trọng → quên hết, lần trúng sau ghi lại (SW sống lâu vẫn LRU đúng; test sw-storage "file dùng mỗi ngày").
+const touched = {};
+const cap = (name, max, keep) => { let busy = null, again = false;
+  const go = () => { if (busy) { again = true; return busy; }
+    busy = caches.open(name).then(c => c.keys().then(ks => { ks = keep ? ks.filter(k => !keep(k)) : ks; const old = ks.slice(0, Math.max(0, ks.length - max)); if (old.length) touched[name] = new Set(); return Promise.all(old.map(k => c.delete(k))); }))
+      .catch(() => {}).then(() => { busy = null; if (again) { again = false; return go(); } });
+    return busy; };
+  return go; };
+const touch = (name, req) => { const u = req.url || String(req), t = touched[name] || (touched[name] = new Set()); if (t.has(u)) return Promise.resolve(); t.add(u);
+  return caches.open(name).then(c => c.match(req).then(h => h && c.delete(req).then(() => c.put(req, h)))).catch(() => {}); };
+const bg = (e, p) => { try { e.waitUntil(p); } catch (x) { /* sự kiện đã xong – việc nền vẫn chạy */ } return p; };
+const trimAudio = cap(AUDIO, AUDIO_MAX);
 // Ảnh minh họa từ vựng (media.lexkite.com/vimg/<băm>[@2x].avif|webp, ≤ 6 KB, immutable): lưu khi xem, LRU 800 ảnh (~5 MB) – offline được (docs/LEXICON.md § Ảnh minh họa)
 // LRU: keys() theo thứ tự ghi → trúng cache thì xóa + ghi lại (thành mới nhất), vượt trần thì xóa cũ nhất.
 const VIMG = 'lk-vimg', VIMG_MAX = 800, VIMG_RE = /^\/vimg\/[0-9a-f]{16}(@2x)?\.(avif|webp)$/;
-const trimVimg = c => c.keys().then(ks => { if (ks.length > VIMG_MAX) return Promise.all(ks.slice(0, ks.length - VIMG_MAX).map(k => c.delete(k))); });
+const trimVimg = cap(VIMG, VIMG_MAX);
 const vimgFetch = e => caches.open(VIMG).then(c => c.match(e.request).then(hit => {
-  if (hit) { const keep = hit.clone(); e.waitUntil(c.delete(e.request).then(() => c.put(e.request, keep)).catch(() => {})); return hit; } // làm mới thứ tự LRU
-  return fetch(e.request).then(r => { if (r.ok) { const x = r.clone(); e.waitUntil(c.put(e.request, x).then(() => trimVimg(c)).catch(() => {})); } return r; });
+  if (hit) { bg(e, touch(VIMG, e.request)); return hit; } // làm mới thứ tự LRU
+  return fetch(e.request).then(r => { if (r.ok) { const x = r.clone(); bg(e, c.put(e.request, x).then(trimVimg).catch(() => {})); } return r; });
 }));
-const STATIC = /\.(png|svg|jpg|jpeg|webp|ico|woff2?|mp3)$/; // âm thanh đặt tên theo nội dung → không bao giờ đổi
+// Cache khung app (CACHE): SHELL luôn giữ; phần runtime (JS/CSS băm, ảnh, gói nội dung /cpack/, file lexkite.com, trang đã mở) LRU tối đa RT_MAX mục.
+// Trước: không trần – mọi file từng mở nằm lại tới lần đổi phiên bản (đo 7 ngày học: scripts/test/storage-audit.mjs, docs/PERF-SCROLL.md › Lưu trữ).
+// Đổi phiên bản → activate xóa cả cache cũ (KEEP chỉ giữ CACHE hiện hành + dữ liệu người dùng). Test: scripts/test/sw-storage.mjs
+const RT_MAX = 400, SHELL_SET = new Set(SHELL.map(u => new URL(u, location.origin).href));
+const trimRt = cap(CACHE, RT_MAX, k => SHELL_SET.has(k.url));
+const putRt = (e, res) => bg(e, caches.open(CACHE).then(x => x.put(e.request, res)).then(trimRt).catch(() => {}));
+const HASHED = /^\/h\/(.+)\.[0-9a-f]{10}(\.(?:js|css))$/; // bản băm của scripts/build-hash.mjs → đường dẫn gốc: '/$1$2'
+const STATIC = /\.(png|svg|jpg|jpeg|webp|avif|ico|woff2?|mp3)$|^\/cpack\/.+\.[0-9a-f]{10}\.js$/; // + gói nội dung /cpack/ (tên theo mã băm → cache-first, offline chạy lại bài đã mở) // âm thanh đặt tên theo nội dung → không bao giờ đổi
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
   if (LEGACY) { // phạm vi "/" (bản cài cũ): mọi thứ đi mạng như không có SW; riêng mở "/" khi mất mạng → app trong cache /app/
@@ -49,7 +71,7 @@ self.addEventListener('fetch', e => {
   if (url.pathname === '/api/dictlookup') return;
   // App/add-on gọi file từ lexkite.com (khác nguồn): lấy mạng trước, lưu lại để dùng khi offline
   if (e.request.method === 'GET' && url.origin !== location.origin && (url.hostname === 'lexkite.pages.dev' || url.hostname === 'lexkite.com')) {
-    e.respondWith(fetch(e.request).then(r => { if (r.ok || r.type === 'opaque') { const c = r.clone(); caches.open(CACHE).then(x => x.put(e.request, c)); } return r; }).catch(() => caches.match(e.request)));
+    e.respondWith(fetch(e.request).then(r => { if (r.ok || r.type === 'opaque') putRt(e, r.clone()); return r; }).catch(() => caches.match(e.request)).then(r => r || new Response('', { status: 503, statusText: 'offline' }))); // không có trong cache → phản hồi 503 hợp lệ (không để respondWith nhận undefined; Response.error() làm WebKit báo lỗi console)
     return;
   }
   // Âm thanh trên CDN riêng (tên file theo nội dung, không bao giờ đổi): có sẵn thì phát ngay, nghe được cả khi offline
@@ -57,7 +79,7 @@ self.addEventListener('fetch', e => {
     // Worker lỗi (mạng/5xx) → thử Pages kho media m2 rồi gốc cũ (dự phòng 1 bản phát hành, docs/STORAGE.md); lưu dưới URL gốc để lần sau trúng cache
     const alt = url.hostname === 'audio.lexkite.com' ? ['https://lexkiteapp.github.io/lexkite-media-2', 'https://lexkiteapp.github.io'].map(o => o + url.pathname) : [];
     const get = (i = -1) => fetch(i < 0 ? e.request : alt[i], i < 0 ? undefined : { mode: 'cors' }).then(r => (r.status >= 500 && i + 1 < alt.length ? get(i + 1) : r), err => (i + 1 < alt.length ? get(i + 1) : Promise.reject(err)));
-    e.respondWith(caches.match(e.request).then(hit => hit || get().then(r => { if (r.ok) { const c = r.clone(); caches.open(AUDIO).then(x => x.put(e.request, c).then(() => trimAudio(x))); } return r; })));
+    e.respondWith(caches.match(e.request).then(hit => (hit ? (bg(e, touch(AUDIO, e.request)), hit) : get().then(r => { if (r.ok) { const c = r.clone(); bg(e, caches.open(AUDIO).then(x => x.put(e.request, c)).then(trimAudio).catch(() => {})); } return r; }))));
     return;
   }
   if (e.request.method === 'GET' && url.hostname === 'media.lexkite.com' && VIMG_RE.test(url.pathname)) {
@@ -66,8 +88,18 @@ self.addEventListener('fetch', e => {
   }
   if (e.request.method !== 'GET' || url.origin !== location.origin) return; // API từ điển luôn đi mạng
   if (url.pathname.startsWith('/data/lex/')) return; // mảnh kho từ: immutable + IndexedDB (lex.js)
+  // JS/CSS theo mã băm (/h/…, scripts/build-hash.mjs): nội dung không bao giờ đổi → cache-first, không hỏi lại máy chủ. Trang cũ (cache) trỏ tên băm
+  // đã gỡ ở lần deploy mới → 404/trang HTML → lấy file gốc cùng đường dẫn (bản mới nhất) thay vì vỡ trang; mất mạng → bản gốc trong cache.
+  if (HASHED.test(url.pathname)) {
+    const plain = url.pathname.replace(HASHED, '/$1$2');
+    e.respondWith(caches.match(e.request).then(hit => (hit ? (bg(e, touch(CACHE, e.request)), hit) : fetch(e.request).then(r => {
+      if (!r.ok || /text\/html/.test(r.headers.get('content-type') || '')) return fetch(plain, { cache: 'no-cache' });
+      putRt(e, r.clone()); return r;
+    }, () => caches.match(plain, { ignoreSearch: true }).then(x => x || Response.error())))));
+    return;
+  }
   if (STATIC.test(url.pathname)) {
-    e.respondWith(caches.match(e.request).then(hit => hit || fetch(e.request).then(r => { const c = r.clone(); caches.open(CACHE).then(x => x.put(e.request, c)); return r; })));
+    e.respondWith(caches.match(e.request).then(hit => (hit ? (bg(e, touch(CACHE, e.request)), hit) : fetch(e.request).then(r => { if (r.ok) putRt(e, r.clone()); return r; }))));
     return;
   }
   e.respondWith(new Promise(resolve => {
@@ -79,7 +111,7 @@ self.addEventListener('fetch', e => {
     const t = setTimeout(() => { fallback().then(r => { if (!done && r) { done = true; resolve(r); } }); }, 2500);
     let req = e.request; try { req = new Request(e.request, { cache: 'no-cache' }); } catch (x) { /* giữ nguyên */ }
     fetch(req).then(r => {
-      if (r.ok) { const c = r.clone(); caches.open(CACHE).then(x => x.put(e.request, c)); }
+      if (r.ok) putRt(e, r.clone());
       clearTimeout(t); if (!done) { done = true; resolve(r); }
     }).catch(() => { clearTimeout(t); fallback().then(r => { if (!done) { done = true; resolve(r || Response.error()); } }); });
   }));

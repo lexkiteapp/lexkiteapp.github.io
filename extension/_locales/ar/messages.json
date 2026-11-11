@@ -154,5 +154,26 @@
  },
  "ntMoreSenses": {
   "message": "+{n} معانٍ"
+ },
+ "ntQzTag": {
+  "message": "اختبار سريع"
+ },
+ "ntQzQ": {
+  "message": "اختر المعنى الصحيح"
+ },
+ "ntQzTime": {
+  "message": "{s} ثوانٍ"
+ },
+ "ntQzRight": {
+  "message": "صحيح!"
+ },
+ "ntQzWrong": {
+  "message": "ليس تمامًا — ستعود الكلمة قريبًا"
+ },
+ "ntQzTimeout": {
+  "message": "انتهى الوقت، لا بأس"
+ },
+ "ntQzSkip": {
+  "message": "تخطَّ"
  }
 }

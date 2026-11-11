@@ -4,7 +4,7 @@
 //   content/confidence/units/*.json + content/confidence/i18n/<lang>.json.
 // Ghi: dist/<lang>/words/**, dist/<lang>/conversations/**, dist/sitemap-words-<lang>.xml, dist/sitemap-conversations.xml,
 //   dist/data/seo-twins.json (app → bản tĩnh, web/js/seo-twin.js), .seo-urls.txt (URL + băm nội dung cho IndexNow – không deploy).
-// Chạy trong build-web.sh sau build-samples*/blog, trước build-sitemap-index. Tắt: SEO_PAGES=0. N: SEO_N_MAIN (1500), SEO_N_OTHER (400).
+// Chạy trong build-web.sh sau build-samples*/blog, trước build-sitemap-index. Tắt: SEO_PAGES=0. N: SEO_N_MAIN (1500), SEO_N_PRIORITY (650), SEO_N_OTHER (400).
 import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto'; import { execFileSync } from 'node:child_process';
 import { CSS, SEO_CSS, UI_JS, esc, themePage, clip, ld, siteHeader, siteFooter, crumbsHtml, landingHref, appHref, LANG_NAMES } from './lib/site-layout.mjs';
 import { LANGS, S, POS, YOU, fill } from './lib/seo-pages-i18n.mjs';
@@ -40,7 +40,7 @@ const CSS2 = `.wd .mean{font-size:1.25rem;margin:.2rem 0 .6rem}.wd .ipa{font-fam
 const page = ({ lang, title, desc, p, alts, crumbs, body, jsonld = [], robots = '', langHref, section }) => {
   const t = S[lang], dir = RTL.has(lang) ? ' dir="rtl"' : '';
   const nav = [[`/${lang}/blog/`, 'Blog'], [`/${lang}/words/`, t.words], [`/${lang}/conversations/`, t.conv]].map(([h, n]) => [h, esc(n), h === section ? ' aria-current="page"' : '']);
-  const head = `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}">${robots ? `<meta name="robots" content="${robots}">` : ''}<meta name="theme-color" content="#0F3D3E"><link rel="canonical" href="${url(p)}">${hl(alts)}<meta property="og:type" content="article"><meta property="og:site_name" content="Lexkite"><meta property="og:url" content="${url(p)}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:image" content="${SITE}/og-default.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">${[...jsonld, crumbsLd(crumbs)].map(ld).join('')}`;
+  const head = `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}">${robots ? `<meta name="robots" content="${robots}">` : ''}<meta name="theme-color" content="#0F3D3E"><link rel="canonical" href="${url(p)}">${hl(alts)}<meta property="og:type" content="article"><meta property="og:site_name" content="Lexkite"><meta property="og:url" content="${url(p)}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:image" content="${SITE}/og-default.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/icons/icon.svg?v=3" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=3">${[...jsonld, crumbsLd(crumbs)].map(ld).join('')}`;
   return `<!doctype html><html lang="${lang}"${dir}><head>${head}<style>${CSS}\n${SEO_CSS}\n${CSS2}</style></head><body><a class="skip" href="#nd">${esc(t.skip)}</a>
 ${siteHeader({ nav, open: [appHref(lang), esc(t.open)], home: landingHref(lang), lang, langHref })}
 <main id="nd">
@@ -54,7 +54,7 @@ const crumbsLd = items => ({ '@context': 'https://schema.org', '@type': 'Breadcr
 
 // ---------- Trang từ ----------
 // Độ dày (docs/specs/seo-words-depth.md): khối nào có dữ liệu thật mới hiện; trang dưới DEPTH_MIN → noindex,follow (vẫn sinh, vẫn được liên kết).
-const lmW = gitDate('web/js/data.js', 'web/js/lib', 'web/packs', 'web/js/notes', 'web/js/usage', 'content/dict/wordnet.json', 'web/js/models.js', 'web/js/speak/samples.js', 'scripts/dict/build.mjs', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-words.mjs', 'scripts/lib/seo-pages-i18n.mjs', 'scripts/lib/word-depth.mjs');
+const lmW = gitDate('web/js/data.js', 'web/js/lib', 'web/packs', 'web/js/notes', 'web/js/usage', 'content/dict/wordnet.json', 'web/js/models.js', 'web/cpack/speak/samples.js', 'scripts/dict/build.mjs', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-words.mjs', 'scripts/lib/seo-pages-i18n.mjs', 'scripts/lib/word-depth.mjs');
 const twins = { v: 1, w: {}, c: {}, t: {} };
 const built = {}; // l → Map(mục → { body, faq, m }) – dựng ở scripts/lib/seo-words.mjs (bodyOf), cùng nguồn với hộp từ của blog
 let nW = 0, nWthin = 0, nWshallow = 0;

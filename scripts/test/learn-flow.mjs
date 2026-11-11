@@ -14,7 +14,7 @@ const WEB = 'web';
 let n = 0, fails = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8');
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
-const css = fs.readFileSync(path.join(WEB, 'css/style.css'), 'utf8');
+const css = (fs.readFileSync(path.join(WEB, 'css/style.css'), 'utf8') + fs.readFileSync(path.join(WEB, 'css/lazy-ui.css'), 'utf8'));
 const vc = new jsdom.VirtualConsole(); vc.on('jsdomError', e => { if (!/Not implemented|Could not parse CSS/.test(e.message)) console.error(e.message); });
 const dom = new JSDOM(html.replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '').replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, '').replace('</head>', `<style>${css}</style></head>`), { url: 'http://localhost/app/#/home', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
 const w = dom.window, errors = [];
@@ -159,7 +159,7 @@ ok(h && /Band/.test(h.textContent) && (pl.lo === pl.hi || h.textContent.includes
 ok(h && cs(h).color !== cs($('.pl-how')).color, 'tiêu đề dùng màu chữ chính (không xám như chữ phụ)');
 ok($$('.pl-skill').length === 2 && $$('.pl-skill .ring b').every(b => /^\d\.\d$/.test(b.textContent)), 'vòng kỹ năng hiện band từng kỹ năng (nhất quán với band tổng)');
 const ctas = $$('.pl-cta .btn');
-ok(ctas.length === 2 && ctas[0].classList.contains('primary') && /home/.test(ctas[0].getAttribute('href')) && !ctas[1].classList.contains('primary'), 'CTA: “Xem kế hoạch hôm nay” chính, “Lộ trình” phụ');
+ok(ctas.length === 3 && ctas[0].classList.contains('primary') && /home/.test(ctas[0].getAttribute('href')) && !ctas[1].classList.contains('primary') && /path/.test(ctas[1].getAttribute('href')) && !ctas[2].classList.contains('primary') && /outcome/.test(ctas[2].getAttribute('href')), 'CTA: “Xem kế hoạch hôm nay” chính, “Lộ trình” và “Đo nói + viết” (#/outcome) phụ');
 
 // ===== 5) Kế hoạch & lộ trình đổi theo kết quả =====
 w.App.state.settings.placement = { ...pl, weak: 'grammar', gCefr: 'B2', stage: 's2' };
@@ -222,7 +222,7 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   // Nội dung đích của mọi bước (đọc thẳng file dữ liệu – không cần nạp từng gói)
   const src = (...fs) => fs.map(f => fs0(f)).join('\n'), fs0 = f => { try { return fs.readFileSync(path.join(WEB, 'js', f), 'utf8'); } catch (e) { return ''; } };
   const dir = d => fs.readdirSync(path.join(WEB, 'js', d)).map(f => d + '/' + f);
-  const C = { roleplay: src(...dir('roleplay')), call: src('call/calls.js', 'call/calls-exam.js'), listen: src(...dir('listen'), ...dir('toeic')), task1: src('task1.js'), write: src('write.js'), letters: src('write/gt-letters.js'),
+  const C = { roleplay: src(...dir('roleplay')), call: src('call/calls.js', 'call/calls-exam.js'), listen: src(...dir('listen'), ...dir('../cpack/listen'), ...dir('toeic')), task1: src('task1.js'), write: src('write.js'), letters: src('write/gt-letters.js'),
     rtype: src('rtype.js'), toefl: src('toefl.js'), toeic: src('toeic.js'), treading: src(...dir('toeic')), grammar: src(...dir('grammar')) };
   const has = (txt, id) => new RegExp(`id: '${id}'|T\\('${id}'`).test(txt);
   const exists = h => { const [, r, a = '', q = ''] = /^#\/([a-z0-9-]+)\/?([^?]*)\??(.*)$/.exec(h) || [];
@@ -319,21 +319,24 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   ok(S.game.xp === xp0 && ds[0].key === ds[0].id && (ds[0].rec.s || []).includes('match') && JSON.stringify(await w.Core.Store.get('pathDays', {})) === JSON.stringify(rec0), 'chuyển dữ liệu: giữ XP + bản ghi Ngày cũ (khóa cũ) cho gói nhận tiến độ');
   // thiết lập lần đầu: mục tiêu (5 gói) → trình độ → Ngày 1
   delete S.settings.tracks;
+  // Người có dữ liệu bị chuyển khỏi #/welcome/setup (docs/specs/welcome.md) → giả làm người mới trong bộ nhớ lúc đi các bước; trả dữ liệu trước khi bấm #go để bộ thẻ cũ không bị ghi đè
+  const realData = { cards: S.cards, xp: S.game.xp }; S.settings.onboarded = false; S.cards = {}; S.game.xp = 0;
   await go('#/welcome/setup', 900);
-  ok($$('.trk-opt[data-track]').length === 5 && $$('.trk-opt[aria-pressed=true]').length === 1, 'thiết lập: “Mục tiêu của bạn là gì?” 5 gói');
-  ok($('.onb .progress[aria-valuenow="1"]') && $('#onbBack') && $('.onb-say') && $('#obNext') && !$('#go') && !$('[data-lv]'), 'thiết lập từng bước: 1 câu hỏi/màn, thanh tiến độ, nút quay lại, Kit, nút Tiếp tục');
-  const say0 = $('.onb-say').textContent;
+  ok($$('[data-track]:is(.trk-opt,[role=radio])').length === 5 && $$('[data-track]:is([aria-pressed=true],[aria-checked=true])').length === 1, 'thiết lập: “Mục tiêu của bạn là gì?” 5 gói');
+  ok($('[role=progressbar][aria-valuenow="1"]') && $('#onbBack') && $('#onbSay, .onb-say') && $('#obNext') && !$('#go') && !$('[data-lv]'), 'thiết lập từng bước: 1 câu hỏi/màn, thanh tiến độ, nút quay lại, Kit, nút Tiếp tục');
+  const say0 = $('#onbSay, .onb-say').textContent; // bước 1 = khung Stitch (#onbSay), bước chưa port = .onb-say
   click($('[data-track=work]')); await tick(600);
-  ok($('.onb-say').textContent !== say0 && $('[data-track=work][aria-pressed=true]'), 'Kit phản hồi khi chọn gói');
+  ok($('#onbSay, .onb-say').textContent !== say0 && $('[data-track=work]:is([aria-pressed=true],[aria-checked=true])'), 'Kit phản hồi khi chọn gói');
   click($('#obNext')); await tick(100);
-  ok($('.onb .progress[aria-valuenow="2"]') && $('.onb-test[data-lv=test]') && $('[data-lv=work2]'), 'màn 2: kiểm tra đầu vào 5 phút + trình độ của gói Công sở');
+  ok($('[role=progressbar][aria-valuenow="2"]') && $('[data-lv=test]') && $('[data-lv=work2]'), 'màn 2: kiểm tra đầu vào 5 phút + trình độ của gói Công sở');
   click($('#onbBack')); await tick(100);
-  ok($('[data-track=work][aria-pressed=true]') && $('.onb .progress[aria-valuenow="1"]'), 'quay lại màn 1 giữ lựa chọn');
+  ok($('[data-track=work]:is([aria-pressed=true],[aria-checked=true])') && $('[role=progressbar][aria-valuenow="1"]'), 'quay lại màn 1 giữ lựa chọn');
   click($('#obNext')); await tick(100);
   click($('[data-lv=work2]')); await tick(100);
-  ok($('[data-lv=work2][aria-pressed=true]'), 'chọn trình độ chặng 2');
+  ok($('[data-lv=work2][aria-checked=true]'), 'chọn trình độ chặng 2');
   for (let i = 0; i < 5 && !$('#go'); i++) { click($('#obNext')); await tick(100); }
-  ok($('#go') && /Day 1|Ngày 1/.test($('#go').textContent) && $('.onb-sum'), 'chọn gói Công sở + trình độ → màn tóm tắt + nút Bắt đầu Ngày 1');
+  ok($('#go') && /Day 1|Ngày 1/.test($('#go').textContent) && $('.v2s-onb-ready') && /Công sở|Work/i.test($('.v2s-onb-ready').textContent), 'chọn gói Công sở + trình độ → màn tóm tắt + nút Bắt đầu Ngày 1');
+  S.cards = realData.cards; S.game.xp = realData.xp;
   click($('#go')); await tick(1500);
   ok(S.settings.tracks.cur === 'work' && S.settings.tracks.lv.work.s === 'work2' && S.settings.exam === 'general' && /^#\/day/.test(w.location.hash), 'thiết lập xong → gói Công sở, chặng 2, vào Ngày 1 của gói: ' + w.location.hash);
   ok(!S.user && !w.document.querySelector('#view [data-acct], #view .gsi'), 'vào Ngày 1 KHÔNG cần tài khoản, không có nút đăng nhập trên trang bài học');

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Kit – 6 Glossy Illustrated Badges</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f4fbf9;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#f4fbf9] flex items-center justify-center p-8 sm:p-12 md:p-16 select-none">
+
+  <!-- Grid of 6 Badges: strictly no text, no letters, no numbers, no headers or navs -->
+  <main class="w-full max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 place-items-center">
+
+    <!-- 1. Open Toolbox (Coral / Vermilion Badge) -->
+    <div class="w-full max-w-[240px] sm:max-w-[260px] aspect-square flex items-center justify-center">
+      <svg class="w-full h-full drop-shadow-md transition-transform duration-200 hover:-translate-y-1" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Base Gloss & Gradients -->
+          <linearGradient id="coral-base" x1="120" y1="12" x2="120" y2="204" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#ff7e5a"/>
+            <stop offset="60%" stop-color="#f05335"/>
+            <stop offset="100%" stop-color="#d6391d"/>
+          </linearGradient>
+          <linearGradient id="gloss-sheen" x1="120" y1="14" x2="120" y2="110" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03"/>
+          </linearGradient>
+          <linearGradient id="tb-body" x1="120" y1="105" x2="120" y2="168" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#fff8f2"/>
+            <stop offset="100%" stop-color="#f5e6d6"/>
+          </linearGradient>
+          <linearGradient id="tb-metal" x1="120" y1="70" x2="120" y2="105" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#f8fafc"/>
+            <stop offset="100%" stop-color="#cbd5e1"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Soft 3D Ground/Ledge Shadow under badge -->
+        <ellipse cx="120" cy="216" rx="76" ry="11" fill="#0d5c58" fill-opacity="0.12"/>
+        <ellipse cx="120" cy="216" rx="52" ry="6" fill="#093836" fill-opacity="0.14"/>
+
+        <!-- Tactile 3D Bottom Ledge Rim of Badge -->
+        <rect x="20" y="24" width="200" height="186" rx="44" fill="#a82811"/>
+        <!-- Main Badge Plaque -->
+        <rect x="20" y="16" width="200" height="186" rx="44" fill="url(#coral-base)"/>
+
+        <!-- Subtle Inner Highlight Rim -->
+        <rect x="23" y="19" width="194" height="180" rx="41" stroke="#ffb199" stroke-width="2.5" fill="none" opacity="0.6"/>
+
+        <!-- Glossy Curved Top Lens -->
+        <path d="M26 58C26 36.7924 43.2076 21 64.4152 21H175.585C196.792 21 214 36.7924 214 58C214 74 185 96 120 96C55 96 26 74 26 58Z" fill="url(#gloss-sheen)"/>
+
+        <!-- OBJECT: Bold Open Toolbox -->
+        <g id="object-toolbox">
+          <!-- Shadow inside badge -->
+          <ellipse cx="120" cy="173" rx="55" ry="9" fill="#871c08" fill-opacity="0.32"/>
+
+          <!-- Toolbox Handle -->
+          <path d="M96 74C96 64 103 57 113 57H127C137 57 144 64 144 74V84H132V75C132 72 130 70 127 70H113C110 70 108 72 108 75V84H96V74Z" fill="url(#tb-metal)"/>
+          <path d="M106 63H134V68H106V63Z" fill="#ff7e5a"/>
+
+          <!-- Open Toolbox Lids (Flapped Open) -->
+          <!-- Left Open Lid -->
+          <path d="M54 94L78 82L86 102L60 114L54 94Z" fill="#fce4d6" stroke="#b91c1c" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M57 95L75 85L81 100L63 110Z" fill="#fed7aa"/>
+
+          <!-- Right Open Lid -->
+          <path d="M186 94L162 82L154 102L180 114L186 94Z" fill="#fce4d6" stroke="#b91c1c" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M183 95L165 85L159 100L177 110Z" fill="#fed7aa"/>
+
+          <!-- Screwdriver & Wrench Peeking Out -->
+          <!-- Wrench Head -->
+          <path d="M85 86L99 102L93 108L79 92L85 86Z" fill="#94a3b8"/>
+          <circle cx="83" cy="88" r="6" fill="#cbd5e1" stroke="#64748b" stroke-width="2"/>
+          <path d="M80 84L86 92" stroke="#64748b" stroke-width="2.5" stroke-linecap="round"/>
+
+          <!-- Screwdriver Handle (Teal) -->
+          <path d="M142 84L156 100L150 105L136 89L142 84Z" fill="#0d5c58"/>
+          <rect x="131" y="80" width="4" height="12" rx="1.5" transform="rotate(45 131 80)" fill="#fbbf24"/>
+
+          <!-- Toolbox Deep Interior Tray -->
+          <path d="M66 101H174L166 122H74L66 101Z" fill="#9a3412"/>
+
+          <!-- Toolbox Bottom Main Hull -->
+          <!-- Ledge Base of Toolbox -->
+          <path d="M62 161H178L171 169H69L62 161Z" fill="#871c08"/>
+          <!-- Body Front -->
+          <rect x="62" y="115" width="116" height="46" rx="8" fill="url(#tb-body)" stroke="#a82811" stroke-width="2.5"/>
+
+          <!-- Center Catch / Fastener Latch (Metallic Brass) -->
+          <rect x="110" y="112" width="20" height="18" rx="4" fill="#fbbf24" stroke="#d97706" stroke-width="1.5"/>
+          <circle cx="120" cy="121" r="2.5" fill="#78350f"/>
+
+          <!-- Tactile Horizontal Ribs on Toolbox Front -->
+          <path d="M72 133H102M138 133H168" stroke="#d6c3b2" stroke-width="3" stroke-linecap="round"/>
+          <path d="M72 144H102M138 144H168" stroke="#d6c3b2" stroke-width="3" stroke-linecap="round"/>
+
+          <!-- Gloss Highlights on Toolbox -->
+          <path d="M66 120H174" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 2. Checklist Clipboard (Deep Teal / Emerald Badge) -->
+    <div class="w-full max-w-[240px] sm:max-w-[260px] aspect-square flex items-center justify-center">
+      <svg class="w-full h-full drop-shadow-md transition-transform duration-200 hover:-translate-y-1" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="teal-base" x1="120" y1="12" x2="120" y2="204" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#14b8a6"/>
+            <stop offset="60%" stop-color="#0d9488"/>
+            <stop offset="100%" stop-color="#0f766e"/>
+          </linearGradient>
+          <linearGradient id="paper-grad" x1="120" y1="76" x2="120" y2="168" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="100%" stop-color="#f0fdfa"/>
+          </linearGradient>
+          <linearGradient id="board-grad" x1="120" y1="62" x2="120" y2="176" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#854d0e"/>
+            <stop offset="100%" stop-color="#713f12"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Ledge Shadow under badge -->
+        <ellipse cx="120" cy="216" rx="76" ry="11" fill="#0d5c58" fill-opacity="0.14"/>
+        <ellipse cx="120" cy="216" rx="52" ry="6" fill="#093836" fill-opacity="0.16"/>
+
+        <!-- Tactile 3D Ledge Bottom Rim -->
+        <rect x="20" y="24" width="200" height="186" rx="44" fill="#0a4642"/>
+        <!-- Main Badge Plaque -->
+        <rect x="20" y="16" width="200" height="186" rx="44" fill="url(#teal-base)"/>
+
+        <!-- Inner Highlight Rim -->
+        <rect x="23" y="19" width="194" height="180" rx="41" stroke="#5eead4" stroke-width="2.5" fill="none" opacity="0.6"/>
+
+        <!-- Glossy Curved Top Lens -->
+        <path d="M26 58C26 36.7924 43.2076 21 64.4152 21H175.585C196.792 21 214 36.7924 214 58C214 74 185 96 120 96C55 96 26 74 26 58Z" fill="url(#gloss-sheen)"/>
+
+        <!-- OBJECT: Clipboard with Checklist Ticks -->
+        <g id="object-clipboard">
+          <!-- Shadow inside badge -->
+          <ellipse cx="120" cy="177" rx="54" ry="8" fill="#06322f" fill-opacity="0.38"/>
+
+          <!-- Wood/Amber Board Backing -->
+          <rect x="67" y="66" width="106" height="106" rx="14" fill="url(#board-grad)" stroke="#532d0c" stroke-width="2"/>
+          <rect x="69" y="167" width="102" height="5" rx="2.5" fill="#451a03"/>
+
+          <!-- Crisp White Paper Sheet -->
+          <rect x="74" y="76" width="92" height="91" rx="8" fill="url(#paper-grad)" stroke="#cbd5e1" stroke-width="1.5"/>
+
+          <!-- Metal Top Clip -->
+          <!-- Clip Shadow -->
+          <rect x="96" y="62" width="48" height="18" rx="6" fill="#1e293b" fill-opacity="0.25"/>
+          <!-- Clip Body -->
+          <rect x="98" y="58" width="44" height="16" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+          <!-- Clip Handle Hole -->
+          <path d="M109 58V53C109 48 113 45 120 45C127 45 131 48 131 53V58" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="120" cy="66" r="3" fill="#64748b"/>
+
+          <!-- Check List Row 1 -->
+          <!-- Checkbox circle & Tick -->
+          <circle cx="91" cy="99" r="8.5" fill="#10b981"/>
+          <path d="M86.5 98.5L89.5 101.5L95.5 95.5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Line bar -->
+          <rect x="106" y="96.5" width="48" height="5" rx="2.5" fill="#0d5c58" fill-opacity="0.75"/>
+
+          <!-- Check List Row 2 -->
+          <circle cx="91" cy="121" r="8.5" fill="#10b981"/>
+          <path d="M86.5 120.5L89.5 123.5L95.5 117.5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Line bar -->
+          <rect x="106" y="118.5" width="44" height="5" rx="2.5" fill="#0d5c58" fill-opacity="0.75"/>
+
+          <!-- Check List Row 3 -->
+          <circle cx="91" cy="143" r="8.5" fill="#10b981"/>
+          <path d="M86.5 142.5L89.5 145.5L95.5 139.5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Line bar -->
+          <rect x="106" y="140.5" width="38" height="5" rx="2.5" fill="#0d5c58" fill-opacity="0.75"/>
+
+          <!-- Sheet Gloss Reflection -->
+          <path d="M75 77L132 77L75 134V77Z" fill="#ffffff" fill-opacity="0.28"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 3. Brick Wall Section (Warm Amber / Ochre Gold Badge) -->
+    <div class="w-full max-w-[240px] sm:max-w-[260px] aspect-square flex items-center justify-center">
+      <svg class="w-full h-full drop-shadow-md transition-transform duration-200 hover:-translate-y-1" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="amber-base" x1="120" y1="12" x2="120" y2="204" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#f59e0b"/>
+            <stop offset="60%" stop-color="#d97706"/>
+            <stop offset="100%" stop-color="#b45309"/>
+          </linearGradient>
+          <linearGradient id="brick-light" x1="120" y1="80" x2="120" y2="160" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#f87171"/>
+            <stop offset="100%" stop-color="#ef4444"/>
+          </linearGradient>
+          <linearGradient id="brick-dark" x1="120" y1="80" x2="120" y2="160" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#dc2626"/>
+            <stop offset="100%" stop-color="#b91c1c"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Ledge Shadow under badge -->
+        <ellipse cx="120" cy="216" rx="76" ry="11" fill="#78350f" fill-opacity="0.14"/>
+        <ellipse cx="120" cy="216" rx="52" ry="6" fill="#78350f" fill-opacity="0.16"/>
+
+        <!-- Tactile 3D Ledge Bottom Rim -->
+        <rect x="20" y="24" width="200" height="186" rx="44" fill="#78350f"/>
+        <!-- Main Badge Plaque -->
+        <rect x="20" y="16" width="200" height="186" rx="44" fill="url(#amber-base)"/>
+
+        <!-- Inner Highlight Rim -->
+        <rect x="23" y="19" width="194" height="180" rx="41" stroke="#fde68a" stroke-width="2.5" fill="none" opacity="0.6"/>
+
+        <!-- Glossy Curved Top Lens -->
+        <path d="M26 58C26 36.7924 43.2076 21 64.4152 21H175.585C196.792 21 214 36.7924 214 58C214 74 185 96 120 96C55 96 26 74 26 58Z" fill="url(#gloss-sheen)"/>
+
+        <!-- OBJECT: Brick Wall Section -->
+        <g id="object-brick-wall">
+          <!-- Shadow inside badge -->
+          <ellipse cx="120" cy="177" rx="56" ry="9" fill="#78350f" fill-opacity="0.4"/>
+
+          <!-- Mortar Backing Block -->
+          <rect x="62" y="66" width="116" height="106" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+          <rect x="62" y="167" width="116" height="5" rx="2.5" fill="#cbd5e1"/>
+
+          <!-- ROW 1 (Top) -->
+          <!-- Brick 1 -->
+          <rect x="67" y="71" width="50" height="21" rx="4" fill="url(#brick-light)" stroke="#991b1b" stroke-width="1.5"/>
+          <path d="M69 73H115" stroke="#fca5a5" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Brick 2 -->
+          <rect x="123" y="71" width="50" height="21" rx="4" fill="url(#brick-dark)" stroke="#991b1b" stroke-width="1.5"/>
+          <path d="M125 73H171" stroke="#fca5a5" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- ROW 2 -->
+          <!-- Brick 3 (Half) -->
+          <rect x="67" y="96" width="22" height="21" rx="4" fill="url(#brick-dark)" stroke="#991b1b" stroke-width="1.5"/>
+          <path d="M69 98H87" stroke="#fca5a5" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Brick 4 (Full Center) -->
+          <rect x="95" y="96" width="50" height="21" rx="4" fill="url(#brick-light)" stroke="#991b1b" stroke-width="1.5"/>
+          <path d="M97 98H143" stroke="#fca5a5" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Brick 5 (Half) -->
+          <rect x="151" y="96" width="22" height="21" rx="4" fill="url(#brick-dark)" stroke="#991b1b" stroke-width="1.5"/>
+          <path d="M153 98H171" stroke="#fca5a5" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- ROW 3 -->
+          <!-- Brick 6 -->
+          <rect x="67" y="121" width="50" height="21" rx="4" fill="url(#brick-light)" stroke="#991b1b" stroke-width="1.5"/>
+          <path d="M69 123H115" stroke="#fca5a5" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Brick 7 -->
+          <rect x="123" y="121" width="50" height="21" rx="4" fill="url(#brick-dark)" stroke="#991b1b" stroke-width="1.5"/>
+          <path d="M125 123H171" stroke="#fca5a5" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- ROW 4 (Bottom) -->
+          <!-- Brick 8 (Half) -->
+          <rect x="67" y="146" width="22" height="21" rx="4" fill="url(#brick-dark)" stroke="#991b1b" stroke-width="1.5"/>
+          <path d="M69 148H87" stroke="#fca5a5" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Brick 9 (Full Center) -->
+          <rect x="95" y="146" width="50" height="21" rx="4" fill="url(#brick-light)" stroke="#991b1b" stroke-width="1.5"/>
+          <path d="M97 148H143" stroke="#fca5a5" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Brick 10 (Half) -->
+          <rect x="151" y="146" width="22" height="21" rx="4" fill="url(#brick-dark)" stroke="#991b1b" stroke-width="1.5"/>
+          <path d="M153 148H171" stroke="#fca5a5" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- Little Mortar Trowel Accent on side -->
+          <path d="M166 60L178 72L162 76L166 60Z" fill="#38bdf8" stroke="#0284c7" stroke-width="1.5"/>
+          <path d="M178 72L184 78" stroke="#64748b" stroke-width="3" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 4. Hourglass (Purple / Violet Indigo Badge) -->
+    <div class="w-full max-w-[240px] sm:max-w-[260px] aspect-square flex items-center justify-center">
+      <svg class="w-full h-full drop-shadow-md transition-transform duration-200 hover:-translate-y-1" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="purple-base" x1="120" y1="12" x2="120" y2="204" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#8b5cf6"/>
+            <stop offset="60%" stop-color="#7c3aed"/>
+            <stop offset="100%" stop-color="#6d28d9"/>
+          </linearGradient>
+          <linearGradient id="glass-grad" x1="90" y1="60" x2="150" y2="180" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4"/>
+            <stop offset="50%" stop-color="#c4b5fd" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0.3"/>
+          </linearGradient>
+          <linearGradient id="sand-gold" x1="120" y1="70" x2="120" y2="165" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#fde047"/>
+            <stop offset="100%" stop-color="#f59e0b"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Ledge Shadow under badge -->
+        <ellipse cx="120" cy="216" rx="76" ry="11" fill="#4c1d95" fill-opacity="0.15"/>
+        <ellipse cx="120" cy="216" rx="52" ry="6" fill="#4c1d95" fill-opacity="0.18"/>
+
+        <!-- Tactile 3D Ledge Bottom Rim -->
+        <rect x="20" y="24" width="200" height="186" rx="44" fill="#4c1d95"/>
+        <!-- Main Badge Plaque -->
+        <rect x="20" y="16" width="200" height="186" rx="44" fill="url(#purple-base)"/>
+
+        <!-- Inner Highlight Rim -->
+        <rect x="23" y="19" width="194" height="180" rx="41" stroke="#ddd6fe" stroke-width="2.5" fill="none" opacity="0.6"/>
+
+        <!-- Glossy Curved Top Lens -->
+        <path d="M26 58C26 36.7924 43.2076 21 64.4152 21H175.585C196.792 21 214 36.7924 214 58C214 74 185 96 120 96C55 96 26 74 26 58Z" fill="url(#gloss-sheen)"/>
+
+        <!-- OBJECT: Hourglass -->
+        <g id="object-hourglass">
+          <!-- Shadow inside badge -->
+          <ellipse cx="120" cy="177" rx="52" ry="8" fill="#2e1065" fill-opacity="0.4"/>
+
+          <!-- Bottom Wood Stand -->
+          <rect x="74" y="163" width="92" height="13" rx="6.5" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+          <rect x="76" y="172" width="88" height="4" rx="2" fill="#cbd5e1"/>
+
+          <!-- Top Wood Stand -->
+          <rect x="74" y="62" width="92" height="13" rx="6.5" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+          <rect x="76" y="62" width="88" height="3" rx="1.5" fill="#ffffff"/>
+
+          <!-- Wooden Connecting Corner Pillars -->
+          <rect x="78" y="73" width="7" height="92" rx="3.5" fill="#e2e8f0"/>
+          <rect x="155" y="73" width="7" height="92" rx="3.5" fill="#e2e8f0"/>
+
+          <!-- Glass Bulb Outer Silhouette -->
+          <!-- Top Bulb Glass -->
+          <path d="M85 75C85 102 110 114 117 119C110 124 85 136 85 163H155C155 136 130 124 123 119C130 114 155 102 155 75H85Z" fill="url(#glass-grad)" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round"/>
+
+          <!-- Sand in Upper Chamber (Partially Drained) -->
+          <path d="M92 90C92 104 110 112 118 118C120 118 120 118 122 118C130 112 148 104 148 90C148 87 146 87 120 87C94 87 92 87 92 90Z" fill="url(#sand-gold)"/>
+
+          <!-- Falling Stream of Sand -->
+          <path d="M120 118V146" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="120" cy="132" r="1.5" fill="#fde047"/>
+          <circle cx="120" cy="140" r="1.5" fill="#fde047"/>
+
+          <!-- Sand in Lower Chamber (Mounded Pile) -->
+          <path d="M90 162C90 148 108 142 120 142C132 142 150 148 150 162H90Z" fill="url(#sand-gold)"/>
+          <path d="M100 156C110 148 130 148 140 156" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+
+          <!-- Glass Highlights & Specular Sheen -->
+          <path d="M92 81C92 96 102 108 111 112" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+          <path d="M92 157C92 142 102 130 111 126" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 5. Two Meshing Gears (Cerulean / Cyan Blue Badge) -->
+    <div class="w-full max-w-[240px] sm:max-w-[260px] aspect-square flex items-center justify-center">
+      <svg class="w-full h-full drop-shadow-md transition-transform duration-200 hover:-translate-y-1" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="blue-base" x1="120" y1="12" x2="120" y2="204" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#0284c7"/>
+            <stop offset="60%" stop-color="#0369a1"/>
+            <stop offset="100%" stop-color="#075985"/>
+          </linearGradient>
+          <linearGradient id="gear-large" x1="102" y1="80" x2="102" y2="164" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="50%" stop-color="#f8fafc"/>
+            <stop offset="100%" stop-color="#e2e8f0"/>
+          </linearGradient>
+          <linearGradient id="gear-small" x1="148" y1="72" x2="148" y2="132" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#fbbf24"/>
+            <stop offset="100%" stop-color="#f59e0b"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Ledge Shadow under badge -->
+        <ellipse cx="120" cy="216" rx="76" ry="11" fill="#0c4a6e" fill-opacity="0.16"/>
+        <ellipse cx="120" cy="216" rx="52" ry="6" fill="#0c4a6e" fill-opacity="0.18"/>
+
+        <!-- Tactile 3D Ledge Bottom Rim -->
+        <rect x="20" y="24" width="200" height="186" rx="44" fill="#073b56"/>
+        <!-- Main Badge Plaque -->
+        <rect x="20" y="16" width="200" height="186" rx="44" fill="url(#blue-base)"/>
+
+        <!-- Inner Highlight Rim -->
+        <rect x="23" y="19" width="194" height="180" rx="41" stroke="#7dd3fc" stroke-width="2.5" fill="none" opacity="0.6"/>
+
+        <!-- Glossy Curved Top Lens -->
+        <path d="M26 58C26 36.7924 43.2076 21 64.4152 21H175.585C196.792 21 214 36.7924 214 58C214 74 185 96 120 96C55 96 26 74 26 58Z" fill="url(#gloss-sheen)"/>
+
+        <!-- OBJECT: Two Meshing Gears -->
+        <g id="object-gears">
+          <!-- Shadow inside badge -->
+          <ellipse cx="120" cy="177" rx="56" ry="9" fill="#032b40" fill-opacity="0.45"/>
+
+          <!-- 1. LARGE PRIMARY GEAR (Silver / Crisp White, Bottom-Left) -->
+          <g transform="translate(100, 130)">
+            <!-- Outer 8 Teeth via Rotated Rectangles -->
+            <!-- 3D base shadow rim of gear -->
+            <circle cx="0" cy="3" r="42" fill="#082f49"/>
+            <g fill="url(#gear-large)" stroke="#0c4a6e" stroke-width="2">
+              <rect x="-9" y="-48" width="18" height="96" rx="4"/>
+              <rect x="-9" y="-48" width="18" height="96" rx="4" transform="rotate(45)"/>
+              <rect x="-9" y="-48" width="18" height="96" rx="4" transform="rotate(90)"/>
+              <rect x="-9" y="-48" width="18" height="96" rx="4" transform="rotate(135)"/>
+              <!-- Gear Solid Center Body -->
+              <circle cx="0" cy="0" r="38"/>
+            </g>
+            <!-- Ledge Highlight on Gear -->
+            <circle cx="0" cy="0" r="35" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.8"/>
+            <!-- Center Axle Hole -->
+            <circle cx="0" cy="0" r="14" fill="#0369a1" stroke="#075985" stroke-width="3"/>
+            <circle cx="0" cy="0" r="6" fill="#0c4a6e"/>
+          </g>
+
+          <!-- 2. SMALL SECONDARY GEAR (Golden Yellow, Top-Right, Intermeshing) -->
+          <g transform="translate(148, 92)">
+            <!-- 3D base shadow rim of small gear -->
+            <circle cx="0" cy="3" r="28" fill="#78350f" fill-opacity="0.6"/>
+            <!-- Teeth via Rotated Rectangles -->
+            <g fill="url(#gear-small)" stroke="#92400e" stroke-width="2">
+              <rect x="-6.5" y="-33" width="13" height="66" rx="3.5" transform="rotate(22.5)"/>
+              <rect x="-6.5" y="-33" width="13" height="66" rx="3.5" transform="rotate(67.5)"/>
+              <rect x="-6.5" y="-33" width="13" height="66" rx="3.5" transform="rotate(112.5)"/>
+              <rect x="-6.5" y="-33" width="13" height="66" rx="3.5" transform="rotate(157.5)"/>
+              <!-- Gear Center Body -->
+              <circle cx="0" cy="0" r="26"/>
+            </g>
+            <!-- Highlight -->
+            <circle cx="0" cy="0" r="23" stroke="#fef08a" stroke-width="1.8" fill="none" opacity="0.9"/>
+            <!-- Center Axle Hole -->
+            <circle cx="0" cy="0" r="9.5" fill="#0369a1" stroke="#92400e" stroke-width="2"/>
+            <circle cx="0" cy="0" r="4.5" fill="#082f49"/>
+          </g>
+
+          <!-- Mesh Sparkle Dot at contact point -->
+          <circle cx="126" cy="107" r="3" fill="#ffffff"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 6. Two Interlocking Puzzle Pieces (Fresh Lime / Apple Green Badge) -->
+    <div class="w-full max-w-[240px] sm:max-w-[260px] aspect-square flex items-center justify-center">
+      <svg class="w-full h-full drop-shadow-md transition-transform duration-200 hover:-translate-y-1" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lime-base" x1="120" y1="12" x2="120" y2="204" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#84cc16"/>
+            <stop offset="60%" stop-color="#65a30d"/>
+            <stop offset="100%" stop-color="#4d7c0f"/>
+          </linearGradient>
+          <linearGradient id="piece-coral" x1="90" y1="65" x2="90" y2="165" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#ff7e5a"/>
+            <stop offset="100%" stop-color="#ef4444"/>
+          </linearGradient>
+          <linearGradient id="piece-white" x1="150" y1="65" x2="150" y2="165" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="100%" stop-color="#f1f5f9"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Ledge Shadow under badge -->
+        <ellipse cx="120" cy="216" rx="76" ry="11" fill="#365314" fill-opacity="0.14"/>
+        <ellipse cx="120" cy="216" rx="52" ry="6" fill="#365314" fill-opacity="0.16"/>
+
+        <!-- Tactile 3D Ledge Bottom Rim -->
+        <rect x="20" y="24" width="200" height="186" rx="44" fill="#365314"/>
+        <!-- Main Badge Plaque -->
+        <rect x="20" y="16" width="200" height="186" rx="44" fill="url(#lime-base)"/>
+
+        <!-- Inner Highlight Rim -->
+        <rect x="23" y="19" width="194" height="180" rx="41" stroke="#bef264" stroke-width="2.5" fill="none" opacity="0.6"/>
+
+        <!-- Glossy Curved Top Lens -->
+        <path d="M26 58C26 36.7924 43.2076 21 64.4152 21H175.585C196.792 21 214 36.7924 214 58C214 74 185 96 120 96C55 96 26 74 26 58Z" fill="url(#gloss-sheen)"/>
+
+        <!-- OBJECT: Two Interlocking Puzzle Pieces -->
+        <g id="object-puzzle">
+          <!-- Shadow inside badge -->
+          <ellipse cx="120" cy="177" rx="56" ry="9" fill="#1e3a07" fill-opacity="0.4"/>
+
+          <!-- PIECE 1: Left Coral/Orange Puzzle Piece (with protruding interlocking tab) -->
+          <!-- 3D Bottom Ledge Extrusion for Piece 1 -->
+          <path d="M68 158V164C68 168 72 172 76 172H118C122 172 126 168 126 164V158H68Z" fill="#b91c1c"/>
+          <!-- Main Body of Left Piece -->
+          <path d="M68 80C68 74 72 70 78 70H118C124 70 126 74 126 80V104C134 104 141 110 141 118C141 126 134 132 126 132V158C126 164 122 166 116 166H76C70 166 68 162 68 156V80Z" fill="url(#piece-coral)" stroke="#991b1b" stroke-width="2.5" stroke-linejoin="round"/>
+          <!-- Highlight curve on piece 1 -->
+          <path d="M72 74H116M72 78V152" stroke="#fca5a5" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+
+          <!-- PIECE 2: Right Crisp White/Cream Puzzle Piece (with matching socket that interlocks) -->
+          <!-- 3D Bottom Ledge Extrusion for Piece 2 -->
+          <path d="M126 158V164C126 168 130 172 134 172H168C172 172 176 168 176 164V158H126Z" fill="#94a3b8"/>
+          <!-- Main Body of Right Piece -->
+          <path d="M126 80V104C134 104 141 110 141 118C141 126 134 132 126 132V158C126 164 130 166 136 166H166C172 166 176 162 176 156V80C176 74 172 70 166 70H136C130 70 126 74 126 80Z" fill="url(#piece-white)" stroke="#64748b" stroke-width="2.5" stroke-linejoin="round"/>
+          <!-- Highlight on piece 2 -->
+          <path d="M136 74H172M172 78V152" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+
+          <!-- Mechanical Seam Line emphasizing the interlocking joint -->
+          <path d="M126 71V103C134 103 142 110 142 118C142 126 134 133 126 133V165" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+
+          <!-- Joint Specular Sheen Sparkle -->
+          <circle cx="140" cy="112" r="2.5" fill="#ffffff"/>
+        </g>
+      </svg>
+    </div>
+
+  </main>
+
+</body>
+</html>

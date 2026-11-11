@@ -2,6 +2,7 @@
  "_note": "Bảng route → biến thể khung (docs/DESIGN-SYSTEM.md §5d) cho scripts/test/frame-consistency.mjs. hub = 5 trang gốc của 5 tab (thanh 5 tab, không Back) · inner = trang con (thanh 5 tab + Back ≥ 44 về trang cha) · focus = màn học tập trung (ExitGuard.ALWAYS + bài mẫu FIXED của WITH_ARG, và màn thiết lập lần đầu welcome: không thanh tab/thanh chung, thanh riêng 56 ở đỉnh, X ≥ 44); WITH_ARG mở không tham số = trang danh sách → inner. surface = id trong docs/stitch-coverage.json. Route mới trong app mà thiếu ở đây → cổng đỏ.",
  "routes": {
   "call": {"variant": "focus", "surface": ["teacher-call"]},
+  "cambridge": {"variant": "inner", "surface": ["toeic"]},
   "cbt": {"variant": "focus", "surface": ["cbt"]},
   "class": {"variant": "inner", "surface": ["courses"]},
   "confidence": {"variant": "inner", "surface": ["confidence"]},
@@ -70,6 +71,7 @@
   "tracks": {"variant": "inner", "surface": ["vocab-path"]},
   "train": {"variant": "inner", "surface": ["practice"]},
   "usage": {"variant": "inner", "surface": ["usage"]},
+  "outcome": {"variant": "inner", "surface": ["placement"]},
   "verb": {"variant": "inner", "surface": ["verbs"]},
   "vocab": {"variant": "hub", "surface": ["hub-vocab"]},
   "watch": {"variant": "inner", "surface": ["listening"]},

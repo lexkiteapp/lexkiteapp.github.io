@@ -98,7 +98,7 @@ Bagi proses belajar Anda menjadi tiga fase 30 hari dengan target yang terukur:
 - **Aktivitas harian**:
   - Terapkan [teknik shadowing bahasa Inggris otodidak](/id/blog/teknik-shadowing-bahasa-inggris-otodidak/) untuk melatih kelenturan otot mulut dan irama intonasi.
   - Pahami pengandaian sederhana melalui materi [kalimat pengandaian conditional sentences](/id/blog/kalimat-pengandaian-bahasa-inggris-conditional-sentences/).
-  - Biasakan membaca cepat dengan [teknik skimming scanning IELTS reading](/id/blog/teknik-skimming-scanning-ielts-reading/) atau telusuri koleksi di [perpustakaan kosakata](/tu-vung/).
+  - Biasakan membaca cepat dengan [teknik skimming scanning IELTS reading](/id/blog/teknik-skimming-scanning-ielts-reading/) atau telusuri koleksi di [perpustakaan kosakata](/en/vocabulary/).
   - Latih mental berpikir langsung tanpa menerjemahkan di kepala melalui panduan [cara berpikir dalam bahasa Inggris](/id/blog/cara-berpikir-dalam-bahasa-inggris-tanpa-menerjemahkan/).
 
 ## Rutinitas Harian 45 Menit untuk Pemula

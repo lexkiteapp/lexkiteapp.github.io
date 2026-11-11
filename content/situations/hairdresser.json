@@ -1,0 +1,873 @@
+{
+ "id": "hairdresser",
+ "group": "services",
+ "cefr": "A2",
+ "title": {
+  "en": "Hairdresser",
+  "vi": "Tiệm tóc",
+  "es": "Peluquería",
+  "pt": "Cabeleireiro",
+  "fr": "Coiffeur",
+  "de": "Friseur",
+  "id": "Salon rambut",
+  "th": "ร้านทำผม",
+  "zh": "理发店",
+  "ja": "美容院・理容室",
+  "ko": "미용실",
+  "hi": "हेयर सैलून",
+  "ar": "صالون الحلاقة",
+  "ru": "Парикмахерская",
+  "tr": "Kuaför"
+ },
+ "goal": {
+  "en": "Get the cut you want!",
+  "vi": "Có kiểu tóc bạn muốn!",
+  "es": "¡Consigue el corte que quieres!",
+  "pt": "Faça o corte que você quer!",
+  "fr": "Obtenez la coupe que vous voulez !",
+  "de": "Bekomm den Schnitt, den du willst!",
+  "id": "Dapatkan potongan yang kamu mau!",
+  "th": "ได้ทรงผมที่ต้องการ!",
+  "zh": "剪出你想要的发型！",
+  "ja": "思い通りのヘアカットに！",
+  "ko": "원하는 머리 모양을 만들어요!",
+  "hi": "मनचाहा हेयरकट पाएँ!",
+  "ar": "احصل على القصة التي تريد!",
+  "ru": "Получи нужную стрижку!",
+  "tr": "İstediğin saç kesimini yaptır!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "book",
+   "title": {
+    "en": "Book and arrive",
+    "vi": "Đặt lịch và đến tiệm",
+    "es": "Reservar y llegar",
+    "pt": "Marcar e chegar",
+    "fr": "Réserver et arriver",
+    "de": "Buchen und ankommen",
+    "id": "Pesan dan datang",
+    "th": "จองคิวและมาถึง",
+    "zh": "预约与到店",
+    "ja": "予約と来店",
+    "ko": "예약과 도착",
+    "hi": "बुकिंग और आगमन",
+    "ar": "الحجز والوصول",
+    "ru": "Запись и приход",
+    "tr": "Randevu ve varış"
+   },
+   "lines": [
+    "b1",
+    "b2",
+    "b3",
+    "b4"
+   ]
+  },
+  {
+   "id": "cut",
+   "title": {
+    "en": "Describe the cut",
+    "vi": "Mô tả kiểu cắt",
+    "es": "Describir el corte",
+    "pt": "Descrever o corte",
+    "fr": "Décrire la coupe",
+    "de": "Den Schnitt beschreiben",
+    "id": "Jelaskan potongan",
+    "th": "อธิบายทรงผม",
+    "zh": "描述发型",
+    "ja": "カットを伝える",
+    "ko": "머리 모양 설명",
+    "hi": "कट का वर्णन",
+    "ar": "وصف القصة",
+    "ru": "Описать стрижку",
+    "tr": "Kesimi tarif etme"
+   },
+   "lines": [
+    "c1",
+    "c2",
+    "c3",
+    "c4"
+   ]
+  },
+  {
+   "id": "finish",
+   "title": {
+    "en": "Check and pay",
+    "vi": "Kiểm tra và thanh toán",
+    "es": "Revisar y pagar",
+    "pt": "Conferir e pagar",
+    "fr": "Vérifier et payer",
+    "de": "Prüfen und zahlen",
+    "id": "Periksa dan bayar",
+    "th": "ตรวจดูและจ่ายเงิน",
+    "zh": "检查并付款",
+    "ja": "確認と支払い",
+    "ko": "확인하고 계산하기",
+    "hi": "देखें और भुगतान करें",
+    "ar": "المراجعة والدفع",
+    "ru": "Проверить и оплатить",
+    "tr": "Kontrol et ve öde"
+   },
+   "lines": [
+    "f1",
+    "f2",
+    "f3",
+    "f4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "b1",
+   "who": "customer",
+   "en": "Hi, I'd like to book a haircut for Saturday.",
+   "variants": {
+    "polite": "Hello, could I book a haircut for Saturday, please?",
+    "casual": "A haircut on Saturday, please."
+   },
+   "gloss": {
+    "en": "Booking an appointment.",
+    "vi": "Đặt lịch hẹn.",
+    "es": "Reserva una cita.",
+    "pt": "Marca um horário.",
+    "fr": "Prendre rendez-vous.",
+    "de": "Einen Termin buchen.",
+    "id": "Membuat janji.",
+    "th": "จองคิว",
+    "zh": "预约。",
+    "ja": "予約をします。",
+    "ko": "예약을 해요.",
+    "hi": "अपॉइंटमेंट बुक करना।",
+    "ar": "حجز موعد.",
+    "ru": "Записаться на приём.",
+    "tr": "Randevu alma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "haircut",
+     "ipa": "/ˈher.kʌt/",
+     "hi": "HAIR",
+     "note": {
+      "en": "Stress the first syllable: HAIR-cut. The \"cut\" is short and quiet.",
+      "vi": "Nhấn âm đầu: HE-cờt. Phần \"cut\" ngắn và nhẹ.",
+      "es": "Acentúa la primera sílaba: HAIR-cut. \"cut\" es corto y suave.",
+      "pt": "Acentue a primeira sílaba: HAIR-cut. O \"cut\" é curto e leve.",
+      "fr": "Accentuez la première syllabe : HAIR-cut. « cut » est court et léger.",
+      "de": "Betone die erste Silbe: HAIR-cut. „cut“ ist kurz und leise.",
+      "id": "Tekankan suku kata pertama: HAIR-cut. \"cut\" pendek dan ringan.",
+      "th": "เน้นพยางค์แรก: HAIR-คัท \"cut\" สั้นและเบา",
+      "zh": "重音在第一音节：HAIR-cut，cut 又短又轻。",
+      "ja": "最初を強く：HAIR・カット。cut は短く軽く。",
+      "ko": "첫 음절에 강세: HAIR-컷. cut은 짧고 가볍게 읽어요.",
+      "hi": "पहले अक्षर पर ज़ोर: HAIR-कट। cut छोटा और हल्का है।",
+      "ar": "النبر على المقطع الأول: HAIR-cut، وcut قصيرة وخفيفة.",
+      "ru": "Ударение на первый слог: ХЭР-кат. «cut» короткий и лёгкий.",
+      "tr": "Vurgu ilk hecede: HAIR-cat. \"cut\" kısa ve hafiftir."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "who": "barista",
+   "en": "Sure. I have eleven o'clock or half past two.",
+   "variants": {
+    "polite": "Certainly. We have an opening at eleven or at half past two.",
+    "casual": "Eleven or half past two?"
+   },
+   "gloss": {
+    "en": "The stylist offers two times.",
+    "vi": "Thợ đưa ra hai khung giờ.",
+    "es": "El estilista ofrece dos horarios.",
+    "pt": "O cabeleireiro oferece dois horários.",
+    "fr": "Le coiffeur propose deux horaires.",
+    "de": "Der Friseur bietet zwei Zeiten an.",
+    "id": "Penata rambut menawarkan dua jam.",
+    "th": "ช่างเสนอสองเวลา",
+    "zh": "发型师给出两个时间。",
+    "ja": "美容師が二つの時間を提案します。",
+    "ko": "미용사가 두 시간을 제안해요.",
+    "hi": "स्टाइलिस्ट दो समय बताता है।",
+    "ar": "المصفف يعرض موعدين.",
+    "ru": "Мастер предлагает два времени.",
+    "tr": "Kuaför iki saat önerir."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "b3",
+   "who": "customer",
+   "en": "Half past two is perfect. My name is Lina.",
+   "variants": {
+    "polite": "Half past two would be perfect. My name is Lina.",
+    "casual": "Half past two. I'm Lina."
+   },
+   "gloss": {
+    "en": "Choosing a time and giving your name.",
+    "vi": "Chọn giờ và nói tên.",
+    "es": "Elige hora y dice su nombre.",
+    "pt": "Escolhe o horário e diz o nome.",
+    "fr": "Choisir l'heure et donner son nom.",
+    "de": "Zeit wählen und Namen nennen.",
+    "id": "Memilih jam dan menyebut nama.",
+    "th": "เลือกเวลาและบอกชื่อ",
+    "zh": "选定时间并报上姓名。",
+    "ja": "時間を選んで名前を伝えます。",
+    "ko": "시간을 고르고 이름을 말해요.",
+    "hi": "समय चुनना और नाम बताना।",
+    "ar": "اختيار الوقت وذكر الاسم.",
+    "ru": "Выбрать время и назвать имя.",
+    "tr": "Saat seçme ve isim söyleme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "b4",
+   "who": "barista",
+   "en": "Welcome, Lina. Please take a seat. I'll be right with you.",
+   "variants": {
+    "polite": "Welcome, Lina. Please have a seat, and I'll be with you shortly.",
+    "casual": "Take a seat, Lina."
+   },
+   "gloss": {
+    "en": "Greeting you at the salon.",
+    "vi": "Chào bạn khi đến tiệm.",
+    "es": "Te recibe en el salón.",
+    "pt": "Recebe você no salão.",
+    "fr": "Vous accueille au salon.",
+    "de": "Begrüßt dich im Salon.",
+    "id": "Menyambut Anda di salon.",
+    "th": "ต้อนรับที่ร้าน",
+    "zh": "在店里迎接你。",
+    "ja": "店で迎えてくれます。",
+    "ko": "미용실에서 맞이해요.",
+    "hi": "सैलून में स्वागत करना।",
+    "ar": "الترحيب بك في الصالون.",
+    "ru": "Встречает вас в салоне.",
+    "tr": "Salonda sizi karşılar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c1",
+   "who": "barista",
+   "en": "What would you like me to do today?",
+   "variants": {
+    "polite": "What are we doing with your hair today?",
+    "casual": "What would you like?"
+   },
+   "gloss": {
+    "en": "The stylist asks what you want.",
+    "vi": "Thợ hỏi bạn muốn làm gì.",
+    "es": "El estilista pregunta qué quieres.",
+    "pt": "O cabeleireiro pergunta o que você quer.",
+    "fr": "Le coiffeur demande ce que vous voulez.",
+    "de": "Der Friseur fragt nach deinem Wunsch.",
+    "id": "Penata rambut menanyakan keinginan Anda.",
+    "th": "ช่างถามว่าอยากทำอะไร",
+    "zh": "发型师问你想怎么剪。",
+    "ja": "美容師が希望を尋ねます。",
+    "ko": "미용사가 원하는 스타일을 물어봐요.",
+    "hi": "स्टाइलिस्ट पूछता है कि क्या करना है।",
+    "ar": "المصفف يسأل ماذا تريدين.",
+    "ru": "Мастер спрашивает, что вы хотите.",
+    "tr": "Kuaför ne istediğinizi sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c2",
+   "who": "customer",
+   "en": "Just a trim, please. About two centimetres off.",
+   "variants": {
+    "polite": "Just a trim, please. Could you take about two centimetres off?",
+    "casual": "A small trim, please."
+   },
+   "gloss": {
+    "en": "Asking for a small cut.",
+    "vi": "Xin cắt tỉa nhẹ.",
+    "es": "Pide solo un recorte.",
+    "pt": "Pede só uma aparada.",
+    "fr": "Demander juste un rafraîchissement.",
+    "de": "Nur Spitzen schneiden lassen.",
+    "id": "Meminta potong tipis saja.",
+    "th": "ขอตัดปลายเล็กน้อย",
+    "zh": "只想稍微修一下。",
+    "ja": "少しだけ整えてもらいます。",
+    "ko": "살짝만 다듬어 달라고 해요.",
+    "hi": "हल्की ट्रिमिंग माँगना।",
+    "ar": "طلب تقصير بسيط.",
+    "ru": "Попросить лёгкую подстрижку.",
+    "tr": "Hafif bir düzeltme isteme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "centimetres",
+     "ipa": "/ˈsen.tɪˌmiː.tərz/",
+     "hi": "SEN",
+     "note": {
+      "en": "Stress the first syllable: SEN-ti-mee-ters. The \"c\" at the start sounds like \"s\".",
+      "vi": "Nhấn âm đầu: SEN-ti-mi-tờz. Chữ \"c\" đầu đọc như \"s\".",
+      "es": "Acentúa la primera sílaba: SEN-ti-mi-ters. La \"c\" inicial suena como \"s\".",
+      "pt": "Acentue a primeira sílaba: SEN-ti-mi-ters. O \"c\" inicial soa como \"s\".",
+      "fr": "Accentuez la première syllabe : SEN-ti-mi-teurz. Le « c » initial sonne comme « s ».",
+      "de": "Betone die erste Silbe: SEN-ti-mie-ters. Das „c“ am Anfang klingt wie „s“.",
+      "id": "Tekankan suku kata pertama: SEN-ti-mi-ters. \"c\" awal dibaca \"s\".",
+      "th": "เน้นพยางค์แรก: เซน-ติ-มี-เทอร์ส ตัว \"c\" ต้นคำออกเสียงเป็น \"s\"",
+      "zh": "重音在第一音节：SEN-ti-mee-ters，开头的 c 读 s。",
+      "ja": "最初を強く：SEN・ティ・ミー・ターズ。最初の c は「s」の音です。",
+      "ko": "첫 음절에 강세: SEN-티-미-터스. 처음 c는 “s” 소리예요.",
+      "hi": "पहले अक्षर पर ज़ोर: SEN-ति-मी-टर्ज़। शुरू का c \"s\" जैसा है।",
+      "ar": "النبر على المقطع الأول: SEN-ti-mee-ters، وحرف c في البداية بصوت s.",
+      "ru": "Ударение на первый слог: СЕН-ти-ми-терз. Начальное «c» звучит как «с».",
+      "tr": "Vurgu ilk hecede: SEN-ti-mi-tırz. Baştaki \"c\" harfi \"s\" okunur."
+     }
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "who": "barista",
+   "en": "Do you want to keep the layers at the front?",
+   "variants": {
+    "polite": "Would you like to keep the layers at the front?",
+    "casual": "Keep the front layers?"
+   },
+   "gloss": {
+    "en": "The stylist asks about the style.",
+    "vi": "Thợ hỏi về kiểu tóc.",
+    "es": "El estilista pregunta por el estilo.",
+    "pt": "O cabeleireiro pergunta sobre o estilo.",
+    "fr": "Le coiffeur demande pour le style.",
+    "de": "Der Friseur fragt nach dem Stil.",
+    "id": "Penata rambut menanyakan gaya.",
+    "th": "ช่างถามเรื่องทรงผม",
+    "zh": "发型师问发型细节。",
+    "ja": "スタイルについて尋ねます。",
+    "ko": "스타일에 대해 물어봐요.",
+    "hi": "स्टाइलिस्ट स्टाइल के बारे में पूछता है।",
+    "ar": "المصفف يسأل عن التسريحة.",
+    "ru": "Мастер уточняет стиль.",
+    "tr": "Kuaför stil hakkında sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c4",
+   "who": "customer",
+   "en": "Yes, please. And can you leave the fringe a bit longer?",
+   "variants": {
+    "polite": "Yes, please. Could you leave the fringe a little longer?",
+    "casual": "Yes. A longer fringe, please."
+   },
+   "gloss": {
+    "en": "Asking for a small change.",
+    "vi": "Yêu cầu chỉnh một chút.",
+    "es": "Pide un pequeño cambio.",
+    "pt": "Pede uma pequena mudança.",
+    "fr": "Demander un petit changement.",
+    "de": "Um eine kleine Änderung bitten.",
+    "id": "Meminta perubahan kecil.",
+    "th": "ขอให้ปรับเล็กน้อย",
+    "zh": "要求小小的调整。",
+    "ja": "少しだけ変更を頼みます。",
+    "ko": "작은 변경을 부탁해요.",
+    "hi": "थोड़ा बदलाव माँगना।",
+    "ar": "طلب تعديل بسيط.",
+    "ru": "Попросить небольшое изменение.",
+    "tr": "Küçük bir değişiklik isteme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "fringe",
+     "ipa": "/frɪndʒ/",
+     "hi": "FRINJ",
+     "note": {
+      "en": "Say FRINJ in one syllable. The \"ge\" at the end sounds like \"j\".",
+      "vi": "Đọc FRINJ một âm tiết. Phần \"ge\" cuối đọc như \"j\".",
+      "es": "Di FRINJ en una sílaba. La \"ge\" final suena como \"j\" inglesa.",
+      "pt": "Diga FRINJ em uma sílaba. O \"ge\" final soa como \"dj\".",
+      "fr": "Dites FRINJ en une syllabe. Le « ge » final sonne « dj ».",
+      "de": "Sprich FRINJ in einer Silbe. Das „ge“ am Ende klingt wie „dsch“.",
+      "id": "Ucapkan FRINJ satu suku kata. \"ge\" di akhir dibaca \"j\".",
+      "th": "ออกเสียง FRINJ พยางค์เดียว \"ge\" ท้ายคำออกเสียงเป็น \"จ\"",
+      "zh": "读作 FRINJ，一个音节，结尾 ge 读 j。",
+      "ja": "FRINJ と1音節で。語末の ge は「ジ」の音です。",
+      "ko": "FRINJ 한 음절로 읽어요. 끝의 ge는 “ㅈ” 소리예요.",
+      "hi": "FRINJ एक अक्षर में बोलें। अंत का ge \"ज\" जैसा है।",
+      "ar": "تُنطق FRINJ بمقطع واحد، وحرفا ge في النهاية بصوت «ج».",
+      "ru": "Читается FRINJ в один слог. Конечное «ge» звучит как «дж».",
+      "tr": "FRINJ tek hece okunur. Sondaki \"ge\" \"c\" gibi okunur."
+     }
+    }
+   ]
+  },
+  {
+   "id": "f1",
+   "who": "barista",
+   "en": "How does that look? Would you like it shorter?",
+   "variants": {
+    "polite": "How do you like it? Shall I take a little more off?",
+    "casual": "How's that? Shorter?"
+   },
+   "gloss": {
+    "en": "The stylist checks the result.",
+    "vi": "Thợ hỏi bạn thấy thế nào.",
+    "es": "El estilista comprueba el resultado.",
+    "pt": "O cabeleireiro confere o resultado.",
+    "fr": "Le coiffeur vérifie le résultat.",
+    "de": "Der Friseur prüft das Ergebnis.",
+    "id": "Penata rambut memeriksa hasil.",
+    "th": "ช่างถามว่าชอบไหม",
+    "zh": "发型师确认效果。",
+    "ja": "仕上がりを確認します。",
+    "ko": "결과를 확인해요.",
+    "hi": "स्टाइलिस्ट नतीजा पूछता है।",
+    "ar": "المصفف يتحقق من النتيجة.",
+    "ru": "Мастер проверяет результат.",
+    "tr": "Kuaför sonucu kontrol eder."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "f2",
+   "who": "customer",
+   "en": "It looks great, thank you. I really like it.",
+   "variants": {
+    "polite": "It looks wonderful, thank you. I'm really pleased with it.",
+    "casual": "Great, thanks! I love it."
+   },
+   "gloss": {
+    "en": "Saying you like the result.",
+    "vi": "Nói bạn hài lòng.",
+    "es": "Dice que le gusta el resultado.",
+    "pt": "Diz que gostou do resultado.",
+    "fr": "Dire que le résultat plaît.",
+    "de": "Sagen, dass das Ergebnis gefällt.",
+    "id": "Menyatakan puas dengan hasilnya.",
+    "th": "บอกว่าพอใจ",
+    "zh": "说你很满意。",
+    "ja": "仕上がりに満足だと伝えます。",
+    "ko": "결과가 마음에 든다고 말해요.",
+    "hi": "बताना कि नतीजा पसंद आया।",
+    "ar": "التعبير عن الرضا بالنتيجة.",
+    "ru": "Сказать, что результат нравится.",
+    "tr": "Sonuçtan memnun olduğunu söyleme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "f3",
+   "who": "customer",
+   "en": "How much do I owe you for the cut?",
+   "variants": {
+    "polite": "How much is the haircut altogether, please?",
+    "casual": "How much for the cut?"
+   },
+   "gloss": {
+    "en": "Asking the price.",
+    "vi": "Hỏi giá.",
+    "es": "Pregunta el precio.",
+    "pt": "Pergunta o preço.",
+    "fr": "Demander le prix.",
+    "de": "Nach dem Preis fragen.",
+    "id": "Menanyakan harga.",
+    "th": "ถามราคา",
+    "zh": "询问价格。",
+    "ja": "料金を尋ねます。",
+    "ko": "가격을 물어봐요.",
+    "hi": "कीमत पूछना।",
+    "ar": "السؤال عن السعر.",
+    "ru": "Спросить цену.",
+    "tr": "Fiyatı sorma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "f4",
+   "who": "barista",
+   "en": "That's twenty-five pounds. Card or cash?",
+   "variants": {
+    "polite": "That comes to twenty-five pounds. Will you pay by card or cash?",
+    "casual": "Twenty-five pounds. Card or cash?"
+   },
+   "gloss": {
+    "en": "The stylist says the price.",
+    "vi": "Thợ báo giá.",
+    "es": "El estilista dice el precio.",
+    "pt": "O cabeleireiro diz o preço.",
+    "fr": "Le coiffeur annonce le prix.",
+    "de": "Der Friseur nennt den Preis.",
+    "id": "Penata rambut menyebut harga.",
+    "th": "ช่างบอกราคา",
+    "zh": "发型师报价。",
+    "ja": "料金を伝えます。",
+    "ko": "미용사가 가격을 말해요.",
+    "hi": "स्टाइलिस्ट कीमत बताता है।",
+    "ar": "المصفف يذكر السعر.",
+    "ru": "Мастер называет цену.",
+    "tr": "Kuaför fiyatı söyler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "What kind of style are you looking for?",
+   "keywords": [
+    "short",
+    "long",
+    "layers",
+    "fringe",
+    "bob",
+    "trim",
+    "curls",
+    "straight",
+    "shorter",
+    "same",
+    "photo",
+    "style",
+    "bangs"
+   ],
+   "variants": {
+    "polite": "What sort of style did you have in mind?",
+    "casual": "What style do you want?"
+   },
+   "gloss": {
+    "en": "The stylist asks about your ideal style.",
+    "vi": "Thợ hỏi bạn thích kiểu nào.",
+    "es": "El estilista pregunta qué estilo quieres.",
+    "pt": "O cabeleireiro pergunta que estilo você quer.",
+    "fr": "Le coiffeur demande le style souhaité.",
+    "de": "Der Friseur fragt nach dem Stil.",
+    "id": "Penata rambut menanyakan gaya yang diinginkan.",
+    "th": "ช่างถามว่าอยากได้ทรงไหน",
+    "zh": "发型师问你想要什么风格。",
+    "ja": "希望のスタイルを尋ねます。",
+    "ko": "원하는 스타일을 물어봐요.",
+    "hi": "स्टाइलिस्ट पूछता है कि कौन-सा स्टाइल चाहिए।",
+    "ar": "المصفف يسأل عن التسريحة المطلوبة.",
+    "ru": "Мастер спрашивает, какой стиль нужен.",
+    "tr": "Kuaför hangi stili istediğinizi sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "Would you like me to wash and dry your hair?",
+   "keywords": [
+    "yes",
+    "please",
+    "wash",
+    "dry",
+    "blow",
+    "no",
+    "thanks",
+    "just",
+    "cut",
+    "only",
+    "shampoo",
+    "conditioner"
+   ],
+   "variants": {
+    "polite": "Shall I wash and blow-dry your hair as well?",
+    "casual": "Wash and dry too?"
+   },
+   "gloss": {
+    "en": "The stylist offers extra services.",
+    "vi": "Thợ hỏi có gội và sấy không.",
+    "es": "El estilista ofrece lavar y secar.",
+    "pt": "O cabeleireiro oferece lavar e secar.",
+    "fr": "Le coiffeur propose shampoing et brushing.",
+    "de": "Der Friseur bietet Waschen und Föhnen an.",
+    "id": "Penata rambut menawarkan keramas dan pengering.",
+    "th": "ช่างถามว่าจะสระและเป่าผมไหม",
+    "zh": "发型师问要不要洗吹。",
+    "ja": "シャンプーとブローを勧められます。",
+    "ko": "샴푸와 드라이를 할지 물어봐요.",
+    "hi": "स्टाइलिस्ट धोने और सुखाने का पूछता है।",
+    "ar": "المصفف يعرض الغسل والتجفيف.",
+    "ru": "Мастер предлагает мытьё и укладку.",
+    "tr": "Kuaför yıkama ve fön önerir."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Hi, Lina. Take a seat. What are we doing today?"
+  },
+  {
+   "who": "customer",
+   "en": "Just a trim, please. I'd like to keep the length."
+  },
+  {
+   "who": "barista",
+   "en": "Okay. Shall I wash your hair first?"
+  },
+  {
+   "who": "customer",
+   "en": "Yes, please. And could you leave my fringe long?"
+  },
+  {
+   "who": "barista",
+   "en": "Of course. Is the water too hot?"
+  },
+  {
+   "who": "customer",
+   "en": "No, it's perfect. Thank you."
+  },
+  {
+   "who": "barista",
+   "en": "All done. How does that look?"
+  },
+  {
+   "who": "customer",
+   "en": "I love it. How much is it?"
+  },
+  {
+   "who": "barista",
+   "en": "It's twenty-five pounds. Thanks for coming!"
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Hello. Do you have an appointment?"
+    },
+    {
+     "who": "customer",
+     "en": "Yes, at three o'clock with Maria."
+    },
+    {
+     "who": "barista",
+     "en": "Lovely. She's just finishing. Would you like a coffee?"
+    },
+    {
+     "who": "customer",
+     "en": "Yes, a tea would be great, please."
+    }
+   ],
+   "q": {
+    "en": "What does the customer want to drink?",
+    "vi": "Khách muốn uống gì?",
+    "es": "¿Qué quiere beber el cliente?",
+    "pt": "O que o cliente quer beber?",
+    "fr": "Que veut boire le client ?",
+    "de": "Was möchte der Kunde trinken?",
+    "id": "Pelanggan ingin minum apa?",
+    "th": "ลูกค้าอยากดื่มอะไร",
+    "zh": "顾客想喝什么？",
+    "ja": "お客さんは何を飲みたいですか？",
+    "ko": "손님은 무엇을 마시고 싶어 하나요?",
+    "hi": "ग्राहक क्या पीना चाहता है?",
+    "ar": "ماذا يريد الزبون أن يشرب؟",
+    "ru": "Что хочет выпить клиент?",
+    "tr": "Müşteri ne içmek istiyor?"
+   },
+   "answer": "tea"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "I'd like a change. Something shorter, maybe to my chin."
+    },
+    {
+     "who": "barista",
+     "en": "A bob? That would suit you. Do you want a fringe?"
+    },
+    {
+     "who": "customer",
+     "en": "No fringe, please. I'll keep it long at the sides."
+    },
+    {
+     "who": "barista",
+     "en": "Okay. I'll start with the back."
+    }
+   ],
+   "q": {
+    "en": "Which part will the stylist cut first?",
+    "vi": "Thợ sẽ cắt phần nào trước?",
+    "es": "¿Qué parte cortará primero el estilista?",
+    "pt": "Qual parte o cabeleireiro corta primeiro?",
+    "fr": "Quelle partie le coiffeur coupe-t-il d'abord ?",
+    "de": "Welchen Teil schneidet der Friseur zuerst?",
+    "id": "Bagian mana yang dipotong lebih dulu?",
+    "th": "ช่างจะตัดส่วนไหนก่อน",
+    "zh": "发型师先剪哪一部分？",
+    "ja": "美容師は最初にどこを切りますか？",
+    "ko": "미용사는 어느 부분부터 자를까요?",
+    "hi": "स्टाइलिस्ट पहले कौन-सा हिस्सा काटेगा?",
+    "ar": "أي جزء سيقصه المصفف أولًا؟",
+    "ru": "Какую часть мастер подстрижёт первой?",
+    "tr": "Kuaför önce hangi bölümü kesecek?"
+   },
+   "answer": "the back"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "book-slot",
+    "title": {
+     "en": "Book a time",
+     "vi": "Đặt giờ hẹn",
+     "es": "Reserva una hora",
+     "pt": "Marque um horário",
+     "fr": "Réserver un créneau",
+     "de": "Einen Termin buchen",
+     "id": "Pesan jadwal",
+     "th": "จองเวลา",
+     "zh": "预约时间",
+     "ja": "時間を予約する",
+     "ko": "시간 예약하기",
+     "hi": "समय बुक करें",
+     "ar": "احجز موعدًا",
+     "ru": "Записаться на время",
+     "tr": "Saat ayırt"
+    },
+    "intents": [
+     "b1",
+     "b3"
+    ]
+   },
+   {
+    "id": "describe-cut",
+    "title": {
+     "en": "Describe your cut",
+     "vi": "Mô tả kiểu cắt",
+     "es": "Describe tu corte",
+     "pt": "Descreva seu corte",
+     "fr": "Décrire votre coupe",
+     "de": "Deinen Schnitt beschreiben",
+     "id": "Jelaskan potonganmu",
+     "th": "อธิบายทรงผมของคุณ",
+     "zh": "描述你的发型",
+     "ja": "カットを伝える",
+     "ko": "머리 모양 설명하기",
+     "hi": "अपना कट बताएँ",
+     "ar": "صف قصتك",
+     "ru": "Описать стрижку",
+     "tr": "Kesimini anlat"
+    },
+    "intents": [
+     "c2",
+     "c4"
+    ]
+   },
+   {
+    "id": "pay-up",
+    "title": {
+     "en": "Check and pay",
+     "vi": "Xem kết quả và trả tiền",
+     "es": "Revisa y paga",
+     "pt": "Confira e pague",
+     "fr": "Vérifier et payer",
+     "de": "Prüfen und bezahlen",
+     "id": "Periksa dan bayar",
+     "th": "ดูผลและจ่ายเงิน",
+     "zh": "检查并付款",
+     "ja": "確認して支払う",
+     "ko": "확인하고 계산하기",
+     "hi": "देखें और भुगतान करें",
+     "ar": "راجع وادفع",
+     "ru": "Проверить и заплатить",
+     "tr": "Kontrol et ve öde"
+    },
+    "intents": [
+     "f2",
+     "f3"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "In many English-speaking countries it is normal to book a haircut in advance, by phone or online. A photo of the style you want is the best way to explain it. At the end, a tip of about 10 to 20 per cent is common in some countries, such as the US, but not expected in others. If you are not happy, say so politely before you leave.",
+  "vi": "Ở nhiều nước nói tiếng Anh, việc đặt lịch cắt tóc trước qua điện thoại hoặc mạng là bình thường. Một tấm ảnh kiểu tóc bạn muốn là cách giải thích tốt nhất. Cuối buổi, tiền boa khoảng 10–20% là phổ biến ở một số nước như Mỹ nhưng không bắt buộc ở nơi khác. Nếu chưa hài lòng, hãy nói lịch sự trước khi ra về.",
+  "es": "En muchos países de habla inglesa es normal pedir cita para cortarse el pelo, por teléfono o en línea. Una foto del estilo que quieres es la mejor forma de explicarlo. Al final, una propina de entre el 10 y el 20 % es habitual en algunos países, como EE. UU., pero no se espera en otros. Si no te gusta el resultado, dilo con amabilidad antes de irte.",
+  "pt": "Em muitos países de língua inglesa é normal marcar o corte com antecedência, por telefone ou on-line. Uma foto do estilo que você quer é a melhor forma de explicar. No fim, uma gorjeta de 10 a 20% é comum em alguns países, como os EUA, mas não é esperada em outros. Se não gostar, diga com educação antes de sair.",
+  "fr": "Dans beaucoup de pays anglophones, on prend rendez-vous à l'avance pour une coupe, par téléphone ou en ligne. Une photo du style voulu est la meilleure façon d'expliquer. À la fin, un pourboire de 10 à 20 % est courant dans certains pays, comme les États-Unis, mais pas attendu ailleurs. Si le résultat ne vous plaît pas, dites-le poliment avant de partir.",
+  "de": "In vielen englischsprachigen Ländern bucht man den Haarschnitt vorher, telefonisch oder online. Ein Foto der Wunschfrisur ist die beste Erklärung. Am Ende sind in manchen Ländern, etwa den USA, 10 bis 20 Prozent Trinkgeld üblich, anderswo erwartet man es nicht. Wenn du nicht zufrieden bist, sag es höflich, bevor du gehst.",
+  "id": "Di banyak negara berbahasa Inggris, memesan potong rambut lebih dulu lewat telepon atau daring itu biasa. Foto gaya rambut yang diinginkan adalah cara menjelaskan terbaik. Di akhir, tip sekitar 10–20 persen lazim di beberapa negara seperti AS, tetapi tidak diharapkan di tempat lain. Jika kurang puas, katakan dengan sopan sebelum pulang.",
+  "th": "ในหลายประเทศที่พูดภาษาอังกฤษ การจองคิวตัดผมล่วงหน้าทางโทรศัพท์หรือออนไลน์เป็นเรื่องปกติ รูปทรงผมที่อยากได้เป็นวิธีอธิบายที่ดีที่สุด ตอนจบ ทิปประมาณ 10–20% เป็นเรื่องปกติในบางประเทศ เช่น สหรัฐฯ แต่ที่อื่นไม่ได้คาดหวัง ถ้าไม่พอใจให้บอกอย่างสุภาพก่อนกลับ",
+  "zh": "在许多英语国家，剪发通常要提前电话或网上预约。带一张想要的发型照片是最好的说明方式。结账时，在美国等一些国家通常会给 10%–20% 的小费，其他地方则不要求。如果不满意，离开前礼貌地说出来。",
+  "ja": "英語圏の多くの国では、電話やネットでカットを予約するのが普通です。なりたい髪型の写真を見せるのが一番伝わります。最後に、アメリカなど一部の国では10〜20％のチップが一般的ですが、そうでない国もあります。気に入らなければ、帰る前に丁寧に伝えましょう。",
+  "ko": "영어권 여러 나라에서는 전화나 온라인으로 미리 예약하고 머리를 자르는 것이 보통이에요. 원하는 스타일의 사진을 보여 주는 것이 가장 좋은 설명 방법이에요. 미국 같은 일부 나라에서는 10~20% 팁이 일반적이지만 다른 곳에서는 기대하지 않아요. 마음에 들지 않으면 나가기 전에 공손하게 말하세요.",
+  "hi": "कई अंग्रेज़ी-भाषी देशों में फ़ोन या ऑनलाइन पहले से अपॉइंटमेंट लेना सामान्य है। मनचाहे स्टाइल की फ़ोटो दिखाना सबसे अच्छा तरीक़ा है। अंत में अमेरिका जैसे कुछ देशों में 10–20 प्रतिशत टिप आम है, पर दूसरी जगहों पर ज़रूरी नहीं। पसंद न आए तो जाने से पहले विनम्रता से कहें।",
+  "ar": "في كثير من الدول الناطقة بالإنجليزية من المعتاد حجز موعد قص الشعر مسبقًا بالهاتف أو عبر الإنترنت. صورة للتسريحة التي تريدها هي أفضل طريقة للشرح. في النهاية يُعدّ البقشيش بنحو 10–20٪ شائعًا في بعض الدول مثل الولايات المتحدة، لكنه غير متوقع في غيرها. إن لم تعجبك النتيجة فقلها بلطف قبل أن تغادر.",
+  "ru": "Во многих англоязычных странах на стрижку принято записываться заранее, по телефону или онлайн. Лучший способ объяснить — показать фото нужной причёски. В конце в некоторых странах, например в США, принято оставлять 10–20% чаевых, а в других этого не ждут. Если результат не нравится, вежливо скажите об этом до ухода.",
+  "tr": "Birçok İngilizce konuşulan ülkede saç kesimi için telefonla veya internetten önceden randevu almak normaldir. İstediğiniz modelin fotoğrafı anlatmanın en iyi yoludur. Sonunda ABD gibi bazı ülkelerde yüzde 10–20 bahşiş yaygındır, başka yerlerde beklenmez. Memnun kalmazsanız çıkmadan önce kibarca söyleyin."
+ }
+}

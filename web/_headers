@@ -44,6 +44,14 @@
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 /sfx/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+# Universal Links / App Links (docs/STORE-READINESS.md › Deep link): Apple + Google tải 2 file này trực tiếp – PHẢI 200, application/json, không chuyển hướng.
+# AASA không có đuôi → Pages mặc định trả application/octet-stream; đặt rõ Content-Type. Đệm 1 giờ (Apple CDN tự đệm thêm). Khoá: scripts/test/deep-links.mjs
+/.well-known/apple-app-site-association
+  Content-Type: application/json
+  Cache-Control: public, max-age=3600
+/.well-known/assetlinks.json
+  Content-Type: application/json
+  Cache-Control: public, max-age=3600
 /og-default.png
   Cache-Control: public, max-age=604800
 # Blog & trang SEO tĩnh: HTML luôn kiểm tra bản mới (bài đăng theo lịch); RSS/sitemap cũng vậy
@@ -74,6 +82,14 @@
   X-Robots-Tag: noindex
   Cache-Control: public, max-age=3600
 
+# Gói nội dung tải lười (web/cpack → dist/cpack/<tên>.<mã băm>.js, scripts/build-cpack.mjs): đổi nội dung = đổi tên → immutable 1 năm trên Cloudflare (miễn phí)
+/cpack/*
+  Cache-Control: public, max-age=31536000, immutable
+# JS/CSS của app theo mã băm nội dung (scripts/build-hash.mjs → dist/h/<đường dẫn>.<băm>.<đuôi>): đổi nội dung = đổi tên → immutable 1 năm.
+# HTML (/app/, /) và /sw.js giữ no-cache/no-store ở trên → bản mới luôn được thấy ngay; file gốc /js/* /css/* vẫn no-cache.
+/h/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /packs/*
   Cache-Control: public, max-age=86400
   Access-Control-Allow-Origin: *
@@ -83,6 +99,31 @@
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
 /data/lex-index.json
+  Cache-Control: no-cache
+  Access-Control-Allow-Origin: *
+
+# Gói nội dung P06 cho app native (scripts/native/gen-skills.mjs): luôn hỏi lại bản mới (ETag/304), khóa v trong JSON
+/data/skills-pack.json
+  Cache-Control: no-cache
+  Access-Control-Allow-Origin: *
+
+# Gói nội dung P07 (nói & phát âm) cho app native (scripts/native/gen-speak.mjs): như skills-pack
+/data/speak-pack.json
+  Cache-Control: no-cache
+  Access-Control-Allow-Origin: *
+
+# Gói nội dung P08 (Gọi Ama & Carlos) cho app native (scripts/native/gen-call.mjs): như skills-pack
+/data/call-pack.json
+  Cache-Control: no-cache
+  Access-Control-Allow-Origin: *
+
+# Gói nội dung P09 (Viết & ngữ pháp: tiêu chí chấm) cho app native (scripts/native/gen-write.mjs): như skills-pack
+/data/write-pack.json
+  Cache-Control: no-cache
+  Access-Control-Allow-Origin: *
+
+# Gói ngữ pháp P09 (80 bài + luật tự đặt câu + lỗi theo tiếng mẹ đẻ) cho app native (scripts/native/gen-learn.mjs)
+/data/grammar-pack.json
   Cache-Control: no-cache
   Access-Control-Allow-Origin: *
 

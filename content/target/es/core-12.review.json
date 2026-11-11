@@ -1,0 +1,201 @@
+{
+ "fixed": [
+  {
+   "word": "un",
+   "field": "gl.ru",
+   "from": "неопределённый артикль (муж. род)",
+   "to": "один (неопр. артикль, м. р.)",
+   "why": "diễn đạt rõ ràng hơn"
+  },
+  {
+   "word": "del",
+   "field": "gl.vi",
+   "from": "của/từ cái đó",
+   "to": "của, từ (de + el)",
+   "why": "gloss \"của cái đó/that of\" sai: del là de+el, không phải đại từ chỉ định"
+  },
+  {
+   "word": "del",
+   "field": "gl.en",
+   "from": "of the, from the (masculine)",
+   "to": "of the, from the (de + el)",
+   "why": "gloss \"của cái đó/that of\" sai: del là de+el, không phải đại từ chỉ định"
+  },
+  {
+   "word": "del",
+   "field": "gl.pt",
+   "from": "do",
+   "to": "do (de + o)",
+   "why": "gloss \"của cái đó/that of\" sai: del là de+el, không phải đại từ chỉ định"
+  },
+  {
+   "word": "del",
+   "field": "gl.fr",
+   "from": "du",
+   "to": "du (de + le)",
+   "why": "gloss \"của cái đó/that of\" sai: del là de+el, không phải đại từ chỉ định"
+  },
+  {
+   "word": "del",
+   "field": "gl.de",
+   "from": "des, vom",
+   "to": "des; vom (von + dem)",
+   "why": "gloss \"của cái đó/that of\" sai: del là de+el, không phải đại từ chỉ định"
+  },
+  {
+   "word": "del",
+   "field": "gl.id",
+   "from": "dari yang",
+   "to": "dari (de + el)",
+   "why": "gloss \"của cái đó/that of\" sai: del là de+el, không phải đại từ chỉ định"
+  },
+  {
+   "word": "del",
+   "field": "gl.th",
+   "from": "ของ/จาก (เพศชาย)",
+   "to": "ของ/จาก (de + el)",
+   "why": "gloss \"của cái đó/that of\" sai: del là de+el, không phải đại từ chỉ định"
+  },
+  {
+   "word": "del",
+   "field": "gl.zh",
+   "from": "那个的，来自那个的",
+   "to": "的／从（de + el）",
+   "why": "gloss \"của cái đó/that of\" sai: del là de+el, không phải đại từ chỉ định"
+  },
+  {
+   "word": "del",
+   "field": "gl.ja",
+   "from": "その〜の、その〜から",
+   "to": "〜の／〜から（de + el）",
+   "why": "gloss \"của cái đó/that of\" sai: del là de+el, không phải đại từ chỉ định"
+  },
+  {
+   "word": "del",
+   "field": "gl.ko",
+   "from": "그 ~의, 그 ~로부터",
+   "to": "~의 / ~에서 (de + el)",
+   "why": "gloss \"của cái đó/that of\" sai: del là de+el, không phải đại từ chỉ định"
+  },
+  {
+   "word": "del",
+   "field": "gl.hi",
+   "from": "उसका, उससे",
+   "to": "का / से (de + el)",
+   "why": "gloss \"của cái đó/that of\" sai: del là de+el, không phải đại từ chỉ định"
+  },
+  {
+   "word": "del",
+   "field": "gl.ar",
+   "from": "من الـ",
+   "to": "من الـ / لِـ",
+   "why": "gloss \"của cái đó/that of\" sai: del là de+el, không phải đại từ chỉ định"
+  },
+  {
+   "word": "del",
+   "field": "gl.ru",
+   "from": "от этого, из этого",
+   "to": "из/от (de + el)",
+   "why": "gloss \"của cái đó/that of\" sai: del là de+el, không phải đại từ chỉ định"
+  },
+  {
+   "word": "del",
+   "field": "gl.tr",
+   "from": "o şeyin, o şeyden",
+   "to": "-in / -den (de + el)",
+   "why": "gloss \"của cái đó/that of\" sai: del là de+el, không phải đại từ chỉ định"
+  },
+  {
+   "word": "al",
+   "field": "gl.vi",
+   "from": "đến cái đó",
+   "to": "đến, tại (a + el)",
+   "why": "gloss \"đến cái đó\" sai: al là a+el"
+  },
+  {
+   "word": "al",
+   "field": "gl.en",
+   "from": "to the, at the (masculine)",
+   "to": "to the, at the (a + el)",
+   "why": "gloss \"đến cái đó\" sai: al là a+el"
+  },
+  {
+   "word": "al",
+   "field": "gl.pt",
+   "from": "ao",
+   "to": "ao (a + o)",
+   "why": "gloss \"đến cái đó\" sai: al là a+el"
+  },
+  {
+   "word": "al",
+   "field": "gl.fr",
+   "from": "au",
+   "to": "au (à + le)",
+   "why": "gloss \"đến cái đó\" sai: al là a+el"
+  },
+  {
+   "word": "al",
+   "field": "gl.de",
+   "from": "zum, an das",
+   "to": "zum; an den (a + el)",
+   "why": "gloss \"đến cái đó\" sai: al là a+el"
+  },
+  {
+   "word": "al",
+   "field": "gl.id",
+   "from": "ke yang",
+   "to": "ke (a + el)",
+   "why": "gloss \"đến cái đó\" sai: al là a+el"
+  },
+  {
+   "word": "al",
+   "field": "gl.th",
+   "from": "ไปยัง (เพศชาย)",
+   "to": "ไปยัง / ที่ (a + el)",
+   "why": "gloss \"đến cái đó\" sai: al là a+el"
+  },
+  {
+   "word": "al",
+   "field": "gl.zh",
+   "from": "到那个，去那个",
+   "to": "到／在（a + el）",
+   "why": "gloss \"đến cái đó\" sai: al là a+el"
+  },
+  {
+   "word": "al",
+   "field": "gl.ja",
+   "from": "その〜へ、その〜に",
+   "to": "〜へ／〜に（a + el）",
+   "why": "gloss \"đến cái đó\" sai: al là a+el"
+  },
+  {
+   "word": "al",
+   "field": "gl.ko",
+   "from": "그 ~에, 그 ~로",
+   "to": "~에 / ~로 (a + el)",
+   "why": "gloss \"đến cái đó\" sai: al là a+el"
+  },
+  {
+   "word": "al",
+   "field": "gl.hi",
+   "from": "उसको, उस पर",
+   "to": "को / पर (a + el)",
+   "why": "gloss \"đến cái đó\" sai: al là a+el"
+  },
+  {
+   "word": "al",
+   "field": "gl.ru",
+   "from": "к этому, в это",
+   "to": "к/в (a + el)",
+   "why": "gloss \"đến cái đó\" sai: al là a+el"
+  },
+  {
+   "word": "al",
+   "field": "gl.tr",
+   "from": "o şeye",
+   "to": "-e (a + el)",
+   "why": "gloss \"đến cái đó\" sai: al là a+el"
+  }
+ ],
+ "dropped": []
+}

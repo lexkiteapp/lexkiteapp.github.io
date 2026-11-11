@@ -5,6 +5,7 @@ Keeps the bank's teaching content (hook, wrong, right, why, memory formula, exam
 template needs (Many learners say -> Pause and guess (pause) -> Say -> why -> concept check -> Repeat after me (slow, pause) -> normal speed),
 Teacher's tip = right + 2 examples, end = the bank quiz as an open question, share = who says the wrong line."""
 import json, os, re, sys, glob, argparse
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import publish_meta as PM
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))); D = f'{ROOT}/content/video/cine/news'
 HOOK = {'stop': 'mistake_callout', 'which': 'quiz', '90': 'challenge', 'guess': 'fill_gap', 'natives': 'native_says', 'instead': 'secret_tip', 'embarrass': 'surprise', 'rude': 'myth'}
 CARDHOOK = {'stop': 'STOP SAYING THIS', 'which': 'WHICH IS CORRECT?', '90': '90% GET THIS WRONG', 'guess': 'GUESS FIRST', 'natives': 'NATIVES NEVER SAY', 'instead': 'SAY THIS INSTEAD', 'embarrass': "DON'T SAY THIS", 'rude': 'IS THIS RUDE?'}
@@ -51,5 +52,5 @@ sp = dict(v=7, id=lid, template='fix', bg=o.bg, topic=b['topic'], area='grammar-
           point=b['point'], key_line=b['right'], wrong_line=b['wrong'], share=f'who says "{b["wrong"]}"', share_line=f'n_{h6}_s', l1_tags=['many learners'], source=dict(scriptbank=b['id'], pid=b['pid']),
           hook=dict(card=CARDHOOK.get(b['hook_type'], b['hook'].upper())[:22], line=f'n_{h6}_h'), series=['GRAMMAR FIX' if b['topic'] not in ('health', 'travel', 'food') else f"{b['topic'].upper()} ENGLISH", b['memory'][:28]],
           beats=beats, recap=dict(title="TEACHER'S TIP", rows=[b['right']] + b['ex'][:2], line=f'n_{h6}_r', line_alt=f'n_{h6}_r2'), end_line=f'n_{h6}_e', end_alt=f'n_{h6}_e2',
-          link='', cta='', no_intro=True, **({'style': json.loads(o.style)} if o.style else {}))
+          link='', cta='', no_intro=True, publish=PM.from_bank(b), **({'style': json.loads(o.style)} if o.style else {}))
 json.dump(sp, open(f'{D}/{lid}.json', 'w'), ensure_ascii=False, indent=1); json.dump(LJ, open(f'{D}/lines.json', 'w'), ensure_ascii=False, indent=1); print(lid)

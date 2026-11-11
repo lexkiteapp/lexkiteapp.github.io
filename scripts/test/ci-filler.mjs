@@ -34,6 +34,13 @@ const c = countJobs([[{ status: 'in_progress' }, { status: 'queued', created_at:
 ok(c.busy === 1 && c.queued === 3 && c.starved === 1, 'job queued trong lượt đang chạy = bị giữ (max-parallel), không phải đói');
 const cp = countJobs([{ event: 'pull_request', jobs: [{ status: 'in_progress' }, { status: 'queued', created_at: fresh }] }, { event: 'schedule', jobs: [{ status: 'queued', created_at: fresh }] }], now);
 ok(cp.prQueued === 1 && cp.queued === 2 && cp.busy === 1, 'job check PR đang xếp hàng được đếm riêng (prQueued)');
+{ const now = Date.parse('2026-11-04T10:00:00Z'), old = '2026-11-04T04:25:00Z', fresh = '2026-11-04T09:59:30Z';
+  const st = countJobs([{ event: 'pull_request', jobs: [{ status: 'in_progress' }, ...Array(14).fill({ status: 'queued', created_at: old })] }], now);
+  ok(st.prQueued === 0 && st.queued === 0 && st.stuck === 14 && capacity(st) === 31, 'job PR kẹt lâu không chặn lấp runner (04/11: 14 job teach-video)');
+  const st2 = countJobs([{ event: 'pull_request', jobs: [{ status: 'in_progress' }, { status: 'queued', created_at: fresh }] }], now);
+  ok(st2.prQueued === 1 && capacity(st2) === 0, 'check PR mới xếp hàng vẫn được ưu tiên');
+  const st3 = countJobs([{ event: 'workflow_dispatch', jobs: [{ status: 'queued', created_at: old }] }], now);
+  ok(st3.starved === 0 && st3.stuck === 1, 'lượt zombie không bị tính là đói runner'); }
 // --- log + báo cáo
 ok(logLine({ ts: 't', busy: 13, queued: 0, dispatched: 12, backlog: 2 }) === 't\t13\t0\t12\t2\t70', 'idle = (32 − 13 − 12) × 10');
 ok(logLine({ ts: 't', busy: 13, queued: 0, dispatched: 0, backlog: 0 }).endsWith('\t0'), 'không tồn đọng → idle 0');

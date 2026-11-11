@@ -113,7 +113,7 @@ Stresli operasyonel müzakerelerde net bir ses tonu ve doğru İngilizce telaffu
 
 Özellikle `cut down on flight turnarounds` (uçuş geri dönüş sürelerini kısaltmak) ve `push back against unrealistic slots` (gerçekçi olmayan slotlara karşı durmak) gibi deyimsel fiillerin doğal ve akıcı bir şekilde söylenebilmesi gerekir.
 
-Lexkite web uygulamasında yer alan [telaffuz geliştirme modülü](/#/practice/speak), mikrofona konuşarak vurgu ve bağlama hatalarınızı anında tespit etmenize olanak tanır. Kendinizi spontane konuşmalara hazırlamak için [konuşma pratiği](/#/speaking) alanını ziyaret edebilir ve [kelime öğrenme merkezinde](/tu-vung/) havacılık ve kurumsal terim hazinenizi büyütebilirsiniz.
+Lexkite web uygulamasında yer alan [telaffuz geliştirme modülü](/#/practice/speak), mikrofona konuşarak vurgu ve bağlama hatalarınızı anında tespit etmenize olanak tanır. Kendinizi spontane konuşmalara hazırlamak için [konuşma pratiği](/#/speaking) alanını ziyaret edebilir ve [kelime öğrenme merkezinde](/en/vocabulary/) havacılık ve kurumsal terim hazinenizi büyütebilirsiniz.
 
 ## 5 Dakikalık Sabah ve Akşam Rutini ile Zamanın Efendisi Olun
 

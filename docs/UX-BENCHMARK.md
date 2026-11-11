@@ -7,18 +7,20 @@ Luật giữ nguyên: chất lượng chỉ tăng, không bỏ tính năng/nội
 
 ## Top 10 khoảng cách theo tác động ÷ chi phí (tự sinh, đừng sửa tay)
 <!-- auto:world-gaps:start -->
-_Tự sinh từ `content/pipeline/WORLD.md` (2026-11-03)._
+_Tự sinh từ `content/pipeline/WORLD.md` (2026-11-10)._
 
 | # | Trục | Lexkite → mục tiêu | Tác động | Chi phí | Ưu tiên | Hiện trạng |
 |---|---|---|---|---|---|---|
-| 1 | Giải thích "vì sao" + lỗi theo tiếng mẹ đẻ (15 ngôn ngữ) | 6.7 → 100 | 5 | 3 | 155.5 | 1/15 ngôn ngữ có "vì sao" (en 254; đích 200/ngôn ngữ) |
+| 1 | Giải thích "vì sao" + lỗi theo tiếng mẹ đẻ (15 ngôn ngữ) | 6.7 → 100 | 5 | 3 | 155.5 | 1/15 ngôn ngữ có "vì sao" (en 321; đích 200/ngôn ngữ) |
 | 2 | Số chạm từ /app/ tới bài hôm nay (người quay lại) | 50 → 100 | 4 | 2 | 100 | 2 chạm |
-| 3 | Cỡ tải khung app (KB gz; 100 khi ≤ 300, 0 ở trần 374) | 9.2 → 100 | 3 | 3 | 90.8 | 367.2 / 374.0 KB gz (đích 300) |
+| 3 | Cỡ tải khung app (KB gz; 100 khi ≤ 300, 0 ở trần 374) | 1.6 → 100 | 3 | 3 | 98.4 | 372.8 / 374.0 KB gz (đích 300) |
 | 4 | Cá nhân hoá: SRS theo người (FSRS) + lỗi theo tiếng mẹ đẻ | 53.3 → 100 | 5 | 3 | 77.8 | ✓ FSRS theo người · lỗi L1 1/15 ngôn ngữ |
-| 5 | Tới câu đúng đầu tiên từ màn đầu (giây máy, số chạm) | 75 → 100 | 5 | 2 | 62.5 | 5.9 s · 10 chạm (probe 2026-11-03) |
-| 6 | Luyện thi thật IELTS · TOEIC · TOEFL · Cambridge (đề chạy được, mục tiêu 10/kỳ) | 52.5 → 100 | 5 | 4 | 59.4 | IELTS 10 · TOEIC 7 · TOEFL 4 · Cambridge 0 đề (đích 10/kỳ) |
-| 7 | Màn theo Lexkite Kit/Stitch (stitch-coverage) | 22.1 → 100 | 3 | 4 | 58.4 | 15 Stitch / 68 màn (ref 51, tay 0) |
-| 8 | Độ phủ nội dung (content:score) | 47.8 → 90 | 5 | 4 | 52.8 | content/pipeline/SCORE.md |
+| 5 | Màn theo Lexkite Kit/Stitch (stitch-coverage) | 25 → 100 | 3 | 4 | 56.3 | 17 Stitch / 68 màn (ref 49, tay 0) |
+| 6 | Luyện thi thật IELTS · TOEIC · TOEFL · Cambridge (đề chạy được, mục tiêu 10/kỳ) | 55 → 100 | 5 | 4 | 56.3 | IELTS 10 · TOEIC 7 · TOEFL 4 · Cambridge 1 đề (đích 10/kỳ) |
+| 7 | Tới câu đúng đầu tiên từ màn đầu (giây máy, số chạm) | 77.8 → 100 | 5 | 2 | 55.5 | 6.2 s · 9 chạm (probe 2026-11-10) |
+| 8 | Cổng QA máy xanh trên main (visual-qa, new-ui-qa, mobile-qa, journey-e2e, npm test) | 77.8 → 100 | 4 | 2 | 44.4 | ✓npm-test ✓visual-qa ∅new-ui-qa ✓mobile-qa ✓journey-e2e ✓stitch-quality-qc ✓ext-e2e ✗native-auth-e2e ✓qa-bot · mobile-qa LCP 6409 ms, CLS 0.0757, INP 200 ms |
+| 9 | Độ phủ nội dung (content:score) | 63.2 → 90 | 5 | 4 | 33.5 | content/pipeline/SCORE.md |
+| 10 | Truy cập (Lighthouse accessibility trang chủ + app) | 99 → 100 | 3 | 1 | 3 | Lighthouse trang chủ + /app/ (axe/a11y tĩnh chạy trong npm test) |
 <!-- auto:world-gaps:end -->
 
 ## Việc nên làm theo trục (người viết; số đo ở bảng trên)

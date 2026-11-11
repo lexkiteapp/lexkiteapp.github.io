@@ -1,0 +1,496 @@
+{
+ "_note": "Cụm chủ đề cho US/UK/CA/AU/NZ (người nhập cư và học thi), xếp theo nhóm CPM (functions/api/_cpm.js). CHỈ KẾ HOẠCH, chưa viết bài. Lượt viết đọc gsc-priority.json trước, rồi file này, rồi 2026-11-seo-program.json. Viết bản en trước; mức điểm/điều kiện visa thay đổi nên phải tra đúng factCheck ngay lúc viết, không chép số từ trí nhớ, ghi ngày kiểm trong bài. mustNotClaim = điều bài không được hứa: app KHÔNG có đề thi thử/chấm điểm PTE, CELPIP; bài về hai kỳ thi này chỉ so sánh trung thực và trỏ tới luyện kỹ năng chung. Không đổi lịch đăng và slug bài đã đăng. Test: scripts/test/cpm-plan.mjs.",
+ "priority": [
+  "ielts-immigration",
+  "newcomer-english",
+  "word-meaning",
+  "pte-vs-ielts",
+  "celpip-vs-ielts"
+ ],
+ "priorityWhy": "IELTS và tình huống đời sống được app hỗ trợ trực tiếp nên viết trước; PTE, CELPIP chỉ có phần kỹ năng chung nên viết sau.",
+ "topics": [
+  {
+   "id": "ielts-for-immigration-guide",
+   "translationKey": "ielts-for-immigration-guide",
+   "keyword": "ielts for immigration",
+   "cluster": "ielts-immigration",
+   "role": "pillar",
+   "origin": "en",
+   "markets": [
+    "US",
+    "GB",
+    "CA",
+    "AU",
+    "NZ"
+   ],
+   "feature": "/app/#/goal",
+   "appSupports": "IELTS goal and study plan, General Training letters, Speaking practice",
+   "mustNotClaim": [
+    "official IELTS score or band prediction",
+    "guaranteed visa or immigration outcome",
+    "immigration or legal advice"
+   ],
+   "factCheck": [
+    "canada.ca (IRCC language test equivalency)",
+    "immi.homeaffairs.gov.au",
+    "gov.uk (approved English language tests)",
+    "immigration.govt.nz"
+   ],
+   "status": "writing",
+   "locales": {
+    "de": {
+     "slug": "ielts-fuer-auswanderung-kanada-australien-uk",
+     "keyword": "ielts auswandern"
+    },
+    "fr": {
+     "slug": "ielts-pour-immigrer-canada-australie-royaume-uni",
+     "keyword": "ielts immigration canada"
+    },
+    "ja": {
+     "slug": "ielts-ijuu-kanada-goshuu-eikoku-guide",
+     "keyword": "ielts 移住"
+    },
+    "ko": {
+     "slug": "ielts-imin-jeomsu-kaenada-hoju-yeongguk",
+     "keyword": "이민 ielts 점수"
+    }
+   }
+  },
+  {
+   "id": "ielts-general-vs-academic-immigration",
+   "translationKey": "ielts-general-vs-academic-immigration",
+   "keyword": "ielts general vs academic for immigration",
+   "cluster": "ielts-immigration",
+   "role": "spoke",
+   "origin": "en",
+   "markets": [
+    "US",
+    "GB",
+    "CA",
+    "AU",
+    "NZ"
+   ],
+   "feature": "/app/#/letters",
+   "appSupports": "General Training letters and Academic Writing samples",
+   "mustNotClaim": [
+    "official IELTS score or band prediction",
+    "guaranteed visa or immigration outcome",
+    "immigration or legal advice"
+   ],
+   "factCheck": [
+    "canada.ca (IRCC language test equivalency)",
+    "immi.homeaffairs.gov.au",
+    "gov.uk (approved English language tests)",
+    "immigration.govt.nz"
+   ],
+   "status": "planned"
+  },
+  {
+   "id": "ielts-clb-score-canada",
+   "translationKey": "ielts-clb-score-canada",
+   "keyword": "ielts to clb conversion",
+   "cluster": "ielts-immigration",
+   "role": "spoke",
+   "origin": "en",
+   "markets": [
+    "CA"
+   ],
+   "feature": "/app/#/goal",
+   "appSupports": "Target band goal and study plan",
+   "mustNotClaim": [
+    "official IELTS score or band prediction",
+    "guaranteed visa or immigration outcome",
+    "immigration or legal advice"
+   ],
+   "factCheck": [
+    "canada.ca (IRCC language test equivalency)"
+   ],
+   "status": "writing"
+  },
+  {
+   "id": "ielts-score-australia-pr",
+   "translationKey": "ielts-score-australia-pr",
+   "keyword": "ielts score for australia pr",
+   "cluster": "ielts-immigration",
+   "role": "spoke",
+   "origin": "en",
+   "markets": [
+    "AU"
+   ],
+   "feature": "/app/#/goal",
+   "appSupports": "Target band goal and study plan",
+   "mustNotClaim": [
+    "official IELTS score or band prediction",
+    "guaranteed visa or immigration outcome",
+    "immigration or legal advice"
+   ],
+   "factCheck": [
+    "immi.homeaffairs.gov.au"
+   ],
+   "status": "planned"
+  },
+  {
+   "id": "ielts-ukvi-explained",
+   "translationKey": "ielts-ukvi-explained",
+   "keyword": "ielts for ukvi",
+   "cluster": "ielts-immigration",
+   "role": "spoke",
+   "origin": "en",
+   "markets": [
+    "GB"
+   ],
+   "feature": "/app/#/goal",
+   "appSupports": "Target band goal and study plan",
+   "mustNotClaim": [
+    "official IELTS score or band prediction",
+    "guaranteed visa or immigration outcome",
+    "immigration or legal advice"
+   ],
+   "factCheck": [
+    "gov.uk (approved English language tests)"
+   ],
+   "status": "planned"
+  },
+  {
+   "id": "ielts-new-zealand-skilled-migrant",
+   "translationKey": "ielts-new-zealand-skilled-migrant",
+   "keyword": "ielts score for new zealand residence",
+   "cluster": "ielts-immigration",
+   "role": "spoke",
+   "origin": "en",
+   "markets": [
+    "NZ"
+   ],
+   "feature": "/app/#/goal",
+   "appSupports": "Target band goal and study plan",
+   "mustNotClaim": [
+    "official IELTS score or band prediction",
+    "guaranteed visa or immigration outcome",
+    "immigration or legal advice"
+   ],
+   "factCheck": [
+    "immigration.govt.nz"
+   ],
+   "status": "planned"
+  },
+  {
+   "id": "ielts-general-letter-newcomers",
+   "translationKey": "ielts-general-letter-newcomers",
+   "keyword": "ielts general training task 1 for migrants",
+   "cluster": "ielts-immigration",
+   "role": "spoke",
+   "origin": "en",
+   "markets": [
+    "US",
+    "GB",
+    "CA",
+    "AU",
+    "NZ"
+   ],
+   "feature": "/app/#/letters",
+   "appSupports": "General Training letter samples",
+   "mustNotClaim": [
+    "official IELTS score or band prediction",
+    "guaranteed visa or immigration outcome",
+    "immigration or legal advice"
+   ],
+   "factCheck": [
+    "ielts.org (test format)"
+   ],
+   "status": "planned"
+  },
+  {
+   "id": "pte-vs-ielts-australia",
+   "translationKey": "pte-vs-ielts-australia",
+   "keyword": "pte vs ielts for australia",
+   "cluster": "pte-vs-ielts",
+   "role": "pillar",
+   "origin": "en",
+   "markets": [
+    "AU",
+    "NZ",
+    "GB"
+   ],
+   "feature": "/app/#/placement",
+   "appSupports": "Honest comparison; CEFR placement and general vocabulary, no PTE practice",
+   "mustNotClaim": [
+    "PTE mock test, PTE scoring or PTE-specific practice mode",
+    "guaranteed visa or immigration outcome",
+    "immigration or legal advice"
+   ],
+   "factCheck": [
+    "immi.homeaffairs.gov.au",
+    "pearsonpte.com"
+   ],
+   "status": "planned"
+  },
+  {
+   "id": "pte-academic-vocabulary-list",
+   "translationKey": "pte-academic-vocabulary-list",
+   "keyword": "pte academic vocabulary",
+   "cluster": "pte-vs-ielts",
+   "role": "spoke",
+   "origin": "en",
+   "markets": [
+    "AU",
+    "NZ",
+    "GB"
+   ],
+   "feature": "/app/#/review",
+   "appSupports": "Academic Word List study with spaced repetition; general, not PTE-specific",
+   "mustNotClaim": [
+    "PTE mock test, PTE scoring or PTE-specific practice mode",
+    "guaranteed visa or immigration outcome",
+    "immigration or legal advice"
+   ],
+   "factCheck": [
+    "pearsonpte.com"
+   ],
+   "status": "planned"
+  },
+  {
+   "id": "pte-read-aloud-pronunciation",
+   "translationKey": "pte-read-aloud-pronunciation",
+   "keyword": "pte read aloud pronunciation tips",
+   "cluster": "pte-vs-ielts",
+   "role": "spoke",
+   "origin": "en",
+   "markets": [
+    "AU",
+    "NZ"
+   ],
+   "feature": "/app/#/pron",
+   "appSupports": "General pronunciation lessons, not PTE scoring",
+   "mustNotClaim": [
+    "PTE mock test, PTE scoring or PTE-specific practice mode",
+    "guaranteed visa or immigration outcome",
+    "immigration or legal advice"
+   ],
+   "factCheck": [
+    "pearsonpte.com"
+   ],
+   "status": "planned"
+  },
+  {
+   "id": "celpip-vs-ielts-canada",
+   "translationKey": "celpip-vs-ielts-canada",
+   "keyword": "celpip vs ielts for canada",
+   "cluster": "celpip-vs-ielts",
+   "role": "pillar",
+   "origin": "en",
+   "markets": [
+    "CA"
+   ],
+   "feature": "/app/#/placement",
+   "appSupports": "Honest comparison; CEFR placement and general skills, no CELPIP practice",
+   "mustNotClaim": [
+    "CELPIP mock test, CELPIP scoring or CELPIP-specific practice mode",
+    "guaranteed visa or immigration outcome",
+    "immigration or legal advice"
+   ],
+   "factCheck": [
+    "canada.ca (IRCC language test equivalency)",
+    "celpip.ca"
+   ],
+   "status": "planned"
+  },
+  {
+   "id": "celpip-speaking-everyday-phrases",
+   "translationKey": "celpip-speaking-everyday-phrases",
+   "keyword": "celpip speaking phrases",
+   "cluster": "celpip-vs-ielts",
+   "role": "spoke",
+   "origin": "en",
+   "markets": [
+    "CA"
+   ],
+   "feature": "/app/#/confidence/opinions",
+   "appSupports": "Everyday conversation lessons, not CELPIP tasks",
+   "mustNotClaim": [
+    "CELPIP mock test, CELPIP scoring or CELPIP-specific practice mode",
+    "guaranteed visa or immigration outcome",
+    "immigration or legal advice"
+   ],
+   "factCheck": [
+    "celpip.ca"
+   ],
+   "status": "planned"
+  },
+  {
+   "id": "english-for-newcomers-renting",
+   "translationKey": "english-for-newcomers-renting",
+   "keyword": "english phrases for renting an apartment",
+   "cluster": "newcomer-english",
+   "role": "pillar",
+   "origin": "en",
+   "markets": [
+    "US",
+    "GB",
+    "CA",
+    "AU",
+    "NZ"
+   ],
+   "feature": "/app/#/confidence/renting",
+   "appSupports": "Confidence lesson: renting",
+   "mustNotClaim": [],
+   "factCheck": [
+    "app lesson content"
+   ],
+   "status": "writing"
+  },
+  {
+   "id": "english-for-newcomers-doctor",
+   "translationKey": "english-for-newcomers-doctor",
+   "keyword": "english phrases at the doctor",
+   "cluster": "newcomer-english",
+   "role": "spoke",
+   "origin": "en",
+   "markets": [
+    "US",
+    "GB",
+    "CA",
+    "AU",
+    "NZ"
+   ],
+   "feature": "/app/#/confidence/doctor",
+   "appSupports": "Confidence lesson: doctor",
+   "mustNotClaim": [],
+   "factCheck": [
+    "app lesson content"
+   ],
+   "status": "planned"
+  },
+  {
+   "id": "english-for-newcomers-bank",
+   "translationKey": "english-for-newcomers-bank",
+   "keyword": "english phrases at the bank",
+   "cluster": "newcomer-english",
+   "role": "spoke",
+   "origin": "en",
+   "markets": [
+    "US",
+    "GB",
+    "CA",
+    "AU",
+    "NZ"
+   ],
+   "feature": "/app/#/confidence/bank",
+   "appSupports": "Confidence lesson: bank",
+   "mustNotClaim": [],
+   "factCheck": [
+    "app lesson content"
+   ],
+   "status": "planned"
+  },
+  {
+   "id": "job-interview-english-newcomers",
+   "translationKey": "job-interview-english-newcomers",
+   "keyword": "job interview english for immigrants",
+   "cluster": "newcomer-english",
+   "role": "spoke",
+   "origin": "en",
+   "markets": [
+    "US",
+    "GB",
+    "CA",
+    "AU",
+    "NZ"
+   ],
+   "feature": "/app/#/confidence/job-interview",
+   "appSupports": "Confidence lesson: job interview",
+   "mustNotClaim": [],
+   "factCheck": [
+    "app lesson content"
+   ],
+   "status": "planned"
+  },
+  {
+   "id": "salary-negotiation-english-phrases",
+   "translationKey": "salary-negotiation-english-phrases",
+   "keyword": "salary negotiation phrases in english",
+   "cluster": "newcomer-english",
+   "role": "spoke",
+   "origin": "en",
+   "markets": [
+    "US",
+    "GB",
+    "CA",
+    "AU",
+    "NZ"
+   ],
+   "feature": "/app/#/confidence/salary",
+   "appSupports": "Confidence lesson: salary",
+   "mustNotClaim": [],
+   "factCheck": [
+    "app lesson content"
+   ],
+   "status": "planned"
+  },
+  {
+   "id": "confusing-words-affect-effect-meaning",
+   "translationKey": "confusing-words-affect-effect-meaning",
+   "keyword": "affect vs effect meaning",
+   "cluster": "word-meaning",
+   "role": "pillar",
+   "origin": "en",
+   "markets": [
+    "US",
+    "GB",
+    "CA",
+    "AU",
+    "NZ"
+   ],
+   "feature": "/app/#/dict/affect",
+   "appSupports": "Dictionary entry with examples and usage",
+   "mustNotClaim": [],
+   "factCheck": [
+    "app dictionary"
+   ],
+   "status": "planned"
+  },
+  {
+   "id": "academic-word-list-meanings",
+   "translationKey": "academic-word-list-meanings",
+   "keyword": "academic word list with meanings",
+   "cluster": "word-meaning",
+   "role": "spoke",
+   "origin": "en",
+   "markets": [
+    "US",
+    "GB",
+    "CA",
+    "AU",
+    "NZ"
+   ],
+   "feature": "/app/#/review",
+   "appSupports": "Academic Word List study with spaced repetition",
+   "mustNotClaim": [],
+   "factCheck": [
+    "app word lists"
+   ],
+   "status": "planned"
+  },
+  {
+   "id": "phrasal-verbs-for-work-meanings",
+   "translationKey": "phrasal-verbs-for-work-meanings",
+   "keyword": "phrasal verbs for work meaning",
+   "cluster": "word-meaning",
+   "role": "spoke",
+   "origin": "en",
+   "markets": [
+    "US",
+    "GB",
+    "CA",
+    "AU",
+    "NZ"
+   ],
+   "feature": "/app/#/dict",
+   "appSupports": "Dictionary and saved words review",
+   "mustNotClaim": [],
+   "factCheck": [
+    "app dictionary"
+   ],
+   "status": "planned"
+  }
+ ]
+}

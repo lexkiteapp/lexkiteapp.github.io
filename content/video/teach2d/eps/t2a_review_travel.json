@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"travel\" mean?",
+  "keyword": "travel",
+  "value": "Travel means to go to a place that is far away.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=travel",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"travel\" mean?",
+    "description": "Travel means to go to a place that is far away.\n\nReview your words, free: https://lexkite.com/app/#/review?w=travel\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "travel",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"travel\" mean?\n\nTravel means to go to a place that is far away.\n\nReview your words, free: https://lexkite.com/app/#/review?w=travel"
+   },
+   "instagram": {
+    "caption": "What does \"travel\" mean?\n\nTravel means to go to a place that is far away.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"travel\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to go to a place that is far away. Travel means to go to a place that is far away. More practice like this (free): {link}"
  }
 }

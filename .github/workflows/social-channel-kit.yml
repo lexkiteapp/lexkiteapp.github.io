@@ -1,0 +1,36 @@
+# Social channel kit. Bộ ảnh KÊNH social tiếng Anh (avatar + bìa FB/IG/TikTok/YouTube, watermark, mẫu thumbnail) – brand/social/channel-kit/README.md
+# Dựng bằng Chromium (scripts/social/build-channel-kit.mjs) + cổng QC (kích thước, vùng an toàn crop tròn/điện thoại/TV, tương phản ≥ 4.5:1,
+# cỡ chữ, chữ đè giáo viên, không tiếng Việt, dung lượng, logo nguyên bản). PNG → artifact bot-output-channel-kit (không đẩy vào nhánh PR):
+#   bash scripts/ci/bot-output.sh channel-kit   rồi tự commit.
+name: Social channel kit
+on:
+  pull_request:
+    paths: ['scripts/social/build-channel-kit.mjs', 'brand/social/channel-kit/**', 'web/icons/icon.svg', 'brand/lexkite-logo-dark.svg', 'brand/tokens.json', 'web/teach/ama/still-*.webp', 'web/teach/carlos/still-*.webp', 'brand/social/src/fonts/**', '.github/workflows/social-channel-kit.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  pull-requests: write   # comment kết quả QC lên PR
+concurrency:
+  group: social-channel-kit-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Cài Playwright + sharp
+        timeout-minutes: 14
+        run: |
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund playwright@1.48.2 sharp@0.33.5
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - name: Dựng + QC
+        run: node scripts/social/build-channel-kit.mjs
+      - name: Kiểm file vừa dựng (như npm test)
+        run: node scripts/social/build-channel-kit.mjs --check
+      - name: Kết quả → artifact + comment PR
+        if: ${{ !cancelled() }}
+        uses: ./.github/actions/bot-output
+        with: { name: channel-kit, paths: brand/social/channel-kit, report: '${{ runner.temp }}/channel-kit-qc.md', comment: 'true' }

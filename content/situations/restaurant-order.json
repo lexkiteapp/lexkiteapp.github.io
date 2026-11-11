@@ -1,0 +1,924 @@
+{
+ "id": "restaurant-order",
+ "group": "food",
+ "cefr": "A2",
+ "title": {
+  "en": "Ordering a meal",
+  "vi": "Gọi món ở nhà hàng",
+  "es": "Pedir una comida",
+  "pt": "Pedir uma refeição",
+  "fr": "Commander un repas",
+  "de": "Essen bestellen",
+  "id": "Memesan makanan",
+  "th": "สั่งอาหาร",
+  "zh": "在餐厅点菜",
+  "ja": "食事の注文",
+  "ko": "식사 주문",
+  "hi": "खाना ऑर्डर करना",
+  "ar": "طلب وجبة",
+  "ru": "Заказ блюд",
+  "tr": "Yemek siparişi"
+ },
+ "goal": {
+  "en": "Order a full meal!",
+  "vi": "Gọi một bữa ăn đầy đủ!",
+  "es": "¡Pide una comida completa!",
+  "pt": "Peça uma refeição completa!",
+  "fr": "Commandez un vrai repas !",
+  "de": "Bestell ein komplettes Essen!",
+  "id": "Pesan satu paket makan lengkap!",
+  "th": "สั่งอาหารให้ครบมื้อ!",
+  "zh": "点一顿完整的饭！",
+  "ja": "一食分をしっかり注文しよう！",
+  "ko": "한 끼 식사를 완벽하게 주문해요!",
+  "hi": "पूरा भोजन ऑर्डर करें!",
+  "ar": "اطلب وجبة كاملة!",
+  "ru": "Закажи полноценный обед!",
+  "tr": "Tam bir yemek sipariş et!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "seat",
+   "title": {
+    "en": "Get a table",
+    "vi": "Nhận bàn",
+    "es": "Conseguir mesa",
+    "pt": "Conseguir mesa",
+    "fr": "Avoir une table",
+    "de": "Einen Tisch bekommen",
+    "id": "Dapat meja",
+    "th": "ได้โต๊ะ",
+    "zh": "入座",
+    "ja": "席に着く",
+    "ko": "자리 잡기",
+    "hi": "मेज़ पाना",
+    "ar": "الحصول على طاولة",
+    "ru": "Получить столик",
+    "tr": "Masa bulma"
+   },
+   "lines": [
+    "s1",
+    "s2",
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "order",
+   "title": {
+    "en": "Order food",
+    "vi": "Gọi món",
+    "es": "Pedir la comida",
+    "pt": "Pedir a comida",
+    "fr": "Commander",
+    "de": "Essen bestellen",
+    "id": "Memesan makanan",
+    "th": "สั่งอาหาร",
+    "zh": "点菜",
+    "ja": "注文する",
+    "ko": "음식 주문",
+    "hi": "खाना ऑर्डर",
+    "ar": "طلب الطعام",
+    "ru": "Заказать еду",
+    "tr": "Yemek sipariş etme"
+   },
+   "lines": [
+    "o1",
+    "o2",
+    "o3",
+    "o4"
+   ]
+  },
+  {
+   "id": "bill",
+   "title": {
+    "en": "Pay the bill",
+    "vi": "Thanh toán",
+    "es": "Pagar la cuenta",
+    "pt": "Pagar a conta",
+    "fr": "Payer l'addition",
+    "de": "Die Rechnung bezahlen",
+    "id": "Bayar tagihan",
+    "th": "จ่ายเงิน",
+    "zh": "结账",
+    "ja": "会計をする",
+    "ko": "계산하기",
+    "hi": "बिल चुकाना",
+    "ar": "دفع الفاتورة",
+    "ru": "Оплатить счёт",
+    "tr": "Hesabı ödeme"
+   },
+   "lines": [
+    "b1",
+    "b2",
+    "b3",
+    "b4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "s1",
+   "who": "customer",
+   "en": "Hi, a table for two, please.",
+   "variants": {
+    "polite": "Good evening. Could we have a table for two, please?",
+    "casual": "Table for two, please."
+   },
+   "gloss": {
+    "en": "Asking for a table.",
+    "vi": "Xin một bàn cho hai người.",
+    "es": "Pide una mesa para dos.",
+    "pt": "Pede uma mesa para dois.",
+    "fr": "Demander une table pour deux.",
+    "de": "Um einen Tisch für zwei bitten.",
+    "id": "Meminta meja untuk dua orang.",
+    "th": "ขอโต๊ะสำหรับสองคน",
+    "zh": "要一张两人桌。",
+    "ja": "2名の席をお願いします。",
+    "ko": "두 명 자리를 요청해요.",
+    "hi": "दो लोगों की मेज़ माँगना।",
+    "ar": "طلب طاولة لشخصين.",
+    "ru": "Попросить столик на двоих.",
+    "tr": "İki kişilik masa isteme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "s2",
+   "who": "barista",
+   "en": "Do you have a reservation?",
+   "variants": {
+    "polite": "Have you made a reservation this evening?",
+    "casual": "Do you have a booking?"
+   },
+   "gloss": {
+    "en": "The host asks about a booking.",
+    "vi": "Nhân viên hỏi bạn có đặt bàn không.",
+    "es": "El anfitrión pregunta por la reserva.",
+    "pt": "O anfitrião pergunta pela reserva.",
+    "fr": "L'hôte demande si vous avez réservé.",
+    "de": "Der Gastgeber fragt nach einer Reservierung.",
+    "id": "Pelayan menanyakan reservasi.",
+    "th": "พนักงานถามว่าจองไว้ไหม",
+    "zh": "迎宾员问你是否订位。",
+    "ja": "予約の有無を尋ねられます。",
+    "ko": "예약했는지 물어봐요.",
+    "hi": "मेज़बान पूछता है कि बुकिंग है या नहीं।",
+    "ar": "المضيف يسأل عن الحجز.",
+    "ru": "Администратор спрашивает о брони.",
+    "tr": "Karşılayan rezervasyon olup olmadığını sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "reservation",
+     "ipa": "/ˌrez.ərˈveɪ.ʃən/",
+     "hi": "VAY",
+     "note": {
+      "en": "Stress the third syllable: rez-er-VAY-shun. Say it in four beats.",
+      "vi": "Nhấn âm tiết thứ ba: rez-ờ-VÂY-shần. Đọc bốn nhịp.",
+      "es": "Acentúa la tercera sílaba: rez-er-VEI-shen. Cuatro golpes.",
+      "pt": "Acentue a terceira sílaba: rez-er-VEI-xân. Quatro batidas.",
+      "fr": "Accentuez la troisième syllabe : rez-eur-VEI-cheune. Quatre temps.",
+      "de": "Betone die dritte Silbe: rez-er-WEI-schn. Vier Schläge.",
+      "id": "Tekankan suku kata ketiga: rez-er-VEI-syen. Empat ketukan.",
+      "th": "เน้นพยางค์ที่สาม: เรส-เซอร์-VAY-ชั่น สี่จังหวะ",
+      "zh": "重音在第三音节：rez-er-VAY-shun，共四拍。",
+      "ja": "3番目を強く：レズ・アー・VAY・シャン。4拍です。",
+      "ko": "세 번째 음절에 강세: 레즈-어-VAY-션. 네 박자예요.",
+      "hi": "तीसरे अक्षर पर ज़ोर: रेज़-अर-VAY-शन। चार ताल।",
+      "ar": "النبر على المقطع الثالث: rez-er-VAY-shun بأربع نبرات.",
+      "ru": "Ударение на третий слог: рез-ер-ВЭЙ-шн. Четыре слога.",
+      "tr": "Vurgu üçüncü hecede: rez-ır-VEY-şın. Dört vuruş."
+     }
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "who": "customer",
+   "en": "No, we don't. Is there a free table?",
+   "variants": {
+    "polite": "No, I'm afraid we haven't. Do you have a table available?",
+    "casual": "No booking. Any free table?"
+   },
+   "gloss": {
+    "en": "Saying you have no booking.",
+    "vi": "Nói bạn chưa đặt bàn.",
+    "es": "Dice que no tiene reserva.",
+    "pt": "Diz que não tem reserva.",
+    "fr": "Dire qu'on n'a pas réservé.",
+    "de": "Sagen, dass man nicht reserviert hat.",
+    "id": "Menyatakan belum reservasi.",
+    "th": "บอกว่ายังไม่ได้จอง",
+    "zh": "说你们没有订位。",
+    "ja": "予約がないと伝えます。",
+    "ko": "예약하지 않았다고 말해요.",
+    "hi": "बताना कि बुकिंग नहीं है।",
+    "ar": "القول إنك لم تحجز.",
+    "ru": "Сказать, что брони нет.",
+    "tr": "Rezervasyonunuz olmadığını söyleme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "s4",
+   "who": "barista",
+   "en": "Yes, follow me. Here are your menus.",
+   "variants": {
+    "polite": "Yes, of course. Please follow me. Here are your menus.",
+    "casual": "Follow me. Here are the menus."
+   },
+   "gloss": {
+    "en": "The host shows you to the table.",
+    "vi": "Nhân viên dẫn bạn đến bàn.",
+    "es": "El anfitrión te lleva a la mesa.",
+    "pt": "O anfitrião leva você à mesa.",
+    "fr": "L'hôte vous conduit à la table.",
+    "de": "Der Gastgeber führt dich zum Tisch.",
+    "id": "Pelayan mengantar ke meja.",
+    "th": "พนักงานพาไปที่โต๊ะ",
+    "zh": "迎宾员带你入座。",
+    "ja": "席に案内されます。",
+    "ko": "자리로 안내해 줘요.",
+    "hi": "मेज़बान आपको मेज़ तक ले जाता है।",
+    "ar": "المضيف يقودك إلى الطاولة.",
+    "ru": "Администратор проводит к столику.",
+    "tr": "Karşılayan sizi masaya götürür."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "o1",
+   "who": "customer",
+   "en": "I'll have the grilled chicken, please.",
+   "variants": {
+    "polite": "I'd like the grilled chicken, please.",
+    "casual": "The grilled chicken, please."
+   },
+   "gloss": {
+    "en": "Ordering a main dish.",
+    "vi": "Gọi món chính.",
+    "es": "Pide el plato principal.",
+    "pt": "Pede o prato principal.",
+    "fr": "Commander le plat principal.",
+    "de": "Das Hauptgericht bestellen.",
+    "id": "Memesan hidangan utama.",
+    "th": "สั่งอาหารจานหลัก",
+    "zh": "点主菜。",
+    "ja": "メイン料理を注文します。",
+    "ko": "메인 요리를 주문해요.",
+    "hi": "मुख्य व्यंजन ऑर्डर करना।",
+    "ar": "طلب الطبق الرئيسي.",
+    "ru": "Заказать основное блюдо.",
+    "tr": "Ana yemeği sipariş etme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "chicken",
+     "ipa": "/ˈtʃɪk.ɪn/",
+     "hi": "CHIK",
+     "note": {
+      "en": "Stress the first syllable: CHIK-in. The second vowel is weak, not \"ken\" with a clear e.",
+      "vi": "Nhấn âm đầu: CHÍ-kìn. Nguyên âm sau đọc nhẹ, không phải \"ken\" rõ.",
+      "es": "Acentúa la primera sílaba: CHIK-in. La segunda vocal es débil, no una \"e\" clara.",
+      "pt": "Acentue a primeira sílaba: TCHIK-in. A segunda vogal é fraca, sem \"e\" claro.",
+      "fr": "Accentuez la première syllabe : TCHIK-in. La seconde voyelle est faible, pas un « e » net.",
+      "de": "Betone die erste Silbe: TSCHIK-in. Der zweite Vokal ist schwach, kein klares „e“.",
+      "id": "Tekankan suku kata pertama: CHIK-in. Vokal kedua lemah, bukan \"e\" jelas.",
+      "th": "เน้นพยางค์แรก: CHIK-อิน เสียงสระที่สองเบา ไม่ใช่ \"เคน\"",
+      "zh": "重音在第一音节：CHIK-in，第二个元音很弱，不是清晰的 e。",
+      "ja": "最初を強く：CHIK・イン。2つ目の母音は弱く、「ケン」とは言いません。",
+      "ko": "첫 음절에 강세: CHIK-인. 두 번째 모음은 약해서 “켄”이 아니에요.",
+      "hi": "पहले अक्षर पर ज़ोर: CHIK-इन। दूसरा स्वर हल्का है, साफ़ \"केन\" नहीं।",
+      "ar": "النبر على المقطع الأول: CHIK-in، والحرف الثاني خفيف وليس «كن» واضحة.",
+      "ru": "Ударение на первый слог: ЧИК-ин. Второй гласный слабый, не чёткое «кен».",
+      "tr": "Vurgu ilk hecede: ÇİK-in. İkinci ünlü zayıftır, net bir \"ken\" değildir."
+     }
+    }
+   ]
+  },
+  {
+   "id": "o2",
+   "who": "barista",
+   "en": "Sure. Would you like fries or a salad with that?",
+   "variants": {
+    "polite": "Certainly. Would you prefer fries or a side salad with it?",
+    "casual": "Fries or salad with that?"
+   },
+   "gloss": {
+    "en": "The server asks about a side.",
+    "vi": "Phục vụ hỏi món ăn kèm.",
+    "es": "El camarero pregunta por la guarnición.",
+    "pt": "O garçom pergunta o acompanhamento.",
+    "fr": "Le serveur demande l'accompagnement.",
+    "de": "Der Kellner fragt nach der Beilage.",
+    "id": "Pelayan menanyakan pendamping.",
+    "th": "พนักงานถามว่าจะรับเครื่องเคียงอะไร",
+    "zh": "服务员问配菜。",
+    "ja": "付け合わせを尋ねられます。",
+    "ko": "곁들임을 뭘로 할지 물어봐요.",
+    "hi": "सर्वर साइड डिश पूछता है।",
+    "ar": "النادل يسأل عن الطبق الجانبي.",
+    "ru": "Официант спрашивает гарнир.",
+    "tr": "Garson yan yemeği sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "o3",
+   "who": "customer",
+   "en": "A salad, please. Is the soup vegetarian?",
+   "variants": {
+    "polite": "A salad, please. Could you tell me if the soup is vegetarian?",
+    "casual": "Salad, please. Is the soup vegetarian?"
+   },
+   "gloss": {
+    "en": "Asking about ingredients.",
+    "vi": "Hỏi về nguyên liệu.",
+    "es": "Pregunta por los ingredientes.",
+    "pt": "Pergunta sobre os ingredientes.",
+    "fr": "Demander les ingrédients.",
+    "de": "Nach den Zutaten fragen.",
+    "id": "Menanyakan bahan makanan.",
+    "th": "ถามเรื่องส่วนผสม",
+    "zh": "询问食材。",
+    "ja": "材料について尋ねます。",
+    "ko": "재료에 대해 물어봐요.",
+    "hi": "सामग्री के बारे में पूछना।",
+    "ar": "السؤال عن المكونات.",
+    "ru": "Спросить об ингредиентах.",
+    "tr": "İçerikleri sorma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "vegetarian",
+     "ipa": "/ˌvedʒ.əˈter.i.ən/",
+     "hi": "TAIR",
+     "note": {
+      "en": "Stress the third syllable: vej-uh-TAIR-ee-un. The \"ge\" sounds like \"j\".",
+      "vi": "Nhấn âm tiết thứ ba: vej-ờ-TE-ri-ần. \"ge\" đọc như \"j\".",
+      "es": "Acentúa la tercera sílaba: vey-a-TER-ian. La \"ge\" suena como \"j\" inglesa.",
+      "pt": "Acentue a terceira sílaba: vej-a-TÉ-ri-an. O \"ge\" soa como \"dj\".",
+      "fr": "Accentuez la troisième syllabe : vej-eu-TÈ-ri-eune. Le « ge » sonne « dj ».",
+      "de": "Betone die dritte Silbe: wedsch-ə-TÄ-ri-ən. „ge“ klingt wie „dsch“.",
+      "id": "Tekankan suku kata ketiga: vej-uh-TER-i-an. \"ge\" dibaca \"j\".",
+      "th": "เน้นพยางค์ที่สาม: เวจ-อะ-TAIR-เรียน \"ge\" ออกเสียงเป็น \"จ\"",
+      "zh": "重音在第三音节：vej-uh-TAIR-ee-un，ge 读 j。",
+      "ja": "3番目を強く：ベジ・ア・TAIR・イ・アン。ge は「ジ」の音です。",
+      "ko": "세 번째 음절에 강세: 베지-어-TAIR-이-언. ge는 “ㅈ” 소리예요.",
+      "hi": "तीसरे अक्षर पर ज़ोर: वेज-अ-TAIR-ई-अन। ge की ध्वनि \"ज\" है।",
+      "ar": "النبر على المقطع الثالث: vej-uh-TAIR-ee-un، وge بصوت «ج».",
+      "ru": "Ударение на третий слог: вэдж-а-ТЭЙР-и-ан. «ge» звучит как «дж».",
+      "tr": "Vurgu üçüncü hecede: vec-ı-TEYR-i-ın. \"ge\" harfi \"c\" gibi okunur."
+     }
+    }
+   ]
+  },
+  {
+   "id": "o4",
+   "who": "barista",
+   "en": "Yes, it is. Anything to drink?",
+   "variants": {
+    "polite": "Yes, it is. Can I get you anything to drink?",
+    "casual": "Yes. Drinks?"
+   },
+   "gloss": {
+    "en": "The server answers and asks about drinks.",
+    "vi": "Phục vụ trả lời và hỏi đồ uống.",
+    "es": "El camarero responde y pregunta por bebidas.",
+    "pt": "O garçom responde e pergunta pelas bebidas.",
+    "fr": "Le serveur répond et demande pour les boissons.",
+    "de": "Der Kellner antwortet und fragt nach Getränken.",
+    "id": "Pelayan menjawab dan menanyakan minuman.",
+    "th": "พนักงานตอบและถามเรื่องเครื่องดื่ม",
+    "zh": "服务员回答并问饮料。",
+    "ja": "答えて飲み物を尋ねます。",
+    "ko": "답한 뒤 음료를 물어봐요.",
+    "hi": "सर्वर जवाब देता है और पेय पूछता है।",
+    "ar": "النادل يجيب ويسأل عن المشروبات.",
+    "ru": "Официант отвечает и спрашивает о напитках.",
+    "tr": "Garson cevap verir ve içecek sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "b1",
+   "who": "customer",
+   "en": "Could we have the bill, please?",
+   "variants": {
+    "polite": "Excuse me, could we have the bill, please?",
+    "casual": "The bill, please."
+   },
+   "gloss": {
+    "en": "Asking for the bill.",
+    "vi": "Xin tính tiền.",
+    "es": "Pide la cuenta.",
+    "pt": "Pede a conta.",
+    "fr": "Demander l'addition.",
+    "de": "Um die Rechnung bitten.",
+    "id": "Meminta tagihan.",
+    "th": "ขอเช็กบิล",
+    "zh": "请结账。",
+    "ja": "お会計をお願いします。",
+    "ko": "계산서를 부탁해요.",
+    "hi": "बिल माँगना।",
+    "ar": "طلب الفاتورة.",
+    "ru": "Попросить счёт.",
+    "tr": "Hesabı isteme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "bill",
+     "ipa": "/bɪl/",
+     "hi": "BIL",
+     "note": {
+      "en": "Say a short BIL. Do not make it long like \"beel\".",
+      "vi": "Đọc BIL ngắn, đừng kéo dài như \"bi-ồ\".",
+      "es": "Di un BIL corto. No lo alargues como \"biil\".",
+      "pt": "Diga um BIL curto. Não alongue como \"biil\".",
+      "fr": "Dites un BIL court. Ne l'allongez pas comme « biiil ».",
+      "de": "Sprich ein kurzes BIL. Nicht lang wie „biel“.",
+      "id": "Ucapkan BIL pendek. Jangan panjang seperti \"biil\".",
+      "th": "ออกเสียง BIL สั้น ๆ ไม่ลากเสียงเป็น \"บีล\"",
+      "zh": "读短音 BIL，不要拖长成 beel。",
+      "ja": "短く BIL。「ビール」と伸ばさないで。",
+      "ko": "짧게 BIL로 읽어요. “빌-”처럼 길게 늘이지 마세요.",
+      "hi": "छोटा BIL बोलें, \"बील\" की तरह लंबा नहीं।",
+      "ar": "انطق BIL قصيرة، وليس «بيل» طويلة.",
+      "ru": "Короткий звук BIL, не тяните как «бил-л».",
+      "tr": "Kısa bir BIL deyin, \"biil\" gibi uzatmayın."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "who": "barista",
+   "en": "Of course. Was everything all right?",
+   "variants": {
+    "polite": "Certainly. I hope everything was to your liking.",
+    "casual": "Everything okay?"
+   },
+   "gloss": {
+    "en": "The server checks your meal.",
+    "vi": "Phục vụ hỏi bữa ăn có ổn không.",
+    "es": "El camarero pregunta si todo estuvo bien.",
+    "pt": "O garçom pergunta se estava tudo bem.",
+    "fr": "Le serveur demande si tout était bien.",
+    "de": "Der Kellner fragt, ob alles gut war.",
+    "id": "Pelayan menanyakan apakah semuanya baik.",
+    "th": "พนักงานถามว่าอาหารเป็นอย่างไร",
+    "zh": "服务员问用餐是否满意。",
+    "ja": "食事に満足したか聞かれます。",
+    "ko": "식사가 괜찮았는지 물어봐요.",
+    "hi": "सर्वर पूछता है कि सब ठीक था या नहीं।",
+    "ar": "النادل يسأل إن كان كل شيء جيدًا.",
+    "ru": "Официант спрашивает, всё ли понравилось.",
+    "tr": "Garson her şeyin iyi olup olmadığını sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "b3",
+   "who": "customer",
+   "en": "Yes, it was delicious. Can we pay by card?",
+   "variants": {
+    "polite": "Yes, it was delicious. Would it be possible to pay by card?",
+    "casual": "It was great. Card okay?"
+   },
+   "gloss": {
+    "en": "Complimenting the food and paying.",
+    "vi": "Khen món ăn và hỏi cách trả tiền.",
+    "es": "Elogia la comida y pregunta cómo pagar.",
+    "pt": "Elogia a comida e pergunta como pagar.",
+    "fr": "Complimenter le repas et payer.",
+    "de": "Das Essen loben und zahlen.",
+    "id": "Memuji makanan dan menanyakan pembayaran.",
+    "th": "ชมอาหารและถามวิธีจ่าย",
+    "zh": "夸奖饭菜并问能否刷卡。",
+    "ja": "料理を褒めて支払い方法を聞きます。",
+    "ko": "음식을 칭찬하고 결제 방법을 물어봐요.",
+    "hi": "खाने की तारीफ़ करना और भुगतान पूछना।",
+    "ar": "مدح الطعام والسؤال عن الدفع.",
+    "ru": "Похвалить еду и спросить об оплате.",
+    "tr": "Yemeği övme ve ödeme şeklini sorma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "delicious",
+     "ipa": "/dɪˈlɪʃ.əs/",
+     "hi": "LISH",
+     "note": {
+      "en": "Stress the second syllable: di-LISH-us. The \"ci\" sounds like \"sh\".",
+      "vi": "Nhấn âm tiết thứ hai: đi-LÍ-sờ. \"ci\" đọc như \"sh\".",
+      "es": "Acentúa la segunda sílaba: di-LISH-es. \"ci\" suena como \"sh\".",
+      "pt": "Acentue a segunda sílaba: di-LÍ-xus. \"ci\" soa como \"sh\".",
+      "fr": "Accentuez la deuxième syllabe : di-LICH-euss. « ci » sonne « ch ».",
+      "de": "Betone die zweite Silbe: di-LISCH-əs. „ci“ klingt wie „sch“.",
+      "id": "Tekankan suku kata kedua: di-LISH-us. \"ci\" dibaca \"sy\".",
+      "th": "เน้นพยางค์ที่สอง: ดิ-LISH-ัส \"ci\" ออกเสียงเป็น \"ช\"",
+      "zh": "重音在第二音节：di-LISH-us，ci 读 sh。",
+      "ja": "2番目を強く：ディ・LISH・アス。ci は「シュ」の音です。",
+      "ko": "두 번째 음절에 강세: 디-LISH-어스. ci는 “쉬” 소리예요.",
+      "hi": "दूसरे अक्षर पर ज़ोर: डि-LISH-अस। ci की ध्वनि \"श\" है।",
+      "ar": "النبر على المقطع الثاني: di-LISH-us، وci بصوت «ش».",
+      "ru": "Ударение на второй слог: ди-ЛИШ-ес. «ci» звучит как «ш».",
+      "tr": "Vurgu ikinci hecede: di-LİŞ-ıs. \"ci\" \"ş\" gibi okunur."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b4",
+   "who": "barista",
+   "en": "Yes, of course. I'll bring the machine to your table.",
+   "variants": {
+    "polite": "Yes, of course. I'll bring the card machine over to you.",
+    "casual": "Sure. I'll bring the machine."
+   },
+   "gloss": {
+    "en": "The server brings the card machine.",
+    "vi": "Phục vụ mang máy quẹt thẻ.",
+    "es": "El camarero trae el datáfono.",
+    "pt": "O garçom traz a maquininha.",
+    "fr": "Le serveur apporte le terminal.",
+    "de": "Der Kellner bringt das Kartengerät.",
+    "id": "Pelayan membawa mesin kartu.",
+    "th": "พนักงานนำเครื่องรูดบัตรมา",
+    "zh": "服务员把刷卡机拿到桌边。",
+    "ja": "カード端末を持ってきます。",
+    "ko": "카드 단말기를 가져와요.",
+    "hi": "सर्वर कार्ड मशीन लाता है।",
+    "ar": "النادل يحضر جهاز البطاقات.",
+    "ru": "Официант приносит терминал.",
+    "tr": "Garson kart makinesini getirir."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "Are you ready to order, or do you need a few minutes?",
+   "keywords": [
+    "yes",
+    "ready",
+    "please",
+    "soup",
+    "steak",
+    "pasta",
+    "fish",
+    "chicken",
+    "salad",
+    "burger",
+    "minutes",
+    "moment",
+    "time",
+    "vegetarian"
+   ],
+   "variants": {
+    "polite": "Are you ready to order, or need more time?",
+    "casual": "Ready to order?"
+   },
+   "gloss": {
+    "en": "The server asks if you are ready.",
+    "vi": "Phục vụ hỏi bạn sẵn sàng gọi món chưa.",
+    "es": "El camarero pregunta si estás listo.",
+    "pt": "O garçom pergunta se você está pronto.",
+    "fr": "Le serveur demande si vous êtes prêt.",
+    "de": "Der Kellner fragt, ob du bereit bist.",
+    "id": "Pelayan menanyakan apakah siap memesan.",
+    "th": "พนักงานถามว่าพร้อมสั่งหรือยัง",
+    "zh": "服务员问你是否准备好点菜。",
+    "ja": "注文の準備ができたか聞かれます。",
+    "ko": "주문할 준비가 됐는지 물어봐요.",
+    "hi": "सर्वर पूछता है कि ऑर्डर के लिए तैयार हैं या नहीं।",
+    "ar": "النادل يسأل إن كنت جاهزًا للطلب.",
+    "ru": "Официант спрашивает, готовы ли вы заказать.",
+    "tr": "Garson siparişe hazır olup olmadığınızı sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "Would you like anything for dessert?",
+   "keywords": [
+    "cake",
+    "ice cream",
+    "dessert",
+    "coffee",
+    "tea",
+    "cheesecake",
+    "pie",
+    "no",
+    "thanks",
+    "fruit",
+    "chocolate",
+    "just",
+    "full",
+    "bill"
+   ],
+   "variants": {
+    "polite": "Could I tempt you with a dessert or a coffee?",
+    "casual": "Dessert or coffee?"
+   },
+   "gloss": {
+    "en": "The server offers dessert.",
+    "vi": "Phục vụ gợi ý món tráng miệng.",
+    "es": "El camarero ofrece postre.",
+    "pt": "O garçom oferece sobremesa.",
+    "fr": "Le serveur propose un dessert.",
+    "de": "Der Kellner bietet Nachtisch an.",
+    "id": "Pelayan menawarkan hidangan penutup.",
+    "th": "พนักงานเสนอของหวาน",
+    "zh": "服务员推荐甜点。",
+    "ja": "デザートを勧められます。",
+    "ko": "디저트를 권해요.",
+    "hi": "सर्वर मिठाई का सुझाव देता है।",
+    "ar": "النادل يعرض الحلوى.",
+    "ru": "Официант предлагает десерт.",
+    "tr": "Garson tatlı önerir."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Good evening. Table for two?"
+  },
+  {
+   "who": "customer",
+   "en": "Yes, please. Do you have a table by the window?"
+  },
+  {
+   "who": "barista",
+   "en": "Of course. Here are your menus."
+  },
+  {
+   "who": "customer",
+   "en": "Thank you. I'll have the soup and the grilled fish."
+  },
+  {
+   "who": "barista",
+   "en": "Would you like anything to drink?"
+  },
+  {
+   "who": "customer",
+   "en": "Just water, please. Is the soup vegetarian?"
+  },
+  {
+   "who": "barista",
+   "en": "It is. I'll bring your water right away."
+  },
+  {
+   "who": "customer",
+   "en": "Great. And could we have the bill later?"
+  },
+  {
+   "who": "barista",
+   "en": "Of course, just let me know."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Are you ready to order?"
+    },
+    {
+     "who": "customer",
+     "en": "Yes. I'd like the pasta, but I'm allergic to nuts."
+    },
+    {
+     "who": "barista",
+     "en": "No problem. The pasta has no nuts, only cheese."
+    },
+    {
+     "who": "customer",
+     "en": "Perfect. I'll take it, and a sparkling water."
+    }
+   ],
+   "q": {
+    "en": "What is the customer allergic to?",
+    "vi": "Khách dị ứng với gì?",
+    "es": "¿A qué es alérgico el cliente?",
+    "pt": "A que o cliente é alérgico?",
+    "fr": "À quoi le client est-il allergique ?",
+    "de": "Wogegen ist der Kunde allergisch?",
+    "id": "Pelanggan alergi terhadap apa?",
+    "th": "ลูกค้าแพ้อะไร",
+    "zh": "顾客对什么过敏？",
+    "ja": "お客さんは何にアレルギーがありますか？",
+    "ko": "손님은 무엇에 알레르기가 있나요?",
+    "hi": "ग्राहक को किस चीज़ से एलर्जी है?",
+    "ar": "بماذا الزبون يعاني من الحساسية؟",
+    "ru": "На что у клиента аллергия?",
+    "tr": "Müşterinin neye alerjisi var?"
+   },
+   "answer": "nuts"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Excuse me, this soup is cold."
+    },
+    {
+     "who": "barista",
+     "en": "I'm so sorry. I'll take it back to the kitchen."
+    },
+    {
+     "who": "customer",
+     "en": "Thank you. And could we get some more bread?"
+    },
+    {
+     "who": "barista",
+     "en": "Of course. A fresh bowl of soup is coming right up."
+    }
+   ],
+   "q": {
+    "en": "What is wrong with the soup?",
+    "vi": "Món súp có vấn đề gì?",
+    "es": "¿Qué le pasa a la sopa?",
+    "pt": "O que há de errado com a sopa?",
+    "fr": "Qu'est-ce qui ne va pas avec la soupe ?",
+    "de": "Was ist mit der Suppe los?",
+    "id": "Apa masalah pada supnya?",
+    "th": "ซุปมีปัญหาอะไร",
+    "zh": "汤有什么问题？",
+    "ja": "スープの何が問題ですか？",
+    "ko": "수프에 무슨 문제가 있나요?",
+    "hi": "सूप में क्या दिक़्क़त है?",
+    "ar": "ما المشكلة في الحساء؟",
+    "ru": "Что не так с супом?",
+    "tr": "Çorbada ne sorun var?"
+   },
+   "answer": "cold"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "get-table",
+    "title": {
+     "en": "Get a table",
+     "vi": "Có bàn",
+     "es": "Consigue mesa",
+     "pt": "Consiga uma mesa",
+     "fr": "Obtenir une table",
+     "de": "Einen Tisch bekommen",
+     "id": "Dapatkan meja",
+     "th": "ได้โต๊ะ",
+     "zh": "入座",
+     "ja": "席に着く",
+     "ko": "자리 잡기",
+     "hi": "मेज़ पाएँ",
+     "ar": "احصل على طاولة",
+     "ru": "Получить столик",
+     "tr": "Masa bul"
+    },
+    "intents": [
+     "s1",
+     "s3"
+    ]
+   },
+   {
+    "id": "order-meal",
+    "title": {
+     "en": "Order a meal",
+     "vi": "Gọi một bữa ăn",
+     "es": "Pide una comida",
+     "pt": "Peça uma refeição",
+     "fr": "Commander un repas",
+     "de": "Essen bestellen",
+     "id": "Pesan makanan",
+     "th": "สั่งอาหาร",
+     "zh": "点一顿饭",
+     "ja": "食事を注文する",
+     "ko": "식사 주문하기",
+     "hi": "खाना ऑर्डर करें",
+     "ar": "اطلب وجبة",
+     "ru": "Заказать обед",
+     "tr": "Yemek sipariş et"
+    },
+    "intents": [
+     "o1",
+     "o3"
+    ]
+   },
+   {
+    "id": "pay-meal",
+    "title": {
+     "en": "Ask for the bill and pay",
+     "vi": "Xin hóa đơn và trả tiền",
+     "es": "Pide la cuenta y paga",
+     "pt": "Peça a conta e pague",
+     "fr": "Demander l'addition et payer",
+     "de": "Rechnung verlangen und zahlen",
+     "id": "Minta tagihan dan bayar",
+     "th": "ขอบิลและจ่ายเงิน",
+     "zh": "要账单并付款",
+     "ja": "会計を頼んで支払う",
+     "ko": "계산서 요청하고 결제하기",
+     "hi": "बिल माँगें और भुगतान करें",
+     "ar": "اطلب الفاتورة وادفع",
+     "ru": "Попросить счёт и оплатить",
+     "tr": "Hesabı iste ve öde"
+    },
+    "intents": [
+     "b1",
+     "b3"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "In a sit-down restaurant a server brings the menu, takes your order at the table and brings the bill when you ask for it. It is polite to say you are allergic to something before you order, and to ask what a dish contains if you are not sure. Many servers will ask if everything is all right a few minutes after the food arrives.",
+  "vi": "Ở nhà hàng ngồi bàn, nhân viên mang thực đơn, ghi món tại bàn và chỉ mang hóa đơn khi bạn yêu cầu. Bạn nên nói trước nếu dị ứng món nào và hỏi thành phần món ăn nếu chưa chắc. Nhiều nhân viên sẽ hỏi mọi thứ ổn chưa vài phút sau khi món được mang ra.",
+  "es": "En un restaurante con servicio de mesa, el camarero trae la carta, toma el pedido en la mesa y trae la cuenta cuando la pides. Es de buena educación decir antes de pedir si eres alérgico a algo y preguntar qué lleva un plato si no estás seguro. Muchos camareros preguntan si todo va bien unos minutos después de servir.",
+  "pt": "Num restaurante com serviço à mesa, o garçom traz o cardápio, anota o pedido e traz a conta quando você pede. É educado avisar de alergias antes de pedir e perguntar o que leva um prato se tiver dúvida. Muitos garçons perguntam se está tudo bem alguns minutos depois de servir.",
+  "fr": "Dans un restaurant avec service à table, le serveur apporte la carte, prend la commande et l'addition quand vous la demandez. Il est poli de signaler une allergie avant de commander et de demander la composition d'un plat en cas de doute. Beaucoup de serveurs demandent si tout va bien quelques minutes après l'arrivée des plats.",
+  "de": "In einem Restaurant mit Bedienung bringt der Kellner die Karte, nimmt die Bestellung am Tisch auf und bringt die Rechnung auf Wunsch. Es ist höflich, eine Allergie vor der Bestellung zu nennen und nachzufragen, was in einem Gericht steckt. Viele Kellner fragen einige Minuten nach dem Servieren, ob alles in Ordnung ist.",
+  "id": "Di restoran dengan layanan meja, pelayan membawa menu, mencatat pesanan di meja, dan membawa tagihan saat diminta. Sopan jika menyebut alergi sebelum memesan dan bertanya isi hidangan bila ragu. Banyak pelayan menanyakan apakah semuanya baik beberapa menit setelah makanan datang.",
+  "th": "ในร้านอาหารที่มีพนักงานบริการที่โต๊ะ พนักงานจะนำเมนู รับออเดอร์ที่โต๊ะ และนำบิลมาให้เมื่อขอ การบอกก่อนสั่งถ้าแพ้อาหารและถามส่วนผสมถ้าไม่แน่ใจถือว่าสุภาพ พนักงานหลายคนจะมาถามว่าทุกอย่างโอเคไหมไม่กี่นาทีหลังอาหารมา",
+  "zh": "在有服务员的餐厅，服务员会送上菜单、在桌边点单，你开口要才会拿来账单。点菜前先说明对什么过敏、不确定菜里有什么就问清楚，这样很礼貌。很多服务员会在上菜几分钟后问你一切是否还好。",
+  "ja": "テーブルサービスのレストランでは、店員がメニューを持ってきて、席で注文を取り、頼むと会計を持ってきます。注文前にアレルギーを伝え、わからない料理は何が入っているか聞くのがマナーです。料理が来て数分後に「いかがですか」と聞かれることも多いです。",
+  "ko": "테이블 서비스 식당에서는 직원이 메뉴를 가져오고, 자리에서 주문을 받고, 요청하면 계산서를 가져와요. 주문 전에 알레르기를 말하고, 모르는 음식은 재료를 물어보는 것이 예의예요. 음식이 나오고 몇 분 뒤에 괜찮은지 묻는 직원도 많아요.",
+  "hi": "बैठकर खाने वाले रेस्तरां में सर्वर मेन्यू लाता है, मेज़ पर ऑर्डर लेता है और माँगने पर बिल लाता है। ऑर्डर से पहले एलर्जी बताना और किसी व्यंजन में क्या है यह पूछना शिष्टता है। खाना आने के कुछ मिनट बाद कई सर्वर पूछते हैं कि सब ठीक है या नहीं।",
+  "ar": "في المطعم الذي يخدمك على الطاولة يحضر النادل القائمة ويأخذ الطلب ويأتي بالفاتورة عندما تطلبها. من اللباقة أن تذكر الحساسية قبل الطلب وأن تسأل عن مكونات الطبق إن لم تكن متأكدًا. يسأل كثير من النُّدُل بعد دقائق من تقديم الطعام إن كان كل شيء على ما يرام.",
+  "ru": "В ресторане с обслуживанием официант приносит меню, принимает заказ за столом и приносит счёт по вашей просьбе. Вежливо сказать об аллергии до заказа и спросить состав блюда, если не уверены. Многие официанты через несколько минут после подачи спрашивают, всё ли в порядке.",
+  "tr": "Garsonlu bir restoranda garson menüyü getirir, siparişi masada alır ve hesabı siz isteyince getirir. Sipariş vermeden önce alerjinizi söylemek ve emin olmadığınız yemeğin içeriğini sormak nezakettir. Birçok garson yemek geldikten birkaç dakika sonra her şeyin yolunda olup olmadığını sorar."
+ }
+}

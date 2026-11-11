@@ -15,7 +15,7 @@ import { minify } from 'terser';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { orgNode } from './lib/authority-links.mjs'; // Organization chuẩn + sameAs kênh thật (docs/SEO-AUTHORITY.md)
-import { HINT_FILE, FOOT_CSS, SEO_L, siteFooter, esc, ld, siteChrome, lswMenu, STW_VARS, LANG_NAMES, FOOT, appHref, landingHref, langSwitch, LSW_CSS, themePage, themeHead, LKT_JS, themeSwitch, themeLabels, themePill, TSW_CSS, TSP_CSS, SITE_UI, SITE_UI_LAZY, SITE_UI_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
+import { CSS, HINT_FILE, FOOT_CSS, SEO_L, siteFooter, esc, ld, siteChrome, lswMenu, STW_VARS, LANG_NAMES, FOOT, appHref, landingHref, langSwitch, LSW_CSS, themePage, themeHead, LKT_JS, themeSwitch, themeLabels, themePill, TSW_CSS, TSP_CSS, SITE_UI, SITE_UI_LAZY, SITE_UI_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
 import { render as stRender, tr as stTr, teacherIdle, IDLE_JS, compact, blocks, splitSel } from './lib/st-web.mjs'; // khung Stitch v2.1 (brand/stitch/web/home-*.html → brand/stitch/web/gen/home.js + chrome.js) + CSS biên dịch sẵn
 
 const R = new URL('../', import.meta.url), SITE = 'https://lexkite.com';
@@ -35,6 +35,7 @@ export const pageUrl = l => SITE + landingHref(l);
 // ----- Script 1: định tuyến trước khi vẽ (giữ nhỏ; scripts/test/landing-routing.mjs chạy thử đúng đoạn này) -----
 export const ROUTE_JS = `(function(){try{var l=location,q=new URLSearchParams(l.search),h=l.hash,s=null,d=/^#\\//.test(h);try{s=window.sessionStorage}catch(e){}
 var deep=d||q.has('hl')||q.has('sandbox')||q.has('demo')||q.get('source')==='pwa';
+if(q.has('r')){q.delete('r');var u=q.toString();try{history.replaceState(null,'',l.pathname+(u?'?'+u:'')+h)}catch(e){}}
 if(q.get('home')==='1'){try{s&&s.setItem('lk.home','1')}catch(e){}}
 if(!deep){if(q.get('home')==='1')return;try{if(s&&s.getItem('lk.home'))return}catch(e){}
 var sa=!!(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true,r=null;
@@ -66,12 +67,12 @@ const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
 // Dải gợi ý ngôn ngữ: mã nằm trong js/site-ui.js (site-layout HINT_JS), chữ 15 ngôn ngữ → web/js/lhint.json (HINT_FILE); trang chỉ cần <body data-lhint="lhint btn tsp tsb"> (giá trị = tên lớp để purgeCss giữ luật .lhint: lớp do JS ngoài thêm)
 
 // Nút giao diện đầu trang = nút Stitch mang data-tsw (TSW_JS của PR 303 đổi trạng thái): chỉ lấy luật chọn nhóm biểu tượng ◐/☀/☾ của TSW_CSS (không lấy viền/nền .tsw → giữ hình Stitch)
-const TSW_ICON = (TSW_CSS.match(/\.tsw svg>\*\{[^}]*\}[^{]*\{display:inline\}/) || [''])[0].replace(/\.tsw /g, '[data-tsw] ') + '[data-tsw] svg{width:20px;height:20px}';
+const TSW_ICON = (TSW_CSS.match(/\.tsw svg>\*\{[^}]*\}[^{]*\{display:inline\}/) || [''])[0].replace(/\.tsw /g, '[data-tsw] ') + '[data-tsw] svg{width:20px;height:20px}[data-tsw]{flex:none;min-width:44px;min-height:44px}'; // flex:none: đầu trang ru/de chữ dài → nút bị co < 44 px (visual-qa tap<44 05/11)
 // ----- CSS riêng của landing (chỉ phần mẫu Stitch không vẽ: giữ chỗ nút add-on/Tải app chống CLS, link bỏ qua, dải gợi ý ngôn ngữ, menu đổi ngôn ngữ) -----
 // Màu = token Stitch (--st-*, cùng nguồn brand/stitch/tokens.dtcg.json, tự đổi sáng/tối) → biến dùng chung của khối lsw/lhint.
 const LCSS = `[hidden]{display:none!important}.dc [data-ext-cta][hidden]{display:inline-flex!important;visibility:hidden}.dc [data-get-app][hidden]:not([data-off]),.ga [data-get-app][hidden]:not([data-off]){display:inline-flex!important;visibility:hidden}
 ${STW_VARS}
-[data-get-app] svg{flex:none}.skip{position:absolute;left:8px;top:-60px;background:var(--surface);color:var(--text);padding:8px 12px;z-index:60}.skip:focus{top:8px}[dir=rtl] .skip:not(:focus){left:auto;right:-999px}[dir=rtl] .skip:focus{left:auto;right:8px}
+[data-get-app] svg{flex:none}.skip{position:absolute;left:8px;top:-60px;background:var(--surface);color:var(--text);padding:8px 12px;z-index:60;min-height:44px;display:inline-flex;align-items:center}.skip:focus{top:8px}[dir=rtl] .skip:not(:focus){left:auto;right:-999px}[dir=rtl] .skip:focus{left:auto;right:8px}
 .lhint{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px;background:var(--surface);color:var(--text);border:2px solid var(--line);border-radius:14px;box-shadow:0 12px 30px rgba(15,61,62,.18);padding:10px 12px 10px 16px;font-size:15px}.lhint span{flex:1}.lhint .btn{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;background:var(--primary);color:rgb(var(--st-surface));font-weight:800;font-size:14px;white-space:nowrap;text-decoration:none}.lhint button{font:inherit;background:none;border:0;font-size:22px;line-height:1;color:var(--muted);cursor:pointer;padding:4px 8px;min-width:44px;min-height:44px}
 ${LSW_CSS}.lsw-m{z-index:60}
 ${TSW_ICON}${TSP_CSS}summary::-webkit-details-marker{display:none}`;
@@ -117,20 +118,26 @@ const PSEUDO_EL = /::?(?:before|after|first-line|first-letter)\b|::[\w-]+(?:\([^
 const PSEUDO_DYN = /:(?:hover|focus(?:-visible|-within)?|active|visited|link|any-link|checked|disabled|enabled|placeholder-shown|target|open|popover-open|invalid|valid|required|optional|autofill|-webkit-autofill|indeterminate|default|read-only|read-write|user-invalid|user-valid)(?![\w-])/g;
 // Luật chỉ có tác dụng khi người dùng tương tác (rê/chạm/focus) không ảnh hưởng lần vẽ đầu → để ở CSS đầy đủ (nạp ngay sau), không nhân đôi trong CSS tới hạn
 const INTERACT = /:(?:hover|active|focus|focus-visible|focus-within|visited)(?![\w-])/;
+const LAYOUT = /^(display|grid(-[\w-]+)?|gap|row-gap|column-gap|flex(-[\w-]+)?|order|(min-|max-)?(width|height)|aspect-ratio|margin(-[\w-]+)?|padding(-[\w-]+)?|(align|justify|place)-[\w-]+|font-size|line-height|letter-spacing|white-space|box-sizing|border(-(top|right|bottom|left))?-width)$/;
 export function criticalCss(css, html) {
   const doc = new JSDOM(html.replace(/<script[^>]*>[\s\S]*?<\/script>/g, '')).window.document;
   doc.documentElement.classList.add(...HEAD_CLS);
   // vùng đầu trang = tới hết section thứ 2 (hero + dải tin cậy hiện trọn ở 1280×900 của mẫu v3) – CSS tới muộn cho phần đã hiện = CLS (CI 3/11: 0,12–0,18)
   const S = doc.querySelectorAll('section'), first = S[Math.min(1, S.length - 1)], crit = new Set();
   for (const e of doc.querySelectorAll('*')) if (e === first || first.contains(e) || e.contains(first) || (e.compareDocumentPosition(first) & 4)) crit.add(e);
+  // + section thứ 3 chỉ lấy THUỘC TÍNH BỐ CỤC (lưới/khoảng cách/cỡ chữ): ở 1440×900 bản chữ ngắn (es) lưới tính năng lọt màn đầu → lưới tới muộn = CLS 0,395 (visual-qa 05/11);
+  //   phần trang trí (màu/bóng/bo góc) vẫn tới muộn – không xê dịch, giữ CSS nội tuyến dưới trần 16 KB gz của trang giới thiệu
+  const third = S[2], lay = new Set(third ? [third, ...third.querySelectorAll('*')].filter(e => !crit.has(e)) : []);
   const memo = new Map(), hit = sel => { if (memo.has(sel)) return memo.get(sel);
     let q = sel.replace(/:root(?::not\(\[data-theme=\w+\]\)|\[data-theme=\w+\])/g, ':root').replace(PSEUDO_EL, '').replace(PSEUDO_DYN, '') /* nhánh nút giao diện (PR 303): trang lúc build không có data-theme → so như :root, kẻo vẽ đầu sai nền khi ép tối/sáng */.replace(/:not\(\s*\)/g, '').trim(); if (!q || /[>+~]$/.test(q)) q += '*';
-    let r; try { r = [...doc.querySelectorAll(q)].some(e => crit.has(e)); } catch { r = true; }
+    let r; try { const all = [...doc.querySelectorAll(q)]; r = all.some(e => crit.has(e)) ? true : all.some(e => lay.has(e)) ? 'lay' : false; } catch { r = true; }
     memo.set(sel, r); return r; };
   const pick = c => blocks(c).map(b => { const j = b.indexOf('{'), sel = b.slice(0, j).trim();
     if (/^@(media|supports|layer|container)/.test(sel)) { const inner = pick(b.slice(j + 1, -1)); return inner ? sel + '{' + inner + '}' : ''; }
     if (sel.startsWith('@')) return /^@(-\w+-)?keyframes/.test(sel) ? '\u0001' + b : b;
-    const k = splitSel(sel).filter(x => !INTERACT.test(x) && hit(x)); return k.length ? k.join(',') + b.slice(j) : ''; }).join('');
+    const ss = splitSel(sel).filter(x => !INTERACT.test(x)), k = ss.filter(x => hit(x) === true), l = ss.filter(x => hit(x) === 'lay');
+    const lb = l.length ? b.slice(j + 1, -1).split(';').filter(d => LAYOUT.test(d.split(':')[0].trim())).join(';') : '';
+    return (k.length ? k.join(',') + b.slice(j) : '') + (lb ? l.join(',') + '{' + lb + '}' : ''); }).join('');
   const out = pick(css);
   const anim = new Set([...out.matchAll(/animation(?:-name)?:([^;}]+)/g)].flatMap(x => x[1].split(/[\s,]+/)));
   return out.replace(/\u0001(@(?:-\w+-)?keyframes\s+([\w-]+)\s*\{(?:[^{}]|\{[^{}]*\})*\})/g, (_, b, name) => anim.has(name) ? b : '');
@@ -158,7 +165,7 @@ function renderFull(lang) {
   const c = copyOf(lang), rtl = lang === 'ar', url = pageUrl(lang), app = appHref(lang);
   const appQ = `/app/?hl=${lang}`, start = `${appQ}#/welcome/setup`, login = `${appQ}#/welcome/login`;
   const vi = lang === 'vi', vocab = vi ? '/tu-vung/' : '/en/vocabulary/', samples = vi ? '/samples/' : '/en/samples/', blog = `/${lang}/blog/`;
-  const alt = LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${pageUrl(l)}">`).join('\n') + `\n<link rel="alternate" hreflang="x-default" href="${pageUrl('en')}">`;
+  const alt = LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${pageUrl(l)}">`).join('\n') + `\n<link rel="alternate" hreflang="x-default" href="${SITE}/">`;
   // ---- dữ liệu THẬT cho khung Stitch (biểu thức trong brand/stitch/web/bind/home.json; chữ thô – khung tự escape) ----
   const hlEn = vi ? 'vi' : 'en'; // trang Từ vựng/Bài mẫu chỉ có bản vi + en → hreflang đúng ngôn ngữ đích
   const chrome0 = siteChrome({ lang, nav: [[app, c.nav.app, lang], [blog, c.nav.blog, lang], [vocab, c.nav.vocab, hlEn], [samples, c.nav.samples, hlEn]],
@@ -212,7 +219,7 @@ ${alt}
 <meta property="og:locale" content="${OG_LOCALE[lang]}">${LANGS.filter(l => l !== lang).map(l => `<meta property="og:locale:alternate" content="${OG_LOCALE[l]}">`).join('')}
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(c.ogTitle || c.title)}"><meta name="twitter:image" content="${SITE}/og-default.png">
 <meta name="theme-color" content="#0F3D3E">
-<link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">
+<link rel="icon" href="/icons/icon.svg?v=3" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=3">
 <style>${page.css}
 ${LCSS}</style>
 ${ld(graph)}
@@ -230,7 +237,19 @@ ${GETAPP_JS}</script>
 `;
 }
 
-export const fileOf = l => l === 'vi' ? 'web/index.html' : `web/${l}/index.html`;
+export const fileOf = l => `web/${l}/index.html`;
+// "/" tĩnh (web/index.html): trang chọn ngôn ngữ, x-default. Bình thường functions/index.js 302 trước khi tới đây; dùng khi gỡ "/" khỏi web/_routes.json (công tắc tắt) hoặc xem qua máy chủ tĩnh.
+// Bảng nước → ngôn ngữ: GEO trong web/js/i18n.js là nguồn duy nhất; functions/api/_geo.gen.js sinh từ đó (Pages Function không nạp được script cổ điển), --check báo cũ.
+export const geoGen = () => { const m = /const GEO = (\{[^}]+\});/.exec(rd('web/js/i18n.js')); if (!m) throw new Error('build-landing: không thấy GEO trong web/js/i18n.js'); return `/* SINH TỰ ĐỘNG từ GEO trong web/js/i18n.js – sửa ở đó rồi chạy node scripts/build-landing.mjs */\nexport const GEO = ${m[1]};\n`; };
+export const renderRoot = () => themePage(`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lexkite – choose your language</title><meta name="description" content="Lexkite is a free English learning app: vocabulary, grammar, IELTS and TOEIC practice. Choose your language to start.">
+<meta name="google-adsense-account" content="ca-pub-2290668854727752"><link rel="canonical" href="${SITE}/"><meta property="og:type" content="website"><meta property="og:site_name" content="Lexkite"><meta property="og:url" content="${SITE}/"><meta property="og:title" content="Lexkite – choose your language"><meta property="og:description" content="Lexkite is a free English learning app: vocabulary, grammar, IELTS and TOEIC practice. Choose your language to start."><meta property="og:image" content="${SITE}/og-default.png">
+${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${pageUrl(l)}">`).join('\n')}
+<link rel="alternate" hreflang="x-default" href="${SITE}/">
+<link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml"><script id="lk-route">${ROUTE_JS}</script>
+<style>${CSS}
+body{margin:0}main{max-width:40rem;margin:0 auto;padding:2.5rem 1rem}h1{font-size:1.6rem;margin:0 0 1rem}ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(10rem,1fr));gap:.5rem}a{display:flex;align-items:center;min-height:44px;padding:0 .8rem;border:1px solid var(--line);border-radius:10px;color:inherit;text-decoration:none}.tsw{font:inherit}</style></head>
+<body><main><h1>Lexkite – choose your language</h1><ul>${LANGS.map(l => `<li><a href="${landingHref(l)}" lang="${l}" hreflang="${l}"${l === 'ar' ? ' dir="rtl"' : ''}>${LANG_NAMES[l]}</a></li>`).join('')}</ul><p>© Lexkite</p></main>${themeSwitch('en')}${SITE_UI}</body></html>
+`);
 // Trang 404 (web/404.html, viết tay, song ngữ vi/en): chèn nút đổi ngôn ngữ góc trên (→ trang chủ từng ngôn ngữ) vào giữa <!--lsw--><!--/lsw-->.
 // Trang dùng token màu riêng (--card/--fg/--coral) → ánh xạ sang token của khối lsw dùng chung.
 // Chân trang chung (siteFooter vi + Privacy/Terms tiếng Anh như chân trang mini cũ) giữa <!--foot--><!--/foot-->; token riêng của 404 → token chân trang
@@ -250,6 +269,7 @@ if (process.argv[1] && import.meta.url === new URL(process.argv[1], 'file://').h
     if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== html) stale.push(fileOf(l)); continue; }
     fs.mkdirSync(new URL('.', f), { recursive: true }); fs.writeFileSync(f, html);
   }
+  for (const [n, txt] of [['web/index.html', renderRoot()], ['functions/api/_geo.gen.js', geoGen()]]) { const f = new URL(n, R); if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== txt) stale.push(n); } else fs.writeFileSync(f, txt); }
   for (const l of LANGS) { // chữ hướng dẫn "Tải app" theo ngôn ngữ
     const f = new URL('web' + gaFile(l), R), j = gaJson(l);
     if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== j) stale.push('web' + gaFile(l)); continue; }

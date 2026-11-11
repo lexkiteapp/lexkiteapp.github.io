@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"librarian\" mean?",
+  "keyword": "librarian",
+  "value": "Librarian means a person who works in a library.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=librarian",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"librarian\" mean?",
+    "description": "Librarian means a person who works in a library.\n\nReview your words, free: https://lexkite.com/app/#/review?w=librarian\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "librarian",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"librarian\" mean?\n\nLibrarian means a person who works in a library.\n\nReview your words, free: https://lexkite.com/app/#/review?w=librarian"
+   },
+   "instagram": {
+    "caption": "What does \"librarian\" mean?\n\nLibrarian means a person who works in a library.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"librarian\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a person who works in a library. Librarian means a person who works in a library. More practice like this (free): {link}"
  }
 }

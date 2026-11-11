@@ -72,5 +72,46 @@
   "words": 38,
   "seconds": 23.7,
   "wpm": 96
+ },
+ "publish": {
+  "title": "What does \"amaze\" mean?",
+  "keyword": "amaze",
+  "value": "Amaze means to cause wonder.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=amaze",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"amaze\" mean?",
+    "description": "Amaze means to cause wonder.\n\nReview your words, free: https://lexkite.com/app/#/review?w=amaze\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "amaze",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"amaze\" mean?\n\nAmaze means to cause wonder.\n\nReview your words, free: https://lexkite.com/app/#/review?w=amaze"
+   },
+   "instagram": {
+    "caption": "What does \"amaze\" mean?\n\nAmaze means to cause wonder.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"amaze\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to cause wonder. Amaze means to cause wonder. Try the full lesson and quiz here: {link}"
  }
 }

@@ -5,7 +5,7 @@ name: SEO IndexNow
 on:
   push:
     branches: [main]
-    paths: ['web/js/data.js', 'web/js/lib/**', 'web/packs/**', 'web/js/notes/**', 'content/confidence/**', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-pages-i18n.mjs', 'scripts/lib/seo-words.mjs', 'web/js/usage/**', 'content/dict/wordnet.json', 'web/js/models.js', 'web/js/speak/samples.js', 'scripts/lib/word-depth.mjs', 'scripts/dict/build.mjs']
+    paths: ['web/js/data.js', 'web/js/lib/**', 'web/packs/**', 'web/js/notes/**', 'content/confidence/**', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-pages-i18n.mjs', 'scripts/lib/seo-words.mjs', 'web/js/usage/**', 'content/dict/wordnet.json', 'web/js/models.js', 'web/cpack/speak/samples.js', 'scripts/lib/word-depth.mjs', 'scripts/dict/build.mjs']
   workflow_dispatch:
     inputs:
       all: { description: 'Gửi lại toàn bộ URL (bỏ qua so sánh)', type: boolean, default: false }
@@ -25,10 +25,8 @@ jobs:
       - name: Ghi sổ lastmod (ngày sửa nội dung thật theo URL – scripts/lib/lastmod.mjs)
         run: |
           git diff --quiet -- content/seo/lastmod.json 2>/dev/null && [ -z "$(git status --porcelain content/seo)" ] && { echo "sổ lastmod không đổi"; exit 0; }
-          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
           node -e "JSON.parse(require('fs').readFileSync('content/seo/lastmod.json','utf8'))" && node scripts/test/lastmod.mjs   # commit bot phải qua test (main không đỏ)
-          git add content/seo/lastmod.json && git commit -qm "SEO: cập nhật sổ lastmod theo nội dung trang [skip ci] [CF-Pages-Skip]"
-          for i in 1 2 3; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep 10; done; exit 1
+          bash scripts/ci/push-main.sh "SEO: cập nhật sổ lastmod theo nội dung trang" content/seo/lastmod.json
       - name: Lần trước
         uses: actions/cache/restore@v4
         with: { path: prev-seo-urls.txt, key: 'seo-urls-${{ github.sha }}', restore-keys: 'seo-urls-' }
@@ -44,7 +42,7 @@ jobs:
         run: |
           [ -s changed.txt ] || exit 0
           u=$(head -1 changed.txt); sleep 240
-          for i in $(seq 1 20); do c=$(curl -s -o /dev/null -w '%{http_code}' -H "X-Lexkite-CI: $CI_HDR" "$u"); [ "$c" = 200 ] && break; sleep 30; done
+          for i in $(seq 1 20); do c=$(curl -s -o /dev/null -w '%{http_code}' -H "X-Lexkite-CI: $CI_HDR" "$u" || true); [ "$c" = 200 ] && break; sleep 30; done
           echo "HTTP $c cho $u"
           node scripts/indexnow.mjs < changed.txt
       - name: Lưu danh sách cho lần sau

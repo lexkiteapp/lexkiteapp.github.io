@@ -10,7 +10,7 @@ Liên quan: `docs/CONTENT-PROTECTION.md` (WAF, sổ băm, giám sát) · sổ b�
 ---
 
 ## 1. Bằng chứng cần gom (mọi trường hợp)
-Lệnh gom nhanh cho 1 bài: `node scripts/content-registry.mjs evidence https://lexkite.com/<lang>/blog/<slug>/`
+Lệnh gom đủ (băm, OTS, tem RFC 3161, DOI Zenodo, Wayback, Software Heritage, git): `node scripts/content-registry.mjs evidence <url|seq|canary-id>` – nguồn: `docs/CONTENT-PROTECTION.md` §4b–§4c.
 
 | Bằng chứng | Lấy ở đâu | Chứng minh |
 |---|---|---|
@@ -151,12 +151,13 @@ Date: [YYYY-MM-DD]
 - Trang chép đặt tại Việt Nam: có thể gửi kèm thông báo tới nhà cung cấp hosting trong nước; vụ nghiêm trọng hỏi luật sư về khiếu nại hành chính/khởi kiện dân sự.
 - Không trả lời đe dọa/tống tiền qua kênh riêng; mọi trao đổi bằng email, lưu lại toàn bộ.
 
-## 6. Checklist đăng ký cho OWNER (tốn tiền/cần danh tính – Claude KHÔNG tự làm)
-Giá tham khảo 11/2026, kiểm lại trên trang chính thức trước khi trả.
+## 6. Checklist đăng ký cho OWNER (Claude KHÔNG tự làm)
+**Owner chốt 3/11/2026: giai đoạn này 100% miễn phí** – mục 1–4 (tốn phí) để SAU khi app có doanh thu; trong lúc chờ, bằng chứng miễn phí §4c của `docs/CONTENT-PROTECTION.md` (RFC 3161, OTS, Wayback, Software Heritage, Zenodo, nhật ký nhãn hiệu ™) chạy tự động. Giá tham khảo 11/2026, kiểm lại trước khi trả.
 1. **DMCA designated agent – US Copyright Office (~$6, 3 năm):** `https://dmca.copyright.gov` → tạo tài khoản → *Designate an agent* → tên pháp nhân **MODIAN LUXURY JEWELRY LLC**, tên khác **Lexkite**, agent = owner hoặc dịch vụ agent, địa chỉ (có thể là địa chỉ đăng ký Wyoming), email `support@lexkite.com` → trả phí → lưu số đăng ký. **Gia hạn trước 3 năm** (quá hạn mất "safe harbor"). Xong thì: nhắn Claude số đăng ký để ghi vào Điều khoản §9 `#dmca` (tên + địa chỉ agent).
 2. **Quyền tác giả Việt Nam – Cục Bản quyền tác giả (tùy chọn, chứng cứ mạnh khi tranh chấp trong nước):** `https://cov.gov.vn` → hồ sơ: tờ khai, 2 bản tác phẩm (in/xuất PDF bộ đề + lời giải, hoặc chương trình máy tính), giấy cam đoan, giấy tờ chủ thể (LLC nước ngoài cần ủy quyền/dịch công chứng) → lệ phí nhà nước khoảng vài trăm nghìn đồng/tác phẩm (chương trình máy tính/bộ đề cao hơn tác phẩm viết). Ưu tiên: bộ đề luyện thi + kho từ + nhân vật Ama/Carlos (tác phẩm mỹ thuật).
 3. **Đăng ký quyền tác giả Mỹ (tùy chọn, ~$45–$65/tác phẩm, copyright.gov/registration):** cần có đăng ký trước khi kiện tại Mỹ và để đòi bồi thường luật định; nộp theo nhóm (blog: *Group Registration of Short Online Literary Works*; kho đề: *literary work* hoặc *database*).
 4. **Nhãn hiệu "Lexkite":** USPTO (`https://www.uspto.gov/trademarks/apply`, ~$350/nhóm; nhóm 9 app + 41 giáo dục) · Việt Nam – Cục Sở hữu trí tuệ (`https://ipvietnam.gov.vn`, khoảng 1–2 triệu đồng/nhóm) · quốc tế qua hệ thống Madrid (WIPO) khi có đăng ký gốc. Tra trùng trước: USPTO Trademark Search, WIPO Global Brand Database, IP Vietnam WIPO Publish. Sau khi có số đơn: đổi ™ → ® chỉ khi đã **cấp** (Mỹ).
 5. **Đưa nội dung sang repo private** (đề, lời giải, kho từ, blog nguồn): quyết định kiến trúc (ảnh hưởng runner miễn phí/Pages) – owner quyết; sau khi chuyển, `LICENSE` vẫn giữ cho phần còn công khai.
-6. **Brave Search API key (miễn phí):** để dò bản chép trên toàn web (không chỉ GitHub) – `docs/CONTENT-PROTECTION.md` §6 bước 5.
+6. **Token Zenodo (miễn phí):** ĐÃ CÓ 3/11/2026 – secret `ZENODO_TOKEN` (`docs/CONTENT-PROTECTION.md` §4c). Xoay vòng: tạo token mới cùng scope → cập nhật secret → xóa token cũ.
+7. **Brave Search API key (miễn phí):** để dò bản chép trên toàn web (không chỉ GitHub) – `docs/CONTENT-PROTECTION.md` §6 bước 5.
 

@@ -7,7 +7,8 @@ on:
       langs: { description: 'Ngôn ngữ (JSON)', default: '["vi","en","es","ja","zh","ar"]' }
   push:
     branches: [main]
-    paths: ['extension/*.js', 'extension/*.html', 'extension/*.css', 'extension/manifest.json', 'scripts/test/ext-e2e.mjs', '.github/workflows/ext-e2e.yml']
+    # extension/app: chỉ các file bảng tra + khung app dùng (đổi lúc nào cũng phải kiểm add-on thật); toàn bộ web sẽ tốn 6 runner mỗi lần gộp – phần còn lại do J7 (journey-e2e, PR) + ext-bundles (npm test) canh
+    paths: ['extension/*.js', 'extension/*.html', 'extension/*.css', 'extension/manifest.json', 'extension/app/js/app.js', 'extension/app/js/ui.js', 'extension/app/js/dictionary.js', 'extension/app/js/core.js', 'extension/app/js/lex.js', 'scripts/build-extension.sh', 'scripts/test/ext-e2e.mjs', 'scripts/test/lib/no-prod.mjs', '.github/actions/no-prod/**', '.github/workflows/ext-e2e.yml']
 concurrency: { group: "ext-e2e-${{ inputs.ext_ref || 'cur' }}", cancel-in-progress: true }
 permissions:
   contents: write
@@ -34,8 +35,11 @@ jobs:
       - name: Kiểm thử ${{ matrix.lang }}
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
-          npx playwright install --with-deps chromium
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core }
+      - name: Kiểm thử ${{ matrix.lang }} (tiếp)
+        run: |
           bash scripts/build-extension.sh
           LANG_T=${{ matrix.lang }} node scripts/test/ext-e2e.mjs /tmp/ext-qa
       - uses: actions/upload-artifact@v4

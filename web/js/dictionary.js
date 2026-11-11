@@ -20,6 +20,15 @@
       return await r.json();
     } catch (e) { return null; } finally { clearTimeout(t); }
   };
+  // Datamuse phản chiếu Origin vào Access-Control-Allow-Origin nhưng CDN đệm 24 h mà không Vary: Origin → origin khác (vd. máy dev localhost:8080) gọi trước thì MỌI trang khác cùng điểm CDN bị CORS.
+  // `o=<origin>` tách khóa đệm theo origin (tham số lạ Datamuse bỏ qua). Hỏng 1 lần → nghỉ 5 phút, không bắn thêm lỗi console. → JSON | null. Test: scripts/test/datamuse-resilience.mjs
+  let dmOff = 0;
+  const dm = async (q, { ms = 4000, retry = false } = {}) => {
+    if (g.navigator && g.navigator.onLine === false || !retry && Date.now() < dmOff) return null;
+    const r = await fetchJSON(`https://api.datamuse.com/${q}&o=${encodeURIComponent((g.location || {}).origin || '')}`, ms);
+    dmOff = r === null ? Date.now() + 3e5 : 0;
+    return r;
+  };
   // Cụm nhiều chữ: không gọi dictionaryapi.dev (chỉ mục một từ); Wiktionary chỉ khi trang của cụm tồn tại (query 200 + missing)
   const isPhrase = w => /\s/.test(String(w || '').trim());
   const wikiPages = new Map();
@@ -108,8 +117,8 @@
       const meanings = en.slice(0, 4).map(m => ({ pos: POS_EN[m.partOfSpeech] || String(m.partOfSpeech || '').toLowerCase(), defs: (m.definitions || []).map(d => ({ def: strip(d.definition), ex: strip((d.examples || [])[0] || '') })).filter(d => d.def).slice(0, 3) })).filter(m => m.defs.length);
       if (meanings.length) return { ipa: '', ipaUS: '', audio: '', audioUS: '', meanings, syn: [], src: 'Wiktionary' };
     }
-    const dm = await fetchJSON(`https://api.datamuse.com/words?sp=${encodeURIComponent(word)}&md=dp&max=1`, 3000);
-    const row = Array.isArray(dm) && dm[0] && dm[0].word === word.toLowerCase() ? dm[0] : null;
+    const wn = await dm(`words?sp=${encodeURIComponent(word)}&md=dp&max=1`, { ms: 3000 });
+    const row = Array.isArray(wn) && wn[0] && wn[0].word === word.toLowerCase() ? wn[0] : null;
     if (row && row.defs && row.defs.length) {
       const by = {}; row.defs.forEach(x => { const [p2, d] = x.split('\t'); (by[POS_EN[p2] || p2] = by[POS_EN[p2] || p2] || []).push({ def: d, ex: '' }); });
       return { ipa: '', ipaUS: '', audio: '', audioUS: '', meanings: Object.entries(by).map(([pos, defs]) => ({ pos, defs: defs.slice(0, 3) })), syn: [], src: 'WordNet' };
@@ -563,5 +572,5 @@
     return null;
   }
   const quickL = async (...a) => forLang(await quick(...a)), lookupL = async (...a) => forLang(await lookup(...a));
-  g.Dict = { buildEntry: build, gtxURL, translateTo, translateAuto, myMemory, ipaGuess, lookup: lookupL, quick: quickL, forLang, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
+  g.Dict = { dm, dapiURL, buildEntry: build, gtxURL, translateTo, translateAuto, myMemory, ipaGuess, lookup: lookupL, quick: quickL, forLang, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
 })(typeof self !== 'undefined' ? self : this);

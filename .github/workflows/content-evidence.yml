@@ -1,0 +1,84 @@
+# Bằng chứng tác quyền ở BÊN THỨ BA (miễn phí, chỉ CI – docs/CONTENT-PROTECTION.md §4c), ghi vào sổ băm content/protection/registry.jsonl:
+#  hằng ngày: Wayback Save Page Now cho trang công khai mới/đổi (sitemap, ≤ 120/ngày) → nhật ký "sử dụng đầu tiên" nhãn hiệu (≤ 1 lần/30 ngày/nơi)
+#             → ảnh chụp băm kho → OpenTimestamps → tem RFC 3161 (DigiCert, Sectigo, FreeTSA) cho mục đầu sổ → commit
+#  hằng tuần + khi phát hành add-on/landing: Software Heritage "save code now" (repo công khai)
+#  ngày 1 hằng tháng: Zenodo bản ghi restricted access (DOI) – tắt cho tới khi có secret ZENODO_TOKEN
+# Mọi bước bên thứ ba continue-on-error + ::warning:: – dịch vụ ngoài lỗi không bao giờ làm đỏ CI; lần sau tự thử lại.
+name: Content evidence
+on:
+  schedule:
+    - cron: '41 3 * * *'    # hằng ngày
+    - cron: '23 4 1 * *'    # ngày 1 hằng tháng (Zenodo)
+  workflow_dispatch:
+    inputs:
+      zenodo: { description: 'nộp Zenodo ngay (cần ZENODO_TOKEN)', type: boolean, default: false }
+  push:
+    branches: [main]
+    paths:
+      - 'extension/manifest.json'
+      - 'content/landing/**'
+permissions:
+  contents: write
+concurrency:
+  group: content-protect   # chung với content-protect.yml: cùng ghi sổ băm → chạy tuần tự
+  cancel-in-progress: false
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset)
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Sổ đăng ký – kiểm chuỗi băm
+        run: node scripts/content-registry.mjs verify
+      - name: Wayback – trang công khai mới/đổi (sitemap)
+        if: (github.event_name == 'schedule' && github.event.schedule == '41 3 * * *') || github.event_name == 'workflow_dispatch'
+        continue-on-error: true
+        timeout-minutes: 30
+        run: node scripts/wayback-snapshot.mjs --sitemap --max 120 --delay 10000 < /dev/null
+      - name: Nhãn hiệu – nhật ký sử dụng đầu tiên
+        if: github.event_name != 'push'
+        continue-on-error: true
+        timeout-minutes: 8
+        run: node scripts/tm-evidence.mjs
+      - name: Software Heritage – save code now
+        if: github.event_name != 'schedule' || github.event.schedule == '41 3 * * *'
+        continue-on-error: true
+        timeout-minutes: 5
+        run: |
+          [ "${{ github.event_name }}" = schedule ] && [ "$(date -u +%u)" != 1 ] && { echo "· SWH: chỉ thứ Hai (lịch ngày)"; exit 0; }
+          node scripts/swh-save.mjs
+      - name: Ảnh chụp băm kho nội dung học
+        if: github.event_name != 'push'
+        run: node scripts/content-registry.mjs snapshot
+      - name: Zenodo – bản ghi restricted access hằng tháng (DOI)
+        if: github.event.schedule == '23 4 1 * *' || inputs.zenodo
+        continue-on-error: true
+        timeout-minutes: 20
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+        run: node scripts/zenodo-deposit.mjs
+      - uses: actions/setup-python@v5
+        continue-on-error: true
+        with:
+          python-version: '3.12'
+      - name: OpenTimestamps (mục mới + upgrade)
+        continue-on-error: true
+        timeout-minutes: 10
+        run: |
+          python -m pip install --quiet --disable-pip-version-check opentimestamps-client || { echo "::warning::Không cài được opentimestamps-client"; exit 0; }
+          node scripts/ots.mjs stamp || echo "::warning::ots stamp lỗi – lần sau thử lại"
+          node scripts/ots.mjs upgrade || echo "::warning::ots upgrade lỗi – lần sau thử lại"
+      - name: Tem thời gian RFC 3161 (mục đầu sổ)
+        continue-on-error: true
+        timeout-minutes: 5
+        run: |
+          node scripts/tsa.mjs stamp || echo "::warning::TSA lỗi – lần sau thử lại"
+          node scripts/tsa.mjs status
+      - name: Commit sổ + bằng chứng
+        run: |
+          node scripts/content-registry.mjs verify
+          bash scripts/ci/push-main.sh "Evidence: Wayback/SWH/Zenodo/nhãn hiệu + OTS + RFC 3161 $(date -u +%F)" content/protection/registry.jsonl content/protection/ots content/protection/tsa content/protection/trademark-use.json

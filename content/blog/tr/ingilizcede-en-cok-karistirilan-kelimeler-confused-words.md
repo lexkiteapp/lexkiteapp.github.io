@@ -52,7 +52,7 @@ Bu kelime çiftlerinde hata yapılmasının arkasında 3 temel dilbilimsel neden
 2. **Sözcük Türü Farklılıkları (Fiil vs. İsim)**: Türkçede "etki" kelimesi hem isim olarak kullanılır hem de "etki etmek" fiiline dönüşebilir. İngilizcede ise *affect* (fiil) ve *effect* (isim) ya da *advise* (fiil) ve *advice* (isim) gibi kök değişimleri bulunur.
 3. **Eylemin Yön Farkı (Directionality)**: *borrow* (dışarıdan kendine ödünç almak) ve *lend* (kendinden dışarıya ödünç vermek) eylemleri nesnenin hareket yönüne göre kesin kurallara bağlıdır.
 
-Bu kelimeleri kalıcı öğrenmek için [Lexkite tek dilli sözlük](/#/dict/resilient) modülünü kullanabilir ve [İngilizce gramer alıştırma odası](/#/grammar) ile pekiştirebilirsiniz. Ayrıca [İngilizce kelime ezberleme teknikleri](/tr/blog/ingilizce-kelime-ezberleme/) ve [IELTS eşdizimler rehberi](/tr/blog/ielts-icin-ingilizce-collocations-rehberi/) yazılarımızı inceleyebilirsiniz. Tüm kelime listelerine [kelime kütüphanesi](/tu-vung/) sayfamızdan ulaşabilirsiniz.
+Bu kelimeleri kalıcı öğrenmek için [Lexkite tek dilli sözlük](/#/dict/resilient) modülünü kullanabilir ve [İngilizce gramer alıştırma odası](/#/grammar) ile pekiştirebilirsiniz. Ayrıca [İngilizce kelime ezberleme teknikleri](/tr/blog/ingilizce-kelime-ezberleme/) ve [IELTS eşdizimler rehberi](/tr/blog/ielts-icin-ingilizce-collocations-rehberi/) yazılarımızı inceleyebilirsiniz. Tüm kelime listelerine [kelime kütüphanesi](/en/vocabulary/) sayfamızdan ulaşabilirsiniz.
 
 ## 1. Fiil ve İsim Çiftleri: En Sık Yapılan Hatalar
 

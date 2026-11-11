@@ -1,8 +1,8 @@
 # Bảo vệ nội dung Lexkite – chống cào, chứng minh đăng trước, xử lý DMCA
 
-> TL;DR: Bảo vệ nội dung chống cào: luật Cloudflare WAF, "được lập chỉ mục trước", sổ băm, OpenTimestamps, giám sát bản sao + canary, LICENSE/điều khoản/robots chặn AI, kiểm tra ngược nguồn & giấy phép, xử lý DMCA.
+> TL;DR: Bảo vệ nội dung chống cào: luật Cloudflare WAF, "được lập chỉ mục trước", sổ băm, OpenTimestamps, tem RFC 3161/Wayback/Software Heritage/Zenodo, nhật ký nhãn hiệu, giám sát bản sao + canary, LICENSE/điều khoản/robots chặn AI, kiểm tra ngược nguồn & giấy phép, xử lý DMCA.
 > Đọc khi: xử lý sao chép/DMCA, sửa WAF/robots, thêm tài sản bên thứ ba (ảnh, font, âm thanh, dữ liệu).
-Cập nhật 03/11/2026 (§8–§10). Phía máy chủ/Cloudflare (phiên chính). Thẻ P1 Antigravity (thủy ấn tàng hình `content/protection/watermark.mjs` + `scripts/decode-watermark.mjs` ở blog/bài mẫu, `canaries.json`) đã xong, lưu ở `docs/agents/BOARD-ARCHIVE.md`. Hồ sơ pháp lý: `docs/legal/DMCA-KIT.md`. Không chứa khóa/mật khẩu.
+Cập nhật 03/11/2026 (§4c, §8–§10). Phía máy chủ/Cloudflare (phiên chính). Thẻ P1 Antigravity (thủy ấn tàng hình `content/protection/watermark.mjs` + `scripts/decode-watermark.mjs` ở blog/bài mẫu, `canaries.json`) đã xong, lưu ở `docs/agents/BOARD-ARCHIVE.md`. Hồ sơ pháp lý: `docs/legal/DMCA-KIT.md`. Không chứa khóa/mật khẩu.
 
 ## 1. Mục tiêu & nguyên tắc
 - Kẻ cào chép bài blog (15 ngôn ngữ) và ~2.784 câu hỏi luyện thi, đăng lại sớm hơn, thậm chí gửi DMCA giả nhắm vào Lexkite.
@@ -74,6 +74,20 @@ ots info bang-chung/lexkite-registry-<seq>.json.ots                             
 node scripts/ots.mjs verify <seq>                                                                  # gói 2 lệnh trên
 ```
 Kèm theo: `node scripts/content-registry.mjs evidence <url>` (mục sổ + lịch sử git) – bên thứ ba tính lại `sha256` HTML/nguồn, khớp dòng JSON đã đóng dấu, khớp khối Bitcoin → thời điểm tồn tại không thể làm giả.
+
+## 4c. Bằng chứng ở bên thứ ba (3/11/2026, `content-evidence.yml`, chỉ CI, $0)
+Mọi kết quả ghi vào sổ băm §4 (mục mới → OTS §4b phủ). Bước nào lỗi chỉ `::warning::`, lần sau tự thử lại.
+| Bên thứ ba | Khi nào | Lưu gì | Kiểm |
+|---|---|---|---|
+| **RFC 3161** – DigiCert, Sectigo, FreeTSA (`scripts/tsa.mjs`) | hằng ngày, mục đầu sổ chưa có tem | `content/protection/tsa/<hash mục>.<tsa>.tsr` – chỉ gửi SHA-256 dòng JSON của mục (kho private sau này: ghi gốc băm vào sổ rồi đóng tem, không gửi nội dung). Tem mục *n* phủ mục 1…*n* qua chuỗi | `node scripts/tsa.mjs verify <seq>` (openssl ts -verify; CA FreeTSA ở `tsa/certs/`) |
+| **Wayback** Save Page Now (`scripts/lib/wayback.mjs`) | bài mới (`blog-publish.yml`) + hằng ngày ≤ 120 trang sitemap mới/đổi (`wayback-snapshot.mjs --sitemap`) | mục `archive` | URL bản lưu |
+| **Software Heritage** save code now (`scripts/swh-save.mjs`) | thứ Hai + mỗi lần phát hành add-on/landing | mục `swh` (yêu cầu → trạng thái succeeded + ngày lưu) | archive.softwareheritage.org |
+| **Zenodo** (CERN) restricted access (`scripts/zenodo-deposit.mjs`) | ngày 1 hằng tháng – **tắt tới khi có secret `ZENODO_TOKEN`** | tar.gz kho nội dung (web/js + content trừ protection, ~21 MB) + manifest sha256 → DOI; tệp không công khai, metadata + ngày công khai. Mục `deposit` | DOI; gốc băm manifest tính lại được |
+| **Nhãn hiệu** (`scripts/tm-evidence.mjs`) | ≤ 1 lần/30 ngày/nơi | mục `tm-use` + `content/protection/trademark-use.json`: web, Chrome Web Store, Google Play, App Store, logo – ngày dùng công khai sớm nhất (Wayback CDX; chưa có thì commit git, ghi rõ), bản lưu Wayback mới, băm thiết kế logo | quyền nhãn hiệu thông thường (chưa đăng ký) → chỉ dùng ™, không ® |
+
+**Gom hồ sơ:** `node scripts/content-registry.mjs evidence <url|seq|hash|canary-id>` → băm, OTS (Bitcoin), tem RFC 3161, DOI Zenodo, Wayback, Software Heritage, commit + lịch sử git (không cần mạng).
+**Token Zenodo (owner, miễn phí):** zenodo.org → đăng nhập (GitHub/ORCID) → avatar → *Applications* → *Personal access tokens* → *New token*, scope `deposit:write` + `deposit:actions` → GitHub repo → Settings → Secrets → Actions → `ZENODO_TOKEN`. Thử trước: secret `ZENODO_SANDBOX=1` + token sandbox.zenodo.org. Lưu ý: Zenodo dành cho kết quả nghiên cứu/giáo dục; bản ghi có thể bị xem xét lại – các lớp khác (RFC 3161, OTS, Wayback, SWH) không phụ thuộc Zenodo.
+**Lỗi đã sửa 3/11:** `wayback-snapshot.mjs` gọi `saveSnapshot`/`sleep` chưa định nghĩa từ khi tạo → bước Wayback trong `blog-publish.yml` luôn ném lỗi, `continue-on-error` che → sổ có **0** mục `archive`. Test chặn hồi quy (`protection.mjs`) + cảnh báo khi lưu 0/N trang.
 
 ## 5. Giám sát bản sao (`content-protect.yml`, Chủ nhật 02:17 UTC)
 Kiểm chuỗi băm → ảnh chụp kho → `cf-waf live` (cảnh báo nếu WAF chưa hoạt động) → `copy-watch.mjs`: 1 câu đặc trưng/bài × 6 bài mới nhất, tìm nguyên văn qua **Brave Search API** (gói Free ~2.000 lượt/tháng – chỉ chạy khi có secret `BRAVE_SEARCH_KEY`) **+ mọi canary kho đề/từ (§9)** qua Brave và **GitHub code search** (`GITHUB_TOKEN` của Actions, miễn phí, không cần khóa) → kết quả lên Quản trị (Cảnh báo "Nghi bị chép nội dung" + tab Backlink, PR & Thương hiệu) và có trang lạ thì mở issue `content-copy`. Google/Bing không còn API tìm kiếm miễn phí cho dự án mới.

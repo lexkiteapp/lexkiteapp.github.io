@@ -52,7 +52,7 @@ publishAt: 2026-12-03T19:30:00+08:00
 2. **符合英美文化的得体社交礼仪**: 在跨文化交际中，直来直去的反对极易引起误会。使用 *« I could be wrong, but perhaps... »* 这类缓冲句式，既表达了不同看法，又显得涵养十足。
 3. **消除对话中的尴尬冷场**: 掌握自然的接话词与争取思考时间的句型，能够让你在卡壳时优雅从容地掌控谈话节奏。
 
-想要全方位提升口语实操能力，建议结合 [Lexkite口语演练室](/#/speaking) 进行针对性模拟，并在 [智能词典](/#/dict/resilient) 中随时拓展近义表达。同时，欢迎阅读我们的 [如何用英语思维思考不翻译](/zh/blog/ru-he-yong-ying-yu-si-wei-bu-fan-yi/) 以及 [商务英语演讲实用句型](/zh/blog/shang-wu-ying-yu-yan-jiang-presentation-ju-xing/)。查阅更多主题词汇请访问 [词汇学习中心](/tu-vung/)。
+想要全方位提升口语实操能力，建议结合 [Lexkite口语演练室](/#/speaking) 进行针对性模拟，并在 [智能词典](/#/dict/resilient) 中随时拓展近义表达。同时，欢迎阅读我们的 [如何用英语思维思考不翻译](/zh/blog/ru-he-yong-ying-yu-si-wei-bu-fan-yi/) 以及 [商务英语演讲实用句型](/zh/blog/shang-wu-ying-yu-yan-jiang-presentation-ju-xing/)。查阅更多主题词汇请访问 [词汇学习中心](/en/vocabulary/)。
 
 ## 1. 自然破冰：地道问候与寒暄表达
 

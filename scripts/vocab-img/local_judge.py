@@ -528,6 +528,7 @@ def main():
     ap.add_argument('--targets'); ap.add_argument('--lex', default=os.path.join(ROOT, 'dist/lexicon.json')); ap.add_argument('--features-only', action='store_true')
     ap.add_argument('--prefilter', action='store_true', help='chỉ cổng cục bộ cho ứng viên 1 → <dir>/cand2.a<n>.json (khoá cần ứng viên 2), không gọi thị giác')
     ap.add_argument('--recand', action='store_true', help='chấm ứng viên 2..N mới vẽ cho khoá đã trượt giám khảo (recand.a<n>.json), không chấm lại ứng viên 1')
+    ap.add_argument('--budget-min', type=float, default=0, help='ngân sách phút: hết giờ thì KHÔNG bắt đầu ảnh mới, ghi kết quả đã chấm rồi thoát sạch (0 = không giới hạn)')
     a = ap.parse_args()
     LEX = json.load(open(a.lex)); T = json.load(open(a.targets or os.path.join(a.dir, 'targets.json')))
     th, centroid, _ = load_th()
@@ -549,8 +550,14 @@ def main():
             if any(hamm(ft['ph'], p) <= th['ph_max'] for p in seen_ph) or any(x.startswith(HARD) for x in lr) or not size_ok(im): need.append(k)
             else: seen_ph.append(ft['ph'])
         json.dump({'items': need}, open(os.path.join(a.dir, f'cand2.a{a.attempt}.json'), 'w')); print(f'lọc trước ứng viên 1: {len(need)} khoá cần ứng viên 2'); return
+    deadline = t0 + a.budget_min * 60 if a.budget_min > 0 else None; saved_n = 0; stopped = 0
+    def save():   # ghi nguyên tử: job bị huỷ/hết giờ giữa chừng vẫn còn kết quả đã chấm (03/11: 564 ảnh vẽ xong rồi mất hết vì chỉ ghi ở cuối)
+        json.dump(res, open(out_f + '.tmp', 'w'), indent=1); os.replace(out_f + '.tmp', out_f)
     for k, t in T.items():
         if not t.get('prompt') or not t.get('target'): continue
+        if n - saved_n >= 8: save(); saved_n = n
+        if deadline and time.time() > deadline and os.path.exists(os.path.join(a.dir, 'raw', f'{slug(k)}.a{a.attempt}.jpg')) and k not in res:
+            stopped += 1; continue   # hết ngân sách: đếm ảnh chưa chấm, không chấm thêm
         f = os.path.join(a.dir, 'raw', f'{slug(k)}.a{a.attempt}.jpg')
         if not os.path.exists(f) or (k in res and k not in RC): continue
         im = Image.open(f).convert('RGB')
@@ -579,11 +586,11 @@ def main():
             if not r and ci != 1:   # ứng viên thắng → tên ảnh chuẩn (scene_final/scene-publish đọc <slug>.a<n>.jpg); ứng viên 1 giữ lại để soát
                 os.replace(f, f.replace('.jpg', '.c1.jpg')); shutil.copyfile(cf_, f)
             seen_ph.append(ft_c['ph']); res[k] = {'pass': not r, 'reasons': r, 'kind': t['kind'], 'cands': len(C) + bool(prior), 'f': ft_c}
-            print(k, 'PASS' if not r else 'FAIL', f'[ứng viên {ci}/{len(C) + bool(prior)}]', '; '.join(r)[:140], '·', ft_c['cap'][:70], flush=True); continue
+            print(k, 'PASS' if not r else 'FAIL', f'[ứng viên {ci}/{len(C) + bool(prior)}]', '; '.join(r)[:140], '·', ft_c['cap'][:70], f'· #{n} {time.time() - t0:.0f}s', flush=True); continue
         if not a.features_only and not dup and t['kind'] == 'scene' and t.get('ps') and os.environ.get('VIMG_JUDGE', 'e6') == 'e6':
             ft['_ctx'] = ctx; r = judge_scene(im, t, ft, th, t['kind']); ft.pop('_ctx', None); ft['judge'] = 'e6'
             seen_ph.append(ft['ph']); res[k] = {'pass': not r, 'reasons': r, 'kind': t['kind'], 'f': ft}
-            print(k, 'PASS' if not r else 'FAIL', '; '.join(r)[:140], '·', ft['cap'][:70], flush=True); continue
+            print(k, 'PASS' if not r else 'FAIL', '; '.join(r)[:140], '·', ft['cap'][:70], f'· #{n} {time.time() - t0:.0f}s', flush=True); continue
         if a.features_only or (not dup and not verdict(ft, th, t['kind'], local_only=True)): add_api(ft, ctx, im, t)
         else: ft['api_skipped'] = 'local fail'; _API['skipped'] += 1
         r = [] if a.features_only else verdict(ft, th, t['kind'])
@@ -603,8 +610,9 @@ def main():
         if not a.features_only: r = _check(r)
         seen_ph.append(ft['ph'])
         res[k] = {'pass': not r, 'reasons': r, 'kind': t['kind'], 'f': ft}
-        print(k, 'PASS' if not r else 'FAIL', '; '.join(r)[:140], '·', ft['cap'][:70], flush=True)
-    json.dump(res, open(out_f, 'w'), indent=1)
+        print(k, 'PASS' if not r else 'FAIL', '; '.join(r)[:140], '·', ft['cap'][:70], f'· #{n} {time.time() - t0:.0f}s', flush=True)
+    save()
+    if stopped: print(f'⏱ hết ngân sách {a.budget_min:g} phút: chấm {n} ảnh, còn {stopped} ảnh chưa chấm (giữ file ảnh, không tính trượt)')
     mins = (time.time() - t0) / 60
     json.dump({'images': n, 'minutes': round(mins, 2), 'per_min': round(n / max(mins, 1e-3), 2)}, open(os.path.join(a.dir, f'speed.judge.a{a.attempt}.json'), 'w'))
     # lượt gọi thị giác (neuron bể CF) – tên riêng mỗi việc ma trận để fillpub gộp không đè (scene-publish → fill-report.json)

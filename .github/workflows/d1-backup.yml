@@ -41,7 +41,7 @@ jobs:
           git config user.name "Lexkite CI"; git config user.email "lexkiteapp@users.noreply.github.com"
           node scripts/ops/ledger-push.mjs infra/backups/d1-main.json "d1-backup #${{ github.run_number }}: sổ sao lưu D1 [CF-Pages-Skip] [skip ci]"
       - name: Diễn tập khôi phục (bản mới nhất → D1 cục bộ Miniflare, đối chiếu số dòng)
-        if: ${{ steps.lease.outputs.skip != '1' && steps.commit.outputs.changed == '1' }}
+        if: ${{ steps.lease.outputs.skip != '1' && (steps.commit.outputs.changed == '1' || github.event_name == 'workflow_dispatch') }}   # chạy tay: diễn tập lại bản đang có, không phải đợi tuần sau mới gỡ được cờ
         run: |
           npm i --no-save --no-audit --no-fund miniflare@4.20260730.0
           node scripts/ops/d1-restore.mjs --latest --api --drill --engine miniflare

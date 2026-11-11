@@ -93,7 +93,7 @@ Here is how a balanced week might look for a learner adding around ten new words
 - **Days 4 to 7.** Words you know now appear as typing tasks inside a sentence. If you miss one, it drops back to flips for a while.
 - **Every day.** After typing a word, say it out loud once.
 
-The point is not to follow this exactly. The point is that the mode should follow the word, not your mood. Easy cards that you always flip become a comfortable illusion, while hard cards that you always type become a source of frustration. If you are also working on deeper recall habits, the guide on [how to think in English without translating](/en/blog/how-to-think-in-english-without-translating/) pairs well with production practice, and the [vocabulary pages](/tu-vung/) are a good source of common words to start with.
+The point is not to follow this exactly. The point is that the mode should follow the word, not your mood. Easy cards that you always flip become a comfortable illusion, while hard cards that you always type become a source of frustration. If you are also working on deeper recall habits, the guide on [how to think in English without translating](/en/blog/how-to-think-in-english-without-translating/) pairs well with production practice, and the [vocabulary pages](/en/vocabulary/) are a good source of common words to start with.
 
 ## Making typing practice effective
 

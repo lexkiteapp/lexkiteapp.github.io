@@ -1,0 +1,41 @@
+# Cổng họ trang thư viện (docs/specs/samples-visual.md): dựng bài mẫu của base và PR (≈ 2 s, chỉ build-samples*), so từng trang không mất SEO,
+# rồi soi hình 390/1280 × sáng/tối (chữ cắt, tràn ngang, tương phản, dấu hiệu cuộn); xuất ảnh trước/sau ở artifact samples-visual-shots.
+name: Samples visual
+on:
+  pull_request:
+    paths: ['scripts/build-samples*.mjs', 'scripts/lib/samples-*.mjs', 'scripts/lib/site-layout.mjs', 'scripts/lib/seo-data.mjs', 'scripts/test/samples-*.mjs', 'content/seo-en/**', 'web/img/lib/**', '.github/workflows/samples-visual.yml']
+permissions:
+  contents: read
+concurrency: { group: 'samples-visual-${{ github.ref }}', cancel-in-progress: true }
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: ./.github/actions/no-prod
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Dựng bài mẫu của PR và của base
+        env: { BASE_SHA: '${{ github.event.pull_request.base.sha }}' }
+        run: |
+          build() { mkdir -p dist; printf '<urlset></urlset>' > dist/sitemap.xml; node scripts/build-samples.mjs | tail -1; node scripts/build-samples-en.mjs | tail -1; }
+          build
+          git worktree add -q ../base "$(git merge-base "$BASE_SHA" HEAD)"
+          ( cd ../base && build )
+      - name: SEO không mất (title, meta, canonical, hreflang, JSON-LD, link nội bộ, chữ hiển thị)
+        run: |
+          node scripts/test/samples-seo-parity.mjs --snapshot ../base/dist base.json
+          node scripts/test/samples-seo-parity.mjs --compare base.json dist
+      - name: Soi hình + ảnh trước/sau
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2 >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          for d in dist ../base/dist; do src=$(dirname "$d"); for a in img teach css fonts js icons; do ln -sfn "$(realpath "$src/web/$a")" "$d/$a"; done; done
+          (cd dist && python3 -m http.server 8080 >/dev/null 2>&1 &) ; (cd ../base/dist && python3 -m http.server 8081 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/samples-visual.mjs http://localhost:8081 --shots out/shots/before || echo "(bản cũ có lỗi – chỉ lấy ảnh)"
+          node scripts/test/samples-visual.mjs http://localhost:8080 --shots out/shots/after
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with: { name: samples-visual-shots, path: out/shots, retention-days: 14, if-no-files-found: warn }

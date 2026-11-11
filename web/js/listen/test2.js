@@ -63,7 +63,7 @@ script: [
 { s: 'B', t: 'Thanks so much, Dan. Bye!' },
 ],
 groups: [
-{ type: 'form', title: 'Lakeview Lens Studio – Course booking', instr: 'Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
+{ type: 'form', title: 'Lakeview Lens Studio – Course booking', instr: g.LTI[1], limit: 2,
 items: [
 { n: 1, text: 'Name: Rachel ___', a: ['Thornbury'], cue: 'T, H, O, R, N, B, U, R, Y', explain: 'Rachel đánh vần họ của mình: “T, H, O, R, N, B, U, R, Y” → Thornbury. Chú ý chép đúng từng chữ cái, đặc biệt cụm “BURY” ở cuối.' },
 { n: 2, text: 'Mobile number: ___', a: ['07912446308', '07912 446308'], cue: '0, 7, 9, 1, 2 – 4, 4, 6, 3, 0, 8', explain: 'Rachel đọc số di động: “0, 7, 9, 1, 2 – 4, 4, 6, 3, 0, 8”. Hai số 4 liền nhau được đọc riêng từng chữ; nghe kỹ để không bỏ sót chữ số nào.' },
@@ -73,7 +73,7 @@ items: [
 { n: 6, text: 'Fee (with library card): £___', a: ['145'], cue: 'one hundred and forty-five', explain: 'Bẫy số: giá chuẩn là “one hundred and sixty pounds” (£160), nhưng có thẻ thư viện thì được giảm còn “one hundred and forty-five” → 145, và Rachel xác nhận có thẻ.' },
 { n: 7, text: 'Price includes: lunch and a ___ of her best picture', a: ['framed print', 'print'], cue: 'a framed print of your best picture', explain: 'Giá đã bao gồm bữa trưa cả hai ngày “plus a framed print of your best picture” → framed print (ảnh in có khung). Từ “includes” trong đề tương ứng với “covers” trong bài.' },
 ] },
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 8, q: 'What does Dan advise Rachel to bring?', options: ['a tripod', 'spare batteries', 'a waterproof jacket'], a: 2, cue: 'definitely bring a waterproof jacket', explain: 'Đáp án C: Dan nói “definitely bring a waterproof jacket” vì thời tiết đổi nhanh. A sai vì tripod thì “No need for that, we\'ve got plenty to lend”; B sai vì pin “usually last all day”.' },
 { n: 9, q: 'What does Dan say about the tutor, Maria Costa?', options: ['She has written several books.', 'She used to work for a newspaper.', 'She has won national prizes.'], a: 1, cue: 'taking pictures for a local newspaper', explain: 'Đáp án B: cô ấy “spent fifteen years taking pictures for a local newspaper” – tức từng làm cho báo. A sai: viết sách thì “she hasn\'t”; C sai: chỉ “shortlisted”, “hasn\'t won one yet”.' },
@@ -145,7 +145,7 @@ script: [
 { s: 'A', t: 'Helen Marsh, thank you. If you want to join, details are on our website.' },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 11, q: 'What was the main reason the Shore Keepers programme started?', options: ['A storm left a beach covered in rubbish.', 'A local school asked for help.', 'Tourists complained about the beaches.'], a: 0, cue: 'what really got us going was the huge storm', explain: 'Đáp án A: “what really got us going was the huge storm three winters ago”, khiến Pebble Bay “covered in plastic”. C là bẫy: có vài thư phàn nàn của du khách nhưng không phải lý do chính; B không được nhắc đến.' },
 { n: 12, q: 'How many volunteers usually attend each clean-up?', options: ['about 40', 'about 120', 'about 300'], a: 1, cue: 'around a hundred and twenty people turn up', explain: 'Đáp án B: “On a typical clean-up day, around a hundred and twenty people turn up”. Bẫy: 40 là số người năm đầu, 300 là số người trong “mailing list”, không phải số người thường đến.' },
@@ -159,7 +159,7 @@ items: [
 { n: 16, text: 'Sandown Cove', a: 'D', cue: 'ideal if you want to bring the kids along', explain: 'Sandown Cove bằng phẳng, kín gió, “ideal if you want to bring the kids along” → D (phù hợp cho trẻ em). “kids” được diễn đạt lại thành “children” trong đáp án.' },
 { n: 17, text: 'Harbour Beach', a: 'B', cue: "there's nowhere to leave a car", explain: 'Harbour Beach: bãi đỗ xe đóng cửa sửa chữa, “there\'s nowhere to leave a car” → B. Bẫy: A sai vì “the buses don\'t go that way on Saturdays”; E sai vì “The toilets are open”.' },
 ] },
-{ type: 'note', title: 'Equipment and safety', instr: 'Complete the notes below. Write ONE WORD ONLY for each answer.', limit: 1,
+{ type: 'note', title: 'Equipment and safety', instr: g.LTI[2], limit: 1,
 items: [
 { n: 18, text: 'Volunteers should bring sun cream and a ___', a: ['hat'], cue: 'you will need sun cream and a hat', explain: 'Găng tay, bao, que gắp rác đều được phát, ủng cũng không cần, nhưng “you will need sun cream and a hat” → hat. Đề viết “should bring”, bài nói “you will need”.' },
 { n: 19, text: 'Do not touch ___ or broken glass – tell a team leader', a: ['needles', 'needle'], cue: 'never pick up needles or broken glass', explain: 'Quy tắc an toàn đầu tiên: “never pick up needles or broken glass yourself” → needles. “Do not touch” trong đề là cách diễn đạt lại của “never pick up”.' },
@@ -238,7 +238,7 @@ script: [
 { s: 'B', t: "That would be really helpful. Thanks so much, Dr Ellis." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 21, q: 'What did the tutor think was the most effective part of the presentation?', options: ['the historical photographs', 'the opening statistic', 'the timeline'], a: 1, cue: 'It was the way you opened', explain: 'Đáp án B: thầy khen ảnh và dòng thời gian nhưng nói “neither of those was what really stood out”; điểm nổi bật là “the way you opened – with that statistic”. A và C bị loại rõ ràng.' },
 { n: 22, q: 'What difficulty did Chloe have?', options: ['finding reliable sources', 'keeping to the time limit', 'using the slide software'], a: 1, cue: 'I was given twelve minutes', explain: 'Đáp án B: “I was given twelve minutes and I think I took nearly sixteen” → vượt thời gian. A sai vì thư viện “had loads of material”; C sai vì “the slide software was fine”.' },
@@ -320,7 +320,7 @@ script: [
 { s: 'A', t: "Right. Next week we'll look at how exercise affects attention." },
 ],
 groups: [
-{ type: 'note', title: 'Sleep and memory consolidation in teenagers', instr: 'Complete the notes below. Write ONE WORD ONLY for each answer.', limit: 1,
+{ type: 'note', title: 'Sleep and memory consolidation in teenagers', instr: g.LTI[2], limit: 1,
 items: [
 { n: 31, text: 'Memory consolidation: during sleep the brain ___ the day’s experiences', a: ['replays'], cue: "the brain essentially replays the day's experiences", explain: 'Giảng viên nói “the brain essentially replays the day\'s experiences” → replays. Cần giữ đúng dạng động từ có “-s” cho khớp ngữ pháp câu.' },
 { n: 32, text: 'The ___ acts as a temporary store for new information', a: ['hippocampus'], cue: 'The key structure here is the hippocampus', explain: '“The key structure here is the hippocampus”, được ví như “a temporary store, a kind of inbox” → hippocampus. Cần viết đúng chính tả.' },

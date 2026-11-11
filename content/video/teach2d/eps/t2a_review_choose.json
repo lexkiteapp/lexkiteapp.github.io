@@ -72,5 +72,46 @@
   "words": 38,
   "seconds": 23.7,
   "wpm": 96
+ },
+ "publish": {
+  "title": "What does \"choose\" mean?",
+  "keyword": "choose",
+  "value": "Choose means to select.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=choose",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"choose\" mean?",
+    "description": "Choose means to select.\n\nReview your words, free: https://lexkite.com/app/#/review?w=choose\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "choose",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"choose\" mean?\n\nChoose means to select.\n\nReview your words, free: https://lexkite.com/app/#/review?w=choose"
+   },
+   "instagram": {
+    "caption": "What does \"choose\" mean?\n\nChoose means to select.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"choose\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to select. Choose means to select. Practice it with a free quiz: {link}"
  }
 }

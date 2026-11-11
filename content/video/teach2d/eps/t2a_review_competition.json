@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"competition\" mean?",
+  "keyword": "competition",
+  "value": "Competition means an event in which people try to win something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=competition",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"competition\" mean?",
+    "description": "Competition means an event in which people try to win something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=competition\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "competition",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"competition\" mean?\n\nCompetition means an event in which people try to win something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=competition"
+   },
+   "instagram": {
+    "caption": "What does \"competition\" mean?\n\nCompetition means an event in which people try to win something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"competition\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means an event in which people try to win something. Competition means an event in which people try to win something. Try the full lesson and quiz here: {link}"
  }
 }

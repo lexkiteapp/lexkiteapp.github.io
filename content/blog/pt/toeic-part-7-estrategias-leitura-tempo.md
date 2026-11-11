@@ -129,6 +129,8 @@ Construa resistência de leitura com esta disciplina de estudos diários:
 
 ---
 
+Para montar sua rotina de estudos, o [plano de estudo TOEIC](/pt/blog/plano-de-estudo-toeic-guia/) mostra como distribuir Listening e Reading ao longo das semanas.
+
 ## Conquiste pontuações de elite no TOEIC com o Lexkite
 
 Alcançar uma pontuação acima de 850 ou 900 pontos requer velocidade de leitura e repertório lexical abrangente:

@@ -20,7 +20,7 @@ fs.mkdirSync(LEDGER.replace(/\/[^/]*$/, ''), { recursive: true });
 fs.writeFileSync(LEDGER, [...led].sort((a, b) => (a[0] < b[0] ? -1 : 1)).map(x => x.join('\t')).join('\n') + '\n');
 fs.writeFileSync(FAIL, 'khóa\tgiọng\tlý do (Whisper nghe được, WER)\tcâu\n' + [...fails.keys()].sort().map(k => fails.get(k)).join('\n') + (fails.size ? '\n' : ''));
 writeIndex(have, s2);
-const all = [...led.values()], c = x => all.filter(v => v === x).length, total = [...jobs.keys()].filter(k => have.has(k)).length;
+const all = [...led.values()], c = x => all.filter(v => v === x).length, total = new Set([...[...jobs.keys()].filter(k => have.has(k)), ...led.keys()]).size; // gồm cả khóa đã kiểm của câu không còn trong bộ hiện tại: sổ giữ nguyên, checked không vượt total (04/11: 49113/49105 làm cổng đỏ mãi, filler đẩy lại vô ích)
 const S = { checked: led.size, total, oldOk: c('ok'), s2: c('s2'), fail: c('fail'), passPct: led.size ? +(100 * (c('ok') + c('s2')) / led.size).toFixed(2) : 0, oldPassPct: led.size ? +(100 * c('ok') / led.size).toFixed(2) : 0 };
 fs.writeFileSync(STATS, JSON.stringify(S) + '\n');
 const n = run.ok + run.s2 + run.fail, pct = x => (n ? (100 * x / n).toFixed(1) : '0') + '%';

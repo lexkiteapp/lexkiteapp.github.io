@@ -1,0 +1,786 @@
+{
+ "v": 1,
+ "tl": "es",
+ "variant": "es-419",
+ "status": "reviewed",
+ "source": {
+  "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
+  "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
+  "license": "CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec"
+ },
+ "words": [
+  {
+   "word": "quizás",
+   "pos": "adv",
+   "ipa": "kiˈsas",
+   "gl": {
+    "vi": "có lẽ",
+    "en": "maybe, perhaps",
+    "es": "quizás",
+    "pt": "talvez",
+    "fr": "peut-être",
+    "de": "vielleicht",
+    "id": "mungkin",
+    "th": "บางที",
+    "zh": "也许",
+    "ja": "たぶん",
+    "ko": "아마도",
+    "hi": "शायद",
+    "ar": "ربما",
+    "ru": "возможно",
+    "tr": "belki"
+   },
+   "ex": {
+    "es": "Quizás llueva esta tarde.",
+    "en": "Maybe it will rain this afternoon."
+   },
+   "rank": 328,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "mano",
+   "pos": "n",
+   "gender": "f",
+   "plural": "manos",
+   "ipa": "ˈmano",
+   "gl": {
+    "vi": "bàn tay",
+    "en": "hand",
+    "es": "mano",
+    "pt": "mão",
+    "fr": "main",
+    "de": "Hand",
+    "id": "tangan",
+    "th": "มือ",
+    "zh": "手",
+    "ja": "手",
+    "ko": "손",
+    "hi": "हाथ",
+    "ar": "يد",
+    "ru": "рука",
+    "tr": "el"
+   },
+   "ex": {
+    "es": "Lávate las manos antes de comer.",
+    "en": "Wash your hands before eating."
+   },
+   "exForm": "manos",
+   "rank": 373,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "único",
+   "pos": "adj",
+   "ipa": "ˈuniko",
+   "gl": {
+    "vi": "duy nhất",
+    "en": "only, unique",
+    "es": "único",
+    "pt": "único",
+    "fr": "seul, unique",
+    "de": "einzig, einzigartig",
+    "id": "satu-satunya, unik",
+    "th": "เพียงหนึ่งเดียว",
+    "zh": "唯一的",
+    "ja": "唯一の",
+    "ko": "유일한",
+    "hi": "एकमात्र",
+    "ar": "وحيد, فريد",
+    "ru": "единственный",
+    "tr": "tek, eşsiz"
+   },
+   "ex": {
+    "es": "Él es mi único hermano.",
+    "en": "He is my only brother."
+   },
+   "rank": 388,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "incluso",
+   "pos": "adv",
+   "ipa": "inˈkluso",
+   "gl": {
+    "vi": "thậm chí",
+    "en": "even",
+    "es": "incluso",
+    "pt": "mesmo, inclusive",
+    "fr": "même",
+    "de": "sogar",
+    "id": "bahkan",
+    "th": "แม้กระทั่ง",
+    "zh": "甚至",
+    "ja": "〜さえ",
+    "ko": "심지어",
+    "hi": "यहाँ तक कि",
+    "ar": "حتى",
+    "ru": "даже",
+    "tr": "bile, hatta"
+   },
+   "ex": {
+    "es": "Todos fueron al cine, incluso Juan.",
+    "en": "Everyone went to the movies, even Juan."
+   },
+   "rank": 401,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "iŋˈklu.so"
+   }
+  },
+  {
+   "word": "trabajar",
+   "pos": "v",
+   "ipa": "tɾaβaˈxaɾ",
+   "gl": {
+    "vi": "làm việc",
+    "en": "to work",
+    "es": "trabajar",
+    "pt": "trabalhar",
+    "fr": "travailler",
+    "de": "arbeiten",
+    "id": "bekerja",
+    "th": "ทำงาน",
+    "zh": "工作",
+    "ja": "働く",
+    "ko": "일하다",
+    "hi": "काम करना",
+    "ar": "عمل",
+    "ru": "работать",
+    "tr": "çalışmak"
+   },
+   "ex": {
+    "es": "Mi hermano va a trabajar en una oficina.",
+    "en": "My brother is going to work in an office."
+   },
+   "rank": 431,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "teléfono",
+   "pos": "n",
+   "gender": "m",
+   "plural": "teléfonos",
+   "ipa": "teˈlefono",
+   "gl": {
+    "vi": "điện thoại",
+    "en": "telephone, phone",
+    "es": "teléfono",
+    "pt": "telefone",
+    "fr": "téléphone",
+    "de": "Telefon",
+    "id": "telepon",
+    "th": "โทรศัพท์",
+    "zh": "电话",
+    "ja": "電話",
+    "ko": "전화",
+    "hi": "फ़ोन",
+    "ar": "هاتف",
+    "ru": "телефон",
+    "tr": "telefon"
+   },
+   "ex": {
+    "es": "¿Puedes contestar el teléfono, por favor?",
+    "en": "Can you answer the phone, please?"
+   },
+   "rank": 443,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "número",
+   "pos": "n",
+   "gender": "m",
+   "plural": "números",
+   "ipa": "ˈnumeɾo",
+   "gl": {
+    "vi": "số",
+    "en": "number",
+    "es": "número",
+    "pt": "número",
+    "fr": "numéro, nombre",
+    "de": "Nummer, Zahl",
+    "id": "nomor, angka",
+    "th": "ตัวเลข",
+    "zh": "数字, 号码",
+    "ja": "番号, 数字",
+    "ko": "번호, 숫자",
+    "hi": "संख्या, नंबर",
+    "ar": "رقم",
+    "ru": "номер, число",
+    "tr": "numara, sayı"
+   },
+   "ex": {
+    "es": "¿Cuál es tu número de celular?",
+    "en": "What is your cell phone number?"
+   },
+   "rank": 458,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "joven",
+   "pos": "adj",
+   "ipa": "ˈxoβen",
+   "gl": {
+    "vi": "trẻ",
+    "en": "young",
+    "es": "joven",
+    "pt": "jovem",
+    "fr": "jeune",
+    "de": "jung",
+    "id": "muda",
+    "th": "หนุ่ม",
+    "zh": "年轻",
+    "ja": "若い",
+    "ko": "젊은",
+    "hi": "युवा",
+    "ar": "شاب",
+    "ru": "молодой",
+    "tr": "genç"
+   },
+   "ex": {
+    "es": "Ella es una mujer joven.",
+    "en": "She is a young woman."
+   },
+   "rank": 506,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "sentido",
+   "pos": "n",
+   "gender": "m",
+   "plural": "sentidos",
+   "ipa": "senˈtiðo",
+   "gl": {
+    "vi": "nghĩa",
+    "en": "sense, meaning",
+    "es": "sentido",
+    "pt": "sentido",
+    "fr": "sens",
+    "de": "Sinn",
+    "id": "makna",
+    "th": "ความหมาย",
+    "zh": "意义",
+    "ja": "意味",
+    "ko": "의미",
+    "hi": "अर्थ",
+    "ar": "معنى",
+    "ru": "смысл",
+    "tr": "anlam"
+   },
+   "ex": {
+    "es": "Este texto tiene mucho sentido.",
+    "en": "This text makes a lot of sense."
+   },
+   "rank": 519,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "dormir",
+   "pos": "v",
+   "ipa": "doɾˈmiɾ",
+   "gl": {
+    "vi": "ngủ",
+    "en": "to sleep",
+    "es": "dormir",
+    "pt": "dormir",
+    "fr": "dormir",
+    "de": "schlafen",
+    "id": "tidur",
+    "th": "นอน",
+    "zh": "睡觉",
+    "ja": "眠る",
+    "ko": "자다",
+    "hi": "सोना",
+    "ar": "نام",
+    "ru": "спать",
+    "tr": "uyumak"
+   },
+   "ex": {
+    "es": "Necesito dormir ocho horas cada noche.",
+    "en": "I need to sleep eight hours every night."
+   },
+   "rank": 557,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "marido",
+   "pos": "n",
+   "gender": "m",
+   "plural": "maridos",
+   "ipa": "maˈɾiðo",
+   "gl": {
+    "vi": "chồng",
+    "en": "husband",
+    "es": "marido",
+    "pt": "marido",
+    "fr": "mari",
+    "de": "Ehemann",
+    "id": "suami",
+    "th": "สามี",
+    "zh": "丈夫",
+    "ja": "夫",
+    "ko": "남편",
+    "hi": "पति",
+    "ar": "زوج",
+    "ru": "муж",
+    "tr": "koca"
+   },
+   "ex": {
+    "es": "Mi marido cocina muy bien.",
+    "en": "My husband cooks very well."
+   },
+   "rank": 562,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "anoche",
+   "pos": "adv",
+   "ipa": "aˈnotʃe",
+   "gl": {
+    "vi": "tối qua",
+    "en": "last night",
+    "es": "anoche",
+    "pt": "ontem à noite",
+    "fr": "hier soir",
+    "de": "gestern Abend",
+    "id": "tadi malam",
+    "th": "เมื่อคืน",
+    "zh": "昨晚",
+    "ja": "昨夜",
+    "ko": "어젯밤",
+    "hi": "कल रात",
+    "ar": "الليلة الماضية",
+    "ru": "вчера вечером",
+    "tr": "dün gece"
+   },
+   "ex": {
+    "es": "Anoche cenamos en un restaurante nuevo.",
+    "en": "Last night we had dinner at a new restaurant."
+   },
+   "rank": 580,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "niña",
+   "pos": "n",
+   "gender": "f",
+   "plural": "niñas",
+   "ipa": "ˈniɲa",
+   "gl": {
+    "vi": "bé gái",
+    "en": "girl",
+    "es": "niña",
+    "pt": "menina",
+    "fr": "fille",
+    "de": "Mädchen",
+    "id": "anak perempuan",
+    "th": "เด็กผู้หญิง",
+    "zh": "女孩",
+    "ja": "女の子",
+    "ko": "여자아이",
+    "hi": "लड़की",
+    "ar": "طفلة",
+    "ru": "девочка",
+    "tr": "kız çocuğu"
+   },
+   "ex": {
+    "es": "La niña juega con su pelota en el jardín.",
+    "en": "The girl plays with her ball in the garden."
+   },
+   "rank": 592,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "fuego",
+   "pos": "n",
+   "gender": "m",
+   "plural": "fuegos",
+   "ipa": "ˈfweɣo",
+   "gl": {
+    "vi": "lửa",
+    "en": "fire",
+    "es": "fuego",
+    "pt": "fogo",
+    "fr": "feu",
+    "de": "Feuer",
+    "id": "api",
+    "th": "ไฟ",
+    "zh": "火",
+    "ja": "火",
+    "ko": "불",
+    "hi": "आग",
+    "ar": "نار",
+    "ru": "огонь",
+    "tr": "ateş"
+   },
+   "ex": {
+    "es": "Hicimos un fuego para calentarnos.",
+    "en": "We made a fire to warm ourselves."
+   },
+   "rank": 603,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "acabar",
+   "pos": "v",
+   "ipa": "akaˈβaɾ",
+   "gl": {
+    "vi": "kết thúc",
+    "en": "to finish, to end",
+    "es": "acabar",
+    "pt": "acabar",
+    "fr": "finir",
+    "de": "beenden",
+    "id": "menyelesaikan",
+    "th": "เสร็จ",
+    "zh": "结束",
+    "ja": "終える",
+    "ko": "끝내다",
+    "hi": "समाप्त करना",
+    "ar": "أنهى",
+    "ru": "заканчивать",
+    "tr": "bitirmek"
+   },
+   "ex": {
+    "es": "La clase acaba a las tres de la tarde.",
+    "en": "The class ends at three in the afternoon."
+   },
+   "exForm": "acaba",
+   "rank": 608,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "querido",
+   "pos": "adj",
+   "ipa": "keˈɾiðo",
+   "gl": {
+    "vi": "yêu quý",
+    "en": "dear, beloved",
+    "es": "querido",
+    "pt": "querido",
+    "fr": "cher",
+    "de": "lieb",
+    "id": "tercinta",
+    "th": "ที่รัก",
+    "zh": "亲爱的",
+    "ja": "親愛なる",
+    "ko": "친애하는",
+    "hi": "प्रिय",
+    "ar": "عزيز",
+    "ru": "дорогой",
+    "tr": "sevgili"
+   },
+   "ex": {
+    "es": "Ella es una amiga muy querida.",
+    "en": "She is a very dear friend."
+   },
+   "exForm": "querida",
+   "rank": 629,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "keˈɾi.ða"
+   }
+  },
+  {
+   "word": "libre",
+   "pos": "adj",
+   "ipa": "ˈliβɾe",
+   "gl": {
+    "vi": "tự do, rảnh",
+    "en": "free",
+    "es": "libre",
+    "pt": "livre",
+    "fr": "libre",
+    "de": "frei",
+    "id": "bebas",
+    "th": "ว่าง, อิสระ",
+    "zh": "自由的，空闲的",
+    "ja": "自由な",
+    "ko": "자유로운, 한가한",
+    "hi": "मुक्त, स्वतंत्र",
+    "ar": "حر",
+    "ru": "свободный",
+    "tr": "özgür, serbest"
+   },
+   "ex": {
+    "es": "Hoy es mi día libre del trabajo.",
+    "en": "Today is my free day from work."
+   },
+   "rank": 634,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "película",
+   "pos": "n",
+   "gender": "f",
+   "plural": "películas",
+   "ipa": "peˈlikula",
+   "gl": {
+    "vi": "phim",
+    "en": "movie, film",
+    "es": "película",
+    "pt": "filme",
+    "fr": "film",
+    "de": "Film",
+    "id": "film",
+    "th": "ภาพยนตร์",
+    "zh": "电影",
+    "ja": "映画",
+    "ko": "영화",
+    "hi": "फिल्म",
+    "ar": "فيلم",
+    "ru": "фильм",
+    "tr": "film"
+   },
+   "ex": {
+    "es": "Vamos a ver una película divertida.",
+    "en": "We are going to watch a funny movie."
+   },
+   "rank": 641,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "trato",
+   "pos": "n",
+   "gender": "m",
+   "plural": "tratos",
+   "ipa": "ˈtɾato",
+   "gl": {
+    "vi": "thỏa thuận",
+    "en": "deal, agreement",
+    "es": "trato",
+    "pt": "acordo",
+    "fr": "accord, marché",
+    "de": "Abmachung, Deal",
+    "id": "kesepakatan",
+    "th": "ข้อตกลง",
+    "zh": "协议，交易",
+    "ja": "取引、約束",
+    "ko": "합의, 거래",
+    "hi": "सौदा",
+    "ar": "اتفاق",
+    "ru": "сделка, договор",
+    "tr": "anlaşma"
+   },
+   "ex": {
+    "es": "Tenemos un trato para el fin de semana.",
+    "en": "We have a deal for the weekend."
+   },
+   "rank": 665,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  }
+ ],
+ "review": {
+  "by": "sonnet-review-B",
+  "at": "2026-11-09",
+  "checked": 19,
+  "fixed": 0,
+  "dropped": 0,
+  "sample": 6
+ }
+}
