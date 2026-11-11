@@ -7568,6 +7568,176 @@
     "g": "Got it? Tap Good. Forgot? Tap Again.",
     "c": "Save this. Free on lexkite.com."
    }
+  },
+  "t2_l1_vi_final_s": {
+   "template": "l1",
+   "hook": "Người Việt hay quên âm “s” này!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Do you forget this sound?",
+    "w": "Many learners say: She like coffee.",
+    "r": "Better: She likes coffee.",
+    "y": "With he, she, it, add s to the verb.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Drinks! He drinks tea every day.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_vi_very_like": {
+   "template": "l1",
+   "hook": "Đừng nói “I very like” nhé!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Don't say I very like!",
+    "w": "Many learners say: I very like music.",
+    "r": "Better: I like music very much.",
+    "y": "Very does not go before a verb.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Very much! I like pizza very much.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_pt_age": {
+   "template": "l1",
+   "hook": "Você diz “I have 20 years”?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Age in English: careful!",
+    "w": "Many learners say: I have twenty years.",
+    "r": "Better: I am twenty years old.",
+    "y": "For age, use am, not have.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Is! She is twenty years old.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_pt_pretend": {
+   "template": "l1",
+   "hook": "“Pretend” não é “pretender”!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Pretend is a false friend!",
+    "w": "Many learners say: I pretend to travel next year.",
+    "r": "Better: I plan to travel next year.",
+    "y": "Pretend means to act like something is true.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Plan! I plan to study more.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_es_hungry": {
+   "template": "l1",
+   "hook": "¿Dices “I have hunger”? ¡No!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Hungry? Don't say have!",
+    "w": "Many learners say: I have hunger.",
+    "r": "Better: I am hungry.",
+    "y": "With hungry, thirsty, and cold, use am.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Am! I am thirsty.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_es_agree": {
+   "template": "l1",
+   "hook": "Error típico: “I am agree”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Don't say I am agree!",
+    "w": "Many learners say: I am agree with you.",
+    "r": "Better: I agree with you.",
+    "y": "Agree is already a verb. Do not add am.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Agrees! She agrees with me.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_de_become": {
+   "template": "l1",
+   "hook": "„Become“ heißt nicht „bekommen“!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Become is a false friend!",
+    "w": "Many learners say: I become a coffee, please.",
+    "r": "Better: I would like a coffee, please.",
+    "y": "Become means to start to be. It is not get.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Like! I would like a tea, please.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_de_since": {
+   "template": "l1",
+   "hook": "„Seit“ ist nicht immer „since“!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Careful with since and for!",
+    "w": "Many learners say: I live here since two years.",
+    "r": "Better: I have lived here for two years.",
+    "y": "Use for with a length of time.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "For! I have worked here for three years.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_fr_library": {
+   "template": "l1",
+   "hook": "« Library » ≠ librairie !",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Library is a false friend!",
+    "w": "Many learners say: I go to the library to buy books.",
+    "r": "Better: I go to the bookstore to buy books.",
+    "y": "A library lends books. A bookstore sells them.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Bookstore! I buy books at the bookstore.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_fr_age": {
+   "template": "l1",
+   "hook": "« I have 20 years » : faux !",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "How to say your age!",
+    "w": "Many learners say: I have twenty years.",
+    "r": "Better: I am twenty years old.",
+    "y": "For age, use am, not have.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Is! He is twenty years old.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
   }
  }
 }

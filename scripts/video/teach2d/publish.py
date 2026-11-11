@@ -33,6 +33,8 @@ def _ord(i): return ['1st', '2nd', '3rd', '4th', '5th'][i]
 
 def facts(ep):
     """(title, keyword, value) từ dữ kiện của tập – cùng nguồn với lời giáo viên."""
+    if ep.get('lang', 'en') != 'en':   # L1 clip: title / post text come from the native layer written at production (l1.json)
+        N = ep['data']['native']; return _fit(N['hook'], N['hook'] + '!'), ep['data']['right'], N['tip']
     t, D, L = ep['template'], ep.get('data') or {}, {l['id']: l['text'] for l in ep['lines']}
     hook = ep['lines'][0]['text']
     if t == 'review':
@@ -62,7 +64,16 @@ def facts(ep):
     return _fit(hook, f'{ep["series"]}: {hook}'), str(kw)[:40], expl
 
 
+def build_l1(ep):
+    """Clip L1: title, post text, hashtags, first comment all in the page language (native-qa.mjs checks them); the teacher still teaches English."""
+    N = ep['data']['native']; title, kw, value = facts(ep); link = ep['cta']['link']; cap = N['caption']; tags = N['hashtags'][:5]; ph = '\n\n'
+    plat = dict(youtube=dict(title=title, description=f"{cap}\n\n{link}\n\n{' '.join(tags)}", tags=list(dict.fromkeys([kw, 'learn english', ep['lang']]))),
+                facebook=dict(text=f'{cap}{ph}{link}'), instagram=dict(caption=f'{cap}{ph}lexkite.com', hashtags=tags), tiktok=dict(caption=(f'{title} {" ".join(tags[:3])}')[:150]))
+    return dict(title=title, keyword=kw, value=value, hashtags=tags, link=link, script_words=sum(len(l['text'].split()) for l in ep['lines'] if not l.get('quiz')), platforms=plat, first_comment=N['comment'], lang=ep['lang'])
+
+
 def build(ep):
+    if ep.get('lang', 'en') != 'en': return build_l1(ep)
     title, kw, value = facts(ep)
     lvl = str(ep.get('cefr') or (ep.get('data') or {}).get('cefr') or '').lower()
     tags = list(dict.fromkeys(['#learnenglish', '#englishtips', AREA_TAG.get(ep['area'], '#speakenglish')] + ([f'#{lvl}english'] if re.fullmatch(r'[abc][12]', lvl) else []) + ['#englishteacher']))[:5]

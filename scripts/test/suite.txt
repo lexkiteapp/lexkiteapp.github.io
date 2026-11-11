@@ -319,6 +319,7 @@ node scripts/test/i18n-native-score.mjs
 node scripts/test/cambridge.mjs
 node scripts/test/teacher-rig.mjs
 node scripts/test/teach2d-rig.mjs
+node scripts/test/teach2d-l1.mjs
 node scripts/test/workflow-yaml.mjs
 node scripts/test/workflow-call-perms.mjs
 node scripts/test/push-main.mjs

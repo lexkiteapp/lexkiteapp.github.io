@@ -344,6 +344,22 @@ def T_mistake():
     end_card()
 
 
+def T_l1():
+    """Clip L1 (docs/VIDEO-TEACH2D.md): native-language hook slams in on frame 0, then the mistake bubble (✗) -> the right bubble (✓) -> a tip card in the page language + the plain English reason, quiz, save card.
+    The teacher and the captions stay English (<= B1); only the hook, the tip and the post text are native (data.native, checked by scripts/rig/native-qa.mjs)."""
+    D = EP['data']; N = D['native']; series_chip(); t_out = start('q') - 0.2; t_h = start('w') - 0.2
+    title([[N['hook'], 'coral']], 76, RY0 + 100, None, t_h, hook=True)
+    c = Card(RY0 + 230, tone='bubble_bad', w=RW - 70, badge='cross', t_badge=start('w')); c.tail = 'l'
+    tn = c.text([[D['wrong'], 'onbad']], S['body'], start('w'))[0]; b1 = c.place(start('w'), t_out, 'a')
+    strike_on(tn, D['strike'], at('w', D['strike'].split()[0]) + 0.15)
+    c = Card(b1[3] + 30, tone='bubble_good', x0=RX0 + 70, w=RW - 70, badge='check', t_badge=at('r', 'better')); c.tail = 'r'
+    c.text([[D['right'], 'ongood']], S['body'], at('r', 'better')); b2 = c.place(at('r', 'better'), t_out, 'b')
+    c = Card(b2[3] + 30, tone='card'); c.text([['⚡ ', 'accent'], [N['tip'], 'ink']], S['sub'], start('y')); c.text([[D['why'], 'muted']], S['sub'], start('y')); c.place(start('y'), t_out, 'c')
+    q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)
+    save_card([[[D['right'], 'good']], [[D['memory'], 'muted']]], start('sh'), start('c') - 0.2)
+    end_card()
+
+
 def T_usuk():
     """Stitch a5a31136… 'US vs UK battle': split card (US half | UK half) with a coral VS badge on the seam; example, then the quiz below it."""
     D = EP['data']; series_chip(); t_split = start('sh') - 0.2
@@ -652,7 +668,7 @@ def T_react():
     end_card()
 
 
-dict(usuk=T_usuk, verbs=T_verbs, stress=T_stress, mistake=T_mistake, phrasal=T_phrasal, pair=T_pair, prep=T_prep, pattern=T_pattern, native=T_native, guess=T_guess, level=T_level,
+dict(usuk=T_usuk, verbs=T_verbs, stress=T_stress, mistake=T_mistake, phrasal=T_phrasal, pair=T_pair, prep=T_prep, pattern=T_pattern, native=T_native, l1=T_l1, guess=T_guess, level=T_level,
      grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call, react=T_react)[EP['template']]()
 
 # ---------------- region offset: card-local -> canvas; satellites (check, confetti, strike, badges) resolve their boxes ----------------
@@ -804,7 +820,7 @@ if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite 
         if n['type'] in ('check',) and n['in']['k'] == 'pop': put('riser', max(0, n['in']['t'] - 1.45), -8); put('ding', n['in']['t'], -4)
         if n['type'] in ('stamp', 'vs'): put('pop', n['in']['t'], 0)
     # music bed: preset by series, ~ -30 dBFS RMS, ducked 12 dB under the voice (smooth 0.25 s), fades in/out
-    PRE = dict(usuk='pop-bright', verbs='upbeat-claps', stress='chill-keys', mistake='quiz-pulse', phrasal='lofi-warm', pair='chill-keys', prep='pop-bright',
+    PRE = dict(l1='quiz-pulse', usuk='pop-bright', verbs='upbeat-claps', stress='chill-keys', mistake='quiz-pulse', phrasal='lofi-warm', pair='chill-keys', prep='pop-bright',
                pattern='upbeat-claps', native='lofi-warm', guess='quiz-pulse', level='quiz-pulse',
                grammar='upbeat-claps', dictation='chill-keys', toeic='quiz-pulse', review='lofi-warm', call='pop-bright')
     MUS = MIX.get('music') or PRE.get(EP['template'], 'lofi-warm')   # mix.py 'music' (series preset without a mix)

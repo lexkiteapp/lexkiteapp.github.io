@@ -45,6 +45,116 @@
    "music": "night-drive",
    "seed": "9f406cba30ec"
   },
+  "t2_l1_de_become": {
+   "cam": "calm",
+   "canvas": 1,
+   "card": "swoosh",
+   "g_line": "explain",
+   "g_praise": "cheer",
+   "hook": "riser",
+   "layout": "side",
+   "music": "chill-keys",
+   "seed": "f1482d8effcc"
+  },
+  "t2_l1_de_since": {
+   "cam": "push",
+   "canvas": 2,
+   "card": "whoosh",
+   "g_line": "point",
+   "g_praise": "laugh",
+   "hook": "ding",
+   "layout": "bubble",
+   "music": "pop-bright",
+   "seed": "b1513b2939f4"
+  },
+  "t2_l1_es_agree": {
+   "cam": "tight",
+   "canvas": 0,
+   "card": "whoosh",
+   "g_line": "explain",
+   "g_praise": "thumbs_up",
+   "hook": "glitch",
+   "layout": "corner",
+   "music": "lofi-warm",
+   "seed": "76b2ee081fa5"
+  },
+  "t2_l1_es_hungry": {
+   "cam": "mirror",
+   "canvas": 2,
+   "card": "whoosh",
+   "g_line": "point",
+   "g_praise": "cheer",
+   "hook": "bass-drop",
+   "layout": "side",
+   "music": "quiz-pulse",
+   "seed": "2f67d50b5df1"
+  },
+  "t2_l1_fr_age": {
+   "cam": "calm",
+   "canvas": 1,
+   "card": "whoosh",
+   "g_line": "point",
+   "g_praise": "thumbs_up",
+   "hook": "ding",
+   "layout": "corner",
+   "music": "night-drive",
+   "seed": "8648a9575149"
+  },
+  "t2_l1_fr_library": {
+   "cam": "mirror",
+   "canvas": 0,
+   "card": "swoosh",
+   "g_line": "point",
+   "g_praise": "clap",
+   "hook": "riser",
+   "layout": "bubble",
+   "music": "chill-keys",
+   "seed": "bc74e2280924"
+  },
+  "t2_l1_pt_age": {
+   "cam": "push",
+   "canvas": 3,
+   "card": "whoosh",
+   "g_line": "explain",
+   "g_praise": "laugh",
+   "hook": "glitch",
+   "layout": "side",
+   "music": "pop-bright",
+   "seed": "86e3a6c26825"
+  },
+  "t2_l1_pt_pretend": {
+   "cam": "tight",
+   "canvas": 1,
+   "card": "whoosh",
+   "g_line": "explain",
+   "g_praise": "cheer",
+   "hook": "ding",
+   "layout": "bubble",
+   "music": "upbeat-claps",
+   "seed": "1c2baf01e277"
+  },
+  "t2_l1_vi_final_s": {
+   "cam": "calm",
+   "canvas": 0,
+   "card": "whoosh",
+   "g_line": "explain",
+   "g_praise": "clap",
+   "hook": "riser",
+   "layout": "corner",
+   "music": "quiz-pulse",
+   "seed": "122ceab2b4c2"
+  },
+  "t2_l1_vi_very_like": {
+   "cam": "push",
+   "canvas": 2,
+   "card": "swoosh",
+   "g_line": "point",
+   "g_praise": "laugh",
+   "hook": "ding",
+   "layout": "side",
+   "music": "lofi-warm",
+   "seed": "1850c21278eb"
+  },
   "t2_level_a2": {
    "cam": "tight",
    "canvas": 1,
