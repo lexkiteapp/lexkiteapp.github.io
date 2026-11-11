@@ -1,8 +1,8 @@
-/* 🇪🇸 Luyện định dạng DELE/SIELE (#/practice/esx, spanish-exam-w5.md): 3 cấp (A1–B1) × 2 đề × 4 phần: Đọc & dùng ngôn ngữ (điền từ), Nghe (chép), Viết, Nói.
+/* 🇪🇸 Luyện định dạng DELE/SIELE (#/practice/esx, spanish-exam-w5.md): 6 cấp (A1–C2) × 2 đề × 4 phần: Đọc & dùng ngôn ngữ (điền từ), Nghe (chép), Viết, Nói.
  * Câu của người viết thật từ Tatoeba (CC BY 2.0 FR, ghi công từng câu); consigna + rubric tự viết. KHÔNG phải đề thi chính thức; điểm là ước lượng luyện tập.
  * Khung Stitch có sẵn dùng chung với js/espr.js qua App.esQ / esFoot / esEnd (không CSS mới). Dữ liệu tải lười: cpack/es/x-<cấp>.js + x-ui-<ngôn ngữ>.js (scripts/target/exam-es-lib.mjs). */
 (function () {
-  const { $, esc } = UI, App = window.App, view = App.view, KEY = 'lk.es.x', LVS = ['A1', 'A2', 'B1'], PARTS = ['rd', 'ls', 'wr', 'sp'], ACC = 'es-419', XP = App.esX, NEED = { A1: 2, A2: 3, B1: 4 };
+  const { $, esc } = UI, App = window.App, view = App.view, KEY = 'lk.es.x', LVS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], PARTS = ['rd', 'ls', 'wr', 'sp'], ACC = 'es-419', XP = App.esX, NEED = { A1: 2, A2: 3, B1: 4, B2: 5, C1: 6, C2: 7 };
   const ls = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { /* riêng tư */ } return null; };
   const X = () => (self.ESX = self.ESX || {});
   const fold = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -30,7 +30,7 @@
     const st = stats();
     view.innerHTML = `<div class="page-head"><div><h1>${esc(u('ti'))}</h1><p class="muted" dir="auto">${esc(u('sub'))}</p></div></div>` + LVS.map(lv => {
       const d = dat(lv), sp = d.sp, au = [...new Set(d.e.flatMap(e => e.c.map(x => x[4]).concat(e.l.map(x => x[2]))))].join(', ');
-      const fmt = [['rd', 'read'], ['wr', 'write'], ['ls', 'listen'], ['sp', 'speak']].map(([p, k]) => `${u(p)} ${u('mn', { n: sp[k].min })}${sp[k].tareas ? ' (' + u('tk', { n: sp[k].tareas }) + ')' : ''}`).join(' · ');
+      const fmt = [['rd', 'read'], ['wr', 'write'], ['ls', 'listen'], ['sp', 'speak']].map(([p, k]) => `${u(p)}${sp[k].min ? ' ' + u('mn', { n: sp[k].min }) : ''}${sp[k].tareas ? ' (' + u('tk', { n: sp[k].tareas }) + ')' : ''}`).join(' · ');
       return `<section class="card" id="x-${lv}"><div class="row between"><h3 style="margin:0">${lv}</h3><span class="chip">${esc(u('pr'))}</span></div><p class="small muted" dir="auto">${esc(fmt)}</p>` + d.e.map((ex, i) => {
         const r = (st[lv] || {})[i + 1] || {};
         return `<div style="margin-top:.6rem"><b>${esc(u('ex', { n: i + 1 }))}</b><div class="row">${PARTS.map(p => `<a class="btn ${typeof r[p] === 'number' ? '' : 'primary'}" href="${href(lv, i + 1, p)}">${esc(u(p))}${typeof r[p] === 'number' ? ` · ${r[p]}%` : ''}</a>`).join('')}</div>${summary(lv, i + 1, d)}</div>`;
@@ -116,7 +116,7 @@
     view.innerHTML = `<div class="card" role="status">${esc(t('Đang tải…'))}</div>`;
     const bad = () => { view.innerHTML = `<div class="card">${esc(t('Không tải được bài. Kiểm tra mạng rồi thử lại.'))}</div>`; };
     const want = LVS.includes(lv) ? [lv] : LVS;
-    try { await Promise.all([App.need('espr'), ...want.map(l => App.loadScript(XP.lv[l])), App.loadScript(XP.ui[lang()]), lang() === 'en' ? 0 : App.loadScript(XP.ui.en)]); } catch (er) { if (!App.routeStale(tok)) bad(); return; }
+    try { await Promise.all([App.need('espr'), ...want.map(l => App.loadScript(XP.lv[l] || 'cpack/es/x-' + l + '.js')), App.loadScript(XP.ui[lang()]), lang() === 'en' ? 0 : App.loadScript(XP.ui.en)]); } catch (er) { if (!App.routeStale(tok)) bad(); return; }
     if (App.routeStale(tok)) return;
     if (!(X().xl && X().xl[lang()] && want.every(dat))) return bad();
     if (!LVS.includes(lv) || !PARTS.includes(p) || !(+e >= 1 && +e <= dat(lv).e.length)) return hub();
