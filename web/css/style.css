@@ -529,20 +529,9 @@ body.bare .view { padding-top: 2rem; }
 .passage .sent.reading { background: var(--primary-soft); border-radius: 6px; box-shadow: 0 0 0 3px var(--primary-soft); }
 
 /* ---------- Tô sáng chuyên nghiệp (bài đọc & phòng viết) ---------- */
-.hl-bar { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; margin-bottom: 1rem; padding: .5rem; border-radius: 14px; background: var(--surface-2); }
-.hl-chip { border: 2px solid transparent; background: var(--surface); border-radius: 999px; padding: .3rem .75rem; font-weight: 700; font-size: .8rem; cursor: pointer; color: var(--muted); }
-.hl-chip b { font-weight: 800; margin-left: .2rem; }
-.hl-chip.on.kw { border-color: #f59e0b; color: var(--gold-text); } .hl-chip.on.awl { border-color: #E5502F; color: var(--primary-text); }
-.hl-chip.on.link { border-color: #0ea5a4; color: var(--accent-text); } .hl-chip.on.mine { border-color: #16a34a; color: var(--good-text); }
 .passage .tw { padding: 0 1px; }
 .passage.hl-kw .tw.kw { background: linear-gradient(transparent 58%, rgba(245,158,11,.45) 58%); font-weight: 700; }
-.passage.hl-awl .tw.awl { border-bottom: 2.5px solid #E5502F; }
-.passage.hl-link .tw.link { background: rgba(14,165,164,.16); color: #0f766e; font-weight: 700; border-radius: 4px; }
-.passage.hl-link .tw.col { background: rgba(14,165,164,.08); border-bottom: 2px dashed #0ea5a4; }
-.passage.hl-mine .tw.mine { background: rgba(22,163,74,.16); border-radius: 4px; }
 .passage .tw.kw { border-bottom: 0; }
-:root[data-theme="dark"] .passage.hl-link .tw.link { color: #5eead4; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .passage.hl-link .tw.link { color: #5eead4; } }
 
 /* Mất mạng */
 body.offline .topbar::after { content: "📴 Ngoại tuyến"; position: absolute; left: 50%; top: 100%; transform: translateX(-50%); background: var(--hard); color: #fff; font-size: .72rem; font-weight: 700; padding: .15rem .6rem; border-radius: 0 0 8px 8px; }
@@ -756,7 +745,6 @@ u.err-w { text-decoration: underline wavy #db2777; text-underline-offset: 4px; }
 .slot { border: 0; border-bottom: 2px solid var(--line); background: transparent; font: inherit; padding: 0 .1rem; text-align: center; color: inherit; margin: 0 .05rem; }
 .slot:focus { outline: none; border-bottom-color: var(--primary); background: var(--primary-soft); }
 .slot.ok { border-bottom-color: var(--good); color: var(--good-text); } .slot.no { border-bottom-color: var(--again); color: var(--again-text); }
-.annot.hl-mode { cursor: text; outline: 2px dashed rgba(245, 158, 11, .5); outline-offset: 6px; }
 mark.uhl { background: #fde68a; color: inherit; border-radius: 3px; padding: 0 .1rem; }
 /* Trợ lý viết */
 .wa-box { margin-top: .8rem; }
