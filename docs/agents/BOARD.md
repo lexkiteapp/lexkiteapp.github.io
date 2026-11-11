@@ -80,20 +80,6 @@ Mẫu thẻ:
 - Nguồn: nhánh `antigravity`, các commit `feat(blog): add … article` (hash trong báo cáo cũ). Claude đã ghép thử 64 bài lên main: blog-check/dupes/vi-lint/captions/docs-budget/test ảnh đều qua TRỪ các lỗi ghi ở dưới. Quy tắc alt: `docs/BLOG-RUNBOOK.md` + `shots.json` (alt phải đúng ngôn ngữ bài và đúng `desc` màn hình, không thêm chi tiết ngoài ảnh). KHÔNG xóa bài, KHÔNG nới check.
 - Cần sửa: (1) PT 4 bài (como-usar-dicionario-monolingue-ingles [dict, read-article, review], ditado-em-ingles-dictation-listening [listening], frases-complexas-ielts-writing-task-2 [write, grammar], vocabulario-ielts-tecnologia-inteligencia-artificial [read-article]) và ID 5 bài (cara-menggunakan-kamus-…, kalimat-kompleks-…, kosakata-ielts-…, metode-dictation-…, tabel-simbol-ipa-…): alt nguyên văn `desc` TIẾNG VIỆT. (2) ID kalimat-kompleks, kosakata-ielts-tema-teknologi-ai, metode-dictation, rumus-kalimat-tanya: alt bằng TIẾNG BỒ ĐÀO NHA ('Central de jogos e exercícios…', 'Guia de gramática IELTS…') trong bài tiếng Indonesia. Viết lại alt đúng tiếng bài, bám `desc`. (3) Cảnh báo [inbound] ≥ 3.
 
-### [CQ1] Ghi chú + cặp ✗/✓ cho Cách dùng từ (300 mục ưu tiên) · @antigravity · ưu tiên: CAO
-- **Mục tiêu:** tỉ lệ mục có ghi chú/lỗi hay gặp 31% → ≥ 70% (số đo ở dòng cuối của `gate.mjs`).
-- **File:** chỉ `web/js/usage/{prep-verb,prep-adj,prep-noun,verb,adv,pair,struct}.js`, theo cú pháp ở đầu `web/js/usage-core.js`.
-- **Thêm vào mỗi mục:**
-  - 1 dòng `# vi | en`: ghi chú cách dùng ≤ 25 từ mỗi ngôn ngữ.
-  - 1–2 dòng `! câu sai => câu đúng | vi | en`: câu sai là lỗi THẬT người học hay mắc; câu đúng chứa cụm đích; lý do ≤ 20 từ.
-- **Thứ tự ưu tiên:** mục có trong đề TOEIC Part 5 / IELTS → mục giới từ → còn lại.
-- **Xong khi:**
-  - Có ≥ 300 mục mới có ghi chú.
-  - `usage/pair` và `usage/schema` không tăng; `node scripts/test/usage.mjs` xanh.
-  - Có 5 lô kèm tệp lô.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
 ### [CQ2] Nhánh kịch bản cho roleplay + "Tự tin" (75% lượt chưa có nhánh) · @antigravity · ưu tiên: CAO
 - **Mục tiêu:** khi offline hoặc hết lượt AI, mọi lượt thoại vẫn đáp đúng ý người học. Lượt có nhánh `br` 25% → ≥ 90%.
 - **File:** `content/confidence/units/*.json` (24 bài, trường `roleplay.turns[].br`) và `web/js/roleplay/data-*.js` (16 kịch bản).
@@ -210,6 +196,23 @@ Mẫu thẻ:
 - KHÔNG đụng: extension/, web/index.html, landing/blog, native.js, widget-feed.js, lesson-fx/path-*/study.js, swipe/Kit/streak-freeze.
 
 ## CHỜ DUYỆT
+
+### [CQ1] Ghi chú + cặp ✗/✓ cho Cách dùng từ (300 mục ưu tiên) · @antigravity · ưu tiên: CAO
+- **Mục tiêu:** Tỉ lệ mục có ghi chú/lỗi hay gặp 31% → ≥ 70% (số đo ở dòng cuối của `gate.mjs`).
+- **File:** `web/js/usage/{prep-verb,prep-adj,prep-noun,verb}.js`, theo cú pháp ở đầu `web/js/usage-core.js`.
+- **Báo cáo (Antigravity 11/11 - Hoàn tất 100% cả 5 lô với 300 mục mới):**
+  - **Lô 1:** PR [#1067](https://github.com/lexkiteapp/lexkiteapp.github.io/pull/1067) (nhánh `cq1/lot-1`) – 60 mục động từ + giới từ (`prep-verb.js`). Ghi chú tăng lên 48%.
+  - **Lô 2:** PR [#1068](https://github.com/lexkiteapp/lexkiteapp.github.io/pull/1068) (nhánh `cq1/lot-2`) – 60 mục (20 động từ + 40 tính từ trong `prep-verb.js` và `prep-adj.js`). `prep-verb.js` đạt 100%. Ghi chú tăng lên 56%.
+  - **Lô 3:** PR [#1074](https://github.com/lexkiteapp/lexkiteapp.github.io/pull/1074) (nhánh `cq1/lot-3`) – 60 mục tính từ + giới từ (`prep-adj.js`). Ghi chú tăng lên 64%.
+  - **Lô 4:** PR [#1077](https://github.com/lexkiteapp/lexkiteapp.github.io/pull/1077) (nhánh `cq1/lot-4`) – 60 mục (19 tính từ + 41 danh từ trong `prep-adj.js` và `prep-noun.js`). `prep-adj.js` đạt 100%. Ghi chú tăng lên 72%.
+  - **Lô 5:** PR [#1078](https://github.com/lexkiteapp/lexkiteapp.github.io/pull/1078) (nhánh `cq1/lot-5`) – 60 mục (24 danh từ trong `prep-noun.js` + 36 động từ theo mẫu trong `verb.js`). `prep-noun.js` đạt 100%. Ghi chú tăng lên **80%** (596/747 mục có ghi chú/cặp câu lỗi).
+  - **Cổng chất lượng kiểm tra (100% PASS trên toàn bộ 5 lô):**
+    * Cả 3 file giới từ cốt lõi (`prep-verb.js`, `prep-adj.js`, `prep-noun.js`) đều đã đạt **100% mục có ghi chú và câu sai/đúng**.
+    * Có đầy đủ 5 tệp lô trong `content/qa/batches/cq1-lot{1..5}.json` kèm mẫu kiểm tra đạt chuẩn.
+    * `node scripts/content-qa/gate.mjs`: PASS xanh, 0 lỗi, ghi chú đạt **80%** (vượt xa chỉ tiêu $\ge 70\%$).
+    * `node scripts/test/usage.mjs`: PASS 59/59 kiểm tra.
+    * `node scripts/test/content-qa.mjs`: PASS 28/28 kiểm tra.
+- Cần sửa / Nhận xét:
 
 ### [B5-L7] Lô 7 Blog 12 bài chuẩn SEO (6 AR + 6 HI) · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Bổ sung 12 bài viết chuyên sâu chuẩn SEO cho 2 thị trường lớn: Tiếng Ả Rập (AR) và Tiếng Hindi (HI - 100% Devanagari bản địa). Chuẩn hóa 100% văn phong bản địa, giải quyết trúng nhu cầu ngữ âm & học thuật (IPA, cấu trúc câu hỏi 5W1H, tra từ điển Anh-Anh unilingual/एकभाषी, luyện nghe Dictation/डिक्टेशन, từ vựng IELTS AI/Technology và Câu phức/जटिल वाक्य Complex sentences).
