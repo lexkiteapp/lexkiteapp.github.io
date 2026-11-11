@@ -3,7 +3,10 @@
  "dele": {
   "A1": {"src": "dele.org/dele/dele-levels/level-a1", "read": {"min": 45, "tareas": 4}, "write": {"min": 25, "tareas": 2}, "listen": {"min": 20, "tareas": 4}, "speak": {"min": 15, "tareas": null}, "groupMinPct": null, "items": null},
   "A2": {"src": "dele.org/dele/dele-levels/level-a2", "read": {"min": 60, "tareas": 5}, "write": {"min": 50, "tareas": 2}, "listen": {"min": 35, "tareas": 5}, "speak": {"min": 15, "tareas": null}, "groupMinPct": null, "items": null},
-  "B1": {"src": "dele.org/dele/dele-levels/intermediate-mid-threshold-level", "read": {"min": 70, "tareas": 5}, "write": {"min": 60, "tareas": 2}, "listen": {"min": 40, "tareas": 5}, "speak": {"min": 15, "tareas": null}, "groupMinPct": 60, "items": null}
+  "B1": {"src": "dele.org/dele/dele-levels/intermediate-mid-threshold-level", "read": {"min": 70, "tareas": 5}, "write": {"min": 60, "tareas": 2}, "listen": {"min": 40, "tareas": 5}, "speak": {"min": 15, "tareas": null}, "groupMinPct": 60, "items": null},
+  "B2": {"src": "dele.org/dele/dele-levels/high-intermediate-level", "read": {"min": 70, "tareas": 4}, "write": {"min": 80, "tareas": 2}, "listen": {"min": 40, "tareas": 5}, "speak": {"min": 20, "tareas": null}, "groupMinPct": 60, "items": null},
+  "C1": {"src": "dele.org/dele/dele-levels/level-c1", "read": {"min": 90, "tareas": 5}, "write": {"min": null, "tareas": 2}, "listen": {"min": 50, "tareas": 5}, "speak": {"min": 20, "tareas": null}, "groupMinPct": null, "items": null, "note": "C1: Đọc = Prueba 1 (Đọc + Dùng ngôn ngữ); Nghe = Prueba 2 (Nghe + Dùng ngôn ngữ); Viết = tarea Nghe + Viết tích hợp của Prueba 3 (80′ dùng chung, tách phút = null); Nói = Prueba 4 (Đọc + Nói)."},
+  "C2": {"src": "dele.org/dele/dele-levels/superior-level", "read": {"min": 105, "tareas": 6}, "write": {"min": 150, "tareas": 3}, "listen": {"min": null, "tareas": null}, "speak": {"min": 20, "tareas": null}, "groupMinPct": null, "items": null, "note": "C2: Đọc = Prueba 1 (Dùng ngôn ngữ + Đọc + Nghe, 105′ dùng chung, không tách phút Nghe = null); Viết = Prueba 2 tích hợp (150′); Nói = Prueba 3. Quy tắc đạt: mỗi prueba ≥ 60 % và ≥ 20 điểm (chưa xác minh thang điểm → groupMinPct = null)."}
  },
  "siele": {
   "src": "siele.org/examenes",

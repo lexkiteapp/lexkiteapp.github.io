@@ -19,6 +19,7 @@
   "web/js/mock.js": { "groups": ["mock-speaking", "speaking-questions"] },
   "web/js/speaking.js": { "groups": ["speaking-questions", "speaking-samples"] },
   "web/js/cambridge.js": { "groups": ["cambridge-speaking"] },
+  "web/js/mediate.js": { "groups": ["mediation-source"] },
   "web/js/toefl.js": { "groups": ["toefl-speaking", "toefl-models"] },
   "web/js/toeic.js": { "groups": ["toeic-speaking", "ui-lines"] },
   "web/js/reading.js": { "groups": ["readings"] },
