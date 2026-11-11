@@ -37,7 +37,7 @@ function Body({ n, t, w, h, T }) {
         {n.tail ? <svg width="44" height="40" style={{ position: 'absolute', bottom: -26, [n.tail === 'l' ? 'left' : 'right']: 40 }} viewBox="0 0 44 40">
           <path d={n.tail === 'l' ? 'M0 0 L44 0 L4 40 Z' : 'M0 0 L44 0 L40 40 Z'} fill={l} /><path d={n.tail === 'l' ? 'M2 0 L42 0 L6 30 Z' : 'M2 0 L42 0 L38 30 Z'} fill={f} /></svg> : null}</div>; }
     case 'text': { const [cur, , m] = state(n, t), hit = n.hit_col && cur === 'hit' ? m : 0;
-      return <div style={{ width: w + 4, height: h, fontFamily: n.ipa ? NOTO : JAK, fontWeight: n.ipa ? 500 : 800, fontSize: n.size, lineHeight: `${h}px`, whiteSpace: 'pre' }}>
+      return <div style={{ width: w + 4, height: h, fontFamily: n.ipa ? NOTO : JAK, fontWeight: n.ipa ? 500 : 800, fontSize: n.size, lineHeight: `${h}px`, whiteSpace: 'pre', ...(n.rtl ? { direction: 'rtl', textAlign: 'right' } : {}) }}>
         {n.runs.map(([s, k], i) => <span key={i} style={{ color: hit ? mixc(c(k), c(n.hit_col), hit) : c(k) }}>{s}</span>)}</div>; }
     case 'chip': { const [cb, ce, ci] = n.tone === 'bad' ? [T.bad_bg, T.bad_edge, T.bad] : n.tone === 'good' ? [T.good_bg, T.good_edge, T.good] : [T.chip_bg, T.chip_edge, T.chip_ink];
       return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: 999, background: cb, border: `2px solid ${ce}`, color: ci, fontFamily: JAK, fontWeight: 800,
