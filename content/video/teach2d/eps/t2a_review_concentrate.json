@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"concentrate\" mean?",
+  "keyword": "concentrate",
+  "value": "Concentrate means to give all your attention to a task.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=concentrate",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"concentrate\" mean?",
+    "description": "Concentrate means to give all your attention to a task.\n\nReview your words, free: https://lexkite.com/app/#/review?w=concentrate\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "concentrate",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"concentrate\" mean?\n\nConcentrate means to give all your attention to a task.\n\nReview your words, free: https://lexkite.com/app/#/review?w=concentrate"
+   },
+   "instagram": {
+    "caption": "What does \"concentrate\" mean?\n\nConcentrate means to give all your attention to a task.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"concentrate\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to give all your attention to a task. Concentrate means to give all your attention to a task. Try the full lesson and quiz here: {link}"
  }
 }

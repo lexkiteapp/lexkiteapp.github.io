@@ -159,7 +159,7 @@ Bette 4 bis 5 Phrasal Verbs in eine kleine persönliche Alltagsgeschichte ein. D
 ### 3. Verteiltes Wiederholen mit FSRS
 Mehrteilige Verben benötigen viele Wiederholungszyklen, bis sie intuitiv abrufbar sind. Nutze das Prinzip von [Spaced Repetition Englisch lernen](/de/blog/spaced-repetition-englisch-lernen/), um schwierige Wendungen wie *put up with* oder *run out of* exakt vor dem Vergessen aufzufrischen.
 
-Vertiefe dein Fundament außerdem mit unserem Basisleitfaden zu [Englische Präpositionen in on at](/de/blog/englische-praepositionen-in-on-at/) und lerne in [Auf Englisch denken lernen](/de/blog/auf-englisch-denken-ohne-uebersetzen/), wie du diese Chunks direkt ohne deutsches Übersetzen abrufst. Allgemeine Wortschatztipps findest du in [Englisch Vokabeln lernen](/de/blog/englisch-vokabeln-lernen/). Erkunde zudem unsere systematischen [Vokabel-Themenbereiche](/tu-vung/) für noch mehr Praxisbeispiele.
+Vertiefe dein Fundament außerdem mit unserem Basisleitfaden zu [Englische Präpositionen in on at](/de/blog/englische-praepositionen-in-on-at/) und lerne in [Auf Englisch denken lernen](/de/blog/auf-englisch-denken-ohne-uebersetzen/), wie du diese Chunks direkt ohne deutsches Übersetzen abrufst. Allgemeine Wortschatztipps findest du in [Englisch Vokabeln lernen](/de/blog/englisch-vokabeln-lernen/). Erkunde zudem unsere systematischen [Vokabel-Themenbereiche](/en/vocabulary/) für noch mehr Praxisbeispiele.
 
 {{cta: /app/#/library | Vokabelbibliothek auf Lexkite durchstöbern}}
 

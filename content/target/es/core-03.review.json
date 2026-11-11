@@ -1,0 +1,1426 @@
+{
+ "fixed": [
+  {
+   "word": "que",
+   "field": "gl.zh",
+   "from": "那",
+   "to": "（引导从句）",
+   "why": "\"那\" sai chức năng liên từ"
+  },
+  {
+   "word": "por",
+   "field": "gl.vi",
+   "from": "bởi",
+   "to": "qua, vì, bởi",
+   "why": "ví dụ nghĩa \"qua\"; ko lẫn chữ Miến; gloss thiếu nghĩa chính"
+  },
+  {
+   "word": "por",
+   "field": "gl.en",
+   "from": "for / by",
+   "to": "by, through, for",
+   "why": "ví dụ nghĩa \"qua\"; ko lẫn chữ Miến; gloss thiếu nghĩa chính"
+  },
+  {
+   "word": "por",
+   "field": "gl.pt",
+   "from": "por",
+   "to": "por, através de",
+   "why": "ví dụ nghĩa \"qua\"; ko lẫn chữ Miến; gloss thiếu nghĩa chính"
+  },
+  {
+   "word": "por",
+   "field": "gl.fr",
+   "from": "par",
+   "to": "par, pour",
+   "why": "ví dụ nghĩa \"qua\"; ko lẫn chữ Miến; gloss thiếu nghĩa chính"
+  },
+  {
+   "word": "por",
+   "field": "gl.de",
+   "from": "durch / für",
+   "to": "durch, für, wegen",
+   "why": "ví dụ nghĩa \"qua\"; ko lẫn chữ Miến; gloss thiếu nghĩa chính"
+  },
+  {
+   "word": "por",
+   "field": "gl.id",
+   "from": "oleh / karena",
+   "to": "oleh, melalui, karena",
+   "why": "ví dụ nghĩa \"qua\"; ko lẫn chữ Miến; gloss thiếu nghĩa chính"
+  },
+  {
+   "word": "por",
+   "field": "gl.th",
+   "from": "โดย / เพราะ",
+   "to": "โดย, ผ่าน, เพราะ",
+   "why": "ví dụ nghĩa \"qua\"; ko lẫn chữ Miến; gloss thiếu nghĩa chính"
+  },
+  {
+   "word": "por",
+   "field": "gl.zh",
+   "from": "为了 / 被",
+   "to": "经过，因为，被",
+   "why": "ví dụ nghĩa \"qua\"; ko lẫn chữ Miến; gloss thiếu nghĩa chính"
+  },
+  {
+   "word": "por",
+   "field": "gl.ja",
+   "from": "…によって / …のために",
+   "to": "〜を通って、〜のために、〜によって",
+   "why": "ví dụ nghĩa \"qua\"; ko lẫn chữ Miến; gloss thiếu nghĩa chính"
+  },
+  {
+   "word": "por",
+   "field": "gl.ko",
+   "from": "~ကြောင့် / ~에 의해",
+   "to": "~을 통해, ~때문에, ~에 의해",
+   "why": "ví dụ nghĩa \"qua\"; ko lẫn chữ Miến; gloss thiếu nghĩa chính"
+  },
+  {
+   "word": "por",
+   "field": "gl.hi",
+   "from": "के द्वारा / के लिए",
+   "to": "के द्वारा, से होकर, के कारण",
+   "why": "ví dụ nghĩa \"qua\"; ko lẫn chữ Miến; gloss thiếu nghĩa chính"
+  },
+  {
+   "word": "por",
+   "field": "gl.ar",
+   "from": "بسبب / بواسطة",
+   "to": "عبر، بسبب، بواسطة",
+   "why": "ví dụ nghĩa \"qua\"; ko lẫn chữ Miến; gloss thiếu nghĩa chính"
+  },
+  {
+   "word": "por",
+   "field": "gl.ru",
+   "from": "из-за / по",
+   "to": "через, из-за, по",
+   "why": "ví dụ nghĩa \"qua\"; ko lẫn chữ Miến; gloss thiếu nghĩa chính"
+  },
+  {
+   "word": "por",
+   "field": "gl.tr",
+   "from": "için / tarafından",
+   "to": "-den, yüzünden, tarafından",
+   "why": "ví dụ nghĩa \"qua\"; ko lẫn chữ Miến; gloss thiếu nghĩa chính"
+  },
+  {
+   "word": "ser",
+   "field": "ipa",
+   "from": "ˈser",
+   "to": "ˈseɾ",
+   "why": "theo es-g2p (ʝ yeísmo / bán nguyên âm / ɛ→e / ˈ nhấn)"
+  },
+  {
+   "word": "ser",
+   "field": "gl.vi",
+   "from": "la (quá khứ)",
+   "to": "là, thì",
+   "why": "gloss là quá khứ \"was/used to be\" sai nghĩa nguyên mẫu; ví dụ đổi sang thì hiện tại"
+  },
+  {
+   "word": "ser",
+   "field": "gl.en",
+   "from": "was / used to be",
+   "to": "to be (identity, characteristic)",
+   "why": "gloss là quá khứ \"was/used to be\" sai nghĩa nguyên mẫu; ví dụ đổi sang thì hiện tại"
+  },
+  {
+   "word": "ser",
+   "field": "gl.pt",
+   "from": "era",
+   "to": "ser",
+   "why": "gloss là quá khứ \"was/used to be\" sai nghĩa nguyên mẫu; ví dụ đổi sang thì hiện tại"
+  },
+  {
+   "word": "ser",
+   "field": "gl.fr",
+   "from": "était",
+   "to": "être",
+   "why": "gloss là quá khứ \"was/used to be\" sai nghĩa nguyên mẫu; ví dụ đổi sang thì hiện tại"
+  },
+  {
+   "word": "ser",
+   "field": "gl.de",
+   "from": "war",
+   "to": "sein",
+   "why": "gloss là quá khứ \"was/used to be\" sai nghĩa nguyên mẫu; ví dụ đổi sang thì hiện tại"
+  },
+  {
+   "word": "ser",
+   "field": "gl.id",
+   "from": "dahulu",
+   "to": "adalah, menjadi",
+   "why": "gloss là quá khứ \"was/used to be\" sai nghĩa nguyên mẫu; ví dụ đổi sang thì hiện tại"
+  },
+  {
+   "word": "ser",
+   "field": "gl.th",
+   "from": "เคยเป็น",
+   "to": "เป็น, คือ",
+   "why": "gloss là quá khứ \"was/used to be\" sai nghĩa nguyên mẫu; ví dụ đổi sang thì hiện tại"
+  },
+  {
+   "word": "ser",
+   "field": "gl.zh",
+   "from": "曾是",
+   "to": "是",
+   "why": "gloss là quá khứ \"was/used to be\" sai nghĩa nguyên mẫu; ví dụ đổi sang thì hiện tại"
+  },
+  {
+   "word": "ser",
+   "field": "gl.ja",
+   "from": "だった",
+   "to": "〜だ、である",
+   "why": "gloss là quá khứ \"was/used to be\" sai nghĩa nguyên mẫu; ví dụ đổi sang thì hiện tại"
+  },
+  {
+   "word": "ser",
+   "field": "gl.ko",
+   "from": "이었다",
+   "to": "~이다",
+   "why": "gloss là quá khứ \"was/used to be\" sai nghĩa nguyên mẫu; ví dụ đổi sang thì hiện tại"
+  },
+  {
+   "word": "ser",
+   "field": "gl.hi",
+   "from": "था",
+   "to": "होना",
+   "why": "gloss là quá khứ \"was/used to be\" sai nghĩa nguyên mẫu; ví dụ đổi sang thì hiện tại"
+  },
+  {
+   "word": "ser",
+   "field": "gl.ar",
+   "from": "كان",
+   "to": "يكون",
+   "why": "gloss là quá khứ \"was/used to be\" sai nghĩa nguyên mẫu; ví dụ đổi sang thì hiện tại"
+  },
+  {
+   "word": "ser",
+   "field": "gl.ru",
+   "from": "был",
+   "to": "быть (являться)",
+   "why": "gloss là quá khứ \"was/used to be\" sai nghĩa nguyên mẫu; ví dụ đổi sang thì hiện tại"
+  },
+  {
+   "word": "ser",
+   "field": "gl.tr",
+   "from": "iydi",
+   "to": "olmak",
+   "why": "gloss là quá khứ \"was/used to be\" sai nghĩa nguyên mẫu; ví dụ đổi sang thì hiện tại"
+  },
+  {
+   "word": "ser",
+   "field": "ex.es",
+   "from": "Cuando era niño, jugaba mucho.",
+   "to": "Mi hermana es profesora.",
+   "why": "gloss là quá khứ \"was/used to be\" sai nghĩa nguyên mẫu; ví dụ đổi sang thì hiện tại"
+  },
+  {
+   "word": "ser",
+   "field": "ex.en",
+   "from": "When I was a child, I played a lot.",
+   "to": "My sister is a teacher.",
+   "why": "gloss là quá khứ \"was/used to be\" sai nghĩa nguyên mẫu; ví dụ đổi sang thì hiện tại"
+  },
+  {
+   "word": "momento",
+   "field": "ipa",
+   "from": "moˈmɛnto",
+   "to": "moˈmento",
+   "why": "theo es-g2p (ʝ yeísmo / bán nguyên âm / ɛ→e / ˈ nhấn)"
+  },
+  {
+   "word": "deber",
+   "field": "gl.vi",
+   "from": "must",
+   "to": "phải, nên",
+   "why": "vi/en tiếng Anh lẫn trong vi; thiếu nghĩa"
+  },
+  {
+   "word": "deber",
+   "field": "gl.en",
+   "from": "must",
+   "to": "must, should; to owe",
+   "why": "vi/en tiếng Anh lẫn trong vi; thiếu nghĩa"
+  },
+  {
+   "word": "deber",
+   "field": "gl.ru",
+   "from": "должен",
+   "to": "быть должным",
+   "why": "vi/en tiếng Anh lẫn trong vi; thiếu nghĩa"
+  },
+  {
+   "word": "deber",
+   "field": "gl.tr",
+   "from": "meli",
+   "to": "-meli, -malı",
+   "why": "vi/en tiếng Anh lẫn trong vi; thiếu nghĩa"
+  },
+  {
+   "word": "contigo",
+   "field": "gl.id",
+   "from": "demganmu",
+   "to": "denganmu",
+   "why": "sai chính tả"
+  },
+  {
+   "word": "tomar",
+   "field": "gl.vi",
+   "from": "uống",
+   "to": "uống; lấy",
+   "why": "thiếu nghĩa chính \"take\""
+  },
+  {
+   "word": "tomar",
+   "field": "gl.en",
+   "from": "to drink",
+   "to": "to take; to drink",
+   "why": "thiếu nghĩa chính \"take\""
+  },
+  {
+   "word": "tomar",
+   "field": "gl.pt",
+   "from": "beber",
+   "to": "tomar; beber",
+   "why": "thiếu nghĩa chính \"take\""
+  },
+  {
+   "word": "tomar",
+   "field": "gl.fr",
+   "from": "boire",
+   "to": "prendre; boire",
+   "why": "thiếu nghĩa chính \"take\""
+  },
+  {
+   "word": "tomar",
+   "field": "gl.de",
+   "from": "trinken",
+   "to": "nehmen; trinken",
+   "why": "thiếu nghĩa chính \"take\""
+  },
+  {
+   "word": "tomar",
+   "field": "gl.id",
+   "from": "minum",
+   "to": "mengambil; minum",
+   "why": "thiếu nghĩa chính \"take\""
+  },
+  {
+   "word": "tomar",
+   "field": "gl.th",
+   "from": "ดื่ม",
+   "to": "เอา; ดื่ม",
+   "why": "thiếu nghĩa chính \"take\""
+  },
+  {
+   "word": "tomar",
+   "field": "gl.zh",
+   "from": "喝",
+   "to": "拿；喝",
+   "why": "thiếu nghĩa chính \"take\""
+  },
+  {
+   "word": "tomar",
+   "field": "gl.ja",
+   "from": "飲む",
+   "to": "取る；飲む",
+   "why": "thiếu nghĩa chính \"take\""
+  },
+  {
+   "word": "tomar",
+   "field": "gl.ko",
+   "from": "마시다",
+   "to": "가지다; 마시다",
+   "why": "thiếu nghĩa chính \"take\""
+  },
+  {
+   "word": "tomar",
+   "field": "gl.hi",
+   "from": "पीना",
+   "to": "लेना; पीना",
+   "why": "thiếu nghĩa chính \"take\""
+  },
+  {
+   "word": "tomar",
+   "field": "gl.ar",
+   "from": "يشرب",
+   "to": "أخذ؛ شرب",
+   "why": "thiếu nghĩa chính \"take\""
+  },
+  {
+   "word": "tomar",
+   "field": "gl.ru",
+   "from": "пить",
+   "to": "брать; пить",
+   "why": "thiếu nghĩa chính \"take\""
+  },
+  {
+   "word": "tomar",
+   "field": "gl.tr",
+   "from": "içmek",
+   "to": "almak; içmek",
+   "why": "thiếu nghĩa chính \"take\""
+  },
+  {
+   "word": "idiota",
+   "field": "gl.ru",
+   "from": "идиотический",
+   "to": "идиотский",
+   "why": "\"идиотический\" không tự nhiên"
+  },
+  {
+   "word": "tuyo",
+   "field": "gl.pt",
+   "from": "seu",
+   "to": "teu",
+   "why": "pt \"seu\" mơ hồ, de \"deins\" sai"
+  },
+  {
+   "word": "tuyo",
+   "field": "gl.de",
+   "from": "deins",
+   "to": "dein, deiner",
+   "why": "pt \"seu\" mơ hồ, de \"deins\" sai"
+  },
+  {
+   "word": "jurar",
+   "field": "gl.en",
+   "from": "I swear",
+   "to": "to swear",
+   "why": "gloss chia động từ ngôi 1 thay vì nguyên mẫu"
+  },
+  {
+   "word": "jurar",
+   "field": "gl.pt",
+   "from": "juro",
+   "to": "jurar",
+   "why": "gloss chia động từ ngôi 1 thay vì nguyên mẫu"
+  },
+  {
+   "word": "jurar",
+   "field": "gl.fr",
+   "from": "je jure",
+   "to": "jurer",
+   "why": "gloss chia động từ ngôi 1 thay vì nguyên mẫu"
+  },
+  {
+   "word": "jurar",
+   "field": "gl.de",
+   "from": "ich schwöre",
+   "to": "schwören",
+   "why": "gloss chia động từ ngôi 1 thay vì nguyên mẫu"
+  },
+  {
+   "word": "jurar",
+   "field": "gl.id",
+   "from": "saya bersumpah",
+   "to": "bersumpah",
+   "why": "gloss chia động từ ngôi 1 thay vì nguyên mẫu"
+  },
+  {
+   "word": "jurar",
+   "field": "gl.th",
+   "from": "ขอสัตย์",
+   "to": "สาบาน",
+   "why": "gloss chia động từ ngôi 1 thay vì nguyên mẫu"
+  },
+  {
+   "word": "jurar",
+   "field": "gl.zh",
+   "from": "我发誓",
+   "to": "发誓",
+   "why": "gloss chia động từ ngôi 1 thay vì nguyên mẫu"
+  },
+  {
+   "word": "jurar",
+   "field": "gl.ko",
+   "from": "맹세한다",
+   "to": "맹세하다",
+   "why": "gloss chia động từ ngôi 1 thay vì nguyên mẫu"
+  },
+  {
+   "word": "jurar",
+   "field": "gl.hi",
+   "from": "मैं कसम खाता हूँ",
+   "to": "कसम खाना",
+   "why": "gloss chia động từ ngôi 1 thay vì nguyên mẫu"
+  },
+  {
+   "word": "jurar",
+   "field": "gl.ru",
+   "from": "клянусь",
+   "to": "клясться",
+   "why": "gloss chia động từ ngôi 1 thay vì nguyên mẫu"
+  },
+  {
+   "word": "jurar",
+   "field": "gl.tr",
+   "from": "yemin ederim",
+   "to": "yemin etmek",
+   "why": "gloss chia động từ ngôi 1 thay vì nguyên mẫu"
+  },
+  {
+   "word": "teniente",
+   "field": "ipa",
+   "from": "teˈnjɛnte",
+   "to": "teˈnjente",
+   "why": "theo es-g2p (ʝ yeísmo / bán nguyên âm / ɛ→e / ˈ nhấn)"
+  },
+  {
+   "word": "teniente",
+   "field": "gl.vi",
+   "from": "thiếu úy",
+   "to": "trung úy",
+   "why": "teniente = trung úy, không phải thiếu úy"
+  },
+  {
+   "word": "dar",
+   "field": "gl.vi",
+   "from": "đưa cho",
+   "to": "đưa, cho",
+   "why": "gloss là mệnh lệnh \"give it/dale\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dar",
+   "field": "gl.en",
+   "from": "give it",
+   "to": "to give",
+   "why": "gloss là mệnh lệnh \"give it/dale\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dar",
+   "field": "gl.pt",
+   "from": "dá-lhe",
+   "to": "dar",
+   "why": "gloss là mệnh lệnh \"give it/dale\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dar",
+   "field": "gl.fr",
+   "from": "donne‑le",
+   "to": "donner",
+   "why": "gloss là mệnh lệnh \"give it/dale\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dar",
+   "field": "gl.de",
+   "from": "gib es",
+   "to": "geben",
+   "why": "gloss là mệnh lệnh \"give it/dale\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dar",
+   "field": "gl.id",
+   "from": "beri itu",
+   "to": "memberi",
+   "why": "gloss là mệnh lệnh \"give it/dale\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dar",
+   "field": "gl.th",
+   "from": "ให้มัน",
+   "to": "ให้",
+   "why": "gloss là mệnh lệnh \"give it/dale\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dar",
+   "field": "gl.zh",
+   "from": "给它",
+   "to": "给",
+   "why": "gloss là mệnh lệnh \"give it/dale\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dar",
+   "field": "gl.ja",
+   "from": "それをあげて",
+   "to": "与える、あげる",
+   "why": "gloss là mệnh lệnh \"give it/dale\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dar",
+   "field": "gl.ko",
+   "from": "그것을 줘",
+   "to": "주다",
+   "why": "gloss là mệnh lệnh \"give it/dale\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dar",
+   "field": "gl.hi",
+   "from": "इसे दो",
+   "to": "देना",
+   "why": "gloss là mệnh lệnh \"give it/dale\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dar",
+   "field": "gl.ar",
+   "from": "اعطه",
+   "to": "أعطى",
+   "why": "gloss là mệnh lệnh \"give it/dale\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dar",
+   "field": "gl.ru",
+   "from": "дай его",
+   "to": "давать",
+   "why": "gloss là mệnh lệnh \"give it/dale\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dar",
+   "field": "gl.tr",
+   "from": "ver",
+   "to": "vermek",
+   "why": "gloss là mệnh lệnh \"give it/dale\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "derecha",
+   "field": "gl.de",
+   "from": "Rechts",
+   "to": "rechte Seite",
+   "why": "danh từ, không phải trạng từ rechts/право"
+  },
+  {
+   "word": "derecha",
+   "field": "gl.ru",
+   "from": "право",
+   "to": "правая сторона",
+   "why": "danh từ, không phải trạng từ rechts/право"
+  },
+  {
+   "word": "departamento",
+   "field": "ipa",
+   "from": "depaɾtaˈmɛnto",
+   "to": "depaɾtaˈmento",
+   "why": "theo es-g2p (ʝ yeísmo / bán nguyên âm / ɛ→e / ˈ nhấn)"
+  },
+  {
+   "word": "frío",
+   "field": "gl.hi",
+   "from": " ठंड",
+   "to": "ठंड",
+   "why": "khoảng trắng thừa"
+  },
+  {
+   "word": "bonito",
+   "field": "gl.ja",
+   "from": "可愛い",
+   "to": "きれいな",
+   "why": "可愛い=dễ thương, lệch nghĩa"
+  },
+  {
+   "word": "venir",
+   "field": "gl.en",
+   "from": "come",
+   "to": "to come",
+   "why": "gloss chia ngôi 2 (viens/kommst/geliyorsun)"
+  },
+  {
+   "word": "venir",
+   "field": "gl.vi",
+   "from": "đến",
+   "to": "đến, tới",
+   "why": "gloss chia ngôi 2 (viens/kommst/geliyorsun)"
+  },
+  {
+   "word": "venir",
+   "field": "gl.pt",
+   "from": "vem",
+   "to": "vir",
+   "why": "gloss chia ngôi 2 (viens/kommst/geliyorsun)"
+  },
+  {
+   "word": "venir",
+   "field": "gl.fr",
+   "from": "viens",
+   "to": "venir",
+   "why": "gloss chia ngôi 2 (viens/kommst/geliyorsun)"
+  },
+  {
+   "word": "venir",
+   "field": "gl.de",
+   "from": "kommst",
+   "to": "kommen",
+   "why": "gloss chia ngôi 2 (viens/kommst/geliyorsun)"
+  },
+  {
+   "word": "venir",
+   "field": "gl.hi",
+   "from": "आते हो",
+   "to": "आना",
+   "why": "gloss chia ngôi 2 (viens/kommst/geliyorsun)"
+  },
+  {
+   "word": "venir",
+   "field": "gl.ar",
+   "from": "تأتي",
+   "to": "جاء",
+   "why": "gloss chia ngôi 2 (viens/kommst/geliyorsun)"
+  },
+  {
+   "word": "venir",
+   "field": "gl.ru",
+   "from": "приходишь",
+   "to": "приходить",
+   "why": "gloss chia ngôi 2 (viens/kommst/geliyorsun)"
+  },
+  {
+   "word": "venir",
+   "field": "gl.tr",
+   "from": "geliyorsun",
+   "to": "gelmek",
+   "why": "gloss chia ngôi 2 (viens/kommst/geliyorsun)"
+  },
+  {
+   "word": "irse",
+   "field": "gl.vi",
+   "from": "rời đi",
+   "to": "đi mất, rời đi",
+   "why": "nghĩa phản thân irse"
+  },
+  {
+   "word": "irse",
+   "field": "gl.en",
+   "from": "leave",
+   "to": "to leave, to go away",
+   "why": "nghĩa phản thân irse"
+  },
+  {
+   "word": "irse",
+   "field": "gl.fr",
+   "from": "partir",
+   "to": "partir, s'en aller",
+   "why": "nghĩa phản thân irse"
+  },
+  {
+   "word": "irse",
+   "field": "gl.de",
+   "from": "gehen",
+   "to": "weggehen",
+   "why": "nghĩa phản thân irse"
+  },
+  {
+   "word": "irse",
+   "field": "gl.id",
+   "from": "pergi",
+   "to": "pergi (meninggalkan)",
+   "why": "nghĩa phản thân irse"
+  },
+  {
+   "word": "irse",
+   "field": "gl.th",
+   "from": "ไป",
+   "to": "จากไป",
+   "why": "nghĩa phản thân irse"
+  },
+  {
+   "word": "irse",
+   "field": "gl.ja",
+   "from": "去る",
+   "to": "去る、出かける",
+   "why": "nghĩa phản thân irse"
+  },
+  {
+   "word": "irse",
+   "field": "gl.hi",
+   "from": "जाना",
+   "to": "चले जाना",
+   "why": "nghĩa phản thân irse"
+  },
+  {
+   "word": "irse",
+   "field": "gl.ar",
+   "from": "الذهاب",
+   "to": "غادر",
+   "why": "nghĩa phản thân irse"
+  },
+  {
+   "word": "irse",
+   "field": "gl.tr",
+   "from": "gitmek",
+   "to": "gitmek, ayrılmak",
+   "why": "nghĩa phản thân irse"
+  },
+  {
+   "word": "forma",
+   "field": "gl.vi",
+   "from": "hình dạng",
+   "to": "hình thức, cách; hình dạng",
+   "why": "gloss số nhiều (shapes/ways, formes...) và nghĩa vi lệch ví dụ"
+  },
+  {
+   "word": "forma",
+   "field": "gl.en",
+   "from": "shapes / ways",
+   "to": "form, way; shape",
+   "why": "gloss số nhiều (shapes/ways, formes...) và nghĩa vi lệch ví dụ"
+  },
+  {
+   "word": "forma",
+   "field": "gl.pt",
+   "from": "formas",
+   "to": "forma; maneira",
+   "why": "gloss số nhiều (shapes/ways, formes...) và nghĩa vi lệch ví dụ"
+  },
+  {
+   "word": "forma",
+   "field": "gl.fr",
+   "from": "formes",
+   "to": "forme; manière",
+   "why": "gloss số nhiều (shapes/ways, formes...) và nghĩa vi lệch ví dụ"
+  },
+  {
+   "word": "forma",
+   "field": "gl.de",
+   "from": "Formen",
+   "to": "Form; Art und Weise",
+   "why": "gloss số nhiều (shapes/ways, formes...) và nghĩa vi lệch ví dụ"
+  },
+  {
+   "word": "forma",
+   "field": "gl.id",
+   "from": "bentuk / cara",
+   "to": "bentuk; cara",
+   "why": "gloss số nhiều (shapes/ways, formes...) và nghĩa vi lệch ví dụ"
+  },
+  {
+   "word": "forma",
+   "field": "gl.th",
+   "from": "รูปแบบ",
+   "to": "รูปแบบ; วิธี",
+   "why": "gloss số nhiều (shapes/ways, formes...) và nghĩa vi lệch ví dụ"
+  },
+  {
+   "word": "forma",
+   "field": "gl.zh",
+   "from": "形状 / 方法",
+   "to": "形式；方式",
+   "why": "gloss số nhiều (shapes/ways, formes...) và nghĩa vi lệch ví dụ"
+  },
+  {
+   "word": "forma",
+   "field": "gl.ja",
+   "from": "形 / 方法",
+   "to": "形；方法",
+   "why": "gloss số nhiều (shapes/ways, formes...) và nghĩa vi lệch ví dụ"
+  },
+  {
+   "word": "forma",
+   "field": "gl.ko",
+   "from": "모양 / 방법",
+   "to": "형태; 방법",
+   "why": "gloss số nhiều (shapes/ways, formes...) và nghĩa vi lệch ví dụ"
+  },
+  {
+   "word": "forma",
+   "field": "gl.hi",
+   "from": "रूप / तरीके",
+   "to": "रूप; तरीका",
+   "why": "gloss số nhiều (shapes/ways, formes...) và nghĩa vi lệch ví dụ"
+  },
+  {
+   "word": "forma",
+   "field": "gl.ar",
+   "from": "أشكال / طرق",
+   "to": "شكل؛ طريقة",
+   "why": "gloss số nhiều (shapes/ways, formes...) và nghĩa vi lệch ví dụ"
+  },
+  {
+   "word": "forma",
+   "field": "gl.ru",
+   "from": "формы / способы",
+   "to": "форма; способ",
+   "why": "gloss số nhiều (shapes/ways, formes...) và nghĩa vi lệch ví dụ"
+  },
+  {
+   "word": "forma",
+   "field": "gl.tr",
+   "from": "şekiller / yollar",
+   "to": "biçim; yol",
+   "why": "gloss số nhiều (shapes/ways, formes...) và nghĩa vi lệch ví dụ"
+  },
+  {
+   "word": "volver",
+   "field": "gl.vi",
+   "from": "sẽ trở lại",
+   "to": "trở lại, quay lại",
+   "why": "gloss ở thì tương lai"
+  },
+  {
+   "word": "volver",
+   "field": "gl.en",
+   "from": "will return",
+   "to": "to return, to come back",
+   "why": "gloss ở thì tương lai"
+  },
+  {
+   "word": "volver",
+   "field": "gl.pt",
+   "from": "voltarei",
+   "to": "voltar",
+   "why": "gloss ở thì tương lai"
+  },
+  {
+   "word": "volver",
+   "field": "gl.fr",
+   "from": "reviendrai",
+   "to": "revenir",
+   "why": "gloss ở thì tương lai"
+  },
+  {
+   "word": "volver",
+   "field": "gl.de",
+   "from": "werde zurückkommen",
+   "to": "zurückkehren",
+   "why": "gloss ở thì tương lai"
+  },
+  {
+   "word": "volver",
+   "field": "gl.id",
+   "from": "akan kembali",
+   "to": "kembali",
+   "why": "gloss ở thì tương lai"
+  },
+  {
+   "word": "volver",
+   "field": "gl.th",
+   "from": "จะกลับมา",
+   "to": "กลับมา",
+   "why": "gloss ở thì tương lai"
+  },
+  {
+   "word": "volver",
+   "field": "gl.zh",
+   "from": "将返回",
+   "to": "返回",
+   "why": "gloss ở thì tương lai"
+  },
+  {
+   "word": "volver",
+   "field": "gl.ja",
+   "from": "戻るつもりだ",
+   "to": "戻る",
+   "why": "gloss ở thì tương lai"
+  },
+  {
+   "word": "volver",
+   "field": "gl.ko",
+   "from": "돌아올 것이다",
+   "to": "돌아오다",
+   "why": "gloss ở thì tương lai"
+  },
+  {
+   "word": "volver",
+   "field": "gl.hi",
+   "from": "वापस आऊंगा",
+   "to": "वापस आना",
+   "why": "gloss ở thì tương lai"
+  },
+  {
+   "word": "volver",
+   "field": "gl.ar",
+   "from": "سأعود",
+   "to": "عاد",
+   "why": "gloss ở thì tương lai"
+  },
+  {
+   "word": "volver",
+   "field": "gl.ru",
+   "from": "вернусь",
+   "to": "возвращаться",
+   "why": "gloss ở thì tương lai"
+  },
+  {
+   "word": "volver",
+   "field": "gl.tr",
+   "from": "döneceğim",
+   "to": "dönmek",
+   "why": "gloss ở thì tương lai"
+  },
+  {
+   "word": "doler",
+   "field": "gl.en",
+   "from": "hurts",
+   "to": "to hurt, to ache",
+   "why": "gloss chia động từ (hurts/tut weh...)"
+  },
+  {
+   "word": "doler",
+   "field": "gl.pt",
+   "from": "dói",
+   "to": "doer",
+   "why": "gloss chia động từ (hurts/tut weh...)"
+  },
+  {
+   "word": "doler",
+   "field": "gl.fr",
+   "from": "fait mal",
+   "to": "faire mal",
+   "why": "gloss chia động từ (hurts/tut weh...)"
+  },
+  {
+   "word": "doler",
+   "field": "gl.de",
+   "from": "tut weh",
+   "to": "wehtun",
+   "why": "gloss chia động từ (hurts/tut weh...)"
+  },
+  {
+   "word": "doler",
+   "field": "gl.id",
+   "from": "sakit",
+   "to": "sakit, nyeri",
+   "why": "gloss chia động từ (hurts/tut weh...)"
+  },
+  {
+   "word": "doler",
+   "field": "gl.th",
+   "from": "เจ็บ",
+   "to": "เจ็บ, ปวด",
+   "why": "gloss chia động từ (hurts/tut weh...)"
+  },
+  {
+   "word": "doler",
+   "field": "gl.zh",
+   "from": "痛",
+   "to": "疼",
+   "why": "gloss chia động từ (hurts/tut weh...)"
+  },
+  {
+   "word": "doler",
+   "field": "gl.hi",
+   "from": "दर्द होता है",
+   "to": "दर्द होना",
+   "why": "gloss chia động từ (hurts/tut weh...)"
+  },
+  {
+   "word": "doler",
+   "field": "gl.ar",
+   "from": "يؤلم",
+   "to": "آلم",
+   "why": "gloss chia động từ (hurts/tut weh...)"
+  },
+  {
+   "word": "doler",
+   "field": "gl.ru",
+   "from": "болит",
+   "to": "болеть",
+   "why": "gloss chia động từ (hurts/tut weh...)"
+  },
+  {
+   "word": "doler",
+   "field": "gl.tr",
+   "from": "acıyor",
+   "to": "acımak",
+   "why": "gloss chia động từ (hurts/tut weh...)"
+  },
+  {
+   "word": "tener",
+   "field": "gl.en",
+   "from": "have / had",
+   "to": "to have",
+   "why": "gloss lẫn dạng quá khứ (tivemos/eûmes/hatten/持っていた/كان لدينا)"
+  },
+  {
+   "word": "tener",
+   "field": "gl.pt",
+   "from": "ter / tivemos",
+   "to": "ter",
+   "why": "gloss lẫn dạng quá khứ (tivemos/eûmes/hatten/持っていた/كان لدينا)"
+  },
+  {
+   "word": "tener",
+   "field": "gl.fr",
+   "from": "avoir / eûmes",
+   "to": "avoir",
+   "why": "gloss lẫn dạng quá khứ (tivemos/eûmes/hatten/持っていた/كان لدينا)"
+  },
+  {
+   "word": "tener",
+   "field": "gl.de",
+   "from": "haben / hatten",
+   "to": "haben",
+   "why": "gloss lẫn dạng quá khứ (tivemos/eûmes/hatten/持っていた/كان لدينا)"
+  },
+  {
+   "word": "tener",
+   "field": "gl.id",
+   "from": "memiliki",
+   "to": "memiliki, punya",
+   "why": "gloss lẫn dạng quá khứ (tivemos/eûmes/hatten/持っていた/كان لدينا)"
+  },
+  {
+   "word": "tener",
+   "field": "gl.ja",
+   "from": "持っていた",
+   "to": "持つ、ある",
+   "why": "gloss lẫn dạng quá khứ (tivemos/eûmes/hatten/持っていた/كان لدينا)"
+  },
+  {
+   "word": "tener",
+   "field": "gl.ko",
+   "from": "가지다",
+   "to": "가지다, 있다",
+   "why": "gloss lẫn dạng quá khứ (tivemos/eûmes/hatten/持っていた/كان لدينا)"
+  },
+  {
+   "word": "tener",
+   "field": "gl.hi",
+   "from": "पास होना",
+   "to": "पास होना, रखना",
+   "why": "gloss lẫn dạng quá khứ (tivemos/eûmes/hatten/持っていた/كان لدينا)"
+  },
+  {
+   "word": "tener",
+   "field": "gl.ar",
+   "from": "كان لدينا",
+   "to": "امتلك",
+   "why": "gloss lẫn dạng quá khứ (tivemos/eûmes/hatten/持っていた/كان لدينا)"
+  },
+  {
+   "word": "llamar",
+   "field": "gl.vi",
+   "from": "sẽ gọi",
+   "to": "gọi",
+   "why": "gloss ở thì tương lai; ru lẫn chữ Thái"
+  },
+  {
+   "word": "llamar",
+   "field": "gl.en",
+   "from": "will call",
+   "to": "to call",
+   "why": "gloss ở thì tương lai; ru lẫn chữ Thái"
+  },
+  {
+   "word": "llamar",
+   "field": "gl.pt",
+   "from": "chamarei / ligarei",
+   "to": "chamar; ligar",
+   "why": "gloss ở thì tương lai; ru lẫn chữ Thái"
+  },
+  {
+   "word": "llamar",
+   "field": "gl.fr",
+   "from": "appellerai",
+   "to": "appeler",
+   "why": "gloss ở thì tương lai; ru lẫn chữ Thái"
+  },
+  {
+   "word": "llamar",
+   "field": "gl.de",
+   "from": "werde anrufen",
+   "to": "rufen; anrufen",
+   "why": "gloss ở thì tương lai; ru lẫn chữ Thái"
+  },
+  {
+   "word": "llamar",
+   "field": "gl.id",
+   "from": "akan memanggil / menelepon",
+   "to": "memanggil; menelepon",
+   "why": "gloss ở thì tương lai; ru lẫn chữ Thái"
+  },
+  {
+   "word": "llamar",
+   "field": "gl.th",
+   "from": "จะโทร / จะเรียก",
+   "to": "เรียก; โทร",
+   "why": "gloss ở thì tương lai; ru lẫn chữ Thái"
+  },
+  {
+   "word": "llamar",
+   "field": "gl.zh",
+   "from": "将打电话 / 将呼唤",
+   "to": "叫；打电话",
+   "why": "gloss ở thì tương lai; ru lẫn chữ Thái"
+  },
+  {
+   "word": "llamar",
+   "field": "gl.ja",
+   "from": "電話するつもりだ",
+   "to": "呼ぶ；電話する",
+   "why": "gloss ở thì tương lai; ru lẫn chữ Thái"
+  },
+  {
+   "word": "llamar",
+   "field": "gl.ko",
+   "from": "전화할 것이다",
+   "to": "부르다; 전화하다",
+   "why": "gloss ở thì tương lai; ru lẫn chữ Thái"
+  },
+  {
+   "word": "llamar",
+   "field": "gl.hi",
+   "from": "कॉल करूँगा",
+   "to": "बुलाना; फ़ोन करना",
+   "why": "gloss ở thì tương lai; ru lẫn chữ Thái"
+  },
+  {
+   "word": "llamar",
+   "field": "gl.ar",
+   "from": "سأتصل",
+   "to": "نادى؛ اتصل",
+   "why": "gloss ở thì tương lai; ru lẫn chữ Thái"
+  },
+  {
+   "word": "llamar",
+   "field": "gl.ru",
+   "from": "позвоню / ขอเรียก",
+   "to": "звать; звонить",
+   "why": "gloss ở thì tương lai; ru lẫn chữ Thái"
+  },
+  {
+   "word": "llamar",
+   "field": "gl.tr",
+   "from": "arayacağım",
+   "to": "çağırmak; aramak",
+   "why": "gloss ở thì tương lai; ru lẫn chữ Thái"
+  },
+  {
+   "word": "animal",
+   "field": "gl.ja",
+   "from": "动物",
+   "to": "動物",
+   "why": "chữ giản thể 动物 trong tiếng Nhật"
+  },
+  {
+   "word": "obviamente",
+   "field": "ipa",
+   "from": "obβjaˈmente",
+   "to": "oββjaˈmente",
+   "why": "theo es-g2p (ʝ yeísmo / bán nguyên âm / ɛ→e / ˈ nhấn)"
+  },
+  {
+   "word": "gay",
+   "field": "ipa",
+   "from": "ˈɡaɪ",
+   "to": "ˈɡaj",
+   "why": "theo es-g2p (ʝ yeísmo / bán nguyên âm / ɛ→e / ˈ nhấn)"
+  },
+  {
+   "word": "sentimiento",
+   "field": "ipa",
+   "from": "sentiˈmjɛnto",
+   "to": "sentiˈmjento",
+   "why": "theo es-g2p (ʝ yeísmo / bán nguyên âm / ɛ→e / ˈ nhấn)"
+  },
+  {
+   "word": "dejar",
+   "field": "gl.vi",
+   "from": "cho phép tôi",
+   "to": "để, cho phép; để lại",
+   "why": "gloss là câu mệnh lệnh \"let me\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dejar",
+   "field": "gl.en",
+   "from": "let me",
+   "to": "to let, allow; to leave (behind)",
+   "why": "gloss là câu mệnh lệnh \"let me\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dejar",
+   "field": "gl.pt",
+   "from": "deixar-me",
+   "to": "deixar",
+   "why": "gloss là câu mệnh lệnh \"let me\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dejar",
+   "field": "gl.fr",
+   "from": "laisser-moi",
+   "to": "laisser",
+   "why": "gloss là câu mệnh lệnh \"let me\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dejar",
+   "field": "gl.de",
+   "from": "lassen Sie mich",
+   "to": "lassen",
+   "why": "gloss là câu mệnh lệnh \"let me\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dejar",
+   "field": "gl.id",
+   "from": "biarkan saya",
+   "to": "membiarkan; meninggalkan",
+   "why": "gloss là câu mệnh lệnh \"let me\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dejar",
+   "field": "gl.th",
+   "from": "ให้ฉัน",
+   "to": "ปล่อย; ให้; ทิ้งไว้",
+   "why": "gloss là câu mệnh lệnh \"let me\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dejar",
+   "field": "gl.zh",
+   "from": "让我",
+   "to": "让；留下",
+   "why": "gloss là câu mệnh lệnh \"let me\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dejar",
+   "field": "gl.ja",
+   "from": "私に〜させてください",
+   "to": "させる；置く",
+   "why": "gloss là câu mệnh lệnh \"let me\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dejar",
+   "field": "gl.ko",
+   "from": "~하게 해주세요",
+   "to": "~하게 하다; 놓다",
+   "why": "gloss là câu mệnh lệnh \"let me\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dejar",
+   "field": "gl.hi",
+   "from": "मुझे करने दें",
+   "to": "देना, करने देना; छोड़ना",
+   "why": "gloss là câu mệnh lệnh \"let me\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dejar",
+   "field": "gl.ar",
+   "from": "دعني",
+   "to": "ترك",
+   "why": "gloss là câu mệnh lệnh \"let me\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dejar",
+   "field": "gl.ru",
+   "from": "позвольте мне",
+   "to": "позволять; оставлять",
+   "why": "gloss là câu mệnh lệnh \"let me\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "dejar",
+   "field": "gl.tr",
+   "from": "bırakın ben",
+   "to": "bırakmak; izin vermek",
+   "why": "gloss là câu mệnh lệnh \"let me\" thay vì nguyên mẫu"
+  },
+  {
+   "word": "conocer",
+   "field": "gl.vi",
+   "from": "gặp bạn",
+   "to": "quen biết; gặp lần đầu",
+   "why": "gloss gắn \"te/you\"; ví dụ chuẩn hóa \"Mucho gusto en conocerte\""
+  },
+  {
+   "word": "conocer",
+   "field": "gl.en",
+   "from": "to meet you / to know you",
+   "to": "to know (a person, place); to meet",
+   "why": "gloss gắn \"te/you\"; ví dụ chuẩn hóa \"Mucho gusto en conocerte\""
+  },
+  {
+   "word": "conocer",
+   "field": "gl.pt",
+   "from": "conhecer-te",
+   "to": "conhecer",
+   "why": "gloss gắn \"te/you\"; ví dụ chuẩn hóa \"Mucho gusto en conocerte\""
+  },
+  {
+   "word": "conocer",
+   "field": "gl.fr",
+   "from": "te connaître",
+   "to": "connaître",
+   "why": "gloss gắn \"te/you\"; ví dụ chuẩn hóa \"Mucho gusto en conocerte\""
+  },
+  {
+   "word": "conocer",
+   "field": "gl.de",
+   "from": "dich kennenlernen",
+   "to": "kennen; kennenlernen",
+   "why": "gloss gắn \"te/you\"; ví dụ chuẩn hóa \"Mucho gusto en conocerte\""
+  },
+  {
+   "word": "conocer",
+   "field": "gl.id",
+   "from": "mengenalmu",
+   "to": "mengenal; berkenalan",
+   "why": "gloss gắn \"te/you\"; ví dụ chuẩn hóa \"Mucho gusto en conocerte\""
+  },
+  {
+   "word": "conocer",
+   "field": "gl.th",
+   "from": "รู้จักคุณ",
+   "to": "รู้จัก",
+   "why": "gloss gắn \"te/you\"; ví dụ chuẩn hóa \"Mucho gusto en conocerte\""
+  },
+  {
+   "word": "conocer",
+   "field": "gl.zh",
+   "from": "认识你",
+   "to": "认识",
+   "why": "gloss gắn \"te/you\"; ví dụ chuẩn hóa \"Mucho gusto en conocerte\""
+  },
+  {
+   "word": "conocer",
+   "field": "gl.ja",
+   "from": "あなたに会う",
+   "to": "知っている；知り合う",
+   "why": "gloss gắn \"te/you\"; ví dụ chuẩn hóa \"Mucho gusto en conocerte\""
+  },
+  {
+   "word": "conocer",
+   "field": "gl.ko",
+   "from": "당신을 알다",
+   "to": "알다 (사람·장소); 만나다",
+   "why": "gloss gắn \"te/you\"; ví dụ chuẩn hóa \"Mucho gusto en conocerte\""
+  },
+  {
+   "word": "conocer",
+   "field": "gl.hi",
+   "from": "तुमसे मिलना",
+   "to": "जानना, परिचित होना",
+   "why": "gloss gắn \"te/you\"; ví dụ chuẩn hóa \"Mucho gusto en conocerte\""
+  },
+  {
+   "word": "conocer",
+   "field": "gl.ar",
+   "from": "معرفتك",
+   "to": "عرف",
+   "why": "gloss gắn \"te/you\"; ví dụ chuẩn hóa \"Mucho gusto en conocerte\""
+  },
+  {
+   "word": "conocer",
+   "field": "gl.ru",
+   "from": "познакомиться с тобой",
+   "to": "знать (кого-то); знакомиться",
+   "why": "gloss gắn \"te/you\"; ví dụ chuẩn hóa \"Mucho gusto en conocerte\""
+  },
+  {
+   "word": "conocer",
+   "field": "gl.tr",
+   "from": "seni tanımak",
+   "to": "tanımak",
+   "why": "gloss gắn \"te/you\"; ví dụ chuẩn hóa \"Mucho gusto en conocerte\""
+  },
+  {
+   "word": "conocer",
+   "field": "ex.es",
+   "from": "Gusto en conocerte.",
+   "to": "Mucho gusto en conocerte.",
+   "why": "gloss gắn \"te/you\"; ví dụ chuẩn hóa \"Mucho gusto en conocerte\""
+  },
+  {
+   "word": "cuidar",
+   "field": "gl.de",
+   "from": "kümmern",
+   "to": "sich kümmern um",
+   "why": "thiếu \"um\"/phản thân"
+  },
+  {
+   "word": "ser",
+   "field": "exForm",
+   "from": "era",
+   "to": "es",
+   "why": "khớp ví dụ mới"
+  }
+ ],
+ "dropped": []
+}

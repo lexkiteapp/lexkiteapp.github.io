@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite – Reading by question type (Review Drill)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              'teal-dark': '#092526',
+              'teal-light': '#1A5354',
+              surface: '#FFF8F1',
+              'card': '#FFFFFF',
+              'card-soft': '#F7EFE6',
+              border: '#E8DC CE',
+              coral: '#F06543',
+              'coral-shade': '#C74A2B',
+              success: '#0E7A53',
+              'success-bg': '#E6F6EE',
+              error: '#C63628',
+              'error-bg': '#FDF0ED',
+              gold: '#D97706',
+              'gold-light': '#FEF3C7',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Tactile bottom ledge effect for buttons */
+    .tactile-btn-primary {
+      box-shadow: 0 4px 0 0 #C74A2B;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #C74A2B;
+    }
+    .tactile-btn-secondary {
+      box-shadow: 0 3px 0 0 #D6C7B7;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #D6C7B7;
+    }
+    .tactile-card {
+      box-shadow: 0 2px 0 0 #EADDCF;
+    }
+  </style>
+</head>
+<body class="bg-[#FBF7F1] text-[#092526] font-sans antialiased min-h-screen flex justify-center selection:bg-brand-gold-light selection:text-brand-teal-dark">
+  <!-- Mobile 390px Container -->
+  <main class="w-full max-w-[390px] bg-[#FBF7F1] min-h-screen flex flex-col border-x border-[#E6DCCB] shadow-sm pb-10">
+    
+    <!-- Top Bar: Lexkite Inner Screen variant (back arrow 44px + title, no bottom tabs) -->
+    <header class="sticky top-0 z-40 bg-[#FBF7F1]/95 backdrop-blur-md border-b border-[#E6DCCB] px-4 py-2.5 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <button type="button" aria-label="Go back to question types" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-white border border-[#E6DCCB] text-brand-teal hover:bg-[#F8F4EC] active:translate-y-0.5 transition-all">
+          <span class="material-symbols-rounded text-2xl text-brand-teal">arrow_back</span>
+        </button>
+        <div class="flex flex-col">
+          <span class="text-[11px] font-bold tracking-wider uppercase text-brand-teal-light">IELTS Academic Reading</span>
+          <h1 class="text-base font-extrabold text-brand-teal-dark leading-tight">Reading by question type</h1>
+        </div>
+      </div>
+      
+      <!-- Drill Info Badge -->
+      <div class="px-2.5 py-1 rounded-full bg-[#ECE4D7] border border-[#E6DCCB] flex items-center gap-1 shrink-0">
+        <span class="text-xs font-bold text-brand-teal">TF / NG</span>
+      </div>
+    </header>
+
+    <!-- Content Body with 16px gutter -->
+    <div class="px-4 pt-4 flex flex-col gap-4">
+
+      <!-- Teacher slot placeholder -->
+      <section aria-label="Mentor advice" class="bg-white border border-[#E6DCCB] rounded-2xl p-3.5 flex items-start gap-3 tactile-card">
+        <div class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-2xl bg-[#ECE4D7] border-2 border-dashed border-[#D2C2AE] flex flex-col items-center justify-center text-center p-0.5 shrink-0" title="2D teacher inserted by code">
+          <span class="text-[10px] font-bold text-brand-teal leading-none tracking-tight">teacher</span>
+          <span class="text-[9px] font-bold text-brand-teal-light leading-none tracking-tight">-slot</span>
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center justify-between gap-1 mb-0.5">
+            <span class="text-xs font-bold text-brand-teal">Ama · IELTS Reading Coach</span>
+            <span class="text-[11px] font-semibold text-brand-teal-light bg-[#ECE4D7] px-2 py-0.5 rounded-full">Skill Analysis</span>
+          </div>
+          <p class="text-xs text-brand-teal-dark font-medium leading-relaxed">
+            "Remember: <strong class="font-bold text-brand-teal-dark">FALSE</strong> requires a direct contradiction in the passage. If information is merely absent, choose <strong class="font-bold text-brand-teal-dark">NOT GIVEN</strong>."
+          </p>
+        </div>
+      </section>
+
+      <!-- Feedback Summary Banner -->
+      <section aria-label="Drill Score Summary" class="bg-white border-2 border-brand-teal/20 rounded-2xl p-4 tactile-card flex flex-col gap-2">
+        <div class="flex items-start justify-between gap-2">
+          <div class="flex items-center gap-2.5">
+            <div class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-brand-success-bg border border-brand-success/30 flex items-center justify-center text-brand-success shrink-0">
+              <span class="material-symbols-rounded text-2xl">verified</span>
+            </div>
+            <div>
+              <p class="text-sm font-extrabold text-brand-teal-dark leading-snug">
+                2/3 correct
+              </p>
+              <p class="text-xs font-semibold text-brand-teal-light">
+                Overall accuracy for this type: <span class="font-extrabold text-brand-teal-dark">67%</span>
+              </p>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-brand-success bg-brand-success-bg px-2.5 py-1 rounded-full border border-brand-success/20 shrink-0">
+            Pass B2+
+          </span>
+        </div>
+        
+        <!-- Progress mini bar -->
+        <div class="w-full bg-[#ECE4D7] rounded-full h-2.5 overflow-hidden mt-1 flex">
+          <div class="bg-brand-success h-full w-[67%]" aria-hidden="true"></div>
+          <div class="bg-brand-error h-full w-[33%]" aria-hidden="true"></div>
+        </div>
+        <div class="flex justify-between items-center text-[11px] font-semibold text-brand-teal-light pt-0.5">
+          <span>Target for Band 7.5: 80%+</span>
+          <span>+20 XP earned</span>
+        </div>
+      </section>
+
+      <!-- Section Title -->
+      <div class="flex items-center justify-between pt-1">
+        <h2 class="text-sm font-extrabold text-brand-teal-dark uppercase tracking-wider">
+          Passage & Question Review
+        </h2>
+        <span class="text-xs font-semibold text-brand-teal-light">Passage excerpt 1</span>
+      </div>
+
+      <!-- Passage Card with Gold Marker Highlight -->
+      <article class="bg-white border border-[#E6DCCB] rounded-2xl p-4 tactile-card flex flex-col gap-2.5">
+        <div class="flex items-center justify-between border-b border-[#E6DCCB] pb-2">
+          <div class="flex items-center gap-1.5 text-xs font-bold text-brand-teal">
+            <span class="material-symbols-rounded text-base text-brand-gold">menu_book</span>
+            <span>The Evolution of Urban Microclimates</span>
+          </div>
+          <span class="text-[11px] font-bold text-brand-teal-light bg-[#F8F4EC] px-2 py-0.5 rounded-md">Paragraph B</span>
+        </div>
+
+        <p class="text-xs text-brand-teal-dark font-medium leading-relaxed">
+          Initial architectural assessments assumed that reflective exterior glass would decrease surrounding temperatures. However, recent empirical surveys confirm that glass facades redirect concentrated thermal radiation onto adjoining sidewalks. 
+          <!-- Highlighted sentence with gold marker -->
+          <mark class="bg-brand-gold-light text-[#78350F] px-1 py-0.5 rounded font-semibold border-b-2 border-brand-gold">
+            Contrary to early projections, modern high-density reflective glass substantially elevates daytime pavement heat rather than dissipating it.
+          </mark> 
+          Consequently, urban corridors with heavy glazing demand dedicated canopy shade networks.
+        </p>
+
+        <div class="flex items-center gap-2 pt-1 text-[11px] font-bold text-brand-teal-light">
+          <span class="w-2.5 h-2.5 rounded-full bg-brand-gold shrink-0"></span>
+          <span>Sentence highlighted for Statement #2 below</span>
+        </div>
+      </article>
+
+      <!-- Statement Review Items -->
+      <section aria-label="Statement Review List" class="flex flex-col gap-3">
+        
+        <!-- Statement 1: CORRECT -->
+        <article class="bg-white border border-[#E6DCCB] rounded-2xl p-3.5 tactile-card flex flex-col gap-2.5">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-brand-teal text-white flex items-center justify-center text-xs font-bold shrink-0">1</span>
+              <span class="text-xs font-bold text-brand-teal uppercase tracking-wide">Statement 1</span>
+            </div>
+            <!-- Feedback chip -->
+            <div class="flex items-center gap-1 bg-brand-success-bg border border-brand-success/30 text-brand-success px-2.5 py-1 rounded-full">
+              <span class="material-symbols-rounded text-base">check_circle</span>
+              <span class="text-xs font-extrabold">Correct</span>
+            </div>
+          </div>
+
+          <p class="text-xs font-bold text-brand-teal-dark leading-snug">
+            "Early architectural models predicted that reflective glass would lower nearby street temperatures."
+          </p>
+
+          <div class="bg-[#FBF7F1] rounded-xl p-2.5 border border-[#E6DCCB] flex flex-col gap-1.5 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="text-brand-teal-light font-medium">Your answer:</span>
+              <span class="font-bold text-brand-success bg-white px-2 py-0.5 rounded border border-[#E6DCCB]">TRUE</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-brand-teal-light font-medium">Correct answer:</span>
+              <span class="font-extrabold text-brand-teal-dark">TRUE</span>
+            </div>
+          </div>
+
+          <p class="text-xs text-brand-teal font-medium leading-relaxed bg-[#F8F4EC]/60 p-2 rounded-lg">
+            <strong class="font-bold text-brand-teal-dark">Explanation:</strong> Paragraph B explicitly states that initial assessments assumed reflective glass would decrease temperatures.
+          </p>
+
+          <button type="button" class="w-full min-h-[44px] py-2 px-3 rounded-xl bg-[#F8F4EC] hover:bg-[#ECE4D7] text-brand-teal font-bold text-xs flex items-center justify-center gap-1.5 border border-[#E2D4C3] active:translate-y-0.5 transition-all">
+            <span class="material-symbols-rounded text-base">visibility</span>
+            <span>See location in passage</span>
+          </button>
+        </article>
+
+        <!-- Statement 2: INCORRECT (Target for the active highlighted sentence) -->
+        <article class="bg-white border-2 border-brand-error/40 rounded-2xl p-3.5 tactile-card flex flex-col gap-2.5 relative">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-brand-error text-white flex items-center justify-center text-xs font-bold shrink-0">2</span>
+              <span class="text-xs font-bold text-brand-teal uppercase tracking-wide">Statement 2</span>
+            </div>
+            <!-- Feedback chip -->
+            <div class="flex items-center gap-1 bg-brand-error-bg border border-brand-error/30 text-brand-error px-2.5 py-1 rounded-full">
+              <span class="material-symbols-rounded text-base">cancel</span>
+              <span class="text-xs font-extrabold">Incorrect: answer was FALSE</span>
+            </div>
+          </div>
+
+          <p class="text-xs font-bold text-brand-teal-dark leading-snug">
+            "Recent surveys demonstrate that reflective glass surfaces reduce thermal radiation onto pedestrian walkways."
+          </p>
+
+          <div class="bg-brand-error-bg/50 rounded-xl p-2.5 border border-brand-error/20 flex flex-col gap-1.5 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="text-brand-teal-light font-medium">Your answer:</span>
+              <span class="font-bold text-brand-error line-through bg-white px-2 py-0.5 rounded border border-[#E6DCCB]">NOT GIVEN</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-brand-teal-light font-medium">Correct answer:</span>
+              <span class="font-extrabold text-brand-success bg-white px-2 py-0.5 rounded border border-[#E6DCCB]">FALSE</span>
+            </div>
+          </div>
+
+          <!-- Explanation with gold callout -->
+          <div class="bg-brand-gold-light/60 border border-brand-gold/30 rounded-xl p-2.5 text-xs text-[#78350F] leading-relaxed">
+            <div class="flex items-center gap-1 font-extrabold mb-0.5 text-[#92400E]">
+              <span class="material-symbols-rounded text-base">lightbulb</span>
+              <span>Key breakdown:</span>
+            </div>
+            Paragraph B says the opposite: modern high-density reflective glass <em>elevates daytime pavement heat</em> rather than dissipating or reducing it.
+          </div>
+
+          <!-- Active 'See location' Button highlighted in Gold state -->
+          <button type="button" class="w-full min-h-[44px] py-2 px-3 rounded-xl bg-brand-gold text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm active:translate-y-0.5 transition-all">
+            <span class="material-symbols-rounded text-base">location_searching</span>
+            <span>Location shown in passage above (Gold highlight)</span>
+          </button>
+        </article>
+
+        <!-- Statement 3: CORRECT -->
+        <article class="bg-white border border-[#E6DCCB] rounded-2xl p-3.5 tactile-card flex flex-col gap-2.5">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-brand-teal text-white flex items-center justify-center text-xs font-bold shrink-0">3</span>
+              <span class="text-xs font-bold text-brand-teal uppercase tracking-wide">Statement 3</span>
+            </div>
+            <!-- Feedback chip -->
+            <div class="flex items-center gap-1 bg-brand-success-bg border border-brand-success/30 text-brand-success px-2.5 py-1 rounded-full">
+              <span class="material-symbols-rounded text-base">check_circle</span>
+              <span class="text-xs font-extrabold">Correct</span>
+            </div>
+          </div>
+
+          <p class="text-xs font-bold text-brand-teal-dark leading-snug">
+            "Municipal authorities have already funded full canopy shade installations across all surveyed cities."
+          </p>
+
+          <div class="bg-[#FBF7F1] rounded-xl p-2.5 border border-[#E6DCCB] flex flex-col gap-1.5 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="text-brand-teal-light font-medium">Your answer:</span>
+              <span class="font-bold text-brand-success bg-white px-2 py-0.5 rounded border border-[#E6DCCB]">NOT GIVEN</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-brand-teal-light font-medium">Correct answer:</span>
+              <span class="font-extrabold text-brand-teal-dark">NOT GIVEN</span>
+            </div>
+          </div>
+
+          <p class="text-xs text-brand-teal font-medium leading-relaxed bg-[#F8F4EC]/60 p-2 rounded-lg">
+            <strong class="font-bold text-brand-teal-dark">Explanation:</strong> The text mentions corridors "demand dedicated canopy shade networks", but never discusses whether funding was provided.
+          </p>
+
+          <button type="button" class="w-full min-h-[44px] py-2 px-3 rounded-xl bg-[#F8F4EC] hover:bg-[#ECE4D7] text-brand-teal font-bold text-xs flex items-center justify-center gap-1.5 border border-[#E2D4C3] active:translate-y-0.5 transition-all">
+            <span class="material-symbols-rounded text-base">visibility</span>
+            <span>See location in passage</span>
+          </button>
+        </article>
+
+      </section>
+
+      <!-- Bottom Action Buttons: Exactly ONE primary button + ONE secondary button -->
+      <section aria-label="Drill Navigation Actions" class="flex flex-col gap-3 pt-2">
+        <!-- Single Primary Button with tactile bottom ledge -->
+        <button type="button" class="w-full min-h-[48px] py-3.5 px-4 rounded-xl bg-brand-coral text-white font-extrabold text-sm flex items-center justify-center gap-2 tactile-btn-primary">
+          <span>Next group (Question 4–6)</span>
+          <span class="material-symbols-rounded text-lg">arrow_forward</span>
+        </button>
+
+        <!-- Secondary Button -->
+        <button type="button" class="w-full min-h-[44px] py-3 px-4 rounded-xl bg-white hover:bg-[#F8F4EC] text-brand-teal font-bold text-xs flex items-center justify-center gap-2 border border-[#E2D4C3] tactile-btn-secondary">
+          <span class="material-symbols-rounded text-base text-brand-teal">tune</span>
+          <span>Choose another question type</span>
+        </button>
+      </section>
+
+      <!-- Footer Micro Info (Lexkite standards) -->
+      <footer class="pt-3 pb-2 text-center text-[11px] font-semibold text-brand-teal-light">
+        <p>Lexkite IELTS Fluency System · Academic Reading Drill v2.4</p>
+      </footer>
+
+    </div>
+  </main>
+</body>
+</html>

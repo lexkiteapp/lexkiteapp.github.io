@@ -122,6 +122,9 @@
     D.addEventListener('load', e => { const i = e.target; if (i && i.tagName === 'IMG' && i.closest && i.closest('.vimg')) (i.decode ? i.decode().then(() => show(i), () => show(i)) : show(i)); }, true);
     D.addEventListener('error', e => { const t = e.target; if (t && t.tagName === 'IMG' && t.closest) { const b = t.closest('.vimg'); if (b) b.classList.add('gone'); } }, true);
   }
+  const darkNow = () => { const D = g.document && g.document.documentElement, t = D && D.getAttribute('data-theme'); return t ? t === 'dark' : !!(g.matchMedia && g.matchMedia('(prefers-color-scheme: dark)').matches); };
+  /** URL ảnh cho câu "nhìn ảnh" của bài học (đồng bộ, sau ready): '' khi cờ tắt / mảnh chưa về / không có đúng từ#loại / ảnh cảnh (cần câu ví dụ) / nền kem ở chế độ tối. */
+  function quizUrl(word, pos) { if (!idx || !enabled() || !loaded(word)) return ''; const k = KEY(word, pos), h = idx.m[k]; return h && !idx.s.has(k) && (idx.a.has(k) || !darkNow()) ? idx.base + h + '.webp' : ''; }
   const has = (word, pos) => !!(idx && enabled() && idx.m[KEY(word, pos)]);
   /** → Promise<{ url (webp), avif, url2x?, alt, key, x2 } | null> */
   function get(word, pos, gloss) {
@@ -129,6 +132,6 @@
     const k = KEY(word, pos);
     return need([word]).then(() => idx).then(j => { if (!enabled()) return null; const h = j.m[k]; if (!h) return null; const u = j.base + h, x2 = j.x.has(k); return { url: u + '.webp', avif: j.w.has(k) ? '' : u + '.avif', url2x: x2 ? u + '@2x.webp' : '', alt: altOf(word, gloss), key: k, x2 }; });
   }
-  const api = { enabled, mode, ready, need, loaded, get, slot, has, pic, prefetch, SIZE, key: KEY, pos: POS, _reset: () => { idx = null; loading = null; } };
+  const api = { enabled, mode, ready, need, loaded, get, slot, has, quizUrl, pic, prefetch, SIZE, key: KEY, pos: POS, _reset: () => { idx = null; loading = null; } };
   g.VImg = api;
 })(typeof self !== 'undefined' ? self : this);

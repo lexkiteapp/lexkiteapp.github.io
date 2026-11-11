@@ -4,6 +4,8 @@
 //  spill: chữ tràn khỏi nút/chip · dup: cùng IPA/loa 2 lần trong một khối · svgtext: chữ trong SVG bị phóng/co theo viewBox (cao > 24 px hoặc < 7 px)
 //  box (khi truyền boxes): phần tử/chữ lòi ra ngoài viền thẻ cha (không nằm trong vùng cuộn ngang) – ca bảng Nền tảng owner 3/11
 //  trunc (khi truyền boxes): chữ bị cắt "…"/line-clamp mà không có title/aria-label → mất thông tin (ca tên nước "CN · C…")
+//  stack · cell · orphan (luôn chạy, owner 5/11 bảng #users): chữ xếp dọc từng ký tự · ô bảng display≠table-cell / cột rộng thừa · nhãn tách khỏi control hoặc nhóm lọc trộn kiểu nhãn
+//  – tự kiểm: scripts/lib/layout-scan-selftest.mjs (web-sweep chạy trước khi quét)
 // Ngoại lệ có chủ đích: badge/chấm định vị tuyệt đối < 48 px, mặt sau thẻ lật (.flash .face), [data-ov-ok], phần tử fixed/sticky.
 export const APP_SEL = '.card, .btn, button, a.chip, .chip, input, select, textarea, .icon-btn, h1, h2, h3, .tabs, .quest-line, .hub-card';
 export const ADMIN_SEL = APP_SEL + ', .kpi, .vid-box, .vid-row, .ach-x.xw, .ach-v, .ach-gl em, .pg-t, .side-a, table';
@@ -80,6 +82,66 @@ export function scan({ root = '#view', sel = APP_SEL, okScroll = '', boxes = '' 
         if (r.width && (r.right > br.right + 1 || r.left < br.left - 1)) out.box.push(`chữ "${t.textContent.trim().slice(0, 24)}" (${lab(pe)}) lòi ra ngoài ${lab(b)} ${Math.round(r.right - br.right)} px`);
       }
     }
+  }
+  // ── Lỗi ẩn loại "bảng/lọc vỡ" (owner 5/11, #users 1900 px: tên xếp dọc từng chữ, cột ô chọn rộng trống, badge lệch hàng, nhãn "to" tách khỏi ô ngày).
+  // Gốc thường gặp: min-width nhắm nhầm cột, overflow-wrap:anywhere cho min-content ≈ 1 ký tự, td display:flex (không còn là ô bảng), nhãn đổi hướng giữa nhóm lọc.
+  //  stack: chữ xếp dọc – ≥ 3 dòng, ≤ 3 ký tự/dòng, số dòng > 2 × số từ (CJK câu thường ≥ 5 ký tự/dòng nên không dính)
+  //  cell:  ô td/th trong bảng thật mà display ≠ table-cell · cột rộng thừa (rộng/nội dung gấp ≥ 3 lần trung vị các cột khác và dư > 120 px)
+  //  orphan: chữ nhãn cách xa control (> 24 px) / nằm ở dòng khác mà không ngay trên control · nhóm lọc trộn kiểu nhãn bên cạnh với nhãn bên trên
+  const hid = el => { for (let e = el; e && e !== document.body; e = e.parentElement) { if (e.matches('.sr-only, .visually-hidden, [data-ov-ok]')) return true; const s = cs(e); if (s.clip !== 'auto' && s.clip !== '' && /absolute|fixed/.test(s.position)) return true; if (/vertical/.test(s.writingMode)) return true; } return false; };
+  const lineTops = rects => { const ts = [...rects].filter(x => x.width > 0 && x.height > 0).map(x => x.top).sort((a, b) => a - b), o = []; for (const t of ts) if (!o.length || t - o[o.length - 1] > 2) o.push(t); return o.length; };
+  out.stack = []; out.cell = []; out.orphan = [];
+  for (const s of scope) {
+    const tw = document.createTreeWalker(s, NodeFilter.SHOW_TEXT);
+    for (let t; (t = tw.nextNode());) {
+      const txt = t.textContent.trim(), pe = t.parentElement; if (txt.length < 6 || !pe || pe.closest('svg, script, style') || !shown(pe) || hid(pe)) continue;
+      const rg = document.createRange(); rg.selectNodeContents(t); const lines = lineTops(rg.getClientRects()), words = txt.split(/\s+/).length;
+      if (lines >= 3 && txt.length / lines <= 3 && lines > words * 2) out.stack.push(`${lab(pe)} chữ xếp dọc "${txt.slice(0, 18)}" ${lines} dòng / ${words} từ (rộng ${Math.round(pe.getBoundingClientRect().width)} px)`);
+    }
+  }
+  const tables = [...new Set(scope.flatMap(s => [...s.querySelectorAll('table')]))].filter(t => shown(t) && !hid(t) && cs(t).display === 'table' && t.getBoundingClientRect().width > 1);
+  for (const t of tables) {
+    const tl = lab(t).split(' "')[0], rows = [...t.rows].filter(r => cs(r).display === 'table-row' && shown(r));
+    for (const r of rows) for (const c of r.cells) { const d = cs(c).display; if (d !== 'table-cell' && d !== 'none') { out.cell.push(`${tl} hàng ${r.rowIndex} ô ${c.cellIndex} display:${d} – không còn là ô bảng (lệch hàng/cột)`); break; } }
+    const full = rows.filter(r => [...r.cells].every(c => c.colSpan === 1)), n = Math.max(0, ...full.map(r => r.cells.length)); if (n < 3) continue;
+    const cols = [];
+    for (let i = 0; i < n; i++) {
+      let w = 0, content = 0;
+      for (const r of full) {
+        const c = r.cells[i]; if (!c) continue; const b = c.getBoundingClientRect(), p = cs(c); w = Math.max(w, b.width - parseFloat(p.paddingLeft) - parseFloat(p.paddingRight));
+        // bề rộng nội dung = khoảng từ mép trái nhất tới mép phải nhất của chữ/phần tử con (khối con lấp ô → coi như đầy, không báo)
+        const rg = document.createRange(); rg.selectNodeContents(c); let l = Infinity, rr = -Infinity;
+        for (const x of rg.getClientRects()) if (x.width > 0 && x.height > 0) { l = Math.min(l, x.left); rr = Math.max(rr, x.right); }
+        if (rr > l) content = Math.max(content, rr - l);
+      }
+      cols.push({ i, w, content: Math.max(content, 1) });
+    }
+    const ratio = cols.map(c => c.w / c.content);
+    for (const c of cols) {
+      const others = ratio.filter((_, j) => j !== c.i).sort((a, b) => a - b), med = others[others.length >> 1] || 1;
+      if (c.w - c.content > 120 && c.w / c.content >= 3 * Math.max(1, med)) out.cell.push(`${tl} cột ${c.i} rộng ${Math.round(c.w)} px cho nội dung ${Math.round(c.content)} px (cột khác ×${med.toFixed(1)}) – cột thừa, cột khác bị bóp`);
+    }
+  }
+  const ctlOf = l => l.control || (l.htmlFor && document.getElementById(l.htmlFor)) || l.querySelector('input, select, textarea');
+  const textRect = (l, ctl) => { let r = null; const tw = document.createTreeWalker(l, NodeFilter.SHOW_TEXT); for (let t; (t = tw.nextNode());) { if (!t.textContent.trim() || (ctl && ctl.contains(t)) || t.parentElement.closest('select, option, .sr-only, .visually-hidden') || !shown(t.parentElement)) continue; const rg = document.createRange(); rg.selectNodeContents(t); let b = rg.getBoundingClientRect(); const pe = t.parentElement, ps = cs(pe); if (ps.overflowX !== 'visible') { const q = pe.getBoundingClientRect(); b = { left: Math.max(b.left, q.left), top: b.top, right: Math.min(b.right, q.right), bottom: b.bottom, width: Math.min(b.right, q.right) - Math.max(b.left, q.left) }; } if (!(b.width > 0)) continue; r = r ? { left: Math.min(r.left, b.left), top: Math.min(r.top, b.top), right: Math.max(r.right, b.right), bottom: Math.max(r.bottom, b.bottom) } : { left: b.left, top: b.top, right: b.right, bottom: b.bottom }; } return r; };
+  const groups = new Map();
+  for (const l of new Set(scope.flatMap(s => [...s.querySelectorAll('label')]))) {
+    const ctl = ctlOf(l); if (!ctl || !shown(l) || !shown(ctl) || hid(l) || floating(l) || /checkbox|radio|hidden/.test(ctl.type || '')) continue;
+    // control nằm ngoài nhãn (label for=…): so KHỐI chứa nhãn với KHỐI chứa control dưới tổ tiên chung (vd. nhãn + chip ở .fld-top, thanh trượt + ô số ở .range-row)
+    let tr = textRect(l, ctl), cb = ctl.getBoundingClientRect();
+    if (!l.contains(ctl)) { let a = l.parentElement; while (a && !a.contains(ctl)) a = a.parentElement; const kid = e => { while (e && e.parentElement !== a) e = e.parentElement; return e; }; const lb = kid(l), kb = kid(ctl); if (a && lb && kb && lb !== kb) { const q = lb.getBoundingClientRect(); if (tr) tr = { left: tr.left, top: q.top, right: tr.right, bottom: q.bottom }; cb = kb.getBoundingClientRect(); } }
+    if (!tr || !cb.width) continue;
+    const vOver = Math.min(tr.bottom, cb.bottom) - Math.max(tr.top, cb.top), hOver = Math.min(tr.right, cb.right) - Math.max(tr.left, cb.left);
+    const name = `nhãn "${(l.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 20)}"`;
+    let kind;
+    if (vOver > 2) { kind = 'side'; const gap = tr.right <= cb.left ? cb.left - tr.right : tr.left - cb.right; if (gap > 24) out.orphan.push(`${name} cách control ${Math.round(gap)} px`); }
+    else if (tr.bottom <= cb.top + 2 && hOver > -8 && tr.left >= cb.left - 8) { kind = 'above'; if (cb.top - tr.bottom > 24) out.orphan.push(`${name} cách control ${Math.round(cb.top - tr.bottom)} px phía trên`); }
+    else { out.orphan.push(`${name} tách khỏi control (chữ ${Math.round(tr.left)},${Math.round(tr.top)} · control ${Math.round(cb.left)},${Math.round(cb.top)})`); continue; }
+    const g = l.parentElement; if (!groups.has(g)) groups.set(g, []); groups.get(g).push([kind, name]);
+  }
+  for (const [g, ls] of groups) {
+    if (ls.length < 3) continue; const side = ls.filter(x => x[0] === 'side'), above = ls.filter(x => x[0] === 'above');
+    if (side.length && above.length) { const few = side.length < above.length ? side : above; out.orphan.push(`${lab(g).split(' "')[0]}: nhóm lọc trộn kiểu nhãn (${side.length} bên cạnh · ${above.length} bên trên) – lệch: ${few.map(x => x[1]).join(', ').slice(0, 80)}`); }
   }
   for (const k in out) out[k] = [...new Set(out[k])].slice(0, 15);
   return out;

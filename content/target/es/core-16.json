@@ -1,0 +1,944 @@
+{
+ "v": 1,
+ "tl": "es",
+ "variant": "es-419",
+ "status": "reviewed",
+ "source": {
+  "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
+  "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
+  "license": "CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec"
+ },
+ "words": [
+  {
+   "word": "pero",
+   "pos": "conj",
+   "ipa": "ˈpeɾo",
+   "gl": {
+    "en": "but",
+    "es": "pero",
+    "pt": "mas",
+    "fr": "mais",
+    "de": "aber",
+    "vi": "nhưng",
+    "id": "tapi",
+    "th": "แต่",
+    "zh": "但是",
+    "ja": "しかし",
+    "ko": "하지만",
+    "hi": "लेकिन",
+    "ar": "لكن",
+    "ru": "но",
+    "tr": "ama"
+   },
+   "ex": {
+    "es": "Quiero ir, pero está lloviendo.",
+    "en": "I want to go, but it's raining."
+   },
+   "rank": 23,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.7-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "más",
+   "pos": "adv",
+   "ipa": "ˈmas",
+   "gl": {
+    "en": "more",
+    "es": "más",
+    "pt": "mais",
+    "fr": "plus",
+    "de": "mehr",
+    "vi": "hơn",
+    "id": "lebih",
+    "th": "มากกว่า",
+    "zh": "更多",
+    "ja": "もっと",
+    "ko": "더",
+    "hi": "और",
+    "ar": "أكثر",
+    "ru": "больше",
+    "tr": "daha"
+   },
+   "ex": {
+    "es": "Quiero más agua.",
+    "en": "I want more water."
+   },
+   "rank": 36,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.7-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "tipo",
+   "pos": "n",
+   "gender": "m",
+   "plural": "tipos",
+   "ipa": "ˈtipo",
+   "gl": {
+    "en": "type/kind",
+    "es": "tipo",
+    "pt": "tipo",
+    "fr": "type",
+    "de": "Typ",
+    "vi": "loại",
+    "id": "tipe",
+    "th": "ประเภท",
+    "zh": "类型",
+    "ja": "タイプ",
+    "ko": "유형",
+    "hi": "प्रकार",
+    "ar": "نوع",
+    "ru": "тип",
+    "tr": "tip"
+   },
+   "ex": {
+    "es": "Ese tipo de música me gusta.",
+    "en": "I like that kind of music."
+   },
+   "rank": 191,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.7-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "mal",
+   "pos": "adv",
+   "ipa": "ˈmal",
+   "gl": {
+    "vi": "tệ, không tốt",
+    "en": "badly",
+    "es": "mal",
+    "pt": "mal",
+    "fr": "mal",
+    "de": "schlecht",
+    "id": "buruk",
+    "th": "อย่างแย่",
+    "zh": "糟糕地",
+    "ja": "悪く",
+    "ko": "나쁘게",
+    "hi": "बुरी तरह",
+    "ar": "بشكل سيء",
+    "ru": "плохо",
+    "tr": "kötü"
+   },
+   "ex": {
+    "es": "Hoy me siento muy mal.",
+    "en": "Today I feel very bad."
+   },
+   "rank": 219,
+   "qa": {
+    "gen": "gemini-3.7-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "mío",
+   "pos": "pron",
+   "ipa": "ˈmio",
+   "gl": {
+    "vi": "của tôi",
+    "en": "mine",
+    "es": "mío",
+    "pt": "meu",
+    "fr": "le mien",
+    "de": "meiner",
+    "id": "milikku",
+    "th": "ของฉัน",
+    "zh": "我的",
+    "ja": "私のもの",
+    "ko": "나의 것",
+    "hi": "मेरा",
+    "ar": "لي",
+    "ru": "мой",
+    "tr": "benimki"
+   },
+   "ex": {
+    "es": "Ese carro azul es mío.",
+    "en": "That blue car is mine."
+   },
+   "rank": 224,
+   "qa": {
+    "gen": "gemini-3.7-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "razón",
+   "pos": "n",
+   "gender": "f",
+   "plural": "razones",
+   "ipa": "raˈson",
+   "gl": {
+    "vi": "lý do",
+    "en": "reason",
+    "es": "razón",
+    "pt": "razão",
+    "fr": "raison",
+    "de": "Grund",
+    "id": "alasan",
+    "th": "เหตุผล",
+    "zh": "理由",
+    "ja": "理由",
+    "ko": "이유",
+    "hi": "कारण",
+    "ar": "سبب",
+    "ru": "причина",
+    "tr": "neden"
+   },
+   "ex": {
+    "es": "Tienes toda la razón.",
+    "en": "You are totally right."
+   },
+   "rank": 233,
+   "qa": {
+    "gen": "gemini-3.7-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "problema",
+   "pos": "n",
+   "gender": "m",
+   "plural": "problemas",
+   "ipa": "pɾoˈβlema",
+   "gl": {
+    "vi": "vấn đề",
+    "en": "problem",
+    "es": "problema",
+    "pt": "problema",
+    "fr": "problème",
+    "de": "Problem",
+    "id": "masalah",
+    "th": "ปัญหา",
+    "zh": "问题",
+    "ja": "問題",
+    "ko": "문제",
+    "hi": "समस्या",
+    "ar": "مشكلة",
+    "ru": "проблема",
+    "tr": "sorun"
+   },
+   "ex": {
+    "es": "No hay ningún problema con eso.",
+    "en": "There is no problem with that."
+   },
+   "rank": 244,
+   "qa": {
+    "gen": "gemini-3.7-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "entre",
+   "pos": "prep",
+   "ipa": "ˈentɾe",
+   "gl": {
+    "vi": "giữa",
+    "en": "between",
+    "es": "entre",
+    "pt": "entre",
+    "fr": "entre",
+    "de": "zwischen",
+    "id": "antara",
+    "th": "ระหว่าง",
+    "zh": "在……之间",
+    "ja": "〜の間に",
+    "ko": "~사이에",
+    "hi": "के बीच",
+    "ar": "بين",
+    "ru": "между",
+    "tr": "arasinda"
+   },
+   "ex": {
+    "es": "El banco está entre la tienda y el parque.",
+    "en": "The bank is between the store and the park."
+   },
+   "rank": 251,
+   "qa": {
+    "gen": "gemini-3.7-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "ˈen.tɾe"
+   }
+  },
+  {
+   "word": "familia",
+   "pos": "n",
+   "gender": "f",
+   "plural": "familias",
+   "ipa": "faˈmilja",
+   "gl": {
+    "vi": "gia đình",
+    "en": "family",
+    "es": "familia",
+    "pt": "família",
+    "fr": "famille",
+    "de": "Familie",
+    "id": "keluarga",
+    "th": "ครอบครัว",
+    "zh": "家庭",
+    "ja": "家族",
+    "ko": "가족",
+    "hi": "परिवार",
+    "ar": "عائلة",
+    "ru": "семья",
+    "tr": "aile"
+   },
+   "ex": {
+    "es": "Mi familia vive en una casa grande.",
+    "en": "My family lives in a big house."
+   },
+   "rank": 254,
+   "qa": {
+    "gen": "gemini-3.7-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "hermano",
+   "pos": "n",
+   "gender": "m",
+   "plural": "hermanos",
+   "ipa": "eɾˈmano",
+   "gl": {
+    "vi": "anh trai, em trai",
+    "en": "brother",
+    "es": "hermano",
+    "pt": "irmão",
+    "fr": "frère",
+    "de": "Bruder",
+    "id": "saudara laki-laki",
+    "th": "พี่ชาย/น้องชาย",
+    "zh": "兄弟",
+    "ja": "兄弟",
+    "ko": "형제",
+    "hi": "भाई",
+    "ar": "أخ",
+    "ru": "брат",
+    "tr": "erkek kardeş"
+   },
+   "ex": {
+    "es": "Mi hermano mayor vive en México.",
+    "en": "My older brother lives in Mexico."
+   },
+   "rank": 271,
+   "qa": {
+    "gen": "gemini-3.7-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "cabeza",
+   "pos": "n",
+   "gender": "f",
+   "plural": "cabezas",
+   "ipa": "kaˈβesa",
+   "gl": {
+    "vi": "đầu",
+    "en": "head",
+    "es": "cabeza",
+    "pt": "cabeça",
+    "fr": "tête",
+    "de": "Kopf",
+    "id": "kepala",
+    "th": "หัว",
+    "zh": "头",
+    "ja": "頭",
+    "ko": "머리",
+    "hi": "सिर",
+    "ar": "رأس",
+    "ru": "голова",
+    "tr": "baş"
+   },
+   "ex": {
+    "es": "Me duele mucho la cabeza hoy.",
+    "en": "My head hurts a lot today."
+   },
+   "rank": 274,
+   "qa": {
+    "gen": "gemini-3.7-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "contra",
+   "pos": "prep",
+   "ipa": "ˈkontɾa",
+   "gl": {
+    "vi": "chống lại",
+    "en": "against",
+    "es": "contra",
+    "pt": "contra",
+    "fr": "contre",
+    "de": "gegen",
+    "id": "melawan",
+    "th": "ต่อต้าน",
+    "zh": "反对",
+    "ja": "〜に対して",
+    "ko": "~에 반대하여",
+    "hi": "के खिलाफ",
+    "ar": "ضد",
+    "ru": "против",
+    "tr": "karşı"
+   },
+   "ex": {
+    "es": "Jugamos un partido contra el otro equipo.",
+    "en": "We played a match against the other team."
+   },
+   "rank": 304,
+   "qa": {
+    "gen": "gemini-3.7-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "ayuda",
+   "pos": "n",
+   "gender": "f",
+   "plural": "ayudas",
+   "ipa": "aˈʝuða",
+   "gl": {
+    "vi": "sự giúp đỡ",
+    "en": "help",
+    "es": "ayuda",
+    "pt": "ajuda",
+    "fr": "aide",
+    "de": "Hilfe",
+    "id": "bantuan",
+    "th": "ความช่วยเหลือ",
+    "zh": "帮助",
+    "ja": "助け",
+    "ko": "도움",
+    "hi": "मदद",
+    "ar": "مساعدة",
+    "ru": "помощь",
+    "tr": "yardım"
+   },
+   "ex": {
+    "es": "Muchas gracias por toda tu ayuda.",
+    "en": "Thank you very much for all your help."
+   },
+   "rank": 313,
+   "qa": {
+    "gen": "gemini-3.7-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "hacia",
+   "pos": "prep",
+   "ipa": "ˈasja",
+   "gl": {
+    "vi": "về phía",
+    "en": "towards",
+    "es": "hacia",
+    "pt": "em direção a",
+    "fr": "vers",
+    "de": "nach",
+    "id": "ke arah",
+    "th": "ไปยัง",
+    "zh": "向",
+    "ja": "〜に向かって",
+    "ko": "~를 향해",
+    "hi": "की ओर",
+    "ar": "نحو",
+    "ru": "к",
+    "tr": "doğru"
+   },
+   "ex": {
+    "es": "Caminamos hacia la tienda.",
+    "en": "We walk towards the store."
+   },
+   "rank": 327,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "pronto",
+   "pos": "adv",
+   "ipa": "ˈpɾonto",
+   "gl": {
+    "vi": "sớm",
+    "en": "soon",
+    "es": "pronto",
+    "pt": "em breve",
+    "fr": "bientôt",
+    "de": "bald",
+    "id": "segera",
+    "th": "เร็วๆ นี้",
+    "zh": "很快",
+    "ja": "すぐに",
+    "ko": "곧",
+    "hi": "जल्द ही",
+    "ar": "قريبا",
+    "ru": "скоро",
+    "tr": "yakında"
+   },
+   "ex": {
+    "es": "Nos vemos pronto.",
+    "en": "See you soon."
+   },
+   "rank": 333,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "cuánto",
+   "pos": "det",
+   "ipa": "ˈkwanto",
+   "gl": {
+    "vi": "bao nhiêu",
+    "en": "how much",
+    "es": "cuánto",
+    "pt": "quanto",
+    "fr": "combien de",
+    "de": "wie viel",
+    "id": "berapa banyak",
+    "th": "เท่าไหร่",
+    "zh": "多少",
+    "ja": "どのくらい",
+    "ko": "얼마나",
+    "hi": "कितना",
+    "ar": "كم",
+    "ru": "сколько",
+    "tr": "ne kadar"
+   },
+   "ex": {
+    "es": "¿Cuánto cuesta esto?",
+    "en": "How much does this cost?"
+   },
+   "rank": 343,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "importante",
+   "pos": "adj",
+   "ipa": "impoɾˈtante",
+   "gl": {
+    "vi": "quan trọng",
+    "en": "important",
+    "es": "importante",
+    "pt": "importante",
+    "fr": "important",
+    "de": "wichtig",
+    "id": "penting",
+    "th": "สำคัญ",
+    "zh": "重要的",
+    "ja": "重要な",
+    "ko": "중요한",
+    "hi": "महत्वपूर्ण",
+    "ar": "مهم",
+    "ru": "важный",
+    "tr": "önemli"
+   },
+   "ex": {
+    "es": "Tengo un examen importante mañana.",
+    "en": "I have an important exam tomorrow."
+   },
+   "rank": 353,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "jefe",
+   "pos": "n",
+   "gender": "m",
+   "plural": "jefes",
+   "ipa": "ˈxefe",
+   "gl": {
+    "vi": "sếp",
+    "en": "boss",
+    "es": "jefe",
+    "pt": "chefe",
+    "fr": "patron",
+    "de": "Chef",
+    "id": "bos",
+    "th": "เจ้านาย",
+    "zh": "老板",
+    "ja": "上司",
+    "ko": "상사",
+    "hi": "बॉस",
+    "ar": "رئيس",
+    "ru": "начальник",
+    "tr": "patron"
+   },
+   "ex": {
+    "es": "Mi jefe es muy amable.",
+    "en": "My boss is very friendly."
+   },
+   "rank": 357,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "guerra",
+   "pos": "n",
+   "gender": "f",
+   "plural": "guerras",
+   "ipa": "ˈɡera",
+   "gl": {
+    "vi": "chiến tranh",
+    "en": "war",
+    "es": "guerra",
+    "pt": "guerra",
+    "fr": "guerre",
+    "de": "Krieg",
+    "id": "perang",
+    "th": "สงคราม",
+    "zh": "战争",
+    "ja": "戦争",
+    "ko": "전쟁",
+    "hi": "युद्ध",
+    "ar": "حرب",
+    "ru": "война",
+    "tr": "savaş"
+   },
+   "ex": {
+    "es": "La guerra terminó.",
+    "en": "The war ended."
+   },
+   "rank": 422,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "juego",
+   "pos": "n",
+   "gender": "m",
+   "plural": "juegos",
+   "ipa": "ˈxweɣo",
+   "gl": {
+    "vi": "trò chơi",
+    "en": "game",
+    "es": "juego",
+    "pt": "jogo",
+    "fr": "jeu",
+    "de": "Spiel",
+    "id": "permainan",
+    "th": "เกม",
+    "zh": "游戏",
+    "ja": "ゲーム",
+    "ko": "게임",
+    "hi": "खेल",
+    "ar": "لعبة",
+    "ru": "игра",
+    "tr": "oyun"
+   },
+   "ex": {
+    "es": "El juego es divertido.",
+    "en": "The game is fun."
+   },
+   "rank": 433,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "entrar",
+   "pos": "v",
+   "ipa": "enˈtɾaɾ",
+   "gl": {
+    "vi": "vào",
+    "en": "enter",
+    "es": "entrar",
+    "pt": "entrar",
+    "fr": "entrer",
+    "de": "eintreten",
+    "id": "masuk",
+    "th": "เข้า",
+    "zh": "进入",
+    "ja": "入る",
+    "ko": "들어가다",
+    "hi": "प्रवेश करना",
+    "ar": "يدخل",
+    "ru": "входить",
+    "tr": "girmek"
+   },
+   "ex": {
+    "es": "Voy a entrar.",
+    "en": "I am going to enter."
+   },
+   "rank": 438,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "oportunidad",
+   "pos": "n",
+   "gender": "f",
+   "plural": "oportunidades",
+   "ipa": "opoɾtuniˈðad",
+   "gl": {
+    "vi": "cơ hội",
+    "en": "opportunity",
+    "es": "oportunidad",
+    "pt": "oportunidade",
+    "fr": "opportunité",
+    "de": "Gelegenheit",
+    "id": "kesempatan",
+    "th": "โอกาส",
+    "zh": "机会",
+    "ja": "機会",
+    "ko": "기회",
+    "hi": "अवसर",
+    "ar": "فرصة",
+    "ru": "возможность",
+    "tr": "fırsat"
+   },
+   "ex": {
+    "es": "Esta es una buena oportunidad.",
+    "en": "This is a good opportunity."
+   },
+   "rank": 442,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "opoɾtuˈni.ðað"
+   }
+  },
+  {
+   "word": "listo",
+   "pos": "adj",
+   "ipa": "ˈlisto",
+   "gl": {
+    "vi": "sẵn sàng",
+    "en": "ready",
+    "es": "listo",
+    "pt": "pronto",
+    "fr": "prêt",
+    "de": "bereit",
+    "id": "siap",
+    "th": "พร้อม",
+    "zh": "准备好",
+    "ja": "準備ができた",
+    "ko": "준비된",
+    "hi": "तैयार",
+    "ar": "جاهز",
+    "ru": "готовый",
+    "tr": "hazır"
+   },
+   "ex": {
+    "es": "Estoy listo para salir.",
+    "en": "I am ready to leave."
+   },
+   "rank": 446,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  }
+ ],
+ "review": {
+  "by": "sonnet-review-B",
+  "at": "2026-11-09",
+  "checked": 23,
+  "fixed": 4,
+  "dropped": 0,
+  "sample": 6
+ }
+}

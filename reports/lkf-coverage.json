@@ -3,7 +3,7 @@
  "cells": 36,
  "cellsOk": 36,
  "minCell": 16,
- "objectivesUsed": 119,
+ "objectivesUsed": 142,
  "coverage": {
   "grammar": {
    "items": 80,
@@ -81,29 +81,29 @@
    "pct": 100
   },
   "situation": {
-   "items": 1,
-   "tagged": 1,
+   "items": 40,
+   "tagged": 40,
    "pct": 100
   },
   "call": {
-   "items": 11,
-   "tagged": 11,
+   "items": 35,
+   "tagged": 35,
    "pct": 100
   },
   "roleplay": {
-   "items": 16,
-   "tagged": 16,
+   "items": 31,
+   "tagged": 31,
    "pct": 100
   },
   "vocab": {
-   "items": 9183,
-   "tagged": 9183,
+   "items": 9759,
+   "tagged": 9759,
    "pct": 100
   }
  },
  "total": {
-  "items": 9955,
-  "tagged": 9955,
+  "items": 10609,
+  "tagged": 10609,
   "pct": 100
  },
  "errors": 0

@@ -34,7 +34,7 @@ Executive leadership ke paas poori report line-by-line padhne ka waqt nahi hota.
 | **4. Conclusions** | *Conclusions* | Data ke basis par nikale gaye root causes bina kisi assumptions ke |
 | **5. Recommendations** | *Recommendations* | Step-by-step action plan, budget, deadlines aur assigned owners |
 
-Apni professional writing aur speaking skills ko improve karne ke liye [Business English meeting phrases in Hindi](/hi/blog/business-english-meeting-phrases-in-hindi/) aur [Business English negotiation phrases guide](/hi/blog/business-english-me-negotiation-phrases-guide/) zaroor padhein. Sath hi [Business English idioms in Hindi](/hi/blog/business-english-idioms-in-office-hindi/) aur [ATS friendly resume kaise banaye](/hi/blog/ats-friendly-resume-kaise-banaye-english/) bhi dekhein.
+Apni professional writing aur speaking skills ko improve karne ke liye [Business English meeting phrases in Hindi](/hi/blog/business-english-meeting-phrases-in-hindi/) aur [Business English negotiation phrases guide](/hi/blog/business-english-me-negotiation-phrases-guide/) zaroor padhein. Sath hi [Business English idioms in Hindi](/hi/blog/business-english-idioms-in-office-hindi/) aur [ATS friendly resume kaise banaye](/hi/blog/ats-friendly-resume-kaise-banaye-english/) bhi dekhein. Report ke saath bheje jaane wale emails me ASAP, FYI aur EOD jaise short forms kab use karein, ye [office me English short forms](/hi/blog/workplace-english-abbreviations-email-hindi-guide/) wale guide me samjhaya gaya hai.
 
 ## Numbers aur data analysis ke liye professional English phrases
 

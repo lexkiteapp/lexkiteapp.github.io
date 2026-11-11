@@ -127,12 +127,13 @@
     if (v && tr.vs && tr.vs.some(x => x[0] === v)) c.v[id] = v;
     if (c.cur !== id && s.goal) c.goals[c.cur] = s.goal;
     c.cur = id;
-    const ex = examOf(tr, c.v[id] || (id === 'ielts' ? 'ac' : 'lr'));
+    const ex = examOf(tr, c.v[id] || (id === 'ielts' ? 'ac' : 'lr')), exOld = App.exam ? App.exam() : s.exam;
     s.exam = ex;
     const gl = c.goals[id];
     if (s.goal && s.goal.exam !== ex) { if (gl && gl.exam === ex) s.goal = gl; else delete s.goal; }
     else if (!s.goal && gl && gl.exam === ex) s.goal = gl;
     if (s.goal) s.examTarget = ex === 'general' ? CE[s.goal.target - 1] || '' : String(s.goal.target);
+    else if (App.moveExamTarget) App.moveExamTarget(s, exOld, ex);
     await App.saveSettings();
   }
   async function unfollow(id) {
@@ -194,7 +195,7 @@
     state.settings.tracks = { cur: id, on: [id], legacy: id, lv: {}, v: { ielts: v.ielts || 'ac', toeic: v.toeic || 'lr' }, goals: {} };
     if (pick.lv && pick.lv !== 'test') state.settings.tracks.lv[id] = { s: pick.lv, at: Date.now() };
     await App.saveSettings();
-    return pick.lv === 'test' ? '#/placement' : '#/day';
+    return !pick.lv || pick.lv === 'test' ? '#/placement' : '#/day'; // chưa chọn trình độ / chọn kiểm tra → lời mời bài đầu vào (bỏ qua được)
   }
 
   // ---------- Trang #/tracks: chọn gói, theo dõi nhiều gói, đổi biến thể/trình độ ----------

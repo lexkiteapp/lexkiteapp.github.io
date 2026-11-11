@@ -1,0 +1,114 @@
+{
+ "id": "m16",
+ "level": "B2",
+ "lo": "M.B2.02",
+ "activity": "simplify",
+ "title": "How a heat pump works",
+ "scenario": "Your neighbour Mr Brandt is thinking about replacing his old gas boiler. He has no technical background and asks you what a heat pump is after you heard this talk at a home energy fair.",
+ "source": {
+  "kind": "talk",
+  "text": [
+   "Good afternoon. People are often puzzled by the name, so let me start with what a heat pump does not do: it does not create heat by burning anything. Instead, it moves heat from one place to another.",
+   "Even cold outdoor air contains some heat. A fluid called a refrigerant circulates in a sealed loop. In the evaporator, it absorbs heat from the outside air and turns into a gas. A compressor then squeezes that gas, which makes it much hotter. In the condenser, the hot gas passes its heat to the water in your radiators and turns back into a liquid. The cycle then repeats.",
+   "It is the same principle as your fridge, only in reverse: a fridge moves heat out of the cold box and into the kitchen.",
+   "Because the pump moves heat instead of making it, it is very efficient. For every unit of electricity it uses, it typically delivers about three units of heat. It keeps working in freezing weather, although it uses more electricity then.",
+   "There are two caveats. The equipment costs more to install than a gas boiler, and it works best in a well-insulated home, where the heat stays inside."
+  ]
+ },
+ "task": {
+  "mode": "speak",
+  "audience": "an older neighbour with no technical background",
+  "prompt": "Explain to Mr Brandt how a heat pump works and whether it might suit him (75–120 words). Use everyday language and a comparison.",
+  "min_words": 75,
+  "max_words": 120
+ },
+ "points": [
+  {
+   "id": "move",
+   "idea": "It moves heat from outside to inside instead of burning fuel.",
+   "checks": [
+    [
+     "move",
+     "moves",
+     "moving",
+     "carries",
+     "takes heat"
+    ],
+    [
+     "heat"
+    ],
+    [
+     "outside",
+     "outdoor"
+    ]
+   ]
+  },
+  {
+   "id": "cold",
+   "idea": "It works even when it is cold outside.",
+   "checks": [
+    [
+     "cold",
+     "freezing",
+     "winter"
+    ]
+   ]
+  },
+  {
+   "id": "efficient",
+   "idea": "It gives about three units of heat for one of electricity.",
+   "checks": [
+    [
+     "three units",
+     "about three",
+     "3 units"
+    ],
+    [
+     "one unit",
+     "every one",
+     "for each unit",
+     "1 unit"
+    ]
+   ]
+  },
+  {
+   "id": "house",
+   "idea": "It costs more to install and suits a well-insulated house.",
+   "checks": [
+    [
+     "insulat"
+    ],
+    [
+     "cost",
+     "expensive",
+     "install"
+    ]
+   ]
+  }
+ ],
+ "leave_out": [
+  {
+   "idea": "Technical names of the parts.",
+   "checks": [
+    [
+     "refrigerant",
+     "compressor",
+     "evaporator",
+     "condenser"
+    ]
+   ]
+  }
+ ],
+ "model": "Mr Brandt, a heat pump doesn't make heat by burning gas. It simply moves heat from the outside air into your house, a bit like a fridge working in reverse. Even cold air has some heat in it, so it keeps working in winter. And it is very efficient: for every one unit of electricity, you get about three units of warmth. There are two things to think about. It costs more to install than a boiler, and it is most effective in a well-insulated house, so it may be worth checking your windows and roof first.",
+ "useful": [
+  "It doesn't … ; it simply moves …",
+  "a bit like a … working in reverse",
+  "for every one …, you get about …",
+  "There are two things to think about."
+ ],
+ "tips": [
+  "To explain a process to a non-specialist, begin with the key idea in one sentence, then use a familiar comparison (a fridge) instead of the parts.",
+  "End a simple explanation with how it applies to the listener, so the idea becomes a decision they can make."
+ ],
+ "explain": "Mr Brandt needs the basic idea (moving heat), that it works in cold, the three-for-one efficiency, and the cost and insulation conditions. The names of the parts would only confuse him."
+}

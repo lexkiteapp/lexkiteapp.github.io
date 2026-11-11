@@ -80,5 +80,17 @@
  "cta": "Compare tricky words on lexkite.com",
  "est": 25.0,
  "no_intro": true,
- "end_alt": "n_a843c0_e2"
+ "end_alt": "n_a843c0_e2",
+ "publish": {
+  "title": "Borrow or lend? Stop mixing them up",
+  "keyword": "borrow vs lend",
+  "value": "You borrow from someone. You lend to someone.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#a2english"
+  ],
+  "first_comment": "Trick: borrow = take, lend = give. \"Can you lend me...?\" and \"Can I borrow...?\" mean the same thing. Practice here: {link}"
+ }
 }

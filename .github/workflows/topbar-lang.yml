@@ -3,7 +3,7 @@
 name: Topbar lang guard
 on:
   pull_request:
-    paths: ['web/app/index.html', 'web/css/style.css', 'web/css/st-*', 'web/js/st/v2/**', 'web/js/ux1*.js', 'web/js/app.js', 'web/js/lang-menu.js', 'web/js/hubs.js', 'brand/stitch/v2/bind/today*', 'scripts/build-stitch-css.mjs', 'scripts/test/topbar-lang.mjs', '.github/workflows/topbar-lang.yml']
+    paths: ['web/app/index.html', 'web/css/style.css', 'web/css/lazy-ui.css', 'web/css/st-*', 'web/js/st/v2/**', 'web/js/ux1*.js', 'web/js/app.js', 'web/js/lang-menu.js', 'web/js/hubs.js', 'brand/stitch/v2/bind/today*', 'scripts/build-stitch-css.mjs', 'scripts/test/topbar-lang.mjs', '.github/workflows/topbar-lang.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -19,10 +19,12 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Cài trình duyệt
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund --ignore-scripts playwright@1.50.1
-          npx playwright install --with-deps chromium >/dev/null
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
       - name: Số "trước" (main, không chặn)
         if: github.event_name == 'pull_request'
         continue-on-error: true

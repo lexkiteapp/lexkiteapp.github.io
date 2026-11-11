@@ -27,7 +27,9 @@ const now = Date.UTC(2026, 9, 22, 12); // 22/10/2026 12:00 UTC
   ok(M.healthOf({ ...fb, limits: {}, health: { expires_at: new Date(now + 3 * 864e5).toISOString() } }, [], now).flags.includes('expiring'), 'token còn 3 ngày → sắp hết hạn');
   const ig = M.healthOf({ id: 3, platform: 'instagram', limits: {} }, [{ targets: [{ account_id: 3, published_at: new Date(now - 3600e3).toISOString() }, { account_id: 3, published_at: new Date(now - 30 * 3600e3).toISOString() }] }], now);
   ok(ig.used === 1 && ig.cap === 100, 'IG: đếm bài 24 h từ lịch sử khi GrabCast không trả limits, trần 100');
-  ok(M.healthOf({ id: 4, platform: 'tiktok' }, [], now).state === 'private_only' && M.healthOf({ id: 5, platform: 'youtube' }, [], now).privateOnly, 'TikTok/YouTube → chỉ riêng tư (chờ duyệt app)');
+  ok(M.healthOf({ id: 4, platform: 'tiktok' }, [], now).state !== 'private_only' && M.healthOf({ id: 5, platform: 'youtube' }, [], now).state === 'ok' && !M.healthOf({ id: 5, platform: 'youtube' }, [], now).privateOnly, 'TikTok đã duyệt Direct Post (03/11), YouTube GrabCast qua audit (10/11) → cả hai công khai');
+  { const tk = M.bodyFor({ id: 'c1', title: 'T', description: 'D' }, 'm1', [{ id: 4, p: 'tiktok' }]).targets[0], yt = M.bodyFor({ id: 'c1', title: 'T', description: 'D' }, 'm1', [{ id: 5, p: 'youtube' }]).targets[0];
+    ok(tk.options.privacy_level === 'PUBLIC_TO_EVERYONE' && tk.options.is_aigc === true && tk.options.commercial_content === false && yt.options.privacy_status === 'public' && yt.options.made_for_kids === false && yt.options.contains_synthetic_media === true && yt.kind === 'short', 'bài TikTok công khai, gắn nhãn AI; YouTube private'); }
 }
 // ---------- 2) Dấu băm nội dung duyệt ----------
 {
@@ -74,7 +76,7 @@ const now = Date.UTC(2026, 9, 22, 12); // 22/10/2026 12:00 UTC
   const rt = M.planQueue({ clips: [{ id: 'c-long', type: 'long' }, { id: 'c-short', type: 'short' }], accounts: [{ id: '2', platform: 'facebook_page', state: 'ok', used: 0, cap: 30 }], rules: { ...rules, cfgBy: { 2: { types: ['short'], daily_cap: 2, min_gap_min: 180, windows: [{ from: '08:00', to: '08:59' }], tz: 'America/New_York' } } }, now });
   ok(rt.slots.map(s => s.clip).join() === 'c-short' && rt.skipped.some(s => s.clip === 'c-long' && s.why === 'not-routed'), 'định tuyến bằng bộ máy Kênh & phân phối (_distribution.allowed): kênh chỉ nhận short');
   ok(M.cfgFor({ id: '3', p: 'instagram' }, M.cleanRules(rules)).tz === 'Asia/Ho_Chi_Minh' && M.cfgFor({ id: '3', p: 'instagram' }, M.cleanRules(rules)).daily_cap === 1, 'cfg kênh social cùng dạng normCfg (múi giờ, trần/ngày)');
-  ok(M.cleanRules({ perDay: { facebook_page: 99 }, tz: 'Mars/Base', hours: [25, 7, 7] }).perDay.facebook_page === 30 && M.cleanRules({ tz: 'Mars/Base' }).tz === 'America/New_York' && M.cleanRules({ hours: [25, 7, 7] }).hours.join() === '7', 'luật bị kẹp: trần ≤ trần nền tảng, múi giờ hợp lệ, giờ 0–23 duy nhất');
+  ok(M.cleanRules({ perDay: { facebook_page: 99 }, tz: 'Mars/Base', hours: [25, 7, 7] }).perDay.facebook_page === 2 && M.cleanRules({ tz: 'Mars/Base' }).tz === 'America/New_York' && M.cleanRules({ hours: [25, 7, 7] }).hours.join() === '7', 'luật bị kẹp: trần ≤ 2 bài/ngày/kênh (chủ 10/11 đăng dần) và ≤ trần nền tảng, múi giờ hợp lệ, giờ 0–23 duy nhất');
 }
 // ---------- 5) Số liệu & trọng số ----------
 {
@@ -156,7 +158,7 @@ r = await call(ADM, { method: 'GET', path: 'lk/health' }); ok(r.s === 200 && r.j
 ok((await call(ADM, { method: 'POST', path: 'lk/sets/save', body: { name: 'All FB', ids: ['2', '../x', '3'] } })).s === 200 && JSON.stringify((await call(ADM, { method: 'GET', path: 'lk/sets' })).j.sets) === JSON.stringify([{ name: 'All FB', ids: ['2', '3'] }]), 'bộ kênh: lưu + lọc id xấu');
 ok((await call(ADM, { method: 'POST', path: 'lk/lib/save', body: { kind: 'tpl', items: [{ name: 'A', body: 'B', evil: 1 }] } })).s === 200 && JSON.stringify((await call(ADM, { method: 'GET', path: 'lk/lib' })).j.tpl) === '[{"name":"A","body":"B"}]', 'mẫu caption lưu D1 (chỉ trường đã biết)');
 ok((await call(ADM, { method: 'POST', path: 'lk/lib/save', body: { kind: 'x', items: [] } })).s === 400, 'kho mẫu: loại lạ → 400');
-ok((await call(ADM, { method: 'POST', path: 'lk/rules/save', body: { rules: { perDay: { instagram: 500 } } } })).j.rules.perDay.instagram === 100, 'luật: kẹp theo trần nền tảng');
+ok((await call(ADM, { method: 'POST', path: 'lk/rules/save', body: { rules: { perDay: { instagram: 500 } } } })).j.rules.perDay.instagram === 2, 'luật: kẹp ≤ 2 bài/ngày/kênh (chủ 10/11) và ≤ trần nền tảng');
 r = await call(ADM, { method: 'POST', path: 'lk/metrics/import', body: { rows: [{ post_id: 'p_1', platform: 'instagram', views: 1000, saves: 40, shares: 10 }, { post_id: 'bad id!', views: 5 }] } });
 ok(r.s === 200 && r.j.imported === 1 && r.j.weights.by.template.tpl1, 'nhập số liệu → gắn template/hook từ mục duyệt, tính trọng số');
 r = await call(ADM, { method: 'POST', path: 'lk/metrics/sync', body: {} });

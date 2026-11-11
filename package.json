@@ -28,7 +28,7 @@
     "test:authority": "node scripts/test/authority-pages.mjs",
     "test:links": "node scripts/test/links-js.mjs dist",
     "test:smoke": "node scripts/test/smoke.js web",
-    "test:video": "node scripts/test/video.mjs && node scripts/test/video-templates.mjs && node scripts/test/video-pron.mjs && node scripts/test/video-layout.mjs && node scripts/test/video-web.mjs && node scripts/test/shorts-scale.mjs && node scripts/test/yt-manual.mjs && node scripts/test/clip-bulk.mjs && node scripts/test/distribution.mjs && node scripts/test/dist-roles.mjs && node scripts/test/motion.mjs",
+    "test:video": "node scripts/test/publish-meta.mjs && node scripts/test/video.mjs && node scripts/test/video-templates.mjs && node scripts/test/video-pron.mjs && node scripts/test/video-layout.mjs && node scripts/test/video-web.mjs && node scripts/test/shorts-scale.mjs && node scripts/test/yt-manual.mjs && node scripts/test/clip-bulk.mjs && node scripts/test/distribution.mjs && node scripts/test/dist-roles.mjs && node scripts/test/motion.mjs",
     "video:template": "node scripts/video/template.mjs",
     "test:toeic-read": "node scripts/test/toeic-read-e2e.mjs",
     "test:leak": "node scripts/test/i18n-leak.js web en,es,pt,fr,de,id,th,zh,ja,ko,hi,ar,ru,tr --strict",

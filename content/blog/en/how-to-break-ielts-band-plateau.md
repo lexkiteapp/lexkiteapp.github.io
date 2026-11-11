@@ -143,4 +143,4 @@ Score fluctuations indicate that your knowledge is fragile and heavily dependent
 
 ### Is it better to retake the full exam or use One Skill Retake?
 
-If you met your target score in three papers and missed your requirement by only half a band in one paper (such as Writing), the IELTS One Skill Retake option (available for computer-delivered tests in most jurisdictions) is remarkably cost-effective and allows you to focus 100% of your energy on fixing that single bottleneck.
+If you met your target score in three papers and missed your requirement by only half a band in one paper (such as Writing), the IELTS One Skill Retake option (available for computer-delivered tests in most jurisdictions) is remarkably cost-effective and allows you to focus 100% of your energy on fixing that single bottleneck. If your goal is a visa, check which IELTS version and which retake rules your programme accepts in our guide to [IELTS for immigration](/en/blog/ielts-for-immigration-guide/).

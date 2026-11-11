@@ -1,0 +1,49 @@
+{
+ "id": "m01",
+ "level": "B1",
+ "lo": "M.B1.03",
+ "activity": "relay",
+ "title": "The platform has changed",
+ "scenario": "You are at a train station with your friend Sam, who doesn't speak much English. Sam was in the shop when an announcement came on. Sam texts you to ask what it said. Write a short message so Sam knows exactly what to do.",
+ "source": {
+  "kind": "announcement",
+  "text": [
+   "Good afternoon. This is an announcement for passengers travelling on the 14:35 service to Brighton.",
+   "Due to a signal problem near Croydon, this train will now depart from platform 9, not platform 4.",
+   "The train is also running about fifteen minutes late, and is now expected to leave at 14:50.",
+   "Please note that the front four coaches will be closed today, so passengers should board at the rear of the train.",
+   "Refreshments are available in the main concourse. We apologise for any inconvenience this may cause."
+  ]
+ },
+ "task": {
+  "mode": "write",
+  "audience": "a friend who missed the announcement",
+  "prompt": "Write a text message to Sam (40–70 words). Tell Sam the three things that have changed and what to do. Leave out information Sam doesn't need.",
+  "min_words": 40,
+  "max_words": 70
+ },
+ "points": [
+  { "id": "platform", "idea": "The train now leaves from platform 9 (not 4).", "checks": [["platform 9", "platform nine"]] },
+  { "id": "time", "idea": "It is about 15 minutes late – it leaves at 14:50.", "checks": [["14:50", "2:50", "ten to three", "15 minutes late", "fifteen minutes late", "15 mins late"]] },
+  { "id": "rear", "idea": "The front coaches are closed, so get on at the back.", "checks": [["back", "rear", "end of the train"], ["front", "closed"]] },
+  { "id": "action", "idea": "A clear next step for Sam (meet / go now).", "checks": [["meet", "go to", "head to", "come to", "see you"]] }
+ ],
+ "leave_out": [
+  { "idea": "The reason (a signal problem near Croydon).", "checks": [["signal", "croydon"]] },
+  { "idea": "Refreshments in the concourse.", "checks": [["refreshment", "concourse"]] },
+  { "idea": "The apology.", "checks": [["apologise", "apologize", "inconvenience"]] }
+ ],
+ "model": "Hi Sam! Our train has moved to platform 9, not 4. It's also running about 15 minutes late, so it now leaves at 14:50. The front coaches are closed today, so we need to get on at the back of the train. Meet me by the stairs to platform 9 in five minutes, OK?",
+ "useful": [
+  "Our train has moved to …",
+  "It's running about … minutes late.",
+  "We need to get on at the back.",
+  "Meet me by … in five minutes."
+ ],
+ "tips": [
+  "Relaying means passing on what matters to THIS person: Sam needs where, when and what to do – not why the train is late.",
+  "Use your own simple words. Announcements are formal (\"passengers should board at the rear\"); a text to a friend is not (\"get on at the back\").",
+  "Finish with an action, so your friend knows the next step."
+ ],
+ "explain": "A good relay keeps the three changes (platform 9, 14:50, board at the back), adds a clear next step, and drops the details that don't change what Sam does: the signal problem, the shop and the apology."
+}

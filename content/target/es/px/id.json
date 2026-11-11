@@ -1,0 +1,53 @@
+{
+ "ui": {
+  "ti": "Pelafalan bahasa Spanyol",
+  "pk": "Pilih bunyi untuk dilatih",
+  "ex": "Dengarkan contoh",
+  "pp": "Pasangan minimal",
+  "dc": "Dikte",
+  "sy": "Ucapkan",
+  "qp": "Kata mana yang kamu dengar?",
+  "qd": "Ketik yang kamu dengar",
+  "qs": "Ketuk mikrofon dan ucapkan kata ini",
+  "mic": "Ketuk untuk bicara",
+  "hd": "Aku mendengar: “{h}”",
+  "rt": "Belum jelas. Coba lagi.",
+  "sk": "Lewati",
+  "nm": "Tidak ada mikrofon di sini. Latihan dengan pasangan kata atau dikte.",
+  "tp": "Tips"
+ },
+ "tp": {
+  "vow": {
+   "t": "Lima vokal murni",
+   "x": "Bahasa Spanyol hanya punya lima vokal, a, e, i, o, u, dan tiap vokal selalu berbunyi sama: pendek, jelas, stabil, tidak meluncur ke bunyi kedua. Ucapkan “casa” dan “solo” dengan mulut tetap diam dari awal sampai akhir."
+  },
+  "rr": {
+   "t": "R tunggal dan rr bergetar",
+   "x": "Satu r di antara vokal adalah sentuhan cepat lidah: “pero”. Di awal kata atau ditulis rr, bunyinya bergetar: “rojo”, “perro”. Satu huruf mengubah arti: “pero” (tetapi) dan “perro” (anjing)."
+  },
+  "bv": {
+   "t": "b dan v berbunyi sama",
+   "x": "Huruf b dan v mewakili satu bunyi. Di awal kata atau setelah m atau n, bunyinya /b/ tegas (“vaca”, “bola”). Di antara vokal bibir hampir tidak bersentuhan (“uva”, “lobo”). Jangan menempelkan gigi ke bibir seperti v bahasa Inggris. Memilih huruf adalah soal ejaan, bukan bunyi."
+  },
+  "seseo": {
+   "t": "c, z, dan s: satu bunyi",
+   "x": "Dalam bahasa Spanyol Amerika Latin, c (sebelum e, i), z, dan s semuanya /s/: “cielo”, “zapato”, “casa”. Tidak ada bunyi “th” seperti di Spanyol. Jadi “casa” dan “caza” terdengar sama; konteks memberi makna dan ejaan harus dihafal."
+  },
+  "stress": {
+   "t": "Tekanan dan tanda aksen",
+   "x": "Tekanan jatuh pada suku kata kedua dari belakang jika kata berakhir dengan vokal, n, atau s; selain itu pada suku kata terakhir. Tanda aksen melanggar aturan dan menandai vokal yang ditekan: “papa” (kentang) dan “papá” (ayah), “canto” (aku bernyanyi) dan “cantó” (dia bernyanyi). Tekanan bisa mengubah arti."
+  },
+  "link": {
+   "t": "Menyambung kata",
+   "x": "Bahasa Spanyol mengalir: vokal akhir sebuah kata menyambung ke vokal awal kata berikutnya tanpa jeda. “la hora” terdengar seperti “laora”, “mi amigo” seperti “miamigo”. Jangan berhenti di antara kata."
+  },
+  "jg": {
+   "t": "j, g, dan gu",
+   "x": "j, dan g sebelum e atau i, adalah /x/ berhembus di belakang tenggorokan, seperti “h” yang kuat: “jarra”, “gente”. g sebelum a, o, u adalah /g/ keras: “gato”. Agar g tetap keras sebelum e atau i, ditulis gu tanpa melafalkan u: “guerra”."
+  },
+  "hq": {
+   "t": "ñ, ll, h, ch, qu",
+   "x": "ñ seperti “ny” dalam “nyanyi”: “año”. ll dan y seperti “y” atau “j” lembut: “pollo”. h selalu senyap: “hola”, “hora”. qu dibaca /k/ dan u tidak dibunyikan: “queso”. ch seperti “c” dalam “cinta”: “chico”."
+  }
+ }
+}

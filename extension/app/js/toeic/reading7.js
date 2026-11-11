@@ -4,7 +4,7 @@
   T.reading.push({ id: 'tr7', test: 7, title: 'TOEIC Reading Test 7', parts: [
 
     /* ================= PART 5 ================= */
-    { part: 5, title: 'Incomplete Sentences', instr: 'A word or phrase is missing in each of the sentences below. Four answer choices are given below each sentence. Select the best answer to complete the sentence.',
+    { part: 5, title: 'Incomplete Sentences', instr: g.TQR[2],
       groups: [ { type: 'mcq', instr: '', items: [
         { n: 101, q: 'Ms. Feldmann ------- reviewed the lease agreement before signing it.', options: ['careful', 'carefully', 'care', 'carefulness'], a: 1, cue: '------- reviewed',
           explain: 'Cần trạng từ đứng trước và bổ nghĩa cho động từ "reviewed" → "carefully" (cẩn thận). "careful" là tính từ; "care" là danh từ/động từ; "carefulness" là danh từ.' },
@@ -69,7 +69,7 @@
       ] } ] },
 
     /* ================= PART 6 ================= */
-    { part: 6, title: 'Text Completion', instr: 'Read the texts that follow. A word, phrase, or sentence is missing in parts of each text. Four answer choices for each question are given below the text. Select the best answer to complete the text.',
+    { part: 6, title: 'Text Completion', instr: g.TQR[1],
       passages: [
         { title: 'E-mail', text:
 `To: All Lumacrest Cloud customers
@@ -82,7 +82,7 @@ On Saturday, February 21, Lumacrest Cloud will perform scheduled maintenance on 
 -----(132)-----. However, any changes made in the hour before the maintenance begins may not be saved. We strongly recommend that you -----(133)----- your work before 10:00 P.M.
 
 We will send you a confirmation e-mail -----(134)----- the maintenance has been completed. We apologize for any inconvenience.`,
-          groups: [ { type: 'mcq', instr: 'Questions 131-134 refer to the following e-mail.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[12], items: [
             { n: 131, q: '(131)', options: ['approximate', 'approximately', 'approximation', 'approximated'], a: 1, cue: 'four hours. During this time',
               explain: 'Cần trạng từ bổ nghĩa cho số lượng "four hours" → "approximately" (khoảng chừng). "approximate" là tính từ/động từ; "approximation" là danh từ; "approximated" là phân từ.' },
             { n: 132, q: '(132)', options: ['Our new office opened last month.', 'Prices will increase next year.', 'All of your stored files will remain safe.', 'Please update your billing address.'], a: 2, cue: 'However, any changes made in the hour before the maintenance begins may not be saved.',
@@ -118,7 +118,7 @@ Comments about the new system are welcome and can be -----(138)----- at the fron
 The developer, Ardley Partners, said that 20 percent of the apartments will be offered at below-market rents to -----(140)----- with moderate incomes.
 
 -----(141)-----. Some residents have expressed concern about increased traffic on nearby streets. In response, Ardley Partners has agreed to pay for a new bus stop and to widen Corran Street -----(142)----- the construction period.`,
-          groups: [ { type: 'mcq', instr: 'Questions 139-142 refer to the following article.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[6], items: [
             { n: 139, q: '(139)', options: ['expected', 'expecting', 'expectation', 'expects'], a: 0, cue: 'to be completed in the spring of 2028',
               explain: 'Cấu trúc bị động "be expected to + V" = được dự kiến sẽ → "is expected to be completed". "expecting" mang nghĩa chủ động (dự án đang mong đợi) – vô lý; "expectation" là danh từ; "expects" là động từ chia, không đứng sau "is".' },
             { n: 140, q: '(140)', options: ['familiar', 'families', 'familiarize', 'familiarity'], a: 1, cue: 'with moderate incomes',
@@ -140,7 +140,7 @@ This change will allow us to combine your shipments with those of other customer
 Sincerely,
 Gideon Ashworth-Reyes
 Account Manager, Pellbrook Logistics`,
-          groups: [ { type: 'mcq', instr: 'Questions 143-146 refer to the following letter.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[13], items: [
             { n: 143, q: '(143)', options: ['started', 'starts', 'start', 'starting'], a: 3, cue: 'March 3, our trucks will collect shipments',
               explain: '"starting + mốc thời gian" = bắt đầu từ (ngày) → "starting March 3" (kể từ ngày 3/3). "started", "starts", "start" là dạng động từ chia/nguyên mẫu, không đứng trước mốc thời gian theo cách này.' },
             { n: 144, q: '(144)', options: ['whereas', 'thereby', 'despite', 'unless'], a: 1, cue: 'reducing your transportation costs',
@@ -153,7 +153,7 @@ Account Manager, Pellbrook Logistics`,
       ] },
 
     /* ================= PART 7 ================= */
-    { part: 7, title: 'Reading Comprehension', instr: 'In this part you will read a selection of texts, such as magazine and newspaper articles, e-mails, and instant messages. Each text or set of texts is followed by several questions. Select the best answer for each question.',
+    { part: 7, title: 'Reading Comprehension', instr: g.TQR[0],
       passages: [
         { title: 'Notice', text:
 `Brindle & Moss Accounting
@@ -164,7 +164,7 @@ Beginning on Monday, May 4, the IT Help Desk will move from Room 112 to Room 318
 On Friday, May 1, while equipment is being moved, walk-in support will not be available. Employees who experience technical problems on that day should submit a request through the online ticket system, and a technician will respond within two hours.
 
 Normal walk-in hours, 8:00 A.M. to 5:00 P.M., will resume on Monday in the new location.`,
-          groups: [ { type: 'mcq', instr: 'Questions 147-148 refer to the following notice.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[14], items: [
             { n: 147, q: 'What is the main purpose of the notice?', options: ['To introduce new IT staff', 'To announce a change in location', 'To describe a new phone system', 'To explain a renovation budget'], a: 1, cue: 'the IT Help Desk will move from Room 112 to Room 318 on the third floor',
               explain: 'Thông báo chính: bộ phận hỗ trợ IT "will move from Room 112 to Room 318" (chuyển từ phòng 112 lên phòng 318) → thông báo đổi địa điểm. Việc cải tạo tầng một chỉ là lý do; không nhắc đến chi phí, nhân viên mới hay hệ thống điện thoại.' },
             { n: 148, q: 'How should employees report a technical problem on May 1?', options: ['By visiting Room 318', 'By calling a technician at home', 'By sending a text message', 'By submitting an online request'], a: 3, cue: 'should submit a request through the online ticket system',
@@ -178,7 +178,7 @@ Ivo Vasconcelos [2:20 P.M.]: You're right. My mistake. I entered the wrong date 
 Dalia Kerimova [2:21 P.M.]: Should I bring the load back to the depot?
 Ivo Vasconcelos [2:23 P.M.]: Let me call the store first. They may agree to take it a day early.
 Dalia Kerimova [2:24 P.M.]: OK. I'll wait here for ten minutes.`,
-          groups: [ { type: 'mcq', instr: 'Questions 149-150 refer to the following text-message chain.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[5], items: [
             { n: 149, q: 'What problem does Ms. Kerimova report?', options: ['A delivery has arrived a day early.', 'A truck has broken down.', 'A loading dock is closed.', 'Some goods are damaged.'], a: 0, cue: "they weren't expecting a delivery today",
               explain: 'Cửa hàng "weren\'t expecting a delivery today" (không chờ giao hàng hôm nay) vì đơn hàng ghi thứ Năm ngày 14, trong khi hôm nay mới ngày 13 → hàng đến sớm một ngày. Xe không hỏng, khu bốc dỡ vẫn mở, hàng không bị hư hại.' },
             { n: 150, q: 'At 2:18 P.M., what does Ms. Kerimova most likely mean when she writes, "Today\'s the 13th"?', options: ['She needs more time to finish her route.', 'She wants to change the delivery date.', 'She is explaining why the store was not expecting her.', 'She is asking for a day off tomorrow.'], a: 2, cue: "The order says Thursday, the 14th.",
@@ -192,7 +192,7 @@ To better serve working patients, Sorrelwood Dental Care now offers appointments
 Evening and weekend appointments are available for routine checkups and cleanings only. Treatments such as fillings and root canals will continue to be scheduled on weekdays between 8:00 A.M. and 5:00 P.M.
 
 Appointments can be booked online or by phone. Because these new time slots are very popular, we ask patients to cancel at least 48 hours in advance so that others can use them. Patients who fail to do so twice may be asked to book only weekday appointments in the future.`,
-          groups: [ { type: 'mcq', instr: 'Questions 151-153 refer to the following Web page.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[17], items: [
             { n: 151, q: 'What is the purpose of the Web page?', options: ['To introduce a new dentist', 'To announce extended opening hours', 'To advertise a teeth-whitening service', 'To explain a change in fees'], a: 1, cue: 'now offers appointments on Tuesday and Thursday evenings until 8:00 P.M. and on Saturday mornings',
               explain: 'Phòng nha "now offers appointments on Tuesday and Thursday evenings … and on Saturday mornings" (nay nhận hẹn vào tối thứ Ba, thứ Năm và sáng thứ Bảy) → thông báo kéo dài giờ làm việc. Không có nha sĩ mới, dịch vụ tẩy trắng hay thay đổi giá.' },
             { n: 152, q: 'What can patients receive on a Saturday morning?', options: ['A filling', 'A root canal', 'A consultation with a specialist', 'A routine cleaning'], a: 3, cue: 'Evening and weekend appointments are available for routine checkups and cleanings only.',
@@ -214,7 +214,7 @@ To renew, simply sign the enclosed agreement and return it to the leasing office
 Sincerely,
 Odette Rennick
 Leasing Manager, Wisteria Court`,
-          groups: [ { type: 'mcq', instr: 'Questions 154-157 refer to the following letter.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[15], items: [
             { n: 154, q: 'Why did Ms. Rennick send the letter?', options: ['To request overdue rent', 'To welcome a new tenant', 'To offer a lease renewal', 'To announce the sale of a building'], a: 2, cue: 'we are offering you a new 12-month lease',
               explain: 'Hợp đồng thuê sắp hết hạn và bên quản lý "are offering you a new 12-month lease" (đề nghị hợp đồng mới 12 tháng) → đề nghị gia hạn hợp đồng thuê. Bà Vandersloot đã ở hơn 5 năm nên không phải người thuê mới; không có tiền thuê quá hạn hay việc bán tòa nhà.' },
             { n: 155, q: 'What is offered to Ms. Vandersloot if she signs by April 30?', options: ['A reduced rent', 'A parking space', 'New windows', 'Free carpet cleaning'], a: 3, cue: 'we will have the carpets in your apartment professionally cleaned at no charge',
@@ -232,8 +232,8 @@ Leasing Manager, Wisteria Court`,
 The company chose Halbury because of its strong technical college, which trains hundreds of IT students every year. Velloran also plans to offer paid internships to students at the college beginning in the fall.
 
 Hiring for the new center will begin in January.`,
-          groups: [ { type: 'mcq', instr: 'Questions 158-160 refer to the following article.', items: [
-            { n: 158, q: 'What is the article mainly about?', options: ['The opening of a new support center', 'A review of scheduling software', 'A merger of two companies', 'The expansion of a hospital'], a: 0, cue: 'it will open a customer support center in Halbury next spring',
+          groups: [ { type: 'mcq', instr: g.TQR[8], items: [
+            { n: 158, q: g.TQR[3], options: ['The opening of a new support center', 'A review of scheduling software', 'A merger of two companies', 'The expansion of a hospital'], a: 0, cue: 'it will open a customer support center in Halbury next spring',
               explain: 'Câu chủ đề: Velloran Software "will open a customer support center in Halbury next spring" (sẽ mở trung tâm hỗ trợ khách hàng ở Halbury vào mùa xuân tới) → mở trung tâm hỗ trợ mới. Bệnh viện và phòng khám là khách hàng của công ty, không phải đối tượng mở rộng.' },
             { n: 159, q: 'According to Ms. Grunewald, why is the new center needed?', options: ['The company\'s software is outdated.', 'Clients want help at any time of day.', 'The company\'s office rent has increased.', 'Current staff need more training.'], a: 1, cue: 'our clients expect help at any time of day or night',
               explain: 'Bà Grunewald nói "our clients expect help at any time of day or night" và trung tâm mới giúp hỗ trợ 24 giờ mỗi ngày → khách hàng muốn được hỗ trợ bất cứ lúc nào. Các lý do khác không được nhắc đến.' },
@@ -249,7 +249,7 @@ Teodor Lisowski [9:08 A.M.]: Staffing worries me more. With only three nurses, s
 Liesel Solvang [9:10 A.M.]: Saoirse in pediatrics mentioned that she'd like some extra hours this month.
 Adaeze Nwosu [9:11 A.M.]: Great. I'll ask her this morning. Teodor, could you set up a second waiting area in the conference room?
 Teodor Lisowski [9:12 A.M.]: Consider it done.`,
-          groups: [ { type: 'mcq', instr: 'Questions 161-164 refer to the following online chat discussion.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[4], items: [
             { n: 161, q: 'What are the writers mainly discussing?', options: ['Hiring a new doctor', 'Preparing for a busy vaccination day', 'Choosing a new distributor', 'Renovating a conference room'], a: 1, cue: "We now have 260 patients registered for Saturday's flu vaccination day. We planned for 200.",
               explain: 'Số người đăng ký tiêm cúm thứ Bảy (260) vượt kế hoạch (200), cả nhóm bàn về vắc-xin, nhân sự và chỗ chờ → chuẩn bị cho ngày tiêm chủng đông người. Họ vẫn dùng nhà phân phối hiện tại; phòng họp chỉ được dùng tạm làm chỗ chờ, không cải tạo.' },
             { n: 162, q: 'What does Ms. Solvang say about the distributor?', options: ['It has run out of vaccine.', 'It delivers only on weekdays.', 'It needs orders by noon.', 'It has raised its prices.'], a: 2, cue: 'they need the order by noon today',
@@ -295,7 +295,7 @@ Finally, each employee will be given a personal code to enter at the printer. Th
 
 Thank you for your cooperation.`,
           groups: [ { type: 'mcq', instr: 'Questions 167-168 refer to the following memo.', items: [
-            { n: 167, q: 'What is the purpose of the memo?', options: ['To announce the purchase of new printers', 'To introduce new rules for printing', 'To request suggestions for reducing costs', "To explain a delay in a book's publication"], a: 1, cue: 'the following changes will take effect on Monday, September 21',
+            { n: 167, q: g.TQR[11], options: ['To announce the purchase of new printers', 'To introduce new rules for printing', 'To request suggestions for reducing costs', "To explain a delay in a book's publication"], a: 1, cue: 'the following changes will take effect on Monday, September 21',
               explain: 'Bản ghi nhớ thông báo "the following changes will take effect on Monday, September 21" rồi liệt kê in hai mặt, giới hạn in màu, mã cá nhân → giới thiệu quy định in ấn mới. Công ty không mua máy in mới, không xin góp ý, cũng không nói về việc chậm xuất bản sách.' },
             { n: 168, q: 'In the memo, the word "picture" in paragraph 4 is closest in meaning to', options: ['photograph', 'drawing', 'frame', 'understanding'], a: 3, cue: 'we simply want a clearer picture of where our resources go',
               explain: '"a clearer picture of where our resources go" nghĩa là có cái nhìn rõ hơn về việc tài nguyên được dùng vào đâu → "picture" ở đây là "sự hiểu biết, hình dung" (understanding). Các nghĩa ảnh chụp, bức vẽ, khung tranh là nghĩa đen, không hợp ngữ cảnh.' }
@@ -310,7 +310,7 @@ Lorenzo Bianchi [10:11 A.M.]: Then let's make the most of Wednesday. Mei, could 
 Mei Hirose [10:12 A.M.]: Sure. I'll be in Hamburg by noon.
 Solveig Halvorsen [10:14 A.M.]: And I'll ask two people from our Hamburg sales office to come in early on Thursday to help unpack.
 Lorenzo Bianchi [10:15 A.M.]: Perfect. That should do it.`,
-          groups: [ { type: 'mcq', instr: 'Questions 169-171 refer to the following online chat discussion.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[9], items: [
             { n: 169, q: 'What are the writers mainly discussing?', options: ['Choosing a booth location at a fair', 'Hiring staff for a sales office', 'A delay in the delivery of display furniture', 'Canceling their participation in a fair'], a: 2, cue: "our display furniture for the Hamburg Interior Design Fair won't arrive until Thursday morning",
               explain: 'Lorenzo báo đồ nội thất trưng bày "won\'t arrive until Thursday morning" (phải đến sáng thứ Năm mới tới), cả nhóm bàn cách xoay xở → chủ đề là việc giao đồ trưng bày bị chậm. Họ không chọn vị trí gian hàng, không tuyển người và không hủy tham gia hội chợ.' },
             { n: 170, q: 'At 10:04 A.M., what does Ms. Halvorsen most likely mean when she writes, "That\'s cutting it close"?', options: ['She thinks there may not be enough time to prepare.', 'She wants to move the booth closer to the entrance.', 'She believes the fair will be canceled.', 'She wants to use a different shipping company.'], a: 0, cue: "The fair opens Thursday at 9:00. That's cutting it close.",
@@ -331,8 +331,8 @@ According to the company's operations director, Henrik Engström, the switch wil
 Not everyone is pleased, however. Some Kessick Island residents have raised concerns that ticket prices may rise to cover the cost of the new vessels and charging equipment. Mr. Engström said that fares will remain unchanged for at least two years. —[4]—
 
 The crossing currently takes 35 minutes, and the company operates 22 round trips each day.`,
-          groups: [ { type: 'mcq', instr: 'Questions 172-175 refer to the following article.', items: [
-            { n: 172, q: 'What is the article mainly about?', options: ['A new ferry terminal on Kessick Island', "A ferry company's plan to introduce electric vessels", 'A drop in the number of ferry passengers', "A shipbuilder's expansion in Bergen"], a: 1, cue: 'it will replace two of the diesel-powered vessels on its Port Alder–Kessick Island route with battery-electric ferries by next summer',
+          groups: [ { type: 'mcq', instr: g.TQR[7], items: [
+            { n: 172, q: g.TQR[3], options: ['A new ferry terminal on Kessick Island', "A ferry company's plan to introduce electric vessels", 'A drop in the number of ferry passengers', "A shipbuilder's expansion in Bergen"], a: 1, cue: 'it will replace two of the diesel-powered vessels on its Port Alder–Kessick Island route with battery-electric ferries by next summer',
               explain: 'Câu mở đầu: Cobalt Strait Ferries "will replace two of the diesel-powered vessels … with battery-electric ferries" (sẽ thay hai tàu chạy dầu bằng phà điện) → kế hoạch đưa tàu điện vào sử dụng. Norvik Marine ở Bergen chỉ là nơi đóng tàu; bài không nói về bến mới hay lượng khách giảm.' },
             { n: 173, q: 'What is indicated about the new ferries?', options: ['They will be faster than the current ferries.', 'They will carry more vehicles than the current ferries.', 'They are being built in Port Alder.', 'They will be recharged between crossings.'], a: 3, cue: 'They will be recharged at the Port Alder terminal during the ten-minute stops between crossings.',
               explain: 'Bài viết nêu phà mới "will be recharged … during the ten-minute stops between crossings" (được sạc trong 10 phút nghỉ giữa các chuyến) → sạc điện giữa các chuyến. Tàu được đóng ở Bergen, không phải Port Alder; bài không so sánh tốc độ hay sức chở với phà hiện tại.' },
@@ -407,7 +407,7 @@ Our company needed a 2,500-word product catalog translated from English into Por
 The translation itself was excellent. Our colleagues in Lisbon said it read naturally, and the translator handled the technical vocabulary for our tents and climbing equipment very well. The quote arrived within twenty minutes, which was impressive.
 
 My only disappointment was that the formatting did not match our original design, so our designer had to spend an extra day adjusting the layout. In fairness, I later realized that formatting is only included in a more expensive package. Next time, I will read the service descriptions more carefully. I would still recommend Verbalis to other businesses.`,
-          groups: [ { type: 'mcq', instr: 'Questions 181-185 refer to the following Web page and online review.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[10], items: [
             { n: 181, q: 'What is indicated about Verbalis Translation Services?', options: ['It translates between English and more than 50 languages.', 'It charges extra for technical documents.', 'It offers rush service for documents of any length.', 'It provides price quotes at no cost.'], a: 3, cue: 'All clients receive a free quote within one hour of uploading a document.',
               explain: 'Trang web viết "All clients receive a free quote" (mọi khách hàng được báo giá miễn phí) → báo giá không mất phí. Công ty dịch 28 ngôn ngữ, không phải hơn 50; dịch gấp chỉ áp dụng cho tài liệu tối đa 3.000 từ; không có phụ phí cho tài liệu kỹ thuật.' },
             { n: 182, q: 'How much did Ms. Park most likely pay for the translation?', options: ['$225', '$250', '$315', '$350'], a: 2, cue: "I applied the discount code, and I chose the service that includes a second translator's review",

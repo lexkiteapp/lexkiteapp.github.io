@@ -72,5 +72,46 @@
   "words": 40,
   "seconds": 24.7,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"boy\" mean?",
+  "keyword": "boy",
+  "value": "Boy means a young male person.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=boy",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"boy\" mean?",
+    "description": "Boy means a young male person.\n\nReview your words, free: https://lexkite.com/app/#/review?w=boy\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "boy",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"boy\" mean?\n\nBoy means a young male person.\n\nReview your words, free: https://lexkite.com/app/#/review?w=boy"
+   },
+   "instagram": {
+    "caption": "What does \"boy\" mean?\n\nBoy means a young male person.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"boy\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a young male person. Boy means a young male person. More practice like this (free): {link}"
  }
 }

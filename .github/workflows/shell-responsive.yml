@@ -1,0 +1,43 @@
+# 📐 Vỏ app đáp ứng một mốc 1024 px: một thanh điều hướng, không đè nhau, đủ nút tới được ở 360–1440 px và zoom 150/200 %. Hermetic, 0 lượt chạm prod.
+# PR: đo thêm bản main làm số "trước" (không chặn); ảnh + bảng số ở artifact shell-responsive. Chặn theo bản đang xét.
+name: Shell responsive guard
+on:
+  pull_request:
+    paths: ['web/app/index.html', 'web/css/style.css', 'web/css/tactile*.css', 'web/css/st-*', 'web/js/st/v2/**', 'web/js/ux1*.js', 'web/js/app.js', 'web/js/hubs.js', 'scripts/build-stitch-css.mjs', 'scripts/stitch-v2-convert.mjs', 'scripts/test/shell-responsive.mjs', '.github/workflows/shell-responsive.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: shell-responsive-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  shell:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Cài trình duyệt
+        timeout-minutes: 14
+        run: |
+          npm i --no-save --no-audit --no-fund --ignore-scripts playwright@1.50.1
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
+      - name: Số "trước" (main, không chặn)
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        run: |
+          git fetch -q --depth=1 origin "${{ github.base_ref }}"
+          mkdir -p out/base && git archive FETCH_HEAD web | tar -x -C out/base
+          node scripts/test/shell-responsive.mjs out/base/web out/shell-responsive --label truoc --report-only
+          cat out/shell-responsive/truoc.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Đo bản này
+        run: |
+          node scripts/test/shell-responsive.mjs web out/shell-responsive --label sau && s=0 || s=$?
+          cat out/shell-responsive/sau.md >> "$GITHUB_STEP_SUMMARY"
+          exit $s
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: shell-responsive, path: out/shell-responsive, retention-days: 14 }

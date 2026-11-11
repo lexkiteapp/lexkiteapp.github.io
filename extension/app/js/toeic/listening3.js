@@ -7,7 +7,7 @@ if (!T.listening) T.listening = [];
 // Ảnh CC0/public domain (web/img/toeic/CREDITS.md). Phương án KHÔNG xoay (photo: true) vì audio đọc sẵn (A)–(D).
 const P1 = [
 { n: 1, img: 'img/toeic/t3-p1-1.jpg', a: 1,
-s: ['Some boxes are being unloaded from a truck.', 'A man is operating a forklift.', 'A worker is removing his safety helmet.', 'Some shelves are being assembled.'],
+s: [g.TQL[92], 'A man is operating a forklift.', 'A worker is removing his safety helmet.', 'Some shelves are being assembled.'],
 explain: 'Ảnh: trong một nhà kho lớn, người đàn ông đội mũ bảo hộ đỏ, mặc áo phản quang đang ngồi lái xe nâng, bên cạnh là chồng thùng hàng bọc nilon; phía sau là các kệ chất đầy thùng carton. (B) đúng: "operating a forklift" = điều khiển xe nâng. (A) không có xe tải nào, cũng không ai đang dỡ hàng. (C) người công nhân vẫn đang đội mũ bảo hộ, không tháo ra (bẫy "removing" ↔ "wearing"). (D) kệ đã có sẵn, không ai đang lắp ráp kệ.' },
 { n: 2, img: 'img/toeic/t3-p1-2.jpg', a: 3,
 s: ['A woman is drinking from a cup.', 'A notebook is lying open on the keyboard.', 'A woman is plugging in a computer monitor.', 'Someone is typing on a keyboard.'],
@@ -26,7 +26,7 @@ s: ['A ship is being loaded with cargo.', 'Some workers are climbing onto a cran
 explain: 'Ảnh: bãi container ở cảng, nhiều container xếp chồng lên nhau, một xe cẩu màu vàng đỗ trước chồng container; phía trước có hàng rào lưới, không thấy người. (D) đúng: "stacked on top of one another" = xếp chồng lên nhau. (A) không có con tàu nào trong ảnh. (B) lặp ý "crane" nhưng không ai đang trèo lên. (C) không ai đang sơn container.' },
 ];
 const p1script = [
-{ say: 'Part 1. For each question in this part, you will look at a photograph and hear four short statements. The statements are read only once and are not printed. Choose the statement that best describes the photograph.' }, { pause: 3 },
+{ say: g.TQL[0] }, { pause: 3 },
 ];
 P1.forEach(it => {
 p1script.push({ say: 'Number ' + it.n + '. Look at the photograph for number ' + it.n + '.' }); p1script.push({ pause: 1 });
@@ -39,7 +39,7 @@ id: 'tl3p1', test: 3, part: 1, title: 'Photographs', titleVi: 'Mô tả tranh',
 speakers: { N: { name: 'Narrator', accent: 'en-US', gender: 'm' } },
 script: p1script,
 groups: [
-{ type: 'mcq', photo: true, instr: 'Look at the photograph and choose the statement that best describes it (A, B, C or D).',
+{ type: 'mcq', photo: true, instr: g.TQL[4],
 items: P1.map(it => ({ n: it.n, img: it.img, q: '', options: it.s, a: it.a, cue: it.s[it.a], explain: it.explain })) },
 ],
 vocab: [
@@ -60,7 +60,7 @@ explain: 'Câu hỏi "When" (khi nào) → cần mốc thời gian: "Next Monday
 { n: 8, qs: 'B', rs: 'C', q: 'Where can I recycle these empty ink cartridges?',
 r: ['There\'s a collection bin next to the copier.', 'About ten cartridges.', 'The ink is running low again.'], a: 0,
 explain: 'Câu hỏi "Where" (ở đâu) → "There\'s a collection bin next to the copier" (có thùng thu gom cạnh máy photocopy). B lặp từ "cartridges" nhưng trả lời số lượng (How many). C lặp từ "ink" và nói về việc sắp hết mực, không trả lời câu hỏi.' },
-{ n: 9, qs: 'C', rs: 'A', q: "Who's leading the training session this afternoon?",
+{ n: 9, qs: 'C', rs: 'A', q: g.TQL[85],
 r: ['In the large conference room.', 'It was very informative.', 'Someone from the IT department.'], a: 2,
 explain: 'Câu hỏi "Who" (ai) → "Someone from the IT department" (một người bên bộ phận IT). A trả lời địa điểm. B dùng thì quá khứ để nhận xét buổi đào tạo, trong khi buổi đào tạo diễn ra chiều nay (chưa xảy ra).' },
 { n: 10, qs: 'D', rs: 'B', q: 'Why was the shipment from Dallas delayed?',
@@ -131,7 +131,7 @@ r: ['A minute ago.', 'Sure, here you go.', 'He lent me fifty dollars.'], a: 1,
 explain: 'Lời nhờ "Could you…?" (cho mượn máy tính) → đồng ý: "Sure, here you go" (được, đây này). A lặp "minute" và trả lời When. C bẫy âm "lend" – "lent" với chủ ngữ sai.' },
 ];
 const p2script = [
-{ say: 'Part 2. In this part, you will hear a question or a statement, followed by three spoken responses. Choose the best response. The responses are not printed in your test book.' }, { pause: 3 },
+{ say: g.TQL[1] }, { pause: 3 },
 ];
 P2.forEach(it => {
 p2script.push({ say: 'Number ' + it.n + '.' });
@@ -150,7 +150,7 @@ D: { name: 'Megan', accent: 'en-US', gender: 'f' },
 },
 script: p2script,
 groups: [
-{ type: 'mcq', instr: 'Listen and choose the best response (A, B or C).',
+{ type: 'mcq', instr: g.TQL[41],
 items: P2.map(it => ({ n: it.n, q: 'Mark your answer.', options: ['A', 'B', 'C'], a: it.a, cue: it.r[it.a], explain: it.explain })) },
 ],
 vocab: [
@@ -199,9 +199,9 @@ W14: { name: 'Ruby', accent: 'en-AU', gender: 'f' },
 W15: { name: 'Fiona', accent: 'en-GB', gender: 'f' },
 },
 script: [
-{ say: 'Part 3. In this part, you will hear several conversations between two or more people. After each conversation, answer the three questions printed in your test book.' }, { pause: 3 },
+{ say: g.TQL[2] }, { pause: 3 },
 
-{ say: 'Questions 32 through 34 refer to the following conversation.' }, { pause: 1 },
+{ say: g.TQL[7] }, { pause: 1 },
 { s: 'W1', t: "Hi, Kevin. This is Priya from Larkspur Accounting. We received our office supply order this morning, but there's a problem." },
 { s: 'M1', t: "I'm sorry to hear that. What seems to be wrong?" },
 { s: 'W1', t: 'We ordered twenty boxes of black ink cartridges, but you sent us color cartridges instead. The printers in our billing department are almost out of black ink.' },
@@ -210,7 +210,7 @@ script: [
 { s: 'M1', t: "Just leave them at your reception desk. The courier will pick them up when he drops off the new order, so you won't have to pay for return shipping." },
 { pause: 6 },
 
-{ say: 'Questions 35 through 37 refer to the following conversation with three speakers.' }, { pause: 1 },
+{ say: g.TQL[6] }, { pause: 1 },
 { s: 'W2', t: "Sam, Dev, the Hartley Group wants us to cater their product launch on the eighteenth, but they've increased the guest count from eighty to a hundred and fifty." },
 { s: 'M2', t: "That's almost double. We'll need more servers." },
 { s: 'M3', t: "And our van can't carry that much food in one trip." },
@@ -220,7 +220,7 @@ script: [
 { s: 'W2', t: "Great. Let's meet again on Thursday to finalize everything." },
 { pause: 6 },
 
-{ say: 'Questions 38 through 40 refer to the following conversation.' }, { pause: 1 },
+{ say: g.TQL[38] }, { pause: 1 },
 { s: 'W3', t: "Oliver, did you see the e-mail from Brightdesk? Our subscription to their project management software expires at the end of the month." },
 { s: 'M4', t: "Yes. They're also raising the price by twenty percent. I'm not sure we should renew." },
 { s: 'W3', t: "I've heard good things about a program called TaskHarbor. A friend of mine says it's cheaper and easier to use." },
@@ -229,7 +229,7 @@ script: [
 { s: 'M4', t: "In that case, let's try it. Could you sign us up for the trial today? I'll let the rest of the team know at Monday's meeting." },
 { pause: 6 },
 
-{ say: 'Questions 41 through 43 refer to the following conversation with three speakers.' }, { pause: 1 },
+{ say: g.TQL[13] }, { pause: 1 },
 { s: 'M5', t: "Elena, Rosa, the technician just called. The new packaging machine won't be installed until next Wednesday." },
 { s: 'W4', t: 'Next Wednesday? We promised Delmar Foods that their order would ship by Friday.' },
 { s: 'W5', t: "We could run the old machine overnight. It's slower, but if we add a night shift, we should be able to finish the order on time." },
@@ -238,7 +238,7 @@ script: [
 { s: 'W5', t: "Sure. I'll post a sign-up sheet in the break room this morning." },
 { pause: 6 },
 
-{ say: 'Questions 44 through 46 refer to the following conversation.' }, { pause: 1 },
+{ say: g.TQL[43] }, { pause: 1 },
 { s: 'M6', t: 'Thank you for calling Riverside Community Center. This is Leo.' },
 { s: 'W6', t: "Hi. I'm organizing a photography workshop on Saturday, May tenth, and I'd like to rent one of your meeting rooms for about twenty people." },
 { s: 'M6', t: 'Let me check. Room C is available that day. It holds twenty-five people and has a projector and a screen.' },
@@ -248,7 +248,7 @@ script: [
 { s: 'M6', t: "I'm afraid we need a signed form. I'll e-mail it to you, and you can send it back with a copy of an ID that shows your address." },
 { pause: 6 },
 
-{ say: 'Questions 47 through 49 refer to the following conversation.' }, { pause: 1 },
+{ say: g.TQL[8] }, { pause: 1 },
 { s: 'W7', t: "Excuse me. My train from Leeds was forty minutes late, and I've missed my connection to Edinburgh. What can I do?" },
 { s: 'M7', t: "I'm sorry about that. Can I see your ticket? Ah, you have an advance ticket for the twelve-fifteen service." },
 { s: 'W7', t: "That's right. Does that mean I have to buy a new one?" },
@@ -258,7 +258,7 @@ script: [
 { s: 'W7', t: "Thanks. I'll do that while I'm waiting." },
 { pause: 6 },
 
-{ say: 'Questions 50 through 52 refer to the following conversation with three speakers.' }, { pause: 1 },
+{ say: g.TQL[5] }, { pause: 1 },
 { s: 'M8', t: 'Joy, Patrick, line three stopped about twenty minutes ago. The labeling machine jammed again.' },
 { s: 'W8', t: "That's the third time this week. Were any bottles damaged?" },
 { s: 'M8', t: "About two hundred. They've been set aside for recycling." },
@@ -268,7 +268,7 @@ script: [
 { s: 'W8', t: "Let's do that. Stefan, please let the shift supervisor on line two know right away." },
 { pause: 6 },
 
-{ say: 'Questions 53 through 55 refer to the following conversation.' }, { pause: 1 },
+{ say: g.TQL[9] }, { pause: 1 },
 { s: 'W9', t: "Hi, Andre. Is everything ready for Lucy Moreno's book signing on Saturday?" },
 { s: 'M10', t: "Almost. We've ordered a hundred and fifty copies of her new novel, and the posters are up in the front window." },
 { s: 'W9', t: 'Good. The publisher said she might also read a chapter aloud. Do we have a microphone?' },
@@ -278,7 +278,7 @@ script: [
 { s: 'W9', t: "That's a smart idea. Let's put a notice about it on our social media page today." },
 { pause: 6 },
 
-{ say: 'Questions 56 through 58 refer to the following conversation.' }, { pause: 1 },
+{ say: g.TQL[10] }, { pause: 1 },
 { s: 'W10', t: "Hi, Mr. Doyle. It's Bianca Ferris in apartment 3B. I'm calling because there's water dripping from my bathroom ceiling." },
 { s: 'M11', t: 'Oh dear. How bad is it?' },
 { s: 'W10', t: "It's a steady drip. I've put a bucket under it, but there's a brown stain spreading across the ceiling." },
@@ -288,7 +288,7 @@ script: [
 { s: 'W10', t: "Thank you. I'll be working from home all day, so I can let you in." },
 { pause: 6 },
 
-{ say: 'Questions 59 through 61 refer to the following conversation.' }, { pause: 1 },
+{ say: g.TQL[40] }, { pause: 1 },
 { s: 'M12', t: 'Hello, may I speak to Diane Warren? This is Rafael Ortiz from the human resources department at Coastline Logistics.' },
 { s: 'W11', t: 'Speaking. Hi, Mr. Ortiz.' },
 { s: 'M12', t: "We were very impressed with your application for the operations analyst position, and we'd like to invite you for an interview." },
@@ -299,7 +299,7 @@ script: [
 { s: 'W11', t: "Thursday at two is perfect. I'll put together a few samples." },
 { pause: 6 },
 
-{ say: 'Questions 62 through 64 refer to the following conversation.' }, { pause: 1 },
+{ say: g.TQL[11] }, { pause: 1 },
 { s: 'M13', t: 'Morning! Can I help you? Everything on this table was picked yesterday.' },
 { s: 'W12', t: "Hi. I manage the Copper Kettle Café on Bridge Street. We're looking for a local supplier for our berries and herbs." },
 { s: 'M13', t: "Well, you've come to the right stall. How much would you need each week?" },
@@ -309,7 +309,7 @@ script: [
 { s: 'M13', t: "Ten percent for weekly orders. Here's my card. If you send me your exact list, I'll put together a price quote." },
 { pause: 6 },
 
-{ say: 'Questions 65 through 67 refer to the following conversation.' }, { pause: 1 },
+{ say: g.TQL[70] }, { pause: 1 },
 { s: 'M14', t: 'Good morning. Welcome to the Northern Retail Conference. May I have your name?' },
 { s: 'W13', t: 'Zara Hussein, from Brightline Stores.' },
 { s: 'M14', t: "Here's your badge and program. Oh, I'm sorry, it looks like your last name has been misspelled." },
@@ -331,16 +331,16 @@ script: [
 { pause: 6 },
 ],
 groups: [
-{ type: 'mcq', instr: 'Questions 32–34. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[16],
 items: [
-{ n: 32, q: 'Where does the woman most likely work?', options: ['At a printing shop', 'At a courier company', 'At an accounting firm', 'At a warehouse'], a: 2, cue: 'This is Priya from Larkspur Accounting',
+{ n: 32, q: g.TQL[97], options: ['At a printing shop', 'At a courier company', 'At an accounting firm', 'At a warehouse'], a: 2, cue: 'This is Priya from Larkspur Accounting',
 explain: 'Người phụ nữ tự giới thiệu "Priya from Larkspur Accounting" và nhắc đến "our billing department" (phòng hóa đơn) → làm ở công ty kế toán (C). Máy in, người giao hàng và nhà kho đều được nhắc đến nhưng không phải nơi cô làm việc.' },
 { n: 33, q: 'What problem does the woman mention?', options: ['She received the wrong items.', 'Her order arrived late.', 'Some printers are broken.', 'She was charged twice.'], a: 0, cue: 'you sent us color cartridges instead',
 explain: 'Cô đặt hộp mực đen nhưng lại nhận mực màu ("you sent us color cartridges instead") → nhận sai hàng (A). Máy in chỉ "almost out of black ink" (sắp hết mực) chứ không hỏng – bẫy cho C. Hàng đến "this morning", không trễ.' },
 { n: 34, q: 'According to the man, what will the courier do?', options: ['Repair the printers', 'Deliver a bill', 'Call the woman first', 'Collect some items'], a: 3, cue: 'The courier will pick them up when he drops off the new order',
 explain: '"The courier will pick them up" (người giao hàng sẽ lấy chúng – tức các hộp mực màu) → thu hồi hàng (D). "pick up" được diễn đạt lại thành "collect". Không có thông tin về sửa máy in hay giao hóa đơn.' },
 ] },
-{ type: 'mcq', instr: 'Questions 35–37. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[17],
 items: [
 { n: 35, q: 'What type of business do the speakers most likely work for?', options: ['A car rental agency', 'A catering company', 'An advertising agency', 'A recruitment firm'], a: 1, cue: 'the Hartley Group wants us to cater their product launch',
 explain: '"wants us to cater their product launch" (muốn chúng ta cung cấp đồ ăn cho buổi ra mắt sản phẩm), cùng các chi tiết "servers", "food" → công ty dịch vụ ăn uống (B). Họ chỉ THUÊ xe từ Fulton Rentals, không phải công ty cho thuê xe (A).' },
@@ -349,16 +349,16 @@ explain: 'Khách hàng tăng số khách từ 80 lên 150 ("increased the guest 
 { n: 37, q: 'What will Dev most likely do after the meeting?', options: ['Contact part-time staff', 'Revise a menu', 'Meet with a client', 'Call a rental company'], a: 3, cue: "I'll call Fulton Rentals right after this meeting",
 explain: 'Dev nói "I\'ll call Fulton Rentals right after this meeting" → gọi cho công ty cho thuê (D). Việc liên hệ nhân viên bán thời gian (A) là việc của Sam, không phải Dev.' },
 ] },
-{ type: 'mcq', instr: 'Questions 38–40. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[18],
 items: [
-{ n: 38, q: 'What are the speakers mainly discussing?', options: ['Software for managing projects', 'A team-building event', "A client's complaint", 'Hiring a new manager'], a: 0, cue: 'Our subscription to their project management software expires',
+{ n: 38, q: g.TQL[44], options: ['Software for managing projects', 'A team-building event', "A client's complaint", 'Hiring a new manager'], a: 0, cue: 'Our subscription to their project management software expires',
 explain: 'Cả cuộc hội thoại bàn về việc gia hạn hay đổi phần mềm quản lý dự án (Brightdesk → TaskHarbor) → A. "project management software" được diễn đạt lại thành "software for managing projects".' },
 { n: 39, q: 'What concern does the man express about changing programs?', options: ['The cost of training', 'A lack of storage space', 'The time needed to move files', 'A missed deadline'], a: 2, cue: 'moving all of our project files to a new system could take weeks',
 explain: 'Anh lo rằng "moving all of our project files … could take weeks" (chuyển toàn bộ tệp có thể mất nhiều tuần) → thời gian chuyển dữ liệu (C). Việc tăng giá 20% là lý do không muốn gia hạn phần mềm cũ, không phải mối lo khi đổi phần mềm.' },
-{ n: 40, q: 'What does the man ask the woman to do?', options: ['Call a friend', 'Lead a meeting', 'Compare prices', 'Register for a trial'], a: 3, cue: 'Could you sign us up for the trial today?',
+{ n: 40, q: g.TQL[42], options: ['Call a friend', 'Lead a meeting', 'Compare prices', 'Register for a trial'], a: 3, cue: 'Could you sign us up for the trial today?',
 explain: '"Could you sign us up for the trial today?" (đăng ký dùng thử giúp chúng ta hôm nay) → "sign up" = "register" (D). Chính anh mới là người sẽ thông báo ở cuộc họp thứ Hai, nên B sai.' },
 ] },
-{ type: 'mcq', instr: 'Questions 41–43. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[19],
 items: [
 { n: 41, q: 'What has been delayed?', options: ['The installation of a machine', 'A shipment of raw materials', 'A safety inspection', 'A job interview'], a: 0, cue: "The new packaging machine won't be installed until next Wednesday",
 explain: 'Máy đóng gói mới sẽ không được lắp đặt cho đến thứ Tư tới ("won\'t be installed until next Wednesday") → việc lắp đặt máy bị chậm (A). Đơn hàng của Delmar Foods vẫn dự kiến giao thứ Sáu.' },
@@ -367,7 +367,7 @@ explain: 'Rosa đề xuất chạy máy cũ qua đêm và "add a night shift" (t
 { n: 43, q: 'What will Rosa do this morning?', options: ['Call Delmar Foods', 'Post a sign-up sheet', 'Repair the old machine', 'Approve overtime pay'], a: 1, cue: "I'll post a sign-up sheet in the break room this morning",
 explain: '"I\'ll post a sign-up sheet in the break room this morning" → dán bảng đăng ký (B). Việc trả lương tăng ca chỉ được nhắc như một chi phí, không ai nói Rosa sẽ phê duyệt.' },
 ] },
-{ type: 'mcq', instr: 'Questions 44–46. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[20],
 items: [
 { n: 44, q: 'Why is the woman calling?', options: ['To reserve a room', 'To sign up for a workshop', 'To ask about a job', 'To report a broken projector'], a: 0, cue: "I'd like to rent one of your meeting rooms",
 explain: 'Cô gọi để thuê phòng họp cho buổi workshop ("I\'d like to rent one of your meeting rooms") → đặt phòng (A). Cô là người TỔ CHỨC workshop chứ không đăng ký tham gia (B). Máy chiếu chỉ là tiện nghi của phòng.' },
@@ -376,7 +376,7 @@ explain: '"since you live in Riverside" (vì chị sống ở Riverside) → đ�
 { n: 46, q: 'What will the man send the woman?', options: ['A receipt', 'A form', 'A map', 'A list of equipment'], a: 1, cue: "we need a signed form. I'll e-mail it to you",
 explain: '"we need a signed form. I\'ll e-mail it to you" → anh sẽ gửi email mẫu đơn (B). Bản sao giấy tờ tùy thân là thứ người phụ nữ phải gửi lại, không phải anh gửi.' },
 ] },
-{ type: 'mcq', instr: 'Questions 47–49. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[21],
 items: [
 { n: 47, q: "What is the woman's problem?", options: ['She lost her ticket.', 'She missed a connecting train.', 'She went to the wrong platform.', 'Her seat was taken.'], a: 1, cue: "I've missed my connection to Edinburgh",
 explain: 'Tàu từ Leeds trễ 40 phút nên cô "missed my connection" – lỡ chuyến nối tiếp → lỡ chuyến tàu nối chuyến.' },
@@ -385,25 +385,25 @@ explain: "\"reservations can't be transferred\" – chỗ ngồi đã đặt kh�
 { n: 49, q: 'What will the woman most likely do next?', options: ['Buy a new ticket', 'Go to platform nine immediately', 'Request compensation online', 'Call her office in Edinburgh'], a: 2, cue: 'You can also claim partial compensation for the delay on our Web site.',
 explain: "Nhân viên gợi ý đòi bồi thường một phần trên website, cô đáp \"I'll do that while I'm waiting\" → yêu cầu bồi thường trực tuyến. Chuyến 1:40 chưa đến giờ nên chưa ra sân ga ngay." },
 ] },
-{ type: 'mcq', instr: 'Questions 50–52. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[22],
 items: [
-{ n: 50, q: 'Where do the speakers most likely work?', options: ['At a supermarket', 'At a recycling center', 'At a beverage factory', 'At a shipping company'], a: 2, cue: 'ship four thousand bottles of juice',
+{ n: 50, q: g.TQL[51], options: ['At a supermarket', 'At a recycling center', 'At a beverage factory', 'At a shipping company'], a: 2, cue: 'ship four thousand bottles of juice',
 explain: 'Có dây chuyền sản xuất ("line three"), máy dán nhãn, chai nước ép cần giao → nhà máy đồ uống. Siêu thị Fairway là khách hàng.' },
 { n: 51, q: 'What caused the problem?', options: ['A shortage of bottles', 'A worn-out machine part', 'A power outage', 'A shipping error'], a: 1, cue: 'One of the rollers is worn out.',
 explain: 'Patrick kiểm tra và thấy một con lăn bị mòn ("One of the rollers is worn out") → bộ phận máy bị mòn.' },
 { n: 52, q: 'What will Stefan most likely do next?', options: ['Install a spare part', 'Call Fairway Supermarkets', 'Recycle some bottles', 'Speak to a supervisor'], a: 3, cue: 'please let the shift supervisor on line two know right away',
 explain: 'Joy giao cho Stefan báo ngay cho trưởng ca dây chuyền hai → nói chuyện với người giám sát. Lắp phụ tùng là việc Patrick nhắc đến.' },
 ] },
-{ type: 'mcq', instr: 'Questions 53–55. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[23],
 items: [
-{ n: 53, q: 'What event are the speakers preparing for?', options: ['A book signing', 'A poetry contest', 'A store opening', 'A publishing conference'], a: 0, cue: "Lucy Moreno's book signing on Saturday",
+{ n: 53, q: g.TQL[93], options: ['A book signing', 'A poetry contest', 'A store opening', 'A publishing conference'], a: 0, cue: "Lucy Moreno's book signing on Saturday",
 explain: 'Họ chuẩn bị buổi "book signing" – ký tặng sách – của tác giả Lucy Moreno.' },
 { n: 54, q: 'What will the man do tomorrow?', options: ['Order more books', 'Put up posters', 'Test some equipment', 'Contact a publisher'], a: 2, cue: "I'll test it tomorrow.",
 explain: "Anh sẽ thử micro (\"I'll test it tomorrow\") → kiểm tra thiết bị. Áp phích đã được dán rồi." },
 { n: 55, q: 'What does the man suggest?', options: ['Moving the event outside', 'Giving out numbered tickets', 'Limiting the number of books', 'Opening the store earlier'], a: 1, cue: 'hand out numbered tickets when the store opens',
 explain: 'Để tránh xếp hàng dài, anh đề xuất phát vé có số thứ tự → phát vé đánh số. Không đề xuất mở cửa sớm hơn.' },
 ] },
-{ type: 'mcq', instr: 'Questions 56–58. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[24],
 items: [
 { n: 56, q: 'Who most likely is the man?', options: ['A plumber', 'A building manager', 'A neighbor', 'An insurance agent'], a: 1, cue: 'I have a spare key.',
 explain: 'Anh biết người thuê căn 4B đi vắng, giữ chìa khóa dự phòng và sẽ gọi thợ sửa ống nước → chủ nhà/quản lý tòa nhà. Thợ sửa ống nước là người được anh gọi tới.' },
@@ -412,7 +412,7 @@ explain: 'Người thuê căn 4B "is away on vacation until Sunday" → đang đ
 { n: 58, q: 'What does the woman say she will do?', options: ['Call a plumber', 'Clean the ceiling', 'Stay home to let the men in', 'Move to another apartment'], a: 2, cue: "I'll be working from home all day, so I can let you in.",
 explain: 'Cô làm việc ở nhà cả ngày nên có thể mở cửa cho họ ("let you in"). Việc gọi thợ là của người đàn ông.' },
 ] },
-{ type: 'mcq', instr: 'Questions 59–61. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[25],
 items: [
 { n: 59, q: 'Why is the man calling?', options: ['To offer a job', 'To arrange an interview', 'To request a reference', 'To discuss a business trip'], a: 1, cue: "we'd like to invite you for an interview",
 explain: 'Anh gọi để mời cô phỏng vấn ("invite you for an interview") → sắp xếp buổi phỏng vấn. Chưa phải mời nhận việc.' },
@@ -421,16 +421,16 @@ explain: 'Đáp lại đề nghị thứ Ba lúc 10 giờ, cô nói đi công t�
 { n: 61, q: 'What is the woman asked to bring?', options: ['Samples of her written reports', 'A list of references', 'Her university diploma', 'A completed application form'], a: 0, cue: "please bring examples of any reports you've written",
 explain: "\"examples of any reports you've written\" = mẫu báo cáo cô đã viết; cô đáp sẽ chuẩn bị \"a few samples\"." },
 ] },
-{ type: 'mcq', instr: 'Questions 62–64. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[26],
 items: [
-{ n: 62, q: 'Where does the conversation most likely take place?', options: ['At a café', "At a farmers' market", 'At a supermarket', 'At a delivery company'], a: 1, cue: 'Everything on this table was picked yesterday.',
+{ n: 62, q: g.TQL[50], options: ['At a café', "At a farmers' market", 'At a supermarket', 'At a delivery company'], a: 1, cue: 'Everything on this table was picked yesterday.',
 explain: 'Người đàn ông bán nông sản tại một quầy ("stall"), hàng "picked yesterday", tự thu hoạch → chợ nông sản. Quán cà phê là nơi người phụ nữ làm việc.' },
 { n: 63, q: "Why can't the man deliver on Mondays?", options: ['He harvests on that day.', 'His truck is being repaired.', 'The café is closed.', 'He sells at another market.'], a: 0, cue: "That's when we harvest.",
 explain: "Anh nói thứ Hai là ngày thu hoạch (\"That's when we harvest\"). Quán đóng cửa thứ Hai là thông tin của người phụ nữ, không phải lý do anh không giao được." },
 { n: 64, q: 'What does the man ask the woman to send?', options: ['A deposit', 'A delivery address', 'A detailed list of items', 'A copy of the café menu'], a: 2, cue: "If you send me your exact list, I'll put together a price quote.",
 explain: 'Anh nhờ gửi "your exact list" – danh sách chính xác các mặt hàng – để lập báo giá.' },
 ] },
-{ type: 'mcq', instr: 'Questions 65–67. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[27],
 items: [
 { n: 65, q: 'What problem does the man notice?', options: ['A registration fee is unpaid.', 'A name is spelled incorrectly.', 'A program is missing a page.', 'A session is full.'], a: 1, cue: 'your last name has been misspelled',
 explain: 'Họ của cô bị in sai chính tả trên thẻ tên ("misspelled") → tên viết sai.' },
@@ -439,7 +439,7 @@ explain: 'Quá nhiều người đăng ký ("so many people signed up") nên c�
 { n: 67, q: 'What will the woman do while she waits?', options: ['Get a coffee', 'Go to the main hall', 'Call her office', 'Fill out a form'], a: 0, cue: "I'll grab a coffee while you print the badge.",
 explain: '"grab a coffee" = đi lấy một ly cà phê, trong lúc chờ in thẻ mới.' },
 ] },
-{ type: 'mcq', instr: 'Questions 68–70. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[28],
 items: [
 { n: 68, q: 'What are the speakers planning?', options: ['A park cleanup event', 'A charity run', 'A business fair', 'A city council meeting'], a: 0, cue: 'a volunteer cleanup at Riverside Park',
 explain: 'Họ lên kế hoạch "a volunteer cleanup at Riverside Park" – buổi tình nguyện dọn dẹp công viên.' },
@@ -484,16 +484,16 @@ I: { name: 'Terminal announcer', accent: 'en-GB', gender: 'm' },
 J: { name: 'Tamsin', accent: 'en-AU', gender: 'f' },
 },
 script: [
-{ say: 'Part 4. In this part, you will hear several short talks given by a single speaker. After each talk, answer the three questions printed in your test book.' }, { pause: 3 },
+{ say: g.TQL[3] }, { pause: 3 },
 
-{ say: 'Questions 71 through 73 refer to the following announcement.' }, { pause: 1 },
+{ say: g.TQL[55] }, { pause: 1 },
 { s: 'A', t: 'Attention, shoppers. Greenway Supermarket will be closing in thirty minutes, at ten P.M. Please bring your final purchases to the registers.' },
 { s: 'A', t: 'Please note that our self-checkout lanes are closed tonight for maintenance, so all customers should use the staffed registers at the front of the store.' },
 { s: 'A', t: "We'd also like to remind you that starting tomorrow, our bakery section will offer freshly baked bread every morning from seven o'clock." },
 { s: 'A', t: 'And this week only, members of our rewards program will receive ten percent off all bakery items. Thank you for shopping at Greenway.' },
 { pause: 6 },
 
-{ say: 'Questions 74 through 76 refer to the following telephone message.' }, { pause: 1 },
+{ say: g.TQL[15] }, { pause: 1 },
 { s: 'B', t: "Hello, Mr. Abara. This is Ingrid Sato from Kestrel Office Furniture. I'm calling about the twelve desks you ordered for your new office." },
 { s: 'B', t: "Unfortunately, the model you selected, the Linden desk, is out of stock until next month because of a delay at our factory." },
 { s: 'B', t: "We do have a similar model, the Aspen, which is available now in the same color. It's slightly larger, though, so please measure your space before you decide." },
@@ -501,7 +501,7 @@ script: [
 { s: 'B', t: 'Please call me back at 555-0147 by Thursday so that we can schedule the delivery.' },
 { pause: 6 },
 
-{ say: 'Questions 77 through 79 refer to the following news report.' }, { pause: 1 },
+{ say: g.TQL[75] }, { pause: 1 },
 { s: 'C', t: 'In business news, Halcyon Motors announced yesterday that it will build a new battery plant for electric vehicles in the town of Brantford.' },
 { s: 'C', t: 'The plant is expected to create about nine hundred jobs when it opens in two years.' },
 { s: 'C', t: 'Company officials said Brantford was chosen mainly because of its skilled workforce. Many local residents have been trained in manufacturing at Brantford Technical College.' },
@@ -509,7 +509,7 @@ script: [
 { s: 'C', t: "Applications for the program will open next week on the college's Web site." },
 { pause: 6 },
 
-{ say: 'Questions 80 through 82 refer to the following excerpt from a meeting.' }, { pause: 1 },
+{ say: g.TQL[45] }, { pause: 1 },
 { s: 'D', t: "Before we finish today's staff meeting, I'd like to talk about a change to our customer service hours." },
 { s: 'D', t: 'Starting in July, our call center will stay open until nine P.M. on weekdays, instead of closing at six.' },
 { s: 'D', t: 'Our recent surveys show that many of our customers can only call us after they finish work.' },
@@ -517,7 +517,7 @@ script: [
 { s: 'D', t: "If you're interested, please let Marco in human resources know by the end of next week. Staff who work the late shift will earn an extra two dollars an hour." },
 { pause: 6 },
 
-{ say: 'Questions 83 through 85 refer to the following tour information.' }, { pause: 1 },
+{ say: g.TQL[63] }, { pause: 1 },
 { s: 'E', t: "Welcome to the Linfield Botanical Gardens. I'm Harriet, and I'll be leading this morning's walk through our tropical and desert collections." },
 { s: 'E', t: "We'll start in the Palm House, which is the large glass building just behind me. It's kept at about twenty-eight degrees, so you may want to take off your jackets before we go in." },
 { s: 'E', t: "After that, we'll walk across to the Desert House to see our cactus collection, some of which is over a hundred years old." },
@@ -545,7 +545,7 @@ script: [
 { s: 'G', t: "For a full list of closures, visit our website. Our next update will be at ten o'clock." },
 { pause: 6 },
 
-{ say: 'Questions 92 through 94 refer to the following talk.' }, { pause: 1 },
+{ say: g.TQL[48] }, { pause: 1 },
 { s: 'H', t: 'Thank you all for coming to our annual volunteer dinner here at the Maple Grove Animal Shelter.' },
 { s: 'H', t: "Tonight, I'm delighted to announce that our Volunteer of the Year is Tomás Quintero." },
 { s: 'H', t: 'Tomás started helping us three years ago, walking dogs on Saturday mornings.' },
@@ -554,7 +554,7 @@ script: [
 { s: 'H', t: "Tomás, please come up and accept this plaque. And everyone, before dessert is served, we'll show a short video about this year's adoption stories." },
 { pause: 6 },
 
-{ say: 'Questions 95 through 97 refer to the following announcement.' }, { pause: 1 },
+{ say: g.TQL[54] }, { pause: 1 },
 { s: 'I', t: 'May I have your attention, please. This is an announcement for passengers travelling between terminals.' },
 { s: 'I', t: 'The SkyLink train connecting Terminals One and Three is currently out of service due to a power problem.' },
 { s: 'I', t: 'Engineers are working on it now, but we expect it to remain closed for at least two hours.' },
@@ -573,7 +573,7 @@ script: [
 { pause: 6 },
 ],
 groups: [
-{ type: 'mcq', instr: 'Questions 71–73. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[29],
 items: [
 { n: 71, q: 'Where is the announcement being made?', options: ['At a bakery', 'At a bank', 'At a restaurant', 'At a supermarket'], a: 3, cue: 'Greenway Supermarket will be closing in thirty minutes',
 explain: '"Attention, shoppers. Greenway Supermarket…" → thông báo trong siêu thị (D). "bakery section" (quầy bánh mì) chỉ là một khu trong siêu thị – bẫy cho A.' },
@@ -582,16 +582,16 @@ explain: '"closed tonight for maintenance" (đóng tối nay để bảo trì) �
 { n: 73, q: 'According to the speaker, how can some listeners save money this week?', options: ['By being members of a rewards program', 'By shopping before 7 A.M.', 'By using a coupon', 'By paying in cash'], a: 0, cue: 'members of our rewards program will receive ten percent off all bakery items',
 explain: 'Thành viên chương trình khách hàng thân thiết được giảm 10% đồ bánh tuần này → A. "7 o\'clock" là giờ bắt đầu bán bánh mì mới ra lò, không phải điều kiện giảm giá – bẫy cho B.' },
 ] },
-{ type: 'mcq', instr: 'Questions 74–76. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[30],
 items: [
 { n: 74, q: 'What is the purpose of the message?', options: ['To confirm a delivery date', 'To request a payment', 'To report that a product is unavailable', 'To advertise a sale'], a: 2, cue: 'the Linden desk, is out of stock until next month',
 explain: 'Mục đích chính: báo mẫu bàn Linden "out of stock until next month" (hết hàng đến tháng sau) và đề xuất mẫu thay thế → C. Ngày giao chưa được xác nhận – người nói còn đề nghị gọi lại để lên lịch (A sai).' },
-{ n: 75, q: 'What does the speaker suggest the listener do?', options: ['Measure an office space', 'Visit a showroom', 'Choose a different color', 'Cancel an order'], a: 0, cue: 'please measure your space before you decide',
+{ n: 75, q: g.TQL[90], options: ['Measure an office space', 'Visit a showroom', 'Choose a different color', 'Cancel an order'], a: 0, cue: 'please measure your space before you decide',
 explain: 'Vì mẫu Aspen to hơn một chút, người nói khuyên "measure your space before you decide" (đo không gian trước khi quyết định) → A. Mẫu Aspen có CÙNG màu, nên phương án C sai.' },
 { n: 76, q: 'What does the speaker offer?', options: ['A discount on a future order', 'A full refund', 'Coverage of an extra cost', 'Free assembly'], a: 2, cue: "we'll cover the difference in price",
 explain: '"we\'ll cover the difference in price" (chúng tôi sẽ chịu phần chênh lệch giá) → chi trả khoản phát sinh (C). Giao hàng miễn phí là có sẵn từ trước ("still be free"); không nhắc đến lắp ráp hay hoàn tiền.' },
 ] },
-{ type: 'mcq', instr: 'Questions 77–79. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[31],
 items: [
 { n: 77, q: 'What did Halcyon Motors announce?', options: ['A new car model', 'A merger with another company', 'A change in leadership', 'Plans to build a factory'], a: 3, cue: 'it will build a new battery plant for electric vehicles',
 explain: '"build a new battery plant" (xây nhà máy pin mới) → plant = factory (D). Bản tin nói về pin cho xe điện, không phải mẫu xe mới (A).' },
@@ -600,16 +600,16 @@ explain: '"chosen mainly because of its skilled workforce" (chủ yếu vì lự
 { n: 79, q: 'What will be available next week?', options: ['Factory tours', 'Applications for a program', 'Job interviews', 'A company report'], a: 1, cue: "Applications for the program will open next week",
 explain: '"Applications for the program will open next week" → bắt đầu nhận hồ sơ chương trình chứng chỉ (B). 900 việc làm chỉ có khi nhà máy mở cửa sau hai năm, nên C sai.' },
 ] },
-{ type: 'mcq', instr: 'Questions 80–82. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[32],
 items: [
 { n: 80, q: 'What change is the speaker announcing?', options: ['A new phone system', 'A move to a new office', 'A new training program', 'Longer business hours'], a: 3, cue: 'our call center will stay open until nine P.M. on weekdays, instead of closing at six',
 explain: 'Tổng đài sẽ mở đến 9 giờ tối thay vì đóng lúc 6 giờ → giờ làm việc dài hơn (D). Dù là tổng đài điện thoại, không có hệ thống điện thoại mới (A).' },
 { n: 81, q: 'Why is the change being made?', options: ['To reduce costs', 'To compete with a rival', 'To respond to customer needs', 'To fill job openings'], a: 2, cue: 'many of our customers can only call us after they finish work',
 explain: 'Khảo sát cho thấy nhiều khách chỉ gọi được sau giờ làm → thay đổi để đáp ứng nhu cầu khách hàng (C). Việc thêm ca làm tăng chi phí chứ không giảm (A sai).' },
-{ n: 82, q: 'What are interested listeners asked to do?', options: ['Contact a colleague in human resources', 'Complete a survey', 'Attend a training session', 'Update their contact details'], a: 0, cue: 'please let Marco in human resources know by the end of next week',
+{ n: 82, q: g.TQL[62], options: ['Contact a colleague in human resources', 'Complete a survey', 'Attend a training session', 'Update their contact details'], a: 0, cue: 'please let Marco in human resources know by the end of next week',
 explain: '"let Marco in human resources know" (báo cho Marco ở phòng nhân sự) → liên hệ đồng nghiệp ở phòng nhân sự (A). Khảo sát là của khách hàng và đã được thực hiện, nên B sai.' },
 ] },
-{ type: 'mcq', instr: 'Questions 83–85. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[33],
 items: [
 { n: 83, q: 'Why does the speaker suggest taking off jackets?', options: ['It will be warm inside a building.', 'The group will be doing exercise.', 'Coats are not allowed in the gardens.', 'A cloakroom is available.'], a: 0, cue: "It's kept at about twenty-eight degrees, so you may want to take off your jackets",
 explain: 'Nhà kính Palm House luôn giữ khoảng 28 độ, nên khách có thể muốn cởi áo khoác trước khi vào → trong tòa nhà sẽ ấm. Không có quy định cấm mang áo khoác.' },
@@ -618,7 +618,7 @@ explain: "Hướng dẫn viên yêu cầu đi trên lối đi và \"don't touch 
 { n: 85, q: 'What can listeners get at the café today?', options: ['A discount on lunch', 'A free slice of cake', 'A free pot of tea', 'A souvenir cup'], a: 2, cue: "you'll get a free pot of tea with any cake",
 explain: 'Xuất trình vé ở quán café hôm nay sẽ được tặng một ấm trà khi mua bánh. Bánh vẫn phải mua – "free slice of cake" là bẫy.' },
 ] },
-{ type: 'mcq', instr: 'Questions 86–88. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[34],
 items: [
 { n: 86, q: 'What is being advertised?', options: ['A restaurant', 'A kitchen supply store', 'A food festival', 'A cooking school'], a: 3, cue: 'At Saffron Street Cooking School, you can.',
 explain: 'Quảng cáo cho "Saffron Street Cooking School" – trường dạy nấu ăn với các khóa học buổi tối. Nhà hàng chỉ là nơi các đầu bếp giảng dạy đang làm việc.' },
@@ -627,7 +627,7 @@ explain: 'Mỗi lớp không quá 10 học viên → lớp nhỏ, được quan 
 { n: 88, q: 'How can listeners receive a free gift?', options: ['By buying a gift certificate', 'By registering by a certain date', 'By bringing a friend', 'By visiting a website'], a: 1, cue: 'if you sign up before the end of March',
 explain: 'Đăng ký trước cuối tháng Ba sẽ được tặng dao đầu bếp trị giá 50 đô-la → đăng ký trước một thời hạn. Website chỉ để xem lịch học.' },
 ] },
-{ type: 'mcq', instr: 'Questions 89–91. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[35],
 items: [
 { n: 89, q: 'What will happen tomorrow?', options: ['A highway will reopen.', 'A new mayor will be elected.', 'Schools will be closed.', 'Trucks will deliver supplies.'], a: 2, cue: 'all public schools in the Durran and Kinloch districts will be closed tomorrow',
 explain: 'Do bão tuyết, tất cả trường công ở hai quận Durran và Kinloch sẽ đóng cửa ngày mai. Đường cao tốc đang bị cấm xe tải, không phải sắp mở lại.' },
@@ -636,7 +636,7 @@ explain: '"avoid unnecessary travel" = tránh đi lại khi không cần thiết
 { n: 91, q: "Why does the mayor say, \"They'll be out all night so the rest of us don't have to be\"?", options: ['To announce a curfew', 'To complain about overtime costs', 'To ask for more volunteers', 'To praise the road crews'], a: 3, cue: "They'll be out all night so the rest of us don't have to be.",
 explain: 'Thị trưởng đang cảm ơn đội dọn đường ("thanked them"); câu nói nhấn mạnh họ làm việc suốt đêm để mọi người được ở nhà an toàn → khen ngợi đội dọn đường. Không phải lệnh giới nghiêm.' },
 ] },
-{ type: 'mcq', instr: 'Questions 92–94. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[36],
 items: [
 { n: 92, q: 'Where does the speaker most likely work?', options: ['At a shopping mall', 'At a veterinary hospital', 'At a furniture store', 'At an animal shelter'], a: 3, cue: 'here at the Maple Grove Animal Shelter',
 explain: 'Bữa tối tri ân tình nguyện viên tổ chức "here at the Maple Grove Animal Shelter" → người nói làm ở trại cứu hộ động vật. Trung tâm thương mại chỉ là nơi tổ chức sự kiện nhận nuôi.' },
@@ -645,7 +645,7 @@ explain: 'Tomás tổ chức các sự kiện nhận nuôi cuối tuần ở Fai
 { n: 94, q: 'What will the listeners do before dessert?', options: ['Tour the storage room', 'Watch a video', 'Walk some dogs', 'Vote for an award'], a: 1, cue: "before dessert is served, we'll show a short video",
 explain: 'Trước khi dọn món tráng miệng sẽ chiếu một video ngắn về các câu chuyện nhận nuôi trong năm → xem video.' },
 ] },
-{ type: 'mcq', instr: 'Questions 95–97. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[37],
 items: [
 { n: 95, q: 'What problem is mentioned?', options: ['A flight has been canceled.', 'A terminal is too crowded.', 'A train is not operating.', 'A door is locked.'], a: 2, cue: 'is currently out of service due to a power problem',
 explain: 'Tàu SkyLink nối nhà ga 1 và 3 đang ngừng hoạt động do sự cố điện ("out of service") → tàu không chạy. Không có chuyến bay nào bị hủy.' },
@@ -654,7 +654,7 @@ explain: 'Xe buýt đưa đón miễn phí chạy 10 phút một chuyến từ b
 { n: 97, q: 'What should passengers do if their flight leaves soon?', options: ['Wait on the arrivals level', 'Call their airline', 'Take a taxi', 'Go to an assistance desk'], a: 3, cue: 'please go straight to the special assistance desk in the main hall',
 explain: 'Nếu chuyến bay cất cánh trong vòng một giờ, hành khách đến thẳng quầy hỗ trợ đặc biệt ở sảnh chính để nhân viên giúp.' },
 ] },
-{ type: 'mcq', instr: 'Questions 98–100. Choose the best answer (A, B, C or D).',
+{ type: 'mcq', instr: g.TQL[14],
 items: [
 { n: 98, q: 'Why is the speaker calling?', options: ['To report a problem with a passport', 'To confirm a payment', 'To recommend a different hotel', 'To change a flight time'], a: 0, cue: 'I noticed that your passport expires in July',
 explain: 'Tamsin gọi vì hộ chiếu của khách hết hạn vào tháng Bảy, có thể không đủ hạn 6 tháng để lên chuyến bay về → vấn đề với hộ chiếu.' },

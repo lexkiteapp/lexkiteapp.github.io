@@ -39,7 +39,7 @@ jobs:
         if: steps.due.outputs.count != '0' || inputs.force
         env: { GH_TOKEN: '${{ github.token }}' }
         run: |
-          gh workflow run pages-deploy.yml --ref main -f urgent=true -f quiet=0 -f force=${{ inputs.force || false }} -f reason="blog-publish ${{ steps.due.outputs.count }} bài"
+          bash scripts/ci/gh-retry.sh gh workflow run pages-deploy.yml --ref main -f urgent=true -f quiet=0 -f force=${{ inputs.force || false }} -f reason="blog-publish ${{ steps.due.outputs.count }} bài"
           echo "✓ đã yêu cầu deploy – chờ build (~6 phút) rồi mới báo IndexNow"
           sleep 420
       - name: IndexNow
@@ -77,9 +77,5 @@ jobs:
         if: steps.due.outputs.count != '0'
         run: |
           node scripts/content-registry.mjs verify
-          git add content/protection/registry.jsonl content/protection/ots 2>/dev/null || true
-          git diff --cached --quiet && { echo "· sổ không đổi"; exit 0; }
-          git config user.name "lexkite-bot"; git config user.email "lexkiteapp@users.noreply.github.com"
-          git commit -qm "Registry: băm bài vừa đăng $(date -u +%FT%H:%MZ) [CF-Pages-Skip] [skip ci]"
-          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
-          exit 1
+          # sổ băm nối thêm: sinh lại trên main mới nhất (record bỏ qua mục đã có) – scripts/ci/commit-regen.sh
+          COMMIT_REGEN_NO_EXT=1 bash scripts/ci/commit-regen.sh "Registry: băm bài vừa đăng $(date -u +%FT%H:%MZ)" 'node scripts/content-registry.mjs record --wait 120 < due.txt || true; node scripts/ots.mjs stamp || true; node scripts/ots.mjs upgrade || true; node scripts/content-registry.mjs verify' content/protection/registry.jsonl content/protection/ots

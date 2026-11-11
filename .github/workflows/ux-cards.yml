@@ -1,3 +1,4 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
 # 🃏 Ảnh trước/sau các thẻ học có dữ liệu (scripts/test/ux-cards.mjs): sổ lỗi sai, làm lại, thẻ ôn đã lật, bài ngữ pháp – 360 px/máy tính, sáng/tối, en/vi/ar. Hermetic. Artifact 7 ngày.
 # + ux-guard.mjs: gác bố cục mọi trang chính (FAIL khi chồng lấn/cắt/tràn chữ/lặp IPA-loa).
 # + dict-entry-layout.mjs: gác thẻ kết quả tra từ (cột rỗng, câu lạc lõng, ví dụ lặp, nút lệch, tràn, tương phản) mọi trạng thái; PR có tờ trước/sau.
@@ -14,16 +15,39 @@ on:
     paths: ['web/js/**', 'web/css/**', 'web/app/**', 'scripts/test/ux-guard*.mjs', 'scripts/test/ux1-guard.mjs', 'scripts/test/dict-entry-layout.mjs', '.github/workflows/ux-cards.yml']
 permissions:
   contents: read
+  actions: write   # fast-lane: huỷ lượt nặng khi npm test cùng sha đã đỏ (docs/CI-RUNNERS.md › Máy gác)
+  checks: read
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha → go=$go"
   shots:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
+      - if: github.event_name == 'pull_request'
+        uses: ./.github/actions/fast-lane   # làn nhanh: npm test đỏ → huỷ lượt nặng
       - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
@@ -31,8 +55,12 @@ jobs:
         env: { BEFORE: "${{ github.event.inputs.before }}", EV: "${{ github.event_name }}" }
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium >/dev/null
-          sudo apt-get install -y -qq imagemagick fonts-noto-color-emoji fonts-noto-core >/dev/null || true
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: imagemagick fonts-noto-color-emoji fonts-noto-core }
+      - name: Chụp (tiếp)
+        env: { BEFORE: "${{ github.event.inputs.before }}", EV: "${{ github.event_name }}" }
+        run: |
           B=""
           if [ "$EV" = push ]; then BEFORE="$(git merge-base origin/main HEAD)"; [ "$BEFORE" = "$(git rev-parse HEAD)" ] && BEFORE=""; fi
           if [ -n "$BEFORE" ]; then git worktree add -q /tmp/before "$BEFORE"; B=/tmp/before/web; fi
@@ -50,6 +78,8 @@ jobs:
         with: { name: ux-cards, path: out/ux-cards, retention-days: 7 }
 
   ux1:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 40
     strategy:
@@ -62,10 +92,12 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Cài
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium >/dev/null
-          sudo apt-get install -y -qq imagemagick fonts-noto-color-emoji fonts-noto-core fonts-noto-cjk >/dev/null || true
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: imagemagick fonts-noto-color-emoji fonts-noto-core fonts-noto-cjk }
       - name: Trước (main/commit 'before') – chỉ để làm tờ so sánh, không chặn
         env: { BEFORE: "${{ github.event.inputs.before }}", EV: "${{ github.event_name }}" }
         continue-on-error: true

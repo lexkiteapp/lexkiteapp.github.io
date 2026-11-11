@@ -5,11 +5,12 @@ import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath }
 import { ROOT, CATEGORIES, plainText, wordCount, readPost, loadPostsAt, briefSlugs, mediaIds, FAQ_RE, publishTime } from './lib/blog-content.mjs';
 import { specOf, mediaId, wantedItems, altUntruths, appRoutes, routeName, validateItem } from './lib/blog-images.mjs';
 import { loadFacts, postExams, captionIssues } from './lib/blog-captions.mjs';
+import { loadYoutube } from './blog-youtube.mjs';
 
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/, TAG = /^[a-z0-9-]+$/, YT = /^[\w-]{11}$/;
 const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})$/, DAY = /^\d{4}-\d{2}-\d{2}$/;
 const RESERVED = new Set(['trang', 'chu-de', 'the', 'page', 'topic', 'tag', 'rss.xml', 'gioi-thieu', 'about', 'topik', 'halaman', 'tentang', 'tema', 'etiqueta', 'pagina', 'acerca-de', 'category', 'categoria', 'sobre', 'categorie', 'a-propos', 'kategorie', 'schlagwort', 'seite', 'ueber-uns', 'kategori', 'etiket', 'sayfa', 'hakkinda']); // /blog/<…>/ không phải bài
-const FAQ = FAQ_RE;
+const FAQ = FAQ_RE, LANG_GATE_FROM = '2026-11-05';
 const rel = f => (f && !path.relative(process.cwd(), f).startsWith('..') ? path.relative(process.cwd(), f) : f);
 const len = s => [...String(s ?? '')].length;
 const norm = s => String(s ?? '').normalize('NFC').toLowerCase().replace(/i\u0307/g, 'i').replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim();
@@ -37,7 +38,7 @@ export function latinTitle(lang, title) {
 }
 
 export function checkPosts(posts, { all = posts, root = ROOT, now = Date.now() } = {}) {
-  const errors = [], warnings = [], IMG = imagesConfig(root), routes = appRoutes(), FACTS = loadFacts(root);
+  const errors = [], warnings = [], IMG = imagesConfig(root), routes = appRoutes(), FACTS = loadFacts(root), YTOK = loadYoutube(path.join(root, 'youtube.json'));
   const media = mediaIds(root), briefs = new Set((JSON.parse(fs.readFileSync(path.join(root, 'briefs.json'), 'utf8')).briefs || []).map(b => `${b.lang || 'vi'}/${b.slug}`));
   const slugs = new Set([...all, ...posts].map(p => `${p.lang}/${p.slug}`));
   if (media.fallback) warnings.push(`${rel(path.join(root, 'media.json'))}: [media] chưa có media.json – tạm kiểm id ảnh theo shots.json`);
@@ -130,13 +131,38 @@ export function checkPosts(posts, { all = posts, root = ROOT, now = Date.now() }
     else if (wc >= 1800 && bodyImgs.size < 3) W('image', `bài dài ${wc} từ nên có ≥ 3 ảnh thân bài (đang ${bodyImgs.size})`);
     if (!p.cover) E('cover', 'thiếu cover'); else if (!media.ids.has(p.cover)) E('cover', `cover "${p.cover}" không có trong ${media.fallback ? 'shots.json' : 'media.json'}`);
     if (len(String(p.coverAlt ?? '').trim()) < 10) E('cover', 'coverAlt cần ≥ 10 ký tự');
+    // Lô B5-R2 (5/11/2026): bài ngôn ngữ khác mang nhãn/alt tiếng Việt, trỏ /tu-vung/ (trang tiếng Việt), coverAlt tả sai ảnh bìa.
+    // Bài duyệt từ 5/11/2026 (factChecked ≥ LANG_GATE_FROM) → lỗi; bài cũ (112 bài hàng chờ + 51 bài live) → cảnh báo để sửa dần.
+    { const EF = String(p.factChecked || '') >= LANG_GATE_FROM ? E : W;
+      // Trang tĩnh thật: /en/{vocabulary,samples,speaking,grammar}/ và bản vi /tu-vung/, /samples/, /speaking/, /ngu-phap/ (build-landing.mjs).
+      // /vocabulary/, /<xx≠en>/vocabulary/ … không được build → 404; bài ngôn ngữ khác không trỏ trang tĩnh tiếng Việt.
+      for (const m of body.matchAll(/\]\(\/(?:([a-z]{2})\/)?(vocabulary|samples|speaking|grammar|tu-vung|ngu-phap)\//g)) {
+        const [, pre, sec] = m, viSec = ['tu-vung', 'samples', 'speaking', 'ngu-phap'].includes(sec), enSec = ['vocabulary', 'samples', 'speaking', 'grammar'].includes(sec);
+        if (pre ? pre !== 'en' || !enSec : !viSec) EF('dead-link', `liên kết ${m[0].slice(2)} không tồn tại – dùng /en/${enSec ? sec : 'vocabulary'}/${p.lang === 'vi' ? ' hoặc trang tiếng Việt' : ''}`);
+        else if (!pre && p.lang !== 'vi' && sec !== 'tu-vung') EF('lang-link', `liên kết ${m[0].slice(2)} là trang tiếng Việt – bài ${p.lang} dùng /en/${{ 'ngu-phap': 'grammar' }[sec] || sec}/`);
+      }
+      // Quiz cuối bài (lô B5-R2): ≥ 3 câu; đáp án đúng không được hầu như luôn là phương án dài nhất (người làm đoán được không cần đọc bài).
+      { const qs = Array.isArray(p.quiz) ? p.quiz : (p.quiz && p.quiz.items) || [];
+        if (qs.length && qs.length < 3) EF('quiz', `quiz chỉ ${qs.length} câu – cần ≥ 3`);
+        const tell = qs.filter(q => Array.isArray(q?.options) && q.options.length > 1 && q.options.every((o, i) => i === q.answer || len(o) < len(q.options[q.answer]))).length;
+        if (qs.length >= 3 && tell > qs.length / 2) EF('quiz', `đáp án đúng là phương án dài nhất ở ${tell}/${qs.length} câu – cân độ dài phương án nhiễu`); }
+      if (p.lang !== 'vi') {
+        if (/\]\(\/tu-vung\//.test(body)) E('lang-link', 'liên kết /tu-vung/ là trang tiếng Việt – bài ngôn ngữ khác dùng /en/vocabulary/');
+        const VI = /[ươạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđĐ]/;
+        const mixed = [p.coverAlt, ...[...body.matchAll(/!\[([^\]]*)\]\([^)\s]+(?:\s+"([^"]*)")?\)/g)].flatMap(m => [m[1], m[2]])].filter(x => x && VI.test(x));
+        if (mixed.length) EF('lang-mix', `alt/chú thích có chữ tiếng Việt trong bài ${p.lang}: "${mixed[0].slice(0, 60)}" – viết bằng ngôn ngữ của bài; nhãn app trích nguyên văn theo giao diện ${p.lang} (không có bản dịch → nhãn tiếng Anh)`);
+        const vline = body.split('\n').find(l => VI.test(l) && !/^\s*!\[/.test(l));
+        if (vline) EF('lang-mix', `thân bài có chữ tiếng Việt: "${vline.trim().slice(0, 60)}" – app ${p.lang} không hiện nhãn tiếng Việt`);
+      }
+      if (FACTS && p.cover && p.coverAlt) for (const x of captionIssues(FACTS, { id: p.cover, lang: p.lang, alt: String(p.coverAlt), caption: '', postExams: postExams(FACTS, p), keyword: '' })) (x.level === 'error' ? EF : W)('cover-truth', `coverAlt: ${x.msg}`);
+    }
     // Shortcode
     let yt = 0; const ctas = [];
     for (const m of body.matchAll(/\{\{([\s\S]*?)\}\}/g)) {
       const s = m[1].trim(), y = s.match(/^youtube:\s*([^|]*?)\s*(\|[\s\S]*)?$/), c = s.match(/^cta:\s*(\/\S*)\s*\|\s*(\S[\s\S]*)$/);
       const dg = s.match(/^diagram:\s*([a-z][a-z0-9-]*)\s*(\|[\s\S]*)?$/);
       if (dg) { if (!diagIds.has(dg[1])) E('diagram', `{{diagram: ${dg[1]}}} chưa khai báo trong diagrams: (id ${[...diagIds].join(', ') || 'chưa có'})`); continue; }
-      if (y) { yt++; if (y[1] && !YT.test(y[1])) E('youtube', `ID YouTube "${y[1]}" không hợp lệ (trống hoặc 11 ký tự)`); }
+      if (y) { yt++; if (y[1] && !YT.test(y[1])) E('youtube', `ID YouTube "${y[1]}" không hợp lệ (trống hoặc 11 ký tự)`); else if (y[1] && !YTOK[y[1]]) E('youtube', `ID YouTube "${y[1]}" chưa kiểm – chạy node scripts/blog-youtube.mjs add ${y[1]} (oEmbed: có thật + cho nhúng), xem đúng chủ đề rồi mới dùng; không có video phù hợp → để trống ID`); }
       else if (c) ctas.push(c[1]);
       else if (/^cta:/.test(s)) E('cta', `sai cú pháp "{{${s}}}" – cần {{cta: /đường-dẫn | chữ nút}}`);
       else E('shortcode', `mã lạ "{{${s.slice(0, 40)}}}"`);

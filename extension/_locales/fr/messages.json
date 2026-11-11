@@ -154,5 +154,26 @@
  },
  "ntMoreSenses": {
   "message": "+{n} sens"
+ },
+ "ntQzTag": {
+  "message": "Quiz express"
+ },
+ "ntQzQ": {
+  "message": "Choisissez le bon sens"
+ },
+ "ntQzTime": {
+  "message": "{s} secondes"
+ },
+ "ntQzRight": {
+  "message": "Exact !"
+ },
+ "ntQzWrong": {
+  "message": "Pas tout à fait — le mot reviendra bientôt"
+ },
+ "ntQzTimeout": {
+  "message": "Temps écoulé, pas de souci"
+ },
+ "ntQzSkip": {
+  "message": "Passer"
  }
 }

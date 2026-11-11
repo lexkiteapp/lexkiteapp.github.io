@@ -59,7 +59,7 @@ async function chunk(files) {
         const e = { sha256: x.h, size: x.f.size, copies, at: new Date().toISOString().slice(0, 10) };
         m.files[x.f.rel] = e; if (distinctDrives(e) >= WANT) bySha.set(x.h, e); else { short++; console.error(`⚠ ${x.f.rel}: chỉ ${distinctDrives(e)}/${WANT} Drive`); }
         up++; dirty++;
-      } catch (e) { fail++; if (FATAL.test(String(e.code || e.message))) halt(e); }
+      } catch (e) { fail++; console.error(`✗ ${x.f.rel}: ${String(e.code || e.message || e).slice(0, 200)}`); /* trước đây lỗi im lặng → footage-archive đỏ "1 lỗi" không biết file nào (run 42110784721) */ if (FATAL.test(String(e.code || e.message))) halt(e); }
     });
     done.length = 0; await sleep(PAUSE);
   }

@@ -1,0 +1,1 @@
+self.ESX=self.ESX||{};(ESX.dyl=ESX.dyl||{})["es"]=["Ruta diaria: español","Una lección corta al día: palabras nuevas, un punto de gramática, un sonido y, cada pocos días, una llamada.","Día {n}","Palabras nuevas","Gramática","Pronunciación","Llamada con IA","Empezar","Día {d} de {t} · {p} pasos hechos hoy","Marcar como hecho","¡Día completo! 🎉","Hoy"];

@@ -3,7 +3,7 @@
 import fs from 'fs'; import path from 'path'; import { fileURLToPath } from 'url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), g = {};
 const dir = path.join(ROOT, 'web/js/readtest');
-for (const f of fs.readdirSync(dir)) if (f.endsWith('.js')) try { new Function('self', fs.readFileSync(path.join(dir, f), 'utf8'))(g); } catch (e) { /* bỏ qua */ }
+for (const f of fs.readdirSync(dir).sort()) if (f.endsWith('.js')) try { new Function('self', fs.readFileSync(path.join(dir, f), 'utf8'))(g); } catch (e) { /* bỏ qua */ }
 const NEG = /^(FALSE|NO|NOT GIVEN)$/i, ans = {};
 for (const tst of g.READTESTS || []) for (const p of tst.passages || []) for (const gr of p.groups || []) for (const it of gr.items || []) (ans[tst.id] = ans[tst.id] || {})[it.n] = Array.isArray(it.a) ? it.a[0] : it.a;
 const out = [], seen = new Set();

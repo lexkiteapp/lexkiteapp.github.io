@@ -1,0 +1,874 @@
+{
+ "id": "post-office",
+ "group": "services",
+ "cefr": "A2",
+ "title": {
+  "en": "Post office",
+  "vi": "Bưu điện",
+  "es": "Oficina de correos",
+  "pt": "Correios",
+  "fr": "Bureau de poste",
+  "de": "Postamt",
+  "id": "Kantor pos",
+  "th": "ที่ทำการไปรษณีย์",
+  "zh": "邮局",
+  "ja": "郵便局",
+  "ko": "우체국",
+  "hi": "डाकघर",
+  "ar": "مكتب البريد",
+  "ru": "Почта",
+  "tr": "Postane"
+ },
+ "goal": {
+  "en": "Send your parcel!",
+  "vi": "Gửi bưu kiện của bạn!",
+  "es": "¡Envía tu paquete!",
+  "pt": "Envie sua encomenda!",
+  "fr": "Envoyez votre colis !",
+  "de": "Schick dein Paket ab!",
+  "id": "Kirim paketmu!",
+  "th": "ส่งพัสดุของคุณ!",
+  "zh": "寄出你的包裹！",
+  "ja": "荷物を送ろう！",
+  "ko": "소포를 부쳐요!",
+  "hi": "अपना पार्सल भेजें!",
+  "ar": "أرسل طردك!",
+  "ru": "Отправь свою посылку!",
+  "tr": "Paketini gönder!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "send",
+   "title": {
+    "en": "Send a parcel",
+    "vi": "Gửi bưu kiện",
+    "es": "Enviar un paquete",
+    "pt": "Enviar uma encomenda",
+    "fr": "Envoyer un colis",
+    "de": "Ein Paket senden",
+    "id": "Mengirim paket",
+    "th": "ส่งพัสดุ",
+    "zh": "寄包裹",
+    "ja": "荷物を送る",
+    "ko": "소포 보내기",
+    "hi": "पार्सल भेजना",
+    "ar": "إرسال طرد",
+    "ru": "Отправить посылку",
+    "tr": "Paket gönderme"
+   },
+   "lines": [
+    "s1",
+    "s2",
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "stamps",
+   "title": {
+    "en": "Stamps and letters",
+    "vi": "Tem và thư",
+    "es": "Sellos y cartas",
+    "pt": "Selos e cartas",
+    "fr": "Timbres et lettres",
+    "de": "Briefmarken und Briefe",
+    "id": "Perangko dan surat",
+    "th": "แสตมป์และจดหมาย",
+    "zh": "邮票与信件",
+    "ja": "切手と手紙",
+    "ko": "우표와 편지",
+    "hi": "टिकट और पत्र",
+    "ar": "الطوابع والرسائل",
+    "ru": "Марки и письма",
+    "tr": "Pul ve mektup"
+   },
+   "lines": [
+    "t1",
+    "t2",
+    "t3",
+    "t4"
+   ]
+  },
+  {
+   "id": "collect",
+   "title": {
+    "en": "Collect a parcel",
+    "vi": "Nhận bưu kiện",
+    "es": "Recoger un paquete",
+    "pt": "Retirar uma encomenda",
+    "fr": "Retirer un colis",
+    "de": "Ein Paket abholen",
+    "id": "Mengambil paket",
+    "th": "รับพัสดุ",
+    "zh": "取包裹",
+    "ja": "荷物を受け取る",
+    "ko": "소포 찾기",
+    "hi": "पार्सल लेना",
+    "ar": "استلام طرد",
+    "ru": "Получить посылку",
+    "tr": "Paket teslim alma"
+   },
+   "lines": [
+    "c1",
+    "c2",
+    "c3",
+    "c4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "s1",
+   "who": "customer",
+   "en": "Hi, I'd like to send this parcel to Canada.",
+   "variants": {
+    "polite": "Hello, could I send this parcel to Canada, please?",
+    "casual": "This parcel to Canada, please."
+   },
+   "gloss": {
+    "en": "Saying where the parcel is going.",
+    "vi": "Nói bưu kiện gửi đi đâu.",
+    "es": "Dice a dónde va el paquete.",
+    "pt": "Diz para onde vai a encomenda.",
+    "fr": "Dire où va le colis.",
+    "de": "Sagen, wohin das Paket geht.",
+    "id": "Menyebut tujuan paket.",
+    "th": "บอกว่าส่งพัสดุไปที่ไหน",
+    "zh": "说明包裹寄往哪里。",
+    "ja": "荷物の送り先を伝えます。",
+    "ko": "소포를 어디로 보내는지 말해요.",
+    "hi": "बताना कि पार्सल कहाँ जाएगा।",
+    "ar": "ذكر وجهة الطرد.",
+    "ru": "Назвать место назначения.",
+    "tr": "Paketin nereye gideceğini söyleme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "parcel",
+     "ipa": "/ˈpɑːr.səl/",
+     "hi": "PAR",
+     "note": {
+      "en": "Stress the first syllable: PAR-sul. The \"c\" sounds like \"s\", and the end is weak.",
+      "vi": "Nhấn âm tiết đầu: PAR-sồ. Chữ \"c\" đọc như \"s\", phần cuối nhẹ.",
+      "es": "Acentúa la primera sílaba: PAR-sel. La \"c\" suena como \"s\" y el final es débil.",
+      "pt": "Acentue a primeira sílaba: PAR-sel. O \"c\" soa como \"s\" e o final é fraco.",
+      "fr": "Accentuez la première syllabe : PAR-seul. Le « c » se prononce « s », la fin est faible.",
+      "de": "Betone die erste Silbe: PAR-sel. Das „c“ klingt wie „s“, das Ende ist schwach.",
+      "id": "Tekankan suku kata pertama: PAR-sel. \"c\" dibaca \"s\", akhir lemah.",
+      "th": "เน้นพยางค์แรก: PAR-เซิล ตัว \"c\" ออกเสียงเป็น \"s\" ท้ายคำเบา",
+      "zh": "重音在第一音节：PAR-sul，c 读 s，结尾很轻。",
+      "ja": "最初を強く：PAR・サル。c は「s」の音で、語尾は弱く。",
+      "ko": "첫 음절에 강세: PAR-설. c는 \"s\" 소리이고 끝은 약해요.",
+      "hi": "पहले अक्षर पर ज़ोर: PAR-सल। c की ध्वनि \"s\" है, अंत हल्का।",
+      "ar": "النبر على المقطع الأول: PAR-sul، وحرف c بصوت s والنهاية خفيفة.",
+      "ru": "Ударение на первый слог: ПАР-сл. «c» читается как «с», конец слабый.",
+      "tr": "Vurgu ilk hecede: PAR-sıl. \"c\" harfi \"s\" okunur, son hece zayıftır."
+     }
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "who": "barista",
+   "en": "Sure. Is there anything fragile or valuable inside?",
+   "variants": {
+    "polite": "Of course. Does it contain anything fragile or valuable?",
+    "casual": "Anything fragile in it?"
+   },
+   "gloss": {
+    "en": "The clerk asks what is inside.",
+    "vi": "Nhân viên hỏi bên trong có gì.",
+    "es": "El empleado pregunta qué hay dentro.",
+    "pt": "O atendente pergunta o que há dentro.",
+    "fr": "L'employé demande le contenu.",
+    "de": "Der Mitarbeiter fragt nach dem Inhalt.",
+    "id": "Petugas menanyakan isi paket.",
+    "th": "พนักงานถามว่าข้างในมีอะไร",
+    "zh": "职员询问包裹内容。",
+    "ja": "中身について尋ねます。",
+    "ko": "직원이 내용물을 물어봐요.",
+    "hi": "कर्मचारी पूछता है कि अंदर क्या है।",
+    "ar": "الموظف يسأل عما بداخل الطرد.",
+    "ru": "Сотрудник спрашивает о содержимом.",
+    "tr": "Görevli içeriği sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "fragile",
+     "ipa": "/ˈfrædʒ.aɪl/",
+     "hi": "FRAJ",
+     "note": {
+      "en": "Say FRAJ-eye-l: the first syllable is FRAJ, and the \"g\" sounds like \"j\".",
+      "vi": "Đọc FRAJ-ai-l: âm đầu là FRAJ, chữ \"g\" đọc như \"j\".",
+      "es": "Di FRAJ-ail: la primera sílaba es FRAJ y la \"g\" suena como \"j\" inglesa.",
+      "pt": "Diga FRAJ-ail: a primeira sílaba é FRAJ e o \"g\" soa como \"dj\".",
+      "fr": "Dites FRAJ-aïl : première syllabe FRAJ, le « g » se prononce « dj ».",
+      "de": "Sprich FRAJ-eil: erste Silbe FRAJ, das „g“ klingt wie „dsch“.",
+      "id": "Ucapkan FRAJ-ail: suku pertama FRAJ, \"g\" dibaca seperti \"j\".",
+      "th": "ออกเสียง FRAJ-ไอล์ พยางค์แรก FRAJ ตัว \"g\" ออกเสียงเป็น \"จ\"",
+      "zh": "读作 FRAJ-eye-l：第一音节 FRAJ，g 读 j。",
+      "ja": "FRAJ・アイルと読みます。最初は FRAJ で、g は「ジ」の音です。",
+      "ko": "FRAJ-아일로 읽어요. 첫 음절 FRAJ에서 g는 \"ㅈ\" 소리예요.",
+      "hi": "FRAJ-आइल बोलें। पहला अक्षर FRAJ है, g की ध्वनि \"ज\" जैसी है।",
+      "ar": "تُنطق FRAJ-ail: المقطع الأول FRAJ وحرف g بصوت «ج».",
+      "ru": "Читается FRAJ-аил: первый слог FRAJ, «g» звучит как «дж».",
+      "tr": "FRAJ-ayl diye okunur: ilk hece FRAJ, \"g\" harfi \"c\" gibi okunur."
+     }
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "who": "customer",
+   "en": "Yes, there's a glass vase inside. Please handle it carefully.",
+   "variants": {
+    "polite": "Yes, there's a glass vase inside. Could you mark it as fragile?",
+    "casual": "Yes, a glass vase. Handle with care."
+   },
+   "gloss": {
+    "en": "Explaining the contents.",
+    "vi": "Giải thích nội dung bên trong.",
+    "es": "Explica el contenido.",
+    "pt": "Explica o conteúdo.",
+    "fr": "Expliquer le contenu.",
+    "de": "Den Inhalt erklären.",
+    "id": "Menjelaskan isi paket.",
+    "th": "อธิบายสิ่งที่อยู่ข้างใน",
+    "zh": "说明包裹里装了什么。",
+    "ja": "中身を説明します。",
+    "ko": "내용물을 설명해요.",
+    "hi": "अंदर की चीज़ बताना।",
+    "ar": "شرح محتويات الطرد.",
+    "ru": "Объяснить содержимое.",
+    "tr": "İçeriği açıklama."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "s4",
+   "who": "barista",
+   "en": "Okay. It's twenty-eight pounds by air, about a week.",
+   "variants": {
+    "polite": "Certainly. By airmail it costs twenty-eight pounds and takes about a week.",
+    "casual": "Twenty-eight pounds by air. One week."
+   },
+   "gloss": {
+    "en": "The clerk gives price and time.",
+    "vi": "Nhân viên báo giá và thời gian.",
+    "es": "El empleado da precio y plazo.",
+    "pt": "O atendente informa preço e prazo.",
+    "fr": "L'employé donne le prix et le délai.",
+    "de": "Der Mitarbeiter nennt Preis und Dauer.",
+    "id": "Petugas menyebut harga dan waktu.",
+    "th": "พนักงานบอกราคาและเวลา",
+    "zh": "职员告知价格和时间。",
+    "ja": "料金と日数を伝えます。",
+    "ko": "요금과 기간을 알려 줘요.",
+    "hi": "कर्मचारी कीमत और समय बताता है।",
+    "ar": "الموظف يذكر السعر والمدة.",
+    "ru": "Сотрудник называет цену и срок.",
+    "tr": "Görevli fiyat ve süreyi söyler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "t1",
+   "who": "customer",
+   "en": "Could I have five first-class stamps, please?",
+   "variants": {
+    "polite": "Could I please have five first-class stamps?",
+    "casual": "Five first-class stamps, please."
+   },
+   "gloss": {
+    "en": "Buying stamps.",
+    "vi": "Mua tem.",
+    "es": "Compra sellos.",
+    "pt": "Compra selos.",
+    "fr": "Acheter des timbres.",
+    "de": "Briefmarken kaufen.",
+    "id": "Membeli perangko.",
+    "th": "ซื้อแสตมป์",
+    "zh": "购买邮票。",
+    "ja": "切手を買います。",
+    "ko": "우표를 사요.",
+    "hi": "टिकट ख़रीदना।",
+    "ar": "شراء طوابع.",
+    "ru": "Купить марки.",
+    "tr": "Pul satın alma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "stamps",
+     "ipa": "/stæmps/",
+     "hi": "STAMPS",
+     "note": {
+      "en": "Say it as one syllable: STAMPS. Do not add a vowel between the \"m\" and \"p\".",
+      "vi": "Đọc một âm tiết: STAMPS. Đừng thêm nguyên âm giữa \"m\" và \"p\".",
+      "es": "Una sola sílaba: STAMPS. No metas vocal entre la \"m\" y la \"p\".",
+      "pt": "Uma sílaba só: STAMPS. Não ponha vogal entre o \"m\" e o \"p\".",
+      "fr": "Une seule syllabe : STAMPS. N'ajoutez pas de voyelle entre « m » et « p ».",
+      "de": "Eine Silbe: STAMPS. Kein Vokal zwischen „m“ und „p“.",
+      "id": "Satu suku kata: STAMPS. Jangan tambah vokal antara \"m\" dan \"p\".",
+      "th": "พยางค์เดียว STAMPS ไม่ต้องเติมสระระหว่าง \"m\" กับ \"p\"",
+      "zh": "只读一个音节 STAMPS，m 和 p 之间不要加元音。",
+      "ja": "1音節で STAMPS。m と p の間に母音を入れないで。",
+      "ko": "한 음절 STAMPS로 읽어요. m과 p 사이에 모음을 넣지 마세요.",
+      "hi": "एक अक्षर में STAMPS बोलें। m और p के बीच स्वर न जोड़ें।",
+      "ar": "مقطع واحد: STAMPS، دون إضافة حرف علة بين m وp.",
+      "ru": "Один слог: STAMPS. Не вставляйте гласную между «m» и «p».",
+      "tr": "Tek hece: STAMPS. \"m\" ile \"p\" arasına ünlü eklemeyin."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t2",
+   "who": "barista",
+   "en": "Here you go. That's four pounds fifty.",
+   "variants": {
+    "polite": "Here you are. That comes to four pounds fifty.",
+    "casual": "Four fifty, please."
+   },
+   "gloss": {
+    "en": "The clerk gives the stamps and price.",
+    "vi": "Nhân viên đưa tem và báo giá.",
+    "es": "El empleado da los sellos y el precio.",
+    "pt": "O atendente entrega os selos e o preço.",
+    "fr": "L'employé remet les timbres et le prix.",
+    "de": "Der Mitarbeiter gibt die Marken und den Preis.",
+    "id": "Petugas memberi perangko dan harganya.",
+    "th": "พนักงานส่งแสตมป์และบอกราคา",
+    "zh": "职员递上邮票并报价。",
+    "ja": "切手と金額を伝えます。",
+    "ko": "우표와 금액을 알려 줘요.",
+    "hi": "कर्मचारी टिकट देता है और कीमत बताता है।",
+    "ar": "الموظف يسلّم الطوابع ويذكر السعر.",
+    "ru": "Сотрудник отдаёт марки и называет цену.",
+    "tr": "Görevli pulları verir ve fiyatı söyler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "t3",
+   "who": "customer",
+   "en": "How long will a letter to France take?",
+   "variants": {
+    "polite": "Could you tell me how long a letter to France will take?",
+    "casual": "How long to France?"
+   },
+   "gloss": {
+    "en": "Asking about delivery time.",
+    "vi": "Hỏi thư đi mất bao lâu.",
+    "es": "Pregunta cuánto tarda la carta.",
+    "pt": "Pergunta quanto demora a carta.",
+    "fr": "Demander le délai d'une lettre.",
+    "de": "Fragen, wie lange ein Brief braucht.",
+    "id": "Menanyakan lama pengiriman surat.",
+    "th": "ถามว่าจดหมายใช้เวลานานแค่ไหน",
+    "zh": "问信寄到要多久。",
+    "ja": "手紙の配達日数を尋ねます。",
+    "ko": "편지가 도착하는 데 얼마나 걸리는지 물어봐요.",
+    "hi": "पूछना कि पत्र पहुँचने में कितना समय लगेगा।",
+    "ar": "السؤال عن مدة وصول الرسالة.",
+    "ru": "Спросить срок доставки письма.",
+    "tr": "Mektubun ne kadar sürede varacağını sorma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "t4",
+   "who": "barista",
+   "en": "About three to five days. Do you need a tracked service?",
+   "variants": {
+    "polite": "It usually takes three to five days. Would you like it tracked?",
+    "casual": "Three to five days. Tracked?"
+   },
+   "gloss": {
+    "en": "The clerk gives the time and offers tracking.",
+    "vi": "Nhân viên báo thời gian và gợi ý theo dõi.",
+    "es": "El empleado da el plazo y ofrece seguimiento.",
+    "pt": "O atendente informa o prazo e oferece rastreio.",
+    "fr": "L'employé donne le délai et propose le suivi.",
+    "de": "Der Mitarbeiter nennt die Dauer und bietet Sendungsverfolgung an.",
+    "id": "Petugas menyebut waktu dan menawarkan pelacakan.",
+    "th": "พนักงานบอกเวลาและเสนอบริการติดตาม",
+    "zh": "职员告知时间并问是否需要追踪。",
+    "ja": "日数を伝え、追跡サービスを勧めます。",
+    "ko": "기간을 알려 주고 추적 서비스를 권해요.",
+    "hi": "कर्मचारी समय बताता है और ट्रैकिंग का सुझाव देता है।",
+    "ar": "الموظف يذكر المدة ويعرض خدمة التتبع.",
+    "ru": "Сотрудник называет срок и предлагает отслеживание.",
+    "tr": "Görevli süreyi söyler ve takip hizmeti önerir."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c1",
+   "who": "customer",
+   "en": "Hello, I'm here to collect a parcel.",
+   "variants": {
+    "polite": "Good morning. I've come to collect a parcel, please.",
+    "casual": "I'm here to collect a parcel."
+   },
+   "gloss": {
+    "en": "Saying you want to pick up a parcel.",
+    "vi": "Nói bạn đến nhận bưu kiện.",
+    "es": "Dice que vienes a recoger un paquete.",
+    "pt": "Diz que veio retirar uma encomenda.",
+    "fr": "Dire qu'on vient chercher un colis.",
+    "de": "Sagen, dass man ein Paket abholt.",
+    "id": "Menyampaikan ingin mengambil paket.",
+    "th": "บอกว่ามารับพัสดุ",
+    "zh": "说明来取包裹。",
+    "ja": "荷物を受け取りに来たと伝えます。",
+    "ko": "소포를 찾으러 왔다고 말해요.",
+    "hi": "बताना कि आप पार्सल लेने आए हैं।",
+    "ar": "إخبار الموظف أنك جئت لاستلام طرد.",
+    "ru": "Сказать, что пришли за посылкой.",
+    "tr": "Paket almaya geldiğinizi söyleme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c2",
+   "who": "barista",
+   "en": "Do you have the card we left through your door?",
+   "variants": {
+    "polite": "Do you have the delivery card we left at your address?",
+    "casual": "Do you have the card?"
+   },
+   "gloss": {
+    "en": "The clerk asks for the notice card.",
+    "vi": "Nhân viên hỏi tấm thẻ thông báo.",
+    "es": "El empleado pide el aviso de entrega.",
+    "pt": "O atendente pede o aviso de entrega.",
+    "fr": "L'employé demande l'avis de passage.",
+    "de": "Der Mitarbeiter fragt nach der Benachrichtigungskarte.",
+    "id": "Petugas meminta kartu pemberitahuan.",
+    "th": "พนักงานขอบัตรแจ้ง",
+    "zh": "职员要你出示取件通知卡。",
+    "ja": "不在連絡票を求められます。",
+    "ko": "직원이 배달 안내 카드를 요청해요.",
+    "hi": "कर्मचारी सूचना-कार्ड माँगता है।",
+    "ar": "الموظف يطلب بطاقة الإشعار.",
+    "ru": "Сотрудник просит уведомление.",
+    "tr": "Görevli bildirim kartını ister."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c3",
+   "who": "customer",
+   "en": "Yes, here it is. I also have my ID.",
+   "variants": {
+    "polite": "Yes, here it is. I've brought my ID as well.",
+    "casual": "Here's the card and my ID."
+   },
+   "gloss": {
+    "en": "Showing the card and ID.",
+    "vi": "Đưa thẻ thông báo và giấy tờ.",
+    "es": "Muestra el aviso y el documento.",
+    "pt": "Mostra o aviso e o documento.",
+    "fr": "Présenter l'avis et la pièce d'identité.",
+    "de": "Karte und Ausweis zeigen.",
+    "id": "Menunjukkan kartu dan identitas.",
+    "th": "ยื่นบัตรแจ้งและบัตรประชาชน",
+    "zh": "出示通知卡和证件。",
+    "ja": "連絡票と身分証を見せます。",
+    "ko": "안내 카드와 신분증을 보여 줘요.",
+    "hi": "कार्ड और पहचान-पत्र दिखाना।",
+    "ar": "إبراز البطاقة والهوية.",
+    "ru": "Показать уведомление и документ.",
+    "tr": "Kartı ve kimliği gösterme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c4",
+   "who": "barista",
+   "en": "Thanks. Please sign here. It's the large box.",
+   "variants": {
+    "polite": "Thank you. Could you sign here, please? It's the large box.",
+    "casual": "Sign here, please. Large box."
+   },
+   "gloss": {
+    "en": "The clerk asks for a signature.",
+    "vi": "Nhân viên nhờ ký nhận.",
+    "es": "El empleado pide una firma.",
+    "pt": "O atendente pede uma assinatura.",
+    "fr": "L'employé demande une signature.",
+    "de": "Der Mitarbeiter bittet um eine Unterschrift.",
+    "id": "Petugas meminta tanda tangan.",
+    "th": "พนักงานขอให้เซ็นรับ",
+    "zh": "职员请你签收。",
+    "ja": "受け取りのサインを求めます。",
+    "ko": "직원이 수령 서명을 요청해요.",
+    "hi": "कर्मचारी हस्ताक्षर माँगता है।",
+    "ar": "الموظف يطلب التوقيع.",
+    "ru": "Сотрудник просит расписаться.",
+    "tr": "Görevli imza ister."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "How would you like to send it?",
+   "keywords": [
+    "air",
+    "airmail",
+    "sea",
+    "express",
+    "fast",
+    "cheap",
+    "tracked",
+    "standard",
+    "first class",
+    "second class",
+    "slow",
+    "quick"
+   ],
+   "variants": {
+    "polite": "Would you like to send it by air or by sea?",
+    "casual": "Air or sea?"
+   },
+   "gloss": {
+    "en": "The clerk asks how to send it.",
+    "vi": "Nhân viên hỏi gửi bằng cách nào.",
+    "es": "El empleado pregunta cómo enviarlo.",
+    "pt": "O atendente pergunta como enviar.",
+    "fr": "L'employé demande le mode d'envoi.",
+    "de": "Der Mitarbeiter fragt nach der Versandart.",
+    "id": "Petugas menanyakan cara pengiriman.",
+    "th": "พนักงานถามว่าจะส่งแบบไหน",
+    "zh": "职员问你想用哪种方式寄。",
+    "ja": "発送方法を尋ねます。",
+    "ko": "어떤 방법으로 보낼지 물어봐요.",
+    "hi": "कर्मचारी पूछता है कि कैसे भेजना है।",
+    "ar": "الموظف يسأل عن طريقة الإرسال.",
+    "ru": "Сотрудник спрашивает способ отправки.",
+    "tr": "Görevli nasıl göndermek istediğinizi sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "What is the address you're sending it to?",
+   "keywords": [
+    "street",
+    "road",
+    "avenue",
+    "city",
+    "toronto",
+    "london",
+    "paris",
+    "address",
+    "number",
+    "postcode",
+    "zip",
+    "apartment",
+    "canada",
+    "france"
+   ],
+   "variants": {
+    "polite": "Could you give me the address you're sending it to?",
+    "casual": "Where is it going?"
+   },
+   "gloss": {
+    "en": "The clerk asks for the address.",
+    "vi": "Nhân viên hỏi địa chỉ nhận.",
+    "es": "El empleado pide la dirección.",
+    "pt": "O atendente pede o endereço.",
+    "fr": "L'employé demande l'adresse.",
+    "de": "Der Mitarbeiter fragt nach der Adresse.",
+    "id": "Petugas menanyakan alamat tujuan.",
+    "th": "พนักงานถามที่อยู่ปลายทาง",
+    "zh": "职员问收件地址。",
+    "ja": "送り先の住所を尋ねます。",
+    "ko": "받는 곳 주소를 물어봐요.",
+    "hi": "कर्मचारी पता पूछता है।",
+    "ar": "الموظف يسأل عن العنوان.",
+    "ru": "Сотрудник спрашивает адрес.",
+    "tr": "Görevli gönderi adresini sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Next, please. How can I help?"
+  },
+  {
+   "who": "customer",
+   "en": "Hi. I'd like to send this box to Spain."
+  },
+  {
+   "who": "barista",
+   "en": "What's inside it?"
+  },
+  {
+   "who": "customer",
+   "en": "Some books and a scarf. Nothing fragile."
+  },
+  {
+   "who": "barista",
+   "en": "Do you want it by air or by sea?"
+  },
+  {
+   "who": "customer",
+   "en": "By air, please. How much is it?"
+  },
+  {
+   "who": "barista",
+   "en": "That's twenty-two pounds. It takes about five days."
+  },
+  {
+   "who": "customer",
+   "en": "Can I get a tracking number?"
+  },
+  {
+   "who": "barista",
+   "en": "Of course. It's printed on your receipt."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Hello. Can I help you?"
+    },
+    {
+     "who": "customer",
+     "en": "I'd like to send this letter to Australia."
+    },
+    {
+     "who": "barista",
+     "en": "Airmail takes about a week. It's two pounds forty."
+    },
+    {
+     "who": "customer",
+     "en": "Okay. Please add a tracking number."
+    }
+   ],
+   "q": {
+    "en": "How long does airmail take?",
+    "vi": "Thư đường hàng không mất bao lâu?",
+    "es": "¿Cuánto tarda el correo aéreo?",
+    "pt": "Quanto demora o correio aéreo?",
+    "fr": "Combien de temps prend le courrier aérien ?",
+    "de": "Wie lange dauert Luftpost?",
+    "id": "Berapa lama pos udara?",
+    "th": "ไปรษณีย์ทางอากาศใช้เวลาเท่าไร",
+    "zh": "航空邮件需要多久？",
+    "ja": "航空便はどのくらいかかりますか？",
+    "ko": "항공 우편은 얼마나 걸리나요?",
+    "hi": "एयरमेल में कितना समय लगता है?",
+    "ar": "كم يستغرق البريد الجوي؟",
+    "ru": "Сколько идёт авиапочта?",
+    "tr": "Hava postası ne kadar sürer?"
+   },
+   "answer": "about a week"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "I got a card about a parcel."
+    },
+    {
+     "who": "barista",
+     "en": "Let me look. What's your surname?"
+    },
+    {
+     "who": "customer",
+     "en": "It's Novak. N-O-V-A-K."
+    },
+    {
+     "who": "barista",
+     "en": "Found it. It'll be ready for pick-up after two o'clock."
+    }
+   ],
+   "q": {
+    "en": "When can the customer collect the parcel?",
+    "vi": "Khi nào khách có thể nhận bưu kiện?",
+    "es": "¿Cuándo puede recoger el paquete el cliente?",
+    "pt": "Quando o cliente pode retirar a encomenda?",
+    "fr": "Quand le client peut-il retirer le colis ?",
+    "de": "Wann kann der Kunde das Paket abholen?",
+    "id": "Kapan pelanggan bisa mengambil paket?",
+    "th": "ลูกค้ารับพัสดุได้เมื่อไร",
+    "zh": "顾客什么时候可以取包裹？",
+    "ja": "お客さんはいつ荷物を受け取れますか？",
+    "ko": "손님은 언제 소포를 찾을 수 있나요?",
+    "hi": "ग्राहक पार्सल कब ले सकता है?",
+    "ar": "متى يستطيع الزبون استلام الطرد؟",
+    "ru": "Когда клиент может забрать посылку?",
+    "tr": "Müşteri paketi ne zaman alabilir?"
+   },
+   "answer": "after two o'clock"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "send-box",
+    "title": {
+     "en": "Send a parcel abroad",
+     "vi": "Gửi bưu kiện ra nước ngoài",
+     "es": "Envía un paquete al extranjero",
+     "pt": "Envie uma encomenda ao exterior",
+     "fr": "Envoyer un colis à l'étranger",
+     "de": "Ein Paket ins Ausland schicken",
+     "id": "Kirim paket ke luar negeri",
+     "th": "ส่งพัสดุไปต่างประเทศ",
+     "zh": "寄国际包裹",
+     "ja": "海外へ荷物を送る",
+     "ko": "해외로 소포 보내기",
+     "hi": "विदेश में पार्सल भेजें",
+     "ar": "أرسل طردًا إلى الخارج",
+     "ru": "Отправить посылку за границу",
+     "tr": "Yurt dışına paket gönder"
+    },
+    "intents": [
+     "s1",
+     "s3"
+    ]
+   },
+   {
+    "id": "buy-stamps",
+    "title": {
+     "en": "Buy stamps",
+     "vi": "Mua tem",
+     "es": "Compra sellos",
+     "pt": "Compre selos",
+     "fr": "Acheter des timbres",
+     "de": "Briefmarken kaufen",
+     "id": "Beli perangko",
+     "th": "ซื้อแสตมป์",
+     "zh": "买邮票",
+     "ja": "切手を買う",
+     "ko": "우표 사기",
+     "hi": "टिकट ख़रीदें",
+     "ar": "اشترِ طوابع",
+     "ru": "Купить марки",
+     "tr": "Pul al"
+    },
+    "intents": [
+     "t1",
+     "t3"
+    ]
+   },
+   {
+    "id": "get-parcel",
+    "title": {
+     "en": "Collect a parcel",
+     "vi": "Nhận bưu kiện",
+     "es": "Recoge un paquete",
+     "pt": "Retire uma encomenda",
+     "fr": "Retirer un colis",
+     "de": "Ein Paket abholen",
+     "id": "Ambil paket",
+     "th": "รับพัสดุ",
+     "zh": "取包裹",
+     "ja": "荷物を受け取る",
+     "ko": "소포 찾기",
+     "hi": "पार्सल लें",
+     "ar": "استلم طردًا",
+     "ru": "Забрать посылку",
+     "tr": "Paket teslim al"
+    },
+    "intents": [
+     "c1",
+     "c3"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "At the post office you usually take a ticket or wait in a single line. Staff will ask what is inside your parcel and whether it is fragile, and for international parcels you may fill in a customs form. Ask for a tracking number if you want to follow your parcel online. Prices depend on weight, size and how fast you want it to arrive.",
+  "vi": "Ở bưu điện, bạn thường lấy số thứ tự hoặc xếp một hàng chung. Nhân viên sẽ hỏi bên trong bưu kiện có gì và có dễ vỡ không, và với bưu kiện quốc tế bạn có thể phải điền tờ khai hải quan. Hãy xin mã theo dõi nếu muốn xem bưu kiện trên mạng. Giá phụ thuộc vào cân nặng, kích thước và tốc độ giao hàng.",
+  "es": "En la oficina de correos normalmente se toma un número o se hace una sola fila. El empleado preguntará qué hay dentro del paquete y si es frágil, y en envíos internacionales quizá rellenes un formulario de aduana. Pide un número de seguimiento si quieres ver tu paquete en línea. El precio depende del peso, el tamaño y la rapidez.",
+  "pt": "Nos correios, você costuma pegar uma senha ou entrar numa fila única. O atendente pergunta o que há na encomenda e se é frágil, e em envios internacionais talvez seja preciso preencher uma declaração alfandegária. Peça o código de rastreamento se quiser acompanhar online. O preço depende do peso, do tamanho e da rapidez.",
+  "fr": "À la poste, on prend généralement un ticket ou on fait la queue. L'employé demande ce que contient le colis et s'il est fragile ; pour l'international, il faut parfois remplir une déclaration en douane. Demandez un numéro de suivi pour suivre le colis en ligne. Le prix dépend du poids, de la taille et de la rapidité.",
+  "de": "In der Post nimmt man meist eine Nummer oder stellt sich in eine Schlange. Das Personal fragt, was im Paket ist und ob es zerbrechlich ist; bei Auslandspaketen füllst du ggf. eine Zollerklärung aus. Frag nach einer Sendungsnummer, wenn du das Paket online verfolgen willst. Der Preis hängt von Gewicht, Größe und Laufzeit ab.",
+  "id": "Di kantor pos biasanya Anda mengambil nomor antrean atau mengantre di satu barisan. Petugas akan bertanya isi paket dan apakah mudah pecah, dan untuk kiriman internasional Anda mungkin mengisi formulir bea cukai. Minta nomor pelacakan jika ingin memantau paket secara daring. Harga tergantung berat, ukuran, dan kecepatan pengiriman.",
+  "th": "ที่ไปรษณีย์มักต้องกดบัตรคิวหรือต่อแถวเดียว พนักงานจะถามว่าในพัสดุมีอะไรและแตกง่ายไหม ถ้าส่งต่างประเทศอาจต้องกรอกใบสำแดงศุลกากร ขอหมายเลขติดตามถ้าอยากเช็กพัสดุออนไลน์ ราคาขึ้นกับน้ำหนัก ขนาด และความเร็วในการส่ง",
+  "zh": "在邮局通常要取号或排一队。工作人员会问包裹里装了什么、是不是易碎品；寄国际包裹时可能还要填海关申报单。想在网上查询包裹，就要一个追踪号。价格取决于重量、尺寸和送达速度。",
+  "ja": "郵便局では通常、番号札を取るか一列に並びます。窓口で中身と割れ物かどうかを聞かれ、国際郵便では税関の申告書を書くこともあります。ネットで追跡したいときは追跡番号を頼みましょう。料金は重さ、大きさ、速さで決まります。",
+  "ko": "우체국에서는 보통 번호표를 뽑거나 한 줄로 서요. 직원이 소포 안에 무엇이 있는지, 깨지기 쉬운지 물어보고, 국제 소포는 세관 신고서를 써야 할 수도 있어요. 인터넷으로 추적하려면 운송장 번호를 요청하세요. 요금은 무게, 크기, 배송 속도에 따라 달라요.",
+  "hi": "डाकघर में आमतौर पर टोकन लेना पड़ता है या एक ही कतार में खड़ा होना पड़ता है। कर्मचारी पूछेगा कि पार्सल में क्या है और क्या वह नाज़ुक है; अंतरराष्ट्रीय पार्सल के लिए कस्टम फ़ॉर्म भरना पड़ सकता है। ऑनलाइन ट्रैक करना हो तो ट्रैकिंग नंबर माँगें। कीमत वज़न, आकार और गति पर निर्भर करती है।",
+  "ar": "في مكتب البريد عادةً تأخذ رقمًا أو تقف في طابور واحد. سيسألك الموظف عما في الطرد وهل هو قابل للكسر، وفي الطرود الدولية قد تملأ نموذج الجمارك. اطلب رقم تتبع إن أردت متابعة الطرد عبر الإنترنت. يعتمد السعر على الوزن والحجم وسرعة التوصيل.",
+  "ru": "На почте обычно берут талон или встают в общую очередь. Сотрудник спросит, что в посылке и не хрупкое ли это; для международных отправлений иногда нужно заполнить таможенную декларацию. Попросите трек-номер, если хотите следить за посылкой онлайн. Цена зависит от веса, размера и скорости доставки.",
+  "tr": "Postanede genellikle sıra numarası alınır ya da tek sıraya girilir. Görevli paketin içinde ne olduğunu ve kırılgan olup olmadığını sorar; yurt dışı paketlerde gümrük formu doldurmanız gerekebilir. Paketi internetten izlemek istiyorsanız takip numarası isteyin. Fiyat ağırlığa, boyuta ve teslim hızına göre değişir."
+ }
+}

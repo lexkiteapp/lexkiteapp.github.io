@@ -35,6 +35,8 @@ const ctxOf = async (theme, flag = true) => {
 const ready = page => page.waitForFunction(() => window.App && window.ExitGuard && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 30000 }).then(() => sleep(900));
 const boot = async (page, hash) => { await page.goto(appUrl(hash), { waitUntil: 'load', timeout: 45000 }); await ready(page); };
 const go = async (page, hash) => { await page.evaluate(x => { location.hash = x; }, hash); await sleep(1300); };
+// Màn học: chờ ExitGuard nhận (lk-learn) + nút thoát vẽ xong (gói lười + mạng live chậm hơn 1,3 s → trước đây đỏ giả trên lexkite.com, run 42094308245)
+const goLearn = async (page, hash) => { await go(page, hash); await page.waitForFunction(() => document.body.classList.contains('lk-learn') && document.querySelector('#view [data-exit]'), null, { timeout: 15000 }).catch(() => {}); await sleep(300); };
 const state = page => page.evaluate(() => ({ hash: location.hash, learn: document.body.classList.contains('lk-learn'), modal: !!document.querySelector('#modal:not([hidden])'), filled: !!document.querySelector('#view > :not(.skel-page):not(.skel-study)') }));
 const left = (s, hash) => !s.learn && s.hash !== hash && s.filled;
 const diag = page => page.evaluate(() => JSON.stringify(window.ExitGuard && ExitGuard._s ? ExitGuard._s() : {})).catch(() => '');
@@ -81,7 +83,7 @@ for (const theme of THEMES) {
     const where = `${r} ${theme} (${hash})`, page = await ctx.newPage();
     page.on('dialog', d => d.accept());
     try {
-      await boot(page, '/home'); await go(page, hash);
+      await boot(page, '/home'); await goLearn(page, hash);
       const btn = await page.evaluate(() => {
         const v = document.querySelector('#view'), x = v && v.querySelector('[data-exit]');
         if (!document.body.classList.contains('lk-learn')) return { err: 'ExitGuard không nhận là màn học' };
@@ -138,7 +140,7 @@ for (const W of [768, 1440]) {
     const where = `${r} @${W} (${hash})`, page = await ctx.newPage();
     page.on('dialog', d => d.accept());
     try {
-      await boot(page, '/home'); await go(page, hash); await page.mouse.move(W - 2, 898);
+      await boot(page, '/home'); await goLearn(page, hash); await page.mouse.move(W - 2, 898);
       const b = await page.evaluate(() => { const x = document.querySelector('#view [data-exit]'); if (!x) return null; const rc = x.getBoundingClientRect(); return { w: rc.width, h: rc.height, x: rc.left, y: rc.top, grown: x.dataset.lkGrow != null, sel: x.tagName.toLowerCase() + '.' + [...x.classList].join('.') }; });
       if (!b) { fail(where, 'không có nút thoát [data-exit]'); continue; }
       if (b.w < 44 || b.h < 44) fail(where, `vùng chạm thật ${Math.round(b.w)}×${Math.round(b.h)} < 44×44 (${b.sel})`);

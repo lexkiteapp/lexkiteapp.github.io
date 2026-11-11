@@ -26,6 +26,10 @@ A partir de las pautas de nuestro método sobre [cómo aprender vocabulario en i
 
 En los 75 minutos asignados a la sección de Reading, la Parte 7 comienza tras completar la Parte 5 (30 oraciones incompletas) y la Parte 6 (16 preguntas de inserción de texto). Los pasajes reproducen documentos auténticos del entorno corporativo internacional: correos electrónicos, memorandos internos, notas de prensa, anuncios de empleo, facturas, formularios de pedido y cadenas de mensajería instantánea.
 
+Si quieres profundizar, lee también [el plan de autoestudio TOEIC](/es/blog/plan-de-autoestudio-toeic-guia/).
+
+Para seguir practicando, consulta [la estrategia de gestión del tiempo en IELTS Reading](/es/blog/gestion-del-tiempo-en-ielts-reading-60-minutos/).
+
 Las 54 preguntas se dividen en tres bloques estructurales bien diferenciados:
 
 | Categoría | Formato del texto | Número de preguntas | Desafío principal |

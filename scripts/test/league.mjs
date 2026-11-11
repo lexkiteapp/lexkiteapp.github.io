@@ -177,7 +177,7 @@ v.querySelector('[data-card="nick"] [data-act="nick"]').click();
 assert.ok(modals.some(h => /dlgNickInput/.test(h)), 'v2: nút Đổi biệt danh mở hộp đổi biệt danh');
 v.querySelector('[data-card="rules"] [data-act="rules"]').click();
 assert.ok(modals.some(h => /Quy tắc giải đấu tuần/.test(h) && /Top 7/.test(h)), 'v2: quy tắc giải đấu mở được');
-assert.ok(v.querySelector('nav[aria-label], [data-tab="league"]') || v.querySelector('nav'), 'v2: có thanh tab (tab Giải đấu)');
+assert.ok(v.querySelector('nav[aria-label], [data-tab="home"]') || v.querySelector('nav'), 'v2: có thanh tab (Giải đấu thuộc Hôm nay)');
 // các trạng thái khác vẫn vào được khi cờ bật: khách → nút đăng nhập; chưa tham gia → form biệt danh
 window.Sync.league = async () => ({ member: null, week: wk });
 await window.App.routes.league();

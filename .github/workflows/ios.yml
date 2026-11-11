@@ -27,9 +27,13 @@ jobs:
           X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
           if [ -n "$X" ]; then sudo xcode-select -s "$X/Contents/Developer"; else echo "::warning::Máy chủ chưa có Xcode 26 – bản này KHÔNG nộp App Store được (đổi runs-on: macos-26)"; fi
           xcodebuild -version
+      - uses: actions/cache@v4   # sharp (mobile/, Capacitor) tải libvips ~7 MB từ github.com/lovell/sharp-libvips: lưu để lượt sau không phụ thuộc mạng (09/11 iOS E2E đỏ 'Request timed out' rồi biên dịch lỗi)
+        with:
+          path: ~/.npm/_libvips
+          key: sharp-libvips-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('mobile/package-lock.json') }}
       - name: Build web → mobile/www → cap sync
         run: |
-          npm ci --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
           ./scripts/build-mobile.sh
       - name: xcodebuild (iphonesimulator, không ký)
         working-directory: mobile/ios/App
