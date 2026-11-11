@@ -74,6 +74,7 @@ node scripts/test/next-step.mjs
 node scripts/confidence/build.mjs
 node scripts/test/confidence.mjs
 node scripts/test/lesson.mjs
+node scripts/test/mic-exclusive.mjs
 node scripts/factory/build-grammar-bank.mjs --check
 node scripts/test/content-factory.mjs
 node scripts/test/ux1.mjs
