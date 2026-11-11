@@ -222,7 +222,7 @@ await go('#/me', '.me-head, .v2-me');
 ok($('#bnav a[data-tab="me"]').getAttribute('aria-current') === 'page', 'tab Tôi đang chọn');
 const me = new Set($$('#view a[href^="#/"]').filter(a => !a.closest('.v2 > header')).map(a => a.getAttribute('href')));
 const tabH = new Set(tabs.map(a => a.getAttribute('href')));
-const tabHubs = new Set(); for (const r of ['vocab', 'skills', 'tests']) { await go('#/' + r, '.hub-grid, .hub-hero, [class*="v2-hub"]'); $$('#view a[href^="#/"]').forEach(a => tabHubs.add(a.getAttribute('href').replace('?hub=1', ''))); }
+const tabHubs = new Set(); for (const r of ['vocab', 'skills', 'tests']) { await go('#/' + r, '.hub-grid, .hub-hero, [class*="v2-hub"], .v2-skills'); $$('#view a[href^="#/"]').forEach(a => tabHubs.add(a.getAttribute('href').replace('?hub=1', ''))); }
 const lost = OLD.filter(h => !hub.has(h) && !me.has(h) && !tabH.has(h) && !tabHubs.has(h));
 ok(OLD.length >= 20 && !lost.length, `không cắt: ${OLD.length} lối vào cũ đều tới được qua 5 tab (Từ vựng, Kỹ năng, Thi) / Luyện / Tôi` + (lost.length ? ' – thiếu: ' + lost.join(' ') : ''));
 for (const h of ['#/goal', '#/stats', '#/mistakes', '#/settings']) ok(me.has(h), 'Tôi có ' + h);
