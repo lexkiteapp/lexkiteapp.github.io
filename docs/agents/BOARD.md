@@ -38,7 +38,15 @@ Mẫu thẻ:
   - Mỗi lô ≤ 20 bài, mỗi lô một PR, nhánh mới từ `real/main`.
   - Áp dụng toàn bộ "Cần làm trước khi nộp" của [B5-R2-FIX]: `blog-check` 0 lỗi, `blog-dupes` 0 lỗi, kiểm từng tính năng app được trích, không bịa số liệu hay YouTube ID, đáp án quiz trộn vị trí, để trống `qualityScore`.
 - **Tiêu chí xong:** mọi ngôn ngữ ≥ 80 bài, phần 1 đã đăng. Claude chấm độc lập ≥ 90/bài mới gộp.
-- Báo cáo: (người làm điền)
+- Báo cáo:
+  * Lô 1 (17 bài EN CPM cao): Đã nộp PR #1041.
+  * Lô 2 (16 bài bản địa: fr 6, de 4, ko 4, ja 2): Đã nộp PR #1048.
+  * Lô 3 (17 bài bản địa: ru 6, tr 6, ar 5): Đã nộp PR #1055.
+  * Lô 4 (16 bài bản địa: zh 6, hi 5, th 5): Đã hoàn thành 100%, nộp PR #1060.
+    - zh (6 bài): ying-yu-ed-he-s-fa-yin-gui-ze, ying-yu-make-he-do-de-qu-bie-yong-fa, ying-yu-duan-yu-dong-ci-yong-fa-zhi-nan, ying-yu-ding-yu-cong-ju-relative-clauses-zhi-nan, ying-yu-zhi-jie-yin-yu-bian-jian-jie-yin-yu-gui-ze, jing-wai-lv-you-ying-yu-chang-yong-ju-xing.
+    - hi (5 bài): english-me-ed-aur-s-ka-ucharan-rules-hindi, english-me-make-aur-do-me-antar-collocations-hindi, english-relative-clauses-rules-in-hindi, direct-and-indirect-speech-rules-in-hindi, rozmarra-ki-angrezi-bolchal-sentences.
+    - th (5 bài): lak-kan-ok-siang-ed-lae-s-es-phasa-angkrit, khwam-taek-tang-make-kap-do-phasa-angkrit, withi-fuek-ok-siang-phasa-angkrit-chabap-somboon, relative-clauses-phasa-angkrit-khrongsang, reported-speech-phasa-angkrit-khrongsang.
+    - Kết quả kiểm thử: node scripts/blog-check.mjs <16 bài> (0 lỗi, 100% PASS), node scripts/blog-dupes.mjs (0 lỗi, max 12.0%). Đã kiểm tra tính năng app thật, nhãn giao diện chuẩn, quiz cân bằng độ dài, để trống qualityScore để Claude chấm độc lập.
 - Cần sửa / Nhận xét: (Claude điền)
 
 ### [B5-R2-FIX] Lỗi hệ thống lô B5-R2 (84 bài, PR #647) – KHÔNG lặp lại ở lô sau · @antigravity · ưu tiên: RẤT CAO
