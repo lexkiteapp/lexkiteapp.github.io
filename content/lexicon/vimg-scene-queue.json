@@ -49,6 +49,12 @@
    "why": "vision description-sentence sim 0.2921",
    "b": "42567126266"
   },
+  "agronomy#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "vision: no (person kneels not sits, no tall crops)",
+   "b": "42890346135"
+  },
   "air waybill#n": {
    "at": "2026-11-10",
    "tries": 24,
@@ -349,6 +355,12 @@
    "why": "api: unsafe",
    "b": "42567126266"
   },
+  "circumspect#adj": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "vision description-sentence sim 0.2953",
+   "b": "42890346135"
+  },
   "clause#n": {
    "at": "2026-10-24",
    "tries": 4,
@@ -360,6 +372,12 @@
    "tries": 24,
    "why": "vision: no (seed, chamber, emerging seedling)",
    "b": "42736556174"
+  },
+  "coherently#adv": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "text: Apple",
+   "b": "42890346135"
   },
   "collateral#n": {
    "at": "2026-11-09",
@@ -468,6 +486,12 @@
    "tries": 18,
    "why": "vision: no (no hotel key or clerk)",
    "b": "42567126266"
+  },
+  "cosmonaut#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "size > 6 KB",
+   "b": "42890346135"
   },
   "counterpart#n": {
    "at": "2026-11-09",
@@ -1183,6 +1207,12 @@
    "why": "text: SODA POP",
    "b": "42736556174"
   },
+  "incompressible#adj": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "meaning check: no (Does the water-filled balloon remain round when sq)",
+   "b": "42890346135"
+  },
   "inexpensive#adj": {
    "at": "2026-11-09",
    "tries": 18,
@@ -1297,6 +1327,18 @@
    "why": "meaning check: no (Are the two people exchanging money with the expec)",
    "b": "42567126266"
   },
+  "lymphocyte#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "meaning check: no (Is there a round white blood cell with a dark roun)",
+   "b": "42890346135"
+  },
+  "macrophage#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "vision description-sentence sim 0.1898",
+   "b": "42890346135"
+  },
   "management contract#n": {
    "at": "2026-11-09",
    "tries": 18,
@@ -1392,6 +1434,12 @@
    "tries": 24,
    "why": "vision: no (squeezing action not shown)",
    "b": "42736556174"
+  },
+  "misstatement#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "vision: text",
+   "b": "42890346135"
   },
   "mock exam#n": {
    "at": "2026-11-10",
@@ -1495,6 +1543,12 @@
    "why": "text: oF",
    "b": "42736556174"
   },
+  "numerology#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "meaning check: no (Is a person thinking about the mystical influence )",
+   "b": "42890346135"
+  },
   "offender#n": {
    "at": "2026-11-09",
    "tries": 24,
@@ -1506,6 +1560,12 @@
    "tries": 18,
    "why": "vision: no (no movement shown)",
    "b": "42567126266"
+  },
+  "opportunism#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "vision description-sentence sim 0.0934",
+   "b": "42890346135"
   },
   "outsourcing#n": {
    "at": "2026-11-10",
@@ -1543,6 +1603,18 @@
    "why": "meaning check: no (Is the person unable to move the shown arm volunta)",
    "b": "42567126266"
   },
+  "patois#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "vision description-sentence sim 0.1328",
+   "b": "42890346135"
+  },
+  "patrimony#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "meaning check: no (Are the two people exchanging a family heirloom?)",
+   "b": "42890346135"
+  },
   "pay-per-click#adj": {
    "at": "2026-11-09",
    "tries": 24,
@@ -1566,6 +1638,12 @@
    "tries": 24,
    "why": "meaning check: no (Is the adult taking away the child's toy as a puni)",
    "b": "42567126266"
+  },
+  "permutation#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "vision: no (three blocks and swapping action)",
+   "b": "42890346135"
   },
   "perpetually#adv": {
    "at": "2026-11-10",
@@ -1723,6 +1801,12 @@
    "why": "vision: no (graduation cap, plain folder)",
    "b": "42567126266"
   },
+  "protozoan#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "vision description-sentence sim 0.2351",
+   "b": "42890346135"
+  },
   "proverb#n": {
    "at": "2026-11-10",
    "tries": 12,
@@ -1747,17 +1831,35 @@
    "why": "vision description-sentence sim 0.0855",
    "b": "42567126266"
   },
+  "readjustment#n": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "meaning check: no (Is the person changing the furniture placement aga)",
+   "b": "42890346135"
+  },
   "realtor#n": {
    "at": "2026-11-09",
    "tries": 12,
    "why": "text: HOME SWEET HOME",
    "b": "42567126266"
   },
+  "reassemble#v": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "vision: no (blocks are not wooden, not fitting)",
+   "b": "42890346135"
+  },
   "recapitulate#v": {
    "at": "2026-11-10",
    "tries": 12,
    "why": "meaning check: no (Is the person pointing at a few simple pictures to)",
    "b": "42736556174"
+  },
+  "reclassify#v": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "meaning check: no (Is the person moving the animal from one container)",
+   "b": "42890346135"
   },
   "recruiter#n": {
    "at": "2026-11-09",
@@ -2178,6 +2280,12 @@
    "tries": 24,
    "why": "meaning check: no (Is the student giving money to the teacher for les)",
    "b": "42736556174"
+  },
+  "unaccountably#adv": {
+   "at": "2026-11-10",
+   "tries": 6,
+   "why": "vision: no (rider not calm, no wild snort)",
+   "b": "42890346135"
   },
   "urine#n": {
    "at": "2026-11-10",

@@ -10,6 +10,94 @@
   },
   "items": {
     "grammar": {
+      "present-simple-a1": [
+        "S.A1.05",
+        "W.A1.11"
+      ],
+      "do-does-a1": [
+        "I.A1.02",
+        "L.A1.05"
+      ],
+      "pronouns-a1": [
+        "S.A1.02",
+        "W.A1.04"
+      ],
+      "this-that-possessive-a1": [
+        "S.A1.13",
+        "W.A1.06"
+      ],
+      "have-got-there-is": [
+        "S.A1.04",
+        "S.A1.02"
+      ],
+      "can-a1": [
+        "S.A1.08",
+        "I.A1.13"
+      ],
+      "imperatives-lets-a1": [
+        "L.A1.03",
+        "I.A1.07"
+      ],
+      "wh-questions-a1": [
+        "I.A1.08",
+        "I.A1.04"
+      ],
+      "now-and-next-a1": [
+        "W.A1.03",
+        "I.A1.14"
+      ],
+      "past-basics-a1": [
+        "W.A1.03",
+        "W.A1.07"
+      ],
+      "the-some-any-a1": [
+        "W.A1.05",
+        "I.A1.03"
+      ],
+      "would-like-a1": [
+        "I.A1.03",
+        "S.A1.03"
+      ],
+      "inversion-range-c2": [
+        "W.C2.01",
+        "W.C2.02"
+      ],
+      "information-packaging-c2": [
+        "S.C2.01",
+        "W.C2.01"
+      ],
+      "subjunctive-formal-c2": [
+        "W.C2.14",
+        "W.C2.15"
+      ],
+      "conditionals-nuance-c2": [
+        "S.C2.02",
+        "W.C2.07"
+      ],
+      "ellipsis-substitution-c2": [
+        "R.C2.06",
+        "I.C2.01"
+      ],
+      "hedging-distance-c2": [
+        "S.C2.02",
+        "W.C2.07"
+      ],
+      "stance-irony-c2": [
+        "S.C2.03",
+        "W.C2.03"
+      ],
+      "nominal-style-c2": [
+        "W.C2.12",
+        "W.C2.16"
+      ],
+      "discourse-register-c2": [
+        "W.C2.08",
+        "S.C2.07"
+      ],
+      "modal-aspect-c2": [
+        "S.C2.02",
+        "L.C2.07"
+      ],
       "be-am-is-are": [
         "S.A1.01",
         "I.A1.02"
