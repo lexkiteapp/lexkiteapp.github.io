@@ -16,12 +16,12 @@
   },
   {
    "id": "w",
-   "text": "Many learners say: I went in the cinema.",
+   "text": "Many learners say: I went in Spain.",
    "pause": 0.42
   },
   {
    "id": "r",
-   "text": "Better: I went to the cinema.",
+   "text": "Better: I went to Spain.",
    "pause": 0.42
   },
   {
@@ -52,8 +52,8 @@
   }
  ],
  "data": {
-  "wrong": "I went in the cinema.",
-  "right": "I went to the cinema.",
+  "wrong": "I went in Spain.",
+  "right": "I went to Spain.",
   "strike": "in",
   "why": "Use to for a place you go to.",
   "memory": "Go to a place.",
@@ -67,8 +67,8 @@
   },
   "native": {
    "hook": "“Went in” или “went to”?",
-   "tip": "Идёшь в место — говори “to”: “I went to the cinema”, а не “in”.",
-   "caption": "Ты говоришь “I went in the cinema”? 🙈 По-русски мы говорим «в кино», но по-английски нужно “to”: “I went to the cinema”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "tip": "Идёшь в место — говори “to”: “I went to Spain”, а не “in”.",
+   "caption": "Ты говоришь “I went in Spain”? 🙈 По-русски мы говорим «в Испанию», но по-английски нужно “to”: “I went to Spain”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
    "comment": "Ответ: “to”. Куда идём — to. Бесплатный тест для практики здесь: {link}",
    "hashtags": [
     "#английскийязык",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“Went in” or “went to”?",
-   "tip": "When you go to a place, say “to”: “I went to the cinema”, not “in”.",
-   "caption": "Do you say “I went in the cinema”? 🙈 In Russian we say “v kino”, but in English you need “to”: “I went to the cinema”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "tip": "When you go to a place, say “to”: “I went to Spain”, not “in”.",
+   "caption": "Do you say “I went in Spain”? 🙈 In Russian we say “v Ispaniyu”, but in English you need “to”: “I went to Spain”. Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,14 +98,14 @@
  },
  "lang": "ru",
  "est": {
-  "words": 48,
-  "seconds": 29.1,
-  "wpm": 99
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
  },
  "publish": {
   "title": "“Went in” или “went to”?",
-  "keyword": "I went to the cinema.",
-  "value": "Идёшь в место — говори “to”: “I went to the cinema”, а не “in”.",
+  "keyword": "I went to Spain.",
+  "value": "Идёшь в место — говори “to”: “I went to Spain”, а не “in”.",
   "hashtags": [
    "#английскийязык",
    "#английский",
@@ -113,22 +113,22 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 43,
+  "script_words": 41,
   "platforms": {
    "youtube": {
     "title": "“Went in” или “went to”?",
-    "description": "Ты говоришь “I went in the cinema”? 🙈 По-русски мы говорим «в кино», но по-английски нужно “to”: “I went to the cinema”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "description": "Ты говоришь “I went in Spain”? 🙈 По-русски мы говорим «в Испанию», но по-английски нужно “to”: “I went to Spain”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
     "tags": [
-     "I went to the cinema.",
+     "I went to Spain.",
      "learn english",
      "ru"
     ]
    },
    "facebook": {
-    "text": "Ты говоришь “I went in the cinema”? 🙈 По-русски мы говорим «в кино», но по-английски нужно “to”: “I went to the cinema”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Ты говоришь “I went in Spain”? 🙈 По-русски мы говорим «в Испанию», но по-английски нужно “to”: “I went to Spain”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Ты говоришь “I went in the cinema”? 🙈 По-русски мы говорим «в кино», но по-английски нужно “to”: “I went to the cinema”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "caption": "Ты говоришь “I went in Spain”? 🙈 По-русски мы говорим «в Испанию», но по-английски нужно “to”: “I went to Spain”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#английскийязык",
      "#английский",

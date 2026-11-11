@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "How many people in your family?",
+   "text": "Family size in English!",
    "pause": 0.42
   },
   {
@@ -98,8 +98,8 @@
  },
  "lang": "ja",
  "est": {
-  "words": 54,
-  "seconds": 32.0,
+  "words": 52,
+  "seconds": 31.0,
   "wpm": 101
  },
  "publish": {
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 48,
+  "script_words": 46,
   "platforms": {
    "youtube": {
     "title": "家族は4人、英語では？",

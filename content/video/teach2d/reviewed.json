@@ -7763,7 +7763,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "How many people in your family?",
+    "h": "Family size in English!",
     "w": "Many learners say: My family is four people.",
     "r": "Better: There are four people in my family.",
     "y": "Use there are, then say the number.",
@@ -7968,8 +7968,8 @@
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
     "h": "“Went in” или “went to”?",
-    "w": "Many learners say: I went in the cinema.",
-    "r": "Better: I went to the cinema.",
+    "w": "Many learners say: I went in Spain.",
+    "r": "Better: I went to Spain.",
     "y": "Use to for a place you go to.",
     "q": "Quick quiz! Which one fits?",
     "a": "To! We went to the park.",

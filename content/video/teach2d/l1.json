@@ -447,7 +447,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "How many people in your family?",
+    "hook_say": "Family size in English!",
     "wrong": "My family is four people.",
     "right": "There are four people in my family.",
     "strike": "is",
@@ -928,8 +928,8 @@
    "theme": "dusk",
    "in": {
     "hook_say": "“Went in” или “went to”?",
-    "wrong": "I went in the cinema.",
-    "right": "I went to the cinema.",
+    "wrong": "I went in Spain.",
+    "right": "I went to Spain.",
     "strike": "in",
     "why": "Use to for a place you go to.",
     "memory": "Go to a place.",
@@ -944,8 +944,8 @@
     "answer_say": "To! We went to the park.",
     "native": {
      "hook": "“Went in” или “went to”?",
-     "tip": "Идёшь в место — говори “to”: “I went to the cinema”, а не “in”.",
-     "caption": "Ты говоришь “I went in the cinema”? 🙈 По-русски мы говорим «в кино», но по-английски нужно “to”: “I went to the cinema”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "tip": "Идёшь в место — говори “to”: “I went to Spain”, а не “in”.",
+     "caption": "Ты говоришь “I went in Spain”? 🙈 По-русски мы говорим «в Испанию», но по-английски нужно “to”: “I went to Spain”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
      "comment": "Ответ: “to”. Куда идём — to. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
@@ -956,8 +956,8 @@
     },
     "en": {
      "hook": "“Went in” or “went to”?",
-     "tip": "When you go to a place, say “to”: “I went to the cinema”, not “in”.",
-     "caption": "Do you say “I went in the cinema”? 🙈 In Russian we say “v kino”, but in English you need “to”: “I went to the cinema”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "When you go to a place, say “to”: “I went to Spain”, not “in”.",
+     "caption": "Do you say “I went in Spain”? 🙈 In Russian we say “v Ispaniyu”, but in English you need “to”: “I went to Spain”. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   }
