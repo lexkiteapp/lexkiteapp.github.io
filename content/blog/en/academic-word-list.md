@@ -35,6 +35,8 @@ The list is split into **10 sublists**. Sublists 1 to 9 contain 60 families each
 | 5 | academy, capacity, challenge, decline, generate, logic, objective, trend |
 | 10 | adjacent, albeit, forthcoming, notwithstanding, persist, whereby |
 
+For a definition of each word family, see the [Academic Word List with meanings](/en/blog/academic-word-list-meanings/); PTE candidates will also find the [PTE academic vocabulary list](/en/blog/pte-academic-vocabulary-list/) useful.
+
 ## Why the academic word list matters for IELTS Academic and TOEFL
 
 In her original study, Coxhead reported that AWL words made up roughly one in ten words of the academic texts she analysed (about 10%), compared with under 2% of a fiction corpus of similar size. That contrast is the whole point of the list: these words are common in lectures and journals but rare in everyday reading, so most learners do not pick them up by accident. That may sound modest, but those words often carry the key idea of a sentence. Compare:
@@ -145,11 +147,3 @@ At 8–12 families a day with regular reviews, most learners can work through th
 ### Is the AWL still relevant if it was published in 2000?
 
 Yes. Core academic vocabulary changes slowly, and words like *analyse*, *evidence* and *approach* remain central to academic English. Newer lists exist, notably the New Academic Word List (Browne and colleagues, 2013) and the Academic Vocabulary List (Gardner and Davies, 2014), which were built from larger, more recent corpora. They overlap heavily with the AWL, so the AWL remains a sound and widely used starting point, especially for exam preparation.
-
-## Exploring detailed AWL meanings and related vocabulary
-
-For sublist-by-sublist definitions, collocations, and related lexical sets, explore our focused guides:
-- Complete family definitions: [Academic Word List with meanings](/en/blog/academic-word-list-meanings/)
-- Automated test vocabulary: [PTE academic vocabulary list](/en/blog/pte-academic-vocabulary-list/)
-- Common grammatical confusion: [Affect vs effect meaning](/en/blog/confusing-words-affect-effect-meaning/)
-- Everyday business verbs: [Phrasal verbs for work meaning](/en/blog/phrasal-verbs-for-work-meanings/)

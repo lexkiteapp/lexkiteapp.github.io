@@ -1,166 +1,169 @@
 ---
 title: "IELTS General Training Task 1 for Migrants: Letter Guide"
-description: "Master IELTS General Training Task 1 for migrants: letter tone, formal vs semi-formal rules, real newcomer scenarios, band 8 samples and a timing checklist."
+description: "IELTS General Training Task 1 for migrants: three letters set in newcomer life (school, a lost shipment, a friend), with a model reply and a 20-minute plan."
 slug: ielts-general-letter-newcomers
 lang: en
 translationKey: ielts-general-letter-newcomers
 category: ielts
 tags: [ielts, ielts-general, writing, newcomers, immigration]
 keyword: "ielts general training task 1 for migrants"
-cover: letters
-coverAlt: "Lexkite General Training letter task writing interface with formal, semi-formal and informal prompts and model band 8 samples"
-publishAt: 2027-01-24T09:15:00+05:30
+cover: mock
+coverAlt: "Lexkite IELTS mock test screen where you choose Listening, Reading, Writing or Speaking, pick a test and see your history"
+publishAt:
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: think, icon: pen, chip: GT Task 1}
 shots: [
-  {id: s1, route: '#/letters', crop: main},
-  {id: s2, route: '#/goal', crop: main}
+  {id: s1, route: '#/letters', crop: main}
 ]
 diagrams: [
-  {id: d1, type: compare, title: 'Letter registers and salutations for Task 1', cols: ['Register', 'Recipient Relationship', 'Opening Salutation', 'Closing Sign-off'], rows: [['Formal', 'Unknown official, corporate manager, company', 'Dear Sir or Madam, / Dear Mr Jenkins,', 'Yours faithfully, (or Yours sincerely,)'], ['Semi-formal', 'Colleague, landlord, neighbour, school teacher', 'Dear Mr Davies, / Dear Mrs Thompson,', 'Yours sincerely, / Warm regards,'], ['Informal / Personal', 'Friend, close acquaintance, family member', 'Dear Lucas, / Hi Maya,', 'Best regards, / Warm wishes, / All the best,']]}
+  {id: d1, type: compare, title: 'Three newcomer letters and the tone each one needs', cols: ['Situation', 'Reader', 'Opening', 'First paragraph'], rows: [['A school you do not know well', 'Teacher you know by surname', 'Dear Mrs Walker,', 'Say who you are and why you write, then explain'], ['A company that lost your boxes', 'Unknown customer service team', 'Dear Sir or Madam,', 'State the problem with a date and a number'], ['A friend asking about your new city', 'Someone you know well', 'Hi Anna,', 'Answer the question first, with a little warmth']]}
 ]
 quiz: [
   {
-    q: "In an IELTS General Training Task 1 formal letter beginning with 'Dear Sir or Madam,', what is the conventionally correct closing formula?",
-    options: ["Best wishes to you and your family,", "Yours faithfully,", "Warm personal regards,", "Yours sincerely always,"],
+    q: "You are writing to your child's teacher, Mrs Walker, whom you have met once. Which closing is safest?",
+    options: ["Yours faithfully,", "Love from,", "Cheers,", "Kind regards,"],
+    answer: 3,
+    explain: "You know her name but not well, so a polite semi-formal closing fits. The others are either for readers whose name you do not know or too casual."
+  },
+  {
+    q: "You write to your neighbour, Mr Clarke, about a noise problem. Which opening is best?",
+    options: ["Hi Mr Clarke,", "Dear Mr Clarke,", "Dear Sir or Madam,", "Dear neighbour,"],
     answer: 1,
-    explain: "In standard British and international English conventions tested by IELTS, letters opened with 'Dear Sir or Madam' conventionally close with 'Yours faithfully,'."
+    explain: "You know his name but not well, so a polite opening with the surname fits. 'Dear Sir or Madam' is for readers whose name you do not know."
   },
   {
-    q: "Why is tone consistency critical when addressing an apartment landlord regarding emergency heating repairs?",
-    options: ["Using casual colloquial slang obscures the legitimate urgency of domestic maintenance requests", "Adopting an aggressive tone lowers your Task Achievement evaluation", "Mixing informal slang with formal demands confuses the communicative register and reduces your Band score", "Landlords are certified linguistic assessors for immigration branches"],
+    q: "A General Training Task 1 prompt asks you to cover how many bullet points?",
+    options: ["5", "4", "3", "2"],
     answer: 2,
-    explain: "Task 1 scoring assesses register under Task Achievement. In semi-formal letters, combining blunt demands with overly casual chat lowers your score."
-  },
-  {
-    q: "How many bullet points are provided in an IELTS General Training Task 1 prompt, and how should you address them?",
-    options: ["Two bullet points, and candidates can freely choose either one", "Four bullet points, which can be summarised in a single concluding sentence containing general overview statements", "Exactly three bullet points, and all three must be fully developed with balanced supporting detail", "Five bullet points, of which three are optional choices"],
-    answer: 2,
-    explain: "IELTS General Task 1 prompts always contain three specific bullet points. Omitting or providing only minimal coverage of any bullet point limits Task Achievement to Band 5.0 or 6.0."
+    explain: "The task lists three bullet points, and the letter should deal with each of them."
   }
 ]
 ---
 
-For prospective immigrants preparing for life abroad, Writing Task 1 is far more than an academic hurdle—it is an authentic rehearsal for navigating everyday civil systems in English-speaking societies. Mastering **ielts general training task 1 for migrants** equips you to negotiate leases with landlords, address workplace grievances with HR managers, correspond with local municipal councils, and resolve airline travel disruptions.
+IELTS General Training Task 1 for migrants is the part of the test that looks most like real life. You may have to write to a school, a landlord, a company that lost your belongings or a friend who is thinking of moving. This guide uses that angle: three newcomer situations, one full model reply and a plan for the 20 minutes you have. If you want the full tour of formal, semi-formal and informal letters, openings, closings and common mistakes, read [IELTS General Training letter formats](/en/blog/ielts-general-training-letter/) first. Here we spend the time on the situations instead.
 
-Unlike IELTS Academic Task 1, which requires visual data description, General Training Task 1 requires you to write a letter of at least 150 words within approximately 20 minutes ([ielts.org](https://ielts.org)). While candidates often view letter writing as intuitive, examiners mark Task 1 against four strict criteria: Task Achievement, Coherence and Cohesion, Lexical Resource, and Grammatical Range and Accuracy. A single stylistic error—such as signing an informal sign-off on a complaint letter to a public official—can depress your score from Band 8.0 to Band 6.5.
+On the [IELTS website](https://ielts.org), Task 1 asks for at least 150 words in about 20 minutes, and Task 2 counts twice as much as Task 1 in the Writing score. The letter has a short prompt with three bullet points, and your answer is judged on how fully you cover them, how well it is organised, the vocabulary you use and the accuracy of your grammar.
 
-![Lexkite General Training letter interface showing prompt styles and model structures](media:@s1 "The General Training letter module in the app: templates for formal and informal letters with paragraph outlines")
+![](media:@s1 "General Training Task 1 letters in the app: formal, semi-formal and informal prompts, sample prompts and band 8 sample letters")
 
-## Mastering IELTS General Training Task 1 for migrants across three core registers
+## Three situations, three tones in IELTS General Training Task 1 for migrants
 
-The first decision you must make upon reading the prompt is identifying the precise **register** demanded by the situation. Choosing the incorrect register is the single most common reason candidates fail to reach Band 7.0 or higher.
+Before you write, ask who is reading. The table shows the three tones using situations that migrants often meet. The recap is short on purpose, because the register rules are covered in the formats guide.
 
-{{diagram: d1 | Core letter registers, recipient relationships, salutations, and closings.}}
+{{diagram: d1 | One tone for each reader: someone you know by surname, an unknown company, and a friend.}}
 
-### 1. The Formal Register
-- **Context:** Writing to an unknown individual, corporate entity, utility provider, or immigration authority (e.g., lodging a consumer complaint, applying for a managerial position, requesting an official council inquiry).
-- **Opening:** *Dear Sir or Madam,* (if unnamed) or *Dear Mr Henderson,* / *Dear Ms Alvarez,* (if a surname is specified).
-- **Tone characteristics:** Objective, respectful, concise. Avoid contractions (*I am writing* instead of *I'm writing*), eliminate slang, and employ passive constructions where appropriate (*I was informed that...*).
-- **Closing:** *Yours faithfully,* (if opened without a name) or *Yours sincerely,* (if addressed by surname).
+A quick test: if you know a name, use it, and the letter is at least semi-formal. If you do not know the name, use *Dear Sir or Madam* and a formal tone. With a friend, write as you would speak, with contractions.
 
-### 2. The Semi-Formal Register
-- **Context:** Writing to an individual you know in a professional or transactional capacity, but with whom you do not share a personal friendship (e.g., your landlord, a property manager, your department supervisor, your child's headmaster, a neighbour).
-- **Opening:** *Dear Mr Davies,* or *Dear Mrs Campbell,*.
-- **Tone characteristics:** Polite, cooperative, business-like yet direct. Mild conversational phrases are permissible, but colloquial slang and over-familiar idioms are strictly prohibited.
-- **Closing:** *Yours sincerely,* or *Warm regards,*.
+## Situation 1: a letter to your child's teacher
 
-### 3. The Informal / Personal Register
-- **Context:** Writing to a close friend, peer, or family member (e.g., inviting an old colleague to your new city, apologising for missing a reunion, seeking accommodation advice).
-- **Opening:** *Dear Marcus,* or *Hi Fiona,*.
-- **Tone characteristics:** Warm, natural, colloquial. Contractions (*I've been meaning to write*, *we'd love to see you*) are expected; rigid formal phrasing will sound unnatural and penalise your register score.
-- **Closing:** *Best regards,* *Warm wishes,* or *All the best,*.
+This is a semi-formal letter. You are polite and clear, but not stiff.
 
-## Real newcomer scenario: communicating with your landlord
+> **Prompt (practice prompt written for this article):** Your daughter has just started at a new school in Auckland after your family moved from abroad. She missed the first two weeks. Write a letter to her teacher. In your letter:
+> - explain why she missed school
+> - say what she finds difficult now
+> - ask what support the school can offer
 
-To observe how tone functions in practice, examine this realistic immigration settlement prompt based on rental accommodation:
+### A model semi-formal response
 
-> **Sample Prompt:**
-> You have recently moved into a rented flat in Melbourne. Over the past four days, the central heating unit has stopped working properly, and your hot water supply has become intermittent.
-> 
-> Write a letter to your property manager. In your letter:
-> - Explain the specific problems with the heating and hot water.
-> - Describe how this issue has affected your household.
-> - State what action you expect the property manager to take and when.
+> Dear Mrs Walker,
+>
+> I am writing about my daughter, Mai, who joined your Year 5 class on Monday.
+>
+> Mai missed the first two weeks of term because our enrolment documents were delayed. We arrived in Auckland only three weeks ago, and the school needed her vaccination records, which had to be translated. I apologise for the disruption.
+>
+> Since she started, Mai has found it hard to follow the maths lessons. She understands the numbers but not the instructions in English, and she is often too shy to ask questions. At home she has been worried about falling behind. She has also started to say that she does not want to go to school, which worries us.
+>
+> Would it be possible to meet briefly this week to talk about how she can catch up? I would also be grateful to know whether the school offers extra English support for new arrivals. If that is not possible, a short email with advice for us at home would help.
+>
+> Thank you for your help.
+>
+> Yours sincerely, (or Kind regards,)
+> Linh Tran
 
-### Model Band 8.0 Semi-Formal Response
+### Why this response works
 
-> Dear Mr Sterling,
-> 
-> I am writing to bring to your immediate attention an urgent maintenance issue regarding our rented apartment at Unit 4B, 182 Napier Street.
-> 
-> Four days ago, on Sunday evening, the central heating unit unexpectedly ceased operating. The wall-mounted digital control panel displays an error code (E-04), and resetting the master switch has failed to restart the furnace. Furthermore, since yesterday morning, our hot water supply has become increasingly erratic, providing only lukewarm water for a few minutes before running cold.
-> 
-> This failure has caused considerable hardship for my family, particularly given the unseasonably low overnight temperatures this week. With temperatures dropping below eight degrees Celsius, the apartment has become uncomfortably cold, making it nearly impossible for our young children to sleep properly. 
-> 
-> Could you please arrange for a certified HVAC technician to inspect and repair the heating unit before the coming weekend? Please let me know today what time a tradesperson can be scheduled so that I can ensure someone is at home to grant entry.
-> 
-> Thank you for your prompt assistance with this matter.
-> 
-> Yours sincerely,  
-> David Chen
+- **Each bullet has its own paragraph.** The reason, the difficulty and the request are easy to find.
+- **The details are small and believable.** Delayed documents, a translation, a worry at home. You can invent details like these: the prompt is a scenario.
+- **The tone stays steady.** *Would it be possible to...* and *I would be grateful* are polite without sounding stiff.
+- **The ending is practical.** A meeting and a question about support is what the reader can act on.
 
-### Why this response secures Band 8.0+
-- **Task Achievement:** Every bullet point from the prompt is thoroughly addressed with balanced, realistic supporting details (error codes, specific dates, children affected, clear timeline request).
-- **Coherence and Cohesion:** Seamless transitions connect the description of the defect to its practical impact, using paragraph structures explained in our [samples page](/en/samples/).
-- **Lexical Resource:** Sophisticated functional vocabulary (*ceased operating*, *erratic*, *lukewarm*, *considerable hardship*, *HVAC technician*).
-- **Grammatical Accuracy:** Faultless balance of past simple, present perfect, and modal constructions for polite requests (*Could you please arrange...*).
+In some countries the person in charge of a school is the *principal*, in others the *head teacher* or *headmaster*. Use the word the prompt uses, and do not worry about the rest.
 
-![Lexkite goal planner showing exam targets and study timeline](media:@s2 "The Lexkite goal planner interface: selecting exam type, target band, and weekly study hours")
+## Situation 2: a formal complaint about lost belongings
 
-## Managing your 20-minute Task 1 timing budget
+> **Prompt:** A company shipped your belongings from your home country, and one box has not arrived. Write a letter to the company. Say what is missing, explain what you have already done, and say what you would like them to do.
 
-Because Task 2 carries double the marking weight of Task 1, you must never allow your letter to consume more than 20 minutes of your writing hour. Adopt this disciplined milestone plan:
+Here you do not know a name, so you open *Dear Sir or Madam,* and close *Yours faithfully,*. No contractions, no slang, and facts before feelings.
 
-1. **Minutes 1–3 (Analyze and Plan):** Identify the recipient, determine the register, and draft three specific bullet-point details on your question paper.
-2. **Minutes 4–16 (Drafting):** Write your opening statement of purpose, expand each of the three bullet points into its own distinct paragraph, and pen the closing sign-off.
-3. **Minutes 17–20 (Proofreading):** Check for missing articles (*the heating* instead of *heating*), subject-verb agreements, and correct comma placement after salutations and sign-offs.
+Useful moves for each bullet:
 
-Understanding how General Training integrates into broader migration point grids is essential; review our country-specific frameworks for [IELTS score for Australia PR](/en/blog/ielts-score-australia-pr/), the Canadian points matrix in [IELTS to CLB conversion](/en/blog/ielts-clb-score-canada/), and the overarching [IELTS General vs Academic for immigration guide](/en/blog/ielts-general-vs-academic-immigration/).
+- **What is missing:** *I am writing to report that one of the six boxes shipped on 3 March has not been delivered.*
+- **What you have done:** *I contacted your customer service team twice by phone but have not yet received a reply.*
+- **What you want:** *I would be grateful if you could trace the box and let me know when it will arrive. If it cannot be found, I would like to discuss compensation.*
 
-## Common candidate mistakes in General Task 1
+Notice the line between firm and rude. *I expect action within three days* is firm. *Your company is useless* is not what a reader will respond to, and it also breaks the formal tone. For more on writing tone in formal messages, see [how to write a formal email](/en/blog/how-to-write-a-formal-email/).
 
-1. **Under-developing a bullet point:** Spending 100 words on the first bullet point and only 15 words on the third bullet point immediately limits your Task Achievement band to 6.0.
-2. **Mixing registers:** Beginning with *Dear Sir,* and closing with *See ya soon!* or using contractions in a formal letter to an ambassador.
-3. **Writing fewer than 150 words:** Letters below 150 words receive an automatic penalty under length guidelines. Aim for 165 to 185 words.
-4. **Inventing convoluted narratives:** Keep supporting facts plausible and direct. Overly dramatic stories often distract from functional clarity.
-5. **Neglecting paragraph breaks:** Writing one giant block of text ruins your Coherence and Cohesion mark. Every bullet point warrants its own paragraph.
+## Situation 3: an informal letter to a friend
 
-Reviewing transitions and syntax via our [linking words for IELTS writing tutorial](/en/blog/linking-words-for-ielts-writing/) will help you weave your thoughts naturally across paragraph boundaries.
+> **Prompt:** A friend is thinking about moving to your new city. Write a letter. Say what you like about the city, describe one problem you had and give advice about where to live.
 
-## Self-check: letter writing rules
+The warm tone is the point. You can use contractions and short phrases: *You'd love it here*, *I'd look at the east side first*. Keep it organised even though it is friendly: one paragraph for each bullet is still the safest plan.
 
-1. If you address a recipient as *Dear Ms Alvarez,*, how do you sign off?
-2. Which IELTS Task carries more marks: Task 1 or Task 2?
-3. What is the minimum word count required for Task 1?
-4. When should you use contractions like *I'm* and *don't* in Task 1?
+A mistake migrants often make here is writing a letter that sounds like a post for strangers. Write to one person and mention something you share: *Do you remember how you hated winter at home?*
+
+## Newcomer traps in the letter task
+
+- **Using your real story.** You do not need true facts. If your own situation is complicated, invent a simple one that fits the prompt.
+- **Mixing words from different countries.** A *flat*, an *apartment* and a *unit* are the same thing. Choose one and keep it. In British spelling *neighbour*, in American *neighbor*; both are fine if you stay consistent.
+- **Skipping paragraph breaks.** One block of text hides your three bullets. A separate paragraph for each is the clearest plan. See [linking words for IELTS writing](/en/blog/linking-words-for-ielts-writing/) for ways to connect them smoothly.
+- **Stopping at 150 words by accident.** Under 150 words may not show enough language for the higher bands. Aim a little above, and keep the time for Task 2.
+- **Slipping tone.** *Dear Mr Clarke* followed by *See ya* in the sign-off is the kind of slip that weakens the register.
+
+## A 20-minute plan
+
+Because Task 2 carries more weight, keep the letter to about 20 minutes. One way to split it:
+
+1. **Minutes 1 to 3:** Read the prompt, choose the tone and jot one detail for each bullet.
+2. **Minutes 4 to 16:** Write the opening line, one paragraph per bullet and the closing.
+3. **Minutes 17 to 20:** Check the opening and closing match, the three bullets are covered and the word count is safe.
+
+When you move on to the essay, [IELTS Writing Task 2 structure](/en/blog/ielts-writing-task-2-structure/) gives a plan for the longer task. If you are planning a visa, the [IELTS for immigration guide](/en/blog/ielts-for-immigration-guide/) explains which version of the test your application needs, and [IELTS General vs Academic for immigration](/en/blog/ielts-general-vs-academic-immigration/) explains the difference.
+
+## Self-check: three newcomer letters
+
+1. You write to a school principal whose name you know. How do you open the letter?
+2. You write to a company and you do not know any name. How do you sign off?
+3. A friend asks for advice about your city. Are contractions acceptable?
+4. How many bullet points do you need to cover?
 
 **Answers**
-1. **Yours sincerely,** (because you addressed the recipient by surname).
-2. **Task 2 carries twice the weight** of Task 1.
-3. **150 words minimum.**
-4. **Only in informal / personal letters** addressed to friends or family members.
 
-## Practise model letters under timed conditions
+1. With *Dear* and the surname, for example *Dear Mr Hall,*, and close with *Yours sincerely,*.
+2. *Yours faithfully,*, because the letter opened with *Dear Sir or Madam,*.
+3. Yes. A friendly, natural tone is expected in an informal letter.
+4. Three. Give each its own paragraph.
 
-Consistent practice turns register selection into second nature. Open the [letter writing library](/app/#/letters) in Lexkite to explore band 8 samples across formal, semi-formal, and informal newcomer prompts, then configure your target writing band in the [goal planner](/app/#/goal).
+## Practise the letter in Lexkite
 
-{{cta: /app/#/letters | Browse band 8 model letters across formal and informal prompts}}
+Open the [letters section](/app/#/letters) in Lexkite. It has 24 prompts (eight in each tone), each with a band 8 model letter, a word counter and a 20-minute timer. Once you have chosen your test date, enter your exam, target score and test date in the [goal planner](/app/#/goal), and it will work out a weekly study plan. You will find more written examples in the English-language [Writing model answers](/en/samples/).
 
-{{youtube: | Suggested video: official IELTS General Training Task 1 letter writing band descriptors}}
+{{cta: /app/#/letters | Try a General Training letter with the timer and word counter}}
 
 ## Frequently asked questions
 
-### Should I write an address or date at the top of an IELTS letter?
+### How long should the letter be?
 
-No. IELTS examiners do not require postal addresses or dates at the top of Task 1 letters. Begin your response directly with the salutation (e.g., *Dear Sir or Madam,*).
+At least 150 words, written in about 20 minutes. A little more is fine, as long as you keep enough time for Task 2.
 
-### What happens if I write 148 words in Task 1?
+### Can I invent names and details?
 
-Falling below the 150-word threshold triggers a penalty under Task Achievement. Always aim for 165 to 185 words to ensure full coverage without wasting time needed for Task 2.
+Yes. The prompt is a scenario, so plausible details such as dates, names and order numbers are fine. What matters is that the letter covers all three bullet points in a suitable tone.
 
-### Can I invent names and details in Task 1?
+### What if I run out of time before the closing?
 
-Yes. Prompts present hypothetical scenarios, and you are expected to supply plausible imaginary details (dates, order numbers, names) to address all bullet points convincingly.
+Plan for it. Write the closing line while you still have a few minutes, because a missing sign-off is easy to avoid, and then use any extra minutes to check the three bullets.
+
+{{youtube: | Suggested video: planning a General Training letter in 20 minutes}}

@@ -1,70 +1,71 @@
 ---
-title: "PTE Academic Vocabulary List: 40 Essential High-Yield Words"
-description: "PTE academic vocabulary list: 40 high-yield formal collocations, prefixes, word forms and spaced repetition strategies for Read Aloud and Fill in the Blanks."
+title: "PTE Academic Vocabulary List: 40 Academic Words with Collocations"
+description: "PTE academic vocabulary list: 40 formal academic words with collocations, word forms and a method for the gap-fill tasks in PTE Reading and Writing."
 slug: pte-academic-vocabulary-list
 lang: en
 translationKey: pte-academic-vocabulary-list
 category: tu-vung
 tags: [pte, vocabulary, academic-vocabulary, spaced-repetition, study-plan]
 keyword: "pte academic vocabulary"
-cover: review
-coverAlt: "Lexkite flashcard review session with word card, phonetic transcription, flip button and progress bar"
-publishAt: 2027-01-26T08:30:00+05:30
+cover: practice-match
+coverAlt: "Lexkite timed matching exercise pairing English words with their meanings, with a countdown timer"
+publishAt:
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: think, icon: book, chip: PTE Vocab}
 shots: [
   {id: s1, route: '#/review', crop: main},
   {id: s2, route: '#/library', crop: main}
 ]
 diagrams: [
-  {id: d1, type: compare, title: 'High-frequency academic word families in testing', cols: ['Base Verb', 'Noun Form', 'Adjective Form', 'Target Collocation'], rows: [['corroborate', 'corroboration', 'corroborative', 'corroborate empirical evidence'], ['delineate', 'delineation', 'delineated', 'delineate clear boundaries'], ['disseminate', 'dissemination', 'disseminated', 'disseminate scientific research'], ['mitigate', 'mitigation', 'mitigating', 'mitigate adverse circumstances'], ['substantiate', 'substantiation', 'substantiated', 'substantiate theoretical hypotheses']]}
+  {id: d1, type: compare, title: 'Academic word families and typical collocations', cols: ['Base Verb', 'Noun Form', 'Adjective Form', 'Target Collocation'], rows: [['corroborate', 'corroboration', 'corroborative', 'corroborate empirical evidence'], ['delineate', 'delineation', 'delineated', 'delineate clear boundaries'], ['disseminate', 'dissemination', 'disseminated', 'disseminate scientific research'], ['mitigate', 'mitigation', 'mitigating', 'mitigate adverse impacts'], ['substantiate', 'substantiation', 'substantiated', 'substantiate theoretical hypotheses']]}
 ]
 quiz: [
   {
-    q: "Which academic word correctly completes the collocation: 'The committee gathered data to _______ the preliminary findings'?",
-    options: ["substantiate", "dismantle the entire theoretical structure", "disregard all gathered statistical inputs", "evaporate into inconclusive empirical metrics"],
-    answer: 0,
-    explain: "'Substantiate' means to provide evidence to support or prove the truth of a claim or finding."
+    q: "Which word completes the sentence: 'Planting more trees helps to ___ the effects of flooding.'",
+    options: ["exacerbate", "corroborate", "mitigate", "proliferate"],
+    answer: 2,
+    explain: "Mitigate means to make something less severe, which is what trees do to flood damage."
   },
   {
-    q: "In PTE Reading and Writing Fill in the Blanks, why is grammatical part-of-speech analysis critical before selecting an option?",
-    options: ["Test takers are awarded extra marks for typing out parts of speech directly", "Grammar category parsing directly eliminates impossible choices", "The machine algorithm penalises candidates who read surrounding text carefully", "Part of speech determines the font size of digital examination papers displayed"],
+    q: "Which form completes the sentence: 'The ___ of research findings through journals is essential.'",
+    options: ["disseminate", "dissemination", "disseminated", "disseminating"],
     answer: 1,
-    explain: "Grammatical parsing enables candidates to determine syntactic category (e.g. past participle passive vs noun modifier), narrowing down candidate choices instantly."
+    explain: "After 'The' and before 'of', the gap needs a noun, so the noun form dissemination is correct."
   },
   {
-    q: "Does Lexkite provide proprietary PTE test simulation or official Pearson scoring?",
-    options: ["Yes, through licensed partnership agreements with Pearson Vue test centres", "No, Lexkite provides universal vocabulary tools and spaced review", "Yes, our flashcards guarantee an official test result of 79+ for migration", "Yes, using reverse-engineered automated computer scoring algorithms online"],
-    answer: 1,
-    explain: "Lexkite focuses on genuine academic lexical mastery and spaced repetition retention without making misleading claims of proprietary PTE mock scoring."
+    q: "Which word completes the sentence: 'The survey results were ___, so the committee asked for more data.'",
+    options: ["comprehensive", "ubiquitous", "pervasive", "inconclusive"],
+    answer: 3,
+    explain: "Inconclusive means giving no clear result, which is why more data was needed."
   }
 ]
 ---
 
-Developing a robust command of formal lexicon is the most reliable method to elevate performance across automated language testing systems. In computerized assessments, mastering **pte academic vocabulary** directly underpins success in Read Aloud, Summarize Written Text, and both variants of Fill in the Blanks.
+A PTE academic vocabulary list helps most in the tasks where words matter: the two Fill in the Blanks tasks (the drop-down one and the drag-and-drop one), Summarize Written Text and Write Essay. Pearson does not publish a word list for PTE Academic, so this page gives 40 formal academic words with collocations that you can practise in your own sentences.
 
-Machine evaluation algorithms reward precise word choice, accurate collocations, and morphological variety. While automated systems cannot appreciate literary flair, they are exceptionally adept at detecting lexical frequency distributions, academic word family usage, and syntactic fit.
+Reading and Writing Fill in the Blanks and the writing tasks reward a wide, accurate academic vocabulary. Pearson scores Summarize Written Text on content, form, grammar and vocabulary, and Write Essay on a wider set that includes vocabulary range and spelling, so knowing which word goes with which is worth the effort.
 
-*Disclaimer: Lexkite provides independent linguistic instruction and spaced repetition tools based on academic corpus linguistics. We do not provide proprietary PTE mock exams or official score guarantees. This guide focuses on universal high-register vocabulary that strengthens performance across all formal testing environments.*
+*Lexkite is an independent learning app. It has no PTE mock test or PTE scoring, and nothing here predicts a test score. The words below are general academic vocabulary that is useful in any formal English test.*
 
-![Lexkite flashcard review session displaying word cards and phonetic details](media:@s1 "A flashcard review session in the app: card with definition, phonetic transcription, and spaced repetition review buttons")
+![](media:@s1 "Review screen in Lexkite: a picture card with phonetic transcription and a flip button, above a progress bar of cards remaining")
 
-## Mastering PTE academic vocabulary for computerized language evaluation
+## PTE academic vocabulary in the Reading and Writing tasks
 
-In computerised assessments like PTE Academic, lexical knowledge is evaluated across two interdependent dimensions:
+Vocabulary matters in two ways:
 
-1. **Receptive Recognition (Reading & Listening):** Tasks such as *Reading: Fill in the Blanks* present complex academic texts with missing words. Success requires recognizing precise collocational bonds (e.g., *profound implications*, *empirical verification*) and understanding subtle differences between near-synonyms.
-2. **Productive Deployment (Speaking & Writing):** Automated essay scoring and summary tasks analyze your lexical diversity metrics (type-token ratio and academic word frequency). Utilizing formal headwords rather than simplistic phrasing signals advanced communicative competence.
+1. **Recognition (Reading):** In the Fill in the Blanks tasks you choose or drag words into a passage. Success depends on collocation, such as *profound implications* or *empirical verification*, and on the difference between near-synonyms. Pearson's own tip for the drag-and-drop task is to think about collocations.
+2. **Productive use (Writing):** In Summarize Written Text and Write Essay, accurate, varied word choice counts.
 
-Understanding how lexical breadth impacts different tests is valuable; explore our comparative analysis of [PTE vs IELTS for Australia](/en/blog/pte-vs-ielts-australia/) and see how vocabulary influences point grids in the [IELTS score for Australia PR guide](/en/blog/ielts-score-australia-pr/).
+If you are still choosing between tests, see [PTE vs IELTS for Australia](/en/blog/pte-vs-ielts-australia/).
 
 {{diagram: d1 | High-frequency academic word families and typical collocations.}}
 
-## 40 High-yield academic words categorized by function
+## 40 academic words grouped by what they do in an argument
 
-To build a structured lexicon, study words grouped by analytical function rather than arbitrary alphabetical lists:
+Groups by function are easier to remember than an alphabetical list, because each word comes with the job it does in a sentence:
 
 ### Category 1: Research, Evidence, and Proof
 1. **Corroborate** (*verb*): To confirm or give support to a statement, theory, or finding. *Collocation: corroborate empirical findings.*
@@ -79,9 +80,9 @@ To build a structured lexicon, study words grouped by analytical function rather
 ### Category 2: Analysis, Structure, and Methodology
 9. **Delineate** (*verb*): To describe or portray something precisely. *Collocation: delineate clear boundaries.*
 10. **Elucidate** (*verb*): To make something clear; explain. *Collocation: elucidate complex mechanisms.*
-11. **Synthesize** (*verb*): To combine a range of different ideas or facts into a coherent whole. *Collocation: synthesize conflicting viewpoints.*
+11. **Synthesise** (*verb*): To combine a range of different ideas or facts into a coherent whole. *Collocation: synthesise conflicting viewpoints.*
 12. **Dichotomy** (*noun*): A division or contrast between two things that are represented as entirely different. *Collocation: false dichotomy.*
-13. **Intrinsic** (*adjective*): Belonging naturally; essential. *Collocation: intrinsic motivation / value.*
+13. **Inherent** (*adjective*): Existing as a permanent, essential part of something. *Collocation: inherent risk.*
 14. **Extraneous** (*adjective*): Irrelevant or unrelated to the subject being dealt with. *Collocation: extraneous factors.*
 15. **Methodology** (*noun*): A system of methods used in a particular area of study or activity. *Collocation: rigorous methodology.*
 16. **Nuance** (*noun*): A subtle difference in meaning, expression, or sound. *Collocation: subtle nuances.*
@@ -93,17 +94,17 @@ To build a structured lexicon, study words grouped by analytical function rather
 20. **Mitigate** (*verb*): To make something less severe, serious, or painful. *Collocation: mitigate adverse impacts.*
 21. **Proliferation** (*noun*): Rapid increase in the number or amount of something. *Collocation: proliferation of digital media.*
 22. **Diminish** (*verb*): To make or become less. *Collocation: diminish resources.*
-23. **Reverberation** (*noun*): A continuing effect; a repercussion. *Collocation: economic reverberations.*
+23. **Repercussion** (*noun*): A far-reaching, usually unwanted result of an event. *Collocation: economic repercussions.*
 24. **Culminate** (*verb*): To reach a climax or point of highest development. *Collocation: culminate in a breakthrough.*
 
 ### Category 4: Discourse, Evaluation, and Consensus
 25. **Disseminate** (*verb*): To spread or disperse information widely. *Collocation: disseminate research findings.*
-26. **Advocate** (*verb/noun*): To publicly recommend or support. *Collocation: advocate policy changes.*
+26. **Espouse** (*verb*): To adopt or support a belief, cause or policy. *Collocation: espouse a view.*
 27. **Contention** (*noun*): A heated disagreement; an assertion maintained in an argument. *Collocation: point of contention.*
 28. **Pervasive** (*adjective*): Spreading widely throughout an area or a group of people. *Collocation: pervasive influence.*
 29. **Equivocal** (*adjective*): Open to more than one interpretation; ambiguous. *Collocation: equivocal response.*
 30. **Ubiquitous** (*adjective*): Present, appearing, or found everywhere. *Collocation: ubiquitous smartphone technology.*
-31. **Comprehensive** (*adjective*): Including or dealing with all or nearly all elements or aspects of something. *Collocation: comprehensive assessment.*
+31. **Exhaustive** (*adjective*): Examining or including every possible element; thorough. *Collocation: exhaustive analysis.*
 32. **Superfluous** (*adjective*): Unnecessary, especially through being more than enough. *Collocation: superfluous details.*
 
 ### Category 5: Academic Modifiers and Connectors
@@ -113,43 +114,45 @@ To build a structured lexicon, study words grouped by analytical function rather
 36. **Invariably** (*adverb*): In every case or on every occasion; always. *Collocation: invariably leads to.*
 37. **Albeit** (*conjunction*): Although. *Example: an effective, albeit costly, intervention.*
 38. **Notwithstanding** (*preposition*): In spite of. *Example: notwithstanding these limitations.*
-39. **Hitherto** (*adverb*): Until now or until the point in time under discussion. *Collocation: hitherto unknown phenomenon.*
+39. **Thereby** (*adverb*): By that means; as a result of that. *Collocation: thereby reducing costs.*
 40. **Aforementioned** (*adjective*): Denoting a thing or person previously mentioned. *Collocation: the aforementioned criteria.*
 
-![Lexkite vocabulary library interface organized by topics and levels](media:@s2 "The Lexkite vocabulary library: exploring academic word lists, topic vocabulary, and CEFR levels")
+Items 37 to 40 are formal and mostly written, so use them sparingly.
 
-## Mastering collocations and syntactic parsing for fill-in-the-blanks
+![](media:@s2 "The Lexkite vocabulary library with tabs for all words, NGSL core vocabulary, IELTS topics, Writing, Speaking and TOEIC")
 
-Memorizing isolated definitions will not guarantee high test scores. Automated cloze tasks test your ability to recognize grammatical constraints:
+## Choosing the right word in a gap
 
-1. **Step 1: Identify the Part of Speech:** Examine the words immediately preceding and following the blank. If the gap sits between an auxiliary verb and a direct object (*has successfully _______ the hypothesis*), you require a past participle transitive verb (*substantiated*, *corroborated*).
-2. **Step 2: Inspect Prepositional Governance:** Notice dependent prepositions. The verb *advocate* does not take *for* in formal usage (*advocate policies*, not *advocate for policies*), whereas *contribute* requires *to*.
-3. **Step 3: Evaluate Semantic Register:** In formal passages, machine scorers favour Latinate academic headwords over everyday Germanic verbs. Replace *look into* with *investigate*, and *bring about* with *precipitate*.
+Memorising definitions is not enough for gap-fill tasks, because several options can look right in isolation. Work through the sentence in three steps:
 
-For structured writing development, review model essay formulations in our [samples page](/en/samples/) and explore the foundational principles of the [Academic Word List](/en/blog/academic-word-list/).
+1. **Step 1: Identify the part of speech.** Look at the words before and after the blank. If the gap sits between an auxiliary verb and an object (*has successfully _______ the hypothesis*), you need a past participle such as *substantiated* or *corroborated*.
+2. **Step 2: Check the preposition.** Some words need a fixed preposition: *contribute* requires *to*. *Espouse* takes a direct object and no preposition (*espouse a view*).
+3. **Step 3: Match the register.** In a formal passage choose the word that fits the sentence, not the longest one: *investigate* fits a report better than *look into*, while *precipitate* only suits a sudden, usually negative result.
 
-## Retaining high-level vocabulary with spaced repetition
+The same word set overlaps with the [Academic Word List guide](/en/blog/academic-word-list/), and the [Academic Word List with meanings](/en/blog/academic-word-list-meanings/) page gives more definitions with collocations.
 
-The fundamental obstacle to mastering advanced vocabulary is the human forgetting curve. Studying 200 words in an intense weekend session leads to rapid decay within 72 hours unless active retrieval schedules are maintained.
+## Keeping the words after the first week
 
-Using spaced repetition algorithms—such as the modern FSRS schedule embedded in Lexkite—ensures that newly introduced academic terms are tested at mathematically optimized intervals. Daily 15-minute review cycles solidify active recall, enabling spontaneous deployment during speaking and writing under test conditions. Explore the learning science behind this in our guide to [active recall for vocabulary](/en/blog/active-recall-for-vocabulary/).
+Cramming a large batch of words in one weekend usually fades quickly unless you retrieve the words again over the following days.
+
+Lexkite schedules each card with FSRS, so words you find hard come back sooner and easy ones later. The article on [active recall for vocabulary](/en/blog/active-recall-for-vocabulary/) explains why trying to recall a word works better than re-reading it.
 
 ## Self-check: academic vocabulary mastery
 
 1. What word meaning "to confirm with supporting evidence" collocates with *empirical findings*?
 2. Which term describes a noticeable and unfair difference between economic groups?
 3. What is the grammatical function of the word *albeit*?
-4. How does spaced repetition prevent vocabulary loss?
+4. Which word means "to make a problem worse"?
 
 **Answers**
 1. **Corroborate** (or **substantiate**).
 2. **Disparity** (*economic disparity*).
 3. **Conjunction** (meaning *although* or *even though*).
-4. **By forcing active retrieval** at expanding intervals just before memory traces decay.
+4. **Exacerbate** (*exacerbate environmental degradation*).
 
 ## Review your vocabulary daily
 
-Do not leave your academic vocabulary to chance. Open the [vocabulary library](/app/#/library) in Lexkite to explore curated academic lists, save high-yield headwords to your personal deck, and consolidate memory traces in daily [spaced repetition review sessions](/app/#/review).
+Open the [vocabulary library](/app/#/library) in Lexkite to browse the Academic Word List sets, save the headwords you want to your deck, and go through them in a daily [review session](/app/#/review).
 
 {{cta: /app/#/review | Start your daily academic vocabulary spaced repetition review}}
 
@@ -159,12 +162,12 @@ Do not leave your academic vocabulary to chance. Open the [vocabulary library](/
 
 ### How many words are in the PTE academic vocabulary list?
 
-While no single official list exists, academic exams draw heavily on the 570 word families of the Academic Word List (AWL) and broader university corpus collocations. Mastering roughly 400 to 600 high-frequency academic roots provides strong coverage across all testing modules.
+Pearson publishes no word list for PTE Academic, so use a well-known academic list such as the AWL (570 word families) plus the collocations you meet in practice texts.
 
 ### Are flashcards effective for computer-based English exams?
 
-Yes. Digital flashcards that emphasize collocations, word forms, and example sentences train your brain to recognize correct syntactic patterns instantaneously during timed computer cloze exercises.
+They can help if each card shows a collocation or an example sentence, not only a definition, because gap-fill tasks test how a word is used.
 
 ### Can I use these vocabulary words in IELTS as well?
 
-Absolutely. High-tier academic vocabulary is universal across both IELTS Academic and PTE Academic. Deploying words like *mitigate*, *substantiate*, and *disparity* appropriately elevates your Lexical Resource mark in any formal examination.
+Yes. Formal academic words such as *mitigate*, *substantiate* and *disparity* are useful in IELTS Academic as well, provided you use them accurately and in the right collocation.

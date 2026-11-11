@@ -195,6 +195,8 @@ Record yourself on your phone, then listen to the model and to your recording on
 
 ![Lexkite practice hub listing games and exercises, including pronunciation practice](media:practice "The practice hub lists pronunciation practice alongside other exercises")
 
+If you are preparing for PTE, our [PTE Read Aloud pronunciation tips](/en/blog/pte-read-aloud-pronunciation/) cover how automated scoring treats pronunciation.
+
 {{cta: /#/pron | Open the pronunciation library and practise your first sound pair}}
 
 {{youtube: | A 10-minute daily routine for English pronunciation}}
@@ -214,7 +216,3 @@ While you speak, you hear your voice partly through the bones of your head, so i
 
 ### Which sound should I work on first?
 Start with the error that changes meaning or causes the most misunderstandings: missing final consonants (*-s*, *-ed*), word stress and the vowel pairs such as *sheep* / *ship*. The *th* sounds matter, but many listeners accept /s/ or /t/ in their place more easily than a wrong stress or a missing ending.
-
-## Computer-based pronunciation and oral fluency
-
-If you are preparing for automated speech recognition assessments, examine our dedicated guide on [PTE Read Aloud pronunciation tips](/en/blog/pte-read-aloud-pronunciation/) to learn how speech algorithms evaluate oral fluency and intonation contours.

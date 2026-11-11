@@ -1,161 +1,177 @@
 ---
 title: "Salary Negotiation Phrases in English: Scripts for Newcomers"
-description: "Salary negotiation phrases in English: counter-offer scripts, negotiating benefits and bonuses, overcoming the lowball trap, and professional email templates."
+description: "Salary negotiation phrases in English for newcomers: what to say to a first offer, asking for time, giving a number, handling no and accepting well."
 slug: salary-negotiation-english-phrases
 lang: en
 translationKey: salary-negotiation-english-phrases
 category: ky-nang
 tags: [newcomers, salary-negotiation, business-english, speaking, career]
 keyword: "salary negotiation phrases in english"
-cover: phrases
-coverAlt: "Lexkite phrase notebook where you save useful phrases and sentence structures"
-publishAt: 2027-02-02T09:15:00+05:30
+cover: practice-learn
+coverAlt: "Lexkite smart-learn card for the phrase come up with, showing its meaning, an example, a memory tip and a common mistake"
+publishAt:
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: cheer, icon: chat, chip: Salary}
 shots: [
-  {id: s1, route: '#/phrases', crop: main},
-  {id: s2, route: '#/placement', crop: main}
+  {id: s1, route: '#/confidence/salary', crop: main},
+  {id: s2, route: '#/phrases', crop: main}
 ]
 diagrams: [
-  {id: d1, type: compare, title: 'Tactical phrases across salary negotiation stages', cols: ['Stage', 'Negotiation Objective', 'Recommended Phrasing', 'Tone & Posture'], rows: [['Initial Inquiry', 'Deflect disclosing current salary too early', 'I would prefer to understand the full scope of responsibilities before discussing numbers.', 'Polite, firm, professional'], ['Counter-Offer', 'Request a higher base compensation', 'Based on market benchmarks for this role, I was targeting a range between...', 'Data-driven, collaborative, confident'], ['Total Rewards', 'Negotiate non-base benefits when salary is capped', 'If the base salary is fixed, could we explore additional vacation days or a signing bonus?', 'Flexible, constructive, diplomatic'], ['Final Agreement', 'Confirm agreed terms in writing', 'I am thrilled to accept the offer as outlined in your revised written agreement.', 'Enthusiastic, decisive, clear']]}
+  {id: d1, type: compare, title: 'Four moments in a salary conversation and a phrase for each', cols: ['Moment', 'Your aim', 'A phrase to use', 'Tone'], rows: [['The offer arrives', 'Show thanks and buy time', 'Thank you, I am excited about this. Could I have a day or two to think it over?', 'Warm, unhurried'], ['You give a number', 'Name a figure with a reason', 'Based on my research, I was hoping for something closer to 96,000.', 'Calm, factual'], ['The base is fixed', 'Look at the rest of the package', 'If the base salary is fixed, could we talk about a signing bonus or extra vacation days?', 'Flexible, constructive'], ['You agree', 'Accept and confirm', 'That sounds fair. Could you send the revised offer in writing?', 'Friendly, clear']]}
 ]
 quiz: [
   {
-    q: "When an HR recruiter asks for your current or previous salary during a first screening call, what is the best strategy?",
-    options: ["Refuse to speak further and hang up the telephone immediately", "Politely deflect to focus on role responsibilities and market benchmarks", "State an exaggerated income figure three times your actual current compensation level", "Provide official personal tax return records and banking statements voluntarily to the recruiter"],
-    answer: 1,
-    explain: "Polite deflection keeps your leverage intact without creating conflict, redirecting the discussion toward the value and responsibilities of the new position."
-  },
-  {
-    q: "If an employer states that the base salary cannot be increased due to strict internal band caps, what should you negotiate next?",
-    options: ["Demand that other employees' salaries be reduced to match your target", "Explore non-base elements: signing bonuses, extra vacation, or review dates", "Accept the offer immediately without asking any further questions about career advancement", "File an immediate legal complaint with the national labour board"],
-    answer: 1,
-    explain: "Negotiating total compensation—such as performance bonuses, relocation stipends, extra annual leave, or an accelerated 6-month salary review—provides valuable upside when base pay is rigid."
-  },
-  {
-    q: "Why should you always request the final negotiated salary offer in writing before resigning from your previous position?",
-    options: ["Verbal promises lack legal protection if budgets change", "Written letters are required for routine passport renewals abroad", "Verbal offers are automatically cancelled after twenty-four hours", "Written agreements prevent employers from paying salaries via bank deposit"],
+    q: "Complete the sentence: 'My manager asked me to ___ over the contract before signing.'",
+    options: ["look", "put", "set", "hold"],
     answer: 0,
-    explain: "Verbal commitments are informal and vulnerable to leadership changes or budget adjustments; a signed formal letter of offer confirms agreed terms legally."
+    explain: "'Look over' means to check something carefully. The other verbs do not form a phrase with this meaning."
+  },
+  {
+    q: "Complete the sentence: 'We were hoping ___ an early start date.'",
+    options: ["on", "at", "with", "for"],
+    answer: 3,
+    explain: "The verb 'hope' takes 'for' before the thing you want."
+  },
+  {
+    q: "An offer says 'a gross salary of 90,000'. What does 'gross' mean?",
+    options: ["paid after tax", "paid by the hour", "paid before tax", "paid by the month"],
+    answer: 2,
+    explain: "A gross salary is the amount before tax and other deductions. The amount you receive after deductions is the net salary."
   }
 ]
 ---
 
-Negotiating compensation in a new country can feel overwhelmingly intimidating for immigrant professionals. Many newcomers worry that asking for higher pay will make them appear ungrateful, risk having their job offer rescinded, or trigger awkward confrontation with their future manager.
+Salary negotiation phrases in English are easiest to learn as a small set for four moments: when the offer arrives, when you name a number, when the answer is no and when you agree. This guide gives you a few lines for each moment, written for people who are new to the country and worried that asking will sound ungrateful.
 
-Consequently, newcomers frequently accept initial offers that are ten to twenty-five percent below market rate. Over a career, this compounding pay gap costs hundreds of thousands of dollars in lost retirement savings, bonuses, and equity.
+Many newcomers accept the first offer because they fear that asking will seem rude. That can leave money on the table, and it can affect later raises too. In Canada, the US, the UK, Australia and New Zealand, a polite question about the offer is a normal part of hiring. The usual order of a negotiation, the pay package and the written follow-up are covered in [salary negotiation in English](/en/blog/salary-negotiation-in-english-guide/). This post is about the first conversation and the particular worries of newcomers.
 
-Mastering tactical **salary negotiation phrases in english** removes the emotional discomfort from compensation talks. In corporate cultures across Canada, the United States, the UK, Australia, and New Zealand, polite negotiation is neither rude nor greedy—it is an expected business norm that demonstrates commercial acumen, self-worth, and executive maturity.
+![](media:@s1 "The salary lesson in the app: a short dialogue with an HR manager about a job offer, a number based on research, flexibility on the base salary and time to think it over")
 
-![Lexkite phrase notebook interface displaying categorized idioms and sentence structures](media:@s1 "The Lexkite phrase notebook: saving conversational phrases, collocations, and communicative structures")
+## Salary negotiation phrases in English for the first offer
 
-## The newcomer lowball trap and why negotiation is expected
+Many employers leave some room to negotiate, but you do not need to know how much. You only need to answer well in the first minute. The aim at this stage is not to say yes or no, but to show thanks and buy time.
 
-Employers routinely extend initial offers at the lower or middle end of their budgeted salary band, leaving room for negotiation. When you accept the initial figure without discussion, the employer simply saves budget—they do not think more highly of you.
+{{diagram: d1 | Four moments in a salary conversation, with an aim and a phrase for each.}}
 
-Negotiating professionally signals three key qualities to your future employer:
-1. **You understand your market value:** You have researched industry standards and know what your technical skills command.
-2. **You possess diplomatic communication skills:** You can advocate for yourself respectfully under pressure—the exact skill needed when negotiating with clients, vendors, or cross-functional stakeholders.
-3. **You are decisive and commercially minded:** Employers respect candidates who negotiate constructively without aggression.
+- *"Thank you so much. I'm really excited about this offer."*
+- *"Could I see the offer in writing?"*
+- *"Could I have a day or two to think it over?"*
+- *"Is there a deadline for my answer?"*
 
-To strengthen your broader conversational range in professional environments, review our comprehensive [business English negotiation phrases guide](/en/blog/business-english-negotiation-phrases-guide/) and our model [samples page](/en/samples/).
+A *day or two* is a normal request. If the recruiter calls and wants an answer on the spot, you can stay polite and still wait: *"I'd like to give you a proper answer. Could I come back to you tomorrow afternoon?"*
 
-{{diagram: d1 | Phases of compensation negotiation, objectives, and phrase scripts.}}
+## First, understand the offer
 
-## Essential salary negotiation phrases in English: telephone and meeting scripts
+Before you give a number, make sure you understand what the number is. Newcomers often misread offers because the words are different in each country.
 
-When delivering a counter-offer verbally, adopt a collaborative, problem-solving posture:
+- **Gross or net.** *Gross* salary is the amount before tax. *Net* is what reaches your bank account. Ask: *"Is that figure gross?"*
+- **Annual or hourly.** *"Is that an annual salary or an hourly rate?"*
+- **Pension.** The retirement plan has different names, such as *401(k)* in the US, *superannuation* in Australia and *KiwiSaver* in New Zealand. Ask: *"Does the offer include an employer contribution to my pension?"*
+- **Probation.** Some contracts start with a *probation period*. Ask: *"Is there a probation period, and how long is it?"*
+- **Leave.** *"How many days of paid leave are included?"*
 
-### 1. The Gracious Opening
-Always begin with genuine enthusiasm for the role and team:
-- *"Thank you so much for extending the offer. I'm truly excited about the prospect of joining the team and leading the cloud migration initiatives we discussed."*
-- *"I really enjoyed meeting the engineering team, and our conversations confirmed that this role is a fantastic mutual fit."*
+Asking these questions does not sound weak. It shows that you read the offer carefully.
 
-### 2. The Anchor and Justification
-Deliver your counter-offer anchored in objective market benchmarks and technical value:
-- *"I've reviewed the formal offer package carefully. Based on current market compensation for Senior Data Analysts in Toronto, as well as the specialized machine learning expertise I bring to this project, I was targeting a base salary closer to ninety-five thousand dollars."*
-- *"Given the scope of the responsibilities—particularly managing five junior engineers across two time zones—is there flexibility to adjust the base compensation to eighty-eight thousand?"*
-- *"If we could bring the base salary to ninety-two thousand, I would be thrilled to sign the offer letter immediately."*
+## Saying the number
 
-### 3. The Power of the Strategic Silence
-After delivering your counter-offer phrase, **stop speaking**. Do not apologize, do not justify further, and do not fill the silence with nervous chatter (*"or whatever you think is fair"*). Wait calmly for the recruiter or hiring manager to respond.
+Once you understand the offer, give a figure and a reason. The reason can be the market, your experience or the size of the role. Start with something positive and keep the sentence short.
 
-If you are preparing for career transition interviews, examine the storytelling strategies in our guide on [job interview English for immigrants](/en/blog/job-interview-english-newcomers/) and [business English meeting phrases](/en/blog/business-english-meeting-phrases-guide/).
+- *"Based on my research, the range for this role is between 90,000 and 100,000. I was hoping for something closer to 96,000."*
+- *"Given that I'd be managing a team of five, would you consider 96,000?"*
+- *"Is there any flexibility on the base salary?"*
 
-![Lexkite placement test screen with grammar and vocabulary questions](media:@s2 "The Lexkite placement test evaluating baseline grammar, syntax, and vocabulary range")
+If the offer is 90,000, a figure of 96,000 sounds realistic, because it stays close enough to the offer. There is no fixed percentage that suits every case. Base your figure on market data for the role, the city and your experience.
 
-## Negotiating total rewards when base salary is capped
+After you have said your number, stop. Do not add *"or whatever you think is fair"*. Silence feels long, but it is normal, and the other person is thinking.
 
-If the hiring manager responds that the base salary is locked due to internal departmental equity caps, do not give up. Pivot immediately to **total compensation**:
+### Where does the market data come from?
 
-### Tactical Counter-Offers Beyond Base Salary
-- **Signing Bonus:** *"I understand that base salary bands are strictly capped. Would the company consider an eight-thousand-dollar one-time signing bonus to help bridge the initial gap?"*
-- **Accelerated Performance Review:** *"If the current base of eighty thousand is fixed, could we formalize a six-month performance review in the contract, with a clear path to an adjustment to eighty-eight thousand based on agreed project milestones?"*
-- **Additional Paid Time Off (PTO):** *"Could we explore adding an extra week of paid annual leave to the standard package?"*
-- **Professional Development Allowance:** *"Would it be possible to include an annual professional development and conference stipend of three thousand dollars?"*
-- **Remote Work Flexibility:** *"Could we formalize a hybrid arrangement allowing for three days of remote work per week?"*
+Say where your number comes from in plain words: *"I looked at salary surveys and similar job posts for this role in Calgary."* You do not need to name every source. What matters is that your number sounds like research, not a wish.
 
-## Formal email template for counter-offering in writing
+![](media:@s2 "The app's phrase notebook: a place to add the phrases and sentences you want to keep")
 
-Delivering a counter-offer by email gives you complete control over tone and syntax. Use this tested template:
+## When the answer is "the base salary is fixed"
 
-> **Subject:** Offer of Employment – Senior Operations Manager – David Chen  
-> 
-> Dear Ms. Albright,  
-> 
-> Thank you very much for offering me the Senior Operations Manager position at Apex Logistics. I am genuinely excited about the opportunity to contribute to your regional expansion and lead the warehouse modernization initiatives we discussed during our interviews.  
-> 
-> I have reviewed the formal terms outlined in the offer letter. Based on my nine years of specialized supply-chain management experience and current industry compensation benchmarks for the Vancouver area, I would like to discuss adjusting the base salary to $96,000.  
-> 
-> I am confident that my background in automating fulfillment workflows and reducing dispatch errors will deliver substantial cost savings to the operations department. If we can reach agreement on this figure, I would be delighted to accept the offer and begin onboarding immediately.  
-> 
-> Thank you again for your time, consideration, and advocacy throughout this process. I look forward to your thoughts.  
-> 
-> Warm regards,  
+Employers sometimes cannot change the base. You can still ask about the rest of the package. Keep the same warm tone.
+
+- *"I understand. If the base salary is fixed, could we talk about a signing bonus?"*
+- *"Could we agree on a salary review after six months?"*
+- *"Would it be possible to have a few more days of paid leave?"*
+- *"Would the company support professional courses or exams?"*
+
+For a newcomer, some items are especially useful: help with moving costs, a start date that gives you time to settle, or support with a professional licence. Ask for one or two things, not a long list.
+
+### If the answer is simply no
+
+You can accept calmly and keep the relationship strong: *"I understand. Thank you for considering it. Could you tell me if there is a chance to review my salary after six months?"* Employers rarely withdraw an offer because of a polite counter-offer, though it can happen. If you would still like the job, a polite *no* is not a reason to leave.
+
+## Agreeing and confirming
+
+When you reach an agreement, say so clearly and ask for the final terms in writing.
+
+- *"That sounds fair. I'm happy to accept the offer."*
+- *"Could you send me the revised offer in writing?"*
+- *"Thank you for working with me on this. I'm looking forward to starting."*
+
+A short email can follow the call. Here is a template you can adapt:
+
+> **Subject:** Offer of Employment – Operations Manager – David Chen
+>
+> Dear Ms Albright,
+>
+> Thank you for the offer and for our conversation today. As we discussed, I am happy to accept the position at a base salary of 92,000 with a signing bonus of 3,000. Could you send the revised offer in writing?
+>
+> Thank you again. I'm looking forward to joining the team.
+>
+> Kind regards,
 > David Chen
 
-Notice how the tone combines gratitude with confident commercial justification. For broader correspondence rules, consult our [guide to writing a formal email](/en/blog/how-to-write-a-formal-email/).
+For more on the structure and tone of a professional email, see [how to write a formal email](/en/blog/how-to-write-a-formal-email/).
 
-## Common salary negotiation mistakes newcomers make
+## Mistakes to avoid
 
-1. **Accepting immediately on the phone:** When an offer is extended verbally, never accept instantly. Always respond with gratitude and request time to review: *"Thank you so much! This is wonderful news. Could you please send over the complete written offer package so I can review the full details over the next forty-eight hours?"*
-2. **Apologizing for negotiating:** Saying *"I'm so sorry to ask this, but..."* undermines your authority. Frame negotiation as an objective commercial alignment, not an emotional favor.
-3. **Focusing on personal living expenses:** Never tell an employer you need more money because your rent is high or your child's daycare is expensive. Employers compensate based on **business value and market rates**, not personal household expenses.
-4. **Failing to confirm in writing:** Always ensure all negotiated elements—signing bonuses, review dates, title changes—appear in the updated written contract before signing.
+1. **Saying yes at once.** Show thanks first, then ask for time.
+2. **Apologising for asking.** *"I'm so sorry to ask, but..."* makes the request sound like a favour. A calm question is enough.
+3. **Giving a personal reason.** *"My rent is high"* is true, but employers decide on the job and the market, so give market reasons instead.
+4. **Skipping the written offer.** A written offer records the agreed terms, so ask for it before you resign from your current job.
 
-## Self-check: salary negotiation tactics
+If you are still preparing for the interview itself, [job interview English for immigrants](/en/blog/job-interview-english-newcomers/) covers the questions that come before the offer. The wider vocabulary of deals and trade-offs is in [business English negotiation phrases](/en/blog/business-english-negotiation-phrases-guide/).
 
-1. What should you say immediately when a job offer is extended over the phone?
-2. If an employer cannot raise the base salary, what non-base benefits can you negotiate?
-3. What is the danger of apologizing when delivering a counter-offer?
-4. Why should you anchor your counter-offer to market data rather than personal living costs?
+## Self-check: salary talk
+
+1. What is the difference between a gross and a net salary?
+2. What can you say when you need time before replying to an offer?
+3. What can you ask about if the base salary is fixed?
+4. Why should you ask for the final offer in writing?
 
 **Answers**
-1. **Express enthusiastic gratitude and request the written package** for review over 24 to 48 hours.
-2. **Signing bonuses, extra vacation days, accelerated 6-month reviews, remote work flexibility, or professional development stipends.**
-3. Apologizing undermines your confidence and signals that you do not truly believe you are worth the higher figure.
-4. **Market data demonstrates objective business value**, whereas personal expenses are irrelevant to company compensation structures.
 
-## Practise professional negotiation dialogues
+1. Gross is before tax, and net is the amount you receive after tax and deductions.
+2. *"Could I have a day or two to think it over?"*
+3. A signing bonus, extra leave, an early salary review or support for training.
+4. A written offer records the agreed terms, so everyone has the same information.
 
-Do not let compensation anxiety hold back your career earnings. Open the [phrase notebook](/app/#/phrases) in Lexkite to store professional salary scripts and counter-offer templates, explore business conversation patterns in our [samples page](/en/samples/), and test your general proficiency with our universal [placement test](/app/#/placement).
+## Practise the conversation out loud
 
-{{cta: /app/#/phrases | Save high-impact salary negotiation phrases to your notebook}}
+It is easier to stay calm when the words are already familiar. The Lexkite [salary lesson](/app/#/confidence/salary) has a short dialogue with an HR manager, including *Based on my research...*, *Is there any flexibility on the base salary?* and *Could I have a day or two to think it over?*, and a role-play you can try aloud. Then save the lines that suit you in your [phrase notebook](/app/#/phrases). More material for speaking practice is in the English [speaking hub](/en/speaking/).
 
-{{youtube: | Suggested video: professional salary negotiation scripts and counter-offer strategies}}
+{{cta: /app/#/confidence/salary | Practise salary phrases in the Lexkite lesson}}
 
 ## Frequently asked questions
 
-### Can an employer revoke a job offer because I tried to negotiate?
+### Can an employer withdraw an offer because I negotiated?
 
-In professional industries across Canada, the US, the UK, Australia, and New Zealand, legitimate companies virtually never revoke an offer simply because a candidate negotiated politely. If a company reacts with anger or rescinds an offer over a respectful counter-offer, it is a major red flag regarding company culture.
+It can happen, but it is uncommon after a polite, well-reasoned question, which is a normal part of hiring in these countries.
 
-### How much higher than the initial offer should I counter?
+### How much higher than the offer should I ask for?
 
-A standard, reasonable counter-offer typically sits between 5% and 12% above the initial base salary offer, provided the figure remains within published market benchmarks for your experience level.
+No single figure suits every case. Use the market data you found, and stay close enough to the offer that your number sounds realistic.
 
-### Should I negotiate if I am completely satisfied with the initial offer?
+### What if I am happy with the offer?
 
-If the initial offer genuinely exceeds your expectations and sits at the top of the market band, you do not have to negotiate base salary. However, you can still ask about minor perks, such as flexible remote schedules or professional development allowances.
+Then accept it warmly. You can still ask a question about the package, for example about start date, training or leave, without making a counter-offer on salary.
+
+{{youtube: | Suggested video: salary negotiation phrases for newcomers}}

@@ -1,6 +1,6 @@
 ---
 title: "English Phrases at the Bank: Accounts, Transfers & Cards"
-description: "English phrases at the bank for newcomers: opening checking accounts, international wire transfers, debit cards, direct deposits, credit and security."
+description: "English phrases at the bank for newcomers: opening a checking account, proof of address, cards, transfers, fees and a charge you do not recognise."
 slug: english-for-newcomers-bank
 lang: en
 translationKey: english-for-newcomers-bank
@@ -8,160 +8,171 @@ category: ky-nang
 tags: [newcomers, everyday-english, speaking, banking, finance]
 keyword: "english phrases at the bank"
 cover: phrases
-coverAlt: "Lexkite phrase notebook where you save useful phrases and sentence structures"
-publishAt: 2027-01-31T09:30:00+05:30
+coverAlt: "Lexkite phrase notebook where you add phrases and sentences, with tags for Task and band"
+publishAt:
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: think, icon: chat, chip: Bank}
 shots: [
-  {id: s1, route: '#/phrases', crop: main},
-  {id: s2, route: '#/placement', crop: main}
+  {id: s1, route: '#/confidence/bank', crop: main}
 ]
 diagrams: [
-  {id: d1, type: compare, title: 'Key banking terminology across English-speaking countries', cols: ['Concept', 'US & Canada', 'UK', 'Australia & NZ'], rows: [['Everyday transactional account', 'Checking account', 'Current account', 'Everyday / Transaction account'], ['Savings account', 'Savings account', 'Savings account / ISA', 'Savings account'], ['Bank routing identifier', 'Routing number (ABA) / Transit number', 'Sort code (6 digits)', 'BSB number (6 digits)'], ['Salary payment mechanism', 'Direct deposit', 'Direct credit / BACS', 'Direct credit / Electronic funds transfer'], ['Bank clerk behind counter', 'Teller', 'Cashier / Customer advisor', 'Teller / Bank consultant']]}
+  {id: d1, type: compare, title: 'Banking words in four English-speaking regions', cols: ['Concept', 'US and Canada', 'UK', 'Australia and NZ'], rows: [['Everyday account', 'Checking account (US), chequing account (Canada)', 'Current account', 'Everyday or transaction account'], ['Code for your bank or branch', 'Routing number (US); transit and institution numbers (Canada)', 'Sort code (6 digits)', 'BSB (6 digits) in Australia; bank-branch-account-suffix numbers in New Zealand'], ['Salary payment', 'Direct deposit', 'Direct credit (BACS)', 'Direct credit'], ['Written payment order', 'Check (US), cheque (Canada)', 'Cheque', 'Cheque'], ['Person at the counter', 'Teller', 'Cashier or customer adviser', 'Teller or bank consultant']]}
 ]
 quiz: [
   {
-    q: "In the UK, what is the six-digit number used to identify a specific bank and branch branch called?",
-    options: ["Transit routing identification number", "Sort code identifying a bank branch", "Routing code clearing number", "SWIFT international transfer code"],
-    answer: 1,
-    explain: "In the UK, the six-digit branch identifier is called a 'sort code', whereas Australia uses a 'BSB number' and the US uses a 'routing number'."
+    q: "A colleague in London wants to pay you by bank transfer and asks for the six-digit number that goes with your account number. What is it called?",
+    options: ["BSB", "routing number", "sort code", "transit number"],
+    answer: 2,
+    explain: "UK banks use a six-digit sort code. BSB is the Australian equivalent, and routing and transit numbers belong to the US and Canada."
   },
   {
-    q: "What is the difference between a checking (current) account and a savings account?",
-    options: ["Checking accounts are only available to corporate businesses", "Checking handles everyday transactions; savings accounts accrue interest", "Savings accounts do not allow any cash withdrawals under national laws", "Both account types share identical interest rates and overdraft structures"],
-    answer: 1,
-    explain: "Checking (or current) accounts are designed for day-to-day debit card payments, bill settlements, and direct deposits, while savings accounts hold funds that accrue interest."
+    q: "A payment on your statement is not one you made. Complete the request: 'I’d like to ___ this charge.'",
+    options: ["deposit", "withdraw", "transfer", "dispute"],
+    answer: 3,
+    explain: "To dispute a charge means to tell the bank you do not accept it and ask it to investigate. The other verbs describe moving money."
   },
   {
-    q: "If an unauthorized charge appears on your debit card statement, what should you tell the bank fraud department?",
-    options: ["I want to cancel all my domestic currency accounts immediately", "I want to dispute an unauthorized charge on my account", "Please deposit extra cash to cover the transaction fees", "I want to apply for a fixed-rate mortgage loan"],
-    answer: 1,
-    explain: "To contest a suspicious or fraudulent transaction, you state: 'I would like to dispute an unauthorized transaction/charge'."
+    q: "You pay for a coffee and the money leaves your account at once. Which kind of card did you use?",
+    options: ["debit", "credit", "charge", "retail"],
+    answer: 0,
+    explain: "A debit card takes money from your own balance straight away. A credit card borrows money that you repay later, and a charge or retail card is also paid afterwards."
   }
 ]
 ---
 
-Opening your first bank account upon arriving in a new country is an essential milestone of financial settlement. From receiving employment paychecks and paying monthly apartment rent to setting up mobile phone contracts, establishing local financial standing requires confident, precise communication.
+If you need only one of the English phrases at the bank to start with, make it this one: *"Hi, I've just moved here and I'd like to open a checking account."* (In the UK, say *current account*; in Canada, *chequing account*.) Most branch visits for newcomers are a variation on that sentence, plus the questions below about documents, fees and cards.
 
-However, banking terminology varies widely across English-speaking regions. What Americans call a *checking account* is a *current account* in London and a *transaction account* in Sydney. Navigating the branch counter using accurate **english phrases at the bank** ensures that your identity verification proceeds smoothly, international transfers reach their destination, and account fees remain transparent.
+The vocabulary changes by country. What Americans call a *checking account* is a *current account* in London and a *transaction account* in Sydney. This guide gives you the phrases in order of use: opening an account, everyday transactions, sending money abroad, problems with charges and, last, building a credit history. Rules differ by bank and country, so treat the phrases as a script and the documents as something to confirm.
 
-![Lexkite phrase notebook interface displaying categorized idioms and sentence structures](media:@s1 "The Lexkite phrase notebook: saving conversational phrases, collocations, and communicative structures")
+![](media:@s1 "The bank lesson in the app: a short dialogue between a customer and a teller about opening an account, fees, a declined card and sending money")
 
-## Essential English phrases at the bank: opening an account
+## English phrases at the bank for opening an account
 
-When entering a retail branch to establish your initial banking relationship, clear, polite phrasing sets a professional tone with customer representatives:
+Be direct and polite. Bank staff hear the same requests every day, so a clear question is better than a long explanation.
 
-### Initial Enquiry and Appointment Booking
-- *"Hi, I've recently moved to the country, and I'd like to open an everyday checking account, please."* (In the UK: *current account*).
-- *"Do I need an appointment to sit down with a personal banker, or do you have walk-in availability today?"*
-- *"Could you explain the monthly maintenance fees and the minimum balance requirements for this account?"*
-- *"Are monthly fees waived if I set up a recurring direct deposit with my employer?"*
+### Starting the conversation
 
-### Providing Identity and Address Verification
-Financial institutions adhere to strict statutory Anti-Money Laundering (AML) and Know Your Customer (KYC) regulations:
-- *"I have my original passport, my permanent residency visa documentation, and my signed lease agreement as proof of residential address."*
-- *"Here is my Social Security Number (US) / Social Insurance Number (Canada) / National Insurance Number (UK) / Tax File Number (Australia)."*
-- *"Could you confirm which documents you accept as secondary proof of address?"*
+- *"Hi, I've just moved to the country and I'd like to open a checking account, please."*
+- *"Do I need an appointment, or can I sit down with someone today?"*
+- *"Could you explain the monthly fees and the minimum balance?"*
+- *"Is the monthly fee waived if my salary is paid directly into this account?"*
 
-To explore language for related settlement tasks, review our practical guide to [English phrases for renting an apartment](/en/blog/english-for-newcomers-renting/) and our model [samples page](/en/samples/).
+### Documents and proof of address
 
-{{diagram: d1 | Comparison of banking terminology across major migration destinations.}}
+Banks have to check who you are before they open an account. What they accept depends on the bank and the country, so ask rather than guess.
 
-## Everyday transactions: deposits, withdrawals and cards
+- *"I have my passport and my visa documents. Which other documents do you need?"*
+- *"Here is my signed lease. Do you also accept a utility bill as proof of address?"*
+- *"Could you confirm which documents you accept as proof of address?"*
+- *"I don't have a tax number yet. Can I open the account and add it later?"*
 
-Once your account is operational, routine counter and customer service interactions follow predictable patterns:
+The tax number has a different name in each country: *Social Security Number* (US), *Social Insurance Number* (Canada), *National Insurance number* (UK), *Tax File Number* (Australia). The lease that many banks ask to see is covered in [English phrases for renting an apartment](/en/blog/english-for-newcomers-renting/).
 
-### Counter Deposits and Withdrawals
-- *"I'd like to deposit this paycheck into my checking account, please."*
-- *"Could I please withdraw three hundred dollars in cash, preferably in twenties?"*
-- *"I'd like to deposit a certified cashier's cheque into my savings account."*
-- *"Could you print out a recent transaction history or statement for my records?"*
+{{diagram: d1 | The same banking ideas have different names in different countries.}}
 
-### Debit Cards, PINs, and Mobile Wallets
-- *"When can I expect my physical debit card to arrive in the post?"*
-- *"Could you help me set up or change the four-digit PIN on my debit card?"*
-- *"Does this debit card support contactless payments and integration with Apple Pay or Google Wallet?"*
-- *"My debit card was swallowed by the ATM outside—what steps should I take to retrieve or cancel it?"*
+## Everyday transactions: cash, cheques and cards
 
-If you are expanding your spoken vocabulary for everyday life, examine how spontaneous scenarios are structured in our [daily English conversation sentences guide](/en/blog/daily-english-conversation-sentences-guide/) and explore healthcare dialogues in [English phrases at the doctor](/en/blog/english-for-newcomers-doctor/).
+After the account is open, most conversations at the counter are short and predictable.
 
-![Lexkite placement test screen with grammar and vocabulary questions](media:@s2 "The Lexkite placement test evaluating baseline grammar, syntax, and vocabulary range")
+### At the counter
 
-## Handling international wire transfers and remittances
+- *"I'd like to deposit this check into my checking account."* (Canada, the UK, Australia and New Zealand spell it *cheque*.)
+- *"Could I withdraw three hundred dollars, mostly in twenties?"*
+- *"Could you print a statement of my recent transactions?"*
+- *"Could you tell me my balance, please?"*
 
-Sending funds across borders—either transferring savings to your new country or sending remittances back home—requires meticulous attention to banking codes:
+### Cards and PINs
 
-### Wire Transfer Terminology
-- **SWIFT / BIC Code:** The 8 or 11-character international code identifying the receiving bank globally.
-- **IBAN (International Bank Account Number):** Standard account formatting used extensively across Europe and the Middle East.
-- **Routing / Transit / Sort Code / BSB:** The domestic clearing code identifying the specific regional bank branch.
+- *"When will my debit card arrive in the mail?"*
+- *"Could you help me set my PIN?"*
+- *"Does this card work for contactless payments and on my phone?"*
+- *"The ATM kept my card. What should I do?"*
+- *"I think I've lost my card. Could you cancel it and send me a new one?"*
 
-### Phrasing for International Transfers
-- *"I need to arrange an incoming international wire transfer from an overseas account."*
-- *"What are your intermediary bank details and SWIFT code for receiving foreign currency?"*
-- *"What exchange rate markup and incoming wire fees does your institution apply to incoming currency transfers?"*
-- *"Could you provide a written direct deposit authorization form that includes my transit and account numbers for my employer's payroll department?"*
+A *debit card* spends your own money at once. A *credit card* lets you borrow up to a limit and repay later, usually with interest if you do not pay in full. Many people in the US and Canada use both, but a debit card is the usual first card for a new account.
 
-## Disputing fees, fraud, and unauthorized charges
+If you want to practise short exchanges like these in a wider range of situations, the [daily English conversation sentences guide](/en/blog/daily-english-conversation-sentences-guide/) is a good next read. For rhythm and politeness when the teller speaks fast, [connected speech in English](/en/blog/connected-speech-in-english/) explains why *Could you* often sounds like *Cud-ya*.
 
-If an unexpected fee or suspicious transaction appears on your digital banking application, prompt communication protects your assets:
+## Sending money abroad
 
-### Addressing Account Fees
-- *"I noticed a fifteen-dollar service charge on my monthly statement; could you clarify what triggered this fee?"*
-- *"I was unaware of the minimum daily balance rule; as a new customer, would it be possible to waive this charge as a one-time courtesy?"*
-- *"Could you opt my account out of overdraft protection so that transactions are declined rather than incurring overdraft fees?"*
+Moving money between countries has its own vocabulary, and the codes are easy to mix up.
 
-### Reporting Fraud or Lost Cards
-- *"I'm calling to report an unauthorized transaction of seventy dollars made at an unfamiliar merchant yesterday."*
-- *"I believe my card has been compromised. Could you freeze the card immediately and issue a replacement?"*
-- *"I would like to formally dispute this charge and initiate a fraud investigation."*
+- **SWIFT or BIC code:** an 8- or 11-character code that identifies a bank in international transfers.
+- **IBAN:** a long account number format used in Europe and many other countries, not in the US, Canada or Australia.
+- **Routing number (US):** a nine-digit code that identifies the bank.
+- **Transit and institution numbers (Canada):** together they identify the bank and branch.
+- **Sort code (UK) and BSB (Australia):** six digits that identify the bank and the branch.
 
-Developing persuasive, polite conversational diplomacy is also central to oral immigration tests; review the strategies detailed in our [CELPIP speaking phrases guide](/en/blog/celpip-speaking-everyday-phrases/) and [IELTS Speaking Part 2 tips](/en/blog/ielts-speaking-part-2-tips/).
+Useful questions:
 
-## Establishing local credit history as a newcomer
+- *"I'm expecting an international transfer from overseas. What details do I give the sender?"*
+- *"What exchange rate will you use, and is there a fee for incoming transfers?"*
+- *"Could you give me a letter with my account details for my employer's payroll team?"*
+- *"How long will the transfer take to arrive?"*
 
-In countries like the US and Canada, your credit score dictates your ability to rent apartments, secure car leases, and obtain favorable mortgage rates:
+## Fees, charges and fraud
 
-- *"Do you offer a secured credit card program designed for newcomers building credit history from scratch?"*
-- *"What is the minimum cash collateral deposit required to open a secured line of credit?"*
-- *"How frequently does your bank report payment history to the major credit reporting bureaus (Equifax and TransUnion)?"*
-- *"After how many months of on-time payments can my account be upgraded to an unsecured card?"*
+Check your statement from time to time. If something looks wrong, say so early and plainly.
 
-Understanding these institutional mechanics eliminates guesswork and accelerates your economic integration.
+### Asking about fees
 
-## Self-check: banking terminology
+- *"I see a fifteen-dollar service charge on my statement. Could you tell me what it is for?"*
+- *"I didn't know about the minimum balance rule. As a new customer, could you waive the fee this time?"*
+- *"Could you switch off overdraft protection, so that payments are declined instead of going into overdraft?"*
 
-1. What is an everyday transactional account called in the United Kingdom?
-2. What does a BSB number identify in Australian banking?
-3. What is the difference between a direct deposit and an overdraft fee?
-4. What document must you provide as proof of residential address when opening an account?
+### Reporting a problem
+
+- *"There's a payment on my account that I don't recognise."*
+- *"I'd like to dispute this charge."*
+- *"I think my card has been compromised. Could you freeze it and send me a replacement?"*
+- *"My card was declined yesterday. Could you check what happened?"*
+
+If you are on the phone, ask for the name of the person you are speaking to and a reference number, then repeat it back: *"Let me check I have that right: the reference is 4471."* Business-style calls follow the same pattern, which is covered in [business phone calls in English](/en/blog/business-phone-calls-in-english-guide/).
+
+## Building a credit history
+
+In countries like the US and Canada, a credit score affects renting, car finance and mortgage rates. Newcomers often start with no history, so these questions are worth asking:
+
+- *"Do you offer a secured credit card for people who are new to the country?"*
+- *"How much is the deposit for a secured card?"*
+- *"Do you report my payments to the credit bureaus?"* (In Canada these are Equifax and TransUnion; in the US there are three, including Experian.)
+- *"After how many months of on-time payments can I move to a regular card?"*
+
+## Self-check: banking words
+
+1. What is an everyday account called in the UK?
+2. What does BSB stand for in Australia?
+3. What is the difference between a debit card and a credit card?
+4. Name two documents that banks often accept as proof of address.
 
 **Answers**
-1. **A current account** (equivalent to a US/Canadian checking account).
-2. **Bank-State-Branch** (the 6-digit code identifying the specific Australian bank branch).
-3. A direct deposit is an electronic credit of funds (e.g. salary), while an overdraft fee is a penalty charged when spending exceeds your balance.
-4. **A formal utility bill, signed tenancy lease agreement, or official government letter** showing your full legal name and street address.
 
-## Build your personal banking phrasebook
+1. A **current account**, equivalent to a checking account in the US and Canada.
+2. **Bank-State-Branch**, a six-digit code.
+3. A debit card spends your own money immediately. A credit card borrows up to a limit that you repay later.
+4. Often a signed lease, a utility bill or an official letter. It depends on the bank, so ask which documents they accept.
 
-Do not let unfamiliar financial jargon create friction at the branch counter. Open the [phrase notebook](/app/#/phrases) in Lexkite to store essential banking dialogues and terminology, and diagnose your baseline English skills with our universal [placement test](/app/#/placement).
+## Practise before you go to the branch
 
-{{cta: /app/#/phrases | Save useful banking and financial phrases to your personal notebook}}
+Reading a list of phrases is not the same as saying them. Practise these lines aloud in the Lexkite [bank lesson](/app/#/confidence/bank), which has a short dialogue and a role-play, then save the ones you need in your [phrase notebook](/app/#/phrases). More speaking material is in the English [speaking hub](/en/speaking/).
 
-{{youtube: | Suggested video: essential English dialogues and vocabulary for banking and financial transactions}}
+{{cta: /app/#/confidence/bank | Practise bank phrases in the Lexkite lesson}}
 
 ## Frequently asked questions
 
-### Can I open a bank account online before arriving in the country?
+### Can I open a bank account before I arrive?
 
-Several major banking groups in Canada, the UK, and Australia permit newcomers to initiate account setup online up to 90 days before landing. However, you must present your passport and visa in person at a physical branch before funds can be withdrawn.
+Sometimes. Some banks let newcomers begin an application online or by phone before they land, though the window and eligibility depend on the bank, your country of residence and your visa. You normally still visit a branch with your passport and visa documents, so check the bank's own newcomer page for current rules.
 
 ### What is the difference between a debit card and a credit card?
 
-A debit card deducts money directly and immediately from your existing checking or current account balance. A credit card borrows money up to a pre-approved credit limit, which you repay monthly, building your domestic credit rating.
+A debit card takes money directly from your account balance. A credit card borrows up to a limit that you repay later, and it can help you build a credit history.
 
-### What should I do if a bank teller speaks too quickly?
+### What if the teller speaks too fast?
 
-Never hesitate to ask for clarity: *"Could you please speak a little more slowly? I want to make sure I understand all the account conditions correctly."* Bank staff are accustomed to serving international customers and are happy to assist.
+Ask politely: *"Could you speak a little more slowly, please? I want to make sure I understand the conditions."* Bank staff are used to customers from other countries and will usually repeat or write things down.
+
+{{youtube: | Suggested video: essential English dialogues for the bank}}

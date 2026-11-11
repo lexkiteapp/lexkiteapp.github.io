@@ -194,7 +194,7 @@ For more everyday scripts, see [daily English conversation sentences](/en/blog/d
 
 ## Practise before the real conversation
 
-Reading is not the same as speaking under pressure. Open the [renting lesson](/app/#/confidence/renting) in Lexkite and read the landlord dialogue aloud, then try the lines without looking. Then save the polite openers you want to remember, such as *Could you…?* and *Would it be possible to…?*, in your [phrase notebook](/app/#/phrases).
+Reading is not the same as speaking under pressure. Open the [renting lesson](/app/#/confidence/renting) in Lexkite and read the landlord dialogue aloud, then try the lines without looking. Then save the polite openers you want to remember, such as *Could you…?* and *Would it be possible to…?*, in your [phrase notebook](/app/#/phrases). Once you are settled in, the same approach works at the [doctor](/en/blog/english-for-newcomers-doctor/) and at the [bank](/en/blog/english-for-newcomers-bank/).
 
 {{cta: /app/#/confidence/renting | Practise a real renting conversation, out loud, before the viewing}}
 
@@ -213,11 +213,3 @@ In Australia and New Zealand, a *bond* is the money you pay as security at the s
 ### What does "bills included" mean?
 
 It means the rent includes some or all of the household bills, such as water, electricity, gas and internet. It may not mean all of them, so ask which ones.
-
-## Newcomer communication across essential settlement services
-
-Beyond finding a home, settling into a new community involves mastering English across daily civic and commercial systems:
-- Healthcare: [English phrases at the doctor](/en/blog/english-for-newcomers-doctor/)
-- Banking and finance: [English phrases at the bank](/en/blog/english-for-newcomers-bank/)
-- Career and employment: [Job interview English for immigrants](/en/blog/job-interview-english-newcomers/) and [Salary negotiation phrases in English](/en/blog/salary-negotiation-english-phrases/)
-- Canadian migration tests: [CELPIP speaking phrases](/en/blog/celpip-speaking-everyday-phrases/)

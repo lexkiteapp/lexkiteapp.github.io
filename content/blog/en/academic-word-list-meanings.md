@@ -1,6 +1,6 @@
 ---
 title: "Academic Word List with Meanings: 10 Sublist Guide"
-description: "Academic word list with meanings: 10 sublists explained, high-frequency word families, definitions, example sentences, collocations and study roadmap."
+description: "Academic word list with meanings: 10 sublists explained, high-frequency word families, definitions, typical collocations and a five-week study plan."
 slug: academic-word-list-meanings
 lang: en
 translationKey: academic-word-list-meanings
@@ -8,166 +8,184 @@ category: tu-vung
 tags: [awl, academic-vocabulary, vocabulary, ielts, toefl]
 keyword: "academic word list with meanings"
 cover: library
-coverAlt: "Lexkite Vocabulary library with tabs for all words, NGSL core vocabulary, IELTS topics, Writing, Speaking and TOEIC"
-publishAt: 2027-02-04T08:45:00+05:30
+coverAlt: "Lexkite vocabulary library with tabs for all words, core NGSL, IELTS by topic, Writing, Speaking and TOEIC, and numbered core word sets with levels"
+publishAt:
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: think, icon: book, chip: AWL Families}
 shots: [
   {id: s1, route: '#/review', crop: main},
-  {id: s2, route: '#/library', crop: main}
+  {id: s2, route: '#/dict/analyse', crop: main}
 ]
 diagrams: [
-  {id: d1, type: compare, title: 'Sample high-yield AWL word families across sublists', cols: ['Headword', 'Sublist', 'Word Family Members', 'Academic Definition & Collocation'], rows: [['Analyse', 'Sublist 1', 'analysis, analyst, analytical, analytically', 'To examine methodically: *analyse empirical trends*'], ['Constitute', 'Sublist 1', 'constituency, constituent, constitution', 'To combine to form a whole: *constitute a majority*'], ['Establish', 'Sublist 1', 'establishment, established, establishing', 'To set up on a firm basis: *establish clear protocols*'], ['Coherent', 'Sublist 9', 'coherence, incoherence, coherently', 'Logical and consistent: *present a coherent argument*'], ['Intrinsic', 'Sublist 10', 'intrinsically', 'Belonging naturally; essential: *intrinsic motivation*']]}
+  {id: d1, type: compare, title: 'Sample AWL word families across sublists', cols: ['Headword', 'Sublist', 'Word Family Members', 'Academic Definition & Collocation'], rows: [['Analyse', 'Sublist 1', 'analysis, analyst, analytical, analytically', 'To examine methodically: *analyse empirical trends*'], ['Constitute', 'Sublist 1', 'constituency, constituent, constitution', 'To combine to form a whole: *constitute a majority*'], ['Establish', 'Sublist 1', 'establishment, established, establishing', 'To set up on a firm basis: *establish clear protocols*'], ['Coherent', 'Sublist 9', 'coherence, incoherence, coherently', 'Logical and consistent: *present a coherent argument*'], ['Intrinsic', 'Sublist 10', 'intrinsically', 'Belonging naturally; essential: *intrinsic motivation*']]}
 ]
 quiz: [
   {
-    q: "How is the Academic Word List (AWL) organized across its 570 headword families?",
-    options: ["Alphabetically from A to Z across fifty chapters", "Into 10 sublists by frequency, with Sublist 1 being most common", "By difficulty level matching CEFR grades from A1 to C2", "Separated by scientific subject into biology, physics and law"],
-    answer: 1,
-    explain: "Averil Coxhead organized the 570 headword families into 10 sublists, with Sublist 1 containing the most frequent academic families and Sublist 10 containing the least frequent."
+    q: "Which word completes the sentence: 'The report was easy to follow because every point followed logically from the last, so the whole argument felt ___.'",
+    options: ["adjacent", "ambiguous", "subordinate", "coherent"],
+    answer: 3,
+    explain: "Coherent means logical and consistent, which is what makes a report easy to follow."
   },
   {
-    q: "Why is learning entire 'word families' superior to memorizing individual single words?",
-    options: ["Examiners deduct marks if you only know one word form", "Learning related forms together prevents frequent word-form errors", "Word families automatically double your reading speed by twenty percent", "Single words are excluded from university corpus databases"],
+    q: "Which word completes the sentence: 'From the empty shelves, we can ___ that the shop sold out.'",
+    options: ["allocate", "infer", "advocate", "enhance"],
     answer: 1,
-    explain: "Studying word families (e.g. analyse, analysis, analytical) allows you to deploy the correct grammatical form seamlessly, eliminating frequent word-form mistakes in writing."
+    explain: "Infer means to reach a conclusion from evidence, which is what the empty shelves allow."
   },
   {
-    q: "Which sublist of the Academic Word List provides the highest statistical return on study time?",
-    options: ["Sublist 10, because it contains the rarest academic terminology", "Sublist 1, containing the sixty most common academic families", "Sublist 5, which focuses exclusively on business management vocabulary", "Sublists are completely random and share identical frequency rankings"],
-    answer: 1,
-    explain: "Sublist 1 contains the 60 most common word families found across university-level corpora, delivering the greatest immediate return on investment for academic exams."
+    q: "In which sentence is 'approach' used as a verb?",
+    options: ["They approach the border at dawn.", "Her approach to grammar is unusual.", "This approach has two main benefits.", "An approach based on data is best."],
+    answer: 0,
+    explain: "Only here does approach name an action with a subject and an object; in the others it is a noun."
   }
 ]
 ---
 
-Mastering academic English is not about memorizing arcane, obscure terminology that scholars rarely use. Rather, true academic literacy depends on understanding the shared core vocabulary that unites scientific research, economic analysis, legal scholarship, and social commentary.
+This academic word list with meanings defines 36 representative AWL families, 24 from Sublists 1 to 5 and 12 more from Sublists 6 to 10, each with a typical use you can adapt in your own writing. For the overview of the list itself (who compiled it, how it was built and how much text it covers), read the [Academic Word List guide](/en/blog/academic-word-list/); this page is for meanings and phrases, and it suits IELTS Academic, TOEFL iBT and university reading.
 
-Compiled by linguist Averil Coxhead from a corpus of 3.5 million words of academic prose, the 570 word families of the Academic Word List represent roughly 10% of all running words in university-level texts. Exploring the **academic word list with meanings** provides you with high-frequency root families, contextual definitions, and collocations essential for IELTS Academic, TOEFL iBT, and university coursework.
+![](media:@s1 "The review screen of the app: a card with its picture and phonetics, a flip button and a progress bar for the cards left")
 
-![Lexkite flashcard review session displaying word cards and phonetic details](media:@s1 "A flashcard review session in the app: card with definition, phonetic transcription, and spaced repetition review buttons")
+## How to read the entries
 
-## Structure of the Academic Word List: 10 Sublists explained
-
-The 570 headwords are structured into **ten sublists**, ranked strictly by frequency and breadth of occurrence across four broad disciplines: arts, commerce, law, and science:
-
-- **Sublists 1 to 9:** Contain exactly 60 headword families each.
-- **Sublist 10:** Contains the remaining 30 headword families.
-- **Sublist 1** holds the most frequent academic word families in the language. Words like *approach*, *create*, *data*, *factor*, and *significant* reside here.
-- As you progress toward **Sublist 10**, words become less universally distributed, although they remain vital for formal research (e.g., *adjacent*, *colleague*, *intrinsic*).
+Sublist 1 holds the most frequent families, such as *approach*, *create*, *data*, *factor* and *significant*. By Sublist 10 the words are less frequent, but they stay useful in formal writing (*adjacent*, *colleague*, *intrinsic*). The table shows how one headword stands for a whole family.
 
 {{diagram: d1 | Sample AWL word families, sublists, derivatives, and definitions.}}
 
-## Why studying word families prevents score penalties
+## Learn the family, not only the headword
 
-A **word family** consists of a base headword plus its inflections and transparent derivations:
+Each headword stands for a family, so *derive* also brings *derivation* and *derivative*. The [Academic Word List guide](/en/blog/academic-word-list/) explains word families and the typical form errors; to practise the forms in context, see [how to learn IELTS vocabulary](/en/blog/how-to-learn-ielts-vocabulary/).
 
-| Headword | Noun Form | Verb Form | Adjective Form | Adverb Form |
-| :--- | :--- | :--- | :--- | :--- |
-| **Analyse** | analysis, analyst | analyse | analytical, analytic | analytically |
-| **Economy** | economy, economics | economize | economic, economical | economically |
-| **Signify** | significance | signify | significant, insignificant | significantly |
+![](media:@s2 "A dictionary entry in Lexkite with UK and US phonetics, audio, meaning, example sentences, collocations, synonyms and a save-flashcard button")
 
-The most frequent error in international writing exams is using the incorrect word form:
-- *Incorrect:* *"The country experienced a rapid economic develop."* (Using a verb instead of a noun).
-- *Correct:* *"The country experienced rapid economic **development**."*
+## The academic word list with meanings, sublist by sublist
 
-When you study an AWL headword, you must actively learn its primary derivatives. For deeper analysis of lexical ranges, compare these headwords with our foundational guide to the [Academic Word List](/en/blog/academic-word-list/) and our model [samples page](/en/samples/).
+Sublists are frequency bands, not topics, so the groups below carry no theme. Each entry gives a definition and a typical use; five sublists come first, then a short pick from the rest. The numbers run from 1 to 36.
 
-![Lexkite vocabulary library interface organized by topics and levels](media:@s2 "The Lexkite vocabulary library: exploring academic word lists, topic vocabulary, and CEFR levels")
-
-## Exploring the academic word list with meanings: Sublist 1 to 5 highlights
-
-Below are key high-yield word families with definitions and collocations across the top sublists:
-
-### Sublist 1: Fundamental Academic Building Blocks
+### Sublist 1: the most frequent families
 1. **Approach** (*noun/verb*): A way of dealing with a situation, or to come near.  
-   *Collocation: adopt a multidisciplinary approach.*
+   *Typical use: adopt a different approach.*
 2. **Constitute** (*verb*): To be considered to be something, or to combine to form a whole.  
-   *Collocation: constitute a major threat to public health.*
+   *Typical use: constitute a threat to public health.*  
+   Watch out: *constitute* takes a direct object (*women constitute half the workforce*), so do not add *of*; *consist of* is the verb that needs *of*.
 3. **Context** (*noun*): The circumstances that form the setting for an event or statement.  
-   *Collocation: examine findings within a broader social context.*
+   *Typical use: in a historical context.*
 4. **Derive** (*verb*): To obtain or develop something from an original source.  
-   *Collocation: derive substantial benefits from technological innovation.*
+   *Typical use: derive benefit from regular practice.*  
+   Watch out: the passive is followed by *from* (*be derived from*), not *of*.
 5. **Establish** (*verb*): To set up on a firm or permanent basis; to prove definitively.  
-   *Collocation: establish empirical correlation.*
+   *Typical use: establish a link between two things.*
 6. **Factor** (*noun*): A circumstance, fact, or influence that contributes to a result.  
-   *Collocation: a decisive contributing factor.*
-7. **Indicate** (*verb*): To point out, show, or suggest the necessity of.  
-   *Collocation: preliminary observations indicate a downward trend.*
-8. **Significant** (*adjective*): Sufficiently great or important to be worthy of attention.  
-   *Collocation: statistically significant variance.*
+   *Typical use: a key factor.*  
+   Watch out: a factor is *a factor in* something, not *a factor of* it.
+7. **Indicate** (*verb*): To show or point to something.  
+   *Typical use: figures indicate a downward trend.*
+8. **Significant** (*adjective*): Important or large enough to matter.  
+   *Typical use: a statistically significant difference.*  
+   Watch out: the noun is *significance*, and the adverb *significantly* is the one that modifies verbs and adjectives.
 
-### Sublist 2: Structural and Methodological Terms
+### Sublist 2
 9. **Acquire** (*verb*): To buy or obtain for oneself; to learn or develop.  
-   *Collocation: acquire language proficiency through immersion.*
+   *Typical use: acquire new skills.*
 10. **Aspect** (*noun*): A particular part or feature of something.  
-    *Collocation: evaluate multiple aspects of the problem.*
+    *Typical use: one aspect of the problem.*
 11. **Evaluate** (*verb*): To assess or judge the quality, importance, or value of something.  
-    *Collocation: rigorously evaluate clinical efficacy.*
+    *Typical use: evaluate the evidence.*
 12. **Maintain** (*verb*): To cause or enable a condition or state of affairs to continue.  
-    *Collocation: maintain operational stability under stress.*
+    *Typical use: maintain high standards.*
 13. **Primary** (*adjective*): Of chief importance; principal.  
-    *Collocation: the primary objective of this investigation.*
+    *Typical use: the primary cause of the delay.*
 14. **Relevant** (*adjective*): Closely connected or appropriate to what is being done or considered.  
-    *Collocation: gather relevant empirical data.*
+    *Typical use: relevant information.*  
+    Watch out: *relevant to*, not *relevant with*.
 
-### Sublist 3: Analytical and Comparative Terms
+### Sublist 3
 15. **Alternative** (*adjective/noun*): Available as another possibility or choice.  
-    *Collocation: propose a viable alternative framework.*
+    *Typical use: a viable alternative.*  
+    Watch out: *alternative* is followed by *to* (*an alternative to cars*); *alternate* is a different word meaning every second one.
 16. **Circumstance** (*noun*): A condition connected to an event or action.  
-    *Collocation: under exceptional circumstances.*
+    *Typical use: under exceptional circumstances.*
 17. **Demonstrate** (*verb*): To clearly show the existence or truth of something by evidence.  
-    *Collocation: demonstrate substantial efficacy.*
+    *Typical use: demonstrate the effectiveness of a treatment.*
 18. **Illustrate** (*verb*): To make clear by using examples, charts, or graphs.  
-    *Collocation: the accompanying chart illustrates demographic shifts.*
+    *Typical use: the chart illustrates the main trends.*
 19. **Outcome** (*noun*): The way a thing turns out; a consequence.  
-    *Collocation: anticipate measurable long-term outcomes.*
+    *Typical use: a positive outcome.*
 
-### Sublist 4 & 5: Complex Conceptual Headwords
+### Sublists 4 and 5
 20. **Apparent** (*adjective*): Clearly visible or understood; seeming real.  
-    *Collocation: it became readily apparent that...*
+    *Typical use: it soon became apparent that the plan had failed.*
 21. **Hypothesis** (*noun*): A proposed explanation made on the basis of limited evidence as a starting point.  
-    *Collocation: substantiate a testable hypothesis.*
+    *Typical use: formulate a testable hypothesis.*  
+    Watch out: the plural is *hypotheses*, not *hypothesises*.
 22. **Mechanism** (*noun*): A system of parts working together; a process by which something takes place.  
-    *Collocation: the underlying regulatory mechanism.*
-23. **Parameters** (*noun*): A numerical or other measurable factor forming one of a set that defines a system.  
-    *Collocation: establish strict experimental parameters.*
+    *Typical use: an underlying mechanism.*
+23. **Parameter** (*noun*): A numerical or other measurable factor forming one of a set that defines a system.  
+    *Typical use: within certain parameters.*  
+    Watch out: do not mix it up with *perimeter*, the outer edge of an area.
 24. **Sustainable** (*adjective*): Able to be maintained at a certain rate or level; ecologically sound.  
-    *Collocation: formulate sustainable economic policies.*
+    *Typical use: sustainable development.*
 
-To examine how academic vocabulary functions in specialized testing, compare these items with our [PTE academic vocabulary list](/en/blog/pte-academic-vocabulary-list/) and our grammatical guide on [confusing words affect vs effect meaning](/en/blog/confusing-words-affect-effect-meaning/).
+### Sublists 6 to 10: a short selection
+25. **Allocate** (*verb, Sublist 6*): To distribute resources or duties for a particular purpose.  
+    *Typical use: allocate resources to schools.*
+26. **Diverse** (*adjective, Sublist 6*): Showing a great deal of variety.  
+    *Typical use: a culturally diverse population.*
+27. **Enhance** (*verb, Sublist 6*): To improve the quality or value of something.  
+    *Typical use: enhance performance.*
+28. **Advocate** (*verb, Sublist 7*): To publicly support a policy or course of action.  
+    *Typical use: advocate a tax on sugary drinks.*  
+    Watch out: the noun *advocate* is pronounced with a different last syllable from the verb.
+29. **Eliminate** (*verb, Sublist 7*): To remove or get rid of something completely.  
+    *Typical use: eliminate the risk of error.*
+30. **Infer** (*verb, Sublist 7*): To reach a conclusion from evidence rather than from a direct statement.  
+    *Typical use: it can be inferred from the data that sales fell.*  
+    Watch out: a writer *implies* and a reader *infers*; the data cannot "infer" anything.
+31. **Ambiguous** (*adjective, Sublist 8*): Having more than one possible meaning.  
+    *Typical use: an ambiguous answer.*
+32. **Coherent** (*adjective, Sublist 9*): Logical and consistent; easy to follow.  
+    *Typical use: present a coherent argument.*
+33. **Subordinate** (*adjective, Sublist 9*): Lower in rank or importance.  
+    *Typical use: a subordinate role.*
+34. **Adjacent** (*adjective, Sublist 10*): Next to or adjoining something.  
+    *Typical use: a room adjacent to the kitchen.*  
+    Watch out: *adjacent to*, not *adjacent with*.
+35. **Colleague** (*noun, Sublist 10*): A person you work with.  
+    *Typical use: ask a colleague for feedback.*  
+    Watch out: a *colleague* is a coworker, not a *college*; the spelling ends in *-ague*.
+36. **Intrinsic** (*adjective, Sublist 10*): Belonging to the nature of something; built in.  
+    *Typical use: intrinsic motivation.*
 
-## Strategic study plan: master the AWL sublist by sublist
+## A five-week plan for the words above
 
-Attempting to memorize all 570 families in a single week causes cognitive overload and swift forgetting. Adopt this progressive 5-week study roadmap:
+Trying to learn every word on this page in one week is hard to sustain. A five-week plan spreads the work out:
 
-1. **Week 1 (Sublists 1 & 2):** Master the 120 highest-frequency families. Write original sentences highlighting derivative forms (*analyze → analytical*).
-2. **Week 2 (Sublists 3 & 4):** Focus on academic contrastive linkers and research verbs (*correlate, demonstrate, illustrate*).
-3. **Week 3 (Sublists 5 & 6):** Target technical discourse terms and abstract concepts (*infrastructure, paradigm, methodology*).
-4. **Week 4 (Sublists 7 & 8):** Build nuance around formal evaluation words (*advocate, eliminate, infer, comprehensive*).
-5. **Week 5 (Sublists 9 & 10):** Polish high-register modifiers (*coherent, intrinsic, subordinate*).
+1. **Week 1 (Sublists 1 & 2):** Write one original sentence for each of the 14 words in Sublists 1 and 2 above, using a derived form where it fits (*derive → derivation*).
+2. **Week 2 (Sublists 3 to 5):** Write one original sentence for each of nine words: *alternative, circumstance, demonstrate, illustrate, outcome, apparent, hypothesis, mechanism, parameter*. Use *demonstrate*, *illustrate* and *hypothesis* in sentences about a study or a chart.
+3. **Week 3 (Sublists 5 & 6):** Take *sustainable, allocate, diverse, enhance* and write one original sentence for each.
+4. **Week 4 (Sublists 7 and 8):** Work on *advocate, eliminate, infer, ambiguous* in short sentences about an article you have read.
+5. **Week 5 (Sublists 9 & 10):** Use *coherent, subordinate, adjacent, colleague, intrinsic* in short paragraphs.
 
-Reviewing newly acquired headwords on a spaced retrieval schedule prevents memory decay; see our principles in [active recall for vocabulary](/en/blog/active-recall-for-vocabulary/).
+Reviewing new headwords after a few days, then again after a week, helps them stick; the [active recall for vocabulary](/en/blog/active-recall-for-vocabulary/) article explains how to test yourself rather than just re-read. If you also sit PTE Academic, the [PTE academic vocabulary list](/en/blog/pte-academic-vocabulary-list/) uses a different set of words, and the [vocabulary hub](/en/vocabulary/) has topic lists.
 
 ## Self-check: academic word family identification
 
 1. What is the noun form of the verb *derive*?
 2. Which sublist contains the most frequent academic families?
-3. What is the difference between *economic* and *economical*?
-4. Complete the collocation: *Preliminary evidence seems to _______ a positive correlation.*
+3. Which part of speech is *coherent*?
+4. Which verb from Sublist 1 means "to point out or show"?
 
 **Answers**
 1. **Derivation** (or **derivative**).
 2. **Sublist 1.**
-3. *Economic* relates to the economy or finances (*economic policy*), whereas *economical* means avoiding waste or saving money (*an economical vehicle*).
-4. **indicate** (or **suggest / demonstrate**).
+3. An adjective (the noun is *coherence*, the adverb *coherently*).
+4. **indicate**.
 
-## Solidify academic vocabulary with spaced repetition
+## Keep the words fresh with spaced review
 
-Reading word lists passively leads to rapid decay. Open the [vocabulary library](/app/#/library) in Lexkite to explore organized AWL sublists, save target headwords to your personal deck, and consolidate memory traces in daily [spaced repetition review sessions](/app/#/review).
+Reading a word list once is rarely enough. Find the Academic Word List group (Sublists 1 to 10) in the [vocabulary library](/app/#/library), save target headwords to your personal deck and review them in daily [spaced repetition review sessions](/app/#/review).
 
 {{cta: /app/#/review | Start your daily Academic Word List spaced repetition practice}}
 
@@ -177,12 +195,12 @@ Reading word lists passively leads to rapid decay. Open the [vocabulary library]
 
 ### Is the Academic Word List enough for IELTS Academic?
 
-The AWL covers roughly 10% of academic texts, representing the shared cross-disciplinary core. To achieve Band 7.5 or 8.0, you should pair the AWL with topic-specific vocabulary (environment, technology, education) and idiomatic collocations.
+The AWL is a shared cross-disciplinary core, not a full academic vocabulary. For Writing Task 2 and academic Reading, pair the AWL with topic vocabulary (environment, technology, education) and natural collocations.
 
 ### What is the difference between NGSL and AWL?
 
-The New General Service List (NGSL) covers the 2,800 most frequent everyday words in general English (roughly 90% of daily text), while the AWL covers the specialized academic tier required for university textbooks and research papers.
+The New General Service List (NGSL) covers about 2,800 of the most frequent everyday words in general English (most of what you meet in everyday text), while the AWL covers the academic tier required for university textbooks and research papers.
 
 ### How do I learn spelling for long academic words?
 
-Break long derivatives down into prefixes (*in-*, *sub-*), roots (*-stitut-*, *-struct-*), and suffixes (*-tion*, *-ical*, *-ly*). Understanding morphological construction eliminates spelling guesswork.
+Break long derivatives down into prefixes (*in-*, *sub-*), roots (*-stitut-*, *-struct-*), and suffixes (*-tion*, *-ical*, *-ly*). Knowing the parts makes long words easier to spell.

@@ -51,7 +51,7 @@ A note before we start: this is language-test guidance, not legal advice, and no
 
 IELTS comes in three forms that matter for migration.
 
-**IELTS General Training** has the same Listening and Speaking as Academic, but Reading uses everyday and workplace texts and Writing Task 1 is a letter instead of a graph description. Task 2 is an essay in both versions. Canada's Express Entry accepts only this version.
+**IELTS General Training** has the same Listening and Speaking as Academic, but Reading uses everyday and workplace texts and Writing Task 1 is a letter instead of a graph description. Task 2 is an essay in both versions. Canada's Express Entry accepts only this version. If you are heading that way, our guide to the [General Training letter for newcomers](/en/blog/ielts-general-letter-newcomers/) shows how Task 1 works with real-life scenarios.
 
 **IELTS Academic** uses academic texts in Reading and asks you to describe a chart, table or process in Writing Task 1. It is built for university entry, and some migration systems accept it, but you must check before choosing.
 
@@ -148,7 +148,7 @@ Lexkite is a practice tool. It does not predict your official band or replace th
 
 ## More detail by destination
 
-For Canada, the [IELTS to CLB conversion](/en/blog/ielts-clb-score-canada/) guide reproduces IRCC's full General Training chart and shows how to read your own result against it. For the UK, Australia and New Zealand, use the official pages linked above and the booking rule in Step 1.
+For Canada, the [IELTS to CLB conversion](/en/blog/ielts-clb-score-canada/) guide reproduces IRCC's full General Training chart and shows how to read your own result against it. For the other destinations, see [IELTS score for Australia PR](/en/blog/ielts-score-australia-pr/), [IELTS for New Zealand residence](/en/blog/ielts-new-zealand-skilled-migrant/) and [IELTS for UKVI explained](/en/blog/ielts-ukvi-explained/), and use the official pages linked above and the booking rule in Step 1. If you are still choosing a test, start with [General vs Academic](/en/blog/ielts-general-vs-academic-immigration/).
 
 ## Self-check
 
@@ -183,13 +183,3 @@ Do not assume you can. Australia said fully remote-proctored tests were not acce
 ### Do I need a separate test for each country?
 
 Not always. A single IELTS result might satisfy more than one system if the version and scores fit and the result is still valid for each. But rules differ, for example General Training only for Express Entry, so confirm each one separately.
-
-## Exploring specific country rules and test variants
-
-Depending on your migration destination, examine our focused spoke guides for granular requirements:
-- Choosing between test versions: [IELTS General vs Academic for immigration](/en/blog/ielts-general-vs-academic-immigration/)
-- Point thresholds for Australia: [IELTS score for Australia PR](/en/blog/ielts-score-australia-pr/)
-- Secure UK visas: [IELTS for UKVI explained](/en/blog/ielts-ukvi-explained/)
-- New Zealand points benchmarks: [IELTS score for New Zealand residence](/en/blog/ielts-new-zealand-skilled-migrant/)
-- General Training letter strategies: [IELTS General Training Task 1 for migrants](/en/blog/ielts-general-letter-newcomers/)
-- Comparing tests: [PTE vs IELTS for Australia](/en/blog/pte-vs-ielts-australia/) and [CELPIP vs IELTS for Canada](/en/blog/celpip-vs-ielts-canada/)

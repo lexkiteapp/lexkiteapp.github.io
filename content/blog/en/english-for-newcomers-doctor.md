@@ -1,182 +1,185 @@
 ---
 title: "English Phrases at the Doctor: Symptoms, Pain & Medication"
-description: "English phrases at the doctor for newcomers: booking appointments, describing pain levels, explaining symptoms, pharmacy terms and emergency phrases."
+description: "English phrases at the doctor for newcomers: booking, describing pain, explaining symptoms, understanding the pharmacist and what to say in an emergency."
 slug: english-for-newcomers-doctor
 lang: en
 translationKey: english-for-newcomers-doctor
 category: ky-nang
 tags: [newcomers, everyday-english, speaking, health, healthcare]
 keyword: "english phrases at the doctor"
-cover: phrases
-coverAlt: "Lexkite phrase notebook where you save useful phrases and sentence structures"
-publishAt: 2027-01-30T10:20:00+05:30
+cover: pron
+coverAlt: "Lexkite IPA pronunciation library with vowels, diphthongs and consonants, example words and practice for each sound"
+publishAt:
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: think, icon: chat, chip: Doctor}
 shots: [
-  {id: s1, route: '#/phrases', crop: main},
-  {id: s2, route: '#/placement', crop: main}
+  {id: s1, route: '#/confidence/doctor', crop: main},
+  {id: s2, route: '#/phrases', crop: main}
 ]
 diagrams: [
-  {id: d1, type: compare, title: 'Types of pain and medical descriptors', cols: ['Pain Descriptor', 'Physical Sensation', 'Typical Context', 'Example Sentence'], rows: [['Sharp / Stabbing', 'Intense, piercing, sudden', 'Muscle tears, fractures, acute injuries', 'I feel a sharp stabbing pain when I breathe in deeply.'], ['Dull / Aching', 'Continuous, mild to moderate, throbbing', 'Chronic back pain, tension headaches', 'There is a persistent dull ache across my lower back.'], ['Burning / Stinging', 'Heat, acid, or surface inflammation', 'Acid reflux, rashes, nerve irritation', 'I have a burning sensation in my chest after meals.'], ['Throbbing / Pulsing', 'Rhythmic pounding sensation', 'Severe migraines, toothaches, infections', 'My temple has been throbbing constantly since yesterday.']]}
+  {id: d1, type: compare, title: 'Words for different kinds of pain', cols: ['Word', 'What it feels like', 'Where you might hear it', 'Example sentence'], rows: [['Sharp / stabbing', 'Sudden, intense, piercing', 'Muscle strain, injuries', 'I feel a sharp pain in my side when I bend down.'], ['Dull / aching', 'Constant, mild to moderate, heavy', 'Lower back, tension headaches', 'There is a dull ache across my lower back.'], ['Burning / stinging', 'Heat or rawness', 'Heartburn, rashes', 'I have a burning feeling in my chest after meals.'], ['Throbbing', 'Pounding, like a pulse', 'Toothache, migraine', 'My tooth has been throbbing since last night.'], ['Tender', 'Hurts only when touched', 'Swelling, bruises', 'My ankle is swollen and tender to the touch.']]}
 ]
 quiz: [
   {
-    q: "Which sentence most accurately describes a continuous, low-level headache that will not go away?",
-    options: ["I have a sudden sharp piercing pain behind my eyes", "I have had a persistent dull ache in my head all morning", "My foot is experiencing intermittent stinging sensations", "I am suffering from acute allergic reactions"],
-    answer: 1,
-    explain: "'Dull ache' is the natural medical descriptor for a continuous, moderate discomfort or tension headache."
+    q: "Your wrist hurts only when someone presses on it. Which word describes this best?",
+    options: ["sharp", "throbbing", "burning", "tender"],
+    answer: 3,
+    explain: "Tender means painful when touched or pressed. The other words describe pain that is there without pressure."
   },
   {
-    q: "When a clinic receptionist asks 'Are you registered with a GP?', what are they asking?",
-    options: ["Whether you are an accredited medical doctor", "Whether you are enrolled with a primary General Practitioner", "Whether you have purchased international health travel insurance", "Whether you possess a valid commercial driving license"],
+    q: "A UK receptionist asks, 'Are you registered with a GP?' Who is a GP?",
+    options: ["a pharmacist", "a family doctor", "a dentist", "a surgeon"],
     answer: 1,
-    explain: "In the UK, Australia, and New Zealand, 'GP' stands for General Practitioner (primary care family doctor)."
+    explain: "GP stands for general practitioner, the family doctor you usually see first in the UK, Australia and New Zealand."
   },
   {
-    q: "What does 'OTC medication' mean when speaking with a pharmacist?",
-    options: ["Medication requiring specialist hospital surgery", "Over-the-counter drugs sold without requiring a doctor's prescription", "Prescriptions reserved exclusively for emergency room clinics", "Medications manufactured under international clinical trials"],
-    answer: 1,
-    explain: "'OTC' stands for 'over the counter', meaning remedies, pain relievers, and treatments that can be purchased directly without a physician's prescription."
+    q: "A person has collapsed on the street in Sydney. Which number do you call?",
+    options: ["911", "999", "000", "111"],
+    answer: 2,
+    explain: "Australia uses 000. The US and Canada use 911, the UK uses 999, and New Zealand uses 111."
   }
 ]
 ---
 
-Navigating a medical clinic in a foreign country is one of the most anxious experiences an immigrant can face. When you are feeling unwell, fatigued, or in acute discomfort, searching your memory for the exact English word to describe your symptoms adds unnecessary panic.
+The first thing to say at a clinic is usually the shortest: *"I've had a headache since yesterday."* Use *I've had ... since* for a problem that started in the past and is still there, and name the symptom after it. This guide builds from that sentence into booking, describing pain, understanding the questions and getting medicine, so you have the right English phrases at the doctor ready before you need them. The words differ a little in the US, the UK, Canada, Australia and New Zealand, and the notes below point out where.
 
-Mastering targeted **english phrases at the doctor** ensures you can communicate your medical history accurately, describe pain nuances clearly to physicians, understand prescription dosage instructions, and navigate appointment bookings with receptionists across the US, the UK, Canada, Australia, and New Zealand.
+![](media:@s1 "The doctor lesson in the app: a short dialogue about a headache since yesterday, a fever, an allergy and how to take medicine")
 
-![Lexkite phrase notebook interface displaying categorized idioms and sentence structures](media:@s1 "The Lexkite phrase notebook: saving conversational phrases, collocations, and communicative structures")
+## English phrases at the doctor for booking and arriving
 
-## Essential English phrases at the doctor: booking and arrival
+### Booking an appointment
 
-Your interaction begins at the reception desk. Whether booking by phone or checking in at a walk-in clinic, clear phrasing ensures prompt triage:
+- *"Hi, I'd like to make an appointment with Dr Henderson, please."*
+- *"Do you have anything available for a check-up this week?"*
+- *"I need to be seen today if possible. I think I have an ear infection."*
+- *"How long is the wait at the walk-in clinic at the moment?"*
 
-### Booking an Appointment
-- *"Hi, I'd like to book an appointment with Dr. Henderson, please."*
-- *"Do you have any availability for a routine check-up this week?"*
-- *"I need to see a doctor today if possible—I have an acute ear infection."*
-- *"Could you tell me what the walk-in clinic wait times are currently like?"*
+In the UK, Australia and New Zealand, the first doctor you see is usually a *GP* (general practitioner), and the receptionist may ask, *"Are you registered with a GP?"*. In the US and Canada, people say *family doctor* or *primary care doctor*.
 
-### Checking In and Registration
-- *"Hi, I have a ten-fifteen appointment for David Chen."*
-- *"I'm a new patient. Do I need to fill out a medical registration form?"*
-- *"Here is my provincial health card / insurance card."* (In Canada, *health card*; in the US, *insurance card*; in Australia, *Medicare card*).
-- *"Could you let me know roughly how long the doctor is running behind schedule?"*
+### Checking in
 
-To explore practical settlement communication across domestic housing and services, review our [English phrases for renting an apartment](/en/blog/english-for-newcomers-renting/) and our model [samples page](/en/samples/).
-
-{{diagram: d1 | Clinical pain descriptors and conversational examples.}}
+- *"Hi, I have a ten-fifteen appointment under the name David Chen."*
+- *"I'm a new patient. Do I need to fill out a registration form?"*
+- *"Here is my health card."* (*Health card* in Canada, *insurance card* in the US, *Medicare card* in Australia.)
+- *"Is the doctor running late?"*
 
 ## Describing pain: beyond "it hurts"
 
-Physicians require specific sensory information to reach an accurate clinical diagnosis. Simply repeating *"it hurts"* forces the doctor to guess. Use precise adjectives to characterize the sensation:
+If you only say *it hurts*, the doctor has to guess. One accurate word saves several questions.
 
-### 1. Types of Pain
-- **Sharp / Stabbing:** Sudden, intense, piercing. *"I feel a sharp stabbing pain in my side whenever I bend down."*
-- **Dull / Aching:** Constant, moderate, heavy. *"It's not excruciating, but there's a dull ache across my lower back that hasn't gone away for three days."*
-- **Throbbing / Pulsing:** Rhythmic, beating like a pulse. *"I have a throbbing headache that gets worse when exposed to bright light."*
-- **Burning / Stinging:** Warm, acidic, or raw surface sensation. *"There's a burning sensation when I swallow hot liquids."*
-- **Tender:** Painful when physically touched or pressed. *"My left ankle is very swollen and tender to the touch."*
+{{diagram: d1 | Common words for pain, with an example sentence for each.}}
 
-### 2. Frequency and Duration
-- **Intermittent:** *"The pain comes and goes throughout the day."*
-- **Persistent / Constant:** *"It's been hurting constantly since Tuesday morning."*
-- **Triggered by movement:** *"It flares up whenever I walk up stairs or lift heavy objects."*
+### Types of pain
 
-## Explaining symptoms clearly to the physician
+- **Sharp or stabbing:** sudden and piercing. *"I feel a sharp pain in my side whenever I bend down."*
+- **Dull or aching:** constant, moderate and heavy. *"It isn't terrible, but there's a dull ache in my lower back that hasn't gone away for three days."*
+- **Throbbing:** pounding like a pulse. *"I have a throbbing headache that gets worse in bright light."*
+- **Burning or stinging:** *"It burns when I swallow hot drinks."*
+- **Tender:** it hurts only when touched. *"My left ankle is swollen and tender."*
 
-When the doctor asks *"What seems to be the problem today?"* or *"What brings you in today?"*, deliver a concise overview combining the symptom, the timeline, and the severity:
+### Timing and triggers
 
-### General Illness and Infection
-- *"I've been feeling nauseous and dizzy since yesterday evening."*
-- *"I have a persistent dry cough, and I've been running a mild fever of thirty-eight degrees."*
-- *"I feel completely drained of energy and congested in my sinuses."*
-- *"I woke up with a stiff neck and swollen glands under my jaw."*
+- **Comes and goes:** *"The pain comes and goes during the day."*
+- **Constant:** *"It has been hurting constantly since Tuesday."*
+- **Triggered by movement:** *"It gets worse when I climb stairs or lift something heavy."*
 
-### Injuries and Musculoskeletal Issues
-- *"I twisted my ankle playing football yesterday, and I can barely put any weight on it."*
-- *"My knee gave way while running, and it's swollen significantly."*
-- *"I've had a pinched nerve in my shoulder that radiates numbness down into my fingertips."*
+## Explaining your symptoms
 
-If you are preparing for migration language assessments, notice how clear symptom narration mirrors narrative tasks found in [CELPIP speaking phrases](/en/blog/celpip-speaking-everyday-phrases/) and formal [IELTS Speaking Part 2 tips](/en/blog/ielts-speaking-part-2-tips/).
+When the doctor asks *"What seems to be the problem?"* or *"What brings you in today?"*, give three things in one go: the symptom, when it started and how bad it is.
 
-![Lexkite placement test screen with grammar and vocabulary questions](media:@s2 "The Lexkite placement test evaluating baseline grammar, syntax, and vocabulary range")
+### Illness
 
-## Understanding doctor questions and treatment instructions
+- *"I've felt sick and dizzy since yesterday evening."*
+- *"I have a dry cough and a mild fever, about 38 degrees Celsius (100.4 Fahrenheit)."* (In the US you will give the temperature in Fahrenheit.)
+- *"I feel exhausted and my nose is blocked."*
+- *"I woke up with a stiff neck and swollen glands."*
 
-Physicians follow structured diagnostic lines of inquiry. Recognizing these common phrases allows you to respond without hesitation:
+### Injuries
 
-### Common Doctor Questions
-- *"How long has this been going on?"* → *"It started about five days ago, but worsened last night."*
-- *"Are you taking any regular medications or supplements?"* → *"Only blood pressure medication and daily multivitamins."*
-- *"Do you have any known drug allergies?"* → *"Yes, I am severely allergic to penicillin—I develop hives."*
-- *"On a scale of one to ten, with ten being the worst pain imaginable, how would you rate it?"* → *"It's hovering around a six, but spikes to an eight when I move."*
+- *"I twisted my ankle playing football yesterday and I can hardly stand on it."*
+- *"My knee gave way when I was running and it's very swollen."*
+- *"There's numbness that runs from my shoulder down to my fingers."*
 
-### At the Pharmacy (Chemist)
-Once you receive a prescription (often called a *script* in Australia and the UK), you visit the pharmacy:
+## Understanding the doctor's questions
+
+You will hear the same questions in most appointments. Practise the answers until they come easily.
+
+- *"How long has this been going on?"* → *"It started about five days ago, but it got worse last night."*
+- *"Are you taking any medication?"* → *"Only blood pressure tablets."*
+- *"Do you have any allergies?"* → *"Yes, I'm allergic to penicillin. I get hives."*
+- *"On a scale of one to ten, how bad is the pain?"* → *"About a six, but it goes up to an eight when I move."*
+
+If you do not understand something, say so: *"Sorry, could you explain that in simpler words?"* or *"Could you write that down for me?"*
+
+### At the pharmacy
+
+A *prescription* is the doctor's written order for a medicine. In the UK and Australia people also say *script*, and the pharmacy is also called the *chemist*.
+
 - *"I'd like to drop off this prescription, please."*
-- *"How often should I take this medication?"*
-- *"Does this need to be taken with food, or on an empty stomach?"*
-- *"Are there any common side effects I should watch out for, like drowsiness?"*
-- *"Is there a generic version available that is covered by my insurance?"*
+- *"How often should I take this?"*
+- *"Should I take it with food or on an empty stomach?"*
+- *"Does it have any side effects, like drowsiness?"*
+- *"Is there a generic version?"*
 
-## Emergency vs routine medical services
+*Over-the-counter* (OTC) medicine is sold without a prescription. A *generic* medicine contains the same active ingredient as a brand-name one, and usually costs less.
 
-Knowing which words to use during acute crises is a vital safety skill:
+![](media:@s2 "A notebook in the app for phrases and sentences that you add yourself")
 
-- **Emergency Room (ER in US/Canada) / Accident & Emergency (A&E in UK):** Reserved for life-threatening emergencies (chest pain, severe bleeding, difficulty breathing, suspected stroke).
-- **Urgent Care / Walk-in Clinic:** For acute but non-life-threatening ailments requiring same-day evaluation (deep cuts requiring stitches, sprained joints, high fevers).
-- **Calling Emergency Services (911 in US/Canada, 999 in UK, 000 in Australia, 111 in NZ):**
-  - *"I need an ambulance immediately at 45 Elm Street."*
-  - *"The patient is unconscious but breathing."*
-  - *"He is experiencing severe chest tightness and shortness of breath."*
+## Emergency, urgent care or routine visit
 
-Reviewing these expressions alongside broader settlement communication—such as [daily English conversation sentences](/en/blog/daily-english-conversation-sentences-guide/)—builds complete confidence for life in an English-speaking community.
+- **Emergency room (ER) in the US and Canada, accident and emergency (A&E) in the UK:** for life-threatening problems such as chest pain, severe bleeding, difficulty breathing or signs of a stroke.
+- **Urgent care or walk-in clinic:** for problems that need attention the same day but are not life-threatening, such as a deep cut, a sprain or a high fever.
+- **Emergency number:** 911 in the US and Canada, 999 in the UK, 000 in Australia and 111 in New Zealand. Say where you are first, then what has happened.
+  - *"I need an ambulance at 45 Elm Street."*
+  - *"He is unconscious, but he's breathing."*
+  - *"She has chest pain and she is struggling to breathe."*
 
-## Self-check: medical communication
+## Dental care and specialist referrals
+
+In many countries your family doctor does not treat every problem. They may *refer* you to a specialist, and dental care is often separate from medical care.
+
+- *"The doctor wrote me a referral to an ENT specialist."* (ENT means ear, nose and throat.)
+- *"I'm calling to book a first appointment after a referral from Dr Henderson."*
+- *"I need a check-up and a clean, and I think I have a chipped tooth."*
+- *"Does the clinic bill my insurance directly?"*
+
+For everyday sentences outside the clinic, the [daily English conversation sentences guide](/en/blog/daily-english-conversation-sentences-guide/) is a good companion, and [how to form questions in English](/en/blog/how-to-form-questions-in-english/) helps you ask clear questions when you are worried. If you are still settling in, the same approach for a flat is covered in [English phrases for renting an apartment](/en/blog/english-for-newcomers-renting/), and [how to practise English pronunciation](/en/blog/how-to-practice-english-pronunciation/) helps when staff do not catch a medical word.
+
+## Self-check: medical words
 
 1. What is the difference between a *sharp pain* and a *dull ache*?
-2. What does it mean if a medication must be taken *with food*?
+2. What does it mean to take a tablet *with food*?
 3. What is a *generic medication*?
-4. What does *OTC* stand for in a pharmacy context?
+4. What does *OTC* stand for?
 
 **Answers**
-1. **A sharp pain is sudden, piercing, and intense**, while **a dull ache is continuous, moderate, and throbbing**.
-2. You should take the tablet during or immediately following a meal to avoid stomach irritation.
-3. A medication containing the identical active chemical ingredients as a brand-name drug, usually sold at lower cost.
-4. **Over-The-Counter** (purchased directly off the shelf without requiring a doctor's prescription).
 
-## Save essential medical phrases for quick reference
+1. **A sharp pain is sudden and piercing**, while **a dull ache is constant, moderate and heavy**.
+2. Take it during or just after a meal. Some medicines can upset an empty stomach, and the pharmacist will tell you if it matters.
+3. A medicine with the same active ingredient as a brand-name one, usually sold at a lower price.
+4. **Over the counter**: sold without a prescription.
 
-Do not wait for an unexpected illness to learn medical vocabulary. Open the [phrase notebook](/app/#/phrases) in Lexkite to save doctor dialogue templates and pain descriptors, and check your communicative baseline in our [placement test](/app/#/placement).
+## Practise before the appointment
 
-{{cta: /app/#/phrases | Save useful health and medical phrases to your personal notebook}}
+Say the lines before you need them. The Lexkite [doctor lesson](/app/#/confidence/doctor) has a short dialogue and a role-play on symptoms, allergies and medicine. Then save your own sentences, such as the one that describes your allergy, in the [phrase notebook](/app/#/phrases). More speaking material is in the English [speaking hub](/en/speaking/).
 
-{{youtube: | Suggested video: essential English phrases and vocabulary for visiting the doctor or clinic}}
+{{cta: /app/#/confidence/doctor | Practise doctor phrases in the Lexkite lesson}}
 
 ## Frequently asked questions
 
-### What should I do if I don't understand the doctor's explanation?
+### What should I do if I don't understand the doctor?
 
-Never nod along out of politeness if you are uncertain about a diagnosis or medication dosage. Simply say: *"Could you please explain that in simpler terms?"* or *"Could you write down the name of that condition and the dosage for me, please?"*
+Do not nod along. Ask for the diagnosis and the instructions in writing, and say that you want to be sure you have understood.
 
-### What is the difference between a prescription drug and an over-the-counter drug?
+### What is the difference between a prescription medicine and an over-the-counter one?
 
-A prescription drug requires a signed authorization from a licensed physician and must be dispensed by a registered pharmacist. Over-the-counter (OTC) drugs can be purchased directly from store shelves without medical consultation.
+The first needs a doctor's written order; the second does not.
 
-### Can I request an interpreter at a public hospital?
+### Can I ask for an interpreter?
 
-Yes. Public health systems across the UK (NHS), Canada, Australia (Medicare), and New Zealand provide free professional medical interpreter services upon request. Simply state at reception: *"I require an interpreter for my appointment, please."*
+Often yes, but it depends on the country, the region and the clinic. Ask when you book: *"Could you arrange an interpreter for my appointment?"* so that it can be organised in advance.
 
-## Navigating dental and specialist referrals
-
-In many English-speaking countries, primary care physicians do not treat dental, optical, or complex chronic conditions directly. Understanding the referral process prevents misunderstandings:
-
-- **Referral letters:** *"The doctor has written a referral letter to an ENT specialist (Ear, Nose, and Throat)."*
-- **Scheduling specialist consults:** *"I'm calling to schedule an initial consultation following a referral from Dr. Henderson."*
-- **Dental checks:** *"I need to book a dental hygiene scaling and an examination for a chipped molar."*
-- **Insurance coverage:** *"Does your clinic accept direct billing through private employer insurance policies?"*
-
-Familiarising yourself with these bureaucratic terms ensures that you and your family maintain seamless healthcare access across all stages of immigration settlement.
+{{youtube: | Suggested video: essential English phrases for visiting the doctor}}
