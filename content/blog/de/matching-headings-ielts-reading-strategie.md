@@ -1,164 +1,158 @@
 ---
-title: "Matching Headings IELTS Reading : 5-Schritte-Strategie"
-description: "Meistern Sie matching headings ielts reading : Schritt-für-Schritt-Anleitung, typische Ablenkungsfallen und Zeitmanagement für maximale Punkte."
+title: "Matching Headings im IELTS Reading: Überschriften zuordnen"
+description: "Matching Headings im IELTS Reading: So ordnen Sie Überschriften den Absätzen zu, mit eigenem Übungstext, Lösungsweg und Stolpersteinen für Deutschsprachige."
 slug: matching-headings-ielts-reading-strategie
 lang: de
 translationKey: ielts-reading-matching-headings
 category: ielts
 tags: [ielts, ielts-reading, matching-headings, exam-tips]
-keyword: "matching headings ielts reading"
+keyword: "matching headings im ielts reading"
 cover: reading
-coverAlt: "Bibliothèque de lecture IELTS Lexkite avec textes progressifs du niveau A2 à C1, incluant urban farming et microplastics"
-publishAt: 2027-02-04T10:00:00+01:00
+coverAlt: "Lesebereich in Lexkite mit IELTS-Texten von A2 bis C1, darunter Urban Farming, Vier-Tage-Woche und Mikroplastik, Wörter zum Antippen"
+publishAt: 2026-12-30T21:54:00+01:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: think, icon: book, chip: IELTS Reading}
 shots: [
-  {id: s1, route: '#/reading', crop: main},
+  {id: s1, route: '#/rtype/headings', crop: main},
   {id: s2, route: '#/read/space-debris', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: '5-Schritte-Methode fuer Matching Headings', parts: [{t: '1. Ueberschriften analysieren', r: 'Schluesselbegriffe und Distraktoren markieren'}, {t: '2. Absatz ueberfliegen', r: 'Hauptgedanken erfassen ohne Detailblockaden'}, {t: '3. Paraphrasen finden', r: 'Synonyme und semantische Entsprechungen pruefen'}, {t: '4. Ausschlussverfahren', r: 'Zu enge oder zu weite Optionen eliminieren'}, {t: '5. Gesamtabgleich', r: 'Logische Stimmigkeit aller Absaetze sichern'}]}
+  {id: d1, type: boxes, title: 'Vier Schritte pro Absatz', parts: [{t: '1. Liste überfliegen', r: 'Schlüsselwörter markieren'}, {t: '2. Hauptgedanke', r: 'Absatz in eigenen Worten fassen'}, {t: '3. Überschrift wählen', r: 'Fallen prüfen'}, {t: '4. Streichen', r: 'Jede Überschrift nur einmal'}]},
+  {id: d2, type: compare, title: 'Falsche Freunde in Überschriften', cols: ['Englisch', 'Täuscht vor', 'Bedeutet'], rows: [['eventually', 'eventuell', 'schließlich, am Ende'], ['actual', 'aktuell', 'tatsächlich'], ['sensible', 'sensibel', 'vernünftig'], ['brief', 'Brief', 'kurz']]}
 ]
 quiz: [
   {
-    q: "Was ist die häufigste Fehlerursache beim Aufgabentyp Matching Headings im IELTS Reading?",
+    q: "Eine Überschrift lautet: A brief history of peat extraction. Was bedeutet brief hier?",
     options: [
-      "Die vorschnelle Wahl wegen identischer Wörter im Textabschnitt",
-      "Das vollständige Überspringen der ersten zwei Textabschnitte der Prüfung",
-      "Das Notieren der Antworten in reinen Großbuchstaben",
-      "Das zu schnelle Überfliegen der Aufgabenanweisungen"
+      "schriftlich",
+      "kurz",
+      "ausführlich",
+      "aktuell"
+    ],
+    answer: 1,
+    explain: "Brief heißt hier kurz. Der deutsche Brief heißt im Englischen letter, daher täuscht die Ähnlichkeit."
+  },
+  {
+    q: "Ein Absatz stellt vier Verfahren vor, mit denen Städte die Luftqualität messen, und erwähnt zum Schluss kurz die Kosten. Welche Überschrift passt am besten?",
+    options: [
+      "The rising cost of air quality stations",
+      "A short history of measuring air quality",
+      "Why many cities are banning private cars",
+      "Ways cities measure their air quality"
+    ],
+    answer: 3,
+    explain: "Die Überschrift muss den Hauptgedanken des ganzen Absatzes treffen. Die Kosten sind nur ein Detail, die Geschichte der Messung und das Autoverbot sind andere Themen."
+  },
+  {
+    q: "Ein Absatz sagt: The company eventually closed the mine. Was bedeutet eventually hier?",
+    options: [
+      "schließlich",
+      "eventuell",
+      "bald",
+      "plötzlich"
     ],
     answer: 0,
-    explain: "IELTS-Prüfer bauen gezielt Wortwiederholungen in falsche Überschriften ein, um oberflächliches Suchen zu bestrafen."
-  },
-  {
-    q: "Wo befindet sich der Hauptgedanke (Topic Sentence) in akademischen englischen Absätzen am häufigsten?",
-    options: [
-      "Ausschließlich in den Fußnoten am Ende des gesamten Textes",
-      "Am Anfang oder ganz am Ende des jeweiligen Absatzes",
-      "Exakt in der geometrischen Mitte zwischen zwei Kommata",
-      "Nur in den statistischen Zahlenreihen und Prozentangaben"
-    ],
-    answer: 1,
-    explain: "Im angelsächsischen Schreibstil wird die Kernbehauptung typischerweise im ersten oder letzten Satz formuliert."
-  },
-  {
-    q: "Welches Zeitlimit verhindert das Festfahren an einem schwierigen Absatz?",
-    options: [
-      "Vier Minuten intensives Nachdenken über jedes unbekannte Verb",
-      "Die 90-Sekunden-Regel mit vorläufiger Markierung plausibler Optionen",
-      "Das sofortige vollständige Aufgeben des gesamten dritten Lesetextes im Test",
-      "Eine mündliche Nachfrage beim Prüfungsaufseher im Raum"
-    ],
-    answer: 1,
-    explain: "Maximal 90 Sekunden pro Zuweisung verhindern das Verschenken wertvoller Zeit für nachfolgende Aufgaben."
+    explain: "Eventually heißt schließlich oder am Ende. Für eventuell stehen im Englischen possibly oder maybe."
   }
 ]
 ---
 
-Der Aufgabentyp matching headings ielts reading zählt für viele Prüfungskandidaten zu den anspruchsvollsten Hürden des gesamten Tests. Im Gegensatz zu chronologischen Detailfragen, bei denen die Antworten nacheinander im Fließtext auffindbar sind, zwingen Überschriftenaufgaben zu einer ganzheitlichen Textanalyse. Sie müssen den übergeordneten Argumentationskern jedes Absatzes erfassen und sich gegen geschickt platzierte Ablenkungsmanöver wehren.
+Bei Matching Headings im IELTS Reading erhalten Sie eine Liste von Überschriften und einen Text, dessen Absätze Buchstaben tragen, und ordnen jedem Absatz die Überschrift zu, die seinen Hauptgedanken trifft. Es zählt der Gedanke des ganzen Absatzes, nicht ein auffälliges Detail und nicht ein Wort, das zufällig auch in der Überschrift steht. Dieser Beitrag zeigt das Vorgehen an einem selbst geschriebenen Übungstext und nennt die Stolpersteine, die Deutschsprachigen im Englischen besonders oft begegnen.
 
-Für deutschsprachige Lerner besteht die größte Herausforderung häufig darin, sich von wörtlichen Übersetzungen zu lösen. Cambridge-Prüfungen testen Ihr Verständnis von Paraphrasen und logischer Textstruktur, nicht das bloße Wiedererkennen einzelner Vokabeln.
+## So ist die Aufgabe Matching Headings im IELTS Reading aufgebaut
 
-## Die Architektur von matching headings ielts reading und typische Fallen
+Die Überschriften stehen in einer Liste und sind mit kleinen römischen Ziffern nummeriert (i, ii, iii, iv ...). Die Absätze tragen Buchstaben (A, B, C ...). Die Liste enthält mehr Überschriften als Absätze, es bleiben also einige übrig. Jede Überschrift wird nur einmal vergeben. Bei manchen Aufgaben ist ein Absatz schon als Beispiel gelöst. Lesen Sie die Aufgabenanweisung jedes Mal genau, denn die Regeln stehen dort.
 
-In der Prüfungsaufgabe erhalten Sie eine Liste römisch nummerierter Überschriften (Headings) sowie einen Lesetext, dessen Absätze mit Buchstaben (A, B, C...) gekennzeichnet sind. Die Liste enthält stets mehr Überschriften als Absätze – in der Regel ein bis drei überzählige Optionen, die als Ablenker (Distraktoren) fungieren.
+Die falschen Überschriften folgen meist vier Mustern:
 
-Diese Distraktoren folgen bewährten testpsychologischen Mustern:
-1. **Die Wortwiederholungsfalle (Word-spotting trap) :** Eine Überschrift greift einen auffälligen Fachbegriff aus Zeile 4 wörtlich auf, beschreibt damit jedoch nur ein beiläufiges Beispiel und keineswegs das Leitthema des Absatzes.
-2. **Die zu enge Überschrift (Too narrow) :** Der Satz ist inhaltlich korrekt, deckt aber nur einen einzelnen Nebenaspekt ab und lässt den eigentlichen Argumentationsbogen unberücksichtigt.
-3. **Die zu weite Überschrift (Too broad) :** Die Aussage fasst das Thema des gesamten Artikels zusammen, ist für den spezifischen Teilabschnitt jedoch viel zu allgemein formuliert.
+- **Wortwiederholung:** Die Überschrift greift ein Wort aus dem Absatz auf, beschreibt aber ein Detail.
+- **Zu eng:** Die Überschrift stimmt, deckt aber nur einen Teil des Absatzes ab.
+- **Zu weit:** Die Überschrift passt zum ganzen Text, nicht zu diesem Absatz.
+- **Falsche Richtung:** Sie nennt das Gegenteil von dem, was der Absatz behauptet.
 
-![Lexkite Lesebibliothek mit Texten von A2 bis C1](media:@s1 "Leseauswahl und akademische Texte mit Vokabelnachschlagen in Lexkite")
+![](media:@s1 "Die Überschriften-Aufgaben aus den Lesetests der App, nacheinander und mit Auswertung")
 
-## Die 5-Schritte-Strategie für matching headings ielts reading
+## Das Vorgehen pro Absatz
 
-Um beim matching headings ielts reading systematisch Höchstpunkte zu erzielen, empfiehlt sich ein strukturierter Arbeitsablauf:
+{{diagram: d1 | Vier Schritte pro Absatz: Liste, Hauptgedanke, Überschrift, Streichen}}
 
-### 1. Überschriften vor den Detailfragen lösen
-Wenn ein Textteil Überschriftenaufgaben enthält, bearbeiten Sie diese stets als Erstes. Indem Sie gezwungen sind, alle Absätze im Überblick zu erfassen, bauen Sie eine mentale Landkarte des Artikels auf. Anschließende Aufgaben wie True/False/Not Given lassen sich danach deutlich schneller lokalisieren.
+1. **Liste überfliegen.** Markieren Sie in jeder Überschrift das Schlüsselwort. Lernen Sie die Liste nicht auswendig, Sie kehren ohnehin zu ihr zurück.
+2. **Hauptgedanke fassen.** Lesen Sie den Absatz und formulieren Sie in drei bis fünf Wörtern, worum es geht, auf Deutsch oder Englisch. Entscheiden Sie erst nach dem ganzen Absatz, denn der Gedanke kann sich nach einem *however* drehen.
+3. **Überschrift wählen.** Welche Überschrift deckt den ganzen Absatz ab? Prüfen Sie, ob sie in eine der vier Fallen gehört.
+4. **Streichen.** Streichen Sie die vergebene Überschrift, damit sie nicht zweimal erscheint, und gehen Sie zum nächsten Absatz.
 
-### 2. Die Überschriftenliste analysieren und Kernkonzepte markieren
-Lesen Sie die vorgegebenen Headings aufmerksam durch. Unterstreichen Sie Bedeutungsanker: Substantive, Ursachen, Gegenüberstellungen oder zeitliche Entwicklungen (*unforeseen consequences*, *commercial viable solutions*, *historical precedents*). Identifizieren Sie Paare, die auf den ersten Blick verblüffend ähnlich wirken.
+## Ein Übungstext zum Mitmachen
 
-### 3. Den Kernsatz (Topic Sentence) identifizieren
-Lesen Sie den ersten und zweiten Satz des Absatzes genau. Überfliegen Sie den Mittelteil auf logische Konnektoren (*however*, *consequently*, *nevertheless*) und prüfen Sie den Schlusssatz. Im akademischen Englisch befindet sich die Kernaussage meist an den Rändern des Absatzes.
+Der folgende Text und die Überschriften sind für diesen Artikel geschrieben und stammen nicht aus einer Prüfung. Er ist kürzer als ein echter Prüfungstext.
 
-### 4. Auf gedankliche Umschreibungen (Paraphrasen) achten
-Suchen Sie im Text niemals nach denselben Wörtern der Überschrift. Wird in der Überschrift von *financial constraints* gesprochen, finden Sie im Absatz Formulierungen wie *limited funding*, *budget restrictions* oder *monetary deficits*.
+> **Peatlands and the climate**
+>
+> **A** Peatlands are wetlands where dead plant material piles up more quickly than it can rot. Because the ground is waterlogged, there is very little oxygen, and the plant remains decay only very slowly. Over thousands of years they form a thick layer of peat. The carbon stored in this layer stays out of the atmosphere for as long as the ground remains wet.
+>
+> **B** For centuries, however, peatlands were regarded as wasteland. Farmers drained them to grow crops, and companies cut peat for fuel and garden compost. Once the water is gone, air reaches the peat and it starts to break down, releasing the carbon it held as carbon dioxide. A drained bog therefore turns from a store of carbon into a source of emissions.
+>
+> **C** In recent years a number of regions have tried to reverse this. Blocking old drainage ditches allows the water level to rise again, and bog plants gradually return. Restoration is slow and not cheap, and farmers who lose their fields need another source of income. Even so, several governments now count it among the more practical climate measures.
 
-### 5. Ausschlussverfahren anwenden und Gesamtzusammenhang prüfen
-Notieren Sie bei Unklarheiten zwei mögliche römische Ziffern am Rand und lesen Sie weiter. Oft klärt sich die Zuordnung beim Lesen nachfolgender Absätze von selbst. Prüfen Sie am Ende kurz, ob die ausgewählten Überschriften eine logische gedankliche Kette bilden.
+Überschriften:
 
-![Lexkite Leseansicht mit Fachartikeln](media:@s2 "Aktives Lesen mit Hervorhebungen und Kontextanalysen in Lexkite")
+- i. Why wet ground keeps carbon out of the air
+- ii. The hidden climate cost of draining wetlands
+- iii. Bringing the water back
+- iv. Farmers who depend on drained land
+- v. Rising carbon dioxide in the atmosphere
 
-## Zeitmanagement und die eiserne 90-Sekunden-Regel
+Versuchen Sie es zuerst selbst. Die Lösung: **A** gehört zu i, **B** zu ii, **C** zu iii.
 
-Im IELTS Reading stehen Ihnen 60 Minuten für 40 Fragen in drei Abschnitten zur Verfügung. Da jede richtige Antwort exakt einen Punkt zählt, dürfen Sie sich keinesfalls an einem einzelnen Absatz festbeißen. Gelingt Ihnen nach 90 Sekunden keine eindeutige Entscheidung, tragen Sie Ihre beste Vermutung ein, markieren die Frage mit einem Sternchen und gehen zum nächsten Absatz über.
+Die Begründung: In A geht es darum, dass Wasser den Kohlenstoff im Boden hält. *Waterlogged* und *stays out of the atmosphere* finden sich in Überschrift i als *wet ground* und *keeps carbon out of the air* wieder. In B steht das Gegenteil. Der Absatz beginnt mit *wasteland*, aber der Hauptgedanke kommt am Ende: Entwässerung macht aus einem Speicher eine Quelle von Emissionen. Das trifft Überschrift ii mit den versteckten Klimakosten des Entwässerns. In C sind es die Maßnahmen, mit denen das Wasser zurückgebracht wird (*allows the water level to rise again*), also iii.
 
-Trainieren Sie Ihr Zeitgefühl gezielt mit unseren Leitfäden zu [IELTS Reading Skimming und Scanning](/de/blog/ielts-reading-skimming-scanning/) und den bewährten [IELTS Paraphrasieren Techniken](/de/blog/ielts-paraphrasieren-techniken-beispiele/). Erweitern Sie Ihr thematisches Vokabular mit unseren Artikeln zu [IELTS Vokabeln Umwelt und Klimawandel](/de/blog/ielts-vokabeln-umwelt-klimawandel-collocations/) sowie [IELTS Vokabeln Technologie und KI](/de/blog/ielts-vokabeln-technologie-kuenstliche-intelligenz/).
+Die beiden übrigen Überschriften sind Fallen. Überschrift iv ist zu eng: Landwirte kommen in C nur in einem Nebensatz vor und in B bei der Entwässerung, aber keiner der beiden Absätze handelt von ihnen. Überschrift v ist eine Wortfalle: Sie greift *carbon dioxide* aus B auf, behauptet aber einen steigenden Gehalt, den der Text nicht beschreibt.
 
-Sie können Ihre Lesegeschwindigkeit und Ihr Textverständnis direkt in der Lexkite-App trainieren: Nutzen Sie unser Modul für [akademisches Lesen](/app/#/reading), prüfen Sie Ihren Wortschatz mit dem [Einstufungstest](/app/#/placement) oder werfen Sie einen Blick auf unsere [Beispielseite](/en/samples/).
+## Was Deutschsprachige hier stolpern lässt
 
+Drei Punkte sind typisch für Lernende mit deutscher Muttersprache.
 
-## Vertiefende Analyse typischer Textmuster im IELTS Reading
+**Falsche Freunde.** Überschriften bestehen oft aus wenigen Wörtern, deshalb entscheidet ein einziges Missverständnis über die Zuordnung. Der Beitrag zu [False Friends Englisch Deutsch](/de/blog/false-friends-englisch-deutsch/) hat eine längere Liste, hier die vier häufigsten für diese Aufgabe:
 
-Um im matching headings ielts reading maximale Treffsicherheit zu erreichen, sollten Sie die drei vorherrschenden Absatztypen der Cambridge-Prüfungstexte kennen:
+{{diagram: d2 | Vier Wörter, die wie deutsche Wörter aussehen und etwas anderes bedeuten}}
 
-### 1. Das Problem-Lösungs-Muster (Problem-Solution Pattern)
-In naturwissenschaftlichen und soziologischen Texten beginnt der Absatz häufig mit der Schilderung einer gravierenden Krise (*groundwater depletion*, *urban housing shortages*). Erst in der zweiten Hälfte schwenkt der Autor auf innovative Lösungsansätze um. Achten Sie genau darauf, ob die Überschrift das Problem oder die vorgeschlagene Gegenmaßnahme fokussiert.
+Besonders *eventually* verfälscht die Bedeutung: *Eventually, the lake dried up* heißt, dass der See schließlich austrocknete, nicht dass er vielleicht austrocknete.
 
-### 2. Das historische Entwicklungsmuster (Chronological Evolution)
-Hier zeichnet der Text die Wandlung einer Technologie oder Denkschule nach. Typische Signalwörter wie *initially*, *by the turn of the century* und *subsequent breakthroughs* deuten darauf hin, dass die passende Überschrift Begriffe wie *origins*, *evolution* oder *historical timeline* enthalten wird.
+**Komposita.** Das Deutsche schreibt zusammen, was das Englische auseinanderschreibt oder mit *of* verbindet: *Moorentwässerung* wird zu *peatland drainage* oder *drainage of peatlands*, *Klimaschutzmaßnahmen* zu *climate protection measures*. Wer nach einem langen deutschen Wort sucht oder nur ein englisches Einzelwort erwartet, überliest im Absatz die Umschreibung. Achten Sie auf Wortgruppen, nicht auf einzelne Wörter.
 
-### 3. Das dialektische Diskursmuster (Hypothesis vs Reality)
-In anspruchsvollen Passagen aus Text 3 stellt der Verfasser eingangs eine populäre wissenschaftliche Annahme vor, um sie im folgenden Satz mit empirischen Gegenbeweisen zu widerlegen. Fallen Sie nicht auf die anfängliche These herein: Entscheidend für die Überschrift ist stets der Standpunkt, der aus der Gegenüberstellung als Sieger hervorgeht.
+**Fremdwörter als Hilfe und Falle.** Überschriften verwenden gern lateinische Wörter (*restoration*, *decline*), im Absatz stehen dann alltagsnahe Formulierungen (*bring back*, *fall*). Hier hilft Ihnen das Deutsche, weil viele dieser Wörter als Fremdwörter bekannt sind. Prüfen Sie nur, ob das englische Wort wirklich dasselbe bedeutet, wie die Tabelle oben zeigt.
 
-## Strategischer Wochenplan für 8.0+ im Leseteil
+## Typische Fehler beim Zuordnen
 
-Bauen Sie Ihre Lesefertigkeit mit einem gezielten 4-Wochen-Trainingsplan auf:
-- **Woche 1 :** Lösen Sie isoliert Matching-Headings-Aufgaben ohne Zeitdruck. Formulieren Sie vor dem Blick auf die Liste stets eine eigene deutsche oder englische Mini-Zusammenfassung in maximal fünf Worten.
-- **Woche 2 :** Führen Sie ein persönliches Paraphrasen-Glossar. Notieren Sie jedes Mal das Paar aus Textausdruck und Überschriftenäquivalent, das Ihnen bei der Zuweisung geholfen hat.
-- **Woche 3 :** Schalten Sie die Stoppuhr ein. Setzen Sie sich ein striktes Limit von 18 Minuten für Passage 1 und 20 Minuten für Passage 2.
-- **Woche 4 :** Absolvieren Sie vollständige 60-minütige Lesetests unter realistischen Prüfungsbedingungen in der Lexkite-Lernumgebung.
+- **Nur den ersten Satz lesen.** In Absatz B oben führt der erste Satz zu einer Überschrift wie *Why peatlands were seen as wasteland*. Der Hauptgedanke steht am Ende.
+- **Dem gleichen Wort folgen.** Die Überschrift mit *carbon dioxide* sieht gut aus, weil das Wort im Absatz steht. Entscheidend ist der Gedanke.
+- **Zu lange grübeln.** Die 60 Minuten gelten für alle drei Texte zusammen; IELTS empfiehlt etwa 20 Minuten pro Text, schreibt es aber nicht als feste Grenze vor. Legen Sie sich selbst eine Obergrenze pro Absatz fest, markieren Sie die beste Option und gehen Sie weiter.
+- **Überschriften doppelt vergeben.** Streichen Sie jede gewählte Überschrift sofort aus der Liste.
 
+Wer das Zeitgefühl für den ganzen Lesetest trainieren will, findet im Beitrag zur [Zeiteinteilung im IELTS Reading](/de/blog/zeitmanagement-im-ielts-reading-60-minuten-strategie/) einen Vorschlag zur Zeiteinteilung. Zum Erfassen der Hauptgedanken gehört auch das Umschreiben mit anderen Wörtern, das der Beitrag zum [Paraphrasieren](/de/blog/ielts-paraphrasieren-techniken-beispiele/) übt. Das Lesen mit unterschiedlichem Tempo steht im Leitfaden zu [Skimming und Scanning](/de/blog/ielts-reading-skimming-scanning/).
 
-## Vertiefung: Häufige Fehlerquellen deutscher Muttersprachler im Detail
+## Üben mit Lexkite
 
-Deutsche Englischlernende neigen bei Matching Headings häufig dazu, Textstrukturen nach deutschen Lesemustern zu interpretieren. Im Deutschen werden komplexe Gedanken oft in langen Schachtelsätzen über mehrere Zeilen hinweg entwickelt, wobei das prädikative Element oder die Synthese erst am Satzende steht. Englische akademische Texte sind hingegen oft linearer und strenger hierarchisch aufgebaut:
+Unter [Lesen nach Fragetyp](/app/#/rtype/headings) finden Sie die Überschriften-Aufgaben aus den Lesetests der App hintereinander. Sie prüfen Ihre Antworten und sehen Ihre Trefferquote für diesen Fragetyp. Für Texte zum Üben des Textverständnisses auf verschiedenen Niveaus eignet sich der [Lesebereich](/app/#/reading) mit Passagen von A2 bis C1, in denen Sie Wörter antippen und nachschlagen können.
 
-- **Falle 1: Überbewertung von Beispielen (Detail vs. Hauptaussage)**: Ein Absatz stellt oft eine kurze Fallstudie oder statistische Zahlen vor (z. B. eine Versuchsreihe mit 40 Probanden). Lernende wählen dann oft eine Überschrift wie *"Statistical evidence in laboratory trials"*, obwohl das Beispiel lediglich als Beleg für die übergeordnete These *"Limits of human cognitive processing"* dient.
-- **Falle 2: Übersehen von Signalwörtern (Concession & Contrast)**: Wörter wie *however, conversely, nevertheless, albeit* leiten häufig den eigentlichen Kern des Arguments ein. Wer den ersten Satz liest und sofort entscheidet, verpasst den Richtungswechsel im dritten Satz.
-- **Falle 3: Zeitverschwendung durch Paraphrasierung unklarer Fachbegriffe**: Im IELTS begegnen Ihnen biologische, geologische oder soziologische Fachbegriffe. Sie müssen diese Begriffe nicht im Wörterbuch nachschlagen können; entscheidend ist die logische Einbettung in das Gesamtthema.
+![](media:@s2 "Ein Lesetext in Lexkite mit farbig markierten Schlüsselwörtern, die sich antippen und speichern lassen")
 
-Mit gezieltem Training im [SmartLearn-Modus](/app/#/practice-learn) können Sie dieses strukturierte Scannen trainieren und das Zeitmanagement für den gesamten Lesetest festigen.
+{{cta: /app/#/rtype/headings | Überschriften-Aufgaben in Lexkite üben}}
 
-## Typisches Textbeispiel im Härtetest
-
-Betrachten wir einen kurzen Modellausschnitt aus einem wissenschaftlichen Text:
-
-> *For over three decades, municipal authorities presumed that adding traffic lanes would permanently resolve urban bottlenecks. However, empirical surveys across North American metropolitan areas demonstrate that expanded asphalt capacity merely triggers induced demand, filling new corridors to maximum capacity within twenty-four months.*
-
-Mögliche Überschriften:
-- *Heading i: Technological surveillance of traffic congestion* (Thema verfehlt).
-- *Heading ii: Why commuters prefer private passenger vehicles* (Zu eng, erfasst nur ein Detail).
-- *Heading iii: The counterproductive nature of expanding highway lanes* (Treffend: erfasst den Kernkonflikt zwischen Planungsabsicht und realem Effekt).
-
-Durch regelmäßige Übung dieser semantischen Dekodierung gewinnen Sie die nötige Souveränität für das echte Examen.
-
-{{cta: /app/#/reading | Akademische Lesetexte in der Lexkite-App üben}}
-
-{{youtube: | Offizielles Video zur Lösungsstrategie von Matching Headings im IELTS Reading}}
+{{youtube: | Matching Headings im IELTS Reading Schritt für Schritt}}
 
 ## Häufig gestellte Fragen
 
-### Sollte man wirklich den gesamten Absatz Satz für Satz lesen?
-Nein, das kostet zu viel Zeit. Konzentrieren Sie sich auf die ersten beiden Sätze, überfliegen Sie den Mittelteil nach Signalwörtern (*but*, *whereas*, *in contrast*) und lesen Sie den letzten Satz aufmerksam.
+### Was tue ich, wenn eine Überschrift zu zwei Absätzen zu passen scheint?
 
-### Was tun, wenn eine Überschrift zu zwei verschiedenen Absätzen passt?
-Prüfen Sie, welche Überschrift den Absatz im Ganzen zusammenfasst und welche nur einen Einzelpunkt erwähnt. Die allgemeinere, tragende Überschrift gehört zu dem Absatz, dessen Gesamtaussage darauf aufbaut.
+Jede Überschrift wird nur einmal vergeben. Vergleichen Sie beide Absätze: Der Absatz, dessen Hauptgedanke die Überschrift vollständig abdeckt, bekommt sie. Der andere braucht eine andere Überschrift.
 
-### Warum enthalten Überschriften selten die gleichen Wörter wie der Text?
-Weil der IELTS das Leseverständnis auf C1-Ebene testet. Ein bloßer Zeichenabgleich würde passive Erkennung belohnen, während Paraphrasen echtes Erfassen von Bedeutungszusammenhängen erfordern.
+### Muss ich jeden Absatz Wort für Wort lesen?
+
+Nein. Aber entscheiden Sie erst, wenn Sie den ganzen Absatz überblickt haben, denn der Hauptgedanke kann nach einem Signalwort wie *however* oder *but* kippen.
+
+### Warum stehen in den Überschriften selten dieselben Wörter wie im Text?
+
+Weil IELTS Verstehen prüft, nicht das Wiedererkennen einzelner Wörter. Überschrift und Absatz sagen dasselbe mit anderen Worten.

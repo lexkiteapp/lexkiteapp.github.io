@@ -1,143 +1,128 @@
 ---
-title: "Comment Améliorer sa Prononciation en Anglais : Guide"
-description: "Apprenez comment améliorer sa prononciation en anglais : sons difficiles pour les francophones, rythme, intonation et méthode de shadowing efficace."
+title: "Améliorer sa prononciation en anglais : plan sur 4 semaines"
+description: "Améliorer sa prononciation en anglais quand on est francophone : s'enregistrer, puis travailler le souffle de /p t k/, le /r/, deux voyelles et les finales."
 slug: comment-ameliorer-sa-prononciation-en-anglais-guide
 lang: fr
 translationKey: luyen-phat-am-tieng-anh
 category: phuong-phap
 tags: [pronunciation, speaking, phonetics, accent]
-keyword: "comment améliorer sa prononciation en anglais"
-cover: pron
-coverAlt: "Tableau de prononciation avec symboles de l'alphabet phonétique international ipa et exercices audio"
-publishAt: 2027-01-31T10:00:00+01:00
+keyword: "améliorer sa prononciation en anglais"
+cover: practice-speak
+coverAlt: "Prononciation notée à la voix : l'expression « cut down on » et le bouton micro pour parler"
+publishAt: 2026-12-26T09:00:00+01:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: cheer, icon: mic, chip: Pronunciation}
 shots: [
   {id: s1, route: '#/pron', crop: main},
   {id: s2, route: '#/grammar/ed-s-endings', crop: main}
 ]
 diagrams: [
-  {id: d1, type: compare, title: 'Comparaison des systèmes phonétiques français et anglais', cols: ['Caractéristique', 'Français', 'Anglais'], rows: [['Rythme', 'Syllabique (durée égale des syllabes)', 'Accentuel (stress-timed : syllabes accentuées régulières)'], ['Sons th', 'Absents (tendance à remplacer par /s/, /z/, /t/)', 'Deux phonèmes distincts (/θ/ sourd et /ð/ sonore)'], ['Longueur des voyelles', 'Peu contrastive', 'Critique (opposition voyelle courte / voyelle longue)'], ['Diphtongues', 'Rares sous forme mouvante', 'Nombreuses et dynamiques (/aɪ/, /eɪ/, /əʊ/...)']]}
+  {id: d1, type: compare, title: "Un plan d'entraînement sur quatre semaines", cols: ["Semaine", "Objectif", "Dix minutes par jour"], rows: [["1", "Mesurer et choisir", "Enregistrer le même texte, repérer cinq mots à corriger, écouter ces mots dans le dictionnaire"], ["2", "Le souffle et le /r/", "Pin / spin avec la feuille de papier, puis red, road, around, very"], ["3", "Voyelles et finales", "Paires bad / bed et cap / cup, puis une série de verbes en -ed et de pluriels en -s"], ["4", "Assembler", "Relire le texte de la semaine 1, comparer les deux enregistrements, enchaîner avec du shadowing"]]}
 ]
 quiz: [
   {
-    q: "Quelle différence fondamentale caractérise le rythme de l'anglais par rapport au français ?",
-    options: [
-      "Le français accentue toutes les syllabes de manière totalement aléatoire",
-      "L'anglais est 'stress-timed', ce qui compresse les syllabes non accentuées",
-      "L'anglais prononce chaque consonne finale avec la même force sonore continue",
-      "Le français utilise dix fois plus de diphtongues complexes que l'anglais"
-    ],
+    q: "Tenez une feuille de papier devant vos lèvres. Quel mot la fait bouger le plus, grâce au souffle du premier son ?",
+    options: ["bill", "pill", "mill", "will"],
     answer: 1,
-    explain: "En anglais, le tempo dépend des syllabes toniques ; les mots grammaticaux intermédiaires sont réduits (schwa)."
+    explain: "Au début d'une syllabe accentuée, le /p/ anglais s'accompagne d'un petit souffle d'air ; /b/, /m/ et /w/ n'en produisent pas."
   },
   {
-    q: "Comment prononce-t-on correctement la consonne dans 'think' /θ/ ?",
-    options: [
-      "En fermant complètement les deux lèvres de manière continue",
-      "En plaçant la pointe de la langue sous les incisives supérieures",
-      "En faisant vibrer vigoureusement les cordes vocales comme un z",
-      "En expulsant l'air avec force exclusivement par les cavités nasales"
-    ],
-    answer: 1,
-    explain: "Le /θ/ est une fricative dentale sourde : la langue effleure les incisives supérieures sans vibration vocale."
+    q: "Quelle voyelle entend-on dans le mot mud ?",
+    options: ["/æ/", "/e/", "/ɒ/", "/ʌ/"],
+    answer: 3,
+    explain: "Mud se dit /mʌd/ avec la voyelle de cup ; /æ/ est celle de mad, et /e/ celle de bed."
   },
   {
-    q: "En quoi consiste la méthode de répétition en écho (Shadowing) ?",
-    options: [
-      "Écrire des phrases dictées sans jamais les prononcer oralement",
-      "Répéter un enregistrement natif avec un décalage de quelques mots",
-      "Traduire mot à mot un texte écrit vers sa langue maternelle natale",
-      "Écouter des conversations lointaines sans chercher à reproduire"
-    ],
-    answer: 1,
-    explain: "Le shadowing force les muscles de la bouche à calquer le rythme, l'intonation et les liaisons d'un locuteur natif en direct."
+    q: "Comment se termine le mot stopped à l'oral ?",
+    options: ["/t/", "/d/", "/ɪd/", "/z/"],
+    answer: 0,
+    explain: "Le dernier son de stop est le sourd /p/, donc la terminaison -ed se dit /t/ : /stɒpt/."
   }
 ]
 ---
 
-Pour un apprenant francophone, découvrir comment améliorer sa prononciation en anglais constitue souvent le point de bascule vers une réelle confiance à l'oral. Le français et l'anglais partagent un vaste socle de vocabulaire commun, mais leurs mécaniques articulatoires et rythmiques sont radicalement opposées. En français, chaque syllabe reçoit une durée relativement égale, tandis que l'anglais est une langue à accentuation temporelle (*stress-timed*), où certaines syllabes sont énergiquement mises en avant tandis que d'autres s'effacent presque totalement.
+Pour améliorer sa prononciation en anglais quand on est francophone, il vaut mieux commencer par s'écouter que par répéter des sons au hasard : on enregistre un court texte, on repère les cinq ou six mots qui accrochent, puis on travaille quelques points précis dans cet ordre. Ceux qui gênent le plus un auditeur anglophone ne sont pas toujours ceux qu'on imagine : le souffle de certaines consonnes, le /r/, deux voyelles absentes du français et les terminaisons des verbes méritent d'être travaillés avant de s'occuper de l'intonation de la phrase.
 
-Pour se faire comprendre sans effort par des interlocuteurs natifs et internationaux, il est inutile de chercher à gommer intégralement son accent d'origine : l'objectif prioritaire est la clarté phonétique et le respect des schémas d'intonation.
+Ce plan ne reprend pas les erreurs classiques déjà traitées dans notre article sur les [astuces de prononciation anglaise](/fr/blog/prononciation-anglaise-astuces/) (le /h/, le *th*, la longueur de /ɪ/ et /iː/, le schwa). Il couvre ce qui s'y trouve moins, avec un exercice par point et une progression sur quatre semaines.
 
-## Comprendre comment améliorer sa prononciation en anglais : les obstacles phonétiques
+## Pour améliorer sa prononciation en anglais, commencez par vous enregistrer
 
-Comprendre les causes physiques de nos erreurs permet de les corriger beaucoup plus rapidement. Pour savoir comment améliorer sa prononciation en anglais, il faut d'abord isoler les quatre pièges classiques :
+On ne corrige pas ce qu'on n'entend pas. Prenez un texte d'une dizaine de lignes, un paragraphe d'article ou d'un livre que vous aimez, et lisez-le à voix haute avec votre téléphone. Écoutez ensuite l'enregistrement trois fois, avec une question différente à chaque passage :
 
-1. **La confusion entre voyelles courtes et longues :** Le français ne distingue pas la longueur des voyelles. En anglais, confondre /ɪ/ (court et relâché dans *ship*) et /iː/ (tendu et étiré dans *sheep*) change totalement le sens de la phrase. De même pour *full* /ʊ/ et *fool* /uː/.
-2. **Le défi des sons 'th' (/θ/ et /ð/) :** Faute de phonème dental en français, nous avons le réflexe de substituer un /s/ ou /t/ (*I sink* au lieu de *I think*) ou un /z/ (*ze book* au lieu de *the book*). Pour réussir le /θ/, placez la pointe de la langue contre le tranchant des dents supérieures et soufflez sans engager la voix.
-3. **Le 'H' aspiré oublié ou surcompensé :** Le français ne prononce jamais le 'H'. En anglais, l'absence d'aspiration transforme *heat* en *eat* ou *heart* en *art*. À l'inverse, l'anxiété pousse souvent les élèves à placer des coups de glotte artificiels là où aucun 'H' n'existe.
-4. **La terminaison des verbes réguliers au passé (-ed) :** Selon la consonne finale du verbe, le suffixe se prononce /t/ (*worked*), /d/ (*cleaned*) ou /ɪd/ uniquement après les sons /t/ et /d/ (*started*, *needed*).
+1. **Les sons :** quels mots ont un son qui ressemble à du français (une voyelle qui ne change pas, un *r* qui gratte) ?
+2. **Les terminaisons :** entend-on bien la fin des verbes (*walked*, *played*) et des pluriels ?
+3. **Le rythme :** les mots importants ressortent-ils, ou tout est-il au même niveau ?
 
-![Bibliothèque de phonétique anglaise dans Lexkite](media:@s1 "Visualiser les symboles phonétiques et écouter des exemples natifs dans Lexkite")
+Notez cinq mots sur lesquels vous avez buté. Pour chacun, écoutez la prononciation de référence dans un dictionnaire qui propose l'audio, puis comparez à voix haute : une seule différence suffit à justifier l'exercice. Gardez l'enregistrement : vous le réécouterez à la fin des quatre semaines, et c'est la preuve de progrès la plus fiable.
 
-## Techniques actives pour transformer votre élocution au quotidien
+## Le souffle de /p/, /t/ et /k/ : le test de la feuille de papier
 
-Travailler sa prononciation ne se résume pas à lire des tableaux théoriques ; cela demande un entraînement musculaire quotidien :
+En anglais, les consonnes /p/, /t/ et /k/ au début d'une syllabe accentuée s'accompagnent d'un petit souffle d'air, qu'on appelle l'aspiration. En français, ces mêmes consonnes se prononcent sans souffle. Pour l'oreille d'un anglophone, un *pin* sans souffle peut ressembler à *bin* : c'est la différence entre sourd et sonore qui est brouillée, et c'est un des malentendus les plus fréquents.
 
-### 1. La pratique intensive du Shadowing
-Prenez un extrait audio d'un locuteur natif de 30 secondes. Écoutez-le une première fois pour le sens. À la deuxième écoute, répétez à voix haute presque simultanément, avec un retard d'un ou deux mots seulement. Concentrez-vous non pas sur l'orthographe, mais sur la mélodie de la phrase, les montées et descentes de la voix et les contractions naturelles.
+Le test est simple. Tenez une feuille devant vos lèvres, à quelques centimètres, et dites *pin* : la feuille doit bouger nettement. Dites ensuite *spin* : elle bouge à peine, parce qu'après un *s* la consonne perd son souffle. Faites la même chose avec *top* / *stop*, ou avec *kill* / *skill*. Le but n'est pas d'exagérer, mais de sentir l'air partir.
 
-### 2. Identifier et prononcer le Schwa (/ə/)
-Le schwa est le son vocalique le plus fréquent de la langue anglaise. Présent dans les syllabes inaccentuées (comme dans *about* /əˈbaʊt/ ou *banana* /bəˈnɑːnə/), il exige un relâchement total des muscles de la mâchoire. Réduire correctement ces syllabes donne immédiatement à votre anglais une cadence naturelle.
+Passez ensuite à une phrase où le souffle revient souvent, dite lentement d'abord : *Please put the pen on the paper*. Le /p/ de *please*, de *put*, de *pen* et de *paper* doit chaque fois faire bouger la feuille, à l'exception du second /p/ de *paper*, qui n'ouvre pas la syllabe accentuée et se fait plus discret.
 
-### 3. S'enregistrer et comparer les paires minimales
-Les paires minimales (*minimal pairs*) sont des mots qui ne diffèrent que par un seul son (comme *bat* /bæt/ et *bet* /bet/). Enregistrez-vous sur votre smartphone en lisant des séries de paires, puis écoutez votre enregistrement en comparant avec un dictionnaire audio.
+## Le /r/ anglais : lâcher le fond de la gorge
 
-![Leçon sur la prononciation des terminaisons verbales dans Lexkite](media:@s2 "Exercices ciblés sur les terminaisons en -ed et -s dans le parcours de grammaire Lexkite")
+Le *r* français se fait au fond de la bouche, avec un frottement près de la luette. Le *r* anglais ne touche rien : la pointe de la langue se recule ou le dos de la langue se bombe, sans contact avec le palais, et les lèvres s'arrondissent légèrement. Le son est donc continu, sans grattement.
 
+Une astuce courante consiste à partir d'un /w/ : dites *wed*, puis reculez la langue sans changer la position des lèvres pour obtenir *red*. Passez ensuite à *road*, *around* et *very*. Dans *very*, gardez le même son continu, sans le gratter au fond de la gorge. En anglais américain, le *r* s'entend aussi en fin de mot (*car*, *work*) ; en anglais britannique standard, il disparaît en fin de syllabe, sauf avant une voyelle. Choisissez l'accent que vous voulez tenir et gardez-le.
 
-## Les subtilités de l'accent tonique dans les mots polysyllabiques
+## Deux voyelles que le français n'a pas : /æ/ et /ʌ/
 
-En anglais, l'accentuation d'un mot (*Word Stress*) est tout aussi déterminante pour la compréhension que le choix des voyelles. Contrairement au français qui appuie légèrement sur la dernière syllabe prononcée, l'anglais place son accent tonique sur n'importe quelle syllabe selon l'étymologie et la classe grammaticale :
+Le français ne possède ni /æ/ (celle de *cat*) ni /ʌ/ (celle de *cup*). On les remplace volontiers par un /a/ ou un /ɛ/ proche, ce qui rapproche des mots que l'anglais sépare : *bad* et *bed*, *cap* et *cup*, *ran* et *run*.
 
-### L'alternance nom / verbe selon l'accent tonique
-De nombreux termes bisyllabiques changent de catégorie grammaticale selon la place de l'accent :
-- **Un nom accentue la première syllabe :** *AN object* /ˈɒbdʒɪkt/ (un objet physique), *A record* /ˈrekɔːd/ (un enregistrement musical), *A present* /ˈpreznt/ (un cadeau).
-- **Un verbe accentue la seconde syllabe :** *To obJECT* /əbˈdʒekt/ (s'opposer à une décision), *To reCORD* /rɪˈkɔːd/ (enregistrer des données), *To preSENT* /prɪˈzent/ (présenter un projet).
+| Son | Mots types | Position de la bouche |
+| :--- | :--- | :--- |
+| `/æ/` | bad, cap, ran, hat | bouche bien ouverte, lèvres écartées, son plutôt long |
+| `/e/` | bed, pen, men | bouche à demi ouverte, langue plus haute |
+| `/ʌ/` | cup, run, hut, mud | bouche mi-ouverte, détendue, son bref |
 
-Si vous prononcez le verbe *to present* avec l'accent sur la première syllabe, un auditeur anglophone mettra une fraction de seconde supplémentaire à comprendre que vous n'évoquez pas un cadeau de Noël.
+Faites des paires à voix haute : *bad* puis *bed*, *cap* puis *cup*, *hat* puis *hut*. Enregistrez-vous : si les deux mots de la paire sonnent pareil, vous avez trouvé un point à travailler. Replacez ensuite les deux voyelles dans une même phrase, par exemple *I had a cup of tea at the back of the bus*, qui contient /æ/ dans *had* et *back*, et /ʌ/ dans *cup* et *bus*. C'est d'ailleurs un des usages les plus utiles de la [Bibliothèque de prononciation](/app/#/pron) : choisir une voyelle, écouter ses mots d'exemple, puis la dire à son tour pour voir comment elle est notée.
 
-## Le rôle crucial de l'intonation descendante et montante
+![](media:@s1 "Bibliothèque de prononciation IPA : voyelles simples, diphtongues, consonnes, mots d'exemple et pratique de chaque son notée")
 
-L'intonation donne la clé d'interprétation émotionnelle et pragmatique de votre message.
+Si vous voulez aller plus loin sur la notation, notre guide de l'[alphabet phonétique international](/fr/blog/alphabet-phonetique-international-anglais-ipa/) explique chaque symbole.
 
-Elle s'organise selon deux mouvements fondamentaux :
-- **L'intonation descendante (Falling intonation) :** Elle s'emploie dans les déclarations fermes et les questions ouvertes commençant par Wh- (*Where did you leave the keys?*). Elle communique l'assurance, l'autorité et la complétude de l'idée.
-- **L'intonation montante (Rising intonation) :** Elle caractérise les questions fermées attendant une réponse par oui ou non (*Are you available tomorrow morning?*). Elle signale la vérification d'une information.
-- **Le piège du 'High Rising Terminal' :** Les locuteurs francophones ont souvent tendance à faire monter leur voix en fin de phrase affirmative par politesse. En anglais, cette habitude donne l'impression que vous doutez de ce que vous affirmez, ce qui peut affaiblir votre posture lors d'une soutenance ou d'un entretien d'embauche.
+## Les terminaisons -ed et -s : lire avec les oreilles, pas avec les yeux
 
-## Plan de travail progressif sur 4 semaines
+Le français prononce généralement ce qu'il écrit ; l'anglais, non. Un francophone qui lit *walked* peut dire /wɔkɛd/ avec une syllabe de trop. La règle porte sur le dernier son du verbe, pas sur sa dernière lettre :
 
-Pour ancrer des habitudes durables, adoptez un calendrier clair.
+| Terminaison | Quand | Exemple |
+| :--- | :--- | :--- |
+| `/t/` | après un son sourd (/p k f s ʃ tʃ θ/) | worked `/wɜːkt/` |
+| `/d/` | après un son sonore ou une voyelle | cleaned `/kliːnd/` |
+| `/ɪd/` | après /t/ ou /d/ | wanted `/ˈwɒntɪd/` |
 
-Voici notre feuille de route suggérée sur quatre semaines :
-- **Semaine 1 :** Focalisez-vous sur les paires minimales de voyelles (/ɪ/ vs /iː/, /æ/ vs /ʌ/). Pratiquez devant un miroir pour vérifier l'ouverture de votre mâchoire.
-- **Semaine 2 :** Travaillez l'aspiration des consonnes sourdes (/p/, /t/, /k/) et la position de la langue pour le son /θ/. Utilisez une feuille de papier devant votre bouche : elle doit bouger sur un 'p' aspiré en début de mot.
-- **Semaine 3 :** Intégrez les règles de réduction du schwa et entraînez-vous sur les fins de verbes réguliers en -ed dans des phrases complètes.
-- **Semaine 4 :** Pratiquez 10 minutes quotidiennes de shadowing sur des discours formels ou des podcasts d'actualité pour unifier rythme et mélodie.
+La terminaison -s suit le même principe : `/s/` après un son sourd (*cats*), `/z/` après un son sonore (*dogs*), `/ɪz/` après un sifflement (*buses*). Une phrase d'entraînement : *She called, waited, then asked again*, où l'on entend trois terminaisons différentes (`/d/`, `/ɪd/`, `/t/`). Le détail et les pièges (*naked*, *learned*) sont dans notre article sur la [prononciation du -ed](/fr/blog/prononciation-ed-anglais/).
 
-Pour aller plus loin dans votre apprentissage, consultez nos fiches pratiques sur les [faux amis anglais-français](/fr/blog/faux-amis-anglais-francais/) et découvrez comment [apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/) efficacement. Vous pouvez également explorer notre article pour [apprendre l'anglais seul](/fr/blog/apprendre-anglais-seul/) et perfectionner votre compréhension orale grâce à nos [conseils pour l'IELTS Listening](/fr/blog/conseils-ielts-listening/).
+![](media:@s2 "Leçon sur l'orthographe et la prononciation de -ed, -ing et -s, avec classement des verbes selon leur son final")
 
-Pratiquez les contrastes phonétiques et entraînez votre oreille au quotidien dans le module [phonétique](/app/#/pron) de Lexkite, passez notre [test de niveau](/app/#/placement) ou parcourez nos ressources interactives sur notre [page d'exemples](/en/samples/).
+## Le plan sur quatre semaines
 
-{{cta: /app/#/pron | Travailler votre prononciation et les sons anglais dans Lexkite}}
+{{diagram: d1 | Quatre semaines, dix minutes par jour : mesurer, souffle et /r/, voyelles et finales, assemblage}}
 
-{{youtube: | Guide vidéo complet sur la prononciation des sons anglais difficiles pour les francophones}}
+Dix minutes par jour suffisent si elles sont régulières, et un seul point par séance vaut mieux que cinq à la fois : si vous travaillez le /r/, n'écoutez que le /r/. Notez à la fin de chaque séance un mot qui s'est amélioré et un mot qui résiste ; la liste du lendemain en sort naturellement. En semaine 4, réécoutez l'enregistrement de la première et comparez-le au nouveau. Pour la dernière étape, le [shadowing](/fr/blog/technique-du-shadowing-anglais-oral/) permet d'enchaîner ces sons dans de vraies phrases : vous répétez en même temps qu'un locuteur, sans lire.
 
-## L'importance de l'écoute active avant la répétition
+Pour que le rythme suive, le guide sur le [connected speech](/fr/blog/connected-speech-anglais-liaisons-et-rythme/) montre comment les mots se lient dans la conversation.
 
-Avant de chercher à reproduire un son complexe, apprenez à l'écouter isolément plusieurs fois de suite. Le cerveau adulte a besoin de percevoir la vibration acoustique et la tension musculaire avant d'ordonner aux organes vocaux de se positionner convenablement. Pratiquer cette écoute analytique accélère grandement la clarté de votre élocution.
+Pour dire une phrase entière et voir si le résultat est jugé correct, la [Prononciation notée](/app/#/practice/speak) de l'application demande de lire une expression à voix haute, puis la note d'après votre voix. C'est un bon dernier test pour la semaine 4.
+
+{{cta: /app/#/pron | Écouter et pratiquer chaque son dans la Bibliothèque de prononciation Lexkite}}
+
+{{youtube: | Vidéo à venir : le test de la feuille de papier et le /r/ anglais en direct}}
 
 ## Foire aux questions
 
-### Est-il indispensable de supprimer totalement son accent français ?
-Absolument pas. Un léger accent français est parfaitement compris et apprécié à l'international. L'objectif n'est pas d'imiter un acteur shakespearien, mais d'éviter les confusions phonétiques qui obligent votre interlocuteur à faire un effort de décodage.
+### Combien de temps faut-il pour améliorer sa prononciation ?
+Il n'y a pas de durée garantie, car cela dépend du point de départ et de la régularité. Dix minutes par jour sur quelques points précis donnent des résultats que l'on perçoit en réécoutant ses enregistrements ; c'est de cette comparaison qu'il faut partir plutôt que d'un chiffre.
 
-### Combien de temps faut-il consacrer à la phonétique chaque jour ?
-Dix à quinze minutes d'exercices ciblés à voix haute (shadowing, paires minimales) chaque jour sont infiniment plus efficaces qu'une session de deux heures une fois par mois. La mémoire musculaire articulatoire a besoin de répétitions régulières.
+### Faut-il supprimer son accent français ?
+Non. Il faut surtout être compris. Un accent français avec des finales bien dites et un rythme clair est plus compréhensible qu'une imitation approximative. Choisissez un accent de référence (britannique ou américain) et restez-y pour ne pas mélanger.
 
-### Pourquoi a-t-on du mal à entendre certains sons anglais ?
-Parce que notre cerveau filtre les fréquences acoustiques à travers le prisme de notre langue maternelle depuis l'enfance. En s'entraînant avec des paires minimales contrastées, le système auditif réapprend progressivement à discriminer les phonèmes étrangers.
+### Vaut-il mieux s'entraîner avec des mots ou des phrases ?
+Les deux, dans cet ordre. Commencez par des mots et des paires pour sentir le geste, puis replacez-les dans des phrases : un son travaillé isolément se perd facilement dès qu'on parle vite.

@@ -1,6 +1,6 @@
 ---
-title: "영어 간접화법 완벽 정리: 시제 일치 규칙과 전달동사 전환 가이드"
-description: "영어 간접화법 완벽 마스터 실전 가이드: 직접화법을 간접화법으로 전환할 때 반드시 지켜야 하는 시제 일치와 백시프트 규칙, 인칭대명사 및 시간 부사구 변환, 고급 전달동사 활용법과 상황별 예문까지 총정리해 드립니다."
+title: "영어 간접화법 쓰는 법: 시제, 대명사, 시간 표현 바꾸기"
+description: "영어 간접화법 변환에서 확인할 세 가지(시제, 대명사, 시간·장소 표현)와 백시프트를 하지 않아도 되는 경우, 한국어 간접 인용과 달라서 생기는 실수, 전달동사 고르는 법을 예문과 함께 정리했습니다."
 slug: ganjeop-hwabeop-yeongeo-reported-speech
 lang: ko
 translationKey: reported-speech
@@ -8,191 +8,178 @@ category: ngu-phap
 tags: [reported-speech, indirect-speech, english-grammar, tense-shift]
 keyword: "영어 간접화법"
 cover: grammar
-coverAlt: "Lexkite 문법 학습 화면에서 영어 간접화법 시제 일치 규칙과 변환 예문을 확인하는 모습"
-publishAt: 2027-02-17T09:00:00+09:00
+coverAlt: "Lexkite 문법 화면에서 장별 학습 경로와 12시제, A1–B2 수준을 확인하는 모습"
+publishAt: 2026-12-26T07:48:00+09:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 91
+status: ready
 coverArt: {mood: think, icon: book, chip: English Grammar}
 shots: [
-  {id: s1, route: '#/grammar', crop: main},
-  {id: s2, route: '#/vocab', crop: main}
+  {id: s1, route: '#/usage', crop: main},
+  {id: s2, route: '#/phrases', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: '영어 간접화법 전환의 3대 핵심 규칙', parts: [{t: '1. 시제 백시프트', r: '전달동사가 과거형일 때 종속절 시제가 한 단계 과거로 이동 (Present -> Past, Past -> Past Perfect)'}, {t: '2. 인칭 및 지시대명사 조정', r: '화자와 청자의 관점에 맞추어 I/you -> he/she, this -> that 변환'}, {t: '3. 시간 및 장소 부사구 전환', r: '발화 시점의 차이에 따라 now -> then, today -> that day, here -> there 변환'}]}
+  {id: d1, type: boxes, title: '간접화법으로 바꿀 때 확인할 세 가지', parts: [{t: '1. 동사의 시제', r: '전달동사가 과거이면 보통 한 단계 과거로: am working → was working, will → would'}, {t: '2. 대명사', r: '말한 사람과 듣는 사람이 달라지면 I → he/she, you → me/us처럼 관점을 맞춤'}, {t: '3. 시간·장소 표현', r: '말한 때와 전하는 때가 다르면 now → then, tomorrow → the next day, here → there'}]}
 ]
 quiz: [
   {
-    q: "직접화법 'He said, \"I am studying now.\"'를 간접화법으로 올바르게 전환한 것은?",
-    options: [
-      "He said that he was studying then.",
-      "He said that I am studying now.",
-      "He said that he had studied then.",
-      "He said that he is studying now."
-    ],
-    answer: 0,
-    explain: "전달동사가 과거(said)이므로 현재진행(am studying)은 과거진행(was studying)으로 바뀌고 now는 then으로 바뀝니다."
-  },
-  {
-    q: "Yes/No 의문문을 간접화법으로 바꿀 때 접속사로 알맞은 것은?",
-    options: [
-      "that 또는 which",
-      "if 또는 whether",
-      "because 또는 since",
-      "although 또는 though"
-    ],
+    q: "'I'll send the file tomorrow.' → She said she ___ send the file the next day.",
+    options: ["will", "would", "can", "must"],
     answer: 1,
-    explain: "의문사가 없는 일반 의문문은 '~인지 아닌지'의 의미를 지닌 if 또는 whether를 접속사로 사용합니다."
+    explain: "said가 과거이고 the next day가 과거 시점을 기준으로 한 표현이므로 will은 would로 바뀝니다."
   },
   {
-    q: "'She told me, \"Don't be late.\"'를 올바르게 간접화법으로 전환한 문장은?",
-    options: [
-      "She told me not to be late.",
-      "She told me that don't be late.",
-      "She told me to not be late.",
-      "She told to me not being late."
-    ],
+    q: "He asked me ___ the museum was open on Mondays.",
+    options: ["if", "to", "that", "what"],
     answer: 0,
-    explain: "부정 명령문은 '전달동사 + 목적어 + not to 부정사'의 형태로 전환하는 것이 어법에 맞습니다."
+    explain: "Yes/No 질문을 전할 때는 if나 whether로 잇고, 어순은 평서문으로 바꿉니다."
+  },
+  {
+    q: "Yesterday she said, 'I can't open the file now.' → She said she ___ open the file then.",
+    options: ["can't", "won't", "shouldn't", "couldn't"],
+    answer: 3,
+    explain: "then이 과거 시점을 가리키므로 can't는 한 단계 과거인 couldn't로 옮깁니다."
   }
 ]
 ---
 
-영어로 일상 대화를 나누거나 비즈니스 미팅에서 타인의 발언을 제3자에게 전할 때 **영어 간접화법**(Reported Speech)은 필수적으로 구사해야 하는 핵심 문법입니다. 상대방이 한 말을 따옴표 그대로 전달하는 직접화법(Direct Speech)과 달리, 간접화법은 보고하는 화자의 시점과 시제에 맞추어 문장 구조를 유연하게 재구성하는 능력을 요구합니다.
+**영어 간접화법**은 남이 한 말을 내 입장에서 다시 전하는 방법입니다. 직접화법에서는 따옴표 안에 말을 그대로 옮기지만, 간접화법에서는 문장 안으로 끌어들이면서 세 가지를 맞춰야 합니다. 동사의 시제, 대명사, 그리고 now나 tomorrow 같은 시간·장소 표현입니다. 이 글은 이 세 가지를 순서대로 정리한 뒤, 한국어의 간접 인용과 어디가 달라서 틀리기 쉬운지, 그리고 say와 tell 말고 어떤 전달동사를 쓰면 좋은지까지 다룹니다.
 
-하지만 한국인 학습자에게 **영어 간접화법**은 무척 까다롭게 느껴집니다. 한국어는 "그가 지금 공부하고 있다고 말했다"처럼 보고하는 시점이 과거이든 현재이든 종속절의 시제를 유연하게 유지하는 경우가 많지만, 영어는 주절의 전달동사가 과거형(*said, told*)이면 종속절의 동사 시제를 반드시 한 단계 과거로 물리는 엄격한 **시제 백시프트(Backshift)** 원칙을 적용하기 때문입니다.
+## 영어 간접화법 변환에서 바꿔야 하는 세 가지
 
-이번 가이드에서는 단순 암기식 공식을 탈피하여 시제 일치의 본질적 원리, 대명사와 부사구 전환 규칙, 그리고 시험과 실무에서 자주 쓰이는 다채로운 전달동사의 활용법을 명쾌하게 해설해 드립니다.
+"그가 지금 일하고 있다고 했다"를 영어로 옮긴다고 생각해 봅시다. 직접화법은 *He said, "I am working now."* 입니다. 이 말을 나중에 전할 때는 이렇게 바뀝니다.
 
-## 영어 간접화법 : 시제 백시프트와 전환의 3대 핵심 원리
+*He said that he was working then.*
 
-직접화법을 **영어 간접화법**으로 전환할 때는 세 가지 핵심 축을 동시에 점검해야 합니다:
+I가 he로, am working이 was working으로, now가 then으로 바뀌었습니다. 하나씩 따로 외우기보다, 말한 순간과 전하는 순간 사이에 시간이 흐르고 사람이 바뀌었다는 점을 떠올리면 어떤 부분을 고쳐야 하는지 눈에 들어옵니다.
 
-```
-+-------------------------------------------------------------+
-| 1. 시제 일치 (Tense Backshift): 한 단계 과거로의 이동          |
-| 2. 대명사 변환 (Pronoun Shift): 보고하는 화자의 관점에 맞춤    |
-| 3. 시간/장소 부사구 (Adverbial Shift): 기준 시점의 공간적 조정   |
-+-------------------------------------------------------------+
-```
+{{diagram: d1 | 간접화법으로 바꿀 때 확인할 세 가지}}
 
-### 1. 시제 백시프트(Backshift) 규칙
-주절의 전달동사가 *said*, *told*, *asked*와 같은 과거형일 때, 종속절의 동사는 원발화 시점보다 한 단계 더 이전 시제로 후퇴합니다:
+### 시제는 보통 한 단계 과거로 옮깁니다
 
-- **현재 단순 $\rightarrow$ 과거 단순**: *\"I work hard\" $\rightarrow$ He said that he worked hard.*
-- **현재 진행 $\rightarrow$ 과거 진행**: *\"I am working\" $\rightarrow$ He said that he was working.*
-- **현재 완료 $\rightarrow$ 과거 완료**: *\"I have finished\" $\rightarrow$ He said that he had finished.*
-- **과거 단순 $\rightarrow$ 과거 완료**: *\"I lost my key\" $\rightarrow$ He said that he had lost his key.*
-- **미래 조동사 will $\rightarrow$ would**: *\"I will help you\" $\rightarrow$ He said that he would help me.*
-- **조동사 can $\rightarrow$ could / may $\rightarrow$ might**: *\"I can do it\" $\rightarrow$ He said that he could do it.*
+전달동사(said, told, asked 등)가 과거일 때, 종속절의 동사는 보통 한 단계 과거로 옮깁니다. 영어 문법에서는 이를 시제 일치(sequence of tenses) 또는 백시프트(backshift)라고 부르고, 학교 문법에서는 흔히 시제의 일치라고 합니다.
 
-단, 이미 과거 완료(*had done*)이거나 조동사 *could, should, would, might, ought to*가 쓰인 문장은 더 이상 후퇴할 과거 시제가 없으므로 형태를 그대로 유지합니다.
+- 현재 단순 → 과거 단순: *"I work late." → He said he worked late.*
+- 현재 진행 → 과거 진행: *"I am waiting." → She said she was waiting.*
+- 현재 완료 → 과거 완료: *"I have finished." → He said he had finished.* (현재완료와 과거의 차이는 [현재완료와 과거 시제의 차이](/ko/blog/hyeonjaewanryo-gwageo-chai/)에서 정리했습니다.)
+- 과거 단순 → 과거 완료: *"I lost my key." → She said she had lost her key.*
+- will → would, can → could, may → might: *"I will help." → He said he would help.*
+- must → had to: *"I must go." → She said she had to go.* (의무가 아니라 추측이나 일반적인 필요를 말할 때는 must를 그대로 두기도 합니다.)
 
-![Lexkite 문법 화면에서 간접화법 시제 일치 규칙 확인](media:@s1 "Lexkite 문법 모듈에서 시제 일치 원리와 변환 예문을 학습하는 화면")
+이미 과거 완료이거나 could, would, should, might처럼 더 옮길 형태가 없는 동사는 그대로 둡니다. 조동사별 뜻은 [영어 조동사 can, could, should, must 정리](/ko/blog/yeongeo-jodongsa-can-could-should-must/)를 참고하세요. 그리고 전한 내용이 지금도 사실이라면 현재형을 유지해도 됩니다. 자세한 경우는 아래의 "백시프트를 하지 않아도 되는 경우"에서 다룹니다.
 
-{{diagram: d1 | 영어 간접화법 전환의 3대 핵심 규칙}}
+![](media:@s1 "단어를 검색해 쓰임새와 자주 하는 실수를 확인하는 화면")
 
-## 인칭대명사와 시간/장소 부사구 변환 표
+### 대명사와 시간·장소 표현도 함께 바꿉니다
 
-발화자가 바뀌고 시공간이 달라지기 때문에 지시 대명사와 부사구도 화자의 현재 상황에 맞춰 적절히 변경해야 합니다:
+말한 사람과 듣는 사람이 달라지고 시간이 흐르면 대명사와 부사도 따라 움직입니다.
 
-| 직접화법 (Direct Speech) | 간접화법 (Reported Speech) |
+| 직접화법 | 간접화법 |
 | :--- | :--- |
-| **this / these** | *that / those* |
-| **here** | *there* |
-| **now** | *then / at that time* |
-| **today** | *that day* |
-| **yesterday** | *the day before / the previous day* |
-| **tomorrow** | *the next day / the following day* |
-| **last week / ago** | *the week before / previously* |
+| I, we | he/she, they (전하는 사람 입장에서) |
+| this / these | that / those |
+| here | there |
+| now | then, at that time |
+| today | that day |
+| yesterday | the day before, the previous day |
+| tomorrow | the next day, the following day |
+| last week | the week before, the previous week |
 
-예를 들어, 직장 상사가 어제 *"We must finalize the contract today"*라고 말했다면, 오늘 동료에게 전할 때는 *"He said that we had to finalize the contract that day"*라고 바꾸어 주어야 시간적 오해가 발생하지 않습니다.
+단, 전하는 시점이 말한 시점과 같은 날이면 이 표를 기계적으로 적용하지 않아도 됩니다. 오늘 아침에 들은 말을 오늘 저녁에 전한다면 *She said she would call me tomorrow*처럼 tomorrow를 그대로 써도 자연스럽습니다. 기준은 표가 아니라, 듣는 사람이 헷갈리지 않는가입니다.
 
-![Lexkite 단어장에서 전달동사와 관용구 학습](media:@s2 "상황별 전달동사의 어법과 패턴을 예문과 함께 익히는 Lexkite 화면")
+## 질문과 명령은 문장 형태가 달라집니다
 
-## 문장 형태별 간접화법 전환 전략
+평서문은 that절로 이어 붙이면 되지만, 질문과 명령은 구조가 달라집니다.
 
-문장의 종류(평서문, 의문문, 명령문)에 따라 접속사와 어순을 올바르게 세팅하는 테크닉이 필요합니다.
+**질문**을 전할 때는 의문문 어순을 평서문 어순으로 돌려놓습니다. 의문사가 있으면 의문사로 잇고, 없으면 if나 whether로 잇습니다.
 
-### 1. 의문문의 간접화법 (간접의문문)
-의문문을 전달할 때는 의문사 어순을 평서문 어순(의문사 + 주어 + 동사)으로 반드시 되돌려야 하며, 전달동사로 *asked, wondered, wanted to know*를 씁니다:
-- **의문사가 있는 경우**: *She asked me, \"Where do you live?\" $\rightarrow$ She asked me where I lived.*
-- **의문사가 없는 경우(Yes/No)**: *He asked, \"Are you ready?\" $\rightarrow$ He asked if (whether) I was ready.*
+- *"Where do you park?" → He asked me where I parked.*
+- *"Is the office open?" → She asked whether the office was open.*
 
-### 2. 명령문과 요청의 간접화법 (to부정사 활용)
-명령문이나 간곡한 부탁은 복잡한 절 대신 '동사 + 목적어 + to부정사' 구문을 활용해 직관적이고 경제적인 문장으로 변환합니다:
-- **긍정 명령**: *The manager told us, \"Submit the proposal by noon.\" $\rightarrow$ The manager told us to submit the proposal by noon.*
-- **부정 명령**: *The doctor said, \"Don't skip breakfast.\" $\rightarrow$ The doctor advised me not to skip breakfast.*
+여기서 *He asked me where did I park*라고 쓰는 실수가 흔한데, 간접 질문은 문장 속에 들어간 절이므로 do/did를 쓰지 않습니다.
 
-이처럼 다양한 구문을 체계적으로 연습하려면 [Lexkite 문법 학습실](/app/#/grammar)에서 시제 변환 드릴을 풀어보고, [단어장 모듈](/app/#/vocab)에 유용한 전달동사들을 저장해 두세요.
+**명령과 부탁**은 that절 대신 to부정사로 바꿉니다. 부정 명령은 not to입니다.
 
-## Say와 Tell을 넘어선 고급 전달동사(Reporting Verbs)
+- *"Please send me the invoice." → She asked me to send her the invoice.*
+- *"Don't open the server room." → The manager told us not to open the server room.*
 
-초보자들은 모든 간접화법 문장에 *say*나 *tell*만을 단조롭게 반복합니다. 하지만 학술 에세이나 비즈니스 이메일에서는 발화자의 의도와 뉘앙스를 명확히 살려주는 다채로운 전달동사를 구사해야 합니다:
+## 백시프트를 하지 않아도 되는 경우
 
-1. **제안 및 조언 (Suggest, Recommend, Advise)**:
-   - *He suggested taking a short break.* (동명사 수반)
-   - *She advised me to consult a legal specialist.* (목적어 + to부정사)
-2. **주장 및 부인 (Claim, Insist, Deny)**:
-   - *The spokesperson claimed that the report was inaccurate.*
-   - *The suspect denied stealing the confidential documents.*
-3. **약속 및 거절 (Promise, Refuse, Offer)**:
-   - *The vendor promised to deliver the components by Friday.*
-   - *He refused to sign the revised terms without legal counsel.*
+백시프트는 "무조건 한 단계 과거로 옮겨야 한다"는 규칙이 아니라, 말한 내용이 과거에 속할 때 쓰는 기본 방식입니다. 다음 경우에는 현재형을 유지해도 되고, 과거로 한 단계 옮겨도 틀리지 않습니다.
 
-## 시제 일치의 예외가 적용되는 3가지 특별 케이스
+- **지금도 사실인 내용**: *She told us that the Han River flows through Seoul.* 지금도 한강은 서울을 지나므로 flows를 유지할 수 있습니다. *flowed*라고 해도 틀리지 않지만 어색하게 들릴 수 있습니다.
+- **일반적인 진리나 과학적 사실**: *The teacher explained that water boils at 100 degrees Celsius at sea level.*
+- **전한 순간에도 이어지는 상태**: *Minji said she lives near the station.* 민지가 지금도 그곳에 산다면 현재형이 자연스럽습니다.
 
-주절의 동사가 과거형이더라도 종속절의 시제를 과거로 물리지 않고 '현재 시제' 그대로 유지해야 하는 예외 규칙이 있습니다:
+반대로 이미 끝난 일을 전할 때는 한 단계 과거로 옮기는 쪽이 맞습니다. 예를 들어 어제 회의에서 나온 말은 *He said the deadline was Friday.* 처럼 과거로 옮기는 편이 안전합니다.
 
-- **1. 불변의 진리 및 과학적 사실**: *The teacher explained that water boils at 100 degrees Celsius.* (물이 100도에서 끓는 자연 법칙은 항상 현재형)
-- **2. 현재까지 유효한 사실이나 지속되는 상태**: *Sarah told me that she lives in Seoul.* (사라가 지금도 여전히 서울에 거주 중이라면 현재형 유지 가능)
-- **3. 역사적 사건**: *He said that World War II ended in 1945.* (역사적 사실은 언제나 과거 단순 시제 고정)
+## 한국어 간접 인용과 영어 백시프트의 차이
 
-기초 문법의 전반적인 토대를 튼튼히 다지고 싶다면 [영어 기초 문법 총정리](/ko/blog/yeongeo-gicho-munbeop-chongjeongri/)와 [영어 수동태 공식 및 용법](/ko/blog/yeongeo-sudongtae-gongsig-mich-yongbeop/)을 함께 학습해 보세요. 또한 자연스러운 문맥 구성을 위해 [영어 가정법 if 총정리](/ko/blog/yeongeo-gajeongbeop-if-chongjeongri/)와 [영어 조동사 정리](/ko/blog/yeongeo-jodongsa-can-could-should-must/)도 강력히 추천합니다. 고급 비즈니스 샘플은 [공식 샘플 보관소](/en/samples/)에서 확인하실 수 있습니다.
+한국인 학습자가 이 문법을 어렵게 느끼는 데에는 이유가 있습니다. 두 언어가 간접 인용에서 시제를 다루는 방식이 다르기 때문입니다.
 
-{{cta: /app/#/grammar | Lexkite 문법 모듈에서 간접화법 실전 퀴즈 풀기}}
+**한국어는 말한 순간의 시제를 그대로 가져옵니다.** "철수가 지금 밥을 먹는 중이라고 했다"에서 종속절의 '먹는 중이다'는 철수가 말하던 순간의 현재입니다. 전하는 순간이 언제인지와 상관없이, 인용된 말의 시제가 인용절 안에 유지됩니다. 한국어에는 전달동사가 과거라고 해서 종속절의 시제를 바꾸는 규칙이 없습니다.
 
-{{youtube: | 영어 간접화법 완벽 마스터 시제 일치와 전달동사 핵심 강의}}
+**영어는 전달동사의 시제에 종속절을 맞춥니다.** said가 과거이면 종속절도 그 과거 시점에 맞는 형태로 옮깁니다. 그래서 한국어 감각 그대로 *He said that he is eating*이라고 쓰기 쉽습니다. 철수가 지금도 먹고 있다면 문법적으로 틀리지 않지만, 어제 한 말을 전하는 문장이라면 *He said that he was eating*이 자연스럽습니다.
 
+이 차이 말고도 한국어 화자가 자주 겪는 어려움이 몇 가지 더 있습니다.
 
-## 한국어 화법과 영어 간접화법의 인지적 구조 차이 비교
+1. **say에 사람을 붙이는 실수**: 한국어는 "나에게 말했다"라고 하므로 *He said me that...*으로 옮기기 쉽습니다. say는 듣는 사람을 바로 받지 않으므로 *He told me that...* 또는 *He said to me that...* 이라고 해야 합니다.
+2. **간접 의문문의 어순**: 한국어 "어디에 사느냐고 물었다"는 어순이 평서문과 같은 자리에 있으므로 어순 문제가 눈에 띄지 않습니다. 영어에서는 의문사 뒤를 주어 + 동사로 돌려야 한다는 점을 따로 의식해야 합니다.
+3. **주어 생략**: 한국어는 "내일 온다고 했어"처럼 누가 말했고 누가 올지 문장에서 밝히지 않아도 통합니다. 영어는 he, she, I를 반드시 채워야 하므로, 대명사가 누구를 가리키는지 먼저 정리하는 습관이 필요합니다.
 
-한국인 학습자가 영작을 하거나 회화를 할 때 간접화법에서 유독 자주 틀리는 근본적인 원인은 두 언어가 바라보는 '시간과 공간의 기준점'이 완전히 다르기 때문입니다:
+## 직접 바꿔 보는 연습 순서
 
-### 1. 한국어의 상대적 시제 체계
-한국어에서는 과거에 일어난 사건을 전달할 때 발화 당시의 시점을 기준으로 표현하는 것이 매우 자연스럽습니다:
-- *철수가 어제 나에게 "나 지금 밥 먹어"라고 말했다.*
-- 간접화법 전환: *철수가 어제 밥을 먹는다고 말했다.* (종속절 '먹는다'는 현재형처럼 표현됨)
-한국어 화자는 청자에게 전달할 때 그 당시 철수가 밥을 먹던 생생한 장면에 초점을 맞추어 현재 시제형 어미('-ㄴ다고')를 그대로 유지하는 경향이 강합니다.
+공식을 읽는 것만으로는 입에서 바로 나오지 않습니다. 처음에는 아래 순서로 한 문장씩 바꿔 보면 실수가 줄어듭니다.
 
-### 2. 영어의 절대적 기준 시제 체계 (Absolute Temporal Anchor)
-반면 영어는 현재 문장을 말하고 있는 '지금 이 순간(Now)'을 절대적인 기준점으로 삼습니다. 철수가 밥을 먹은 행위는 지금 이 글을 쓰고 있는 순간보다 무조건 과거의 일입니다. 따라서 주절의 전달동사가 *said*라는 과거 시점에 걸려 있다면, 종속절의 행위도 절대적 기준에 맞추어 과거(*was eating*)로 끌어내려야만 원어민의 시간 인지 체계에 부합합니다.
+1. 직접화법 문장을 종이에 적고, 말한 사람과 듣는 사람에 밑줄을 긋습니다.
+2. 전하는 사람이 누구인지 정한 뒤 대명사부터 바꿉니다. he인지 she인지 먼저 정해 두면 뒤가 쉬워집니다.
+3. 전달동사가 과거인지 확인하고, 동사를 한 단계 옮길지 그대로 둘지 결정합니다. 지금도 사실인 내용인지 한 번 물어보세요.
+4. 마지막으로 now, tomorrow, here 같은 단어를 훑어보며 전하는 시점에 맞게 고칩니다.
+5. 소리 내어 읽어 보고, 한국어로 먼저 번역하지 않아도 의미가 통하는지 확인합니다.
 
-- **잘못된 영작 (한국어식 직역)**: *Chulsoo said that he is eating now. (X)*
-- **올바른 영작 (영어의 시제 일치)**: *Chulsoo said that he was eating then. (O)*
+예를 들어 *"We are moving to a new office next month."* 를 바꿔 봅시다. 대명사는 we가 그대로 we일 수도 있고, 전하는 사람이 그 회사 사람이 아니라면 they가 됩니다. 말한 시점이 과거이므로 are moving은 were moving으로, next month는 the following month로 옮깁니다. 그러면 *They said they were moving to a new office the following month.* 가 됩니다. 이렇게 단계를 거치면 한 문장이 몇 초 안에 만들어집니다. 절 안에 절을 끼워 넣는 구조는 [관계대명사 정리](/ko/blog/gwangye-daemyeongsa-jeongri/)와 함께 보면 더 눈에 들어옵니다.
 
-이러한 언어 구조적 차이를 이해하지 못한 채 기계적으로 공식을 암기하려 들면, 복잡한 지문이나 실전 인터뷰 상황에서 순간적으로 모국어의 시제 습관이 튀어나와 감점을 당하게 됩니다.
+## say와 tell을 넘어서는 전달동사
 
-## 실무 비즈니스 상황별 간접화법 롤플레잉 예시
+모든 문장을 said로만 이으면 말한 사람의 의도가 드러나지 않습니다. 의도에 맞는 동사를 고르면 훨씬 정확해집니다. 이때 동사마다 뒤에 오는 구조가 다르다는 점이 중요합니다.
 
-실제 비즈니스 이메일과 미팅에서 어떻게 쓰이는지 대화 시나리오를 통해 살펴보겠습니다:
+| 의도 | 동사와 구조 | 예문 |
+| :--- | :--- | :--- |
+| 제안 | suggest + 동명사 | *He suggested taking a short break.* |
+| 조언 | advise + 사람 + to부정사 | *She advised me to see a specialist.* |
+| 주장 | claim + that절 | *The spokesperson claimed that the report was wrong.* |
+| 부인 | deny + 동명사 | *The suspect denied taking the documents.* |
+| 약속 | promise + to부정사 | *The vendor promised to deliver by Friday.* |
+| 거절 | refuse + to부정사 | *He refused to sign the revised terms.* |
 
-> **시나리오 A: 고객사 미팅 후 팀장에게 보고할 때**
-> - **팀원:** I just got off the phone with the client.
-> - **팀장:** What did they say about our pricing proposal?
-> - **팀원:** **The procurement director mentioned that our quote was slightly above their budget.** However, **he added that they would consider signing the contract if we offered a 5% volume discount.**
-> - **팀장:** Did he mention when they would make the final decision?
-> - **팀원:** **He said that their board of directors would convene that Friday to finalize the vendor selection.**
+동사별 쓰임새는 [Lexkite의 단어 쓰임 화면](/app/#/usage)에서 단어를 검색해 확인할 수 있고, 시제별 연습은 [문법 화면](/app/#/grammar)에서 할 수 있습니다. 전달동사 구조가 헷갈릴 때는 [영어 동명사와 to부정사 구분법](/ko/blog/dongmyeongsa-to-bujungsa-gu-bun-beop-yeong-munbeop/)도 함께 읽어 보세요.
 
-이처럼 비즈니스 보고에서는 *said* 하나만으로 문장을 나열하면 유치하게 들리므로, *mentioned that, added that, confirmed that, inquired whether* 등의 표현을 적절히 교차 사용하여 프로페셔널한 어조를 구축해야 합니다.
+![](media:@s2 "전달동사 구조와 변환한 문장을 직접 적어 모아 두는 개인 구문 노트 화면")
 
-## 자주 묻는 질문 (FAQ)
+## 회의 후 보고에서 써 보기
 
-### Q1. Say that과 Tell that의 차이는 무엇인가요?
-*say*는 뒤에 듣는 사람(목적어) 없이 *say that ~* 형태로 쓸 수 있지만, *tell*은 반드시 듣는 대상인 간접목적어를 동반하여 *tell someone that ~*의 구조로 써야 합니다 (*He said me that (X) $\rightarrow$ He told me that (O)*).
+간접화법은 시험 문제보다 보고하는 상황에서 더 자주 쓰입니다. 고객과 통화한 뒤 팀장에게 전하는 장면을 예로 들어 보겠습니다.
 
-### Q2. 간접화법에서 that은 생략해도 되나요?
-구어체나 일상 회화에서는 *that*을 매우 자주 생략합니다 (*He said he was tired*). 하지만 격식 있는 비즈니스 문서나 학술 라이팅에서는 문장 구조의 명확성을 위해 *that*을 적어주는 것이 좋습니다.
+> **팀장:** What did the client say about the schedule?
+> **팀원:** He said the launch had to move to the following week. He also asked whether we could share a revised plan by Wednesday, and he promised to confirm the budget after that.
 
-### Q3. 의문사 있는 의문문을 바꿀 때 왜 주어 동사 어순으로 바뀌나요?
-의문을 직접 제기하는 독립된 문장이 아니라, 주절의 목적어 역할을 하는 명사절(간접의문문)로 흡수되기 때문에 평서문 어순인 '의문사 + 주어 + 동사'를 따르게 됩니다.
+이 대화에는 앞에서 다룬 요소가 모두 들어 있습니다. *had to*는 must를 옮긴 형태이고, *the following week*는 next week를 옮긴 것이며, *whether*는 Yes/No 질문을 잇는 연결어입니다. 이렇게 짧은 보고 문장을 직접 써 보면서 [구문 노트](/app/#/phrases)에 모아 두면, 같은 구조를 다시 쓰기가 훨씬 쉬워집니다.
+
+{{cta: /app/#/grammar | Lexkite 문법 화면에서 시제 연습하기}}
+
+{{youtube: | 영어 간접화법의 시제, 대명사, 시간 표현 변환 설명 영상}}
+
+## 자주 묻는 질문
+
+### say that과 tell that은 어떻게 다른가요?
+
+say는 듣는 사람 없이 *say that ~* 형태로 쓸 수 있고, tell은 듣는 사람을 바로 뒤에 붙여 *tell someone that ~* 형태로 씁니다. *He said me that*은 틀리고 *He told me that*이 맞습니다.
+
+### 간접화법에서 that은 생략해도 되나요?
+
+대화에서는 자주 생략합니다. *He said he was tired*처럼 써도 자연스럽습니다. 보고서나 이메일처럼 격식을 갖춘 글에서는 문장 구조가 분명하도록 that을 적어 주는 편이 읽기 편합니다.
+
+### 간접 의문문에서 왜 do/did가 사라지나요?
+
+간접 의문문은 독립된 질문이 아니라 문장의 일부가 된 절이기 때문입니다. 질문 형식을 만드는 do/did는 필요 없고, 시제는 동사 자체에 나타납니다. 그래서 *She asked where I parked*처럼 평서문 어순이 됩니다.

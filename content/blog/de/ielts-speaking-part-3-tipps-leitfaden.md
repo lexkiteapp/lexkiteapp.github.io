@@ -1,179 +1,154 @@
 ---
-title: "IELTS Speaking Part 3 Tipps : Antworten Gekonnt Ausbauen"
-description: "Praktische ielts speaking part 3 tipps : Argumentationsmuster, akademische Bindewörter und Strategien zur Vermeidung von Denkpausen im Interview."
+title: "Typische Fehler im IELTS Speaking Part 3 bei Deutschsprachigen"
+description: "Typische Fehler im IELTS Speaking Part 3 und ihr deutscher Ursprung: Wortstellung, Perfekt, Artikel, falsche Freunde. Mit Vorher-nachher-Antwort."
 slug: ielts-speaking-part-3-tipps-leitfaden
 lang: de
 translationKey: ielts-speaking-part-3
 category: ielts
 tags: [ielts, ielts-speaking, speaking-part-3]
-keyword: "ielts speaking part 3 tipps"
+keyword: "typische fehler im ielts speaking part 3"
 cover: speaking
-coverAlt: "Salle d'oral Lexkite avec sujets d'entraînement IELTS Part 1, Part 2 et Part 3, questions et réponses modèles band 7,5"
-publishAt: 2027-02-05T10:00:00+01:00
+coverAlt: "Speaking-Raum in Lexkite mit Part 1, Part 2 und Part 3 nach Themen, Beispielfragen und Musterantworten auf Band 7,5 bis 8"
+publishAt: 2026-12-29T21:49:00+01:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: cheer, icon: mic, chip: IELTS Speaking}
 shots: [
-  {id: s1, route: '#/speaking/p3', crop: main},
-  {id: s2, route: '#/speaking/p2', crop: main}
+  {id: s1, route: '#/mock', crop: main},
+  {id: s2, route: '#/phrases', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: 'Antwortmodell in 4 Stufen fuer Part 3', parts: [{t: '1. These', r: 'Klare direkte Stellungnahme im ersten Satz'}, {t: '2. Begruendung', r: 'Logischen Ursache-Wirkung-Mechanismus aufzeigen'}, {t: '3. Exemplifizierung', r: 'Konkreten gesellschaftlichen Beispielfall anfuehren'}, {t: '4. Differenzierung', r: 'Gegenperspektive oder Zukunftsaspekt ergaenzen'}]}
+  {id: d1, type: compare, title: 'Vom deutschen Gedanken zum natürlichen Englisch', cols: ['Deutscher Gedanke', 'Typische Übertragung', 'Natürliches Englisch'], rows: [['Heute nutzen viele Menschen Smartphones.', 'Today use many people smartphones.', 'Today, many people use smartphones.'], ['Früher haben die Leute mehr gelesen.', 'Before, people have read more.', 'In the past, people read more.'], ['Die Preise steigen seit Jahren.', 'Prices are rising since years.', 'Prices have been rising for years.'], ['Die Technologie hat das Leben verändert.', 'The technology has changed the life.', 'Technology has changed our lives.'], ['Wenn ich mehr Zeit hätte, würde ich mehr lesen.', 'If I would have more time, I would read more.', 'If I had more time, I would read more.'], ['Eventuell sinken die Preise.', 'Eventually, prices fall.', 'Prices might fall.']]}
 ]
 quiz: [
   {
-    q: "Worin unterscheidet sich Speaking Part 3 grundlegend von Part 1?",
+    q: "Ten years ago, most people ___ fewer devices at home.",
     options: [
-      "Part 3 verlangt persönliche Geschichten aus der Kindheit",
-      "Part 3 fordert abstrakte gesellschaftliche Überlegungen",
-      "Part 3 besteht aus einem Grammatiktest am PC-Bildschirm",
-      "Part 3 dauert fünfundvierzig Minuten ohne Unterbrechung"
+      "have owned",
+      "own",
+      "owned",
+      "are owning"
     ],
-    answer: 1,
-    explain: "In Part 1 geht es um den Alltag des Prüflings, in Part 3 um allgemeine gesellschaftliche Diskurse."
+    answer: 2,
+    explain: "Ten years ago nennt einen abgeschlossenen Zeitpunkt in der Vergangenheit, deshalb steht das Simple Past."
   },
   {
-    q: "Mit welcher Methode verlängern Sie kurze Antworten strukturiert?",
+    q: "Gemeint ist der Vorgesetzte. Welcher Satz ist richtig?",
     options: [
-      "Mit der P-E-E-L-Struktur (Point, Explanation, Example, Link/Nuance)",
-      "Durch dreimaliges wörtliches Wiederholen der Prüferfrage",
-      "Durch extrem schnelles Reden ohne jegliche Atempausen",
-      "Indem man ausschließlich mit Ja oder Nein antwortet und schweigt"
+      "My boss said I could leave early on Friday.",
+      "My chef said I could leave early on Friday.",
+      "My cook said I could leave early on Friday.",
+      "My employee said I could leave early on Friday."
     ],
     answer: 0,
-    explain: "Diese Struktur sichert inhaltliche Tiefe, logische Verknüpfung und eine ideale Sprechdauer."
+    explain: "Boss steht für den Vorgesetzten. Chef ist im Englischen kein Vorgesetzter, sondern der Koch in einer Küche."
   },
   {
-    q: "Was sollten Sie tun, wenn Ihnen zu einem Thema spontan kein Fachwissen vorliegt?",
+    q: "If more people ___ the bus, the roads would be quieter.",
     options: [
-      "Vollständig schweigen, bis der Prüfer die Frage wechselt",
-      "Das Thema aus zwei allgemeinen Perspektiven sachlich beleuchten",
-      "Behaupten, man verstehe die englische Sprache überhaupt nicht mehr",
-      "Den Prüfungsraum vorzeitig und kommentarlos verlassen"
+      "would take",
+      "will take",
+      "take",
+      "took"
     ],
-    answer: 1,
-    explain: "Geprüft wird Ihre sprachliche Argumentationsfähigkeit, nicht enzyklopädisches Spezialwissen."
+    answer: 3,
+    explain: "Im if-Satz eines unwahrscheinlichen oder gedachten Falls steht die Vergangenheitsform, im Hauptsatz would."
   }
 ]
 ---
 
-Der dritte Teil der mündlichen IELTS-Prüfung entscheidet maßgeblich darüber, ob Ihr Ergebnis im Bereich von Band 6.0 verharrt oder die angestrebte Band 7.5 bis 8.5 erreicht. Mit fundierten ielts speaking part 3 tipps gelingt es Ihnen, die 4 bis 5 Minuten des vertiefenden Gesprächs als Plattform für sprachliche Gewandtheit und akademische Reife zu nutzen.
+Typische Fehler im IELTS Speaking Part 3 haben bei Deutschsprachigen selten mit dem Thema zu tun. Meist stecken Muster aus der Muttersprache dahinter: die Wortstellung nach einer Zeitangabe, das Perfekt als Erzählzeit, der Artikel bei allgemeinen Aussagen. Dieser Beitrag zeigt sechs Fehlerfamilien, erklärt jeweils den deutschen Grund und endet mit einer Beispielantwort, die vorher und nachher gegenüberstellt.
 
-Während in Part 1 persönliche Vorlieben im Mittelpunkt stehen, verlangt Part 3 die Fähigkeit, übergeordnete gesellschaftliche, technologische und kulturelle Phänomene differenziert zu erörtern.
+## Was in Part 3 geschieht
 
-## Grundregeln und ielts speaking part 3 tipps für souveränes Auftreten
+Part 3 ist ein Gespräch zu Fragen, die abstrakter sind als in Part 1 und sich in der Regel an das Thema aus Part 2 anschließen. Es dauert ungefähr vier bis fünf Minuten. Der Prüfer fragt nach Meinungen, Gründen, Vergleichen und Prognosen. Eine vorgeschriebene Antwortlänge gibt es nicht. Da die Fragen nach Begründungen verlangen, sind mehrere zusammenhängende Sätze meist sinnvoll. Der Prüfer kann auch unterbrechen, um zur nächsten Frage zu kommen. Das ist ein Ablauf des Gesprächs, kein Hinweis auf die Bewertung.
 
-Der Prüfer bewertet vier Kriterien: Flüssigkeit und Kohärenz, lexikalische Ressourcen, grammatikalische Bandbreite sowie Aussprache. Um in allen vier Bereichen zu punkten, sollten Sie folgende Leitlinien verinnerlichen:
+Bewertet wird das Sprechen nach vier Kriterien: Flüssigkeit und Zusammenhang, Wortschatz, grammatische Bandbreite und Genauigkeit sowie Aussprache. Die hier beschriebenen Muster betreffen vor allem Genauigkeit und natürlichen Wortschatz. Zum Aufbau längerer Antworten und zu den Fragetypen gibt der Beitrag zu den [Antwortstrategien in Part 3](/de/blog/ielts-speaking-part-3-antwortstrategien-vertiefung/) mehr Material. Hier geht es allein um die Fehlerquellen. Wer den Ablauf einer ganzen Prüfung nachvollziehen möchte, findet im Bereich für [Probeprüfungen](/app/#/mock) den Aufbau der vier Fertigkeiten.
 
-- **Die 'Ich'-Perspektive verlassen :** Sprechen Sie nicht ständig über sich selbst (*In my personal life...*), sondern heben Sie den Blick auf die Allgemeinheit (*From a broader societal standpoint...*, *In many industrialized nations, one can observe that...*).
-- **Professionelle Denkzeit überbrücken :** Eine kurze Pause von ein bis zwei Sekunden wirkt souverän, wenn sie mit natürlichen Diskursmarkern eingeleitet wird (*That is an intriguing question with several interconnected factors...*).
-- **Syntaktische Vielfalt demonstrieren :** Nutzen Sie Passivkonstruktionen, gemischte Konditionalsätze und Relativsätze, um komplexe Gedanken präzise zu formulieren.
+![](media:@s1 "Der Bereich für Probeprüfungen in Lexkite: Skill wählen, Test wählen, Verlauf und Aufbau der Prüfung")
 
-![Lexkite Sprechübungsraum mit Prüfungsfragen](media:@s1 "Gezielte Vorbereitung auf anspruchsvolle Part-3-Fragen in Lexkite")
+## Typische Fehler im IELTS Speaking Part 3 und ihr deutscher Ursprung
 
-## Strukturierte Argumentation nach dem P-E-E-L-Schema
+{{diagram: d1 | Sechs Beispiele: links der deutsche Gedanke, in der Mitte die Übertragung, rechts die natürliche englische Form}}
 
-Damit Ihnen im Interview nicht nach einem Satz der Faden reißt, hilft ein verlässliches vierstufiges Antwortmuster:
+Die Beispiele gehören zu sechs Familien: Wortstellung, Zeitformen, Artikel, falsche Freunde, Haltung im Gespräch und Bedingungssätze. Die folgenden Abschnitte gehen sie der Reihe nach durch.
 
-- **Point (These) :** Beantworten Sie die Kernfrage sofort im ersten Satz ohne Umschweife (*In my view, urbanization has fundamentally transformed social cohesion*).
-- **Explanation (Begründung) :** Erläutern Sie das zugrundeliegende Warum (*This shift occurs primarily because high-density living often prioritizes professional mobility over neighbourhood community ties*).
-- **Example (Beispiel) :** Untermauern Sie Ihre These mit einer greifbaren Beobachtung (*For instance, in major financial hubs, long commuting hours leave residents with limited capacity for local engagement*).
-- **Link / Nuance (Abwägung) :** Schließen Sie mit einer einschränkenden Perspektive ab (*Nonetheless, digital platforms are gradually creating alternative forms of community support*).
+## Wortstellung: Inversion und Verbende
 
-Eine Antwort nach diesem Modell dauert etwa 35 bis 50 Sekunden – genau das Fenster, das Prüfer als flüssig und ausreichend entwickelt einstufen.
+Im deutschen Hauptsatz steht das Verb an zweiter Stelle. Beginnt der Satz mit einer Zeitangabe, rückt das Subjekt hinter das Verb: *Heute nutzen viele Menschen Smartphones.* Wer das wörtlich übersetzt, erhält *Today use many people smartphones*. Im Englischen bleibt die Reihenfolge Subjekt, Verb, Objekt auch nach einer Zeitangabe: *Today, many people use smartphones.* Das gilt auch für *Nowadays*, *In recent years* und *In my country*.
 
-![Modellantworten und Sprechtraining in Lexkite](media:@s2 "Interaktive Simulationen und Feedback zur Sprechgeschwindigkeit in Lexkite")
+Ein zweites Muster betrifft Nebensätze. Im Deutschen steht das konjugierte Verb am Ende: *weil Menschen mehr Zeit haben*. Bei fortgeschrittenen Lernenden ist das selten, unter Zeitdruck taucht es aber auf, etwa *because people more time have*. Im Englischen folgt auch im Nebensatz das Verb dem Subjekt. Die beste Gegenmaßnahme: Machen Sie lieber kürzere Sätze und planen Sie das Verb früh.
 
-## Akademische Konnektoren für gehobene Sprachbeherrschung
+## Zeitformen: Perfekt, seit und früher
 
-Verzichten Sie auf schlichte Füllwörter wie *and* oder *but* und greifen Sie stattdessen zu differenzierten Verknüpfungen:
-- **Für Gegensätze :** *Conversely*, *Whereas*, *On the other hand*, *While that might be true under certain circumstances...*.
-- **Für Veranschaulichungen :** *A pertinent case in point is...*, *This phenomenon is particularly pronounced in...*.
-- **Für Prognosen :** *It is highly conceivable that...*, *A foreseeable repercussion might be...*.
+Das deutsche Perfekt ist die normale Erzählzeit in der gesprochenen Sprache: *Früher haben die Leute mehr gelesen.* Das englische Present Perfect verbindet dagegen die Vergangenheit mit der Gegenwart und verträgt keine abgeschlossene Zeitangabe. Part 3 fragt oft nach Vergleichen zwischen früher und heute, und genau dort schleicht sich *Before, people have read more* ein. Richtig ist das Simple Past: *In the past, people read more.* Wie beide Zeiten zusammenhängen, erklärt der Beitrag zu [Present Perfect oder Simple Past](/de/blog/present-perfect-oder-simple-past/).
 
-Vertiefen Sie Ihre mündliche Ausdruckskraft mit unseren Anleitungen für [Meetings auf Englisch Phrasen](/de/blog/meeting-auf-englisch-phrasen/) und das [Präsentieren auf Englisch](/de/blog/business-report-auf-englisch-schreiben-guide/). Bereiten Sie sich auf formelle Gespräche vor mit unserem Leitfaden zum [Vorstellungsgespräch auf Englisch](/de/blog/englischer-lebenslauf-cv-muster/) und optimieren Sie Ihren schriftlichen Ausdruck mit [Linking Words Englisch Übersicht](/de/blog/linking-words-englisch-uebersicht-connectors/).
+Das zweite Muster ist *seit*. Das Deutsche nimmt das Präsens: *Die Preise steigen seit Jahren.* Das Englische braucht das Present Perfect, meist mit *for* oder *since*: *Prices have been rising for years.* *Since years* gibt es nicht, vor einer Zeitspanne steht *for*.
 
-Regelmäßiges Sprechtraining absolvieren Sie im Bereich [Speaking](/app/#/speaking/p3) der Lexkite-App. Ihren aktuellen Sprachstand ermitteln Sie mit dem [Einstufungstest](/app/#/placement), während reale Antwortbeispiele auf unserer [Übersichtsseite](/en/samples/) bereitstehen.
+## Artikel und Zählbarkeit bei allgemeinen Aussagen
 
+Das Deutsche setzt bei vielen abstrakten Begriffen einen Artikel: *die Technologie*, *das Leben*, *die Gesellschaft*, *die Umwelt*. Das Englische verzichtet bei allgemeinen Aussagen meist darauf: *Technology has changed our lives*, *Society is changing fast*. Eine Ausnahme ist *the environment*, das einen Artikel trägt. Wer *the technology has changed the life* sagt, wird verstanden, klingt aber unnatürlich. Mehr zu den Artikelregeln steht im Beitrag zu [a, an und the](/de/blog/englische-artikel-a-an-the-regeln-und-beispiele/).
 
-## Die 6 typischen Fragenkategorien im IELTS Speaking Part 3
+Ähnliches gilt für Wörter, die im Deutschen im Plural stehen und im Englischen nicht zählbar sind: *Informationen* heißt *information*, *Ratschläge* heißt *advice*, *Forschungen* heißt *research*. Es gibt also kein *informations*, *advices* oder *researches*. Sagen Sie stattdessen *a lot of information*, *a piece of advice*, *some research*.
 
-Um während des Gesprächs sofort die passende sprachliche Schablone abzurufen, sollten Sie die sechs gängigen Fragemuster des Prüfers blitzschnell identifizieren:
+## Falsche Freunde, die in Part 3 oft auftauchen
 
-### 1. Meinungsfragen (Opinion Questions)
-- *Beispiel :* *Do you think advancements in automation have genuinely improved modern living standards?*
-- *Strategie :* Beziehen Sie klar Stellung und schränken Sie diese anschließend differenziert ein (*While productivity has surged, certain aspects of mental well-being have undoubtedly suffered*).
+Einige Wörter sehen aus wie deutsche Wörter (eine längere Sammlung bietet der Beitrag zu den [False Friends Englisch Deutsch](/de/blog/false-friends-englisch-deutsch/)) und passen genau in Part 3, wo es um Prognosen und Meinungen geht:
 
-### 2. Zeitliche Vergleiche (Then vs Now)
-- *Beispiel :* *How do entertainment preferences today compare with those of your grandparents' generation?*
-- *Strategie :* Nutzen Sie klare temporale Kontraste (*Whereas earlier generations relied heavily on shared communal activities, contemporary entertainment is largely individualized via digital screens*).
+- *chef* heißt Koch, nicht Chef. Für den Vorgesetzten nehmen Sie *boss* oder *manager*.
+- *sympathetic* heißt mitfühlend, nicht sympathisch. Für *sympathisch* passt *nice* oder *likeable*.
+- *become* heißt werden, nicht bekommen. Für *bekommen* nehmen Sie *get* oder *receive*.
+- *eventually* heißt schließlich, nicht eventuell. Für *eventuell* nehmen Sie *possibly* oder *might*.
 
-### 3. Zukunftsprognosen (Predictions)
-- *Beispiel :* *Will physical banknotes be completely superseded by electronic payment systems?*
-- *Strategie :* Formulieren Sie vorsichtige Prognosen mit Modalverben (*It is highly probable that cash transactions will diminish, although complete elimination seems unlikely due to privacy concerns*).
+## Meinung äußern ohne deutsche Modalpartikeln
 
-### 4. Ursachen- und Wirkungsanalysen (Cause and Effect)
-- *Beispiel :* *Why do so many qualified professionals choose to relocate to urban centres?*
-- *Strategie :* Nennen Sie zwei komplementäre Treiber: ökonomische Anreize (*lucrative career prospects*) und infrastrukturelle Vorzüge (*access to cultural institutions*).
+Das Deutsche zeigt eine Haltung gern mit kleinen Wörtern wie *ja*, *halt*, *eben*, *doch* oder *mal*: *Das kommt halt darauf an.* Das Englische hat dafür keine festen Gegenstücke. Es zeigt Haltung durch Abschwächer und Modalverben: *It depends*, *I'd say*, *tends to*, *in many cases*, *probably*. Die deutsche Direktheit wird auf Englisch schnell schroff, wenn die Abschwächer fehlen.
 
-### 5. Bewertung von Lösungsansätzen (Solutions and Policies)
-- *Beispiel :* *What steps should educational institutions take to foster critical thinking skills?*
-- *Strategie :* Skizzieren Sie eine praxisnahe Reform und wägen Sie eventuelle Umsetzungshürden pragmatisch ab.
+Ein weiteres Detail: Das deutsche *man* (*Man kann das so sehen*) wird im Englischen nicht durch *one* übersetzt, denn *one* klingt förmlich. Im Gespräch sagen Sie *you could see it that way* oder *people might argue*. Auch das Füllwort *also* am Satzanfang bedeutet im Englischen nicht dasselbe. Besser sind *well* oder *so*.
 
-### 6. Hypothetische Szenarien (Second Conditional)
-- *Beispiel :* *What would happen if international travel were severely restricted for environmental reasons?*
-- *Strategie :* Setzen Sie zielsicher das Second Conditional ein (*If governments restricted aviation, global commerce would face substantial logistical disruptions*).
+## Bedingungssätze und das deutsche würde
 
-## Selbstständiges Sprechtraining ohne Tandempartner
+Bei Bedingungssätzen gibt es eine letzte Stolperfalle. *Wenn ich mehr Zeit hätte, würde ich mehr lesen* hat im Deutschen im Nebensatz keine *würde*-Form. In Part 3 begegnen Ihnen solche Gedankenspiele oft, etwa bei Fragen nach einer anderen Zukunft. Das Englische verlangt im if-Satz das Simple Past: *If I had more time, I would read more.* Die Form *If I would have* hört man dennoch oft.
 
-Viele Kandidaten glauben irrtümlich, sie könnten das Speaking nur mit einem teuren Privatlehrer trainieren. In der Praxis lässt sich hervorragende Sprechsicherheit auch im Selbststudium aufbauen:
-- **Die 60-Sekunden-Sprachnotiz :** Ziehen Sie eine zufällige Part-3-Frage und nehmen Sie Ihre Antwort sofort auf dem Smartphone auf.
-- **Transkription und Fehleranalyse :** Hören Sie Ihre eigene Aufnahme an und tippen Sie den Text ab. Wo haben Sie gezögert? Wo fehlte ein treffendes akademisches Adjektiv?
-- **Die verbesserte Wiederholung :** Sprechen Sie dieselbe Antwort unmittelbar ein zweites Mal ein. Sie werden staunen, wie viel flüssiger und präziser der zweite Durchlauf gelingt.
+## Eine Antwort vorher und nachher
 
+Die folgende Frage und Antwort sind für diesen Artikel erfunden und kein Prüfungsmaterial.
 
-## Strategische Formulierungen für typische Fragetypen in Part 3
+*Question: Why do many people prefer shopping online these days?*
 
-Um in den Bereichen *Lexical Resource* und *Fluency and Coherence* hohe Bandwerte zu erreichen, sollten Sie für jeden Fragetyp vorgefertigte Diskursmarker parat haben:
+**Vorher:** *Today use many people the internet for shopping. Also, the technology has changed the life. Before, people have gone to shops, but now they become everything at home. Eventually prices are lower.*
 
-### 1. Fragen nach Vor- und Nachteilen (Advantages & Disadvantages)
-- *"While one cannot deny the obvious economic merits of urban tourism, there are undeniable downsides regarding environmental degradation and housing inflation."*
-- *"On the flip side of the coin, local residents often face unprecedented noise pollution and cultural erosion."*
+**Nachher:** *Well, I think the main reason is convenience. Technology has made everyday life much easier. These days, many people use the internet for shopping because it saves them a trip to the shops. In the past, people went to the high street for almost everything, but now they can get what they want delivered to their door. Prices may be lower online as well, so it's easier to compare. That said, shops still matter, especially for things like clothes, which people like to try on.*
 
-### 2. Vorhersagen und Zukunftsszenarien (Speculation & Predictions)
-- *"It seems highly probable that artificial intelligence will reshape conventional white-collar occupations over the coming decades."*
-- *"I am somewhat skeptical that renewable energy alone will suffice without fundamental structural adjustments to our consumption patterns."*
+Die zweite Fassung verwendet *Well* statt *also*, hält die Reihenfolge Subjekt, Verb, Objekt ein, benutzt das Simple Past für das frühere Verhalten, lässt den Artikel vor *technology* und *life* weg und ersetzt *become* durch *get*. *Eventually prices are lower* sagt „schließlich“, gemeint war „eventuell“; *may be lower* trifft die Absicht. Der Inhalt ist fast derselbe, die Antwort klingt aber natürlicher.
 
-### 3. Ursache und Wirkung (Causes & Effects)
-- *"A primary driving factor behind this behavioral shift appears to be the ubiquity of digital social platforms."*
-- *"Consequently, younger demographics tend to experience heightened levels of performance anxiety and isolation."*
+## Eine Übungsroutine mit Fehlerliste
 
-### 4. Lösungsansätze und staatliche Maßnahmen (Solutions & Policy)
-- *"From a policy perspective, regulatory frameworks must be modernized to hold corporations directly accountable."*
-- *"A dual approach involving both grassroots educational campaigns and stricter legislation would yield sustainable outcomes."*
+1. Wählen Sie im [Speaking-Raum](/app/#/speaking) drei Part-3-Fragen und nehmen Sie Ihre Antworten auf dem Smartphone auf.
+2. Hören Sie die Aufnahmen an und markieren Sie jeden Fehler einer der sechs Familien aus diesem Beitrag.
+3. Sprechen Sie dieselben Fragen erneut und achten Sie bei dieser Runde nur auf eine Familie.
+4. Notieren Sie gelungene Wendungen unter [Meine Phrasen und Strukturen](/app/#/phrases), damit sie beim nächsten Mal zur Verfügung stehen.
 
-Diese diskursiven Wendungen können Sie im [SmartLearn-Modus](/app/#/practice-learn) einüben, bis sie ohne Zögern und ohne kognitive Überlastung flüssig abrufbar sind.
+![](media:@s2 "Meine Phrasen und Strukturen in Lexkite zum Sammeln eigener Wendungen und Sätze mit Etiketten für Task und Band")
 
-## Der professionelle Umgang mit unerwarteten Themen
+Das Thema für Part 3 ergibt sich aus Part 2; dazu der Beitrag zur [IELTS Speaking Part 2 Cue Card](/de/blog/ielts-speaking-part-2-cue-card/).
 
-Stellt der Prüfer eine Frage zu einem völlig fremden Gebiet (beispielsweise zu archäologischen Konservierungsmethoden), geraten viele Prüflinge in Panik. Ein souveräner Sprecher gibt die eigene Unkenntnis des Spezialgebiets kurz zu und lenkt die Diskussion auf ein verwandtes, breiteres Thema:
+{{cta: /app/#/speaking | Part-3-Fragen im Speaking-Raum von Lexkite üben}}
 
-> *"To be frank, archaeological techniques fall slightly outside my area of expertise. However, considering preservation from a broader cultural perspective, I would argue that investing public funds into digital archiving allows future generations to study historical heritage without risking physical damage to ancient artefacts."*
-
-Mit diesem Kunstgriff beweisen Sie höchste kommunikative Flexibilität, nutzen fehlerfreies Englisch und halten das Gespräch mühelos am Laufen.
-
-{{cta: /app/#/speaking/p3 | Gezieltes Part-3-Sprechtraining in der Lexkite-App starten}}
-
-{{youtube: | Offizielles IELTS Speaking Part 3 Modellinterview mit Prüferkommentar}}
+{{youtube: | IELTS Speaking Part 3: typische Fehler von Deutschsprachigen im Video}}
 
 ## Häufig gestellte Fragen
 
-### Darf man vor der Antwort kurz nachdenken?
-Ja, eine Denkpause von zwei Sekunden ist völlig natürlich und signalisiert überlegtes Formulieren. Wichtig ist nur, dass Sie die Stille mit einer Formulierung wie *Well, that is an intricate issue...* elegant überbrücken.
+### Sind Grammatikfehler in Part 3 ein Ausschlusskriterium?
 
-### Zählt eine abweichende Meinung als Fehler?
-Nein, die Prüfer bewerten Ihre Argumentation und sprachliche Präzision, niemals Ihre persönliche Weltanschauung. Eine kontroverse Haltung, die exzellent begründet wird, bringt dieselben Höchstpunkte wie eine konventionelle Antwort.
+Nein. Einzelne Fehler gehören zum Sprechen dazu. Bewertet wird die Bandbreite der Strukturen zusammen mit ihrer Genauigkeit. Wichtig ist, dass Fehler nicht ständig auftreten und das Verständnis nicht stören.
 
-### Was passiert, wenn mich der Prüfer mitten im Satz unterbricht?
-Werden Sie unterbrochen, ist das meist ein positives Signal: Der Prüfer hat genügend Sprachmaterial gehört, um Ihr Niveau einzuschätzen, und möchte Sie vor Ablauf der Zeit zu einem weiteren Themenaspekt befragen.
+### Was tue ich, wenn mir ein Wort fehlt?
+
+Umschreiben Sie es, zum Beispiel mit *the thing you use to...* oder *a person who...*. Das hält das Gespräch in Gang und zeigt, dass Sie mit der Sprache arbeiten können.
+
+### Unterbricht mich der Prüfer, wenn ich zu lang antworte?
+
+Er kann unterbrechen, um zur nächsten Frage zu gehen. Das hat mit dem Zeitplan zu tun und sagt nichts über Ihre Leistung. Antworten Sie einfach auf die nächste Frage.

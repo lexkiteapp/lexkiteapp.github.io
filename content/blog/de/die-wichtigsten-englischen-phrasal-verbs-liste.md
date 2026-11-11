@@ -1,171 +1,155 @@
 ---
-title: "Englische Phrasal Verbs : Wichtigste Verben und Beispiele"
-description: "Entdecken Sie essenzielle englische phrasal verbs für Alltag und Beruf : Bedeutungen, Beispielsätze und Systematik nach Präpositionen."
+title: "Trennbare Verben und Phrasal Verbs: Was hilft, was täuscht"
+description: "Trennbare Verben und Phrasal Verbs ähneln sich, doch an vier Stellen führt das Deutsche in typische Fehler. Mit Vergleichstabelle und Übungsweg."
 slug: die-wichtigsten-englischen-phrasal-verbs-liste
 lang: de
 translationKey: phrasal-verb-thong-dung
 category: tu-vung
 tags: [vocabulary, speaking, phrasal-verbs]
-keyword: "englische phrasal verbs"
-cover: practice-learn
-coverAlt: "Module d'apprentissage smartLearn avec flashcard illustrant le phrasal verb come up with et ses collocations"
-publishAt: 2027-02-07T10:00:00+01:00
+keyword: "trennbare verben und phrasal verbs"
+cover: phrases
+coverAlt: "Phrasen und Strukturen in Lexkite: eigene Wendungen und Sätze hinzufügen, Mustertexte mit Strukturhinweisen und Etiketten für Task und Band"
+publishAt: 2026-12-27T21:23:00+01:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: cheer, icon: target, chip: Phrasal Verbs}
 shots: [
   {id: s1, route: '#/grammar/phrasal-verbs-grammar', crop: main},
   {id: s2, route: '#/practice/learn', crop: main}
 ]
 diagrams: [
-  {id: d1, type: compare, title: 'Wortwoertliche vs Idiomatische Bedeutung', cols: ['Phrasal Verb', 'Woertliche Bedeutung', 'Idiomatische Uebertragung'], rows: [['Look up', 'Den Blick nach oben richten', 'Ein Wort im Lexikon nachschlagen'], ['Take off', 'Ein Kleidungsstueck ablegen', 'Mit dem Flugzeug abheben oder rasanten Erfolg haben'], ['Run into', 'Körperlich gegen ein Hindernis prallen', 'Jemanden zufaellig auf der Strasse treffen'], ['Turn down', 'Die Lautstaerke eines Geraets senken', 'Ein Angebot oder eine Bewerbung ablehnen']]}
+  {id: d1, type: compare, title: 'Deutsche Präfixe und englische Partikeln', cols: ['Deutsches Präfix', 'Englische Partikel', 'Beispielpaare'], rows: [['auf-', 'up', 'aufstehen → get up, aufwachen → wake up'], ['an-', 'on', 'anziehen → put on, anschalten → turn on'], ['aus-', 'off, out', 'ausschalten → turn off, ausfüllen → fill out'], ['ein-', 'in', 'einsteigen → get in, einchecken → check in'], ['weiter-', 'on', 'weitermachen → carry on'], ['weg-', 'away', 'wegwerfen → throw away']]}
 ]
 quiz: [
   {
-    q: "Welche grammatikalische Regel gilt für trennbare (separable) phrasal verbs im Englischen?",
+    q: "Gemeint ist anziehen (die Schuhe). Welche Form ist im Englischen korrekt?",
     options: [
-      "Die Partikel muss im Perfekt immer entfallen",
-      "Ein Pronomen muss zwischen Verb und Partikel stehen",
-      "Sie dürfen niemals im Passiv verwendet werden",
-      "Sie existieren nur in juristischer Fachsprache"
+      "She put on them",
+      "She put in them",
+      "She put them in",
+      "She put them on"
     ],
-    answer: 1,
-    explain: "Bei trennbaren Verben heißt es zwingend 'turn it off' und niemals 'turn off it'."
+    answer: 3,
+    explain: "Phrasal Verbs wie put on verlangen ein Pronomen vor der Partikel. Put them in ist zwar grammatisch, bedeutet aber etwas anderes."
   },
   {
-    q: "Was bedeutet das Verb 'call off' im geschäftlichen Kontext?",
+    q: "Ergänzen Sie: Priya is looking forward ___ her cousins at the weekend.",
     options: [
-      "Einen Geschäftspartner dringend telefonisch kontaktieren",
-      "Ein geplantes Meeting oder Event endgültig absagen",
-      "Eine wichtige Entscheidung um eine Woche vertagen",
-      "Mitarbeiter zu einer freiwilligen Konferenz einladen"
+      "to see",
+      "to seeing",
+      "seeing",
+      "for seeing"
     ],
     answer: 1,
-    explain: "'Call off' bedeutet absagen (z. B. 'They called off the meeting due to budget cuts')."
+    explain: "In look forward to ist to eine Präposition, deshalb folgt ein Gerundium oder ein Nomen."
   },
   {
-    q: "Wie prägt man sich phrasal verbs langfristig am effizientesten ein?",
+    q: "Uns geht das Papier im Drucker aus. Welche Wendung passt?",
     options: [
-      "Durch stures Lernen alphabetischer Listen ohne Sinn",
-      "Indem man sie nach Partikeln oder Szenarien bündelt",
-      "Durch wörtliches Übersetzen jedes einzelnen Wortes",
-      "Indem man ihren Gebrauch aus Vorsicht vermeidet"
+      "We're going out of paper",
+      "We're getting out of paper",
+      "We're running out of paper",
+      "We're coming out of paper"
     ],
-    answer: 1,
-    explain: "Partikeln tragen oft konsistente Bedeutungen (z. B. 'out' für Beendigung oder Erkennen)."
+    answer: 2,
+    explain: "Run out of ist eine feste Verbindung. Im Englischen ist die Person das Subjekt, im Deutschen das Papier."
   }
 ]
 ---
 
-Für deutschsprachige Lerner stellen englische phrasal verbs eine der faszinierendsten und zugleich kniffligsten Facetten der Sprache dar. Im Deutschen kennen wir trennbare Verben zur Genüge (*aufhören*, *absagen*, *herausfinden*). Dennoch greifen viele Lerner im Englischen instinktiv zu lateinischstämmigen Einzelverben (*postpone*, *tolerate*, *cancel*, *discover*), weil diese formaler und vertrauter wirken. In der angelsächsischen Umgangs- und Geschäftssprache nutzen Muttersprachler jedoch überwiegend Phrasal Verbs (*put off*, *put up with*, *call off*, *find out*).
+Trennbare Verben und Phrasal Verbs funktionieren nach demselben Grundgedanken: Ein Verb bekommt ein kleines Wort, und die Bedeutung ändert sich. Wer *aufstehen*, *anziehen* und *ausschalten* ohne Nachdenken benutzt, hat für *get up*, *put on* und *turn off* deshalb einen echten Vorsprung. Trotzdem passieren Deutschsprachigen an vier Stellen immer wieder dieselben Fehler. Diese Stellen zeigt der Artikel, jeweils mit dem Grund, warum das Deutsche dort nicht weiterhilft.
 
-Wer diese Ausdrücke beherrscht, versteht englische Konversationen mühelos und klingt im Handumdrehen natürlicher und dynamischer.
+## Trennbare Verben und Phrasal Verbs im Vergleich
 
-## Wie englische phrasal verbs aufgebaut sind : das System der Partikeln
+Im Deutschen heißt das kleine Wort Präfix oder Verbzusatz, im Englischen Partikel. Viele Paare lassen sich überraschend gut aufeinander abbilden, und zwar nach Richtung und Bedeutung: *auf* wird oft zu *up*, *ein* zu *in*, *weg* zu *away*.
 
-Anstatt unzählige Verben isoliert auswendig zu lernen, sollten Sie die semantische Grundrichtung der Partikeln analysieren. Viele englische phrasal verbs folgen klaren räumlichen und metaphorischen Logiken:
+{{diagram: d1 | Häufige Entsprechungen zwischen deutschen Präfixen und englischen Partikeln: Faustregeln, keine Gesetze}}
 
-- **UP (Vollendung, Steigerung, Entstehen) :** *Clean up* (gründlich aufräumen), *cheer up* (aufheitern), *bring up* (ein Thema zur Sprache bringen), *use up* (vollständig aufbrauchen).
-- **OUT (Verschwinden, Entdecken, Verbreitung) :** *Run out of* (etwas geht aus), *figure out* (eine Lösung finden), *find out* (Informationen aufdecken), *point out* (auf etwas hinweisen).
-- **OFF (Trennung, Unterbrechung, Aufschub) :** *Put off* (etwas aufschieben), *call off* (absagen), *take off* (abheben, Kleidung ablegen), *cut off* (unterbrechen).
-- **DOWN (Reduktion, Ablehnung, Dokumentation) :** *Turn down* (ablehnen, leiser drehen), *calm down* (beruhigen), *write down* (schriftlich festhalten).
+Die Tabelle ist ein Einstieg, kein Regelwerk. Schon *abholen* → *pick up* zeigt, dass *ab* nicht immer *off* bedeutet. Die folgenden vier Abschnitte zeigen, wo Sie der Analogie nicht trauen sollten.
 
-![Übersicht englischer Phrasal Verbs in Lexkite](media:@s1 "Regeln, Trennbarkeit und Partikelbedeutungen im Grammatikmodul von Lexkite")
+![](media:@s1 "Die Grammatikeinheit zu Phrasal Verbs im Grammatikpfad der Lexkite-App")
 
-## Die 12 wichtigsten Phrasal Verbs für Beruf und Alltag
+## Erster Unterschied: Wo die Partikel steht
 
-Diese zwölf Verben begegnen Ihnen in E-Mails, Meetings und Gesprächen nahezu täglich:
+Im deutschen Hauptsatz steht das Verb an zweiter Stelle, das Präfix wandert ans Satzende: *Ich schalte das Licht im Flur aus.* Im Nebensatz rückt es wieder an das Verb heran: *weil ich das Licht ausschalte*. Das Englische kennt diesen Wechsel nicht. Die Partikel bleibt in beiden Satzarten hinter dem Verb: *I turn the light off*, *because I turn the light off*.
 
-1. **Look forward to (+ -ing) :** Sich auf etwas freuen (*I look forward to hearing from you soon*).
-2. **Come up with :** Eine Idee oder Lösung entwickeln (*She came up with an innovative proposal*).
-3. **Carry out :** Einen Plan oder Auftrag ausführen (*We carried out comprehensive market research*).
-4. **Put off :** Etwas zeitlich hinausschieben (*Never put off tasks until the last minute*).
-5. **Call off :** Eine Veranstaltung absagen (*The seminar was called off because of illness*).
-6. **Figure out :** Einen Zusammenhang verstehen (*We must figure out why the server malfunctioned*).
-7. **Run into :** Jemanden zufällig treffen (*I ran into an old university friend yesterday*).
-8. **Catch up with :** Rückstände aufholen (*Let us catch up over lunch next week*).
-9. **Bring up :** Einen Sachverhalt ansprechen (*He brought up the budget issues at the meeting*).
-10. **Turn down :** Ein Angebot ausschlagen (*They turned down the initial acquisition bid*).
-11. **Give up :** Eine Gewohnheit aufgeben (*Do not give up learning challenging vocabulary*).
-12. **Find out :** Etwas in Erfahrung bringen (*We need to find out what the client requires*).
+Bei Pronomen sind beide Sprachen sogar gleich: *Ich schalte es aus* entspricht *I turn it off*. Der berüchtigte Fehler *I turned off it* kommt deshalb meist nicht aus dem Deutschen. Er entsteht, wenn Lernende das Muster *turn off the light* auswendig gelernt haben und das Nomen einfach durch ein Pronomen ersetzen.
 
-![Vokabeltraining in der Praxis mit Lexkite](media:@s2 "Kontextbasiertes Lernen von Phrasal Verbs mit Karteikarten in Lexkite")
+Anders sieht es bei langen Objekten aus. Das Deutsche stellt das Präfix ans Ende, egal wie lang der Satz davor wird. Das Englische bevorzugt bei langen Objekten die Partikel direkt hinter dem Verb: *She turned off the light that had been burning in the hallway all night.* Die Variante *turned the light that had been burning in the hallway all night off* wirkt dagegen schwerfällig.
 
-## Trennbare vs. untrennbare Phrasal Verbs
+## Zweiter Unterschied: Nicht jedes Verb mit kleinem Wort ist ein Phrasal Verb
 
-## Unverzichtbare dreiteilige Phrasal Verbs im modernen Geschäftsalltag
+Das Deutsche hat auch Verben mit fester Präposition: *warten auf*, *suchen nach*, *sich kümmern um*. Im Englischen entsprechen ihnen *wait for*, *look for* und *look after*. Das sind Präpositionalverben, keine Phrasal Verbs, und sie verhalten sich anders (mehr zu den Präpositionen im Beitrag über [in, on und at](/de/blog/englische-praepositionen-in-on-at/)). Ein einfacher Test: Lässt sich das kleine Wort hinter das Objekt schieben?
 
-Neben den geläufigen zweiteiligen Kombinationen existiert eine Gruppe dreiteiliger Verben, die aus einem Verb, einer Adverbialpartikel und einer festen Präposition bestehen. Diese Verbindungen sind ausnahmslos untrennbar und für gehobene Verhandlungen unverzichtbar:
+- *turn the light off* funktioniert, also ein Phrasal Verb.
+- *look the children after* funktioniert nicht, also ein Präpositionalverb: *look after the children*, mit Pronomen *look after them*.
 
-### 1. Put up with (Dulden, ertragen)
-- *Beispiel :* *International project teams cannot put up with recurring communication bottlenecks.*
-- *Bedeutung :* Eine andauernde Unannehmlichkeit hinnehmen, ohne die Beherrschung zu verlieren.
+Auch die Betonung unterscheidet beide Gruppen. Beim trennbaren Verb trägt im Deutschen das Präfix den Akzent (*ÁUFstehen*), und bei Phrasal Verbs trägt meist die Partikel den Akzent: *give ÚP*, *turn it ÓFF*. Bei Präpositionalverben liegt er in der Regel auf dem Verb: *LÓOK after them*. Wer die Partikel in *give up* verschluckt, wird deshalb leicht missverstanden. Mehr zur Betonung im Satz steht im Leitfaden zum [Satzakzent im Englischen](/de/blog/satzakzent-im-englischen-guide/).
 
-### 2. Catch up with (Einen Rückstand wettmachen)
-- *Beispiel :* *We must accelerate software deployment to catch up with our overseas competitors.*
-- *Bedeutung :* Durch zielgerichtete Anstrengung wieder denselben Leistungsstand erreichen.
+## Dritter Unterschied: Das Präfix lässt sich nicht eins zu eins übersetzen
 
-### 3. Come down to (Im Wesentlichen hinauslaufen auf)
-- *Beispiel :* *Ultimately, the contract decision comes down to pricing and reliable delivery dates.*
-- *Bedeutung :* Den entscheidenden, unumstößlichen Kernpunkt einer Debatte zusammenfassen.
+Zwei Fallen stecken hier. Die erste: Nicht jedes trennbare Verb braucht im Englischen eine Partikel. *Anrufen* heißt schlicht *call*, *anfangen* heißt *start* oder *begin*, *ankommen* heißt *arrive*. Wer das Präfix mechanisch übersetzt, landet oft bei einer Form, die ungewöhnlich klingt oder etwas anderes meint.
 
-### 4. Look forward to (+ -ing) (Mit Vorfreude erwarten)
-- *Beispiel :* *Our executive board looks forward to collaborating with your technical specialists.*
-- *Achtung :* Auf *to* folgt hier zwingend das Gerundium (V-ing) oder ein Substantiv, niemals der Infinitiv.
+Die zweite Falle: Die Perspektive kippt. *Uns geht der Kaffee aus* hat den Kaffee als Subjekt, das englische *We're running out of coffee* die Sprecher. Außerdem braucht die englische Wendung zwei Wörter nach dem Verb, und sie ist untrennbar. Wer *ausgehen* wörtlich als *go out* übersetzt, sagt *The coffee is going out* und meint etwas ganz anderes, nämlich ein Licht, das erlischt.
 
+Umgekehrt hilft das Deutsche an einer Stelle erstaunlich oft: *herausfinden* → *find out*, *wegwerfen* → *throw away*, *weitermachen* → *carry on*. Bei solchen Paaren dürfen Sie ruhig mit der deutschen Verbindung arbeiten; eine lange Verbliste mit Beispielen steht in der [Liste mit 50 Phrasal Verbs](/de/blog/phrasal-verbs-englisch-liste/).
 
-## Erweiterte Kategorien: Phrasal Verbs für Studium, Beruf und digitale Kommunikation
+## Vierter Unterschied: Was nach dem Verb folgt
 
-Neben den alltäglichen Standardwendungen gibt es spezifische Phrasal Verbs, die in modernen beruflichen und universitären Kontexten unverzichtbar sind:
+Im Deutschen steht nach vielen Wendungen *zu* plus Infinitiv: *Ich freue mich darauf, dich zu sehen.* Im Englischen ist das *to* in *look forward to* aber eine Präposition, danach folgt ein Gerundium oder ein Nomen: *I'm looking forward to seeing you.* Das Muster *I look forward to meet you* ist unter Deutschsprachigen ein Klassiker, weil die deutsche Struktur durchscheint. Wann auf ein Verb das Gerundium und wann der Infinitiv folgt, erklärt der Beitrag zu [Gerundium oder Infinitiv](/de/blog/gerund-oder-infinitiv-englisch-regeln-und-unterschiede/).
 
-### 1. Phrasal Verbs in Verhandlungen und Projektplanung
-- **hammer out** (durch intensive Verhandlungen aushandeln): *"After a twelve-hour negotiation, both teams managed to hammer out a viable compromise."*
-- **back out of** (von einer Vereinbarung zurücktreten): *"The investor backed out of the contract at the eleventh hour due to regulatory concerns."*
-- **phase in / phase out** (schrittweise einführen / schrittweise auslaufen lassen): *"The manufacturing department will phase out older machinery over the next two quarters."*
-- **iron out** (letzte Unstimmigkeiten oder Details klären): *"We need one final briefing to iron out the remaining technical hurdles."*
+Ähnlich bei *aufhören*: *Er hört auf zu rauchen* heißt *He gave up smoking* oder *He stopped smoking*. Mit *stopped to smoke* sagen Sie etwas anderes, nämlich dass er stehen blieb, um zu rauchen.
 
-### 2. Phrasal Verbs für akademische Recherche und Analyse
-- **zero in on** (sich fokussieren auf): *"The second chapter zeroes in on the sociological impacts of automated workflows."*
-- **sift through** (große Datenmengen sorgfältig durchkämmen): *"Researchers sifted through thousands of survey responses to detect behavioral anomalies."*
-- **piece together** (ein Gesamtbild aus Einzelteilen zusammensetzen): *"Historians are still piecing together the timeline of ancient maritime trade networks."*
-- **touch upon** (ein Thema kurz streifen): *"The keynote speaker touched upon data privacy without addressing algorithmic bias in depth."*
+## Typische Fehler im Überblick
 
-### 3. Phrasal Verbs in der digitalen Arbeitswelt
-- **scroll through** (auf dem Bildschirm durchscrollen): *"I scrolled through the notification feed without spotting the urgent release note."*
-- **opt in / opt out** (sich für einen Dienst anmelden / abmelden): *"Subscribers can easily opt out of promotional newsletters via their account settings."*
-- **log out of / sign in to** (sich abmelden von / anmelden bei): *"Always ensure you log out of shared workstations in public co-working spaces."*
+1. *I turned off it* → *I turned it off*
+2. *I look forward to meet you* → *I look forward to meeting you*
+3. *She gave up to smoke* → *She gave up smoking*
+4. *The coffee is going out* → *We're running out of coffee*
 
-Verknüpfen Sie diese Verben mit realen Kontexten im [SmartLearn-Modus](/app/#/practice-learn), um sie aktiv in Ihren Wortschatz zu überführen.
+Alle vier Fehler haben mit Struktur zu tun, nicht mit fehlendem Wortschatz. Deshalb nützt es wenig, nur Listen zu pauken. Nützlicher ist es, bei jedem Verb auch zu notieren, was danach folgt.
 
-## Häufige Fehlerquellen und typische Stolpersteine
+## Sechs Verben für den Einstieg
 
-Vermeiden Sie diese typischen Fehler, die im schriftlichen und mündlichen Gebrauch immer wieder vorkommen:
-1. **Falsche Partikelwahl :** Verwechseln Sie nicht *give up* (eine Anstrengung einstellen) mit *give in* (nachgeben, kapitulieren).
-2. **Pronomen-Positionierung :** Sagen Sie niemals *Turn off it*, sondern stets *Turn it off*.
-3. **Registerfehlschlag :** In einem hochoffiziellen Vertrag ist *investigate* oder *conduct an inquiry* stilistisch oft angemessener als das umgangssprachliche *look into*. In E-Mails und Verhandlungen hingegen wirkt *look into* sympathisch und zupackend.
+Mit diesen Verben können Sie sofort arbeiten. Die deutschen Anker zeigen, wo die Analogie trägt und wo nicht.
 
+- *get up* (aufstehen): *I get up at six on weekdays.* Hier passt die Analogie, *auf* wird zu *up*.
+- *check in* (einchecken): *We checked in at the hotel before noon.* Auch hier gleich: *ein* wird zu *in*.
+- *pick up* (abholen): *Can you pick me up at the station?* Das Deutsche sagt *ab*, das Englische *up*.
+- *hand in* (abgeben, einreichen): *Please hand in your report by Friday.* Wieder ein Beispiel, bei dem das Präfix nicht stimmt.
+- *sort out* (klären, in Ordnung bringen): *Let's sort out the schedule today.* Im Deutschen steht *aussortieren* vor allem für das Trennen und Entfernen, im Englischen kann *sort out* auch ein Problem lösen.
+- *carry on* (weitermachen): *Carry on with your work; I'll be back in ten minutes.*
 
-Ein zentrales Grammatikkapitel betrifft die Trennbarkeit:
-- **Trennbare Verben (Separable) :** Das Objekt kann hinter der Partikel oder zwischen Verb und Partikel stehen (*Turn off the light* oder *Turn the light off*).
-- **Die Pronomen-Regel :** Wird das Objekt durch ein Personalpronomen ersetzt (*it*, *them*, *him*, *her*), **muss** das Pronomen immer in der Mitte stehen: Es heißt ausschließlich *Turn it off* (niemals *Turn off it*).
-- **Untrennbare Verben (Inseparable) :** Das Objekt steht ausnahmslos nach der Partikel (*I ran into my manager*, niemals *I ran my manager into*). Verben mit zwei Partikeln (*look forward to*, *put up with*) sind stets untrennbar.
+Wenn Sie diese sechs im Kopf haben, sehen Sie schnell, dass die Analogie mal trägt und mal nicht. Das ist ein Grund mehr, jedes Verb mit einem eigenen Beispielsatz zu lernen statt über die Übersetzung.
 
-Erweitern Sie Ihr Repertoire mit unseren thematischen Übersichten zu [Business English E-Mail schreiben](/de/blog/business-english-email-schreiben/) und [Englische Abkürzungen im Beruf](/de/blog/englische-abkuerzungen-im-beruf-email-guide/). Erfahren Sie mehr über typische Stolpersteine in [Make oder Do Unterschied](/de/blog/make-oder-do-unterschied/) und vertiefen Sie Ihre Kenntnisse zu [Englische if-Sätze Conditional Clauses](/de/blog/englische-if-saetze-conditional-clauses/).
+## So üben Sie mit dem Deutschen als Anker
 
-Praktische Übungen zu trennbaren und untrennbaren Verben finden Sie im [Grammatikbereich](/app/#/grammar/phrasal-verbs-grammar) der Lexkite-App. Ihren Fortschritt festigen Sie mit gezielten Einheiten im [Lernmodul](/app/#/practice/learn) oder stöbern in realen Textbeispielen auf unserer [Materialseite](/en/samples/).
+1. Schreiben Sie fünf trennbare Verben auf, die Sie täglich benutzen (*aufstehen*, *anziehen*, *ausmachen*, *wegbringen*, *weitermachen*).
+2. Schlagen Sie die englische Entsprechung in einem Deutsch-Englisch-Wörterbuch nach und prüfen Sie, ob das Deutsche ein Präfix hat, das Englische aber ein Einzelverb (*anrufen* → *call*). Hörprobe und Beispielsätze zum englischen Verb zeigt dann das [Wörterbuch in Lexkite](/app/#/dict/call).
+3. Bilden Sie je einen Satz über Ihren Tag, einmal mit Nomen, einmal mit Pronomen: *I turned the radio off. I turned it off.*
+4. Notieren Sie Wendungen, die Ihnen begegnen, unter [Meine Phrasen und Strukturen](/app/#/phrases), damit Sie die Struktur im Satz behalten und nicht nur das Verb.
+5. Lernen Sie neue Verben im Kontext, zum Beispiel mit den Lernkarten unter [Smart lernen](/app/#/practice/learn), die Bedeutung, Beispiel, Merkhilfe und häufigen Fehler zeigen.
 
-{{cta: /app/#/grammar/phrasal-verbs-grammar | Phrasal Verbs interaktiv in Lexkite üben}}
+![](media:@s2 "Eine Lernkarte zu come up with mit Bedeutung, englischer Definition, Beispiel, Merkhilfe und häufigem Fehler")
 
-{{youtube: | Die wichtigsten englischen Phrasal Verbs für Beruf und Alltag im Video erklärt}}
+Zum Nachschlagen eignet sich die Einheit zu [Phrasal Verbs im Grammatikpfad](/app/#/grammar/phrasal-verbs-grammar).
+
+{{cta: /app/#/grammar/phrasal-verbs-grammar | Phrasal Verbs im Grammatikpfad üben}}
+
+{{youtube: | Phrasal Verbs für Deutschsprachige im Video erklärt}}
 
 ## Häufig gestellte Fragen
 
-### Klingen Phrasal Verbs in formellen E-Mails unprofessionell?
-Nein, die meisten Phrasal Verbs sind fester Bestandteil des modernen Geschäftsenglisch. Übertreiben Sie es nur nicht mit saloppem Jargon: Ein neutrales Phrasal Verb wie *carry out* oder *set up* ist absolut salonfähig.
+### Gilt die Pronomenregel auch für Verben mit Präposition?
 
-### Wie erkenne ich, ob ein Phrasal Verb trennbar ist?
-Es gibt leider keine logische Ableitung aus den Buchstaben. Gute Wörterbücher kennzeichnen trennbare Verben mit *sth/sb* in der Mitte (*turn sth off*). Die Faustregel: Drei-Wort-Verben sind grundsätzlich untrennbar.
+Nein. Bei Präpositionalverben bleibt das Verb mit der Präposition zusammen: *I'm looking for it*, *she looks after them*. Nur bei trennbaren Phrasal Verbs steht das Pronomen zwischen Verb und Partikel.
 
-### Warum nutzen englische Muttersprachler so wenige lateinische Verben?
-Im Englischen wirkt der übermäßige Gebrauch romanischer Verben (*extinguish* statt *put out*, *descend* statt *get down*) schnell distanziert, gekünstelt und bürokratisch. Phrasal Verbs klingen menschlicher und lebendiger.
+### Welches Wort wird in einem Phrasal Verb betont?
+
+Meist die Partikel: *give ÚP*, *turn it ÓFF*. Die Ausnahmen sind vor allem Präpositionalverben, bei denen der Akzent auf dem Verb liegt. Im Wörterbuch ist die Betonung in der Lautschrift markiert.
+
+### Ist *turn off the light* dasselbe wie *turn the light off*?
+
+In der Bedeutung ja. Bei kurzen Objekten sind beide Stellungen üblich. Bei langen Objekten steht die Partikel meist direkt hinter dem Verb, bei Pronomen immer davor.

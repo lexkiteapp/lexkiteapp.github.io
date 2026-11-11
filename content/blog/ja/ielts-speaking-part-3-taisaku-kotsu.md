@@ -1,147 +1,157 @@
 ---
-title: "IELTS Speaking Part 3 コツ：論理展開のフレームワークと表現集"
-description: "ielts speaking part 3 コツを徹底解説：ハイスコアを達成するPEEL法による論理展開フレームワーク、アカデミックなディスコースマーカー、日本人受験生特有の沈黙を防ぐ即答テクニックと実践模範解答まで完全網羅して解説します。"
+title: "IELTS Speaking Part 3 日本語話者の癖を直す：コンビニの会話で見る四つの場面"
+description: "IELTS Speaking Part 3 で日本語話者の癖が出やすい場面を、コンビニをテーマにした一つの会話に沿って四つの質問ごとに検証。話題の「は」、あいまい表現、接続詞、沈黙の直し方を日本の例文で一つずつ具体的に示します。"
 slug: ielts-speaking-part-3-taisaku-kotsu
 lang: ja
 translationKey: ielts-speaking-part-3
 category: ielts
-tags: [ielts, ielts-speaking, part-3, exam-tips]
-keyword: "ielts speaking part 3 コツ"
-cover: speaking
-coverAlt: "Lexkite スピーキング練習画面で Part 1 や Part 3 のトピック別設問と band 7.5 回答例を確認する様子"
-publishAt: 2027-02-20T09:00:00+09:00
+tags: [ielts, ielts-speaking, part-3, japanese-learners]
+keyword: "ielts speaking part 3 日本語話者の癖"
+cover: practice-speak
+coverAlt: "Lexkite の発音練習画面で、フレーズを声に出して話し、音声で点数を確認する様子"
+publishAt: 2027-01-06T07:03:00+09:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: think, icon: mic, chip: IELTS Speaking}
 shots: [
-  {id: s1, route: '#/speaking', crop: main},
-  {id: s2, route: '#/mock', crop: main}
+  {id: s1, route: '#/mock', crop: main},
+  {id: s2, route: '#/pron', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: 'PEEL法による論理的スピーキング構造', parts: [{t: 'P: Point（要点）', r: '質問に対する核心的見解を冒頭で明確に宣言'}, {t: 'E: Explanation（論拠）', r: '社会的・経済的背景を論理的に分析し理由を詳述'}, {t: 'E: Example（実例）', r: '個人的体験ではなく客観的な社会動向や統計を提示'}, {t: 'L: Link（結び）', r: '主張を再確認し質問に対する包括的結論を導出'}]}
+  {id: d1, type: boxes, title: '「日本にはコンビニがたくさんあります」が英語になるまで', parts: [{t: '日本には', r: '話題の「は」 → 主語にせず場所の表現（in Japan）に回す'}, {t: 'コンビニが', r: '名詞 → 複数形にして主語の位置へ（convenience stores）'}, {t: 'たくさんあります', r: '存在を表す動詞 → There are ... / are everywhere'}, {t: '= There are convenience stores everywhere in Japan.', r: '英語の文'}]}
 ]
 quiz: [
   {
-    q: "IELTS Speaking Part 3において、日本人受験生が最も避けるべき回答姿勢はどれですか？",
-    options: [
-      "自分自身の個人的な思い出話や家族の身の上話だけに終始すること",
-      "社会全体のマクロな視点から客観的な統計や動向を引用すること",
-      "多様な接続詞を用いて因果関係や対比を論理的に説明すること",
-      "複文や関係詞節を自然に組み合わせて思考を緻密に言語化すること"
-    ],
-    answer: 0,
-    explain: "Part 3は個人的な話題（Part 1/2）を超えて、抽象的な社会問題について客観的に論じる力を評価します。"
+    q: "___ in Kyoto are high.",
+    options: ["Rent", "Expensive", "The high", "Rents"],
+    answer: 3,
+    explain: "are が続くので、主語は複数形の名詞が必要です。日本語の「家賃は高い」のように話題をそのまま置くのではなく、名詞を主語にして形容詞を述語に回します。"
   },
   {
-    q: "PEELフレームワークにおいて、2つ目の『E』が表す重要な要素は何ですか？",
-    options: [
-      "Emotion（感情の激しい高ぶりと過度な身振り手振り）",
-      "Example（客観的かつ具体的な社会的事例やトレンド）",
-      "Examination（試験官の顔色やメモを注視すること）",
-      "Elimination（難しい英単語を意図的に排除すること）"
-    ],
+    q: "Q: 'Why do many Japanese workers stay late at the office?' A: '___, I suppose it comes down to the culture of loyalty.'",
+    options: ["Therefore", "Well", "However", "Besides"],
     answer: 1,
-    explain: "PEELはPoint（主張）、Explanation（理由説明）、Example（具体例）、Link（結論）で構成されます。"
+    explain: "考える間をつくる前置きとして自然なのは well です。ほかの語は前の文を受けて結果や対比を示すため、会話の最初には使えません。"
   },
   {
-    q: "試験官の質問の意味が高度で即座に把握できなかった場合の最適な対処法はどれですか？",
-    options: [
-      "過度の恥ずかしさから完全に沈黙して何も発言しない",
-      "丁寧な表現を用いて試験官に言い換えや質問の明確化を依頼する",
-      "丸暗記してきた無関係な模範解答を高速でまくしたてる",
-      "試験室から立ち去り次回の試験予約をその場で行う"
-    ],
-    answer: 1,
-    explain: "'Could you rephrase that question, please?'のように確認を求めることは自然な対話戦略として減点対象になりません。"
+    q: "Which sentence gives a cautious prediction rather than a flat claim?",
+    options: ["Self-service checkouts will replace every cashier.", "Self-service checkouts have already replaced every cashier.", "Self-service checkouts might replace many cashiers.", "Self-service checkouts always replace cashiers."],
+    answer: 2,
+    explain: "might は可能性として控えめに述べる助動詞です。will や always は言い切りの形で、Part 3 では根拠なしに断定すると説得力が下がります。"
   }
 ]
 ---
 
-IELTSスピーキングにおいてBand 7.0以上の高得点を獲得できるかどうかは、最終セクションである **ielts speaking part 3 コツ** をいかに熟知し、実践できるかにかかっています。Part 1の日常的な自己紹介やPart 2の2分間スピーチを無難にこなした受験生でも、Part 3の抽象的で高度な社会課題の議論に直面した途端、言葉に詰まってしまうケースが後を絶ちません。
+**IELTS Speaking Part 3 日本語話者の癖**は、英語力が足りないから出るのではありません。日本語ではごく自然な話し方が、そのまま英語の議論に入ると、立場や理由の見えにくい答えになってしまうのです。Part 3 は試験官と 4〜5 分ほど意見を交わす場で、答えの長さに公式な決まりはありません。この記事では、一つの会話を最初から最後まで追い、質問が変わるたびにどの癖が顔を出すかを見ていきます。質問タイプ別の答えの型は、[IELTS Speaking Part 3 対策：論理的に回答を広げる技術](/ja/blog/ielts-speaking-part-3-ronri-kaitou-kotsu/)で扱っているので、ここでは日本語から持ち込む癖だけに絞ります。
 
-多くの日本人学習者が陥る典型的な罠は、「自分自身の個人的な出来事（I went to... / My friend told me...）」に終始してしまい、社会評論家のようなマクロな視点での論証が展開できない点にあります。Part 3で評価されるのは、環境問題、人工知能、教育制度、少子高齢化といった広範なトピックについて、説得力のある論理構造と学術的な語彙を用いて試験官と双方向のディスカッションを展開する能力です。
+## 例にする会話：Part 2 のあとの四つの質問
 
-本記事では、瞬時に頭の中で論理を組み立てるPEELフレームワーク、ハイスコアを決定づけるディスコースマーカー（談話標識）、そして沈黙を回避する時間稼ぎの即答テクニックまで、**ielts speaking part 3 コツ** の神髄を余すところなく解説します。
+Part 2 で「よく行くお店」について一人で話したあと、試験官が Part 3 で次の四つを順に尋ねたとします。話題は日本の生活に近いコンビニです。会話はこの記事のために作った練習用で、実際の試験に出た問題ではありません。
 
-## 採点基準から紐解くPart 3の評価ポイント
+| 順番 | 試験官の質問 | 出やすい癖 |
+| :--- | :--- | :--- |
+| 1 | Why are convenience stores so popular in Japan? | 話題の「は」をそのまま主語にする、冠詞と複数形の抜け |
+| 2 | Is it a good idea for shops to stay open all night? | 「ので」「が」で文が長くなり、結論が埋もれる |
+| 3 | Do you think people will stop shopping in stores? | 「かもしれません」を *maybe* で重ねる |
+| 4 | What responsibilities do shops have to their local community? | 考える間の沈黙と、日本語の「えーと」 |
 
-IELTS公式の採点基準表（Band Descriptors）における4つの評価軸を正確に理解することが対策の第一歩です：
+試験官が次の質問へ進むために話を区切ることがありますが、時間の都合であり、減点のサインではありません。試験全体の流れは、Lexkite の[模擬試験](/app/#/mock)で技能と試験を選ぶ画面から確認できます。
 
-1. **Fluency and Coherence（流暢性と一貫性）**: 不自然な沈黙や言い淀みなく、論理的な接続詞を用いてスムーズに話を展開できているか。
-2. **Lexical Resource（語彙の豊かさ）**: 抽象的な社会事象を的確に言語化できるアカデミックな語彙やコロケーション（連語）を自在に使いこなしているか。
-3. **Grammatical Range and Accuracy（文法の幅広さと正確性）**: 複文、仮定法、関係詞節、分詞構文などを自然に織り交ぜているか。
-4. **Pronunciation（発音とイントネーション）**: 単語の強弱アクセントや文全体の抑揚を保ち、聞き手に負担をかけない明瞭な発声ができているか。
+![](media:@s1 "IELTS 模擬試験で技能と試験を選び、試験の構成を確認する画面")
 
-特にPart 3では、単純な文（Simple Sentences）を並べるのではなく、原因と結果（Cause and Effect）や譲歩と対比（Concession and Contrast）を示す複文構造を意識的に構築することが求められます。
+## 質問 1：話題の「は」を主語にしない
 
-![Lexkite スピーキング練習画面でトピック別質問の演習](media:@s1 "Lexkite スピーキングルームで多様なIELTSトピックの設問を練習する画面")
+最初の質問に、日本語で最初に浮かぶ答えは「日本にはコンビニがたくさんあって、便利です」でしょう。これを順に英語へ置き換えると、*Japan is many convenience stores. Convenience store is convenient.* のようになりがちです。ここには三つのずれがあります。
 
-{{diagram: d1 | PEEL法による論理的スピーキング構造}}
+- 「日本には」は場所を示す話題なのに、*Japan* を主語にしている
+- 「たくさんあります」は存在を表すのに、*is many* と状態の形にしている
+- 「コンビニ」は一般論なのに、複数形も冠詞もない（日本語は名詞の数を原則として示さないため）
 
-## ielts speaking part 3 コツ : PEEL法による論理構成術
+{{diagram: d1 | 「日本にはコンビニがたくさんあります」が英語になるまで}}
 
-予測不可能な難問に直面した際、思考停止に陥らず即座に説得力のある回答を構築するための黄金律が「PEELフレームワーク」です。
+もう一つ大切なのは、結論を先に置くことです。日本語は述語が文末に来るので、理由を並べてから判断を言う流れが自然です。英語では、質問に対する答えを最初の一文にして、理由を後ろに付けます。
 
-- **P (Point - 主張の明示)**: 質問に対する核心的な結論や立場を最初の1文で明確に宣言します。
-- **E (Explanation - 理由・背景の詳述)**: なぜその結論に至るのか、社会的・経済的・文化的な観点から理由を深掘りします。
-- **E (Example - 客観的な実例)**: 個人の日記のような私的体験談ではなく、社会全体の一般的な傾向やニュース、研究データを例に挙げます。
-- **L (Link - 結論の再結合)**: 提示した論拠を総括し、冒頭の問いに対する結論へと自然に着地させます。
+- 日本語の順序のまま：*There are shops on every corner, and you can buy food, and they are open at night, so... that is why they are popular.*
+- 結論を先にした形：*Mainly because they are everywhere and always open, so people can buy a meal or pay a bill whenever they need to.*
 
-### 実践模範例：「都市部での公共交通機関の無料化について」
+一般論は *Convenience stores are useful when...* と複数形にするか、*A convenience store is useful when...* と冠詞を付けます。冠詞の選び方は[a・an・the の使い方](/ja/blog/eigo-kanshi-a-an-the-tsukaikata/)で詳しく扱っています。
 
-> **質問:** *Should metropolitan governments make public transportation completely free for all citizens?*
+## 質問 2：「ので」「が」でつながった長い文を切る
 
-- **Point:** *\"While the financial feasibility remains a contentious issue, I fundamentally support the concept of fare-free transit in major urban centers.\"*
-- **Explanation:** *\"The primary justification lies in environmental sustainability. By eliminating economic barriers to commuter rail and bus networks, municipalities can substantially alleviate traffic congestion and diminish vehicle greenhouse emissions.\"*
-- **Example:** *\"For instance, several European jurisdictions that implemented zero-fare public transport witnessed a measurable reduction in particulate air pollution and commuter stress within just twelve months.\"*
-- **Link:** *\"Therefore, despite the initial tax burden, the long-term societal and ecological dividends clearly outweigh the operational costs.\"*
+二つ目の質問は、深夜営業が良いことかどうかを尋ねています。日本語なら「夜中も開いているので便利ですが、働く人は大変です」と一息で言えます。そのまま英語にすると、*Because open at midnight it is convenient but staff is hard.* のように、理由の節と対比が一つの文に詰め込まれて、主語も崩れます。
 
-![Lexkite AI模擬テストによるリアルタイムフィードバック](media:@s2 "AIによる発音・流暢性・語彙レベルのリアルタイム診断とフィードバック画面")
+日本語の「ので」は理由を表しますが、英語では前後のどちらが原因かで *because* と *so* を使い分けます。「が」は対比のほかに「すみませんが」のような前置きにも使われるため、*but* に固定すると意味がずれます。切り方は次のとおりです。
 
-## Band 7.5を突破するためのディスコースマーカー集
+- 直訳に近い形：*Because open at midnight it is convenient but staff is hard.*
+- 切った形：*Late-night opening is convenient for customers. However, it means staff have to work unsociable hours, so it is worth asking whether every shop needs it.*
 
-アカデミックな議論において、*and, but, so* だけを繰り返すのは幼稚な印象を与えます。以下のような洗練された連結表現を自然に使いこなしましょう。
+文を二つに切ると、一つ目で立場、二つ目で理由と結果を言えます。長い一文を一息で言い切ろうとするより、聞き手にも追いやすくなります。
 
-### 1. 多角的な対比・譲歩表現
-- *\"While one cannot dispute the undeniable economic benefits of automated manufacturing, there are profound downsides regarding workforce displacement.\"*
-- *\"On the one hand, social platforms foster global connectivity; on the flip side of the coin, they frequently exacerbate psychological anxiety among adolescents.\"*
+## 質問 3：「かもしれません」を重ねない
 
-### 2. 将来の予測と仮説的推論
-- *\"It seems highly plausible that virtual reality interfaces will supersede conventional desktop monitors over the coming decade.\"*
-- *\"Were regulatory bodies to enforce stricter data compliance, consumers would likely regain confidence in commercial platforms.\"*
+三つ目は未来の予想です。日本語では「増えるかもしれませんが、店もなくならないかもしれません」と、「かもしれません」を重ねても丁寧に聞こえます。ところが *maybe* に置き換えると、*Maybe online shopping will increase but maybe shops will not disappear.* のようになり、どちらを言いたいのか分からず頼りなく響きます。
 
-### 3. 沈黙を回避し思考時間を稼ぐクッション言葉
-難解な質問に対して無言で固まることは致命傷となります。以下の表現で自然に3〜4秒の思考時間を確保してください：
-- *\"That's a rather multifaceted socio-economic question. I haven't examined it in great detail before, but looking at contemporary trends...\"*
-- *\"To be completely frank, that issue carries both merits and drawbacks. From an administrative viewpoint...\"*
+英語では、予想の強さを *probably, might, could, is unlikely to* などで調整し、理由を一つ添えるのが自然です。
 
-こうした高度な表現を定着させるには、[Lexkite スピーキング機能](/app/#/speaking)でタイマーをセットしながら反復練習し、[模擬テストモード](/app/#/mock)で自分の音声を客観的に聞き直すことが極めて効果的です。
+- 整えた形：*Online shopping will probably keep growing, but shops are unlikely to disappear, because people still like to see things in person.*
 
-## 日本人受験生が犯しやすい3大典型ミスとその克服法
+また、「〜と思います」をすべて *I think* にすると、表現の幅が狭く見えます。次のような言い方を混ぜてみてください。
 
-多くの受験生が無意識に減点されているポイントを把握し、事前に回避しましょう。
+- *As far as I can tell,...*
+- *From what I've seen,...*
+- *My impression is that...*
+- *The way I see it,...*
 
-1. **主語が「I」ばかりになる個人的視野の狭さ**:
-   - 質問が「現代社会の人々はなぜ忙しいのか」であるにもかかわらず、「私は先週残業で忙しかった」と答えると減点対象です。主語を *contemporary workers, urban dwellers, modern households* など社会集団へと一般化してください。
-2. **準備したテンプレートの不自然な丸暗記朗読**:
-   - 暗記したスクリプトを抑揚のない機械的なスピードで暗唱すると、試験官は即座に「暗記スピーチ」と判定し、語彙・流暢性ともに低スコアをつけます。覚えるべきは定型文ではなく「論理の枠組み（PEEL）」です。
-3. **質問の聞き取れなかった箇所を放置して適当に答える**:
-   - 単語の意味が曖昧なまま的外れな回答をするよりも、*\"Could you elaborate on what you mean by 'civic responsibility'?\"* と丁寧に確認を求める方が、優れた対話能力としてポジティブに評価されます。
+どれも「自分の見方である」という前置きになるので、根拠のない断定を避けつつ、立場ははっきり示せます。
 
-リーディングやライティングを含む総合的なIELTS対策として、[IELTS独学勉強法ロードマップ](/ja/blog/ielts-dokugaku-benkyouhou-road-map-score-up/)や[IELTSライティング複文の書き方](/ja/blog/ielts-writing-fukubun-complex-sentences-koutsu/)もあわせて学習することをお勧めします。また、リスニング力の底上げには[IELTSリスニング対策とコツ](/ja/blog/ielts-listening-taisaku-kotsu-score-up/)、全体的な言い換え力には[IELTSパラフレーズのコツ](/ja/blog/ielts-paraphrase-iikae-koubun-kotsu/)が必見です。過去の模範解答サンプルは[公式サンプル集](/en/samples/)にて随時公開されています。
+## 質問 4：沈黙と「えーと」を英語のつなぎに替える
 
-{{cta: /app/#/speaking | Lexkite でスピーキング Part 3 の模擬演習を始める}}
+四つ目の「地域に対してお店はどんな責任を持つか」は抽象度が高く、考える時間が欲しくなります。日本語では「えーと」「そうですね」で間をつなぐのが普通ですが、英語の試験でそれが口から出ると、流れが途切れます。短い英語のつなぎを準備しておくと、焦らずに済みます。
 
-{{youtube: | IELTS Speaking Part 3 で高得点を獲得する論理的回答の秘訣動画}}
+- *Well, that's a tricky one. Let me see...*
+- *That's an interesting question. I suppose...*
+- *I haven't thought about it much, but my feeling is...*
 
-## よくある質問（FAQ）
+質問の中に分からない言葉があれば、*Sorry, could you explain what you mean by "responsibility"?* と聞き返しても構いません。この質問への一つの答え方は、*Well, I suppose shops could help by hiring local people and taking part in neighbourhood events.* のように、つなぎ、立場、具体例の順に短くまとめる形です。
 
-### Q1. 自分の意見とは逆の立場（反対派）として回答しても問題ありませんか？
-全く問題ありません。IELTSはあなたの個人的な思想や本音をテストする場ではなく、英語を用いて首尾一貫した論証を構築できるかを審査する試験です。どちらの立場であっても、理由と具体例が論理的であれば満点基準で評価されます。
+## 声に出すとき：カタカナ発音と拍のリズム
 
-### Q2. 途中で試験官に発言を遮られた場合、減点されているサインですか？
-いいえ、減点のサインではありません。試験時間は厳格に定められているため、受験者が十分に流暢に論証できていると試験官が判断した場合、次の質問へ進むために自然に会話を区切ることが一般的です。
+日本語は基本的に子音のあとに母音が続くため、英語の子音連続に母音を足す傾向があります。Part 3 では *problem, government, strategy* のような語が頻繁に出ます。それぞれ pr-、-nm-、str- の子音の連続を、母音を入れずに続けて発音する練習が役に立ちます。カタカナの「プロブレム」「ガバメント」「ストラテジー」にすると、音の数が増えてしまいます。
 
-### Q3. 1つの質問に対してどれくらいの秒数話すのが理想的ですか？
-通常は40秒〜50秒程度（センテンスにして4〜6文程度）で完結させるのが最もバランスの良い長さです。20秒未満では論理の展開不足とみなされ、逆に1分30秒を超えて1人で話し続けると論点がぼやけてしまいます。
+*convenience store* も注意が必要です。日本語の「コンビニ」は省略形なので、英語では *convenience* を /kənˈviːniəns/ と、二番目の音節を強く言う必要があります。母音を足す癖は、[L と R の発音の違い](/ja/blog/l-to-r-hatsuon/)の記事でも触れています。
+
+Lexkite の[発音ライブラリ](/app/#/pron)では、母音、二重母音、子音を選び、例語を聞いて一音ずつ練習し、採点を確認できます。
+
+![](media:@s2 "IPA の発音ライブラリで母音・二重母音・子音を選び、例語を聞いて練習し、採点を確認する画面")
+
+日本語は拍をほぼ同じ長さで発音するため、その感覚が残ると、英語の強い音節と弱い音節の差が出にくくなります。文全体のリズムについては[英語の文のストレスとリズム](/ja/blog/eigo-bun-no-stress-rhythm-guide/)が参考になります。
+
+## IELTS Speaking Part 3 日本語話者の癖を録音で確かめる
+
+四つの質問の癖は、頭で理解しても、話すと戻ってしまいます。次の手順で、一回に一つだけ直します。
+
+- **癖を決める：** 「結論を先に」「集団や複数形を主語に」「文を二つに切る」「あいまい表現は一つだけ」「英語のつなぎ言葉」のうち、今日は一つを選びます。
+- **二回話す：** 同じ Part 3 の質問に、一回目は普段どおり、二回目は選んだ癖だけを直して答え、どちらも録音します。
+- **聞き比べる：** 二つの録音を続けて聞き、直した箇所が自然に聞こえるかを確かめます。
+
+質問は [Lexkite スピーキング練習室](/app/#/speaking)の Part 3 から選べます。言い換えの引き出しを増やしたいときは [IELTS パラフレーズのコツ](/ja/blog/ielts-paraphrase-iikae-koubun-kotsu/)、Part 2 とのつながりは [IELTS Speaking Part 2 のテンプレート](/ja/blog/ielts-speaking-part-2-template/)が使えます。
+
+{{cta: /app/#/speaking | Lexkite スピーキング練習室で Part 3 の質問を練習する}}
+
+{{youtube: | IELTS Speaking Part 3 の答えを英語らしい流れに直す練習動画}}
+
+## よくある質問
+
+### 日本の話題ばかりで答えても大丈夫ですか？
+
+話題が日本でも構いません。試験官は日本の事情を知らない前提なので、*In Japan, ...* と場所を示し、なぜそうなのかを一文で説明すれば十分です。日本の統計を正確に言えるかは評価の対象ではありません。
+
+### 日本語の「えーと」が出てしまったら、すぐに英語へ切り替えるべきですか？
+
+英語の試験なので、つなぎも英語に替える練習をしておくのが理想です。日本語が出たと気づいたら、そのまま *Well,...* や *Let me see...* に切り替えて続ければ、流れは戻せます。
+
+### 日本語で先に答えを考えてから英語にしてもいいですか？
+
+短い意見や理由を日本語でメモのように考えるのは構いません。ただ、一文ずつ日本語を訳そうとすると、述語が最後に来る日本語の語順が残り、結論が遅くなります。日本語では立場と理由を一語ずつ決めるだけにして、文は英語で組み立てる練習をしてみてください。

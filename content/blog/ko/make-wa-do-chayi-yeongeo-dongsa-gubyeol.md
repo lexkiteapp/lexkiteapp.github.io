@@ -1,183 +1,175 @@
 ---
-title: "make do 차이 완벽 정리: 헷갈리는 영어 동사 구별법과 실전 예문"
-description: "make do 차이 완벽 정리: 창조와 결과물을 뜻하는 make와 일상 과업 및 행동을 의미하는 do의 인지적 차이점, 한국인이 가장 자주 틀리는 필수 콜로케이션과 실전 회화 예문 총정리 가이드입니다."
+title: "make do 차이: 한국어 하다 때문에 틀리는 영어 동사 구별법"
+description: "make do 차이, 결과물과 활동이라는 길잡이로 정리하고, 한국어 하다를 do와 make로 잘못 옮기는 실수, 굳어진 콜로케이션, take와 have로 갈리는 경우까지 새로 만든 예문으로 차근차근 설명합니다."
 slug: make-wa-do-chayi-yeongeo-dongsa-gubyeol
 lang: ko
 translationKey: diferencia-entre-make-y-do-en-ingles
 category: tu-vung
 tags: [make-do, english-grammar, collocations, english-verbs]
 keyword: "make do 차이"
-cover: practice-learn
-coverAlt: "Lexkite smartLearn 단어 암기 화면에서 make와 do의 쓰임새를 플래시카드로 복습하는 모습"
-publishAt: 2027-02-15T09:00:00+09:00
+cover: practice
+coverAlt: "Lexkite 연습 화면에서 스마트 학습, 카드 짝맞추기, 객관식 퀴즈 모드를 고르는 모습"
+publishAt: 2026-12-29T20:45:00+09:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: think, icon: book, chip: Grammar & Vocab}
 shots: [
   {id: s1, route: '#/vocab', crop: main},
-  {id: s2, route: '#/practice', crop: main}
+  {id: s2, route: '#/phrases', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: 'Make vs Do 구분 기준', parts: [{t: 'MAKE: 창조/생산', r: '무에서 유를 창출하거나 새로운 결과물을 산출 (make a decision, make a mistake)'}, {t: 'DO: 행동/과업', r: '정해진 일상적 과업이나 일반적 활동을 수행 (do homework, do business)'}]}
+  {id: d1, type: compare, title: 'make와 do를 고르는 길잡이', cols: ['make', 'do'], rows: [['결과물이 생김: make a cake, make a decision', '활동을 수행함: do the laundry, do research'], ['말, 소리, 계획이 생김: make a speech, make a plan', '정해진 일과 의무: do your duty, do the shopping'], ['변화를 일으킴: make someone laugh, make a difference', '피해나 이익을 줌: do harm, do good']]}
 ]
 quiz: [
   {
-    q: "다음 빈칸에 들어갈 가장 알맞은 동사 형태는? 'Could you please _____ me a favor?'",
-    options: [
-      "make",
-      "do",
-      "take",
-      "give"
-    ],
-    answer: 1,
-    explain: "호의나 부탁을 들어줄 때는 관용적으로 'do someone a favor'를 사용합니다."
+    q: "I have to ___ the ironing before the guests arrive.",
+    options: ["make", "get", "have", "do"],
+    answer: 3,
+    explain: "다림질 같은 집안일은 do와 함께 쓰는 콜로케이션입니다. do the ironing, do the laundry처럼 묶어서 기억하세요."
   },
   {
-    q: "'실수를 하다'를 올바르게 영작한 표현은 어느 것일까요?",
-    options: [
-      "do a mistake in the exam",
-      "make a mistake in the exam",
-      "have a mistake in the exam",
-      "take a mistake in the exam"
-    ],
-    answer: 1,
-    explain: "실수는 이전에 없던 잘못된 결과를 만들어내는 것이므로 'make a mistake'가 올바른 콜로케이션입니다."
+    q: "Before blowing out the candles, she closed her eyes and ___ a wish.",
+    options: ["took", "gave", "made", "did"],
+    answer: 2,
+    explain: "make a wish는 굳어진 콜로케이션입니다. do a wish나 take a wish라고는 하지 않습니다."
   },
   {
-    q: "'사업을 하다' 또는 '거래를 하다'에 적합한 연어는 무엇인가요?",
-    options: [
-      "make business with clients",
-      "do business with clients",
-      "form business with clients",
-      "build business with clients"
-    ],
-    answer: 1,
-    explain: "업무, 작업, 상업적 활동을 수행하는 과정에는 동사 'do'를 결합하여 'do business'라고 표현합니다."
+    q: "He ___ a good living as a translator.",
+    options: ["makes", "does", "takes", "gives"],
+    answer: 0,
+    explain: "make a living은 생계를 꾸린다는 뜻의 굳어진 표현입니다."
   }
 ]
 ---
 
-영어를 배우는 한국인 학습자에게 **make do 차이**는 늘 골치 아픈 문법적 난제 중 하나입니다. 한국어로는 "밥을 하다", "결정을 하다", "운동을 하다", "실수를 하다"처럼 대부분의 행위에 동사 '하다'나 '만들다'를 혼용해도 문맥상 자연스럽게 뜻이 통합니다. 하지만 영어에서는 명사마다 결합하는 고유한 짝꿍 동사(콜로케이션, Collocation)가 엄격하게 정해져 있습니다.
+영어를 배우는 한국인에게 **make do 차이**가 유독 어려운 이유는 한국어 '하다' 때문입니다. 한국어에서는 "숙제를 하다", "결정을 하다", "운동을 하다", "예약을 하다"처럼 거의 모든 명사 뒤에 '하다'를 붙여 동사를 만들 수 있습니다. 영어는 명사마다 어울리는 동사가 정해져 있어서, 한국어의 '하다' 하나가 영어에서는 do, make, take, have 등으로 갈라집니다. 이 글에서는 make와 do를 고르는 길잡이를 먼저 소개하고, 한국어 화자가 실제로 자주 틀리는 조합과 그 이유를 설명한 뒤, 예외와 외워 둘 콜로케이션을 정리합니다.
 
-예를 들어 원어민에게 "I did a mistake"라고 말하면 문법적인 어색함 때문에 고개를 갸우뚱거릴 수밖에 없습니다. 실수는 행위의 결과로 새로운 상황을 초래한 것이므로 반드시 `make a mistake`라고 표현해야 합니다. 반대로 "I will make my homework" 역시 비문이며, 정해진 일상적 과업을 수행하는 것이므로 `do my homework`가 정확합니다.
+## 헷갈리는 make do 차이, 결과물인가 활동인가로 가르기
 
-이번 가이드에서는 단순한 암기를 넘어 원어민의 인지적 사고방식에 기반한 **make do 차이**의 핵심 원리를 명쾌하게 정리해 드립니다.
+가장 많이 쓰는 기준은 이렇습니다.
 
-## 핵심 개념으로 이해하는 make do 차이 원리
+- **make**는 이전에 없던 결과물이나 상태를 만들어 낼 때 씁니다.
+- **do**는 이미 정해진 일, 의무, 활동 자체를 수행할 때 씁니다.
 
-두 동사를 구별하는 가장 쉽고 확실한 방법은 '행위의 본질'과 '결과물의 유무'를 따져보는 것입니다.
+이 기준은 절대 규칙이 아니라 대부분의 경우를 설명하는 길잡이입니다. 예외가 꽤 있어서, 길잡이로 짐작해 본 뒤에는 덩어리 표현으로 외워 두는 것이 안전합니다.
 
-```
-+-----------------------------------------------------------+
-| [MAKE] = 무에서 유를 창조, 없던 결과물을 산출, 감정·변화 유발    |
-| [DO]   = 정해진 일상 과업, 행동 자체의 수행, 추상적 활동         |
-+-----------------------------------------------------------+
-```
+{{diagram: d1 | make와 do를 고르는 길잡이}}
 
-### 1. Make: 새로운 결과물을 만들어내는 '창조와 생산'
-동사 `make`는 본래 물리적이든 추상적이든 이전에 존재하지 않던 새로운 상태나 대상을 '산출(Produce)'하거나 '창조(Create)'할 때 씁니다.
+### make가 어울리는 경우
 
-- **물리적 제작**: *make coffee* (커피를 타다), *make dinner* (저녁을 짓다), *make a cake* (케이크를 만들다)
-- **추상적 결정과 선택**: *make a decision* (결정을 내리다), *make a choice* (선택하다), *make an offer* (제안하다)
-- **소리와 의사소통**: *make a sound* (소리를 내다), *make a speech* (연설하다), *make an appointment* (약속을 잡다)
-- **관계와 감정적 변화**: *make friends* (친구를 사귀다), *make someone happy* (누군가를 행복하게 만들다)
+- **음식과 물건**: *make coffee*(커피를 타다), *make dinner*(저녁을 만들다), *make a cake*(케이크를 만들다)
+- **결정과 제안**: *make a decision*(결정을 내리다), *make a choice*(선택하다), *make an offer*(제안하다)
+- **말과 소리**: *make a speech*(연설하다), *make a sound*(소리를 내다), *make a comment*(의견을 말하다)
+- **계획과 약속**: *make a plan*(계획을 세우다), *make an appointment*(약속을 잡다), *make arrangements*(준비하다)
+- **관계와 변화**: *make friends*(친구를 사귀다), *make someone happy*(누군가를 행복하게 하다), *make progress*(진전을 이루다)
 
-### 2. Do: 정해진 과정과 활동에 집중하는 '행동과 과업'
-반면 `do`는 새로운 물리적 물건을 창조하는 것이 아니라, 이미 주어진 역할, 의무, 직무, 혹은 일상적인 활동 자체를 '수행(Perform)'하는 데 초점이 맞춰져 있습니다.
+### do가 어울리는 경우
 
-- **가사 노동과 집안일**: *do the dishes* (설거지하다), *do the laundry* (빨래하다), *do the cleaning* (청소하다)
-- **학습과 업무**: *do homework* (숙제를 하다), *do business* (사업을 하다), *do research* (연구/조사를 수행하다)
-- **신체 관리와 운동**: *do exercise* (운동하다), *do one's hair* (머리를 손질하다)
-- **막연한 행동(General actions)**: *do something* (무언가를 하다), *do nothing* (아무것도 안 하다), *do anything* (어떤 것이든 하다)
+- **집안일**: *do the dishes*(설거지하다), *do the laundry*(빨래하다), *do the cleaning*(청소하다)
+- **공부와 일**: *do homework*(숙제를 하다), *do research*(조사하다), *do business*(거래하다), *do a project*(프로젝트를 수행하다)
+- **운동과 몸 관리**: *do exercise*(운동하다), *do yoga*(요가를 하다), *do one's hair*(머리를 손질하다)
+- **막연한 행동**: *do something*(무언가를 하다), *do nothing*(아무것도 안 하다), *do anything*(무엇이든 하다)
 
-![Lexkite 단어장에서 어휘의 콜로케이션과 용법 확인](media:@s1 "Lexkite 단어장에서 연어 및 예문 학습하기")
+![](media:@s1 "복습할 카드, 어휘 경로, 단어 라이브러리로 이어지는 Lexkite 어휘 화면")
 
-{{diagram: d1 | Make와 Do의 핵심 인지 구조 비교}}
+## 같은 주제 안에서 make와 do가 갈리는 콜로케이션
 
-## 한국인이 가장 많이 틀리는 Make vs Do 콜로케이션 비교
+주제별로 한 번 더 비교해 보겠습니다. 같은 영역에서도 동사가 갈립니다.
 
-한국어 번역에 의존하다 보면 자주 실수하는 대표적인 표현들을 카테고리별로 대조해 보겠습니다.
-
-| 구분 | MAKE (새로운 결과/창조) | DO (활동 수행/과업) |
+| 영역 | make | do |
 | :--- | :--- | :--- |
-| **직장 및 비즈니스** | `make a profit` (이익을 내다)<br>`make a deal` (계약을 성사시키다)<br>`make a plan` (계획을 세우다) | `do business` (거래/사업을 하다)<br>`do paperwork` (서류 작업을 하다)<br>`do a project` (프로젝트를 수행하다) |
-| **학습 및 일상** | `make an effort` (노력을 기울이다)<br>`make progress` (진전을 이루다)<br>`make an excuse` (변명을 지어내다) | `do one's best` (최선을 다하다)<br>`do an assignment` (과제를 하다)<br>`do a favor` (부탁을 들어주다) |
-| **생활 및 건강** | `make a mess` (어질러놓다)<br>`make a bed` (잠자리를 정돈하다)<br>`make money` (돈을 벌다) | `do the shopping` (장보기를 하다)<br>`do gymnastics` (체조를 하다)<br>`do damage` (피해를 입히다) |
+| 일과 직장 | `make a profit` (이익을 내다)<br>`make a deal` (계약을 맺다)<br>`make a point` (요점을 말하다) | `do business` (거래하다)<br>`do paperwork` (서류 작업을 하다)<br>`do a job` (일을 처리하다) |
+| 공부와 일상 | `make an effort` (노력하다)<br>`make an improvement` (개선하다)<br>`make an excuse` (변명하다) | `do one's best` (최선을 다하다)<br>`do an assignment` (과제를 하다)<br>`do a favour` (부탁을 들어주다) |
+| 생활 | `make a mess` (어지르다)<br>`make the bed` (침대를 정돈하다)<br>`make money` (돈을 벌다) | `do the shopping` (장보기를 하다)<br>`do the cooking` (요리를 하다)<br>`do damage` (피해를 입히다) |
 
-특히 주의할 점은 '침대 정돈'입니다. 침대를 새로 제작하는 것이 아님에도 불구하고 헝클어진 침구를 가지런히 새 상태로 세팅한다는 의미에서 관용적으로 `make the bed`라고 씁니다. 반면 '피해를 입히다'는 결과를 낳는 것 같지만 행위의 가해성을 강조하여 `do damage / do harm`으로 표현합니다.
+`make the bed`와 `do damage`는 길잡이만으로는 설명되지 않습니다. 침대는 새로 만드는 물건이 아닌데도 make를 쓰고, 피해는 결과인데도 do를 씁니다. 이런 조합은 원리로 따지기보다 굳어진 콜로케이션(어울리는 짝)으로 덩어리째 외워 두는 편이 빠릅니다.
 
-![Lexkite 연습 모드에서 퀴즈를 통한 어휘 점검](media:@s2 "반복 훈련을 통해 올바른 동사 짝꿍을 체화하는 Lexkite 연습 화면")
+## 한국어 하다 때문에 틀리는 조합
 
-## 실전 회화 예문으로 뉘앙스 익히기
+한국인 학습자의 실수는 대부분 '~을 하다'를 하나의 영어 동사로 일괄 대응하면서 생깁니다. 한국어에서 '하다'는 거의 모든 행위를 가리키는 가벼운 동사여서, 실수를 하다, 결정을 하다, 예약을 하다, 연구를 하다가 모두 같은 구조로 보입니다. 그러면 영어에서도 do 하나로 모든 것을 해결하려는 경향이 나옵니다. 실제로 자주 보이는 실수는 다음과 같습니다.
 
-문맥 속에서 어떻게 쓰이는지 자연스러운 대화 예문을 통해 확인해 보세요.
+1. **실수를 하다 → *do a mistake***: 정답은 **make a mistake**입니다. 실수는 행위 자체가 아니라 잘못된 결과가 생기는 것이므로 make와 어울립니다.
+2. **결정을 하다 → *do a decision***: **make a decision**입니다. 한국어의 '결정을 하다'가 do로 옮겨지기 쉬운 대표적인 경우입니다.
+3. **예약을 하다 → *do a reservation***: **make a reservation**입니다. '-을 하다'를 do로 일괄 대응한 결과입니다.
+4. **연구를 하다 → *do a research***: **do research**입니다. research는 셀 수 없는 명사라 a를 붙이지 않습니다. 동사 쪽에서는 '하다'를 make로도 옮길 수 있다고 생각해 *make research*라고 하는 경우도 있습니다.
+5. **전화를 하다 → *do a phone call***: 정답은 **make a phone call**입니다.
+6. **약속을 하다 → *do a promise***: 정답은 **make a promise**입니다.
+7. **연설을 하다 → *do a speech***: **make a speech**입니다. 말을 하는 행위는 do가 아니라 make와 어울립니다.
 
-> **상황 A: 직장에서 업무 진행 상황을 논의할 때**
-> - **A:** Have we **made a decision** on the marketing budget for next quarter?
-> - **B:** Not yet, but our analytics team is currently **doing extensive market research** to minimize financial risks. We want to ensure we **make a solid profit** this year.
+위 실수들의 공통점은 한국어를 먼저 떠올리고 단어를 하나씩 바꿔 끼운다는 것입니다. 어느 방향으로 틀리든 해결책은 같습니다. 명사를 외울 때 동사와 함께, 즉 *research → do research*, *decision → make a decision*처럼 한 세트로 외우세요.
 
-> **상황 B: 일상에서 부탁을 하거나 사과할 때**
-> - **A:** Could you **do me a favor** and review this report before the meeting?
-> - **B:** Of course! I'm happy to help. Let's make sure we don't **make any careless mistakes** in front of the board.
+## 하다가 make와 do 말고 take, have로도 갈라집니다
 
-이러한 연어 관계는 단어 하나하나를 따로 외우기보다는 덩어리 표현(Chunk)으로 입에 붙이는 훈련이 필수적입니다. [단어 암기장](/app/#/vocab)에서 `make a decision`, `do a favor` 같은 구동사와 콜로케이션을 등록해 두고, [실전 연습 모드](/app/#/practice)를 활용해 주기적으로 테스트해 보세요.
+'하다'가 갈라지는 방향은 make와 do 둘만이 아닙니다. 한국어로는 모두 '~을 하다'이지만 영어에서는 다음처럼 다른 동사를 씁니다.
 
-## 효율적인 콜로케이션 암기 전략
+- 샤워를 하다 → **take a shower** (*do a shower*가 아닙니다)
+- 휴식을 하다 → **take a break**
+- 회의를 하다 → **have a meeting** 또는 **hold a meeting**
+- 발표를 하다 → **give a presentation**
+- 점심을 먹다 → **have lunch**
+- 산책을 하다 → **go for a walk** 또는 **take a walk**
 
-머리로는 **make do 차이**를 이해했더라도, 실전 스피킹이나 라이팅 시험에서는 무의식중에 한국어식 직역이 튀어나올 수 있습니다. 이를 방지하기 위한 세 가지 실천 팁을 제안합니다.
+make와 do로 정답이 나오지 않을 때는 이 동사들도 후보에 넣어 보세요. 이 방식으로 콜로케이션을 모으는 요령은 [영어 단어 암기법](/ko/blog/yeongdaneo-amgibeop/)에서도 소개하고 있습니다.
 
-1. **명사를 볼 때 항상 짝꿍 동사를 함께 기록하기**: 새로운 명사를 배울 때 명사 단독으로 적지 말고, *research $\rightarrow$ do research*, *effort $\rightarrow$ make an effort* 형태로 하나의 세트로 암기하세요.
-2. **소리 내어 문장 단위로 낭독하기**: 눈으로만 읽으면 뇌의 조음 근육이 기억하지 못합니다. 최소 5번 이상 큰 소리로 문장을 낭독하여 자연스러운 청각적 리듬을 체화해야 합니다.
-3. **간격 반복(Spaced Repetition) 시스템 활용하기**: 인간의 기억력은 시간이 지나면 자연스럽게 망각 곡선을 따릅니다. FSRS 알고리즘이 적용된 플래시카드를 통해 헷갈리는 표현을 적절한 타이밍에 복습하는 것이 장기 기억 전환에 가장 효과적입니다.
+## 예문으로 보는 make와 do
 
-관련하여 혼동하기 쉬운 문법 개념은 [동명사와 to부정사 구분법](/ko/blog/dongmyeongsa-to-bujungsa-gu-bun-beop-yeong-munbeop/)이나 [헷갈리는 영어 단어 모음](/ko/blog/heongdon-doegi-swiun-yeongeo-daneo-confusing-words/)을 함께 참고하시면 기초 어휘력을 탄탄하게 다질 수 있습니다. 또한 공인 시험을 준비하신다면 [IELTS 콜로케이션 정리](/ko/blog/ielts-collocation-yeongeo-yeoneo-chongjeongri/) 및 [TOEIC Part 5 문법 전략](/ko/blog/toeic-part5-munbeop/) 글도 큰 도움이 됩니다. 실전 예문 라이브러리는 [공식 샘플 자료실](/en/samples/)에서 무료로 열람하실 수 있습니다.
+문장 속에서 두 동사가 함께 나오는 장면을 봅시다.
 
-{{cta: /app/#/vocab | Lexkite에서 나만의 콜로케이션 단어장 만들기}}
+> **상황 A: 직장에서**
+> **A:** Have we made a decision on the new vendor yet?
+> **B:** Not yet. Min-jun is still doing some research on pricing, and he wants to make a few phone calls first.
 
-{{youtube: | make와 do의 뉘앙스 차이와 원어민 빈출 표현 총정리 영상}}
+> **상황 B: 일상에서**
+> **A:** Could you do me a favour and water the plants while I'm away?
+> **B:** Sure. I'll do it on my way home, so don't make a fuss about it.
 
+make와 do를 섞어 쓴 문장을 소리 내어 읽으면서, 어느 명사가 어느 동사와 붙는지 입에 익혀 보세요. 영어 콜로케이션을 폭넓게 정리한 글로는 [IELTS 콜로케이션 정리](/ko/blog/ielts-collocation-yeongeo-yeoneo-chongjeongri/)가 있고, 헷갈리기 쉬운 단어 쌍은 [헷갈리는 영어 단어 모음](/ko/blog/heongdon-doegi-swiun-yeongeo-daneo-confusing-words/)에서 확인할 수 있습니다.
 
-## 한국어 모국어 간섭(L1 Transfer)으로 인한 전형적인 오류 분석
+## 자주 쓰는 콜로케이션을 덩어리로 익히는 방법
 
-한국인 학습자가 영어를 구사할 때 **make do 차이**에서 유독 실수가 잦은 이유는 한국어의 범용 동사 구조 때문입니다. 한국어에서 '하다'는 거의 무제한에 가깝게 명사와 결합하여 동사구를 형성합니다. 예를 들어 '청소하다', '연구하다', '결정하다', '실수하다', '약속하다', '설거지하다'처럼 모든 행위의 끝에 '-하다'가 자연스럽게 붙습니다.
+이해한 뒤에도 말할 때 한국어가 튀어나오는 것은 자연스럽습니다. 아래 세 가지를 습관으로 만들어 보세요.
 
-이로 인해 머릿속에서 한국어로 먼저 문장을 구상한 뒤 단어를 1:1로 영작(Direct Translation)하면 다음과 같은 어색한 영어 표현이 만들어집니다:
+1. **명사와 동사를 함께 적기**: 새 명사를 배울 때 명사 하나만 적지 말고 *effort → make an effort*처럼 짝을 이룬 형태로 적습니다. [구문 노트](/app/#/phrases)에 `make a decision`, `do a favour` 같은 콜로케이션을 직접 적어 두면 나중에 모아 보기 편합니다.
+2. **문장 단위로 소리 내어 말하기**: 눈으로만 읽으면 입에 붙지 않습니다. 한 콜로케이션마다 자기 상황에 맞는 문장을 하나씩 만들어 소리 내어 말해 보세요.
+3. **복습 간격을 두기**: 한 번 외운 콜로케이션도 시간이 지나면 흐려집니다. [연습 화면](/app/#/practice)에서 스마트 학습과 퀴즈로 다시 확인하세요. [어휘 화면](/app/#/vocab)에는 복습 카드가 있고 간격 반복 방식(FSRS)으로 일정이 정해집니다.
 
-1. **'결정하다'를 *do a decision*으로 번역하는 오류**:
-   - 한국어로는 결정을 '내리는 행위'에 집중하므로 동사 do를 떠올리기 쉽습니다. 하지만 원어민에게 결정(decision)은 고민 끝에 도달한 새로운 상태이자 '선택의 산출물'입니다. 따라서 반드시 **make a decision**으로 표현해야 합니다.
-2. **'설거지하다'를 *make the dishes*로 번역하는 오류**:
-   - 도자기를 빚어 접시를 새로 만드는 도예가가 아니라면, 싱크대에 쌓인 그릇을 닦는 가사 노동은 정해진 일상 과업을 수행하는 것이므로 **do the dishes**가 맞습니다. *make the dishes*라고 말하면 접시를 공장에서 생산한다는 기이한 뉘앙스를 풍기게 됩니다.
-3. **'운동하다'를 *make exercise*로 번역하는 오류**:
-   - 체육관에서 땀을 흘리며 칼로리를 소모하는 행위는 이미 존재하는 신체적 훈련을 수행하는 과정입니다. 그러므로 무언가를 새로 제조하는 make가 아니라 **do exercise** 혹은 단일 동사 *work out*을 사용하는 것이 정확합니다.
-4. **'돈을 벌다'를 *do money*로 번역하는 오류**:
-   - 경제 활동을 통해 이전에 없던 수익이나 재산을 새롭게 불리고 창출하는 것이므로 **make money**가 정답입니다. 비즈니스 협상에서도 *do profit*이 아니라 **make a profit**이라고 해야 전문적인 비즈니스 영어가 완성됩니다.
+![](media:@s2 "자주 쓰는 문장과 구조를 직접 추가하고 모아 두는 Lexkite 구문 노트 화면")
 
-이처럼 모국어의 간섭을 극복하려면 한국어 뜻을 매개체로 삼지 않고, 영어 표현 자체의 이미지와 뉘앙스를 통째로 뇌에 각인시키는 연습이 무엇보다 중요합니다.
+문법 개념이 헷갈릴 때는 [동명사와 to부정사 구분법](/ko/blog/dongmyeongsa-to-bujungsa-gu-bun-beop-yeong-munbeop/)도 함께 읽어 보세요.
 
+{{cta: /app/#/phrases | Lexkite 구문 노트에 나만의 콜로케이션 모으기}}
 
-## 실무 및 비즈니스 이메일에서 빛을 발하는 고급 Make vs Do 표현들
+{{youtube: | make와 do의 차이와 자주 쓰는 콜로케이션 정리 영상}}
 
-글로벌 비즈니스 환경이나 외국계 기업에서 업무를 진행할 때, 적재적소에 올바른 연어를 구사하는 것은 전문가로서의 신뢰도를 결정짓는 핵심 요소입니다:
+## 외워 두면 편한 make와 do 콜로케이션
 
-- **make a reservation vs do a reservation**:
-  - 회식 장소나 출장 호텔을 예약할 때는 새로운 예약 번호와 일정을 공식적으로 생성하는 것이므로 **make a reservation** 또는 *make a booking*을 사용합니다.
-- **make inquiries vs do research**:
-  - 특정 사안에 대해 거래처에 문의를 넣거나 질문을 공식적으로 제기할 때는 **make an inquiry**를 쓰고, 시장 동향이나 데이터를 면밀히 분석하는 조사 작업은 **do market research**라고 구분합니다.
-- **make room for vs do justice to**:
-  - 새로운 안건을 논의하기 위해 일정이나 공간을 마련할 때는 **make room for new initiatives**라고 하며, 특정 프로젝트나 인물의 진가를 제대로 보여주고 가치를 인정할 때는 **do justice to the project**라는 고급 표현을 활용할 수 있습니다.
-- **make arrangements vs do one's duty**:
-  - 행사나 미팅의 사전 제반 준비를 총괄할 때는 **make arrangements**를 사용하고, 각 직무 담당자가 맡은 바 책무를 성실히 이행할 때는 **do one's duty**라고 표현합니다.
+아래는 업무나 일상에서 자주 쓰지만 외워 두면 편한 콜로케이션입니다. 각각 새 예문과 함께 덩어리로 외워 두세요.
 
-이와 같은 비즈니스 관용 표현들을 평소 꾸준히 수집하고 정리해 두면 영문 이메일 작성 및 콘퍼런스 콜에서 훨씬 더 세련되고 유창한 커뮤니케이션을 구사할 수 있습니다.
+- **make a complaint** (불만을 제기하다): *She made a complaint about the noise.*
+- **make an inquiry** (문의하다): *She made an inquiry about the refund policy.*
+- **do research** (조사하다): *We need to do more research before we decide.*
+- **make arrangements** (준비하다): *They made arrangements for the guests to be picked up.*
+- **do one's duty** (의무를 다하다): *The nurse simply did her duty.*
+- **do justice to** (진가를 제대로 보여 주다): *The photo doesn't do justice to the view.*
 
-## 자주 묻는 질문 (FAQ)
+참고로 *make do*는 그 자체로 '있는 것으로 때우다'라는 뜻의 관용구입니다. *We'll have to make do with what we have.* 처럼 쓰며, 이 글의 두 동사가 붙은 표현이지만 make와 do 중 하나를 고르는 문제와는 다릅니다.
 
-### Q1. make an exercise와 do exercise 중 어느 것이 맞나요?
-운동이라는 활동을 수행할 때는 **do exercise**가 올바른 표현입니다. 다만 학교 시험이나 교재에 나오는 연습 문제를 지칭할 때는 셀 수 있는 명사로 쓰여 *do the exercises* 또는 *complete the exercises*라고 표현합니다.
+## 자주 묻는 질문
 
-### Q2. do the bed라고 쓰면 원어민이 못 알아듣나요?
-뜻은 짐작할 수 있지만 원어민에게는 매우 어색하게 들립니다. 침구를 단정하게 정리하는 일상 행위는 관용적으로 **make the bed**로 완전히 굳어져 있습니다.
+### make exercise와 do exercise 중 어느 것이 맞나요?
 
-### Q3. 왜 make a cake는 되는데 do a cake는 안 되나요?
-케이크는 밀가루, 계란, 설탕 등의 재료를 조합하여 물리적으로 새로운 형태의 결과물을 구워내는 창작/생산 과정이기 때문에 오직 **make a cake**만 문법적으로 성립합니다.
+운동을 한다는 뜻이라면 **do exercise**입니다. 시험 문제집의 연습 문제를 가리킬 때는 셀 수 있는 명사로 쓰여 *do the exercises*라고 합니다.
+
+### do the bed라고 하면 못 알아듣나요?
+
+뜻은 짐작할 수 있지만 어색하게 들립니다. 침대를 정돈한다는 의미로는 **make the bed**가 굳어져 있습니다.
+
+### make a cake는 되는데 do a cake는 왜 안 되나요?
+
+케이크는 재료를 합쳐서 새로운 결과물을 만드는 경우이므로 **make a cake**가 쓰입니다. 위에서 소개한 길잡이가 잘 들어맞는 대표적인 사례입니다.
+
+### 말하다가 make인지 do인지 모르겠으면 어떻게 하나요?
+
+대화 중에 바로 떠오르지 않는다면 먼저 결과물이 생기는지, 아니면 정해진 일을 수행하는지 스스로 물어보세요. 그래도 확신이 없으면 상황을 설명하는 다른 표현으로 돌려 말하는 방법이 있습니다. 예를 들어 *I made a mistake* 대신 *I got it wrong*이라고 하거나, *I did my homework* 대신 *I finished my homework*라고 하면 동사 선택의 부담이 줄어듭니다. 이런 우회 표현은 임시방편이고, 나중에 콜로케이션을 따로 확인해서 덩어리로 보충해 두는 것이 좋습니다.
