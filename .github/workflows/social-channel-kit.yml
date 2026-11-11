@@ -5,7 +5,7 @@
 name: Social channel kit
 on:
   pull_request:
-    paths: ['scripts/social/build-channel-kit.mjs', 'brand/social/channel-kit/**', 'web/icons/icon.svg', 'brand/lexkite-logo-dark.svg', 'brand/tokens.json', 'web/teach/ama/still-*.webp', 'web/teach/carlos/still-*.webp', 'brand/social/src/fonts/**', '.github/workflows/social-channel-kit.yml']
+    paths: ['scripts/social/build-channel-kit.mjs', 'brand/social/channel-kit/**', 'web/icons/icon.svg', 'brand/lexkite-logo-dark.svg', 'brand/tokens.json', 'web/teach/ama/still-*.webp', 'web/teach/carlos/still-*.webp', 'brand/social/src/fonts/**', 'scripts/social/channel-copy.mjs', 'scripts/social/build-page-info.mjs', 'scripts/cine/fonts/NotoSansArabic.ttf', '.github/workflows/social-channel-kit.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -26,6 +26,8 @@ jobs:
         run: |
           bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund playwright@1.48.2 sharp@0.33.5
           bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-core }   # Noto Sans Devanagari/Cyrillic đậm cho bìa hi/ru (Ả Rập dùng scripts/cine/fonts)
       - name: Dựng + QC
         run: node scripts/social/build-channel-kit.mjs
       - name: Kiểm file vừa dựng (như npm test)

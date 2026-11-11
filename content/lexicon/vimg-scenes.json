@@ -350,17 +350,17 @@
   },
   "academic calendar#n": {
    "ex": "Check the academic calendar for registration and exam dates.",
-   "ps": "a student looks at a blank sheet placed on a table next to a sun model and a snowflake model",
-   "sc": "a student looks at a blank sheet placed on a table next to a sun model and a snowflake model",
-   "check": "Is there a plain sheet that shows the timing of school terms and holidays?",
-   "cap": "a student with a sheet beside symbols of seasons",
-   "key": "a blank sheet; a sun model and a snowflake model",
+   "ps": "a student holds a large blank sheet with three colored circles, looking at it thoughtfully",
+   "sc": "a student holds a large blank sheet with three colored circles, looking at it thoughtfully",
+   "check": "Does the picture show a person looking at a sheet that marks dates with colored circles?",
+   "cap": "a student examining a sheet with colored circles marking dates",
+   "key": "a blank sheet with three colored circles; the student's thoughtful face",
    "who": 1,
    "draw": 4,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b",
+   "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "academic integrity#n": {
    "ex": "All students sign a pledge of academic integrity at enrolment.",
@@ -19580,17 +19580,17 @@
   },
   "coupon#n": {
    "ex": "Use this coupon to get ten percent off.",
-   "ps": "a woman holds a blank white sheet with a large green tick beside a shopping bag",
-   "sc": "a woman holds a blank white sheet with a large green tick beside a shopping bag",
-   "check": "Is there a paper with a green tick used for a discount?",
-   "cap": "a woman holding a sheet with a green tick next to a shopping bag",
-   "key": "the blank sheet with a large green tick; the shopping bag indicating purchase",
+   "ps": "a woman holds a blank coupon with a big green tick as a cashier hands her coins",
+   "sc": "a woman holds a blank coupon with a big green tick as a cashier hands her coins",
+   "check": "Is there a ticket that gives a discount on a purchase?",
+   "cap": "a shopper holds a marked ticket while receiving coins",
+   "key": "a blank rectangular coupon with a big green tick; a hand receiving a handful of coins",
    "who": 1,
    "draw": 5,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b",
+   "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "courage#n": {
    "ex": "She had the courage to say it.",
@@ -40652,17 +40652,17 @@
   },
   "hemorrhage#n": {
    "ex": "The CT scan showed a small brain hemorrhage after the accident.",
-   "ps": "a person lies on a floor with a large red pool spreading from an open wound on their arm",
-   "sc": "a person lies on a floor with a large red pool spreading from an open wound on their arm",
-   "check": "Is there a large amount of red liquid coming from a wound?",
-   "cap": "a person with a big red spill from a wound on the floor",
-   "key": "a large red pool spreading from a wound; the person's arm with an open cut",
+   "ps": "a person with a pale face holds a bandaged torso while a red drip bag hangs",
+   "sc": "a person with a pale face holds a bandaged torso while a red drip bag hangs",
+   "check": "Is there a large loss of red fluid from a wound?",
+   "cap": "a pale person clutching a bandaged chest beside a dripping bag",
+   "key": "a red drip bag hanging from a pole; a bandaged torso on a pale person",
    "who": 1,
-   "draw": 5,
+   "draw": 4,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b",
+   "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "hemorrhoid#n": {
    "ex": "Hemorrhoids may also appear because of sports.",
@@ -59890,8 +59890,17 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "oscilloscope#n": {
-   "e4bad": 2,
-   "badAt": "2026-11-10T20:33:12.306Z"
+   "ex": "A good example is a common modern oscilloscope.",
+   "ps": "a black rectangular oscilloscope with many knobs, a large curved glass tube displaying a bright sine wave",
+   "sc": "a black rectangular oscilloscope with many knobs, a large curved glass tube displaying a bright sine wave",
+   "check": "Is there a device that shows electrical signals as a moving line graph?",
+   "cap": "a black box with knobs and a glowing curved tube",
+   "key": "a large curved glass tube displaying a bright sine wave; many knobs on the front panel",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3
   },
   "ostensibly#adv": {
    "ex": "The road was ostensibly built for farmers, but mainly served the army.",

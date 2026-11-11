@@ -82,6 +82,7 @@
   {"id":"email-digest","area":"email","name":"Thư tuần (weekly-digest)","routes":[],"status":"ref","batch":"E1","note":"file chưa được nối; thẻ email Stitch ở #257/#259","stitch":["7698d3af","1bd21f38"],"ref":"brand/stitch/v3/email/email-digest"},
   {"id":"social","area":"email","name":"Ảnh OG / mạng xã hội","routes":[],"status":"ref","batch":"E1","refs":{"og-social":["d5262552","e8cd2415"]}},
   {"id":"store-shots","area":"store","name":"Ảnh cửa hàng (Chrome/iOS/Play)","routes":[],"status":"derived","batch":"-","note":"chụp từ app/add-on thật; chụp lại sau A*/X1"},
-  {"id":"gallery","area":"web","name":"web/design/gallery.html (QA nội bộ)","routes":[],"status":"skip","batch":"-"}
+  {"id":"gallery","area":"web","name":"web/design/gallery.html (QA nội bộ)","routes":[],"status":"skip","batch":"-"},
+  {"id":"mediate","area":"app","name":"Trung gian: luyện chuyển ý","routes":["mediate"],"status":"pr","stitch":["9c6d553f","99b55586"],"batch":"-","note":"project 17380622463903601788 · điều phối duyệt 10/11 · khung FOCUS + card/chip/learn-bar có sẵn"}
  ]
 }
