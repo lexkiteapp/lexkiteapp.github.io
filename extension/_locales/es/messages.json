@@ -154,5 +154,26 @@
  },
  "ntMoreSenses": {
   "message": "+{n} significados"
+ },
+ "ntQzTag": {
+  "message": "Reto rápido"
+ },
+ "ntQzQ": {
+  "message": "Elige el significado correcto"
+ },
+ "ntQzTime": {
+  "message": "{s} segundos"
+ },
+ "ntQzRight": {
+  "message": "¡Correcto!"
+ },
+ "ntQzWrong": {
+  "message": "No del todo: volverá pronto"
+ },
+ "ntQzTimeout": {
+  "message": "Se acabó el tiempo, no pasa nada"
+ },
+ "ntQzSkip": {
+  "message": "Omitir"
  }
 }

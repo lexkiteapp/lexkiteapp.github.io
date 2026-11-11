@@ -42,7 +42,7 @@ ok(run(process.cwd()) === '', 'cổng QA xanh trên repo hiện tại');
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'cqa-'));
 try {
   for (const d of ['scripts', 'content', 'package.json', 'functions/api/report.js']) fs.cpSync(d, path.join(tmp, d), { recursive: true });
-  fs.mkdirSync(path.join(tmp, 'web'), { recursive: true }); fs.cpSync('web/js', path.join(tmp, 'web/js'), { recursive: true }); fs.cpSync('web/i18n', path.join(tmp, 'web/i18n'), { recursive: true });
+  fs.mkdirSync(path.join(tmp, 'web'), { recursive: true }); fs.cpSync('web/js', path.join(tmp, 'web/js'), { recursive: true }); fs.cpSync('web/i18n', path.join(tmp, 'web/i18n'), { recursive: true }); fs.cpSync('web/cpack', path.join(tmp, 'web/cpack'), { recursive: true });
   fs.mkdirSync(path.join(tmp, 'content/idioms-new'));
   fs.mkdirSync(path.join(tmp, 'content/qa/batches'), { recursive: true });
   fs.writeFileSync(path.join(tmp, 'content/qa/batches/t1.json'), JSON.stringify({ id: 't1', source: 'usage', n: 300, checked: [{ id: 'a', ok: true }], status: 'shipped' }));

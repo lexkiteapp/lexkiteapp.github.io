@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"bulb\" mean?",
+  "keyword": "bulb",
+  "value": "Bulb means the glass part of an electric light.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=bulb",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"bulb\" mean?",
+    "description": "Bulb means the glass part of an electric light.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bulb\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "bulb",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"bulb\" mean?\n\nBulb means the glass part of an electric light.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bulb"
+   },
+   "instagram": {
+    "caption": "What does \"bulb\" mean?\n\nBulb means the glass part of an electric light.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"bulb\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means the glass part of an electric light. Bulb means the glass part of an electric light. Try the full lesson and quiz here: {link}"
  }
 }

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Lexkite v2.1 Light — Usage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#FBF7F1',
+            deepTeal: '#0F3D3E',
+            tealAccent: '#2BA39A',
+            tealSoft: '#E6F4F1',
+            tealSurface: '#F0F9F8',
+            coral: '#F2553B',
+            coralSoft: '#FDF2F0',
+            borderWarm: '#EADEC8',
+            cardBg: '#FFFFFF',
+            inkPrimary: '#152528',
+            inkSecondary: '#4A6265',
+            inkMuted: '#7A9193',
+            amberLedge: '#D97706',
+            amberBase: '#F59E0B',
+            amberSoft: '#FFFBEB'
+          },
+          fontFamily: {
+            sans: ['"Nunito Sans"', '"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', '"Nunito Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FBF7F1;
+      color: #152528;
+      font-family: 'Nunito Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+      padding: 0;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Lexkite tactile ledge & depth */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 1.5px solid #EADEC8;
+      box-shadow: 0 3px 0 0 #EADEC8;
+      border-radius: 16px;
+    }
+    .tactile-btn-primary {
+      background-color: #0F3D3E;
+      color: #FFFFFF;
+      border: 1.5px solid #092627;
+      box-shadow: 0 3px 0 0 #092627;
+      border-radius: 12px;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #092627;
+    }
+    .tactile-btn-secondary {
+      background-color: #FFFFFF;
+      color: #0F3D3E;
+      border: 1.5px solid #EADEC8;
+      box-shadow: 0 2.5px 0 0 #EADEC8;
+      border-radius: 12px;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(1.5px);
+      box-shadow: 0 1px 0 0 #EADEC8;
+    }
+    .tactile-chip {
+      border: 1.5px solid #EADEC8;
+      box-shadow: 0 2px 0 0 #EADEC8;
+      border-radius: 20px;
+      transition: all 0.1s ease;
+    }
+    .tactile-chip:active {
+      transform: translateY(1px);
+      box-shadow: 0 1px 0 0 #EADEC8;
+    }
+    .tactile-chip.active {
+      background-color: #0F3D3E;
+      color: #FFFFFF;
+      border-color: #092627;
+      box-shadow: 0 2px 0 0 #092627;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-canvas min-h-screen flex justify-center selection:bg-tealAccent selection:text-white">
+
+  <!-- Mobile Container (390px) -->
+  <main class="w-[390px] min-h-screen bg-canvas flex flex-col pb-12 relative overflow-x-hidden">
+    
+    <!-- Top App Bar (Inner Variant with >=44px Back Target) -->
+    <header class="sticky top-0 z-40 bg-canvas/95 backdrop-blur-md border-b border-borderWarm px-4 py-2.5 flex items-center justify-between">
+      <div class="flex items-center gap-1.5">
+        <button class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center text-deepTeal hover:bg-black/5 active:scale-95 transition-transform" aria-label="Go back">
+          <span class="material-symbols-rounded text-[26px]">arrow_back</span>
+        </button>
+        <div>
+          <h1 class="font-display font-extrabold text-[19px] text-deepTeal tracking-tight leading-none">Word Usage</h1>
+          <p class="text-[11px] font-semibold text-inkMuted tracking-wide uppercase mt-0.5">Lexkite Practical Reference</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-1.5">
+        <button class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center text-inkSecondary hover:bg-black/5 active:scale-95" aria-label="Bookmark word">
+          <span class="material-symbols-rounded text-[22px]">bookmark_border</span>
+        </button>
+        <button class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center text-inkSecondary hover:bg-black/5 active:scale-95" aria-label="More options">
+          <span class="material-symbols-rounded text-[22px]">share</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="px-4 pt-3 flex flex-col gap-4">
+
+      <!-- Search Field with Quick Suggestions -->
+      <section class="flex flex-col gap-2">
+        <div class="relative flex items-center">
+          <span class="material-symbols-rounded absolute left-3.5 text-tealAccent text-[22px]">search</span>
+          <input 
+            type="text" 
+            value="depend" 
+            placeholder="Search preposition or verb..." 
+            class="w-full h-11 pl-11 pr-24 bg-cardBg rounded-xl border-[1.5px] border-borderWarm text-[15px] font-bold text-deepTeal placeholder:text-inkMuted focus:outline-none focus:border-tealAccent shadow-[0_2px_0_0_#EADEC8]"
+          />
+          <div class="absolute right-2 flex items-center gap-1">
+            <button class="w-7 h-7 rounded-lg flex items-center justify-center text-inkMuted hover:text-deepTeal" aria-label="Clear search">
+              <span class="material-symbols-rounded text-[18px]">cancel</span>
+            </button>
+            <span class="text-[11px] font-bold text-tealAccent bg-tealSoft px-2 py-0.5 rounded-md">VERB</span>
+          </div>
+        </div>
+
+        <!-- Quick Near Matches / Search Suggestions -->
+        <div class="flex items-center gap-1.5 text-[12px] overflow-x-auto no-scrollbar py-0.5">
+          <span class="text-inkMuted font-semibold shrink-0">Near:</span>
+          <a href="#" class="px-2 py-1 rounded-lg bg-cardBg border border-borderWarm text-inkSecondary font-semibold shrink-0 hover:border-tealAccent">dependable</a>
+          <a href="#" class="px-2 py-1 rounded-lg bg-cardBg border border-borderWarm text-inkSecondary font-semibold shrink-0 hover:border-tealAccent">dependent</a>
+          <a href="#" class="px-2 py-1 rounded-lg bg-cardBg border border-borderWarm text-inkSecondary font-semibold shrink-0 hover:border-tealAccent">independent</a>
+          <a href="#" class="px-2 py-1 rounded-lg bg-cardBg border border-borderWarm text-inkSecondary font-semibold shrink-0 hover:border-tealAccent">rely</a>
+        </div>
+      </section>
+
+      <!-- Category Filter Chips (5 categories) -->
+      <section class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+        <button class="tactile-chip active px-3.5 py-1.5 text-[13px] font-bold shrink-0 flex items-center gap-1.5">
+          <span class="material-symbols-rounded text-[16px]">link</span> Prepositions
+        </button>
+        <button class="tactile-chip bg-cardBg text-inkSecondary px-3.5 py-1.5 text-[13px] font-bold shrink-0 flex items-center gap-1.5">
+          <span class="material-symbols-rounded text-[16px]">tune</span> Verb patterns
+        </button>
+        <button class="tactile-chip bg-cardBg text-inkSecondary px-3.5 py-1.5 text-[13px] font-bold shrink-0 flex items-center gap-1.5">
+          <span class="material-symbols-rounded text-[16px]">bolt</span> Adverbs
+        </button>
+        <button class="tactile-chip bg-cardBg text-inkSecondary px-3.5 py-1.5 text-[13px] font-bold shrink-0 flex items-center gap-1.5">
+          <span class="material-symbols-rounded text-[16px]">account_tree</span> Structures
+        </button>
+        <button class="tactile-chip bg-cardBg text-inkSecondary px-3.5 py-1.5 text-[13px] font-bold shrink-0 flex items-center gap-1.5">
+          <span class="material-symbols-rounded text-[16px]">compare_arrows</span> Confused pairs
+        </button>
+      </section>
+
+      <!-- Friendly Study Tip Line -->
+      <div class="bg-amberSoft border border-[#FDE68A] rounded-xl px-3.5 py-2.5 flex items-start gap-2.5">
+        <span class="material-symbols-rounded text-[#D97706] text-[19px] shrink-0 mt-0.5">lightbulb</span>
+        <p class="text-[12.5px] leading-snug text-[#92400E] font-medium">
+          <strong class="font-bold">Study tip:</strong> In 85% of exam errors, learners use <em class="not-italic text-coral font-bold">"depend of"</em> directly translated from French, Spanish, or Vietnamese. In English, it is always <strong class="text-deepTeal underline decoration-tealAccent decoration-2">depend ON</strong>.
+        </p>
+      </div>
+
+      <!-- Hero Word Block: depend -->
+      <section class="tactile-card p-4">
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[28px] font-extrabold text-deepTeal font-display tracking-tight leading-tight">depend</span>
+              <span class="text-[14px] font-semibold text-inkMuted">/dɪˈpend/</span>
+            </div>
+            <p class="text-[13px] font-semibold text-tealAccent mt-0.5 flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-tealAccent inline-block"></span>
+              Regular verb • B1 Intermediate • High-Frequency Exam Core
+            </p>
+          </div>
+          <button class="w-10 h-10 rounded-xl bg-tealSoft text-deepTeal border border-tealAccent/30 flex items-center justify-center hover:bg-tealAccent hover:text-white transition-colors" aria-label="Listen to pronunciation">
+            <span class="material-symbols-rounded text-[22px]">volume_up</span>
+          </button>
+        </div>
+        <p class="text-[13.5px] text-inkSecondary mt-2.5 leading-relaxed">
+          To be determined or conditioned by something else; or to trust and rely on someone for support.
+        </p>
+      </section>
+
+      <!-- 1. The Preposition Rule Block (High Priority Callout) -->
+      <section class="tactile-card p-4 border-l-4 border-l-tealAccent bg-gradient-to-br from-cardBg via-cardBg to-tealSurface">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-md bg-deepTeal text-white text-[12px] font-black flex items-center justify-center font-display">1</span>
+            <h2 class="font-display font-extrabold text-[16px] text-deepTeal">Mandatory Preposition</h2>
+          </div>
+          <span class="text-[11px] font-black uppercase tracking-wider text-tealAccent bg-tealSoft px-2 py-0.5 rounded-full">Rule #1</span>
+        </div>
+
+        <div class="mt-3 bg-tealSoft/70 border border-tealAccent/30 rounded-xl p-3 flex flex-col gap-1.5">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2 font-display text-[16px] font-extrabold">
+              <span class="text-deepTeal">depend</span>
+              <span class="px-2 py-0.5 bg-deepTeal text-white rounded-md text-[14px] font-black tracking-wide">ON / UPON</span>
+            </div>
+            <span class="text-[11px] font-bold text-coral bg-coralSoft border border-coral/20 px-2 py-0.5 rounded-md">Never "of"</span>
+          </div>
+          <p class="text-[12px] text-inkSecondary mt-0.5">
+            Use <strong>upon</strong> in formal academic essays; use <strong>on</strong> in everyday speaking and writing.
+          </p>
+        </div>
+
+        <!-- Practical Example -->
+        <div class="mt-3.5 bg-canvas rounded-xl p-3 border border-borderWarm flex items-start gap-2.5">
+          <span class="material-symbols-rounded text-tealAccent text-[20px] shrink-0 mt-0.5">format_quote</span>
+          <div class="flex-1">
+            <p class="text-[14px] font-bold text-deepTeal leading-snug">
+              “Our weekend barbecue plans <span class="bg-tealSoft px-1.5 py-0.5 rounded text-deepTeal underline decoration-tealAccent decoration-2">depend on the weather</span>.”
+            </p>
+            <p class="text-[12px] text-inkMuted mt-1">Colloquial: "It all depends on who you ask."</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Common Mistakes: Wrong vs Right (Coral & Teal) -->
+      <section class="tactile-card p-4">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-md bg-coral text-white text-[12px] font-black flex items-center justify-center font-display">!</span>
+            <h2 class="font-display font-extrabold text-[16px] text-deepTeal">Common Mistakes</h2>
+          </div>
+          <span class="text-[11px] font-bold text-inkMuted">IELTS & TOEFL Trap</span>
+        </div>
+
+        <div class="space-y-2.5">
+          <!-- Item 1: of vs on -->
+          <div class="rounded-xl border border-borderWarm overflow-hidden bg-cardBg">
+            <div class="bg-coralSoft px-3 py-2 flex items-center justify-between border-b border-coral/20">
+              <div class="flex items-center gap-2 text-coral text-[13.5px] font-bold">
+                <span class="material-symbols-rounded text-[18px]">cancel</span>
+                <span>It depends <del class="font-extrabold decoration-coral">of you</del>.</span>
+              </div>
+              <span class="text-[10px] font-extrabold uppercase tracking-wider text-coral">INCORRECT</span>
+            </div>
+            <div class="bg-tealSoft/50 px-3 py-2.5 flex items-center justify-between">
+              <div class="flex items-center gap-2 text-deepTeal text-[13.5px] font-bold">
+                <span class="material-symbols-rounded text-[18px] text-tealAccent">check_circle</span>
+                <span>It depends <strong class="text-deepTeal underline decoration-tealAccent">on you</strong>.</span>
+              </div>
+              <span class="text-[10px] font-extrabold uppercase tracking-wider text-tealAccent">CORRECT</span>
+            </div>
+          </div>
+
+          <!-- Item 2: continuous tense trap -->
+          <div class="rounded-xl border border-borderWarm overflow-hidden bg-cardBg">
+            <div class="bg-coralSoft px-3 py-2 flex items-center justify-between border-b border-coral/20">
+              <div class="flex items-center gap-2 text-coral text-[13.5px] font-bold">
+                <span class="material-symbols-rounded text-[18px]">cancel</span>
+                <span><del class="font-extrabold">I am depending</del> on the rain stopping.</span>
+              </div>
+              <span class="text-[10px] font-extrabold uppercase tracking-wider text-coral">STATIVE TRAP</span>
+            </div>
+            <div class="bg-tealSoft/50 px-3 py-2.5 flex items-center justify-between">
+              <div class="flex items-center gap-2 text-deepTeal text-[13.5px] font-bold">
+                <span class="material-symbols-rounded text-[18px] text-tealAccent">check_circle</span>
+                <span><strong class="text-deepTeal">It depends</strong> on whether it rains.</span>
+              </div>
+              <span class="text-[10px] font-extrabold uppercase tracking-wider text-tealAccent">CORRECT</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Verb Patterns -->
+      <section class="tactile-card p-4">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-rounded text-tealAccent text-[22px]">tune</span>
+            <h2 class="font-display font-extrabold text-[16px] text-deepTeal">Verb Patterns</h2>
+          </div>
+          <span class="text-[11px] font-bold text-inkMuted">3 Core Frames</span>
+        </div>
+
+        <div class="space-y-2.5 text-[13px]">
+          <!-- Pattern A -->
+          <div class="p-2.5 rounded-xl bg-canvas border border-borderWarm">
+            <p class="font-display font-bold text-deepTeal text-[13.5px]">
+              Pattern A: <span class="text-tealAccent">depend on + noun / pronoun</span>
+            </p>
+            <p class="text-inkSecondary mt-1 italic text-[12.5px]">
+              “The success of this program <strong>depends on active student participation</strong>.”
+            </p>
+          </div>
+
+          <!-- Pattern B -->
+          <div class="p-2.5 rounded-xl bg-canvas border border-borderWarm">
+            <p class="font-display font-bold text-deepTeal text-[13.5px]">
+              Pattern B: <span class="text-tealAccent">depend on + -ing (gerund)</span>
+            </p>
+            <p class="text-inkSecondary mt-1 italic text-[12.5px]">
+              “Securing the scholarship <strong>depends on submitting</strong> the essay early.”
+            </p>
+          </div>
+
+          <!-- Pattern C -->
+          <div class="p-2.5 rounded-xl bg-canvas border border-borderWarm">
+            <p class="font-display font-bold text-deepTeal text-[13.5px]">
+              Pattern C: <span class="text-tealAccent">depend on + wh- clause (whether / how / what)</span>
+            </p>
+            <p class="text-inkSecondary mt-1 italic text-[12.5px]">
+              “The cost <strong>depends on how many nights</strong> you decide to stay.”
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Typical Adverbs (High Collocation Modifiers) -->
+      <section class="tactile-card p-4">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-rounded text-tealAccent text-[22px]">bolt</span>
+            <h2 class="font-display font-extrabold text-[16px] text-deepTeal">Key Adverbs</h2>
+          </div>
+          <span class="text-[11px] font-bold text-tealAccent bg-tealSoft px-2 py-0.5 rounded-full">Band 7.0+ Collocations</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 text-[12.5px]">
+          <div class="p-2.5 rounded-xl bg-canvas border border-borderWarm">
+            <span class="font-bold text-deepTeal block">heavily depend on</span>
+            <span class="text-inkMuted text-[11px]">Primary reliance</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-canvas border border-borderWarm">
+            <span class="font-bold text-deepTeal block">solely / entirely depend</span>
+            <span class="text-inkMuted text-[11px]">100% exclusive</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-canvas border border-borderWarm">
+            <span class="font-bold text-deepTeal block">largely depend on</span>
+            <span class="text-inkMuted text-[11px]">Substantial factor</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-canvas border border-borderWarm">
+            <span class="font-bold text-deepTeal block">critically depend on</span>
+            <span class="text-inkMuted text-[11px]">Essential condition</span>
+          </div>
+        </div>
+        <p class="text-[12px] text-inkSecondary mt-2.5 italic">
+          Example: “Modern cities <strong>heavily depend on</strong> reliable clean water grids.”
+        </p>
+      </section>
+
+      <!-- 5. Key Structures & Conversational Formulas -->
+      <section class="tactile-card p-4">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-rounded text-tealAccent text-[22px]">account_tree</span>
+            <h2 class="font-display font-extrabold text-[16px] text-deepTeal">Structures & Formulas</h2>
+          </div>
+          <span class="text-[11px] font-bold text-inkMuted">Spoken & Written</span>
+        </div>
+
+        <div class="space-y-2">
+          <!-- Structure 1 -->
+          <div class="flex items-start gap-2 text-[13px] bg-canvas p-2.5 rounded-xl border border-borderWarm">
+            <span class="px-1.5 py-0.5 rounded bg-deepTeal text-white font-mono text-[11px] shrink-0 mt-0.5">Spoken</span>
+            <div>
+              <strong class="text-deepTeal">“That depends.” / “It depends.”</strong>
+              <p class="text-inkSecondary text-[12px] mt-0.5">Natural standalone response when conditions are uncertain.</p>
+            </div>
+          </div>
+          <!-- Structure 2 -->
+          <div class="flex items-start gap-2 text-[13px] bg-canvas p-2.5 rounded-xl border border-borderWarm">
+            <span class="px-1.5 py-0.5 rounded bg-tealAccent text-white font-mono text-[11px] shrink-0 mt-0.5">Clause</span>
+            <div>
+              <strong class="text-deepTeal">“Depending on + noun...”</strong>
+              <p class="text-inkSecondary text-[12px] mt-0.5">Sentence starter: <em>“Depending on traffic, we may arrive early.”</em></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Easily Confused Pairs: depend vs rely vs trust -->
+      <section class="tactile-card p-4">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-rounded text-tealAccent text-[22px]">compare_arrows</span>
+            <h2 class="font-display font-extrabold text-[16px] text-deepTeal">Easily Confused Pairs</h2>
+          </div>
+          <span class="text-[11px] font-bold text-inkMuted">Nuance Guide</span>
+        </div>
+
+        <div class="space-y-2.5 text-[12.5px]">
+          <div class="p-2.5 rounded-xl bg-canvas border border-borderWarm flex flex-col gap-1">
+            <div class="flex items-center justify-between">
+              <strong class="text-deepTeal font-display">depend on vs rely on</strong>
+              <span class="text-[10.5px] font-bold text-tealAccent bg-tealSoft px-2 py-0.5 rounded">Near Synonyms</span>
+            </div>
+            <p class="text-inkSecondary leading-relaxed">
+              Both take <strong>on</strong>. <em>Rely</em> emphasizes practical need or emotional confidence (<em>"I rely on my assistant"</em>), whereas <em>depend</em> often describes conditional causation (<em>"Prices depend on supply"</em>).
+            </p>
+          </div>
+
+          <div class="p-2.5 rounded-xl bg-canvas border border-borderWarm flex flex-col gap-1">
+            <div class="flex items-center justify-between">
+              <strong class="text-deepTeal font-display">depend vs trust</strong>
+              <span class="text-[10.5px] font-bold text-coral bg-coralSoft px-2 py-0.5 rounded">Different Grammar</span>
+            </div>
+            <p class="text-inkSecondary leading-relaxed">
+              <em>Trust</em> takes no preposition (<em>"I trust him"</em>). Never say <del class="text-coral">"I trust on him"</del>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Register & Style Notes -->
+      <section class="tactile-card p-4 bg-canvas border-dashed border-2 border-borderWarm">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="material-symbols-rounded text-deepTeal text-[20px]">menu_book</span>
+          <h2 class="font-display font-extrabold text-[15px] text-deepTeal">Register & Academic Style Notes</h2>
+        </div>
+        <p class="text-[13px] text-inkSecondary leading-relaxed">
+          In IELTS Writing Task 2 and TOEFL academic essays, elevate repetitive instances of <em>"depend on"</em> with formal synonyms:
+        </p>
+        <div class="mt-2.5 flex flex-wrap gap-1.5 text-[12px] font-bold">
+          <span class="px-2.5 py-1 rounded-lg bg-cardBg border border-borderWarm text-deepTeal">is contingent upon</span>
+          <span class="px-2.5 py-1 rounded-lg bg-cardBg border border-borderWarm text-deepTeal">is determined by</span>
+          <span class="px-2.5 py-1 rounded-lg bg-cardBg border border-borderWarm text-deepTeal">hinges upon</span>
+        </div>
+      </section>
+
+      <!-- 8. Interactive Save Phrase as Flashcard Action Button -->
+      <section class="tactile-card p-4 bg-tealSoft/40 border-tealAccent/40">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-xl bg-deepTeal text-white flex items-center justify-center shadow-[0_2px_0_0_#092627]">
+              <span class="material-symbols-rounded text-[22px]">style</span>
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-[14.5px] text-deepTeal">Save to Review Queue</h3>
+              <p class="text-[12px] text-inkSecondary">Add <em>"depend on [something]"</em> card</p>
+            </div>
+          </div>
+          <button class="tactile-btn-primary px-3.5 py-2.5 text-[13px] font-bold flex items-center gap-1.5 min-h-[44px]">
+            <span class="material-symbols-rounded text-[18px]">add_task</span>
+            <span>Save card</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 9. Related Lessons (with > navigation arrows) -->
+      <section class="tactile-card p-4">
+        <div class="flex items-center justify-between mb-2">
+          <h2 class="font-display font-extrabold text-[15px] text-deepTeal">Related Lessons & Modules</h2>
+          <span class="text-[11px] font-bold text-tealAccent">2 modules</span>
+        </div>
+
+        <div class="divide-y divide-borderWarm">
+          <a href="#" class="py-2.5 flex items-center justify-between group min-h-[44px]">
+            <div class="flex items-center gap-2.5">
+              <span class="w-8 h-8 rounded-lg bg-tealSoft text-deepTeal flex items-center justify-center font-bold text-[13px]">B1</span>
+              <div>
+                <p class="text-[13.5px] font-bold text-deepTeal group-hover:text-tealAccent transition-colors">Dependent Prepositions: On vs In vs At</p>
+                <p class="text-[11.5px] text-inkMuted">Drill • 12 practice cards</p>
+              </div>
+            </div>
+            <span class="material-symbols-rounded text-inkMuted group-hover:text-deepTeal group-hover:translate-x-0.5 transition-all text-[20px]">chevron_right</span>
+          </a>
+
+          <a href="#" class="py-2.5 flex items-center justify-between group min-h-[44px]">
+            <div class="flex items-center gap-2.5">
+              <span class="w-8 h-8 rounded-lg bg-amberSoft text-amberBase flex items-center justify-center font-bold text-[13px]">C1</span>
+              <div>
+                <p class="text-[13.5px] font-bold text-deepTeal group-hover:text-tealAccent transition-colors">Stative Verbs in Continuous Tense Traps</p>
+                <p class="text-[11.5px] text-inkMuted">Grammar Unit • 8 min review</p>
+              </div>
+            </div>
+            <span class="material-symbols-rounded text-inkMuted group-hover:text-deepTeal group-hover:translate-x-0.5 transition-all text-[20px]">chevron_right</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 10. Quick Practice Drill (Question 1 of 5) -->
+      <section class="tactile-card p-4 bg-cardBg border-2 border-tealAccent/30">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-tealAccent animate-pulse"></span>
+            <h2 class="font-display font-extrabold text-[15.5px] text-deepTeal">Quick Practice</h2>
+          </div>
+          <span class="text-[12px] font-bold text-tealAccent bg-tealSoft px-2.5 py-0.5 rounded-full font-mono">Question 1 of 5</span>
+        </div>
+
+        <p class="text-[14px] text-deepTeal font-medium mt-1 leading-snug">
+          Choose the correct sentence to complete the blank:
+        </p>
+
+        <!-- Question Prompt Box -->
+        <div class="my-3 p-3 bg-canvas rounded-xl border border-borderWarm font-display text-[14px] text-deepTeal font-bold">
+          “Whether we accept the job offer will __________ the final salary package.”
+        </div>
+
+        <!-- 4 Multiple Choice Options (min 44px height tap targets) -->
+        <div class="space-y-2">
+          <!-- Option A (Correct Answer Candidate) -->
+          <button class="w-full min-h-[44px] p-2.5 rounded-xl border-[1.5px] border-borderWarm bg-cardBg text-left flex items-center justify-between hover:border-tealAccent active:bg-tealSoft/30 transition-all group">
+            <div class="flex items-center gap-2.5">
+              <span class="w-6 h-6 rounded-full border border-borderWarm text-inkSecondary text-[12px] font-bold flex items-center justify-center group-hover:border-tealAccent group-hover:text-tealAccent">A</span>
+              <span class="text-[13.5px] font-semibold text-deepTeal">depend on</span>
+            </div>
+            <span class="material-symbols-rounded text-tealAccent text-[20px] opacity-0 group-hover:opacity-100">check_circle</span>
+          </button>
+
+          <!-- Option B -->
+          <button class="w-full min-h-[44px] p-2.5 rounded-xl border-[1.5px] border-borderWarm bg-cardBg text-left flex items-center justify-between hover:border-coral/50 active:bg-coralSoft/30 transition-all group">
+            <div class="flex items-center gap-2.5">
+              <span class="w-6 h-6 rounded-full border border-borderWarm text-inkSecondary text-[12px] font-bold flex items-center justify-center">B</span>
+              <span class="text-[13.5px] font-semibold text-deepTeal">depend of</span>
+            </div>
+          </button>
+
+          <!-- Option C -->
+          <button class="w-full min-h-[44px] p-2.5 rounded-xl border-[1.5px] border-borderWarm bg-cardBg text-left flex items-center justify-between hover:border-coral/50 active:bg-coralSoft/30 transition-all group">
+            <div class="flex items-center gap-2.5">
+              <span class="w-6 h-6 rounded-full border border-borderWarm text-inkSecondary text-[12px] font-bold flex items-center justify-center">C</span>
+              <span class="text-[13.5px] font-semibold text-deepTeal">be depending of</span>
+            </div>
+          </button>
+
+          <!-- Option D -->
+          <button class="w-full min-h-[44px] p-2.5 rounded-xl border-[1.5px] border-borderWarm bg-cardBg text-left flex items-center justify-between hover:border-coral/50 active:bg-coralSoft/30 transition-all group">
+            <div class="flex items-center gap-2.5">
+              <span class="w-6 h-6 rounded-full border border-borderWarm text-inkSecondary text-[12px] font-bold flex items-center justify-center">D</span>
+              <span class="text-[13.5px] font-semibold text-deepTeal">depend to</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Submit & Feedback Button -->
+        <button class="w-full h-11 tactile-btn-primary font-display font-extrabold text-[14px] mt-3.5 flex items-center justify-center gap-2">
+          <span>Check answer</span>
+          <span class="material-symbols-rounded text-[18px]">arrow_forward</span>
+        </button>
+      </section>
+
+      <!-- Subtle Fallback Hint Line at Bottom -->
+      <footer class="pt-2 pb-6 text-center">
+        <p class="text-[11.5px] text-inkMuted font-medium flex items-center justify-center gap-1.5">
+          <span class="material-symbols-rounded text-[15px] text-inkMuted">info</span>
+          <span>No data for a word? We show near matches and suggestions</span>
+        </p>
+      </footer>
+
+    </div>
+
+  </main>
+
+</body>
+</html>

@@ -2,6 +2,7 @@
 # không tốn máy cá nhân. mp3 → kho media ngoài (infra/media-repos.json, scripts/media/push.mjs – KHÔNG vào repo chính), rồi mới commit chỉ mục
 # web/js/listen/audio-index.js (đẩy lỗi → không cập nhật chỉ mục → app không trỏ tới tệp chưa có). audio.lexkite.com dò các kho. Hết việc thì tự dừng sớm.
 # Ma trận shard động (scripts/ci/shards.mjs: ≤ 24, chừa 8 runner cho check PR) · sau khi gộp: đo độ phủ từng nhóm nội dung tĩnh và nâng sàn (scripts/audio/coverage.mjs --ratchet).
+# Chạy được trên NHÁNH PR (workflow_dispatch ref=nhánh): render Kokoro rồi commit chỉ mục vào chính nhánh (scripts/ci/commit-regen-pr.sh) – PR nội dung lớn không kẹt gà–trứng với cổng độ phủ.
 # Câu mới tạo ở đây được cổng ASR (sentence-audio-asr.yml) nghe ở lượt sau.
 name: Tạo giọng đọc Kokoro
 on:
@@ -9,15 +10,16 @@ on:
   # Nguồn = các file scripts/sentence-audio/corpus.mjs đọc (đổi corpus → sửa danh sách này cùng PR).
   push:
     branches: [main]
-    paths: ['scripts/sentence-audio/corpus.mjs', 'web/js/listen/kvoice.js', 'web/js/listen/test*.js', 'web/js/toeic/**', 'web/js/toefl/**', 'web/js/lesson/stories.js', 'web/js/lesson/gold.js', 'web/js/call/calls*.js',
-      'web/js/speaking.js', 'web/js/speak/**', 'web/js/readings*.js', 'web/js/confidence/**', 'web/js/roleplay/**', 'web/js/pron/**', 'web/js/models*.js', 'web/js/write/ideas.js',
-      'web/js/grammar/**', 'web/js/data.js', 'web/js/lib/**', 'web/data/say.json', 'web/audio/w/s3.tsv']
+    paths: ['scripts/sentence-audio/corpus.mjs', 'web/js/listen/kvoice.js', 'web/js/listen/test*.js', 'web/cpack/listen/**', 'web/js/toeic/**', 'web/cpack/toefl/**', 'web/cpack/cambridge/**', 'web/cpack/lesson/stories.js', 'web/cpack/lesson/gold.js', 'web/js/call/calls*.js',
+      'web/js/speaking.js', 'web/js/speak/**', 'web/js/readings*.js', 'web/cpack/readings/**', 'web/js/confidence/**', 'web/js/roleplay/**', 'web/js/pron/**', 'web/js/models*.js', 'web/cpack/write/ideas.js', 'web/cpack/speak/**',
+      'web/js/grammar/**', 'web/cpack/grammar/**', 'web/js/data.js', 'web/js/lib/**', 'web/data/say.json', 'web/audio/w/s3.tsv']
   schedule:
     - cron: '0 19 * * *'   # 02:00 giờ Việt Nam
   workflow_dispatch:
     inputs:
       limit: { description: 'Số câu mỗi shard', default: '1500' }
       shards: { description: 'Trần số shard (thực tế = min(trần, runner rảnh − 8, ⌈câu/500⌉))', default: '24' }
+      tl: { description: "'es' = chỉ câu tiếng TBN của bài luyện W2b (Kokoro fp32 + âm vị espeak es-419, giọng ef_dora); trống = lượt tiếng Anh như cũ", default: '' }
       only_call_cues: { description: 'Chỉ sinh mốc khớp miệng (bỏ qua giọng còn thiếu khác)', type: boolean, default: false }
 permissions:
   contents: write
@@ -40,14 +42,14 @@ jobs:
         with: { node-version: 22 }
       - id: c
         run: |
-          left=$(node scripts/gen-audio.mjs --limit 0 | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')
+          left=$(node scripts/gen-audio.mjs ${TL:+--tl $TL} --limit 0 | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')
           [ "${{ github.event.inputs.only_call_cues }}" = "true" ] && left=0
           echo "left=$left" >> "$GITHUB_OUTPUT"
           # mốc khớp miệng câu giáo viên (Call + Truyện – docs/LESSON-ENGINE.md §Khớp miệng): job cues riêng, chạy song song với gen
-          echo "cues=$(node scripts/lipsync/call_cues.mjs --count | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
+          [ -n "$TL" ] && echo "cues=0" >> "$GITHUB_OUTPUT" || echo "cues=$(node scripts/lipsync/call_cues.mjs --count | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
           # số shard động: min(24, 40 − job đang chạy/xếp hàng − 8 chừa cho check PR, ⌈còn / 500⌉) – scripts/ci/shards.mjs (chủ 1/11: dùng hết runner rảnh)
           echo "shards=$(node scripts/ci/shards.mjs --left "$left" --per 500 --cap "${{ github.event.inputs.shards || '24' }}")" >> "$GITHUB_OUTPUT"
-        env: { GITHUB_TOKEN: '${{ github.token }}' }
+        env: { GITHUB_TOKEN: '${{ github.token }}', TL: '${{ github.event.inputs.tl }}' }
   gen:
     needs: plan
     if: needs.plan.outputs.left != '0'
@@ -59,15 +61,23 @@ jobs:
       - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/setup-ffmpeg
       - name: Cài kokoro-js + ffmpeg (nén mp3 – ảnh máy chủ GitHub mới không còn sẵn ffmpeg)
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null && npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
+        run: bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
       - name: Đệm mô hình Kokoro giữa các lượt (đỡ tải lại ~90 MB, tránh lỗi mạng)
         uses: actions/cache@v4
         with:
           path: /tmp/kk/node_modules/@huggingface/transformers/.cache
           key: kokoro-82m-v1-q8
+      - if: ${{ github.event.inputs.tl != '' }}
+        uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - name: G2P tiếng TBN (misaki EspeakG2P + espeak-ng đầy đủ – kokoro-js chỉ kèm espeak tiếng Anh)
+        if: ${{ github.event.inputs.tl != '' }}
+        run: pip install -q "misaki==0.9.4" "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4"
       - name: Tạo âm thanh
-        run: AUDIO_MIN=150 NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "${{ github.event.inputs.limit || '1500' }}"
+        env: { TL: '${{ github.event.inputs.tl }}' }
+        run: AUDIO_MIN=150 NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs ${TL:+--tl $TL} --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "${{ github.event.inputs.limit || '1500' }}"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -90,9 +100,11 @@ jobs:
         with:
           path: ~/.cache/huggingface
           key: kokoro-py-82m-v1
+      - uses: ./.github/actions/setup-ffmpeg
+      - uses: ./.github/actions/apt
+        with: { packages: espeak-ng }
       - name: Mốc khớp miệng (Kokoro python, Apache-2.0)
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng >/dev/null
           python3 -m pip install -q torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
           python3 -m pip install -q kokoro==0.9.4 soundfile
           node scripts/lipsync/call_cues.mjs
@@ -126,8 +138,17 @@ jobs:
           [ -d .media-out/audio/l ] && ls .media-out/audio/l | head -1 | grep -q . || { echo "không có file mới"; exit 0; }
           node scripts/media/push.mjs --src .media-out --kind audio --msg "audio/l: thêm giọng Kokoro (run ${{ github.run_id }})"
       - name: Gộp chỉ mục + đo độ phủ, nâng sàn → main (sinh lại trên main mới nhất nếu workflow khác vừa đẩy – scripts/ci/commit-regen.sh)
+        if: github.ref == 'refs/heads/main'
         run: |
           rm -f ~/.ssh/m2
           bash scripts/ci/commit-regen.sh "Âm thanh: thêm giọng Kokoro (còn ${{ needs.plan.outputs.left }} câu trước lượt này, ${{ needs.plan.outputs.cues }} mốc khớp miệng) [CF-Pages-Skip] [skip ci]" \
             'node scripts/gen-audio.mjs --index-only && node scripts/audio/coverage.mjs --ratchet && node scripts/lipsync/call_cues.mjs --index-only' \
             web/js/listen/audio-index.js extension/app/js/listen/audio-index.js web/audio/coverage.json web/js/call/cues.js extension/app/js/call/cues.js
+      - name: Chỉ mục → chính nhánh PR (dispatch ref=nhánh; không nâng sàn – main nâng sau khi gộp)
+        if: github.ref != 'refs/heads/main'
+        env: { BR: '${{ github.ref_name }}' }
+        run: |
+          rm -f ~/.ssh/m2
+          bash scripts/ci/commit-regen-pr.sh "Âm thanh: thêm giọng Kokoro cho nhánh (còn ${{ needs.plan.outputs.left }} câu trước lượt này, ${{ needs.plan.outputs.cues }} mốc khớp miệng)" \
+            'node scripts/gen-audio.mjs --index-only && node scripts/lipsync/call_cues.mjs --index-only' \
+            web/js/listen/audio-index.js extension/app/js/listen/audio-index.js web/js/call/cues.js extension/app/js/call/cues.js

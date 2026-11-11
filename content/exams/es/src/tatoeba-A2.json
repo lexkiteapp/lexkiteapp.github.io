@@ -1,0 +1,320 @@
+{
+ "v": 1,
+ "source": "Tatoeba (tatoeba.org), CC BY 2.0 FR",
+ "license": "https://creativecommons.org/licenses/by/2.0/fr/",
+ "lv": "A2",
+ "items": [
+  {
+   "id": 1326817,
+   "au": "Eldad",
+   "s": "Creo que él es un ___ capaz.",
+   "a": "hombre",
+   "o": [
+    "razón",
+    "hombre",
+    "familia"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 8692454,
+   "au": "ajje",
+   "s": "Trata de ___ lo que pasó.",
+   "a": "recordar",
+   "o": [
+    "recordar",
+    "recuerda",
+    "recordó"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 11720226,
+   "au": "Seael",
+   "s": "Esa ___ no me dio nada de miedo.",
+   "a": "película",
+   "o": [
+    "código",
+    "uso",
+    "película"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10082363,
+   "au": "saverius",
+   "s": "Para empezar, no tienes ningún derecho a ___ aquí.",
+   "a": "estar",
+   "o": [
+    "estar",
+    "estuvo",
+    "está"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1595299,
+   "au": "teskmon",
+   "s": "Nos gustaría una ___ doble con baño.",
+   "a": "habitación",
+   "o": [
+    "juego",
+    "minuto",
+    "habitación"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10097490,
+   "au": "manufrutos",
+   "s": "No se puede ___ el pasado.",
+   "a": "cambiar",
+   "o": [
+    "cambia",
+    "cambió",
+    "cambiar"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 11864121,
+   "au": "JSKabylie15",
+   "s": "Nos tomó toda la ___ hacerlo.",
+   "a": "noche",
+   "o": [
+    "secreto",
+    "papá",
+    "noche"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 4051905,
+   "au": "hayastan",
+   "s": "Me gustaría hablar con vos cuando tengas un ___ libre.",
+   "a": "tiempo",
+   "o": [
+    "caja",
+    "tiempo",
+    "ropa"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 9618073,
+   "au": "Shishir",
+   "s": "Tienes que ___ un poco más de mano izquierda.",
+   "a": "tener",
+   "o": [
+    "tener",
+    "tiene",
+    "tuvo"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1517690,
+   "au": "marcelostockle",
+   "s": "Entonces eso quiere ___ que lo perdí todo.",
+   "a": "decir",
+   "o": [
+    "dice",
+    "dijo",
+    "decir"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 9983472,
+   "au": "Shishir",
+   "s": "No me puedo ___ más tiempo aquí.",
+   "a": "quedar",
+   "o": [
+    "queda",
+    "quedó",
+    "quedar"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 702751,
+   "au": "andresevargas",
+   "s": "Tengo miedo de tener el ___ equivocado.",
+   "a": "número",
+   "o": [
+    "prueba",
+    "carrera",
+    "número"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 775192,
+   "au": "ekvintroj",
+   "s": "Es fácil para nosotros llegar a un ___ con su opinión.",
+   "a": "acuerdo",
+   "o": [
+    "acuerdo",
+    "nave",
+    "compañía"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12874724,
+   "au": "mexicanhere",
+   "s": "No estoy seguro de que alguien fuera a ___ eso.",
+   "a": "hacer",
+   "o": [
+    "hace",
+    "hizo",
+    "hacer"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 974804,
+   "au": "darinmex",
+   "s": "No tengo ganas de ___ hoy.",
+   "a": "trabajar",
+   "o": [
+    "trabajar",
+    "trabaja",
+    "trabajó"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 3382458,
+   "au": "Shishir",
+   "s": "Ya llevo dos horas esperando, no puedo ___ más.",
+   "a": "esperar",
+   "o": [
+    "espera",
+    "esperó",
+    "esperar"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1457415,
+   "au": "marcelostockle",
+   "s": "La ___ terminó de escribir su carta.",
+   "a": "madre",
+   "o": [
+    "marido",
+    "doctor",
+    "madre"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 3628438,
+   "au": "cueyayotl",
+   "s": "Es un ___ muy inteligente, pero poco listo.",
+   "a": "chico",
+   "o": [
+    "suerte",
+    "puerta",
+    "chico"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 3063660,
+   "au": "marcelostockle",
+   "s": "Parece que este año también hará un ___ frío.",
+   "a": "verano",
+   "o": [
+    "misión",
+    "señal",
+    "verano"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 6791366,
+   "au": "arh",
+   "s": "Todo el ___ sabe que es culpable.",
+   "a": "mundo",
+   "o": [
+    "habitación",
+    "noche",
+    "mundo"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 5898119,
+   "au": "baudelaire",
+   "s": "¿Cómo se va a la estación de policía?",
+   "k": "l"
+  },
+  {
+   "id": 1513886,
+   "au": "marcelostockle",
+   "s": "¿Por qué le das a él este regalo?",
+   "k": "l"
+  },
+  {
+   "id": 940136,
+   "au": "Steicxi",
+   "s": "No está en casa, sino en la escuela.",
+   "k": "l"
+  },
+  {
+   "id": 2667164,
+   "au": "marcelostockle",
+   "s": "Hasta el hombre más fuerte mira a veces debajo de la cama.",
+   "k": "l"
+  },
+  {
+   "id": 4332697,
+   "au": "Chinija71",
+   "s": "¿Puedo darte un consejo de amigos?",
+   "k": "l"
+  },
+  {
+   "id": 1642654,
+   "au": "marcelostockle",
+   "s": "Sé qué hay en la caja.",
+   "k": "l"
+  },
+  {
+   "id": 3224800,
+   "au": "cueyayotl",
+   "s": "De eso se trata la película.",
+   "k": "l"
+  },
+  {
+   "id": 1249208,
+   "au": "hayastan",
+   "s": "Nuestro jefe de cocina está muy ocupado hoy.",
+   "k": "l"
+  },
+  {
+   "id": 1534791,
+   "au": "hayastan",
+   "s": "La conversación es entre ella y yo.",
+   "k": "l"
+  },
+  {
+   "id": 1130399,
+   "au": "cueyayotl",
+   "s": "Él me dio lo que yo necesitaba.",
+   "k": "l"
+  },
+  {
+   "id": 3817858,
+   "au": "cueyayotl",
+   "s": "Qué pena que no hayas podido venir.",
+   "k": "l"
+  },
+  {
+   "id": 4046127,
+   "au": "gianich73",
+   "s": "¿Dónde estaban ayer a las dos y media?",
+   "k": "l"
+  }
+ ]
+}

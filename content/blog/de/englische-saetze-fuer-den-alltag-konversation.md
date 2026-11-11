@@ -52,7 +52,7 @@ In der modernen angewandten Sprachwissenschaft gilt das Lernen von festen Satzge
 2. **Kulturelle Höflichkeitsstandards (*Hedging*)**: Im angelsächsischen Raum wird Kritik selten direkt geäußert. Floskeln wie *« I could be wrong, but perhaps... »* helfen Ihnen, taktvoll und professionell zu wirken.
 3. **Sicherheit bei unerwarteten Themen**: Vorgefertigte Überleitungen schenken Ihnen wertvolle Denksekunden, um Ihre Gedanken zu ordnen und die Konversation ohne peinliche Pausen am Laufen zu halten.
 
-Nutzen Sie den [mündlichen Übungsbereich von Lexkite](/#/speaking) für interaktive Sprachtrainings und überprüfen Sie unbekannte Wörter in unserem [einsprachigen Online-Wörterbuch](/#/dict/resilient). Lesen Sie außerdem unsere Tipps dazu, [wie man auf Englisch denkt ohne zu übersetzen](/de/blog/auf-englisch-denken-ohne-uebersetzen/) sowie unseren Leitfaden zum [erfolgreichen Vokabellernen](/de/blog/englisch-vokabeln-lernen/). Für das gesamte Themenspektrum besuchen Sie unsere [Vokabel-Themenübersicht](/tu-vung/).
+Nutzen Sie den [mündlichen Übungsbereich von Lexkite](/#/speaking) für interaktive Sprachtrainings und überprüfen Sie unbekannte Wörter in unserem [einsprachigen Online-Wörterbuch](/#/dict/resilient). Lesen Sie außerdem unsere Tipps dazu, [wie man auf Englisch denkt ohne zu übersetzen](/de/blog/auf-englisch-denken-ohne-uebersetzen/) sowie unseren Leitfaden zum [erfolgreichen Vokabellernen](/de/blog/englisch-vokabeln-lernen/). Für das gesamte Themenspektrum besuchen Sie unsere [Vokabel-Themenübersicht](/en/vocabulary/).
 
 ## 1. Natürliche Begrüßungen und ungezwungener Einstieg
 

@@ -1,0 +1,10 @@
+name: fast-lane
+description: Làn nhanh trước làn nặng – huỷ lượt nặng của PR khi `npm test` cùng sha đã đỏ (scripts/ci/guards.mjs lane). Gọi ngay sau checkout; job cần permissions actions:write + checks:read.
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+        HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      run: node "$GITHUB_ACTION_PATH/../../../scripts/ci/guards.mjs" lane

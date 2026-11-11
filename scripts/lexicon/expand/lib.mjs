@@ -273,15 +273,35 @@ export function wsdUnwrap(o, ids) {
 // 03/11 hạn ngạch retry: mục làm lại (rớt vi/ví dụ, đã thử một lần với nguồn hiện tại) chỉ chiếm ≤ share × N để ứng viên MỚI luôn được xử lý;
 // ứng viên mới ít hơn phần còn lại → retry lấp chỗ trống (không bỏ phí lượt). Thứ tự giữ nguyên (tần suất giảm dần). Thuần hàm, có test.
 export const RETRY_SHARE = 0.25;
+/** shard của mục (FNV-1a trên từ#loại) – job.mjs --shard i/n: các shard song song không trùng mục */
+export const shardOf = (k, n) => { let h = 2166136261; for (const c of String(k)) h = Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0; return h % n; };
 export function mixPool(retryList, fresh, N, share = RETRY_SHARE) {
   const cap = Math.max(0, Math.min(retryList.length, Math.ceil(N * Math.min(1, Math.max(0, share)))));
   const f = fresh.slice(0, N - cap), r = retryList.slice(0, Math.max(cap, N - f.length));
   return [...r, ...f].slice(0, N);
 }
 // sản lượng tách theo nguồn mục: mới vs làm lại (cầu dao chuỗi đo trên mục MỚI – mục retry là phần còn lại khó, không đại diện cho kho ứng viên)
+/** Hạn mức AI cạn (07/11, lexicon-expand đỏ 4 lượt liền: mọi khoá Gemini 429 → AI.gen trả null): 0 mục đạt mà MỌI lệnh gọi AI đều thất bại = hết hạn mức, KHÔNG phải lỗi thật (cảnh báo vàng, lịch 3 giờ thử lại).
+ *  Có lệnh gọi thành công mà 0 mục đạt = lỗi chất lượng/cổng → vẫn đỏ. */
+export function quotaDry(stat, pass) { return !pass && (stat.calls || 0) > 0 && (stat.fail || 0) >= stat.calls; }
+// 08/11 (run 42457106947: 4 shard, mỗi shard 5–8 mục còn lại đều «gap» → 0 đạt → đỏ giả): dưới cỡ mẫu tối thiểu của cầu dao chuỗi thì 0 đạt chưa kết luận được gì. Từ 50 mục trở lên vẫn đỏ.
+export const MIN_SAMPLE = 50;
+/** câu trả lời lxvi của một mục: {vi:"…"} hoặc chuỗi trần (một số mô hình bỏ tầng bọc) */
+export const viAnswer = o => { const v = typeof o === 'string' ? o : o && o.vi; return typeof v === 'string' ? v.trim() : ''; };
+export function thinPool(n, infra, pass) { return !pass && n - (infra || 0) < MIN_SAMPLE; }
 export function yieldSplit(rows) {
   const o = { fresh: { judged: 0, pass: 0, yield: 0 }, retry: { judged: 0, pass: 0, yield: 0 } };
   for (const r of rows) { const g = o[r.retry ? 'retry' : 'fresh']; if (r.judged) g.judged++; if (r.pass) g.pass++; }
   for (const g of Object.values(o)) g.yield = +(g.pass / Math.max(1, g.judged)).toFixed(3);
   return o;
 }
+
+/** 08/11 lọc trước AI (job.mjs --no-prefilter để tắt): cận TRÊN số nguồn NGƯỜI VIẾT của một ứng viên – vi (Wiktionary en vi/bảng dịch · Wiktionary vi) và câu chứa từ
+ *  (examples.py · ví dụ Wiktionary · ví dụ WordNet mọi nghĩa). vi = 0 hoặc ex < 2 → chắc trượt cổng (viKeep cần nguồn người viết; ví dụ cần 2 câu người viết). */
+/** ci-filler: các shard lượt gần nhất đều gần rỗng (tổng < EMPTY_RUN mục, retry chưa tăng, kết quả < 24 h) → không có việc, khỏi thuê runner */
+export const EMPTY_RUN = 40;
+export const laneEmpty = (runs, retryNow, now = Date.now()) => { const a = runs.filter(r => r && now - Date.parse(r.at) < 864e5); return a.length > 0 && a.reduce((t, r) => t + r.n, 0) < EMPTY_RUN && retryNow <= Math.max(...a.map(r => r.retry)) + 50; };
+export const humanSrc = (e, k, wv, ext) => { if (k.err) return { vi: 1, ex: 2 }; const re = inflRe(e.w); // kaikki lỗi mạng = hạ tầng → không lọc (luồng cũ xử lý)
+  const vi = (k.vi || []).length + (wv || []).length + (k.trg || []).reduce((n, g) => n + ((g.tr || {}).vi || []).length, 0);
+  const ex = ((ext || {}).ex || []).length + (k.exs || []).filter(x => re.test(x.t)).length + Math.max(0, ...(e.senses && e.senses.length ? e.senses : [e]).map(s => (s.wnex || []).length));
+  return { vi, ex }; }; // cận TRÊN số nguồn (không lọc nghĩa) – chỉ loại mục chắc chắn trượt

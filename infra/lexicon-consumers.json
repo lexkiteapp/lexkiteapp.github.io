@@ -6,6 +6,11 @@
    "via": "loadAllPlus",
    "job": "content-qa.yml (score)"
   },
+  "scripts/content-qa/learnability.mjs": {
+   "what": "reports/learnability.json + content/pipeline/LEARN.md – thước đo 'Dễ học – dễ nhớ' (12 tiêu chí; dùng cấp CEFR kho từ cho i+1, kể cả mục mở rộng 20k)",
+   "via": "loadAllPlus",
+   "job": "content-qa.yml (score) + npm test"
+  },
   "scripts/content-qa/lkf-check.mjs": {
    "what": "reports/lkf-coverage.json – độ phủ lo của từ#loại (luật vocab theo cấp CEFR, kể cả mục mở rộng 20k) cho khung Can-do",
    "via": "loadAllPlus",
@@ -118,6 +123,9 @@
   "scripts/lexicon/cefr-check.mjs": {
    "skip": "chỉ gắn cờ CEFR bộ viết tay; mục mở rộng có cổng CEFR riêng (gateEntry)"
   },
+  "scripts/lesson/build-path-nodes.mjs": {
+   "skip": "nội dung nút Lộ trình chọn tay từ bộ viết tay (đúng 12 từ IELTS_DATA.TOPICS mỗi chặng) và kiểm từ#loại + CEFR + ví dụ nguyên văn trong kho đó; mục mở rộng 20k không đi vào bài chốt sẵn"
+  },
   "scripts/scriptbank/gold.mjs": {
    "skip": "bộ mẫu vàng cố định từ bộ viết tay"
   },
@@ -195,6 +203,29 @@
   },
   "scripts/content-qa/sense-check.mjs": {
    "skip": "cổng nghĩa v2 kiểm mục trong content/lexicon/senses*.json đối chiếu kho viết tay (từ lõi, scripts/lexicon/core.mjs); mục mở rộng chưa có nghĩa gold – khi lô gold nhận mục mở rộng phải đổi sang loadAllPlus"
+  },
+  "scripts/native/web-ref.mjs": {
+   "skip": "chạy JS web thật trong node:vm để sinh vector native (lib chỉ gồm từ mà vector dùng); không ghi/xuất kho"
+  },
+  "scripts/native/gen-vocab.mjs": {
+   "skip": "chỉ lấy vài từ của các chủ đề cốt lõi làm mẫu thử cho vector test (vocab.json); dữ liệu từ thật thì app native tải lúc chạy như web, nên mục mở rộng 20k không đi qua script này"
+  },
+  "scripts/native/gen-skills.mjs": {
+   "skip": "chỉ dựng bảng tách từ của Lexis (AWL/từ nối/cụm) và vector cho màn nghe/đọc từ IELTS_DATA nạp bằng data.js; không ghi/xuất kho, từ thật thì app native tải lúc chạy như web"
+  },
+  "scripts/native/gen-write.mjs": {
+   "skip": "chỉ lấy khóa IELTS_DATA.INDEX (tập từ mà Lexis.analyze tra) và chủ đề của đề viết để dựng vector/gói viết; không ghi/xuất kho, từ thật thì app native tải lúc chạy như web"
+  },
+  "scripts/native/gen-learn.mjs": {
+   "skip": "chạy JS web thật (soát lỗi, ngữ pháp, phương pháp, giao tiếp tự tin) để sinh vector/gói; nếu nạp kho từ thì chỉ để dựng DOM giả, không ghi/xuất kho"
+  },
+  "scripts/native/gen-sync.mjs": {
+   "skip": "chỉ tra các từ mà vector sync/migration dùng (map lib) để native dựng lại thẻ L:1; không ghi/xuất kho"
+  },
+  "scripts/lexicon/expand/left.mjs": {
+   "what": "số việc còn cho ci-filler (20k − mục sống + retry), không ghi gì",
+   "via": "doneWords",
+   "job": "ci-filler.yml (probe infra/ci-backlog.json)"
   }
  },
  "todo": {

@@ -1,0 +1,67 @@
+# O5 native-score (scripts/i18n-native-score.mjs, docs/I18N-PIPELINE.md): giám khảo A dịch ngược L1 → en, giám khảo B khác họ chấm 1–5
+# so với tiếng Anh viết gốc (content/i18n/en-src). Chia shard; gộp → content/i18n-native-score.json (content-score đọc avg); cổng avg ≥ 4,3, không mục < 3,5.
+# Chỉ chạy tay (việc nặng trên CI, không trên máy chủ dự án). --fix: viết lại mục < 4 thẳng từ en, nhận khi B chấm ≥ 4 → content/i18n/native-fixed.json.
+name: i18n native-score (O5)
+on:
+  workflow_dispatch:
+    inputs:
+      limit: { description: 'Số mục mới tối đa mỗi shard', default: '400' }
+      fix: { description: 'Viết lại mục < 4 từ en (1 = bật)', default: '1' }
+permissions:
+  contents: write
+  id-token: write
+concurrency: { group: i18n-native-score, cancel-in-progress: false }
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix: { shard: [1, 2, 3, 4] }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chấm shard
+        env:
+          GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
+          GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
+          GROQ_POOL: ${{ secrets.GROQ_POOL }}
+          CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
+          CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
+          AI_POOL_GC_MAX: '3000'
+        run: node scripts/i18n-native-score.mjs --shard ${{ matrix.shard }}/4 --limit "${{ github.event.inputs.limit || '400' }}" ${{ github.event.inputs.fix == '1' && '--fix' || '' }}
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: 'ns-${{ matrix.shard }}'
+          if-no-files-found: ignore
+          path: |
+            content/i18n/native-score/part-${{ matrix.shard }}.json
+            content/i18n/native-fixed.json
+  merge:
+    needs: score
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'ns-*', path: ns }
+      - name: Gộp shard
+        run: |
+          mkdir -p content/i18n/native-score
+          for d in ns/ns-*; do s=${d##*-}; for p in "$d/native-score/part-$s.json" "$d/part-$s.json"; do [ -f "$p" ] && cp "$p" content/i18n/native-score/; done; done
+          node -e '
+            const fs=require("fs"),out={},f="content/i18n/native-fixed.json";let base={};try{base=JSON.parse(fs.readFileSync(f,"utf8"))}catch{}
+            for(const d of fs.readdirSync("ns")){const p="ns/"+d+"/native-fixed.json";if(!fs.existsSync(p))continue;const x=JSON.parse(fs.readFileSync(p,"utf8"));for(const l in x){base[l]=base[l]||{};for(const k in x[l]) if(!base[l][k]||x[l][k].s>=base[l][k].s) base[l][k]=x[l][k];}}
+            fs.writeFileSync(f,JSON.stringify(base,null,1)+"\n");'
+          node scripts/i18n-native-score.mjs --merge
+      - name: Lưu kết quả
+        run: |
+          bash scripts/ci/push-main.sh "native-score O5: chấm + sửa L1 (lô tự động)" content/i18n-native-score.json content/i18n/native-score content/i18n/native-fixed.json
+      - name: Cổng native-score (avg ≥ 4,3 · không mục < 3,5)
+        run: node scripts/i18n-native-score.mjs --check

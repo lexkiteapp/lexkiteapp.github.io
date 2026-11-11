@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"lake\" mean?",
+  "keyword": "lake",
+  "value": "Lake means a large area of water surrounded by land.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=lake",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"lake\" mean?",
+    "description": "Lake means a large area of water surrounded by land.\n\nReview your words, free: https://lexkite.com/app/#/review?w=lake\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "lake",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"lake\" mean?\n\nLake means a large area of water surrounded by land.\n\nReview your words, free: https://lexkite.com/app/#/review?w=lake"
+   },
+   "instagram": {
+    "caption": "What does \"lake\" mean?\n\nLake means a large area of water surrounded by land.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"lake\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a large area of water surrounded by land. Lake means a large area of water surrounded by land. Practice it with a free quiz: {link}"
  }
 }

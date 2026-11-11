@@ -87,8 +87,8 @@ export async function fbStatus(mc, video_id) {
 }
 
 /** IG Reels: tạo container (Meta tự tải video_url) → chờ status_code FINISHED (lượt sau) → media_publish. */
-export async function igContainer(mc, igId, { video_url, caption }) {
-  const r = await mc('POST', `${igId}/media`, { media_type: 'REELS', video_url, caption: String(caption || '').slice(0, 2200), share_to_feed: 'true' });
+export async function igContainer(mc, igId, { video_url, caption, cover_url = '' }) {
+  const r = await mc('POST', `${igId}/media`, { media_type: 'REELS', video_url, caption: String(caption || '').slice(0, 2200), share_to_feed: 'true', ...(/^https:\/\//.test(cover_url) ? { cover_url } : {}) });
   const id = String((r.data && r.data.id) || '');
   if (r.status >= 400 || !ID.test(id)) throw Object.assign(new Error('meta'), { meta: true, kind: r.kind, code: r.code || String(r.status), step: 'container' });
   return id;
@@ -126,4 +126,18 @@ export async function igRefresh(mc, now = Date.now()) {
   const r = await mc('GET', '', null, { url: `${IGRAPH}/refresh_access_token?grant_type=ig_refresh_token&access_token=${encodeURIComponent(mc.tok())}` });
   const t = String((r.data && r.data.access_token) || '');
   return r.status < 400 && t.length >= 20 ? { ok: true, token: t, expires_at: now + (+r.data.expires_in || 5184000) * 1000 } : { ok: false, code: r.code, kind: r.kind };
+}
+/** Bình luận đầu của Page trên Reel/bài của chính Page (docs/DISTRIBUTION.md §6c): POST /{object-id}/comments {message} – Page token,
+ *  quyền pages_manage_engagement (Graph reference object/comments, kiểm 05/11/2026). Graph KHÔNG có API ghim bình luận → không ghim.
+ *  → { ok, id } | { ok: false, code, kind, status } (không ném: lỗi bình luận không bao giờ làm dừng kênh đăng bài). */
+export async function fbComment(mc, objectId, message) {
+  const r = await mc('POST', `${objectId}/comments`, { message: String(message || '').slice(0, 8000) }); const id = String((r.data && r.data.id) || '');
+  return r.status < 400 && /^[\d_]{5,80}$/.test(id) ? { ok: true, id } : { ok: false, code: r.code || String(r.status), kind: r.kind, status: r.status };
+}
+/** Tìm bình luận của chính Page có chứa link (chống trùng khi lần trước hết giờ chờ – có thể đã đăng). → { ok, id|'' } */
+export async function fbFindComment(mc, objectId, pageId, link) {
+  const r = await mc('GET', `${objectId}/comments`, { fields: 'id,message,from', filter: 'toplevel', order: 'reverse_chronological', limit: 50 });
+  if (r.status >= 400) return { ok: false, code: r.code, kind: r.kind };
+  const hit = ((r.data && r.data.data) || []).find(c => c && c.from && String(c.from.id) === String(pageId) && String(c.message || '').includes(link));
+  return { ok: true, id: hit ? String(hit.id) : '' };
 }

@@ -18,7 +18,7 @@ paras: [
 ],
 groups: [
 { type: 'match',
-instr: 'Look at the six texts, A–F. Which text mentions the following? Write the correct letter, A–F. NB You may use any letter more than once.',
+instr: g.RTI[10],
 options: ['A', 'B', 'C', 'D', 'E', 'F'],
 items: [
 { n: 1, text: 'a course whose cost your employer might pay', a: 'B', cue: 'some employers will cover the cost' },
@@ -30,7 +30,7 @@ items: [
 { n: 7, text: 'an extra cost for course materials', a: 'D', cue: 'the course textbook costs an additional £18' },
 ] },
 { type: 'tfng',
-instr: 'Do the following statements agree with the information given in the texts? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+instr: g.RTI[6],
 items: [
 { n: 8, text: 'The pottery course fee includes the materials students use.', a: 'TRUE', cue: 'The fee of £95 includes all clay and the cost of firing' },
 { n: 9, text: 'The first aid certificate has to be renewed every year.', a: 'FALSE', cue: 'a certificate, valid for three years' },
@@ -70,7 +70,7 @@ paras: [
 ],
 groups: [
 { type: 'match',
-instr: 'The text has seven paragraphs, A–G. Which paragraph contains the following information? Write the correct letter, A–G.',
+instr: g.RTI[11],
 options: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
 items: [
 { n: 15, text: 'what to do if you are unable to work a particular shift', a: 'C', cue: 'first arrange a swap with another volunteer and then inform the volunteer office' },
@@ -81,7 +81,7 @@ items: [
 { n: 20, text: 'a check that is carried out on every volunteer', a: 'B', cue: 'All volunteers must complete a background check' },
 ] },
 { type: 'note', title: 'Key points for new volunteers',
-instr: 'Complete the notes below. Choose NO MORE THAN TWO WORDS from the text for each answer.', limit: 2,
+instr: g.RTI[18], limit: 2,
 items: [
 { n: 21, text: 'Before starting: give details of two ___', a: ['references'], cue: 'provide the names of two references' },
 { n: 22, text: 'Induction topics: fire safety, infection control and ___', a: ['confidentiality'], cue: 'covers fire safety, infection control and confidentiality' },
@@ -123,7 +123,7 @@ paras: [
 ],
 groups: [
 { type: 'match',
-instr: 'Reading Passage 3 has seven paragraphs, A–G. Choose the correct heading for paragraphs B–F from the list of headings below.',
+instr: g.RTI[7],
 options: [
 'i Why the passengers went elsewhere',
 'ii An opportunity taken by one company',
@@ -136,13 +136,13 @@ options: [
 ],
 items: [
 { n: 28, text: 'Paragraph B', a: 'i', cue: 'Several factors explain this decline' },
-{ n: 29, text: 'Paragraph C', a: 'ii', cue: "Austria's state railway company took over several of the routes" },
+{ n: 29, text: 'Paragraph C', a: 'ii', cue: g.RTI[22] },
 { n: 30, text: 'Paragraph D', a: 'iii', cue: 'This revival has been driven largely by concern about climate change' },
 { n: 31, text: 'Paragraph E', a: 'iv', cue: 'Yet operators still face considerable difficulties' },
 { n: 32, text: 'Paragraph F', a: 'v', cue: 'For passengers, the experience is mixed' },
 ] },
 { type: 'ynng',
-instr: 'Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+instr: g.RTI[0],
 items: [
 { n: 33, text: 'Night trains will eventually replace most long-distance flights in Europe.', a: 'NO', cue: 'night trains are unlikely ever to replace air travel for very long journeys' },
 { n: 34, text: 'Night trains are best suited to journeys of a medium length.', a: 'YES', cue: 'routes of roughly 600 to 1,500 kilometres' },
@@ -150,14 +150,14 @@ items: [
 { n: 36, text: 'Governments should spend public money on night trains.', a: 'YES', cue: 'I believe that night trains deserve public investment' },
 ] },
 { type: 'summary', title: 'Why night trains are costly to run',
-instr: 'Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.',
+instr: g.RTI[2],
 limit: 2,
 items: [
 { n: 37, text: 'A sleeping car holds far fewer ___ than a carriage with ordinary seats.', a: ['passengers'], cue: 'A sleeping car carries far fewer passengers' },
 { n: 38, text: 'Crews have to work ___ shifts.', a: ['overnight'], cue: 'crews must work overnight shifts' },
 { n: 39, text: 'Each carriage can complete just one ___ every 24 hours.', a: ['journey'], cue: 'each carriage can make only one journey every 24 hours' },
 ] },
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 40, q: 'According to paragraph E, what is the most serious problem for night-train operators?',
 options: ['Few passengers are willing to travel at night.', 'New sleeping carriages are scarce and slow to arrive.', 'Airlines have bought the rights to many routes.', 'Some governments have banned cross-border trains.'],
@@ -222,7 +222,7 @@ E.gt3 = {
 
 /* ---- Section 3: The Return of the Night Train ---- */
 28: { why: "Đoạn B giải thích vì sao tàu đêm suy tàn: hàng không giá rẻ, tàu cao tốc ban ngày, chi phí vận hành cao → hành khách chuyển sang phương tiện khác → i “Why the passengers went elsewhere”.", para: "B", keys: [["Why the passengers went elsewhere", "Several factors explain this decline"]] },
-29: { why: "Đoạn C: khi nhà khai thác Đức rút lui năm 2016, công ty đường sắt Áo “took over several of the routes” và thành công → một công ty nắm lấy cơ hội → ii.", para: "C", keys: [["An opportunity taken by one company", "Austria's state railway company took over several of the routes"]] },
+29: { why: "Đoạn C: khi nhà khai thác Đức rút lui năm 2016, công ty đường sắt Áo “took over several of the routes” và thành công → một công ty nắm lấy cơ hội → ii.", para: "C", keys: [["An opportunity taken by one company", g.RTI[22]]] },
 30: { why: "Đoạn D: sự hồi sinh “driven largely by concern about climate change” – lo ngại về môi trường kéo hành khách mới đến với tàu đêm → iii.", para: "D", keys: [["Environmental worries", "concern about climate change"], ["bring new customers", "travellers… have started to avoid short flights"]] },
 31: { why: "Đoạn E liệt kê khó khăn: luật lệ, phí đường ray, hệ thống tín hiệu khác nhau giữa các nước, phải đổi đầu máy ở biên giới → trở ngại xuyên biên giới → iv. Lưu ý: thiếu toa giường nằm cũng được nhắc nhưng ý chung của đoạn là các trở ngại khi chạy quốc tế.", para: "E", keys: [["Obstacles", "considerable difficulties"], ["cross national borders", "changed at borders"]] },
 32: { why: "Đoạn F: “For passengers, the experience is mixed” – người ủng hộ nêu lợi ích, nhưng có bất tiện; đánh giá “range from enthusiastic to bitterly disappointed” → ý kiến hành khách khác nhau → v.", para: "F", keys: [["Opinions differ among travellers", "the experience is mixed… range from enthusiastic to bitterly disappointed"]] },
@@ -267,11 +267,11 @@ items: [
 instr: 'Look at the council notice, F–G. Do the following statements agree with the information given in the notice? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
 items: [
 { n: 8, text: 'General rubbish will be collected less often from March.', a: 'TRUE', cue: 'general rubbish will be collected every two weeks instead of every week' },
-{ n: 9, text: 'Recycling will also be collected every two weeks.', a: 'FALSE', cue: 'Recycling will continue to be collected weekly' },
+{ n: 9, text: 'Recycling will also be collected every two weeks.', a: 'FALSE', cue: g.RTI[27] },
 { n: 10, text: 'Households will have to pay for the new food waste container.', a: 'FALSE', cue: 'which every household will receive free of charge' },
 { n: 11, text: 'Large families may be able to get a bigger rubbish bin.', a: 'TRUE', cue: 'households of six or more people, can apply for one' },
 { n: 12, text: 'Garden waste is collected as part of the normal service.', a: 'FALSE', cue: 'Garden waste is not included in the standard service' },
-{ n: 13, text: 'The council is planning to open a new recycling centre.', a: 'NOT GIVEN', cue: 'Recycling will continue to be collected weekly' },
+{ n: 13, text: 'The council is planning to open a new recycling centre.', a: 'NOT GIVEN', cue: g.RTI[27] },
 { n: 14, text: 'Residents who leave their bins out after collection day will be fined.', a: 'NOT GIVEN', cue: 'Bins that are left out may be removed' },
 ] },
 ],
@@ -305,7 +305,7 @@ paras: [
 ],
 groups: [
 { type: 'match',
-instr: 'The text has seven paragraphs, A–G. Which paragraph contains the following information? Write the correct letter, A–G.',
+instr: g.RTI[11],
 options: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
 items: [
 { n: 15, text: 'how you know that you have collected an incorrect item', a: 'E', cue: 'if the scanner beeps twice, you have picked the wrong product' },
@@ -316,7 +316,7 @@ items: [
 { n: 20, text: 'an opportunity for new staff to comment on their training', a: 'G', cue: 'complete a feedback form about your training' },
 ] },
 { type: 'note', title: 'Notes for new pickers',
-instr: 'Complete the notes below. Choose NO MORE THAN TWO WORDS AND/OR A NUMBER from the text for each answer.', limit: 2,
+instr: g.RTI[16], limit: 2,
 items: [
 { n: 21, text: 'Vests and boots are not needed in the offices or the ___', a: ['canteen'], cue: 'they are not needed in the offices or the canteen' },
 { n: 22, text: 'Only water in a ___ may be taken onto the warehouse floor', a: ['sealed bottle'], cue: 'other than water in a sealed bottle' },
@@ -356,7 +356,7 @@ paras: [
 ],
 groups: [
 { type: 'match',
-instr: 'Reading Passage 3 has seven paragraphs, A–G. Choose the correct heading for paragraphs B–F from the list of headings below.',
+instr: g.RTI[7],
 options: [
 'i The problems with early lights',
 'ii An invention that transformed lighthouses',
@@ -375,7 +375,7 @@ items: [
 { n: 32, text: 'Paragraph F', a: 'v', cue: 'gradually removed the need for keepers' },
 ] },
 { type: 'tfng',
-instr: 'Do the following statements agree with the information given in Reading Passage 3? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+instr: g.RTI[4],
 items: [
 { n: 33, text: 'The Pharos of Alexandria was the first lighthouse ever built.', a: 'NOT GIVEN', cue: 'The most famous early example, the Pharos of Alexandria' },
 { n: 34, text: "Fresnel's lens was lighter than a single thick lens would have been.", a: 'TRUE', cue: 'Instead of one thick piece of glass, which would have been extremely heavy' },
@@ -383,13 +383,13 @@ items: [
 { n: 36, text: 'Keepers at rock stations were paid more than other keepers.', a: 'NOT GIVEN', cue: 'On remote rock stations, keepers might spend weeks without leaving the tower' },
 ] },
 { type: 'summary', title: "A keeper's routine",
-instr: 'Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.',
+instr: g.RTI[2],
 limit: 2,
 items: [
 { n: 37, text: 'The lamp was lit every evening, and its ___ had to be trimmed during the night.', a: ['wick'], cue: 'its wick trimmed regularly through the night' },
 { n: 38, text: 'When visibility was poor, some keepers had to sound a ___ for hours.', a: ['fog signal'], cue: 'sound a fog signal for hours at a time' },
 ] },
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 39, q: 'According to paragraph F, how were lamps switched on and off after automation?',
 options: ['By keepers living in nearby towns', 'By the crews of passing ships', 'By sensors that react to light', 'By signals sent from satellites'],
@@ -537,7 +537,7 @@ paras: [
 ],
 groups: [
 { type: 'match',
-instr: 'The text has seven paragraphs, A–G. Which paragraph contains the following information? Write the correct letter, A–G.',
+instr: g.RTI[11],
 options: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
 items: [
 { n: 15, text: 'a penalty that the company will not pay', a: 'C', cue: 'parking fines are always the responsibility of the driver' },
@@ -548,7 +548,7 @@ items: [
 { n: 20, text: 'the circumstances in which a first-class ticket can be claimed', a: 'A', cue: 'first-class tickets will only be refunded if they were cheaper than standard tickets' },
 ] },
 { type: 'note', title: 'Key points from the staff policies',
-instr: 'Complete the notes below. Choose NO MORE THAN TWO WORDS AND/OR A NUMBER from the text for each answer.', limit: 2,
+instr: g.RTI[16], limit: 2,
 items: [
 { n: 21, text: 'Overnight trips must be approved beforehand by your ___', a: ['line manager'], cue: 'approved in advance by your line manager' },
 { n: 22, text: 'Maximum meal allowance when away overnight: ___ per day', a: ['£35', '35 pounds'], cue: 'reimbursed up to £35 per day' },
@@ -587,7 +587,7 @@ paras: [
 ],
 groups: [
 { type: 'match',
-instr: 'Reading Passage 3 has seven paragraphs, A–G. Choose the correct heading for paragraphs B–F from the list of headings below.',
+instr: g.RTI[7],
 options: [
 'i An unsuccessful start and widespread doubt',
 'ii Solving problems of storage and sales',
@@ -606,7 +606,7 @@ items: [
 { n: 32, text: 'Paragraph F', a: 'v', cue: 'the natural ice trade had weaknesses' },
 ] },
 { type: 'tfng',
-instr: 'Do the following statements agree with the information given in Reading Passage 3? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+instr: g.RTI[4],
 items: [
 { n: 33, text: "Tudor's first shipment of ice made a profit.", a: 'FALSE', cue: 'Much of the first cargo melted before it could be sold' },
 { n: 34, text: 'Tudor was the first person ever to use sawdust to insulate ice.', a: 'NOT GIVEN', cue: 'found that sawdust, a waste product from timber mills, was cheap and highly effective' },
@@ -614,14 +614,14 @@ items: [
 { n: 36, text: 'Some people believed that ice from polluted water could make people ill.', a: 'TRUE', cue: 'doctors warned that ice from them could spread disease' },
 ] },
 { type: 'summary', title: 'Building a market for ice',
-instr: 'Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.',
+instr: g.RTI[2],
 limit: 2,
 items: [
 { n: 37, text: 'To create demand, Tudor gave free ice to ___ owners and showed them how to serve cold drinks.', a: ['bar'], cue: 'giving away free ice to bar owners' },
 { n: 38, text: 'In American cities, ice was kept in wooden ___ at home.', a: ['iceboxes'], cue: "used in wooden 'iceboxes' to keep food fresh" },
 { n: 39, text: 'The journey by ship from New England to India took ___.', a: ['four months', '4 months'], cue: 'a voyage of four months' },
 ] },
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 40, q: 'According to paragraph G, what was one lasting effect of the natural ice trade?',
 options: ['It made electric refrigerators cheaper to produce.', 'It led to cleaner ponds and rivers in cities.', 'It created an expectation of cold food and drink.', 'It is still an important industry in some countries.'],

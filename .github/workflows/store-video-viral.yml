@@ -19,11 +19,15 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/setup-ffmpeg
       - name: Quay + dựng
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
-          npx playwright install --with-deps chromium
-          sudo apt-get install -y -qq ffmpeg fonts-noto-color-emoji fonts-noto-core >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
+      - name: Quay + dựng (tiếp)
+        run: |
           bash scripts/build-extension.sh
           for i in 1 2 3; do RAW_OUT=/tmp/raw LANG_V=en node scripts/store-video.mjs /tmp/x && break; echo "thử lại $i"; done
           node scripts/store-video-viral.mjs /tmp/raw /tmp/viral

@@ -47,6 +47,8 @@ Dalam panduan komprehensif ini, Anda akan mempelajari 4 langkah sistematis latih
 
 Dalam buku cetak, setiap kata dipisahkan dengan rapi oleh spasi putih. Namun dalam percakapan lisan penutur asli:
 
+Artikel terkait: [strategi TOEIC Listening Part 2](/id/blog/strategi-toeic-listening-part-2-tanya-jawab/).
+
 1. **Bahasa Inggris Berbasis Irama Tekanan (Stress-timed language)**: Kata-kata bermakna penting (*content words: kata benda, kata kerja utama, kata sifat*) diucapkan panjang dan bertenaga. Sebaliknya, kata-kata tata bahasa (*function words: kata ganti, kata depan, kata hubung, kata bantu*) dimampatkan secepat kilat. Kalimat *"What do you want to do?"* melebur menjadi */wʌdʒə wɑnə duː/* ("whaddya wanna do").
 2. **Bentuk Lemah (Weak Forms)**: Kata-kata seperti *of, to, at, for, from, have, been* hampir tidak pernah diucapkan dengan vokal penuh seperti di kamus. Vokalnya tereduksi menjadi bunyi netral **Schwa /ə/**.
 3. **Kejujuran Mutlak Tanpa Kompromi**: Saat menulis dikte, Anda tidak bisa berpura-pura paham. Apakah Anda mendengar akhiran lampau *-ed*, partikel *to*, atau artikel *an*? Jika tidak tertulis di kertas, berarti otak Anda belum mengenali bunyi tersebut.

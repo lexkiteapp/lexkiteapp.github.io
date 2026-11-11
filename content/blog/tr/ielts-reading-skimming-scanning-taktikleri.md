@@ -134,7 +134,7 @@ Ayrıca okuyun: [IELTS Writing Task 1 Grafik: Rapor Yazma ve Analiz Taktikleri](
 
 {{cta: /tu-vung/ | IELTS Reading Çalışmalarına Başla}}
 
-Geniş kelime haznesine ve örnek soru tiplerine [kelime ve sınav hazırlık kaynakları](/tu-vung/) sayfamızdan ulaşabilir, genel dil edinimi sürecinizi hızlandırmak için [İngilizce nasıl öğrenilir](/tr/blog/ingilizce-nasil-ogrenilir/) rehberimizi okuyabilirsiniz.
+Geniş kelime haznesine ve örnek soru tiplerine [kelime ve sınav hazırlık kaynakları](/en/vocabulary/) sayfamızdan ulaşabilir, genel dil edinimi sürecinizi hızlandırmak için [İngilizce nasıl öğrenilir](/tr/blog/ingilizce-nasil-ogrenilir/) rehberimizi okuyabilirsiniz.
 
 ## 5 Adımda IELTS Reading Sınav Anı Uygulama Rehberi (Walkthrough)
 
@@ -147,6 +147,8 @@ Sınav salonunda kitapçığı açtığınız anda panik yapmamak ve 40 soruyu e
 5. **Yoğun Okuma (Detailed Reading) İle Yanıtı Doğrulayın**: İlgili cümlenin bir öncesini ve bir sonrasını kapsayacak şekilde 3 cümleyi dikkatlice okuyun. Sorudaki mantık ile metindeki kanıtın tam uyum sağladığından emin olun ve cevabı gecikmeden cevap formuna aktarın.
 
 {{youtube: | IELTS Reading Skimming Scanning Strategy Guide}}
+
+Okuma süresini planlamak için [IELTS Reading zaman yönetimi: 60 dakikalık strateji rehberi](/tr/blog/ielts-reading-zaman-yonetimi-60-dakika-stratejisi/) yazısına da göz atabilirsiniz.
 
 ## Sıkça Sorulan Sorular (FAQ)
 

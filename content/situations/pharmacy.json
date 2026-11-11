@@ -1,0 +1,923 @@
+{
+ "id": "pharmacy",
+ "group": "health",
+ "cefr": "B1",
+ "title": {
+  "en": "Pharmacy",
+  "vi": "Hiệu thuốc",
+  "es": "Farmacia",
+  "pt": "Farmácia",
+  "fr": "Pharmacie",
+  "de": "Apotheke",
+  "id": "Apotek",
+  "th": "ร้านขายยา",
+  "zh": "药店",
+  "ja": "薬局",
+  "ko": "약국",
+  "hi": "दवाई की दुकान",
+  "ar": "الصيدلية",
+  "ru": "Аптека",
+  "tr": "Eczane"
+ },
+ "goal": {
+  "en": "Describe it, get advice!",
+  "vi": "Mô tả triệu chứng và nghe lời khuyên!",
+  "es": "¡Describe tus síntomas y escucha el consejo!",
+  "pt": "Descreva os sintomas e ouça o conselho!",
+  "fr": "Décrivez vos symptômes et écoutez les conseils !",
+  "de": "Beschreibe es und lass dich beraten!",
+  "id": "Jelaskan keluhan dan dengarkan sarannya!",
+  "th": "บอกอาการแล้วฟังคำแนะนำ!",
+  "zh": "说明症状，听药师的建议！",
+  "ja": "症状を伝えてアドバイスをもらおう！",
+  "ko": "증상을 말하고 조언을 들어요!",
+  "hi": "लक्षण बताएँ और सलाह लें!",
+  "ar": "صِف الأعراض واستمع إلى النصيحة!",
+  "ru": "Опиши симптомы и получи совет!",
+  "tr": "Belirtileri anlat, tavsiye al!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "symptoms",
+   "title": {
+    "en": "Describe symptoms",
+    "vi": "Mô tả triệu chứng",
+    "es": "Describir síntomas",
+    "pt": "Descrever sintomas",
+    "fr": "Décrire les symptômes",
+    "de": "Beschwerden schildern",
+    "id": "Menjelaskan keluhan",
+    "th": "บอกอาการ",
+    "zh": "说明症状",
+    "ja": "症状を伝える",
+    "ko": "증상 설명",
+    "hi": "लक्षण बताना",
+    "ar": "وصف الأعراض",
+    "ru": "Описать симптомы",
+    "tr": "Belirtileri anlatma"
+   },
+   "lines": [
+    "s1",
+    "s2",
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "advice",
+   "title": {
+    "en": "Get advice",
+    "vi": "Nghe lời khuyên",
+    "es": "Recibir consejo",
+    "pt": "Receber conselho",
+    "fr": "Demander conseil",
+    "de": "Rat einholen",
+    "id": "Meminta saran",
+    "th": "ขอคำแนะนำ",
+    "zh": "听取建议",
+    "ja": "助言をもらう",
+    "ko": "조언 듣기",
+    "hi": "सलाह लेना",
+    "ar": "طلب النصيحة",
+    "ru": "Получить совет",
+    "tr": "Tavsiye alma"
+   },
+   "lines": [
+    "a1",
+    "a2",
+    "a3",
+    "a4"
+   ]
+  },
+  {
+   "id": "buy",
+   "title": {
+    "en": "Buy and pay",
+    "vi": "Mua thuốc và trả tiền",
+    "es": "Comprar y pagar",
+    "pt": "Comprar e pagar",
+    "fr": "Acheter et payer",
+    "de": "Kaufen und bezahlen",
+    "id": "Membeli dan membayar",
+    "th": "ซื้อและจ่ายเงิน",
+    "zh": "购买并付款",
+    "ja": "購入と支払い",
+    "ko": "구입과 계산",
+    "hi": "ख़रीदना और भुगतान",
+    "ar": "الشراء والدفع",
+    "ru": "Купить и оплатить",
+    "tr": "Satın alma ve ödeme"
+   },
+   "lines": [
+    "b1",
+    "b2",
+    "b3",
+    "b4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "s1",
+   "who": "customer",
+   "en": "I've had a sore throat and a cough since Monday.",
+   "variants": {
+    "polite": "I've been suffering from a sore throat and a cough since Monday.",
+    "casual": "Sore throat and a cough since Monday."
+   },
+   "gloss": {
+    "en": "Telling the pharmacist what is wrong.",
+    "vi": "Nói với dược sĩ bạn bị gì.",
+    "es": "Cuenta al farmacéutico qué te pasa.",
+    "pt": "Diz ao farmacêutico o que sente.",
+    "fr": "Dire au pharmacien ce qui ne va pas.",
+    "de": "Dem Apotheker sagen, was los ist.",
+    "id": "Memberi tahu apoteker keluhan Anda.",
+    "th": "บอกเภสัชกรว่าเป็นอะไร",
+    "zh": "告诉药师哪里不舒服。",
+    "ja": "薬剤師に症状を伝えます。",
+    "ko": "약사에게 증상을 말해요.",
+    "hi": "फ़ार्मासिस्ट को बताना कि क्या तकलीफ़ है।",
+    "ar": "إخبار الصيدلاني بما تشكو منه.",
+    "ru": "Рассказать фармацевту, что беспокоит.",
+    "tr": "Eczacıya şikâyeti anlatma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "cough",
+     "ipa": "/kɔːf/",
+     "hi": "KAWF",
+     "note": {
+      "en": "Say KAWF. The \"gh\" at the end sounds like \"f\", so it does not rhyme with \"though\".",
+      "vi": "Đọc KOÓF. Chữ \"gh\" ở cuối đọc như \"f\", không giống \"though\".",
+      "es": "Se dice KAWF. La \"gh\" final suena como \"f\", no rima con \"though\".",
+      "pt": "Diz-se KAWF. O \"gh\" final soa como \"f\", não rima com \"though\".",
+      "fr": "Ça se dit KAWF. Le « gh » final sonne comme « f », ça ne rime pas avec « though ».",
+      "de": "Sprich KAWF. Das „gh“ am Ende klingt wie „f“, es reimt sich nicht auf „though“.",
+      "id": "Ucapkan KAWF. \"gh\" di akhir dibaca \"f\", tidak berima dengan \"though\".",
+      "th": "ออกเสียง KAWF ตัว \"gh\" ท้ายคำออกเสียงเป็น \"f\" ไม่เหมือน \"though\"",
+      "zh": "读作 KAWF，结尾的 gh 读 f，和 though 不押韵。",
+      "ja": "KAWF と読みます。語末の gh は「f」の音で、though とは違います。",
+      "ko": "KAWF로 읽어요. 끝의 gh는  소리이고 though와 다르게 읽어요.",
+      "hi": "KAWF बोलें। अंत का gh \"f\" जैसा है, though जैसा नहीं।",
+      "ar": "تُنطق KAWF، وحرفا gh في النهاية بصوت f وليس مثل though.",
+      "ru": "Читается KAWF. Конечное «gh» звучит как «ф», не как в though.",
+      "tr": "KAWF diye okunur. Sondaki \"gh\" \"f\" sesi verir, though gibi değildir."
+     }
+    },
+    {
+     "l1": "*",
+     "w": "throat",
+     "ipa": "/θroʊt/",
+     "hi": "THROHT",
+     "note": {
+      "en": "Put your tongue between your teeth for \"th\", then say rowt: THROHT. Do not say \"s\" or \"t\".",
+      "vi": "Đặt lưỡi giữa hai hàm răng cho âm \"th\", rồi đọc rôt: THROHT. Đừng đọc thành \"s\" hay \"t\".",
+      "es": "Pon la lengua entre los dientes para \"th\" y di rowt: THROHT. No digas \"s\" ni \"t\".",
+      "pt": "Ponha a língua entre os dentes para o \"th\" e diga rowt: THROHT. Não diga \"s\" nem \"t\".",
+      "fr": "Placez la langue entre les dents pour « th », puis dites rowt : THROHT. Pas de « s » ni de « t ».",
+      "de": "Zunge zwischen die Zähne für „th“, dann rowt: THROHT. Nicht „s“ oder „t“ sprechen.",
+      "id": "Letakkan lidah di antara gigi untuk \"th\", lalu rowt: THROHT. Jangan jadi \"s\" atau \"t\".",
+      "th": "วางลิ้นระหว่างฟันสำหรับเสียง \"th\" แล้วต่อ โรว์ท: THROHT อย่าออกเป็น \"s\" หรือ \"t\"",
+      "zh": "舌尖放在上下齿之间发 th，再接 roht：THROHT。别读成 s 或 t。",
+      "ja": "th は舌を歯の間に入れて出し、そのあと「ロウト」：THROHT。s や t にしないで。",
+      "ko": "th는 혀를 이 사이에 넣어 소리 내고 \"로트\"를 붙여요: THROHT. s나 t로 읽지 마세요.",
+      "hi": "\"th\" के लिए जीभ दाँतों के बीच रखें, फिर \"रोट\": THROHT। \"s\" या \"t\" न बोलें।",
+      "ar": "ضع لسانك بين الأسنان لنطق th ثم قل roht: THROHT. لا تنطقها s أو t.",
+      "ru": "Язык между зубами для «th», затем «роут»: THROHT. Не заменяйте на «с» или «т».",
+      "tr": "\"th\" için dilinizi dişlerin arasına koyun, sonra rowt: THROHT. \"s\" ya da \"t\" demeyin."
+     }
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "who": "barista",
+   "en": "I see. Do you have a fever or a headache?",
+   "variants": {
+    "polite": "I see. Are you running a temperature, or do you have a headache?",
+    "casual": "Any fever or headache?"
+   },
+   "gloss": {
+    "en": "The pharmacist asks follow-up questions.",
+    "vi": "Dược sĩ hỏi thêm.",
+    "es": "El farmacéutico hace más preguntas.",
+    "pt": "O farmacêutico faz mais perguntas.",
+    "fr": "Le pharmacien pose d'autres questions.",
+    "de": "Der Apotheker fragt nach.",
+    "id": "Apoteker bertanya lebih lanjut.",
+    "th": "เภสัชกรถามเพิ่มเติม",
+    "zh": "药师追问其他症状。",
+    "ja": "薬剤師が追加で質問します。",
+    "ko": "약사가 추가로 물어봐요.",
+    "hi": "फ़ार्मासिस्ट और सवाल पूछता है।",
+    "ar": "الصيدلاني يطرح أسئلة إضافية.",
+    "ru": "Фармацевт уточняет.",
+    "tr": "Eczacı ek sorular sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "s3",
+   "who": "customer",
+   "en": "No fever, but my head hurts a little.",
+   "variants": {
+    "polite": "No fever, but I do have a slight headache.",
+    "casual": "No fever, just a small headache."
+   },
+   "gloss": {
+    "en": "Answering about other symptoms.",
+    "vi": "Trả lời về các triệu chứng khác.",
+    "es": "Responde sobre otros síntomas.",
+    "pt": "Responde sobre outros sintomas.",
+    "fr": "Répondre sur les autres symptômes.",
+    "de": "Auf Fragen zu anderen Beschwerden antworten.",
+    "id": "Menjawab tentang keluhan lain.",
+    "th": "ตอบเรื่องอาการอื่น",
+    "zh": "回答其他症状。",
+    "ja": "ほかの症状について答えます。",
+    "ko": "다른 증상에 대해 답해요.",
+    "hi": "दूसरे लक्षणों के बारे में जवाब देना।",
+    "ar": "الإجابة عن الأعراض الأخرى.",
+    "ru": "Ответить о других симптомах.",
+    "tr": "Diğer belirtiler hakkında cevap verme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "s4",
+   "who": "customer",
+   "en": "I'm allergic to penicillin, so I can't take that.",
+   "variants": {
+    "polite": "I should mention that I'm allergic to penicillin.",
+    "casual": "I'm allergic to penicillin."
+   },
+   "gloss": {
+    "en": "Mentioning an allergy to medicine.",
+    "vi": "Báo mình dị ứng với thuốc.",
+    "es": "Menciona una alergia a un medicamento.",
+    "pt": "Informa uma alergia a medicamento.",
+    "fr": "Signaler une allergie à un médicament.",
+    "de": "Eine Medikamentenallergie nennen.",
+    "id": "Menyebut alergi obat.",
+    "th": "บอกว่าแพ้ยา",
+    "zh": "说明自己对药物过敏。",
+    "ja": "薬のアレルギーを伝えます。",
+    "ko": "약 알레르기를 알려요.",
+    "hi": "दवा से एलर्जी बताना।",
+    "ar": "ذكر الحساسية من دواء.",
+    "ru": "Сообщить об аллергии на лекарство.",
+    "tr": "İlaç alerjisini belirtme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "penicillin",
+     "ipa": "/ˌpen.əˈsɪl.ɪn/",
+     "hi": "SIL",
+     "note": {
+      "en": "Stress the third syllable: pen-uh-SIL-in. Say it in four short beats.",
+      "vi": "Nhấn âm tiết thứ ba: pen-ờ-SIL-in. Đọc bốn nhịp ngắn.",
+      "es": "Acentúa la tercera sílaba: pen-uh-SIL-in. Dilo en cuatro golpes cortos.",
+      "pt": "Acentue a terceira sílaba: pen-uh-SIL-in. Diga em quatro batidas curtas.",
+      "fr": "Accentuez la troisième syllabe : pen-euh-SIL-ine. Quatre temps courts.",
+      "de": "Betone die dritte Silbe: pen-uh-SIL-in. Vier kurze Schläge.",
+      "id": "Tekankan suku kata ketiga: pen-uh-SIL-in. Ucapkan dalam empat ketukan pendek.",
+      "th": "เน้นพยางค์ที่สาม: เพน-เนอ-SIL-อิน ออกเสียงสี่จังหวะสั้น ๆ",
+      "zh": "重音在第三音节：pen-uh-SIL-in，四个短音节。",
+      "ja": "3番目の音節を強く：ペン・ア・SIL・イン。短く4拍で言います。",
+      "ko": "세 번째 음절에 강세: 펜-어-SIL-인. 짧게 네 박자로 말해요.",
+      "hi": "तीसरे अक्षर पर ज़ोर: पेन-अ-SIL-इन। चार छोटी ताल में बोलें।",
+      "ar": "النبر على المقطع الثالث: pen-uh-SIL-in، بأربع نبرات قصيرة.",
+      "ru": "Ударение на третий слог: пен-а-СИЛ-ин. Четыре коротких слога.",
+      "tr": "Üçüncü hecede vurgu: pen-ı-SİL-in. Dört kısa vuruşla söyleyin."
+     }
+    }
+   ]
+  },
+  {
+   "id": "a1",
+   "who": "barista",
+   "en": "It sounds like a cold. I'd suggest these lozenges.",
+   "variants": {
+    "polite": "It sounds like a common cold. I would recommend these lozenges.",
+    "casual": "Sounds like a cold. Try these."
+   },
+   "gloss": {
+    "en": "The pharmacist recommends a product.",
+    "vi": "Dược sĩ gợi ý một sản phẩm.",
+    "es": "El farmacéutico recomienda un producto.",
+    "pt": "O farmacêutico recomenda um produto.",
+    "fr": "Le pharmacien recommande un produit.",
+    "de": "Der Apotheker empfiehlt ein Produkt.",
+    "id": "Apoteker merekomendasikan produk.",
+    "th": "เภสัชกรแนะนำผลิตภัณฑ์",
+    "zh": "药师推荐一种药。",
+    "ja": "薬剤師が商品を勧めます。",
+    "ko": "약사가 제품을 추천해요.",
+    "hi": "फ़ार्मासिस्ट एक उत्पाद सुझाता है।",
+    "ar": "الصيدلاني يوصي بمنتج.",
+    "ru": "Фармацевт рекомендует средство.",
+    "tr": "Eczacı bir ürün önerir."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "a2",
+   "who": "customer",
+   "en": "How often should I take them?",
+   "variants": {
+    "polite": "Could you tell me how often I should take them?",
+    "casual": "How often do I take them?"
+   },
+   "gloss": {
+    "en": "Asking how often to take medicine.",
+    "vi": "Hỏi uống bao lâu một lần.",
+    "es": "Pregunta cada cuánto tomarlos.",
+    "pt": "Pergunta com que frequência tomar.",
+    "fr": "Demander la fréquence de prise.",
+    "de": "Fragen, wie oft man sie nimmt.",
+    "id": "Menanyakan seberapa sering diminum.",
+    "th": "ถามว่าต้องกินบ่อยแค่ไหน",
+    "zh": "问多久吃一次。",
+    "ja": "服用の頻度を尋ねます。",
+    "ko": "얼마나 자주 먹는지 물어봐요.",
+    "hi": "पूछना कि कितनी बार लेनी है।",
+    "ar": "السؤال عن عدد مرات التناول.",
+    "ru": "Спросить, как часто принимать.",
+    "tr": "Ne sıklıkla alınacağını sorma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "a3",
+   "who": "barista",
+   "en": "One every three hours, and no more than eight a day.",
+   "variants": {
+    "polite": "Take one every three hours, up to a maximum of eight a day.",
+    "casual": "One every three hours. Eight a day at most."
+   },
+   "gloss": {
+    "en": "The pharmacist explains the dose.",
+    "vi": "Dược sĩ giải thích liều dùng.",
+    "es": "El farmacéutico explica la dosis.",
+    "pt": "O farmacêutico explica a dose.",
+    "fr": "Le pharmacien explique la dose.",
+    "de": "Der Apotheker erklärt die Dosierung.",
+    "id": "Apoteker menjelaskan dosis.",
+    "th": "เภสัชกรอธิบายขนาดยา",
+    "zh": "药师说明用量。",
+    "ja": "薬剤師が用量を説明します。",
+    "ko": "약사가 복용량을 설명해요.",
+    "hi": "फ़ार्मासिस्ट खुराक समझाता है।",
+    "ar": "الصيدلاني يشرح الجرعة.",
+    "ru": "Фармацевт объясняет дозировку.",
+    "tr": "Eczacı dozu açıklar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "hours",
+     "ipa": "/aʊərz/",
+     "hi": "OWRZ",
+     "note": {
+      "en": "The \"h\" is silent: say OWRZ, like \"ours\". It is one beat.",
+      "vi": "Chữ \"h\" câm: đọc OWRZ như \"ours\". Chỉ một nhịp.",
+      "es": "La \"h\" es muda: di OWRZ, como \"ours\". Es un solo golpe.",
+      "pt": "O \"h\" é mudo: diga OWRZ, como \"ours\". É uma batida só.",
+      "fr": "Le « h » est muet : dites OWRZ, comme « ours ». Un seul temps.",
+      "de": "Das „h“ ist stumm: sprich OWRZ wie „ours“. Es ist ein Schlag.",
+      "id": "\"h\" tidak dibaca: ucapkan OWRZ seperti \"ours\". Satu ketukan.",
+      "th": "\"h\" เป็นตัวเงียบ ออกเสียง OWRZ เหมือน \"ours\" จังหวะเดียว",
+      "zh": "h 不发音，读 OWRZ，和 ours 一样，只有一拍。",
+      "ja": "h は発音しません。ours と同じ OWRZ。1拍です。",
+      "ko": "h는 소리 나지 않아요. ours와 같이 OWRZ로 읽고 한 박자예요.",
+      "hi": "\"h\" मौन है: ours की तरह OWRZ बोलें। एक ही ताल।",
+      "ar": "حرف h صامت: انطقها OWRZ مثل ours، نبرة واحدة.",
+      "ru": "«h» не читается: OWRZ, как «ours». Один слог.",
+      "tr": "\"h\" okunmaz: \"ours\" gibi OWRZ deyin. Tek vuruş."
+     }
+    }
+   ]
+  },
+  {
+   "id": "a4",
+   "who": "customer",
+   "en": "Is it safe to take these with my other medicine?",
+   "variants": {
+    "polite": "Would it be safe to take these alongside my other medicine?",
+    "casual": "Can I take these with my other tablets?"
+   },
+   "gloss": {
+    "en": "Checking that medicines are safe together.",
+    "vi": "Hỏi dùng chung với thuốc khác có an toàn không.",
+    "es": "Pregunta si es seguro con otro medicamento.",
+    "pt": "Pergunta se é seguro com outro remédio.",
+    "fr": "Vérifier la compatibilité avec un autre médicament.",
+    "de": "Fragen, ob es mit anderen Medikamenten sicher ist.",
+    "id": "Menanyakan keamanan jika diminum bersama obat lain.",
+    "th": "ถามว่ากินร่วมกับยาอื่นปลอดภัยไหม",
+    "zh": "问和其他药一起吃安不安全。",
+    "ja": "ほかの薬と一緒に飲んで安全か尋ねます。",
+    "ko": "다른 약과 같이 먹어도 안전한지 물어봐요.",
+    "hi": "पूछना कि दूसरी दवा के साथ लेना सुरक्षित है या नहीं।",
+    "ar": "السؤال عن أمان تناولها مع دواء آخر.",
+    "ru": "Спросить, безопасно ли с другим лекарством.",
+    "tr": "Başka ilaçla birlikte güvenli olup olmadığını sorma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "b1",
+   "who": "customer",
+   "en": "Do I need a prescription for this?",
+   "variants": {
+    "polite": "Is a prescription required for this, or can I just buy it?",
+    "casual": "Do I need a prescription?"
+   },
+   "gloss": {
+    "en": "Asking if a prescription is needed.",
+    "vi": "Hỏi có cần đơn thuốc không.",
+    "es": "Pregunta si hace falta receta.",
+    "pt": "Pergunta se precisa de receita.",
+    "fr": "Demander si une ordonnance est nécessaire.",
+    "de": "Fragen, ob man ein Rezept braucht.",
+    "id": "Menanyakan apakah perlu resep.",
+    "th": "ถามว่าต้องใช้ใบสั่งยาไหม",
+    "zh": "问是否需要处方。",
+    "ja": "処方箋が必要か尋ねます。",
+    "ko": "처방전이 필요한지 물어봐요.",
+    "hi": "पूछना कि पर्ची चाहिए या नहीं।",
+    "ar": "السؤال عن الحاجة إلى وصفة طبية.",
+    "ru": "Спросить, нужен ли рецепт.",
+    "tr": "Reçete gerekip gerekmediğini sorma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "prescription",
+     "ipa": "/prɪˈskrɪp.ʃən/",
+     "hi": "SKRIP",
+     "note": {
+      "en": "Stress the second syllable: pri-SKRIP-shun. Do not say \"pre-scrip-tion\" with a hard \"t\".",
+      "vi": "Nhấn âm tiết thứ hai: pri-SKRIP-shần. Đừng đọc \"t\" cứng.",
+      "es": "Acentúa la segunda sílaba: pri-SKRIP-shen. No pronuncies la \"t\" dura.",
+      "pt": "Acentue a segunda sílaba: pri-SKRIP-xân. Não pronuncie o \"t\" forte.",
+      "fr": "Accentuez la deuxième syllabe : pri-SKRIP-cheune. Pas de « t » dur.",
+      "de": "Betone die zweite Silbe: pri-SKRIP-schn. Kein hartes „t“.",
+      "id": "Tekankan suku kata kedua: pri-SKRIP-syen. Jangan baca \"t\" keras.",
+      "th": "เน้นพยางค์ที่สอง: พริ-SKRIP-ชั่น ไม่ออกเสียง t แข็ง",
+      "zh": "重音在第二音节：pri-SKRIP-shun，不要把 t 读重。",
+      "ja": "2番目を強く：プリ・SKRIP・シャン。t をはっきり言わないで。",
+      "ko": "두 번째 음절에 강세: 프리-SKRIP-션. t를 세게 발음하지 마세요.",
+      "hi": "दूसरे अक्षर पर ज़ोर: प्रि-SKRIP-शन। कड़ा \"t\" न बोलें।",
+      "ar": "النبر على المقطع الثاني: pri-SKRIP-shun، دون نطق t قوية.",
+      "ru": "Ударение на второй слог: при-СКРИП-шн. Без твёрдого «т».",
+      "tr": "Vurgu ikinci hecede: pri-SKRİP-şın. Sert \"t\" demeyin."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "who": "barista",
+   "en": "No, you can get these without one.",
+   "variants": {
+    "polite": "No prescription is needed. You can buy them over the counter.",
+    "casual": "No, you don't need one."
+   },
+   "gloss": {
+    "en": "The pharmacist says no prescription is needed.",
+    "vi": "Dược sĩ nói không cần đơn.",
+    "es": "El farmacéutico dice que no hace falta receta.",
+    "pt": "O farmacêutico diz que não precisa de receita.",
+    "fr": "Le pharmacien dit qu'il n'en faut pas.",
+    "de": "Der Apotheker sagt, man braucht kein Rezept.",
+    "id": "Apoteker bilang tidak perlu resep.",
+    "th": "เภสัชกรบอกว่าไม่ต้องใช้ใบสั่งยา",
+    "zh": "药师说不需要处方。",
+    "ja": "処方箋は不要だと伝えます。",
+    "ko": "처방전이 필요 없다고 말해요.",
+    "hi": "फ़ार्मासिस्ट कहता है कि पर्ची ज़रूरी नहीं।",
+    "ar": "الصيدلاني يقول إن الوصفة غير لازمة.",
+    "ru": "Фармацевт говорит, что рецепт не нужен.",
+    "tr": "Eczacı reçete gerekmediğini söyler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "b3",
+   "who": "customer",
+   "en": "I'll take them. Could I also have some plasters?",
+   "variants": {
+    "polite": "I'll take those, please. Do you also sell plasters?",
+    "casual": "I'll take them, and some plasters."
+   },
+   "gloss": {
+    "en": "Buying more than one item.",
+    "vi": "Mua thêm một món nữa.",
+    "es": "Compra más de un artículo.",
+    "pt": "Compra mais de um item.",
+    "fr": "Acheter plusieurs articles.",
+    "de": "Mehrere Artikel kaufen.",
+    "id": "Membeli lebih dari satu barang.",
+    "th": "ซื้อของมากกว่าหนึ่งอย่าง",
+    "zh": "买不止一样东西。",
+    "ja": "複数の商品を買います。",
+    "ko": "여러 가지를 구입해요.",
+    "hi": "एक से ज़्यादा चीज़ें ख़रीदना।",
+    "ar": "شراء أكثر من منتج.",
+    "ru": "Купить несколько товаров.",
+    "tr": "Birden fazla ürün alma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "b4",
+   "who": "barista",
+   "en": "That's eleven ninety-five altogether. Anything else?",
+   "variants": {
+    "polite": "Your total comes to eleven ninety-five. Is there anything else I can help with?",
+    "casual": "Eleven ninety-five. Anything else?"
+   },
+   "gloss": {
+    "en": "The pharmacist says the total.",
+    "vi": "Dược sĩ báo tổng tiền.",
+    "es": "El farmacéutico dice el total.",
+    "pt": "O farmacêutico diz o total.",
+    "fr": "Le pharmacien annonce le total.",
+    "de": "Der Apotheker nennt die Summe.",
+    "id": "Apoteker menyebut total harga.",
+    "th": "เภสัชกรบอกยอดรวม",
+    "zh": "药师报总价。",
+    "ja": "薬剤師が合計金額を伝えます。",
+    "ko": "약사가 총액을 말해요.",
+    "hi": "फ़ार्मासिस्ट कुल राशि बताता है।",
+    "ar": "الصيدلاني يذكر المجموع.",
+    "ru": "Фармацевт называет сумму.",
+    "tr": "Eczacı toplamı söyler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "What seems to be the problem today?",
+   "keywords": [
+    "headache",
+    "cold",
+    "cough",
+    "sore",
+    "throat",
+    "stomach",
+    "fever",
+    "pain",
+    "allergy",
+    "rash",
+    "sleep",
+    "tired",
+    "hurt",
+    "ache"
+   ],
+   "variants": {
+    "polite": "What can I help you with today?",
+    "casual": "What's wrong?"
+   },
+   "gloss": {
+    "en": "The pharmacist asks about the problem.",
+    "vi": "Dược sĩ hỏi bạn gặp vấn đề gì.",
+    "es": "El farmacéutico pregunta qué te pasa.",
+    "pt": "O farmacêutico pergunta qual é o problema.",
+    "fr": "Le pharmacien demande ce qui ne va pas.",
+    "de": "Der Apotheker fragt nach dem Problem.",
+    "id": "Apoteker menanyakan masalah Anda.",
+    "th": "เภสัชกรถามว่าเป็นอะไร",
+    "zh": "药师问你哪里不舒服。",
+    "ja": "薬剤師が症状を尋ねます。",
+    "ko": "약사가 어디가 불편한지 물어봐요.",
+    "hi": "फ़ार्मासिस्ट पूछता है कि क्या समस्या है।",
+    "ar": "الصيدلاني يسأل عن المشكلة.",
+    "ru": "Фармацевт спрашивает, что беспокоит.",
+    "tr": "Eczacı sorunu sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "How long have you had these symptoms?",
+   "keywords": [
+    "day",
+    "days",
+    "week",
+    "weeks",
+    "yesterday",
+    "monday",
+    "since",
+    "ago",
+    "morning",
+    "night",
+    "hours",
+    "month",
+    "today",
+    "few"
+   ],
+   "variants": {
+    "polite": "Could you tell me how long you've had these symptoms?",
+    "casual": "How long has it been?"
+   },
+   "gloss": {
+    "en": "The pharmacist asks how long.",
+    "vi": "Dược sĩ hỏi bạn bị bao lâu rồi.",
+    "es": "El farmacéutico pregunta desde cuándo.",
+    "pt": "O farmacêutico pergunta há quanto tempo.",
+    "fr": "Le pharmacien demande depuis quand.",
+    "de": "Der Apotheker fragt, seit wann.",
+    "id": "Apoteker menanyakan sudah berapa lama.",
+    "th": "เภสัชกรถามว่าเป็นมานานเท่าไร",
+    "zh": "药师问症状持续多久了。",
+    "ja": "いつから症状があるか尋ねられます。",
+    "ko": "증상이 얼마나 됐는지 물어봐요.",
+    "hi": "फ़ार्मासिस्ट पूछता है कि कब से है।",
+    "ar": "الصيدلاني يسأل منذ متى.",
+    "ru": "Фармацевт спрашивает, как давно.",
+    "tr": "Eczacı ne zamandır olduğunu sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Good morning. How can I help you?"
+  },
+  {
+   "who": "customer",
+   "en": "Hi. I've had a bad cough for three days."
+  },
+  {
+   "who": "barista",
+   "en": "Is it a dry cough, or are you bringing anything up?"
+  },
+  {
+   "who": "customer",
+   "en": "It's dry, and it keeps me awake at night."
+  },
+  {
+   "who": "barista",
+   "en": "I'd suggest this syrup. Take two spoonfuls before bed."
+  },
+  {
+   "who": "customer",
+   "en": "Is it safe to take with my allergy tablets?"
+  },
+  {
+   "who": "barista",
+   "en": "Yes, there's no problem with those."
+  },
+  {
+   "who": "customer",
+   "en": "Great, I'll take it. How much is it?"
+  },
+  {
+   "who": "barista",
+   "en": "It's nine pounds fifty. If it's not better in a week, see your doctor."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "What can I get you today?"
+    },
+    {
+     "who": "customer",
+     "en": "I have a headache. What do you recommend?"
+    },
+    {
+     "who": "barista",
+     "en": "These tablets work well. Take two with water, with food."
+    },
+    {
+     "who": "customer",
+     "en": "Thanks. Can I take them with my morning coffee?"
+    }
+   ],
+   "q": {
+    "en": "What does the pharmacist say to take with the tablets?",
+    "vi": "Dược sĩ dặn uống thuốc kèm gì?",
+    "es": "¿Con qué dice el farmacéutico que se tomen las pastillas?",
+    "pt": "Com o que o farmacêutico diz para tomar os comprimidos?",
+    "fr": "Avec quoi le pharmacien dit-il de prendre les comprimés ?",
+    "de": "Wozu sagt der Apotheker, soll man die Tabletten nehmen?",
+    "id": "Apoteker menyarankan tablet diminum bersama apa?",
+    "th": "เภสัชกรบอกให้กินยากับอะไร",
+    "zh": "药师说药片要配什么一起吃？",
+    "ja": "薬剤師は錠剤を何と一緒に飲むよう言いましたか？",
+    "ko": "약사는 알약을 무엇과 함께 먹으라고 했나요?",
+    "hi": "फ़ार्मासिस्ट गोलियों के साथ क्या लेने को कहता है?",
+    "ar": "ماذا قال الصيدلاني أن تُؤخذ الأقراص معه؟",
+    "ru": "С чем фармацевт советует принимать таблетки?",
+    "tr": "Eczacı tabletlerin neyle alınmasını söylüyor?"
+   },
+   "answer": "with water, with food"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Excuse me, do you have anything for a stomach ache?"
+    },
+    {
+     "who": "barista",
+     "en": "Have you eaten anything unusual?"
+    },
+    {
+     "who": "customer",
+     "en": "Not really. It started last night."
+    },
+    {
+     "who": "barista",
+     "en": "Then try these tablets. If the pain lasts more than two days, see a doctor."
+    }
+   ],
+   "q": {
+    "en": "When should the customer see a doctor?",
+    "vi": "Khi nào khách nên đi khám?",
+    "es": "¿Cuándo debe ir el cliente al médico?",
+    "pt": "Quando o cliente deve ir ao médico?",
+    "fr": "Quand le client doit-il consulter un médecin ?",
+    "de": "Wann soll der Kunde zum Arzt gehen?",
+    "id": "Kapan pelanggan sebaiknya ke dokter?",
+    "th": "ลูกค้าควรไปหาหมอเมื่อไร",
+    "zh": "顾客什么时候该去看医生？",
+    "ja": "お客さんはいつ医者に行くべきですか？",
+    "ko": "손님은 언제 병원에 가야 하나요?",
+    "hi": "ग्राहक को डॉक्टर के पास कब जाना चाहिए?",
+    "ar": "متى يجب أن يذهب الزبون إلى الطبيب؟",
+    "ru": "Когда клиенту стоит обратиться к врачу?",
+    "tr": "Müşteri doktora ne zaman gitmeli?"
+   },
+   "answer": "more than two days"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "symptoms-task",
+    "title": {
+     "en": "Explain what is wrong",
+     "vi": "Giải thích bạn bị gì",
+     "es": "Explica qué te pasa",
+     "pt": "Explique o que sente",
+     "fr": "Expliquer ce qui ne va pas",
+     "de": "Erklären, was los ist",
+     "id": "Jelaskan keluhan Anda",
+     "th": "อธิบายว่าเป็นอะไร",
+     "zh": "说明哪里不舒服",
+     "ja": "症状を説明する",
+     "ko": "어디가 아픈지 설명하기",
+     "hi": "बताएँ क्या तकलीफ़ है",
+     "ar": "اشرح ما تشكو منه",
+     "ru": "Объяснить, что беспокоит",
+     "tr": "Neyin olduğunu anlat"
+    },
+    "intents": [
+     "s1",
+     "s3"
+    ]
+   },
+   {
+    "id": "safe-dose",
+    "title": {
+     "en": "Check it is safe",
+     "vi": "Kiểm tra độ an toàn",
+     "es": "Comprueba que es seguro",
+     "pt": "Verifique se é seguro",
+     "fr": "Vérifier que c'est sûr",
+     "de": "Prüfen, ob es sicher ist",
+     "id": "Pastikan aman",
+     "th": "ตรวจสอบความปลอดภัย",
+     "zh": "确认是否安全",
+     "ja": "安全か確認する",
+     "ko": "안전한지 확인하기",
+     "hi": "जाँचें कि सुरक्षित है",
+     "ar": "تحقق من الأمان",
+     "ru": "Проверить безопасность",
+     "tr": "Güvenliğini kontrol et"
+    },
+    "intents": [
+     "s4",
+     "a4"
+    ]
+   },
+   {
+    "id": "dose-pay",
+    "title": {
+     "en": "Ask about the dose and buy",
+     "vi": "Hỏi liều dùng và mua",
+     "es": "Pregunta la dosis y compra",
+     "pt": "Pergunte a dose e compre",
+     "fr": "Demander la dose et acheter",
+     "de": "Nach der Dosis fragen und kaufen",
+     "id": "Tanya dosis dan beli",
+     "th": "ถามขนาดยาและซื้อ",
+     "zh": "问用量并购买",
+     "ja": "用量を聞いて購入する",
+     "ko": "복용량을 묻고 구입하기",
+     "hi": "खुराक पूछें और ख़रीदें",
+     "ar": "اسأل عن الجرعة واشترِ",
+     "ru": "Узнать дозировку и купить",
+     "tr": "Dozu sor ve satın al"
+    },
+    "intents": [
+     "a2",
+     "b3"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "In many English-speaking countries a pharmacist can advise you on minor problems such as a cold, a sore throat or an upset stomach, without an appointment. Some medicines are on open shelves, while others are kept behind the counter and the pharmacist must hand them over. Always say if you have an allergy or take other medicine, and read the label for the dose.",
+  "vi": "Ở nhiều nước nói tiếng Anh, dược sĩ có thể tư vấn các vấn đề nhẹ như cảm lạnh, đau họng hay đau bụng mà không cần hẹn trước. Một số thuốc để trên kệ, số khác để sau quầy và dược sĩ phải đưa cho bạn. Luôn nói nếu bạn bị dị ứng hoặc đang dùng thuốc khác, và đọc nhãn để biết liều dùng.",
+  "es": "En muchos países de habla inglesa el farmacéutico puede aconsejarte sobre problemas leves como un resfriado, dolor de garganta o molestias de estómago, sin cita. Algunos medicamentos están en estantes abiertos y otros detrás del mostrador, y los entrega el farmacéutico. Di siempre si tienes alguna alergia o tomas otro medicamento, y lee la etiqueta para la dosis.",
+  "pt": "Em muitos países de língua inglesa o farmacêutico pode orientar sobre problemas leves, como resfriado, dor de garganta ou mal-estar no estômago, sem marcar consulta. Alguns remédios ficam nas prateleiras e outros atrás do balcão, e o farmacêutico é quem entrega. Diga sempre se tem alguma alergia ou toma outro remédio, e leia a bula para saber a dose.",
+  "fr": "Dans beaucoup de pays anglophones, le pharmacien peut vous conseiller pour un petit souci (rhume, mal de gorge, estomac dérangé) sans rendez-vous. Certains médicaments sont en libre accès, d'autres derrière le comptoir et remis par le pharmacien. Signalez toujours une allergie ou un autre traitement, et lisez la notice pour la dose.",
+  "de": "In vielen englischsprachigen Ländern berät dich der Apotheker ohne Termin bei kleinen Beschwerden wie Erkältung, Halsschmerzen oder Magenproblemen. Manche Medikamente stehen offen im Regal, andere hinter dem Tresen und werden vom Apotheker ausgegeben. Sag immer, wenn du eine Allergie hast oder andere Medikamente nimmst, und lies den Beipackzettel für die Dosierung.",
+  "id": "Di banyak negara berbahasa Inggris, apoteker dapat memberi saran untuk masalah ringan seperti pilek, sakit tenggorokan, atau perut tidak enak tanpa janji temu. Sebagian obat ada di rak terbuka, sebagian lagi di balik meja dan diberikan oleh apoteker. Selalu sebutkan jika Anda alergi atau minum obat lain, dan baca label untuk dosisnya.",
+  "th": "ในหลายประเทศที่พูดภาษาอังกฤษ เภสัชกรให้คำแนะนำเรื่องไม่หนัก เช่น หวัด เจ็บคอ หรือท้องไม่สบาย ได้โดยไม่ต้องนัดล่วงหน้า ยาบางอย่างวางบนชั้น บางอย่างเก็บไว้หลังเคาน์เตอร์และเภสัชกรเป็นผู้จ่ายให้ ควรบอกเสมอถ้าแพ้ยาหรือกินยาอื่นอยู่ และอ่านฉลากเรื่องขนาดยา",
+  "zh": "在许多英语国家，感冒、喉咙痛、胃不舒服这类小问题，可以不预约直接请药师给建议。有些药放在开放货架上，有些放在柜台后面，要由药师递给你。一定要说明自己有没有过敏、是否在吃别的药，并按标签看用量。",
+  "ja": "英語圏の多くの国では、風邪、のどの痛み、胃の不調といった軽い症状なら、予約なしで薬剤師に相談できます。棚に並んでいる薬もあれば、カウンターの奥にあって薬剤師が渡す薬もあります。アレルギーや服用中の薬は必ず伝え、用量はラベルで確認しましょう。",
+  "ko": "영어권 여러 나라에서는 감기, 목 아픔, 배탈 같은 가벼운 증상은 예약 없이 약사에게 상담할 수 있어요. 어떤 약은 진열대에 있고, 어떤 약은 카운터 뒤에 있어서 약사가 건네줘요. 알레르기가 있거나 다른 약을 먹고 있으면 꼭 말하고, 복용량은 라벨로 확인하세요.",
+  "hi": "कई अंग्रेज़ी-भाषी देशों में सर्दी, गले में दर्द या पेट की हल्की गड़बड़ी जैसी छोटी समस्याओं पर बिना अपॉइंटमेंट के फ़ार्मासिस्ट से सलाह ली जा सकती है। कुछ दवाइयाँ खुली अलमारी में होती हैं और कुछ काउंटर के पीछे, जिन्हें फ़ार्मासिस्ट ही देता है। एलर्जी या दूसरी दवा के बारे में हमेशा बताएँ और खुराक के लिए लेबल पढ़ें।",
+  "ar": "في كثير من الدول الناطقة بالإنجليزية يمكن للصيدلاني أن ينصحك في المشكلات البسيطة مثل الزكام أو التهاب الحلق أو اضطراب المعدة دون موعد. بعض الأدوية على الرفوف المفتوحة وبعضها خلف المنضدة ويسلّمها الصيدلاني. أخبره دائمًا إن كانت لديك حساسية أو تتناول دواءً آخر، واقرأ الملصق لمعرفة الجرعة.",
+  "ru": "Во многих англоязычных странах фармацевт может без записи посоветовать при лёгких проблемах: простуде, боли в горле, расстройстве желудка. Одни лекарства лежат на открытых полках, другие — за прилавком, и их выдаёт фармацевт. Всегда говорите об аллергии и о других принимаемых лекарствах и читайте инструкцию, чтобы узнать дозировку.",
+  "tr": "Birçok İngilizce konuşulan ülkede eczacı, nezle, boğaz ağrısı ya da mide rahatsızlığı gibi küçük sorunlarda randevusuz tavsiye verir. Bazı ilaçlar açık raflardadır, bazıları tezgâhın arkasındadır ve eczacı verir. Alerjiniz varsa ya da başka ilaç kullanıyorsanız mutlaka söyleyin; dozu için etiketi okuyun."
+ }
+}

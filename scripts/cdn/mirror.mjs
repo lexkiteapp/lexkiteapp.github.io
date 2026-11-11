@@ -8,7 +8,7 @@
 import fs from 'node:fs'; import path from 'node:path'; import os from 'node:os'; import { execFileSync } from 'node:child_process';
 import { hosts, merge, diff, typeFor, cacheFor, ACCOUNT } from './hosts.mjs';
 import { signV4, sha256hex } from '../lib/media-store.mjs';
-import { r2Frozen } from '../lib/r2-freeze.mjs';
+import { r2Frozen } from '../lib/r2-freeze.mjs'; import { fetchRetry } from '../lib/retry5xx.mjs'; // GitHub API 5xx tạm (07/11: cây lexkite-media-2 → 500) + socket đứt giữa body (10/11 'terminated')
 
 const args = process.argv.slice(2), opt = (k, d) => { const i = args.indexOf('--' + k); return i >= 0 ? args[i + 1] : d; };
 const DRY = args.includes('--dry'), VERIFY = +opt('verify', 40), MAX = +opt('max', 0), CONC = +opt('concurrency', 24);
@@ -37,7 +37,7 @@ const ghH = () => (process.env.GH_TOKEN ? { Authorization: `Bearer ${process.env
 const trees = new Map(), clones = new Map();
 async function listTree(repo) {
   if (trees.has(repo)) return trees.get(repo);
-  const r = await fetch(`https://api.github.com/repos/${repo}/git/trees/HEAD?recursive=1`, { headers: ghH() });
+  const r = await fetchRetry(`https://api.github.com/repos/${repo}/git/trees/HEAD?recursive=1`, { headers: ghH() });
   if (!r.ok) throw new Error(`cây ${repo}: ${r.status}`);
   const j = await r.json(); if (j.truncated) throw new Error(`cây ${repo} bị cắt (> 100k mục) – chia kho (docs/STORAGE.md §Mở kho mới)`);
   const files = j.tree.filter(t => t.type === 'blob').map(t => ({ sha: t.sha, size: t.size, path: t.path }));
@@ -52,7 +52,7 @@ function cloneAt(repo) {
 async function releaseAssets(repo) {
   const out = [], H = ghH();
   for (let page = 1; page < 200; page++) {
-    const r = await fetch(`https://api.github.com/repos/${repo}/releases?per_page=100&page=${page}`, { headers: H });
+    const r = await fetchRetry(`https://api.github.com/repos/${repo}/releases?per_page=100&page=${page}`, { headers: H });
     if (!r.ok) throw new Error(`GitHub releases ${r.status}`);
     const rs = await r.json(); if (!rs.length) break;
     for (const rel of rs) if (rel.tag_name.startsWith('wv-')) for (const a of rel.assets || []) out.push({ tag: rel.tag_name, name: a.name, id: a.id, size: a.size, url: a.browser_download_url });
@@ -97,7 +97,7 @@ async function run(name, h) {
     try {
       let body;
       if (it.source.kind === 'repo') body = readers.get(it.source.repo)(it.path);
-      else { const r = await fetch(it.url, { redirect: 'follow' }); if (!r.ok) throw new Error(`tải ${r.status}`); body = Buffer.from(await r.arrayBuffer()); }
+      else { const r = await fetchRetry(it.url, { redirect: 'follow' }); if (!r.ok) throw new Error(`tải ${r.status}`); body = Buffer.from(await r.arrayBuffer()); }
       if (body.length !== it.size) throw new Error(`cỡ ${body.length} ≠ ${it.size}`);
       const r = await put('PUT', it.key, { body, headers: { 'content-type': typeFor(it.key), 'cache-control': cacheFor(it.key) } });
       if (!r.ok) throw new Error(`PUT ${r.status}`);

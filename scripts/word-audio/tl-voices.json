@@ -1,5 +1,5 @@
 {
  "_note": "Bảng giọng từ đơn theo ngôn ngữ đích (tl) – MỘT nguồn cho tl-sample.mjs, tl_g2p.py, tl_piper.py, tl_gate.py (word-audio-tl.yml). Thêm ngôn ngữ = thêm dòng. Spec: docs/specs/target-language.md §Giọng, docs/specs/spanish-course.md §3.",
  "pt": { "espeak": "pt-br", "asrLang": "pt", "asrModel": "large-v3-turbo", "carrier": "A palavra é:", "carrierRe": "a\\W+palavra\\W+(?:é|e)", "fricEnd": "szxr", "voices": ["pf_dora", "pm_alex"], "probe": "coração", "piper": { "name": "pt_BR-faber-medium", "path": "pt/pt_BR/faber/medium/", "label": "piper_faber" } },
- "es": { "espeak": "es-419", "asrLang": "es", "asrModel": "small", "carrier": "La palabra es:", "carrierRe": "la\\W+palabra\\W+es", "fricEnd": "szx", "voices": ["ef_dora", "em_alex"], "probe": "corazón", "seseo": true, "piper": { "name": "es_MX-claude-high", "path": "es/es_MX/claude/high/", "label": "piper_claude" } }
+ "es": { "espeak": "es-419", "asrLang": "es", "asrModel": "small", "carrier": "La palabra es:", "carrierRe": "la\\W+palabra\\W+es", "fricEnd": "szx", "voices": ["ef_dora", "em_alex"], "probe": "corazón", "seseo": true, "stress": "es", "piper": { "name": "es_MX-claude-high", "path": "es/es_MX/claude/high/", "label": "piper_claude" } }
 }

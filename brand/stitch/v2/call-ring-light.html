@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Incoming Call - IELTS Part 1 (Bright Day Mobile)</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Material Symbols Rounded -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              'teal-dark': '#092526',
+              'teal-surface': '#EBF5F4',
+              'teal-muted': '#365E5E',
+              coral: '#FF7A00',
+              'coral-ledge': '#C85600',
+              'coral-ink': '#1A0D00',
+              cream: '#FFF8F5',
+              surface: '#FFFFFF',
+              'surface-soft': '#FFF1E8',
+              'card-border': '#ECDCD4',
+              'text-primary': '#112527',
+              'text-secondary': '#36585A',
+              'text-muted': '#496A6C',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'tactile-coral': '0 4px 0 #C85600',
+            'tactile-card': '0 4px 0 #ECDCD4',
+            'tactile-secondary': '0 3px 0 #D5C2B8',
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #FFF8F5;
+      color: #112527;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Button press physics */
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #C85600 !important;
+    }
+    .tactile-sec-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #D5C2B8 !important;
+    }
+    .back-btn:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+<body class="bg-[#FBF7F1] text-brand-text-primary">
+
+  <!-- Mobile Viewport 390px Container -->
+  <main class="w-full max-w-[390px] min-h-screen flex flex-col justify-between px-4 pt-3 pb-8 box-border">
+
+    <!-- Top Area: INNER Screen Header (Back Arrow 44px + Title, No Bottom Tabs) -->
+    <div>
+      <header class="flex items-center gap-2 w-full min-h-[52px] mb-4">
+        <!-- Back Arrow Button 44x44px touch target -->
+        <button type="button" aria-label="Go back" class="back-btn w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center bg-white border-2 border-brand-card-border text-brand-teal hover:bg-brand-surface-soft transition-colors shadow-sm">
+          <span class="material-symbols-rounded text-2xl text-brand-teal">arrow_back</span>
+        </button>
+
+        <!-- Inner Title Header -->
+        <div class="flex-1 min-w-0 pr-2">
+          <h1 class="text-[17px] font-extrabold text-brand-teal tracking-tight leading-snug break-words">
+            IELTS Part 1: home, work, free time
+          </h1>
+        </div>
+      </header>
+
+      <!-- Subtitle and Level Badge Header Section -->
+      <section class="mb-5 px-1">
+        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+          <!-- B1 Level Chip -->
+          <span class="inline-flex items-center justify-center px-2.5 py-1 rounded-full bg-[#E0F2F1] border border-[#80CBC4] text-brand-teal-dark font-extrabold text-[12px] tracking-wide leading-none min-h-[26px]">
+            CEFR B1
+          </span>
+          <span class="inline-flex items-center gap-1 text-[13px] font-bold text-brand-teal-muted">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#2BA39A]"></span>
+            Live Speaking Examiner
+          </span>
+        </div>
+        <p class="text-[15px] font-semibold text-brand-text-secondary leading-relaxed break-words">
+          Home, work and free time
+        </p>
+      </section>
+
+      <!-- Main Soft Centered Card -->
+      <div class="w-full bg-white rounded-3xl border-2 border-brand-card-border shadow-tactile-card p-5 flex flex-col items-center text-center">
+
+        <!-- 120x160 Teacher Slot Placeholder -->
+        <div class="relative w-[120px] h-[160px] rounded-2xl border-2 border-dashed border-[#0F3D3E]/40 bg-brand-surface-soft flex flex-col items-center justify-center p-3 mb-4 select-none">
+          <!-- Inner icon indication for code insertion -->
+          <div class="w-10 h-10 rounded-full bg-white/80 border border-[#0F3D3E]/20 flex items-center justify-center mb-2 shadow-sm">
+            <span class="material-symbols-rounded text-brand-teal text-xl">record_voice_over</span>
+          </div>
+          <!-- Exact teacher-slot label required by spec -->
+          <span class="text-[11px] font-extrabold text-brand-teal tracking-wider uppercase bg-white/90 px-2.5 py-1 rounded-md border border-[#0F3D3E]/20 shadow-xs">
+            teacher-slot
+          </span>
+          <!-- Soft helper text -->
+          <span class="text-[9px] font-semibold text-brand-text-muted mt-1 leading-tight">
+            Code-Mounted
+          </span>
+        </div>
+
+        <!-- Teacher Name & Title -->
+        <h2 class="text-[19px] font-extrabold text-brand-teal mb-1 leading-tight tracking-tight">
+          Ama – your IELTS examiner
+        </h2>
+        <p class="text-[13px] font-medium text-brand-text-secondary mb-4 leading-normal">
+          Standard British RP Accent • Part 1 Practice Simulation
+        </p>
+
+        <!-- Topic Highlights Pill List -->
+        <div class="w-full bg-[#FBF7F1] border border-brand-card-border rounded-xl p-3 mb-4 text-left">
+          <p class="text-[11px] font-extrabold text-brand-teal uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <span class="material-symbols-rounded text-[16px] text-brand-teal">checklist</span>
+            Part 1 Questions Covered
+          </p>
+          <ul class="text-[12px] font-semibold text-brand-text-secondary space-y-1.5 pl-0.5">
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-coral flex-shrink-0"></span>
+              <span>Where you currently live & flat types</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-coral flex-shrink-0"></span>
+              <span>Daily routines and current workplace</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-coral flex-shrink-0"></span>
+              <span>Weekend hobbies & leisure preferences</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Privacy & Device Security Note -->
+        <div class="flex items-start gap-2 bg-brand-teal-surface border border-[#A7D7D4] rounded-xl px-3 py-2.5 mb-5 w-full text-left">
+          <span class="material-symbols-rounded text-brand-teal text-[19px] flex-shrink-0 mt-0.5">lock</span>
+          <p class="text-[12px] font-medium text-brand-teal-dark leading-snug break-words">
+            Recognition runs on your device – your voice never leaves it.
+          </p>
+        </div>
+
+        <!-- Call Actions Container -->
+        <div class="w-full flex flex-col gap-3">
+          <!-- Full-width Coral Primary Button with Phone Icon -->
+          <button type="button" class="tactile-btn w-full min-h-[50px] bg-brand-coral text-brand-coral-ink font-extrabold text-[16px] rounded-2xl border-2 border-[#8A3A00] shadow-tactile-coral flex items-center justify-center gap-2 transition-transform cursor-pointer">
+            <span class="material-symbols-rounded text-2xl text-brand-coral-ink">call</span>
+            <span>Call now</span>
+          </button>
+
+          <!-- Secondary Outlined Button ("Other calls") -->
+          <button type="button" class="tactile-sec-btn w-full min-h-[46px] bg-white hover:bg-brand-surface-soft text-brand-teal font-extrabold text-[14px] rounded-2xl border-2 border-brand-card-border shadow-tactile-secondary flex items-center justify-center gap-1.5 transition-colors cursor-pointer">
+            <span class="material-symbols-rounded text-lg text-brand-teal">swap_calls</span>
+            <span>Other calls</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom Reassurance / Session Length Info Footer -->
+    <footer class="mt-6 text-center px-2">
+      <div class="inline-flex items-center justify-center gap-1.5 text-[12px] font-semibold text-brand-text-muted">
+        <span class="material-symbols-rounded text-[16px] text-brand-teal">timer</span>
+        <span>Estimated drill length: 3 to 4 minutes</span>
+      </div>
+    </footer>
+
+  </main>
+
+</body>
+</html>

@@ -109,6 +109,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "web-merge-daily",
+   "workflow": "web-merge-daily.yml",
+   "cron": [
+    "23 5 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "blog-daily",
    "workflow": "blog-daily.yml",
    "cron": [
@@ -275,6 +289,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "pr-unconflict",
+   "workflow": "pr-unconflict.yml",
+   "cron": [
+    "23,53 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "ci-triage",
    "workflow": "ci-triage.yml",
    "cron": [
@@ -289,6 +317,20 @@ export const REG = {
    "est": {
     "d1_internal_reads": 10
    },
+   "lease": false
+  },
+  {
+   "id": "main-red-sweep",
+   "workflow": "main-red-sweep.yml",
+   "cron": [
+    "41 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {},
    "lease": false
   },
   {
@@ -543,6 +585,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "store-reviews",
+   "workflow": "store-reviews.yml",
+   "cron": [
+    "20 1 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "ads-demo",
    "workflow": "ads-demo.yml",
    "cron": [
@@ -673,7 +729,8 @@ export const REG = {
    "id": "video-auto",
    "workflow": "video-auto.yml",
    "cron": [
-    "17 23 * * *"
+    "17 23 * * *",
+    "53 3,6 * * *"
    ],
    "priority": "render",
    "resources": [
@@ -1220,6 +1277,20 @@ export const REG = {
     "grabcast_text": 300
    },
    "lease": false
+  },
+  {
+   "id": "ci-queue-report",
+   "workflow": "ci-queue-report.yml",
+   "cron": [
+    "20 7 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 3,
+   "lease": false,
+   "_note": "05/11 PR #719: đo hàng chờ CI mức job mỗi ngày (chờ p50/p90, phút, lượt trùng) so với mốc → issue ci-queue; chỉ đọc API"
   }
  ]
 };

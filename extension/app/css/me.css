@@ -121,7 +121,7 @@
   transition: transform .15s ease, background .15s ease;
 }
 .me-row:hover .me-icon-box {
-  background: color-mix(in srgb, var(--primary) 12%, var(--surface-2));
+  background: var(--primary-soft); /* token (không color-mix: trình duyệt trả color(srgb …) → máy đo tương phản đọc sai, icon "tàng hình" lúc rê chuột) */
   transform: scale(1.05);
 }
 .me-row-title { font-size: .95rem; font-weight: 700; color: var(--text); }

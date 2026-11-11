@@ -20,15 +20,17 @@ let longest = '';
 for (const f of fs.readdirSync(path.join(AFTER, 'js/vimg'))) for (const k of Object.keys(JSON.parse(fs.readFileSync(path.join(AFTER, 'js/vimg', f), 'utf8')).m || {})) { const [w, pos] = k.split('#'); if (pos === 'n' && /^[a-z]+$/.test(w) && w.length > longest.length) longest = w; }
 if (!longest) { console.error('✗ kho ảnh rỗng – không có gì để kiểm'); process.exit(1); }
 
+// Từ ‘chưa có ảnh’ của các ca _none: kho ảnh lớn dần (lượt fill) nên 'resilient' có thể đã có ảnh → dùng từ giả chắc chắn không có khóa ảnh
+const NOIMG = hashOf('resilient', 'adj') ? 'zzresilient' : 'resilient';
 const base = o => ({ found: true, pos: 'adj', level: 'B2', ipa: '/kəmˈpʌlsəri/', ipaUS: '/kəmˈpʌlsəri/', vi: 'bắt buộc', def: 'required by law or a rule; obligatory', col: [], syn: [], senses: [], oxford: [], meanings: [], sentences: [], ...o });
 const EX = 'In my country, education is compulsory until the age of fifteen.';
 const CASES = {
   // có ảnh cảnh thật (đúng cảnh màn chủ gửi): sáng hiện ô ảnh, tối ảnh ẩn → không để cột/câu lạc lõng
   scene: base({ word: 'compulsory', ex: EX, oxford: [{ pos: 'adjective', defs: [{ def: 'required by law or a rule; obligatory', ex: EX }, { def: 'involving or exerting pressure', ex: 'She had a compulsory stop.' }] }], sentences: [{ en: EX, vi: 'Ở nước tôi, giáo dục là bắt buộc đến năm 15 tuổi.', auto: true }, { en: 'Attendance is compulsory for all students.', vi: 'Mọi học sinh phải tham dự.' }], _hash: hashOf('compulsory', 'adj') }),
   // chưa có ảnh: chữ dùng hết bề ngang
-  noimg: base({ word: 'resilient', vi: 'kiên cường', ex: 'The local economy proved remarkably resilient.', _none: true }),
+  noimg: base({ word: NOIMG, vi: 'kiên cường', ex: 'The local economy proved remarkably resilient.', _none: true }),
   // không câu ví dụ, không ảnh
-  noex: base({ word: 'resilient', vi: 'kiên cường', ex: '', _none: true }),
+  noex: base({ word: NOIMG, vi: 'kiên cường', ex: '', _none: true }),
   // nhiều nghĩa + nhiều câu, ảnh vật thật
   many: base({ word: 'consider', pos: 'v', ipa: '/kənˈsɪdə/', ipaUS: '/kənˈsɪdər/', vi: 'xem xét', def: 'think carefully about something', ex: 'We are considering moving.', oxford: [{ pos: 'verb', defs: [1, 2, 3, 4].map(i => ({ def: `sense ${i} of the verb`, ex: `Example ${i} of consider.` })) }], meanings: [{ pos: 'verb', defs: [{ def: 'to think', ex: 'We are considering moving.' }] }], sentences: [1, 2, 3].map(i => ({ en: `We consider plan ${i}.`, vi: `Chúng tôi xem xét kế hoạch ${i}.` })), _hash: hashOf('consider', 'v') }),
   // từ dài nhất có ảnh: không tràn/không bóp ô ảnh
@@ -38,7 +40,7 @@ const CASES = {
   // ảnh lỗi CDN → ô gỡ, không để hộp rỗng
   broken: base({ word: 'apple', pos: 'n', vi: 'quả táo', def: 'a round fruit', ex: 'I ate an apple.', _broken: true }),
   // đã trong flashcard: chip cùng cỡ với nút
-  saved: base({ word: 'resilient', vi: 'kiên cường', ex: 'She is resilient.', _saved: true, _none: true }),
+  saved: base({ word: NOIMG, vi: 'kiên cường', ex: 'She is resilient.', _saved: true, _none: true }),
 };
 const VIEWS = [390, 768, 1024, 1440];
 const LANG_MATRIX = [['vi', VIEWS], ['en', [390, 1440]], ['ar', [390, 1440]]];

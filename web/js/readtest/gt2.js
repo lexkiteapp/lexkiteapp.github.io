@@ -16,7 +16,7 @@ paras: [
 ],
 groups: [
 { type: 'match',
-instr: 'Look at the six texts, A–F. Which text mentions the following? Write the correct letter, A–F. NB You may use any letter more than once.',
+instr: g.RTI[10],
 options: ['A', 'B', 'C', 'D', 'E', 'F'],
 items: [
 { n: 1, text: 'a ticket that costs more if you buy it from the driver', a: 'F', cue: 'Single tickets cost £8 when bought online or £10 from the driver' },
@@ -27,7 +27,7 @@ items: [
 { n: 6, text: 'a bill that is not included in the rent', a: 'A', cue: 'water is charged separately' },
 ] },
 { type: 'tfng',
-instr: 'Do the following statements agree with the information given in the texts? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+instr: g.RTI[6],
 items: [
 { n: 7, text: 'The room in Elm Street can be viewed at weekends.', a: 'FALSE', cue: 'Viewings on weekday evenings only' },
 { n: 8, text: 'The studio flat at Harbour View has a private bathroom.', a: 'TRUE', cue: 'The flat has its own bathroom' },
@@ -86,7 +86,7 @@ items: [
 { n: 19, text: 'where to find out who is responsible for safety on each floor', a: 'A', cue: 'The names of the safety representatives are displayed next to the lifts on every floor' },
 ] },
 { type: 'note', title: 'Key rules for staff',
-instr: 'Complete the notes below. Choose NO MORE THAN TWO WORDS from the text for each answer.', limit: 2,
+instr: g.RTI[18], limit: 2,
 items: [
 { n: 20, text: 'Every accident, even a minor one, must be written in the ___ at reception', a: ['accident book'], cue: 'must be recorded in the accident book kept at reception' },
 { n: 21, text: 'Fire: meet at the assembly point in the ___ opposite the main entrance', a: ['car park'], cue: 'Gather at the assembly point in the car park opposite the main entrance' },
@@ -94,7 +94,7 @@ items: [
 { n: 23, text: 'Home working: keep your online ___ up to date', a: ['calendar'], cue: 'keep your online calendar up to date' },
 { n: 24, text: 'Chair or desk: claim up to £150; submit ___ within one month', a: ['receipts'], cue: 'receipts must be submitted through the expenses system within one month of purchase' },
 ] },
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 25, q: 'Which staff may ask for a free eye test?',
 options: ['all employees in their first two weeks', 'those who use a computer for most of the day', 'staff who work from home two days a week', 'fire marshals and safety representatives'],
@@ -139,7 +139,7 @@ paras: [
 ],
 groups: [
 { type: 'match',
-instr: 'Reading Passage 3 has seven paragraphs, A–G. Choose the correct heading for paragraphs B–F from the list of headings below.',
+instr: g.RTI[7],
 options: [
 'i How one country changed direction',
 'ii Proving a popular explanation wrong',
@@ -158,7 +158,7 @@ items: [
 { n: 32, text: 'Paragraph F', a: 'v', cue: 'None of this means that the change has been easy' },
 ] },
 { type: 'ynng',
-instr: 'Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+instr: g.RTI[0],
 items: [
 { n: 33, text: 'The growth of cycling is among the most significant developments in modern cities.', a: 'YES', cue: 'I believe this represents one of the most important changes in urban life of our time' },
 { n: 34, text: 'Climate is the main factor that decides whether people choose to cycle.', a: 'NO', cue: 'safety depends far more on infrastructure than on climate or culture' },
@@ -166,14 +166,14 @@ items: [
 { n: 36, text: 'The problems caused by new cycling schemes show that cities should give them up.', a: 'NO', cue: 'these difficulties are a reason to plan carefully, not a reason to stop' },
 ] },
 { type: 'summary', title: 'The benefits of cycling',
-instr: 'Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.',
+instr: g.RTI[2],
 limit: 2,
 items: [
 { n: 37, text: 'Several large studies have found that cycling to work is linked with a lower risk of ___.', a: ['heart disease'], cue: 'a lower risk of heart disease' },
 { n: 38, text: 'Bicycles produce no pollution and need only a fraction of the ___ used by a car.', a: ['road space'], cue: 'take up a fraction of the road space of a car' },
 { n: 39, text: 'Although cyclists spend less on each visit, they go to ___ more often.', a: ['local shops'], cue: 'tend to visit local shops more often' },
 ] },
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 40, q: 'What happened in Chinese cities around 2017?',
 options: ['Bike-sharing companies were banned by the government.', 'New segregated cycle routes led to legal challenges.', 'Many dockless bicycles were left unused and some firms failed.', 'Electric bicycles became more popular than ordinary ones.'],

@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"surface\" mean?",
+  "keyword": "surface",
+  "value": "Surface means the top or outside layer of something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=surface",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"surface\" mean?",
+    "description": "Surface means the top or outside layer of something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=surface\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "surface",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"surface\" mean?\n\nSurface means the top or outside layer of something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=surface"
+   },
+   "instagram": {
+    "caption": "What does \"surface\" mean?\n\nSurface means the top or outside layer of something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"surface\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means the top or outside layer of something. Surface means the top or outside layer of something. Try the full lesson and quiz here: {link}"
  }
 }

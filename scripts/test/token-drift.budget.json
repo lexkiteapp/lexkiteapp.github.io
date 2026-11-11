@@ -1,0 +1,68 @@
+{
+ "extension/newtab.css": {
+  "color": 43,
+  "space": 39,
+  "radius": 7,
+  "font": 25
+ },
+ "extension/popup.css": {
+  "color": 23,
+  "space": 37,
+  "radius": 9,
+  "font": 15
+ },
+ "web/css/exam.css": {
+  "color": 3,
+  "space": 16,
+  "radius": 5,
+  "font": 5
+ },
+ "web/css/lazy-ui.css": {
+  "color": 49,
+  "space": 165,
+  "radius": 43,
+  "font": 57
+ },
+ "web/css/league.css": {
+  "color": 0,
+  "space": 0,
+  "radius": 0,
+  "font": 0
+ },
+ "web/css/me.css": {
+  "color": 25,
+  "space": 44,
+  "radius": 4,
+  "font": 25
+ },
+ "web/css/style.css": {
+  "color": 165,
+  "space": 460,
+  "radius": 107,
+  "font": 164
+ },
+ "web/css/tactile-x.css": {
+  "color": 0,
+  "space": 6,
+  "radius": 2,
+  "font": 1
+ },
+ "web/css/tactile.css": {
+  "color": 0,
+  "space": 4,
+  "radius": 0,
+  "font": 1
+ },
+ "web/css/watch.css": {
+  "color": 4,
+  "space": 40,
+  "radius": 7,
+  "font": 8
+ },
+ "web/css/wordcard.css": {
+  "color": 0,
+  "space": 16,
+  "radius": 4,
+  "font": 9
+ }
+}

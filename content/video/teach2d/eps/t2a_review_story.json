@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"story\" mean?",
+  "keyword": "story",
+  "value": "Story means an account or description of how something happened.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=story",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"story\" mean?",
+    "description": "Story means an account or description of how something happened.\n\nReview your words, free: https://lexkite.com/app/#/review?w=story\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "story",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"story\" mean?\n\nStory means an account or description of how something happened.\n\nReview your words, free: https://lexkite.com/app/#/review?w=story"
+   },
+   "instagram": {
+    "caption": "What does \"story\" mean?\n\nStory means an account or description of how something happened.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"story\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means an account or description of how something happened. Story means an account or description of how something happened. Try the full lesson and quiz here: {link}"
  }
 }

@@ -71,5 +71,46 @@
   "words": 45,
   "seconds": 27.8,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What did she say? Listen!",
+  "keyword": "surname",
+  "value": "\"Surname\" /ˈsɜːrneɪm/ means the family name you share with your relatives.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishlistening",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dictation/t1p1",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What did she say? Listen!",
+    "description": "\"Surname\" /ˈsɜːrneɪm/ means the family name you share with your relatives.\n\nTry free dictation, free: https://lexkite.com/app/#/dictation/t1p1\n\nSeries: What Did She Say? · Teacher: Ama\n\n#learnenglish #englishtips #englishlistening #englishteacher",
+    "tags": [
+     "surname",
+     "What Did She Say?",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What did she say? Listen!\n\n\"Surname\" /ˈsɜːrneɪm/ means the family name you share with your relatives.\n\nTry free dictation, free: https://lexkite.com/app/#/dictation/t1p1"
+   },
+   "instagram": {
+    "caption": "What did she say? Listen!\n\n\"Surname\" /ˈsɜːrneɪm/ means the family name you share with your relatives.\n\nTry free dictation: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishlistening",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What did she say? Listen! #learnenglish #englishtips #englishlistening"
+   }
+  },
+  "first_comment": "Answer: Spell the surname! Surname means your family name. Try the full lesson and quiz here: {link}"
  }
 }

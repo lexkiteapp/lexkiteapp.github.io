@@ -1,3 +1,2 @@
-/* SINH từ i18n/ui/ar/notices.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {"_1kkzwis":"تحديد الكل كمقروء","_1aqpffv":"لا توجد إشعارات جديدة","_7vdlnl":"إشعار مهم","_mem4lx":"الآن","_cilyra":"غير مقروءة","_1dkub36":"{n} غير مقروءة"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/ar/notices.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ar=Object.assign(D.ar||{},{_zwis:"تحديد الكل كمقروء",_pffv:"لا توجد إشعارات جديدة",_dlnl:"إشعار مهم",_m4lx:"الآن",_lyra:"غير مقروءة",_ub36:"{n} غير مقروءة"});})(typeof self!=='undefined'?self:this);

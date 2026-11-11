@@ -154,5 +154,26 @@
  },
  "ntMoreSenses": {
   "message": "+{n} अर्थ"
+ },
+ "ntQzTag": {
+  "message": "झटपट क्विज़"
+ },
+ "ntQzQ": {
+  "message": "सही अर्थ चुनें"
+ },
+ "ntQzTime": {
+  "message": "{s} सेकंड"
+ },
+ "ntQzRight": {
+  "message": "सही!"
+ },
+ "ntQzWrong": {
+  "message": "थोड़ा चूके — यह शब्द जल्द ही फिर आएगा"
+ },
+ "ntQzTimeout": {
+  "message": "समय समाप्त, कोई बात नहीं"
+ },
+ "ntQzSkip": {
+  "message": "छोड़ें"
  }
 }

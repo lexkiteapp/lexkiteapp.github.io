@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"confuse\" mean?",
+  "keyword": "confuse",
+  "value": "Confuse means to make someone unable to understand or think clearly.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=confuse",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"confuse\" mean?",
+    "description": "Confuse means to make someone unable to understand or think clearly.\n\nReview your words, free: https://lexkite.com/app/#/review?w=confuse\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "confuse",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"confuse\" mean?\n\nConfuse means to make someone unable to understand or think clearly.\n\nReview your words, free: https://lexkite.com/app/#/review?w=confuse"
+   },
+   "instagram": {
+    "caption": "What does \"confuse\" mean?\n\nConfuse means to make someone unable to understand or think clearly.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"confuse\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to make someone unable to understand or think clearly. Confuse means to make someone unable to understand or think clearly. Practice it with a free quiz: {link}"
  }
 }

@@ -93,6 +93,8 @@ publishAt: 2026-10-22T20:34:00+09:00
 
 더 많은 실전 대화 스크립트는 [영어 회화 코너](/speaking/)에서 확인하실 수 있습니다.
 
+발음이 걱정되는 이민 준비생은 [이민 IELTS 점수 총정리](/ko/blog/ielts-imin-jeomsu-kaenada-hoju-yeongguk/)에서 스피킹 기준도 함께 확인해 보세요.
+
 {{youtube: | 한국인이 가장 많이 틀리는 영어 발음 5가지와 혀 위치 교정법}}
 
 과거형 어미에 '으'를 붙이는 습관은 [영어 ed 발음 규칙](/ko/blog/yeongeo-ed-bareum-gyuchik/)에서 따로 정리했습니다.

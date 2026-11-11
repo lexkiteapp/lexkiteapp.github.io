@@ -79,5 +79,46 @@
   "words": 46,
   "seconds": 28.1,
   "wpm": 98
+ },
+ "publish": {
+  "title": "Fall or autumn? US vs UK English",
+  "keyword": "fall vs autumn",
+  "value": "Americans say fall. British people say autumn.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/fall",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "Fall or autumn? US vs UK English",
+    "description": "Americans say fall. British people say autumn.\n\nLook up any word, free: https://lexkite.com/app/#/dict/fall\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "fall vs autumn",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Fall or autumn? US vs UK English\n\nAmericans say fall. British people say autumn.\n\nLook up any word, free: https://lexkite.com/app/#/dict/fall"
+   },
+   "instagram": {
+    "caption": "Fall or autumn? US vs UK English\n\nAmericans say fall. British people say autumn.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Fall or autumn? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Autumn! Americans say fall. British people say autumn. More practice like this (free): {link}"
  }
 }

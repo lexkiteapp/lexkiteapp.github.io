@@ -1,3 +1,2 @@
-/* SINH từ i18n/ui/tr/ads.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {"_11dape0":"Bugünkü ücretsiz hakların bitti mi? Kısa bir video izleyerek {n} hak daha kazan.","_l4dcji":"Videoyu izle","_khiq0k":"Ek haklar eklendi – birkaç saniye sonra tekrar dene."});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/tr/ads.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.tr=Object.assign(D.tr||{},{_ape0:"Bugünkü ücretsiz hakların bitti mi? Kısa bir video izleyerek {n} hak daha kazan.",_dcji:"Videoyu izle",_iq0k:"Ek haklar eklendi – birkaç saniye sonra tekrar dene.",_8kw8:"{n} hak daha açmak için 10 kartı tekrar et – ücretsiz.",_9lrf:"Şimdi tekrar et",_a5k9:"Kartları tekrar ettiğin için {n} hak daha kazandın.",_3iid:"Bugün {r}/{need} kart tekrar edildi – hak kazanmak için daha fazlasını tekrar et."});})(typeof self!=='undefined'?self:this);

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite v2.1 Light — Verb</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..900&family=Plus+Jakarta+Sans:wght@500;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#FBF7F1',
+            ink: {
+              main: '#0F3D3E',
+              muted: '#4A6B6C',
+              subtle: '#789596',
+              light: '#A3B8B8',
+            },
+            accent: {
+              teal: '#2BA39A',
+              tealSoft: '#E6F4F2',
+              tealDark: '#136A63',
+              coral: '#F2553B',
+              coralSoft: '#FDF1EE',
+              amber: '#E59819',
+              amberSoft: '#FEF7EA',
+            },
+            card: {
+              bg: '#FFFFFF',
+              surface: '#F6EFE6',
+              border: '#EADEC8',
+              borderDark: '#DAC7AB',
+            }
+          },
+          fontFamily: {
+            sans: ['Nunito Sans', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          boxShadow: {
+            'tactile': '0 2px 0 0 #EADEC8',
+            'tactile-md': '0 3px 0 0 #DAC7AB',
+            'tactile-btn': '0 3px 0 0 #136A63',
+            'tactile-coral': '0 3px 0 0 #B93822',
+            'tactile-amber': '0 3px 0 0 #B5740F',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      background-color: #FBF7F1;
+      color: #0F3D3E;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+    }
+    .material-symbols-rounded.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Hide scrollbars for clean chip scrolling */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex justify-center bg-[#F8F4EC] p-0 sm:py-6">
+  <!-- Mobile Container strictly 390px wide -->
+  <main class="w-full max-w-[390px] bg-canvas min-h-screen relative flex flex-col shadow-xl sm:border border-card-border overflow-x-hidden">
+    
+    <!-- Top App Bar / Inner Screen Header -->
+    <header class="sticky top-0 z-30 bg-canvas/95 backdrop-blur-md border-b border-card-border px-4 py-2 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <a href="#/vocab" class="min-h-[44px] min-w-[44px] flex items-center justify-center -ml-2 rounded-full hover:bg-card-surface active:scale-95 transition-all text-ink-main" aria-label="Go back">
+          <span class="material-symbols-rounded text-2xl">arrow_back</span>
+        </a>
+        <div class="flex flex-col">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-accent-tealDark font-mono">Verb Reference</span>
+          <h1 class="text-lg font-extrabold font-display leading-tight text-ink-main">go <span class="text-xs font-normal text-ink-muted">/ɡoʊ/</span></h1>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-1">
+        <!-- Quick Region Switch (UK | US) -->
+        <div class="flex items-center bg-card-surface border border-card-border rounded-full p-0.5" role="group" aria-label="Dialect selector">
+          <button type="button" class="min-h-[32px] px-2.5 rounded-full text-xs font-bold text-ink-muted hover:text-ink-main active:scale-95 transition-all">UK</button>
+          <button type="button" class="min-h-[32px] px-2.5 rounded-full text-xs font-black bg-accent-teal text-white shadow-sm transition-all" aria-current="page">US</button>
+        </div>
+        <!-- Bookmark / Saved -->
+        <button type="button" class="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full hover:bg-card-surface active:scale-95 transition-all text-ink-main" aria-label="Save verb to deck">
+          <span class="material-symbols-rounded text-xl">bookmark_border</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Search with live suggestions & query status -->
+    <section class="px-4 pt-3 pb-2 border-b border-card-border/60 bg-canvas">
+      <div class="relative">
+        <span class="material-symbols-rounded absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-muted text-xl pointer-events-none">search</span>
+        <input 
+          type="text" 
+          value="go" 
+          placeholder="Look up base, past or participle..." 
+          class="w-full h-11 pl-10 pr-20 bg-card-bg border border-card-border rounded-xl text-sm font-semibold text-ink-main placeholder:text-ink-light focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20 transition-all shadow-tactile"
+        />
+        <div class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
+          <span class="text-[10px] font-mono font-bold bg-accent-tealSoft text-accent-tealDark px-1.5 py-0.5 rounded border border-accent-teal/20">ABC Irreg</span>
+          <button type="button" class="h-8 w-8 flex items-center justify-center text-ink-muted hover:text-ink-main" aria-label="Clear search">
+            <span class="material-symbols-rounded text-lg">close</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Context note when a conjugated form is typed -->
+      <div class="mt-2 flex items-center justify-between text-xs px-1">
+        <div class="flex items-center gap-1.5 text-ink-muted font-medium">
+          <span class="material-symbols-rounded text-accent-teal text-base">info</span>
+          <span><strong class="font-bold text-ink-main">‘went’</strong> is the irregular simple past of <strong class="text-ink-main font-bold">‘go’</strong></span>
+        </div>
+        <span class="text-[10px] font-mono text-ink-subtle">V1 → V2 shift</span>
+      </div>
+
+      <!-- Top Landing Hints & Category Filters (Horizontal scroll chips) -->
+      <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-2.5 pb-1">
+        <button class="shrink-0 min-h-[30px] px-2.5 rounded-lg text-xs font-bold bg-ink-main text-canvas flex items-center gap-1 shadow-sm">
+          <span class="material-symbols-rounded text-sm">trending_up</span>
+          <span>Most searched</span>
+        </button>
+        <button class="shrink-0 min-h-[30px] px-2.5 rounded-lg text-xs font-bold bg-card-bg text-ink-main border border-card-border hover:bg-card-surface flex items-center gap-1 transition-colors">
+          <span>Often confused</span>
+          <span class="text-[10px] bg-accent-coralSoft text-accent-coral font-bold px-1 rounded">2</span>
+        </button>
+        <button class="shrink-0 min-h-[30px] px-2.5 rounded-lg text-xs font-bold bg-card-bg text-ink-main border border-card-border hover:bg-card-surface flex items-center gap-1 transition-colors">
+          <span class="font-mono text-[11px] text-accent-tealDark">ABC</span>
+          <span>Pattern</span>
+        </button>
+        <button class="shrink-0 min-h-[30px] px-2.5 rounded-lg text-xs font-bold bg-card-bg text-ink-muted border border-card-border hover:bg-card-surface transition-colors">
+          <span>Prefix: un- / out- / fore-</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Scrollable Body Content -->
+    <div class="flex-1 px-4 py-3 space-y-4">
+
+      <!-- Hero Card: Master 5 Forms Reference -->
+      <section class="bg-card-bg rounded-2xl border border-card-border p-4 shadow-tactile-md relative overflow-hidden">
+        <!-- Accent decorative stripe -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-teal via-accent-amber to-accent-coral"></div>
+
+        <div class="flex items-start justify-between mb-3">
+          <div>
+            <div class="flex items-center gap-1.5 flex-wrap mb-1">
+              <span class="px-2 py-0.5 rounded text-[11px] font-black uppercase tracking-wide bg-accent-coralSoft text-accent-coral border border-accent-coral/20">Irregular</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-card-surface text-ink-muted border border-card-border">Intransitive</span>
+              <span class="px-1.5 py-0.5 rounded text-[10px] font-mono text-ink-subtle bg-slate-100 border border-slate-200">CEFR A1 • Top 10</span>
+            </div>
+            <h2 class="text-2xl font-black font-display text-ink-main tracking-tight flex items-baseline gap-2">
+              go <span class="text-sm font-normal text-ink-muted font-mono">/ɡəʊ/ · /ɡoʊ/</span>
+            </h2>
+            <p class="text-xs text-ink-muted mt-0.5 leading-snug">To move from one place to another; travel; proceed.</p>
+          </div>
+          <!-- Pronounce Base -->
+          <button type="button" class="min-h-[44px] min-w-[44px] rounded-xl bg-accent-tealSoft border border-accent-teal/30 text-accent-tealDark flex flex-col items-center justify-center hover:bg-accent-teal/20 active:scale-95 transition-all" aria-label="Listen to pronunciation of go">
+            <span class="material-symbols-rounded text-xl">volume_up</span>
+            <span class="text-[9px] font-bold font-mono">US</span>
+          </button>
+        </div>
+
+        <!-- Or did you mean chips -->
+        <div class="bg-card-surface/70 border border-card-border/80 rounded-xl p-2.5 mb-3.5 flex items-center justify-between">
+          <div class="flex items-center gap-1 text-xs text-ink-muted">
+            <span class="material-symbols-rounded text-sm text-accent-amber">lightbulb</span>
+            <span class="font-bold text-[11px] text-ink-main">Or did you mean?</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <a href="#/verb/come" class="text-xs font-bold text-accent-tealDark underline decoration-accent-teal/50 hover:text-ink-main">come</a>
+            <span class="text-ink-light">•</span>
+            <a href="#/verb/undergo" class="text-xs font-bold text-accent-tealDark underline decoration-accent-teal/50 hover:text-ink-main">undergo</a>
+            <span class="text-ink-light">•</span>
+            <a href="#/verb/forego" class="text-xs font-bold text-accent-tealDark underline decoration-accent-teal/50 hover:text-ink-main">forego</a>
+          </div>
+        </div>
+
+        <!-- The 5 Core Forms Grid (Reference Table) -->
+        <div class="border border-card-border rounded-xl divide-y divide-card-border overflow-hidden bg-white text-xs">
+          <!-- Form Header -->
+          <div class="grid grid-cols-12 bg-card-surface/60 px-2.5 py-1.5 font-mono text-[10px] font-bold text-ink-muted uppercase tracking-wider">
+            <div class="col-span-3">Form</div>
+            <div class="col-span-4">Spelling</div>
+            <div class="col-span-3">IPA</div>
+            <div class="col-span-2 text-right">Rule Note</div>
+          </div>
+
+          <!-- Base (V1) -->
+          <div class="grid grid-cols-12 px-2.5 py-2 items-center hover:bg-card-surface/30 transition-colors">
+            <div class="col-span-3 font-mono font-bold text-ink-muted">
+              Base <span class="text-[10px] text-accent-teal font-extrabold">(V1)</span>
+            </div>
+            <div class="col-span-4 flex items-center gap-1">
+              <span class="font-black text-sm text-ink-main">go</span>
+              <button class="h-6 w-6 flex items-center justify-center text-ink-subtle hover:text-accent-teal" aria-label="Audio for go">
+                <span class="material-symbols-rounded text-sm">volume_up</span>
+              </button>
+            </div>
+            <div class="col-span-3 font-mono text-[11px] text-ink-muted">/ɡoʊ/</div>
+            <div class="col-span-2 text-right">
+              <span class="text-[10px] font-mono px-1 py-0.5 bg-slate-100 rounded text-ink-muted border border-slate-200">Root</span>
+            </div>
+          </div>
+
+          <!-- Simple Past (V2) -->
+          <div class="grid grid-cols-12 px-2.5 py-2 items-center bg-accent-coralSoft/30 hover:bg-accent-coralSoft/50 transition-colors">
+            <div class="col-span-3 font-mono font-bold text-accent-coral">
+              Past <span class="text-[10px] font-extrabold">(V2)</span>
+            </div>
+            <div class="col-span-4 flex items-center gap-1">
+              <span class="font-black text-sm text-accent-coral">went</span>
+              <button class="h-6 w-6 flex items-center justify-center text-accent-coral hover:text-ink-main" aria-label="Audio for went">
+                <span class="material-symbols-rounded text-sm">volume_up</span>
+              </button>
+            </div>
+            <div class="col-span-3 font-mono text-[11px] text-ink-muted">/wɛnt/</div>
+            <div class="col-span-2 text-right">
+              <span class="text-[10px] font-mono px-1 py-0.5 bg-accent-coralSoft rounded text-accent-coral font-bold border border-accent-coral/30">Suppletive</span>
+            </div>
+          </div>
+
+          <!-- Past Participle (V3) -->
+          <div class="grid grid-cols-12 px-2.5 py-2 items-center hover:bg-card-surface/30 transition-colors">
+            <div class="col-span-3 font-mono font-bold text-ink-muted">
+              Part. <span class="text-[10px] text-accent-teal font-extrabold">(V3)</span>
+            </div>
+            <div class="col-span-4 flex items-center gap-1">
+              <span class="font-black text-sm text-ink-main">gone</span>
+              <button class="h-6 w-6 flex items-center justify-center text-ink-subtle hover:text-accent-teal" aria-label="Audio for gone">
+                <span class="material-symbols-rounded text-sm">volume_up</span>
+              </button>
+            </div>
+            <div class="col-span-3 font-mono text-[11px] text-ink-muted">/ɡɔːn/ · /ɡɒn/</div>
+            <div class="col-span-2 text-right">
+              <span class="text-[10px] font-mono px-1 py-0.5 bg-slate-100 rounded text-ink-muted border border-slate-200">+ne suffix</span>
+            </div>
+          </div>
+
+          <!-- 3rd Person Singular Present (-s) -->
+          <div class="grid grid-cols-12 px-2.5 py-2 items-center hover:bg-card-surface/30 transition-colors">
+            <div class="col-span-3 font-mono font-bold text-ink-muted">
+              3rd Sg. <span class="text-[10px] text-ink-subtle">(-s)</span>
+            </div>
+            <div class="col-span-4 flex items-center gap-1">
+              <span class="font-black text-sm text-ink-main">goes</span>
+              <button class="h-6 w-6 flex items-center justify-center text-ink-subtle hover:text-accent-teal" aria-label="Audio for goes">
+                <span class="material-symbols-rounded text-sm">volume_up</span>
+              </button>
+            </div>
+            <div class="col-span-3 font-mono text-[11px] text-ink-muted">/ɡoʊz/</div>
+            <div class="col-span-2 text-right">
+              <span class="text-[10px] font-mono px-1 py-0.5 bg-accent-amberSoft rounded text-ink-main font-bold border border-accent-amber/30">+es rule /z/</span>
+            </div>
+          </div>
+
+          <!-- Present Participle / Gerund (-ing) -->
+          <div class="grid grid-cols-12 px-2.5 py-2 items-center hover:bg-card-surface/30 transition-colors">
+            <div class="col-span-3 font-mono font-bold text-ink-muted">
+              Gerund <span class="text-[10px] text-ink-subtle">(-ing)</span>
+            </div>
+            <div class="col-span-4 flex items-center gap-1">
+              <span class="font-black text-sm text-ink-main">going</span>
+              <button class="h-6 w-6 flex items-center justify-center text-ink-subtle hover:text-accent-teal" aria-label="Audio for going">
+                <span class="material-symbols-rounded text-sm">volume_up</span>
+              </button>
+            </div>
+            <div class="col-span-3 font-mono text-[11px] text-ink-muted">/ˈɡoʊ.ɪŋ/</div>
+            <div class="col-span-2 text-right">
+              <span class="text-[10px] font-mono px-1 py-0.5 bg-slate-100 rounded text-ink-muted border border-slate-200">Regular +ing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links: Look up Meaning & Usage -->
+        <div class="mt-3 pt-3 border-t border-card-border flex items-center justify-between text-xs">
+          <a href="#/dictionary/go" class="min-h-[44px] flex items-center gap-1.5 font-bold text-accent-tealDark hover:text-ink-main active:translate-y-0.5 transition-all">
+            <span class="material-symbols-rounded text-base">dictionary</span>
+            <span>Look up full meaning</span>
+          </a>
+          <a href="#/usage/go" class="min-h-[44px] flex items-center gap-1.5 font-bold text-accent-tealDark hover:text-ink-main active:translate-y-0.5 transition-all">
+            <span class="material-symbols-rounded text-base">alt_route</span>
+            <span>Usage & collocations</span>
+            <span class="material-symbols-rounded text-sm">arrow_forward</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Irregular Pattern Diagnostic (AAA, ABB, ABA, ABC) -->
+      <section class="bg-card-bg rounded-2xl border border-card-border p-3.5 shadow-tactile">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-rounded text-accent-teal text-lg">schema</span>
+            <h3 class="text-xs font-black uppercase tracking-wider text-ink-main font-display">Irregular Pattern Matrix</h3>
+          </div>
+          <span class="text-[11px] font-mono font-bold text-accent-coral bg-accent-coralSoft px-2 py-0.5 rounded border border-accent-coral/20">Class: ABC</span>
+        </div>
+
+        <div class="grid grid-cols-4 gap-1.5 text-center font-mono text-xs">
+          <div class="p-2 rounded-xl border border-card-border bg-card-surface/40 opacity-70">
+            <div class="font-extrabold text-[11px] text-ink-muted">AAA</div>
+            <div class="text-[10px] text-ink-subtle">cost/cost/cost</div>
+          </div>
+          <div class="p-2 rounded-xl border border-card-border bg-card-surface/40 opacity-70">
+            <div class="font-extrabold text-[11px] text-ink-muted">ABB</div>
+            <div class="text-[10px] text-ink-subtle">buy/bought/bought</div>
+          </div>
+          <div class="p-2 rounded-xl border border-card-border bg-card-surface/40 opacity-70">
+            <div class="font-extrabold text-[11px] text-ink-muted">ABA</div>
+            <div class="text-[10px] text-ink-subtle">run/ran/run</div>
+          </div>
+          <div class="p-2 rounded-xl border-2 border-accent-teal bg-accent-tealSoft text-ink-main font-bold shadow-sm">
+            <div class="font-black text-[11px] text-accent-tealDark flex items-center justify-center gap-0.5">
+              <span>ABC</span>
+              <span class="material-symbols-rounded text-xs">check</span>
+            </div>
+            <div class="text-[10px] text-accent-tealDark font-semibold">go/went/gone</div>
+          </div>
+        </div>
+        <p class="text-[11px] text-ink-muted mt-2 leading-relaxed">
+          <strong class="text-ink-main font-bold">Why ‘went’?</strong> In Middle English, the past tense of <em>wend</em> (to travel / turn) completely replaced the archaic past of <em>go</em> (<em>ēode</em>).
+        </p>
+      </section>
+
+      <!-- Master Tense Table Section -->
+      <section class="bg-card-bg rounded-2xl border border-card-border p-3.5 shadow-tactile-md">
+        <!-- Section Header with Full Table Listen -->
+        <div class="flex items-center justify-between pb-3 border-b border-card-border">
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="material-symbols-rounded text-accent-teal text-lg">table_chart</span>
+              <h3 class="text-sm font-black text-ink-main font-display">Tense & Conjugation Table</h3>
+            </div>
+            <p class="text-[11px] text-ink-muted mt-0.5">Reference grid across 5 grammatical persons</p>
+          </div>
+          <button type="button" class="min-h-[44px] px-3 rounded-xl bg-accent-tealSoft text-accent-tealDark border border-accent-teal/30 hover:bg-accent-teal/20 font-bold text-xs flex items-center gap-1.5 active:scale-95 transition-all" aria-label="Listen to all conjugations">
+            <span class="material-symbols-rounded text-base">play_circle</span>
+            <span>Listen all</span>
+          </button>
+        </div>
+
+        <!-- 4 Tense Group Navigation Pills -->
+        <div class="grid grid-cols-4 gap-1 pt-3 pb-2 text-center text-xs font-bold" role="tablist">
+          <button class="min-h-[38px] px-2 rounded-xl bg-ink-main text-white shadow-tactile-btn flex flex-col justify-center items-center" role="tab" aria-selected="true">
+            <span class="leading-none text-[11px]">Present</span>
+            <span class="text-[9px] font-mono opacity-80 mt-0.5 font-normal">Active (4)</span>
+          </button>
+          <button class="min-h-[38px] px-2 rounded-xl bg-card-surface border border-card-border text-ink-muted hover:text-ink-main hover:bg-card-surface/80 flex flex-col justify-center items-center" role="tab" aria-selected="false">
+            <span class="leading-none text-[11px]">Past</span>
+            <span class="text-[9px] font-mono opacity-80 mt-0.5 font-normal">4 tenses</span>
+          </button>
+          <button class="min-h-[38px] px-2 rounded-xl bg-card-surface border border-card-border text-ink-muted hover:text-ink-main hover:bg-card-surface/80 flex flex-col justify-center items-center" role="tab" aria-selected="false">
+            <span class="leading-none text-[11px]">Future</span>
+            <span class="text-[9px] font-mono opacity-80 mt-0.5 font-normal">4 tenses</span>
+          </button>
+          <button class="min-h-[38px] px-2 rounded-xl bg-card-surface border border-card-border text-ink-muted hover:text-ink-main hover:bg-card-surface/80 flex flex-col justify-center items-center" role="tab" aria-selected="false">
+            <span class="leading-none text-[11px]">Perfect</span>
+            <span class="text-[9px] font-mono opacity-80 mt-0.5 font-normal">Aspects</span>
+          </button>
+        </div>
+
+        <!-- Tense Accordion List inside Selected Group (Present Group) -->
+        <div class="mt-2 space-y-2.5">
+
+          <!-- 1. Present Simple (DEFAULT OPENED) -->
+          <div class="border-2 border-accent-teal/60 rounded-xl overflow-hidden bg-white shadow-sm">
+            <!-- Accordion Header -->
+            <div class="px-3 py-2.5 bg-accent-tealSoft/50 flex items-center justify-between border-b border-accent-teal/20">
+              <div class="flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-accent-teal"></span>
+                <span class="font-extrabold text-xs text-ink-main font-display">Present Simple</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.2 bg-white rounded text-accent-tealDark border border-accent-teal/20">Habitual / Fact</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <button type="button" class="min-h-[32px] min-w-[32px] flex items-center justify-center text-accent-tealDark hover:bg-accent-teal/20 rounded-lg" aria-label="Listen to Present Simple">
+                  <span class="material-symbols-rounded text-base">volume_up</span>
+                </button>
+                <span class="material-symbols-rounded text-ink-muted text-lg">expand_less</span>
+              </div>
+            </div>
+
+            <!-- Matrix Content: Persons vs Sentences -->
+            <div class="p-2.5 space-y-2.5 text-xs">
+              <!-- Grid Header: Persons (I, you, he/she/it, we, they) -->
+              <div class="bg-card-surface/60 rounded-lg p-1.5 border border-card-border">
+                <div class="text-[10px] font-mono uppercase font-bold text-ink-muted mb-1 flex items-center justify-between">
+                  <span>Conjugation by Person</span>
+                  <span class="text-accent-coral font-bold font-sans">he/she/it: goes</span>
+                </div>
+                <div class="grid grid-cols-5 gap-1 text-center font-mono text-[11px]">
+                  <div class="bg-white p-1 rounded border border-card-border/80">
+                    <span class="text-[9px] block text-ink-subtle">I</span>
+                    <strong class="font-bold text-ink-main">go</strong>
+                  </div>
+                  <div class="bg-white p-1 rounded border border-card-border/80">
+                    <span class="text-[9px] block text-ink-subtle">you</span>
+                    <strong class="font-bold text-ink-main">go</strong>
+                  </div>
+                  <div class="bg-accent-amberSoft p-1 rounded border border-accent-amber/40">
+                    <span class="text-[9px] block text-amber-700 font-bold">he/she/it</span>
+                    <strong class="font-black text-amber-900">goes</strong>
+                  </div>
+                  <div class="bg-white p-1 rounded border border-card-border/80">
+                    <span class="text-[9px] block text-ink-subtle">we</span>
+                    <strong class="font-bold text-ink-main">go</strong>
+                  </div>
+                  <div class="bg-white p-1 rounded border border-card-border/80">
+                    <span class="text-[9px] block text-ink-subtle">they</span>
+                    <strong class="font-bold text-ink-main">go</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sentence Modes: Affirmative, Negative, Question -->
+              <div class="space-y-1.5">
+                <!-- Affirmative -->
+                <div class="flex items-start justify-between p-2 rounded-lg bg-emerald-50/50 border border-emerald-200/60">
+                  <div class="flex items-start gap-2">
+                    <span class="text-[10px] font-black uppercase font-mono px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 shrink-0 mt-0.5">Aff</span>
+                    <div>
+                      <p class="font-semibold text-ink-main text-xs">I <strong class="text-emerald-800 font-bold">go</strong> to the office daily.</p>
+                      <p class="text-[11px] text-ink-muted">He <strong class="text-emerald-800 font-bold">goes</strong> to school by train.</p>
+                    </div>
+                  </div>
+                  <button type="button" class="min-h-[36px] min-w-[36px] flex items-center justify-center text-emerald-800 hover:bg-emerald-100 rounded" aria-label="Listen affirmative">
+                    <span class="material-symbols-rounded text-sm">volume_up</span>
+                  </button>
+                </div>
+
+                <!-- Negative -->
+                <div class="flex items-start justify-between p-2 rounded-lg bg-rose-50/40 border border-rose-200/60">
+                  <div class="flex items-start gap-2">
+                    <span class="text-[10px] font-black uppercase font-mono px-1.5 py-0.5 rounded bg-rose-100 text-rose-800 shrink-0 mt-0.5">Neg</span>
+                    <div>
+                      <p class="font-semibold text-ink-main text-xs">We <strong class="text-rose-700 font-bold">do not go</strong> (don't go).</p>
+                      <p class="text-[11px] text-ink-muted">She <strong class="text-rose-700 font-bold">does not go</strong> (doesn't go).</p>
+                    </div>
+                  </div>
+                  <button type="button" class="min-h-[36px] min-w-[36px] flex items-center justify-center text-rose-700 hover:bg-rose-100 rounded" aria-label="Listen negative">
+                    <span class="material-symbols-rounded text-sm">volume_up</span>
+                  </button>
+                </div>
+
+                <!-- Question -->
+                <div class="flex items-start justify-between p-2 rounded-lg bg-blue-50/40 border border-blue-200/60">
+                  <div class="flex items-start gap-2">
+                    <span class="text-[10px] font-black uppercase font-mono px-1.5 py-0.5 rounded bg-blue-100 text-blue-800 shrink-0 mt-0.5">Ques</span>
+                    <div>
+                      <p class="font-semibold text-ink-main text-xs"><strong class="text-blue-800 font-bold">Do you go</strong> there often?</p>
+                      <p class="text-[11px] text-ink-muted"><strong class="text-blue-800 font-bold">Does he go</strong> by car?</p>
+                    </div>
+                  </div>
+                  <button type="button" class="min-h-[36px] min-w-[36px] flex items-center justify-center text-blue-800 hover:bg-blue-100 rounded" aria-label="Listen question">
+                    <span class="material-symbols-rounded text-sm">volume_up</span>
+                  </button>
+                </div>
+
+                <!-- Passive Note: Intransitive -->
+                <div class="p-2 rounded-lg bg-card-surface/70 border border-card-border text-[11px] flex items-start gap-2 text-ink-muted">
+                  <span class="material-symbols-rounded text-accent-amber text-base shrink-0 mt-0.5">block</span>
+                  <div>
+                    <strong class="font-bold text-ink-main">Passive Voice:</strong> Strictly <span class="font-bold text-accent-coral">Not Applicable</span>. Because <em>go</em> is an intransitive verb of motion without a direct object, it cannot form standard passives (<em>*is gone</em> functions purely as an adjectival state note, e.g. "Summer is gone").
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Present Continuous (Collapsed Preview) -->
+          <div class="border border-card-border rounded-xl overflow-hidden bg-white hover:border-card-borderDark transition-colors">
+            <div class="px-3 py-2.5 flex items-center justify-between cursor-pointer">
+              <div class="flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-ink-light"></span>
+                <span class="font-extrabold text-xs text-ink-main font-display">Present Continuous</span>
+                <span class="text-[10px] font-mono text-ink-muted bg-card-surface px-1.5 py-0.5 rounded">am/is/are + going</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] text-accent-tealDark font-semibold hidden xs:inline">‘I am going’</span>
+                <span class="material-symbols-rounded text-ink-muted text-lg">expand_more</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Present Perfect Simple (Collapsed Preview with Stative Note) -->
+          <div class="border border-card-border rounded-xl overflow-hidden bg-white hover:border-card-borderDark transition-colors">
+            <div class="px-3 py-2.5 flex items-center justify-between cursor-pointer">
+              <div class="flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-ink-light"></span>
+                <span class="font-extrabold text-xs text-ink-main font-display">Present Perfect</span>
+                <span class="text-[10px] font-mono text-ink-muted bg-card-surface px-1.5 py-0.5 rounded">have/has + gone / been</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-[10px] bg-accent-amberSoft text-amber-800 font-bold px-1.5 py-0.5 rounded border border-accent-amber/30">gone vs been</span>
+                <span class="material-symbols-rounded text-ink-muted text-lg">expand_more</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Present Perfect Continuous (Collapsed Preview) -->
+          <div class="border border-card-border rounded-xl overflow-hidden bg-white hover:border-card-borderDark transition-colors">
+            <div class="px-3 py-2.5 flex items-center justify-between cursor-pointer">
+              <div class="flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-ink-light"></span>
+                <span class="font-extrabold text-xs text-ink-main font-display">Present Perfect Continuous</span>
+                <span class="text-[10px] font-mono text-ink-muted bg-card-surface px-1.5 py-0.5 rounded">have been going</span>
+              </div>
+              <span class="material-symbols-rounded text-ink-muted text-lg">expand_more</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Stative & Compound Tense Grammar Footnote -->
+        <div class="mt-3 p-2.5 rounded-xl bg-card-surface/50 border border-card-border text-[11px] space-y-1 text-ink-muted">
+          <div class="flex items-center gap-1 text-ink-main font-bold text-xs">
+            <span class="material-symbols-rounded text-sm text-accent-teal">sticky_note_2</span>
+            <span>Tense Notes for Adult Candidates</span>
+          </div>
+          <p class="leading-relaxed">
+            • <strong>Dynamic Verb:</strong> Unlike stative verbs (know, believe), <em>go</em> readily forms progressive continuous aspects across all registers.
+          </p>
+          <p class="leading-relaxed">
+            • <strong>Compound Futurity:</strong> <em>be going to + infinitive</em> acts as a modal-like future semi-auxiliary expressing prior intention or immediate perceptual evidence.
+          </p>
+        </div>
+      </section>
+
+      <!-- Common Mistakes Section (With Real Learner Corrections) -->
+      <section class="bg-card-bg rounded-2xl border border-card-border p-3.5 shadow-tactile">
+        <div class="flex items-center justify-between mb-2.5">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-rounded text-accent-coral text-lg">error_outline</span>
+            <h3 class="text-xs font-black uppercase tracking-wider text-ink-main font-display">Common Learner Mistakes</h3>
+          </div>
+          <span class="text-[10px] font-mono font-bold text-ink-muted bg-card-surface px-2 py-0.5 rounded border border-card-border">IELTS Band 5–7 traps</span>
+        </div>
+
+        <div class="space-y-2 text-xs">
+          <!-- Trap 1: have went -> have gone -->
+          <div class="p-2.5 rounded-xl bg-card-surface/40 border border-card-border space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-rounded text-accent-coral text-sm">cancel</span>
+              <span class="line-through text-ink-muted font-medium">I have went to London twice.</span>
+            </div>
+            <div class="flex items-center gap-2 pl-5">
+              <span class="material-symbols-rounded text-emerald-700 text-sm">check_circle</span>
+              <span class="font-bold text-ink-main">I have <span class="text-emerald-700 underline font-black">gone</span> to London / I have <span class="text-emerald-700 underline font-black">been</span> to London.</span>
+            </div>
+            <p class="text-[11px] text-ink-muted pl-5 pt-0.5">
+              <strong class="text-ink-main font-semibold">Rule:</strong> Never use V2 (<em>went</em>) after auxiliary <em>have/has/had</em>. The past participle V3 is <em>gone</em> (or <em>been</em> for completed round-trips).
+            </p>
+          </div>
+
+          <!-- Trap 2: go to home -> go home -->
+          <div class="p-2.5 rounded-xl bg-card-surface/40 border border-card-border space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-rounded text-accent-coral text-sm">cancel</span>
+              <span class="line-through text-ink-muted font-medium">After the lecture I will go to home.</span>
+            </div>
+            <div class="flex items-center gap-2 pl-5">
+              <span class="material-symbols-rounded text-emerald-700 text-sm">check_circle</span>
+              <span class="font-bold text-ink-main">After the lecture I will <span class="text-emerald-700 underline font-black">go home</span>.</span>
+            </div>
+            <p class="text-[11px] text-ink-muted pl-5 pt-0.5">
+              <strong class="text-ink-main font-semibold">Rule:</strong> <em>Home</em> functions adverbially here; omit preposition <em>to</em>.
+            </p>
+          </div>
+
+          <!-- Trap 3: gone vs been -->
+          <div class="p-2.5 rounded-xl bg-card-surface/40 border border-card-border space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-rounded text-accent-coral text-sm">cancel</span>
+              <span class="line-through text-ink-muted font-medium">He has gone to Paris and is back now.</span>
+            </div>
+            <div class="flex items-center gap-2 pl-5">
+              <span class="material-symbols-rounded text-emerald-700 text-sm">check_circle</span>
+              <span class="font-bold text-ink-main">He has <span class="text-emerald-700 underline font-black">been to</span> Paris and is back now.</span>
+            </div>
+            <p class="text-[11px] text-ink-muted pl-5 pt-0.5">
+              <strong class="text-ink-main font-semibold">Rule:</strong> <em>Has gone</em> means still there / en route. <em>Has been</em> indicates a completed round journey.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Often Confused Pairs Section -->
+      <section class="bg-card-bg rounded-2xl border border-card-border p-3.5 shadow-tactile">
+        <div class="flex items-center justify-between mb-2.5">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-rounded text-accent-amber text-lg">compare_arrows</span>
+            <h3 class="text-xs font-black uppercase tracking-wider text-ink-main font-display">Often Confused With</h3>
+          </div>
+          <span class="text-[10px] font-mono text-ink-subtle">Directional pairs</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <!-- Pair 1: go vs come -->
+          <div class="p-2.5 rounded-xl border border-card-border bg-card-surface/50 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between font-bold text-ink-main pb-1 border-b border-card-border">
+                <span class="text-accent-tealDark font-extrabold text-sm">go</span>
+                <span class="text-ink-light">vs</span>
+                <span class="text-accent-coral font-extrabold text-sm">come</span>
+              </div>
+              <p class="text-[11px] text-ink-muted mt-1.5 leading-snug">
+                <strong>go:</strong> Movement <em>away</em> from speaker / current anchor.
+              </p>
+              <p class="text-[11px] text-ink-muted mt-1 leading-snug">
+                <strong>come:</strong> Movement <em>toward</em> the speaker / listener.
+              </p>
+            </div>
+            <div class="mt-2 pt-1.5 border-t border-card-border/60 text-[10px] font-mono text-ink-main">
+              "I must go now" / "Come here"
+            </div>
+          </div>
+
+          <!-- Pair 2: go vs went -->
+          <div class="p-2.5 rounded-xl border border-card-border bg-card-surface/50 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between font-bold text-ink-main pb-1 border-b border-card-border">
+                <span class="text-accent-tealDark font-extrabold text-sm">go</span>
+                <span class="text-ink-light">vs</span>
+                <span class="text-accent-coral font-extrabold text-sm">went</span>
+              </div>
+              <p class="text-[11px] text-ink-muted mt-1.5 leading-snug">
+                <strong>go:</strong> Present/infinitive. Used after modal verbs: <em>can go, must go</em>.
+              </p>
+              <p class="text-[11px] text-ink-muted mt-1 leading-snug">
+                <strong>went:</strong> Past only. Never say <em>*did went</em> or <em>*must went</em>.
+              </p>
+            </div>
+            <div class="mt-2 pt-1.5 border-t border-card-border/60 text-[10px] font-mono text-ink-main">
+              "Did you go?" (not *went)
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Practice Drill Call to Action -->
+      <section class="bg-gradient-to-br from-card-surface to-canvas rounded-2xl border-2 border-accent-teal/40 p-3.5 shadow-tactile text-center">
+        <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-accent-tealSoft text-accent-tealDark border border-accent-teal/30 mb-1.5">
+          Reinforce with Spaced Recall
+        </span>
+        <h3 class="text-sm font-black font-display text-ink-main">Master all 16 tenses of ‘go’</h3>
+        <p class="text-xs text-ink-muted mt-0.5 mb-3">60-second interactive drill on irregular V2/V3 shifts and participle traps.</p>
+        
+        <div class="flex items-center gap-2">
+          <button type="button" class="flex-1 min-h-[44px] px-4 rounded-xl bg-accent-teal text-white font-black text-xs shadow-tactile-btn active:translate-y-0.5 active:shadow-none transition-all flex items-center justify-center gap-1.5">
+            <span class="material-symbols-rounded text-base">bolt</span>
+            <span>Start 60s Verb Drill</span>
+          </button>
+          <button type="button" class="min-h-[44px] px-3 rounded-xl bg-card-bg border border-card-border text-ink-main font-bold text-xs hover:bg-card-surface active:scale-95 transition-all flex items-center justify-center" aria-label="Add to Deck">
+            <span class="material-symbols-rounded text-base">add_to_photos</span>
+          </button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Lexkite Kit Canonical Bottom Navigation Bar (5 tabs) -->
+    <nav class="sticky bottom-0 z-30 bg-canvas/95 backdrop-blur-md border-t-2 border-card-border px-2 py-1.5 flex justify-around items-center" aria-label="Main Navigation">
+      <!-- 1. Today -->
+      <a href="#/today" class="min-h-[44px] min-w-[56px] flex flex-col items-center justify-center text-ink-muted hover:text-ink-main active:scale-95 transition-all">
+        <span class="material-symbols-rounded text-xl">today</span>
+        <span class="text-[10px] font-bold mt-0.5">Today</span>
+      </a>
+
+      <!-- 2. Vocab (Active) -->
+      <a href="#/vocab" class="min-h-[44px] min-w-[64px] flex flex-col items-center justify-center text-accent-tealDark font-black active:scale-95 transition-all" aria-current="page">
+        <div class="px-3 py-1 rounded-full bg-accent-tealSoft border border-accent-teal/30 flex flex-col items-center shadow-sm">
+          <span class="material-symbols-rounded text-xl text-accent-tealDark filled">menu_book</span>
+          <span class="text-[10px] font-black leading-none mt-0.5">Vocab</span>
+        </div>
+      </a>
+
+      <!-- 3. Skills -->
+      <a href="#/skills" class="min-h-[44px] min-w-[56px] flex flex-col items-center justify-center text-ink-muted hover:text-ink-main active:scale-95 transition-all">
+        <span class="material-symbols-rounded text-xl">psychology</span>
+        <span class="text-[10px] font-bold mt-0.5">Skills</span>
+      </a>
+
+      <!-- 4. Tests -->
+      <a href="#/tests" class="min-h-[44px] min-w-[56px] flex flex-col items-center justify-center text-ink-muted hover:text-ink-main active:scale-95 transition-all">
+        <span class="material-symbols-rounded text-xl">assignment</span>
+        <span class="text-[10px] font-bold mt-0.5">Tests</span>
+      </a>
+
+      <!-- 5. Me -->
+      <a href="#/me" class="min-h-[44px] min-w-[56px] flex flex-col items-center justify-center text-ink-muted hover:text-ink-main active:scale-95 transition-all">
+        <span class="material-symbols-rounded text-xl">person</span>
+        <span class="text-[10px] font-bold mt-0.5">Me</span>
+      </a>
+    </nav>
+
+  </main>
+</body>
+</html>

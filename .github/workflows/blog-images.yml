@@ -56,11 +56,12 @@ jobs:
           GH_MEDIA_TOKEN: ${{ secrets.LEXKITE_MEDIA_TOKEN }}
         run: node scripts/blog-images.mjs plan --mode "$MODE" --since "${{ github.event.before }}" --limit "${{ inputs.limit || '40' }}" --lang "${{ inputs.lang }}" --posts "${{ inputs.posts }}"
       - name: Cài công cụ dựng ảnh + phông Noto (OFL) – chỉ trên CI
+        timeout-minutes: 12
         if: steps.plan.outputs.count != '0'
         run: |
           mkdir -p "$LEXKITE_TOOLS" && cd "$LEXKITE_TOOLS" && npm init -y >/dev/null
-          npm i --no-audit --no-fund @resvg/resvg-js@2.6.2 sharp@0.33.5 playwright-core@1.50.1 >/dev/null
-          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji >/dev/null
+          bash scripts/ci/npm-retry.sh i --no-audit --no-fund @resvg/resvg-js@2.6.2 sharp@0.33.5 playwright-core@1.50.1 >/dev/null
+          bash scripts/ci/apt-install.sh fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji
           PLAYWRIGHT_BROWSERS_PATH="$LEXKITE_TOOLS/pw" node node_modules/playwright-core/cli.js install --with-deps chromium >/dev/null
       - name: Dựng ảnh
         id: render
@@ -97,20 +98,15 @@ jobs:
       - name: Commit sổ ảnh
         if: steps.push.outputs.pushed == '1'
         run: |
-          git add content/blog/media
-          git diff --cached --quiet && { echo "· sổ không đổi"; exit 0; }
-          git config user.name "lexkite-bot"; git config user.email "lexkiteapp@users.noreply.github.com"
-          git commit -qm "Ảnh riêng blog ($MODE): ${{ steps.render.outputs.rendered }} ảnh [CF-Pages-Skip] [skip ci]"
-          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
-          exit 1
+          bash scripts/ci/push-main.sh "Ảnh riêng blog ($MODE): ${{ steps.render.outputs.rendered }} ảnh" content/blog/media
       - name: Lô kế tiếp (backfill)
         if: steps.push.outputs.pushed == '1' && env.MODE == 'backfill' && inputs.chain && steps.plan.outputs.remaining != '0'
         env: { GH_TOKEN: '${{ github.token }}' }
         run: |
           echo "· còn ${{ steps.plan.outputs.remaining }} bài – gọi lô tiếp"
-          gh workflow run blog-images.yml --ref main -f mode=backfill -f limit="${{ inputs.limit }}" -f lang="${{ inputs.lang }}" -f chain=true
+          bash scripts/ci/gh-retry.sh gh workflow run blog-images.yml --ref main -f mode=backfill -f limit="${{ inputs.limit }}" -f lang="${{ inputs.lang }}" -f chain=true
       - name: Build lại site khi bài ĐÃ đăng có ảnh mới (hoặc backfill xong)
         if: steps.push.outputs.pushed == '1' && (steps.plan.outputs.live != '0' && env.MODE != 'backfill' || env.MODE == 'backfill' && steps.plan.outputs.remaining == '0')
         env: { GH_TOKEN: '${{ github.token }}' }
         # không gấp: gom với yêu cầu khác (pages-deploy.yml chờ yên + giãn cách, cron 3 giờ bù) – docs/FREE-TIER.md §7
-        run: gh workflow run pages-deploy.yml --ref main -f quiet=15 -f reason="blog-images ${{ env.MODE }}" && echo "✓ đã yêu cầu deploy"
+        run: bash scripts/ci/gh-retry.sh gh workflow run pages-deploy.yml --ref main -f quiet=15 -f reason="blog-images ${{ env.MODE }}" && echo "✓ đã yêu cầu deploy"

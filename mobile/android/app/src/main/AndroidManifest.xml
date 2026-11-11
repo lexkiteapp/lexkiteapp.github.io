@@ -35,6 +35,16 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="lexkite" android:host="word" />
             </intent-filter>
+            <!-- App Links: https://lexkite.com/app/… mở thẳng app (autoVerify ↔ web/.well-known/assetlinks.json; router chung trong web/js/native.js › deepRoute) -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" />
+                <data android:host="lexkite.com" />
+                <data android:path="/app" />
+                <data android:pathPrefix="/app/" />
+            </intent-filter>
         </activity>
 
         <!-- Widget "Từ mỗi giờ": không cần quyền đặc biệt (báo thức không chính xác, không thông báo) -->

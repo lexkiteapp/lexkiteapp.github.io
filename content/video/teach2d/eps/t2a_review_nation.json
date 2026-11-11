@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"nation\" mean?",
+  "keyword": "nation",
+  "value": "Nation means a country, especially its people, culture and government.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=nation",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"nation\" mean?",
+    "description": "Nation means a country, especially its people, culture and government.\n\nReview your words, free: https://lexkite.com/app/#/review?w=nation\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "nation",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"nation\" mean?\n\nNation means a country, especially its people, culture and government.\n\nReview your words, free: https://lexkite.com/app/#/review?w=nation"
+   },
+   "instagram": {
+    "caption": "What does \"nation\" mean?\n\nNation means a country, especially its people, culture and government.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"nation\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a country, especially its people, culture and government. Nation means a country, especially its people, culture and government. Try the full lesson and quiz here: {link}"
  }
 }

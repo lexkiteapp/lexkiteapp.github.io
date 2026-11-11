@@ -72,5 +72,46 @@
   "words": 40,
   "seconds": 24.7,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"lamp\" mean?",
+  "keyword": "lamp",
+  "value": "Lamp means a device that gives light.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=lamp",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"lamp\" mean?",
+    "description": "Lamp means a device that gives light.\n\nReview your words, free: https://lexkite.com/app/#/review?w=lamp\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "lamp",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"lamp\" mean?\n\nLamp means a device that gives light.\n\nReview your words, free: https://lexkite.com/app/#/review?w=lamp"
+   },
+   "instagram": {
+    "caption": "What does \"lamp\" mean?\n\nLamp means a device that gives light.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"lamp\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a device that gives light. Lamp means a device that gives light. More practice like this (free): {link}"
  }
 }

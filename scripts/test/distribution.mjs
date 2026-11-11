@@ -8,6 +8,7 @@ const H = 3600e3, MIN = 60e3;
 // ---- config normalisation ----
 const c0 = D.normCfg({ daily_cap: 999, min_gap_min: -5, windows: [{ from: '21:00', to: '09:00' }, { from: '8:00', to: '10:00' }], tz: 'Mars/Base', types: 'short, bad', regions: 'in,pk' });
 ok(c0.daily_cap === 2 && c0.min_gap_min === 240 && c0.windows.length === 1 && c0.tz === 'America/New_York' && c0.types.join() === 'short' && c0.regions.join() === 'IN,PK', 'normCfg clamps cap/gap, drops bad windows / tz / types, upper-cases regions');
+ok(D.SOCIAL_DAY_MAX === 2 && D.normCfg({ daily_cap: 9 }).daily_cap === 2 && D.normCfg({ daily_cap: 1 }).daily_cap === 1 && D.normCfg({ role: 'embed', daily_cap: 6 }).daily_cap === 6, 'social ≤ 2 bài/ngày/kênh (chủ 10/11 đăng dần), embed giữ trần riêng');
 // ---- routing ----
 const cfgs = { A: D.normCfg({ label: 'Lexkite English' }), B: D.normCfg({ types: ['podcast'] }), C: D.normCfg({ topics: ['exam'] }), P: D.normCfg({ active: 0 }), S: D.normCfg({ types: ['short'] }) };
 const rules = [{ cond: { type: 'podcast' }, channel_id: 'B' }, { cond: { topic: 'exam/ielts,exam/toeic' }, channel_id: 'C' }, { cond: { region: 'IN,PK' }, channel_id: 'P' }, { cond: { type: 'long' }, channel_id: 'S' }];
@@ -61,6 +62,8 @@ const dup = D.schedule({ clips: [{ id: 'x1', title: 'Order Coffee!', cover: 'c1'
 ok(dup.slots.map(s => s.id).sort().join() === 'x1,x4' && dup.skipped.map(s => s.why).join() === 'duplicate,duplicate', 'identical title / thumbnail on one channel skipped');
 const same = D.schedule({ clips: [{ id: 'a1', title: 'A1', template: 'quiz' }, { id: 'a2', title: 'A2', template: 'quiz' }, { id: 'b1', title: 'B1', template: 'pov' }], cfg: { ...cfg, daily_cap: 9, min_gap_min: 10 }, now }).slots.sort((x, y) => x.ms - y.ms).map(s => s.id);
 ok(same.join() === 'a1,b1,a2', 'no same template back-to-back when avoidable (' + same + ')');
+{ const r = D.schedule({ clips: Array.from({ length: 100 }, (_, i) => ({ id: 'x' + i, title: 'Lesson ' + i, template: 't' + (i % 3) })), cfg: { ...cfg, daily_cap: 1 }, now }), days = new Set(r.slots.map(s => D.localDate(s.ms, cfg.tz)));
+  ok(D.PLAN_DAYS >= 90 && r.slots.length === 100 && days.size === 100 && Math.max(...r.slots.map(s => s.ms)) - now > 60 * 864e5, `lên lịch sẵn vài tháng (chủ 10/11): 100 clip → 100 ngày, ≤ 1 bài/ngày (${days.size})`); }
 ok(D.schedule({ clips: mk(1), cfg: { ...cfg, daily_cap: 1 }, existing: Array.from({ length: 46 }, (_, i) => ({ ms: D.zonedToMs(new Date(now + i * 864e5).toISOString().slice(0, 10), '12:00', cfg.tz) })), now, horizonDays: 40 }).skipped[0].why === 'no-slot', 'full horizon → no-slot, never over cap');
 const pa = D.planAll({ routed: { A: mk(4), B: mk(4).map(c => ({ ...c, id: 'p' + c.id, title: 'Pod ' + c.id, cover: 'pc' + c.id })) }, cfgs: { A: cfg, B: D.normCfg({ ...cfg, tz: 'Asia/Kolkata', windows: [{ from: '18:00', to: '22:00' }], daily_cap: 1 }) }, now });
 ok(pa.A.slots.length === 4 && pa.B.slots.length === 4 && new Set(pa.B.slots.map(s => D.localDate(s.ms, 'Asia/Kolkata'))).size === 4, 'channels are planned independently (own cap / window)');

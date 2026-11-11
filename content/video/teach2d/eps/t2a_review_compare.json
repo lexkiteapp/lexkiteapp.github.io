@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"compare\" mean?",
+  "keyword": "compare",
+  "value": "Compare means to consider how similar and different things are.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=compare",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"compare\" mean?",
+    "description": "Compare means to consider how similar and different things are.\n\nReview your words, free: https://lexkite.com/app/#/review?w=compare\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "compare",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"compare\" mean?\n\nCompare means to consider how similar and different things are.\n\nReview your words, free: https://lexkite.com/app/#/review?w=compare"
+   },
+   "instagram": {
+    "caption": "What does \"compare\" mean?\n\nCompare means to consider how similar and different things are.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"compare\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to consider how similar and different things are. Compare means to consider how similar and different things are. Practice it with a free quiz: {link}"
  }
 }
