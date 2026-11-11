@@ -54,6 +54,7 @@ ok(/LISTEN_FIRST = \['B2', 'C1', 'C2'\]/.test(ms) && /btn\.disabled = n < T\.min
 { const g = {}; new Function('self', fs.readFileSync('web/cpack/mediation/index.js', 'utf8'))(g);
   ok(g.MEDIATION_INDEX.every(x => x.src === `cpack/mediation/${x.id}.js` && fs.existsSync('web/' + x.src)), 'index: mọi bài có src nguyên văn trỏ tới gói có thật (cho build-cpack băm tên)');
   ok(!/loadScript\(`cpack\/mediation\/\$\{/.test(ms), 'màn: không ghép đường dẫn gói bài (sẽ 404 sau khi băm)'); }
+ok(/id="mdCheck" data-lk-primary/.test(ms) && /id="mdResBox" data-lesson-done/.test(ms), 'màn: Enter bấm nút chính (data-lk-primary), thẻ kết quả là màn kết (data-lesson-done) cho nav-sweep');
 const src = JSON.parse(fs.readFileSync('content/qa/sources.json', 'utf8')).sources.find(s => s.paths.includes('content/mediation'));
 ok(src && (src.delegate || []).includes('content-qa/mediation-check.mjs'), 'content/mediation đăng ký trong content/qa/sources.json, giao cổng mediation-check');
 console.log(fails ? `✗ mediation: ${fails} lỗi` : '✓ mediation: xanh');

@@ -72,7 +72,7 @@
           <button type="button" class="btn${speak ? ' primary' : ''}" id="mdMic" style="min-height:44px">${UI.icon('mic')} <span>${speak ? t('Nói') : t('Nói thay vì viết')}</span></button></div>
       </section>
       <div id="mdRes"></div>
-      <div class="learn-bar"><button type="button" class="btn primary lg block" id="mdCheck">${t('Kiểm tra bài của tôi')}</button><p class="tiny muted" id="mdHint" style="margin:0;text-align:center"></p></div>`;
+      <div class="learn-bar"><button type="button" class="btn primary lg block" id="mdCheck" data-lk-primary>${t('Kiểm tra bài của tôi')}</button><p class="tiny muted" id="mdHint" style="margin:0;text-align:center"></p></div>`;
     const tx = $('#mdTx'), wc = $('#mdWc'), btn = $('#mdCheck'), hint = $('#mdHint'), prog = $('#mdProg');
     const setProg = v => { prog.setAttribute('aria-valuenow', v); prog.firstElementChild.style.width = v + '%'; if (window.ExitGuard) ExitGuard.progress(); };
     const reveal = () => { const s = $('#mdSrc'), lf = $('#mdLF'); if (s) s.hidden = false; if (lf) lf.remove(); };
@@ -113,7 +113,7 @@
     if (window.ExitGuard) ExitGuard.done();
     const li = (ic, col, s, sr) => `<li style="display:flex;gap:.5rem;align-items:flex-start;margin:.35rem 0"><span style="color:${col};flex:0 0 auto" aria-hidden="true">${UI.icon(ic)}</span><span><span class="sr-only">${sr} </span><span lang="en">${esc(s)}</span></span></li>`;
     const L = list(), next = L[(L.findIndex(x => x.id === X.id) + 1) % L.length];
-    $('#mdRes').innerHTML = `<section class="card" style="margin-top:.8rem" aria-labelledby="mdResH" tabindex="-1" id="mdResBox">
+    $('#mdRes').innerHTML = `<section class="card" style="margin-top:.8rem" aria-labelledby="mdResH" tabindex="-1" id="mdResBox" data-lesson-done>
         <h2 id="mdResH" style="margin-top:0">${t('{a}/{b} ý chính', { a: got, b: of })}</h2>
         <ul style="list-style:none;padding:0;margin:0">${R.points.map(p => li(p.ok ? 'circle-check' : 'circle-x', p.ok ? 'var(--good-text)' : 'var(--again-text)', p.idea, p.ok ? t('Đã có:') : t('Còn thiếu:'))).join('')}</ul>
         ${R.extra.length ? `<h3>${t('Có thể bỏ')}</h3><ul style="list-style:none;padding:0;margin:0">${R.extra.map(s => li('info', 'var(--muted)', s, t('Có thể bỏ:'))).join('')}</ul>` : ''}
@@ -125,7 +125,7 @@
       ${(X.useful || []).length ? `<details class="card" style="margin-top:.8rem"><summary><b>${t('Cụm từ hữu ích')}</b></summary><ul lang="en">${X.useful.map(u => `<li>${esc(u)}</li>`).join('')}</ul></details>` : ''}
       ${(X.tips || []).length ? `<details class="card" style="margin-top:.8rem"><summary><b>${t('Mẹo')}</b></summary><ul lang="en">${X.tips.map(u => `<li>${esc(u)}</li>`).join('')}</ul></details>` : ''}`;
     const bar = view.querySelector('.learn-bar');
-    bar.innerHTML = `<a class="btn primary lg block" href="#/mediate/${next.id}">${t('Bài tiếp theo')}</a><button type="button" class="btn block" id="mdAgain">${t('Sửa bài và kiểm lại')}</button>`;
+    bar.innerHTML = `<a class="btn primary lg block" href="#/mediate/${next.id}" data-lk-primary>${t('Bài tiếp theo')}</a><button type="button" class="btn block" id="mdAgain">${t('Sửa bài và kiểm lại')}</button>`;
     $('#mdAgain').onclick = () => { const v = text; render(X); $('#mdTx').value = v; $('#mdTx').dispatchEvent(new Event('input')); $('#mdTx').focus(); };
     const box = $('#mdResBox'); box.scrollIntoView({ behavior: 'smooth', block: 'start' }); box.focus({ preventScroll: true });
   }
