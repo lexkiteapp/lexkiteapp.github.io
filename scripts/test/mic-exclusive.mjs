@@ -19,7 +19,7 @@ function env({ ua, touch = 0, sr = true, denied = false }) {
   w.URL.createObjectURL = () => 'blob:rec'; w.URL.revokeObjectURL = () => {};
   w.speechSynthesis = { cancel() {}, getVoices: () => [], speak() {}, addEventListener() {} };
   if (sr) w.webkitSpeechRecognition = class { constructor() { log.srs.push(this); this.starts = 0; } start() { this.starts++; } stop() { if (this.onend) this.onend(); } abort() { this.aborted = true; if (this.onend) this.onend(); } };
-  w.I18N = { t: s => s, lang: () => 'vi', apply() {} };
+  w.I18N = { t: s => s, lang: () => 'vi', apply() {} }; w.t = s => s;
   w.eval(fs.readFileSync('web/js/ui.js', 'utf8'));
   return { w, log, UI: w.UI };
 }
