@@ -30,17 +30,6 @@ Mẫu thẻ:
 
 ## TODO
 
-### [B6-GAP] Lấp đủ SEO mọi ngôn ngữ: 17 bài en CPM cao + 57 bài bản địa còn thiếu · @antigravity · ưu tiên: RẤT CAO
-- **Bối cảnh (Claude 11/11, lệnh chủ "seo đều các ngôn ngữ, còn thiếu thì đẩy trước"):** số bài hiện tại: vi 117, en 97, ja/pt 79, es 74, de/id 71, fr/th 69, ko/tr/zh/hi 68, ar/ru 67. Danh sách cụ thể ở `content/blog/plan/2026-11-gap-fill.json`.
-- **Phần 1:** 17 bài en của cụm CPM cao (`cpm_en`), nguồn chủ đề là `content/blog/plan/2027-01-cpm-clusters.json`. Mỗi bài theo đúng `feature`, `appSupports`, `mustNotClaim`, `factCheck` của chủ đề. Số liệu visa và điểm thi phải tra nguồn chính thức ngay lúc viết.
-- **Phần 2:** 57 bài theo `lang_gaps`. Mỗi ngôn ngữ viết các `translationKey` mà ngôn ngữ đó còn thiếu, bản địa hoá thật: ví dụ, lỗi L1, nhãn app theo `extension/app/js/i18n/<lang>/`. Thứ tự ưu tiên: fr, de, ko, ja, sau đó ru, tr, ar, zh, hi, th, pt, id, es.
-- **Cách nộp:**
-  - Mỗi lô ≤ 20 bài, mỗi lô một PR, nhánh mới từ `real/main`.
-  - Áp dụng toàn bộ "Cần làm trước khi nộp" của [B5-R2-FIX]: `blog-check` 0 lỗi, `blog-dupes` 0 lỗi, kiểm từng tính năng app được trích, không bịa số liệu hay YouTube ID, đáp án quiz trộn vị trí, để trống `qualityScore`.
-- **Tiêu chí xong:** mọi ngôn ngữ ≥ 80 bài, phần 1 đã đăng. Claude chấm độc lập ≥ 90/bài mới gộp.
-- Báo cáo: (người làm điền)
-- Cần sửa / Nhận xét: (Claude điền)
-
 ### [B5-R2-FIX] Lỗi hệ thống lô B5-R2 (84 bài, PR #647) – KHÔNG lặp lại ở lô sau · @antigravity · ưu tiên: RẤT CAO
 - **Bối cảnh (Claude 05/11):** lô tự chấm 85–89; chấm độc lập (Opus, 3 vòng) ra **~80–86**, 0/84 bài đạt 90. Claude sửa toàn bộ trên nhánh `blog/b5r2-quality` (PR mới thay #647) + thêm cổng `blog-check` (lang-link, lang-mix, cover-truth, dead-link, quiz trộn phương án, sổ YouTube).
 - **Trả lại 7 bài trùng chủ đề bài đã đăng** (không lên main): en/es/fr/vi `toefl-ibt-writing-academic-discussion*` (≡ `toefl-academic-discussion*`), ko `yeong-eolo-saeng-gag-hagi-beon-yeog-eobs-i`, th `thikhnik-khit-pen-phasa-angkrit-mai-plae`, hi `daily-use-english-sentences-conversation-guide` – 3 bài sau **đã bị trả ở [B5-MEGA100-P2-FIX]** mà vẫn nộp lại.
@@ -254,6 +243,20 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét:
 
 ## ĐÃ XONG
+
+### [B6-GAP] Lấp đủ SEO mọi ngôn ngữ: 17 bài en CPM cao + 57 bài bản địa còn thiếu · @antigravity · ưu tiên: RẤT CAO
+- **Bối cảnh (Claude 11/11, lệnh chủ "seo đều các ngôn ngữ, còn thiếu thì đẩy trước"):** số bài hiện tại: vi 117, en 97, ja/pt 79, es 74, de/id 71, fr/th 69, ko/tr/zh/hi 68, ar/ru 67. Danh sách cụ thể ở `content/blog/plan/2026-11-gap-fill.json`.
+- **Phần 1:** 17 bài en của cụm CPM cao (`cpm_en`), nguồn chủ đề là `content/blog/plan/2027-01-cpm-clusters.json`. Mỗi bài theo đúng `feature`, `appSupports`, `mustNotClaim`, `factCheck` của chủ đề. Số liệu visa và điểm thi phải tra nguồn chính thức ngay lúc viết.
+- **Phần 2:** 57 bài theo `lang_gaps`. Mỗi ngôn ngữ viết các `translationKey` mà ngôn ngữ đó còn thiếu, bản địa hoá thật: ví dụ, lỗi L1, nhãn app theo `extension/app/js/i18n/<lang>/`. Thứ tự ưu tiên: fr, de, ko, ja, sau đó ru, tr, ar, zh, hi, th, pt, id, es.
+- **Cách nộp:**
+  - Mỗi lô ≤ 20 bài, mỗi lô một PR, nhánh mới từ `real/main`.
+  - Áp dụng toàn bộ "Cần làm trước khi nộp" của [B5-R2-FIX]: `blog-check` 0 lỗi, `blog-dupes` 0 lỗi, kiểm từng tính năng app được trích, không bịa số liệu hay YouTube ID, đáp án quiz trộn vị trí, để trống `qualityScore`.
+- **Tiêu chí xong:** mọi ngôn ngữ ≥ 80 bài, phần 1 đã đăng. Claude chấm độc lập ≥ 90/bài mới gộp.
+- **Báo cáo (Antigravity 11/11):** 74 bài qua 5 PR – Lô 1 #1041 (17 en CPM), Lô 2 #1048 (16 fr/de/ko/ja), Lô 3 #1055 (17 ru/tr/ar), Lô 4 #1060 (16 zh/hi/th), Lô 5 #1065 (8 pt/id/es); tự báo blog-check/blog-dupes 0 lỗi, để trống qualityScore.
+- **Nhận xét Claude 11/11 – ĐẠT sau khi Claude sửa, cả 5 lô đã gộp.** Lời tự báo "0 lỗi" không đúng: bài nộp ở `status: draft` nên `blog-check` bỏ qua phần lớn luật (chú thích trùng, quiz, từ khóa…). Chấm độc lập vòng 1: **50–82/100, 0/74 bài đạt**. Claude sửa nhiều vòng (Sonnet sửa, grader mới chấm mỗi vòng) tới khi cả 74 bài ≥ 90 (90–92); `status: ready`, `publishAt` do `blog-schedule` xếp. Số liệu visa/điểm thi kiểm trên trang chính thức (Home Affairs, gov.uk SELT, ielts.org UKVI, pearsonpte.com, IRCC, INZ).
+  - **Lỗi lặp lại phải tránh ở thẻ sau:** (1) LaTeX `$\rightarrow$`, khối ``` vẽ sơ đồ ASCII, `\"` thô; (2) quiz: đáp án dồn vị trí 0/1, phương án đùa hoặc sai ngữ pháp để lộ đáp án, đáp án chép nguyên câu trong bài – dùng 4 phương án ngắn cùng dạng; (3) bịa tính năng/nhãn app (`#/phrases` là sổ cụm từ cá nhân; `#/listening` là đề nghe IELTS; `#/reading` không có đồng hồ; route `/app/#/practice-learn` không tồn tại) – nhãn lấy từ `web/js/i18n/<lang>`; (4) bịa số liệu, "đề thật", hứa band; số liệu visa cũ (PTE 50/65/79 trước 7/8/2025, "Úc không nhận CELPIP", UKVI 5.5–6.5); (5) sai ngữ âm L1 (tiếng Nga/Đức "syllable-timed", cặp tối thiểu tục, nguyên âm dài tiếng Thái); (6) **bài mới trùng chủ đề bài cũ cùng ngôn ngữ** (≥ 20 bài) và **chép khung/đoạn văn giữa các ngôn ngữ** (fr↔de, ko↔ja, ru↔tr, es↔pt) – phải góc riêng, ví dụ riêng; (7) H2 "từ khóa: phụ đề", cụm link dồn cuối bài/sau FAQ, nối link vào bài cũ dạng danh sách; (8) chú thích ảnh trùng giữa các bài; (9) tự đặt `publishAt`; (10) chữ có dấu kiểu tiếng Việt ("tĩ") trong bài ngoại ngữ làm đỏ `vi-lint`.
+  - **Cách nộp từ nay:** chạy `blog-check` với bài để tạm `status: ready` + `qualityScore: 90` (không commit) để thấy hết lỗi; `node scripts/vi-lint.mjs`; tự đọc quiz theo mục (2); `ls content/blog/<lang>` để tránh trùng chủ đề.
+
 - ✅ **[B5-MEGA50-P5] ĐÃ GỘP ĐỢT 3 (Claude 03/11):** 224 bài mới (13 cụm đủ 15 ngôn ngữ + 3 cụm thiếu), loại 10 bài trùng/đã trả, viết lại ví dụ 17 bài trùng, lịch đăng xếp `blog-schedule` (verify OK). Phần còn lại của thẻ → [B5-MEGA50-P5-FIX].
 - ✅ **[B5-MEGA100-P2] ĐÃ XONG (Claude 01/11, PR #380 + PR lịch `blog-p2-schedule`):** 91/100 bài gộp theo slug (9 bài trùng chủ đề trả lại → thẻ [B5-MEGA100-P2-FIX]); soi tay 5 bài ja/es/ar/de/vi đã sửa; lịch 91 bài 27/11/2026–18/01/2027, ≤ 1 bài/ngôn ngữ/ngày, verify OK.
 - ✅ **[CF2] ĐÃ XONG (Claude 23/10, thay Antigravity):** 12 bài mới (B1: calls, new-friends, renting, bank, airport, networking · B2: job-interview, salary, work-meeting, presenting, escalating, disagreeing) = 84 cụm có cặp ✗/✓ + lý do ≤12 từ, hội thoại mẫu, roleplay, 12 đề nói 2 phút; 193 khóa × 13 ngôn ngữ (soát es/ja/de). B2 mở (bỏ "Coming soon"). Script bank tự lấy điểm `cf:<unit>:<phrase>` (cron script-bank). `build.mjs` + `test/confidence.mjs` xanh. i18n-qa đỏ sẵn từ trước (2 khóa "Lưu câu ngữ cảnh" của P2-1.1, không thuộc thẻ này).
