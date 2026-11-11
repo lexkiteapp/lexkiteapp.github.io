@@ -191,7 +191,7 @@
         <fieldset><legend>${esc(V('Loại'))}</legend>${chk('types', t.types.map(x => [x[0], x[1]]))}</fieldset><fieldset><legend>${esc(V('Chủ đề'))}</legend>${chk('topics', topics)}</fieldset>
         <fieldset><legend>${esc(V('Kỹ năng'))}</legend>${chk('skills', t.skills.map(x => [x[0], nm(x)]))}</fieldset><fieldset><legend>CEFR</legend>${chk('cefr', t.cefr.map(x => [x, x]))}</fieldset>
         <label>${esc(V('Vùng (mã nước)'))}<input id="cf-regions" value="${esc((cf.regions || []).join(', '))}" placeholder="US, GB, IN"></label>
-        <div class="ds-row"><label>${esc(V('Tối đa/ngày'))}<input type="number" id="cf-cap" min="1" max="50" value="${cf.daily_cap}"></label><label>${esc(V('Cách nhau (phút)'))}<input type="number" id="cf-gap" min="0" max="1440" value="${cf.min_gap_min}"></label><label>${esc(V('Múi giờ'))}<input id="cf-tz" value="${esc(cf.tz)}"></label></div>
+        <div class="ds-row"><label>${esc(V('Tối đa/ngày'))}<input type="number" id="cf-cap" min="1" max="${cf.role === 'embed' ? 50 : 2}" value="${cf.daily_cap}"></label><label>${esc(V('Cách nhau (phút)'))}<input type="number" id="cf-gap" min="0" max="1440" value="${cf.min_gap_min}"></label><label>${esc(V('Múi giờ'))}<input id="cf-tz" value="${esc(cf.tz)}"></label></div>
         <label>${esc(V('Khung giờ'))}<input id="cf-win" value="${esc(cf.windows.map(w => w.from + '-' + w.to).join(', '))}" placeholder="09:00-12:00, 18:00-21:00"></label>
         <label class="ds-row"><input type="checkbox" id="cf-act"${cf.active ? ' checked' : ''}> ${esc(V('Bật'))}</label>
         <div class="ds-row"><button class="btn primary" id="cf-save" type="button">${esc(V('Lưu'))}</button><button class="btn ghost" data-x type="button">${esc(V('Hủy'))}</button></div></div>`, (d, close) => {

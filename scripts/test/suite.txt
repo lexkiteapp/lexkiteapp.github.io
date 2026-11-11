@@ -142,6 +142,7 @@ node scripts/test/cron-watch.mjs
 node scripts/test/cron-kick.mjs
 node scripts/test/ci-hog.mjs
 node scripts/test/queue-report.mjs
+node scripts/test/busy-gate.mjs
 node scripts/test/reminders.mjs
 node scripts/test/notify-ux.mjs
 node scripts/test/fcm-push.mjs
@@ -282,6 +283,8 @@ node scripts/target/drill-pack.mjs --check
 node scripts/target/exam-es-check.mjs
 node scripts/test/es-exam.mjs
 node scripts/test/grammar-inventory.mjs
+node scripts/grammar/build-lazy-idx.mjs
+node scripts/test/grammar-lazy.mjs
 node scripts/test/explain-let.mjs
 node scripts/content-qa/sense-check.mjs
 node scripts/test/sense-check.mjs

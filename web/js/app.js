@@ -268,7 +268,8 @@
   // ---------- Nạp module theo trang (lazy loading): trang đầu chỉ tải phần lõi, phần nặng tải khi cần ----------
   const G = 'js/grammar/', BUNDLES = {
     demo: ['js/app-demo.js'],
-    grammar: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/structures.js', ...['tenses', 'verbs', 'sentences', 'foundation', 'starter', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'drills-own', 'bank-gen', 'check'].map(f => f === 'drills-own' ? 'cpack/grammar/drills-own.js' : G + f + '.js'), 'js/grammar.js'],
+    grammar: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/structures.js', ...['tenses', 'verbs', 'sentences', 'foundation', 'cpack/grammar/starter.js', 'cpack/grammar/lazy-a1.js', 'academic', 'cpack/grammar/lazy-c2.js', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'cpack/grammar/drills-own.js', 'bank-gen', 'check'].map(f => f.startsWith('cpack/') ? f : G + f + '.js'), 'js/grammar.js'],
+    grammarA1: ['cpack/grammar/starter2.js'], grammarC2: ['cpack/grammar/mastery.js'], // 12 bài A1 / 10 bài C2 (~29 KB nén mỗi gói): chỉ tải khi mở bài của cấp đó; gói 'grammar' mang mục lục gọn lazy-a1/c2.js (scripts/grammar/build-lazy-idx.mjs)
     pas: ['js/i18n/en/v2.js', 'js/i18n/en/speak.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/pas-sit.js', 'js/st/v2/pas-drill.js', 'js/characters.js', 'js/speak/data.js', 'js/speak/score.js', 'js/speak/app.js'], // 🎙️ Play & Speak (cờ speak_pack, docs/specs/play-and-speak.md)
     pron: ['js/i18n/en/pron.js', 'js/pron/sounds.js', 'js/pron/skills.js', 'js/pron/pairs.js', 'js/pron/sayit.js', 'js/pron/coach.js', 'js/pron/rhythm.js', 'js/pron.js'],
     words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/ngsl2.js', 'js/lib/office.js', 'js/distract.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
@@ -380,6 +381,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   const need1 = n => bundleP[n] || (inflight++, bundleP[n] = Promise.all(BUNDLES[n].map(loadScript).concat([].concat(BCSS[n] || [], n === 'ux1' ? UX1X() : [], LZCSS(n)).map(loadCss))).finally(() => { inflight--; }));
   App.need = (...names) => Promise.all([...(window.I18N && I18N.lang() !== 'vi' ? ['i18nx', 'i18nl'].map(need1) : []), ...names.map(need1)]);
   App.loaded = n => !!bundleP[n];
+  App.reneed = n => { delete bundleP[n]; return App.need(n); }; // tải lại gói đã báo xong mà thiếu dữ liệu (loadScript nuốt lỗi mạng) → bấm thử lại được
   App.loadScript = src => Promise.all([loadScript(src), loadCss('css/lazy-ui.css')]).then(() => {}); // 1 tệp lười theo nhu cầu (vd. tình huống Play & Speak)
   App.anki = async (tab, opts) => { try { await App.need('anki'); if (!window.AnkiUI) throw new Error('anki'); await AnkiUI.open(tab, opts || {}); } catch (e) { toast(t('Không tải được – thử lại sau')); } };
   const ankiAll = () => ({ cards: Object.values(state.cards), name: t('Sổ từ') });
@@ -397,7 +399,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   // Tải sẵn mọi gói vào bộ đệm trình duyệt KHÔNG thực thi (<link rel=prefetch>, ưu tiên thấp) → trang đầu không bị khựng,
   // vào trang khác thì gói đã có sẵn, chỉ còn bước thực thi.
   // Chỉ bắt đầu khi trang đã tải xong (load) và không còn gói nào đang tải; xếp hàng 3 file một lúc (200+ file cùng lúc làm 4G chậm nghẽn gói của trang kế tiếp – mobile-qa LCP)
-  App.prefetchAll = () => { if (!Store.isExtension && lean()) return; const go = () => (inflight || document.readyState !== 'complete' ? setTimeout(go, 700) : idle(() => { const have = new Set([...document.querySelectorAll('script[src],link[rel=prefetch]')].map(x => x.getAttribute('src') || x.getAttribute('href'))); const q = [...new Set(Object.values(BUNDLES).flat())].filter(f => typeof f === 'string' && /\.js$/.test(f) && !have.has(f)); const next = () => { if (inflight) return setTimeout(next, 700); const f = q.shift(); if (!f) return; const l = document.createElement('link'); l.rel = 'prefetch'; l.as = 'script'; l.href = f; l.onload = l.onerror = next; document.head.appendChild(l); }; for (let i = 0; i < 3; i++) next(); })); App.painted.then(() => setTimeout(go, 2500)); };
+  App.prefetchAll = () => { if (!Store.isExtension && lean()) return; const go = () => (inflight || document.readyState !== 'complete' ? setTimeout(go, 700) : idle(() => { const have = new Set([...document.querySelectorAll('script[src],link[rel=prefetch]')].map(x => x.getAttribute('src') || x.getAttribute('href'))); const q = [...new Set(Object.values(BUNDLES).flat())].filter(f => typeof f === 'string' && /\.js$/.test(f) && !have.has(f) && !/grammar\/(starter2|mastery)/.test(f)); const next = () => { if (inflight) return setTimeout(next, 700); const f = q.shift(); if (!f) return; const l = document.createElement('link'); l.rel = 'prefetch'; l.as = 'script'; l.href = f; l.onload = l.onerror = next; document.head.appendChild(l); }; for (let i = 0; i < 3; i++) next(); })); App.painted.then(() => setTimeout(go, 2500)); };
 
 
   // Làm mới phiên âm của thẻ lưu từ bản cũ (trước khi chọn IPA theo từ loại): chạy ngầm lúc rảnh, chậm rãi, mỗi thẻ 1 lần

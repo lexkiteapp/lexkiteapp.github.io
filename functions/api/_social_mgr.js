@@ -8,7 +8,7 @@
 import { manifest, signed } from './admin-shorts.js';
 import { field } from './_clip_logic.js';
 import { runModel } from './ai.js';
-import { normCfg, allowed, schedule } from './_distribution.js';
+import { normCfg, allowed, schedule, SOCIAL_DAY_MAX } from './_distribution.js';
 
 // ---------------- Hàm thuần (test: scripts/test/social-mgr.mjs) ----------------
 export const STATES = ['idea', 'draft', 'review', 'approved', 'scheduled', 'published', 'failed'];
@@ -17,7 +17,7 @@ export const PLAT = {
   facebook_page: { cap: 30, used: 'reels_24h', capKey: 'reels_cap', kind: 'reel' },
   instagram: { cap: 100, used: 'posts_24h', capKey: 'posts_cap', kind: 'reel', cap2200: true },
   tiktok: { cap: 15, kind: 'video' }, // Direct Post của app GrabCast được duyệt 03/11/2026 → hết giới hạn SELF_ONLY
-  youtube: { cap: 6, kind: 'short', privateOnly: 'google-review' },
+  youtube: { cap: 6, kind: 'short' }, // GrabCast qua audit YouTube API (chủ báo 10/11/2026) → hết giới hạn private; chủ 10/11: tự duyệt tự đăng (ownerPolicy)
   threads: { cap: 250, kind: 'post' },
 };
 export const platOf = a => { const p = String((a && (a.platform || a.provider)) || '').toLowerCase(); return p === 'facebook' ? 'facebook_page' : p; };
@@ -71,10 +71,10 @@ export function validateCompose(d, plats) {
   return out.map(x => ({ lv: 'error', ...x }));
 }
 
-export const DEFAULT_RULES = { perDay: { facebook_page: 2, instagram: 2, tiktok: 2, youtube: 1, threads: 3 }, minGapH: 3, hours: [8, 12, 19], tz: 'America/New_York', tzBy: {}, dupDays: 30, days: 7, skipWeekend: false };
+export const DEFAULT_RULES = { perDay: { facebook_page: 2, instagram: 2, tiktok: 2, youtube: 1, threads: 2 }, minGapH: 3, hours: [8, 12, 19], tz: 'America/New_York', tzBy: {}, dupDays: 30, days: 7, skipWeekend: false };
 export function cleanRules(r) {
   r = r && typeof r === 'object' ? r : {}; const d = DEFAULT_RULES, perDay = {};
-  for (const p of Object.keys(PLAT)) perDay[p] = Math.max(0, Math.min(PLAT[p].cap, Math.round(+((r.perDay || {})[p] ?? d.perDay[p]) || 0)));
+  for (const p of Object.keys(PLAT)) perDay[p] = Math.max(0, Math.min(PLAT[p].cap, SOCIAL_DAY_MAX, Math.round(+((r.perDay || {})[p] ?? d.perDay[p]) || 0)));
   const tzOk = z => { try { new Intl.DateTimeFormat('en', { timeZone: z }); return true; } catch (e) { return false; } };
   const tzBy = {}; for (const [k, v] of Object.entries(r.tzBy || {})) if (/^[A-Za-z0-9_-]{1,40}$/.test(k) && typeof v === 'string' && tzOk(v)) tzBy[k] = v;
   const hours = [...new Set((Array.isArray(r.hours) ? r.hours : d.hours).map(Math.round).filter(h => h >= 0 && h <= 23))].sort((a, b) => a - b).slice(0, 12);
@@ -184,7 +184,7 @@ async function approvedClips(env) {
 }
 export const bodyFor = (clip, mediaId, accs, per = {}, tz = 'America/New_York') => ({
   title: str(clip.title, 100), caption: str([clip.description || clip.title, (clip.hashtags || []).map(h => '#' + String(h).replace(/^#/, '')).join(' ')].filter(Boolean).join('\n\n'), 2200), media_ids: [mediaId], timezone: tz,
-  targets: accs.map(a => ({ account_id: a.id, kind: a.kind || (PLAT[a.p] || {}).kind || 'video', options: a.p === 'tiktok' ? { privacy_level: 'PUBLIC_TO_EVERYONE', allow_comment: true, allow_duet: false, allow_stitch: false, commercial_content: false, is_aigc: true } : a.p === 'youtube' ? { privacy_status: 'private', made_for_kids: false, contains_synthetic_media: true, category_id: '27' } : {}, ...(per[a.p] || {}) })),
+  targets: accs.map(a => ({ account_id: a.id, kind: a.kind || (PLAT[a.p] || {}).kind || 'video', options: a.p === 'tiktok' ? { privacy_level: 'PUBLIC_TO_EVERYONE', allow_comment: true, allow_duet: false, allow_stitch: false, commercial_content: false, is_aigc: true } : a.p === 'youtube' ? { privacy_status: 'public', made_for_kids: false, contains_synthetic_media: true, category_id: '27' } : {}, ...(per[a.p] || {}) })),
 });
 export async function pushClip(env, clip, gc, origin) {
   const cached = await getMeta(env.DB, 'media:' + clip.id, null);

@@ -132,6 +132,16 @@
   Cache-Control: no-cache
   Access-Control-Allow-Origin: *
 
+# Gói nội dung P09 (Viết & ngữ pháp: tiêu chí chấm) cho app native (scripts/native/gen-write.mjs): như skills-pack
+/data/write-pack.json
+  Cache-Control: no-cache
+  Access-Control-Allow-Origin: *
+
+# Gói ngữ pháp P09 (80 bài + luật tự đặt câu + lỗi theo tiếng mẹ đẻ) cho app native (scripts/native/gen-learn.mjs)
+/data/grammar-pack.json
+  Cache-Control: no-cache
+  Access-Control-Allow-Origin: *
+
 /i18n/*
   Cache-Control: public, max-age=86400
   Access-Control-Allow-Origin: *
