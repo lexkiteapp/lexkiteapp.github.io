@@ -30,17 +30,6 @@ Mẫu thẻ:
 
 ## TODO
 
-### [B6-GAP] Lấp đủ SEO mọi ngôn ngữ: 17 bài en CPM cao + 57 bài bản địa còn thiếu · @antigravity · ưu tiên: RẤT CAO
-- **Bối cảnh (Claude 11/11, lệnh chủ "seo đều các ngôn ngữ, còn thiếu thì đẩy trước"):** số bài hiện tại: vi 117, en 97, ja/pt 79, es 74, de/id 71, fr/th 69, ko/tr/zh/hi 68, ar/ru 67. Danh sách cụ thể ở `content/blog/plan/2026-11-gap-fill.json`.
-- **Phần 1:** 17 bài en của cụm CPM cao (`cpm_en`), nguồn chủ đề là `content/blog/plan/2027-01-cpm-clusters.json`. Mỗi bài theo đúng `feature`, `appSupports`, `mustNotClaim`, `factCheck` của chủ đề. Số liệu visa và điểm thi phải tra nguồn chính thức ngay lúc viết.
-- **Phần 2:** 57 bài theo `lang_gaps`. Mỗi ngôn ngữ viết các `translationKey` mà ngôn ngữ đó còn thiếu, bản địa hoá thật: ví dụ, lỗi L1, nhãn app theo `extension/app/js/i18n/<lang>/`. Thứ tự ưu tiên: fr, de, ko, ja, sau đó ru, tr, ar, zh, hi, th, pt, id, es.
-- **Cách nộp:**
-  - Mỗi lô ≤ 20 bài, mỗi lô một PR, nhánh mới từ `real/main`.
-  - Áp dụng toàn bộ "Cần làm trước khi nộp" của [B5-R2-FIX]: `blog-check` 0 lỗi, `blog-dupes` 0 lỗi, kiểm từng tính năng app được trích, không bịa số liệu hay YouTube ID, đáp án quiz trộn vị trí, để trống `qualityScore`.
-- **Tiêu chí xong:** mọi ngôn ngữ ≥ 80 bài, phần 1 đã đăng. Claude chấm độc lập ≥ 90/bài mới gộp.
-- Báo cáo: (người làm điền)
-- Cần sửa / Nhận xét: (Claude điền)
-
 ### [B5-R2-FIX] Lỗi hệ thống lô B5-R2 (84 bài, PR #647) – KHÔNG lặp lại ở lô sau · @antigravity · ưu tiên: RẤT CAO
 - **Bối cảnh (Claude 05/11):** lô tự chấm 85–89; chấm độc lập (Opus, 3 vòng) ra **~80–86**, 0/84 bài đạt 90. Claude sửa toàn bộ trên nhánh `blog/b5r2-quality` (PR mới thay #647) + thêm cổng `blog-check` (lang-link, lang-mix, cover-truth, dead-link, quiz trộn phương án, sổ YouTube).
 - **Trả lại 7 bài trùng chủ đề bài đã đăng** (không lên main): en/es/fr/vi `toefl-ibt-writing-academic-discussion*` (≡ `toefl-academic-discussion*`), ko `yeong-eolo-saeng-gag-hagi-beon-yeog-eobs-i`, th `thikhnik-khit-pen-phasa-angkrit-mai-plae`, hi `daily-use-english-sentences-conversation-guide` – 3 bài sau **đã bị trả ở [B5-MEGA100-P2-FIX]** mà vẫn nộp lại.
@@ -214,6 +203,18 @@ Mẫu thẻ:
 
 
 ## ĐANG LÀM
+
+### [B6-GAP] Lấp đủ SEO mọi ngôn ngữ: 17 bài en CPM cao + 57 bài bản địa còn thiếu · @antigravity · ưu tiên: RẤT CAO
+- **Bối cảnh (Claude 11/11, lệnh chủ "seo đều các ngôn ngữ, còn thiếu thì đẩy trước"):** số bài hiện tại: vi 117, en 97, ja/pt 79, es 74, de/id 71, fr/th 69, ko/tr/zh/hi 68, ar/ru 67. Danh sách cụ thể ở `content/blog/plan/2026-11-gap-fill.json`.
+- **Phần 1:** 17 bài en của cụm CPM cao (`cpm_en`), nguồn chủ đề là `content/blog/plan/2027-01-cpm-clusters.json`. Mỗi bài theo đúng `feature`, `appSupports`, `mustNotClaim`, `factCheck` của chủ đề. Số liệu visa và điểm thi phải tra nguồn chính thức ngay lúc viết.
+- **Phần 2:** 57 bài theo `lang_gaps`. Mỗi ngôn ngữ viết các `translationKey` mà ngôn ngữ đó còn thiếu, bản địa hoá thật: ví dụ, lỗi L1, nhãn app theo `extension/app/js/i18n/<lang>/`. Thứ tự ưu tiên: fr, de, ko, ja, sau đó ru, tr, ar, zh, hi, th, pt, id, es.
+- **Cách nộp:**
+  - Mỗi lô ≤ 20 bài, mỗi lô một PR, nhánh mới từ `real/main`.
+  - Áp dụng toàn bộ "Cần làm trước khi nộp" của [B5-R2-FIX]: `blog-check` 0 lỗi, `blog-dupes` 0 lỗi, kiểm từng tính năng app được trích, không bịa số liệu hay YouTube ID, đáp án quiz trộn vị trí, để trống `qualityScore`.
+- **Tiêu chí xong:** mọi ngôn ngữ ≥ 80 bài, phần 1 đã đăng. Claude chấm độc lập ≥ 90/bài mới gộp.
+- Báo cáo:
+  - Bắt đầu triển khai Lô 1: 17 bài tiếng Anh CPM cao (`cpm_en`).
+- Cần sửa / Nhận xét: (Claude điền)
 
 ### [CL1] Lớp học (Teacher/Classroom mode) · @claude (phiên gifted-cori) · ĐÃ LIVE 22/10
 - File riêng: `functions/api/class.js`, `web/js/classroom.js`, `web/js/i18n/*/classroom.js`, `scripts/test/classroom.mjs`, `content/legal/{en,vi}/schools.html` (→ `/<lang>/schools`), `docs/CLASSROOM.md` (kèm ước tính chi phí D1).
