@@ -41,7 +41,7 @@ export function diffPage(a, b) {
   const miss = (x, y) => x.filter(v => !y.includes(v)), out = [];
   if (a.title !== b.title) out.push(`title đổi: ${a.title} → ${b.title}`);
   for (const k of ['metas', 'links', 'ld']) { const m = miss(a[k], b[k]).filter(v => !(k === 'ld' && ldMoved(v) !== v && b.ld.includes(ldMoved(v)))); if (m.length) out.push(`${k} đổi: ${m[0].slice(0, 160)}`); }
-  const h = miss(a.hrefs, b.hrefs).filter(x => !(MOVED[x] && b.hrefs.includes(MOVED[x])) && !(x === '/app/#/contact' && b.hrefs.some(v => /\/about\/#contact$/.test(v)))); if (h.length) out.push(`mất ${h.length} link nội bộ: ${h.slice(0, 3).join(' ')}`);
+  const h = miss(a.hrefs, b.hrefs).filter(x => !(MOVED[x] && b.hrefs.includes(MOVED[x])) && !(/^\/app\/(\?hl=[\w-]+)?#\/contact$/.test(x) && b.hrefs.some(v => /\/about\/#contact$/.test(v)))); if (h.length) out.push(`mất ${h.length} link nội bộ: ${h.slice(0, 3).join(' ')}`);
   const w = miss(a.words, b.words); if (w.length) out.push(`mất ${w.length} từ khỏi phần hiển thị: ${w.slice(0, 8).join(' ')}`);
   return out;
 }
