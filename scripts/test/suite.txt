@@ -377,5 +377,6 @@ node scripts/test/es-practice.mjs
 node scripts/test/es-pron.mjs
 node scripts/test/es-path.mjs
 node scripts/test/ext-version.mjs
+node scripts/test/skills-hub.mjs
 node scripts/test/phrasebook.mjs
 node scripts/test/native-strings-locked.mjs

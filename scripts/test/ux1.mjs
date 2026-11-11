@@ -17,7 +17,6 @@ const ok = (c, m) => { total++; if (!c) { fails++; console.error('✗', m); } el
 const ctx = { self: {} }; ctx.globalThis = ctx.self; vm.createContext(ctx);
 vm.runInContext(fs.readFileSync(path.join(WEB, 'js/lesson/engine.js'), 'utf8'), ctx);
 const E = ctx.self.LessonEngine;
-{ const c = { word: 'hello', vi: 'x', srs: { reps: 1, interval: 1, lapses: 0, due: 0, last: 0, S: 1, D: 5 } }, s = w => ({ word: w, vi: w }), p = E.pickWords({ a: { word: 'apple', vi: 'x', srs: c.srs }, h: c }, { now: Date.now(), n: 2, fixed: true, starter: [s('Hello'), s('name'), s('friend')] }); ok(p.length === 2 && p[0].card.word === 'hello' && p[0].why === 'due' && p[1].card.word === 'name' && p[1].why === 'start', 'pickWords fixed: đúng từ nút đã chốt theo thứ tự, không chen từ đến hạn khác; thẻ sẵn có được dùng lại'); }
 {
   const now = Date.now(), card = (w, due, lapses = 0) => ({ word: w, vi: w, srs: { reps: 2, interval: 3, lapses, due, last: now - 4e8, S: 3, D: 5 } });
   const kinds = p => p.map(x => x.kind).join(',');
@@ -106,10 +105,10 @@ if (V2) {
   const starts = [...new Set($$('.v2 [data-cur][data-href]').map(b => b.getAttribute('data-href')))];
   ok(starts.length === 1 && starts[0] === '#/lesson/go', 'chạm 2: MỘT đích Bắt đầu tới bài đầu tiên (≤ 2 chạm)');
   ok($('.v2 nav a[data-tab="home"][aria-current="page"]') && !w.document.body.classList.contains('focus'), 'tab Hôm nay đang chọn (thanh tab Stitch), bản đồ giữ thanh điều hướng');
-  const nodes = $$('.v2 [data-pr] button[aria-haspopup="dialog"]'); // ô truyện rỗng ẩn nút → 5 hoặc 6
-  ok(nodes.length >= 5 && nodes.length <= 6 && nodes.every(b => (b.getAttribute('aria-label') || '').trim()) && $('.v2-path img[src*="teach/ama"]') && nodes.some(b => /Locked|Đã khóa/.test(b.getAttribute('aria-label'))), 'nút có nhãn (aria), nút hiện tại có giáo viên Ama (Chars), nút khóa nói rõ đã khóa');
-  ok(nodes.every(b => !/^(Lesson|Listen|Speak|Story|Review|Check|Bài học|Nghe|Nói|Truyện|Ôn|Kiểm tra)\b( –| -|$)/.test(b.getAttribute('aria-label'))), 'tiêu đề nút là nội dung thật, không phải tên loại bài');
-  ok(($('.v2-path p') || {}).textContent && /\d+\/\d+/.test(($('.v2-path [role="progressbar"]') || { getAttribute: () => '' }).getAttribute('aria-label') || '') && /width:\d+%/.test($('.v2-path [role="progressbar"]').getAttribute('style') || ''), 'băng chặng: tên chủ đề + thanh tiến độ thật + chữ x/y bài');
+  const nodes = $$('.v2 [data-st]');
+  ok(nodes.length === 6 && nodes.every(b => (b.getAttribute('aria-label') || '').trim()) && $('.v2-path img[src*="teach/ama"]') && $$('.v2 [data-st="lock"][aria-disabled="true"]').length, 'nút có nhãn (aria), nút hiện tại có giáo viên Ama (Chars), nút khóa bị khóa');
+  ok(nodes.some(b => /TOEIC/.test(b.getAttribute('aria-label') || '')), 'nút kiểm tra kỹ năng thi theo mục tiêu (TOEIC)');
+  ok(($('.v2-path h1') || {}).textContent && /%/.test(($('.v2-path [role="progressbar"]') || { getAttribute: () => '' }).getAttribute('style') || ''), 'băng chặng: tên chủ đề + thanh tiến độ thật');
   $('.v2 [data-act="guide"]').click(); await tick(80);
   const mb = ($('#modalBox') || {}).textContent || '';
   ok(/Bạn sẽ|You'll/.test(mb) && /TOEIC · 750/.test(mb) && $('#modalBox a[href="#/toeic"]'), 'nút Guide: câu "Bạn sẽ…" + thẻ kỳ thi + mục tiêu + 1 chạm thi thử (không mất tính năng cũ)');
@@ -122,38 +121,22 @@ if (V2) {
   ok($$('.v2-today .ux1-go.lsn-start').length >= 1 && $$('.v2-today .ux1-go').every(x => x.getAttribute('data-href') === '#/lesson/go'), 'Hôm nay: nút Bắt đầu chính mang móc chung .lsn-start.ux1-go (lesson-embed/gác bố cục bấm đúng nút, không bấm nhầm thẻ truyện)');
   ok(T && $('.v2-today [data-cont][data-href="#/lesson/go"]') && /TOEIC/.test($('.v2-today [data-blk="exam"]').textContent) && $('.v2-today [data-blk="exam"] button[data-href="#/toeic"]'), 'Hôm nay: thẻ Tiếp tục → bài hiện tại; thẻ kỳ thi TOEIC + thi thử #/toeic');
   ok($('.v2-today [data-tch] img[src*="teach/ama/still-"]') && !$('.v2-today [data-tch]').textContent.trim() && /\d/.test($('.v2-today [data-tch] + div p').textContent), 'Hôm nay: Ama (Chars) đứng trong ô giáo viên, bong bóng nói số liệu thật');
-  const px = $('.v2-today [data-act="pathx"]'), pv = () => $('.v2-today [data-pv]'), rows = () => $$('.v2-today [data-pv] [data-pr]'), heads = () => $$('.v2-today [data-pv] [role="progressbar"]').length, nb = id => $(`.v2-today [data-pr="${id}"] button[aria-haspopup="dialog"]`);
-  const n0 = rows().length;
-  ok(px && px.tagName === 'BUTTON' && px.getAttribute('aria-expanded') === 'false' && pv() && heads() === 1 && n0 >= 5 && n0 <= 6 && $$('.v2-today [data-pv] [data-cur][data-href="#/lesson/go"]').length === 1 && $$('.v2-today [data-pv] .tslot').length === 1 && !!$('.v2-today [data-pv] svg path').getAttribute('d'), 'Hôm nay: khối Lộ trình thu gọn = chặng hiện tại (đúng 1 đầu chặng, 5–6 nút, 1 nút đang học + Ama, đường nối thật)');
-  const list0 = pv(); px.click(); await tick(50);
-  ok(px.getAttribute('aria-expanded') === 'true' && pv() === list0 && heads() > 1 && rows().length > n0 && !$('.v2-today [data-pathfull]'), 'Xem toàn bộ lộ trình: mở TẠI CHỖ cùng một component (chỉ thêm hàng, không có bản thứ hai)');
-  ok($$('.v2-today [data-blk="path"] [data-cur][data-href="#/lesson/go"]').length === 1 && $('.v2-today [data-blk="path"] [data-act="guide"]') && $$('.v2-today [data-pv] polyline').length >= 2, 'Hôm nay: khối "Lộ trình" mở rộng vẫn một nút đang học, có nút đã xong + Hướng dẫn chặng');
+  const px = $('.v2-today [data-act="pathx"]'), pf = () => $('.v2-today [data-pathfull]');
+  ok(px && px.tagName === 'BUTTON' && px.getAttribute('aria-expanded') === 'false' && px.getAttribute('aria-controls') === pf().id && pf().hidden && !pf().firstChild && $$('.v2-today [data-pv] a[href="#/lesson/go"]').length === 1 && $$('.v2-today [data-pv] [data-pn]').length >= 5 && $$('.v2-today [data-pv] [data-pn]').length <= 7 && $$('.v2-today [data-pv] [data-pn="cur"]').length === 1 && $$('.v2-today [data-pv] [data-pn="cur"] .tslot').length === 1 && !!$('.v2-today [data-pv] svg path').getAttribute('d'), 'Hôm nay: khối Lộ trình thu gọn như mẫu (5–7 nút quanh bài hiện tại, đúng 1 nút đang học là liên kết + Ama, đường nối thật), lộ trình đầy đủ chưa vẽ (lười)');
+  px.click(); await tick(50);
+  ok(px.getAttribute('aria-expanded') === 'true' && !pf().hidden && $('.v2-today [data-pv]').style.display === 'none', 'Xem toàn bộ lộ trình: mở TẠI CHỖ (aria-expanded=true), bản thu gọn ẩn');
+  ok($$('.v2-today [data-blk="path"] .v2-path [data-st]').length === 6 && $('.v2-today [data-blk="path"] [data-cur][data-href="#/lesson/go"]') && $('.v2-today [data-blk="path"] [data-act="guide"]') && $$('.v2-today [data-st="done"]').length === 2, 'Hôm nay: khối "Lộ trình" chứa ĐỦ 6 nút (xong/đang học/khóa/kiểm tra) + nút Hướng dẫn chặng');
   $('.v2-today [data-act="guide"]').click(); await tick(80);
   ok(/TOEIC · 750/.test(($('#modalBox') || {}).textContent || '') && $('#modalBox a[href="#/lesson?pick=1"]'), 'Hôm nay: Hướng dẫn chặng mở bảng cũ (thẻ kỳ thi, đổi mục tiêu)');
   if (w.UI && w.UI.closeModal) w.UI.closeModal();
-  // Bấm nút nào cũng có phản hồi: tấm chi tiết (đang học / đã xong / khoá)
-  const sheetOf = async b => { b.click(); await tick(120); const g = $('#modalBox [data-act="pgo"]'); const out = g && { scoped: !!$('#modalBox .v2s-path-sheet .v2-path-sheet'), txt: $('#modalBox').textContent, go: g.textContent, dis: g.disabled, href: g.getAttribute('data-href') }; if (w.UI && w.UI.closeModal) w.UI.closeModal(); await tick(30); return out; };
-  { const cur = await sheetOf(nb('n2')); ok(cur && cur.scoped && /Start|Bắt đầu/.test(cur.go) && !cur.dis && cur.href === '#/lesson/go' && /\d/.test(cur.txt), 'tấm chi tiết nút đang học: nội dung + phút + Bắt đầu vào đúng bài');
-    const done = await sheetOf(nb('n0')); ok(done && /Practise again|Ôn lại/.test(done.go) && !done.dis && /[?&]redo=0\b/.test(done.href), 'tấm chi tiết nút đã xong: Ôn lại → ?redo=<nút đó>');
-    const lk = await sheetOf(nb('n3')); ok(lk && /Finish .+ to unlock|Hoàn thành .+ để mở/.test(lk.go) && lk.dis && !lk.href, 'nút khoá: tấm nói điều kiện "Hoàn thành X để mở", không có đích bấm'); }
-  { const xp0 = App.state.game.xp; App.state.game.xp = 5; // đã học (không bị mời kiểm tra trình độ)
-    w.location.hash = '#/lesson/go?redo=0'; await tick(10); await App.routes.lesson('go'); await tick(300); App.state.game.xp = xp0; }
-  ok(w.document.querySelector('.lsn, .lsn-v2') && w.localStorage.getItem('lk.lsn.path') === '2', 'Ôn lại (?redo=) mở bài của nút đó và không đẩy tiến độ lộ trình');
-  await go('#/home', '.v2-today');
-  { const px2 = $('.v2-today [data-act="pathx"]'); px2.click(); await tick(30); px2.click(); await tick(30);
-    ok(px2.getAttribute('aria-expanded') === 'false' && $$('.v2-today [data-pv] [role="progressbar"]').length === 1 && $$('.v2-today [data-pv] [data-pr]').length === n0, 'Thu gọn lộ trình: về đúng chặng hiện tại'); }
-  ok($$('.v2-today [data-pv] [data-pr] button[aria-haspopup="dialog"]').every(b => parseFloat(b.style.left) + 42 <= 120 - 12), 'nút lộ trình (kể cả vòng 84 px của nút hiện tại) cách cột chữ ≥ 12 px ở mọi vị trí zigzag');
-  // Ô truyện rỗng: ẩn nút, tự bỏ qua vị trí đó
-  { const PT = w.PathTrail, U = w.LESSON_PATH_NODES.units, id = Object.keys(U).find(k => { const s = U[k].nodes.find(x => x.slot === 'story'); return s && !s.story; }), unitAt = () => ({ id, no: 2, words: [] });
-    ok(id && PT.hidden({ id }, 3) && !PT.hidden({ id }, 2) && PT.skip(3, unitAt) === 4 && PT.skip(2, unitAt) === 2, 'chặng có ô truyện rỗng: ẩn đúng nút đó, tiến độ tự bỏ qua vị trí đó'); }
+  px.click(); await tick(30);
+  ok(px.getAttribute('aria-expanded') === 'false' && pf().hidden && $('.v2-today [data-pv]').style.display === '' && pf().querySelector('[data-cur]'), 'Thu gọn lộ trình: đóng lại, giữ bản đã vẽ (mở lại không vẽ lại)');
   await go('#/home?at=path', '.v2-today');
-  for (let i = 0; i < 40 && !$('.v2-today [data-pv] [data-cur]'); i++) await tick(50); // home2 vẽ bất đồng bộ
-  ok($('.v2-today [data-act="pathx"]') && $('.v2-today [data-act="pathx"]').getAttribute('aria-expanded') === 'true' && $$('.v2-today [data-pv] [role="progressbar"]').length > 1 && $('.v2-today [data-pv] [data-cur][data-href="#/lesson/go"]') && $('.v2-today [data-pv] [data-act="guide"]'), 'liên kết cũ #/home?at=path: lộ trình đầy đủ mở sẵn, có nút đang học + Hướng dẫn chặng');
-  $('.v2-today [data-pv] [data-act="guide"]').click(); await tick(80);
+  for (let i = 0; i < 40 && !$('.v2-today [data-pathfull] [data-cur]'); i++) await tick(50); // home2 vẽ bất đồng bộ
+  ok($('.v2-today [data-act="pathx"]') && $('.v2-today [data-act="pathx"]').getAttribute('aria-expanded') === 'true' && $('.v2-today [data-pathfull] [data-cur][data-href="#/lesson/go"]') && $('.v2-today [data-pathfull] [data-act="guide"]'), 'liên kết cũ #/home?at=path: lộ trình đầy đủ mở sẵn, có nút đang học + Hướng dẫn chặng');
+  $('.v2-today [data-pathfull] [data-act="guide"]').click(); await tick(80);
   ok(/TOEIC · 750/.test(($('#modalBox') || {}).textContent || ''), '?at=path: Hướng dẫn chặng trong khối đã mở vẫn mở bảng');
   if (w.UI && w.UI.closeModal) w.UI.closeModal();
-  // Nút kiểm tra đã xong: Ôn lại vẫn mở module thi theo mục tiêu (TOEIC)
-  { const k0 = w.localStorage.getItem('lk.lsn.path'); w.localStorage.setItem('lk.lsn.path', '6'); await go('#/home', '.v2-today'); $('.v2-today [data-act="pathx"]').click(); await tick(50); const ex = $('.v2-today [data-pr="n5"] button[aria-haspopup="dialog"]'); ex.click(); await tick(120); ok(($('#modalBox [data-act="pgo"]') || { getAttribute: () => '' }).getAttribute('data-href') === '#/toeic', 'nút kiểm tra kỹ năng thi theo mục tiêu mở #/toeic'); if (w.UI && w.UI.closeModal) w.UI.closeModal(); w.localStorage.setItem('lk.lsn.path', k0); }
   await go('#/home', '.v2-today');
   ok(!$('.v2-today [data-show="0"]') && !$('.v2-today [data-blk="due"]') === !w.Core.Cards.dueCount(App.state.cards, App.state.settings, App.state.stats).total, 'Hôm nay: khối không có dữ liệu bị ẩn (nhắc ôn chỉ khi có thẻ đến hạn)');
   ok(['#/mistakes', '#/mistakes?retry=1'].some(h => $(`.v2-today a[href="${h}"]`)) && $('.v2-today a[href="#/listening"]') && $('.v2-today a[href="#/pron"]') && $('.v2-today a[href="#/train"]') && $$('.v2-today [data-blk="week"] [title]').length === 7, 'Hôm nay: luyện nhanh (lỗi sai · từ · nghe · nói) + chuỗi 7 ngày thật');
@@ -222,7 +205,7 @@ await go('#/me', '.me-head, .v2-me');
 ok($('#bnav a[data-tab="me"]').getAttribute('aria-current') === 'page', 'tab Tôi đang chọn');
 const me = new Set($$('#view a[href^="#/"]').filter(a => !a.closest('.v2 > header')).map(a => a.getAttribute('href')));
 const tabH = new Set(tabs.map(a => a.getAttribute('href')));
-const tabHubs = new Set(); for (const r of ['vocab', 'skills', 'tests']) { await go('#/' + r, '.hub-grid, .hub-hero, [class*="v2-hub"]'); $$('#view a[href^="#/"]').forEach(a => tabHubs.add(a.getAttribute('href').replace('?hub=1', ''))); }
+const tabHubs = new Set(); for (const r of ['vocab', 'skills', 'tests']) { await go('#/' + r, '.hub-grid, .hub-hero, [class*="v2-hub"], .v2-skills'); $$('#view a[href^="#/"]').forEach(a => tabHubs.add(a.getAttribute('href').replace('?hub=1', ''))); }
 const lost = OLD.filter(h => !hub.has(h) && !me.has(h) && !tabH.has(h) && !tabHubs.has(h));
 ok(OLD.length >= 20 && !lost.length, `không cắt: ${OLD.length} lối vào cũ đều tới được qua 5 tab (Từ vựng, Kỹ năng, Thi) / Luyện / Tôi` + (lost.length ? ' – thiếu: ' + lost.join(' ') : ''));
 for (const h of ['#/goal', '#/stats', '#/mistakes', '#/settings']) ok(me.has(h), 'Tôi có ' + h);

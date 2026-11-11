@@ -22,6 +22,8 @@
   "Stories & audio": "Truyện & âm thanh",
   "View library": "Xem thư viện",
   "7-Day Streak": "Chuỗi 7 ngày",
+  "Your path": "Lộ trình học của bạn",
+  "See full path →": "Xem toàn bộ lộ trình →",
   "Notifications": "Thông báo",
   "Look up a word": "Tra từ"
  },
@@ -35,7 +37,7 @@
   "⚡ +60 XP to the checkpoint": "'⚡ ' + d.xpReady",
   "Unit 1 · Everyday English": "d.k.unit",
   "Lesson 4/6": "d.k.of",
-  "Story: the new neighbor": "d.k.title",
+  "Story": "d.k.title",
   "4 min": "d.k.mins",
   "3 goals": "d.p.count",
   "1/3": "d.p.done",
@@ -54,13 +56,15 @@
   "Everyday English journey": "d.unitName",
   "EN": "d.lang",
   "50%": "d.k.pct + '%'",
+  "Lesson 2/6": "d.ph.of",
+  "Everyday English": "d.ph.unit",
+  "Stage 3": "d.ph.stage",
   "A1–A2": "d.k.lvl"
  },
  "html": {
   ":scope > main > div > section:nth-child(2) > div:nth-child(1) > div:nth-child(1)": "d.teacher",
   ":scope > main > div > section:nth-child(2) > p": "d.k.words",
-  ":scope > main > header > div:nth-child(1) > span": "'lex<b>kite</b>'",
-  ":scope > main > div > section:nth-child(9)": "d.pathHtml"
+  ":scope > main > header > div:nth-child(1) > span": "'lex<b>kite</b>'"
  },
  "attr": {
   ":scope > main > header > div:nth-child(2) > div": {
@@ -181,6 +185,42 @@
   ":scope > main > div > section:nth-child(2) > div:nth-child(3) > span": {
    "aria-hidden": "'true'"
   },
+  ":scope > main > div > section:nth-child(9)": {
+   "data-blk": "'path'"
+  },
+  ":scope > main > div > section:nth-child(9) > div:nth-child(1) > div:nth-child(1) > span": {
+   "aria-label": "d.ph.of"
+  },
+  ":scope > main > div > section:nth-child(9) > div:nth-child(1) > div:nth-child(4) > div": {
+   "style": "'width:' + d.ph.pct + '%'",
+   "role": "'progressbar'",
+   "aria-valuenow": "d.ph.pct",
+   "aria-valuemin": "0",
+   "aria-valuemax": "100",
+   "aria-label": "d.ph.of"
+  },
+  ":scope > main > div > section:nth-child(9) > div:nth-child(2)": {
+   "data-pv": "'1'"
+  },
+  ":scope > main > div > section:nth-child(9) > div:nth-child(2) > svg": {
+   "height": "d.ph.h",
+   "viewBox": "'0 0 150 ' + d.ph.h"
+  },
+  ":scope > main > div > section:nth-child(9) > div:nth-child(2) > svg > path:nth-child(1)": {
+   "d": "d.ph.all"
+  },
+  ":scope > main > div > section:nth-child(9) > div:nth-child(2) > svg > path:nth-child(2)": {
+   "d": "d.ph.done"
+  },
+  ":scope > main > div > section:nth-child(9) > div:nth-child(3)": {
+   "id": "'v2-pathfull'",
+   "data-pathfull": "''"
+  },
+  ":scope > main > div > section:nth-child(9) > div:nth-child(4) > button": {
+   "data-act": "'pathx'",
+   "aria-expanded": "'false'",
+   "aria-controls": "'v2-pathfull'"
+  },
   ":scope > main > div > section:nth-child(6) > div:nth-child(1) > div:nth-child(2)": {
    "data-show": "d.x.p != null ? 1 : 0",
    "role": "'progressbar'",
@@ -191,10 +231,6 @@
   },
   ":scope > main > div > section:nth-child(6) > div:nth-child(1) > div:nth-child(2) svg > circle:nth-child(2)": {
    "stroke-dasharray": "((d.x.p || 0) * 1.76).toFixed(1) + ' 176'"
-  },
-  ":scope > main > div > section:nth-child(9)": {
-   "data-blk": "'path'",
-   "aria-label": "t('Lộ trình học của bạn')"
   }
  },
  "cls": {
@@ -220,6 +256,9 @@
   },
   ":scope > main > div > section:nth-child(4)": {
    "hidden": "''"
+  },
+  ":scope > main > div > section:nth-child(9) > div:nth-child(1) > div:nth-child(4) > div": {
+   "[width:33%]": "''"
   }
  },
  "tag": {
@@ -434,6 +473,113 @@
      "attr": {
       ":scope": {
        "title": "x.aria"
+      }
+     }
+    }
+   }
+  },
+  {
+   "list": "d.pv",
+   "as": "r",
+   "variants": {
+    "done": ":scope > main > div > section:nth-child(9) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)",
+    "cur": ":scope > main > div > section:nth-child(9) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)",
+    "lock": ":scope > main > div > section:nth-child(9) > div:nth-child(2) > div:nth-child(2) > div:nth-child(3)",
+    "chk": ":scope > main > div > section:nth-child(9) > div:nth-child(2) > div:nth-child(2) > div:nth-child(6)"
+   },
+   "samples": ":scope > main > div > section:nth-child(9) > div:nth-child(2) > div:nth-child(2) > div",
+   "pick": "r.v",
+   "bind": {
+    "done": {
+     "text": {
+      "Vocabulary": "r.label",
+      "Completed": "r.sub"
+     },
+     "attr": {
+      ":scope": {
+       "style": "'height:' + r.h + 'px'",
+       "title": "r.aria",
+       "data-pn": "r.v"
+      },
+      ":scope > div:nth-child(1)": {
+       "style": "'left:' + r.x + 'px;top:' + r.cy + 'px'"
+      },
+      ":scope > div:nth-child(2)": {
+       "style": "'top:' + r.cy + 'px'"
+      }
+     }
+    },
+    "cur": {
+     "text": {
+      "Start": "r.start",
+      "Lesson 2 of 6": "r.of",
+      "Listening": "r.label",
+      "4 min": "r.sub"
+     },
+     "attr": {
+      ":scope": {
+       "style": "'height:' + r.h + 'px'",
+       "title": "r.aria",
+       "data-pn": "r.v"
+      },
+      ":scope > div:nth-child(1)": {
+       "style": "'left:' + r.x + 'px;top:' + r.cy + 'px'"
+      },
+      ":scope > div:nth-child(2)": {
+       "style": "'top:' + r.cy + 'px'"
+      },
+      ":scope > div:nth-child(1) > div > div:nth-child(3)": {
+       "href": "r.href",
+       "aria-label": "r.aria"
+      },
+      ":scope > div:nth-child(1) > div > svg > circle:nth-child(2)": {
+       "stroke-dashoffset": "r.off"
+      }
+     },
+     "tag": {
+      ":scope > div:nth-child(1) > div > div:nth-child(3)": {
+       "to": "a"
+      }
+     },
+     "html": {
+      ":scope > div:nth-child(3)": "r.tch"
+     }
+    },
+    "lock": {
+     "text": {
+      "Speaking": "r.label",
+      "5 min": "r.sub"
+     },
+     "attr": {
+      ":scope": {
+       "style": "'height:' + r.h + 'px'",
+       "title": "r.aria",
+       "data-pn": "r.v"
+      },
+      ":scope > div:nth-child(1)": {
+       "style": "'left:' + r.x + 'px;top:' + r.cy + 'px'"
+      },
+      ":scope > div:nth-child(2)": {
+       "style": "'top:' + r.cy + 'px'"
+      }
+     }
+    },
+    "chk": {
+     "text": {
+      "Checkpoint": "r.label",
+      "Quick check": "r.sub"
+     },
+     "attr": {
+      ":scope": {
+       "style": "'height:' + r.h + 'px'",
+       "title": "r.aria",
+       "data-pn": "r.v"
+      },
+      ":scope > div:nth-child(1)": {
+       "style": "'left:' + r.x + 'px;top:' + r.cy + 'px'"
+      },
+      ":scope > div:nth-child(2)": {
+       "style": "'top:' + r.cy + 'px'"
       }
      }
     }

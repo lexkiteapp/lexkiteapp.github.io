@@ -1,7 +1,7 @@
 // 📱 Màn đầu Hôm nay ở 360×640 (docs/specs/upgrade-2026-11.md Đợt 1 #1 + #4) – chạy trên CI (frame-consistency.yml, dùng lại dist + playwright).
 //   • Dải gọn chuỗi · XP · mục tiêu ([data-strip]) cao ≤ 48 px, mỗi ô là liên kết chạm ≥ 44 px, đủ 4 ô (mục tiêu điểm, chuỗi, XP, mục tiêu ngày).
 //   • CTA chính ([data-cont]) nằm TRỌN trong màn đầu: đáy nút ≤ mép trên thanh tab dưới (#bnav / nav Stitch) – không phải cuộn mới thấy.
-//   • % tiến độ: thẻ bài Hôm nay hiện "{p}%" khớp aria-valuenow của thanh tiến độ; mỗi đầu chặng trong lộ trình đọc được "x/y bài".
+//   • % tiến độ: thẻ bài Hôm nay hiện "{p}%" khớp aria-valuenow của thanh tiến độ; thẻ bài hiện tại trong lộ trình (data-cur) hiện % chặng.
 //   • Không giật bố cục: tổng layout-shift khi tải ≤ 0,02.
 //   Người cũ (đã xong 3 bài → today) + người mới (0 XP → today-new) × sáng/tối.
 // Dùng: node scripts/test/today-fold.mjs [--root dist]
@@ -44,14 +44,14 @@ for (const theme of ['light', 'dark']) for (const who of ['old', 'new']) {
   ok(m.cls <= 0.02, `${tag}: không giật bố cục (CLS ${m.cls.toFixed(3)} ≤ 0,02)`);
   if (who === 'old') {
     ok(m.bar && m.bar.txt && m.bar.txt.trim() === m.bar.now + '%', `${tag}: thẻ bài Hôm nay hiện % tiến độ khớp thanh (${m.bar && m.bar.txt} / ${m.bar && m.bar.now})`);
-    // Khối "Your path" thu gọn (chặng hiện tại) → mở TẠI CHỖ bằng bàn phím (Enter trên nút thật, aria-expanded) → thêm chặng cùng hình + x/y bài
+    // Khối "Your path" thu gọn (3 nút như mẫu) → mở TẠI CHỖ bằng bàn phím (Enter trên nút thật, aria-expanded) → lộ trình đầy đủ + % chặng
     const px = `${root} [data-act="pathx"]`;
     ok(m.pxExp === 'false', `${tag}: khối Lộ trình thu gọn mặc định (aria-expanded=${m.pxExp})`);
     await page.focus(px); await page.keyboard.press('Enter'); await sleep(400);
-    const x = await page.evaluate(([root, px]) => { const list = document.querySelector(`${root} [data-pv]`), bars = list ? [...list.querySelectorAll('[role="progressbar"]')] : [];
-      return { exp: document.querySelector(px).getAttribute('aria-expanded'), heads: bars.length, of: bars.map(b => b.getAttribute('aria-label')), cur: list ? list.querySelectorAll('[data-cur]').length : 0, cls: window.__cls }; }, [root, px]);
-    ok(x.exp === 'true' && x.heads > 1 && x.cur === 1, `${tag}: Enter mở lộ trình đầy đủ tại chỗ (aria-expanded=${x.exp}, ${x.heads} chặng, ${x.cur} nút đang học)`);
-    ok(x.of.length && x.of.every(v => /^\d+\/\d+ /.test(v)), `${tag}: mọi đầu chặng đọc được "x/y bài", cả chặng 0 % (${x.of.slice(0, 3).join(' · ')})`);
+    const x = await page.evaluate(([root, px]) => { const cur = document.querySelector(`${root} [data-pathfull] [data-cur]`), card = cur && cur.closest('div.w-full.flex-col');
+      return { exp: document.querySelector(px).getAttribute('aria-expanded'), curPct: card ? (card.querySelector('span.tabular-nums') || {}).textContent : null, cls: window.__cls }; }, [root, px]);
+    ok(x.exp === 'true', `${tag}: Enter mở lộ trình đầy đủ tại chỗ (aria-expanded=${x.exp})`);
+    ok(x.curPct && /^\d{1,3}%$/.test(x.curPct.trim()), `${tag}: thẻ bài hiện tại trong lộ trình hiện % (${x.curPct})`);
   }
   await ctx.close();
 }

@@ -1,5 +1,0 @@
-/* Tấm chi tiết nút Lộ trình: hộp thoại chung dạng tấm dưới (UI.modal(html, { v: 'sheet' })). */
-#modal[data-v="sheet"] { place-items: end center; padding: 0; }
-#modal[data-v="sheet"] .modal-box { width: min(480px, 100%); max-height: 88vh; padding: 0 0 env(safe-area-inset-bottom); border-radius: var(--r-xl) var(--r-xl) 0 0; }
-#modal[data-v="sheet"] [data-locked] { background: var(--chip); color: var(--text); box-shadow: none; text-transform: none; cursor: default; }
-#modal[data-v="sheet"] .v2-path-sheet p:empty { display: none; } /* giao diện tiếng Anh: câu ví dụ không có dòng dịch */

@@ -1,5 +1,5 @@
 {
- "_note": "Ngưỡng bám mẫu Stitch (scripts/test/stitch-diff.mjs). CHỈ được NÂNG. Đặt = điểm lượt CI sau khi port xong trừ 0,01; mỗi màn × sáng/tối: ssim (cấu trúc ảnh xám) và rows (nhịp hàng). Ngoại lệ duy nhất: chủ duyệt thiết kế mới (28/10: tờ linh kiện Stitch 39b97768… là chuẩn) → đặt lại = điểm CI − 0,01, ghi rõ trong commit. 29/10: đặt lại theo Stitch v2.1 (chủ duyệt 13 màn) = điểm CI 621856058 − 0,01 (lượt đầu chụp ĐÚNG trạng thái mọi màn – 992786fa1 chụp nhầm câu đầu ở complete/story/feedback-wrong/call). 30/10: THÊM ngưỡng SSIM THEO VÙNG 'reg' (header/top/mid/low/cta, tính trên khung Stitch) = điểm CI 40921224454 − 0,01 cho 13 màn × sáng/tối; chỉ nâng. 30/10 (chủ duyệt 4 thay đổi thiết kế: lửa mới ở đầu trang, ô 3 cột, Ama ở màn đúng/sai – mẫu ghép từ thành phần Stitch, Ama ở màn gọi): đặt lại = điểm CI 41042494107 − 0,01 CHỈ các chỉ số đỏ của: đầu trang (home/review/practice/me/readiness/streak/leagues), ô 3 cột (complete/me/streak/review mid-low-cta, complete rows), feedback ×2, call top/low/ssim. Không màn/chỉ số nào khác hạ. 3/11: home-light/dark đặt lại theo Home v2 'Hôm nay' (mẫu Stitch chủ OK 31/10, PR #284; V2REF home → today) = điểm CI run 41572220621 − 0,01 (dữ liệu thật dài hơn mẫu: thẻ chính, kế hoạch, lộ trình đầy đủ → lệch dọc). (Trước đó, cùng ngày, #314: home-light/dark đặt lại theo kiểu giáo viên đứng sau bệ Chars.slot (chủ DUYỆT 1/11, PR #314) = điểm CI run của 97f76978e − 0,01. – #284 gộp sau, home = Hôm nay v2 nên giữ số của #284.) 11/11: PathTrail #934 (design approved by coordinator 11/11) đổi nội dung vùng cta của home → reg.cta home-dark 0.138, home-light 0.19 (= điểm CI − 0,01); follow-up: cập nhật mẫu Stitch home sang PathTrail rồi nâng lại.",
+ "_note": "Ngưỡng bám mẫu Stitch (scripts/test/stitch-diff.mjs). CHỈ được NÂNG. Đặt = điểm lượt CI sau khi port xong trừ 0,01; mỗi màn × sáng/tối: ssim (cấu trúc ảnh xám) và rows (nhịp hàng). Ngoại lệ duy nhất: chủ duyệt thiết kế mới (28/10: tờ linh kiện Stitch 39b97768… là chuẩn) → đặt lại = điểm CI − 0,01, ghi rõ trong commit. 29/10: đặt lại theo Stitch v2.1 (chủ duyệt 13 màn) = điểm CI 621856058 − 0,01 (lượt đầu chụp ĐÚNG trạng thái mọi màn – 992786fa1 chụp nhầm câu đầu ở complete/story/feedback-wrong/call). 30/10: THÊM ngưỡng SSIM THEO VÙNG 'reg' (header/top/mid/low/cta, tính trên khung Stitch) = điểm CI 40921224454 − 0,01 cho 13 màn × sáng/tối; chỉ nâng. 30/10 (chủ duyệt 4 thay đổi thiết kế: lửa mới ở đầu trang, ô 3 cột, Ama ở màn đúng/sai – mẫu ghép từ thành phần Stitch, Ama ở màn gọi): đặt lại = điểm CI 41042494107 − 0,01 CHỈ các chỉ số đỏ của: đầu trang (home/review/practice/me/readiness/streak/leagues), ô 3 cột (complete/me/streak/review mid-low-cta, complete rows), feedback ×2, call top/low/ssim. Không màn/chỉ số nào khác hạ. 3/11: home-light/dark đặt lại theo Home v2 'Hôm nay' (mẫu Stitch chủ OK 31/10, PR #284; V2REF home → today) = điểm CI run 41572220621 − 0,01 (dữ liệu thật dài hơn mẫu: thẻ chính, kế hoạch, lộ trình đầy đủ → lệch dọc). (Trước đó, cùng ngày, #314: home-light/dark đặt lại theo kiểu giáo viên đứng sau bệ Chars.slot (chủ DUYỆT 1/11, PR #314) = điểm CI run của 97f76978e − 0,01. – #284 gộp sau, home = Hôm nay v2 nên giữ số của #284.)",
  "call-dark": {
   "ssim": 0.477,
   "rows": -0.049,
@@ -96,7 +96,7 @@
    "top": 0.333,
    "mid": 0.115,
    "low": 0.294,
-   "cta": 0.138
+   "cta": 0.269
   }
  },
  "home-light": {
@@ -107,7 +107,7 @@
    "top": 0.312,
    "mid": 0.08,
    "low": 0.22,
-   "cta": 0.19
+   "cta": 0.295
   }
  },
  "leagues-dark": {
