@@ -55,7 +55,10 @@ jobs:
         run: |
           bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund playwright@1.50.1
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo timeout 600 apt-get install -y -qq fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core }
+      - name: Chụp app (tiếp)
+        run: |
           (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
           BASE=http://localhost:8080/ node scripts/play-shots.mjs /tmp/app
       - uses: actions/upload-artifact@v4
@@ -76,7 +79,10 @@ jobs:
           bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund playwright@1.50.1
           bash scripts/ci/pw-install.sh --with-deps chromium
           bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
-          sudo timeout 600 apt-get install -y -qq fonts-noto-color-emoji >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji }
+      - name: Quay app preview (tiếp)
+        run: |
           (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
           MODE=app BASE=http://localhost:8080/ KOKORO_NODE_PATH=/tmp/kk/node_modules node scripts/store-video.mjs /tmp/video
       - uses: actions/upload-artifact@v4
