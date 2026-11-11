@@ -41,7 +41,12 @@ ok(Object.keys(B.TABLES).every(t => !/^drive|^sessions|^pageviews/.test(t)) && B
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'rb-')), file = path.join(tmp, 'x.bak.ndjson'), counts = {}, lines = [JSON.stringify({ 'lexkite-backup': 1, db: 'lexkite-sync' })];
 for (const t of ['users', 'docs', 'config']) { let a = null; counts[t] = 0; for (;;) { const r = await B.exportPage(env, db, t, a, 4); lines.push(JSON.stringify({ t, n: r.n, iv: r.iv, ct: r.ct })); counts[t] += r.n; a = r.last; if (r.done) break; } }
 lines.push(JSON.stringify({ end: true, tables: ['users', 'docs', 'config'], counts, rows: 28 })); fs.writeFileSync(file, lines.join('\n') + '\n');
-const R = path.resolve('scripts/ops/d1-restore.mjs'), run = (a, e = {}) => { try { return { code: 0, out: execFileSync('node', [R, ...a], { encoding: 'utf8', env: { ...process.env, DRIVE_ENC_KEY: KEY, GITHUB_STEP_SUMMARY: '', ...e }, stdio: ['ignore', 'pipe', 'pipe'] }) }; } catch (e2) { return { code: e2.status, out: String(e2.stdout) + String(e2.stderr) }; } };
+// Hồi quy 2/11: test bản cụt ghi cờ đỏ THẬT lên Quản trị (driveCliKey đọc khoá ~/.config). Chỉ lượt CI trên main được ghi cờ; diễn tập chạy tay phải diễn tập lại được.
+{ const { alertAllowed } = await import(new URL('../ops/lib.mjs', import.meta.url));
+  ok(!alertAllowed({}) && !alertAllowed({ GITHUB_ACTIONS: 'true', GITHUB_REF: 'refs/heads/fix/x' }) && !alertAllowed({ GITHUB_ACTIONS: 'true', GITHUB_REF: 'refs/pull/1/merge' }), 'máy cá nhân, nhánh, PR không ghi cờ production');
+  ok(alertAllowed({ GITHUB_ACTIONS: 'true', GITHUB_REF: 'refs/heads/main' }) && alertAllowed({ LK_OPS_ALERT: '1' }), 'CI trên main (hoặc LK_OPS_ALERT=1) ghi cờ');
+  ok(/changed == '1' \|\| github\.event_name == 'workflow_dispatch'/.test(fs.readFileSync('.github/workflows/d1-backup.yml', 'utf8')), 'd1-backup chạy tay vẫn diễn tập'); }
+const R = path.resolve('scripts/ops/d1-restore.mjs'), run = (a, e = {}) => { try { return { code: 0, out: execFileSync('node', [R, ...a], { encoding: 'utf8', env: { ...process.env, DRIVE_ENC_KEY: KEY, GITHUB_STEP_SUMMARY: '', LEXKITE_DRIVE_CLI_KEY: '', LK_OPS_ALERT: '', GITHUB_ACTIONS: '', HOME: os.tmpdir(), ...e }, stdio: ['ignore', 'pipe', 'pipe'] }) }; } catch (e2) { return { code: e2.status, out: String(e2.stdout) + String(e2.stderr) }; } };
 const d = run(['--file', file, '--drill', '--sql', path.join(tmp, 'r.sql')]);
 ok(d.code === 0 && /diễn tập khôi phục[^\n]*21 dòng|diễn tập khôi phục[^\n]*dòng/.test(d.out), 'diễn tập khôi phục: ' + d.out.trim().slice(0, 160));
 const S = fs.readFileSync(path.join(tmp, 'r.sql'), 'utf8');
@@ -61,10 +66,14 @@ ok(P.pick(deps, 'd-old-0000').target.id === 'd-old-0000' && P.pick(deps, 'd-fail
 
 // 4) smoke
 const S0 = await import(new URL('../ops/smoke.mjs', import.meta.url));
-const resp = (st, body) => ({ ok: st < 400, status: st, text: async () => body, json: async () => JSON.parse(body) });
-const good = async (u, o = {}) => { const p = new URL(u).pathname; if (p === '/api/sync') return resp(401, '{}'); if (p === '/api/config') return resp(200, '{}'); if (p === '/packs/ja.json') return resp(200, JSON.stringify(Object.fromEntries(Array.from({ length: 7100 }, (_, i) => ['k' + i, 1])))); if (p.startsWith('/api/')) return resp(400, '{}'); const must = Object.fromEntries(S0.PAGES); return resp(200, (must[p] || '') + ' lexkite-123'); };
+const resp = (st, body, ct = 'text/html', redirected = false) => ({ ok: st < 400, status: st, redirected, headers: new Headers({ 'content-type': ct }), text: async () => body, json: async () => JSON.parse(body) });
+const good = async (u, o = {}) => { const p = new URL(u).pathname; if (p === '/api/sync') return resp(401, '{}'); if (p === '/api/config') return resp(200, '{}'); if (p.startsWith('/.well-known/')) return resp(200, '{"applinks":{}}', 'application/json'); if (p === '/packs/ja.json') return resp(200, JSON.stringify(Object.fromEntries(Array.from({ length: 7100 }, (_, i) => ['k' + i, 1])))); if (p.startsWith('/api/')) return resp(400, '{}'); const must = Object.fromEntries(S0.PAGES); return resp(200, (must[p] || '') + ' lexkite-123'); };
 const g1 = await S0.runSmoke('https://x.test', { getter: good }); ok(g1.bad.length === 0 && g1.ok.length === S0.PAGES.length + S0.APIS.length, 'smoke: bản tốt đạt hết ' + g1.bad.slice(0, 2));
 const g2 = await S0.runSmoke('https://x.test', { getter: async (u, o) => (new URL(u).pathname === '/app/' ? resp(500, '') : new URL(u).pathname === '/api/sync' ? resp(200, '{}') : good(u, o)) }); ok(g2.bad.length === 2 && /\/app\//.test(g2.bad[0]) && /\/api\/sync/.test(g2.bad[1]), 'smoke: bắt 5xx trang + /api/sync nhận token giả');
+
+const wk = '/.well-known/apple-app-site-association';
+const g3 = await S0.runSmoke('https://x.test', { getter: async (u, o) => (new URL(u).pathname === wk ? resp(200, '{}', 'application/octet-stream') : new URL(u).pathname === '/.well-known/assetlinks.json' ? resp(200, '[]', 'application/json', true) : good(u, o)) });
+ok(g3.bad.length === 2 && g3.bad.some(b => b.startsWith(wk)) && g3.bad.some(b => b.startsWith('/.well-known/assetlinks.json')), 'smoke: bắt AASA sai Content-Type + assetlinks bị chuyển hướng ' + g3.bad);
 
 // 5) retention (giữ N mới nhất, không retire sha còn dùng)
 const L = await import(new URL('../ops/lib.mjs', import.meta.url));
@@ -89,5 +98,22 @@ ok(fs.statSync('scripts/ops/rollback-pages.sh').mode & 0o111, 'rollback-pages.sh
 try { execFileSync('bash', ['-n', 'scripts/ops/rollback-pages.sh']); ok(true); } catch { ok(false, 'bash -n rollback-pages.sh'); }
 const reg = JSON.parse(fs.readFileSync('infra/jobs.json', 'utf8')); ok(['d1-backup', 'code-bundle', 'release-archive'].every(id => reg.jobs.some(j => j.id === id && j.lease)), 'jobs.json có d1-backup, code-bundle, release-archive (lease)');
 const back = wf('d1-backup.yml'); ok(/cron: '15 0 \* \* 1,2'/.test(back) && /d1-restore\.mjs --latest --api --drill/.test(back) && /actions\/cache\/save/.test(back), 'd1-backup.yml: 00:15 UTC sau mốc đặt lại, có diễn tập + cache tiếp tục');
+// Hồi quy 1/11: cờ backup_* phải TỰ GỠ. Script ops đặt alert(kind, false) thì cũng phải có alert(kind, true|!…) trên đường xanh,
+// và mỗi workflow sao lưu có bước `if: failure()` đặt cờ (giám sát không mù khi workflow chết ngoài script) + sổ đẩy qua ledger-push.
+{
+  const rd = f => fs.readFileSync(f, 'utf8');
+  const sc = { backup_code: ['scripts/ops/code-bundle.mjs'], backup_d1: ['scripts/ops/d1-backup.mjs', 'scripts/ops/d1-restore.mjs'], backup_rel: ['scripts/ops/release-archive.mjs'] };
+  for (const [k, fl] of Object.entries(sc)) {
+    const src = fl.map(rd).join('\n');
+    ok(new RegExp("alert\\('" + k + "', false").test(src), k + ': có đặt cờ khi lỗi');
+    ok(new RegExp("alert\\('" + k + "', (true|!)").test(src), k + ': có GỠ cờ khi xanh');
+  }
+  for (const [w, k] of [['code-bundle', 'backup_code'], ['d1-backup', 'backup_d1'], ['release-archive', 'backup_rel']]) {
+    const y = wf(w + '.yml');
+    ok(y.includes('scripts/ops/flag.mjs ' + k) && /failure\(\)/.test(y), w + '.yml: bước failure() đặt cờ ' + k);
+    ok(y.includes('scripts/ops/ledger-push.mjs'), w + '.yml: sổ đẩy qua ledger-push (gộp khi xung đột)');
+    ok(!/^\s+run: [^|>\n]*"[^"\n]*: [^"\n]*"\s*$/m.test(y), w + '.yml: run: một dòng không chứa ": " trong chuỗi (YAML hỏng → workflow chết ngay, 3/11)');
+  }
+}
 fs.rmSync(tmp, { recursive: true, force: true });
 console.log(fails ? `✗ rollback: ${fails}/${n} lỗi` : `✓ rollback: ${n} kiểm tra đạt`); process.exit(fails ? 1 : 0);

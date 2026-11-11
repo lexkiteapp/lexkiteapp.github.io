@@ -9,7 +9,7 @@ tags: [vocabulary, ielts, writing, collocations]
 keyword: "collocation bahasa inggris untuk ielts"
 cover: dict
 coverAlt: "Entri kamus Lexkite untuk kata resilient memuat pelafalan dan pasangan kata kolokasi"
-publishAt: ""
+publishAt: 2026-11-26T07:18:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

@@ -21,6 +21,7 @@ jobs:
       - name: Mốc giờ bắt đầu
         run: echo "T0=$(date +%s)" >> "$GITHUB_ENV"
       - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Thuê tài nguyên (điều phối việc nền, docs/JOBS.md)
@@ -47,11 +48,7 @@ jobs:
       - name: Ghi manifest vào main
         if: ${{ steps.lease.outputs.skip != '1' && (always() && github.event.inputs.dry_run != 'true') }}
         run: |
-          git config user.name "Lexkite CI"; git config user.email "lexkiteapp@users.noreply.github.com"
-          git add brand/library/cine/archive-manifest.json
-          git diff --cached --quiet && { echo "manifest không đổi"; exit 0; }
-          git commit -qm "footage-archive #${{ github.run_number }}: manifest Kho Drive [CF-Pages-Skip]"
-          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
+          bash scripts/ci/push-main.sh "footage-archive #${{ github.run_number }}: manifest Kho Drive" brand/library/cine/archive-manifest.json
       - name: Giữ manifest làm artifact (dự phòng nếu đẩy main lỗi)
         if: ${{ steps.lease.outputs.skip != '1' && (always() && github.event.inputs.dry_run != 'true') }}
         uses: actions/upload-artifact@v4

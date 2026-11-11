@@ -33,6 +33,7 @@ quiz: [
     explain: "'To be' veya modal yardımcı fiil içeren cümlelerde soru, yardımcı fiilin öznenin önüne geçmesi (inversion) ile kurulur."
   }
 ]
+publishAt: 2026-11-21T12:45:00+03:00
 ---
 Türkçede soru sormak oldukça esnek ve pratiktir. Genellikle cümlenin sonuna *-mı/-mi* soru eki getiririz veya tonlamamızı hafifçe yükseltiriz: *«Kahve seviyorsun.»* ifadesi kolayca *«Kahve seviyor musun?»* haline gelir.
 

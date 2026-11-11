@@ -1,180 +1,31 @@
 # Tự phân loại workflow đỏ (scripts/ci/triage.mjs) – thay thư "Run failed" từng lượt bằng: chạy lại 1 lần (lỗi tạm thời),
 # hoãn tới sau 00:10 UTC (hạn mức D1), 1 issue/workflow nhãn ci-failure (lỗi thật, tự đóng khi xanh lại) + bản tin ngày (Quản trị + 1 thư).
-# Không bao giờ lặp: chỉ chạy lại khi run_attempt = 1; triage tự nó luôn thoát 0. Danh sách workflows dưới đây phải khớp .github/workflows
-# (test ci-triage đỏ nếu lệch; sửa tự động: node scripts/ci/sync-triage.mjs).
+# Không bao giờ lặp: chỉ chạy lại khi run_attempt = 1; triage tự nó luôn thoát 0.
+# 2/11: QUÉT định kỳ thay cho workflow_run – trước đó mỗi lượt của ~150 workflow xong sinh 1 lượt ci-triage (~3.400 lượt/ngày, 93 % bị bỏ qua)
+# và mỗi lượt đỏ giữ 1 runner ngủ 5 phút. Quét 10 phút phủ MỌI workflow (kể cả workflow mới, không cần danh sách). Test: scripts/test/ci-policy.mjs.
 name: ci-triage
 on:
-  workflow_run:
-    types: [completed]
-    workflows:
-      - 'Mở rộng kho từ (lexicon-expand)'
-      - 'Hiệu năng từ điển'
-      - 'Content QA gate'
-      - 'Video quản trị – giao diện + hiệu năng'
-      - 'Build Android app'
-      - 'Tạo giọng đọc Kokoro'
-      - 'bg-gates'
-      - 'Blog daily'
-      - 'Blog images'
-      - 'Blog publish'
-      - 'Tách nền phông xanh – cả lô'
-      - 'Thử tách nền phông xanh'
-      - 'Kiểm thử tự động'
-      - 'cine-render'
-      - 'Hiệu năng thư viện clip'
-      - 'Content protection'
-      - 'Kiểm tương phản màu'
-      - 'capacity-sim'
-      - 'capacity-watch'
-      - 'Đăng add-on Chrome Web Store'
-      - 'd1b-migrate'
-      - 'Kênh & phân phối – giao diện + mặt tiền video'
-      - 'drive-shorts'
-      - 'Prod release'
-      - 'SEO IndexNow'
-      - 'UX public audit'
-      - 'Review shots'
-      - 'UX shots'
-      - 'd1-backup'
-      - 'code-bundle'
-      - 'release-archive'
-      - 'Ảnh thẻ giải thích (trước/sau)'
-      - 'Lời giải đáp án (sinh + duyệt AI)'
-      - 'Kiểm thử add-on (E2E)'
-      - 'footage-archive'
-      - 'footage-verify'
-      - 'Rà soát hằng ngày'
-      - 'Rà soát lẫn tiếng'
-      - 'Sinh bản dịch giao diện (i18n)'
-      - 'iOS E2E (simulator)'
-      - 'iOS → ảnh App Store'
-      - 'iOS → TestFlight'
-      - 'Quality sweep'
-      - 'Build iOS (simulator)'
-      - 'Nghĩa từ vựng 13 ngôn ngữ (theo nghĩa + duyệt AI)'
-      - 'library-build'
-      - 'library-ingest'
-      - 'Đo tốc độ Lighthouse'
-      - 'matte-pro'
-      - 'Native auth E2E'
-      - 'Kiểm chuyển trang (mọi trình duyệt)'
-      - 'news-voice'
-      - 'news-auto'
-      - 'video-e2e'
-      - 'bg-v4'
-      - 'Ảnh Google Play'
-      - 'Backlink, PR & Thương hiệu'
-      - 'Chụp ảnh giao diện'
-      - 'Kho kịch bản video (sinh + QC)'
-      - 'Ảnh minh hoạ từ vựng'
-      - 'shorts-migrate'
-      - 'shorts-rebuild'
-      - 'storage-watch'
-      - 'Ảnh Chrome Web Store'
-      - 'Video quảng cáo (viral)'
-      - 'Video giới thiệu add-on'
-      - 'Video tự động (hằng ngày)'
-      - 'Dựng video mẫu (kiểm end-to-end)'
-      - 'Dựng thử đa dạng (stress)'
-      - 'video-web'
-      - 'Dựng video (Video Studio)'
-      - 'Visual QA'
-      - 'Confidence shots'
-      - 'Giọng đọc từ vựng (Kokoro)'
-      - 'Gói nghĩa từ vựng đa ngôn ngữ'
-      - 'Kho từ theo kỳ thi'
-      - 'youtube-manual'
-      - 'youtube-upload'
-      - 'App LCP'
-      - 'Journey E2E'
-      - 'video-templates'
-      - 'video-tpl1b'
-      - 'Đăng ảnh từ vựng từ artifact'
-      - 'Kiểm CDN âm thanh (kho media)'
-      - 'size-guard'
-      - 'Ảnh từ vựng (icon + Wikimedia)'
-      - 'Ảnh mọi nghĩa (cảnh + khái niệm)'
-      - 'Ảnh từ vựng (icon + Wikimedia)'
-      - 'video-tpl1b-samples'
-      - 'video-pilot5'
-      - 'video-pilot6'
-      - 'video-pilot7'
-      - 'video-pilot8'
-      - 'word-audio-lab'
-      - 'video-templates9'
-      - 'video-series'
-      - 'SEO GSC weekly'
-      - 'Trang từ điển (dict pages)'
-      - 'Trang từ điển – giai đoạn mở index'
-      - 'pron-eval'
-      - 'free-tier-guard'
-      - 'Pages deploy'
-      - 'pron-train'
-      - 'Công cụ miễn phí (tools pages)'
-      - 'footage-reel'
-      - 'pron-distill'
-      - 'Uy tín (authority pages)'
-      - 'Font audit'
-      - 'cf-pool-probe'
-      - 'OTA rollback'
-      - 'npm test'
-      - 'CWS media'
-      - 'social-auto'
-      - 'Ads demo (real Google test ads)'
-      - 'Ads revenue hourly'
-      - 'Ads revenue'
-      - 'Mobile QA'
-      - 'video-shard-equiv'
-      - 'Perf profile'
-      - 'UX cards'
-      - 'Stitch diff'
-      - 'Brand build'
-      - 'Admin – gác bố cục'
-      - 'call-qa'
-      - 'Teach build'
-      - 'Characters shots'
-      - 'green-prep'
-      - 'hair-try'
-      - 'video-motion'
-      - 'teach-video'
-      - 'Kiểm tra sau deploy (post-deploy-check)'
-      - 'Preview site'
-      - 'QA bot'
-      - 'Bản dịch câu ví dụ cho bài học (15 ngôn ngữ)'
-      - 'Bản dịch câu ví dụ cho bài học (15 ngôn ngữ)'
-      - 'QA bot'
-      - 'Web sweep'
-      - 'Cổng ASR audio câu'
-      - 'Phát audio (Chromium + WebKit)'
-      - 'TTS A/B (Kokoro vs ElevenLabs)'
   schedule:
-    - cron: '12 * * * *'   # mỗi giờ: đóng issue khi xanh lại; lượt 00:12 UTC (sau khi hạn mức D1 đặt lại 00:00): chạy lại lượt hoãn + bản tin ngày
+    - cron: '*/10 * * * *'  # quét lượt đỏ mới (scan)
+    - cron: '12 * * * *'    # mỗi giờ: thêm sweep – đóng issue khi xanh lại; lượt 00:12 UTC (sau khi hạn mức D1 đặt lại 00:00): chạy lại lượt hoãn + bản tin ngày
   workflow_dispatch:
     inputs:
       daily: { description: 'Chạy luôn phần hoãn hạn mức + bản tin ngày', type: boolean, default: false }
-permissions: { contents: read, actions: write, issues: write }
+permissions: { contents: read, actions: write, issues: write, pull-requests: read, checks: read }   # pull-requests/checks: check đỏ chung trên PR mở (scripts/ci/pr-common-red.mjs)
+concurrency: { group: ci-triage, cancel-in-progress: false }   # 1 lượt chạy + 1 chờ; lượt chờ bị thay cũng không mất gì (cửa sổ quét chồng lấn)
 jobs:
   triage:
-    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure'
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    concurrency: { group: 'ci-triage-${{ github.event.workflow_run.name }}-${{ github.event.workflow_run.head_branch }}', cancel-in-progress: true }   # 1/11: cùng workflow+nhánh đỏ liên tiếp → chỉ lượt mới nhất triage (trước đây 55 lượt dồn hàng, mỗi lượt giữ 1 runner ~5 phút chờ)
-    steps:
-      - uses: actions/checkout@v4
-        with: { sparse-checkout: scripts/ci, sparse-checkout-cone-mode: true }
-      - uses: actions/setup-node@v4
-        with: { node-version: 22 }
-      - run: node scripts/ci/triage.mjs run
-        env: { GITHUB_TOKEN: '${{ github.token }}', TRIAGE_DELAY: '300' }
-  sweep:
-    if: github.event_name != 'workflow_run'
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    concurrency: { group: ci-triage-sweep, cancel-in-progress: false }
     steps:
       - uses: actions/checkout@v4
-        with: { sparse-checkout: scripts, sparse-checkout-cone-mode: true }
+        with: { sparse-checkout: "scripts\ninfra\n.github/workflows\nweb/free-tier-state.json", sparse-checkout-cone-mode: false }  # cron-watch: đọc cron workflow + jobs.json paused + free-tier paused
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - run: node scripts/ci/triage.mjs sweep
+      - name: Quét lượt đỏ mới (scan)
+        run: node scripts/ci/triage.mjs scan
+        env: { GITHUB_TOKEN: '${{ github.token }}', TRIAGE_DELAY: '300' }
+      - name: Đóng issue đã xanh + hoãn hạn mức + bản tin ngày (sweep)
+        if: github.event.schedule == '12 * * * *' || github.event_name == 'workflow_dispatch'
+        run: node scripts/ci/triage.mjs sweep
         env: { GITHUB_TOKEN: '${{ github.token }}', LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}', TRIAGE_FORCE_DAILY: "${{ github.event.inputs.daily == 'true' && '1' || '' }}" }

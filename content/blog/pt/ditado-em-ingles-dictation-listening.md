@@ -33,6 +33,7 @@ quiz: [
     explain: "Por ser uma língua de ritmo acentual (stress-timed), o inglês comprime e reduz as palavras funcionais átonas a sons extremamente curtos e relaxados."
   }
 ]
+publishAt: 2026-11-24T09:48:00-03:00
 ---
 Você já passou pela experiência frustrante de assistir a um filme com legendas em inglês e entender quase 100% da história, mas, no instante em que desativa o texto, a conversa parecer uma enxurrada de sons embolados e incompreensíveis?
 

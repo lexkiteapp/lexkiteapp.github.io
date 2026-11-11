@@ -17,7 +17,7 @@ const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễ�
 const VI0 = VI, VIS = /[âêôăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i; // es/ja/ar…: â ê ô cũng là dấu hiệu tiếng Việt (“câu”, “nên”)
 const ROUTES = ['#/home', '#/me', '#/vocab', '#/library', '#/review', '#/practice', '#/path', '#/plan', '#/stats', '#/settings', '#/league', '#/goal',
   '#/skills', '#/tests', '#/mistakes', '#/grammar', '#/pron', '#/listening', '#/reading', '#/speaking', '#/write', '#/task1', '#/letters', '#/rtype',
-  '#/mock', '#/toeic', '#/toefl', '#/dict/sustainable', '#/topic/education', '#/topic/ngsl1', '#/resources', '#/placement', '#/usage', '#/usage/interested', '#/usage?c=pair', '#/home'];
+  '#/mock', '#/toeic', '#/toefl', '#/cambridge', '#/cambridge/a2-t1', '#/cambridge/a2-t1?p=speaking', '#/dict/sustainable', '#/topic/education', '#/topic/ngsl1', '#/resources', '#/placement', '#/usage', '#/usage/interested', '#/usage?c=pair', '#/home'];
 const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8').replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '');
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
 const tick = (ms = 40) => new Promise(r => setTimeout(r, ms));
@@ -42,7 +42,7 @@ function page(ls) {
   // chữ giao diện phải qua t(), không được trông vào dịch máy lúc chạy (đó chính là chỗ i18n-leak bị che lỗi đóng băng)
   w.fetch = async url => {
     const u = String(url);
-    if (/translate\.googleapis/.test(u)) { const q = decodeURIComponent((u.match(/[?&]q=([^&]*)/) || [])[1] || ''); const out = q.split('\n').map(x => (isUI(x.trim()) ? x : 'T')).join('\n'); return { ok: true, json: async () => (/dj=1/.test(u) ? { sentences: [{ trans: out }] } : [[[out]]]) }; }
+    if (/translate\.googleapis|\/api\/dictlookup\?src=gtx/.test(u)) { const q = decodeURIComponent((u.match(/[?&]q=([^&]*)/) || [])[1] || ''); const out = q.split('\n').map(x => (isUI(x.trim()) ? x : 'T')).join('\n'); return { ok: true, json: async () => (/dj=1/.test(u) ? { sentences: [{ trans: out }] } : [[[out]]]) }; }
     return { ok: false, status: 404, json: async () => ({}), text: async () => '' };
   };
   const run = f => { try { vm.runInContext(fs.readFileSync(path.join(WEB, f), 'utf8'), ctx, { filename: rel(f) }); } catch (e) { errors.push(f + ': ' + e.message); } };

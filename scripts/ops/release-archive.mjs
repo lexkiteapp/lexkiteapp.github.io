@@ -52,6 +52,7 @@ async function main() {
   if (!DRY) { man.updated = new Date().toISOString(); saveJson(MAN, man); }
   summary('### release-archive\n' + (lines.join('\n') || '- không có bản mới'));
   if (failed) { await alert('backup_rel', false, `Lưu bản phát hành: ${failed} lỗi`); return 1; }
+  if (!DRY) await alert('backup_rel', true, 'ok'); // 1/11: trước đây cờ chỉ được ĐẶT, không bao giờ gỡ → đỏ mãi dù các lượt sau xanh
   return 0;
 }
 if (process.argv[1] && process.argv[1].endsWith('release-archive.mjs')) main().then(c => process.exit(c)).catch(async e => { console.error('✗ ' + e.message); await alert('backup_rel', false, 'release-archive: ' + e.message); process.exit(1); });

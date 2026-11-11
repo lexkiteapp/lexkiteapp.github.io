@@ -12,7 +12,13 @@
   const plat = capP === 'ios' || capP === 'android' ? capP : 'web', native = plat !== 'web';
   const route = () => (location.hash.replace(/^#\/?/, '').split(/[/?]/)[0] || 'home');
   const vid = ls.get('lk.vid') || '';
-  const ctx = () => ({ plat, route: route(), path: location.pathname, proto: location.protocol, edu: ls.get('lk.edu') === '1', u13: ls.get('lk.u13') === '1', sandbox: /[?&](sandbox|demo)=/.test(location.search), bot: !!navigator.webdriver, vid });
+  // Trạng thái LIVE cho vùng cấm (policy.js zone): mic đang thu (bọc getUserMedia – không đổi hành vi), đang gõ đáp án, hộp thoại khác đang mở
+  const mics = new Set(), md = navigator.mediaDevices;
+  if (md && md.getUserMedia && !md.getUserMedia.__lk) { const gum = md.getUserMedia.bind(md); md.getUserMedia = Object.assign(c => gum(c).then(s => { if (s.getAudioTracks().length) mics.add(s); return s; }), { __lk: 1 }); }
+  const micLive = () => { for (const s of mics) { if (s.getAudioTracks().some(x => x.readyState === 'live')) return true; mics.delete(s); } return false; };
+  const typing = () => { const a = d.activeElement; return !!a && (a.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)) && !!a.closest('#view'); };
+  const ctx = () => ({ plat, route: route(), path: location.pathname, proto: location.protocol, edu: ls.get('lk.edu') === '1', u13: ls.get('lk.u13') === '1', sandbox: /[?&](sandbox|demo)=/.test(location.search), bot: !!navigator.webdriver, vid,
+    pro: ls.get('lk.pro') === '1', mic: micLive(), answering: typing(), modal: !!(d.getElementById('modal') && !d.getElementById('modal').hidden), brk: !!d.querySelector('#aoHost, [data-ad-break]') });
   const F = () => P.flags(remote(), C);
   const BASE = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
   const iso = (x = Date.now()) => { const z = new Date(x); return z.getFullYear() + '-' + String(z.getMonth() + 1).padStart(2, '0') + '-' + String(z.getDate()).padStart(2, '0'); };
@@ -37,7 +43,7 @@
     if (noTrack) return;
     const body = { t: 'ad', plat, c: coh, ev: { ...ev }, m: sent ? { dur: Math.round(dur) } : { ...m, dur: Math.round(dur) }, k: sent ? undefined : consentK || undefined };
     sent = true; dur = 0; Object.keys(ev).forEach(k => delete ev[k]);
-    try { navigator.sendBeacon ? navigator.sendBeacon(BASE + '/api/hit', JSON.stringify(body)) : fetch(BASE + '/api/hit', { method: 'POST', body: JSON.stringify(body), keepalive: true }); } catch (e) { /* bỏ qua */ }
+    try { navigator.sendBeacon ? navigator.sendBeacon(BASE + '/api/hit', JSON.stringify(body)) : fetch(BASE + '/api/hit', { method: 'POST', body: JSON.stringify(body), keepalive: true, mode: 'no-cors' }); } catch (e) { /* bỏ qua */ }
   };
   d.addEventListener('visibilitychange', () => { if (d.visibilityState === 'hidden') flush(); else vis = Date.now(); });
   g.addEventListener('pagehide', flush);
@@ -78,7 +84,7 @@
     d.querySelectorAll('.ad-slot[data-ad]:not([data-done])').forEach(el => {
       const place = el.dataset.ad, unit = ((C.web || {}).slots || {})[place];
       el.dataset.done = '1';
-      const extra = place === 'done' ? { done: true, pct: el.dataset.pct === undefined ? 100 : +el.dataset.pct, ageH: (Date.now() - st.firstAt) / 3600e3 } : {};
+      const extra = place === 'done' ? { done: true, brk: true, pct: el.dataset.pct === undefined ? 100 : +el.dataset.pct, ageH: (Date.now() - st.firstAt) / 3600e3 } : {};
       if (!unit || !C.web.client || !P.slot({ ...c, ...extra, route: place === 'blog' ? 'blog' : c.route }, f, place)) { el.hidden = true; return; }
       el.classList.add('on'); bump('req:' + place);
       el.insertAdjacentHTML('beforeend', `<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="${C.web.client}" data-ad-slot="${unit}"></ins>`);
@@ -119,13 +125,13 @@
     else { bannerOn = false; d.documentElement.classList.remove('has-banner'); A.hideBanner().catch(() => {}); }
   };
   // Cuối phiên: study.js / qtips.js báo xong 1 lượt → chờ người dùng VỀ tab chính rồi mới xét quảng cáo toàn màn hình
-  const ended = e => { const x = (e && e.detail) || {}; if (x.second) return; const pct = typeof x.pct === 'number' ? x.pct : x.t ? Math.round(x.r / x.t * 100) : undefined; st.sessions = (st.sessions || 0) + 1; st.pending = 1; if (pct !== undefined) st.lastPct = pct; save(); };
+  const ended = e => { const x = (e && e.detail) || {}; if (x.second) return; const pct = typeof x.pct === 'number' ? x.pct : x.t ? Math.round(x.r / x.t * 100) : undefined; st.sessions = (st.sessions || 0) + 1; st.total = (st.total || 0) + 1; st.pending = 1; if (pct !== undefined) st.lastPct = pct; save(); };
   g.addEventListener('lexkite:practice-done', ended); g.addEventListener('lexkite:test-done', ended);
   const maybeInter = async () => {
     if (!P.interstitial(ctx(), F(), st, Date.now()) || !unit('interstitial')) return;
     const A = AM(); if (!A || !(await init())) return;
     st.pending = 0; save(); bump('req:inter');
-    try { await A.prepareInterstitial({ adId: unit('interstitial'), isTesting: testing }); await A.showInterstitial(); st.lastAt = Date.now(); st.sessions = 0; save(); bump('show:inter'); } catch (e) { bump('nofill:inter'); }
+    try { await A.prepareInterstitial({ adId: unit('interstitial'), isTesting: testing }); await A.showInterstitial(); const dk = new Date().toDateString(); st.id = { d: dk, n: (st.id && st.id.d === dk ? st.id.n : 0) + 1 }; st.lastAt = Date.now(); st.sessions = 0; save(); bump('show:inter'); } catch (e) { bump('nofill:inter'); }
   };
 
   // ---------- Có thưởng (người dùng tự chọn) ----------
@@ -166,17 +172,18 @@
       slot.addService(pa); gt.display(slot);
     });
   }));
-  const canReward = reason => P.rewarded(rctx(), F(), reason) && (native ? !!unit('rewarded') && !!AM() : true) && P.rewLeft(st, reason, iso()) > 0;
+  const ready = reason => P.rewLeft(st, reason, iso()) > 0 && P.rewReady(st, Date.now()); // trần / ngày + chờ giữa 2 video
+  const canReward = reason => P.rewarded(rctx(), F(), reason) && (native ? !!unit('rewarded') && !!AM() : true) && ready(reason);
   const counted = reason => { const day = iso(); if (!st.rw || st.rw.d !== day) st.rw = { d: day, n: {} }; st.rw.n[reason] = (st.rw.n[reason] || 0) + 1; st.rewAt = Date.now(); save(); };
-  async function rewarded(reason) {
-    const c = rctx(), f = F();
+  async function rewarded(reason, x) {
+    const c = { ...rctx(), ...(x || {}) }, f = F();
     if (!native) {
-      if (!P.rewarded(c, f, reason) || P.rewLeft(st, reason, iso()) <= 0) return reason === 'streak';
+      if (!P.rewarded(c, f, reason) || !ready(reason)) return reason === 'streak';
       bump('req:rew'); const r = await webRewarded().catch(() => false);
       if (r) { bump('rewok:rew'); bump('rewok:' + reason); counted(reason); }
       return r || reason === 'streak'; // không có quảng cáo web: cứu chuỗi vẫn được như trước
     }
-    if (!P.rewarded(c, f, reason) || !unit('rewarded') || P.rewLeft(st, reason, iso()) <= 0 || !(await init())) return reason === 'streak'; // không có quảng cáo: cứu chuỗi vẫn được như trước, lượt AI/cơ hội 2/x2 XP thì không
+    if (!P.rewarded(c, f, reason) || !unit('rewarded') || !ready(reason) || !(await init())) return reason === 'streak'; // không có quảng cáo: cứu chuỗi vẫn được như trước, lượt AI/cơ hội 2/x2 XP thì không
     const A = AM(), uid = g.Sync && g.Sync.user && g.Sync.user.uid;
     bump('req:rew');
     try {
@@ -193,12 +200,37 @@
     one('js/i18n/en/ads.js').then(() => (l !== 'en' && l !== 'vi' ? one(`js/i18n/${l}/ads.js`) : null)).then(res);
   }));
   async function quota(j) {
-    const feat = j && j.feature, n = { ai: 3, chat: 10 }[feat];
-    if (!n || !j || j.msg !== 'quota.daily' || !P.rewarded(ctx(), F(), feat) || !g.UI || !g.UI.modal) return;
+    const feat = j && j.feature, n = { ai: 3, chat: 10 }[feat], gr = { ai: 2, chat: 5 }[feat];
+    if (!n || !j || j.msg !== 'quota.daily' || !g.UI || !g.UI.modal) return;
+    const rew = P.rewarded({ ...ctx(), brk: true }, F(), feat) && ready(feat), earn = canEarn(feat); // hộp thoại hết lượt = điểm nghỉ (mic/gọi vẫn chặn)
+    if (!rew && !earn) return;
     await strings();
-    const box = g.UI.modal(`<div class="center"><p>${t('Hết lượt hôm nay? Xem 1 video ngắn để nhận thêm {n} lượt.', { n })}</p>
-      <div class="row center" style="gap:.6rem;margin-top:1rem;flex-wrap:wrap"><button class="btn primary" type="button" data-rw>▶ ${t('Xem video')}</button><button class="btn ghost" type="button" data-close>${t('Để sau')}</button></div></div>`);
-    box.querySelector('[data-rw]').onclick = async () => { const ok = await rewarded(feat); g.UI.closeModal(); if (ok) g.UI.toast(t('Đã cộng thêm lượt – thử lại sau vài giây.'), 4000); };
+    const box = g.UI.modal(`<div class="center">${rew ? `<p>${t('Hết lượt hôm nay? Xem 1 video ngắn để nhận thêm {n} lượt.', { n })}</p>` : ''}
+      ${earn ? `<p${rew ? ' class="small muted"' : ''}>${t('Ôn 10 thẻ để mở thêm {n} lượt – miễn phí.', { n: gr })}</p>` : ''}
+      <div class="row center" style="gap:.6rem;margin-top:1rem;flex-wrap:wrap">${rew ? `<button class="btn primary" type="button" data-rw>▶ ${t('Xem video')}</button>` : ''}${earn ? `<a class="btn${rew ? '' : ' primary'}" href="#/review" data-earn>${t('Ôn thẻ ngay')}</a>` : ''}<button class="btn ghost" type="button" data-close>${t('Để sau')}</button></div></div>`);
+    const rb = box.querySelector('[data-rw]'); if (rb) rb.onclick = async () => { const ok = await rewarded(feat, { brk: true }); g.UI.closeModal(); if (ok) g.UI.toast(t('Đã cộng thêm lượt – thử lại sau vài giây.'), 4000); };
+    const eb = box.querySelector('[data-earn]'); if (eb) eb.addEventListener('click', () => { try { sessionStorage.setItem(EARN_K, feat); } catch (e) { /* bỏ qua */ } g.UI.closeModal(); });
+  }
+
+  // Ôn thẻ để mở thêm lượt AI (đợt 1 #10): chỉ khi đã đăng nhập (máy chủ đọc bằng chứng ôn từ bản đồng bộ D1), chỉ gợi ý – không ép, không thông báo đẩy
+  const EARN_K = 'lk.earn';
+  const dayLocal = () => (g.Core && g.Core.todayKey ? g.Core.todayKey() : ''), MAX_K = f => 'lk.earnMax.' + f;
+  const maxedToday = f => { try { return !!f && localStorage.getItem(MAX_K(f)) === dayLocal(); } catch (e) { return false; } }; // đã nhận đủ hôm nay → không gợi ý suông
+  const canEarn = f => !!(g.Sync && g.Sync.user && g.Sync.mode !== 'drive' && g.Sync.mode !== 'off') && !maxedToday(f);
+  async function claimEarn() {
+    let feat = ''; try { feat = sessionStorage.getItem(EARN_K) || ''; } catch (e) { /* bỏ qua */ }
+    if (!feat || /^#\/review/.test(g.location.hash) || !canEarn(feat)) return; // còn đang ôn → đợi tới khi rời trang ôn
+    try { sessionStorage.removeItem(EARN_K); } catch (e) { /* bỏ qua */ }
+    try {
+      try { await g.Sync.flush(); } catch (e) { /* đẩy bản mới nhất; lỗi thì máy chủ dùng bản đã có */ }
+      const day = dayLocal();
+      const r = await fetch(BASE + '/api/aiearn', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await g.Sync.user.getIdToken() }, body: JSON.stringify({ feature: feat, day }) });
+      const o = await r.json().catch(() => null); if (!r.ok || !o) return;
+      if (o.maxed) try { localStorage.setItem(MAX_K(feat), day); } catch (e) { /* bỏ qua */ }
+      await strings();
+      if (o.granted > 0) g.UI.toast(t('Nhờ ôn thẻ, bạn được thêm {n} lượt.', { n: o.granted }), 5000);
+      else if (!o.maxed && o.need) g.UI.toast(t('Đã ôn {r}/{need} thẻ hôm nay – ôn thêm để nhận lượt.', { r: o.reviews, need: o.need }), 5000);
+    } catch (e) { /* mạng lỗi: lần sau */ }
   }
 
   // ---------- Đổi/rút lại đồng ý (Cài đặt › Quyền riêng tư & quảng cáo) ----------
@@ -217,6 +249,7 @@
 
   // ---------- khởi động ----------
   function start() {
+    g.addEventListener('hashchange', () => setTimeout(claimEarn, 400));
     if (native) { syncBanner(); g.addEventListener('hashchange', () => setTimeout(() => { syncBanner(); maybeInter(); }, 60)); return; }
     const v = d.getElementById('view');
     fillWeb();

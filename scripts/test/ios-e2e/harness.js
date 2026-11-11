@@ -79,7 +79,15 @@
   // navigator.share (Web Share của WKWebView) mở bảng chia sẻ hệ thống che màn hình → cũng chặn trong vòng chính
   const NS = navigator.share && navigator.share.bind(navigator);
   if (NS) try { Object.defineProperty(navigator, 'share', { configurable: true, value: o => { nativeCalls.push({ plugin: 'navigator', method: 'share', arg: JSON.stringify(o || {}).slice(0, 160), step: cur.step, stubbed: stubNative }); return stubNative ? Promise.resolve() : NS(o); } }); } catch (e) { /* bỏ qua */ }
+  // Bản kiểm thử phải chạy ĐÚNG gói web của nhánh: chặn OTA. ota.js tải bản web production rồi áp khi app xuống nền
+  // (bước extlink mở Safari) → app nạp lại gói production KHÔNG có harness → "Không có sự kiện 45 s" × 13 (app-stdout: "CapgoUpdater … Reloading").
+  function freezeOta() {
+    const U = P().CapacitorUpdater; if (!U || U.__e2e) return; U.__e2e = 1;
+    for (const m of ['download', 'next', 'set']) { try { U[m] = async () => { emit({ type: 'info', key: 'ota-blocked', m }); throw new Error('e2e: OTA tắt trong bản kiểm thử'); }; } catch (e) { /* bỏ qua */ } }
+  }
+  freezeOta();
   function wrapPlugins() {
+    freezeOta();
     const ps = P(); const spec = { TextToSpeech: ['speak'], Share: ['share', 'canShare'], LocalNotifications: ['requestPermissions', 'schedule', 'checkPermissions'], Filesystem: ['writeFile'], Haptics: ['vibrate', 'impact'], StatusBar: ['setStyle'] };
     for (const [pn, ms] of Object.entries(spec)) {
       const pl = ps[pn]; if (!pl || pl.__e2e) continue;
@@ -187,6 +195,7 @@
     S.push({ k: 'lang', l: 'en' });
     S.push({ k: 'onboard' });
     for (const r of MAIN) S.push({ k: 'route', r, probe: true });
+    for (const r of ['home', 'path', 'train', 'me', 'stats', 'library', 'reading', 'topic/environment', 'grammar']) S.push({ k: 'scrollperf', r });
     S.push({ k: 'subpages' });
     S.push({ k: 'search' }); S.push({ k: 'review' }); S.push({ k: 'practice' }); S.push({ k: 'placement' }); S.push({ k: 'tts' }); S.push({ k: 'speakcheck' });
     S.push({ k: 'deeplink' }); S.push({ k: 'extlink' });
@@ -270,10 +279,23 @@
       case 'onboard': {
         await visit('welcome', 'welcome');
         await visit('welcome/setup', 'welcome-setup');
+        // Thiết lập TỪNG BƯỚC (web/js/onboard.js: mục tiêu → trình độ → điểm → cường độ → sẵn sàng): #go chỉ có ở màn cuối → bấm "Tiếp tục" (#obNext) tới đó
+        for (let i = 0; i < 8 && !document.getElementById('go'); i++) { const nx = document.getElementById('obNext'); if (!nx) break; nx.click(); await sleep(500); }
         const go = document.getElementById('go');
         if (go && go.disabled) { const chip = document.querySelector('#view [data-topic], #view .chip'); chip && chip.click(); await sleep(300); }
         if (go && !go.disabled) { go.click(); await sleep(4500); } else add('flow', 'Không tìm thấy/bấm được nút "Bắt đầu học" (#go) ở màn thiết lập');
         await settle(6000); audit('after-setup'); await shot('after-setup');
+        return;
+      }
+      case 'scrollperf': { // WKWebView thật: cuộn xuống rồi lên theo rAF, đo khoảng khung, đổi chiều cao, thanh dính, cuộn tự nhảy – docs/PERF-SCROLL.md
+        await visit(s.r, 'scroll-' + s.r, { shot: false }); await sleep(800);
+        const de = document.documentElement, H0 = de.scrollHeight, dist = Math.min(H0 - innerHeight, 5000), bars = [...document.querySelectorAll('body *')].filter(e => /sticky|fixed/.test(getComputedStyle(e).position) && e.getBoundingClientRect().height > 8).slice(0, 8), h0 = bars.map(b => b.getBoundingClientRect().height);
+        const dt = []; let hMax = H0, hMin = H0, rev = 0, bar = 0, last = performance.now();
+        const run = (dy, ms) => new Promise(res => { const t0 = performance.now(), y0 = scrollY; let prev = y0; const f = t => { dt.push(t - last); last = t; const p = Math.min(1, (t - t0) / ms); W.scrollTo(0, y0 + dy * p); const y = scrollY; if (dy > 0 ? y < prev - 3 : y > prev + 3) rev++; prev = y; if (dt.length % 6 === 0) { const h = de.scrollHeight; hMax = Math.max(hMax, h); hMin = Math.min(hMin, h); bars.forEach((b, i) => { bar = Math.max(bar, Math.abs(b.getBoundingClientRect().height - h0[i])); }); } if (p < 1) requestAnimationFrame(f); else res(); }; requestAnimationFrame(f); });
+        if (dist > 40) { const ms = Math.max(800, dist / 1.2); await run(dist, ms); await sleep(250); await run(-dist, ms); }
+        const d = dt.slice(2), dropped = d.reduce((a, x) => a + Math.max(0, Math.round(x / 16.67) - 1), 0);
+        if (hMax - hMin > 100 || rev || bar > 2) add('scroll', `${s.r}: cuộn không ổn định – đổi chiều cao ${hMax - hMin}px, nhảy ngược ${rev}, thanh dính lệch ${Math.round(bar)}px (docs/PERF-SCROLL.md)`);
+        emit({ type: 'scrollperf', route: s.r, dist, frames: d.length, droppedPct: d.length ? +(dropped / (dropped + d.length) * 100).toFixed(1) : 0, worst: Math.round(Math.max(0, ...d)), heightChange: hMax - hMin, reversal: rev, barDelta: Math.round(bar) });
         return;
       }
       case 'route': { const a = await visit(s.r); visited.add(s.r); emit({ type: 'links', route: s.r, links: a.links }); if (s.probe) await probe(s.r); return; }

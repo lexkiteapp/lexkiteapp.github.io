@@ -441,6 +441,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "My ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " didn't arrive.",
+      "white"
+     ]
+    ]
+   ],
    "a": "luggages",
    "b": "luggage",
    "correct": "b",

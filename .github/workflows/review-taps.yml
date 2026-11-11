@@ -1,0 +1,34 @@
+# 👆 Màn Ôn (Stitch v2) trên điện thoại: mọi nút chạm được + đúng trang, trên WebKit (iPhone Safari) và Chromium (Android), tối/sáng.
+# + E2E ôn tập đa chế độ [P2-1.2] (scripts/test/review-modes-e2e.mjs).
+# Chặn tái phát lỗi chủ báo 1/11 ("nhiều nút click ko dc" ở tab Ôn). Hermetic (web/ phục vụ trên lk.test), 0 lượt chạm prod.
+name: Màn Ôn – chạm được
+on:
+  pull_request:
+    paths: ['web/js/ux1.js', 'web/js/app.js', 'web/js/study.js', 'web/js/core.js', 'web/js/st/**', 'web/css/st-v2-*.css', 'web/app/index.html', 'brand/stitch/v2/**', 'scripts/test/review-taps.mjs', 'scripts/test/stitch-screens.mjs', 'web/js/study-modes.js', 'web/js/i18n/*/rmodes.js', 'scripts/test/review-modes-e2e.mjs', '.github/workflows/review-taps.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: review-taps-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  taps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Cài Playwright (WebKit + Chromium)
+        timeout-minutes: 14
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium webkit
+      - name: Chạm mọi nút màn Ôn
+        run: node scripts/test/review-taps.mjs web out/review-taps
+      - name: E2E ôn tập 3 chế độ (Lật · Gõ · Nghe) – bàn phím, axe, 390 px sáng/tối
+        if: always()
+        run: node scripts/test/review-modes-e2e.mjs web out/review-taps/modes
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: review-taps, path: out/review-taps, retention-days: 7 }

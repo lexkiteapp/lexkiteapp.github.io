@@ -22,7 +22,7 @@ items: [
 { n: 1, text: "Deserts make up approximately one-third of the Earth's land area.", a: "TRUE", cue: "Deserts cover roughly a third of the planet's land surface" },
 { n: 2, text: "The seeds of ephemerals will germinate after any amount of rain.", a: "FALSE", cue: "Their seeds often contain chemicals that prevent germination after a light shower" },
 { n: 3, text: "Super blooms attract large numbers of tourists to desert areas.", a: "NOT GIVEN", cue: "the spectacular 'super blooms' that occasionally carpet deserts with colour" },
-{ n: 4, text: "Cactus spines help to protect the plant from animals.", a: "TRUE", cue: "discourage thirsty animals from feeding on it" },
+{ n: 4, text: "Cactus spines help to protect the plant from animals.", a: "TRUE", cue: g.RTI[28] },
 { n: 5, text: "Plants that use CAM photosynthesis tend to grow faster than ordinary plants.", a: "FALSE", cue: "CAM plants generally grow much more slowly" }
 ] },
 { type: "table", title: "Survival strategies of desert plants",
@@ -153,7 +153,7 @@ instr: "Do the following statements agree with the claims of the writer in Readi
 items: [
 { n: 27, text: "Leading museums once considered their right to their collections to be unquestionable.", a: "YES", cue: "treated their collections as permanent and their ownership as beyond dispute" },
 { n: 28, text: "If an object was acquired lawfully under the rules of its time, this is enough to justify keeping it.", a: "NO", cue: "To argue that such objects were legally acquired because the law of the time permitted it is to accept that the conquering power was entitled to write the rules in its own favour" },
-{ n: 29, text: "Visitor numbers at the major universal museums have fallen in recent years.", a: "NOT GIVEN", cue: "works that millions currently see each year" },
+{ n: 29, text: "Visitor numbers at the major universal museums have fallen in recent years.", a: "NOT GIVEN", cue: g.RTI[29] },
 { n: 30, text: "The claim that objects are safer in their current museums is now less convincing than it once was.", a: "YES", cue: "The conservation argument, meanwhile, is increasingly out of date" },
 { n: 31, text: "An object's meaning is determined entirely by the place where it was made.", a: "NO", cue: "This is plainly an overstatement" },
 { n: 32, text: "Returned objects are generally seen by more visitors than when they were held abroad.", a: "NOT GIVEN", cue: "Several countries have built modern, climate-controlled museums specifically to receive returned objects" }
@@ -163,7 +163,7 @@ instr: "Complete the summary below. Choose NO MORE THAN TWO WORDS from the passa
 limit: 2,
 items: [
 { n: 33, text: "The writer believes that restitution should not be governed by a ___ but handled through a careful process.", a: ["blanket rule"], cue: "not a blanket rule but a careful process" },
-{ n: 34, text: "Museums should start by openly investigating the ___ of the objects they hold and making the results public.", a: ["provenance"], cue: "researching the provenance of their holdings openly" },
+{ n: 34, text: "Museums should start by openly investigating the ___ of the objects they hold and making the results public.", a: ["provenance"], cue: g.RTI[25] },
 { n: 35, text: "Decisions about claims should involve the ___ affected, not only national governments.", a: ["communities"], cue: "with the participation of the communities concerned rather than governments alone" },
 { n: 36, text: "When an item has clearly been taken ___, its return should be the default position.", a: ["by force"], cue: "Where an object was clearly taken by force" },
 { n: 37, text: "Rather than suffering, the ___ of museums that follow this approach could actually improve.", a: ["reputations"], cue: "their reputations are strengthened rather than diminished" },

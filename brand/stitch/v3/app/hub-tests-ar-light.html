@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Tests Hub - مركز الاختبارات</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@500;700;800&amp;family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#f5bf31",
+            "on-primary-fixed-variant": "#00504a",
+            "on-primary-fixed": "#00201d",
+            "surface-tint": "#126a63",
+            "primary-fixed-dim": "#88d4cb",
+            "outline": "#6f7977",
+            "tertiary": "#5b4300",
+            "primary": "#00504b",
+            "surface-dim": "#e6d7cd",
+            "on-background": "#211a14",
+            "on-tertiary": "#ffffff",
+            "secondary-container": "#fd9500",
+            "on-surface-variant": "#3f4947",
+            "inverse-surface": "#372f28",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "secondary": "#8c5000",
+            "surface-variant": "#efe0d6",
+            "on-error-container": "#93000a",
+            "inverse-primary": "#88d4cb",
+            "primary-container": "#136a63",
+            "tertiary-fixed": "#ffdf9b",
+            "surface-container-low": "#fff1e8",
+            "on-surface": "#211a14",
+            "on-error": "#ffffff",
+            "inverse-on-surface": "#fdeee3",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-container": "#633700",
+            "surface": "#fff8f5",
+            "on-tertiary-container": "#ffd370",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed": "#251a00",
+            "surface-bright": "#fff8f5",
+            "outline-variant": "#bec9c6",
+            "secondary-fixed-dim": "#ffb872",
+            "surface-container": "#faebe1",
+            "on-secondary-fixed": "#2d1600",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "surface-container-highest": "#efe0d6",
+            "on-secondary": "#ffffff",
+            "surface-container-high": "#f4e5db",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "tertiary-container": "#785a00",
+            "on-primary-container": "#9be7de",
+            "secondary-fixed": "#ffdcbf",
+            "primary-fixed": "#a4f1e7",
+            "background": "#fff8f5"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-lg": "3rem",
+            "margin": "1rem",
+            "gutter": "1rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "gutter-md": "1.5rem",
+            "space-md": "1rem",
+            "margin-md": "2rem",
+            "gutter-lg": "2rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "sans": ["'Plus Jakarta Sans'", "'Noto Sans Arabic'", "system-ui", "-apple-system", "sans-serif"],
+            "label-md": ["'Plus Jakarta Sans'", "'Noto Sans Arabic'", "sans-serif"],
+            "headline-sm": ["'Plus Jakarta Sans'", "'Noto Sans Arabic'", "sans-serif"],
+            "headline-lg-mobile": ["'Plus Jakarta Sans'", "'Noto Sans Arabic'", "sans-serif"],
+            "display-lg": ["'Plus Jakarta Sans'", "'Noto Sans Arabic'", "sans-serif"],
+            "display-lg-mobile": ["'Plus Jakarta Sans'", "'Noto Sans Arabic'", "sans-serif"],
+            "body-sm": ["'Plus Jakarta Sans'", "'Noto Sans Arabic'", "sans-serif"],
+            "headline-md": ["'Plus Jakarta Sans'", "'Noto Sans Arabic'", "sans-serif"],
+            "label-sm": ["'Plus Jakarta Sans'", "'Noto Sans Arabic'", "sans-serif"],
+            "label-lg": ["'Plus Jakarta Sans'", "'Noto Sans Arabic'", "sans-serif"],
+            "body-md": ["'Plus Jakarta Sans'", "'Noto Sans Arabic'", "sans-serif"],
+            "body-lg": ["'Plus Jakarta Sans'", "'Noto Sans Arabic'", "sans-serif"],
+            "headline-lg": ["'Plus Jakarta Sans'", "'Noto Sans Arabic'", "sans-serif"]
+          },
+          "fontSize": {
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "800"}],
+            "label-md": ["14px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+            "label-lg": ["16px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+            "body-sm": ["14px", {"lineHeight": "22px", "fontWeight": "500"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "headline-lg-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "display-lg": ["44px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans Arabic', system-ui, -apple-system, sans-serif;
+      min-height: max(884px, 100dvh);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex justify-center selection:bg-secondary-fixed selection:text-on-secondary-fixed antialiased text-right">
+<!-- Mobile Viewport Container (390px edge to edge, RTL) -->
+<main class="w-full max-w-[390px] min-h-screen bg-background relative flex flex-col pb-28">
+<!-- Sticky Top Bar (Hub style: Lexkite kite logo on right, streak & points on left) -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md px-space-md py-space-sm h-16 flex items-center justify-between shadow-[0_4px_0_0_#efe0d6]">
+<div class="flex items-center gap-space-sm min-h-[44px]">
+<!-- Kite emblem logo -->
+<div class="w-9 h-9 rounded-DEFAULT bg-primary-container flex items-center justify-center text-on-primary shadow-[0_3px_0_0_#00201d]">
+<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight leading-none">Lexkite</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">مركز التحضير</span>
+</div>
+</div>
+<!-- Gamified Counters Cluster -->
+<div class="flex items-center gap-2">
+<!-- Streak Chip -->
+<div class="flex items-center gap-1 bg-surface-container-lowest border-2 border-surface-variant px-2.5 py-1.5 rounded-full shadow-[0_3px_0_0_#efe0d6] min-h-[38px]">
+<span class="material-symbols-outlined fill-icon text-secondary-container text-[18px]" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-md text-label-md text-on-background font-extrabold">14</span>
+</div>
+<!-- XP Badge -->
+<div class="flex items-center gap-1 bg-surface-container-lowest border-2 border-surface-variant px-2.5 py-1.5 rounded-full shadow-[0_3px_0_0_#efe0d6] min-h-[38px]">
+<span class="material-symbols-outlined fill-icon text-tertiary-fixed-dim text-[18px]" data-icon="bolt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label-md text-label-md text-secondary font-extrabold">820</span>
+</div>
+</div>
+</header>
+<!-- Main Scrollable Content -->
+<div class="px-space-md pt-space-md flex flex-col gap-space-lg">
+<!-- Title & Subtitle Area -->
+<section class="flex flex-col gap-1">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">مركز الاختبارات</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">محاكاة الامتحانات والممارسة التشخيصية</p>
+</section>
+<!-- Horizontal Exam Switcher Chips (RTL) -->
+<section aria-label="محدد فئة الاختبار" class="flex items-center gap-2 overflow-x-auto pb-1.5 no-scrollbar -mx-space-md px-space-md" role="tablist">
+<!-- IELTS Academic (Selected Active Pill) -->
+<button aria-selected="true" class="whitespace-nowrap px-4 py-2.5 rounded-full bg-primary-container text-on-primary border-2 border-primary shadow-[0_3px_0_0_#00201d] font-label-md text-label-md active:translate-y-[2px] active:shadow-none transition-transform min-h-[44px] flex items-center justify-center" role="tab">
+          آيلتس الأكاديمي
+        </button>
+<!-- Other exam options -->
+<button aria-selected="false" class="whitespace-nowrap px-4 py-2.5 rounded-full bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] font-label-md text-label-md active:translate-y-[2px] active:shadow-none transition-transform min-h-[44px] flex items-center justify-center hover:bg-surface-container-low" role="tab">
+          TOEIC
+        </button>
+<button aria-selected="false" class="whitespace-nowrap px-4 py-2.5 rounded-full bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] font-label-md text-label-md active:translate-y-[2px] active:shadow-none transition-transform min-h-[44px] flex items-center justify-center hover:bg-surface-container-low" role="tab">
+          TOEFL iBT
+        </button>
+<button aria-selected="false" class="whitespace-nowrap px-4 py-2.5 rounded-full bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] font-label-md text-label-md active:translate-y-[2px] active:shadow-none transition-transform min-h-[44px] flex items-center justify-center hover:bg-surface-container-low" role="tab">
+          CEFR C1
+        </button>
+</section>
+<!-- Estimated Readiness Card (الجاهزية التقديرية) -->
+<section class="bg-surface-container-lowest border-2 border-surface-variant rounded-DEFAULT p-space-md shadow-[0_4px_0_0_#efe0d6] flex flex-col gap-space-md">
+<!-- Target Band Header -->
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">الجاهزية التقديرية</span>
+<div class="flex items-baseline gap-2 mt-0.5">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-extrabold">النطاق 6.5</span>
+<span class="font-label-md text-label-md text-secondary">الهدف: 7.0</span>
+</div>
+</div>
+<!-- Needed delta pill -->
+<div class="bg-surface-container border-2 border-surface-variant px-2.5 py-1 rounded-full shadow-[0_2px_0_0_#efe0d6] flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px] rtl:scale-x-[-1]" data-icon="trending_up">trending_up</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">+0.5 مطلوب</span>
+</div>
+</div>
+<!-- Gauge + Macro breakdown -->
+<div class="flex flex-col gap-2 bg-surface-container-low rounded-DEFAULT p-3 border-2 border-surface-variant">
+<div class="flex justify-between items-center text-on-surface font-label-md text-label-md">
+<span>مؤشر الاستعداد</span>
+<span class="text-primary font-extrabold text-body-md font-body-md">85%</span>
+</div>
+<!-- Tactile gamified progress bar -->
+<div class="w-full h-4 bg-surface-variant rounded-full overflow-hidden p-0.5 border border-outline-variant/40">
+<div class="h-full bg-primary-container rounded-full shadow-[inset_0_2px_0_rgba(255,255,255,0.4)]" style="width: 85%;"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1 leading-snug">
+            الهدف 7.0 في المتناول • 12 يوماً حتى الجاهزية المتوقعة للاختبار
+          </p>
+</div>
+<!-- 4 Skills Sub-breakdown Matrix -->
+<div class="grid grid-cols-2 gap-2 pt-1">
+<div class="flex items-center justify-between p-2.5 rounded-DEFAULT bg-surface border-2 border-surface-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant">الاستماع</span>
+<span class="font-label-md text-label-md text-primary bg-primary-fixed/40 px-2 py-0.5 rounded-md font-bold">7.0</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-DEFAULT bg-surface border-2 border-surface-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant">القراءة</span>
+<span class="font-label-md text-label-md text-primary bg-primary-fixed/40 px-2 py-0.5 rounded-md font-bold">6.5</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-DEFAULT bg-surface border-2 border-surface-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant">الكتابة</span>
+<span class="font-label-md text-label-md text-secondary bg-secondary-fixed/50 px-2 py-0.5 rounded-md font-bold">6.0</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-DEFAULT bg-surface border-2 border-surface-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant">المحادثة</span>
+<span class="font-label-md text-label-md text-primary bg-primary-fixed/40 px-2 py-0.5 rounded-md font-bold">6.5</span>
+</div>
+</div>
+</section>
+<!-- Teacher Advice Slot (Coach Tip Slot) -->
+<section class="flex items-start gap-3">
+<!-- Strictly labeled placeholder for dynamic 2D code insertion -->
+<div aria-label="teacher-slot" class="w-12 h-12 rounded-DEFAULT border-2 border-dashed border-outline-variant bg-surface-container flex flex-col items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[18px]" data-icon="school">school</span>
+<span class="text-[9px] font-extrabold text-primary leading-tight tracking-tighter">مدرب</span></div>
+<!-- Coach speech bubble note -->
+<div class="relative bg-surface-container-low border-2 border-surface-variant p-3 rounded-DEFAULT rounded-tr-sm shadow-[0_3px_0_0_#efe0d6] flex-1">
+<div class="flex items-center gap-1 text-primary font-label-sm text-label-sm mb-0.5">
+<span class="material-symbols-outlined text-[15px]" data-icon="tips_and_updates">tips_and_updates</span>
+<span>استراتيجية التركيز</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+            ركّز على نص القراءة 3 وترابط مهمة الكتابة 2 لتجاوز فجوة الـ 0.5 المتبقية نحو النطاق المستهدف.
+          </p>
+</div>
+</section>
+<!-- Full Mock Test Hero Card -->
+<section class="bg-surface-container-lowest border-2 border-surface-variant rounded-DEFAULT p-space-md shadow-[0_4px_0_0_#efe0d6] flex flex-col gap-space-md relative overflow-hidden">
+<div class="flex justify-between items-start">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1.5 font-label-sm text-label-sm text-primary font-extrabold">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+              محاكاة كاملة للاختبار الرسمي
+            </span>
+<h2 class="font-headline-sm text-headline-sm text-on-background">امتحان آيلتس الأكاديمي الرسمي</h2>
+</div>
+<span class="bg-surface-container border border-surface-variant font-label-sm text-label-sm text-on-surface-variant px-2.5 py-1 rounded-full text-center whitespace-nowrap">
+            2 س و 45 د
+          </span>
+</div>
+<!-- Test modules pill layout -->
+<div class="grid grid-cols-2 gap-2">
+<div class="flex items-center gap-2 p-2 rounded-DEFAULT bg-surface-container-low border border-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="headphones">headphones</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">الاستماع</span>
+<span class="text-[11px] text-on-surface-variant">30 د • 40 سؤالاً</span>
+</div>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-DEFAULT bg-surface-container-low border border-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="auto_stories">auto_stories</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">القراءة</span>
+<span class="text-[11px] text-on-surface-variant">60 د • 3 نصوص</span>
+</div>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-DEFAULT bg-surface-container-low border border-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="edit_note">edit_note</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">الكتابة</span>
+<span class="text-[11px] text-on-surface-variant">60 د • مهمتان</span>
+</div>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-DEFAULT bg-surface-container-low border border-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="record_voice_over">record_voice_over</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">المحادثة</span>
+<span class="text-[11px] text-on-surface-variant">15 د • 3 أجزاء</span>
+</div>
+</div>
+</div>
+<!-- Chunky Warm Amber CTA Button -->
+<button class="w-full min-h-[50px] bg-secondary-container border-2 border-secondary text-[#1a0d00] font-label-lg text-label-lg rounded-DEFAULT shadow-[0_4px_0_0_#8c5000] active:translate-y-[4px] active:shadow-none transition-transform flex items-center justify-center gap-2 px-space-md py-3 text-center">
+<span class="material-symbols-outlined fill-icon text-[20px] rtl:rotate-180" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span>بدء الاختبار التجريبي الكامل</span>
+</button>
+</section>
+<!-- Quick Test Card -->
+<section class="bg-surface-container-lowest border-2 border-surface-variant rounded-DEFAULT p-space-md shadow-[0_4px_0_0_#efe0d6] flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="timer">timer</span>
+<span>تشخيص لمدة 15 دقيقة</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-background">معايرة سريعة للمهارات</h3>
+</div>
+<span class="bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm px-2.5 py-1 rounded-full font-bold whitespace-nowrap">
+            +50 XP
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">
+          15 سؤالاً تدريبياً متنوعاً لتحديث توقع النطاق وحماية سلسلة التدريب اليومية.
+        </p>
+<!-- Secondary CTA button -->
+<button class="w-full min-h-[46px] bg-primary-container border-2 border-primary text-on-primary font-label-md text-label-md rounded-DEFAULT shadow-[0_4px_0_0_#00201d] active:translate-y-[4px] active:shadow-none transition-transform flex items-center justify-center gap-2 px-space-md py-2.5 text-center mt-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="bolt">bolt</span>
+<span>بدء اختبار سريع (15 دقيقة)</span>
+</button>
+</section>
+<!-- CBT Practice Row (Computer-Based Test Simulator) -->
+<section class="bg-surface-container-lowest border-2 border-surface-variant rounded-DEFAULT p-space-md shadow-[0_4px_0_0_#efe0d6] flex items-center justify-between gap-3 active:translate-y-[2px] transition-transform cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-DEFAULT bg-surface-container flex items-center justify-center text-primary shrink-0 border border-surface-variant">
+<span class="material-symbols-outlined text-[22px]" data-icon="desktop_windows">desktop_windows</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-label-lg text-label-lg text-on-background leading-tight">محاكي واجهة الاختبار الحاسوبي الرسمي</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug mt-0.5">تدرّب مع نصوص بنظام تقسيم الشاشة وتخطيط الاختبار الرسمي</p>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px] rtl:rotate-180" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</section>
+<!-- Past Results List / Section -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-primary">نتائج الاختبارات الأخيرة</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">آخر 30 يوماً</span>
+</div>
+<div class="flex flex-col gap-2">
+<!-- Item 1 -->
+<div class="flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container-lowest border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] min-h-[56px]">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-DEFAULT bg-primary-fixed/50 flex items-center justify-center text-primary font-extrabold text-sm">
+                7.0
+              </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-background">الاختبار الأكاديمي التجريبي رقم 14</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[12px]">أمس • جميع الأقسام الأربعة</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px] rtl:rotate-180" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container-lowest border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] min-h-[56px]">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-DEFAULT bg-surface-container flex items-center justify-center text-on-surface font-extrabold text-sm border border-surface-variant">
+                6.5
+              </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-background">الاختبار الأكاديمي التجريبي رقم 13</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[12px]">منذ 4 أيام • القراءة والاستماع</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px] rtl:rotate-180" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container-lowest border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] min-h-[56px]">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-DEFAULT bg-surface-container flex items-center justify-center text-on-surface font-extrabold text-sm border border-surface-variant">
+                6.5
+              </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-background">تحدي تشخيصي رقم 8</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[12px]">منذ أسبوع • فحص سريع لمدة 15 دقيقة</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px] rtl:rotate-180" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- History Link -->
+<button class="w-full py-3 flex items-center justify-center gap-1.5 text-primary font-label-md text-label-md hover:underline min-h-[44px]">
+<span>عرض سجل النتائج والتحليلات</span>
+<span class="material-symbols-outlined text-[18px] rtl:rotate-180" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</section>
+</div>
+<!-- Canonical Bottom Navigation Bar (5 tabs mirrored RTL: اليوم, المفردات, المهارات, الاختبارات [نشط], أنا) -->
+<nav aria-label="شريط التنقل الرئيسي" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs h-20 bg-surface-container-lowest shadow-[0_-4px_0_0_#efe0d6]">
+<!-- Tab 1: اليوم (Today) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs min-h-[44px] min-w-[56px] hover:bg-surface-container-low transition-colors active:translate-y-[2px]" href="#today">
+<span class="material-symbols-outlined text-[24px]" data-icon="today">today</span>
+<span class="font-label-sm text-label-sm mt-0.5">اليوم</span>
+</a>
+<!-- Tab 2: المفردات (Vocab) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs min-h-[44px] min-w-[56px] hover:bg-surface-container-low transition-colors active:translate-y-[2px]" href="#vocab">
+<span class="material-symbols-outlined text-[24px]" data-icon="menu_book">menu_book</span>
+<span class="font-label-sm text-label-sm mt-0.5">المفردات</span>
+</a>
+<!-- Tab 3: المهارات (Skills) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs min-h-[44px] min-w-[56px] hover:bg-surface-container-low transition-colors active:translate-y-[2px]" href="#skills">
+<span class="material-symbols-outlined text-[24px]" data-icon="bolt">bolt</span>
+<span class="font-label-sm text-label-sm mt-0.5">المهارات</span>
+</a>
+<!-- Tab 4: الاختبارات (Tests - MANDATORY ACTIVE ITEM) -->
+<a aria-current="page" class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-DEFAULT px-space-md py-space-xs shadow-[0_3px_0_0_#8c5000] min-h-[48px] min-w-[64px] active:translate-y-[2px] transition-transform" href="#tests">
+<span class="material-symbols-outlined text-[24px] fill-icon" data-icon="assignment" data-weight="fill" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-label-sm text-label-sm font-extrabold mt-0.5">الاختبارات</span>
+</a>
+<!-- Tab 5: أنا (Me) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs min-h-[44px] min-w-[56px] hover:bg-surface-container-low transition-colors active:translate-y-[2px]" href="#me">
+<span class="material-symbols-outlined text-[24px]" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">أنا</span>
+</a>
+</nav>
+</main>
+</body></html>

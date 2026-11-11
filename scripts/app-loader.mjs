@@ -18,13 +18,15 @@ if (srcs.length < 10) { console.error('✗ app-loader: chỉ thấy ' + srcs.len
 // Thứ tự chạy cũ: script đồng bộ (i18n.js) chạy lúc phân tích HTML, trước mọi script defer
 const sync = [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => m[1]);
 const order = [...sync, ...srcs.filter(s => !sync.includes(s))];
-const FONT = /[ \t]*<link rel="stylesheet" href="(https:\/\/fonts\.googleapis\.com\/[^"]+)" media="print" onload="this\.media='all'">\n/;
-const font = (html.match(FONT) || [])[1] || '';
+const FONT = /[ \t]*<link rel="stylesheet" href="(https:\/\/fonts\.googleapis\.com\/[^"]+)" media="print" onload="this\.media='all'">\n/g;
+const font = [...html.matchAll(FONT)].map(m => m[1]);
 html = html.replace(TAG, '').replace(FONT, '');
-// Nạp sau khung hình đầu (rAF → setTimeout); tab nền không chạy rAF → dự phòng 300 ms
-const boot = `<script id="lk-boot">(function(){var S=${JSON.stringify(order)},F=${JSON.stringify(font)},d=document,w=window,done=0;
+// JS: nạp sau khung hình đầu (rAF → setTimeout); tab nền không chạy rAF → dự phòng 300 ms.
+// Font web: nạp sau khi TRANG ĐẦU đã vẽ (sự kiện lk:drawn của app.js, dự phòng 6 s) – 70–135 KB font không giành băng thông với JS khung; chữ vẽ trước bằng font dự phòng khớp số đo (--font).
+const boot = `<script id="lk-boot">(function(){var S=${JSON.stringify(order)},F=${JSON.stringify(font)},d=document,w=window,done=0,fd=0;
+function fonts(){if(fd)return;fd=1;F.forEach(function(u){var l=d.createElement('link');l.rel='stylesheet';l.href=u;d.head.appendChild(l)})}
+w.addEventListener('lk:drawn',fonts);setTimeout(fonts,6000);
 function go(){if(done)return;if(d.readyState==='loading'){d.addEventListener('DOMContentLoaded',go);return}done=1;var late=d.readyState==='complete',n=S.length;
-if(F){var l=d.createElement('link');l.rel='stylesheet';l.href=F;d.head.appendChild(l)}
 S.forEach(function(u){var s=d.createElement('script');s.src=u;s.async=false;s.onload=s.onerror=function(){if(--n)return;w.__lkReady=1;d.dispatchEvent(new Event('DOMContentLoaded'));if(late||d.readyState==='complete'&&w.__lkLoaded)w.dispatchEvent(new Event('load'))};d.body.appendChild(s)})}
 w.addEventListener('load',function(){w.__lkLoaded=1});
 if(w.requestAnimationFrame)requestAnimationFrame(function(){setTimeout(go,0)});setTimeout(go,300)})()</script>

@@ -87,5 +87,11 @@ function body(limit) {
 fs.writeFileSync(OUT + '/summary.md', body(40) + '\n');
 fs.writeFileSync(OUT + '/issue.md', body(25).slice(0, 60000) + '\n');
 fs.writeFileSync(OUT + '/digest.txt', `• Quality-sweep: ${total} lỗi (${SEVS.map(s => `${s} ${cnt[s]}`).join('/')}), ${visual.length} ảnh đổi – ${RUN_URL}\n`);
+// hàng sửa (scripts/quality/fix-queue.mjs): nhóm đã gộp + nguồn nào chạy đủ (chỉ đóng mục của nguồn đã chạy – job lỗi ≠ hết lỗi)
+const langsWeb = dirs.filter(d => /qs-shard-/.test(d) && fs.existsSync(path.join(d, 'findings.json'))).map(d => path.basename(d).replace('qs-shard-', ''));
+const langsExt = [...new Set(ext.map(e => e.lang).concat(dirs.filter(d => /qs-ext-(vi|en|ar)$/.test(d) && fs.readdirSync(d).some(f => /^report-/.test(f))).map(d => path.basename(d).replace('qs-ext-', ''))))];
+fs.writeFileSync(OUT + '/items.json', JSON.stringify({ run: RUN_URL, sources: { web: langsWeb.length === 3, addon: langsExt.length === 3, heavy: !!dp, lighthouse: lh.length > 0 },
+  web: web.map(r => ({ type: r.type, sev: r.sev, key: r.key, msg: r.msg, where: r.where, langs: [...r.langs], link: r.link || '' })),
+  addon: ext.map(e => ({ lang: e.lang, check: e.check, detail: String(e.detail || '').slice(0, 300) })), heavy, lighthouse: lhBad.map(x => ({ page: x.page, error: x.error || '', fails: x.budgetFails || [] })) }, null, 1));
 fs.writeFileSync(OUT + '/result.json', JSON.stringify({ total, web: web.length, cnt, byType, lighthouse: lhBad.length, addon: ext.length + heavy.length, visual: visual.length, pages: pageCount, head }, null, 1));
 console.log(head);

@@ -23,7 +23,7 @@ const ADM = rd('web/js/admin.js'), AEN = dict(ADM);
   const enBlock = ADM.slice(ADM.indexOf('const EN = {'), ADM.indexOf('const L = ('));
   const miss = [...new Set([...ADM.replace(enBlock, '').matchAll(/'((?:[^'\\\n]|\\.)*)'/g)].map(m => unq(m[1])).filter(k => VI.test(k) && !/[|\\^$]/.test(k)))].filter(k => !(k in AEN) && !/^(lk\.|adm\.)/.test(k));
   ok(!miss.length, 'admin.js: chuỗi tiếng Việt thiếu bản EN: ' + miss.slice(0, 5).join(' | '));
-  for (const [f, fn] of [['admin-ads.js', 'A'], ['admin-quota.js', 'Q'], ['admin-keys.js', 'S'], ['admin-drive.js', 'S'], ['admin-reports.js', 'T'], ['admin-social.js', 'S'], ['admin-social-mgr.js', 'M'], ['admin-studio.js', 'S'], ['admin-growth.js', 'G'], ['admin-backlinks.js', 'B'], ['admin-video.js', 'V'], ['admin-prefs.js', 'P'], ['admin-storage.js', 'S']]) {
+  for (const [f, fn] of [['admin-ads.js', 'A'], ['admin-quota.js', 'Q'], ['admin-keys.js', 'S'], ['admin-drive.js', 'S'], ['admin-reports.js', 'T'], ['admin-users.js', 'T'], ['admin-social.js', 'S'], ['admin-social-mgr.js', 'M'], ['admin-studio.js', 'S'], ['admin-growth.js', 'G'], ['admin-backlinks.js', 'B'], ['admin-video.js', 'V'], ['admin-prefs.js', 'P'], ['admin-storage.js', 'S']]) {
     const src = rd('web/js/' + f), EN = dict(src);
     const m2 = [...new Set([...src.matchAll(new RegExp(`\\b(?:${fn}|L)\\(\\s*'((?:[^'\\\\]|\\\\.)*)'`, 'g'))].map(m => unq(m[1])))].filter(k => VI.test(k) && !(k in EN) && !(k in AEN));
     ok(!m2.length, `${f}: khóa tiếng Việt thiếu bản EN: ${m2.slice(0, 3).join(' | ')}`);
@@ -64,7 +64,7 @@ const seen = {};
 for (const n of ['AdminDrive', 'AdminKeys', 'AdminQuota', 'AdminSocial', 'AdminStudio']) w[n] = { render(box) { seen[n] = w.location.hash; box.innerHTML = `<div class="card" id="stub-${n}">stub</div>`; } };
 w.AdminReports = { render(box) { box.innerHTML = '<div class="card" id="stub-rep">stub</div>'; }, card(box) { box.innerHTML = '<div class="card">reports card</div>'; } };
 w.AdminClips = {}; /* lưới cũ: không nạp admin-clips.js trong jsdom */ w.eval(rd('web/js/admin-backlinks.js')); w.eval(rd('web/js/admin-video.js')); w.eval(rd('web/js/admin-prefs.js'));
-w.eval(rd("web/js/admin-chart.js")); w.eval(ADM);
+w.eval(rd("web/js/admin-chart.js")); w.eval(rd("web/js/admin-users.js")); w.eval(ADM);
 await tick(80);
 const h1 = () => ($('.pg-t') || {}).textContent;
 const lastCall = op => [...calls].reverse().find(c => c.b.op === op);
@@ -78,9 +78,10 @@ const leak = where => { const m = visible().match(new RegExp(`[^\\s]*${VI.source
 
 // ---------- 1) Khung + thanh bên ----------
 ok(d.body.classList.contains('adm-in') && !$('#side').hidden, 'đăng nhập → hiện thanh bên');
-ok($$('#tabs .side-g').length === 6 && $$('#tabs a[data-tab]').length === 20, 'thanh bên: 6 nhóm, 20 mục (+ Kênh & phân phối, Quảng cáo, Lưu trữ)');
-ok($$('#tabs .side-h').map(x => x.textContent).join('|') === 'Overview|Users|Quality|Content & Video|System', 'tên nhóm EN: ' + $$('#tabs .side-h').map(x => x.textContent).join('|'));
-ok($('#tabs a[data-tab="quota"] .nav-l').textContent === 'Quotas', '"Hạn mức" dịch thành Quotas ở EN');
+// IA 05/11 (docs/specs/admin-audit.md §2): 16 mục thanh bên + 7 trang con trong 2 hub (Sức khỏe hệ thống, Tài khoản & khóa) = vẫn đủ 21 trang cũ + 2 mới
+ok($$('#tabs .side-g').length === 6 && $$('#tabs a[data-tab]').length === 16, 'thanh bên: 6 nhóm, 16 mục: ' + $$('#tabs a[data-tab]').map(a => a.dataset.tab).join(','));
+ok($$('#tabs .side-h').map(x => x.textContent).join('|') === 'Learner|Operations|Content & Video|Revenue', 'tên nhóm EN: ' + $$('#tabs .side-h').map(x => x.textContent).join('|'));
+ok($('#tabs a[data-tab="health"] .nav-l').textContent === 'System health' && $('#tabs a[data-tab="vault"] .nav-l').textContent === 'Accounts & keys', 'hub dịch EN');
 ok($('#tabs a[aria-current="page"]').dataset.tab === 'settings' && h1() === 'Settings', 'mở thẳng #settings → mục Cài đặt đang chọn');
 await tick(30);
 ok($('#inboxN').textContent === '2' && $('#alertN').textContent === '1', 'huy hiệu hộp thư/cảnh báo: ' + $('#inboxN').textContent + '/' + $('#alertN').textContent);
@@ -173,8 +174,8 @@ $('.ib-meta .copy').click(); await tick(); ok(copied === '7', 'sao chép mã tin
 w.location.hash = '#drive/browse?d=abc&q=x'; await tick(40);
 ok(seen.AdminDrive === '#drive/browse?d=abc&q=x' && w.location.hash === '#drive/browse?d=abc&q=x' && h1() === 'Drive storage', 'đường dẫn sâu #drive/browse?… giữ nguyên khi vẽ module');
 w.location.hash = '#keys?p=gemini&s=live'; await tick(40);
-ok(seen.AdminKeys === '#keys?p=gemini&s=live' && $('#tabs a[aria-current]').dataset.tab === 'keys', 'đường dẫn sâu #keys?… giữ nguyên');
-$('#tabs a[data-tab="drive"]').click(); await tick(40);
+ok(seen.AdminKeys === '#keys?p=gemini&s=live' && $('#tabs a[aria-current]').dataset.tab === 'vault' && $('.hub-tabs a[aria-current]').dataset.go === 'keys', 'đường dẫn sâu #keys?… giữ nguyên');
+w.location.hash = '#drive/browse?q=x'; await tick(40); $('.hub-tabs a[data-go="drive"]').click(); await tick(40); // hub: tab con Kho Drive
 ok(w.location.hash === '#drive' && seen.AdminDrive === '#drive', 'bấm lại mục Drive → về #drive gốc');
 
 // ---------- 2) Bảng lệnh ----------
@@ -197,11 +198,61 @@ $('#cmdk').click(); await tick(); ok($('#cmdkDlg'), 'nút "Go to…" mở bảng
 
 // ---------- 4) EN không lộ chữ Việt trên từng màn hình lõi ----------
 for (const t of ['overview', 'analytics', 'users', 'inbox', 'alerts', 'quality', 'services', 'settings']) {
-  $(`#tabs a[data-tab="${t}"]`).click(); await tick(60);
+  { const a = $(`#tabs a[data-tab="${t}"]`); if (a) a.click(); else w.location.hash = '#' + t; } await tick(60); // trang con hub: mở bằng #hash
   if ($('.cf-dlg')) { $('.cf-dlg [data-yes]').click(); await tick(40); }
-  ok($('#tabs a[aria-current]').dataset.tab === t && !$('.err-box'), `#${t} vẽ được, không lỗi`);
+  ok(($('#tabs a[aria-current]').dataset.tab === t || ($('.hub-tabs a[aria-current]') || { dataset: {} }).dataset.go === t) && !$('.err-box'), `#${t} vẽ được, không lỗi`);
   leak('#' + t);
 }
+// Người dùng: cột quốc gia (cờ + tên theo ngôn ngữ admin), thẻ đếm theo quốc gia bấm để lọc, ô lọc quốc gia/ngày tham gia
+$('#tabs a[data-tab="users"]').click(); await tick(60);
+{ const rows = $$('#uTable tbody tr'), hdr = $$('#uTable thead th').map(t => t.textContent);
+  ok(hdr.includes('Country') && /🇻🇳/.test(rows[0].textContent) && /Vietnam/.test(rows[0].textContent) && /Unknown/.test(rows[1].textContent), 'Người dùng: cột quốc gia cờ + tên tiếng Anh, thiếu mã → "Unknown"');
+  ok($$('#uCc [data-cc]').length === 3 && /Japan/.test($('#uCc [data-cc]').textContent) === false && /Unknown country/.test($('#uCc').textContent), 'thẻ theo quốc gia: đủ dòng + nhóm chưa rõ');
+  ok($$('#fcc option').map(o => o.value).join() === ',JP,VN,??', 'ô lọc quốc gia xếp theo tên + "chưa rõ"');
+  const n0 = calls.length; $('#uCc [data-cc="JP"]').click(); await tick(40);
+  ok(calls.slice(n0).some(c => c.b.op === 'users' && c.b.cc === 'JP') && $('#uCc [data-cc="JP"]').getAttribute('aria-pressed') === 'true' && !$('#uclr').hidden, 'bấm quốc gia → lọc, nút Bỏ lọc hiện');
+  const fr = $('#ffrom'); fr.value = '2026-10-01'; fr.dispatchEvent(new w.Event('change')); await tick(40);
+  ok(calls.slice(n0).some(c => c.b.op === 'users' && c.b.from === '2026-10-01'), 'lọc ngày tham gia gửi from');
+  $('#uclr').click(); await tick(40); ok(calls[calls.length - 1].b.cc === '' && calls[calls.length - 1].b.from === '' && $('#uclr').hidden, 'Bỏ lọc → xóa mọi bộ lọc');
+  leak('#users quốc gia'); try { w.sessionStorage.removeItem('adm.uf'); } catch (e) { /* bỏ qua */ } }
+// Người dùng v2: chọn hàng loạt (ô chọn, shift-click chọn dải, chọn cả bộ lọc), thanh thao tác nổi, xác nhận gõ số người, hoàn tác, biểu đồ, phím tắt
+$('#tabs a[data-tab="overview"]').click(); await tick(40); $('#tabs a[data-tab="users"]').click(); await tick(80);
+{ const cks = () => $$('#uTable .u-ck'), click = (el, shift) => el.dispatchEvent(new w.MouseEvent('click', { bubbles: true, cancelable: true, shiftKey: !!shift }));
+  ok(cks().length === 4 && $('#uAll') && $('#uBulk').hidden, 'bảng: ô chọn từng dòng + chọn cả trang, thanh thao tác ẩn khi chưa chọn');
+  ok($('#uRt .u-ret') && /D7/.test($('#uRt').textContent) && /not yet/.test($('#uRt').textContent) && $$('#uFn .row2').length === 5 && $('#uSg .ach-empty') === null, 'biểu đồ: giữ chân theo nhóm (ô chưa đủ ngày), phễu 5 bước, đăng ký 90 ngày');
+  ok(/Active/.test($('#uTable tbody tr:nth-child(1) .u-badges').textContent) && /AI ∞/.test($('#uTable tbody tr:nth-child(3)').textContent) && /Blocked/.test($('#uTable tbody tr:nth-child(4)').textContent), 'huy hiệu trạng thái: hoạt động / AI ∞ / bị khóa');
+  click(cks()[0]); await tick(); click(cks()[2], true); await tick();
+  ok(cks().slice(0, 3).every(x => x.checked) && !cks()[3].checked && $('#uAll').indeterminate, 'shift-click chọn dải dòng 1→3, ô chọn cả trang ở trạng thái lưng chừng');
+  ok(!$('#uBulk').hidden && /3 selected/.test($('#uBulk').textContent) && $$('#uBulk [data-bulk]').length >= 9, 'thanh thao tác nổi: số đã chọn + các nút');
+  click(cks()[1], true); await tick(); ok(!cks()[1].checked && !cks()[2].checked && cks()[0].checked, 'shift-click lên dòng đã chọn → bỏ chọn dải 2→3');
+  click(cks()[2], true); await tick(); ok(cks().slice(0, 3).every(x => x.checked), 'shift-click lại → chọn lại dải');
+  $('#uBulk [data-bulk="delete"]').click(); await tick();
+  const y = $('.cf-dlg [data-yes]'); ok(y && y.disabled && /Delete data of 3 users/.test($('.cf-dlg').textContent) && /30 days/.test($('.cf-dlg').textContent) && /audit log/.test($('.cf-dlg').textContent), 'xóa hàng loạt: hộp xác nhận ghi rõ 3 người, xóa mềm 30 ngày, nhật ký kiểm toán');
+  input($('#cfIn'), '2'); ok(y.disabled, 'gõ sai số người → nút vẫn tắt'); input($('#cfIn'), '3'); ok(!y.disabled, 'gõ đúng 3 → bật');
+  y.click(); await tick(40);
+  const bc = lastCall('usersBulk'); ok(bc && bc.b.action === 'delete' && bc.b.confirm === 3 && bc.b.uids.join() === 'u1,u2,u3', 'gửi usersBulk delete + confirm = 3 + đúng uid');
+  ok($('#uBulk').hidden && $('.u-undo [data-undo]'), 'xong → bỏ chọn, thông báo có nút Hoàn tác');
+  $('.u-undo [data-undo]').click(); await tick(40);
+  const un = lastCall('usersBulk'); ok(un.b.action === 'restore' && un.b.uids.join() === 'u1,u2,u3' && un.b.confirm === 3, 'Hoàn tác → restore đúng những người đã đổi');
+  $('#uAll').click(); await tick();
+  ok(!$('#uSelBar').hidden && $('#uSelAll') && /120/.test($('#uSelAll').textContent), 'chọn cả trang → gợi ý chọn cả 120 người theo bộ lọc');
+  $('#uSelAll').click(); await tick(); ok(/120 selected/.test($('#uBulk').textContent), 'chọn cả bộ lọc → thanh ghi 120');
+  $('#uBulk [data-bulk="tagAdd"]').click(); await tick(); input($('#uaIn'), 'vip'); $('.cf-dlg form').dispatchEvent(new w.Event('submit', { cancelable: true })); await tick(40);
+  const tg = lastCall('usersBulk'); ok(tg.b.action === 'tagAdd' && tg.b.all === true && tg.b.tag === 'vip' && tg.b.confirm === 120 && tg.b.filter && !('seen' in tg.b.filter), 'gắn nhãn cả bộ lọc → all + filter, máy chủ tự tính lại');
+  $('#uTable [data-sort="n"]').click(); await tick(40); ok(lastCall('users').b.sort === 'n' && lastCall('users').b.dir === 'desc', 'bấm tiêu đề cột → sắp xếp');
+  $('#uTable [data-sort="n"]').click(); await tick(40); ok(lastCall('users').b.dir === 'asc' && $('#uTable th[aria-sort="ascending"]'), 'bấm lần 2 → đảo chiều, aria-sort');
+  d.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'j', bubbles: true })); d.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'x', bubbles: true })); await tick();
+  ok(cks()[0].checked && $('#uTable tr.kb'), 'phím j + x → chọn dòng đầu');
+  d.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); await tick(); ok($('#uBulk').hidden, 'Esc → bỏ chọn');
+  d.dispatchEvent(new w.KeyboardEvent('keydown', { key: '?', bubbles: true })); await tick(); ok($('.cf-dlg .u-keys'), '? → bảng phím tắt'); $('.cf-dlg [data-close]').click(); await tick();
+  $('#upriv').click(); await tick(); ok(!/learner@example\.com/.test($('#uTable').textContent) && /l•••@e•••/.test($('#uTable').textContent), 'chế độ riêng tư che email'); $('#upriv').click(); await tick();
+  const vs = $('#uview'); vs.value = 'b:trash'; vs.dispatchEvent(new w.Event('change')); await tick(40);
+  ok(lastCall('users').b.trash === 1 && $$('#uBulk [data-bulk]').length === 0, 'chế độ xem Thùng rác → lọc trash');
+  click($$('#uTable .u-ck')[0]); await tick(); ok($('#uBulk [data-bulk="restore"]') && $('#uBulk [data-bulk="purge"]') && !$('#uBulk [data-bulk="delete"]'), 'thùng rác: Khôi phục + Xóa vĩnh viễn');
+  d.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); vs.value = 'b:all'; vs.dispatchEvent(new w.Event('change')); await tick(40);
+  $('[data-uid="u1"]').click(); await tick(40); ok($('.u-drawer') && $('.u-drawer .u-tl') && /Payments/.test($('.u-drawer').textContent), 'ngăn chi tiết trượt phải: dòng thời gian, thanh toán'); leak('ngăn chi tiết');
+  $('.u-drawer [data-close]').click(); await tick();
+  leak('#users v2'); try { w.sessionStorage.removeItem('adm.uf'); w.localStorage.removeItem('adm.upriv'); } catch (e) { /* bỏ qua */ } }
 $('#tabs a[data-tab="overview"]').click(); await tick(60);
 ok(/Humans today/.test($('#main').textContent) && /▲ 25%/.test($('#main').textContent) && /Bot sessions excluded/.test($('#main').textContent) && /Active now/.test($('#main').textContent), 'Tổng quan: ô người thật + xu hướng + phiên bot đã loại + đang online');
 ok($('#main .spark') && $$('#main .kstat[data-go]').length >= 8, 'Tổng quan: đường mini + ô bấm được');
@@ -217,9 +268,9 @@ ok(!lastCall('errorsClear'), 'Hủy → không xóa');
 
 // VI ⇄ EN
 $('#lng').click(); await tick(60);
-ok(d.documentElement.lang === 'vi' && h1() === 'Cảnh báo' && $('#tabs a[data-tab="quota"] .nav-l').textContent === 'Hạn mức' && $('.adm-skip').textContent === 'Bỏ qua tới nội dung', 'đổi sang VI: thanh bên, tiêu đề, chữ tĩnh');
+ok(d.documentElement.lang === 'vi' && h1() === 'Trung tâm cảnh báo' && $('#tabs a[data-tab="health"] .nav-l').textContent === 'Sức khỏe hệ thống' && $('.adm-skip').textContent === 'Bỏ qua tới nội dung', 'đổi sang VI: thanh bên, tiêu đề, chữ tĩnh');
 $('#lng').click(); await tick(60);
-ok(d.documentElement.lang === 'en' && $('#tabs a[data-tab="quota"] .nav-l').textContent === 'Quotas' && $('#inboxN').textContent === '2', 'về EN: giữ huy hiệu sau khi vẽ lại thanh bên');
+ok(d.documentElement.lang === 'en' && $('#tabs a[data-tab="health"] .nav-l').textContent === 'System health' && $('#inboxN').textContent === '2', 'về EN: giữ huy hiệu sau khi vẽ lại thanh bên');
 
 // ---------- Ngăn kéo thanh bên (điện thoại) ----------
 $('#navBtn').click(); ok($('#side').classList.contains('open') && !$('#scrim').hidden && $('#navBtn').getAttribute('aria-expanded') === 'true', 'nút ☰ mở ngăn kéo');
@@ -260,7 +311,9 @@ $('#tabs a[data-tab="video"]').click(); await tick(80);
   leak('#video thư viện');
   await sec('qc'); ok(/No QC report yet/.test(m.textContent) && m.querySelector('[data-go="studio"]'), 'Sản xuất & QC: trạng thái trống + liên kết Video Studio'); leak('#video QC');
   await sec('scripts'); ok(m.querySelectorAll('.vid-cov .none').length === 1 && m.querySelectorAll('.vid-cov .gap').length === 2, 'Kịch bản: độ phủ (thiếu/chưa có)'); leak('#video kịch bản');
-  await sec('channels'); await tick(40); ok(m.querySelector('[data-go="dist"]') && m.querySelector('#vx-web'), 'Kênh & phân phối: liên kết tab Kênh + hiệu quả web'); leak('#video kênh');
+  await sec('channels'); await tick(40); ok(m.querySelector('[data-go="dist"]') && m.querySelector('#vx-web'), 'Phát hành: liên kết tab Kênh & phân phối + hiệu quả web'); leak('#video kênh');
+  { const distL = $('#tabs a[data-tab="dist"] .nav-l').textContent.trim(), cur = m.querySelector('.vx-tab[aria-current=page]'), head = m.querySelector('.vx-h').textContent;
+    ok(cur && !cur.textContent.includes(distL) && !head.includes(distL) && !/routing rules live|tab Kênh/i.test(head), 'Phát hành: tên mục con/tiêu đề khác mục sidebar "' + distL + '", mô tả không tự chỉ sang chính nó'); }
   await sec('archive'); ok(/No clips in the archive/.test(m.textContent) && m.querySelector('[data-go="drive"]'), 'Lưu trữ: trống + liên kết Kho Drive'); leak('#video lưu trữ');
   w.history.replaceState(null, '', '#video/qc'); $('#tabs a[data-tab="video"]').click(); await tick(80);
   ok(true, 'mở lại tab'); await sec('overview');

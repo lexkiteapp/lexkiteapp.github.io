@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-background" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Admin - Chất lượng</title>
+<!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed-variant": "#900f00",
+            "inverse-surface": "#d8e5e9",
+            "on-error-container": "#ffdad6",
+            "tertiary": "#f4bf40",
+            "on-primary-fixed": "#00201e",
+            "error": "#ffb4ab",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "primary-fixed": "#88f5ea",
+            "surface-tint": "#6bd8ce",
+            "inverse-primary": "#006a64",
+            "surface-dim": "#091518",
+            "background": "#060e10",
+            "primary-fixed-dim": "#6bd8ce",
+            "outline": "#7f9296",
+            "tertiary-fixed": "#ffdf9e",
+            "surface-container-low": "#0b191d",
+            "surface-container-highest": "#1c3238",
+            "on-secondary-container": "#ffa493",
+            "on-tertiary-container": "#392900",
+            "on-error": "#690005",
+            "surface-bright": "#223b42",
+            "on-surface-variant": "#94a3b8",
+            "inverse-on-surface": "#263236",
+            "surface-container-high": "#162b31",
+            "surface": "#091518",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#051013",
+            "primary-container": "#115e59",
+            "surface-variant": "#15282e",
+            "tertiary-fixed-dim": "#f4bf40",
+            "secondary": "#ff6b4a",
+            "secondary-container": "#7c1d0f",
+            "surface-container": "#0f2126",
+            "on-tertiary": "#402e00",
+            "on-secondary-fixed": "#3f0300",
+            "secondary-fixed": "#ffdad3",
+            "on-background": "#f8fafc",
+            "on-primary": "#ffffff",
+            "primary": "#2dd4bf",
+            "error-container": "#93000a",
+            "tertiary-container": "#ba8b00",
+            "on-surface": "#f8fafc",
+            "on-primary-container": "#a7f3d0",
+            "on-primary-fixed-variant": "#00504b",
+            "on-tertiary-fixed": "#261a00",
+            "outline-variant": "#1f3b43",
+            "secondary-fixed-dim": "#ffb4a6"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"],
+            "code-sm": ["JetBrains Mono"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .tactile-card {
+      box-shadow: 0 1px 0 0 #18333b, 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+    }
+    .tactile-btn-coral {
+      background-color: #f06543;
+      border: 1px solid #ff7b5c;
+      box-shadow: 0 2px 0 0 #b3391b, 0 3px 8px rgba(240, 101, 67, 0.35);
+    }
+    .tactile-btn-coral:hover {
+      background-color: #f77656;
+    }
+    .tactile-btn-coral:active {
+      transform: translateY(1px);
+      box-shadow: 0 0 0 0 transparent;
+    }
+    .tactile-btn-secondary {
+      background-color: #12252b;
+      border: 1px solid #234852;
+      box-shadow: 0 2px 0 0 #0a171b;
+    }
+    .tactile-btn-secondary:hover {
+      background-color: #162f37;
+      border-color: #2dd4bf;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(1px);
+      box-shadow: 0 0 0 0 transparent;
+    }
+    /* Custom subtle scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #091518;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1c3941;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #28515c;
+    }
+  </style>
+</head>
+<body class="h-full bg-background text-on-surface antialiased flex flex-row overflow-hidden font-body text-[14px] leading-[22px]">
+<!-- ==================== 1. LEFT SIDEBAR (260px Fixed) ==================== -->
+<aside class="w-[260px] flex-shrink-0 bg-[#071316] border-r border-[#152e35] flex flex-col justify-between h-full select-none z-20">
+<!-- Top Brand & Navigation -->
+<div class="flex flex-col flex-1 overflow-y-auto">
+<!-- Lexkite Brand Header -->
+<div class="px-5 py-4 border-b border-[#152e35] flex items-center justify-between">
+<div class="flex items-center gap-3">
+<!-- Colorful geometric kite logo (Deep teal, coral, cyan diamond facets) -->
+<div class="w-8 h-8 relative flex items-center justify-center">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 32 32">
+<!-- Top Left: Teal -->
+<polygon fill="#14b8a6" points="16,2 4,16 16,16"></polygon>
+<!-- Top Right: Coral -->
+<polygon fill="#f06543" points="16,2 28,16 16,16"></polygon>
+<!-- Bottom Left: Pale Cyan -->
+<polygon fill="#5eead4" points="4,16 16,30 16,16"></polygon>
+<!-- Bottom Right: Deep Teal Dark -->
+<polygon fill="#0d9488" points="28,16 16,30 16,16"></polygon>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[16px] font-bold tracking-tight text-[#f8fafc]">Lexkite</span>
+<span class="font-code-sm text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-[#102930] text-primary border border-[#1b434e]">ADMIN</span>
+</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+<span class="text-[11px] text-[#8ca0a4] font-medium">Nội bộ dự án</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation Hierarchy -->
+<nav class="p-3 space-y-4 text-on-surface-variant text-[13px] font-semibold">
+<!-- Group: TỔNG QUAN -->
+<div>
+<div class="px-3 pb-1 text-[11px] font-bold uppercase tracking-wider text-[#63797e]">Tổng quan</div>
+<ul class="space-y-0.5">
+<li>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">dashboard</span>
+<span>Tổng quan</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">analytics</span>
+<span>Phân tích</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">campaign</span>
+<span>Quảng cáo</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Group: NGƯỜI DÙNG -->
+<div>
+<div class="px-3 pb-1 text-[11px] font-bold uppercase tracking-wider text-[#63797e]">Người dùng</div>
+<ul class="space-y-0.5">
+<li>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">group</span>
+<span>Người dùng</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[19px]">mail</span>
+<span>Hộp thư</span>
+</div>
+<span class="px-1.5 py-0.2 bg-[#f06543] text-white text-[11px] font-bold rounded-full">3</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">notifications</span>
+<span>Thông báo</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Group: CHẤT LƯỢNG (Active) -->
+<div>
+<div class="px-3 pb-1 text-[11px] font-bold uppercase tracking-wider text-primary">Chất lượng</div>
+<ul class="space-y-0.5">
+<li>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">warning</span>
+<span>Cảnh báo</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">bug_report</span>
+<span>Báo lỗi</span>
+</a>
+</li>
+<li>
+<!-- ACTIVE NAV ITEM -->
+<a class="flex items-center justify-between px-3 py-2 rounded-xl bg-[#0f343b] text-primary border border-[#1e5864] font-semibold shadow-sm transition-all" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[19px] text-primary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[#f8fafc]">Chất lượng</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_#2dd4bf]"></span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Group: NỘI DUNG & VIDEO -->
+<div>
+<div class="px-3 pb-1 text-[11px] font-bold uppercase tracking-wider text-[#63797e]">Nội dung &amp; Video</div>
+<ul class="space-y-0.5">
+<li>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">share</span>
+<span>Kênh &amp; phân phối</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">smart_display</span>
+<span>Video &amp; Social</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">movie</span>
+<span>Video Studio</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">video_library</span>
+<span>Trung tâm video</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">link</span>
+<span>Backlink &amp; PR</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Group: HỆ THỐNG -->
+<div>
+<div class="px-3 pb-1 text-[11px] font-bold uppercase tracking-wider text-[#63797e]">Hệ thống</div>
+<ul class="space-y-0.5">
+<li>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">speed</span>
+<span>Hạn mức</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">cloud</span>
+<span>Kho Drive</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">key</span>
+<span>Khóa API</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">dns</span>
+<span>Dịch vụ &amp; API</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">database</span>
+<span>Lưu trữ</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Group: CÀI ĐẶT -->
+<div>
+<div class="px-3 pb-1 text-[11px] font-bold uppercase tracking-wider text-[#63797e]">Cài đặt</div>
+<ul class="space-y-0.5">
+<li>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#0e242a] transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">settings</span>
+<span>Cài đặt</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+<!-- Sidebar Bottom Indicator -->
+<div class="p-3 border-t border-[#152e35] bg-[#050d0f]">
+<div class="flex items-center justify-between px-2 text-[11px] text-[#8ca0a4] font-medium">
+<span class="font-code-sm">v2.4.2 · prod</span>
+<span class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+<span class="text-[#cbd5e1]">Online</span>
+</span>
+</div>
+</div>
+</aside>
+<!-- ==================== 2. MAIN WORKSPACE ENVELOPE ==================== -->
+<div class="flex-1 flex flex-col h-full overflow-hidden bg-background">
+<!-- Top App Bar (Slim, Crisp, Tactile Night) -->
+<header class="h-16 px-6 bg-[#071316] border-b border-[#152e35] flex items-center justify-between flex-shrink-0 z-10">
+<!-- Breadcrumbs & Title -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 text-[13px] text-[#8ca0a4]">
+<span class="hover:text-primary cursor-pointer transition-colors">Hệ thống</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="font-semibold text-primary">Chất lượng</span>
+</div>
+<div class="h-4 w-px bg-[#18353d]"></div>
+<div class="flex items-center gap-2">
+<h1 class="text-[16px] text-[#f8fafc] font-bold">Kiểm định chất lượng &amp; Bản dịch tự động</h1>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#0c2e33] text-primary border border-[#1b5059]">
+<span class="material-symbols-outlined text-[13px]">update</span>
+            Chu kỳ 24h tự động
+          </span>
+</div>
+</div>
+<!-- Right Controls: Command Search, Language, Refresh, Notifications, Profile -->
+<div class="flex items-center gap-3">
+<!-- Quick Command Search -->
+<div class="relative w-72">
+<span class="material-symbols-outlined absolute left-3 top-2 text-[#7f9296] text-[18px]">search</span>
+<input class="w-full h-9 pl-9 pr-14 bg-[#0f2126] border border-[#1a353d] rounded-lg text-[13px] text-[#f8fafc] placeholder:text-[#678086] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Tìm màn hình, từ vựng, quy chuẩn..." type="text"/>
+<span class="absolute right-2 top-1.5 px-1.5 py-0.5 text-[10px] font-code-sm font-semibold bg-[#162d33] text-[#94a3b8] rounded border border-[#21434c]">Ctrl K</span>
+</div>
+<!-- Language Switcher Pill -->
+<button class="h-9 px-2.5 rounded-lg border border-[#1a353d] bg-[#0f2126] hover:bg-[#162f36] text-[13px] font-semibold text-[#cbd5e1] flex items-center gap-1 transition-colors" title="Chuyển đổi ngôn ngữ giao diện">
+<span class="text-primary font-bold">VI</span>
+<span class="text-[#415e65]">|</span>
+<span class="text-[#8ca0a4] font-normal">EN</span>
+</button>
+<!-- Refresh Button -->
+<button class="w-9 h-9 flex items-center justify-center rounded-lg border border-[#1a353d] bg-[#0f2126] hover:bg-[#162f36] text-[#cbd5e1] transition-colors" title="Làm mới dữ liệu">
+<span class="material-symbols-outlined text-[19px]">refresh</span>
+</button>
+<!-- Notification Bell -->
+<button class="w-9 h-9 relative flex items-center justify-center rounded-lg border border-[#1a353d] bg-[#0f2126] hover:bg-[#162f36] text-[#cbd5e1] transition-colors" title="Thông báo hệ thống">
+<span class="material-symbols-outlined text-[19px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#f06543] ring-2 ring-[#0f2126]"></span>
+</button>
+<div class="h-6 w-px bg-[#18353d]"></div>
+<!-- Admin Profile Avatar Pill -->
+<div class="flex items-center gap-2 pl-1 cursor-pointer">
+<div class="w-9 h-9 rounded-full bg-[#115e59] text-[#e6fffa] flex items-center justify-center font-bold text-[13px] border border-[#2dd4bf]/40 shadow-inner">
+            MA
+          </div>
+<div class="hidden xl:block text-left leading-tight">
+<div class="text-[#f8fafc] font-bold text-[13px]">Minh Anh</div>
+<div class="text-[11px] text-[#8ca0a4]">Vận hành chất lượng</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Canvas Scrollable Area -->
+<main class="flex-1 overflow-y-auto p-6 space-y-6">
+<!-- ==================== HEADER STATUS BANNER ==================== -->
+<section class="bg-[#0f2126] border border-[#1a353d] rounded-xl p-4 tactile-card flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-start md:items-center gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-[#33140f] border border-[#6b2518] text-[#ff7a5c] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">info</span>
+</div>
+<div>
+<div class="text-[#f8fafc] font-semibold flex items-center gap-2 text-[14px]">
+<span>Hệ thống máy kiểm định tự động hoàn tất lúc 06:00 sáng nay (GMT+7).</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">
+                5 vấn đề tồn đọng
+              </span>
+</div>
+<p class="text-[13px] text-[#94a3b8] mt-0.5">
+              Phát hiện 5 vấn đề cần khắc phục trước bản phát hành tiếp theo. Khuyến nghị cập nhật bản vá ngữ nghĩa và viền giao diện.
+            </p>
+</div>
+</div>
+<!-- Controls: Time Filters + Coral Primary Action -->
+<div class="flex items-center gap-3 w-full md:w-auto justify-end flex-shrink-0">
+<div class="inline-flex p-1 rounded-lg bg-[#0a171a] border border-[#18333b] text-[13px] font-medium">
+<button class="px-3 py-1 rounded-md bg-[#162f37] text-primary font-bold shadow-sm border border-[#214c57]">Hôm nay</button>
+<button class="px-3 py-1 rounded-md text-[#8ca0a4] hover:text-[#f8fafc] transition-colors">7 ngày</button>
+<button class="px-3 py-1 rounded-md text-[#8ca0a4] hover:text-[#f8fafc] transition-colors">30 ngày</button>
+</div>
+<!-- PRIMARY CORAL BUTTON -->
+<button class="h-10 px-4 rounded-lg tactile-btn-coral text-white text-[13px] flex items-center gap-2 font-bold tracking-tight cursor-pointer transition-all">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+<span>Chạy kiểm định ngay</span>
+</button>
+</div>
+</section>
+<!-- ==================== SCORE DIALS (4 CARDS) ==================== -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- Score 1: Bố cục & Khung hình -->
+<div class="bg-[#0f2126] border border-[#1a353d] rounded-xl p-4 tactile-card border-t-2 border-t-primary relative flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-[#8ca0a4] text-[12px] uppercase tracking-wider font-bold">Giao diện (UI)</span>
+<h3 class="text-[#f8fafc] font-bold text-[16px] mt-0.5">Bố cục &amp; Khung hình</h3>
+</div>
+<span class="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[11px] font-bold bg-[#0c2e33] text-primary border border-[#1b5059]">
+<span class="material-symbols-outlined text-[13px]">arrow_upward</span>
+              +2%
+            </span>
+</div>
+<div class="flex items-center justify-between my-3">
+<div class="flex items-baseline gap-1">
+<span class="text-[34px] font-extrabold text-primary tracking-tight">94</span>
+<span class="text-[#8ca0a4] text-[16px]">/100</span>
+</div>
+<!-- Circular Dial SVG -->
+<div class="w-14 h-14 relative flex items-center justify-center">
+<svg class="w-14 h-14 -rotate-90" viewbox="0 0 40 40">
+<circle cx="20" cy="20" fill="transparent" r="16" stroke="#162e35" stroke-width="3.5"></circle>
+<circle cx="20" cy="20" fill="transparent" r="16" stroke="#2dd4bf" stroke-dasharray="100.5" stroke-dashoffset="6.0" stroke-linecap="round" stroke-width="3.5"></circle>
+</svg>
+<span class="material-symbols-outlined text-[18px] text-primary absolute">aspect_ratio</span>
+</div>
+</div>
+<div class="pt-2 border-t border-[#162d33] text-[12px] text-[#94a3b8] flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+<span>1 màn bị tràn viền 390px, 0 lỗi đè chữ</span>
+</div>
+</div>
+<!-- Score 2: Độ tương phản (WCAG) -->
+<div class="bg-[#0f2126] border border-[#1a353d] rounded-xl p-4 tactile-card border-t-2 border-t-primary relative flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-[#8ca0a4] text-[12px] uppercase tracking-wider font-bold">Khả dụng (A11y)</span>
+<h3 class="text-[#f8fafc] font-bold text-[16px] mt-0.5">Độ tương phản (WCAG)</h3>
+</div>
+<span class="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[11px] font-bold bg-[#0c2e33] text-primary border border-[#1b5059]">
+<span class="material-symbols-outlined text-[13px]">arrow_upward</span>
+              +4%
+            </span>
+</div>
+<div class="flex items-center justify-between my-3">
+<div class="flex items-baseline gap-1">
+<span class="text-[34px] font-extrabold text-primary tracking-tight">91</span>
+<span class="text-[#8ca0a4] text-[16px]">/100</span>
+</div>
+<!-- Circular Dial SVG -->
+<div class="w-14 h-14 relative flex items-center justify-center">
+<svg class="w-14 h-14 -rotate-90" viewbox="0 0 40 40">
+<circle cx="20" cy="20" fill="transparent" r="16" stroke="#162e35" stroke-width="3.5"></circle>
+<circle cx="20" cy="20" fill="transparent" r="16" stroke="#2dd4bf" stroke-dasharray="100.5" stroke-dashoffset="9.0" stroke-linecap="round" stroke-width="3.5"></circle>
+</svg>
+<span class="material-symbols-outlined text-[18px] text-primary absolute">contrast</span>
+</div>
+</div>
+<div class="pt-2 border-t border-[#162d33] text-[12px] text-[#94a3b8] flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+<span>2 nhãn phụ dưới 4.5:1, đạt AA trên 98%</span>
+</div>
+</div>
+<!-- Score 3: Giọng đọc & Ngữ âm -->
+<div class="bg-[#0f2126] border border-[#1a353d] rounded-xl p-4 tactile-card border-t-2 border-t-primary relative flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-[#8ca0a4] text-[12px] uppercase tracking-wider font-bold">Âm thanh &amp; Audio</span>
+<h3 class="text-[#f8fafc] font-bold text-[16px] mt-0.5">Giọng đọc &amp; Ngữ âm</h3>
+</div>
+<span class="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[11px] font-bold bg-[#14282f] text-[#cbd5e1] border border-[#1f404a]">
+<span class="material-symbols-outlined text-[13px]">horizontal_rule</span>
+              0%
+            </span>
+</div>
+<div class="flex items-center justify-between my-3">
+<div class="flex items-baseline gap-1">
+<span class="text-[34px] font-extrabold text-primary tracking-tight">97</span>
+<span class="text-[#8ca0a4] text-[16px]">/100</span>
+</div>
+<!-- Circular Dial SVG -->
+<div class="w-14 h-14 relative flex items-center justify-center">
+<svg class="w-14 h-14 -rotate-90" viewbox="0 0 40 40">
+<circle cx="20" cy="20" fill="transparent" r="16" stroke="#162e35" stroke-width="3.5"></circle>
+<circle cx="20" cy="20" fill="transparent" r="16" stroke="#2dd4bf" stroke-dasharray="100.5" stroke-dashoffset="3.0" stroke-linecap="round" stroke-width="3.5"></circle>
+</svg>
+<span class="material-symbols-outlined text-[18px] text-primary absolute">record_voice_over</span>
+</div>
+</div>
+<div class="pt-2 border-t border-[#162d33] text-[12px] text-[#94a3b8] flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+<span>Đối chiếu 54 file audio R2, bitrate 64kbps</span>
+</div>
+</div>
+<!-- Score 4: Độ chính xác dịch nghĩa -->
+<div class="bg-[#0f2126] border border-[#1a353d] rounded-xl p-4 tactile-card border-t-2 border-t-[#f59e0b] relative flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-[#8ca0a4] text-[12px] uppercase tracking-wider font-bold">Ngữ nghĩa AI</span>
+<h3 class="text-[#f8fafc] font-bold text-[16px] mt-0.5">Độ chính xác dịch nghĩa</h3>
+</div>
+<span class="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">
+<span class="material-symbols-outlined text-[13px]">arrow_downward</span>
+              -1%
+            </span>
+</div>
+<div class="flex items-center justify-between my-3">
+<div class="flex items-baseline gap-1">
+<span class="text-[34px] font-extrabold text-[#fbbf24] tracking-tight">88</span>
+<span class="text-[#8ca0a4] text-[16px]">/100</span>
+</div>
+<!-- Circular Dial SVG -->
+<div class="w-14 h-14 relative flex items-center justify-center">
+<svg class="w-14 h-14 -rotate-90" viewbox="0 0 40 40">
+<circle cx="20" cy="20" fill="transparent" r="16" stroke="#162e35" stroke-width="3.5"></circle>
+<circle cx="20" cy="20" fill="transparent" r="16" stroke="#f59e0b" stroke-dasharray="100.5" stroke-dashoffset="12.0" stroke-linecap="round" stroke-width="3.5"></circle>
+</svg>
+<span class="material-symbols-outlined text-[18px] text-[#fbbf24] absolute">translate</span>
+</div>
+</div>
+<div class="pt-2 border-t border-[#162d33] text-[12px] text-[#94a3b8] flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+<span>18 từ vựng đa nghĩa cần BTV duyệt thêm</span>
+</div>
+</div>
+</section>
+<!-- ==================== MAIN SPLIT GRID (Bento Balanced Layout) ==================== -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT COLUMN (7 COLS): Table "Kiểm nghĩa bản dịch song ngữ" -->
+<div class="lg:col-span-7 bg-[#0f2126] border border-[#1a353d] rounded-xl tactile-card overflow-hidden">
+<!-- Table Header Banner -->
+<div class="p-5 border-b border-[#18333b] flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#0c1c20]">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="text-[16px] font-bold text-[#f8fafc]">Kiểm nghĩa bản dịch song ngữ</h2>
+<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#0c2e33] text-primary border border-[#1b5059]">15 ngôn ngữ đích</span>
+</div>
+<p class="text-[13px] text-[#94a3b8] mt-0.5">
+                Kiểm tra tự động nghĩa tiếng Anh học thuật (IELTS/TOEIC/AWL) sang các ngôn ngữ người học phổ biến.
+              </p>
+</div>
+<!-- Table Actions -->
+<div class="flex items-center gap-2">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-[#7f9296] text-[16px]">filter_list</span>
+<input class="h-8 pl-8 pr-3 text-[13px] bg-[#12252b] border border-[#1f4049] rounded-md text-[#f8fafc] placeholder:text-[#678086] focus:outline-none focus:border-primary w-36" placeholder="Lọc ngôn ngữ..." type="text"/>
+</div>
+<button class="h-8 px-2.5 rounded-md border border-[#1f4049] bg-[#12252b] hover:bg-[#162f37] text-[13px] font-semibold text-[#cbd5e1] hover:text-[#f8fafc] flex items-center gap-1 transition-colors" title="Xuất file CSV">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span>Xuất CSV</span>
+</button>
+</div>
+</div>
+<!-- Table Container -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-[#18333b] bg-[#09171b] text-[11px] font-bold uppercase tracking-wider text-[#8ca0a4] select-none">
+<th class="py-3 px-4">Ngôn ngữ</th>
+<th class="py-3 px-3 text-right">Số từ duyệt</th>
+<th class="py-3 px-3 text-right">Cảnh báo lệch</th>
+<th class="py-3 px-4 text-right">Độ tin cậy</th>
+<th class="py-3 px-3 text-center">Trạng thái</th>
+<th class="py-3 px-4 text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#162d33] text-[13px] font-medium">
+<!-- Row 1: Tiếng Việt -->
+<tr class="hover:bg-[#13282f] transition-colors">
+<td class="py-3 px-4 font-semibold text-[#f8fafc] flex items-center gap-2">
+<span class="w-5 h-3.5 bg-red-600 rounded-[2px] flex items-center justify-center text-[8px] text-yellow-300 font-bold shadow-xs">★</span>
+<span>Tiếng Việt</span>
+<span class="text-[11px] text-[#8ca0a4] font-normal">(VN)</span>
+</td>
+<td class="py-3 px-3 text-right font-code-sm text-[#cbd5e1] font-semibold">570 từ</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-[#0c2e33] text-primary border border-[#1b5059]">0</span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-code-sm font-bold text-primary">99.6%</span>
+<div class="w-12 h-1.5 rounded-full bg-[#18333b] overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 99.6%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#0c2e33] text-primary border border-[#1b5059]">
+                      Đạt chuẩn
+                    </span>
+</td>
+<td class="py-3 px-4 text-right">
+<a class="text-primary hover:text-[#5eead4] font-semibold text-[13px] hover:underline" href="#">Xem mục từ</a>
+</td>
+</tr>
+<!-- Row 2: Tiếng Tây Ban Nha -->
+<tr class="hover:bg-[#13282f] transition-colors">
+<td class="py-3 px-4 font-semibold text-[#f8fafc] flex items-center gap-2">
+<span class="w-5 h-3.5 bg-amber-400 rounded-[2px] flex items-center justify-center text-[7px] text-red-700 font-bold border border-amber-500">ES</span>
+<span>Tây Ban Nha</span>
+<span class="text-[11px] text-[#8ca0a4] font-normal">(Español)</span>
+</td>
+<td class="py-3 px-3 text-right font-code-sm text-[#cbd5e1] font-semibold">570 từ</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">1</span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-code-sm font-bold text-primary">98.2%</span>
+<div class="w-12 h-1.5 rounded-full bg-[#18333b] overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 98.2%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">
+                      Cần duyệt 1
+                    </span>
+</td>
+<td class="py-3 px-4 text-right">
+<a class="text-primary hover:text-[#5eead4] font-semibold text-[13px] hover:underline" href="#">Xem mục từ</a>
+</td>
+</tr>
+<!-- Row 3: Tiếng Nhật -->
+<tr class="hover:bg-[#13282f] transition-colors">
+<td class="py-3 px-4 font-semibold text-[#f8fafc] flex items-center gap-2">
+<span class="w-5 h-3.5 bg-neutral-200 border border-neutral-400 rounded-[2px] flex items-center justify-center text-[8px] text-red-600 font-bold">●</span>
+<span>Tiếng Nhật</span>
+<span class="text-[11px] text-[#8ca0a4] font-normal">(日本語)</span>
+</td>
+<td class="py-3 px-3 text-right font-code-sm text-[#cbd5e1] font-semibold">554 từ</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">3</span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-code-sm font-bold text-[#fbbf24]">94.4%</span>
+<div class="w-12 h-1.5 rounded-full bg-[#18333b] overflow-hidden">
+<div class="h-full bg-[#f59e0b] rounded-full" style="width: 94.4%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">
+                      Cần duyệt 3
+                    </span>
+</td>
+<td class="py-3 px-4 text-right">
+<a class="text-primary hover:text-[#5eead4] font-semibold text-[13px] hover:underline" href="#">Xem mục từ</a>
+</td>
+</tr>
+<!-- Row 4: Tiếng Hàn -->
+<tr class="hover:bg-[#13282f] transition-colors">
+<td class="py-3 px-4 font-semibold text-[#f8fafc] flex items-center gap-2">
+<span class="w-5 h-3.5 bg-neutral-200 border border-neutral-400 rounded-[2px] flex items-center justify-center text-[7px] text-blue-700 font-bold">KR</span>
+<span>Tiếng Hàn</span>
+<span class="text-[11px] text-[#8ca0a4] font-normal">(한국어)</span>
+</td>
+<td class="py-3 px-3 text-right font-code-sm text-[#cbd5e1] font-semibold">540 từ</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-[#0c2e33] text-primary border border-[#1b5059]">0</span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-code-sm font-bold text-primary">99.1%</span>
+<div class="w-12 h-1.5 rounded-full bg-[#18333b] overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 99.1%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#0c2e33] text-primary border border-[#1b5059]">
+                      Đạt chuẩn
+                    </span>
+</td>
+<td class="py-3 px-4 text-right">
+<a class="text-primary hover:text-[#5eead4] font-semibold text-[13px] hover:underline" href="#">Xem mục từ</a>
+</td>
+</tr>
+<!-- Row 5: Tiếng Trung giản thể -->
+<tr class="hover:bg-[#13282f] transition-colors">
+<td class="py-3 px-4 font-semibold text-[#f8fafc] flex items-center gap-2">
+<span class="w-5 h-3.5 bg-red-700 rounded-[2px] flex items-center justify-center text-[7px] text-yellow-300 font-bold">CN</span>
+<span>Trung giản thể</span>
+<span class="text-[11px] text-[#8ca0a4] font-normal">(中文)</span>
+</td>
+<td class="py-3 px-3 text-right font-code-sm text-[#cbd5e1] font-semibold">570 từ</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">2</span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-code-sm font-bold text-primary">96.8%</span>
+<div class="w-12 h-1.5 rounded-full bg-[#18333b] overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 96.8%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">
+                      Cần duyệt 2
+                    </span>
+</td>
+<td class="py-3 px-4 text-right">
+<a class="text-primary hover:text-[#5eead4] font-semibold text-[13px] hover:underline" href="#">Xem mục từ</a>
+</td>
+</tr>
+<!-- Row 6: Tiếng Bồ Đào Nha -->
+<tr class="hover:bg-[#13282f] transition-colors">
+<td class="py-3 px-4 font-semibold text-[#f8fafc] flex items-center gap-2">
+<span class="w-5 h-3.5 bg-green-700 rounded-[2px] flex items-center justify-center text-[7px] text-yellow-300 font-bold">PT</span>
+<span>Bồ Đào Nha</span>
+<span class="text-[11px] text-[#8ca0a4] font-normal">(Português)</span>
+</td>
+<td class="py-3 px-3 text-right font-code-sm text-[#cbd5e1] font-semibold">520 từ</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-[#0c2e33] text-primary border border-[#1b5059]">0</span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-code-sm font-bold text-primary">98.9%</span>
+<div class="w-12 h-1.5 rounded-full bg-[#18333b] overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 98.9%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#0c2e33] text-primary border border-[#1b5059]">
+                      Đạt chuẩn
+                    </span>
+</td>
+<td class="py-3 px-4 text-right">
+<a class="text-primary hover:text-[#5eead4] font-semibold text-[13px] hover:underline" href="#">Xem mục từ</a>
+</td>
+</tr>
+<!-- Row 7: Tiếng Pháp -->
+<tr class="hover:bg-[#13282f] transition-colors">
+<td class="py-3 px-4 font-semibold text-[#f8fafc] flex items-center gap-2">
+<span class="w-5 h-3.5 bg-blue-700 rounded-[2px] flex items-center justify-center text-[7px] text-white font-bold">FR</span>
+<span>Tiếng Pháp</span>
+<span class="text-[11px] text-[#8ca0a4] font-normal">(Français)</span>
+</td>
+<td class="py-3 px-3 text-right font-code-sm text-[#cbd5e1] font-semibold">510 từ</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-[#0c2e33] text-primary border border-[#1b5059]">0</span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-code-sm font-bold text-primary">99.4%</span>
+<div class="w-12 h-1.5 rounded-full bg-[#18333b] overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 99.4%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#0c2e33] text-primary border border-[#1b5059]">
+                      Đạt chuẩn
+                    </span>
+</td>
+<td class="py-3 px-4 text-right">
+<a class="text-primary hover:text-[#5eead4] font-semibold text-[13px] hover:underline" href="#">Xem mục từ</a>
+</td>
+</tr>
+<!-- Row 8: Tiếng Đức -->
+<tr class="hover:bg-[#13282f] transition-colors">
+<td class="py-3 px-4 font-semibold text-[#f8fafc] flex items-center gap-2">
+<span class="w-5 h-3.5 bg-neutral-900 rounded-[2px] flex items-center justify-center text-[7px] text-yellow-400 font-bold border border-[#334155]">DE</span>
+<span>Tiếng Đức</span>
+<span class="text-[11px] text-[#8ca0a4] font-normal">(Deutsch)</span>
+</td>
+<td class="py-3 px-3 text-right font-code-sm text-[#cbd5e1] font-semibold">490 từ</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">1</span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-code-sm font-bold text-primary">97.5%</span>
+<div class="w-12 h-1.5 rounded-full bg-[#18333b] overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 97.5%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">
+                      Cần duyệt 1
+                    </span>
+</td>
+<td class="py-3 px-4 text-right">
+<a class="text-primary hover:text-[#5eead4] font-semibold text-[13px] hover:underline" href="#">Xem mục từ</a>
+</td>
+</tr>
+<!-- Row 9: Tiếng Ý -->
+<tr class="hover:bg-[#13282f] transition-colors">
+<td class="py-3 px-4 font-semibold text-[#f8fafc] flex items-center gap-2">
+<span class="w-5 h-3.5 bg-green-600 rounded-[2px] flex items-center justify-center text-[7px] text-white font-bold">IT</span>
+<span>Tiếng Ý</span>
+<span class="text-[11px] text-[#8ca0a4] font-normal">(Italiano)</span>
+</td>
+<td class="py-3 px-3 text-right font-code-sm text-[#cbd5e1] font-semibold">480 từ</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-[#0c2e33] text-primary border border-[#1b5059]">0</span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-code-sm font-bold text-primary">99.0%</span>
+<div class="w-12 h-1.5 rounded-full bg-[#18333b] overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 99.0%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#0c2e33] text-primary border border-[#1b5059]">
+                      Đạt chuẩn
+                    </span>
+</td>
+<td class="py-3 px-4 text-right">
+<a class="text-primary hover:text-[#5eead4] font-semibold text-[13px] hover:underline" href="#">Xem mục từ</a>
+</td>
+</tr>
+<!-- Row 10: Tiếng Nga -->
+<tr class="hover:bg-[#13282f] transition-colors">
+<td class="py-3 px-4 font-semibold text-[#f8fafc] flex items-center gap-2">
+<span class="w-5 h-3.5 bg-blue-600 border border-neutral-300 rounded-[2px] flex items-center justify-center text-[7px] text-white font-bold">RU</span>
+<span>Tiếng Nga</span>
+<span class="text-[11px] text-[#8ca0a4] font-normal">(Русский)</span>
+</td>
+<td class="py-3 px-3 text-right font-code-sm text-[#cbd5e1] font-semibold">475 từ</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">2</span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-code-sm font-bold text-[#fbbf24]">95.1%</span>
+<div class="w-12 h-1.5 rounded-full bg-[#18333b] overflow-hidden">
+<div class="h-full bg-[#f59e0b] rounded-full" style="width: 95.1%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">
+                      Cần duyệt 2
+                    </span>
+</td>
+<td class="py-3 px-4 text-right">
+<a class="text-primary hover:text-[#5eead4] font-semibold text-[13px] hover:underline" href="#">Xem mục từ</a>
+</td>
+</tr>
+<!-- Row 11: Tiếng Indonesia -->
+<tr class="hover:bg-[#13282f] transition-colors">
+<td class="py-3 px-4 font-semibold text-[#f8fafc] flex items-center gap-2">
+<span class="w-5 h-3.5 bg-red-600 rounded-[2px] flex items-center justify-center text-[7px] text-white font-bold">ID</span>
+<span>Indonesia</span>
+<span class="text-[11px] text-[#8ca0a4] font-normal">(Bahasa)</span>
+</td>
+<td class="py-3 px-3 text-right font-code-sm text-[#cbd5e1] font-semibold">460 từ</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-[#0c2e33] text-primary border border-[#1b5059]">0</span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-code-sm font-bold text-primary">98.7%</span>
+<div class="w-12 h-1.5 rounded-full bg-[#18333b] overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 98.7%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#0c2e33] text-primary border border-[#1b5059]">
+                      Đạt chuẩn
+                    </span>
+</td>
+<td class="py-3 px-4 text-right">
+<a class="text-primary hover:text-[#5eead4] font-semibold text-[13px] hover:underline" href="#">Xem mục từ</a>
+</td>
+</tr>
+<!-- Row 12: Tiếng Thái -->
+<tr class="hover:bg-[#13282f] transition-colors">
+<td class="py-3 px-4 font-semibold text-[#f8fafc] flex items-center gap-2">
+<span class="w-5 h-3.5 bg-blue-800 rounded-[2px] flex items-center justify-center text-[7px] text-red-500 font-bold">TH</span>
+<span>Tiếng Thái</span>
+<span class="text-[11px] text-[#8ca0a4] font-normal">(ภาษาไทย)</span>
+</td>
+<td class="py-3 px-3 text-right font-code-sm text-[#cbd5e1] font-semibold">445 từ</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">4</span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-code-sm font-bold text-[#fbbf24]">91.8%</span>
+<div class="w-12 h-1.5 rounded-full bg-[#18333b] overflow-hidden">
+<div class="h-full bg-[#f59e0b] rounded-full" style="width: 91.8%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">
+                      Cần duyệt 4
+                    </span>
+</td>
+<td class="py-3 px-4 text-right">
+<a class="text-primary hover:text-[#5eead4] font-semibold text-[13px] hover:underline" href="#">Xem mục từ</a>
+</td>
+</tr>
+<!-- Row 13: Tiếng Thổ Nhĩ Kỳ -->
+<tr class="hover:bg-[#13282f] transition-colors">
+<td class="py-3 px-4 font-semibold text-[#f8fafc] flex items-center gap-2">
+<span class="w-5 h-3.5 bg-red-600 rounded-[2px] flex items-center justify-center text-[7px] text-white font-bold">TR</span>
+<span>Thổ Nhĩ Kỳ</span>
+<span class="text-[11px] text-[#8ca0a4] font-normal">(Türkçe)</span>
+</td>
+<td class="py-3 px-3 text-right font-code-sm text-[#cbd5e1] font-semibold">430 từ</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-[#0c2e33] text-primary border border-[#1b5059]">0</span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-code-sm font-bold text-primary">98.5%</span>
+<div class="w-12 h-1.5 rounded-full bg-[#18333b] overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 98.5%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#0c2e33] text-primary border border-[#1b5059]">
+                      Đạt chuẩn
+                    </span>
+</td>
+<td class="py-3 px-4 text-right">
+<a class="text-primary hover:text-[#5eead4] font-semibold text-[13px] hover:underline" href="#">Xem mục từ</a>
+</td>
+</tr>
+<!-- Row 14: Tiếng Ả Rập -->
+<tr class="hover:bg-[#13282f] transition-colors">
+<td class="py-3 px-4 font-semibold text-[#f8fafc] flex items-center gap-2">
+<span class="w-5 h-3.5 bg-green-700 rounded-[2px] flex items-center justify-center text-[7px] text-white font-bold">AR</span>
+<span>Tiếng Ả Rập</span>
+<span class="text-[11px] text-[#8ca0a4] font-normal">(العربية)</span>
+</td>
+<td class="py-3 px-3 text-right font-code-sm text-[#cbd5e1] font-semibold">410 từ</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">2</span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-code-sm font-bold text-[#fbbf24]">93.9%</span>
+<div class="w-12 h-1.5 rounded-full bg-[#18333b] overflow-hidden">
+<div class="h-full bg-[#f59e0b] rounded-full" style="width: 93.9%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">
+                      Cần duyệt 2
+                    </span>
+</td>
+<td class="py-3 px-4 text-right">
+<a class="text-primary hover:text-[#5eead4] font-semibold text-[13px] hover:underline" href="#">Xem mục từ</a>
+</td>
+</tr>
+<!-- Row 15: Tiếng Hindi -->
+<tr class="hover:bg-[#13282f] transition-colors">
+<td class="py-3 px-4 font-semibold text-[#f8fafc] flex items-center gap-2">
+<span class="w-5 h-3.5 bg-orange-500 rounded-[2px] flex items-center justify-center text-[7px] text-white font-bold">HI</span>
+<span>Tiếng Hindi</span>
+<span class="text-[11px] text-[#8ca0a4] font-normal">(हिन्दी)</span>
+</td>
+<td class="py-3 px-3 text-right font-code-sm text-[#cbd5e1] font-semibold">390 từ</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">3</span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-code-sm font-bold text-[#fbbf24]">92.4%</span>
+<div class="w-12 h-1.5 rounded-full bg-[#18333b] overflow-hidden">
+<div class="h-full bg-[#f59e0b] rounded-full" style="width: 92.4%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">
+                      Cần duyệt 3
+                    </span>
+</td>
+<td class="py-3 px-4 text-right">
+<a class="text-primary hover:text-[#5eead4] font-semibold text-[13px] hover:underline" href="#">Xem mục từ</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer -->
+<div class="p-3 border-t border-[#18333b] bg-[#0c1c20] flex items-center justify-between text-[13px] text-[#8ca0a4]">
+<span class="font-medium text-[12px]">Tổng: 15/15 ngôn ngữ hoạt động · Đã duyệt 7,329 định nghĩa từ vựng</span>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 rounded text-[13px] border border-[#1f4049] bg-[#162f37] text-primary font-semibold">1</button>
+<button class="px-2.5 py-1 rounded text-[13px] border border-[#1f4049] bg-[#12252b] text-[#8ca0a4] hover:text-[#f8fafc] hover:bg-[#162f37]">2</button>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN (5 COLS): Màn cần sửa & Quick QC Logs -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Card: Danh sách màn cần sửa -->
+<div class="bg-[#0f2126] border border-[#1a353d] rounded-xl tactile-card p-5">
+<div class="flex items-center justify-between pb-3 border-b border-[#18333b]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#ff7a5c] text-[20px]">handyman</span>
+<h2 class="text-[16px] font-bold text-[#f8fafc]">Danh sách màn cần sửa</h2>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-[#3d1610] text-[#ff8e75] border border-[#7a281a]">
+                3 phát hiện
+              </span>
+</div>
+<!-- Issues List with Minimal Vector Wireframe Thumbnails -->
+<div class="divide-y divide-[#162d33] mt-2">
+<!-- Issue 1 -->
+<div class="py-4 flex items-start gap-3.5">
+<!-- Flat Minimal Wireframe Thumbnail (Dark Styled) -->
+<div class="w-16 h-20 bg-[#091518] border border-[#1a353d] rounded-md p-1.5 flex flex-col justify-between flex-shrink-0 relative overflow-hidden shadow-inner">
+<div class="space-y-1">
+<div class="h-1.5 w-3/4 bg-[#1f4049] rounded-xs"></div>
+<div class="h-1 w-full bg-[#162e35] rounded-xs"></div>
+<div class="h-1 w-5/6 bg-[#162e35] rounded-xs"></div>
+</div>
+<!-- Fault Box Highlight -->
+<div class="h-4 w-full border border-dashed border-red-500 bg-red-950/40 rounded flex items-center justify-center">
+<span class="text-[7px] font-bold text-[#ff8e75] leading-none">3.2:1</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-[12px] font-semibold text-primary truncate max-w-[190px]">/vocab/irregular-verbs</span>
+<button class="tactile-btn-secondary px-2.5 py-1 rounded text-[12px] font-bold text-primary transition-all">
+                      Mở sửa
+                    </button>
+</div>
+<p class="text-[#cbd5e1] mt-1 text-[13px] leading-snug">
+                    Nút <strong class="font-semibold text-primary">"Quiz me on 10"</strong> tương phản nhãn chữ 3.2:1 trên nền phụ, chạm 42px.
+                  </p>
+<div class="flex items-center gap-2 mt-2 text-[11px] text-[#8ca0a4]">
+<span class="px-1.5 py-0.5 rounded bg-[#13282f] text-[#cbd5e1] border border-[#1f404a] font-semibold">Tương phản AA</span>
+<span>Chạm &lt; 44px</span>
+</div>
+</div>
+</div>
+<!-- Issue 2 -->
+<div class="py-4 flex items-start gap-3.5">
+<!-- Flat Minimal Wireframe Thumbnail -->
+<div class="w-16 h-20 bg-[#091518] border border-[#1a353d] rounded-md p-1.5 flex flex-col justify-between flex-shrink-0 relative overflow-hidden shadow-inner">
+<div class="flex justify-between items-center pb-1 border-b border-[#18333b]">
+<div class="h-1.5 w-6 bg-[#1f4049] rounded-xs"></div>
+<!-- Close button target warning -->
+<div class="w-2.5 h-2.5 rounded-full border border-red-500 bg-red-950/60 flex items-center justify-center">
+<span class="text-[6px] text-[#ff8e75] font-bold">✕</span>
+</div>
+</div>
+<div class="space-y-1 my-auto">
+<div class="h-2 w-full bg-[#14282e] rounded-xs"></div>
+<div class="h-2 w-full bg-[#14282e] rounded-xs"></div>
+</div>
+<div class="h-2.5 w-1/2 bg-[#2dd4bf]/20 rounded-xs self-end"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-[12px] font-semibold text-primary truncate max-w-[190px]">/tests/toeic-part-1</span>
+<button class="tactile-btn-secondary px-2.5 py-1 rounded text-[12px] font-bold text-primary transition-all">
+                      Mở sửa
+                    </button>
+</div>
+<p class="text-[#cbd5e1] mt-1 text-[13px] leading-snug">
+                    Nút đóng (close) kích thước vùng chạm <strong class="font-semibold text-[#ff7a5c]">40×40px</strong> (&lt; 44px tối thiểu theo HIG/Material).
+                  </p>
+<div class="flex items-center gap-2 mt-2 text-[11px] text-[#8ca0a4]">
+<span class="px-1.5 py-0.5 rounded bg-[#3d1610] text-[#ff8e75] border border-[#7a281a] font-semibold">Touch Target</span>
+<span>Modal Header</span>
+</div>
+</div>
+</div>
+<!-- Issue 3 -->
+<div class="py-4 flex items-start gap-3.5">
+<!-- Flat Minimal Wireframe Thumbnail -->
+<div class="w-16 h-20 bg-[#091518] border border-[#1a353d] rounded-md p-1.5 flex flex-col flex-shrink-0 relative overflow-hidden shadow-inner">
+<div class="h-1.5 w-1/2 bg-[#1f4049] rounded-xs mb-1.5"></div>
+<div class="h-5 w-full bg-[#14282e] rounded-xs mb-1"></div>
+<!-- Overflow line badge -->
+<div class="h-3 w-full border border-dashed border-amber-500 bg-amber-950/40 rounded px-0.5 flex items-center">
+<span class="text-[6px] text-amber-300 font-mono truncate">Interac...</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-[12px] font-semibold text-primary truncate max-w-[190px]">/blog/ielts-academic-word-list</span>
+<button class="tactile-btn-secondary px-2.5 py-1 rounded text-[12px] font-bold text-primary transition-all">
+                      Mở sửa
+                    </button>
+</div>
+<p class="text-[#cbd5e1] mt-1 text-[13px] leading-snug">
+                    Nhãn <strong class="font-semibold text-primary">"Interactive Practice"</strong> bị tràn dòng ở chiều rộng 360px (iPhone SE).
+                  </p>
+<div class="flex items-center gap-2 mt-2 text-[11px] text-[#8ca0a4]">
+<span class="px-1.5 py-0.5 rounded bg-[#13282f] text-[#cbd5e1] border border-[#1f404a] font-semibold">Text Truncate</span>
+<span>Màn hình 360px</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card: Quy chuẩn & Nhật ký kiểm định nhanh (Automated QC Logs) -->
+<div class="bg-[#0f2126] border border-[#1a353d] rounded-xl tactile-card p-5">
+<div class="flex items-center justify-between pb-3 border-b border-[#18333b]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">history_toggle_off</span>
+<h2 class="text-[16px] font-bold text-[#f8fafc]">Nhật ký kiểm định nhanh</h2>
+</div>
+<span class="font-code-sm text-[11px] text-[#8ca0a4]">24h qua</span>
+</div>
+<!-- Timeline Entries -->
+<div class="space-y-3.5 mt-3 text-[13px]">
+<!-- Log 1 -->
+<div class="flex items-start gap-3">
+<span class="font-code-sm text-[11px] text-[#8ca0a4] w-12 flex-shrink-0 pt-0.5">06:00</span>
+<span class="w-2 h-2 rounded-full bg-emerald-400 mt-1.5 flex-shrink-0 shadow-[0_0_6px_#34d399]"></span>
+<div class="flex-1 leading-snug">
+<div class="font-semibold text-[#f8fafc] text-[13px]">Máy kiểm định cron 24h chạy hoàn tất</div>
+<p class="text-[#94a3b8] text-[12px] mt-0.5">Quét 142 màn hình, 15 bộ từ vựng song ngữ, 54 tệp âm thanh CDN.</p>
+</div>
+</div>
+<!-- Log 2 -->
+<div class="flex items-start gap-3">
+<span class="font-code-sm text-[11px] text-[#8ca0a4] w-12 flex-shrink-0 pt-0.5">04:15</span>
+<span class="w-2 h-2 rounded-full bg-emerald-400 mt-1.5 flex-shrink-0 shadow-[0_0_6px_#34d399]"></span>
+<div class="flex-1 leading-snug">
+<div class="font-semibold text-[#f8fafc] text-[13px]">Đối soát Cloudflare R2 Audio</div>
+<p class="text-[#94a3b8] text-[12px] mt-0.5">100% khớp hash MD5 từ vựng Oxford 3000, không tệp rỗng.</p>
+</div>
+</div>
+<!-- Log 3 -->
+<div class="flex items-start gap-3">
+<span class="font-code-sm text-[11px] text-[#8ca0a4] w-12 flex-shrink-0 pt-0.5">02:30</span>
+<span class="w-2 h-2 rounded-full bg-amber-400 mt-1.5 flex-shrink-0 shadow-[0_0_6px_#fbbf24]"></span>
+<div class="flex-1 leading-snug">
+<div class="font-semibold text-[#f8fafc] text-[13px]">Đồng bộ từ vựng tiếng Thái (TH) &amp; Hindi (HI)</div>
+<p class="text-[#94a3b8] text-[12px] mt-0.5">Phát hiện 7 từ vựng đa nghĩa AWL cần biên tập viên bản ngữ xác nhận.</p>
+</div>
+</div>
+</div>
+<!-- Footer summary -->
+<div class="mt-4 pt-3 border-t border-[#18333b] flex items-center justify-between text-[13px] text-[#8ca0a4]">
+<span class="text-[12px]">Máy chủ kiểm định: Tokyo-01 (Docker)</span>
+<a class="text-primary font-bold hover:underline text-[12px] flex items-center gap-1" href="#">
+<span>Xem toàn bộ log</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

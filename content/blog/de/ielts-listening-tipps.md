@@ -58,7 +58,7 @@ Abschnitt 1 besteht aus einem Gespräch zwischen zwei Personen in einem alltägl
 
 Rechtschreibung ist im IELTS gnadenlos: Jeder Buchstabierfehler führt zu null Punkten für diese Aufgabe. Besondere Stolpersteine für deutschsprachige Prüflinge sind die englische Aussprache von Vokalen wie "E" (ausgesprochen wie deutsches "I") und "I" (ausgesprochen wie deutsches "Ei") sowie Konsonanten wie "J" und "G". Trainieren Sie das Buchstabieren mit gezielten [Übungstests](/#/practice/test), um Zahlendreher und Buchstabensalat unter Zeitdruck auszuschließen.
 
-Abschnitt 2 ist ein Monolog zu einem allgemeinen gesellschaftlichen Thema (z. B. Führung durch ein Museum oder Erklärung einer Campingplatz-Anlage). Häufig begegnen Ihnen hier Lagepläne und Karten (Map Labelling). Merken Sie sich Orientierungsbegriffe wie *in the top right corner*, *adjacent to*, *opposite*, *clockwise* und *just past the intersection*. Nutzen Sie auch unsere [thematischen Vokabellisten](/tu-vung/), um Ihren Wortschatz für Wegbeschreibungen systematisch zu erweitern.
+Abschnitt 2 ist ein Monolog zu einem allgemeinen gesellschaftlichen Thema (z. B. Führung durch ein Museum oder Erklärung einer Campingplatz-Anlage). Häufig begegnen Ihnen hier Lagepläne und Karten (Map Labelling). Merken Sie sich Orientierungsbegriffe wie *in the top right corner*, *adjacent to*, *opposite*, *clockwise* und *just past the intersection*. Nutzen Sie auch unsere [thematischen Vokabellisten](/en/vocabulary/), um Ihren Wortschatz für Wegbeschreibungen systematisch zu erweitern.
 
 ![Simulation eines vollständigen IELTS-Prüfungstests](media:mock "Probetests in allen vier Teilen bauen Routine und Prüfungsruhe auf; der Verlauf zeigt Ihre Fortschritte")
 

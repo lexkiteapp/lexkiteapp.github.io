@@ -18,9 +18,10 @@ concurrency:
 jobs:
   gsc:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Test (dữ liệu giả)
@@ -32,13 +33,7 @@ jobs:
       - name: Commit báo cáo [CF-Pages-Skip]
         if: steps.gsc.outputs.report != ''
         run: |
-          git add reports/seo content/blog/plan/gsc-priority.json
-          git add -u reports/seo
-          git diff --cached --quiet && { echo "· báo cáo không đổi"; exit 0; }
-          git config user.name "lexkite-bot"; git config user.email "lexkiteapp@users.noreply.github.com"
-          git commit -qm "SEO: báo cáo GSC $(date -u +%F) [CF-Pages-Skip]"
-          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
-          exit 1
+          bash scripts/ci/push-main.sh "SEO: báo cáo GSC $(date -u +%F)" reports/seo content/blog/plan/gsc-priority.json
       - name: Issue seo-weekly
         if: steps.gsc.outputs.report != ''
         env: { GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
@@ -46,3 +41,6 @@ jobs:
       - name: Tóm tắt
         if: steps.gsc.outputs.report != ''
         run: cat "${{ steps.gsc.outputs.report }}" >> "$GITHUB_STEP_SUMMARY"
+      - name: Kiểm site thật (mẫu 3 URL/sitemap – canonical, hreflang, noindex, 404) – đỏ → ci-triage mở issue
+        if: always()
+        run: node scripts/seo/live-audit.mjs | tee -a "$GITHUB_STEP_SUMMARY"

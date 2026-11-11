@@ -589,7 +589,8 @@
     "wrong": "I hate wait."
    },
    "source": "sb_116f3374",
-   "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample ep1, gold bank via gold2v9)"
+   "reviewer": "claude 28/10 (pronunciation fix)",
+   "note": "hook = the real error, delivered by the fix + quiz; IPA = taught word as displayed (pron.mjs bank), quiz pills keep the question"
   },
   "rle_1dc7abe0": {
    "template": "mistake",
@@ -620,7 +621,8 @@
     "wrong": "My room card doesn't work."
    },
    "source": "sb_1dc7abe0",
-   "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample ep1, gold bank via gold2v9)"
+   "reviewer": "claude 28/10 (pronunciation fix)",
+   "note": "hook = the real error, delivered by the fix + quiz; IPA = taught word as displayed (pron.mjs bank), quiz pills keep the question"
   },
   "sin_0a35f2ef": {
    "template": "mistake",
@@ -701,14 +703,14 @@
     "t_h": "Since or for? Here's the easy rule.",
     "t_1": "Use for with a length of time.",
     "t_2": "I've been here for three days.",
-    "t_3": "Use since with a starting point.",
+    "t_3": "Since goes with a starting point.",
     "t_4": "I've been here since Monday.",
     "t_5": "So: for three days, since Monday.",
     "t_sh": "Send this to a friend who mixes them up!",
     "t_c": "Save this, and practice grammar on lexkite.com."
    },
    "promise": {},
-   "note": "'for' + length of time (for three days); 'since' + starting point (since Monday) with the present perfect. Each rule tile appears when spoken."
+   "note": "03/11 re-review: t_3 reworded 'Use since…' → 'Since goes with a starting point.' (same rule; Kokoro read 'Use since' as 'You sense', asr_match failed twice). 'for' + length of time (for three days); 'since' + starting point (since Monday) with the present perfect. Each rule tile appears when spoken."
   },
   "mo_ready_band7": {
    "template": "ready",
@@ -729,6 +731,38 @@
     "count": true
    },
    "note": "'obtain' is the formal synonym of 'get' (Lexical Resource); 'the number of + plural noun' takes a singular verb ('is'). The band bar is a motivational estimate (5.0 -> 7.0), not a score claim."
+  },
+  "cmu_1915c5c2": {
+   "template": "mistake",
+   "hook": "✗ Not / “I'm boring in this class.”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "u_h": "Most learners mix this up.",
+    "u_w": "I'm boring in this class.",
+    "u_k": "Natives say: I'm bored in this class.",
+    "u_y": "Bored is how you feel. Boring is what makes you feel it.",
+    "u_x": "This movie is boring.",
+    "u_t": "Tired and tiring work the same way!",
+    "u_q": "Quick quiz! This lesson is so blank!",
+    "u_q2": "Boring, or bored?",
+    "u_a": "Boring! This lesson is so boring!",
+    "u_sh": "Send this to a friend!",
+    "u_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I'm bored in this class.",
+    "right_lines": [
+     "u_k"
+    ],
+    "wrong_line": "u_w",
+    "wrong": "I'm boring in this class."
+   },
+   "source": "sb_1915c5c2",
+   "reviewer": "claude 28/10 (pronunciation fix)",
+   "note": "hook = the real error, delivered by the fix + quiz; IPA = taught word as displayed (pron.mjs bank), quiz pills keep the question"
   }
  }
 }

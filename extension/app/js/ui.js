@@ -61,28 +61,48 @@
     if (free(top, top + h)) { t.dataset.at = 'top'; t.style.setProperty('--ty', 'calc(' + top + 'px + env(safe-area-inset-top, 0px) - ' + (H - base - h) + 'px)'); return; }
     if (cands.length) at(cands[cands.length - 1]);
   }
-  function toastShow(msg, ms) {
+  function toastShow(msg, ms, o) {
     const t = $('#toast'); if (!t) return;
-    t.textContent = msg; toastLift(t); t.classList.add('show'); t._msg = [msg, ms];
+    t.textContent = msg; t._msg = [msg, ms, o]; t._at = Date.now(); toast._last = [msg, t._at];
+    // Nút hành động (vd. "Thử lại"): báo lỗi bình tĩnh luôn kèm cách sửa; chỉ toast có nút mới nhận chạm (.act), còn lại không chặn thao tác bên dưới
+    t.classList.toggle('act', !!(o && o.action));
+    if (o && o.action) { const b = document.createElement('button'); b.type = 'button'; b.className = 'toast-act'; b.textContent = o.action; b.onclick = () => { if (!t._msg || t._msg[2] !== o) return; toastHide(t); try { o.onAction && o.onAction(); } catch (e) { /* bỏ qua */ } }; t.append(' ', b); }
+    toastLift(t); t.classList.add('show');
     // Màn vẽ lại khi toast đang hiện (vd. hết bài → màn "Bạn đã học xong") → đặt lại chỗ để không đè nút mới
     const v = document.getElementById('view'); if (v && g.MutationObserver && !toast._mo) { let q = 0; toast._mo = new MutationObserver(() => { if (q) return; q = 1; (g.requestAnimationFrame || setTimeout)(() => { q = 0; if (t._msg) toastLift(t); }); }); toast._mo.observe(v, { childList: true, subtree: true }); }
-    clearTimeout(toast._t); toast._t = setTimeout(() => { t.classList.remove('show'); t._msg = null; if (toast._mo) { toast._mo.disconnect(); toast._mo = null; } if (toastQ.length && !modalOpen()) toastShow(...toastQ.shift()); }, ms);
+    toastTimer(t, ms);
   }
-  function toast(msg, ms = 2400) {
-    ms = Math.max(ms, Math.min(7000, 1400 + String(msg).length * 55)); // đủ thời gian đọc theo độ dài (WCAG 2.2.1): câu dài không biến mất giữa chừng
-    if (modalOpen()) { if (!toastQ.some(q => q[0] === msg)) toastQ.push([msg, ms]); return; }
-    toastShow(msg, ms);
+  const toastTimer = (t, ms) => { clearTimeout(toast._t); toast._t = setTimeout(() => toastHide(t), ms); };
+  function toastHide(t) {
+    clearTimeout(toast._t); t.classList.remove('show', 'act'); t._msg = null; if (toast._mo) { toast._mo.disconnect(); toast._mo = null; }
+    if (toastQ.length && !modalOpen()) toastShow(...toastQ.shift());
+  }
+  /** UI.toast(msg, ms?, { action, onAction }?) – MỘT toast mỗi lúc, tự ẩn, không chặn thao tác (trừ nút hành động), aria-live polite.
+   *  Cùng câu đang hiện → chỉ gia hạn (không nháy lại); cùng câu vừa ẩn < 3 s → bỏ (mạng chập chờn không xả hàng loạt toast). */
+  function toast(msg, ms = 2400, o) {
+    if (ms && typeof ms === 'object') { o = ms; ms = 2400; }
+    msg = String(msg); ms = Math.max(ms, Math.min(7000, 1400 + msg.length * 55)); // đủ thời gian đọc theo độ dài (WCAG 2.2.1): câu dài không biến mất giữa chừng
+    if (o && o.action) ms = Math.max(ms, 6000); // có nút → đủ lâu để kịp chạm
+    if (modalOpen()) { if (!toastQ.some(q => q[0] === msg)) toastQ.push([msg, ms, o]); return; }
+    const t = $('#toast'), L = toast._last;
+    if (t && t._msg && t._msg[0] === msg && !(o && o.action)) { toastTimer(t, ms); return; }
+    if (t && !t._msg && L && L[0] === msg && Date.now() - L[1] < 3000) return;
+    toastShow(msg, ms, o);
   }
   // Theo dõi #modal: mở ra khi toast đang hiện → cất toast vào hàng; đóng lại → hiện hàng chờ (mọi cách đóng: closeModal, gán hidden trực tiếp…)
   function watchModal() {
     const m = document.getElementById('modal'); if (!m || !g.MutationObserver) return;
     new MutationObserver(() => {
       const t = $('#toast'); if (!t) return;
-      if (!m.hidden) { if (t._msg) { toastQ.unshift(t._msg); t._msg = null; clearTimeout(toast._t); t.classList.remove('show'); if (toast._mo) { toast._mo.disconnect(); toast._mo = null; } } }
+      if (!m.hidden) { if (t._msg) { toastQ.unshift(t._msg); t._msg = null; clearTimeout(toast._t); t.classList.remove('show', 'act'); if (toast._mo) { toast._mo.disconnect(); toast._mo = null; } } }
       else if (toastQ.length && !t._msg) setTimeout(() => { if (!modalOpen() && toastQ.length && !t._msg) toastShow(...toastQ.shift()); }, 250);
     }).observe(m, { attributes: true, attributeFilter: ['hidden'] });
   }
+  // Toast có nút: con trỏ/focus đang ở trên → không tự ẩn giữa chừng (WCAG 2.2.1), rời ra → đếm lại từ đầu
+  function watchToast() { const t = $('#toast'); if (!t) return; const hold = () => { if (t._msg && t._msg[2] && t._msg[2].action) clearTimeout(toast._t); }, go = () => { if (t._msg && t._msg[2] && t._msg[2].action) toastTimer(t, t._msg[1]); }; t.addEventListener('pointerenter', hold); t.addEventListener('focusin', hold); t.addEventListener('pointerleave', go); t.addEventListener('focusout', go); }
+  const onReady = f => (document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', f) : f());
   if (document.getElementById('modal')) watchModal(); else document.addEventListener('DOMContentLoaded', watchModal);
+  onReady(watchToast);
 
   let lastFocus = null;
   function modal(html) {
@@ -162,14 +182,9 @@
   }
   let speakSeq = 0;
   const nativeTTS = () => (g.VBNative && g.VBNative.is && g.Capacitor && g.Capacitor.Plugins && g.Capacitor.Plugins.TextToSpeech) || null;
-  // opts: { rate, onSentence(i, text), onEnd() }
-  // Giọng Kokoro tạo sẵn cho câu đọc đơn (câu hỏi giám khảo, TOEFL…): có file thì phát mp3, không thì giọng máy
   let hqEl = null;
   const stopHq = () => { if (hqEl) { hqEl.stop(); hqEl = null; } };
-  // CDN âm thanh: audio.lexkite.com (Cloudflare Worker workers/audio, cache 1 năm, máy chủ gần người dùng, dò các kho media) → dự phòng
-  // Pages của kho media m2 (infra/media-repos.json) → gốc cũ lexkiteapp.github.io/audio (dự phòng 1 bản phát hành, docs/STORAGE.md).
-  // Đăng ký trong infra/resources.json. Mỗi 2 lỗi liên tiếp → chuyển sang gốc kế tiếp cho cả phiên.
-  // Mỗi lần phát: thử gốc hiện hành rồi các gốc sau nó (LKAudio.play: lỗi/404/quá 7 giây → gốc kế tiếp) → hết gốc mới dùng giọng máy.
+  // Gốc CDN âm thanh + chuỗi dự phòng: docs/specs/kokoro-on-device.md §Chuỗi phát
   let cdnFail = 0;
   const AUDIO_BASES = g.AUDIO_BASES = ['https://audio.lexkite.com/audio/l/', 'https://lexkiteapp.github.io/lexkite-media-2/audio/l/', 'https://lexkiteapp.github.io/audio/l/'];
   const baseAt = () => Math.min(AUDIO_BASES.length - 1, cdnFail >> 1);
@@ -178,14 +193,36 @@
   g.audioUrls = (k, kind = 'l') => AUDIO_BASES.slice(baseAt()).map(b => b.replace(/l\/$/, kind + '/') + (kind === 'l' ? lk(k) : k) + '.mp3'); // mọi gốc còn dùng được, theo thứ tự
   g.audioFail = () => { cdnFail++; };
   g.audioHas = k => !g.LISTEN_AUDIO || g.LISTEN_AUDIO.has(k); // chỉ phát câu đã có giọng đọc (tránh 404)
-  // opts: { rate, onSentence(i, text), onEnd(), voice: mã Kokoro (af_heart/am_michael…) hoặc who: 'ama'|'carlos' – giọng file + giới tính giọng máy dự phòng }
+  // Làm sạch chuỗi trước khi đọc (mọi chỗ gọi tts/speak): bỏ emoji, phiên âm /…/, nhãn UK/US, từ loại, nhãn mục ("💬 Ví dụ") –
+  // chuỗi lỡ cào từ giao diện ("📚 curriculum /kəˈrɪkjələm/ UK US n 💬 Ví dụ Many people…") chỉ còn câu tiếng Anh. Câu thường giữ nguyên.
+  const EMO = /[\p{Extended_Pictographic}\u{1F1E6}-\u{1F1FF}\u{1F3FB}-\u{1F3FF}\uFE0E\uFE0F\u200D\u20E3]+/gu, IPA = /(^|\s)\/[^\s/](?:[^/\n]{0,78}[^\s/])?\/(?=[\s,.;:!?)]|$)/g;
+  const POS = 'n|v|adj|adv|det|prep|pron|conj|int|num|aux|modal|phr\\.? ?v|noun|verb|adjective|adverb|determiner|preposition|pronoun|conjunction|phrasal verb|idiom';
+  const LBL = ['Ví dụ', 'Example', 'Câu ví dụ', 'Câu của bạn', 'Your sentence', 'Ngữ cảnh của bạn', 'Định nghĩa', 'Definition'];
+  const reL = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), tr = x => (typeof t === 'function' ? t(x) : x);
+  function ttsClean(text) {
+    let s = String(text == null ? '' : text).replace(/\s+/g, ' ').trim();
+    if (!s || !(new RegExp(EMO.source, 'u').test(s) || new RegExp(IPA.source).test(s))) return s; // câu thường → giữ nguyên, kể cả "the US economy"
+    const M = '\u0001', lb = list => [...new Set(list.concat(list.map(tr)))].filter(Boolean).map(reL).join('|');
+    s = s.replace(EMO, ' ' + M + ' ').replace(IPA, '$1' + M + ' ');
+    // nhãn mục (💬 Ví dụ / ✍️ Câu của bạn…) sau biểu tượng → chỉ đọc phần sau nhãn cuối (phần trước là tiêu đề thẻ: từ, phiên âm, từ loại)
+    const parts = s.split(new RegExp(`${M}\\s*(?:${lb(LBL.slice(0, 5))})\\s*:?`, 'i'));
+    if (parts.length > 1 && /[A-Za-z]/.test(parts[parts.length - 1])) s = parts[parts.length - 1];
+    const tag = new RegExp(`${M}\\s*(?:UK|US|BrE|AmE|(?:${POS})\\.?|${lb(LBL)})(?=[\\s:.,${M}]|$)\\s*:?`, 'i');
+    for (let i = 0; i < 16 && tag.test(s); i++) s = s.replace(tag, M); // "/…/ UK US n" → bỏ lần lượt từng nhãn ngay sau biểu tượng/phiên âm
+    return s.split(M).join(' ').replace(/\s+/g, ' ').replace(/\s+([,.;:!?])/g, '$1').replace(/^[\s,.;:·•|–—-]+|[\s,;:·•|–—-]+$/g, '').trim();
+  }
+  // tts(text, accent, rate, opts) – opts/giọng/chuỗi dự phòng: docs/specs/kokoro-on-device.md §Chuỗi phát
+  const SENT_GAP = 280;
+  const kvOf = a => (g.Target ? g.Target.kokoroVoice(a) : a === 'en-US' ? 'af_heart' : 'bf_emma');
   function tts(text, accent = 'en-GB', rate, opts = {}) {
+    text = ttsClean(text);
     if (!text) return;
-    stopHq();
+    stopHq(); if (g.KLocal) g.KLocal.stop();
     const kv = LA() && LA().kokoro(opts.voice || (opts.who && g.Chars && g.Chars.voice ? g.Chars.voice(opts.who) : ''));
     const gender = opts.gender || (kv ? kv.gender : LA() && opts.who ? LA().genderFor(opts.who) : '');
+    const kvoice = kv && kv.accent === accent ? (opts.voice || g.Chars.voice(opts.who)) : kvOf(accent);
     if (g.KVoice && g.LISTEN_AUDIO && prefs().hqVoice !== false && !opts.noHq && LA()) {
-      const v = kv && kv.accent === accent ? (opts.voice || g.Chars.voice(opts.who)) : accent === 'en-US' ? 'af_heart' : 'bf_emma', whole = g.KVoice.lineKey(v, text);
+      const v = kvoice, whole = g.KVoice.lineKey(v, text);
       const segs = g.LISTEN_AUDIO.has(whole) ? [[whole, text]] : splitSentences(text).map(p => [g.KVoice.lineKey(v, p), p]);
       if (segs.length && segs.every(([k]) => g.LISTEN_AUDIO.has(k))) {
         const my = ++speakSeq; if ('speechSynthesis' in g) speechSynthesis.cancel();
@@ -197,8 +234,8 @@
           hqEl = LA().play(g.audioUrls(segs[i][0]), {
             rate: pr,
             onBase: () => g.audioFail(),
-            onStart: () => { if (segs[i + 1]) LA().preload(g.audioUrls(segs[i + 1][0])[0]); }, // tải trước câu kế tiếp
-            onEnd: () => play(i + 1),
+            onStart: () => { if (!i) LA().src('f'); if (segs[i + 1]) LA().preload(g.audioUrls(segs[i + 1][0])[0]); }, // tải trước câu kế tiếp
+            onEnd: () => (i + 1 < segs.length ? setTimeout(() => play(i + 1), Math.round(SENT_GAP / pr)) : play(i + 1)), // nghỉ giữa câu như bài nghe; dừng/giọng mới → play() tự bỏ (speakSeq)
             onFail: why => { if (my !== speakSeq) return; hqEl = null; LA().note('tts', why + ' ' + segs[i][0]); tts(segs.slice(i).map(x => x[1]).join(' '), accent, rate, { ...opts, noHq: true, gender }); },
           });
         };
@@ -206,7 +243,24 @@
         return;
       }
     }
-    // App iOS/Android: WebView (nhất là Android) không có giọng đọc của trình duyệt → dùng giọng gốc của hệ điều hành (miễn phí, chạy offline)
+    let why = opts.noKl ? 'fail' : !/^en-/.test(accent) ? 'lang' : prefs().hqVoice === false ? 'pref' : '';
+    if (!opts.noKl && /^en-/.test(accent) && prefs().hqVoice !== false && LA()) {
+      const K = g.KLocal;
+      why = !K ? (g.Store && g.Store.isExtension ? 'off' : 'load') : K.allowed && !K.allowed() ? 'off' : 'wait';
+      if (K && K.ready()) {
+        const my = ++speakSeq, pr = Math.min(1.3, Math.max(0.55, (rate || prefs().ttsRate || 0.92) / 0.95));
+        if ('speechSynthesis' in g) speechSynthesis.cancel();
+        const ok = K.speak(splitSentences(text), { voice: kvoice, rate: pr, gap: Math.round(SENT_GAP / pr), onSentence: opts.onSentence,
+          onEnd: () => { if (my === speakSeq && opts.onEnd) opts.onEnd(); },
+          onFail: rest => { if (my === speakSeq) tts(rest.join(' '), accent, rate, { ...opts, noHq: true, noKl: true, gender }); } });
+        if (ok) return;
+        why = 'fail';
+      } else {
+        LA().stats.kl_wait = (LA().stats.kl_wait || 0) + 1;
+        if (K) K.want('dynamic'); else if (g.App && App.need) App.need('klocal').then(() => g.KLocal && g.KLocal.want('dynamic')).catch(() => {});
+      }
+    }
+    if (LA()) LA().src('s', why); // đếm lý do giọng máy
     const NT = nativeTTS();
     if (NT) {
       const my = ++speakSeq, parts = splitSentences(text), r = rate || prefs().ttsRate || 0.92;
@@ -215,14 +269,15 @@
         for (let i = 0; i < parts.length; i++) {
           if (my !== speakSeq) return;
           if (opts.onSentence) opts.onSentence(i, parts[i]);
-          try { await NT.speak({ text: parts[i], lang: accent, rate: r, pitch: 1, volume: 1, category: 'playback' }); } catch (e) { break; }
+          try { await NT.speak({ text: parts[i], lang: accent, rate: r, pitch: 1, volume: 1, category: 'playback' }); } catch (e) { if (my === speakSeq && opts.onErr) opts.onErr(); break; }
         }
         if (my === speakSeq && opts.onEnd) opts.onEnd();
       })();
       return;
     }
     if (!('speechSynthesis' in g)) { // không có giọng máy: từ đơn → thử bản ghi giọng người thật từ từ điển
-      if (!/\s/.test(text.trim()) && g.Dict && g.Dict.quick) g.Dict.quick(text.trim()).then(d => { if (d && d.audio) speak(text, accent, d.audio); }).catch(() => {});
+      const no = () => opts.onErr && opts.onErr();
+      if (!/\s/.test(text.trim()) && (!g.Target || g.Target.isEn(accent)) && g.Dict && g.Dict.quick) g.Dict.quick(text.trim()).then(d => { if (d && d.audio) speak(text, accent, d.audio, 0, opts.on); else no(); }).catch(no); else no();
       if (opts.onEnd) opts.onEnd();
       return;
     }
@@ -239,12 +294,13 @@
       u.lang = accent; u.rate = base; u.pitch = 1;
       if (voice) u.voice = voice;
       u.onstart = () => { if (my === speakSeq && opts.onSentence) opts.onSentence(i, p); };
-      if (i === parts.length - 1) u.onend = u.onerror = () => { if (keep) clearInterval(keep); if (my === speakSeq && opts.onEnd) opts.onEnd(); };
+      const err = e => { if (my === speakSeq && opts.onErr && !/interrupted|canceled/.test(e && e.error)) opts.onErr(); };
+      u.onerror = err;
+      if (i === parts.length - 1) { u.onend = () => { if (keep) clearInterval(keep); if (my === speakSeq && opts.onEnd) opts.onEnd(); }; u.onerror = e => { err(e); u.onend(); }; }
       speechSynthesis.speak(u);
     });
   }
-  const stopSpeak = () => { speakSeq++; stopHq(); if (wordEl) { wordEl.stop(); wordEl = null; } const NT = nativeTTS(); if (NT) NT.stop().catch(() => {}); if ('speechSynthesis' in g) speechSynthesis.cancel(); if (audioEl) audioEl.pause(); };
-  // Từ đơn: ưu tiên bản ghi giọng người thật; câu: giọng tổng hợp tốt nhất
+  const stopSpeak = () => { speakSeq++; stopHq(); if (g.KLocal) g.KLocal.stop(); if (wordEl) { wordEl.stop(); wordEl = null; } const NT = nativeTTS(); if (NT) NT.stop().catch(() => {}); if ('speechSynthesis' in g) speechSynthesis.cancel(); if (audioEl) audioEl.pause(); };
   let audioEl = null, wordEl = null;
   // Bộ nhớ đệm bản ghi giọng người thật (Cache Storage, tối đa 400 file gần nhất): lần sau phát tức thì, nghe được cả khi offline
   const AUDIO_CACHE = 'vb-audio-v1';
@@ -261,24 +317,24 @@
       return URL.createObjectURL(await r.blob());
     } catch (e) { return url; } // máy chủ không cho tải (CORS) → phát trực tiếp
   }
-  // speak(text, accent, url, slow): slow = true → bản ghi người thật phát chậm 0,7× (giữ cao độ); không có bản ghi → giọng máy chậm
+  // speak(text, accent, url, slow, on): slow = true → bản ghi người thật phát chậm 0,7× (giữ cao độ); không có bản ghi → giọng máy chậm · on(1) bắt đầu phát / on(0) mọi nguồn hỏng
   const wordMiss = new Set(), fnv36 = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
   const WAV = '|s3'; // hậu tố khóa giọng từ đơn audio/w (scripts/word-audio-strong.mjs WAV) – mọi từ; bản s3 đã qua Whisper
-  function speak(text, accent, url, slow) {
+  function speak(text, accent, url, slow, on) {
+    text = ttsClean(text);
     accent = accent || prefs().accent || 'en-GB';
-    const fb = () => tts(text, accent, slow ? 0.55 : undefined);
-    // Một giọng thống nhất: bỏ bản ghi âm tình nguyện viên (Wiktionary/dictionaryapi – mỗi từ một người, nhiều bản rè) khi máy có giọng đọc;
-    // chỉ giữ file âm thanh của Lexkite. tts() tự ưu tiên giọng Kokoro chất lượng cao nếu có, rồi tới giọng máy tốt nhất.
+    const fb = () => tts(text, accent, slow ? 0.55 : undefined, on ? { on, onSentence: i => i || on(1), onErr: () => on(0) } : undefined);
+    // Một giọng: chỉ giữ file âm thanh của Lexkite (bỏ bản ghi tình nguyện viên) – §Chuỗi phát
     if (url && !/lexkite/.test(url) && 'speechSynthesis' in g) url = '';
-    // Từ trong kho: giọng Kokoro Anh/Mỹ (scripts/gen-word-audio.mjs, audio.lexkite.com/audio/w/) – chưa có file/không mạng → giọng máy
     const wk = String(text || '').trim(), au = g.Lex && g.Lex.peekAu ? g.Lex.peekAu(wk) : undefined; // Lex biết từ không có file → không tải 404
     const lx = au && g.Lex.peek(wk), we = !url && au !== false && g.navigator && navigator.onLine && ((g.IELTS_DATA && g.IELTS_DATA.INDEX[wk.toLowerCase()]) || (lx && lx.word.toLowerCase() === wk.toLowerCase() ? lx : null));
-    if (we && !wordMiss.has(accent + wk) && LA()) {
-      const v = accent === 'en-US' ? 'af_heart' : 'bf_emma';
+    const wv = g.Target ? g.Target.wordVoice(accent) : accent === 'en-US' ? 'af_heart' : 'bf_emma'; // '' = ngôn ngữ đích chưa có file từ dựng sẵn → giọng máy
+    if (we && wv && !wordMiss.has(accent + wk) && LA()) {
+      const v = wv;
       stopSpeak();
       const my = speakSeq;
       // Gốc CDN lần lượt (lỗi/404/quá giờ → gốc kế tiếp); hết gốc → giọng máy (ghi nhật ký dự phòng). Bị chặn tự phát → giọng máy, không đánh dấu thiếu file.
-      wordEl = LA().play(g.audioUrls(fnv36(v + '|' + we.word.trim() + WAV), 'w'), { rate: slow ? 0.7 : 1, onBase: () => g.audioFail(),
+      wordEl = LA().play(g.audioUrls(fnv36(v + '|' + we.word.trim() + WAV), 'w'), { rate: slow ? 0.7 : 1, onBase: () => g.audioFail(), onStart: () => { LA().src('f'); if (on) on(1); },
         onFail: why => { wordEl = null; if (why !== 'blocked') wordMiss.add(accent + wk); LA().note('tts', why + ' w:' + wk); if (my === speakSeq) fb(); } });
       return;
     }
@@ -288,7 +344,7 @@
       audioSrc(url).then(src => {
         if (my !== speakSeq) return; // người dùng đã bấm nghe từ khác
         try {
-          audioEl = new Audio(src); audioEl.preservesPitch = true; audioEl.playbackRate = slow ? 0.7 : 1;
+          audioEl = g.LKAudio && LKAudio.el ? LKAudio.el() : new Audio(); audioEl.src = src; audioEl.preservesPitch = true; audioEl.playbackRate = slow ? 0.7 : 1; if (on) audioEl.onplaying = () => on(1);
           if (src.startsWith('blob:')) audioEl.onended = () => URL.revokeObjectURL(src);
           audioEl.play().catch(fb);
         } catch (e) { fb(); }
@@ -309,6 +365,8 @@
     network: () => '📶 ' + t('Không kết nối được dịch vụ nhận dạng giọng nói (cần Internet).'),
     unsupported: () => t('Trình duyệt không hỗ trợ nhận dạng giọng nói – hãy dùng Chrome hoặc Edge.'),
     busy: () => t('Micro đang bận – thử lại sau 1 giây.'),
+    'language-not-supported': () => '📶 ' + t('Không kết nối được dịch vụ nhận dạng giọng nói (cần Internet).'),
+    whisper: () => '⚠️ ' + t('Chưa chạy được nhận dạng giọng nói trên máy – kiểm tra Internet rồi bấm micro thử lại.'),
   };
   const recErrorText = err => Object.prototype.hasOwnProperty.call(REC_ERR, err) ? REC_ERR[err]() : t('Lỗi nhận dạng: {err}', { err });
   /* recognize(target, accent, { start, result({heard, score, audio, alts}), error(code), end }) → { stop } */
@@ -319,15 +377,19 @@
   function clearRecs() { Object.keys(recUrls).forEach(k => { URL.revokeObjectURL(recUrls[k]); delete recUrls[k]; }); }
   // ---------- Whisper trên máy (dự phòng khi trình duyệt không có nhận dạng giọng nói: Firefox, app Android…) ----------
   // Mô hình mã nguồn mở whisper-tiny.en (~40 MB, tải 1 lần khi người dùng đồng ý), chạy bằng WebAssembly – âm thanh không gửi đi đâu.
-  let whisperP = null;
+  // Tiếng Anh: whisper-tiny.en. Ngôn ngữ đích khác (es, pt…): Whisper ĐA NGÔN NGỮ chạy trên máy, tầng theo thiết bị (RAM ≥ 4 GB → base, còn lại tiny); model chỉ tải khi người dùng đồng ý, không nằm trong bundle.
+  const whisperP = {}, WLANG = { es: 'spanish', pt: 'portuguese' };
+  const whisperTl = accent => (g.Target && !g.Target.isEn(accent) && g.Target.tlOfAccent(accent)) || 'en';
+  const whisperModel = tl => tl === 'en' ? 'onnx-community/whisper-tiny.en' : (navigator.deviceMemory >= 4 ? 'onnx-community/whisper-base' : 'onnx-community/whisper-tiny');
   const whisperOK = () => { try { return localStorage.getItem('vb.whisper') === '1'; } catch (e) { return false; } };
-  async function whisper(onProgress) {
-    if (!whisperP) whisperP = import('')
-      .then(m => m.pipeline('automatic-speech-recognition', 'onnx-community/whisper-tiny.en', { dtype: 'q8', device: 'wasm', progress_callback: p => { if (p && p.status === 'progress' && onProgress) onProgress(p.progress); } }))
-      .catch(e => { whisperP = null; throw e; });
-    return whisperP;
+  async function whisper(onProgress, tl = 'en') {
+    const id = whisperModel(tl);
+    if (!whisperP[id]) whisperP[id] = import('')
+      .then(m => m.pipeline('automatic-speech-recognition', id, { dtype: 'q8', device: 'wasm', progress_callback: p => { if (p && p.status === 'progress' && onProgress) onProgress(p.progress); } }))
+      .catch(e => { delete whisperP[id]; throw e; });
+    return whisperP[id];
   }
-  function recognizeWhisper(target, cb) {
+  function recognizeWhisper(target, cb, tl = 'en') {
     const run = () => {
       const words = String(target).split(/\s+/).length, ms = cb.maxMs || Math.min(12000, Math.max(2500, 1500 + words * 600));
       let stream = null, media = null, chunks = [], stopped = false;
@@ -340,32 +402,38 @@
           const blob = new Blob(chunks, { type: media.mimeType || 'audio/webm' }), audio = recUrl(blob);
           try {
             const ac = new (g.AudioContext || g.webkitAudioContext)({ sampleRate: 16000 }), buf = await ac.decodeAudioData(await blob.arrayBuffer()); ac.close && ac.close();
-            const asr = await whisper(p => toast(t('Đang tải mô hình nhận dạng giọng nói… {p}%', { p: Math.round(p) })));
-            const out = await asr(boost(buf.getChannelData(0))), heard = String((out && out.text) || '').replace(/\[[^\]]*\]|\([^)]*\)/g, ' ').replace(/\s+/g, ' ').trim(); // bỏ nhãn [BLANK_AUDIO], (music)…
+            const asr = await whisper(p => toast(t('Đang tải mô hình nhận dạng giọng nói… {p}%', { p: Math.round(p) })), tl);
+            const out = await asr(boost(buf.getChannelData(0)), tl === 'en' ? undefined : { language: WLANG[tl] || tl, task: 'transcribe' }), heard = String((out && out.text) || '').replace(/\[[^\]]*\]|\([^)]*\)/g, ' ').replace(/\s+/g, ' ').trim(); // bỏ nhãn [BLANK_AUDIO], (music)…
             cb.result && cb.result({ heard, score: Math.round(similarity(heard, target) * 100), audio, alts: [heard] });
           } catch (e) { cb.error && cb.error('whisper'); }
           cb.end && cb.end();
         };
         media.start(); setTimeout(finish, ms); activeRec = ctl;
-      }).catch(() => { cb.error && cb.error('not-allowed'); });
+      }).catch(() => { cb.error && cb.error('not-allowed'); cb.end && cb.end(); });
       return ctl;
     };
     if (whisperOK()) return run();
     modal(`<h2 style="margin-top:0">🎙️ ${t('Bật nhận dạng giọng nói trên máy')}</h2><p class="small">${t('Trình duyệt này chưa có nhận dạng giọng nói. Lexkite có thể dùng <b>Whisper</b> (mã nguồn mở) chạy ngay trên máy của bạn: miễn phí, riêng tư – âm thanh không gửi đi đâu.')}</p><p class="small muted">${t('Cần tải mô hình khoảng 40 MB một lần (nên dùng Wi-Fi).')}</p><div class="row"><button class="btn primary" id="wOk">${t('Tải & bật')}</button><button class="btn ghost" data-close>${t('Để sau')}</button></div>`);
-    const b = document.getElementById('wOk'); if (b) b.onclick = () => { try { localStorage.setItem('vb.whisper', '1'); } catch (e) { /* bỏ qua */ } closeModal(); whisper().catch(() => {}); toast(t('Đang chuẩn bị… bấm micro lần nữa để nói')); };
+    const b = document.getElementById('wOk'); if (b) b.onclick = () => { try { localStorage.setItem('vb.whisper', '1'); } catch (e) { /* bỏ qua */ } closeModal(); whisper(null, tl).catch(() => {}); toast(t('Đang chuẩn bị… bấm micro lần nữa để nói')); };
     cb.end && cb.end();
     return null;
   }
+  // Dịch vụ nhận dạng của trình duyệt có API nhưng không dùng được (Edge/Chromium không tới máy chủ giọng nói, chính sách chặn…)
+  // → cả phiên chuyển sang Whisper trên máy (ghi âm MediaRecorder, chấm cục bộ) thay vì để nút micro báo lỗi mãi.
+  const SR_DOWN = { network: 1, 'service-not-allowed': 1, 'language-not-supported': 1 };
+  let srDown = false;
   function recognize(target, accent, cb = {}) {
-    const SR = g.SpeechRecognition || g.webkitSpeechRecognition;
-    if (cb.whisper && navigator.mediaDevices && g.MediaRecorder) return recognizeWhisper(target, cb); // gọi viên chọn "trên máy" (call.js)
-    if (SR && prefs().whisperMode && whisperOK() && navigator.mediaDevices && g.MediaRecorder) return recognizeWhisper(target, cb);
-    if (!SR) { if (g.Core && g.Core.Store.isExtension || !(navigator.mediaDevices && g.MediaRecorder)) { cb.error && cb.error('unsupported'); return null; } return recognizeWhisper(target, cb); }
+    const SR = g.SpeechRecognition || g.webkitSpeechRecognition, en = !g.Target || g.Target.isEn(accent), tl = whisperTl(accent), wl = en || !!WLANG[tl]; // Whisper trên máy: tiếng Anh (tiny.en) hoặc ngôn ngữ đích có trong WLANG (mô hình đa ngôn ngữ)
+    const canWhisper = wl && !(g.Core && g.Core.Store.isExtension) && navigator.mediaDevices && g.MediaRecorder; // add-on: CSP không cho tải mô hình
+    if (cb.whisper && en && navigator.mediaDevices && g.MediaRecorder) return recognizeWhisper(target, cb, tl); // gọi viên chọn "trên máy" (call.js)
+    if (SR && en && prefs().whisperMode && whisperOK() && navigator.mediaDevices && g.MediaRecorder) return recognizeWhisper(target, cb, tl);
+    if (SR && srDown && canWhisper) return recognizeWhisper(target, cb, tl);
+    if (!SR) { if (!wl || g.Core && g.Core.Store.isExtension || !(navigator.mediaDevices && g.MediaRecorder)) { cb.error && cb.error('unsupported'); return null; } return recognizeWhisper(target, cb, tl); }
     if (activeRec) { const old = activeRec; activeRec = null; old._stale = true; try { old.abort(); } catch (e) { /* đã dừng */ } }
     stopSpeak();
     const r = new SR();
     activeRec = r;
-    r.lang = accent || 'en-GB'; r.maxAlternatives = 5; r.interimResults = false; r.continuous = false;
+    r.lang = g.Target ? g.Target.recLang(g.Target.tlOfAccent(accent), accent) : accent || 'en-GB'; r.maxAlternatives = 5; r.interimResults = false; r.continuous = false;
     if (cb.setup) try { cb.setup(r); } catch (e) { /* thuộc tính mới (processLocally, phrases) chưa có */ }
     // Ghi âm giọng người học song song để nghe lại so với giọng mẫu
     let media = null, chunks = [], stream = null, audioP = null;
@@ -380,16 +448,28 @@
       const done = () => { if (stream) stream.getTracks().forEach(t => t.stop()); res(chunks.length ? recUrl(new Blob(chunks, { type: (media && media.mimeType) || 'audio/webm' })) : ''); };
       if (media && media.state !== 'inactive') { media.onstop = done; try { media.stop(); } catch (e) { done(); } } else done();
     }));
-    r.onresult = async e => {
+    // Luôn kết thúc bằng đúng 1 tín hiệu result/error trước end: có trình duyệt (Edge) kết thúc phiên nghe mà không báo gì → nút micro "chết" im lặng.
+    const guard = r.continuous ? 0 : setTimeout(() => { try { r.abort(); } catch (e) { /* đã dừng */ } }, cb.maxMs || 20000);
+    r.onresult = e => {
       if (r._stale) return;
+      r._fin = true;
       const alts = [...e.results[0]].map(a => a.transcript.trim()).filter(Boolean);
       const best = alts.map(a => ({ a, s: similarity(a, target) })).sort((x, y) => y.s - x.s)[0] || { a: '', s: 0 };
-      const audio = await finishAudio();
-      cb.result && cb.result({ heard: best.a, score: Math.round(best.s * 100), audio, alts });
+      r._resP = finishAudio().then(audio => { cb.result && cb.result({ heard: best.a, score: Math.round(best.s * 100), audio, alts }); }); // end chờ result (thứ tự result → end)
     };
-    r.onerror = e => { if (r._stale || e.error === 'aborted') return; cb.error && cb.error(e.error); };
-    r.onend = () => { r._ended = true; if (activeRec === r) activeRec = null; finishAudio(); if (!r._stale) cb.end && cb.end(); };
-    try { r.start(); } catch (e) { cb.error && cb.error('busy'); return null; }
+    r.onerror = e => {
+      if (r._stale || e.error === 'aborted' || r._fin) return;
+      r._fin = true;
+      if (SR_DOWN[e.error] && canWhisper) { srDown = true; r._fell = true; recognizeWhisper(target, cb, tl); return; } // Whisper tự gọi result/error/end
+      cb.error && cb.error(e.error);
+    };
+    r.onend = () => {
+      r._ended = true; clearTimeout(guard); if (activeRec === r) activeRec = null; finishAudio();
+      if (r._stale || r._fell) return;
+      if (!r._fin) { r._fin = true; cb.error && cb.error('no-speech'); }
+      const end = () => cb.end && cb.end(); if (r._resP) r._resP.then(end, end); else end();
+    };
+    try { r.start(); } catch (e) { clearTimeout(guard); cb.error && cb.error('busy'); return null; }
     cb.start && cb.start();
     return { stop: () => { try { r.stop(); } catch (e) { /* đã dừng */ } } };
   }
@@ -425,7 +505,7 @@
   // Ô ngữ cảnh có nút nghe cả câu (🔊 tốc độ chuẩn · 🐢 chậm) – dùng chung cho mọi bảng tra
   function ctxBox(sentence, word, extra = '') {
     if (!sentence) return '';
-    return `<div class="ctx-box ${extra}"><div class="ctx-tx">📌 ${highlight(sentence, word)}</div><div class="ctx-act"><button class="ctx-say" data-saysent="${esc(sentence)}" title="${t('Nghe cả câu')}" aria-label="${t('Nghe cả câu')}">🔊</button><button class="ctx-say" data-saysent="${esc(sentence)}" data-slow="1" title="${t('Nghe chậm')}" aria-label="${t('Nghe chậm')}">🐢</button></div></div>`;
+    return `<div class="ctx-box ${extra}"><div class="ctx-tx" data-sent="${esc(sentence)}">📌 ${highlight(sentence, word)}</div><div class="ctx-act"><button class="ctx-say" data-saysent="${esc(sentence)}" title="${t('Nghe cả câu')}" aria-label="${t('Nghe cả câu')}">🔊</button><button class="ctx-say" data-saysent="${esc(sentence)}" data-slow="1" title="${t('Nghe chậm')}" aria-label="${t('Nghe chậm')}">🐢</button></div></div>`;
   }
   if (typeof document !== 'undefined') document.addEventListener('click', e => {
     const b = e.target.closest && e.target.closest('[data-saysent]'); if (!b) return;
@@ -566,5 +646,5 @@
     e.preventDefault(); const st = prefs();
     if (b.dataset.speak != null) speak(b.dataset.speak, b.dataset.accent || st.accent, b.dataset.url || ''); else speak(b.dataset.speakText, st.accent);
   });
-  g.UI = { sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, stopSpeak, recognize, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
+  g.UI = { whisperModel, sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, ttsClean, stopSpeak, recognize, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
 })(typeof self !== 'undefined' ? self : this);

@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_company",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: company.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a business that sells things or provides services.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "She works for a small software company.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "company",
+  "ipa": "/ˈkʌmpəni/",
+  "mean": "a business that sells things or provides services",
+  "ex": "She works for a small software company.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=company",
+  "link": "https://lexkite.com/app/#/review?w=company",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 25.7,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"company\" mean?",
+  "keyword": "company",
+  "value": "Company means a business that sells things or provides services.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=company",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"company\" mean?",
+    "description": "Company means a business that sells things or provides services.\n\nReview your words, free: https://lexkite.com/app/#/review?w=company\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "company",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"company\" mean?\n\nCompany means a business that sells things or provides services.\n\nReview your words, free: https://lexkite.com/app/#/review?w=company"
+   },
+   "instagram": {
+    "caption": "What does \"company\" mean?\n\nCompany means a business that sells things or provides services.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"company\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a business that sells things or provides services. Company means a business that sells things or provides services. More practice like this (free): {link}"
+ }
+}

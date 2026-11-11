@@ -8,8 +8,9 @@ const root = fileURLToPath(new URL('..', import.meta.url));
 const langs = ['vi', 'en', ...fs.readFileSync(root + 'scripts/i18n-langs.txt', 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#'))];
 const g = { I18N_DICT: {} }; g.self = g;
 for (const l of langs.filter(l => l !== 'vi')) {
-  vm.runInNewContext(fs.readFileSync(`${root}web/js/i18n/${l}.js`, 'utf8'), g);
-  vm.runInNewContext(fs.readFileSync(`${root}web/js/i18n/${l}/wfeed.js`, 'utf8'), g);
+  const dir = l === 'en' ? 'web/js/i18n' : 'i18n/ui'; // 13 ngôn ngữ: nguồn khóa nguyên câu (web/js/i18n/<lang> là gói khóa băm)
+  vm.runInNewContext(fs.readFileSync(`${root}${dir}/${l}.js`, 'utf8'), g);
+  vm.runInNewContext(fs.readFileSync(`${root}${dir}/${l}/wfeed.js`, 'utf8'), g);
 }
 const tr = (l, k) => (l === 'vi' ? k : (g.I18N_DICT[l] || {})[k] || g.I18N_DICT.en[k]);
 const desc = l => `${tr(l, 'Thẻ đến hạn hôm nay')} · 🔥 ${tr(l, 'Chuỗi ngày')}`;

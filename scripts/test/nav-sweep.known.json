@@ -1,0 +1,85 @@
+{
+ "quick": [
+  "enter"
+ ],
+ "reflex": [
+  "enter",
+  "end"
+ ],
+ "placement": [
+  "enter"
+ ],
+ "handsfree": [
+  "end",
+  "skip"
+ ],
+ "review": [
+  "enter",
+  "end"
+ ],
+ "rtype": [
+  "enter",
+  "end"
+ ],
+ "cbt": [
+  "enter",
+  "end"
+ ],
+ "speaking": [
+  "end",
+  "skip"
+ ],
+ "lesson": [
+  "end"
+ ],
+ "listen": [
+  "enter",
+  "end",
+  "skip"
+ ],
+ "listen-test": [
+  "enter",
+  "skip"
+ ],
+ "dictation": [
+  "skip"
+ ],
+ "grammar": [
+  "end"
+ ],
+ "toefl-p": [
+  "enter"
+ ],
+ "toeic-r": [
+  "enter",
+  "end"
+ ],
+ "toeic-test": [
+  "end"
+ ],
+ "toeic-sw": [
+  "enter",
+  "end"
+ ],
+ "pron": [
+  "enter",
+  "skip"
+ ],
+ "roleplay": [
+  "enter",
+  "end",
+  "skip"
+ ],
+ "mock": [
+  "progress",
+  "enter"
+ ],
+ "letters": [
+  "end"
+ ],
+ "_flaky": {
+  "practice": [
+   "end"
+  ]
+ }
+}

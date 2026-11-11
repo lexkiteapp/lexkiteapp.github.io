@@ -65,8 +65,17 @@
   const D = () => g.Distract;
 
   routes.placement = function () {
-    if (!document.getElementById('pl-css')) { const st = document.createElement('style'); st.id = 'pl-css'; st.textContent = '.pl-result { text-align: center; color: var(--text); padding: 1.6rem 1.25rem; } .pl-em { font-size: 3rem; line-height: 1; margin-bottom: .5rem; } .pl-h { color: var(--text); font-size: 1.4rem; margin-bottom: .8rem; text-wrap: balance; } .pl-rings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; max-width: 320px; margin: .6rem auto 1rem; } .pl-skill { display: grid; justify-items: center; gap: .3rem; } .pl-skill .ring { width: 76px; height: 76px; } .pl-skill .ring b { font-size: 1rem; } .pl-how { text-wrap: pretty; } .pl-q { font-size: 1.15rem; font-weight: 700; margin-top: .4rem; line-height: 1.5; } .pl-cta { display: grid; gap: .6rem; max-width: 360px; margin: 1.2rem auto 0; } [dir="rtl"] .pl-q { direction: ltr; unicode-bidi: isolate; }'; document.head.appendChild(st); }
+    if (!document.getElementById('pl-css')) { const st = document.createElement('style'); st.id = 'pl-css'; st.textContent = '.pl-result { text-align: center; color: var(--text); padding: 1.6rem 1.25rem; } .pl-em { font-size: 3rem; line-height: 1; margin-bottom: .5rem; } .pl-h { color: var(--text); font-size: 1.4rem; margin-bottom: .8rem; text-wrap: balance; } .pl-rings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; max-width: 320px; margin: .6rem auto 1rem; } .pl-skill { display: grid; justify-items: center; gap: .3rem; } .pl-skill .ring { width: 76px; height: 76px; } .pl-skill .ring b { font-size: 1rem; } .pl-how { text-wrap: pretty; } .pl-q { font-size: 1.15rem; font-weight: 700; margin-top: .4rem; line-height: 1.5; } .pl-cta { display: grid; gap: .6rem; max-width: 360px; margin: 1.2rem auto 0; } [dir="rtl"] .pl-q { direction: ltr; unicode-bidi: isolate; } .pl-inv { display: flex; align-items: flex-end; justify-content: center; gap: .75rem; margin: 0 auto .9rem; max-width: 360px; } .pl-say { flex: 1 1 auto; min-width: 0; margin: 0; padding: .7rem .9rem; border-radius: 16px; background: var(--surface-2); color: var(--text); text-align: start; font-weight: 600; text-wrap: pretty; }'; document.head.appendChild(st); }
     const mean = w => App.meanOf(w);
+    // lk.plInv (onboard.js): lời mời người mới – Bỏ qua/xong → Hôm nay
+    const INV = 'lk.plInv', inv = (() => { try { const v = JSON.parse(sessionStorage.getItem(INV) || 'null'); return state.settings.onboarded && Array.isArray(v) ? v : null; } catch (e) { return null; } })();
+    const endInv = () => { try { sessionStorage.removeItem(INV); } catch (e) { /* bỏ qua */ } };
+    const addLv = async cefr => { // ≤10 từ đúng CEFR, chưa có trong bộ thẻ
+      const ks = new Set(), ws = [];
+      for (const id of inv || []) for (const w of ((App.topicOf(id) || {}).words || [])) { const k = String(w.word || '').toLowerCase(); if (ws.length < 10 && k && w.level === cefr && !ks.has(k) && !App.inDeck(k)) { ks.add(k); ws.push(w); } }
+      for (const w of ws) await App.addWord(w, null, { silent: true });
+      return ws.length;
+    };
     const seen = new Set();
     const vocab = (g.IELTS_DATA ? IELTS_DATA.TOPICS : []).flatMap(tp => tp.words).filter(w => {
       const k = String(w.word || '').toLowerCase();
@@ -95,7 +104,7 @@
       }
       cur = { item, correct, c: 1 / opts.length };
       const i = resp.length;
-      view.innerHTML = `<div class="study-wrap pl-wrap"><div class="study-top"><a class="icon-btn" href="#/home" id="plX" aria-label="${t('Thoát')}" title="${t('Thoát')}">✕</a>
+      view.innerHTML = `<div class="study-wrap pl-wrap"><div class="study-top"><a class="icon-btn" href="${App.homeHref()}" id="plX" aria-label="${t('Thoát')}" title="${t('Thoát')}">✕</a>
           <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="${N}" aria-valuenow="${i}"><i style="width:${i / N * 100}%"></i></div><span class="small muted">${i + 1}/${N}</span></div>
         <div class="card q-card">${prompt}</div>
         <div class="options">${opts.map((o, k) => `<button type="button" class="option" data-k="${k}"><span class="kbd" aria-hidden="true">${k + 1}</span><span${kind === 'grammar' ? ' lang="en"' : ''}>${esc(o)}</span></button>`).join('')}<button type="button" class="option opt-idk" data-k="-1"><span aria-hidden="true">🤷</span><span>${t('Tôi không biết')}</span></button></div></div>`;
@@ -107,7 +116,7 @@
         if (!resp.length) return;
         e.preventDefault();
         modal(`<div class="celebrate"><h2>${t('Thoát giữa chừng?')}</h2><p class="muted">${t('Kết quả của lượt này sẽ không được lưu.')}</p>
-          <div class="row center"><button class="btn primary" data-close>${t('Làm tiếp')}</button><a class="btn" href="#/home" data-close>${t('Thoát')}</a></div></div>`);
+          <div class="row center"><button class="btn primary" data-close>${t('Làm tiếp')}</button><a class="btn" href="${App.homeHref()}" data-close>${t('Thoát')}</a></div></div>`);
       };
     };
     const answer = b => {
@@ -130,25 +139,31 @@
     const finish = async () => {
       document.removeEventListener('keydown', keys);
       const E = estimate(resp);
+      const isNew = !App.hasData(); // từ Welcome, chưa thiết lập: XP cộng khi xong thiết lập, nếu không "có XP" = "có dữ liệu" và #/welcome/setup sẽ chuyển về Home (docs/specs/welcome.md)
       state.settings.placement = { v: 2, band: E.band, lo: E.lo, hi: E.hi, vocab: E.vocab.band, grammar: E.grammar.band, vCefr: E.vocab.cefr, gCefr: E.grammar.cefr, weak: E.weak, stage: E.stage, n: E.n, idk: E.idk, se: E.se, pct: Math.round(E.right / Math.max(1, E.n) * 100), at: Date.now() };
+      if (isNew) state.settings.plXpDue = 1;
+      const added = inv ? await addLv(E.vocab.cefr) : 0; endInv();
       await App.saveSettings();
       if (g.Sync && Sync.schedule) Sync.schedule();
-      App.reward({ quizzes: 1, xp: 20 }); Sfx.win(); confetti();
+      if (!isNew) App.reward({ quizzes: 1, xp: 20 });
+      Sfx.win(); confetti();
       const weak = E.weak === 'vocab' ? t('từ vựng') : t('ngữ pháp');
       const STG = { s0: t('Chặng 0 · Từ cốt lõi'), s1: t('Chặng 1 · Nền tảng'), s2: t('Chặng 2 · Mở rộng chủ đề'), s3: t('Chặng 3 · Học thuật') };
       const sk = (s, label, color) => `<div class="pl-skill">${ring(s.band / 9 * 100, f1(s.band), color)}<b>${label}</b><span class="small muted">${s.cefr}</span></div>`;
-      view.innerHTML = `<div class="study-wrap pl-wrap"><div class="card pl-result">
+      view.innerHTML = `<div class="study-wrap pl-wrap"><div class="card pl-result" data-lesson-done>
         <div class="pl-em" aria-hidden="true">🎯</div><h2 class="pl-h">${t('Trình độ ước tính: Band {band}', { band: E.range })}</h2>
         <div class="pl-rings">${sk(E.vocab, t('Từ vựng'), 'var(--primary)')}${sk(E.grammar, t('Ngữ pháp'), 'var(--accent)')}</div>
         <p>${t('Điểm cần ưu tiên: <b>{weak}</b>. Kế hoạch hôm nay trên trang chủ đã được điều chỉnh theo kết quả này.', { weak })}</p>
-        <p class="small muted">${t('Gợi ý bắt đầu lộ trình từ <b>{stage}</b>.', { stage: STG[E.stage] })}</p>
+        <p class="small muted">${t('Gợi ý bắt đầu lộ trình từ <b>{stage}</b>.', { stage: STG[E.stage] })}</p>${added ? `<p class="small muted">${t('Đã thêm {n} từ hợp trình độ {cefr} vào bộ thẻ.', { n: added, cefr: E.vocab.cefr })}</p>` : ''}
         <p class="small muted pl-how">${t('Ước tính từ {n} câu thích ứng: câu khó dần khi bạn trả lời đúng, dễ dần khi bạn sai. Khoảng điểm cho biết độ chắc chắn – làm lại sau vài tuần để cập nhật.', { n: E.n })} ${t('Kết quả chỉ để tham khảo, không thay thế bài thi thật.')}</p>
-        <div class="pl-cta"><a class="btn primary lg block" href="#/home">${t('Xem kế hoạch hôm nay →')}</a><a class="btn block" href="#/path">🗺️ ${t('Lộ trình')}</a></div></div></div>`;
+        <div class="pl-cta">${state.settings.onboarded ? `<a class="btn primary lg block" href="#/home">${t('Xem kế hoạch hôm nay →')}</a>` : `<a class="btn primary lg block" href="#/welcome/setup">${t('Tiếp tục thiết lập lộ trình →')}</a>`}<a class="btn block" href="#/path">🗺️ ${t('Lộ trình')}</a><a class="btn block" href="#/outcome">📈 ${t('Đo nói + viết (12 phút)')}</a></div></div></div>`;
     };
-    view.innerHTML = `<div class="study-wrap pl-wrap"><div class="card pl-result"><div class="pl-em" aria-hidden="true">🧭</div><h2 class="pl-h">${t('Kiểm tra đầu vào (5 phút)')}</h2>
+    const kit = inv && g.Chars && Chars.slot ? Chars.slot('ama', { pose: 'point', size: 'm' }) : '';
+    view.innerHTML = `<div class="study-wrap pl-wrap"><div class="card pl-result">${inv ? `<div class="pl-inv">${kit}<p class="pl-say" aria-live="polite">${t('Làm bài 5 phút để mình xếp bạn vào đúng chặng và chọn bộ từ vừa sức nhé!')}</p></div>` : '<div class="pl-em" aria-hidden="true">🧭</div>'}<h2 class="pl-h">${t('Kiểm tra đầu vào (5 phút)')}</h2>
       <p>${t('20 câu từ vựng và ngữ pháp từ A2 đến C1. Lexkite dùng kết quả để <b>ước tính band</b>, tìm <b>điểm yếu</b> và cá nhân hóa kế hoạch học mỗi ngày.')}</p>
       <p class="small muted">${t('Không biết thì chọn “Tôi không biết” – đừng đoán, kết quả sẽ chính xác hơn.')}</p>
-      <div class="pl-cta"><button class="btn primary lg block" id="go">${t('Bắt đầu →')}</button></div></div></div>`;
+      <div class="pl-cta"><button class="btn primary lg block" id="go">${t('Bắt đầu →')}</button>${inv ? `<button type="button" class="btn block" id="plSkip">${t('Bỏ qua')}</button><p class="small muted">${t('Bỏ qua thì bạn học từ chặng đầu – làm bài sau ở Hôm nay cũng được.')}</p>` : ''}</div></div></div>`;
+    if (inv) $('#plSkip').onclick = () => { endInv(); App.replaceHash('#/home'); }; // bỏ qua → mặc định
     $('#go').onclick = () => { if (App.holdRoute) App.holdRoute(); document.addEventListener('keydown', keys); ask(); }; // đang làm bài → boot không vẽ lại xóa tiến độ
   };
 })();

@@ -443,6 +443,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "Dinner was great. Let's ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " the bill.",
+      "white"
+     ]
+    ]
+   ],
    "a": "divide",
    "b": "split",
    "correct": "b",

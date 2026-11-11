@@ -33,6 +33,7 @@ quiz: [
     explain: "'Consequently' indica que o evento subsequente é o resultado ou desfecho lógico direto da premissa anterior."
   }
 ]
+publishAt: 2026-11-30T09:25:00-03:00
 ---
 
 Ao produzir uma redação acadêmica, redigir um e-mail profissional ou defender argumentos em exames como IELTS e TOEFL, apresentar boas ideias não é suficiente. A maturidade do seu texto é julgada principalmente pela coesão e pela clareza lógica entre as orações. O domínio dos **conectivos em ingles linking words** garante que o leitor acompanhe o raciocínio sem interrupções, estabelecendo transições suaves entre causas, efeitos, contrastes e conclusões.
@@ -149,6 +150,6 @@ Para não soar mecânico ou exagerar no uso de conectores (*over-linking*):
 - **Varie a posição dos conectores**: Em vez de colocar *However* sempre na primeira palavra da frase, experimente colocá-lo entre vírgulas após o sujeito: *"The initial hypothesis, however, was disproved by later trials."*
 - **Priorize a clareza**: Se a relação entre duas frases já for óbvia pelo contexto, omita o conector para manter a leitura fluida e natural.
 
-Aprofunde seus estudos lendo também sobre [frases complexas no IELTS Writing Task 2](/pt/blog/frases-complexas-ielts-writing-task-2/) e consulte nossas [dicas para IELTS Writing Task 2](/pt/blog/dicas-ielts-writing-task-2/). Além disso, confira o guia de [collocations em inglês para IELTS](/pt/blog/collocations-em-ingles-para-ielts/) e aprenda [como parafrasear no IELTS](/pt/blog/como-parafrasear-no-ielts-tecnicas/) para diversificar seu vocabulário em conjunto com as listas de [/tu-vung/](/tu-vung/).
+Aprofunde seus estudos lendo também sobre [frases complexas no IELTS Writing Task 2](/pt/blog/frases-complexas-ielts-writing-task-2/) e consulte nossas [dicas para IELTS Writing Task 2](/pt/blog/dicas-ielts-writing-task-2/). Além disso, confira o guia de [collocations em inglês para IELTS](/pt/blog/collocations-em-ingles-para-ielts/) e aprenda [como parafrasear no IELTS](/pt/blog/como-parafrasear-no-ielts-tecnicas/) para diversificar seu vocabulário em conjunto com as listas de [/tu-vung/](/en/vocabulary/).
 
 Com a prática deliberada dessas estruturas, sua escrita alcançará um novo patamar de coesão, sofisticação e assertividade.

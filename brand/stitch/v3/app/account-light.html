@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Account &amp; Sync (Bright Day Mobile)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              'teal-dark': '#092526',
+              'teal-light': '#145953',
+              'teal-surface': '#E6F4F2',
+              'teal-border': '#B7DFDA',
+            },
+            cta: {
+              coral: '#F59E0B',
+              'coral-ledge': '#B45309',
+              'coral-ink': '#1C1003',
+            },
+            danger: {
+              red: '#DC2626',
+              'red-dark': '#991B1B',
+              'red-surface': '#FEF2F2',
+              'red-border': '#FECACA',
+            },
+            tactile: {
+              cream: '#FFF9F3',
+              'cream-subtle': '#FFF3E6',
+              card: '#FFFFFF',
+              border: '#E8DCCF',
+              ledge: '#DEC9B5',
+              ink: '#1A1816',
+              'ink-muted': '#5C4E42',
+              'ink-faint': '#8C7A6B',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            'tactile-sm': '0 3px 0 0 #DEC9B5',
+            'tactile-md': '0 4px 0 0 #DEC9B5',
+            'tactile-teal': '0 4px 0 0 #092526',
+            'tactile-coral': '0 4px 0 0 #B45309',
+            'tactile-danger': '0 3px 0 0 #B91C1C',
+            'tactile-sheet': '0 -8px 28px rgba(28, 16, 3, 0.14)',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Smooth tactile button press effect */
+    .tactile-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 var(--tw-shadow-color, #DEC9B5) !important;
+    }
+    /* Scroll styling inside the sheet */
+    .sheet-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .sheet-scroll::-webkit-scrollbar-thumb {
+      background-color: #DEC9B5;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-[#241E1A]/40 min-h-screen font-sans text-tactile-ink flex flex-col items-center justify-end antialiased selection:bg-brand-teal selection:text-white">
+<!-- Mobile Viewport Container (Strictly 390px native mobile shell) -->
+<div class="relative w-full max-w-[390px] min-h-screen bg-transparent flex flex-col justify-end overflow-hidden shadow-2xl">
+<!-- Scrim / Dimmed Parent Activity Background (Showing Lexkite 'Me' Profile peek behind sheet) -->
+<div class="absolute inset-0 bg-[#FFF9F3] -z-10 flex flex-col pointer-events-none opacity-40 filter blur-[1px]">
+<!-- Background Header -->
+<div class="px-5 pt-12 pb-4 flex items-center justify-between border-b border-tactile-border bg-white">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-xl bg-brand-teal text-white flex items-center justify-center font-black text-sm shadow-sm">LK</span>
+<span class="font-extrabold text-brand-teal tracking-tight text-lg">Lexkite</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-rounded text-tactile-ink-muted">settings</span>
+</div>
+</div>
+<!-- Background Content Mock Rows -->
+<div class="p-4 space-y-3">
+<div class="h-28 rounded-2xl bg-white border-2 border-tactile-border"></div>
+<div class="h-20 rounded-2xl bg-white border-2 border-tactile-border"></div>
+<div class="h-32 rounded-2xl bg-white border-2 border-tactile-border"></div>
+</div>
+</div>
+<!-- Backdrop Click Layer -->
+<div class="absolute inset-0 bg-black/45 backdrop-blur-[2px] transition-opacity"></div>
+<!-- ======================================================== -->
+<!-- ACCOUNT & SYNC BOTTOM SHEET -->
+<!-- ======================================================== -->
+<div class="relative z-10 w-full bg-tactile-cream rounded-t-[28px] border-t-2 border-x-2 border-tactile-border shadow-tactile-sheet flex flex-col max-h-[92vh] transition-all">
+<!-- Drag Handle & Sheet Top Bar -->
+<div class="pt-3 pb-2 px-5 flex flex-col items-center border-b border-tactile-border/60 bg-tactile-cream rounded-t-[28px]">
+<!-- Tactile Handle Bar -->
+<div class="w-12 h-1.5 rounded-full bg-tactile-ledge mb-2.5"></div>
+<div class="w-full flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-rounded text-brand-teal text-xl">manage_accounts</span>
+<h1 class="text-base font-black text-brand-teal tracking-tight leading-tight">
+              Account &amp; sync
+            </h1>
+</div>
+<!-- Close Button (min 44x44px accessible tap target) -->
+<button aria-label="Close bottom sheet" class="tactile-btn w-11 h-11 rounded-full bg-white border-2 border-tactile-border text-tactile-ink flex items-center justify-center shadow-tactile-sm hover:bg-tactile-cream-subtle focus:outline-none focus:ring-2 focus:ring-brand-teal" type="button">
+<span class="material-symbols-rounded text-xl">close</span>
+</button>
+</div>
+</div>
+<!-- Sheet Scrollable Body -->
+<div class="sheet-scroll px-4 pt-4 pb-6 overflow-y-auto space-y-4">
+<!-- 1. ACCOUNT PROFILE HERO CARD -->
+<div class="bg-white rounded-2xl p-4 border-2 border-tactile-border shadow-tactile-sm">
+<div class="flex items-start gap-3.5">
+<!-- User Initials Circle (Tactile deep teal medallion) -->
+<div class="relative flex-shrink-0">
+<div class="w-14 h-14 rounded-2xl bg-brand-teal text-white font-black text-xl flex items-center justify-center border-2 border-brand-teal-dark shadow-tactile-sm">
+                AN
+              </div>
+<!-- Verified Tier Badge -->
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-cta-coral text-cta-coral-ink flex items-center justify-center border border-white font-black text-[10px]" title="Pro Tier">
+                ★
+              </div>
+</div>
+<!-- Profile Info & Tier -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 flex-wrap">
+<h2 class="font-extrabold text-base text-tactile-ink leading-tight truncate">
+                  Alex Nguyen
+                </h2>
+<!-- Plan Tag -->
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-black uppercase tracking-wider bg-brand-teal-surface text-brand-teal border border-brand-teal-border">
+                  IELTS Pro
+                </span>
+</div>
+<p class="text-xs font-bold text-tactile-ink mt-0.5 break-all">alex.nguyen@example.com</p>
+<!-- Live Sync Status Row -->
+<div class="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-100 border border-emerald-200"><span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span><span class="text-xs font-black text-emerald-800">Synced 2 min ago</span><span class="material-symbols-rounded text-emerald-800 text-sm ml-0.5">cloud_done</span></div>
+</div>
+</div>
+</div>
+<!-- 2. EMPTY TEACHER SLOT (Strictly no drawn person, code inserted placeholder) -->
+<div class="teacher-slot rounded-2xl border-2 border-dashed border-brand-teal-border bg-brand-teal-surface/60 p-3.5 flex items-center gap-3">
+<!-- Tactile slot emblem -->
+<div class="w-11 h-11 rounded-xl bg-white border border-brand-teal-border flex items-center justify-center flex-shrink-0 text-brand-teal shadow-tactile-sm">
+<span class="material-symbols-rounded text-2xl">school</span>
+</div>
+<!-- Explanatory note & label -->
+<div class="flex-1 min-w-0"><div class="flex items-center gap-2"><span class="text-xs font-black uppercase tracking-wider text-brand-teal-dark bg-white px-2 py-0.5 rounded-md border border-brand-teal">teacher-slot</span><span class="text-[11px] font-extrabold text-tactile-ink">Coach Ama / Carlos</span></div><p class="text-xs font-extrabold text-tactile-ink mt-1 leading-snug">“Your flashcard progress and test scores sync seamlessly across all your devices.”</p></div>
+</div>
+<!-- 3. CONNECTED DEVICES LIST -->
+<div class="bg-white rounded-2xl p-4 border-2 border-tactile-border shadow-tactile-sm space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-brand-teal text-lg">devices</span>
+<h3 class="text-xs font-black uppercase tracking-wider text-brand-teal">
+                Active devices (2)
+              </h3>
+</div>
+<button class="min-h-[44px] px-2 py-1 text-xs font-black text-brand-teal hover:underline inline-flex items-center gap-1 focus:outline-none" type="button"><span>Add device</span><span class="material-symbols-rounded text-base">add_circle</span></button>
+</div>
+<div class="space-y-2.5"><div class="p-3 rounded-xl bg-tactile-cream border border-tactile-border flex items-center justify-between gap-3"><div class="flex items-center gap-3 min-w-0"><div class="w-10 h-10 rounded-xl bg-white border border-tactile-border flex items-center justify-center flex-shrink-0 text-brand-teal shadow-tactile-sm"><span class="material-symbols-rounded text-xl">smartphone</span></div><div class="min-w-0"><div class="flex items-center gap-1.5 flex-wrap"><span class="text-xs font-extrabold text-tactile-ink leading-tight">iPhone 15 Pro</span><span class="px-1.5 py-0.5 rounded text-[10px] font-black bg-brand-teal text-white leading-tight">This device</span></div><p class="text-[11px] font-bold text-tactile-ink mt-0.5">Lexkite Mobile App v2.4 • Active now</p></div></div><div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center flex-shrink-0"><span class="material-symbols-rounded text-base font-bold">check</span></div></div><div class="p-3 rounded-xl bg-tactile-cream border border-tactile-border flex items-center justify-between gap-3"><div class="flex items-center gap-3 min-w-0"><div class="w-10 h-10 rounded-xl bg-white border border-tactile-border flex items-center justify-center flex-shrink-0 text-brand-teal shadow-tactile-sm"><span class="material-symbols-rounded text-xl">extension</span></div><div class="min-w-0"><div class="flex items-center gap-1.5 flex-wrap"><span class="text-xs font-extrabold text-tactile-ink leading-tight">Chrome browser add-on</span><span class="px-1.5 py-0.5 rounded text-[10px] font-black bg-white border border-tactile-border/80 text-tactile-ink leading-tight">MacBook</span></div><p class="text-[11px] font-bold text-tactile-ink mt-0.5">Paired 3 days ago • Auto-sync ON</p></div></div><button aria-label="Sync browser add-on now" class="tactile-btn min-w-[44px] min-h-[44px] rounded-xl bg-white border border-tactile-border text-brand-teal flex items-center justify-center hover:bg-brand-teal-surface shadow-tactile-sm flex-shrink-0" type="button"><span class="material-symbols-rounded text-lg">sync</span></button></div></div>
+</div>
+<!-- 4. BACKUP & EXPORT DATA ROW -->
+<div class="bg-white rounded-2xl p-4 border-2 border-tactile-border shadow-tactile-sm space-y-2.5">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="material-symbols-rounded text-brand-teal text-lg">database</span>
+<h3 class="text-xs font-black uppercase tracking-wider text-brand-teal">
+              Data portability &amp; backup
+            </h3>
+</div>
+<!-- Cloud Backup Status -->
+<div class="flex items-center justify-between py-2 border-b border-tactile-border/50 text-xs"><div class="flex items-center gap-2"><span class="material-symbols-rounded text-emerald-700 text-lg">cloud_sync</span><div><span class="font-black text-tactile-ink block leading-snug">Encrypted cloud backup</span><span class="text-[11px] font-bold text-tactile-ink">45-day streak &amp; 1,240 vocabulary cards secured</span></div></div><span class="font-black text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded border border-emerald-200 text-[11px]">Active</span></div>
+<!-- Export Data Action Button (Supports long translations without breaking) -->
+<button class="tactile-btn w-full min-h-[46px] px-3.5 py-2.5 rounded-xl bg-tactile-cream hover:bg-tactile-cream-subtle border-2 border-tactile-border text-brand-teal font-extrabold text-xs flex items-center justify-between shadow-tactile-sm" type="button">
+<div class="flex items-center gap-2 text-left">
+<span class="material-symbols-rounded text-brand-teal text-lg flex-shrink-0">download</span>
+<span class="leading-snug">Export vocabulary &amp; study history (Anki .apkg / JSON)</span>
+</div>
+<span class="material-symbols-rounded text-tactile-ink text-base flex-shrink-0 ml-2">chevron_right</span>
+</button>
+</div>
+<!-- 5. ACCOUNT ACTIONS: SIGN OUT & DELETE ACCOUNT (SEPARATED DANGER ZONE) -->
+<div class="pt-1 space-y-3">
+<!-- Primary Account Action: Sign Out Button (Tactile button with dark ledge) -->
+<button class="tactile-btn w-full min-h-[50px] px-4 py-3 rounded-2xl bg-white hover:bg-tactile-cream-subtle border-2 border-brand-teal text-brand-teal font-black text-sm flex items-center justify-center gap-2 shadow-tactile-md" type="button">
+<span class="material-symbols-rounded text-xl">logout</span>
+<span class="tracking-tight leading-snug">Sign out of Lexkite</span>
+</button>
+<!-- Danger Section: Delete Account (Distinct Danger styling with separate card border) -->
+<div class="rounded-2xl p-3.5 bg-danger-red-surface/70 border-2 border-danger-red-border space-y-2">
+<div class="flex items-start gap-2">
+<span class="material-symbols-rounded text-danger-red text-base mt-0.5 flex-shrink-0">warning</span>
+<p class="text-[11px] font-bold text-danger-red-dark leading-snug">
+                Deleting your account will permanently purge your 45-day streak, IELTS test evaluations, and custom decks.
+              </p>
+</div>
+<!-- Danger Button (At least 44px tap target, high contrast red ink) -->
+<button class="tactile-btn w-full min-h-[44px] px-4 py-2.5 rounded-xl bg-white hover:bg-red-50 border-2 border-danger-red text-danger-red font-black text-xs flex items-center justify-center gap-2 shadow-tactile-danger" type="button">
+<span class="material-symbols-rounded text-base">delete_forever</span>
+<span class="leading-snug">Delete account &amp; wipe data</span>
+</button>
+</div>
+</div>
+<!-- Privacy & Security Footnote -->
+<div class="text-center pt-1 pb-2"><p class="text-[11px] font-bold text-tactile-ink leading-normal">Zero third-party trackers • CEFR &amp; GDPR compliant</p><div class="flex items-center justify-center gap-3 text-xs mt-1"><a class="min-h-[44px] inline-flex items-center font-bold text-brand-teal underline hover:text-brand-teal-light" href="#">Privacy Policy</a><span class="text-tactile-ink font-bold">•</span><a class="min-h-[44px] inline-flex items-center font-bold text-brand-teal underline hover:text-brand-teal-light" href="#">Security Whitepaper</a></div></div>
+</div>
+<!-- ======================================================== -->
+<!-- MOBILE SHELL: EXACT 5 TABS BOTTOM NAVBAR -->
+<!-- Today, Vocab, Skills, Tests, Me -->
+<!-- ======================================================== -->
+<nav aria-label="Bottom Navigation" class="w-full bg-white border-t-2 border-tactile-border px-2 py-1.5 flex items-center justify-around z-20 shadow-[0_-3px_0_0_#DEC9B5]">
+<!-- 1. Today -->
+<a class="flex flex-col items-center justify-center min-w-[54px] min-h-[48px] py-1 text-tactile-ink-muted hover:text-brand-teal" href="#">
+<span class="material-symbols-rounded text-xl leading-none">calendar_today</span>
+<span class="text-[10px] font-bold tracking-tight mt-1 leading-none">Today</span>
+</a>
+<!-- 2. Vocab -->
+<a class="flex flex-col items-center justify-center min-w-[54px] min-h-[48px] py-1 text-tactile-ink-muted hover:text-brand-teal" href="#">
+<span class="material-symbols-rounded text-xl leading-none">menu_book</span>
+<span class="text-[10px] font-bold tracking-tight mt-1 leading-none">Vocab</span>
+</a>
+<!-- 3. Skills -->
+<a class="flex flex-col items-center justify-center min-w-[54px] min-h-[48px] py-1 text-tactile-ink-muted hover:text-brand-teal" href="#">
+<span class="material-symbols-rounded text-xl leading-none">psychology</span>
+<span class="text-[10px] font-bold tracking-tight mt-1 leading-none">Skills</span>
+</a>
+<!-- 4. Tests -->
+<a class="flex flex-col items-center justify-center min-w-[54px] min-h-[48px] py-1 text-tactile-ink-muted hover:text-brand-teal" href="#">
+<span class="material-symbols-rounded text-xl leading-none">assignment</span>
+<span class="text-[10px] font-bold tracking-tight mt-1 leading-none">Tests</span>
+</a>
+<!-- 5. Me (Active Destination with tactile highlight pill) -->
+<a class="flex flex-col items-center justify-center min-w-[58px] min-h-[48px] py-1 text-white" href="#">
+<div class="px-3 py-1 rounded-xl bg-brand-teal border border-brand-teal-dark shadow-tactile-sm flex flex-col items-center">
+<span class="material-symbols-rounded text-xl leading-none">person</span>
+<span class="text-[10px] font-black tracking-tight mt-0.5 leading-none">Me</span>
+</div>
+</a>
+</nav>
+</div>
+</div>
+</body>
+</html>

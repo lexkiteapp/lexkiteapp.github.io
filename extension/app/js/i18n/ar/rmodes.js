@@ -1,3 +1,2 @@
-/* UI ar – rmodes (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {"Gõ từ":"اكتبها","Nghe chọn nghĩa":"استمع واختر","Câu của bạn":"جملتك","Nguồn":"المصدر","Chế độ ôn":"وضع المراجعة","Gợi ý chữ cái":"تلميح حرف","Nghe từ":"استمع إلى الكلمة","Không nhớ":"نسيتها","Đáp án đúng":"الإجابة الصحيحة"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/ar/rmodes.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ar=Object.assign(D.ar||{},{_en82:"اكتبها",_7883:"جارٍ تحميل الصوت…",_40h8:"تعذّر تشغيل الصوت – اضغط 🔊 للمحاولة مرة أخرى",_4tgc:"إظهار الكلمة",_58ig:"استمع واختر",_gumz:"جملتك",_1xxw:"المصدر",_hcwb:"وضع المراجعة",_42cy:"تلميح حرف",_yt56:"استمع إلى الكلمة",_8tl2:"نسيتها",_s9a7:"الإجابة الصحيحة"});})(typeof self!=='undefined'?self:this);

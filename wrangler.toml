@@ -31,3 +31,10 @@ service = "lexkite-gemini"
 # [[analytics_engine_datasets]]
 # binding = "HITS"
 # dataset = "lexkite_hits"
+
+# Ảnh chụp báo lỗi (functions/api/report.js, docs/REPORTS.md § Ảnh chụp): bucket R2 RIÊNG TƯ, nhị phân, khóa report/<id>, xóa 60 ngày sau khi đóng.
+# CHƯA BẬT: chạy Actions › "Ảnh báo lỗi R2" › action = setup (tạo bucket) rồi mới bỏ dấu # 3 dòng dưới – bucket chưa có thì Pages từ chối triển khai.
+# Thiếu binding → ảnh lưu D1 như cũ; thẻ Chất lượng admin báo "Ảnh chụp trên R2: thiếu".
+# [[r2_buckets]]
+# binding = "REPORT_SHOTS"
+# bucket_name = "lexkite-report-shots"

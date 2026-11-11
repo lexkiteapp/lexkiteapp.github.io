@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_brother",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: brother.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a boy or man who shares a parent with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "My older brother is a pilot.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "brother",
+  "ipa": "/ˈbrʌðər/",
+  "mean": "a boy or man who shares a parent with you",
+  "ex": "My older brother is a pilot.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=brother",
+  "link": "https://lexkite.com/app/#/review?w=brother",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"brother\" mean?",
+  "keyword": "brother",
+  "value": "Brother means a boy or man who shares a parent with you.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=brother",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"brother\" mean?",
+    "description": "Brother means a boy or man who shares a parent with you.\n\nReview your words, free: https://lexkite.com/app/#/review?w=brother\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "brother",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"brother\" mean?\n\nBrother means a boy or man who shares a parent with you.\n\nReview your words, free: https://lexkite.com/app/#/review?w=brother"
+   },
+   "instagram": {
+    "caption": "What does \"brother\" mean?\n\nBrother means a boy or man who shares a parent with you.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"brother\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a boy or man who shares a parent with you. Brother means a boy or man who shares a parent with you. Practice it with a free quiz: {link}"
+ }
+}

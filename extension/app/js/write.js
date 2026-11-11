@@ -82,7 +82,7 @@
             <textarea class="input" id="essay" style="min-height:340px;font-size:1.02rem;line-height:1.7" placeholder="${t('Bắt đầu viết bài của bạn…')}" spellcheck="true">${esc(draft.prompt === p.id ? draft.text : '')}</textarea>
             <div class="row between" style="margin-top:.7rem">
               <div class="row"><b id="wc">${t('{n} từ', { n: 0 })}</b><span class="timer" id="clock" style="font-size:1rem">40:00</span><button class="btn sm" id="tBtn">⏱ ${t('Bấm giờ')}</button></div>
-              <button class="btn primary" id="analyze">🔍 ${t('Phân tích từ vựng')}</button>
+              <button class="btn primary" id="analyze" data-lk-primary>🔍 ${t('Phân tích từ vựng')}</button>
             </div>
           </div>
           <div id="report"></div>
@@ -176,7 +176,7 @@
       const w = el.dataset.alt;
       let alts = ((IELTS_DATA.INDEX[w] || {}).syn || []).slice(0, 4);
       if (alts.length < 3) {
-        try { const r = await fetch(`https://api.datamuse.com/words?ml=${encodeURIComponent(w)}&max=8`).then(x => x.json()); alts = [...new Set([...alts, ...r.map(x => x.word).filter(x => !/\s/.test(x))])].slice(0, 5); } catch (e) { /* offline */ }
+        try { const r = (await Dict.dm(`words?ml=${encodeURIComponent(w)}&max=8`)) || []; alts = [...new Set([...alts, ...r.map(x => x.word).filter(x => !/\s/.test(x))])].slice(0, 5); } catch (e) { /* offline */ }
       }
       el.innerHTML = alts.length ? '→ ' + alts.map(x => `<a class="chip" href="#/dict/${encodeURIComponent(x)}">${esc(x)}</a>`).join(' ') : t('không có gợi ý');
     });

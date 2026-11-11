@@ -1,0 +1,146 @@
+{
+ "id": "t2a_stress_attendee",
+ "template": "stress",
+ "series": "Where's the Stress?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where's the stress? Attend!",
+   "pause": 0.42
+  },
+  {
+   "id": "a",
+   "text": "Attend. Stress on the second part.",
+   "pause": 0.42
+  },
+  {
+   "id": "b",
+   "text": "Now say attendee.",
+   "pause": 0.42
+  },
+  {
+   "id": "m",
+   "text": "The stress moves to the third part.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Say it with me: attendee.",
+   "pause": 1.8,
+   "repeat": true
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Where's the stress?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "ans",
+   "text": "The third part. Attendee.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "a": {
+   "word": "attend",
+   "syl": [
+    "at",
+    "tend"
+   ],
+   "stress": 1,
+   "say": "second",
+   "ipa": "/əˈtend/"
+  },
+  "b": {
+   "word": "attendee",
+   "syl": [
+    "at",
+    "ten",
+    "dee"
+   ],
+   "stress": 2,
+   "say": "third",
+   "ipa": "/ətenˈdiː/"
+  },
+  "quiz": {
+   "options": [
+    "AT",
+    "DEE"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/stress-shift",
+  "link": "https://lexkite.com/app/#/pron/stress-shift",
+  "say": "Check word stress"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Where's the stress?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 29.4,
+  "wpm": 92
+ },
+ "publish": {
+  "title": "Attend vs attendee: where is the stress?",
+  "keyword": "attend attendee stress",
+  "value": "Attend /əˈtend/: stress on the 2nd part. Attendee /ətenˈdiː/: the 3rd part.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/stress-shift",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Attend vs attendee: where is the stress?",
+    "description": "Attend /əˈtend/: stress on the 2nd part. Attendee /ətenˈdiː/: the 3rd part.\n\nCheck word stress, free: https://lexkite.com/app/#/pron/stress-shift\n\nSeries: Where's the Stress? · Teacher: Carlos\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "attend attendee stress",
+     "Where's the Stress?",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Attend vs attendee: where is the stress?\n\nAttend /əˈtend/: stress on the 2nd part. Attendee /ətenˈdiː/: the 3rd part.\n\nCheck word stress, free: https://lexkite.com/app/#/pron/stress-shift"
+   },
+   "instagram": {
+    "caption": "Attend vs attendee: where is the stress?\n\nAttend /əˈtend/: stress on the 2nd part. Attendee /ətenˈdiː/: the 3rd part.\n\nCheck word stress: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Attend vs attendee: where is the stress? #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Quiz answer: The third part. Attendee. Practice it with a free quiz: {link}"
+ }
+}

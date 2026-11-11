@@ -5,13 +5,15 @@
 //     token GH_MEDIA_TOKEN (CI: secret LEXKITE_MEDIA_TOKEN) hoặc `gh auth token` khi chạy tay. Chỉ hợp tới ~1 GB (≈ 1.000 bài).
 // Không in/ghi token ra log hay cấu hình git.
 import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto'; import { execFileSync } from 'node:child_process';
+import { r2Frozen } from './r2-freeze.mjs';
 
 export const DEFAULT_ACCOUNT = 'e34e14b7ab35eaf2b3d9d84fcce011f7', DEFAULT_BUCKET = 'lexkite-blog-media';
 export const TYPES = { avif: 'image/avif', webp: 'image/webp', jpg: 'image/jpeg', png: 'image/png' };
 export const IMMUTABLE = 'public, max-age=31536000, immutable';
 
-export function r2Config(env = process.env) {
+export function r2Config(env = process.env, { stateFile } = {}) {
   if (!env.R2_ACCESS_KEY_ID || !env.R2_SECRET_ACCESS_KEY) return null;
+  if (r2Frozen(stateFile)) { console.log('R2 đóng băng (chốt $0, web/free-tier-state.json) → lùi về repo GitHub'); return null; }
   const account = env.R2_ACCOUNT_ID || env.CF_ACCOUNT_ID || DEFAULT_ACCOUNT;
   return { account, bucket: env.R2_BUCKET || DEFAULT_BUCKET, keyId: env.R2_ACCESS_KEY_ID, secret: env.R2_SECRET_ACCESS_KEY, host: `${account}.r2.cloudflarestorage.com`, region: 'auto' };
 }

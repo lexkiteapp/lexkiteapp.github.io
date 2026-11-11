@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_knee",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: knee.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means the middle part of your leg that bends.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "She hurt her knee while running.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "knee",
+  "ipa": "/niː/",
+  "mean": "the middle part of your leg that bends",
+  "ex": "She hurt her knee while running.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=knee",
+  "link": "https://lexkite.com/app/#/review?w=knee",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 41,
+  "seconds": 25.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"knee\" mean?",
+  "keyword": "knee",
+  "value": "Knee means the middle part of your leg that bends.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=knee",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"knee\" mean?",
+    "description": "Knee means the middle part of your leg that bends.\n\nReview your words, free: https://lexkite.com/app/#/review?w=knee\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "knee",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"knee\" mean?\n\nKnee means the middle part of your leg that bends.\n\nReview your words, free: https://lexkite.com/app/#/review?w=knee"
+   },
+   "instagram": {
+    "caption": "What does \"knee\" mean?\n\nKnee means the middle part of your leg that bends.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"knee\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means the middle part of your leg that bends. Knee means the middle part of your leg that bends. Practice it with a free quiz: {link}"
+ }
+}

@@ -3,6 +3,7 @@
 // Dùng: node scripts/test/ux-cards.mjs <web-sau> [web-trước] [out=out/ux-cards]   (CI: .github/workflows/ux-cards.yml, đẩy nhánh ux-cards*)
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright';
+import { noProd } from './lib/no-prod.mjs';
 const [AFTER, BEFORE, OUT = 'out/ux-cards'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.webmanifest': 'application/manifest+json', '.woff2': 'font/woff2' };
 const SHOTS = ['home', 'mistakes', 'mistakes?retry=1', 'review', 'grammar/tenses', 'pron/th-sounds'];
@@ -19,6 +20,7 @@ const report = { errs: [], metrics: {} };
 async function run(TAG, ROOT, vn, scheme, lang) {
   const vp = vn === 'mobile' ? { viewport: { width: 360, height: 780 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true } : { viewport: { width: 1366, height: 860 } };
   const ctx = await browser.newContext({ ...vp, colorScheme: scheme, serviceWorkers: 'block' });
+  await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   await ctx.route('**/*', r => { const u = new URL(r.request().url()); if (u.hostname !== 'lk.test') return r.abort(); let p = decodeURIComponent(u.pathname); if (p.startsWith('/api/')) return r.fulfill({ status: 200, body: '{}', contentType: 'application/json' }); if (p.endsWith('/')) p += 'index.html'; const f = path.join(ROOT, p); if (!fs.existsSync(f) || fs.statSync(f).isDirectory()) return r.fulfill({ status: 404, body: '' }); r.fulfill({ status: 200, body: fs.readFileSync(f), contentType: MIME[path.extname(f)] || 'application/octet-stream' }); });
   const page = await ctx.newPage(); page.on('pageerror', e => report.errs.push(`${TAG}-${vn}-${lang}: ${e.message}`));
   const url = h => `https://lk.test/app/?sandbox=1&hl=${lang}#/${h}`;

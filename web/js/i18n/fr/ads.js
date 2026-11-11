@@ -1,3 +1,2 @@
-/* UI fr – ads (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["fr"] = Object.assign(D["fr"] || {}, {"Hết lượt hôm nay? Xem 1 video ngắn để nhận thêm {n} lượt.":"Plus d'essais gratuits aujourd'hui ? Regardez une courte vidéo pour en obtenir {n} de plus.","Xem video":"Regarder la vidéo","Đã cộng thêm lượt – thử lại sau vài giây.":"Essais supplémentaires ajoutés – réessayez dans quelques secondes."});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/fr/ads.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.fr=Object.assign(D.fr||{},{_ape0:"Plus d'essais gratuits aujourd'hui ? Regardez une courte vidéo pour en obtenir {n} de plus.",_dcji:"Regarder la vidéo",_iq0k:"Essais supplémentaires ajoutés – réessayez dans quelques secondes.",_8kw8:"Révisez 10 cartes pour débloquer {n} essais de plus – gratuit.",_9lrf:"Réviser maintenant",_a5k9:"Grâce à votre révision, vous gagnez {n} essais de plus.",_3iid:"{r}/{need} cartes révisées aujourd’hui – révisez-en plus pour gagner des essais."});})(typeof self!=='undefined'?self:this);

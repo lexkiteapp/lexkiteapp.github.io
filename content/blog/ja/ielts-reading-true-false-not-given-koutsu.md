@@ -9,7 +9,7 @@ tags: [reading, ielts, true-false-not-given]
 keyword: "ielts reading true false not given コツ"
 cover: reading
 coverAlt: "LexkiteアプリのIELTSリーディング記事一覧画面でA2からC1までの長文を掲載"
-publishAt: ""
+publishAt: 2026-12-06T21:10:00+09:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -25,6 +25,8 @@ IELTSリーディングテストにおいて、多くの日本人受験生が最
 ## ielts reading true false not given コツ：論理構造と本質
 
 誤りの選択肢が明白で極端な学校の定期テストとは異なり、IELTS Academicの長文は学術論文や信頼性の高い報道記事から抜粋されています。出題者は受験生の緻密な論理読解力を試すために設問を巧妙に設計しています。
+
+関連記事として[IELTSリーディングの時間配分](/ja/blog/ielts-reading-jikan-haibun-kotsu/)も参考になります。
 
 1. **True（本文と一致）：** 設問の主張を構成するすべての要素が、本文の意味と完全に合致しています。単語がそのまま使われることは極めて稀で、洗練された同義語や構文のパラフレーズ（言い換え）が用いられます。
 2. **False（本文と矛盾）：** 本文が設問と正反対の事実を述べているか、設問の成立を論理的に不可能にする証拠が存在します。証明可能な直接的矛盾が存在します。

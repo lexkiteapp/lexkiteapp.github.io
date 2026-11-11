@@ -9,7 +9,7 @@ tags: [vocabulary, ielts, writing, collocations]
 keyword: "ielts コロケーション collocation 英語"
 cover: dict
 coverAlt: "Lexkiteの英英辞書でresilientの発音とコロケーションを表示した画面"
-publishAt: ""
+publishAt: 2026-12-05T19:42:00+09:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

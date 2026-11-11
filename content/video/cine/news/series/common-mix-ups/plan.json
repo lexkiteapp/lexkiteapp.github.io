@@ -5,142 +5,103 @@
  "order": [
   {
    "ep": 1,
-   "id": "cmu_0d6dc593",
-   "point": "A common mix-up with \"spa\" (n): a place for health and beauty treatments",
+   "id": "cmu_1915c5c2",
+   "point": "bored vs boring",
+   "cefr": "A2",
+   "diff": "easy",
+   "words": 70,
+   "est_s": 43.3,
+   "ipa": "/bɔːrd/",
+   "content_hash": "54774e05fc1d60c3"
+  },
+  {
+   "ep": 2,
+   "id": "cmu_209d5928",
+   "point": "make vs do",
+   "cefr": "A2",
+   "diff": "easy",
+   "words": 75,
+   "est_s": 45.7,
+   "ipa": null,
+   "content_hash": "1b49f59a9308ba2a"
+  },
+  {
+   "ep": 3,
+   "id": "cmu_41267813",
+   "point": "say vs tell",
+   "cefr": "A2",
+   "diff": "easy",
+   "words": 69,
+   "est_s": 42.8,
+   "ipa": "/toʊld/",
+   "content_hash": "e6ae67f3c2b52acc"
+  },
+  {
+   "ep": 4,
+   "id": "cmu_592551ad",
+   "point": "fun vs funny",
+   "cefr": "A2",
+   "diff": "easy",
+   "words": 74,
+   "est_s": 45.2,
+   "ipa": "/fʌn/",
+   "content_hash": "ea220d81b74025b1"
+  },
+  {
+   "ep": 5,
+   "id": "cmu_a90fd6ec",
+   "point": "listen vs hear",
+   "cefr": "A2",
+   "diff": "easy",
+   "words": 68,
+   "est_s": 42.4,
+   "ipa": "/ˈlɪsnɪŋ/",
+   "content_hash": "aab84225d2f4154a"
+  },
+  {
+   "ep": 6,
+   "id": "cmu_d762c9a4",
+   "point": "miss vs lose",
    "cefr": "A2",
    "diff": "easy",
    "words": 71,
    "est_s": 43.8,
-   "ipa": "/rɪˈlæks/",
-   "content_hash": "cfe81c644b787a3b"
+   "ipa": "/mɪst/",
+   "content_hash": "6ec891908648915c"
   },
   {
-   "ep": 2,
-   "id": "cmu_28a25c23",
-   "point": "A common mix-up with \"cashback\" (n): money returned to you as a reward for buying something",
+   "ep": 7,
+   "id": "cmu_586c600f",
+   "point": "remind vs remember",
    "cefr": "B1",
    "diff": "medium",
-   "words": 75,
-   "est_s": 45.7,
-   "ipa": "/ˈkæʃbæk/",
-   "content_hash": "133d3908dfb13d40"
+   "words": 68,
+   "est_s": 42.4,
+   "ipa": "/rɪˈmaɪnd/",
+   "content_hash": "b5af303dcc05fd8e"
+  },
+  {
+   "ep": 8,
+   "id": "cmu_95408ad1",
+   "point": "steal vs rob",
+   "cefr": "B1",
+   "diff": "medium",
+   "words": 69,
+   "est_s": 42.8,
+   "ipa": "/stoʊl/",
+   "content_hash": "2278dd416441c85d"
+  },
+  {
+   "ep": 9,
+   "id": "cmu_fed8da72",
+   "point": "affect vs effect",
+   "cefr": "B1",
+   "diff": "medium",
+   "words": 71,
+   "est_s": 43.8,
+   "ipa": "/əˈfektɪd/",
+   "content_hash": "c2d7b2e187d922b1"
   }
  ],
- "skipped": [
-  {
-   "bank": "sb_00ac2cbe",
-   "point": "A common mix-up with \"travel\" (v): to go to a place that is far away",
-   "reason": "self-check: 78 words (need 50-75); note ex line > 26 chars: [['We love to '], ['travel ', 'green'], ['in summer.']]; hook 7 words on screen"
-  },
-  {
-   "bank": "sb_00e987d4",
-   "point": "A common mix-up with \"job\" (n): regular work of earning money",
-   "reason": "self-check: note ex line > 26 chars: [['She got a new '], ['job ', 'green'], ['at a bank.']]"
-  },
-  {
-   "bank": "sb_03c6ce7f",
-   "point": "A common mix-up with \"class\" (n): rank or level in society, ranked from high (rich professional people) to low (ordinary people)",
-   "reason": "self-check: 78 words (need 50-75)"
-  },
-  {
-   "bank": "sb_0d55586c",
-   "point": "A common mix-up with \"diet\" (n): the type of food that a person or animal usually eats",
-   "reason": "self-check: 80 words (need 50-75); note fix line > 26 chars: [[\"I'm on a \", 'green'], ['diet to lose weight.']]"
-  },
-  {
-   "bank": "sb_0024c588",
-   "point": "A common mix-up with \"copy\" (n): something made to look exactly like something else; one example of a book, document, etc.",
-   "reason": "self-check: 79 words (need 50-75); note fix line > 26 chars: [[\"I'll \"], ['buy a ', 'green'], ['copy '], ['of the book.', 'green']]; note fix line > 26 chars: [['not “'], ['the real book, not copy', 'red'], ['”']]; hook 8 words on screen"
-  },
-  {
-   "bank": "sb_01420199",
-   "point": "A common mix-up with \"heater\" (n): a device that makes heat",
-   "reason": "self-check: 81 words (need 50-75); note fix line > 26 chars: [[\"It's cold. Turn on the \"], ['heater.', 'green']]"
-  },
-  {
-   "bank": "sb_01728393",
-   "point": "A common mix-up with \"anytime\" (adv): at any time",
-   "reason": "self-check: note ex line > 26 chars: [['Thanks ', 'green'], ['for the ride! '], ['Anytime.', 'green']]"
-  },
-  {
-   "bank": "sb_01bac66e",
-   "point": "A common mix-up with \"major\" (adj): important, serious, or large in scope",
-   "reason": "self-check: note ex line > 26 chars: [['There was a '], ['major ', 'green'], ['accident.']]"
-  },
-  {
-   "bank": "sb_07a59ce0",
-   "point": "A common mix-up with \"discovery\" (n): learning something for the first time",
-   "reason": "self-check: 77 words (need 50-75); note fix line > 26 chars: [['The phone was a big '], ['invention.', 'green']]; note ex line > 26 chars: [['It was an important '], ['discovery.', 'green']]; error phrase in ['u_w', 'u_a']"
-  },
-  {
-   "bank": "sb_0abf7275",
-   "point": "A common mix-up with \"one-way\" (adj): (of a ticket) for travel to a place but not back again",
-   "reason": "self-check: 82 words (need 50-75); note why line > 26 chars: [['@emoji:✅'], [' A round-trip Boston, please', 'green']]; note why line 702 px > 695; note save line > 26 chars: [['@emoji:✅'], [' A round-trip Boston, please', 'green']]; note save line 702 px > 695; hook 7 words on screen"
-  },
-  {
-   "bank": "sb_1b72f47e",
-   "point": "A common mix-up with \"advertisement\" (n): a picture, short film, text, etc., that tells people about a product or service",
-   "reason": "self-check: 77 words (need 50-75); note ex line > 26 chars: [['I saw an ad '], ['for ', 'green'], ['cheap flights.']]; hook 7 words on screen"
-  },
-  {
-   "bank": "sb_92b16d01",
-   "point": "A common mix-up with \"self-checkout\" (n): a machine in a store where customers scan and pay themselves",
-   "reason": "quiz option longer than 12 characters"
-  },
-  {
-   "bank": "sb_003777e5",
-   "point": "A common mix-up with \"hang\" (v): to attach a picture, photograph, etc., onto a wall",
-   "reason": "self-check: 76 words (need 50-75); hook 7 words on screen"
-  },
-  {
-   "bank": "sb_0073d35b",
-   "point": "A common mix-up with \"approximately\" (adv): around; nearly; almost; about (a number)",
-   "reason": "quiz option longer than 12 characters"
-  },
-  {
-   "bank": "sb_0101aedc",
-   "point": "A common mix-up with \"fine\" (n): money paid as punishment",
-   "reason": "self-check: 82 words (need 50-75); note fix line > 26 chars: [['I got a fine. '], ['I have to pay.', 'green']]; hook 7 words on screen"
-  },
-  {
-   "bank": "sb_0179d25f",
-   "point": "A common mix-up with \"qualification\" (n): official record proving a certain standard or level",
-   "reason": "quiz option longer than 12 characters"
-  },
-  {
-   "bank": "sb_0ec42692",
-   "point": "A common mix-up with \"minibar\" (n): a small fridge in a hotel room with drinks and snacks",
-   "reason": "self-check: 82 words (need 50-75); note ex line > 26 chars: [['I took water '], ['from the minibar.', 'green']]"
-  },
-  {
-   "bank": "sb_18515c1e",
-   "point": "A common mix-up with \"victim\" (n): person who has suffered from a crime, bad situation, or event",
-   "reason": "self-check: 81 words (need 50-75); note fix line > 26 chars: [['He '], ['was ', 'green'], ['the victim '], ['of a crime.', 'green']]; note fix line > 26 chars: [['not “'], ['won the race. He is victim', 'red'], ['”']]; note why line > 26 chars: [['@emoji:❌'], [' won the race. He is victim', 'red']]; note save line > 26 chars: [['@emoji:❌'], [' won the race. He is victim', 'red']]; hook 8 words on screen"
-  },
-  {
-   "bank": "sb_1d676084",
-   "point": "A common mix-up with \"consumer\" (n): person who uses goods or services; individual buyer",
-   "reason": "self-check: note ex line > 26 chars: [['Consumers ', 'green'], ['want lower prices.']]; note qs line > 26 chars: [['Companies must listen to '], ['___.', 'green']]"
-  },
-  {
-   "bank": "sb_27ef7399",
-   "point": "A common mix-up with \"string\" (n): thin rope",
-   "reason": "self-check: hook 8 words on screen"
-  },
-  {
-   "bank": "sb_5e4a563f",
-   "point": "A common mix-up with \"utilities\" (n): services such as electricity, water and gas supplied to a home",
-   "reason": "self-check: note why line > 26 chars: [['@emoji:✅'], [' water, gas and electricity', 'green']]; note qs line > 26 chars: [['Is the rent with '], ['___ ', 'green'], ['included?']]; note save line > 26 chars: [['@emoji:✅'], [' water, gas and electricity', 'green']]"
-  },
-  {
-   "bank": "sb_8c98629f",
-   "point": "A common mix-up with \"vegetarian\" (n): a person who does not eat meat or fish",
-   "reason": "self-check: note fix line > 26 chars: [['vegetarian', 'green'], ['  '], ['@ipa:/ˌvedʒəˈteriən/']]; note qs line > 26 chars: [[\"A vegetarian doesn't eat \"], ['___.', 'green']]; note save line > 26 chars: [['vegetarian', 'green'], ['  '], ['@ipa:/ˌvedʒəˈteriən/']]"
-  },
-  {
-   "bank": "sb_ff26f6aa",
-   "point": "A common mix-up with \"luxury\" (n): something expensive or costly that is not needed which is bought for pleasure",
-   "reason": "self-check: 82 words (need 50-75); note ex line > 26 chars: [['Eating out is a '], ['luxury ', 'green'], ['for us.']]; hook 7 words on screen"
-  }
- ]
+ "skipped": []
 }

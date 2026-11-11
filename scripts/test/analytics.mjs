@@ -38,6 +38,8 @@ ins.run('vn1aaaaaaaa', 'v4vnaaaaaa', '2026-10-16', Date.UTC(2026, 9, 16, 18), 'V
 sql.exec("INSERT INTO pageviews_day VALUES ('2026-10-16', 'home', 5), ('2026-10-16', 'welcome', 4), ('2026-10-16', 'review', 2)");
 
 const H = await import(new URL('../../functions/api/hit.js', import.meta.url));
+const C = await import(new URL('../../functions/api/_cpm.js', import.meta.url));
+const R = await import(new URL('../../functions/api/_rollup.js', import.meta.url));
 const A = await import(new URL('../../functions/api/admin.js', import.meta.url));
 const env = { DB, ADMIN_EMAILS: 'boss@lexkite.com' };
 const CHROME = 'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Mobile Safari/537.36';
@@ -124,6 +126,47 @@ ok(an.status === 200 && an.j.sum.v === 7, 'op analytics: 7 khách thật từ 11
 ok(an.j.excluded.s >= 8, 'op analytics trả số phiên đã loại (≥ 8: 3 ci-app + ci + 3 ua + dc + admin…)');
 const ov = await api('overview'); ok(ov.status === 200 && ov.j.sessions.today === 5, 'op overview: phiên hôm nay chỉ người thật (hum1, hum2, cub1, fi1, vn1) – được ' + (ov.j.sessions && ov.j.sessions.today));
 const gr = await api('growth', { days: 7 }); ok(gr.status === 200, 'op growth chạy được với cột bot');
+// Theo nước chỉ người thật: mỗi loại máy tự động/quản trị một vid Mỹ – không loại nào được lọt vào danh sách nước (raw 692 Mỹ trong đó 662 là của mình)
+for (const b of ['dc', 'ci-app', 'ua', 'admin', 'bot']) ins.run('us' + b + 'x', 'usvid' + b, H.dayOf(NOW), NOW, 'US', 'web', NOW), sql.prepare('UPDATE sessions SET bot = ? WHERE sid = ?').run(b, 'us' + b + 'x');
+R._resetRollup();
+{ const usOf = rows => (rows.find(r => r.k === 'US') || { n: 0 }).n, x = await api('analytics', { days: 7 }), y = await api('live', { days: 7 });
+  ok(usOf(x.j.countries) === usOf(an.j.countries) && usOf(y.j.countries) === usOf(L.countries), 'bảng nước Quản trị không đếm dc/ci-app/ua/admin/bot');
+  ok(x.j.cpm && x.j.cpm.total > 0 && x.j.cpm.high === usOf(x.j.countries) + (x.j.countries.find(r => r.k === 'FI') || { n: 0 }).n && x.j.cpm.vn === (x.j.countries.find(r => r.k === 'VN') || { n: 0 }).n, 'nhóm CPM tính trên người thật: ' + JSON.stringify(x.j.cpm)); }
+// Nguồn thật: chuẩn hoá ref + trang tĩnh t:'l'
+ok(C.normRef('https://www.google.com.vn/') === 'google.com' && C.normRef('android-app://com.google.android.googlequicksearchbox/') === 'google.com' && C.normRef('https://vn.search.yahoo.com/') === 'yahoo.com' && C.normRef('https://gemini.google.com/') === 'gemini.google.com', 'gộp nguồn: mọi tên miền Google/Yahoo về 1 tên');
+ok(['https://lexkite.com/en/', 'https://lexkite.web.app/', 'https://lexkiteapp.github.io/', 'https://localhost/', 'http://127.0.0.1:8080/', 'không phải url', ''].every(v => C.normRef(v) === ''), 'nguồn là chính mình/hỏng → trực tiếp');
+ok(C.normRef('site:blog') === 'site:blog' && C.normRef('site:tu-vung') === 'site:vocab' && C.normRef('site:') === 'site:landing' && C.normRef('site:app') === '' && C.normRef('site:<script>') === '', 'site:<loại trang> chỉ nhận danh sách trắng');
+ok(C.tierOf('US') === 'high' && C.tierOf('usa') === 'high' && C.tierOf('VN') === 'vn' && C.tierOf('vnm') === 'vn' && C.tierOf('BR') === 'other' && C.tierOf('bra') === 'other' && C.tierOf('') === 'other', 'tierOf nhận mã 2 chữ (Cloudflare) + 3 chữ (GSC)');
+ok(Object.keys(C.HIGH_CPM).length === 30 && Object.values(C.HIGH_CPM).every(v => /^[a-z]{3}$/.test(v)), '30 nước, đủ mã GSC');
+ok(C.landKey({ ref: 'evil.example', p: '../../x', lang: 'zz' }, 'US') === 'land:other:US:other:xx', 'landKey có trần: nguồn lạ/đường dẫn lạ/ngôn ngữ lạ không vào khoá thô');
+const landN = () => sql.prepare("SELECT COALESCE(SUM(n), 0) AS n FROM ext_events WHERE kind LIKE 'land:%'").get().n;
+await hit({ t: 'l', ref: 'www.google.de', p: 'words', lang: 'de' }, { country: 'DE', ip: '7.7.7.1' });
+await hit({ t: 'l', ref: 'www.google.de', p: 'words', lang: 'de' }, { country: 'DE', ip: '7.7.7.2' });
+ok(sql.prepare("SELECT n FROM ext_events WHERE kind = 'land:google.com:DE:words:de'").get()?.n === 2, 't:l đếm theo nguồn:nước:loại:ngôn ngữ');
+const landB = landN();
+await hit({ t: 'l', ref: 'lexkite.com', p: '', lang: 'en' }, { ip: '7.7.7.3' }); ok(landN() === landB, 't:l từ chính mình → bỏ');
+await hit({ t: 'l', ref: 'google.com', p: '', lang: 'en' }, { ua: 'Googlebot/2.1', ip: '7.7.7.4' }); ok(landN() === landB, 't:l từ bot → bỏ');
+await hit({ t: 'l', ref: 'google.com', p: '', lang: 'en' }, { ip: '7.7.7.5', headers: { Referer: 'https://fix-x.lexkite.pages.dev/en/' } }); ok(landN() === landB, 't:l từ bản preview → bỏ');
+// Mã máy khách thật: trang tĩnh (site-ui.js) ghi nguồn + đếm 1 lần/nguồn/30 phút; app đọc lại khi referrer là chính mình
+{ const vm = await import('node:vm'), fs = await import('node:fs');
+  const { SRC_JS } = await import(new URL('../lib/site-layout.mjs', import.meta.url));
+  const appSrc = fs.readFileSync(new URL('../../web/js/app.js', import.meta.url), 'utf8'), appRef = /const ref = (\(\(\) => \{.*\}\)\(\));\n/.exec(appSrc);
+  ok(appRef && /cur: cur\(\), ref, lang:/.test(appSrc), 'app gửi ref đã xử lý, không gửi thẳng document.referrer');
+  const page = ({ referrer = '', href = 'https://lexkite.com/de/words/haus/', store = {}, webdriver = false }) => { const sent = [], l = new URL(href);
+    const c = { document: { referrer, documentElement: { lang: 'de' } }, location: l, URL, JSON, Date, window: { localStorage: { getItem: k => (k in store ? store[k] : null), setItem: (k, v) => { store[k] = v; } } }, localStorage: { getItem: k => (k in store ? store[k] : null) }, navigator: { webdriver, sendBeacon: (u, b) => { sent.push(JSON.parse(b)); return true; } } };
+    return { c, sent, store }; };
+  const run = o => { const p = page(o); vm.runInNewContext(SRC_JS, p.c); return p; };
+  let p = run({ referrer: 'https://www.google.de/' }); ok(p.sent.length === 1 && p.sent[0].ref === 'google.de' && p.sent[0].p === 'words' && p.sent[0].lang === 'de' && !JSON.stringify(p.sent).includes('haus'), 'trang tĩnh: chỉ gửi tên miền + loại trang, không gửi URL');
+  const again = run({ referrer: 'https://www.google.de/', store: p.store }); ok(again.sent.length === 0, 'cùng nguồn trong 30 phút → không gửi lại');
+  ok(run({ referrer: 'https://lexkite.com/en/' }).sent.length === 0 && run({}).sent.length === 0 && run({ referrer: 'https://www.google.de/', store: { 'lk.noTrack': '1' } }).sent.length === 0 && run({ referrer: 'https://www.google.de/', webdriver: true }).sent.length === 0, 'từ chính mình / không nguồn / máy quản trị / trình duyệt tự động → không gửi');
+  ok(run({ referrer: 'https://www.google.de/', href: 'https://lexkite.com/' }).sent[0].p === '', 'trang gốc: p rỗng → landing');
+  const ar = o => { const q = page({ href: 'https://lexkite.com/app/', ...o }); return vm.runInNewContext(appRef[1], q.c); };
+  ok(ar({ referrer: 'https://www.bing.com/' }) === 'https://www.bing.com/', 'app: nguồn ngoài trực tiếp');
+  ok(ar({ referrer: 'https://lexkite.com/de/blog/x/', store: { 'lk.src': JSON.stringify({ h: 'google.de', t: Date.now() - 60e3 }) } }) === 'https://google.de', 'app: Google → blog → app giữ nguồn Google');
+  ok(ar({ referrer: 'https://lexkite.com/de/blog/x/', store: { 'lk.src': JSON.stringify({ h: 'google.de', t: Date.now() - 19e5 }) } }) === 'site:blog', 'app: nguồn quá 30 phút → site:blog');
+  ok(C.normRef(ar({ referrer: 'https://lexkite.com/app/#/home' })) === '' && ar({}) === '', 'app: tự tải lại / không referrer → trực tiếp');
+}
+{ const x = await api('analytics', { days: 7 }); ok(x.j.land && x.j.land.total === 2 && x.j.land.src[0].k === 'google.com' && x.j.land.countries[0].k === 'DE' && x.j.land.kinds[0].k === 'words' && x.j.land.tiers.high === 2, 'Quản trị đọc khách ngoài: ' + JSON.stringify(x.j.land)); }
 
 // ---------- 6) Add-on: ngày máy khách nhanh hơn VN (UTC+8…+14) vẫn nhận ----------
 NOW = Date.UTC(2026, 9, 17, 16, 30); // 23:30 VN; Nhật đã sang 18/10
@@ -137,6 +180,39 @@ ok(!!sql.prepare("SELECT 1 FROM ext_events WHERE kind = 'blog:quiz_done'").get()
 ok(!sql.prepare("SELECT 1 FROM ext_events WHERE kind LIKE 'blog:drop%'").get(), 'sự kiện quiz lạ bị bỏ');
 await hit({ t: 'q', ev: 'ret_on_d7' }, { ip: '6.6.6.7' }); await hit({ t: 'q', ev: 'ret_maybe_d7' }, { ip: '6.6.6.7' });
 ok(!!sql.prepare("SELECT 1 FROM ext_events WHERE kind = 'ret:ret_on_d7'").get() && !sql.prepare("SELECT 1 FROM ext_events WHERE kind LIKE '%ret_maybe%'").get(), 'thử nghiệm cờ ret: chỉ nhận 4 sự kiện cho phép');
+
+// Beacon dự phòng bằng fetch (app native capacitor://localhost, không sendBeacon): /api/hit không trả CORS → fetch chế độ cors
+// bị trình duyệt từ chối ("Load failed" – iOS E2E đỏ) dù máy chủ đã nhận. Beacon không đọc phản hồi → bắt buộc mode: 'no-cors'.
+{
+  const fsm = await import('node:fs');
+  for (const f of ['web/js/app.js', 'web/js/lesson-video.js', 'web/js/ads/run.js']) {
+    const src = fsm.readFileSync(f, 'utf8');
+    const calls = [...src.matchAll(/fetch\([^;]*?\/api\/hit'?[^)]*?\{([^}]*)\}/g)];
+    ok(calls.length > 0, `${f}: tìm thấy fetch /api/hit dự phòng`);
+    // Ngoại lệ duy nhất: web cùng nguồn (URL tương đối '/api/hit', mode 'same-origin') cần đọc mã lỗi để gửi bù (lk.hitq)
+    for (const c of calls) ok(/mode:\s*'no-cors'/.test(c[1]) || (/mode:\s*'same-origin'/.test(c[1]) && /^fetch\('\/api\/hit'/.test(c[0])), `${f}: fetch /api/hit dự phòng phải mode 'no-cors' (${c[1].trim().slice(0, 80)})`);
+  }
+}
+
+// ---------- 8) Gửi bù sau gián đoạn /api (01/11: hạn mức Workers 100k/ngày cạn 16:22→00:00 UTC → Live traffic 0) ----------
+NOW = Date.UTC(2026, 10, 2, 1, 0); // 08:00 VN 02/11 – API sống lại
+const T0 = Date.UTC(2026, 10, 1, 18, 0); // phiên mở 01:00 VN 02/11 lúc API chết
+ok(H.lateAt({ late: 1, t0: T0 }, NOW) === T0 && H.lateAt({}, NOW) === 0, 'lateAt: phiên gửi bù trả thời điểm gốc, phiên thường 0');
+ok(H.lateAt({ late: 1, t0: NOW - 37 * 3600e3 }, NOW) === -1 && H.lateAt({ late: 1, t0: NOW + 5e3 }, NOW) === -1 && H.lateAt({ late: 1 }, NOW) === -1, 'lateAt: quá 36 giờ / tương lai / thiếu t0 → bỏ');
+await hit(S('lateaaaaaaa', 'l2lateaaaa', { late: 1, t0: T0, dur: 120, pages: 3, pv: { home: 1, review: 2 } }), { ip: '7.7.7.1' });
+const lr = row('lateaaaaaaa');
+ok(lr && lr.day === '2026-11-02' && lr.at === T0, 'phiên gửi bù ghi vào ngày/giờ gốc (at = t0)');
+ok(lr && lr.last === T0 + 120e3, 'phiên gửi bù: last = t0 + dur → không tính "đang online"');
+ok(pv('2026-11-02', 'review') === 2, 'lượt xem của phiên gửi bù được cộng vào ngày gốc');
+ok((sql.prepare("SELECT n FROM ext_events WHERE day = '2026-11-02' AND kind = 'hit:late'").get() || {}).n === 1, 'đếm hit:late theo ngày gốc (Quản trị hiện "gửi bù")');
+await hit(S('lateaaaaaaa', 'l2lateaaaa', { late: 1, t0: T0, dur: 60, pages: 2 }), { ip: '7.7.7.1' });
+ok(row('lateaaaaaaa').pages === 3 && row('lateaaaaaaa').dur === 120, 'bản cũ hơn gửi lại không làm giảm pages/dur (MAX)');
+await hit(S('old2aaaaaaa', 'o2oldaaaaa', { late: 1, t0: NOW - 40 * 3600e3 }), { ip: '7.7.7.1' });
+ok(!row('old2aaaaaaa'), 'phiên gửi bù quá hạn không bị dồn vào hôm nay');
+await hit(S('lbotaaaaaaa', 'l3botaaaaa', { late: 1, t0: T0 }), { ip: '7.7.7.2', asn: 8075 });
+ok(row('lbotaaaaaaa').bot === 'dc' && (sql.prepare("SELECT n FROM ext_events WHERE day = '2026-11-02' AND kind = 'hit:late'").get() || {}).n === 1, 'máy tự động gửi bù vẫn bị loại, không cộng hit:late');
+const lv = await api('live', { days: 7 });
+ok(lv.status === 200 && lv.j.late === 1 && lv.j.today.visitors >= 1 && lv.j.online === 0, 'op live: hôm nay có khách nhờ gửi bù, late = 1, không ai "đang online" ảo – ' + JSON.stringify({ late: lv.j.late, v: lv.j.today && lv.j.today.visitors, on: lv.j.online }));
 
 Date.now = realNow;
 console.log(fails ? `✗ analytics: ${fails}/${n} lỗi` : `✓ analytics: ${n} kiểm tra đạt (loại bot/CI/quản trị, gộp sid, ngày giờ VN, % quốc gia, di chuyển dữ liệu)`);

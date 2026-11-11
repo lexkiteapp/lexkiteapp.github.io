@@ -17,7 +17,7 @@
   const MK = ['{title} – câu {n}: {q}', '{title} – Câu {n}: {q}', 'Test {t} – Câu {n}: {q}', 'Thi thử – câu {n}: {q}', 'Từ tiếng Anh nghĩa là “{vi}”?', 'Điền từ: {sentence}', 'Nghĩa của “{word}”?', 'Gõ lại từ bạn nghe được', '(bỏ trống)', 'Nghe: “…{cue}…”', 'Tham khảo: “…{cue}…”'];
   const unkey = s => {
     const D = window.I18N_DICT || {};
-    for (const k of MK) for (const pat of new Set([k, D.en && D.en[k], D[I18N.lang()] && D[I18N.lang()][k]].filter(Boolean))) {
+    for (const k of MK) for (const pat of new Set([k, D.en && D.en[k], (I18N.tr ? I18N.tr(I18N.lang(), k) : D[I18N.lang()] && D[I18N.lang()][k])].filter(Boolean))) {
       const names = []; const re = new RegExp('^' + pat.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\\\{(\w+)\\\}/g, (m, n) => { names.push(n); return '([\\s\\S]*?)'; }) + '$');
       const m = re.exec(s); if (m) return { k, v: Object.fromEntries(names.map((n, i) => [n, m[i + 1]])) };
     }
@@ -126,10 +126,10 @@
     const s = state.settings, g = state.game, d = g.days[todayKey()] || {};
     const ex = App.exam ? App.exam() : 'ielts', dow = new Date().getDay();
     const tasks = [];
-    if (!s.placement) tasks.push({ em: '🧭', t: t('Làm bài kiểm tra đầu vào (5 phút)'), sub: t('Để Lexkite cá nhân hóa lộ trình cho bạn'), href: '#/placement', mins: 5, done: false });
-    const { total } = Cards.dueCount(state.cards, s, state.stats);
+    if (!s.placement) tasks.push({ em: '🧭', t: t('Làm bài kiểm tra đầu vào'), sub: t('Để Lexkite cá nhân hóa lộ trình cho bạn'), href: '#/placement', mins: 5, done: false });
+    const { total, due: dueOld, newCount } = Cards.dueCount(state.cards, s, state.stats);
     const gold = Golden.dueNow(state.cards), doneReviews = state.stats.days[todayKey()] || 0;
-    if (total || doneReviews) tasks.push({ em: '🔁', t: total ? t('Ôn {n} thẻ', { n: total }) : t('Ôn tập thẻ đến hạn'), sub: gold ? t('{n} thẻ đang ở thời điểm vàng – sắp quên', { n: gold }) : t('Lặp lại ngắt quãng – ưu tiên số 1'), href: '#/review', mins: Math.max(2, Math.ceil(total / 6)), done: !total && doneReviews > 0 });
+    if (total || doneReviews) tasks.push({ em: '🔁', t: !total ? t('Ôn tập thẻ đến hạn') : dueOld ? t('Ôn {n} thẻ', { n: total }) : t('{n} từ mới', { n: newCount }), sub: gold ? t('{n} thẻ đang ở thời điểm vàng – sắp quên', { n: gold }) : t('Lặp lại ngắt quãng – ưu tiên số 1'), href: '#/review', mins: Math.max(2, Math.ceil(total / 6)), done: !total && doneReviews > 0 });
     // Sau kiểm tra đầu vào: kỹ năng yếu hơn được ưu tiên ngay sau ôn tập (lộ trình đã mở từ chặng gợi ý – path.js)
     const pl = s.placement, why = t('Ưu tiên theo bài kiểm tra đầu vào');
     const weak = !pl ? '' : pl.weak || (pl.vocab != null && pl.grammar != null ? (pl.vocab <= pl.grammar ? 'vocab' : 'grammar') : ''); // bản ghi cũ (v1): % đúng từng kỹ năng
@@ -153,7 +153,7 @@
   async function skillTask(ex, dow, d) {
     const g = state.game;
     if (ex === 'toefl') { const [k, em, n] = TOEFL_ROT[Math.floor(Date.now() / Core.DAY) % TOEFL_ROT.length]; return { em, t: 'TOEFL · ' + n, sub: t('Bài luyện hôm nay theo đúng dạng đề 2026'), href: '#/toefl-p/' + k, mins: 10, done: false }; }
-    if (ex === 'toeic') return dow % 2 ? { em: '🎧', t: t('TOEIC Listening: 1 Part'), sub: t('Mô tả tranh, hỏi – đáp, hội thoại, bài nói'), href: '#/toeic', mins: 10, done: (d.listens || 0) > 0 } : { em: '📰', t: t('TOEIC Reading: 1 Part'), sub: t('Điền câu, điền đoạn, đọc hiểu'), href: '#/toeic', mins: 12, done: (d.quizzes || 0) > 0 };
+    if (ex === 'toeic') return dow % 2 ? { em: '🎧', t: t('TOEIC Listening: luyện 1 phần'), sub: t('Mô tả tranh, hỏi – đáp, hội thoại, bài nói'), href: '#/toeic', mins: 10, done: (d.listens || 0) > 0 } : { em: '📰', t: t('TOEIC Reading: luyện 1 phần'), sub: t('Điền câu, điền đoạn, đọc hiểu'), href: '#/toeic', mins: 12, done: (d.quizzes || 0) > 0 };
     if (ex === 'general') {
       const r = dow % 3;
       if (r === 0) return { em: '📰', t: t('Đọc 1 bài & lưu từ mới'), sub: t('Ngữ liệu vừa sức – học từ trong ngữ cảnh'), href: '#/reading', mins: 12, done: (d.readings || 0) > 0 };

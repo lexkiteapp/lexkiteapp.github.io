@@ -33,6 +33,7 @@ quiz: [
     explain: "Collocations mostram quais palavras combinam naturalmente entre si, impedindo traduções literais do português como 'do a decision'."
   }
 ]
+publishAt: 2026-11-23T19:00:00-03:00
 ---
 Todo estudante de inglês passa pelo momento em que a tradução literal palavra por palavra começa a atrapalhar mais do que ajudar. Você quer dizer que *"tomou uma decisão"*, lembra que tomar é *take* e diz *«I took a decision»* — quando um nativo diria com naturalidade *«I made a decision»*.
 

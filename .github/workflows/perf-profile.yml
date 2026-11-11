@@ -9,6 +9,9 @@ on:
     paths: ['web/js/**', 'web/app/**', 'scripts/test/profile-route.mjs', '.github/workflows/perf-profile.yml']
 permissions:
   contents: read
+concurrency:   # ci-policy 2/11: push/lịch trùng gộp; chạy tay (mỗi lượt khác input) không bao giờ bị huỷ
+  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   profile:
     runs-on: ubuntu-latest
@@ -19,7 +22,8 @@ jobs:
         with: { node-version: 22 }
       - run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
+        timeout-minutes: 12
       - name: Hồ sơ
         run: |
           rm -rf out/site && mkdir -p out && cp -R web out/site && rm -rf out/site/audio

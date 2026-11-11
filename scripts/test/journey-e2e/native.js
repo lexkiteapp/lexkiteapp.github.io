@@ -32,16 +32,16 @@
   const P = {
     reset,
     async j1a() { const t = mk('j1'); t.ok(!askOn(), 'không hỏi nhắc lúc mở app'); await go('#/welcome/setup');
-      if (vis('#noAcct')) await click('#noAcct'); await click('button.trk-opt'); await click('#obNext', 250); await click('[data-lv="test"]'); await toLast(); await click('#go', 1500);
+      if (vis('#noAcct')) await click('#noAcct'); await click('[data-track]'); await click('#obNext', 250); await click('[data-lv="test"]'); await toLast(); await click('#go', 1500);
       t.ok(/placement/.test(location.hash), '→ #/placement'); await click('#go', 600);
       for (let i = 0; i < 26 && !vis('.pl-result'); i++) { const o = D.querySelectorAll('.pl-wrap .option[data-k]:not([data-k="-1"])'); if (o.length) o[i % 2 ? 1 : 0].click(); await sleep(520); }
       t.ok(await wait('.pl-result', 20000), 'kiểm tra đầu vào xong'); t.ok(!askOn(), 'không hỏi sau kiểm tra đầu vào');
       await go('#/day/1'); await click('ol.day-steps a[data-step="learn"]', 1200); t.ok(await learn(), 'xong bài đầu');
       const asked = await wait('#modal:not([hidden]) #raY', 6000); t.ok(asked, 'hỏi nhắc học sau bài đầu'); t.audit('soft-ask');
-      if (asked) { await click('#raN', 500); t.ok(D.getElementById('modal').hidden, '"Để sau" đóng hộp'); t.ok(+ls('lk.reask') > 0, 'ghi lk.reask'); }
+      if (asked) { await click('#raN', 500); t.ok(D.getElementById('modal').hidden, '"Để sau" đóng hộp'); { let r = ls('lk.reask'); try { r = typeof r === 'string' ? JSON.parse(r) : r; } catch (e) { r = null; } t.ok(r && r.n === 1 && r.no === 1 && r.at > 0, 'ghi lk.reask {n:1, "để sau"}'); } }
       return t.bad; },
     async j1b() { const t = mk('j1'); t.ok(!/welcome/.test(location.hash), 'tải lại: không về màn chào'); await go('#/day/1'); await click('ol.day-steps a[data-step="learn"]', 1000); await learn(); await sleep(3500); t.ok(!askOn(), 'sau tải lại: không hỏi lại'); t.audit('j1b'); return t.bad; },
-    async j2s() { const t = mk('j2'); await go('#/welcome/setup'); if (vis('#noAcct')) await click('#noAcct'); await click('button.trk-opt'); await click('#obNext', 250); await click('.trk-lv [data-lv]:not([data-lv="test"])'); await toLast(); await click('#go', 1500); t.ok(/#\/day/.test(location.hash), 'thiết lập → #/day'); return t.bad; },
+    async j2s() { const t = mk('j2'); await go('#/welcome/setup'); if (vis('#noAcct')) await click('#noAcct'); await click('[data-track]'); await click('#obNext', 250); await click('[data-lv]:not([data-lv="test"])'); await toLast(); await click('#go', 1500); t.ok(/#\/day/.test(location.hash), 'thiết lập → #/day'); return t.bad; },
     async j2a() { const t = mk('j2'); await go('#/home'); t.ok(!/welcome/.test(location.hash), 'quay lại: vào thẳng trang chủ'); t.audit('home'); await go('#/day/1');
       const gl = D.querySelector('ol.day-steps a[data-step="gl"]'), pr = D.querySelector('ol.day-steps a[data-step="pr"]'); t.ok(gl, 'có bước ngữ pháp'); t.ok(pr, 'có bước phát âm');
       if (gl) { await click('ol.day-steps a[data-step="gl"]', 1200); if (!/view=full/.test(location.hash)) await go(location.hash.split('?')[0] + '?view=full'); for (const it of D.querySelectorAll('#gQuiz .q-item')) { const b = it.querySelector('.opts button'); b && b.click(); await sleep(250); } await go('#/day/1'); t.ok(D.querySelector('ol.day-steps a[data-step="gl"].ok'), 'ngữ pháp xong'); }

@@ -19,6 +19,7 @@ const A = await import(new URL('../../functions/api/_social_auto.js', import.met
 const O = await import(new URL('../../functions/api/_meta_oauth.js', import.meta.url));
 const MT = await import(new URL('../../functions/api/_meta_tokens.js', import.meta.url));
 const MGR = await import(new URL('../../functions/api/_social_mgr.js', import.meta.url));
+// Một đồng hồ duy nhất cho cả test: mọi start/callback/pick đều nhận `now` (không đọc Date.now() thật) → không phụ thuộc runner nhanh/chậm.
 const now = Date.now(), ADMIN = 'owner@lexkite.com';
 const FBSEC = 'a'.repeat(32), IGSEC = 'b'.repeat(32), SHORT = 'EAAshort' + 's'.repeat(40), LONGU = 'EAAlonguser' + 'u'.repeat(40), PT1 = 'EAApage1' + '1'.repeat(40), PT2 = 'EAApage2' + '2'.repeat(40);
 const IGS = 'IGAAshort' + 'x'.repeat(40), IGL = 'IGAAlong' + 'y'.repeat(40);
@@ -52,7 +53,7 @@ const op = p => A.autoOpFor('POST', 'lk/auto/' + p);
 const errOf = async f => { try { await f(); return 0; } catch (e) { return e.status + ':' + e.code; } };
 const cb = (qs, cookie, t = now) => O.handleCallback(new Request('https://lexkite.com/api/social/meta/callback?' + qs, { headers: cookie ? { Cookie: 'x=1; lk_meta=' + cookie } : {} }), ENV, { fetcher, now: t });
 const loc = r => r.headers.get('Location') || '';
-const start = async (kind, ch, who = ADMIN) => { const o = await op('oauth/start')({ env: ENV, db: DB, b: { kind, channel_id: ch }, who }); const u = new URL(o.url); return { o, u, state: u.searchParams.get('state'), nonce: /lk_meta=([^;]+)/.exec(o._cookie)[1] }; };
+const start = async (kind, ch, who = ADMIN) => { const o = await op('oauth/start')({ env: ENV, db: DB, b: { kind, channel_id: ch }, who, now }); const u = new URL(o.url); return { o, u, state: u.searchParams.get('state'), nonce: /lk_meta=([^;]+)/.exec(o._cookie)[1] }; };
 
 // ---------- 1) App Secret + start ----------
 {
@@ -65,9 +66,9 @@ const start = async (kind, ch, who = ADMIN) => { const o = await op('oauth/start
   const ap = await O.appStatus(ENV, DB); ok(ap.fb.secret && ap.ig.secret && ap.fb.src === 'd1' && !JSON.stringify(ap).includes(FBSEC), 'appStatus: có secret, không lộ secret');
   ok((await O.appCreds({ ...ENV, META_APP_ID: '222222222', META_APP_SECRET: 'd'.repeat(32) }, DB, 'fb')).src === 'env', 'secret env (Cloudflare Pages) ưu tiên hơn D1');
   const { o, u, state } = await start('fb', 'gc-facebook_page-2');
-  ok(u.origin === 'https://www.facebook.com' && u.pathname === '/v26.0/dialog/oauth' && u.searchParams.get('client_id') === '1719433119146024' && u.searchParams.get('redirect_uri') === O.REDIRECT && u.searchParams.get('scope') === 'pages_show_list,pages_read_engagement,pages_manage_posts' && state.length > 40, 'start FB: URL Facebook Login đủ client_id/redirect/scope/state');
+  ok(u.origin === 'https://www.facebook.com' && u.pathname === '/v26.0/dialog/oauth' && u.searchParams.get('client_id') === '1719433119146024' && u.searchParams.get('redirect_uri') === O.REDIRECT && u.searchParams.get('scope') === 'pages_show_list,pages_read_engagement,pages_manage_posts,pages_manage_engagement' && state.length > 40, 'start FB: URL Facebook Login đủ client_id/redirect/scope (+ pages_manage_engagement tùy chọn cho bình luận đầu)/state');
   ok(/HttpOnly/.test(o._cookie) && /Secure/.test(o._cookie) && /SameSite=Lax/.test(o._cookie) && /Path=\/api\/social\/meta/.test(o._cookie) && /Max-Age=600/.test(o._cookie), 'cookie lk_meta: HttpOnly, Secure, Lax, chỉ /api/social/meta, 10 phút');
-  { const E2 = { ...ENV, META_LOGIN_CONFIG_ID: '987654321012' }, o2 = await O.startOAuth(E2, DB, { kind: 'fb', channel_id: 'gc-facebook_page-2' }, ADMIN), u2 = new URL(o2.url); ok(u2.searchParams.get('config_id') === '987654321012' && !u2.searchParams.has('scope'), 'Facebook Login for Business: META_LOGIN_CONFIG_ID → config_id thay scope'); }
+  { const E2 = { ...ENV, META_LOGIN_CONFIG_ID: '987654321012' }, o2 = await O.startOAuth(E2, DB, { kind: 'fb', channel_id: 'gc-facebook_page-2' }, ADMIN, now), u2 = new URL(o2.url); ok(u2.searchParams.get('config_id') === '987654321012' && !u2.searchParams.has('scope'), 'Facebook Login for Business: META_LOGIN_CONFIG_ID → config_id thay scope'); }
   const ig = await start('ig', 'gc-instagram-3');
   ok(ig.u.origin === 'https://www.instagram.com' && ig.u.pathname === '/oauth/authorize' && ig.u.searchParams.get('client_id') === '1421796229590607' && ig.u.searchParams.get('scope') === 'instagram_business_basic,instagram_business_content_publish' && ig.u.searchParams.get('force_authentication') === '1', 'start IG: Instagram Login (Business), scope đúng, buộc chọn tài khoản');
   const sock = fs.readFileSync(new URL('../../functions/api/social.js', import.meta.url), 'utf8');
@@ -79,9 +80,12 @@ const start = async (kind, ch, who = ADMIN) => { const o = await op('oauth/start
   const { state, nonce } = await start('fb', 'gc-facebook_page-2');
   const [body, sig] = state.split('.'), forged = Buffer.from(JSON.stringify({ k: 'fb', c: 'gc-facebook_page-2', e: ADMIN, n: nonce, x: Math.floor(now / 1000) + 86400 })).toString('base64url') + '.' + sig;
   ok(loc(await cb('code=GOOD&state=' + encodeURIComponent(forged), nonce)).includes('meta=bad-state'), 'state giả mạo (đổi nội dung, giữ chữ ký) → bad-state');
-  const other = await O.signState({ ...ENV, KEYS_ENC_KEY: Buffer.alloc(32, 9).toString('base64') }, { kind: 'fb', channel_id: 'gc-facebook_page-2', email: ADMIN });
+  const other = await O.signState({ ...ENV, KEYS_ENC_KEY: Buffer.alloc(32, 9).toString('base64') }, { kind: 'fb', channel_id: 'gc-facebook_page-2', email: ADMIN }, now);
   ok(loc(await cb('code=GOOD&state=' + encodeURIComponent(other.state), other.nonce)).includes('meta=bad-state'), 'state ký bằng khóa khác → bad-state');
   ok(loc(await cb('code=GOOD&state=' + encodeURIComponent(state), nonce, now + 601e3)).includes('meta=bad-state'), 'state hết hạn (> 10 phút) → bad-state');
+  ok(await O.verifyState(ENV, state, now + 599e3) && !(await O.verifyState(ENV, state, now + 601e3)), 'hạn state đúng 10 phút tính từ lúc start (599 s còn, 601 s hết)');
+  { const old = await op('oauth/start')({ env: ENV, db: DB, b: { kind: 'fb', channel_id: 'gc-facebook_page-2' }, who: ADMIN, now: now - 601e3 }), st = new URL(old.url).searchParams.get('state');
+    ok(!(await O.verifyState(ENV, st, now)) && await O.verifyState(ENV, st, now - 601e3), 'route oauth/start dùng đồng hồ được tiêm (không lén đọc Date.now) – chống đỏ chập chờn trên runner chậm'); }
   ok(loc(await cb('code=GOOD&state=' + encodeURIComponent(state), 'wrongnonce')).includes('meta=bad-state') && loc(await cb('code=GOOD&state=' + encodeURIComponent(state), '')).includes('meta=bad-state'), 'thiếu/sai cookie lk_meta (CSRF) → bad-state');
   const stranger = await start('fb', 'gc-facebook_page-2', 'stranger@x.com');
   ok(loc(await cb('code=GOOD&state=' + encodeURIComponent(stranger.state), stranger.nonce)).includes('meta=bad-state'), 'email không trong ADMIN_EMAILS → bad-state');
@@ -108,13 +112,13 @@ const start = async (kind, ch, who = ADMIN) => { const o = await op('oauth/start
   const s4 = await start('fb', 'gc-facebook_page-2'), r4 = await cb('code=GOOD&state=' + encodeURIComponent(s4.state), s4.nonce);
   const id = new URLSearchParams(loc(r4).split('?')[1].split('#')[0]).get('id');
   ok(loc(r4).includes('meta=pick') && id === s4.nonce, 'nhiều Page → ?meta=pick&id=<phiên>');
-  const P = await op('oauth/pages')({ env: ENV, db: DB, b: { id }, who: ADMIN });
+  const P = await op('oauth/pages')({ env: ENV, db: DB, b: { id }, who: ADMIN, now });
   ok(P.pages.length === 2 && P.pages[1].id === '222222222' && !JSON.stringify(P).includes('EAA'), 'Page chờ chọn: chỉ Page có quyền đăng, không token');
-  ok(await errOf(() => op('oauth/pages')({ env: ENV, db: DB, b: { id }, who: 'other@lexkite.com' })) === '403:not-yours', 'quản trị khác không mở được phiên chọn Page');
-  ok(await errOf(() => op('oauth/pick')({ env: ENV, db: DB, b: { id, page_id: '333333333' }, who: ADMIN })) === '400:bad-page-id', 'chọn Page không có trong danh sách → 400');
-  const pk = await op('oauth/pick')({ env: ENV, db: DB, b: { id, page_id: '222222222' }, who: ADMIN });
+  ok(await errOf(() => op('oauth/pages')({ env: ENV, db: DB, b: { id }, who: 'other@lexkite.com', now })) === '403:not-yours', 'quản trị khác không mở được phiên chọn Page');
+  ok(await errOf(() => op('oauth/pick')({ env: ENV, db: DB, b: { id, page_id: '333333333' }, who: ADMIN, now })) === '400:bad-page-id', 'chọn Page không có trong danh sách → 400');
+  const pk = await op('oauth/pick')({ env: ENV, db: DB, b: { id, page_id: '222222222' }, who: ADMIN, now });
   ok(pk.target_id === '222222222' && sql.prepare("SELECT target_id FROM soc_tokens WHERE channel_id = 'gc-facebook_page-2'").get().target_id === '222222222' && await MT.tokenOf(ENV, DB, { src: 'd1', channel_id: 'gc-facebook_page-2' }) === PT2, 'chọn Page → lưu Page token của Page đó (kết nối lại thay token cũ)');
-  ok(await errOf(() => O.pickPage(ENV, DB, { id, page_id: '222222222' }, ADMIN)) === '404:expired', 'phiên chọn Page dùng 1 lần');
+  ok(await errOf(() => O.pickPage(ENV, DB, { id, page_id: '222222222' }, ADMIN, now)) === '404:expired', 'phiên chọn Page dùng 1 lần');
   const s5 = await start('fb', 'gc-facebook_page-2'); await cb('code=GOOD&state=' + encodeURIComponent(s5.state), s5.nonce);
   ok(await errOf(() => O.pickPage(ENV, DB, { id: s5.nonce, page_id: '111111111' }, ADMIN, now + 11 * 60e3)) === '404:expired', 'phiên chọn Page hết hạn sau 10 phút');
 }

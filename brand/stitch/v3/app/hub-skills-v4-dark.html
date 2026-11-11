@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Skills</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed": "#271900",
+            "tertiary": "#ffdea8",
+            "inverse-surface": "#f4f0ea",
+            "secondary": "#FF6339",
+            "inverse-on-surface": "#10191B",
+            "surface-variant": "#22373C",
+            "on-primary-container": "#E8F1F0",
+            "surface-container": "#1E2F33",
+            "on-secondary-fixed-variant": "#891d00",
+            "surface-container-highest": "#283E44",
+            "primary-container": "#20464B",
+            "on-primary-fixed-variant": "#224d4e",
+            "on-tertiary": "#271900",
+            "on-error-container": "#ffdad6",
+            "on-error": "#ffffff",
+            "tertiary-fixed": "#ffdea8",
+            "secondary-fixed": "#ffdad2",
+            "secondary-fixed-dim": "#ffb4a2",
+            "error": "#ffb4ab",
+            "outline-variant": "#2a4349",
+            "secondary-container": "#4A180E",
+            "on-primary-fixed": "#002020",
+            "inverse-primary": "#0f3d3e",
+            "tertiary-fixed-dim": "#f7bd4b",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#ffdad2",
+            "tertiary-container": "#4a3300",
+            "error-container": "#93000a",
+            "on-tertiary-fixed-variant": "#5e4200",
+            "on-primary": "#10191B",
+            "on-tertiary-container": "#ffdea8",
+            "surface-dim": "#0D1416",
+            "surface": "#10191B",
+            "surface-tint": "#38D9CB",
+            "on-surface-variant": "#A9BDBB",
+            "primary-fixed": "#beebeb",
+            "on-background": "#E8F1F0",
+            "on-secondary-fixed": "#3c0700",
+            "outline": "#637D82",
+            "background": "#10191B",
+            "primary-fixed-dim": "#a3cfcf",
+            "surface-container-lowest": "#0D1517",
+            "surface-bright": "#172427",
+            "on-surface": "#E8F1F0",
+            "surface-container-high": "#22373C",
+            "primary": "#38D9CB",
+            "surface-container-low": "#131E21"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.25rem",
+            "gutter": "1.5rem",
+            "margin-mobile": "1.25rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter-mobile": "1rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "space-2xl": "3.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "label-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.015em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    .tactile-coral-btn {
+      background-color: #F06543;
+      box-shadow: 0 4px 0 0 #B9381A;
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-coral-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #B9381A;
+    }
+
+    .tactile-card {
+      box-shadow: 0 3px 0 0 #0C1415, 0 6px 14px rgba(0, 0, 0, 0.35);
+      transition: transform 0.12s ease-in-out, box-shadow 0.12s ease-in-out;
+    }
+    .tactile-card:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #0C1415, 0 2px 6px rgba(0, 0, 0, 0.35);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] antialiased flex justify-center min-h-screen selection:bg-[#38D9CB]/20 selection:text-[#38D9CB]">
+<div class="w-full max-w-[390px] min-h-screen flex flex-col bg-[#10191B] relative pb-28">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 flex justify-between items-center w-full px-margin-mobile h-14 bg-[#10191B] shadow-sm border-b border-[#22373C]">
+<div class="flex items-center gap-space-sm">
+<h1 class="text-headline-sm font-headline-sm font-bold text-[#E8F1F0] tracking-tight">Skills</h1>
+</div>
+<div class="flex items-center gap-space-xs">
+<button aria-label="Skill filters and exam options" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-xl flex items-center justify-center text-[#A9BDBB] hover:bg-[#1E2F33] hover:text-[#E8F1F0] transition-colors duration-150 active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-[24px]">tune</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-4 pt-4 flex flex-col gap-space-lg">
+<!-- Section 1: Recommended Next Card -->
+<section aria-labelledby="section-recommended" class="w-full">
+<div class="tactile-card bg-[#172427] rounded-2xl p-space-md border border-[#22373C] flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#1E2F33] text-[#FF7A59] text-label-sm font-label-sm border border-[#FF6339]/30">
+<span class="material-symbols-outlined text-[16px] text-[#FF7A59]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+              10-min Daily Sprint
+            </span>
+<span class="text-label-sm font-label-sm text-[#A9BDBB] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-[#A9BDBB]">schedule</span>
+              10 mins • +25 XP
+            </span>
+</div>
+<div class="pt-1">
+<h2 class="text-headline-sm font-headline-sm text-[#E8F1F0] leading-snug" id="section-recommended">
+              IELTS Speaking Part 3: Discussing Societal Trends
+            </h2>
+</div>
+<!-- Teacher Placeholder Slot -->
+<div class="rounded-xl border border-dashed border-[#22373C] bg-[#1E2F33] p-2.5 flex items-start gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-[#172427] border border-[#2a4349] flex items-center justify-center shrink-0 text-[#A9BDBB] text-[11px] font-label-sm">
+              [teacher-slot]
+            </div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-[#E8F1F0] flex items-center gap-1">
+                Carlos <span class="text-[#A9BDBB] font-normal">• IELTS Senior Tutor</span>
+</span>
+<p class="text-body-sm font-body-sm text-[#A9BDBB] mt-0.5">
+                “Strengthen your IELTS Part 3 speaking transitions and discourse markers today.”
+              </p>
+</div>
+</div>
+<!-- Tactile Primary CTA Button -->
+<div class="pt-1">
+<button class="tactile-coral-btn w-full min-h-[48px] h-12 rounded-xl flex items-center justify-center gap-2 text-white font-semibold text-label-lg font-label-lg px-space-md" type="button">
+<span>Start 10-min Task</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section 2: Core Exam Skills Header + Switcher -->
+<section aria-labelledby="core-skills-heading" class="w-full flex flex-col gap-space-sm">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-[#E8F1F0] tracking-tight" id="core-skills-heading">Core Exam Skills</h2>
+</div>
+<button aria-label="Switch active target exam" class="min-h-[44px] px-3 py-1.5 rounded-full bg-[#1E2F33] border border-[#22373C] hover:bg-[#283E44] transition-colors flex items-center gap-1.5 active:translate-y-0.5" type="button">
+<span class="text-label-sm font-label-sm text-[#E8F1F0]">IELTS Academic</span>
+<span class="text-[#A9BDBB] font-body-sm">•</span>
+<span class="text-label-sm font-label-sm text-[#FF7A59]">Target 7.5</span>
+<span class="material-symbols-outlined text-[16px] text-[#A9BDBB]">expand_more</span>
+</button>
+</div>
+<!-- 2x2 Bento Grid for Core Skills -->
+<div class="grid grid-cols-2 gap-3 pt-1">
+<!-- Skill 1: Listening -->
+<div class="tactile-card bg-[#172427] rounded-2xl p-3.5 border border-[#22373C] flex flex-col justify-between min-h-[162px] cursor-pointer" role="button" tabindex="0">
+<div>
+<div class="flex items-center justify-between mb-2">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] flex items-center justify-center text-[#38D9CB]">
+<span class="material-symbols-outlined text-[22px]">headphones</span>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-[#1E2F33] text-[#38D9CB] border border-[#2a4349] text-label-sm font-label-sm">
+                  C1
+                </span>
+</div>
+<h3 class="text-label-lg font-label-lg text-[#E8F1F0]">Listening</h3>
+<p class="text-body-sm font-body-sm text-[#A9BDBB]">Advanced Prep</p>
+</div>
+<div class="pt-2">
+<div class="flex justify-between items-baseline mb-1.5">
+<span class="text-label-md font-label-md text-[#E8F1F0]">Band 7.0</span>
+<span class="text-label-sm font-label-sm text-[#A9BDBB]">72%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-[#22373C] overflow-hidden">
+<div class="h-full bg-[#38D9CB] rounded-full" style="width: 72%;"></div>
+</div>
+</div>
+</div>
+<!-- Skill 2: Reading -->
+<div class="tactile-card bg-[#172427] rounded-2xl p-3.5 border border-[#22373C] flex flex-col justify-between min-h-[162px] cursor-pointer" role="button" tabindex="0">
+<div>
+<div class="flex items-center justify-between mb-2">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] flex items-center justify-center text-[#38D9CB]">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-[#1E2F33] text-[#38D9CB] border border-[#2a4349] text-label-sm font-label-sm">
+                  B2
+                </span>
+</div>
+<h3 class="text-label-lg font-label-lg text-[#E8F1F0]">Reading</h3>
+<p class="text-body-sm font-body-sm text-[#A9BDBB]">Academic Texts</p>
+</div>
+<div class="pt-2">
+<div class="flex justify-between items-baseline mb-1.5">
+<span class="text-label-md font-label-md text-[#E8F1F0]">Band 6.5</span>
+<span class="text-label-sm font-label-sm text-[#A9BDBB]">58%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-[#22373C] overflow-hidden">
+<div class="h-full bg-[#38D9CB] rounded-full" style="width: 58%;"></div>
+</div>
+</div>
+</div>
+<!-- Skill 3: Writing -->
+<div class="tactile-card bg-[#172427] rounded-2xl p-3.5 border border-[#22373C] flex flex-col justify-between min-h-[162px] cursor-pointer" role="button" tabindex="0">
+<div>
+<div class="flex items-center justify-between mb-2">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] flex items-center justify-center text-[#38D9CB]">
+<span class="material-symbols-outlined text-[22px]">edit_note</span>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-[#1E2F33] text-[#38D9CB] border border-[#2a4349] text-label-sm font-label-sm">
+                  B2
+                </span>
+</div>
+<h3 class="text-label-lg font-label-lg text-[#E8F1F0]">Writing</h3>
+<p class="text-body-sm font-body-sm text-[#A9BDBB]">Task 1 &amp; 2 Focus</p>
+</div>
+<div class="pt-2">
+<div class="flex justify-between items-baseline mb-1.5">
+<span class="text-label-md font-label-md text-[#E8F1F0]">Band 6.0</span>
+<span class="text-label-sm font-label-sm text-[#A9BDBB]">45%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-[#22373C] overflow-hidden">
+<div class="h-full bg-[#38D9CB] rounded-full" style="width: 45%;"></div>
+</div>
+</div>
+</div>
+<!-- Skill 4: Speaking -->
+<div class="tactile-card bg-[#172427] rounded-2xl p-3.5 border border-[#22373C] flex flex-col justify-between min-h-[162px] cursor-pointer" role="button" tabindex="0">
+<div>
+<div class="flex items-center justify-between mb-2">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] flex items-center justify-center text-[#38D9CB]">
+<span class="material-symbols-outlined text-[22px]">record_voice_over</span>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-[#1E2F33] text-[#38D9CB] border border-[#2a4349] text-label-sm font-label-sm">
+                  C1
+                </span>
+</div>
+<h3 class="text-label-lg font-label-lg text-[#E8F1F0]">Speaking</h3>
+<p class="text-body-sm font-body-sm text-[#A9BDBB]">Fluency &amp; Lexical</p>
+</div>
+<div class="pt-2">
+<div class="flex justify-between items-baseline mb-1.5">
+<span class="text-label-md font-label-md text-[#E8F1F0]">Band 7.0</span>
+<span class="text-label-sm font-label-sm text-[#A9BDBB]">68%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-[#22373C] overflow-hidden">
+<div class="h-full bg-[#38D9CB] rounded-full" style="width: 68%;"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Foundation & Tool Skills -->
+<section aria-labelledby="foundation-skills-heading" class="w-full flex flex-col gap-space-sm pb-4">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-[#E8F1F0] tracking-tight" id="foundation-skills-heading">Foundation &amp; Sub-skills</h2>
+</div>
+<div class="flex flex-col gap-2.5">
+<!-- Row 1: Pronunciation -->
+<div class="tactile-card bg-[#172427] rounded-2xl p-3.5 border border-[#22373C] flex items-center justify-between min-h-[58px] cursor-pointer" role="button" tabindex="0">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-[#1E2F33] flex items-center justify-center text-[#38D9CB] shrink-0">
+<span class="material-symbols-outlined text-[24px]">graphic_eq</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-lg font-label-lg text-[#E8F1F0] leading-tight">Pronunciation &amp; Intonation</span>
+<span class="text-body-sm font-body-sm text-[#A9BDBB] mt-0.5 leading-snug">Connected speech &amp; syllable stress</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pl-2 shrink-0">
+<span class="px-2.5 py-1 rounded-full bg-[#1E2F33] text-[#38D9CB] border border-[#2a4349] text-label-sm font-label-sm">
+                84%
+              </span>
+<span class="material-symbols-outlined text-[20px] text-[#A9BDBB]">chevron_right</span>
+</div>
+</div>
+<!-- Row 2: Grammar & Syntax -->
+<div class="tactile-card bg-[#172427] rounded-2xl p-3.5 border border-[#22373C] flex items-center justify-between min-h-[58px] cursor-pointer" role="button" tabindex="0">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-[#1E2F33] flex items-center justify-center text-[#38D9CB] shrink-0">
+<span class="material-symbols-outlined text-[24px]">spellcheck</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-lg font-label-lg text-[#E8F1F0] leading-tight">Grammar &amp; Complex Structures</span>
+<span class="text-body-sm font-body-sm text-[#A9BDBB] mt-0.5 leading-snug">Conditionals, inversion &amp; passive</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pl-2 shrink-0">
+<span class="px-2.5 py-1 rounded-full bg-[#1E2F33] text-[#38D9CB] border border-[#2a4349] text-label-sm font-label-sm">
+                Lvl 5/8
+              </span>
+<span class="material-symbols-outlined text-[20px] text-[#A9BDBB]">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter-mobile py-space-xs bg-[#10191B] shadow-md border-t border-[#22373C]">
+<!-- Tab 1: Today -->
+<button class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1.5 min-w-[44px] min-h-[44px] hover:bg-[#1E2F33] hover:text-[#E8F1F0] rounded-xl transition-colors duration-150 active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="text-label-sm font-label-sm mt-0.5">Today</span>
+</button>
+<!-- Tab 2: Vocab -->
+<button class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1.5 min-w-[44px] min-h-[44px] hover:bg-[#1E2F33] hover:text-[#E8F1F0] rounded-xl transition-colors duration-150 active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="text-label-sm font-label-sm mt-0.5">Vocab</span>
+</button>
+<!-- Tab 3: Skills (Active) -->
+<button aria-current="page" class="flex flex-col items-center justify-center bg-[#1E2F33] text-[#38D9CB] border border-[#38D9CB]/30 rounded-xl px-3 py-1.5 min-w-[44px] min-h-[44px] active:translate-y-0.5 transition-transform duration-100" type="button">
+<span class="material-symbols-outlined text-[22px] text-[#38D9CB]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-bold text-[#38D9CB]">Skills</span>
+</button>
+<!-- Tab 4: Tests -->
+<button class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1.5 min-w-[44px] min-h-[44px] hover:bg-[#1E2F33] hover:text-[#E8F1F0] rounded-xl transition-colors duration-150 active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span class="text-label-sm font-label-sm mt-0.5">Tests</span>
+</button>
+<!-- Tab 5: Me -->
+<button class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1.5 min-w-[44px] min-h-[44px] hover:bg-[#1E2F33] hover:text-[#E8F1F0] rounded-xl transition-colors duration-150 active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-label-sm font-label-sm mt-0.5">Me</span>
+</button>
+</nav>
+</div>
+</body></html>

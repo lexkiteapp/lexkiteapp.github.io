@@ -16,7 +16,7 @@
   const cache = {};
   // Chữ giao diện của thẻ: nhóm tải lười js/i18n/en/explain.js (+ js/i18n/<lang>/explain.js) – nạp trước khi vẽ
   let dictP;
-  const have = l => g.I18N_DICT && g.I18N_DICT[l] && g.I18N_DICT[l]['Xem giải thích chi tiết'];
+  const have = l => (g.I18N && g.I18N.has ? g.I18N.has(l, 'Xem giải thích chi tiết') : !!(g.I18N_DICT && g.I18N_DICT[l] && g.I18N_DICT[l]['Xem giải thích chi tiết'])); // gói khóa băm → I18N.has (dự phòng: i18n.js cũ trong bộ đệm)
   const one = src => new Promise(y => { const s = document.createElement('script'); s.src = src; s.onload = s.onerror = () => y(); document.head.appendChild(s); });
   function ready() {
     const l = g.I18N && I18N.lang ? I18N.lang() : 'vi';

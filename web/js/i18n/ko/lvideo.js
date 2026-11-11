@@ -1,3 +1,2 @@
-/* UI ko – lvideo (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ko"] = Object.assign(D["ko"] || {}, {"Xem 20 giây":"20초 보기","Video của ngày":"오늘의 영상","Video bài học":"레슨 영상","Phát video: {t}":"영상 재생: {t}","Đóng video":"영상 닫기","Không phát được video – thử lại sau.":"영상을 재생할 수 없어요. 나중에 다시 시도하세요.","Câu hỏi nhanh":"빠른 퀴즈","Đúng rồi! Đã thêm vào thẻ ôn.":"정답! 복습 카드에 추가했어요.","Chưa đúng. Đáp án: {a} – đã thêm vào thẻ ôn.":"아쉬워요. 정답: {a} – 복습 카드에 추가했어요.","Video tiếp theo":"다음 영상"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/ko/lvideo.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ko=Object.assign(D.ko||{},{_nmea:"20초 보기",_46hz:"오늘의 영상",_qfll:"레슨 영상",_djl:"영상 재생: {t}",_5ws0:"영상 닫기",_ifv9:"영상을 재생할 수 없어요. 나중에 다시 시도하세요.",_vbgs:"빠른 퀴즈",_k07p:"정답! 복습 카드에 추가했어요.",_39cs:"아쉬워요. 정답: {a} – 복습 카드에 추가했어요.",_yrgg:"다음 영상",_kj2p:"영상 챕터"});})(typeof self!=='undefined'?self:this);

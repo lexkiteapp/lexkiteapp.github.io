@@ -1,3 +1,2 @@
-/* UI tr – rmodes (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {"Gõ từ":"Yaz","Nghe chọn nghĩa":"Dinle ve seç","Câu của bạn":"Senin cümlen","Nguồn":"Kaynak","Chế độ ôn":"Tekrar modu","Gợi ý chữ cái":"Harf ipucu","Nghe từ":"Kelimeyi dinle","Không nhớ":"Hatırlamıyorum","Đáp án đúng":"Doğru cevap"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/tr/rmodes.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.tr=Object.assign(D.tr||{},{_en82:"Yaz",_7883:"Ses yükleniyor…",_40h8:"Ses çalınamadı – yeniden denemek için 🔊 simgesine dokunun",_4tgc:"Kelimeyi göster",_58ig:"Dinle ve seç",_gumz:"Senin cümlen",_1xxw:"Kaynak",_hcwb:"Tekrar modu",_42cy:"Harf ipucu",_yt56:"Kelimeyi dinle",_8tl2:"Hatırlamıyorum",_s9a7:"Doğru cevap"});})(typeof self!=='undefined'?self:this);

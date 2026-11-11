@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_bride",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: bride.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a woman who is getting married or has just married.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I don't know the bride.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "bride",
+  "ipa": "/braɪd/",
+  "mean": "a woman who is getting married or has just married",
+  "ex": "I don't know the bride.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=bride",
+  "link": "https://lexkite.com/app/#/review?w=bride",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 25.7,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"bride\" mean?",
+  "keyword": "bride",
+  "value": "Bride means a woman who is getting married or has just married.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=bride",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"bride\" mean?",
+    "description": "Bride means a woman who is getting married or has just married.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bride\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "bride",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"bride\" mean?\n\nBride means a woman who is getting married or has just married.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bride"
+   },
+   "instagram": {
+    "caption": "What does \"bride\" mean?\n\nBride means a woman who is getting married or has just married.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"bride\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a woman who is getting married or has just married. Bride means a woman who is getting married or has just married. Practice it with a free quiz: {link}"
+ }
+}

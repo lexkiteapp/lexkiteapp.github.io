@@ -9,7 +9,7 @@ tags: [vocabulary, speaking, phrasal-verbs]
 keyword: "phrasal verbs ที่ใช้บ่อย"
 cover: practice-learn
 coverAlt: "หน้าจอแบบฝึกหัดคำศัพท์ภาษาอังกฤษอัจฉริยะบนแอปพลิเคชัน Lexkite"
-publishAt: ""
+publishAt: 2026-11-27T12:08:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

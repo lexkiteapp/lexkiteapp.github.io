@@ -4,7 +4,7 @@
   T.reading.push({ id: 'tr4', test: 4, title: 'TOEIC Reading Test 4', parts: [
 
     /* ================= PART 5 ================= */
-    { part: 5, title: 'Incomplete Sentences', instr: 'A word or phrase is missing in each of the sentences below. Four answer choices are given below each sentence. Select the best answer to complete the sentence.',
+    { part: 5, title: 'Incomplete Sentences', instr: g.TQR[2],
       groups: [ { type: 'mcq', instr: '', items: [
         { n: 101, q: 'The marketing director was ------- impressed with the designs submitted by the new agency.', options: ['particular', 'particularly', 'particularity', 'particulars'], a: 1, cue: 'was ------- impressed',
           explain: 'Cần trạng từ bổ nghĩa cho tính từ/phân từ "impressed" → "particularly" (đặc biệt). "particular" là tính từ; "particularity" và "particulars" là danh từ, không bổ nghĩa cho "impressed".' },
@@ -14,7 +14,7 @@
           explain: 'Cuộc kiểm tra "được lên lịch vào" thứ Ba tới → bị động "is scheduled for + thời gian". "scheduled" (quá khứ chủ động) và "was scheduling" sai thì, sai thể; "schedules" mang nghĩa chủ động (cuộc kiểm tra tự lên lịch) – vô lý.' },
         { n: 104, q: 'Ms. Haddad will lead the training sessions ------- Mr. Torres is on leave.', options: ['during', 'despite', 'unless', 'while'], a: 3, cue: 'Mr. Torres is on leave',
           explain: 'Theo sau là mệnh đề (Mr. Torres is on leave) và ý nghĩa là "trong khi/trong thời gian" → liên từ "while". "during" và "despite" là giới từ, chỉ đi với danh từ; "unless" (trừ khi) không hợp nghĩa.' },
-        { n: 105, q: 'The Ravenwood Hotel recently ------- its lobby to create more seating space for guests.', options: ['expanded', 'expanding', 'expansion', 'expansive'], a: 0, cue: 'recently ------- its lobby',
+        { n: 105, q: 'The Hollin Crest Hotel recently ------- its lobby to create more seating space for guests.', options: ['expanded', 'expanding', 'expansion', 'expansive'], a: 0, cue: 'recently ------- its lobby',
           explain: 'Câu thiếu động từ chính, có "recently" và tân ngữ "its lobby" → động từ quá khứ "expanded" (đã mở rộng). "expanding" không thể làm động từ chính khi thiếu "be"; "expansion" là danh từ; "expansive" là tính từ.' },
         { n: 106, q: 'Our customer service representatives are trained to handle complaints ------- and professionally.', options: ['calm', 'calmness', 'calmer', 'calmly'], a: 3, cue: 'and professionally',
           explain: 'Cấu trúc song song với "and professionally" (trạng từ) và cùng bổ nghĩa cho động từ "handle" → trạng từ "calmly" (một cách bình tĩnh). "calm/calmer" là tính từ; "calmness" là danh từ.' },
@@ -69,7 +69,7 @@
       ] } ] },
 
     /* ================= PART 6 ================= */
-    { part: 6, title: 'Text Completion', instr: 'Read the texts that follow. A word, phrase, or sentence is missing in parts of each text. Four answer choices for each question are given below the text. Select the best answer to complete the text.',
+    { part: 6, title: 'Text Completion', instr: g.TQR[1],
       passages: [
         { title: 'Memo', text:
 `MEMO
@@ -101,7 +101,7 @@ Studies show that indoor plants can improve air quality and help employees feel 
 That's where GreenDesk comes in. We will select plants that suit the light conditions in your office, deliver them in stylish pots, and visit every two weeks to water, trim, and feed them. If a plant becomes unhealthy, we will replace it at no -----(136)----- cost.
 
 Our service plans start at just $60 per month for small offices. -----(137)-----. Call 555-0122 today to book a free consultation. -----(138)----- the visit, one of our specialists will walk through your workplace and recommend the right plants for each space.`,
-          groups: [ { type: 'mcq', instr: 'Questions 135-138 refer to the following advertisement.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[16], items: [
             { n: 135, q: '(135)', options: ['relax', 'relaxing', 'relaxation', 'relaxed'], a: 3, cue: 'help employees feel more',
               explain: 'Sau động từ liên kết "feel" (+ more) cần tính từ; tính từ đuôi -ed mô tả cảm giác của người → "feel more relaxed" (cảm thấy thư thái hơn). "relaxing" (đuôi -ing) mô tả tính chất của sự vật gây ra cảm giác; "relax" là động từ; "relaxation" là danh từ.' },
             { n: 136, q: '(136)', options: ['extra', 'extend', 'extremely', 'extent'], a: 0, cue: 'we will replace it at no',
@@ -119,7 +119,7 @@ According to company spokesperson Theo Marchetti, the new boats will cut fuel co
 Charging stations will be built at both terminals. -----(141)-----. Ticket prices will not change as a result of the project, Mr. Marchetti added.
 
 Bayline carries more than 400,000 passengers each year, -----(142)----- of them commuters.`,
-          groups: [ { type: 'mcq', instr: 'Questions 139-142 refer to the following article.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[6], items: [
             { n: 139, q: '(139)', options: ['beginning', 'begin', 'began', 'begins'], a: 1, cue: 'The first electric ferry is expected to',
               explain: 'Cấu trúc "be expected + to V nguyên mẫu" (được dự kiến sẽ làm gì) → "is expected to begin service" (dự kiến bắt đầu hoạt động). Sau "to" ở đây không dùng V-ing, quá khứ hay động từ chia ngôi.' },
             { n: 140, q: '(140)', options: ['quiet', 'quietly', 'quieter', 'quietest'], a: 2, cue: 'than the current fleet',
@@ -143,7 +143,7 @@ We look forward to -----(146)----- you in Calgary.
 Sincerely,
 Martina Solberg
 Conference Coordinator`,
-          groups: [ { type: 'mcq', instr: 'Questions 143-146 refer to the following letter.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[13], items: [
             { n: 143, q: '(143)', options: ['popular', 'more popular', 'popularity', 'most popular'], a: 3, cue: 'is sure to be one of the',
               explain: 'Cấu trúc "one of the + so sánh nhất + danh từ số nhiều" → "one of the most popular sessions" (một trong những phiên được yêu thích nhất). "more popular" là so sánh hơn; "popular" thiếu dạng so sánh; "popularity" là danh từ.' },
             { n: 144, q: '(144)', options: ['Our travel agent will contact you shortly to arrange these bookings.', 'Hall B can seat up to 300 people.', 'The conference fee for members is $250.', 'Many supermarkets now donate unsold food.'], a: 0, cue: 'the association will cover the cost of your flight and two nights at the Ridgeline Hotel',
@@ -156,7 +156,7 @@ Conference Coordinator`,
       ] },
 
     /* ================= PART 7 ================= */
-    { part: 7, title: 'Reading Comprehension', instr: 'In this part you will read a selection of texts, such as magazine and newspaper articles, e-mails, and instant messages. Each text or set of texts is followed by several questions. Select the best answer for each question.',
+    { part: 7, title: 'Reading Comprehension', instr: g.TQR[0],
       passages: [
         { title: 'Coupon', text:
 `Fernhill Print & Copy
@@ -180,7 +180,7 @@ Imogen Pryce [1:50 P.M.]: The regional manager is visiting our Cole Avenue store
 Dariusz Novak [1:51 P.M.]: I could be there in about twenty minutes.
 Imogen Pryce [1:52 P.M.]: That would be great. Can you bring some of the new spring catalogs? We ran out this morning.
 Dariusz Novak [1:53 P.M.]: Sure thing. There are two full boxes in the back room here.`,
-          groups: [ { type: 'mcq', instr: 'Questions 149-150 refer to the following text-message chain.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[5], items: [
             { n: 149, q: 'Why does Ms. Pryce contact Mr. Novak?', options: ['She wants to change a display.', 'She is looking for a manager.', 'She needs help at a store.', 'She forgot a meeting time.'], a: 2, cue: "Hamid called in sick. I'm the only one here.",
               explain: 'Quản lý vùng sắp đến thăm cửa hàng phố Cole lúc 3 giờ, Hamid xin nghỉ ốm và cô đang làm một mình ("I\'m the only one here") → cô cần người hỗ trợ ở cửa hàng. Người làm tủ trưng bày là Dariusz; quản lý vùng không bị "tìm kiếm" mà đang đến thăm.' },
             { n: 150, q: 'At 1:51 P.M., what does Mr. Novak mean when he writes, "I could be there in about twenty minutes"?', options: ['He is running late for a meeting.', 'He cannot leave his store.', 'He wants to postpone a visit.', 'He is offering to come help.'], a: 3, cue: 'I could be there in about twenty minutes.',
@@ -219,7 +219,7 @@ You can renew online at www.pclas.org/renew. —[4]— If you have any questions
 Sincerely,
 Bernard Thackeray
 Membership Director`,
-          groups: [ { type: 'mcq', instr: 'Questions 154-157 refer to the following letter.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[15], items: [
             { n: 154, q: 'What is the purpose of the letter?', options: ['To invite a member to give a lecture', 'To announce a change of address', 'To confirm a conference registration', 'To encourage a member to renew'], a: 3, cue: 'Your current membership will expire on June 30.',
               explain: 'Thư nhắc thẻ hội viên hết hạn ngày 30/6, giới thiệu quyền lợi mới, lưu ý gia hạn sớm để giữ giá cũ và chỉ cách gia hạn → khuyến khích gia hạn. Hội nghị chỉ được nhắc như một quyền lợi giảm giá, chưa có đăng ký nào; bài giảng là thư viện ghi hình, không phải lời mời giảng.' },
             { n: 155, q: 'What is NOT mentioned as a membership benefit?', options: ['Access to recorded lectures', 'A discounted conference registration', 'A free print magazine', 'A listing in an online directory'], a: 2, cue: 'This year, we have added several new benefits for members.',
@@ -237,8 +237,8 @@ Chief executive Renata Kowal said the idea came from employees themselves. "In o
 To make the shorter week possible, the company has reduced the number of internal meetings and limited most of them to 30 minutes. Customer support, however, remains available five days a week; support staff take turns working on Fridays and receive another day off instead.
 
 Ms. Kowal said the company will decide in April whether to make the change permanent.`,
-          groups: [ { type: 'mcq', instr: 'Questions 158-160 refer to the following article.', items: [
-            { n: 158, q: 'What is the article mainly about?', options: ['The launch of an accounting app', 'A company testing a shorter workweek', 'A survey of local businesses', 'The hiring of new support staff'], a: 1, cue: 'has begun a six-month trial of a four-day workweek',
+          groups: [ { type: 'mcq', instr: g.TQR[8], items: [
+            { n: 158, q: g.TQR[3], options: ['The launch of an accounting app', 'A company testing a shorter workweek', 'A survey of local businesses', 'The hiring of new support staff'], a: 1, cue: 'has begun a six-month trial of a four-day workweek',
               explain: 'Câu chủ đề: Brisk Software bắt đầu thử nghiệm sáu tháng tuần làm việc bốn ngày → công ty thử nghiệm tuần làm việc ngắn hơn. Ứng dụng kế toán chỉ là sản phẩm của công ty; khảo sát là khảo sát nội bộ hằng năm, không phải khảo sát các doanh nghiệp địa phương.' },
             { n: 159, q: 'According to Ms. Kowal, where did the idea for the change come from?', options: ['A competitor', 'A government program', 'A business consultant', 'Company employees'], a: 3, cue: 'the idea came from employees themselves',
               explain: '"the idea came from employees themselves" – yêu cầu phổ biến nhất trong khảo sát nhân viên là có thêm thời gian cho gia đình → ý tưởng đến từ nhân viên công ty. Đối thủ, chương trình nhà nước hay chuyên gia tư vấn không được nhắc đến.' },
@@ -255,7 +255,7 @@ Lena Hoffmann [3:16 P.M.]: I'm on it.
 Gustavo Reyes [3:18 P.M.]: If we change the location, we'll need to let the guests know. I can draft an e-mail with the new address once it's confirmed.
 Lena Hoffmann [3:31 P.M.]: Good news. The ballroom is free on the 14th, and they'll hold it for us until Friday.
 Nadia Farouk [3:32 P.M.]: Perfect. I'll send them the deposit today.`,
-          groups: [ { type: 'mcq', instr: 'Questions 161-164 refer to the following online chat discussion.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[4], items: [
             { n: 161, q: 'What problem does Ms. Farouk report?', options: ['Some invitations were not sent.', 'A product demonstration failed.', 'An event space is no longer available.', 'A hotel raised its prices.'], a: 2, cue: 'The venue for our product demo in Tucson just canceled.',
               explain: 'Địa điểm tổ chức buổi giới thiệu sản phẩm hủy vì đặt trùng hội trường ngày 14 → không còn địa điểm sự kiện. Thư mời đã được gửi từ tuần trước (nên "not sent" sai); buổi giới thiệu chưa diễn ra nên không thể "failed".' },
             { n: 162, q: 'At 3:16 P.M., what does Ms. Hoffmann mean when she writes, "I\'m on it"?', options: ['She is attending the event.', 'She will contact the hotel.', 'She is in the ballroom.', 'She has already sent an e-mail.'], a: 1, cue: 'Could you call her?',
@@ -317,7 +317,7 @@ Shredtrail Services will collect the contents of the bins every other Wednesday,
 
 The small desk shredders currently in use will be retired at the end of February. If you have a large volume of files to discard, such as when closing a case, please contact me in advance so that additional bins can be arranged.`,
           groups: [ { type: 'mcq', instr: 'Questions 170-171 refer to the following memo.', items: [
-            { n: 170, q: 'What is the purpose of the memo?', options: ['To remind staff to recycle more paper', 'To introduce a new office manager', 'To request repairs to some shredders', 'To announce a new way of disposing of documents'], a: 3, cue: 'Starting next month, Brannock Legal Group will use a professional shredding service',
+            { n: 170, q: g.TQR[11], options: ['To remind staff to recycle more paper', 'To introduce a new office manager', 'To request repairs to some shredders', 'To announce a new way of disposing of documents'], a: 3, cue: 'Starting next month, Brannock Legal Group will use a professional shredding service',
               explain: 'Bản ghi nhớ thông báo công ty sẽ dùng "a professional shredding service" (dịch vụ hủy tài liệu chuyên nghiệp) cho giấy tờ mật → cách hủy tài liệu mới. Nhân viên được yêu cầu không bỏ tài liệu mật vào thùng tái chế thường; máy hủy để bàn sẽ bị ngừng dùng chứ không đem sửa; không có quản lý mới nào được giới thiệu.' },
             { n: 171, q: 'In the memo, the word "retired" in paragraph 3, line 1, is closest in meaning to', options: ['stored', 'withdrawn from service', 'returned', 'rested'], a: 1, cue: 'will be retired at the end of February',
               explain: '"The small desk shredders… will be retired" nghĩa là các máy hủy để bàn sẽ bị loại bỏ, ngừng sử dụng → "withdrawn from service". Nghĩa "nghỉ hưu/nghỉ ngơi" chỉ dùng cho người; máy không được cất đi hay trả lại theo nội dung bản ghi nhớ.' }

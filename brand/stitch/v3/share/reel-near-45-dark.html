@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Minimal Pairs Quick Challenge</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background": "#091518",
+            "surface-backdrop": "#051013",
+            "surface": "#121D20",
+            "surface-card": "#172427",
+            "surface-item": "#1E2F33",
+            "border-tactile": "#283E43",
+            "text-primary": "#E8F1F0",
+            "text-muted": "#A9BDBB",
+            "mint-teal": "#56DFD0",
+            "mint-teal-dark": "#2BA39A",
+            "coral-accent": "#F97316",
+            "coral-light": "#FFB4A6",
+            "coral-dark": "#C2410C",
+            "amber-accent": "#F59E0B"
+          },
+          fontFamily: {
+            sans: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    @keyframes sound-wave {
+      0%, 100% { height: 6px; }
+      50% { height: 18px; }
+    }
+    .wave-bar-1 { animation: sound-wave 0.8s ease-in-out infinite; }
+    .wave-bar-2 { animation: sound-wave 0.8s ease-in-out 0.2s infinite; }
+    .wave-bar-3 { animation: sound-wave 0.8s ease-in-out 0.4s infinite; }
+  </style>
+</head>
+<body class="bg-surface-backdrop text-text-primary font-sans antialiased min-h-screen flex items-center justify-center p-3 sm:p-6 selection:bg-mint-teal-dark selection:text-white">
+<!-- Outer 4:5 Canvas Wrapper (Instagram/TikTok Feed & Story Frame) -->
+<main class="w-full max-w-[500px] aspect-[4/5] max-h-[983px] bg-surface rounded-[2.5rem] border-4 border-border-tactile shadow-[0_12px_0_0_#0a1315,0_20px_35px_rgba(0,0,0,0.55)] flex flex-col justify-between p-5 sm:p-7 relative overflow-hidden select-none">
+<!-- Tactile Night Ambient Glow Accents -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-mint-teal-dark/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-coral-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+<!-- SAFE AREA CONTENT WRAPPER -->
+<div class="relative z-10 flex flex-col h-full justify-between gap-y-3 sm:gap-y-4">
+<!-- 1. TOP PILL BADGES ROW -->
+<header class="flex items-center justify-between gap-2 pt-1">
+<!-- Left Pill -->
+<div class="inline-flex items-center gap-2 px-3 py-1.5 bg-surface-card rounded-full border-2 border-border-tactile shadow-[0_2px_0_0_#0a1315]">
+<span class="w-2.5 h-2.5 rounded-full bg-coral-accent animate-pulse"></span>
+<span class="text-[12px] font-extrabold text-mint-teal tracking-wider">DAILY ENGLISH BOOST</span>
+</div>
+<!-- Right Pill (Level & Tag) -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface-card rounded-full border border-border-tactile">
+<span class="material-symbols-outlined text-mint-teal text-[16px]" data-icon="record_voice_over">record_voice_over</span>
+<span class="text-[12px] text-text-muted font-bold">Minimal Pairs • CEFR A2–B2</span>
+</div>
+</header>
+<!-- 2. TOP THIRD: BIG HOOK QUESTION -->
+<section class="flex flex-col text-left space-y-1">
+<!-- Eyebrow -->
+<div class="inline-flex items-center gap-1.5">
+<span class="text-[12px] text-coral-accent font-extrabold tracking-widest">• QUICK CHALLENGE •</span>
+<span class="h-0.5 w-6 bg-coral-accent/50 rounded-full"></span>
+</div>
+<!-- Main Headline -->
+<h1 class="text-[26px] sm:text-[32px] text-text-primary tracking-tight font-extrabold leading-tight">
+          Can you hear the difference?
+        </h1>
+<!-- Subtitle -->
+<p class="text-[14px] text-text-muted font-medium">
+          Listen closely &amp; spot the precise vowel length distinction.
+        </p>
+</section>
+<!-- 3. MIDDLE SECTION: MAIN TACTILE CONTENT CARD -->
+<section class="bg-surface-card rounded-2xl sm:rounded-3xl border-2 border-border-tactile shadow-[0_5px_0_0_#0a1315] p-3.5 sm:p-4 flex flex-col gap-3">
+<!-- Category & Audio Prompt Bar -->
+<div class="flex items-center justify-between border-b border-border-tactile pb-2.5">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-[12px] font-bold px-2.5 py-0.5 rounded-full bg-surface-item text-mint-teal border border-border-tactile">
+              Vowel Contrast
+            </span>
+<span class="text-[12px] font-bold px-2.5 py-0.5 rounded-full bg-surface-item text-text-muted border border-border-tactile/70">
+              Sound Discrimination
+            </span>
+</div>
+<div class="flex items-center gap-1 text-mint-teal text-[14px] font-bold">
+<span class="material-symbols-outlined text-[17px] text-coral-accent" data-icon="volume_up">volume_up</span>
+<span>Say it with me</span>
+</div>
+</div>
+<!-- Core Minimal Pairs Layout: 3 Columns Grid -->
+<div class="grid grid-cols-3 gap-2 sm:gap-2.5 items-stretch">
+<!-- Pair Item A: "ship" -->
+<article class="flex flex-col items-center justify-between bg-surface-item rounded-xl border-2 border-border-tactile p-2 sm:p-2.5 shadow-[0_3px_0_0_#0a1315] transition-transform duration-100 active:translate-y-0.5 active:shadow-none cursor-pointer hover:border-mint-teal/40">
+<div class="w-full flex justify-between items-center mb-1">
+<span class="w-4 h-4 rounded-full bg-surface-card text-mint-teal text-[10px] flex items-center justify-center font-bold border border-border-tactile">A</span>
+<span class="text-[10px] text-text-muted font-bold uppercase tracking-wider">Short</span>
+</div>
+<!-- Target Word -->
+<span class="text-[24px] text-text-primary font-extrabold tracking-tight my-0.5">
+              ship
+            </span>
+<!-- Phonetic IPA Badge -->
+<div class="my-1.5 px-2 py-0.5 rounded-md bg-surface-card text-text-primary text-[14px] font-extrabold border border-border-tactile">
+              /ʃ<span class="text-mint-teal underline decoration-2 decoration-mint-teal/60">ɪ</span>p/
+            </div>
+<!-- Tactile Speaker Button -->
+<button aria-label="Play sound for ship" class="w-full mt-1.5 py-1.5 px-2 rounded-lg bg-surface-card border-2 border-border-tactile text-mint-teal flex items-center justify-center gap-1.5 shadow-[0_2px_0_0_#0a1315] hover:bg-surface-item active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-mint-teal" data-icon="play_circle">play_circle</span>
+<span class="text-[11px] font-bold text-text-primary">/ɪ/</span>
+</button>
+</article>
+<!-- Pair Item B: "sheep" (Featured / Active) -->
+<article class="flex flex-col items-center justify-between bg-surface-item rounded-xl border-2 border-coral-accent p-2 sm:p-2.5 shadow-[0_3px_0_0_#7c2d12] transition-transform duration-100 active:translate-y-0.5 active:shadow-none cursor-pointer relative overflow-hidden bg-gradient-to-b from-[#25393E] to-surface-item">
+<!-- Active/Featured highlight strip -->
+<div class="absolute top-0 inset-x-0 h-1 bg-coral-accent"></div>
+<div class="w-full flex justify-between items-center mb-1">
+<span class="w-4 h-4 rounded-full bg-coral-accent text-[#1a0d00] text-[10px] flex items-center justify-center font-extrabold">B</span>
+<span class="text-[10px] text-coral-accent font-extrabold uppercase tracking-wider">Long</span>
+</div>
+<!-- Target Word -->
+<span class="text-[24px] text-text-primary font-extrabold tracking-tight my-0.5">
+              sheep
+            </span>
+<!-- Phonetic IPA Badge -->
+<div class="my-1.5 px-2 py-0.5 rounded-md bg-coral-accent/20 text-coral-light text-[14px] font-extrabold border border-coral-accent/60">
+              /ʃ<span class="text-coral-accent underline decoration-2">iː</span>p/
+            </div>
+<!-- Tactile Speaker Button with Waveform Indicator -->
+<button aria-label="Play sound for sheep" class="w-full mt-1.5 py-1.5 px-2 rounded-lg bg-coral-accent text-[#1a0d00] border-2 border-coral-dark flex items-center justify-center gap-1 shadow-[0_2px_0_0_#7c2d12] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] font-bold" data-icon="graphic_eq">graphic_eq</span>
+<div class="flex items-center gap-0.5 h-3 ml-0.5">
+<span class="w-0.5 bg-[#1a0d00] wave-bar-1 rounded-full"></span>
+<span class="w-0.5 bg-[#1a0d00] wave-bar-2 rounded-full"></span>
+<span class="w-0.5 bg-[#1a0d00] wave-bar-3 rounded-full"></span>
+</div>
+</button>
+</article>
+<!-- Pair Item C: "sleep" -->
+<article class="flex flex-col items-center justify-between bg-surface-item rounded-xl border-2 border-border-tactile p-2 sm:p-2.5 shadow-[0_3px_0_0_#0a1315] transition-transform duration-100 active:translate-y-0.5 active:shadow-none cursor-pointer hover:border-mint-teal/40">
+<div class="w-full flex justify-between items-center mb-1">
+<span class="w-4 h-4 rounded-full bg-surface-card text-mint-teal text-[10px] flex items-center justify-center font-bold border border-border-tactile">C</span>
+<span class="text-[10px] text-text-muted font-bold uppercase tracking-wider">Cluster</span>
+</div>
+<!-- Target Word -->
+<span class="text-[24px] text-text-primary font-extrabold tracking-tight my-0.5">
+              sleep
+            </span>
+<!-- Phonetic IPA Badge -->
+<div class="my-1.5 px-2 py-0.5 rounded-md bg-surface-card text-text-primary text-[14px] font-extrabold border border-border-tactile">
+              /sl<span class="text-mint-teal underline decoration-2 decoration-mint-teal/60">iː</span>p/
+            </div>
+<!-- Tactile Speaker Button -->
+<button aria-label="Play sound for sleep" class="w-full mt-1.5 py-1.5 px-2 rounded-lg bg-surface-card border-2 border-border-tactile text-mint-teal flex items-center justify-center gap-1.5 shadow-[0_2px_0_0_#0a1315] hover:bg-surface-item active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-mint-teal" data-icon="play_circle">play_circle</span>
+<span class="text-[11px] font-bold text-text-primary">/iː/</span>
+</button>
+</article>
+</div>
+<!-- Pronunciation Pro Tip Callout Box -->
+<div class="bg-surface-item rounded-xl p-2.5 sm:p-3 border-2 border-border-tactile flex items-start gap-2.5 shadow-[0_2px_0_0_#0a1315]">
+<div class="w-7 h-7 rounded-lg bg-coral-accent text-[#1a0d00] flex-shrink-0 flex items-center justify-center shadow-[0_2px_0_0_#7c2d12] mt-0.5 font-bold">
+<span class="material-symbols-outlined text-[18px]" data-icon="lightbulb">lightbulb</span>
+</div>
+<div class="flex-1">
+<p class="text-[11px] text-coral-light font-extrabold tracking-wider uppercase mb-0.5">
+              PRO TIP: Lip Shape &amp; Tongue Height
+            </p>
+<p class="text-[13px] sm:text-[14px] text-text-muted leading-tight font-medium">
+<strong class="font-extrabold text-mint-teal">/ɪ/</strong> is quick and relaxed (<em class="font-bold text-text-primary">ship</em>). <strong class="font-extrabold text-mint-teal">/iː/</strong> is elongated with smiling, spread lips (<em class="font-bold text-text-primary">sheep, sleep</em>).
+            </p>
+</div>
+</div>
+</section>
+<!-- 4. LOWER SECTION & SAFE AREA -->
+<footer class="pt-1 flex items-center justify-between gap-3">
+<!-- Lower Left: Strict Empty Dashed Teacher Placeholder (NO photos, NO drawings) -->
+<div class="flex items-center gap-2.5">
+<div aria-label="Reserved Teacher Slot" class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl border-2 border-dashed border-mint-teal-dark bg-surface-item/70 flex flex-col items-center justify-center text-center p-1 shadow-inner">
+<span class="material-symbols-outlined text-mint-teal text-[20px]" data-icon="person_pin">person_pin</span>
+<span class="text-[9px] sm:text-[10px] text-mint-teal font-extrabold leading-tight mt-0.5">TEACHER SLOT</span>
+</div>
+<div class="flex flex-col text-left">
+<span class="text-[14px] text-text-primary font-extrabold leading-none">Coach Carlos</span>
+<span class="text-[11px] text-text-muted font-medium mt-1">Lexkite Lead Linguist</span>
+</div>
+</div>
+<!-- Lower Right: Lexkite Wordmark & Follow CTA Button -->
+<div class="flex flex-col items-end gap-1.5">
+<!-- Lexkite Brand Mark & Wordmark -->
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-lg bg-mint-teal-dark flex items-center justify-center text-surface-backdrop shadow-[0_2px_0_0_#0a1315]">
+<span class="material-symbols-outlined text-[15px] font-bold" data-icon="drive_file_stream">drive_file_stream</span>
+</div>
+<span class="text-[20px] text-text-primary tracking-tight font-extrabold leading-none">
+              Lexkite
+            </span>
+</div>
+<!-- Tactile Primary CTA Pill -->
+<button class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 bg-coral-accent text-[#1a0d00] border-2 border-coral-dark rounded-2xl text-[12px] font-bold shadow-[0_3px_0_0_#7c2d12] hover:bg-[#fb923c] active:translate-y-1 active:shadow-none transition-all duration-100 cursor-pointer" type="button">
+<span>Follow for daily drills</span>
+<span class="material-symbols-outlined text-[16px] font-bold" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</footer>
+</div>
+</main>
+<script>
+    document.querySelectorAll('article, button').forEach(el => {
+      el.addEventListener('click', function(e) {
+        if (window.navigator && window.navigator.vibrate) {
+          window.navigator.vibrate(20);
+        }
+      });
+    });
+  </script>
+</body></html>

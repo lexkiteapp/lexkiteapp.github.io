@@ -54,7 +54,7 @@ Section 1通常是两人关于租房、求职、报名或旅游咨询的对话�
 
 Section 2通常为公共广播、旅游导览或活动策划的独白，其中**地图题（Map Labelling）**让许多考生大伤脑筋。攻克地图题的关键是迅速在图上找到初始参照点（如 *You are here* 或 *Main Entrance*），并在草稿纸上标记出上北下南的方向标。在听音时，视线与笔尖必须紧贴说话人的路线指令（如 *turn left at the roundabout, cross the bridge, directly opposite, adjacent to*）一步步移动。
 
-你可以查阅我们的[雅思高频核心词汇库](/tu-vung/)，将方向方位词和场景高频名词分类归纳成专属词单。
+你可以查阅我们的[雅思高频核心词汇库](/en/vocabulary/)，将方向方位词和场景高频名词分类归纳成专属词单。
 
 ![Lexkite 雅思模考页面：选择技能与试卷，查看考试记录](media:mock "完整做一套雅思听力模考，再对照历史记录看分数变化")
 

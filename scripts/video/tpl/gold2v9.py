@@ -32,7 +32,8 @@ SERIES = {
     'which-little-word': dict(name='Which Little Word?', template='mistake', type='preposition', pre='wlw', L='n', teacher='carlos', set='classroom_board',
                               clips=['c05_carlos2', 'c05t2_carlos2_present', 'c05e1_carlos2_excited', 'c05t3_carlos2_talk3', 'c05e2_carlos2_question', 'c05e3_carlos2_wow'], listen=['c05l_carlos2_listen'], speed=0.65, accent='mint', active='cream', hook_style='tiny word: X badge + quoted error', motif='the small word lit in the sentence',
                               open='Small word, big mistake.', lead='Not', just='Say:', share='Send this to a friend who mixes these up!', cta={'area': 'grammar-check', 'link': 'https://lexkite.com/app/#/fix', 'say': 'Check your grammar'}),
-    'common-mix-ups': dict(name='Common Mix-ups', template='mistake', type='misunderstanding', pre='cmu', L='u', teacher='ama', set='classroom_board',
+    # 28/10 owner: real confusable pairs only (bank/mixups.jsonl, hand-written) – the generated 'misunderstanding' items invented errors ("buy medicine at the spa")
+    'common-mix-ups': dict(name='Common Mix-ups', template='mistake', type='mix-up', pre='cmu', L='u', teacher='ama', set='classroom_board',
                            clips=['a05b_ama2', 'a05t2_ama2_present', 'a05e1_ama2_excited', 'a05e2_ama2_question', 'a05e3_ama2_wow'], listen=['a05l2_ama2_listen'], speed=0.75, accent='yellow', active='cream', hook_style='mix-up: X badge + quoted error', motif='meaning first, then the right sentence',
                            open='Most learners mix this up.', lead='Not', just='Natives say:', share='Send this to a friend!', cta={'area': 'dictionary', 'link': 'https://lexkite.com/app/#/dict', 'say': 'Look up any word'}),
     'say-it-naturally': dict(name='Say It Naturally', template='mistake', type='idiom-phrasal', pre='sin', L='i', teacher='carlos', set='classroom_board',
@@ -131,17 +132,24 @@ def dict_rows(words):
         for w in need: _DICT[w] = got.get(w)
     return _DICT
 
-def lemmas(w):
-    w = norm(w); c = [w]
-    for suf, rep in (('ing', ''), ('ing', 'e'), ('ed', ''), ('ed', 'e'), ('d', ''), ('es', ''), ('s', ''), ('ied', 'y'), ('ies', 'y')):
-        if w.endswith(suf) and len(w) - len(suf) >= 3: c.append(w[:-len(suf)] + rep)
-    return c
+_IPA = {}
+FUNC = set('a an the and but or as than that of to for from at in on by with can could would should must shall will am are is was were be been have has had do does some them us him her his you your it its my our their'.split())
+def ipa_prefetch(words):   # one node call for the whole bank (the bank load is the slow part)
+    need = sorted({norm(w) for w in words if norm(w)} - set(_IPA))
+    if not need: return
+    out = subprocess.run(['node', 'scripts/video/tpl/pron.mjs', 'ipa', json.dumps(need)], cwd=ROOT, capture_output=True, text=True, check=True).stdout
+    got = json.loads(out.strip().splitlines()[-1])
+    for w in need: _IPA[w] = (got.get(w) or {}).get('ipa')
+    dict_rows(need)
 
 def ipa_of(word):
-    for c in lemmas(word):
-        r = dict_rows([c]).get(c)
-        if r and r[0]: return r[0], r[1]
-    return None, ''
+    """US IPA for the EXACT displayed token (scripts/video/tpl/pron.mjs: audited word bank -> bank-anchored CMUdict inflection -> Kokoro lexicon; never the base word's IPA)."""
+    w = norm(word) if ' ' not in word.strip() else ' '.join(norm(x) for x in word.split())
+    if w not in _IPA:
+        out = subprocess.run(['node', 'scripts/video/tpl/pron.mjs', 'ipa', json.dumps([w])], cwd=ROOT, capture_output=True, text=True, check=True).stdout
+        r = json.loads(out.strip().splitlines()[-1]).get(w); _IPA[w] = (r or {}).get('ipa')
+    r = dict_rows([w]).get(w)
+    return _IPA[w], (r[1] if r else '')
 
 def wrap(items, maxc=26, m=len):
     """items = [(token, colour)] -> rows of [text, colour] segs, each row <= maxc characters (greedy word wrap)."""
@@ -280,20 +288,25 @@ def build(slug, it, ep):
         lines.remove(xl)
     a = lambda lid, k=0, off=-0.1: [f'{L}_{lid}', k, 's', off]
     wrong_sp = ' '.join(toks(wrong)[i] for i in wi).strip('.,!?'); right_sp = ' '.join(toks(right)[i] for i in ri).strip('.,!?')
-    ip, ipw = (None, None)   # IPA word: a changed word (>= 4 letters), else a memory-trick word that is in the right sentence (US IPA, app dictionary)
+    ip, ipw = (None, None)   # IPA word = the taught (changed) word as displayed (waiting, not wait; key, not card), else a memory-trick word in the right sentence; never a function word
     for w_ in ([toks(right)[i] for i in ri][:2] if len(ri) <= 2 else []) + [w for w in toks(right) if any(norm(w).startswith(m_) or m_.startswith(norm(w)) for m_ in mw) and len(norm(w)) >= 4]:
-        if len(norm(w_)) >= 4 and ipa_of(w_)[0]: ip, ipw = ipa_of(w_)[0], norm(w_); break
+        if len(norm(w_)) >= 2 and norm(w_) not in FUNC and ipa_of(w_)[0]: ip, ipw = ipa_of(w_)[0], norm(w_); break
     ipa_seg = [['  '], ['@ipa:' + ip]] if ip else []
     qs_rows = wrap_s(Q['q'], {i for i, w in enumerate(toks(Q['q'])) if '___' in w}, 'green', None, PX, 'text')
     qs = note('qs', a('q', 1 if C['template'] == 'mistake' else 0, -0.06), None, 'QUICK QUIZ', [('text', r) for r in qs_rows])
     if C['template'] == 'mistake':
         n_hook = 2 + len(toks(wrong))
         lead = [[' ' + C.get('lead', 'Stop saying'), 'white']] if n_hook <= HOOK_MAX else [[' ' + C.get('lead', 'Stop saying').split()[0], 'white']] if n_hook - 1 <= HOOK_MAX else []
-        hook_rows = [[['@x']] + lead, segs(wrong, set(wi), 'red', quote=True)]
+        hook_rows = [[['@x']] + lead, segs(wrong, set(wi), 'red', quote=True)] if lead else [[['@x'], [' ', 'white']] + segs(wrong, set(wi), 'red', quote=True)]   # no lead word: the ✗ starts the quote row (a lone ✗ was a blank first board page)
         ipl = [('text', [[ipw, 'green']] + ipa_seg)] if ipa_seg else []
+        if ipl and (line_len(ipl[0][1]) > LINE_MAX or row_w('text', ipl[0][1]) > PX): ipl = [('text', [[ipw, 'green']]), ('small', [ipa_seg[1]])]   # long word: IPA on its own row under it
         for st_ in ('big', 'text'):   # the hero sentence in big type when title + rows + IPA fit the board, else normal text
             fixl = [(st_, r) for r in wrap_s(right, set(ri), 'green', None, PX, st_)] + ipl
             if NOTE_H['title'] + sum(NOTE_H[st] for st, _ in fixl) <= NOTE_MAXH: break
+        else:   # IPA does not fit the board: no IPA on this lesson (never a wrong-word IPA)
+            fixl = [('text', r) for r in wrap_s(right, set(ri), 'green', None, PX, 'text')]
+            if NOTE_H['title'] + sum(NOTE_H[st] for st, _ in fixl + ipl) > NOTE_MAXH: ipl, ip = [], None
+            fixl += ipl
         if NOTE_H['title'] + sum(NOTE_H[st] for st, _ in fixl) + NOTE_H['small'] <= NOTE_MAXH: fixl.append(('small', [['not “'], [wrong_sp, 'red'], ['”']]))
         wl = [('text', [['@emoji:❌'], [' ' + wrong_sp, 'red']]), ('text', [['@emoji:✅'], [' ' + right_sp, 'green']])]
         P = [dict(id='hook', kind='rich', role='hook', anim='stamp', size=84, from_=['t', 0], rows=hook_rows),
@@ -302,8 +315,8 @@ def build(slug, it, ep):
              note('ex', a('x', 0, -0.06), None, 'EXAMPLE', [('text', r) for e, ix in [(e, key_idx(e, sorted(span_w | set(mw)), 4)) for e in ex] for r in wrap_s(e, set(ix), 'green', None, PX, 'text')])]
         mr = memory_rows(it['memory'], PX)
         if mr: P.append(note('trick', a('t', 0, -0.06), None, 'REMEMBER', [('text', r) for r in mr]))
-        P += [qs, dict(id='quiz', kind='quiz', from_=a('q2', 0, -0.06), a=Q['o'][0], b=Q['o'][1], correct='ab'[Q['a']], reveal=a('a', 0, -0.04)),
-              note('save', [f'{L}_a', -1, 'e', 0.35], None, 'SAVE THIS', [wl[0], ('text', [['@emoji:✅'], [' ' + right_sp, 'green']]), ] + ([('text', [[ipw, 'green']] + ipa_seg)] if ipa_seg else []))]
+        P += [qs, dict(id='quiz', kind='quiz', from_=a('q2', 0, -0.06), q=Q['q_rows'], a=Q['o'][0], b=Q['o'][1], correct='ab'[Q['a']], reveal=a('a', 0, -0.04)),   # the question stays above the pills
+              note('save', [f'{L}_a', -1, 'e', 0.35], None, 'SAVE THIS', [wl[0], ('text', [['@emoji:✅'], [' ' + right_sp, 'green']]), ] + ipl)]
     else:
         items = []
         for nm, col, ico in ((X, 'green', None), (Y, 'blue', None)):
@@ -322,7 +335,7 @@ def build(slug, it, ep):
              dict(id='lesson', kind='lesson', anim='spring', from_=a('y', 0, -0.06), to_=None, title=f'{X.upper()} vs {Y.upper()}', items=items),
              note('fix', a('w', 0, -0.06), None, 'NOT / SAY', fixl),
              note('trick', a('t', 0, -0.06), None, 'MEMORY TRICK', [('text', r) for r in memory_rows(it['memory'], PX)]),
-             qs, dict(id='quiz', kind='quiz', from_=a('q2', 0, -0.06), a=Q['o'][0], b=Q['o'][1], correct='ab'[Q['a']], reveal=a('a', 0, -0.04)),
+             qs, dict(id='quiz', kind='quiz', from_=a('q2', 0, -0.06), q=Q['q_rows'], a=Q['o'][0], b=Q['o'][1], correct='ab'[Q['a']], reveal=a('a', 0, -0.04)),
              dict(id='save', kind='lesson', anim='spring', from_=[f'{L}_a', -1, 'e', 0.35], to_=None, title='SAVE THIS', save=True, items=sv, footer='lexkite.com')]
     P.append(dict(id='cta', kind='cta', from_=a('c', 0, -0.05)))
     pops = []
@@ -368,6 +381,9 @@ def selfcheck(s):
     L = s['lines'][0]['id'][0]; q = next(p for p in s['pops'] if p['kind'] == 'quiz'); ans = q[q['correct']].strip('()').lower()
     if ans not in S[f'{L}_a'].lower(): e.append('quiz answer not spoken in the answer line')
     if 'lexkite.com' not in S[f'{L}_c'] or not S[f'{L}_c'].startswith('Save this, and '): e.append('CTA line')
+    hk0 = next(p for p in s['pops'] if p.get('role') == 'hook')
+    if hk0['kind'] == 'rich' and any(all(g[0].startswith('@') or not g[0].strip() for g in r) for r in hk0['rows']): e.append('hook row with only a badge (blank first board page)')
+    if not q.get('q'): e.append('quiz pills without the question')
     hw = len([x for x in re.split(r'[\s/|]+', hook_text(s)) if re.search(r'[A-Za-z]', x)])
     if hw > HOOK_MAX: e.append(f'hook {hw} words on screen')
     # the narrowest board (desk sets, 532 px) must hold the widest single hook word at the 72 px minimum (render_v9 draws at ~1.35x the
@@ -396,6 +412,7 @@ def content_hash(spec):   # series + key sentence (the right form / rule): never
 def main():
     check = '--check' in sys.argv
     bank = [json.loads(x) for f in sorted(glob.glob(f'{ROOT}/content/video/scripts/bank/*.jsonl')) for x in open(f) if x.strip()]
+    ipa_prefetch({w for b in bank if b.get('type') in {C['type'] for C in SERIES.values()} for w in toks(b.get('right', '')) + re.split(r' \(|\) vs ', b.get('point', ''))})
     order = {'easy': 0, 'mid': 1, 'medium': 1, 'hard': 2}; lv = {'A1': 0, 'A2': 1, 'B1': 2, 'B2': 3, 'C1': 4}
     for slug, C in SERIES.items():
         items = sorted([b for b in bank if b.get('type') == C['type']], key=lambda b: (order.get(b.get('diff'), 1), lv.get(b.get('cefr'), 2), b['id']))

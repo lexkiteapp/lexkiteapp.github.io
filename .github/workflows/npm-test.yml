@@ -1,3 +1,4 @@
+# ci-policy: all-paths – bộ test lõi phải chạy trên mọi PR (cổng required-gate); PR mới huỷ lượt cũ qua concurrency
 # Bộ kiểm `npm test` DUY NHẤT (một định nghĩa): chạy trên MỌI pull_request vào main (cổng merge, đặt làm required check "npm test")
 # và được Prod release gọi lại (workflow_call) làm cổng sau-push → PR đỏ ở đây thì main không thể đỏ vì cùng lý do.
 # Không paths-filter (required check mà bị filter sẽ treo PR). Repo công khai → phút Actions miễn phí; PR không deploy Cloudflare Pages.
@@ -27,3 +28,18 @@ jobs:
         run: git fetch --no-tags --depth=1 origin main:refs/remotes/origin/main || true
       - name: npm test (cổng — cùng bộ kiểm với mergecheck/health/Prod release)
         run: npm test
+  # luật 11 (làn nhanh trước làn nặng): npm test xanh → chạy lại các lượt nặng (QA bot, Journey E2E, …) mà job `gate` của chúng đã bỏ qua vì npm test chưa xong. Chỉ ĐỌC API + rerun.
+  heavy:
+    needs: test
+    if: ${{ github.event_name == 'pull_request' && needs.test.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: { contents: read, actions: write }
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: "scripts/ci\nscripts/lib/is-main.mjs\n.github/workflows", sparse-checkout-cone-mode: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: chạy lại việc nặng của cùng sha
+        env: { GITHUB_TOKEN: '${{ github.token }}', GITHUB_REPOSITORY: '${{ github.repository }}' }
+        run: node scripts/ci/heavy-rerun.mjs --sha "${{ github.event.pull_request.head.sha }}"

@@ -5,12 +5,12 @@
 #  --sample N: tải ngẫu nhiên N file đang phục vụ trên audio.lexkite.com/audio/w/ và báo bao nhiêu file không được nhận đúng (chỉ báo cáo).
 import argparse, json, os, random, shutil, sys, tempfile, time
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'word-audio'))
-from asr_lib import check, fetch, fnv, prepare
+from asr_lib import check, fetch, fnv, prepare, ORIGINS_W
 ap = argparse.ArgumentParser()
 ap.add_argument('--manifest', default=''); ap.add_argument('--res', default='.wa-res/res.json'); ap.add_argument('--old', action='store_true')
 ap.add_argument('--sample', type=int, default=0); ap.add_argument('--suffix', default='|s3'); ap.add_argument('--minutes', type=float, default=1e6)
 ap.add_argument('--final', action='store_true')  # vòng cuối: trượt = lý do chính thức (không có: "pending: …" chờ vòng 2)
-ap.add_argument('--base', default='https://audio.lexkite.com/audio/w/')
+ap.add_argument('--base', default=ORIGINS_W)
 a = ap.parse_args(); t0 = time.time(); tmp = tempfile.mkdtemp(); out = []
 res = json.load(open(a.res)) if os.path.exists(a.res) else {}
 if a.manifest and os.path.exists(a.manifest):

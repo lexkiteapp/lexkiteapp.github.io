@@ -33,6 +33,7 @@ quiz: [
     explain: "'Algorithmic bias' (algorithmische Verzerrung/Voreingenommenheit) ist der präzise Fachbegriff für verzerrte Trainingsdaten und Diskriminierungsrisiken durch KI."
   }
 ]
+publishAt: 2026-11-27T12:47:00+01:00
 ---
 In aktuellen IELTS-Prüfungen – sowohl im Writing Task 2 als auch im Speaking Part 3 – zählt das Themenfeld „Technologie, Automatisierung und Künstliche Intelligenz (AI)“ zu den mit Abstand häufigsten und zugleich anspruchsvollsten Themenbereichen. Prüfer konfrontieren Kandidaten regelmäßig mit tiefgründigen gesellschaftlichen Fragestellungen: *„Werden Roboter menschliche Berufe vollständig ersetzen?“*, *„Bedroht automatisierte Überwachung unsere Privatsphäre?“* oder *„Führt die übermäßige Bildschirmnutzung zu sozialer Isolation?“*.
 

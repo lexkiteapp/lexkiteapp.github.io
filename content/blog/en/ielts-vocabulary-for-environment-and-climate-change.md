@@ -59,6 +59,7 @@ quiz: [
     explain: "Anthropogenic means caused by humans, so the phrase covers carbon and greenhouse emissions resulting directly from human activity."
   }
 ]
+publishAt: 2027-01-01T07:34:00+05:30
 ---
 
 Environmental challenges, renewable energy transitions, and ecological conservation constitute some of the most recurring subjects across all four modules of the IELTS exam. When approaching **IELTS Writing Task 2** or **Speaking Part 3**, many test-takers repeatedly resort to overused expressions such as *«the environment is getting worse»*, *«we must protect nature»*, or *«cars cause global warming»*. Such basic phrasing restricts the candidate's Lexical Resource score to Band 5.5 or 6.0.

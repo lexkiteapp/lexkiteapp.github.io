@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_argument",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: argument.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a discussion in which you disagree with another's opinion.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "They had an argument about money.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "argument",
+  "ipa": "/ˈɑːrɡjəmənt/",
+  "mean": "a discussion in which you disagree with another's opinion",
+  "ex": "They had an argument about money.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=argument",
+  "link": "https://lexkite.com/app/#/review?w=argument",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 25.7,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"argument\" mean?",
+  "keyword": "argument",
+  "value": "Argument means a discussion in which you disagree with another's opinion.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=argument",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"argument\" mean?",
+    "description": "Argument means a discussion in which you disagree with another's opinion.\n\nReview your words, free: https://lexkite.com/app/#/review?w=argument\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "argument",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"argument\" mean?\n\nArgument means a discussion in which you disagree with another's opinion.\n\nReview your words, free: https://lexkite.com/app/#/review?w=argument"
+   },
+   "instagram": {
+    "caption": "What does \"argument\" mean?\n\nArgument means a discussion in which you disagree with another's opinion.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"argument\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a discussion in which you disagree with another's opinion. Argument means a discussion in which you disagree with another's opinion. More practice like this (free): {link}"
+ }
+}

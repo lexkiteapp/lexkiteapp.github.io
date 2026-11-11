@@ -10,7 +10,7 @@ export const hubPath = l => `/${l}/${DICT_PATH[l]}/`;
 export const wordPath = (l, slug) => `${hubPath(l)}${slug}/`;
 export const letterPath = (l, c) => `${hubPath(l)}${c.toLowerCase()}/`; // trang A–Z (slug 1 chữ – từ trong tập luôn ≥ 3 chữ, không trùng)
 export const slugOf = w => String(w).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-export const landing = l => (l === 'vi' ? '/' : `/${l}/`);
+export const landing = l => `/${l}/`;
 
 export const T = {
   vi: {
@@ -163,7 +163,7 @@ const crumbsHtml = items => `<nav class="crumbs" aria-label="Breadcrumb">${items
 
 function page({ l, title, desc, u, robots, hreflang, jl, crumbs, body, shell, lh, ad = false }) {
   const t = T[l], sh = (s = '') => s.replace(/__LH_([a-z]{2})__/g, (_, x) => lh(x));
-  const head = `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}">${robots ? `<meta name="robots" content="${robots}">` : ''}<meta name="theme-color" content="#0F3D3E"><link rel="canonical" href="${u}">${hreflang}<meta property="og:type" content="article"><meta property="og:site_name" content="Lexkite"><meta property="og:url" content="${u}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:image" content="${SITE}/og-default.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">${jl.map(ld).join('')}`;
+  const head = `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}">${robots ? `<meta name="robots" content="${robots}">` : ''}<meta name="theme-color" content="#0F3D3E"><link rel="canonical" href="${u}">${hreflang}<meta property="og:type" content="article"><meta property="og:site_name" content="Lexkite"><meta property="og:url" content="${u}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:image" content="${SITE}/og-default.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/icons/icon.svg?v=3" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=3">${jl.map(ld).join('')}`;
   return `<!doctype html><html lang="${l}"><head>${head}<style>${shell.css}</style></head><body><a class="skip" href="#nd">${esc(t.skip)}</a>
 ${sh(shell.header[l])}
 <main id="nd">

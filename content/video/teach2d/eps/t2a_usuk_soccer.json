@@ -1,0 +1,124 @@
+{
+ "id": "t2a_usuk_soccer",
+ "template": "usuk",
+ "series": "US or UK?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "U.S. or U.K.?",
+   "pause": 0.42
+  },
+  {
+   "id": "us",
+   "text": "In America, people say soccer.",
+   "pause": 0.42
+  },
+  {
+   "id": "uk",
+   "text": "In Britain, people say football. Same thing!",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "My son plays soccer after school.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! You're in Edinburgh. Which word do people use?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Football!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "us": "soccer",
+  "uk": "football",
+  "ipa_us": "/ˈsɑːkər/",
+  "ipa_uk": "/ˈfʊtbɔːl/",
+  "same": "Same thing!",
+  "quiz": {
+   "options": [
+    "soccer",
+    "football"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/soccer",
+  "link": "https://lexkite.com/app/#/dict/soccer",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "US or UK?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Soccer or football? US vs UK English",
+  "keyword": "soccer vs football",
+  "value": "Americans say soccer. British people say football.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/soccer",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Soccer or football? US vs UK English",
+    "description": "Americans say soccer. British people say football.\n\nLook up any word, free: https://lexkite.com/app/#/dict/soccer\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "soccer vs football",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Soccer or football? US vs UK English\n\nAmericans say soccer. British people say football.\n\nLook up any word, free: https://lexkite.com/app/#/dict/soccer"
+   },
+   "instagram": {
+    "caption": "Soccer or football? US vs UK English\n\nAmericans say soccer. British people say football.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Soccer or football? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Football! Americans say soccer. British people say football. Practice it with a free quiz: {link}"
+ }
+}

@@ -33,6 +33,7 @@ quiz: [
     explain: "Dalam deskripsi proses teknis dan industri, produk dan bahan yang diolah menjadi pusat perhatian, sehingga pelaku aksi tidak perlu ditonjolkan."
   }
 ]
+publishAt: 2026-11-29T07:58:00+07:00
 ---
 
 Dalam tata bahasa dan penulisan bahasa Inggris formal, kalimat pasif (*Passive Voice*) merupakan instrumen sintaksis yang sangat krusial. Berbeda dengan percakapan santai yang lebih mengutamakan kalimat aktif demi keringkasan, penulisan esai ilmiah, laporan penelitian, serta tes bahasa Inggris resmi seperti IELTS dan TOEFL menuntut penggunaan **kalimat pasif bahasa inggris passive voice** yang matang. Struktur ini berfungsi untuk mengalihkan sorotan dari siapa yang melakukan tindakan ke apa hasil tindakan tersebut, data yang ditemukan, atau proses yang tengah terjadi.
@@ -136,6 +137,6 @@ Pada esai Task 2, kombinasi yang seimbang antara kalimat aktif dan pasif menghin
 | **Salah bentuk kata kerja V3** | "The contract was wrote in hurry." | "The contract **was written** in a hurry." |
 | **Frasa 'by' yang berlebihan** | "The road was repaired by road workers."| "The road was **repaired** within two weeks." *(Hapus agen yang sudah jelas)* |
 
-Perdalam wawasan sintaksis Anda dengan meninjau panduan [kalimat kompleks di IELTS Writing Task 2](/id/blog/kalimat-kompleks-ielts-writing-task-2/) dan ulasan [kata penghubung bahasa inggris linking words](/id/blog/kata-penghubung-bahasa-inggris-linking-words/). Pelajari pula materi [kalimat pengandaian conditional sentences](/id/blog/kalimat-pengandaian-bahasa-inggris-conditional-sentences/) serta strategi [cara paraphrase ielts writing](/id/blog/cara-paraphrase-ielts-writing-reading/), sembari memperluas perbendaharaan kata melalui bank kosakata [/tu-vung/](/tu-vung/).
+Perdalam wawasan sintaksis Anda dengan meninjau panduan [kalimat kompleks di IELTS Writing Task 2](/id/blog/kalimat-kompleks-ielts-writing-task-2/) dan ulasan [kata penghubung bahasa inggris linking words](/id/blog/kata-penghubung-bahasa-inggris-linking-words/). Pelajari pula materi [kalimat pengandaian conditional sentences](/id/blog/kalimat-pengandaian-bahasa-inggris-conditional-sentences/) serta strategi [cara paraphrase ielts writing](/id/blog/cara-paraphrase-ielts-writing-reading/), sembari memperluas perbendaharaan kata melalui bank kosakata [/tu-vung/](/en/vocabulary/).
 
 Dengan menguasai rumus dasar hingga struktur pasif impersonal, esai dan tulisan formal bahasa Inggris Anda akan terdengar jauh lebih profesional, objektif, dan berbobot akademis tinggi.

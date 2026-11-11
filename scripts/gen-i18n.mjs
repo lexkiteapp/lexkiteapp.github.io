@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Sinh bản dịch giao diện cho ngôn ngữ mới từ bản tiếng Anh (web/js/i18n/en.js) – chạy 1 lần khi mở thị trường mới:
-//   node scripts/gen-i18n.mjs es            → web/js/i18n/es.js
+//   node scripts/gen-i18n.mjs es            → nguồn i18n/ui/es.js + i18n/ui/es/<nhóm>.js (gói chạy khóa băm: node scripts/i18n-pack.mjs)
 //   node scripts/gen-i18n.mjs es --redo-english → dịch lại mọi khóa chứa nội dung học tiếng Anh (sau khi sửa scripts/i18n-english.mjs)
 // Sau đó thêm 'es' vào SUPPORTED trong web/js/i18n.js. Chạy lại để cập nhật: chỉ dịch khóa mới, giữ bản đã có (có thể đã được người hiệu đính).
 // An toàn: giữ nguyên {biến} và thẻ HTML; câu nào dịch làm hỏng biến/thẻ → giữ tiếng Anh (không bao giờ hiện lỗi định dạng).
@@ -25,8 +25,9 @@ for (const g of lazyList) {
   lazyGroups[g] = gDict;
   Object.assign(EN, gDict);
 }
-const outFile = path.join(DIR, `${lang}.js`);
-const langDir = path.join(DIR, lang);
+const SRC = path.join(DIR, '../../../i18n/ui'); // nguồn dễ đọc (khóa nguyên câu) – web/js/i18n/<lang> là gói khóa băm sinh từ đây
+const outFile = path.join(SRC, `${lang}.js`);
+const langDir = path.join(SRC, lang);
 const old = { ...(fs.existsSync(outFile) ? (load(outFile)[lang] || {}) : {}) };
 if (fs.existsSync(langDir)) {
   for (const g of lazyList) {
@@ -95,5 +96,6 @@ const coreDict = {};
 for (const k of Object.keys(enCore)) coreDict[k] = out[k] !== undefined ? out[k] : enCore[k];
 const body = `/* UI ${lang} – SINH TỰ ĐỘNG từ en.js bằng scripts/gen-i18n.mjs (có thể hiệu đính tay; chạy lại chỉ dịch khóa mới). */\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D[${JSON.stringify(lang)}] = Object.assign(D[${JSON.stringify(lang)}] || {}, ${JSON.stringify(coreDict, null, 0)});\n})(typeof self !== 'undefined' ? self : this);\n`;
 fs.writeFileSync(outFile, body);
+{ const { packAll } = await import('./lib/i18n-pack.mjs'); packAll(); } // nguồn → gói chạy khóa băm web/js/i18n/<lang>
 console.log(`\n✓ ${outFile}: dịch mới ${ok}, giữ nguyên mẫu tiếng Anh ${eng}, chưa dịch được ${kept} (sai định dạng/mất nội dung học/lỗi mạng), tổng ${Object.keys(out).length}`);
 

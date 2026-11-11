@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite — Statistics &amp; Badges (Bright Day Mobile)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              bg: '#FFF7EA',
+              card: '#FFFFFF',
+              border: '#EADEC8',
+              ledge: '#D8CFBC',
+            },
+            ink: {
+              primary: '#0F3D3E',
+              secondary: '#456264',
+              muted: '#688284',
+              btn: '#1B0B04',
+            },
+            brand: {
+              teal: '#2BA39A',
+              tealDeep: '#1F7A75',
+              tealSoft: '#E6F6F5',
+              tealBorder: '#96D4CE',
+              coral: '#F2553B',
+              coralLedge: '#B53A22',
+              amber: '#FF9E2C',
+              amberLedge: '#C7700E',
+              gold: '#F59E0B',
+              goldSoft: '#FEF3C7',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: calc(76px + env(safe-area-inset-bottom, 16px));
+    }
+
+    .tactile-card {
+      background-color: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 #D8CFBC;
+      border-radius: 20px;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FF6F4E 0%, #F2553B 100%);
+      border: 2px solid #B53A22;
+      box-shadow: 0 5px 0 #9E2B16;
+      border-radius: 16px;
+      color: #1B0B04;
+      font-weight: 800;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #9E2B16;
+    }
+
+    .tactile-btn-secondary {
+      background-color: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 3px 0 #D8CFBC;
+      border-radius: 12px;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #D8CFBC;
+    }
+
+    .teacher-slot {
+      background-color: #EBF7F6;
+      border: 2px dashed #4BAAA1;
+      border-radius: 16px;
+    }
+
+    .speech-bubble {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 #D8CFBC;
+      border-radius: 18px;
+      position: relative;
+    }
+    .speech-bubble::before {
+      content: '';
+      position: absolute;
+      left: -9px;
+      top: 24px;
+      width: 14px;
+      height: 14px;
+      background: #FFFFFF;
+      border-left: 2px solid #EADEC8;
+      border-bottom: 2px solid #EADEC8;
+      transform: rotate(45deg);
+    }
+
+    .badge-card {
+      background-color: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 #D8CFBC;
+      border-radius: 16px;
+      transition: transform 0.1s ease;
+    }
+    .badge-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .badge-card.locked {
+      background-color: #FAF4E8;
+      border: 2px dashed #DCCFBA;
+      box-shadow: 0 3px 0 #D8CFBC;
+    }
+
+    .tab-active {
+      background-color: #E6F6F5;
+      border: 2px solid #2BA39A;
+      box-shadow: 0 3px 0 #1B7F77;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center overflow-x-hidden">
+<!-- Mobile Screen Container (390px native layout) -->
+<main class="w-full max-w-[390px] min-h-screen flex flex-col px-4 pt-3 pb-8 relative overflow-hidden">
+<!-- Top App Bar (56px) -->
+<header class="w-full h-14 flex items-center justify-between py-2 mb-3">
+<!-- App Brand Logo -->
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-xl bg-[#2BA39A] border-2 border-[#1F7A75] shadow-[0_2px_0_#12514D] flex items-center justify-center text-white">
+<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="22">
+<polygon fill="#E6F6F5" points="12 2 19 9 12 22 5 9 12 2" stroke="#12514D"></polygon>
+<line stroke="#12514D" x1="12" x2="12" y1="2" y2="22"></line>
+<line stroke="#12514D" x1="5" x2="19" y1="9" y2="9"></line>
+</svg>
+</div>
+<span class="text-xl font-extrabold tracking-tight text-[#0F3D3E]">Lexkite</span>
+</div>
+<!-- Header Pills: Streak + XP -->
+<div class="flex items-center gap-2">
+<div class="h-9 px-3 rounded-full bg-[#FFFFFF] border-2 border-[#EADEC8] shadow-[0_2px_0_#D8CFBC] flex items-center gap-1.5 min-h-[44px]" title="Study Streak">
+<span class="material-symbols-rounded text-lg text-[#F2553B]">local_fire_department</span>
+<span class="text-sm font-extrabold text-[#0F3D3E]">14</span>
+</div>
+<div class="h-9 px-3 rounded-full bg-[#FFFFFF] border-2 border-[#EADEC8] shadow-[0_2px_0_#D8CFBC] flex items-center gap-1.5 min-h-[44px]" title="Experience Points">
+<span class="material-symbols-rounded text-lg text-[#FF9E2C]">bolt</span>
+<span class="text-sm font-extrabold text-[#0F3D3E]">820</span>
+</div>
+</div>
+</header>
+<!-- User Header Profile Card -->
+<section class="tactile-card p-4 mb-4">
+<div class="flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-14 h-14 rounded-2xl bg-[#0F3D3E] border-2 border-[#092728] shadow-[0_3px_0_#051818] flex items-center justify-center text-[#E6F6F5] font-extrabold text-lg tracking-wider">
+            LK
+          </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5 flex-wrap">
+<h1 class="text-lg font-extrabold text-[#0F3D3E] leading-tight">Learner Kai</h1>
+<span class="material-symbols-rounded text-base text-[#2BA39A]">verified</span>
+</div>
+<span class="text-xs font-semibold text-[#456264] mt-0.5">Level 7 Word Explorer</span>
+</div>
+</div>
+<!-- Target Band Badge Pill -->
+<div class="px-2.5 py-1 rounded-full bg-[#FEF3C7] border-2 border-[#FCD34D] text-[#92400E] text-xs font-extrabold tracking-wide uppercase shadow-[0_2px_0_#F59E0B] whitespace-nowrap">
+          Band 7.5
+        </div>
+</div>
+<!-- Quick Triple Stat Tiles -->
+<div class="grid grid-cols-3 gap-2 mt-3 pt-3 border-t-2 border-[#F3EAD9]">
+<div class="bg-[#FFFDF9] border-2 border-[#EADEC8] rounded-xl p-2 flex flex-col items-center text-center">
+<div class="flex items-center gap-1 text-[#F2553B] mb-0.5">
+<span class="material-symbols-rounded text-base">local_fire_department</span>
+<span class="text-sm font-extrabold text-[#0F3D3E]">14 Days</span>
+</div>
+<span class="text-[11px] font-bold text-[#1F7A75] leading-tight">Streak Record</span>
+</div>
+<div class="bg-[#FFFDF9] border-2 border-[#EADEC8] rounded-xl p-2 flex flex-col items-center text-center">
+<div class="flex items-center gap-1 text-[#FF9E2C] mb-0.5">
+<span class="material-symbols-rounded text-base">bolt</span>
+<span class="text-sm font-extrabold text-[#0F3D3E]">820 XP</span>
+</div>
+<span class="text-[11px] font-bold text-[#1F7A75] leading-tight">Earned Pts</span>
+</div>
+<div class="bg-[#FFFDF9] border-2 border-[#EADEC8] rounded-xl p-2 flex flex-col items-center text-center">
+<div class="flex items-center gap-1 text-[#2BA39A] mb-0.5">
+<span class="material-symbols-rounded text-base">menu_book</span>
+<span class="text-sm font-extrabold text-[#0F3D3E]">142</span>
+</div>
+<span class="text-[11px] font-bold text-[#1F7A75] leading-tight">Exam Words</span>
+</div>
+</div>
+</section>
+<!-- Empty Teacher Slot & Speech Bubble Row -->
+<section class="flex items-stretch gap-3 mb-4">
+<!-- Empty Teacher Slot with class "teacher-slot" -->
+<div class="teacher-slot w-[96px] shrink-0 flex flex-col items-center justify-center p-2 text-center" title="Teacher Slot Placeholder">
+<span class="material-symbols-rounded text-2xl text-[#2BA39A] mb-1">school</span>
+<span class="text-[10px] font-extrabold text-[#1F7A75] uppercase tracking-wider leading-tight teacher-slot">teacher-slot</span>
+<span class="text-[9px] font-semibold text-[#57928E] mt-0.5 leading-none">Ama / Carlos</span>
+</div>
+<!-- Speech Bubble -->
+<div class="speech-bubble flex-1 p-3.5 flex flex-col justify-center">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#2BA39A]"></span>
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#1F7A75]">Coach Insight</span>
+</div>
+<span class="text-[10px] font-bold text-[#2BA39A] bg-[#E6F6F5] px-1.5 py-0.5 rounded">Verified</span>
+</div>
+<p class="text-xs font-semibold text-[#0F3D3E] leading-relaxed">
+          “Consistent active recall is paying off! Your IELTS Band 7.5 projection is strengthening daily.”
+        </p>
+</div>
+</section>
+<!-- Weekly Word Velocity (7-Day Chart) -->
+<section class="tactile-card p-4 mb-4">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-[#E6F6F5] border-2 border-[#96D4CE] flex items-center justify-center text-[#1F7A75]">
+<span class="material-symbols-rounded text-lg">bar_chart</span>
+</div>
+<div>
+<h2 class="text-sm font-extrabold text-[#0F3D3E] leading-tight">Weekly Word Velocity</h2>
+<p class="text-[11px] font-bold text-[#456264]">Daily active retention across 7 days</p>
+</div>
+</div>
+<span class="text-[11px] font-extrabold text-[#1F7A75] bg-[#E6F6F5] border border-[#96D4CE] px-2 py-0.5 rounded-full">
+          +18% W/W
+        </span>
+</div>
+<!-- 7-Day Bar Chart Graphic -->
+<div class="pt-4 pb-2">
+<div class="flex items-end justify-between gap-1.5 h-28 px-1">
+<!-- Mon -->
+<div class="flex-1 flex flex-col items-center gap-1.5">
+<span class="text-[10px] font-extrabold text-[#688284]">22</span>
+<div class="w-full bg-[#EADEC8] rounded-t-lg transition-all duration-300" style="height: 52px;"></div>
+<span class="text-[11px] font-bold text-[#456264]">M</span>
+</div>
+<!-- Tue -->
+<div class="flex-1 flex flex-col items-center gap-1.5">
+<span class="text-[10px] font-extrabold text-[#688284]">18</span>
+<div class="w-full bg-[#EADEC8] rounded-t-lg transition-all duration-300" style="height: 42px;"></div>
+<span class="text-[11px] font-bold text-[#456264]">T</span>
+</div>
+<!-- Wed -->
+<div class="flex-1 flex flex-col items-center gap-1.5">
+<span class="text-[10px] font-extrabold text-[#688284]">25</span>
+<div class="w-full bg-[#EADEC8] rounded-t-lg transition-all duration-300" style="height: 60px;"></div>
+<span class="text-[11px] font-bold text-[#456264]">W</span>
+</div>
+<!-- Thu -->
+<div class="flex-1 flex flex-col items-center gap-1.5">
+<span class="text-[10px] font-extrabold text-[#688284]">14</span>
+<div class="w-full bg-[#EADEC8] rounded-t-lg transition-all duration-300" style="height: 34px;"></div>
+<span class="text-[11px] font-bold text-[#456264]">T</span>
+</div>
+<!-- Fri -->
+<div class="flex-1 flex flex-col items-center gap-1.5">
+<span class="text-[10px] font-extrabold text-[#688284]">28</span>
+<div class="w-full bg-[#EADEC8] rounded-t-lg transition-all duration-300" style="height: 68px;"></div>
+<span class="text-[11px] font-bold text-[#456264]">F</span>
+</div>
+<!-- Sat (Highlight Crown) -->
+<div class="flex-1 flex flex-col items-center gap-1 relative">
+<span class="material-symbols-rounded text-sm text-[#FF9E2C] -mb-1">crown</span>
+<span class="text-[10px] font-extrabold text-[#1F7A75]">32</span>
+<div class="w-full bg-[#2BA39A] border-t-2 border-[#1F7A75] rounded-t-lg shadow-[0_2px_0_#12514D] transition-all duration-300" style="height: 78px;"></div>
+<span class="text-[11px] font-extrabold text-[#1F7A75]">S</span>
+</div>
+<!-- Sun -->
+<div class="flex-1 flex flex-col items-center gap-1.5">
+<span class="text-[10px] font-extrabold text-[#688284]">19</span>
+<div class="w-full bg-[#EADEC8] rounded-t-lg transition-all duration-300" style="height: 46px;"></div>
+<span class="text-[11px] font-bold text-[#456264]">S</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs font-bold text-[#456264] mt-3 pt-2.5 border-t border-[#F3EAD9]">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#2BA39A]"></span>
+<span>Best Day: Saturday (32 words)</span>
+</div>
+<span class="text-[#0F3D3E] font-extrabold">158 Words Total</span>
+</div>
+</div>
+</section>
+<!-- Study Time & Accuracy Cards -->
+<section class="grid grid-cols-2 gap-3 mb-4">
+<!-- Total Time -->
+<div class="tactile-card p-3.5 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-rounded text-[#FF9E2C] text-xl">schedule</span>
+<span class="text-[10px] font-extrabold text-[#1F7A75] bg-[#E6F6F5] px-1.5 py-0.5 rounded">+35m</span>
+</div>
+<div class="text-[11px] font-bold uppercase tracking-wider text-[#688284]">Study Duration</div>
+<div class="text-xl font-extrabold text-[#0F3D3E] mt-0.5">4h 15m</div>
+</div>
+<div class="text-[11px] font-semibold text-[#1F7A75] flex items-center gap-1 mt-2">
+<span class="material-symbols-rounded text-sm">trending_up</span>
+<span>vs last week</span>
+</div>
+</div>
+<!-- Accuracy Rate -->
+<div class="tactile-card p-3.5 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-rounded text-[#2BA39A] text-xl">check_circle</span>
+<span class="text-[10px] font-extrabold text-[#1F7A75] bg-[#E6F6F5] px-1.5 py-0.5 rounded">Pass</span>
+</div>
+<div class="text-[11px] font-bold uppercase tracking-wider text-[#688284]">Drill Accuracy</div>
+<div class="text-xl font-extrabold text-[#0F3D3E] mt-0.5">91.4%</div>
+</div>
+<div class="text-[11px] font-semibold text-[#1F7A75] flex items-center gap-1 mt-2">
+<span class="material-symbols-rounded text-sm">verified</span>
+<span>Target: ≥85%</span>
+</div>
+</div>
+</section>
+<!-- Skill Competency Breakdown -->
+<section class="tactile-card p-4 mb-4">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-rounded text-xl text-[#0F3D3E]">psychology</span>
+<h2 class="text-sm font-extrabold text-[#0F3D3E]">Skill Competency</h2>
+</div>
+<span class="text-xs font-extrabold text-[#1F7A75]">Target Band 7.5</span>
+</div>
+<div class="space-y-3.5">
+<!-- Listening -->
+<div>
+<div class="flex items-center justify-between text-xs mb-1">
+<div class="flex items-center gap-1.5 font-bold text-[#0F3D3E]">
+<span class="material-symbols-rounded text-sm text-[#2BA39A]">headphones</span>
+<span>Listening</span>
+</div>
+<span class="font-extrabold text-[#0F3D3E]">94% <span class="text-[10px] text-[#688284] font-normal">(Band 7.5)</span></span>
+</div>
+<div class="w-full h-2.5 bg-[#EADEC8] rounded-full overflow-hidden">
+<div class="h-full bg-[#2BA39A] rounded-full" style="width: 94%"></div>
+</div>
+</div>
+<!-- Reading -->
+<div>
+<div class="flex items-center justify-between text-xs mb-1">
+<div class="flex items-center gap-1.5 font-bold text-[#0F3D3E]">
+<span class="material-symbols-rounded text-sm text-[#2BA39A]">menu_book</span>
+<span>Reading</span>
+</div>
+<span class="font-extrabold text-[#0F3D3E]">88% <span class="text-[10px] text-[#688284] font-normal">(Band 7.5)</span></span>
+</div>
+<div class="w-full h-2.5 bg-[#EADEC8] rounded-full overflow-hidden">
+<div class="h-full bg-[#2BA39A] rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<!-- Writing -->
+<div>
+<div class="flex items-center justify-between text-xs mb-1">
+<div class="flex items-center gap-1.5 font-bold text-[#0F3D3E]">
+<span class="material-symbols-rounded text-sm text-[#FF9E2C]">edit_note</span>
+<span>Writing</span>
+</div>
+<span class="font-extrabold text-[#FF9E2C]">82% <span class="text-[10px] text-[#C7700E] font-bold">Needs Cohesion</span></span>
+</div>
+<div class="w-full h-2.5 bg-[#EADEC8] rounded-full overflow-hidden">
+<div class="h-full bg-[#FF9E2C] rounded-full" style="width: 82%"></div>
+</div>
+</div>
+<!-- Speaking -->
+<div>
+<div class="flex items-center justify-between text-xs mb-1">
+<div class="flex items-center gap-1.5 font-bold text-[#0F3D3E]">
+<span class="material-symbols-rounded text-sm text-[#F2553B]">mic</span>
+<span>Speaking</span>
+</div>
+<span class="font-extrabold text-[#F2553B]">78% <span class="text-[10px] text-[#B53A22] font-bold">Collocations</span></span>
+</div>
+<div class="w-full h-2.5 bg-[#EADEC8] rounded-full overflow-hidden">
+<div class="h-full bg-[#F2553B] rounded-full" style="width: 78%"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Streak Calendar Heatmap (7 Days) -->
+<section class="tactile-card p-4 mb-4">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-lg text-[#F2553B]">calendar_month</span>
+<h2 class="text-sm font-extrabold text-[#0F3D3E]">Streak Heatmap</h2>
+</div>
+<div class="flex items-center gap-1 text-[11px] font-bold text-[#688284]">
+<span class="w-2 h-2 rounded-full bg-[#96D4CE]"></span>
+<span>Freeze used (Thu 12)</span>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center"><div class="flex flex-col items-center gap-1"><span class="text-[11px] font-bold text-[#1F7A75]">M</span><div class="w-full min-h-[44px] rounded-xl bg-[#FFF4F2] border-2 border-[#F8B3A8] shadow-[0_2px_0_#EE8575] flex flex-col items-center justify-center"><span class="text-[11px] font-extrabold text-[#F2553B]">09</span><span class="material-symbols-rounded text-xs text-[#F2553B] -mt-1">local_fire_department</span></div></div><div class="flex flex-col items-center gap-1"><span class="text-[11px] font-bold text-[#1F7A75]">T</span><div class="w-full min-h-[44px] rounded-xl bg-[#FFF4F2] border-2 border-[#F8B3A8] shadow-[0_2px_0_#EE8575] flex flex-col items-center justify-center"><span class="text-[11px] font-extrabold text-[#F2553B]">10</span><span class="material-symbols-rounded text-xs text-[#F2553B] -mt-1">local_fire_department</span></div></div><div class="flex flex-col items-center gap-1"><span class="text-[11px] font-bold text-[#1F7A75]">W</span><div class="w-full min-h-[44px] rounded-xl bg-[#FFF4F2] border-2 border-[#F8B3A8] shadow-[0_2px_0_#EE8575] flex flex-col items-center justify-center"><span class="text-[11px] font-extrabold text-[#F2553B]">11</span><span class="material-symbols-rounded text-xs text-[#F2553B] -mt-1">local_fire_department</span></div></div><div class="flex flex-col items-center gap-1"><span class="text-[11px] font-bold text-[#1F7A75]">T</span><div class="w-full min-h-[44px] rounded-xl bg-[#E6F6F5] border-2 border-[#96D4CE] shadow-[0_2px_0_#4BAAA1] flex flex-col items-center justify-center"><span class="text-[11px] font-extrabold text-[#1F7A75]">12</span><span class="material-symbols-rounded text-xs text-[#1F7A75] -mt-1">ac_unit</span></div></div><div class="flex flex-col items-center gap-1"><span class="text-[11px] font-bold text-[#1F7A75]">F</span><div class="w-full min-h-[44px] rounded-xl bg-[#FFF4F2] border-2 border-[#F8B3A8] shadow-[0_2px_0_#EE8575] flex flex-col items-center justify-center"><span class="text-[11px] font-extrabold text-[#F2553B]">13</span><span class="material-symbols-rounded text-xs text-[#F2553B] -mt-1">local_fire_department</span></div></div><div class="flex flex-col items-center gap-1"><span class="text-[11px] font-bold text-[#1F7A75]">S</span><div class="w-full min-h-[44px] rounded-xl bg-[#FEF3C7] border-2 border-[#F59E0B] shadow-[0_3px_0_#D97706] flex flex-col items-center justify-center relative"><span class="text-[11px] font-black text-[#92400E]">14</span><span class="material-symbols-rounded text-xs text-[#D97706] -mt-1">local_fire_department</span></div></div><div class="flex flex-col items-center gap-1"><span class="text-[11px] font-bold text-[#1F7A75]">S</span><div class="w-full min-h-[44px] rounded-xl bg-[#FAF4E8] border-2 border-[#EADEC8] border-dashed flex flex-col items-center justify-center text-[#456264]"><span class="text-[11px] font-bold text-[#456264]">15</span><span class="material-symbols-rounded text-xs -mt-1">lock</span></div></div></div>
+</section>
+<!-- Lexkite Hall of Badges (8 Badges: 5 unlocked, 3 locked) -->
+<section class="tactile-card p-4 mb-5">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-rounded text-xl text-[#FF9E2C]">military_tech</span>
+<div>
+<h2 class="text-sm font-extrabold text-[#0F3D3E]">Hall of Badges</h2>
+<p class="text-[11px] font-bold text-[#456264]">5 of 8 unlocked this season</p>
+</div>
+</div>
+<span class="text-[11px] font-extrabold text-[#92400E] bg-[#FEF3C7] border border-[#FCD34D] px-2 py-0.5 rounded-full">
+          Tier 3
+        </span>
+</div>
+<!-- 2-Column Badge Grid (Designed for +40% longer localized text) -->
+<div class="grid grid-cols-2 gap-2.5"><div class="badge-card min-h-[56px] p-2.5 flex items-center gap-2.5"><div class="w-10 h-10 rounded-xl bg-[#FFF4F2] border-2 border-[#F8B3A8] shadow-[0_2px_0_#EE8575] flex items-center justify-center text-[#F2553B] shrink-0"><span class="material-symbols-rounded text-xl">local_fire_department</span></div><div class="min-w-0"><h3 class="text-xs font-extrabold text-[#0F3D3E] leading-tight break-words">Streak Star</h3><p class="text-[10px] font-bold text-[#1F7A75] leading-tight mt-0.5 break-words">14 Active Days</p></div></div><div class="badge-card min-h-[56px] p-2.5 flex items-center gap-2.5"><div class="w-10 h-10 rounded-xl bg-[#E6F6F5] border-2 border-[#96D4CE] shadow-[0_2px_0_#4BAAA1] flex items-center justify-center text-[#1F7A75] shrink-0"><span class="material-symbols-rounded text-xl">diamond</span></div><div class="min-w-0"><h3 class="text-xs font-extrabold text-[#0F3D3E] leading-tight break-words">Collocation Ace</h3><p class="text-[10px] font-bold text-[#1F7A75] leading-tight mt-0.5 break-words">100 High Pairs</p></div></div><div class="badge-card min-h-[56px] p-2.5 flex items-center gap-2.5"><div class="w-10 h-10 rounded-xl bg-[#FFFDF0] border-2 border-[#FDE68A] shadow-[0_2px_0_#F59E0B] flex items-center justify-center text-[#D97706] shrink-0"><span class="material-symbols-rounded text-xl">bolt</span></div><div class="min-w-0"><h3 class="text-xs font-extrabold text-[#0F3D3E] leading-tight break-words">Fast Drill</h3><p class="text-[10px] font-bold text-[#1F7A75] leading-tight mt-0.5 break-words">60s Sprint Win</p></div></div><div class="badge-card min-h-[56px] p-2.5 flex items-center gap-2.5"><div class="w-10 h-10 rounded-xl bg-[#E6F6F5] border-2 border-[#96D4CE] shadow-[0_2px_0_#4BAAA1] flex items-center justify-center text-[#1F7A75] shrink-0"><span class="material-symbols-rounded text-xl">shield</span></div><div class="min-w-0"><h3 class="text-xs font-extrabold text-[#0F3D3E] leading-tight break-words">IELTS Ready</h3><p class="text-[10px] font-bold text-[#1F7A75] leading-tight mt-0.5 break-words">Band 7.5 Target</p></div></div><div class="badge-card min-h-[56px] p-2.5 flex items-center gap-2.5"><div class="w-10 h-10 rounded-xl bg-[#F3E8FF] border-2 border-[#D8B4FE] shadow-[0_2px_0_#A855F7] flex items-center justify-center text-[#7E22CE] shrink-0"><span class="material-symbols-rounded text-xl">dark_mode</span></div><div class="min-w-0"><h3 class="text-xs font-extrabold text-[#0F3D3E] leading-tight break-words">Night Owl</h3><p class="text-[10px] font-bold text-[#1F7A75] leading-tight mt-0.5 break-words">10 PM Session</p></div></div><div class="badge-card locked min-h-[56px] p-2.5 flex items-center gap-2.5"><div class="w-10 h-10 rounded-xl bg-[#EFE8D8] border-2 border-[#DCCFBA] flex items-center justify-center text-[#0F3D3E] shrink-0"><span class="material-symbols-rounded text-xl">lock</span></div><div class="min-w-0"><h3 class="text-xs font-extrabold text-[#0F3D3E] leading-tight break-words">30-Day Flame</h3><p class="text-[10px] font-bold text-[#456264] leading-tight mt-0.5 break-words">Day 30 Unlock</p></div></div><div class="badge-card locked min-h-[56px] p-2.5 flex items-center gap-2.5"><div class="w-10 h-10 rounded-xl bg-[#EFE8D8] border-2 border-[#DCCFBA] flex items-center justify-center text-[#0F3D3E] shrink-0"><span class="material-symbols-rounded text-xl">lock</span></div><div class="min-w-0"><h3 class="text-xs font-extrabold text-[#0F3D3E] leading-tight break-words">Lexicon Titan</h3><p class="text-[10px] font-bold text-[#456264] leading-tight mt-0.5 break-words">Master 500 Wds</p></div></div><div class="badge-card locked min-h-[56px] p-2.5 flex items-center gap-2.5"><div class="w-10 h-10 rounded-xl bg-[#EFE8D8] border-2 border-[#DCCFBA] flex items-center justify-center text-[#0F3D3E] shrink-0"><span class="material-symbols-rounded text-xl">lock</span></div><div class="min-w-0"><h3 class="text-xs font-extrabold text-[#0F3D3E] leading-tight break-words">Flawless 100</h3><p class="text-[10px] font-bold text-[#456264] leading-tight mt-0.5 break-words">100% on 3 Tests</p></div></div></div>
+</section>
+<!-- Primary Action: Share Progress Button -->
+<div class="w-full mb-4">
+<button class="tactile-btn-primary w-full min-h-[56px] py-3.5 px-4 flex items-center justify-center gap-2 text-base shadow-[0_5px_0_#B53A22] active:translate-y-1 active:shadow-[0_2px_0_#B53A22]">
+<span class="material-symbols-rounded text-xl">share</span>
+<span>Share Progress Report</span>
+<span class="material-symbols-rounded text-lg">arrow_forward</span>
+</button>
+<p class="text-center text-[11px] font-bold text-[#1F7A75] mt-2">Export verified exam readiness card to WeChat, WhatsApp &amp; IG</p>
+</div>
+<!-- Fixed Docked 5-Tab Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-[#FFFFFF] border-t-2 border-[#EADEC8] shadow-[0_-3px_12px_rgba(15,61,62,0.06)] flex justify-around items-center h-16 max-w-[390px] mx-auto inset-x-0 pb-safe"><a class="flex flex-col items-center justify-center flex-1 h-full min-h-[44px] min-w-[44px] text-[#456264] hover:text-[#0F3D3E] transition-colors py-1" href="#"><span class="material-symbols-rounded text-2xl">calendar_today</span><span class="text-[11px] font-bold mt-0.5">Today</span></a><a class="flex flex-col items-center justify-center flex-1 h-full min-h-[44px] min-w-[44px] text-[#456264] hover:text-[#0F3D3E] transition-colors py-1" href="#"><span class="material-symbols-rounded text-2xl">menu_book</span><span class="text-[11px] font-bold mt-0.5">Vocab</span></a><a class="flex flex-col items-center justify-center flex-1 h-full min-h-[44px] min-w-[44px] text-[#456264] hover:text-[#0F3D3E] transition-colors py-1" href="#"><span class="material-symbols-rounded text-2xl">psychology</span><span class="text-[11px] font-bold mt-0.5">Skills</span></a><a class="flex flex-col items-center justify-center flex-1 h-full min-h-[44px] min-w-[44px] text-[#456264] hover:text-[#0F3D3E] transition-colors py-1" href="#"><span class="material-symbols-rounded text-2xl">quiz</span><span class="text-[11px] font-bold mt-0.5">Tests</span></a><a class="flex flex-col items-center justify-center flex-1 h-full min-h-[44px] min-w-[44px] py-1" href="#"><div class="tab-active px-3 py-1 rounded-xl flex flex-col items-center justify-center text-[#1F7A75]"><span class="material-symbols-rounded text-2xl">person</span><span class="text-[11px] font-extrabold mt-0.5">Me</span></div></a></nav>
+</main>
+</body>
+</html>

@@ -33,6 +33,7 @@ quiz: [
     explain: "'Moreover' digunakan untuk menyajikan informasi atau bukti tambahan yang memperkuat argumen utama."
   }
 ]
+publishAt: 2026-11-27T09:35:00+07:00
 ---
 
 Saat menulis esai akademik, menyusun surat bisnis profesional, atau mengikuti tes bahasa Inggris resmi seperti IELTS dan TOEFL, memiliki ide yang cemerlang saja belum cukup. Mutu tulisan Anda sangat ditentukan oleh seberapa runtut dan kohesif ide-ide tersebut saling tersambung. Penguasaan **kata penghubung bahasa inggris linking words** yang tepat membuat pembaca dapat mengikuti alur logika Anda secara mulus tanpa tersendat, menghubungkan premis, perbandingan, sebab-akibat, hingga kesimpulan secara elegan.
@@ -150,6 +151,6 @@ Salah satu jebakan yang sering menimpa peserta ujian adalah penggunaan kata peng
   *Contoh*: "The preliminary proposal, **however**, was met with substantial skepticism from municipal authorities."
 - **Utamakan kohesi alami lewat kata ganti dan repetisi terarah**: Terkadang, menggunakan kata ganti penunjuk (*this phenomenon*, *such initiatives*, *these challenges*) jauh lebih natural dalam menyambung dua kalimat daripada memasang kata hubung baru.
 
-Pelajari juga materi lanjutan kami mengenai [struktur kalimat kompleks di IELTS Writing Task 2](/id/blog/kalimat-kompleks-ielts-writing-task-2/) dan panduan [struktur writing task 2 ielts](/id/blog/struktur-writing-task-2-ielts/). Perluas pula perbendaharaan kata Anda lewat [cara paraphrase ielts writing](/id/blog/cara-paraphrase-ielts-writing-reading/) serta eksplorasi [collocation bahasa inggris untuk ielts](/id/blog/collocation-bahasa-inggris-untuk-ielts/) bersama bank kosakata [/tu-vung/](/tu-vung/).
+Pelajari juga materi lanjutan kami mengenai [struktur kalimat kompleks di IELTS Writing Task 2](/id/blog/kalimat-kompleks-ielts-writing-task-2/) dan panduan [struktur writing task 2 ielts](/id/blog/struktur-writing-task-2-ielts/). Perluas pula perbendaharaan kata Anda lewat [cara paraphrase ielts writing](/id/blog/cara-paraphrase-ielts-writing-reading/) serta eksplorasi [collocation bahasa inggris untuk ielts](/id/blog/collocation-bahasa-inggris-untuk-ielts/) bersama bank kosakata [/tu-vung/](/en/vocabulary/).
 
 Dengan latihan menulis yang konsisten dan penerapan kata penghubung secara cermat, esai bahasa Inggris Anda akan tampil meyakinkan, padat makna, dan siap meraih nilai tertinggi.

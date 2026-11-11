@@ -458,6 +458,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "Small shops rely ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " local customers.",
+      "white"
+     ]
+    ]
+   ],
    "a": "in",
    "b": "on",
    "correct": "b",

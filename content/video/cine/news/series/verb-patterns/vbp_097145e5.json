@@ -144,9 +144,11 @@
     [
      [
       "@x"
-     ]
-    ],
-    [
+     ],
+     [
+      " ",
+      "white"
+     ],
      [
       "“He admitted ",
       "white"
@@ -216,7 +218,7 @@
        "  "
       ],
       [
-       "@ipa:/breɪk/"
+       "@ipa:/ˈbreɪkɪŋ/"
       ]
      ]
     }
@@ -424,6 +426,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "He admitted ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " the last cookie.",
+      "white"
+     ]
+    ]
+   ],
    "a": "eating",
    "b": "to eat",
    "correct": "a",
@@ -494,7 +512,7 @@
        "  "
       ],
       [
-       "@ipa:/breɪk/"
+       "@ipa:/ˈbreɪkɪŋ/"
       ]
      ]
     }
@@ -535,6 +553,6 @@
   "pid": "u:v:admit:ing",
   "cefr": "B1",
   "diff": "medium",
-  "ipa": "/breɪk/"
+  "ipa": "/ˈbreɪkɪŋ/"
  }
 }

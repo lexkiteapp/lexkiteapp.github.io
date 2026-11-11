@@ -1,3 +1,2 @@
-/* UI hi – rmodes (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["hi"] = Object.assign(D["hi"] || {}, {"Gõ từ":"टाइप करें","Nghe chọn nghĩa":"सुनें और चुनें","Câu của bạn":"आपका वाक्य","Nguồn":"स्रोत","Chế độ ôn":"दोहराव मोड","Gợi ý chữ cái":"अक्षर संकेत","Nghe từ":"शब्द सुनें","Không nhớ":"याद नहीं","Đáp án đúng":"सही उत्तर"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/hi/rmodes.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.hi=Object.assign(D.hi||{},{_en82:"टाइप करें",_7883:"ऑडियो लोड हो रहा है…",_40h8:"ऑडियो नहीं चल सका – फिर से कोशिश करने के लिए 🔊 पर टैप करें",_4tgc:"शब्द दिखाएँ",_58ig:"सुनें और चुनें",_gumz:"आपका वाक्य",_1xxw:"स्रोत",_hcwb:"दोहराव मोड",_42cy:"अक्षर संकेत",_yt56:"शब्द सुनें",_8tl2:"याद नहीं",_s9a7:"सही उत्तर"});})(typeof self!=='undefined'?self:this);

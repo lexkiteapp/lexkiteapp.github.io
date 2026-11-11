@@ -1,3 +1,2 @@
-/* UI ja – ads (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ja"] = Object.assign(D["ja"] || {}, {"Hết lượt hôm nay? Xem 1 video ngắn để nhận thêm {n} lượt.":"今日の無料回数を使い切りましたか？短い動画を見ると、さらに {n} 回使えます。","Xem video":"動画を見る","Đã cộng thêm lượt – thử lại sau vài giây.":"回数を追加しました。数秒後にもう一度お試しください。"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/ja/ads.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ja=Object.assign(D.ja||{},{_ape0:"今日の無料回数を使い切りましたか？短い動画を見ると、さらに {n} 回使えます。",_dcji:"動画を見る",_iq0k:"回数を追加しました。数秒後にもう一度お試しください。",_8kw8:"カードを10枚復習すると、あと{n}回使えます(無料)。",_9lrf:"今すぐ復習",_a5k9:"復習したので、あと{n}回使えるようになりました。",_3iid:"今日は{r}/{need}枚を復習しました。もっと復習すると回数がもらえます。"});})(typeof self!=='undefined'?self:this);

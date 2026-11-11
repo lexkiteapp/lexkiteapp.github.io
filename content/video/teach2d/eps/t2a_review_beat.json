@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_beat",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: beat.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to win against another person or team.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Our team beat the champions three goals to one.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "beat",
+  "ipa": "/biːt/",
+  "mean": "to win against another person or team",
+  "ex": "Our team beat the champions three goals to one.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=beat",
+  "link": "https://lexkite.com/app/#/review?w=beat",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"beat\" mean?",
+  "keyword": "beat",
+  "value": "Beat means to win against another person or team.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=beat",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"beat\" mean?",
+    "description": "Beat means to win against another person or team.\n\nReview your words, free: https://lexkite.com/app/#/review?w=beat\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "beat",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"beat\" mean?\n\nBeat means to win against another person or team.\n\nReview your words, free: https://lexkite.com/app/#/review?w=beat"
+   },
+   "instagram": {
+    "caption": "What does \"beat\" mean?\n\nBeat means to win against another person or team.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"beat\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to win against another person or team. Beat means to win against another person or team. Try the full lesson and quiz here: {link}"
+ }
+}

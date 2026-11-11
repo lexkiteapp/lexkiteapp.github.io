@@ -59,6 +59,7 @@ quiz: [
     explain: "L'usage vague du mot nature sonne infantile; l'article recommande des termes précis tels que fragile biomes ou biodiverse habitats."
   }
 ]
+publishAt: 2026-12-07T21:21:00+01:00
 ---
 
 **Vocabulaire IELTS environnement**, réchauffement planétaire, transition vers les énergies renouvelables et préservation de la biodiversité constituent des thématiques majeures récurrentes de l'**IELTS Writing Task 2** et de l'**IELTS Speaking Part 3**. Nombreux sont les candidats francophones qui, face à un sujet écologique, se limitent à des phrases élémentaires comme *«the environment is getting worse»*, *«we must protect nature»* ou *«cars make dirty smoke»*. Ce manque de variété lexicale bride inévitablement la note de *Lexical Resource* à un modeste Band 5.5 ou 6.0.

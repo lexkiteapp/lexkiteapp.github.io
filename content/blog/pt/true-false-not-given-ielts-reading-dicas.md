@@ -9,7 +9,7 @@ tags: [reading, ielts, true-false-not-given]
 keyword: "true false not given ielts reading"
 cover: reading
 coverAlt: "Lista de leituras do IELTS Reading no Lexkite com textos graduados do nível A2 ao C1"
-publishAt: ""
+publishAt: 2026-11-28T07:09:00-03:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -86,6 +86,8 @@ Para transformar essa técnica analítica em um hábito natural no dia do teste:
 1. **Leitura Graduada com Checagem:** Explore a seção de [textos para leitura](/#/reading) no Lexkite. Pratique com artigos onde os enunciados aparecem ao lado de cada parágrafo para que você comprove a evidência visualmente.
 2. **Revisão Ativa no Registro de Erros:** Todas as questões que você errar serão salvas no [registro de erros](/#/mistakes), permitindo que você identifique se suas falhas decorrem de vocabulário ou de interpretação lógica de quantificadores.
 3. **Estratégias Complementares de Estudo:** Combine seu treino com técnicas de [como parafrasear no ielts tecnicas](/pt/blog/como-parafrasear-no-ielts-tecnicas/), já que o teste de leitura é, em essência, um teste de paráfrase. Expanda seu repertório consultando [como aprender vocabulario em ingles](/pt/blog/como-aprender-vocabulario-em-ingles/) e conheça as [collocations em ingles para ielts](/pt/blog/collocations-em-ingles-para-ielts/). Para consolidar sua base gramatical, explore nossa biblioteca de regras em [/ngu-phap/](/ngu-phap/). Se estiver se preparando para trabalhar no exterior, confira também as dicas sobre [como se preparar para o ielts general training](/pt/blog/como-se-preparar-para-o-ielts-general-training/).
+
+Para decidir quanto tempo dedicar a cada texto, veja também a [estratégia de 60 minutos para o IELTS Reading](/pt/blog/gestao-do-tempo-no-ielts-reading-estrategia-60-minutos/).
 
 ## Perguntas Frequentes (FAQ)
 

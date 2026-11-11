@@ -11,7 +11,7 @@
     // Khung, thanh bên, đăng nhập
     'Bỏ qua tới nội dung': 'Skip to content', 'Mở menu': 'Open menu', 'Đóng menu': 'Close menu', 'Đi tới…': 'Go to…', 'Điều hướng quản trị': 'Admin navigation',
     'Tổng quan': 'Overview', 'Phân tích': 'Analytics', 'Quảng cáo': 'Ads', 'Cờ theo nền tảng, công tắc khẩn cấp, doanh thu ước tính, tần suất, cổng giữ chân và đồng ý theo vùng.': 'Per-platform flags, kill switch, estimated revenue, frequency caps, retention guard and consent by region.', 'Người dùng': 'Users', 'Hộp thư': 'Inbox', 'Thông báo': 'Notices', 'Cảnh báo': 'Alerts', 'Báo lỗi': 'Reports', 'Chất lượng': 'Quality', 'Nội dung & Video': 'Content & Video',
-    'Video & Social': 'Video & Social', 'Kênh & phân phối': 'Channels & distribution', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.': 'Lesson embed channels, social channels, routing rules and per-channel calendar.', 'Video Studio': 'Video Studio', 'Hệ thống': 'System', 'Hạn mức': 'Quotas', 'Kho Drive': 'Drive storage', 'Khóa API': 'API keys', 'Dịch vụ & API': 'Services & API', 'Cài đặt': 'Settings',
+    'Video & Social': 'Video & Social', 'Kênh & phân phối': 'Channels & distribution', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.': 'Lesson embed channels, social channels, routing rules and per-channel calendar.', 'Video Studio': 'Video Studio', 'Hệ thống': 'System', 'Hạn mức': 'Quotas', 'Kho Drive': 'Drive storage', 'Khóa API': 'API keys', 'Sổ tài khoản & khóa': 'Accounts & keys', 'Mỗi dịch vụ/khóa thuộc email nào, tài khoản nào, giữ ở đâu (tên biến), hạn và nhắc gia hạn.': 'Which email/account owns each service and key, where it is stored (names only), expiry and renewal reminders.', 'Dịch vụ & API': 'Services & API', 'Cài đặt': 'Settings',
     'Sức khỏe hệ thống, người thật và tác vụ tự động trên một màn hình.': 'System health, real people and automated jobs on one screen.',
     'Lưu lượng trực tiếp, nguồn truy cập, thói quen sử dụng và tăng trưởng.': 'Live traffic, sources, usage habits and growth.',
     'Tài khoản đã đồng bộ: tìm, lọc, xem chi tiết, xuất CSV, xóa dữ liệu theo yêu cầu.': 'Synced accounts: search, filter, inspect, export CSV, delete data on request.',
@@ -22,7 +22,7 @@
     'Điểm rà soát tự động hằng ngày và kiểm nghĩa bản dịch.': 'Daily automated review score and translation meaning checks.',
     'Soạn bài, lịch đăng và kênh mạng xã hội (GrabCast).': 'Compose posts, schedule and manage social channels (GrabCast).',
     'Dây chuyền sản xuất video tự động từ kịch bản tới lên lịch.': 'Automated video production pipeline from script to schedule.',
-    'Trung tâm video': 'Video hub', 'Việc cần làm, duyệt, thư viện, sản xuất & QC, kịch bản và kênh đăng cho mọi video ngắn.': 'To-dos, review, library, production & QC, scripts and posting channels for every short video.',
+    'Trung tâm video': 'Video hub', 'Đăng & hiệu quả': 'Publishing & results', 'Studio': 'Studio', 'Bước 1 – sản xuất: kịch bản, dựng, QC dựng và kho tài sản.': 'Step 1 – production: scripts, rendering, render QC and the asset library.', 'Bước 2 – duyệt, thư viện, lưu trữ; mỗi clip thấy Drive, bài học nhúng và kênh đã đăng.': 'Step 2 – review, library and archive; every clip shows its Drive copy, lesson embeds and posted channels.', 'Bước 3 – kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch theo kênh.': 'Step 3 – lesson embed channels, social channels, routing rules and per-channel calendar.', 'Bước 4 – soạn, duyệt, lịch đăng, bài đã đăng và số liệu mạng xã hội (GrabCast).': 'Step 4 – compose, approve, schedule, published posts and social analytics (GrabCast).', 'Việc cần làm, duyệt, thư viện, sản xuất & QC, kịch bản và kênh đăng cho mọi video ngắn.': 'To-dos, review, library, production & QC, scripts and posting channels for every short video.',
     'Thư viện video': 'Video library', 'Xem mọi short đã dựng (kho riêng lexkite-shorts), lọc, phát thử, chép nội dung đăng và thống kê độ phủ, QA, credit.': 'Browse every rendered short (private lexkite-shorts store): filter, play, copy post text, and coverage, QA and credit statistics.',
     'Backlink, PR & Thương hiệu': 'Backlinks, PR & Brand', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.': 'PR posts and profiles linking to lexkite.com, lookalike domains, social accounts, content copies – checked daily.',
     'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.': 'Per-feature quotas, provider breakers, blocks and the unlimited list.',
@@ -46,9 +46,9 @@
     'Bỏ thay đổi chưa lưu?': 'Discard unsaved changes?', 'Bạn có thay đổi chưa lưu. Rời trang sẽ mất các thay đổi này.': 'You have unsaved changes. Leaving this page will lose them.', 'Bỏ thay đổi': 'Discard changes', 'Ở lại': 'Stay',
     // Drive (banner toàn cục)
     'Xem Cảnh báo': 'Open alerts', 'Xem Lưu trữ': 'Open storage',
-    'Toàn Kho Drive đã dùng {p}% – nối thêm Drive': 'Whole Drive pool is {p}% used – connect another Drive', 'Repo git {r} đã {g} GB (> 2 GB)': 'Git repo {r} is {g} GB (> 2 GB)', 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng': 'D1 has read {n} M rows today ({p}%) – background jobs paused', 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)': 'Footage bank: {n} file(s) broken or under-replicated (footage-verify)', 'CI: {n} workflow đỏ trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)': 'CI: {n} workflows failed in 24 h – see issues labelled ci-failure (ci-triage digest)', 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md': 'Production deploy FAILED smoke – see ci-failure issue, rollback: docs/ROLLBACK.md', 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md': 'D1 backup or restore drill failed – see docs/ROLLBACK.md', 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md': 'Source backup (git bundle) failed – see docs/ROLLBACK.md', 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md': 'Release archive (AAB/IPA/add-on zip) failed – see docs/ROLLBACK.md', 'Cảnh báo hệ thống: {k}': 'System alert: {k}',
+    'Toàn Kho Drive đã dùng {p}% – nối thêm Drive': 'Whole Drive pool is {p}% used – connect another Drive', 'Repo git {r} đã {g} GB (> 2 GB)': 'Git repo {r} is {g} GB (> 2 GB)', 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng': 'D1 has read {n} M rows today ({p}%) – background jobs paused', 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)': 'Footage bank: {n} file(s) broken or under-replicated (footage-verify)', 'CI: {n} workflow đỏ trên main trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)': 'CI: {n} workflows failed on main in 24 h – see issues labelled ci-failure (ci-triage digest)', 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md': 'Production deploy FAILED smoke – see ci-failure issue, rollback: docs/ROLLBACK.md', 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md': 'D1 backup or restore drill failed – see docs/ROLLBACK.md', 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md': 'Source backup (git bundle) failed – see docs/ROLLBACK.md', 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md': 'Release archive (AAB/IPA/add-on zip) failed – see docs/ROLLBACK.md', 'CI: {n} workflow tốn runner bất thường – xem issue ‘CI tốn runner bất thường’ (docs/CI-RUNNERS.md)': 'CI: {n} workflow(s) using runners abnormally – see issue ‘CI tốn runner bất thường’ (docs/CI-RUNNERS.md)', 'Cảnh báo hệ thống: {k}': 'System alert: {k}',
     'Drive {e} mất kết nối – bấm Kết nối lại': 'Drive {e} disconnected – click Reconnect', 'Drive {e}: Google không phản hồi {n} lần liên tiếp': 'Drive {e}: Google failed {n} times in a row', 'Drive {e}: tải lên lỗi {n} lần liên tiếp': 'Drive {e}: {n} uploads failed in a row',
-    'Drive {e} đã dùng {p}%': 'Drive {e} is {p}% full', 'Toàn kho chỉ còn {g} GB trống': 'Whole pool has only {g} GB free', 'Nâng gói Cloudflare 5 USD trước ngày {d}': 'Upgrade Cloudflare to the $5 plan before {d}', 'Xem Hạn mức': 'View quotas', '{n} file chỉ còn 1 bản sao': '{n} file(s) have only 1 copy', '(+{n} cảnh báo khác)': '(+{n} more)', 'Xem Kho Drive': 'Open Drive storage',
+    'Drive {e} đã dùng {p}%': 'Drive {e} is {p}% full', 'Toàn kho chỉ còn {g} GB trống': 'Whole pool has only {g} GB free', 'D1: nguồn đọc {r} = {p}% hạn mức Free ngày {d} (ngân sách 10%)': 'D1: read source {r} = {p}% of the Free limit on {d} (budget 10%)', 'Nâng gói Cloudflare 5 USD trước ngày {d}': 'Upgrade Cloudflare to the $5 plan before {d}', 'Xem Hạn mức': 'View quotas', '{n} file chỉ còn 1 bản sao': '{n} file(s) have only 1 copy', '(+{n} cảnh báo khác)': '(+{n} more)', 'Xem Kho Drive': 'Open Drive storage',
     // Đơn vị & thời gian
     '{s} giây': '{s}s', '{m} phút {s} giây': '{m}m {s}s', '{m}p {s}s': '{m}m {s}s', 'vừa xong': 'just now', '{n} phút trước': '{n} min ago', '{n} giờ trước': '{n}h ago', '{n} ngày trước': ['{n} day ago', '{n} days ago'],
     'CN': 'Sun', 'T2': 'Mon', 'T3': 'Tue', 'T4': 'Wed', 'T5': 'Thu', 'T6': 'Fri', 'T7': 'Sat',
@@ -73,29 +73,34 @@
     'so với {v}: {n}': 'vs {v}: {n}', 'Đang online': 'Active now', 'tín hiệu trong 5 phút qua': 'signal in the last 5 minutes', 'Đăng nhập hôm nay': 'Signed-in today', '7 ngày: {a} · 30 ngày: {b}': '7 days: {a} · 30 days: {b}',
     'Học viên đăng ký': 'Registered learners', '+{n} / 7 ngày': '+{n} / 7 days', 'Gắn kết (DAU / MAU)': 'Stickiness (DAU / MAU)', 'Chuẩn EdTech ≥ 25%': 'EdTech benchmark ≥ 25%',
     'Thẻ đã ôn': 'Cards reviewed', 'Chưa đo – cần sự kiện ôn thẻ trong thống kê': 'Not tracked yet – needs a review event in analytics',
-    'Lỗi JS (24 giờ)': 'JS errors (24h)', '{n} loại': ['{n} type', '{n} types'], 'Không có lỗi': 'No errors', 'Phiên tự động đã loại': 'Bot sessions excluded', 'bot, CI, quản trị – hôm nay': 'bots, CI, admins – today',
+    'Giọng đọc 7 ngày: {s} % giọng máy ({n} lượt) – file Kokoro {f} · Kokoro trên máy {k} · giọng máy {sys}': 'Voice 7 days: {s}% device voice ({n} plays) – Kokoro files {f} · on-device Kokoro {k} · device voice {sys}', 'lý do giọng máy': 'device-voice reasons', 'Lỗi JS (24 giờ)': 'JS errors (24h)', '{n} loại': ['{n} type', '{n} types'], 'Không có lỗi': 'No errors', 'Phiên tự động đã loại': 'Bot sessions excluded', 'bot, CI, quản trị – hôm nay': 'bots, CI, admins – today',
     'Tin nhắn chưa xử lý': 'Open messages', 'Sạch hòm thư': 'Inbox zero', 'Chờ trả lời': 'Awaiting reply', 'Điểm chất lượng': 'Quality score', 'Đạt chuẩn': 'Meets standard', 'Dưới chuẩn': 'Below standard', 'chưa chạy': 'not run yet',
     'Khóa Gemini API': 'Gemini API keys', '{n} sẵn sàng': '{n} ready', 'Chưa thiết lập': 'Not set up', 'D1: {p}% dung lượng': 'D1: {p}% storage used',
     'Tác vụ cần chú ý': 'Jobs needing attention', 'Tác vụ tự động (GitHub Actions)': 'Automated jobs (GitHub Actions)', 'Toàn bộ cảnh báo & nhật ký →': 'All alerts & logs →',
     'Đang chạy…': 'Running…', 'Bỏ qua': 'Skipped', 'Đang chờ': 'Queued', 'Thành công': 'Success', 'Cảnh báo@@status': 'Warning', 'Cần chú ý': 'Needs attention', 'Chưa có tác vụ': 'No jobs yet',
     // Trực tiếp
+    '⏸ Tạm dừng tự cập nhật (không thao tác 10 phút) – di chuột để tiếp tục': '⏸ Auto-refresh paused (no activity for 10 min) – move the mouse to resume',
+    'Hạn mức đọc hôm nay sắp cạn – mục này tạm nghỉ tới 07:00 (giờ VN).': "Today's read quota is nearly used – this section pauses until 00:00 UTC.",
+    'Đang hiện số liệu đệm để giữ hạn mức đọc D1 cho người học – tự trở lại bình thường sau 07:00 (giờ VN).': 'Showing cached numbers to keep D1 read quota for learners – back to normal after 00:00 UTC.',
     '📈 Lưu lượng trực tiếp': '📈 Live traffic', 'Live · tự cập nhật 30s · {t}': 'Live · auto-refresh 30s · {t}', 'Lấy mẫu {p}% – số thực ≈ × {x}': 'Sampling {p}% – actual ≈ × {x}',
     'Đang online <small>(5 phút)</small>': 'Online now <small>(5 min)</small>', 'khách có tín hiệu gần đây': 'visitors with recent activity', 'Lượt xem hôm nay': 'Views today', '{n} phiên': ['{n} session', '{n} sessions'],
     'Khách hôm nay': 'Visitors today', 'Trang/khách': 'Pages/visitor', 'Thời gian TB': 'Avg. time', 'mỗi phiên hôm nay': 'per session today', 'Tổng lượt xem': 'Total views', '{n} khách từ trước đến nay': '{n} visitors all-time', '14 ngày qua': 'Last 14 days',
     '🌍 Quốc gia hôm nay': '🌍 Countries today', '👀 Đang xem': '👀 Viewing now', 'Không ai online trong 5 phút qua': 'Nobody online in the last 5 minutes', '📄 Trang xem nhiều hôm nay': '📄 Top pages today',
     'Theo trang vào đầu tiên (chưa có số lượt xem từng trang).': 'Based on landing pages (per-page views not available yet).', '🔗 Nguồn giới thiệu hôm nay': '🔗 Referrers today', 'Chủ yếu truy cập trực tiếp': 'Mostly direct traffic',
     '🔥 Trang xem nhiều · 7 ngày': '🔥 Top pages · 7 days', '📱 Nền tảng': '📱 Platforms', 'Nền tảng': 'Platform', 'Nền tảng@@h': 'Platforms', 'Số khách (thiết bị) khác nhau.': 'Unique visitors (devices).',
-    '{c} quốc gia · {n} khách': '{c} countries · {n} visitors', ' · {n} không rõ': ' · {n} unknown', 'Ít': 'Few', 'Nhiều khách': 'Many visitors', '{c} – {n} khách hôm nay': '{c} – {n} visitors today', 'Không tải được bản đồ – danh sách quốc gia:': 'Map failed to load – country list:',
+    '{c} quốc gia · {n} khách': '{c} countries · {n} visitors', ' · {n} không rõ': ' · {n} unknown', 'Ít': 'Few', '0 khách': '0 visitors', 'Nhiều khách': 'Many visitors', '{c} – {n} khách hôm nay': '{c} – {n} visitors today', 'Không tải được bản đồ – danh sách quốc gia:': 'Map failed to load – country list:',
     // Phân tích
     'Khoảng thời gian (phần Chi tiết)': 'Date range (Details section)', 'ℹ️ Đang lấy mẫu {p}% người dùng – số phiên/người thực tế ≈ số dưới đây × {x}; tỉ lệ % và trung bình giữ nguyên.': 'ℹ️ Sampling {p}% of users – actual sessions/users ≈ figures below × {x}; percentages and averages are unaffected.',
     '🗺️ Khách theo quốc gia · hôm nay': '🗺️ Visitors by country · today', 'Bản đồ khách theo quốc gia hôm nay': 'Map of visitors by country today', 'Không tải được số liệu trực tiếp.': 'Could not load live data.', 'Chi tiết · {r}': 'Details · {r}',
     'Phiên truy cập': 'Sessions', 'Khách (thiết bị)': 'Visitors (devices)', '{n} phiên/khách': '{n} sessions/visitor', 'Thời gian TB/phiên': 'Avg. time/session', 'Trang/phiên': 'Pages/session', 'Khách quay lại': 'Returning visitors',
     'Thoát ngay (&lt;15 giây, 1 trang)': 'Bounce (&lt;15s, 1 page)', 'LCP thật (tốc độ hiện nội dung)': 'Real-user LCP (content load speed)', 'p75 · {p} phiên đạt “Tốt” (≤ 2,5 s)': 'p75 · {p} of sessions “Good” (≤ 2.5 s)',
+    'Nhóm CPM cao': 'High-CPM group', 'Việt Nam': 'Vietnam', 'Nhóm CPM cao (giả định)': 'High-CPM group (assumed)', 'Nước khác': 'Other countries', 'Khách thật trong khoảng đã chọn, đã loại bot và tài khoản quản trị. Danh sách nước: functions/api/_cpm.js.': 'Real visitors in the selected range, excluding bots and admin accounts. Country list: functions/api/_cpm.js.', 'Khách từ ngoài vào trang tĩnh': 'Outside visitors to static pages', 'Nước của khách từ ngoài': 'Their countries', 'Loại trang họ vào': 'Page type they landed on', 'Chưa có lượt nào.': 'No visits yet.',
     'Phiên theo ngày': 'Sessions per day', 'Nguồn truy cập': 'Traffic sources', 'Quốc gia': 'Countries', 'Trang vào đầu tiên': 'Landing pages', 'Tần suất (số phiên mỗi khách)': 'Frequency (sessions per visitor)', '{k} lần': '{k}×',
     'Thiết bị': 'Devices', 'Ngôn ngữ giao diện': 'UI language', 'Thói quen sử dụng': 'Usage habits', 'Giờ cao điểm (giờ Việt Nam)': 'Peak hours (Vietnam time)', 'Ngày trong tuần': 'Day of week', 'Thời lượng phiên': 'Session length',
     'Tăng trưởng': 'Growth', 'Khách mới & khách quay lại theo ngày': 'New vs. returning visitors per day', 'Tài khoản đăng ký mới': 'New sign-ups', 'Chưa có đăng ký mới trong khoảng này': 'No new sign-ups in this range',
     'Thống kê ẩn danh tự xây: không cookie, không lưu IP; quốc gia do Cloudflare xác định. Chỉ tính người thật: loại bot, máy chủ đám mây (CI GitHub, máy ảo Android/iOS), header CI, chế độ sandbox và tài khoản quản trị. "Hôm nay" theo giờ Việt Nam (UTC+7).': 'Self-hosted anonymous analytics: no cookies, no stored IPs; country comes from Cloudflare. Humans only: bots, cloud servers (GitHub CI, Android/iOS emulators), the CI header, sandbox mode and admin accounts are excluded. "Today" is Vietnam time (UTC+7).',
     'Đã loại trong khoảng này: {n} phiên.': 'Excluded in this period: {n} sessions.', 'Tự động/bot & quản trị hôm nay: {n} phiên (đã loại)': 'Automation/bots & admin today: {n} sessions (excluded)', 'Ngày theo giờ Việt Nam (UTC+7)': 'Days in Vietnam time (UTC+7)',
+    '{n} phiên gửi bù: máy khách giữ lại lúc /api gián đoạn rồi gửi lại (đã cộng vào ngày gốc)': ['{n} late session: held by the browser while /api was down, then re-sent (counted on its original day)', '{n} late sessions: held by browsers while /api was down, then re-sent (counted on their original day)'],
     'CI của mình': 'Our CI', 'App trên máy ảo CI': 'App on CI emulator', 'Bot/công cụ (UA)': 'Bot/tool (UA)', 'Bot đã xác minh': 'Verified bot', 'Máy chủ đám mây': 'Cloud server', 'Không rõ': 'Unknown',
     // Người dùng
     'Xóa vĩnh viễn dữ liệu đồng bộ?': 'Permanently delete synced data?', 'Xóa toàn bộ dữ liệu đồng bộ của {e}. Tài khoản Google không bị ảnh hưởng. Không thể hoàn tác.': 'This deletes all synced data of {e}. The Google account is not affected. This cannot be undone.',
@@ -127,6 +132,9 @@
     'Đã khôi phục thành công {n} tài liệu': 'Successfully restored {n} documents', 'Lỗi khôi phục: {e}': 'Restore error: {e}',
     '🔎 Tìm email, tên hoặc UID': '🔎 Search email, name or UID', 'Tìm người dùng': 'Search users', 'Vai trò': 'Role', 'Trạng thái': 'Status', 'Hoạt động 7 ngày': 'Active (7 days)', 'Ngủ đông >30 ngày': 'Dormant >30 days', 'Mới 7 ngày': 'New (7 days)',
     'Sắp xếp': 'Sort', 'Mới nhất': 'Newest', 'Tải CSV theo bộ lọc hiện tại (tối đa 5.000 dòng)': 'Download CSV for the current filter (max 5,000 rows)',
+    'Quốc gia': 'Country', 'Chưa rõ': 'Unknown', 'Chưa rõ quốc gia': 'Unknown country', 'Tham gia từ': 'Joined from', 'đến ngày': 'to', 'Tham gia sớm nhất': 'Earliest joined', 'Vào nhiều nhất': 'Most visits', 'Bỏ lọc': 'Clear filters',
+    '🌍 Người dùng theo quốc gia': '🌍 Users by country', 'Lần đồng bộ gần nhất · bấm để lọc': 'Latest sync · click to filter', '{n} quốc gia': ['{n} country', '{n} countries'], 'xem tất cả trong ô lọc Quốc gia': 'see all in the Country filter',
+    '"Chưa rõ" = tài khoản chưa đồng bộ lại từ khi có thống kê quốc gia': '"Unknown" = accounts that have not synced since country stats were added',
     'Tổng người dùng': 'Total users', 'tài khoản đã đồng bộ': 'synced accounts', 'Hoạt động hôm nay': 'Active today', '24 giờ qua': 'last 24 hours', 'Hoạt động 7 / 30 ngày': 'Active 7 / 30 days', '{p}% còn hoạt động trong tháng': '{p}% active this month',
     'tài khoản đăng ký mới': 'new sign-ups', 'Theo nền tảng': 'By platform', 'Lần vào': 'Visits', 'Chi tiết': 'Details', 'Xóa dữ liệu': 'Delete data', 'Không có người dùng khớp bộ lọc': 'No users match the filter', 'Thử bỏ bớt bộ lọc hoặc từ khóa.': 'Try removing some filters or search terms.',
     ' (lọc từ {n})': ' (filtered from {n})', '← Trước': '← Prev', 'Sau →': 'Next →', '⏳ Đang xuất…': '⏳ Exporting…', 'Đã xuất {n} dòng': ['Exported {n} row', 'Exported {n} rows'], 'Lỗi xuất CSV': 'CSV export failed',
@@ -182,6 +190,12 @@
     'Đã lưu {n} thay đổi': ['Saved {n} change', 'Saved {n} changes'], 'Sửa lỗi trước khi lưu': 'Fix the errors before saving', 'Đã lưu': 'Saved',
     '{a} khóa xoay vòng · {b} sẵn sàng': '{a} rotating keys · {b} ready', 'Chưa có khóa – AI đang dùng Cloudflare Workers AI': 'No keys yet – AI is running on Cloudflare Workers AI', 'Dùng cho chấm bài viết/nói & duyệt bản dịch.': 'Used for writing/speaking grading & translation review.',
     'Đã tự động đăng xuất do không thao tác trong {n} phút.': 'Automatically logged out due to inactivity for {n} minutes.',
+    'Đăng ký tài khoản': 'Signed up', 'Đồng bộ gần nhất': 'Last sync', 'Ngày học gần nhất': 'Last study day', 'Sao lưu tiến độ': 'Progress backup', 'Gửi báo lỗi': 'Sent a report', 'Đọc thông báo': 'Read a notice', 'Chuyển vào Thùng rác': 'Moved to Trash',
+    'Đang ở Thùng rác từ {t} – sẽ bị xóa vĩnh viễn sau 30 ngày. Khôi phục ở tab Người dùng › Thùng rác.': 'In Trash since {t} – will be erased after 30 days. Restore it under Users › Trash.',
+    '✨ Quyền & gói': '✨ Access & plan', 'Quyền AI không giới hạn': 'Unlimited AI', 'cấp {t} bởi {b}': 'granted {t} by {b}', 'Không – hạn mức miễn phí thường': 'No – normal free limits', 'Thanh toán': 'Payments',
+    'Chưa có giao dịch – Lexkite chưa bán gói trả phí': 'No transactions – Lexkite has no paid plan yet', 'Báo lỗi đã gửi': 'Reports sent', 'Chưa gửi báo lỗi nào.': 'No reports sent.', '🕒 Dòng thời gian': '🕒 Timeline', 'đã bấm': 'clicked', '{n} người': ['{n} user', '{n} users'],
+    // IA mới (docs/specs/admin-audit.md): Hôm nay, Trung tâm cảnh báo, Sức khỏe hệ thống, Tài khoản & khóa
+    'Việc cần anh xử lý hôm nay, xếp theo mức độ – mỗi dòng dẫn thẳng tới nơi xử lý; bên dưới là số liệu chính.': 'What needs you today, by severity – each row links straight to where it is fixed; key metrics below.', 'Doanh thu': 'Revenue', 'Gửi tới người học': 'Send to learners', 'Gửi thông báo tới chuông 🔔 của người học: soạn, hẹn giờ, chọn đối tượng, thu hồi, xem lượt đọc; nhắc học.': 'Send notices to learners\' 🔔 bell: compose, schedule, target, recall, read counts; study reminders.', 'Trung tâm cảnh báo': 'Alert center', 'Mọi tín hiệu hệ thống một nơi, lọc theo mức độ: tác vụ CI, lỗi JavaScript, hạn mức, Kho Drive, chất lượng, nhật ký quản trị.': 'Every system signal in one place, filtered by severity: CI jobs, JavaScript errors, quotas, Drive vault, quality, admin log.', 'Sức khỏe hệ thống': 'System health', 'Hạn mức, dung lượng, chất lượng, Kho Drive và tác vụ CI trên một màn – mỗi số có ngưỡng màu và link xử lý.': 'Quotas, storage, quality, Drive vault and CI on one screen – every number has colour thresholds and a fix link.', 'Tài khoản & khóa': 'Accounts & keys', 'Sổ tài khoản, khóa API và dịch vụ đang dùng.': 'Account ledger, API keys and services in use.', 'Sổ tài khoản': 'Account ledger', 'Nghiêm trọng': 'Critical', 'Cần xử lý': 'Needs action', 'Theo dõi': 'Watch', 'Ổn': 'OK', 'CI & tác vụ': 'CI & jobs', 'Lỗi JavaScript': 'JavaScript errors', 'Backlink & PR': 'Backlinks & PR', 'Thương hiệu': 'Brand', 'Bản sao chép': 'Copies', 'Tin nhắn chờ trả lời': 'Messages awaiting reply', '{n} tin': ["{n} message","{n} messages"], 'Báo lỗi mới chưa phân loại': 'New untriaged bug reports', '{n} báo lỗi': ["{n} report","{n} reports"], 'Rà soát hằng ngày': 'Daily review', 'không đọc được': 'unreadable', '{s}% · chuẩn {t}%': '{s}% · standard {t}%', 'Mở lượt chạy ↗': 'Open run ↗', 'Xử lý →': 'Fix →', 'Lọc theo mức độ': 'Filter by severity', 'Cần xem': 'To review', 'Lọc theo nguồn': 'Filter by source', 'Mọi nguồn': 'All sources', 'Nguồn': 'Source', 'Nội dung': 'Content', 'Mức': 'Level', 'Không có gì cần xem': 'Nothing to review', 'Mọi hệ thống đang ổn.': 'All systems are healthy.', 'Không có mục ở mức này': 'No items at this level', 'Cần anh xử lý hôm nay': 'Needs you today', 'Trung tâm cảnh báo →': 'Alert center →', 'Không có việc nào cần anh làm': 'Nothing needs you', 'Mọi hệ thống đang ổn – số liệu bên dưới để theo dõi.': 'All systems healthy – metrics below for monitoring.', '+{n} mục khác': '+{n} more', 'Mọi tín hiệu hệ thống': 'All system signals', 'Chi tiết theo nguồn': 'Details by source', 'Tác vụ CI hỏng': 'Failing CI jobs', '{n}/{t} workflow': '{n}/{t} workflows', 'Tất cả xanh': 'All green', 'chưa có số liệu': 'no data yet', 'Dưới ngưỡng': 'Below threshold', 'Vượt ngưỡng': 'Over threshold', 'Hạn mức cao nhất': 'Highest quota', 'chuẩn {t}%': 'standard {t}%', 'cảnh báo': 'alerts', 'Khóa AI sẵn sàng': 'AI keys ready', 'Dung lượng & hạn mức miễn phí': 'Storage & free-tier quotas', 'Chi tiết hạn mức →': 'Quota details →', 'Chưa có số liệu hạn mức': 'No quota data yet', 'Tín hiệu hệ thống': 'System signals',
   };
   const L = (vi, vars) => {
     let s = LANG === 'en' && Object.prototype.hasOwnProperty.call(EN, vi) ? EN[vi] : vi.split('@@')[0];
@@ -204,15 +218,23 @@
 
   // ---------- Điều hướng: nhóm → mục [khóa, biểu tượng, nhãn, mô tả, id huy hiệu] ----------
   const NAV = [
-    ['Tổng quan', [['overview', '📊', 'Tổng quan', 'Sức khỏe hệ thống, người thật và tác vụ tự động trên một màn hình.'], ['analytics', '📈', 'Phân tích', 'Lưu lượng trực tiếp, nguồn truy cập, thói quen sử dụng và tăng trưởng.'], ['ads', '💰', 'Quảng cáo', 'Cờ theo nền tảng, công tắc khẩn cấp, doanh thu ước tính, tần suất, cổng giữ chân và đồng ý theo vùng.']]],
-    ['Người dùng', [['users', '👥', 'Người dùng', 'Tài khoản đã đồng bộ: tìm, lọc, xem chi tiết, xuất CSV, xóa dữ liệu theo yêu cầu.'], ['inbox', '📬', 'Hộp thư', 'Tin nhắn từ form Liên hệ – trả lời và đánh dấu đã xử lý.', 'inboxN'], ['notices', '📣', 'Thông báo', 'Gửi thông báo tới chuông 🔔 của người học: soạn, hẹn giờ, chọn đối tượng, thu hồi, xem lượt đọc.', 'notN']]],
-    ['Chất lượng', [['alerts', '🚨', 'Cảnh báo', 'Tác vụ tự động, lỗi JavaScript từ người dùng và nhật ký quản trị.', 'alertN'], ['reports', '🐞', 'Báo lỗi', 'Báo lỗi từ người dùng: phân loại, giao việc, phản hồi.', 'repN'], ['quality', '🛡️', 'Chất lượng', 'Điểm rà soát tự động hằng ngày và kiểm nghĩa bản dịch.']]],
+    ['', [['overview', '✅', 'Hôm nay', 'Việc cần anh xử lý hôm nay, xếp theo mức độ – mỗi dòng dẫn thẳng tới nơi xử lý; bên dưới là số liệu chính.', 'todayN']]],
+    ['Người học', [['analytics', '📈', 'Phân tích', 'Lưu lượng trực tiếp, nguồn truy cập, thói quen sử dụng và tăng trưởng.'], ['users', '👥', 'Người dùng', 'Tài khoản đã đồng bộ: tìm, lọc, xem chi tiết, xuất CSV, xóa dữ liệu theo yêu cầu.'], ['inbox', '📬', 'Hộp thư', 'Tin nhắn từ form Liên hệ – trả lời và đánh dấu đã xử lý.', 'inboxN'], ['reports', '🐞', 'Báo lỗi', 'Báo lỗi từ người dùng: phân loại, giao việc, phản hồi.', 'repN'], ['notices', '📣', 'Gửi tới người học', 'Gửi thông báo tới chuông 🔔 của người học: soạn, hẹn giờ, chọn đối tượng, thu hồi, xem lượt đọc; nhắc học.', 'notN']]],
+    ['Vận hành', [['alerts', '🚨', 'Trung tâm cảnh báo', 'Mọi tín hiệu hệ thống một nơi, lọc theo mức độ: tác vụ CI, lỗi JavaScript, hạn mức, Kho Drive, chất lượng, nhật ký quản trị.', 'alertN'], ['health', '🩺', 'Sức khỏe hệ thống', 'Hạn mức, dung lượng, chất lượng, Kho Drive và tác vụ CI trên một màn – mỗi số có ngưỡng màu và link xử lý.', 'drvN'], ['vault', '🔐', 'Tài khoản & khóa', 'Sổ tài khoản, khóa API và dịch vụ đang dùng.']]],
     ['Nội dung & Video', [['dist', '🛰️', 'Kênh & phân phối', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.'], ['social', '📣', 'Video & Social', 'Soạn bài, lịch đăng và kênh mạng xã hội (GrabCast).'], ['studio', '🎞️', 'Video Studio', 'Dây chuyền sản xuất video tự động từ kịch bản tới lên lịch.'], ['video', '🎬', 'Trung tâm video', 'Việc cần làm, duyệt, thư viện, sản xuất & QC, kịch bản và kênh đăng cho mọi video ngắn.'], ['backlinks', '🔗', 'Backlink, PR & Thương hiệu', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.']]],
-    ['Hệ thống', [['quota', '⚖️', 'Hạn mức', 'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.'], ['drive', '🗄️', 'Kho Drive', 'Kho Google Drive riêng: dung lượng, bản sao, duyệt file, sổ kho.', 'drvN'], ['keys', '🔑', 'Khóa API', 'Kho khóa nhà cung cấp AI & thư – mã hóa, xoay vòng, kiểm tra.'], ['services', '🧩', 'Dịch vụ & API', 'Dịch vụ đang dùng, tài khoản, gói miễn phí và dung lượng.'], ['storage', '💾', 'Lưu trữ', 'Dung lượng repo chính và kho media (MB, số tệp), dự báo kho 20k từ, cảnh báo ở 70 %.']]],
+    ['Doanh thu', [['ads', '💰', 'Quảng cáo', 'Cờ theo nền tảng, công tắc khẩn cấp, doanh thu ước tính, tần suất, cổng giữ chân và đồng ý theo vùng.']]],
     ['', [['settings', '⚙️', 'Cài đặt', 'Thông báo đầu trang, giới hạn AI, giám sát và lấy mẫu thống kê.']]],
   ];
-  const ITEM = {}; NAV.forEach(([g, items]) => items.forEach(([k, icon, label, desc, badge]) => { ITEM[k] = { k, icon, label, desc, badge, group: g }; }));
+  // Mục con của hub (không nằm trên thanh bên – hiện thành thanh tab con dưới tiêu đề; hash cũ #quota, #drive/…, #keys?… giữ nguyên, docs/specs/admin-audit.md §2)
+  const SUB = [['Sức khỏe hệ thống', [['quota', '⚖️', 'Hạn mức', 'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.'], ['storage', '💾', 'Lưu trữ', 'Dung lượng repo chính và kho media (MB, số tệp), dự báo kho 20k từ, cảnh báo ở 70 %.'], ['quality', '🛡️', 'Chất lượng', 'Điểm rà soát tự động hằng ngày và kiểm nghĩa bản dịch.'], ['drive', '🗄️', 'Kho Drive', 'Kho Google Drive riêng: dung lượng, bản sao, duyệt file, sổ kho.', '-']]], ['Tài khoản & khóa', [['accounts', '🗂️', 'Sổ tài khoản & khóa', 'Mỗi dịch vụ/khóa thuộc email nào, tài khoản nào, giữ ở đâu (tên biến), hạn và nhắc gia hạn.'], ['keys', '🔑', 'Khóa API', 'Kho khóa nhà cung cấp AI & thư – mã hóa, xoay vòng, kiểm tra.'], ['services', '🧩', 'Dịch vụ & API', 'Dịch vụ đang dùng, tài khoản, gói miễn phí và dung lượng.']]]];
+  const HUBS = { health: ['health', 'quota', 'storage', 'quality', 'drive'], vault: ['accounts', 'keys', 'services'] }, HUB_OF = {};
+  Object.entries(HUBS).forEach(([h, ks]) => ks.forEach(k => { HUB_OF[k] = h; }));
+  // Bí danh hash: tên mới/tên gọi quen → trang thật (giữ phần đuôi /…?…). Test: scripts/test/admin-tabs.mjs
+  const ALIAS = { today: 'overview', growth: 'analytics', vault: 'accounts', system: 'health', notifications: 'alerts' };
+  const ITEM = {}; [...NAV, ...SUB].forEach(([g, items]) => items.forEach(([k, icon, label, desc, badge]) => { ITEM[k] = { k, icon, label, desc, badge, group: g }; }));
   const baseOf = h => String(h || '').replace(/^#/, '').split(/[/?]/)[0];
+  // Hash → hash chuẩn (bí danh → trang thật, giữ đuôi); hub không có view riêng → trang đầu của hub
+  const canon = h => { let x = String(h || '').replace(/^#/, ''); const b = baseOf(x); if (ALIAS[b]) x = ALIAS[b] + x.slice(b.length); return x; };
 
   // Chữ tĩnh trong admin.html (data-l = chuỗi Việt gốc) + nút VI | EN
   const paintStatic = () => {
@@ -228,11 +250,13 @@
   // Giao diện sáng/tối: Tự động (theo máy) → Sáng → Tối, ghi nhớ trên trình duyệt
   const THEME = { auto: ['🌗', 'Tự động (theo máy)'], light: ['☀️', 'Sáng'], dark: ['🌙', 'Tối'] };
   const themeNow = () => { try { return localStorage.getItem('lk.admTheme') || 'auto'; } catch (e) { return 'auto'; } };
-  const setTheme = m => { try { localStorage.setItem('lk.admTheme', m); } catch (e) { /* bỏ qua */ } if (m === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', m); paintTheme(); };
+  const setTheme = m => { try { localStorage.setItem('lk.admTheme', m); } catch (e) { /* bỏ qua */ } if (m === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', m); paintTheme(); redrawMap(); };
   const cycleTheme = () => { const order = ['auto', 'light', 'dark']; setTheme(order[(order.indexOf(themeNow()) + 1) % 3]); };
   const paintTheme = () => { const b = document.getElementById('thm'); if (!b) return; const m = THEME[themeNow()] ? themeNow() : 'auto'; b.innerHTML = `${THEME[m][0]} <span class="lbl">${esc(L(THEME[m][1]))}</span>`; b.setAttribute('aria-label', L('Giao diện: {m} – bấm để đổi', { m: L(THEME[m][1]) })); };
   try { const m = localStorage.getItem('lk.admTheme'); if (m === 'light' || m === 'dark') document.documentElement.setAttribute('data-theme', m); } catch (e) { /* bỏ qua */ }
   let user = null, tab = 'overview', denied = false, guard = null, seq = 0;
+  // Khung chờ (body.adm-boot, admin.css): Firebase/whoami quá 6 s → vẫn hiện nội dung (thẻ Đăng nhập / lỗi), không để trang trống
+  setTimeout(() => document.body.classList.remove('adm-boot'), 6000);
 
   firebase.initializeApp(FIREBASE_CONFIG);
   const auth = firebase.auth();
@@ -348,15 +372,28 @@
   }
   const token = async () => { const u = auth.currentUser || user; if (!u) { if (await ask(L('Phiên đăng nhập quản trị đã hết. Đăng nhập lại ngay?'))) await signIn(); throw new Error(L('Phiên đăng nhập đã hết – đăng nhập lại rồi thử lại')); } return u.getIdToken(); };
   const reauth = async () => { if (await ask(L('Cần đăng nhập lại để xác nhận thao tác quan trọng. Đăng nhập lại ngay?'))) { await auth.signOut(); await signIn(); } throw new Error('reauth'); };
-  async function api(op, body = {}) {
+  // Đệm 30 s cho op đọc dùng chung giữa huy hiệu, Hôm nay, Trung tâm cảnh báo, Sức khỏe (R5: tải đầu từng gọi overview/alerts/usage 2 lần). Op khác (ghi) → xóa đệm.
+  const ACACHE = new Map(), CACHEABLE = new Set(['overview', 'alerts', 'quality', 'usage', 'noticeStats', 'geminiStatus', 'errors']);
+  const fresh = () => ACACHE.clear();
+  function api(op, body = {}) {
+    if (!CACHEABLE.has(op) || Object.keys(body).length) { if (!CACHEABLE.has(op)) fresh(); return apiNet(op, body); }
+    const c = ACACHE.get(op); if (c && Date.now() - c.at < 30e3) return c.p;
+    const p = apiNet(op, body); ACACHE.set(op, { at: Date.now(), p }); p.catch(() => { if (ACACHE.get(op) && ACACHE.get(op).p === p) ACACHE.delete(op); }); return p;
+  }
+  async function apiNet(op, body = {}) {
     // ui = ngôn ngữ giao diện quản trị (máy chủ chọn vi/en cho vài câu hiển thị); không dùng "lang" vì op review/judge đã dùng cho ngôn ngữ bản dịch
     const r = await fetch('/api/admin', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op, ui: LANG, ...body }) });
     const j = await r.json().catch(() => ({}));
     if (r.status === 403) throw new Error('forbidden');
     if (r.status === 401 && j.error === 'reauth') { if (j.message) { if (await ask(j.message)) { await auth.signOut(); await signIn(); } throw new Error('reauth'); } return reauth(); }
+    // Ngân sách đọc D1 (sự cố 03/11, functions/api/_readbudget.js): số liệu đệm / 429 quota-shed → báo nhẹ 1 lần mỗi phiên, không lặp
+    if (r.status === 429 && j.error === 'quota-shed') { budgetNote(); throw Object.assign(new Error(L('Hạn mức đọc hôm nay sắp cạn – mục này tạm nghỉ tới 07:00 (giờ VN).')), { code: 'quota-shed' }); }
     if (!r.ok) throw new Error(j.error || r.status);
+    if (j && (j._budget || j._stale)) budgetNote();
     return j;
   }
+  let budgetShown = false;
+  function budgetNote() { if (budgetShown) return; budgetShown = true; toast(L('Đang hiện số liệu đệm để giữ hạn mức đọc D1 cho người học – tự trở lại bình thường sau 07:00 (giờ VN).'), 'ok', 8000); }
   // GrabCast qua proxy /api/social (khóa chỉ ở máy chủ) – tab Video & Social. Lỗi → err.code = mã lỗi máy chủ
   async function sapi(method, path, body, opt = {}) {
     const r = await fetch('/api/social', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ method, path, query: opt.query, body: body || undefined, idem: opt.idem }) });
@@ -426,6 +463,7 @@
     return j;
   }
   let idleTimer = null, idleMin = 0, lastAct = Date.now();
+  const LIVE_IDLE = 10 * 60e3;
   function setupIdleTimer(minutes) {
     idleMin = Number(minutes) || 0;
     if (idleTimer) { clearInterval(idleTimer); idleTimer = null; }
@@ -463,10 +501,20 @@
     $('#tabs').innerHTML = NAV.map(([g, items]) => `<div class="side-g">${g ? `<h2 class="side-h">${esc(L(g))}</h2>` : ''}${items.map(([k, icon, label, , b]) => `<a class="side-a" href="#${k}" data-tab="${k}"${k === tab ? ' aria-current="page"' : ''}><span class="side-i" aria-hidden="true">${icon}</span><span class="nav-l">${esc(L(label))}</span>${b ? `<b class="side-b" id="${b}"></b>` : ''}</a>`).join('')}</div>`).join('');
     Object.entries(BADGE).forEach(([id, [t, c]]) => setBadge(id, t, c));
   };
+  const ACT_H = {}; // tab → chiều cao hàng nút hành động lần vẽ trước (điện thoại: hàng nút xuống dòng riêng)
   const pageHead = t => {
     const it = ITEM[t]; if (!it) return;
-    $('#pgHead').innerHTML = `<div class="pg-tx">${it.group ? `<div class="pg-crumb">${esc(L(it.group))}</div>` : ''}<h1 class="pg-t">${esc(L(it.label))}</h1><p class="pg-d">${esc(L(it.desc))}</p></div><div class="pg-act" id="pgAct"></div>`;
+    $('#pgHead').innerHTML = `<div class="pg-tx">${it.group ? `<div class="pg-crumb">${esc(L(it.group))}</div>` : ''}<h1 class="pg-t">${esc(L(it.label))}</h1><p class="pg-d">${esc(L(it.desc))}</p></div><div class="pg-act" id="pgAct"${ACT_H[t] ? ` style="min-height:${ACT_H[t]}px"` : ''}></div>`; // giữ chỗ nút hành động (vẽ sau khi có dữ liệu) theo lần mở trước → không đẩy nội dung
     document.title = L(it.label) + ' · Lexkite Admin';
+    // tab con hub = nút Kit (btn; đang chọn = btn primary) trong .seg-f, ngay dưới tiêu đề (trên mô tả) – kiểu .hub-tabs ở admin.css (giao diện cuối = port Stitch, PR2)
+    const hub = HUB_OF[t]; if (hub) { const nav = document.createElement('nav'); nav.className = 'hub-tabs seg-f'; nav.setAttribute('aria-label', L(ITEM[hub] ? ITEM[hub].label : '')); nav.innerHTML = HUBS[hub].map(k => `<a class="btn${k === t ? ' primary' : ''}" href="#${k}" data-go="${k}"${k === t ? ' aria-current="page"' : ''}>${esc(ITEM[k].icon)} ${esc(L(ITEM[k].label))}</a>`).join(''); $('#pgHead .pg-tx').insertBefore(nav, $('#pgHead .pg-d')); } // tab con ngay dưới tiêu đề: mô tả dài/ngắn khác nhau không làm hàng tab nhảy lên xuống
+  };
+  // Dải luồng Studio → Thư viện → Phân phối → Đăng (+ Kho Drive) – js/admin-flow.js, tải lười chỉ ở 5 mục đó; lỗi tải không chặn mục
+  const FLOW_TABS = new Set(['studio', 'video', 'dist', 'social', 'drive']);
+  const flowStrip = t => {
+    const el = $('#flowStrip'); if (!el) return;
+    if (!FLOW_TABS.has(t)) { el.hidden = true; el.innerHTML = ''; return; }
+    lazy('AdminFlow', 'js/admin-flow.js').then(() => AdminFlow.paint(el, t, { capi, go, L, esc, lang: () => LANG })).catch(() => { el.hidden = true; });
   };
   const setActions = html => { const a = $('#pgAct'); if (a) a.innerHTML = html; return a; };
   // Ngăn kéo thanh bên (điện thoại)
@@ -476,10 +524,10 @@
   scrim.onclick = () => drawer(false);
   side.addEventListener('keydown', e => { if (e.key === 'Escape' && side.classList.contains('open')) { drawer(false); navBtn.focus(); } });
   $('.adm-skip').onclick = e => { e.preventDefault(); main.focus(); };
-  const noAccess = u => { $('#pgHead').innerHTML = ''; main.innerHTML = `<div class="card center adm-login"><h1 class="adm-login-t">${L('Không có quyền')}</h1><p class="muted">${L('{e} chưa được cấp quyền quản trị.', { e: esc(u.email) })}</p><button type="button" class="btn" id="swAcc">${L('Đổi tài khoản')}</button></div>`; $('#swAcc').onclick = () => auth.signOut().then(() => location.reload()); };
+  const noAccess = u => { document.body.classList.remove('adm-boot'); $('#pgHead').innerHTML = ''; main.innerHTML = `<div class="card center adm-login"><h1 class="adm-login-t">${L('Không có quyền')}</h1><p class="muted">${L('{e} chưa được cấp quyền quản trị.', { e: esc(u.email) })}</p><button type="button" class="btn" id="swAcc">${L('Đổi tài khoản')}</button></div>`; $('#swAcc').onclick = () => auth.signOut().then(() => location.reload()); };
   // Cổng cửa: tài khoản không phải quản trị chỉ thấy màn từ chối (không vẽ thanh trên/thanh bên/nội dung quản trị)
   const deny = () => {
-    document.body.classList.remove('adm-in'); side.hidden = true; $('#me').innerHTML = ''; $('#pgHead').innerHTML = ''; $('#tabs').innerHTML = '';
+    document.body.classList.remove('adm-in', 'adm-boot'); side.hidden = true; $('#me').innerHTML = ''; $('#pgHead').innerHTML = ''; $('#tabs').innerHTML = '';
     main.innerHTML = `<div class="card center adm-login" id="denied"><h1 class="adm-login-t">${L('Tài khoản này không có quyền quản trị')}</h1><button type="button" class="btn primary" id="swAcc">${L('Đăng nhập bằng tài khoản khác')}</button></div>`;
     $('#swAcc').onclick = signIn;
   };
@@ -496,8 +544,11 @@
 
   auth.onAuthStateChanged(async u => {
     user = u;
-    if (!u) return;
+    if (!u) { document.body.classList.remove('adm-boot'); return; } // chưa đăng nhập → mới hiện thẻ Đăng nhập (đã đăng nhập sẵn: không nháy thẻ trong lúc chờ whoami)
     if (!(await isAdmin())) { user = null; denied = true; deny(); try { await auth.signOut(); } catch (e) { /* bỏ qua */ } return; }
+    // Chống nhảy (owner 7/11 "lỗi nhảy giật"): khung (thanh bên + banner Kho Drive) dựng xong TRƯỚC khi vẽ tab đầu → nội dung không bị đẩy ngang
+    // (thanh bên hiện muộn) hay đẩy xuống (banner chèn muộn). Cảnh báo Drive gọi SAU whoami (cổng: chưa qua cổng chỉ được gọi whoami – admin-gate.mjs), chờ tối đa 1,2 s.
+    await Promise.race([driveAlerts(), new Promise(r => setTimeout(r, 1200))]);
     renderMe(u);
     try {
       let cachedPref = null;
@@ -510,13 +561,16 @@
         }
       }).catch(() => {});
       const defTab = (cachedPref && cachedPref.tab && VIEWS[cachedPref.tab]) ? cachedPref.tab : 'overview';
-      const h = baseOf(location.hash); await show(VIEWS[h] ? h : defTab, { force: true, first: true });
-      document.body.classList.add('adm-in'); side.hidden = false; denied = false; renderNav(); badges();
+      try { if (canon(location.hash) !== location.hash.slice(1)) history.replaceState(null, '', '#' + canon(location.hash)); } catch (e) { /* bỏ qua */ }
+      const h = baseOf(location.hash), first = VIEWS[h] ? h : defTab; tab = first;
+      document.body.classList.add('adm-in'); side.hidden = false; denied = false; renderNav(); // khung trước, nội dung sau (chống nhảy ngang)
+      await show(first, { force: true, first: true });
+      badges(true);
       try { localStorage.setItem('lk.noTrack', '1'); } catch (e) { /* bỏ qua */ } // máy của quản trị: app không gửi thống kê (js/app.js)
     } catch (e) {
-      if (e && e.message === 'forbidden') { denied = true; noAccess(u); return; }
+      if (e && e.message === 'forbidden') { denied = true; document.body.classList.remove('adm-in'); side.hidden = true; $('#tabs').innerHTML = ''; noAccess(u); return; }
       // lỗi tải dữ liệu (D1 hết hạn mức, mạng…) ≠ không có quyền → vẫn vào quản trị, báo lỗi + nút thử lại thay vì 'Access denied'
-      document.body.classList.add('adm-in'); side.hidden = false; denied = false; renderNav(); badges();
+      document.body.classList.add('adm-in'); side.hidden = false; denied = false; renderNav(); badges(true);
       main.innerHTML = `<div class="card center"><h2>${L('Không tải được dữ liệu')}</h2><p class="muted">${esc(String(e && e.message || e).slice(0, 300))}</p><button type="button" class="btn primary" id="admRetry">${L('Thử lại')}</button></div>`;
       $('#admRetry').onclick = () => location.reload();
     }
@@ -525,7 +579,7 @@
   // ---------- Điều hướng: liên kết thanh bên, #hash, bảng lệnh; chặn rời trang khi còn thay đổi chưa lưu ----------
   const leaveOk = () => confirmDlg({ title: L('Bỏ thay đổi chưa lưu?'), body: L('Bạn có thay đổi chưa lưu. Rời trang sẽ mất các thay đổi này.'), ok: L('Bỏ thay đổi'), cancel: L('Ở lại'), danger: true });
   async function go(hash) {
-    const t = baseOf(hash); if (!VIEWS[t] || !user || denied) return;
+    hash = canon(hash); const t = baseOf(hash); if (!VIEWS[t] || !user || denied) return;
     if (guard && guard() && !(await leaveOk())) return;
     guard = null; drawer(false);
     if ('#' + String(hash).replace(/^#/, '') !== location.hash) { try { history.pushState(null, '', '#' + String(hash).replace(/^#/, '')); } catch (e) { location.hash = hash; return; } }
@@ -535,12 +589,34 @@
     const a = e.target.closest('a[data-tab]'); if (!a || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     e.preventDefault(); go(a.dataset.tab === tab ? a.dataset.tab : a.getAttribute('href'));
   });
+  // ---------- Bảng không bao giờ tràn thẻ (owner 3/11: bảng Nền tảng lòi khỏi thẻ ở ~300 px) ----------
+  // Mọi tab (kể cả js/admin-*.js) vẽ vào #main: bảng nào chưa nằm trong khung cuộn thì tự bọc .tbl-x (cuộn ngang TRONG thẻ);
+  // mọi khung cuộn ngang được gắn gợi ý mờ mép (.sx-l/.sx-r) khi còn nội dung bên trái/phải. Quét gộp 1 lần/khung hình.
+  const SCROLLX = '.tbl-x, .tbl-wrap, .g-wrap, .drv-tw, .ds-tw, [data-sx]';
+  const sxHint = el => { const m = el.scrollWidth - el.clientWidth; el.classList.toggle('sx-l', m > 1 && el.scrollLeft > 1); el.classList.toggle('sx-r', m > 1 && el.scrollLeft < m - 1); };
+  const sxRO = window.ResizeObserver ? new ResizeObserver(es => es.forEach(x => sxHint(x.target))) : null;
+  const fitTables = () => {
+    for (const t of main.querySelectorAll('table')) {
+      if (t.closest(SCROLLX)) continue;
+      let p = t.parentElement; while (p && p !== main && !/auto|scroll/.test(getComputedStyle(p).overflowX)) p = p.parentElement;
+      if (p && p !== main) { p.dataset.sx = ''; continue; } // khung cuộn tự viết (style="overflow-x:auto") → chỉ gắn gợi ý
+      const w = document.createElement('div'); w.className = 'tbl-x'; t.replaceWith(w); w.appendChild(t);
+    }
+    for (const el of main.querySelectorAll(SCROLLX)) {
+      if (el.dataset.sxOn) { sxHint(el); continue; }
+      el.dataset.sxOn = 1; el.addEventListener('scroll', () => sxHint(el), { passive: true }); if (sxRO) sxRO.observe(el); sxHint(el);
+      if (!el.hasAttribute('tabindex') && el.scrollWidth > el.clientWidth + 1) el.tabIndex = 0; // cuộn được bằng bàn phím
+    }
+  };
+  let fitQ = 0; new MutationObserver(() => { if (!fitQ) fitQ = requestAnimationFrame(() => { fitQ = 0; fitTables(); }); }).observe(main, { childList: true, subtree: true });
   main.addEventListener('click', e => {
     const g = e.target.closest('[data-go]'); if (g && !(e.metaKey || e.ctrlKey)) { e.preventDefault(); go(g.dataset.go); return; }
-    if (e.target.closest('[data-retry]')) show(tab, { force: true });
+    if (e.target.closest('[data-retry]')) { fresh(); show(tab, { force: true }); }
   });
+  $('#pgHead').addEventListener('click', e => { const g = e.target.closest('[data-go]'); if (g && !(e.metaKey || e.ctrlKey)) { e.preventDefault(); go(g.dataset.go); } });
   addEventListener('hashchange', async () => { // gõ/đổi #tab trên thanh địa chỉ, Quay lại/Tiến
-    const h = baseOf(location.hash); if (!VIEWS[h] || !user || denied) return;
+    if (canon(location.hash) !== location.hash.slice(1)) { try { history.replaceState(null, '', '#' + canon(location.hash)); } catch (e) { /* bỏ qua */ } }
+    const h = baseOf(canon(location.hash)); if (!VIEWS[h] || !user || denied) return;
     if (guard && guard()) { if (!(await leaveOk())) { try { history.replaceState(null, '', '#' + tab); } catch (e) { /* bỏ qua */ } return; } guard = null; }
     show(h, { force: true });
   });
@@ -549,28 +625,43 @@
     if (!VIEWS[t]) t = 'overview';
     stopLive(); guard = null; tab = t; const my = ++seq;
     try { const cur = location.hash.slice(1); history.replaceState(null, '', '#' + t + (baseOf(cur) === t ? cur.slice(t.length) : '')); } catch (e) { /* bỏ qua */ }
-    document.querySelectorAll('#tabs a[data-tab]').forEach(a => { if (a.dataset.tab === t) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
-    pageHead(t); main.innerHTML = skel();
-    try { await VIEWS[t](); }
-    catch (e) { if (o.first || e.message === 'forbidden') throw e; if (my === seq && e.message !== 'reauth') main.innerHTML = errBox(e); }
+    document.querySelectorAll('#tabs a[data-tab]').forEach(a => { if (a.dataset.tab === (HUB_OF[t] || t)) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+    pageHead(t); flowStrip(t);
+    // Mỗi lần vẽ 1 khung riêng: view đang chờ mạng của tab trước chỉ ghi vào khung cũ (đã tách khỏi trang) → không bao giờ đè tab mới (R1)
+    // Chống nhảy khi chuyển tab: giữ chiều cao cũ của #main tới khi tab mới vẽ xong (khung xương/"Đang tải…" thấp hơn → trang co rồi giãn = giật)
+    const keepH = !o.first && main.offsetHeight; if (keepH) main.style.minHeight = keepH + 'px';
+    if (!o.first && main.getBoundingClientRect().top < 0) window.scrollTo(0, 0); // tab mới mở từ đầu trang
+    const host = document.createElement('div'); host.className = 'view-host'; host.style.display = 'contents'; host.dataset.view = t; host.innerHTML = skel(); main.replaceChildren(host);
+    try { await VIEWS[t](host); }
+    catch (e) { if (o.first || e.message === 'forbidden') throw e; if (my === seq && e.message !== 'reauth') host.innerHTML = errBox(e); }
+    finally { if (keepH && my === seq) settleH(my); if (my === seq) setTimeout(() => { const a = $('#pgAct'); if (my === seq && a) ACT_H[t] = a.childElementCount ? a.offsetHeight : 0; }, 1500); }
   }
-  async function badges() {
-    driveAlerts();
+  // Nhả min-height khi tab mới đã ổn định (module tải lười còn vẽ tiếp sau khi VIEWS[t] trả về): 350 ms không đổi DOM, tối đa 4 s
+  function settleH(my) {
+    let tm = 0; const done = () => { mo.disconnect(); clearTimeout(tm); clearTimeout(cap); if (my === seq) main.style.minHeight = ''; };
+    const mo = new MutationObserver(() => { clearTimeout(tm); tm = setTimeout(done, 350); }); mo.observe(main, { childList: true, subtree: true });
+    tm = setTimeout(done, 350); const cap = setTimeout(done, 4000);
+  }
+  async function badges(drvLoaded) {
+    if (!drvLoaded) driveAlerts(); // lần đầu: cảnh báo Drive đã tải cùng whoami (onAuthStateChanged) – không gọi trùng
     try {
       const [o, a, nst] = await Promise.all([api('overview'), api('alerts'), api('noticeStats').catch(() => ({}))]);
       setBadge('notN', nst && nst.active ? num(nst.active) : '');
       setBadge('inboxN', o.inbox && o.inbox.open ? num(o.inbox.open) : '', 'hot');
       const n = (a.rows || []).filter(r => !r.ok).length; setBadge('alertN', n ? num(n) : '', 'hot');
     } catch (e) { /* huy hiệu không bắt buộc */ }
+    try { const c = await repCounts(); setBadge('repN', c && c.new ? num(c.new) : ''); } catch (e) { /* bỏ qua */ }
+    try { const sg = (await signals()).filter(x => x.lv === 'crit' || x.lv === 'warn'); setBadge('todayN', sg.length ? num(sg.length) : '', sg.some(x => x.lv === 'crit') ? 'hot' : ''); } catch (e) { /* bỏ qua */ }
   }
   // Cảnh báo chủ động Kho Drive (functions/api/drive.js op alerts): banner đỏ/vàng trên mọi tab + huy hiệu Kho Drive
-  const DRV_T = { capacity: 'Nâng gói Cloudflare 5 USD trước ngày {d}', conn: 'Drive {e} mất kết nối – bấm Kết nối lại', net: 'Drive {e}: Google không phản hồi {n} lần liên tiếp', upload: 'Drive {e}: tải lên lỗi {n} lần liên tiếp', quota: 'Drive {e} đã dùng {p}%', pool: 'Toàn kho chỉ còn {g} GB trống', replica: '{n} file chỉ còn 1 bản sao', poolpct: 'Toàn Kho Drive đã dùng {p}% – nối thêm Drive', gitsize: 'Repo git {r} đã {g} GB (> 2 GB)', d1: 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng', footage: 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)', ci: 'CI: {n} workflow đỏ trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)', deploy: 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md', backup_d1: 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md', backup_code: 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md', backup_rel: 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md' }; // giữ khớp alertTxt trong admin-drive.js
+  const DRV_T = { capacity: 'Nâng gói Cloudflare 5 USD trước ngày {d}', 'capacity-src': 'D1: nguồn đọc {r} = {p}% hạn mức Free ngày {d} (ngân sách 10%)', conn: 'Drive {e} mất kết nối – bấm Kết nối lại', net: 'Drive {e}: Google không phản hồi {n} lần liên tiếp', upload: 'Drive {e}: tải lên lỗi {n} lần liên tiếp', quota: 'Drive {e} đã dùng {p}%', pool: 'Toàn kho chỉ còn {g} GB trống', replica: '{n} file chỉ còn 1 bản sao', poolpct: 'Toàn Kho Drive đã dùng {p}% – nối thêm Drive', gitsize: 'Repo git {r} đã {g} GB (> 2 GB)', d1: 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng', footage: 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)', ci: 'CI: {n} workflow đỏ trên main trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)', deploy: 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md', backup_d1: 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md', backup_code: 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md', backup_rel: 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md', ci_hog: 'CI: {n} workflow tốn runner bất thường – xem issue ‘CI tốn runner bất thường’ (docs/CI-RUNNERS.md)' }; // giữ khớp alertTxt trong admin-drive.js
   let drvAl = null;
   // Cảnh báo chung một nguồn (drive_alerts) nhưng không phải loại nào cũng thuộc Kho Drive → nhãn + trang đích theo loại; huy hiệu Kho Drive chỉ đếm cảnh báo Drive
   // (27/10: cảnh báo CI hiện dưới nhãn "Kho Drive" + ⛔ ở mục Kho Drive → tưởng Drive hỏng).
-  const ALERT_DST = { capacity: ['Hạn mức', 'quota', 'Xem Hạn mức'], d1: ['Hạn mức', 'quota', 'Xem Hạn mức'], gitsize: ['Lưu trữ', 'storage', 'Xem Lưu trữ'],
+  const ALERT_DST = { capacity: ['Hạn mức', 'quota', 'Xem Hạn mức'], 'capacity-src': ['Hạn mức', 'quota', 'Xem Hạn mức'], d1: ['Hạn mức', 'quota', 'Xem Hạn mức'], gitsize: ['Lưu trữ', 'storage', 'Xem Lưu trữ'],
     ci: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], deploy: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], backup_d1: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], backup_code: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], backup_rel: ['Hệ thống', 'alerts', 'Xem Cảnh báo'] };
   const DRV_DST = ['Kho Drive', 'drive', 'Xem Kho Drive'], dstOf = a => ALERT_DST[a.t] || DRV_DST;
+  const drvText = a => { const p = a.p || {}; return DRV_T[a.t] ? L(DRV_T[a.t], { e: p.email || '', n: p.n ?? '', p: p.pct ?? '', g: p.gb ?? '', d: p.by || '', r: p.repo || '' }) : L('Cảnh báo hệ thống: {k}', { k: a.kind || a.t || '?' }); };
   const paintDrv = () => {
     const al = drvAl || [], crit = al.filter(a => a.level === 'crit'), dal = al.filter(a => dstOf(a) === DRV_DST), dcrit = dal.some(a => a.level === 'crit');
     setBadge('drvN', dal.length ? (dcrit ? '⛔' : '⚠') + dal.length : '', dcrit ? 'drv-crit' : '');
@@ -579,7 +670,7 @@
     if (!el) { el = document.createElement('div'); el.id = 'drvBanner'; el.setAttribute('role', 'alert'); $('#pgHead').parentNode.insertBefore(el, $('#pgHead')); }
     const top = crit[0] || al[0], p = top.p || {}, dst = dstOf(top);
     el.className = 'drv-banner ' + (crit.length ? 'crit' : 'warn');
-    el.innerHTML = `<b>${crit.length ? '⛔' : '⚠️'} ${esc(L(dst[0]))}:</b> <span>${esc(DRV_T[top.t] ? L(DRV_T[top.t], { e: p.email || '', n: p.n ?? '', p: p.pct ?? '', g: p.gb ?? '', d: p.by || '', r: p.repo || '' }) : L('Cảnh báo hệ thống: {k}', { k: top.kind || top.t || '?' }))}${al.length > 1 ? ' ' + esc(L('(+{n} cảnh báo khác)', { n: al.length - 1 })) : ''}</span> <a href="#${dst[1]}" data-go="${dst[1]}">${esc(L(dst[2]))} →</a>`;
+    el.innerHTML = `<b>${crit.length ? '⛔' : '⚠️'} ${esc(L(dst[0]))}:</b> <span>${esc(drvText(top))}${al.length > 1 ? ' ' + esc(L('(+{n} cảnh báo khác)', { n: al.length - 1 })) : ''}</span> <a href="#${dst[1]}" data-go="${dst[1]}">${esc(L(dst[2]))} →</a>`;
     el.querySelector('a').onclick = e => { e.preventDefault(); go(dst[1]); };
   };
   async function driveAlerts() { try { const r = await dapi('alerts'); drvAl = r.alerts || []; } catch (e) { return; } paintDrv(); }
@@ -587,12 +678,82 @@
   let drvAt = 0;
   document.addEventListener('visibilitychange', () => { if (!document.hidden && document.body.classList.contains('adm-in') && Date.now() - drvAt > 60e3) { drvAt = Date.now(); driveAlerts(); } });
 
+  // ---------- Tín hiệu: MỘT nguồn số + mức + link cho Hôm nay, Trung tâm cảnh báo, Sức khỏe hệ thống, huy hiệu (R3, docs/specs/admin-audit.md) ----------
+  // Mức: crit = ảnh hưởng người học/dữ liệu (deploy/sao lưu hỏng, lỗi JS vượt ngưỡng, hạn mức ≥ 90 %, Drive ⛔) · warn = cần anh xử lý · info = biết để theo dõi · ok.
+  const LV = { crit: [0, 'bad', 'Nghiêm trọng'], warn: [1, 'warn', 'Cần xử lý'], info: [2, 'info', 'Theo dõi'], ok: [3, 'ok', 'Ổn'] };
+  const SIG_SRC = { workflow: ['CI & tác vụ', 'alerts'], errors: ['Lỗi JavaScript', 'alerts'], inbox: ['Hộp thư', 'inbox'], mail: ['Hộp thư', 'inbox'], backlink: ['Backlink & PR', 'backlinks'], brand: ['Thương hiệu', 'backlinks'], copy: ['Bản sao chép', 'backlinks'], capacity: ['Hạn mức', 'quota'], drive: ['Kho Drive', 'drive'], quality: ['Chất lượng', 'quality'], reports: ['Báo lỗi', 'reports'], notices: ['Gửi tới người học', 'notices'] };
+  const CRIT_WF = /deploy|pages|prod|release|backup|sao lưu|health|rà soát/i;
+  // METRICS:start – R3: MỘT bảng số liệu. Mỗi số có đúng MỘT hàm trả mức (crit/warn/info/ok, null = chưa có/không đọc được);
+  // màu chip = LV[mức][1] qua lvc(). Mọi tab (Hôm nay, Tổng quan, Trung tâm cảnh báo, Sức khỏe, Dịch vụ, Lưu trữ, huy hiệu) gọi ở đây.
+  // Cổng scripts/test/admin-metrics.mjs: cấm tự so ngưỡng ngoài khối này. Ngưỡng hạn mức khớp alerts máy chủ (functions/api/admin.js QUOTA_*).
+  const QUOTA_WARN = 70, QUOTA_CRIT = 90, STICK_STD = 25, REPORTS_WARN = 10;
+  const METRICS = {
+    quota: pct => pct == null || pct === '' || isNaN(+pct) ? null : +pct >= QUOTA_CRIT ? 'crit' : +pct >= QUOTA_WARN ? 'warn' : 'ok',
+    errors: row => !row ? null : !row.ok ? 'crit' : +row.n ? 'info' : 'ok', // ngưỡng lỗi/24 h = config alert_errors (máy chủ đặt row.ok)
+    quality: q => !q || q._err || q.score == null ? null : +q.score >= (+q.standard || 100) ? 'ok' : 'warn',
+    inbox: (row, open) => row && !row.ok ? 'warn' : +open ? 'info' : 'ok', // máy chủ: cần xử lý khi tin cũ nhất > 2 ngày
+    workflow: r => r.ok ? (r.warn ? 'warn' : 'ok') : !r.unreadable && CRIT_WF.test(r.name || '') ? 'crit' : 'warn',
+    ci: rows => { const wf = rows.filter(r => r.kind === 'workflow'), unread = wf.some(r => r.unreadable), bad = wf.filter(r => !r.ok && !r.unreadable);
+      return { total: wf.length, bad: unread ? null : bad.length, lv: unread ? null : bad.reduce((w, r) => METRICS.workflow(r) === 'crit' ? 'crit' : w, bad.length ? 'warn' : 'ok') }; },
+    row: r => r.kind === 'workflow' ? METRICS.workflow(r) : r.kind === 'errors' ? METRICS.errors(r) || 'info' : r.kind === 'capacity' ? METRICS.quota(r.pct) || (r.ok ? (r.warn ? 'warn' : 'ok') : 'crit')
+      : r.kind === 'copy' ? (r.ok ? 'ok' : 'info') : /^(inbox|mail|brand|backlink)$/.test(r.kind) ? (r.ok && !r.warn ? 'ok' : 'warn') : r.ok ? (r.warn ? 'warn' : 'ok') : 'crit',
+    reports: n => +n >= REPORTS_WARN ? 'warn' : +n ? 'info' : null,
+    stick: p => +p >= STICK_STD ? 'ok' : 'warn',
+    keys: gk => !gk || !gk.set ? 'warn' : (gk.keys || []).some(k => !k.cooling) ? 'ok' : 'crit',
+    drive: list => list.some(d => d.level === 'crit') ? 'crit' : list.length ? 'warn' : 'ok',
+  };
+  const lvc = lv => lv ? LV[lv][1] : ''; // mức → class chip/meter
+  // METRICS:end
+  let repC = null;
+  async function repCounts() {
+    if (repC && Date.now() - repC.at < 30e3) return repC.p;
+    const p = (async () => { const r = await fetch('/api/report', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op: 'list', status: 'new' }) }); const j = await r.json().catch(() => ({})); if (!r.ok) throw new Error(j.error || 'HTTP ' + r.status); return j.counts || {}; })();
+    repC = { at: Date.now(), p }; p.catch(() => { repC = null; }); return p;
+  }
+  async function signals() {
+    const [a, o, q, rc] = await Promise.all([api('alerts'), api('overview').catch(() => ({})), api('quality').catch(e => ({ _err: String(e && e.message || e) })), repCounts().catch(() => null)]);
+    const out = [], add = (lv, kind, title, detail, go, at) => out.push({ lv, kind, src: L((SIG_SRC[kind] || [kind])[0]), title, detail: detail || '', go: go || (SIG_SRC[kind] || [])[1] || 'alerts', at: at || 0 });
+    for (const r of a.rows || []) {
+      add(METRICS.row(r), r.kind || 'workflow', r.name, r.conclusion || r.status || '', r.kind === 'workflow' && r.url ? '' : null, r.at); if (r.url && r.kind === 'workflow') out[out.length - 1].url = r.url;
+    }
+    const open = +((o.inbox || {}).open) || 0; if (open && !(a.rows || []).some(r => r.kind === 'inbox' && !r.ok)) add('info', 'inbox', L('Tin nhắn chờ trả lời'), L('{n} tin', { n: num(open) }));
+    if (rc && METRICS.reports(rc.new)) add(METRICS.reports(rc.new), 'reports', L('Báo lỗi mới chưa phân loại'), L('{n} báo lỗi', { n: num(rc.new) }));
+    if (q._err) add('info', 'quality', L('Rà soát hằng ngày'), L('không đọc được') + ' · ' + q._err.slice(0, 60));
+    else if (q.score == null) add('info', 'quality', L('Rà soát hằng ngày'), L('chưa chạy'));
+    else add(METRICS.quality(q), 'quality', L('Rà soát hằng ngày'), L('{s}% · chuẩn {t}%', { s: q.score, t: q.standard || 100 }), 'quality', q.at);
+    for (const d of drvAl || []) { const dst = dstOf(d); add(d.level === 'crit' ? 'crit' : 'warn', dst === DRV_DST ? 'drive' : 'capacity', L(dst[0]), drvText(d), dst[1]); }
+    return out.sort((x, y) => LV[x.lv][0] - LV[y.lv][0] || (y.at || 0) - (x.at || 0));
+  }
+  const lvChip = lv => `<span class="chip ${LV[lv][1]}">${esc(L(LV[lv][2]))}</span>`;
+  const sigAct = x => x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(L('Mở lượt chạy ↗'))}</a>` : `<a href="#${esc(x.go)}" data-go="${esc(x.go)}">${esc(L('Xử lý →'))}</a>`;
+  // Bảng tín hiệu có lọc mức + nguồn (dùng ở Trung tâm cảnh báo; Hôm nay dùng bản rút gọn chỉ crit/warn)
+  function sigTable(host, list, o = {}) {
+    const st = { lv: o.lv || 'all', src: '' }, srcs = [...new Set(list.map(x => x.src))].sort();
+    const cnt = k => k === 'all' ? list.filter(x => x.lv !== 'ok').length : list.filter(x => x.lv === k).length;
+    host.innerHTML = `<div class="card-h sig-tools"><div class="seg-f" role="group" aria-label="${esc(L('Lọc theo mức độ'))}">${['all', 'crit', 'warn', 'info', 'ok'].map(k => `<button type="button" class="chip-f sig-f" data-lv="${k}" aria-pressed="${st.lv === k}">${esc(k === 'all' ? L('Cần xem') : L(LV[k][2]))} <b>${num(cnt(k))}</b></button>`).join('')}</div>
+      <select class="sig-src" aria-label="${esc(L('Lọc theo nguồn'))}"><option value="">${esc(L('Mọi nguồn'))}</option>${srcs.map(x => `<option>${esc(x)}</option>`).join('')}</select></div><div class="sig-t"></div>`;
+    const draw = () => {
+      host.querySelectorAll('.sig-f').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lv === st.lv)));
+      const rows = list.filter(x => (st.lv === 'all' ? x.lv !== 'ok' : x.lv === st.lv) && (!st.src || x.src === st.src));
+      dataTable(host.querySelector('.sig-t'), [
+        { k: 'lv', label: L('Mức'), sort: r => LV[r.lv][0], html: r => lvChip(r.lv) },
+        { k: 'src', label: L('Nguồn'), sort: r => r.src, cls: 'small nowrap', html: r => esc(r.src) },
+        { k: 't', label: L('Nội dung'), sort: r => r.title, cls: 'msg', html: r => `<b>${esc(r.title)}</b>${r.detail ? `<br><span class="small muted">${esc(r.detail)}</span>` : ''}` },
+        { k: 'at', label: L('Lúc'), sort: r => r.at || 0, cls: 'small nowrap', html: r => r.at ? rel(r.at) : '' },
+        { k: 'go', label: '', html: sigAct },
+      ], rows, { sort: ['lv', 'asc'], pageSize: 50, empty: st.lv === 'all' ? [L('Không có gì cần xem'), L('Mọi hệ thống đang ổn.'), '✓'] : [L('Không có mục ở mức này')] });
+    };
+    host.querySelectorAll('.sig-f').forEach(b => { b.onclick = () => { st.lv = b.dataset.lv; draw(); }; });
+    host.querySelector('.sig-src').onchange = e => { st.src = e.target.value; draw(); };
+    draw();
+  }
+
   // ---------- Bảng lệnh Ctrl/⌘+K: nhảy tới mọi mục + vài lệnh nhanh ----------
   const fold = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase();
   const raw = s => s.split('@@')[0];
   const cmdItems = () => {
     const pages = [];
-    NAV.forEach(([g, items]) => items.forEach(([k, icon, label]) => pages.push({ g: 'Trang', icon, t: L(label), hint: g ? L(g) : '', kw: [k, raw(label), EN[label] || '', g], run: () => go(k) })));
+    [...NAV, ...SUB].forEach(([g, items]) => items.forEach(([k, icon, label]) => k !== 'vault' && pages.push({ g: 'Trang', icon, t: L(label), hint: g ? L(g) : '', kw: [k, raw(label), EN[label] || '', g], run: () => go(k) })));
     [['drive/browse', '📂', 'Kho Drive · Duyệt file'], ['drive/ledger', '📒', 'Kho Drive · Sổ kho'], ['drive/audit', '🧾', 'Kho Drive · Nhật ký']].forEach(([h, icon, label]) => pages.push({ g: 'Trang', icon, t: L(label), hint: '#' + h, kw: [h, raw(label), EN[label]], run: () => go(h) }));
     const cmds = [
       { g: 'Lệnh', icon: '↻', t: L('Tải lại trang này'), kw: ['reload', 'refresh', 'tai lai'], run: () => show(tab, { force: true }) },
@@ -650,8 +811,8 @@
   const chart = (rows, key, label) => AdminChart.bars(rows, { key, fmt: num, x: r => String(r.day).slice(5), aria: label, empty: L('Chưa có dữ liệu') }); // js/admin-chart.js – chữ cố định px, lưới, nhãn ngày tự giãn
 
   // ---------- Phân tích trực tiếp: thẻ KPI, biểu đồ vùng 14 ngày, bản đồ thế giới (jsvectormap tải lười) ----------
-  let liveTimer = null, worldMap = null, mapKey = '', mapLib = null, mapRO = null;
-  const stopLive = () => { if (liveTimer) { clearInterval(liveTimer); liveTimer = null; } if (mapRO) { mapRO.disconnect(); mapRO = null; } if (worldMap) { try { worldMap.destroy(); } catch (e) { /* bỏ qua */ } worldMap = null; } mapKey = ''; };
+  let liveTimer = null, worldMap = null, mapKey = '', mapData = null, mapLib = null, mapRO = null;
+  const stopLive = () => { if (liveTimer) { clearInterval(liveTimer); liveTimer = null; } if (mapRO) { mapRO.disconnect(); mapRO = null; } if (worldMap) { try { worldMap.destroy(); } catch (e) { /* bỏ qua */ } worldMap = null; } mapKey = ''; mapData = null; };
   const PLAT = { web: ['🌐', 'Web'], pwa: ['📲', 'PWA (web đã cài)'], ext: ['🧩', 'Add-on Chrome'], ios: ['🍎', 'iOS'], android: ['🤖', 'Android'], app: ['📱', 'App (cũ)'] };
   const platName = k => PLAT[k] ? L(PLAT[k][1]) : k || '–', platIcon = k => (PLAT[k] || ['❔'])[0];
   const mkRegion = () => { try { return new Intl.DisplayNames([LANG], { type: 'region' }); } catch (e) { return null; } }; // trình duyệt cũ → null
@@ -679,7 +840,9 @@
   const exclLine = l => {
     const x = l.excluded; if (!x) return '';
     const parts = (x.kinds || []).map(r => `${esc(L(EXCL[r.k] || r.k))} ${num(r.s)}`).join(' · ');
-    return `<p class="excl">🤖 ${L('Tự động/bot & quản trị hôm nay: {n} phiên (đã loại)', { n: num(x.s) })}${parts ? ' – ' + parts : ''} · ${L('Ngày theo giờ Việt Nam (UTC+7)')}</p>`;
+    const v = l.voice || {}, vn = (v.f || 0) + (v.k || 0) + (v.s || 0), why = Object.entries(v).filter(([k]) => /^s_/.test(k)).map(([k, n]) => `${esc(k.slice(2))} ${num(n)}`).join(' · ');
+    const voice = vn ? `<p class="excl">🔊 ${L('Giọng đọc 7 ngày: {s} % giọng máy ({n} lượt) – file Kokoro {f} · Kokoro trên máy {k} · giọng máy {sys}', { s: (100 * (v.s || 0) / vn).toFixed(1), n: num(vn), f: num(v.f || 0), k: num(v.k || 0), sys: num(v.s || 0) })}${why ? ` (${L('lý do giọng máy')}: ${why})` : ''}</p>` : '';
+    return voice + `<p class="excl">🤖 ${L('Tự động/bot & quản trị hôm nay: {n} phiên (đã loại)', { n: num(x.s) })}${parts ? ' – ' + parts : ''} · ${L('Ngày theo giờ Việt Nam (UTC+7)')}</p>${l.late ? `<p class="excl">↻ ${L('{n} phiên gửi bù: máy khách giữ lại lúc /api gián đoạn rồi gửi lại (đã cộng vào ngày gốc)', { n: num(l.late) })}</p>` : ''}`;
   };
   const liveCard = l => {
     const t = l.today || {}, tot = l.total || {};
@@ -708,7 +871,7 @@
       <div class="card"><h3>${L('📄 Trang xem nhiều hôm nay')}</h3>${bars(l.pagesToday, r => route(r.k))}${l.pagesFallback ? `<p class="tiny muted">${L('Theo trang vào đầu tiên (chưa có số lượt xem từng trang).')}</p>` : ''}</div>
       <div class="card"><h3>${L('🔗 Nguồn giới thiệu hôm nay')}</h3>${(l.refs || []).length ? bars(l.refs) : emptyState(L('Chủ yếu truy cập trực tiếp'))}</div>
       <div class="card"><h3>${L('🔥 Trang xem nhiều · 7 ngày')}</h3>${bars(l.pages7, r => route(r.k))}</div>
-      <div class="card"><h3>${L('📱 Nền tảng')}</h3><table class="tbl plat-tbl"><thead><tr><th scope="col">${L('Nền tảng')}</th><th scope="col" class="num">${L('Hôm nay')}</th><th scope="col" class="num">${L('30 ngày')}</th></tr></thead><tbody>${keys.map(k => `<tr><td>${platIcon(k)} ${esc(platName(k))}</td><td class="num"><span class="mini"><i style="width:${(pt[k] || 0) / tt * 100}%"></i></span>${num(pt[k])}</td><td class="num"><span class="mini"><i style="width:${(p30[k] || 0) / t3 * 100}%"></i></span>${num(p30[k])}</td></tr>`).join('')}</tbody></table><p class="tiny muted">${L('Số khách (thiết bị) khác nhau.')}</p></div>`;
+      <div class="card plat-card"><h3>${L('📱 Nền tảng')}</h3><div class="tbl-x"><table class="tbl plat-tbl"><thead><tr><th scope="col">${L('Nền tảng')}</th><th scope="col" class="num">${L('Hôm nay')}</th><th scope="col" class="num">${L('30 ngày')}</th></tr></thead><tbody>${keys.map(k => `<tr><td><span class="pl-n"><span aria-hidden="true">${platIcon(k)}</span><span>${esc(platName(k))}</span></span></td><td class="num"><span class="mini"><i style="width:${(pt[k] || 0) / tt * 100}%"></i></span>${num(pt[k])}</td><td class="num"><span class="mini"><i style="width:${(p30[k] || 0) / t3 * 100}%"></i></span>${num(p30[k])}</td></tr>`).join('')}</tbody></table></div><p class="tiny muted">${L('Số khách (thiết bị) khác nhau.')}</p></div>`;
   };
   // Nạp jsvectormap (MIT, lưu sẵn trong web/js/vendor) chỉ khi mở tab Phân tích
   const loadMap = () => mapLib || (mapLib = new Promise((ok, fail) => {
@@ -716,24 +879,24 @@
     const js = src => new Promise((y, n) => { const s = document.createElement('script'); s.src = src; s.onload = y; s.onerror = n; document.head.appendChild(s); });
     js('js/vendor/jsvectormap/jsvectormap.min.js').then(() => js('js/vendor/jsvectormap/world.js')).then(() => window.jsVectorMap ? ok(window.jsVectorMap) : fail(new Error('jsvectormap'))).catch(e => { mapLib = null; fail(e); });
   }));
-  const BUCKETS = [['1', 1, '#FFE7C2'], ['2–5', 2, '#FFC94A'], ['6–20', 6, '#FFB054'], ['21–100', 21, '#F2553B'], ['100+', 101, '#CC3F1C']]; // dải màu thương hiệu (kem → vàng → cam)
+  const BUCKETS = [['1', 1], ['2–5', 2], ['6–20', 6], ['21–100', 21], ['100+', 101]]; // màu: --map-1…5, nước 0 khách: --map-0 (admin.css, riêng sáng/tối)
   const bucket = n => [...BUCKETS].reverse().find(b => n >= b[1]);
   async function drawMap(countries) {
     const box = $('#worldMap'); if (!box) return;
     const rows = (countries || []).filter(r => realCC(r.k)), vals = Object.fromEntries(rows.map(r => [r.k, r.n])), known = rows.reduce((a, r) => a + r.n, 0), unk = (countries || []).filter(r => !realCC(r.k)).reduce((a, r) => a + r.n, 0);
-    mapKey = JSON.stringify(countries || []);
+    mapKey = JSON.stringify(countries || []); mapData = countries;
     if ($('#mapSum')) $('#mapSum').textContent = L('{c} quốc gia · {n} khách', { c: rows.length, n: num(known) }) + (unk ? L(' · {n} không rõ', { n: num(unk) }) : '');
-    if ($('#mapLegend')) $('#mapLegend').innerHTML = `<span class="small muted">${L('Ít')}</span>${BUCKETS.map(b => `<span class="ml-i"><i style="background:${b[2]}"></i>${b[0]}</span>`).join('')}<span class="small muted">${L('Nhiều khách')}</span>`;
+    if ($('#mapLegend')) $('#mapLegend').innerHTML = `<span class="small muted">${L('Ít')}</span><span class="ml-i"><i style="background:var(--map-0)"></i>${L('0 khách')}</span>${BUCKETS.map((b, i) => `<span class="ml-i"><i style="background:var(--map-${i + 1})"></i>${b[0]}</span>`).join('')}<span class="small muted">${L('Nhiều khách')}</span>`;
     try {
       const JVM = await loadMap(); if (!$('#worldMap') || tab !== 'analytics') return;
       if (worldMap) { try { worldMap.destroy(); } catch (e) { /* bỏ qua */ } worldMap = null; }
       box.innerHTML = '';
-      const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+      const css = n => getComputedStyle(document.body).getPropertyValue(n).trim();
       const values = Object.fromEntries(Object.entries(vals).map(([k, n]) => [k, bucket(n)[0]]));
       worldMap = new JVM({
         selector: '#worldMap', map: 'world', backgroundColor: 'transparent', zoomButtons: true, zoomOnScroll: false, zoomMax: 8,
-        regionStyle: { initial: { fill: css('--surface-3') || '#e8e9f4', stroke: css('--surface') || '#ffffff', strokeWidth: .4 }, hover: { fillOpacity: .8, cursor: 'pointer' } },
-        series: { regions: [{ attribute: 'fill', scale: Object.fromEntries(BUCKETS.map(b => [b[0], b[2]])), values }] },
+        regionStyle: { initial: { fill: css('--map-0'), stroke: css('--surface'), strokeWidth: .4 }, hover: { fillOpacity: .8, cursor: 'pointer' } },
+        series: { regions: [{ attribute: 'fill', scale: Object.fromEntries(BUCKETS.map((b, i) => [b[0], css(`--map-${i + 1}`)])), values }] },
         onRegionTooltipShow(e, tip, code) { tip.text(L('{c} – {n} khách hôm nay', { c: cname(code), n: num(vals[code] || 0) })); },
       });
       // Bản đồ tự co giãn theo khung (đổi cỡ cửa sổ / xoay máy)
@@ -743,6 +906,10 @@
       box.innerHTML = `<p class="small muted">${L('Không tải được bản đồ – danh sách quốc gia:')}</p>${bars(rows, r => FLAG(r.k) + ' · ' + cname(r.k))}`;
     }
   }
+  // Màu đọc lúc vẽ nên đổi sáng/tối phải vẽ lại (owner 4/11: vẽ lúc sáng rồi sang tối → nước trống vẫn kem như có khách). Cả nút giao diện lẫn hệ điều hành đổi ở chế độ Tự động.
+  function redrawMap() { if (mapData && tab === 'analytics' && $('#worldMap')) drawMap(mapData); }
+  const darkMQ = matchMedia('(prefers-color-scheme: dark)'), onSysTheme = () => { if (themeNow() === 'auto') redrawMap(); };
+  if (darkMQ.addEventListener) darkMQ.addEventListener('change', onSysTheme); else darkMQ.addListener(onSysTheme);
   // ---------- Người dùng: hộp thoại chi tiết & xóa dữ liệu (gõ lại UID để xác nhận) ----------
   async function userDel(uid, email, done) {
     const ok = await confirmDlg({ title: L('Xóa vĩnh viễn dữ liệu đồng bộ?'), body: L('Xóa toàn bộ dữ liệu đồng bộ của {e}. Tài khoản Google không bị ảnh hưởng. Không thể hoàn tác.', { e: email || uid }), typed: uid, ok: L('Xóa vĩnh viễn'), danger: true });
@@ -750,8 +917,21 @@
     try { await api('userDelete', { uid, confirm: uid }); toast(L('Đã xóa dữ liệu của {e}', { e: email || uid })); done && done(); } catch (e) { if (e.message !== 'reauth') toast(L('Không xóa được: {e}', { e: e.message }), 'bad'); }
   }
   const rolePill = adm => adm ? `<span class="chip warn">${L('👑 Quản trị')}</span>` : `<span class="chip">${L('Người học')}</span>`;
+  // Ngăn chi tiết người dùng: quyền AI, thanh toán, báo lỗi, dòng thời gian (dữ liệu từ op 'user')
+  function uExtra(r, u) {
+    const TL = { signup: ['🌱', 'Đăng ký tài khoản'], seen: ['🔄', 'Đồng bộ gần nhất'], study: ['📚', 'Ngày học gần nhất'], backup: ['📦', 'Sao lưu tiến độ'], report: ['🐞', 'Gửi báo lỗi'], notice: ['📣', 'Đọc thông báo'], deleted: ['🗑', 'Chuyển vào Thùng rác'] };
+    const rep = r.reports || [], tl = r.timeline || [];
+    return `${u.deleted ? `<div class="u-blocked-banner"><span>🗑</span><span>${esc(L('Đang ở Thùng rác từ {t} – sẽ bị xóa vĩnh viễn sau 30 ngày. Khôi phục ở tab Người dùng › Thùng rác.', { t: when(u.deleted) }))}</span></div>` : ''}
+      <div class="u-section"><h4 class="u-h" style="margin-top:0">${L('✨ Quyền & gói')}</h4>
+        <dl class="u-facts"><div><dt>${L('Quyền AI không giới hạn')}</dt><dd>${u.ai ? `<span class="chip info">AI ∞</span> <span class="small muted">${esc(L('cấp {t} bởi {b}', { t: when(u.ai.at), b: u.ai.by || '–' }))}</span>` : `<span class="muted">${L('Không – hạn mức miễn phí thường')}</span>`}</dd></div>
+        <div><dt>${L('Thanh toán')}</dt><dd><span class="muted">${L('Chưa có giao dịch – Lexkite chưa bán gói trả phí')}</span></dd></div></dl></div>
+      <div class="u-section"><h4 class="u-h" style="margin-top:0"><span>🐞 ${L('Báo lỗi đã gửi')}</span> <span class="tiny muted">${num(rep.length)}</span></h4>
+        ${rep.length ? `<ul class="u-list">${rep.map(x => `<li><a href="#reports" data-close><b>${esc(x.tok)}</b></a> <span class="chip sm">${esc(x.status)}</span> <span class="small">${esc(x.msg || '')}</span> <span class="tiny muted">${rel(x.at)}</span></li>`).join('')}</ul>` : `<p class="small muted">${L('Chưa gửi báo lỗi nào.')}</p>`}</div>
+      <div class="u-section"><h4 class="u-h" style="margin-top:0">${L('🕒 Dòng thời gian')}</h4>
+        <ol class="u-tl">${tl.map(x => { const [ic, lb] = TL[x.k] || ['•', x.k]; const sub = x.k === 'seen' ? `${platIcon(x.plat)} ${esc(platName(x.plat))}${x.cc ? ' · ' + esc(FLAG(x.cc)) : ''}` : x.k === 'report' ? esc(x.id + ' · ' + x.status) : x.k === 'notice' ? esc(x.title) + (x.clicked ? ' · ' + esc(L('đã bấm')) : '') : x.k === 'backup' ? esc((x.by || '') + ' · ' + (x.why || '')) : ''; return `<li><span class="u-tl-i" aria-hidden="true">${ic}</span><span><b>${esc(L(lb))}</b>${sub ? ` <span class="small muted">${sub}</span>` : ''}<br><span class="tiny muted">${rel(x.at)}</span></span></li>`; }).join('') || `<li class="muted">–</li>`}</ol></div>`;
+  }
   async function userDialog(uid, done) {
-    const d = modal(`<div class="key-box"><p class="muted">${L('Đang tải…')}</p></div>`, 'u-dlg', L('Chi tiết người dùng'));
+    const d = modal(`<div class="key-box"><p class="muted">${L('Đang tải…')}</p></div>`, 'u-dlg u-drawer', L('Chi tiết người dùng'));
     let r; try { r = await api('user', { uid }); } catch (e) { d.querySelector('.key-box').innerHTML = `<p class="bad-t">✗ ${esc(e.message)}</p><div class="dlg-act"><button type="button" class="btn" data-close>${L('Đóng')}</button></div>`; return; }
     const u = r.user || {}, docs = r.docs || [], backups = r.backups || [];
     let LR = r.learn, tags = Array.isArray(u.tags) ? [...u.tags] : [];
@@ -777,6 +957,7 @@
         <dl class="u-facts">
           ${fact('UID', copyBtn(u.uid || uid))}
           ${fact(L('Nền tảng'), `${platIcon(u.plat)} ${esc(platName(u.plat))}`)}
+          ${fact(L('Quốc gia'), u.cc ? `${esc(FLAG(u.cc))} · ${esc(cname(u.cc))}` : `<span class="muted">${L('Chưa rõ')}</span>`)}
           ${fact(L('Ngày tạo'), rel(u.created))}
           ${fact(L('Hoạt động gần nhất'), rel(u.seen))}
           ${fact(L('Số lần vào (đồng bộ)'), num(u.n))}
@@ -810,6 +991,8 @@
           <h4 class="u-h" style="margin-top:0"><span>📦 ${L('Bản sao lưu tiến độ (30 ngày)')}</span> <span class="tiny muted">${L('{n} bản lưu', { n: backups.length })}</span></h4>
           ${backups.length ? `<div class="tbl-wrap u-backups"><table class="tbl sticky"><thead><tr><th scope="col">${L('Thời gian')}</th><th scope="col">${L('Người sao lưu')}</th><th scope="col" class="num">${L('Dung lượng')}</th><th scope="col"><span class="sr-only">${L('Khôi phục')}</span></th></tr></thead><tbody>${backups.map(bk => `<tr><td class="small">${rel(bk.at)}<br><span class="tiny muted">${when(bk.at)}</span></td><td class="small">${esc(bk.by || 'admin')}</td><td class="num small">${bytes(bk.bytes || 0)}</td><td class="nowrap"><button type="button" class="btn ghost sm" data-restore="${bk.id}" data-at="${bk.at}">${L('↩️ Khôi phục')}</button></td></tr>`).join('')}</tbody></table></div>` : `<p class="tiny muted">${L('Chưa có bản sao lưu nào. Hệ thống tự động sao lưu dữ liệu trước khi Đặt lại tiến độ.')}</p>`}
         </div>
+
+        ${uExtra(r, u)}
 
         <div class="u-act-bar">
           <div class="u-act-group">
@@ -1006,11 +1189,11 @@
   const repMod = () => window.AdminReports ? Promise.resolve() : new Promise((y, n) => { const sc = document.createElement('script'); sc.src = 'js/admin-reports.js'; sc.onload = y; sc.onerror = n; document.head.appendChild(sc); }); // Báo lỗi (tải lười)
   const lazy = (name, src) => window[name] ? Promise.resolve() : new Promise((y, n) => { const sc = document.createElement('script'); sc.src = src; sc.onload = y; sc.onerror = () => n(new Error(src)); document.head.appendChild(sc); });
   const VIEWS = {
-    async overview() {
-      const [o, a, q, gk, u] = await Promise.all([api('overview'), api('alerts'), api('quality').catch(() => ({})), api('geminiStatus').catch(() => ({})), api('usage').catch(() => ({}))]);
+    async overview(main) {
+      const [o, a, q, gk, u, sg] = await Promise.all([api('overview'), api('alerts'), api('quality').catch(() => ({})), api('geminiStatus').catch(() => ({})), api('usage').catch(() => ({})), signals().catch(e => ({ _err: e }))]);
       const H = o.humans || {}, U = o.users || {}, E = o.errors24 || {}, I = o.inbox || {}, rows = a.rows || [], bad = rows.filter(r => !r.ok);
       const mau = +U.act30 || 0, dau = +U.act1 || 0, stick = mau > 0 ? Math.round(dau / mau * 100) : (dau > 0 ? 100 : 0);
-      const qScore = q.score != null ? q.score : null, liveKeys = (gk.keys || []).filter(k => !k.cooling).length;
+      const qScore = q.score != null ? q.score : null, errRow = rows.find(r => r.kind === 'errors'), inRow = rows.find(r => r.kind === 'inbox'), liveKeys = (gk.keys || []).filter(k => !k.cooling).length;
       const d1 = (u.meters || []).find(m => /d1/i.test(m.name));
       const statusMeta = r => {
         const st = String(r.status || '').toLowerCase(), cn = String(r.conclusion || '').toLowerCase();
@@ -1021,10 +1204,14 @@
         return ['bad', 'bad', L('Cần chú ý')];
       };
       setActions(`<span class="telemetry-pill"><span class="pulse-dot"></span>${esc(L('Cập nhật {t}', { t: clock(Date.now()) }))}</span><button type="button" class="btn sm" id="admReload" title="${esc(L('Tải lại số liệu'))}">↻ ${esc(L('Làm mới'))}</button>`);
-      $('#admReload').onclick = () => show('overview', { force: true });
+      $('#admReload').onclick = () => { fresh(); show('overview', { force: true }); };
       const v = x => x == null ? '–' : num(x);
       const pipe = (bad.length ? bad : rows.slice(0, 8)).map(r => { const [dot, chip, text] = statusMeta(r); return `<div class="pipe-i"><span class="pipe-n" title="${esc(r.name)}"><span class="dot ${dot}"></span>${esc(r.name)}</span><span class="chip ${chip}">${esc(r.conclusion || text)}</span></div>`; }).join('');
-      main.innerHTML = `
+      const todo = Array.isArray(sg) ? sg.filter(x => x.lv === 'crit' || x.lv === 'warn') : null;
+      const todoHtml = `<section class="card today-q" aria-labelledby="todayT"><div class="card-h"><h2 class="h3" id="todayT">${esc(L('Cần anh xử lý hôm nay'))}</h2><a href="#alerts" data-go="alerts" class="small">${esc(L('Trung tâm cảnh báo →'))}</a></div>${
+        !todo ? errBox(sg._err) : !todo.length ? emptyState(L('Không có việc nào cần anh làm'), L('Mọi hệ thống đang ổn – số liệu bên dưới để theo dõi.'), '✓')
+        : `<div class="tbl-wrap"><table class="tbl"><caption class="sr-only">${esc(L('Cần anh xử lý hôm nay'))}</caption><tbody>${todo.slice(0, 8).map(x => `<tr class="today-i"><td class="nowrap">${lvChip(x.lv)}</td><td class="msg"><b>${esc(x.title)}</b><br><span class="small muted">${esc(x.src)}${x.detail ? ' · ' + esc(x.detail) : ''}</span></td><td class="nowrap">${sigAct(x)}</td></tr>`).join('')}</tbody></table></div>${todo.length > 8 ? `<p class="small"><a href="#alerts" data-go="alerts">${esc(L('+{n} mục khác', { n: todo.length - 8 }))}</a></p>` : ''}`}</section>`;
+      main.innerHTML = todoHtml + `
         <h2 class="sec-t">${L('Người thật')}</h2>
         <div class="tiles">
           ${tile({ l: L('Người thật hôm nay'), v: v(H.d1), d: delta(H.d1, H.p1, L('hôm qua')), s: L('thiết bị khác nhau'), sp: spark((o.series || []).map(r => r.v)), go: 'analytics' })}
@@ -1036,21 +1223,21 @@
         <div class="tiles">
           ${tile({ l: L('Đăng nhập hôm nay'), v: v(U.act1), s: esc(L('7 ngày: {a} · 30 ngày: {b}', { a: num(U.act7), b: num(U.act30) })), go: 'users' })}
           ${tile({ l: L('Học viên đăng ký'), v: v(U.total), d: +U.new7 ? `<span class="delta up">${esc(L('+{n} / 7 ngày', { n: num(U.new7) }))}</span>` : '', go: 'users' })}
-          ${tile({ l: L('Gắn kết (DAU / MAU)'), v: stick + '%', d: `<span class="chip ${stick >= 25 ? 'ok' : 'warn'}">${L('Chuẩn EdTech ≥ 25%')}</span>` })}
+          ${tile({ l: L('Gắn kết (DAU / MAU)'), v: stick + '%', d: `<span class="chip ${lvc(METRICS.stick(stick))}">${L('Chuẩn EdTech ≥ 25%')}</span>` })}
           ${tile({ l: L('Thẻ đã ôn'), v: '–', s: L('Chưa đo – cần sự kiện ôn thẻ trong thống kê') })}
         </div>
         <h2 class="sec-t">${L('Vận hành')}</h2>
         <div class="tiles">
-          ${tile({ l: L('Lỗi JS (24 giờ)'), v: v(E.hits), d: `<span class="chip ${+E.hits ? 'bad' : 'ok'}">${+E.hits ? esc(L('{n} loại', { n: num(E.kinds) })) : L('Không có lỗi')}</span>`, go: 'alerts' })}
+          ${tile({ l: L('Lỗi JS (24 giờ)'), v: v(E.hits), d: `<span class="chip ${lvc(METRICS.errors(errRow ? { ...errRow, n: errRow.n ?? E.hits } : null) || METRICS.errors({ ok: true, n: E.hits }))}">${+E.hits ? esc(L('{n} loại', { n: num(E.kinds) })) : L('Không có lỗi')}</span>`, go: 'alerts' })}
           ${tile({ l: L('Phiên tự động đã loại'), v: v(o.excluded), s: L('bot, CI, quản trị – hôm nay'), go: 'analytics' })}
-          ${tile({ l: L('Tin nhắn chưa xử lý'), v: v(I.open), d: `<span class="chip ${+I.open ? 'warn' : 'ok'}">${+I.open ? L('Chờ trả lời') : L('Sạch hòm thư')}</span>`, go: 'inbox' })}
-          ${tile({ l: L('Điểm chất lượng'), v: qScore == null ? '–' : qScore + '%', d: qScore == null ? `<span class="chip">${L('chưa chạy')}</span>` : `<span class="chip ${qScore >= 100 ? 'ok' : 'bad'}">${qScore >= 100 ? L('Đạt chuẩn') : L('Dưới chuẩn')}</span>`, go: 'quality' })}
-          ${tile({ l: L('Khóa Gemini API'), v: gk.set ? `${liveKeys}<small>/${(gk.keys || []).length}</small>` : 'CF AI', d: `<span class="chip ${gk.set ? 'ok' : 'warn'}">${gk.set ? esc(L('{n} sẵn sàng', { n: liveKeys })) : L('Chưa thiết lập')}</span>`, s: d1 ? esc(L('D1: {p}% dung lượng', { p: d1.pct })) : '', go: 'services' })}
+          ${tile({ l: L('Tin nhắn chưa xử lý'), v: v(I.open), d: `<span class="chip ${lvc(METRICS.inbox(inRow, I.open))}">${+I.open ? L('Chờ trả lời') : L('Sạch hòm thư')}</span>`, go: 'inbox' })}
+          ${tile({ l: L('Điểm chất lượng'), v: qScore == null ? '–' : qScore + '%', d: qScore == null ? `<span class="chip">${L('chưa chạy')}</span>` : `<span class="chip ${lvc(METRICS.quality(q))}">${METRICS.quality(q) === 'ok' ? L('Đạt chuẩn') : L('Dưới chuẩn')}</span>`, go: 'quality' })}
+          ${tile({ l: L('Khóa Gemini API'), v: gk.set ? `${liveKeys}<small>/${(gk.keys || []).length}</small>` : 'CF AI', d: `<span class="chip ${lvc(METRICS.keys(gk))}">${gk.set ? esc(L('{n} sẵn sàng', { n: liveKeys })) : L('Chưa thiết lập')}</span>`, s: d1 ? esc(L('D1: {p}% dung lượng', { p: d1.pct })) : '', go: 'services' })}
         </div>
         <section class="card mt"><div class="card-h"><h2 class="h3">${bad.length ? L('Tác vụ cần chú ý') : L('Tác vụ tự động (GitHub Actions)')}</h2><a href="#alerts" data-go="alerts" class="small">${L('Toàn bộ cảnh báo & nhật ký →')}</a></div>
           ${pipe ? `<div class="pipe-grid">${pipe}</div>` : emptyState(L('Chưa có tác vụ'))}</section>`;
     },
-    async analytics() {
+    async analytics(main) {
       const days = +(sessionStorage.getItem('adm.days') || 30);
       const [a, l] = await Promise.all([api('analytics', { days }), api('live', { days }).catch(() => null)]), s = a.sum || {};
       const pct = (x, y) => y ? Math.round(x / y * 100) + '%' : '–';
@@ -1076,7 +1263,9 @@
         <div class="card mt"><h3>${L('Phiên theo ngày')}</h3>${chart(padDays(a.daily, a.days), 's', L('Phiên theo ngày: {r}', { r: span }))}</div>
         <div class="adm-grid">
           <div class="card"><h3>${L('Nguồn truy cập')}</h3>${bars(a.refs, r => L(r.k), r => r.n, r => ` · ${dur(r.dur)}`)}</div>
-          <div class="card"><h3>${L('Quốc gia')}</h3>${bars(a.countries, r => FLAG(r.k), r => r.n, () => '', s.s)}</div>
+          <div class="card"><h3>${L('Quốc gia')}</h3>${bars(a.countries, r => FLAG(r.k) + ' · ' + cname(r.k), r => r.n, () => '', s.s)}</div>
+          ${a.cpm ? `<div class="card"><h3>${L('Nhóm CPM cao')}${a.cpm.highPct == null ? '' : ` · ${a.cpm.highPct} %`}</h3>${bars([{ k: 'high', n: a.cpm.high }, { k: 'vn', n: a.cpm.vn }, { k: 'other', n: a.cpm.other }], r => L({ high: 'Nhóm CPM cao (giả định)', vn: 'Việt Nam', other: 'Nước khác' }[r.k]), r => r.n, () => '', a.cpm.total)}<p class="small muted">${L('Khách thật trong khoảng đã chọn, đã loại bot và tài khoản quản trị. Danh sách nước: functions/api/_cpm.js.')}</p></div>` : ''}
+          ${a.land ? `<div class="card"><h3>${L('Khách từ ngoài vào trang tĩnh')} · ${num(a.land.total)}</h3>${a.land.total ? `${bars(a.land.src)}<h3 class="mt">${L('Nước của khách từ ngoài')}</h3>${bars(a.land.countries.slice(0, 10), r => FLAG(r.k) + ' · ' + cname(r.k), r => r.n, () => '', a.land.total)}<h3 class="mt">${L('Loại trang họ vào')}</h3>${bars(a.land.kinds)}` : `<p class="small muted">${L('Chưa có lượt nào.')}</p>`}</div>` : ''}
           <div class="card"><h3>${L('Trang vào đầu tiên')}</h3>${bars(a.paths, r => '#/' + r.k)}</div>
           <div class="card"><h3>${L('Tần suất (số phiên mỗi khách)')}</h3>${bars(['1', '2–3', '4–7', '8–15', '16+'].map(k => (a.freq || []).find(f => f.k === k) || { k, n: 0 }), r => L('{k} lần', { k: r.k }))}</div>
           <div class="card"><h3>${L('Thiết bị')}</h3>${bars(a.devs)}<h3 class="mt">${L('Nền tảng@@h')}</h3>${bars(a.plats, r => platName(r.k))}</div>
@@ -1101,79 +1290,21 @@
       liveTimer = setInterval(async () => {
         if (tab !== 'analytics') { stopLive(); return; }
         if (document.hidden) return;
+        // Tab bỏ quên (không thao tác ≥ 10 phút) → không tự gọi nữa; di chuột/bấm phím là chạy lại (03/11: 1 tab Trực tiếp mở cả ngày ≈ 120 lượt/giờ)
+        if (Date.now() - lastAct >= LIVE_IDLE) { const c = $('#liveCard'); if (c && !c.dataset.idle) { c.dataset.idle = '1'; c.insertAdjacentHTML('afterbegin', `<p class="tiny muted" data-live-idle>${L('⏸ Tạm dừng tự cập nhật (không thao tác 10 phút) – di chuột để tiếp tục')}</p>`); } return; }
         try {
           const n = await api('live', { days }); if (tab !== 'analytics' || !$('#liveCard')) return;
-          $('#liveCard').innerHTML = liveCard(n); $('#liveGrid').innerHTML = liveGrid(n);
+          $('#liveCard').innerHTML = liveCard(n); delete $('#liveCard').dataset.idle; $('#liveGrid').innerHTML = liveGrid(n);
           if (JSON.stringify(n.countries) !== mapKey) drawMap(n.countries);
         } catch (e) { /* lỗi mạng tạm thời – thử lại lượt sau */ }
       }, 30000);
     },
-    async users() {
-      let f; try { f = JSON.parse(sessionStorage.getItem('adm.uf') || '{}'); } catch (e) { f = {}; }
-      f = { q: '', role: '', status: '', plat: '', sort: 'seen', offset: 0, ...f };
-      const sel = (id, label, opts) => `<label class="u-sel"><span>${L(label)}</span><select id="${id}">${opts.map(([v, t]) => `<option value="${v}" ${f[id.slice(1)] === v ? 'selected' : ''}>${L(t)}</option>`).join('')}</select></label>`;
-      setActions(`<button type="button" class="btn sm" id="ucsv" title="${esc(L('Tải CSV theo bộ lọc hiện tại (tối đa 5.000 dòng)'))}">⬇ CSV</button>`);
-      main.innerHTML = `
-        <div class="tiles" id="uKpi">${'<span class="sk sk-tile"></span>'.repeat(5)}</div>
-        <div class="card mt">
-          <div class="u-tools">
-            <input type="search" id="uq" placeholder="${L('🔎 Tìm email, tên hoặc UID')}" value="${esc(f.q)}" aria-label="${L('Tìm người dùng')}">
-            ${sel('frole', 'Vai trò', [['', 'Tất cả'], ['admin', 'Quản trị'], ['learner', 'Người học']])}
-            ${sel('fstatus', 'Trạng thái', [['', 'Tất cả'], ['active7', 'Hoạt động 7 ngày'], ['dormant', 'Ngủ đông >30 ngày'], ['new7', 'Mới 7 ngày']])}
-            ${sel('fplat', 'Nền tảng', [['', 'Tất cả'], ['web', 'Web'], ['ios', 'iOS'], ['android', 'Android'], ['ext', 'Add-on Chrome'], ['app', 'App (cũ)']])}
-            ${sel('fsort', 'Sắp xếp', [['seen', 'Hoạt động gần nhất'], ['new', 'Mới nhất']])}
-          </div>
-          <div class="tbl-wrap scroll" id="uTable"><span class="sk sk-block" style="margin:0"></span></div>
-          <div class="u-pager" id="uPager"></div>
-        </div>`;
-      const save = () => sessionStorage.setItem('adm.uf', JSON.stringify(f));
-      let my = 0;
-      const load = async () => {
-        save(); const me = ++my; let r;
-        try { r = await api('users', f); } catch (e) { if (me === my && tab === 'users') $('#uTable').innerHTML = errBox(e); return; }
-        if (me !== my || tab !== 'users') return;
-        const k = r.kpi || {}, tot = r.total || 0;
-        $('#uKpi').innerHTML = `
-          ${tile({ l: L('Tổng người dùng'), v: num(tot), s: L('tài khoản đã đồng bộ') })}
-          ${tile({ l: L('Hoạt động hôm nay'), v: num(k.act1), s: L('24 giờ qua') })}
-          ${tile({ l: L('Hoạt động 7 / 30 ngày'), v: `${num(k.act7)} <small>/ ${num(k.act30)}</small>`, s: L('{p}% còn hoạt động trong tháng', { p: tot ? Math.round((k.act30 || 0) / tot * 100) : 0 }) })}
-          ${tile({ l: L('Mới 7 ngày'), v: num(k.new7), s: L('tài khoản đăng ký mới') })}
-          <div class="kstat"><span class="tile-l">${L('Theo nền tảng')}</span><div class="u-plats">${(r.plats || []).map(p => `<span class="chip">${platIcon(p.k)} ${esc(platName(p.k))} · <b>${num(p.n)}</b></span>`).join('') || '<span class="small muted">–</span>'}</div></div>`;
-        $('#uTable').innerHTML = `<table class="tbl u-tbl"><thead><tr><th scope="col">${L('Người dùng')}</th><th scope="col">${L('Vai trò')}</th><th scope="col">${L('Nền tảng')}</th><th scope="col">${L('Ngày tạo')}</th><th scope="col">${L('Hoạt động gần nhất')}</th><th scope="col" class="num">${L('Lần vào')}</th><th scope="col"><span class="sr-only">${L('Thao tác')}</span></th></tr></thead><tbody>
-          ${(r.rows || []).map(u => {
-            const utags = (Array.isArray(u.tags) ? u.tags : (() => { try { return JSON.parse(u.tags || '[]'); } catch (e) { return []; } })());
-            return `<tr><td><div class="u-who"><span class="u-av" aria-hidden="true">${esc((u.name || u.email || '?').trim().charAt(0).toUpperCase())}</span><span><b>${esc(u.name || L('(không tên)'))}</b> ${u.blocked ? `<span class="chip bad sm">⛔ ${L('Bị khóa')}</span>` : ''}<br><span class="small muted">${esc(u.email || u.uid)}</span>${utags.length ? `<div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.2rem">${utags.map(t => `<span class="chip sm">${esc(t)}</span>`).join('')}</div>` : ''}</span></div></td>
-            <td>${rolePill(u.isAdmin)}</td>
-            <td class="nowrap">${platIcon(u.plat)} ${esc(platName(u.plat))}</td><td class="small nowrap">${rel(u.created)}</td>
-            <td class="small nowrap"><span class="dot ${Date.now() - u.seen < 7 * 864e5 ? 'ok' : Date.now() - u.seen > 30 * 864e5 ? '' : 'warn'}"></span>${rel(u.seen)}</td><td class="num">${num(u.n)}</td>
-            <td class="nowrap"><button type="button" class="btn ghost sm" data-uid="${esc(u.uid)}">${L('Chi tiết')}</button> <button type="button" class="btn ghost sm" data-notif="${esc(u.uid)}" data-em="${esc(u.email || u.name || '')}" title="${L('Gửi thông báo')}">📣 ${L('Gửi')}</button> <button type="button" class="btn ghost sm danger" data-del="${esc(u.uid)}" data-em="${esc(u.email || '')}">${L('Xóa dữ liệu')}</button></td></tr>`;
-          }).join('') || `<tr><td colspan="7">${emptyState(L('Không có người dùng khớp bộ lọc'), L('Thử bỏ bớt bộ lọc hoặc từ khóa.'))}</td></tr>`}</tbody></table>`;
-        const from = r.filtered ? f.offset + 1 : 0, to = Math.min(f.offset + 50, r.filtered);
-        $('#uPager').innerHTML = `<span>${num(from)}–${num(to)} / ${num(r.filtered)}${r.filtered !== tot ? L(' (lọc từ {n})', { n: num(tot) }) : ''}</span><span><button type="button" class="btn sm" id="uprev" ${f.offset ? '' : 'disabled'}>${L('← Trước')}</button> <button type="button" class="btn sm" id="unext" ${to < r.filtered ? '' : 'disabled'}>${L('Sau →')}</button></span>`;
-        $('#uprev').onclick = () => { f.offset = Math.max(0, f.offset - 50); load(); };
-        $('#unext').onclick = () => { f.offset += 50; load(); };
-        main.querySelectorAll('[data-uid]').forEach(b => { b.onclick = () => userDialog(b.dataset.uid, load); });
-        main.querySelectorAll('[data-del]').forEach(b => { b.onclick = () => userDel(b.dataset.del, b.dataset.em, load); });
-        main.querySelectorAll('[data-notif]').forEach(b => { b.onclick = () => { try { sessionStorage.setItem('adm.targetUser', JSON.stringify({ uid: b.dataset.notif, email: b.dataset.em })); } catch (e) { /* bỏ qua */ } show('notices'); }; });
-      };
-      let deb; $('#uq').oninput = () => { clearTimeout(deb); deb = setTimeout(() => { f.q = $('#uq').value.trim(); f.offset = 0; load(); }, 350); };
-      [['#frole', 'role'], ['#fstatus', 'status'], ['#fplat', 'plat'], ['#fsort', 'sort']].forEach(([id, k]) => { $(id).onchange = () => { f[k] = $(id).value; f.offset = 0; load(); }; });
-      $('#ucsv').onclick = async () => {
-        const b = $('#ucsv'); b.disabled = true; b.textContent = L('⏳ Đang xuất…');
-        try {
-          const r = await api('usersExport', { ...f, offset: 0 });
-          const cell = v => { let x = String(v == null ? '' : v); if (/^[=+\-@\t\r]/.test(x)) x = "'" + x; return /[",\n\r;]/.test(x) ? '"' + x.replace(/"/g, '""') + '"' : x; };
-          const iso = t => t ? new Date(t).toISOString() : '';
-          const lines = [['email', 'name', 'role', 'plat', 'created', 'seen', 'n'], ...r.rows.map(u => [u.email, u.name, u.isAdmin ? 'admin' : 'learner', u.plat, iso(u.created), iso(u.seen), u.n])].map(x => x.map(cell).join(','));
-          const url = URL.createObjectURL(new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' }));
-          const a = document.createElement('a'); a.href = url; a.download = `lexkite-users-${new Date().toISOString().slice(0, 10)}.csv`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
-          toast(L('Đã xuất {n} dòng', { n: num(r.rows.length) }));
-        } catch (e) { toast(L('Lỗi xuất CSV'), 'bad'); }
-        b.disabled = false; b.textContent = '⬇ CSV';
-      };
-      await load();
+    // Người dùng: bảng chuyên sâu (chọn hàng loạt, thanh thao tác nổi, bộ lọc, chế độ xem, biểu đồ, phím tắt) – js/admin-users.js (tải lười)
+    async users(main) {
+      await lazy('AdminUsers', 'js/admin-users.js');
+      await AdminUsers.render(main, { api, L, esc, num, rel, when, tile, spark, confirmDlg, modal, closeDlg, toast, emptyState, errBox, setActions, userDialog, userDel, show, platIcon, platName, rolePill, cname, realCC, LOC, NODATA, $, lang: () => LANG, tab: () => tab });
     },
-    async inbox() {
+    async inbox(main) {
       const f = sessionStorage.getItem('adm.inbox') || 'open', r = await api('inbox', { filter: f });
       const gmail = m => 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(m.email) + '&su=' + encodeURIComponent('Re: Lexkite – ' + (m.msg || '').slice(0, 50)) + '&body=' + encodeURIComponent(`\n\n---\n${m.name || ''} <${m.email}> (${when(m.at)}):\n${m.msg}`);
       setActions(`<div class="range-tabs" role="group" aria-label="${esc(L('Lọc tin nhắn'))}"><button type="button" data-f="open" aria-pressed="${f === 'open'}">${L('Chưa xử lý')}</button><button type="button" data-f="all" aria-pressed="${f === 'all'}">${L('Tất cả')}</button></div>`)
@@ -1183,11 +1314,14 @@
           <p class="msg">${esc(m.msg)}</p><div class="tools" style="margin:0"><a class="btn primary sm" target="_blank" rel="noopener" href="${esc(gmail(m))}">${L('Trả lời bằng Gmail')}</a><a class="btn sm" href="mailto:${esc(m.email)}?subject=${encodeURIComponent('Re: Lexkite')}">${L('Ứng dụng email')}</a><button type="button" class="btn ghost sm" data-id="${esc(m.id)}" data-h="${m.handled ? 0 : 1}">${m.handled ? L('Mở lại') : L('✓ Đã xử lý')}</button></div></article>`).join('') || `<div class="card">${emptyState(L('Không có tin nhắn'), L('Hộp thư trống – mọi tin đã được xử lý.'), '📭')}</div>`}`;
       main.querySelectorAll('[data-id][data-h]').forEach(b => { b.onclick = async () => { b.disabled = true; try { await api('inboxMark', { id: +b.dataset.id, handled: +b.dataset.h }); toast(+b.dataset.h ? L('Đã đánh dấu xử lý') : L('Đã mở lại tin nhắn')); badges(); show('inbox', { force: true }); } catch (e) { b.disabled = false; toast(e.message, 'bad'); } }; });
     },
-    async alerts() {
-      const [a, e, lg] = await Promise.all([api('alerts'), api('errors'), api('auditLog').catch(() => ({ rows: [] }))]);
-      main.innerHTML = `<section class="card"><div class="card-h"><h2 class="h3">${L('Trạng thái tự động')}</h2></div><div id="tAuto"></div><p class="small muted">${L('Workflow GitHub (dịch, build Android, âm thanh, blog, đo tốc độ…) · lỗi JS · hộp thư · dung lượng. Email tóm tắt tự động gửi về support khi có mục đỏ.')}</p></section>
+    async alerts(main) {
+      const [a, e, lg, sg] = await Promise.all([api('alerts'), api('errors'), api('auditLog').catch(() => ({ rows: [] })), signals().catch(x => ({ _err: x }))]);
+      main.innerHTML = `<section class="card" id="sigAll"><div class="card-h"><h2 class="h3">${L('Mọi tín hiệu hệ thống')}</h2></div><div id="tSig"></div></section>
+        <h2 class="sec-t" id="ci">${L('Chi tiết theo nguồn')}</h2>
+        <section class="card"><div class="card-h"><h2 class="h3">${L('Trạng thái tự động')}</h2></div><div id="tAuto"></div><p class="small muted">${L('Workflow GitHub (dịch, build Android, âm thanh, blog, đo tốc độ…) · lỗi JS · hộp thư · dung lượng. Email tóm tắt tự động gửi về support khi có mục đỏ.')}</p></section>
         <section class="card mt"><div class="card-h"><h2 class="h3">${L('Lỗi JavaScript từ người dùng')}</h2>${(e.rows || []).length ? `<button type="button" class="btn ghost sm danger" id="eclr">${L('Xóa tất cả')}</button>` : ''}</div><div id="tErr"></div></section>
         <section class="card mt"><div class="card-h"><h2 class="h3">${L('Nhật ký quản trị (100 thao tác gần nhất)')}</h2></div><p class="small muted">${L('Mọi thao tác ghi/xóa và mọi lần tài khoản lạ cố vào trang quản trị (dòng đỏ). IP được băm, không lưu IP gốc.')}</p><div id="tLog"></div></section>`;
+      if (Array.isArray(sg)) sigTable(main.querySelector('#tSig'), sg, { lv: /[?&]lv=(crit|warn|info|ok)/.exec(location.hash) ? RegExp.$1 : 'all' }); else main.querySelector('#tSig').innerHTML = errBox(sg._err);
       const stDot = r => r.ok ? (r.warn ? 'warn' : 'ok') : 'bad';
       dataTable($('#tAuto'), [
         { k: 'name', label: L('Tác vụ'), sort: r => r.name, html: r => `<span class="dot ${stDot(r)}"></span>${esc(r.name)}` },
@@ -1213,8 +1347,8 @@
       if ($('#eclr')) $('#eclr').onclick = async () => { if (await confirmDlg({ title: L('Xóa toàn bộ nhật ký lỗi?'), body: L('Mọi lỗi JS đã ghi sẽ bị xóa khỏi D1.'), ok: L('Xóa tất cả'), danger: true })) { await api('errorsClear'); toast(L('Đã xóa nhật ký lỗi')); show('alerts', { force: true }); } };
       $('#tErr').addEventListener('click', async ev => { const b = ev.target.closest('[data-h]'); if (!b) return; b.disabled = true; try { await api('errorsClear', { h: b.dataset.h }); toast(L('Đã đánh dấu đã sửa')); show('alerts', { force: true }); } catch (x) { b.disabled = false; toast(x.message, 'bad'); } });
     },
-    async reports() { await repMod(); main.innerHTML = ''; AdminReports.render(main, L, { esc, num, when, lang: () => LANG }); }, // Báo lỗi – js/admin-reports.js (tải lười, tự gọi /api/report)
-    async quality() {
+    async reports(main) { await repMod(); main.innerHTML = ''; AdminReports.render(main, L, { esc, num, when, lang: () => LANG }); }, // Báo lỗi – js/admin-reports.js (tải lười, tự gọi /api/report)
+    async quality(main) {
       const q = await api('quality'), hist = q.history || [], ok = q.score != null && q.score >= q.standard;
       main.innerHTML = `
         <div class="tiles">
@@ -1255,7 +1389,7 @@
         if ($('#gAll')) $('#gAll').onclick = async () => { $('#gAll').disabled = true; for (let i = 0; i < r.wrong.length; i++) await ap(i); $('#gAll').textContent = L('✓ Đã duyệt tất cả'); };
       });
     },
-    async services() {
+    async services(main) {
       const T = (r, k) => { if (LANG !== 'en') return r[k] || ''; try { const e = JSON.parse(r.i18n || '{}'); return e[k] || r[k] || ''; } catch (x) { return r[k] || ''; } }; // dữ liệu dịch vụ theo ngôn ngữ quản trị (cột i18n JSON)
       const [u, s, gk] = await Promise.all([api('usage'), api('services'), api('geminiStatus').catch(() => ({}))]);
       // Nhóm & trạng thái để quản lý trực quan: thẻ theo nhóm, lọc nhanh, tìm kiếm (regex khớp dữ liệu dịch vụ – không phải chữ giao diện)
@@ -1264,16 +1398,16 @@
       const state = r => (/gemini/i.test(r.name) ? (gk.set ? 'on' : 'todo') : /chưa đăng ký|chưa tạo/i.test(r.status + r.account) ? 'todo' : /chưa dùng/i.test(r.status) ? 'idle' : 'on'); // dịch vụ có khóa: trạng thái theo khóa thực tế
       const PILL = { on: ['ok', 'Đang dùng'], idle: ['muted', 'Chưa dùng'], todo: ['warn', 'Chưa thiết lập'] };
       const keyed = r => /gemini/i.test(r.name), rows = s.rows || [], meters = u.meters || [];
-      const warnMeters = meters.filter(m => m.pct >= 70).length, cnt = k => rows.filter(r => state(r) === k).length;
+      const warnMeters = meters.filter(m => /warn|crit/.test(METRICS.quota(m.pct) || '')).length, cnt = k => rows.filter(r => state(r) === k).length;
       setActions(`<button type="button" class="btn primary sm" id="sadd">${L('+ Thêm dịch vụ')}</button>`);
       main.innerHTML = `
         <div class="tiles">
           ${tile({ l: L('Dịch vụ'), v: num(rows.length), s: L('trong hệ thống') })}
           ${tile({ l: L('Đang dùng'), v: num(cnt('on')), s: L('hoạt động bình thường') })}
           ${tile({ l: L('Chưa thiết lập'), v: num(cnt('todo') + cnt('idle')), s: L('cần đăng ký / thêm khóa'), d: cnt('todo') + cnt('idle') ? '<span class="chip warn">!</span>' : '' })}
-          ${tile({ l: L('Hạn mức sắp đầy'), v: num(warnMeters), s: L('≥ 70% gói miễn phí'), d: warnMeters ? '<span class="chip bad">!</span>' : '' })}
+          ${tile({ l: L('Hạn mức sắp đầy'), v: num(warnMeters), s: L('≥ 70% gói miễn phí'), d: warnMeters ? `<span class="chip ${lvc(meters.some(m => METRICS.quota(m.pct) === 'crit') ? 'crit' : 'warn')}">!</span>` : '' })}
         </div>
-        <details class="card svc-usage mt" ${warnMeters ? 'open' : ''}><summary><b>${L('📊 Dung lượng & hạn mức miễn phí')}</b> <span class="small muted">${L('· vàng ≥ 70%, đỏ ≥ 90%')}</span></summary>${meters.map(m => `<div class="meter ${m.pct >= 90 ? 'crit' : m.pct >= 70 ? 'warn' : ''}"><div class="row between small"><b>${esc(m.name)}</b><span>${m.unit === 'bytes' ? (m.used / 1048576).toFixed(1) + ' / ' + (m.cap / 1048576).toFixed(0) + ' MB' : num(m.used) + ' / ' + num(m.cap)} · <b>${esc(m.pct)}%</b></span></div><div class="bar"><i style="width:${Math.min(100, +m.pct || 0)}%"></i></div>${m.hint ? `<div class="tiny muted">${esc(m.hint)}</div>` : ''}</div>`).join('')}</details>
+        <details class="card svc-usage mt" ${warnMeters ? 'open' : ''}><summary><b>${L('📊 Dung lượng & hạn mức miễn phí')}</b> <span class="small muted">${L('· vàng ≥ 70%, đỏ ≥ 90%')}</span></summary>${meters.map(m => `<div class="meter ${/warn|crit/.test(METRICS.quota(m.pct) || '') ? METRICS.quota(m.pct) : ''}"><div class="row between small"><b>${esc(m.name)}</b><span>${m.unit === 'bytes' ? (m.used / 1048576).toFixed(1) + ' / ' + (m.cap / 1048576).toFixed(0) + ' MB' : num(m.used) + ' / ' + num(m.cap)} · <b>${esc(m.pct)}%</b></span></div><div class="bar"><i style="width:${Math.min(100, +m.pct || 0)}%"></i></div>${m.hint ? `<div class="tiny muted">${esc(m.hint)}</div>` : ''}</div>`).join('')}</details>
         <div class="svc-tools"><input type="search" id="sq" placeholder="${L('🔎 Tìm dịch vụ, tài khoản…')}" aria-label="${L('Tìm dịch vụ')}"><div class="svc-chips" role="group" aria-label="${L('Lọc dịch vụ')}">${[['all', 'Tất cả'], ['on', 'Đang dùng'], ['todo', 'Chưa thiết lập']].map(([k, l], i) => `<button type="button" class="chip-f" aria-pressed="${!i}" data-f="${k}">${L(l)}</button>`).join('')}</div></div>
         <div id="svcList"></div><div id="svcNone" hidden class="card">${emptyState(L('Không có dịch vụ khớp bộ lọc'))}</div>`;
       const card = r => { const st = state(r), [pc, pl] = PILL[st]; return `<article class="svc-card" data-st="${st}" data-q="${esc((r.name + ' ' + r.account + ' ' + r.purpose).toLowerCase())}">
@@ -1307,32 +1441,32 @@
       main.querySelectorAll('[data-sid]').forEach(b => { b.onclick = () => form(rows.find(x => String(x.id) === b.dataset.sid)); });
       main.querySelectorAll('[data-key]').forEach(b => { b.onclick = () => keyDialog(gk, () => show('services', { force: true })); });
     },
-    async social() {
+    async social(main) {
       await lazy('AdminSocial', 'js/admin-social.js'); main.innerHTML = ''; // tải lười – chỉ khi mở tab
-      AdminSocial.render(main, sapi, L, { esc, num, when, lang: () => LANG }); // js/admin-social.js
+      AdminSocial.render(main, sapi, L, { esc, num, when, lang: () => LANG, yapi }); // yapi: nút YouTube API dự phòng ở bảng Kênh // js/admin-social.js
     },
-    async dist() { // Kênh & phân phối – js/admin-dist.js + js/lib/dist-rules.js (tải lười)
+    async dist(main) { // Kênh & phân phối – js/admin-dist.js + js/lib/dist-rules.js (tải lười)
       await lazy('DistRules', 'js/lib/dist-rules.js'); await lazy('AdminDist', 'js/admin-dist.js'); main.innerHTML = '';
       AdminDist.render(main, distapi, L, { esc, lang: () => LANG, toast, yapi, sapi });
     },
-    async studio() {
+    async studio(main) {
       await lazy('AdminStudio', 'js/admin-studio.js'); main.innerHTML = '';
       AdminStudio.render(main, stapi, sapi, L, { esc, lang: () => LANG }); // js/admin-studio.js
     },
-    async video() { // Thư viện video – js/admin-video.js (tải lười) → /api/admin-shorts
+    async video(main) { // Thư viện video – js/admin-video.js (tải lười) → /api/admin-shorts
       await lazy('AdminVideo', 'js/admin-video.js'); main.innerHTML = '';
       try { await lazy('AdminClips', 'js/admin-clips.js'); } catch (e) { /* lưới cũ làm dự phòng */ }
       AdminVideo.render(main, vapi, L, { esc, lang: () => LANG, toast, yapi, distapi, capi: window.AdminClips && AdminClips.mount ? capi : null });
     },
-    async backlinks() { // Backlink, PR & Thương hiệu – js/admin-backlinks.js (tải lười) → /api/backlinks (functions/api/backlinks.js)
+    async backlinks(main) { // Backlink, PR & Thương hiệu – js/admin-backlinks.js (tải lười) → /api/backlinks (functions/api/backlinks.js)
       await lazy('AdminBacklinks', 'js/admin-backlinks.js'); main.innerHTML = '';
       AdminBacklinks.render(main, bapi, L, { esc, when, lang: () => LANG, toast });
     },
-    async drive() { // Kho Drive riêng (sao lưu nguồn 2 của kho dựng video) – js/admin-drive.js (tải lười)
+    async drive(main) { // Kho Drive riêng (sao lưu nguồn 2 của kho dựng video) – js/admin-drive.js (tải lười)
       await lazy('AdminDrive', 'js/admin-drive.js'); main.innerHTML = '';
       AdminDrive.render(main, dapi, L, { esc, when, lang: () => LANG });
     },
-    async keys() { // Khóa API (kho khóa nhà cung cấp, mã hóa, xoay vòng) – js/admin-keys.js (tải lười) → /api/keys (functions/api/keys.js)
+    async keys(main) { // Khóa API (kho khóa nhà cung cấp, mã hóa, xoay vòng) – js/admin-keys.js (tải lười) → /api/keys (functions/api/keys.js)
       const kapi = async (op, body = {}) => {
         const u = auth.currentUser || user; if (!u) throw new Error(L('Phiên đăng nhập đã hết – đăng nhập lại rồi thử lại'));
         const r = await fetch('/api/keys', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await u.getIdToken() }, body: JSON.stringify({ op, ...body }) });
@@ -1344,25 +1478,49 @@
       await lazy('AdminKeys', 'js/admin-keys.js'); main.innerHTML = '';
       AdminKeys.render(main, kapi, L, { esc, num, when, lang: () => LANG });
     },
-    async ads() { // 💰 Quảng cáo – js/admin-ads.js (tải lười) → op adsStats + config/configSet (docs/ADS.md)
+    async accounts(main) { // 🗂️ Sổ tài khoản & khóa – js/admin-accounts.js (tải lười) → /api/admin-accounts (docs/ACCOUNTS-LEDGER.md)
+      await lazy('AdminAccounts', 'js/admin-accounts.js'); main.innerHTML = '';
+      AdminAccounts.render(main, L, { esc, when, lang: () => LANG });
+    },
+    async ads(main) { // 💰 Quảng cáo – js/admin-ads.js (tải lười) → op adsStats + config/configSet (docs/ADS.md)
       await lazy('AdminAds', 'js/admin-ads.js'); main.innerHTML = '';
       AdminAds.render(main, api, L, { esc, lang: () => LANG, toast, confirm: confirmDlg });
     },
-    async storage() { // 💾 Lưu trữ – js/admin-storage.js (tải lười) đọc /data/storage-forecast.json (docs/STORAGE.md)
+    async storage(main) { // 💾 Lưu trữ – js/admin-storage.js (tải lười) đọc /data/storage-forecast.json (docs/STORAGE.md)
       await lazy('AdminStorage', 'js/admin-storage.js'); main.innerHTML = '';
-      AdminStorage.render(main, L, { esc, num, lang: () => LANG });
+      AdminStorage.render(main, L, { esc, num, lang: () => LANG, quotaLv: METRICS.quota });
     },
-    async quota() { // Hạn mức & chống lạm dụng – js/admin-quota.js (tải lười, tự gọi /api/quota)
+    async quota(main) { // Hạn mức & chống lạm dụng – js/admin-quota.js (tải lười, tự gọi /api/quota)
       await lazy('AdminQuota', 'js/admin-quota.js'); main.innerHTML = '';
       AdminQuota.render(main, L, { esc, num, when, lang: () => LANG });
     },
-    async notices() { // Thông báo người dùng – js/admin-notices.js (tải lười)
+    async notices(main) { // Thông báo người dùng – js/admin-notices.js (tải lười)
       main.innerHTML = '';
       if (!window.AdminNotices) await new Promise((y, n) => { const sc = document.createElement('script'); sc.src = 'js/admin-notices.js'; sc.onload = y; sc.onerror = n; document.head.appendChild(sc); });
       AdminNotices.render(main, api, L, { esc, num, when, lang: () => LANG, user });
       lazy('AdminPush', 'js/admin-push.js').then(() => AdminPush.render(main, L, { esc, num, lang: () => LANG })).catch(() => {}); // ⏰ thẻ Nhắc học (docs/REMINDERS.md)
     },
-    async settings() {
+    async health(main) { // 🩺 Sức khỏe hệ thống – hub: tóm tắt + tab con Hạn mức / Lưu trữ / Chất lượng / Kho Drive (view cũ giữ nguyên). Ngưỡng: METRICS (một nguồn)
+      const [a, q, gk, u, sg] = await Promise.all([api('alerts'), api('quality').catch(e => ({ _err: e })), api('geminiStatus').catch(() => ({})), api('usage').catch(e => ({ _err: e })), signals().catch(e => ({ _err: e }))]);
+      setActions(`<button type="button" class="btn sm" id="hlReload">↻ ${esc(L('Làm mới'))}</button>`); $('#hlReload').onclick = () => { fresh(); show('health', { force: true }); };
+      const rows = a.rows || [], ci = METRICS.ci(rows), er = rows.find(r => r.kind === 'errors');
+      const meters = u.meters || [], top = meters.slice().sort((x, y) => (+y.pct || 0) - (+x.pct || 0))[0];
+      const pc = p => lvc(METRICS.quota(p)), live = (gk.keys || []).filter(k => !k.cooling).length, dl = (drvAl || []).filter(d => dstOf(d) === DRV_DST);
+      const chip = (c, t) => `<span class="chip ${c}">${esc(t)}</span>`;
+      main.innerHTML = `<div class="tiles">
+        ${tile({ l: L('Tác vụ CI hỏng'), v: ci.bad == null ? '–' : num(ci.bad), d: ci.bad == null ? chip('', L('không đọc được')) : chip(lvc(ci.lv), ci.bad ? L('{n}/{t} workflow', { n: ci.bad, t: ci.total }) : L('Tất cả xanh')), go: 'alerts' })}
+        ${tile({ l: L('Lỗi JS (24 giờ)'), v: er ? num(+er.n || 0) : '–', d: chip(lvc(METRICS.errors(er)), !er ? L('chưa có số liệu') : er.ok ? L('Dưới ngưỡng') : L('Vượt ngưỡng')), go: 'alerts' })}
+        ${tile({ l: L('Hạn mức cao nhất'), v: top ? (+top.pct || 0) + '%' : '–', d: u._err ? chip('', L('không đọc được')) : top ? chip(pc(+top.pct || 0), top.name) : chip('', L('chưa có số liệu')), go: 'quota' })}
+        ${tile({ l: L('Rà soát hằng ngày'), v: q._err || q.score == null ? '–' : q.score + '%', d: q._err ? chip('', L('không đọc được')) : q.score == null ? chip('', L('chưa chạy')) : chip(lvc(METRICS.quality(q)), L('chuẩn {t}%', { t: +q.standard || 100 })), go: 'quality' })}
+        ${tile({ l: L('Kho Drive'), v: num(dl.length), d: chip(lvc(METRICS.drive(dl)), dl.length ? L('cảnh báo') : L('Ổn')), go: 'drive' })}
+        ${tile({ l: L('Khóa AI sẵn sàng'), v: gk.set ? `${live}<small>/${(gk.keys || []).length}</small>` : 'CF AI', d: chip(lvc(METRICS.keys(gk)), gk.set ? L('{n} sẵn sàng', { n: live }) : L('Chưa thiết lập')), go: 'keys' })}
+      </div>
+      <section class="card mt"><div class="card-h"><h2 class="h3">${L('Dung lượng & hạn mức miễn phí')}</h2><a href="#quota" data-go="quota" class="small">${esc(L('Chi tiết hạn mức →'))}</a></div>${u._err ? errBox(u._err) : meters.length ? `<div class="pipe-grid">${meters.map(m => `<div class="pipe-i"><span class="pipe-n">${esc(m.name)}</span><span class="chip ${pc(+m.pct || 0)}">${num(+m.pct || 0)}%</span></div>`).join('')}</div>` : emptyState(L('Chưa có số liệu hạn mức'))}</section>
+      <section class="card mt"><div class="card-h"><h2 class="h3">${L('Tín hiệu hệ thống')}</h2><a href="#alerts" data-go="alerts" class="small">${esc(L('Trung tâm cảnh báo →'))}</a></div><div id="hlSig"></div></section>`;
+      const SYS = new Set(['workflow', 'errors', 'capacity', 'drive', 'quality', 'mail']);
+      if (Array.isArray(sg)) sigTable(main.querySelector('#hlSig'), sg.filter(x => SYS.has(x.kind))); else main.querySelector('#hlSig').innerHTML = errBox(sg._err);
+    },
+    async settings(main) {
       const [c, g] = await Promise.all([api('config'), api('geminiStatus').catch(() => null)]);
       const keys = (c.keys || []).filter(k => !/^ads_/.test(k)), vals = c.values || {}, known = new Set(SETTINGS.flatMap(s => s.fields.map(f => f.k)));
       const groups = [...SETTINGS, ...(keys.some(k => !known.has(k)) ? [{ id: 'other', title: 'Khác@@set', desc: '', fields: keys.filter(k => !known.has(k)).map(k => ({ k, type: 'text', label: k, def: '' })) }] : [])]

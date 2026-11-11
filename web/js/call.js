@@ -10,7 +10,11 @@
   const { routes } = App;
   const view = App.view;
   const E = window.CallEngine;
-  const ACCENT = 'en-US';
+  // Ngôn ngữ đích (Target.cur): 'en' = hành vi cũ từng byte; es → cuộc gọi gắn tl:'es' từ gói cpack/es/cl.js, giọng/ASR/lang theo bảng Target
+  let TLC = 'en', ACCENT = 'en-US', TLG = 'en';
+  const setTl = id => { TLC = /^es-/.test(id || '') ? 'es' : window.Target ? Target.cur() : 'en'; ACCENT = TLC !== 'en' ? Target.accent('en-US', TLC) : 'en-US'; // id 'es-…' (từ lộ trình ngày) mở thẳng cuộc gọi es, không đổi ngôn ngữ đang học
+    TLG = TLC === 'en' ? 'en' : TLC; };
+  const callsNow = () => (window.CALLS || []).filter(x => (x.tl || 'en') === TLC);
   // Giáo viên: CHỈ qua Chars (web/js/characters.js, registry web/teach/characters.json) – 2 người 2D Ama/Carlos, không đường dẫn cứng. Thiếu ảnh → ô chữ cái trung tính
   const poster = w => Chars.poster(w);
   const poFix = root => $$('img[data-po]', root).forEach(i => { i.onerror = () => { i.onerror = null; const d = document.createElement('span'); d.className = 'call-ini ' + (i.className || ''); d.setAttribute('aria-hidden', 'true'); d.textContent = (i.alt || i.dataset.po || 'A')[0]; i.replaceWith(d); }; });
@@ -24,7 +28,8 @@
   const groupOf = c => (/^ielts/.test(c.exam) ? 'ielts' : c.exam === 'toeic' ? 'toeic' : 'everyday');
   const pref = (k, v) => { try { if (v === undefined) return localStorage.getItem('vb.call.' + k); localStorage.setItem('vb.call.' + k, v); } catch (e) { return null; } };
   // An toàn: lời lẽ thô tục/nhạy cảm → giáo viên nhẹ nhàng đưa cuộc gọi về chủ đề, không lặp lại lời đó
-  const UNSAFE = /\b(fuck|shit|bitch|asshole|dick|sex|kill|suicide|drugs?|nigg|whore|slut)\w*/i;
+  const UNSAFE_X = { es: /\b(mierda|puta|puto|joder|verga|pendej|cabron|coño|matar|suicid|droga|sexo|negrata)\w*/i };
+  const UNSAFE = { test: s => (UNSAFE_X[TLC] || /\b(fuck|shit|bitch|asshole|dick|sex|kill|suicide|drugs?|nigg|whore|slut)\w*/i).test(s) };
   // 🧩 Stitch v2.1 teacher-call (cờ ux1): khung tự sinh brand/stitch/v2/bind/teacher-call.json (ST2.mount → .v2s-teacher-call), giáo viên = c.who (Ama/Carlos) CHỈ qua Chars + LessonTeacher,
   // giọng = Chars.voice(who). Logic giữ nguyên CallEngine (nhánh, quyền riêng tư, lượt dài, gõ phím); trang cũ (.call-ov) làm dự phòng khi chưa bật cờ / thiếu khung.
   const v2On = () => !!(window.ST2 && window.ST2['teacher-call'] && window.Chars && window.LessonTeacher && App.ux1On && App.ux1On());
@@ -33,8 +38,8 @@
   // nút biểu tượng nhỏ cùng hàng "Gợi ý trả lời" (không thêm chiều cao khung Stitch; vùng chạm 44px bằng lề âm) · @icons lock cloud edit
   const IB = 'inline-flex items-center justify-center min-w-[44px] min-h-[44px] -my-[12px] -me-[10px] bg-transparent border-0 p-0 cursor-pointer lt:text-[#0D6964] dk:text-[#2BA39A]';
   const PRIV_IC = { cloud: 'cloud', tap: 'edit' };
-  const TIP_FIX = (bad, good, why) => `<span lang="en"><s>${esc(bad)}</s> → <b>${esc(good)}</b></span> <span class="block ${MUT}">${esc(why)}</span>`;
-  const vOf = w => (Chars.voice ? Chars.voice(w) : (window.LessonTeacher && LessonTeacher.VOICE || {})[w]);
+  const TIP_FIX = (bad, good, why) => `<span lang="${TLG}"><s>${esc(bad)}</s> → <b>${esc(good)}</b></span> <span class="block ${MUT}">${esc(why)}</span>`;
+  const vOf = w => (TLC !== 'en' && Target.teacherVoice(w, TLC)) || (Chars.voice ? Chars.voice(w) : (window.LessonTeacher && LessonTeacher.VOICE || {})[w]);
   const mmss = s => String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(Math.max(0, s) % 60).padStart(2, '0');
 
   // ---------- Nhận dạng: dò khả năng trên máy (1 lần) ----------
@@ -116,15 +121,17 @@ body.call-on{overflow:hidden}
   }
 
   routes.call = function (arg) {
+    setTl(arg);
+    if (TLC !== 'en' && !(window.CALLS || []).some(x => x.tl === TLC)) { view.innerHTML = '<div class="page-head"><div class="muted">…</div></div>'; App.need('calles').then(() => routes.call(arg)).catch(() => { TLC = 'en'; }); return; }
     css(); probe();
-    const list = (window.CALLS || []).map(E.prep);
+    const list = callsNow().map(E.prep);
     const c = list.find(x => x.id === arg);
     if (c) return ring(c);
-    const flt = pref('flt') || 'all';
+    const flt = TLC === 'en' ? (pref('flt') || 'all') : 'all';
     const groups = ['all', 'ielts', 'toeic', 'everyday'];
     view.innerHTML = `<div class="page-head"><div><h1>📞 ${t('Gọi cho Ama & Carlos')}</h1><p class="muted">${t('Cuộc gọi video luyện nói: giáo viên hỏi, bạn trả lời bằng giọng nói. Câu hỏi rẽ nhánh theo câu trả lời, lỗi được sửa nhẹ nhàng, cuối cuộc gọi có tổng kết và luyện lại câu yếu.')}</p></div></div>
-      <div class="call-flt" role="group" aria-label="${t('Lọc theo kỳ thi')}">${groups.map(gr => `<button type="button" class="btn sm ${flt === gr ? 'primary' : ''}" data-g="${gr}" aria-pressed="${flt === gr}">${gr === 'all' ? t('Tất cả') : GROUP[gr]()}</button>`).join('')}</div>
-      <div class="call-grid">${list.filter(x => flt === 'all' || groupOf(x) === flt).map(x => `<a class="call-card" href="#/call/${x.id}"><img data-po="${Chars.name(x.who)}" src="${poster(x.who)}" alt="" width="56" height="56" loading="lazy"><span><b>${x.em} ${esc(nameOf(x))}</b><span class="tiny muted"><span class="chip lv">${x.lv}</span> ${Chars.name(x.who)} · <span lang="en">${esc(x.title)}</span></span></span></a>`).join('')}</div>
+      ${TLC !== 'en' ? '' : `<div class="call-flt" role="group" aria-label="${t('Lọc theo kỳ thi')}">${groups.map(gr => `<button type="button" class="btn sm ${flt === gr ? 'primary' : ''}" data-g="${gr}" aria-pressed="${flt === gr}">${gr === 'all' ? t('Tất cả') : GROUP[gr]()}</button>`).join('')}</div>`}
+      <div class="call-grid">${list.filter(x => flt === 'all' || groupOf(x) === flt).map(x => `<a class="call-card" href="#/call/${x.id}"><img data-po="${Chars.name(x.who)}" src="${poster(x.who)}" alt="" width="56" height="56" loading="lazy"><span><b>${x.em} ${esc(nameOf(x))}</b><span class="tiny muted"><span class="chip lv">${x.lv}</span> ${Chars.name(x.who)} · <span lang="${TLG}">${esc(x.title)}</span></span></span></a>`).join('')}</div>
       <p class="tiny muted" style="margin-top:1rem"><span id="callPriv">${PRIV.ask()}</span>${pref('asr') ? ` <button type="button" class="btn sm ghost" id="callAsr">${t('Đổi cách nhận dạng')}</button>` : ''}</p>`;
     const ab = $('#callAsr'); if (ab) ab.onclick = () => { try { localStorage.removeItem('vb.call.asr'); } catch (e) { /* bỏ qua */ } toast(t('Lần gọi sau Lexkite sẽ hỏi lại cách nhận dạng.')); routes.call(); };
     poFix(view);
@@ -135,13 +142,14 @@ body.call-on{overflow:hidden}
   // Màn "đang gọi đến" – chạm Nghe máy để bắt đầu (trình duyệt cần 1 lần chạm để phát âm thanh)
   function ring(c) {
     const nm = Chars.name(c.who);
-    view.innerHTML = `<div class="page-head"><div><h1>📞 ${esc(nameOf(c))}</h1><p class="muted"><span class="chip lv">${c.lv}</span> <span lang="en">${esc(c.title)}</span></p></div></div>
-      <div class="card center"><img class="call-rp" data-po src="${poster(c.who)}" alt="${nm}" width="120" height="160"><p><b>${nm}</b> – <span lang="en">${esc(c.role)}</span></p>
+    view.innerHTML = `<div class="page-head"><div><h1>📞 ${esc(nameOf(c))}</h1><p class="muted"><span class="chip lv">${c.lv}</span> <span lang="${TLG}">${esc(c.title)}</span></p></div></div>
+      <div class="card center"><img class="call-rp" data-po src="${poster(c.who)}" alt="${nm}" width="120" height="160"><p><b>${nm}</b> – <span lang="${TLG}">${esc(c.role)}</span></p>
       <p class="tiny muted" id="callPriv">${PRIV.ask()}</p>
       <div class="row center" style="gap:.6rem;flex-wrap:wrap"><button class="btn primary lg" id="callGo">📞 ${t('Gọi ngay')}</button><a class="btn" href="#/call">${t('Cuộc gọi khác')}</a></div></div>`;
     poFix(view);
     probe().then(() => { const p = $('#callPriv'); if (p) p.textContent = (PRIV[mode()] || PRIV.ask)(); });
     $('#callGo').onclick = () => start(c);
+    if (window.LessonTeacher && LessonTeacher.prep) LessonTeacher.prep(); // mặt vẽ + mốc nạp trong lúc đổ chuông → câu chào đầu phát bản -ls.mp3 (pre)
   }
 
   function start(c) {
@@ -157,7 +165,7 @@ body.call-on{overflow:hidden}
     App.cleanups.push(close);
     const onKey = e => { if (e.key === 'Escape') hang(); };
     document.addEventListener('keydown', onKey);
-    const TYPE = `<form class="call-type" id="cType" autocomplete="off"><input id="cIn" lang="en" aria-label="${t('Gõ câu trả lời')}" placeholder="${t('Hoặc gõ câu trả lời…')}" enterkeyhint="send"><button type="submit">${t('Gửi')}</button></form>`;
+    const TYPE = `<form class="call-type" id="cType" autocomplete="off"><input id="cIn" lang="${TLG}" aria-label="${t('Gõ câu trả lời')}" placeholder="${t('Hoặc gõ câu trả lời…')}" enterkeyhint="send"><button type="submit">${t('Gửi')}</button></form>`;
     if (V2) {
       const canTrV = I18N.lang() !== 'en';
       const d = { pct: 0, title: nameOf(c), lv: c.lv, who: nm, line: '', tip: t('Gợi ý trả lời'), micLbl: t('Nói'), canTr: canTrV, showTr: String(showTr), trLbl: t('Bật/tắt phụ đề dịch'),
@@ -165,7 +173,7 @@ body.call-on{overflow:hidden}
         teacher: '<div id="cTch" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[270px] h-[234px] max-w-full z-0 pointer-events-none" aria-hidden="true"></div>',
         l2: `<p id="cL2" class="text-[14px] leading-[20px] mt-1 ${MUT}"></p>`,
         // khối của CallEngine (lượt dài, chọn nhận dạng, lời bạn, gõ phím, quyền riêng tư, trạng thái lượt lời cho trình đọc màn hình) nằm trong vùng gợi ý của khung
-        opts: `<div id="cCue"></div><div id="cAsk"></div><div class="call-you text-[14px] ${MUT}" id="cYou" lang="en" aria-live="polite"></div>
+        opts: `<div id="cCue"></div><div id="cAsk"></div><div class="call-you text-[14px] ${MUT}" id="cYou" lang="${TLG}" aria-live="polite"></div>
           <div id="cOpts" role="group" aria-label="${esc(t('Gợi ý trả lời'))}" class="flex flex-col gap-2 mt-3"></div><div id="cTypeW" class="mt-2" hidden>${TYPE}</div>
           <span class="sr-only" id="cSt" role="status" aria-live="polite"><span id="cStT"></span></span>` };
       ov = ST2.mount(view, 'teacher-call', d, null);
@@ -177,12 +185,12 @@ body.call-on{overflow:hidden}
       $('#cPrivB', ov).onclick = () => toast($('#cPriv', ov).textContent, 5000);
     } else ov.innerHTML = `<div class="call-top"><span id="cPriv">${(PRIV[mode()] || PRIV.ask)()}</span><span id="cT" aria-live="off">00:00</span></div>
       <div class="call-av" id="cAv"><img class="call-po" data-po src="${poster(c.who)}" alt="${nm}" width="210" height="280"></div>
-      <div class="call-name">${nm}</div><div class="call-sub" lang="en">${esc(c.role)}</div>
+      <div class="call-name">${nm}</div><div class="call-sub" lang="${TLG}">${esc(c.role)}</div>
       <div style="margin-top:.4rem"><span class="call-st" id="cSt" role="status" aria-live="polite"><i aria-hidden="true"><b></b><b></b><b></b></i><span id="cStT"></span></span></div>
-      <div class="call-cap" id="cCap" aria-live="polite"><div class="l1" lang="en" id="cL1"></div><div class="l2" id="cL2"></div></div>
+      <div class="call-cap" id="cCap" aria-live="polite"><div class="l1" lang="${TLG}" id="cL1"></div><div class="l2" id="cL2"></div></div>
       <div id="cCue" style="width:100%;display:flex;justify-content:center"></div>
       <div id="cAsk" style="width:100%;display:flex;justify-content:center"></div>
-      <div class="call-you" id="cYou" lang="en" aria-live="polite"></div>
+      <div class="call-you" id="cYou" lang="${TLG}" aria-live="polite"></div>
       <div id="cTip" style="width:100%;display:flex;justify-content:center"></div>
       <div class="call-opts" id="cOpts" role="group" aria-label="${t('Gợi ý trả lời')}"></div>
       ${TYPE}
@@ -200,8 +208,8 @@ body.call-on{overflow:hidden}
     }, 500);
 
     // Giáo viên động: clip 2D registry (teacher.js, qua Chars) – lỗi/thiếu clip → giữ poster 2D tĩnh, cuộc gọi vẫn chạy
-    if (V2) tch = LessonTeacher.mount($('#cTch', ov), c.who); // Ama/Carlos đứng sau thẻ phụ đề: clip talk/listen (poster khi tiết kiệm dữ liệu / giảm chuyển động)
-    else if (window.LessonTeacher) { const host = document.createElement('div'); host.className = 'tch'; $('#cAv', ov).appendChild(host); tch = LessonTeacher.mount(host, c.who); }
+    if (V2) tch = LessonTeacher.mount($('#cTch', ov), c.who, { lip: true }); // Ama/Carlos đứng sau thẻ phụ đề: mặt vẽ khớp miệng (cờ lk.lipsync) hoặc clip talk/listen (poster khi tiết kiệm dữ liệu / giảm chuyển động)
+    else if (window.LessonTeacher) { const host = document.createElement('div'); host.className = 'tch'; $('#cAv', ov).appendChild(host); tch = LessonTeacher.mount(host, c.who, { lip: true }); }
 
     // Phụ đề dịch (dòng 2): dịch sẵn mọi câu của giáo viên 1 lần – không chặn cuộc gọi; lỗi mạng thì chỉ hiện tiếng Anh
     const pieces = [...new Set(Object.values(c.nodes).flatMap(x => [x.m, x.re, ...(x.br || []).map(b => b[1])]).concat(c.end).filter(Boolean))];
@@ -214,6 +222,7 @@ body.call-on{overflow:hidden}
     // Trạng thái lượt lời: talk (giáo viên nói) · you (đến lượt bạn) · listen (đang nghe) · think (đang hiểu câu)
     function setPhase(p) {
       phase = p;
+      if (tch && tch.listen) { tch.listen(p === 'listen'); if (p === 'think') tch.react('thinking', 1500); } // mặt vẽ: nghe khi người học nói, nghĩ khi app đang hiểu câu (vòng clip: không đổi)
       const av = $('#cAv', ov), st = $('#cSt', ov), txt = $('#cStT', ov), mic = $('#cMic', ov); if (!st || !mic) return;
       if (av) { av.classList.toggle('talk', p === 'talk'); av.classList.toggle('listen', p === 'listen'); } st.className = (V2 ? 'sr-only call-st ' : 'call-st ') + p; // v2: tư thế do clip giáo viên (talk/listen), không vòng sáng
       txt.textContent = p === 'talk' ? t('{name} đang nói…', { name: nm }) : p === 'listen' ? t('Đang nghe bạn…') : p === 'think' ? t('Đang hiểu câu của bạn…') : p === 'done' ? t('Cuộc gọi kết thúc') : t('Đến lượt bạn – bấm micro để nói');
@@ -221,27 +230,31 @@ body.call-on{overflow:hidden}
       if (V2) { mic.setAttribute('aria-pressed', String(p === 'listen')); const ml = $('#cMicL', ov); if (ml) ml.textContent = p === 'listen' ? t('Đang nghe') : t('Nói'); }
     }
     // Nói lần lượt từng câu (mỗi câu 1 file Kokoro sinh sẵn) – sayRun đổi = bị ngắt lời → bỏ phần còn lại
+    let caps = null;
     function say(parts, then) {
       cur = parts.filter(Boolean); const my = ++sayRun;
-      $('#cL1', ov).textContent = cur.join(' '); paintTr(); if (canTr && showTr) setTimeout(() => alive() && fetchTr(cur), 1200);
+      const l1 = $('#cL1', ov); if (caps) caps.forEach(c => c && c.all()); caps = null; l1.textContent = '';
+      cur.forEach((x, i) => { if (i) l1.append(' '); const sp = document.createElement('span'); sp.textContent = x; l1.append(sp); });
+      if (tch && window.SayText) caps = [...l1.children].map(sp => SayText.prep(sp, { wait: 0 }));
+      paintTr(); if (canTr && showTr) setTimeout(() => alive() && fetchTr(cur), 1200);
       setPhase('talk');
-      const done = () => { if (my !== sayRun || !alive()) return; setPhase('you'); if (then) then(); else if (autoMic && node() && !node().prep) listen(); };
+      const done = () => { if (my !== sayRun || !alive()) return; if (caps) caps.forEach(c => c && c.all()); setPhase('you'); if (then) then(); else if (autoMic && node() && !node().prep) listen(); };
       const one = k => {
         if (my !== sayRun || !alive()) return;
         if (k >= cur.length) return done();
         const text = cur[k]; let fin = false; const next = () => { if (fin) return; fin = true; one(k + 1); };
-        if (tch) tch.say(text, { voice, accent: ACCENT, onEnd: next }); else UI.tts(text, ACCENT, undefined, { voice, onEnd: next });
+        if (tch) tch.say(text, { voice, accent: ACCENT, onEnd: next, caption: caps && caps[k] }); else UI.tts(text, ACCENT, undefined, { voice, onEnd: next });
         setTimeout(next, Math.min(15000, 1500 + text.length * 90)); // trình duyệt không báo kết thúc → vẫn đi tiếp
       };
       one(0);
     }
-    const hush = () => { sayRun++; if (tch) try { tch.stop(); } catch (e) { /* bỏ qua */ } UI.stopSpeak(); };
+    const hush = () => { if (caps) caps.forEach(c => c && c.all()); sayRun++; if (tch) try { tch.stop(); } catch (e) { /* bỏ qua */ } UI.stopSpeak(); };
 
     const showOpts = () => {
       const box = $('#cOpts', ov), n = node(), cue = $('#cCue', ov);
-      cue.innerHTML = n && (n.cue || n.long) ? `<div class="call-cue"><div class="row between">${n.prep ? `<b lang="en">${esc(n.m.split('. ').slice(-1)[0])}</b>` : `<b>${esc(t('Lượt nói dài: 1–2 phút'))}</b>`}<span class="call-clock" id="cClock" aria-live="off"></span></div>${(n.cue || (c.nodes[c.start] && c.nodes[c.start].cue) || []).length ? `<div class="tiny" style="opacity:.8;margin-top:.3rem">${t('Bạn nên nói:')}</div><ul lang="en">${(n.cue || c.nodes[c.start].cue).map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}${n.long ? `<div class="row" style="margin-top:.5rem;gap:.5rem;align-items:center"><button type="button" class="call-done" id="cLongDone">✓ ${t('Tôi nói xong')}</button><span class="tiny" id="cLongN" style="opacity:.8"></span></div>` : ''}</div>` : '';
+      cue.innerHTML = n && (n.cue || n.long) ? `<div class="call-cue"><div class="row between">${n.prep ? `<b lang="${TLG}">${esc(n.m.split('. ').slice(-1)[0])}</b>` : `<b>${esc(t('Lượt nói dài: 1–2 phút'))}</b>`}<span class="call-clock" id="cClock" aria-live="off"></span></div>${(n.cue || (c.nodes[c.start] && c.nodes[c.start].cue) || []).length ? `<div class="tiny" style="opacity:.8;margin-top:.3rem">${t('Bạn nên nói:')}</div><ul lang="${TLG}">${(n.cue || c.nodes[c.start].cue).map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}${n.long ? `<div class="row" style="margin-top:.5rem;gap:.5rem;align-items:center"><button type="button" class="call-done" id="cLongDone">✓ ${t('Tôi nói xong')}</button><span class="tiny" id="cLongN" style="opacity:.8"></span></div>` : ''}</div>` : '';
       const ld = $('#cLongDone', cue); if (ld) ld.onclick = () => endLong();
-      box.innerHTML = n ? n.o.map((o, k) => `<button type="button" data-o="${k}" lang="en"${V2 ? ` class="${CHIP}"` : ''}>${V2 ? '' : '💬 '}${esc(n.long ? o.split(/(?<=\.)\s/).slice(0, 2).join(' ') + ' …' : o)}</button>`).join('') : '';
+      box.innerHTML = n ? n.o.map((o, k) => `<button type="button" data-o="${k}" lang="${TLG}"${V2 ? ` class="${CHIP}"` : ''}>${V2 ? '' : '💬 '}${esc(n.long ? o.split(/(?<=\.)\s/).slice(0, 2).join(' ') + ' …' : o)}</button>`).join('') : '';
       $$('[data-o]', box).forEach(b => b.onclick = () => (n.long ? answer(n.o[+b.dataset.o], true, true) : answer(n.o[+b.dataset.o], true)));
     };
 
@@ -261,14 +274,15 @@ body.call-on{overflow:hidden}
       if (n.long && longBuf.length && !picked) text = longBuf.join(' ');
       if (n.long) { longEnd = 0; longBuf = []; }
       const tipBox = V2 ? $('#cTipT', ov) : $('#cTip', ov); if (V2) tipBox.textContent = t('Gợi ý trả lời'); else tipBox.innerHTML = '';
-      if (UNSAFE.test(text)) { busy = false; say(['Let\'s keep our chat friendly and on topic!', n.m]); return; }
+      if (UNSAFE.test(text)) { busy = false; say([TLC === 'es' ? 'Mantengamos la charla amable y en el tema.' : 'Let\'s keep our chat friendly and on topic!', n.m]); return; }
       const secs = tAsk ? Math.max(0, (Date.now() - tAsk) / 1000) : 0;
       if (!n.prep) log.push(Object.assign({ id, text, picked: !!picked, secs: extra.secs != null ? extra.secs : (picked ? 0 : secs) }, extra));
       if (!picked) $('#cYou', ov).textContent = '🗣️ ' + text;
       const fix = picked || n.prep ? null : E.correct(text, n.m), sl = picked || n.prep ? [] : E.slips(text, c, n);
+      if (tch && tch.react) tch.react(fix || sl.length ? 'encourage' : 'happy', 2200); // phản ứng đúng/sai trên mặt vẽ, câu đáp kế tiếp mang theo biểu cảm
       if (fix && V2) tipBox.innerHTML = TIP_FIX(fix.bad, fix.good, fix.why);
       else if (sl.length && V2) tipBox.textContent = '👂 ' + t('Nghe giống “{said}” – bạn muốn nói “{meant}”? Hai từ này chỉ khác một âm.', { said: sl[0].said, meant: sl[0].meant });
-      else if (fix) tipBox.innerHTML = `<div class="call-tip">💡 ${t('{name} hiểu ý bạn! Nói tự nhiên hơn:', { name: nm })}<div lang="en"><s>${esc(fix.bad)}</s> → <b>${esc(fix.good)}</b></div><div class="small">${esc(fix.why)}</div></div>`;
+      else if (fix) tipBox.innerHTML = `<div class="call-tip">💡 ${t('{name} hiểu ý bạn! Nói tự nhiên hơn:', { name: nm })}<div lang="${TLG}"><s>${esc(fix.bad)}</s> → <b>${esc(fix.good)}</b></div><div class="small">${esc(fix.why)}</div></div>`;
       else if (sl.length) tipBox.innerHTML = `<div class="call-tip">👂 ${t('Nghe giống “{said}” – bạn muốn nói “{meant}”? Hai từ này chỉ khác một âm.', { said: sl[0].said, meant: sl[0].meant })}</div>`;
       const r = E.step(c, id, text);
       id = r.next; turn++;
@@ -304,7 +318,7 @@ body.call-on{overflow:hidden}
         start: () => { if (my === turn) setPhase('listen'); },
         result: ({ heard, score }) => { if (my !== turn || !alive()) return; turn++; if (heard) answer(heard, false, false, { secs: (Date.now() - s0) / 1000, asr: score }); else setPhase('you'); },
         error: code => { if (my !== turn) return; autoMic = false; setPhase('you'); if (code !== 'no-speech') toast(UI.recErrorText(code), 3500); else toast(UI.recErrorText('no-speech'), 2500); },
-        end: () => { if (rec && rec._my === my) rec = null; if (my === turn && phase === 'listen') setPhase('you'); },
+        end: () => { if (rec && rec._my === my) rec = null; if (!rec && phase === 'listen') setPhase('you'); }, // result đến trước end (UI.recognize) → Part 2 vẫn mở micro cho đoạn kế
       };
       if (m === 'local') cb.setup = r => { r.processLocally = true; if (n.long) r.continuous = false; if (typeof window.SpeechRecognitionPhrase === 'function' && 'phrases' in r) r.phrases = words.map(w => new window.SpeechRecognitionPhrase(w, 3)); };
       if (m === 'whisper') { cb.whisper = true; cb.maxMs = n.long ? 28000 : Math.min(15000, 3000 + (n.min || 8) * 450); }
@@ -354,7 +368,7 @@ body.call-on{overflow:hidden}
     const first = c.nodes[c.start];
     say([first.m], () => enter(first));
     $('#cMic', ov).focus({ preventScroll: true });
-    window.__callState = () => ({ id, phase, turn, log: log.slice(), mode: mode() }); // để kiểm thử e2e
+    window.__callState = () => ({ id, phase, turn, log: log.slice(), mode: mode(), lip: tch && tch.lip ? Object.assign({ now: performance.now() }, tch.lip()) : null }); // để kiểm thử e2e
   }
 
   const NOTE = {
@@ -371,22 +385,23 @@ body.call-on{overflow:hidden}
 
   function summary(c, log, secs, avgLat) {
     const r = E.recap(c, log), nm = Chars.name(c.who);
+    try { if (c.tl === 'es' && sessionStorage.getItem('lk.es.dayctx')) App.need('esday').then(() => App.esDayMark('c')); } catch (e) { /* bỏ qua */ } // lộ trình ngày TBN: cuộc gọi xong → đánh dấu bước (cpack/es-app/day-ui.js)
     const voiced = log.filter(x => !x.picked && !x.typed).length, xp = 5 + r.turns.length * 2 + voiced * 2 + (r.used.length ? 3 : 0);
     App.reward({ spoken: voiced, xp });
-    const tx = r.turns.map(x => `<div class="call-tx ${x.weak ? 'weak' : ''}"><div class="small q" lang="en"><b>${nm}:</b> ${esc(x.m || '')}</div>
-        <div class="a" lang="en"><b>${t('Bạn')}:</b> ${esc(x.text)}${x.picked ? ` <span class="chip">${t('gợi ý')}</span>` : ''}</div>
-        ${x.fix ? `<div class="small"><span lang="en"><s>${esc(x.fix.bad)}</s> → <b>${esc(x.fix.good)}</b></span> <span class="muted">${esc(x.fix.why)}</span></div>` : ''}
-        ${x.slips.map(s => `<div class="small">👂 <span lang="en"><b>${esc(s.meant)}</b> ${UI.ipaTag ? UI.ipaTag(s.meant, ACCENT) : ''} ${sayBtn(s.meant)} ≠ ${esc(s.said)} ${UI.ipaTag ? UI.ipaTag(s.said, ACCENT) : ''} ${sayBtn(s.said)}</span> <a href="#/pron/${encodeURIComponent(s.skill)}" class="tiny">${t('Luyện cặp âm này')}</a></div>`).join('')}
+    const tx = r.turns.map(x => `<div class="call-tx ${x.weak ? 'weak' : ''}"><div class="small q" lang="${TLG}"><b>${nm}:</b> ${esc(x.m || '')}</div>
+        <div class="a" lang="${TLG}"><b>${t('Bạn')}:</b> ${esc(x.text)}${x.picked ? ` <span class="chip">${t('gợi ý')}</span>` : ''}</div>
+        ${x.fix ? `<div class="small"><span lang="${TLG}"><s>${esc(x.fix.bad)}</s> → <b>${esc(x.fix.good)}</b></span> <span class="muted">${esc(x.fix.why)}</span></div>` : ''}
+        ${x.slips.map(s => `<div class="small">👂 <span lang="${TLG}"><b>${esc(s.meant)}</b> ${UI.ipaTag ? UI.ipaTag(s.meant, ACCENT) : ''} ${sayBtn(s.meant)} ≠ ${esc(s.said)} ${UI.ipaTag ? UI.ipaTag(s.said, ACCENT) : ''} ${sayBtn(s.said)}</span> <a href="#/pron/${encodeURIComponent(s.skill)}" class="tiny">${t('Luyện cặp âm này')}</a></div>`).join('')}
         ${x.fl.short ? `<div class="small muted">↻ ${t('Trả lời đầy đủ hơn: thêm lý do hoặc ví dụ.')}</div>` : ''}
-        ${x.weak || x.picked ? `<div class="small muted">${t('Câu mẫu')}: <span lang="en">${esc(x.model)}</span> ${sayBtn(x.model)} ${sayBtn(x.model, 0.7)}🐢</div>` : ''}</div>`).join('');
+        ${x.weak || x.picked ? `<div class="small muted">${t('Câu mẫu')}: <span lang="${TLG}">${esc(x.model)}</span> ${sayBtn(x.model)} ${sayBtn(x.model, 0.7)}🐢</div>` : ''}</div>`).join('');
     view.innerHTML = `<div class="page-head"><div><h1>📞 ${t('Tổng kết cuộc gọi')}</h1><p class="muted">${esc(nameOf(c))}${c.retry ? ' · ' + t('Luyện lại') : ''} · ${t('{m} phút {s} giây', { m: Math.floor(secs / 60), s: secs % 60 })} · +${xp} XP</p></div></div>
       <div class="card" data-latency="${avgLat}" data-score="${r.score}">
         <div class="call-score">${UI.ring(r.score, r.score)}<div><b>${BAND[r.band]()}</b><p class="small muted" style="margin:.2rem 0 0">${t('Bạn đã trả lời {n} lượt, trong đó {s} lượt bằng giọng nói.', { n: r.turns.length, s: voiced })}${r.words ? ' · ' + t('{n} từ', { n: r.words }) : ''}</p></div></div>
-        ${r.target.length ? `<h2 class="set-h">🧩 ${t('Bạn đã dùng {n}/{k} từ chủ đề', { n: r.used.length, k: r.target.length })}</h2><div class="call-chips" lang="en">${r.target.map(w => `<span class="chip ${r.used.includes(w) ? 'ok' : ''}">${r.used.includes(w) ? '✓ ' : ''}${esc(w)}</span>`).join('')}</div>` : ''}
+        ${r.target.length ? `<h2 class="set-h">🧩 ${t('Bạn đã dùng {n}/{k} từ chủ đề', { n: r.used.length, k: r.target.length })}</h2><div class="call-chips" lang="${TLG}">${r.target.map(w => `<span class="chip ${r.used.includes(w) ? 'ok' : ''}">${r.used.includes(w) ? '✓ ' : ''}${esc(w)}</span>`).join('')}</div>` : ''}
         <h2 class="set-h">📈 ${t('Nhận xét độ trôi chảy')}</h2><ul class="small" style="padding-inline-start:1.1rem">${r.notes.map(x => `<li>${esc(NOTE[x.id](x))}</li>`).join('')}</ul>
         <h2 class="set-h">📝 ${t('Lời thoại & sửa lỗi')}</h2>${tx || `<p class="muted">${t('Chưa có lượt nào.')}</p>`}
         <h2 class="set-h">💬 ${t('Cụm từ nên nhớ')}</h2>
-        <ul class="small" style="padding-inline-start:1.1rem">${c.phrases.map(([p, d]) => `<li lang="en"><b>${esc(p)}</b> – <span class="muted">${esc(d)}</span></li>`).join('')}</ul>
+        <ul class="small" style="padding-inline-start:1.1rem">${c.phrases.map(([p, d]) => `<li lang="${TLG}"><b>${esc(p)}</b> – <span class="muted">${esc(d)}</span></li>`).join('')}</ul>
         <div class="row" style="gap:.6rem;flex-wrap:wrap;margin-top:1rem">${r.weak.length ? `<button class="btn primary" id="cRetry">↻ ${t('Luyện lại {n} câu yếu', { n: r.weak.length })}</button>` : ''}<button class="btn ${r.weak.length ? '' : 'primary'}" id="cSave">+ ${t('Thêm vào thẻ ôn')}</button><a class="btn" href="#/call/${c.id}">📞 ${t('Gọi lại')}</a><a class="btn" href="#/call">${t('Cuộc gọi khác')}</a></div>
         <p class="tiny muted" style="margin-top:.8rem">${t('Lời bạn nói chỉ được xử lý trên máy để chấm và hiện lời thoại – Lexkite không lưu lại.')}</p></div>`;
     $$('[data-say]', view).forEach(b => b.onclick = () => UI.tts(b.dataset.say, ACCENT, b.dataset.rate ? +b.dataset.rate : undefined));

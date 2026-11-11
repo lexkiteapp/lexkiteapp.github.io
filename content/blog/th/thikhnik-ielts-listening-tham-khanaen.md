@@ -9,7 +9,7 @@ tags: [listening, ielts, exam-tips]
 keyword: "เทคนิค ielts listening ทำคะแนน"
 cover: listening
 coverAlt: "หน้าจอฝึกทำข้อสอบ IELTS Listening บน Lexkite พร้อมแบบทดสอบ 10 ชุด ครบ 4 ส่วนและปรับความเร็วเสียงได้"
-publishAt: ""
+publishAt: 2026-11-30T09:55:00+07:00
 factChecked: 2026-11-01
 qualityScore: 95
 author: Lexkite
@@ -56,7 +56,7 @@ status: ready
 - `NO MORE THAN TWO WORDS AND/OR A NUMBER`
 - `ONE WORD ONLY`
 
-หากโจทย์สั่งว่า `ONE WORD ONLY` แล้วคุณเขียนคำว่า `a bicycle` หรือ `the government` คุณจะได้ 0 คะแนนทันที แม้คำหลักจะถูกต้องก็ตาม สามารถทบทวนการเลือกใช้คำศัพท์อย่างถูกต้องได้ที่หมวดคลังคำศัพท์ [/tu-vung/](/tu-vung/)
+หากโจทย์สั่งว่า `ONE WORD ONLY` แล้วคุณเขียนคำว่า `a bicycle` หรือ `the government` คุณจะได้ 0 คะแนนทันที แม้คำหลักจะถูกต้องก็ตาม สามารถทบทวนการเลือกใช้คำศัพท์อย่างถูกต้องได้ที่หมวดคลังคำศัพท์ [/tu-vung/](/en/vocabulary/)
 
 ### 4. ฝึกความแม่นยำเรื่องตัวสะกดและตัวเลข
 

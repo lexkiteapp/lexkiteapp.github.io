@@ -2,9 +2,9 @@
  * Đệm biên 5 phút (Cache API: mỗi trung tâm dữ liệu đọc D1 ≤ 1 lần/5 phút thay vì mỗi lượt gọi) + ETag/If-None-Match → 304 (docs/CAPACITY.md).
  * Quản trị đổi banner/hit_rate → hiệu lực ≤ 5 phút ở biên (máy khách còn tự đệm 1 giờ – web/js/app.js). */
 // ads_*: cờ quảng cáo theo nền tảng + công tắc khẩn cấp + tần suất + hệ số cổng giữ chân (docs/ADS.md) – mặc định trống = TẮT
-export const ADS_PUBLIC = ['ads_kill', 'ads_web', 'ads_android', 'ads_ios', 'ads_inter', 'ads_rew', 'ads_cap_sessions', 'ads_cap_gap', 'ads_cap_firstday', 'ads_guard'];
+export const ADS_PUBLIC = ['ads_kill', 'ads_web', 'ads_android', 'ads_ios', 'ads_inter', 'ads_rew', 'ads_cap_sessions', 'ads_cap_gap', 'ads_cap_firstday', 'ads_cap_newbie', 'ads_cap_daymax', 'ads_guard'];
 // vocab_img: '1' bật tất cả / '0' tắt khẩn · vocab_img_pct: % thiết bị được bật dần (mặc định 10 ở máy khách – web/js/vocab-img.js), quản trị/người thử luôn bật
-export const PUBLIC_KEYS = ['banner', 'banner_url', 'banner_level', 'hit_rate', 'vocab_img', 'vocab_img_pct', 'ret', 'ret_pct', 'ux1', 'ux1_pct', 'offline_pack', ...ADS_PUBLIC]; // offline_pack: nút Gói nghe offline trong Cài đặt (web/js/audio.js, anh duyệt 31/10) · ret/ret_pct: lớp giữ thói quen (docs/RETENTION.md §5) · ux1/ux1_pct: giao diện 5 tab (docs/LEARNING-PATH.md)
+export const PUBLIC_KEYS = ['banner', 'banner_url', 'banner_level', 'hit_rate', 'vocab_img', 'vocab_img_pct', 'ret', 'ret_pct', 'ux1', 'ux1_pct', 'kl', 'kl_pct', 'kl_ios', 'offline_pack', 'pt_pilot', 'es_course', ...ADS_PUBLIC]; // offline_pack: nút Gói nghe offline trong Cài đặt (web/js/audio.js, anh duyệt 31/10) · ret/ret_pct: lớp giữ thói quen (docs/RETENTION.md §5) · ux1/ux1_pct: giao diện 5 tab (docs/LEARNING-PATH.md) · pt_pilot: học tiếng Bồ Đào Nha thử, mặc định tắt (web/js/target.js, docs/specs/target-language.md) · es_course: khóa tiếng Tây Ban Nha, mặc định tắt (docs/specs/spanish-course.md)
 export const TTL = 300;
 const KEY = 'https://cache.lexkite.internal/config/v1';
 const etagOf = s => { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return '"c' + (h >>> 0).toString(36) + s.length.toString(36) + '"'; };

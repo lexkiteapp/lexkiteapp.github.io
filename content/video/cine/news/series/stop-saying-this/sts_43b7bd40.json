@@ -455,6 +455,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "This soup lacks ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      ".",
+      "white"
+     ]
+    ]
+   ],
    "a": "salt",
    "b": "of salt",
    "correct": "a",

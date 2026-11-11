@@ -1,0 +1,88 @@
+{
+ "IELTS Listening": {
+  "Part 1": 100,
+  "Part 2": 100,
+  "Part 3": 100,
+  "Part 4": 100
+ },
+ "IELTS Reading GT": {
+  "Passage 1": 70,
+  "Passage 2": 65,
+  "Passage 3": 65
+ },
+ "IELTS Reading AC": {
+  "Passage 1": 130,
+  "Passage 2": 130,
+  "Passage 3": 140
+ },
+ "TOEIC Reading": {
+  "Part 5": 210,
+  "Part 6": 112,
+  "Part 7": 378
+ },
+ "TOEIC Listening": {
+  "Part 1": 42,
+  "Part 2": 175,
+  "Part 3": 273,
+  "Part 4": 210
+ },
+ "TOEIC Speaking & Writing": {
+  "read": 12,
+  "respond": 9,
+  "info": 9,
+  "opinion": 12,
+  "request": 9,
+  "essay": 9
+ },
+ "TOEFL Reading": {
+  "Complete the Words": 100,
+  "daily": 40,
+  "academic": 100
+ },
+ "TOEFL Listening": {
+  "response": 48,
+  "conversation": 52,
+  "announcement": 39,
+  "talk": 61
+ },
+ "TOEFL Writing": {
+  "sentence": 56,
+  "email": 22,
+  "discussion": 22
+ },
+ "TOEFL Speaking": {
+  "repeat": 94,
+  "interview": 56
+ },
+ "Ngữ pháp – trắc nghiệm": {
+  "A2": 168,
+  "B1": 360,
+  "B2": 324,
+  "C1": 168,
+  "A1": 36
+ },
+ "Ngữ pháp – tự luận": {
+  "A2": 168,
+  "B1": 360,
+  "B2": 393,
+  "C1": 136,
+  "A1": 68
+ },
+ "Bài đọc ngắn": {
+  "B1": 75,
+  "B2": 75,
+  "C1": 70,
+  "A2": 65
+ },
+ "Từ vựng (mục)": {
+  "B2": 2948,
+  "C1": 2459,
+  "B1": 2052,
+  "A2": 1103,
+  "A1": 827,
+  "C2": 199
+ },
+ "Từ vựng (từ khác nhau)": {
+  "—": 8177
+ }
+}

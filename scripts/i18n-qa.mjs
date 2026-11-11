@@ -10,10 +10,10 @@
 //       node scripts/i18n-qa.mjs --short    → liệt kê nhãn ngắn chưa có bản dịch tay
 import fs from 'fs';
 import { missingSegments } from './i18n-english.mjs';
-const root = new URL('../web/js/i18n/', import.meta.url);
+const root = new URL('../web/js/i18n/', import.meta.url), src = new URL('../i18n/ui/', import.meta.url); // en: web/js/i18n · 13 ngôn ngữ: NGUỒN i18n/ui (gói chạy khóa băm kiểm riêng ở dưới)
 const langs = fs.readFileSync(new URL('./i18n-langs.txt', import.meta.url), 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#'));
 const fixed = JSON.parse(fs.readFileSync(new URL('./i18n-fixed.json', import.meta.url), 'utf8'));
-const load = f => { const g = {}; new Function('self', fs.readFileSync(new URL(f, root), 'utf8'))(g); return g.I18N_DICT; };
+const load = (f, base = root) => { const g = {}; new Function('self', fs.readFileSync(new URL(f, base), 'utf8'))(g); return g.I18N_DICT; };
 const EN = load('en.js').en;
 const lazyGroups = ((fs.readFileSync(new URL('./build-i18n.sh', import.meta.url), 'utf8').match(/^LAZY="([^"]*)"/m) || [])[1] || '').split(/\s+/).filter(Boolean);
 for (const g of lazyGroups) Object.assign(EN, load(`en/${g}.js`).en);
@@ -26,10 +26,10 @@ let errors = 0; const report = [];
 for (const l of langs) {
   let D;
   try {
-    D = load(l + '.js')[l] || {};
+    D = load(l + '.js', src)[l] || {};
     for (const g of lazyGroups) {
       const gf = `${l}/${g}.js`;
-      if (fs.existsSync(new URL(gf, root))) Object.assign(D, load(gf)[l] || {});
+      if (fs.existsSync(new URL(gf, src))) Object.assign(D, load(gf, src)[l] || {});
     }
   } catch (e) { report.push(`✗ ${l}: không đọc được (${e.message})`); errors++; continue; }
   const miss = [], mix = [], bad = [], ph = [], eng = [];
@@ -52,6 +52,8 @@ if (process.argv.includes('--short')) {
   console.log(ks.map(k => JSON.stringify(k) + ' → ' + JSON.stringify(EN[k])).join('\n')); console.log(ks.length + ' nhãn ngắn chưa đủ bản dịch tay');
   process.exit(0);
 }
+// Gói chạy (khóa băm) phải khớp nguồn từng chuỗi – lệch là người học thấy bản cũ/thiếu (scripts/lib/i18n-pack.mjs)
+{ const { packAll } = await import('./lib/i18n-pack.mjs'); const r = packAll({ check: true }); const n = r.stale.length + r.removed.length; if (n) { report.push(`✗ gói chạy web/js/i18n lệch nguồn i18n/ui: ${n} tệp (vd. ${[...r.stale, ...r.removed][0]}) – chạy node scripts/i18n-pack.mjs`); errors += n; } }
 console.log(report.join('\n'));
 console.log(errors ? `✗ i18n-qa: ${errors} lỗi bản dịch` : '✓ i18n-qa: mọi ngôn ngữ đủ khóa, đúng biến, không lẫn tiếng, giữ nguyên tiếng Anh mẫu');
 process.exit(errors && process.argv.includes('--strict') ? 1 : 0);

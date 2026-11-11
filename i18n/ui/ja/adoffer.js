@@ -1,0 +1,3 @@
+/* UI ja – adoffer (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ja"] = Object.assign(D["ja"] || {}, {"Cơ hội thứ 2":"セカンドチャンス","Làm lại {n} câu sai – đúng hết là qua bài!":"{n} 個の間違った答えをやり直して、すべて正解してレッスンをクリアしましょう!","Làm lại {n} câu sai – đúng hết thì điểm được tính lại.":"{n} 個の間違った答えをやり直します。正解するとスコアが更新されます。","Xem video để làm lại":"動画を見てやり直す","Làm lại miễn phí":"無料でやり直す","Nhân đôi XP":"XP 2倍","Xem 1 video ngắn để nhận thêm +{xp} XP.":"短いビデオを見て +{xp} ボーナス XP を獲得してください。","Nhận x2 XP":"2× XPをもらう","Chưa xem hết video – thử lại nhé":"ビデオが終了しませんでした – もう一度お試しください","+{xp} XP đã được cộng!":"+{xp} XP が追加されました!"});
+})(typeof self !== 'undefined' ? self : this);

@@ -28,7 +28,7 @@ eq(G.lookupTerm('resilient là gì'), 'resilient', 'tách từ tra (vi)');
 eq(G.lookupTerm('meaning of resilient'), 'resilient', 'tách từ tra (en)');
 eq(G.lookupTerm('ielts speaking part 3'), null, 'không phải truy vấn tra từ');
 eq(G.intentOf('lexkite app'), 'brand', 'truy vấn thương hiệu');
-eq(G.ranges('2026-10-26'), { range: { startDate: '2026-09-26', endDate: '2026-10-23' }, prevRange: { startDate: '2026-08-29', endDate: '2026-09-25' } }, '28 ngày kết thúc D-3 + 28 ngày trước');
+eq(G.ranges('2026-10-26'), { range: { startDate: '2026-09-26', endDate: '2026-10-23' }, prevRange: { startDate: '2026-08-29', endDate: '2026-09-25' }, week: { startDate: '2026-10-17', endDate: '2026-10-23' }, prevWeek: { startDate: '2026-10-10', endDate: '2026-10-16' } }, '28 ngày kết thúc D-3 + 28 ngày trước');
 ok(G.expectedCtr(8) > G.expectedCtr(20), 'đường CTR giảm theo hạng');
 
 // --- repo giả ---
@@ -89,6 +89,7 @@ ok(!rep.declines.some(d => d.slug === 'fsrs-la-gi'), '(d) giảm nhẹ 7 % → b
 ok(!rep.declines.some(d => d.slug === 'cau-bi-dong'), '(d) trang tăng → bỏ');
 
 ok(rep.dictQueue.some(d => d.term === 'resilient'), 'hàng đợi từ điển có "resilient"');
+ok(!gap('resilient là gì'), '(a) truy vấn tra từ → chỉ vào hàng đợi từ điển, không đề xuất blog');
 ok(rep.priority.length >= 4 && rep.priority.every((x, i) => x.rank === i + 1 && (i === 0 || rep.priority[i - 1].gain >= x.gain)), 'ưu tiên xếp giảm dần theo gain');
 ok(new Set(rep.priority.map(x => x.type)).size >= 4, 'ưu tiên có đủ loại việc');
 
@@ -138,6 +139,28 @@ ok(pulled.pageCur.length === 2 && pulled.pagePrev.length === 2, 'kéo đủ page
 const prevCall = calls.filter(c => c.body.includes('"dimensions":["page"]')).pop();
 ok(prevCall && prevCall.body.includes('"startDate":"2026-08-29"'), 'kỳ trước đúng ngày');
 ok(calls.filter(c => c.url.includes('oauth2')).length === 1, 'chỉ xin token 1 lần');
+
+// --- điểm ưu tiên theo nhóm CPM: cùng gain, truy vấn nước CPM cao xếp trên; VN không bị loại ---
+{ const q = (k, c) => R([k, U('en', 'nope'), c], 200, 0, 40);
+  const a = G.analyze({ qpc: [q('alpha vietnam query', 'vnm'), q('beta usa query', 'usa')] }, { posts: [], briefs: [] });
+  const [x, y] = a.priority;
+  eq([x.query, y.query], ['beta usa query', 'alpha vietnam query'], 'cùng gain: nhóm CPM cao đứng trước');
+  eq([x.cpmShare, y.cpmShare], [1, 0], 'cpmShare theo nước của truy vấn'); ok(x.score === x.gain * 2 || Math.abs(x.score - x.gain * 2) < 0.11, 'score = gain × (1 + 1 × cpmShare)'); eq(y.score, y.gain, 'VN giữ nguyên gain');
+  const b = G.analyze({ qpc: [R(['big vietnam query', U('en', 'nope'), 'vnm'], 1000, 0, 40), q('small usa query', 'usa')] }, { posts: [], briefs: [] });
+  eq(b.priority[0].query, 'big vietnam query', 'nhu cầu VN lớn hơn hẳn vẫn đứng trên – trọng số không che nội dung tiếng Việt'); }
+
+// --- theo nước & nhóm CPM ---
+ok(pulled.countryCur.length === 2 && pulled.countryWeek.length === 2 && pulled.countryPrevWeek.length === 2, 'kéo country 28 ngày + 7 ngày + tuần trước');
+ok(calls.some(c => c.body.includes('"dimensions":["country"]') && c.body.includes('"startDate":"2026-10-10"') && c.body.includes('"endDate":"2026-10-16"')), '7 ngày trước đúng ngày');
+const cc = (k, c, i, p) => ({ keys: [k], clicks: c, impressions: i, position: p });
+const cp = G.cpmReport({ countryCur: [cc('usa', 3, 100, 10), cc('deu', 1, 100, 30), cc('vnm', 4, 200, 5), cc('bra', 0, 100, 40)], countryWeek: [cc('usa', 2, 50, 10), cc('vnm', 2, 50, 5)], countryPrevWeek: [cc('usa', 1, 25, 10), cc('vnm', 3, 75, 5)] });
+eq(cp.tiers.high.clicks, 4, 'nhóm CPM gộp usa + deu'); eq(cp.tiers.high.position, 20, 'hạng nhóm theo trọng số hiển thị'); eq(cp.tiers.high.imprShare, 0.4, '% hiển thị nhóm cao');
+eq(cp.tiers.vn.clickShare, 0.5, '% bấm VN'); eq(cp.tiers.other.impressions, 100, 'nước khác');
+eq(cp.week.cur.high.imprShare, 0.5, 'tuần này'); eq(cp.week.prev.high.imprShare, 0.25, 'tuần trước'); eq(cp.countries[0].country, 'vnm', 'xếp theo bấm');
+const cp2 = G.cpmReport({ qpc: [R(['a', U('en', 'p'), 'usa'], 10, 1, 5), R(['b', U('en', 'q'), 'usa'], 10, 1, 15)] });
+eq(cp2.tiers.high.impressions, 20, 'thiếu dòng country → gộp từ qpc'); eq(cp2.tiers.high.position, 10, 'hạng gộp qpc'); eq(cp2.week, null, 'không có tuần → null');
+const cmd = G.markdown({ date: '2026-10-26', site: G.SITE, range: { startDate: 'a', endDate: 'b' }, prevRange: { startDate: 'c', endDate: 'd' }, totals: { current: { clicks: 0, impressions: 0, ctr: 0, position: 0 }, previous: { clicks: 0, impressions: 0, ctr: 0, position: 0 } }, gaps: [], striking: [], cannibal: [], declines: [], dictQueue: [], priority: [], cpm: cp });
+ok(cmd.includes('Nhóm CPM cao') && cmd.includes('+25.0 điểm') && cmd.includes('| USA | Nhóm CPM cao | 3 | 100 | 10 |'), 'báo cáo có bảng nhóm + so tuần trước + bảng nước');
 
 // --- không bao giờ ghi khoá ra file ---
 const keyFrag = sa.private_key.split('\n')[1];

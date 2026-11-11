@@ -1,0 +1,46 @@
+{
+  "$comment": "Ngoại lệ có lý do cho scripts/test/native-visual.mjs. rects: vùng ảnh minh hoạ/giáo viên (đơn vị 390 px, [x,y,w,h]) bị bỏ qua khi kiểm bảng màu; match = glob theo tên 'nền-màn-ngôn ngữ-theme' (vd 'ios-appshell-en-light'). colors: màu ngoài token được chấp nhận (cần reason). Chỉ thêm khi đã được duyệt – không dùng để che lỗi.",
+  "rects": [
+    {
+      "match": "ios-meguest-*",
+      "rect": [
+        28,
+        217,
+        334,
+        58
+      ],
+      "reason": "Sign in with Apple: Apple HIG bắt buộc nút đen (sáng) / trắng (tối) của hệ thống (SignInWithAppleButton) – không được tô màu token"
+    },
+    {
+      "match": "ios-ama-*",
+      "rect": [
+        0,
+        0,
+        390,
+        338
+      ],
+      "reason": "Ảnh chụp riêng rig giáo viên (C05): vùng nhân vật = art 2D đã duyệt của web/teach (Ama/Carlos, characters.json), không phải UI nên không thuộc bảng token; nền quanh nhân vật vẫn được kiểm. Màn bài học/onboarding có giáo viên vẫn kiểm đầy đủ."
+    },
+    {
+      "match": "ios-carlos-*",
+      "rect": [
+        0,
+        0,
+        390,
+        338
+      ],
+      "reason": "Ảnh chụp riêng rig giáo viên (C05): vùng nhân vật = art 2D đã duyệt của web/teach (Ama/Carlos, characters.json), không phải UI nên không thuộc bảng token; nền quanh nhân vật vẫn được kiểm. Màn bài học/onboarding có giáo viên vẫn kiểm đầy đủ."
+    },
+    {
+      "match": "android-teacher-*",
+      "rect": [
+        30,
+        20,
+        350,
+        317
+      ],
+      "reason": "Ảnh chụp riêng rig giáo viên (C05): vùng nhân vật = art 2D đã duyệt của web/teach (Ama/Carlos, characters.json), không phải UI nên không thuộc bảng token; nền quanh nhân vật vẫn được kiểm. Màn bài học/onboarding có giáo viên vẫn kiểm đầy đủ."
+    }
+  ],
+  "colors": []
+}

@@ -18308,6 +18308,2619 @@
    ],
    "angle": "日常英会話でそのまま役立つ厳選基本フレーズ100選。挨拶・注文・道案内・スモールトークまで、自然な会話のキャッチボールを可能にする実践ガイド。",
    "intent": "informational"
+  },
+  {
+   "lang": "ar",
+   "slug": "al-farq-bayna-gerund-wa-infinitive-fi-al-injliziyyah",
+   "keyword": "الفرق بين gerund و infinitive",
+   "topic": "الفرق بين Gerund و Infinitive في الإنجليزية: القواعد والمنطق والأفعال متغيرة المعنى",
+   "category": "ngu-phap",
+   "tags": [
+    "gerund",
+    "infinitive",
+    "kawaid-al-injliziya"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "شرح الفرق بين gerund و infinitive في اللغة الإنجليزية: منطق التطلع للمستقبل مقابل التجربة الواقعية، الأفعال التي يتغير معناها وقاعدة حروف الجر الذهبية.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ar",
+   "slug": "jumal-injliziyyah-mustakhdamah-fi-al-hayat-al-yawmiyyah",
+   "keyword": "جمل انجليزية تستخدم في الحياة اليومية",
+   "topic": "أهم الجمل والعبارات الإنجليزية المستخدمة في الحياة اليومية للمحادثة بطلاقة",
+   "category": "ky-nang",
+   "tags": [
+    "ky-nang",
+    "speaking",
+    "conversation"
+   ],
+   "shots": [
+    "dict",
+    "speaking"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/speaking"
+   ],
+   "angle": "دليل شامل لأكثر جمل انجليزية تستخدم في الحياة اليومية: التحيات، بدء الحوار، إبداء الرأي بلباقة، والردود التلقائية لتجاوز حاجز التردد.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ar",
+   "slug": "kalimat-injliziyyah-tuthir-al-hira-confusing-words",
+   "keyword": "كلمات انجليزية تثير الحيرة",
+   "topic": "أزواج الكلمات الإنجليزية الأكثر إثارة للحيرة والخلط وكيفية التمييز بينها",
+   "category": "tu-vung",
+   "tags": [
+    "tu-vung",
+    "vocabulary",
+    "tips"
+   ],
+   "shots": [
+    "dict",
+    "review"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/review"
+   ],
+   "angle": "دليل شامل لأشهر الكلمات الإنجليزية المتشابهة والمحيرة (affect vs effect, borrow vs lend, sensible vs sensitive) مع أمثلة حية وحيل ذكية للتمييز الدقيق.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ar",
+   "slug": "kayfiat-tahsin-maharat-al-istima-fi-al-lughah-al-injiliziyah",
+   "keyword": "كيفية تحسين مهارة الاستماع في اللغة الانجليزية",
+   "topic": "كيفية تحسين مهارة الاستماع في اللغة الانجليزية: طريقة الـ 5 خطوات العملية",
+   "category": "ky-nang",
+   "tags": [
+    "listening",
+    "al-istima",
+    "al-lughah-al-injiliziyah"
+   ],
+   "shots": [
+    "listening",
+    "practice"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/practice"
+   ],
+   "angle": "دليل كيفية تحسين مهارة الاستماع في اللغة الانجليزية: لماذا نقرأ بسهولة ونعجز عن السمع، دمج الكلمات المتصلة، وتمارين الإملاء والتكرار الظلي في 5 خطوات.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ar",
+   "slug": "khittat-dirasat-ielts-dhatiyyan-min-al-sifr-ila-6-5",
+   "keyword": "خطة دراسة ielts ذاتيا",
+   "topic": "خطة دراسة IELTS ذاتياً: من الصفر إلى Band 6.5 خطوة بخطوة",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "khitta-dirasiyya",
+    "dirasa-dhatiyya"
+   ],
+   "shots": [
+    "path",
+    "goal",
+    "placement"
+   ],
+   "routes": [
+    "/#/path",
+    "/#/goal",
+    "/#/placement"
+   ],
+   "angle": "دليل إعداد خطة دراسة ielts ذاتيا بدون معاهد: 4 مراحل متتالية، تقسيم الوقت اليومي على المهارات الأربع وحفظ المفردات الأكاديمية بنظام FSRS.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ar",
+   "slug": "qawaid-adawat-al-tarifi-wa-al-tankir-fi-al-injliziyyah-a-an-the",
+   "keyword": "قواعد a an the في اللغة الانجليزية",
+   "topic": "قواعد أدوات التعريف والتنكير a و an و the وحالات عدم استخدام أداة في الإنجليزية",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "adawat",
+    "grammar"
+   ],
+   "shots": [
+    "dict",
+    "grammar"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/grammar"
+   ],
+   "angle": "دليل شامل لقواعد أدوات التنكير والتعريف في اللغة الإنجليزية: الفرق بين a و an و the، وقاعدة Zero Article مع شجرة اتخاذ القرار وتمارين عملية.",
+   "intent": "informational"
+  },
+  {
+   "lang": "de",
+   "slug": "englisch-fuer-den-urlaub-auslandsreise-phrasen",
+   "keyword": "englisch für den urlaub",
+   "topic": "Englisch für den Urlaub: Wichtige Phrasen für Flughafen, Hotel und Restaurant",
+   "category": "ky-nang",
+   "tags": [
+    "englisch-urlaub",
+    "reise-englisch",
+    "reisen"
+   ],
+   "shots": [
+    "practice-speak",
+    "dict"
+   ],
+   "routes": [
+    "/#/practice/speak",
+    "/#/dict/resilient"
+   ],
+   "angle": "Praktischer Sprachführer Englisch für den Urlaub: Meistern Sie Flughafen-Check-in, Zollkontrolle, Hotelbuchung, Restaurantbesuche und Notfälle im Ausland souverän.",
+   "intent": "informational"
+  },
+  {
+   "lang": "de",
+   "slug": "englische-artikel-a-an-the-regeln-und-beispiele",
+   "keyword": "englische artikel a an the regeln",
+   "topic": "Englische Artikel a, an, the: Regeln, Ausnahmen und der Nullartikel",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "artikel",
+    "grammar"
+   ],
+   "shots": [
+    "dict",
+    "grammar"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/grammar"
+   ],
+   "angle": "Komplette Übersicht über die englischen Artikel a, an, the und den Nullartikel (Zero Article). Klare Ausspracheregeln und Entscheidungsbaum für Deutschsprachige.",
+   "intent": "informational"
+  },
+  {
+   "lang": "de",
+   "slug": "englische-saetze-fuer-den-alltag-konversation",
+   "keyword": "englische sätze für den alltag",
+   "topic": "Die wichtigsten englischen Sätze für den Alltag und flüssige Konversation",
+   "category": "ky-nang",
+   "tags": [
+    "ky-nang",
+    "speaking",
+    "conversation"
+   ],
+   "shots": [
+    "dict",
+    "speaking"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/speaking"
+   ],
+   "angle": "Die besten englischen Sätze für den Alltag: Small Talk, Meinungen äußern, Höflichkeitsfloskeln und natürliche Reaktionen im Gespräch mit praktischen Beispielen.",
+   "intent": "informational"
+  },
+  {
+   "lang": "de",
+   "slug": "englisches-hoerverstehen-verbessern-5-schritte-methode",
+   "keyword": "englisches hörverstehen verbessern",
+   "topic": "Englisches Hörverstehen verbessern: Die 5-Schritte-Methode für Alltag und IELTS",
+   "category": "ky-nang",
+   "tags": [
+    "listening",
+    "hoerverstehen",
+    "englisch-lernen"
+   ],
+   "shots": [
+    "listening",
+    "practice"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/practice"
+   ],
+   "angle": "Praktische Anleitung, wie Sie Ihr englisches Hörverstehen verbessern: Warum geschriebenes Englisch leichter fällt, Bottom-up vs. Top-down und aktives Hören mit Diktat.",
+   "intent": "informational"
+  },
+  {
+   "lang": "de",
+   "slug": "gerund-oder-infinitiv-englisch-regeln-und-unterschiede",
+   "keyword": "gerund oder infinitiv englisch",
+   "topic": "Gerund oder Infinitiv Englisch: Regeln, Unterschiede und Merk-Tipps",
+   "category": "ngu-phap",
+   "tags": [
+    "gerund",
+    "infinitiv",
+    "englische-grammatik"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "Verständlicher Leitfaden zu Gerund oder Infinitiv im Englischen: Zukunftsabsicht vs. reale Erfahrung, Verben mit Bedeutungswechsel (remember, stop, try) und Übungsbeispiele.",
+   "intent": "informational"
+  },
+  {
+   "lang": "de",
+   "slug": "ielts-selbststudium-lernplan-von-null-auf-6-5",
+   "keyword": "ielts selbststudium lernplan",
+   "topic": "IELTS Selbststudium Lernplan: Schritt für Schritt zu Band 6.5+",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "selbststudium",
+    "lernplan"
+   ],
+   "shots": [
+    "path",
+    "goal",
+    "placement"
+   ],
+   "routes": [
+    "/#/path",
+    "/#/goal",
+    "/#/placement"
+   ],
+   "angle": "Vollständiger IELTS Lernplan für das Selbststudium: 4-Phasen-Modell, tägliche Zeiteinteilung für alle 4 Prüfungsteile und Vokabeltraining mit FSRS.",
+   "intent": "informational"
+  },
+  {
+   "lang": "en",
+   "slug": "business-english-meeting-phrases-guide",
+   "keyword": "business english meeting phrases",
+   "topic": "Business English Meeting Phrases: Professional Expressions for Leading and Contributing",
+   "category": "ky-nang",
+   "tags": [
+    "business-english",
+    "meeting-phrases",
+    "workplace-communication"
+   ],
+   "shots": [
+    "practice-speak",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/practice/speak",
+    "/#/practice/learn"
+   ],
+   "angle": "Essential business english meeting phrases: opening discussions, politely interrupting, expressing constructive disagreement, and summarizing action items effectively.",
+   "intent": "informational"
+  },
+  {
+   "lang": "en",
+   "slug": "business-english-presentations-phrases-and-structure",
+   "keyword": "business english presentations",
+   "topic": "Business English Presentations: Essential Phrases, Slide Transitions, and Delivery Tips",
+   "category": "ky-nang",
+   "tags": [
+    "business-english",
+    "presentations",
+    "public-speaking",
+    "workplace"
+   ],
+   "shots": [
+    "library",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Master business english presentations with opening hooks, seamless slide transitions, data storytelling phrases, and confident Q&A handling.",
+   "intent": "informational"
+  },
+  {
+   "lang": "en",
+   "slug": "how-to-learn-english-from-scratch-roadmap",
+   "keyword": "how to learn english from scratch",
+   "topic": "How to Learn English from Scratch: A 90-Day Self-Study Roadmap",
+   "category": "phuong-phap",
+   "tags": [
+    "beginner",
+    "self-study",
+    "study-plan"
+   ],
+   "shots": [
+    "placement",
+    "review"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/review"
+   ],
+   "angle": "Actionable 90-day roadmap for absolute beginners to learn English independently: sound systems first, 1000 core words, basic sentence patterns, and daily habits.",
+   "intent": "informational"
+  },
+  {
+   "lang": "en",
+   "slug": "how-to-write-an-ats-friendly-resume",
+   "keyword": "how to write an ats friendly resume",
+   "topic": "How to Write an ATS Friendly Resume: Template, Action Verbs, and Formatting Tips",
+   "category": "ky-nang",
+   "tags": [
+    "resume-writing",
+    "ats-resume",
+    "career"
+   ],
+   "shots": [
+    "practice-learn",
+    "library"
+   ],
+   "routes": [
+    "/#/practice/learn",
+    "/#/library"
+   ],
+   "angle": "Comprehensive guide on how to write an ats friendly resume: beating automated applicant tracking systems, reverse-chronological layout, strong action verbs, and quantifiable impact.",
+   "intent": "informational"
+  },
+  {
+   "lang": "en",
+   "slug": "job-interview-questions-and-answers-in-english",
+   "keyword": "job interview questions in english",
+   "topic": "Job Interview Questions in English: Proven STAR Method Answers and Key Vocabulary",
+   "category": "ky-nang",
+   "tags": [
+    "job-interview",
+    "interview-questions",
+    "career-skills",
+    "speaking"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Comprehensive guide to common job interview questions in english with high-impact STAR answers, action verbs, and strategic questions to ask the interviewer.",
+   "intent": "informational"
+  },
+  {
+   "lang": "en",
+   "slug": "travel-english-phrases-for-abroad-trips",
+   "keyword": "travel english phrases for abroad trips",
+   "topic": "Travel English Phrases for Abroad Trips: Airport, Hotel, and Emergency Guide",
+   "category": "ky-nang",
+   "tags": [
+    "travel-english",
+    "travel-phrases",
+    "speaking"
+   ],
+   "shots": [
+    "practice-speak",
+    "dict"
+   ],
+   "routes": [
+    "/#/practice/speak",
+    "/#/dict/resilient"
+   ],
+   "angle": "Essential travel english phrases for abroad trips: navigating airports, border control, hotel check-in, ordering food, asking for directions, and handling emergencies.",
+   "intent": "informational"
+  },
+  {
+   "lang": "es",
+   "slug": "articulos-en-ingles-a-an-the-reglas-y-ejemplos",
+   "keyword": "articulos en ingles a an the",
+   "topic": "Artículos en Inglés: Reglas de A, An, The y Cuándo No Usar Artículo",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "articulos",
+    "gramatica"
+   ],
+   "shots": [
+    "dict",
+    "grammar"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/grammar"
+   ],
+   "angle": "Guía definitiva sobre los artículos en inglés: cuándo usar a, an, the y el artículo cero (Zero Article) con reglas claras, árbol de decisión y ejercicios.",
+   "intent": "informational"
+  },
+  {
+   "lang": "es",
+   "slug": "como-aprender-ingles-desde-cero-guia",
+   "keyword": "como aprender ingles desde cero",
+   "topic": "Cómo Aprender Inglés Desde Cero: Plan de 90 Días para Principiantes",
+   "category": "phuong-phap",
+   "tags": [
+    "ingles-desde-cero",
+    "autodidacta",
+    "plan-estudio"
+   ],
+   "shots": [
+    "placement",
+    "review"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/review"
+   ],
+   "angle": "Guía práctica de 90 días para aprender inglés desde cero por tu cuenta: fonética básica, primeras 1.000 palabras frecuentes, gramática mínima y rutina diaria sin frustración.",
+   "intent": "informational"
+  },
+  {
+   "lang": "es",
+   "slug": "enlace-de-palabras-en-ingles-connected-speech",
+   "keyword": "connected speech en inglés",
+   "topic": "Connected Speech en Inglés: Reglas de Enlace, Elisión y Formas Débiles",
+   "category": "phat-am",
+   "tags": [
+    "connected-speech",
+    "pronunciacion",
+    "listening",
+    "fonetica"
+   ],
+   "shots": [
+    "pron",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Guía completa de connected speech en inglés: cómo funcionan los enlaces consonante-vocal, la elisión de sonidos, las formas débiles y ejercicios para entender a hablantes nativos.",
+   "intent": "informational"
+  },
+  {
+   "lang": "es",
+   "slug": "frases-en-ingles-para-reuniones-de-trabajo",
+   "keyword": "frases en inglés para reuniones de trabajo",
+   "topic": "Frases en Inglés para Reuniones de Trabajo: Guía Práctica de Expresiones Profesionales",
+   "category": "ky-nang",
+   "tags": [
+    "ingles-de-negocios",
+    "reuniones-de-trabajo",
+    "frases-profesionales"
+   ],
+   "shots": [
+    "practice-speak",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/practice/speak",
+    "/#/practice/learn"
+   ],
+   "angle": "Guía completa de frases en inglés para reuniones de trabajo: cómo abrir la sesión, interrumpir con cortesía, debatir desacuerdos y resumir planes de acción sin rodeos.",
+   "intent": "informational"
+  },
+  {
+   "lang": "es",
+   "slug": "plan-de-estudio-ielts-autodidacta-de-cero-a-6-5",
+   "keyword": "plan de estudio ielts autodidacta",
+   "topic": "Plan de Estudio IELTS Autodidacta: De Cero a Band 6.5 Paso a Paso",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "plan-de-estudio",
+    "autodidacta"
+   ],
+   "shots": [
+    "path",
+    "goal",
+    "placement"
+   ],
+   "routes": [
+    "/#/path",
+    "/#/goal",
+    "/#/placement"
+   ],
+   "angle": "Guía completa de preparación autodidacta para el examen IELTS: división en 4 fases, distribución diaria de horas para listening, reading, writing y speaking, y recursos con FSRS.",
+   "intent": "informational"
+  },
+  {
+   "lang": "fr",
+   "slug": "articles-en-anglais-a-an-the-regles-et-exemples",
+   "keyword": "articles en anglais a an the",
+   "topic": "Articles en Anglais : Règles de A, An, The et Quand Omettre l'Article",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "articles",
+    "grammar"
+   ],
+   "shots": [
+    "dict",
+    "grammar"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/grammar"
+   ],
+   "angle": "Guide exhaustif sur les articles en anglais pour francophones : a/an vs the, l'article zéro (Zero Article) et l'arbre de décision pour ne plus hésiter.",
+   "intent": "informational"
+  },
+  {
+   "lang": "fr",
+   "slug": "comment-ameliorer-sa-comprehension-orale-en-anglais",
+   "keyword": "comment améliorer sa compréhension orale en anglais",
+   "topic": "Comment Améliorer sa Compréhension Orale en Anglais : Méthode en 5 Étapes",
+   "category": "ky-nang",
+   "tags": [
+    "listening",
+    "comprehension-orale",
+    "anglais"
+   ],
+   "shots": [
+    "listening",
+    "practice"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/practice"
+   ],
+   "angle": "Guide complet pour améliorer sa compréhension orale en anglais : pourquoi vous comprenez à l écrit mais pas à l oral, écoute ascendante et descendante, et méthode d écoute active.",
+   "intent": "informational"
+  },
+  {
+   "lang": "fr",
+   "slug": "gerondif-ou-infinitif-en-anglais-regles-et-exercices",
+   "keyword": "gérondif ou infinitif en anglais",
+   "topic": "Gérondif ou Infinitif en Anglais : Règles, Différences et Exemples",
+   "category": "ngu-phap",
+   "tags": [
+    "gerondif",
+    "infinitif",
+    "grammaire-anglaise"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "Comprendre quand utiliser le gérondif ou infinitif en anglais : logique de projection vers le futur vs expérience vécue, verbes à double sens (stop, remember, try) et quiz.",
+   "intent": "informational"
+  },
+  {
+   "lang": "fr",
+   "slug": "phrases-anglais-conversation-courante-quotidienne",
+   "keyword": "phrases anglais conversation courante",
+   "topic": "Les phrases essentielles en anglais pour la conversation courante au quotidien",
+   "category": "ky-nang",
+   "tags": [
+    "ky-nang",
+    "speaking",
+    "conversation"
+   ],
+   "shots": [
+    "dict",
+    "speaking"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/speaking"
+   ],
+   "angle": "Sélection des meilleures phrases en anglais pour la conversation courante: salutations, small talk, exprimer son opinion, réagir naturellement avec audio et mise en situation.",
+   "intent": "informational"
+  },
+  {
+   "lang": "fr",
+   "slug": "programme-de-preparation-ielts-autodidacte-6-5",
+   "keyword": "programme de preparation ielts autodidacte",
+   "topic": "Programme de Préparation IELTS Autodidacte : De Zéro à 6.5+",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "preparation",
+    "autodidacte"
+   ],
+   "shots": [
+    "path",
+    "goal",
+    "placement"
+   ],
+   "routes": [
+    "/#/path",
+    "/#/goal",
+    "/#/placement"
+   ],
+   "angle": "Guide complet pour préparer l examen IELTS en autodidacte : feuille de route en 4 étapes, répartition quotidienne du travail pour les 4 épreuves et mémorisation FSRS.",
+   "intent": "informational"
+  },
+  {
+   "lang": "hi",
+   "slug": "confusing-words-in-english-with-hindi-meaning",
+   "keyword": "confusing words in english with hindi meaning",
+   "topic": "अंग्रेजी के सबसे भ्रमित करने वाले शब्द युग्म और उनके सही प्रयोग के नियम",
+   "category": "tu-vung",
+   "tags": [
+    "tu-vung",
+    "vocabulary",
+    "tips"
+   ],
+   "shots": [
+    "dict",
+    "review"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/review"
+   ],
+   "angle": "अंग्रेजी के कन्फ्यूजिंग वर्ड्स (affect vs effect, borrow vs lend, sensible vs sensitive) को हिन्दी में समझें: पार्ट्स ऑफ स्पीच, ट्रिक्स और अभ्यास प्रश्न।",
+   "intent": "informational"
+  },
+  {
+   "lang": "hi",
+   "slug": "english-articles-a-an-the-rules-in-hindi",
+   "keyword": "articles a an the rules in hindi",
+   "topic": "English Articles a, an, the के नियम: Zero Article और सही इस्तेमाल की गाइड",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "articles",
+    "grammar"
+   ],
+   "shots": [
+    "dict",
+    "grammar"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/grammar"
+   ],
+   "angle": "अंग्रेजी में Articles (a, an, the) के सभी नियम हिन्दी में समझें: स्वर ध्वनि के आधार पर an का प्रयोग, the के अनिवार्य नियम और Zero Article की पहचान।",
+   "intent": "informational"
+  },
+  {
+   "lang": "hi",
+   "slug": "english-listening-skills-kaise-improve-kare-5-steps-guide",
+   "keyword": "english listening skills kaise improve kare",
+   "topic": "English Listening Skills Kaise Improve Kare: 5-Step Practical Guide",
+   "category": "ky-nang",
+   "tags": [
+    "listening",
+    "english-listening",
+    "listening-skills"
+   ],
+   "shots": [
+    "listening",
+    "practice"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/practice"
+   ],
+   "angle": "English listening skills kaise improve kare: jane kyu padh kar samajhna aasan hai par sun kar nahi, connected speech, aur 5-step dictation tatha shadowing guide.",
+   "intent": "informational"
+  },
+  {
+   "lang": "hi",
+   "slug": "gerund-and-infinitive-rules-in-hindi-difference",
+   "keyword": "gerund and infinitive rules in hindi",
+   "topic": "Gerund and Infinitive Rules in Hindi: अंतर, नियम और अर्थ बदलने वाली क्रियाएं",
+   "category": "ngu-phap",
+   "tags": [
+    "gerund",
+    "infinitive",
+    "english-grammar-hindi"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "Gerund and infinitive rules in hindi: jane bhavishya ke lakshya aur vastavik anubhav ka antar, stop/remember/try jaise arth badalne wale verbs aur prepositions ka niyam.",
+   "intent": "informational"
+  },
+  {
+   "lang": "id",
+   "slug": "cara-belajar-bahasa-inggris-dari-nol",
+   "keyword": "cara belajar bahasa inggris dari nol",
+   "topic": "Cara Belajar Bahasa Inggris dari Nol: Rencana 90 Hari Belajar Otodidak",
+   "category": "phuong-phap",
+   "tags": [
+    "belajar-otodidak",
+    "bahasa-inggris-pemula",
+    "jadwal-belajar"
+   ],
+   "shots": [
+    "placement",
+    "review"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/review"
+   ],
+   "angle": "Panduan langkah demi langkah cara belajar bahasa Inggris dari nol secara mandiri dalam 90 hari: fokus bunyi dan pengucapan, 1.000 kosakata pertama, dan kebiasaan harian efektif.",
+   "intent": "informational"
+  },
+  {
+   "lang": "id",
+   "slug": "cara-meningkatkan-listening-bahasa-inggris-metode-5-tahap",
+   "keyword": "cara meningkatkan listening bahasa inggris",
+   "topic": "Cara Meningkatkan Listening Bahasa Inggris: Metode Praktis 5 Tahap",
+   "category": "ky-nang",
+   "tags": [
+    "listening",
+    "bahasa-inggris",
+    "pendengaran"
+   ],
+   "shots": [
+    "listening",
+    "practice"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/practice"
+   ],
+   "angle": "Panduan lengkap cara meningkatkan listening bahasa inggris: pahami mengapa bisa membaca tapi sulit mendengar, beda bottom-up dan top-down, serta latihan dikte 5 tahap.",
+   "intent": "informational"
+  },
+  {
+   "lang": "id",
+   "slug": "connected-speech-bahasa-inggris-aturan-menyambung-kata",
+   "keyword": "connected speech bahasa inggris",
+   "topic": "Connected Speech Bahasa Inggris: Aturan Menyambung Kata dan Bentuk Lemah",
+   "category": "phat-am",
+   "tags": [
+    "connected-speech",
+    "pronunciation",
+    "listening",
+    "pelafalan"
+   ],
+   "shots": [
+    "pron",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Panduan lengkap connected speech bahasa inggris: teknik menyambung kata, penghilangan bunyi (elision), dan bentuk lemah (weak forms) agar paham bahasa Inggris cepat.",
+   "intent": "informational"
+  },
+  {
+   "lang": "id",
+   "slug": "frasa-presentasi-bahasa-inggris-bisnis",
+   "keyword": "presentasi bahasa inggris",
+   "topic": "Presentasi Bahasa Inggris: Frasa Kunci, Transisi Slide, dan Tips Menjawab Pertanyaan",
+   "category": "ky-nang",
+   "tags": [
+    "presentasi",
+    "business-english",
+    "speaking",
+    "karier"
+   ],
+   "shots": [
+    "library",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Panduan lengkap presentasi bahasa inggris: cara membuka presentasi dengan percaya diri, transisi antar slide, menjelaskan data grafik, dan menangani sesi tanya jawab.",
+   "intent": "informational"
+  },
+  {
+   "lang": "id",
+   "slug": "kata-bahasa-inggris-yang-sering-salah-arti-confused-words",
+   "keyword": "kata bahasa inggris yang sering salah arti",
+   "topic": "Pasangan kata bahasa Inggris yang sering membingungkan dan salah diartikan",
+   "category": "tu-vung",
+   "tags": [
+    "tu-vung",
+    "vocabulary",
+    "tips"
+   ],
+   "shots": [
+    "dict",
+    "vocab"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/vocab"
+   ],
+   "angle": "Panduan mengenali pasangan kata bahasa Inggris yang sering membingungkan (affect vs effect, complement vs compliment, borrow vs lend) lengkap dengan contoh dan cara membedakannya.",
+   "intent": "informational"
+  },
+  {
+   "lang": "id",
+   "slug": "penggunaan-artikel-bahasa-inggris-a-an-the",
+   "keyword": "penggunaan artikel a an the",
+   "topic": "Penggunaan Artikel Bahasa Inggris: Aturan Lengkap A, An, The, dan Zero Article",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "artikel",
+    "grammar"
+   ],
+   "shots": [
+    "dict",
+    "grammar"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/grammar"
+   ],
+   "angle": "Panduan tuntas penggunaan artikel dalam bahasa Inggris: aturan a, an, the, konsep zero article, serta pohon keputusan praktis agar tidak salah pilih artikel.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ja",
+   "slug": "business-eigo-presentation-phrases-kotsu",
+   "keyword": "英語 プレゼンテーション フレーズ",
+   "topic": "英語プレゼンテーションのフレーズ集：導入からスライド遷移・質疑応答まで",
+   "category": "ky-nang",
+   "tags": [
+    "presentation",
+    "business-eigo",
+    "speaking"
+   ],
+   "shots": [
+    "library",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "ビジネス英語プレゼンテーションを成功に導く重要フレーズ集。冒頭の挨拶、スライドの切り替え、データ解説、質疑応答の対処法を体系的に解説。",
+   "intent": "informational"
+  },
+  {
+   "lang": "ja",
+   "slug": "doumeishi-to-futeishi-tsukaiwake-eigo-bunpou",
+   "keyword": "動名詞 不定詞 使い分け",
+   "topic": "動名詞と不定詞の使い分け：未来志向vs経験の論理と意味が変わる動詞",
+   "category": "ngu-phap",
+   "tags": [
+    "doumeishi",
+    "futeishi",
+    "eigo-bunpou"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "動名詞 不定詞 使い分けの完全ガイド：丸暗記を脱却する「未来への志向 vs 過去・現実の体験」の核心ルール、意味が激変する動詞（stop/remember/try）と前置詞の鉄則。",
+   "intent": "informational"
+  },
+  {
+   "lang": "ja",
+   "slug": "eigo-dokugaku-yarinaoshi-road-map",
+   "keyword": "英語 独学 やり直し ロードマップ",
+   "topic": "大人の英語やり直し独学ロードマップ：ゼロから90日で基礎を固める勉強法",
+   "category": "phuong-phap",
+   "tags": [
+    "dokugaku",
+    "yarinaoshi",
+    "kiso-eigo"
+   ],
+   "shots": [
+    "placement",
+    "review"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/review"
+   ],
+   "angle": "挫折知らずの大人の英語独学やり直しロードマップ。発音記号、コア単語1000語、中学レベルの必須文法、音読習慣で90日後に英語の基礎を完全に固める手順。",
+   "intent": "informational"
+  },
+  {
+   "lang": "ja",
+   "slug": "eigo-kanshi-a-an-the-tsukaikata",
+   "keyword": "英語 冠詞 a an the 使い分け",
+   "topic": "英語の冠詞（a/an/the）使い分け完全マップ：無冠詞のルールとネイティブの感覚",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "kanshi",
+    "grammar"
+   ],
+   "shots": [
+    "dict",
+    "grammar"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/grammar"
+   ],
+   "angle": "日本人学習者が最もつまずきやすい英語の冠詞（a / an / the / 無冠詞）を徹底解説。ネイティブの「輪郭」と「特定」の思考フレームワーク、決定樹チャート付き。",
+   "intent": "informational"
+  },
+  {
+   "lang": "ja",
+   "slug": "eigo-machigaeyasui-tangoshu-confusing-words",
+   "keyword": "英語 間違いやすい 単語",
+   "topic": "日本人が間違えやすい英単語の使い分けとニュアンスの違い",
+   "category": "tu-vung",
+   "tags": [
+    "tu-vung",
+    "vocabulary",
+    "tips"
+   ],
+   "shots": [
+    "dict",
+    "vocab"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/vocab"
+   ],
+   "angle": "日本人が混同しやすい英単語（affect/effect, lend/borrow, see/look/watch, say/tell/speak）のニュアンスの違いとコロケーションをネイティブ視点で徹底解説。",
+   "intent": "informational"
+  },
+  {
+   "lang": "ja",
+   "slug": "eigo-onsei-henka-connected-speech-ren-on",
+   "keyword": "英語 音声変化 connected speech",
+   "topic": "英語の音声変化（Connected Speech）：リエゾン・脱落・弱形のルールと聞き取りのコツ",
+   "category": "phat-am",
+   "tags": [
+    "connected-speech",
+    "onsei-henka",
+    "listening",
+    "hatsuon"
+   ],
+   "shots": [
+    "pron",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "英語音声変化（connected speech）の完全ガイド。連結（リエゾン）、脱落（リダクション）、同化、弱形（weak forms）の規則を理解して速い英語を聞き取る。",
+   "intent": "informational"
+  },
+  {
+   "lang": "ja",
+   "slug": "ielts-dokugaku-benkyouhou-road-map-score-up",
+   "keyword": "ielts 独学 勉強法",
+   "topic": "IELTS独学勉強法：初心者からBand 6.5突破までの完全ロードマップ",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "dokugaku",
+    "benkyouhou"
+   ],
+   "shots": [
+    "path",
+    "goal",
+    "placement"
+   ],
+   "routes": [
+    "/#/path",
+    "/#/goal",
+    "/#/placement"
+   ],
+   "angle": "完全独学でIELTS 6.5を達成するためのロードマップ：4つの学習フェーズ、社会人のための毎日の時間配分、FSRS分散学習による学術単語定着。",
+   "intent": "informational"
+  },
+  {
+   "lang": "ko",
+   "slug": "dongmyeongsa-to-bujungsa-gu-bun-beop-yeong-munbeop",
+   "keyword": "동명사 to부정사 구분",
+   "topic": "동명사 to부정사 구분 완벽 정리: 미래지향 vs 경험의 원리와 의미 변화 동사",
+   "category": "ngu-phap",
+   "tags": [
+    "dongmyeongsa",
+    "to-bujungsa",
+    "yeong-munbeop"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "동명사 to부정사 구분 핵심 원리와 실전 가이드: 단순 암기를 넘어서는 미래지향과 현실 경험의 차이, stop/remember/try 등 뜻이 바뀌는 동사와 전치사 뒤 ing 절대 규칙.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ko",
+   "slug": "heongdon-doegi-swiun-yeongeo-daneo-confusing-words",
+   "keyword": "헷갈리는 영어 단어",
+   "topic": "한국인이 가장 자주 혼동하는 영단어 뉘앙스 차이와 올바른 사용법",
+   "category": "tu-vung",
+   "tags": [
+    "tu-vung",
+    "vocabulary",
+    "tips"
+   ],
+   "shots": [
+    "dict",
+    "vocab"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/vocab"
+   ],
+   "angle": "한국인 학습자가 헷갈리기 쉬운 영단어 쌍(affect/effect, borrow/lend, sensitive/sensible, lie/lay)의 핵심 뉘앙스와 예문, 암기 팁을 정리한 완벽 가이드.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ko",
+   "slug": "ielts-dokhak-gongbubeop-roadmap-chobo-6-5",
+   "keyword": "ielts 독학 공부법",
+   "topic": "IELTS 독학 공부법: 노베이스부터 Band 6.5 달성까지 4단계 로드맵",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "dokhak",
+    "gongbubeop"
+   ],
+   "shots": [
+    "path",
+    "goal",
+    "placement"
+   ],
+   "routes": [
+    "/#/path",
+    "/#/goal",
+    "/#/placement"
+   ],
+   "angle": "학원 없이 끝내는 IELTS 독학 공부법: 4단계 커리큘럼, 직장인과 학생을 위한 매일 90분 시간 배분, FSRS 간격 반복을 활용한 아카데믹 단어 암기.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ko",
+   "slug": "ilsang-yeongeo-hoehwa-pyohyeon-moeum-chobojah",
+   "keyword": "일상 영어 회화 표현",
+   "topic": "원어민이 매일 쓰는 필수 일상 영어 회화 표현 및 대화 패턴 총정리",
+   "category": "ky-nang",
+   "tags": [
+    "ky-nang",
+    "speaking",
+    "conversation"
+   ],
+   "shots": [
+    "dict",
+    "speaking"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/speaking"
+   ],
+   "angle": "원어민이 일상에서 가장 자주 사용하는 필수 일상 영어 회화 표현 모음: 인사, 스몰토크, 의견 표현, 맞장구 치기 및 자연스러운 대화 패턴 완벽 정리.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ko",
+   "slug": "yeong-eo-deudgi-neuneun-beop-5dangye-hyeonshil-gongbubeop",
+   "keyword": "영어 듣기 느는 법",
+   "topic": "영어 듣기 느는 법: 5단계 딕테이션과 쉐도잉 현실 공부법",
+   "category": "ky-nang",
+   "tags": [
+    "listening",
+    "yeong-eo",
+    "deudgi-gongbubeop"
+   ],
+   "shots": [
+    "listening",
+    "practice"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/practice"
+   ],
+   "angle": "영어 듣기 느는 법의 핵심 원리와 5단계 현실 실천법: 왜 읽기는 되는데 귀는 안 열릴까, 연음과 탈락 극복, 받아쓰기와 쉐도잉 훈련 가이드.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ko",
+   "slug": "yeongeo-dokhak-chobo-90il-keorikyulleom",
+   "keyword": "영어 독학 기초 공부법",
+   "topic": "성인 영어 독학 기초 공부법: 노베이스를 위한 90일 완성 로드맵",
+   "category": "phuong-phap",
+   "tags": [
+    "yeongeo-dokhak",
+    "gicho-yeongeo",
+    "gongbubeop"
+   ],
+   "shots": [
+    "placement",
+    "review"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/review"
+   ],
+   "angle": "영포자 노베이스도 성공하는 영어 독학 기초 공부법 90일 로드맵. 발음 기호, 핵심 어휘 1000단어, 필수 문장 패턴과 지속 가능한 매일 루틴 완성 가이드.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ko",
+   "slug": "yeongeo-gwan-sa-a-an-the-gu-bun-beop",
+   "keyword": "영어 관사 a an the 구분",
+   "topic": "영어 관사 완전 정복: a, an, the 완벽 구분법과 무관사 규칙",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "gwansa",
+    "grammar"
+   ],
+   "shots": [
+    "dict",
+    "grammar"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/grammar"
+   ],
+   "angle": "한국인 학습자가 가장 혼란스러워하는 영어 관사 (a, an, the 및 무관사 Zero Article)의 핵심 원리. 특정성 판단 기준과 원어민적 사고법, 의사결정 차트 제공.",
+   "intent": "informational"
+  },
+  {
+   "lang": "pt",
+   "slug": "apresentacoes-em-ingles-frases-e-estrutura",
+   "keyword": "apresentações em inglês frases",
+   "topic": "Apresentações em Inglês: Frases Essenciais, Transições de Slides e Dicas Práticas",
+   "category": "ky-nang",
+   "tags": [
+    "apresentacoes",
+    "business-english",
+    "speaking",
+    "carreira"
+   ],
+   "shots": [
+    "library",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Guia prático para apresentações em inglês frases essenciais para abertura, transição de slides, análise de gráficos e condução segura da sessão de perguntas.",
+   "intent": "informational"
+  },
+  {
+   "lang": "pt",
+   "slug": "artigos-em-ingles-a-an-the-regras-e-exemplos",
+   "keyword": "artigos em ingles a an the",
+   "topic": "Artigos em Inglês: Regras Definitivas de A, An, The e Zero Article",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "artigos",
+    "gramatica"
+   ],
+   "shots": [
+    "dict",
+    "grammar"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/grammar"
+   ],
+   "angle": "Domine o uso dos artigos em inglês: diferenças entre a, an e the, quando omitir o artigo (Zero Article) e os erros mais comuns cometidos por falantes de português.",
+   "intent": "informational"
+  },
+  {
+   "lang": "pt",
+   "slug": "como-fazer-curriculo-em-ingles-ats-resume",
+   "keyword": "como fazer currículo em inglês ats",
+   "topic": "Como Fazer Currículo em Inglês ATS: Modelo, Verbos de Ação e Dicas",
+   "category": "ky-nang",
+   "tags": [
+    "curriculo-em-ingles",
+    "ats-resume",
+    "carreira"
+   ],
+   "shots": [
+    "practice-learn",
+    "library"
+   ],
+   "routes": [
+    "/#/practice/learn",
+    "/#/library"
+   ],
+   "angle": "Aprenda como fazer currículo em inglês ats: estrutura internacional aceita por robôs de triagem, lista de verbos de ação para destacar conquistas e erros comuns de tradução.",
+   "intent": "informational"
+  },
+  {
+   "lang": "pt",
+   "slug": "como-melhorar-o-listening-em-ingles-metodo",
+   "keyword": "como melhorar o listening em inglês",
+   "topic": "Como Melhorar o Listening em Inglês: O Método das 5 Etapas",
+   "category": "ky-nang",
+   "tags": [
+    "listening",
+    "ingles",
+    "compreensao-auditiva"
+   ],
+   "shots": [
+    "listening",
+    "practice"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/practice"
+   ],
+   "angle": "Descubra como melhorar o listening em inglês de verdade: entenda por que você lê bem mas não entende o áudio, a diferença entre bottom-up e top-down, e o método das 5 etapas.",
+   "intent": "informational"
+  },
+  {
+   "lang": "pt",
+   "slug": "como-pensar-em-ingles-sem-traduzir-mentalmente",
+   "keyword": "como pensar em inglês",
+   "topic": "Como Pensar em Inglês Sem Traduzir: 4 Passos Práticos para Falar com Fluência",
+   "category": "ky-nang",
+   "tags": [
+    "pensar-em-ingles",
+    "speaking",
+    "fluencia",
+    "habitos"
+   ],
+   "shots": [
+    "library",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Descubra como pensar em inglês sem traduzir mentalmente: 4 fases práticas para treinar seu diálogo interno, eliminar o filtro do português e falar com naturalidade.",
+   "intent": "informational"
+  },
+  {
+   "lang": "pt",
+   "slug": "connected-speech-em-ingles-como-ligar-palavras",
+   "keyword": "connected speech em inglês",
+   "topic": "Connected Speech em Inglês: Regras de Conexão de Sons, Elusão e Ritmo",
+   "category": "phat-am",
+   "tags": [
+    "connected-speech",
+    "pronuncia",
+    "listening",
+    "ritmo"
+   ],
+   "shots": [
+    "pron",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Domine o connected speech em inglês: entenda como ligar sons, formas fracas de palavras e elisões para entender o inglês falado rápido e soar mais natural.",
+   "intent": "informational"
+  },
+  {
+   "lang": "pt",
+   "slug": "cronograma-de-estudos-ielts-autodidata-do-zero-ao-6-5",
+   "keyword": "cronograma de estudos ielts autodidata",
+   "topic": "Cronograma de Estudos IELTS Autodidata: Do Zero ao Band 6.5+",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "cronograma-de-estudos",
+    "autodidata"
+   ],
+   "shots": [
+    "path",
+    "goal",
+    "placement"
+   ],
+   "routes": [
+    "/#/path",
+    "/#/goal",
+    "/#/placement"
+   ],
+   "angle": "Como montar um cronograma de estudos IELTS autodidata eficaz: 4 fases essenciais, distribuição diária do tempo, rotina de 4 habilidades e repetição espaçada FSRS.",
+   "intent": "informational"
+  },
+  {
+   "lang": "pt",
+   "slug": "gerundio-e-infinitivo-em-ingles-regras-e-diferencas",
+   "keyword": "gerúndio e infinitivo em inglês",
+   "topic": "Gerúndio e Infinitivo em Inglês: Regras, Diferenças e Guia Prático",
+   "category": "ngu-phap",
+   "tags": [
+    "gerundio",
+    "infinitivo",
+    "gramatica-inglesa"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "Domine o uso de gerúndio e infinitivo em inglês: a lógica da ação futura versus experiência real, verbos que mudam de significado e tabela prática de verbos comuns.",
+   "intent": "informational"
+  },
+  {
+   "lang": "pt",
+   "slug": "ingles-para-viagem-internacional-frases-essenciais",
+   "keyword": "inglês para viagem internacional",
+   "topic": "Inglês para Viagem Internacional: Frases Essenciais e Diálogos Práticos",
+   "category": "ky-nang",
+   "tags": [
+    "ingles-para-viagem",
+    "viagem-internacional",
+    "conversacao"
+   ],
+   "shots": [
+    "practice-speak",
+    "dict"
+   ],
+   "routes": [
+    "/#/practice/speak",
+    "/#/dict/resilient"
+   ],
+   "angle": "Guia prático de inglês para viagem internacional: frases indispensáveis para imigração no aeroporto, hotel, restaurantes, pedir direções e resolver emergências.",
+   "intent": "informational"
+  },
+  {
+   "lang": "pt",
+   "slug": "palavras-em-ingles-que-geram-confusao-confused-words",
+   "keyword": "palavras em ingles que geram confusao",
+   "topic": "Pares de palavras em inglês que causam confusão e como diferenciá-las",
+   "category": "tu-vung",
+   "tags": [
+    "tu-vung",
+    "vocabulary",
+    "tips"
+   ],
+   "shots": [
+    "dict",
+    "review"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/review"
+   ],
+   "angle": "Guia prático para não confundir mais pares de palavras em inglês como affect vs effect, borrow vs lend, sensible vs sensitive e complement vs compliment.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ru",
+   "slug": "angliyskie-frazy-na-kazhdyy-den-razgovornik",
+   "keyword": "английские фразы на каждый день",
+   "topic": "Самые полезные английские фразы на каждый день для живого общения и диалогов",
+   "category": "ky-nang",
+   "tags": [
+    "ky-nang",
+    "speaking",
+    "conversation"
+   ],
+   "shots": [
+    "dict",
+    "speaking"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/speaking"
+   ],
+   "angle": "Подборка необходимых английских фраз на каждый день: приветствия, смолл-ток, поддержание диалога, телефонные звонки и полезные клише без зубрежки.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ru",
+   "slug": "gerundiy-ili-infinitiv-v-angliyskom-pravila-i-raznitsa",
+   "keyword": "герундий или инфинитив в английском",
+   "topic": "Герундий или инфинитив в английском: логика выбора и глаголы с изменением значения",
+   "category": "ngu-phap",
+   "tags": [
+    "gerundiy",
+    "infinitiv",
+    "angliyskaya-grammatika"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "Герундий или инфинитив в английском: понятная логика будущего намерения против реального опыта, глаголы stop, remember, try и железное правило предлогов.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ru",
+   "slug": "kak-uchit-slova-dlya-ielts-effektivno-metody",
+   "keyword": "как учить слова для ielts",
+   "topic": "Как эффективно учить академические слова и коллокации для сдачи экзамена IELTS",
+   "category": "tu-vung",
+   "tags": [
+    "tu-vung",
+    "ielts",
+    "vocabulary"
+   ],
+   "shots": [
+    "dict",
+    "review"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/review"
+   ],
+   "angle": "Полное практическое руководство: как эффективно учить слова для IELTS, избегать бессмысленной зубрежки, работать с контекстом, коллокациями и системой интервального повторения FSRS.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ru",
+   "slug": "kak-uluchshit-audirovanie-po-angliyskomu-metod-5-shagov",
+   "keyword": "как улучшить аудирование по английскому",
+   "topic": "Как улучшить аудирование по английскому: метод 5 шагов",
+   "category": "ky-nang",
+   "tags": [
+    "listening",
+    "audirovanie",
+    "angliyskiy"
+   ],
+   "shots": [
+    "listening",
+    "practice"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/practice"
+   ],
+   "angle": "Практическое руководство, как улучшить аудирование по английскому языку: почему текст понятен глазами, но не на слух, методы bottom-up и top-down, диктанты и разбор беглой речи.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ru",
+   "slug": "lozhnye-druzya-perevodchika-angliyskiy-confusing-words",
+   "keyword": "ложные друзья переводчика в английском",
+   "topic": "Ложные друзья переводчика в английском языке и похожие слова, вызывающие ошибки",
+   "category": "tu-vung",
+   "tags": [
+    "tu-vung",
+    "vocabulary",
+    "tips"
+   ],
+   "shots": [
+    "dict",
+    "vocab"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/vocab"
+   ],
+   "angle": "Разбор типичных ложных друзей переводчика и коварных пар слов в английском языке (accurate, actual, brilliant, sympathetic, affect vs effect) с примерами и правильным переводом.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ru",
+   "slug": "plan-podgotovki-k-ielts-samostoyatelno-s-nulya-do-6-5",
+   "keyword": "план подготовки к ielts самостоятельно",
+   "topic": "План подготовки к IELTS самостоятельно: от нуля до 6.5+ по шагам",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "samostoyatelnaya-podgotovka",
+    "plan"
+   ],
+   "shots": [
+    "path",
+    "goal",
+    "placement"
+   ],
+   "routes": [
+    "/#/path",
+    "/#/goal",
+    "/#/placement"
+   ],
+   "angle": "Пошаговый план самостоятельной подготовки к IELTS: 4 ключевых этапа, ежедневное расписание на 4 навыка и интервальное повторение по алгоритму FSRS.",
+   "intent": "informational"
+  },
+  {
+   "lang": "th",
+   "slug": "kan-chai-articles-phasa-angkrit-a-an-the",
+   "keyword": "การใช้ a an the",
+   "topic": "หลักการใช้ a, an, the ในภาษาอังกฤษ และกฎ Zero Article เข้าใจง่าย",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "articles",
+    "grammar"
+   ],
+   "shots": [
+    "dict",
+    "grammar"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/grammar"
+   ],
+   "angle": "สรุปหลักการใช้ a an the ในภาษาอังกฤษที่คนไทยมักสับสน พร้อมกฎการละ article (Zero Article) และโฟลว์ชาร์ตช่วยตัดสินใจอย่างแม่นยำ",
+   "intent": "informational"
+  },
+  {
+   "lang": "th",
+   "slug": "kan-chai-gerund-lae-infinitive-phasa-angkrit",
+   "keyword": "การใช้ gerund และ infinitive",
+   "topic": "การใช้ Gerund และ Infinitive: ความต่าง กฎเหล็ก และกริยาที่ความหมายเปลี่ยน",
+   "category": "ngu-phap",
+   "tags": [
+    "gerund",
+    "infinitive",
+    "waiyakon-phasa-angkrit"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "การใช้ gerund และ infinitive เจาะลึกความต่างเชิงตรรกะ: อนาคตเป้าหมาย vs ประสบการณ์จริง, คำกริยาที่เปลี่ยนความหมาย (stop/remember/try) และกฎเหล็กหลังคำบุพบท.",
+   "intent": "informational"
+  },
+  {
+   "lang": "th",
+   "slug": "kham-saps-phasa-angkrit-thi-mak-cha-sap-son-confusing-words",
+   "keyword": "คำศัพท์ภาษาอังกฤษที่มักสับสน",
+   "topic": "คู่คำศัพท์ภาษาอังกฤษที่คนไทยมักสับสนและใช้ผิดบ่อย พร้อมวิธีแยกแยะ",
+   "category": "tu-vung",
+   "tags": [
+    "tu-vung",
+    "vocabulary",
+    "tips"
+   ],
+   "shots": [
+    "dict",
+    "review"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/review"
+   ],
+   "angle": "สรุปคู่คำศัพท์ภาษาอังกฤษที่มักสับสนและใช้ผิดบ่อย เช่น affect vs effect, borrow vs lend, sensible vs sensitive พร้อมตัวอย่างประโยคและเทคนิคจำแม่น",
+   "intent": "informational"
+  },
+  {
+   "lang": "th",
+   "slug": "phaen-kan-rian-ielts-duay-tua-eng-chak-sun-thueng-6-5",
+   "keyword": "แผนการเรียน ielts ด้วยตัวเอง",
+   "topic": "แผนการเรียน IELTS ด้วยตัวเอง: จากศูนย์สู่ Band 6.5+ ใน 4 ขั้นตอน",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "phaen-kan-rian",
+    "rian-duay-tua-eng"
+   ],
+   "shots": [
+    "path",
+    "goal",
+    "placement"
+   ],
+   "routes": [
+    "/#/path",
+    "/#/goal",
+    "/#/placement"
+   ],
+   "angle": "คู่มือวางแผนการเรียน IELTS ด้วยตัวเองโดยไม่ต้องพึ่งสถาบันกวดวิชา: แบ่ง 4 ระยะชัดเจน การจัดเวลาวันละ 90 นาที และวิธีท่องคำศัพท์วิชาการด้วย FSRS.",
+   "intent": "informational"
+  },
+  {
+   "lang": "th",
+   "slug": "prayok-phasa-angkrit-chai-nai-chiwit-pracham-wan",
+   "keyword": "ประโยคภาษาอังกฤษใช้ในชีวิตประจําวัน",
+   "topic": "รวมประโยคภาษาอังกฤษใช้ในชีวิตประจำวันที่พบบ่อย พร้อมบทสนทนาและวิธีพูดให้เป็นธรรมชาติ",
+   "category": "ky-nang",
+   "tags": [
+    "ky-nang",
+    "speaking",
+    "conversation"
+   ],
+   "shots": [
+    "dict",
+    "speaking"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/speaking"
+   ],
+   "angle": "รวมประโยคภาษาอังกฤษใช้ในชีวิตประจำวันที่เจ้าของภาษาพูดบ่อยที่สุด: การทักทาย ชวนคุย แสดงความเห็น สั่งอาหาร สื่อสารลื่นไหลไม่ต้องแปลในหัว.",
+   "intent": "informational"
+  },
+  {
+   "lang": "th",
+   "slug": "withee-phatthana-thaksa-kan-fang-phasa-angkrit-5-khantorn",
+   "keyword": "วิธีพัฒนาทักษะการฟังภาษาอังกฤษ",
+   "topic": "วิธีพัฒนาทักษะการฟังภาษาอังกฤษ: เทคนิค 5 ขั้นตอนฝึกฟังให้เข้าใจ",
+   "category": "ky-nang",
+   "tags": [
+    "listening",
+    "phasa-angkrit",
+    "kan-fang"
+   ],
+   "shots": [
+    "listening",
+    "practice"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/practice"
+   ],
+   "angle": "คู่มือวิธีพัฒนาทักษะการฟังภาษาอังกฤษ: วิเคราะห์สาเหตุที่อ่านออกแต่ฟังไม่ทัน, การเชื่อมเสียง connected speech, เทคนิค Dictation และ Shadowing 5 ขั้นตอน.",
+   "intent": "informational"
+  },
+  {
+   "lang": "tr",
+   "slug": "gerund-ve-infinitive-konu-anlatimi-farklari",
+   "keyword": "gerund ve infinitive konu anlatımı",
+   "topic": "Gerund ve Infinitive Konu Anlatımı: Farklar, Mantık ve Anlamı Değişen Fiiller",
+   "category": "ngu-phap",
+   "tags": [
+    "gerund",
+    "infinitive",
+    "ingilizce-dilbilgisi"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "Gerund ve infinitive konu anlatımı detaylı rehber: Gelecek hedefi ile gerçek deneyim mantığı, stop/remember/try gibi anlamı değişen fiiller ve edat kuralı.",
+   "intent": "informational"
+  },
+  {
+   "lang": "tr",
+   "slug": "gunluk-ingilizce-konusma-kaliplari-cumleler",
+   "keyword": "gunluk ingilizce konusma kaliplari",
+   "topic": "Akıcı iletişim için en çok kullanılan günlük İngilizce konuşma kalıpları ve diyaloglar",
+   "category": "ky-nang",
+   "tags": [
+    "ky-nang",
+    "speaking",
+    "conversation"
+   ],
+   "shots": [
+    "dict",
+    "speaking"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/speaking"
+   ],
+   "angle": "Günlük İngilizce konuşma kalıpları rehberi: selamlaşmalar, sohbet başlatma (small talk), fikir belirtme, kafede sipariş verme ve doğal yanıt cümleleri.",
+   "intent": "informational"
+  },
+  {
+   "lang": "tr",
+   "slug": "ielts-calisma-plani-sifirdan-6-5-seviyesine",
+   "keyword": "ielts çalışma planı",
+   "topic": "IELTS Çalışma Planı: Sıfırdan Band 6.5 Seviyesine Adım Adım Rehber",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "calisma-plani",
+    "kendi-kendine"
+   ],
+   "shots": [
+    "path",
+    "goal",
+    "placement"
+   ],
+   "routes": [
+    "/#/path",
+    "/#/goal",
+    "/#/placement"
+   ],
+   "angle": "Evde kendi kendine IELTS hazırlık rehberi: 4 aşamalı çalışma planı, dinleme, okuma, yazma ve konuşma için günlük zaman dağılımı ve FSRS kelime tekrarı.",
+   "intent": "informational"
+  },
+  {
+   "lang": "tr",
+   "slug": "ingilizce-artikeller-a-an-the-kullanimi-kurallari",
+   "keyword": "ingilizce a an the kullanimi",
+   "topic": "İngilizce Artikeller (A, An, The) Kullanımı ve Sıfır Artikel Kuralları",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "artikeller",
+    "grammar"
+   ],
+   "shots": [
+    "dict",
+    "grammar"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/grammar"
+   ],
+   "angle": "Türkçe konuşanlar için İngilizce artikeller rehberi: a/an ve the farkı, sıfır artikel (Zero Article) mantığı ve karar ağacıyla adım adım anlatım.",
+   "intent": "informational"
+  },
+  {
+   "lang": "tr",
+   "slug": "ingilizce-listening-gelistirme-yollari-5-adimli-yontem",
+   "keyword": "ingilizce listening geliştirme yolları",
+   "topic": "İngilizce Listening Geliştirme Yolları: 5 Adımlı Pratik Yöntem",
+   "category": "ky-nang",
+   "tags": [
+    "listening",
+    "ingilizce",
+    "dinleme-becerisi"
+   ],
+   "shots": [
+    "listening",
+    "practice"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/practice"
+   ],
+   "angle": "Etkili İngilizce listening geliştirme yolları: Neden okuduğunuzu anlıyor ama duyamıyorsunuz, bottom-up ve top-down süreçleri ve dikte ile 5 aşamalı aktif dinleme.",
+   "intent": "informational"
+  },
+  {
+   "lang": "tr",
+   "slug": "ingilizcede-en-cok-karistirilan-kelimeler-confused-words",
+   "keyword": "ingilizcede en cok karistirilan kelimeler",
+   "topic": "İngilizcede en çok karıştırılan kelime çiftleri, anlam farkları ve püf noktaları",
+   "category": "tu-vung",
+   "tags": [
+    "tu-vung",
+    "vocabulary",
+    "tips"
+   ],
+   "shots": [
+    "dict",
+    "review"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/review"
+   ],
+   "angle": "Türk öğrencilerin İngilizce öğrenirken en sık karıştırdığı kelime çiftleri (affect/effect, borrow/lend, sensible/sensitive, historic/historical) ve akılda kalıcı ipuçları.",
+   "intent": "informational"
+  },
+  {
+   "lang": "vi",
+   "slug": "cach-viet-cv-tieng-anh-chuan-ats",
+   "keyword": "cách viết cv tiếng anh chuẩn ats",
+   "topic": "Cách Viết CV Tiếng Anh Chuẩn ATS: Mẫu Đẹp, Động Từ Hành Động và Bí Quyết Trúng Tuyển",
+   "category": "ky-nang",
+   "tags": [
+    "cv-tieng-anh",
+    "ats-resume",
+    "xin-viec"
+   ],
+   "shots": [
+    "practice-learn",
+    "library"
+   ],
+   "routes": [
+    "/#/practice/learn",
+    "/#/library"
+   ],
+   "angle": "Hướng dẫn cách viết cv tiếng anh chuẩn ats từ A-Z: vượt qua bộ lọc tự động, cấu trúc chuẩn quốc tế, bảng động từ hành động mạnh mẽ và những lỗi chí mạng cần tránh.",
+   "intent": "informational"
+  },
+  {
+   "lang": "vi",
+   "slug": "cau-hoi-phong-van-tieng-anh-va-tra-loi",
+   "keyword": "câu hỏi phỏng vấn tiếng anh",
+   "topic": "Câu Hỏi Phỏng Vấn Tiếng Anh Thường Gặp: Hướng Dẫn Trả Lời Chuẩn Phương Pháp STAR",
+   "category": "ky-nang",
+   "tags": [
+    "phong-van",
+    "job-interview",
+    "speaking",
+    "su-nghiep"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Tuyển tập 10 câu hỏi phỏng vấn tiếng Anh phổ biến nhất cùng chiến lược trả lời theo mô hình STAR, từ vựng hành động và cách đặt câu hỏi ngược lại cho nhà tuyển dụng.",
+   "intent": "informational"
+  },
+  {
+   "lang": "vi",
+   "slug": "thuyet-trinh-tieng-anh-mau-cau-va-cau-truc",
+   "keyword": "thuyết trình tiếng anh",
+   "topic": "Thuyết Trình Tiếng Anh: Mẫu Câu Mở Đầu, Chuyển Ý và Thuyết Phục Người Nghe",
+   "category": "ky-nang",
+   "tags": [
+    "thuyet-trinh",
+    "presentation",
+    "speaking",
+    "tieng-anh-cong-so"
+   ],
+   "shots": [
+    "library",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Cẩm nang thuyết trình tiếng anh chuyên nghiệp: cấu trúc bài nói chuẩn mực, mẫu câu chuyển slide mượt mà, phân tích biểu đồ và xử lý phần Q&A sắc bén.",
+   "intent": "informational"
+  },
+  {
+   "lang": "vi",
+   "slug": "tieng-anh-du-lich-nuoc-ngoai-mau-cau-giao-tiep",
+   "keyword": "tiếng anh du lịch nước ngoài",
+   "topic": "Tiếng Anh Du Lịch Nước Ngoài: 100+ Mẫu Câu Giao Tiếp và Hội Thoại Thực Tế",
+   "category": "ky-nang",
+   "tags": [
+    "tieng-anh-du-lich",
+    "giao-tiep",
+    "hoi-thoai"
+   ],
+   "shots": [
+    "practice-speak",
+    "dict"
+   ],
+   "routes": [
+    "/#/practice/speak",
+    "/#/dict/resilient"
+   ],
+   "angle": "Cẩm nang tiếng anh du lịch nước ngoài thực chiến: từ sân bay, thủ tục hải quan, đặt phòng khách sạn, gọi món nhà hàng đến xử lý sự cố khẩn cấp tự tin.",
+   "intent": "informational"
+  },
+  {
+   "lang": "vi",
+   "slug": "tieng-anh-giao-tiep-hop-cong-so-mau-cau",
+   "keyword": "tiếng anh giao tiếp họp công sở",
+   "topic": "Tiếng Anh Giao Tiếp Họp Công Sở: 100+ Mẫu Câu Mở Đầu, Thảo Luận và Chốt Vấn Đề",
+   "category": "ky-nang",
+   "tags": [
+    "tieng-anh-hop",
+    "business-meeting",
+    "giao-tiep-cong-so"
+   ],
+   "shots": [
+    "practice-speak",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/practice/speak",
+    "/#/practice/learn"
+   ],
+   "angle": "Cẩm nang tiếng anh giao tiếp họp công sở thực chiến: phát biểu ý kiến lịch sự, ngắt lời khéo léo, xử lý bất đồng và tổng kết biên bản cuộc họp chuyên nghiệp.",
+   "intent": "informational"
+  },
+  {
+   "lang": "zh",
+   "slug": "dongmingci-yu-budingshi-qubie-yongfa-yingyu-yufa",
+   "keyword": "动名词和不定式的区别",
+   "topic": "动名词和不定式的区别：未来指向vs真实体验的底层逻辑与易混动词",
+   "category": "ngu-phap",
+   "tags": [
+    "dongmingci",
+    "budingshi",
+    "yingyu-yufa"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "动名词和不定式的区别深度解析：告别死记硬背，理解指向未来与已发生经验的认知逻辑，精讲stop/remember/try等词义翻转动词及介词加ing铁律。",
+   "intent": "informational"
+  },
+  {
+   "lang": "zh",
+   "slug": "ling-ji-chu-zi-xue-ying-yu-90-tian-gui-hua",
+   "keyword": "零基础自学英语",
+   "topic": "零基础自学英语90天全规划：从发音核心词到日常交流的高效路线图",
+   "category": "phuong-phap",
+   "tags": [
+    "ling-ji-chu",
+    "zi-xue-ying-yu",
+    "xue-xi-fang-fa"
+   ],
+   "shots": [
+    "placement",
+    "review"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/review"
+   ],
+   "angle": "零基础自学英语实用90天破局指南：先声音后拼写，主攻高频1000核心词与核心句型，搭配FSRS间隔复习，告别死记硬背与学了就忘。",
+   "intent": "informational"
+  },
+  {
+   "lang": "zh",
+   "slug": "ri-chang-ying-yu-kou-yu-chang-yong-ju-xing",
+   "keyword": "日常 英语 口语 常用 句型",
+   "topic": "地道日常英语口语常用句型与高频对话交流表达",
+   "category": "ky-nang",
+   "tags": [
+    "ky-nang",
+    "speaking",
+    "conversation"
+   ],
+   "shots": [
+    "dict",
+    "speaking"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/speaking"
+   ],
+   "angle": "精选高频地道的日常英语口语常用句型：涵盖闲聊寒暄、委婉表达观点、化解冷场与自然接话技巧，全场景实用例句深度解析。",
+   "intent": "informational"
+  },
+  {
+   "lang": "zh",
+   "slug": "ya-si-zi-xue-bei-kao-gui-hua-cong-ling-dao-6-5",
+   "keyword": "雅思自学备考规划",
+   "topic": "雅思自学备考规划：零基础到Band 6.5+四阶段学习路径",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "zi-xue",
+    "gui-hua"
+   ],
+   "shots": [
+    "path",
+    "goal",
+    "placement"
+   ],
+   "routes": [
+    "/#/path",
+    "/#/goal",
+    "/#/placement"
+   ],
+   "angle": "零报班高效雅思自学备考规划：听说读写四阶段时间拆解、上班族与学生党每日90分钟时间分配、FSRS间隔重复学术词汇速记法。",
+   "intent": "informational"
+  },
+  {
+   "lang": "zh",
+   "slug": "ying-yu-guan-ci-a-an-the-yong-fa-gui-ze",
+   "keyword": "英语冠词 a an the 用法",
+   "topic": "英语冠词完全指南：a, an, the 正确用法与零冠词规则全解析",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "guanci",
+    "grammar"
+   ],
+   "shots": [
+    "dict",
+    "grammar"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/grammar"
+   ],
+   "angle": "全面解析中国学习者常犯的英语冠词错误：定冠词 the、不定冠词 a/an 与零冠词的核心逻辑与决策树，彻底摆脱漏用或乱用冠词的问题。",
+   "intent": "informational"
+  },
+  {
+   "lang": "zh",
+   "slug": "ying-yu-yi-hun-ci-bian-xi-confusing-words",
+   "keyword": "英语 易混词 辨析",
+   "topic": "英语中最容易混淆的常见词汇对比与用法辨析",
+   "category": "tu-vung",
+   "tags": [
+    "tu-vung",
+    "vocabulary",
+    "tips"
+   ],
+   "shots": [
+    "dict",
+    "vocab"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/vocab"
+   ],
+   "angle": "针对中国英语学习者梳理最容易搞混的常见英语近义词与易混词（affect vs effect, historic vs historical, accept vs except），配详细例句与记忆技巧。",
+   "intent": "informational"
+  },
+  {
+   "lang": "vi",
+   "slug": "tieng-anh-dam-phan-thuong-luong-hop-dong",
+   "keyword": "tiếng anh đàm phán",
+   "topic": "Tiếng Anh Đàm Phán: Mẫu Câu Thương Lượng Hợp Đồng và Thuyết Phục Đối Tác",
+   "category": "ky-nang",
+   "tags": [
+    "dam-phan",
+    "negotiation",
+    "tieng-anh-cong-so",
+    "speaking"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Cẩm nang tiếng anh đàm phán thương mại: mở đầu thương lượng, đưa ra đề xuất đối ứng, xử lý bế tắc và chốt điều khoản hợp đồng chuyên nghiệp.",
+   "intent": "informational"
+  },
+  {
+   "lang": "en",
+   "slug": "business-english-negotiation-phrases-guide",
+   "keyword": "business english negotiation phrases",
+   "topic": "Business English Negotiation Phrases: Professional Bargaining and Deal Closing",
+   "category": "ky-nang",
+   "tags": [
+    "business-english",
+    "negotiation",
+    "bargaining",
+    "workplace-communication"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Essential business english negotiation phrases: framing counteroffers, navigating concessions, overcoming deal deadlocks, and sealing commercial agreements.",
+   "intent": "informational"
+  },
+  {
+   "lang": "es",
+   "slug": "frases-en-ingles-para-negociaciones-de-negocios",
+   "keyword": "negociación en inglés frases",
+   "topic": "Frases en Inglés para Negociaciones de Negocios: Cómo Regatear y Cerrar Acuerdos",
+   "category": "ky-nang",
+   "tags": [
+    "negociacion",
+    "business-english",
+    "ventas",
+    "speaking"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Guía práctica de negociación en inglés frases clave para plantear contraofertas, conceder ventajas condicionales, destrabar desacuerdos y firmar contratos comerciales.",
+   "intent": "informational"
+  },
+  {
+   "lang": "pt",
+   "slug": "frases-em-ingles-para-negociacao-de-contratos",
+   "keyword": "negociação em inglês frases",
+   "topic": "Frases em Inglês para Negociação: Como Fazer Contrapropostas e Fechar Acordos",
+   "category": "ky-nang",
+   "tags": [
+    "negociacao",
+    "business-english",
+    "carreira",
+    "speaking"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Manual de negociação em inglês frases essenciais para abrir rodadas de negócios, propor concessões condicionais, superar impasses de preços e selar parcerias duradouras.",
+   "intent": "informational"
+  },
+  {
+   "lang": "fr",
+   "slug": "negocier-en-anglais-phrases-cles-affaires",
+   "keyword": "négociation en anglais phrases",
+   "topic": "Négociation en Anglais : Phrases Clés pour Défendre Vos Prix et Conclure des Accords",
+   "category": "ky-nang",
+   "tags": [
+    "negociation",
+    "business-english",
+    "commerce",
+    "speaking"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Guide complet de la négociation en anglais phrases utiles pour formuler des contre-propositions, gérer les concessions, surmonter les blocages et signer des contrats.",
+   "intent": "informational"
+  },
+  {
+   "lang": "de",
+   "slug": "verhandlungen-auf-englisch-phrasen",
+   "keyword": "verhandlungen auf englisch phrasen",
+   "topic": "Verhandlungen auf Englisch: Wichtige Phrasen, Gegenangebote und Taktiken",
+   "category": "ky-nang",
+   "tags": [
+    "verhandlungen",
+    "business-english",
+    "vertrieb",
+    "speaking"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Leitfaden für Verhandlungen auf Englisch: Professionelle Formulierungen für Gegenangebote, das Lösen von Preisblockaden und rechtssichere Vertragsabschlüsse.",
+   "intent": "informational"
+  },
+  {
+   "lang": "id",
+   "slug": "frasa-negosiasi-bahasa-inggris-bisnis",
+   "keyword": "negosiasi bahasa inggris",
+   "topic": "Negosiasi Bahasa Inggris: Frasa Tawar-Menawar Kontrak dan Menutup Kesepakatan",
+   "category": "ky-nang",
+   "tags": [
+    "negosiasi",
+    "business-english",
+    "karier",
+    "speaking"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Panduan lengkap negosiasi bahasa inggris: teknik mengajukan penawaran balik, konsesi bersyarat, mengatasi kebuntuan harga, dan menutup kontrak bisnis.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ja",
+   "slug": "business-eigo-koshou-phrases-keiyaku",
+   "keyword": "英語 交渉 フレーズ",
+   "topic": "英語交渉フレーズ集：価格交渉・条件提示・契約締結までの実戦表現",
+   "category": "ky-nang",
+   "tags": [
+    "koshou",
+    "business-eigo",
+    "speaking",
+    "keiyaku"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "ビジネス英語交渉フレーズ集：条件付き譲歩、価格交渉の切り返し、デッドロック打開から契約締結まで、外資系やグローバル取引で役立つ実践表現を網羅。",
+   "intent": "informational"
+  },
+  {
+   "lang": "zh",
+   "slug": "shang-wu-ying-yu-tan-pan-ju-xing-he-tong",
+   "keyword": "商务英语 谈判 句型",
+   "topic": "商务英语谈判实用句型：价格博弈、让步条件与合同敲定全流程指南",
+   "category": "ky-nang",
+   "tags": [
+    "tan-pan",
+    "shang-wu-ying-yu",
+    "speaking",
+    "he-tong"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "外企跨国商务英语谈判必备句型：从开场破冰、提出还盘对案、化解价格僵局到正式敲定商业合同，全流程专业表达深度解析。",
+   "intent": "informational"
+  },
+  {
+   "lang": "ko",
+   "slug": "business-yeongeo-hyeobsang-pyohyeon-gyeyak",
+   "keyword": "영어 협상 표현",
+   "topic": "비즈니스 영어 협상 표현：가격 협상, 조건 조율 및 계약 체결 핵심 패턴",
+   "category": "ky-nang",
+   "tags": [
+    "hyeobsang",
+    "business-yeongeo",
+    "speaking",
+    "gyeyak"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "실전 비즈니스 영어 협상 표현 가이드: 조건부 양보 제안, 가격 대치 국면 타개, 정중한 거절과 계약서 조항 최종 확정까지 핵심 패턴 완벽 정리.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ru",
+   "slug": "frazy-dlya-peregovorov-na-angliyskom",
+   "keyword": "фразы для переговоров на английском",
+   "topic": "Фразы для деловых переговоров на английском: уступки, торг и заключение контракта",
+   "category": "ky-nang",
+   "tags": [
+    "peregovory",
+    "delovoy-angliyskiy",
+    "speaking",
+    "kontrakt"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Практическое руководство по фразам для переговоров на английском: условные уступки, обсуждение цены, выход из тупика и подписание международного контракта.",
+   "intent": "informational"
+  },
+  {
+   "lang": "tr",
+   "slug": "ingilizce-muzakere-kaliplari-ve-sozlesme",
+   "keyword": "ingilizce müzakere kalıpları",
+   "topic": "İngilizce Müzakere Kalıpları: Fiyat Pazarlığı, Koşullu Taviz ve Sözleşme Kapatma",
+   "category": "ky-nang",
+   "tags": [
+    "muzakere",
+    "is-ingilizcesi",
+    "speaking",
+    "sozlesme"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "İş dünyasında İngilizce müzakere kalıpları rehberi: karşı teklif sunma, koşullu tavizler, fiyat kilitlenmelerini aşma ve anlaşma bağlama stratejileri.",
+   "intent": "informational"
+  },
+  {
+   "lang": "th",
+   "slug": "samnuan-tor-rong-phasa-angrit-thurakit",
+   "keyword": "ภาษาอังกฤษ เจรจาต่อรอง",
+   "topic": "ภาษาอังกฤษ เจรจาต่อรองธุรกิจ: การต่อรองราคา การแลกเปลี่ยนเงื่อนไข และปิดดีลสัญญา",
+   "category": "ky-nang",
+   "tags": [
+    "tor-rong",
+    "business-english",
+    "speaking",
+    "sanya"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "รวมประโยคและสำนวนภาษาอังกฤษ เจรจาต่อรองธุรกิจ: การยื่นข้อเสนอโต้แย้ง การประนีประนอมอย่างมีเงื่อนไข การคลี่คลายจุดติดขัด และการลงนามในสัญญาการค้า.",
+   "intent": "informational"
+  },
+  {
+   "lang": "ar",
+   "slug": "ibarat-al-mufawadat-bil-injiliziyya-lil-aamal",
+   "keyword": "عبارات التفاوض باللغة الإنجليزية",
+   "topic": "عبارات التفاوض باللغة الإنجليزية في الأعمال: تقديم العروض المضادة وإبرام العقود",
+   "category": "ky-nang",
+   "tags": [
+    "mufawadat",
+    "aamal-injiliziyya",
+    "speaking",
+    "uqud"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "دليل عبارات التفاوض باللغة الإنجليزية للأعمال: تقديم التنازلات المشروطة، معالجة الجمود في الأسعار، والوصول إلى صفقات رابحة وتوقيع العقود التجارية.",
+   "intent": "informational"
+  },
+  {
+   "lang": "hi",
+   "slug": "business-english-me-negotiation-phrases-guide",
+   "keyword": "business english negotiation phrases",
+   "topic": "Business English Negotiation Phrases: मोलभाव, शर्तें और कॉन्ट्रैक्ट क्लोजिंग गाइड",
+   "category": "ky-nang",
+   "tags": [
+    "negotiation",
+    "business-english",
+    "speaking",
+    "contract"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "व्यावसायिक सौदों के लिए business english negotiation phrases: सशर्त छूट की पेशकश, गतिरोध दूर करना, प्रति-प्रस्ताव और सफल अनुबंध हस्ताक्षर के महत्वपूर्ण पैटर्न।",
+   "intent": "informational"
+  },
+  {
+   "lang": "vi",
+   "slug": "thanh-ngu-tieng-anh-cong-so-thong-dung",
+   "keyword": "thành ngữ tiếng anh công sở",
+   "topic": "Thành ngữ tiếng Anh công sở: 50+ idioms thực chiến trong họp và giao tiếp doanh nghiệp",
+   "category": "tu-vung",
+   "tags": [
+    "thanh-ngu",
+    "business-english",
+    "cong-so",
+    "idioms"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Tổng hợp thành ngữ tiếng anh công sở thông dụng: hiểu đúng nghĩa bóng, ngữ cảnh sử dụng trong họp, đàm phán và gửi email chuyên nghiệp.",
+   "intent": "informational"
+  },
+  {
+   "lang": "en",
+   "slug": "business-english-idioms-workplace-guide",
+   "keyword": "business english idioms",
+   "topic": "Essential Business English Idioms: Master Corporate Jargon in Meetings and Emails",
+   "category": "tu-vung",
+   "tags": [
+    "idioms",
+    "business-english",
+    "workplace",
+    "speaking"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Comprehensive guide to business english idioms: decoding corporate jargon, nuanced meanings in boardrooms, negotiation calls, and executive emails.",
+   "intent": "informational"
+  },
+  {
+   "lang": "en",
+   "slug": "ielts-for-immigration-guide",
+   "keyword": "ielts for immigration",
+   "topic": "IELTS for immigration: which test, which band, for Canada, Australia, UK and New Zealand",
+   "category": "ky-nang",
+   "tags": [
+    "ielts",
+    "immigration",
+    "ielts-general",
+    "canada",
+    "australia"
+   ],
+   "shots": [
+    "goal",
+    "letters"
+   ],
+   "routes": [
+    "/#/goal",
+    "/#/letters"
+   ],
+   "angle": "CPM cluster 2027-01 pillar (US/GB/CA/AU/NZ): General vs Academic, IELTS for UKVI, minimum scores by country/visa (official tables), validity 2 years, how to plan prep from current level. Kiểm số điểm/điều kiện TẠI NGUỒN CHÍNH THỨC lúc viết (canada.ca IRCC, immi.homeaffairs.gov.au, gov.uk, immigration.govt.nz), ghi ngày kiểm; không hứa visa, không tư vấn pháp lý, không dự đoán band chính thức. App hỗ trợ: mục tiêu IELTS + kế hoạch học (#/goal), thư General Training (#/letters), luyện Speaking.",
+   "intent": "informational",
+   "cluster": "ielts-immigration",
+   "role": "pillar",
+   "translationKey": "ielts-for-immigration-guide"
+  },
+  {
+   "lang": "de",
+   "slug": "ielts-fuer-auswanderung-kanada-australien-uk",
+   "keyword": "ielts auswandern",
+   "topic": "IELTS für die Auswanderung: welcher Test und welches Band für Kanada, Australien, UK und Neuseeland",
+   "category": "ky-nang",
+   "tags": [
+    "ielts",
+    "auswandern",
+    "ielts-general",
+    "kanada",
+    "australien"
+   ],
+   "shots": [
+    "goal",
+    "letters"
+   ],
+   "routes": [
+    "/#/goal",
+    "/#/letters"
+   ],
+   "angle": "CPM-Cluster pillar, bản địa cho người Đức/Áo/Thụy Sĩ muốn di cư/Work and Holiday: lỗi người nói tiếng Đức (false friends, word order, th/w), Express Entry CLB, Working Holiday visa, chi phí thi ở Đức (British Council/IDP Deutschland). Kiểm số điểm/điều kiện TẠI NGUỒN CHÍNH THỨC lúc viết (canada.ca IRCC, immi.homeaffairs.gov.au, gov.uk, immigration.govt.nz), ghi ngày kiểm; không hứa visa, không tư vấn pháp lý, không dự đoán band chính thức. App hỗ trợ: mục tiêu IELTS + kế hoạch học (#/goal), thư General Training (#/letters), luyện Speaking.",
+   "intent": "informational",
+   "cluster": "ielts-immigration",
+   "role": "pillar",
+   "translationKey": "ielts-for-immigration-guide"
+  },
+  {
+   "lang": "fr",
+   "slug": "ielts-pour-immigrer-canada-australie-royaume-uni",
+   "keyword": "ielts immigration canada",
+   "topic": "IELTS pour immigrer : quel test et quel score pour le Canada, l’Australie et le Royaume-Uni",
+   "category": "ky-nang",
+   "tags": [
+    "ielts",
+    "immigration",
+    "ielts-general",
+    "canada",
+    "australie"
+   ],
+   "shots": [
+    "goal",
+    "letters"
+   ],
+   "routes": [
+    "/#/goal",
+    "/#/letters"
+   ],
+   "angle": "Pillar bản địa cho người Pháp/Bỉ/Thụy Sĩ: Express Entry (IELTS General + TEF/TCF cho tiếng Pháp cộng điểm), PVT Canada/Australie, lỗi người nói tiếng Pháp (faux amis, h muet, -ed). Nói rõ TEF/TCF chỉ cho tiếng Pháp, app không luyện TEF. Kiểm số điểm/điều kiện TẠI NGUỒN CHÍNH THỨC lúc viết (canada.ca IRCC, immi.homeaffairs.gov.au, gov.uk, immigration.govt.nz), ghi ngày kiểm; không hứa visa, không tư vấn pháp lý, không dự đoán band chính thức. App hỗ trợ: mục tiêu IELTS + kế hoạch học (#/goal), thư General Training (#/letters), luyện Speaking.",
+   "intent": "informational",
+   "cluster": "ielts-immigration",
+   "role": "pillar",
+   "translationKey": "ielts-for-immigration-guide"
+  },
+  {
+   "lang": "ja",
+   "slug": "ielts-ijuu-kanada-goshuu-eikoku-guide",
+   "keyword": "ielts 移住",
+   "topic": "IELTSで海外移住：カナダ・オーストラリア・イギリス・NZに必要なスコアと試験の選び方",
+   "category": "ky-nang",
+   "tags": [
+    "ielts",
+    "ijuu",
+    "ielts-general",
+    "working-holiday"
+   ],
+   "shots": [
+    "goal",
+    "letters"
+   ],
+   "routes": [
+    "/#/goal",
+    "/#/letters"
+   ],
+   "angle": "Pillar bản địa cho người Nhật: 永住権/技術移民/ワーホリ, General vs Academic, UKVI, phí và nơi thi ở Nhật (公式), lỗi người Nhật (カタカナ発音, 冠詞, L/R). Đếm ký tự ≥ 3.200. Kiểm số điểm/điều kiện TẠI NGUỒN CHÍNH THỨC lúc viết (canada.ca IRCC, immi.homeaffairs.gov.au, gov.uk, immigration.govt.nz), ghi ngày kiểm; không hứa visa, không tư vấn pháp lý, không dự đoán band chính thức. App hỗ trợ: mục tiêu IELTS + kế hoạch học (#/goal), thư General Training (#/letters), luyện Speaking.",
+   "intent": "informational",
+   "cluster": "ielts-immigration",
+   "role": "pillar",
+   "translationKey": "ielts-for-immigration-guide"
+  },
+  {
+   "lang": "ko",
+   "slug": "ielts-imin-jeomsu-kaenada-hoju-yeongguk",
+   "keyword": "이민 ielts 점수",
+   "topic": "이민 IELTS 점수 총정리: 캐나다·호주·영국·뉴질랜드 시험 선택과 목표 밴드",
+   "category": "ky-nang",
+   "tags": [
+    "ielts",
+    "imin",
+    "ielts-general",
+    "canada",
+    "australia"
+   ],
+   "shots": [
+    "goal",
+    "letters"
+   ],
+   "routes": [
+    "/#/goal",
+    "/#/letters"
+   ],
+   "angle": "Pillar bản địa cho người Hàn: 캐나다 Express Entry CLB, 호주 기술이민 점수, 워홀, General vs Academic, 한국 시험장/비용 (공식), lỗi người Hàn (관사, f/p, 시제). Kiểm số điểm/điều kiện TẠI NGUỒN CHÍNH THỨC lúc viết (canada.ca IRCC, immi.homeaffairs.gov.au, gov.uk, immigration.govt.nz), ghi ngày kiểm; không hứa visa, không tư vấn pháp lý, không dự đoán band chính thức. App hỗ trợ: mục tiêu IELTS + kế hoạch học (#/goal), thư General Training (#/letters), luyện Speaking.",
+   "intent": "informational",
+   "cluster": "ielts-immigration",
+   "role": "pillar",
+   "translationKey": "ielts-for-immigration-guide"
+  },
+  {
+   "lang": "en",
+   "slug": "english-for-newcomers-renting",
+   "keyword": "english phrases for renting an apartment",
+   "topic": "English phrases for renting an apartment: viewings, leases, deposits and repairs",
+   "category": "ky-nang",
+   "tags": [
+    "newcomers",
+    "renting",
+    "speaking",
+    "everyday-english"
+   ],
+   "shots": [
+    "phrases",
+    "speaking"
+   ],
+   "routes": [
+    "/#/confidence/renting",
+    "/#/phrases"
+   ],
+   "angle": "CPM cluster pillar newcomer-english (US/GB/CA/AU/NZ): phrases by stage (enquiry, viewing, application, lease terms US vs UK vocab: lease/tenancy, deposit/bond (AU), landlord/letting agent, maintenance request email). Không tư vấn pháp lý; chỉ nói quyền chung + trỏ trang chính phủ.",
+   "intent": "informational",
+   "cluster": "newcomer-english",
+   "role": "pillar",
+   "translationKey": "ielts-for-immigration-guide"
+  },
+  {
+   "lang": "en",
+   "slug": "ielts-clb-score-canada",
+   "keyword": "ielts to clb conversion",
+   "topic": "IELTS to CLB conversion: the official chart for Express Entry and what each band means",
+   "category": "ky-nang",
+   "tags": [
+    "ielts",
+    "canada",
+    "clb",
+    "express-entry"
+   ],
+   "shots": [
+    "goal",
+    "placement"
+   ],
+   "routes": [
+    "/#/goal",
+    "/#/placement"
+   ],
+   "angle": "Spoke của ielts-for-immigration-guide (CA): bảng IELTS General → CLB chính thức từ canada.ca theo từng kỹ năng, ví dụ CLB 7/9, không suy diễn điểm CRS ngoài nguồn. Kiểm số điểm/điều kiện TẠI NGUỒN CHÍNH THỨC lúc viết (canada.ca IRCC, immi.homeaffairs.gov.au, gov.uk, immigration.govt.nz), ghi ngày kiểm; không hứa visa, không tư vấn pháp lý, không dự đoán band chính thức. App hỗ trợ: mục tiêu IELTS + kế hoạch học (#/goal), thư General Training (#/letters), luyện Speaking.",
+   "intent": "informational",
+   "cluster": "ielts-immigration",
+   "role": "spoke",
+   "translationKey": "ielts-clb-score-canada",
+   "pillar": "ielts-for-immigration-guide"
   }
  ]
 }

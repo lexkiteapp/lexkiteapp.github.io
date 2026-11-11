@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Mistake Notebook (Arabic RTL Bright Day)</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Google Fonts: Plus Jakarta Sans, Noto Sans Arabic, Material Symbols Rounded -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'lex-cream': '#fff8f5',
+            'lex-cream-card': '#fff1e8',
+            'lex-cream-card-hover': '#faeae0',
+            'lex-border': '#e6d7cd',
+            'lex-ink': '#132023',
+            'lex-ink-muted': '#5c6e72',
+            'lex-teal': '#136a63',
+            'lex-teal-dark': '#0d4a45',
+            'lex-teal-soft': '#d9f1ee',
+            'lex-teal-soft-border': '#a8dfd8',
+            'lex-orange': '#f59e0b',
+            'lex-orange-dark': '#d97706',
+            'lex-orange-edge': '#b45309',
+            'lex-red-soft': '#fee2e2',
+            'lex-red-border': '#fca5a5',
+            'lex-red-ink': '#b91c1c',
+            'lex-green-soft': '#dcfce7',
+            'lex-green-border': '#86efac',
+            'lex-green-ink': '#15803d',
+            'lex-yellow-soft': '#fef9c3',
+            'lex-yellow-border': '#fde047',
+            'lex-yellow-ink': '#854d0e',
+          },
+          fontFamily: {
+            sans: ['"Noto Sans Arabic"', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            latin: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'tactile-sm': '0 2px 0 0 #e6d7cd',
+            'tactile-md': '0 3px 0 0 #d9c7bb',
+            'tactile-btn': '0 4px 0 0 #b45309',
+            'tactile-teal': '0 3px 0 0 #0d4a45',
+            'tactile-gray': '0 2px 0 0 #cbd5e1',
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body {
+      font-family: 'Noto Sans Arabic', 'Plus Jakarta Sans', system-ui, sans-serif;
+      background-color: #fff8f5;
+      color: #132023;
+      -webkit-font-smoothing: antialiased;
+    }
+    .latin-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      direction: ltr;
+      display: inline-block;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+    /* Mirrored directional icons */
+    .icon-rtl-flip {
+      transform: scaleX(-1);
+    }
+  </style>
+</head>
+<body class="bg-lex-cream text-lex-ink min-h-screen flex flex-col justify-between max-w-[390px] mx-auto border-x border-lex-border selection:bg-lex-teal-soft selection:text-lex-teal">
+<!-- TOP BAR (INNER VARIANT MIRRORED) -->
+<header class="sticky top-0 z-40 bg-lex-cream/95 backdrop-blur-sm border-b-2 border-lex-border px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<!-- Back Arrow (Flipped in RTL) -->
+<button aria-label="رجوع" class="w-11 h-11 flex items-center justify-center rounded-full bg-lex-cream-card hover:bg-lex-cream-card-hover border border-lex-border shadow-tactile-sm active:translate-y-0.5 transition-all text-lex-ink">
+<span class="material-symbols-rounded icon-rtl-flip text-xl">arrow_back</span>
+</button>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-lex-ink leading-tight">سجل الأخطاء</h1>
+<p class="text-xs font-semibold text-lex-ink-muted flex items-center gap-1">
+<span class="latin-text text-[11px] font-bold text-lex-teal">#/mistakes</span>
+<span>•</span>
+<span>25 خطأً معلقاً</span>
+</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<!-- Preferences / Filter Toggle -->
+<button aria-label="تصفية وتفضيلات" class="w-11 h-11 flex items-center justify-center rounded-full bg-lex-cream-card hover:bg-lex-cream-card-hover border border-lex-border shadow-tactile-sm active:translate-y-0.5 transition-all text-lex-ink">
+<span class="material-symbols-rounded text-xl">tune</span>
+</button>
+<!-- Bookmark button -->
+<button aria-label="العناصر المحفوظة" class="w-11 h-11 flex items-center justify-center rounded-full bg-lex-cream-card hover:bg-lex-cream-card-hover border border-lex-border shadow-tactile-sm active:translate-y-0.5 transition-all text-lex-ink">
+<span class="material-symbols-rounded text-xl">bookmark</span>
+</button>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT -->
+<main class="flex-1 px-4 py-4 space-y-4 pb-28">
+<!-- TEACHER SLOT CALLOUT BANNER -->
+<section class="bg-lex-cream-card border-2 border-lex-border rounded-2xl p-3.5 flex items-center gap-3.5 shadow-tactile-sm">
+<!-- Empty Dashed Teacher Slot for 2D Teacher -->
+<div class="w-12 h-12 flex-shrink-0 rounded-xl border-2 border-dashed border-lex-teal/60 bg-lex-cream flex flex-col items-center justify-center p-1 text-center">
+<span class="material-symbols-rounded text-lex-teal text-lg">school</span>
+<span class="text-[9px] font-extrabold uppercase tracking-tight text-lex-teal">المعلم</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-medium leading-snug text-lex-ink">
+          «مراجعة الأخطاء خلال <span class="font-extrabold text-lex-ink underline decoration-lex-orange-edge decoration-2">24 ساعة</span> تضاعف نسبة الحفظ لنطاق <span class="latin-text font-bold text-lex-teal">Band 7.5+</span>!»
+        </p>
+</div>
+</section>
+<!-- CATEGORY FILTER CHIPS ROW -->
+<section class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+<!-- Active All Filter -->
+<button class="flex-shrink-0 px-4 py-2.5 rounded-full bg-lex-teal text-white font-bold text-xs shadow-tactile-teal active:translate-y-0.5 transition-all flex items-center gap-1.5 min-h-[44px]">
+<span>الكل</span>
+<span class="bg-white/20 text-white rounded-full px-1.5 py-0.5 text-[11px] font-semibold latin-text">25</span>
+</button>
+<!-- Grammar -->
+<button class="flex-shrink-0 px-4 py-2.5 rounded-full bg-lex-cream-card hover:bg-lex-cream-card-hover border-2 border-lex-border text-lex-ink font-semibold text-xs shadow-tactile-sm active:translate-y-0.5 transition-all flex items-center gap-1.5 min-h-[44px]">
+<span>قواعد</span>
+<span class="bg-lex-border/60 text-lex-ink-muted rounded-full px-1.5 py-0.5 text-[11px] font-semibold latin-text">12</span>
+</button>
+<!-- Vocabulary -->
+<button class="flex-shrink-0 px-4 py-2.5 rounded-full bg-lex-cream-card hover:bg-lex-cream-card-hover border-2 border-lex-border text-lex-ink font-semibold text-xs shadow-tactile-sm active:translate-y-0.5 transition-all flex items-center gap-1.5 min-h-[44px]">
+<span>مفردات</span>
+<span class="bg-lex-border/60 text-lex-ink-muted rounded-full px-1.5 py-0.5 text-[11px] font-semibold latin-text">8</span>
+</button>
+<!-- Pronunciation -->
+<button class="flex-shrink-0 px-4 py-2.5 rounded-full bg-lex-cream-card hover:bg-lex-cream-card-hover border-2 border-lex-border text-lex-ink font-semibold text-xs shadow-tactile-sm active:translate-y-0.5 transition-all flex items-center gap-1.5 min-h-[44px]">
+<span>نطق</span>
+<span class="bg-lex-border/60 text-lex-ink-muted rounded-full px-1.5 py-0.5 text-[11px] font-semibold latin-text">5</span>
+</button>
+</section>
+<!-- TIMELINE RANGE DROPDOWN -->
+<div class="flex items-center justify-between text-xs font-semibold text-lex-ink-muted px-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-base text-lex-ink-muted">calendar_today</span>
+<span>الجدول الزمني</span>
+</div>
+<button class="flex items-center gap-1 px-3 py-2 rounded-xl bg-lex-cream-card border border-lex-border text-lex-ink font-bold text-xs shadow-tactile-sm min-h-[44px] hover:bg-lex-cream-card-hover">
+<span>آخر 7 أيام</span>
+<span class="material-symbols-rounded text-base">expand_more</span>
+</button>
+</div>
+<!-- MISTAKE CARD 1: Grammar (IELTS Task 2) -->
+<article class="bg-lex-cream-card border-2 border-lex-border rounded-2xl p-4 space-y-3.5 shadow-tactile-md">
+<!-- Card Header -->
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5 bg-lex-teal-soft/80 border border-lex-teal-soft-border text-lex-teal font-bold px-2.5 py-1 rounded-lg">
+<span class="material-symbols-rounded text-sm">spellcheck</span>
+<span>قواعد • <span class="latin-text">IELTS Task 2</span></span>
+</div>
+<span class="text-lex-ink-muted font-medium text-[11px]">أمس</span>
+</div>
+<!-- Context Sentence -->
+<div>
+<p class="text-[11px] font-bold uppercase tracking-wider text-lex-ink-muted mb-1">جملة السياق</p>
+<p class="text-sm font-semibold text-lex-ink bg-lex-cream border border-lex-border/80 rounded-xl p-3 latin-text leading-relaxed">
+          “<span class="underline decoration-lex-red-ink decoration-2 underline-offset-4 text-lex-red-ink font-bold">Despite of the bad weather</span>, the outdoor symposium continued.”
+        </p>
+</div>
+<!-- Comparison: Incorrect Attempt vs Correct Standard -->
+<div class="space-y-2">
+<!-- User Attempt -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-lex-red-soft/70 border border-lex-red-border text-xs">
+<span class="material-symbols-rounded text-lex-red-ink text-base mt-0.5 flex-shrink-0">close</span>
+<div>
+<span class="font-extrabold text-lex-red-ink block mb-0.5">محاولتك</span>
+<span class="latin-text text-lex-red-ink line-through font-bold text-sm">Despite of</span>
+</div>
+</div>
+<!-- Correct Standard -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-lex-green-soft border border-lex-green-border text-xs">
+<span class="material-symbols-rounded text-lex-green-ink text-base mt-0.5 flex-shrink-0">check_circle</span>
+<div>
+<span class="font-extrabold text-lex-green-ink block mb-0.5">المعيار الصحيح</span>
+<span class="latin-text text-lex-green-ink font-bold text-sm">Despite / In spite of</span>
+</div>
+</div>
+</div>
+<!-- Rule Explanation -->
+<div class="flex items-start gap-2 p-3 rounded-xl bg-lex-yellow-soft/80 border border-lex-yellow-border text-xs text-lex-yellow-ink leading-relaxed">
+<span class="material-symbols-rounded text-base flex-shrink-0 mt-0.5 text-lex-yellow-ink">lightbulb</span>
+<p>
+<span class="font-extrabold text-lex-ink">القاعدة:</span> تأخذ كلمة <span class="latin-text font-bold">‘Despite’</span> اسماً مباشرةً دون حرف جر (<span class="latin-text font-bold">‘of’</span>). في المقابل، تتطلب عبارة <span class="latin-text font-bold">‘In spite’</span> دائماً وجود <span class="latin-text font-bold">‘of’</span>.
+        </p>
+</div>
+<!-- Action Buttons Row -->
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-2.5 px-3 rounded-xl bg-lex-cream hover:bg-lex-cream-card border border-lex-border font-bold text-xs text-lex-ink flex items-center justify-center gap-1.5 shadow-tactile-sm active:translate-y-0.5 transition-all min-h-[44px]">
+<span class="material-symbols-rounded text-base text-lex-teal">volume_up</span>
+<span>استمع</span>
+</button>
+<button class="flex-1 py-2.5 px-3 rounded-xl bg-lex-cream hover:bg-lex-cream-card border border-lex-border font-bold text-xs text-lex-ink flex items-center justify-center gap-1.5 shadow-tactile-sm active:translate-y-0.5 transition-all min-h-[44px]">
+<span class="material-symbols-rounded text-base text-lex-orange-edge">replay</span>
+<span>تدرّب 1×</span>
+</button>
+</div>
+</article>
+<!-- MISTAKE CARD 2: Vocabulary & Band 7.5 Collocation -->
+<article class="bg-lex-cream-card border-2 border-lex-border rounded-2xl p-4 space-y-3.5 shadow-tactile-md">
+<!-- Card Header -->
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5 bg-lex-teal-soft/80 border border-lex-teal-soft-border text-lex-teal font-bold px-2.5 py-1 rounded-lg">
+<span class="material-symbols-rounded text-sm">menu_book</span>
+<span>مفردات • <span class="latin-text">Band 7.5 Collocation</span></span>
+</div>
+<span class="text-lex-ink-muted font-medium text-[11px]">منذ يومين</span>
+</div>
+<!-- Context Sentence -->
+<div>
+<p class="text-[11px] font-bold uppercase tracking-wider text-lex-ink-muted mb-1">جملة السياق</p>
+<p class="text-sm font-semibold text-lex-ink bg-lex-cream border border-lex-border/80 rounded-xl p-3 latin-text leading-relaxed">
+          “The committee decided to <span class="underline decoration-lex-red-ink decoration-2 underline-offset-4 text-lex-red-ink font-bold">make a decision quickly</span>.”
+        </p>
+</div>
+<!-- Comparison -->
+<div class="space-y-2">
+<!-- Weak attempt -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-lex-red-soft/70 border border-lex-red-border text-xs">
+<span class="material-symbols-rounded text-lex-red-ink text-base mt-0.5 flex-shrink-0">close</span>
+<div>
+<span class="font-extrabold text-lex-red-ink block mb-0.5">أسلوب أكاديمي ضعيف</span>
+<span class="latin-text text-lex-red-ink line-through font-bold text-sm">make a decision</span>
+</div>
+</div>
+<!-- Strong collocation -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-lex-green-soft border border-lex-green-border text-xs">
+<span class="material-symbols-rounded text-lex-green-ink text-base mt-0.5 flex-shrink-0">check_circle</span>
+<div>
+<span class="font-extrabold text-lex-green-ink block mb-0.5">متلازمة لفظية طبيعية (Band 8.0)</span>
+<span class="latin-text text-lex-green-ink font-bold text-sm">reach a consensus / arrive at a decision</span>
+</div>
+</div>
+</div>
+<!-- Rule / Tip -->
+<div class="flex items-start gap-2 p-3 rounded-xl bg-lex-yellow-soft/80 border border-lex-yellow-border text-xs text-lex-yellow-ink leading-relaxed">
+<span class="material-symbols-rounded text-base flex-shrink-0 mt-0.5 text-lex-yellow-ink">lightbulb</span>
+<p>
+<span class="font-extrabold text-lex-ink">المفردات الأكاديمية:</span> استخدام متلازمات رفيعة المستوى مثل <span class="latin-text font-bold">‘reach a consensus’</span> يرفع تقييم معيار الموارد المعجمية (<span class="latin-text font-bold">Lexical Resource</span>) في الكتابة والمحادثة.
+        </p>
+</div>
+<!-- Action Button -->
+<div class="flex items-center justify-end pt-1">
+<button class="w-full py-2.5 px-3 rounded-xl bg-lex-cream hover:bg-lex-cream-card border border-lex-border font-bold text-xs text-lex-ink flex items-center justify-center gap-1.5 shadow-tactile-sm active:translate-y-0.5 transition-all min-h-[44px]">
+<span class="material-symbols-rounded text-base text-lex-orange-edge">replay</span>
+<span>تدرّب 1×</span>
+</button>
+</div>
+</article>
+<!-- MISTAKE CARD 3: Pronunciation & Word Stress -->
+<article class="bg-lex-cream-card border-2 border-lex-border rounded-2xl p-4 space-y-3.5 shadow-tactile-md">
+<!-- Card Header -->
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5 bg-lex-teal-soft/80 border border-lex-teal-soft-border text-lex-teal font-bold px-2.5 py-1 rounded-lg">
+<span class="material-symbols-rounded text-sm">record_voice_over</span>
+<span>نطق • نبرة الكلمة (<span class="latin-text">Word Stress</span>)</span>
+</div>
+<span class="text-lex-ink-muted font-medium text-[11px]">منذ 3 أيام</span>
+</div>
+<!-- Target Word -->
+<div>
+<p class="text-[11px] font-bold uppercase tracking-wider text-lex-ink-muted mb-1">الكلمة المستهدفة ونظام IPA</p>
+<div class="flex items-baseline gap-2 bg-lex-cream border border-lex-border/80 rounded-xl p-3">
+<span class="text-base font-extrabold text-lex-ink latin-text">photographer</span>
+<span class="text-xs font-semibold text-lex-teal latin-text">/fəˈtɒɡ.rə.fər/</span>
+</div>
+</div>
+<!-- Stress Comparison -->
+<div class="space-y-2">
+<!-- Incorrect stress -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-lex-red-soft/70 border border-lex-red-border text-xs">
+<span class="material-symbols-rounded text-lex-red-ink text-base mt-0.5 flex-shrink-0">close</span>
+<div>
+<span class="font-extrabold text-lex-red-ink block mb-0.5">موضع نبرة خاطئ</span>
+<span class="latin-text text-lex-red-ink line-through font-bold text-sm">PHO-to-graph-er (المقطع الأول)</span>
+</div>
+</div>
+<!-- Correct stress -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-lex-green-soft border border-lex-green-border text-xs">
+<span class="material-symbols-rounded text-lex-green-ink text-base mt-0.5 flex-shrink-0">check_circle</span>
+<div>
+<span class="font-extrabold text-lex-green-ink block mb-0.5">النبرة المقطعية الصحيحة</span>
+<span class="latin-text text-lex-green-ink font-bold text-sm">pho-TOG-ra-pher (المقطع الثاني)</span>
+<span class="block text-[11px] text-lex-green-ink/80 font-medium latin-text mt-0.5">/fəˈtɒɡ.rə.fər/</span>
+</div>
+</div>
+</div>
+<!-- Stress Shift Principle -->
+<div class="flex items-start gap-2 p-3 rounded-xl bg-lex-yellow-soft/80 border border-lex-yellow-border text-xs text-lex-yellow-ink leading-relaxed">
+<span class="material-symbols-rounded text-base flex-shrink-0 mt-0.5 text-lex-yellow-ink">lightbulb</span>
+<p>
+<span class="font-extrabold text-lex-ink">انتقال النبرة:</span> تنتقل النبرة الأساسية من المقطع الأول في كلمة <span class="latin-text font-bold">‘PHO-to-graph’</span> إلى المقطع الثاني عند إضافة اللاحقة الوظيفية <span class="latin-text font-bold">‘-er’</span>.
+        </p>
+</div>
+<!-- Audio & Record Buttons -->
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-2.5 px-3 rounded-xl bg-lex-cream hover:bg-lex-cream-card border border-lex-border font-bold text-xs text-lex-ink flex items-center justify-center gap-1.5 shadow-tactile-sm active:translate-y-0.5 transition-all min-h-[44px]">
+<span class="material-symbols-rounded text-base text-lex-teal">volume_up</span>
+<span>استمع</span>
+</button>
+<button class="flex-1 py-2.5 px-3 rounded-xl bg-lex-cream hover:bg-lex-cream-card border border-lex-border font-bold text-xs text-lex-ink flex items-center justify-center gap-1.5 shadow-tactile-sm active:translate-y-0.5 transition-all min-h-[44px]">
+<span class="material-symbols-rounded text-base text-lex-orange-edge">mic</span>
+<span>تسجيل</span>
+</button>
+</div>
+</article>
+<!-- MISTAKE CARD 4: Grammar & Agreement -->
+<article class="bg-lex-cream-card border-2 border-lex-border rounded-2xl p-4 space-y-3.5 shadow-tactile-md">
+<!-- Card Header -->
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5 bg-lex-teal-soft/80 border border-lex-teal-soft-border text-lex-teal font-bold px-2.5 py-1 rounded-lg">
+<span class="material-symbols-rounded text-sm">draw</span>
+<span>قواعد • التوافق النحوي (<span class="latin-text">Agreement</span>)</span>
+</div>
+<span class="text-lex-ink-muted font-medium text-[11px]">منذ 4 أيام</span>
+</div>
+<!-- Context Sentence -->
+<div>
+<p class="text-[11px] font-bold uppercase tracking-wider text-lex-ink-muted mb-1">جملة السياق</p>
+<p class="text-sm font-semibold text-lex-ink bg-lex-cream border border-lex-border/80 rounded-xl p-3 latin-text leading-relaxed">
+          “The number of international students <span class="underline decoration-lex-red-ink decoration-2 underline-offset-4 text-lex-red-ink font-bold">are increasing rapidly</span>.”
+        </p>
+</div>
+<!-- Comparison -->
+<div class="space-y-2">
+<!-- Error -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-lex-red-soft/70 border border-lex-red-border text-xs">
+<span class="material-symbols-rounded text-lex-red-ink text-base mt-0.5 flex-shrink-0">close</span>
+<div>
+<span class="font-extrabold text-lex-red-ink block mb-0.5">خطأ في توافق الفعل</span>
+<span class="latin-text text-lex-red-ink line-through font-bold text-sm">are increasing</span>
+</div>
+</div>
+<!-- Correct Singular -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-lex-green-soft border border-lex-green-border text-xs">
+<span class="material-symbols-rounded text-lex-green-ink text-base mt-0.5 flex-shrink-0">check_circle</span>
+<div>
+<span class="font-extrabold text-lex-green-ink block mb-0.5">توافق المفرد القياسي</span>
+<span class="latin-text text-lex-green-ink font-bold text-sm">is increasing</span>
+</div>
+</div>
+</div>
+<!-- Rule -->
+<div class="flex items-start gap-2 p-3 rounded-xl bg-lex-yellow-soft/80 border border-lex-yellow-border text-xs text-lex-yellow-ink leading-relaxed">
+<span class="material-symbols-rounded text-base flex-shrink-0 mt-0.5 text-lex-yellow-ink">lightbulb</span>
+<p>
+<span class="font-extrabold text-lex-ink">القاعدة:</span> تُعامل عبارة <span class="latin-text font-bold">‘The number of’</span> كوحدة مفردة وتأخذ فعلاً مفرداً (<span class="latin-text font-bold">‘is’</span>)، بينما تُعامل <span class="latin-text font-bold">‘A number of’</span> كجمع وتأخذ فعلاً بصيغة الجمع (<span class="latin-text font-bold">‘are’</span>).
+        </p>
+</div>
+<!-- Drill Button -->
+<div class="flex items-center justify-end pt-1">
+<button class="w-full py-2.5 px-3 rounded-xl bg-lex-cream hover:bg-lex-cream-card border border-lex-border font-bold text-xs text-lex-ink flex items-center justify-center gap-1.5 shadow-tactile-sm active:translate-y-0.5 transition-all min-h-[44px]">
+<span class="material-symbols-rounded text-base text-lex-orange-edge">replay</span>
+<span>تدرّب 1×</span>
+</button>
+</div>
+</article>
+<!-- BOTTOM FLOATING ACTION CONTAINER -->
+<div class="pt-2">
+<!-- Big Tactile Coral/Orange CTA Button -->
+<button class="w-full py-3.5 px-4 rounded-2xl bg-lex-orange hover:bg-lex-orange-dark text-lex-ink font-extrabold text-base flex items-center justify-center gap-2 shadow-tactile-btn active:translate-y-1 active:shadow-tactile-sm transition-all min-h-[52px]">
+<span>تدرّب على هذه الـ 25 خطأً</span>
+<span class="material-symbols-rounded text-xl font-bold">bolt</span>
+</button>
+<!-- Sub-label -->
+<p class="text-center text-[11px] font-semibold text-lex-ink-muted mt-2">
+        جلسة مقدرة: 8 دقائق • <span class="text-lex-ink font-bold latin-text">+50 XP</span>
+</p>
+</div>
+</main>
+<!-- CANONICAL 5-TAB BOTTOM NAVIGATION BAR (MIRRORED FOR RTL) -->
+<!-- Tab order in RTL: اليوم (Today) -> المفردات (Vocab - ACTIVE) -> التمارين (Practice / Skills) -> الاختبارات (Tests) -> أنا (Me / Profile) -->
+<nav aria-label="شريط التنقل الرئيسي" class="fixed bottom-0 left-0 right-0 z-50 bg-lex-cream border-t-2 border-lex-border max-w-[390px] mx-auto px-2 py-1.5 flex items-center justify-around shadow-[0_-4px_0_0_#efe0d6]">
+<!-- 1. Today (اليوم) -->
+<a class="flex flex-col items-center justify-center py-1 px-2.5 rounded-xl text-lex-ink hover:text-lex-teal active:scale-95 transition-all min-w-[56px] min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-xl mb-0.5">calendar_today</span>
+<span class="text-[11px] font-bold">اليوم</span>
+</a>
+<!-- 2. Vocab (المفردات) - ACTIVE TAB -->
+<a aria-current="page" class="flex flex-col items-center justify-center py-1 px-3 rounded-2xl bg-lex-orange text-lex-ink shadow-[0_3px_0_0_#b45309] active:translate-y-0.5 transition-all min-w-[62px] min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-xl mb-0.5">menu_book</span>
+<span class="text-[11px] font-extrabold">المفردات</span>
+</a>
+<!-- 3. Skills / Practice (المهارات / التمارين) -->
+<a class="flex flex-col items-center justify-center py-1 px-2.5 rounded-xl text-lex-ink hover:text-lex-teal active:scale-95 transition-all min-w-[56px] min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-xl mb-0.5">psychology</span>
+<span class="text-[11px] font-bold">المهارات</span>
+</a>
+<!-- 4. Tests (الاختبارات) -->
+<a class="flex flex-col items-center justify-center py-1 px-2.5 rounded-xl text-lex-ink hover:text-lex-teal active:scale-95 transition-all min-w-[56px] min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-xl mb-0.5">assignment</span>
+<span class="text-[11px] font-bold">الاختبارات</span>
+</a>
+<!-- 5. Profile / Me (أنا) -->
+<a class="flex flex-col items-center justify-center py-1 px-2.5 rounded-xl text-lex-ink hover:text-lex-teal active:scale-95 transition-all min-w-[56px] min-h-[44px]" href="#">
+<span class="material-symbols-rounded text-xl mb-0.5">person</span>
+<span class="text-[11px] font-bold">أنا</span>
+</a>
+</nav>
+</body>
+</html>

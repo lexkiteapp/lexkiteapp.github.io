@@ -1,3 +1,2 @@
-/* UI th – lvideo (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["th"] = Object.assign(D["th"] || {}, {"Xem 20 giây":"ดู 20 วินาที","Video của ngày":"วิดีโอประจำวัน","Video bài học":"วิดีโอบทเรียน","Phát video: {t}":"เล่นวิดีโอ: {t}","Đóng video":"ปิดวิดีโอ","Không phát được video – thử lại sau.":"เล่นวิดีโอไม่ได้ ลองใหม่ภายหลัง","Câu hỏi nhanh":"คำถามด่วน","Đúng rồi! Đã thêm vào thẻ ôn.":"ถูกต้อง! เพิ่มลงในการ์ดทบทวนแล้ว","Chưa đúng. Đáp án: {a} – đã thêm vào thẻ ôn.":"ยังไม่ถูก คำตอบ: {a} – เพิ่มลงในการ์ดทบทวนแล้ว","Video tiếp theo":"วิดีโอถัดไป"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/th/lvideo.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.th=Object.assign(D.th||{},{_nmea:"ดู 20 วินาที",_46hz:"วิดีโอประจำวัน",_qfll:"วิดีโอบทเรียน",_djl:"เล่นวิดีโอ: {t}",_5ws0:"ปิดวิดีโอ",_ifv9:"เล่นวิดีโอไม่ได้ ลองใหม่ภายหลัง",_vbgs:"คำถามด่วน",_k07p:"ถูกต้อง! เพิ่มลงในการ์ดทบทวนแล้ว",_39cs:"ยังไม่ถูก คำตอบ: {a} – เพิ่มลงในการ์ดทบทวนแล้ว",_yrgg:"วิดีโอถัดไป",_kj2p:"บทของวิดีโอ"});})(typeof self!=='undefined'?self:this);

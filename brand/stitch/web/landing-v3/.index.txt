@@ -1,0 +1,10 @@
+key: key5 (~/.config/lexkite/stitch-key-5, MCP JSON-RPC https://stitch.googleapis.com/mcp)
+project: 7022870386131391655 "Lexkite Refs – key5", design system assets/4309515870425200974 (copy of Lexkite Kit)
+v3 run: 03/11 04:27–05:05Z (4 gen + 1 fix). v3.1 fix pass: 03/11 ~06:00–06:40Z, 8 edit_screens calls (key5), copy/teacher-spot fixes done IN Stitch (no restyle in code).
+desktop-light: edit of f36a9f2ef4bd4383afe34bb6d8d09723 (resources copy → real pages; new id not captured – list_screens/get_project return no screen list) 2560x8100
+desktop-dark:  edit of 9439a683628c482ea2f886b14d2912f5 (removed invented "12,000 certified lexical sets… Oxford CEFR"; resources copy) 2560x8104
+mobile-light:  d9d49df3dbd949edbf3c8d2ee2eb33b6 (edit of fe61e7d8…: large grounded AMA/CARLOS spots, no fabricated copy, all 4 feature cards) 2560x10064
+mobile-dark:   98de12e59175468d8d031a03fc6c2e40 (edit chain 2d95c166… → 2076e728… → this: headline one colour (no coral), large spots, no icon avatars, all 4 feature cards) 2560x9868
+rejected:      1d9c1f6506054579bc7bb27a0f352130 (Stitch flipped mobile-dark to light theme)
+sections: top bar · hero (CTA "Start learning free" above fold, Ama spot) · trust strip · 4 feature cards · how it works + Carlos spot · free resources (blog / sample answers & grammar / vocabulary lists) · FAQ · final CTA band + footer w/ Auto/Light/Dark
+port: Stitch filler mapped to real pages – Blog → /<lang>/blog/, Sample answers & grammar → /samples/ + /ngu-phap/, Vocabulary lists → /tu-vung/. Teacher spots = Chars.* 2D (poster/idle, #480).

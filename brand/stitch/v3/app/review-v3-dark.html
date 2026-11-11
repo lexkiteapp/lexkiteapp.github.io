@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Spaced Repetition Review</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#10191B",
+            "surface": "#10191B",
+            "card-bg": "#172427",
+            "raised-bg": "#1E2F33",
+            "primary": "#2DD4BF",
+            "primary-fixed": "#5EEAD4",
+            "secondary": "#F59E0B",
+            "secondary-container": "#FF9500",
+            "on-surface": "#E8F1F0",
+            "on-surface-variant": "#A9BDBB",
+            "border-card": "#263B40",
+            "border-subtle": "#1E2F33"
+          },
+          "borderRadius": {
+            "20px": "20px"
+          },
+          "fontFamily": {
+            "sans": ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+    }
+    .tactile-card {
+      box-shadow: 0 4px 0 0 #0C1315;
+    }
+    .tactile-btn {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 transparent !important;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+      background-color: #10191B;
+      color: #E8F1F0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] antialiased flex justify-center min-h-screen">
+<!-- Mobile Container strictly 390px native width, edge-to-edge -->
+<main class="w-[390px] min-h-screen bg-[#10191B] relative flex flex-col pb-[92px] pt-[74px] px-4 overflow-x-hidden selection:bg-[#2DD4BF] selection:text-[#091518]">
+<!-- Top App Bar (IELTS Band 7.5, Streak 14d, Filter/Settings) -->
+<header class="fixed top-0 left-0 w-full max-w-[390px] right-0 mx-auto z-50 flex items-center justify-between px-4 py-2.5 bg-[#10191B]/95 backdrop-blur-md border-b-2 border-[#1E2F33]">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-full bg-[#172427] flex items-center justify-center border border-[#263B40] text-[#2DD4BF]">
+<span class="material-symbols-outlined text-[20px]" data-icon="school" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<span class="font-bold text-[17px] text-[#E8F1F0] tracking-tight block leading-tight">IELTS Band 7.5</span>
+<span class="text-[12px] font-bold text-[#A9BDBB]">Lexkite Memory Hub</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<!-- Streak Flame Pill -->
+<div class="flex items-center gap-1.5 bg-[#1E2F33] border border-[#F59E0B]/40 px-2.5 py-1 rounded-full shadow-[0_2px_0_0_#0C1315] text-[#FFB454]">
+<span class="material-symbols-outlined text-[17px] text-[#FF9500]" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[12px] font-extrabold tracking-wide">14d</span>
+</div>
+<!-- Filter/Settings Button -->
+<button aria-label="Settings" class="w-10 h-10 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-[#172427] border border-[#263B40] shadow-[0_3px_0_0_#0C1315] tactile-btn active:shadow-none text-[#A9BDBB] hover:text-[#E8F1F0]">
+<span class="material-symbols-outlined text-[20px]" data-icon="tune">tune</span>
+</button>
+</div>
+</header>
+<!-- Review Queue Header + 18 Due Today Badge -->
+<section class="mt-2 mb-3.5 flex items-center justify-between">
+<div>
+<h1 class="text-[26px] font-extrabold text-[#E8F1F0] tracking-tight leading-none">Review Queue</h1>
+<span class="text-[12px] font-bold text-[#A9BDBB] tracking-normal">FSRS Spaced Repetition</span>
+</div>
+<!-- 18 Due Today Badge -->
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FF9500] text-[#0F181A] font-extrabold text-[12px] border-2 border-[#D97706] shadow-[0_3px_0_0_#92400E]">
+<span class="material-symbols-outlined text-[15px]" data-icon="pending_actions">pending_actions</span>
+      18 Due Today
+    </span>
+</section>
+<!-- Coach Carlos & Teacher Slot Section -->
+<section class="mb-3.5">
+<div class="grid grid-cols-[82px_1fr] gap-2.5 items-stretch">
+<!-- Empty Dashed Teacher Slot -->
+<div aria-label="Teacher Slot placeholder" class="min-h-[76px] rounded-20px border-2 border-dashed border-[#2DD4BF]/60 bg-[#2DD4BF]/5 flex flex-col items-center justify-center p-2 text-center">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[22px] mb-1" data-icon="psychology">psychology</span>
+<span class="text-[9px] uppercase tracking-wider text-[#5EEAD4] font-extrabold leading-tight">TEACHER<br/>SLOT</span>
+</div>
+<!-- Carlos Speech Bubble -->
+<div class="relative bg-[#172427] border-2 border-[#263B40] rounded-20px p-3 tactile-card flex flex-col justify-center">
+<div class="absolute -left-2 top-1/2 -translate-y-1/2 w-3 h-3 bg-[#172427] border-l-2 border-b-2 border-[#263B40] rotate-45"></div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="text-[12px] font-extrabold text-[#2DD4BF]">Coach Carlos</span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#FF9500]"></span>
+<span class="text-[11px] text-[#A9BDBB] font-semibold">FSRS Optimizer</span>
+</div>
+<p class="text-[12px] text-[#E8F1F0] leading-snug font-medium">
+          "Quality over speed — rate honestly to let the FSRS algorithm optimize your memory curve!"
+        </p>
+</div>
+</div>
+</section>
+<!-- Session Progress & Retention Metric Card -->
+<section class="mb-3.5 bg-[#172427] border-2 border-[#263B40] rounded-20px p-3 tactile-card">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="text-[13px] font-extrabold text-[#E8F1F0]">Card 4 of 18</span>
+<span class="px-1.5 py-0.5 rounded bg-[#1E2F33] text-[#A9BDBB] text-[10px] font-bold border border-[#263B40]">In Progress</span>
+</div>
+<div class="flex items-center gap-1 text-[#2DD4BF] bg-[#1E2F33] px-2 py-0.5 rounded-full border border-[#2DD4BF]/30">
+<span class="material-symbols-outlined text-[14px]" data-icon="memory" style="font-variation-settings: 'FILL' 1;">memory</span>
+<span class="text-[11px] font-extrabold">92% Target Retention</span>
+</div>
+</div>
+<!-- Progress Bar Track -->
+<div class="h-3 w-full bg-[#1E2F33] rounded-full overflow-hidden p-0.5 border border-[#263B40]">
+<div class="h-full bg-[#FF9500] rounded-full relative" style="width: 22.2%;">
+<div class="absolute top-0 left-0 right-0 h-[2px] bg-white/40 rounded-full"></div>
+</div>
+</div>
+<div class="flex justify-between items-center mt-1.5 text-[11px] text-[#A9BDBB] font-semibold">
+<span>Queue: 14 pending</span>
+<span class="text-[#2DD4BF] font-bold">Stability: +1.8x</span>
+</div>
+</section>
+<!-- Editorial Lexical Focus Hero Flashcard -->
+<article class="bg-[#172427] border-2 border-[#263B40] rounded-20px p-4 mb-4 tactile-card relative">
+<!-- Hero Word Header & Phonetic Breakdown -->
+<div class="pb-3 border-b border-[#263B40] mb-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1">
+<div class="flex items-baseline gap-2 flex-wrap">
+<h2 class="text-[32px] font-extrabold text-[#E8F1F0] tracking-tight leading-none">meticulous</h2>
+<button aria-label="Listen to pronunciation of meticulous" class="w-9 h-9 min-w-[36px] min-h-[36px] rounded-full bg-[#1E2F33] text-[#2DD4BF] flex items-center justify-center border border-[#2DD4BF]/30 shadow-[0_2px_0_0_#0C1315] tactile-btn active:shadow-none translate-y-0.5 hover:bg-[#25393E]">
+<span class="material-symbols-outlined text-[20px]" data-icon="volume_up" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</button>
+</div>
+<!-- Phonetic Breakdown -->
+<div class="flex items-center gap-2 mt-1">
+<span class="text-[14px] font-bold text-[#A9BDBB] tracking-wide font-mono">/məˈtɪk.jə.ləs/</span>
+<span class="text-[11px] text-[#2DD4BF]/80 font-semibold">adj.</span>
+</div>
+</div>
+<!-- CEFR C1 & Band 7.5+ Badges -->
+<div class="flex flex-col items-end gap-1 flex-shrink-0">
+<span class="inline-block px-2.5 py-0.5 rounded-lg bg-[#1E2F33] text-[#2DD4BF] text-[11px] font-extrabold border border-[#2DD4BF]/40 tracking-wider">
+            CEFR C1
+          </span>
+<span class="inline-block px-2.5 py-0.5 rounded-lg bg-[#1E2F33] text-[#F59E0B] text-[11px] font-extrabold border border-[#F59E0B]/40 tracking-wide">
+            Band 7.5+
+          </span>
+</div>
+</div>
+</div>
+<!-- Segment-Arranged Context Sections -->
+<div class="space-y-3">
+<!-- 1. Formal Definition Segment -->
+<div class="bg-[#1E2F33] rounded-xl p-3 border border-[#263B40]">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="material-symbols-outlined text-[15px] text-[#2DD4BF]" data-icon="menu_book">menu_book</span>
+<span class="text-[10px] font-extrabold text-[#2DD4BF] uppercase tracking-wider">Formal Definition</span>
+</div>
+<p class="text-[15px] text-[#E8F1F0] font-semibold leading-snug">
+          Showing great attention to detail; very careful and precise.
+        </p>
+</div>
+<!-- 2. IELTS Writing Task 2 Context Quote -->
+<div class="bg-[#1E2F33] rounded-xl p-3 border-l-4 border-[#2DD4BF] border-t border-r border-b border-[#263B40]">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="material-symbols-outlined text-[15px] text-[#2DD4BF]" data-icon="edit_note">edit_note</span>
+<span class="text-[11px] font-extrabold text-[#2DD4BF] uppercase tracking-wide">IELTS Writing Task 2 Context</span>
+</div>
+<p class="text-[13px] text-[#A9BDBB] italic font-medium leading-relaxed">
+          "Academic research demands <span class="text-[#E8F1F0] font-bold not-italic underline decoration-[#FF9500] decoration-2 underline-offset-2">meticulous</span> data verification to prevent methodological errors."
+        </p>
+</div>
+<!-- 3. Collocations Segment -->
+<div>
+<div class="flex items-center gap-1.5 mb-1.5">
+<span class="material-symbols-outlined text-[14px] text-[#A9BDBB]" data-icon="format_quote">format_quote</span>
+<span class="text-[10px] font-extrabold text-[#A9BDBB] uppercase tracking-wider">Essential Collocations</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#1E2F33] border border-[#263B40] text-[#E8F1F0] text-[12px] font-bold">
+<span class="material-symbols-outlined text-[14px] text-[#2DD4BF]" data-icon="bolt">bolt</span>
+            meticulous attention
+          </span>
+<span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#1E2F33] border border-[#263B40] text-[#E8F1F0] text-[12px] font-bold">
+<span class="material-symbols-outlined text-[14px] text-[#2DD4BF]" data-icon="bolt">bolt</span>
+            meticulous planning
+          </span>
+</div>
+</div>
+</div>
+</article>
+<!-- SRS Memory Rating Section (Tactile Segmented Display with Good 2d Default Recommended) -->
+<section class="mb-4">
+<div class="flex items-center justify-between mb-2 px-0.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-[#2DD4BF]" data-icon="speed">speed</span>
+<span class="text-[14px] font-extrabold text-[#E8F1F0]">Memory Rating</span>
+</div>
+<span class="text-[11px] font-bold text-[#A9BDBB]">Tap to reschedule</span>
+</div>
+<!-- Prominent Segmented Rating Choices Grid -->
+<div class="grid grid-cols-4 gap-2">
+<!-- Option 1: Again (<10m) -->
+<button class="min-h-[62px] min-w-[44px] flex flex-col items-center justify-center p-1.5 rounded-20px bg-[#1E2F33] border-2 border-[#EF4444] shadow-[0_4px_0_0_#991B1B] tactile-btn active:shadow-none text-center">
+<span class="text-[13px] font-extrabold text-[#F87171] leading-none mb-1">Again</span>
+<span class="inline-block px-1.5 py-0.5 rounded-md bg-[#EF4444]/20 text-[#FCA5A5] text-[10px] font-extrabold">&lt;10m</span>
+</button>
+<!-- Option 2: Hard (12h) -->
+<button class="min-h-[62px] min-w-[44px] flex flex-col items-center justify-center p-1.5 rounded-20px bg-[#1E2F33] border-2 border-[#F59E0B] shadow-[0_4px_0_0_#92400E] tactile-btn active:shadow-none text-center">
+<span class="text-[13px] font-extrabold text-[#FBBF24] leading-none mb-1">Hard</span>
+<span class="inline-block px-1.5 py-0.5 rounded-md bg-[#F59E0B]/20 text-[#FCD34D] text-[10px] font-extrabold">12h</span>
+</button>
+<!-- Option 3: Good (2d) - DEFAULT HIGHLIGHTED PRIMARY RECOMMENDED TIER -->
+<button class="min-h-[62px] min-w-[44px] relative flex flex-col items-center justify-center p-1.5 rounded-20px bg-[#1E2F33] border-[3px] border-[#F59E0B] shadow-[0_4px_0_0_#92400E] ring-2 ring-[#F59E0B]/40 tactile-btn active:shadow-none text-center">
+<!-- Recommended Micro Badge -->
+<span class="absolute -top-2 inset-x-1 mx-auto bg-[#F59E0B] text-[#0F181A] text-[8px] font-black uppercase px-1 rounded-full text-center tracking-wider shadow-sm">
+          Rec
+        </span>
+<span class="text-[14px] font-black text-[#FCD34D] leading-none mb-1 mt-0.5">Good</span>
+<span class="inline-block px-2 py-0.5 rounded-md bg-[#F59E0B] text-[#0F181A] text-[10px] font-black">2d</span>
+</button>
+<!-- Option 4: Easy (5d) -->
+<button class="min-h-[62px] min-w-[44px] flex flex-col items-center justify-center p-1.5 rounded-20px bg-[#1E2F33] border-2 border-[#10B981] shadow-[0_4px_0_0_#065F46] tactile-btn active:shadow-none text-center">
+<span class="text-[13px] font-extrabold text-[#34D399] leading-none mb-1">Easy</span>
+<span class="inline-block px-1.5 py-0.5 rounded-md bg-[#10B981]/20 text-[#6EE7B7] text-[10px] font-extrabold">5d</span>
+</button>
+</div>
+</section>
+<!-- 7-Day Load Forecast Histogram with Optimal Retention pill -->
+<section class="bg-[#172427] border-2 border-[#263B40] rounded-20px p-3.5 tactile-card mb-3">
+<div class="flex items-center justify-between mb-2.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[18px]" data-icon="bar_chart">bar_chart</span>
+<span class="text-[13px] font-extrabold text-[#E8F1F0]">7-Day Load Forecast</span>
+</div>
+<!-- Optimal Retention Pill -->
+<div class="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#1E2F33] border border-[#10B981]/40 text-[#34D399]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
+<span class="text-[11px] font-extrabold">Optimal Retention</span>
+</div>
+</div>
+<!-- 7-day Bar Chart: Mon (18), Tue (12), Wed (24), Thu (15), Fri (9), Sat (21), Sun (14) -->
+<div class="grid grid-cols-7 gap-2 items-end h-24 pt-3 border-b border-[#263B40] pb-2">
+<!-- Mon: 18 -->
+<div class="flex flex-col items-center gap-1">
+<span class="text-[10px] text-[#A9BDBB] font-bold">18</span>
+<div class="w-full bg-[#FF9500] rounded-t-lg relative" style="height: 48px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/30 rounded-t-lg"></div>
+</div>
+<span class="text-[11px] font-extrabold text-[#E8F1F0]">M</span>
+</div>
+<!-- Tue: 12 -->
+<div class="flex flex-col items-center gap-1">
+<span class="text-[10px] text-[#A9BDBB] font-bold">12</span>
+<div class="w-full bg-[#2DD4BF] rounded-t-lg relative opacity-85" style="height: 32px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/30 rounded-t-lg"></div>
+</div>
+<span class="text-[11px] font-semibold text-[#A9BDBB]">T</span>
+</div>
+<!-- Wed: 24 (Peak) -->
+<div class="flex flex-col items-center gap-1">
+<span class="text-[10px] text-[#FF9500] font-extrabold">24</span>
+<div class="w-full bg-[#FF9500] rounded-t-lg relative shadow-[0_2px_8px_rgba(255,149,0,0.35)]" style="height: 64px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/40 rounded-t-lg"></div>
+</div>
+<span class="text-[11px] font-extrabold text-[#FF9500]">W</span>
+</div>
+<!-- Thu: 15 -->
+<div class="flex flex-col items-center gap-1">
+<span class="text-[10px] text-[#A9BDBB] font-bold">15</span>
+<div class="w-full bg-[#2DD4BF] rounded-t-lg relative opacity-85" style="height: 40px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/30 rounded-t-lg"></div>
+</div>
+<span class="text-[11px] font-semibold text-[#A9BDBB]">T</span>
+</div>
+<!-- Fri: 9 -->
+<div class="flex flex-col items-center gap-1">
+<span class="text-[10px] text-[#A9BDBB] font-bold">9</span>
+<div class="w-full bg-[#2DD4BF] rounded-t-lg relative opacity-70" style="height: 24px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/30 rounded-t-lg"></div>
+</div>
+<span class="text-[11px] font-semibold text-[#A9BDBB]">F</span>
+</div>
+<!-- Sat: 21 -->
+<div class="flex flex-col items-center gap-1">
+<span class="text-[10px] text-[#A9BDBB] font-bold">21</span>
+<div class="w-full bg-[#FF9500] rounded-t-lg relative opacity-90" style="height: 56px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/30 rounded-t-lg"></div>
+</div>
+<span class="text-[11px] font-bold text-[#E8F1F0]">S</span>
+</div>
+<!-- Sun: 14 -->
+<div class="flex flex-col items-center gap-1">
+<span class="text-[10px] text-[#A9BDBB] font-bold">14</span>
+<div class="w-full bg-[#2DD4BF] rounded-t-lg relative opacity-80" style="height: 37px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/30 rounded-t-lg"></div>
+</div>
+<span class="text-[11px] font-semibold text-[#A9BDBB]">S</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 text-[11px] text-[#A9BDBB] font-semibold">
+<span>Average: 16.1 cards/day</span>
+<span class="text-[#2DD4BF] font-extrabold">Total: 113 cards</span>
+</div>
+</section>
+<!-- Canonical 5-Tab Navigation Bar (Today, Vocab active, Skills, Tests, Me) -->
+<nav aria-label="Main Navigation" class="fixed bottom-0 left-0 w-full max-w-[390px] right-0 mx-auto z-50 flex justify-around items-center px-1 py-1.5 bg-[#172427] border-t-2 border-[#1E2F33] shadow-[0_-3px_0_0_#0C1315]">
+<!-- Item 1: Today -->
+<a class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] py-1 active:translate-y-0.5 transition-transform" href="#">
+<span class="material-symbols-outlined text-[23px]" data-icon="today">today</span>
+<span class="text-[11px] font-bold mt-0.5">Today</span>
+</a>
+<!-- Item 2: Vocab (ACTIVE ITEM) -->
+<a aria-current="page" class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#2DD4BF] font-extrabold py-1 active:translate-y-0.5 transition-transform" href="#">
+<span class="material-symbols-outlined text-[23px] text-[#2DD4BF]" data-icon="menu_book" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="text-[11px] font-extrabold text-[#2DD4BF] mt-0.5">Vocab</span>
+</a>
+<!-- Item 3: Skills -->
+<a class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#2DD4BF] py-1 active:translate-y-0.5 transition-transform" href="#">
+<span class="material-symbols-outlined text-[23px]" data-icon="bolt">bolt</span>
+<span class="text-[11px] font-bold mt-0.5">Skills</span>
+</a>
+<!-- Item 4: Tests -->
+<a class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#2DD4BF] py-1 active:translate-y-0.5 transition-transform" href="#">
+<span class="material-symbols-outlined text-[23px]" data-icon="assignment">assignment</span>
+<span class="text-[11px] font-bold mt-0.5">Tests</span>
+</a>
+<!-- Item 5: Me -->
+<a class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#2DD4BF] py-1 active:translate-y-0.5 transition-transform" href="#">
+<span class="material-symbols-outlined text-[23px]" data-icon="person">person</span>
+<span class="text-[11px] font-bold mt-0.5">Me</span>
+</a>
+</nav>
+</main>
+</body></html>

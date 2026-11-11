@@ -33,6 +33,7 @@ quiz: [
     explain: "Los periodos históricos concluidos en el pasado requieren obligatoriamente el Past Simple para narrar fluctuaciones y variaciones."
   }
 ]
+publishAt: 2026-11-30T19:23:00-06:00
 ---
 
 En la versión académica del examen IELTS, la primera tarea de expresión escrita (*Writing Task 1*) exige a los candidatos analizar una representación gráfica —como un gráfico de líneas, un diagrama de barras, un gráfico circular o una tabla de datos— y redactar un reporte formal de al menos 150 palabras en un tiempo recomendado de 20 minutos. Aunque suele considerarse menos intimidante que el ensayo de Task 2, obtener una puntuación sobresaliente en **ielts writing task 1 graficos** demanda precisión analítica, síntesis de tendencias macroscópicas y un repertorio léxico depurado.
@@ -149,6 +150,6 @@ Distribuir adecuadamente el tiempo de examen evita que la presión cronometrada 
 | **Listar números sin comparar** | *"A was 10. B was 20. C was 30."* | Comparar: *"B was twice as high as A, while C led the rankings at 30."* |
 | **Copiar el enunciado** | Copiar idénticas palabras del título | Parafrasear con sinónimos desde la primera línea |
 
-Complementa tu preparación revisando nuestras recomendaciones sobre [consejos para IELTS Writing Task 2](/es/blog/consejos-ielts-writing-task-2/) y fortalece tu sintaxis con el artículo sobre [oraciones complejas en IELTS Writing Task 2](/es/blog/oraciones-complejas-ielts-writing-task-2/). Aprende también a enlazar tus ideas con [conectores en inglés (linking words)](/es/blog/conectores-en-ingles-linking-words-guia/) y domina las fórmulas de la [voz pasiva en inglés](/es/blog/voz-pasiva-en-ingles-passive-voice-reglas/), enriqueciendo tu léxico con las listas en [/tu-vung/](/tu-vung/).
+Complementa tu preparación revisando nuestras recomendaciones sobre [consejos para IELTS Writing Task 2](/es/blog/consejos-ielts-writing-task-2/) y fortalece tu sintaxis con el artículo sobre [oraciones complejas en IELTS Writing Task 2](/es/blog/oraciones-complejas-ielts-writing-task-2/). Aprende también a enlazar tus ideas con [conectores en inglés (linking words)](/es/blog/conectores-en-ingles-linking-words-guia/) y domina las fórmulas de la [voz pasiva en inglés](/es/blog/voz-pasiva-en-ingles-passive-voice-reglas/), enriqueciendo tu léxico con las listas en [/tu-vung/](/en/vocabulary/).
 
 Con una estructura metódica y el dominio de estas herramientas de descripción gráfica, completarás el Task 1 con solvencia y máxima precisión analítica.

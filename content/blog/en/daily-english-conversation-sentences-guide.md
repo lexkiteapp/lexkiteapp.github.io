@@ -33,6 +33,7 @@ quiz: [
     explain: "'Sorry, I didn't catch that' politely informs the speaker without placing blame on their delivery."
   }
 ]
+publishAt: 2026-12-25T21:01:00+05:30
 ---
 
 For English learners worldwide, the ultimate goal of language study is rarely parsing isolated grammar drills; it is the freedom to communicate confidently, naturally, and spontaneously in everyday life. Whether ordering a flat white at a busy coffee shop, asking a stranger for street directions, or chatting with colleagues during lunch breaks, mastering **daily english conversation** transforms hesitant book knowledge into effortless real-world fluency.
@@ -160,6 +161,6 @@ To move from passive memorization to effortless conversational delivery, impleme
 2. **Reviewing via Spaced Repetition (FSRS)**: Store complete sentence chunks in a spaced retrieval tool to cement them into long-term procedural memory.
 3. **Engaging in self-talk**: Describe your daily chores and physical actions in English aloud while cooking, commuting, or getting ready in the morning.
 
-For broader fluency development, explore our guides on [how to think in English without translating](/en/blog/how-to-think-in-english-without-translating/), mastering the [shadowing technique](/en/blog/shadowing-technique/), developing [daily English habits for IELTS](/en/blog/daily-english-habits-for-ielts/), improving listening with [how to catch fast speech](/en/blog/how-to-catch-fast-speech-in-ielts-listening/), and applying the [feedback loop method](/en/blog/the-feedback-loop-method-for-ielts/). You can also broaden your lexical inventory through [/tu-vung/](/tu-vung/).
+For broader fluency development, explore our guides on [how to think in English without translating](/en/blog/how-to-think-in-english-without-translating/), mastering the [shadowing technique](/en/blog/shadowing-technique/), developing [daily English habits for IELTS](/en/blog/daily-english-habits-for-ielts/), improving listening with [how to catch fast speech](/en/blog/how-to-catch-fast-speech-in-ielts-listening/), and applying the [feedback loop method](/en/blog/the-feedback-loop-method-for-ielts/). You can also broaden your lexical inventory through [/tu-vung/](/en/vocabulary/).
 
 By internalizing 5 to 10 practical sentence chunks each week, you will eliminate hesitation and converse with calm, natural fluency wherever you go.

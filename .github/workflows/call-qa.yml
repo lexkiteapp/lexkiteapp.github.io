@@ -3,7 +3,7 @@
 name: call-qa
 on:
   pull_request:
-    paths: ['web/js/call.js', 'web/js/call/**', 'web/js/pron.js', 'web/js/pron/**', 'web/js/ui.js', 'scripts/test/call-e2e.mjs', 'scripts/test/call-sheet.py', '.github/workflows/call-qa.yml']
+    paths: ['web/js/call.js', 'web/js/call/**', 'web/js/lesson/teacher.js', 'web/js/audio.js', 'scripts/lipsync/**', 'scripts/cine/lipsync.py', 'scripts/test/lipsync.mjs', 'scripts/test/lipsync-cross.mjs', 'scripts/test/lipsync-lesson.mjs', 'web/js/pron.js', 'web/js/pron/**', 'web/js/ui.js', 'scripts/test/call-e2e.mjs', 'scripts/test/call-sheet.py', 'scripts/test/lip-shots.mjs', 'scripts/test/lip-sheet.py', '.github/workflows/call-qa.yml']
   workflow_dispatch:
 permissions: { contents: read }
 concurrency:
@@ -17,17 +17,25 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/setup-ffmpeg
       - name: Playwright + espeak-ng
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium
-          sudo apt-get install -y -qq espeak-ng ffmpeg >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: espeak-ng }
+      - name: Playwright + espeak-ng (tiếp)
+        timeout-minutes: 14
+        run: |
           python3 -m pip install -q pillow
       - name: Mẫu âm thanh (giọng espeak-ng, 16 kHz mono, có khoảng lặng)
         run: |
           mkdir -p fx
           espeak-ng -v en-us -s 140 -w fx/raw.wav "My name is Linh Nguyen."
           ffmpeg -y -loglevel error -f lavfi -t 0.6 -i anullsrc=r=16000:cl=mono -i fx/raw.wav -f lavfi -t 1.5 -i anullsrc=r=16000:cl=mono -filter_complex "[1:a]aresample=16000,aformat=channel_layouts=mono[v];[0:a][v][2:a]concat=n=3:v=0:a=1" -ar 16000 -ac 1 fx/name.wav
+      - name: Khớp miệng – test đơn vị + chéo web↔video (1 bảng viseme, cùng chuỗi hình 24 fps; docs/LESSON-ENGINE.md §Khớp miệng)
+        run: node scripts/test/lipsync.mjs && node scripts/test/lipsync-cross.mjs && node scripts/test/lipsync-lesson.mjs
       - name: E2E (bản mới) + Whisper thật
         run: node scripts/test/call-e2e.mjs --out qa/after --whisper fx/name.wav
       - name: Ảnh bản cũ (main)
@@ -35,6 +43,12 @@ jobs:
         run: |
           git fetch -q --depth 1 origin main && git worktree add -q ../before FETCH_HEAD
           node scripts/test/call-e2e.mjs --before --root ../before/web --out qa/before || true
+      - name: Ảnh khớp miệng trước/sau (Ama + Carlos)
+        if: always()
+        run: |
+          node scripts/test/lip-shots.mjs --root web --out qa/lip-after || true
+          node scripts/test/lip-shots.mjs --root ../before/web --out qa/lip-before || true
+          python3 scripts/test/lip-sheet.py qa/lip-before qa/lip-after qa/lip-sheet.jpg || true
       - name: Bảng trước/sau
         if: always()
         run: |

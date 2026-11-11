@@ -1,11 +1,11 @@
 {
- "at": "2026-10-26",
- "words_now": 8177,
+ "at": "2026-11-02",
+ "words_now": 8697,
  "target": 20000,
- "add": 11823,
+ "add": 11303,
  "pages_files": {
-  "lex_now": 1360,
-  "lex_at_target": 4301,
+  "lex_now": 1446,
+  "lex_at_target": 4267,
   "dist_now": null,
   "dist_at_target": null,
   "gate": 18000
@@ -18,17 +18,17 @@
   "note": "cùng kích thước mảnh (9 KB thô) – thêm mảnh, không phình mảnh"
  },
  "repo_mb": {
-  "source_expand": 12.4,
-  "source_expand_git": 4.1,
-  "main_repo_now": 916,
+  "source_expand": 22.6,
+  "source_expand_git": 7.5,
+  "main_repo_now": 1025,
   "soft": 1000
  },
  "web_js_bytes": 0,
  "media_mb": {
-  "audio_new": 143,
-  "audio_files": 23646,
-  "images_new": 21,
-  "media_repo_now": 677,
+  "audio_new": 137,
+  "audio_files": 22606,
+  "images_new": 20,
+  "media_repo_now": 797,
   "soft": 1000
  },
  "repos": [
@@ -39,16 +39,16 @@
    "kinds": [
     "code"
    ],
-   "tree_mb": 234.3,
-   "files": 4948,
-   "api_mb": 916,
+   "tree_mb": 217.6,
+   "files": 7325,
+   "api_mb": 1025,
    "soft_mb": 1000,
    "soft_files": null,
-   "size_mb": 916,
-   "at_target_mb": 920,
-   "at_target_files": 4948,
-   "pct": 92,
-   "pct_target": 92
+   "size_mb": 1025,
+   "at_target_mb": 1033,
+   "at_target_files": 7325,
+   "pct": 102,
+   "pct_target": 103
   },
   {
    "id": "m1",
@@ -59,16 +59,16 @@
     "library",
     "cine"
    ],
-   "tree_mb": 677.2,
-   "files": 4080,
-   "api_mb": 677,
+   "tree_mb": 796.8,
+   "files": 6543,
+   "api_mb": 787,
    "soft_mb": 1000,
    "soft_files": 60000,
-   "size_mb": 677.2,
-   "at_target_mb": 677,
-   "at_target_files": 4080,
-   "pct": 68,
-   "pct_target": 68
+   "size_mb": 796.8,
+   "at_target_mb": 797,
+   "at_target_files": 6543,
+   "pct": 80,
+   "pct_target": 80
   },
   {
    "id": "m2",
@@ -77,16 +77,16 @@
    "kinds": [
     "audio"
    ],
-   "tree_mb": 557.9,
-   "files": 42557,
-   "api_mb": 513,
+   "tree_mb": 1333.3,
+   "files": 68190,
+   "api_mb": 1238,
    "soft_mb": 1000,
    "soft_files": 60000,
-   "size_mb": 557.9,
-   "at_target_mb": 701,
-   "at_target_files": 66203,
-   "pct": 56,
-   "pct_target": 70
+   "size_mb": 1333.3,
+   "at_target_mb": 1470,
+   "at_target_files": 90796,
+   "pct": 133,
+   "pct_target": 147
   },
   {
    "id": "m3",
@@ -113,21 +113,22 @@
    "kinds": [
     "img"
    ],
-   "tree_mb": 13.9,
-   "files": 3830,
-   "api_mb": 13,
+   "tree_mb": 63.9,
+   "files": 12780,
+   "api_mb": 61,
    "soft_mb": 1000,
    "soft_files": 60000,
-   "size_mb": 13.9,
-   "at_target_mb": 14,
-   "at_target_files": 3830,
-   "pct": 1,
-   "pct_target": 1
+   "size_mb": 63.9,
+   "at_target_mb": 64,
+   "at_target_files": 12780,
+   "pct": 6,
+   "pct_target": 6
   }
  ],
  "alerts": [
-  "repo chính 916 MB / 1000 MB (≥ 70 %) – phần lớn là lịch sử git (không viết lại, docs/STORAGE.md §3); cây đầu nhánh 234.3 MB",
-  "lexkite-media-2 701 MB / 1000 MB khi đủ 20000 từ (≥ 70 %) – chuyển state=full, mở kho kế (infra/media-repos.json)",
-  "lexkite-media-2: 66203 tệp khi đủ 20000 từ (≥ 70 % của 60000)"
+  "repo chính 1025 MB / 1000 MB (≥ 70 %) – phần lớn là lịch sử git (không viết lại, docs/STORAGE.md §3); cây đầu nhánh 217.6 MB",
+  "lexkite-media 796.8 MB / 1000 MB (≥ 70 %) – kho đã đóng (full), chỉ đọc",
+  "lexkite-media-2 1470 MB / 1000 MB khi đủ 20000 từ (≥ 70 %) – chuyển state=full, mở kho kế (infra/media-repos.json)",
+  "lexkite-media-2: 90796 tệp khi đủ 20000 từ (≥ 70 % của 60000)"
  ]
 }

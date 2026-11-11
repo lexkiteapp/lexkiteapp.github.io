@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_circle",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: circle.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a perfectly round shape or a group arranged in that shape.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "The children sat in a circle on the floor.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "circle",
+  "ipa": "/ˈsɜːrkl/",
+  "mean": "a perfectly round shape or a group arranged in that shape",
+  "ex": "The children sat in a circle on the floor.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=circle",
+  "link": "https://lexkite.com/app/#/review?w=circle",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 47,
+  "seconds": 28.2,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"circle\" mean?",
+  "keyword": "circle",
+  "value": "Circle means a perfectly round shape or a group arranged in that shape.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=circle",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"circle\" mean?",
+    "description": "Circle means a perfectly round shape or a group arranged in that shape.\n\nReview your words, free: https://lexkite.com/app/#/review?w=circle\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "circle",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"circle\" mean?\n\nCircle means a perfectly round shape or a group arranged in that shape.\n\nReview your words, free: https://lexkite.com/app/#/review?w=circle"
+   },
+   "instagram": {
+    "caption": "What does \"circle\" mean?\n\nCircle means a perfectly round shape or a group arranged in that shape.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"circle\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a perfectly round shape or a group arranged in that shape. Circle means a perfectly round shape or a group arranged in that shape. Practice it with a free quiz: {link}"
+ }
+}

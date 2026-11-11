@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Offline (Bright Day)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #091518;
+      color: #d8e5e9;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 0;
+      padding: 0;
+    }
+    .screen-root {
+      width: 100%;
+      max-width: 390px;
+      min-height: 100vh;
+      background-color: #091518;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 76px; /* Space for 64px bottom nav + padding */
+    }
+
+    /* TOP BAR (HUB VARIANT 56px) */
+    .top-bar {
+      height: 56px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #0d191c;
+      border-bottom: 2px solid #1f383f;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+    .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .brand-logo-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      background: #12423e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 0 #061a18;
+      flex-shrink: 0;
+    }
+    .brand-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #6bd8ce;
+      letter-spacing: -0.5px;
+    }
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pill-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
+      border: 1.5px solid;
+    }
+    .chip-exam {
+      background: #102a2d;
+      color: #6bd8ce;
+      border-color: #1f4a4c;
+    }
+    .chip-streak {
+      background: #2b2212;
+      color: #ffd699;
+      border-color: #4d381c;
+    }
+    .chip-xp {
+      background: #2b2512;
+      color: #ffdf9e;
+      border-color: #4d4019;
+    }
+    .avatar-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: #184e49;
+      color: #6bd8ce;
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #6bd8ce;
+      box-shadow: 0 2px 0 #051013;
+      flex-shrink: 0;
+    }
+
+    /* MAIN CONTENT */
+    .content-area {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex: 1;
+    }
+
+    /* MAIN OFFLINE CARD */
+    .offline-card {
+      background: #132428;
+      border-radius: 16px;
+      border: 2px solid #1f3b40;
+      box-shadow: 0 5px 0 #081316;
+      padding: 24px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* ILLUSTRATION CONTAINER */
+    .illustration-wrapper {
+      width: 104px;
+      height: 104px;
+      background: #0d1c20;
+      border-radius: 28px;
+      border: 2px solid #193237;
+      box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.35), 0 4px 0 #060f12;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .offline-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #e6f4f1;
+      letter-spacing: -0.4px;
+      margin-bottom: 6px;
+    }
+    .offline-subtitle {
+      font-size: 14px;
+      font-weight: 600;
+      color: #a6c7c3;
+      line-height: 1.4;
+      margin-bottom: 20px;
+      max-width: 270px;
+    }
+
+    /* PRIMARY TACTILE BUTTON */
+    .btn-tactile-primary {
+      width: 100%;
+      height: 52px;
+      background: #ff8400;
+      border: 2px solid #c25900;
+      border-radius: 16px;
+      box-shadow: 0 6px 0 #ba5200;
+      color: #1f0f00; /* Deep brown-black ink strictly never white */
+      font-size: 16px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.08s ease;
+      user-select: none;
+    }
+    .btn-tactile-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 #ba5200;
+    }
+
+    /* SECTION HEADER FOR OFFLINE ITEMS */
+    .section-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #6bd8ce;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-top: 4px;
+      padding: 0 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .section-title svg {
+      color: #6bd8ce;
+    }
+
+    /* OFFLINE TILES LIST */
+    .tiles-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .tactile-tile {
+      background: #132428;
+      border-radius: 16px;
+      border: 2px solid #1f3b40;
+      box-shadow: 0 5px 0 #081316;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: all 0.08s ease;
+      user-select: none;
+    }
+    .tactile-tile:active {
+      transform: translateY(2px);
+      box-shadow: 0 3px 0 #081316;
+    }
+    .tile-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid;
+      flex-shrink: 0;
+    }
+    .box-deck {
+      background: #14383a;
+      border-color: #1f5054;
+      color: #38d6c8;
+      box-shadow: 0 3px 0 #0b2224;
+    }
+    .box-review {
+      background: #2b2212;
+      border-color: #4d381c;
+      color: #ffb870;
+      box-shadow: 0 3px 0 #140f06;
+    }
+    .box-lessons {
+      background: #16233a;
+      border-color: #2b3f66;
+      color: #8fb4f0;
+      box-shadow: 0 3px 0 #0b1424;
+    }
+
+    .tile-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-align: left;
+    }
+    .tile-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #e6f4f1;
+      line-height: 1.2;
+    }
+    .tile-caption {
+      font-size: 12px;
+      font-weight: 600;
+      color: #a6c7c3;
+    }
+    .tile-arrow {
+      color: #82adb3;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* BOTTOM TAB BAR (CANONICAL 64px) */
+    .bottom-tab-bar {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 390px;
+      height: 64px;
+      background: #0b171a;
+      border-top: 2px solid #1f383f;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 6px;
+      z-index: 50;
+      box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.02);
+    }
+    .tab-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      gap: 3px;
+      padding: 4px 0;
+      cursor: pointer;
+    }
+    /* Active Today Tab with Teal Pill */
+    .tab-item.active .tab-icon-wrap {
+      background: #14383a;
+      color: #38d6c8;
+      border-radius: 999px;
+      padding: 3px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tab-item.active .tab-label {
+      color: #38d6c8;
+      font-weight: 800;
+    }
+    /* Inactive Tabs */
+    .tab-item:not(.active) .tab-icon-wrap {
+      color: #a6c7c3; /* High contrast dark grey ink */
+      padding: 3px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .tab-item:not(.active) .tab-label {
+      color: #a6c7c3; /* High contrast dark grey ink >= 4.5:1 */
+      font-weight: 700;
+    }
+    .tab-label {
+      font-size: 11px;
+      line-height: 1;
+      letter-spacing: -0.1px;
+    }
+
+    /* DUE BADGE ON VOCAB */
+    .badge-dot {
+      position: absolute;
+      top: 1px;
+      right: 12px;
+      width: 8px;
+      height: 8px;
+      background: #e63946;
+      border: 1.5px solid #0b171a;
+      border-radius: 999px;
+    }
+  </style>
+</head>
+<body>
+<div class="screen-root">
+<!-- TOP BAR: HUB VARIANT (56px) -->
+<header class="top-bar">
+<div class="brand-left">
+<div class="brand-logo-icon"><svg fill="none" height="18" viewbox="0 0 24 24" width="18">
+<path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#6bd8ce" stroke="#6bd8ce" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M12 2V22" stroke="#12423e" stroke-width="1.5"></path>
+<path d="M4 10H20" stroke="#12423e" stroke-width="1.5"></path>
+</svg></div>
+<span class="brand-title">Lexkite</span>
+</div>
+<div class="top-bar-right">
+<!-- IELTS Exam Chip -->
+<span class="pill-chip chip-exam">IELTS</span>
+<!-- Flame Streak Pill '14' -->
+<span class="pill-chip chip-streak">
+<svg fill="#ff9800" height="12" viewbox="0 0 24 24" width="12">
+<path d="M12 23c-4.97 0-9-3.8-9-8.5 0-3.3 2.1-6.4 4.5-8.5.5-.4 1.2-.1 1.3.5.3 1.8 1.1 3.5 2.2 4.8.2.2.5.2.7 0 .9-.9 1.6-2.1 1.9-3.4.1-.5.7-.7 1.1-.4C17.6 9.8 21 13.9 21 16.5c0 3.6-3.8 6.5-9 6.5z"></path>
+</svg>
+          14
+        </span>
+<!-- Star XP Pill '820' -->
+<span class="pill-chip chip-xp">
+<svg fill="#f4bf40" height="12" viewbox="0 0 24 24" width="12">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+          820
+        </span>
+<!-- Avatar 'L' -->
+<div class="avatar-badge">L</div>
+</div>
+</header>
+<!-- CONTENT AREA -->
+<main class="content-area">
+<!-- OFFLINE MAIN CARD -->
+<section class="offline-card">
+<!-- Glossy Illustrated Cloud & Unplugged Cable -->
+<div class="illustration-wrapper"><svg fill="none" height="84" viewbox="0 0 88 88" width="84">
+<ellipse cx="44" cy="58" fill="#091518" opacity="0.6" rx="30" ry="6"></ellipse>
+<path d="M63 46C63 40.5 58.5 36 53 36C52.4 36 51.8 36.1 51.2 36.2C49.3 30.2 43.6 26 37 26C28.7 26 22 32.7 22 41C22 41.7 22.1 42.4 22.2 43.1C18.6 44.5 16 48 16 52C16 56.9 20.1 61 25 61H61C66 61 70 57 70 52C70 47.7 66.9 44.1 63 46Z" fill="#1e3b43" stroke="#2e5762" stroke-width="2.5"></path>
+<path d="M37 29C42.5 29 47.3 32.3 49 37C47 36.5 44 36.8 41 38C38 39.2 35 41 33 44C32.3 40 33 34 37 29Z" fill="#2dd4bf" opacity="0.2"></path>
+<circle cx="28" cy="48" fill="#fb7185" opacity="0.7" r="3.5"></circle>
+<circle cx="58" cy="49" fill="#fb7185" opacity="0.7" r="3.5"></circle>
+<path d="M36 49C37.5 51 40 51 41.5 49" stroke="#a2c0c7" stroke-linecap="round" stroke-width="2"></path>
+<path d="M46.5 49C48 51 50.5 51 52 49" stroke="#a2c0c7" stroke-linecap="round" stroke-width="2"></path>
+<ellipse cx="44" cy="54" fill="#fb7185" opacity="0.8" rx="2.5" ry="1.5"></ellipse>
+<path d="M34 60V66C34 68 32 70 29 70H25" stroke="#2dd4bf" stroke-linecap="round" stroke-width="3"></path>
+<rect fill="#2dd4bf" height="8" rx="2" width="8" x="17" y="66"></rect>
+<line stroke="#fbbf24" stroke-linecap="round" stroke-width="2" x1="25" x2="28" y1="68" y2="68"></line>
+<line stroke="#fbbf24" stroke-linecap="round" stroke-width="2" x1="25" x2="28" y1="72" y2="72"></line>
+<rect fill="#ea580c" height="8" rx="2" width="9" x="33" y="66"></rect>
+<line stroke="#7c2d12" stroke-width="1.5" x1="33" x2="35" y1="68.5" y2="68.5"></line>
+<line stroke="#7c2d12" stroke-width="1.5" x1="33" x2="35" y1="71.5" y2="71.5"></line>
+<path d="M42 70H48C51 70 54 67 54 64V61" stroke="#ea580c" stroke-linecap="round" stroke-width="3"></path>
+<path d="M30 63L31 65L30 67" stroke="#f87171" stroke-linecap="round" stroke-width="1.5"></path>
+<circle cx="31" cy="74" fill="#f59e0b" r="1.5"></circle>
+</svg></div>
+<h1 class="offline-title">You're offline</h1>
+<p class="offline-subtitle">Saved words and downloaded lessons still work</p>
+<!-- Candy-Orange Tactile Button -->
+<button class="btn-tactile-primary" type="button">
+<svg fill="none" height="20" stroke="#1f0f00" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="20">
+<path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.19"></path>
+</svg>
+          Try again
+        </button>
+</section>
+<!-- SECTION TITLE -->
+<div class="section-title">
+<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="16">
+<path d="M20 6L9 17l-5-5"></path>
+</svg>
+<span>Works offline</span>
+</div>
+<!-- 3 TACTILE TILES -->
+<div class="tiles-list">
+<!-- Tile 1: My deck -->
+<div class="tactile-tile">
+<div class="tile-icon-box box-deck"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24">
+<rect height="15" rx="2" width="13" x="3" y="3"></rect>
+<path d="M8 8h3m-3 4h5"></path>
+<rect fill="#2dd4bf" fill-opacity="0.15" height="15" rx="2" width="13" x="8" y="6"></rect>
+</svg></div>
+<div class="tile-text">
+<span class="tile-title">My deck</span>
+<span class="tile-caption">142 saved vocabulary flashcards</span>
+</div>
+<div class="tile-arrow">
+<svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="18">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</div>
+</div>
+<!-- Tile 2: Review -->
+<div class="tactile-tile">
+<div class="tile-icon-box box-review">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24">
+<circle cx="12" cy="12" r="9"></circle>
+<polyline points="12 7 12 12 15 14"></polyline>
+</svg>
+</div>
+<div class="tile-text">
+<span class="tile-title">Review</span>
+<span class="tile-caption">Spaced repetition queue ready</span>
+</div>
+<div class="tile-arrow">
+<svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="18">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</div>
+</div>
+<!-- Tile 3: Downloaded lessons -->
+<div class="tactile-tile">
+<div class="tile-icon-box box-lessons">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="7 10 12 15 17 10"></polyline>
+<line x1="12" x2="12" y1="15" y2="3"></line>
+</svg>
+</div>
+<div class="tile-text">
+<span class="tile-title">Downloaded lessons</span>
+<span class="tile-caption">4 IELTS offline audio &amp; drills</span>
+</div>
+<div class="tile-arrow">
+<svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="18">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</div>
+</div>
+</div>
+</main>
+<!-- BOTTOM TAB BAR (64px CANONICAL, 'Today' ACTIVE) -->
+<nav aria-label="Bottom Navigation" class="bottom-tab-bar">
+<!-- Today (Active) -->
+<a class="tab-item active" href="#today">
+<div class="tab-icon-wrap">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="20">
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+</div>
+<span class="tab-label">Today</span>
+</a>
+<!-- Vocab (with due badge) -->
+<a class="tab-item" href="#vocab">
+<div class="tab-icon-wrap">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20">
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+</svg>
+<span class="badge-dot"></span>
+</div>
+<span class="tab-label">Vocab</span>
+</a>
+<!-- Skills (target) -->
+<a class="tab-item" href="#skills">
+<div class="tab-icon-wrap">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20">
+<circle cx="12" cy="12" r="10"></circle>
+<circle cx="12" cy="12" r="6"></circle>
+<circle cx="12" cy="12" r="2"></circle>
+</svg>
+</div>
+<span class="tab-label">Skills</span>
+</a>
+<!-- Tests (flag) -->
+<a class="tab-item" href="#tests">
+<div class="tab-icon-wrap">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20">
+<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+<line x1="4" x2="4" y1="22" y2="15"></line>
+</svg>
+</div>
+<span class="tab-label">Tests</span>
+</a>
+<!-- Me (person) -->
+<a class="tab-item" href="#me">
+<div class="tab-icon-wrap">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20">
+<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+<circle cx="12" cy="7" r="4"></circle>
+</svg>
+</div>
+<span class="tab-label">Me</span>
+</a>
+</nav>
+</div>
+</body>
+</html>
+

@@ -8,7 +8,7 @@ translationKey: ngu-phap-ielts-cau-phuc
 category: ielts
 tags: [ielts, writing, complex-sentences, qawaid]
 cover: write
-coverAlt: "Phòng viết writing IELTS Task 2 trên Lexkite với gợi ý ý tưởng và bài mẫu band 8"
+coverAlt: "غرفة كتابة IELTS Task 2 في Lexkite: اختيار الموضوع، أفكار مقترحة، مفردات، هيكل المقال ونموذج إجابة باند 8 مع شروحات"
 qualityScore: 95
 factChecked: 2026-10-15
 author: Lexkite
@@ -59,6 +59,7 @@ quiz: [
     explain: "يرى المصحح النص طفولياً ومحدوداً عند غياب الجمل المعقدة، فيستقر التقييم عند Band 5.5 أو 6.0 وفق ما يذكره المقال."
   }
 ]
+publishAt: 2026-11-25T21:43:00+03:00
 ---
 
 في اختباري **IELTS Writing Task 1** و **Task 2**، يمثل معيار **التنوع النحوي والدقة (Grammatical Range and Accuracy)** العقبة الأكبر التي تحول دون حصول المتقدمين على درجة 7.0 أو أعلى. تنص المعايير الرسمية المعتمدة لتصحيح الآيلتس على أن المترشح الحاصل على Band 7 فما فوق يجب أن *«uses a variety of complex structures with frequent error-free sentences»* (يستخدم تشكيلة متنوعة من الهياكل المعقدة مع وفرة في الجمل الخالية تماماً من الأخطاء).
@@ -126,7 +127,7 @@ quiz: [
 
 تحقق من حروف الجر والروابط الأكاديمية الصحيحة في [قاموس Lexkite المتقدم](/#/dict/resilient).
 
-![قاموس ثنائي اللغة Lexkite: البحث عن كلمة resilient مع النسخ الصوتي الصوتي البريطاني/الأمريكي وجمل أمثلة](media:dict "البحث عن الكلمات والمتلازمات الأكاديمية وجمل الأمثلة المترجمة في قاموس Lexkite")
+![قاموس Lexkite: البحث عن كلمة resilient مع النطق البريطاني/الأمريكي والمعنى وجمل الأمثلة والمتلازمات اللفظية والمرادفات](media:dict "البحث عن الكلمات والمتلازمات الأكاديمية وجمل الأمثلة المترجمة في قاموس Lexkite")
 
 ## تمارين دمج الجمل المعقدة (Sentence Combining Practice)
 

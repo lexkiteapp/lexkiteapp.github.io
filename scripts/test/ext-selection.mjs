@@ -7,6 +7,7 @@
 //  (4) chip ngôn ngữ "EN" mơ hồ, nút 📋 không có nhãn, Esc không đóng bảng.
 // Chạy: node scripts/test/ext-selection.mjs
 import fs from 'node:fs';
+import { hk, loadSrc } from '../lib/i18n-pack.mjs';
 import vm from 'node:vm';
 import { webcrypto } from 'node:crypto';
 import jsdom from 'jsdom';
@@ -19,8 +20,8 @@ const MIXED = 'Kiểm thử add-on (E2E): Some jobs were not successful';
 const LANGS = ['es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
 const loadDict = l => {
   const g = {};
-  new Function('self', rd(`web/js/i18n/${l}.js`))(g);
-  try { new Function('self', rd(`web/js/i18n/${l}/extpanel.js`))(g); } catch (e) {}
+  new Function('self', rd(`i18n/ui/${l}.js`))(g); // nguồn khóa nguyên câu (web/js/i18n/<lang>.js là gói khóa băm)
+  try { new Function('self', rd(`i18n/ui/${l}/extpanel.js`))(g); } catch (e) {}
   return g.I18N_DICT[l];
 };
 
@@ -208,7 +209,7 @@ const chromeMock = new Proxy({}, { get: (t, k) => {
   return deep();
 } });
 const nav = { onLine: true, language: 'en-US' };
-const sw = { addEventListener() {}, console, Date, Math, JSON, Promise, Map, Set, URL, URLSearchParams, AbortController, AbortSignal, TextEncoder, Uint8Array, Event, EventTarget, setTimeout, clearTimeout, fetch: fakeFetch, crypto: webcrypto, navigator: nav, chrome: chromeMock, location: { hostname: 'abc' } };
+const sw = { addEventListener() {}, console, Date, Math, JSON, Promise, Map, Set, URL, URLSearchParams, AbortController, AbortSignal, TextEncoder, Uint8Array, Event, EventTarget, setTimeout, clearTimeout, fetch: fakeFetch, crypto: webcrypto, navigator: nav, chrome: chromeMock, location: { hostname: 'abc', protocol: 'chrome-extension:' } };
 sw.self = sw; sw.globalThis = sw; vm.createContext(sw);
 for (const f of ['web/js/data.js', 'web/js/core.js', 'web/js/vi-check.js', 'web/js/dictionary.js', 'extension/background.js']) vm.runInContext(rd(f), sw, { filename: f });
 await sleep(20);
@@ -292,9 +293,11 @@ ok(fetches.some(f => /mymemory.*langpair=vi(\||%7C)en/.test(f.url)), 'MyMemory g
   ok(appI18nx && appI18nx.replace(/\s/g, '') === bgI18nx.replace(/\s/g, ''), `background.js I18NX = BUNDLES.i18nx của web/js/app.js (${bgI18nx} | ${appI18nx})`);
   route = url => { const m = url.match(/^chrome-extension:\/\/abc\/(app\/js\/i18n\/[\w/-]+\.js)$/); if (!m) return null; const f = new URL('../../extension/' + m[1], import.meta.url); return fs.existsSync(f) ? { ok: true, status: 200, text: async () => fs.readFileSync(f, 'utf8') } : resp(404, null); };
   const SENT = 'Although it rained, we went out and the number of people has increased.';
+  const xd = (dict, k) => dict[hk(k)] || dict[k]; // như xd() của add-on: gói ngôn ngữ khóa băm, nền en khóa nguyên câu (scripts/lib/i18n-pack.mjs)
+  const CN = 'Mệnh đề nhượng bộ / đối lập', enCN = JSON.parse((t => t.slice(t.indexOf('{"', t.indexOf('Object.assign(')), t.lastIndexOf('});') + 1))(rd('web/js/i18n/en/structs.js')))[CN];
   for (const l of ['es', 'ja', ...LANGS.filter(x => x !== 'es' && x !== 'ja')]) {
     const dict = ((await send({ type: 'uiDict', lang: l })) || {}).dict || {};
-    ok(dict['Mệnh đề nhượng bộ / đối lập'] && !VI.test(dict['Mệnh đề nhượng bộ / đối lập']), `${l}: uiDict có tên cấu trúc "Mệnh đề nhượng bộ / đối lập" đã dịch`);
+    ok(xd(dict, CN) && !VI.test(xd(dict, CN)) && xd(dict, CN) === loadSrc(l, 'structs')[CN] && xd(dict, CN) !== enCN, `${l}: uiDict có tên cấu trúc "${CN}" đã dịch (${xd(dict, CN)})`);
     if (l !== 'es' && l !== 'ja') continue; // dựng bảng thật cho es/ja (đủ bắt lỗi, giữ test nhanh)
     const p = await page(l, { dict, on: { translate: () => ({ vi: l === 'es' ? 'Aunque llovió, salimos.' : '雨が降ったが、出かけた。', src: 'en', tl: l }) } });
     p.w.eval(rd('web/js/structures.js'));
@@ -302,12 +305,12 @@ ok(fetches.some(f => /mymemory.*langpair=vi(\||%7C)en/.test(f.url)), 'MyMemory g
     const names = [...p.root().querySelectorAll('.st-n')].map(x => x.textContent);
     ok(names.length >= 2, `${l}: bảng Dịch có 🧩 cấu trúc (được ${names.length})`);
     ok(names.every(x => !VI.test(x)), `${l}: tên cấu trúc không lẫn tiếng Việt (${JSON.stringify(names)})`);
-    ok(names.includes(dict['Mệnh đề nhượng bộ / đối lập']), `${l}: “Although” → ${dict['Mệnh đề nhượng bộ / đối lập']}`);
+    ok(names.includes(xd(dict, CN)), `${l}: “Although” → ${xd(dict, CN)} (bảng: ${JSON.stringify(names)})`);
   }
   // Khóa thiếu ở ngôn ngữ giao diện → English, không bao giờ tiếng Việt
   const enS = (() => { const t = rd('web/js/i18n/en/structs.js'); return JSON.parse(t.slice(t.indexOf('{"', t.indexOf('Object.assign(')), t.lastIndexOf('});') + 1)); })();
   const es = ((await send({ type: 'uiDict', lang: 'es' })) || {}).dict || {};
-  const miss = Object.keys(enS).filter(k => !es[k] || VI.test(es[k])); ok(!miss.length, 'es: mọi khóa cấu trúc có bản dịch / English ' + JSON.stringify(miss.slice(0, 3)));
+  const miss = Object.keys(enS).filter(k => !xd(es, k) || VI.test(xd(es, k))); ok(!miss.length, 'es: mọi khóa cấu trúc có bản dịch / English ' + JSON.stringify(miss.slice(0, 3)));
 }
 
 console.log(fails ? `✗ ext-selection: ${fails}/${n} lỗi` : `✓ ext-selection: ${n} kiểm tra đạt`);

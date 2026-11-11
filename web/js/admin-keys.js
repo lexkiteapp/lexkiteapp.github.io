@@ -6,7 +6,7 @@
 (function () {
   const EN = {
     '🔑 Khóa API': '🔑 API keys', 'Kho khóa của các nhà cung cấp AI & thư. Khóa được mã hóa (AES-GCM) ngay khi lưu; trang này chỉ thấy 4 ký tự cuối.': 'Provider keys for AI & mail. Keys are encrypted (AES-GCM) as soon as they are saved; this page only ever sees the last 4 characters.',
-    '🩺 Kiểm tất cả': '🩺 Test all', '⬇️ Xuất CSV': '⬇️ Export CSV', '🔄 Tải lại': '🔄 Reload', 'Đang tải…': 'Loading…', 'Lỗi: {e}': 'Error: {e}', 'Kiểm gần nhất: {t}': 'Last health check: {t}', 'chưa kiểm': 'never checked',
+    'Vừa cập nhật bởi {who}': 'Just updated by {who}', '🩺 Kiểm tất cả': '🩺 Test all', '⬇️ Xuất CSV': '⬇️ Export CSV', '🔄 Tải lại': '🔄 Reload', 'Đang tải…': 'Loading…', 'Lỗi: {e}': 'Error: {e}', 'Kiểm gần nhất: {t}': 'Last health check: {t}', 'chưa kiểm': 'never checked',
     '⚙️ Chưa cấu hình mã hóa khóa': '⚙️ Key encryption is not set up', 'Thiếu secret {k}. Khóa trong biến môi trường vẫn hiện dạng chỉ đọc; muốn thêm khóa ở đây:': 'Missing secret {k}. Keys from environment variables still show as read-only; to add keys here:',
     'Tạo khóa 32 byte: {c}': 'Generate a 32-byte key: {c}', 'Cloudflare → Pages → lexkite → Settings → Variables and Secrets (Production) → thêm secret {k} → triển khai lại.': 'Cloudflare → Pages → lexkite → Settings → Variables and Secrets (Production) → add secret {k} → redeploy.',
     'Danh sách Gemini cũ (Cài đặt) sẽ tự được nhập và mã hóa.': 'The old Gemini list (Settings) is imported and encrypted automatically.',
@@ -46,6 +46,7 @@
       .kk-bar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:.8rem 0}.kk-bar select,.kk-bar input[type=search]{max-width:14rem}.kk-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.6rem}.kk-form .wide{grid-column:1/-1}.kk-tbl td,.kk-tbl th{white-space:nowrap}.kk-tbl td.lb{white-space:normal;min-width:9rem}`;
     document.head.appendChild(s);
   }
+const syncJs = () => window.AdminSync ? Promise.resolve() : new Promise(y => { const sc = document.createElement('script'); sc.src = 'js/admin-sync.js'; sc.onload = y; sc.onerror = y; document.head.appendChild(sc); }); // đồng bộ giữa các admin (admin-sync.js)
   function render(box, kapi, L, h) {
     const esc = h.esc, num = h.num || (n => String(n)), lang = h.lang || (() => 'vi'), when = h.when || (t => (t ? new Date(t).toLocaleString() : '–')), my = ++gen;
     const S = (vi, vars) => { if (lang() !== 'en' || !Object.prototype.hasOwnProperty.call(EN, vi)) return L(vi, vars); const s = EN[vi]; return vars ? s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? String(vars[k]) : m)) : s; };
@@ -56,6 +57,7 @@
     const load = () => { writeHash(f); return kapi('list', f).then(d => { if (my !== gen) return; D = d; draw(); }).catch(e => { if (my === gen) box.innerHTML = `<div class="card"><p class="small">${esc(msgOf(e))}</p></div>`; }); };
     box.innerHTML = `<div class="card"><p class="small muted">${S('Đang tải…')}</p></div>`;
     load();
+    syncJs().then(() => { if (my === gen && window.AdminSync) AdminSync.watch(['keys'], () => (my === gen ? load() : null), { box, S }); }); // admin khác thêm/sửa/xóa khóa → thấy ngay, không tải lại
 
     // Thẻ sức chứa (docs/API-KEYS.md §9): /data/ai-capacity.json (repo: hàng đợi + số đo) × số khóa Gemini SỐNG trong kho (trang này) – công thức = scripts/ai-capacity.mjs daysFor
     let CAP;

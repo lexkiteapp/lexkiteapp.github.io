@@ -9,7 +9,8 @@
  * GET /api/youtube/callback – Google returns here → refresh token encrypted AES-GCM with DRIVE_ENC_KEY (AAD 'youtube:<channel>') in D1 yt_channel.
  * Bytes never pass through the Worker: CI PUTs the master straight into the resumable session that `session` opens (like the Drive pool).
  * Privacy: only 'private' (optionally with publishAt from the calendar slot the owner approved) or 'unlisted' – never 'public'.
- * Quota: 10,000 units/day (resets midnight Pacific); videos.insert ≈ 1,600, thumbnails.set 50, videos.list 1 → ≤ 6 uploads/day, rest stays queued.
+ * Quota (granular buckets since 01/06/2026, project 813846697347 extension approved 10/11/2026; resets midnight Pacific): videos.insert has its OWN bucket
+ *   1,000 calls/day (1 per call); everything else (thumbnails.set 50, videos.list / playlistItems.list 1) shares the default 60,000 units/day → ≤ 1,000 uploads/day.
  * OAuth client: YOUTUBE_CLIENT_ID/SECRET if set, else the Drive pool's client (GOOGLE_DRIVE_CLIENT_ID/SECRET – same Google Cloud project).
  * MODE (yt_meta 'mode', default env YOUTUBE_UPLOAD_MODE || 'manual'): until the API audit passes, uploads from an unverified project are locked
  *   private → 'manual': approve = "Ready to upload" + an upload pack (scripts/video/yt-pack.mjs, Drive pool shorts/_ytpack/<clip>.zip); the owner
@@ -30,7 +31,7 @@ export const SCOPE = SCOPE_UP + ' ' + SCOPE_RO;
 export const MODES = ['manual', 'api'];
 export const scopeFor = mode => (mode === 'api' ? SCOPE : SCOPE_RO);
 export const STUDIO = 'https://studio.youtube.com/';
-export const QUOTA = { day: 10000, insert: 1600, thumb: 50, list: 1, reserve: 200 };
+export const QUOTA = { day: 60000, uploads: 1000, insert: 1, thumb: 50, list: 1, reserve: 1000 }; // day = default bucket units; uploads = videos.insert bucket (calls)
 export const PRIVACY = ['private', 'unlisted'];
 const STATE_TTL = 600, SESSION_TTL = 20 * 3600e3, MAX_TRIES = 3;
 const json = (req, status, data, extra = {}) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req), ...extra } });
@@ -64,7 +65,8 @@ async function addCols(db) { if (COLS) return; for (const q of ['ALTER TABLE yt_
 // ---------- pure helpers (tested in scripts/test/shorts-scale.mjs) ----------
 /** Quota day = calendar date in America/Los_Angeles (YouTube resets at midnight Pacific). */
 export const quotaDay = (now = Date.now()) => new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(now));
-export const uploadsLeft = used => Math.max(0, Math.floor((QUOTA.day - QUOTA.reserve - (+used || 0)) / (QUOTA.insert + QUOTA.thumb + 2 * QUOTA.list)));
+/** Uploads still possible today: min(videos.insert bucket left, default bucket left ÷ (thumbnail + 2 list calls) after the reserve). */
+export const uploadsLeft = (used, inserted = 0) => Math.max(0, Math.min(QUOTA.uploads - (+inserted || 0), Math.floor((QUOTA.day - QUOTA.reserve - (+used || 0)) / (QUOTA.thumb + 2 * QUOTA.list))));
 /** Calendar slot {date:'2026-10-25', time:'19:00', tz:'Asia/Ho_Chi_Minh'} → ISO UTC; null when invalid or not ≥ 15 min in the future. */
 export function slotToIso(slot, now = Date.now()) {
   if (!slot || !/^\d{4}-\d{2}-\d{2}$/.test(slot.date || '') || !/^\d{2}:\d{2}$/.test(slot.time || '')) return null;
@@ -93,8 +95,8 @@ export function videoResource(row, meta = {}) {
   return { snippet: { title, description: desc.slice(0, 5000), tags, categoryId: '27', defaultLanguage: 'en', defaultAudioLanguage: 'en' }, status };
 }
 /** Rows the CI may upload now (oldest approval first), within today's quota. */
-export function pickNext(rows, used, now = Date.now(), max = 6) {
-  const n = Math.min(max, uploadsLeft(used));
+export function pickNext(rows, used, now = Date.now(), max = 6, inserted = 0) {
+  const n = Math.min(max, uploadsLeft(used, inserted));
   const due = rows.filter(r => r.status === 'queued' || (r.status === 'failed' && (+r.attempts || 0) < MAX_TRIES) || (r.status === 'uploading' && now - (+r.session_at || 0) > 2 * 3600e3));
   return due.sort((a, b) => (+a.approved_at || 0) - (+b.approved_at || 0)).slice(0, n);
 }
@@ -190,12 +192,13 @@ async function accessToken(env, db, row) {
   const t = { t: j.access_token, exp: Date.now() + Math.min((+j.expires_in || 3600) - 60, 50 * 60) * 1000 }; TOKS.set(row.channel_id, t);
   return t.t;
 }
-async function spend(db, units, now = Date.now()) {
-  const d = quotaDay(now);
+const INS = '#insert'; // yt_quota row key suffix for the videos.insert bucket (same table, no migration)
+async function spend(db, units, bucket = '', now = Date.now()) {
+  const d = quotaDay(now) + bucket;
   await run(db, 'INSERT INTO yt_quota (day, units) VALUES (?, ?) ON CONFLICT(day) DO UPDATE SET units = units + excluded.units', d, units);
 }
-async function used(db, now = Date.now()) { const r = await one(db, 'SELECT units FROM yt_quota WHERE day = ?', quotaDay(now)); return r ? +r.units : 0; }
-async function quotaInfo(db) { const u = await used(db); return { day: quotaDay(), used: u, limit: QUOTA.day, left: Math.max(0, QUOTA.day - u), uploads_left: uploadsLeft(u), per_upload: QUOTA.insert + QUOTA.thumb }; }
+async function used(db, bucket = '', now = Date.now()) { const r = await one(db, 'SELECT units FROM yt_quota WHERE day = ?', quotaDay(now) + bucket); return r ? +r.units : 0; }
+async function quotaInfo(db) { const [u, ins] = await Promise.all([used(db), used(db, INS)]); return { day: quotaDay(), used: u, limit: QUOTA.day, left: Math.max(0, QUOTA.day - u), inserts: ins, insert_limit: QUOTA.uploads, uploads_left: uploadsLeft(u, ins), per_upload: QUOTA.thumb + 2 * QUOTA.list }; }
 
 export async function modeOf(db, env = {}) {
   const r = await one(db, "SELECT v FROM yt_meta WHERE k = 'mode'").catch(() => null);
@@ -315,7 +318,7 @@ export async function unqueueClip(db, id) {
 }
 
 // ---------- distribution hooks (config lives in yt_chan_cfg; engine in _distribution.js, ops in distribution.js) ----------
-export async function chanCfg(db, id) { const r = await one(db, 'SELECT cfg, paused_reason FROM yt_chan_cfg WHERE channel_id = ?', id); let c = {}; try { c = JSON.parse((r && r.cfg) || '{}'); } catch (e) { /* default */ } return { cfg: normCfg(c), paused_reason: (r && r.paused_reason) || '' }; }
+export async function chanCfg(db, id) { const r = await one(db, 'SELECT cfg, paused_reason FROM yt_chan_cfg WHERE channel_id = ?', id); let c = {}; try { c = JSON.parse((r && r.cfg) || '{}'); } catch (e) { /* default */ } return { cfg: normCfg(c), explicit_lang: !!(c && typeof c.lang === 'string' && c.lang.trim()), paused_reason: (r && r.paused_reason) || '' }; } // explicit_lang: chủ đã chọn ngôn ngữ kênh → không đoán theo tên
 /** Pause a channel (cfg.active = 0) and raise an admin alert (yt_meta 'alerts', newest first, ≤ 20). */
 export async function pauseChannel(db, id, reason) {
   const { cfg } = await chanCfg(db, id), t = await one(db, 'SELECT title FROM yt_channel WHERE channel_id = ?', id);
@@ -437,7 +440,7 @@ const CLI_OPS = {
     if ((await modeOf(db, env)) !== 'api') return { items: [], quota: await quotaInfo(db), channel: null, mode: 'manual' }; // manual mode: owner uploads in Studio
     const ch = await channelRow(db); if (!ch) return { items: [], quota: await quotaInfo(db), channel: null };
     const rows = await all(db, "SELECT * FROM yt_queue WHERE status IN ('queued', 'failed', 'uploading')");
-    const pick = pickNext(rows, await used(db), Date.now(), Math.min(Math.max(1, +b.max || 6), 6));
+    const pick = pickNext(rows, await used(db), Date.now(), Math.min(Math.max(1, +b.max || 6), 6), await used(db, INS));
     return { items: pick.map(r => ({ id: r.clip, lesson: r.lesson, privacy: r.privacy, publish_at: r.publish_at, resume: !!(r.upload_url && Date.now() - r.session_at < SESSION_TTL) })), quota: await quotaInfo(db), channel: { title: ch.title } };
   },
   /** Open (or resume) the resumable upload session → upload_url for CI. Quota is charged once per new session. */
@@ -445,12 +448,12 @@ const CLI_OPS = {
     const row = await one(db, 'SELECT * FROM yt_queue WHERE clip = ?', String(b.id || ''));
     if (!row || !['queued', 'failed', 'uploading'].includes(row.status)) return { status: 409, error: 'not-approved' };
     if (row.upload_url && Date.now() - row.session_at < SESSION_TTL) return { upload_url: row.upload_url, resumed: true };
-    if (uploadsLeft(await used(db)) < 1) return { status: 429, error: 'quota', quota: await quotaInfo(db) };
+    if (uploadsLeft(await used(db), await used(db, INS)) < 1) return { status: 429, error: 'quota', quota: await quotaInfo(db) };
     const size = Math.floor(+((b.meta || {}).size) || 0); if (!(size > 0 && size < 256 * 1048576)) return { status: 400, error: 'bad-size' };
     const ch = await channelRow(db); if (!ch) return { status: 412, error: 'not-connected' };
     const at = await accessToken(env, db, ch), res = videoResource(row, b.meta || {});
     const r = await gfetch('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status', { method: 'POST', headers: { Authorization: 'Bearer ' + at, 'Content-Type': 'application/json; charset=UTF-8', 'X-Upload-Content-Length': String(size), 'X-Upload-Content-Type': 'video/mp4' }, body: JSON.stringify(res) });
-    await spend(db, QUOTA.insert);
+    await spend(db, QUOTA.insert, INS);
     const loc = r.headers.get('Location') || '';
     if (!r.ok || !/^https:\/\/www\.googleapis\.com\/upload\/youtube\/v3\/videos\?/.test(loc)) {
       const j = await r.json().catch(() => ({})), reason = ((((j.error || {}).errors) || [])[0] || {}).reason || String(r.status);

@@ -1,3 +1,4 @@
+// ĐANG THAY bằng R2 tĩnh lexkite-media-cdn (docs/CAPACITY.md §A5, scripts/cdn/) – Worker giữ deploy làm đường lùi: scripts/cdn/cutover.mjs rollback --host media.
 // media.lexkite.com – CDN ảnh (blog, ảnh chụp app) + kho dựng video /library/ (scripts/video/library.mjs): Cloudflare đứng trước kho GitHub Pages lexkiteapp/lexkite-media.
 // Máy chủ gần người dùng. Ảnh blog: tên có mã băm → cache 1 năm immutable. /library/: tên chuẩn cố định (có thể cập nhật bằng _vN) → cache 1 ngày.
 // MP4 hỗ trợ Range (tua video). Khi kho gần 1 GB: đổi ORIGIN sang R2, URL giữ nguyên.
@@ -7,7 +8,7 @@ const YEAR = 31536000, DAY = 86400;
 // thử lần lượt m4 Pages → m4 raw (ngay sau push, trước khi Pages dựng xong / vượt giới hạn tệp Pages) → m1. Kho img mới: thêm vào đầu danh sách.
 // /m<N>/vimg/… = trực tiếp kho N. 404 chỉ cache 60 s (ảnh vừa đẩy phải hiện ngay ở lượt kiểm CDN).
 export const VIMG_ORIGINS = { m4: ['https://lexkiteapp.github.io/lexkite-media-4', 'https://raw.githubusercontent.com/lexkiteapp/lexkite-media-4/main'], m1: ['https://lexkiteapp.github.io/lexkite-media'] };
-const VIMG_ORDER = ['m4', 'm1'];
+export const VIMG_ORDER = ['m4', 'm1']; // scripts/vocab-img/cdn-check.mjs dùng chung (CI kiểm thẳng gốc, không qua Worker)
 async function vimg(req, url, ext) {
   const m = url.pathname.match(/^\/(?:(m\d+)\/)?vimg\/([0-9a-f]{16}(?:@2x)?\.(?:webp|avif))$/);
   if (!m || (m[1] && !VIMG_ORIGINS[m[1]])) return new Response('Not found', { status: 404, headers: { 'Cache-Control': 'public, max-age=60' } });

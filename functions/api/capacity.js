@@ -7,10 +7,12 @@
  *   Quản trị (adminGate): { op: 'trend' } → chuỗi 30 ngày + đánh giá cho Quản trị › Hạn mức.
  * Cần bí mật Pages CF_ANALYTICS_TOKEN (quyền Account Analytics: Read) + CF_ACCOUNT_ID – dùng chung với _d1guard.js. Thiếu → 503 'no-analytics-token' (workflow bỏ qua trung tính, không đỏ).
  * Chỉ đọc theo khoá (capacity_daily PK day, drive_alerts PK kind) – không quét bảng. */
-import { evaluate, alertText, LIMITS, ALERT, fmtVN } from './_capacity.js';
+import { evaluate, alertText, LIMITS, ALERT, fmtVN, sourcesOf, evaluateSources } from './_capacity.js';
 import { adminGate, adminCors } from './admin.js';
 import { cliVerify } from './drive.js';
 import { once } from './_schema.js';
+import { watchD1 } from './_d1watch.js';
+import { resetD1Cache, planOf } from './_d1guard.js';
 
 export const D1_DB_ID = '7ce39cd0-9333-4843-bd6f-5ccbefbde670'; // lexkite-sync (wrangler.toml)
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req) } });
@@ -20,12 +22,13 @@ const dayOf = t => new Date(t).toISOString().slice(0, 10);
 let ready = false;
 async function setup(db) {
   if (ready) return;
-  await once(db, 'capacity', 1, async () => { // lược đồ: chỉ chạy khi đổi phiên bản (_schema.js) – sửa CREATE/ALTER ở đây thì TĂNG số 1
+  await once(db, 'capacity', 2, async () => { // lược đồ: chỉ chạy khi đổi phiên bản (_schema.js) – sửa CREATE/ALTER ở đây thì TĂNG số
     await db.batch([
       db.prepare('CREATE TABLE IF NOT EXISTS capacity_daily (day TEXT PRIMARY KEY, reads INTEGER, writes INTEGER, fn INTEGER, workers INTEGER, requests INTEGER, at INTEGER NOT NULL) WITHOUT ROWID'),
       db.prepare('CREATE TABLE IF NOT EXISTS drive_alerts (kind TEXT PRIMARY KEY, level TEXT NOT NULL, drive_id INTEGER, msg TEXT, since INTEGER NOT NULL, seen INTEGER NOT NULL, mailed INTEGER) WITHOUT ROWID'),
       db.prepare('CREATE TABLE IF NOT EXISTS drive_meta (k TEXT PRIMARY KEY, v TEXT) WITHOUT ROWID'),
     ]);
+    await db.prepare('ALTER TABLE capacity_daily ADD COLUMN src TEXT').run().catch(() => {}); // JSON { user|admin|cron: { r, w } } – nguồn dòng đọc/ghi (2 ngày gần nhất)
   });
   ready = true;
 }
@@ -38,7 +41,8 @@ export async function fetchSeries(env, from, to, fetcher = fetch) {
   const query = `query { viewer { accounts(filter:{accountTag:"${acct}"}) {
     d1: d1AnalyticsAdaptiveGroups(limit:100, filter:{date_geq:"${from}", date_leq:"${to}", databaseId:"${dbId}"}) { dimensions { date } sum { rowsRead rowsWritten } }
     fn: pagesFunctionsInvocationsAdaptiveGroups(limit:100, ${f}) { dimensions { date } sum { requests } }
-    wk: workersInvocationsAdaptive(limit:2000, ${f}) { dimensions { date } sum { requests } } } } }`;
+    wk: workersInvocationsAdaptive(limit:2000, ${f}) { dimensions { date } sum { requests } }
+    dq: d1QueriesAdaptiveGroups(limit:2000, orderBy:[sum_rowsRead_DESC], filter:{date_geq:"${dayOf(Date.parse(to + 'T00:00:00Z') - DAY)}", date_leq:"${to}", databaseId:"${dbId}"}) { dimensions { date query } sum { rowsRead rowsWritten } } } } }`;
   const r = await fetcher('https://api.cloudflare.com/client/v4/graphql', { method: 'POST', headers: { Authorization: 'Bearer ' + tok, 'Content-Type': 'application/json' }, body: JSON.stringify({ query }) });
   const j = await r.json().catch(() => ({}));
   const a = (((j.data || {}).viewer || {}).accounts || [])[0];
@@ -49,10 +53,12 @@ export async function fetchSeries(env, from, to, fetcher = fetch) {
   for (const g of a.d1 || []) { const x = at(g.dimensions.date); x.reads += +g.sum.rowsRead || 0; x.writes += +g.sum.rowsWritten || 0; }
   for (const g of a.fn || []) at(g.dimensions.date).fn += +g.sum.requests || 0;
   for (const g of a.wk || []) at(g.dimensions.date).workers += +g.sum.requests || 0;
-  return [...by.values()].sort((p, q) => p.day < q.day ? -1 : 1).map(x => ({ ...x, requests: x.fn + x.workers }));
+  // Nguồn đọc/ghi theo câu SQL (hôm qua + hôm nay): người dùng · quản trị · việc nền (_capacity.js d1Source)
+  const src = sourcesOf(a.dq);
+  return [...by.values()].sort((p, q) => p.day < q.day ? -1 : 1).map(x => ({ ...x, requests: x.fn + x.workers, ...(src[x.day] ? { src: src[x.day] } : {}) }));
 }
 
-async function sendMail(env, subject, text) {
+export async function sendMail(env, subject, text) {
   if (!env.MAIL) return false;
   const to = String(env.REPORT_NOTIFY_EMAIL || '').trim();
   const r = await env.MAIL.fetch('https://mail/send', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ subject, text: text + '\n\nhttps://lexkite.com/admin.html#quota', ...(/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(to) ? { to } : {}) }) }).catch(() => null);
@@ -65,12 +71,25 @@ export async function check(env, db, now = Date.now(), fetcher = fetch) {
   await setup(db);
   const to = dayOf(now), from = dayOf(now - 29 * DAY);
   const rows = await fetchSeries(env, from, to, fetcher);
-  await db.batch(rows.map(r => db.prepare('INSERT INTO capacity_daily (day, reads, writes, fn, workers, requests, at) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7) ON CONFLICT (day) DO UPDATE SET reads = ?2, writes = ?3, fn = ?4, workers = ?5, requests = ?6, at = ?7')
-    .bind(r.day, r.reads, r.writes, r.fn, r.workers, r.requests, now)));
-  const ev = evaluate(rows, LIMITS.free, ALERT, to);
+  await db.batch(rows.map(r => db.prepare('INSERT INTO capacity_daily (day, reads, writes, fn, workers, requests, at, src) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8) ON CONFLICT (day) DO UPDATE SET reads = ?2, writes = ?3, fn = ?4, workers = ?5, requests = ?6, at = ?7, src = COALESCE(?8, src)')
+    .bind(r.day, r.reads, r.writes, r.fn, r.workers, r.requests, now, r.src ? JSON.stringify(r.src) : null)));
+  // Nguồn đọc (hôm qua = ngày trọn; hôm nay nếu đã vượt): quản trị / việc nền > 10 % hạn mức Free → chuông 'capacity-src' + thư ≤ 1/24 h (docs/CAPACITY.md §D4)
+  const y = rows.length > 1 ? rows[rows.length - 2] : null, t = rows[rows.length - 1];
+  const sy = evaluateSources(y && y.src), st = evaluateSources(t && t.src), srcHit = sy.over.length ? { day: y.day, ...sy } : st.over.length ? { day: t.day, ...st } : null;
+  let srcMailed = false;
+  if (srcHit) {
+    const smsg = `Đọc D1 ngày ${fmtVN(srcHit.day)}: ${srcHit.text}. Vượt ngân sách ${srcHit.over.map(o => `${o.k} ${o.pct} %`).join(', ')} (tối đa 10 % hạn mức Free/nguồn) – kiểm bộ đệm/bảng tổng hợp Quản trị (docs/CAPACITY.md §D4).`;
+    await db.prepare("INSERT INTO drive_alerts (kind, level, drive_id, msg, since, seen, mailed) VALUES ('capacity-src', 'warn', NULL, ?1, ?2, ?2, NULL) ON CONFLICT (kind) DO UPDATE SET msg = ?1, seen = ?2")
+      .bind(JSON.stringify({ t: 'capacity-src', p: { by: fmtVN(srcHit.day), pct: srcHit.over[0].pct, repo: srcHit.over.map(o => o.k).join('+') }, msg: smsg }), now).run(); // p: biến của chuỗi chuông web/js/admin.js DRV_T
+    const last = +(((await db.prepare("SELECT v FROM drive_meta WHERE k = 'mail:capacity-src'").first()) || {}).v) || 0;
+    if (now - last >= MAIL_GAP && await sendMail(env, '[Lexkite] D1: nguồn đọc vượt ngân sách', smsg)) {
+      srcMailed = true; await db.prepare("INSERT OR REPLACE INTO drive_meta (k, v) VALUES ('mail:capacity-src', ?)").bind(String(now)).run();
+    }
+  } else await db.prepare("DELETE FROM drive_alerts WHERE kind = 'capacity-src'").run();
+  const ev = evaluate(rows, planOf(env) === 'paid' ? LIMITS.paid : LIMITS.free, ALERT, to); // 03/11: tài khoản chính gói Paid → so phần đã gồm (quy ngày)
   let mailed = false;
   if (ev.alert) {
-    const msg = `${alertText(ev)} – ${ev.reason}. Hôm qua: ${pctTxt(ev)}. Trong lúc chờ: Quản trị › Cài đặt › hit_rate = 0.2 (lấy mẫu thống kê phiên) giảm ≈ 30 % dòng ghi.`;
+    const msg = `${alertText(ev)} – ${ev.reason}. Hôm qua: ${pctTxt(ev)}.${sy.text ? ` Nguồn đọc: ${sy.text}.` : ''} Trong lúc chờ: Quản trị › Cài đặt › hit_rate = 0.2 (lấy mẫu thống kê phiên) giảm ≈ 30 % dòng ghi.`;
     await db.prepare("INSERT INTO drive_alerts (kind, level, drive_id, msg, since, seen, mailed) VALUES ('capacity', 'crit', NULL, ?1, ?2, ?2, NULL) ON CONFLICT (kind) DO UPDATE SET msg = ?1, seen = ?2")
       .bind(JSON.stringify({ t: 'capacity', p: { by: fmtVN(ev.upgradeBy), reason: ev.reason }, msg }), now).run();
     const last = +(((await db.prepare("SELECT v FROM drive_meta WHERE k = 'mail:capacity'").first()) || {}).v) || 0;
@@ -78,14 +97,27 @@ export async function check(env, db, now = Date.now(), fetcher = fetch) {
       mailed = true; await db.prepare("INSERT OR REPLACE INTO drive_meta (k, v) VALUES ('mail:capacity', ?)").bind(String(now)).run();
     }
   } else await db.prepare("DELETE FROM drive_alerts WHERE kind = 'capacity'").run();
-  return { ok: true, evaluation: ev, mailed, rows: rows.length };
+  return { ok: true, evaluation: ev, mailed, rows: rows.length, sources: srcHit || { day: y ? y.day : null, ...sy }, srcMailed };
+}
+
+/** CI (d1-usage-watch.yml, 20 phút/lần – Pages chưa có CF_ANALYTICS_TOKEN): { op:'usage', day, reads, writes } số Cloudflare hôm nay
+ * → drive_meta 'd1u:<ngày>' (1 dòng ghi) cho _d1guard.d1Usage đọc (ngưỡng 85 %, ngân sách Quản trị) + thang báo 50/75 % (_d1watch.js). */
+export async function usage(env, db, b, now = Date.now()) {
+  const ok = x => Number.isSafeInteger(x) && x >= 0 && x < 1e10;
+  const mR = b && b.mReads != null ? b.mReads : b && b.reads, mW = b && b.mWrites != null ? b.mWrites : b && b.writes; // tháng (gói Paid); thiếu → bằng hôm nay
+  if (!b || b.day !== dayOf(now) || !ok(b.reads) || !ok(b.writes) || !ok(mR) || !ok(mW) || mR < b.reads || mW < b.writes) return { error: 'bad-usage' };
+  await setup(db);
+  await db.prepare('INSERT INTO drive_meta (k, v) VALUES (?1, ?2) ON CONFLICT(k) DO UPDATE SET v = ?2').bind('d1u:' + b.day, JSON.stringify({ reads: b.reads, writes: b.writes, mReads: mR, mWrites: mW, at: now })).run();
+  resetD1Cache();
+  const w = await watchD1(env, db, now, { mail: (s, t) => sendMail(env, s, t) });
+  return { ok: true, ...w };
 }
 
 /** Quản trị › Hạn mức: chuỗi đã lưu (30 ngày, tra theo khoá day) + đánh giá + hạn mức. */
 export async function trend(env, db, now = Date.now()) {
   await setup(db);
-  const from = dayOf(now - 29 * DAY), rows = (await db.prepare('SELECT day, reads, writes, fn, workers, requests, at FROM capacity_daily WHERE day >= ? ORDER BY day').bind(from).all()).results || [];
-  return { rows, evaluation: evaluate(rows, LIMITS.free, ALERT, dayOf(now)), limits: { free: LIMITS.free, paid: LIMITS.paid }, rule: ALERT, analytics: !!((env.CF_ANALYTICS_TOKEN || env.CF_API_TOKEN) && env.CF_ACCOUNT_ID) };
+  const from = dayOf(now - 29 * DAY), rows = (await db.prepare('SELECT day, reads, writes, fn, workers, requests, at, src FROM capacity_daily WHERE day >= ? ORDER BY day').bind(from).all()).results || [];
+  return { rows, evaluation: evaluate(rows, planOf(env) === 'paid' ? LIMITS.paid : LIMITS.free, ALERT, dayOf(now)), plan: planOf(env), limits: { free: LIMITS.free, paid: LIMITS.paid }, rule: ALERT, analytics: !!((env.CF_ANALYTICS_TOKEN || env.CF_API_TOKEN) && env.CF_ACCOUNT_ID) };
 }
 
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
@@ -97,6 +129,7 @@ export async function onRequestPost({ request, env }) {
   try {
     if (request.headers.get('X-Drive-Sig')) { // đường CI: chỉ HMAC, chỉ op check
       if (!(await cliVerify(env, request, text))) return json(request, 401, { error: 'sig' });
+      if (b.op === 'usage') return json(request, 200, await usage(env, env.DB, b));
       if (b.op !== 'check') return json(request, 400, { error: 'op' });
       return json(request, 200, await check(env, env.DB));
     }

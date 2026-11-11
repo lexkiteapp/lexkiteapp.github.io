@@ -1,0 +1,3 @@
+/* UI ko – adoffer (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ko"] = Object.assign(D["ko"] || {}, {"Cơ hội thứ 2":"두 번째 기회","Làm lại {n} câu sai – đúng hết là qua bài!":"{n}개의 잘못된 답을 다시 실행하세요. 문제를 모두 맞혀서 수업을 통과하세요!","Làm lại {n} câu sai – đúng hết thì điểm được tính lại.":"{n}개의 잘못된 답을 다시 실행하세요. 정답을 맞추면 점수가 업데이트됩니다.","Xem video để làm lại":"동영상 보고 다시 풀기","Làm lại miễn phí":"무료로 다시 풀기","Nhân đôi XP":"XP 2배","Xem 1 video ngắn để nhận thêm +{xp} XP.":"짧은 동영상을 시청하여 +{xp} 보너스 XP를 획득하세요.","Nhận x2 XP":"2× XP 받기","Chưa xem hết video – thử lại nhé":"영상이 끝나지 않았습니다. 다시 시도해 주세요.","+{xp} XP đã được cộng!":"+{xp} XP가 추가되었습니다!"});
+})(typeof self !== 'undefined' ? self : this);

@@ -113,7 +113,7 @@ YDS'de sınavı 1. sorudan başlayıp 80. soruda bitirmek psikolojik olarak yoru
 | Anlamı Bozan Cümle | 76 - 80 | 15 Dakika | 6. Sırada çözün |
 | Kontrol ve Kodlama | Tüm Sınav | 20 Dakika | Son kontrol |
 
-{{youtube: Fx4mC1K8Z6c | YDS Sınavında En Çok Çıkan Bağlaçlar ve Soru Çözüm Taktikleri}}
+{{youtube: | YDS Sınavında En Çok Çıkan Bağlaçlar ve Soru Çözüm Taktikleri}}
 
 {{cta: /#/practice/test | YDS Tarzı Test Çözmeye Başla}}
 

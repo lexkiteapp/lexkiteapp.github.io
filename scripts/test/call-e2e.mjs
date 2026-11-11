@@ -23,9 +23,27 @@ const serve = route => {
   let p = decodeURIComponent(new URL(route.request().url()).pathname); if (p.endsWith('/')) p += 'index.html';
   const f = path.join(ROOT, path.normalize(p));
   if (!f.startsWith(ROOT) || !fs.existsSync(f) || !fs.statSync(f).isFile()) return route.fulfill({ status: 404, body: '' });
-  const body = fs.readFileSync(f); served += /\.(js|css|json|html)$/.test(f) ? zlib.gzipSync(body).length : body.length;
+  const body = fs.readFileSync(f);
+  // Tải sẵn nền (App.prefetchAll: <link rel=prefetch> mọi gói, ưu tiên thấp) KHÔNG phải chi phí vào cuộc gọi → không tính; nếu tính, kết quả phụ thuộc đúng lúc hàng đợi prefetch chạy (28 KB ↔ 1 MB cùng mã).
+  const rq = route.request(), pf = /prefetch/i.test((rq.headers()['sec-purpose'] || '') + (rq.headers().purpose || '')) || (rq.resourceType() === 'other' && /\.js$/.test(f));
+  if (!pf) served += /\.(js|css|json|html)$/.test(f) ? zlib.gzipSync(body).length : body.length;
   return route.fulfill({ status: 200, contentType: MIME[path.extname(f)] || 'application/octet-stream', body });
 };
+
+// Tiếng giả cho mặt vẽ (fixture, không mạng): <khóa>-ls.mp3 → WAV 24 kHz dựng từ độ lớn tiếng 100 Hz đã lưu trong web/js/call/cues.js (đúng độ dài → không rơi về live);
+// câu không có mốc → 1.6 s tiếng có ngắt. Content-Type audio/wav (trình duyệt đọc theo nội dung, không theo đuôi .mp3).
+const CUES = (() => { try { const g = {}; new Function('self', fs.readFileSync(path.join(ROOT, 'js/call/cues.js'), 'utf8'))(g); return g.LK_CUES.k; } catch (e) { return {}; } })();
+function wav(env) {
+  const sr = 24000, hop = sr / 100, n = env.length * hop, b = Buffer.alloc(44 + 2 * n); let ph = 0;
+  b.write('RIFF', 0); b.writeUInt32LE(36 + 2 * n, 4); b.write('WAVEfmt ', 8); b.writeUInt32LE(16, 16); b.writeUInt16LE(1, 20); b.writeUInt16LE(1, 22); b.writeUInt32LE(sr, 24); b.writeUInt32LE(2 * sr, 28); b.writeUInt16LE(2, 32); b.writeUInt16LE(16, 34); b.write('data', 36); b.writeUInt32LE(2 * n, 40);
+  for (let i = 0; i < n; i++) { ph += 2 * Math.PI * 180 / sr; b.writeInt16LE(Math.round(9000 * env[Math.floor(i / hop)] * Math.sin(ph)), 44 + 2 * i); }
+  return b;
+}
+function fixtureAudio(route) {
+  const k = decodeURIComponent(new URL(route.request().url()).pathname).split('/').pop().replace(/(-s2)?(-ls)?\.mp3$/, ''), e = CUES[k];
+  const env = e ? Array.from(Buffer.from(e[2].replace(/~(\d+)\./g, (_, m) => 'AAAA'.repeat(+m)), 'base64'), x => x / 255) : Array.from({ length: 160 }, (_, i) => (i > 10 && i < 70) || (i > 85 && i < 150) ? .8 : 0);
+  return route.fulfill({ status: 200, contentType: 'audio/wav', headers: { 'Access-Control-Allow-Origin': '*' }, body: wav(env) });
+}
 
 // SpeechRecognition giả: cfg.local = gói trên máy có sẵn; mỗi start() lấy 1 câu từ window.__heard (rỗng → no-speech); window.__delay = trễ ms
 const MOCK = cfg => {
@@ -61,7 +79,10 @@ const shot = async (page, name) => { await page.waitForTimeout(250); await page.
 async function open(o = {}) {
   const ctx = await browser.newContext({ locale: 'vi', permissions: ['microphone'], serviceWorkers: 'block', viewport: o.vp || { width: 1280, height: 800 }, deviceScaleFactor: 1, ...(o.video ? { recordVideo: { dir: path.join(OUT, 'video'), size: o.vp || { width: 1280, height: 800 } } } : {}) });
   await ctx.route(BASE + '**', serve);
-  await ctx.route(/audio\.lexkite\.com|github\.io\/(lexkite-media|audio)/, r => r.abort());
+  // tiếng: KHÔNG gọi kho media/audio thật trên CI – o.audio: tiếng GIẢ đúng độ dài + độ lớn của mốc CI (fixtureAudio) → mặt vẽ chạy chế độ pre như máy thật
+  await ctx.route(/audio\.lexkite\.com|github\.io\/(lexkite-media|audio)|lexkite-media/, r => o.audio ? fixtureAudio(r) : r.abort());
+  // welcome.js/hubs.js dò blog theo ngôn ngữ (App.blogLive) qua https://lexkite.com/blog-langs.json: KHÔNG chạm prod (thật thì trả không có CORS → console lỗi CORS, đỏ giả)
+  await ctx.route('https://lexkite.com/blog-langs.json', r => r.fulfill({ status: 200, contentType: 'application/json', headers: { 'Access-Control-Allow-Origin': '*' }, body: '["en","vi"]' }));
   await ctx.route('https://lexkite.com/api/**', r => r.request().method() === 'OPTIONS' ? r.fulfill({ status: 204, headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*' } })
     : r.fulfill({ status: 200, contentType: 'application/json', headers: { 'Access-Control-Allow-Origin': '*' }, body: JSON.stringify({ ok: true, notices: [], unread_count: 0 }) }));
   const page = await ctx.newPage(), errs = [];
@@ -76,6 +97,19 @@ async function open(o = {}) {
 const go = (page, h) => page.evaluate(x => { location.hash = x; }, h);
 const state = page => page.evaluate(() => (window.__callState ? window.__callState() : null));
 const until = (page, fn, arg, ms = 15000) => page.waitForFunction(fn, arg, { timeout: ms });
+// Mắt mở trên khung mặt ĐÃ GHÉP (đầu trơn head-bare không mắt + mắt vector LipFace) – cùng thước scripts/teach/eyes.py: tỉ lệ điểm ảnh lòng trắng trong dải mắt
+// (x 30–70 %, y 32 ± 5,2 %) ≥ 45 % của poster-2x. Bù cho ngoại lệ head-bare trong idle.closed_ok (characters.json). null = khung đang chớp / chưa có canvas.
+const eyeOpen = page => page.evaluate(async () => {
+  const cv = document.querySelector('.tch-rig canvas.tch-face'), st = window.__callState && window.__callState().lip;
+  if (!cv || !st || (st.blink || 0) > 0.02) return null;
+  const score = c => { const w = c.width, h = c.height, x0 = Math.floor(w * .3), y0 = Math.floor(h * (.32 - .052)), x1 = Math.floor(w * .7), y1 = Math.floor(h * (.32 + .052));
+    const d = c.getContext('2d').getImageData(x0, y0, x1 - x0, y1 - y0).data; let n = 0;
+    for (let i = 0; i < d.length; i += 4) { const mx = Math.max(d[i], d[i + 1], d[i + 2]), mn = Math.min(d[i], d[i + 1], d[i + 2]); if (mx > 200 && (mx - mn) * 255 < 60 * Math.max(mx, 1) && d[i + 3] > 200) n++; }
+    return n / (d.length / 4); };
+  const who = document.querySelector('.tch-rig').dataset.face || 'ama', im = new Image(); im.src = Chars.poster(who).replace('poster.webp', 'poster-2x.webp'); await im.decode();
+  const pc = Object.assign(document.createElement('canvas'), { width: cv.width, height: cv.height }); pc.getContext('2d').drawImage(im, 0, 0, cv.width, cv.height);
+  return { score: score(cv), ref: score(pc), mode: st.mode, who };
+});
 
 if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
   for (const [vp, tag] of [[{ width: 1280, height: 800 }, 'd'], [{ width: 375, height: 812 }, 'm']]) {
@@ -222,6 +256,61 @@ if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
   ok(await noX(), '375 px: tổng kết không tràn ngang'); await shot(page, 'summary-m');
   ok(!errs.length, 'điện thoại: không lỗi JS' + (errs.length ? ' – ' + errs.join(' | ') : ''));
   await ctx.close();
+}
+
+// ===== 4b) Mặt VẼ khớp miệng (cờ lk.lipsync, docs/LESSON-ENGINE.md §Khớp miệng): đầu trơn + lớp vector thay clip, nói & nghỉ (chớp/liếc), fps ≥ 50 ở CPU 4×, không lỗi JS =====
+// Tiếng GIẢ theo mốc (fixtureAudio, không gọi kho media): câu có mốc CI (web/js/call/cues.js) phải phát chế độ "pre"; MỘT <canvas> (0 thay đổi DOM mỗi khung); video màn Call → lip-m.webm
+{
+  // Home/Today (gói ux1 có teacher.js) KHÔNG tải mặt vẽ/mốc: chỉ nạp khi mount giáo viên (ngân sách web/js tạm nâng cho #293 kèm điều kiện này)
+  {
+    const { ctx, page } = await open({ vp: { width: 375, height: 812 } }), LIP = /\/js\/call\/(cues|face|lipsync|mouths|paint)\.js/, got = [];
+    page.on('request', r => { if (LIP.test(r.url())) got.push(r.url().split('/').pop()); });
+    await page.evaluate(() => { localStorage.setItem('lk.lipsync', '1'); localStorage.setItem('lk.ux1', '1'); });
+    for (const h of ['#/home', '#/today']) { await go(page, h); await page.waitForTimeout(2500); }
+    ok(!got.length, `Home/Today: không tải mặt vẽ/mốc khớp miệng (${got.join(', ') || '0 tệp'})`);
+    await go(page, '#/call/coffee'); await page.waitForSelector('#callGo'); await page.click('#callGo');
+    await until(page, () => document.querySelector('.tch-rig canvas.tch-face'), null, 15000).catch(() => {});
+    ok(got.includes('cues.js') && got.includes('face.js'), `vào Call mới nạp mặt vẽ + mốc (${got.join(', ')})`);
+    await ctx.close();
+  }
+  // fps đo ở ngữ cảnh KHÔNG quay màn hình (bộ quay chiếm CPU trình duyệt); video gửi duyệt quay ở lượt sau, cùng màn
+  for (const rec of [false, true]) {
+  let pendPre = false, modes = new Set(); const modes2 = new Set(), talk = []; // talk: khung ghép lúc NÓI (mắt mở)
+  const { ctx, page, errs } = await open({ vp: { width: 375, height: 812 }, video: rec, audio: true });
+  await page.evaluate(() => { localStorage.setItem('lk.lipsync', '1'); localStorage.setItem('lk.ux1', '1'); });
+  await go(page, '#/call/coffee'); await page.waitForSelector('#callGo');
+  if (!rec) { const pre = await until(page, () => window.LK_CUES && window.LipFace && window.LipSync, null, 5000).then(() => true, () => false); ok(pre, 'màn đổ chuông: đã nạp sẵn mặt vẽ + mốc trước khi bấm gọi (câu chào đầu kịp bản -ls.mp3)'); }
+  await page.click('#callGo');
+  const on = await until(page, () => document.querySelector('.tch-rig canvas.tch-face'), null, 15000).then(() => true, () => false);
+  ok(on, 'mặt vẽ: đầu trơn + mắt/mày/miệng vector (canvas) thay clip');
+  ok(!(await page.$('.tch-cv')) && !(await page.$('.tch-rig video')), 'mặt vẽ: không tải clip WebGL');
+  if (!rec) {
+  const cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+  const mut = await page.evaluate(() => { window.__mut = 0; const v = document.querySelector('#view') || document.body; new MutationObserver(l => { for (const m of l) if (m.target.closest && m.target.closest('.tch-rig')) window.__mut++; }).observe(v, { subtree: true, childList: true, attributes: true }); return 1; });
+  const a = (await state(page)).lip;
+  for (let i = 0; i < 15; i++) { await page.waitForTimeout(200); const l = (await state(page)).lip; if (l) modes.add(l.mode); }
+  const b = (await state(page)).lip;
+  await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 });
+  const fps = a && b ? Math.round(1000 * (b.frames - a.frames) / (b.now - a.now)) : 0;
+  ok(fps >= 50, `mặt vẽ: ${fps} fps ở CPU chậm 4× (≥ 50), khung > 50 ms: ${a && b ? b.long - a.long : '?'}`);
+  for (let i = 0; i < 40 && talk.length < 3; i++) { const e = await eyeOpen(page); if (e && e.mode !== 'idle') talk.push(e); await page.waitForTimeout(120); }
+  const cued = await page.evaluate(() => Object.keys((window.LK_CUES || {}).k || {}).length);
+  console.log(`  mặt vẽ: chế độ ${[...modes].join(', ')} · ${cued} câu Call có mốc CI`);
+  if (!cued || modes.has('pre')) ok(true, 'mặt vẽ: câu có mốc CI phát chế độ pre (bản -ls.mp3)'); else pendPre = true; // câu đầu chưa kịp → xét lại ở câu đáp sau (chip latte)
+  const dm = await page.evaluate(() => window.__mut); ok(mut && dm === 0, `mặt vẽ: 0 thay đổi DOM trong khung giáo viên khi nói (đo ${dm})`);
+  ok(b && b.draws > 10, `mặt vẽ: canvas vẽ lại khi trạng thái đổi (${b && b.draws} lần)`);
+  }
+  if (rec) await shot(page, 'lip-m');
+  await until(page, () => /Đến lượt bạn|lượt bạn/i.test(document.body.textContent), null, 15000).catch(() => {});
+  if (!rec) { const rest = []; for (let i = 0; i < 40 && rest.length < 3; i++) { const e = await eyeOpen(page); if (e && e.mode === 'idle') rest.push(e); await page.waitForTimeout(120); }
+    ok(rest.length && rest.every(e => e.score >= 0.45 * e.ref), `mặt vẽ ghép: mắt mở khi NGHỈ (${rest.map(e => `${e.score.toFixed(3)}/${e.ref.toFixed(3)}`).join(', ') || 'không bắt được khung'})`); }
+  await page.waitForTimeout(300); const sh = (await state(page)).lip; ok(sh && sh.shape === 'X' && sh.open === 0, `mặt vẽ: hết tiếng → miệng ngậm (hình ${sh && sh.shape}, mở ${sh && sh.open})`);
+  const chip = await page.$('.v2s-teacher-call button:has-text("latte"), button:has-text("latte")'); if (chip) { await chip.click().catch(() => {}); for (let i = 0; i < 25; i++) { await page.waitForTimeout(200); const l = (await state(page)).lip; if (l) modes2.add(l.mode); if (!rec && talk.length < 3 && l && l.mode !== 'idle') { const e = await eyeOpen(page); if (e && e.mode !== 'idle') talk.push(e); } } }
+  if (!rec) ok(talk.length && talk.every(e => e.score >= 0.45 * e.ref), `mặt vẽ ghép: mắt mở khi NÓI (${talk.map(e => `${e.score.toFixed(3)}/${e.ref.toFixed(3)}`).join(', ') || 'không bắt được khung'})`);
+  if (!rec && pendPre) ok(modes2.has('pre'), `mặt vẽ: câu có mốc CI phát chế độ pre (câu đầu ${[...modes].join('/')}, câu sau ${[...modes2].join('/')})`);
+  ok(!errs.length, 'mặt vẽ: không lỗi JS' + (errs.length ? ' – ' + errs.join(' | ').slice(0, 300) : ''));
+  const vid = page.video(); await ctx.close(); if (vid) fs.copyFileSync(await vid.path(), path.join(OUT, 'lip-m.webm'));
+  }
 }
 
 // ===== 5) Tùy chọn: Whisper THẬT trên máy với mẫu âm thanh thu sẵn =====

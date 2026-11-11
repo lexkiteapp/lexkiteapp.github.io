@@ -33,6 +33,7 @@ quiz: [
     explain: "완료분사구문 'Having recognized...'는 주절의 시제보다 앞선 원인이나 배경을 깔끔하고 학술적으로 요약 압축하는 대표적 고급 문형입니다."
   }
 ]
+publishAt: 2026-11-27T09:12:00+09:00
 ---
 IELTS 라이팅 Task 2 에세이를 작성할 때, 단어는 열심히 외워서 화려하게 썼는데도 점수가 6.0점이나 6.5점에서 멈춰 있지는 않으신가요? 많은 수험생이 Task Response(과제 수행)나 Lexical Resource(어휘)에만 매달리지만, 실제 점수 상승의 가장 큰 발목을 잡는 주범은 바로 **문법 범위와 정확성(Grammatical Range and Accuracy)**입니다. 모든 문장이 *This is good. And it causes that. So people like it.* 처럼 단순문(단문)과 중문으로만 이어지면 채점관은 결코 Band 7.0 이상의 점수를 부여하지 않습니다.
 
@@ -130,6 +131,8 @@ IELTS 라이팅 Task 2 에세이를 작성할 때, 단어는 열심히 외워서
 {{youtube: | Gợi ý video hướng dẫn cách viết câu phức Complex Sentences trong IELTS Writing Task 2}}
 
 {{cta: /#/write | Lexkite 라이팅 룸에서 Band 8 모범 에세이와 복합문 구조 실전 연습하기}}
+
+완성한 복합문을 에세이 구조 안에 넣는 연습은 [IELTS Writing Task 2 4단락 템플릿](/ko/blog/ielts-writing-task-2-template-4danrak/)에서 이어서 해 보세요.
 
 ## IELTS 복합문에 관한 자주 묻는 질문 (FAQ)
 

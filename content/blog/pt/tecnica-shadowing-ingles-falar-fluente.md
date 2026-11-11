@@ -48,6 +48,7 @@ quiz: [
     explain: "Ignorar as formas fracas (weak forms) e acentuar demais palavras funcionais torna a fala artificial; o ritmo da frase importa tanto quanto os sons isolados."
   }
 ]
+publishAt: 2026-12-17T21:56:00-03:00
 ---
 
 Dominar a **técnica shadowing inglês** é uma das estratégias mais eficazes validadas pela psicolinguística para transformar o conhecimento passivo do idioma em fala ágil, natural e confiante. É muito comum compreender perfeitamente sentenças em textos ou séries, mas travar na hora de pronunciá-las em uma conversa espontânea. Esse bloqueio acontece porque os músculos da boca e o cérebro ainda não automatizaram os padrões de entonação e conexão do inglês falado.

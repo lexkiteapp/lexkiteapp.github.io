@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// Bảng điểm chất lượng nội dung (docs/CONTENT-WORLD-PLAN.md §3.5, P0.7): 6 mảng × 0–100 + tổng, từ ĐỘ PHỦ × TỈ LỆ QUA CỔNG.
-// Số liệu dùng lại cổng có sẵn: content-check (--json → reports/content-stats.json + lỗi theo mảng), build-lexicon (kho từ một nguồn + mở rộng, loadAllPlus),
+// Bảng điểm chất lượng nội dung (docs/CONTENT-WORLD-PLAN.md §3.5, P0.7): 8 mảng × 0–100 + tổng, từ ĐỘ PHỦ × TỈ LỆ QUA CỔNG.
+// Số liệu dùng lại cổng có sẵn: lkf-check (khung Can-do, P0-C), grammar-map-check (kho điểm ngữ pháp, P0-D), content-check (--json → reports/content-stats.json + lỗi theo mảng), build-lexicon (kho từ một nguồn + mở rộng, loadAllPlus),
 // content/lexicon/img.json (ảnh theo nghĩa), i18n-qa (lỗi bản dịch 15 ngôn ngữ). 0 token, chỉ đọc repo.
 // Chuẩn đích (CHUAN) cố định theo "ông lớn" ở §2 của kế hoạch – KHÔNG hạ; khác targets.json (chỉ tiêu lô, được nâng dần).
 // Ngưỡng sàn: content/pipeline/score.budget.json (như scripts/test/visual-qa.budget.json) – điểm < sàn → exit 1; sàn chỉ được tăng.
@@ -41,6 +41,18 @@ const img = JSON.parse(rd('content/lexicon/img.json')).items || {};
 const imgN = [...rows.keys()].filter(k => img[k]).length;
 const lvN = l => R.filter(r => r[8] === l).length;
 
+// ---------- Cổng 4: lkf-check (khung Can-do + gắn lo, P0-C) ----------
+const lkfRun = spawnSync('node', ['scripts/content-qa/lkf-check.mjs'], { encoding: 'utf8' });
+const LK = ex('reports/lkf-coverage.json') ? JSON.parse(rd('reports/lkf-coverage.json')) : { objectives: 0, cellsOk: 0, objectivesUsed: 0, total: { tagged: 0, items: 0 }, errors: 1 };
+
+// ---------- Cổng 5: grammar-map-check (kho điểm ngữ pháp ↔ 77 bài + hàng chờ, P0-D) ----------
+const giRun = spawnSync('node', ['scripts/content-qa/grammar-map-check.mjs'], { encoding: 'utf8' });
+const GI = ex('reports/grammar-inventory.json') ? JSON.parse(rd('reports/grammar-inventory.json')) : { points: 0, taught: 0, errors: 1 };
+
+// ---------- Cổng 6: learnability (sư phạm "dễ học – dễ nhớ", P0-H, docs/specs/learnability.md) → content/pipeline/LEARN.md ----------
+const lnRun = spawnSync('node', ['scripts/content-qa/learnability.mjs'], { encoding: 'utf8' });
+const LN = ex('reports/learnability.json') ? JSON.parse(rd('reports/learnability.json')) : { areas: {} };
+
 // ---------- Cổng 3: i18n-qa (15 ngôn ngữ) ----------
 const qa = spawnSync('node', ['scripts/i18n-qa.mjs'], { encoding: 'utf8' }).stdout || '';
 const qaRows = [...qa.matchAll(/^[✓✗] ([\w-]+): thiếu (\d+) · sai biến\/thẻ (\d+) · lẫn tiếng Việt (\d+) · dịch sai đã biết (\d+) · mất tiếng Anh mẫu (\d+) · nhãn ngắn chưa dịch tay (\d+)/gm)]
@@ -67,14 +79,15 @@ const AREAS = {
     ['từ#loại duy nhất', NV, VSTD, 25], ['IPA·nghĩa·định nghĩa·ví dụ·CEFR', (has(1) + has(3) + has(4) + has(5) + has(8)) / 5 * NV, NV, 20],
     ['collocation', has(6) * NV, VSTD, 12], ['đồng nghĩa', has(7) * NV, VSTD, 8], ['IPA Mỹ', has(10) * NV, VSTD, 5],
     ['ảnh theo nghĩa', imgN, VSTD, 15], ['C2', lvN('C2'), 1000, 10], ['A1', lvN('A1'), 1000, 5]] },
-  grammar: { name: 'Ngữ pháp', err: ERR.grammar, items: grammar.length, parts: [
-    ...[['A1', 15], ['A2', 15], ['B1', 30], ['B2', 27], ['C1', 15], ['C2', 10]].map(([l, t]) => [`bài ${l}`, gLv(l), t, 8, l === 'A1' || l === 'C2']),
+  grammar: { name: 'Ngữ pháp', err: ERR.grammar + GI.errors, items: grammar.length, gate: giRun.status === 0, parts: [
+    ...[['A1', 15], ['A2', 15], ['B1', 30], ['B2', 27], ['C1', 15], ['C2', 10]].map(([l, t]) => [`bài ${l}`, gLv(l), t, 8, l === 'C2']), // A1 có bài từ 2026-11 (web/js/grammar/starter.js) → về 0 là nguồn hỏng
     ['trắc nghiệm', n('Ngữ pháp – trắc nghiệm'), 3000, 20], ['tự luận', n('Ngữ pháp – tự luận'), 3000, 20],
-    ['kho điểm ngữ pháp (LKF)', ex('content/framework/grammar-inventory.json') ? (JSON.parse(rd('content/framework/grammar-inventory.json')).points || []).length : 0, 300, 12, 1]] },
+    // chuẩn ~300 điểm A1–C2; "đã có bài đúng cấp" chỉ tăng khi viết bài mới cho điểm trong hàng chờ (targets.json "Ngữ pháp – bài <cấp>")
+    ['kho điểm ngữ pháp', GI.points, 300, 12], ['điểm đã có bài đúng cấp', GI.taught, 300, 12]] },
   comm: { name: 'Giao tiếp', err: 0, parts: [
     ['cuộc gọi Ama/Carlos', countRe(ls('web/js/call', /^calls.*\.js$/).map(f => 'web/js/call/' + f), /^\s*id: '/gm), 60, 20],
     ['roleplay', roleplay, 60, 20], ['tình huống Play & Speak', ls('content/situations', /\.json$/).length, 40, 20],
-    ['mục gold (giải thích cách dùng)', (rd('web/js/lesson/gold.js').match(/":\[\{"why"/g) || []).length, 1000, 20],
+    ['mục gold (giải thích cách dùng)', (rd('web/cpack/lesson/gold.js').match(/":\[\{"why"/g) || []).length, 1000, 20],
     ['sổ mẫu câu theo chức năng', ex('content/framework/functions.json') ? (JSON.parse(rd('content/framework/functions.json')).functions || []).length : 0, 100, 20, 1]] },
   skills: { name: '4 kỹ năng', err: ERR.skills, parts: [
     ['Nghe: bộ bài', (C.LISTENING || []).length, 80, 15], ['Đọc: bài', (C.READINGS || []).length + n('Bài đọc ngắn'), 600, 15],
@@ -84,7 +97,14 @@ const AREAS = {
     ['trung gian (mediation)', ls('content/mediation', /\.json$/).length, 30, 14, 1]] },
   exam: { name: 'Đề thi', err: ERR.exam, parts: [
     ...Object.entries(EXAM_STD).map(([k, t]) => [k, S[k] ? n(k) : +T[k]?.have || 0, t, 5]), // loại chưa đếm trong content-check: số đếm tay ở targets.json (như content-queue)
-    ...['a2', 'b1', 'b2', 'c1', 'c2'].map(l => [`Cambridge ${l.toUpperCase()}`, ls(`web/js/cambridge/${l}`, /\.js$/).length, 6, 8, 1])] },
+    ...['a2', 'b1', 'b2', 'c1', 'c2'].map(l => [`Cambridge ${l.toUpperCase()}`, (C.CAMBRIDGE || []).filter(x => x.level === l && x.id === `${l}-t${x.n}`).length, 6, 8, 1])] }, // Cambridge: đề nạp được qua content-load (không đếm file rác); exam-format-check chặn đề lệch spec
+  // Chuẩn: ~600 mục tiêu (6 kỹ năng × 6 cấp × ≥ 15), mọi nội dung có lo; "mục tiêu có nội dung" đo khoảng trống thật (vd trung gian, A1, C2) – chỉ tăng khi thêm bài
+  lkf: { name: 'Khung Can-do', err: LK.errors, items: LK.total.items, gate: lkfRun.status === 0, parts: [
+    ['mục tiêu LKF tự soạn', LK.objectives, 600, 25], ['ô kỹ năng × cấp đủ ≥ 15', LK.cellsOk, 36, 15],
+    ['nội dung có lo hợp lệ', LK.total.tagged, LK.total.items || 1, 35], ['mục tiêu đã có nội dung luyện', LK.objectivesUsed, 600, 25]] },
+  // Điểm sư phạm trung bình từng mảng bài (12 tiêu chí a…l, chuẩn 100 = mọi bài đạt mọi tiêu chí áp dụng được)
+  learn: { name: 'Dễ học – dễ nhớ', err: 0, gate: lnRun.status === 0, parts: Object.entries({ grammar: 'Ngữ pháp', path: 'Bài lộ trình', vocab: 'Bộ từ', skills: 'Kỹ năng' })
+    .map(([k, nm]) => [nm, LN.areas[k]?.score || 0, 100, 25]) },
   i18n: { name: 'i18n', err: 0, parts: [
     ['ngôn ngữ đạt i18n-qa', qaRows.reduce((a, q) => a + (1 - Math.min(1, q.hard / NK)), 0), LANGS.length, 45],
     ['nhãn ngắn dịch tay', qaRows.reduce((a, q) => a + (1 - Math.min(1, q.short / NK)), 0), LANGS.length, 10],

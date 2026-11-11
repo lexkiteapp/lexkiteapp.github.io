@@ -1,5 +1,6 @@
 # Bảo vệ nội dung hằng tuần (miễn phí): kiểm chuỗi băm sổ đăng ký → ghi ảnh chụp băm kho nội dung học (đề, lời giải, từ vựng)
-# → kiểm WAF chống cào thật sự hoạt động → dò bản sao chép qua Brave Search (chỉ khi có secret BRAVE_SEARCH_KEY).
+# → kiểm WAF chống cào thật sự hoạt động → dò bản sao chép qua Brave Search (chỉ khi có secret BRAVE_SEARCH_KEY)
+# + dò canary kho đề/từ qua GitHub code search (GITHUB_TOKEN) → Quản trị (Cảnh báo + tab Backlink) + issue content-copy.
 # Push lên main đổi add-on (extension/manifest.json – lên phiên bản) hoặc landing → chỉ ghi mốc phát hành + đóng dấu OpenTimestamps.
 # OpenTimestamps (content/protection/ots/<hash>.ots): đóng dấu mục mới + upgrade bằng chứng pending; lỗi chỉ cảnh báo (continue-on-error).
 # Tài liệu: docs/CONTENT-PROTECTION.md · Bộ hồ sơ DMCA: docs/legal/DMCA-KIT.md
@@ -27,6 +28,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -51,15 +53,10 @@ jobs:
           node scripts/ots.mjs stamp || echo "::warning::ots stamp lỗi – lần chạy sau thử lại"
           node scripts/ots.mjs upgrade || echo "::warning::ots upgrade lỗi – lần chạy sau thử lại"
           node scripts/ots.mjs status
-      - name: Commit sổ đăng ký + bằng chứng OTS
+      - name: Commit sổ đăng ký + bằng chứng OTS (SINH LẠI trên main mới nhất nếu workflow khác vừa ghi sổ – registry.jsonl là chuỗi băm nối thêm nên rebase luôn xung đột – xem scripts/ci/commit-regen.sh)
+        env: { COMMIT_REGEN_NO_EXT: '1', EVENT: '${{ github.event_name }}' }
         run: |
-          node scripts/content-registry.mjs verify
-          git add content/protection/registry.jsonl content/protection/ots 2>/dev/null || true
-          git diff --cached --quiet && { echo "· sổ không đổi"; exit 0; }
-          git config user.name "lexkite-bot"; git config user.email "lexkiteapp@users.noreply.github.com"
-          git commit -qm "Registry: ảnh chụp băm / mốc phát hành / OpenTimestamps $(date -u +%F) [CF-Pages-Skip]"
-          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
-          exit 1
+          bash scripts/ci/commit-regen.sh "Registry: ảnh chụp băm / mốc phát hành / OpenTimestamps $(date -u +%F)" '[ "$EVENT" = push ] || node scripts/content-registry.mjs snapshot; node scripts/content-registry.mjs release addon; node scripts/content-registry.mjs release landing; node scripts/ots.mjs stamp || true; node scripts/ots.mjs upgrade || true; node scripts/content-registry.mjs verify' content/protection/registry.jsonl content/protection/ots
       - name: WAF chống cào hoạt động (request thử thật)
         if: github.event_name != 'push'
         continue-on-error: true
@@ -72,6 +69,7 @@ jobs:
         continue-on-error: true
         env:
           BRAVE_SEARCH_KEY: ${{ secrets.BRAVE_SEARCH_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}   # GitHub code search tìm canary (content/protection/canaries.json) – miễn phí
         run: |
           set +e; node scripts/copy-watch.mjs --posts 6 | tee watch.txt; c=${PIPESTATUS[0]}
           echo "code=$c" >> "$GITHUB_OUTPUT"; [ "$c" = 3 ] && exit 0 || exit $c
@@ -90,6 +88,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh label create content-copy --color B60205 --force >/dev/null 2>&1 || true
-          body=$(printf '%s\n\n%s' "Có trang ngoài chứa nguyên văn câu trong bài Lexkite. Xử lý theo docs/legal/DMCA-KIT.md." "$(cat watch.txt)")
+          body=$(printf '%s\n\n%s' "Có trang ngoài chứa nguyên văn câu trong bài Lexkite hoặc canary kho đề/từ. Xử lý theo docs/legal/DMCA-KIT.md." "$(cat watch.txt)")
           n=$(gh issue list --label content-copy --state open --json number -q '.[0].number')
           if [ -n "$n" ]; then gh issue comment "$n" --body "$body"; else gh issue create --title "Nghi bị chép nội dung" --label content-copy --body "$body"; fi

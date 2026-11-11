@@ -1,10 +1,11 @@
 // Ảnh Google Play cho app Android (com.lexkite.app) từ app THẬT trên lexkite.com (?sandbox=1&demo=1 – dữ liệu mẫu tách riêng, không đăng nhập).
-// Ra: <thư-mục>/<lang>/phone-1..7.png (1080×1920, PNG 24-bit không alpha) + <lang>/feature-1024x500.png + icon-512.png (32-bit, chép từ brand/).
+// Ra: <thư-mục>/<lang>/phone-1..7.png (1080×1920, PNG 24-bit không alpha) + <lang>/feature-1024x500.png + icon-512.png (32-bit RGBA, mã hoá lại từ brand/ – file nguồn có thể là PNG bảng màu).
 // Thiết kế giống ảnh Chrome Web Store (scripts/store-shots.mjs): nền teal đậm thương hiệu, tiêu đề lớn có chữ nhấn, ảnh thật trong khung điện thoại.
 // Chỉ chạy trên GitHub Actions (.github/workflows/play-shots.yml) – nặng, cần mạng. Dùng: node scripts/play-shots.mjs <thư-mục-ra>
 import { chromium } from 'playwright';
 import fs from 'fs';
 import path from 'path';
+import { toRgbaPng } from './lib/png-rgba.mjs';
 
 const OUT = path.resolve(process.argv[2] || 'play-shots');
 const BASE = process.env.BASE || 'https://lexkite.com/app/';
@@ -96,7 +97,8 @@ for (const lang of LANGS) {
   await feature(out, lang);
 }
 await browser.close();
-fs.copyFileSync('brand/lexkite-icon-512.png', `${OUT}/icon-512.png`);
+// Play bắt buộc icon 32-bit có alpha; brand/ có thể là PNG bảng màu (kiểu 3) → đổi sang RGBA, giữ nguyên điểm ảnh
+fs.writeFileSync(`${OUT}/icon-512.png`, toRgbaPng(fs.readFileSync('brand/lexkite-icon-512.png')));
 
 checkPng(`${OUT}/icon-512.png`, 512, 512, 6); // Play: icon 512×512 PNG 32-bit (có alpha)
 let n = 0;

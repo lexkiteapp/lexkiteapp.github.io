@@ -33,6 +33,7 @@ quiz: [
     explain: "カンマスプライスはIELTSの採点官が厳格に減点対象とする代表的な句読点エラーです。"
   }
 ]
+publishAt: 2026-12-08T08:37:00+09:00
 ---
 
 多くのIELTS受験者がライティングのスコア（特に *Grammatical Range and Accuracy*）で伸び悩む原因の一つに、「難解で長い単語を並べることばかりに意識が向き、文構造の多様性と正確さがおろそかになっている」という点があります。試験官が求めているのは、意味もなく複雑化した読みにくい英文ではなく、論理関係を明確かつ柔軟に表現できる多様な構文力です。体系的な**ielts ライティング 複文 complex sentences**の運用スキルを身につけることで、Task 2において安定してBand 7.0から8.5の高得点を叩き出すことが可能になります。
@@ -134,6 +135,6 @@ Task 2のエッセイでは、以下の4つの複文パターンを状況に応�
 2. **本論パラグラフ（Body Paragraphs）**: トピックセンテンスは端的な複文で開始し、具体例の提示には関係詞節（`..., which illustrates that...`）や分詞構文（`..., thereby demonstrating...`）を組み合わせて論理的密度を高めます。
 3. **結論パラグラフ（Conclusion）**: 主張の再提示には強調構文や条件節の倒置（`Had governments...`）を効果的に織り交ぜ、文章全体に格調高い締めくくりをもたらします。
 
-試験対策の総仕上げとして、[英語の仮定法if構文の使い方](/ja/blog/eigo-kateihou-if-koubun-tsukaikata/) や [IELTSパラフレーズの言い換え構文のコツ](/ja/blog/ielts-paraphrase-iikae-koubun-kotsu/) を再確認しておきましょう。また、文全体の説得力を高めるために [IELTS環境問題の英単語とコロケーション](/ja/blog/ielts-kankyou-mondai-eitango-collocation/) や [自然な英語コロケーション一覧](/ja/blog/ielts-collocation-shizen-na-rengo-eigo/) を併せて学習し、公式単語集 [/tu-vung/](/tu-vung/) でアカデミック語彙を強固にしておくことが推奨されます。
+試験対策の総仕上げとして、[英語の仮定法if構文の使い方](/ja/blog/eigo-kateihou-if-koubun-tsukaikata/) や [IELTSパラフレーズの言い換え構文のコツ](/ja/blog/ielts-paraphrase-iikae-koubun-kotsu/) を再確認しておきましょう。また、文全体の説得力を高めるために [IELTS環境問題の英単語とコロケーション](/ja/blog/ielts-kankyou-mondai-eitango-collocation/) や [自然な英語コロケーション一覧](/ja/blog/ielts-collocation-shizen-na-rengo-eigo/) を併せて学習し、公式単語集 [/tu-vung/](/en/vocabulary/) でアカデミック語彙を強固にしておくことが推奨されます。
 
 複文を正しく操り、明快かつ説得力に富んだエッセイでIELTS Writingの目標スコアを確実に達成してください。

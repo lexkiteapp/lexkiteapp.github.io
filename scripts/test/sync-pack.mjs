@@ -194,5 +194,23 @@ for (const order of [['P', 'Q'], ['Q', 'P']]) {
   ok(p.docs && p.docs.meta, 'kéo đọc từ mảnh 1');
 }
 
+// ---------- 9) ngôn ngữ đích (docs/specs/target-language.md): thẻ en "come" + thẻ pt "pt:come" (cùng chữ, khác ngôn ngữ) → máy 2 nhận NGUYÊN VẸN ----------
+// slim()/fat() không được rút gọn/bơm thẻ pt theo kho tiếng Anh (IELTS_DATA) – trước đây def/col… của "come" tiếng Anh sẽ lọt vào thẻ pt.
+{
+  const lib = { come: { word: 'come', pos: 'v', vi: 'đến', ipa: 'kʌm', def: 'move toward the speaker', level: 'A1' } };
+  const sorted = o => JSON.stringify(Object.keys(o).sort().reduce((m, k) => (m[k] = o[k], m), {}));
+  const dA = {}, A = await device('tl-user', dA); A.w.IELTS_DATA.INDEX = lib;
+  dA.cards.come = card('come', 1_700_000_000_000, { pos: 'v', vi: 'đến', ipa: 'kʌm' });
+  dA.cards['pt:come'] = card('come', 1_700_000_000_500, { tl: 'pt', pos: 'v', ipa: 'ˈkõmi', vi: 'ăn', gl: { en: 'eats', vi: 'ăn' } });
+  const want = structuredClone(dA.cards['pt:come']);
+  await A.signIn(); await A.open(); A.close();
+  const dB = {}, B = await device('tl-user', dB); B.w.IELTS_DATA.INDEX = lib; await B.signIn();
+  const got = dB.cards['pt:come'] && { ...dB.cards['pt:come'] }; if (got && Array.isArray(got.contexts) && !got.contexts.length) delete got.contexts;
+  ok(dB.cards.come && got, 'ngôn ngữ đích: máy 2 có cả thẻ en "come" và thẻ pt "pt:come"');
+  ok(got && sorted(got) === sorted(want), 'ngôn ngữ đích: thẻ pt qua đồng bộ không đổi (không lẫn dữ liệu kho tiếng Anh)');
+  ok(dB.cards.come && !dB.cards.come.tl, 'ngôn ngữ đích: thẻ en giữ nguyên, không thêm trường tl');
+  B.close();
+}
+
 console.log(fails ? `✗ sync-pack: ${fails}/${n} lỗi` : `✓ sync-pack: ${n}/${n} đạt`);
 process.exit(fails ? 1 : 0);

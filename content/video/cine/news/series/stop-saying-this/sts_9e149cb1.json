@@ -209,7 +209,7 @@
        "  "
       ],
       [
-       "@ipa:/rɪˈzembl/"
+       "@ipa:/rɪˈzembəlz/"
       ]
      ]
     },
@@ -449,6 +449,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "She ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " her sister.",
+      "white"
+     ]
+    ]
+   ],
    "a": "resembles",
    "b": "resembles to",
    "correct": "a",
@@ -519,7 +535,7 @@
        "  "
       ],
       [
-       "@ipa:/rɪˈzembl/"
+       "@ipa:/rɪˈzembəlz/"
       ]
      ]
     }
@@ -560,6 +576,6 @@
   "pid": "u:v:resemble:m0",
   "cefr": "C1",
   "diff": "hard",
-  "ipa": "/rɪˈzembl/"
+  "ipa": "/rɪˈzembəlz/"
  }
 }

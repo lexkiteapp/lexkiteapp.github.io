@@ -33,6 +33,7 @@ quiz: [
     explain: "Kolokasi mengajarkan pasangan kata alami sehingga tuturan Anda terdengar luwes dan tidak kaku."
   }
 ]
+publishAt: 2026-11-21T12:56:00+07:00
 ---
 Bagi banyak pembelajar bahasa Inggris di Indonesia, ada satu titik di mana kebiasaan menerjemahkan kata per kata lewat Google Translate atau kamus bilingual Indonesia-Inggris justru menjadi penghambat kemajuan. Anda ingin mengatakan *"mengambil keputusan"*, mengingat kata mengambil adalah *take*, lalu merangkai kalimat *«I took a decision»* — padahal penutur asli secara alami selalu mengatakan *«I made a decision»*.
 

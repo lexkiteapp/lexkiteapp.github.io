@@ -3,6 +3,9 @@
  * không vượt hạn mức ẩn danh của Openverse. Chỉ nhận ảnh thực sự liên quan (tiêu đề/thẻ chứa từ), ưu tiên CC0/PD rồi CC BY. */
 import { gate } from './_quota.js';
 
+// Mỗi nguồn ngoài tối đa 3,5 s: máy khách bỏ cuộc sau 12 s (dictionary.js); trước đây không có hạn → lượt trượt đệm treo > 40 s, người dùng thấy emoji, CI đỏ
+export const UP_MS = 3500;
+const up = (u, o) => fetch(u, { ...o, signal: AbortSignal.timeout(UP_MS) });
 const H = (body, ttl) => new Response(JSON.stringify(body), { headers: { 'Content-Type': 'application/json', 'Cache-Control': `public, max-age=${ttl}`, 'Access-Control-Allow-Origin': '*' } });
 
 function pick(results, word) {
@@ -30,13 +33,13 @@ const thumbOf = r => {
 // bỏ trang định hướng; tác giả + giấy phép lấy từ Commons để ghi nguồn đúng.
 async function wiki(word) {
   const UA = { headers: { 'User-Agent': 'Lexkite/1.0 (https://lexkite.com; support@lexkite.com)' } };
-  const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(word)}`, UA);
+  const r = await up(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(word)}`, UA);
   if (!r.ok) return null;
   const d = await r.json(), src = (d.originalimage || {}).source || '';
   if (d.type !== 'standard' || !/\/wikipedia\/commons\//.test(src)) return null;
   const file = decodeURIComponent(src.split('?')[0].split('/').pop().replace(/^\d+px-/, ''));
   if (!/\.jpe?g$/i.test(file) || /museum|mural|painting|portrait|fresco|engraving|lithograph|map|flag|logo|poster|plaque|diagram/i.test(file)) return null; // tranh/bản đồ/biểu đồ không minh họa tốt nghĩa từ
-  const q = await fetch(`https://commons.wikimedia.org/w/api.php?action=query&format=json&titles=${encodeURIComponent('File:' + file)}&prop=imageinfo&iiprop=url|extmetadata|size&iiurlwidth=480`, UA);
+  const q = await up(`https://commons.wikimedia.org/w/api.php?action=query&format=json&titles=${encodeURIComponent('File:' + file)}&prop=imageinfo&iiprop=url|extmetadata|size&iiurlwidth=480`, UA);
   if (!q.ok) return null;
   const pg = Object.values(((await q.json()).query || {}).pages || {})[0] || {}, ii = (pg.imageinfo || [])[0], m = (ii && ii.extmetadata) || {};
   const strip = h => String(h || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
@@ -54,15 +57,17 @@ async function handle({ request, env, waitUntil }) {
   { const q = await gate(request, env || {}, 'img', { who: null, json: (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', 'Access-Control-Allow-Origin': '*' } }) }); if (q.res) return q.res; }
   let out = { none: true }, ttl = 7 * 86400;
   // 1) Ảnh đại diện bài Wikipedia đúng khái niệm (society → gia đình, climate → mây…) – thường đúng nghĩa hơn ảnh khớp chữ trong tiêu đề
-  try { const c = await wiki(word); if (c) { out = c; ttl = 30 * 86400; } } catch (e) { /* thử Openverse */ }
+  let wikiFail = false; // Wikipedia lỗi/quá hạn rồi Openverse không có ảnh → không được ghi nhớ "không có ảnh" 7 ngày
+  try { const c = await wiki(word); if (c) { out = c; ttl = 30 * 86400; } } catch (e) { wikiFail = true; /* thử Openverse */ }
   // 2) Openverse – chỉ nhận ảnh mà từ là chủ thể chính (tiêu đề ngắn, không phải ảnh sự kiện/người phát biểu/tên tổ chức)
   if (out.none) try {
-    const r = await fetch(`https://api.openverse.org/v1/images/?q=${encodeURIComponent(word)}&page_size=20&mature=false&license_type=commercial`, { headers: { 'User-Agent': 'Lexkite/1.0 (https://lexkite.com; support@lexkite.com)' } });
+    const r = await up(`https://api.openverse.org/v1/images/?q=${encodeURIComponent(word)}&page_size=20&mature=false&license_type=commercial`, { headers: { 'User-Agent': 'Lexkite/1.0 (https://lexkite.com; support@lexkite.com)' } });
     if (r.ok) {
       const j = await r.json(), x = pick(j.results || [], word);
       if (x) { const lic = (x.license || '').toUpperCase() + (x.license_version && !/cc0|pdm/i.test(x.license) ? ' ' + x.license_version : ''); out = { src: thumbOf(x), link: x.foreign_landing_url || x.url, license: /pdm/i.test(x.license) ? 'Public Domain' : lic, title: (x.title || word).slice(0, 60), creator: x.creator || '' }; ttl = 30 * 86400; }
     } else ttl = 600; // Openverse bận/giới hạn → thử lại sau 10 phút
   } catch (e) { ttl = 600; }
+  if (out.none && wikiFail) ttl = 600;
   // Nguồn tạm lỗi (không phải "thật sự không có ảnh") → báo retry để máy khách không ghi nhớ "không có ảnh" 6 giờ (add-on/web thử lại ở lần tra sau)
   if (out.none && ttl === 600) out = { none: true, retry: true };
   const res = H(out, ttl);

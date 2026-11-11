@@ -1,0 +1,124 @@
+{
+ "id": "t2a_usuk_cookie",
+ "template": "usuk",
+ "series": "US or UK?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "U.S. or U.K.?",
+   "pause": 0.42
+  },
+  {
+   "id": "us",
+   "text": "In America, people say cookie.",
+   "pause": 0.42
+  },
+  {
+   "id": "uk",
+   "text": "In Britain, people say biscuit. Same thing!",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Can I have another cookie, please?",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! You're in London. Which word do people use?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Biscuit!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "us": "cookie",
+  "uk": "biscuit",
+  "ipa_us": "/ˈkʊki/",
+  "ipa_uk": "/ˈbɪskət/",
+  "same": "Same thing!",
+  "quiz": {
+   "options": [
+    "cookie",
+    "biscuit"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/cookie",
+  "link": "https://lexkite.com/app/#/dict/cookie",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "US or UK?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Cookie or biscuit? US vs UK English",
+  "keyword": "cookie vs biscuit",
+  "value": "Americans say cookie. British people say biscuit.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/cookie",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Cookie or biscuit? US vs UK English",
+    "description": "Americans say cookie. British people say biscuit.\n\nLook up any word, free: https://lexkite.com/app/#/dict/cookie\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cookie vs biscuit",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Cookie or biscuit? US vs UK English\n\nAmericans say cookie. British people say biscuit.\n\nLook up any word, free: https://lexkite.com/app/#/dict/cookie"
+   },
+   "instagram": {
+    "caption": "Cookie or biscuit? US vs UK English\n\nAmericans say cookie. British people say biscuit.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Cookie or biscuit? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Biscuit! Americans say cookie. British people say biscuit. More practice like this (free): {link}"
+ }
+}

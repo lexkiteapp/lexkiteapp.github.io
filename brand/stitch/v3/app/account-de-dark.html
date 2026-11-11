@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Konto &amp; Synchronisierung</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              teal: '#00514d',
+              'teal-dark': '#00201e',
+              'teal-light': '#136b66',
+              'teal-surface': '#e6f4f2',
+              'teal-border': '#b7dfda',
+            },
+            cta: {
+              coral: '#fe9d19',
+              'coral-ledge': '#b45309',
+              'coral-ink': '#1c1003',
+            },
+            danger: {
+              red: '#ba1a1a',
+              'red-dark': '#93000a',
+              'red-surface': '#fff8f7',
+              'red-border': '#ffdad6',
+            },
+            tactile: {
+              cream: '#fff8f3',
+              'cream-subtle': '#fcf2e9',
+              card: '#ffffff',
+              border: '#ebdcc9',
+              ledge: '#dec9b5',
+              ink: '#1f1b16',
+              'ink-muted': '#5c4e42',
+              'ink-faint': '#8c7a6b',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            'tactile-sm': '0 3px 0 0 #ebdcc9',
+            'tactile-md': '0 4px 0 0 #ebdcc9',
+            'tactile-teal': '0 4px 0 0 #00201e',
+            'tactile-coral': '0 4px 0 0 #b45309',
+            'tactile-danger': '0 3px 0 0 #ffdad6',
+            'tactile-sheet': '0 -8px 28px rgba(28, 16, 3, 0.14)',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Smooth tactile button press effect */
+    .tactile-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 var(--tw-shadow-color, #ebdcc9) !important;
+    }
+    /* Scroll styling inside the sheet */
+    .sheet-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .sheet-scroll::-webkit-scrollbar-thumb {
+      background-color: #dec9b5;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-[#091518] min-h-screen font-sans text-[#E8F1F0] flex flex-col items-center justify-end antialiased selection:bg-[#2DD4BF] selection:text-[#091518]">
+<!-- Mobile Viewport Container (Strictly 390px native mobile shell) -->
+<div class="relative w-full max-w-[390px] min-h-screen bg-transparent flex flex-col justify-end overflow-hidden shadow-2xl">
+<!-- Scrim / Dimmed Parent Activity Background (Showing Lexkite 'Mein Profil' peek behind sheet) -->
+<div class="absolute inset-0 bg-[#091518] -z-10 flex flex-col pointer-events-none opacity-40 filter blur-[1px]"><div class="px-5 pt-12 pb-4 flex items-center justify-between border-b border-[#1D3338] bg-[#10191B]"><div class="flex items-center gap-2"><span class="w-8 h-8 rounded-xl bg-[#14B8A6] text-[#091518] flex items-center justify-center font-black text-sm">LK</span><span class="font-extrabold text-[#2DD4BF] tracking-tight text-lg">Lexkite</span></div><div class="flex items-center gap-3"><span class="material-symbols-rounded text-[#7E9C99]">settings</span></div></div><div class="p-4 space-y-3"><div class="h-28 rounded-2xl bg-[#172427] border-2 border-[#1D3338]"></div><div class="h-20 rounded-2xl bg-[#172427] border-2 border-[#1D3338]"></div><div class="h-32 rounded-2xl bg-[#172427] border-2 border-[#1D3338]"></div></div></div>
+<!-- Backdrop Click Layer -->
+<div class="absolute inset-0 bg-black/45 backdrop-blur-[2px] transition-opacity"></div>
+<!-- ======================================================== -->
+<!-- ACCOUNT & SYNC BOTTOM SHEET (DEUTSCH) -->
+<!-- ======================================================== -->
+<div class="relative z-10 w-full bg-[#10191B] rounded-t-[28px] border-t-2 border-x-2 border-[#233A3F] shadow-[0_-8px_28px_rgba(0,0,0,0.5)] flex flex-col max-h-[92vh] transition-all"><div class="pt-3 pb-2 px-5 flex flex-col items-center border-b border-[#1D3338] bg-[#10191B] rounded-t-[28px]"><div class="w-12 h-1.5 rounded-full bg-[#2B444A] mb-2.5"></div><div class="w-full flex items-center justify-between"><div class="flex items-center gap-2"><span class="material-symbols-rounded text-[#2DD4BF] text-xl">manage_accounts</span><h1 class="text-base font-black text-[#E8F1F0] tracking-tight leading-tight">Konto &amp; Synchronisierung</h1></div><button aria-label="Schließen" class="tactile-btn w-11 h-11 rounded-full bg-[#1E2F33] border-2 border-[#2B474D] text-[#E8F1F0] flex items-center justify-center shadow-[0_3px_0_0_#0B1416] hover:bg-[#25393e] focus:outline-none focus:ring-2 focus:ring-[#2DD4BF]" type="button"><span class="material-symbols-rounded text-xl">close</span></button></div></div><div class="sheet-scroll px-4 pt-4 pb-6 overflow-y-auto space-y-4"><div class="bg-[#172427] rounded-2xl p-4 border-2 border-[#233A3F] shadow-[0_3px_0_0_#0B1416]"><div class="flex items-start gap-3.5"><div class="relative flex-shrink-0"><div class="w-14 h-14 rounded-2xl bg-[#12423D] text-[#2DD4BF] font-black text-xl flex items-center justify-center border-2 border-[#23544E] shadow-[0_3px_0_0_#0B1416]">AN</div><div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#fe9d19] text-[#1c1003] flex items-center justify-center border border-[#172427] font-black text-[10px]" title="Pro-Status">★</div></div><div class="flex-1 min-w-0"><div class="flex items-center justify-between gap-1 flex-wrap"><h2 class="font-extrabold text-base text-[#E8F1F0] leading-tight truncate">Alex Nguyen</h2><div class="flex items-center gap-1"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#183C36] text-[#2DD4BF] border border-[#23544E]">IELTS PRO</span><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#233438] text-[#E8F1F0] border border-[#2B474D]">Stufe 18</span></div></div><p class="text-xs font-semibold text-[#A9BDBB] mt-0.5 break-all">alex.nguyen@example.com</p><div class="mt-2.5 flex items-center justify-between gap-2 flex-wrap"><div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#163632] border border-[#23544E]"><span class="w-2 h-2 rounded-full bg-[#2DD4BF] animate-pulse"></span><span class="text-xs font-extrabold text-[#2DD4BF]">Vor 2 Min. synchronisiert</span><span class="material-symbols-rounded text-[#20B8A6] text-sm ml-0.5">cloud_done</span></div><button class="tactile-btn inline-flex items-center gap-1 px-3.5 py-2.5 min-h-[44px] rounded-lg bg-[#1E2F33] hover:bg-[#25393e] border border-[#2B474D] text-[#2DD4BF] font-extrabold text-xs shadow-[0_2px_0_0_#0D191C]" type="button"><span class="material-symbols-rounded text-base">sync</span><span>Jetzt synchronisieren</span></button></div></div></div></div><div class="teacher-slot rounded-2xl border-2 border-dashed border-[#20B8A6] bg-[#13272B] p-3.5 flex items-center gap-3"><div class="w-11 h-11 rounded-xl bg-[#172427] border border-[#20B8A6] flex items-center justify-center flex-shrink-0 text-[#20B8A6] shadow-[0_2px_0_0_#0B1416]"><span class="material-symbols-rounded text-2xl">school</span></div><div class="flex-1 min-w-0"><div class="flex items-center gap-2"><span class="text-xs font-black uppercase tracking-wider text-[#2DD4BF] bg-[#172427] px-2 py-0.5 rounded-md border border-[#23544E]">LEHRER-BEREICH</span><span class="text-[11px] font-bold text-[#E8F1F0]">Coach Ama / Carlos</span></div><p class="text-xs font-semibold text-[#A9BDBB] mt-1 leading-snug break-words">„Dein Lernkarten-Fortschritt, Wiederholungsintervalle und Prüfungsergebnisse werden nahtlos auf all deinen Geräten synchronisiert.“</p></div></div><div class="bg-[#172427] rounded-2xl p-4 border-2 border-[#233A3F] shadow-[0_3px_0_0_#0B1416] space-y-3"><div class="flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="material-symbols-rounded text-[#2DD4BF] text-lg">devices</span><h3 class="text-xs font-black uppercase tracking-wider text-[#2DD4BF]">AKTIVE GERÄTE (2)</h3></div><button class="text-xs font-extrabold text-[#2DD4BF] hover:underline flex items-center gap-0.5 min-h-[44px] px-2 py-2" type="button"><span>+ Neues Gerät koppeln</span></button></div><div class="space-y-2.5"><div class="p-3 rounded-xl bg-[#1E2F33] border border-[#2B474D] flex items-center justify-between gap-3"><div class="flex items-center gap-3 min-w-0"><div class="w-10 h-10 rounded-xl bg-[#172427] border border-[#2B474D] flex items-center justify-center flex-shrink-0 text-[#2DD4BF] shadow-[0_2px_0_0_#0B1416]"><span class="material-symbols-rounded text-xl">smartphone</span></div><div class="min-w-0"><div class="flex items-center gap-1.5 flex-wrap"><span class="text-xs font-extrabold text-[#E8F1F0] leading-tight">iPhone 15 Pro</span><span class="px-1.5 py-0.2 rounded text-[10px] font-black bg-[#123B36] text-[#2DD4BF] border border-[#23544E] leading-tight">Dieses Gerät</span></div><p class="text-[11px] font-semibold text-[#A9BDBB] mt-0.5 break-words">Lexkite Mobile App v2.4 • Jetzt aktiv</p></div></div><div class="w-7 h-7 rounded-full bg-[#163632] text-[#2DD4BF] border border-[#23544E] flex items-center justify-center flex-shrink-0"><span class="material-symbols-rounded text-base">check</span></div></div><div class="p-3 rounded-xl bg-[#1E2F33] border border-[#2B474D] flex items-center justify-between gap-3"><div class="flex items-center gap-3 min-w-0"><div class="w-10 h-10 rounded-xl bg-[#172427] border border-[#2B474D] flex items-center justify-center flex-shrink-0 text-[#2DD4BF] shadow-[0_2px_0_0_#0B1416]"><span class="material-symbols-rounded text-xl">extension</span></div><div class="min-w-0"><div class="flex items-center gap-1.5 flex-wrap"><span class="text-xs font-extrabold text-[#E8F1F0] leading-tight break-words">Chrome-Browser-Erweiterung</span><span class="px-1.5 py-0.2 rounded text-[10px] font-extrabold bg-[#233438] border border-[#2B474D] text-[#A9BDBB] leading-tight">MacBook</span></div><p class="text-[11px] font-semibold text-[#A9BDBB] mt-0.5 break-words">Vor 3 Tagen gekoppelt • Auto-Sync aktiv</p></div></div><button aria-label="Erweiterung jetzt synchronisieren" class="tactile-btn w-11 h-11 rounded-xl bg-[#172427] border border-[#2B474D] text-[#2DD4BF] flex items-center justify-center hover:bg-[#1E2F33] shadow-[0_2px_0_0_#0B1416] flex-shrink-0" type="button"><span class="material-symbols-rounded text-lg">sync</span></button></div></div></div><div class="bg-[#172427] rounded-2xl p-4 border-2 border-[#233A3F] shadow-[0_3px_0_0_#0B1416] space-y-2.5"><div class="flex items-center gap-1.5 mb-1"><span class="material-symbols-rounded text-[#2DD4BF] text-lg">database</span><h3 class="text-xs font-black uppercase tracking-wider text-[#2DD4BF]">DATENPORTABILITÄT &amp; BACKUP</h3></div><div class="flex items-center justify-between py-2 border-b border-[#233A3F] text-xs gap-2"><div class="flex items-center gap-2 min-w-0"><span class="material-symbols-rounded text-[#2DD4BF] text-lg flex-shrink-0">cloud_sync</span><div class="min-w-0"><div class="flex items-center gap-1.5 flex-wrap"><span class="font-bold text-[#E8F1F0] leading-snug">Verschlüsseltes Cloud-Backup</span><span class="font-black text-[10px] text-[#2DD4BF] bg-[#163632] border border-[#23544E] px-1.5 py-0.2 rounded">AES-256</span></div><span class="text-[11px] font-semibold text-[#A9BDBB] block leading-snug break-words">45-Tage-Lernserie, 1.240 gemeisterte Wörter und SM-2-Gedächtniskurven gesichert</span></div></div><span class="font-extrabold text-[#2DD4BF] bg-[#163632] px-2 py-0.5 rounded border border-[#23544E] text-[11px] flex-shrink-0">Aktiv</span></div><button class="tactile-btn w-full min-h-[46px] px-3.5 py-2.5 rounded-xl bg-[#1E2F33] hover:bg-[#25393e] border-2 border-[#2B474D] text-[#2DD4BF] font-extrabold text-xs flex items-center justify-between shadow-[0_2px_0_0_#0D191C]" type="button"><div class="flex items-center gap-2 text-left min-w-0"><span class="material-symbols-rounded text-[#2DD4BF] text-lg flex-shrink-0">download</span><span class="leading-snug break-words text-[#E8F1F0]">Wortschatz &amp; Decks exportieren (.apkg / .csv)</span></div><span class="material-symbols-rounded text-[#7E9C99] text-base flex-shrink-0 ml-2">chevron_right</span></button><button class="tactile-btn w-full min-h-[46px] px-3.5 py-2.5 rounded-xl bg-[#1E2F33] hover:bg-[#25393e] border-2 border-[#2B474D] text-[#2DD4BF] font-extrabold text-xs flex items-center justify-between shadow-[0_2px_0_0_#0D191C]" type="button"><div class="flex items-center gap-2 text-left min-w-0"><span class="material-symbols-rounded text-[#2DD4BF] text-lg flex-shrink-0">data_object</span><span class="leading-snug break-words text-[#E8F1F0]">Lernfortschritt &amp; Abzeichen exportieren (JSON)</span></div><span class="material-symbols-rounded text-[#7E9C99] text-base flex-shrink-0 ml-2">chevron_right</span></button></div><div class="pt-1 space-y-3"><button class="tactile-btn w-full min-h-[50px] px-4 py-3 rounded-2xl bg-[#1E2F33] hover:bg-[#25393e] border-2 border-[#20B8A6] text-[#2DD4BF] font-black text-sm flex items-center justify-center gap-2 shadow-[0_3px_0_0_#0B1416]" type="button"><span class="material-symbols-rounded text-xl text-[#2DD4BF]">logout</span><span class="tracking-tight leading-snug">Von Lexkite abmelden</span></button><div class="rounded-2xl p-3.5 bg-[#2A1517] border-2 border-[#541B20] space-y-2"><div class="flex items-start gap-2"><span class="material-symbols-rounded text-[#ffb4ab] text-base mt-0.5 flex-shrink-0">warning</span><div class="flex-1"><span class="text-xs font-black uppercase tracking-wider text-[#ffb4ab] block">Gefahrenbereich</span><p class="text-[11px] font-bold text-[#ffdad6] leading-snug break-words mt-0.5">Wenn du dein Konto löschst, werden deine 45-Tage-Lernserie, IELTS-Testergebnisse und eigenen Decks unwiderruflich entfernt.</p></div></div><button class="tactile-btn w-full min-h-[44px] px-4 py-2.5 rounded-xl bg-[#93000a] hover:bg-[#ba1a1a] border-2 border-[#ffb4ab] text-white font-black text-xs flex items-center justify-center gap-2 shadow-[0_2px_0_0_#3f0004]" type="button"><span class="material-symbols-rounded text-base">delete_forever</span><span class="leading-snug">Konto dauerhaft löschen &amp; Daten bereinigen</span></button></div></div><div class="text-center pt-1 pb-2"><p class="text-[11px] font-bold text-[#A9BDBB] leading-normal break-words">Zero-Tracking-Garantie: Audio- &amp; Lerndaten streng verschlüsselt<br/>Build 9428 • CEFR v2.4 • <a class="text-[#2DD4BF] underline hover:text-[#20B8A6]" href="#">Datenschutzerklärung</a></p></div></div><nav aria-label="Hauptnavigation" class="w-full bg-[#10191B] border-t-2 border-[#1D3338] px-1.5 py-1.5 flex items-center justify-around z-20 shadow-[0_-3px_0_0_#0B1416]"><a class="flex flex-col items-center justify-center min-w-[50px] min-h-[48px] py-1 text-[#A9BDBB] hover:text-[#2DD4BF]" href="#"><span class="material-symbols-rounded text-xl leading-none">calendar_today</span><span class="text-[10px] font-bold tracking-tight mt-1 leading-none">Heute</span></a><a class="flex flex-col items-center justify-center min-w-[54px] min-h-[48px] py-1 text-[#A9BDBB] hover:text-[#2DD4BF]" href="#"><span class="material-symbols-rounded text-xl leading-none">menu_book</span><span class="text-[10px] font-bold tracking-tight mt-1 leading-none">Wortschatz</span></a><a class="flex flex-col items-center justify-center min-w-[54px] min-h-[48px] py-1 text-[#A9BDBB] hover:text-[#2DD4BF]" href="#"><span class="material-symbols-rounded text-xl leading-none">psychology</span><span class="text-[10px] font-bold tracking-tight mt-1 leading-none">Fertigkeiten</span></a><a class="flex flex-col items-center justify-center min-w-[50px] min-h-[48px] py-1 text-[#A9BDBB] hover:text-[#2DD4BF]" href="#"><span class="material-symbols-rounded text-xl leading-none">assignment</span><span class="text-[10px] font-bold tracking-tight mt-1 leading-none">Prüfungen</span></a><a class="flex flex-col items-center justify-center min-w-[58px] min-h-[48px] py-1 text-white" href="#"><div class="px-2.5 py-1 rounded-xl bg-[#12423D] border border-[#20B8A6] shadow-[0_2px_0_0_#0B1416] flex flex-col items-center"><span class="material-symbols-rounded text-xl leading-none text-[#2DD4BF]">person</span><span class="text-[10px] font-black tracking-tight mt-0.5 leading-none text-[#2DD4BF]">Mein Profil</span></div></a></nav></div>
+</div>
+</body></html>

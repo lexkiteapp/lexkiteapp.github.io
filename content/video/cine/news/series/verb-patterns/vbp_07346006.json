@@ -442,6 +442,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "The city proposes ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " a new bridge.",
+      "white"
+     ]
+    ]
+   ],
    "a": "build",
    "b": "to build",
    "correct": "b",

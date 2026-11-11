@@ -66,7 +66,7 @@
    "diff": "medium",
    "words": 67,
    "est_s": 41.9,
-   "ipa": "/dɪˈpend/",
+   "ipa": "/dɪˈpendz/",
    "content_hash": "646566e3c50ea78c"
   },
   {
@@ -110,7 +110,7 @@
    "diff": "hard",
    "words": 64,
    "est_s": 40.4,
-   "ipa": "/rɪˈzembl/",
+   "ipa": "/rɪˈzembəlz/",
    "content_hash": "8f45f7af3fc9b587"
   }
  ],
@@ -133,7 +133,7 @@
   {
    "bank": "sb_136af047",
    "point": "Stop saying \"He said me that…\" – say \"He told me that…\"",
-   "reason": "self-check: note ex line > 26 chars: [['She '], ['said ', 'green'], ['that she was tired.']]; hook 7 words on screen"
+   "reason": "self-check: note fix line > 26 chars: [['He '], ['told ', 'green'], ['me that he was busy.']]; note ex line > 26 chars: [['She '], ['said ', 'green'], ['that she was tired.']]; hook 7 words on screen"
   },
   {
    "bank": "sb_14cf6349",
@@ -203,7 +203,7 @@
   {
    "bank": "sb_1c747068",
    "point": "Stop saying \"She is responsible of the budget.\" – say \"She is responsible for the budget.\"",
-   "reason": "self-check: note fix line > 26 chars: [['responsible', 'green'], ['  '], ['@ipa:/rɪˈspɑːnsəbl/']]; note ex line > 26 chars: [['Who is '], ['responsible for ', 'green'], ['this?']]; note qs line > 26 chars: [[\"I'm responsible \"], ['___ ', 'green'], ['the team.']]; note save line > 26 chars: [['responsible', 'green'], ['  '], ['@ipa:/rɪˈspɑːnsəbl/']]"
+   "reason": "self-check: note ex line > 26 chars: [['Who is '], ['responsible for ', 'green'], ['this?']]; note qs line > 26 chars: [[\"I'm responsible \"], ['___ ', 'green'], ['the team.']]"
   },
   {
    "bank": "sb_21612f29",
@@ -353,7 +353,7 @@
   {
    "bank": "sb_3899b628",
    "point": "Say \"In my last role, I was responsible for a team of five.\" instead of \"In my last job I was responsible of five people.\"",
-   "reason": "self-check: note fix line > 26 chars: [['responsible', 'green'], ['  '], ['@ipa:/rɪˈspɑːnsəbl/']]; note ex line > 26 chars: [[\"She's \"], ['responsible for ', 'green'], ['sales.']]; note save line > 26 chars: [['responsible', 'green'], ['  '], ['@ipa:/rɪˈspɑːnsəbl/']]"
+   "reason": "self-check: note fix line > 26 chars: [['not “'], ['responsible of people', 'red'], ['”']]; note ex line > 26 chars: [[\"She's \"], ['responsible for ', 'green'], ['sales.']]"
   },
   {
    "bank": "sb_4f5a34f3",

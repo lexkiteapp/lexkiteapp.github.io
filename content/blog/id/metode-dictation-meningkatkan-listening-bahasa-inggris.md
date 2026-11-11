@@ -33,6 +33,7 @@ quiz: [
     explain: "Sebagai bahasa berbasis tekanan (*stress-timed*), bahasa Inggris mengompres kata-kata gramatikal tidak bertekanan menjadi bunyi yang sangat singkat dan samar."
   }
 ]
+publishAt: 2026-11-22T08:28:00+07:00
 ---
 Pernahkah Anda merasa bingung saat mendengarkan penutur asli berbicara cepat? Menguasai **metode dictation bahasa inggris** adalah kunci tercepat untuk melatih pendengaran telinga kita agar mampu menangkap setiap kata dengan presisi.
 
@@ -45,6 +46,8 @@ Dalam panduan komprehensif ini, Anda akan mempelajari 4 langkah sistematis latih
 ## Mengapa Listening Pasif Gagal dan Bagaimana Dictation Bekerja
 
 Dalam buku cetak, setiap kata dipisahkan dengan rapi oleh spasi putih. Namun dalam percakapan lisan penutur asli:
+
+Artikel terkait: [strategi TOEIC Listening Part 2](/id/blog/strategi-toeic-listening-part-2-tanya-jawab/).
 
 1. **Bahasa Inggris Berbasis Irama Tekanan (Stress-timed language)**: Kata-kata bermakna penting (*content words: kata benda, kata kerja utama, kata sifat*) diucapkan panjang dan bertenaga. Sebaliknya, kata-kata tata bahasa (*function words: kata ganti, kata depan, kata hubung, kata bantu*) dimampatkan secepat kilat. Kalimat *"What do you want to do?"* melebur menjadi */wʌdʒə wɑnə duː/* ("whaddya wanna do").
 2. **Bentuk Lemah (Weak Forms)**: Kata-kata seperti *of, to, at, for, from, have, been* hampir tidak pernah diucapkan dengan vokal penuh seperti di kamus. Vokalnya tereduksi menjadi bunyi netral **Schwa /ə/**.

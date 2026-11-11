@@ -4,9 +4,9 @@
 #  --todo .sa/todo.json: tải file đang phục vụ (audio.lexkite.com/audio/l/<khóa>.mp3) và nghe → --res {"khóa": "ok" | "pending: …"}; trượt → .sa/fail.json
 #  --cands .sa/cands.json (render.mjs): mỗi câu chọn bản thử đầu tiên đạt → .media-out/audio/l/<khóa>-s2.mp3 (mono 24 kHz 64 kbps), res "s2";
 #     không bản nào đạt → res = lý do (câu giữ bản cũ, vào web/audio/l/asr-fail.tsv).
-import argparse, json, os, shutil, subprocess, sys, tempfile, time
+import argparse, json, os, re, shutil, subprocess, sys, tempfile, time
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'word-audio'))
-from asr_lib import fetch, hear, heard_ok, prepare
+from asr_lib import fetch, hear, heard_ok, prepare, ORIGINS_L
 WER_MAX = 0.10  # ≤ 10 % – scripts/test/sentence-asr.mjs giữ hằng này khớp tài liệu; chỉ được siết, không nới
 _N = None
 def norm(s):
@@ -14,6 +14,9 @@ def norm(s):
     if _N is None:
         from whisper_normalizer.english import EnglishTextNormalizer
         _N = EnglishTextNormalizer()
+    # EnglishTextNormalizer XOÁ chữ trong (…) / […] (coi là chú thích), nhưng Kokoro đọc to: "(D) A man…" → gốc mất "D", WER 0,17 dù đọc đúng
+    # (129/450 câu trượt 1/11 là nhãn đáp án TOEIC). Bỏ dấu ngoặc, giữ chữ – áp cho cả hai bên, ngưỡng giữ nguyên.
+    s = re.sub(r'[()\[\]{}]', ' ', s)
     return ' '.join(CANON.get(w, w) for w in _N(s).split()).split()
 # Chuẩn hoá ĐỐI XỨNG (áp cho cả chữ gốc lẫn chữ nghe) các cách viết cùng một lời đọc – lượt thử 31/10: "Web site"/"website", "OK"/"Okay",
 # "any more"/"anymore", đáp án "C."/"See", adviser/advisor. Không phải nới: hai bên cùng đổi về một dạng, ngưỡng WER giữ nguyên.
@@ -31,9 +34,16 @@ def wer(ref, hyp):
 def judge(text, f):
     t = hear(f); w = wer(text, t); short = len(text.split()) <= 3
     return (w <= WER_MAX or (short and heard_ok(text, t))), t, w
+# Tự kiểm (sentence-audio-asr.yml chạy trước khi nghe): các ca chuẩn hoá đã từng làm trượt oan + ca đọc sai thật vẫn phải trượt
+if '--selftest' in sys.argv:
+    for ref, hyp, want in [('(D) A man is closing a door.', 'D. A man is closing a door.', True), ('(B) Two men are looking at a laptop together.', 'B. Two men are looking at a laptop together.', True),
+                           ('[A] The office opens at 9.', 'A. The office opens at nine.', True), ('The OK website is open.', 'The okay web site is open.', True),
+                           ('(C) She is reading.', 'He is reading.', False), ('A man is closing a door.', 'A man is closing the floor.', False)]:
+        w = wer(ref, hyp); assert (w <= WER_MAX) == want, f'selftest: {ref!r} vs {hyp!r} WER {w:.2f}'
+    print('✓ sentence-asr selftest'); sys.exit(0)
 ap = argparse.ArgumentParser()
 ap.add_argument('--todo', default=''); ap.add_argument('--cands', default=''); ap.add_argument('--res', default='.sa/res.json')
-ap.add_argument('--minutes', type=float, default=1e6); ap.add_argument('--base', default='https://audio.lexkite.com/audio/l/')
+ap.add_argument('--minutes', type=float, default=1e6); ap.add_argument('--base', default=ORIGINS_L)
 ap.add_argument('--out', default='.media-out/audio/l')
 a = ap.parse_args(); t0 = time.time(); tmp = tempfile.mkdtemp(); out = []
 res = json.load(open(a.res)) if os.path.exists(a.res) else {}

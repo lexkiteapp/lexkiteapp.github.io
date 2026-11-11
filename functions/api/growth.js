@@ -3,6 +3,7 @@
  * Nguồn: sessions (web/app, vid ẩn danh), ext_daily / ext_events (add-on, hit.js t:'x'), users (tài khoản), vid_uid (khách ↔ tài khoản). */
 const DAY = 86400e3;
 import { dayOf as dayStr } from './hit.js'; // ngày theo giờ Việt Nam – khớp sessions.day
+import { loadDays, addDays, dayMs } from './_rollup.js';
 // Chỉ bind đúng số tham số câu SQL dùng (?1…?N) – các câu dựng từ mẫu chung không phải câu nào cũng dùng hết
 const fit = (sql, a) => a.slice(0, Math.max(0, ...[...sql.matchAll(/\?(\d+)/g)].map(m => +m[1])));
 const one = async (db, sql, ...a) => (await db.prepare(sql).bind(...fit(sql, a)).first()) || {};
@@ -68,6 +69,12 @@ export async function growthData(db, P) {
     one(db, habitSQL(ACT_U), d(3 * P - 1), Date.parse(d(3 * P - 1) + 'T00:00:00Z'), d(6), d(13), cur, prev, d(3 * P - 1)),
   ]);
   const newByPlat = await all(db, "SELECT COALESCE(NULLIF(plat, ''), 'web') AS k, SUM(created >= ?1) AS cur, SUM(created >= ?2 AND created < ?1) AS prev FROM users WHERE created >= ?2 GROUP BY k ORDER BY cur DESC", curMs, prevMs);
+  return shape(now, P, { users, newVis, active, ext, extDays, extNow, versions, reasons, funnel, funnelAll, retV, retU, cohV, cohU, habV, habU, newByPlat });
+}
+
+// Hậu xử lý dùng chung cho SQL cũ (growthData) và bản đọc bảng tổng hợp (growthRoll) – cùng đầu vào → cùng kết quả
+function shape(now, P, { users, newVis, active, ext, extDays, extNow, versions, reasons, funnel, funnelAll, retV, retU, cohV, cohU, habV, habU, newByPlat }) {
+  const today = dayStr(now), d = k => dayStr(now - k * DAY), cur = d(P - 1), prev = d(2 * P - 1);
 
   // DAU trung bình mỗi kỳ (chia cho số ngày của kỳ, kể cả ngày 0 khách)
   const dau = { cur: 0, prev: 0 }, act = {};
@@ -122,4 +129,89 @@ export async function growthData(db, P) {
     habit: { visitors: habV, users: habU },
     cta: { cur: ctaPeriod(cur), prev: ctaPeriod(prev, cur), byLang: ctaByLang, byPage: ctaByPage },
   };
+}
+
+/* Bản đọc bảng tổng hợp (functions/api/_rollup.js, docs/CAPACITY.md §D4): cùng đầu vào cho shape() như growthData nhưng phần `sessions`
+ * lấy từ stats_day (ngày đã qua, 1 dòng/ngày) + phiên hôm nay theo chỉ mục → 0 câu quét `sessions` (trước: 7 câu × cả bảng mỗi lần mở).
+ * vid ↔ tài khoản: vid_uid theo khoá chính (json_each); users: 1 câu thay 3. Kiểm khớp từng trường với growthData: scripts/test/admin-rollup.mjs. */
+const NUL = '\u0001';
+const utcDay = t => new Date(t).toISOString().slice(0, 10); // = date(t / 1000, 'unixepoch') của SQL cũ
+export async function growthRoll(db, P, adm, now = Date.now()) {
+  const today = dayStr(now), d = k => dayStr(now - k * DAY);
+  const cur = d(P - 1), prev = d(2 * P - 1), back = Math.max(3 * P, 2 * P + 30) - 1;
+  const from = d(back), fromMs = dayMs(from), curMs = dayMs(cur), prevMs = dayMs(prev);
+  const wk0 = dayStr(dayMs(today) - (((new Date(today).getUTCDay() + 6) % 7) + 7 * 7) * DAY);
+  const actFrom = from < wk0 ? from : wk0, actMs = dayMs(actFrom), d3 = d(3 * P - 1);
+  const days = await loadDays(db, actFrom, adm, now);
+  const [users, ext, extDays, extNow, versions, reasons, extAct, urows] = await Promise.all([
+    one(db, 'SELECT COUNT(*) AS total, SUM(created >= ?1) AS cur, SUM(created >= ?2 AND created < ?1) AS prev FROM users', curMs, prevMs),
+    all(db, 'SELECT day, kind, n FROM ext_events WHERE day >= ?1 ORDER BY day', prev < d(29) ? prev : d(29)),
+    all(db, 'SELECT day, COUNT(*) AS dau, SUM(lookup) AS lookup, SUM(save) AS save, SUM(popup) AS popup, SUM(newtab) AS newtab FROM ext_daily WHERE day >= ?1 GROUP BY day ORDER BY day', d(29)),
+    one(db, 'SELECT COUNT(DISTINCT CASE WHEN day >= ?2 THEN vid END) AS wau, COUNT(DISTINCT vid) AS mau FROM ext_daily WHERE day >= ?1', d(29), d(6)),
+    all(db, "SELECT COALESCE(NULLIF(ver, ''), '?') AS k, COUNT(DISTINCT vid) AS n FROM ext_daily WHERE day >= ?1 GROUP BY k ORDER BY n DESC LIMIT 8", d(6)),
+    all(db, "SELECT substr(kind, 11) AS k, SUM(n) AS n FROM ext_events WHERE kind LIKE 'uninstall:%' AND day >= ?1 GROUP BY k ORDER BY n DESC", d(89)),
+    all(db, 'SELECT day, vid, lookup FROM ext_daily WHERE day >= ?1', actFrom),
+    all(db, 'SELECT uid, created, seen, n FROM users WHERE created >= ?1 OR seen >= ?1', actMs),
+  ]);
+  const newByPlat = await all(db, "SELECT COALESCE(NULLIF(plat, ''), 'web') AS k, SUM(created >= ?1) AS cur, SUM(created >= ?2 AND created < ?1) AS prev FROM users WHERE created >= ?2 GROUP BY k ORDER BY cur DESC", curMs, prevMs);
+  // Phiên bot IS NULL, vid <> '' theo ngày: [day, vid, có phiên ret = 0, { nền tảng: đã thử }]
+  const sv = []; for (const [day, r] of days) for (const V of r.V) if (V[0] !== NUL && V[0] !== '') sv.push([day, V[0], V[3], V[4]]);
+  const look = [...new Set([...sv.map(x => x[1]), ...extAct.filter(x => x.day >= cur).map(x => x.vid)])];
+  const links = look.length ? await all(db, 'SELECT m.vid, m.uid FROM json_each(?1) AS j CROSS JOIN vid_uid AS m ON m.vid = j.value', JSON.stringify(look)) : [];
+  const v2u = new Map(links.map(r => [r.vid, r.uid])), U = new Map(urows.map(u => [u.uid, u]));
+  const addTo = (a, id, day) => { let s = a.get(id); if (!s) a.set(id, s = new Set()); s.add(day); };
+  const actV = lo => { const a = new Map(); for (const [day, vid] of sv) if (day >= lo) addTo(a, vid, day); for (const x of extAct) if (x.day >= lo) addTo(a, x.vid, x.day); return a; };
+  const actU = (lo, loMs) => { const a = new Map(); for (const [day, vid] of sv) if (day >= lo && v2u.has(vid)) addTo(a, v2u.get(vid), day); for (const u of urows) if (u.seen >= loMs) addTo(a, u.uid, utcDay(u.seen)); return a; };
+  const firstV = lo => { const f = new Map(); for (const [day, vid, r0] of sv) if (r0 && day >= lo && (!f.has(vid) || day < f.get(vid))) f.set(vid, day); return f; };
+  const firstU = loMs => new Map(urows.filter(u => u.created >= loMs).map(u => [u.uid, utcDay(u.created)]));
+  const diff = (x, y) => Math.round((dayMs(x) - dayMs(y)) / DAY);
+  const retCalc = (f, a) => {
+    const by = new Map();
+    for (const [id, d0] of f) {
+      let r1 = 0, r7 = 0, r30 = 0;
+      for (const day of a.get(id) || []) { if (day <= d0) continue; const k = diff(day, d0); if (k === 1) r1 = 1; else if (k >= 2 && k <= 7) r7 = 1; else if (k >= 8 && k <= 30) r30 = 1; }
+      const t = by.get(d0) || { d: d0, n: 0, r1: 0, r7: 0, r30: 0 }; t.n++; t.r1 += r1; t.r7 += r7; t.r30 += r30; by.set(d0, t);
+    }
+    return [...by.values()].sort((x, y) => (x.d < y.d ? -1 : 1));
+  };
+  const wkOf = d0 => addDays(d0, ((7 - new Date(dayMs(d0)).getUTCDay()) % 7) - 6); // date(d, 'weekday 0', '-6 days') = thứ Hai đầu tuần
+  const cohCalc = (f, a) => {
+    const by = new Map();
+    for (const [id, d0] of f) {
+      const wk = wkOf(d0); if (wk < wk0) continue;
+      for (const day of a.get(id) || []) { if (day < d0) continue; const k = Math.floor(diff(day, wk) / 7), kk = wk + '|' + k; let s = by.get(kk); if (!s) by.set(kk, s = { wk, k, ids: new Set() }); s.ids.add(id); }
+    }
+    return [...by.values()].map(x => ({ wk: x.wk, k: x.k, n: x.ids.size }));
+  };
+  const habCalc = a => {
+    const o = { a7: 0, r7: 0, pa7: 0, pr7: 0, prevAct: 0, churn: 0, pprevAct: 0, pchurn: 0 };
+    if (!a.size) return Object.fromEntries(Object.keys(o).map(k => [k, null])); // SQL: SUM trên 0 dòng = NULL
+    const d6 = d(6), d13 = d(13);
+    for (const ds of a.values()) {
+      let n7 = 0, m7 = 0, c = 0, pv = 0, pp = 0;
+      for (const day of ds) { if (day >= d6) n7++; else if (day >= d13) m7++; if (day >= cur) c = 1; else if (day >= prev) pv = 1; else if (day >= d3) pp = 1; }
+      o.a7 += n7 > 0; o.r7 += n7 >= 2; o.pa7 += m7 > 0; o.pr7 += m7 >= 2; o.prevAct += pv; o.churn += pv && !c; o.pprevAct += pp; o.pchurn += pp && !pv;
+    }
+    return o;
+  };
+  const aA = actV(prev < d(P + 29) ? prev : d(P + 29)), perDayN = new Map();
+  for (const ds of aA.values()) for (const day of ds) if (day >= prev) perDayN.set(day, (perDayN.get(day) || 0) + 1);
+  const cnt = (lo, hi) => { let n = 0; for (const ds of aA.values()) for (const day of ds) if (day >= lo && (!hi || day < hi)) { n++; break; } return n; };
+  const active = [...perDayN].map(([day, n]) => ({ day, n })).concat([{ day: 'W', n: cnt(d(6)) }, { day: 'M', n: cnt(d(29)) }, { day: 'PW', n: cnt(d(P + 6), cur) }, { day: 'PM', n: cnt(d(P + 29), cur) }]);
+  const nv = { cur: new Set(), prev: new Set() }; for (const [day, vid, r0] of sv) if (r0 && day >= prev) nv[day >= cur ? 'cur' : 'prev'].add(vid);
+  // Phễu: (vid, nền tảng) đã thử trong kỳ ∪ add-on (tra từ) → tài khoản đăng ký trong kỳ (vid_uid) → học đều
+  const fv = new Map();
+  for (const [day, vid, , pl] of sv) if (day >= cur) for (const [p, t] of Object.entries(pl)) { const k = vid + '\0' + p; const e = fv.get(k) || { vid, plat: p, t: 0 }; if (t) e.t = 1; fv.set(k, e); }
+  const fe = new Map(); for (const x of extAct) if (x.day >= cur) { const e = fe.get(x.vid) || { vid: x.vid, plat: 'ext', t: 0 }; if (x.lookup != null && x.lookup >= 1) e.t = 1; fe.set(x.vid, e); }
+  const vrows = [...fv.values(), ...fe.values()];
+  const fun = rows => {
+    const vs = new Set(), ts = new Set(), sg = new Set(), kp = new Set();
+    for (const x of rows) { vs.add(x.vid); if (x.t) ts.add(x.vid); const uid = v2u.get(x.vid), u = uid != null ? U.get(uid) : null; if (u && u.created >= curMs) { sg.add(uid); if (u.seen - u.created >= 604800000 || u.n >= 5) kp.add(uid); } }
+    return { visitors: vs.size, tried: ts.size, signed: sg.size, kept: kp.size };
+  };
+  const funnel = [...new Set(vrows.map(x => x.plat))].map(p => ({ plat: p, ...fun(vrows.filter(x => x.plat === p)) }));
+  return shape(now, P, { users, newVis: { cur: nv.cur.size, prev: nv.prev.size }, active, ext, extDays, extNow, versions, reasons, funnel, funnelAll: [fun(vrows)],
+    retV: retCalc(firstV(from), actV(from)), retU: retCalc(firstU(fromMs), actU(from, fromMs)),
+    cohV: cohCalc(firstV(actFrom), actV(actFrom)), cohU: cohCalc(firstU(actMs), actU(actFrom, actMs)),
+    habV: habCalc(actV(d3)), habU: habCalc(actU(d3, dayMs(d3))), newByPlat });
 }

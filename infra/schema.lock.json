@@ -17,11 +17,18 @@
   },
   "ddl": "22c615637981bc55"
  },
+ "_rollup.js": {
+  "vers": {
+   "rollup": 1
+  },
+  "ddl": "572519f113814f83"
+ },
  "_social_auto.js": {
   "vers": {
-   "soc-lock": 2
+   "soc-lock": 2,
+   "soc-fc": 1
   },
-  "ddl": "38c6a9344509fed8"
+  "ddl": "6e5e814f8f522196"
  },
  "ads-report.js": {
   "vers": {
@@ -37,15 +44,21 @@
  },
  "capacity.js": {
   "vers": {
-   "capacity": 1
+   "capacity": 2
   },
-  "ddl": "8f3316628f5d649c"
+  "ddl": "40d684eae89dcbe7"
  },
  "class.js": {
   "vers": {
    "class": 1
   },
   "ddl": "67529faa7384ddf4"
+ },
+ "community.js": {
+  "vers": {
+   "community": 1
+  },
+  "ddl": "bf29f22f85da6dac"
  },
  "hit.js": {
   "vers": {
@@ -67,9 +80,9 @@
  },
  "sync.js": {
   "vers": {
-   "sync": 2,
+   "sync": 3,
    "docs": 1
   },
-  "ddl": "73d8d7c095edb612"
+  "ddl": "92ace6a598d1f574"
  }
 }

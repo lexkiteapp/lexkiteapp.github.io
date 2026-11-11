@@ -40,9 +40,10 @@ const fakeFetch = async url => {
   if (url.includes('api.dictionaryapi.dev')) return res(FREEDICT[decodeURIComponent(url.split('/').pop())] || null);
   if (url.includes('/api/img')) return res(imgReply(q('w')));
   if (url.includes('page/definition')) return res(WIKT_DEF[decodeURIComponent(url.split('/').pop())] || null);
+  if (url.includes('action=query') && q('titles')) return res({ query: { pages: [WIKT_DEF[q('titles')] ? { title: q('titles'), pageid: 1 } : { title: q('titles'), missing: true }] } }); // cụm: hỏi trang tồn tại trước (dictionary.js wikiHas)
   return res(null); // Wiktionary IPA, Tatoeba, Datamuse… → không có
 };
-const sw = { console, Date, Math, JSON, Promise, Map, Set, URL, AbortController, TextEncoder, setTimeout, clearTimeout, fetch: fakeFetch, location: { hostname: 'abcdefghijklmnopabcdefghijklmnop' } };
+const sw = { console, Date, Math, JSON, Promise, Map, Set, URL, AbortController, TextEncoder, setTimeout, clearTimeout, fetch: fakeFetch, location: { hostname: 'abcdefghijklmnopabcdefghijklmnop', protocol: 'chrome-extension:' } };
 sw.self = sw; vm.createContext(sw);
 vm.runInContext(rd('web/js/data.js'), sw);
 vm.runInContext(rd('web/js/dictionary.js'), sw);
@@ -157,6 +158,30 @@ for (const L of ['en', 'ja', 'vi']) {
   p.w.document.body.dispatchEvent(ev);
   ok(!ev.defaultPrevented, 'bản cũ sau takeover không chặn phím P của trang');
   p.w.close();
+}
+
+// Popup (extension/popup.html) khởi động hết khi CÓ thẻ đến hạn – 2/11: ipaAcc/audAcc/speak khai báo sau lần dùng đầu (ôn nhanh) → TDZ
+// ReferenceError → IIFE dừng giữa chừng: tra nhanh + cài đặt "Khi bôi đen chữ" chết (quality-sweep ext-e2e đỏ 3 đêm). Chạy thật popup.js trong jsdom.
+{
+  const html = rd('extension/popup.html').replace(/<script[^>]*src=[^>]*><\/script>/g, '');
+  const dom = new JSDOM(html, { runScripts: 'outside-only', url: 'chrome-extension://test/popup.html' }), w = dom.window, errs = [];
+  const mem = { settings: { selectMode: 'icon' }, cards: { house: { word: 'house', ipa: '/haʊs/', vi: 'ngôi nhà', def: 'a building', added: Date.now() - 864e5 * 9, srs: { reps: 2, last: Date.now() - 864e5 * 5, due: Date.now() - 3600e3, stability: 2, difficulty: 5 } } } };
+  w.chrome = { i18n: { getUILanguage: () => 'en' }, runtime: { sendMessage: async () => ({}), getURL: p => 'chrome-extension://test/' + p, lastError: null },
+    storage: { local: { get: async k => { if (k == null) return { ...mem }; const ks = typeof k === 'string' ? [k] : Array.isArray(k) ? k : Object.keys(k); return Object.fromEntries(ks.filter(x => x in mem).map(x => [x, mem[x]])); }, set: async o => { Object.assign(mem, o); }, remove: async k => { delete mem[k]; } }, onChanged: { addListener() {} } },
+    tabs: { query: async () => [], create: async () => ({}), update: async () => ({}) } };
+  w.speechSynthesis = { getVoices: () => [], cancel() {}, speak() {}, addEventListener() {} };
+  w.addEventListener('error', e => errs.push(e.message));
+  w.eval('window.addEventListener("unhandledrejection", e => window.__rej = String(e.reason && (e.reason.stack || e.reason)))');
+  for (const f of ['extension/app/js/data.js', 'extension/app/js/core.js', 'extension/app/js/lex.js', 'extension/app/js/dictionary.js', 'extension/qr.js']) { try { w.eval(rd(f)); } catch (e) { errs.push(f + ': ' + e.message); } }
+  const src = rd('extension/popup.js');
+  w.eval(src.replace(/^\(async \(\) => \{/, 'window.__popup = (async () => {'));
+  const done = await Promise.race([w.__popup.then(() => 'ok', e => 'lỗi: ' + (e && e.message)), sleep(4000).then(() => 'treo')]);
+  ok(done === 'ok', `popup khởi động hết với thẻ đến hạn (${done})`);
+  ok(typeof w.document.querySelector('#selMode').onchange === 'function', 'popup: ô "Khi bôi đen chữ" có xử lý lưu');
+  ok(typeof w.document.querySelector('#f').onsubmit === 'function', 'popup: ô tra nhanh có xử lý');
+  ok(/house/.test(w.document.querySelector('#quick').textContent), 'popup: ôn nhanh hiện thẻ đến hạn');
+  ok(!errs.length, 'popup: nạp script không lỗi – ' + errs.join(' | '));
+  w.close();
 }
 
 console.log(fails ? `✗ ext-popup: ${fails}/${n} lỗi` : `✓ ext-popup: ${n} kiểm tra đạt`);

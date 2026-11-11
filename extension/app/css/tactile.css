@@ -21,3 +21,8 @@
 .tk-num{font-family:var(--font-display);font-variant-numeric:tabular-nums}
 @media (prefers-reduced-motion:reduce){.tk-bar>i{transition:none}
 }
+/* §5d Một khung app – chuẩn chung cho MỌI route (cổng frame-consistency.yml): thanh 5 tab 64, nút điều hướng ≥ 44 */
+@media (max-width:1023px){.bottom-nav{height:calc(64px + env(safe-area-inset-bottom,0px));min-height:0;box-sizing:border-box;align-items:stretch}
+html.native .bottom-nav{height:calc(64px + env(safe-area-inset-bottom,0px));min-height:0}
+}
+.crumb a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}

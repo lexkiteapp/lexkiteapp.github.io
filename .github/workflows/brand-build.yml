@@ -1,12 +1,14 @@
 # 🎨 Dựng tài sản thương hiệu từ brand/tokens.json (docs/BRAND-RULES.md) trên CI – máy cá nhân không render.
-# Đẩy nhánh brand-build*: build-tokens → build-social-kit (PNG icon/logo/mạng xã hội) → build-extension → commit lại nhánh;
+# Đẩy nhánh brand-build*: build-tokens → build-social-kit (PNG icon/logo/mạng xã hội) → build-extension → artifact bot-output-brand-build
+# (2/11: không commit lại nhánh – đầu PR là commit bot thì CI treo; lấy về: bash scripts/ci/bot-output.sh brand-build, rồi tự commit);
 # rồi chụp trước/sau (scripts/test/brand-shots.mjs: popup add-on, bài học, icon 48/96/512 sáng/tối). Artifact 7 ngày.
 name: Brand build
 on:
   push:
     branches: ['brand-build*']
 permissions:
-  contents: write
+  contents: read
+  pull-requests: write   # comment kết quả lên PR của nhánh
 concurrency:
   group: brand-build-${{ github.ref }}
   cancel-in-progress: true
@@ -15,6 +17,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, '[brand-build]')"
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    outputs: { changed: '${{ steps.bo.outputs.changed }}' }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -25,25 +28,33 @@ jobs:
           SOCIAL_KIT_DEPS=/tmp/kitdeps node scripts/build-social-kit.mjs
           bash scripts/build-extension.sh
           node scripts/test/brand-check.mjs
-      - name: Commit
-        run: |
-          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A brand web extension store
-          git diff --cached --quiet || { git commit -q -m "brand: dựng PNG icon/logo/mạng xã hội từ brand/tokens.json [brand-build] [CF-Pages-Skip]"; git push -q origin HEAD:${GITHUB_REF_NAME}; }
+      - name: Kết quả → artifact + summary + comment PR (không đẩy vào nhánh)
+        id: bo
+        uses: ./.github/actions/bot-output
+        with: { name: brand-build, paths: brand web extension store, comment: 'true' }
   shots:
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-        with: { ref: "${{ github.ref_name }}", fetch-depth: 0 }
+        with: { fetch-depth: 0 }
+      - name: Phủ bản dựng của job build
+        if: needs.build.outputs.changed == '1'
+        uses: actions/download-artifact@v4
+        with: { name: bot-output-brand-build, path: . }
+      - if: needs.build.outputs.changed == '1'
+        run: if [ -f .bot-output-deleted ]; then xargs -d '\n' rm -f -- < .bot-output-deleted; rm -f .bot-output-deleted; fi
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Chụp
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium >/dev/null
-          sudo apt-get install -y -qq imagemagick fonts-noto-color-emoji fonts-noto-core >/dev/null || true
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: imagemagick fonts-noto-color-emoji fonts-noto-core }
+      - name: Chụp (tiếp)
+        run: |
           git worktree add -q /tmp/before "$(git merge-base origin/main HEAD)"
           node scripts/test/brand-shots.mjs "$PWD" /tmp/before out/brand
       - if: always()

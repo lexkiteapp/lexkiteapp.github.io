@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_librarian",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: librarian.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a person who works in a library.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "The librarian helped me find the old annual reports.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "librarian",
+  "ipa": "/laɪˈbreriən/",
+  "mean": "a person who works in a library",
+  "ex": "The librarian helped me find the old annual reports.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=librarian",
+  "link": "https://lexkite.com/app/#/review?w=librarian",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"librarian\" mean?",
+  "keyword": "librarian",
+  "value": "Librarian means a person who works in a library.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=librarian",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"librarian\" mean?",
+    "description": "Librarian means a person who works in a library.\n\nReview your words, free: https://lexkite.com/app/#/review?w=librarian\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "librarian",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"librarian\" mean?\n\nLibrarian means a person who works in a library.\n\nReview your words, free: https://lexkite.com/app/#/review?w=librarian"
+   },
+   "instagram": {
+    "caption": "What does \"librarian\" mean?\n\nLibrarian means a person who works in a library.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"librarian\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a person who works in a library. Librarian means a person who works in a library. More practice like this (free): {link}"
+ }
+}

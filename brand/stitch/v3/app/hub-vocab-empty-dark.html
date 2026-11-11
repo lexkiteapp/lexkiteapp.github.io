@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite Vocab Hub - Empty State</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with container queries & forms -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-bright": "#2f3b3e",
+            "on-secondary-container": "#ffa493",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-secondary": "#660800",
+            "background": "#091518",
+            "on-primary-fixed-variant": "#00504b",
+            "on-tertiary-fixed": "#261a00",
+            "on-surface-variant": "#bcc9c7",
+            "on-secondary-fixed": "#3f0300",
+            "on-primary": "#003733",
+            "error-container": "#93000a",
+            "surface-container": "#162125",
+            "outline": "#879391",
+            "on-primary-fixed": "#00201e",
+            "inverse-surface": "#d8e5e9",
+            "primary-fixed-dim": "#6bd8ce",
+            "secondary-fixed": "#ffdad3",
+            "surface-container-lowest": "#051013",
+            "secondary-fixed-dim": "#ffb4a6",
+            "primary-fixed": "#88f5ea",
+            "surface-container-low": "#121d20",
+            "tertiary-fixed": "#ffdf9e",
+            "surface-dim": "#091518",
+            "on-tertiary-container": "#392900",
+            "surface-tint": "#6bd8ce",
+            "tertiary-container": "#ba8b00",
+            "secondary": "#ffb4a6",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-variant": "#2b373a",
+            "inverse-primary": "#006a64",
+            "on-error": "#690005",
+            "on-background": "#d8e5e9",
+            "primary-container": "#2ba39a",
+            "outline-variant": "#3d4947",
+            "on-error-container": "#ffdad6",
+            "inverse-on-surface": "#263236",
+            "surface-container-highest": "#2b373a",
+            "on-secondary-fixed-variant": "#900f00",
+            "surface": "#091518",
+            "tertiary": "#f4bf40",
+            "primary": "#6bd8ce",
+            "on-surface": "#d8e5e9",
+            "on-primary-container": "#00322e",
+            "error": "#ffb4ab",
+            "secondary-container": "#981201",
+            "surface-container-high": "#202c2f",
+            "on-tertiary": "#402e00"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "4px",
+            "space-md": "16px",
+            "gutter": "16px",
+            "space-lg": "24px",
+            "space-xl": "32px",
+            "margin": "16px",
+            "space-sm": "8px"
+          },
+          "fontFamily": {
+            "label": ["Plus Jakarta Sans"],
+            "title": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "800" }],
+            "title": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "display": ["32px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Tactile 3D Button Physics */
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #F2553B 0%, #FFC94A 100%);
+      box-shadow: 0 6px 0 #B53A22;
+      transition: transform 0.08s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.08s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #B53A22;
+    }
+
+    .tactile-btn-secondary {
+      box-shadow: 0 4px 0 #3d4947;
+      transition: transform 0.08s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.08s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #3d4947;
+    }
+
+    .tactile-card {
+      box-shadow: 0 5px 0 #051013;
+    }
+    
+    .tactile-deck-btn {
+      box-shadow: 0 3px 0 #1b635e;
+      transition: transform 0.08s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.08s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tactile-deck-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #1b635e;
+    }
+    
+    /* Top specular highlight shine */
+    .top-shine {
+      border-top: 1px solid rgba(255, 255, 255, 0.22);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased font-body min-h-screen pb-24 selection:bg-primary selection:text-on-primary" style="background-color: #10191B; color: #E8F1F0;">
+<!-- ========================================================================= -->
+<!-- 1. FIXED TOP APP BAR (Shared Component Execution)                         -->
+<!-- ========================================================================= -->
+<header class="flex justify-between items-center h-14 px-4 w-full z-50 fixed top-0 left-0" style="background-color: #10191B; border-bottom: 2px solid #1E2F33;"><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background-color: #172427; border: 1px solid #24383C; box-shadow: 0 2px 0 #0E1719;"><svg class="w-5 h-5 drop-shadow-sm" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#FFC94A"></path><path d="M12 2L4 10L12 22" fill="#2EC4B6"></path><path d="M12 22V2M4 10H20" stroke="#0E1719" stroke-linecap="round" stroke-width="2"></path></svg></div><span class="font-display font-extrabold tracking-tight" style="color: #E8F1F0; font-size: 20px; line-height: 24px;">Lexkite</span></div><div class="flex items-center gap-2"><div class="flex items-center gap-1 px-2.5 py-1 rounded-full" style="background-color: #172427; border: 1px solid #24383C; box-shadow: 0 2px 0 #0E1719;"><span class="material-symbols-outlined text-lg" style="color: #FF7B63; font-variation-settings: 'FILL' 1;">local_fire_department</span><span class="font-label text-xs font-bold" style="color: #E8F1F0;">0</span></div><div class="flex items-center gap-1 px-2.5 py-1 rounded-full" style="background-color: #172427; border: 1px solid #24383C; box-shadow: 0 2px 0 #0E1719;"><span class="material-symbols-outlined text-lg" style="color: #F4BF40; font-variation-settings: 'FILL' 1;">bolt</span><span class="font-label text-xs font-bold" style="color: #E8F1F0;">0 XP</span></div></div></header>
+<!-- ========================================================================= -->
+<!-- MAIN SCROLLABLE CONTENT CANVAS (390px Mobile Viewport)                    -->
+<!-- ========================================================================= -->
+<main class="w-full max-w-[390px] mx-auto pt-16 px-4 flex flex-col gap-4">
+<!-- 2. SEARCH BAR & FILTER ACTION -->
+<section class="mt-2"><div class="flex items-center gap-2"><div class="relative flex-1"><div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none" style="color: #A9BDBB;"><span class="material-symbols-outlined text-xl">search</span></div><input class="w-full h-12 pl-10 pr-3 rounded-xl font-body text-sm focus:outline-none transition-all" placeholder="Search 4,200+ exam words..." style="background-color: #1E2F33; border: 2px solid #24383C; box-shadow: 0 3px 0 #0E1719; color: #E8F1F0;" type="search"/></div><button aria-label="Filter words" class="h-12 w-12 rounded-xl flex items-center justify-center active:translate-y-0.5 transition-transform" style="background-color: #1E2F33; border: 2px solid #24383C; box-shadow: 0 3px 0 #0E1719; color: #A9BDBB;"><span class="material-symbols-outlined text-xl">tune</span></button></div></section>
+<!-- 3. EMPTY STATE HERO CARD (Tactile Vector focal Dominance) -->
+<section class="rounded-2xl p-5 flex flex-col items-center text-center relative overflow-hidden" style="background-color: #172427; border: 2px solid #24383C; box-shadow: 0 5px 0 #0E1719;"><div class="absolute -top-12 -right-12 w-36 h-36 rounded-full blur-2xl pointer-events-none" style="background-color: rgba(46, 196, 182, 0.1);"></div><div class="w-36 h-32 relative my-2 flex items-center justify-center"><div class="absolute -top-1 right-3 animate-bounce" style="animation-duration: 3s;"><svg class="w-10 h-10 drop-shadow-md" fill="none" viewbox="0 0 40 40"><polygon fill="#F4BF40" points="20,2 34,16 20,36 6,16" stroke="#BA8B00" stroke-width="2"></polygon><polygon fill="#FFDF9E" points="20,2 6,16 20,36" stroke="#BA8B00" stroke-width="2"></polygon><line stroke="#5B4300" stroke-width="1.5" x1="20" x2="20" y1="2" y2="36"></line><line stroke="#5B4300" stroke-width="1.5" x1="6" x2="34" y1="16" y2="16"></line><path d="M20 36 C22 40, 26 41, 24 45" stroke="#F2553B" stroke-linecap="round" stroke-width="2"></path></svg></div><svg class="w-28 h-24" fill="none" viewbox="0 0 120 100"><ellipse cx="60" cy="50" fill="#2EC4B6" opacity="0.2" rx="35" ry="12"></ellipse><circle cx="60" cy="46" fill="#3CE0CC" opacity="0.4" r="14"></circle><path d="M20 44 L60 22 L100 44 L60 52 Z" fill="#1E2F33" stroke="#24383C" stroke-width="3"></path><path d="M18 45 L102 45 L94 88 L26 88 Z" fill="#121D20" stroke="#24383C" stroke-width="3"></path><path d="M26 88 L94 88 L92 94 L28 94 Z" fill="#0E1719"></path><rect fill="#BA8B00" height="43" width="8" x="36" y="45"></rect><rect fill="#BA8B00" height="43" width="8" x="76" y="45"></rect><rect fill="#F4BF40" height="15" rx="3" stroke="#8A6600" stroke-width="1.5" width="12" x="54" y="48"></rect><circle cx="60" cy="53" fill="#261A00" r="2.5"></circle><polygon fill="#261A00" points="59,53 61,53 62,60 58,60"></polygon><polygon fill="#FFC94A" points="60,32 64,40 73,40 66,45 69,53 60,48 51,53 54,45 47,40 56,40" stroke="#B53A22" stroke-width="1.5"></polygon></svg></div><h1 class="font-title text-title font-extrabold tracking-tight mt-1" style="color: #E8F1F0;">Your vocabulary vault is empty</h1><p class="font-body text-sm mt-2 max-w-[290px] leading-relaxed" style="color: #A9BDBB;">Save high-yield IELTS &amp; TOEIC words during drills, or explore curated topic decks to get started.</p><button class="top-shine w-full h-14 rounded-xl mt-5 flex items-center justify-center gap-2 font-display font-extrabold tracking-wide active:translate-y-1 transition-transform" style="background: linear-gradient(180deg, #F2553B 0%, #FFC94A 100%); box-shadow: 0 5px 0 #B53A22; color: #1B0B04;"><span class="font-label text-base tracking-wider uppercase" style="color: #1B0B04;">Explore Exam Topics</span><span class="material-symbols-outlined text-xl" style="color: #1B0B04;">arrow_forward</span></button><button class="w-full h-12 rounded-xl mt-3 flex items-center justify-center gap-2 font-title text-sm font-bold active:translate-y-0.5 transition-transform" style="background-color: #172427; border: 2px solid #24383C; box-shadow: 0 4px 0 #0E1719; color: #E8F1F0;"><span class="material-symbols-outlined text-lg" style="color: #2EC4B6;">collections_bookmark</span><span>Browse Curated Word Sets</span></button></section>
+<!-- 4. QUICK STARTER DECKS (Empty / Starter Guidance) -->
+<section class="mt-2 mb-4"><div class="flex items-center justify-between mb-3 px-1"><h2 class="font-title text-lg font-extrabold flex items-center gap-2" style="color: #E8F1F0;"><span>Foundational Sets</span><span class="w-2 h-2 rounded-full animate-pulse" style="background-color: #2EC4B6;"></span></h2><span class="font-label text-xs font-bold" style="color: #A9BDBB;">STARTER PICKS</span></div><div class="flex flex-col gap-3"><article class="rounded-2xl p-4 flex flex-col gap-3" style="background-color: #172427; border: 2px solid #24383C; box-shadow: 0 5px 0 #0E1719;"><div class="flex items-start justify-between"><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: rgba(244, 191, 64, 0.15); border: 2px solid rgba(244, 191, 64, 0.3); color: #F4BF40;"><span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">star</span></div><div><h3 class="font-title font-bold text-base leading-tight" style="color: #E8F1F0;">IELTS Core 100</h3><p class="font-body text-xs mt-0.5" style="color: #A9BDBB;">Essential academic collocations</p></div></div><span class="font-label text-xs px-2 py-0.5 rounded-md font-bold" style="background-color: #1E2F33; border: 1px solid #24383C; color: #F4BF40;">Band 6.5+</span></div><div class="space-y-1.5 pt-1"><div class="flex justify-between items-center text-xs font-label"><span style="color: #A9BDBB;">0 / 100 words</span><span class="font-bold" style="color: #E8F1F0;">0%</span></div><div class="w-full h-2 rounded-full overflow-hidden" style="background-color: #1E2F33; border: 1px solid #24383C;"><div class="h-full rounded-full w-0" style="background-color: #F4BF40;"></div></div></div><button class="w-full h-11 rounded-xl font-title text-xs font-extrabold flex items-center justify-center gap-1.5 uppercase tracking-wider active:translate-y-0.5 transition-transform" style="background-color: #2EC4B6; box-shadow: 0 3px 0 #1B6E66; color: #003733;"><span class="material-symbols-outlined text-base">add_circle</span><span>Start Drill</span></button></article><article class="rounded-2xl p-4 flex flex-col gap-3" style="background-color: #172427; border: 2px solid #24383C; box-shadow: 0 5px 0 #0E1719;"><div class="flex items-start justify-between"><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: rgba(46, 196, 182, 0.15); border: 2px solid rgba(46, 196, 182, 0.3); color: #2EC4B6;"><span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">history_edu</span></div><div><h3 class="font-title font-bold text-base leading-tight" style="color: #E8F1F0;">Academic Task 2 Linkers</h3><p class="font-body text-xs mt-0.5" style="color: #A9BDBB;">Cohesion &amp; coherence boosters</p></div></div><span class="font-label text-xs px-2 py-0.5 rounded-md font-bold" style="background-color: #1E2F33; border: 1px solid #24383C; color: #2EC4B6;">Writing</span></div><div class="space-y-1.5 pt-1"><div class="flex justify-between items-center text-xs font-label"><span style="color: #A9BDBB;">0 / 40 words</span><span class="font-bold" style="color: #E8F1F0;">0%</span></div><div class="w-full h-2 rounded-full overflow-hidden" style="background-color: #1E2F33; border: 1px solid #24383C;"><div class="h-full rounded-full w-0" style="background-color: #2EC4B6;"></div></div></div><button class="w-full h-11 rounded-xl font-title text-xs font-extrabold flex items-center justify-center gap-1.5 uppercase tracking-wider active:translate-y-0.5 transition-transform" style="background-color: #1E2F33; border: 2px solid #24383C; box-shadow: 0 3px 0 #0E1719; color: #E8F1F0;"><span class="material-symbols-outlined text-base" style="color: #2EC4B6;">add</span><span>Add to My Deck</span></button></article><article class="rounded-2xl p-4 flex flex-col gap-3" style="background-color: #172427; border: 2px solid #24383C; box-shadow: 0 5px 0 #0E1719;"><div class="flex items-start justify-between"><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: rgba(255, 123, 99, 0.15); border: 2px solid rgba(255, 123, 99, 0.3); color: #FFB4A6;"><span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">record_voice_over</span></div><div><h3 class="font-title font-bold text-base leading-tight" style="color: #E8F1F0;">Everyday Nuances &amp; Idioms</h3><p class="font-body text-xs mt-0.5" style="color: #A9BDBB;">Speaking Band 7.0+ fluency</p></div></div><span class="font-label text-xs px-2 py-0.5 rounded-md font-bold" style="background-color: #1E2F33; border: 1px solid #24383C; color: #FFB4A6;">Speaking</span></div><div class="space-y-1.5 pt-1"><div class="flex justify-between items-center text-xs font-label"><span style="color: #A9BDBB;">0 / 40 words</span><span class="font-bold" style="color: #E8F1F0;">0%</span></div><div class="w-full h-2 rounded-full overflow-hidden" style="background-color: #1E2F33; border: 1px solid #24383C;"><div class="h-full rounded-full w-0" style="background-color: #FFB4A6;"></div></div></div><button class="w-full h-11 rounded-xl font-title text-xs font-extrabold flex items-center justify-center gap-1.5 uppercase tracking-wider active:translate-y-0.5 transition-transform" style="background-color: #1E2F33; border: 2px solid #24383C; box-shadow: 0 3px 0 #0E1719; color: #E8F1F0;"><span class="material-symbols-outlined text-base" style="color: #FF7B63;">add</span><span>Add to My Deck</span></button></article></div></section>
+</main>
+<!-- ========================================================================= -->
+<!-- 5. FIXED BOTTOM TAB BAR (Shared Component Execution)                      -->
+<!-- ========================================================================= -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2 pb-safe" style="background-color: #10191B; border-top: 2px solid #1E2F33;"><a class="flex flex-col items-center justify-center px-3 py-1.5 min-w-[56px] min-h-[44px] transition-colors active:translate-y-1" href="#" style="color: #A9BDBB;"><span class="material-symbols-outlined text-2xl">today</span><span class="font-label text-[11px] mt-0.5">Today</span></a><a class="flex flex-col items-center justify-center rounded-xl px-3 py-1.5 min-w-[56px] min-h-[44px] active:translate-y-1 shadow-sm" href="#" style="background-color: rgba(46, 196, 182, 0.15); border: 2px solid #2EC4B6; color: #2EC4B6;"><span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">menu_book</span><span class="font-label text-[11px] font-extrabold mt-0.5">Vocab</span></a><a class="flex flex-col items-center justify-center px-3 py-1.5 min-w-[56px] min-h-[44px] transition-colors active:translate-y-1" href="#" style="color: #A9BDBB;"><span class="material-symbols-outlined text-2xl">psychology</span><span class="font-label text-[11px] mt-0.5">Skills</span></a><a class="flex flex-col items-center justify-center px-3 py-1.5 min-w-[56px] min-h-[44px] transition-colors active:translate-y-1" href="#" style="color: #A9BDBB;"><span class="material-symbols-outlined text-2xl">quiz</span><span class="font-label text-[11px] mt-0.5">Tests</span></a><a class="flex flex-col items-center justify-center px-3 py-1.5 min-w-[56px] min-h-[44px] transition-colors active:translate-y-1" href="#" style="color: #A9BDBB;"><span class="material-symbols-outlined text-2xl">person</span><span class="font-label text-[11px] mt-0.5">Me</span></a></nav>
+</body></html>

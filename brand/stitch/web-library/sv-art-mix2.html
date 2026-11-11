@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Illustration Badges — Bright Day</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFF8F4;
+    }
+  </style>
+</head>
+<body class="min-h-screen w-full flex items-center justify-center p-6 md:p-12 lg:p-16 select-none bg-[#FFF8F4]">
+  <!-- Clean central sheet with the 6 large glossy illustrated badges in a neat grid -->
+  <main class="w-full max-w-5xl mx-auto flex items-center justify-center">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 w-full justify-items-center items-center">
+
+      <!-- Badge 1: Postcard with a little heart stamp -->
+      <!-- Coral / Warm Rose Medallion -->
+      <div class="w-full max-w-[260px] aspect-square rounded-[36px] bg-[#FF7E67] p-3 sm:p-4 flex items-center justify-center shadow-[0_12px_0_0_#D9533D,0_20px_28px_rgba(217,83,61,0.28)] border-4 border-[#FFA08F] transition-transform duration-150 hover:-translate-y-1 active:translate-y-1 active:shadow-[0_6px_0_0_#D9533D] relative overflow-hidden group">
+        <!-- Gloss highlight arc at top -->
+        <div class="absolute inset-x-3 top-2 h-1/2 bg-gradient-to-b from-white/35 to-transparent rounded-t-[28px] pointer-events-none"></div>
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-[0_6px_10px_rgba(0,0,0,0.14)]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Card drop shadow -->
+            <filter id="shadow1" x="-10%" y="-10%" width="130%" height="130%">
+              <feDropShadow dx="0" dy="6" stdDeviation="4" flood-color="#8C2517" flood-opacity="0.25"/>
+            </filter>
+            <!-- Stamp shadow -->
+            <filter id="stampShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#B83A2A" flood-opacity="0.2"/>
+            </filter>
+            <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+              <feStop offset="0%" stop-color="#FFFFFF"/>
+              <feStop offset="100%" stop-color="#FFF2EA"/>
+            </linearGradient>
+            <linearGradient id="stampGrad" x1="0" y1="0" x2="0" y2="1">
+              <feStop offset="0%" stop-color="#FF5A79"/>
+              <feStop offset="100%" stop-color="#E83053"/>
+            </linearGradient>
+            <linearGradient id="goldAirGrad" x1="0" y1="0" x2="1" y2="1">
+              <feStop offset="0%" stop-color="#FFD15C"/>
+              <feStop offset="100%" stop-color="#FFA114"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Shadow Base -->
+          <rect x="24" y="44" width="152" height="114" rx="14" fill="#B93826" opacity="0.3"/>
+
+          <!-- Postcard tilted gently or crisp alignment -->
+          <!-- Physical bottom ledge of the card -->
+          <rect x="22" y="42" width="156" height="116" rx="16" fill="#DEC2B0"/>
+          <!-- Front card body -->
+          <rect x="22" y="38" width="156" height="116" rx="16" fill="url(#cardGrad)" stroke="#4A261B" stroke-width="5" stroke-linejoin="round"/>
+
+          <!-- Decorative airmail stripes corner top-left -->
+          <g opacity="0.9">
+            <path d="M 28 44 L 46 44 L 28 62 Z" fill="#3AA89B"/>
+            <path d="M 49 44 L 67 44 L 28 83 L 28 65 Z" fill="#FF5252"/>
+            <path d="M 70 44 L 84 44 L 28 100 L 28 86 Z" fill="#FFBE3B"/>
+          </g>
+
+          <!-- Dividing center line -->
+          <line x1="102" y1="52" x2="102" y2="140" stroke="#E2C9B8" stroke-width="4" stroke-dasharray="6 5" stroke-linecap="round"/>
+
+          <!-- Message lines on left side -->
+          <rect x="36" y="80" width="50" height="7" rx="3.5" fill="#3D5A58"/>
+          <rect x="36" y="96" width="44" height="7" rx="3.5" fill="#E2C9B8"/>
+          <rect x="36" y="112" width="52" height="7" rx="3.5" fill="#E2C9B8"/>
+          <rect x="36" y="128" width="32" height="7" rx="3.5" fill="#E2C9B8"/>
+
+          <!-- Stamp with perforated edges on top-right -->
+          <g filter="url(#stampShadow)">
+            <!-- Stamp scalloped base -->
+            <rect x="122" y="48" width="44" height="50" rx="6" fill="#FFF6F0" stroke="#DEC2B0" stroke-width="2"/>
+            <rect x="126" y="52" width="36" height="42" rx="4" fill="url(#stampGrad)"/>
+            <!-- Heart inside stamp -->
+            <path d="M 144 65 
+                     C 144 61, 137 57, 133 62 
+                     C 129 67, 132 73, 144 82 
+                     C 156 73, 159 67, 155 62 
+                     C 151 57, 144 61, 144 65 Z" 
+                  fill="#FFFFFF"/>
+          </g>
+
+          <!-- Postal cancel stamp wavy lines -->
+          <path d="M 108 64 Q 114 60 120 64 T 132 64" fill="none" stroke="#3D5A58" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+          <path d="M 108 73 Q 114 69 120 73 T 132 73" fill="none" stroke="#3D5A58" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+
+          <!-- Recipient address lines on right -->
+          <rect x="114" y="108" width="52" height="6" rx="3" fill="#3D5A58"/>
+          <rect x="114" y="122" width="46" height="6" rx="3" fill="#E2C9B8"/>
+          <rect x="114" y="136" width="38" height="6" rx="3" fill="#E2C9B8"/>
+        </svg>
+      </div>
+
+      <!-- Badge 2: Stack of paper documents -->
+      <!-- Crisp Sky Blue / Royal Blue Medallion -->
+      <div class="w-full max-w-[260px] aspect-square rounded-[36px] bg-[#3B82F6] p-3 sm:p-4 flex items-center justify-center shadow-[0_12px_0_0_#1D4ED8,0_20px_28px_rgba(29,78,216,0.28)] border-4 border-[#60A5FA] transition-transform duration-150 hover:-translate-y-1 active:translate-y-1 active:shadow-[0_6px_0_0_#1D4ED8] relative overflow-hidden group">
+        <div class="absolute inset-x-3 top-2 h-1/2 bg-gradient-to-b from-white/35 to-transparent rounded-t-[28px] pointer-events-none"></div>
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-[0_6px_10px_rgba(0,0,0,0.14)]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="docGrad1" x1="0" y1="0" x2="0" y2="1">
+              <feStop offset="0%" stop-color="#FFFFFF"/>
+              <feStop offset="100%" stop-color="#F1F5F9"/>
+            </linearGradient>
+            <linearGradient id="docGrad2" x1="0" y1="0" x2="0" y2="1">
+              <feStop offset="0%" stop-color="#FFFFFF"/>
+              <feStop offset="100%" stop-color="#E2E8F0"/>
+            </linearGradient>
+            <linearGradient id="clipGrad" x1="0" y1="0" x2="1" y2="1">
+              <feStop offset="0%" stop-color="#FDE047"/>
+              <feStop offset="100%" stop-color="#F59E0B"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Bottom Document 3 (rotated slightly left) -->
+          <g transform="rotate(-9 100 110)">
+            <rect x="42" y="38" width="112" height="130" rx="10" fill="#CBD5E1"/>
+            <rect x="42" y="34" width="112" height="130" rx="10" fill="#E2E8F0" stroke="#1E293B" stroke-width="5" stroke-linejoin="round"/>
+          </g>
+
+          <!-- Middle Document 2 (rotated slightly right) -->
+          <g transform="rotate(6 100 108)">
+            <rect x="46" y="36" width="108" height="132" rx="10" fill="#CBD5E1"/>
+            <rect x="46" y="32" width="108" height="132" rx="10" fill="#F8FAFC" stroke="#1E293B" stroke-width="5" stroke-linejoin="round"/>
+            <!-- Line previews -->
+            <rect x="62" y="58" width="46" height="6" rx="3" fill="#94A3B8"/>
+            <rect x="62" y="74" width="76" height="6" rx="3" fill="#CBD5E1"/>
+            <rect x="62" y="90" width="76" height="6" rx="3" fill="#CBD5E1"/>
+          </g>
+
+          <!-- Top Document 1 (Front & upright with folded corner) -->
+          <g>
+            <!-- Ledge underneath -->
+            <path d="M 48 34 L 126 34 L 152 60 L 152 166 L 48 166 Z" fill="#CBD5E1"/>
+            <!-- Main sheet body -->
+            <path d="M 48 30 L 124 30 L 152 58 L 152 162 L 48 162 Z" fill="url(#docGrad1)" stroke="#1E293B" stroke-width="5" stroke-linejoin="round"/>
+
+            <!-- Folded dog-ear corner -->
+            <path d="M 124 30 L 124 58 L 152 58 Z" fill="#E2E8F0" stroke="#1E293B" stroke-width="5" stroke-linejoin="round"/>
+
+            <!-- Content lines on top sheet -->
+            <!-- Header bar / Teal highlight title -->
+            <rect x="64" y="50" width="48" height="10" rx="5" fill="#3B82F6"/>
+            <!-- Text lines -->
+            <rect x="64" y="74" width="72" height="7" rx="3.5" fill="#1E293B"/>
+            <rect x="64" y="90" width="72" height="7" rx="3.5" fill="#94A3B8"/>
+            <rect x="64" y="106" width="60" height="7" rx="3.5" fill="#CBD5E1"/>
+
+            <!-- Mini chart bar illustration inside doc -->
+            <rect x="64" y="126" width="16" height="20" rx="3" fill="#60A5FA"/>
+            <rect x="86" y="120" width="16" height="26" rx="3" fill="#34D399"/>
+            <rect x="108" y="132" width="16" height="14" rx="3" fill="#F472B6"/>
+
+            <!-- Shiny Gold Binder Paperclip on left edge -->
+            <path d="M 58 60 L 58 100 A 10 10 0 0 0 78 100 L 78 50 A 6 6 0 0 0 66 50 L 66 94" 
+                  fill="none" stroke="url(#clipGrad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 58 60 L 58 100 A 10 10 0 0 0 78 100 L 78 50 A 6 6 0 0 0 66 50 L 66 94" 
+                  fill="none" stroke="#92400E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Badge 3: Square, circle and triangle block set -->
+      <!-- Emerald / Mint Green Medallion -->
+      <div class="w-full max-w-[260px] aspect-square rounded-[36px] bg-[#10B981] p-3 sm:p-4 flex items-center justify-center shadow-[0_12px_0_0_#047857,0_20px_28px_rgba(4,120,87,0.28)] border-4 border-[#34D399] transition-transform duration-150 hover:-translate-y-1 active:translate-y-1 active:shadow-[0_6px_0_0_#047857] relative overflow-hidden group">
+        <div class="absolute inset-x-3 top-2 h-1/2 bg-gradient-to-b from-white/35 to-transparent rounded-t-[28px] pointer-events-none"></div>
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-[0_6px_10px_rgba(0,0,0,0.14)]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Shading for the blocks -->
+            <linearGradient id="sqGrad" x1="0" y1="0" x2="0" y2="1">
+              <feStop offset="0%" stop-color="#60A5FA"/>
+              <feStop offset="100%" stop-color="#2563EB"/>
+            </linearGradient>
+            <linearGradient id="circGrad" x1="0" y1="0" x2="0" y2="1">
+              <feStop offset="0%" stop-color="#F43F5E"/>
+              <feStop offset="100%" stop-color="#BE123C"/>
+            </linearGradient>
+            <linearGradient id="triGrad" x1="0" y1="0" x2="0" y2="1">
+              <feStop offset="0%" stop-color="#FDE047"/>
+              <feStop offset="100%" stop-color="#D97706"/>
+            </linearGradient>
+            <linearGradient id="baseGrad" x1="0" y1="0" x2="0" y2="1">
+              <feStop offset="0%" stop-color="#EDE9FE"/>
+              <feStop offset="100%" stop-color="#DDD6FE"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Pedestal / Toy Base shelf -->
+          <rect x="24" y="152" width="152" height="14" rx="7" fill="#065F46"/>
+          <rect x="24" y="146" width="152" height="14" rx="7" fill="url(#baseGrad)" stroke="#1F2937" stroke-width="5"/>
+
+          <!-- 1. The Square Block (Bottom-Left) -->
+          <g>
+            <!-- Ledge shadow -->
+            <rect x="36" y="86" width="62" height="62" rx="14" fill="#1D4ED8"/>
+            <!-- Face -->
+            <rect x="36" y="80" width="62" height="62" rx="14" fill="url(#sqGrad)" stroke="#1F2937" stroke-width="5"/>
+            <!-- Gloss gleam on square -->
+            <path d="M 44 88 L 68 88 A 4 4 0 0 1 72 92 L 72 116 Z" fill="#FFFFFF" opacity="0.3"/>
+            <!-- Center tactile inset circle -->
+            <circle cx="67" cy="111" r="11" fill="#1D4ED8" stroke="#FFFFFF" stroke-width="3" opacity="0.8"/>
+          </g>
+
+          <!-- 2. The Circle Block (Bottom-Right) -->
+          <g>
+            <!-- Ledge shadow -->
+            <circle cx="140" cy="116" r="32" fill="#9F1239"/>
+            <!-- Face -->
+            <circle cx="140" cy="110" r="32" fill="url(#circGrad)" stroke="#1F2937" stroke-width="5"/>
+            <!-- Gloss bubble on circle -->
+            <ellipse cx="130" cy="96" rx="10" ry="6" transform="rotate(-30 130 96)" fill="#FFFFFF" opacity="0.45"/>
+            <!-- Inner tactile ring -->
+            <circle cx="140" cy="110" r="15" fill="none" stroke="#FFFFFF" stroke-width="3.5" opacity="0.6"/>
+          </g>
+
+          <!-- 3. The Triangle Block (Stacked on top) -->
+          <g>
+            <!-- Ledge shadow -->
+            <path d="M 100 28 L 146 96 L 54 96 Z" fill="#B45309" stroke="#1F2937" stroke-width="5" stroke-linejoin="round"/>
+            <!-- Face -->
+            <path d="M 100 24 L 146 92 L 54 92 Z" fill="url(#triGrad)" stroke="#1F2937" stroke-width="5" stroke-linejoin="round"/>
+            <!-- Rounded vertex styling -->
+            <circle cx="100" cy="27" r="4" fill="#FDE047"/>
+            <!-- Inner accent shape -->
+            <path d="M 100 48 L 124 82 L 76 82 Z" fill="#B45309" opacity="0.3"/>
+            <path d="M 94 36 L 82 82" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" opacity="0.45"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Badge 4: Gold star medal with a ribbon -->
+      <!-- Sunny Amber / Yellow Gold Medallion -->
+      <div class="w-full max-w-[260px] aspect-square rounded-[36px] bg-[#F59E0B] p-3 sm:p-4 flex items-center justify-center shadow-[0_12px_0_0_#B45309,0_20px_28px_rgba(180,83,9,0.28)] border-4 border-[#FBBF24] transition-transform duration-150 hover:-translate-y-1 active:translate-y-1 active:shadow-[0_6px_0_0_#B45309] relative overflow-hidden group">
+        <div class="absolute inset-x-3 top-2 h-1/2 bg-gradient-to-b from-white/35 to-transparent rounded-t-[28px] pointer-events-none"></div>
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-[0_6px_10px_rgba(0,0,0,0.14)]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="ribbonLeft" x1="0" y1="0" x2="0" y2="1">
+              <feStop offset="0%" stop-color="#3B82F6"/>
+              <feStop offset="100%" stop-color="#1D4ED8"/>
+            </linearGradient>
+            <linearGradient id="ribbonRight" x1="0" y1="0" x2="0" y2="1">
+              <feStop offset="0%" stop-color="#60A5FA"/>
+              <feStop offset="100%" stop-color="#2563EB"/>
+            </linearGradient>
+            <linearGradient id="medalEdge" x1="0" y1="0" x2="0" y2="1">
+              <feStop offset="0%" stop-color="#FBBF24"/>
+              <feStop offset="100%" stop-color="#D97706"/>
+            </linearGradient>
+            <linearGradient id="medalFace" x1="0" y1="0" x2="0" y2="1">
+              <feStop offset="0%" stop-color="#FEF08A"/>
+              <feStop offset="100%" stop-color="#F59E0B"/>
+            </linearGradient>
+            <linearGradient id="starGrad" x1="0" y1="0" x2="0" y2="1">
+              <feStop offset="0%" stop-color="#FFFFFF"/>
+              <feStop offset="100%" stop-color="#FEF08A"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Ribbons flowing behind -->
+          <!-- Left Ribbon -->
+          <g>
+            <path d="M 72 70 L 46 166 L 70 152 L 92 166 L 82 74 Z" fill="#1E3A8A"/>
+            <path d="M 72 66 L 46 162 L 70 148 L 92 162 L 82 70 Z" fill="url(#ribbonLeft)" stroke="#1F2937" stroke-width="5" stroke-linejoin="round"/>
+            <line x1="68" y1="74" x2="56" y2="146" stroke="#93C5FD" stroke-width="4" stroke-linecap="round"/>
+          </g>
+
+          <!-- Right Ribbon -->
+          <g>
+            <path d="M 128 70 L 108 166 L 130 152 L 154 162 L 118 74 Z" fill="#1E3A8A"/>
+            <path d="M 128 66 L 108 162 L 130 148 L 154 158 L 118 70 Z" fill="url(#ribbonRight)" stroke="#1F2937" stroke-width="5" stroke-linejoin="round"/>
+            <line x1="130" y1="74" x2="142" y2="144" stroke="#BFDBFE" stroke-width="4" stroke-linecap="round"/>
+          </g>
+
+          <!-- Medal Outer Disc (Drop Ledge) -->
+          <circle cx="100" cy="84" r="54" fill="#B45309"/>
+          <!-- Medal Outer Rim -->
+          <circle cx="100" cy="78" r="54" fill="url(#medalEdge)" stroke="#1F2937" stroke-width="5"/>
+          <!-- Medal Inner Sunken Well -->
+          <circle cx="100" cy="78" r="45" fill="url(#medalFace)" stroke="#B45309" stroke-width="3"/>
+          <circle cx="100" cy="78" r="41" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-dasharray="4 3" opacity="0.75"/>
+
+          <!-- 5-Point Bold Star in center -->
+          <g>
+            <!-- Star shadow ledge -->
+            <polygon points="100,43 109,64 131,64 113,78 120,99 100,85 80,99 87,78 69,64 91,64" 
+                     fill="#B45309"/>
+            <!-- Star face -->
+            <polygon points="100,39 109,60 131,60 113,74 120,95 100,81 80,95 87,74 69,60 91,60" 
+                     fill="url(#starGrad)" stroke="#1F2937" stroke-width="4" stroke-linejoin="round"/>
+          </g>
+
+          <!-- Sparkle stars on medallion -->
+          <path d="M 142 42 Q 142 48 148 48 Q 142 48 142 54 Q 142 48 136 48 Q 142 48 142 42 Z" fill="#FFFFFF"/>
+          <path d="M 58 104 Q 58 109 63 109 Q 58 109 58 114 Q 58 109 53 109 Q 58 109 58 104 Z" fill="#FFFFFF"/>
+        </svg>
+      </div>
+
+      <!-- Badge 5: Highlighter pen drawing a stroke -->
+      <!-- Rich Purple / Violet Medallion -->
+      <div class="w-full max-w-[260px] aspect-square rounded-[36px] bg-[#8B5CF6] p-3 sm:p-4 flex items-center justify-center shadow-[0_12px_0_0_#6D28D9,0_20px_28px_rgba(109,40,217,0.28)] border-4 border-[#A78BFA] transition-transform duration-150 hover:-translate-y-1 active:translate-y-1 active:shadow-[0_6px_0_0_#6D28D9] relative overflow-hidden group">
+        <div class="absolute inset-x-3 top-2 h-1/2 bg-gradient-to-b from-white/35 to-transparent rounded-t-[28px] pointer-events-none"></div>
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-[0_6px_10px_rgba(0,0,0,0.14)]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1">
+              <feStop offset="0%" stop-color="#FDE047"/>
+              <feStop offset="100%" stop-color="#EAB308"/>
+            </linearGradient>
+            <linearGradient id="capGrad" x1="0" y1="0" x2="1" y2="1">
+              <feStop offset="0%" stop-color="#A78BFA"/>
+              <feStop offset="100%" stop-color="#7C3AED"/>
+            </linearGradient>
+            <linearGradient id="nibGrad" x1="0" y1="0" x2="1" y2="1">
+              <feStop offset="0%" stop-color="#FACC15"/>
+              <feStop offset="100%" stop-color="#CA8A04"/>
+            </linearGradient>
+            <linearGradient id="strokeGrad" x1="0" y1="0" x2="1" y2="0">
+              <feStop offset="0%" stop-color="#FDE047" stop-opacity="0.95"/>
+              <feStop offset="100%" stop-color="#FEF08A" stop-opacity="0.95"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Vibrant Luminous Highlighter Swash / Stroke at bottom -->
+          <g>
+            <!-- Ledge underneath swash -->
+            <path d="M 28 152 Q 70 142 120 152 T 172 144" fill="none" stroke="#CA8A04" stroke-width="26" stroke-linecap="round"/>
+            <!-- Front swash -->
+            <path d="M 28 146 Q 70 136 120 146 T 172 138" fill="none" stroke="url(#strokeGrad)" stroke-width="26" stroke-linecap="round"/>
+            <path d="M 32 146 Q 70 138 120 146 T 168 138" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" opacity="0.75"/>
+          </g>
+
+          <!-- Highlighter Pen (Tilted 42 degrees) -->
+          <g transform="rotate(-35 110 90)">
+            <!-- Pen Shadow -->
+            <rect x="76" y="24" width="46" height="88" rx="14" fill="#4C1D95" opacity="0.35"/>
+
+            <!-- Cap end / Base -->
+            <rect x="78" y="16" width="44" height="24" rx="8" fill="#5B21B6"/>
+            <rect x="78" y="12" width="44" height="24" rx="8" fill="url(#capGrad)" stroke="#1F2937" stroke-width="5"/>
+
+            <!-- Pen Barrel Body -->
+            <rect x="74" y="38" width="52" height="74" rx="14" fill="#CA8A04"/>
+            <rect x="74" y="32" width="52" height="74" rx="14" fill="url(#bodyGrad)" stroke="#1F2937" stroke-width="5"/>
+
+            <!-- Barrel highlight strip -->
+            <rect x="82" y="38" width="8" height="62" rx="4" fill="#FFFFFF" opacity="0.5"/>
+
+            <!-- Shoulder neck piece -->
+            <polygon points="78,106 122,106 114,124 86,124" fill="#4B5563"/>
+            <polygon points="78,102 122,102 114,120 86,120" fill="#9CA3AF" stroke="#1F2937" stroke-width="4" stroke-linejoin="round"/>
+
+            <!-- Chisel Nib -->
+            <polygon points="88,124 112,124 108,144 86,134" fill="#CA8A04"/>
+            <polygon points="88,120 112,120 108,140 86,130" fill="url(#nibGrad)" stroke="#1F2937" stroke-width="4" stroke-linejoin="round"/>
+            <!-- Wet ink shine on tip -->
+            <polygon points="90,122 102,122 98,136 88,131" fill="#FEF08A"/>
+          </g>
+
+          <!-- Little dynamic sparkle near the fresh stroke -->
+          <path d="M 44 114 Q 44 122 52 122 Q 44 122 44 130 Q 44 122 36 122 Q 44 122 44 114 Z" fill="#FFFFFF"/>
+        </svg>
+      </div>
+
+      <!-- Badge 6: Alarm clock -->
+      <!-- Bold Poppy Crimson / Dark Teal Medallion -->
+      <div class="w-full max-w-[260px] aspect-square rounded-[36px] bg-[#14B8A6] p-3 sm:p-4 flex items-center justify-center shadow-[0_12px_0_0_#0F766E,0_20px_28px_rgba(15,118,110,0.28)] border-4 border-[#2DD4BF] transition-transform duration-150 hover:-translate-y-1 active:translate-y-1 active:shadow-[0_6px_0_0_#0F766E] relative overflow-hidden group">
+        <div class="absolute inset-x-3 top-2 h-1/2 bg-gradient-to-b from-white/35 to-transparent rounded-t-[28px] pointer-events-none"></div>
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-[0_6px_10px_rgba(0,0,0,0.14)]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bellGrad" x1="0" y1="0" x2="0" y2="1">
+              <feStop offset="0%" stop-color="#FF8A65"/>
+              <feStop offset="100%" stop-color="#E64A19"/>
+            </linearGradient>
+            <linearGradient id="bodyClock" x1="0" y1="0" x2="0" y2="1">
+              <feStop offset="0%" stop-color="#FF5252"/>
+              <feStop offset="100%" stop-color="#C62828"/>
+            </linearGradient>
+            <linearGradient id="faceGrad" x1="0" y1="0" x2="0" y2="1">
+              <feStop offset="0%" stop-color="#FFFFFF"/>
+              <feStop offset="100%" stop-color="#FFF5F0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Clock Legs / Pegs -->
+          <g>
+            <line x1="58" y1="146" x2="42" y2="168" stroke="#1F2937" stroke-width="8" stroke-linecap="round"/>
+            <line x1="142" y1="146" x2="158" y2="168" stroke="#1F2937" stroke-width="8" stroke-linecap="round"/>
+            <!-- Soft rubber foot caps -->
+            <ellipse cx="42" cy="168" rx="6" ry="4" fill="#374151"/>
+            <ellipse cx="158" cy="168" rx="6" ry="4" fill="#374151"/>
+          </g>
+
+          <!-- Twin Bells on top -->
+          <!-- Left Bell -->
+          <g transform="rotate(-30 52 46)">
+            <ellipse cx="52" cy="50" rx="22" ry="14" fill="#B71C1C"/>
+            <ellipse cx="52" cy="46" rx="22" ry="14" fill="url(#bellGrad)" stroke="#1F2937" stroke-width="5"/>
+            <ellipse cx="52" cy="42" rx="14" ry="7" fill="#FFA089"/>
+          </g>
+          <!-- Right Bell -->
+          <g transform="rotate(30 148 46)">
+            <ellipse cx="148" cy="50" rx="22" ry="14" fill="#B71C1C"/>
+            <ellipse cx="148" cy="46" rx="22" ry="14" fill="url(#bellGrad)" stroke="#1F2937" stroke-width="5"/>
+            <ellipse cx="148" cy="42" rx="14" ry="7" fill="#FFA089"/>
+          </g>
+
+          <!-- Hammer / Striker button at top center -->
+          <rect x="94" y="24" width="12" height="14" rx="4" fill="#9CA3AF" stroke="#1F2937" stroke-width="4"/>
+          <ellipse cx="100" cy="22" rx="14" ry="6" fill="#D1D5DB" stroke="#1F2937" stroke-width="4"/>
+
+          <!-- Main Clock Body Housing -->
+          <!-- Ledge shadow -->
+          <circle cx="100" cy="112" r="52" fill="#B71C1C"/>
+          <!-- Outer case -->
+          <circle cx="100" cy="106" r="52" fill="url(#bodyClock)" stroke="#1F2937" stroke-width="5"/>
+
+          <!-- Clock Dial Face -->
+          <circle cx="100" cy="106" r="41" fill="url(#faceGrad)" stroke="#1F2937" stroke-width="4.5"/>
+
+          <!-- Hour dots / ticks (12, 3, 6, 9) -->
+          <circle cx="100" cy="74" r="3.5" fill="#1F2937"/>
+          <circle cx="132" cy="106" r="3.5" fill="#1F2937"/>
+          <circle cx="100" cy="138" r="3.5" fill="#1F2937"/>
+          <circle cx="68" cy="106" r="3.5" fill="#1F2937"/>
+
+          <!-- Additional 8 subtle tick marks -->
+          <circle cx="116" cy="78" r="2" fill="#9CA3AF"/>
+          <circle cx="128" cy="90" r="2" fill="#9CA3AF"/>
+          <circle cx="128" cy="122" r="2" fill="#9CA3AF"/>
+          <circle cx="116" cy="134" r="2" fill="#9CA3AF"/>
+          <circle cx="84" cy="134" r="2" fill="#9CA3AF"/>
+          <circle cx="72" cy="122" r="2" fill="#9CA3AF"/>
+          <circle cx="72" cy="90" r="2" fill="#9CA3AF"/>
+          <circle cx="84" cy="78" r="2" fill="#9CA3AF"/>
+
+          <!-- Clock Hands (Displaying 10:10 playful energetic posture) -->
+          <!-- Hour Hand (pointing toward 10) -->
+          <line x1="100" y1="106" x2="82" y2="86" stroke="#1F2937" stroke-width="5.5" stroke-linecap="round"/>
+          <!-- Minute Hand (pointing toward 2) -->
+          <line x1="100" y1="106" x2="124" y2="82" stroke="#1F2937" stroke-width="4.5" stroke-linecap="round"/>
+          <!-- Second Hand (coral accent) -->
+          <line x1="100" y1="106" x2="100" y2="72" stroke="#FF5252" stroke-width="2.5" stroke-linecap="round"/>
+
+          <!-- Center Cap Pin -->
+          <circle cx="100" cy="106" r="5" fill="#FF5252" stroke="#1F2937" stroke-width="2"/>
+
+          <!-- Ringing Vibration Arcs -->
+          <path d="M 24 38 A 18 18 0 0 1 20 62" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+          <path d="M 176 38 A 18 18 0 0 0 180 62" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+        </svg>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>

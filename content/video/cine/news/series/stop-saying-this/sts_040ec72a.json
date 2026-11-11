@@ -145,9 +145,11 @@
     [
      [
       "@x"
-     ]
-    ],
-    [
+     ],
+     [
+      " ",
+      "white"
+     ],
      [
       "“I ",
       "white"
@@ -435,6 +437,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "She apologized ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " her friend.",
+      "white"
+     ]
+    ]
+   ],
    "a": "to",
    "b": "(nothing)",
    "correct": "a",

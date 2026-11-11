@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tests Hub - Loading</title>
+<!-- Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-fixed": "#ffdf9b",
+            "primary": "#00504b",
+            "on-background": "#211a14",
+            "on-secondary-container": "#633700",
+            "on-secondary": "#ffffff",
+            "on-surface-variant": "#3f4947",
+            "on-primary-fixed": "#00201d",
+            "primary-container": "#136a63",
+            "on-primary-container": "#9be7de",
+            "on-error-container": "#93000a",
+            "background": "#fff8f5",
+            "surface-tint": "#126a63",
+            "surface-container-low": "#fff1e8",
+            "on-tertiary": "#ffffff",
+            "inverse-on-surface": "#fdeee3",
+            "inverse-primary": "#88d4cb",
+            "secondary-fixed": "#ffdcbf",
+            "secondary-container": "#fd9500",
+            "secondary-fixed-dim": "#ffb872",
+            "surface-container-highest": "#efe0d6",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed": "#251a00",
+            "on-tertiary-container": "#ffd370",
+            "outline": "#6f7977",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-bright": "#fff8f5",
+            "inverse-surface": "#372f28",
+            "on-surface": "#211a14",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "on-primary-fixed-variant": "#00504a",
+            "surface-container-high": "#f4e5db",
+            "primary-fixed-dim": "#88d4cb",
+            "surface-container-lowest": "#ffffff",
+            "surface-variant": "#efe0d6",
+            "primary-fixed": "#a4f1e7",
+            "on-primary": "#ffffff",
+            "tertiary": "#5b4300",
+            "surface-container": "#faebe1",
+            "surface": "#fff8f5",
+            "tertiary-container": "#785a00",
+            "tertiary-fixed-dim": "#f5bf31",
+            "on-error": "#ffffff",
+            "on-secondary-fixed": "#2d1600",
+            "secondary": "#8c5000",
+            "outline-variant": "#bec9c6",
+            "surface-dim": "#e6d7cd",
+            "error-container": "#ffdad6"
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "margin-md": "2rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "margin-lg": "3rem",
+            "space-xl": "2.5rem",
+            "gutter-md": "1.5rem",
+            "gutter-lg": "2rem",
+            "gutter": "1rem",
+            "space-lg": "1.5rem",
+            "margin": "1rem"
+          },
+          fontFamily: {
+            "body-lg": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "500" }],
+            "display-lg": ["44px", { lineHeight: "52px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "label-md": ["14px", { lineHeight: "18px", letterSpacing: "0.03em", fontWeight: "700" }],
+            "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "label-lg": ["16px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "700" }],
+            "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "500" }],
+            "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "800" }],
+            "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.01em", fontWeight: "800" }],
+            "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "800" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    @keyframes shimmer {
+      0% {
+        background-position: -250% 0;
+      }
+      100% {
+        background-position: 250% 0;
+      }
+    }
+
+    .skeleton-shimmer {
+      background: linear-gradient(
+        90deg,
+        #efe0d6 0%,
+        #fbf4ee 45%,
+        #fbf4ee 55%,
+        #efe0d6 100%
+      );
+      background-size: 250% 100%;
+      animation: shimmer 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] antialiased font-body-md flex justify-center min-h-screen">
+<!-- Mobile 390px Shell Container -->
+<div class="w-full max-w-[390px] min-h-screen bg-[#10191B] relative flex flex-col pb-28 select-none">
+<!-- 1. TOP BAR / HEADER (Fully Loaded & Interactive) -->
+<header class="sticky top-0 z-40 bg-[#10191B]/95 backdrop-blur-md px-4 pt-3 pb-3 border-b border-[#1E2F33] shadow-[0_4px_12px_rgba(0,0,0,0.5)]"><!-- Status & Profile Row -->
+<div class="flex items-center justify-between gap-2 mb-3">
+<!-- Logo Mark -->
+<div class="flex items-center gap-1.5 cursor-pointer">
+<div class="w-8 h-8 rounded-xl bg-[#0D3D38] border border-[#2DD4BF]/40 text-[#2DD4BF] flex items-center justify-center font-display-lg text-lg shadow-[0_2px_0_0_#061E1C] active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-[#E8F1F0] leading-tight font-extrabold tracking-tight">Lexkite</span>
+<span class="font-label-sm text-[10px] text-[#A9BDBB] font-bold uppercase tracking-wider leading-none">Prep Hub</span>
+</div>
+</div>
+<!-- Learner Status Pills -->
+<div class="flex items-center gap-1.5">
+<!-- Streak Pill -->
+<div class="flex items-center gap-1 bg-[#241C12] border border-[#F59E0B]/50 rounded-full px-2 py-0.5 shadow-[0_2px_0_0_#0D1517] active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[15px] text-[#F59E0B]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-sm text-label-sm text-[#F59E0B] font-bold">14</span>
+</div>
+<!-- XP Pill -->
+<div class="flex items-center gap-1 bg-[#241E10] border border-[#FBBF24]/50 rounded-full px-2 py-0.5 shadow-[0_2px_0_0_#0D1517] active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[15px] text-[#FBBF24]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-[#FBBF24] font-bold">820 XP</span>
+</div>
+<!-- Notification Bell -->
+<button aria-label="Notifications" class="w-11 h-11 rounded-full bg-[#172427] border-2 border-[#1E2F33] flex items-center justify-center text-[#A9BDBB] shadow-[0_2px_0_0_#0D1517] active:translate-y-0.5 transition-transform hover:text-[#E8F1F0]"><span class="material-symbols-outlined text-[20px]">notifications</span></button>
+</div>
+</div>
+<!-- Title & Subtitle Row -->
+<div class="mb-3 px-0.5">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-[#E8F1F0] tracking-tight font-extrabold flex items-center justify-between">
+<span>Tests Hub</span>
+<span class="material-symbols-outlined text-[#2DD4BF] text-[22px]" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+</h1>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">Exam Simulation &amp; Diagnostic Practice</p>
+</div>
+<!-- Exam Tabs -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5"><button class="flex items-center gap-1.5 px-4 min-h-[44px] rounded-full bg-[#0D3D38] text-[#2DD4BF] border-2 border-[#2DD4BF] shadow-[0_3px_0_0_#061E1C] active:translate-y-0.5 font-label-md text-label-md whitespace-nowrap transition-transform font-bold"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span><span>IELTS Academic</span></button><button class="flex items-center justify-center px-4 min-h-[44px] rounded-full bg-[#172427] text-[#A9BDBB] border-2 border-[#1E2F33] shadow-[0_3px_0_0_#0D1517] font-label-md text-label-md whitespace-nowrap active:translate-y-0.5 transition-transform hover:text-[#E8F1F0]">TOEIC</button><button class="flex items-center justify-center px-4 min-h-[44px] rounded-full bg-[#172427] text-[#A9BDBB] border-2 border-[#1E2F33] shadow-[0_3px_0_0_#0D1517] font-label-md text-label-md whitespace-nowrap active:translate-y-0.5 transition-transform hover:text-[#E8F1F0]">TOEFL iBT</button></div></header>
+<!-- 2. SKELETON LOADING CONTENT AREA -->
+<main class="flex-1 px-4 pt-3 flex flex-col gap-4"><!-- ESTIMATED READINESS CARD -->
+<section class="bg-[#172427] border-2 border-[#1E2F33] rounded-2xl p-4 shadow-[0_4px_0_0_#0D1517] flex flex-col gap-3">
+<!-- Header / Band Score Row -->
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1.5">
+<div class="w-32 h-3.5 rounded-full skeleton-shimmer"></div>
+<div class="flex items-center gap-2">
+<div class="w-24 h-7 rounded-lg skeleton-shimmer"></div>
+<div class="w-14 h-5 rounded-full skeleton-shimmer"></div>
+</div>
+</div>
+<!-- Target Pill -->
+<div class="w-20 h-6 rounded-full skeleton-shimmer"></div>
+</div>
+<!-- Preparedness Index Bar (85%) -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex justify-between items-center">
+<div class="w-28 h-3 rounded skeleton-shimmer"></div>
+<div class="w-8 h-3 rounded skeleton-shimmer"></div>
+</div>
+<div class="w-full h-3 rounded-full bg-[#10191B] border border-[#1E2F33] overflow-hidden">
+<div class="w-[85%] h-full rounded-full skeleton-shimmer"></div>
+</div>
+</div>
+<!-- 4 Sub-skill Mini Score Cards (2x2 Grid) -->
+<div class="grid grid-cols-4 gap-2 pt-1">
+<!-- Listening -->
+<div class="bg-[#1E2F33] rounded-xl p-2 border border-[#22363A] flex flex-col items-center gap-1.5 shadow-[0_2px_0_0_#0D1517]">
+<div class="w-10 h-2.5 rounded skeleton-shimmer"></div>
+<div class="w-7 h-5 rounded-md skeleton-shimmer"></div>
+<div class="w-8 h-1.5 rounded-full skeleton-shimmer"></div>
+</div>
+<!-- Reading -->
+<div class="bg-[#1E2F33] rounded-xl p-2 border border-[#22363A] flex flex-col items-center gap-1.5 shadow-[0_2px_0_0_#0D1517]">
+<div class="w-10 h-2.5 rounded skeleton-shimmer"></div>
+<div class="w-7 h-5 rounded-md skeleton-shimmer"></div>
+<div class="w-8 h-1.5 rounded-full skeleton-shimmer"></div>
+</div>
+<!-- Writing -->
+<div class="bg-[#1E2F33] rounded-xl p-2 border border-[#22363A] flex flex-col items-center gap-1.5 shadow-[0_2px_0_0_#0D1517]">
+<div class="w-10 h-2.5 rounded skeleton-shimmer"></div>
+<div class="w-7 h-5 rounded-md skeleton-shimmer"></div>
+<div class="w-8 h-1.5 rounded-full skeleton-shimmer"></div>
+</div>
+<!-- Speaking -->
+<div class="bg-[#1E2F33] rounded-xl p-2 border border-[#22363A] flex flex-col items-center gap-1.5 shadow-[0_2px_0_0_#0D1517]">
+<div class="w-10 h-2.5 rounded skeleton-shimmer"></div>
+<div class="w-7 h-5 rounded-md skeleton-shimmer"></div>
+<div class="w-8 h-1.5 rounded-full skeleton-shimmer"></div>
+</div>
+</div>
+</section>
+<!-- FOCUS STRATEGY COACH TIP CARD -->
+<section class="bg-[#172427] border-2 border-[#1E2F33] rounded-2xl p-3 shadow-[0_3px_0_0_#0D1517] flex items-center gap-3">
+<!-- Coach Avatar Skeleton with dashed boundary feel and teal accent -->
+<div class="w-11 h-11 rounded-full border-2 border-dashed border-[#2DD4BF]/60 bg-[#1E2F33] flex-shrink-0 skeleton-shimmer"></div>
+<!-- Recommendation lines -->
+<div class="flex-1 flex flex-col gap-1.5">
+<div class="w-24 h-3 rounded skeleton-shimmer"></div>
+<div class="w-full h-3 rounded skeleton-shimmer"></div>
+<div class="w-4/5 h-2.5 rounded skeleton-shimmer"></div>
+</div>
+</section>
+<!-- FULL MOCK EXAM SIMULATION CARD (Hero) -->
+<section class="bg-[#172427] border-2 border-[#1E2F33] rounded-2xl p-4 shadow-[0_4px_0_0_#0D1517] flex flex-col gap-3">
+<!-- Badge & Duration Header -->
+<div class="flex items-center justify-between">
+<div class="w-36 h-5 rounded-full skeleton-shimmer"></div>
+<div class="w-16 h-5 rounded-full skeleton-shimmer"></div>
+</div>
+<!-- Headline & Subtitle -->
+<div class="flex flex-col gap-1.5">
+<div class="w-56 h-6 rounded-lg skeleton-shimmer"></div>
+<div class="w-44 h-3.5 rounded skeleton-shimmer"></div>
+</div>
+<!-- 4 Module Info Blocks (Rows) -->
+<div class="grid grid-cols-2 gap-2 pt-1">
+<!-- Listening module -->
+<div class="bg-[#1E2F33] border border-[#22363A] rounded-xl p-2.5 flex items-center gap-2 shadow-[0_2px_0_0_#0D1517]">
+<div class="w-6 h-6 rounded-lg skeleton-shimmer flex-shrink-0"></div>
+<div class="flex flex-col gap-1 flex-1">
+<div class="w-14 h-3 rounded skeleton-shimmer"></div>
+<div class="w-16 h-2 rounded skeleton-shimmer"></div>
+</div>
+</div>
+<!-- Reading module -->
+<div class="bg-[#1E2F33] border border-[#22363A] rounded-xl p-2.5 flex items-center gap-2 shadow-[0_2px_0_0_#0D1517]">
+<div class="w-6 h-6 rounded-lg skeleton-shimmer flex-shrink-0"></div>
+<div class="flex flex-col gap-1 flex-1">
+<div class="w-14 h-3 rounded skeleton-shimmer"></div>
+<div class="w-16 h-2 rounded skeleton-shimmer"></div>
+</div>
+</div>
+<!-- Writing module -->
+<div class="bg-[#1E2F33] border border-[#22363A] rounded-xl p-2.5 flex items-center gap-2 shadow-[0_2px_0_0_#0D1517]">
+<div class="w-6 h-6 rounded-lg skeleton-shimmer flex-shrink-0"></div>
+<div class="flex flex-col gap-1 flex-1">
+<div class="w-14 h-3 rounded skeleton-shimmer"></div>
+<div class="w-16 h-2 rounded skeleton-shimmer"></div>
+</div>
+</div>
+<!-- Speaking module -->
+<div class="bg-[#1E2F33] border border-[#22363A] rounded-xl p-2.5 flex items-center gap-2 shadow-[0_2px_0_0_#0D1517]">
+<div class="w-6 h-6 rounded-lg skeleton-shimmer flex-shrink-0"></div>
+<div class="flex flex-col gap-1 flex-1">
+<div class="w-14 h-3 rounded skeleton-shimmer"></div>
+<div class="w-16 h-2 rounded skeleton-shimmer"></div>
+</div>
+</div>
+</div>
+<!-- Tactile CTA Button Skeleton with 3D drop ledge -->
+<div class="pt-1">
+<div class="w-full h-12 rounded-xl bg-[#D97706] border-2 border-[#B45309] shadow-[0_4px_0_0_#78350F] flex items-center justify-center opacity-90">
+<div class="w-36 h-4 rounded-full bg-[#FEF3C7]/40 skeleton-shimmer"></div>
+</div>
+</div>
+</section>
+<!-- 15-MINUTE DIAGNOSTIC QUICK TEST CARD -->
+<section class="bg-[#172427] border-2 border-[#1E2F33] rounded-2xl p-3.5 shadow-[0_4px_0_0_#0D1517] flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 flex-1">
+<div class="w-10 h-10 rounded-xl skeleton-shimmer flex-shrink-0"></div>
+<div class="flex flex-col gap-1.5 flex-1">
+<div class="w-32 h-4 rounded skeleton-shimmer"></div>
+<div class="w-44 h-3 rounded skeleton-shimmer"></div>
+</div>
+</div>
+<!-- Outline Button Skeleton -->
+<div class="w-16 h-8 rounded-lg skeleton-shimmer border border-[#1E2F33]"></div>
+</section>
+<!-- OFFICIAL CBT INTERFACE SIMULATOR CARD -->
+<section class="bg-[#172427] border-2 border-[#1E2F33] rounded-2xl p-3.5 shadow-[0_4px_0_0_#0D1517] flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 flex-1">
+<div class="w-10 h-10 rounded-xl skeleton-shimmer flex-shrink-0"></div>
+<div class="flex flex-col gap-1.5 flex-1">
+<div class="w-40 h-4 rounded skeleton-shimmer"></div>
+<div class="w-36 h-3 rounded skeleton-shimmer"></div>
+</div>
+</div>
+<div class="w-7 h-7 rounded-full skeleton-shimmer"></div>
+</section>
+<!-- RECENT MOCK SCORES SECTION -->
+<section class="flex flex-col gap-2.5 pt-1">
+<!-- Header Skeleton Bar -->
+<div class="flex justify-between items-center px-1">
+<div class="w-36 h-4 rounded skeleton-shimmer"></div>
+<div class="w-16 h-3 rounded skeleton-shimmer"></div>
+</div>
+<!-- 3 List Rows -->
+<div class="flex flex-col gap-2">
+<!-- Row 1: Academic Mock #14 -->
+<div class="bg-[#172427] border-2 border-[#1E2F33] rounded-xl p-3 shadow-[0_3px_0_0_#0D1517] flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg skeleton-shimmer"></div>
+<div class="flex flex-col gap-1">
+<div class="w-28 h-3.5 rounded skeleton-shimmer"></div>
+<div class="w-20 h-2.5 rounded skeleton-shimmer"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-12 h-6 rounded-full skeleton-shimmer"></div>
+<div class="w-4 h-4 rounded-full skeleton-shimmer"></div>
+</div>
+</div>
+<!-- Row 2: Academic Mock #13 -->
+<div class="bg-[#172427] border-2 border-[#1E2F33] rounded-xl p-3 shadow-[0_3px_0_0_#0D1517] flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg skeleton-shimmer"></div>
+<div class="flex flex-col gap-1">
+<div class="w-28 h-3.5 rounded skeleton-shimmer"></div>
+<div class="w-20 h-2.5 rounded skeleton-shimmer"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-12 h-6 rounded-full skeleton-shimmer"></div>
+<div class="w-4 h-4 rounded-full skeleton-shimmer"></div>
+</div>
+</div>
+<!-- Row 3: Diagnostic Sprint #8 -->
+<div class="bg-[#172427] border-2 border-[#1E2F33] rounded-xl p-3 shadow-[0_3px_0_0_#0D1517] flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg skeleton-shimmer"></div>
+<div class="flex flex-col gap-1">
+<div class="w-28 h-3.5 rounded skeleton-shimmer"></div>
+<div class="w-20 h-2.5 rounded skeleton-shimmer"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-12 h-6 rounded-full skeleton-shimmer"></div>
+<div class="w-4 h-4 rounded-full skeleton-shimmer"></div>
+</div>
+</div>
+</div>
+</section></main>
+<!-- 3. BOTTOM NAVIGATION BAR (Fully Loaded & Active "Tests" Tab) -->
+<!-- Executing BottomNavBar rules verbatim from Shared Components JSON -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs h-20 bg-[#10191B] border-t-2 border-[#1E2F33] shadow-[0_-4px_12px_rgba(0,0,0,0.6)]"><button class="flex flex-col items-center justify-center text-[#A9BDBB] min-h-[44px] min-w-[48px] px-2 py-1 hover:bg-[#172427] transition-colors active:translate-y-[2px] transition-transform duration-100 rounded-lg"><span class="material-symbols-outlined text-[24px]">today</span><span class="font-label-sm text-label-sm mt-0.5">Today</span></button><button class="flex flex-col items-center justify-center text-[#A9BDBB] min-h-[44px] min-w-[48px] px-2 py-1 hover:bg-[#172427] transition-colors active:translate-y-[2px] transition-transform duration-100 rounded-lg"><span class="material-symbols-outlined text-[24px]">menu_book</span><span class="font-label-sm text-label-sm mt-0.5">Vocab</span></button><button class="flex flex-col items-center justify-center text-[#A9BDBB] min-h-[44px] min-w-[48px] px-2 py-1 hover:bg-[#172427] transition-colors active:translate-y-[2px] transition-transform duration-100 rounded-lg"><span class="material-symbols-outlined text-[24px]">bolt</span><span class="font-label-sm text-label-sm mt-0.5">Skills</span></button><button class="flex flex-col items-center justify-center bg-[#241C12] border-2 border-[#F59E0B] text-[#F59E0B] rounded-DEFAULT min-h-[44px] min-w-[56px] px-3.5 py-1 shadow-[0_3px_0_0_#0D1517] active:translate-y-[2px] transition-transform duration-100 font-extrabold"><span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">assignment</span><span class="font-label-sm text-label-sm mt-0.5 font-extrabold">Tests</span></button><button class="flex flex-col items-center justify-center text-[#A9BDBB] min-h-[44px] min-w-[48px] px-2 py-1 hover:bg-[#172427] transition-colors active:translate-y-[2px] transition-transform duration-100 rounded-lg"><span class="material-symbols-outlined text-[24px]">person</span><span class="font-label-sm text-label-sm mt-0.5">Me</span></button></nav>
+</div>
+</body></html>

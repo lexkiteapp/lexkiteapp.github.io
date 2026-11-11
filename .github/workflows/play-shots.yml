@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['.github/workflows/play-shots.yml', 'scripts/play-shots.mjs']
+    paths: ['.github/workflows/play-shots.yml', 'scripts/play-shots.mjs', 'scripts/lib/png-rgba.mjs', 'scripts/test/png-rgba.mjs', 'brand/lexkite-icon-512.png']
 permissions:
   contents: write
 concurrency:
@@ -19,11 +19,16 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - name: Kiểm đổi icon sang PNG 32-bit RGBA (hồi quy 01/11)
+        run: node scripts/test/png-rgba.mjs
       - name: Chụp
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
-          npx playwright install --with-deps chromium
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core }
+      - name: Chụp (tiếp)
+        run: |
           node scripts/play-shots.mjs /tmp/play-shots
       - name: Lưu vào nhánh play-shots
         run: |

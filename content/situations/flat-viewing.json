@@ -1,0 +1,897 @@
+{
+ "id": "flat-viewing",
+ "group": "housing",
+ "cefr": "B1",
+ "title": {
+  "en": "Viewing a flat",
+  "vi": "Xem nhà thuê",
+  "es": "Visita a un piso",
+  "pt": "Visita a um apartamento",
+  "fr": "Visite d'un appartement",
+  "de": "Wohnungsbesichtigung",
+  "id": "Melihat apartemen sewaan",
+  "th": "ดูห้องเช่า",
+  "zh": "看租房",
+  "ja": "賃貸の内見",
+  "ko": "월세방 보러 가기",
+  "hi": "किराये का फ़्लैट देखना",
+  "ar": "معاينة شقة للإيجار",
+  "ru": "Осмотр съёмной квартиры",
+  "tr": "Kiralık daire gezme"
+ },
+ "goal": {
+  "en": "Ask about rent, deposit and bills!",
+  "vi": "Hỏi về tiền thuê, tiền cọc và các khoản phí!",
+  "es": "¡Pregunta por el alquiler, la fianza y los gastos!",
+  "pt": "Pergunte sobre aluguel, caução e contas!",
+  "fr": "Renseignez-vous sur le loyer, la caution et les charges !",
+  "de": "Frag nach Miete, Kaution und Nebenkosten!",
+  "id": "Tanyakan sewa, uang jaminan, dan tagihan!",
+  "th": "ถามเรื่องค่าเช่า เงินมัดจำ และค่าสาธารณูปโภค!",
+  "zh": "问清房租、押金和各项费用！",
+  "ja": "家賃・敷金・光熱費について聞こう！",
+  "ko": "월세, 보증금, 공과금을 물어봐요!",
+  "hi": "किराये, डिपॉज़िट और बिलों के बारे में पूछें!",
+  "ar": "اسأل عن الإيجار والتأمين والفواتير!",
+  "ru": "Узнай про аренду, залог и коммунальные платежи!",
+  "tr": "Kira, depozito ve faturaları sor!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "tour",
+   "title": {
+    "en": "Tour the flat",
+    "vi": "Xem nhà",
+    "es": "Ver el piso",
+    "pt": "Ver o apartamento",
+    "fr": "Visiter",
+    "de": "Rundgang",
+    "id": "Melihat unit",
+    "th": "ดูห้อง",
+    "zh": "参观房子",
+    "ja": "内見",
+    "ko": "집 둘러보기",
+    "hi": "फ़्लैट देखना",
+    "ar": "جولة في الشقة",
+    "ru": "Осмотр",
+    "tr": "Daireyi gezme"
+   },
+   "lines": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+   ]
+  },
+  {
+   "id": "money",
+   "title": {
+    "en": "Money",
+    "vi": "Tiền bạc",
+    "es": "Dinero",
+    "pt": "Dinheiro",
+    "fr": "Argent",
+    "de": "Geld",
+    "id": "Biaya",
+    "th": "เรื่องเงิน",
+    "zh": "费用",
+    "ja": "お金",
+    "ko": "비용",
+    "hi": "पैसे",
+    "ar": "المال",
+    "ru": "Деньги",
+    "tr": "Para"
+   },
+   "lines": [
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ]
+  },
+  {
+   "id": "terms",
+   "title": {
+    "en": "Contract & rules",
+    "vi": "Hợp đồng & quy định",
+    "es": "Contrato y normas",
+    "pt": "Contrato e regras",
+    "fr": "Contrat et règles",
+    "de": "Vertrag & Regeln",
+    "id": "Kontrak & aturan",
+    "th": "สัญญาและกฎ",
+    "zh": "合同与规定",
+    "ja": "契約とルール",
+    "ko": "계약과 규칙",
+    "hi": "अनुबंध और नियम",
+    "ar": "العقد والقواعد",
+    "ru": "Договор и правила",
+    "tr": "Sözleşme ve kurallar"
+   },
+   "lines": [
+    "t1",
+    "t2",
+    "t3",
+    "t4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "v1",
+   "who": "customer",
+   "en": "Hi, I'm here for the two o'clock viewing of the flat.",
+   "variants": {
+    "polite": "Good afternoon, I'm here for the two o'clock viewing of the flat.",
+    "casual": "Hi, I'm here to see the flat at two."
+   },
+   "gloss": {
+    "en": "Telling the landlord you are here for your viewing.",
+    "vi": "Xin chào, tôi đến xem căn hộ lúc hai giờ ạ.",
+    "es": "Hola, vengo a la visita del piso de las dos.",
+    "pt": "Olá, vim para a visita do apartamento às duas.",
+    "fr": "Bonjour, je viens pour la visite de l'appartement à 14 h.",
+    "de": "Hallo, ich bin wegen der Wohnungsbesichtigung um zwei Uhr hier.",
+    "id": "Halo, saya datang untuk melihat apartemen jam dua.",
+    "th": "สวัสดีค่ะ มาดูห้องรอบสองโมงค่ะ",
+    "zh": "你好，我是来看两点那场房子的。",
+    "ja": "こんにちは、2時の内見に来ました。",
+    "ko": "안녕하세요, 2시에 집 보러 왔어요.",
+    "hi": "नमस्ते, मेरी दो बजे फ़्लैट देखने की अपॉइंटमेंट है।",
+    "ar": "مرحبًا، جئت لمعاينة الشقة الساعة الثانية.",
+    "ru": "Здравствуйте, я на просмотр квартиры на два часа.",
+    "tr": "Merhaba, saat ikideki daire gösterimi için geldim."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "viewing",
+     "ipa": "/ˈvjuː.ɪŋ/",
+     "hi": "VIEW",
+     "note": {
+      "en": "Start with a clear V sound: VIEW-ing, not BIEW-ing.",
+      "vi": "Bắt đầu bằng âm V rõ ràng: VIU-ing, đừng đọc thành BIU-ing.",
+      "es": "Empieza con una V clara (dientes sobre el labio): VIU-ing, no BIU-ing.",
+      "pt": "Comece com um V nítido (dentes no lábio): VIU-ing, não BIU-ing.",
+      "fr": "Commencez par un V net : VIOU-ing, pas BIOU-ing.",
+      "de": "Sprich das V klar mit den Zähnen auf der Unterlippe: VJUU-ing, nicht BJUU-ing.",
+      "id": "Awali dengan bunyi V yang jelas: VYU-ing, bukan BYU-ing.",
+      "th": "ขึ้นต้นด้วยเสียง V ให้ชัด (ฟันบนแตะริมฝีปากล่าง): วิว-อิง ไม่ใช่ บิว-อิง",
+      "zh": "开头的 V 要发清楚（上齿轻触下唇）：VIEW-ing，不要读成 BIEW-ing。",
+      "ja": "最初のVは上の歯を下唇に当てて：ヴュー・イング。「ビュー」ではありません。",
+      "ko": "처음의 V를 분명하게 내세요. 윗니를 아랫입술에 살짝 대고 ‘뷰-잉’, ‘뷰’의 ㅂ과는 달라요.",
+      "hi": "शुरुआत की V ध्वनि साफ़ बोलें (ऊपरी दाँत निचले होंठ पर): व्यू-इंग, ‘ब्यू-इंग’ नहीं।",
+      "ar": "انطق حرف V بوضوح (الأسنان العليا على الشفة السفلى): فيو-ينغ، وليس بيو-ينغ.",
+      "ru": "Чётко произнеси начальное V (зубы на нижней губе): ВЬЮ-инг, а не БЬЮ-инг.",
+      "tr": "Baştaki V sesini net çıkar (üst dişler alt dudakta): VYU-ing, BYU-ing değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "v2",
+   "who": "barista",
+   "en": "Come in. This is the living room, and the kitchen is just through there.",
+   "variants": {
+    "polite": "Please come in. This is the living room, and the kitchen is just through there.",
+    "casual": "Come on in. Living room here, kitchen through there."
+   },
+   "gloss": {
+    "en": "The landlord welcomes you and shows the first rooms.",
+    "vi": "Mời vào. Đây là phòng khách, còn bếp ở ngay phía kia.",
+    "es": "Pase. Este es el salón y la cocina está justo ahí.",
+    "pt": "Entre. Esta é a sala e a cozinha fica logo ali.",
+    "fr": "Entrez. Voici le salon, et la cuisine est juste par là.",
+    "de": "Kommen Sie rein. Das ist das Wohnzimmer, und die Küche ist gleich dort drüben.",
+    "id": "Silakan masuk. Ini ruang tamu, dan dapurnya ada di sebelah sana.",
+    "th": "เชิญเข้ามาเลยค่ะ นี่คือห้องนั่งเล่น ส่วนห้องครัวอยู่ทางนั้นเลยค่ะ",
+    "zh": "请进。这是客厅，厨房就在那边。",
+    "ja": "どうぞ。こちらがリビングで、キッチンはすぐあちらです。",
+    "ko": "들어오세요. 여기가 거실이고, 주방은 바로 저쪽이에요.",
+    "hi": "अंदर आइए। यह लिविंग रूम है, और किचन बस उधर है।",
+    "ar": "تفضّل بالدخول. هذه غرفة المعيشة، والمطبخ هناك مباشرة.",
+    "ru": "Проходите. Это гостиная, а кухня — вот там.",
+    "tr": "Buyurun, içeri gelin. Burası oturma odası, mutfak da hemen şurada."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "v3",
+   "who": "customer",
+   "en": "Is the flat furnished, or would I need to bring my own furniture?",
+   "variants": {
+    "polite": "Could you tell me whether the flat is furnished or not?",
+    "casual": "Is it furnished?"
+   },
+   "gloss": {
+    "en": "Asking whether the flat comes with furniture.",
+    "vi": "Căn hộ có sẵn nội thất không, hay tôi phải tự mang đồ đạc đến?",
+    "es": "¿El piso está amueblado o tendría que traer mis propios muebles?",
+    "pt": "O apartamento é mobiliado, ou eu teria que trazer meus próprios móveis?",
+    "fr": "L'appartement est-il meublé, ou faudrait-il apporter mes propres meubles ?",
+    "de": "Ist die Wohnung möbliert, oder müsste ich eigene Möbel mitbringen?",
+    "id": "Apakah apartemennya sudah berperabot, atau saya harus membawa perabot sendiri?",
+    "th": "ห้องนี้มีเฟอร์นิเจอร์พร้อมไหมคะ หรือต้องเอามาเองคะ",
+    "zh": "这套房子带家具吗？还是我得自己带家具？",
+    "ja": "家具付きですか、それとも自分で用意する必要がありますか？",
+    "ko": "가구가 갖춰져 있나요, 아니면 제 가구를 가져와야 하나요?",
+    "hi": "क्या फ़्लैट फ़र्निश्ड है, या मुझे अपना फ़र्नीचर लाना होगा?",
+    "ar": "هل الشقة مفروشة، أم عليّ إحضار أثاثي الخاص؟",
+    "ru": "Квартира с мебелью, или мне нужно привезти свою?",
+    "tr": "Daire eşyalı mı, yoksa kendi eşyalarımı mı getirmem gerekir?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "v4",
+   "who": "customer",
+   "en": "Does the rent include bills such as water, electricity and internet?",
+   "variants": {
+    "polite": "Could you tell me if the rent includes bills like water and internet?",
+    "casual": "Are bills included in the rent?"
+   },
+   "gloss": {
+    "en": "Asking which bills are already inside the rent.",
+    "vi": "Tiền thuê đã bao gồm các khoản như nước, điện và internet chưa?",
+    "es": "¿El alquiler incluye gastos como agua, luz e internet?",
+    "pt": "O aluguel inclui contas como água, luz e internet?",
+    "fr": "Le loyer comprend-il les charges comme l'eau, l'électricité et internet ?",
+    "de": "Sind in der Miete Nebenkosten wie Wasser, Strom und Internet enthalten?",
+    "id": "Apakah uang sewa sudah termasuk tagihan seperti air, listrik, dan internet?",
+    "th": "ค่าเช่ารวมค่าน้ำ ค่าไฟ และอินเทอร์เน็ตแล้วหรือเปล่าคะ",
+    "zh": "房租包含水电和网络这些费用吗？",
+    "ja": "家賃に水道・電気・インターネットなどの料金は含まれていますか？",
+    "ko": "월세에 수도, 전기, 인터넷 같은 요금이 포함되어 있나요?",
+    "hi": "क्या किराये में पानी, बिजली और इंटरनेट जैसे बिल शामिल हैं?",
+    "ar": "هل يشمل الإيجار الفواتير مثل الماء والكهرباء والإنترنت؟",
+    "ru": "В аренду включены коммунальные платежи — вода, электричество, интернет?",
+    "tr": "Kiraya su, elektrik ve internet gibi faturalar dahil mi?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "electricity",
+     "ipa": "/ɪˌlekˈtrɪs.ə.ti/",
+     "hi": "TRIS",
+     "note": {
+      "en": "Stress the third syllable: e-lek-TRIS-i-ty.",
+      "vi": "Nhấn âm tiết thứ ba: i-lek-TRIS-i-ti.",
+      "es": "Acentúa la tercera sílaba: i-lek-TRIS-i-ti.",
+      "pt": "Acentue a terceira sílaba: i-lek-TRIS-i-ti.",
+      "fr": "Accentuez la troisième syllabe : i-lek-TRIS-i-ti.",
+      "de": "Betone die dritte Silbe: i-lek-TRIS-i-ti.",
+      "id": "Tekankan suku kata ketiga: i-lek-TRIS-i-ti.",
+      "th": "เน้นพยางค์ที่สาม: อิ-เล็ก-ทริส-ซะ-ที",
+      "zh": "重音在第三个音节：i-lek-TRIS-i-ti。",
+      "ja": "3番目の音節を強く：イ・レク・トリス・イ・ティ。",
+      "ko": "세 번째 음절에 강세: 이-렉-트리스-이-티.",
+      "hi": "तीसरे अक्षर पर ज़ोर दें: इ-लेक-ट्रिस-इ-टी।",
+      "ar": "شدّد على المقطع الثالث: إي-لِك-تريس-إي-تي.",
+      "ru": "Ударение на третий слог: и-лек-ТРИС-и-ти.",
+      "tr": "Vurgu üçüncü hecede: i-lek-TRİS-i-ti."
+     }
+    }
+   ]
+  },
+  {
+   "id": "m1",
+   "who": "customer",
+   "en": "How much is the rent per month?",
+   "variants": {
+    "polite": "Could you tell me how much the monthly rent is?",
+    "casual": "What's the monthly rent?"
+   },
+   "gloss": {
+    "en": "Asking for the monthly rent.",
+    "vi": "Tiền thuê mỗi tháng là bao nhiêu?",
+    "es": "¿Cuánto es el alquiler al mes?",
+    "pt": "Quanto é o aluguel por mês?",
+    "fr": "Combien coûte le loyer par mois ?",
+    "de": "Wie hoch ist die Miete pro Monat?",
+    "id": "Berapa uang sewa per bulan?",
+    "th": "ค่าเช่าเดือนละเท่าไหร่คะ",
+    "zh": "房租每个月多少钱？",
+    "ja": "家賃は月いくらですか？",
+    "ko": "월세가 한 달에 얼마예요?",
+    "hi": "महीने का किराया कितना है?",
+    "ar": "كم الإيجار الشهري؟",
+    "ru": "Сколько стоит аренда в месяц?",
+    "tr": "Aylık kira ne kadar?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "m2",
+   "who": "barista",
+   "en": "It's nine hundred a month, and the deposit is one month's rent.",
+   "variants": {
+    "polite": "The rent is nine hundred a month, and the deposit is one month's rent.",
+    "casual": "Nine hundred a month, plus a month's rent as deposit."
+   },
+   "gloss": {
+    "en": "The landlord gives the rent and the deposit.",
+    "vi": "Chín trăm một tháng, còn tiền cọc bằng một tháng tiền thuê.",
+    "es": "Son novecientos al mes y la fianza es de un mes de alquiler.",
+    "pt": "São novecentos por mês, e a caução equivale a um mês de aluguel.",
+    "fr": "C'est neuf cents par mois, et la caution équivaut à un mois de loyer.",
+    "de": "Sie kostet neunhundert im Monat, und die Kaution beträgt eine Monatsmiete.",
+    "id": "Sewanya sembilan ratus per bulan, dan uang jaminannya sebesar satu bulan sewa.",
+    "th": "ค่าเช่าเดือนละเก้าร้อย และเงินมัดจำเท่ากับค่าเช่าหนึ่งเดือนค่ะ",
+    "zh": "每月九百，押金是一个月的房租。",
+    "ja": "家賃は月900で、敷金は家賃1か月分です。",
+    "ko": "월세는 한 달에 900이고, 보증금은 한 달 치 월세예요.",
+    "hi": "किराया महीने का नौ सौ है, और डिपॉज़िट एक महीने के किराये के बराबर है।",
+    "ar": "الإيجار تسعمئة في الشهر، والتأمين يعادل إيجار شهر واحد.",
+    "ru": "Девятьсот в месяц, а залог — это арендная плата за один месяц.",
+    "tr": "Kira ayda dokuz yüz, depozito da bir aylık kira tutarında."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "m3",
+   "who": "customer",
+   "en": "How much is the deposit, and when would I get it back?",
+   "variants": {
+    "polite": "Could you explain how much the deposit is and when it would be returned?",
+    "casual": "What's the deposit, and do I get it back?"
+   },
+   "gloss": {
+    "en": "Asking about the deposit and when it is returned.",
+    "vi": "Tiền cọc là bao nhiêu, và khi nào tôi được nhận lại?",
+    "es": "¿De cuánto es la fianza y cuándo me la devolverían?",
+    "pt": "De quanto é a caução e quando eu receberia de volta?",
+    "fr": "Quel est le montant de la caution, et quand me serait-elle rendue ?",
+    "de": "Wie hoch ist die Kaution, und wann bekäme ich sie zurück?",
+    "id": "Berapa uang jaminannya, dan kapan bisa dikembalikan?",
+    "th": "เงินมัดจำเท่าไหร่ แล้วจะได้คืนเมื่อไหร่คะ",
+    "zh": "押金是多少？什么时候能退还给我？",
+    "ja": "敷金はいくらで、いつ返してもらえますか？",
+    "ko": "보증금은 얼마이고, 언제 돌려받을 수 있나요?",
+    "hi": "डिपॉज़िट कितना है, और वह कब वापस मिलेगा?",
+    "ar": "كم مبلغ التأمين، ومتى سأستعيده؟",
+    "ru": "Какой размер залога и когда мне его вернут?",
+    "tr": "Depozito ne kadar ve ne zaman geri alırım?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "deposit",
+     "ipa": "/dɪˈpɒz.ɪt/",
+     "hi": "POZ",
+     "note": {
+      "en": "Stress the second syllable: de-POZ-it.",
+      "vi": "Nhấn âm tiết thứ hai: đi-POZ-ịt.",
+      "es": "Acentúa la segunda sílaba: di-POZ-it.",
+      "pt": "Acentue a segunda sílaba: di-POZ-it.",
+      "fr": "Accentuez la deuxième syllabe : di-POZ-it.",
+      "de": "Betone die zweite Silbe: di-POZ-it.",
+      "id": "Tekankan suku kata kedua: di-POZ-it.",
+      "th": "เน้นพยางค์ที่สอง: ดิ-พอซ-ซิท",
+      "zh": "重音在第二个音节：di-POZ-it。",
+      "ja": "2番目の音節を強く：ディ・ポ(ズ)・ジット。",
+      "ko": "두 번째 음절에 강세: 디-포-짓.",
+      "hi": "दूसरे अक्षर पर ज़ोर दें: डि-पॉज़-इट।",
+      "ar": "شدّد على المقطع الثاني: دي-بوزِت.",
+      "ru": "Ударение на второй слог: ди-ПОЗ-ит.",
+      "tr": "Vurgu ikinci hecede: di-POZ-it."
+     }
+    }
+   ]
+  },
+  {
+   "id": "m4",
+   "who": "customer",
+   "en": "Is there anything extra to pay, like a service charge or parking?",
+   "variants": {
+    "polite": "Are there any additional charges, such as a service charge or parking fees?",
+    "casual": "Any extra costs, like parking?"
+   },
+   "gloss": {
+    "en": "Asking about extra costs on top of the rent.",
+    "vi": "Có khoản nào phải trả thêm không, như phí quản lý hay phí đỗ xe?",
+    "es": "¿Hay algo más que pagar, como gastos de comunidad o aparcamiento?",
+    "pt": "Há algo extra a pagar, como condomínio ou estacionamento?",
+    "fr": "Y a-t-il des frais en plus, comme les charges de copropriété ou le parking ?",
+    "de": "Fallen sonst noch Kosten an, etwa Hausgeld oder ein Stellplatz?",
+    "id": "Apakah ada biaya tambahan, misalnya iuran pengelola atau parkir?",
+    "th": "มีค่าใช้จ่ายอื่นที่ต้องจ่ายเพิ่มไหมคะ เช่น ค่าส่วนกลางหรือที่จอดรถ",
+    "zh": "还有别的费用要付吗，比如物业费或停车费？",
+    "ja": "管理費や駐車場代など、ほかに払うものはありますか？",
+    "ko": "관리비나 주차비처럼 따로 내야 하는 게 있나요?",
+    "hi": "क्या कुछ और भी देना होगा, जैसे सर्विस चार्ज या पार्किंग?",
+    "ar": "هل هناك رسوم إضافية، مثل رسوم الخدمات أو موقف السيارات؟",
+    "ru": "Нужно ли доплачивать — например, за обслуживание дома или парковку?",
+    "tr": "Aidat ya da otopark gibi ödemem gereken başka bir şey var mı?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "t1",
+   "who": "customer",
+   "en": "What's the minimum length of the contract?",
+   "variants": {
+    "polite": "Could you tell me what the minimum tenancy period is?",
+    "casual": "How long is the contract?"
+   },
+   "gloss": {
+    "en": "Asking how long the contract must last.",
+    "vi": "Hợp đồng thuê tối thiểu bao lâu?",
+    "es": "¿Cuál es la duración mínima del contrato?",
+    "pt": "Qual é a duração mínima do contrato?",
+    "fr": "Quelle est la durée minimale du bail ?",
+    "de": "Wie lang ist die Mindestlaufzeit des Vertrags?",
+    "id": "Berapa lama masa kontrak minimalnya?",
+    "th": "สัญญาเช่าขั้นต่ำกี่เดือนคะ",
+    "zh": "合同最短要签多久？",
+    "ja": "契約の最低期間はどれくらいですか？",
+    "ko": "계약 최소 기간이 얼마나 되나요?",
+    "hi": "अनुबंध की न्यूनतम अवधि कितनी है?",
+    "ar": "ما هي المدة الدنيا للعقد؟",
+    "ru": "Какой минимальный срок договора?",
+    "tr": "Sözleşmenin asgari süresi ne kadar?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "minimum",
+     "ipa": "/ˈmɪn.ɪ.məm/",
+     "hi": "MIN",
+     "note": {
+      "en": "Stress the first syllable: MIN-i-mum.",
+      "vi": "Nhấn âm tiết đầu: MIN-i-mừm.",
+      "es": "Acentúa la primera sílaba: MI-ni-mum.",
+      "pt": "Acentue a primeira sílaba: MÍ-ni-mum.",
+      "fr": "Accentuez la première syllabe : MI-ni-meum.",
+      "de": "Betone die erste Silbe: MI-ni-mum.",
+      "id": "Tekankan suku kata pertama: MI-ni-mum.",
+      "th": "เน้นพยางค์แรก: มิน-นิ-มัม",
+      "zh": "重音在第一个音节：MIN-i-mum。",
+      "ja": "最初の音節を強く：ミ・ニ・ムム。",
+      "ko": "첫 음절에 강세: 미-니-멈.",
+      "hi": "पहले अक्षर पर ज़ोर दें: मिन-इ-मम।",
+      "ar": "شدّد على المقطع الأول: مِن-ي-مَم.",
+      "ru": "Ударение на первый слог: МИН-и-мум.",
+      "tr": "Vurgu ilk hecede: MİN-i-mım."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t2",
+   "who": "customer",
+   "en": "Would it be OK to have a small pet, like a cat?",
+   "variants": {
+    "polite": "Would it be possible to keep a small pet, such as a cat?",
+    "casual": "Can I have a cat?"
+   },
+   "gloss": {
+    "en": "Asking whether small pets are allowed.",
+    "vi": "Tôi nuôi thú cưng nhỏ như mèo có được không?",
+    "es": "¿Estaría bien tener una mascota pequeña, como un gato?",
+    "pt": "Tudo bem ter um animal pequeno, como um gato?",
+    "fr": "Serait-il possible d'avoir un petit animal, comme un chat ?",
+    "de": "Wäre ein kleines Haustier, zum Beispiel eine Katze, in Ordnung?",
+    "id": "Boleh tidak memelihara hewan kecil, seperti kucing?",
+    "th": "เลี้ยงสัตว์ตัวเล็ก ๆ อย่างแมวได้ไหมคะ",
+    "zh": "可以养小宠物吗，比如猫？",
+    "ja": "猫のような小さいペットを飼っても大丈夫ですか？",
+    "ko": "고양이 같은 작은 반려동물을 키워도 될까요?",
+    "hi": "क्या बिल्ली जैसा कोई छोटा पालतू जानवर रखना ठीक रहेगा?",
+    "ar": "هل يمكنني تربية حيوان أليف صغير، مثل قطة؟",
+    "ru": "Можно ли держать небольшое животное, например кошку?",
+    "tr": "Kedi gibi küçük bir evcil hayvan beslemek olur mu?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "t3",
+   "who": "customer",
+   "en": "Is there a washing machine, and is there a safe place for my bike?",
+   "variants": {
+    "polite": "Could you tell me if there's a washing machine and a safe place for my bike?",
+    "casual": "Is there a washing machine? And somewhere for my bike?"
+   },
+   "gloss": {
+    "en": "Asking about a washing machine and bike storage.",
+    "vi": "Có máy giặt không, và có chỗ an toàn để xe đạp của tôi không?",
+    "es": "¿Hay lavadora y un lugar seguro para mi bici?",
+    "pt": "Tem máquina de lavar e um lugar seguro para minha bicicleta?",
+    "fr": "Y a-t-il un lave-linge et un endroit sûr pour mon vélo ?",
+    "de": "Gibt es eine Waschmaschine und einen sicheren Platz für mein Fahrrad?",
+    "id": "Apakah ada mesin cuci dan tempat yang aman untuk sepeda saya?",
+    "th": "มีเครื่องซักผ้าไหมคะ แล้วมีที่เก็บจักรยานที่ปลอดภัยไหม",
+    "zh": "有洗衣机吗？有没有安全的地方放我的自行车？",
+    "ja": "洗濯機はありますか？自転車を安全に置ける場所もありますか？",
+    "ko": "세탁기가 있나요? 자전거를 안전하게 둘 곳도 있나요?",
+    "hi": "क्या वॉशिंग मशीन है, और मेरी साइकिल रखने की कोई सुरक्षित जगह है?",
+    "ar": "هل توجد غسالة، وهل هناك مكان آمن لدراجتي؟",
+    "ru": "Есть ли стиральная машина и безопасное место для велосипеда?",
+    "tr": "Çamaşır makinesi var mı, bisikletim için güvenli bir yer var mı?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "t4",
+   "who": "customer",
+   "en": "I'd like to take it. What are the next steps?",
+   "variants": {
+    "polite": "I'm very interested in taking it. Could you tell me the next steps?",
+    "casual": "I'll take it. What happens next?"
+   },
+   "gloss": {
+    "en": "Saying you want the flat and asking what comes next.",
+    "vi": "Tôi muốn thuê căn này. Các bước tiếp theo là gì?",
+    "es": "Me gustaría quedármelo. ¿Cuáles son los siguientes pasos?",
+    "pt": "Quero alugar. Quais são os próximos passos?",
+    "fr": "Je le prends. Quelles sont les prochaines étapes ?",
+    "de": "Ich möchte sie nehmen. Wie geht es weiter?",
+    "id": "Saya mau menyewanya. Apa langkah selanjutnya?",
+    "th": "ฉันสนใจเช่าห้องนี้ค่ะ ขั้นตอนต่อไปคืออะไรคะ",
+    "zh": "我想租下来。接下来要怎么办？",
+    "ja": "ここに決めたいです。次は何をすればいいですか？",
+    "ko": "이 집으로 할게요. 다음 절차가 어떻게 되나요?",
+    "hi": "यह फ़्लैट मुझे पसंद है, इसे किराये पर लेना है। आगे क्या करना होगा?",
+    "ar": "أرغب في استئجارها. ما الخطوات التالية؟",
+    "ru": "Я хочу её снять. Что делать дальше?",
+    "tr": "Burayı tutmak istiyorum. Sonraki adımlar neler?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "When would you like to move in?",
+   "keywords": [
+    "next month",
+    "next week",
+    "soon",
+    "first",
+    "immediately",
+    "as soon as possible",
+    "january",
+    "june",
+    "september",
+    "month",
+    "week",
+    "date"
+   ],
+   "variants": {
+    "polite": "When would you be hoping to move in?",
+    "casual": "When do you want to move in?"
+   },
+   "gloss": {
+    "en": "The landlord asks about your move-in date.",
+    "vi": "Anh/chị muốn dọn vào khi nào?",
+    "es": "¿Cuándo le gustaría mudarse?",
+    "pt": "Quando você gostaria de se mudar?",
+    "fr": "Quand souhaiteriez-vous emménager ?",
+    "de": "Wann möchten Sie einziehen?",
+    "id": "Kapan Anda ingin pindah?",
+    "th": "อยากย้ายเข้ามาเมื่อไหร่คะ",
+    "zh": "您想什么时候搬进来？",
+    "ja": "いつ入居したいですか？",
+    "ko": "언제 입주하고 싶으세요?",
+    "hi": "आप कब शिफ़्ट होना चाहेंगे?",
+    "ar": "متى تودّ الانتقال للسكن؟",
+    "ru": "Когда вы хотели бы заехать?",
+    "tr": "Ne zaman taşınmak istersiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "Will you be living here alone?",
+   "keywords": [
+    "alone",
+    "myself",
+    "on my own",
+    "with",
+    "partner",
+    "friend",
+    "flatmate",
+    "roommate",
+    "family",
+    "wife",
+    "husband",
+    "sister",
+    "brother",
+    "two"
+   ],
+   "variants": {
+    "polite": "Will you be living in the flat on your own?",
+    "casual": "Just you, or more people?"
+   },
+   "gloss": {
+    "en": "The landlord asks who will live in the flat.",
+    "vi": "Anh/chị sẽ ở một mình chứ?",
+    "es": "¿Vivirá aquí una sola persona?",
+    "pt": "Só uma pessoa vai morar aqui?",
+    "fr": "Vous y habiterez seul(e) ?",
+    "de": "Werden Sie hier allein wohnen?",
+    "id": "Apakah Anda akan tinggal sendiri?",
+    "th": "จะอยู่คนเดียวใช่ไหมคะ",
+    "zh": "您一个人住吗？",
+    "ja": "ひとりで住みますか？",
+    "ko": "혼자 사실 건가요?",
+    "hi": "क्या आप यहाँ अकेले रहेंगे?",
+    "ar": "هل ستسكن هنا وحدك؟",
+    "ru": "Вы будете жить здесь один или с кем-то?",
+    "tr": "Burada tek başına mı yaşayacaksınız?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Hello! Come in. Do you have any questions as you look round?"
+  },
+  {
+   "who": "customer",
+   "en": "Hi, thanks. Is the flat furnished?"
+  },
+  {
+   "who": "barista",
+   "en": "Yes, the sofa, bed and wardrobe are included."
+  },
+  {
+   "who": "customer",
+   "en": "Great. How much is the rent per month?"
+  },
+  {
+   "who": "barista",
+   "en": "It's nine hundred a month, and the deposit is one month's rent."
+  },
+  {
+   "who": "customer",
+   "en": "Does the rent include bills such as water and internet?"
+  },
+  {
+   "who": "barista",
+   "en": "Water is included, but you pay for electricity and internet."
+  },
+  {
+   "who": "customer",
+   "en": "I see. What's the minimum length of the contract?"
+  },
+  {
+   "who": "barista",
+   "en": "Twelve months. Would you like to apply?"
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Hi, is the deposit one month's rent?"
+    },
+    {
+     "who": "barista",
+     "en": "No, it's six weeks' rent, and you get it back when you leave."
+    },
+    {
+     "who": "customer",
+     "en": "OK. And is the flat available from the first of March?"
+    },
+    {
+     "who": "barista",
+     "en": "Yes, you can move in on the first."
+    }
+   ],
+   "q": {
+    "en": "How much is the deposit?",
+    "vi": "Tiền cọc là bao nhiêu?",
+    "es": "¿De cuánto es la fianza?",
+    "pt": "De quanto é a caução?",
+    "fr": "Quel est le montant de la caution ?",
+    "de": "Wie hoch ist die Kaution?",
+    "id": "Berapa uang jaminannya?",
+    "th": "เงินมัดจำเท่าไหร่",
+    "zh": "押金是多少？",
+    "ja": "敷金はいくらですか？",
+    "ko": "보증금은 얼마인가요?",
+    "hi": "डिपॉज़िट कितना है?",
+    "ar": "كم مبلغ التأمين؟",
+    "ru": "Каков размер залога?",
+    "tr": "Depozito ne kadar?"
+   },
+   "answer": "six weeks' rent"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "The rent is eight fifty, and water and heating are included."
+    },
+    {
+     "who": "customer",
+     "en": "Is internet included too?"
+    },
+    {
+     "who": "barista",
+     "en": "No, internet isn't included. You'd need to set that up yourself."
+    },
+    {
+     "who": "customer",
+     "en": "Understood. Thanks."
+    }
+   ],
+   "q": {
+    "en": "What is not included in the rent?",
+    "vi": "Tiền thuê không bao gồm khoản nào?",
+    "es": "¿Qué no está incluido en el alquiler?",
+    "pt": "O que não está incluído no aluguel?",
+    "fr": "Qu'est-ce qui n'est pas compris dans le loyer ?",
+    "de": "Was ist in der Miete nicht enthalten?",
+    "id": "Apa yang tidak termasuk dalam uang sewa?",
+    "th": "อะไรที่ไม่รวมอยู่ในค่าเช่า",
+    "zh": "房租里不包括什么？",
+    "ja": "家賃に含まれていないものは何ですか？",
+    "ko": "월세에 포함되지 않은 것은 무엇인가요?",
+    "hi": "किराये में क्या शामिल नहीं है?",
+    "ar": "ما الذي لا يشمله الإيجار؟",
+    "ru": "Что не входит в стоимость аренды?",
+    "tr": "Kiraya neler dahil değil?"
+   },
+   "answer": "internet"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "included",
+    "title": {
+     "en": "Ask what's included",
+     "vi": "Hỏi những gì đã bao gồm",
+     "es": "Pregunta qué está incluido",
+     "pt": "Pergunte o que está incluído",
+     "fr": "Demander ce qui est compris",
+     "de": "Fragen, was enthalten ist",
+     "id": "Tanyakan apa saja yang termasuk",
+     "th": "ถามว่ารวมอะไรบ้าง",
+     "zh": "问清包含哪些",
+     "ja": "含まれるものを聞く",
+     "ko": "포함된 것 물어보기",
+     "hi": "पूछें कि क्या-क्या शामिल है",
+     "ar": "اسأل عمّا هو مشمول",
+     "ru": "Спроси, что включено",
+     "tr": "Nelerin dahil olduğunu sor"
+    },
+    "intents": [
+     "v3",
+     "v4"
+    ]
+   },
+   {
+    "id": "rent-deposit",
+    "title": {
+     "en": "Ask the rent and deposit",
+     "vi": "Hỏi tiền thuê và tiền cọc",
+     "es": "Pregunta el alquiler y la fianza",
+     "pt": "Pergunte o aluguel e a caução",
+     "fr": "Demander le loyer et la caution",
+     "de": "Nach Miete und Kaution fragen",
+     "id": "Tanyakan sewa dan uang jaminan",
+     "th": "ถามค่าเช่าและเงินมัดจำ",
+     "zh": "询问房租和押金",
+     "ja": "家賃と敷金を聞く",
+     "ko": "월세와 보증금 물어보기",
+     "hi": "किराया और डिपॉज़िट पूछें",
+     "ar": "اسأل عن الإيجار والتأمين",
+     "ru": "Узнай аренду и залог",
+     "tr": "Kirayı ve depozitoyu sor"
+    },
+    "intents": [
+     "m1",
+     "m3"
+    ]
+   },
+   {
+    "id": "contract",
+    "title": {
+     "en": "Check the contract length",
+     "vi": "Hỏi thời hạn hợp đồng",
+     "es": "Consulta la duración del contrato",
+     "pt": "Confira a duração do contrato",
+     "fr": "Vérifier la durée du bail",
+     "de": "Die Vertragslaufzeit klären",
+     "id": "Pastikan lama kontrak",
+     "th": "เช็กระยะเวลาสัญญา",
+     "zh": "确认合同期限",
+     "ja": "契約期間を確認する",
+     "ko": "계약 기간 확인하기",
+     "hi": "अनुबंध की अवधि जाँचें",
+     "ar": "تحقّق من مدة العقد",
+     "ru": "Уточни срок договора",
+     "tr": "Sözleşme süresini öğren"
+    },
+    "intents": [
+     "t1"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "In many countries a landlord asks for a deposit and a written contract. Always ask what the rent includes, how much the deposit is and when it is returned, and keep a copy of everything you sign. Rules differ from place to place, so check local tenant rules too.",
+  "vi": "Ở nhiều nước, chủ nhà yêu cầu tiền cọc và hợp đồng bằng văn bản. Hãy luôn hỏi tiền thuê đã gồm những gì, tiền cọc là bao nhiêu và khi nào được trả lại, đồng thời giữ một bản sao mọi giấy tờ đã ký. Quy định mỗi nơi một khác, nên hãy tìm hiểu cả luật thuê nhà địa phương.",
+  "es": "En muchos países el propietario pide una fianza y un contrato por escrito. Pregunta siempre qué incluye el alquiler, cuánto es la fianza y cuándo se devuelve, y guarda una copia de todo lo que firmes. Las normas cambian según el lugar, así que consulta también la normativa local de inquilinos.",
+  "pt": "Em muitos países, o proprietário pede uma caução e um contrato por escrito. Pergunte sempre o que o aluguel inclui, qual é o valor da caução e quando ela é devolvida, e guarde uma cópia de tudo o que assinar. As regras mudam de lugar para lugar, então consulte também as normas locais para inquilinos.",
+  "fr": "Dans beaucoup de pays, le propriétaire demande une caution et un contrat écrit. Demandez toujours ce que comprend le loyer, le montant de la caution et la date de sa restitution, et gardez une copie de tout ce que vous signez. Les règles varient selon l'endroit : renseignez-vous aussi sur les règles locales pour les locataires.",
+  "de": "In vielen Ländern verlangt der Vermieter eine Kaution und einen schriftlichen Vertrag. Frag immer, was die Miete enthält, wie hoch die Kaution ist und wann sie zurückgezahlt wird, und behalte eine Kopie von allem, was du unterschreibst. Die Regeln unterscheiden sich je nach Ort – informiere dich auch über das örtliche Mietrecht.",
+  "id": "Di banyak negara, pemilik rumah meminta uang jaminan dan kontrak tertulis. Selalu tanyakan apa saja yang termasuk dalam sewa, berapa uang jaminannya, dan kapan dikembalikan, serta simpan salinan semua dokumen yang Anda tanda tangani. Aturan berbeda di tiap tempat, jadi periksa juga aturan penyewa setempat.",
+  "th": "ในหลายประเทศ เจ้าของห้องจะขอเงินมัดจำและทำสัญญาเป็นลายลักษณ์อักษร ควรถามเสมอว่าค่าเช่ารวมอะไรบ้าง เงินมัดจำเท่าไหร่ และคืนเมื่อไหร่ พร้อมเก็บสำเนาเอกสารที่เซ็นไว้ทุกฉบับ กฎระเบียบแต่ละที่ไม่เหมือนกัน จึงควรตรวจสอบกฎของผู้เช่าในท้องถิ่นด้วย",
+  "zh": "在许多国家，房东会要求押金并签订书面合同。务必问清房租包含什么、押金是多少、什么时候退，并保留所有签字文件的副本。各地规定不同，也要了解当地的租客规定。",
+  "ja": "多くの国では、大家さんが敷金と書面の契約を求めます。家賃に何が含まれるか、敷金はいくらでいつ戻るかを必ず確認し、署名した書類はすべてコピーを残しましょう。ルールは地域で違うので、地元の賃貸ルールも調べてください。",
+  "ko": "많은 나라에서 집주인은 보증금과 서면 계약서를 요구해요. 월세에 무엇이 포함되는지, 보증금은 얼마이고 언제 돌려받는지 꼭 물어보고, 서명한 서류는 모두 사본을 보관하세요. 규정은 지역마다 다르니 현지 임차인 규정도 확인하세요.",
+  "hi": "कई देशों में मकान मालिक डिपॉज़िट और लिखित अनुबंध माँगते हैं। हमेशा पूछें कि किराये में क्या शामिल है, डिपॉज़िट कितना है और कब लौटाया जाएगा, और हस्ताक्षर किए हर कागज़ की एक प्रति रखें। नियम जगह-जगह अलग होते हैं, इसलिए स्थानीय किरायेदार नियम भी देख लें।",
+  "ar": "في كثير من الدول يطلب المالك مبلغ تأمين وعقدًا مكتوبًا. اسأل دائمًا عمّا يشمله الإيجار وقيمة التأمين وموعد استرداده، واحتفظ بنسخة من كل ما توقّعه. تختلف القواعد من مكان إلى آخر، فاطّلع أيضًا على قواعد المستأجرين المحلية.",
+  "ru": "Во многих странах арендодатель просит залог и письменный договор. Всегда спрашивай, что входит в аренду, каков размер залога и когда его вернут, и храни копии всего, что подписываешь. Правила различаются от места к месту, поэтому изучи и местные правила для арендаторов.",
+  "tr": "Pek çok ülkede ev sahibi depozito ve yazılı sözleşme ister. Kiraya nelerin dahil olduğunu, depozitonun ne kadar olduğunu ve ne zaman iade edileceğini mutlaka sor; imzaladığın her belgenin bir kopyasını sakla. Kurallar yerden yere değişir, bu yüzden yerel kiracı kurallarına da bak."
+ }
+}

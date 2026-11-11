@@ -6,6 +6,7 @@
 import fs from 'fs';
 import path from 'path';
 import http from 'http';
+import { srOnlyHidden } from '../lib/qa-classify.mjs';
 
 const args = process.argv.slice(2);
 const PART = args.find((a, i) => !a.startsWith('--') && args[i - 1] !== '--base') || 'all';
@@ -64,7 +65,7 @@ function serve() {
 const LANGS = ['vi', 'en', 'ja', 'zh', 'ko', 'ar', 'hi', 'th', 'ru', 'es'];
 const APP_ROUTES = ['home', 'library', 'review', 'practice', 'skills', 'tests', 'stats', 'settings', 'contact', 'verb/take', 'goal', 'placement', 'usage', 'dict', 'confidence', 'handsfree', 'practice/learn?src=topic:ngsl1', 'practice/mcq?src=topic:ngsl1'];
 const PARTS = {
-  landing: b => ['/', ...LANGS.filter(l => l !== 'vi').map(l => `/${l}/`)].map(p => b + p),
+  landing: b => ['/', ...LANGS.map(l => `/${l}/`)].map(p => b + p),
   legal: b => ['/privacy.html', '/terms.html', '/credits.html', '/schools.html', '/404.html', '/bye.html', '/en/privacy.html', '/ja/terms.html', '/ar/schools.html'].map(p => b + p),
   app: b => APP_ROUTES.flatMap(r => ['vi', 'en'].map(l => `${b}/app/?sandbox=1&hl=${l}#/${r}`)),
   admin: b => [b + '/admin.html'],
@@ -74,7 +75,7 @@ const PARTS = {
 };
 
 // ---------- Kiểm trong trang ----------
-function inPage() {
+function inPage(srOnlyHidden) {   // srOnlyHidden: scripts/lib/qa-classify.mjs (truyền vào vì hàm chạy trong trang)
   const issues = [], stacks = {};
   const MONO_TAGS = new Set(['CODE', 'KBD', 'PRE', 'SAMP', 'TT']);
   const CTRL = new Set(['BUTTON', 'INPUT', 'SELECT', 'TEXTAREA']);
@@ -87,7 +88,7 @@ function inPage() {
   for (const f of document.fonts) if (f.status === 'loaded') { const k = f.family.replace(/["']/g, ''); const o = faces[k] || (faces[k] = { w: new Set(), it: false }); const [a, b] = String(f.weight).split(' ').map(Number); for (let w = a; w <= (b || a); w += 100) o.w.add(w); if (f.style !== 'normal') o.it = true; }
   const WEB = ['Be Vietnam Pro', 'Inter', 'Charis SIL'];
   const declared = new Set();
-  const visible = (el, cs) => { const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && +cs.opacity > 0; };
+  const visible = (el, cs) => { const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && +cs.opacity > 0 && !srOnlyHidden(cs, r); };   // .sr-only đúng chuẩn (1px + clip) = chữ cho trình đọc màn hình, mắt không thấy
   for (const el of document.querySelectorAll('body *')) {
     const isSvgText = el instanceof SVGTextContentElement && el.tagName === 'text';
     const own = [...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim());
@@ -117,7 +118,8 @@ function inPage() {
       if (w > max + 50 || w < min - 50) add('faux-weight', 'warn', el, `đậm ${w} nhưng "${f1}" chỉ tải ${min}–${max} → trình duyệt tô đậm giả`);
       if (cs.fontStyle !== 'normal' && !face.it) add('faux-italic', 'warn', el, `nghiêng giả – "${f1}" chưa tải bản italic`);
     }
-    if (!ctrl && /hidden|clip/.test(cs.overflowX) && cs.textOverflow !== 'ellipsis' && el.scrollWidth > el.clientWidth + 2) add('clipped', 'warn', el, 'chữ bị cắt mất (tràn ngang, không có …)');
+    // icon Material (ligature → 1 glyph) không phải chữ: tên ligature dài hơn hộp icon là đúng, không tính "bị cắt"
+    if (!ctrl && !/Material Symbols/.test(cs.fontFamily) && /hidden|clip/.test(cs.overflowX) && cs.textOverflow !== 'ellipsis' && el.scrollWidth > el.clientWidth + 2) add('clipped', 'warn', el, 'chữ bị cắt mất (tràn ngang, không có …)');
   }
   const missing = [...declared].filter(f => !faces[f]);
   for (const f of missing) issues.push({ type: 'webfont-missing', sev: 'warn', sel: 'document', text: '', msg: `CSS khai báo "${f}" nhưng trang không tải webfont → mỗi máy hiện font khác nhau` });
@@ -133,20 +135,25 @@ async function browserScan(part, base) {
   for (const vp of VPS) {
     const ctx = await browser.newContext({ ...vp, deviceScaleFactor: 1, locale: 'vi' });
     const page = await ctx.newPage();
+    // Chẩn đoán "không mở được" (networkidle quá giờ): request còn treo + đếm theo host trong lượt mở trang → biết trang chờ cái gì
+    const pending = new Set(); let hosts = {};
+    page.on('request', q => { pending.add(q); const h = q.url().replace(/^(\w+:\/\/[^/]+(\/api\/[a-z-]+)?).*$/, '$1'); hosts[h] = (hosts[h] || 0) + 1; });
+    const done = q => pending.delete(q); page.on('requestfinished', done); page.on('requestfailed', done);
+    const netDiag = () => ` · treo: ${[...pending].slice(0, 4).map(q => q.url().slice(0, 90)).join(' , ') || '–'} · request/host: ${Object.entries(hosts).sort((a, b) => b[1] - a[1]).slice(0, 6).map(([h, n]) => `${h.replace(/^https?:\/\//, '')}×${n}`).join(' ')}`;
     if (part === 'app') { // qua màn chào để vào thẳng app
       await page.goto(`${base}/app/?sandbox=1#/welcome/setup`, { waitUntil: 'networkidle', timeout: 30000 }).catch(() => {});
       await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {}); for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); } const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(1500); } // thiết lập từng bước (onboard.js): Tiếp tục tới màn cuối rồi Bắt đầu
     }
     for (const url of pages) {
-      const r = { url, vp: vp.name };
+      const r = { url, vp: vp.name }; hosts = {};
       try {
         await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
         await page.waitForTimeout(part === 'app' ? 900 : 300);
         await page.evaluate(() => document.fonts.ready);
-        Object.assign(r, await page.evaluate(inPage));
+        Object.assign(r, await page.evaluate(`(${inPage})(${srOnlyHidden})`));
         const shot = `${OUT}/${part}-${vp.name}-${url.replace(/^\w+:\/\/[^/]+/, '').replace(/[^\w]+/g, '_').slice(0, 60) || 'root'}.jpg`;
         await page.screenshot({ path: shot, type: 'jpeg', quality: 55 });
-      } catch (e) { r.error = String(e.message || e).slice(0, 160); }
+      } catch (e) { r.error = String(e.message || e).split('\n')[0].slice(0, 160) + netDiag().slice(0, 700); }
       results.push(r);
     }
     await ctx.close();

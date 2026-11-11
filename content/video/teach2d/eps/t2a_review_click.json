@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_click",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: click.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to press a button.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Click the link to download the file.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "click",
+  "ipa": "/klɪk/",
+  "mean": "to press a button",
+  "ex": "Click the link to download the file.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=click",
+  "link": "https://lexkite.com/app/#/review?w=click",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 38,
+  "seconds": 23.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "What does \"click\" mean?",
+  "keyword": "click",
+  "value": "Click means to press a button.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=click",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"click\" mean?",
+    "description": "Click means to press a button.\n\nReview your words, free: https://lexkite.com/app/#/review?w=click\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "click",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"click\" mean?\n\nClick means to press a button.\n\nReview your words, free: https://lexkite.com/app/#/review?w=click"
+   },
+   "instagram": {
+    "caption": "What does \"click\" mean?\n\nClick means to press a button.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"click\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to press a button. Click means to press a button. Practice it with a free quiz: {link}"
+ }
+}

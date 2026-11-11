@@ -22,7 +22,10 @@
     'Mặc định chữ chỉ được soát ngay trên máy. Kiểm nâng cao gửi chữ trong ô bạn đang gõ tới LanguageTool. Không bao giờ soát ô mật khẩu, email, thẻ thanh toán và trang ngân hàng.': 'By default your text is checked on your device only. Advanced check sends the text of the box you are typing in to LanguageTool. Password, email and payment card fields and banking sites are never checked.',
     'Mở trên điện thoại (mã QR)': 'Open on phone (QR code)', 'Báo cáo sự cố': 'Report a problem', 'Không tìm thấy “{q}”.': 'No results for “{q}”.', ' Dịch: <b>{vi}</b>': ' Translation: <b>{vi}</b>', 'Chính sách quyền riêng tư': 'Privacy policy', 'Quét bằng camera điện thoại để học:': 'Scan with your phone camera to study:',
   };
-  const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (XD[src] || EN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };
+  const hk = s => { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 0x01000193); } return '_' + ((x >>> 0) % 1679616).toString(36); }; // = hk của web/js/i18n.js (gói ngôn ngữ khóa băm, scripts/lib/i18n-pack.mjs)
+  // Từ điển background: gói ngôn ngữ (khóa băm, hoặc nguyên câu khi trùng băm) chồng lên nền en (nguyên câu) → tra băm trước
+  const xd = src => (typeof src === 'string' && XD[hk(src)]) || XD[src];
+  const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (xd(src) || EN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };
   document.documentElement.lang = UI_LANG; document.documentElement.dir = UI_LANG === 'ar' ? 'rtl' : 'ltr';
   document.querySelectorAll('[data-tx]').forEach(el => { el.textContent = tx(el.textContent.trim()); });
   document.querySelectorAll('[data-tx-html]').forEach(el => { el.innerHTML = tx(el.innerHTML.trim()); });
@@ -50,6 +53,29 @@
   };
 
   const settings = { ...DEFAULT_SETTINGS, ...(await Store.get('settings', {})) };
+  // Cùng cách chọn giọng với bảng tra trên trang (content.js): giọng tự nhiên tốt nhất, không dùng bản ghi âm chất lượng không đều Khai báo TRƯỚC lần dùng đầu (ôn nhanh/vừa lưu) – 2/11: đặt sau gây TDZ "Cannot access ipaAcc before initialization" khi có thẻ đến hạn → popup chết (tra nhanh, cài đặt).
+  const bestVoice = acc => {
+    const want = settings.voice && settings.voice[acc], vs = speechSynthesis.getVoices(), w = want && vs.find(x => x.name === want); if (w) return w;
+    const sc = v => !v.lang.startsWith('en') ? -1 : (v.lang.replace('_', '-') === acc ? 100 : 10) + (/Natural|Neural|Online/i.test(v.name) ? 60 : 0) + (/^Google (UK|US) English/i.test(v.name) ? 50 : 0) + (/Premium|Enhanced|Siri/i.test(v.name) ? 45 : 0) + (/Daniel|Serena|Kate|Oliver|Samantha|Ava|Allison|Susan|Tom/i.test(v.name) ? 20 : 0);
+    return speechSynthesis.getVoices().map(v => [v, sc(v)]).filter(x => x[1] > 0).sort((a, b) => b[1] - a[1]).map(x => x[0])[0] || null;
+  };
+  // IPA + bản ghi ĐÚNG giọng đang chọn (như web UI.ipaHtml/audioFor): Mỹ → ipaUS (trống = như Anh); bản ghi sai giọng → bỏ, dùng giọng máy đúng giọng
+  const isUS = () => settings.accent === 'en-US';
+  const ipaAcc = x => (x && (isUS() && x.ipaUS ? x.ipaUS : x.ipa)) || '';
+  const audAcc = (x, acc) => { const a = (x && x.audio) || '', us = /-us\.mp3$/i.test(a); return (acc ? acc === 'en-US' : isUS()) ? (x && x.audioUS) || (us ? a : '') : us ? '' : a; };
+  // 2 giọng như web UI.pronHtml: thứ tự theo giọng đã chọn / kỳ thi (IELTS → UK, còn lại → US); cùng IPA → 1 IPA + 2 loa
+  const popPron = e => {
+    const ex = String(settings.exam || (settings.goal && settings.goal.exam) || ''), usFirst = settings.accentPicked ? isUS() : !/^ielts/.test(ex);
+    const ord = usFirst ? ['en-US', 'en-GB'] : ['en-GB', 'en-US'], ip = a => (a === 'en-US' && e.ipaUS ? e.ipaUS : e.ipa) || '';
+    const b = a => `<b class="small">${a === 'en-US' ? 'US' : 'UK'}</b> <button class="icon-btn" data-acc="${a}" aria-label="${esc(tx(a === 'en-US' ? 'Nghe giọng Anh–Mỹ' : 'Nghe giọng Anh–Anh'))}">🔊</button>`;
+    const [p1, p2] = ord.map(ip); if (!p1 && !p2) return '';
+    return p1 === p2 || !p1 || !p2 ? `<span class="ipa">${esc(p1 || p2)}</span> ${b(ord[0])} ${b(ord[1])}` : `<span class="ipa">${esc(p1)}</span> ${b(ord[0])} <span class="muted">·</span> <span class="ipa">${esc(p2)}</span> ${b(ord[1])}`;
+  };
+  const speak = (w, url, acc) => {
+    if (url && !window.speechSynthesis) return new Audio(url).play().catch(() => {});
+    const go = () => { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(w); u.lang = acc || settings.accent || 'en-GB'; u.rate = settings.ttsRate || .92; const v = bestVoice(u.lang); if (v) u.voice = v; speechSynthesis.speak(u); };
+    if (speechSynthesis.getVoices().length) go(); else { let d = false; const f = () => { if (!d) { d = true; go(); } }; speechSynthesis.addEventListener('voiceschanged', f, { once: true }); setTimeout(f, 600); }
+  };
   const [cards, stats] = await Promise.all([Cards.all(), Stats.get()]);
   const { total } = Cards.dueCount(cards, settings, stats);
   const done = stats.days[todayKey()] || 0;
@@ -145,30 +171,6 @@
       $('#wcSite').onchange = async e => { const { wcOffSites: cur = [] } = await chrome.storage.local.get('wcOffSites'); const next = e.target.checked ? cur.filter(h => h !== site) : [...new Set([...cur, site])]; await chrome.storage.local.set({ wcOffSites: next.slice(-500) }); };
     } else { $('#wcSiteTxt').textContent = tx('Trang này không hỗ trợ soát lỗi viết'); $('#wcSite').disabled = true; }
   }
-
-  // Cùng cách chọn giọng với bảng tra trên trang (content.js): giọng tự nhiên tốt nhất, không dùng bản ghi âm chất lượng không đều
-  const bestVoice = acc => {
-    const want = settings.voice && settings.voice[acc], vs = speechSynthesis.getVoices(), w = want && vs.find(x => x.name === want); if (w) return w;
-    const sc = v => !v.lang.startsWith('en') ? -1 : (v.lang.replace('_', '-') === acc ? 100 : 10) + (/Natural|Neural|Online/i.test(v.name) ? 60 : 0) + (/^Google (UK|US) English/i.test(v.name) ? 50 : 0) + (/Premium|Enhanced|Siri/i.test(v.name) ? 45 : 0) + (/Daniel|Serena|Kate|Oliver|Samantha|Ava|Allison|Susan|Tom/i.test(v.name) ? 20 : 0);
-    return speechSynthesis.getVoices().map(v => [v, sc(v)]).filter(x => x[1] > 0).sort((a, b) => b[1] - a[1]).map(x => x[0])[0] || null;
-  };
-  // IPA + bản ghi ĐÚNG giọng đang chọn (như web UI.ipaHtml/audioFor): Mỹ → ipaUS (trống = như Anh); bản ghi sai giọng → bỏ, dùng giọng máy đúng giọng
-  const isUS = () => settings.accent === 'en-US';
-  const ipaAcc = x => (x && (isUS() && x.ipaUS ? x.ipaUS : x.ipa)) || '';
-  const audAcc = (x, acc) => { const a = (x && x.audio) || '', us = /-us\.mp3$/i.test(a); return (acc ? acc === 'en-US' : isUS()) ? (x && x.audioUS) || (us ? a : '') : us ? '' : a; };
-  // 2 giọng như web UI.pronHtml: thứ tự theo giọng đã chọn / kỳ thi (IELTS → UK, còn lại → US); cùng IPA → 1 IPA + 2 loa
-  const popPron = e => {
-    const ex = String(settings.exam || (settings.goal && settings.goal.exam) || ''), usFirst = settings.accentPicked ? isUS() : !/^ielts/.test(ex);
-    const ord = usFirst ? ['en-US', 'en-GB'] : ['en-GB', 'en-US'], ip = a => (a === 'en-US' && e.ipaUS ? e.ipaUS : e.ipa) || '';
-    const b = a => `<b class="small">${a === 'en-US' ? 'US' : 'UK'}</b> <button class="icon-btn" data-acc="${a}" aria-label="${esc(tx(a === 'en-US' ? 'Nghe giọng Anh–Mỹ' : 'Nghe giọng Anh–Anh'))}">🔊</button>`;
-    const [p1, p2] = ord.map(ip); if (!p1 && !p2) return '';
-    return p1 === p2 || !p1 || !p2 ? `<span class="ipa">${esc(p1 || p2)}</span> ${b(ord[0])} ${b(ord[1])}` : `<span class="ipa">${esc(p1)}</span> ${b(ord[0])} <span class="muted">·</span> <span class="ipa">${esc(p2)}</span> ${b(ord[1])}`;
-  };
-  const speak = (w, url, acc) => {
-    if (url && !window.speechSynthesis) return new Audio(url).play().catch(() => {});
-    const go = () => { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(w); u.lang = acc || settings.accent || 'en-GB'; u.rate = settings.ttsRate || .92; const v = bestVoice(u.lang); if (v) u.voice = v; speechSynthesis.speak(u); };
-    if (speechSynthesis.getVoices().length) go(); else { let d = false; const f = () => { if (!d) { d = true; go(); } }; speechSynthesis.addEventListener('voiceschanged', f, { once: true }); setTimeout(f, 600); }
-  };
 
   $('#f').onsubmit = async ev => {
     ev.preventDefault();

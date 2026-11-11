@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_bakery",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: bakery.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a shop that makes and sells bread and cakes.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "The bakery next door supplies our office breakfast.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "bakery",
+  "ipa": "/ˈbeɪkəri/",
+  "mean": "a shop that makes and sells bread and cakes",
+  "ex": "The bakery next door supplies our office breakfast.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=bakery",
+  "link": "https://lexkite.com/app/#/review?w=bakery",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.7,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"bakery\" mean?",
+  "keyword": "bakery",
+  "value": "Bakery means a shop that makes and sells bread and cakes.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=bakery",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"bakery\" mean?",
+    "description": "Bakery means a shop that makes and sells bread and cakes.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bakery\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "bakery",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"bakery\" mean?\n\nBakery means a shop that makes and sells bread and cakes.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bakery"
+   },
+   "instagram": {
+    "caption": "What does \"bakery\" mean?\n\nBakery means a shop that makes and sells bread and cakes.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"bakery\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a shop that makes and sells bread and cakes. Bakery means a shop that makes and sells bread and cakes. Practice it with a free quiz: {link}"
+ }
+}

@@ -1,7 +1,11 @@
 /* Thống kê truy cập tự xây (thay Google Analytics – không cookie, không lưu IP, miễn phí trên D1).
  * POST /api/hit (navigator.sendBeacon):
  *   { t:'s', sid, vid, ret, path, cur, ref, lang, dev, plat, dur, pages, lcp, pv }  → 1 dòng/phiên (ghi đè khi phiên cập nhật)
+ *     late:1 + t0 = phiên gửi bù sau khi /api chết (web/js/app.js lk.hitq) → ghi vào ngày gốc t0 (lateAt), đếm ext_events 'hit:late'
  *     cur = trang đang xem (→ last_path, last = lúc nhận → "đang online"); pv = { route: số lượt xem mới từ lần gửi trước } (≤ 20 trang) → pageviews_day
+ *   { t:'l', ref, p, lang }                                           → khách từ NGOÀI vào trang tĩnh (js/site-ui.js SRC_JS, ≤ 1 lần/nguồn/30 phút/máy): chỉ đếm, ext_events 'land:<nguồn>:<nước>:<loại trang>:<ngôn ngữ trang>'. Tắt: biến Pages HIT_LAND=0
+ *   { t:'vo', c:{f,k,s,s_off,s_wait,s_load,s_fail,s_lang,s_pref}, p:'web'|'app'|'ext' } → nguồn giọng THỰC phát (web/js/audio.js flushVo): f file Kokoro dựng sẵn ·
+ *     k Kokoro trên máy · s giọng máy (+ lý do) → ext_events 'vo:<k>' + 'vo:<f|k|s>:<p>' (chỉ số đếm; tỷ lệ giọng máy = s/(f+k+s), docs/specs/kokoro-on-device.md §Số đo)
  *   { t:'e', msg, src, line, path, ver }                              → gộp lỗi giống nhau thành 1 dòng + đếm
  *   { t:'x', vid, day, ev:{lookup,save,popup,newtab}, prev:{day, ev}, ver, lang } → add-on Chrome: 1 lượt/ngày/máy → ext_daily (lấy MAX, gửi lại không cộng trùng)
  *   { t:'x', vid, ev:{install|update|uninstall:1}, reason }           → ext_events (đếm theo ngày; lý do gỡ = kind 'uninstall:<lý do>')
@@ -17,6 +21,7 @@ import { gate } from './_quota.js';
 import { once } from './_schema.js';
 import { adRows, guardOf } from './_ads.js';
 import { purgeConfig } from './config.js';
+import { landKey, normRef } from './_cpm.js';
 const QUIZ_EV = ['quiz_view', 'quiz_done', 'quiz_cta'];
 const RET_EV = ['ret_on_seen', 'ret_off_seen', 'ret_on_d7', 'ret_off_d7']; // thử nghiệm cờ ret (web/js/app.js retTrack): nhóm bật/đối chứng – đã thấy / chuỗi chạm 7 → kind 'ret:<ev>' (D7 = d7/seen)
 const UX1_EV = ['on', 'off'].flatMap(a => ['seen', 'd1', 'd7'].map(e => `ux1_${a}_${e}`)); // thử nghiệm cờ ux1 (web/js/app.js ux1Track) → kind 'ux1:<ev>' (D1 = d1/seen, D7 = d7/seen)
@@ -27,6 +32,15 @@ const CTA_LANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', '
 const CTA_PAGES = ['vocab', 'samples', 'speaking', 'grammar', 'letters', 'blog'];
 const SMART_CTA_EV = ['cta_addon_view', 'cta_addon_click', 'cta_pwa_view', 'cta_pwa_click', 'cta_topic_click']; // CTA trang tĩnh/từ vựng (scripts/lib/site-layout.mjs)
 
+// Nguồn giọng (t:'vo'): khóa cố định, số đếm chặn trần → ≤ 12 dòng ext_events/beacon, không phình bảng
+export const VO_KEYS = ['f', 'k', 's', 's_off', 's_wait', 's_load', 's_fail', 's_lang', 's_pref'], VO_PLAT = ['web', 'app', 'ext'];
+export function voRows(b) {
+  const c = b && b.c && typeof b.c === 'object' ? b.c : null; if (!c) return [];
+  const n = k => Math.min(Math.max(Math.floor(+c[k] || 0), 0), 500), p = VO_PLAT.includes(b.p) ? b.p : 'web', rows = [];
+  for (const k of VO_KEYS) if (n(k) > 0) rows.push(['vo:' + k, n(k)]);
+  for (const k of ['f', 'k', 's']) if (n(k) > 0) rows.push([`vo:${k}:${p}`, n(k)]);
+  return rows;
+}
 let ready = false;
 const ok = () => new Response(null, { status: 204, headers: { 'Cache-Control': 'no-store' } });
 const cut = (v, n) => String(v == null ? '' : v).slice(0, n);
@@ -98,6 +112,11 @@ export function devOrigin(request) {
   for (const v of [h.get('Origin'), h.get('Referer'), request.url]) { try { if (v && v !== 'null') hosts.push(new URL(v)); } catch (e) { /* bỏ qua */ } }
   return hosts.some(u => /^[a-z0-9-]+\.lexkite\.pages\.dev$/.test(u.hostname) || (u.protocol === 'http:' && !!u.port && /^(localhost|127\.0\.0\.1|\[::1\])$/.test(u.hostname)));
 }
+// Phiên gửi bù (b.late = 1, b.t0 = lúc mở trang): máy khách gửi lúc /api chết (01/11 16:22→00:00 UTC hạn mức Workers 100k/ngày cạn →
+// Functions 0 lượt, bảng Live traffic về 0) nên giữ lại trong lk.hitq và gửi lại ở lần mở sau. Ghi vào ngày/giờ gốc t0 (≤ 36 giờ trước),
+// không tính "đang online"; quá hạn/sai → bỏ (không dồn vào hôm nay). Trả 0 = phiên thường, −1 = bỏ, > 0 = thời điểm gốc.
+export const LATE_MAX = 36 * 3600e3;
+export const lateAt = (b, now) => { if (!b || !b.late) return 0; const t = Math.floor(+b.t0 || 0); return t > now - LATE_MAX && t <= now - 60e3 ? t : -1; };
 const NOT_ROUTE = new Set(['admin']); // trang quản trị không phải "trang của người dùng" – không ghi vào lượt xem/đang xem
 
 export async function setup(db) {
@@ -176,18 +195,20 @@ export async function onRequestPost({ request, env }) {
     await setup(env.DB);
     const now = Date.now();
     if (b.t === 's' && /^[a-z0-9]{8,32}$/i.test(b.sid || '')) {
-      let ref = cut(b.ref, 200); try { ref = ref ? new URL(ref).hostname.replace(/^www\./, '') : ''; } catch (e) { ref = ''; }
-      if (/(^|\.)lexkite\.(com|pages\.dev)$/.test(ref)) ref = '';
-      const day = dayOf(now), route = v => /^[a-z0-9-]{1,40}$/.test(v) && !NOT_ROUTE.has(v) ? v : '';
+      const ref = normRef(cut(b.ref, 200)); // nguồn gộp (google.com, bing.com…), site:<loại trang> = đi từ trang tĩnh của mình; '' = trực tiếp
+      const late = lateAt(b, now); if (late < 0) return ok();
+      const at = late || now, day = dayOf(at), route = v => /^[a-z0-9-]{1,40}$/.test(v) && !NOT_ROUTE.has(v) ? v : '';
       // Phiên mở thẳng trang quản trị (#/admin) → coi là nội bộ, đếm riêng như máy tự động
       const bot = auto || (NOT_ROUTE.has(cut(b.path, 60)) ? 'admin' : null);
       // ON CONFLICT: COALESCE(bot, ?16) – một khi đã là máy tự động thì giữ nguyên (không "hoá người" ở nhịp gửi sau)
       const sid = cut(b.sid, 32), vid = cut(b.vid, 32), country = cut(request.cf && request.cf.country, 2) || 'XX', hb = !!b.hb;
       // Analytics Engine (miễn phí, hạn mức riêng, 0 dòng D1): mọi beacon phiên → 1 điểm. Bố cục: aeHit() / docs/CAPACITY.md §Kiến trúc A2
-      aeHit(env, { sid, vid, day, country, ref, dev: cut(b.dev, 10), lang: cut(b.lang, 8), plat: cut(b.plat, 8), path: cut(b.path, 60), cur: route(cut(b.cur || b.path, 40)), bot: bot || '', kind: hb ? 'hb' : 's', dur: +b.dur || 0, pages: +b.pages || 0, ret: b.ret ? 1 : 0, lcp: +b.lcp || 0, at: now });
-      if (hb && hitMode(env) === 'hybrid') return ok(); // nhịp "đang online" 3 phút: chỉ AE (Quản trị đọc "đang online" từ AE) – D1 chỉ ghi lúc vào + lúc rời trang
-      const batch = [env.DB.prepare('INSERT INTO sessions (sid, vid, day, at, country, ref, dev, lang, plat, path, dur, pages, ret, lcp, last, last_path, bot) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?4, ?15, ?16) ON CONFLICT (sid) DO UPDATE SET dur = ?11, pages = ?12, lcp = COALESCE(lcp, ?14), last = ?4, last_path = COALESCE(?15, last_path), bot = COALESCE(bot, ?16)')
-        .bind(cut(b.sid, 32), cut(b.vid, 32), day, now, cut(request.cf && request.cf.country, 2) || 'XX', ref, cut(b.dev, 10), cut(b.lang, 8), cut(b.plat, 8), cut(b.path, 60), Math.min(Math.max(+b.dur || 0, 0), 86400), Math.min(Math.max(Math.floor(+b.pages || 1), 1), 999), b.ret ? 1 : 0, +b.lcp > 0 && +b.lcp < 60000 ? Math.round(+b.lcp) : null, route(cut(b.cur || b.path, 40)) || null, bot)];
+      if (!late) aeHit(env, { sid, vid, day, country, ref, dev: cut(b.dev, 10), lang: cut(b.lang, 8), plat: cut(b.plat, 8), path: cut(b.path, 60), cur: route(cut(b.cur || b.path, 40)), bot: bot || '', kind: hb ? 'hb' : 's', dur: +b.dur || 0, pages: +b.pages || 0, ret: b.ret ? 1 : 0, lcp: +b.lcp || 0, at: now });
+      if (hb && !late && hitMode(env) === 'hybrid') return ok(); // nhịp "đang online" 3 phút: chỉ AE (Quản trị đọc "đang online" từ AE) – D1 chỉ ghi lúc vào + lúc rời trang
+      // Gửi bù: đếm 'hit:late' 1 lần/phiên (chỉ khi sid chưa có) – chạy trước lệnh ghi phiên trong cùng lô
+      const batch = late && !bot ? [env.DB.prepare("INSERT INTO ext_events (day, kind, n) SELECT ?1, 'hit:late', 1 WHERE NOT EXISTS (SELECT 1 FROM sessions WHERE sid = ?2) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1").bind(day, sid)] : [];
+      batch.push(env.DB.prepare('INSERT INTO sessions (sid, vid, day, at, country, ref, dev, lang, plat, path, dur, pages, ret, lcp, last, last_path, bot) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?17, ?15, ?16) ON CONFLICT (sid) DO UPDATE SET dur = MAX(COALESCE(dur, 0), ?11), pages = MAX(COALESCE(pages, 0), ?12), lcp = COALESCE(lcp, ?14), last = MAX(COALESCE(last, 0), ?17), last_path = COALESCE(?15, last_path), bot = COALESCE(bot, ?16)')
+        .bind(cut(b.sid, 32), cut(b.vid, 32), day, at, cut(request.cf && request.cf.country, 2) || 'XX', ref, cut(b.dev, 10), cut(b.lang, 8), cut(b.plat, 8), cut(b.path, 60), Math.min(Math.max(+b.dur || 0, 0), 86400), Math.min(Math.max(Math.floor(+b.pages || 1), 1), 999), b.ret ? 1 : 0, +b.lcp > 0 && +b.lcp < 60000 ? Math.round(+b.lcp) : null, route(cut(b.cur || b.path, 40)) || null, bot, late ? Math.min(now, late + Math.min(Math.max(+b.dur || 0, 0), 86400) * 1000) : now));
       // Lượt xem theo trang/ngày: chỉ phần tăng thêm từ lần gửi trước (tối đa 20 trang, mỗi trang ≤ 200) – cùng 1 lượt gọi D1. Máy tự động: bỏ.
       if (!bot && !hb && b.pv && typeof b.pv === 'object') for (const [k, v] of Object.entries(b.pv).slice(0, 20)) {
         const n = Math.min(Math.floor(+v || 0), 200); if (n > 0 && route(k)) batch.push(env.DB.prepare('INSERT INTO pageviews_day (day, path, n) VALUES (?1, ?2, ?3) ON CONFLICT (day, path) DO UPDATE SET n = n + ?3').bind(day, k, n));
@@ -195,6 +216,12 @@ export async function onRequestPost({ request, env }) {
       await env.DB.batch(batch);
       // Lưu giữ: ~1/500 lượt ghi phiên dọn số liệu quá 400 ngày (Quản trị xem tối đa 365 ngày) – chính sách riêng tư "chỉ giữ khi cần"
       if (Math.random() < 0.002) await env.DB.batch([env.DB.prepare('DELETE FROM sessions WHERE day < ?').bind(dayOf(now - 400 * DAY)), /* theo chỉ mục sessions_day – at không có chỉ mục → quét cả bảng (docs/CAPACITY.md) */ env.DB.prepare('DELETE FROM pageviews_day WHERE day < ?').bind(dayOf(now - 400 * DAY))]);
+    } else if (b.t === 'l') {
+      // Khách từ ngoài vào trang tĩnh: sessions chỉ ghi app nên lượt Google vào blog/từ điển trước đây không để lại dấu. Không lưu URL/IP/vid; 1 dòng ghi/lượt, số dòng/ngày theo lượng khách thật.
+      if (env.HIT_LAND === '0' || devOrigin(request)) return ok();
+      const kind = landKey(b, request.cf && request.cf.country); if (!kind) return ok();
+      if (await limit('hl:' + await sha('ip|' + (request.headers.get('CF-Connecting-IP') || '?')), 30, 3600)) return ok();
+      await env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(dayOf(now), kind).run();
     } else if (b.t === 'q' && (QUIZ_EV.includes(b.ev) || CTA_EV.includes(b.ev) || SMART_CTA_EV.includes(b.ev) || RET_EV.includes(b.ev) || UX1_EV.includes(b.ev))) {
       if (await limit('hq:' + await sha('ip|' + (request.headers.get('CF-Connecting-IP') || '?')), 60, 3600)) return ok();
       const today = dayOf(now);
@@ -234,6 +261,11 @@ export async function onRequestPost({ request, env }) {
       if (rows.length) await env.DB.batch(rows.map(([kind, n]) => env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, ?3) ON CONFLICT (day, kind) DO UPDATE SET n = n + ?3').bind(day, kind, n)));
       // Cổng giữ chân: tối đa 1 lần/giờ/trung tâm dữ liệu, chỉ đọc khoảng ngày (SEARCH theo PK) – không quét bảng
       if (!(await limit('ads-guard', 1, 3600))) await adsGuard(env.DB, now).catch(() => {});
+    } else if (b.t === 'vo' && !automation(request) && !devOrigin(request)) {
+      // 🔊 Nguồn giọng (web/js/audio.js flushVo): 1 beacon/lần ẩn tab – giám sát tỷ lệ rơi về giọng máy (Quản trị + health)
+      if (await limit('hvo:' + await sha('ip|' + (request.headers.get('CF-Connecting-IP') || '?')), 30, 3600)) return ok();
+      const rows = voRows(b);
+      if (rows.length) await env.DB.batch(rows.map(([kind, n]) => env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, ?3) ON CONFLICT (day, kind) DO UPDATE SET n = n + ?3').bind(dayOf(now), kind, n)));
     } else if (b.t === 'e' && b.msg && !devOrigin(request)) {
       const msg = cut(b.msg, 300), src = cut(b.src, 200) + (b.line ? ':' + (+b.line || 0) : '');
       await env.DB.prepare('INSERT INTO errors (h, msg, src, path, ver, n, first, last) VALUES (?1, ?2, ?3, ?4, ?5, 1, ?6, ?6) ON CONFLICT (h) DO UPDATE SET n = n + 1, last = ?6, path = ?4, ver = ?5')

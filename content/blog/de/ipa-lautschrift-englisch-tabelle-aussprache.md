@@ -33,6 +33,7 @@ quiz: [
     explain: "Das Schwa /ə/ ist der zentrale Reduktionsvokal im Englischen, der nur in unbetonten Silben artikuliert wird und maßgeblich für den englischen Sprachrhythmus ist."
   }
 ]
+publishAt: 2026-11-23T12:10:00+01:00
 ---
 Viele Deutschsprachige kennen dieses Phänomen: Sie lesen englische Fachtexte mühelos, doch sobald sie ein Fachgespräch führen oder eine Präsentation halten, schleichen sich Unsicherheiten ein. Klingt das Wort *comfortable* wie *com-for-ta-ble*? Warum klingen *cough, tough, through* und *thorough* trotz gleicher Buchstabenfolge völlig unterschiedlich?
 

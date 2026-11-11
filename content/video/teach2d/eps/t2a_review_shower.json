@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_shower",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: shower.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means the cleaning of a body by standing under falling water.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I usually have a shower in the morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "shower",
+  "ipa": "/ˈʃaʊər/",
+  "mean": "the cleaning of a body by standing under falling water",
+  "ex": "I usually have a shower in the morning.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=shower",
+  "link": "https://lexkite.com/app/#/review?w=shower",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.2,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"shower\" mean?",
+  "keyword": "shower",
+  "value": "Shower means the cleaning of a body by standing under falling water.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=shower",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"shower\" mean?",
+    "description": "Shower means the cleaning of a body by standing under falling water.\n\nReview your words, free: https://lexkite.com/app/#/review?w=shower\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "shower",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"shower\" mean?\n\nShower means the cleaning of a body by standing under falling water.\n\nReview your words, free: https://lexkite.com/app/#/review?w=shower"
+   },
+   "instagram": {
+    "caption": "What does \"shower\" mean?\n\nShower means the cleaning of a body by standing under falling water.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"shower\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means the cleaning of a body by standing under falling water. Shower means the cleaning of a body by standing under falling water. Try the full lesson and quiz here: {link}"
+ }
+}

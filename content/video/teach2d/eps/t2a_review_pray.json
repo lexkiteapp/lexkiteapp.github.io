@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_pray",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: pray.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to wish or hope for something to happen or be true.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Many people go to the temple to pray for good luck.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "pray",
+  "ipa": "/preɪ/",
+  "mean": "to wish or hope for something to happen or be true",
+  "ex": "Many people go to the temple to pray for good luck.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=pray",
+  "link": "https://lexkite.com/app/#/review?w=pray",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 49,
+  "seconds": 29.1,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "What does \"pray\" mean?",
+  "keyword": "pray",
+  "value": "Pray means to wish or hope for something to happen or be true.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=pray",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"pray\" mean?",
+    "description": "Pray means to wish or hope for something to happen or be true.\n\nReview your words, free: https://lexkite.com/app/#/review?w=pray\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "pray",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"pray\" mean?\n\nPray means to wish or hope for something to happen or be true.\n\nReview your words, free: https://lexkite.com/app/#/review?w=pray"
+   },
+   "instagram": {
+    "caption": "What does \"pray\" mean?\n\nPray means to wish or hope for something to happen or be true.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"pray\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to wish or hope for something to happen or be true. Pray means to wish or hope for something to happen or be true. More practice like this (free): {link}"
+ }
+}

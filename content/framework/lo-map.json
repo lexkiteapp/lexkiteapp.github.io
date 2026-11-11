@@ -1,0 +1,1404 @@
+{
+  "_doc": "Gắn mục tiêu LKF (`lo`) cho nội dung hiện có – nguồn duy nhất, tách khỏi file dữ liệu để không đụng web/js (P0-C, docs/CONTENT-WORLD-PLAN.md). items.<nhóm>.<khoá mục> = id mục tiêu trong lkf.json (chuỗi hoặc mảng). Ngữ pháp/cuộc gọi/roleplay/truyện gắn tay; nhóm khác gợi ý tầng 0 bằng `node scripts/content-qa/lkf-check.mjs --suggest` rồi rà tay (gắn tay luôn thắng). vocab = luật theo cấp CEFR của từ#loại. Cổng: lkf-check (lo tồn tại, lệch cấp ≤ 1 bậc, độ phủ ≥ 95 %).",
+  "vocab": {
+    "A1": "R.A1.11",
+    "A2": "R.A2.07",
+    "B1": "R.B1.11",
+    "B2": "R.B2.11",
+    "C1": "R.C1.17",
+    "C2": "R.C2.17"
+  },
+  "items": {
+    "grammar": {
+      "present-simple-a1": [
+        "S.A1.05",
+        "W.A1.11"
+      ],
+      "do-does-a1": [
+        "I.A1.02",
+        "L.A1.05"
+      ],
+      "pronouns-a1": [
+        "S.A1.02",
+        "W.A1.04"
+      ],
+      "this-that-possessive-a1": [
+        "S.A1.13",
+        "W.A1.06"
+      ],
+      "have-got-there-is": [
+        "S.A1.04",
+        "S.A1.02"
+      ],
+      "can-a1": [
+        "S.A1.08",
+        "I.A1.13"
+      ],
+      "imperatives-lets-a1": [
+        "L.A1.03",
+        "I.A1.07"
+      ],
+      "wh-questions-a1": [
+        "I.A1.08",
+        "I.A1.04"
+      ],
+      "now-and-next-a1": [
+        "W.A1.03",
+        "I.A1.14"
+      ],
+      "past-basics-a1": [
+        "W.A1.03",
+        "W.A1.07"
+      ],
+      "the-some-any-a1": [
+        "W.A1.05",
+        "I.A1.03"
+      ],
+      "would-like-a1": [
+        "I.A1.03",
+        "S.A1.03"
+      ],
+      "inversion-range-c2": [
+        "W.C2.01",
+        "W.C2.02"
+      ],
+      "information-packaging-c2": [
+        "S.C2.01",
+        "W.C2.01"
+      ],
+      "subjunctive-formal-c2": [
+        "W.C2.14",
+        "W.C2.15"
+      ],
+      "conditionals-nuance-c2": [
+        "S.C2.02",
+        "W.C2.07"
+      ],
+      "ellipsis-substitution-c2": [
+        "R.C2.06",
+        "I.C2.01"
+      ],
+      "hedging-distance-c2": [
+        "S.C2.02",
+        "W.C2.07"
+      ],
+      "stance-irony-c2": [
+        "S.C2.03",
+        "W.C2.03"
+      ],
+      "nominal-style-c2": [
+        "W.C2.12",
+        "W.C2.16"
+      ],
+      "discourse-register-c2": [
+        "W.C2.08",
+        "S.C2.07"
+      ],
+      "modal-aspect-c2": [
+        "S.C2.02",
+        "L.C2.07"
+      ],
+      "be-am-is-are": [
+        "S.A1.01",
+        "I.A1.02"
+      ],
+      "a-an-plurals": [
+        "W.A1.05",
+        "I.A1.04"
+      ],
+      "prepositions-time-place-basic": [
+        "I.A1.07",
+        "W.A1.02"
+      ],
+      "present-simple": "S.A2.01",
+      "present-continuous": "S.A2.05",
+      "present-perfect": "S.B1.05",
+      "present-perfect-continuous": "I.B1.01",
+      "past-simple": "S.A2.02",
+      "past-continuous": "S.B1.01",
+      "past-perfect": "W.B1.03",
+      "past-perfect-continuous": "W.B2.04",
+      "future-forms": "W.A2p.03",
+      "future-continuous-perfect": "S.B2p.02",
+      "used-to-would": "S.A2p.03",
+      "stative-dynamic": "S.B1.06",
+      "tenses-ielts": "W.B2.06",
+      "modals-ability-permission": "S.A1.08",
+      "modals-obligation-advice": "W.B1.04",
+      "modals-deduction": "S.B1p.02",
+      "passive-voice": "M.B1.08",
+      "passive-reporting-causative": "W.B2p.04",
+      "conditionals-0-1": "I.A2.01",
+      "conditionals-2-3": "S.B2p.02",
+      "mixed-conditionals-wish": "W.B1p.01",
+      "reported-speech": "M.B1.03",
+      "gerund-infinitive": "S.B1.02",
+      "articles": "W.A2.02",
+      "countable-uncountable": "I.A1.04",
+      "adjectives-adverbs": "S.A1.07",
+      "comparatives-superlatives": "S.A2.04",
+      "prepositions": "S.A2.07",
+      "subject-verb-agreement": "W.B1.01",
+      "relative-clauses": "S.B1.06",
+      "noun-clauses": "W.B2.05",
+      "adverbial-clauses": "W.B1.06",
+      "complex-sentences": "W.B2.05",
+      "inversion-cleft": "W.C1.06",
+      "parts-of-speech-patterns": "W.A1.04",
+      "word-formation": "R.B1p.02",
+      "pronouns": "W.A2.01",
+      "determiners": "W.B1.01",
+      "there-is-empty-it": "S.A1.04",
+      "questions": "I.A2p.01",
+      "question-tags-short-answers": "I.B1.01",
+      "imperatives-suggestions": "I.A2.01",
+      "numbers-data-language": "S.B1p.06",
+      "ing-ed-adjectives-prepositions": "I.B1.03",
+      "so-such-too-enough": "S.B1.05",
+      "adverbs-position": "W.B2.04",
+      "participle-clauses": "W.B2.07",
+      "subjunctive": "W.C1.15",
+      "preference-advice": "I.B2.03",
+      "phrasal-verbs-grammar": "R.B2.11",
+      "dependent-prepositions": "R.B2.11",
+      "reference-substitution": "W.B2.07",
+      "hedging": "W.C1.06",
+      "nominalisation": "W.C1.11",
+      "parallel-structure": "W.B2.05",
+      "punctuation": "W.B2.07",
+      "future-in-past": "S.B2p.01",
+      "alternatives-to-if": "W.C1.10",
+      "emphasis-variety": "S.C1.03",
+      "sequence-of-tenses": "W.B1.03",
+      "quantity-advanced": "W.B2.06",
+      "paraphrase-structures": "W.B2.08",
+      "paraphrase-ielts": "W.B2.08",
+      "nouns": "R.B1.11",
+      "verb-types": "W.B1.01",
+      "conjunctions": "W.B1.01",
+      "reported-advanced": "M.B2.01",
+      "sentence-types": "W.B1p.03",
+      "noun-plurals": "W.A2.02",
+      "possessive-case": "W.A2.01",
+      "adjectives-special": "W.B2.04",
+      "comparison-special": "S.B2.04",
+      "ed-s-endings": [
+        "S.A1.11",
+        "W.A1.11"
+      ],
+      "purpose-result": "W.B2.05",
+      "reason-contrast": "W.B2p.03",
+      "as-if-unreal-past": "S.B2p.02",
+      "idioms-style": "S.C1.07"
+    },
+    "story": {
+      "s-cafe": "I.A1.03",
+      "s-airport": "I.A2.03",
+      "s-neighbor": "I.A1.01",
+      "r-weekend": "L.A1.11",
+      "r-morning": "L.A2p.01"
+    },
+    "situation": {
+      "cafe": [
+        "I.A1.03",
+        "I.A2.06"
+      ],
+      "lost-luggage": [
+        "I.B1.05",
+        "I.B1.02"
+      ],
+      "ask-directions": [
+        "I.A2.02",
+        "I.A1.05"
+      ],
+      "police-report": [
+        "I.B1.02",
+        "I.B1p.01"
+      ],
+      "flat-viewing": [
+        "I.B1.10",
+        "I.B1p.03"
+      ],
+      "landlord-repair": [
+        "I.B1.05",
+        "I.B1p.01"
+      ],
+      "gym-signup": [
+        "I.A2.09",
+        "I.A2p.06"
+      ],
+      "cinema-tickets": [
+        "I.A2.03",
+        "I.A2p.06"
+      ],
+      "party-invite": [
+        "I.A2.01",
+        "I.A2p.04"
+      ],
+      "noisy-neighbour": [
+        "I.B1p.01",
+        "I.B1.05"
+      ],
+      "shop-return": [
+        "I.B1.05",
+        "I.A2.06"
+      ],
+      "phone-plan": [
+        "I.B1.10",
+        "I.A2.03"
+      ],
+      "emergency-room": [
+        "I.A2.06",
+        "I.B1.02"
+      ],
+      "tour-booking": [
+        "I.B1.02",
+        "I.B2.03"
+      ],
+      "bus-ticket": [
+        "I.A1.09",
+        "I.A2.03"
+      ],
+      "train-station": [
+        "I.A2.03",
+        "I.A1.09"
+      ],
+      "airport-checkin": [
+        "I.B1.05",
+        "I.A2.06"
+      ],
+      "car-rental": [
+        "I.B1.05",
+        "I.B1p.01"
+      ],
+      "laundry": [
+        "I.A2.03",
+        "I.A2.06"
+      ],
+      "supermarket": [
+        "I.A1.04",
+        "I.A2.03"
+      ],
+      "pharmacy": [
+        "I.A2p.03",
+        "I.A2.06"
+      ],
+      "bank": [
+        "I.B1.05",
+        "I.B1p.01"
+      ],
+      "post-office": [
+        "I.A2.03",
+        "I.A1.04"
+      ],
+      "hairdresser": [
+        "I.A2.03",
+        "I.A2.06"
+      ],
+      "dentist": [
+        "I.A2p.03",
+        "I.B1p.01"
+      ],
+      "restaurant-order": [
+        "I.A1.03",
+        "I.A2.06"
+      ],
+      "taxi": [
+        "I.A1.09",
+        "I.A2.03"
+      ],
+      "job-interview": [
+        "I.B1p.06",
+        "I.B2.10"
+      ],
+      "team-meeting": [
+        "I.B1.09",
+        "I.B2.08"
+      ],
+      "deadline-extension": [
+        "I.B2p.05",
+        "I.B1p.05"
+      ],
+      "it-helpdesk": [
+        "I.B1p.05",
+        "I.B1.10"
+      ],
+      "office-intro": [
+        "I.B1.01",
+        "I.B1p.05"
+      ],
+      "library": [
+        "I.B1.06",
+        "L.B1.08"
+      ],
+      "university-enrol": [
+        "L.B1.03",
+        "I.B1.02"
+      ],
+      "office-hours": [
+        "I.B2.07",
+        "I.B2.04"
+      ],
+      "group-project": [
+        "I.B1.07",
+        "I.B2p.03"
+      ],
+      "presentation-qa": [
+        "S.B2.09",
+        "I.B2.07"
+      ],
+      "client-complaint": [
+        "I.B2.09",
+        "I.B1.05"
+      ],
+      "salary-talk": [
+        "I.B2p.05",
+        "I.B2.03"
+      ],
+      "video-call-tech": [
+        "I.B1.10",
+        "I.B1.09"
+      ]
+    },
+    "call": {
+      "coffee": "I.A2.01",
+      "weekend": "I.A2.05",
+      "first-day": "I.A2.10",
+      "standup": "S.B1.10",
+      "doctor": "I.A2.09",
+      "apartment": "I.B2.04",
+      "ielts-p1-home": "I.B1p.04",
+      "ielts-p2-place": "S.B1.03",
+      "ielts-p3-tech": "S.B2.08",
+      "toeic-reschedule": "I.B1.10",
+      "bakery": "I.A2.03",
+      "hobbies": "S.A1.05",
+      "family-intro": "S.A1.02",
+      "favorite-food": "S.A2.06",
+      "trip-plan": "I.A2.07",
+      "movie-review": "S.B1.01",
+      "morning-routine": "S.A2.01",
+      "learning-english": "S.B1.04",
+      "weather-seasons": "S.A1.09",
+      "online-shopping": "S.B1p.05",
+      "new-year-goals": "S.B1.02",
+      "childhood-memory": "S.B1.05",
+      "dream-job": "S.B2.01",
+      "ask-directions": "I.A1.08",
+      "buy-ticket": "I.A1.09",
+      "hotel-checkin": "I.A2.04",
+      "pharmacy-help": "I.A2p.03",
+      "restaurant-problem": "I.A2.06",
+      "late-apology": "I.A2p.04",
+      "missed-flight": "I.B1.02",
+      "share-costs": "I.B1p.03",
+      "job-interview": "I.B1p.06",
+      "faulty-purchase": "I.B2.03",
+      "team-proposal": "I.B2.08",
+      "bad-news": "I.C1.04"
+    },
+    "roleplay": {
+      "manager": "I.B2.08",
+      "dev-interview": "I.B2.10",
+      "marketing-interview": "I.B2.10",
+      "salary": "I.B2p.05",
+      "delay": "I.B2.09",
+      "client-call": "I.B1.10",
+      "complaint": "I.B2.09",
+      "presentation": "S.B2.09",
+      "small-talk": "I.B2.04",
+      "leave": "I.B1.09",
+      "neighbour": [
+        "I.A1.01",
+        "I.A2p.01"
+      ],
+      "cafe": [
+        "I.A1.03",
+        "I.A2.06"
+      ],
+      "shop": "I.A2.03",
+      "directions": "I.A2.02",
+      "hotel": "I.A2.04",
+      "doctor": "I.A2p.03",
+      "phone-booking": "I.A2.09",
+      "vet-visit": "I.A2.06",
+      "internet-down": "I.B1.10",
+      "market-bargain": "I.B1p.03",
+      "flatmate-chat": "I.B1.03",
+      "parent-teacher": "I.B2.04",
+      "insurance-claim": "I.B1p.05",
+      "car-repair": "I.B1.02",
+      "visa-interview": "I.B2.10",
+      "apologise-late": "I.B1.03",
+      "colleague-feedback": "I.B1p.01",
+      "invite-out": "I.A2.01",
+      "reschedule-meeting": "I.B1.09",
+      "course-enquiry": "I.A2.05",
+      "polite-decline": "I.B2.04"
+    },
+    "reading": {
+      "urban-farming": "R.B1.01",
+      "four-day-week": "R.B2.01",
+      "ocean-microplastics": "R.B2.01",
+      "sleep-memory": "R.B1.01",
+      "language-extinction": "R.C1.06",
+      "space-debris": "R.C1.06",
+      "advertising-children": "R.B2.01",
+      "ev-power-grid": "R.B2.01",
+      "digital-museums": "R.B1.01",
+      "ageing-healthcare": "R.C1.06",
+      "food-waste": "R.A2p.02",
+      "citizen-science": "R.A2p.02",
+      "remote-work": "R.B1.01",
+      "minimalism": "R.B1.01",
+      "fast-fashion": "R.B1.01",
+      "gig-economy": "R.B2.01",
+      "coral-restoration": "R.B2.01",
+      "sports-psychology": "R.B2.01",
+      "water-scarcity": "R.B2.01",
+      "smart-cities": "R.B2.01",
+      "bilingual-brains": "R.B2.01",
+      "volcano-monitoring": "R.B2.01",
+      "overtourism": "R.B2.01",
+      "ai-medicine": "R.C1.06",
+      "silk-road": "R.C1.06",
+      "attention-economy": "R.C1.06",
+      "rewilding": "R.C1.06",
+      "placebo-effect": "R.C1.06",
+      "basic-income": "R.C1.06",
+      "antibiotic-resistance": "R.C1.06",
+      "school-gardens": "R.A2p.02",
+      "libraries-today": "R.A2p.02",
+      "daily-walk": "R.A2p.02",
+      "street-food": "R.A2p.02",
+      "teen-sleep": "R.B1.01",
+      "night-markets": "R.B1.01",
+      "learning-apps": "R.B1.01",
+      "first-job": "R.A2p.02",
+      "home-recycling": "R.A2p.02",
+      "learning-to-swim": "R.A2p.02",
+      "volunteering": "R.B1.01",
+      "why-we-dream": "R.B1.01",
+      "farmers-market": "R.A2p.02",
+      "bank-account": "R.A2p.02",
+      "taking-the-bus": "R.A2p.02",
+      "new-neighbors": "R.A2p.02",
+      "tipping-us": "R.B1.01",
+      "interview-prep": "R.B1.01",
+      "learning-to-cook": "R.B1.01",
+      "cafe-offices": "R.B1.01",
+      "cost-of-a-car": "R.B2.01",
+      "habits-stick": "R.B2.01",
+      "procrastination": "R.B2.01",
+      "free-shipping": "R.C1.06",
+      "noise-pollution": "R.C1.06",
+      "history-of-weekend": "R.C1.06",
+      "decision-fatigue": "R.C1.06"
+    },
+    "ielts-reading": {
+      "gt1": [
+        "R.B1p.05",
+        "R.B1.04"
+      ],
+      "gt2": [
+        "R.B1p.05",
+        "R.B1.04"
+      ],
+      "gt3": [
+        "R.B1p.05",
+        "R.B1.04"
+      ],
+      "gt4": [
+        "R.B1p.05",
+        "R.B1.04"
+      ],
+      "gt5": [
+        "R.B1p.05",
+        "R.B1.04"
+      ],
+      "rt1": [
+        "R.B2.05",
+        "R.B2.06",
+        "R.B2.07"
+      ],
+      "rt10": [
+        "R.B2.05",
+        "R.B2.06",
+        "R.B2.07"
+      ],
+      "rt2": [
+        "R.B2.05",
+        "R.B2.06",
+        "R.B2.07"
+      ],
+      "rt3": [
+        "R.B2.05",
+        "R.B2.06",
+        "R.B2.07"
+      ],
+      "rt4": [
+        "R.B2.05",
+        "R.B2.06",
+        "R.B2.07"
+      ],
+      "rt5": [
+        "R.B2.05",
+        "R.B2.06",
+        "R.B2.07"
+      ],
+      "rt6": [
+        "R.B2.05",
+        "R.B2.06",
+        "R.B2.07"
+      ],
+      "rt7": [
+        "R.B2.05",
+        "R.B2.06",
+        "R.B2.07"
+      ],
+      "rt8": [
+        "R.B2.05",
+        "R.B2.06",
+        "R.B2.07"
+      ],
+      "rt9": [
+        "R.B2.05",
+        "R.B2.06",
+        "R.B2.07"
+      ]
+    },
+    "ielts-listening": {
+      "t1p1": "L.B1.03",
+      "t1p2": "L.B1p.04",
+      "t1p3": "L.B2.06",
+      "t1p4": [
+        "L.B2.05",
+        "L.B2p.03"
+      ],
+      "t10p1": "L.B1.03",
+      "t10p2": "L.B1p.04",
+      "t10p3": "L.B2.06",
+      "t10p4": [
+        "L.B2.05",
+        "L.B2p.03"
+      ],
+      "t2p1": "L.B1.03",
+      "t2p2": "L.B1p.04",
+      "t2p3": "L.B2.06",
+      "t2p4": [
+        "L.B2.05",
+        "L.B2p.03"
+      ],
+      "t3p1": "L.B1.03",
+      "t3p2": "L.B1p.04",
+      "t3p3": "L.B2.06",
+      "t3p4": [
+        "L.B2.05",
+        "L.B2p.03"
+      ],
+      "t4p1": "L.B1.03",
+      "t4p2": "L.B1p.04",
+      "t4p3": "L.B2.06",
+      "t4p4": [
+        "L.B2.05",
+        "L.B2p.03"
+      ],
+      "t5p1": "L.B1.03",
+      "t5p2": "L.B1p.04",
+      "t5p3": "L.B2.06",
+      "t5p4": [
+        "L.B2.05",
+        "L.B2p.03"
+      ],
+      "t6p1": "L.B1.03",
+      "t6p2": "L.B1p.04",
+      "t6p3": "L.B2.06",
+      "t6p4": [
+        "L.B2.05",
+        "L.B2p.03"
+      ],
+      "t7p1": "L.B1.03",
+      "t7p2": "L.B1p.04",
+      "t7p3": "L.B2.06",
+      "t7p4": [
+        "L.B2.05",
+        "L.B2p.03"
+      ],
+      "t8p1": "L.B1.03",
+      "t8p2": "L.B1p.04",
+      "t8p3": "L.B2.06",
+      "t8p4": [
+        "L.B2.05",
+        "L.B2p.03"
+      ],
+      "t9p1": "L.B1.03",
+      "t9p2": "L.B1p.04",
+      "t9p3": "L.B2.06",
+      "t9p4": [
+        "L.B2.05",
+        "L.B2p.03"
+      ]
+    },
+    "toeic-reading": {
+      "tr1/p5": "R.B1.09",
+      "tr1/p6": "R.B1p.05",
+      "tr1/p7": [
+        "R.B1.04",
+        "R.B1p.06"
+      ],
+      "tr2/p5": "R.B1.09",
+      "tr2/p6": "R.B1p.05",
+      "tr2/p7": [
+        "R.B1.04",
+        "R.B1p.06"
+      ],
+      "tr3/p5": "R.B1.09",
+      "tr3/p6": "R.B1p.05",
+      "tr3/p7": [
+        "R.B1.04",
+        "R.B1p.06"
+      ],
+      "tr4/p5": "R.B1.09",
+      "tr4/p6": "R.B1p.05",
+      "tr4/p7": [
+        "R.B1.04",
+        "R.B1p.06"
+      ],
+      "tr5/p5": "R.B1.09",
+      "tr5/p6": "R.B1p.05",
+      "tr5/p7": [
+        "R.B1.04",
+        "R.B1p.06"
+      ],
+      "tr6/p5": "R.B1.09",
+      "tr6/p6": "R.B1p.05",
+      "tr6/p7": [
+        "R.B1.04",
+        "R.B1p.06"
+      ],
+      "tr7/p5": "R.B1.09",
+      "tr7/p6": "R.B1p.05",
+      "tr7/p7": [
+        "R.B1.04",
+        "R.B1p.06"
+      ]
+    },
+    "toeic-listening": {
+      "tl1p1": "L.B1.11",
+      "tl1p2": "L.B1.12",
+      "tl1p3": "L.B1.09",
+      "tl1p4": "L.B1p.05",
+      "tl2p1": "L.B1.11",
+      "tl2p2": "L.B1.12",
+      "tl2p3": "L.B1.09",
+      "tl2p4": "L.B1p.05",
+      "tl3p1": "L.B1.11",
+      "tl3p2": "L.B1.12",
+      "tl3p3": "L.B1.09",
+      "tl3p4": "L.B1p.05",
+      "tl4p1": "L.B1.11",
+      "tl4p2": "L.B1.12",
+      "tl4p3": "L.B1.09",
+      "tl4p4": "L.B1p.05",
+      "tl5p1": "L.B1.11",
+      "tl5p2": "L.B1.12",
+      "tl5p3": "L.B1.09",
+      "tl5p4": "L.B1p.05",
+      "tl6p1": "L.B1.11",
+      "tl6p2": "L.B1.12",
+      "tl6p3": "L.B1.09",
+      "tl6p4": "L.B1p.05",
+      "tl7p1": "L.B1.11",
+      "tl7p2": "L.B1.12",
+      "tl7p3": "L.B1.09",
+      "tl7p4": "L.B1p.05"
+    },
+    "toeic-sw": {
+      "tsw-rd1": "S.B1.11",
+      "tsw-rd2": "S.B1.11",
+      "tsw-rd3": "S.B1.11",
+      "tsw-rd4": "S.B1.11",
+      "tsw-rq1": "I.B1.08",
+      "tsw-rq2": "I.B1.08",
+      "tsw-rq3": "I.B1.08",
+      "tsw-in1": "I.B1p.05",
+      "tsw-in2": "I.B1p.05",
+      "tsw-in3": "I.B1p.05",
+      "tsw-op1": "S.B1.04",
+      "tsw-op2": "S.B1.04",
+      "tsw-op3": "S.B1.04",
+      "tsw-op4": "S.B1.04",
+      "tsw-rd5": "S.B1.11",
+      "tsw-rd6": "S.B1.11",
+      "tsw-rd7": "S.B1.11",
+      "tsw-rd8": "S.B1.11",
+      "tsw-rq4": "I.B1.08",
+      "tsw-rq5": "I.B1.08",
+      "tsw-rq6": "I.B1.08",
+      "tsw-in4": "I.B1p.05",
+      "tsw-in5": "I.B1p.05",
+      "tsw-in6": "I.B1p.05",
+      "tsw-op5": "S.B1.04",
+      "tsw-op6": "S.B1.04",
+      "tsw-op7": "S.B1.04",
+      "tsw-op8": "S.B1.04",
+      "tsw-rd9": "S.B1.11",
+      "tsw-rd10": "S.B1.11",
+      "tsw-rd11": "S.B1.11",
+      "tsw-rd12": "S.B1.11",
+      "tsw-rq7": "I.B1.08",
+      "tsw-rq8": "I.B1.08",
+      "tsw-rq9": "I.B1.08",
+      "tsw-in7": "I.B1p.05",
+      "tsw-in8": "I.B1p.05",
+      "tsw-in9": "I.B1p.05",
+      "tsw-op9": "S.B1.04",
+      "tsw-op10": "S.B1.04",
+      "tsw-op11": "S.B1.04",
+      "tsw-op12": "S.B1.04",
+      "tsw-wr1": "W.B1.09",
+      "tsw-wr2": "W.B1.09",
+      "tsw-wr3": "W.B1.09",
+      "tsw-es1": "W.B1p.03",
+      "tsw-es2": "W.B1p.03",
+      "tsw-es3": "W.B1p.03",
+      "tsw-wr4": "W.B1.09",
+      "tsw-wr5": "W.B1.09",
+      "tsw-wr6": "W.B1.09",
+      "tsw-es4": "W.B1p.03",
+      "tsw-es5": "W.B1p.03",
+      "tsw-es6": "W.B1p.03",
+      "tsw-wr7": "W.B1.09",
+      "tsw-wr8": "W.B1.09",
+      "tsw-wr9": "W.B1.09",
+      "tsw-es7": "W.B1p.03",
+      "tsw-es8": "W.B1p.03",
+      "tsw-es9": "W.B1p.03"
+    },
+    "toefl": {
+      "tf1-cw1": "R.B1p.02",
+      "tf1-cw2": "R.B1p.02",
+      "tf1-dl1": "R.B1.05",
+      "tf1-dl2": "R.B1.05",
+      "tf1-dl3": "R.B1.05",
+      "tf1-dl4": "R.B1.05",
+      "tf1-ap1": "R.B2.05",
+      "tf1-ap2": "R.B2.05",
+      "tf2-cw1": "R.B1p.02",
+      "tf2-cw2": "R.B1p.02",
+      "tf2-dl1": "R.B1.05",
+      "tf2-dl2": "R.B1.05",
+      "tf2-dl3": "R.B1.05",
+      "tf2-dl4": "R.B1.05",
+      "tf2-ap1": "R.B2.05",
+      "tf2-ap2": "R.B2.05",
+      "tf3-cw1": "R.B1p.02",
+      "tf3-cw2": "R.B1p.02",
+      "tf3-dl1": "R.B1.05",
+      "tf3-dl2": "R.B1.05",
+      "tf3-dl3": "R.B1.05",
+      "tf3-dl4": "R.B1.05",
+      "tf3-ap1": "R.B2.05",
+      "tf3-ap2": "R.B2.05",
+      "tf4-cw1": "R.B1p.02",
+      "tf4-cw2": "R.B1p.02",
+      "tf4-dl1": "R.B1.05",
+      "tf4-dl2": "R.B1.05",
+      "tf4-dl3": "R.B1.05",
+      "tf4-dl4": "R.B1.05",
+      "tf4-ap1": "R.B2.05",
+      "tf4-ap2": "R.B2.05",
+      "tf5-cw1": "R.B1p.02",
+      "tf5-cw2": "R.B1p.02",
+      "tf5-ap1": "R.B2.05",
+      "tf5-ap2": "R.B2.05",
+      "tf1-lr": "L.B1.12",
+      "tf1-lc1": "L.B1.09",
+      "tf1-lc2": "L.B1.09",
+      "tf1-la1": "L.B1p.05",
+      "tf1-la2": "L.B1p.05",
+      "tf1-lt1": "L.B2.05",
+      "tf1-lt2": "L.B2.05",
+      "tf2-lr": "L.B1.12",
+      "tf2-lc1": "L.B1.09",
+      "tf2-lc2": "L.B1.09",
+      "tf2-la1": "L.B1p.05",
+      "tf2-la2": "L.B1p.05",
+      "tf2-lt1": "L.B2.05",
+      "tf2-lt2": "L.B2.05",
+      "tf3-lr": "L.B1.12",
+      "tf3-lc1": "L.B1.09",
+      "tf3-lc2": "L.B1.09",
+      "tf3-la1": "L.B1p.05",
+      "tf3-la2": "L.B1p.05",
+      "tf3-lt1": "L.B2.05",
+      "tf3-lt2": "L.B2.05",
+      "tf4-lr": "L.B1.12",
+      "tf4-lc1": "L.B1.09",
+      "tf4-lc2": "L.B1.09",
+      "tf4-la1": "L.B1p.05",
+      "tf4-la2": "L.B1p.05",
+      "tf4-lt1": "L.B2.05",
+      "tf4-lt2": "L.B2.05",
+      "tf5-lr": "L.B1.12",
+      "tf5-lc1": "L.B1.09",
+      "tf5-lc2": "L.B1.09",
+      "tf5-la1": "L.B1p.05",
+      "tf5-la2": "L.B1p.05",
+      "tf5-lt1": "L.B2.05",
+      "tf5-lt2": "L.B2.05",
+      "tf6-lr": "L.B1.12",
+      "tf6-lc1": "L.B1.09",
+      "tf6-lc2": "L.B1.09",
+      "tf6-lc3": "L.B1.09",
+      "tf6-la1": "L.B1p.05",
+      "tf6-la2": "L.B1p.05",
+      "tf6-la3": "L.B1p.05",
+      "tf6-lt1": "L.B2.05",
+      "tf6-lt2": "L.B2.05",
+      "tf1-bs": "W.B1.01",
+      "tf1-em1": "W.B1.05",
+      "tf1-em2": "W.B1.05",
+      "tf1-ad1": "W.B1p.03",
+      "tf1-ad2": "W.B1p.03",
+      "tf2-bs": "W.B1.01",
+      "tf2-em1": "W.B1.05",
+      "tf2-em2": "W.B1.05",
+      "tf2-ad1": "W.B1p.03",
+      "tf2-ad2": "W.B1p.03",
+      "tf3-bs": "W.B1.01",
+      "tf3-em1": "W.B1.05",
+      "tf3-em2": "W.B1.05",
+      "tf3-ad1": "W.B1p.03",
+      "tf3-ad2": "W.B1p.03",
+      "tf4-bs": "W.B1.01",
+      "tf4-em1": "W.B1.05",
+      "tf4-em2": "W.B1.05",
+      "tf4-ad1": "W.B1p.03",
+      "tf4-ad2": "W.B1p.03",
+      "tf5-bs": "W.B1.01",
+      "tf5-em1": "W.B1.05",
+      "tf5-em2": "W.B1.05",
+      "tf5-em3": "W.B1.05",
+      "tf5-em4": "W.B1.05",
+      "tf5-em5": "W.B1.05",
+      "tf5-em6": "W.B1.05",
+      "tf5-ad1": "W.B1p.03",
+      "tf5-ad2": "W.B1p.03",
+      "tf5-ad3": "W.B1p.03",
+      "tf5-ad4": "W.B1p.03",
+      "tf5-ad5": "W.B1p.03",
+      "tf5-ad6": "W.B1p.03",
+      "tf6-bs": "W.B1.01",
+      "tf6-em1": "W.B1.05",
+      "tf6-em2": "W.B1.05",
+      "tf6-em3": "W.B1.05",
+      "tf6-em4": "W.B1.05",
+      "tf6-em5": "W.B1.05",
+      "tf6-em6": "W.B1.05",
+      "tf6-ad1": "W.B1p.03",
+      "tf6-ad2": "W.B1p.03",
+      "tf6-ad3": "W.B1p.03",
+      "tf6-ad4": "W.B1p.03",
+      "tf6-ad5": "W.B1p.03",
+      "tf6-ad6": "W.B1p.03",
+      "tf6-em7": "W.B1.05",
+      "tf6-em8": "W.B1.05",
+      "tf6-ad7": "W.B1p.03",
+      "tf6-ad8": "W.B1p.03",
+      "tf1-rp1": "S.B1.12",
+      "tf1-rp2": "S.B1.12",
+      "tf1-iv1": "I.B1.08",
+      "tf1-iv2": "I.B1.08",
+      "tf2-rp1": "S.B1.12",
+      "tf2-rp2": "S.B1.12",
+      "tf2-iv1": "I.B1.08",
+      "tf2-iv2": "I.B1.08",
+      "tf3-rp1": "S.B1.12",
+      "tf3-rp2": "S.B1.12",
+      "tf3-iv1": "I.B1.08",
+      "tf3-iv2": "I.B1.08",
+      "tf4-rp1": "S.B1.12",
+      "tf4-rp2": "S.B1.12",
+      "tf4-iv1": "I.B1.08",
+      "tf4-iv2": "I.B1.08",
+      "tf5-rp1": "S.B1.12",
+      "tf5-rp2": "S.B1.12",
+      "tf5-rp3": "S.B1.12",
+      "tf5-iv1": "I.B1.08",
+      "tf5-iv2": "I.B1.08",
+      "tf5-iv3": "I.B1.08",
+      "tf5-rp4": "S.B1.12",
+      "tf5-rp5": "S.B1.12",
+      "tf5-rp6": "S.B1.12",
+      "tf5-rp7": "S.B1.12",
+      "tf5-iv4": "I.B1.08",
+      "tf5-iv5": "I.B1.08",
+      "tf5-iv6": "I.B1.08"
+    },
+    "writing-model": {
+      "gt-gt1": "W.B2.02",
+      "gt-gt2": "W.B2.02",
+      "gt-gt3": "W.B2.02",
+      "gt-gt4": "W.B2.02",
+      "gt-gt5": "W.B2.02",
+      "gt-gt6": "W.B2.02",
+      "gt-gt7": "W.B2.02",
+      "gt-gt8": "W.B2.02",
+      "gt-gt9": "W.B2.02",
+      "gt-gt10": "W.B2.02",
+      "gt-gt11": "W.B2.02",
+      "gt-gt12": "W.B2.02",
+      "gt-gt13": "W.B2.02",
+      "gt-gt14": "W.B2.02",
+      "gt-gt15": "W.B2.02",
+      "gt-gt16": "W.B2.02",
+      "gt-gt17": "W.B2.02",
+      "gt-gt18": "W.B2.02",
+      "gt-gt19": "W.B2.02",
+      "gt-gt20": "W.B2.02",
+      "gt-gt21": "W.B2.02",
+      "gt-gt22": "W.B2.02",
+      "gt-gt23": "W.B2.02",
+      "gt-gt24": "W.B2.02",
+      "t2-p2": "W.B2.05",
+      "t2-p3": "W.B2.05",
+      "t2-p4": "W.B2.05",
+      "t2-p6": "W.B2.05",
+      "t2-p7": "W.B2.05",
+      "t2-p9": "W.B2.05",
+      "t2-p10": "W.B2.05",
+      "t2-p11": "W.B2.05",
+      "t2-p12": "W.B2.05",
+      "t2-p13": "W.B2.05",
+      "t2-p15": "W.B2.05",
+      "t2-p16": "W.B2.05",
+      "t2-p18": "W.B2.05",
+      "t2-p19": "W.B2.05",
+      "t2-p20": "W.B2.05",
+      "t2-p21": "W.B2.05",
+      "t2-p22": "W.B2.05",
+      "t2-p23": "W.B2.05",
+      "t2-p25": "W.B2.05",
+      "t2-p26": "W.B2.05",
+      "t2-p27": "W.B2.05",
+      "t2-p28": "W.B2.05",
+      "t2-p29": "W.B2.05",
+      "t2-p30": "W.B2.05",
+      "t2-p32": "W.B2.05",
+      "t2-p33": "W.B2.05",
+      "t2-p34": "W.B2.05",
+      "t2-p35": "W.B2.05",
+      "t2-p37": "W.B2.05",
+      "t2-p38": "W.B2.05",
+      "t2-p41": "W.B2.05",
+      "t2-p43": "W.B2.05",
+      "t2-p44": "W.B2.05",
+      "t2-p46": "W.B2.05",
+      "t2-p49": "W.B2.05",
+      "t2-p50": "W.B2.05",
+      "t2-p51": "W.B2.05",
+      "t2-p52": "W.B2.05",
+      "t2-p55": "W.B2.05",
+      "t2-p58": "W.B2.05",
+      "t2-p59": "W.B2.05",
+      "t2-p60": "W.B2.05",
+      "t2-p61": "W.B2.05",
+      "t2-p62": "W.B2.05",
+      "t2-p63": "W.B2.05",
+      "t2-p64": "W.B2.05",
+      "t2-p65": "W.B2.05",
+      "t2-p66": "W.B2.05",
+      "t2-p67": "W.B2.05",
+      "t2-p68": "W.B2.05",
+      "t2-p69": "W.B2.05",
+      "t2-p70": "W.B2.05",
+      "t2-p71": "W.B2.05",
+      "t2-p72": "W.B2.05",
+      "t2-p73": "W.B2.05",
+      "t2-p74": "W.B2.05",
+      "t2-p75": "W.B2.05",
+      "t2-p76": "W.B2.05",
+      "t2-p77": "W.B2.05",
+      "t2-p78": "W.B2.05",
+      "t2-p79": "W.B2.05",
+      "t2-p80": "W.B2.05",
+      "t1-water": "W.B2.06",
+      "t1-onlineshop": "W.B2.06",
+      "t1-resorts": "W.B2.06",
+      "t1-waste": "W.B2.06",
+      "t1-phones": "W.B2.06",
+      "t1-travel": "W.B2.06",
+      "t1-power": "W.B2.06",
+      "t1-coffee": "W.B2.06",
+      "t1-metro": "W.B2.06",
+      "t1-salmon": "W.B2.06",
+      "t1-tea": "W.B2.06",
+      "t1-island": "W.B2.06",
+      "t1-bikeshare": "W.B2.06",
+      "t1-reading": "W.B2.06",
+      "t1-rainfall": "W.B2.06",
+      "t1-sleep": "W.B2.06",
+      "t1-exports": "W.B2.06",
+      "t1-volunteer": "W.B2.06",
+      "t1-homewater": "W.B2.06",
+      "t1-uniincome": "W.B2.06",
+      "t1-evsales": "W.B2.06",
+      "t1-hotels": "W.B2.06",
+      "t1-honey": "W.B2.06",
+      "t1-campus": "W.B2.06",
+      "t1-airports": "W.B2.06",
+      "t1-crops": "W.B2.06",
+      "t1-homepower": "W.B2.06",
+      "t1-ageing": "W.B2.06",
+      "t1-chocolate": "W.B2.06",
+      "t1-mainstreet": "W.B2.06",
+      "t2-p31": "W.B2.05",
+      "t2-p36": "W.B2.05",
+      "t2-p39": "W.B2.05",
+      "t2-p40": "W.B2.05",
+      "t2-p42": "W.B2.05",
+      "t2-p45": "W.B2.05",
+      "t2-p47": "W.B2.05",
+      "t2-p48": "W.B2.05",
+      "t2-p53": "W.B2.05",
+      "t2-p54": "W.B2.05",
+      "t2-p56": "W.B2.05",
+      "t2-p57": "W.B2.05"
+    },
+    "gt-letter": {
+      "gt1": "W.B1.05",
+      "gt2": "W.B1.05",
+      "gt3": "W.B1.05",
+      "gt4": "W.B1.05",
+      "gt5": "W.B1.05",
+      "gt6": "W.B1.05",
+      "gt7": "W.B1.05",
+      "gt8": "W.B1.05",
+      "gt9": "W.B1p.01",
+      "gt10": "W.B1p.01",
+      "gt11": "W.B1p.01",
+      "gt12": "W.B1p.01",
+      "gt13": "W.B1p.01",
+      "gt14": "W.B1p.01",
+      "gt15": "W.B1p.01",
+      "gt16": "W.B1p.01",
+      "gt17": "W.B1.02",
+      "gt18": "W.B1.02",
+      "gt19": "W.B1.02",
+      "gt20": "W.B1.02",
+      "gt21": "W.B1.02",
+      "gt22": "W.B1.02",
+      "gt23": "W.B1.02",
+      "gt24": "W.B1.02"
+    },
+    "task1": {
+      "water": "W.B2.06",
+      "onlineshop": "W.B2.06",
+      "resorts": "W.B2.06",
+      "waste": "W.B2.06",
+      "phones": "W.B2.06",
+      "travel": "W.B2.06",
+      "power": "W.B2.06",
+      "coffee": "W.B2.06",
+      "metro": "W.B2.06",
+      "salmon": "W.B2.06",
+      "tea": "W.B2.06",
+      "island": "W.B2.06",
+      "bikeshare": "W.B2.06",
+      "reading": "W.B2.06",
+      "rainfall": "W.B2.06",
+      "sleep": "W.B2.06",
+      "exports": "W.B2.06",
+      "volunteer": "W.B2.06",
+      "homewater": "W.B2.06",
+      "uniincome": "W.B2.06",
+      "evsales": "W.B2.06",
+      "hotels": "W.B2.06",
+      "honey": "W.B2.06",
+      "campus": "W.B2.06",
+      "airports": "W.B2.06",
+      "crops": "W.B2.06",
+      "homepower": "W.B2.06",
+      "ageing": "W.B2.06",
+      "chocolate": "W.B2.06",
+      "mainstreet": "W.B2.06"
+    },
+    "writing-prompt": {
+      "p31": "W.B2.05",
+      "p32": "W.B2.05",
+      "p33": "W.B2.05",
+      "p34": "W.B2.05",
+      "p35": "W.B2.05",
+      "p36": "W.B2.05",
+      "p37": "W.B2.05",
+      "p38": "W.B2.05",
+      "p39": "W.B2.05",
+      "p40": "W.B2.05",
+      "p41": "W.B2.05",
+      "p42": "W.B2.05",
+      "p43": "W.B2.05",
+      "p44": "W.B2.05",
+      "p45": "W.B2.05",
+      "p46": "W.B2.05",
+      "p47": "W.B2.05",
+      "p48": "W.B2.05",
+      "p49": "W.B2.05",
+      "p50": "W.B2.05",
+      "p51": "W.B2.05",
+      "p52": "W.B2.05",
+      "p53": "W.B2.05",
+      "p54": "W.B2.05",
+      "p55": "W.B2.05",
+      "p56": "W.B2.05",
+      "p57": "W.B2.05",
+      "p58": "W.B2.05",
+      "p59": "W.B2.05",
+      "p60": "W.B2.05",
+      "p61": "W.B2.05",
+      "p62": "W.B2.05",
+      "p63": "W.B2.05",
+      "p64": "W.B2.05",
+      "p65": "W.B2.05",
+      "p66": "W.B2.05",
+      "p67": "W.B2.05",
+      "p68": "W.B2.05",
+      "p69": "W.B2.05",
+      "p70": "W.B2.05",
+      "p71": "W.B2.05",
+      "p72": "W.B2.05",
+      "p73": "W.B2.05",
+      "p74": "W.B2.05",
+      "p75": "W.B2.05",
+      "p76": "W.B2.05",
+      "p77": "W.B2.05",
+      "p78": "W.B2.05",
+      "p79": "W.B2.05",
+      "p80": "W.B2.05"
+    },
+    "ideas": {
+      "education": [
+        "W.B2.05",
+        "S.B2.02"
+      ],
+      "technology": [
+        "W.B2.05",
+        "S.B2.02"
+      ],
+      "environment": [
+        "W.B2.05",
+        "S.B2.02"
+      ],
+      "health": [
+        "W.B2.05",
+        "S.B2.02"
+      ],
+      "work": [
+        "W.B2.05",
+        "S.B2.02"
+      ],
+      "urban": [
+        "W.B2.05",
+        "S.B2.02"
+      ],
+      "society": [
+        "W.B2.05",
+        "S.B2.02"
+      ],
+      "media": [
+        "W.B2.05",
+        "S.B2.02"
+      ],
+      "crime": [
+        "W.B2.05",
+        "S.B2.02"
+      ],
+      "culture": [
+        "W.B2.05",
+        "S.B2.02"
+      ],
+      "economy": [
+        "W.B2.05",
+        "S.B2.02"
+      ],
+      "travel": [
+        "W.B2.05",
+        "S.B2.02"
+      ],
+      "family": [
+        "W.B2.05",
+        "S.B2.02"
+      ],
+      "science": [
+        "W.B2.05",
+        "S.B2.02"
+      ],
+      "sport": [
+        "W.B2.05",
+        "S.B2.02"
+      ]
+    },
+    "speaking": {
+      "describe-a-home-you-would-like-to-live": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-person-you-know-who-is-very": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-hobby-that-you-started-recently": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-song-or-piece-of-music-that": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-sporting-event-you-watched-or-took": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-memorable-meal-you-had-with-other": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-something-you-bought-that-you-were-very": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-time-when-the-weather-changed-your": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-journey-you-made-that-took-longer": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-friend-who-has-had-a-positive": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-museum-gallery-or-exhibition-you-have": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-book-that-you-would-recommend-to": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-something-you-do-to-reduce-waste-in": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-special-celebration-you-attended": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-healthy-habit-you-would-like-to": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-piece-of-technology-at-home-that": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-an-older-person-you-admire": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-an-occasion-when-you-gave-someone-a": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-skill-you-picked-up-through-the": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-present-you-gave-to-someone-that": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-time-when-you-felt-completely-rested": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-place-you-have-been-to-that": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-time-when-you-were-late-for": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-neighbour-who-made-a-good-impression": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-an-old-building-in-your-country-that": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-website-or-app-that-you-use": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-photograph-or-painting-that-you-would": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-river-lake-or-stretch-of-sea": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-form-of-public-transport-that-you": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-rule-that-you-did-not-agree": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-national-holiday-or-festival-that-is": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ],
+      "describe-a-time-when-you-saw-something-old": [
+        "I.B1p.04",
+        "S.B1.03",
+        "S.B2.08"
+      ]
+    }
+  }
+}

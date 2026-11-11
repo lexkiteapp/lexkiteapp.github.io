@@ -157,4 +157,4 @@ Never panic or halt your reading flow. In IELTS Academic, specialized jargon (su
 
 ### How can I stop falling asleep or losing focus during long passages?
 
-Use a physical pencil (or your cursor in CBT) to guide your line of sight. Active motor involvement keeps your reticular activating system engaged. Furthermore, actively producing two-word margin notes forces your brain into an active productive state, making cognitive drift virtually impossible.
+Use a physical pencil (or your cursor in CBT) to guide your line of sight. Active motor involvement keeps your reticular activating system engaged. Furthermore, actively producing two-word margin notes forces your brain into an active productive state, making cognitive drift virtually impossible. Note that some visa systems, such as Canada's Express Entry, accept only General Training, so confirm your version in our [IELTS for immigration](/en/blog/ielts-for-immigration-guide/) guide before practising Academic passages.

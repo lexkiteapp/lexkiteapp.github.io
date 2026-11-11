@@ -4,6 +4,7 @@
 //   node scripts/lexicon/expand/save-merge.mjs <baseRef> <oursDir> <tệp>…
 // Đĩa = origin/main mới (theirs); <oursDir>/<tệp> = bản lượt này (thiếu = lượt đã xoá); <baseRef> = commit lượt đã checkout.
 // Gộp 3 chiều theo JSON: khoá đối tượng đệ quy; mảng theo danh tính (src|id|batch, k, hoặc cả phần tử) – thêm/sửa/xoá của lượt áp lên bản mới; cùng sửa → bản lượt thắng.
+import { isMain } from '../../lib/is-main.mjs';
 import fs from 'fs';
 import { execFileSync } from 'child_process';
 
@@ -45,7 +46,7 @@ const parse = t => { try { return t == null ? NONE : JSON.parse(t); } catch { re
 const read = p => (fs.existsSync(p) ? fs.readFileSync(p, 'utf8') : null);
 const atBase = (ref, f) => { try { return execFileSync('git', ['show', `${ref}:${f}`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 1 << 28 }); } catch { return null; } };
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMain(import.meta.url)) {
   const [ref, dir, ...files] = process.argv.slice(2);
   let n = 0;
   for (const f of files) {

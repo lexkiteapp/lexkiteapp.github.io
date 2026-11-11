@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_attach",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: attach.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to fasten or join one thing to another.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Please attach a photo to your application.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "attach",
+  "ipa": "/əˈtætʃ/",
+  "mean": "to fasten or join one thing to another",
+  "ex": "Please attach a photo to your application.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=attach",
+  "link": "https://lexkite.com/app/#/review?w=attach",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 25.7,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"attach\" mean?",
+  "keyword": "attach",
+  "value": "Attach means to fasten or join one thing to another.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=attach",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"attach\" mean?",
+    "description": "Attach means to fasten or join one thing to another.\n\nReview your words, free: https://lexkite.com/app/#/review?w=attach\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "attach",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"attach\" mean?\n\nAttach means to fasten or join one thing to another.\n\nReview your words, free: https://lexkite.com/app/#/review?w=attach"
+   },
+   "instagram": {
+    "caption": "What does \"attach\" mean?\n\nAttach means to fasten or join one thing to another.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"attach\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to fasten or join one thing to another. Attach means to fasten or join one thing to another. Practice it with a free quiz: {link}"
+ }
+}

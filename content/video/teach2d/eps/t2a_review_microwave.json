@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_microwave",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: microwave.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means an oven that cooks food quickly using waves.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "There is a microwave in the staff kitchen.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "microwave",
+  "ipa": "/ˈmaɪkrəweɪv/",
+  "mean": "an oven that cooks food quickly using waves",
+  "ex": "There is a microwave in the staff kitchen.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=microwave",
+  "link": "https://lexkite.com/app/#/review?w=microwave",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"microwave\" mean?",
+  "keyword": "microwave",
+  "value": "Microwave means an oven that cooks food quickly using waves.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=microwave",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"microwave\" mean?",
+    "description": "Microwave means an oven that cooks food quickly using waves.\n\nReview your words, free: https://lexkite.com/app/#/review?w=microwave\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "microwave",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"microwave\" mean?\n\nMicrowave means an oven that cooks food quickly using waves.\n\nReview your words, free: https://lexkite.com/app/#/review?w=microwave"
+   },
+   "instagram": {
+    "caption": "What does \"microwave\" mean?\n\nMicrowave means an oven that cooks food quickly using waves.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"microwave\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means an oven that cooks food quickly using waves. Microwave means an oven that cooks food quickly using waves. Try the full lesson and quiz here: {link}"
+ }
+}

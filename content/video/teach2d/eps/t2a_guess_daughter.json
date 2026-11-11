@@ -1,0 +1,118 @@
+{
+ "id": "t2a_guess_daughter",
+ "template": "guess",
+ "series": "Guess the Word",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess the word in three clues!",
+   "pause": 0.42
+  },
+  {
+   "id": "c1",
+   "text": "Clue one: a female child of someone.",
+   "pause": 0.42
+  },
+  {
+   "id": "c2",
+   "text": "Clue two: it has eight letters.",
+   "pause": 0.42
+  },
+  {
+   "id": "c3",
+   "text": "Clue three: it starts with D.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Got it? Comment your guess!",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Daughter! Their daughter is starting university this year.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "daughter",
+  "ipa": "/ˈdɔːtər/",
+  "clue": "A female child of someone.",
+  "n": 8,
+  "img": "daughter#n",
+  "ex": "Their daughter is starting university this year."
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/daughter",
+  "link": "https://lexkite.com/app/#/dict/daughter",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess the word!"
+ },
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "\"A female child of someone.\" Guess the word!",
+  "keyword": "daughter",
+  "value": "The answer: daughter /ˈdɔːtər/. Their daughter is starting university this year.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/daughter",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "\"A female child of someone.\" Guess the word!",
+    "description": "The answer: daughter /ˈdɔːtər/. Their daughter is starting university this year.\n\nLook up any word, free: https://lexkite.com/app/#/dict/daughter\n\nSeries: Guess the Word · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "daughter",
+     "Guess the Word",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "\"A female child of someone.\" Guess the word!\n\nThe answer: daughter /ˈdɔːtər/. Their daughter is starting university this year.\n\nLook up any word, free: https://lexkite.com/app/#/dict/daughter"
+   },
+   "instagram": {
+    "caption": "\"A female child of someone.\" Guess the word!\n\nThe answer: daughter /ˈdɔːtər/. Their daughter is starting university this year.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "\"A female child of someone.\" Guess the word! #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Daughter! Their daughter is starting university this year. Try the full lesson and quiz here: {link}"
+ }
+}

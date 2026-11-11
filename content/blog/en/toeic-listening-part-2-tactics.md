@@ -33,6 +33,7 @@ quiz: [
     explain: "Direct Wh- questions (Who, What, Where, When, Why, How) cannot be logically answered with 'Yes' or 'No'."
   }
 ]
+publishAt: 2026-12-19T09:41:00+05:30
 ---
 In the TOEIC Listening comprehension section, Part 2 is often described by test-takers as a psychological rollercoaster. You hear a short prompt, followed by three spoken responses. There are no printed questions in your test booklet, no photographs to anchor your expectations, and only five seconds between items. Executing proven **toeic listening part 2 tactics** is crucial because this single section accounts for 25 questions—a quarter of your entire listening score.
 

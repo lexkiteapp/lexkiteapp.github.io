@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: [scripts/gen-word-packs.mjs, .github/workflows/word-packs.yml]
+    paths: [scripts/gen-word-packs.mjs, scripts/lib/pack-gloss.mjs, content/wordlists/*.gloss.json, .github/workflows/word-packs.yml]
 permissions:
   contents: write
 concurrency: { group: google-translate, cancel-in-progress: false }  # dùng chung hàng đợi: không gọi Google Translate song song (tránh bị chặn)
@@ -17,17 +17,22 @@ jobs:
     timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
+        with: { ssh-key: "${{ github.ref == 'refs/heads/main' && secrets.BOT_DEPLOY_KEY || '' }}" }   # chỉ main cầm khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Dịch & tinh chỉnh
         run: |
           for l in $(grep -v '^#' scripts/i18n-langs.txt); do node scripts/gen-word-packs.mjs "$l" --refine 450 || echo "lỗi $l"; done
+      - name: Đối chiếu ngược (mẫu 40 từ/ngôn ngữ) – báo mục nghi sai vào job summary, không chặn lưu
+        continue-on-error: true
+        run: node scripts/pack-backcheck.mjs all --sample 40 --max-bad 15
       - name: Lưu kết quả (lấy bản mới nhất trước khi đẩy, thử lại tối đa 5 lần)
+        if: github.ref == 'refs/heads/main'
         run: |
-          git config user.name "lexkite-bot"
-          git config user.email "lexkite-bot@users.noreply.github.com"
-          git add -A web/packs
-          git diff --cached --quiet && exit 0
-          git commit -m "Gói nghĩa từ vựng: cập nhật tự động [CF-Pages-Skip]"
-          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push && exit 0; sleep $((i * 7)); done
-          exit 1
+          bash scripts/ci/push-main.sh "Gói nghĩa từ vựng: cập nhật tự động" web/packs
+      - name: Nhánh khác main – artifact + summary (không đẩy vào nhánh; lấy về bằng bash scripts/ci/bot-output.sh word-packs <nhánh>)
+        if: github.ref != 'refs/heads/main'
+        uses: ./.github/actions/bot-output
+        with:
+          name: word-packs
+          paths: web/packs

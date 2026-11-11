@@ -11,8 +11,8 @@ on:
     - cron: '17 4 * * 1' # thứ Hai hằng tuần
 permissions:
   contents: read
-concurrency:
-  group: ads-demo
+concurrency: # theo ref: lượt PR và lượt main không huỷ nhau (2/11: PR #448 huỷ lượt kiểm main); cùng nhánh thì lượt mới huỷ lượt cũ
+  group: ads-demo-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   web:
@@ -23,9 +23,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Playwright
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          google-chrome --version || npx playwright install --with-deps chrome
+          google-chrome --version || bash scripts/ci/pw-install.sh --with-deps chrome
       - name: GPT rewarded (quảng cáo demo thật)
         run: node scripts/test/ads-demo.mjs
         env: { ADS_DEMO_OUT: ads-web }
@@ -47,9 +48,9 @@ jobs:
       - name: Build APK debug (ADS_NATIVE=1)
         run: |
           npm ci --no-audit --no-fund
-          npm ci --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
           ADS_NATIVE=1 node scripts/mobile-ads.mjs --enable
-          npm install --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh install --prefix mobile --no-audit --no-fund
           ADS_NATIVE=1 bash scripts/build-mobile.sh
           grep -q 'com.google.android.gms.ads.APPLICATION_ID' mobile/android/app/src/main/AndroidManifest.xml
           grep -o 'ca-app-pub-[0-9~/]*' mobile/android/app/src/main/AndroidManifest.xml

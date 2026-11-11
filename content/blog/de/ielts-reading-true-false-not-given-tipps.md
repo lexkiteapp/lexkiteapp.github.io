@@ -9,7 +9,7 @@ tags: [reading, ielts, true-false-not-given]
 keyword: "ielts reading true false not given"
 cover: reading
 coverAlt: "Lexkite Leseliste für das IELTS Reading mit Texten der Niveaustufen A2 bis C1"
-publishAt: ""
+publishAt: 2026-12-01T20:23:00+01:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -25,6 +25,8 @@ Die goldene Grundregel zur fehlerfreien Lösung lautet: Wählen Sie **True**, we
 ## Die Logik hinter IELTS Reading True False Not Given
 
 Anders als bei typischen Schulprüfungen, bei denen falsche Antworten oft absurd oder offensichtlich sind, stammen die Texte des IELTS Academic aus wissenschaftlichen Journalen und Fachzeitschriften. Die Prüfer konzipieren die Aufgaben gezielt, um Ihre Fähigkeit zum präzisen Detailverstehen zu testen:
+
+Passend dazu: [Zeitmanagement im IELTS Reading](/de/blog/zeitmanagement-im-ielts-reading-60-minuten-strategie/).
 
 1. **True (Wahr):** Alle wesentlichen Bestandteile der Aussage stimmen sinngemäß mit dem Text überein. Beachten Sie, dass selten exakt dieselben Vokabeln verwendet werden; die Passage arbeitet fast immer mit anspruchsvollen Synonymen und Paraphrasen.
 2. **False (Falsch):** Der Text behauptet aktiv das Gegenteil oder führt einen Fakt an, der die Aussage logisch unmöglich macht. Es liegt ein nachweisbarer Widerspruch vor.

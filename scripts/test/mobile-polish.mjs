@@ -12,7 +12,7 @@ const WEB = 'web';
 let n = 0, fails = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8');
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
-const css = fs.readFileSync(path.join(WEB, 'css/style.css'), 'utf8');
+const css = (fs.readFileSync(path.join(WEB, 'css/style.css'), 'utf8') + fs.readFileSync(path.join(WEB, 'css/lazy-ui.css'), 'utf8'));
 const vc = new jsdom.VirtualConsole(); vc.on('jsdomError', e => { if (!/Not implemented|Could not parse CSS/.test(e.message)) console.error(e.message); });
 const dom = new JSDOM(html.replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '').replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, '').replace('</head>', `<style>${css}</style></head>`), { url: 'http://localhost/app/#/home', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
 const w = dom.window, errors = [];
@@ -48,7 +48,7 @@ ok(done, 'tới màn "Bạn đã học xong" chỉ bằng "Mình đã biết t�
 const st = ($('#learnStats') || {}).textContent || '';
 ok(!/câu trả lời|lần sai/.test(st), '0 câu trả lời → ẩn dòng số liệu: ' + st);
 ok(/\+20 XP/.test(st), 'vẫn giữ XP thưởng: ' + st);
-for (const l of fs.readFileSync('scripts/i18n-langs.txt', 'utf8').split('\n').filter(x => /^[a-z]{2}$/.test(x)).concat('en')) ok(fs.readFileSync(path.join(WEB, 'js/i18n', l + '.js'), 'utf8').includes('"+{xp} XP thưởng"') || fs.readFileSync(path.join(WEB, 'js/i18n', l + '.js'), 'utf8').includes("'+{xp} XP thưởng'"), 'bản dịch "+{xp} XP thưởng": ' + l);
+for (const l of fs.readFileSync('scripts/i18n-langs.txt', 'utf8').split('\n').filter(x => /^[a-z]{2}$/.test(x)).concat('en')) ok(fs.readFileSync(l === 'en' ? path.join(WEB, 'js/i18n/en.js') : `i18n/ui/${l}.js`, 'utf8').includes('"+{xp} XP thưởng"') || fs.readFileSync(l === 'en' ? path.join(WEB, 'js/i18n/en.js') : `i18n/ui/${l}.js`, 'utf8').includes("'+{xp} XP thưởng'"), 'bản dịch "+{xp} XP thưởng": ' + l);
 
 // ---- (2) toast xếp hàng sau modal ----
 const T = $('#toast'), shown = () => T.classList.contains('show');

@@ -1,4 +1,6 @@
-# Cổng dung lượng repo chính (docs/STORAGE.md): cây HEAD ≤ 600 MB, mỗi commit thêm ≤ 20 MB nhị phân (ngoại lệ: "Size-Guard: allow" trong commit).
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
+# ci-policy: all-paths – đo kích thước repo/shell cho MỌI thay đổi (file nào cũng có thể làm phình); job ngắn, PR huỷ lượt cũ
+# Cổng dung lượng repo chính (docs/STORAGE.md): cây HEAD ≤ 600 MB, mỗi commit thêm ≤ 20 MB nhị phân; trên PR chỉ tính commit RIÊNG của PR (so origin/main mới nhất) + tổng cả PR (ngoại lệ: "Size-Guard: allow" trong commit).
 # Media nặng → kho ngoài (infra/media-repos.json). Clone blobless + thưa: chỉ commit + cây (+ blob nhị phân mới) → nhanh dù lịch sử ~1 GB.
 name: size-guard
 on:
@@ -10,7 +12,26 @@ permissions:
   contents: read
 concurrency: { group: 'size-guard-${{ github.ref }}', cancel-in-progress: true }
 jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha → go=$go"
   guard:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -25,7 +46,11 @@ jobs:
         with: { node-version: 22 }
       - name: Đo cây + commit mới
         env:
-          BEFORE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
+          EV: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
         run: |
+          # PR: chỉ commit RIÊNG của PR (origin/main MỚI NHẤT..HEAD – merge main vào PR không kéo commit nặng của main vào) + TỔNG cả PR (squash). Push main: dải before..HEAD.
+          git fetch -q --no-tags origin main:refs/remotes/origin/main 2>/dev/null || true
+          if [ "$EV" = pull_request ]; then node scripts/test/size-guard.mjs --base origin/main; exit $?; fi
           if [ -n "$BEFORE" ] && ! echo "$BEFORE" | grep -qE '^0+$' && git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then R="$BEFORE..HEAD"; else R="HEAD~1..HEAD"; fi
           node scripts/test/size-guard.mjs --range "$R"

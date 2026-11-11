@@ -9,7 +9,7 @@ tags: [reading, ielts, exam-tips]
 keyword: "skimming e scanning ielts reading"
 cover: reading
 coverAlt: "Lista de artigos e passagens de leitura acadêmica do IELTS na plataforma Lexkite"
-publishAt: ""
+publishAt: 2026-11-29T12:06:00-03:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -78,6 +78,8 @@ Para transformar essas duas habilidades em um reflexo condicionado antes do dia 
 1. **Treino Diário de Leitura Cronometrada:** Acesse os módulos de [prática de leitura](/#/reading) do Lexkite. Pratique encontrar a ideia central de cada parágrafo em no máximo 20 segundos por bloco.
 2. **Registro de Falhas para Diagnóstico:** Todas as questões em que você hesitar ou errar ficarão arquivadas em seu [registro de erros](/#/mistakes), ajudando a identificar se seu ponto fraco reside na velocidade de localização ou na interpretação de paráfrases.
 3. **Integração com Habilidades Conexas:** Combine seu treino de leitura rápida com o domínio de [collocations em ingles para ielts](/pt/blog/collocations-em-ingles-para-ielts/) e pratique reescrita com [como parafrasear no ielts tecnicas](/pt/blog/como-parafrasear-no-ielts-tecnicas/). Não deixe de consultar nosso repositório de recursos gramaticais em [/ngu-phap/](/ngu-phap/) e verifique as orientações de [como se preparar para o ielts general training](/pt/blog/como-se-preparar-para-o-ielts-general-training/). Para aprimorar sua escuta, veja também nossas [dicas ielts listening](/pt/blog/dicas-ielts-listening/).
+
+Depois de dominar a leitura rápida, organize os 60 minutos da prova com o guia de [gestão do tempo no IELTS Reading](/pt/blog/gestao-do-tempo-no-ielts-reading-estrategia-60-minutos/).
 
 ## Perguntas Frequentes (FAQ)
 

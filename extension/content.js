@@ -98,7 +98,10 @@
   };
   // Nghĩa chính: nếu nghĩa tóm tắt quá ngắn/trùng từ gốc thì lấy nghĩa đầu tiên của mục từ
   const viMain = (e, shown) => { const v = String(e.vi || '').trim(); if (v.length >= 3 && v.toLowerCase() !== String(e.word || '').toLowerCase()) return v; const f = (shown || []).find(x => x.vi && x.vi.length); return f ? f.vi.slice(0, 3).join(', ') : v; };
-  const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (XD[src] || EN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };
+  const hk = s => { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 0x01000193); } return '_' + ((x >>> 0) % 1679616).toString(36); }; // = hk của web/js/i18n.js (gói ngôn ngữ khóa băm, scripts/lib/i18n-pack.mjs)
+  // Từ điển background: gói ngôn ngữ (khóa băm, hoặc nguyên câu khi trùng băm) chồng lên nền en (nguyên câu) → tra băm trước
+  const xd = src => (typeof src === 'string' && XD[hk(src)]) || XD[src];
+  const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (xd(src) || EN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };
   bind(document, 'ielts-lexi-takeover', ev => { if (ev.detail !== chrome.runtime.id) return; // trang web không tắt được add-on
     stop(); });
 
@@ -186,7 +189,7 @@
     .src { color: #6b6f85; font-size: 13px; margin-bottom: 10px; max-height: 120px; overflow: auto; border-left: 3px solid #e3e5ef; padding-left: 8px; }
     .tr { font-size: 15.5px; line-height: 1.55; color: inherit; font-weight: 500; }
     /* Giao diện tối: chỉ khi TRANG tối (lớp .dark gắn lúc hiện bảng) – bảng sáng trên trang sáng dù máy để chế độ tối */
-    /*@tokens*/.box.dark{--d-bg:#10191B;--d-sf:#172427;--d-sf2:#1E2F33;--d-sf3:#26393E;--d-line:#1F3337;--d-line2:#23373B;--d-text:#F3F8F8;--d-muted:#A3B9B7}/*@end*/
+    /*@tokens*/.box.dark{--d-bg:#0E191C;--d-sf:#162528;--d-sf2:#1D2F33;--d-sf3:#263A3F;--d-line:#213438;--d-line2:#2A3F44;--d-text:#EAF2F2;--d-muted:#A3B9B7}/*@end*/
     .box.dark { background: var(--d-sf); color: var(--d-text); border-color: var(--d-line); }
     .dark .pg { border-color: var(--d-line); } .dark .wn-x { background: var(--d-sf2); color: var(--d-text); } .dark .pic, .dark .spk, .dark .chip { background: var(--d-sf3); }
     .dark .chip { color: var(--d-muted); } .dark .ipa, .dark .ex, .dark .src, .dark .pex, .dark .st-m, .dark .muted, .dark .x { color: var(--d-muted); }
@@ -503,7 +506,7 @@
       // Chuẩn hóa nhãn từ loại (Việt / viết tắt / Anh) về 1 khóa tiếng Anh → không tách 2 nhóm "danh từ" và "n", không lộ tiếng Việt ở giao diện khác
       const toEn = x => { x = String(x || '').normalize('NFC').trim().toLowerCase().replace(/\.$/, ''); const hit = Object.keys(POSV).find(k => POSV[k] === x); return hit || ABBR[x] || x; };
       // Nhãn từ loại theo ngôn ngữ giao diện (vi: tiếng Việt; en: tiếng Anh; ngôn ngữ khác: từ điển web, thiếu → tiếng Anh). Không bao giờ lộ tiếng Việt ở giao diện khác
-      const posLabel = p => { const v = POSV[p]; const out = UI_LANG === 'vi' ? (v || p) : UI_LANG === 'en' || !v ? p : (XD[v] || p); return UI_LANG !== 'vi' && VI.test(out) ? '' : out; };
+      const posLabel = p => { const v = POSV[p]; const out = UI_LANG === 'vi' ? (v || p) : UI_LANG === 'en' || !v ? p : (xd(v) || p); return UI_LANG !== 'vi' && VI.test(out) ? '' : out; };
       const groups = [], byPos = {};
       const grp = x => byPos[x] || (byPos[x] = groups[groups.push({ pos: x, vi: [], defs: [] }) - 1]);
       (e.senses || []).forEach(x => { grp(toEn(x.pos)).vi = x.terms.slice(0, 4); });

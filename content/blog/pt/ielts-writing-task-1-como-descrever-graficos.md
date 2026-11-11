@@ -33,6 +33,7 @@ quiz: [
     explain: "Eventos e medições situados no passado exigem o Simple Past para a narração de aumentos e quedas."
   }
 ]
+publishAt: 2026-12-04T20:27:00-03:00
 ---
 
 No módulo acadêmico do teste IELTS, a primeira tarefa da prova escrita (*Writing Task 1*) desafia os participantes a interpretar um conjunto de dados visuais — que pode se manifestar como um gráfico de linhas, gráfico de barras, gráfico de setores circulares ou uma tabela estatística — e compor um relatório analítico formal de no mínimo 150 palavras em aproximadamente 20 minutos. Conquistar uma avaliação de excelência em **ielts writing task 1 graficos** exige capacidade de síntese, agrupamento lógico de categorias e precisão léxica para retratar tendências ascendentes e descendentes.
@@ -149,6 +150,6 @@ Distribuir os 20 minutos com rigor metodológico assegura que você não comprom
 | **Listar dados sem comparar** | *"A was 10. B was 20. C was 30."* | Comparar: *"B was twice as high as A, while C formed the largest share at 30."* |
 | **Copiar palavras do título** | Replicar o enunciado verbatim | Parafrasear a introdução com sinônimos acadêmicos precisos |
 
-Para aprofundar seu treinamento de escrita, examine nossas orientações em [dicas para IELTS Writing Task 2](/pt/blog/dicas-ielts-writing-task-2/) e estude a composição de [frases complexas no IELTS Writing Task 2](/pt/blog/frases-complexas-ielts-writing-task-2/). Aprenda também a articular transições com [conectivos em inglês (linking words)](/pt/blog/conectivos-em-ingles-linking-words-guia/) e domine a impessoalidade da [voz passiva em inglês](/pt/blog/voz-passiva-em-ingles-passive-voice-guia/), expandindo seu domínio léxico com os repositórios em [/tu-vung/](/tu-vung/).
+Para aprofundar seu treinamento de escrita, examine nossas orientações em [dicas para IELTS Writing Task 2](/pt/blog/dicas-ielts-writing-task-2/) e estude a composição de [frases complexas no IELTS Writing Task 2](/pt/blog/frases-complexas-ielts-writing-task-2/). Aprenda também a articular transições com [conectivos em inglês (linking words)](/pt/blog/conectivos-em-ingles-linking-words-guia/) e domine a impessoalidade da [voz passiva em inglês](/pt/blog/voz-passiva-em-ingles-passive-voice-guia/), expandindo seu domínio léxico com os repositórios em [/tu-vung/](/en/vocabulary/).
 
 Adotando esta estrutura lógica e o vocabulário quantitativo adequado, você produzirá relatórios do Task 1 fluidos, analíticos e plenamente merecedores de notas de topo.

@@ -1,0 +1,40 @@
+{
+ "_note": "Kokoro (kokoro-js, espeak-ng en-us) pronunciation overrides for the shorts – US accent, Kokoro phoneme notation (ˈ stress, ɹ, ɚ, ɾ). Used by scripts/cine/tts.mjs; checked by scripts/video/tpl/pron.mjs audit (voice gate) and the ASR back-check in qc_v9. Add a word only with a dictionary source in 'why'. Keys = lower-case word form.",
+ "words": {
+  "comfortable": {
+   "ph": "kˈʌmftɚbəl",
+   "ipa": "/ˈkʌmftərbəl/",
+   "why": "espeak says /ˈkʌmftəbəl/ (no r, British); US 3-beat form KUMF-ter-ble (Merriam-Webster \\ˈkəm(p)f-tər-bəl\\, Cambridge US) – the pron lesson teaches 3 beats"
+  },
+  "vegetable": {
+   "ph": "vˈɛdʒtəbəl",
+   "ipa": "/ˈvedʒtəbəl/",
+   "why": "espeak says 4 beats /ˈvedʒɪɾəbəl/; US/UK 3 beats VEJ-tuh-ble (CMUdict V EH1 JH T AH0 B AH0 L, Cambridge) – the pron lesson teaches 3 beats"
+  },
+  "vegetables": {
+   "ph": "vˈɛdʒtəbəlz",
+   "ipa": "/ˈvedʒtəbəlz/",
+   "why": "plural of vegetable (same fix)"
+  },
+  "email": {
+   "ph": "ˈiːmeɪl",
+   "ipa": "/ˈiːmeɪl/",
+   "why": "espeak is right (EE-mail, Cambridge/Merriam-Webster); CMUdict marks e-MAIL (IY0 M EY1 L) – listed so the audit uses the dictionary stress"
+  },
+  "emails": {
+   "ph": "ˈiːmeɪlz",
+   "ipa": "/ˈiːmeɪlz/",
+   "why": "plural of email (same)"
+  },
+  "marry": {
+   "ph": "mˈɛɹi",
+   "ipa": "/ˈmeri/",
+   "why": "espeak says /ˈmæri/ (marry ≠ merry accent); General American merges them: /ˈmeri/ (Merriam-Webster \\ˈmer-ē\\, Cambridge US, CMUdict M EH1 R IY0)"
+  },
+  "married": {
+   "ph": "mˈɛɹid",
+   "ipa": "/ˈmerid/",
+   "why": "past tense of marry – same General American /ˈmerid/ (Merriam-Webster, Cambridge US)"
+  }
+ }
+}

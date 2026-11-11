@@ -17,7 +17,7 @@ paras: [
 ],
 groups: [
 { type: 'tfng',
-instr: 'Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+instr: g.RTI[1],
 items: [
 { n: 1, text: 'Keeping bees in cities is a practice that began in the twentieth century.', a: 'FALSE', cue: 'city dwellers kept bees in gardens and backyards for centuries' },
 { n: 2, text: 'In certain parts of some cities, hive numbers grew to more than three times their earlier level in ten years.', a: 'TRUE', cue: 'in some districts it has more than tripled within a decade' },
@@ -27,7 +27,7 @@ items: [
 { n: 6, text: 'Honeybee colonies in cities usually contain more bees than colonies in the countryside.', a: 'NOT GIVEN', cue: 'Some beekeepers report that their city colonies produce more honey per hive than those they keep in rural areas' },
 ] },
 { type: 'summary', title: 'Problems caused by urban hives',
-instr: 'Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.',
+instr: g.RTI[2],
 limit: 2,
 items: [
 { n: 7, text: 'Unlike the thousands of species of wild bees, the honeybee is a single, ___ species.', a: ['domesticated'], cue: 'The honeybee is a single, domesticated species' },
@@ -94,7 +94,7 @@ items: [
 { n: 19, text: 'Paragraph F', a: 'vii', cue: 'any benefit is cancelled out by the increase in the total amount of light' },
 ] },
 { type: 'mcq',
-instr: 'Choose the correct letter, A, B, C or D.',
+instr: g.RTI[3],
 items: [
 { n: 20, q: 'According to paragraph B, what may happen to birds flying over a brightly lit city?',
 options: ['They use the light to work out their position more accurately.', 'They use up energy by flying around the city for a long time.', 'They are attacked by hawks that hunt at night.', 'They follow moths towards the brightest lamps.'],
@@ -110,7 +110,7 @@ options: ['Volunteers clean the outside of the buildings each morning.', 'Taking
 a: 2, cue: 'Such programmes also save electricity' },
 ] },
 { type: 'sentence',
-instr: 'Complete the sentences below. Choose NO MORE THAN TWO WORDS from the passage for each answer.',
+instr: g.RTI[8],
 limit: 2,
 items: [
 { n: 24, text: '___ fixtures stop light from escaping upwards into the sky.', a: ['Fully shielded'], cue: 'Fully shielded fixtures direct light downwards onto the street' },
@@ -148,7 +148,7 @@ paras: [
 ],
 groups: [
 { type: 'ynng',
-instr: 'Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+instr: g.RTI[0],
 items: [
 { n: 27, text: 'The testing debate is often presented as a conflict between two opposing values.', a: 'YES', cue: 'Both camps tend to present the question as a simple choice between accountability and freedom' },
 { n: 28, text: 'Opponents of testing have given enough credit to its role in identifying weak schools.', a: 'NO', cue: 'one that critics of testing too rarely acknowledge' },
@@ -179,7 +179,7 @@ options: [
 a: ['A', 'C'],
 cue: 'intensive preparation for the specific format of the test' },
 { type: 'mcq',
-instr: 'Choose the correct letter, A, B, C or D.',
+instr: g.RTI[3],
 items: [
 { n: 38, q: 'Why does the writer mention a school sports competition in paragraph E?',
 options: ['to show that pupils enjoy competition more than examinations', 'to argue that sport should be assessed in the same way as mathematics', 'to suggest that most pupils feel only modest anxiety about tests', 'to explain why a minority of pupils suffer considerable stress'],

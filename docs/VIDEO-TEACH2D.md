@@ -1,12 +1,12 @@
 # Teach2D – English-teaching video templates (29/10/2026)
 
-> TL;DR: one Remotion pipeline, 5 templates, ONE 2D teacher (Ama or Carlos from `web/teach/characters.json`), Lexkite Kit cards (Stitch, dark A / light B), every element on its spoken word, 9:16 social + 16:9 lesson embed from the same data. CI only (`teach-video.yml`), 0 credits. QC before AND after render. Bulk only after the owner OKs the pilots.
+> TL;DR: one Remotion pipeline, 16 templates (5 batch-generated from data, see Batch), ONE 2D teacher (Ama or Carlos from `web/teach/characters.json`), Lexkite Kit cards (Stitch, dark A / light B), every element on its spoken word, 9:16 social + 16:9 lesson embed from the same data. CI only (`teach-video.yml`), 0 credits. QC before AND after render. Bulk only after the owner OKs the pilots.
 > Read when: making or changing teaching videos. Older engines: `VIDEO-MOTION.md` (#191 overlay on render_v9 plates – superseded here), `VIDEO-SERIES.md` (series rules, still valid).
 
 ## Pipeline (`.github/workflows/teach-video.yml`, never on the Mac)
 1. **preqc** – `gen.py` regenerates `content/video/teach2d/eps/*.json` from `pilots.json` (must be identical) + every script == `reviewed.json` (hook true) + motion parity test.
 2. **voice** – Kokoro with the registry voice of the teacher shown (Ama `af_bella`, Carlos `am_fenrir`) → Rhubarb → faster-whisper clock on the exact caption tokens (`pilot5_voice.py`).
-3. **render** (per pilot × short/wide) – `host.py` (registry stacked-alpha talk/listen → VP9 alpha) → `build.py` (layout, cues, captions, voice −16 LUFS + soft ticks, QR deep link) →
+3. **render** (per pilot × short/wide) – `rig_host.mjs --geom-only` (static TeacherRig geometry) → `build.py` (every look/layout) → `rig_host.mjs` on the timeline (TeacherRig drawn frame by frame on a fake page clock, mouth = this voice's Rhubarb visemes → `rig.webm` VP9 alpha + `rig.frames.json`, page == core simulation, re-render byte-identical; spec `docs/specs/video-production-v2.md` §1; `host.py` registry talk/listen stays for the old path) → `build.py` (layout, cues, captions, voice −16 LUFS + soft ticks, QR deep link) →
    **QC before render** (`qc.py` on the timeline, both themes) → Remotion `teach-short` 30 fps → **QC after render** (`qc.py --video`) → contact sheet, phone copy, poster, VTT.
 4. **embed** – Playwright screenshots of `docs/mocks/teach-video/embed.html` (lesson step, light/dark, phone/desktop). Real wiring = `web/js/lesson-video.js` (#195) after the owner's OK.
 5. **sheet** – `sheet.py`: one owner review sheet + score table; red if any pilot < 90 or a gate fails.
@@ -38,8 +38,14 @@
 - Rotating per episode (batch only after the owner's OK): hook style (question · challenge · "most learners…" · myth), layout, example scene. Look = `dusk` (owner pick 29/10).
 - Planner rule: no two consecutive videos share template, teacher or look; a point (content hash) is never reused; ≥ 1 new template per month (`VIDEO-SERIES.md`).
 
+## Mix – the 0-credit build bank (owner 5/11: "kho dựng 0đ, hàng triệu clip, không lặp")
+- Every clip = episode (template × data row × teacher, reviewed script untouched) + one seeded combination of pieces we already own: `scripts/video/teach2d/mix.py` → `content/video/teach2d/mix.json` (render order = pilots then auto, seed = sha256(episode id), regenerated identically in preqc).
+- Axes: layout 3 · canvas blob arrangement 4 (`TeachShort.jsx` BLOBS, series tint always large and high) · music 6 (`synth.mjs`) · camera rhythm 4 (`build.py` FR) · hook stinger 4 + card swish 2 (`brand/library/sfx`) · silence gestures after a teaching line / after the quiz answer (TeacherRig pose gestures with the teacher's OWN approved image only – an `alt` stand-in is not counted as variety).
+- Anti-repeat: no axis repeats the previous clip; background (layout+canvas) and opening (hook+cam) never repeat in the last 6, gestures and music never in the last 4. Diversity = mean pairwise normalised Hamming distance per 6-clip window, gate ≥ 70 (`mix.py --check`, `scripts/test/teach2d-mix.py`). `mix.py --stats` = pieces, distinct clips, score.
+- Kling only ADDS a new kind of piece (a new approved gesture image → it enters the gesture lists automatically via `characters.json`); never per clip. Look stays `dusk` (owner pick); dark/light are an axis only after the owner says so.
+
 ## QC gates (`qc.py`, all must pass, weighted score ≥ 90)
-voice_teacher · pace ≤ 150 wpm · caption_sync (caption == script == whisper) · mouth (talk only while speaking, closed-mouth listen in pauses > 0.35 s) · hook · cue_timing ±80 ms ·
+voice_teacher · pace ≤ 150 wpm · caption_sync (caption == script == whisper) · lipsync_rig (rig host: every Rhubarb cue ≥ 50 ms on screen within ±33 ms, X in silences > 0.35 s, no pose over the mouth while the voice is on, frame count; `lipsync_gate.py`) · mouth (registry host: talk only while speaking, closed-mouth listen in pauses > 0.35 s) · hook · cue_timing ±80 ms ·
 layout (text in SAFE, no overlap, nothing on the head, caption off the face, nothing under the ring) · contrast (≥ 4.5:1, ≥ 56 px ≥ 3:1, real fill) · min_text (40 / 34 px) ·
 ipa (== audited bank, stress dot == IPA mark) · cta (lexkite.com/app deep link) · duration 18–42 s · file (30 fps, AAC, −16 LUFS ±1.5) · frames (teacher visible every second, no blank frame).
 
@@ -56,6 +62,13 @@ ipa (== audited bank, stress dot == IPA mark) · cta (lexkite.com/app deep link)
 | 8 | reading / toeic / placement | quiz-only variant of `verbs`/`mistake` (A/B card, 3-2-1) | placement + TOEIC item banks (answer key = data) | after OK |
 | 9 | lesson `#/lesson`, call `#/call`, confidence `#/confidence` | embed 16:9 inside the lesson step; CTA "Call Ama" only where the feature exists | lesson engine items | after OK |
 Excluded (strength filter, `VIDEO-SERIES.md`): accents/intonation, slang, roleplay, long listening.
+
+## Batch (owner 2/11: hundreds of episodes, machine QC instead of a per-image OK; 0 credits)
+- `gen.py --plan N` appends rows to `content/video/teach2d/auto.json` from our data only – `usuk` (curated `usuk-pairs.json`, both IPA in the bank), `verbs` (verb engine + lexicon example sentences), `stress` (stress-shift families word + suffix from the IPA bank, spelling syllables = IPA nuclei), `guess` (img.json picture of the exact `word#n`), `review` (bank card). Facts are frozen in the row; order = least-covered app area first, never the same template twice in a row.
+- Machine gates per row → `reviewed.json` verdict (`machine: true`): **data** (== bank / verb engine / img.json) · **level** (every spoken word NGSL or bank A1–B1, taught words exempt) · **hook** (true for these facts, ≤ 6 words) · **dup** (point hash never reused, one word = one episode, picture pHash ≥ 10 bits apart). Teacher skip lists in `gen.py` (other sense in the bank example, family-safe topics). Tests: `scripts/test/teach2d-gen.py` (preqc).
+- `gen.py --verify` re-checks every row against the live bank before a render (changed fact → not rendered, warned). `gen.py --todo` = verified, not banked, < 2 red tries.
+- `teach-video.yml` input `shards` = render the next N (≤ 120, matrix limit); ci-filler entry `teach-video` (probe `gen.py --todo --count`). Pictures via `scripts/media/origin.py` with `MEDIA_ORIGIN_ONLY=1` (GitHub origins only, never media.lexkite.com or /api).
+- `bank.py`: an episode enters `bank.json` only when short AND wide pass every qc.py gate with score ≥ 90 and the mp4 is not a byte copy; videos = artifact `tv-bank-<run>` (90 days); score table `BANK.md`. Committed to main by the main batch run (deploy key, `commit-regen.sh`).
 
 ## Not done yet (needs the owner)
 - Owner OK 30/10 on the 5 new templates (grammar, dictation, toeic, review, call – CI f5c3fe8, all 32 renders QC 100). Batch / cron / publish still need their own OK.

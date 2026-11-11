@@ -1,3 +1,2 @@
-/* UI es – rmodes (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["es"] = Object.assign(D["es"] || {}, {"Gõ từ":"Escríbela","Nghe chọn nghĩa":"Escucha y elige","Câu của bạn":"Tu frase","Nguồn":"Fuente","Chế độ ôn":"Modo de repaso","Gợi ý chữ cái":"Pista de letra","Nghe từ":"Escuchar la palabra","Không nhớ":"No me acuerdo","Đáp án đúng":"Respuesta correcta"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/es/rmodes.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.es=Object.assign(D.es||{},{_en82:"Escríbela",_7883:"Cargando audio…",_40h8:"No se pudo reproducir el audio – toca 🔊 para reintentar",_4tgc:"Mostrar palabra",_58ig:"Escucha y elige",_gumz:"Tu frase",_1xxw:"Fuente",_hcwb:"Modo de repaso",_42cy:"Pista de letra",_yt56:"Escuchar la palabra",_8tl2:"No me acuerdo",_s9a7:"Respuesta correcta"});})(typeof self!=='undefined'?self:this);

@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_emergency",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: emergency.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a sudden serious event needing immediate action.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "In an emergency, call this number.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "emergency",
+  "ipa": "/ɪˈmɜːrdʒənsi/",
+  "mean": "a sudden serious event needing immediate action",
+  "ex": "In an emergency, call this number.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=emergency",
+  "link": "https://lexkite.com/app/#/review?w=emergency",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 40,
+  "seconds": 24.7,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"emergency\" mean?",
+  "keyword": "emergency",
+  "value": "Emergency means a sudden serious event needing immediate action.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=emergency",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"emergency\" mean?",
+    "description": "Emergency means a sudden serious event needing immediate action.\n\nReview your words, free: https://lexkite.com/app/#/review?w=emergency\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "emergency",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"emergency\" mean?\n\nEmergency means a sudden serious event needing immediate action.\n\nReview your words, free: https://lexkite.com/app/#/review?w=emergency"
+   },
+   "instagram": {
+    "caption": "What does \"emergency\" mean?\n\nEmergency means a sudden serious event needing immediate action.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"emergency\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a sudden serious event needing immediate action. Emergency means a sudden serious event needing immediate action. Practice it with a free quiz: {link}"
+ }
+}

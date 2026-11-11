@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_waiter",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: waiter.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a man who serves food in a restaurant.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "The waiter brought us the menu and some water.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "waiter",
+  "ipa": "/ˈweɪtər/",
+  "mean": "a man who serves food in a restaurant",
+  "ex": "The waiter brought us the menu and some water.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=waiter",
+  "link": "https://lexkite.com/app/#/review?w=waiter",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.7,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"waiter\" mean?",
+  "keyword": "waiter",
+  "value": "Waiter means a man who serves food in a restaurant.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=waiter",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"waiter\" mean?",
+    "description": "Waiter means a man who serves food in a restaurant.\n\nReview your words, free: https://lexkite.com/app/#/review?w=waiter\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "waiter",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"waiter\" mean?\n\nWaiter means a man who serves food in a restaurant.\n\nReview your words, free: https://lexkite.com/app/#/review?w=waiter"
+   },
+   "instagram": {
+    "caption": "What does \"waiter\" mean?\n\nWaiter means a man who serves food in a restaurant.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"waiter\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a man who serves food in a restaurant. Waiter means a man who serves food in a restaurant. Try the full lesson and quiz here: {link}"
+ }
+}

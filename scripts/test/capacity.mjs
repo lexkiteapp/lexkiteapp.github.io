@@ -184,10 +184,18 @@ const CAP = await import('../../functions/api/capacity.js');
 
   // check(): GraphQL giả
   let series = (k, f) => Array.from({ length: 30 }, (_, i) => ({ dimensions: { date: new RealDate(Date.now() - (29 - i) * 864e5).toISOString().slice(0, 10) }, sum: f(i) }));
-  let high = true;
+  let high = true, srcHigh = false;
+  const ydayOf = () => new RealDate(Date.now() - 864e5).toISOString().slice(0, 10);
+  const dq = (yday = ydayOf()) => srcHigh ? [
+    { dimensions: { date: yday, query: 'SELECT COUNT(*) AS s, COUNT(DISTINCT vid) AS v FROM sessions WHERE bot IS NULL AND day >= ?' }, sum: { rowsRead: 2.1e6, rowsWritten: 0 } },
+    { dimensions: { date: yday, query: 'SELECT day, ver, at, fin, xh, v FROM stats_day WHERE day >= ?1 AND day < ?2' }, sum: { rowsRead: 400, rowsWritten: 0 } },
+    { dimensions: { date: yday, query: 'INSERT INTO sessions (sid, vid) VALUES (?1, ?2) ON CONFLICT (sid) DO UPDATE SET dur = 1' }, sum: { rowsRead: 0, rowsWritten: 5000 } },
+    { dimensions: { date: yday, query: "SELECT k, h, body FROM docs WHERE uid = ?1 AND k = 'pack'" }, sum: { rowsRead: 9000, rowsWritten: 0 } },
+    { dimensions: { date: yday, query: 'SELECT * FROM bw_checks WHERE id = ?' }, sum: { rowsRead: 300, rowsWritten: 0 } },
+  ] : [];
   gql = body => { ok(/databaseId:"7ce39cd0-9333-4843-bd6f-5ccbefbde670"/.test(body.query), 'GraphQL lọc đúng D1 lexkite-sync');
-    return new Response(JSON.stringify({ data: { viewer: { accounts: [{ d1: series('d1', i => ({ rowsRead: 1000, rowsWritten: high && i >= 25 ? 70e3 : 5e3 })), fn: series('fn', () => ({ requests: 2000 })), wk: [...series('wk', () => ({ requests: 300 })), ...series('wk', () => ({ requests: 200 }))] }] } } })); };
-  const env = { DB, CF_ANALYTICS_TOKEN: 't', CF_ACCOUNT_ID: 'e34e14b7ab35eaf2b3d9d84fcce011f7', MAIL: { fetch: async (u, init) => { mails.push(JSON.parse(init.body)); return new Response('{}'); } } };
+    return new Response(JSON.stringify({ data: { viewer: { accounts: [{ d1: series('d1', i => ({ rowsRead: 1000, rowsWritten: high && i >= 25 ? 70e3 : 5e3 })), fn: series('fn', () => ({ requests: 2000 })), wk: [...series('wk', () => ({ requests: 300 })), ...series('wk', () => ({ requests: 200 }))], dq: dq() }] } } })); };
+  const env = { DB, D1_PLAN: 'free', CF_ANALYTICS_TOKEN: 't', CF_ACCOUNT_ID: 'e34e14b7ab35eaf2b3d9d84fcce011f7', MAIL: { fetch: async (u, init) => { mails.push(JSON.parse(init.body)); return new Response('{}'); } } };
   let out = await CAP.check(env, DB);
   ok(out.ok && out.rows === 30 && out.evaluation.alert, 'check: 30 ngày, cảnh báo ghi ≥ 60 %');
   const row = await be.raw.prepare('SELECT * FROM capacity_daily ORDER BY day DESC LIMIT 1').first();
@@ -201,8 +209,21 @@ const CAP = await import('../../functions/api/capacity.js');
   ok(mails.length === 2, 'sau 24 h còn nguy cơ → nhắc lại');
   high = false; out = await CAP.check(env, DB);
   ok(!out.evaluation.alert && !(await be.raw.prepare("SELECT 1 AS x FROM drive_alerts WHERE kind = 'capacity'").first()), 'hết nguy cơ → gỡ chuông');
+  // Nguồn dòng đọc (sự cố 03/11: trang Quản trị đọc 78 % Free – cảnh báo cũ chỉ thấy tổng)
+  ok(C.d1Source('SELECT COUNT(*) FROM sessions WHERE bot IS NULL') === 'admin' && C.d1Source('WITH f AS (SELECT vid FROM sessions) SELECT 1') === 'admin' && C.d1Source('SELECT COUNT(*) AS n FROM "pageviews_day"') === 'admin', 'd1Source: thống kê/đếm bảng của Quản trị → admin');
+  ok(C.d1Source('INSERT INTO sessions (sid) VALUES (?1)') === 'user' && C.d1Source("SELECT k, h, body FROM docs WHERE uid = ?1") === 'user' && C.d1Source('SELECT * FROM users WHERE uid = ?') === 'user', 'd1Source: ghi phiên, đồng bộ, tra 1 tài khoản → user');
+  ok(C.d1Source("SELECT day, kind, n FROM ext_events WHERE day >= ?1 AND kind >= 'adc:' AND kind < 'adc;'") === 'user' && C.d1Source('SELECT * FROM bw_checks') === 'cron', 'd1Source: cổng quảng cáo (đường người dùng) → user · bw_* → cron');
+  srcHigh = true; const m0 = mails.length; out = await CAP.check(env, DB);
+  const sb = await be.raw.prepare("SELECT * FROM drive_alerts WHERE kind = 'capacity-src'").first(), sm = sb && JSON.parse(sb.msg);
+  ok(sb && sb.level === 'warn' && sm.t === 'capacity-src' && sm.p.repo === 'admin' && sm.p.pct === 42 && /quản trị 2,10 tr \(42 %\)/.test(sm.msg) && /người dùng 9k/.test(sm.msg), 'Quản trị đọc 42 % Free hôm qua → chuông capacity-src: ' + (sm && sm.msg.slice(0, 120)));
+  ok(mails.length === m0 + 1 && /nguồn đọc vượt ngân sách/.test(mails[mails.length - 1].subject) && out.srcMailed, 'thư "nguồn đọc vượt ngân sách" đã gửi');
+  const yday = ydayOf(), srow = await be.raw.prepare('SELECT src FROM capacity_daily WHERE day = ?').bind(yday).first();
+  ok(srow && JSON.parse(srow.src).admin.r === 2.1e6 + 400 && JSON.parse(srow.src).user.w === 5000, 'capacity_daily.src lưu nguồn theo ngày');
+  await CAP.check(env, DB); ok(mails.length === m0 + 1, 'nguồn: không gửi thư lần 2 trong 24 h');
+  srcHigh = false; await CAP.check(env, DB);
+  ok(!(await be.raw.prepare("SELECT 1 AS x FROM drive_alerts WHERE kind = 'capacity-src'").first()) && JSON.parse((await be.raw.prepare('SELECT src FROM capacity_daily WHERE day = ?').bind(yday).first()).src).admin.r > 0, 'hết vượt → gỡ chuông (giữ số đã lưu)');
   const D = await import('../../functions/api/drive.js');
-  ok(D.EXT_KINDS.has('capacity'), "Kho Drive health không xoá chuông 'capacity'");
+  ok(D.EXT_KINDS.has('capacity') && D.EXT_KINDS.has('capacity-src'), "Kho Drive health không xoá chuông 'capacity' / 'capacity-src'");
   const tr = await CAP.trend(env, DB);
   ok(tr.rows.length >= 30 && tr.limits.free.writes === 100000, 'trend: chuỗi + hạn mức cho Quản trị');
   let err = null; try { await CAP.check({ DB }, DB); } catch (e2) { err = e2; }

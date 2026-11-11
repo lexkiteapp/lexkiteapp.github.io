@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Mistake Notebook</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container": "#172427",
+            "surface-container-low": "#121d20",
+            "surface-container-high": "#1E2F33",
+            "surface-container-highest": "#22363A",
+            "surface-container-lowest": "#0D1618",
+            "surface": "#10191B",
+            "background": "#10191B",
+            "on-surface": "#E8F1F0",
+            "on-surface-variant": "#A9BDBB",
+            "outline": "#4C6265",
+            "outline-variant": "#22363A",
+            "primary": "#4DD0C4",
+            "primary-container": "#2BA39A",
+            "on-primary": "#051A18",
+            "on-primary-container": "#E8F1F0",
+            "primary-fixed": "#2BA39A",
+            "primary-fixed-dim": "#20B2AA",
+            "secondary": "#FF6B4A",
+            "secondary-container": "#FF5C38",
+            "on-secondary": "#FFFFFF",
+            "error": "#F87171",
+            "error-container": "rgba(239, 68, 68, 0.15)",
+            "on-error-container": "#FF8A8A",
+            "tertiary": "#F4BF40",
+            "tertiary-container": "#ba8b00",
+            "tertiary-fixed": "#38D9C0"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.25rem",
+            "margin": "1.5rem",
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "margin-desktop": "2.5rem",
+            "space-md": "1rem",
+            "gutter-desktop": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter-mobile": "0.75rem",
+            "space-xl": "2.25rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "title-md": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "display-lg-mobile": ["34px", {"lineHeight": "42px", "letterSpacing": "-0.025em", "fontWeight": "800"}],
+            "headline-lg-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+            "label-lg": ["15px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+            "display-lg": ["44px", {"lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      font-size: 22px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .tactile-coral-btn {
+      box-shadow: 0 4px 0 #b3391e;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-coral-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #b3391e;
+    }
+    .tactile-card {
+      box-shadow: 0 3px 0 #10191B;
+    }
+    .tactile-chip {
+      box-shadow: 0 2px 0 #121d20;
+    }
+    .tactile-chip:active {
+      transform: translateY(1.5px);
+      box-shadow: 0 0.5px 0 #121d20;
+    }
+    .tactile-chip-active {
+      box-shadow: 0 3px 0 #124d47;
+    }
+    .tactile-chip-active:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #124d47;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] antialiased font-body-md flex justify-center min-h-screen">
+<main class="w-full max-w-[390px] bg-[#10191B] min-h-screen flex flex-col relative pb-36 shadow-2xl border-x border-[#22363A]">
+<header class="flex justify-between items-center w-full px-margin-mobile h-14 max-w-[390px] mx-auto bg-[#10191B] border-b border-[#22363A] sticky top-0 z-30 shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
+<button aria-label="Go back" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-[#E8F1F0] hover:bg-[#1E2F33] active:translate-y-[2px] transition-transform duration-150" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-headline-sm font-headline-sm font-bold text-[#E8F1F0] tracking-tight text-center truncate px-space-xs">
+        Mistake Notebook
+      </h1>
+<button aria-label="Filter and settings" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-[#E8F1F0] hover:bg-[#1E2F33] active:translate-y-[2px] transition-transform duration-150" type="button">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+</header>
+<div class="px-margin-mobile pt-space-md space-y-space-md">
+<section class="space-y-space-xs">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1E2F33] border border-[#26383C] text-[#4DD0C4] font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-[#FF5C38]"></span>
+<span>IELTS Academic · Error Log</span>
+</div>
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-[#E8F1F0] font-extrabold tracking-tight">
+          Mistake Notebook
+        </h2>
+<p class="text-body-sm font-body-sm text-[#A9BDBB] leading-relaxed">
+          Review mistakes to eliminate recurring errors before test day.
+        </p>
+</section>
+<section class="rounded-xl border border-dashed border-[#26383C] bg-[#172427] p-space-md shadow-sm">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-[#1E2F33] text-[#4DD0C4] flex flex-col items-center justify-center flex-shrink-0 shadow-inner border border-[#2BA39A]/40">
+<span class="material-symbols-outlined text-xl leading-none" data-icon="school">school</span>
+<span class="font-label-sm text-[10px] mt-0.5 tracking-tighter text-[#E8F1F0] font-semibold">Ama</span>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-[#E8F1F0] font-bold">Ama · Coach</span>
+<span class="font-label-sm text-label-sm text-[#FF8A8A] bg-[#341819] border border-[#FF5C38]/30 px-2 py-0.5 rounded-full font-semibold">Daily Tip</span>
+</div>
+<p class="text-body-sm font-body-sm text-[#A9BDBB] font-medium leading-relaxed italic">
+              “Reviewing your errors within 24 hours cuts repeated mistakes by 70%. Focus on preposition collocations today!”
+            </p>
+</div>
+</div>
+</section>
+<section class="space-y-space-sm pt-space-xs">
+<div aria-label="Mistake Categories" class="flex items-center gap-space-xs overflow-x-auto no-scrollbar py-0.5" role="tablist">
+<button class="min-h-[44px] px-4 py-2 rounded-lg bg-[#2BA39A] text-[#10191B] font-label-md text-label-md flex items-center justify-center whitespace-nowrap font-bold tactile-chip-active transition-all" type="button">
+            All 25
+          </button>
+<button class="min-h-[44px] px-3.5 py-2 rounded-lg bg-[#1E2F33] border border-[#26383C] text-[#E8F1F0] font-label-md text-label-md flex items-center justify-center whitespace-nowrap tactile-chip hover:bg-[#22363A] transition-all" type="button">
+            Grammar 12
+          </button>
+<button class="min-h-[44px] px-3.5 py-2 rounded-lg bg-[#1E2F33] border border-[#26383C] text-[#E8F1F0] font-label-md text-label-md flex items-center justify-center whitespace-nowrap tactile-chip hover:bg-[#22363A] transition-all" type="button">
+            Vocabulary 8
+          </button>
+<button class="min-h-[44px] px-3.5 py-2 rounded-lg bg-[#1E2F33] border border-[#26383C] text-[#E8F1F0] font-label-md text-label-md flex items-center justify-center whitespace-nowrap tactile-chip hover:bg-[#22363A] transition-all" type="button">
+            Pronunciation 5
+          </button>
+</div>
+<div class="flex items-center justify-between gap-space-sm pt-1">
+<button class="min-h-[44px] px-3 py-2 bg-[#1E2F33] border border-[#26383C] rounded-lg flex items-center gap-1.5 text-[#E8F1F0] font-label-md text-label-md hover:bg-[#22363A] transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[#4DD0C4]" data-icon="calendar_today">calendar_today</span>
+<span>Date: Past 7 days</span>
+<span class="material-symbols-outlined text-[#A9BDBB]" data-icon="expand_more">expand_more</span>
+</button>
+<span class="text-label-sm font-label-sm text-[#A9BDBB] text-right">
+            Sorted by: <span class="font-bold text-[#E8F1F0]">Most recent</span>
+</span>
+</div>
+</section>
+<section aria-label="Mistake entries" class="space-y-space-md">
+<article class="rounded-xl border border-[#26383C] bg-[#172427] p-space-md tactile-card space-y-space-sm">
+<div class="flex items-center justify-between gap-2 flex-wrap">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-[#132E2E] border border-[#2BA39A]/40 text-[#4DD0C4] font-bold">
+                Grammar
+              </span>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-semibold">
+                IELTS Writing Task 2
+              </span>
+</div>
+<span class="text-label-sm font-label-sm text-[#A9BDBB]">Today, 10:14</span>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-[#A9BDBB] font-semibold uppercase tracking-wider mb-1">
+              Sentence completion — Academic register
+            </p>
+<div class="p-space-sm rounded-lg bg-[#121D20] border border-[#22363A] text-body-md font-body-md leading-relaxed text-[#E8F1F0]">
+              The committee insisted 
+              <span class="line-through text-[#FF6B6B] bg-[#341819] border border-[#FF6B6B]/30 px-1.5 py-0.5 rounded font-semibold inline-block my-0.5">to postpone</span>
+<span class="font-bold text-[#38D9C0] bg-[#132E2E] px-1.5 py-0.5 rounded border border-[#2BA39A] inline-block my-0.5">on postponing</span> 
+              the decision until further research.
+            </div>
+</div>
+<div class="p-space-sm rounded-lg bg-[#1E2F33] border-l-4 border-[#2BA39A] text-body-sm font-body-sm space-y-1">
+<div class="flex items-center gap-1.5 text-[#4DD0C4] font-bold font-label-md text-label-md">
+<span class="material-symbols-outlined text-lg" data-icon="lightbulb">lightbulb</span>
+<span>Rule tip</span>
+</div>
+<p class="text-[#A9BDBB] leading-normal">
+              Insist takes the preposition <em>on</em> followed by a gerund (-ing form), not a full infinitive (<em>to do</em>).
+            </p>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-[#22363A]">
+<button aria-label="Listen to correct sentence" class="min-w-[44px] min-h-[44px] px-3 rounded-lg border border-[#26383C] bg-[#1E2F33] text-[#E8F1F0] font-label-md text-label-md flex items-center gap-1.5 hover:bg-[#22363A] active:translate-y-[1px] transition-all" type="button">
+<span class="material-symbols-outlined text-[#4DD0C4]" data-icon="volume_up">volume_up</span>
+<span>Listen</span>
+</button>
+<div class="flex items-center gap-1">
+<button aria-label="Bookmark entry" class="min-w-[44px] min-h-[44px] rounded-lg text-[#A9BDBB] hover:text-[#4DD0C4] hover:bg-[#1E2F33] flex items-center justify-center active:translate-y-[1px]" type="button">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+</button>
+<button aria-label="Flag entry" class="min-w-[44px] min-h-[44px] rounded-lg text-[#A9BDBB] hover:text-[#FF6B6B] hover:bg-[#1E2F33] flex items-center justify-center active:translate-y-[1px]" type="button">
+<span class="material-symbols-outlined" data-icon="flag">flag</span>
+</button>
+</div>
+</div>
+</article>
+<article class="rounded-xl border border-[#26383C] bg-[#172427] p-space-md tactile-card space-y-space-sm">
+<div class="flex items-center justify-between gap-2 flex-wrap">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-[#1E2F33] border border-[#26383C] text-[#E8F1F0] font-bold">
+                Vocabulary
+              </span>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-semibold">
+                Speaking Part 3
+              </span>
+</div>
+<span class="text-label-sm font-label-sm text-[#A9BDBB]">Yesterday</span>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-[#A9BDBB] font-semibold uppercase tracking-wider mb-1">
+              Expressing high probability
+            </p>
+<div class="p-space-sm rounded-lg bg-[#121D20] border border-[#22363A] text-body-md font-body-md leading-relaxed text-[#E8F1F0]">
+              There is a 
+              <span class="line-through text-[#FF6B6B] bg-[#341819] border border-[#FF6B6B]/30 px-1.5 py-0.5 rounded font-semibold inline-block my-0.5">strong possibility</span>
+<span class="font-bold text-[#38D9C0] bg-[#132E2E] px-1.5 py-0.5 rounded border border-[#2BA39A] inline-block my-0.5">high probability / strong chance</span> 
+              that remote work will continue.
+            </div>
+</div>
+<div class="p-space-sm rounded-lg bg-[#1E2F33] border-l-4 border-[#FF5C38] text-body-sm font-body-sm space-y-1">
+<div class="flex items-center gap-1.5 text-[#FF6B4A] font-bold font-label-md text-label-md">
+<span class="material-symbols-outlined text-lg" data-icon="lightbulb">lightbulb</span>
+<span>Collocation tip</span>
+</div>
+<p class="text-[#A9BDBB] leading-normal">
+              Pair <em>strong</em> with <em>chance</em> or <em>likelihood</em>, while <em>probability</em> pairs best with <em>high</em> in formal exam lexis.
+            </p>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-[#22363A]">
+<button aria-label="Listen to pronunciation" class="min-w-[44px] min-h-[44px] px-3 rounded-lg border border-[#26383C] bg-[#1E2F33] text-[#E8F1F0] font-label-md text-label-md flex items-center gap-1.5 hover:bg-[#22363A] active:translate-y-[1px] transition-all" type="button">
+<span class="material-symbols-outlined text-[#4DD0C4]" data-icon="volume_up">volume_up</span>
+<span>Pronunciation</span>
+</button>
+<button aria-label="Bookmark entry" class="min-w-[44px] min-h-[44px] rounded-lg text-[#A9BDBB] hover:text-[#4DD0C4] hover:bg-[#1E2F33] flex items-center justify-center active:translate-y-[1px]" type="button">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+</article>
+<article class="rounded-xl border border-[#26383C] bg-[#172427] p-space-md tactile-card space-y-space-sm">
+<div class="flex items-center justify-between gap-2 flex-wrap">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-[#132E2E] border border-[#2BA39A]/40 text-[#38D9C0] font-bold">
+                Pronunciation
+              </span>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-semibold">
+                Speaking Drill
+              </span>
+</div>
+<span class="text-label-sm font-label-sm text-[#A9BDBB]">3 days ago</span>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-[#A9BDBB] font-semibold uppercase tracking-wider mb-1">
+              Word stress &amp; vowel reduction
+            </p>
+<div class="p-space-sm rounded-lg bg-[#121D20] border border-[#22363A] text-body-md font-body-md leading-relaxed text-[#E8F1F0] space-y-1.5">
+<div>
+<span class="line-through text-[#FF6B6B] bg-[#341819] border border-[#FF6B6B]/30 px-1.5 py-0.5 rounded font-semibold inline-block">pho-TO-graphy (/ˌfoʊtoʊˈɡræf.i/)</span>
+</div>
+<div>
+<span class="font-bold text-[#38D9C0] bg-[#132E2E] px-1.5 py-0.5 rounded border border-[#2BA39A] inline-block">pho-TOG-ra-phy (/fəˈtɑː.ɡrə.fi/)</span>
+</div>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-[#1E2F33] border-l-4 border-[#2BA39A] text-body-sm font-body-sm space-y-1">
+<div class="flex items-center gap-1.5 text-[#4DD0C4] font-bold font-label-md text-label-md">
+<span class="material-symbols-outlined text-lg" data-icon="lightbulb">lightbulb</span>
+<span>Stress tip</span>
+</div>
+<p class="text-[#A9BDBB] leading-normal">
+              Stress shifts to the 2nd syllable in <em>photography</em> and <em>photographer</em>, unlike <em>photo</em> or <em>photograph</em> (1st syllable).
+            </p>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-[#22363A]">
+<div class="flex items-center gap-2">
+<button aria-label="Listen to stress pattern" class="min-w-[44px] min-h-[44px] px-3 rounded-lg border border-[#26383C] bg-[#1E2F33] text-[#E8F1F0] font-label-md text-label-md flex items-center gap-1.5 hover:bg-[#22363A] active:translate-y-[1px] transition-all" type="button">
+<span class="material-symbols-outlined text-[#4DD0C4]" data-icon="volume_up">volume_up</span>
+<span>Listen</span>
+</button>
+<button aria-label="Repeat drill" class="min-w-[44px] min-h-[44px] px-3 rounded-lg border border-[#26383C] bg-[#1E2F33] text-[#E8F1F0] font-label-md text-label-md flex items-center gap-1.5 hover:bg-[#22363A] active:translate-y-[1px] transition-all" type="button">
+<span class="material-symbols-outlined text-[#A9BDBB]" data-icon="replay">replay</span>
+<span>Repeat</span>
+</button>
+</div>
+<button aria-label="Bookmark entry" class="min-w-[44px] min-h-[44px] rounded-lg text-[#A9BDBB] hover:text-[#4DD0C4] hover:bg-[#1E2F33] flex items-center justify-center active:translate-y-[1px]" type="button">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+</article>
+</section>
+</div>
+<aside class="fixed bottom-16 left-0 right-0 max-w-[390px] mx-auto px-margin-mobile pb-space-sm pt-4 bg-gradient-to-t from-[#10191B] via-[#10191B]/95 to-transparent pointer-events-none z-40">
+<div class="pointer-events-auto space-y-1">
+<button class="w-full min-h-[52px] bg-[#FF5C38] hover:bg-[#FF6B4A] text-white font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-2 font-bold tactile-coral-btn" type="button">
+<span>Practise these 25 →</span>
+</button>
+<p class="text-center font-label-sm text-label-sm text-[#A9BDBB]">
+          ~6 min adaptive review session
+        </p>
+</div>
+</aside>
+<nav aria-label="Main Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter-mobile py-space-xs h-16 max-w-[390px] mx-auto inset-x-0 bg-[#0D1618] border-t border-[#1E2F33] shadow-[0_-4px_16px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] font-medium min-w-[44px] min-h-[44px] hover:bg-[#172427] rounded-lg active:translate-y-[2px] transition-transform duration-100" href="#study">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="text-label-sm font-label-sm mt-0.5">Study</span>
+</a>
+<a aria-current="page" class="flex flex-col items-center justify-center text-[#4DD0C4] font-bold min-w-[44px] min-h-[44px] hover:bg-[#172427] rounded-lg active:translate-y-[2px] transition-transform duration-100" href="#mistakes">
+<span class="material-symbols-outlined" data-icon="bookmark" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+<span class="text-label-sm font-label-sm mt-0.5">Mistakes</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] font-medium min-w-[44px] min-h-[44px] hover:bg-[#172427] rounded-lg active:translate-y-[2px] transition-transform duration-100" href="#mocks">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="text-label-sm font-label-sm mt-0.5">Mocks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] font-medium min-w-[44px] min-h-[44px] hover:bg-[#172427] rounded-lg active:translate-y-[2px] transition-transform duration-100" href="#profile">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm mt-0.5">Profile</span>
+</a>
+</nav>
+</main>
+</body></html>

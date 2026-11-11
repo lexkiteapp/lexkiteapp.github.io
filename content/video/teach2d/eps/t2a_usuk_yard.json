@@ -1,0 +1,124 @@
+{
+ "id": "t2a_usuk_yard",
+ "template": "usuk",
+ "series": "US or UK?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "U.S. or U.K.?",
+   "pause": 0.42
+  },
+  {
+   "id": "us",
+   "text": "In America, people say yard.",
+   "pause": 0.42
+  },
+  {
+   "id": "uk",
+   "text": "In Britain, people say garden. Same thing!",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "The kids are playing in the yard.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! You're in Edinburgh. Which word do people use?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Garden!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "us": "yard",
+  "uk": "garden",
+  "ipa_us": "/jɑːrd/",
+  "ipa_uk": "/ˈɡɑːrdn/",
+  "same": "Same thing!",
+  "quiz": {
+   "options": [
+    "yard",
+    "garden"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/yard",
+  "link": "https://lexkite.com/app/#/dict/yard",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "US or UK?"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Yard or garden? US vs UK English",
+  "keyword": "yard vs garden",
+  "value": "Americans say yard. British people say garden.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/yard",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "Yard or garden? US vs UK English",
+    "description": "Americans say yard. British people say garden.\n\nLook up any word, free: https://lexkite.com/app/#/dict/yard\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "yard vs garden",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Yard or garden? US vs UK English\n\nAmericans say yard. British people say garden.\n\nLook up any word, free: https://lexkite.com/app/#/dict/yard"
+   },
+   "instagram": {
+    "caption": "Yard or garden? US vs UK English\n\nAmericans say yard. British people say garden.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Yard or garden? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Garden! Americans say yard. British people say garden. Practice it with a free quiz: {link}"
+ }
+}

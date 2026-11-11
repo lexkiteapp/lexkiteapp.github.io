@@ -85,5 +85,17 @@
  "link": "https://lexkite.com/app/#/toeic",
  "cta": "Practice TOEIC free on lexkite.com",
  "est": 24.0,
- "end_alt": "n_15d51e_e2"
+ "end_alt": "n_15d51e_e2",
+ "publish": {
+  "title": "What to say at the bank in English",
+  "keyword": "bank phrases",
+  "value": "Open an account, withdraw cash, and ask about a fee.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#b1english"
+  ],
+  "first_comment": "Tip: at the counter, start with \"I'd like to...\" and you'll always sound polite. The full bank lesson with a quick quiz is free here: {link}"
+ }
 }

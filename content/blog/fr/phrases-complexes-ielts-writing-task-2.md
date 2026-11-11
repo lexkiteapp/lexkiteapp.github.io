@@ -33,6 +33,7 @@ quiz: [
     explain: "Le descripteur Band 7 exige la maîtrise d'une variété de structures syntaxiques complexes et une production fréquente de phrases exemptes d'erreurs."
   }
 ]
+publishAt: 2026-11-27T08:45:00+01:00
 ---
 Lorsque les candidats consultent les critères d'évaluation officiels de l'IELTS pour la dissertation (**Writing Task 2**), le descripteur du niveau Band 7 pour **Grammatical Range and Accuracy** suscite souvent des malentendus : *« Uses a variety of complex structures with good flexibility and control; frequently produces error-free sentences. »*
 

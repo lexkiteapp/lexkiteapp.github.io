@@ -4,6 +4,84 @@
  "db": "lexkite-sync",
  "items": [
   {
+   "name": "lexkite-d1-main-20261109.bak.ndjson",
+   "week": "2026-W46",
+   "at": "2026-11-09T06:16:15.354Z",
+   "sha256": "c72cb31ff9aa94d5e6abc050d77eb4ad2265f0d9a7b1ebf3c832358f7694e356",
+   "size": 1076928,
+   "rows": 583,
+   "counts": {
+    "users": 109,
+    "docs": 258,
+    "league_member": 14,
+    "league_week": 18,
+    "classes": 0,
+    "class_member": 0,
+    "class_task": 0,
+    "class_progress": 0,
+    "notices": 0,
+    "notice_reads": 0,
+    "vid_uid": 147,
+    "reports": 3,
+    "report_events": 16,
+    "config": 16,
+    "quota_config": 0,
+    "quota_allow": 0,
+    "quota_block": 0,
+    "quota_flag": 0,
+    "api_keys": 2
+   },
+   "copies": [
+    {
+     "driveId": 20,
+     "fileId": "11Vwurd6a9-fJeztryUAvGpM_aYhe368p"
+    },
+    {
+     "driveId": 24,
+     "fileId": "1S7TDY7peW54BwWbas1w8efyZgrsCdoxn"
+    }
+   ]
+  },
+  {
+   "name": "lexkite-d1-main-20261102.bak.ndjson",
+   "week": "2026-W45",
+   "at": "2026-11-02T01:07:40.122Z",
+   "sha256": "4c04df17681f67791f32b7c5ad91365f3a1eb5cbb4bff5e49e8d93bb43b4a14c",
+   "size": 604366,
+   "rows": 452,
+   "counts": {
+    "users": 68,
+    "docs": 260,
+    "league_member": 8,
+    "league_week": 9,
+    "classes": 0,
+    "class_member": 0,
+    "class_task": 0,
+    "class_progress": 0,
+    "notices": 0,
+    "notice_reads": 0,
+    "vid_uid": 91,
+    "reports": 0,
+    "report_events": 0,
+    "config": 14,
+    "quota_config": 0,
+    "quota_allow": 0,
+    "quota_block": 0,
+    "quota_flag": 0,
+    "api_keys": 2
+   },
+   "copies": [
+    {
+     "driveId": 5,
+     "fileId": "1xI5GEfdAWd-h6asrzI2bXriBBuTCR14x"
+    },
+    {
+     "driveId": 8,
+     "fileId": "1JuYlg3RGqrDdPfuMNU3Ebr7ylioy91NP"
+    }
+   ]
+  },
+  {
    "name": "lexkite-d1-main-20261026.bak.ndjson",
    "week": "2026-W44",
    "at": "2026-10-26T01:01:08.527Z",
@@ -43,5 +121,5 @@
    ]
   }
  ],
- "updated": "2026-10-26T01:01:08.527Z"
+ "updated": "2026-11-09T06:16:15.354Z"
 }

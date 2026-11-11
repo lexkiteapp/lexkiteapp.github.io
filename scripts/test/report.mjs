@@ -42,7 +42,7 @@ const call = async (body, { ip = '10.0.0.' + ipN, token, origin = 'https://lexki
   const r = await R.onRequestPost({ request: new Request('https://lexkite.com/api/report', { method: 'POST', headers, body: typeof body === 'string' ? body : JSON.stringify(body) }), env });
   const text = await r.text(); let j = {}; try { j = JSON.parse(text); } catch (e) { /* bỏ qua */ } return { s: r.status, j, text, h: r.headers };
 };
-const SHOT = 'data:image/webp;base64,' + Buffer.from('RIFF0000WEBPVP8 fake').toString('base64');
+const DAY0 = 864e5, SHOT = 'data:image/webp;base64,' + Buffer.from('RIFF0000WEBPVP8 fake').toString('base64');
 const good = (extra = {}) => ({ op: 'create', cat: 'content', msg: 'The IPA for "record" (verb) is wrong on this page.', ms: 5000, ctx: { route: 'dict/record?x=secret', lang: 'en', ver: '20261017', plat: 'web', vw: '390x844', ua: 'Mozilla/5.0 test', cid: 'record', junk: 'should-drop', url: 'https://evil.example/full?token=1' }, errs: [], ...extra });
 
 // ---------- 1) Tạo báo lỗi ----------
@@ -63,6 +63,16 @@ const am = mails.find(m => m.path === '/send');
 ok(am && am.body.subject.includes(c1.j.id) && am.body.text.includes('admin.html?r=1#reports') && am.body.text.includes('dict/record'), 'thư quản trị: mã LX, liên kết Quản trị, trang');
 ok(am && !JSON.stringify(am.body).includes(c1.j.token), 'thư quản trị không chứa mã riêng của người báo');
 ok(am && am.body.replyTo === 'reporter@example.com', 'thư quản trị: Reply-To = người báo đã đồng ý');
+// Thư cảm ơn ngay khi tạo phiếu (người báo để email + đồng ý): mã, mốc sau AI (P1 → 2–3 ngày), liên kết riêng; ghi lịch sử
+const tm = mails.find(m => m.path === '/user' && m.body.to === 'reporter@example.com');
+ok(tm && tm.body.subject === `[Lexkite] Report ${c1.j.id}: Received` && tm.body.text.includes('#/report/' + c1.j.token) && tm.body.text.includes('Expected: within 2–3 days') && tm.body.text.includes('Thank you'), 'thư cảm ơn khi tạo: mã LX, mốc theo mức AI, liên kết riêng: ' + JSON.stringify(tm && tm.body.text));
+ok(sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = 1 AND act = 'mailed' AND note = 'thanks'").get().n === 1, 'thư cảm ơn ghi lịch sử (mailed · thanks)');
+{ mails.length = 0; mailOk = false;
+  const c2 = await call(good({ notify: true, email: 'zh@example.com', msg: '页面上的音标显示错误，请修复一下。', ctx: { route: 'dict/x', lang: 'zh', ver: '1', plat: 'web' } }), { ip: '10.0.0.77' });
+  const id2 = +c2.j.id.slice(3) - 1000, z = mails.find(m => m.body.to === 'zh@example.com'); mailOk = true;
+  ok(z && z.body.subject.includes('已收到') && sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = ? AND act = 'mail-failed' AND note = 'thanks · 501'").get(id2).n === 1, 'thư cảm ơn đúng ngôn ngữ; nhà gửi thư lỗi → ghi mail-failed + mã HTTP (admin thấy)');
+  mails.length = 0; const c3 = await call(good({ msg: 'No email given, the audio button does nothing.' }), { ip: '10.0.0.78' });
+  ok(c3.s === 200 && !mails.some(m => m.path === '/user'), 'không để email → không thư cảm ơn'); }
 // AI phân loại + GitHub Issue (P1, lỗi nội dung) – đã làm sạch
 const t1 = sql.prepare('SELECT sev, ai, issue, sig FROM reports WHERE id = 1').get();
 ok(t1.sev === 'P1' && JSON.parse(t1.ai).by === 'ai' && t1.sig.length === 16, 'AI phân loại: lưu mức + kết quả + chữ ký lỗi');
@@ -288,6 +298,139 @@ ok(sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = 1 AND act IN
   const u = await call({ op: 'unhide', cid: XC }, { token: ADM }); h = (await call({ op: 'hidden' })).j.cids || [];
   ok(u.j.ok && !h.includes(XC) && sql.prepare('SELECT COUNT(*) AS n FROM content_flags WHERE cid = ?').get(XC).n === 0, 'quản trị hiện lại → bỏ khỏi danh sách ẩn + đếm lại từ 0');
 }
+
+// Thư người báo theo đúng 15 ngôn ngữ (hồi quy LX-1001: phiếu tiếng Trung nhận thư tiếng Anh) + bản dịch thư khớp nguồn app
+{
+  const GEN = await import(new URL('../gen-report-mail-i18n.mjs', import.meta.url));
+  const fs = await import('node:fs');
+  ok(fs.readFileSync(new URL('../../functions/api/_report-i18n.js', import.meta.url), 'utf8') === GEN.build(), '_report-i18n.js khớp nguồn web/js/i18n/<lang>/report.js (chạy node scripts/gen-report-mail-i18n.mjs)');
+  const I = await import(new URL('../../functions/api/_report-i18n.js', import.meta.url));
+  ok(GEN.LANGS.length === 15 && GEN.LANGS.every(l => l === 'vi' || (I.MAIL_I18N[l] && I.MAIL_I18N[l].length === I.MAIL_KEYS.length)), 'thư có đủ 15 ngôn ngữ, đủ khóa');
+  const vars = s => (s.match(/\{\w+\}/g) || []).sort().join();
+  const bad = []; for (const l in I.MAIL_I18N) I.MAIL_KEYS.forEach((k, i) => { const v = I.MAIL_I18N[l][i]; if (vars(v) !== vars(k) || (l !== 'vi' && /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(v))) bad.push(l + ': ' + k); });
+  ok(!bad.length, 'bản dịch thư giữ biến {id}/{s}/… và không lẫn tiếng Việt: ' + bad.slice(0, 3).join(' | '));
+  const row = { id: 1, tok: 'T'.repeat(24), status: 'fixed', reply: 'OK', dup_of: null, fix_ver: '20261102', email: 'a@b.co' };
+  const zh = R.userMail({ ...row, lang: 'zh-CN' }), en = R.userMail({ ...row, lang: 'xx' }), vi = R.userMail({ ...row, lang: 'vi' }), ar = R.userMail({ ...row, lang: 'ar' });
+  ok(zh.subject.includes('LX-1001') && zh.subject.includes('已修复') && zh.text.includes('20261102') && zh.text.includes('#/report/' + row.tok) && !/Fixed|Your report/.test(zh.text), 'phiếu tiếng Trung → thư tiếng Trung (tiêu đề, phiên bản, liên kết)');
+  ok(en.subject === '[Lexkite] Report LX-1001: Fixed' && en.text.includes('Fixed in version 20261102'), 'ngôn ngữ lạ → thư tiếng Anh');
+  ok(vi.subject === '[Lexkite] Báo lỗi LX-1001: Đã sửa' && vi.text.includes('Phản hồi từ Lexkite\nOK'), 'thư tiếng Việt');
+  ok(ar.text.includes('LX-1001') && /[\u0600-\u06FF]/.test(ar.subject), 'thư tiếng Ả Rập');
+  const t = R.mailT('ja'); ok(R.etaText({ kind: 'normal', h: 72 }, t) === t('Dự kiến xử lý: {t}', { t: t('trong {a}–{b} ngày', { a: 2, b: 3 }) }) && !R.etaText({ kind: 'normal', h: 72 }, t).includes('{'), 'mốc dự kiến dịch đúng, không sót biến');
+}
+
+// Mốc thông minh: mức P0–P3 + số phiếu mở xếp trước + trung vị thời gian sửa thật; lưu sau AI, trang trạng thái hiện đúng
+ok(R.smartH(72, 0, 0) === 72 && R.smartH(24, 0, 5) === 36 && R.smartH(72, 100, 0) === 120 && R.smartH(24, 0, 999) === 96 && R.smartH(2000, 0, 30) === 2160, 'smartH: gốc, +10 %/phiếu trước (≤ 30), trung vị thật, tròn ngày, trần 90 ngày');
+{ const now = Date.now(), old = aiNext;
+  for (let i = 0; i < 3; i++) sql.prepare("INSERT INTO reports (tok, at, upd, status, cat, area, msg, sev, fixed_at, spam, sandbox) VALUES (?, ?, ?, 'fixed', 'bug', 'app', 'x', 'P2', ?, 0, 0)").run('MED' + i + 'x'.repeat(20), now - 300 * 36e5, now, now - 100 * 36e5);
+  aiNext = () => ({ severity: 'P2', area: 'app', type: 'bug', summary_vi: 'Nút không chạy', confidence: 0.8 });
+  const c = await call(good({ cat: 'bug', msg: 'The play button on the lesson screen does nothing at all.', ctx: { route: 'lesson', lang: 'en', ver: '1', plat: 'web' } }), { ip: '10.0.0.91' });
+  aiNext = old;
+  const st = await call({ op: 'status', t: c.j.token }), x = JSON.parse(sql.prepare('SELECT eta_x FROM reports WHERE tok = ?').get(c.j.token).eta_x);
+  ok(x.m === 200 && x.a >= 1 && st.j.eta.h === R.smartH(48, 200, x.a) && st.j.eta.h >= 216 && st.j.eta.h % 24 === 0, 'sau AI: mốc theo trung vị sửa thật (200 giờ) + hàng đợi, hiện trên trang trạng thái: ' + JSON.stringify(st.j.eta) + JSON.stringify(x));
+  ok(c.j.eta && c.j.eta.h >= 48, 'lúc gửi: mốc theo loại + hàng đợi'); }
+
+// Tự động theo PR (report-autofix.yml): PR gộp có LX → Đang xử lý + commit chờ; bản live chứa commit → Đã sửa (CACHE); chạy lại không thư lặp
+{ const SHA = 'a'.repeat(39) + 'b', sq = async (body, env = ENV) => { const raw = JSON.stringify(body), ts = String(Date.now()); return call(raw, { ip: '10.7.7.8', env, cli: ts + '.' + await R.cliSign(CLI_KEY, ts, raw) }); };
+  const c = await call(good({ cat: 'bug', msg: 'Lesson audio stops after the second sentence every time.' }), { ip: '10.0.0.92' }), rid = +c.j.id.slice(3) - 1000;
+  sql.prepare("UPDATE reports SET email = 'pr@example.com', notify = 1, lang = 'en' WHERE id = ?").run(rid); mails.length = 0;
+  const p1 = await sq({ op: 'progress', commit: SHA, pr: 501, ids: [c.j.id, 'LX-999999'] }), p2 = await sq({ op: 'progress', commit: SHA, pr: 501, ids: [c.j.id] });
+  const st = sql.prepare('SELECT status FROM reports WHERE id = ?').get(rid).status;
+  ok(p1.s === 200 && st === 'prog' && p1.j.rows[0].prog && p1.j.rows[1].skip === 'not-found' && p2.j.rows[0].skip === 'same-commit' && mails.length === 1, 'progress: PR gộp → Đang xử lý, báo 1 thư; cùng commit lần 2 bỏ qua: ' + JSON.stringify([p1.j, p2.j]));
+  ok((await sq({ op: 'progress', commit: 'zz', ids: [c.j.id] })).s === 400 && (await call({ op: 'progress', commit: SHA, ids: [c.j.id] }, { token: undefined })).s !== 200, 'progress: commit phải đủ 40 ký tự hex; không ký → bị chặn');
+  const pd = await sq({ op: 'pending' }, { ...ENV, CF_PAGES_COMMIT_SHA: 'C'.repeat(40) });
+  ok(pd.j.rows.some(r => r.id === c.j.id && r.commit === SHA) && pd.j.live === 'c'.repeat(40), 'pending: phiếu Đang xử lý + commit chờ + commit bản live');
+  const AF = await import(new URL('../report-autofix.mjs', import.meta.url));
+  ok(AF.lxIds('Fix LX-1234 & lx-1235, again LX-1234; not XLX-1236 or LX-1000 or LX-12345678901') .join() === 'LX-1234,LX-1235', 'lxIds: lấy đúng mã, bỏ trùng/mã giả');
+  ok(AF.cacheVer("const CACHE = 'lexkite-20261102183000';") === 'lexkite-20261102183000', 'cacheVer đọc CACHE của sw.js');
+  const env2 = { ...ENV, CF_PAGES_COMMIT_SHA: 'c'.repeat(40) }, callE = async body => (await sq(body, env2)).j, logs = [];
+  const notLive = await AF.run('live', { call: callE, anc: () => false, f: async () => new Response(''), log: x => logs.push(x) });
+  ok(!notLive.done.length && sql.prepare('SELECT status FROM reports WHERE id = ?').get(rid).status === 'prog', 'live: commit chưa lên bản live → chưa Đã sửa');
+  const live = await AF.run('live', { call: callE, anc: (a, b) => a === SHA && b === 'c'.repeat(40), f: async () => new Response("const CACHE = 'lexkite-20261103000000';"), log: x => logs.push(x) });
+  const r2 = sql.prepare('SELECT status, fix_ver FROM reports WHERE id = ?').get(rid);
+  ok(live.done.includes(c.j.id) && r2.status === 'fixed' && r2.fix_ver === 'lexkite-20261103000000' && mails.length === 2, 'live: bản live chứa commit → Đã sửa, fix_ver = CACHE, báo người báo: ' + JSON.stringify(r2));
+  const again = await AF.run('live', { call: callE, anc: () => true, f: async () => new Response(''), log: () => {} }), rr = await sq({ op: 'resolve', id: c.j.id, commit: SHA });
+  ok(!again.done.length && rr.j.skipped === 'already-fixed' && mails.length === 2, 'chạy lại: không resolve/không thư lặp');
+  ok((await sq({ op: 'progress', commit: 'd'.repeat(40), ids: [c.j.id] })).j.rows[0].skip === 'fixed', 'progress: phiếu đã sửa không mở lại');
+  const m = await AF.run('merged', { call: callE, env: { PR_TITLE: 'Fix', PR_BODY: '', PR_BRANCH: 'x', SHA, PR: '1' }, log: () => {} });
+  ok(!m.ids.length, 'merged: PR không có mã → không gọi API'); }
+
+// Báo đẩy "đã sửa" (item 5): phiếu nhớ id thiết bị nhắc học (pid, không lộ ra admin/công khai) → Đã sửa → hàng đợi push_now ở D1 nội bộ; thiếu D1B → bỏ qua an toàn
+{ const sql2 = new DatabaseSync(':memory:'), f0 = globalThis.fetch, PID = 'f'.repeat(32);
+  globalThis.fetch = async (url, init = {}) => { if (!String(url).startsWith('https://api.cloudflare.com/client/v4/accounts/acc2/d1/')) return f0(url, init);
+    const b = JSON.parse(init.body), one = q => /^\s*(SELECT|WITH)/i.test(q.sql) ? { results: sql2.prepare(q.sql).all(...(q.params || [])) } : (sql2.prepare(q.sql).run(...(q.params || [])), { results: [], meta: {} });
+    return new Response(JSON.stringify({ success: true, result: b.batch ? b.batch.map(one) : [one(b)] }), { status: 200 }); };
+  const E2 = { ...ENV, D1B_ACCOUNT_ID: 'acc2', D1B_TOKEN: 'tok2', PUSH_PCT: '100' };
+  const c = await call(good({ cat: 'bug', msg: 'Flashcards freeze when I swipe quickly twice.', pid: PID }), { ip: '10.0.0.93', env: E2 }), id = +c.j.id.slice(3) - 1000;
+  const c2 = await call(good({ cat: 'bug', msg: 'Another bug with a bad device id value here.', pid: 'NOT-HEX' }), { ip: '10.0.0.94', env: E2 });
+  ok(sql.prepare('SELECT pid FROM reports WHERE id = ?').get(id).pid === PID && !sql.prepare('SELECT pid FROM reports WHERE id = ?').get(+c2.j.id.slice(3) - 1000).pid, 'create: lưu id thiết bị hợp lệ, bỏ giá trị lạ');
+  const gt = await call({ op: 'get', id: c.j.id }, { token: ADM, env: E2 }), st = await call({ op: 'status', t: c.j.token }, { env: E2 });
+  ok(!gt.text.includes(PID) && !st.text.includes(PID), 'id thiết bị không lộ ở admin get / trang trạng thái');
+  const s1 = await call({ op: 'set', id: c.j.id, status: 'fixed' }, { token: ADM, env: E2 });
+  const q = sql2.prepare('SELECT sid, rid FROM push_now').all();
+  ok(s1.j.pushed === true && q.length === 1 && q[0].sid === PID && q[0].rid === id && sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = ? AND act = 'push-queued'").get(id).n === 1, 'Đã sửa → xếp báo đẩy vào push_now (D1 nội bộ) + ghi lịch sử: ' + JSON.stringify(s1.j));
+  await call({ op: 'set', id: c.j.id, reply: 'thanks again' }, { token: ADM, env: E2 });
+  ok(sql2.prepare('SELECT COUNT(*) AS n FROM push_now').get().n === 1, 'chỉ báo đẩy khi chuyển sang Đã sửa (phản hồi sau không đẩy lại)');
+  const c3 = await call(good({ cat: 'bug', msg: 'Third bug: quiz timer never stops at all.', pid: PID }), { ip: '10.0.0.95' });
+  const s3 = await call({ op: 'set', id: c3.j.id, status: 'fixed' }, { token: ADM });
+  ok(s3.s === 200 && s3.j.pushed === false, 'chưa cấu hình D1 nội bộ → bỏ qua báo đẩy, Đã sửa vẫn chạy');
+  const cf = await call({ op: 'cfg' }, { token: ADM, env: E2 }), cf0 = await call({ op: 'cfg' }, { token: ADM, env: { ...ENV, MAIL: undefined } });
+  ok(cf.j.push === 'ok' && cf0.j.push === 'no-d1b' && cf0.j.mail_st === 'no-binding' && ['ok', 'no-key', 'failing', 'unknown'].includes(cf.j.mail_st) && !/tok2|acc2|SECRET/.test(cf.text), 'cfg: cờ push / thư (không lộ bí mật): ' + JSON.stringify([cf.j.push, cf.j.mail_st, cf0.j.push]));
+  sql.prepare("UPDATE reports SET email = 'm@example.com', notify = 1 WHERE id = ?").run(+c3.j.id.slice(3) - 1000);
+  mailOk = false; await call({ op: 'set', id: c3.j.id, reply: 'mail test' }, { token: ADM }); mailOk = true;
+  ok((await call({ op: 'cfg' }, { token: ADM })).j.mail_st === 'no-key', 'Worker thư trả 501 → thẻ Chất lượng báo "chưa có khóa"');
+  // Màn cảm ơn "Báo cho tôi khi sửa xong": đăng ký "chỉ báo lỗi" (ro) không nhận lời nhắc học, không đè lịch thiết bị đã bật nhắc học; op pid gắn vào phiếu bằng mã riêng
+  const PU = await import(new URL('../../functions/api/push.js', import.meta.url)), ps = b => PU.onRequestPost({ request: new Request('https://lexkite.com/api/push', { method: 'POST', headers: { 'CF-Connecting-IP': '10.9.9.9' }, body: JSON.stringify(b) }), env: E2 }).then(async r => ({ s: r.status, j: await r.json().catch(() => ({})) }));
+  const EP = 'https://fcm.googleapis.com/fcm/send/report-only-1', ro = await ps({ op: 'sub', k: 'web', ro: 1, ep: EP, lmin: 1200, tz: 'Asia/Tokyo', lang: 'ja' });
+  const rw = sql2.prepare('SELECT done, lang FROM push_subs WHERE id = ?').get(ro.j.id);
+  ok(ro.s === 200 && /^[a-f0-9]{32}$/.test(ro.j.id) && rw.done === 1 && rw.lang === 'ja', 'sub ro: thiết bị chỉ nhận báo "đã sửa" (done = 1 → không lời nhắc học): ' + JSON.stringify([ro, rw]));
+  const EP2 = 'https://fcm.googleapis.com/fcm/send/reminder-on-2', on = await ps({ op: 'sub', k: 'web', ep: EP2, lmin: 1170, tz: 'UTC', lang: 'en' }); await ps({ op: 'sub', k: 'web', ro: 1, ep: EP2, lmin: 1200, tz: 'UTC', lang: 'fr' });
+  const r2w = sql2.prepare('SELECT done, lmin, lang FROM push_subs WHERE id = ?').get(on.j.id);
+  ok(r2w.done === 0 && r2w.lmin === 1170 && r2w.lang === 'fr', 'sub ro trên thiết bị đã bật nhắc học → giữ lịch nhắc, chỉ đổi ngôn ngữ');
+  const c4 = await call(good({ cat: 'bug', msg: 'Pid attach test: lesson list is empty today.' }), { ip: '10.0.0.99', env: E2 }), id4 = +c4.j.id.slice(3) - 1000;
+  const a1 = await call({ op: 'pid', t: c4.j.token, pid: ro.j.id }, { env: E2 }), a2 = await call({ op: 'pid', t: c4.j.token, pid: 'e'.repeat(32) }, { env: E2 }), a3 = await call({ op: 'pid', t: 'x'.repeat(24), pid: 'e'.repeat(32) }, { env: E2 });
+  ok(a1.j.set === true && a2.j.set === false && a3.j.set === false && sql.prepare('SELECT pid FROM reports WHERE id = ?').get(id4).pid === ro.j.id, 'op pid: gắn 1 lần bằng mã riêng; không đè, mã sai không gắn');
+  ok((await call({ op: 'pid', t: c4.j.token, pid: 'nothex' }, { env: E2 })).s === 400, 'op pid: id thiết bị sai định dạng → 400');
+  await call({ op: 'set', id: c4.j.id, status: 'fixed' }, { token: ADM, env: E2 });
+  ok(sql2.prepare('SELECT COUNT(*) AS n FROM push_now WHERE sid = ? AND rid = ?').get(ro.j.id, id4).n === 1, 'phiếu gắn từ màn cảm ơn → Đã sửa → có báo đẩy');
+  globalThis.fetch = f0; }
+
+// Ảnh chụp → R2 nhị phân (item 6): không base64 trong D1, URL ký 5 phút, AI đọc từ R2, xóa 60 ngày sau khi đóng, chuyển ảnh cũ theo lô + VACUUM, dung lượng cho thẻ Chất lượng
+{ const objs = new Map(), R2 = { async put(k, v, o) { objs.set(k, { b: Buffer.from(v), ct: o && o.httpMetadata && o.httpMetadata.contentType }); }, async get(k) { const o = objs.get(k); return o ? { body: o.b, httpMetadata: { contentType: o.ct }, arrayBuffer: async () => o.b.buffer.slice(o.b.byteOffset, o.b.byteOffset + o.b.length) } : null; }, async delete(k) { for (const x of [].concat(k)) objs.delete(x); } };
+  const E3 = { ...ENV, REPORT_SHOTS: R2 }, raw = Buffer.from('RIFF0000WEBPVP8 fake');
+  const c = await call(good({ cat: 'bug', msg: 'Screenshot shows the quiz button overlapping text.', shot: SHOT }), { ip: '10.0.0.96', env: E3 }), id = +c.j.id.slice(3) - 1000;
+  const row = sql.prepare('SELECT has_shot, shot_b FROM reports WHERE id = ?').get(id), o = objs.get('report/' + id);
+  ok(row.has_shot === 1 && row.shot_b === raw.length && o && o.b.equals(raw) && o.ct === 'image/webp' && !sql.prepare('SELECT COUNT(*) AS n FROM report_shots WHERE rid = ?').get(id).n, 'R2: ảnh lưu NHỊ PHÂN (đúng byte, kiểu), không có dòng base64 trong D1');
+  const sh = await call({ op: 'shot', id: c.j.id }, { token: ADM, env: E3 }), u = new URL(sh.j.url || '/x', 'https://lexkite.com');
+  ok(/^\/api\/report-shot\?id=\d+&e=\d+&s=[0-9a-f]{32}$/.test(sh.j.url) && !sh.j.data, 'op shot: ảnh R2 → URL ký (không trả dữ liệu qua JSON)');
+  const RS = await import(new URL('../../functions/api/report-shot.js', import.meta.url)), get = q => RS.onRequestGet({ request: new Request('https://lexkite.com' + q), env: E3 });
+  const g1 = await get(u.pathname + u.search);
+  ok(g1.status === 200 && Buffer.from(await g1.arrayBuffer()).equals(raw) && g1.headers.get('Content-Type') === 'image/webp' && /no-store/.test(g1.headers.get('Cache-Control')) && g1.headers.get('X-Content-Type-Options') === 'nosniff', 'report-shot: chữ ký đúng → ảnh, không cache, nosniff');
+  const bad = u.search.replace(/s=([0-9a-f])/, (m, x) => 's=' + (x === '0' ? '1' : '0')), other = u.search.replace(/id=\d+/, 'id=' + (id + 1));
+  ok((await get(u.pathname + bad)).status === 403 && (await get(u.pathname + other)).status === 403 && (await get('/api/report-shot?id=' + id)).status === 403, 'report-shot: sửa chữ ký / đổi id / thiếu ký → 403');
+  ok(!(await R.shotOk(E3, id, Date.now() - 1, u.searchParams.get('s'))) && !(await R.shotOk(E3, id, Date.now() + 3600e3, u.searchParams.get('s'))) && !(await R.shotOk({ ...E3, LEXKITE_REPORT_CLI_KEY: '' }, id, u.searchParams.get('e'), u.searchParams.get('s'))), 'URL ký: hết 5 phút / hạn quá xa / không có khóa → từ chối');
+  aiCalls.length = 0; await call({ op: 'retriage', id: c.j.id }, { token: ADM, env: E3 });
+  ok(aiCalls[0] && aiCalls[0].body.messages[1].content.some(p => p.type === 'image_url' && p.image_url.url === SHOT), 'AI phân loại lại đọc ảnh từ R2');
+  const st = (await call({ op: 'stats' }, { token: ADM, env: E3 })).j.shots;
+  ok(st.r2 && st.bytes >= raw.length && st.n >= 1 && st.freeB === 10 * 1024 ** 3 && typeof st.pct === 'number', 'stats: dung lượng ảnh R2 + % trên 10 GB miễn phí: ' + JSON.stringify(st));
+  // chuyển ảnh cũ (D1) → R2
+  const old = await call(good({ cat: 'bug', msg: 'Old screenshot stored before R2 existed.', shot: SHOT }), { ip: '10.0.0.97' }), oid = +old.j.id.slice(3) - 1000;
+  ok(sql.prepare('SELECT COUNT(*) AS n FROM report_shots WHERE rid = ?').get(oid).n === 1, 'chưa gắn R2 → D1 như cũ');
+  const sd = await call({ op: 'shot', id: old.j.id }, { token: ADM, env: E3 }); ok(sd.j.data === SHOT, 'ảnh còn ở D1 → op shot trả data URL');
+  const nm = await (async () => { const b = { op: 'shots-migrate' }, raw0 = JSON.stringify(b), ts = String(Date.now()); return call(raw0, { ip: '10.7.7.9', env: ENV, cli: ts + '.' + await R.cliSign(CLI_KEY, ts, raw0) }); })();
+  ok(nm.j.error === 'no-r2-binding' && nm.j.left >= 1, 'shots-migrate: chưa gắn binding → báo, không xóa gì');
+  const mg = async body => { const raw0 = JSON.stringify(body), ts = String(Date.now()); return call(raw0, { ip: '10.7.7.9', env: E3, cli: ts + '.' + await R.cliSign(CLI_KEY, ts, raw0) }); };
+  let m; for (let i = 0; i < 10; i++) { m = await mg({ op: 'shots-migrate', n: 2, vacuum: true }); if (!m.j.left) break; }
+  ok(m.s === 200 && !m.j.left && !sql.prepare('SELECT COUNT(*) AS n FROM report_shots').get().n && objs.get('report/' + oid).b.equals(raw) && sql.prepare('SELECT shot_b FROM reports WHERE id = ?').get(oid).shot_b === raw.length && m.j.vacuum, 'shots-migrate: D1 → R2 theo lô, xóa dòng D1, hết thì VACUUM: ' + JSON.stringify(m.j));
+  // xóa 60 ngày sau khi đóng
+  sql.prepare("UPDATE reports SET status = 'fixed', fixed_at = ? WHERE id = ?").run(Date.now() - 61 * DAY0, id);
+  sql.prepare("UPDATE reports SET status = 'fixed', fixed_at = ? WHERE id = ?").run(Date.now() - 59 * DAY0, oid);
+  const ex = await mg({ op: 'shots-migrate' });
+  ok(ex.j.expired === 1 && !objs.has('report/' + id) && objs.has('report/' + oid) && sql.prepare('SELECT has_shot FROM reports WHERE id = ?').get(id).has_shot === 0 && sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = ? AND act = 'shot-expired'").get(id).n === 1, 'ảnh phiếu đã đóng > 60 ngày bị xóa (R2 + cờ), < 60 ngày giữ');
+  // AI soi ảnh xấu → xóa cả ở R2
+  const old2 = aiNext; aiNext = () => ({ severity: 'P3', area: 'other', type: 'other', summary_vi: 'x', image_safety: 'sexual', confidence: 0.9 });
+  const bd = await call(good({ cat: 'bug', msg: 'Look at this picture please, very important.', shot: SHOT }), { ip: '10.0.0.98', env: E3 }); aiNext = old2;
+  ok(!objs.has('report/' + (+bd.j.id.slice(3) - 1000)), 'ảnh không an toàn → xóa khỏi R2 ngay');
+  const cf = (await call({ op: 'cfg' }, { token: ADM, env: E3 })).j; ok(cf.r2 === true && cf.shot_sign === true && (await call({ op: 'cfg' }, { token: ADM })).j.r2 === false, 'cfg: cờ R2 + khóa ký URL'); }
 
 if (fails) { console.error(`✗ report: ${fails}/${n} lỗi`); process.exit(1); }
 console.log(`✓ report: ${n} kiểm tra – tạo, giới hạn tốc độ, mã riêng, quyền quản trị, thư, không lộ dữ liệu cá nhân, gộp trùng, CSV, thống kê`);

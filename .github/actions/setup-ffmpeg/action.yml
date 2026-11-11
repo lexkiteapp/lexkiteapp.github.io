@@ -1,0 +1,15 @@
+# The ONLY way a workflow gets ffmpeg/ffprobe (policy: scripts/test/ffmpeg-setup-policy.mjs). Static BtbN build, cached: `apt-get install ffmpeg` hung 12+ min and got jobs cancelled (4/11).
+# Use right after actions/checkout (this action must be on disk; sparse-checkout lists must include .github/actions).
+name: setup-ffmpeg
+description: Static ffmpeg + ffprobe (BtbN gpl build with libass), cached, on PATH
+runs:
+  using: composite
+  steps:
+    - uses: actions/cache@v4
+      with: { path: ~/ffbin, key: ffmpeg-n8.1-linux64-gpl-v1 }
+    - name: ffmpeg (static build, cached)
+      shell: bash
+      run: |
+        [ -x ~/ffbin/ffmpeg ] || { mkdir -p ~/ffbin && timeout 240 curl -fsSL --retry 3 --max-time 120 https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n8.1-latest-linux64-gpl-8.1.tar.xz | tar -xJ --wildcards --strip-components=2 -C ~/ffbin '*/bin/ffmpeg' '*/bin/ffprobe'; }
+        sudo ln -sf ~/ffbin/ffmpeg /usr/local/bin/ffmpeg; sudo ln -sf ~/ffbin/ffprobe /usr/local/bin/ffprobe
+        ffmpeg -version | head -1

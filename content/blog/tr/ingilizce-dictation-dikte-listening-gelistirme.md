@@ -33,6 +33,7 @@ quiz: [
     explain: "Vurgu zamanlı bir dil olan İngilizce, cümlenin ana anlamını taşımayan gramer kelimelerini aşırı derecede sıkıştırır ve zayıflatır."
   }
 ]
+publishAt: 2026-11-23T08:01:00+03:00
 ---
 İngilizce film izlerken altyazıları açtığınızda her şeyi mükemmel anladığınızı, fakat altyazıyı kapattığınız anda konuşmaların aniden anlaşılmaz bir ses yığınına dönüştüğünü fark ettiniz mi?
 
@@ -156,6 +157,8 @@ Bu tek cümlelik analiz, dikkatsizce dinlenen iki saatlik podcastten çok daha f
 {{youtube: | İngilizce dictation listening geliştirme ve dikte çalışması adımları videosu}}
 
 {{cta: /#/listening | Lexkite dinleme odasında ilk 15 dakikalık dikte seansınıza başlayın}}
+
+Dikteyi TOEIC'e uyarlamak isterseniz [TOEIC Listening Part 2 stratejileri](/tr/blog/toeic-listening-part-2-stratejileri-soru-cevap/) yazısında kısa soru-cevap tuzaklarını bulabilirsiniz.
 
 ## Sıkça Sorulan Sorular (FAQ)
 

@@ -1,70 +1,33 @@
-# UX benchmark – Lexkite web app (/app/) vs top language apps
+# UX benchmark – Lexkite vs Duolingo (đo bằng máy)
 
-> TL;DR: So sánh UX web app với Duolingo, Babbel, Busuu, Speak, Elsa, Anki/Quizlet: scorecard, tiêu chí, top 10 cải tiến, UX v3 (icon + token). Bằng chứng ảnh CI ux-shots.yml.
-> Đọc khi: cải tiến UX.
+> TL;DR: So sánh với Duolingo nay là SỐ ĐO trên CI (bảng World, `WORLD-SCORECARD.md` → `content/pipeline/WORLD.md`). File này giữ bảng Top 10 khoảng cách tự sinh và việc nên làm cho từng mục. Bản so sánh bằng lời 25/10 (scorecard theo luồng, UX v3, UX1) nằm ở `archive/UX-BENCHMARK-2026-10.md`.
+> Đọc khi: chọn việc UX/sản phẩm tiếp theo; sau mỗi lượt world-scorecard.yml.
 
-Date 25/10/2026. Compared with Duolingo, Babbel, Busuu, Speak, Elsa, and Anki/Quizlet for review.
-Evidence: hermetic CI screenshots from `ux-shots.yml` (`scripts/test/ux-shots.mjs`). They cover 10 flows on phone 390×844 and desktop 1366×860, light and dark, in en/vi/ar.
-Each shot is measured for horizontal overflow, edge clipping, tap targets < 44 px and JS errors. The before/after sheets are in the `ux-shots` artifact.
-Rule: quality only goes up. No feature or content is removed to simplify.
+Luật giữ nguyên: chất lượng chỉ tăng, không bỏ tính năng/nội dung để "gọn" (no-cuts). Lịch sử so sánh UX trước đây: [archive/UX-BENCHMARK-2026-10.md](archive/UX-BENCHMARK-2026-10.md). Kiểm hình đang dùng: `ux-shots.yml`, `ux-cards.yml`, visual-qa, new-ui-qa, journey-e2e (`QUALITY-SWEEP.md`).
 
-## 1. Scorecard per flow (before this pass)
-| Flow | Hierarchy / density | One primary action | Feedback | Empty / loading / error | Thumb reach | Notes |
+## Top 10 khoảng cách theo tác động ÷ chi phí (tự sinh, đừng sửa tay)
+<!-- auto:world-gaps:start -->
+_Tự sinh từ `content/pipeline/WORLD.md` (2026-11-10)._
+
+| # | Trục | Lexkite → mục tiêu | Tác động | Chi phí | Ưu tiên | Hiện trạng |
 |---|---|---|---|---|---|---|
-| Today (#/home) | Good: greeting, then the plan card, then the task list | ✓ "Start Day N" (full width) | progress ring 0/4 | skeleton (skelHome) | CTA sits in the upper half on phones (Duolingo puts it lower) | the sandbox toast covers part of the list for about 2 s |
-| Learn (#/practice) | 2-column card grid, slightly dense on phones | no single CTA (the user picks a mode; same as Babbel "Review") | – | default skeleton | OK | — |
-| Review (#/review) | focus mode, big card | ✓ "Flip card" in the thumb zone | swipe + Again/Good, haptics, Kit | skelReview | ✓ | right/wrong was shown by colour only (fixed) |
-| Vocab topics (#/vocab, #/library) | hero "Review N cards" + grid | ✓ "Review now" | – | – | ✓ | — |
-| Tests (#/tests) | card list + score history | the level test card | – | text-only empty history (acceptable: the CTA card sits directly above) | ✓ | — |
-| Me / Goal | Bento layout, XP bar | ✓ "Create plan" | – | – | ✓ | the "Me" breadcrumb link was 19 px wide (fixed) |
-| Dictionary (#/dict) | search → entry card | ✓ "Look up a word" | – | a bare "⏳ Looking up…" card made the layout jump (fixed: skeleton) | ✓ | — |
-| Confidence (#/confidence) | score + lessons grouped by CEFR | ✓ "Today's 2-minute challenge" | confetti + Kit | – | ✓ | — |
+| 1 | Giải thích "vì sao" + lỗi theo tiếng mẹ đẻ (15 ngôn ngữ) | 6.7 → 100 | 5 | 3 | 155.5 | 1/15 ngôn ngữ có "vì sao" (en 321; đích 200/ngôn ngữ) |
+| 2 | Số chạm từ /app/ tới bài hôm nay (người quay lại) | 50 → 100 | 4 | 2 | 100 | 2 chạm |
+| 3 | Cỡ tải khung app (KB gz; 100 khi ≤ 300, 0 ở trần 374) | 1.6 → 100 | 3 | 3 | 98.4 | 372.8 / 374.0 KB gz (đích 300) |
+| 4 | Cá nhân hoá: SRS theo người (FSRS) + lỗi theo tiếng mẹ đẻ | 53.3 → 100 | 5 | 3 | 77.8 | ✓ FSRS theo người · lỗi L1 1/15 ngôn ngữ |
+| 5 | Màn theo Lexkite Kit/Stitch (stitch-coverage) | 25 → 100 | 3 | 4 | 56.3 | 17 Stitch / 68 màn (ref 49, tay 0) |
+| 6 | Luyện thi thật IELTS · TOEIC · TOEFL · Cambridge (đề chạy được, mục tiêu 10/kỳ) | 55 → 100 | 5 | 4 | 56.3 | IELTS 10 · TOEIC 7 · TOEFL 4 · Cambridge 1 đề (đích 10/kỳ) |
+| 7 | Tới câu đúng đầu tiên từ màn đầu (giây máy, số chạm) | 77.8 → 100 | 5 | 2 | 55.5 | 6.2 s · 9 chạm (probe 2026-11-10) |
+| 8 | Cổng QA máy xanh trên main (visual-qa, new-ui-qa, mobile-qa, journey-e2e, npm test) | 77.8 → 100 | 4 | 2 | 44.4 | ✓npm-test ✓visual-qa ∅new-ui-qa ✓mobile-qa ✓journey-e2e ✓stitch-quality-qc ✓ext-e2e ✗native-auth-e2e ✓qa-bot · mobile-qa LCP 6409 ms, CLS 0.0757, INP 200 ms |
+| 9 | Độ phủ nội dung (content:score) | 63.2 → 90 | 5 | 4 | 33.5 | content/pipeline/SCORE.md |
+| 10 | Truy cập (Lighthouse accessibility trang chủ + app) | 99 → 100 | 3 | 1 | 3 | Lighthouse trang chủ + /app/ (axe/a11y tĩnh chạy trong npm test) |
+<!-- auto:world-gaps:end -->
 
-## 2. Cross-cutting criteria
-- **Hierarchy / density.** h1 is 1.5–1.75 rem and sections use `.set-h` small caps; this matches Babbel and Busuu. Hub cards keep a steady rhythm (gap .8 rem on desktop, .6 rem on phones). There is one header pattern, `.page-head` (h1 + muted subtitle + crumb), used by 40+ modules. That is consistent; the Me page alone uses a centred column (profile style, same as Duolingo).
-- **One primary action.** Met on 8/10 flows. The Learn hub and the Tests hub are menus by design.
-- **Feedback animations.** Correct = popBounce + green + sound + 35 ms haptic. Wrong = shake + red + double buzz. Both are at Duolingo level. Missing before: a non-colour cue (✓/✕) and a reduced-motion celebration. Confetti used off-brand indigo/violet.
-- **Empty / loading / error.** Route skeletons appear after 150 ms (no flash). Two waits used plain text (dictionary, courses). `App.guard` handles errors, and offline works through the SW.
-- **Thumb reach.** The bottom nav has 5 tabs at ≥ 44 px. Study CTAs and the feedback sheet are sticky at the bottom. On the Today screen the primary CTA is at about 30 % of screen height, which is acceptable because it is the first card.
-- **Transitions.** Page fade is 180 ms. Buttons and cards take 120–150 ms. The card flip takes 480 ms (intentional, as in Anki/Quizlet). The toast took 250 ms (now 200 ms).
-- **Typography scale.** Body is 16 px. The nav label is .66 rem (≈ 10.5 px, same as the iOS tab bar at 10 pt). The study word is 2.3 rem. Line height is 1.45–1.6.
-- **Dark mode.** Full token set (`--surface*`, `--*-text`). No hard-coded light backgrounds in the core flows (checked on 10 dark shots).
-- **RTL (ar).** Layout mirrors correctly (sidebar, borders, badges). Bug: trailing "→" in CTAs ("Start Day 1 →", "Review now →") pointed backwards (fixed).
-- **Accessibility.** The tap token `--tap` = 44 px is applied on touch. Focus-visible rings are on. axe and a11y tests run in `npm test`. Before this pass: no `aria-current` on nav, document.title stayed the same on every route, focus stayed on the clicked nav link, and toasts disappeared after 2.4 s even when long.
-
-## 3. Top 10 improvements (impact/effort), all shipped as separate commits
-1. **Bottom-nav active state.** Pill behind the icon plus a bold label (Material 3 / Duolingo). `aria-current="page"` on the bottom nav and sidebar.
-2. **SPA route a11y.** The tab title follows the page h1, and modules that set their own title are respected. Focus moves to `#view` after a nav click, but never steals focus from a dialog or an input.
-3. **Brand confetti.** `Kit.palette` in `web/js/kit.js` is the single source; it replaces the indigo/violet.
-4. **Skeleton loaders.** `UI.skel` / `UI.skelPage` (role=status with an SR label) for dictionary lookup and Courses. They replace "⏳ / Loading…" text.
-5. **RTL arrows.** A leading or trailing →/← in buttons and links flips for ar. Mid-sentence arrows (en → vi) stay as they are.
-6. **Overflow sweep** (same class of bug as the iOS date input on 24/10). `select`, `input` and `textarea` are capped at 100 %, and long tokens wrap in `#view` text.
-7. **Breadcrumb tap width ≥ 44 px.** Fixes the 19 px "Me".
-8. **Answer feedback not by colour only.** ✓/✕ glyph on right/wrong options.
-9. **Celebrations respect reduced-motion.** A still Kit with an opacity-only fade replaces flying confetti on big milestones.
-10. **Toast timing.** Duration scales with length (1.4 s + 55 ms/char, max 7 s; WCAG 2.2.1). The transition is now 200 ms.
-
-## 4. Next (not in this pass)
-- Today on phones: move the "Start" CTA into a sticky bottom bar after scrolling past it (Duolingo pattern). Needs a design review.
-- Learn hub: a "Recommended" chip on the best mode for the user's due/new mix (one-tap start).
-- Tests empty history: an inline mini-chart placeholder once the first score exists.
-- Owned by another agent (do not touch here): /blog/about, #filterM, contrast tokens, #/write and #/fix tap targets.
-
-## 5. How to re-check
-`git push <remote> HEAD:refs/heads/ux-shots-<n>` → **UX shots** workflow. It compares against the remote `main` (before) and this branch (after), then builds `sheet-{before,after}-*.jpg` and `report.json`. The run fails on a JS error in the after build.
-
-**Layout guard (every PR touching web/):** `ux-cards.yml` runs `scripts/test/ux-guard.mjs` over 20 main routes at 360/390/1366 px, light/dark, en/vi/ar. It fails on card/button overlap > 4 px, clipping by an `overflow:hidden` box or the screen edge (horizontal scrollers allowed), text spilling out of buttons/chips/tabs, and the same IPA or speaker twice in one block. Intended stacks: badges < 48 px, `.flash .face`, `[data-ov-ok]`. Stateful before/after sheets (home + league, mistakes, review, grammar, pron): push `ux-cards-<n>`.
-
-## 6. UX v3: one icon family + tokens (25/10/2026)
-- **Icon family: Lucide** (ISC License, © Lucide Contributors; parts © Cole Bemis/Feather, MIT). Credited on `/credits`. Chosen over Phosphor because rounded 24 px strokes match Kit and the kite mark, and the paths are about 3× smaller.
-- The emoji UI chrome becomes one family:
-  - bottom nav (active = duotone fill + pill), sidebar, top bar (search, streak, XP, bell, language, theme);
-  - audio and slow audio, settings, close, back and chevrons, settings section headers.
-  Topic and celebration emoji stay (they are content).
-- Tokens: spacing 4–32, radius, type scale on Be Vietnam Pro, elevation, M3 motion (≤ 200 ms). The rules are in **docs/DESIGN-SYSTEM.md**.
-
-## 7. UX1 "Một app duy nhất" (28/10/2026, cờ `ux1` TẮT)
-- 5 tab Học · Ôn · Luyện · Giải đấu · Tôi; máy tính ≥ 1024 px 3 cột (menu gọn · bản đồ · cột phải chuỗi/mục tiêu/giải đấu/app). Trang chủ = bản đồ chặng; lần đầu chọn mục tiêu 1 chạm → BẮT ĐẦU (≤ 2 chạm).
-- Luyện (#/train) gom mọi tính năng cũ, "Luyện thi" đầu tiên; Tôi = #/me. Lộ trình & luật: [LEARNING-PATH.md](LEARNING-PATH.md). Mã `web/js/ux1.js` (gói lười, 0 byte vào khung app), test `scripts/test/ux1.mjs`.
-- Chuyển động chỉ dùng tính năng có sẵn của trình duyệt (View Transitions khi đổi tab, `@starting-style`, keyframes transform/opacity), tắt khi giảm chuyển động. Không thêm thư viện.
-- Ảnh trước/sau: đẩy nhánh `ux-shots-ux1-<n>` → workflow chụp với cờ ux1 bật (`UX1=1`), có đo fps khi đổi tab.
+## Việc nên làm theo trục (người viết; số đo ở bảng trên)
+- **whyL1 – vì sao theo 15 tiếng mẹ đẻ (lợi thế PHẢI thắng).** Hiện đã commit chỉ có `en`; 14 tiếng mẹ đẻ còn lại = 0. Chạy `explain.yml` (Gemini miễn phí) cho grammar/usage/review, mỗi ngôn ngữ ≥ 200 mục, rồi đưa vào `web/js/explain/<bộ>/<lang>.json`. Đây là khoảng cách lớn nhất trong các lợi thế. Chủ sở hữu: `EXPLAIN.md`.
+- **exam – Cambridge 0 đề, TOEFL 4, TOEIC 7.** Đặc tả đã có (`content/exams/spec/cam-*.json`). Viết đề chạy được theo xưởng nội dung (`CONTENT-WORLD-PLAN.md`), đích 10 đề cho mỗi kỳ.
+- **content / learn.** Đi theo `CONTENT-WORLD-PLAN.md` và learnability (PR #427/#430). Bảng World chỉ đọc điểm của các PR này.
+- **stitch – 15/68 màn theo Kit.** 27 màn đã có ref và chỉ chờ port (xem `STITCH-COVERAGE.md`).
+- **shell – 358,7/374 KB gz.** Muốn tới đích 300 KB thì chuyển module chưa cần lúc mở app sang tải lười. `shell-size.mjs` cho biết module nào nặng.
+- **firstRun / todayTaps.** Probe đo trên CI. Nếu vượt 5 chạm hoặc 30 s: rút bớt bước thiết lập (giữ đủ lựa chọn, đặt mặc định thông minh), hoặc mở thẳng bài đầu sau `#go`.
+- **offline / personal.** Đã có shell, điều hướng dự phòng, gói từ offline, FSRS. Phần thiếu là lỗi L1 (cùng gốc với whyL1).

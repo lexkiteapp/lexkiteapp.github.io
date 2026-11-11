@@ -33,6 +33,7 @@ quiz: [
     explain: "'Could you say that again, please?' hoặc 'Sorry, I didn't catch that' thể hiện sự tôn trọng và tự nhiên trong hội thoại."
   }
 ]
+publishAt: 2027-01-12T09:23:00+07:00
 ---
 
 Trong hành trình học ngoại ngữ, mục tiêu cốt lõi của phần lớn người học là có thể trò chuyện tự tin, tự nhiên và trôi chảy trong cuộc sống thường nhật. Việc ghi nhớ các cấu trúc ngữ pháp phức tạp hay danh sách từ vựng hàn lâm sẽ trở nên vô nghĩa nếu bạn ngập ngừng khi chào hỏi, lúng túng khi gọi món tại nhà hàng hoặc không biết cách hỏi đường khi đi du lịch. Nắm vững hệ thống **tiếng anh giao tiếp hàng ngày** thông qua các mẫu câu nguyên khối (*chunks of language*) chính là chìa khóa vàng giúp bạn phản xạ tức thì mà không cần dịch từng từ trong đầu.

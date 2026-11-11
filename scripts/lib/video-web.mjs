@@ -165,6 +165,34 @@ export function validateManifest(m) {
     if ('youtube_id' in it && !/^[A-Za-z0-9_-]{11}$/.test(it.youtube_id || '')) bad('youtube_id');
     if ('origin' in it && !['r2', 'release'].includes(it.origin)) bad('origin');
   }
+  return err.concat(validateEmbeds(m.embeds));
+}
+
+/** Video nhúng bài học (docs/VIDEO-MOTION.md §Embedded): m.embeds[] = { id, title, words[], test, renditions: { sq45, wide } },
+ *  mỗi bản = { w, h, src (mp4), poster (jpg), vtt_en, chapters } trên media.lexkite.com. Chưa được chủ duyệt → test: true. */
+export function validateEmbeds(list) {
+  const err = [], seen = new Set(), U = ext => new RegExp(`^https://media\\.lexkite\\.com/video/[a-z0-9_]+/[a-z0-9_.-]+\\.${ext}$`);
+  if (list == null) return err;
+  if (!Array.isArray(list)) return ['embeds: cần mảng'];
+  for (const [i, it] of list.entries()) {
+    const p = `embeds[${i}]${it && it.id ? ' ' + it.id : ''}`, bad = s => err.push(`${p}: ${s}`);
+    if (!it || !/^[a-z0-9_]{6,80}$/.test(it.id || '')) { bad('id'); continue; }
+    if (seen.has(it.id)) bad('id trùng'); seen.add(it.id);
+    if (!S(it.title, 160) || !it.title) bad('title');
+    if (!Array.isArray(it.words)) bad('words');
+    if (typeof it.test !== 'boolean') bad('test');
+    if (!(it.duration > 3 && it.duration < 600)) bad('duration');
+    const R = it.renditions || {}, fm = Object.keys(R);
+    if (!fm.length || fm.some(f => !['sq45', 'wide'].includes(f))) bad('renditions: chỉ sq45 / wide');
+    for (const [f, [w, h]] of Object.entries({ sq45: [1080, 1350], wide: [1920, 1080] })) {
+      const r = R[f]; if (!r) continue;
+      if (r.w !== w || r.h !== h) bad(`${f}: cần ${w}×${h}`);
+      if (!U('mp4').test(r.src || '')) bad(`${f}.src`);
+      if (!U('jpg').test(r.poster || '')) bad(`${f}.poster`);
+      if (!U('vtt').test(r.vtt_en || '')) bad(`${f}.vtt_en`);
+      if ('chapters' in r && !U('vtt').test(r.chapters || '')) bad(`${f}.chapters`);
+    }
+  }
   return err;
 }
 
@@ -194,3 +222,26 @@ export function blogVideoBox(post, items, esc) {
   return `<aside class="vidbox" aria-label="${esc(lab)}"><a href="${videoHref(post.lang, it.slug)}"><img src="${esc(it.poster)}" alt="" width="180" height="320" loading="lazy" decoding="async"><span><small>🎬 ${esc(lab)}</small><b lang="en">${esc(it.title)}</b><span class="btn">${esc(cta)} ▶</span></span></a></aside>`;
 }
 export const BLOG_VIDEO_CSS = '.vidbox a{display:flex;gap:14px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:10px;margin:24px 0;text-decoration:none;color:inherit;background:var(--surface)}.vidbox img{width:90px;height:160px;object-fit:cover;border-radius:10px;flex:none}.vidbox span{display:flex;flex-direction:column;gap:6px}.vidbox .btn{align-self:flex-start}';
+
+// ---------- kiểm tài nguyên sau publish (trang /video/<slug>/ tải poster/phụ đề KHÁC NGUỒN: <track> luôn cần CORS) ----------
+/** Phán quyết 1 tài nguyên trên CDN: ok | missing (404/403…: thiếu file / sai tên băm) | nocors (thiếu Access-Control-Allow-Origin)
+ *  | down (429 – vd. Cloudflare 1027 Workers hết 100k lượt/ngày – hoặc 5xx/không kết nối: chưa kiểm được, KHÔNG được coi là ok). */
+export function assetVerdict(status, acao) {
+  if (!status || status === 429 || status >= 500) return 'down';
+  if (status !== 200 && status !== 206) return 'missing';
+  return acao === '*' || /^https:\/\/([\w-]+\.)?lexkite\.com$/.test(acao || '') ? 'ok' : 'nocors';
+}
+/** Kiểm src/poster/vtt_en của các mục (GET Range 0-0 + Origin lexkite.com). Thử lại `tries` lần khi down.
+ *  → { bad: [{id,url,verdict,status}], down: [...] } – bad = lỗi thật (chặn publish), down = máy chủ chưa phục vụ (hoãn mục). */
+export async function verifyAssets(items, { fetchImpl = fetch, tries = 3, waitMs = 5000 } = {}) {
+  const bad = [], down = [];
+  for (const it of items) for (const url of [it.src, it.poster, it.vtt_en].filter(Boolean)) {
+    let v = 'down', st = 0;
+    for (let i = 0; i < tries && v === 'down'; i++) {
+      if (i) await new Promise(r => setTimeout(r, waitMs * i));
+      try { const r = await fetchImpl(url, { headers: { Origin: 'https://lexkite.com', Range: 'bytes=0-0' }, signal: AbortSignal.timeout(20000) }); st = r.status; v = assetVerdict(st, r.headers.get('access-control-allow-origin')); await r.body?.cancel?.(); } catch { st = 0; v = 'down'; }
+    }
+    if (v !== 'ok') (v === 'down' ? down : bad).push({ id: it.id, url, verdict: v, status: st });
+  }
+  return { bad, down };
+}

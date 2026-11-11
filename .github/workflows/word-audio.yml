@@ -14,7 +14,7 @@ on:
 permissions:
   contents: write
 concurrency: { group: word-audio, cancel-in-progress: false }
-env: { WORD_AUDIO_EXPAND: '1' }
+env: { WORD_AUDIO_EXPAND: '1', WORD_AUDIO_PENDING: '1' }   # + từ của lô lexicon-expand chờ xuất: có giọng TRƯỚC khi vào kho (promote.mjs cổng giọng)
 jobs:
   plan:
     runs-on: ubuntu-latest
@@ -24,6 +24,7 @@ jobs:
       shards: ${{ steps.c.outputs.shards }}
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - id: c
@@ -38,15 +39,17 @@ jobs:
     strategy: { max-parallel: 6, fail-fast: false, matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' } }
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
+      - uses: ./.github/actions/setup-ffmpeg
       - name: Cài kokoro-js + ffmpeg + faster-whisper
         # PyAV 19 bỏ tham số metadata_errors mà faster-whisper (≤1.2.1) vẫn truyền vào av.open → khoá av<19
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
-          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
+          # onnxruntime-node tải nhị phân lúc cài (postinstall) → mạng chập chờn làm rớt 2/6 shard (08/11): thử lại 3 lần
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
           pip install -q 'faster-whisper==1.2.1' 'av==18.1.0'
       - uses: actions/cache@v4
         with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: kokoro-82m-v1-fp32 }
@@ -76,6 +79,8 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - uses: actions/download-artifact@v4
@@ -94,21 +99,19 @@ jobs:
       - name: Lưu chỉ mục vào repo
         run: |
           rm -f ~/.ssh/m2
-          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add web/audio/w/index.txt web/audio/w/s3.tsv web/audio/w/s3-stats.json web/data/offline-pack.json
-          git diff --cached --quiet && exit 0
-          git commit -qm "Giọng đọc từ vựng s3: thêm lô đã qua Whisper (còn ${{ needs.plan.outputs.left }} từ trước lượt này) [CF-Pages-Skip]"
-          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
+          bash scripts/ci/push-main.sh "Giọng đọc từ vựng s3: thêm lô đã qua Whisper (còn ${{ needs.plan.outputs.left }} từ trước lượt này)" web/audio/w/index.txt web/audio/w/s3.tsv web/audio/w/s3-stats.json web/data/offline-pack.json
   sample:
     if: github.event_name == 'workflow_dispatch' && github.event.inputs.asr_sample != '0'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
       - uses: actions/cache@v4
         with: { path: ~/.cache/huggingface, key: whisper-small-en-ct2 }
+      - uses: ./.github/actions/setup-ffmpeg
       - run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null && pip install -q 'faster-whisper==1.2.1' 'av==18.1.0'
+          pip install -q 'faster-whisper==1.2.1' 'av==18.1.0'
           python3 scripts/word-audio-asr.py --sample "${{ github.event.inputs.asr_sample }}"

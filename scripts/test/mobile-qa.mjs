@@ -9,6 +9,7 @@ import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
+import { noProd } from './lib/no-prod.mjs';
 
 const BASE = process.argv[2] || 'http://localhost:8080', OUT = process.argv[3] || 'out/mobile-qa';
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
@@ -17,7 +18,9 @@ const LH = process.env.MQA_LH === '1', WEB = process.env.MQA_WEB || ROOT + 'web'
 fs.mkdirSync(OUT, { recursive: true });
 const UA = 'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36'; // điện thoại thật (UA máy tính làm hiện lời mời add-on chỉ dành cho máy tính)
 const VPS = [{ w: 360, h: 740 }, { w: 390, h: 844 }, { w: 412, h: 915 }];
-const ROUTES = ['home', 'path', 'review', 'dict/hello', 'me', 'practice/mcq?src=topic:education', 'practice/test?src=topic:education'];
+const ROUTES = ['home', 'path', 'review', 'dict/hello', 'me', 'practice/mcq?src=topic:education', 'practice/test?src=topic:education', 'toefl-p/cw'];
+// Vỏ ux1 (5 tab Stitch – bản chủ thấy trên lexkite.com): soát thêm ở 390 px với lk.ux1=1 (chỉ báo tab đang chọn, ô điền chữ, tiêu đề dưới thanh trên)
+const UX1_ROUTES = ['toefl-p/cw', 'train'];
 const issues = [], perf = [], errs = [], seen = new Set();
 let pages = 0, offerSeen = 0;
 const add = (vp, route, list) => { for (const it of list) { const k = it.t + '|' + it.k + '|' + route; if (seen.has(k)) continue; seen.add(k); issues.push({ ...it, vp, route }); } };
@@ -44,7 +47,8 @@ function detect() {
     const cs = getComputedStyle(b); if (cs.display === 'inline' && b.closest('p,li,small,span,label,h1,h2,h3,td')) continue;
     if (/^(checkbox|radio)$/.test(b.type) && b.closest('label')) continue;
     if (b.tagName === 'A' && b.closest('button,.btn') && b.closest('button,.btn') !== b) continue;
-    const af = getComputedStyle(b, '::after'), ext = af.content !== 'none' && af.position === 'absolute' ? Math.min(parseFloat(af.minWidth) || 0, parseFloat(af.minHeight) || 0) : 0;
+    const hit = e => { const af = getComputedStyle(e, '::after'); return af.content !== 'none' && af.position === 'absolute' ? Math.min(parseFloat(af.minWidth) || 0, parseFloat(af.minHeight) || 0) : 0; };
+    const lb = b.matches('input,select,textarea') && b.closest('label'), ext = Math.max(hit(b), lb ? hit(lb) : 0); // ô nhập inline (điền chữ): vùng chạm ở nhãn bọc ngoài – chạm nhãn = focus ô
     const m = Math.max(Math.min(r.width, r.height), ext);
     if (m < 44 - 0.5) push('tap<44', b, r, Math.round(r.width) + '×' + Math.round(r.height) + ' ' + (b.innerText || b.getAttribute('aria-label') || '').replace(/\s+/g, ' ').trim().slice(0, 40));
   }
@@ -62,6 +66,22 @@ function detect() {
     const r = vis(i); if (!r) continue;
     for (let p = i; p && p !== document.body; p = p.parentElement) { const cs = getComputedStyle(p); if (cs.position === 'fixed') { const pr = p.getBoundingClientRect(); if (pr.bottom >= H - 2 && pr.top > H * 0.35 && !document.documentElement.dataset.vkFix) push('kbd-fixed-input', i, r); break; } }
   }
+  // 5) ô nhập inline trong đoạn văn (điền chữ) không cao hơn dòng chữ – cao hơn thì đẩy lệch chữ quanh ô, gạch chân lệch baseline (#/toefl-p/cw 01/11)
+  for (const i of document.querySelectorAll('#view input')) {
+    const r = vis(i), cs = getComputedStyle(i), p = i.parentElement; if (!r || !p || !/^inline/.test(cs.display)) continue;
+    if (![...p.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())) continue; // chỉ ô nằm giữa chữ
+    const lh = parseFloat(getComputedStyle(p).lineHeight), fs = parseFloat(getComputedStyle(p).fontSize);
+    if (r.height > Math.max(fs * 1.6, Math.min(lh || 0, fs * 1.6)) + 0.5) push('inline-input-tall', i, r, Math.round(r.height) + ' px > dòng ' + Math.round(fs * 1.6) + ' px');
+  }
+  // 6) thanh tab dưới: tab đang chọn chỉ có MỘT khối nền (không chồng viên nền icon + nhãn + khối tab)
+  for (const a of document.querySelectorAll('#bnav a.active, #bnav a[aria-current="page"]')) {
+    const r = vis(a); if (!r) continue;
+    const bg = [a, ...a.querySelectorAll('*')].filter(e => { const m = getComputedStyle(e).backgroundColor.match(/[\d.]+/g); return m && (m.length < 4 || +m[3] > 0.02) && vis(e); });
+    if (bg.length > 1) push('nav-active-multi', a, r, bg.length + ' khối nền');
+  }
+  // 7) tiêu đề trang không nằm dưới thanh trên dính khi mở trang (scrollTo 0)
+  { const tb = document.querySelector('.topbar'), h = document.querySelector('#view h1, #view .page-head'); const tr = tb && vis(tb), hr = h && vis(h);
+    if (tr && hr && scrollY < 2 && hr.top < tr.bottom - 1 && getComputedStyle(tb).position !== 'static') push('title-under-bar', h, hr, 'tiêu đề ' + Math.round(hr.top) + ' < thanh ' + Math.round(tr.bottom)); }
   return out;
 }
 
@@ -89,12 +109,13 @@ async function keyboard(page, vp) {
 
 async function open(browser, vp) {
   const ctx = await browser.newContext({ viewport: { width: vp.w, height: vp.h }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: UA, locale: 'en', reducedMotion: 'reduce' });
+  await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   const page = await ctx.newPage();
   page.on('pageerror', e => errs.push(`${vp.w} pageerror: ${String(e.message).slice(0, 120)}`));
   await page.addInitScript(() => {
     window.__cls = 0; window.__ev = []; window.__sh = [];
     const sel = n => n && n.tagName ? n.tagName.toLowerCase() + [...n.classList].slice(0, 2).map(c => '.' + c).join('') + (n.id ? '#' + n.id : '') : '?';
-    try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) { window.__cls += e.value; window.__sh.push([+e.value.toFixed(4), (e.sources || []).slice(0, 3).map(s => sel(s.node) + '@' + [s.previousRect.y, s.previousRect.height, s.currentRect.y, s.currentRect.height].map(Math.round).join(',')).join(' ') + ' ' + location.hash.slice(0, 30)]); } }).observe({ type: 'layout-shift', buffered: true }); } catch (e) {}
+    try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) { window.__cls += e.value; window.__sh.push([+e.value.toFixed(4), (e.sources || []).slice(0, 3).map(s => sel(s.node) + '@' + [s.previousRect.y, s.previousRect.height, s.currentRect.y, s.currentRect.height].map(Math.round).join(',') + (Math.round(s.previousRect.x) !== Math.round(s.currentRect.x) || Math.round(s.previousRect.width) !== Math.round(s.currentRect.width) ? ' x:' + [s.previousRect.x, s.previousRect.width, s.currentRect.x, s.currentRect.width].map(Math.round).join(',') : '')).join(' ') + ' ' + location.hash.slice(0, 30) + ' t=' + Math.round(e.startTime) + ' y=' + Math.round(scrollY)]); } }).observe({ type: 'layout-shift', buffered: true }); } catch (e) {}
     try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (e.interactionId) window.__ev.push([e.interactionId, e.duration, e.name, (e.target && e.target.className || '') + ' trễ ' + Math.round(e.processingStart - e.startTime) + '/xử lý ' + Math.round(e.processingEnd - e.processingStart) + '/vẽ ' + Math.round(e.startTime + e.duration - e.processingEnd)]); }).observe({ type: 'event', durationThreshold: 16, buffered: true }); } catch (e) {}
   });
   await page.goto(`${BASE}/app/?sandbox=1&hl=en#/welcome/setup`, { waitUntil: 'networkidle' }).catch(() => {});
@@ -163,7 +184,10 @@ for (const vp of VPS) {
       await visit(page, route); pages++;
       add(vp.w, route, await page.evaluate(detect));
       add(vp.w, route, await keyboard(page, vp));
-      if (!route.startsWith('practice/') && route !== 'review') { const l = await langSwitch(page); if (l) errs.push(`${vp.w} #/${route}: nút ngôn ngữ ${l}`); }
+      // màn học (body.lk-learn, khung FOCUS bật mặc định – docs/specs/learn-flow-nav.md) không có thanh trên → thay vào đó phải có nút Thoát hiện + chạm được
+      const learn = await page.evaluate(() => document.body.classList.contains('lk-learn')).catch(() => false);
+      if (!learn) { const l = await langSwitch(page); if (l) errs.push(`${vp.w} #/${route}: nút ngôn ngữ ${l}`); }
+      else { const x = await page.evaluate(() => { const b = document.querySelector('#view [data-exit]'); if (!b) return 'không có'; const q = b.getBoundingClientRect(); if (q.width < 20 || q.height < 20) return 'bị ẩn'; const h = document.elementFromPoint(q.left + q.width / 2, q.top + q.height / 2); return h && (h === b || b.contains(h)) ? '' : 'bị che'; }).catch(e => 'lỗi ' + String(e.message).slice(0, 60)); if (x) errs.push(`${vp.w} #/${route}: nút Thoát màn học ${x}`); }
       if (route.startsWith('practice/') || route === 'review') {
         await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
         await page.evaluate(() => { window.__ev = []; });
@@ -199,6 +223,12 @@ for (const vp of VPS) {
       }
     } catch (e) { errs.push(`${vp.w} #/${route}: ${String(e.message).split('\n')[0].slice(0, 120)}`); }
   }
+  if (vp.w === 390) { // lượt ux1 (vỏ Stitch) trên cùng phiên: bật cờ, soát, rồi tắt lại
+    await page.evaluate(() => { try { localStorage.setItem('lk.ux1', '1'); } catch (e) { /* bỏ qua */ } });
+    await page.reload({ waitUntil: 'networkidle' }).catch(() => {});
+    for (const route of UX1_ROUTES) { try { await visit(page, route); pages++; add(vp.w, 'ux1 ' + route, await page.evaluate(detect)); } catch (e) { errs.push(`${vp.w} ux1 ${route}: ${String(e.message).slice(0, 120)}`); } }
+    await page.evaluate(() => { try { localStorage.removeItem('lk.ux1'); } catch (e) { /* bỏ qua */ } });
+  }
   await ctx.close();
 }
 await browser.close();
@@ -222,25 +252,26 @@ if (LH) for (const route of ['home', 'path', 'review', 'dict/hello', 'me', 'prac
 const count = {}; for (const i of issues) count[i.t] = (count[i.t] || 0) + 1;
 const maxCls = Math.max(0, ...perf.map(p => p.cls), ...lh.map(l => l.cls)), maxInp = Math.max(0, ...perf.map(p => p.inp || 0)), maxLcp = Math.max(0, ...lh.map(l => l.lcp)), maxTbt = Math.max(0, ...lh.map(l => l.tbt));
 const fails = [];
-for (const k of ['hscroll', 'tap<44', 'safe-area-top', 'safe-area-bottom', 'kbd-cover', 'kbd-fixed-input']) if ((count[k] || 0) > BUDGET[k]) fails.push(`${k}: ${count[k]} > ${BUDGET[k]}`);
+for (const k of ['hscroll', 'tap<44', 'safe-area-top', 'safe-area-bottom', 'kbd-cover', 'kbd-fixed-input', 'inline-input-tall', 'nav-active-multi', 'title-under-bar']) if ((count[k] || 0) > BUDGET[k]) fails.push(`${k}: ${count[k]} > ${BUDGET[k]}`);
 if (maxCls > BUDGET.cls) fails.push(`CLS ${maxCls} > ${BUDGET.cls}`);
 if (maxInp > BUDGET.inp_ms) fails.push(`INP ${maxInp} ms > ${BUDGET.inp_ms}`);
 // LCP: trang vào đầu tiên (home) ≤ 2,5 s; mở thẳng trang sâu (#/review, #/dict…) phải khởi động cả khung app → ngân sách riêng lcp_deep_ms, chỉ được GIẢM
 for (const l of lh) { const cap = l.route === 'home' ? BUDGET.lcp_ms : BUDGET.lcp_deep_ms; if (l.lcp > cap) fails.push(`LCP ${l.route} ${l.lcp} ms > ${cap}`); }
 if (LH && maxTbt > BUDGET.tbt_ms) fails.push(`TBT ${maxTbt} ms > ${BUDGET.tbt_ms}`);
-if (pages < VPS.length * ROUTES.length * 0.9) fails.push(`chỉ soát được ${pages}/${VPS.length * ROUTES.length} trang`); // không cho xanh khi chạy rỗng
+if (pages < (VPS.length * ROUTES.length + UX1_ROUTES.length) * 0.9) fails.push(`chỉ soát được ${pages}/${VPS.length * ROUTES.length + UX1_ROUTES.length} trang`); // không cho xanh khi chạy rỗng
 if (perf.filter(p => p.inp !== null && p.n > 0).length < VPS.length) fails.push('không đo được INP (0 tương tác)');
 if (hasOffer && offerSeen < VPS.length) fails.push(`ô Cơ hội thứ 2/Nhân đôi XP chỉ soát được ${offerSeen} lần`);
 if (LH && lh.length < 4) fails.push(`Lighthouse chỉ chạy được ${lh.length} route`);
 if (errs.some(e => /không tới được thẻ kết quả|Nhân đôi XP/.test(e))) fails.push('luồng quiz/kết quả lỗi');
 if (errs.some(e => /nút ngôn ngữ/.test(e))) fails.push('nút đổi ngôn ngữ không hiện/không bấm được');
+if (errs.some(e => /nút Thoát màn học/.test(e))) fails.push('nút Thoát màn học không hiện/không bấm được');
 
 const report = { at: new Date().toISOString(), pages, count, maxCls, maxInp, maxLcp, maxTbt, lh, perf, issues, errs, fails, hasOffer, offerSeen };
 fs.writeFileSync(`${OUT}/report.json`, JSON.stringify(report, null, 1));
 const md = [`# Mobile QA – ${pages} trang × ${VPS.map(v => v.w).join('/')} px`, '',
   `**Kết quả:** ${fails.length ? '❌ ' + fails.join(' · ') : '✅ đạt ngân sách'}`, '',
   `| Chỉ số | Giá trị | Ngưỡng |`, `|---|---|---|`,
-  ...['hscroll', 'tap<44', 'safe-area-top', 'safe-area-bottom', 'kbd-cover', 'kbd-fixed-input'].map(k => `| ${k} | ${count[k] || 0} | ${BUDGET[k]} |`),
+  ...['hscroll', 'tap<44', 'safe-area-top', 'safe-area-bottom', 'kbd-cover', 'kbd-fixed-input', 'inline-input-tall', 'nav-active-multi', 'title-under-bar'].map(k => `| ${k} | ${count[k] || 0} | ${BUDGET[k]} |`),
   `| CLS tối đa (đổi màn + tương tác${LH ? ' + LH' : ''}) | ${maxCls} | ${BUDGET.cls} |`, `| INP (CPU 4×) | ${maxInp} ms | ${BUDGET.inp_ms} ms |`,
   ...(LH ? [`| LCP Lighthouse home | ${(lh.find(l => l.route === 'home') || {}).lcp} ms | ${BUDGET.lcp_ms} ms |`, `| LCP Lighthouse trang sâu tối đa | ${Math.max(0, ...lh.filter(l => l.route !== 'home').map(l => l.lcp))} ms | ${BUDGET.lcp_deep_ms} ms |`, `| TBT Lighthouse tối đa | ${maxTbt} ms | ${BUDGET.tbt_ms} ms |`] : []), '',
   ...(lh.length ? ['## Lighthouse mobile', '| route | perf | a11y | LCP | CLS | TBT |', '|---|---|---|---|---|---|', ...lh.map(l => `| ${l.route} | ${l.perf} | ${l.a11y} | ${l.lcp} | ${l.cls} | ${l.tbt} |`), ''] : []),

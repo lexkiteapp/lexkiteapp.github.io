@@ -33,6 +33,7 @@ quiz: [
     explain: "A voz passiva remove o foco dos pesquisadores individuais e o concentra inteiramente nas evidências e processos observados."
   }
 ]
+publishAt: 2026-12-02T20:08:00-03:00
 ---
 
 Em produções textuais de nível intermediário a avançado, a voz passiva desempenha um papel de destaque na arquitetura discursiva da língua inglesa. Ao contrário da linguagem falada cotidiana — que costuma priorizar a voz ativa pela agilidade — a escrita acadêmica em exames como IELTS e TOEFL exige o emprego refinado da **voz passiva em ingles passive voice**. Esse recurso permite desviar o foco do agente humano para evidenciar o resultado, os dados empíricos e as transformações materiais de forma neutra e formal.
@@ -136,6 +137,6 @@ Em ensaios argumentativos (Task 2), alternar estrategicamente orações ativas c
 | **Particípio incorreto** | "The report was wrote carefully." | "The report was **written** carefully." |
 | **Agente 'by' irrelevante** | "The road was repaired by workers." | "The road was **repaired** within three weeks." *(Omitir agente óbvio)* |
 
-Aprimore seus conhecimentos integrando este conteúdo ao nosso guia de [frases complexas no IELTS Writing Task 2](/pt/blog/frases-complexas-ielts-writing-task-2/) e ao estudo de [conectivos em inglês (linking words)](/pt/blog/conectivos-em-ingles-linking-words-guia/). Revise também as [orações condicionais em inglês](/pt/blog/oracoes-condicionais-em-ingles-if-clauses/) e aprenda [como parafrasear no IELTS](/pt/blog/como-parafrasear-no-ielts-tecnicas/), enriquecendo seu vocabulário através de [/tu-vung/](/tu-vung/).
+Aprimore seus conhecimentos integrando este conteúdo ao nosso guia de [frases complexas no IELTS Writing Task 2](/pt/blog/frases-complexas-ielts-writing-task-2/) e ao estudo de [conectivos em inglês (linking words)](/pt/blog/conectivos-em-ingles-linking-words-guia/). Revise também as [orações condicionais em inglês](/pt/blog/oracoes-condicionais-em-ingles-if-clauses/) e aprenda [como parafrasear no IELTS](/pt/blog/como-parafrasear-no-ielts-tecnicas/), enriquecendo seu vocabulário através de [/tu-vung/](/en/vocabulary/).
 
 Praticando a alternância entre voz ativa e passiva, sua escrita ganhará autoridade, elegância formal e a precisão necessária para alcançar notas de topo.

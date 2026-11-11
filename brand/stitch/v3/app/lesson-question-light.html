@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Lesson — Master Drill: Choose the correct word</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined / Rounded -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400..700,0..1,-50..200" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-low": "#fcf2e9",
+            "error": "#ba1a1a",
+            "inverse-primary": "#88d4cd",
+            "outline": "#6f7978",
+            "surface": "#fff8f3",
+            "surface-pure": "#ffffff",
+            "tertiary-container": "#b03224",
+            "on-primary-fixed": "#00201e",
+            "on-error-container": "#93000a",
+            "on-surface-variant": "#3f4947",
+            "secondary-fixed": "#ffdcbc",
+            "on-primary-container": "#9ce9e2",
+            "surface-variant": "#eae1d8",
+            "on-surface": "#1f1b16",
+            "on-secondary-fixed-variant": "#683c00",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "surface-dim": "#e2d8d0",
+            "inverse-on-surface": "#f9efe6",
+            "on-secondary-fixed": "#2c1600",
+            "on-tertiary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#ffffff",
+            "surface-container-high": "#f0e7de",
+            "primary-container": "#136b66",
+            "on-background": "#1f1b16",
+            "primary-fixed-dim": "#88d4cd",
+            "tertiary": "#8e190f",
+            "background": "#FAF6F0",
+            "inverse-surface": "#34302a",
+            "tertiary-fixed": "#ffdad4",
+            "surface-container-highest": "#eae1d8",
+            "on-secondary": "#ffffff",
+            "primary": "#00514d",
+            "teal-deep": "#0F3D3E",
+            "teal-primary": "#136B66",
+            "teal-mint": "#2DD4BF",
+            "teal-light": "#E8F5F4",
+            "on-secondary-container": "#663b00",
+            "surface-bright": "#fff8f3",
+            "on-tertiary-container": "#ffd0c9",
+            "secondary-fixed-dim": "#ffb86c",
+            "secondary-container": "#fe9d19",
+            "on-primary-fixed-variant": "#00504c",
+            "surface-tint": "#106a65",
+            "secondary": "#895100",
+            "error-container": "#ffdad6",
+            "surface-container": "#f6ece4",
+            "on-tertiary-fixed": "#410000",
+            "on-error": "#ffffff",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "outline-variant": "#bec9c7",
+            "primary-fixed": "#a4f0e9",
+            "ink-dark": "#1C1003",
+            "ink-muted": "#4A5B60",
+            "amber-cta": "#FE9D19",
+            "amber-ledge": "#895100",
+            "tactile-border": "#EAE1D8",
+          },
+          boxShadow: {
+            'tactile-card': '0 4px 0 #DDCFC0',
+            'tactile-btn': '0 4px 0 #895100',
+            'tactile-opt-selected': '0 4px 0 #072927',
+            'tactile-opt-default': '0 4px 0 #DDCFC0',
+            'tactile-topbar': '0 2px 0 #EAE1D8',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body {
+      background-color: #FAF6F0;
+      color: #1F1B16;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .teacher-slot {
+      border: 2px dashed #14B8A6;
+      background-color: #E8F5F4;
+    }
+    .btn-tactile-action:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #895100;
+    }
+    .option-tactile:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #DDCFC0;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between bg-[#FAF6F0] selection:bg-teal-primary/20">
+<!-- TOP APP BAR / DESKTOP HEADER (Clean, spacious, 44px min hit targets, no hearts/lives) -->
+<header class="w-full bg-[#FAF6F0] border-b-2 border-tactile-border/80 sticky top-0 z-30 px-6 sm:px-12 py-3.5 shadow-sm">
+<div class="max-w-4xl mx-auto flex items-center justify-between gap-6">
+<!-- Close / Exit Button (min 44x44px) -->
+<button aria-label="Exit lesson" class="w-11 h-11 flex items-center justify-center rounded-2xl bg-white border-2 border-tactile-border text-on-surface hover:bg-surface-container-low shadow-[0_2px_0_#DDCFC0] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+<!-- Center Progress Track & Metadata -->
+<div class="flex-1 max-w-xl flex flex-col gap-1.5">
+<div class="flex justify-between items-center text-xs font-bold text-ink-muted px-1"><div class="flex items-center gap-2">
+<span class="text-on-surface font-extrabold uppercase tracking-wide">Question 4 of 10</span>
+<span class="text-tactile-border font-black">•</span>
+<span class="text-teal-deep font-black">40%</span>
+</div>
+<div class="inline-flex items-center gap-1.5 text-xs font-extrabold text-amber-900 bg-amber-100/90 px-2.5 py-1 rounded-full border border-amber-300">
+<span class="material-symbols-outlined text-amber-800 text-[18px]">bolt</span>
+<span class="text-amber-900">+15 XP</span>
+</div></div>
+<!-- Tactile Progress Bar -->
+<div class="h-3 w-full bg-[#EAE1D8] rounded-full overflow-hidden p-0.5 border border-tactile-border/50">
+<div class="h-full bg-gradient-to-r from-teal-primary via-teal-primary to-[#2DD4BF] rounded-full w-[40%] transition-all duration-300"></div>
+</div>
+</div>
+<!-- Settings / Options Trigger (min 44x44px) -->
+<div class="flex items-center gap-3">
+<!-- Level Pill (Visible on Desktop) -->
+<div class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-teal-light border border-teal-primary/30">
+<span class="w-2 h-2 rounded-full bg-teal-primary"></span>
+<span class="text-xs font-bold text-teal-deep tracking-wide">IELTS &amp; TOEIC Core · B2</span>
+</div>
+<button aria-label="Lesson options" class="w-11 h-11 flex items-center justify-center rounded-2xl bg-white border-2 border-tactile-border text-on-surface hover:bg-surface-container-low shadow-[0_2px_0_#DDCFC0] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[20px] text-ink-muted">tune</span>
+</button>
+</div>
+</div>
+</header>
+<!-- MAIN DRILL WORKSPACE (Clean Desktop Canvas with architectural hierarchy) -->
+<main class="flex-1 w-full max-w-4xl mx-auto px-6 sm:px-10 py-8 flex flex-col gap-6">
+<!-- TEACHER SLOT & COACH TIP (Strict empty placeholder dashed container with speech bubble) -->
+<section class="flex items-start gap-4 w-full">
+<!-- Empty Teacher Slot (Strictly empty, dashed mint border, rounded-2xl, no drawn faces/avatars) -->
+<div aria-label="teacher-slot" class="teacher-slot w-[76px] h-[82px] rounded-2xl flex flex-col items-center justify-center p-2 shrink-0 text-center shadow-sm"><span class="material-symbols-outlined text-teal-deep text-[28px]">school</span>
+<span class="text-[10px] font-extrabold text-teal-deep uppercase tracking-tight mt-1 leading-none">Teacher</span>
+<span class="text-[9px] font-bold text-teal-deep uppercase tracking-tighter leading-none mt-0.5">Slot</span></div>
+<!-- Coach Ama Hint Bubble (Connected speech arrow, crisp card with 3D bottom ledge) -->
+<div class="flex-1 bg-white border-2 border-tactile-border rounded-2xl p-4 shadow-tactile-card relative">
+<!-- Arrow tail pointer -->
+<div class="absolute -left-2 top-5 w-3.5 h-3.5 bg-white border-l-2 border-b-2 border-tactile-border transform rotate-45"></div>
+<div class="flex items-center justify-between gap-2 mb-1.5"><div class="inline-flex items-center gap-1.5">
+<span class="text-xs font-black text-teal-deep uppercase tracking-wider">Coach Ama Tip</span>
+<span class="text-[11px] font-bold text-on-surface bg-surface-container-high px-2 py-0.5 rounded-md">Hint</span>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">Grammar · Collocation</span></div>
+<p class="text-sm font-semibold text-on-surface leading-relaxed">
+          Look at the noun <strong class="text-teal-deep underline decoration-teal-primary decoration-2 underline-offset-2">decision</strong>. Which verb naturally pairs with it in formal English?
+        </p>
+</div>
+</section>
+<!-- EXERCISE QUESTION HEADER -->
+<section class="flex flex-col gap-1 w-full pt-1">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-md bg-teal-primary/10 text-teal-primary text-xs font-extrabold uppercase tracking-wide">Drill Step 4</span>
+</div>
+<h1 class="text-2xl sm:text-3xl font-black text-on-surface tracking-tight leading-tight">
+        Choose the correct word
+      </h1>
+<p class="text-sm sm:text-base font-medium text-ink-muted leading-relaxed">
+        Select the option that best completes the sentence grammatically and naturally.
+      </p>
+</section>
+<!-- EXERCISE CONTEXT CARD (Sentence drill with audio bar and translation hint) -->
+<section class="w-full bg-white border-2 border-tactile-border rounded-3xl p-6 sm:p-7 shadow-tactile-card flex flex-col gap-5">
+<!-- Audio Action Bar (Min 44px hit heights) -->
+<div class="flex items-center justify-between pb-3 border-b-2 border-surface-container">
+<div class="flex items-center gap-3">
+<!-- Play Audio Button -->
+<button aria-label="Listen to sentence" class="h-11 px-4 rounded-xl bg-teal-deep text-white flex items-center gap-2.5 shadow-[0_3px_0_#072927] hover:bg-teal-primary active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">volume_up</span>
+<span class="text-xs sm:text-sm font-bold tracking-wide">Play audio</span>
+</button>
+<!-- Slow Playback Button -->
+<button aria-label="Listen slowly" class="h-11 px-3.5 rounded-xl bg-surface border-2 border-tactile-border text-on-surface flex items-center gap-2 hover:bg-surface-container shadow-[0_2px_0_#DDCFC0] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[20px] text-ink-muted">slow_motion_video</span>
+<span class="text-xs sm:text-sm font-bold">Slow</span>
+</button>
+</div>
+<!-- Audio Dialect Tag -->
+<span class="inline-flex items-center gap-1.5 text-xs font-bold text-teal-deep bg-teal-light px-3 py-1.5 rounded-lg border border-teal-primary/30">
+<span class="material-symbols-outlined text-[16px] text-teal-primary">record_voice_over</span>
+<span>UK Accent · Native</span>
+</span>
+</div>
+<!-- Primary Sentence with Blank / Selected Word Slot -->
+<div class="py-2 sm:py-3">
+<p class="text-xl sm:text-2xl md:text-[26px] font-bold text-on-surface leading-loose">
+          “The committee will 
+          <span class="inline-flex items-center justify-center min-w-[120px] h-11 mx-2 px-4 align-middle border-2 border-dashed border-teal-primary bg-teal-light rounded-xl text-teal-deep font-black text-xl sm:text-2xl shadow-inner">
+            make
+          </span>
+          a final decision regarding the research grant tomorrow morning.”
+        </p>
+</div>
+<!-- Hint Accordion / Translation Panel -->
+<div class="bg-surface rounded-2xl p-3.5 border-2 border-tactile-border/80 flex items-center justify-between gap-3">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-8 h-8 rounded-lg bg-teal-light text-teal-primary flex items-center justify-center shrink-0 border border-teal-primary/20">
+<span class="material-symbols-outlined text-[18px]">translate</span>
+</div>
+<span class="text-xs sm:text-sm font-medium text-ink-muted truncate">
+            Ủy ban sẽ đưa ra quyết định cuối cùng về khoản tài trợ nghiên cứu vào sáng mai.
+          </span>
+</div>
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-xs font-extrabold text-teal-deep shrink-0 uppercase tracking-wider hover:underline px-3 py-2" type="button">
+          View hint
+        </button>
+</div>
+</section>
+<!-- 4 MULTIPLE CHOICE OPTIONS GRID (2x2 on Desktop, 1-col on mobile, supporting +40% localized string length) -->
+<fieldset aria-label="Multiple choice answers" class="w-full grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-2">
+<legend class="sr-only">Answer options</legend>
+<!-- Option A (SELECTED STATE: Deep teal #0F3D3E, mint checkmark, tactile bottom ledge) -->
+<label class="relative w-full min-h-[68px] flex items-center justify-between p-4 rounded-2xl bg-teal-deep text-white border-2 border-teal-deep shadow-tactile-opt-selected cursor-pointer transition-all">
+<input checked="" class="sr-only" name="lesson_answer" type="radio" value="make"/>
+<div class="flex items-center gap-3.5 min-w-0 pr-2">
+<!-- Letter badge -->
+<span class="w-10 h-10 rounded-xl bg-teal-primary flex items-center justify-center font-black text-base text-teal-mint border border-teal-mint/40 shrink-0">
+            A
+          </span>
+<div class="flex flex-col min-w-0">
+<span class="text-lg font-black text-white tracking-wide truncate">
+              make
+            </span>
+<span class="text-xs font-medium text-teal-100/90 leading-tight">
+              Collocates with: decision, effort, progress
+            </span>
+</div>
+</div>
+<div class="w-7 h-7 rounded-full bg-teal-mint text-teal-deep flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[18px] font-black">check</span>
+</div>
+</label>
+<!-- Option B (UNSELECTED: Crisp pure white card with tactile ledge) -->
+<label class="relative w-full min-h-[68px] flex items-center justify-between p-4 rounded-2xl bg-white hover:bg-surface-container-low text-on-surface border-2 border-tactile-border shadow-tactile-opt-default cursor-pointer option-tactile transition-all">
+<input class="sr-only" name="lesson_answer" type="radio" value="do"/>
+<div class="flex items-center gap-3.5 min-w-0 pr-2">
+<!-- Letter badge -->
+<span class="w-10 h-10 rounded-xl bg-surface flex items-center justify-center font-black text-base text-ink-muted border border-tactile-border shrink-0">
+            B
+          </span>
+<div class="flex flex-col min-w-0">
+<span class="text-lg font-black text-on-surface tracking-wide truncate">
+              do
+            </span>
+<span class="text-xs font-medium text-ink-muted leading-tight">
+              Common trap: do homework, do research
+            </span>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-tactile-border shrink-0"></div>
+</label>
+<!-- Option C (UNSELECTED) -->
+<label class="relative w-full min-h-[68px] flex items-center justify-between p-4 rounded-2xl bg-white hover:bg-surface-container-low text-on-surface border-2 border-tactile-border shadow-tactile-opt-default cursor-pointer option-tactile transition-all">
+<input class="sr-only" name="lesson_answer" type="radio" value="give"/>
+<div class="flex items-center gap-3.5 min-w-0 pr-2">
+<!-- Letter badge -->
+<span class="w-10 h-10 rounded-xl bg-surface flex items-center justify-center font-black text-base text-ink-muted border border-tactile-border shrink-0">
+            C
+          </span>
+<div class="flex flex-col min-w-0">
+<span class="text-lg font-black text-on-surface tracking-wide truncate">
+              give
+            </span>
+<span class="text-xs font-medium text-ink-muted leading-tight">
+              Collocates with: give advice, give permission
+            </span>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-tactile-border shrink-0"></div>
+</label>
+<!-- Option D (UNSELECTED) -->
+<label class="relative w-full min-h-[68px] flex items-center justify-between p-4 rounded-2xl bg-white hover:bg-surface-container-low text-on-surface border-2 border-tactile-border shadow-tactile-opt-default cursor-pointer option-tactile transition-all">
+<input class="sr-only" name="lesson_answer" type="radio" value="take"/>
+<div class="flex items-center gap-3.5 min-w-0 pr-2">
+<!-- Letter badge -->
+<span class="w-10 h-10 rounded-xl bg-surface flex items-center justify-center font-black text-base text-ink-muted border border-tactile-border shrink-0">
+            D
+          </span>
+<div class="flex flex-col min-w-0">
+<span class="text-lg font-black text-on-surface tracking-wide truncate">
+              take
+            </span>
+<span class="text-xs font-medium text-ink-muted leading-tight">
+              Collocates with: take an exam, take a break
+            </span>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-tactile-border shrink-0"></div>
+</label>
+</fieldset>
+</main>
+<!-- PINNED BOTTOM ACTION FOOTER (Sticky, spacious desktop container, Sunny amber CTA with #1C1003 deep ink) -->
+<footer class="w-full bg-[#FAF6F0]/95 backdrop-blur-md border-t-2 border-tactile-border shrink-0 py-4 px-6 sm:px-12 z-30">
+<div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+<!-- Key hints / Evaluation status -->
+<div class="flex items-center gap-4 text-xs font-bold text-ink-muted">
+<div class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-teal-primary text-[18px]">keyboard</span>
+<span>Press keys <kbd class="px-1.5 py-0.5 bg-white border border-tactile-border rounded text-[10px] font-bold text-on-surface">1</kbd>–<kbd class="px-1.5 py-0.5 bg-white border border-tactile-border rounded text-[10px] font-bold text-on-surface">4</kbd> to select</span>
+</div>
+<span class="hidden sm:inline text-tactile-border font-black">•</span>
+<div class="inline-flex items-center gap-1.5 text-teal-deep font-extrabold">
+<span class="material-symbols-outlined text-teal-primary text-[18px]">verified</span>
+<span>Instant grammatical evaluation</span>
+</div>
+</div>
+<!-- Single Primary Decisive CTA: Amber with deep mechanical ledge and #1C1003 AAA contrast -->
+<button class="w-full sm:w-auto sm:min-w-[260px] h-14 px-8 rounded-2xl bg-amber-cta text-ink-dark font-black text-lg tracking-wide shadow-tactile-btn flex items-center justify-center gap-2.5 border-2 border-amber-600/30 btn-tactile-action transition-all" type="button">
+<span>Check answer</span>
+<span class="material-symbols-outlined text-[24px] font-black text-ink-dark">arrow_forward</span>
+</button>
+</div>
+</footer>
+</body></html>

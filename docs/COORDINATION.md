@@ -21,6 +21,7 @@ Mục đích: chia tải để không ai chạm giới hạn token, không sửa
 6. **Xong việc**: xóa dòng ở *Đang làm*, thêm 2–4 dòng vào *Nhật ký bàn giao* (đã làm gì, file nào, cần bên kia kiểm gì).
 7. Không đụng: khóa/bí mật, cấu hình Cloudflare/GitHub secrets, `functions/api/admin.js` & `web/js/admin.js` (Claude giữ), `scripts/ship2.sh` của Claude.
 8. **Add-on Chrome** (`extension/`, mã web chép vào `extension/app/`): giữ đúng `docs/CWS-RULES.md` – không mã tải từ xa, không thêm quyền/host/dữ liệu gửi đi khi chưa cập nhật lock + chính sách; `npm test` có `cws-check`. Đăng bản mới qua workflow "Đăng add-on Chrome Web Store".
+9. **Nộp việc (Antigravity, luật 03/11 sau P2-1.2 nộp lại)**: (a) rebase nhánh lên `main` mới nhất trước khi làm và trước khi báo CHỜ DUYỆT – nhánh lệch xa sẽ bị từ chối; đọc thẻ trên BOARD: thẻ đã ✅ thì không làm lại; (b) KHÔNG thêm/đổi dependency trong `package.json`/lock để chữa node_modules hỏng trên máy mình (chạy `npm ci`); cần gói mới thì ghi lý do trong thẻ, chỉ devDependency; (c) KHÔNG sửa test/ngưỡng của việc khác để cho xanh; (d) chữ mới phải đủ 15 ngôn ngữ (en tay + nhãn ngắn vào `scripts/i18n-fixed.json`) theo `docs/I18N-PIPELINE.md`.
 
 ## Phân vùng mặc định
 | Khu vực | Người giữ chính |
@@ -52,7 +53,7 @@ Mục đích: chia tải để không ai chạm giới hạn token, không sửa
 ## Phân vùng file đang giữ (17/10 – nhiều luồng song song)
 | Luồng | Được sửa | Không được sửa |
 |---|---|---|
-| Phiên nội dung | web/js/toefl/*, toeic/*, readtest/*, notes/từ vựng, content/pipeline/*, en/exams.js | app.js (trừ 2 dòng BUNDLES/ROUTE_BUNDLE đã duyệt), admin-* |
+| Phiên nội dung | web/cpack/toefl/*, toeic/*, readtest/*, notes/từ vựng, content/pipeline/*, en/exams.js | app.js (trừ 2 dòng BUNDLES/ROUTE_BUNDLE đã duyệt), admin-* |
 | Phiên blog SEO | content/blog/** | mọi thứ ngoài content/blog |
 | Agent dịch lời giải | trường bản dịch "why" trong các file đề | câu hỏi/đáp án, app.js |
 | Agent test đọc to | scripts/test/* (test mới), sửa nhỏ phần chấm trong web/js/toeic.js | toeic/sw1.js dữ liệu, app.js |
@@ -64,3 +65,5 @@ Mục đích: chia tải để không ai chạm giới hạn token, không sửa
 | Phiên brand kit | brand/social/templates/** | web/js/kit.js |
 | Antigravity | thẻ trên BOARD, worktree riêng | file luồng khác đang giữ |
 Quy tắc: sửa file ngoài vùng → nhắn phiên chính trước; mỗi luồng làm nhánh/worktree riêng hoặc chỉ `git add` đúng file của mình; phiên chính là người duy nhất ship (ship2.sh) sau khi chạy `npm test` toàn bộ.
+
+**Gói nội dung lớn (5/11):** đặt ở `web/cpack/` (không `web/js/`, không nới `totalJs`): thêm `cpack/…` vào BUNDLES; build băm tên (`scripts/build-cpack.mjs`), `/cpack/*` immutable, SW cache-first (offline). Trần: mỗi gói ≤ `fileGz`, tổng ≤ `cpackTotal`; test `scripts/test/cpack.mjs`. Bộ quét toàn kho đọc gốc từ `scripts/lib/scan-roots.mjs` (`SCAN_ROOTS` = web/js + web/cpack; dữ liệu nằm ở cả hai nơi → `dataFiles(sub, re)`), test `scripts/test/scan-roots.mjs` chặn bộ quét gốc cứng.

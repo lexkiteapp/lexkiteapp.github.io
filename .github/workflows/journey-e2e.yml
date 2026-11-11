@@ -1,3 +1,4 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
 # 🧭 Hành trình người dùng đầu-cuối (Playwright) – scripts/test/journey-e2e.mjs · docs/QUALITY-SWEEP.md § journey-e2e
 # 7 hành trình × vi/en/ar × máy tính/điện thoại (+ add-on), mỗi hành trình kiểm: lỗi console, lớp nổi chồng nhau, hỏi 2 lần, focus, còn sau tải lại, chạy khi mất mạng.
 # Hermetic: dist cục bộ, /api/* giả lập trong tiến trình, host ngoài = rỗng, ?sandbox=1 / tài khoản giả → 0 lượt chạm prod, 0 tài khoản thật.
@@ -5,7 +6,7 @@
 name: Journey E2E
 on:
   pull_request:
-    paths: ['web/js/**', 'web/css/**', 'web/app/**', 'web/index.html', 'web/sw.js', 'web/i18n/**', 'extension/**', 'scripts/build-web.sh', 'scripts/test/journey-e2e.mjs', 'scripts/test/journey-e2e/**', 'scripts/quality/serve.mjs', '.github/workflows/journey-e2e.yml']
+    paths: ['web/js/**', 'web/css/**', 'web/app/**', 'web/index.html', 'web/sw.js', 'web/i18n/**', 'extension/**', 'scripts/build-web.sh', 'scripts/test/journey-e2e.mjs', 'scripts/test/welcome-journey.mjs', 'scripts/test/stitch-screens.mjs', 'scripts/test/journey-e2e/**', 'scripts/quality/serve.mjs', '.github/workflows/journey-e2e.yml']
   push:
     branches: ['journey-e2e*']
   workflow_dispatch:
@@ -22,7 +23,26 @@ concurrency:
   # lượt chạy tay native=1 dài ~30' → không để lượt dispatch/PR khác cùng ref huỷ giữa chừng (26/10: ios bị huỷ 2 lần, android bị huỷ sau 41')
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha → go=$go"
   web:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 40
     strategy:
@@ -39,10 +59,12 @@ jobs:
           bash scripts/build-web.sh >/dev/null
           bash scripts/build-extension.sh >/dev/null
       - name: Cài Playwright
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
-          npx playwright install --with-deps chromium >/dev/null
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
       - name: Chặn lexkite.com (0 lượt chạm prod)
         run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
       - name: Hành trình ${{ matrix.lang }} (máy tính + điện thoại + add-on)
@@ -50,6 +72,9 @@ jobs:
       - name: Hành trình 1–2 trên điện thoại 360/390 px (vi) + kiểm hình tự động
         if: always() && matrix.lang == 'vi'
         run: node scripts/test/journey-e2e.mjs --root dist --lang vi --device m360,m390 --only 1,2 --out je-out/vi-360
+      - name: Welcome + thiết lập lần đầu (docs/specs/welcome.md)
+        if: always() && matrix.lang == 'vi'
+        run: node scripts/test/welcome-journey.mjs --root dist
       - if: always()
         run: cat je-out/${{ matrix.lang }}*/summary.md >> "$GITHUB_STEP_SUMMARY" 2>/dev/null || true
       - uses: actions/upload-artifact@v4
@@ -57,8 +82,9 @@ jobs:
         with: { name: 'journey-${{ matrix.lang }}', path: 'je-out/${{ matrix.lang }}*', retention-days: 7, if-no-files-found: ignore }
 
   android:
-    if: inputs.native == '1'
+    if: ${{ (inputs.native == '1') && needs.gate.outputs.go == 'true' }}
     name: android (${{ matrix.lang }})
+    needs: gate
     runs-on: ubuntu-latest
     timeout-minutes: 40
     # mỗi ngôn ngữ một emulator mới: 26/10–27/10 emulator chết ngẫu nhiên sau ~10–14' chạy liên tục (qemu biến mất, host còn 10 GB trống) → ngắn hơn + độc lập
@@ -69,13 +95,14 @@ jobs:
     env: { JE_LANGS: '${{ matrix.lang }}' }
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod  # app trong máy ảo Android: /api + media prod → không phân giải (app chạy nhánh offline như web)
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: npm }
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: 21 }
       - name: Build APK debug
         run: |
-          npm ci --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
           ./scripts/build-mobile.sh
           cd mobile/android && chmod +x gradlew && ./gradlew --no-daemon assembleDebug | tail -5
           cp app/build/outputs/apk/debug/app-debug.apk ../../lexkite.apk
@@ -114,11 +141,13 @@ jobs:
           node -e "const r=JSON.parse(require('fs').readFileSync('je-android/results.json'));console.log('bước đã chạy:',r.ran);process.exit(r.ran>=6&&!r.bad.length?0:1)"
 
   ios:
-    if: inputs.native == '1'
+    if: ${{ (inputs.native == '1') && needs.gate.outputs.go == 'true' }}
+    needs: gate
     runs-on: macos-15
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod  # app trong Simulator: /api + media prod → không phân giải (app chạy nhánh offline như web)
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: npm }
       - name: Chọn Xcode 26
@@ -129,7 +158,7 @@ jobs:
       - name: Build web → mobile → chèn harness (E2E_MODE=journey)
         env: { E2E_MODE: journey }
         run: |
-          npm ci --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
           ./scripts/build-mobile.sh
           bash scripts/test/ios-e2e/inject.sh
       - name: xcodebuild (iphonesimulator, không ký)

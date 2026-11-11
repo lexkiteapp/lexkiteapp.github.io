@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Social Media Post (4:5)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            lexkite: {
+              teal: '#0d5c58',
+              'teal-dark': '#083c39',
+              'teal-light': '#14807b',
+              'teal-tint': '#e6f3f2',
+              cream: '#fff8f1',
+              'cream-card': '#ffffff',
+              'cream-surface': '#fbf3e8',
+              coral: '#f06543',
+              'coral-shadow': '#cc4a2a',
+              text: '#122524',
+              muted: '#526665',
+              border: '#e4dcd2',
+            }
+          },
+          boxShadow: {
+            'tactile-card': '0 8px 0 0 #ded4c8, 0 16px 24px -6px rgba(13,92,88,0.08)',
+            'tactile-subcard': '0 4px 0 0 #e6ddd2',
+            'tactile-btn': '0 4px 0 0 #cc4a2a',
+            'tactile-teal': '0 4px 0 0 #083c39',
+            'tactile-sound': '0 3px 0 0 #cad7d6',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Aspect ratio container 4:5 optimized for desktop canvas or mobile preview */
+    body {
+      background-color: #ede5da;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    
+    .social-canvas {
+      width: 100%;
+      max-width: 520px;
+      aspect-ratio: 4 / 5;
+      background-color: #fff8f1;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 28px;
+      box-shadow: 0 24px 48px -12px rgba(13, 92, 88, 0.18), 0 2px 8px rgba(0,0,0,0.04);
+      border: 1px solid #ebd9c8;
+      box-sizing: border-box;
+    }
+
+    /* Subdued warm tactical pattern background */
+    .bg-pattern {
+      background-image: radial-gradient(#0d5c58 0.75px, transparent 0.75px);
+      background-size: 20px 20px;
+      opacity: 0.045;
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="p-4 sm:p-8">
+<!-- 4:5 Social Media Vertical Video Frame -->
+<main aria-label="Lexkite Social Media Phrase Card" class="social-canvas relative" role="region">
+<div aria-hidden="true" class="bg-pattern"></div>
+<!-- Safe area padding wrapper -->
+<div class="relative z-10 w-full h-full flex flex-col justify-between p-6 sm:p-7 box-border">
+<!-- TOP THIRD: Hook Question & Category Tag -->
+<header class="w-full pt-1">
+<!-- Top bar: Daily English Chip & Brand Micro-tag -->
+<div class="flex items-center justify-between mb-3.5">
+<!-- Tactile coral accent chip -->
+<div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-lexkite-coral text-white text-xs font-extrabold tracking-wider uppercase shadow-tactile-btn">
+<span class="material-symbols-outlined text-[15px]">electric_bolt</span>
+<span>Daily English</span>
+</div>
+<div class="flex items-center gap-1.5 text-[#5ce0d4] text-xs font-bold tracking-wide bg-[#153438] px-3 py-1 rounded-full border border-[#235359]">
+<span class="w-2 h-2 rounded-full bg-[#5ce0d4]"></span>
+<span>CEFR A2–B1</span>
+</div>
+</div>
+<!-- Big Hook Question: Scroll-Stopping & Bold -->
+<h1 class="text-[26px] sm:text-[30px] font-extrabold text-[#f0f7f6] leading-[1.22] tracking-tight">
+          What do you say when you <span class="text-[#6bd8ce] underline decoration-lexkite-coral decoration-4 underline-offset-4">miss the bus?</span>
+</h1>
+<p class="text-xs sm:text-sm font-semibold text-[#9eb8b5] mt-2">
+          Natural everyday spoken phrases for English learners.
+        </p>
+</header>
+<!-- MIDDLE: Main Tactile Content Card -->
+<section class="w-full my-auto py-1"><div class="bg-[#122226] rounded-2xl p-5 sm:p-6 border border-[#22383c] shadow-2xl relative">
+<!-- Card Header: Speaker Button + Word Type -->
+<div class="flex items-center justify-between pb-3.5 mb-3.5 border-b border-[#1f373c]">
+<div class="flex items-center gap-2">
+<span class="text-[11px] font-bold tracking-wider uppercase text-[#5ce0d4] bg-[#16363a] px-2.5 py-1 rounded-md border border-[#235157]">
+                Key Spoken Phrase
+              </span>
+<span class="text-[11px] font-semibold text-[#8ca8a4]">Common / Casual</span>
+</div>
+<!-- Tactile Speaker Button -->
+<button aria-label="Listen to pronunciation" class="w-10 h-10 rounded-xl bg-[#18393e] text-[#5ce0d4] flex items-center justify-center border border-[#28575e] active:translate-y-0.5 active:shadow-none transition-all hover:bg-[#20494f]" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+<!-- The Main Phrase -->
+<div class="mb-4">
+<h2 class="text-[32px] sm:text-[36px] font-black text-[#f0f7f6] tracking-tight leading-tight mb-1 break-words">
+              “I missed my bus.”
+            </h2>
+<div class="flex items-center gap-2 text-xs font-mono text-[#7eeae0]">
+<span>/aɪ mɪst maɪ bʌs/</span>
+</div>
+</div>
+<!-- Plain-English Meaning -->
+<div class="bg-[#16282c] rounded-xl p-3.5 border border-[#223d42] mb-3.5 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[#5ce0d4] text-[19px] mt-0.5 shrink-0">info</span>
+<div class="text-xs sm:text-[13px] leading-relaxed text-[#d5e4e2]">
+<strong class="font-bold text-[#5ce0d4]">Plain meaning:</strong> The bus departed before I arrived at the bus stop, so I could not take it.
+            </div>
+</div>
+<!-- Polite / Work-Ready Variation -->
+<div class="bg-[#152a2f] rounded-xl p-3.5 border border-[#233a3f] flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-extrabold uppercase tracking-wider text-[#5ce0d4]">
+                Polite / Message to Boss
+              </span>
+<span class="text-[10px] font-bold text-[#7eeae0]/80">Formal</span>
+</div>
+<p class="text-xs sm:text-[13px] font-bold text-[#e6f4f2] leading-snug break-words">
+              “I missed the bus, so I may be a few minutes delayed.”
+            </p>
+</div>
+</div></section>
+<!-- LOWER THIRD: Teacher-Slot Ama & Bottom Brand Lockup inside Safe Area -->
+<footer class="w-full flex flex-col gap-3.5 pb-1"><!-- Teacher-Slot Row: dark container -->
+<div class="flex items-center gap-3.5 bg-[#122125] border border-[#22393d] rounded-2xl p-3">
+<!-- Teacher-slot placeholder with vibrant illuminated teal badge -->
+<div class="relative w-12 h-12 rounded-xl bg-[#162f33] border-2 border-dashed border-[#2ba39a] flex items-center justify-center shrink-0 group" title="teacher-slot">
+<!-- 2D Teacher Ama SVG icon badge -->
+<svg aria-label="Ama, Lexkite English Tutor" class="w-7 h-7 text-[#6bd8ce]" fill="currentColor" viewbox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+<path d="M18 4L2 12L18 20L31 13.5V23H33V12L18 4Z"></path>
+<path d="M7 16.5V23.5C7 26.5 11.9 29 18 29C24.1 29 29 26.5 29 23.5V16.5L18 22L7 16.5Z" opacity="0.85"></path>
+</svg>
+<span class="absolute -bottom-1 -right-1 text-[8px] font-extrabold uppercase bg-[#2ba39a] text-[#00322e] px-1 py-0.2 rounded">
+              Ama
+            </span>
+<span class="sr-only">[teacher-slot]</span>
+</div>
+<!-- Tutor Note: Spoken English insight -->
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-1.5 mb-0.5">
+<span class="text-xs font-bold text-[#f0f7f6]">Ama</span>
+<span class="text-[10px] font-semibold text-[#7eeae0] bg-[#1a383d] px-1.5 py-0.5 rounded border border-[#27535a]">Exam Mentor</span>
+</div>
+<p class="text-[11px] sm:text-xs text-[#a5c4c0] leading-tight line-clamp-2">
+<span class="italic">“Say ‘missed the bus’, never ‘lost the bus’. In English, you lose objects, but you miss transport!”</span>
+</p>
+</div>
+</div>
+<!-- Safe-Area Bottom Brand Bar -->
+<div class="flex items-center justify-between pt-2 border-t border-[#1e3438]">
+<!-- Lexkite Wordmark & Icon -->
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-lg bg-[#193a3f] border border-[#2b5961] flex items-center justify-center">
+<svg class="w-3.5 h-3.5 text-[#6bd8ce]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L2 12L12 22L22 12L12 2ZM12 5.8L18.2 12L12 18.2L5.8 12L12 5.8Z"></path>
+</svg>
+</div>
+<span class="text-sm font-extrabold text-[#6bd8ce] tracking-tight">Lexkite</span>
+<span class="text-[11px] font-medium text-[#87a3a0]">· Daily English</span>
+</div>
+<!-- Follow For More Line (Safe area aligned) -->
+<div class="flex items-center gap-1.5 text-xs font-bold text-lexkite-coral">
+<span>Follow for more</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div></footer>
+</div>
+</main>
+</body>
+</html>

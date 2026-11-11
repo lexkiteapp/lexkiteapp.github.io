@@ -19,21 +19,23 @@ export function neuronReport(D) {
   const vis = ja.reduce((a, j) => a + (j.vision_neurons != null ? +j.vision_neurons : (+j.vision_calls || 0) * VISION_EST), 0);
   const sum = k => ja.reduce((a, j) => a + (+j[k] || 0), 0);
   return { images: imgs, draw_neurons: Math.round(draw), npi: imgs ? +(draw / imgs).toFixed(1) : null, vision_calls: calls, vision_neurons: Math.round(vis),
-    vision_per_image: imgs ? +(calls / imgs).toFixed(2) : null, second_model_calls: sum('second_model_calls'), size_fail_local: sum('size_fail_local'),
+    vision_per_image: imgs ? +(calls / imgs).toFixed(2) : null, second_model_calls: sum('second_model_calls'), size_fail_local: sum('size_fail_local'), acct_dead: sum('acct_dead'),
     vision_tok_missing: sum('vision_tok_missing'), audit: { calls: sum('audit_calls'), neurons: Math.round(sum('audit_neurons')), disagree: sum('audit_disagree') }, total: Math.round(draw + vis) };
 }
 /** tỷ lệ đạt theo ẢNH (ảnh cảnh vẽ ra → ảnh nhận sau nén ≤ 6 KB) + theo loại từ – result.json của scene_final.py */
 export function passReport(D) {
   const R = rd(path.join(D, 'result.json')).items || {}, J = {};
   for (let a = 1; a <= 6; a++) { const f = path.join(D, `judge.local.a${a}.json`); if (fs.existsSync(f)) for (const [k, v] of Object.entries(rd(f))) if (v.kind === 'scene') (J[k] = J[k] || []).push(v); }
-  const by = {}, why = {}; let drawn = 0, ok = 0;
+  const by = {}, why = {}; let drawn = 0, ok = 0, first = 0;
   for (const [k, js] of Object.entries(J)) {
-    const pos = k.split('#')[1] || '?', acc = !!(R[k] && R[k].pass && R[k].kind === 'scene'); drawn += js.length; ok += acc;
-    const b = (by[pos] = by[pos] || { images: 0, accepted: 0, senses: 0 }); b.images += js.length; b.accepted += acc; b.senses++;
+    // (b) 01/11: lượt có VIMG_CANDS → mỗi mục giám khảo gồm `cands` ảnh vẽ; first_round = nghĩa đạt ngay biến thể 1 (trước mọi lần vẽ lại)
+    const pos = k.split('#')[1] || '?', acc = !!(R[k] && R[k].pass && R[k].kind === 'scene'), n = js.reduce((a, j) => a + (+j.cands || 1), 0); drawn += n; ok += acc; first += !!(js[0] && js[0].pass);
+    const b = (by[pos] = by[pos] || { images: 0, accepted: 0, senses: 0 }); b.images += n; b.accepted += acc; b.senses++;
     for (const j of js) if (!j.pass) { const r = String((j.reasons || [''])[0]).replace(/[:(].*/, '').trim(); why[r] = (why[r] || 0) + 1; }
     if (R[k] && !R[k].pass && /size/.test((R[k].reasons || []).join())) why['size > 6 KB (final)'] = (why['size > 6 KB (final)'] || 0) + 1;
   }
-  return { scene_images: drawn, scene_accepted: ok, pass_rate: drawn ? +(ok / drawn).toFixed(3) : null, senses: Object.keys(J).length, by_pos: by, fail_first_reason: why };
+  const senses = Object.keys(J).length;
+  return { scene_images: drawn, scene_accepted: ok, pass_rate: drawn ? +(ok / drawn).toFixed(3) : null, senses, first_round: first, first_round_rate: senses ? +(first / senses).toFixed(3) : null, by_pos: by, fail_first_reason: why };
 }
 if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(import.meta.url)))) {
   const arg = n => { const i = process.argv.indexOf('--' + n); return i > 0 ? process.argv[i + 1] : undefined; };

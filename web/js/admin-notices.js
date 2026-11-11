@@ -238,6 +238,20 @@
 
       // Xử lý kiểm tra pre-filled target user từ sessionStorage (nút 📣 Gửi tin ở tab Người dùng)
       try {
+        // Nhiều người (thanh thao tác hàng loạt ở tab Người dùng, ≤ 500 uid)
+        const many = sessionStorage.getItem('adm.targetUsers');
+        if (many) {
+          sessionStorage.removeItem('adm.targetUsers');
+          const ids = (JSON.parse(many).uids || []).filter(x => typeof x === 'string').slice(0, 500);
+          if (ids.length) {
+            const rad = container.querySelector('input[name="nTargetType"][value="users"]');
+            if (rad) rad.checked = true;
+            container.querySelector('#nUsersBox').style.display = 'block';
+            container.querySelector('#nFilterBox').style.display = 'none';
+            container.querySelector('#nUserIds').value = ids.join('\n');
+            container.querySelector('#nTargetUserHint').textContent = `🎯 ${L('Đã chọn gửi cho:')} ${L('{n} người', { n: ids.length })}`;
+          }
+        }
         const stored = sessionStorage.getItem('adm.targetUser');
         if (stored) {
           const uObj = JSON.parse(stored);

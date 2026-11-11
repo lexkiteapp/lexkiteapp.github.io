@@ -3,13 +3,16 @@
 name: Video quản trị – giao diện + hiệu năng
 on:
   push:
-    branches: [main, 'admin-video-*']
-    paths: ['web/js/admin-video.js', 'web/js/admin-clips.js', 'web/css/admin.css', 'functions/api/youtube.js', 'scripts/test/admin-video-shots.mjs', 'scripts/test/clips-perf.mjs', '.github/workflows/admin-video-ui.yml']
+    branches: [main, 'admin-video-*', 'admin-content-video*']
+    paths: ['web/js/admin-video.js', 'web/js/admin-clips.js', 'web/js/admin-flow.js', 'functions/api/admin-clips.js', 'scripts/test/admin-flow.mjs', 'web/css/admin.css', 'functions/api/youtube.js', 'scripts/test/admin-video-shots.mjs', 'scripts/test/clips-perf.mjs', '.github/workflows/admin-video-ui.yml']
   workflow_dispatch:
     inputs:
       before: { description: 'commit/nhánh để chụp ảnh TRƯỚC (mặc định: commit trước lần đẩy, hoặc main)', required: false, default: '' }
 permissions:
   contents: read
+concurrency:   # ci-policy 2/11: push/lịch trùng gộp; chạy tay (mỗi lượt khác input) không bao giờ bị huỷ
+  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   ui:
     runs-on: ubuntu-latest
@@ -20,9 +23,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Playwright
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
       - name: Ảnh TRƯỚC
         env: { BEFORE: '${{ inputs.before }}', EV_BEFORE: '${{ github.event.before }}' }
         run: |

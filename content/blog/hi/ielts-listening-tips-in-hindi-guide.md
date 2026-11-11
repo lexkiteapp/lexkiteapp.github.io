@@ -9,7 +9,7 @@ tags: [listening, ielts, exam-tips]
 keyword: "ielts listening tips in hindi"
 cover: listening
 coverAlt: "Lexkite पर IELTS Listening अभ्यास स्क्रीन जिसमें 10 मॉक टेस्ट 4 भाग और ऑडियो स्पीड कंट्रोल उपलब्ध है"
-publishAt: ""
+publishAt: 2026-11-30T08:57:00+05:30
 factChecked: 2026-11-01
 qualityScore: 95
 author: Lexkite
@@ -56,7 +56,7 @@ IELTS में परीक्षक पहले एक जानकारी 
 - `NO MORE THAN TWO WORDS AND/OR A NUMBER`
 - `ONE WORD ONLY`
 
-यदि निर्देश `ONE WORD ONLY` का है और आपने उत्तर में `a library` या `the environment` लिख दिया, तो सही शब्द होने के बावजूद अंक शून्य मिलेगा। आधिकारिक शब्दावली और शब्दों की सटीक पहचान के लिए [/tu-vung/](/tu-vung/) संग्रह का उपयोग करें।
+यदि निर्देश `ONE WORD ONLY` का है और आपने उत्तर में `a library` या `the environment` लिख दिया, तो सही शब्द होने के बावजूद अंक शून्य मिलेगा। आधिकारिक शब्दावली और शब्दों की सटीक पहचान के लिए [/tu-vung/](/en/vocabulary/) संग्रह का उपयोग करें।
 
 ### 4. अक्षरों की स्पेलिंग और संख्याओं के उच्चारण का अंतर समझें
 

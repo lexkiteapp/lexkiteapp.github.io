@@ -1,0 +1,236 @@
+{
+ "fixed": [
+  {
+   "word": "ella",
+   "field": "ipa",
+   "from": "ˈejja",
+   "to": "ˈeʝa",
+   "why": "theo es-g2p (ʝ yeísmo / bán nguyên âm / ɛ→e / ˈ nhấn)"
+  },
+  {
+   "word": "dios",
+   "field": "gl.vi",
+   "from": "chúa",
+   "to": "Chúa, Thượng đế",
+   "why": "viết hoa/nghĩa danh từ riêng God"
+  },
+  {
+   "word": "dios",
+   "field": "gl.en",
+   "from": "god",
+   "to": "God",
+   "why": "viết hoa/nghĩa danh từ riêng God"
+  },
+  {
+   "word": "dios",
+   "field": "gl.id",
+   "from": "tuhan",
+   "to": "Tuhan",
+   "why": "viết hoa/nghĩa danh từ riêng God"
+  },
+  {
+   "word": "dios",
+   "field": "gl.fr",
+   "from": "dieu",
+   "to": "Dieu",
+   "why": "viết hoa/nghĩa danh từ riêng God"
+  },
+  {
+   "word": "dios",
+   "field": "gl.ru",
+   "from": "бог",
+   "to": "Бог",
+   "why": "viết hoa/nghĩa danh từ riêng God"
+  },
+  {
+   "word": "dios",
+   "field": "gl.tr",
+   "from": "tanrı",
+   "to": "Tanrı",
+   "why": "viết hoa/nghĩa danh từ riêng God"
+  },
+  {
+   "word": "sin",
+   "field": "gl.tr",
+   "from": "sizmeksizin",
+   "to": "-sız, olmadan",
+   "why": "\"sizmeksizin\" sai/không tự nhiên"
+  },
+  {
+   "word": "estar",
+   "field": "gl.vi",
+   "from": "ở",
+   "to": "thì, ở (vị trí, trạng thái)",
+   "why": "\"ở\" đơn độc thiếu nghĩa trạng thái"
+  },
+  {
+   "word": "ti",
+   "field": "gl.vi",
+   "from": "bạn",
+   "to": "bạn (sau giới từ)",
+   "why": "nêu rõ vai trò sau giới từ"
+  },
+  {
+   "word": "cosa",
+   "field": "gl.vi",
+   "from": "thứ",
+   "to": "thứ, việc",
+   "why": "gloss ở dạng số nhiều, phải là từ gốc số ít"
+  },
+  {
+   "word": "cosa",
+   "field": "gl.en",
+   "from": "things",
+   "to": "thing",
+   "why": "gloss ở dạng số nhiều, phải là từ gốc số ít"
+  },
+  {
+   "word": "cosa",
+   "field": "gl.pt",
+   "from": "coisas",
+   "to": "coisa",
+   "why": "gloss ở dạng số nhiều, phải là từ gốc số ít"
+  },
+  {
+   "word": "cosa",
+   "field": "gl.fr",
+   "from": "choses",
+   "to": "chose",
+   "why": "gloss ở dạng số nhiều, phải là từ gốc số ít"
+  },
+  {
+   "word": "cosa",
+   "field": "gl.de",
+   "from": "Dinge",
+   "to": "Ding",
+   "why": "gloss ở dạng số nhiều, phải là từ gốc số ít"
+  },
+  {
+   "word": "cosa",
+   "field": "gl.id",
+   "from": "hal-hal",
+   "to": "hal, benda",
+   "why": "gloss ở dạng số nhiều, phải là từ gốc số ít"
+  },
+  {
+   "word": "cosa",
+   "field": "gl.th",
+   "from": "สิ่งของ",
+   "to": "สิ่ง",
+   "why": "gloss ở dạng số nhiều, phải là từ gốc số ít"
+  },
+  {
+   "word": "cosa",
+   "field": "gl.zh",
+   "from": "事物",
+   "to": "东西，事情",
+   "why": "gloss ở dạng số nhiều, phải là từ gốc số ít"
+  },
+  {
+   "word": "cosa",
+   "field": "gl.ja",
+   "from": "物",
+   "to": "物、事",
+   "why": "gloss ở dạng số nhiều, phải là từ gốc số ít"
+  },
+  {
+   "word": "cosa",
+   "field": "gl.ko",
+   "from": "것들",
+   "to": "것, 물건",
+   "why": "gloss ở dạng số nhiều, phải là từ gốc số ít"
+  },
+  {
+   "word": "cosa",
+   "field": "gl.hi",
+   "from": "चीज़ें",
+   "to": "चीज़",
+   "why": "gloss ở dạng số nhiều, phải là từ gốc số ít"
+  },
+  {
+   "word": "cosa",
+   "field": "gl.ar",
+   "from": "أشياء",
+   "to": "شيء",
+   "why": "gloss ở dạng số nhiều, phải là từ gốc số ít"
+  },
+  {
+   "word": "cosa",
+   "field": "gl.ru",
+   "from": "вещи",
+   "to": "вещь",
+   "why": "gloss ở dạng số nhiều, phải là từ gốc số ít"
+  },
+  {
+   "word": "cosa",
+   "field": "gl.tr",
+   "from": "şeyler",
+   "to": "şey",
+   "why": "gloss ở dạng số nhiều, phải là từ gốc số ít"
+  },
+  {
+   "word": "año",
+   "field": "gl.en",
+   "from": "years",
+   "to": "year",
+   "why": "gloss ở dạng số nhiều"
+  },
+  {
+   "word": "año",
+   "field": "gl.pt",
+   "from": "anos",
+   "to": "ano",
+   "why": "gloss ở dạng số nhiều"
+  },
+  {
+   "word": "año",
+   "field": "gl.fr",
+   "from": "années",
+   "to": "année",
+   "why": "gloss ở dạng số nhiều"
+  },
+  {
+   "word": "año",
+   "field": "gl.de",
+   "from": "Jahre",
+   "to": "Jahr",
+   "why": "gloss ở dạng số nhiều"
+  },
+  {
+   "word": "año",
+   "field": "gl.id",
+   "from": "tahun-tahun",
+   "to": "tahun",
+   "why": "gloss ở dạng số nhiều"
+  },
+  {
+   "word": "año",
+   "field": "gl.ar",
+   "from": "سنوات",
+   "to": "سنة",
+   "why": "gloss ở dạng số nhiều"
+  },
+  {
+   "word": "año",
+   "field": "gl.ru",
+   "from": "годы",
+   "to": "год",
+   "why": "gloss ở dạng số nhiều"
+  },
+  {
+   "word": "año",
+   "field": "gl.tr",
+   "from": "yıllar",
+   "to": "yıl",
+   "why": "gloss ở dạng số nhiều"
+  },
+  {
+   "word": "ellos",
+   "field": "ipa",
+   "from": "ˈejjos",
+   "to": "ˈeʝos",
+   "why": "theo es-g2p (ʝ yeísmo / bán nguyên âm / ɛ→e / ˈ nhấn)"
+  }
+ ],
+ "dropped": []
+}

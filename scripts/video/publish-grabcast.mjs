@@ -14,6 +14,8 @@ const DRY = flag('dry-run'), STORE_ONLY = flag('store-only'), FILE = opt('file')
 if (!FILE || (!META && !STORE_ONLY)) die('cần --file video.mp4 --meta script.json (hoặc --store-only)');
 if (!fs.existsSync(FILE)) die('không thấy file ' + FILE);
 if (AT && (isNaN(Date.parse(AT)) || Date.parse(AT) < Date.now() + 60e3)) die('--at phải là thời điểm ISO trong tương lai: ' + AT);
+// Cổng duyệt: --at xếp lịch THẲNG trên GrabCast (vượt duyệt bài đầu/HOLD của Quản trị). Chỉ chạy khi người chạy xác nhận rõ (--i-approved) và không phải CI tự động.
+if (AT && !DRY && (!flag('i-approved') || process.env.CI)) die('--at xếp lịch thật, bỏ qua cổng duyệt Quản trị → cần --i-approved và không chạy trong CI. Mặc định: để nháp, duyệt ở Quản trị › Video & Social.');
 const BASE = String(process.env.GRABCAST_API_BASE || 'https://grabcast-api-342720596878.us-central1.run.app').replace(/\/+$/, '');
 const KEY = process.env.GRABCAST_API_KEY || '', WS = String(process.env.GRABCAST_WORKSPACE || '4');
 if (!KEY && !DRY) die('thiếu env GRABCAST_API_KEY (secret của repo)');
@@ -58,7 +60,7 @@ if (DRY) {
   const p = post(['<media_id>']); p.targets = ids.map(id => ({ account_id: id, kind: 'video', options: {} }));
   console.log(JSON.stringify({ base: BASE, workspace: WS, key: KEY ? '***' : '(chưa đặt)', steps: [
     { POST: 'storage/objects', body: begin }, { PUT: '<upload_url>', bytes: stat.size }, { POST: 'storage/objects/<object_id>/complete' }, { POST: 'storage/objects/<object_id>/use' },
-    { POST: 'posts/validate', body: p }, { POST: 'posts', headers: { 'Idempotency-Key': idemFor(ids) }, body: p },
+    { POST: 'validate', body: p }, { POST: 'posts', headers: { 'Idempotency-Key': idemFor(ids) }, body: p },
     AT ? { POST: 'posts/<post_id>/schedule', body: { scheduled_at: new Date(AT).toISOString(), consent: true } } : { note: 'không có --at → giữ bản nháp' }] }, null, 2));
   process.exit(0);
 }
@@ -91,7 +93,7 @@ const mediaId = pick(used, 'media_id') || pick(used.media || {}, 'id') || pick(u
 if (!mediaId) die('GrabCast không trả về media_id');
 // 3) validate → tạo bài → lên lịch
 const payload = post([mediaId]); payload.targets = targetsAcc.map(a => ({ account_id: a.id, kind: kindFor(a), options: {} }));
-const v = await gc('POST', 'posts/validate', payload), errs = [...(v.errors || []), ...((v.targets || []).flatMap(t => t.errors || []))];
+const v = await gc('POST', 'validate', payload), errs = [...(v.errors || []), ...((v.targets || []).flatMap(t => t.errors || []))];
 if (v.valid === false || v.ok === false || errs.length) die('validate không qua: ' + JSON.stringify(errs.length ? errs : v).slice(0, 600));
 const created = await gc('POST', 'posts', payload, { 'Idempotency-Key': idemFor(targetsAcc.map(a => String(a.id))) });
 const postId = pick(created, 'id') || pick(created.post || created.data || {}, 'id');

@@ -103,13 +103,17 @@ const html = rd('web/app/index.html'), appjs = rd('web/js/app.js'), sw = rd('web
 ok(!/vocab-img|lexicon-img/.test(html), 'app/index.html không nạp vocab-img / chỉ mục');
 ok(!/lexicon-img\.json/.test(appjs) && !/<script[^>]*vocab-img/.test(appjs), 'app.js không nạp tĩnh module/chỉ mục');
 ok((appjs.match(/vocab-img\.js/g) || []).length === 1 && /vimg: \['js\/vocab-img\.js'\]/.test(appjs), 'app.js chỉ nhắc vocab-img.js trong bó tải lười BUNDLES.vimg');
-{ const m = /const vimgOn = [^\n]*\n\s*App\.vimgReady = [^\n]*\n\s*App\.vimg = [^\n]*\n\s*App\.vimgReady\(\);/.exec(appjs); ok(!!m, 'app.js có vimgOn/App.vimgReady/App.vimg');
+{ const m = /const vimgOn = [^\n]*\n\s*App\.vimgReady = [^\n]*\n\s*App\.vimg = [^\n]*\n\s*(?:\s*\/\/[^\n]*\n)*\s*[^\n]*App\.vimgReady\(\)[^\n]*\n/.exec(appjs); ok(!!m, 'app.js có vimgOn/App.vimgReady/App.vimg');
   for (const [store, want] of [[{}, 1], [{ 'lk.cfg': JSON.stringify({ v: { vocab_img: false } }) }, 0], [{ 'lk.vimg': '0', 'lk.cfg': JSON.stringify({ v: { vocab_img: true } }) }, 0], [{ 'lk.vimg': '1' }, 1], [{ 'lk.cfg': JSON.stringify({ v: { vocab_img: true } }) }, 1]]) {
-    const need = []; const ctx = { localStorage: { getItem: k => (k in store ? store[k] : null) }, App: { need: n => { need.push(n); return Promise.resolve(); } }, window: {} };
+    const need = []; const ctx = { localStorage: { getItem: k => (k in store ? store[k] : null) }, App: { need: n => { need.push(n); return Promise.resolve(); } }, window: {}, location: { hash: '#/study' }, idle: f => f() };
     vm.runInNewContext(m[0], ctx); ok(need.length === want && (!want || need[0] === 'vimg'), `cờ ${JSON.stringify(store)} → ${want ? 'tải bó vimg' : 'KHÔNG tải gì'}`);
     ok(ctx.App.vimg('apple', 'n') === '', 'App.vimg khi chưa có module → chuỗi rỗng (không hộp)'); } }
+{ const m = /const vimgOn = [^\n]*\n\s*App\.vimgReady = [^\n]*\n\s*App\.vimg = [^\n]*\n(?:\s*\/\/[^\n]*\n)*\s*[^\n]*App\.vimgReady\(\)[^\n]*\n/.exec(appjs);
+  for (const [hash, deferred] of [['', 1], ['#/welcome', 1], ['#/home', 1], ['#/home?x=1', 1], ['#/study', 0], ['#/dict/hello', 0], ['#/homework', 0]]) {
+    const need = [], q = []; vm.runInNewContext(m[0], { localStorage: { getItem: () => null }, App: { need: n => { need.push(n); return Promise.resolve(); } }, window: {}, location: { hash }, idle: f => q.push(f) });
+    ok(deferred ? !need.length && q.length === 1 : need.length === 1 && !q.length, `màn đầu '${hash}' → ${deferred ? 'hoãn nạp ảnh tới lúc rảnh (TBT)' : 'nạp ngay'}`); q.forEach(f => f()); ok(!deferred || need.length === 1, `'${hash}': lúc rảnh vẫn nạp bó vimg`); } }
 const SHELL = (/const SHELL = \[([\s\S]*?)\];/.exec(sw) || [])[1] || ''; ok(!/vocab-img|lexicon-img/.test(SHELL), 'SW SHELL không chứa vocab-img/chỉ mục');
-ok(/await vimgP;/.test(appjs) && /App\.vimg\(e\.word, e\.pos, App\.meanOf\(e\), \{ w: 'dict', photo: true \}/.test(appjs), "tra từ: chờ ready() rồi vẽ hộp vai dict 160 px (ưu tiên ảnh Wikimedia – chỉ trang từ điển)");
+{ const dictjs = rd('web/js/dict-page.js'); ok(/await vimgP;/.test(dictjs) && /App\.vimg\(e\.word, e\.pos, App\.meanOf\(e\), \{ w: 'dict', photo: true, capt: false \}/.test(dictjs), "tra từ: chờ ready() rồi vẽ hộp vai dict 160 px (ưu tiên ảnh Wikimedia – chỉ trang từ điển, js/dict-page.js)"); }
 // 3b. quy tắc tích hợp hình (docs/LEXICON.md § Quy tắc tích hợp hình): vai → cỡ, ảnh cảnh luôn kèm câu ví dụ, nền trong suốt cho chế độ tối, tiết kiệm dữ liệu → tắt
 { const mk = (store, ix, nav) => { store = { 'lk.vb': '3', ...store }; const ctx = { localStorage: { getItem: k => (k in store ? store[k] : null), setItem: (k, v) => { store[k] = String(v); } }, fetch: () => Promise.resolve({ ok: true, json: () => Promise.resolve(ix) }), URL, location: { href: 'https://lexkite.com/app/' }, document: { currentScript: null }, navigator: nav || {} }; ctx.self = ctx; vm.runInNewContext(code, ctx); return ctx.VImg; };
   const ix = { v: 2, base, sv: 's1', on: true, m: { 'apple#n': H, 'consider#v': H2, 'although#conj': H3 }, x: [], w: [], a: ['although#conj', 'consider#v'], s: ['consider#v'] };
@@ -118,12 +122,14 @@ ok(/await vimgP;/.test(appjs) && /App\.vimg\(e\.word, e\.pos, App\.meanOf\(e\), 
   ok(/width:64px/.test(V.slot('apple', 'n', '', 'quiz')) && /width="128"/.test(V.slot('apple', 'n', '', 'back')) && /width="160"/.test(V.slot('apple', 'n', '', { w: 'dict', photo: true })), 'slot nhận vai (cả dạng {w}) → đúng cỡ cố định');
   ok(V.slot('consider', 'v', 'xem xét', 'card') === '', 'ảnh CẢNH không có câu ví dụ → không hộp (không bao giờ cảnh thiếu câu)');
   const sc = V.slot('consider', 'v', 'xem xét', 'card', 'We are considering moving.'); ok(/class="vimg-ex"[^>]*>We are considering moving\.<\/span>$/.test(sc) && / data-a="1"/.test(sc), 'ảnh cảnh → câu ví dụ ngay dưới ảnh; nền trong suốt → data-a');
+  ok(!/vimg-ex/.test(V.slot('consider', 'v', 'xem xét', { w: 'dict', capt: false }, 'We are considering moving.')) && /class="vimg"/.test(V.slot('consider', 'v', 'xem xét', { w: 'dict', capt: false }, 'We are considering moving.')), 'capt:false (trang từ điển) → vẫn có ảnh, câu nằm ở cột nội dung, không lặp dưới ảnh');
+  ok(!V.slot('consider', 'v', 'xem xét', { w: 'dict', capt: false }), 'capt:false không có câu → vẫn không hộp (ảnh cảnh không đứng một mình)');
   ok(!/data-a/.test(V.slot('apple', 'n', '', 'card')) && !/vimg-ex/.test(V.slot('apple', 'n', '', 'card', 'x')), 'ảnh vật nền kem → không data-a (ẩn ở chế độ tối), không câu');
   ok(/border-radius:var\(--radius-sm/.test(sc), 'bo góc theo token thiết kế');
   const L = mk({}, ix, { connection: { saveData: true } }); ok(L.mode() === 0 && await L.ready() === null, 'tiết kiệm dữ liệu → tắt ảnh');
   const S = mk({ 'lk.vimg': '1' }, { ...ix, x: ['apple#n'] }, { deviceMemory: 1 }); await S.ready(); ok(!/@2x/.test(S.slot('apple', 'n', '', 'words')), 'máy yếu (≤ 2 GB) → không @2x');
   ok(/decode\(\)/.test(code) && /opacity \.15s/.test(code) && /prefers-reduced-motion:reduce/.test(code) && /classList\.add\('gone'\)/.test(code) && !/b\.remove\(\)/.test(code) && /requestIdleCallback/.test(code), 'decode() + mờ 150 ms, giảm chuyển động, lỗi CDN → ẩn hộp giữ chỗ (CLS 0), prefetch lúc rảnh');
-  ok(/prefers-color-scheme:dark/.test(code) && /\.vimg:not\(\[data-a\]\)\{display:none!important\}/.test(code), 'chế độ tối: không hiện ảnh nền sáng (!important – hộp có display:block nội tuyến)'); }
+  ok(/prefers-color-scheme:dark/.test(code) && /\.vimg:not\(\[data-a\]\),[^{]*\.vimg:not\(\[data-a\]\)\+\.vimg-ex\{display:none!important\}/.test(code) && /\.vimg\.gone\+\.vimg-ex\{display:none!important\}/.test(code), 'chế độ tối: không hiện ảnh nền sáng (!important – hộp có display:block nội tuyến); ảnh ẩn/lỗi → câu chú thích ẩn theo, không lạc lõng'); }
 { const mk2 = st => { const ctx = { localStorage: { getItem: k => (k in st ? st[k] : null), setItem: (k, v) => { st[k] = String(v); } }, fetch: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ on: true, m: {} }) }), URL, location: { href: 'https://lexkite.com/app/' }, document: { currentScript: null } }; ctx.self = ctx; vm.runInNewContext(code, ctx); return ctx.VImg; };
   const cfg = v => JSON.stringify({ at: Date.now(), v });
   ok(mk2({ 'lk.vb': '50' }).mode() === 0, 'bật dần: nhóm 50 ≥ 10 % mặc định → TẮT');
@@ -158,7 +164,7 @@ ok(/const VIMG = 'lk-vimg'/.test(sw), 'SW: cache tên lk-vimg');
   await get(U(800)); ok(store.size === 800 && store.has(U(0)) && !store.has(U(1)), 'vượt trần → xoá ảnh ít dùng nhất (không xoá ảnh vừa xem lại)');
   await get(U(0).replace('.webp', '@2x.avif')); ok(store.size === 800 && net === 802, 'tệp @2x.avif cũng được lưu/trần chung'); }
 // trang tĩnh /words/: chỉ khi style.approved === true và nghĩa có ảnh; markup = VImg.pic (cùng module)
-{ const seo = rd('scripts/build-seo-pages.mjs');
+{ const seo = rd('scripts/lib/seo-words.mjs');
   ok(/IMG\.style\.approved === true && Object\.keys\(IMG\.items \|\| \{\}\)\.length \?/.test(seo) && /ctx\.VImg\.pic/.test(seo), '/words/: chỉ dựng ảnh khi chủ duyệt + có mục, markup từ VImg.pic');
   ok((seo.match(/\$\{vimgOf\(/g) || []).length === 1 && /const vimgOf = \(e, alt, label\) => \(VPIC \? seoPic\(/.test(seo), '/words/: chưa duyệt → vimgOf trả rỗng (trang giữ nguyên từng byte)');
   const { V } = sandbox({}, index), IM = { base, items: { 'apple#n': { h: H, fmt: ['avif', 'webp'], x2: true, photo: { h: H2, fmt: ['webp'], src: { tier: 'photo', lic: 'Pexels', by: 'Jo <B>' } } }, 'kiss#v': { h: H3, fmt: ['avif', 'webp'] } } };
@@ -168,9 +174,9 @@ ok(/const VIMG = 'lk-vimg'/.test(sw), 'SW: cache tên lk-vimg');
   ok(si.includes(`${base}${H3}.avif`) && !/vcred/.test(si) && seoPic(IM, 'run#v', 'run', 'Foto', V.pic) === '', '/words/: không photo → h, không ghi công; không mục → rỗng');
   ok(/ph: 'Ảnh'/.test(rd('scripts/lib/seo-pages-i18n.mjs')) && (rd('scripts/lib/seo-pages-i18n.mjs').match(/ ph: '/g) || []).length === 15, 'nhãn "Ảnh" của dòng ghi công đủ 15 ngôn ngữ');
   for (const f of ['web/js/study.js', 'extension/newtab.js']) ok(!/photo/.test(rd(f)), 'thẻ học / tab mới không dùng ảnh Wikimedia/ảnh chụp: ' + f);
-  ok((rd('web/js/app.js').match(/photo: true/g) || []).length === 1 && !/\.photo\b/.test(rd('web/js/app.js')), 'app: ảnh Wikimedia CHỈ ở trang tra từ (1 chỗ photo: true)');
+  { const ap = rd('web/js/app.js') + rd('web/js/dict-page.js'); ok((ap.match(/photo: true/g) || []).length === 1 && /photo: true/.test(rd('web/js/dict-page.js')) && !/\.photo\b/.test(ap), 'app: ảnh Wikimedia CHỈ ở trang tra từ (1 chỗ photo: true, js/dict-page.js)'); }
   ok(/o\.photo \? idx\.p\[k\] : ''/.test(rd('web/js/vocab-img.js')) && !/\.photo\b(?!\s*\?)/.test(rd('web/js/vocab-img.js').replace(/o\.photo \?/g, '')), 'VImg: p chỉ dùng khi bề mặt xin {photo:true}');
-  ok(/IMG\.style\.approved === true && Object\.keys\(IMG\.items \|\| \{\}\)\.length/.test(rd('scripts/build-seo-pages.mjs')), 'img.json chưa duyệt HOẶC chưa có mục → /words/ không đổi (đã duyệt s1 24/10)'); }
+  ok(/IMG\.style\.approved === true && Object\.keys\(IMG\.items \|\| \{\}\)\.length/.test(rd('scripts/lib/seo-words.mjs')), 'img.json chưa duyệt HOẶC chưa có mục → /words/ không đổi (đã duyệt s1 24/10)'); }
 
 // ghi công trên 15 trang Chính sách (#credits): Noto Emoji Apache 2.0 + Pixabay/Pexels + Lexkite, đã dịch (không còn câu tiếng Anh)
 for (const l of ['en', 'vi', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr']) {
@@ -202,6 +208,17 @@ ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng 
   const fake = '# x\n===== GEMINI =====\nAIzaXXX\ngsk_YYY\n' + Array.from({ length: 7 }, (_, i) => `cf:${String(i).repeat(32)}:tok${i}`).join('\n') + `\ncf:${'6'.repeat(32)}:tok6b\npb:1-2`;
   const pa = cf.poolAccounts({ CF_POOL: fake });
   ok(cf.parsePool(fake).length === 8 && pa.length === 2 && pa[0].acct === '5'.repeat(32) && pa[1].toks.length === 2, 'tệp xuất kho khoá: chỉ dòng cf:, bỏ Gemini/Groq/khác, gộp token trùng tài khoản');
+  // 02/11 giữ chỗ pilot: CF_POOL_HOLD "<n>@<hạn>" → việc khác không thấy n tài khoản cuối; pilot thấy hết; hết hạn/sai định dạng → không giữ
+  { const P = { CF_POOL: Array.from({ length: 12 }, (_, i) => i.toString(16).repeat(32) + ':t').join(','), VIMG_POOL_SKIP: '0' }, fut = new Date(Date.now() + 36e5).toISOString(), past = new Date(Date.now() - 6e4).toISOString();
+    const ids = env => cf.poolAccounts({ ...P, ...env }).map(a => a.acct[0]).join('');
+    ok(ids({}) === '0123456789ab' && ids({ CF_POOL_HOLD: '4@' + fut }) === '01234567' && ids({ CF_POOL_HOLD: '4@' + fut, CF_POOL_ROLE: 'pilot' }) === '0123456789ab' && ids({ CF_POOL_HOLD: '4@' + past }) === '0123456789ab' && ids({ CF_POOL_HOLD: '4' }) === '0123456789ab' && ids({ CF_POOL_HOLD: 'x@' + fut }) === '0123456789ab', 'CF_POOL_HOLD: fill/lexicon bỏ n tài khoản cuối tới hạn; pilot thấy hết; hết hạn hay sai định dạng → không giữ');
+    ok(cf.poolHold({ CF_POOL_HOLD: '500@' + fut }) === 60 && cf.drawAccounts({ ...P, CF_POOL_HOLD: '4@' + fut, VIMG_DRAW_FROM: 'tail', VIMG_DRAW_SHARE: '0.5', VIMG_TAIL_KEEP: '2', CF_POOL_ROLE: 'pilot' }).map(a => a.acct[0]).join('') === '9876', 'giữ chỗ trần 60 tài khoản; pilot đuôi vẽ trên phần được giữ (một nguồn poolAccounts)');
+    const al = await import('../lib/ai-pool.mjs').catch(() => null); ok(!al || typeof al.createPool === 'function', 'ai-pool vẫn nạp được (tuyến cf2 dùng chung poolAccounts có giữ chỗ)');
+    const { execFileSync } = await import('child_process');
+    // chạy ĐÚNG mã pool_hold + _cf_accts của local_judge.py (tách khỏi tệp – không cần numpy/torch của giám khảo)
+    const src = rd('scripts/vocab-img/local_judge.py'), fn = n => src.slice(src.indexOf('def ' + n + '('), src.indexOf('\ndef ', src.indexOf('def ' + n + '(') + 4) + 1);
+    const py = (raw, role) => execFileSync('python3', ['-c', 'import os,re,json\n_CFV={"accts":None}\n' + fn('pool_hold') + fn('_cf_accts') + 'print(pool_hold(),"".join(a[0][0] for a in _cf_accts()))'], { env: { ...process.env, ...P, CF_POOL_HOLD: raw, CF_POOL_ROLE: role || '', CF_ACCOUNT_2: '', CF_AI_TOKEN_2: '' }, encoding: 'utf8' }).trim();
+    ok(py('4@' + fut) === '4 76543210' && py('4@' + fut, 'pilot') === '4 ba9876543210' && py('4@' + past) === '0 ba9876543210' && py('x') === '0 ba9876543210', 'giám khảo Python (local_judge.py) cùng luật giữ chỗ: fill bỏ n cuối, pilot thấy hết, hết hạn → không giữ'); }
   ok(Object.values(g.MODELS).every(m => cf.npiOf(m) < 1000 || /klein-9b/.test(m)), 'mọi mô hình trong MODELS có giá neuron ước tính');
   ok(cf.cfProvider(g.MODEL_DEFAULT, { CF_ACCOUNT_2: 'b', CF_AI_TOKEN_2: 'x' }).max === 0, 'VIMG_MAX_CF mặc định 0 = tắt');
   ok(cf.cfInput('@cf/black-forest-labs/flux-1-schnell', 'p').json.width === undefined && cf.cfInput('@cf/black-forest-labs/flux-2-dev', 'p').form, 'schnell không gửi cỡ; FLUX.2 gửi multipart');
@@ -217,7 +234,7 @@ ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng 
     const { execFileSync } = await import('child_process'), par = h => +execFileSync('bash', ['-c', line.replace('>> $GITHUB_OUTPUT', '') + ' >/dev/null; echo $par'], { env: { ...process.env, VIMG_HOUR: String(h) }, encoding: 'utf8' }).trim();
     const day = [...Array(14).keys()].map(i => par(i + 1)), night = [0, 15, 16, 18, 20, 22, 23].map(par);
     ok(/max-parallel: \$\{\{ fromJSON\(needs\.plan\.outputs\.par \|\| '5'\) \}\}/.test(fillJob) && /par: \$\{\{ steps\.p\.outputs\.par \}\}/.test(wf) && day.every(x => x >= 1 && x <= 3) && night.every(x => x >= 1 && x <= 5), 'fill: ban ngày VN (01–15 UTC) ≤ 3 máy, đêm ≤ 5 (chừa máy cho giao diện/npm test/Prod release)');
-    ok(/n=\$\{\{ github\.event\.inputs\.shards \|\| '10' \}\}/.test(wf), 'fill vẫn 10 việc (cùng trần ảnh mỗi việc) – bớt máy song song không bớt ảnh/ngày'); }
+    ok(/n=\$\{\{ github\.event\.inputs\.shards \|\| \(github\.event\.inputs\.judge_run != '' && '6' \|\| '\$par'\) \}\}/.test(wf), 'fill: số việc mặc định = số máy song song (par) – không có đợt chờ (04/11: 10 việc/par 3 → lượt >6 giờ, giữ nhóm concurrency); judge_run mặc định 6; tổng ảnh/lượt = trần G chia đều'); }
   ok(/\[ "\$CHAIN" = 0 \]/.test(wf) && /gh workflow run vocab-img-scene\.yml/.test(wf), 'tự nối lượt: biến repo so trong bash');
   const all = fs.readdirSync(new URL('../../.github/workflows/', import.meta.url)).map(f => rd('.github/workflows/' + f)).join('\n');
   ok(!/if:.*vars\.[A-Z_]+ *[!=]= *'0'/.test(all), "không workflow nào so vars.X với '0' trong if: (GitHub coi '' == '0')");
@@ -266,7 +283,7 @@ ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng 
   const fillTo = +(wf.match(/\n  fill:[\s\S]*?timeout-minutes: (\d+)/) || [])[1];
   ok(MIN > 0 && fillTo && MIN <= fillTo / 2 && /Date\.now\(\) < END/.test(src), 'viết thẻ có hạn ≤ nửa giờ job fill (còn giờ vẽ + ghi)');
   ok(CONC >= 2 && /Promise\.all\(Array\.from\(\{ length: CONC \}/.test(src), 'viết thẻ chạy song song các lô');
-  ok(/e4bad \|\| 0\) < 3/.test(src), 'thẻ e4 hỏng 3 lần → thôi viết lại mỗi lượt');
+  ok(/e4bad \|\| 0\) < CARD_DEAD/.test(src) && /\|\| cardResting\(c\)\) continue/.test(src), 'thẻ e4 hỏng 3 lần → thôi viết lại mỗi lượt (nghỉ VIMG_QUEUE_RETRY_DAYS ngày rồi viết lại từ đầu – 07/11)');
   const i = wf.indexOf('scene.mjs --cards --keys keys.json --write', wf.indexOf('\n  fill:')), j = wf.indexOf('scene.mjs --prune --keys keys.json');
   const { cardWins: W, SCENE_V: V } = await import('../vocab-img/scene.mjs'), e3 = { sc: 'x', v: 'e3' }, e4 = { ps: 'y', v: V };
   ok(W(undefined, e4) && W(e3, e4) && !W(e4, e3) && !W(e4, { ...e4, ps: 'z' }) && W(e3, { ...e3, e4bad: 1 }) && !W({ ...e3, e4bad: 2 }, { ...e3, e4bad: 1 }), 'scene-publish: thẻ e4 viết lại ĐÈ thẻ e3 (trước chỉ THÊM → mất), không đè thẻ e4 hiện hành');
@@ -292,7 +309,7 @@ else:
   ok(/0 ảnh/.test(out) && !fs.existsSync(sh), 'scene_final: 0 ảnh → in "0 ảnh", không ghi tờ ảnh, thoát 0 (không ValueError)');
   fs.rmSync(d, { recursive: true, force: true });
   const wf = rd('.github/workflows/vocab-img-scene.yml');
-  ok(/id: probe\n\s+if: github\.event\.inputs\.mode != 'calibrate'/.test(wf) && /NH=10; NT=5; \[ "\$\{\{ github\.event\.inputs\.pool \}\}" = tail \] && \{ NH=0; NT=15; \}/.test(wf) && /\[ "\$MODE" = pilot \] && \{ \[ "\$PROBE_ALIVE" -lt 10 \] \|\| \[ "\$PROBE_HEAD" -lt \$NH \] \|\| \[ "\$PROBE_TAIL" -lt \$NT \]/.test(wf) && /PROBE_HEAD=\$\{\{ vars\.LX_PILOT/.test(wf), 'pilot cũng dò kho CF trước, đủ CẢ phần vẽ (đầu) lẫn phần viết thẻ (đuôi) – kho cạn → bỏ lượt rõ ràng (41146130096: 35 phút thẻ rỗng; 41158516082: thẻ ăn hết, vẽ 0)');
+  ok(/id: probe\n\s+if: github\.event\.inputs\.mode != 'calibrate'/.test(wf) && /NA=10; NH=10; NT=5; \[ "\$\{\{ github\.event\.inputs\.pool \}\}" = tail \] && \{ NH=0; NT=\$\(node/.test(wf) && /NA=\$NT;/.test(wf) && /\[ "\$MODE" = pilot \] && \{ \[ "\$PROBE_ALIVE" -lt \$NA \] \|\| \[ "\$PROBE_HEAD" -lt \$NH \] \|\| \[ "\$PROBE_TAIL" -lt \$NT \]/.test(wf) && /PROBE_HEAD=\$\{\{ vars\.LX_PILOT/.test(wf), 'pilot cũng dò kho CF trước, đủ CẢ phần vẽ (đầu) lẫn phần viết thẻ (đuôi) – kho cạn → bỏ lượt rõ ràng (41146130096: 35 phút thẻ rỗng; 41158516082: thẻ ăn hết, vẽ 0)');
   // pilot pool=tail (31/10): fill vét phần đầu ngay khi hồi → pilot vẽ từ đuôi, chừa 10 tài khoản cuối cho giám khảo; fill không bao giờ đổi
   { const { drawAccounts } = await import('../vocab-img/cf-direct.mjs'), H = c => c.repeat(32), pool = Array.from({ length: 40 }, (_, i) => (i < 10 ? H(String(i)) : H(String.fromCharCode(97 + (i % 6))).slice(0, 30) + String(i).padStart(2, '0')) + ':t').join(','), e = { CF_POOL: pool, VIMG_POOL_SKIP: '0', VIMG_DRAW_SHARE: '0.5' };
     const hd = drawAccounts(e).map(a => a.id), tl = drawAccounts({ ...e, VIMG_DRAW_FROM: 'tail' }).map(a => a.id);
@@ -301,5 +318,111 @@ else:
     ok(!/VIMG_DRAW_FROM/.test(fillEnv) && /VIMG_DRAW_FROM: "\$\{\{ github\.event\.inputs\.mode == 'pilot' && github\.event\.inputs\.pool \|\| '' \}\}"/.test(wf), 'VIMG_DRAW_FROM chỉ ở pilot (input pool), fill không đổi'); }
   ok(/alive_head=\$\{head\}/.test(rd('scripts/lib/cf-pool-probe.mjs')) && /if \(i < HEAD\) head\+\+/.test(rd('scripts/lib/cf-pool-probe.mjs')), 'cf-pool-probe: PROBE_HEAD đếm riêng phần vẽ');
   ok(/def js\(o\)/.test(rd('scripts/vocab-img/calibrate.py')) && /default=js/.test(rd('scripts/vocab-img/calibrate.py')), 'calibrate.py: đặc trưng có đối tượng mô hình không làm hỏng calibration.json (TypeError SentenceTransformer)');
+}
+// 8e. 01/11 hướng (b) ứng viên/prompt + (d) giám khảo không mất lượt thử vì tài khoản cạn – ngưỡng giám khảo giữ nguyên
+{ const lj = rd('scripts/vocab-img/local_judge.py'), sg = rd('scripts/vocab-img/scene-gen.mjs'), cf = await import('../vocab-img/cf-direct.mjs'), rp = await import('../vocab-img/report.mjs');
+  const fd = cf.cfInput('@cf/black-forest-labs/flux-2-klein-4b', 'p', '512', 7).form;
+  ok(fd.get('seed') === '7' && !cf.cfInput('@cf/black-forest-labs/flux-2-klein-4b', 'p').form.has('seed') && cf.cfInput('@cf/black-forest-labs/flux-1-schnell', 'p', '512', 3).json.seed === 3, 'ứng viên 2..N: seed gửi theo họ mô hình, ứng viên 1 không hạt');
+  ok(/VIMG_CANDS/.test(sg) && /\.c' \+ c/.test(sg) && /T\[k\]\.kind === 'scene' && T\[k\]\.ps && \(!candOnly \|\| candOnly\.has\(k\)\) \? CANDS : 1/.test(sg), 'scene-gen: N ứng viên chỉ cho ảnh cảnh e6, tên <slug>.a<n>.c<c>.jpg');
+  ok(/C\.sort\(key=rank_\)/.test(lj) && /startswith\('queue:'\)/.test(lj) && /shutil\.copyfile\(cf_, f\)/.test(lj), 'local_judge: xếp ứng viên cục bộ, chỉ tốt nhất lên giám khảo, trượt → ứng viên kế, thắng → tên chuẩn');
+  ok(/used up your daily/.test(lj) && /i -= 1; continue/.test(lj), 'thị giác: tài khoản cạn (429 daily allocation) bị bỏ mà không ăn lượt thử');
+  const D = fs.mkdtempSync((process.env.TMPDIR || '/tmp') + '/rp-'); fs.writeFileSync(D + '/result.json', JSON.stringify({ items: { 'a#n': { pass: true, kind: 'scene' }, 'b#v': { pass: false, kind: 'scene' } } }));
+  fs.writeFileSync(D + '/judge.local.a1.json', JSON.stringify({ 'a#n': { pass: true, kind: 'scene', cands: 2, reasons: [] }, 'b#v': { pass: false, kind: 'scene', cands: 2, reasons: ['vision: no (x)'] } }));
+  const pr = rp.passReport(D); ok(pr.scene_images === 4 && pr.first_round === 1 && pr.first_round_rate === 0.5, 'report: đếm mọi ứng viên là ảnh vẽ + tỷ lệ đạt lượt đầu theo nghĩa');
+  const cr = rd('scripts/vocab-img/cand-round.sh');
+  ok(/--prefilter/.test(cr) && /--cands-only \$OUT\/cand2/.test(cr) && /--cands-only \$OUT\/recand/.test(cr) && /\$J --recand/.test(cr) && /--recand/.test(lj) && /gen-stats\.s\$\{SI\}\.a\$\{ATT\}\.\$\{i\}/.test(sg), 'ứng viên 2 vẽ khi cần: lọc cục bộ → giám khảo → ứng viên mới cho khoá trượt; gen-stats không ghi đè');
+  ok(/VIMG_CANDS: \$\{\{ github\.event\.inputs\.cands \|\| '1' \}\}/.test(rd('.github/workflows/vocab-img-scene.yml')), 'workflow: input cands, lịch fill mặc định 1');
+}
+// 8f. 02/11 phong cách ít chi tiết: lite+ là mặc định workflow (cả lịch fill) sau pilot 92 nghĩa; code không env vẫn e4; style=e4 quay về
+{ const sc = await import('../vocab-img/scene.mjs'), wf = rd('.github/workflows/vocab-img-scene.yml');
+  ok(sc.sceneStyle({}) === sc.SCENE_STYLE_E4 && sc.sceneStyle({ VIMG_STYLE: 'lite' }) === sc.SCENE_STYLE_LITE && !/\b(text|letters?|words?|signs?|labels?)\b/i.test(sc.SCENE_STYLE_LITE), 'phong cách lite chỉ khi VIMG_STYLE=lite, không nhắc chữ');
+  { const st = [...wf.matchAll(/VIMG_STYLE: "([^"]+)"/g)].map(m => m[1]); ok(st.length === 4 && st.every(x => x === "${{ github.event.inputs.style || 'liteplus' }}") && sc.sceneStyle({ VIMG_STYLE: 'e4' }) === sc.SCENE_STYLE_E4, 'workflow 02/11: lite+ cho mọi job (cả lịch fill) – input style=e4 quay về phong cách cũ'); }
+}
+// 8h. 02/11 sàn tài khoản pilot đuôi theo kích thước việc (không cố định 15); lịch fill giữ sàn 10
+{ const cd = await import('../vocab-img/cf-direct.mjs'), wf = rd('.github/workflows/vocab-img-scene.yml');
+  ok(cd.pilotFloor(18) === 3 && cd.pilotFloor(0) === 3 && cd.pilotFloor(92) === 5 && cd.pilotFloor(92, 2) === 10 && cd.pilotFloor(200, 2) === 20, 'pilotFloor = max(3, ceil(nghĩa × biến thể × 250 × 2 / 10k))');
+  ok(cd.pilotSize('content/visual/pilot-lite.json') === 18 && cd.pilotSize('', '60:0:20') === 60 && cd.pilotSize('a#n,b#v') === 2 && cd.pilotSize('+a#n,b#v', '40:0:20') === 42, 'pilotSize: tệp {items} / danh sách phẩy / +thêm vào pick');
+  ok(/NT=\$\(node -e "import\('\.\/scripts\/vocab-img\/cf-direct\.mjs'\)\.then\(m=>console\.log\(m\.pilotFloor\(m\.pilotSize/.test(wf) && /\[ "\$MODE" = fill \] && \[ "\$PROBE_ALIVE" -lt 10 \]/.test(wf) && !/NT=15/.test(wf), 'workflow: sàn đuôi pilot theo pilotFloor, fill giữ sàn 10');
+}
+// 8g. lite+ (VIMG_STYLE=liteplus): thẻ phải có key 1–2 chi tiết then chốt không chữ; cổng vũ khí/không an toàn cho MỌI thẻ cảnh (protected area#n "hunter with a gun" → api: unsafe)
+{ const sc = await import('../vocab-img/scene.mjs'), LP = { VIMG_STYLE: 'liteplus' };
+  const e = { w: 'mistake', pos: 'n', ex: ['x.'] }, c = { ex: 'x.', ps: 'a woman points at a big red cross mark on a blank sheet in front of a boy', check: 'Did the child get something wrong?', cap: 'a woman and a boy at a desk', who: 2, draw: 4 };
+  const key = 'a big red cross mark on a blank sheet; the boy looking surprised';
+  ok(sc.sceneStyle(LP) === sc.SCENE_STYLE_LITEPLUS && sc.sceneStyle({}) === sc.SCENE_STYLE_E4 && !/\b(text|letters?|words?|signs?|labels?)\b/i.test(sc.SCENE_STYLE_LITEPLUS) && /key details/.test(sc.SCENE_STYLE_LITEPLUS), 'lite+ chỉ khi VIMG_STYLE=liteplus, không nhắc chữ, bảo vẽ to chi tiết then chốt');
+  ok(sc.sceneOk(e, c, {}) === '' && sc.sceneOk(e, c, LP) === 'no key detail' && sc.sceneOk(e, { ...c, key }, LP) === '', 'lite+: thiếu key → viết lại thẻ; mặc định/fill không đòi key');
+  for (const [k, why] of [['a red cross; a sad face; a pencil', 'key has more than 2 details'], ['cross', 'key detail not 2-12 words'], ['a test paper with a red cross mark', 'key has a text object: paper'], ['a flashcard with a red cross mark', 'key has a text object: flashcard'],
+    ['the word wrong in red letters', 'key asks for text/symbol'], ['a big question mark above the boy', 'key uses a symbol: question mark'], ['a phone showing a red cross', 'key shows a screen'], ['a boy holding a toy gun', 'key is unsafe: gun']])
+    ok(sc.sceneOk(e, { ...c, key: k }, LP) === why, 'lite+ cổng key: ' + k + ' → ' + why);
+  const pa = { w: 'protected area', pos: 'n', ex: ['x.'] }, pc = { ...c, ps: 'a man in a ranger uniform stands in a forest raising his hand to stop a hunter with a gun', check: 'Is hunting not allowed in this place?' };
+  ok(sc.sceneOk(pa, pc, {}) === 'ps is unsafe: gun' && sc.sceneOk(pa, { ...pc, ps: 'a man in a ranger uniform stands in a forest raising his hand to stop a hunter with a rifle' }, {}) === 'ps is unsafe: rifle', 'cổng an toàn: vũ khí trong ps → loại cả lịch fill (e6)');
+  for (const ps of ['two men punch each other hard in a dark alley at night', 'a man with blood on his shirt sits alone on a park bench', 'a woman drinks beer at a noisy table with two friends', 'a man points a knife at a frightened woman in a dark street'])
+    ok(/^ps is unsafe/.test(sc.sceneOk(pa, { ...pc, ps }, {})), 'cổng an toàn chặn: ' + ps);
+  ok(sc.sceneOk({ w: 'gun', pos: 'n', ex: ['x.'] }, { ...pc, ps: 'one black toy gun lies on a wooden table beside a small box', check: 'Is there a tool that fires small objects?' }, {}) === '' && sc.sceneOk({ w: 'chop', pos: 'v', ex: ['x.'] }, { ...pc, ps: 'a woman chops carrots with a knife on a cutting board in a kitchen', check: 'Is the food being cut into small pieces?' }, {}) === '', 'cổng an toàn: chính từ đang học (gun#n) và dao khi nấu ăn vẫn được');
+  ok(sc.unsafeHit('a nurse draws blood from a woman arm while a lab worker holds a test tube', 'donor') === '' && sc.unsafeHit('a man points at a clipboard with bullet points', 'agenda') === '' && sc.unsafeHit('a soldier and a woman stand side by side holding shields', 'ally') === '' && sc.unsafeHit('a nurse takes a blood sample', 'blood test') === '' && sc.unsafeHit('a tray of glasses and a punch bowl', 'reception') === '', 'cổng an toàn không chặn oan: máu khi y tế, bullet points, lính không vũ khí, từ trong cụm đang học');
+  process.env.VIMG_STYLE = 'liteplus'; const p = sc.promptScene('mistake#n', { ...c, key }, 1); delete process.env.VIMG_STYLE;
+  ok(p.indexOf('Key details: a big red cross mark') > p.indexOf('in front of a boy') && p.indexOf('Minimal flat vector') > p.indexOf('Key details') && !sc.promptScene('mistake#n', { ...c, key }, 1).includes('Key detail'), 'lite+ prompt: câu cảnh → chi tiết then chốt → phong cách; ngoài lite+ không đưa key');
+  ok(sc.sceneSys(LP).includes('"key"') && /red cross mark/.test(sc.KEY_SYS) && sc.sceneSys({}) === sc.SCENE_SYS, 'lite+: lời nhắc thẻ thêm key (vật mang chữ → tờ trơn + dấu), mặc định giữ SCENE_SYS');
+  const KX = [...sc.KEY_SYS.matchAll(/"key":"([^"]+)"/g)].map(m => m[1]); ok(KX.length >= 3 && KX.every(k => sc.keyOk({ w: 'zz', pos: 'n' }, k) === ''), 'lite+: ví dụ key trong lời nhắc qua chính cổng keyOk');
+}
+// Kiểm CDN trong CI: HEAD thẳng gốc Pages (thứ tự Worker), 0 lượt qua media.lexkite.com – 01/11–02/11 mỗi npm test HEAD ~1k ảnh qua Worker
+// → hạn mức Workers 100k/ngày cạn (1027), /api chết, Live traffic 0. Đỏ nếu ai đó trả cdnCheck về gọi CDN.
+{
+  const { cdnCheck, originUrls } = await import('../vocab-img/cdn-check.mjs');
+  const img = { base: 'https://media.lexkite.com/vimg/', items: { 'a#n': { h: 'aaaaaaaaaaaaaaaa', fmt: ['avif', 'webp'] }, 'b#n': { h: 'bbbbbbbbbbbbbbbb' }, 'c#n': { h: 'cccccccccccccccc' } } };
+  const seen = [], fake = async u => { seen.push(u); return { ok: /lexkite-media\/vimg\/(a|b)/.test(u) || /lexkite-media-4\/vimg\/a/.test(u), status: /lexkite-media(-4)?\/vimg\/(a|b)/.test(u) ? 200 : 404 }; };
+  const r = await cdnCheck(img, 1, 's', { fetcher: fake });
+  ok(seen.length > 0 && !seen.some(u => u.includes('media.lexkite.com')), 'cdnCheck mặc định: 0 lượt HEAD qua media.lexkite.com (Worker)');
+  ok(r.n === 4 && r.bad.length === 1 && /c#n/.test(r.bad[0]), 'cdnCheck: có ở m4 hoặc lùi m1 = đạt; thiếu ở mọi gốc = lỗi (' + JSON.stringify(r.bad) + ')');
+  ok(originUrls('https://media.lexkite.com/m1/vimg/0123456789abcdef.webp').length === 1 && originUrls('https://media.lexkite.com/vimg/x.webp') === null, 'originUrls khớp regex/thứ tự của Worker');
+  const s2 = []; await cdnCheck(img, 1, 's', { viaCdn: true, fetcher: async u => { s2.push(u); return { ok: true, status: 200 }; } });
+  ok(s2.every(u => u.startsWith('https://media.lexkite.com/vimg/')), '--via-cdn vẫn kiểm qua Worker thật khi chạy tay');
+}
+// 07/11 gốc 06/11 (91 ảnh/ngày, kho CF còn 56/61): thẻ hỏng ≥ 3 lần không bị bỏ vĩnh viễn mà nghỉ rồi viết lại; --gaps không đếm thẻ đang nghỉ;
+// thẻ văn bản đi kho Groq/Gemini miễn phí trước cf2; plan chia việc theo số nghĩa vẽ được.
+{ const sc = await import('../vocab-img/scene.mjs'), src = rd('scripts/vocab-img/scene.mjs'), wf = rd('.github/workflows/vocab-img-scene.yml'), now = Date.parse('2026-11-07T00:00:00Z');
+  ok(!sc.cardResting({ e4bad: 3 }, now) && !sc.cardResting({ e4bad: 2, badAt: '2026-11-06T23:00:00Z' }, now) && !sc.cardResting(undefined, now), 'thẻ hỏng cũ (chưa badAt) / chưa đủ 3 lần → viết lại, không nghỉ');
+  ok(sc.cardResting({ e4bad: 3, badAt: '2026-11-06T00:00:00Z' }, now, {}) && !sc.cardResting({ e4bad: 3, badAt: '2026-11-04T00:00:00Z' }, now, {}), 'hỏng ≥ 3 lần → nghỉ VIMG_QUEUE_RETRY_DAYS (2) ngày rồi viết lại');
+  ok(/!cardResting\(cards\.items\[k\]\)/.test(src) && /\|\| cardResting\(c\)\) continue/.test(src) && !/\(c\.e4bad \|\| 0\) < 3\) todo\.push/.test(src), '--gaps bỏ thẻ đang nghỉ; --cards viết lại thẻ hỏng đã nghỉ xong (không bỏ vĩnh viễn)');
+  ok(/e4bad: \(o\.e4bad \|\| 0\) \+ 1, badAt:/.test(src), 'thẻ hỏng ghi badAt (cả nghĩa chưa có thẻ) – không viết lại mỗi lượt');
+  ok(sc.CARD_CHAIN.indexOf('groq') === 0 && sc.CARD_CHAIN.indexOf('gem') < sc.CARD_CHAIN.indexOf('cf2') && /chain: CARD_CHAIN/.test(src), 'thẻ văn bản: Groq/Gemini miễn phí trước cf2 (neuron CF để vẽ)');
+  ok((wf.match(/GROQ_POOL: \$\{\{ secrets\.GROQ_POOL \}\}/g) || []).length >= 3 && (wf.match(/GEMINI_POOL: \$\{\{ secrets\.GEMINI_POOL \}\}/g) || []).length >= 3, 'prep/shard/fill nhận GROQ_POOL + GEMINI_POOL');
+  ok(/scene\.mjs --gaps 1000000 --shard 0\/1/.test(wf) && /m=\$\(\( \(G \+ 39\) \/ 40 \)\)/.test(wf), 'plan: số việc theo số nghĩa vẽ được, 0 nghĩa → bỏ lượt (không cài giám khảo 10 máy cho 1 nghĩa)');
+}
+// Hồi quy: bài học đọc chỉ mục ảnh v2 (`j.m`) trong khi lexicon-img.json đã là v3 (đầu + mảnh) → dạng "pic" không bao giờ sinh. Chạy trên chỉ mục v3 THẬT.
+{
+  const head = J('web/js/lexicon-img.json'), store = { 'lk.vimg': '1' }, D = { theme: 'light' };
+  ok(head.v === 3 && !head.m && head.n > 0, 'lexicon-img.json là đầu v3 (không có m) – đúng ca gây lỗi');
+  const local = u => { const f = 'web/js/' + new URL(u).pathname.split('/js/').pop(); return fs.existsSync(f) ? { ok: true, json: async () => J(f) } : { ok: false, json: async () => null }; };
+  const sb = { console, URL, Promise, Math, setTimeout, navigator: {}, location: { href: 'https://lexkite.com/' }, fetch: async u => local(u), localStorage: { getItem: k => (k in store ? store[k] : null), setItem: (k, v) => { store[k] = String(v); } }, document: { documentElement: { getAttribute: () => D.theme } } };
+  sb.self = sb; sb.globalThis = sb; vm.createContext(sb);
+  vm.runInContext(rd('web/js/vocab-img.js'), sb); vm.runInContext(rd('web/js/lesson/engine.js'), sb);
+  const shards = fs.readdirSync('web/js/vimg').filter(f => f.endsWith('.json')).map(f => J('web/js/vimg/' + f));
+  const find = fn => { for (const sh of shards) for (const [k, h] of Object.entries(sh.m || {})) { const S = new Set(sh.s || []), A = new Set(sh.a || []); if (/^[a-z]+#n$/.test(k) && fn(S.has(k), A.has(k))) return { k, h, word: k.split('#')[0], pos: 'n' }; } return null; };
+  const plain = find(s => !s), scene = find(s => s), V = sb.VImg; // chỉ mục hiện chỉ có ảnh cảnh + ảnh nền kem (a rỗng)
+  ok(plain && scene, 'chỉ mục thật có ảnh thường và ảnh cảnh');
+  await V.ready([plain.word, scene.word]);
+  ok(V.quizUrl(plain.word, plain.pos) === head.base + plain.h + '.webp', 'quizUrl đọc được mảnh v3');
+  ok(V.quizUrl(plain.word, 'v') === '', 'quizUrl: sai loại từ → không lấy ảnh');
+  ok(V.quizUrl(scene.word, scene.pos) === '', 'quizUrl: ảnh cảnh cần câu ví dụ → không dùng');
+  const items = sb.LessonEngine.build([{ card: { word: plain.word, pos: plain.pos, vi: 'x', def: 'x' }, why: 'new' }], { seed: 3, perWord: 1, hasImg: (w, p) => !!V.quizUrl(w, p), match: false });
+  ok(items.some(i => i.type === 'pic'), 'chỉ mục v3 thật → bài học sinh dạng pic');
+  D.theme = 'dark'; ok(V.quizUrl(plain.word, plain.pos) === (shards.some(x => (x.a || []).includes(plain.k)) ? head.base + plain.h + '.webp' : ''), 'chế độ tối: ẩn ảnh nền kem (như .vimg:not([data-a]))'); D.theme = 'light';
+  store['lk.vimg'] = '0'; ok(V.quizUrl(plain.word, plain.pos) === '', 'cờ tắt → không có ảnh');
+  const ui = rd('web/js/lesson/ui.js'); ok(/VImg\.quizUrl/.test(ui) && /App\.vimgReady\(picks/.test(ui) && !/lexicon-img\.json/.test(ui), 'lesson/ui.js dùng VImg, không tự đọc chỉ mục');
+}
+// 09/11 (job 129143630777): tầng miễn phí 0 ảnh đạt → tờ soát Image 0 px → đỏ cả lượt. Pillow thật nếu có, không thì PIL giả (nhánh 0 ảnh không vẽ gì).
+{ const { execFileSync } = await import('child_process'), os = await import('os'), path = await import('path');
+  const d = fs.mkdtempSync(path.join(os.tmpdir(), 'vimgfree0-')), sh = path.join(d, 'sheet.jpg');
+  const py = `import sys,types,runpy
+try:
+    import PIL.Image, PIL.ImageDraw
+except Exception:
+    P = types.ModuleType('PIL')
+    for n in ('Image', 'ImageDraw'): m = types.ModuleType('PIL.' + n); setattr(P, n, m); sys.modules['PIL.' + n] = m
+    sys.modules['PIL'] = P
+sheet_path = sys.argv[2]; sys.argv = ['free_tier.py', sys.argv[1]]
+runpy.run_path('scripts/vocab-img/free_tier.py')['sheet']({}, sheet_path)`;
+  const out = execFileSync('python3', ['-c', py, d, sh], { encoding: 'utf8' });
+  ok(/0 ảnh đạt/.test(out) && !fs.existsSync(sh), 'free_tier.py: 0 ảnh → log rõ, không tạo tờ soát, không đỏ cả lượt');
 }
 console.log(`✓ vocab-img: ${n} kiểm`);

@@ -18,7 +18,7 @@
     'Trang Hôm nay': 'Home dashboard', 'Blog / trang SEO': 'Blog / SEO pages', 'Toàn màn hình': 'Interstitial', 'Chưa có số liệu – cờ đang tắt hoặc chưa có lượt hiển thị.': 'No data yet – flags are off or there are no impressions.',
     'Giới hạn tần suất': 'Frequency caps', 'Chỉ chỉnh được trong khoảng an toàn – không bao giờ dày hơn mặc định.': 'Editable only within safe bounds – never denser than the defaults.',
     'Toàn màn hình tối đa 1 lần mỗi … phiên học': 'Interstitial at most once every … study sessions', 'và cách nhau tối thiểu … phút': 'and at least … minutes apart', 'Không hiện toàn màn hình trong … giờ đầu': 'No interstitial in the first … hours',
-    'phiên': 'sessions', 'phút': 'min', 'giờ': 'h', 'Khoảng {a}–{b}': 'Range {a}–{b}', 'Giá trị ngoài khoảng an toàn.': 'Value outside the safe range.',
+    'phiên': 'sessions', 'phút': 'min', 'giờ': 'h', 'lần': 'times', 'Người mới: không toàn màn hình trong … phiên học đầu': 'New learners: no interstitial in the first … study sessions', 'Tối đa … lần toàn màn hình mỗi ngày': 'At most … interstitials per day', 'Khoảng {a}–{b}': 'Range {a}–{b}', 'Giá trị ngoài khoảng an toàn.': 'Value outside the safe range.',
     'eCPM ước tính (USD / 1000 lượt)': 'Estimated eCPM (USD / 1000 impressions)', 'Ngưỡng tụt giữ chân (%)': 'Retention drop threshold (%)', 'Cỡ mẫu tối thiểu mỗi nhóm': 'Minimum sample per cohort',
     'Nhóm có quảng cáo so với nhóm đối chứng (10 % không quảng cáo)': 'Ads cohort vs control cohort (10% see no ads)', 'Nhóm có QC': 'Ads cohort', 'Đối chứng': 'Control',
     'Giữ chân D1': 'D1 retention', 'Giữ chân D7': 'D7 retention', 'Thời lượng phiên TB': 'Avg session length', 'Xu hướng D1 theo tuần': 'Weekly D1 trend', 'máy mới': 'new devices',
@@ -93,6 +93,57 @@
     'tăng': 'up',
     'giảm': 'down',
     'Tỉ lệ đồng ý theo vùng (30 ngày)': 'Consent rates by region (30 days)', 'Vùng': 'Region', 'Cá nhân hóa': 'Personalised', 'Không cá nhân hóa': 'Non-personalised', 'Từ chối': 'Refused', 'Không cần hỏi': 'Not required',
+    // Sẵn sàng bật quảng cáo (thẻ đầu trang) + tab Vị trí trực quan
+    'Kiểm tra điều kiện và bật/tắt theo nền tảng; doanh thu ở cuối trang.': 'Check readiness and switch platforms on/off; revenue is at the bottom.',
+    'Sẵn sàng bật quảng cáo': 'Ready to turn on ads', 'Điều kiện đạt': 'Conditions met', '{a}/{b} điều kiện đạt': '{a} of {b} conditions met',
+    'Nút Bật của mỗi nền tảng chỉ mở khi mọi điều kiện bắt buộc của nền tảng đó đạt. Công tắc khẩn cấp luôn dùng được.': 'Each platform’s Turn on button unlocks only when all of its required conditions are met. The kill switch always works.',
+    'Tài khoản & giấy tờ': 'Accounts & paperwork', 'Kỹ thuật': 'Technical', 'Lưu lượng': 'Traffic',
+    'Đạt': 'Met', 'Chờ': 'Waiting', 'Chặn': 'Blocked', 'Việc của anh': 'Owner', 'Khuyến nghị': 'Advisory', 'Trạng thái: {t}': 'Status: {t}', 'đánh dấu tay {t}': 'set by hand {t}', 'mặc định theo lần kiểm 10/11': 'default from the 10 Nov check',
+    'Thư IRS (EIN của LLC)': 'IRS letter (LLC EIN)', 'Tài khoản AdSense được duyệt': 'AdSense account approved', 'Tài khoản AdMob được duyệt': 'AdMob account approved',
+    'App iOS liên kết App Store trong AdMob': 'iOS app linked to the App Store in AdMob', 'Thông điệp đồng ý (CMP) đã xuất bản': 'Consent message (CMP) published', 'Nhận tiền: PingPong đứng tên LLC': 'Payouts: PingPong in the LLC’s name',
+    'ads.txt hợp lệ': 'ads.txt valid', 'app-ads.txt hợp lệ': 'app-ads.txt valid', 'Mã quảng cáo bật trong code (enabled: true)': 'Ad code enabled (enabled: true)', 'Mã ô AdSense cho web': 'AdSense ad units for the web',
+    'Bản app phát hành dùng mã thật': 'Release app build uses real ad units', 'Xác minh thưởng phía máy chủ (SSV)': 'Server-side reward verification (SSV)', 'Người thật mỗi ngày': 'Real users per day',
+    'Chờ thư IRS gửi về LLC; nhận được thì đánh dấu Đạt.': 'Wait for the IRS letter to the LLC; mark Met once it arrives.',
+    'Google: "Your account wasn\'t approved – Meet program policies" (kiểm 10/11).': 'Google: "Your account wasn\'t approved – Meet program policies" (checked 10 Nov).',
+    'Sửa theo chính sách chương trình rồi bấm Request review ở AdSense › Sites.': 'Fix per the program policies, then click Request review in AdSense › Sites.',
+    'AdMob › Policy center: xử lý vi phạm rồi bấm Request review.': 'AdMob › Policy center: resolve the issues, then click Request review.',
+    'Sau khi AdMob duyệt: Apps › iOS › Add store (App Store) để Google kiểm app-ads.txt.': 'Once AdMob approves: Apps › iOS › Add store (App Store) so Google can verify app-ads.txt.',
+    'AdSense/AdMob › Privacy & messaging: tạo thông điệp GDPR + luật bang Mỹ rồi Publish.': 'AdSense/AdMob › Privacy & messaging: create the GDPR + US state messages, then Publish.',
+    'Đổi tài khoản nhận tiền sang tên LLC trước ngưỡng thanh toán $100 – không khóa nút Bật.': 'Move the payout account to the LLC’s name before the $100 threshold – does not lock Turn on.',
+    'Có dòng google.com, pub-…, DIRECT đúng mã nhà xuất bản.': 'Has the google.com, pub-…, DIRECT line with the right publisher id.',
+    'Không tải được tệp – thử lại sau.': 'Could not fetch the file – try again later.', 'Thiếu dòng google.com, pub-…, DIRECT.': 'Missing the google.com, pub-…, DIRECT line.',
+    'Đang là mã giữ chỗ pub-0000….': 'Still the pub-0000… placeholder.', 'Mã trong tệp khác mã ở web/js/ads/config.js.': 'The id in the file differs from web/js/ads/config.js.',
+    'Không đọc được web/js/ads/config.js.': 'Could not read web/js/ads/config.js.',
+    'web/js/ads/config.js đang enabled: false (đúng khi còn chờ duyệt).': 'web/js/ads/config.js has enabled: false (correct while approval is pending).', 'Đổi enabled: true trong lần ship bật quảng cáo.': 'Set enabled: true in the release that turns ads on.',
+    'Chưa có mã nhà xuất bản.': 'No publisher id yet.', 'Chưa dán mã ô (home, blog…) vào config.js.': 'No ad unit ids (home, blog…) in config.js yet.', 'Tạo ô hiển thị ở AdSense › Ads › By ad unit rồi dán mã vào config.js.': 'Create display units in AdSense › Ads › By ad unit, then paste the ids into config.js.',
+    'native.testing: true – app đang dùng mã THỬ của Google.': 'native.testing: true – the app uses Google TEST ad units.', 'Bản phát hành: testing: false + build ADS_NATIVE=1.': 'Release build: testing: false + build with ADS_NATIVE=1.',
+    'Đặt biến Pages ADS_SSV=1 và dán URL /api/ads-reward vào ô có thưởng trong AdMob.': 'Set the Pages variable ADS_SSV=1 and paste the /api/ads-reward URL into the AdMob rewarded unit.',
+    'Người thật/ngày (TB 7 ngày)': 'Real users/day (7-day avg)', 'gợi ý ≥ {m}': 'suggested ≥ {m}', 'Không đọc được số liệu Phân tích.': 'Could not read Analytics.', 'Khuyến nghị, không khóa nút Bật: đủ người để lấp đầy và cổng giữ chân có mẫu.': 'Advisory, does not lock Turn on: enough users for fill and a meaningful retention guard.',
+    'Đã đạt.': 'Done.', 'Đã lưu trạng thái': 'Status saved',
+    'Khóa – còn {n} điều kiện': 'Locked – {n} conditions left', 'Đủ điều kiện': 'Ready', 'Còn: {x}': 'Left: {x}', 'mã ô web': 'web ad units', 'mã app thật': 'real app units',
+    'Chưa có doanh thu': 'No revenue yet', 'Quảng cáo đang tắt. Doanh thu hiện ở đây vài giờ sau lượt hiển thị đầu tiên.': 'Ads are off. Revenue shows here a few hours after the first impressions.',
+    'Xem điều kiện còn thiếu': 'See what is missing', 'Ước tính vs thật · Thanh toán · Hiệu quả – chưa có dữ liệu': 'Estimate vs actual · Payments · Efficiency – no data yet', 'Chi tiết theo vị trí/nền tảng/quốc gia – chưa có dữ liệu': 'Breakdown by placement/platform/country – no data yet',
+    'Không có số trong khoảng ngày này. Thử khoảng dài hơn hoặc bỏ bộ lọc.': 'No figures in this date range. Try a longer range or clear the filters.',
+    // Tab Vị trí
+    'Mỗi vị trí, luật tần suất và vùng cấm đọc thẳng từ web/js/ads/policy.js – đổi luật ở đó, trang này tự đúng.': 'Each placement, frequency rule and no-ads zone is read straight from web/js/ads/policy.js – change the rules there and this page follows.',
+    'Add-on Chrome không bao giờ có quảng cáo': 'The Chrome add-on never shows ads', 'build-extension.sh loại js/ads/ khỏi gói; vỏ quảng cáo tự tắt trên chrome-extension:.': 'build-extension.sh strips js/ads/ from the package; the ad shell switches itself off on chrome-extension:.',
+    'Sơ đồ vị trí': 'Placement map', 'Không tải được luật quảng cáo (policy.js).': 'Could not load the ad rules (policy.js).',
+    'Trang Hôm nay – cuối trang': 'Today – end of page', 'Cuối bài blog': 'End of blog article', 'Giữa bài blog dài': 'Middle of long blog articles', 'Trang từ điển 1 từ': 'Single-word dictionary page', 'Thẻ kết quả cuối lượt': 'End-of-round result card', 'Toàn màn hình cuối phiên (app)': 'End-of-session interstitial (app)', 'Có thưởng – người học tự chọn': 'Rewarded – learner opts in',
+    'Ô 300×250 trong khung cố định 290 px – không xô lệch bố cục (CLS 0).': '300×250 unit in a fixed 290 px frame – no layout shift (CLS 0).', 'App gốc: biểu ngữ thích ứng ở đáy, chỉ khi đang ở tab Hôm nay.': 'Native app: adaptive banner at the bottom, only on the Today tab.',
+    'Trước "Bài liên quan" – không bao giờ trên nội dung chính (giữ LCP).': 'Before "Related articles" – never above the main content (keeps LCP).', 'Tối đa {n} ô mỗi bài (cuối + giữa).': 'At most {n} units per article (end + middle).',
+    'Sau đoạn văn ở 40–50 % thân bài, chỉ bài ≥ 1200 từ.': 'After a paragraph at 40–50% of the body, only in articles ≥ 1,200 words.', 'Không chen giữa danh sách, bảng, trích dẫn hay sát ảnh/video.': 'Never inside lists, tables or quotes, nor next to images/videos.',
+    'Ngay dưới thẻ nghĩa + "Ví dụ".': 'Right below the meaning card + "Examples".', 'Tối đa {n} ô mỗi trang; không ở hub hay A–Z.': 'At most {n} unit per page; never on hubs or A–Z lists.',
+    'Chỉ sau {h} giờ kể từ lần mở đầu tiên.': 'Only {h} hours after the first visit.', 'Chỉ khi điểm ≥ {p} % – không "xát muối" lúc làm kém.': 'Only when the score is ≥ {p}% – never rubbing it in after a poor round.', 'Chèn dưới cùng, cách nút ≥ 2,5rem (chống bấm nhầm).': 'Inserted at the very bottom, ≥ 2.5rem from buttons (no accidental clicks).',
+    'Chỉ khi vừa xong 1 phiên học và đã về tab chính ({t}).': 'Only right after a study session, once back on a main tab ({t}).', 'Tối đa 1 lần mỗi {s} phiên, cách nhau ≥ {g} phút, ≤ {d} lần/ngày.': 'At most once every {s} sessions, ≥ {g} min apart, ≤ {d} per day.',
+    'Không trong {h} giờ đầu, ngày lịch đầu tiên và {n} phiên học đầu.': 'Never in the first {h} hours, the first calendar day or the first {n} study sessions.', 'Vừa xem video có thưởng → yên {c} phút; vừa làm < {p} % → không hiện.': 'After a rewarded video → {c} quiet minutes; after a round < {p}% → not shown.',
+    'Cổng giữ chân giãn tần suất khi nhóm có quảng cáo tụt; ×0,25 = tắt hẳn.': 'The retention guard spaces them out when the ads cohort drops; ×0.25 = off.',
+    'Người học tự bấm "Xem video" – không bao giờ tự phát.': 'The learner taps "Watch video" – never autoplays.', 'Chờ ≥ {m} phút giữa 2 video.': 'At least {m} min between two videos.', 'Web chỉ có: {x} (không cần SSV).': 'Web only offers: {x} (no SSV needed).',
+    'Cứu chuỗi': 'Save the streak', '+{n} lượt AI chấm/giải thích': '+{n} AI grading/explanations', '+{n} lượt Roleplay': '+{n} Roleplay turns', 'Cơ hội thứ 2': 'Second chance', 'Nhân đôi XP': 'Double XP', '+{n} món trang trí': '+{n} cosmetic item', '{x} · ≤ {n}/ngày': '{x} · ≤ {n}/day',
+    '30 ngày: {i} hiển thị · lấp đầy {f}': '30 days: {i} impressions · fill {f}', 'Chưa có lượt hiển thị.': 'No impressions yet.',
+    'Vùng cấm quảng cáo': 'No-ads zones', 'Luôn chặn, trước mọi luật khác': 'Always blocked, before any other rule', 'Cấm hẳn – kể cả video có thưởng': 'Hard – not even rewarded video', 'Trạng thái lúc chạy (mọi màn)': 'Live state (any screen)', 'Đang học – chỉ lời mời có thưởng ở điểm nghỉ': 'Studying – only opt-in rewarded offers at breaks',
+    'Quản trị': 'Admin', 'Lớp học (giáo viên & học sinh)': 'Classroom (teachers & students)', 'Dưới 13 tuổi': 'Under 13', 'Trình duyệt tự động': 'Automated browsers', 'Nhóm đối chứng {p} %': 'Control cohort {p}%', 'Người dùng Pro': 'Pro users',
+    'Bài thi / thi thử': 'Tests / mock exams', 'Làm quen lần đầu': 'Onboarding', 'Thanh toán / nâng cấp': 'Payment / upgrade', 'Gọi / roleplay': 'Calls / roleplay', 'Luyện nói': 'Speaking', 'Bài học & ôn tập': 'Lessons & review', 'Mic đang thu': 'Mic recording', 'Đang gọi': 'In a call', 'Đang trả lời câu hỏi': 'Answering a question',
+    'Số liệu theo vị trí (30 ngày)': 'Placement figures (30 days)', '+{n} màn': '+{n} screens', 'Add-on Chrome': 'Chrome add-on', '?sandbox · ?demo': '?sandbox · ?demo',
     'EEA + Anh + Thụy Sĩ (TCF v2.2)': 'EEA + UK + Switzerland (TCF v2.2)', 'Mỹ (luật bang)': 'US (state laws)', 'Nơi khác': 'Rest of world', 'Mỗi phiên có quảng cáo ghi 1 kết quả; vùng suy từ mã nước của Cloudflare, không lưu IP.': 'Each ad session records one outcome; region comes from Cloudflare’s country code, no IP stored.',
   };
   let gen = 0;
@@ -142,6 +193,38 @@
   }
   /** CSV (RFC 4180, ; không – dấu phẩy) cho bảng chi tiết. */
   const csvOf = (head, rows) => [head, ...rows].map(r => r.map(v => { const s = v == null ? '' : String(v); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; }).join(',')).join('\n');
+  // ---------- Sẵn sàng bật quảng cáo (thuần – test qua AdminAds.readyOf): một nguồn cho checklist đầu trang + khóa nút "Bật" theo nền tảng ----------
+  // k · g nhóm · p nền tảng bị khóa khi chưa đạt · who: o = việc của chủ, d = kỹ thuật · m = nhập tay (khóa quản trị ads_ready, JSON; giá trị = mặc định theo lần kiểm 10/11) · soft = khuyến nghị, không khóa
+  const ALL = ['web', 'android', 'ios'], APP = ['android', 'ios'], ST = ['ok', 'wait', 'block'];
+  const READY = [
+    { k: 'irs', g: 'acct', p: ALL, who: 'o', m: 'wait' }, { k: 'adsense', g: 'acct', p: ['web'], who: 'o', m: 'block' }, { k: 'admob', g: 'acct', p: APP, who: 'o', m: 'block' },
+    { k: 'ios_store', g: 'acct', p: ['ios'], who: 'o', m: 'wait' }, { k: 'cmp', g: 'acct', p: ALL, who: 'o', m: 'wait' }, { k: 'pingpong', g: 'acct', p: ALL, who: 'o', m: 'wait', soft: 1 },
+    { k: 'ads_txt', g: 'tech', p: ['web'], who: 'd' }, { k: 'app_ads_txt', g: 'tech', p: APP, who: 'd' }, { k: 'code_web', g: 'tech', p: ['web'], who: 'd' },
+    { k: 'code_app', g: 'tech', p: APP, who: 'd' }, { k: 'ssv', g: 'tech', p: APP, who: 'd', m: 'wait' }, { k: 'enabled', g: 'tech', p: ALL, who: 'd' },
+    { k: 'traffic', g: 'reach', p: ALL, soft: 1 },
+  ];
+  const TRAFFIC_MIN = 100; // người thật/ngày gợi ý (không phải luật Google): đủ lượt để lấp đầy có nghĩa và cổng giữ chân đủ mẫu (docs/ADS.md §5)
+  const PUB_RE = /^\s*google\.com\s*,\s*pub-(\d{16})\s*,\s*DIRECT\s*,\s*f08c47fec0942fa0\s*(?:#.*)?$/im;
+  /** ads.txt / app-ads.txt → '' (đạt) hoặc lý do: http | missing | placeholder | mismatch. r = { ok, text } (fetch), pub = 16 số của ca-pub-… */
+  const txtWhy = (r, pub) => { if (!r || !r.ok) return 'http'; const m = String(r.text || '').match(PUB_RE); return !m ? 'missing' : /^0+$/.test(m[1]) ? 'placeholder' : pub && m[1] !== pub ? 'mismatch' : ''; };
+  /** inp = { man: ads_ready đã parse, txt: { ads, app }, conf: ADS_CONFIG | null, traffic: { avg } | null } → { items, block: { web|android|ios: [mục chưa đạt bắt buộc] }, met } */
+  function readyOf(inp) {
+    const x = inp || {}, man = x.man || {}, c = x.conf, w = (c && c.web) || {}, pub = String(w.client || '').replace(/^ca-pub-/, '');
+    const items = READY.map(d => {
+      let why = '', v = {};
+      if (d.m) { const e = man[d.k] || {}; why = ST.includes(e.st) ? e.st : d.m; v = { at: ST.includes(e.st) ? +e.at || 0 : 0 }; return { ...d, st: why, why: d.k + ':' + why, v }; }
+      if (d.k === 'ads_txt' || d.k === 'app_ads_txt') why = txtWhy((x.txt || {})[d.k === 'ads_txt' ? 'ads' : 'app'], pub);
+      else if (!c && d.k !== 'traffic') why = 'nocfg';
+      else if (d.k === 'code_web') why = !pub ? 'pub' : !Object.values(w.slots || {}).some(Boolean) ? 'slots' : '';
+      else if (d.k === 'code_app') why = (c.native || {}).testing !== false ? 'testing' : '';
+      else if (d.k === 'enabled') why = c.enabled ? '' : 'off';
+      else if (d.k === 'traffic') { why = !x.traffic ? 'na' : x.traffic.avg >= TRAFFIC_MIN ? '' : 'low'; v = x.traffic ? { n: Math.round(x.traffic.avg), m: TRAFFIC_MIN } : {}; }
+      return { ...d, st: !why ? 'ok' : ['missing', 'placeholder', 'mismatch'].includes(why) ? 'block' : 'wait', why, v };
+    });
+    return { items, met: items.filter(i => i.st === 'ok').length, block: Object.fromEntries(ALL.map(p => [p, items.filter(i => !i.soft && i.p.includes(p) && i.st !== 'ok')])) };
+  }
+  /** Tuyến cấm từ biểu thức chính quy trong ZONES (một nguồn, không chép tay): ^(a|b|c-.+)$ → ['a', 'b', 'c-*']; không neo $ → tiền tố 'x*'. */
+  const routesOf = re => { const src = re.source, m = src.match(/^\^\(([^()]*)\)/), open = /\(-\.\*\)\?|[^$]$/.test(src) ? '*' : ''; return (m ? m[1].split('|') : [src.replace(/^\^/, '').replace(/\$$/, '')]).map(r => r.replace(/\.[+*]/g, '*') + (open && !/\*$/.test(r) ? open : '')).map(r => r.replace(/\*+$/, '*').replace(/(\w)\?(?=\*?$)/, '($1)')); };
   const CSS = `.ax-nav{position:sticky;top:var(--a-top,56px);z-index:20;display:flex;gap:.2rem;overflow-x:auto;margin:-.3rem 0 1.1rem;padding:.4rem .1rem;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .ax-tab{flex:none;display:inline-flex;align-items:center;min-height:40px;padding:0 .85rem;border-radius:10px;color:var(--muted);font-weight:600;font-size:.88rem;text-decoration:none;white-space:nowrap}.ax-tab:hover{background:var(--surface-2);color:var(--text)}
 .ax-tab[aria-current=page]{background:var(--surface);color:var(--text);box-shadow:inset 0 -3px 0 var(--primary),var(--shadow-sm)}.ax-tab:focus-visible{outline:2px solid var(--primary);outline-offset:-2px}
@@ -163,7 +246,25 @@
 .ax-h3row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:space-between;margin-bottom:.6rem}.ax-seg{display:flex;flex-wrap:wrap;gap:.3rem}.ax-sort{all:unset;cursor:pointer;font-weight:inherit;white-space:nowrap}.ax-sort:focus-visible{outline:2px solid var(--primary);outline-offset:2px}.ax-tbl .num,.tbl .num{text-align:end;font-variant-numeric:tabular-nums}.ax-tbl tfoot th,.ax-tbl tfoot td{font-weight:800;border-top:2px solid var(--line)}
 .ax-2col{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:.85rem;margin-top:1rem}.ax-dl{display:grid;grid-template-columns:1fr auto;gap:.45rem 1rem;margin:0;font-size:.88rem}.ax-dl dt{color:var(--muted)}.ax-dl dd{margin:0;font-weight:700;text-align:end;font-variant-numeric:tabular-nums}.ax-flags{margin-top:1.5rem}.ax-days summary{cursor:pointer;font-size:.85rem;color:var(--muted);min-height:32px}
 .ax-conn{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem}.ax-howto ol{margin:.4rem 0 0;padding-inline-start:1.2rem;font-size:.88rem;line-height:1.5}.ax-howto li{margin:.25rem 0}
-.ax-cap{display:grid;grid-template-columns:1fr auto;gap:.5rem 1rem;align-items:center;margin:.5rem 0}.ax-cap input{width:7rem}.ax-note{font-size:.8rem;color:var(--muted)}`;
+.ax-cap{display:grid;grid-template-columns:1fr auto;gap:.5rem 1rem;align-items:center;margin:.5rem 0}.ax-cap input{width:7rem}.ax-note{font-size:.8rem;color:var(--muted)}
+.ax-rd{margin-bottom:1rem}.ax-rd-h{display:flex;flex-wrap:wrap;gap:.8rem 1.6rem;align-items:flex-start;justify-content:space-between}.ax-rd-h h3{margin:0;font-size:1.05rem;font-weight:800}.ax-rd-h p{margin:.25rem 0 0;font-size:.85rem;color:var(--muted);max-width:62ch}.ax-rd-h .vx-m{flex:0 1 260px;min-width:min(100%,220px)}
+.ax-rd-g{margin:1.1rem 0 0}.ax-rd-g h4{margin:0 0 .45rem;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}.ax-rd-l{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:.5rem}
+.ax-rd-i{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.2rem .65rem;padding:.7rem .8rem;border:1px solid var(--line);border-radius:12px;background:var(--surface);min-width:0}.ax-rd-i .ic{grid-row:span 4;width:1.6rem;height:1.6rem;border-radius:50%;display:grid;place-items:center;font-size:.8rem;font-weight:800}
+.ax-rd-i.ok .ic{background:var(--a-ok-bg);color:var(--a-ok)}.ax-rd-i.wait .ic{background:var(--a-warn-bg);color:var(--a-warn)}.ax-rd-i.block .ic{background:var(--a-bad-bg);color:var(--a-bad)}.ax-rd-i.block{border-color:color-mix(in srgb,var(--again) 35%,var(--line))}
+.ax-rd-t{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .5rem;font-weight:700;font-size:.9rem;min-width:0}.ax-rd-d,.ax-rd-do{margin:0;font-size:.82rem;overflow-wrap:anywhere}.ax-rd-d{color:var(--muted)}.ax-rd-i .vx-m{margin:.2rem 0}
+.ax-rd-f{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-top:.3rem}.ax-rd-s{display:inline-flex;flex-wrap:wrap;align-items:center;gap:.2rem .5rem;margin-inline-start:auto}.ax-rd-f select{width:auto;min-width:6.5rem;min-height:36px;padding-block:0;font-size:.82rem;max-width:100%}.ax-pc{display:inline-block;padding:.05rem .45rem;border-radius:6px;background:var(--surface-2);font-size:.72rem;font-weight:650;color:var(--muted)}
+.ax-why{margin:0;font-size:.8rem;color:var(--muted);overflow-wrap:anywhere}.ax-why.ok{color:var(--a-ok)}.ax-plat .btn[disabled]{cursor:not-allowed;opacity:1;background:var(--surface-2);color:var(--muted);border-color:var(--line);box-shadow:none}
+.ax-rev{margin-top:1.6rem}.ax-emp{border:1px dashed var(--line);border-radius:12px;background:var(--surface-2);margin:.4rem 0 0}.ax-emp .btn{margin-top:.7rem}.ax-fold{margin-top:1rem}.ax-fold>summary{cursor:pointer;min-height:44px;display:flex;align-items:center;gap:.5rem;font-weight:650;font-size:.88rem;color:var(--muted)}
+.axp-addon{display:flex;gap:.75rem;align-items:flex-start;padding:.85rem 1rem;border-radius:12px;background:var(--a-info-bg);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);margin-bottom:1rem}.axp-addon b{display:block}.axp-addon p{margin:.15rem 0 0;font-size:.82rem;color:var(--muted)}.axp-addon>span{font-size:1.3rem;line-height:1}
+.axp-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:.85rem}.axp{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.5rem 1rem;align-items:start;min-width:0}.axp h3{margin:0 0 .3rem;font-size:.95rem}.axp ul{margin:.35rem 0 0;padding-inline-start:1.1rem;font-size:.82rem;line-height:1.45}.axp li{margin:.15rem 0;overflow-wrap:anywhere}
+.axp-m{grid-column:1/-1;margin:0;font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padding-top:.5rem;font-variant-numeric:tabular-nums}.axp-pl{display:flex;flex-wrap:wrap;gap:.3rem}
+.axp-wf{box-sizing:border-box;width:72px;height:104px;border:2px solid var(--line);border-radius:12px;padding:7px 6px;display:flex;flex-direction:column;gap:4px;background:var(--surface-2);position:relative;overflow:hidden;flex:none}.axp-wf.pg{width:92px;height:84px;border-radius:6px}
+.axp-wf i{display:block;flex:none;height:5px;border-radius:3px;background:color-mix(in srgb,var(--muted) 35%,transparent)}.axp-wf i.h{height:8px;width:65%;background:color-mix(in srgb,var(--muted) 60%,transparent)}.axp-wf i.c{height:18px;background:var(--surface);border:1px solid var(--line)}
+.axp-wf b{display:block;flex:none;height:16px;border-radius:4px;background:color-mix(in srgb,var(--accent) 24%,transparent);border:1.5px dashed var(--accent)}.axp-wf b.full{position:absolute;inset:5px;height:auto}.axp-wf b.mod{position:absolute;left:9px;right:9px;top:34%;height:34px}
+.axp-z{margin-top:1rem}.axp-zr{display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr);gap:.4rem 1rem;padding:.65rem 0;border-top:1px solid var(--line);font-size:.84rem}.axp-zr:first-of-type{border-top:0}.axp-zr dt{font-weight:700}.axp-zr dd{margin:0;min-width:0}
+.axp-rt{display:flex;flex-wrap:wrap;gap:.25rem;align-items:center}.axp-rt code{font-size:.74rem;padding:.08rem .4rem;border-radius:5px;background:var(--surface-2);color:var(--muted);overflow-wrap:anywhere}.axp-rt details{display:contents}.axp-rt summary{cursor:pointer;font-size:.76rem;color:var(--muted);min-height:24px;display:inline-flex;align-items:center}
+.axp-h{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .6rem;margin:0 0 .3rem}.axp-h h4{margin:0;font-size:.86rem}
+@media(max-width:600px){.axp-zr{grid-template-columns:1fr}.ax-rd-h .vx-m{flex-basis:100%}}`;
 
   function render(box, api, L, h) {
     const esc = h.esc, lang = h.lang || (() => 'vi'), my = ++gen, toast = h.toast || (() => {});
@@ -178,13 +279,22 @@
     const plName = p => (PL[p] ? A(PL[p]) : /^rew:/.test(p) ? A('Có thưởng · {x}', { x: p.slice(4) }) : String(p).replace(/^u_/, ''));
     const ccName = c => { if (c === '_o') return A('Khác'); try { return new Intl.DisplayNames([LOC()], { type: 'region' }).of(c) || c; } catch (e) { return c; } };
     const RG = { eea: 'EEA + Anh + Thụy Sĩ (TCF v2.2)', us: 'Mỹ (luật bang)', row: 'Nơi khác' };
-    const BOUNDS = { ads_cap_sessions: [3, 20, 3, 'phiên', 'Toàn màn hình tối đa 1 lần mỗi … phiên học'], ads_cap_gap: [10, 240, 10, 'phút', 'và cách nhau tối thiểu … phút'], ads_cap_firstday: [24, 336, 24, 'giờ', 'Không hiện toàn màn hình trong … giờ đầu'] };
+    const BOUNDS = { ads_cap_sessions: [3, 20, 3, 'phiên', 'Toàn màn hình tối đa 1 lần mỗi … phiên học'], ads_cap_gap: [10, 240, 10, 'phút', 'và cách nhau tối thiểu … phút'], ads_cap_firstday: [24, 336, 24, 'giờ', 'Không hiện toàn màn hình trong … giờ đầu'], ads_cap_newbie: [5, 50, 5, 'phiên', 'Người mới: không toàn màn hình trong … phiên học đầu'], ads_cap_daymax: [1, 4, 4, 'lần', 'Tối đa … lần toàn màn hình mỗi ngày'] };
     const ADMIN = { ads_ecpm_web: [0, 50, 1, 'USD', 'eCPM ước tính (USD / 1000 lượt)', 'web'], ads_ecpm_android: [0, 50, 1, 'USD', 'eCPM ước tính (USD / 1000 lượt)', 'android'], ads_ecpm_ios: [0, 50, 1, 'USD', 'eCPM ước tính (USD / 1000 lượt)', 'ios'], ads_guard_pct: [1, 50, 5, '%', 'Ngưỡng tụt giữ chân (%)'], ads_guard_min: [50, 100000, 200, '', 'Cỡ mẫu tối thiểu mỗi nhóm'] };
-    const hd = (t, d, act = '') => `<div class="ax-h"><div><h2 id="ax-t" tabindex="-1">${esc(A(t))}</h2>${d ? `<p>${esc(A(d))}</p>` : ''}</div>${act}</div>`;
+    const hd = (t, d, act = '', id = 'ax-t') => `<div class="ax-h"><div><h2 id="${id}" tabindex="-1">${esc(A(t))}</h2>${d ? `<p>${esc(A(d))}</p>` : ''}</div>${act}</div>`;
     const kpi = (l, v, s = '') => `<div class="card kpi"><div class="l">${esc(A(l))}</div><div class="v">${v}</div>${s ? `<div class="s">${s}</div>` : ''}</div>`;
     const empty = t => `<div class="empty"><span class="em-i" aria-hidden="true">💤</span><b>${esc(A(t))}</b></div>`;
+    // empty state có hướng dẫn (cùng kiểu .empty của #998): tiêu đề + câu giải thích + nút dẫn tới việc cần làm
+    const guide = (t, d, act = '') => `<div class="empty ax-emp" role="note"><span class="em-i" aria-hidden="true">💵</span><b>${esc(A(t))}</b>${esc(A(d))}${act ? `<div>${act}</div>` : ''}</div>`;
+    const toReady = `<a class="btn sm" href="#ax-rd" data-to-rd>${esc(A('Xem điều kiện còn thiếu'))} ↑</a>`;
+    const lazyJs = (name, src) => (window[name] ? Promise.resolve(true) : new Promise(y => { const sc = document.createElement('script'), t = setTimeout(() => y(!!window[name]), 4000); sc.src = src; sc.onload = () => { clearTimeout(t); y(!!window[name]); }; sc.onerror = () => { clearTimeout(t); y(false); }; document.head.appendChild(sc); }));
+    // Dữ liệu thẻ sẵn sàng: ads.txt + app-ads.txt (fetch cùng nguồn, tự kiểm), ADS_CONFIG (js/ads/config.js), người thật/ngày 7 ngày trọn gần nhất (op live – Phân tích sẵn có, đã loại bot + quản trị)
+    let RD = null;
+    const txt = u => (typeof fetch === 'function' ? fetch(u, { cache: 'no-store' }).then(async r => ({ ok: r.ok, text: r.ok ? await r.text() : '' })) : Promise.resolve(null)).catch(() => null);
+    const readyData = () => (RD = RD || Promise.all([txt('/ads.txt'), txt('/app-ads.txt'), lazyJs('ADS_CONFIG', 'js/ads/config.js'), Promise.resolve().then(() => api('live', { days: 7 })).catch(() => null)])
+      .then(([ads, app, , lv]) => { const ser = ((lv && lv.series) || []).slice(-8, -1); return { txt: { ads, app }, conf: window.ADS_CONFIG || null, traffic: ser.length ? { avg: ser.reduce((a, x) => a + (+x.visitors || 0), 0) / ser.length } : null }; }));
     let S = null, CFG = null;
-    const load = async force => { if (force) { S = null; CFG = null; } [S, CFG] = await Promise.all([S || api('adsStats'), CFG || api('config')]); return S; };
+    const load = async force => { if (force) { S = null; CFG = null; RD = null; } [S, CFG] = await Promise.all([S || api('adsStats'), CFG || api('config')]); return S; };
     const cv = k => String(((CFG && CFG.values) || {})[k] ? CFG.values[k].v : '');
     const setCfg = async values => { try { await api('configSet', { values }); toast(A('Đã lưu')); CFG = null; return true; } catch (e) { toast(A('Không lưu được: {e}', { e: e.message || e }), 'bad'); return false; } };
 
@@ -237,7 +347,9 @@
         <tbody>${sorted.map(r => `<tr>${cols.map(([, , f], i) => `<td${i >= dimCols.length ? ' class="num"' : ''}>${esc(f(r))}</td>`).join('')}</tr>`).join('')}</tbody>
         <tfoot><tr><th scope="row"${dimCols.length > 1 ? ` colspan="${dimCols.length}"` : ''}>${esc(A('Tổng'))}</th>${MC.map(([, , f]) => `<td class="num">${esc(f(tot))}</td>`).join('')}</tr></tfoot></table></div>` : empty('Chưa có số trong khoảng này.');
       const hasPay = R.pay && (R.pay.balance || R.pay.last);
-      el.innerHTML = hd('Doanh thu quảng cáo', '', `<span class="ax-acts"><button class="btn sm" type="button" data-rf>🔄 ${esc(A('Làm mới'))}</button></span>`)
+      const none = !(R.rows || []).length, fold = !a.has && !hasPay; // chưa có số → bảng chi tiết + ước tính/thật/thanh toán thu gọn (mở được), không phô dãy $0.00
+      const brk = `<section class="card"><div class="ax-h3row"><div class="ax-seg" role="group" aria-label="${esc(A('Chi tiết'))}">${Object.entries(TABS).map(([k, [l]]) => `<button type="button" class="btn sm ${tabSt.tab === k ? 'primary' : 'ghost'}" data-tab="${k}" aria-pressed="${tabSt.tab === k}">${esc(A(l))}</button>`).join('')}</div><button class="btn sm ghost" type="button" data-csv${sorted.length ? '' : ' disabled'}>⬇ CSV</button></div>${table}</section>`;
+      el.innerHTML = hd('Doanh thu quảng cáo', '', '', 'ax-rev-h')
         + `<p class="ax-note ax-upd" role="status">${esc(A('Số Google cập nhật lúc {t} · trễ vài giờ và có thể được điều chỉnh', { t: new Date(R.at).toLocaleString(LOC()) }))}</p>`
         + `<form class="ax-filt" id="ax-filt" aria-label="${esc(A('Bộ lọc'))}"><label>${esc(A('Khoảng ngày'))}<select name="r">${RANGES.map(([v, l]) => opt(v, A(l), q.r)).join('')}</select></label>
           <span class="ax-cust"${q.r === 'custom' ? '' : ' hidden'}><label>${esc(A('Từ'))}<input type="date" name="f" value="${esc(a.from)}" max="${esc(a.rt)}"></label><label>${esc(A('Đến'))}<input type="date" name="t" value="${esc(a.to)}" max="${esc(a.rt)}"></label></span>
@@ -249,15 +361,14 @@
         + (a.has ? `<div class="kpis ax-kpis">${tile('rev', 'Doanh thu', usd(c.usd), c.usd, p.usd, 'usd')}${tile('ecpm', 'eCPM', money(c.ecpm), c.ecpm, p.ecpm, 'ecpm')}${c.pv ? tile('rpm', 'RPM trang', money(c.rpm), c.rpm, p.rpm, 'rpm') : ''}${tile('imp', 'Lượt hiển thị', num(c.imp), c.imp, p.imp, 'imp')}${tile('fill', 'Tỉ lệ lấp đầy', pct(c.fill), c.fill, p.fill, 'fill')}${tile('ctr', 'CTR', pct(c.ctr), c.ctr, p.ctr, 'ctr')}</div>`
           + `<section class="card ax-charts">${lineChart(a.series, 'usd', 'Doanh thu theo ngày (USD)', usd)}${lineChart(a.series, 'ecpm', 'eCPM theo ngày (USD)', money)}
             <details class="ax-days"><summary>${esc(A('Xem bảng số liệu theo ngày'))}</summary><div class="tbl-x" tabindex="0"><table class="tbl"><thead><tr><th scope="col">${esc(A('Ngày'))}</th><th scope="col" class="num">${esc(A('Doanh thu'))}</th><th scope="col" class="num">eCPM</th><th scope="col" class="num">${esc(A('Hiển thị'))}</th></tr></thead><tbody>${a.series.slice().reverse().map(x => `<tr><td>${esc(x.day)}</td><td class="num">${esc(usd(x.usd))}</td><td class="num">${esc(money(x.ecpm))}</td><td class="num">${esc(num(x.imp))}</td></tr>`).join('')}</tbody></table></div></details></section>`
-          : `<div class="card">${empty('Chưa có số trong khoảng này.')}</div>`)
-        + `<section class="card"><div class="ax-h3row"><div class="ax-seg" role="group" aria-label="${esc(A('Chi tiết'))}">${Object.entries(TABS).map(([k, [l]]) => `<button type="button" class="btn sm ${tabSt.tab === k ? 'primary' : 'ghost'}" data-tab="${k}" aria-pressed="${tabSt.tab === k}">${esc(A(l))}</button>`).join('')}</div><button class="btn sm ghost" type="button" data-csv${sorted.length ? '' : ' disabled'}>⬇ CSV</button></div>${table}</section>`
-        + `<div class="ax-2col"><section class="card"><h3 class="h3">${esc(A('Ước tính nội bộ vs số thật'))}</h3><p class="ax-note">${esc(A('ước tính = lượt hiển thị đo trong app × eCPM đặt tay ở mục Tần suất'))}</p><div class="tbl-x" tabindex="0"><table class="tbl"><thead><tr><th scope="col">${esc(A('Nền tảng'))}</th><th scope="col" class="num">${esc(A('Ước tính'))}</th><th scope="col" class="num">${esc(A('Thật'))}</th><th scope="col" class="num">${esc(A('Độ lệch'))}</th></tr></thead><tbody>${a.vs.map(v => `<tr><td>${esc(A(PF[v.plat]))}</td><td class="num">${esc(usd(v.est))}</td><td class="num">${esc(usd(v.real))}</td><td class="num">${esc(dev(v.dev))}</td></tr>`).join('')}</tbody></table></div></section>`
+          : none ? guide('Chưa có doanh thu', 'Quảng cáo đang tắt. Doanh thu hiện ở đây vài giờ sau lượt hiển thị đầu tiên.', toReady) : guide('Chưa có số trong khoảng này.', 'Không có số trong khoảng ngày này. Thử khoảng dài hơn hoặc bỏ bộ lọc.'))
+        + (sorted.length ? brk : `<details class="ax-fold"><summary>${esc(A('Chi tiết theo vị trí/nền tảng/quốc gia – chưa có dữ liệu'))}</summary>${brk}</details>`)
+        + (fold ? `<details class="ax-fold"><summary>${esc(A('Ước tính vs thật · Thanh toán · Hiệu quả – chưa có dữ liệu'))}</summary>` : '') + `<div class="ax-2col"><section class="card"><h3 class="h3">${esc(A('Ước tính nội bộ vs số thật'))}</h3><p class="ax-note">${esc(A('ước tính = lượt hiển thị đo trong app × eCPM đặt tay ở mục Tần suất'))}</p><div class="tbl-x" tabindex="0"><table class="tbl"><thead><tr><th scope="col">${esc(A('Nền tảng'))}</th><th scope="col" class="num">${esc(A('Ước tính'))}</th><th scope="col" class="num">${esc(A('Thật'))}</th><th scope="col" class="num">${esc(A('Độ lệch'))}</th></tr></thead><tbody>${a.vs.map(v => `<tr><td>${esc(A(PF[v.plat]))}</td><td class="num">${esc(usd(v.est))}</td><td class="num">${esc(usd(v.real))}</td><td class="num">${esc(dev(v.dev))}</td></tr>`).join('')}</tbody></table></div></section>`
         + `<section class="card"><h3 class="h3">${esc(A('Thanh toán'))}</h3>${hasPay ? `<dl class="ax-dl"><dt>${esc(A('Số dư hiện tại'))}</dt><dd>${esc(R.pay.balance || '–')}</dd><dt>${esc(A('Ngưỡng thanh toán'))}</dt><dd>$100 <span class="ax-note">(${esc(A('mặc định AdSense/AdMob'))})</span></dd><dt>${esc(A('Lần trả gần nhất'))}</dt><dd>${esc(R.pay.last ? R.pay.last.amount + ' · ' + R.pay.last.date : '–')}</dd></dl><p class="ax-note">${esc(A('AdMob dùng chung hồ sơ thanh toán với AdSense.'))}</p>` : `<p class="ax-note">${esc(A('Chưa có dữ liệu thanh toán – cập nhật ở lượt đồng bộ đêm.'))}</p>`}</section>`
-        + `<section class="card"><h3 class="h3">${esc(A('Hiệu quả vs trải nghiệm'))}</h3><dl class="ax-dl"><dt>${esc(A('Doanh thu / 1.000 phiên có quảng cáo'))}</dt><dd>${esc(money(a.per1k))}</dd><dt>${esc(A('Giữ chân D1 (có QC / đối chứng)'))}</dt><dd>${esc(pct(ca.d1))} / ${esc(pct(ch.d1))}</dd><dt>${esc(A('Giữ chân D7 (có QC / đối chứng)'))}</dt><dd>${esc(pct(ca.d7))} / ${esc(pct(ch.d7))}</dd><dt>${esc(A('Hệ số cổng giữ chân'))}</dt><dd>×${esc(String(gf))}</dd></dl><p class="ax-note">${esc(A('Đối chứng = 10 % người dùng không thấy quảng cáo; cửa sổ 14 ngày. Chi tiết ở mục Giữ chân.'))}</p></section></div>`
+        + `<section class="card"><h3 class="h3">${esc(A('Hiệu quả vs trải nghiệm'))}</h3><dl class="ax-dl"><dt>${esc(A('Doanh thu / 1.000 phiên có quảng cáo'))}</dt><dd>${esc(money(a.per1k))}</dd><dt>${esc(A('Giữ chân D1 (có QC / đối chứng)'))}</dt><dd>${esc(pct(ca.d1))} / ${esc(pct(ch.d1))}</dd><dt>${esc(A('Giữ chân D7 (có QC / đối chứng)'))}</dt><dd>${esc(pct(ca.d7))} / ${esc(pct(ch.d7))}</dd><dt>${esc(A('Hệ số cổng giữ chân'))}</dt><dd>×${esc(String(gf))}</dd></dl><p class="ax-note">${esc(A('Đối chứng = 10 % người dùng không thấy quảng cáo; cửa sổ 14 ngày. Chi tiết ở mục Giữ chân.'))}</p></section></div>${fold ? '</details>' : ''}`
         + `<p class="ax-note">${esc(A('Ngày báo cáo theo múi giờ tài khoản Google (AdSense: giờ Thái Bình Dương, America/Los_Angeles); bộ đếm nội bộ theo giờ Việt Nam. Số tháng hiện tại là ước tính, Google chốt sau khi hết tháng.'))}</p>`;
       const f = el.querySelector('#ax-filt');
       f.addEventListener('change', () => { const d = Object.fromEntries(new FormData(f)); const nq = { r: d.r, p: d.p, c: d.c, f: d.f || a.from, t: d.t || a.to }; qSet(nq); dash(el, nq); });
-      el.querySelector('[data-rf]').onclick = () => { load(true).then(() => go('overview')); };
       el.querySelectorAll('[data-tab]').forEach(b => { b.onclick = () => { tabSt = { tab: b.dataset.tab, k: 'usd', dir: -1 }; dash(el, q); const x = el.querySelector(`[data-tab="${b.dataset.tab}"]`); if (x) x.focus(); }; });
       el.querySelectorAll('[data-sort]').forEach(b => { b.onclick = () => { const k = b.dataset.sort; tabSt = { ...tabSt, k, dir: tabSt.k === k ? -tabSt.dir : (['plat', 'place', 'cc'].includes(k) ? 1 : -1) }; dash(el, q); const x = el.querySelector(`[data-sort="${k}"]`); if (x) x.focus(); }; });
       const cb = el.querySelector('[data-csv]');
@@ -274,35 +385,109 @@
         box.addEventListener('keydown', e => { if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); show(at + (e.key === 'ArrowRight' ? 1 : -1)); } else if (e.key === 'Escape') hide(); });
       });
     }
+    // ---- Thẻ "Sẵn sàng bật quảng cáo" (mẫu Stitch 10/11): chữ từng điều kiện, trạng thái tay (ads_ready), lý do khóa nút Bật ----
+    const RT = { irs: ['Thư IRS (EIN của LLC)', 'Chờ thư IRS gửi về LLC; nhận được thì đánh dấu Đạt.'], adsense: ['Tài khoản AdSense được duyệt', 'Sửa theo chính sách chương trình rồi bấm Request review ở AdSense › Sites.'],
+      admob: ['Tài khoản AdMob được duyệt', 'AdMob › Policy center: xử lý vi phạm rồi bấm Request review.'], ios_store: ['App iOS liên kết App Store trong AdMob', 'Sau khi AdMob duyệt: Apps › iOS › Add store (App Store) để Google kiểm app-ads.txt.'],
+      cmp: ['Thông điệp đồng ý (CMP) đã xuất bản', 'AdSense/AdMob › Privacy & messaging: tạo thông điệp GDPR + luật bang Mỹ rồi Publish.'], pingpong: ['Nhận tiền: PingPong đứng tên LLC', 'Đổi tài khoản nhận tiền sang tên LLC trước ngưỡng thanh toán $100 – không khóa nút Bật.'],
+      ads_txt: ['ads.txt hợp lệ', 'Có dòng google.com, pub-…, DIRECT đúng mã nhà xuất bản.'], app_ads_txt: ['app-ads.txt hợp lệ', 'Có dòng google.com, pub-…, DIRECT đúng mã nhà xuất bản.'],
+      code_web: ['Mã ô AdSense cho web', 'Tạo ô hiển thị ở AdSense › Ads › By ad unit rồi dán mã vào config.js.'], code_app: ['Bản app phát hành dùng mã thật', 'Bản phát hành: testing: false + build ADS_NATIVE=1.'],
+      ssv: ['Xác minh thưởng phía máy chủ (SSV)', 'Đặt biến Pages ADS_SSV=1 và dán URL /api/ads-reward vào ô có thưởng trong AdMob.'], enabled: ['Mã quảng cáo bật trong code (enabled: true)', 'Đổi enabled: true trong lần ship bật quảng cáo.'],
+      traffic: ['Người thật mỗi ngày', 'Khuyến nghị, không khóa nút Bật: đủ người để lấp đầy và cổng giữ chân có mẫu.'] };
+    const WHY = { 'adsense:block': 'Google: "Your account wasn\'t approved – Meet program policies" (kiểm 10/11).', 'admob:block': 'Google: "Your account wasn\'t approved – Meet program policies" (kiểm 10/11).',
+      http: 'Không tải được tệp – thử lại sau.', missing: 'Thiếu dòng google.com, pub-…, DIRECT.', placeholder: 'Đang là mã giữ chỗ pub-0000….', mismatch: 'Mã trong tệp khác mã ở web/js/ads/config.js.', nocfg: 'Không đọc được web/js/ads/config.js.',
+      pub: 'Chưa có mã nhà xuất bản.', slots: 'Chưa dán mã ô (home, blog…) vào config.js.', testing: 'native.testing: true – app đang dùng mã THỬ của Google.', off: 'web/js/ads/config.js đang enabled: false (đúng khi còn chờ duyệt).', na: 'Không đọc được số liệu Phân tích.' };
+    const STL = { ok: 'Đạt', wait: 'Chờ', block: 'Chặn' }, CHIP = { ok: 'ok', wait: 'warn', block: 'bad' }, ICO = { ok: '✓', wait: '…', block: '✕' }, GRP = [['acct', 'Tài khoản & giấy tờ'], ['tech', 'Kỹ thuật'], ['reach', 'Lưu lượng']];
+    const SHORT = { irs: 'IRS', adsense: 'AdSense', admob: 'AdMob', ios_store: 'App Store', cmp: 'CMP', ads_txt: 'ads.txt', app_ads_txt: 'app-ads.txt', code_web: 'mã ô web', code_app: 'mã app thật', ssv: 'SSV', enabled: 'enabled' }; // tên ngắn cho lý do khóa trên thẻ nền tảng
+    const PS = { web: 'Web', android: 'Android', ios: 'iOS' }, man = () => { try { return JSON.parse(cv('ads_ready') || '{}') || {}; } catch (e) { return {}; } };
+    const readyCard = rd => {
+      const row = i => {
+        const [title, todo] = RT[i.k], chips = `${i.p.map(p => `<span class="ax-pc">${esc(PS[p])}</span>`).join('')}${i.who === 'o' ? `<span class="chip info">${esc(A('Việc của anh'))}</span>` : ''}${i.soft ? `<span class="chip muted">${esc(A('Khuyến nghị'))}</span>` : ''}`;
+        const det = i.k === 'traffic' && i.v.m ? AdminChart.meter(A('Người thật/ngày (TB 7 ngày)'), i.v.n, i.v.m, '', { goal: 1, fmt: num }) : i.st === 'ok' ? (i.m ? A('Đã đạt.') : A(todo)) : WHY[i.why] || WHY[i.k + ':' + i.st] ? A(WHY[i.why] || WHY[i.k + ':' + i.st]) : '';
+        const sel = i.m ? `<span class="ax-rd-s"><select data-man="${i.k}" aria-label="${esc(A('Trạng thái: {t}', { t: A(title) }))}">${['ok', 'wait', 'block'].map(x => `<option value="${x}"${x === i.st ? ' selected' : ''}>${esc(A(STL[x]))}</option>`).join('')}</select><span class="tiny muted">${esc(i.v.at ? A('đánh dấu tay {t}', { t: new Date(i.v.at).toLocaleDateString(LOC()) }) : A('mặc định theo lần kiểm 10/11'))}</span></span>` : '';
+        return `<li class="ax-rd-i ${i.st}"><span class="ic" aria-hidden="true">${ICO[i.st]}</span><div class="ax-rd-t">${esc(A(title))} <span class="chip ${CHIP[i.st]}">${esc(A(STL[i.st]))}</span></div>${det && det[0] === '<' ? det : det ? `<p class="ax-rd-d">${esc(det)}</p>` : ''}${i.st !== 'ok' && !(i.k === 'traffic' && !i.v.m) ? `<p class="ax-rd-do">→ ${esc(A(todo))}</p>` : ''}<div class="ax-rd-f">${chips}${sel}</div></li>`;
+      };
+      return `<section class="card ax-rd" id="ax-rd" tabindex="-1" aria-labelledby="ax-rd-h"><div class="ax-rd-h"><div><h3 id="ax-rd-h">${esc(A('Sẵn sàng bật quảng cáo'))}</h3><p>${esc(A('Nút Bật của mỗi nền tảng chỉ mở khi mọi điều kiện bắt buộc của nền tảng đó đạt. Công tắc khẩn cấp luôn dùng được.'))}</p></div>${AdminChart.meter(A('Điều kiện đạt'), rd.met, rd.items.length, '', { goal: 1, fmt: num })}</div>`
+        + GRP.map(([g, t]) => `<div class="ax-rd-g"><h4>${esc(A(t))}</h4><ul class="ax-rd-l">${rd.items.filter(i => i.g === g).map(row).join('')}</ul></div>`).join('') + `</section>`;
+    };
     async function overview(el) {
       const kill = cv('ads_kill') === '1', on = p => cv('ads_' + p) === '1';
+      const rd = readyOf({ ...(await readyData()), man: man() });
       const last7 = S.series.slice(-7), rev7 = last7.reduce((a, x) => a + x.rev, 0) / 7, imp30 = S.series.reduce((a, x) => a + x.imp, 0);
       const req = S.places.reduce((a, x) => a + x.req, 0), fill = req ? S.places.reduce((a, x) => a + x.imp + x.show, 0) / req : null;
       const rev30 = S.series.reduce((a, x) => a + x.rev, 0), ecpm = imp30 ? rev30 / imp30 * 1000 : null, gf = +(cv('ads_guard') || 1);
       const R = S.real || {};
+      // Nút Bật khóa (disabled + lý do aria-describedby) khi nền tảng còn điều kiện bắt buộc chưa đạt; Tắt + công tắc khẩn cấp luôn bấm được
+      const plat = p => { const bl = rd.block[p], lock = !on(p) && bl.length > 0, names = bl.map(i => A(SHORT[i.k] || i.k)).join(' · ');
+        return `<div class="card ax-plat"><div class="row"><b>${esc(A(PF[p]))}</b><span class="chip ${on(p) && !kill ? 'ok' : 'muted'}">${esc(A(on(p) && !kill ? 'Đang bật' : 'Đang tắt'))}</span></div>
+          <p class="ax-why${bl.length ? '' : ' ok'}" id="ax-why-${p}">${bl.length ? `🔒 ${esc(A('Khóa – còn {n} điều kiện', { n: bl.length }))} · ${esc(A('Còn: {x}', { x: names }))}` : `✓ ${esc(A('Đủ điều kiện'))}`}</p>
+          <div class="row"><span class="small muted">${esc(usd((S.plat[p] || {}).rev || 0))} · ${num((S.plat[p] || {}).imp || 0)}</span><button class="btn sm ${on(p) || lock ? 'ghost' : 'primary'}" type="button" data-flag="ads_${p}" data-v="${on(p) ? '0' : '1'}"${lock ? ` disabled aria-describedby="ax-why-${p}"` : ''}>${lock ? '🔒 ' : ''}${esc(A(on(p) ? 'Tắt' : 'Bật'))}</button></div></div>`; };
       const flags = (kill ? `<div class="card ax-kill" role="alert">${esc(A('Công tắc khẩn cấp đang BẬT – mọi quảng cáo dừng trên mọi nền tảng (≤ 1 giờ do bộ đệm cấu hình).'))}</div>` : !['web', 'android', 'ios'].some(on) ? `<p class="ax-note">${esc(A('Mọi cờ đang tắt: app không tải mã quảng cáo nào. Bật cần cả mã nhà xuất bản trong web/js/ads/config.js (enabled: true).'))}</p>` : '')
-        + `<h3 class="h3">${esc(A('Trạng thái theo nền tảng'))}</h3><div class="ax-plats">${['web', 'android', 'ios'].map(p => `<div class="card ax-plat"><div class="row"><b>${esc(A(PF[p]))}</b><span class="chip ${on(p) && !kill ? 'ok' : 'muted'}">${esc(A(on(p) && !kill ? 'Đang bật' : 'Đang tắt'))}</span></div><div class="row"><span class="small muted">${esc(usd((S.plat[p] || {}).rev || 0))} · ${num((S.plat[p] || {}).imp || 0)}</span><button class="btn sm ${on(p) ? 'ghost' : 'primary'}" type="button" data-flag="ads_${p}" data-v="${on(p) ? '0' : '1'}">${esc(A(on(p) ? 'Tắt' : 'Bật'))}</button></div></div>`).join('')}
+        + `<h3 class="h3">${esc(A('Trạng thái theo nền tảng'))}</h3><div class="ax-plats">${['web', 'android', 'ios'].map(plat).join('')}
           <div class="card ax-plat ${kill ? 'ax-kill' : ''}"><div class="row"><b>⛔ ${esc(A('Công tắc khẩn cấp'))}</b></div><button class="btn sm ${kill ? 'primary' : 'danger'}" type="button" data-flag="ads_kill" data-v="${kill ? '0' : '1'}">${esc(A(kill ? 'Mở lại quảng cáo' : 'TẮT TOÀN BỘ quảng cáo'))}</button>
           <div class="row"><span class="small">${esc(A('Toàn màn hình cuối phiên'))}</span><button class="btn sm ghost" type="button" data-flag="ads_inter" data-v="${cv('ads_inter') === '0' ? '1' : '0'}">${esc(A(cv('ads_inter') === '0' ? 'Bật' : 'Tắt'))}</button></div>
           <div class="row"><span class="small">${esc(A('Có thưởng'))}</span><button class="btn sm ghost" type="button" data-flag="ads_rew" data-v="${cv('ads_rew') === '0' ? '1' : '0'}">${esc(A(cv('ads_rew') === '0' ? 'Bật' : 'Tắt'))}</button></div></div></div>`;
-      if (R.connected) { el.innerHTML = `<div id="ax-dash"></div><section class="ax-flags">${flags}</section>`; dash(el.querySelector('#ax-dash'), qOf()); }
-      else el.innerHTML = hd('Quảng cáo', '', `<button class="btn sm" type="button" data-rf>🔄 ${esc(A('Làm mới'))}</button>`) + flags + (`<div class="kpis">${kpi('Doanh thu ước tính/ngày (7 ngày)', esc(usd(rev7)))}${kpi('Lượt hiển thị (30 ngày)', esc(num(imp30)))}${kpi('Tỉ lệ lấp đầy', esc(pct(fill)))}${kpi('eCPM (proxy)', esc(ecpm == null ? '–' : usd(ecpm)))}${kpi('Hệ số cổng giữ chân', '×' + esc(String(gf)))}</div>`
-        + `<section class="card"><h3 class="h3">${esc(A('Doanh thu ước tính theo ngày (USD)'))}</h3><p class="ax-note">${esc(A('ước tính = lượt hiển thị × eCPM đặt tay – thay bằng số AdSense/AdMob khi nối Reporting API'))}</p>${bars(S.series, 'rev', usd)}
-          <div class="ax-conn"><p class="ax-note">${esc(A('Báo cáo AdSense/AdMob: chưa kết nối – đang hiện số ước tính.'))}</p><button class="btn sm primary" type="button" data-howto aria-expanded="false" aria-controls="ax-howto">🔗 ${esc(A('Nối Google'))}</button></div>
-          <div id="ax-howto" class="ax-howto" hidden><h4 class="h3">${esc(A('Cách nối báo cáo Google (1 lần)'))}</h4><ol>${['Google Cloud Console › dự án lexkite-app: màn hình đồng ý OAuth ở trạng thái "In production" (để "Testing" thì token hết hạn sau 7 ngày) + client OAuth loại "Desktop app" → tải file JSON của client.', 'Bật 2 API: AdSense Management API và AdMob API.', 'Trên máy Mac: node scripts/ads-oauth.mjs --client <file JSON> → đăng nhập vintagezulilyjewelry@gmail.com → Allow. Script tự đặt 3 secret GitHub (ADS_OAUTH_CLIENT_ID, ADS_OAUTH_CLIENT_SECRET, ADS_OAUTH_REFRESH).', 'GitHub › Actions › Ads revenue › Run workflow. Số thật hiện ở đây sau khoảng 1 phút, rồi tự cập nhật mỗi ngày lúc 06:00 UTC.'].map(t => `<li>${esc(A(t))}</li>`).join('')}</ol></div></section>`);
-      if (!R.connected) el.querySelector('[data-rf]').onclick = () => { load(true).then(() => go('overview')); };
+      const conn = `<div class="ax-conn"><p class="ax-note">${esc(A('Báo cáo AdSense/AdMob: chưa kết nối – đang hiện số ước tính.'))}</p><button class="btn sm primary" type="button" data-howto aria-expanded="false" aria-controls="ax-howto">🔗 ${esc(A('Nối Google'))}</button></div>
+          <div id="ax-howto" class="ax-howto" hidden><h4 class="h3">${esc(A('Cách nối báo cáo Google (1 lần)'))}</h4><ol>${['Google Cloud Console › dự án lexkite-app: màn hình đồng ý OAuth ở trạng thái "In production" (để "Testing" thì token hết hạn sau 7 ngày) + client OAuth loại "Desktop app" → tải file JSON của client.', 'Bật 2 API: AdSense Management API và AdMob API.', 'Trên máy Mac: node scripts/ads-oauth.mjs --client <file JSON> → đăng nhập vintagezulilyjewelry@gmail.com → Allow. Script tự đặt 3 secret GitHub (ADS_OAUTH_CLIENT_ID, ADS_OAUTH_CLIENT_SECRET, ADS_OAUTH_REFRESH).', 'GitHub › Actions › Ads revenue › Run workflow. Số thật hiện ở đây sau khoảng 1 phút, rồi tự cập nhật mỗi ngày lúc 06:00 UTC.'].map(t => `<li>${esc(A(t))}</li>`).join('')}</ol></div>`;
+      // Doanh thu ở DƯỚI trạng thái: đã nối Google → bảng kiểu AdSense (dash); chưa nối → ước tính (lượt hiển thị × eCPM đặt tay), chưa có lượt nào → empty state có hướng dẫn thay cho dãy $0.00
+      const est = !(imp30 || rev30) ? hd('Doanh thu quảng cáo', '', '', 'ax-rev-h') + guide('Chưa có doanh thu', 'Quảng cáo đang tắt. Doanh thu hiện ở đây vài giờ sau lượt hiển thị đầu tiên.', toReady) + `<div class="card ax-fold">${conn}</div>`
+        : hd('Doanh thu quảng cáo', '', '', 'ax-rev-h') + `<div class="kpis">${kpi('Doanh thu ước tính/ngày (7 ngày)', esc(usd(rev7)))}${kpi('Lượt hiển thị (30 ngày)', esc(num(imp30)))}${kpi('Tỉ lệ lấp đầy', esc(pct(fill)))}${kpi('eCPM (proxy)', esc(ecpm == null ? '–' : usd(ecpm)))}${kpi('Hệ số cổng giữ chân', '×' + esc(String(gf)))}</div>`
+          + `<section class="card"><h3 class="h3">${esc(A('Doanh thu ước tính theo ngày (USD)'))}</h3><p class="ax-note">${esc(A('ước tính = lượt hiển thị × eCPM đặt tay – thay bằng số AdSense/AdMob khi nối Reporting API'))}</p>${bars(S.series, 'rev', usd)}${conn}</section>`;
+      el.innerHTML = hd('Quảng cáo', 'Kiểm tra điều kiện và bật/tắt theo nền tảng; doanh thu ở cuối trang.', `<button class="btn sm" type="button" data-rf>🔄 ${esc(A('Làm mới'))}</button>`)
+        + readyCard(rd) + `<section class="ax-flags" aria-label="${esc(A('Trạng thái theo nền tảng'))}">${flags}</section><section class="ax-rev" aria-labelledby="ax-rev-h">${R.connected ? '<div id="ax-dash"></div>' : est}</section>`;
+      if (R.connected) dash(el.querySelector('#ax-dash'), qOf());
+      el.querySelector('[data-rf]').onclick = () => { load(true).then(() => go('overview')); };
+      el.addEventListener('click', e => { if (!e.target.closest('[data-to-rd]')) return; e.preventDefault(); const c = el.querySelector('#ax-rd'); c.scrollIntoView({ behavior: 'smooth', block: 'start' }); c.focus({ preventScroll: true }); });
       const hb = el.querySelector('[data-howto]');
       if (hb) hb.onclick = () => { const p = el.querySelector('#ax-howto'), open = p.hidden; p.hidden = !open; hb.setAttribute('aria-expanded', String(open)); };
+      el.querySelectorAll('[data-man]').forEach(sel => { sel.onchange = async () => { // trạng thái tay (không phải cờ quảng cáo): lưu ngay, vẽ lại thẻ + khóa nút
+        const m = man(); m[sel.dataset.man] = { st: sel.value, at: Date.now() };
+        if (await setCfg({ ads_ready: JSON.stringify(m) })) { await load(); go('overview'); } }; });
       el.querySelectorAll('[data-flag]').forEach(b => { b.onclick = async () => {
+        if (b.disabled) return;
         const ok = h.confirm ? await h.confirm({ title: A('Xác nhận đổi cờ quảng cáo?'), body: A('Hiệu lực trên máy người dùng sau tối đa 1 giờ.'), danger: b.dataset.flag === 'ads_kill' && b.dataset.v === '1' }) : true;
         if (ok && await setCfg({ [b.dataset.flag]: b.dataset.v })) { await load(); go('overview'); }
       }; });
     }
 
+    // ---- Vị trí: sơ đồ trực quan từng vị trí + luật tần suất + vùng cấm, đọc thẳng từ web/js/ads/policy.js (SLOTS/PER_PAGE/CAP/ZONES/LIVE/REWARDS…) – không chép tay số nào ----
+    const WF = { home: ['', 'h c c l l s'], blog: ['pg', 'h l l l s c'], blog_mid: ['pg', 'h l l s l l'], dict: ['pg', 'h c s l'], done: ['', 'h c c s'], inter: ['', 'h c l l full'], rew: ['', 'h c l l mod'] };
+    const wf = k => { const [cls, parts] = WF[k]; return `<div class="axp-wf ${cls}" aria-hidden="true">${parts.split(' ').map(x => (x === 's' ? '<b></b>' : x === 'full' || x === 'mod' ? `<b class="${x}"></b>` : `<i class="${x}"></i>`)).join('')}</div>`; };
+    const ZL = { exam: 'Bài thi / thi thử', onboarding: 'Làm quen lần đầu', pay: 'Thanh toán / nâng cấp', admin: 'Quản trị', classroom: 'Lớp học (giáo viên & học sinh)', call: 'Gọi / roleplay', speak: 'Luyện nói', lesson: 'Bài học & ôn tập', mic: 'Mic đang thu', answering: 'Đang trả lời câu hỏi' };
+    const RW = { streak: 'Cứu chuỗi', ai: '+{n} lượt AI chấm/giải thích', chat: '+{n} lượt Roleplay', retry: 'Cơ hội thứ 2', xp2: 'Nhân đôi XP', cosmetic: '+{n} món trang trí' };
     async function places(el) {
-      const rows = S.places.slice().sort((a, b) => (a.plat + a.place < b.plat + b.place ? -1 : 1)), ec = S.ecpm || {};
-      el.innerHTML = hd('Vị trí') + (rows.length ? `<div class="tbl-x" tabindex="0"><table class="tbl"><thead><tr><th>${esc(A('Nền tảng'))}</th><th>${esc(A('Vị trí đặt'))}</th><th>${esc(A('Yêu cầu'))}</th><th>${esc(A('Hiển thị'))}</th><th>${esc(A('Tỉ lệ lấp đầy'))}</th><th>${esc(A('Bấm'))}</th><th>${esc(A('CTR'))}</th><th>${esc(A('Thưởng'))}</th><th>${esc(A('Doanh thu ƯT'))}</th></tr></thead><tbody>
-        ${rows.map(r => `<tr><td>${esc(A(PF[r.plat] || r.plat))}</td><td>${esc(plName(r.place))}</td><td>${num(r.req)}</td><td>${num(r.imp + r.show)}</td><td>${esc(pct(r.fill))}</td><td>${num(r.click)}</td><td>${esc(pct(r.ctr))}</td><td>${num(r.rewok)}</td><td>${esc(usd((r.imp + r.show) / 1000 * (+ec[r.plat] || 0)))}</td></tr>`).join('')}</tbody></table></div>` : empty('Chưa có số liệu – cờ đang tắt hoặc chưa có lượt hiển thị.'));
+      const P = (await lazyJs('AdsPolicy', 'js/ads/policy.js')) && window.AdsPolicy, rows = S.places.slice().sort((a, b) => (a.plat + a.place < b.plat + b.place ? -1 : 1)), ec = S.ecpm || {};
+      const tbl = rows.length ? `<div class="tbl-x" tabindex="0"><table class="tbl"><thead><tr><th>${esc(A('Nền tảng'))}</th><th>${esc(A('Vị trí đặt'))}</th><th>${esc(A('Yêu cầu'))}</th><th>${esc(A('Hiển thị'))}</th><th>${esc(A('Tỉ lệ lấp đầy'))}</th><th>${esc(A('Bấm'))}</th><th>${esc(A('CTR'))}</th><th>${esc(A('Thưởng'))}</th><th>${esc(A('Doanh thu ƯT'))}</th></tr></thead><tbody>
+        ${rows.map(r => `<tr><td>${esc(A(PF[r.plat] || r.plat))}</td><td>${esc(plName(r.place))}</td><td>${num(r.req)}</td><td>${num(r.imp + r.show)}</td><td>${esc(pct(r.fill))}</td><td>${num(r.click)}</td><td>${esc(pct(r.ctr))}</td><td>${num(r.rewok)}</td><td>${esc(usd((r.imp + r.show) / 1000 * (+ec[r.plat] || 0)))}</td></tr>`).join('')}</tbody></table></div>` : empty('Chưa có số liệu – cờ đang tắt hoặc chưa có lượt hiển thị.');
+      const figs = `<section class="card" aria-labelledby="axp-t"><h3 class="h3" id="axp-t">${esc(A('Số liệu theo vị trí (30 ngày)'))}</h3>${tbl}</section>`;
+      if (!P) { el.innerHTML = hd('Vị trí') + `<div class="err-box" role="alert">${esc(A('Không tải được luật quảng cáo (policy.js).'))}</div>` + figs; return; }
+      // tần suất HIỆU LỰC = mặc định policy.js kẹp với cờ quản trị (cùng hàm flags() app dùng)
+      const k = P.flags(Object.fromEntries(['ads_cap_sessions', 'ads_cap_gap', 'ads_cap_firstday', 'ads_cap_newbie', 'ads_cap_daymax'].map(x => [x, cv(x)])), { enabled: true }).caps;
+      const live = key => { const l = rows.filter(r => r.place === key || (key === 'rew' && /^rew/.test(r.place))), imp = l.reduce((a, r) => a + r.imp + r.show, 0), rq = l.reduce((a, r) => a + r.req, 0);
+        return `<p class="axp-m">${esc(imp ? A('30 ngày: {i} hiển thị · lấp đầy {f}', { i: num(imp), f: pct(rq ? imp / rq : null) }) : A('Chưa có lượt hiển thị.'))}</p>`; };
+      const rw = r => A(RW[r] || r, { n: P.REWARDS[r] });
+      const PLC = [
+        ['home', 'Trang Hôm nay – cuối trang', ['web', 'android', 'ios'], [['Ô 300×250 trong khung cố định 290 px – không xô lệch bố cục (CLS 0).'], ['App gốc: biểu ngữ thích ứng ở đáy, chỉ khi đang ở tab Hôm nay.']]],
+        ['done', 'Thẻ kết quả cuối lượt', ['web'], [['Chỉ sau {h} giờ kể từ lần mở đầu tiên.', { h: P.CAP.firstDayH }], ['Chỉ khi điểm ≥ {p} % – không "xát muối" lúc làm kém.', { p: P.FAIL_PCT }], ['Chèn dưới cùng, cách nút ≥ 2,5rem (chống bấm nhầm).']]],
+        ['blog', 'Cuối bài blog', ['web'], [['Trước "Bài liên quan" – không bao giờ trên nội dung chính (giữ LCP).'], ['Tối đa {n} ô mỗi bài (cuối + giữa).', { n: P.PER_PAGE.blog }]]],
+        ['blog_mid', 'Giữa bài blog dài', ['web'], [['Sau đoạn văn ở 40–50 % thân bài, chỉ bài ≥ 1200 từ.'], ['Không chen giữa danh sách, bảng, trích dẫn hay sát ảnh/video.']]],
+        ['dict', 'Trang từ điển 1 từ', ['web'], [['Ngay dưới thẻ nghĩa + "Ví dụ".'], ['Tối đa {n} ô mỗi trang; không ở hub hay A–Z.', { n: P.PER_PAGE.dict }]]],
+        ['inter', 'Toàn màn hình cuối phiên (app)', ['android', 'ios'], [['Chỉ khi vừa xong 1 phiên học và đã về tab chính ({t}).', { t: P.BREAK.join(' · ') }], ['Tối đa 1 lần mỗi {s} phiên, cách nhau ≥ {g} phút, ≤ {d} lần/ngày.', { s: k.everySessions, g: k.gapMin, d: k.dayMax }],
+          ['Không trong {h} giờ đầu, ngày lịch đầu tiên và {n} phiên học đầu.', { h: k.firstDayH, n: k.newbie }], ['Vừa xem video có thưởng → yên {c} phút; vừa làm < {p} % → không hiện.', { c: P.CALM_MIN, p: P.FAIL_PCT }], ['Cổng giữ chân giãn tần suất khi nhóm có quảng cáo tụt; ×0,25 = tắt hẳn.']]],
+        ['rew', 'Có thưởng – người học tự chọn', ['android', 'ios', 'web'], [['Người học tự bấm "Xem video" – không bao giờ tự phát.'], ...Object.keys(P.REWARDS).map(r => ['{x} · ≤ {n}/ngày', { x: rw(r), n: P.PER_DAY[r] }]), ['Chờ ≥ {m} phút giữa 2 video.', { m: P.REW_GAP_MIN }], ['Web chỉ có: {x} (không cần SSV).', { x: P.WEB_REW.map(rw).join(', ') }]]],
+      ];
+      const card = ([key, t, pl, rules]) => `<article class="card axp" aria-labelledby="axp-${key}">${wf(key)}<div><h3 id="axp-${key}">${esc(A(t))}</h3><div class="axp-pl">${pl.map(p => `<span class="ax-pc">${esc(PS[p])}</span>`).join('')}</div><ul>${rules.map(([r, v]) => `<li>${esc(A(r, v))}</li>`).join('')}</ul></div>${live(key)}</article>`;
+      const chips = list => { const c = x => `<code>${esc(x)}</code>`; return `<span class="axp-rt">${list.slice(0, 10).map(c).join('')}${list.length > 10 ? `<details><summary>${esc(A('+{n} màn', { n: list.length - 10 }))}</summary>${list.slice(10).map(c).join('')}</details>` : ''}</span>`; };
+      const zr = (t, body) => `<div class="axp-zr"><dt>${esc(A(t))}</dt><dd>${body}</dd></div>`;
+      const zlist = hard => P.ZONES.filter(z => !!z[1] === hard).map(([zk, , re]) => `<div class="axp-h"><h4>${esc(A(ZL[zk] || zk))}</h4></div>${chips(routesOf(re))}`).join('');
+      const always = ['Add-on Chrome', 'Quản trị', 'Lớp học (giáo viên & học sinh)', 'Dưới 13 tuổi', '?sandbox · ?demo', 'Trình duyệt tự động', ['Nhóm đối chứng {p} %', { p: Math.round(P.CAP.holdout * 100) }], 'Người dùng Pro'];
+      el.innerHTML = hd('Sơ đồ vị trí', 'Mỗi vị trí, luật tần suất và vùng cấm đọc thẳng từ web/js/ads/policy.js – đổi luật ở đó, trang này tự đúng.')
+        + `<div class="axp-addon" role="note"><span aria-hidden="true">🧩</span><div><b>${esc(A('Add-on Chrome không bao giờ có quảng cáo'))}</b><p>${esc(A('build-extension.sh loại js/ads/ khỏi gói; vỏ quảng cáo tự tắt trên chrome-extension:.'))}</p></div></div>`
+        + `<div class="axp-g">${PLC.map(card).join('')}</div>`
+        + `<section class="card axp-z" aria-labelledby="axp-z"><h3 class="h3" id="axp-z">${esc(A('Vùng cấm quảng cáo'))}</h3><dl>`
+        + zr('Luôn chặn, trước mọi luật khác', `<span class="axp-rt">${always.map(x => `<span class="ax-pc">${esc(Array.isArray(x) ? A(x[0], x[1]) : A(x))}</span>`).join('')}</span>`)
+        + zr('Cấm hẳn – kể cả video có thưởng', zlist(true))
+        + zr('Trạng thái lúc chạy (mọi màn)', `<span class="axp-rt">${P.LIVE.map(x => `<span class="ax-pc">${esc(A({ mic: 'Mic đang thu', call: 'Đang gọi', answering: 'Đang trả lời câu hỏi' }[x] || x))}</span>`).join('')}</span>`)
+        + zr('Đang học – chỉ lời mời có thưởng ở điểm nghỉ', zlist(false)) + `</dl></section>` + figs;
     }
 
     async function freq(el) {
@@ -338,5 +523,5 @@
           ${rows.map(([r, x]) => { const n = x.pa + x.npa + x.deny + x.na || 1; return `<tr><td>${esc(A(RG[r] || r))}</td><td>${esc(pct(x.pa / n))} <span class="tiny muted">(${num(x.pa)})</span></td><td>${esc(pct(x.npa / n))}</td><td>${esc(pct(x.deny / n))}</td><td>${esc(pct(x.na / n))}</td></tr>`; }).join('')}</tbody></table></div>` : empty('Chưa có số liệu – cờ đang tắt hoặc chưa có lượt hiển thị.'));
     }
   }
-  window.AdminAds = { render, EN, agg, rangeOf, csvOf };
+  window.AdminAds = { render, EN, agg, rangeOf, csvOf, readyOf, txtWhy, routesOf, READY };
 })();

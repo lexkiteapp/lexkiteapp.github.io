@@ -2,7 +2,7 @@
   "appId": "com.lexkite.app",
   "appName": "Lexkite",
   "webDir": "www",
-  "backgroundColor": "#f6f7fb",
+  "backgroundColor": "#00000000",
   "android": {
     "allowMixedContent": false
   },
@@ -14,7 +14,8 @@
       "spm": {
         "swiftToolsVersion": "6.1",
         "packageOptions": {
-          "@capacitor-firebase/authentication": { "symlink": true }
+          "@capacitor-firebase/authentication": { "symlink": true },
+          "@capacitor-firebase/crashlytics": { "symlink": true }
         },
         "packageTraits": {
           "@capacitor-firebase/authentication": ["Google"]
@@ -23,6 +24,9 @@
     }
   },
   "plugins": {
+    "FirebaseMessaging": {
+      "presentationOptions": ["badge", "sound", "alert"]
+    },
     "SystemBars": {
       "insetsHandling": "disable"
     },

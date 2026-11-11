@@ -141,7 +141,7 @@
       const step = () => {
         if (r >= rounds.length) {
           const pct = Math.round(ok / rounds.length * 100);
-          box.innerHTML = `<div class="feedback ${pct >= 75 ? 'ok' : 'no'}" style="position:static"><b>${t('Nghe đúng {ok}/{n}', { ok, n: rounds.length })}</b> – ${pct >= 75 ? t('tai bạn đã phân biệt tốt!') : t('nghe chậm lại từng cặp và thử lần nữa.')} <button class="btn sm" id="startPairs2">↺ ${t('Chơi lại')}</button></div>`;
+          box.innerHTML = `<div class="feedback ${pct >= 75 ? 'ok' : 'no'}" style="position:static" data-lesson-done><b>${t('Nghe đúng {ok}/{n}', { ok, n: rounds.length })}</b> – ${pct >= 75 ? t('tai bạn đã phân biệt tốt!') : t('nghe chậm lại từng cặp và thử lần nữa.')} <button class="btn sm" id="startPairs2">↺ ${t('Chơi lại')}</button></div>`;
           App.reward({ quizzes: 1, pron: 1, xp: 5 + ok * 2 });
           $('#startPairs2').onclick = sp.onclick;
           Sfx.finish({ pct, xp: 5 + ok * 2, good: 75, el: box });

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Social Frame (Missed Bus)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            teal: {
+              950: '#072422',
+              900: '#0f3d3e',
+              800: '#134e4a',
+              700: '#115e59',
+              600: '#0d9488',
+              500: '#14b8a6',
+              400: '#2ba39a',
+              300: '#38d9c0',
+              200: '#6bd8ce',
+              100: '#ccfbf1',
+              50: '#f0fdfa',
+            },
+            coral: {
+              400: '#ff6b4a',
+              500: '#ff5c38',
+              600: '#ea4c28',
+              100: '#ffedd5',
+              50: '#fff7ed',
+            },
+            cream: {
+              50: '#fdfbf7',
+              100: '#fbf9f4',
+              200: '#f5f2eb',
+              300: '#ebe6dc',
+              400: '#dbd5c7',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #091518;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: #e8f1f0;
+    }
+
+    /* 9:16 vertical short/reel canvas container */
+    .reel-stage {
+      width: 420px;
+      height: 746px; /* 9:16 aspect ratio (~420 x 746 or 1080x1920 scaled) */
+      max-height: 96vh;
+      aspect-ratio: 9 / 16;
+      background-color: #10191b;
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px #22363a;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Tactile button/card styling */
+    .tactile-chip {
+      box-shadow: 0 4px 0 #cc3d1f;
+      transition: all 0.15s ease;
+    }
+    .tactile-chip:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #cc3d1f;
+    }
+
+    .tactile-surface {
+      box-shadow: 0 6px 0 rgba(0, 0, 0, 0.45), 0 16px 32px -8px rgba(0, 0, 0, 0.5);
+    }
+
+    .tactile-slot {
+      border: 2px dashed #2ba39a;
+      background-color: #122426;
+      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    .audio-btn {
+      box-shadow: 0 3px 0 #0d1b1d;
+      transition: transform 0.1s ease;
+    }
+    .audio-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #0d1b1d;
+    }
+  </style>
+</head>
+<body class="p-2 sm:p-6 bg-[#091518] selection:bg-teal-900 selection:text-teal-200">
+<!-- 9:16 Vertical Reel Canvas -->
+<main class="reel-stage flex flex-col p-6 sm:p-7 select-none relative">
+<!-- Subtle tactile background grid watermark -->
+<div class="absolute inset-0 pointer-events-none opacity-40" style="background-image: radial-gradient(#1f2e31 1.5px, transparent 1.5px); background-size: 24px 24px;"></div>
+<!-- TOP SECTION (Top Third): Status Pill & Hook Question -->
+<header class="relative z-10 pt-2 flex flex-col items-center text-center">
+<!-- Category Badge & Audio Status -->
+<div class="flex items-center justify-between w-full mb-4 px-1">
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#143536] text-[#38d9c0] text-[11px] font-bold tracking-wide uppercase border border-[#1e4749] shadow-[0_2px_0_#072422]">
+<span class="material-symbols-outlined text-[15px] text-[#38d9c0]">psychology</span>
+<span>Quick English Drill</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#1e2f33] text-[#e8f1f0] border border-[#26383c] text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px] text-[#ff6b4a]">volume_up</span>
+<span>Listen 1.0×</span>
+</div>
+</div>
+<!-- Super Hook Header -->
+<div class="inline-block mb-2">
+<span class="px-3 py-1 rounded-lg bg-[#241a1b] border border-[#452426] text-[#ff6b4a] font-extrabold text-[12px] tracking-wider uppercase inline-flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#ff5c38] animate-pulse"></span>
+          Real Life Situations
+        </span>
+</div>
+<!-- Main Hook Question (Wrapped cleanly, bold & scroll-stopping) -->
+<h1 class="text-[#e8f1f0] font-black text-[27px] sm:text-[29px] leading-[1.2] tracking-tight px-1 max-w-[370px]">
+        What do you say when you <span class="relative inline-block text-[#ff5c38] underline decoration-[#ff6b4a] decoration-wavy decoration-2 underline-offset-4">miss the bus?</span>
+</h1>
+<p class="text-[#a9bdbb] text-[13px] font-medium mt-1.5">Natural phrases native speakers actually use</p>
+</header>
+<!-- MIDDLE SECTION: Primary Content Phrase Card (Tactile, Crisp, Layered) -->
+<section class="relative z-10 my-auto py-2">
+<div class="bg-[#172427] rounded-3xl border-2 border-[#22363a] p-5 tactile-surface flex flex-col gap-4 relative">
+<!-- Header Tag & Speaker Button -->
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#163638] border border-[#244f52] text-[#38d9c0] text-xs font-bold tracking-medium">
+<span class="w-2 h-2 rounded-full bg-[#38d9c0]"></span>
+            Daily English
+          </div>
+<button aria-label="Play pronunciation" class="audio-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#1e2f33] border border-[#26383c] text-[#e8f1f0] font-bold text-xs" type="button">
+<span class="material-symbols-outlined text-sm text-[#38d9c0]">volume_up</span>
+<span>UK / US</span>
+</button>
+</div>
+<!-- Main Phrase Hero Area -->
+<div class="bg-[#121d20] rounded-2xl p-4 border border-[#22363a] flex flex-col gap-1.5">
+<div class="text-[11px] font-bold uppercase tracking-wider text-[#38d9c0]">Primary Expression</div>
+<div class="flex items-baseline justify-between gap-2">
+<div class="text-[#e8f1f0] font-black text-2xl sm:text-[26px] tracking-tight leading-tight">
+              “I missed my bus.”
+            </div>
+<span class="text-xs font-mono font-medium text-[#38d9c0] bg-[#1e2f33] px-2 py-0.5 rounded-md border border-[#26383c] shrink-0">
+              /mɪst/
+            </span>
+</div>
+<div class="text-[#a9bdbb] text-[13px] font-semibold flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[#ff6b4a] text-[16px] shrink-0">info</span>
+<span>Plain meaning:</span>
+<span class="text-[#e8f1f0] font-normal">The bus left before I got there.</span>
+</div>
+</div>
+<!-- Variation 2: Polite / Work / Situation Context -->
+<div class="rounded-2xl p-3.5 bg-[#11292b] border border-[#1f4344] flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#38d9c0] inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[#38d9c0] text-[14px]">autorenew</span>
+              Polite / Professional Alternative
+            </span>
+<span class="text-[10px] font-bold text-[#a9bdbb] bg-[#1e2f33] border border-[#26383c] px-2 py-0.5 rounded-full">For boss or school</span>
+</div>
+<p class="text-[#e8f1f0] font-bold text-[15px] leading-snug mt-0.5">
+            “I got held up and missed the bus.”
+          </p>
+<p class="text-[#a9bdbb] text-[12px] leading-relaxed">
+            Explains you were delayed by circumstances, sounding respectful and responsible.
+          </p>
+</div>
+<!-- Extra Common Pitfall Alert -->
+<div class="flex items-start gap-2.5 px-3 py-2 rounded-xl bg-[#241a1b] border border-[#452426] text-[#e8f1f0] text-xs">
+<span class="material-symbols-outlined text-[#ff6b4a] text-base shrink-0 mt-0.5">warning</span>
+<p class="leading-tight text-[11.5px] text-[#e8f1f0]">
+<strong class="font-bold text-[#ff6b4a]">Don't say:</strong> “I lost my bus.” <br/>
+<span class="text-[#a9bdbb]">Say <strong class="text-[#e8f1f0]">“I missed”</strong> for transport schedules.</span>
+</p>
+</div>
+</div>
+</section>
+<!-- LOWER SECTION: 2D Teacher Slot & Interactive CTA & Follow Line -->
+<footer class="relative z-10 flex flex-col gap-3 pb-1">
+<!-- Teacher Ama Slot + Coach Bubble Layout -->
+<div class="flex items-center gap-3 bg-[#172427]/95 backdrop-blur-sm p-3 rounded-2xl border border-[#26383c] tactile-surface">
+<!-- Designated empty rounded placeholder labelled "teacher-slot" -->
+<div class="tactile-slot w-14 h-14 rounded-2xl flex flex-col items-center justify-center shrink-0 relative overflow-hidden" id="teacher-slot" title="teacher-slot">
+<!-- 2D Teacher Ama inserted via SVG code -->
+<svg class="w-10 h-10" fill="none" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<!-- Background circle/glow -->
+<circle cx="50" cy="50" fill="#163638" r="46"></circle>
+<!-- Teacher Hair Back -->
+<ellipse cx="50" cy="46" fill="#091518" rx="34" ry="32"></ellipse>
+<!-- Face -->
+<ellipse cx="50" cy="52" fill="#FBD38D" rx="24" ry="26"></ellipse>
+<!-- Hair Front/Bangs -->
+<path d="M26 44C28 32 40 24 50 24C60 24 72 32 74 44C66 40 56 42 50 44C44 42 34 40 26 44Z" fill="#091518"></path>
+<!-- Glasses Frame -->
+<rect fill="#FFFFFF" fill-opacity="0.3" height="11" rx="4" stroke="#00322e" stroke-width="3" width="14" x="33" y="47"></rect>
+<rect fill="#FFFFFF" fill-opacity="0.3" height="11" rx="4" stroke="#00322e" stroke-width="3" width="14" x="53" y="47"></rect>
+<path d="M47 52H53" stroke="#00322e" stroke-width="3"></path>
+<!-- Friendly Eyes -->
+<circle cx="40" cy="52" fill="#00322e" r="2.5"></circle>
+<circle cx="60" cy="52" fill="#00322e" r="2.5"></circle>
+<!-- Smile -->
+<path d="M44 64C47 67 53 67 56 64" stroke="#C53030" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Teacher Collar / Outfit -->
+<path d="M28 85C28 73 38 68 50 68C62 68 72 73 72 85" fill="#2BA39A"></path>
+<path d="M50 68V78" stroke="#FFFFFF" stroke-width="2.5"></path>
+</svg>
+<span class="absolute bottom-0 inset-x-0 text-[8px] font-extrabold text-[#38d9c0] bg-[#10191b]/90 text-center py-0.2 tracking-tighter">
+            teacher-slot
+          </span>
+</div>
+<!-- Coach Tip Text Bubble -->
+<div class="flex-1 min-w-0 pr-1">
+<div class="flex items-center gap-1.5">
+<span class="font-extrabold text-xs text-[#e8f1f0]">Ama · Lexkite Coach</span>
+<span class="text-[9px] font-bold px-1.5 py-0.2 rounded bg-[#241a1b] border border-[#452426] text-[#ff5c38]">PRO TIP</span>
+</div>
+<p class="text-[12px] font-medium text-[#a9bdbb] leading-snug mt-0.5">
+            “Notice the past tense <span class="font-bold text-[#e8f1f0] underline decoration-[#38d9c0]">missed</span>! In speech, it blends smoothly: <em class="text-[#38d9c0] font-semibold">/mɪst maɪ bʌs/</em>.”
+          </p>
+</div>
+</div>
+<!-- Raised Coral Accent Action Chip -->
+<button class="tactile-chip w-full py-3 px-4 rounded-2xl bg-[#ff5c38] text-white font-extrabold text-[15px] flex items-center justify-center gap-2 border-t border-white/20 active:translate-y-0.5">
+<span>Save to Mistake Notebook</span>
+<span class="material-symbols-outlined text-lg">bookmark</span>
+</button>
+<!-- Bottom Safe Area: Lexkite Wordmark & Clear Follow for more line -->
+<div class="flex items-center justify-between px-2 pt-1 pb-1 border-t border-[#22363a] text-[#a9bdbb]">
+<!-- Lexkite Brand Wordmark -->
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-lg bg-[#143536] border border-[#1e4749] flex items-center justify-center text-[#38d9c0] text-xs font-black shadow-sm">
+            L
+          </div>
+<span class="font-extrabold tracking-tight text-sm text-[#e8f1f0]">Lexkite</span>
+</div>
+<!-- Follow for more line (clear, inside safe area) -->
+<div class="flex items-center gap-1 text-[12px] font-bold text-[#a9bdbb]">
+<span>Follow for daily English drills</span>
+<span class="material-symbols-outlined text-[#ff6b4a] text-sm">arrow_forward</span>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

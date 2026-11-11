@@ -153,5 +153,5 @@
   "bubble_good_edge": "#5FC7BC",
   "onhl": "#FFE08A"
  },
- "tints": {"usuk": "rgba(107,216,206,0.30)", "verbs": "rgba(255,201,74,0.26)", "stress": "rgba(255,143,117,0.26)", "mistake": "rgba(242,85,59,0.22)", "phrasal": "rgba(91,214,143,0.24)", "pair": "rgba(107,216,206,0.26)", "prep": "rgba(255,201,74,0.24)", "pattern": "rgba(95,217,204,0.28)", "native": "rgba(91,214,143,0.24)", "guess": "rgba(255,143,117,0.24)", "level": "rgba(255,201,74,0.30)", "grammar": "rgba(110,180,255,0.24)", "dictation": "rgba(178,150,255,0.24)", "toeic": "rgba(250,140,22,0.22)", "review": "rgba(91,214,143,0.26)", "call": "rgba(90,200,250,0.26)"}
+ "tints": {"usuk": "rgba(107,216,206,0.30)", "verbs": "rgba(255,201,74,0.26)", "stress": "rgba(255,143,117,0.26)", "mistake": "rgba(242,85,59,0.22)", "phrasal": "rgba(91,214,143,0.24)", "pair": "rgba(107,216,206,0.26)", "prep": "rgba(255,201,74,0.24)", "pattern": "rgba(95,217,204,0.28)", "native": "rgba(91,214,143,0.24)", "guess": "rgba(255,143,117,0.24)", "level": "rgba(255,201,74,0.30)", "grammar": "rgba(110,180,255,0.24)", "dictation": "rgba(178,150,255,0.24)", "toeic": "rgba(250,140,22,0.22)", "review": "rgba(91,214,143,0.26)", "call": "rgba(90,200,250,0.26)", "react": "rgba(251,113,133,0.22)"}
 }

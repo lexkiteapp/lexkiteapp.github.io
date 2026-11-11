@@ -9,7 +9,7 @@ tags: [reading, ielts, true-false-not-given]
 keyword: "ielts reading true false not given"
 cover: reading
 coverAlt: "Lexkite uygulamasında A2 seviyesinden C1 seviyesine kadar sıralanmış IELTS okuma parçaları listesi"
-publishAt: ""
+publishAt: 2026-11-28T09:31:00+03:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -98,6 +98,8 @@ Bu analitik düşünme biçimini kalıcı bir reflekse dönüştürmek için:
 1. **Seviyelere Göre Okuma Çalışmaları:** Lexkite platformundaki [okuma kütüphanesini](/#/reading) ziyaret edin. Paragrafın hemen yanında soruların yer aldığı metinlerle satır satır kanıt bulma alıştırması yapın.
 2. **Hata Günlüğü ile Zayıf Yönleri Tespit Edin:** Yanlış işaretlediğiniz her soru otomatik olarak [hata günlüğünüze](/#/mistakes) kaydedilir. Hatalarınızın kelime bilgisinden mi yoksa mantıksal niteleyicilerden mi kaynaklandığını analiz edin.
 3. **Stratejik Becerilerinizi Geliştirin:** [ielts reading skimming scanning taktikleri](/tr/blog/ielts-reading-skimming-scanning-taktikleri/) ve [ielts paraphrase yapma teknikleri ornekler](/tr/blog/ielts-paraphrase-yapma-teknikleri-ornekler/) rehberlerimizi inceleyin. Kelime dağarcığınızı zenginleştirmek için [ielts icin ingilizce collocations rehberi](/tr/blog/ielts-icin-ingilizce-collocations-rehberi/) içeriğimize göz atın ve dilbilgisi temellerinizi tazelemek için [/ngu-phap/](/ngu-phap/) sayfamızdaki kaynaklardan faydalanın. Dinleme becerilerinizi artırmak için [ielts listening taktikleri](/tr/blog/ielts-listening-taktikleri/) rehberimiz de yanınızdadır.
+
+Her pasaja kaç dakika ayıracağınızı [IELTS Reading 60 dakika zaman yönetimi stratejisinde](/tr/blog/ielts-reading-zaman-yonetimi-60-dakika-stratejisi/) bulabilirsiniz.
 
 ## Sıkça Sorulan Sorular (FAQ)
 

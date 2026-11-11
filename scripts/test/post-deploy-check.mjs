@@ -1,9 +1,12 @@
 // 🔎 Soát bản LIVE lexkite.com sau mỗi lượt Pages deploy (post-deploy-check.yml): tải các tuyến chính bằng Chromium thật ở 390px & 1440px,
-// gom lỗi console, ngoại lệ chưa bắt, request same-origin 4xx/5xx hoặc hỏng, ảnh vỡ, trang trống. Có lỗi → exit 1 (workflow đỏ → ci-triage mở issue ci-failure).
+// kiểm đích 302 của "/", gom lỗi console, ngoại lệ chưa bắt, request same-origin 4xx/5xx hoặc hỏng, ảnh vỡ, trang trống. Có lỗi → exit 1 (workflow đỏ → ci-triage mở issue ci-failure).
 // Dùng: node scripts/test/post-deploy-check.mjs [base=https://lexkite.com] [thư-mục-ra=out/post-deploy]   Env: WAIT_SW=1 (chờ live có sw.js bằng repo, tối đa 6 phút), LEXKITE_CI_HEADER, PDC_IGNORE (regex bỏ qua, thêm vào mặc định)
 // Tương phản/visual guard dùng lại scripts/test/contrast.mjs (bước riêng trong workflow). Không gọi API trả phí.
 import { chromium } from 'playwright';
+import { shellHash, liveHash } from '../lib/sw-version.mjs';
 import fs from 'fs';
+import { routeCiHeader } from '../lib/http.mjs';
+import { pickLang } from '../../functions/api/_rootlang.js';
 const BASE = (process.argv[2] || 'https://lexkite.com').replace(/\/$/, '');
 const OUT = process.argv[3] || 'out/post-deploy';
 fs.mkdirSync(OUT, { recursive: true });
@@ -12,13 +15,13 @@ const CI = process.env.LEXKITE_CI_HEADER ? { 'X-Lexkite-CI': process.env.LEXKITE
 const IGNORE = new RegExp(['favicon', '/cdn-cgi/', '/api/hit', process.env.PDC_IGNORE].filter(Boolean).join('|'));
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-// Chờ Cloudflare build xong: sw.js live (lexkite-<số>) khớp bản repo; hết giờ vẫn chạy tiếp (không đỏ vì chờ)
+// Chờ Cloudflare build xong: hash nội dung trong sw.js live (lexkite-0-<hash>) khớp hash tính từ web/ của repo; hết giờ vẫn chạy tiếp (không đỏ vì chờ)
 async function waitLive() {
-  const want = (fs.existsSync('web/sw.js') ? fs.readFileSync('web/sw.js', 'utf8').match(/lexkite-\d+/) || [] : [])[0];
-  if (!want) return 'không đọc được web/sw.js – bỏ qua chờ';
+  let want = ''; try { want = shellHash('web'); } catch (e) { /* không có web/ */ }
+  if (!want) return 'không tính được hash web/ – bỏ qua chờ';
   const t0 = Date.now(); let live = '';
   while (Date.now() - t0 < 6 * 60e3) {
-    try { live = ((await (await fetch(BASE + '/sw.js?x=' + Date.now(), { headers: CI })).text()).match(/lexkite-\d+/) || [])[0]; } catch (e) { live = ''; }
+    try { live = liveHash(await (await fetch(BASE + '/sw.js?x=' + Date.now(), { headers: CI })).text()); } catch (e) { live = ''; }
     if (live === want) return `live = ${want} sau ${Math.round((Date.now() - t0) / 1000)}s`;
     await sleep(20000);
   }
@@ -36,7 +39,8 @@ const PAGES = [
 const VPS = [{ id: 'm390', width: 390, height: 844, isMobile: true, hasTouch: true }, { id: 'd1440', width: 1440, height: 900 }];
 
 async function visit(browser, vp, pg, url) {
-  const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, isMobile: !!vp.isMobile, hasTouch: !!vp.hasTouch, extraHTTPHeaders: CI });
+  const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, isMobile: !!vp.isMobile, hasTouch: !!vp.hasTouch });
+  await routeCiHeader(ctx, BASE, CI['X-Lexkite-CI']);
   const page = await ctx.newPage(), errs = [], add = (t, m) => { m = String(m).replace(/\s+/g, ' ').slice(0, 300); if (!IGNORE.test(m) && !errs.some(e => e.t === t && e.m === m)) errs.push({ t, m }); };
   const same = u => { try { return new URL(u).origin === ORIGIN; } catch (e) { return false; } };
   page.on('console', m => { if (m.type() === 'error' && (!m.location().url || same(m.location().url))) add('console', m.text() + (m.location().url ? ' @' + m.location().url : '')); });
@@ -75,6 +79,20 @@ const browser = await chromium.launch();
 let article = null;
 try { const r = await fetch(BASE + '/en/blog/', { headers: CI }); const t = await r.text(); article = (t.match(/href="(\/en\/blog\/[^"#?]+?)"/g) || []).map(x => x.slice(6, -1)).find(h => h.replace(/\/$/, '') !== '/en/blog' && !/\.(xml|json|css|js)$/.test(h)) || null; } catch (e) {}
 const t0 = Date.now();
+// Trang gốc quốc tế (docs/SEO-ARCH.md §10): đích 302 của "/" trên site thật khớp đúng luật, tính theo nước thật của máy chạy (runner ở Mỹ thì kiểm được nhánh Accept-Language, máy ở VN thì không)
+if (BASE === 'https://lexkite.com') {
+  const errs = [], cc = ((await (await fetch(BASE + '/cdn-cgi/trace')).text()).match(/\bloc=([A-Z]{2})/) || [])[1] || '';
+  for (const [ck, al] of [['', ''], ['', 'de-DE,de;q=0.9'], ['', 'ja'], ['', 'vi-VN,vi;q=0.9,en;q=0.8'], ['', 'en-US,en;q=0.9'], ['', 'nl-NL'], ['lk_lang=fr', 'de'], ['lk_lang=zz', 'ko']]) {
+    const r = await fetch(BASE + '/', { redirect: 'manual', headers: { ...CI, ...(al ? { 'Accept-Language': al } : {}), ...(ck ? { Cookie: ck } : {}) } }), want = pickLang(ck, cc, al), loc = r.headers.get('location') || '';
+    const okLoc = want === 'vi' ? /\/vi\/\?r=1$/.test(loc) : new RegExp(`/${want}/$`).test(loc);
+    console.log(`root [${cc}] cookie=${ck || '-'} al=${al || '-'} → ${r.status} ${loc}`);
+    if (r.status !== 302 || !okLoc) errs.push({ t: 'root', m: `cookie=${ck || '-'} al=${al || '-'} nước=${cc}: ${r.status} ${loc}, cần /${want}/` });
+    else if (!/accept-language/i.test(r.headers.get('vary') || '') || !/cookie/i.test(r.headers.get('vary') || '')) errs.push({ t: 'root', m: `thiếu Vary: ${r.headers.get('vary')}` });
+  }
+  for (const p of ['/vi/', '/en/', '/tu-vung/', '/samples/']) { const r = await fetch(BASE + p, { redirect: 'manual', headers: CI }); if (r.status !== 200) errs.push({ t: 'root', m: `${p}: ${r.status}, không được chuyển hướng` }); }
+  lines.push(`| trang gốc / (nước ${cc}) | - | ${errs.length ? '❌ ' + errs.length : '✅'} |`);
+  if (errs.length) failed.push({ n: 'trang gốc /', vp: '-', errs });
+}
 for (const pg of PAGES) {
   const url = pg.article ? (article ? BASE + article : null) : pg.u;
   if (!url) { failed.push({ n: pg.n, vp: '-', errs: [{ t: 'content', m: 'không tìm thấy link bài blog trong /en/blog/' }] }); continue; }

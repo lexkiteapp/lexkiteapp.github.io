@@ -4,7 +4,7 @@ name: Hiệu năng từ điển
 on:
   push:
     branches: [main, 'dict-perf*']
-    paths: ['web/js/lex.js', 'web/js/dictionary.js', 'web/js/data.js', 'web/js/app.js', 'web/js/lib/**', 'web/packs/**', 'scripts/lexicon/**', 'scripts/test/dict-perf.mjs', 'extension/boot.js', 'extension/content.js', 'extension/manifest.json', '.github/workflows/dict-perf.yml']
+    paths: ['web/js/lex.js', 'web/js/dictionary.js', 'web/js/data.js', 'web/js/app.js', 'web/js/ui.js', 'web/js/lib/**', 'web/packs/**', 'scripts/lexicon/**', 'scripts/test/dict-perf.mjs', 'scripts/test/pron-read.mjs', 'extension/boot.js', 'extension/content.js', 'extension/manifest.json', '.github/workflows/dict-perf.yml']
   workflow_dispatch:
     inputs:
       base: { description: 'Bản "trước" để so (sha/nhánh); trống = commit trước đó', default: '' }
@@ -21,9 +21,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Cài Chromium
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
       - name: Trước
         run: |
           BASE="${{ inputs.base }}"; [ -n "$BASE" ] || BASE=$([ "${{ github.ref_name }}" = main ] && echo "${{ github.event.before }}" || git merge-base origin/main HEAD)

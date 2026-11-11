@@ -124,7 +124,7 @@
         : t('Khởi động tuyệt vời! Mỗi lần luyện là một lần nhớ sâu hơn 🌱');
       view.innerHTML = `
         <div class="qk-wrap">
-          <div class="card qk-card qk-result-box" role="status">
+          <div class="card qk-card qk-result-box" role="status" data-lesson-done>
             <div class="qk-result-em" aria-hidden="true">${isGood ? UI.icon('zap') : UI.icon('sprout')}</div>
             <h1 class="qk-result-title">${timedOut ? t('Hết 15 giây!') : t('Hoàn thành trong {s} giây!', { s: elapsed })}</h1>
             <div class="muted">${t('Đúng {n}/{total} câu', { n: score, total })}${xp ? ` · +${xp} XP` : ''}</div>
@@ -336,7 +336,7 @@
 
       view.innerHTML = `
         <div class="qk-wrap">
-          <div class="card sty-card sty-res-box">
+          <div class="card sty-card sty-res-box" data-lesson-done>
             <div style="margin-bottom:.5rem" aria-hidden="true">${g.Kit && typeof g.Kit.svg === 'function' ? g.Kit.svg('win', 68) : UI.glyph(winnerStyle.icon)}</div>
             <div class="tiny muted" style="font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem">${t('Kết quả phong cách tiếng Anh')}</div>
             <h1 class="sty-badge">${UI.glyph(winnerStyle.icon)} ${esc(winnerStyle.name)}</h1>
@@ -392,7 +392,7 @@
       view.innerHTML = `
         <div class="qk-wrap">
           <div class="qk-top">
-            <a class="icon-btn" href="#/home" aria-label="${t('Thoát')}" title="${t('Thoát')}">✕</a>
+            <a class="icon-btn" href="${App.homeHref()}" aria-label="${t('Thoát')}" title="${t('Thoát')}">✕</a>
             <div class="qk-progress-wrap" role="progressbar" aria-label="${t('Phong cách tiếng Anh của bạn')}" aria-valuemin="0" aria-valuemax="${QUESTIONS.length}" aria-valuenow="${currentQ}">
               <div class="qk-progress-bar" style="width:${progressPct}%"></div>
             </div>

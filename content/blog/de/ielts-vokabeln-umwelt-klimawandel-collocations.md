@@ -59,6 +59,7 @@ quiz: [
     explain: "Mitigate bedeutet abmildern; die Kollokation beschreibt, eine drohende Klimakatastrophe abzumildern oder abzuwenden."
   }
 ]
+publishAt: 2026-11-29T19:14:00+01:00
 ---
 
 **IELTS Vokabeln Umwelt**, globale Erwärmung, Energiewende und der Schutz der Biodiversität gehören zu den mit Abstand häufigsten Themenfeldern in **IELTS Writing Task 2** und **IELTS Speaking Part 3**. Viele deutschsprachige Kandidaten greifen bei Umweltaufsätzen auf elementare Formulierungen wie *«the environment is getting worse»*, *«we must protect nature»* oder *«cars produce bad smoke»* zurück. Diese simplen Floskeln limitieren die Bewertung im Kriterium *Lexical Resource* auf ernüchternde Band 5.5 oder 6.0.

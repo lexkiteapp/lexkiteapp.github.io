@@ -14,6 +14,8 @@
 
 **Luật chung:** mọi nguồn đi qua cổng QA (`docs/CONTENT-QA.md`) trước khi xuất ra web; quy trình theo METHODS "Làm đúng 1 lần": thử 1 lô nhỏ → đo → mới nhân rộng.
 
+**Cập nhật 3/11:** trạng thái mới + lộ trình SCORE ≥ 95 ở `CONTENT-WORLD-PLAN.md` §6 (CQ1–CQ5 đo lại ở đó), lô Sonnet ở `content-lots.md`. Bảng dưới giữ làm lịch sử 24/10.
+
 Ký hiệu trạng thái: ✅ xong 24/10 · ⏳ đang làm/thẻ đã giao · ☐ chưa làm.
 
 ## 1. Lỗi chặn (sửa ngay)

@@ -1,0 +1,83 @@
+# 🌍 Bảng World: Lexkite vs Duolingo theo trục – docs/WORLD-SCORECARD.md. Hằng tuần + tay (thử trên nhánh: workflow_dispatch với ref nhánh).
+# Hermetic với Lexkite: probe chạy trên dist CỤC BỘ (lexkite.com bị chặn trong /etc/hosts), điểm Lighthouse Lexkite đọc từ reports/lighthouse.json.
+# Duolingo: 1 lượt Lighthouse trang chủ/tuần (robots.txt + 1 trang), không đăng nhập, không cào. Sàn chỉ tăng: content/pipeline/world.budget.json.
+name: World scorecard
+on:
+  schedule:
+    - cron: '30 2 * * 1'   # thứ Hai, sau lighthouse.yml (01:00)
+  workflow_dispatch:
+    inputs:
+      force_duolingo: { description: '1 = đo lại Duolingo dù đã đo < 6 ngày', required: false, default: '0' }
+  push:
+    branches: [main]
+    paths: ['scripts/world-scorecard.mjs', 'scripts/world/**', 'scripts/top1/**', 'content/pipeline/top1.budget.json', 'content/pipeline/world.axes.json', 'content/pipeline/world.budget.json', '.github/workflows/world-scorecard.yml']
+permissions:
+  contents: write
+  actions: read
+  issues: write   # issue "Top-1 score" (scripts/top1/score.mjs --issue)
+concurrency:
+  group: world-scorecard-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: { ssh-key: "${{ github.ref == 'refs/heads/main' && secrets.BOT_DEPLOY_KEY || '' }}" }   # đẩy main qua khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - name: Build dist
+        run: |
+          npm ci --no-audit --no-fund
+          bash scripts/build-web.sh >/dev/null
+      - name: Cài Playwright
+        timeout-minutes: 14
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - name: Mốc Duolingo (Lighthouse trang chủ, ≤ 1 lần/tuần)
+        if: github.ref == 'refs/heads/main'
+        env: { FORCE: "${{ inputs.force_duolingo == '1' && '1' || '' }}" }
+        run: node scripts/world/duolingo-lh.mjs
+      - name: Chặn host Lexkite (0 lượt chạm prod)
+        run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com api.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
+      - name: Probe hành trình (dist cục bộ)
+        id: probe
+        continue-on-error: true   # vẫn chấm + lưu số đo khác (Duolingo, cổng QA); bước cuối làm đỏ lượt chạy
+        run: node scripts/world/probe.mjs --root dist --lang en
+      - name: Cổng QA trên main (GitHub API)
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
+        run: node scripts/world/ci-status.mjs
+      - name: Chấm + kiểm sàn (chỉ tăng)
+        id: score
+        continue-on-error: true
+        run: |
+          node scripts/world-scorecard.mjs --write --check
+          if [ "$GITHUB_REF" = refs/heads/main ] && [ '${{ steps.probe.outcome }}' = success ]; then node scripts/world-scorecard.mjs --write --raise; fi
+          cat content/pipeline/WORLD.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Top-1 score (gộp quét đêm mới nhất + World; main → nâng sàn chỉ tăng) – docs/TOP1-SCORE.md
+        id: top1
+        continue-on-error: true
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
+        run: |
+          if [ "$GITHUB_REF" = refs/heads/main ]; then node scripts/top1/score.mjs --qs-latest --ci --write --raise --check --issue --summary
+          else node scripts/top1/score.mjs --qs-latest --ci --check --summary; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: world-scorecard
+          path: |
+            reports/world/
+            reports/top1/
+            content/pipeline/WORLD.md
+          retention-days: 14
+          if-no-files-found: ignore
+      - name: Lưu kết quả
+        if: github.ref == 'refs/heads/main'
+        run: |
+          bash scripts/ci/push-main.sh "Bảng World $(date -u +%F)" reports/world content/pipeline/WORLD.md content/pipeline/world.budget.json docs/UX-BENCHMARK.md content/pipeline/TOP1.md content/pipeline/top1.budget.json
+      - name: Đỏ nếu probe hoặc sàn trượt
+        if: steps.probe.outcome != 'success' || steps.score.outcome != 'success' || steps.top1.outcome != 'success'
+        run: |
+          echo "::error::probe=${{ steps.probe.outcome }} score=${{ steps.score.outcome }} top1=${{ steps.top1.outcome }} – xem reports/world/probe.json (trail/err), WORLD.md, TOP1.md"; exit 1

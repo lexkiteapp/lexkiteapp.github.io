@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-[#FFF8F3]">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Lexkite — Statistics & Badges</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Material Symbols Rounded -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: '#0F3D3E',
+            'brand-dark': '#0B2C2D',
+            coral: '#FF5252',
+            'coral-ledge': '#D63031',
+            amber: '#F59E0B',
+            'amber-ledge': '#B45309',
+            'amber-dark': '#1C1003',
+            surface: '#FFF8F3',
+            card: '#FFFFFF',
+            'card-border': '#EADBCE',
+            'card-ledge': '#DEC8B4',
+            ink: '#182426',
+            'ink-muted': '#4A5B5E',
+            'ink-subtle': '#5F7376',
+            teal: '#0D5F59',
+            'teal-light': '#E6F4F2',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Hide scrollbars but keep touch scroll smooth */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="h-full text-ink font-sans antialiased bg-[#FFF8F3] flex justify-center selection:bg-teal-100 selection:text-teal-900">
+
+  <!-- Mobile Screen Container: 390px wide -->
+  <div class="w-[390px] min-h-screen bg-[#FFF8F3] flex flex-col relative pb-24 shadow-2xl border-x border-[#EADBCE]">
+
+    <!-- Top App Bar (Hub Variant: Title left + One icon action right, height 60px) -->
+    <header class="sticky top-0 z-40 bg-[#FFF8F3]/95 backdrop-blur-md border-b-2 border-[#EADBCE] px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2 min-w-0">
+        <!-- Lexkite geometric kite emblem -->
+        <svg class="w-7 h-7 flex-shrink-0" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 2L24 12L14 14L4 12L14 2Z" fill="#F59E0B"/>
+          <path d="M14 14L24 12L14 26L4 12L14 14Z" fill="#0D5F59"/>
+          <circle cx="14" cy="14" r="2.5" fill="#FFFFFF"/>
+        </svg>
+        <div class="min-w-0">
+          <h1 class="text-[19px] font-black text-ink tracking-tight truncate leading-tight">Statistics & Badges</h1>
+          <p class="text-[11px] font-bold text-ink-muted uppercase tracking-wider">IELTS Academic Target 7.5</p>
+        </div>
+      </div>
+      <!-- Right Action: Share Progress (at least 44x44 px) -->
+      <button type="button" aria-label="Share Statistics" class="w-11 h-11 flex-shrink-0 rounded-xl bg-card border-2 border-[#EADBCE] shadow-[0_3px_0_0_#DEC8B4] active:translate-y-0.5 active:shadow-[0_1px_0_0_#DEC8B4] flex items-center justify-center text-brand transition-transform">
+        <span class="material-symbols-rounded text-[22px]">share</span>
+      </button>
+    </header>
+
+    <!-- Main Scrollable Content -->
+    <main class="flex-1 px-4 py-4 space-y-4">
+
+      <!-- Time Filter Tab Bar (at least 44px touch targets) -->
+      <div class="bg-card border-2 border-[#EADBCE] p-1 rounded-2xl shadow-[0_3px_0_0_#DEC8B4] flex items-center justify-between gap-1">
+        <button type="button" class="flex-1 min-h-[44px] rounded-xl text-xs font-bold text-ink-muted hover:text-ink transition-colors flex items-center justify-center px-1">
+          7 Days
+        </button>
+        <button type="button" class="flex-1 min-h-[44px] rounded-xl bg-[#0F3D3E] text-white shadow-[0_2px_0_0_#071F20] text-xs font-extrabold flex items-center justify-center px-1">
+          30 Days
+        </button>
+        <button type="button" class="flex-1 min-h-[44px] rounded-xl text-xs font-bold text-ink-muted hover:text-ink transition-colors flex items-center justify-center px-1">
+          Quarter
+        </button>
+        <button type="button" class="flex-1 min-h-[44px] rounded-xl text-xs font-bold text-ink-muted hover:text-ink transition-colors flex items-center justify-center px-1">
+          All Time
+        </button>
+      </div>
+
+      <!-- Key High-Level Stats Strip (2x2 Grid with tactile cards) -->
+      <div class="grid grid-cols-2 gap-3">
+        <!-- Current Streak -->
+        <div class="bg-card border-2 border-[#EADBCE] rounded-2xl p-3.5 shadow-[0_4px_0_0_#DEC8B4] flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+            <span class="text-[12px] font-bold text-ink-muted">Streak</span>
+            <div class="w-8 h-8 rounded-full bg-[#FEF3C7] border border-[#FDE68A] flex items-center justify-center text-[#D97706]">
+              <span class="material-symbols-rounded text-[18px]">local_fire_department</span>
+            </div>
+          </div>
+          <div class="mt-2">
+            <div class="flex items-baseline gap-1">
+              <span class="text-[28px] font-black tracking-tight text-ink leading-none">45</span>
+              <span class="text-xs font-extrabold text-[#B45309]">days</span>
+            </div>
+            <p class="text-[11px] font-bold text-teal mt-1 flex items-center gap-1">
+              <span class="material-symbols-rounded text-[14px]">verified</span>
+              Personal best
+            </p>
+          </div>
+        </div>
+
+        <!-- Words Mastered -->
+        <div class="bg-card border-2 border-[#EADBCE] rounded-2xl p-3.5 shadow-[0_4px_0_0_#DEC8B4] flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+            <span class="text-[12px] font-bold text-ink-muted">Vocabulary</span>
+            <div class="w-8 h-8 rounded-full bg-[#E6F4F2] border border-[#BCE3DE] flex items-center justify-center text-[#0D5F59]">
+              <span class="material-symbols-rounded text-[18px]">menu_book</span>
+            </div>
+          </div>
+          <div class="mt-2">
+            <div class="flex items-baseline gap-1">
+              <span class="text-[28px] font-black tracking-tight text-ink leading-none">1,240</span>
+            </div>
+            <p class="text-[11px] font-bold text-[#0D5F59] mt-1 flex items-center gap-1">
+              <span class="material-symbols-rounded text-[14px]">trending_up</span>
+              +142 this month
+            </p>
+          </div>
+        </div>
+
+        <!-- Total Study Time -->
+        <div class="bg-card border-2 border-[#EADBCE] rounded-2xl p-3.5 shadow-[0_4px_0_0_#DEC8B4] flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+            <span class="text-[12px] font-bold text-ink-muted">Time Spent</span>
+            <div class="w-8 h-8 rounded-full bg-[#F3E8FF] border border-[#E9D5FF] flex items-center justify-center text-[#7E22CE]">
+              <span class="material-symbols-rounded text-[18px]">schedule</span>
+            </div>
+          </div>
+          <div class="mt-2">
+            <div class="flex items-baseline gap-1">
+              <span class="text-[28px] font-black tracking-tight text-ink leading-none">38h</span>
+              <span class="text-xs font-bold text-ink-muted">45m</span>
+            </div>
+            <p class="text-[11px] font-bold text-ink-muted mt-1">16m daily average</p>
+          </div>
+        </div>
+
+        <!-- Band Estimate -->
+        <div class="bg-card border-2 border-[#EADBCE] rounded-2xl p-3.5 shadow-[0_4px_0_0_#DEC8B4] flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+            <span class="text-[12px] font-bold text-ink-muted">Readiness</span>
+            <div class="w-8 h-8 rounded-full bg-[#FEE2E2] border border-[#FECACA] flex items-center justify-center text-[#DC2626]">
+              <span class="material-symbols-rounded text-[18px]">ads_click</span>
+            </div>
+          </div>
+          <div class="mt-2">
+            <div class="flex items-baseline gap-1">
+              <span class="text-[28px] font-black tracking-tight text-ink leading-none">7.0</span>
+              <span class="text-[11px] font-extrabold text-teal">CEFR C1</span>
+            </div>
+            <p class="text-[11px] font-bold text-ink-muted mt-1">Target 7.5 (0.5 gap)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Streak Calendar Heatmap Card -->
+      <section class="bg-card border-2 border-[#EADBCE] rounded-2xl p-4 shadow-[0_4px_0_0_#DEC8B4]">
+        <div class="flex items-center justify-between mb-3">
+          <div>
+            <h2 class="text-sm font-extrabold text-ink flex items-center gap-1.5">
+              <span class="material-symbols-rounded text-[18px] text-[#D97706]">calendar_month</span>
+              Daily Activity Consistency
+            </h2>
+            <p class="text-[11px] font-bold text-ink-muted">Last 30 days active practice log</p>
+          </div>
+          <span class="px-2 py-1 bg-[#E6F4F2] text-[#0D5F59] border border-[#BCE3DE] text-[10px] font-extrabold rounded-lg">
+            100% On Track
+          </span>
+        </div>
+
+        <!-- Weekday Headers -->
+        <div class="grid grid-cols-7 gap-1.5 text-center mb-1.5 text-[10px] font-extrabold text-ink-muted">
+          <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+        </div>
+
+        <!-- Calendar Heatmap Grid (4 rows x 7 cols + 2 = 30 days) -->
+        <div class="grid grid-cols-7 gap-1.5 text-center text-xs font-extrabold">
+          <!-- Days 1 to 28 -->
+          <div class="h-8 rounded-lg bg-[#0D5F59] text-white flex items-center justify-center shadow-[0_2px_0_0_#073532]">1</div>
+          <div class="h-8 rounded-lg bg-[#14B8A6] text-white flex items-center justify-center shadow-[0_2px_0_0_#0D7E72]">2</div>
+          <div class="h-8 rounded-lg bg-[#0D5F59] text-white flex items-center justify-center shadow-[0_2px_0_0_#073532]">3</div>
+          <div class="h-8 rounded-lg bg-[#14B8A6] text-white flex items-center justify-center shadow-[0_2px_0_0_#0D7E72]">4</div>
+          <div class="h-8 rounded-lg bg-[#0D5F59] text-white flex items-center justify-center shadow-[0_2px_0_0_#073532]">5</div>
+          <div class="h-8 rounded-lg bg-[#0F3D3E] text-white flex items-center justify-center shadow-[0_2px_0_0_#082021]">6</div>
+          <div class="h-8 rounded-lg bg-[#0F3D3E] text-white flex items-center justify-center shadow-[0_2px_0_0_#082021]">7</div>
+
+          <div class="h-8 rounded-lg bg-[#14B8A6] text-white flex items-center justify-center shadow-[0_2px_0_0_#0D7E72]">8</div>
+          <div class="h-8 rounded-lg bg-[#14B8A6] text-white flex items-center justify-center shadow-[0_2px_0_0_#0D7E72]">9</div>
+          <div class="h-8 rounded-lg bg-[#0D5F59] text-white flex items-center justify-center shadow-[0_2px_0_0_#073532]">10</div>
+          <div class="h-8 rounded-lg bg-[#14B8A6] text-white flex items-center justify-center shadow-[0_2px_0_0_#0D7E72]">11</div>
+          <div class="h-8 rounded-lg bg-[#0F3D3E] text-white flex items-center justify-center shadow-[0_2px_0_0_#082021]">12</div>
+          <div class="h-8 rounded-lg bg-[#0F3D3E] text-white flex items-center justify-center shadow-[0_2px_0_0_#082021]">13</div>
+          <div class="h-8 rounded-lg bg-[#14B8A6] text-white flex items-center justify-center shadow-[0_2px_0_0_#0D7E72]">14</div>
+
+          <div class="h-8 rounded-lg bg-[#14B8A6] text-white flex items-center justify-center shadow-[0_2px_0_0_#0D7E72]">15</div>
+          <div class="h-8 rounded-lg bg-[#14B8A6] text-white flex items-center justify-center shadow-[0_2px_0_0_#0D7E72]">16</div>
+          <div class="h-8 rounded-lg bg-[#0D5F59] text-white flex items-center justify-center shadow-[0_2px_0_0_#073532]">17</div>
+          <div class="h-8 rounded-lg bg-[#0F3D3E] text-white flex items-center justify-center shadow-[0_2px_0_0_#082021]">18</div>
+          <div class="h-8 rounded-lg bg-[#14B8A6] text-white flex items-center justify-center shadow-[0_2px_0_0_#0D7E72]">19</div>
+          <div class="h-8 rounded-lg bg-[#0D5F59] text-white flex items-center justify-center shadow-[0_2px_0_0_#073532]">20</div>
+          <div class="h-8 rounded-lg bg-[#14B8A6] text-white flex items-center justify-center shadow-[0_2px_0_0_#0D7E72]">21</div>
+
+          <div class="h-8 rounded-lg bg-[#14B8A6] text-white flex items-center justify-center shadow-[0_2px_0_0_#0D7E72]">22</div>
+          <div class="h-8 rounded-lg bg-[#0F3D3E] text-white flex items-center justify-center shadow-[0_2px_0_0_#082021]">23</div>
+          <div class="h-8 rounded-lg bg-[#14B8A6] text-white flex items-center justify-center shadow-[0_2px_0_0_#0D7E72]">24</div>
+          <div class="h-8 rounded-lg bg-[#0F3D3E] text-white flex items-center justify-center shadow-[0_2px_0_0_#082021]">25</div>
+          <div class="h-8 rounded-lg bg-[#0D5F59] text-white flex items-center justify-center shadow-[0_2px_0_0_#073532]">26</div>
+          <div class="h-8 rounded-lg bg-[#14B8A6] text-white flex items-center justify-center shadow-[0_2px_0_0_#0D7E72]">27</div>
+          <div class="h-8 rounded-lg bg-[#0F3D3E] text-white flex items-center justify-center shadow-[0_2px_0_0_#082021]">28</div>
+
+          <!-- Days 29, 30 (Today) and rest of week placeholders -->
+          <div class="h-8 rounded-lg bg-[#14B8A6] text-white flex items-center justify-center shadow-[0_2px_0_0_#0D7E72]">29</div>
+          <div class="h-8 rounded-lg bg-[#F59E0B] text-[#1C1003] border-2 border-[#B45309] font-black flex items-center justify-center shadow-[0_2px_0_0_#92400E]">30★</div>
+          <div class="h-8 rounded-lg bg-[#F8EDE2] text-[#A69382] border border-dashed border-[#DFCDBF] flex items-center justify-center">1</div>
+          <div class="h-8 rounded-lg bg-[#F8EDE2] text-[#A69382] border border-dashed border-[#DFCDBF] flex items-center justify-center">2</div>
+          <div class="h-8 rounded-lg bg-[#F8EDE2] text-[#A69382] border border-dashed border-[#DFCDBF] flex items-center justify-center">3</div>
+          <div class="h-8 rounded-lg bg-[#F8EDE2] text-[#A69382] border border-dashed border-[#DFCDBF] flex items-center justify-center">4</div>
+          <div class="h-8 rounded-lg bg-[#F8EDE2] text-[#A69382] border border-dashed border-[#DFCDBF] flex items-center justify-center">5</div>
+        </div>
+
+        <!-- Legend Footer -->
+        <div class="mt-3 pt-2.5 border-t border-[#F0E4D7] flex items-center justify-between text-[11px] font-bold text-ink-muted">
+          <span>Less active</span>
+          <div class="flex items-center gap-1.5">
+            <span class="w-3.5 h-3.5 rounded bg-[#E6F4F2] border border-[#BCE3DE]"></span>
+            <span class="w-3.5 h-3.5 rounded bg-[#14B8A6]"></span>
+            <span class="w-3.5 h-3.5 rounded bg-[#0D5F59]"></span>
+            <span class="w-3.5 h-3.5 rounded bg-[#0F3D3E]"></span>
+            <span class="w-3.5 h-3.5 rounded bg-[#F59E0B] border border-[#B45309]"></span>
+          </div>
+          <span>30m+ sprint</span>
+        </div>
+      </section>
+
+      <!-- Words Learned Chart (Last 7 Days Bar Chart) -->
+      <section class="bg-card border-2 border-[#EADBCE] rounded-2xl p-4 shadow-[0_4px_0_0_#DEC8B4]">
+        <div class="flex items-center justify-between mb-3">
+          <div>
+            <h2 class="text-sm font-extrabold text-ink flex items-center gap-1.5">
+              <span class="material-symbols-rounded text-[18px] text-teal">bar_chart</span>
+              Words Learned (Last 7 Days)
+            </h2>
+            <p class="text-[11px] font-bold text-ink-muted">Spaced repetition reviews completed</p>
+          </div>
+          <span class="px-2 py-0.5 bg-[#FEF3C7] text-[#92400E] border border-[#FDE68A] text-[11px] font-black rounded-lg">
+            +180 words
+          </span>
+        </div>
+
+        <!-- Bar Visualizer Container -->
+        <div class="bg-[#FFFDFB] border border-[#EADBCE] rounded-xl p-3">
+          <div class="h-28 flex items-end justify-between gap-2 pt-2 px-1">
+            <!-- Mon: 18 -->
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <span class="text-[10px] font-bold text-ink-muted">18</span>
+              <div class="w-full bg-[#14B8A6] rounded-t-md h-12 shadow-[0_2px_0_0_#0D7E72]"></div>
+              <span class="text-[10px] font-extrabold text-ink-muted mt-1">M</span>
+            </div>
+            <!-- Tue: 26 -->
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <span class="text-[10px] font-bold text-ink-muted">26</span>
+              <div class="w-full bg-[#14B8A6] rounded-t-md h-16 shadow-[0_2px_0_0_#0D7E72]"></div>
+              <span class="text-[10px] font-extrabold text-ink-muted mt-1">T</span>
+            </div>
+            <!-- Wed: 34 -->
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <span class="text-[10px] font-bold text-ink-muted">34</span>
+              <div class="w-full bg-[#0D5F59] rounded-t-md h-20 shadow-[0_2px_0_0_#073532]"></div>
+              <span class="text-[10px] font-extrabold text-ink-muted mt-1">W</span>
+            </div>
+            <!-- Thu: 12 -->
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <span class="text-[10px] font-bold text-ink-muted">12</span>
+              <div class="w-full bg-[#14B8A6] rounded-t-md h-8 shadow-[0_2px_0_0_#0D7E72]"></div>
+              <span class="text-[10px] font-extrabold text-ink-muted mt-1">T</span>
+            </div>
+            <!-- Fri: 28 -->
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <span class="text-[10px] font-bold text-ink-muted">28</span>
+              <div class="w-full bg-[#0D5F59] rounded-t-md h-18 shadow-[0_2px_0_0_#073532]"></div>
+              <span class="text-[10px] font-extrabold text-ink-muted mt-1">F</span>
+            </div>
+            <!-- Sat: 40 (Peak) -->
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <span class="text-[10px] font-black text-[#B45309]">40★</span>
+              <div class="w-full bg-[#F59E0B] rounded-t-md h-24 shadow-[0_2px_0_0_#B45309] border-t-2 border-[#FEF08A]"></div>
+              <span class="text-[10px] font-extrabold text-[#B45309] mt-1">S</span>
+            </div>
+            <!-- Sun (Today): 22 -->
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <span class="text-[10px] font-bold text-ink-muted">22</span>
+              <div class="w-full bg-[#14B8A6] rounded-t-md h-14 shadow-[0_2px_0_0_#0D7E72]"></div>
+              <span class="text-[10px] font-extrabold text-teal mt-1">TODAY</span>
+            </div>
+          </div>
+          <div class="mt-2.5 pt-2 border-t border-[#F0E4D7] flex items-center justify-between text-[11px] font-bold text-ink-muted">
+            <span>Daily target: 20 words</span>
+            <span class="text-teal font-extrabold">Recall rate: 94.2%</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Accuracy by Skill Bars -->
+      <section class="bg-card border-2 border-[#EADBCE] rounded-2xl p-4 shadow-[0_4px_0_0_#DEC8B4]">
+        <div class="flex items-center justify-between mb-3">
+          <div>
+            <h2 class="text-sm font-extrabold text-ink flex items-center gap-1.5">
+              <span class="material-symbols-rounded text-[18px] text-brand">analytics</span>
+              Skill Diagnostic Accuracy
+            </h2>
+            <p class="text-[11px] font-bold text-ink-muted">Calibrated against IELTS Band 9 criteria</p>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Listening -->
+          <div>
+            <div class="flex justify-between items-center text-xs mb-1">
+              <span class="font-extrabold text-ink flex items-center gap-1">
+                <span class="material-symbols-rounded text-[16px] text-teal">headphones</span>
+                Listening (Parts 1–4)
+              </span>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-extrabold text-teal">Band 7.5</span>
+                <span class="font-black text-ink">88%</span>
+              </div>
+            </div>
+            <div class="w-full h-3 bg-[#F0E4D7] rounded-full overflow-hidden p-0.5">
+              <div class="h-full bg-[#0D5F59] rounded-full" style="width: 88%;"></div>
+            </div>
+          </div>
+
+          <!-- Reading -->
+          <div>
+            <div class="flex justify-between items-center text-xs mb-1">
+              <span class="font-extrabold text-ink flex items-center gap-1">
+                <span class="material-symbols-rounded text-[16px] text-teal">menu_book</span>
+                Reading (Academic Texts)
+              </span>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-extrabold text-teal">Band 7.0</span>
+                <span class="font-black text-ink">82%</span>
+              </div>
+            </div>
+            <div class="w-full h-3 bg-[#F0E4D7] rounded-full overflow-hidden p-0.5">
+              <div class="h-full bg-[#14B8A6] rounded-full" style="width: 82%;"></div>
+            </div>
+          </div>
+
+          <!-- Speaking -->
+          <div>
+            <div class="flex justify-between items-center text-xs mb-1">
+              <span class="font-extrabold text-ink flex items-center gap-1">
+                <span class="material-symbols-rounded text-[16px] text-[#D97706]">mic</span>
+                Speaking Fluency & IPA
+              </span>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-extrabold text-[#B45309]">Band 6.5</span>
+                <span class="font-black text-ink">74%</span>
+              </div>
+            </div>
+            <div class="w-full h-3 bg-[#F0E4D7] rounded-full overflow-hidden p-0.5">
+              <div class="h-full bg-[#F59E0B]" style="width: 74%;"></div>
+            </div>
+          </div>
+
+          <!-- Writing -->
+          <div>
+            <div class="flex justify-between items-center text-xs mb-1">
+              <span class="font-extrabold text-ink flex items-center gap-1">
+                <span class="material-symbols-rounded text-[16px] text-coral">edit_note</span>
+                Writing Task 2 Cohesion
+              </span>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-extrabold text-[#D63031]">Band 6.5</span>
+                <span class="font-black text-ink">70%</span>
+              </div>
+            </div>
+            <div class="w-full h-3 bg-[#F0E4D7] rounded-full overflow-hidden p-0.5">
+              <div class="h-full bg-coral" style="width: 70%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-3 p-2.5 bg-[#FFF9F3] border border-[#EADBCE] rounded-xl flex items-center gap-2 text-[11px] font-bold text-ink-muted">
+          <span class="material-symbols-rounded text-teal text-[18px] flex-shrink-0">lightbulb</span>
+          <span>Focus recommendation: 2 writing cohesion drills to unlock Band 7.0 benchmark.</span>
+        </div>
+      </section>
+
+      <!-- Empty Teacher Slot (§5d required placeholder - No drawn person) -->
+      <section class="border-2 border-dashed border-[#136B66] rounded-2xl p-3.5 bg-[#F4FAF9] flex items-center justify-between gap-3 shadow-sm">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl bg-card border-2 border-[#136B66] flex flex-col items-center justify-center text-teal flex-shrink-0 shadow-[0_2px_0_0_#0D5F59]">
+            <span class="material-symbols-rounded text-[20px]">school</span>
+            <span class="text-[8px] font-black uppercase tracking-tighter">SLOT</span>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-xs font-black text-teal uppercase tracking-wider">teacher-slot</span>
+              <span class="px-1.5 py-0.2 bg-[#FEF3C7] text-[#92400E] border border-[#FDE68A] text-[9px] font-black rounded">Coach Ama</span>
+            </div>
+            <p class="text-xs font-bold text-ink-muted mt-0.5">“Spaced retrieval compounds! 15 minutes daily outperforms weekend marathon study.”</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Badges Showcase Grid (8 badges: 5 unlocked, 3 locked) -->
+      <section class="bg-card border-2 border-[#EADBCE] rounded-2xl p-4 shadow-[0_4px_0_0_#DEC8B4]">
+        <div class="flex items-center justify-between mb-3">
+          <div>
+            <h2 class="text-sm font-extrabold text-ink flex items-center gap-1.5">
+              <span class="material-symbols-rounded text-[18px] text-[#F59E0B]">military_tech</span>
+              Badges Showcase
+            </h2>
+            <p class="text-[11px] font-bold text-ink-muted">Physical trophies for daily mastery</p>
+          </div>
+          <span class="px-2.5 py-1 bg-[#E6F4F2] text-[#0D5F59] border border-[#BCE3DE] text-xs font-black rounded-lg">
+            5 / 8 Earned
+          </span>
+        </div>
+
+        <!-- 8 Badges in 2x4 Grid -->
+        <div class="grid grid-cols-4 gap-2.5 text-center">
+          
+          <!-- Badge 1: First Review (Unlocked) -->
+          <div class="flex flex-col items-center">
+            <div class="w-14 h-14 rounded-2xl bg-[#FEF3C7] border-2 border-[#F59E0B] shadow-[0_3px_0_0_#B45309] flex items-center justify-center text-[#D97706] relative">
+              <span class="material-symbols-rounded text-[26px]">star</span>
+              <span class="absolute -top-1 -right-1 w-4 h-4 bg-teal rounded-full text-white flex items-center justify-center text-[10px] font-black border border-white">✓</span>
+            </div>
+            <span class="text-[11px] font-black text-ink mt-1.5 truncate w-full">First Star</span>
+            <span class="text-[9px] font-bold text-[#0D5F59]">Unlocked</span>
+          </div>
+
+          <!-- Badge 2: 50 Words (Unlocked) -->
+          <div class="flex flex-col items-center">
+            <div class="w-14 h-14 rounded-2xl bg-[#E6F4F2] border-2 border-[#0D5F59] shadow-[0_3px_0_0_#073532] flex items-center justify-center text-[#0D5F59] relative">
+              <span class="material-symbols-rounded text-[26px]">book</span>
+              <span class="absolute -top-1 -right-1 w-4 h-4 bg-teal rounded-full text-white flex items-center justify-center text-[10px] font-black border border-white">✓</span>
+            </div>
+            <span class="text-[11px] font-black text-ink mt-1.5 truncate w-full">50 Words</span>
+            <span class="text-[9px] font-bold text-[#0D5F59]">Unlocked</span>
+          </div>
+
+          <!-- Badge 3: Review Machine (Unlocked) -->
+          <div class="flex flex-col items-center">
+            <div class="w-14 h-14 rounded-2xl bg-[#FFE4E6] border-2 border-[#F43F5E] shadow-[0_3px_0_0_#9F1239] flex items-center justify-center text-[#E11D48] relative">
+              <span class="material-symbols-rounded text-[26px]">rocket_launch</span>
+              <span class="absolute -top-1 -right-1 w-4 h-4 bg-teal rounded-full text-white flex items-center justify-center text-[10px] font-black border border-white">✓</span>
+            </div>
+            <span class="text-[11px] font-black text-ink mt-1.5 truncate w-full">Reviewer</span>
+            <span class="text-[9px] font-bold text-[#0D5F59]">Unlocked</span>
+          </div>
+
+          <!-- Badge 4: 7-Day Volcano (Unlocked) -->
+          <div class="flex flex-col items-center">
+            <div class="w-14 h-14 rounded-2xl bg-[#FFEDD5] border-2 border-[#EA580C] shadow-[0_3px_0_0_#9A3412] flex items-center justify-center text-[#EA580C] relative">
+              <span class="material-symbols-rounded text-[26px]">volcano</span>
+              <span class="absolute -top-1 -right-1 w-4 h-4 bg-teal rounded-full text-white flex items-center justify-center text-[10px] font-black border border-white">✓</span>
+            </div>
+            <span class="text-[11px] font-black text-ink mt-1.5 truncate w-full">7-Day Fire</span>
+            <span class="text-[9px] font-bold text-[#0D5F59]">Unlocked</span>
+          </div>
+
+          <!-- Badge 5: 30-Day Spark (Unlocked) -->
+          <div class="flex flex-col items-center">
+            <div class="w-14 h-14 rounded-2xl bg-[#CCFBF1] border-2 border-[#0F766E] shadow-[0_3px_0_0_#115E59] flex items-center justify-center text-[#0F766E] relative">
+              <span class="material-symbols-rounded text-[26px]">diamond</span>
+              <span class="absolute -top-1 -right-1 w-4 h-4 bg-teal rounded-full text-white flex items-center justify-center text-[10px] font-black border border-white">✓</span>
+            </div>
+            <span class="text-[11px] font-black text-ink mt-1.5 truncate w-full">Diamond</span>
+            <span class="text-[9px] font-bold text-[#0D5F59]">Unlocked</span>
+          </div>
+
+          <!-- Badge 6: Grand Library (Locked #1) -->
+          <div class="flex flex-col items-center opacity-75">
+            <div class="w-14 h-14 rounded-2xl bg-[#F4ECE3] border-2 border-[#DEC8B4] shadow-[0_3px_0_0_#C5B29F] flex items-center justify-center text-[#7A695B] relative">
+              <span class="material-symbols-rounded text-[24px]">account_balance</span>
+              <span class="absolute -bottom-1 -right-1 w-4 h-4 bg-[#7A695B] rounded-full text-white flex items-center justify-center text-[9px] font-black">
+                <span class="material-symbols-rounded text-[10px]">lock</span>
+              </span>
+            </div>
+            <span class="text-[11px] font-extrabold text-ink-muted mt-1.5 truncate w-full">Grand Lib</span>
+            <span class="text-[9px] font-extrabold text-ink-muted">820/1k</span>
+          </div>
+
+          <!-- Badge 7: Master 100 (Locked #2) -->
+          <div class="flex flex-col items-center opacity-75">
+            <div class="w-14 h-14 rounded-2xl bg-[#F4ECE3] border-2 border-[#DEC8B4] shadow-[0_3px_0_0_#C5B29F] flex items-center justify-center text-[#7A695B] relative">
+              <span class="material-symbols-rounded text-[24px]">record_voice_over</span>
+              <span class="absolute -bottom-1 -right-1 w-4 h-4 bg-[#7A695B] rounded-full text-white flex items-center justify-center text-[9px] font-black">
+                <span class="material-symbols-rounded text-[10px]">lock</span>
+              </span>
+            </div>
+            <span class="text-[11px] font-extrabold text-ink-muted mt-1.5 truncate w-full">Master 100</span>
+            <span class="text-[9px] font-extrabold text-ink-muted">64/100</span>
+          </div>
+
+          <!-- Badge 8: IELTS Crown (Locked #3) -->
+          <div class="flex flex-col items-center opacity-75">
+            <div class="w-14 h-14 rounded-2xl bg-[#F4ECE3] border-2 border-[#DEC8B4] shadow-[0_3px_0_0_#C5B29F] flex items-center justify-center text-[#7A695B] relative">
+              <span class="material-symbols-rounded text-[24px]">military_tech</span>
+              <span class="absolute -bottom-1 -right-1 w-4 h-4 bg-[#7A695B] rounded-full text-white flex items-center justify-center text-[9px] font-black">
+                <span class="material-symbols-rounded text-[10px]">lock</span>
+              </span>
+            </div>
+            <span class="text-[11px] font-extrabold text-ink-muted mt-1.5 truncate w-full">Crown 7.5</span>
+            <span class="text-[9px] font-extrabold text-ink-muted">Goal 7.5</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Primary Single CTA: Share Progress Button (With tactile 3D bottom ledge, coral, min-h 48px) -->
+      <div class="pt-1">
+        <button type="button" class="w-full min-h-[50px] bg-coral hover:bg-[#FF3E3E] text-white font-extrabold text-base rounded-2xl border-2 border-[#D63031] shadow-[0_4px_0_0_#B71C1C] active:translate-y-1 active:shadow-none transition-all flex items-center justify-center gap-2">
+          <span class="material-symbols-rounded text-[22px]">share</span>
+          <span>Share Progress Card</span>
+          <span class="material-symbols-rounded text-[18px]">arrow_forward</span>
+        </button>
+      </div>
+
+    </main>
+
+    <!-- App Shell: Bottom Navigation Bar (5 tabs: Today, Vocab, Skills, Tests, Me) -->
+    <!-- 'Me' tab is actively highlighted as this is the user profile & analytics hub -->
+    <nav class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto bg-card border-t-2 border-[#EADBCE] shadow-[0_-3px_0_0_#DEC8B4] h-16 px-2 flex items-center justify-around z-50">
+      
+      <!-- Tab 1: Today -->
+      <a href="#today" class="flex-1 min-h-[44px] flex flex-col items-center justify-center text-ink-muted hover:text-ink active:scale-95 transition-all">
+        <span class="material-symbols-rounded text-[22px]">calendar_today</span>
+        <span class="text-[10px] font-bold mt-0.5">Today</span>
+      </a>
+
+      <!-- Tab 2: Vocab -->
+      <a href="#vocab" class="flex-1 min-h-[44px] flex flex-col items-center justify-center text-ink-muted hover:text-ink active:scale-95 transition-all">
+        <span class="material-symbols-rounded text-[22px]">menu_book</span>
+        <span class="text-[10px] font-bold mt-0.5">Vocab</span>
+      </a>
+
+      <!-- Tab 3: Skills -->
+      <a href="#skills" class="flex-1 min-h-[44px] flex flex-col items-center justify-center text-ink-muted hover:text-ink active:scale-95 transition-all">
+        <span class="material-symbols-rounded text-[22px]">psychology</span>
+        <span class="text-[10px] font-bold mt-0.5">Skills</span>
+      </a>
+
+      <!-- Tab 4: Tests -->
+      <a href="#tests" class="flex-1 min-h-[44px] flex flex-col items-center justify-center text-ink-muted hover:text-ink active:scale-95 transition-all">
+        <span class="material-symbols-rounded text-[22px]">assignment</span>
+        <span class="text-[10px] font-bold mt-0.5">Tests</span>
+      </a>
+
+      <!-- Tab 5: Me (Active Destination) -->
+      <a href="#me" class="flex-1 min-h-[44px] flex flex-col items-center justify-center text-[#0D5F59] active:scale-95 transition-all">
+        <div class="px-3 py-1 bg-[#E6F4F2] border border-[#BCE3DE] rounded-xl flex flex-col items-center shadow-[0_2px_0_0_#0D5F59]">
+          <span class="material-symbols-rounded text-[22px] text-[#0D5F59]">person</span>
+          <span class="text-[10px] font-extrabold text-[#0D5F59]">Me</span>
+        </div>
+      </a>
+      
+    </nav>
+
+  </div>
+</body>
+</html>

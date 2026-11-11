@@ -22,7 +22,7 @@ Duyệt 22/10/2026. Liên quan: `docs/SHORTS-ACCESS.md` (thư viện quản tr�
 2. `drive-shorts.yml` (sau mỗi cine-render + 04:23 UTC): bù tải nếu thiếu → **luật kho** `scripts/video/shorts-archive.mjs` → manifest quản trị lên kho.
 3. Luật kho (giữ dung lượng):
    - clip **đã duyệt / đã đăng / trong hàng chờ YouTube** (`content/video/web/approved.json`, `/api/youtube` op `ids`, `youtube_id`) → master + bìa **2 bản trên 2 Drive khác nhau** (`set_want 2` → `repair` chép phía máy chủ);
-   - clip **chưa duyệt / mẫu thử** → 1 bản; quá **30 ngày** → `retire` (thùng rác Google, Google xoá hẳn sau 30 ngày nữa); công thức + bìa + manifest giữ nguyên, thư viện ghi "dựng lại từ công thức";
+   - clip **chưa duyệt / tạm dừng** → 1 bản, giữ nguyên (từ 04/11/2026 không tự xóa); clip **bị loại** quá **30 ngày** → `retire`, và chỉ khi đọc được danh sách đã duyệt không rỗng (thùng rác Google, Google xoá hẳn sau 30 ngày nữa); công thức + bìa + manifest giữ nguyên, thư viện ghi "dựng lại từ công thức";
    - **cân bằng**: kế hoạch `rebalance` (chênh > 10 %, ví dụ khi nối Drive mới) → áp dụng theo lô ≤ 10 file/≤ 1 GB mỗi lượt, nghỉ 4 s, tối đa 10 lượt/ngày; phần còn lại chạy tiếp lần sau (kế hoạch tính lại từ sổ kho = tiếp tục được).
 4. Thẻ Drive trong Quản trị → Kho Drive: phần dung lượng shorts trên mỗi Drive + "còn chứa ≈ N clip" (≈ 10 MB/master, tới ngưỡng 90 %).
 
@@ -43,5 +43,11 @@ media đã kiểm sha trên kho + `.gitignore` → push. **Không viết lại l
 `web/js/lesson-video.js`: có `youtube_id` → mặt tiền nhẹ (poster; bấm mới nạp IFrame API + iframe `youtube-nocookie` rel=0, playsinline,
 modestbranding; `ended` → câu đố EN). YouTube không sẵn sàng trong 4 s / lỗi / vùng chặn (múi giờ Trung Quốc, giao diện zh + máy zh-CN) → bản tự
 lưu trữ. Không có `youtube_id` → bản tự lưu trữ. Đo `yt_fallback` qua `/api/hit`.
+
+**Video nhúng bài học (28/10, cờ `lv_embed`, thử `?lvembed=1&vtest=1`):** `/data/videos.json` mảng `embeds[]` (tách `items` → trang /video/, sitemap
+không đổi; schema `validateEmbeds`) – mỗi mục có `renditions.sq45` (1080×1350) + `wide` (1920×1080) = mp4 + bìa JPG + `en.vtt` + `chapters.vtt`
+từ workflow video-motion (docs/VIDEO-MOTION.md §Embedded). `LessonVideo.embed()` chỉ chạy khi bước video của nút "Bài học" mở: 4:5 trên điện thoại,
+16:9 khi ≥ 900 px ngang; `<track>` phụ đề EN + chương (nút tua), `ended` → bài bấm chính nút Tiếp tục. Mẫu hiện là `test: true`, file CHƯA tải lên
+R2/YouTube (chờ chủ OK). Gác: `lesson-embed.yml` (fixture = artifact `motion-<t>-embed-*`, `scripts/test/lesson-embed-e2e.mjs`).
 
 Kiểm thử: `node scripts/test/shorts-scale.mjs` (công thức tất định, schema manifest, hàng chờ YouTube giả lập, tải resumable, luật kho, sức chứa, mặt tiền jsdom).

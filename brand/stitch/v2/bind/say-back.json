@@ -1,0 +1,113 @@
+{
+ "_doc": "Say it like a native – mặt sau thẻ. Chỗ 'Teacher Slot' = Chars.still(<giáo viên>, <tư thế>) (thay chữ giữ chỗ); lời giáo viên theo sắc thái (d.react), dòng phụ = định nghĩa từ điển (d.def). Nghĩa = ngôn ngữ người học (en: nghĩa đơn giản). 'Use it when' = tình huống thật. Đừng nói: câu thô đã che (•), không bao giờ đọc; thẻ không có câu 'đừng nói' → ô 'Nói thế này' trải 2 cột. Thanh tab Stitch → thanh tab chung (d.nav).",
+ "i18n": {
+  "Say it like a native": "Nói như người bản xứ",
+  "Pro tip": "Mẹo hay",
+  "Target Phrase": "Câu cần học",
+  "Use it when": "Dùng khi",
+  "Don't say": "Đừng nói",
+  "Say this": "Nói thế này",
+  "Say it": "Tự nói thử",
+  "Next card": "Thẻ tiếp",
+  "Go back": "Quay về",
+  "Listen to pronunciation": "Nghe phát âm",
+  "Practice speaking this phrase": "Luyện nói câu này",
+  "Go to next flashcard": "Sang thẻ tiếp theo"
+ },
+ "text": {
+  "“Smooth! Nobody gets hurt.”": "'“' + d.react + '”'",
+  "De-escalate friction like a charismatic diplomat.": "d.def",
+  "Polite": "d.regLbl",
+  "I see where you're coming from.": "d.say",
+  "Vietnamese Meaning": "d.mLbl",
+  "Tôi hiểu vì sao bạn nghĩ vậy": "d.meaning",
+  "Translation: I won't fight you… yet.": "d.real",
+  "“I see where you're coming from,": "d.when",
+  "but I need more time.”": "''",
+  "Blunt": "d.dontReg",
+  "Y•••'• w••••.": "d.dont",
+  "Sounds aggressive": "d.dontWhy",
+  "Validates": "d.swapReg",
+  "I see your point.": "d.swap",
+  "Keeps rapport": "d.swapWhy"
+ },
+ "html": {
+  ":scope > main > div:nth-child(3) > section:nth-child(1) > div:nth-child(1)": "d.teacher"
+ },
+ "attr": {
+  ":scope > main > header > button:nth-child(1)": {
+   "data-href": "d.back",
+   "type": "'button'"
+  },
+  ":scope > main > header > button:nth-child(3)": {
+   "id": "'sFlag'",
+   "type": "'button'",
+   "aria-label": "t('Báo lỗi thẻ này')"
+  },
+  ":scope > main > div:nth-child(3) > section:nth-child(2)": {
+   "id": "'sCard'",
+   "data-face": "'back'"
+  },
+  ":scope > main > div:nth-child(3) > section:nth-child(2) > div:nth-child(1) > button": {
+   "id": "'sSpk'",
+   "type": "'button'"
+  },
+  ":scope > main > div:nth-child(3) > section:nth-child(2) > div:nth-child(2) > h2": {
+   "lang": "'en'",
+   "id": "'sSay'"
+  },
+  ":scope > main > div:nth-child(3) > section:nth-child(2) > div:nth-child(3) > p:nth-child(2)": {
+   "lang": "d.mLang"
+  },
+  ":scope > main > div:nth-child(3) > section:nth-child(2) > div:nth-child(5) > p": {
+   "lang": "'en'"
+  },
+  ":scope > main > div:nth-child(3) > section:nth-child(2) > div:nth-child(6) > div:nth-child(1) > p": {
+   "lang": "'en'",
+   "aria-label": "d.dontAria"
+  },
+  ":scope > main > div:nth-child(3) > section:nth-child(2) > div:nth-child(6) > div:nth-child(2) > p": {
+   "lang": "'en'"
+  },
+  ":scope > main > div:nth-child(3) > section:nth-child(3) > button:nth-child(1)": {
+   "id": "'sMic'",
+   "type": "'button'",
+   "aria-pressed": "'false'"
+  },
+  ":scope > main > div:nth-child(3) > section:nth-child(3) > button:nth-child(2)": {
+   "id": "'sNext'",
+   "type": "'button'",
+   "data-href": "d.next"
+  },
+  ":scope > main > div:nth-child(3) > section:nth-child(1) > div:nth-child(1)": {
+   "aria-hidden": "'true'"
+  }
+ },
+ "cls": {
+  ":scope > main > div:nth-child(3) > section:nth-child(2) > div:nth-child(6) > div:nth-child(1)": {
+   "flex": "d.dont ? 'flex' : 'hidden'"
+  },
+  ":scope > main > div:nth-child(3) > section:nth-child(2) > div:nth-child(6) > div:nth-child(2)": {
+   "flex": "d.dont ? 'flex' : 'flex col-span-2'"
+  },
+  ":scope > main > div:nth-child(3) > section:nth-child(1) > div:nth-child(1)": {
+   "border-2": "''",
+   "border-dashed": "''",
+   "p-2.5": "'p-0 overflow-hidden'",
+   "justify-center": "'justify-end'"
+  },
+  ":scope > main > div:nth-child(3) > section:nth-child(2) > div:nth-child(3) > p:nth-child(3)": {
+   "flex": "d.real ? 'flex' : 'hidden'"
+  }
+ },
+ "addClass": {
+  ":scope > main > div:nth-child(3) > section:nth-child(1) > div:nth-child(2) > div:nth-child(3) > span:nth-child(1)": "motion-reduce:animate-none"
+ },
+ "remove": [
+  ":scope > main > nav"
+ ],
+ "after": {
+  ":scope > main > div:nth-child(3)": "d.nav",
+  ":scope > main > div:nth-child(3) > section:nth-child(3)": "d.heard"
+ }
+}

@@ -33,7 +33,7 @@
    "diff": "easy",
    "words": 72,
    "est_s": 35.5,
-   "ipa": "/frʌm/",
+   "ipa": "/prəˈtekts/",
    "content_hash": "28fc7bdc15963aaf"
   },
   {
@@ -44,18 +44,29 @@
    "diff": "medium",
    "words": 65,
    "est_s": 33.1,
-   "ipa": "/skɪl/",
+   "ipa": "/skɪld/",
    "content_hash": "3bcd8dbe5b99feaf"
   },
   {
    "ep": 5,
+   "id": "wlw_07301877",
+   "point": "concentrate + on: give all attention to",
+   "cefr": "B1",
+   "diff": "medium",
+   "words": 68,
+   "est_s": 34.1,
+   "ipa": null,
+   "content_hash": "7de77ab2f31ae41e"
+  },
+  {
+   "ep": 6,
    "id": "wlw_0c46f8a4",
    "point": "fond + of: liking someone or something",
    "cefr": "B1",
    "diff": "medium",
    "words": 64,
    "est_s": 32.7,
-   "ipa": null,
+   "ipa": "/fɑːnd/",
    "content_hash": "6467532c16ec87c8"
   }
  ],
@@ -101,11 +112,6 @@
    "reason": "self-check: note ex line > 26 chars: [['She '], ['longs for ', 'green'], ['a quiet weekend.']]"
   },
   {
-   "bank": "sb_07301877",
-   "point": "concentrate + on: give all attention to",
-   "reason": "self-check: note fix line > 26 chars: [['concentrate', 'green'], ['  '], ['@ipa:/ˈkɑːnsəntreɪt/']]; note save line > 26 chars: [['concentrate', 'green'], ['  '], ['@ipa:/ˈkɑːnsəntreɪt/']]"
-  },
-  {
    "bank": "sb_00b3d3f4",
    "point": "cope + with: deal successfully with",
    "reason": "self-check: note qs line > 26 chars: [[\"He can't cope \"], ['___ ', 'green'], ['the noise.']]"
@@ -133,7 +139,7 @@
   {
    "bank": "sb_14617767",
    "point": "congratulate + on: praise someone for a success",
-   "reason": "self-check: note fix line > 26 chars: [['congratulate', 'green'], ['  '], ['@ipa:/kənˈɡrætʃəleɪt/']]; note save line > 26 chars: [['congratulate', 'green'], ['  '], ['@ipa:/kənˈɡrætʃəleɪt/']]; hook 7 words on screen"
+   "reason": "self-check: hook 7 words on screen"
   }
  ]
 }

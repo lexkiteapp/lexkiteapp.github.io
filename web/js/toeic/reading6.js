@@ -4,7 +4,7 @@
   T.reading.push({ id: 'tr6', test: 6, title: 'TOEIC Reading Test 6', parts: [
 
     /* ================= PART 5 ================= */
-    { part: 5, title: 'Incomplete Sentences', instr: 'A word or phrase is missing in each of the sentences below. Four answer choices are given below each sentence. Select the best answer to complete the sentence.',
+    { part: 5, title: 'Incomplete Sentences', instr: g.TQR[2],
       groups: [ { type: 'mcq', instr: '', items: [
         { n: 101, q: 'The front desk staff at the Marbleton Suites responded ------- to the guest\'s complaint about the noise.', options: ['prompt', 'prompting', 'promptness', 'promptly'], a: 3, cue: 'responded -------',
           explain: 'Cần trạng từ bổ nghĩa cho động từ "responded" → "promptly" (nhanh chóng, kịp thời). "prompt" là tính từ/động từ; "promptness" là danh từ (sự nhanh chóng); "prompting" là V-ing, không bổ nghĩa cho động từ.' },
@@ -69,7 +69,7 @@
       ] } ] },
 
     /* ================= PART 6 ================= */
-    { part: 6, title: 'Text Completion', instr: 'Read the texts that follow. A word, phrase, or sentence is missing in parts of each text. Four answer choices for each question are given below the text. Select the best answer to complete the text.',
+    { part: 6, title: 'Text Completion', instr: g.TQR[1],
       passages: [
         { title: 'Memo', text:
 `To: All production staff
@@ -130,7 +130,7 @@ The company says the program is a response to customer feedback. "Shoppers told 
 Members will also receive personalized offers -----(141)----- on their shopping habits. Registration is free and can be completed at any store or through the Fieldcrest app.
 
 The chain -----(142)----- plans to open six new stores next year, including its first location in Halden.`,
-          groups: [ { type: 'mcq', instr: 'Questions 139-142 refer to the following article.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[6], items: [
             { n: 139, q: '(139)', options: ['resigned', 'removed', 'reminded', 'redeemed'], a: 3, cue: 'for discounts on future purchases',
               explain: '"redeem points for…" = quy đổi điểm lấy… → điểm có thể được đổi lấy giảm giá cho lần mua sau. "removed" (bị xóa bỏ), "reminded" (được nhắc nhở), "resigned" (từ chức) không hợp nghĩa.' },
             { n: 140, q: '(140)', options: ['"Fieldcrest also sells household goods and flowers."', '"That is exactly what this program is designed to do."', '"Our stores will close early on public holidays."', '"Several competitors have recently raised their prices."'], a: 1, cue: 'Shoppers told us they wanted rewards that are simple and easy to use',
@@ -161,7 +161,7 @@ We have chosen these early-morning hours to keep the -----(146)----- to our cust
       ] },
 
     /* ================= PART 7 ================= */
-    { part: 7, title: 'Reading Comprehension', instr: 'In this part you will read a selection of texts, such as magazine and newspaper articles, e-mails, and instant messages. Each text or set of texts is followed by several questions. Select the best answer for each question.',
+    { part: 7, title: 'Reading Comprehension', instr: g.TQR[0],
       passages: [
         { title: 'Notice', text:
 `Tarnwell Packaging
@@ -172,8 +172,8 @@ The employee cafeteria on the second floor will be closed from Monday, March 16,
 During this week, a food truck will be parked beside the loading dock from 11:00 A.M. to 2:00 P.M. Employees may use their meal cards to buy lunch there at the usual staff prices.
 
 Hot drinks will still be available from the machines in the break rooms on each floor. We apologize for any inconvenience and look forward to serving you in our upgraded kitchen.`,
-          groups: [ { type: 'mcq', instr: 'Questions 147-148 refer to the following notice.', items: [
-            { n: 147, q: 'What is the purpose of the notice?', options: ['To introduce a new lunch menu', 'To explain a change in meal card prices', 'To recruit kitchen staff', 'To announce a temporary closure'], a: 3, cue: 'The employee cafeteria on the second floor will be closed from Monday, March 16, through Friday, March 20',
+          groups: [ { type: 'mcq', instr: g.TQR[14], items: [
+            { n: 147, q: g.TQR[19], options: ['To introduce a new lunch menu', 'To explain a change in meal card prices', 'To recruit kitchen staff', 'To announce a temporary closure'], a: 3, cue: 'The employee cafeteria on the second floor will be closed from Monday, March 16, through Friday, March 20',
               explain: 'Căng tin "will be closed from Monday, March 16, through Friday, March 20" (đóng cửa từ 16 đến 20/3) để lắp thiết bị bếp mới → thông báo đóng cửa tạm thời. Giá dùng thẻ ăn vẫn "at the usual staff prices" (như thường lệ), không thay đổi; không có thực đơn mới hay tuyển nhân viên bếp.' },
             { n: 148, q: 'What will employees be able to do during the week of March 16?', options: ['Eat at a restaurant downtown', 'Get free meals in the break rooms', 'Leave work early', 'Buy lunch from a food truck'], a: 3, cue: 'a food truck will be parked beside the loading dock from 11:00 A.M. to 2:00 P.M.',
               explain: 'Trong tuần đó "a food truck will be parked beside the loading dock" và nhân viên dùng thẻ ăn để mua bữa trưa ở đó → mua bữa trưa từ xe bán đồ ăn. Phòng nghỉ chỉ có máy bán đồ uống nóng, không phải bữa ăn miễn phí.' }
@@ -184,7 +184,7 @@ Soraya Nasser [2:12 P.M.]: The Ballroom is booked tonight, but the Harbor Room i
 Hugo Fontaine [2:13 P.M.]: They have 75 guests.
 Soraya Nasser [2:14 P.M.]: Then we're in business. I'll ask housekeeping to set up the tables by five.
 Hugo Fontaine [2:15 P.M.]: Great. I'll let the family know and tell the kitchen about the change of location.`,
-          groups: [ { type: 'mcq', instr: 'Questions 149-150 refer to the following text-message chain.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[5], items: [
             { n: 149, q: 'What problem does Mr. Fontaine mention?', options: ['A room has been booked twice.', 'Some guests are concerned about the weather.', 'The kitchen does not have enough staff.', 'A dinner has been canceled.'], a: 1, cue: "They're worried about the rain in the forecast.",
               explain: 'Gia đình khách muốn chuyển bữa tối vào trong nhà vì "They\'re worried about the rain in the forecast" (lo trời mưa theo dự báo) → khách lo về thời tiết. Phòng Ballroom đã có người đặt nhưng không bị đặt trùng; bữa tối vẫn diễn ra, chỉ đổi địa điểm.' },
             { n: 150, q: 'At 2:14 P.M., what does Ms. Nasser most likely mean when she writes, "Then we\'re in business"?', options: ['The Harbor Room is large enough for the group.', 'She wants to discuss a business contract.', 'The hotel will charge an extra fee.', 'The Ballroom has become available.'], a: 0, cue: 'It seats 90.',
@@ -198,7 +198,7 @@ Why buy a tool you will only use once? Every Tamworth Hardware store now rents o
 Tools can be rented for four hours, one day, or one week. Simply reserve online or at the service desk, and your tool will be cleaned, tested, and ready when you arrive. A refundable deposit is required for all rentals, and renters must show a valid photo ID.
 
 Members of our Pro Club receive 15 percent off all rentals. Not a member yet? Joining is free – just ask any store associate.`,
-          groups: [ { type: 'mcq', instr: 'Questions 151-153 refer to the following Web page.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[17], items: [
             { n: 151, q: 'What is the main purpose of the Web page?', options: ['To explain how to use floor sanders', 'To announce the opening of a store', 'To recruit store associates', 'To advertise a rental service'], a: 3, cue: 'Every Tamworth Hardware store now rents out more than 200 professional-grade tools',
               explain: 'Tiêu đề "Tool Rental" và câu "Every Tamworth Hardware store now rents out more than 200 professional-grade tools" → quảng cáo dịch vụ cho thuê dụng cụ. Máy chà sàn chỉ là ví dụ về dụng cụ cho thuê; không có cửa hàng mới hay tin tuyển dụng.' },
             { n: 152, q: 'What is required of all renters?', options: ['Joining the Pro Club', 'Reserving a tool online', 'Paying a deposit', 'Returning the tool within four hours'], a: 2, cue: 'A refundable deposit is required for all rentals',
@@ -220,7 +220,7 @@ We value our partnership with Sarmiento Tool Works and look forward to continuin
 Sincerely,
 Leopold Strand
 Director of Purchasing, Pinfold Home Centers`,
-          groups: [ { type: 'mcq', instr: 'Questions 154-157 refer to the following letter.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[15], items: [
             { n: 154, q: 'Why did Mr. Strand write the letter?', options: ['To place a large order', 'To complain about damaged goods', 'To explain new delivery requirements', 'To end a business partnership'], a: 2, cue: 'I would like to inform you of some changes to how we receive deliveries',
               explain: '"I would like to inform you of some changes to how we receive deliveries" – thư nêu yêu cầu giao hàng đến trung tâm phân phối mới và dán nhãn mã vạch → giải thích quy định giao hàng mới. Ông khẳng định muốn tiếp tục hợp tác ("look forward to continuing it"), không chấm dứt quan hệ; không có đơn hàng hay hàng hỏng nào.' },
             { n: 155, q: 'What is indicated about Pinfold Home Centers?', options: ['It has recently opened its first store.', 'It is moving its head office to Easton Quay.', 'It manufactures power tools.', 'It uses its own trucks to deliver to its stores.'], a: 3, cue: 'From there, our own trucks will deliver the goods to each location.',
@@ -238,8 +238,8 @@ Director of Purchasing, Pinfold Home Centers`,
 The expansion will also include a rooftop solar system that is expected to supply about 40 percent of the factory's electricity.
 
 Corriedale will hold a hiring fair at the Kilbride Community Hall on May 15 for anyone interested in the new positions. No previous experience in textile production is necessary, as the company will provide on-the-job training.`,
-          groups: [ { type: 'mcq', instr: 'Questions 158-160 refer to the following article.', items: [
-            { n: 158, q: 'What is the article mainly about?', options: ['A company\'s plan to enlarge a factory', 'The opening of a furniture store', 'A new type of solar panel', 'The sale of a textile company'], a: 0, cue: 'has announced plans to expand its factory on Ridley Road',
+          groups: [ { type: 'mcq', instr: g.TQR[8], items: [
+            { n: 158, q: g.TQR[3], options: ['A company\'s plan to enlarge a factory', 'The opening of a furniture store', 'A new type of solar panel', 'The sale of a textile company'], a: 0, cue: 'has announced plans to expand its factory on Ridley Road',
               explain: 'Câu chủ đề: Corriedale Mills "has announced plans to expand its factory" (công bố kế hoạch mở rộng nhà máy) với xưởng dệt mới → kế hoạch mở rộng nhà máy. Hệ thống năng lượng mặt trời chỉ là một phần của dự án; các nhà sản xuất đồ nội thất là khách hàng của công ty.' },
             { n: 159, q: 'According to Mr. Berg, why is the project necessary?', options: ['Energy costs have risen sharply.', 'The company is entering a new industry.', 'The current factory is too old to repair.', 'Demand for the company\'s products has increased.'], a: 3, cue: 'Orders from hotels and furniture makers have grown steadily over the past three years',
               explain: 'Ông Berg nói "Orders from hotels and furniture makers have grown steadily" (đơn hàng tăng đều) và nhà máy hiện tại "running out of room" (hết chỗ) → nhu cầu về sản phẩm tăng. Nhà máy không bị nói là quá cũ; công ty vẫn sản xuất hàng dệt như trước.' },
@@ -254,8 +254,8 @@ Bettina Krause [9:06 A.M.]: Could we use the two smaller meeting rooms with the 
 Ngozi Eze [9:08 A.M.]: Yes, together they hold 130. But someone would need to make sure the projector setup works across both rooms.
 Tadeo Ibarra [9:09 A.M.]: I'll ask our audiovisual technician to test it this afternoon.
 Bettina Krause [9:10 A.M.]: Perfect. I'll send Arkwright a proposal as soon as I hear back from you.`,
-          groups: [ { type: 'mcq', instr: 'Questions 161-164 refer to the following online chat discussion.', items: [
-            { n: 161, q: 'What is the discussion mainly about?', options: ['Planning a charity luncheon', 'Hiring an audiovisual technician', 'Arranging space for a corporate event', 'Renovating two meeting rooms'], a: 2, cue: 'Arkwright Engineering wants to hold its annual sales conference here',
+          groups: [ { type: 'mcq', instr: g.TQR[4], items: [
+            { n: 161, q: g.TQR[18], options: ['Planning a charity luncheon', 'Hiring an audiovisual technician', 'Arranging space for a corporate event', 'Renovating two meeting rooms'], a: 2, cue: 'Arkwright Engineering wants to hold its annual sales conference here',
               explain: 'Cả nhóm bàn cách sắp xếp phòng nghỉ và phòng họp cho hội nghị bán hàng thường niên của Arkwright Engineering → bố trí địa điểm cho sự kiện của một công ty. Bữa trưa từ thiện là sự kiện khác đã đặt Crescent Hall; kỹ thuật viên âm thanh – hình ảnh đã có sẵn, không cần tuyển.' },
             { n: 162, q: 'What does Mr. Ibarra say about the week of October 14?', options: ['The hotel will have many empty rooms.', 'Crescent Hall will be closed.', 'Several staff members will be on vacation.', 'A larger group has already booked rooms.'], a: 0, cue: "We're only expecting about half occupancy that week.",
               explain: '"We\'re only expecting about half occupancy that week" (dự kiến chỉ kín khoảng một nửa số phòng) → khách sạn còn nhiều phòng trống, nên 40 phòng "won\'t be a problem". Crescent Hall không đóng cửa mà đã được đặt cho ngày 15.' },
@@ -330,8 +330,8 @@ Each ferry will carry up to 300 passengers and 40 vehicles and will recharge at 
 To support the project, the Port Ellery Harbor Authority is installing high-capacity charging equipment at both terminals. Construction began in June and is expected to finish by January. —[3]— During that period, some parking spaces near the Port Ellery terminal will be unavailable, and travelers are advised to arrive at least 30 minutes before departure.
 
 "Calder Island depends on this crossing for tourism and deliveries alike," said Brunholt's chief executive, Margarethe Aaland. "These vessels will allow us to keep the same reliable timetable while greatly reducing noise and emissions." —[4]—`,
-          groups: [ { type: 'mcq', instr: 'Questions 172-175 refer to the following article.', items: [
-            { n: 172, q: 'What is the article mainly about?', options: ["A transportation company's plan to introduce new vessels", 'The opening of a new shipyard in Norway', 'A decline in tourism on Calder Island', 'The construction of a new parking garage'], a: 0, cue: 'Brunholt Ferries announced yesterday that it will replace two of its diesel-powered vessels with electric ferries',
+          groups: [ { type: 'mcq', instr: g.TQR[7], items: [
+            { n: 172, q: g.TQR[3], options: ["A transportation company's plan to introduce new vessels", 'The opening of a new shipyard in Norway', 'A decline in tourism on Calder Island', 'The construction of a new parking garage'], a: 0, cue: 'Brunholt Ferries announced yesterday that it will replace two of its diesel-powered vessels with electric ferries',
               explain: 'Ý chính: "Brunholt Ferries ... will replace two of its diesel-powered vessels with electric ferries" (hãng phà sẽ thay hai tàu chạy dầu bằng phà điện) → kế hoạch đưa tàu mới vào hoạt động. Xưởng đóng tàu Askvik chỉ là nơi đóng tàu; bài không nói du lịch giảm; bãi đỗ xe chỉ bị hạn chế tạm thời chứ không xây mới.' },
             { n: 173, q: 'What is indicated about the new ferries?', options: ['They will carry more vehicles than the current ships.', 'They will be built in Port Ellery.', 'They will be charged while they are docked.', 'They will operate on several new routes.'], a: 2, cue: 'will recharge at the dock during the 20-minute stop at each end of the route',
               explain: 'Bài viết: phà "will recharge at the dock during the 20-minute stop" (sạc điện tại bến trong 20 phút dừng) → được sạc khi cập bến. Tàu do Askvik Marine ở Na Uy đóng; chỉ chạy tuyến Port Ellery – Calder Island hiện có; không có so sánh số xe với tàu cũ.' },
@@ -564,7 +564,7 @@ Could you tell me where the tank will be placed? Our building has only a narrow 
 Thank you,
 Emeka Obiora`,
           groups: [ { type: 'mcq', instr: 'Questions 196-200 refer to the following notice, schedule, and e-mail.', items: [
-            { n: 196, q: 'What is the purpose of the notice?', options: ['To announce an increase in water prices', 'To recruit workers for a construction project', 'To explain how to report a broken pipe', 'To inform customers about planned service interruptions'], a: 3, cue: 'water service will be interrupted in several districts of Fenmore during May',
+            { n: 196, q: g.TQR[19], options: ['To announce an increase in water prices', 'To recruit workers for a construction project', 'To explain how to report a broken pipe', 'To inform customers about planned service interruptions'], a: 3, cue: 'water service will be interrupted in several districts of Fenmore during May',
               explain: 'Thông báo cho biết "water service will be interrupted in several districts of Fenmore during May" (nguồn nước sẽ bị gián đoạn ở một số quận trong tháng Năm) để thay đường ống → báo trước việc ngừng dịch vụ theo kế hoạch. Không nhắc đến tăng giá, tuyển công nhân hay cách báo ống vỡ.' },
             { n: 197, q: 'In the notice, the word "store" in paragraph 1 is closest in meaning to', options: ['keep', 'sell', 'shop', 'display'], a: 0, cue: 'should store enough water for the day in advance',
               explain: '"store enough water for the day in advance" nghĩa là trữ sẵn đủ nước dùng trong ngày → "store" là động từ "keep" (cất giữ, dự trữ). Các nghĩa liên quan đến cửa hàng như "sell", "shop" hay "display" (trưng bày) không phù hợp.' },

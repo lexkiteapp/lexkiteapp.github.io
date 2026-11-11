@@ -209,6 +209,8 @@ qualityScore: 93
 
 {{youtube: | 동영상 아이디어: 직장인이 하루 60분 토익 공부를 3단계로 어떻게 짜는지 Lexkite 화면으로 시연}}
 
+듣기 영역에서 파트 2에 특히 약하다면 [토익 파트2 오답 함정 피하는 공부법](/ko/blog/toeic-listening-part-2-gongbubeop-jeonryak/)을 먼저 살펴보세요.
+
 ## 자주 묻는 질문
 
 ### 독학으로 450점에서 750점까지 얼마나 걸리나요?

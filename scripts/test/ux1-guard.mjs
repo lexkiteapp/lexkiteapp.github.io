@@ -1,5 +1,5 @@
 // 🛡️ Gác bố cục cho giao diện ux1 (BẬT 100 % từ 28/10) + từng bước bài học + màn giữ chuỗi. Lõi quét: ux-guard-lib.mjs.
-// Phủ: chọn mục tiêu · bản đồ chặng (tiêu đề chặng, nút xong/tiếp/khóa) · Ôn · Luyện · Giải đấu · Tôi · cột phải máy tính (3 cột)
+// Phủ: chọn mục tiêu · bản đồ chặng (tiêu đề chặng, nút xong/tiếp/khóa) · Từ vựng · Kỹ năng · Thi · Giải đấu · Tôi · cột phải máy tính (3 cột)
 //      · #/lesson/go?demo=1: mọi dạng bài, phiếu đúng/sai, "Vì sao?", câu dễ sau 2 lần sai (ease), "Không nghe được", màn tổng kết
 //      · lịch chuỗi #/streak, mốc 7 ngày, rương quà, rã băng.
 // 360/390/412/1366/1920 px · sáng/tối · en/vi/ar(RTL)/de/ru. Hermetic: phục vụ thẳng web/, ?sandbox=1, 0 lượt chạm prod, 0 tài khoản thật.
@@ -7,6 +7,7 @@
 // Dùng: node scripts/test/ux1-guard.mjs <web> [out] [--part i/n] [--shots]   (--shots: chụp MỌI bước → tờ trước/sau)
 import fs from 'node:fs'; import path from 'node:path';
 import { chromium } from 'playwright';
+import { noProd } from './lib/no-prod.mjs';
 import { serve, scan } from './ux-guard-lib.mjs';
 const args = process.argv.slice(2), flags = args.filter(a => a.startsWith('--')), pos = args.filter((a, i) => !a.startsWith('--') && !(args[i - 1] || '').startsWith('--part'));
 const [ROOT = 'web', OUT = 'out/ux1-guard'] = pos, SHOTS = flags.includes('--shots');
@@ -22,6 +23,7 @@ const found = {}, errs = [], seen = [];
 async function run(width, scheme, lang) {
   const vp = width < 768 ? { viewport: { width, height: 800 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true } : { viewport: { width, height: width > 1600 ? 1080 : 860 } };
   const ctx = await browser.newContext({ ...vp, colorScheme: scheme, serviceWorkers: 'block', reducedMotion: 'reduce' });
+  await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   await ctx.addInitScript(() => { try { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.ret', '1'); } catch (e) { /* */ } });
   await serve(ctx, ROOT);
   const page = await ctx.newPage(), tag = `${width}-${scheme}-${lang}`;
@@ -67,6 +69,9 @@ async function run(width, scheme, lang) {
   await go('home?pick=1'); await check('goal-pick');
   await click('.ux1-pk-tg .chip'); await page.waitForTimeout(1600); await check('home-map');
   await page.evaluate(() => localStorage.setItem('lk.lsn.path', '4')); await go('home'); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800); // cùng URL → goto không vẽ lại
+  { const c = await page.evaluate(() => { const b = document.querySelector(':is(.v2-today, .v2-today-desk) [data-act="pathx"]'); if (!b) return null; const pv = document.querySelector(':is(.v2-today, .v2-today-desk) [data-pv]'); return { exp: b.getAttribute('aria-expanded'), n: pv ? pv.querySelectorAll('[data-pn]').length : 0, full: !!document.querySelector(':is(.v2-today, .v2-today-desk) [data-pathfull] [data-st]') }; });
+    if (c && !(c.exp === 'false' && c.n >= 5 && c.n <= 7 && !c.full)) errs.push(`${tag}: khối Your path thu gọn phải đủ 5–7 nút, aria-expanded=false, chưa vẽ lộ trình đầy đủ (${JSON.stringify(c)})`); } // điện thoại + máy tính: gác trạng thái thu gọn
+  await page.evaluate(() => { const b = document.querySelector(':is(.v2-today, .v2-today-desk) [data-act="pathx"][aria-expanded="false"]'); if (b) b.click(); }); await page.waitForTimeout(300); // điện thoại: khối Your path thu gọn 5–7 nút → mở lộ trình đầy đủ tại chỗ rồi mới kiểm nút đã xong
   if (!await page.evaluate(() => !!document.querySelector('.ux1-n.done, .v2 [data-st="done"]'))) errs.push(`${tag}: bản đồ n4 không có nút đã xong`);
   await check('home-map-n4');
   for (const r of ROUTES) { await go(r); await check(r); }
@@ -99,7 +104,7 @@ async function run(width, scheme, lang) {
     const w = wrong < 2;
     const r = await page.evaluate(async w => {
       const L = App._lsn, it = L.sess.cur, E = LessonEngine, $ = s => document.querySelector(s);
-      if (it.type === 'line') { $('#lsnGo').click(); return 'line'; }
+      if (it.type === 'line' || it.type === 'video') { $('#lsnGo').click(); return 'line'; } // video nhúng (cờ lv_embed): gác riêng ở lesson-embed-e2e.mjs
       if ($('#lsnNoS') && (it.type === 'say' || (it.type === 'pic' && !it.choice))) { $('#lsnNoS').click(); return 'skip'; }
       if (it.type === 'match') { for (const a of document.querySelectorAll('.lsn-match [data-s=w]')) { a.click(); $(`.lsn-match [data-s=m][data-m="${a.dataset.m}"]`).click(); } return 'ok'; }
       if (it.type === 'type') { const i = $('#lsnIn'); i.value = w ? 'zzz' : it.answer; i.dispatchEvent(new Event('input')); $('#lsnCheck').click(); return w ? 'wrong' : 'ok'; }

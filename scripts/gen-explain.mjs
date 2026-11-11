@@ -4,12 +4,12 @@
 import fs from 'fs'; import path from 'path'; import { fileURLToPath } from 'url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const g = {};
-for (const d of ['listen', 'readtest', 'toeic', 'toefl']) { const dir = path.join(ROOT, 'web/js', d); if (fs.existsSync(dir)) for (const f of fs.readdirSync(dir)) if (f.endsWith('.js')) try { new Function('self', fs.readFileSync(path.join(dir, f), 'utf8'))(g); } catch (e) { /* bỏ tệp không phải dữ liệu */ } }
+for (const d of ['listen', '../cpack/listen', 'readtest', 'toeic', '../cpack/toefl']) { const dir = path.join(ROOT, 'web/js', d); if (fs.existsSync(dir)) for (const f of fs.readdirSync(dir).sort()) if (f.endsWith('.js')) try { new Function('self', fs.readFileSync(path.join(dir, f), 'utf8'))(g); } catch (e) { /* bỏ tệp không phải dữ liệu */ } }
 const src = new Set();
 JSON.stringify([g.LISTENING, g.READ_EXPLAIN, g.TOEIC, g.TOEFL], (k, v) => { if ((k === 'why' || k === 'explain') && typeof v === 'string' && v.trim()) src.add(v); return v; });
 export const hash = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0).toString(36); };
 const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i; // trích dẫn tiếng Việt → dịch; tiếng Anh → giữ nguyên
-const LET = /(→\s*|\(|[Đđ]áp án\s+|[Cc]họn\s+|[Pp]hương án\s+)([A-D])\b/g;
+const LET = /(→\s*|\((?=[A-D]\))|[Đđ]áp án\s+|[Cc]họn\s+|[Pp]hương án\s+)([A-D])\b/g;
 const protect = s => { const keep = []; const t = s.replace(LET, (m, pre, L) => pre + `{${L}}`).replace(/\{[A-D]\}|“[^”]{1,120}”|"[^"]{1,120}"|‘[^’]{1,80}’/g, m => (VI.test(m) ? m : `[[${keep.push(m) - 1}]]`)); return { t, keep }; };
 const restore = (t, keep) => t.replace(/\[\[\s*(\d+)\s*\]\]/g, (m, i) => keep[+i] ?? m);
 const tokensOk = (a, b) => (a.match(/\[\[\d+\]\]/g) || []).length === (b.match(/\[\[\s*\d+\s*\]\]/g) || []).length;

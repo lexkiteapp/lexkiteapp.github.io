@@ -59,6 +59,7 @@ quiz: [
     explain: "El artículo recomienda cuidar el registro académico y evitar términos arcaicos o inadecuados que distorsionen el sentido del ensayo."
   }
 ]
+publishAt: 2026-12-07T12:51:00-06:00
 ---
 
 Dominar con soltura **cómo parafrasear en ielts** representa la línea divisoria fundamental entre quedarse estancado en 6.5 o escalar con paso firme hacia un sólido Band 7.5 a 8.5. En la sección de **IELTS Writing Task 2**, transcribir textualmente el enunciado del examen en la introducción es un grave error: los examinadores descuentan las frases copiadas de forma literal del conteo total de palabras. Desde la primera línea, el evaluador califica tu riqueza léxica y tu habilidad para transformar estructuras oracionales complejas.

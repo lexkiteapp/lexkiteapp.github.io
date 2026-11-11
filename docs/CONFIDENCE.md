@@ -11,7 +11,7 @@ Tái dùng, không viết trùng: `roleplay.js` (bộ não hội thoại Nano �
 | Phần | Ở đâu |
 |---|---|
 | Nguồn nội dung DUY NHẤT | `content/confidence/units/<id>.json` (12 bài A1–B1), `toolkit.json`, `ui.json` (chuỗi giao diện vi→en), `daily.json` (đề nói 2 phút), `i18n/<lang>.json` (13 ngôn ngữ) |
-| Dựng | `node scripts/confidence/build.mjs [--write]` → `web/js/confidence/data.js`, `web/js/i18n/en/confidence.js`, `web/js/i18n/<lang>/confidence.js`, nhãn ngắn → `scripts/i18n-fixed.json`. Không `--write` = cổng kiểm (npm test) |
+| Dựng | `node scripts/confidence/build.mjs [--write]` → `web/js/confidence/data.js`, `web/js/i18n/en/confidence.js`, nguồn `i18n/ui/<lang>/confidence.js` (→ gói khóa băm `web/js/i18n/<lang>/confidence.js`), nhãn ngắn → `scripts/i18n-fixed.json`. Không `--write` = cổng kiểm (npm test) |
 | Mô-đun | `web/js/confidence.js` (tải lười, bundle `confidence` = i18n en + data + mô-đun; route kéo thêm bundle `roleplay`) |
 | Khung app | +0 byte gz (đo bằng size-budget; phần thêm ở app.js/index.html được bù bằng bớt chú thích thừa) |
 

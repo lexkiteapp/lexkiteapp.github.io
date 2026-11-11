@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=390, initial-scale=1.0">
+  <title>Lexkite Today's Session</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#fff8f5',
+              card: '#ffffff',
+              border: '#ecdccf',
+              ledge: '#dfccbe',
+              ink: '#1c1917',
+              muted: '#52433d',
+              teal: '#136a63',
+              tealLight: '#e4f3f1',
+              orange: '#f59e0b',
+              orangeBright: '#f97316',
+              orangeLedge: '#c2410c',
+              orangeInk: '#1a0d00',
+              amberLight: '#fef3c7',
+              pillBorder: '#fcd34d',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #fff8f5;
+      color: #1c1917;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .tactile-card {
+      background-color: #ffffff;
+      border: 2px solid #ecdccf;
+      border-bottom: 5px solid #dfccbe;
+      border-radius: 16px;
+    }
+    .tactile-card-active {
+      background-color: #ffffff;
+      border: 2px solid #f97316;
+      border-bottom: 5px solid #ea580c;
+      border-radius: 16px;
+    }
+    .tactile-btn-orange {
+      background-color: #f97316;
+      border: 2px solid #ea580c;
+      border-bottom: 6px solid #9a3412;
+      border-radius: 16px;
+      color: #1a0d00;
+      transition: all 0.08s ease-in-out;
+    }
+    .tactile-btn-orange:active {
+      transform: translateY(3px);
+      border-bottom-width: 3px;
+    }
+    .tactile-icon-btn {
+      background-color: #ffffff;
+      border: 2px solid #ecdccf;
+      border-bottom: 4px solid #dfccbe;
+      border-radius: 9999px;
+      transition: all 0.08s ease-in-out;
+    }
+    .tactile-icon-btn:active {
+      transform: translateY(2px);
+      border-bottom-width: 2px;
+    }
+  </style>
+</head>
+<body class="w-[390px] mx-auto min-h-screen bg-[#fff8f5] flex flex-col relative select-none pb-28">
+
+  <!-- TOP BAR: INNER VARIANT (56px) -->
+  <header class="sticky top-0 z-40 bg-[#fff8f5]/95 backdrop-blur-md px-4 h-14 flex items-center justify-between border-b border-[#ecdccf]/80">
+    <button aria-label="Back" class="w-10 h-10 tactile-icon-btn flex items-center justify-center text-[#1c1917] active:scale-95">
+      <span class="material-symbols-rounded text-[22px]">arrow_back</span>
+    </button>
+    
+    <h1 class="text-[17px] font-extrabold tracking-tight text-[#1c1917]">Today's session</h1>
+
+    <button aria-label="Settings" class="w-10 h-10 tactile-icon-btn flex items-center justify-center text-[#1c1917] active:scale-95">
+      <span class="material-symbols-rounded text-[21px]">settings</span>
+    </button>
+  </header>
+
+  <!-- MAIN SCROLLABLE CONTENT -->
+  <main class="flex-1 px-4 pt-4 space-y-4">
+
+    <!-- 1) TEACHER SLOT + SPEECH BUBBLE -->
+    <section class="flex items-start gap-3 pt-1">
+      <!-- Teacher Slot -->
+      <div class="relative flex flex-col items-center flex-shrink-0">
+        <div class="w-[116px] h-[134px] rounded-2xl border-2 border-dashed border-[#b8a79b] bg-[#f8ece3]/60 flex flex-col items-center justify-center relative overflow-hidden">
+          <span class="text-[11px] font-extrabold tracking-wider text-[#7c695e] uppercase">Teacher</span>
+          <span class="text-[10px] font-semibold text-[#8d796e] tracking-tight mt-0.5">Slot</span>
+        </div>
+        <!-- Rounded pedestal ledge -->
+        <div class="w-[102px] h-3 bg-[#e8d7ca] border-2 border-[#d5beaf] rounded-full -mt-2 z-10 shadow-sm"></div>
+      </div>
+
+      <!-- Speech Bubble + Tutor Name -->
+      <div class="flex-1 flex flex-col pt-1">
+        <div class="relative bg-white border-2 border-[#ecdccf] border-bottom-[4px] border-b-[#dfccbe] rounded-2xl p-3.5 shadow-sm">
+          <!-- Bubble tail on left pointing to teacher slot -->
+          <div class="absolute -left-2 top-6 w-3 h-3 bg-white border-l-2 border-b-2 border-[#ecdccf] rotate-45"></div>
+          <p class="text-[13.5px] leading-[1.38] font-bold text-[#1c1917]">
+            Hi Linh! Yesterday <span class="text-[#c2410c] bg-[#ffedd5] px-1.5 py-0.5 rounded-md font-extrabold underline decoration-[#ea580c] underline-offset-2">‘affect’</span> was tricky. Let’s fix it first.
+          </p>
+        </div>
+
+        <!-- Name chip under bubble -->
+        <div class="mt-2 self-start flex items-center gap-1.5 px-2.5 py-1 bg-[#eef7f6] border border-[#b2deda] rounded-full">
+          <span class="w-2 h-2 rounded-full bg-[#136a63]"></span>
+          <span class="text-[11px] font-bold text-[#136a63]">Ama · your tutor</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2) SESSION PROGRESS CARD -->
+    <section class="tactile-card p-3.5">
+      <div class="flex items-center justify-between mb-2.5">
+        <span class="text-[13px] font-extrabold text-[#1c1917] tracking-tight">Step 1 of 4</span>
+        <span class="text-[11.5px] font-bold text-[#52433d] bg-[#f5ede5] px-2.5 py-0.5 rounded-full border border-[#ecdccf]">
+          about 10 min
+        </span>
+      </div>
+
+      <!-- 4-segment rounded progress bar -->
+      <div class="grid grid-cols-4 gap-2">
+        <div class="h-3 rounded-full bg-[#f97316] border border-[#ea580c] shadow-[inset_0_1px_2px_rgba(255,255,255,0.4)]"></div>
+        <div class="h-3 rounded-full bg-[#f1e6dc] border border-[#dfccbe]"></div>
+        <div class="h-3 rounded-full bg-[#f1e6dc] border border-[#dfccbe]"></div>
+        <div class="h-3 rounded-full bg-[#f1e6dc] border border-[#dfccbe]"></div>
+      </div>
+    </section>
+
+    <!-- 3) FOUR CHUNKY STEP ROWS -->
+    <section class="space-y-3">
+
+      <!-- Step 1: Current / Warm-up -->
+      <div class="tactile-card-active p-3.5 flex items-center gap-3 relative bg-gradient-to-r from-white via-white to-[#fff7ed]">
+        <!-- Glossy Icon -->
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-b from-[#ffedd5] to-[#fed7aa] border-2 border-[#fdba74] border-b-[3px] border-b-[#f97316] flex items-center justify-center flex-shrink-0 shadow-sm">
+          <span class="material-symbols-rounded text-[#c2410c] text-[26px]">bolt</span>
+        </div>
+        
+        <!-- Text info -->
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2">
+            <h2 class="text-[14.5px] font-extrabold text-[#1c1917] truncate">Warm-up</h2>
+            <span class="px-2 py-0.5 rounded-full text-[10.5px] font-extrabold bg-[#ffedd5] text-[#9a3412] border border-[#fdba74]">
+              Now
+            </span>
+          </div>
+          <p class="text-[12px] font-semibold text-[#52433d] truncate mt-0.5">2 quick wins</p>
+        </div>
+
+        <!-- Duration Chip -->
+        <div class="px-2.5 py-1 bg-[#fff7ed] border border-[#fdba74] rounded-xl flex items-center justify-center">
+          <span class="text-[12px] font-extrabold text-[#c2410c]">1 min</span>
+        </div>
+      </div>
+
+      <!-- Step 2: Fix mistakes -->
+      <div class="tactile-card p-3.5 flex items-center gap-3">
+        <!-- Glossy Icon -->
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-b from-[#e0f2fe] to-[#bae6fd] border-2 border-[#7dd3fc] border-b-[3px] border-b-[#0284c7] flex items-center justify-center flex-shrink-0 shadow-sm">
+          <span class="material-symbols-rounded text-[#0369a1] text-[25px]">spellcheck</span>
+        </div>
+        
+        <!-- Text info -->
+        <div class="flex-1 min-w-0">
+          <h2 class="text-[14.5px] font-extrabold text-[#1c1917] truncate">Fix mistakes</h2>
+          <p class="text-[12px] font-semibold text-[#52433d] truncate mt-0.5">affect · since · fewer</p>
+        </div>
+
+        <!-- Duration Chip -->
+        <div class="px-2.5 py-1 bg-[#f8f1eb] border border-[#ecdccf] rounded-xl flex items-center justify-center">
+          <span class="text-[12px] font-extrabold text-[#52433d]">2 min</span>
+        </div>
+      </div>
+
+      <!-- Step 3: Review + new lesson -->
+      <div class="tactile-card p-3.5 flex items-center gap-3">
+        <!-- Glossy Icon -->
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-b from-[#e6f4f2] to-[#ccebe7] border-2 border-[#80cbc4] border-b-[3px] border-b-[#136a63] flex items-center justify-center flex-shrink-0 shadow-sm">
+          <span class="material-symbols-rounded text-[#136a63] text-[25px]">auto_stories</span>
+        </div>
+        
+        <!-- Text info -->
+        <div class="flex-1 min-w-0">
+          <h2 class="text-[14.5px] font-extrabold text-[#1c1917] truncate">Review + new lesson</h2>
+          <p class="text-[12px] font-semibold text-[#52433d] truncate mt-0.5">12 due · Linking words</p>
+        </div>
+
+        <!-- Duration Chip -->
+        <div class="px-2.5 py-1 bg-[#f8f1eb] border border-[#ecdccf] rounded-xl flex items-center justify-center">
+          <span class="text-[12px] font-extrabold text-[#52433d]">5 min</span>
+        </div>
+      </div>
+
+      <!-- Step 4: Speaking turn -->
+      <div class="tactile-card p-3.5 flex items-center gap-3">
+        <!-- Glossy Icon -->
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-b from-[#f3e8ff] to-[#e9d5ff] border-2 border-[#d8b4fe] border-b-[3px] border-b-[#9333ea] flex items-center justify-center flex-shrink-0 shadow-sm">
+          <span class="material-symbols-rounded text-[#7e22ce] text-[25px]">mic</span>
+        </div>
+        
+        <!-- Text info -->
+        <div class="flex-1 min-w-0">
+          <h2 class="text-[14.5px] font-extrabold text-[#1c1917] truncate">Speaking turn</h2>
+          <p class="text-[12px] font-semibold text-[#52433d] truncate mt-0.5">Say it with Ama</p>
+        </div>
+
+        <!-- Duration Chip -->
+        <div class="px-2.5 py-1 bg-[#f8f1eb] border border-[#ecdccf] rounded-xl flex items-center justify-center">
+          <span class="text-[12px] font-extrabold text-[#52433d]">2 min</span>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FIXED BOTTOM SECTION (START BUTTON + TAB BAR) -->
+  <div class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto z-50 bg-gradient-to-t from-[#fff8f5] via-[#fff8f5] to-transparent pt-3">
+    <!-- Big Full-Width Orange Tactile Start Button -->
+    <div class="px-4 pb-2.5">
+      <button class="w-full py-3.5 px-4 tactile-btn-orange flex items-center justify-center gap-2 font-extrabold text-[16px] shadow-sm tracking-wide">
+        <span>Start</span>
+        <span class="material-symbols-rounded text-[20px] font-bold">arrow_forward</span>
+      </button>
+    </div>
+
+    <!-- 64PX BOTTOM TAB BAR: EXACT LEXKITE STYLE WITH 'TODAY' ACTIVE -->
+    <nav class="h-16 bg-white border-t border-[#ecdccf] px-2 flex items-center justify-around">
+      <!-- 1) Today (ACTIVE) -->
+      <button class="flex flex-col items-center justify-center w-16 py-1 active:scale-95 transition-transform">
+        <div class="px-3.5 py-1 bg-[#e4f3f1] border border-[#a2d8d2] rounded-full flex items-center justify-center">
+          <span class="material-symbols-rounded text-[#136a63] text-[21px] font-bold">calendar_today</span>
+        </div>
+        <span class="text-[11px] font-extrabold text-[#136a63] mt-0.5">Today</span>
+      </button>
+
+      <!-- 2) Vocab (INACTIVE with optional red unread dot) -->
+      <button class="flex flex-col items-center justify-center w-16 py-1 active:scale-95 transition-transform text-[#52433d] hover:text-[#1c1917]">
+        <div class="relative">
+          <span class="material-symbols-rounded text-[23px]">menu_book</span>
+          <span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#ef4444]"></span>
+        </div>
+        <span class="text-[11px] font-bold mt-0.5">Vocab</span>
+      </button>
+
+      <!-- 3) Skills (INACTIVE) -->
+      <button class="flex flex-col items-center justify-center w-16 py-1 active:scale-95 transition-transform text-[#52433d] hover:text-[#1c1917]">
+        <span class="material-symbols-rounded text-[23px]">psychology</span>
+        <span class="text-[11px] font-bold mt-0.5">Skills</span>
+      </button>
+
+      <!-- 4) Tests (INACTIVE) -->
+      <button class="flex flex-col items-center justify-center w-16 py-1 active:scale-95 transition-transform text-[#52433d] hover:text-[#1c1917]">
+        <span class="material-symbols-rounded text-[23px]">assignment</span>
+        <span class="text-[11px] font-bold mt-0.5">Tests</span>
+      </button>
+
+      <!-- 5) Me (INACTIVE) -->
+      <button class="flex flex-col items-center justify-center w-16 py-1 active:scale-95 transition-transform text-[#52433d] hover:text-[#1c1917]">
+        <span class="material-symbols-rounded text-[23px]">person</span>
+        <span class="text-[11px] font-bold mt-0.5">Me</span>
+      </button>
+    </nav>
+  </div>
+
+</body>
+</html>

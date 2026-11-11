@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Dictionary — resilient (adj.)</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Google Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            canvas: '#FFF7EA',
+            card: '#FFFFFF',
+            'border-base': '#EADEC8',
+            'ledge-base': '#D8CFBC',
+            'ink-deep': '#0F3D3E',
+            'ink-body': '#10191B',
+            'ink-muted': '#52686A',
+            'ink-contrast': '#1B0B04',
+            teal: {
+              DEFAULT: '#2BA39A',
+              deep: '#1F7A75',
+              dark: '#0B474A',
+              ledge: '#0B3A3C',
+              soft: '#E6F7F5',
+              border: '#A7DDD7'
+            },
+            coral: {
+              DEFAULT: '#F2553B',
+              hover: '#E0472E',
+              ledge: '#9E2D18',
+              soft: '#FEEFEA'
+            },
+            amber: {
+              DEFAULT: '#FFB054',
+              ledge: '#D98930',
+              soft: '#FFF3D6',
+              border: '#F0B350',
+              deep: '#7A4100'
+            },
+            gold: '#FFC94A',
+            brick: '#8A1E14',
+            green: {
+              DEFAULT: '#1B874C',
+              soft: '#EAF9F1'
+            }
+          },
+          boxShadow: {
+            'tactile-card': '0 5px 0 #D8CFBC',
+            'tactile-card-sm': '0 3px 0 #D8CFBC',
+            'tactile-coral': '0 5px 0 #9E2D18',
+            'tactile-coral-press': '0 2px 0 #9E2D18',
+            'tactile-teal': '0 4px 0 #0B3A3C',
+            'tactile-btn': '0 4px 0 #D8CFBC',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FFF7EA;
+      color: #10191B;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Physical tactile button interactions */
+    .tactile-button {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-button:active {
+      transform: translateY(3px);
+    }
+    .btn-coral-tactile {
+      background: linear-gradient(180deg, #F2553B 0%, #EA482E 100%);
+      box-shadow: 0 5px 0 #9E2D18;
+    }
+    .btn-coral-tactile:active {
+      box-shadow: 0 2px 0 #9E2D18;
+    }
+    .btn-deck-tactile {
+      background: linear-gradient(180deg, #F2553B 0%, #EA4D32 100%);
+      box-shadow: 0 5px 0 #9E2D18;
+    }
+    .btn-deck-tactile:active {
+      box-shadow: 0 2px 0 #9E2D18;
+    }
+    .btn-card-tactile {
+      background: #FFFFFF;
+      box-shadow: 0 4px 0 #D8CFBC;
+    }
+    .btn-card-tactile:active {
+      box-shadow: 0 1px 0 #D8CFBC;
+    }
+    .btn-speaker-tactile {
+      background: #E6F7F5;
+      border: 2px solid #2BA39A;
+      box-shadow: 0 3px 0 #15615B;
+    }
+    .btn-speaker-tactile:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #15615B;
+    }
+    .chip-tactile {
+      transition: all 0.1s ease;
+    }
+    .chip-tactile:hover {
+      background-color: #E6F7F5;
+      border-color: #2BA39A;
+      color: #0B474A;
+    }
+    .chip-tactile:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #D8CFBC;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-canvas selection:bg-teal selection:text-white">
+<!-- ==================== HEADER ==================== -->
+<header class="w-full bg-card border-b-2 border-border-base sticky top-0 z-50">
+<div class="max-w-6xl mx-auto px-6 h-18 py-3.5 flex items-center justify-between">
+<!-- Left: Logo & Nav Links -->
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-2.5 group" href="#">
+<!-- Tactile Kite Logo Emblem -->
+<div class="w-9 h-9 rounded-xl bg-gradient-to-br from-coral to-amber flex items-center justify-center border-2 border-[#9E2D18] shadow-[0_3px_0_#9E2D18] group-hover:translate-y-0.5 group-hover:shadow-[0_1px_0_#9E2D18] transition-all">
+<svg fill="none" height="22" viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L20 12L12 22L4 12L12 2Z" fill="#FFF7EA" stroke="#FFF7EA" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M12 2V22M4 12H20" stroke="#8A1E14" stroke-linecap="round" stroke-width="1.5"></path>
+<circle cx="12" cy="12" fill="#E68A19" r="2.2"></circle>
+</svg>
+</div>
+<span class="text-2xl font-extrabold tracking-tight text-ink-deep">Lexkite</span>
+</a>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center gap-6 text-sm font-bold text-ink-muted">
+<a class="text-ink-deep border-b-2 border-teal pb-0.5 hover:text-teal-dark transition-colors" href="#">Dictionary</a>
+<a class="hover:text-ink-deep transition-colors" href="#">Vocabulary Decks</a>
+<a class="hover:text-ink-deep transition-colors" href="#">Speaking Drills</a>
+<a class="hover:text-ink-deep transition-colors" href="#">IELTS Band Guide</a>
+</nav>
+</div>
+<!-- Right: Search quickbar & CTA -->
+<div class="flex items-center gap-4">
+<!-- Quick search pill -->
+<div class="hidden sm:flex items-center gap-2 bg-canvas px-3.5 py-1.5 rounded-full border-2 border-border-base text-ink-muted text-sm font-semibold">
+<span class="material-symbols-rounded text-lg text-ink-deep">search</span>
+<span class="text-[#324547]">Look up any word...</span>
+<kbd class="text-[11px] font-extrabold px-1.5 py-0.5 bg-card border border-border-base rounded text-ink-deep">⌘K</kbd>
+</div>
+<!-- Start free candy tactile button with deep brown-black ink (#1B0B04) for >7:1 WCAG AA contrast -->
+<a class="tactile-button btn-coral-tactile text-[#1B0B04] font-extrabold text-sm px-5 py-2.5 rounded-xl border-2 border-[#9E2D18] flex items-center gap-1.5 tracking-tight shadow-tactile-coral" href="#">
+<span>Start free</span>
+<span class="material-symbols-rounded text-lg text-[#1B0B04]">arrow_forward</span>
+</a>
+</div>
+</div>
+</header>
+<!-- ==================== MAIN CONTENT ==================== -->
+<main class="flex-1 max-w-6xl w-full mx-auto px-6 py-8">
+<!-- Breadcrumb -->
+<nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-bold text-ink-muted mb-6">
+<a class="hover:text-teal-dark transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-rounded text-sm text-[#0B474A]">home</span>
+        Home
+      </a>
+<span class="text-border-base font-extrabold">/</span>
+<a class="hover:text-teal-dark transition-colors" href="#">Dictionary</a>
+<span class="text-border-base font-extrabold">/</span>
+<a class="hover:text-teal-dark transition-colors" href="#">R</a>
+<span class="text-border-base font-extrabold">/</span>
+<span class="text-teal-dark font-extrabold bg-teal-soft px-2 py-0.5 rounded-md border border-teal-border">resilient</span>
+</nav>
+<!-- Two-column Grid (Main content 65% + Right rail 35%) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- ==================== LEFT COLUMN (Content) ==================== -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- 1. WORD HERO CARD -->
+<section class="bg-card rounded-2xl border-2 border-border-base shadow-tactile-card p-7 relative overflow-hidden">
+<!-- Top Tag & Exam Meta Bar -->
+<div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 rounded-full bg-teal-soft border-2 border-teal-border text-teal-dark text-xs font-extrabold uppercase tracking-wide">
+                Adjective
+              </span>
+<!-- CEFR C1 badge with deep amber-brown (#7A4100) on soft amber tint with #F0B350 border -->
+<span class="px-3 py-1 rounded-full bg-[#FFF3D6] border-2 border-[#F0B350] text-[#7A4100] text-xs font-extrabold flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-[#8F4700]"></span>
+                CEFR C1 • IELTS 7.5+
+              </span>
+</div>
+<div class="flex items-center gap-1.5 text-xs font-bold text-ink-deep bg-canvas px-3 py-1 rounded-lg border border-border-base">
+<span class="material-symbols-rounded text-sm text-[#0B474A]">verified</span>
+              Cambridge Academic Core
+            </div>
+</div>
+<!-- Main Word Title -->
+<div class="flex items-baseline gap-4 mb-2">
+<h1 class="text-5xl font-extrabold text-ink-deep tracking-tight">resilient</h1>
+</div>
+<!-- Phonetics & Pronunciation tactile triggers -->
+<div class="flex flex-wrap items-center gap-5 py-3 border-y border-border-base/70 my-4">
+<!-- UK Audio -->
+<div class="flex items-center gap-2.5">
+<button aria-label="Listen to British pronunciation" class="w-10 h-10 rounded-xl btn-speaker-tactile flex items-center justify-center text-teal-dark hover:bg-teal-soft transition-all" type="button">
+<span class="material-symbols-rounded text-xl">volume_up</span>
+</button>
+<div>
+<span class="text-[11px] font-extrabold uppercase text-ink-muted tracking-wider block">UK Accent</span>
+<span class="font-mono text-sm font-semibold text-ink-deep">/rɪˈzɪl.i.ənt/</span>
+</div>
+</div>
+<div class="w-px h-8 bg-border-base hidden sm:block"></div>
+<!-- US Audio -->
+<div class="flex items-center gap-2.5">
+<button aria-label="Listen to American pronunciation" class="w-10 h-10 rounded-xl btn-speaker-tactile flex items-center justify-center text-teal-dark hover:bg-teal-soft transition-all" type="button">
+<span class="material-symbols-rounded text-xl">volume_up</span>
+</button>
+<div>
+<span class="text-[11px] font-extrabold uppercase text-ink-muted tracking-wider block">US Accent</span>
+<span class="font-mono text-sm font-semibold text-ink-deep">/rəˈzɪl.jənt/</span>
+</div>
+</div>
+</div>
+<!-- Vietnamese Learner Translation Line with high contrast deep teal #0F4E52 badge -->
+<div class="bg-canvas rounded-xl p-3.5 border-2 border-border-base flex items-start gap-3 mt-4">
+<div class="w-7 h-7 rounded-lg bg-[#0F4E52] text-white flex items-center justify-center font-extrabold text-xs shrink-0 shadow-[0_2px_0_#072B2E]">
+              VI
+            </div>
+<div>
+<p class="text-sm font-extrabold text-ink-deep">
+                kiên cường, có khả năng phục hồi nhanh chóng sau khó khăn
+              </p>
+<p class="text-xs text-ink-muted mt-0.5 font-medium">
+                (Đặc biệt dùng cho tinh thần con người, nền kinh tế, hoặc hệ thống chuỗi cung ứng)
+              </p>
+</div>
+</div>
+</section>
+<!-- 2. DEFINITIONS & MEANINGS -->
+<section class="bg-card rounded-2xl border-2 border-border-base shadow-tactile-card p-7">
+<div class="flex items-center gap-2 mb-5">
+<div class="w-8 h-8 rounded-xl bg-teal-soft border-2 border-teal-border flex items-center justify-center text-teal-dark">
+<span class="material-symbols-rounded text-lg">auto_stories</span>
+</div>
+<h2 class="text-xl font-extrabold text-ink-deep">Meanings &amp; Examples</h2>
+</div>
+<div class="space-y-5">
+<!-- Sense 1 (Primary - Psychological / Human) -->
+<div class="p-4 rounded-xl bg-canvas border-2 border-border-base">
+<div class="flex items-center gap-2 mb-2">
+<!-- Crisp white on saturated dark teal #0B474A (>7:1 contrast) -->
+<span class="w-6 h-6 rounded-full bg-[#0B474A] text-white font-extrabold text-xs flex items-center justify-center shadow-sm">1</span>
+<span class="text-xs font-extrabold uppercase tracking-wider text-teal-dark">Psychological • Figurative</span>
+</div>
+<p class="text-base font-bold text-ink-deep mb-2.5">
+                Able to quickly become strong, healthy, or happy again after illness, shock, or difficult circumstances.
+              </p>
+<div class="p-3 bg-card rounded-lg border border-border-base border-l-4 border-l-teal">
+<p class="text-sm font-medium text-ink-body italic">
+                  "Children are often remarkably <span class="font-bold text-teal-dark not-italic">resilient</span> in the face of emotional changes."
+                </p>
+</div>
+</div>
+<!-- Sense 2 (Technical / Materials & Systems) -->
+<div class="p-4 rounded-xl bg-canvas border-2 border-border-base">
+<div class="flex items-center gap-2 mb-2">
+<!-- Dark teal ink #073638 on mint pill or white on deep slate-teal #203638 (>6:1 contrast) -->
+<span class="w-6 h-6 rounded-full bg-[#243B3D] text-white font-extrabold text-xs flex items-center justify-center shadow-sm">2</span>
+<span class="text-xs font-extrabold uppercase tracking-wider text-[#243B3D]">Materials &amp; Economics</span>
+</div>
+<p class="text-base font-bold text-ink-deep mb-2.5">
+                Able to return to an original shape or stability after being bent, stretched, or pressured.
+              </p>
+<div class="p-3 bg-card rounded-lg border border-border-base border-l-4 border-l-[#B36800]">
+<p class="text-sm font-medium text-ink-body italic">
+                  "Building a <span class="font-bold text-ink-deep not-italic">resilient</span> local economy requires investing in sustainable energy."
+                </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. COMMON COLLOCATIONS (Tappable Chips) -->
+<section class="bg-card rounded-2xl border-2 border-border-base shadow-tactile-card p-7">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-xl bg-amber-soft border-2 border-amber-border flex items-center justify-center text-amber-deep">
+<span class="material-symbols-rounded text-lg">join_inner</span>
+</div>
+<h2 class="text-xl font-extrabold text-ink-deep">High-Scoring Collocations</h2>
+</div>
+<span class="text-xs font-extrabold text-teal-dark bg-teal-soft px-2.5 py-1 rounded-md border border-teal-border">
+              IELTS Writing Task 2
+            </span>
+</div>
+<p class="text-xs font-medium text-ink-muted mb-4">
+            Tap any collocation chip to preview Cambridge corpus usage and add it to your daily rehearsal deck:
+          </p>
+<div class="flex flex-wrap gap-2.5">
+<button class="chip-tactile px-3.5 py-2 rounded-xl bg-canvas border-2 border-border-base text-xs font-extrabold text-ink-deep shadow-tactile-card-sm flex items-center gap-1.5" type="button">
+<span>remarkably resilient</span>
+<span class="text-[10px] text-teal-dark bg-teal-soft px-1.5 py-0.5 rounded font-bold border border-teal-border/60">adv + adj</span>
+</button>
+<button class="chip-tactile px-3.5 py-2 rounded-xl bg-canvas border-2 border-border-base text-xs font-extrabold text-ink-deep shadow-tactile-card-sm flex items-center gap-1.5" type="button">
+<span>resilient workforce</span>
+<span class="text-[10px] text-ink-deep bg-card px-1.5 py-0.5 rounded font-bold border border-border-base">noun</span>
+</button>
+<button class="chip-tactile px-3.5 py-2 rounded-xl bg-canvas border-2 border-border-base text-xs font-extrabold text-ink-deep shadow-tactile-card-sm flex items-center gap-1.5" type="button">
+<span>highly resilient</span>
+<span class="text-[10px] text-teal-dark bg-teal-soft px-1.5 py-0.5 rounded font-bold border border-teal-border/60">adv + adj</span>
+</button>
+<button class="chip-tactile px-3.5 py-2 rounded-xl bg-canvas border-2 border-border-base text-xs font-extrabold text-ink-deep shadow-tactile-card-sm flex items-center gap-1.5" type="button">
+<span>resilient supply chain</span>
+<span class="text-[10px] text-ink-deep bg-card px-1.5 py-0.5 rounded font-bold border border-border-base">noun</span>
+</button>
+<button class="chip-tactile px-3.5 py-2 rounded-xl bg-canvas border-2 border-border-base text-xs font-extrabold text-ink-deep shadow-tactile-card-sm flex items-center gap-1.5" type="button">
+<span>remain resilient</span>
+<span class="text-[10px] text-teal-dark bg-teal-soft px-1.5 py-0.5 rounded font-bold border border-teal-border/60">verb + adj</span>
+</button>
+<button class="chip-tactile px-3.5 py-2 rounded-xl bg-canvas border-2 border-border-base text-xs font-extrabold text-ink-deep shadow-tactile-card-sm flex items-center gap-1.5" type="button">
+<span>climate-resilient infrastructure</span>
+<span class="text-[10px] text-ink-deep bg-card px-1.5 py-0.5 rounded font-bold border border-border-base">compound</span>
+</button>
+<button class="chip-tactile px-3.5 py-2 rounded-xl bg-canvas border-2 border-border-base text-xs font-extrabold text-ink-deep shadow-tactile-card-sm flex items-center gap-1.5" type="button">
+<span>resilient spirit</span>
+<span class="text-[10px] text-ink-deep bg-card px-1.5 py-0.5 rounded font-bold border border-border-base">noun</span>
+</button>
+</div>
+</section>
+<!-- 4. WORD FAMILY -->
+<section class="bg-card rounded-2xl border-2 border-border-base shadow-tactile-card p-7">
+<div class="flex items-center gap-2 mb-4">
+<div class="w-8 h-8 rounded-xl bg-canvas border-2 border-border-base flex items-center justify-center text-teal-dark">
+<span class="material-symbols-rounded text-lg">account_tree</span>
+</div>
+<h2 class="text-xl font-extrabold text-ink-deep">Word Family</h2>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<!-- Noun -->
+<div class="p-3 rounded-xl bg-canvas border-2 border-border-base">
+<span class="text-[11px] font-extrabold uppercase text-ink-muted tracking-wider block">Noun</span>
+<span class="text-sm font-extrabold text-ink-deep mt-0.5 block">resilience</span>
+<span class="text-[11px] text-ink-muted font-medium">/rɪˈzɪl.jəns/</span>
+</div>
+<!-- Adjective (Current) -->
+<div class="p-3 rounded-xl bg-teal-soft border-2 border-teal-border">
+<span class="text-[11px] font-extrabold uppercase text-teal-dark tracking-wider block">Adjective (Active)</span>
+<span class="text-sm font-extrabold text-teal-dark mt-0.5 block">resilient</span>
+<span class="text-[11px] text-teal-dark font-medium">/rɪˈzɪl.i.ənt/</span>
+</div>
+<!-- Adverb -->
+<div class="p-3 rounded-xl bg-canvas border-2 border-border-base">
+<span class="text-[11px] font-extrabold uppercase text-ink-muted tracking-wider block">Adverb</span>
+<span class="text-sm font-extrabold text-ink-deep mt-0.5 block">resiliently</span>
+<span class="text-[11px] text-ink-muted font-medium">/rɪˈzɪl.i.ənt.li/</span>
+</div>
+<!-- Verb root -->
+<div class="p-3 rounded-xl bg-canvas border-2 border-border-base">
+<span class="text-[11px] font-extrabold uppercase text-ink-muted tracking-wider block">Verb (Rare)</span>
+<span class="text-sm font-extrabold text-ink-deep mt-0.5 block">resile</span>
+<span class="text-[11px] text-ink-muted font-medium">/rɪˈzaɪl/</span>
+</div>
+</div>
+</section>
+<!-- 5. EASILY CONFUSED WITH MINI CARD (High-contrast fix: #8A1E14 brick red) -->
+<section class="bg-card rounded-2xl border-2 border-border-base shadow-tactile-card p-6">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-rounded text-[#A65E00] text-xl">compare_arrows</span>
+<h3 class="text-base font-extrabold text-ink-deep">Easily Confused: Resilient vs. Resistant</h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+<div class="p-3.5 rounded-xl bg-canvas border-2 border-border-base">
+<div class="flex items-center gap-1.5 text-teal-dark font-extrabold mb-1">
+<span class="material-symbols-rounded text-sm">replay</span>
+<span>Resilient (Bounces Back)</span>
+</div>
+<p class="text-ink-body font-medium leading-relaxed">
+                Absorbs damage, changes, or shocks, but quickly recovers to full strength.
+              </p>
+<div class="mt-2 text-[11px] font-semibold text-ink-muted italic">
+                e.g. "A resilient mindset after exam setbacks."
+              </div>
+</div>
+<!-- Darkened to deep brick-red (#8A1E14) on soft rose surface (#FDEAE8 with #F5B8B2 border) >4.5:1 -->
+<div class="p-3.5 rounded-xl bg-[#FDEAE8] border-2 border-[#F5B8B2]">
+<div class="flex items-center gap-1.5 text-[#8A1E14] font-extrabold mb-1">
+<span class="material-symbols-rounded text-sm text-[#8A1E14]">shield</span>
+<span>Resistant (Blocks Off)</span>
+</div>
+<p class="text-ink-body font-medium leading-relaxed">
+                Prevents something from affecting it in the first place; does not yield.
+              </p>
+<div class="mt-2 text-[11px] font-semibold text-[#662018] italic">
+                e.g. "Water-resistant watch; resistant to heat."
+              </div>
+</div>
+</div>
+</section>
+<!-- 6. TEACHER TIP BUBBLE WITH EMPTY DASHED TEACHER SLOT -->
+<section class="bg-card rounded-2xl border-2 border-border-base shadow-tactile-card p-6 flex flex-col sm:flex-row items-center gap-6">
+<!-- Speech Bubble Tip -->
+<div class="flex-1 order-2 sm:order-1">
+<!-- Darkened Examiner Pro Tip label and icon to #8A1E14 >4.5:1 against warm cream background -->
+<div class="flex items-center gap-1.5 text-xs font-extrabold text-[#8A1E14] uppercase tracking-wider mb-2">
+<span class="material-symbols-rounded text-base text-[#8A1E14]">tips_and_updates</span>
+              Examiner Pro Tip
+            </div>
+<div class="relative bg-canvas p-4 rounded-xl border-2 border-border-base shadow-tactile-card-sm">
+<p class="text-sm font-bold text-ink-deep leading-relaxed">
+                “In IELTS Speaking Part 3, swap generic adjectives like <span class="text-[#8A1E14] underline font-extrabold">'strong'</span> or <span class="text-[#8A1E14] underline font-extrabold">'tough'</span> for <span class="text-teal-dark font-extrabold bg-teal-soft px-1.5 py-0.5 rounded border border-teal-border/70">'resilient'</span>. Examiners reward precision when you discuss environmental rebuilding or career adaptability.”
+              </p>
+<div class="flex items-center gap-2 mt-3 pt-2.5 border-t border-border-base text-xs font-bold text-ink-muted">
+<span class="text-ink-deep">Teacher Ama</span>
+<span>•</span>
+<span class="text-teal-dark">Lexkite Lead IELTS Coach</span>
+</div>
+</div>
+</div>
+<!-- Empty Dashed Teacher Slot (Exact 140x170 constraint, strictly empty) -->
+<div class="order-1 sm:order-2 shrink-0">
+<div class="w-[140px] h-[170px] rounded-2xl border-2 border-dashed border-teal/70 bg-teal-soft/40 flex flex-col items-center justify-center p-3 text-center transition-all">
+<div class="w-10 h-10 rounded-full bg-teal-soft border border-teal-border flex items-center justify-center text-teal-dark mb-2">
+<span class="material-symbols-rounded text-xl">person</span>
+</div>
+<span class="text-xs font-extrabold uppercase tracking-wider text-teal-dark">TEACHER</span>
+<span class="text-[10px] text-ink-muted font-bold mt-1">140 × 170 slot</span>
+</div>
+</div>
+</section>
+</div>
+<!-- ==================== RIGHT COLUMN (Sticky Rail) ==================== -->
+<aside class="lg:col-span-4 flex flex-col gap-6 lg:sticky lg:top-24">
+<!-- 1. STICKY TACTILE CARD: SAVE & PRACTICE IN APP -->
+<div class="bg-card rounded-2xl border-2 border-border-base shadow-tactile-card p-6">
+<div class="flex items-center gap-2.5 mb-3">
+<div class="w-9 h-9 rounded-xl bg-amber-soft border-2 border-amber-border flex items-center justify-center text-amber-deep">
+<span class="material-symbols-rounded text-xl">style</span>
+</div>
+<div>
+<h3 class="text-lg font-extrabold text-ink-deep leading-tight">Save to your deck</h3>
+<span class="text-xs font-semibold text-ink-muted">Spaced repetition (FSRS)</span>
+</div>
+</div>
+<p class="text-xs font-medium text-ink-muted mb-5 leading-relaxed">
+            Lock <span class="font-bold text-ink-deep">resilient</span> into your active memory with 5-minute micro-drills on web or mobile.
+          </p>
+<!-- Primary CTA Button with deep brown-black ink (#1B0B04) text for >7:1 contrast -->
+<button class="w-full tactile-button btn-deck-tactile text-[#1B0B04] font-extrabold text-base py-3.5 px-4 rounded-xl border-2 border-[#9E2D18] flex items-center justify-center gap-2 mb-3 shadow-tactile-coral" type="button">
+<span class="material-symbols-rounded text-xl text-[#1B0B04]">bookmark_add</span>
+<span>Save to My Deck</span>
+</button>
+<!-- Secondary CTA Button (Card color with tactile ledge) -->
+<button class="w-full tactile-button btn-card-tactile text-ink-deep font-extrabold text-sm py-3 px-4 rounded-xl border-2 border-border-base flex items-center justify-center gap-2 hover:bg-canvas transition-colors" type="button">
+<span class="material-symbols-rounded text-lg text-teal-dark">smart_toy</span>
+<span>Practice this word in app</span>
+</button>
+<!-- Quick stat indicator -->
+<div class="mt-4 pt-3 border-t border-border-base/70 flex items-center justify-between text-xs font-bold text-ink-muted">
+<span class="flex items-center gap-1.5 text-ink-deep">
+<span class="w-2.5 h-2.5 rounded-full bg-green"></span>
+              142 learners reviewed today
+            </span>
+<span class="text-teal-dark font-extrabold">+10 XP</span>
+</div>
+</div>
+<!-- 2. RELATED WORDS LIST -->
+<div class="bg-card rounded-2xl border-2 border-border-base shadow-tactile-card p-6">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-rounded text-teal-dark text-xl">format_list_bulleted</span>
+<h3 class="text-base font-extrabold text-ink-deep">Related Words</h3>
+</div>
+<span class="text-[11px] font-extrabold text-ink-deep uppercase tracking-wider">Band 7.5+</span>
+</div>
+<div class="divide-y divide-border-base/60">
+<!-- Word 1 -->
+<a class="py-2.5 flex items-center justify-between group hover:bg-canvas -mx-2 px-2 rounded-lg transition-colors" href="#">
+<div>
+<span class="text-sm font-extrabold text-ink-deep group-hover:text-teal-dark transition-colors block">tenacity</span>
+<span class="text-[11px] text-ink-muted font-medium">noun • sự bền bỉ, kiên trì</span>
+</div>
+<span class="text-xs font-extrabold px-2 py-0.5 rounded bg-canvas border border-border-base text-ink-deep group-hover:border-teal-border group-hover:text-teal-dark">
+                C1
+              </span>
+</a>
+<!-- Word 2 -->
+<a class="py-2.5 flex items-center justify-between group hover:bg-canvas -mx-2 px-2 rounded-lg transition-colors" href="#">
+<div>
+<span class="text-sm font-extrabold text-ink-deep group-hover:text-teal-dark transition-colors block">fortitude</span>
+<span class="text-[11px] text-ink-muted font-medium">noun • sự kiên cường can đảm</span>
+</div>
+<span class="text-xs font-extrabold px-2 py-0.5 rounded bg-canvas border border-border-base text-ink-deep group-hover:border-teal-border group-hover:text-teal-dark">
+                C2
+              </span>
+</a>
+<!-- Word 3 -->
+<a class="py-2.5 flex items-center justify-between group hover:bg-canvas -mx-2 px-2 rounded-lg transition-colors" href="#">
+<div>
+<span class="text-sm font-extrabold text-ink-deep group-hover:text-teal-dark transition-colors block">endurance</span>
+<span class="text-[11px] text-ink-muted font-medium">noun • sức chịu đựng dẻo dai</span>
+</div>
+<span class="text-xs font-extrabold px-2 py-0.5 rounded bg-canvas border border-border-base text-ink-deep group-hover:border-teal-border group-hover:text-teal-dark">
+                B2
+              </span>
+</a>
+<!-- Word 4 -->
+<a class="py-2.5 flex items-center justify-between group hover:bg-canvas -mx-2 px-2 rounded-lg transition-colors" href="#">
+<div>
+<span class="text-sm font-extrabold text-ink-deep group-hover:text-teal-dark transition-colors block">perseverance</span>
+<span class="text-[11px] text-ink-muted font-medium">noun • tính kiên nhẫn, bền chí</span>
+</div>
+<span class="text-xs font-extrabold px-2 py-0.5 rounded bg-canvas border border-border-base text-ink-deep group-hover:border-teal-border group-hover:text-teal-dark">
+                B2
+              </span>
+</a>
+</div>
+<div class="mt-4 pt-3 border-t border-border-base">
+<a class="text-xs font-extrabold text-teal-dark hover:text-teal flex items-center justify-center gap-1 transition-colors" href="#">
+<span>Explore all C1 Academic Words</span>
+<span class="material-symbols-rounded text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- ==================== FOOTER ==================== -->
+<footer class="w-full bg-card border-t-2 border-border-base mt-16 py-10">
+<div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
+<div class="flex items-center gap-3">
+<!-- Footer logo with crisp white on deep teal #0D5C60 (>6:1 contrast) -->
+<div class="w-7 h-7 rounded-lg bg-[#0D5C60] flex items-center justify-center text-white font-extrabold text-xs shadow-[0_2px_0_#073538]">
+          LK
+        </div>
+<div>
+<span class="font-extrabold text-ink-deep">Lexkite</span>
+<p class="text-xs text-ink-muted mt-0.5 font-medium">Tactile English vocabulary mastery for IELTS &amp; TOEIC learners. Zero lockouts, 100% free.</p>
+</div>
+</div>
+<!-- Links -->
+<div class="flex flex-wrap items-center gap-6 text-xs font-bold text-ink-deep">
+<a class="hover:text-teal-dark transition-colors" href="#">Dictionary A–Z</a>
+<a class="hover:text-teal-dark transition-colors" href="#">Vocabulary Bank</a>
+<a class="hover:text-teal-dark transition-colors" href="#">Editorial Ethics</a>
+<a class="hover:text-teal-dark transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-teal-dark transition-colors" href="#">Terms</a>
+</div>
+<!-- Copyright -->
+<div class="text-xs font-medium text-ink-muted">
+        © 2025 Lexkite Prep Inc.
+      </div>
+</div>
+</footer>
+</body></html>

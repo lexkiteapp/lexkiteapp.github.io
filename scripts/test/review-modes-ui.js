@@ -55,8 +55,42 @@ const setMode = async m => { const s = $('#rmSel'); s.value = m; s.dispatchEvent
   ok($('#flash').classList.contains('flipped') && $('[data-grade].suggest'), 'chọn xong → lật + gợi ý mức chấm');
   // phím M đổi chế độ
   await go('#/review'); const m0 = $('#rmSel').value; key('m'); await tick(80); ok($('#rmSel').value !== m0, 'phím M đổi chế độ');
+  // 🔊 Nghe chọn nghĩa: trạng thái tải → lỗi âm thanh (jsdom không có giọng máy, file không tải được) → báo + nút "Hiện từ", vẫn trả lời được (tối đa Khó)
+  await go('#/review'); await setMode('audio');
+  await tick(400); // tự phát lúc mở thẻ (250 ms) đã chạy
+  $('#rmPlay').click(); ok($('#rmPlay').getAttribute('aria-busy') === 'true', 'bấm 🔊 → nút ở trạng thái đang tải (aria-busy)');
+  for (let i = 0; i < 100 && ($('#rmPlay').hasAttribute('aria-busy') || !$('#rmShow')); i++) await tick(100);
+  ok($('#rmShow') && /⚠️/.test($('#typeRes').textContent), 'không phát được âm thanh → báo lỗi + nút Hiện từ (không treo ở trạng thái tải)');
+  ok(!$('#rmPlay').hasAttribute('aria-busy'), 'lỗi âm thanh → bỏ aria-busy');
+  if ($('#rmShow')) { $('#rmShow').click(); await tick(20); }
+  const cur = w.App.state.cards[Object.keys(w.App.state.cards).find(k => w.App.state.cards[k]._opt && $('#rmPlay'))];
+  ok($('.rm-word') && cur && $('.rm-word').textContent === cur.word, 'Hiện từ → hiện chữ tiếng Anh của thẻ');
+  if (cur) { key(String(cur._opt.right + 1)); await tick(30); }
+  const sg = $('[data-grade].suggest'); ok(sg && +sg.dataset.grade <= 1, 'phải xem chữ mới chọn đúng → gợi ý tối đa Khó (Hard)');
+  // 🧮 Lịch FSRS không phụ thuộc chế độ: cùng trạng thái thẻ + cùng mức chấm → cùng kết quả ở Lật / Gõ / Nghe, và đúng bằng SRS.review gọi trực tiếp
+  const canon = o => JSON.stringify(Object.keys(o).sort().reduce((a, k) => (a[k] = o[k], a), {}));
+  const FIX = Date.now(), dn = w.Date.now, rnd = w.Math.random; w.Date.now = () => FIX; w.Math.random = () => 0.42;
+  const seed = { ef: 2.5, interval: 6, reps: 4, lapses: 1, due: FIX - 1000, last: FIX - 6 * 864e5, step: 0, S: 6, D: 4.5 };
+  for (const k of Object.keys(w.App.state.cards)) if (k !== 'habit') w.App.state.cards[k].srs.due = FIX + 9e9;
+  for (let g = 0; g < 4; g++) {
+    const got = {};
+    for (const m of ['flip', 'type', 'audio']) {
+      w.App.state.cards.habit.srs = { ...seed };
+      await go('#/review'); await setMode(m);
+      if (m === 'type') { const inp = $('#typeIn'); if (inp) { inp.value = 'habbit'; key('Enter', inp); } }
+      else if (m === 'audio') key('1');
+      else key('Enter', $('#flash'));
+      await tick(30);
+      const b = $(`[data-grade="${g}"]`); if (b) { b.click(); await tick(120); }
+      got[m] = canon(w.App.state.cards.habit.srs);
+    }
+    const ref = canon(w.Core.SRS.review({ ...seed }, g, FIX));
+    ok(got.flip === got.type && got.type === got.audio, `mức ${g}: lịch FSRS giống nhau ở 3 chế độ (${JSON.stringify(got).slice(0, 160)})`);
+    ok(got.flip === ref, `mức ${g}: lịch = SRS.review trực tiếp (không đổi thuật toán) ${got.flip} ≠ ${ref}`);
+  }
+  w.Date.now = dn; w.Math.random = rnd;
   ok(!errors.length, 'không lỗi JS: ' + errors.slice(0, 3).join(' | '));
   if (fails) { console.log(`✗ review-modes-ui: ${fails} lỗi`); process.exit(1); }
-  console.log('✓ review-modes-ui: lật + câu của bạn · gõ phản xạ · nghe chọn nghĩa · phím tắt · chấm FSRS');
+  console.log('✓ review-modes-ui: lật + câu của bạn · gõ phản xạ · nghe chọn nghĩa (tải/lỗi âm thanh) · phím tắt · chấm FSRS · lịch FSRS giống nhau ở 3 chế độ');
   process.exit(0);
 })();

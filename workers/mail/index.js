@@ -1,4 +1,5 @@
 import { judgeNightly } from './judge.js';
+import { ROWS as ACCT_ROWS } from '../../functions/api/_accounts_reg.js';
 /* Gửi thư nội bộ qua Cloudflare Email Routing (miễn phí, chỉ tới địa chỉ đã xác minh).
  * Chỉ được gọi qua service binding MAIL từ Pages Functions – workers_dev=false nên không ai gọi trực tiếp được. */
 import { EmailMessage } from 'cloudflare:email';
@@ -19,6 +20,8 @@ export function adminList(env) {
     .filter(Boolean);
   return list.length ? [...new Set(list)] : ['vintagezulilyjewelry@gmail.com'];
 }
+
+const parseJson = v => { try { const x = JSON.parse(v); return x && typeof x === 'object' && !Array.isArray(x) ? x : null; } catch (_) { return null; } };
 
 export function resolvePref(rawPref, defaultJsThreshold = 50) {
   if (!rawPref || typeof rawPref !== 'object') {
@@ -85,7 +88,7 @@ export async function digest(env) {
 
   // Đọc cấu hình adm_pref của các quản trị viên 1 lần duy nhất theo khóa
   const admins = adminList(env);
-  const keysToLoad = ['alert_errors', ...admins.map(e => 'adm_pref:' + e.toLowerCase().trim())];
+  const keysToLoad = ['alert_errors', 'adm_shared:alerts', ...admins.map(e => 'adm_pref:' + e.toLowerCase().trim())];
   const cfgMap = await loadConfigAndKeys(env.DB, keysToLoad);
   const defaultLim = +((cfgMap.get('alert_errors')) || 50);
 
@@ -141,6 +144,11 @@ export async function digest(env) {
     const is = await (await fetch('https://api.github.com/repos/lexkiteapp/lexkiteapp.github.io/issues?labels=quality-sweep&state=open&per_page=1', { headers: { 'User-Agent': 'lexkite-digest' } })).json();
     if (Array.isArray(is) && is[0]) wfLines.push(`• ${String(is[0].body || 'quality-sweep').split('\n')[0].replace(/\*/g, '').slice(0, 200)} – ${is[0].html_url}`);
   } catch (_) { /* GitHub tạm lỗi – bỏ qua */ }
+  // 6c. Top-1 score /100 (scripts/top1/score.mjs, docs/TOP1-SCORE.md): 1 dòng từ issue "Top-1 score" (tiêu đề = điểm, dòng 2 thân = điểm vs Duolingo)
+  try {
+    const is = await (await fetch('https://api.github.com/repos/lexkiteapp/lexkiteapp.github.io/issues?labels=top1-score&state=open&per_page=1', { headers: { 'User-Agent': 'lexkite-digest' } })).json();
+    if (Array.isArray(is) && is[0]) wfLines.push(`• ${String(is[0].title || 'Top-1 score').slice(0, 80)} – ${is[0].html_url}`);
+  } catch (_) { /* GitHub tạm lỗi – bỏ qua */ }
 
   // 7. Tự xác nhận bản dịch hàng đêm
   let judgeLine = null;
@@ -151,6 +159,17 @@ export async function digest(env) {
     }
   } catch (_) { /* AI tạm lỗi – đêm sau làm tiếp */ }
 
+  // Nhắc gia hạn khóa/token (Admin › Sổ tài khoản & khóa, docs/ACCOUNTS-LEDGER.md): hạn ≤ 14 ngày, nhắc ở mốc 14/7/3/2/1/0 và mỗi ngày khi đã quá hạn – KHÔNG phụ thuộc loại cảnh báo đã chọn
+  const credLines = [];
+  let led = new Map();
+  try { led = new Map(((await env.DB.prepare('SELECT id, expires FROM acct_ledger').all()).results || []).map(r => [r.id, r.expires])); } catch (_) { /* sổ chưa tạo → dùng hạn mặc định trong sổ đăng ký */ }
+  for (const r of ACCT_ROWS) {
+    const ex = led.get(r.id) || r.expires, t = /^\d{4}-\d{2}-\d{2}$/.test(ex || '') ? Date.parse(ex + 'T23:59:59Z') : NaN;
+    if (Number.isNaN(t)) continue;
+    const d = Math.ceil((t - now) / DAY);
+    if (d <= 14 && (d < 0 || d <= 3 || d % 7 === 0)) credLines.push(`• ${d < 0 ? 'ĐÃ HẾT HẠN' : 'Sắp hết hạn'} (${ex}): ${r.service} – ${r.names.join(', ')} · gia hạn tại ${r.manage}`);
+  }
+
   // Xây dựng danh sách cảnh báo cá nhân hóa cho từng quản trị viên
   const sentSummaries = [];
   for (const adminEmail of admins) {
@@ -159,8 +178,10 @@ export async function digest(env) {
     if (rawVal) {
       try { prefObj = JSON.parse(rawVal); } catch (_) {}
     }
+    const sharedAlerts = parseJson(cfgMap.get('adm_shared:alerts')); // bản DÙNG CHUNG mọi admin (functions/api/admin-prefs.js) đè bản cũ theo email
+    if (sharedAlerts) prefObj = { ...(prefObj || {}), ...sharedAlerts };
     const pref = resolvePref(prefObj, defaultLim);
-    const items = [];
+    const items = [...credLines];
 
     // Lỗi JavaScript: kiểm tra alertTypes và ngưỡng cá nhân hóa
     if (pref.alertTypes.has('js_error')) {
@@ -246,8 +267,9 @@ export default {
     if (alertType && env.DB && to) {
       try {
         const row = await env.DB.prepare('SELECT v FROM config WHERE k = ?').bind('adm_pref:' + to.toLowerCase().trim()).first();
-        if (row && row.v) {
-          const pref = JSON.parse(row.v);
+        const shr = parseJson(((await env.DB.prepare('SELECT v FROM config WHERE k = ?').bind('adm_shared:alerts').first()) || {}).v);
+        if ((row && row.v) || shr) {
+          const pref = { ...(row && row.v ? JSON.parse(row.v) : {}), ...(shr || {}) };
           if (Array.isArray(pref.alertTypes) && !pref.alertTypes.includes(alertType)) {
             return Response.json({ ok: true, skipped: 'alert-disabled' });
           }

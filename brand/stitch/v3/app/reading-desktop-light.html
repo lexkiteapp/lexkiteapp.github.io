@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Reading Practice - IELTS Academic</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container": "#FFFFFF",
+            "surface-bright": "#FFFDF9",
+            "on-primary-container": "#00322e",
+            "on-error-container": "#ffdad6",
+            "secondary-fixed-dim": "#ffb4a6",
+            "secondary-container": "#FFEFEA",
+            "on-primary": "#FFFFFF",
+            "on-secondary-container": "#660800",
+            "on-surface": "#1B282A",
+            "on-surface-variant": "#4E6163",
+            "surface-container-high": "#F5EFE4",
+            "surface-container-low": "#FFFDF9",
+            "inverse-primary": "#006a64",
+            "on-tertiary": "#402e00",
+            "surface-container-lowest": "#FFFFFF",
+            "surface-container-highest": "#EAE1D2",
+            "on-secondary-fixed": "#3f0300",
+            "error-container": "#FFECEB",
+            "on-primary-fixed": "#00201e",
+            "on-error": "#690005",
+            "on-background": "#142526",
+            "secondary-fixed": "#ffdad3",
+            "background": "#FFF8F0",
+            "surface-tint": "#2BA39A",
+            "inverse-on-surface": "#263236",
+            "tertiary": "#FFC94A",
+            "secondary": "#F2553B",
+            "on-secondary-fixed-variant": "#900f00",
+            "primary": "#0F3D3E",
+            "on-tertiary-fixed": "#261a00",
+            "on-secondary": "#FFFFFF",
+            "surface-variant": "#F3ECE1",
+            "primary-container": "#2BA39A",
+            "error": "#BA1A1A",
+            "on-primary-fixed-variant": "#00504b",
+            "tertiary-fixed": "#ffdf9e",
+            "on-tertiary-container": "#392900",
+            "tertiary-container": "#ba8b00",
+            "surface-dim": "#FFF7EA",
+            "tertiary-fixed-dim": "#f4bf40",
+            "outline-variant": "#D8CFBC",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "primary-fixed-dim": "#6bd8ce",
+            "primary-fixed": "#88f5ea",
+            "outline": "#879391",
+            "inverse-surface": "#263236",
+            "surface": "#FFFFFF",
+            "brand-dark": "#0F3D3E",
+            "brand-teal": "#2BA39A",
+            "brand-teal-deep": "#1F7A75",
+            "card-border": "#EADEC8",
+            "card-ledge": "#D8CFBC",
+            "coral-cta": "#F2553B",
+            "coral-ledge": "#B53A22",
+            "ink-dark": "#1B0B04"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-sm": "8px",
+            "margin": "16px",
+            "space-xs": "4px",
+            "space-lg": "24px",
+            "gutter": "16px",
+            "space-xl": "32px",
+            "space-md": "16px"
+          },
+          fontFamily: {
+            label: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            title: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"]
+          },
+          fontSize: {
+            label: ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
+            display: ["32px", { lineHeight: "38px", fontWeight: "800" }],
+            title: ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            body: ["16px", { lineHeight: "24px", fontWeight: "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Physical 3D tactile interaction primitives */
+    .tactile-card {
+      background-color: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 5px 0 0 #D8CFBC;
+      border-radius: 20px;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FF6B50 0%, #F2553B 60%, #E64326 100%);
+      box-shadow: 0 6px 0 0 #B53A22;
+      border: 1px solid #FFA191;
+      border-radius: 16px;
+      color: #1B0B04;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 0 #B53A22;
+    }
+
+    .tactile-btn-secondary {
+      background-color: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 0 #D8CFBC;
+      border-radius: 14px;
+      color: #0F3D3E;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #D8CFBC;
+    }
+
+    .tactile-option-btn {
+      background-color: #FFFFFF;
+      border: 2px solid #E2D7C3;
+      box-shadow: 0 4px 0 0 #D8CFBC;
+      border-radius: 14px;
+      transition: all 0.08s ease;
+    }
+    .tactile-option-btn:hover {
+      background-color: #FFFDF8;
+      border-color: #2BA39A;
+    }
+    .tactile-option-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #D8CFBC;
+    }
+    .tactile-option-btn.is-selected {
+      background-color: #EEFAF8;
+      border-color: #2BA39A;
+      box-shadow: 0 4px 0 0 #1A706A;
+      color: #0B423E;
+    }
+    .tactile-option-btn.is-selected:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #1A706A;
+    }
+
+    .teacher-slot {
+      border: 2px dashed #75C6C0;
+      background: radial-gradient(circle at 50% 40%, #E8F7F5 0%, #D4EFEA 100%);
+      border-radius: 18px;
+    }
+
+    /* Glossy specular top shine */
+    .gloss-shine {
+      position: relative;
+      overflow: hidden;
+    }
+    .gloss-shine::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%);
+      pointer-events: none;
+    }
+
+    .passage-scroll::-webkit-scrollbar {
+      width: 7px;
+    }
+    .passage-scroll::-webkit-scrollbar-track {
+      background: #F8F3EA;
+      border-radius: 8px;
+    }
+    .passage-scroll::-webkit-scrollbar-thumb {
+      background: #D8CFBC;
+      border-radius: 8px;
+    }
+    .passage-scroll::-webkit-scrollbar-thumb:hover {
+      background: #2BA39A;
+    }
+  </style>
+</head>
+<body class="bg-[#FFF8F0] text-on-surface font-body antialiased min-h-screen selection:bg-primary-container selection:text-white">
+<!-- Desktop Fixed Left Side Navigation Shell (from Shared Components JSON: SideNavBar) -->
+<aside aria-label="Main Navigation" class="fixed top-0 left-0 h-full w-64 flex flex-col justify-between p-4 z-40 bg-surface border-r-2 border-card-border [box-shadow:4px_0_0_0_#D8CFBC]">
+<!-- Header: Lexkite Kite Brand Emblem -->
+<div class="space-y-6">
+<div class="flex items-center gap-3.5 px-2 pt-2">
+<div class="w-11 h-11 rounded-2xl bg-brand-dark flex items-center justify-center [box-shadow:0_3px_0_0_#061E1F] text-tertiary">
+<svg class="w-7 h-7" fill="none" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 2L28 14L16 30L4 14L16 2Z" fill="#2BA39A"></path>
+<path d="M16 2L28 14L16 18L4 14L16 2Z" fill="#6BD8CE"></path>
+<path d="M16 18L28 14L16 30L4 14L16 18Z" fill="#0F3D3E"></path>
+<circle cx="16" cy="14" fill="#FFC94A" r="3"></circle>
+</svg>
+</div>
+<div>
+<div class="text-headline-md font-headline-md font-extrabold text-primary text-title font-title leading-tight">Lexkite</div>
+<p class="text-xs font-label font-bold text-on-surface-variant tracking-wider">Language Mastery</p>
+</div>
+</div>
+<!-- Navigation Links (5 tabs strictly from JSON: Today, Vocab, Skills [active], Tests, Me) -->
+<nav aria-label="App Navigation" class="space-y-1.5">
+<!-- 1: Today -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-text-secondary text-on-surface-variant hover:text-on-surface transition-all font-semibold hover:bg-surface-container-high active:translate-y-0.5" href="#today">
+<span class="material-symbols-outlined text-[22px]" data-icon="calendar_today">calendar_today</span>
+<span class="text-body font-body font-bold text-sm">Today</span>
+</a>
+<!-- 2: Vocab -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-text-secondary text-on-surface-variant hover:text-on-surface transition-all font-semibold hover:bg-surface-container-high active:translate-y-0.5" href="#vocab">
+<span class="material-symbols-outlined text-[22px]" data-icon="menu_book">menu_book</span>
+<span class="text-body font-body font-bold text-sm">Vocab</span>
+</a>
+<!-- 3: Skills (ACTIVE TAB: User is practicing academic reading skills) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#0F3D3E] text-white [box-shadow:0_4px_0_0_#072223] font-bold active:translate-y-0.5 transition-all" href="#skills">
+<span class="material-symbols-outlined text-[22px] text-primary" data-icon="psychology" data-weight="fill" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="text-body font-body font-bold text-sm">Skills</span>
+<span class="ml-auto w-2 h-2 rounded-full bg-tertiary"></span>
+</a>
+<!-- 4: Tests -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-text-secondary text-on-surface-variant hover:text-on-surface transition-all font-semibold hover:bg-surface-container-high active:translate-y-0.5" href="#tests">
+<span class="material-symbols-outlined text-[22px]" data-icon="assignment">assignment</span>
+<span class="text-body font-body font-bold text-sm">Tests</span>
+</a>
+<!-- 5: Me -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-text-secondary text-on-surface-variant hover:text-on-surface transition-all font-semibold hover:bg-surface-container-high active:translate-y-0.5" href="#me">
+<span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
+<span class="text-body font-body font-bold text-sm">Me</span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Bottom Gamification Cards (Strictly NO hearts/lives): Streak & XP & Multi-lang -->
+<div class="space-y-3 pt-3 border-t-2 border-[#EADEC8]">
+<!-- Placement Test Action Tag -->
+<a class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl bg-[#F4EDE0] border border-[#E0D5C1] [box-shadow:0_2px_0_0_#D8CFBC] hover:bg-[#ECE4D5] text-xs font-bold text-brand-dark transition-all active:translate-y-0.5" href="#placement">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-brand-teal" data-icon="speed">speed</span>
+          Placement Test
+        </span>
+<span class="text-[10px] bg-brand-dark text-white px-2 py-0.5 rounded-md font-extrabold">B2/C1</span>
+</a>
+<!-- Streak & XP Counters -->
+<div class="grid grid-cols-2 gap-2">
+<div class="p-2.5 rounded-xl bg-white border border-[#EADEC8] [box-shadow:0_3px_0_0_#D8CFBC] flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-[#FFEFEA] flex items-center justify-center text-[#E64326]">
+<span class="material-symbols-outlined text-lg" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-on-surface-variant leading-none">Streak</p>
+<p class="text-xs font-extrabold text-brand-dark leading-tight mt-0.5">14 Days</p>
+</div>
+</div>
+<div class="p-2.5 rounded-xl bg-white border border-[#EADEC8] [box-shadow:0_3px_0_0_#D8CFBC] flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-[#FFF7D6] flex items-center justify-center text-[#B07B00]">
+<span class="material-symbols-outlined text-lg" data-icon="bolt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-on-surface-variant leading-none">Experience</p>
+<p class="text-xs font-extrabold text-brand-dark leading-tight mt-0.5">820 XP</p>
+</div>
+</div>
+</div>
+<!-- Bottom UI Language Selector Status (Internationalization safe) -->
+<div class="px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#EADEC8] flex items-center justify-between text-xs text-on-surface-variant font-semibold">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-brand-teal" data-icon="translate">translate</span>
+<span class="truncate">EN (UK) • 15 Ready</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</div>
+</div>
+</aside>
+<!-- Main Canvas Content Area (Offset by 256px / 16rem for fixed SideNavBar) -->
+<main class="ml-64 min-h-screen flex flex-col justify-between pb-12">
+<!-- Top Sticky Practice Bar & Unit Navigation -->
+<header class="sticky top-0 z-30 bg-[#FFF8F0]/95 backdrop-blur-md border-b-2 border-card-border px-8 py-3.5 [box-shadow:0_4px_0_0_#D8CFBC]">
+<div class="max-w-[1180px] mx-auto flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<!-- Unit Breadcrumb & Module -->
+<div class="flex items-center gap-2 text-xs font-bold text-brand-teal-deep">
+<span class="material-symbols-outlined text-base" data-icon="school">school</span>
+<span>IELTS Academic Reading</span>
+<span class="text-[#C8BBA5]">•</span>
+<span class="text-on-surface-variant font-medium">Unit 4: Environmental Technology</span>
+</div>
+<!-- Utility Control Group (Font size, vocab highlight toggle, instant dictionary) -->
+<div class="flex items-center gap-2">
+<button aria-label="Toggle text scale" class="tactile-btn-secondary px-3 py-1.5 flex items-center gap-1.5 text-xs font-bold" title="Adjust text scale">
+<span class="material-symbols-outlined text-sm" data-icon="format_size">format_size</span>
+<span>Text +/-</span>
+</button>
+<button class="tactile-btn-secondary px-3 py-1.5 flex items-center gap-1.5 text-xs font-bold bg-[#E8F6F4] text-brand-teal-deep border-[#B9E3DE]" title="Toggle Highlighted Academic Vocab">
+<span class="material-symbols-outlined text-sm text-brand-teal" data-icon="brush" data-weight="fill" style="font-variation-settings: 'FILL' 1;">brush</span>
+<span>Vocab Highlights</span>
+</button>
+<button class="tactile-btn-secondary px-3 py-1.5 flex items-center gap-1.5 text-xs font-bold" title="Academic Dictionary Lookup">
+<span class="material-symbols-outlined text-sm" data-icon="dictionary">dictionary</span>
+<span>Lexicon</span>
+</button>
+</div>
+</div>
+<!-- Title & Meta Indicator Row -->
+<div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+<div>
+<h1 class="text-title font-title font-extrabold text-brand-dark tracking-tight">
+              Reading Practice: High-Speed Hyperloop Networks
+            </h1>
+</div>
+<!-- Academic Diagnostic Meta Chips -->
+<div class="flex flex-wrap items-center gap-2 text-xs font-bold">
+<!-- Timer Chip -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#EADEC8] [box-shadow:0_2px_0_0_#D8CFBC] text-brand-dark">
+<span class="material-symbols-outlined text-base text-[#E64326]" data-icon="timer">timer</span>
+<span>14:25 remaining</span>
+</div>
+<!-- Question Counter Chip -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#EADEC8] [box-shadow:0_2px_0_0_#D8CFBC] text-brand-dark">
+<span class="material-symbols-outlined text-base text-brand-teal" data-icon="check_circle">check_circle</span>
+<span>3 Questions</span>
+</div>
+<!-- Word Count Chip -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#EADEC8] [box-shadow:0_2px_0_0_#D8CFBC] text-on-surface-variant">
+<span class="material-symbols-outlined text-base" data-icon="article">article</span>
+<span>680 words</span>
+</div>
+<!-- Target Band / CEFR Chip -->
+<div class="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#0F3D3E] text-white [box-shadow:0_2px_0_0_#072223]">
+<span class="text-tertiary">★</span>
+<span>CEFR B2-C1 • Band 7.5 Target</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Practice Grid: Left Passage Column + Right Questions Column -->
+<div class="max-w-[1180px] mx-auto w-full px-8 pt-6 pb-4">
+<div class="grid grid-cols-12 gap-7 items-start">
+<!-- LEFT COLUMN (7 Cols): Reading Passage Card -->
+<section aria-label="Reading Passage Section" class="col-span-12 lg:col-span-7 flex flex-col gap-4">
+<div class="tactile-card p-6 md:p-7 relative gloss-shine bg-white">
+<!-- Passage Card Meta Header -->
+<div class="flex items-center justify-between pb-4 border-b-2 border-[#F3ECE1] mb-5">
+<div class="flex items-center gap-2.5">
+<span class="px-2.5 py-1 rounded-lg bg-[#E8F6F4] text-brand-teal-deep text-xs font-extrabold border border-[#CDEAE5]">
+                  PASSAGE 1
+                </span>
+<span class="text-xs font-semibold text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                  Estimated reading: 4–5 mins
+                </span>
+</div>
+<button aria-label="Listen to academic narration" class="tactile-btn-secondary px-3 py-1.5 text-xs font-bold flex items-center gap-1.5 bg-[#FFF9F2]">
+<span class="material-symbols-outlined text-sm text-[#F2553B]" data-icon="volume_up">volume_up</span>
+<span>Listen to passage</span>
+</button>
+</div>
+<!-- Academic Title -->
+<h2 class="text-xl md:text-2xl font-extrabold text-brand-dark mb-4 leading-snug">
+              The Feasibility of Vacuum-Tube Transit in Subtropical Corridors
+            </h2>
+<!-- Scrollable Reading Content with Academic Paragraph Marks and Inline Vocab Tooltips -->
+<article class="space-y-5 text-[15px] leading-relaxed text-[#2C3B3D] passage-scroll max-h-[580px] overflow-y-auto pr-3">
+<!-- Paragraph A -->
+<div class="relative pl-7 group">
+<span class="absolute left-0 top-0.5 w-5 h-5 rounded-md bg-[#F4EDE0] text-brand-dark text-xs font-black flex items-center justify-center border border-[#E0D5C1]">A</span>
+<p>
+                  As global metropolitan corridors contend with <span class="relative inline-block font-bold text-brand-teal-deep underline decoration-[#2BA39A] decoration-2 underline-offset-2 bg-[#E8F7F5] px-1 rounded cursor-help">unprecedented<span class="hidden group-hover:block absolute bottom-full left-0 mb-1 z-20 w-56 p-2 text-xs bg-brand-dark text-white rounded-lg shadow-lg font-medium">unprecedented: never having happened or existed before.</span></span> demographic pressure and carbon restrictions, civil engineers have revived the conceptual framework of sealed, low-pressure pneumatic transport. The fundamental <span class="relative inline-block font-bold text-brand-teal-deep underline decoration-[#2BA39A] decoration-2 underline-offset-2 bg-[#E8F7F5] px-1 rounded cursor-help">feasibility<span class="hidden group-hover:block absolute bottom-full left-0 mb-1 z-20 w-56 p-2 text-xs bg-brand-dark text-white rounded-lg shadow-lg font-medium">feasibility: the degree of being easily or conveniently done.</span></span> of magnetic levitation within near-vacuum tubes hinges upon dramatically reducing atmospheric drag, hypothetically permitting pod velocities surpassing 1,000 kilometres per hour with marginal aerodynamic friction.
+                </p>
+</div>
+<!-- Paragraph B -->
+<div class="relative pl-7 group">
+<span class="absolute left-0 top-0.5 w-5 h-5 rounded-md bg-[#F4EDE0] text-brand-dark text-xs font-black flex items-center justify-center border border-[#E0D5C1]">B</span>
+<p>
+                  Deploying such complex linear <span class="relative inline-block font-bold text-brand-teal-deep underline decoration-[#2BA39A] decoration-2 underline-offset-2 bg-[#E8F7F5] px-1 rounded cursor-help">infrastructure<span class="hidden group-hover:block absolute bottom-full left-0 mb-1 z-20 w-56 p-2 text-xs bg-brand-dark text-white rounded-lg shadow-lg font-medium">infrastructure: basic physical and organizational structures needed for operation.</span></span> across humid subtropical plains introduces unique geotechnical hazards. Thermal expansion in continuous steel and composite ductwork can produce structural stresses capable of distorting tube alignment. To <span class="relative inline-block font-bold text-brand-teal-deep underline decoration-[#2BA39A] decoration-2 underline-offset-2 bg-[#E8F7F5] px-1 rounded cursor-help">mitigate<span class="hidden group-hover:block absolute bottom-full left-0 mb-1 z-20 w-56 p-2 text-xs bg-brand-dark text-white rounded-lg shadow-lg font-medium">mitigate: make something less severe, serious, or painful.</span></span> seismic shearing and localized ground subsistence, recent pilot tracks in Guangzhou and Mumbai have utilized segmented modular joints suspended on dynamically dampened pylon arrays.
+                </p>
+</div>
+<!-- Paragraph C -->
+<div class="relative pl-7 group">
+<span class="absolute left-0 top-0.5 w-5 h-5 rounded-md bg-[#F4EDE0] text-brand-dark text-xs font-black flex items-center justify-center border border-[#E0D5C1]">C</span>
+<p>
+                  Initial capital expenditures have prompted intense policy debate. While commercial promoters assert that operational expenditures will prove modest due to kinetic regenerative braking, preliminary financial analyses demonstrate that test conduits remained heavily <span class="relative inline-block font-bold text-brand-teal-deep underline decoration-[#2BA39A] decoration-2 underline-offset-2 bg-[#E8F7F5] px-1 rounded cursor-help">subsidized<span class="hidden group-hover:block absolute bottom-full left-0 mb-1 z-20 w-56 p-2 text-xs bg-brand-dark text-white rounded-lg shadow-lg font-medium">subsidized: supported financially by municipal or state assistance.</span></span> through hybrid public-private partnerships rather than independent commercial investment portfolios. Furthermore, per-passenger energy ratios achieve peak efficiency only on transits exceeding 500 kilometres, rendering short regional links less viable than conventional electrified high-speed rail.
+                </p>
+</div>
+<!-- Paragraph D -->
+<div class="relative pl-7 group">
+<span class="absolute left-0 top-0.5 w-5 h-5 rounded-md bg-[#F4EDE0] text-brand-dark text-xs font-black flex items-center justify-center border border-[#E0D5C1]">D</span>
+<p>
+                  Safety authorities have enacted <span class="relative inline-block font-bold text-brand-teal-deep underline decoration-[#2BA39A] decoration-2 underline-offset-2 bg-[#E8F7F5] px-1 rounded cursor-help">stringent<span class="hidden group-hover:block absolute bottom-full left-0 mb-1 z-20 w-56 p-2 text-xs bg-brand-dark text-white rounded-lg shadow-lg font-medium">stringent: strictly controlled, precise, and demanding.</span></span> evacuation mandates requiring emergency repressurization chambers every four kilometres. While feasibility blueprints exist across Southeast Asian transport committees, municipal urban planners in Singapore and Bangkok have officially paused capital commitment, opting instead to monitor continuous test trials along designated desert proving grounds before dedicating subterranean rights-of-way.
+                </p>
+</div>
+</article>
+<!-- Bottom Floating Academic Tip / Empty Teacher Slot (Strictly NO photos or drawn people) -->
+<div class="mt-5 pt-4 border-t-2 border-[#F3ECE1] flex items-center gap-4 bg-[#FBF7F0] p-3.5 rounded-2xl border border-[#EADEC8]">
+<!-- Neutral Teacher Slot Badge -->
+<div aria-hidden="true" class="teacher-slot w-14 h-14 flex-shrink-0 flex flex-col items-center justify-center text-center p-1">
+<span class="material-symbols-outlined text-brand-teal text-xl" data-icon="psychology">psychology</span>
+<span class="text-[9px] font-extrabold text-brand-teal-deep uppercase leading-tight tracking-tighter">CARLOS</span>
+</div>
+<!-- Scanning Strategy Guidance Bubble -->
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="text-xs font-extrabold text-brand-dark">Teacher Carlos (Strategy Tip):</span>
+<span class="text-[10px] bg-[#E8F6F4] text-brand-teal-deep font-bold px-2 py-0.2 rounded">IELTS Task Tip</span>
+</div>
+<p class="text-xs text-on-surface-variant font-medium leading-relaxed">
+                  "Read for global meaning first before tackling the True/False/Not Given claims! Remember: <strong>NOT GIVEN</strong> means the passage neither confirms nor contradicts the statement."
+                </p>
+</div>
+</div>
+</div>
+</section>
+<!-- RIGHT COLUMN (5 Cols): IELTS True / False / Not Given Task Set -->
+<section aria-label="Questions Section" class="col-span-12 lg:col-span-5 flex flex-col gap-4">
+<div class="tactile-card p-6 relative gloss-shine bg-white">
+<!-- Instructions Header -->
+<div class="border-b-2 border-[#F3ECE1] pb-3.5 mb-5">
+<div class="flex items-center justify-between">
+<h3 class="text-base font-extrabold text-brand-dark flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-[#0F3D3E] text-tertiary flex items-center justify-center text-xs font-black">
+                    1-3
+                  </span>
+                  Questions 1–3: Identification Task
+                </h3>
+<span class="text-xs font-bold text-brand-teal-deep bg-[#EEFAF8] px-2.5 py-0.5 rounded-full border border-[#D0ECE8]">
+                  Reading Band 7+
+                </span>
+</div>
+<p class="text-xs text-on-surface-variant mt-2 leading-normal">
+                Do the following statements agree with the information given in Reading Passage 1? Write <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.
+              </p>
+</div>
+<!-- Question 1 -->
+<div class="space-y-3 pb-5 border-b-2 border-[#F4EDE0]">
+<div class="flex items-start justify-between gap-3">
+<p class="text-sm font-bold text-brand-dark leading-snug">
+<span class="text-brand-teal-deep font-black">Q1.</span> The initial investment for regional hyperloop tubes was entirely covered by private infrastructure funds.
+                </p>
+<button class="tactile-btn-secondary px-2 py-1 text-[11px] font-bold flex-shrink-0 flex items-center gap-1 text-brand-teal-deep" title="Locate evidence in Paragraph C">
+<span class="material-symbols-outlined text-xs" data-icon="search">search</span>
+<span>Locate (C)</span>
+</button>
+</div>
+<!-- Interactive Choice Chips (Q1 answered: FALSE selected) -->
+<div class="grid grid-cols-3 gap-2">
+<button aria-pressed="false" class="tactile-option-btn py-2.5 px-2 text-xs font-extrabold text-center flex items-center justify-center gap-1.5">
+<span class="w-4 h-4 rounded-full bg-[#EFE8DA] text-[10px] flex items-center justify-center font-black">T</span>
+<span>TRUE</span>
+</button>
+<button aria-pressed="true" class="tactile-option-btn is-selected py-2.5 px-2 text-xs font-extrabold text-center flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-brand-teal" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>FALSE</span>
+</button>
+<button aria-pressed="false" class="tactile-option-btn py-2.5 px-2 text-xs font-extrabold text-center flex items-center justify-center gap-1.5">
+<span class="w-4 h-4 rounded-full bg-[#EFE8DA] text-[10px] flex items-center justify-center font-black">NG</span>
+<span>NOT GIVEN</span>
+</button>
+</div>
+</div>
+<!-- Question 2 -->
+<div class="space-y-3 py-4 border-b-2 border-[#F4EDE0]">
+<div class="flex items-start justify-between gap-3">
+<p class="text-sm font-bold text-brand-dark leading-snug">
+<span class="text-brand-teal-deep font-black">Q2.</span> Vacuum-tube transit operates with lower per-passenger energy consumption than high-speed rail across short distances.
+                </p>
+<button class="tactile-btn-secondary px-2 py-1 text-[11px] font-bold flex-shrink-0 flex items-center gap-1 text-brand-teal-deep" title="Locate evidence in Paragraph C">
+<span class="material-symbols-outlined text-xs" data-icon="search">search</span>
+<span>Locate (C)</span>
+</button>
+</div>
+<!-- Interactive Choice Chips (Q2 answered: FALSE selected) -->
+<div class="grid grid-cols-3 gap-2">
+<button aria-pressed="false" class="tactile-option-btn py-2.5 px-2 text-xs font-extrabold text-center flex items-center justify-center gap-1.5">
+<span class="w-4 h-4 rounded-full bg-[#EFE8DA] text-[10px] flex items-center justify-center font-black">T</span>
+<span>TRUE</span>
+</button>
+<button aria-pressed="true" class="tactile-option-btn is-selected py-2.5 px-2 text-xs font-extrabold text-center flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-brand-teal" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>FALSE</span>
+</button>
+<button aria-pressed="false" class="tactile-option-btn py-2.5 px-2 text-xs font-extrabold text-center flex items-center justify-center gap-1.5">
+<span class="w-4 h-4 rounded-full bg-[#EFE8DA] text-[10px] flex items-center justify-center font-black">NG</span>
+<span>NOT GIVEN</span>
+</button>
+</div>
+</div>
+<!-- Question 3 -->
+<div class="space-y-3 pt-4">
+<div class="flex items-start justify-between gap-3">
+<p class="text-sm font-bold text-brand-dark leading-snug">
+<span class="text-brand-teal-deep font-black">Q3.</span> Urban planners in Singapore have finalized routes for subterranean vacuum connections.
+                </p>
+<button class="tactile-btn-secondary px-2 py-1 text-[11px] font-bold flex-shrink-0 flex items-center gap-1 text-brand-teal-deep" title="Locate evidence in Paragraph D">
+<span class="material-symbols-outlined text-xs" data-icon="search">search</span>
+<span>Locate (D)</span>
+</button>
+</div>
+<!-- Interactive Choice Chips (Q3 answered: FALSE / paused state) -->
+<div class="grid grid-cols-3 gap-2">
+<button aria-pressed="false" class="tactile-option-btn py-2.5 px-2 text-xs font-extrabold text-center flex items-center justify-center gap-1.5">
+<span class="w-4 h-4 rounded-full bg-[#EFE8DA] text-[10px] flex items-center justify-center font-black">T</span>
+<span>TRUE</span>
+</button>
+<button aria-pressed="true" class="tactile-option-btn is-selected py-2.5 px-2 text-xs font-extrabold text-center flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-brand-teal" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>FALSE</span>
+</button>
+<button aria-pressed="false" class="tactile-option-btn py-2.5 px-2 text-xs font-extrabold text-center flex items-center justify-center gap-1.5">
+<span class="w-4 h-4 rounded-full bg-[#EFE8DA] text-[10px] flex items-center justify-center font-black">NG</span>
+<span>NOT GIVEN</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Feedback Callout Banner (Tactile card) -->
+<div class="p-4 rounded-2xl bg-[#E8F7F5] border-2 border-[#B9E3DE] [box-shadow:0_3px_0_0_#9DC8C3] flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-white border border-[#A7D7D1] flex items-center justify-center text-brand-teal-deep flex-shrink-0">
+<span class="material-symbols-outlined text-xl" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="text-xs">
+<p class="font-extrabold text-brand-dark">All 3 questions completed!</p>
+<p class="text-on-surface-variant font-medium">Ready to submit for instantaneous band calibration and lexical breakdown.</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Fixed/Docked Action Footer -->
+<footer aria-label="Submission and Actions" class="mt-8 border-t-2 border-card-border bg-white px-8 py-4 [box-shadow:0_-4px_0_0_#EADEC8]">
+<div class="max-w-[1180px] mx-auto flex flex-wrap items-center justify-between gap-4">
+<!-- Answer Completion Status & Progress Meter -->
+<div class="flex items-center gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-xs font-black uppercase text-brand-dark tracking-wide">Exercise Progress</span>
+<span class="text-xs font-extrabold text-brand-teal-deep bg-[#E8F6F4] px-2 py-0.5 rounded-md">3 of 3 answered</span>
+</div>
+<!-- Progress Bar with tactile bevel -->
+<div class="w-48 sm:w-64 h-3 bg-[#EADEC8] rounded-full overflow-hidden p-0.5">
+<div class="h-full bg-gradient-to-r from-brand-teal to-[#1F7A75] rounded-full w-full"></div>
+</div>
+</div>
+<span class="hidden md:inline-block text-xs text-on-surface-variant font-medium border-l-2 border-[#EADEC8] pl-4">
+            Estimated Diagnostic Accuracy: <strong>100%</strong>
+</span>
+</div>
+<!-- Action CTA Buttons (Secondary Save & Exit, Primary Tactile Submit CTA) -->
+<div class="flex items-center gap-3">
+<!-- Secondary Action: Save & Exit -->
+<button class="tactile-btn-secondary px-5 py-3 text-sm font-extrabold min-h-[48px] flex items-center gap-2 active:translate-y-1">
+<span class="material-symbols-outlined text-base" data-icon="bookmark_border">bookmark_border</span>
+<span>Save &amp; Exit</span>
+</button>
+<!-- Primary Submit CTA: Coral-to-Amber with 6px tactile bottom ledge & dark ink text -->
+<button aria-label="Submit Answers for grading" class="tactile-btn-primary px-8 py-3.5 text-base font-black min-h-[52px] flex items-center justify-center gap-2 shadow-sm text-ink-dark cursor-pointer active:translate-y-1">
+<span>Submit Answers</span>
+<span class="material-symbols-outlined text-lg font-bold" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Trust & Pedagogy Footer Meta -->
+<div class="max-w-[1180px] mx-auto pt-3 mt-2 border-t border-[#F3ECE1] flex items-center justify-between text-[11px] text-on-surface-variant font-semibold">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-brand-teal" data-icon="workspace_premium">workspace_premium</span>
+<span>Cambridge &amp; IDP calibrated grading • Zero paywalls • Powered by Lexkite Adaptive Engine</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="hover:underline cursor-pointer">Reading Rubric</span>
+<span>•</span>
+<span class="hover:underline cursor-pointer">Band Descriptors</span>
+<span>•</span>
+<span class="hover:underline cursor-pointer">Keyboard Shortcuts</span>
+</div>
+</div>
+</footer>
+</main>
+<!-- Interactive State JavaScript for micro-interactions -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Toggle button selection state inside each question group
+      const optionButtons = document.querySelectorAll('.tactile-option-btn');
+      
+      optionButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const parentGrid = btn.closest('.grid');
+          if (parentGrid) {
+            // Remove selected state from sibling buttons in same question
+            parentGrid.querySelectorAll('.tactile-option-btn').forEach(sib => {
+              sib.classList.remove('is-selected');
+              sib.setAttribute('aria-pressed', 'false');
+              // Replace check icon if present
+              const icon = sib.querySelector('.material-symbols-outlined');
+              if (icon && icon.textContent === 'check_circle') {
+                const text = sib.textContent.trim();
+                let initial = 'T';
+                if (text.includes('NOT GIVEN')) initial = 'NG';
+                else if (text.includes('FALSE')) initial = 'F';
+                sib.innerHTML = `<span class="w-4 h-4 rounded-full bg-[#EFE8DA] text-[10px] flex items-center justify-center font-black">${initial}</span><span>${text}</span>`;
+              }
+            });
+
+            // Mark clicked button as selected
+            btn.classList.add('is-selected');
+            btn.setAttribute('aria-pressed', 'true');
+            const cleanLabel = btn.innerText.trim();
+            btn.innerHTML = `<span class="material-symbols-outlined text-sm text-brand-teal" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span><span>${cleanLabel}</span>`;
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

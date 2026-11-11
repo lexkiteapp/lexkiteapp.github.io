@@ -33,6 +33,7 @@ quiz: [
     explain: "纠错与归因是听写训练的精髓，通过标红对比能直观暴露出自己的辨音盲区、弱读盲点或语法预测薄弱项。"
   }
 ]
+publishAt: 2026-11-24T19:25:00+08:00
 ---
 在英语听力备考过程中，很多学习者常陷入一种迷思：“我已经刷了数十套真题、泛听了几个月的英文播客，为什么真正考试或与母语者交流时，语速稍快依然听不懂？”
 
@@ -140,6 +141,8 @@ quiz: [
 {{youtube: | Gợi ý video hướng dẫn phương pháp luyện nghe chép chính tả Dictation tiếng Anh hiệu quả}}
 
 {{cta: /#/listening | 立即进入 Lexkite 听力精听室，开启你的每日听写提分之旅}}
+
+想把听写训练用到TOEIC考试上，可参考[TOEIC听力Part 2解题技巧](/zh/blog/toeic-ting-li-part-2-jie-ti-ji-qiao/)。
 
 ## 英语听写训练常见疑问解答（FAQ）
 

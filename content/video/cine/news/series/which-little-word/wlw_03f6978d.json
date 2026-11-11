@@ -145,9 +145,11 @@
     [
      [
       "@x"
-     ]
-    ],
-    [
+     ],
+     [
+      " ",
+      "white"
+     ],
      [
       "“Stress can lead ",
       "white"
@@ -435,6 +437,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "Bad sleep can lead ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " stress.",
+      "white"
+     ]
+    ]
+   ],
    "a": "for",
    "b": "to",
    "correct": "b",

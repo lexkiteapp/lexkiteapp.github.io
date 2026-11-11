@@ -1,0 +1,889 @@
+{
+ "v": 1,
+ "tl": "es",
+ "variant": "es-419",
+ "_note": "Bộ từ mẫu W0 soát tay (3/11/2026) – docs/specs/spanish-course.md §4/§8. Chuẩn: tiếng TBN Mỹ Latinh trung tính (seseo c/z = s; computadora, carro, celular, jugo). IPA kiểu espeak-ng es-419, kiểm chéo trên CI (word-audio-tl.yml bước IPA). img = khóa tiếng Anh từ#loại trong content/lexicon/img.json CHỈ khi đúng nghĩa. gl.es = chính từ đó. Ví dụ tự soạn.",
+ "source": {
+  "selection": "hand-picked high-frequency concrete words (A1), cielo/zapato/ciudad/manzana/feliz/cocina for seseo check",
+  "review": "claude-manual"
+ },
+ "words": [
+  {
+   "word": "casa",
+   "pos": "n",
+   "gender": "f",
+   "plural": "casas",
+   "ipa": "ˈkasa",
+   "emoji": "🏠",
+   "img": "house#n",
+   "gl": {
+    "vi": "nhà",
+    "en": "house",
+    "es": "casa",
+    "pt": "casa",
+    "fr": "maison",
+    "de": "Haus",
+    "id": "rumah",
+    "th": "บ้าน",
+    "zh": "房子",
+    "ja": "家",
+    "ko": "집",
+    "hi": "घर",
+    "ar": "منزل",
+    "ru": "дом",
+    "tr": "ev"
+   },
+   "ex": {
+    "es": "Mi casa es pequeña.",
+    "en": "My house is small."
+   }
+  },
+  {
+   "word": "agua",
+   "pos": "n",
+   "gender": "f",
+   "plural": "aguas",
+   "ipa": "ˈaɣwa",
+   "emoji": "💧",
+   "img": "water#n",
+   "gl": {
+    "vi": "nước",
+    "en": "water",
+    "es": "agua",
+    "pt": "água",
+    "fr": "eau",
+    "de": "Wasser",
+    "id": "air",
+    "th": "น้ำ",
+    "zh": "水",
+    "ja": "水",
+    "ko": "물",
+    "hi": "पानी",
+    "ar": "ماء",
+    "ru": "вода",
+    "tr": "su"
+   },
+   "ex": {
+    "es": "Bebo agua todos los días.",
+    "en": "I drink water every day."
+   }
+  },
+  {
+   "word": "cielo",
+   "pos": "n",
+   "gender": "m",
+   "plural": "cielos",
+   "ipa": "ˈsjelo",
+   "emoji": "🌤️",
+   "gl": {
+    "vi": "bầu trời",
+    "en": "sky",
+    "es": "cielo",
+    "pt": "céu",
+    "fr": "ciel",
+    "de": "Himmel",
+    "id": "langit",
+    "th": "ท้องฟ้า",
+    "zh": "天空",
+    "ja": "空",
+    "ko": "하늘",
+    "hi": "आसमान",
+    "ar": "سماء",
+    "ru": "небо",
+    "tr": "gökyüzü"
+   },
+   "ex": {
+    "es": "El cielo está azul hoy.",
+    "en": "The sky is blue today."
+   }
+  },
+  {
+   "word": "zapato",
+   "pos": "n",
+   "gender": "m",
+   "plural": "zapatos",
+   "ipa": "saˈpato",
+   "emoji": "👞",
+   "img": "shoe#n",
+   "gl": {
+    "vi": "giày",
+    "en": "shoe",
+    "es": "zapato",
+    "pt": "sapato",
+    "fr": "chaussure",
+    "de": "Schuh",
+    "id": "sepatu",
+    "th": "รองเท้า",
+    "zh": "鞋",
+    "ja": "靴",
+    "ko": "신발",
+    "hi": "जूता",
+    "ar": "حذاء",
+    "ru": "ботинок",
+    "tr": "ayakkabı"
+   },
+   "ex": {
+    "es": "Este zapato es nuevo.",
+    "en": "This shoe is new."
+   }
+  },
+  {
+   "word": "perro",
+   "pos": "n",
+   "gender": "m",
+   "plural": "perros",
+   "ipa": "ˈpero",
+   "emoji": "🐕",
+   "img": "dog#n",
+   "gl": {
+    "vi": "con chó",
+    "en": "dog",
+    "es": "perro",
+    "pt": "cachorro",
+    "fr": "chien",
+    "de": "Hund",
+    "id": "anjing",
+    "th": "สุนัข",
+    "zh": "狗",
+    "ja": "犬",
+    "ko": "개",
+    "hi": "कुत्ता",
+    "ar": "كلب",
+    "ru": "собака",
+    "tr": "köpek"
+   },
+   "ex": {
+    "es": "Mi perro es muy grande.",
+    "en": "My dog is very big."
+   }
+  },
+  {
+   "word": "gato",
+   "pos": "n",
+   "gender": "m",
+   "plural": "gatos",
+   "ipa": "ˈɡato",
+   "emoji": "🐈",
+   "img": "cat#n",
+   "gl": {
+    "vi": "con mèo",
+    "en": "cat",
+    "es": "gato",
+    "pt": "gato",
+    "fr": "chat",
+    "de": "Katze",
+    "id": "kucing",
+    "th": "แมว",
+    "zh": "猫",
+    "ja": "猫",
+    "ko": "고양이",
+    "hi": "बिल्ली",
+    "ar": "قطة",
+    "ru": "кошка",
+    "tr": "kedi"
+   },
+   "ex": {
+    "es": "El gato duerme en la cama.",
+    "en": "The cat sleeps on the bed."
+   }
+  },
+  {
+   "word": "libro",
+   "pos": "n",
+   "gender": "m",
+   "plural": "libros",
+   "ipa": "ˈliβɾo",
+   "emoji": "📕",
+   "img": "book#n",
+   "gl": {
+    "vi": "quyển sách",
+    "en": "book",
+    "es": "libro",
+    "pt": "livro",
+    "fr": "livre",
+    "de": "Buch",
+    "id": "buku",
+    "th": "หนังสือ",
+    "zh": "书",
+    "ja": "本",
+    "ko": "책",
+    "hi": "किताब",
+    "ar": "كتاب",
+    "ru": "книга",
+    "tr": "kitap"
+   },
+   "ex": {
+    "es": "Leo un libro en el parque.",
+    "en": "I read a book in the park."
+   }
+  },
+  {
+   "word": "mesa",
+   "pos": "n",
+   "gender": "f",
+   "plural": "mesas",
+   "ipa": "ˈmesa",
+   "emoji": "🪑",
+   "img": "table#n",
+   "gl": {
+    "vi": "cái bàn",
+    "en": "table",
+    "es": "mesa",
+    "pt": "mesa",
+    "fr": "table",
+    "de": "Tisch",
+    "id": "meja",
+    "th": "โต๊ะ",
+    "zh": "桌子",
+    "ja": "テーブル",
+    "ko": "탁자",
+    "hi": "मेज़",
+    "ar": "طاولة",
+    "ru": "стол",
+    "tr": "masa"
+   },
+   "ex": {
+    "es": "La comida está en la mesa.",
+    "en": "The food is on the table."
+   }
+  },
+  {
+   "word": "comer",
+   "pos": "v",
+   "ipa": "koˈmeɾ",
+   "emoji": "🍽️",
+   "gl": {
+    "vi": "ăn",
+    "en": "to eat",
+    "es": "comer",
+    "pt": "comer",
+    "fr": "manger",
+    "de": "essen",
+    "id": "makan",
+    "th": "กิน",
+    "zh": "吃",
+    "ja": "食べる",
+    "ko": "먹다",
+    "hi": "खाना",
+    "ar": "يأكل",
+    "ru": "есть",
+    "tr": "yemek"
+   },
+   "ex": {
+    "es": "Quiero comer ahora.",
+    "en": "I want to eat now."
+   }
+  },
+  {
+   "word": "beber",
+   "pos": "v",
+   "ipa": "beˈβeɾ",
+   "emoji": "🥤",
+   "gl": {
+    "vi": "uống",
+    "en": "to drink",
+    "es": "beber",
+    "pt": "beber",
+    "fr": "boire",
+    "de": "trinken",
+    "id": "minum",
+    "th": "ดื่ม",
+    "zh": "喝",
+    "ja": "飲む",
+    "ko": "마시다",
+    "hi": "पीना",
+    "ar": "يشرب",
+    "ru": "пить",
+    "tr": "içmek"
+   },
+   "ex": {
+    "es": "Necesito beber agua.",
+    "en": "I need to drink water."
+   }
+  },
+  {
+   "word": "grande",
+   "pos": "adj",
+   "ipa": "ˈɡɾande",
+   "emoji": "🐘",
+   "img": "big#adj",
+   "gl": {
+    "vi": "to, lớn",
+    "en": "big",
+    "es": "grande",
+    "pt": "grande",
+    "fr": "grand",
+    "de": "groß",
+    "id": "besar",
+    "th": "ใหญ่",
+    "zh": "大",
+    "ja": "大きい",
+    "ko": "큰",
+    "hi": "बड़ा",
+    "ar": "كبير",
+    "ru": "большой",
+    "tr": "büyük"
+   },
+   "ex": {
+    "es": "La ciudad es grande.",
+    "en": "The city is big."
+   }
+  },
+  {
+   "word": "pequeño",
+   "pos": "adj",
+   "ipa": "peˈkeɲo",
+   "emoji": "🐜",
+   "img": "small#adj",
+   "gl": {
+    "vi": "nhỏ",
+    "en": "small",
+    "es": "pequeño",
+    "pt": "pequeno",
+    "fr": "petit",
+    "de": "klein",
+    "id": "kecil",
+    "th": "เล็ก",
+    "zh": "小",
+    "ja": "小さい",
+    "ko": "작은",
+    "hi": "छोटा",
+    "ar": "صغير",
+    "ru": "маленький",
+    "tr": "küçük"
+   },
+   "ex": {
+    "es": "Tengo un perro pequeño.",
+    "en": "I have a small dog."
+   }
+  },
+  {
+   "word": "ciudad",
+   "pos": "n",
+   "gender": "f",
+   "plural": "ciudades",
+   "ipa": "sjuˈðad",
+   "emoji": "🏙️",
+   "img": "city#n",
+   "gl": {
+    "vi": "thành phố",
+    "en": "city",
+    "es": "ciudad",
+    "pt": "cidade",
+    "fr": "ville",
+    "de": "Stadt",
+    "id": "kota",
+    "th": "เมือง",
+    "zh": "城市",
+    "ja": "都市",
+    "ko": "도시",
+    "hi": "शहर",
+    "ar": "مدينة",
+    "ru": "город",
+    "tr": "şehir"
+   },
+   "ex": {
+    "es": "Vivo en una ciudad bonita.",
+    "en": "I live in a beautiful city."
+   }
+  },
+  {
+   "word": "manzana",
+   "pos": "n",
+   "gender": "f",
+   "plural": "manzanas",
+   "ipa": "manˈsana",
+   "emoji": "🍎",
+   "img": "apple#n",
+   "gl": {
+    "vi": "quả táo",
+    "en": "apple",
+    "es": "manzana",
+    "pt": "maçã",
+    "fr": "pomme",
+    "de": "Apfel",
+    "id": "apel",
+    "th": "แอปเปิล",
+    "zh": "苹果",
+    "ja": "りんご",
+    "ko": "사과",
+    "hi": "सेब",
+    "ar": "تفاحة",
+    "ru": "яблоко",
+    "tr": "elma"
+   },
+   "ex": {
+    "es": "Como una manzana roja.",
+    "en": "I eat a red apple."
+   }
+  },
+  {
+   "word": "niño",
+   "pos": "n",
+   "gender": "m",
+   "plural": "niños",
+   "ipa": "ˈniɲo",
+   "emoji": "🧒",
+   "img": "child#n",
+   "gl": {
+    "vi": "đứa trẻ",
+    "en": "child",
+    "es": "niño",
+    "pt": "criança",
+    "fr": "enfant",
+    "de": "Kind",
+    "id": "anak",
+    "th": "เด็ก",
+    "zh": "孩子",
+    "ja": "子ども",
+    "ko": "아이",
+    "hi": "बच्चा",
+    "ar": "طفل",
+    "ru": "ребёнок",
+    "tr": "çocuk"
+   },
+   "ex": {
+    "es": "El niño juega en el parque.",
+    "en": "The child plays in the park."
+   }
+  },
+  {
+   "word": "sol",
+   "pos": "n",
+   "gender": "m",
+   "plural": "soles",
+   "ipa": "ˈsol",
+   "emoji": "☀️",
+   "img": "sun#n",
+   "gl": {
+    "vi": "mặt trời",
+    "en": "sun",
+    "es": "sol",
+    "pt": "sol",
+    "fr": "soleil",
+    "de": "Sonne",
+    "id": "matahari",
+    "th": "ดวงอาทิตย์",
+    "zh": "太阳",
+    "ja": "太陽",
+    "ko": "태양",
+    "hi": "सूरज",
+    "ar": "شمس",
+    "ru": "солнце",
+    "tr": "güneş"
+   },
+   "ex": {
+    "es": "Hoy hace mucho sol.",
+    "en": "It is very sunny today."
+   }
+  },
+  {
+   "word": "hablar",
+   "pos": "v",
+   "ipa": "aˈβlaɾ",
+   "emoji": "🗣️",
+   "img": "speak#v",
+   "gl": {
+    "vi": "nói",
+    "en": "to speak",
+    "es": "hablar",
+    "pt": "falar",
+    "fr": "parler",
+    "de": "sprechen",
+    "id": "berbicara",
+    "th": "พูด",
+    "zh": "说",
+    "ja": "話す",
+    "ko": "말하다",
+    "hi": "बोलना",
+    "ar": "يتكلم",
+    "ru": "говорить",
+    "tr": "konuşmak"
+   },
+   "ex": {
+    "es": "Quiero hablar español.",
+    "en": "I want to speak Spanish."
+   }
+  },
+  {
+   "word": "feliz",
+   "pos": "adj",
+   "ipa": "feˈlis",
+   "emoji": "😊",
+   "img": "happy#adj",
+   "gl": {
+    "vi": "vui, hạnh phúc",
+    "en": "happy",
+    "es": "feliz",
+    "pt": "feliz",
+    "fr": "heureux",
+    "de": "glücklich",
+    "id": "bahagia",
+    "th": "มีความสุข",
+    "zh": "快乐",
+    "ja": "幸せな",
+    "ko": "행복한",
+    "hi": "खुश",
+    "ar": "سعيد",
+    "ru": "счастливый",
+    "tr": "mutlu"
+   },
+   "ex": {
+    "es": "Mi madre está feliz.",
+    "en": "My mother is happy."
+   }
+  },
+  {
+   "word": "tren",
+   "pos": "n",
+   "gender": "m",
+   "plural": "trenes",
+   "ipa": "ˈtɾen",
+   "emoji": "🚆",
+   "img": "train#n",
+   "gl": {
+    "vi": "tàu hỏa",
+    "en": "train",
+    "es": "tren",
+    "pt": "trem",
+    "fr": "train",
+    "de": "Zug",
+    "id": "kereta",
+    "th": "รถไฟ",
+    "zh": "火车",
+    "ja": "電車",
+    "ko": "기차",
+    "hi": "ट्रेन",
+    "ar": "قطار",
+    "ru": "поезд",
+    "tr": "tren"
+   },
+   "ex": {
+    "es": "El tren sale a las ocho.",
+    "en": "The train leaves at eight."
+   }
+  },
+  {
+   "word": "cocina",
+   "pos": "n",
+   "gender": "f",
+   "plural": "cocinas",
+   "ipa": "koˈsina",
+   "emoji": "🍳",
+   "img": "kitchen#n",
+   "gl": {
+    "vi": "nhà bếp",
+    "en": "kitchen",
+    "es": "cocina",
+    "pt": "cozinha",
+    "fr": "cuisine",
+    "de": "Küche",
+    "id": "dapur",
+    "th": "ห้องครัว",
+    "zh": "厨房",
+    "ja": "台所",
+    "ko": "부엌",
+    "hi": "रसोई",
+    "ar": "مطبخ",
+    "ru": "кухня",
+    "tr": "mutfak"
+   },
+   "ex": {
+    "es": "Mi papá está en la cocina.",
+    "en": "My dad is in the kitchen."
+   }
+  },
+  {
+   "word": "leche",
+   "pos": "n",
+   "gender": "f",
+   "plural": "leches",
+   "ipa": "ˈletʃe",
+   "emoji": "🥛",
+   "img": "milk#n",
+   "gl": {
+    "vi": "sữa",
+    "en": "milk",
+    "es": "leche",
+    "pt": "leite",
+    "fr": "lait",
+    "de": "Milch",
+    "id": "susu",
+    "th": "นม",
+    "zh": "牛奶",
+    "ja": "牛乳",
+    "ko": "우유",
+    "hi": "दूध",
+    "ar": "حليب",
+    "ru": "молоко",
+    "tr": "süt"
+   },
+   "ex": {
+    "es": "Tomo leche en el desayuno.",
+    "en": "I have milk at breakfast."
+   }
+  },
+  {
+   "word": "pan",
+   "pos": "n",
+   "gender": "m",
+   "plural": "panes",
+   "ipa": "ˈpan",
+   "emoji": "🍞",
+   "img": "bread#n",
+   "gl": {
+    "vi": "bánh mì",
+    "en": "bread",
+    "es": "pan",
+    "pt": "pão",
+    "fr": "pain",
+    "de": "Brot",
+    "id": "roti",
+    "th": "ขนมปัง",
+    "zh": "面包",
+    "ja": "パン",
+    "ko": "빵",
+    "hi": "ब्रेड",
+    "ar": "خبز",
+    "ru": "хлеб",
+    "tr": "ekmek"
+   },
+   "ex": {
+    "es": "Compro pan cada mañana.",
+    "en": "I buy bread every morning."
+   }
+  },
+  {
+   "word": "escuela",
+   "pos": "n",
+   "gender": "f",
+   "plural": "escuelas",
+   "ipa": "esˈkwela",
+   "emoji": "🏫",
+   "img": "school#n",
+   "gl": {
+    "vi": "trường học",
+    "en": "school",
+    "es": "escuela",
+    "pt": "escola",
+    "fr": "école",
+    "de": "Schule",
+    "id": "sekolah",
+    "th": "โรงเรียน",
+    "zh": "学校",
+    "ja": "学校",
+    "ko": "학교",
+    "hi": "स्कूल",
+    "ar": "مدرسة",
+    "ru": "школа",
+    "tr": "okul"
+   },
+   "ex": {
+    "es": "Mi hermana va a la escuela.",
+    "en": "My sister goes to school."
+   }
+  },
+  {
+   "word": "amigo",
+   "pos": "n",
+   "gender": "m",
+   "plural": "amigos",
+   "ipa": "aˈmiɣo",
+   "emoji": "🤝",
+   "img": "friend#n",
+   "gl": {
+    "vi": "bạn",
+    "en": "friend",
+    "es": "amigo",
+    "pt": "amigo",
+    "fr": "ami",
+    "de": "Freund",
+    "id": "teman",
+    "th": "เพื่อน",
+    "zh": "朋友",
+    "ja": "友だち",
+    "ko": "친구",
+    "hi": "दोस्त",
+    "ar": "صديق",
+    "ru": "друг",
+    "tr": "arkadaş"
+   },
+   "ex": {
+    "es": "Él es mi mejor amigo.",
+    "en": "He is my best friend."
+   }
+  },
+  {
+   "word": "rojo",
+   "pos": "adj",
+   "ipa": "ˈroxo",
+   "emoji": "🟥",
+   "img": "red#adj",
+   "gl": {
+    "vi": "đỏ",
+    "en": "red",
+    "es": "rojo",
+    "pt": "vermelho",
+    "fr": "rouge",
+    "de": "rot",
+    "id": "merah",
+    "th": "สีแดง",
+    "zh": "红色的",
+    "ja": "赤い",
+    "ko": "빨간",
+    "hi": "लाल",
+    "ar": "أحمر",
+    "ru": "красный",
+    "tr": "kırmızı"
+   },
+   "ex": {
+    "es": "Tengo un carro rojo.",
+    "en": "I have a red car."
+   }
+  },
+  {
+   "word": "caminar",
+   "pos": "v",
+   "ipa": "kamiˈnaɾ",
+   "emoji": "🚶",
+   "gl": {
+    "vi": "đi bộ",
+    "en": "to walk",
+    "es": "caminar",
+    "pt": "caminhar",
+    "fr": "marcher",
+    "de": "gehen",
+    "id": "berjalan",
+    "th": "เดิน",
+    "zh": "走路",
+    "ja": "歩く",
+    "ko": "걷다",
+    "hi": "चलना",
+    "ar": "يمشي",
+    "ru": "ходить пешком",
+    "tr": "yürümek"
+   },
+   "ex": {
+    "es": "Me gusta caminar por la tarde.",
+    "en": "I like to walk in the afternoon."
+   }
+  },
+  {
+   "word": "hoy",
+   "pos": "adv",
+   "ipa": "ˈoɪ",
+   "emoji": "📅",
+   "gl": {
+    "vi": "hôm nay",
+    "en": "today",
+    "es": "hoy",
+    "pt": "hoje",
+    "fr": "aujourd’hui",
+    "de": "heute",
+    "id": "hari ini",
+    "th": "วันนี้",
+    "zh": "今天",
+    "ja": "今日",
+    "ko": "오늘",
+    "hi": "आज",
+    "ar": "اليوم",
+    "ru": "сегодня",
+    "tr": "bugün"
+   },
+   "ex": {
+    "es": "Hoy no tengo clase.",
+    "en": "I do not have class today."
+   }
+  },
+  {
+   "word": "computadora",
+   "pos": "n",
+   "gender": "f",
+   "plural": "computadoras",
+   "ipa": "komputaˈðoɾa",
+   "emoji": "💻",
+   "img": "computer#n",
+   "gl": {
+    "vi": "máy tính",
+    "en": "computer",
+    "es": "computadora",
+    "pt": "computador",
+    "fr": "ordinateur",
+    "de": "Computer",
+    "id": "komputer",
+    "th": "คอมพิวเตอร์",
+    "zh": "电脑",
+    "ja": "コンピューター",
+    "ko": "컴퓨터",
+    "hi": "कंप्यूटर",
+    "ar": "حاسوب",
+    "ru": "компьютер",
+    "tr": "bilgisayar"
+   },
+   "ex": {
+    "es": "Uso la computadora para estudiar.",
+    "en": "I use the computer to study."
+   }
+  },
+  {
+   "word": "jugo",
+   "pos": "n",
+   "gender": "m",
+   "plural": "jugos",
+   "ipa": "ˈxuɣo",
+   "emoji": "🧃",
+   "img": "juice#n",
+   "gl": {
+    "vi": "nước ép",
+    "en": "juice",
+    "es": "jugo",
+    "pt": "suco",
+    "fr": "jus",
+    "de": "Saft",
+    "id": "jus",
+    "th": "น้ำผลไม้",
+    "zh": "果汁",
+    "ja": "ジュース",
+    "ko": "주스",
+    "hi": "जूस",
+    "ar": "عصير",
+    "ru": "сок",
+    "tr": "meyve suyu"
+   },
+   "ex": {
+    "es": "Quiero un jugo de naranja.",
+    "en": "I want an orange juice."
+   }
+  },
+  {
+   "word": "celular",
+   "pos": "n",
+   "gender": "m",
+   "plural": "celulares",
+   "ipa": "seluˈlaɾ",
+   "emoji": "📱",
+   "img": "phone#n",
+   "gl": {
+    "vi": "điện thoại di động",
+    "en": "cell phone",
+    "es": "celular",
+    "pt": "celular",
+    "fr": "téléphone portable",
+    "de": "Handy",
+    "id": "ponsel",
+    "th": "โทรศัพท์มือถือ",
+    "zh": "手机",
+    "ja": "携帯電話",
+    "ko": "휴대폰",
+    "hi": "मोबाइल फ़ोन",
+    "ar": "هاتف محمول",
+    "ru": "мобильный телефон",
+    "tr": "cep telefonu"
+   },
+   "ex": {
+    "es": "Mi celular está en la mesa.",
+    "en": "My cell phone is on the table."
+   }
+  }
+ ]
+}

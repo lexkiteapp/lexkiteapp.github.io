@@ -8,7 +8,7 @@ translationKey: tu-vung-ielts-chu-de-cong-nghe-va-tri-tue-nhan-tao
 category: ielts
 tags: [ielts, vocabulary, technology, ai]
 cover: read-article
-coverAlt: "Màn hình chế độ reading đọc song ngữ trên Lexkite với bản dịch đoạn văn và bài đọc"
+coverAlt: "Lexkite में The Growing Problem of Space Debris रीडिंग: रंगीन मुख्य शब्द, छूकर खोजना और सहेजना, कीवर्ड सूची और True/False/Not Given प्रश्न"
 qualityScore: 95
 factChecked: 2026-10-15
 author: Lexkite
@@ -59,6 +59,7 @@ quiz: [
     explain: "Predictive algorithm भविष्य का पूर्वानुमान लगाने वाला एल्गोरिदम है और लेख का उदाहरण बताता है कि स्वास्थ्य संस्थान इससे ट्यूमर का बहुत जल्दी अनुमान लगाते हैं।"
   }
 ]
+publishAt: 2026-11-25T07:15:00+05:30
 ---
 
 आर्टिफिशियल इंटेलिजेंस (AI), ऑटोमेशन और डिजिटल क्रांति ऐसे विषय हैं जो **IELTS Writing Task 2** और **IELTS Speaking Part 3** में सबसे अधिक बार पूछे जाते हैं। अधिकांश भारतीय उम्मीदवार इन विषयों पर निबंध लिखते समय *«technology is developing very fast»*, *«AI has pros and cons»* या *«robots replace people»* जैसे साधारण और घिसे-पिटे वाक्यों का बार-बार प्रयोग करते हैं, जिसके कारण उनका **लेक्सिकल रिसोर्स (Lexical Resource - शब्द चयन)** स्कोर बैंड 5.5 या 6.0 पर ही अटक जाता है।

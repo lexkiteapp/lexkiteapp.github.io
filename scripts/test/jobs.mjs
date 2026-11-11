@@ -19,7 +19,7 @@ r = await J.acquire(ENV, DB, { job: 'footage-archive', run: 'r5' }, T0 + 7200e3)
 r = await J.acquire(ENV, DB, { job: 'footage-verify', run: 'r6' }, T0 + 7200e3 + 150 * 1.5 * 60e3 + 1000); ok(r.ok, 'thuê quá hạn → việc khác lấy được');
 // 4) ngân sách: D1 (tài khoản 1) đã dùng 55 % → 'archive' (trần 50 %) bỏ qua, 'publishing' (70 %) vẫn chạy
 G.resetD1Cache();
-const ENVB = { CF_ANALYTICS_TOKEN: 't', CF_ACCOUNT_ID: 'e34e14b7ab35eaf2b3d9d84fcce011f7' }, f0 = globalThis.fetch;
+const ENVB = { D1_PLAN: 'free', CF_ANALYTICS_TOKEN: 't', CF_ACCOUNT_ID: 'e34e14b7ab35eaf2b3d9d84fcce011f7' }, f0 = globalThis.fetch;
 globalThis.fetch = async () => ({ json: async () => ({ data: { viewer: { accounts: [{ d1AnalyticsAdaptiveGroups: [{ sum: { rowsRead: 2750000, rowsWritten: 10 } }] }] } } }) });
 await J.release(ENV, DB, { job: 'footage-verify', run: 'r6', status: 'success' }, T0 + 8e6);
 r = await J.acquire(ENVB, DB, { job: 'drive-shorts', run: 'r7' }, T0 + 9e6); ok(!r.ok && /55%/.test(r.reason), 'drive-shorts (archive, trần 50 %) bỏ qua khi D1 55 % (chưa tách tài khoản): ' + r.reason);
@@ -33,7 +33,7 @@ globalThis.fetch = async () => ({ json: async () => ({ data: { viewer: { account
 // 5) tách tài khoản: có D1B → việc d1_internal đo tài khoản 2, d1_main_read đo tài khoản 1
 G.resetD1Cache();
 let call = 0; globalThis.fetch = async (u, init) => { call++; const acct = JSON.parse(init.body).query.match(/accountTag:"([a-f0-9]+)"/)[1]; return { json: async () => ({ data: { viewer: { accounts: [{ d1AnalyticsAdaptiveGroups: [{ sum: { rowsRead: acct === 'f5641879aaaa' ? 3000000 : 100, rowsWritten: 1 } }] }] } } }) }; };
-const ENV2 = { CF_ANALYTICS_TOKEN: 't', CF_ACCOUNT_ID: 'e34e14b7ab35eaf2b3d9d84fcce011f7', D1B: '1', D1B_ACCOUNT_ID: 'f5641879aaaa', D1B_TOKEN: 'tb' };
+const ENV2 = { D1_PLAN: 'free', CF_ANALYTICS_TOKEN: 't', CF_ACCOUNT_ID: 'e34e14b7ab35eaf2b3d9d84fcce011f7', D1B: '1', D1B_ACCOUNT_ID: 'f5641879aaaa', D1B_TOKEN: 'tb' };
 r = await J.acquire(ENV2, DB, { job: 'footage-archive', run: 'r10' }, T0 + 20e6); ok(!r.ok && /nội bộ/.test(r.reason) && /60%/.test(r.reason), 'tài khoản 2 ở 60 % → footage-archive (d1_internal) bỏ qua, nêu rõ "nội bộ": ' + r.reason);
 r = await J.acquire(ENV2, DB, { job: 'youtube-manual', run: 'r11' }, T0 + 20e6); ok(r.ok, 'youtube-manual chỉ đo D1 chính (100 dòng) → chạy');
 globalThis.fetch = f0;

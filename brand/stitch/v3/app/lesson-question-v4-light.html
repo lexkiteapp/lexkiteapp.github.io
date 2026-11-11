@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite - Lesson Multiple Choice</title>
+  <!-- Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <!-- Material Symbols Rounded -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              'teal-dark': '#092526',
+              'teal-light': '#1b5e5f',
+              surface: '#FFF8F0', // warm cream light bg
+              cream: '#F7F1E8',
+              card: '#FFFFFF',
+              coral: '#F06543',
+              'coral-hover': '#e45735',
+              'coral-shade': '#c94524',
+              success: '#00875A',
+              'success-bg': '#E3FCEF',
+            }
+          },
+          boxShadow: {
+            'tactile-card': '0 3px 0 0 #E2D9CC',
+            'tactile-btn': '0 4px 0 0 #C94524',
+            'tactile-btn-pressed': '0 0px 0 0 #C94524',
+            'tactile-choice': '0 3px 0 0 #E5DED4',
+            'tactile-choice-active': '0 3px 0 0 #0F3D3E',
+            'tactile-secondary': '0 3px 0 0 #DDD4C6',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Touch target guarantee */
+    .touch-target-44 {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  </style>
+</head>
+<body class="h-full bg-[#FAF5EE] text-[#142B2C] font-sans antialiased selection:bg-[#F06543]/20 flex flex-col justify-between items-center min-h-screen">
+
+  <!-- Mobile Frame Container (Max 390px, responsive, no horizontal overflow) -->
+  <div class="w-full max-w-[390px] min-h-screen bg-[#FFFBF5] border-x border-[#EFE5D8] flex flex-col justify-between shadow-2xl relative">
+
+    <!-- Top Focus/Lesson App Bar (Lexkite §5d: close X (44px) top left + slim progress bar + timer/counter, no tabs) -->
+    <header class="sticky top-0 z-40 bg-[#FFFBF5]/95 backdrop-blur-md border-b border-[#ECE2D2] px-4 pt-3 pb-3">
+      <div class="flex items-center gap-3 w-full">
+        <!-- Close Button (min 44x44 tap target) -->
+        <button type="button" aria-label="Exit lesson" class="touch-target-44 w-11 h-11 flex items-center justify-center rounded-xl bg-white border border-[#E5DACB] text-[#0F3D3E] shadow-[0_2px_0_0_#E0D5C5] active:translate-y-0.5 active:shadow-none transition-all flex-shrink-0">
+          <span class="material-symbols-rounded text-2xl">close</span>
+        </button>
+
+        <!-- Slim Progress Bar -->
+        <div class="flex-1 flex flex-col justify-center">
+          <div class="flex justify-between items-center mb-1 text-xs font-bold text-[#0F3D3E]">
+            <span class="tracking-wide uppercase text-[11px] font-extrabold text-[#476666]">Question 4 of 10</span>
+            <span class="px-2 py-0.5 rounded-full bg-[#E8F3F2] text-[#0F3D3E] font-semibold text-[11px] border border-[#CDE3E2]">40%</span>
+          </div>
+          <div class="w-full h-2.5 bg-[#EAE1D3] rounded-full overflow-hidden p-0.5 border border-[#E0D5C4]">
+            <div class="h-full bg-[#0F3D3E] rounded-full transition-all duration-300 w-[40%]"></div>
+          </div>
+        </div>
+
+        <!-- Timer / Mode Badge -->
+        <div class="touch-target-44 min-w-[44px] h-11 px-2.5 flex items-center justify-center rounded-xl bg-white border border-[#E5DACB] text-[#0F3D3E] font-bold text-xs shadow-[0_2px_0_0_#E0D5C5] flex-shrink-0 gap-1">
+          <span class="material-symbols-rounded text-sm text-[#F06543]">timer</span>
+          <span>01:15</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 px-4 py-4 flex flex-col gap-4 overflow-y-auto pb-28">
+
+      <!-- Breadcrumb / Topic Pill -->
+      <div class="flex items-center justify-between gap-2 flex-wrap">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#E7F3F2] text-[#0F3D3E] text-xs font-bold border border-[#CCE3E1]">
+          <span class="w-2 h-2 rounded-full bg-[#0F3D3E]"></span>
+          IELTS Academic · Lexical Resource
+        </span>
+        <span class="text-xs font-semibold text-[#5B6F70] bg-white px-2.5 py-1 rounded-md border border-[#EBE1D4]">
+          CEFR C1 Drill
+        </span>
+      </div>
+
+      <!-- Prompt Question Header (+40% resilient wrapping text) -->
+      <div>
+        <h1 class="text-xl font-extrabold text-[#0B2E2F] leading-snug tracking-tight break-words">
+          Choose the correct word
+        </h1>
+        <p class="text-sm font-medium text-[#496566] mt-0.5 break-words">
+          Select the term that fits the formal academic context with precise collocation.
+        </p>
+      </div>
+
+      <!-- Coach Ama Tip Card (Empty rounded placeholder labelled "teacher-slot" per Lexkite spec) -->
+      <section aria-label="Tutor recommendation" class="bg-white rounded-2xl p-3.5 border border-[#E5DACB] shadow-[0_3px_0_0_#ECE1D3] flex items-start gap-3">
+        <!-- teacher-slot container: rounded placeholder labelled "teacher-slot" (2D teacher inserted by code) -->
+        <div class="touch-target-44 w-12 h-12 rounded-xl bg-[#E8F3F2] border-2 border-dashed border-[#0F3D3E] flex flex-col items-center justify-center text-center p-1 flex-shrink-0" title="teacher-slot">
+          <span class="material-symbols-rounded text-[#0F3D3E] text-xl">school</span>
+          <span class="text-[9px] font-black uppercase tracking-tighter text-[#0F3D3E] leading-none mt-0.5">teacher-slot</span>
+        </div>
+        
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-xs text-[#0B2E2F]">Ama</span>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#E8F3F2] text-[#0F3D3E] border border-[#CCE3E1]">IELTS Senior Tutor</span>
+          </div>
+          <p class="text-xs font-medium text-[#385253] mt-1 leading-relaxed break-words">
+            “Notice the preposition <span class="font-bold text-[#0B2E2F]">‘on’</span> following the blank. Academic essays require verbs that accurately convey influence.”
+          </p>
+        </div>
+      </section>
+
+      <!-- Sentence Gap Card + Audio Toolbar -->
+      <section aria-label="Sentence fill question" class="bg-white rounded-2xl p-4 border border-[#E2D6C5] shadow-[0_3px_0_0_#E8DEC $\rightarrow$ #E5DACB]">
+        <!-- Audio Control Buttons (Min 44x44 px tap targets, +40% resilient layout) -->
+        <div class="flex items-center justify-between pb-3.5 mb-3.5 border-b border-[#F0E6D8] gap-2 flex-wrap">
+          <div class="flex items-center gap-2">
+            <!-- Play Audio Button -->
+            <button type="button" aria-label="Listen to sentence at normal speed" class="touch-target-44 h-11 px-3.5 rounded-xl bg-[#E8F3F2] hover:bg-[#D8ECEB] border border-[#BEDDDB] text-[#0F3D3E] font-bold text-xs flex items-center gap-2 shadow-[0_2px_0_0_#BEDDDB] active:translate-y-0.5 active:shadow-none transition-all">
+              <span class="material-symbols-rounded text-xl">volume_up</span>
+              <span>Listen</span>
+            </button>
+            
+            <!-- Slow Speed Button -->
+            <button type="button" aria-label="Listen at slow speed" class="touch-target-44 h-11 px-3 rounded-xl bg-white hover:bg-[#F9F6F0] border border-[#E2D6C5] text-[#334D4E] font-bold text-xs flex items-center gap-1.5 shadow-[0_2px_0_0_#E2D6C5] active:translate-y-0.5 active:shadow-none transition-all">
+              <span class="material-symbols-rounded text-lg text-[#0F3D3E]">speed</span>
+              <span>0.75x Slow</span>
+            </button>
+          </div>
+
+          <!-- Phonetics reference chip -->
+          <span class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-[#FAF5EE] text-[#425C5D] font-mono text-[11px] font-semibold border border-[#E9DFD2]">
+            /ɪmˈpækt/
+          </span>
+        </div>
+
+        <!-- The Sentence with Distinct Gap -->
+        <div class="text-base font-semibold text-[#142B2C] leading-loose break-words">
+          <span>“The sudden increase in urban population has had a profound </span>
+          <!-- Gap placeholder chip -->
+          <span class="inline-flex items-center justify-center min-w-[100px] h-9 px-3.5 mx-1 border-2 border-dashed border-[#0F3D3E] bg-[#E8F3F2] text-[#0F3D3E] rounded-lg font-bold text-sm align-middle tracking-wider shadow-inner">
+            <span class="material-symbols-rounded text-base mr-1">edit_note</span>
+            <span class="underline decoration-2 decoration-[#0F3D3E]">? ? ?</span>
+          </span>
+          <span> on local public infrastructure and housing affordability.”</span>
+        </div>
+      </section>
+
+      <!-- 4 Answer Options (Radio cards with 44px+ touch heights, tactile styling, resilient wrap) -->
+      <fieldset class="flex flex-col gap-2.5">
+        <legend class="sr-only">Answer choices</legend>
+
+        <!-- Option A (Default Selected state demonstrated) -->
+        <label class="touch-target-44 w-full p-3.5 rounded-xl border-2 border-[#0F3D3E] bg-[#E8F3F2] shadow-[0_3px_0_0_#0F3D3E] flex items-center justify-between gap-3 cursor-pointer transition-transform active:translate-y-0.5">
+          <div class="flex items-center gap-3 min-w-0">
+            <!-- Key indicator badge (A) -->
+            <span class="w-8 h-8 rounded-lg bg-[#0F3D3E] text-white flex items-center justify-center font-bold text-sm flex-shrink-0 shadow-sm">
+              A
+            </span>
+            <div class="min-w-0">
+              <span class="font-bold text-base text-[#0B2E2F] block break-words">impact</span>
+              <span class="text-xs font-semibold text-[#3D5A5B] block break-words">collocates strongly with 'have a profound ... on'</span>
+            </div>
+          </div>
+          <!-- Selected check badge -->
+          <div class="w-6 h-6 rounded-full bg-[#0F3D3E] text-white flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-rounded text-base">check</span>
+          </div>
+          <input type="radio" name="answer" value="impact" checked class="sr-only">
+        </label>
+
+        <!-- Option B (Unselected) -->
+        <label class="touch-target-44 w-full p-3.5 rounded-xl border border-[#E2D6C5] bg-white shadow-[0_3px_0_0_#E4D9CA] hover:bg-[#FAF6EE] flex items-center justify-between gap-3 cursor-pointer transition-all active:translate-y-0.5 active:shadow-none">
+          <div class="flex items-center gap-3 min-w-0">
+            <span class="w-8 h-8 rounded-lg bg-[#F5EFE6] border border-[#DDD0BF] text-[#284445] flex items-center justify-center font-bold text-sm flex-shrink-0">
+              B
+            </span>
+            <div class="min-w-0">
+              <span class="font-bold text-base text-[#193334] block break-words">affect</span>
+              <span class="text-xs font-medium text-[#567172] block break-words">verb form, does not take 'a profound'</span>
+            </div>
+          </div>
+          <div class="w-6 h-6 rounded-full border-2 border-[#D1C3B1] flex-shrink-0"></div>
+          <input type="radio" name="answer" value="affect" class="sr-only">
+        </label>
+
+        <!-- Option C (Unselected) -->
+        <label class="touch-target-44 w-full p-3.5 rounded-xl border border-[#E2D6C5] bg-white shadow-[0_3px_0_0_#E4D9CA] hover:bg-[#FAF6EE] flex items-center justify-between gap-3 cursor-pointer transition-all active:translate-y-0.5 active:shadow-none">
+          <div class="flex items-center gap-3 min-w-0">
+            <span class="w-8 h-8 rounded-lg bg-[#F5EFE6] border border-[#DDD0BF] text-[#284445] flex items-center justify-center font-bold text-sm flex-shrink-0">
+              C
+            </span>
+            <div class="min-w-0">
+              <span class="font-bold text-base text-[#193334] block break-words">consequence</span>
+              <span class="text-xs font-medium text-[#567172] block break-words">requires 'for', uncommon with 'on'</span>
+            </div>
+          </div>
+          <div class="w-6 h-6 rounded-full border-2 border-[#D1C3B1] flex-shrink-0"></div>
+          <input type="radio" name="answer" value="consequence" class="sr-only">
+        </label>
+
+        <!-- Option D (Unselected) -->
+        <label class="touch-target-44 w-full p-3.5 rounded-xl border border-[#E2D6C5] bg-white shadow-[0_3px_0_0_#E4D9CA] hover:bg-[#FAF6EE] flex items-center justify-between gap-3 cursor-pointer transition-all active:translate-y-0.5 active:shadow-none">
+          <div class="flex items-center gap-3 min-w-0">
+            <span class="w-8 h-8 rounded-lg bg-[#F5EFE6] border border-[#DDD0BF] text-[#284445] flex items-center justify-center font-bold text-sm flex-shrink-0">
+              D
+            </span>
+            <div class="min-w-0">
+              <span class="font-bold text-base text-[#193334] block break-words">outcome</span>
+              <span class="text-xs font-medium text-[#567172] block break-words">refers to final result, does not fit syntax</span>
+            </div>
+          </div>
+          <div class="w-6 h-6 rounded-full border-2 border-[#D1C3B1] flex-shrink-0"></div>
+          <input type="radio" name="answer" value="outcome" class="sr-only">
+        </label>
+
+      </fieldset>
+
+    </main>
+
+    <!-- Bottom Pinned Action Bar (Lexkite §5d: lesson/focus screen has NO tabs, one full-width primary button pinned at bottom) -->
+    <footer class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto bg-[#FFFBF5]/95 backdrop-blur-md border-t border-[#ECE0CE] p-4 z-50">
+      <!-- One Primary Coral Button with Tactile Ledge (min 44px, exactly 52px height) -->
+      <button type="button" class="touch-target-44 w-full h-[52px] px-6 rounded-2xl bg-[#F06543] hover:bg-[#e45735] text-white font-extrabold text-base tracking-wide flex items-center justify-center gap-2 shadow-[0_4px_0_0_#C94524] active:shadow-[0_1px_0_0_#C94524] active:translate-y-[3px] transition-all">
+        <span>Check Answer</span>
+        <span class="material-symbols-rounded text-xl">arrow_forward</span>
+      </button>
+      <!-- Safe Area Spacer for iOS/Android home indicators -->
+      <div class="h-1 w-28 bg-[#DDD3C4] rounded-full mx-auto mt-2.5"></div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

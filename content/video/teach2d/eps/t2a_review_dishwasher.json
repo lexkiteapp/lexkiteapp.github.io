@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_dishwasher",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: dishwasher.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a machine that washes dishes.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Please load the office dishwasher after lunch every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "dishwasher",
+  "ipa": "/ˈdɪʃwɑːʃər/",
+  "mean": "a machine that washes dishes",
+  "ex": "Please load the office dishwasher after lunch every day.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=dishwasher",
+  "link": "https://lexkite.com/app/#/review?w=dishwasher",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 41,
+  "seconds": 25.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"dishwasher\" mean?",
+  "keyword": "dishwasher",
+  "value": "Dishwasher means a machine that washes dishes.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=dishwasher",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"dishwasher\" mean?",
+    "description": "Dishwasher means a machine that washes dishes.\n\nReview your words, free: https://lexkite.com/app/#/review?w=dishwasher\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "dishwasher",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"dishwasher\" mean?\n\nDishwasher means a machine that washes dishes.\n\nReview your words, free: https://lexkite.com/app/#/review?w=dishwasher"
+   },
+   "instagram": {
+    "caption": "What does \"dishwasher\" mean?\n\nDishwasher means a machine that washes dishes.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"dishwasher\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a machine that washes dishes. Dishwasher means a machine that washes dishes. More practice like this (free): {link}"
+ }
+}

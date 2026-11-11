@@ -81,7 +81,7 @@ Gốc lỗi (Lantern tính LCP = mọi request XONG trước thời điểm LCP 
 Google tải xong TRƯỚC khi chữ #lkHero được vẽ (khung đầu bị `.view` mờ dần từ opacity 0, rồi luồng chính bận chạy JS) → LCP 7,0 s.
 Sửa: (1) `scripts/app-loader.mjs` – chỉ dist web: JS khung + CSS font nạp SAU khung hình đầu (rAF→setTimeout, dự phòng 300 ms),
 giữ thứ tự defer, phát lại DOMContentLoaded/load; web/app/index.html giữ `<script defer>` (add-on MV3, app di động, test jsdom);
-(2) `#view:has(#lkHero){animation:none}` – khung chào vẽ ngay; (3) font dự phòng "Be Vietnam Pro Fallback" (size-adjust 109,94 %,
+(2) `#view:has(#lkHero){animation:none}` – khung chào vẽ ngay; (3) font dự phòng khớp số đo (nay "Plus Jakarta Sans Fallback" theo khung Stitch, trước là "Be Vietnam Pro Fallback" (size-adjust 109,94 %,
 ascent 90,96 %, descent 24,1 % – đo từ file font) → CLS ≤ 0,03 khi font web tới; (4) bỏ preload CSS font; (5) SW vẫn đăng ký lúc app sẵn sàng (đã sau lần vẽ đầu; trễ thêm 2 s làm hỏng phép thử offline);
 (6) icon-512.png ra khỏi SHELL (6,6 KB gz, ảnh tĩnh vẫn cache khi dùng).
 Kết quả /app/?hl=en: perf 71 → 99, LCP 7,0 → 2,0 s, FCP 2,9 → 1,5 s, CLS 0,007 → 0,009; ?hl=vi: 80 → 99, LCP 6,1 → 2,0 s.
@@ -89,5 +89,16 @@ Playwright 4G/CPU×4: FCP 3,0 → 1,1 s, LCP 3,6 → 1,15 s. Cổng: `app-loader
 
 Ảnh so sánh: `out/ux-public/compare-*.png` (máy chủ sở hữu, không commit).
 
+## LCP trang sâu máy yếu (04/11) – đo `mobile-qa.yml` (Lighthouse mobile, Lantern)
+Gốc: Lantern tính mọi request xong trước LCP quan sát, ≈ 9 ms/KB. Khung JS + en.js + CSS ≈ 250 KB nên trang sâu cold không thể ≤ 2,5 s nếu chưa tách khung; phần thừa là kho từ (280–730 KB), font (70–135 KB), i18nx/i18nl kéo theo gói nhắc học (~80 KB). Tải sẵn (ưu tiên VeryLow) bắt đầu SAU LCP, không phải gốc.
+Sửa: `App.painted` (lần vẽ đầu) → font (app-loader, `lk:drawn`), tải sẵn, nhắc học chờ mốc này; `softOf` (app.js): phiên ôn, luyện chủ đề lõi/sổ từ vẽ trước, kho từ nạp sau lần vẽ, `lk:soft` chuẩn hóa theo lát. Khóa: `scripts/test/late-insert.mjs`.
+
 ## Luật LCP (chuyển từ METHODS 27/10)
 - **LCP app (24/10):** màn đầu /app/ phải vẽ được chỉ bằng HTML + style.css; JS khung nạp sau khung hình đầu (dist, `scripts/app-loader.mjs`). Không thêm `<script>`/preload/hiệu ứng mờ dần cho màn đầu; đo bằng `app-lcp.yml` (đẩy nhánh `perf/app-lcp*`) trước/sau – docs/UX-PUBLIC.md §LCP.
+
+## Giao diện Sáng/Tối/Tự động trên trang tĩnh (31/10)
+- Mọi trang ngoài app (landing, pháp lý, 404, blog, công cụ, SEO/từ điển, uy tín, video; blog-lang + bye chỉ chống nháy) có nút ◐/☀/☾ cạnh nút ngôn ngữ. Nguồn duy nhất `scripts/lib/site-layout.mjs`: `THEME_HEAD` (script ngay sau `<meta charset>`, trước mọi CSS → không nháy), `themeSwitch()` + `TSW_CSS` + `TSW_JS`, `themePage()` (hậu kỳ mọi builder: chèn `THEME_HEAD` + `themeCss()` đổi `@media (prefers-color-scheme)` sang mẫu app `:root:not([data-theme=…])` + `:root[data-theme=…]`).
+- Lưu `localStorage['lk.theme']` = light|dark (tự động = không lưu → theo hệ thống); vòng bấm tự động → sáng → tối như `#themeBtn` của app; đồng bộ tab. Nhãn lấy từ chuỗi app đã dịch 15 ngôn ngữ (`web/js/i18n/<lang>.js`). App chưa đọc `lk.theme` (theme app lưu trong settings) – việc tiếp theo khi `web/js/app.js` rảnh.
+- Chân trang (bản vẽ Stitch footer-*): viên 3 nút Tự động/Sáng/Tối `themePill()` + `TSP_CSS` (bấm thẳng trạng thái, `aria-pressed`, nút chọn tô bằng CSS theo `data-theme` → không nháy); đầu trang giữ nút vòng `themeSwitch()` (chỗ hẹp 390 px). JS dùng chung `web/js/site-ui.js` (SINH TỰ ĐỘNG từ `SITE_UI_JS()`, dựng lại bằng `node scripts/build-landing.mjs`; trang nạp `?v=<băm>` – `theme-switch.mjs` đỏ khi cũ). GIF app→blog (tối + vi giữ nguyên) ở artifact `theme-shots/app-blog.gif`.
+- Nút ngôn ngữ trang tĩnh: bản dịch đúng theo hreflang (twin), ngôn ngữ chưa có bản dịch → `/<lang>/blog/` (`twinOr`), không trỏ bản nháp noindex.
+- Cổng: `scripts/test/theme-switch.mjs` (npm test với web/, `build-web.sh` với dist/ – thiếu là không deploy) + `scripts/test/theme-static.mjs` (Chromium × 4 chế độ, axe tương phản, không nháy, 44 px, không tràn @360 – CI `theme-qa.yml`, ảnh ở artifact `theme-shots`).

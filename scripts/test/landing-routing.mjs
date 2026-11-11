@@ -5,9 +5,10 @@
 //  3) Gợi ý ngôn ngữ chỉ hiện cho người dùng (JS sau khi vẽ), đóng được, nhớ lựa chọn
 //  4) web/sw.js: bản cài cũ phạm vi "/" → chế độ chuyển tiếp (xóa cache khung cũ, giữ dữ liệu, offline "/" → /app/); phạm vi /app/ → cache khung app
 //  5) app.js: đăng ký SW phạm vi /app/, bí danh route gõ nhầm trỏ tới route có thật; manifest start_url/scope /app/, id giữ "/"
+import { gzSize } from '../lib/gz-canon.mjs';
+const LAND_GZ = JSON.parse(fs.readFileSync(new URL('./budget.json', import.meta.url), 'utf8')).landingGz;
 import fs from 'node:fs';
 import vm from 'node:vm';
-import zlib from 'node:zlib';
 import { JSDOM } from 'jsdom';
 import { LANGS, render, fileOf, ROUTE_JS } from '../build-landing.mjs';
 
@@ -65,7 +66,7 @@ ok(runRoute(`${S}/?home=1`).session['lk.home'] === '1', 'route: ?home=1 ghi nh�
   let threw = false; try { vm.runInNewContext(ROUTE_JS, ctx); } catch { threw = true; } ok(!threw, 'route: storage bị chặn → không ném lỗi'); }
 
 // ---------- 2) Trang giới thiệu tĩnh ----------
-const expectHref = l => l === 'vi' ? 'https://lexkite.com/' : `https://lexkite.com/${l}/`;
+const expectHref = l => `https://lexkite.com/${l}/`;
 for (const l of LANGS) {
   const f = fileOf(l);
   if (!fs.existsSync(f)) { ok(false, `${f} chưa có – chạy node scripts/build-landing.mjs`); continue; }
@@ -74,11 +75,11 @@ for (const l of LANGS) {
   const head = html.slice(0, html.indexOf('</head>'));
   ok(/^<!doctype html>\n<html lang="[a-z]{2}"/.test(html) && html.includes(`<html lang="${l}"${l === 'ar' ? ' dir="rtl"' : ''}>`), `${f}: html lang/dir`);
   ok(head.indexOf('id="lk-route"') > 0 && head.indexOf('id="lk-route"') < head.indexOf('<style>') && head.indexOf('id="lk-route"') < head.indexOf('<title>'), `${f}: script định tuyến phải nằm đầu <head> (trước khi vẽ)`);
-  ok(!/<script[^>]+src=/.test(html), `${f}: không được tải script ngoài (LCP)`);
-  ok(!/<link[^>]+rel="stylesheet"/.test(html), `${f}: CSS phải nội tuyến (không chặn hiển thị)`);
+  ok([...html.matchAll(/<script\b([^>]*\bsrc=[^>]*)>/g)].every(([, a]) => /(^|\s)defer(\s|$)/.test(a) && /\ssrc="\/js\/[\w./-]+\?v=[0-9a-f]{8}"/.test(a)), `${f}: script ngoài phải defer, cùng gốc dưới /js/ và có ?v=<hash> (LCP)`);
+  ok([...html.replace(/<noscript>[\s\S]*?<\/noscript>/g, '').matchAll(/<link\b[^>]*rel="stylesheet"[^>]*>/g)].every(([t]) => /\smedia="print"/.test(t) && /\sdata-swap[\s>]/.test(t)), `${f}: không có stylesheet chặn hiển thị (chỉ media="print" data-swap + bản <noscript>)`);
   ok(head.includes(`<link rel="canonical" href="${expectHref(l)}">`), `${f}: canonical tự trỏ`);
   const alts = [...head.matchAll(/<link rel="alternate" hreflang="([a-z-]+)" href="([^"]+)">/g)];
-  ok(alts.length === 16 && LANGS.every(x => alts.some(a => a[1] === x && a[2] === expectHref(x))) && alts.some(a => a[1] === 'x-default' && a[2] === expectHref('en')), `${f}: cần 15 hreflang + x-default (/en/)`);
+  ok(alts.length === 16 && LANGS.every(x => alts.some(a => a[1] === x && a[2] === expectHref(x))) && alts.some(a => a[1] === 'x-default' && a[2] === 'https://lexkite.com/'), `${f}: cần 15 hreflang + x-default (/en/)`);
   ok(!/name="robots" content="[^"]*noindex/.test(head), `${f}: trang giới thiệu phải index được`);
   const t = (head.match(/<title>([^<]+)<\/title>/) || [])[1] || '', d = (head.match(/<meta name="description" content="([^"]+)"/) || [])[1] || '';
   const w = x => [...x].reduce((a, c) => a + (/[\u3000-\u9fff\uac00-\ud7af\uff00-\uffef]/.test(c) ? 2 : 1), 0); // chữ CJK rộng gấp đôi trên kết quả tìm kiếm
@@ -92,9 +93,11 @@ for (const l of LANGS) {
   ok(html.includes(`href="/app/?hl=${l}#/welcome/setup"`) && html.includes(`href="/app/?hl=${l}#/welcome/login"`), `${f}: CTA "Bắt đầu"/"Đăng nhập" vào /app/?hl=${l}#/…`);
   ok(html.includes(`href="/${l}/blog/"`), `${f}: liên kết blog cùng ngôn ngữ /${l}/blog/`);
   ok(!/href="\/(\?[^"#]*)?#\//.test(html), `${f}: còn liên kết kiểu cũ "/#/…" (phải là /app/#/…)`);
-  ok(LANGS.every(x => html.includes(`<a href="${x === 'vi' ? '/' : `/${x}/`}" lang="${x}" hreflang="${x}"`)), `${f}: thanh đổi ngôn ngữ đủ 15 trang`);
-  const gz = zlib.gzipSync(html, { level: 9 }).length;
-  ok(gz <= 16 * 1024, `${f}: ${(gz / 1024).toFixed(1)} KB gzip > 16 KB – trang giới thiệu phải nhẹ`);
+  ok(LANGS.every(x => html.includes(`<a href="/${x}/" lang="${x}" hreflang="${x}"`)), `${f}: thanh đổi ngôn ngữ đủ 15 trang`);
+  // Một thước với size-budget: gzip chuẩn (pako, scripts/lib/gz-canon.mjs) + ngưỡng budget.landingGz. zlib của Node đổi theo phiên bản
+  // (Node 22 trên CI ≠ Node 26 trên máy, lệch ~1 %) → trước đây máy xanh, CI đỏ cùng một file.
+  const gz = gzSize(Buffer.from(html));
+  ok(gz <= LAND_GZ, `${f}: ${gz} B gzip chuẩn > ${LAND_GZ} B (budget.json landingGz) – trang giới thiệu phải nhẹ`);
   ok(!/Lexkite là ứng dụng số 1|triệu người dùng|million users|★★★★★|4\.9\/5/i.test(html), `${f}: không được có số liệu/đánh giá tự nhận`);
 }
 // Chữ hiển thị đúng ngôn ngữ trang: trang không phải vi không lẫn tiếng Việt có dấu (trừ tên ngôn ngữ "Tiếng Việt" ở thanh đổi ngôn ngữ)
@@ -106,24 +109,30 @@ for (const l of LANGS.filter(x => x !== 'vi')) {
 }
 
 // ---------- 3) Gợi ý ngôn ngữ (chỉ người dùng thật, sau khi vẽ) ----------
+// jsdom không tải file: <script defer src="/js/…?v="> → chạy đúng file web/js/… ở cuối <body> (như defer: sau khi parse xong DOM)
+const deferInline = html => { const js = []; html = html.replace(/<script defer src="(\/js\/[^"?]+)\?v=[0-9a-f]+"><\/script>/g, (_, p) => { js.push(rd('web' + p)); return ''; });
+  if (js.some(c => c.includes('/js/site-ui.js'))) js.push(rd('web/js/site-ui.js')); // site.js nạp site-ui.js (#303) sau load – jsdom không tải <script src> → chạy luôn nội dung
+  return html.replace('</body>', () => js.map(c => `<script>${c}</script>`).join('') + '</body>'); };
+// + JS dùng chung trang tĩnh (#303) ở /js/site-ui.js (defer / nạp sau load) → chạy inline cùng nội dung
+const inlUi = h => h.replace(/<script src="\/js\/site-ui\.js[^"]*" defer><\/script>|<script>addEventListener\("load"[^<]{0,160}\/js\/site-ui\.js[^<]{0,80}<\/script>/g, () => `<script>${rd('web/js/site-ui.js')}</script>`);
 async function hint(file, langs, local = {}) {
-  const html = rd(file).replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
-  const dom = new JSDOM(html, { url: 'https://lexkite.com/', runScripts: 'dangerously', beforeParse(w) { Object.defineProperty(w.navigator, 'languages', { get: () => langs }); for (const [k, v] of Object.entries(local)) w.localStorage.setItem(k, v); } });
-  await new Promise(r => setTimeout(r, 10));
+  const html = deferInline(inlUi(rd(file))).replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
+  const dom = new JSDOM(html, { url: 'https://lexkite.com/', runScripts: 'dangerously', beforeParse(w) { Object.defineProperty(w.navigator, 'languages', { get: () => langs }); for (const [k, v] of Object.entries(local)) w.localStorage.setItem(k, v); w.fetch = u => Promise.resolve({ json: () => JSON.parse(rd('web' + new URL(u, 'https://lexkite.com/').pathname)) }); } }); // chữ gợi ý tải từ web/js/lhint.json khi cần
+  await new Promise(r => setTimeout(r, 30));
   return dom.window;
 }
 {
-  let w = await hint('web/index.html', ['ja-JP', 'en']);
+  let w = await hint('web/vi/index.html', ['ja-JP', 'en']);
   const b = w.document.querySelector('.lhint');
   ok(b && b.getAttribute('lang') === 'ja' && b.querySelector('a').getAttribute('href') === '/ja/' && /日本語/.test(b.textContent), 'gợi ý: trình duyệt tiếng Nhật ở / → dải "日本語で見る" trỏ /ja/');
   b && b.querySelector('button').click();
   ok(!w.document.querySelector('.lhint') && w.localStorage.getItem('lk.lhint') === '1', 'gợi ý: bấm × → ẩn và nhớ lựa chọn');
-  w = await hint('web/index.html', ['vi-VN']); ok(!w.document.querySelector('.lhint'), 'gợi ý: đúng ngôn ngữ trang → không hiện');
+  w = await hint('web/vi/index.html', ['vi-VN']); ok(!w.document.querySelector('.lhint'), 'gợi ý: đúng ngôn ngữ trang → không hiện');
   w = await hint('web/en/index.html', ['ja'], { 'lk.lhint': '1' }); ok(!w.document.querySelector('.lhint'), 'gợi ý: đã đóng trước đó → không hiện lại');
   w = await hint('web/en/index.html', ['en-US'], { 'vb.uiLang': 'ar' }); const a = w.document.querySelector('.lhint');
   ok(a && a.getAttribute('dir') === 'rtl' && a.querySelector('a').getAttribute('href') === '/ar/', 'gợi ý: ưu tiên ngôn ngữ đã chọn trong app (vb.uiLang), RTL cho ar');
   w = await hint('web/en/index.html', ['sw-KE']); ok(!w.document.querySelector('.lhint'), 'gợi ý: ngôn ngữ không hỗ trợ → không hiện');
-  ok(!rd('web/index.html').includes('class="lhint"'), 'gợi ý: không có sẵn trong HTML (bot thấy trang sạch)');
+  ok(!rd('web/vi/index.html').includes('class="lhint"'), 'gợi ý: không có sẵn trong HTML (bot thấy trang sạch)');
 }
 
 // ---------- 3b) Nút đổi ngôn ngữ đầu trang (web/js/lang-menu.js – dùng chung mọi trang tĩnh + app) ----------
@@ -131,13 +140,15 @@ async function hint(file, langs, local = {}) {
   const { landingHref, LANG_NAMES, seoPage } = await import('../lib/site-layout.mjs');
   for (const l of LANGS) {
     const doc = new JSDOM(rd(fileOf(l))).window.document, sw = doc.querySelectorAll('header [data-lsw]'), b = doc.querySelector('[data-lsw] button'), m = doc.querySelector('[data-lsw] [role=menu]');
-    const items = [...doc.querySelectorAll('[data-lsw] [role=menuitem]')];
+    const items = [...doc.querySelectorAll('header [data-lsw] [role=menuitem]')], foot = [...doc.querySelectorAll('footer [data-lsw] [role=menuitem]')];
+    // chân trang v3: nút "Interface" mở menu thứ hai – cùng 15 liên kết hreflang, id riêng
+    ok(foot.length === LANGS.length && foot.every((a, i) => a.getAttribute('href') === items[i].getAttribute('href') && a.lang === items[i].lang) && doc.querySelector('footer [data-lsw] [aria-haspopup]').getAttribute('aria-controls') === foot[0].closest('[role=menu]').id, `${fileOf(l)}: menu ngôn ngữ chân trang đủ 15 mục, đúng menu`);
     ok(sw.length === 1 && b && b.getAttribute('aria-haspopup') === 'true' && b.getAttribute('aria-expanded') === 'false' && b.getAttribute('aria-controls') === m.id && m.hidden, `${fileOf(l)}: nút đổi ngôn ngữ (aria-haspopup/expanded/controls, menu ẩn sẵn)`);
-    ok(b && b.textContent.trim() === l.toUpperCase() && b.getAttribute('aria-label').endsWith(LANG_NAMES[l]) && !/Language/.test(l === 'en' ? '' : b.getAttribute('aria-label')), `${fileOf(l)}: nút hiện mã ${l.toUpperCase()}, nhãn đúng ngôn ngữ trang`);
+    ok(b && b.textContent.replace(/language|expand_more/g, '').trim() === LANG_NAMES[l] && b.getAttribute('aria-label').endsWith(LANG_NAMES[l]) && !/Language/.test(l === 'en' ? '' : b.getAttribute('aria-label')), `${fileOf(l)}: nút hiện tên ngôn ngữ trang (mẫu landing v3), nhãn đúng ngôn ngữ trang`);
     ok(items.length === LANGS.length && items.every(a => a.getAttribute('href') === landingHref(a.lang) && a.getAttribute('hreflang') === a.lang && a.textContent === LANG_NAMES[a.lang]) && items.filter(a => a.hasAttribute('aria-current')).map(a => a.lang).join() === l && items.find(a => a.lang === 'ar').getAttribute('dir') === 'rtl', `${fileOf(l)}: 15 ngôn ngữ tên bản địa, lang/hreflang, trỏ trang chủ từng ngôn ngữ, đánh dấu ngôn ngữ hiện tại, ar RTL`);
   }
   // Hành vi bàn phím/chuột chạy thật trong jsdom (trang ar để thử RTL); KHÔNG tự chuyển trang theo lựa chọn đã nhớ
-  const html = rd('web/ar/index.html').replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
+  const html = deferInline(inlUi(rd('web/ar/index.html'))).replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
   const dom = new JSDOM(html, { url: 'https://lexkite.com/ar/', runScripts: 'dangerously', beforeParse(w) { w.localStorage.setItem('vb.uiLang', 'ja'); w.localStorage.setItem('lk.lhint', '1'); } });
   await new Promise(r => setTimeout(r, 10));
   const w = dom.window, d = w.document, b = d.querySelector('[data-lsw] button'), m = d.getElementById(b.getAttribute('aria-controls')), key = (el, k) => el.dispatchEvent(new w.KeyboardEvent('keydown', { key: k, bubbles: true, cancelable: true }));
@@ -155,10 +166,20 @@ async function hint(file, langs, local = {}) {
   const nf = new JSDOM(rd('web/404.html')).window.document;
   ok(nf.querySelectorAll('[data-lsw] [role=menuitem]').length === LANGS.length && nf.querySelector('[data-lsw] [lang=ja]').getAttribute('href') === '/ja/', '404: nút đổi ngôn ngữ → trang chủ từng ngôn ngữ');
   const lg = new JSDOM(rd('web/de/terms.html')).window.document;
-  ok(lg.querySelector('[data-lsw] [lang=ko]').getAttribute('href') === '/ko/terms' && lg.querySelector('[data-lsw] [aria-current]').lang === 'de' && !lg.querySelector('select'), 'pháp lý: nút đổi ngôn ngữ → cùng trang ở ngôn ngữ kia (/ko/terms)');
+  ok(lg.querySelector('[data-lsw] [aria-current]').lang === 'de' && !lg.querySelector('select'), 'pháp lý: nút đổi ngôn ngữ đánh dấu ngôn ngữ trang');
+  // Mọi trang pháp lý: mỗi mục ngôn ngữ (đầu trang + chân trang) = bản dịch đủ có trong hreflang của trang, hoặc blog ngôn ngữ đó – không bao giờ trỏ bản nháp noindex
+  const legalBad = [];
+  for (const l of LANGS) for (const n of ['privacy', 'terms', 'schools', 'credits']) {
+    const f = `web/${l}/${n}.html`; if (!fs.existsSync(f)) continue;
+    const doc = new JSDOM(rd(f)).window.document, hl = new Set([...doc.querySelectorAll('link[rel=alternate][hreflang]')].map(x => x.getAttribute('hreflang')));
+    const done = x => fs.existsSync(`web/${x}/${n}.html`) && !/<meta name="robots" content="noindex"/.test(rd(`web/${x}/${n}.html`)); // bản dịch đủ = trang được lập chỉ mục
+    if (hl.size && [...hl].some(x => x !== 'x-default' && !done(x))) legalBad.push(`${f}: hreflang trỏ bản nháp`);
+    for (const a of doc.querySelectorAll('[data-lsw] [role=menuitem], .flangs a')) { const x = a.lang, want = x === l || done(x) ? `/${x}/${n}` : `/${x}/blog/`; if (a.getAttribute('href') !== want) legalBad.push(`${f} ${x}: ${a.getAttribute('href')} ≠ ${want}`); }
+  }
+  ok(!legalBad.length, `pháp lý: nút đổi ngôn ngữ → bản dịch theo hreflang, thiếu → /<lang>/blog/ (${legalBad.slice(0, 3).join('; ')})`);
   const sp = new JSDOM(seoPage({ lang: 'vi', head: '', crumbs: [['Trang chủ', '/'], ['Speaking', '/speaking/'], ['X', '/speaking/x']], body: '', alt: '/en/speaking/x', section: '/speaking/' })).window.document;
   const href = l => sp.querySelector(`header [data-lsw] [lang=${l}]`).getAttribute('href');
-  ok(href('vi') === '/speaking/x' && href('en') === '/en/speaking/x' && href('ja') === '/ja/' && sp.querySelector(`footer [lang=en]`).getAttribute('href') === '/en/speaking/x', 'trang SEO: vi ↔ en theo hreflang, ngôn ngữ khác → trang chủ ngôn ngữ đó (header = chân trang)');
+  ok(href('vi') === '/speaking/x' && href('en') === '/en/speaking/x' && href('ja') === '/ja/blog/' && sp.querySelector(`footer [lang=en]`).getAttribute('href') === '/en/speaking/x' && sp.querySelector(`footer [lang=ja]`).getAttribute('href') === '/ja/blog/', 'trang SEO: vi ↔ en theo hreflang, ngôn ngữ chưa có bản dịch → blog ngôn ngữ đó (header = chân trang)');
 }
 
 // ---------- 4) Service worker: di chuyển bản cài cũ ----------
@@ -213,6 +234,15 @@ ok(!!CUR, 'sw: có hằng CACHE');
   const off = await sw('https://lexkite.com/app/', { cache: { [CUR]: { '/app/': 'app shell' } }, online: false });
   const r = await (await off.wait('fetch', { request: { url: 'https://lexkite.com/app/?hl=ja', mode: 'navigate', method: 'GET' } }));
   ok(r && (await r.text()) === 'app shell', 'sw /app/: mất mạng → mở app từ cache');
+  { // Hồi quy mobile-qa (webkit): fetch tới lexkite.com/api/* khác nguồn khi mất mạng + không có trong cache → respondWith(undefined) = 'Returned response is null'
+    const x = await sw('https://localhost:8080/app/', { online: false });
+    const rsp = await x.wait('fetch', { request: { url: 'https://lexkite.com/api/notices?lang=vi', mode: 'cors', method: 'GET' } });
+    ok(rsp !== undefined, 'sw: gọi lexkite.com khác nguồn có respondWith');
+    const v = await rsp;
+    ok(v instanceof Response && !v.ok && v.status === 503, 'sw: lexkite.com khác nguồn, mất mạng + chưa có cache → trả phản hồi 503 hợp lệ, thân rỗng (không phải null/undefined, không nội dung sai)');
+    const c = await sw('https://localhost:8080/app/', { cache: { [CUR]: { '/api/notices': 'cached' } }, online: false });
+    ok((await (await c.wait('fetch', { request: { url: 'https://lexkite.com/api/notices?lang=vi', mode: 'cors', method: 'GET' } })).text()) === 'cached', 'sw: lexkite.com khác nguồn, mất mạng, đã có cache → trả bản cache');
+  }
   ok(/'\/app\/#\/review'/.test(SW) && !/'\.\/#\//.test(SW), 'sw: thông báo mở /app/#/review (không còn ./#/ = trang giới thiệu)');
   ok(!/indexedDB|localStorage/.test(SW.replace(/\/\*[\s\S]*?\*\/|\/\/.*$/gm, '')), 'sw: không đụng tới IndexedDB/localStorage (dữ liệu học an toàn)');
 }

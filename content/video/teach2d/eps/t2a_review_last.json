@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_last",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: last.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means the one before.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I saw her last week at the supermarket.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "last",
+  "ipa": "/læst/",
+  "mean": "the one before",
+  "ex": "I saw her last week at the supermarket.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=last",
+  "link": "https://lexkite.com/app/#/review?w=last",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 38,
+  "seconds": 23.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "What does \"last\" mean?",
+  "keyword": "last",
+  "value": "Last means the one before.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=last",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"last\" mean?",
+    "description": "Last means the one before.\n\nReview your words, free: https://lexkite.com/app/#/review?w=last\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "last",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"last\" mean?\n\nLast means the one before.\n\nReview your words, free: https://lexkite.com/app/#/review?w=last"
+   },
+   "instagram": {
+    "caption": "What does \"last\" mean?\n\nLast means the one before.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"last\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means the one before. Last means the one before. Try the full lesson and quiz here: {link}"
+ }
+}

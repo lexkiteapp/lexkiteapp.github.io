@@ -6,6 +6,7 @@
 //   mục trong hàng duyệt bị xuất · lô thiếu kiểm mẫu 5% / sai > 2% mà chưa "rejected" · dịch sinh tự động hỏng biến/ô/chữ viết · thẻ lời giải không lọc mục bị báo lỗi.
 // Lỗi CŨ (nội dung soạn tay trước cổng): đếm theo nguồn × loại kiểm → content/qa/baseline.json, chỉ được giảm (sửa theo LOẠI, METHODS "Làm đúng 1 lần").
 import fs from 'node:fs';
+import { SCAN_ROOTS } from '../lib/scan-roots.mjs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
@@ -24,9 +25,10 @@ const LANGS = ['en', ...fs.readFileSync(P('scripts/i18n-langs.txt'), 'utf8').spl
 // ---------- 0) Sổ đăng ký nguồn: MỌI thư mục nội dung phải có chủ + cách kiểm (thư mục mới chưa đăng ký → đỏ) ----------
 const REG = J('content/qa/sources.json');
 const dirs = [...fs.readdirSync(P('content'), { withFileTypes: true }).filter(d => d.isDirectory()).map(d => 'content/' + d.name),
-  ...fs.readdirSync(P('web/js'), { withFileTypes: true }).filter(d => d.isDirectory() && !['vendor', 'i18n'].includes(d.name)).map(d => 'web/js/' + d.name)];
+  ...SCAN_ROOTS.filter(r => fs.existsSync(P(r))).flatMap(r => fs.readdirSync(P(r), { withFileTypes: true }).filter(d => d.isDirectory() && !['vendor', 'i18n'].includes(d.name)).map(d => r + '/' + d.name))]; // web/js + gói tải lười web/cpack
 for (const d of dirs) if (!REG.sources.some(s => (s.paths || []).some(p => p === d || p.startsWith(d + '/') || d.startsWith(p + '/'))) && !(REG.skip || {})[d]) H('đăng ký', `${d} chưa có trong content/qa/sources.json (thêm nguồn + cách kiểm, hoặc "skip" kèm lý do)`);
-for (const s of REG.sources) { if (!s.owner || !s.checks || !s.checks.length) H('đăng ký', `${s.id}: thiếu owner/checks`); for (const t of s.delegate || []) if (!fs.readFileSync(P('package.json'), 'utf8').includes(t)) H('đăng ký', `${s.id}: test uỷ quyền "${t}" không có trong npm test`); }
+const NPM_TEST = fs.readFileSync(P('package.json'), 'utf8') + (fs.existsSync(P('scripts/test/suite.txt')) ? fs.readFileSync(P('scripts/test/suite.txt'), 'utf8') : ''); // npm test = package.json "test" + danh sách scripts/test/suite.txt (run-suite)
+for (const s of REG.sources) { if (!s.owner || !s.checks || !s.checks.length) H('đăng ký', `${s.id}: thiếu owner/checks`); for (const t of s.delegate || []) if (!NPM_TEST.includes(t)) H('đăng ký', `${s.id}: test uỷ quyền "${t}" không có trong npm test`); }
 
 // ---------- Kho từ (đối chiếu từ + CEFR) ----------
 const LEX = new Map();
@@ -82,6 +84,30 @@ for (const r of K.READINGS || []) {
     }
   }
   info.usage = { entries: n, withNotes: noted, pct: n ? Math.round(noted / n * 100) : 0 };
+}
+
+// ---------- Truyện & podcast theo cấp (docs/STORIES.md §3–4) – nguồn mới → mọi lỗi CỨNG ----------
+{ const { createRequire } = await import('node:module'); const S = createRequire(import.meta.url)('../../web/js/stories/core.js');
+  const wctx = { console }; wctx.self = wctx; vm.createContext(wctx); vm.runInContext(fs.readFileSync(P('web/js/writecheck-rules.js'), 'utf8'), wctx);
+  const dir = 'content/stories', files = ex(dir) ? fs.readdirSync(P(dir)).filter(f => f.endsWith('.json')) : [], ids = new Set();
+  for (const f of files) {
+    const x = J(dir + '/' + f);
+    if (x.id + '.json' !== f) H('stories', `${f}: tên file phải = id + .json`);
+    if (ids.has(x.id)) H('stories', `${x.id}: trùng id`); ids.add(x.id);
+    for (const m of S.validate(x)) H('stories', m);
+    (x.chapters || []).forEach((ch, ci) => {
+      const allow = new Set((ch.words || []).map(S.base)), where = `${x.id}#ch${ci + 1}`;
+      for (const w of ch.words || []) if (!known(S.base(w))) H('stories', `${where}: từ tô sáng "${w}" không có trong kho từ (IPA/nghĩa lấy từ kho)`);
+      for (const s of S.sentencesOf(ch)) {
+        const over = S.words(s).filter(w => !S.lemmas(w).some(l => allow.has(l)) && !S.lemmas(w).some(l => LEX.has(l) && !cefrOver(l, x.level, LEX).length));
+        const hi = [...new Set(over.filter(w => S.lemmas(w).some(l => LEX.has(l))))];
+        if (hi.length) H('stories', `${where}: từ cao hơn ${x.level} > 1 bậc chưa có trong words: ${hi.join(', ')} – "${s}"`);
+        const bad = wctx.LK_WRITE.check(s).filter(h => h.type === 'grammar' || h.type === 'spelling');
+        if (bad.length) H('stories', `${where}: soát lỗi ${bad.map(h => h.type + ':' + s.slice(h.s, h.e)).join(', ')} – "${s}"`);
+      }
+    });
+  }
+  info.stories = files.length;
 }
 
 // ---------- Giao tiếp tự tin: CEFR bài + cặp ✗/✓ (not → say) + nghĩa/lý do đủ en ----------

@@ -209,7 +209,7 @@
        "  "
       ],
       [
-       "@ipa:/skɪl/"
+       "@ipa:/skɪld/"
       ]
      ]
     },
@@ -434,6 +434,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "She's skilled ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " language teaching.",
+      "white"
+     ]
+    ]
+   ],
    "a": "on",
    "b": "in",
    "correct": "b",
@@ -504,7 +520,7 @@
        "  "
       ],
       [
-       "@ipa:/skɪl/"
+       "@ipa:/skɪld/"
       ]
      ]
     }
@@ -545,6 +561,6 @@
   "pid": "u:p:skilled:in",
   "cefr": "B1",
   "diff": "medium",
-  "ipa": "/skɪl/"
+  "ipa": "/skɪld/"
  }
 }

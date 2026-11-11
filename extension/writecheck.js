@@ -38,7 +38,10 @@
     send({ type: 'uiDict', lang: 'en' }).then(r => { XEN = (r && r.dict) || {}; });
     if (l !== 'en') send({ type: 'uiDict', lang: l }).then(r => { if (UI_LANG === l) XD = (r && r.dict) || {}; });
   };
-  const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (XD[src] || XEN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };
+  const hk = s => { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 0x01000193); } return '_' + ((x >>> 0) % 1679616).toString(36); }; // = hk của web/js/i18n.js (gói ngôn ngữ khóa băm, scripts/lib/i18n-pack.mjs)
+  // Từ điển background: gói ngôn ngữ (khóa băm, hoặc nguyên câu khi trùng băm) chồng lên nền en (nguyên câu) → tra băm trước
+  const xd = src => (typeof src === 'string' && XD[hk(src)]) || XD[src];
+  const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (xd(src) || XEN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };
 
   // ---------- Cài đặt ----------
   let on = false, adv = false, offSites = [];
@@ -120,7 +123,7 @@
     .why a { color: #0E8F8E; font-weight: 700; text-decoration: none; cursor: pointer; display: inline-block; margin-top: 4px; }
     .src { font-size: 11px; color: #8a8fa3; margin-top: 4px; }
     @media (prefers-color-scheme: dark) {
-      /*@tokens*/:host,.card{--d-bg:#10191B;--d-sf:#172427;--d-sf2:#1E2F33;--d-sf3:#26393E;--d-line:#1F3337;--d-line2:#23373B;--d-text:#F3F8F8;--d-muted:#A3B9B7}/*@end*/
+      /*@tokens*/:host,.card{--d-bg:#0E191C;--d-sf:#162528;--d-sf2:#1D2F33;--d-sf3:#263A3F;--d-line:#213438;--d-line2:#2A3F44;--d-text:#EAF2F2;--d-muted:#A3B9B7}/*@end*/
       .card { background: var(--d-sf); color: var(--d-text); border-color: var(--d-line); } .btn { background: var(--d-sf3); border-color: var(--d-line); color: var(--d-text); }
       .msg { color: var(--d-muted); } .bad { color: var(--d-muted); } .acts { border-color: var(--d-line); } .why { background: #15302f; border-color: #1f4b48; } .why a { color: #2dd4bf; }
     }`;

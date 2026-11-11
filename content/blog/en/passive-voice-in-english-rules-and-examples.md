@@ -33,6 +33,7 @@ quiz: [
     explain: "In industrial and natural processes, the subject undergoing transformation is paramount, rendering the human agent secondary or irrelevant."
   }
 ]
+publishAt: 2026-12-24T09:17:00+05:30
 ---
 
 In English composition and formal speech, the passive voice is an indispensable grammatical instrument. Rather than highlighting the individual performing an action, it refocuses the reader's attention onto the recipient, the outcome, or the underlying phenomenon. In competitive examinations like the IELTS, TOEFL, and university academic writing, knowing the **passive voice in english rules** allows candidates to maintain objectivity, vary clause structures, and eliminate informal personal pronouns.
@@ -137,6 +138,6 @@ A recurrent challenge in academic prose is determining whether to include the ag
 | **Incorrect past participle form** | "The report was wrote by consultants." | "The report was **written** by consultants." |
 | **Redundant by-agent phrases** | "The highway was repaired by workers." | "The highway was **repaired** within three weeks." *(Omit obvious or vague agents)* |
 
-To broaden your syntactical repertoire, explore our guide on [complex sentences for IELTS writing](/en/blog/complex-sentences-for-ielts-writing/) and review [conditional sentences in English](/en/blog/conditional-sentences-in-english-rules-and-examples/). You can also sharpen your cohesion with [linking words for IELTS writing](/en/blog/linking-words-for-ielts-writing/) and master paraphrasing via our [how to paraphrase in IELTS](/en/blog/how-to-paraphrase-in-ielts/) guide alongside curated vocabulary at [/tu-vung/](/tu-vung/).
+To broaden your syntactical repertoire, explore our guide on [complex sentences for IELTS writing](/en/blog/complex-sentences-for-ielts-writing/) and review [conditional sentences in English](/en/blog/conditional-sentences-in-english-rules-and-examples/). You can also sharpen your cohesion with [linking words for IELTS writing](/en/blog/linking-words-for-ielts-writing/) and master paraphrasing via our [how to paraphrase in IELTS](/en/blog/how-to-paraphrase-in-ielts/) guide alongside curated vocabulary at [/tu-vung/](/en/vocabulary/).
 
 Internalizing these principles will elevate your written expression, rendering every essay authoritative, structurally diverse, and grammatically flawless.

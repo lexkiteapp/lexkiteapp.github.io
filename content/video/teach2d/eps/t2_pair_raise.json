@@ -95,5 +95,46 @@
   "words": 49,
   "seconds": 30.4,
   "wpm": 97
+ },
+ "publish": {
+  "title": "Raise or rise? Same thing?",
+  "keyword": "Please raise your hand.",
+  "value": "The sun rises. Nobody raises it!",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/usage/raise-rise",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Raise or rise? Same thing?",
+    "description": "The sun rises. Nobody raises it!\n\nCompare tricky words, free: https://lexkite.com/app/#/usage/raise-rise\n\nSeries: Same or Different? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "Please raise your hand.",
+     "Same or Different?",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Raise or rise? Same thing?\n\nThe sun rises. Nobody raises it!\n\nCompare tricky words, free: https://lexkite.com/app/#/usage/raise-rise"
+   },
+   "instagram": {
+    "caption": "Raise or rise? Same thing?\n\nThe sun rises. Nobody raises it!\n\nCompare tricky words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Raise or rise? Same thing? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Rises! The sun rises at six. The sun rises. Nobody raises it! Try the full lesson and quiz here: {link}"
  }
 }

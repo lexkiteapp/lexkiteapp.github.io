@@ -11,21 +11,21 @@
   "target": 100,
   "unit": "đề",
   "batch": 20,
-  "file": "web/js/toefl/data*.js",
+  "file": "web/cpack/toefl/data*.js",
   "priority": 1
  },
  "TOEFL Speaking": {
   "target": 150,
   "unit": "câu",
   "batch": 30,
-  "file": "web/js/toefl/data*.js",
+  "file": "web/cpack/toefl/data*.js",
   "priority": 1
  },
  "TOEFL Listening": {
   "target": 200,
   "unit": "câu",
   "batch": 32,
-  "file": "web/js/toefl/data*.js",
+  "file": "web/cpack/toefl/data*.js",
   "priority": 2
  },
  "Ngữ pháp – trắc nghiệm": {
@@ -48,7 +48,7 @@
   "target": 300,
   "unit": "bài",
   "batch": 15,
-  "file": "web/js/readings-more.js",
+  "file": "web/cpack/readings/more.js",
   "priority": 2
  },
  "TOEIC Listening": {
@@ -84,7 +84,7 @@
   "target": 280,
   "unit": "câu",
   "batch": 40,
-  "file": "web/js/toefl/data*.js",
+  "file": "web/cpack/toefl/data*.js",
   "priority": 3
  },
  "Từ vựng (mục)": {
@@ -120,5 +120,380 @@
   "priority": 3,
   "have": 38,
   "focus": "đủ 6 dạng: line, bar, pie, table, process, map; dữ liệu biểu đồ tự tạo (SVG), bài mẫu band 8 + overview"
+ },
+ "Ngữ pháp – bài A1": {
+  "target": 15,
+  "unit": "bài",
+  "batch": 3,
+  "file": "web/js/grammar/*.js",
+  "priority": 1,
+  "have": 15,
+  "focus": "cấp chưa có bài nào: be, hiện tại đơn, có/không, câu hỏi wh-, số nhiều, a/an/the, giới từ thời gian & nơi chốn – mỗi bài gom 2–4 điểm cùng mảng (điểm chờ: content/framework/grammar-inventory.json – kiểm grammar-map-check)",
+  "points": [
+   "adjective-before-noun",
+   "very-really",
+   "and-but-or",
+   "because-basic",
+   "basic-word-order",
+   "numbers-dates-times",
+   "capital-full-stop"
+  ]
+ },
+ "Ngữ pháp – bài A2": {
+  "target": 18,
+  "unit": "bài",
+  "batch": 3,
+  "file": "web/js/grammar/*.js",
+  "priority": 3,
+  "have": 14,
+  "focus": "điểm A2 hiện chỉ dạy ở bài B1 (quá khứ tiếp diễn bối cảnh, hiện tại hoàn thành trải nghiệm, will/going to…) – bài A2 nhẹ hơn (điểm chờ: content/framework/grammar-inventory.json – kiểm grammar-map-check)",
+  "points": [
+   "past-continuous-background",
+   "present-perfect-experience-basic",
+   "going-to-predictions",
+   "will-offers-decisions",
+   "used-to-basic",
+   "have-to-must-basic",
+   "dont-have-to-mustnt",
+   "should-advice-basic",
+   "may-might-possibility-basic",
+   "want-to-infinitive",
+   "infinitive-of-purpose",
+   "compound-nouns-basic",
+   "comparatives-short",
+   "comparatives-long",
+   "superlatives",
+   "as-as",
+   "ing-ed-adjectives-basic",
+   "too-enough-basic",
+   "prepositions-movement",
+   "prepositions-time-more",
+   "when-before-after",
+   "so-result",
+   "sequencing-words",
+   "tag-intonation-basic",
+   "possessive-of-phrases",
+   "stative-basic",
+   "data-basic"
+  ]
+ },
+ "Ngữ pháp – bài B1": {
+  "target": 33,
+  "unit": "bài",
+  "batch": 3,
+  "file": "web/js/grammar/*.js",
+  "priority": 3,
+  "have": 30,
+  "focus": "bổ sung điểm B1 chưa có bài riêng (be able to, unless/in case, câu hỏi gián tiếp…) (điểm chờ: content/framework/grammar-inventory.json – kiểm grammar-map-check)",
+  "points": [
+   "past-perfect-continuous-intro",
+   "permission-past-present",
+   "be-able-to",
+   "must-cant-deduction-present",
+   "unless-in-case",
+   "wish-present-basic",
+   "articles-unique-places",
+   "reflexive-each-other",
+   "adjective-order",
+   "adverb-position-basic",
+   "indirect-questions"
+  ]
+ },
+ "Ngữ pháp – bài B2": {
+  "target": 29,
+  "unit": "bài",
+  "batch": 3,
+  "file": "web/js/grammar/*.js",
+  "priority": 3,
+  "have": 27,
+  "focus": "bổ sung điểm B2 chưa có bài riêng (điểm chờ: content/framework/grammar-inventory.json – kiểm grammar-map-check)",
+  "points": [
+   "gerund-infinitive-meaning",
+   "articles-abstract",
+   "noun-phrases-premodifier",
+   "cleft-intro"
+  ]
+ },
+ "Ngữ pháp – bài C1": {
+  "target": 15,
+  "unit": "bài",
+  "batch": 3,
+  "file": "web/js/grammar/*.js",
+  "priority": 2,
+  "have": 6,
+  "focus": "nâng C1 từ 6 lên 15 bài: bị động nâng cao, động từ tường thuật thể hiện quan điểm, mệnh đề quan hệ với lượng từ, nhượng bộ nâng cao… (điểm chờ: content/framework/grammar-inventory.json – kiểm grammar-map-check)",
+  "points": [
+   "abstract-articles-advanced",
+   "passive-advanced",
+   "reporting-stance",
+   "modal-nuance",
+   "would-past-criticism",
+   "participle-advanced",
+   "relative-advanced-quantifiers",
+   "sentential-relative",
+   "concessive-advanced",
+   "formal-linkers",
+   "future-perfect-continuous",
+   "tense-for-distance",
+   "phrasal-verbs-register",
+   "verb-complementation-advanced",
+   "quantifiers-advanced",
+   "adjective-complementation",
+   "comparison-c1",
+   "ellipsis-substitution-advanced",
+   "punctuation-advanced",
+   "idiomatic-collocation",
+   "noun-clause-advanced",
+   "paraphrase-c1",
+   "reported-speech-summary",
+   "unreal-past-advanced",
+   "parallelism-advanced"
+  ]
+ },
+ "Ngữ pháp – bài C2": {
+  "target": 10,
+  "unit": "bài",
+  "batch": 3,
+  "file": "web/js/grammar/*.js",
+  "priority": 2,
+  "have": 10,
+  "focus": "cấp chưa có bài nào: đảo ngữ đầy đủ, điều kiện ngầm, giả định trang trọng, end-weight, ngữ pháp thể loại… (điểm chờ: content/framework/grammar-inventory.json – kiểm grammar-map-check)",
+  "points": [
+   "historic-present",
+   "generic-reference",
+   "proper-noun-articles",
+   "free-indirect-speech",
+   "participle-literary",
+   "relative-literary",
+   "comparative-correlatives",
+   "rhetorical-structures",
+   "conversion-creative",
+   "affixation-advanced",
+   "adjective-nuance",
+   "comparison-c2",
+   "precise-quantification",
+   "punctuation-style",
+   "phrasal-prepositional-idiom",
+   "genre-grammar",
+   "ambiguity-control"
+  ]
+ },
+ "Dễ học – lô": {
+  "_note": "Hàng sửa P0-H (docs/specs/learnability.md): 25 bài yếu nhất của mảng điểm thấp nhất; sửa theo thang tầng 0 → 1 → 2, qua cổng QA, rồi chạy lại learnability.",
+  "area": "vocab",
+  "items": [
+   {
+    "id": "nawl5",
+    "score": 54.6,
+    "fix": [
+     "mã hoá kép 61% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "nawl2",
+    "score": 55.4,
+    "fix": [
+     "mã hoá kép 65% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "bsl1",
+    "score": 55.4,
+    "fix": [
+     "mã hoá kép 67% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "nawl3",
+    "score": 55.5,
+    "fix": [
+     "mã hoá kép 65% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "nawl4",
+    "score": 55.6,
+    "fix": [
+     "mã hoá kép 62% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 5%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "bsl2",
+    "score": 55.7,
+    "fix": [
+     "mã hoá kép 67% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "nawl1",
+    "score": 55.8,
+    "fix": [
+     "mã hoá kép 67% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl1",
+    "score": 56,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 11%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "bsl6",
+    "score": 56.1,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "bsl3",
+    "score": 56.4,
+    "fix": [
+     "mã hoá kép 68% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "bsl5",
+    "score": 57,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "xw-religion-history",
+    "score": 57,
+    "fix": [
+     "mã hoá kép 32% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl2",
+    "score": 57.7,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 4%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl3",
+    "score": 57.7,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 4%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "bsl4",
+    "score": 57.8,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl5",
+    "score": 57.9,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl8",
+    "score": 57.9,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 3%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl10",
+    "score": 58,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 2%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "xw-military",
+    "score": 58.2,
+    "fix": [
+     "mã hoá kép 35% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl9",
+    "score": 58.3,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 2%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl7",
+    "score": 58.5,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl4",
+    "score": 58.6,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 4%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl6",
+    "score": 59,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 2%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "xw-people",
+    "score": 59.6,
+    "fix": [
+     "mã hoá kép 41% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "xw-qualities",
+    "score": 60.1,
+    "fix": [
+     "mã hoá kép 43% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   }
+  ]
  }
 }

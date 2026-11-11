@@ -19,8 +19,27 @@ ok(C.streak(new Set([ago(1), ago(2)])) === 2, 'hôm nay chưa học vẫn giữ 
 ok(C.pending({}, 7) === 7 && C.pending({ ms: { 3: 1, 7: 1 } }, 9) === 0, 'mốc chưa chúc mừng');
 ok(C.pending({}, 40) === 30, 'nhảy nhiều mốc (đồng bộ) → chỉ 1 màn mốc cao nhất');
 ok(C.next(7) === 14 && C.next(365) === 400, 'mốc tiếp theo');
-const w = C.week(days, { [ago(1)]: 1 }, Date.now());
-ok(w.length === 7 && w[0].dow === 0 && w.some(x => x.st === 'frozen'), 'lịch tuần 7 ô, Thứ 2 đầu tuần, có ô đóng băng');
+// Lịch tuần: đo trên MỌI thứ trong tuần với "hôm nay" cố định (không phụ thuộc ngày chạy CI – 02/11 Thứ 2: hôm qua = CN tuần trước → không còn ô đóng băng)
+for (let dow = 0; dow < 7; dow++) {
+  const now = new Date(2026, 10, 2 + dow, 12), at = n => { const d = new Date(now); d.setDate(d.getDate() - n); return key(d); }; // 2/11/2026 = Thứ 2
+  const wk = C.week(new Set([at(1), at(2)]), { [at(0)]: 1 }, now.getTime()), mon = new Date(2026, 10, 2, 12);
+  ok(wk.length === 7 && wk.every((x, i) => x.dow === i) && wk[0].k === key(mon), `lịch tuần 7 ô, Thứ 2 (${key(mon)}) đầu tuần – hôm nay là ô ${dow}`);
+  ok(wk[dow].k === key(now) && wk[dow].st === 'frozen', `ô hôm nay (${dow}) đóng băng`);
+  ok(wk.slice(dow + 1).every(x => x.st === 'future'), `sau hôm nay (${dow}) = future`);
+  ok(wk.slice(0, dow).every((x, i) => x.st === (i >= dow - 2 ? 'done' : 'miss')), `trước hôm nay (${dow}): 2 ngày học = done, còn lại miss`);
+  if (dow === 0) ok(!wk.some(x => x.k === at(1)), 'Thứ 2: hôm qua (CN tuần trước) không nằm trong lịch tuần');
+}
+{ // Lịch tháng (#/streak, 5/11): lưới Thứ 2 → CN, ô đệm null, trạng thái như week(), tháng trước qua off=-1
+  const now = new Date(2026, 10, 5, 12).getTime(), d = x => key(new Date(2026, 10, x, 12)); // 1/11/2026 = Chủ nhật → 6 ô đệm
+  const mo = C.month(new Set([d(3), d(4)]), { [d(2)]: 1 }, now, 0);
+  ok(mo.y === 2026 && mo.m === 10 && mo.cells.length % 7 === 0 && mo.cells.slice(0, 6).every(c => c === null) && mo.cells[6].day === 1, 'lịch tháng: 1/11 (CN) ở cột 7, ô đệm null, đủ hàng 7');
+  const at = n => mo.cells.find(c => c && c.day === n);
+  ok(at(2).st === 'frozen' && at(3).st === 'done' && at(1).st === 'miss' && at(5).st === 'today' && at(5).today && at(6).st === 'future' && mo.learned === 3, 'lịch tháng: đóng băng/đã học/lỡ/hôm nay/tương lai + đếm ngày giữ chuỗi');
+  const prev = C.month(new Set(), {}, now, -1), dec = C.month(new Set(), {}, new Date(2026, 11, 31, 12).getTime(), 1);
+  ok(prev.m === 9 && prev.cells.filter(Boolean).length === 31 && prev.cells.every(c => !c || c.st === 'miss') && dec.y === 2027 && dec.m === 0, 'lịch tháng: tháng trước toàn quá khứ; qua năm mới đúng');
+}
+const w = C.week(days, { [ago(0)]: 1 }, Date.now());
+ok(w.length === 7 && w[0].dow === 0 && w.some(x => x.st === 'frozen'), 'lịch tuần hôm nay: 7 ô, Thứ 2 đầu tuần, có ô đóng băng');
 ok(!w.some(x => x.k > key(new Date()) && x.st !== 'future'), 'ngày tương lai = future');
 ok(C.event('2026-10-27').id === 'autumn26' && C.event('2026-12-01') === null && C.event('2027-01-01').id === 'winter26', 'sự kiện theo ngày');
 ok(C.EVENTS.every(e => e.need === 5 && C.FRAMES[e.frame]), 'sự kiện gom 5 mảnh, có khung riêng');
@@ -55,6 +74,7 @@ win.App = { retOn: () => true, state, routes: {}, activeDays: () => C.activeDays
 let adAsked = 0; win.Ads = { rewarded: async (r, q) => { if (r !== 'cosmetic') throw new Error('sai lý do quảng cáo: ' + r); adAsked++; return q ? true : true; } };
 win.matchMedia = () => ({ matches: true });
 win.eval(fs.readFileSync('web/js/characters.js', 'utf8')); // Chars (khung app nạp trước retention.js – web/app/index.html)
+win.eval(fs.readFileSync('web/js/teacher-slot.js', 'utf8')); // Chars.slot (khung app nạp ngay sau characters.js)
 win.eval(SRC);
 const R = win.Ret, $ = s => win.document.querySelector(s), tick = (ms = 0) => new Promise(r => setTimeout(r, ms));
 
@@ -78,7 +98,7 @@ state.game.ret = { ...(state.game.ret || {}), ms: { 3: 1 } };
 win.App.todayPlan = async () => [{ href: '#/review', done: true }, { href: '#/lesson/1', done: false }];
 await R.check(); await tick(1000);
 ok(modalEl && /7 ngày! 🔥/.test(modalEl.innerHTML), 'màn chúc mừng mốc 7');
-ok(/teach\/(ama|carlos)\/avatar\.webp/.test(modalEl.innerHTML) && !/img\/teach\//.test(modalEl.innerHTML), "màn chúc mừng có Ama/Carlos (avatar 2D registry, không ảnh 3D cũ)");
+ok(/teach\/(ama|carlos)\/(avatar|still-[a-z]+)\.webp/.test(modalEl.innerHTML) && modalEl.querySelector('.tslot[data-teacher]') && !/img\/teach\//.test(modalEl.innerHTML), "màn chúc mừng có Ama/Carlos (2D registry, đứng sau bệ Chars.slot – #314, không ảnh 3D cũ)");
 ok(/🧊 \+1/.test(modalEl.innerHTML), 'báo +1 lượt đóng băng kiếm được');
 ok(modalEl.querySelectorAll('.btn.primary').length === 1 && modalEl.querySelector('#retNext'), 'đúng 1 nút chính: Bài tiếp theo');
 ok(modalEl.querySelector('.ret-say').textContent.split(/\s+/).length <= 7, 'lời giáo viên ngắn (≤ 7 chữ)');
@@ -140,21 +160,37 @@ box.querySelector('#retNext').click(); await tick(30); ok(win.location.hash === 
   const V = $('#view'), vh = V.innerHTML;
   ok(V.querySelector('.v2-streak') || /v2-streak/.test(vh), 'v2: trang chuỗi dùng khung Stitch');
   ok(V.querySelector('header [data-href="#/home"]') && !V.querySelector('nav'), 'v2: đầu trang × có sẵn, không thanh tab');
-  ok(/>7</.test(vh) && /Chuỗi 7 ngày!/.test(vh) && /Mốc tiếp theo: 14 ngày/.test(vh), 'v2: số ngày + mốc tiếp');
+  ok(/>7</.test(vh) && /Mốc tiếp theo/.test(vh) && /Chuỗi 14 ngày/.test(vh) && /Còn 7 ngày/.test(vh) && V.querySelector('[role=progressbar][aria-valuemax="14"]'), 'v2: số ngày + mốc tiếp (14, còn 7, thanh tiến độ có aria)');
+  ok(V.querySelector('#retNext') && V.querySelectorAll('#retNext').length === 1, 'v2: đúng 1 CTA ghim đáy #retNext');
   ok(/miễn phí/.test(vh), 'v2: nói rõ miễn phí');
-  ok(V.querySelectorAll('[role=listitem]').length === 7 && V.querySelectorAll('[role=listitem][aria-label*="Hôm nay"], [role=listitem][aria-label*="Đã học"]').length >= 1, 'v2: lịch tuần 7 ô có nhãn trạng thái');
+  const wkL = V.querySelector('[role=listitem]').parentElement;
+  ok(wkL.querySelectorAll(':scope > [role=listitem]').length === 7 && wkL.querySelectorAll('[role=listitem][aria-label*="Hôm nay"], [role=listitem][aria-label*="Đã học"]').length >= 1, 'v2: lịch tuần 7 ô có nhãn trạng thái');
+  // lịch tháng: đủ ngày của tháng, có nhãn; ‹ › đổi tháng, không sang tháng tới, lùi tối đa 11 tháng
+  const mL = () => V.querySelector('#retMonth'), mDays = () => mL().querySelectorAll('[role=listitem]').length, mTi = () => mL().closest('section').querySelector('h3').textContent;
+  ok(mDays() >= 28 && mDays() <= 31 && mL().getAttribute('aria-label') && !/undefined/.test(mL().getAttribute('aria-label')), 'v2: lịch tháng đủ ngày + nhãn đọc màn hình');
+  ok(V.querySelector('#retMNext').disabled && !V.querySelector('#retMPrev').disabled, 'v2: tháng này → không sang tháng sau');
+  const t0 = mTi(); V.querySelector('#retMPrev').click(); await tick(5);
+  ok(mTi() !== t0 && !V.querySelector('#retMNext').disabled && V.querySelector('#retHelp'), 'v2: ‹ → tháng trước, chỉ vẽ lại thẻ lịch');
+  for (let i = 0; i < 12; i++) { V.querySelector('#retMPrev').click(); await tick(1); }
+  ok(V.querySelector('#retMPrev').disabled && mDays() >= 28, 'v2: lùi tối đa 11 tháng');
+  win.App.routes.streak(); await tick(10); ok(V.querySelector('#retMNext').disabled && mTi() === t0, 'v2: vào lại trang → về tháng này');
+  V.querySelector('#retHelp').click(); await tick(5);
+  ok(!modalEl.hidden && /miễn phí/.test(modalEl.innerHTML) && modalEl.querySelectorAll('li').length >= 4, 'v2: ? → giải thích luật chuỗi (miễn phí)'); win.UI.closeModal();
   ok(V.querySelector('[data-goal="20"]').getAttribute('aria-checked') === 'true' && V.querySelector('[data-goal="10"]').getAttribute('aria-checked') === 'false', 'v2: mục tiêu đang dùng lấy từ cài đặt thật');
   ok(V.querySelector('[role=progressbar][aria-valuemax="20"]'), 'v2: vòng mục tiêu ngày có aria');
-  ok(V.querySelectorAll('[data-ret-item]').length >= 15, 'v2: bộ sưu tập');
-  ok(V.querySelector('[data-ret-item="s:star"]').disabled, 'v2: món chưa có bị khóa');
-  ok(V.querySelector('[data-ret-item="f:ice"]') && !V.querySelector('[data-ret-item="f:ice"]').disabled, 'v2: món đã có đeo được');
-  ok(/🧊/.test(vh), 'v2: số lượt đóng băng hiện trên trang');
+  ok(V.querySelector('#retColl'), 'v2: hàng Bộ sưu tập');
+  ok(/\d+\/\d+ lượt sẵn sàng/.test(vh) && /Đóng băng chuỗi/.test(vh), 'v2: số lượt đóng băng hiện trên trang');
   ok(V.querySelector('#retChest'), 'v2: có rương chưa mở → nút Mở rương');
   V.querySelector('#retChest').click(); await tick(40);
   ok(modalEl.querySelector('.ret-tile.open') || modalEl.querySelector('#retChestTile'), 'v2: Mở rương từ trang chuỗi');
+  win.UI.closeModal(); state.game.ret.frame = '';
+  V.querySelector('#retColl').click(); await tick(5);
+  ok(modalEl.querySelectorAll('[data-ret-item]').length >= 15, 'v2: bộ sưu tập');
+  ok(modalEl.querySelector('[data-ret-item="s:star"]').disabled, 'v2: món chưa có bị khóa');
+  ok(modalEl.querySelector('[data-ret-item="f:ice"]') && !modalEl.querySelector('[data-ret-item="f:ice"]').disabled, 'v2: món đã có đeo được');
+  modalEl.querySelector('[data-ret-item="f:ice"]').click(); await tick(20);
+  ok(state.game.ret.frame === 'ice' && modalEl.querySelector('[data-ret-item="f:ice"]').getAttribute('aria-pressed') === 'true', 'v2: bấm món → đeo khung');
   win.UI.closeModal();
-  V.querySelector('[data-ret-item="f:ice"]').click(); await tick(20);
-  ok(state.game.ret.frame === 'ice', 'v2: bấm món → đeo khung');
   win.App.ux1On = () => false;
 }
 

@@ -33,6 +33,7 @@ quiz: [
     explain: "Una afirmación negativa se equilibra con una question tag afirmativa utilizando el mismo verbo auxiliar: haven't -> have you."
   }
 ]
+publishAt: 2026-11-21T20:24:00-06:00
 ---
 Hacer preguntas es el motor indiscutible de cualquier conversación humana. Desde pedir un café en el extranjero o pedir indicaciones en una estación hasta participar activamente en una reunión corporativa, saber **cómo hacer preguntas en inglés** te permite dirigir el diálogo con total seguridad. Sin embargo, para los hispanohablantes este aspecto representa uno de los mayores dolores de cabeza debido a la necesidad de invertir el orden de las palabras y utilizar verbos auxiliares que no existen en español.
 

@@ -127,6 +127,39 @@ ok(!P.interstitial(aCtx, fOn, st({ lastPct: 40 }), now) && P.interstitial(aCtx, 
   ok(!P.slot({ ...dn, done: false }, fOn, 'done') && !P.slot({ ...dn, ageH: 5 }, fOn, 'done') && !P.slot({ ...dn, pct: 30 }, fOn, 'done'), 'ô kết quả: không giữa bài, không ngày đầu, không khi làm kém');
   ok(!P.slot({ ...dn, plat: 'android' }, fOn, 'done') && !P.slot({ ...dn, edu: true }, fOn, 'done') && !P.slot({ ...dn, vid: hvid }, fOn, 'done'), 'ô kết quả: không app gốc (đã có toàn màn hình), không lớp học, không nhóm đối chứng'); }
 
+// ---------- 1c) VÙNG CẤM QUẢNG CÁO (policy.js ZONES/LIVE – docs/ADS.md §1c) ----------
+// Hồi quy ads-demo Android (đỏ 2/11 sau #444): máy mới cài mở #/welcome = vùng cấm onboarding → bài demo AdMob thật phải chạy như người dùng ĐÃ học (trang Hôm nay)
+{ const andr = { plat: 'android', route: 'home', path: '/', vid }, demo = fs.readFileSync('scripts/test/ads-demo-android.mjs', 'utf8');
+  ok(P.zone({ ...andr, route: 'welcome' }).k === 'onboarding' && !P.rewarded({ ...andr, route: 'welcome' }, fOn, 'ai') && P.rewarded(andr, fOn, 'ai'), 'Android: #/welcome chặn có thưởng (onboarding), #/home cho phép');
+  ok(/settings\.onboarded = true; await App\.saveSettings\(\)/.test(demo) && /cfg0 = await ev\(/.test(demo) && /info\.boot\.cfg === '1'/.test(demo) && /'#\/home'\); location\.reload\(\)/.test(demo), 'ads-demo-android: đánh dấu đã onboarding + mở lại ở #/home + chờ lượt tải config đầu + kiểm lk.cfg còn cờ sau khi tải lại');
+  ok(/const diag = async/.test(demo) && /await diag\('connect'\)/.test(demo) && /findSock\(\); if \(s2 && s2 !== sock\)/.test(demo), 'ads-demo-android: mất DevTools → dòng diag (adb/pid/activity/logcat) + nối lại socket khi app khởi động lại');
+  ok(/group: ads-demo-\$\{\{ github\.ref \}\}/.test(fs.readFileSync('.github/workflows/ads-demo.yml', 'utf8')), 'ads-demo.yml: concurrency theo ref – lượt PR không huỷ lượt kiểm main'); }
+{ const keys = P.ZONES.map(z => z[0]);
+  ok(['exam', 'onboarding', 'pay', 'admin', 'classroom', 'call', 'speak', 'lesson'].every(k => keys.includes(k)) && ['mic', 'call', 'answering'].every(k => P.LIVE.includes(k)), 'vùng cấm đủ: thi/test · onboarding · thanh toán · quản trị · lớp học/giáo viên · Call · nói · bài học + trạng thái mic/gọi/đang trả lời');
+  const HARD = ['mock', 'placement', 'toeic-test', 'toeic-r', 'toeic-sw', 'toefl', 'toefl-p', 'listen-test', 'cbt', 'welcome', 'onboard', 'setup', 'pay', 'checkout', 'upgrade', 'pro', 'admin', 'class', 'teacher', 'school'];
+  const SOFT = ['call', 'roleplay', 'handsfree', 'speak', 'speaking', 'say', 'pron', 'confidence', 'reflex', 'lesson', 'practice', 'review', 'study', 'quiz', 'write', 'grammar', 'dict'];
+  const nat = { pending: 1, sessions: 9, total: 50, firstAt: Date.now() - 9 * 864e5 };
+  const none = (c, brk) => !P.slot(c, fOn, 'home') && !P.interstitial({ ...c, plat: 'android' }, fOn, nat, Date.now()) && !P.rewarded({ ...c, plat: 'android', brk }, fOn, 'retry');
+  const bad = HARD.filter(r => !none({ ...base, route: r }, true));
+  ok(!bad.length, `vùng HARD (thi/onboarding/thanh toán/quản trị/lớp học): 0 quảng cáo kể cả video có thưởng ở điểm nghỉ – lọt: ${bad.join(',')}`);
+  const badS = SOFT.filter(r => !none({ ...base, route: r }, false) || !P.rewarded({ ...base, plat: 'android', route: r, brk: true }, fOn, 'retry') || !P.slot({ ...base, route: r, done: true, ageH: 30 }, fOn, 'done'));
+  ok(!badS.length, `vùng SOFT (Call/nói/bài học): không ô/toàn màn hình/video khi đang học; chỉ thẻ kết quả (điểm nghỉ) mới có lời mời tự chọn – sai: ${badS.join(',')}`);
+  for (const k of ['mic', 'call', 'answering', 'pro', 'onboard', 'pay']) { const c = { ...base, [k]: true };
+    ok(none(c, true) && !P.rewarded({ ...c, plat: 'android', brk: true }, fOn, 'streak') && !P.slot({ ...c, route: 'practice', done: true, ageH: 30 }, fOn, 'done'), `trạng thái ${k}: không BẤT KỲ quảng cáo nào ở mọi route (kể cả Hôm nay, ô kết quả, video có thưởng)`); }
+  ok(!P.interstitial({ ...base, plat: 'android', modal: true }, fOn, nat, Date.now()) && P.interstitial({ ...base, plat: 'android' }, fOn, nat, Date.now()), 'toàn màn hình không đè hộp thoại đang mở');
+  ok(['home', 'vocab', 'skills', 'tests', 'me'].every(r => !P.zone({ route: r })), 'tab chính (điểm nghỉ) không nằm trong vùng cấm');
+  const rs = rd('web/js/ads/run.js');
+  ok(/micLive\(\)/.test(rs) && /md\.getUserMedia = /.test(rs) && /answering: typing\(\)/.test(rs) && /pro: ls\.get\('lk\.pro'\) === '1'/.test(rs) && /brk: !!d\.querySelector\('#aoHost/.test(rs) && /modal: !!/.test(rs), 'run.js nối trạng thái LIVE (mic thật qua getUserMedia, đang gõ, Pro, hộp thoại, điểm nghỉ) vào ngữ cảnh');
+  ok(/rewarded\(feat, \{ brk: true \}\)/.test(rs) && /const ready = reason => P\.rewLeft\(st, reason, iso\(\)\) > 0 && P\.rewReady/.test(rs), 'run.js: hộp thoại hết lượt AI = điểm nghỉ; mọi video có thưởng qua trần/ngày + thời gian chờ');
+  ok(/\.ad-slot\[data-ad="done"\] \{ margin-top: 2\.5rem; \}/.test(rd('web/css/style.css')), 'ô kết quả cách nút ≥ 2,5rem (chống bấm nhầm)'); }
+// người mới N phiên · trần/ngày · thời gian chờ giữa video có thưởng
+{ const t0 = Date.parse('2026-10-20T10:00:00Z'), ac = { plat: 'android', route: 'home', vid }, s = o => ({ pending: 1, sessions: 3, total: 5, firstAt: t0 - 3 * 864e5, ...o });
+  ok(!P.interstitial(ac, fOn, s({ total: 4 }), t0) && P.interstitial(ac, fOn, s({ total: 5 }), t0), 'người mới: miễn toàn màn hình trong 5 phiên học đầu');
+  ok(P.flags({ ...ON, ads_cap_newbie: '1', ads_cap_daymax: '9' }, LOCAL).caps.newbie === 5 && P.flags({ ...ON, ads_cap_daymax: '9' }, LOCAL).caps.dayMax === 4 && P.flags({ ...ON, ads_cap_newbie: '10', ads_cap_daymax: '2' }, LOCAL).caps.dayMax === 2, 'quản trị chỉ nới: miễn ≥ 5 phiên, ≤ 4 lần/ngày');
+  const dk = new Date(t0).toDateString();
+  ok(!P.interstitial(ac, fOn, s({ id: { d: dk, n: 4 } }), t0) && P.interstitial(ac, fOn, s({ id: { d: dk, n: 3 } }), t0) && P.interstitial(ac, fOn, s({ id: { d: 'Mon Oct 19 2026', n: 4 } }), t0), 'toàn màn hình ≤ 4 lần / ngày (sang ngày mới đặt lại)');
+  ok(!P.rewReady({ rewAt: t0 - 60e3 }, t0) && P.rewReady({ rewAt: t0 - P.REW_GAP_MIN * 60e3 }, t0) && P.rewReady({}, t0), `video có thưởng: chờ ≥ ${P.REW_GAP_MIN} phút giữa 2 lần`); }
+
 // ---------- 3) khung app +0 ----------
 const sw = rd('web/sw.js'), shell = (sw.match(/const SHELL = \[([\s\S]*?)\];/) || [, ''])[1], idx = rd('web/app/index.html');
 ok(!/js\/ads\//.test(shell) && !/ads-config/.test(shell), 'SHELL (sw.js) không chứa js/ads/* (tải lười)');
@@ -198,7 +231,7 @@ ok(S.places[0].fill === 0.8 && Math.abs(S.plat.web.rev - 0.16) < 1e-9 && S.conse
   ok(!(await verifySsv(`https://lexkite.com/api/ads-reward?${msg.replace('reward_amount=3', 'reward_amount=99')}&signature=${sig}&key_id=42`, keys)), 'SSV: sửa tham số → từ chối');
   const { onRequestGet } = await import('../../functions/api/ads-reward.js');
   ok((await onRequestGet({ request: new Request('https://lexkite.com/api/ads-reward?x=1'), env: {} })).status === 404, 'SSV: mặc định TẮT (ADS_SSV≠1 → 404)'); }
-{ const pub = CFG.web.client.replace(/^ca-/, ''), line = `google.com, ${pub}, DIRECT, f08c47fec0942fa0`; ok(rd('web/ads.txt').includes(line) && rd('web/app-ads.txt').includes(line) && rd('web/index.html').includes(`google-adsense-account" content="${CFG.web.client}`), 'ads.txt + app-ads.txt + thẻ xác minh trang chủ khớp mã trong config.js'); }
+{ const pub = CFG.web.client.replace(/^ca-/, ''), line = `google.com, ${pub}, DIRECT, f08c47fec0942fa0`; ok(rd('web/ads.txt').includes(line) && rd('web/app-ads.txt').includes(line) && ['web/index.html', 'web/en/index.html', 'web/vi/index.html'].every(f => rd(f).includes(`google-adsense-account" content="${CFG.web.client}`)), 'ads.txt + app-ads.txt + thẻ xác minh ở / (tĩnh) và đích 302 của / khớp mã trong config.js'); }
 // D1: truy vấn ext_events theo khoảng ngày dùng PK, không SCAN
 try {
   const { DatabaseSync } = await import('node:sqlite'); const db = new DatabaseSync(':memory:');

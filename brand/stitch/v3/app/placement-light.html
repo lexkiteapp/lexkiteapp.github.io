@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Placement Test</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-fixed-variant": "#5b4300",
+            "tertiary": "#f4bf40",
+            "surface-container": "#162125",
+            "surface-container-low": "#121d20",
+            "primary-fixed": "#88f5ea",
+            "surface": "#091518",
+            "tertiary-fixed": "#ffdf9e",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-tertiary": "#402e00",
+            "surface-tint": "#6bd8ce",
+            "on-secondary-fixed": "#3f0300",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-primary-container": "#00322e",
+            "on-primary": "#003733",
+            "on-primary-fixed-variant": "#00504b",
+            "error-container": "#93000a",
+            "on-background": "#d8e5e9",
+            "error": "#ffb4ab",
+            "on-surface": "#d8e5e9",
+            "secondary": "#ffb4a6",
+            "primary-container": "#2ba39a",
+            "on-surface-variant": "#bcc9c7",
+            "on-secondary": "#660800",
+            "on-error-container": "#ffdad6",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-primary-fixed": "#00201e",
+            "inverse-surface": "#d8e5e9",
+            "surface-dim": "#091518",
+            "on-error": "#690005",
+            "background": "#091518",
+            "tertiary-container": "#ba8b00",
+            "outline-variant": "#3d4947",
+            "inverse-primary": "#006a64",
+            "surface-bright": "#2f3b3e",
+            "on-secondary-container": "#ffa493",
+            "on-tertiary-container": "#392900",
+            "secondary-container": "#981201",
+            "on-tertiary-fixed": "#261a00",
+            "surface-container-lowest": "#051013",
+            "outline": "#879391",
+            "primary": "#6bd8ce",
+            "tertiary-fixed-dim": "#f4bf40",
+            "secondary-fixed": "#ffdad3",
+            "surface-variant": "#2b373a",
+            "surface-container-high": "#202c2f",
+            "inverse-on-surface": "#263236",
+            "surface-container-highest": "#2b373a"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-md": "16px",
+            "gutter": "16px",
+            "margin": "16px",
+            "space-xs": "4px",
+            "space-sm": "8px",
+            "space-xl": "32px",
+            "space-lg": "24px"
+          },
+          fontFamily: {
+            body: ["Plus Jakarta Sans"],
+            title: ["Plus Jakarta Sans"],
+            display: ["Plus Jakarta Sans"],
+            label: ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            body: ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            title: ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            display: ["32px", { lineHeight: "38px", fontWeight: "800" }],
+            label: ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Tactile 3D Button and Card Physics */
+    .tactile-btn {
+      transition: all 0.08s ease-in-out;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+    }
+    .tactile-coral-btn {
+      box-shadow: 0 5px 0 #B53A22, inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    }
+    .tactile-coral-btn:active {
+      box-shadow: 0 2px 0 #B53A22, inset 0 1px 0 rgba(255, 255, 255, 0.35);
+      transform: translateY(3px);
+    }
+    .tactile-card-selected {
+      box-shadow: 0 4px 0 #1B6E67, inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+    .tactile-card-selected:active {
+      box-shadow: 0 1px 0 #1B6E67;
+      transform: translateY(3px);
+    }
+    .tactile-card-idle {
+      box-shadow: 0 4px 0 #1A2629, inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+    .tactile-card-idle:active {
+      box-shadow: 0 1px 0 #1A2629;
+      transform: translateY(3px);
+    }
+    .tactile-secondary-btn {
+      box-shadow: 0 3px 0 #1A2629, inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+    .tactile-secondary-btn:active {
+      box-shadow: 0 1px 0 #1A2629;
+      transform: translateY(2px);
+    }
+    .tactile-pill-chip {
+      box-shadow: 0 2px 0 rgba(0,0,0,0.3);
+    }
+    /* Smooth Pulse on Progress bar shine */
+    @keyframes shine {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(200%); }
+    }
+    .shine-sweep {
+      animation: shine 2.5s infinite ease-in-out;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body min-h-screen flex justify-center items-start antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Mobile Container Shell (390px Native Viewport standard) -->
+<main class="w-full max-w-[420px] min-h-screen flex flex-col justify-between bg-surface relative overflow-x-hidden pb-6">
+<!-- Top Sticky / Docked Header Zone -->
+<header class="w-full pt-3 pb-2 px-margin flex flex-col gap-2.5 z-40 bg-surface border-b-2 border-outline-variant">
+<!-- Top Row: Exit action, Diagnostic Test Pill, Session status -->
+<div class="flex items-center justify-between min-h-[44px]">
+<!-- Exit Quiz Action Button -->
+<button aria-label="Exit test" class="tactile-btn tactile-secondary-btn w-11 h-11 rounded-xl bg-surface-container-high border-2 border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-on-surface active:bg-surface-variant transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">close</span>
+</button>
+<!-- Diagnostic Diagnostic Badge -->
+<div class="tactile-pill-chip flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant">
+<span class="material-symbols-outlined text-[15px] text-tertiary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label text-[11px] tracking-wider text-on-surface uppercase font-bold">Calibration Test</span>
+</div>
+<!-- Question Counter Indicator -->
+<div class="flex items-center justify-end px-2.5 py-1 rounded-lg bg-surface-container-low border border-outline-variant">
+<span class="font-label text-label text-primary font-extrabold tracking-tight">07<span class="text-outline font-normal text-[10px]">/20</span></span>
+</div>
+</div>
+<!-- Tactile Progress Track -->
+<div class="w-full flex items-center gap-3">
+<div class="flex-1 h-3.5 bg-surface-container-highest rounded-full overflow-hidden p-0.5 border border-outline-variant relative">
+<!-- 35% Progress Bar (Question 7 of 20) -->
+<div class="h-full bg-gradient-to-r from-primary to-primary-container rounded-full relative overflow-hidden transition-all duration-300" style="width: 35%;">
+<!-- Specular top reflection -->
+<div class="absolute inset-x-0 top-0 h-[2px] bg-white/40"></div>
+<!-- Animated shimmer shine -->
+<div class="shine-sweep absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+</div>
+</div>
+<span class="font-label text-[11px] text-on-surface-variant font-bold shrink-0">35%</span>
+</div>
+<!-- CEFR Level & Target Domain Pills -->
+<div class="flex items-center justify-between gap-2 pt-0.5">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container border border-outline-variant">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label text-[11px] text-on-surface font-extrabold tracking-wide">CEFR B1–B2</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded text-outline text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span>Grammar &amp; Syntax</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<div class="flex-1 px-margin pt-4 flex flex-col gap-4">
+<!-- Teacher Slot & Pedagogical Speech Bubble (Zero human illustration, strict empty teacher-slot container) -->
+<section aria-label="Coach Hint" class="flex items-start gap-3 w-full">
+<!-- Strictly styled teacher-slot empty container placeholder -->
+<div class="teacher-slot shrink-0 w-[54px] h-[54px] rounded-2xl bg-surface-container-high border-2 border-dashed border-primary flex flex-col items-center justify-center relative overflow-hidden" title="Coach Avatar Slot">
+<span class="material-symbols-outlined text-primary text-[24px]" style="font-variation-settings: 'FILL' 0;">psychology</span>
+<div class="absolute bottom-1 px-1 rounded bg-surface-container text-[8px] font-bold text-primary tracking-tighter">AI COACH</div>
+</div>
+<!-- Coach speech bubble with tactile drop ledge -->
+<div class="flex-1 p-3.5 rounded-2xl rounded-tl-sm bg-surface-container-high border-2 border-outline-variant relative shadow-[0_3px_0_#1A2629]">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label text-[11px] text-primary font-bold uppercase tracking-wider">Placement Tip</span>
+<span class="material-symbols-outlined text-[14px] text-outline" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="font-body text-[13px] leading-[18px] text-on-surface">
+            Choose the option that sounds most natural in formal writing and shows continuous relevance to the present.
+          </p>
+</div>
+</section>
+<!-- Question Card with Audio Hear Affordance -->
+<section class="rounded-2xl p-4 bg-surface-container border-2 border-outline-variant shadow-[0_4px_0_#121d20] relative">
+<!-- Card specular edge highlight -->
+<div class="absolute inset-x-3 top-0 h-[1px] bg-white/10 rounded-full"></div>
+<div class="flex items-start justify-between gap-3 mb-3">
+<span class="px-2.5 py-1 rounded-md bg-surface-container-low border border-outline-variant font-label text-[10px] text-on-surface-variant font-extrabold tracking-wider uppercase">
+            Sentence Completion
+          </span>
+<!-- Audio Hear Action -->
+<button aria-label="Listen to sentence prompt" class="tactile-btn tactile-secondary-btn min-w-[44px] min-h-[44px] px-3 rounded-xl bg-surface-container-high border border-outline-variant flex items-center justify-center gap-1.5 text-primary hover:bg-surface-variant transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+<span class="font-label text-[11px] tracking-wide font-extrabold uppercase">Audio</span>
+</button>
+</div>
+<!-- The Prompt with blank space token -->
+<h1 class="font-title text-[18px] leading-[26px] text-on-surface tracking-tight">
+          “The economic survey indicates that private investment 
+          <span class="inline-flex items-center justify-center min-w-[96px] px-2 py-0.5 mx-1 border-b-4 border-dashed border-primary bg-surface-container-low text-primary font-extrabold rounded-md text-[17px]">
+            ________
+          </span>
+          steadily since the new regulations were introduced.”
+        </h1>
+</section>
+<!-- Multiple Choice Options (4 Large Answer Cards: A, B, C, D) -->
+<section aria-label="Answer Choices" class="flex flex-col gap-2.5 w-full">
+<!-- Option A: SELECTED STATE (Target Answer for Calibration) -->
+<button class="tactile-btn tactile-card-selected w-full min-h-[60px] p-3.5 rounded-2xl bg-surface-container-high border-2 border-primary flex items-center justify-between text-left group" type="button">
+<div class="flex items-center gap-3.5">
+<!-- Chip Letter A (Active Teal Fill) -->
+<div class="w-9 h-9 rounded-xl bg-primary text-on-primary flex items-center justify-center font-display text-[15px] font-extrabold shrink-0 border-b-2 border-on-primary-container">
+              A
+            </div>
+<div class="flex flex-col">
+<span class="font-body text-[16px] text-on-surface font-bold group-hover:text-primary transition-colors">has grown</span>
+<span class="font-label text-[10px] text-primary font-semibold tracking-wide">Present Perfect • Duration</span>
+</div>
+</div>
+<!-- Selected Radio Indicator -->
+<div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-on-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[18px] font-bold" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</button>
+<!-- Option B: IDLE STATE -->
+<button class="tactile-btn tactile-card-idle w-full min-h-[60px] p-3.5 rounded-2xl bg-surface-container border-2 border-outline-variant hover:border-outline flex items-center justify-between text-left group" type="button">
+<div class="flex items-center gap-3.5">
+<!-- Chip Letter B -->
+<div class="w-9 h-9 rounded-xl bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-display text-[15px] font-extrabold shrink-0 border-b-2 border-outline-variant">
+              B
+            </div>
+<div class="flex flex-col">
+<span class="font-body text-[16px] text-on-surface font-medium group-hover:text-on-surface transition-colors">grew</span>
+<span class="font-label text-[10px] text-on-surface-variant font-medium tracking-wide">Past Simple</span>
+</div>
+</div>
+<div class="w-7 h-7 rounded-full border-2 border-outline-variant group-hover:border-outline shrink-0"></div>
+</button>
+<!-- Option C: IDLE STATE -->
+<button class="tactile-btn tactile-card-idle w-full min-h-[60px] p-3.5 rounded-2xl bg-surface-container border-2 border-outline-variant hover:border-outline flex items-center justify-between text-left group" type="button">
+<div class="flex items-center gap-3.5">
+<!-- Chip Letter C -->
+<div class="w-9 h-9 rounded-xl bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-display text-[15px] font-extrabold shrink-0 border-b-2 border-outline-variant">
+              C
+            </div>
+<div class="flex flex-col">
+<span class="font-body text-[16px] text-on-surface font-medium group-hover:text-on-surface transition-colors">is growing</span>
+<span class="font-label text-[10px] text-on-surface-variant font-medium tracking-wide">Present Continuous</span>
+</div>
+</div>
+<div class="w-7 h-7 rounded-full border-2 border-outline-variant group-hover:border-outline shrink-0"></div>
+</button>
+<!-- Option D: IDLE STATE -->
+<button class="tactile-btn tactile-card-idle w-full min-h-[60px] p-3.5 rounded-2xl bg-surface-container border-2 border-outline-variant hover:border-outline flex items-center justify-between text-left group" type="button">
+<div class="flex items-center gap-3.5">
+<!-- Chip Letter D -->
+<div class="w-9 h-9 rounded-xl bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-display text-[15px] font-extrabold shrink-0 border-b-2 border-outline-variant">
+              D
+            </div>
+<div class="flex flex-col">
+<span class="font-body text-[16px] text-on-surface font-medium group-hover:text-on-surface transition-colors">had grown</span>
+<span class="font-label text-[10px] text-on-surface-variant font-medium tracking-wide">Past Perfect</span>
+</div>
+</div>
+<div class="w-7 h-7 rounded-full border-2 border-outline-variant group-hover:border-outline shrink-0"></div>
+</button>
+</section>
+</div>
+<!-- Bottom Action Dock (Contextual Quiz Drill Stack: Bottom tab bar suppressed) -->
+<footer class="w-full px-margin pt-3 pb-2 mt-4 flex flex-col gap-2.5 bg-surface border-t-2 border-outline-variant">
+<!-- Primary Action CTA Button: Full width 56px, tactile Coral gradient with 6px physical bottom ledge -->
+<button class="tactile-coral-btn w-full h-14 rounded-2xl bg-gradient-to-r from-[#F2553B] to-[#FFC94A] flex items-center justify-center gap-2 active:translate-y-1 transition-all select-none" type="button">
+<span class="font-display text-[17px] font-extrabold text-[#1B0B04] tracking-tight">Check Answer</span>
+<span class="material-symbols-outlined text-[20px] text-[#1B0B04] font-bold" style="font-variation-settings: 'FILL' 1;">arrow_forward</span>
+</button>
+<!-- Secondary "I don't know" skip action without calibration penalty -->
+<button class="tactile-btn tactile-secondary-btn w-full min-h-[48px] py-2 px-4 rounded-xl bg-surface-container border-2 border-outline-variant hover:bg-surface-container-high flex items-center justify-center gap-2 text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[17px] text-outline" style="font-variation-settings: 'FILL' 0;">help_outline</span>
+<span class="font-label text-[12px] font-extrabold tracking-wider uppercase">I don't know this yet</span>
+</button>
+<!-- Reassurance Micro-Label -->
+<p class="text-center font-label text-[10px] text-outline tracking-wider font-semibold">
+        Skipping refines your CEFR level without penalty
+      </p>
+</footer>
+</main>
+</body></html>

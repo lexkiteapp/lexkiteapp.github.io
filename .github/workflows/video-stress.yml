@@ -1,3 +1,4 @@
+# ci-policy: no-concurrency – chỉ chạy tay/gọi lại, mỗi lượt khác input; nhóm chung sẽ HUỶ lượt đang chờ = mất việc (docs/CI-RUNNERS.md)
 # Dựng thử ĐA DẠNG trên CI (không chạy trên máy anh chủ): 12 video song song (matrix) – khác seed × khuôn × chủ đề/bối cảnh × ngày/tối × dàn nhân vật.
 # Mỗi job: scripts/video/stress.mjs --only <i> → artifact stress-<i> (6 khung tóm tắt + report.json + video.mp4 + props/state). Job cuối gom lỗi vào Step Summary.
 # Chạy tay: Actions → "Dựng thử đa dạng (stress)" → Run workflow. Kho phòng/clip chưa có trên CI → nền gradient thương hiệu (VIDEO_ALLOW_STUDIO=1).
@@ -33,19 +34,24 @@ jobs:
         if: steps.pick.outputs.run == '1'
         with:
           python-version: '3.12'
+      - uses: ./.github/actions/setup-ffmpeg
       - name: Cài ffmpeg + phông
+        timeout-minutes: 12
         if: steps.pick.outputs.run == '1'
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core unzip >/dev/null
+        uses: ./.github/actions/apt
+        with: { packages: fonts-dejavu-core unzip }
       - name: Đệm Remotion (node_modules)
         if: steps.pick.outputs.run == '1'
         uses: actions/cache@v4
         with:
           path: scripts/video/remotion/node_modules
           key: remotion-${{ hashFiles('scripts/video/remotion/package-lock.json') }}-v1
+      - uses: ./.github/actions/apt
+        with: { packages: libnss3 libdbus-1-3 libatk1.0-0t64 libatk-bridge2.0-0t64 libgbm1 libasound2t64 libxrandr2 libxkbcommon0 libxfixes3 libxcomposite1 libxdamage1 libpango-1.0-0 libcairo2 libcups2t64 }
+        if: steps.pick.outputs.run == '1'
       - name: Cài Remotion + thư viện cho Chrome Headless Shell
         if: steps.pick.outputs.run == '1'
         run: |
-          sudo apt-get install -y -qq libnss3 libdbus-1-3 libatk1.0-0t64 libatk-bridge2.0-0t64 libgbm1 libasound2t64 libxrandr2 libxkbcommon0 libxfixes3 libxcomposite1 libxdamage1 libpango-1.0-0 libcairo2 libcups2t64 >/dev/null
           cd scripts/video/remotion && npm ci --no-audit --no-fund >/dev/null && npx remotion browser ensure >/dev/null && echo "Remotion OK"
       - name: Đệm mô hình (Kokoro, whisper)
         if: steps.pick.outputs.run == '1'
@@ -58,9 +64,9 @@ jobs:
       - name: Cài kokoro-js + faster-whisper + Rhubarb
         if: steps.pick.outputs.run == '1'
         run: |
-          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
           pip install -q faster-whisper==1.1.1 av==13.1.0 numpy pillow scipy
-          curl -fsSL -o /tmp/rhubarb.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          curl -fsSL --retry 5 --retry-delay 10 --retry-all-errors -o /tmp/rhubarb.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
           mkdir -p /tmp/rhubarb && unzip -q /tmp/rhubarb.zip -d /tmp/rhubarb
           echo "RHUBARB=$(find /tmp/rhubarb -type f -name rhubarb | head -1)" >> "$GITHUB_ENV"
       - name: Dựng video ${{ matrix.i }}
@@ -84,6 +90,7 @@ jobs:
     needs: render
     if: always()
     runs-on: ubuntu-latest
+    timeout-minutes: 20   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     steps:
       - uses: actions/download-artifact@v4
         with:

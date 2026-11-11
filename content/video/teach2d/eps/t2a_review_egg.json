@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_egg",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: egg.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means an oval object with a shell that birds lay.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I usually have an egg for breakfast.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "egg",
+  "ipa": "/eɡ/",
+  "mean": "an oval object with a shell that birds lay",
+  "ex": "I usually have an egg for breakfast.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=egg",
+  "link": "https://lexkite.com/app/#/review?w=egg",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"egg\" mean?",
+  "keyword": "egg",
+  "value": "Egg means an oval object with a shell that birds lay.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=egg",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"egg\" mean?",
+    "description": "Egg means an oval object with a shell that birds lay.\n\nReview your words, free: https://lexkite.com/app/#/review?w=egg\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "egg",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"egg\" mean?\n\nEgg means an oval object with a shell that birds lay.\n\nReview your words, free: https://lexkite.com/app/#/review?w=egg"
+   },
+   "instagram": {
+    "caption": "What does \"egg\" mean?\n\nEgg means an oval object with a shell that birds lay.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"egg\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means an oval object with a shell that birds lay. Egg means an oval object with a shell that birds lay. Try the full lesson and quiz here: {link}"
+ }
+}

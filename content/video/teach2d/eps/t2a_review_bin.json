@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_bin",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: bin.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a container for storing things.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Please put your rubbish in the bin.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "bin",
+  "ipa": "/bɪn/",
+  "mean": "a container for storing things",
+  "ex": "Please put your rubbish in the bin.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=bin",
+  "link": "https://lexkite.com/app/#/review?w=bin",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 39,
+  "seconds": 24.2,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"bin\" mean?",
+  "keyword": "bin",
+  "value": "Bin means a container for storing things.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=bin",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"bin\" mean?",
+    "description": "Bin means a container for storing things.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bin\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "bin",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"bin\" mean?\n\nBin means a container for storing things.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bin"
+   },
+   "instagram": {
+    "caption": "What does \"bin\" mean?\n\nBin means a container for storing things.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"bin\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a container for storing things. Bin means a container for storing things. Try the full lesson and quiz here: {link}"
+ }
+}

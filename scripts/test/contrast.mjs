@@ -10,7 +10,8 @@ let BASE = process.argv[2];
 if (!BASE) BASE = (await fetch('https://lexkite.com/app/').then(r => r.ok).catch(() => false)) ? 'https://lexkite.com/app/' : 'https://lexkite.com/';
 const ROUTES_ALL = ['home', 'vocab', 'library', 'review', 'practice', 'skills', 'tests', 'grammar', 'phrases', 'models', 'me', 'stats', 'settings', 'contact',
   'verb/take', 'fix', 'courses', 'roleplay', 'reflex', 'paraphrase', 'toeic', 'letters', 'goal', 'placement', 'usage', 'usage/interested', 'usage/stop', 'usage?c=adv', 'usage/affect-effect',
-  'practice/learn?src=topic:ngsl1', 'practice/mcq?src=topic:ngsl1'];
+  'practice/learn?src=topic:ngsl1', 'practice/mcq?src=topic:ngsl1',
+  'streak', 'criteria', 'deck']; // 3/11: quality-sweep bắt huy hiệu 🧊, nút Band đang chọn, link sổ từ trống
 const ROUTES = process.env.CONTRAST_ROUTES ? process.env.CONTRAST_ROUTES.split(',').map(x => x.trim()).filter(Boolean) : ROUTES_ALL; // mặc định = đủ danh sách; post-deploy-check.yml chỉ chọn tập con màn chính để chạy nhanh
 const found = new Map();
 const add = (scheme, lang, where, n) => {
@@ -21,6 +22,9 @@ const add = (scheme, lang, where, n) => {
 };
 const scan = async (page, scheme, lang, where) => {
   await page.addScriptTag({ content: AXE }).catch(() => {});
+  // Đo trạng thái thật, không đo khung hình giữa hiệu ứng: toast/hộp thoại đang mờ dần (opacity) làm axe trộn màu nền → lỗi giả lúc đỏ lúc xanh
+  // (post-deploy 07/11 01:23 + 04:45: #toast "Your deck is ready" #fbf7f1 trên #eae7e2 = 1.15:1, lượt 01:29 xanh). Chờ mọi animation/transition xong, trần 2 s.
+  await page.evaluate(() => Promise.race([Promise.all(document.getAnimations().map(a => a.finished.catch(() => {}))), new Promise(r => setTimeout(r, 2000))])).catch(() => {});
   const res = await page.evaluate(() => window.axe.run(document, { runOnly: ['color-contrast'] })).catch(() => null);
   for (const v of res?.violations || []) for (const n of v.nodes) add(scheme, lang, where, n);
 };

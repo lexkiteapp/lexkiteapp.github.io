@@ -96,7 +96,8 @@
     };
 
     const tts = (text, lang) => new Promise(res => {
-      if (!('speechSynthesis' in window) || hidden()) return res();
+      if (window.UI && UI.ttsClean) text = UI.ttsClean(text); // cùng bộ làm sạch với UI.tts (bỏ emoji, phiên âm, nhãn)
+      if (!text || !('speechSynthesis' in window) || hidden()) return res();
       const u = new SpeechSynthesisUtterance(text); u.lang = lang; u.rate = 0.95;
       u.onend = u.onerror = () => res();
       speechSynthesis.cancel(); speechSynthesis.speak(u);

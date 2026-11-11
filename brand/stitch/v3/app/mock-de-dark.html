@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IELTS-Vollprüfung</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface-variant": "#A9BDBB",
+            "outline": "#3d5257",
+            "primary": "#2DD4BF",
+            "primary-container": "#1E2F33",
+            "on-primary-container": "#5EEAD4",
+            "background": "#10191B",
+            "surface": "#10191B",
+            "on-surface": "#E8F1F0",
+            "surface-container-lowest": "#0b1214",
+            "surface-container-low": "#132023",
+            "surface-container": "#172427",
+            "surface-container-high": "#1E2F33",
+            "surface-container-highest": "#25383C",
+            "secondary-container": "#fd9500",
+            "on-primary": "#042f2e",
+            "border-subtle": "#25383C"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "gutter-md": "1.5rem",
+            "margin-lg": "3rem",
+            "gutter-lg": "2rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin": "1rem",
+            "gutter": "1rem",
+            "space-xl": "2.5rem",
+            "margin-md": "2rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] font-body-md text-body-md antialiased min-h-screen flex flex-col justify-between selection:bg-[#fd9500] selection:text-[#1a0d00]">
+<!-- Shell: TopAppBar -->
+<header class="sticky top-0 z-40 flex items-center justify-between px-margin py-space-sm w-full bg-[#10191B] border-b border-[#25383C] shadow-[0_4px_0_0_#0b1214] min-h-[60px]">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Zurück" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-DEFAULT text-[#2DD4BF] hover:bg-[#1E2F33] transition-colors active:translate-y-[2px]" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="text-headline-sm font-headline-sm font-bold text-[#E8F1F0] leading-tight">
+        IELTS-Vollprüfung
+      </h1>
+</div>
+<div class="flex items-center">
+<span class="inline-flex items-center px-space-sm py-1 rounded-full bg-[#1E2F33] text-[#2DD4BF] font-label-sm text-label-sm tracking-wider border border-[#25383C] font-bold">
+        PRÜFUNGSMODUS
+      </span>
+</div>
+</header>
+<!-- Main Scrollable Content Canvas -->
+<main class="w-full max-w-[440px] mx-auto px-margin pt-space-md pb-32 flex-1 flex flex-col gap-space-lg">
+<!-- Hero Card: Test Overview -->
+<section class="bg-[#172427] rounded-DEFAULT border-2 border-[#25383C] shadow-[0_4px_0_0_#0b1214] p-space-md flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#1E2F33] text-[#2DD4BF] font-label-sm text-label-sm border border-[#25383C]">
+<span class="w-2 h-2 rounded-full bg-[#2DD4BF] inline-block"></span>
+          Akademischer Standard 2025
+        </span>
+<div class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#2a2310] text-[#fcd34d] font-label-sm text-label-sm border-2 border-[#d97706]/60 shadow-[inset_0_1.5px_0_rgba(255,255,255,0.1)]">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span>Ziel: Band 7.5</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-[#E8F1F0] font-extrabold leading-tight break-words">
+          Offizielle akademische IELTS-Probeprüfung #15
+        </h2>
+<p class="text-body-sm font-body-sm text-[#A9BDBB] leading-relaxed">
+          Vollständige standardisierte Prüfungssimulation mit authentischem Prüfungsablauf, offizieller British Council-Bewertungsrubrik und geeichten akustischen Messwerten.
+        </p>
+</div>
+<!-- Quick Metrics Strip -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="flex items-center gap-2 p-2.5 rounded-DEFAULT bg-[#1E2F33] border border-[#25383C] min-h-[58px]">
+<div class="w-9 h-9 rounded-full bg-[#132023] text-[#2DD4BF] border border-[#25383C] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">timer</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-label-sm font-label-sm text-[#A9BDBB] uppercase">DAUER</span>
+<span class="text-body-sm font-bold text-[#E8F1F0] leading-tight break-words">2 Std. 44 Min.</span>
+</div>
+</div>
+<div class="flex items-center gap-2 p-2.5 rounded-DEFAULT bg-[#1E2F33] border border-[#25383C] min-h-[58px]">
+<div class="w-9 h-9 rounded-full bg-[#132023] text-[#2DD4BF] border border-[#25383C] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">quiz</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-label-sm font-label-sm text-[#A9BDBB] uppercase">MODULE</span>
+<span class="text-body-sm font-bold text-[#E8F1F0] leading-tight break-words">4 Standardmodule</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Teacher Placeholder & Tip Bubble -->
+<section class="flex flex-col sm:flex-row items-start sm:items-center gap-space-md p-space-sm rounded-DEFAULT bg-[#172427] border-2 border-[#25383C]">
+<!-- Empty Rounded Rectangle Placeholder -->
+<div class="teacher-slot w-24 h-24 sm:w-20 sm:h-20 shrink-0 rounded-DEFAULT border-2 border-dashed border-[#2DD4BF] bg-[#1E2F33] flex flex-col items-center justify-center p-2 text-center text-[#2DD4BF]">
+<span class="material-symbols-outlined text-[28px]">support_agent</span>
+<span class="text-[10px] font-extrabold tracking-wide uppercase mt-1 leading-none">LEHRER-SLOT</span>
+</div>
+<!-- Speech Bubble -->
+<div class="flex-1 min-w-0 bg-[#1E2F33] p-space-sm rounded-DEFAULT border border-[#25383C] shadow-sm relative">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
+<span class="text-label-md font-label-md font-bold text-[#5EEAD4]">Carlos • IELTS-Trainer</span>
+<span class="inline-block px-1.5 py-0.5 rounded bg-[#132023] text-[11px] font-bold text-[#A9BDBB] border border-[#25383C]">TIPP</span>
+</div>
+<p class="text-body-sm font-body-sm text-[#A9BDBB] leading-relaxed">
+          „Simuliere echte Prüfungsbedingungen: Schalte Benachrichtigungen stumm und absolviere die 2 Std. 44 Min. am Stück ohne Pause.“
+        </p>
+</div>
+</section>
+<!-- Hardware & Audio Readiness Check -->
+<section class="bg-[#172427] rounded-DEFAULT border-2 border-[#25383C] shadow-[0_4px_0_0_#0b1214] p-space-md flex flex-col gap-space-sm">
+<div class="flex items-start sm:items-center justify-between gap-2 flex-wrap sm:flex-nowrap">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[22px] shrink-0">headphones</span>
+<span class="text-label-lg font-label-lg font-bold text-[#E8F1F0] leading-snug">Kopfhörer- &amp; Audio-Überprüfung</span>
+</div>
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-[#2DD4BF] font-bold px-2 py-0.5 rounded bg-[#1E2F33] border border-[#25383C] shrink-0 whitespace-nowrap">
+<span class="material-symbols-outlined text-[16px] text-[#2DD4BF]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          Stereoausgabe betriebsbereit
+        </span>
+</div>
+<p class="text-body-sm font-body-sm text-[#A9BDBB] leading-relaxed">
+        Das Hörverstehensmodul erfordert klaren Ton. Prüfe die ausgewogene Zweikanalausgabe vor Beginn der Prüfung.
+      </p>
+<div class="pt-space-xs">
+<button class="w-full min-h-[52px] px-space-md rounded-DEFAULT bg-[#1E2F33] text-[#2DD4BF] font-label-lg font-label-lg border-2 border-[#25383C] shadow-[0_4px_0_0_#0b1214] hover:bg-[#25383C] active:translate-y-[3px] active:shadow-none transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+<span>Audiowiedergabe testen 🔊</span>
+</button>
+</div>
+</section>
+<!-- Sections Matrix List -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between px-1">
+<h3 class="text-label-lg font-label-lg font-bold text-[#E8F1F0]">Prüfungsablauf der Module</h3>
+<span class="text-label-sm font-label-sm text-[#A9BDBB] font-medium">4 von 4 bereit</span>
+</div>
+<!-- Module 1: Listening -->
+<article class="bg-[#172427] rounded-DEFAULT border-2 border-[#25383C] shadow-[0_4px_0_0_#0b1214] p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-[#1E2F33] text-[#2DD4BF] border border-[#2DD4BF]/40 font-label-sm font-label-sm flex items-center justify-center shrink-0 font-bold">1</span>
+<h4 class="text-headline-sm font-headline-sm text-[#E8F1F0] font-bold">Hörverstehen (Listening)</h4>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#0d2a23] text-[#2DD4BF] font-label-sm text-label-sm border border-[#2DD4BF]/50 flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px]">check</span>
+            Audio bereit
+          </span>
+</div>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-2.5 text-body-sm font-body-sm text-[#A9BDBB] pl-9 leading-relaxed"><span class="font-bold text-[#E8F1F0]">30 Min. (+10 Min. Übertragungszeit)</span>
+<span class="text-[#A9BDBB]">•</span>
+<span>40 Fragen</span>
+<span class="text-[#A9BDBB]">•</span>
+<span class="text-[#2DD4BF] font-bold">Status: Bereit</span></div>
+</article>
+<!-- Module 2: Reading -->
+<article class="bg-[#172427] rounded-DEFAULT border-2 border-[#25383C] shadow-[0_4px_0_0_#0b1214] p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-[#1E2F33] text-[#2DD4BF] border border-[#2DD4BF]/40 font-label-sm font-label-sm flex items-center justify-center shrink-0 font-bold">2</span>
+<h4 class="text-headline-sm font-headline-sm text-[#E8F1F0] font-bold">Leseverstehen (Reading)</h4>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#0d2a23] text-[#2DD4BF] font-label-sm text-label-sm border border-[#2DD4BF]/50 flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px]">check</span>
+            Texte geladen
+          </span>
+</div>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-2.5 text-body-sm font-body-sm text-[#A9BDBB] pl-9 leading-relaxed"><span class="font-bold text-[#E8F1F0]">60 Min.</span>
+<span class="text-[#A9BDBB]">•</span>
+<span>3 akademische Texte</span>
+<span class="text-[#A9BDBB]">•</span>
+<span>40 Fragen</span>
+<span class="text-[#A9BDBB]">•</span>
+<span class="text-[#2DD4BF] font-bold">Status: Bereit</span></div>
+</article>
+<!-- Module 3: Writing -->
+<article class="bg-[#172427] rounded-DEFAULT border-2 border-[#25383C] shadow-[0_4px_0_0_#0b1214] p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-[#1E2F33] text-[#2DD4BF] border border-[#2DD4BF]/40 font-label-sm font-label-sm flex items-center justify-center shrink-0 font-bold">3</span>
+<h4 class="text-headline-sm font-headline-sm text-[#E8F1F0] font-bold">Schriftlicher Ausdruck (Writing)</h4>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#0d2a23] text-[#2DD4BF] font-label-sm text-label-sm border border-[#2DD4BF]/50 flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px]">check</span>
+            Aufgaben aktiv
+          </span>
+</div>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-2.5 text-body-sm font-body-sm text-[#A9BDBB] pl-9 leading-relaxed"><span class="font-bold text-[#E8F1F0]">60 Min.</span>
+<span class="text-[#A9BDBB]">•</span>
+<span>Aufgabe 1 (150 Wörter) + Aufgabe 2 (250 Wörter)</span>
+<span class="text-[#A9BDBB]">•</span>
+<span class="text-[#2DD4BF] font-bold">Status: Bereit</span></div>
+</article>
+<!-- Module 4: Speaking -->
+<article class="bg-[#172427] rounded-DEFAULT border-2 border-[#25383C] shadow-[0_4px_0_0_#0b1214] p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-[#1E2F33] text-[#2DD4BF] border border-[#2DD4BF]/40 font-label-sm font-label-sm flex items-center justify-center shrink-0 font-bold">4</span>
+<h4 class="text-headline-sm font-headline-sm text-[#E8F1F0] font-bold">Mündlicher Ausdruck (Speaking)</h4>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#0d2a23] text-[#2DD4BF] font-label-sm text-label-sm border border-[#2DD4BF]/50 flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px]">mic</span>
+            Mikrofon kalibriert
+          </span>
+</div>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-2.5 text-body-sm font-body-sm text-[#A9BDBB] pl-9 leading-relaxed"><span class="font-bold text-[#E8F1F0]">11–14 Min.</span>
+<span class="text-[#A9BDBB]">•</span>
+<span>3 interaktive Abschnitte</span>
+<span class="text-[#A9BDBB]">•</span>
+<span>KI-Prüfer</span>
+<span class="text-[#A9BDBB]">•</span>
+<span class="text-[#2DD4BF] font-bold">Status: Bereit</span></div>
+</article>
+</section>
+<!-- Official Exam Condition Rules Checklist -->
+<section class="bg-[#172427] rounded-DEFAULT border-2 border-[#25383C] p-space-md flex flex-col gap-space-sm shadow-[0_4px_0_0_#0b1214]">
+<div class="flex items-center gap-2 text-[#2DD4BF]">
+<span class="material-symbols-outlined text-[22px]">policy</span>
+<h3 class="text-label-lg font-label-lg font-bold text-[#E8F1F0]">Offizielle Prüfungsbedingungen</h3>
+</div>
+<ul class="flex flex-col gap-2 pt-1">
+<li class="flex items-start gap-2.5 text-body-sm font-body-sm text-[#E8F1F0] leading-snug">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[18px] shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Keine Pausen nach Testbeginn – entspricht den echten Testzentrum-Richtlinien.</span>
+</li>
+<li class="flex items-start gap-2.5 text-body-sm font-body-sm text-[#E8F1F0] leading-snug">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[18px] shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Strenge Modulzeitlimits erzwingen automatische Abgabe nach Ablauf.</span>
+</li>
+<li class="flex items-start gap-2.5 text-body-sm font-body-sm text-[#E8F1F0] leading-snug">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[18px] shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Automatische Zwischenspeicherung alle 10 Sekunden lokal und mit der Cloud synchronisiert.</span>
+</li>
+</ul>
+</section>
+<!-- Primary Action: Big Tactile Coral/Orange CTA -->
+<section class="pt-space-xs flex flex-col gap-space-xs">
+<button class="w-full min-h-[58px] px-space-md py-space-sm rounded-DEFAULT bg-[#fd9500] text-[#1a0d00] font-headline-sm font-headline-sm font-extrabold border-2 border-[#d97706] shadow-[0_4px_0_0_#92400e] hover:brightness-105 active:translate-y-[4px] active:shadow-none transition-all flex items-center justify-center gap-2 leading-tight text-center" type="button">
+<span>Vollständige Probeprüfung starten (2 Std. 44 Min.)</span>
+<span class="material-symbols-outlined text-[24px] shrink-0">arrow_forward</span>
+</button>
+<p class="text-center text-label-sm font-label-sm text-[#A9BDBB] leading-relaxed">
+        Voraussichtliches Ende: ~17:15 • Unterbrechungsfreie Sitzung auf Mobilgerät oder Desktop empfohlen
+      </p>
+</section>
+<!-- Alternative Mode: Quick Test Alternative -->
+<section class="bg-[#172427] rounded-DEFAULT border-2 border-[#25383C] shadow-[0_4px_0_0_#0b1214] p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-bold text-[#E8F1F0]">Heute wenig Zeit?</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#2a2310] text-[#fcd34d] border border-[#d97706]/50 font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+          +50 XP
+        </span>
+</div>
+<p class="text-body-sm font-body-sm text-[#A9BDBB] leading-relaxed">
+        Absolviere einen 15-minütigen Diagnosesprint zu den häufigsten Band-7+-Prüfungsfallen. Aktualisiert die vorhergesagte Punktzahl, ohne den vollen 2 Std. 44 Min.-Test abzulegen.
+      </p>
+<button class="w-full min-h-[52px] px-space-md rounded-DEFAULT bg-[#1E2F33] text-[#2DD4BF] font-label-lg font-label-lg border-2 border-[#2DD4BF]/60 shadow-[0_4px_0_0_#0b1214] hover:bg-[#25383C] active:translate-y-[3px] active:shadow-none transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[20px]">speed</span>
+<span>Kurztest starten (15 Min.)</span>
+</button>
+</section>
+</main>
+<!-- Shell: BottomNavBar (Canonical 5-Tab) -->
+<nav aria-label="Untere Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs bg-[#10191B] border-t border-[#25383C] shadow-[0_-4px_0_0_#0b1214] min-h-[64px]">
+<!-- Tab 1: Heute -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1.5 min-h-[44px] min-w-[44px] hover:text-[#E8F1F0] hover:bg-[#1E2F33] rounded-DEFAULT transition-colors active:translate-y-[2px]" href="#">
+<span class="material-symbols-outlined text-[24px]">today</span>
+<span class="text-label-sm font-label-sm">Heute</span>
+</a>
+<!-- Tab 2: Wortschatz -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1.5 min-h-[44px] min-w-[44px] hover:text-[#E8F1F0] hover:bg-[#1E2F33] rounded-DEFAULT transition-colors active:translate-y-[2px]" href="#">
+<span class="material-symbols-outlined text-[24px]">menu_book</span>
+<span class="text-label-sm font-label-sm">Wortschatz</span>
+</a>
+<!-- Tab 3: Fertigkeiten -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1.5 min-h-[44px] min-w-[44px] hover:text-[#E8F1F0] hover:bg-[#1E2F33] rounded-DEFAULT transition-colors active:translate-y-[2px]" href="#">
+<span class="material-symbols-outlined text-[24px]">psychology</span>
+<span class="text-label-sm font-label-sm">Fertigkeiten</span>
+</a>
+<!-- Tab 4: Prüfungen (ACTIVE - Warm Orange/Amber tactile highlight with dark ink) -->
+<a aria-current="page" class="flex flex-col items-center justify-center bg-[#fd9500] text-[#1a0d00] rounded-DEFAULT px-3 py-1.5 border border-[#d97706] shadow-[0_3px_0_0_#92400e] min-h-[44px] min-w-[44px] active:translate-y-[2px] active:shadow-none transition-transform" href="#">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="text-label-sm font-label-sm font-bold">Prüfungen</span>
+</a>
+<!-- Tab 5: Profil -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1.5 min-h-[44px] min-w-[44px] hover:text-[#E8F1F0] hover:bg-[#1E2F33] rounded-DEFAULT transition-colors active:translate-y-[2px]" href="#">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="text-label-sm font-label-sm">Profil</span>
+</a>
+</nav>
+</body></html>

@@ -1,4 +1,7 @@
-# Free-tier guard hằng ngày (docs/FREE-TIER.md): số dùng THẬT (Cloudflare GraphQL + Pages API + GitHub API) so với trần gói miễn phí.
+# 02/11: chạm file để GitHub đăng ký cron mỗi giờ mới – canh bởi scripts/ci/cron-watch.mjs
+# Free-tier guard (docs/FREE-TIER.md). MỖI GIỜ (:17): bản trong ngày – 1 truy vấn GraphQL lượt Workers + Functions từ 00:00Z, ngoại suy tới 24:00;
+# ≥ 60 % dừng workflow nền gọi prod, ≥ 80 % bật shed + issue, qua 00:00Z tự gỡ (scripts/free-tier/intraday.mjs – sự cố 01/11: bản ngày chỉ nhìn hôm qua).
+# HẰNG NGÀY (01:35): quét đủ: số dùng THẬT (Cloudflare GraphQL + Pages API + GitHub API) so với trần gói miễn phí.
 # ≥ 60 % → ::warning + bảng trong Summary · ≥ 80 % → mở/cập nhật issue nhãn 'free-tier' kèm hành động đề xuất (hết nguy cơ → tự đóng).
 # Lượt Worker+Functions ≥ 80 % → web/free-tier-state.json mode "shed" (Worker trả bản cache, trang thí điểm noindex) – chỉ commit khi chế độ ĐỔI.
 # Không bao giờ tự nâng gói. Secrets: CF_ANALYTICS_TOKEN (đã thêm 26/10), CF_ANALYTICS_TOKEN_2 + CF_ACCOUNT_2 (tài khoản 2, chưa có) – thiếu → bỏ qua trung tính phần đó.
@@ -6,6 +9,7 @@ name: free-tier-guard
 on:
   schedule:
     - cron: '35 1 * * *'
+    - cron: '17 * * * *'
   workflow_dispatch:
 concurrency: { group: free-tier-guard, cancel-in-progress: false }
 permissions: { contents: write, issues: write, actions: write }
@@ -15,22 +19,30 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-        with: { sparse-checkout: "scripts\ninfra\nweb/free-tier-state.json", sparse-checkout-cone-mode: false }
+        with: { ssh-key: "${{ github.ref == 'refs/heads/main' && secrets.BOT_DEPLOY_KEY || '' }}", sparse-checkout: "scripts\ninfra\nweb/free-tier-state.json\n.github/actions", sparse-checkout-cone-mode: false }
       - uses: actions/setup-node@v4
         with: { node-version: '24' }
       - name: Đo & đánh giá
         id: guard
         env:
           CF_ANALYTICS_TOKEN: '${{ secrets.CF_ANALYTICS_TOKEN }}'
+          CLOUDFLARE_API_TOKEN: '${{ secrets.CLOUDFLARE_API_TOKEN }}' # chốt $0 R2 ≥ 90 %: tên miền media/audio về Worker (scripts/cdn/cutover.mjs rollbackAll)
           CF_ACCOUNT_ID: e34e14b7ab35eaf2b3d9d84fcce011f7 # ID tài khoản chính (công khai, như dict-stage.yml)
           CF_ANALYTICS_TOKEN_2: '${{ secrets.CF_ANALYTICS_TOKEN_2 }}'
           CF_ACCOUNT_2: '${{ secrets.CF_ACCOUNT_2 }}'
           GITHUB_TOKEN: '${{ github.token }}'
-        run: node scripts/free-tier/guard.mjs
-      - name: Ghi chế độ Worker (chỉ khi đổi – cần deploy Pages để Worker đọc được)
-        if: ${{ steps.guard.outputs.state_changed == '1' }}
+        run: |
+          if [ "${{ github.event.schedule }}" = '17 * * * *' ]; then node scripts/free-tier/guard.mjs --intraday; else node scripts/free-tier/guard.mjs; node scripts/free-tier/guard.mjs --intraday; fi
+      - name: Ghi trạng thái (chỉ khi đổi; deploy Pages chỉ khi shed đổi)
+        if: ${{ steps.guard.outputs.state_changed == '1' && github.ref == 'refs/heads/main' }}
         env: { GH_TOKEN: '${{ github.token }}' }
         run: |
-          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add web/free-tier-state.json && git commit -m "free-tier-guard: chế độ Worker $(node -p "require('./web/free-tier-state.json').mode") [CF-Pages-Skip]" && git push
-          gh workflow run pages-deploy.yml --ref main -f urgent=true -f quiet=0 -f reason="free-tier-guard: đổi chế độ Worker"
+          bash scripts/ci/push-main.sh "free-tier-guard: $(node -p "const s=require('./web/free-tier-state.json');s.mode+'/'+s.level+' dừng '+(s.paused||[]).length")" web/free-tier-state.json
+          # chỉ khi shed bật/gỡ mới cần Worker đọc bản mới (file tĩnh Pages); đổi danh sách dừng thì không deploy
+          if [ "${{ steps.guard.outputs.mode_changed }}" = "1" ]; then bash scripts/ci/gh-retry.sh gh workflow run pages-deploy.yml --ref main -f urgent=true -f quiet=0 -f reason="free-tier-guard: đổi chế độ Worker"; fi
+      - name: Nhánh khác main – artifact + summary (không đẩy vào nhánh; lấy về bằng bash scripts/ci/bot-output.sh free-tier-guard <nhánh>)
+        if: ${{ steps.guard.outputs.state_changed == '1' && github.ref != 'refs/heads/main' }}
+        uses: ./.github/actions/bot-output
+        with:
+          name: free-tier-guard
+          paths: web/free-tier-state.json

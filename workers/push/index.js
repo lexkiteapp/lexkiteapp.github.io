@@ -2,7 +2,10 @@
  * Mỗi 10 phút: POST lexkite.com/api/push {op:'due'} (X-Push-Cron) → máy chủ (D1 nội bộ, cầu dao + ngân sách điều phối) trả ≤ 40 thiết bị đến giờ ĐỊA PHƯƠNG
  *  · Web Push: push RỖNG (không payload → không cần mã hóa, không dữ liệu cá nhân qua dịch vụ push) + VAPID (ES256, WebCrypto). SW tự lấy câu nhắc đã dịch trong cache.
  *  · FCM HTTP v1 (app gốc, cờ FCM_ON): thông báo kéo lại/tiến bộ tuần theo NGÔN NGỮ giao diện (copy.json, 15 ngôn ngữ, rơi về en) – token OAuth từ service account (RS256).
- * 404/410 (web) · UNREGISTERED/INVALID_ARGUMENT (FCM) → {op:'gone'} xóa đăng ký. Tổng lượt gọi ra ≤ 1 + 1 + 40 + 1 < 50 (giới hạn subrequest gói Free).
+ *  · "Lỗi LX-… đã được sửa" (hàng đợi push_now của /api/push): web = push rỗng (SW hỏi trạng thái phiếu của máy), FCM kind 'fixed' + rid.
+ * 404/410 (web) · FCM 404/UNREGISTERED/SENDER_ID_MISMATCH/400 "registration token" → {op:'gone'} xóa đăng ký (400 khác = lỗi payload của ta → 'fail', KHÔNG xóa người dùng).
+ * {op:'due', fcm: 1|0}: báo máy chủ Worker có gửi được FCM không (FCM_SA) → nhịp cho /api/push?op=cfg (app gốc chỉ dùng FCM khi nhịp còn mới).
+ * Một thông báo mỗi loại trên màn khóa: android.notification.tag + apns-collapse-id → lời nhắc mới THAY lời cũ, không chồng chất. Tổng lượt gọi ra ≤ 1 + 1 + 40 + 1 < 50 (giới hạn subrequest gói Free).
  * Bí mật: PUSH_CRON_SECRET, VAPID_PUBLIC, VAPID_PRIVATE_JWK, (tùy chọn) FCM_SA = JSON service account. Biến: API (mặc định https://lexkite.com), VAPID_SUB. */
 import COPY from './copy.json';
 
@@ -24,7 +27,7 @@ async function sendWeb(env, ep, jwts, now) {
   const r = await fetch(ep, { method: 'POST', headers: { TTL: '14400', Urgency: 'normal', 'Content-Length': '0', Authorization: `vapid t=${jwts[aud]}, k=${env.VAPID_PUBLIC}` } });
   return r.status === 404 || r.status === 410 ? 'gone' : r.ok ? 'ok' : 'fail';
 }
-async function fcmToken(env, now) {
+export async function fcmToken(env, now) {
   const sa = JSON.parse(env.FCM_SA), key = await crypto.subtle.importKey('pkcs8', pem2der(sa.private_key), { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' }, false, ['sign']);
   const iat = Math.floor(now / 1000), head = b64uStr(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
   const body = b64uStr(JSON.stringify({ iss: sa.client_email, scope: 'https://www.googleapis.com/auth/firebase.messaging', aud: 'https://oauth2.googleapis.com/token', iat, exp: iat + 3600 }));
@@ -34,19 +37,29 @@ async function fcmToken(env, now) {
 }
 /** Câu theo ngôn ngữ giao diện; thiếu → en (không bao giờ vi cho người không-vi). */
 export const copyOf = (lang, kind) => ((COPY[lang] || COPY.en)[kind] || COPY.en[kind] || COPY.en.back);
-const ROUTE = { back: '#/review', miss: '#/home', week: '#/stats' };
+const ROUTE = { back: '#/review', miss: '#/home', week: '#/stats', fixed: '#/home' }; // fixed: mở app → nút Báo lỗi hỏi trạng thái ngay (report-pill)
+/** Tin FCM HTTP v1. x.token (thiết bị) hoặc x.topic (chỉ CI dry-run validate_only, scripts/ci/fcm-dryrun.mjs). */
 export function fcmMessage(x) {
-  const [title, body] = copyOf(x.lang, x.kind);
-  return { message: { token: x.token, notification: { title, body }, data: { route: ROUTE[x.kind] || '#/review', tpl: 'r_' + x.kind }, android: { priority: 'normal', ttl: '14400s' }, apns: { headers: { 'apns-priority': '5' }, payload: { aps: { sound: 'default' } } } } };
+  const id = /^LX-\d{4,10}$/.test(x.rid || '') ? x.rid : '', [title, body] = copyOf(x.lang, x.kind).map(s => s.replace('{id}', id).replace(/\s{2,}/g, ' '));
+  const tag = x.kind === 'fixed' ? 'lk-fixed' : 'lk-remind', to = x.topic ? { topic: x.topic } : { token: x.token };
+  return { message: { ...to, notification: { title, body }, data: { route: ROUTE[x.kind] || '#/review', tpl: 'r_' + x.kind, ...(id ? { rid: id } : {}) },
+    android: { priority: 'normal', ttl: '14400s', collapse_key: tag, notification: { tag } },
+    apns: { headers: { 'apns-priority': '5', 'apns-expiration': String(Math.floor(Date.now() / 1000) + 14400), 'apns-collapse-id': tag }, payload: { aps: { sound: 'default', 'thread-id': tag } } } } };
+}
+/** Kết quả gửi FCM → 'ok' | 'gone' (token chết – xóa đăng ký) | 'fail' (lỗi tạm/lỗi payload – giữ người dùng). Thuần – test. */
+export function fcmResult(status, text = '') {
+  if (status >= 200 && status < 300) return 'ok';
+  if (status === 404 || /UNREGISTERED|SENDER_ID_MISMATCH/.test(text)) return 'gone';
+  return status === 400 && /registration token/i.test(text) ? 'gone' : 'fail';
 }
 async function sendFcm(auth, x) {
   const r = await fetch(`https://fcm.googleapis.com/v1/projects/${auth.project}/messages:send`, { method: 'POST', headers: { Authorization: 'Bearer ' + auth.tok, 'Content-Type': 'application/json' }, body: JSON.stringify(fcmMessage(x)) });
   if (r.ok) return 'ok';
-  const t = await r.text().catch(() => ''); return r.status === 404 || /UNREGISTERED|INVALID_ARGUMENT/.test(t) ? 'gone' : 'fail';
+  return fcmResult(r.status, await r.text().catch(() => ''));
 }
 export async function run(env, now = Date.now()) {
   const API = env.API || 'https://lexkite.com', H = { 'Content-Type': 'application/json', 'X-Push-Cron': env.PUSH_CRON_SECRET };
-  const r = await fetch(API + '/api/push', { method: 'POST', headers: H, body: '{"op":"due"}' });
+  const r = await fetch(API + '/api/push', { method: 'POST', headers: H, body: JSON.stringify({ op: 'due', fcm: env.FCM_SA ? 1 : 0 }) });
   if (!r.ok) return { error: r.status };
   const due = await r.json(), gone = [], stat = { ok: 0, fail: 0, gone: 0, skip: due.skip || '' }, jwts = {};
   for (const x of due.web || []) { let s = 'fail'; try { if (env.VAPID_PRIVATE_JWK) s = await sendWeb(env, x.ep, jwts, now); } catch (e) { s = 'fail'; } stat[s]++; if (s === 'gone') gone.push(x.id); }

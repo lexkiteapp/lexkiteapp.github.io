@@ -2,11 +2,11 @@
 # Gộp từ điển giao diện theo nhóm (web/js/i18n/en/*.js) thành 1 file js/i18n/en.js (1 request, thống nhất thuật ngữ)
 cd "$(dirname "$0")/../web/js/i18n" || exit 1
 # Nhóm tải lười: KHÔNG gộp vào en.js (khung app có ngân sách dung lượng) – module tự nạp js/i18n/en/<nhóm>.js khi mở.
-# structs toefl league call handoff: chuỗi của trang tải lười → nạp qua gói i18nx (App.need luôn nạp trước mọi gói, js/app.js).
+# structs cambridge toefl league call handoff: chuỗi của trang tải lười → nạp qua gói i18nx (App.need luôn nạp trước mọi gói, js/app.js).
 # verbs exams skills: chuỗi trang Chia động từ/Sửa ngữ pháp, đề thi, Ngữ pháp/Speaking/Phát âm → gói i18nl (App.need); khóa khung app/add-on cần ngay ở en/xcore.js.
 # lazyui: chuỗi CHỈ module tải lười dùng, chuyển khỏi en.js 28/10 (khung app có chỗ trống) → gói i18nl. Báo khóa nên chuyển: node scripts/test/shell-size.mjs.
 # i18n-missing.mjs / i18n-qa.mjs đọc danh sách này để kiểm cả các nhóm đó.
-LAZY="ux1 v2 speak goal lesson ret adoffer report anki usage explain account extpanel share export criteria notices pathx rpbasic resources qtips quick lfx wfeed classroom lvideo confidence rmodes nextstep ads remind structs toefl league call handoff pron ota speakt ideast verbs exams skills lazyui"
+LAZY="outcomes arrange watch ux1 v2 speak goal lesson ret adoffer report anki usage explain account extpanel share export criteria notices pathx pathn rpbasic resources qtips quick lfx wfeed classroom lvideo confidence rmodes nextstep ads remind structs cambridge toefl league call handoff pron ota speakt ideast verbs exams skills say lazyui v2web espr"
 {
   echo '/* English UI – FILE SINH TỰ ĐỘNG từ js/i18n/en/*.js bằng scripts/build-i18n.sh. Đừng sửa tay. */'
   for f in core topics writing xcore study shell ext hubs writecheck roleplay streak; do cat "en/$f.js"; echo; done
@@ -20,4 +20,5 @@ LAZY="ux1 v2 speak goal lesson ret adoffer report anki usage explain account ext
 X
 } > en.js
 node ../../../scripts/gen-hero.mjs >/dev/null  # khung trang chào mừng dựng sẵn (LCP nhanh)
-node ../../../scripts/split-i18n.mjs >/dev/null # tách nhóm tải lười cho 13 ngôn ngữ ngoài en
+node ../../../scripts/split-i18n.mjs >/dev/null # tách nhóm tải lười cho 13 ngôn ngữ ngoài en (nguồn i18n/ui/<lang>)
+node ../../../scripts/i18n-pack.mjs >/dev/null  # nguồn i18n/ui → gói chạy khóa băm web/js/i18n/<lang>(.js|/<nhóm>.js) – docs/I18N-PIPELINE.md

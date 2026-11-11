@@ -33,6 +33,7 @@ quiz: [
     explain: "工業プロセスや自然のサイクルでは、何がどう処理されるかが焦点であり、個々の作業員は副次的な存在に過ぎないためです。"
   }
 ]
+publishAt: 2026-12-10T09:13:00+09:00
 ---
 
 英文エッセイ（IELTSやTOEFLライティング）、学術論文、さらにはビジネスレポートを作成する際、能動態（Active Voice）ばかりが連続すると文章が主観的で幼い印象を与えてしまいます。文章のトーンをフォーマルかつ客観的に引き締めるために欠かせない文法装置が、**英語 受動態 passive voice 使い方**の習得です。受動態を適切に操ることで、「誰がしたか」ではなく「何が起こったか」「どのような結果が得られたか」という核心情報に読者の焦点を自然と誘導することができます。
@@ -134,6 +135,6 @@ Task 2のエッセイでは、能動文と受動文を7:3から6:4程度の黄�
 | **過去分詞のスペルミス** | "The contract was wrote carefully." | "The contract **was written** carefully." |
 | **不要なby句の乱用** | "The bridge was built by construction workers."| "The bridge was **built** in 1995." *(自明な動作主は省く)* |
 
-文法表現の幅をさらに広げるために、[IELTS Writing複文（Complex Sentences）攻略法](/ja/blog/ielts-writing-fukubun-complex-sentences-koutsu/) や [英語のつなぎ言葉（Linking Words）一覧](/ja/blog/eigo-tsunagikotoba-linking-words-ichiran/) を併せて復習しましょう。また、[英語の仮定法if構文の使い方](/ja/blog/eigo-kateihou-if-koubun-tsukaikata/) や [パラフレーズ言い換え構文のコツ](/ja/blog/ielts-paraphrase-iikae-koubun-kotsu/) をマスターし、公式単語集 [/tu-vung/](/tu-vung/) を活用して、揺るぎないアカデミックライティング力を完成させてください。
+文法表現の幅をさらに広げるために、[IELTS Writing複文（Complex Sentences）攻略法](/ja/blog/ielts-writing-fukubun-complex-sentences-koutsu/) や [英語のつなぎ言葉（Linking Words）一覧](/ja/blog/eigo-tsunagikotoba-linking-words-ichiran/) を併せて復習しましょう。また、[英語の仮定法if構文の使い方](/ja/blog/eigo-kateihou-if-koubun-tsukaikata/) や [パラフレーズ言い換え構文のコツ](/ja/blog/ielts-paraphrase-iikae-koubun-kotsu/) をマスターし、公式単語集 [/tu-vung/](/en/vocabulary/) を活用して、揺るぎないアカデミックライティング力を完成させてください。
 
 受動態を正しく使い分け、論理的で格調高い英文を着実に生み出していきましょう。

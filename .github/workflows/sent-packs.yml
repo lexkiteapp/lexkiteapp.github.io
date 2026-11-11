@@ -1,6 +1,7 @@
 name: Bản dịch câu ví dụ cho bài học (15 ngôn ngữ)
 # Sinh web/packs/sent/<lang>/<mảnh>.json (scripts/gen-sent-packs.mjs) – nghĩa tiếng mẹ đẻ của câu ở bài Xếp câu / Chọn từ thiếu.
-# Chạy lại = chỉ dịch câu mới/đổi. Đẩy kết quả về đúng nhánh đã chạy (dispatch trên nhánh PR → commit vào PR).
+# Chạy lại = chỉ dịch câu mới/đổi. main: đẩy main sau mỗi ngôn ngữ. Dispatch trên nhánh khác: commit cục bộ, KHÔNG đẩy vào nhánh (2/11 – đầu PR
+# là commit bot thì CI/required-gate treo) → artifact bot-output-sent-packs + comment PR; lấy về: bash scripts/ci/bot-output.sh sent-packs <nhánh>.
 on:
   schedule:
     - cron: '50 21 * * *'   # 04:50 giờ VN, sau word-packs
@@ -11,7 +12,8 @@ on:
     branches: [main]
     paths: [scripts/gen-sent-packs.mjs, .github/workflows/sent-packs.yml]
 permissions:
-  contents: write
+  contents: read
+  pull-requests: write   # comment kết quả lên PR của nhánh (dispatch trên nhánh)
 concurrency: { group: google-translate, cancel-in-progress: false }  # chung hàng đợi với word-packs: không gọi Google Translate song song
 jobs:
   sent:
@@ -19,20 +21,26 @@ jobs:
     timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
+        with: { ssh-key: "${{ github.ref == 'refs/heads/main' && secrets.BOT_DEPLOY_KEY || '' }}" }   # chỉ main cầm khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Dịch từng ngôn ngữ, lưu sau mỗi ngôn ngữ
-        env: { LANGS_IN: '${{ github.event.inputs.langs }}', BR: '${{ github.ref_name }}' }
+        env: { LANGS_IN: '${{ github.event.inputs.langs }}' }
         run: |
           git config user.name "lexkite-bot"
           git config user.email "lexkite-bot@users.noreply.github.com"
           L="$LANGS_IN"; [ -z "$L" ] && L="vi $(grep -v '^#' scripts/i18n-langs.txt | tr '\n' ' ')"
           for l in $L; do
             node scripts/gen-sent-packs.mjs "$l" || echo "lỗi $l"
-            git add -A web/packs/sent
-            git diff --cached --quiet && continue
-            git commit -q -m "Bản dịch câu bài học: $l [CF-Pages-Skip]"
-            for i in 1 2 3 4 5; do git pull -q --rebase -X theirs origin "$BR" && git push -q origin "HEAD:$BR" && break; sleep $((i * 7)); done
+            if [ "$GITHUB_REF" = refs/heads/main ]; then
+              bash scripts/ci/push-main.sh "Bản dịch câu bài học: $l" web/packs/sent || exit 1
+            else   # nhánh khác: giữ cục bộ → artifact ở bước cuối
+              git add -A web/packs/sent; git diff --cached --quiet || git commit -q -m "Bản dịch câu bài học: $l [CF-Pages-Skip] [skip ci]"
+            fi
           done
       - name: Độ phủ
         run: for d in web/packs/sent/*/; do echo "$d $(cat $d*.json | grep -o '":\["' | wc -l)"; done
+      - name: Nhánh – artifact + summary + comment PR (không đẩy vào nhánh)
+        if: always() && github.ref != 'refs/heads/main'
+        uses: ./.github/actions/bot-output
+        with: { name: sent-packs, paths: web/packs/sent, base: '${{ github.sha }}', comment: 'true' }

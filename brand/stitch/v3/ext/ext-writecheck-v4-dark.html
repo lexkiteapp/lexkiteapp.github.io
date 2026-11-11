@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Academic &amp; Professional Writing Assistant</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-variant": "#202c2f",
+            "error-tint": "#321715",
+            "primary": "#6bd8ce",
+            "on-surface-variant": "#bcc9c7",
+            "inverse-primary": "#006a64",
+            "success-edge": "#34d399",
+            "tertiary-container": "#2ba39a",
+            "on-secondary": "#ffffff",
+            "background": "#10191B",
+            "surface-cream": "#172427",
+            "success-tint": "#132b27",
+            "on-primary": "#003733",
+            "on-surface": "#E8F1F0",
+            "coral-cta": "#f06543",
+            "surface-tint": "#6bd8ce",
+            "teal-ledge": "#0c1517",
+            "primary-container": "#1E2F33",
+            "error-edge": "#f87171",
+            "brand-teal": "#2ba39a",
+            "surface-linen": "#172427",
+            "text-ink": "#E8F1F0",
+            "surface-container-lowest": "#0b1214",
+            "border-tactile": "#2A3C40",
+            "surface-dim": "#10191B",
+            "surface-container-high": "#233539",
+            "surface-container": "#1E2F33",
+            "primary-fixed": "#2ba39a",
+            "surface": "#10191B",
+            "coral-ledge": "#b83818",
+            "border-ledge": "#233539",
+            "on-background": "#E8F1F0",
+            "outline-variant": "#2A3C40",
+            "error": "#ffb4ab",
+            "text-muted": "#A9BDBB",
+            "outline": "#4e6467"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-2xl": "3rem",
+            "gutter-lg": "2rem",
+            "margin": "1rem",
+            "space-xl": "2rem",
+            "margin-md": "2rem",
+            "margin-lg": "3rem",
+            "space-xs": "0.25rem",
+            "gutter-md": "1.5rem",
+            "gutter": "1rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .tactile-btn-coral {
+      background-color: #f06543;
+      border: 1.5px solid #d94834;
+      box-shadow: 0 3px 0 0 #b83818;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn-coral:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #b83818;
+    }
+    .tactile-btn-ghost {
+      background-color: #1E2F33;
+      border: 1.5px solid #2A3C40;
+      box-shadow: 0 2px 0 0 #182629;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn-ghost:active {
+      transform: translateY(2px);
+      box-shadow: 0 0 0 0 #182629;
+    }
+    .tactile-card {
+      border: 1.5px solid #2A3C40;
+      box-shadow: 0 3px 0 0 #121c1e;
+    }
+    .wavy-coral {
+      text-decoration-line: underline;
+      text-decoration-style: wavy;
+      text-decoration-color: #f87171;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+    .wavy-amber {
+      text-decoration-line: underline;
+      text-decoration-style: wavy;
+      text-decoration-color: #fbbf24;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+    .wavy-active-teal {
+      text-decoration-line: underline;
+      text-decoration-style: wavy;
+      text-decoration-color: #2ba39a;
+      text-decoration-thickness: 2.5px;
+      text-underline-offset: 5px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen selection:bg-brand-teal selection:text-white">
+<!-- Desktop Canvas Container capped at 1280px -->
+<div class="max-w-[1280px] mx-auto min-h-screen flex flex-row border-x border-border-tactile shadow-2xl">
+<!-- Docked Desktop Sidebar Navigation (240px wide) -->
+<aside class="w-[240px] flex-shrink-0 bg-surface-cream border-r border-border-tactile flex flex-col justify-between p-space-md min-h-screen">
+<div>
+<!-- Brand Anchor Header -->
+<div class="flex items-center gap-space-sm px-space-xs py-space-sm mb-space-lg">
+<div class="w-10 h-10 rounded-xl bg-brand-teal flex items-center justify-center text-[#091518] shadow-[0_2px_0_0_#121c1e]">
+<span class="material-symbols-outlined text-[24px]">translate</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm font-bold text-text-ink tracking-tight">Lexkite</span>
+<span class="text-[10px] font-label-sm font-bold px-1.5 py-0.5 rounded bg-brand-teal/20 text-primary border border-brand-teal/40">CEFR</span>
+</div>
+<p class="font-label-sm text-label-sm text-text-muted">Fluency &amp; Academic</p>
+</div>
+</div>
+<!-- Navigation Tabs Cluster -->
+<nav class="space-y-1.5">
+<!-- Tab 1: Today -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-md text-label-md text-text-muted hover:bg-surface-container hover:text-text-ink transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+<span>Today</span>
+</a>
+<!-- Tab 2: Vocab -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-md text-label-md text-text-muted hover:bg-surface-container hover:text-text-ink transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-outlined text-[20px]">style</span>
+<span>Vocab</span>
+</a>
+<!-- Tab 3: Skills (ACTIVE) -->
+<a class="flex items-center justify-between px-space-md py-space-sm rounded-xl font-label-md text-label-md bg-surface-container text-text-ink font-bold border border-border-tactile shadow-[0_2px_0_0_#121c1e] min-h-[44px]" href="#">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-brand-teal" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+<span>Skills</span>
+</div>
+<span class="text-[11px] font-label-sm px-2 py-0.5 rounded-full bg-brand-teal text-[#091518] font-bold">Writing</span>
+</a>
+<!-- Tab 4: Tests -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-md text-label-md text-text-muted hover:bg-surface-container hover:text-text-ink transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-outlined text-[20px]">assignment</span>
+<span>Tests</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-md text-label-md text-text-muted hover:bg-surface-container hover:text-text-ink transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+<span>Me</span>
+</a>
+</nav>
+<!-- Sub-module Track: IELTS / TOEFL Prep Banner -->
+<div class="mt-space-xl p-space-md rounded-xl bg-surface-container border border-border-tactile">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm font-bold text-primary">IELTS Academic</span>
+<span class="font-label-sm text-label-sm text-coral-cta font-bold">Band 7.5 Target</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mb-space-sm">Task 2 Inquiry &amp; Formal Letter module in progress.</p>
+<div class="w-full bg-[#121d20] h-2 rounded-full overflow-hidden border border-border-tactile/50">
+<div class="bg-coral-cta h-full w-[68%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Bottom Controls: Language Pill & Settings Icon -->
+<div class="pt-space-md border-t border-border-tactile flex items-center justify-between">
+<button class="tactile-btn-ghost flex items-center gap-1.5 px-3 py-2 rounded-lg text-text-ink font-label-md text-label-md min-h-[44px]">
+<span class="material-symbols-outlined text-[18px] text-primary">language</span>
+<span class="font-bold">EN</span>
+<span class="text-text-muted">/</span>
+<span class="text-text-muted">ES</span>
+</button>
+<button aria-label="Settings" class="tactile-btn-ghost w-11 h-11 rounded-lg flex items-center justify-center text-text-muted hover:text-text-ink min-h-[44px] min-w-[44px]">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+</div>
+</aside>
+<!-- Main Workspace (Editor + Diagnostics/Suggestions) -->
+<main class="flex-1 flex flex-col min-w-0 bg-background">
+<!-- Top Action Bar for Editor -->
+<header class="h-[64px] border-b border-border-tactile px-space-lg flex items-center justify-between bg-surface-cream/90 backdrop-blur-sm sticky top-0 z-20">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center border border-border-tactile text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</div>
+<div class="truncate">
+<h1 class="font-headline-sm text-headline-sm font-bold text-text-ink truncate">Formal Inquiry to Admissions Officer</h1>
+<p class="font-body-sm text-body-sm text-text-muted flex items-center gap-2">
+<span>IELTS Task 2 / University Application</span>
+<span>•</span>
+<span>184 words</span>
+<span>•</span>
+<span>1 min read</span>
+</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm flex-shrink-0">
+<!-- Clarity Score Chip -->
+<div class="flex items-center gap-1.5 bg-success-tint border border-success-edge/40 px-3 py-1.5 rounded-lg text-success-edge font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-bold">Clarity 78</span>
+</div>
+<!-- Tactile Ghost CTA: Export -->
+<button class="tactile-btn-ghost flex items-center gap-1.5 px-3 py-2 rounded-xl text-text-ink font-label-md text-label-md min-h-[44px]">
+<span class="material-symbols-outlined text-[18px] text-text-muted">file_download</span>
+<span>Export</span>
+</button>
+<!-- Tactile Primary CTA: Run AI Check -->
+<button class="tactile-btn-coral flex items-center gap-2 px-4 py-2 rounded-xl text-white font-label-md text-label-md min-h-[44px] font-bold">
+<span class="material-symbols-outlined text-[18px]">auto_fix_high</span>
+<span>Re-check Document</span>
+</button>
+</div>
+</header>
+<!-- Split Work Area: Writing Canvas (Left) + Side Inspector/Diagnostics (Right) -->
+<div class="flex-1 grid grid-cols-12 gap-gutter-md p-space-lg min-h-0 overflow-y-auto">
+<!-- Left: Tactile Linen Document Editor (7 columns) -->
+<section class="col-span-7 flex flex-col">
+<div class="tactile-card rounded-2xl bg-surface-cream p-space-xl flex-1 flex flex-col min-h-[580px]">
+<!-- Editor Subheader/Context strip -->
+<div class="flex items-center justify-between pb-space-md mb-space-md border-b border-border-tactile text-text-muted font-body-sm text-body-sm">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-success-edge"></span>
+                Lexical Engine synced (CEFR C1 target)
+              </span>
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">Formal Academic Email</span>
+</div>
+<!-- Email Body Content with Specific Highlighted Errors -->
+<div class="font-body-lg text-body-lg text-text-ink leading-relaxed space-y-space-md flex-1">
+<div class="p-3 bg-surface-container rounded-lg border border-border-tactile font-body-md text-body-md text-text-muted">
+<strong class="text-text-ink font-semibold">Subject:</strong> Inquiry regarding Graduate Admission Requirements for Autumn 2025
+              </div>
+<p>Dear Professor Henderson,</p>
+<p>
+                I hope this email finds you well. I am writing to inquire about the specific prerequisite coursework required for the MSc in Data Science program. In the departmental guidelines, it is mentioned that candidates must have completed advanced linear algebra.
+              </p>
+<p>
+                However, 
+                <!-- Error 1: Countable vs Uncountable -->
+<span class="wavy-coral bg-[#421715]/70 text-[#ffb4ab] px-1 py-0.5 rounded cursor-pointer transition hover:bg-[#521c1a]" title="Issue: Countable quantifier with 'doubts'">
+                  I am having much doubts
+                </span> 
+                regarding whether my undergraduate discrete mathematics credits satisfy this criterion. Furthermore, 
+                <!-- Error 2: Auxiliary past tense conflict -->
+<span class="wavy-amber bg-[#3b2a0c]/70 text-[#fde047] px-1 py-0.5 rounded cursor-pointer transition hover:bg-[#4a3510]" title="Issue: Past tense doubling after 'didn't'">
+                  the university didn't gave
+                </span> 
+                detailed syllabus equivalents for foreign applicants.
+              </p>
+<!-- Error 3: ACTIVE FOCUS (Gerund after preposition) -->
+<p>
+<span class="wavy-active-teal bg-[#13383a] text-primary px-1.5 py-1 rounded border border-brand-teal/50 font-medium cursor-pointer">
+                  I look forward to hear from you soon about this issue.
+                </span>
+</p>
+<p class="pt-space-sm">
+                Sincerely,<br/>
+<span class="font-semibold text-text-ink">Alex Mercer</span><br/>
+<span class="font-body-sm text-body-sm text-text-muted">Candidate ID: #88241</span>
+</p>
+</div>
+<!-- Editor Footnote / Mode Switcher -->
+<div class="mt-space-lg pt-space-sm border-t border-border-tactile flex items-center justify-between text-text-muted font-body-sm text-body-sm">
+<div class="flex items-center gap-2">
+<button class="tactile-btn-ghost px-2.5 py-1 rounded-lg text-xs font-bold text-text-ink flex items-center gap-1 min-h-[36px]">
+<span class="material-symbols-outlined text-[16px] text-primary">volume_up</span>
+                  Listen to Passage
+                </button>
+<span class="text-xs">Natural UK English Accent</span>
+</div>
+<span class="text-xs text-text-muted">Auto-saved to Skills Portfolio</span>
+</div>
+</div>
+</section>
+<!-- Right: Inspector Suggestion Card & Writing Health (5 columns) -->
+<section class="col-span-5 flex flex-col gap-space-lg">
+<!-- ACTIVE SUGGESTION INSPECTOR CARD -->
+<div class="tactile-card rounded-2xl bg-surface-cream p-space-lg relative border-2 border-brand-teal/40">
+<!-- Active Focus Indicator Pill -->
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container border border-brand-teal/30 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">psychology</span>
+<span>Grammar &amp; Collocation · Advanced Preposition</span>
+</div>
+<span class="text-xs font-bold text-coral-cta bg-[#3a1512] px-2 py-0.5 rounded border border-coral-cta/40">Priority 1</span>
+</div>
+<!-- Original vs Suggested Comparison -->
+<div class="space-y-space-xs my-space-md">
+<div class="p-2.5 rounded-lg bg-[#2e1311] border border-red-500/30 text-red-300 flex items-center justify-between">
+<span class="font-body-md text-body-md line-through">"I look forward to hear"</span>
+<span class="font-label-sm text-label-sm text-red-400 uppercase font-bold">Original</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container border-2 border-brand-teal flex items-center justify-between shadow-[0_2px_0_0_#121c1e]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">"I look forward to hearing"</span>
+</div>
+<span class="font-label-sm text-label-sm bg-brand-teal text-[#091518] px-2 py-0.5 rounded font-bold">Optimal</span>
+</div>
+</div>
+<!-- Grammatical Explanation -->
+<div class="p-3 rounded-xl bg-surface-container border border-border-tactile mb-space-md">
+<p class="font-body-sm text-body-sm text-text-ink leading-relaxed">
+<strong class="font-semibold text-primary">Rule breakdown:</strong> The phrasal verb <em class="font-semibold text-primary">"look forward to"</em> requires a gerund (<code class="font-mono text-xs bg-[#10191B] text-primary px-1 py-0.5 rounded border border-border-tactile">-ing</code> form) because <em class="font-semibold text-primary">"to"</em> functions here as a preposition, not an infinitive marker. Standard academic and professional convention.
+              </p>
+</div>
+<!-- Teacher Slot Placeholder (Strict Specification: Empty rounded dashed placeholder) -->
+<div class="rounded-xl border-2 border-dashed border-[#2ba39a]/60 bg-surface-container p-3.5 mb-space-md">
+<div class="flex items-start gap-space-sm">
+<!-- Teacher Slot Badge / Avatar Box -->
+<div class="w-10 h-10 rounded-xl border border-dashed border-brand-teal bg-[#10191B] flex items-center justify-center flex-shrink-0 text-text-muted">
+<span class="text-[10px] font-mono font-bold leading-none text-center">[teacher-slot]</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-bold text-primary">Ama</span>
+<span class="font-label-sm text-label-sm text-text-muted">· Writing Coach</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5 italic">
+                    "This is tested frequently in IELTS Academic Writing Task 1 &amp; 2 letters! Keep this pattern locked."
+                  </p>
+</div>
+</div>
+</div>
+<!-- Action Buttons Deck -->
+<div class="flex items-center gap-2 pt-1">
+<!-- Primary: Coral Button with tactile ledge -->
+<button class="tactile-btn-coral flex-1 min-h-[44px] px-4 rounded-xl text-white font-label-md text-label-md flex items-center justify-center gap-1.5 font-bold">
+<span class="material-symbols-outlined text-[18px]">done_all</span>
+<span>Accept Replacement</span>
+</button>
+<!-- Secondary: Ghost/Tactile border button -->
+<button class="tactile-btn-ghost min-h-[44px] px-4 rounded-xl text-text-ink font-label-md text-label-md flex items-center justify-center font-medium">
+<span>Ignore</span>
+</button>
+<!-- Add to Deck icon action -->
+<button aria-label="Add to Vocab Deck" class="tactile-btn-ghost min-h-[44px] min-w-[44px] rounded-xl text-primary flex items-center justify-center hover:text-white" title="Add rule to personal flashcard deck">
+<span class="material-symbols-outlined text-[20px]">bookmark_add</span>
+</button>
+</div>
+</div>
+<!-- OVERALL WRITING HEALTH & DIAGNOSTICS RAIL -->
+<div class="tactile-card rounded-2xl bg-surface-cream p-space-md">
+<div class="flex items-center justify-between mb-space-sm pb-space-xs border-b border-border-tactile">
+<h2 class="font-label-lg text-label-lg text-text-ink flex items-center gap-1.5 font-bold">
+<span class="material-symbols-outlined text-[18px] text-primary">analytics</span>
+<span>Overall Writing Health</span>
+</h2>
+<span class="font-label-sm text-label-sm text-text-muted">C1 Target Evaluation</span>
+</div>
+<!-- Metrics Bento Row -->
+<div class="grid grid-cols-3 gap-2 mb-space-md text-center">
+<div class="p-2 rounded-xl bg-surface-container border border-border-tactile">
+<span class="block font-headline-sm text-headline-sm font-bold text-success-edge">78%</span>
+<span class="block font-label-sm text-label-sm text-text-muted">Clarity</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container border border-border-tactile">
+<span class="block font-headline-sm text-headline-sm font-bold text-primary">94%</span>
+<span class="block font-label-sm text-label-sm text-text-muted">Academic Tone</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container border border-border-tactile">
+<span class="block font-headline-sm text-headline-sm font-bold text-coral-cta">C1</span>
+<span class="block font-label-sm text-label-sm text-text-muted">Lexical Range</span>
+</div>
+</div>
+<!-- Issues Detected Summary List -->
+<div class="space-y-2 mb-space-md">
+<div class="flex items-center justify-between text-xs font-bold text-text-muted px-1">
+<span>3 ISSUES DETECTED</span>
+<span class="text-coral-cta font-bold">2 Critical</span>
+</div>
+<!-- Item 1 -->
+<div class="p-2.5 rounded-lg bg-surface-container border border-border-tactile flex items-center justify-between hover:bg-surface-container-high transition-colors cursor-pointer min-h-[44px]">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error-edge"></span>
+<div>
+<p class="font-label-md text-label-md text-text-ink font-medium">1. Countable/Uncountable</p>
+<p class="font-body-sm text-body-sm text-text-muted">Change 'much doubts' to 'several doubts'</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-text-muted">chevron_right</span>
+</div>
+<!-- Item 2 -->
+<div class="p-2.5 rounded-lg bg-surface-container border border-border-tactile flex items-center justify-between hover:bg-surface-container-high transition-colors cursor-pointer min-h-[44px]">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-amber-400"></span>
+<div>
+<p class="font-label-md text-label-md text-text-ink font-medium">2. Auxiliary Verb Agreement</p>
+<p class="font-body-sm text-body-sm text-text-muted">Change 'didn't gave' to 'didn't give'</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-text-muted">chevron_right</span>
+</div>
+<!-- Item 3: Active selected -->
+<div class="p-2.5 rounded-lg bg-[#143236] border border-brand-teal flex items-center justify-between min-h-[44px]">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-brand-teal"></span>
+<div>
+<p class="font-label-md text-label-md font-bold text-primary">3. Gerund After Preposition</p>
+<p class="font-body-sm text-body-sm text-primary/80">Active Inspector: 'to hearing'</p>
+</div>
+</div>
+<span class="text-xs font-bold px-2 py-0.5 rounded bg-brand-teal text-[#091518]">Active</span>
+</div>
+</div>
+<!-- Quick Action Buttons -->
+<div class="flex items-center gap-2 pt-space-xs">
+<button class="tactile-btn-ghost flex-1 min-h-[44px] rounded-xl text-text-ink font-label-md text-label-md flex items-center justify-center gap-1.5 font-medium hover:text-white">
+<span class="material-symbols-outlined text-[18px] text-primary">bolt</span>
+<span>Auto-fix remaining (2)</span>
+</button>
+<button class="tactile-btn-ghost min-h-[44px] px-3 rounded-xl text-text-ink font-label-md text-label-md flex items-center justify-center gap-1 hover:text-white" title="Download annotated PDF report">
+<span class="material-symbols-outlined text-[18px] text-text-muted">picture_as_pdf</span>
+<span>PDF</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Docked Bottom Status Bar -->
+<footer class="h-[44px] border-t border-border-tactile bg-surface-cream px-space-lg flex items-center justify-between text-xs text-text-muted">
+<div class="flex items-center gap-space-md">
+<span>Lexkite Fluency Engine v4.2</span>
+<span>•</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-success-edge">verified</span>
+            IELTS Academic Criteria 2025 Compliant
+          </span>
+</div>
+<div class="flex items-center gap-space-lg">
+<a class="hover:text-text-ink transition-colors" href="#">Grammar Reference</a>
+<a class="hover:text-text-ink transition-colors" href="#">Scoring Rubric</a>
+<a class="hover:text-text-ink transition-colors" href="#">Privacy &amp; Data</a>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

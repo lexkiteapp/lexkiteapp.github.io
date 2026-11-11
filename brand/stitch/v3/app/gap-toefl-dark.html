@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Lexkite - TOEFL iBT Reading Drill (Dark)</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <!-- Material Symbols Outlined -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#081316",
+            "surface-dim": "#060e10",
+            "surface-container-lowest": "#0c1a1e",
+            "surface-container-low": "#102227",
+            "surface-container": "#152a30",
+            "surface-container-high": "#1b343c",
+            "surface-container-highest": "#23414a",
+            "on-surface": "#e6f4f3",
+            "on-surface-variant": "#9ec3be",
+            "outline": "#436561",
+            "outline-variant": "#254340",
+            "primary": "#38d9cb",
+            "primary-container": "#145953",
+            "on-primary": "#04201d",
+            "on-primary-container": "#8ef3e8",
+            "secondary": "#ff6f4c",
+            "secondary-container": "#ff6339",
+            "on-secondary": "#ffffff",
+            "accent-teal": "#2dd4bf"
+          },
+          fontFamily: {
+            sans: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 450, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Tactile 3D Button Shadows (Dark adapted with deep rim shadows) */
+    .tactile-key-coral {
+      box-shadow: 0 4px 0 0 #b33917;
+      border: 1.5px solid #ff7a57;
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-key-coral:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 0 #b33917;
+    }
+
+    .tactile-card-dark {
+      box-shadow: 0 3px 0 0 #1b343c;
+      border: 1.5px solid #23454b;
+      transition: all 0.15s ease-in-out;
+    }
+    .tactile-card-dark:hover {
+      border-color: #325e66;
+    }
+    .tactile-card-dark:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #1b343c;
+    }
+
+    .tactile-card-dark-selected {
+      box-shadow: 0 3px 0 0 #0d544e;
+      border: 2px solid #38d9cb;
+      background-color: #103233;
+    }
+
+    .tactile-btn-neutral {
+      box-shadow: 0 3px 0 0 #18333b;
+      border: 1.5px solid #284c55;
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-btn-neutral:active {
+      transform: translateY(3px);
+      box-shadow: 0 0 0 0 #18333b;
+    }
+  </style>
+</head>
+<body class="bg-[#081316] text-[#e6f4f3] font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-[#38d9cb] selection:text-[#04201d]">
+
+  <!-- Top App Bar / Header -->
+  <header class="bg-[#081316] border-b border-[#1b343c] sticky top-0 z-40">
+    <div class="flex justify-between items-center w-full px-4 py-2.5 max-w-lg mx-auto">
+      <!-- Close Button -->
+      <button aria-label="Close" class="w-10 h-10 rounded-xl bg-[#102227] border border-[#254340] flex items-center justify-center text-[#e6f4f3] shadow-[0_2px_0_0_#1b343c] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+        <span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+      </button>
+
+      <!-- Center Title & Progress Bar -->
+      <div class="flex-1 mx-3 flex flex-col items-center max-w-[210px]">
+        <div class="flex items-center justify-between w-full mb-1">
+          <span class="text-xs font-bold text-[#e6f4f3] tracking-wide">TOEFL Reading Drill</span>
+          <span class="text-xs font-semibold text-[#9ec3be]">4 of 10</span>
+        </div>
+        <!-- Progress Bar Track -->
+        <div class="w-full h-2 bg-[#152a30] rounded-full overflow-hidden p-0.5">
+          <div class="h-full bg-[#ff6339] rounded-full w-[40%] transition-all duration-300"></div>
+        </div>
+      </div>
+
+      <!-- Countdown Timer Pill Badge -->
+      <div class="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#102227] border border-[#254340] shadow-[0_2px_0_0_#1b343c]">
+        <span class="material-symbols-outlined text-[#38d9cb] text-[18px]" data-icon="schedule">schedule</span>
+        <span class="text-xs font-bold text-[#e6f4f3] tracking-wide">01:24</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Scrollable Learning Canvas -->
+  <main class="flex-1 w-full max-w-lg mx-auto px-4 pt-3 pb-28 flex flex-col gap-3.5">
+    
+    <!-- Badges Row: Category & Difficulty -->
+    <div class="flex items-center justify-between gap-2 pt-0.5">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#102e33] border border-[#1d5c58] text-[#38d9cb]">
+        <span class="material-symbols-outlined text-[15px]" data-icon="menu_book">menu_book</span>
+        <span class="text-[11px] font-extrabold tracking-wider uppercase">VOCABULARY IN CONTEXT</span>
+      </div>
+      <span class="text-xs font-medium text-[#9ec3be]">
+        Difficulty: <span class="font-semibold text-[#e6f4f3]">Advanced</span>
+      </span>
+    </div>
+
+    <!-- Passage Excerpt Card -->
+    <section class="bg-[#0f1f24] rounded-2xl p-4 border border-[#1e3b43] shadow-[0_3px_0_0_#13282e]">
+      <!-- Header inside card -->
+      <div class="flex items-start justify-between gap-2 pb-3 mb-3 border-b border-[#1b343c]">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#38d9cb] text-[18px]" data-icon="description">description</span>
+          <h2 class="text-xs font-extrabold tracking-wider uppercase text-[#9ec3be]">
+            PASSAGE EXCERPT: SEED FERNS &amp; CARBONIFEROUS FLORA
+          </h2>
+        </div>
+        <!-- Audio speaker button -->
+        <button aria-label="Listen to excerpt" class="w-8 h-8 rounded-lg bg-[#152a30] border border-[#254340] flex items-center justify-center text-[#38d9cb] hover:bg-[#1b363e] active:translate-y-0.5 transition-all flex-shrink-0" type="button">
+          <span class="material-symbols-outlined text-[18px]" data-icon="volume_up">volume_up</span>
+        </button>
+      </div>
+
+      <!-- Passage Text with Highlighted Target Word -->
+      <p class="text-[15px] leading-relaxed text-[#d7ebe8] font-normal">
+        During the late Carboniferous period, primitive seed ferns were especially
+        <span class="inline-flex items-center px-2 py-0.5 mx-1 rounded-lg bg-[#14484d] border border-[#38d9cb] text-[#38d9cb] font-bold text-[14px]">
+          abundant
+        </span>
+        in tropical lowland wetlands. Their prolific spore production allowed dense canopy coverage that outcompeted smaller ground mosses across seasonal floodplains.
+      </p>
+    </section>
+
+    <!-- Question Prompt -->
+    <div class="pt-1">
+      <h3 class="text-[17px] font-bold text-[#e6f4f3] leading-snug">
+        The word <span class="text-[#38d9cb] underline decoration-[#38d9cb]/50 underline-offset-4 font-extrabold">abundant</span> in the passage is closest in meaning to:
+      </h3>
+    </div>
+
+    <!-- Multiple Choice Options Group -->
+    <div aria-label="Vocabulary options" class="flex flex-col gap-2.5" role="radiogroup">
+      
+      <!-- Option A (SELECTED: "plentiful") -->
+      <button aria-checked="true" class="w-full text-left bg-[#103233] rounded-2xl p-3.5 tactile-card-dark-selected flex items-center gap-3.5 min-h-[58px]" role="radio" type="button">
+        <!-- Letter Identifier Badge (Solid active) -->
+        <div class="w-8 h-8 rounded-xl bg-[#38d9cb] text-[#04201d] flex items-center justify-center flex-shrink-0 font-bold text-sm shadow-sm">
+          A
+        </div>
+        <!-- Option text -->
+        <div class="flex-1">
+          <span class="text-[16px] text-[#e6f4f3] font-bold block leading-normal">
+            plentiful
+          </span>
+        </div>
+        <!-- Filled Checkmark Circle -->
+        <div class="w-6 h-6 rounded-full bg-[#38d9cb] text-[#04201d] flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-[17px] font-extrabold" data-icon="check">check</span>
+        </div>
+      </button>
+
+      <!-- Option B (Unselected: "rare") -->
+      <button aria-checked="false" class="w-full text-left bg-[#0f1f24] rounded-2xl p-3.5 tactile-card-dark flex items-center gap-3.5 min-h-[58px]" role="radio" type="button">
+        <!-- Letter Identifier Badge -->
+        <div class="w-8 h-8 rounded-xl bg-[#162e35] border border-[#254340] flex items-center justify-center flex-shrink-0 font-bold text-sm text-[#9ec3be]">
+          B
+        </div>
+        <!-- Option text -->
+        <div class="flex-1">
+          <span class="text-[16px] text-[#d0e5e3] font-medium block leading-normal">
+            rare
+          </span>
+        </div>
+        <!-- Empty Radio Circle -->
+        <div class="w-6 h-6 rounded-full border-2 border-[#33565e] flex items-center justify-center flex-shrink-0 bg-[#0c1a1e]">
+        </div>
+      </button>
+
+      <!-- Option C (Unselected: "tiny") -->
+      <button aria-checked="false" class="w-full text-left bg-[#0f1f24] rounded-2xl p-3.5 tactile-card-dark flex items-center gap-3.5 min-h-[58px]" role="radio" type="button">
+        <!-- Letter Identifier Badge -->
+        <div class="w-8 h-8 rounded-xl bg-[#162e35] border border-[#254340] flex items-center justify-center flex-shrink-0 font-bold text-sm text-[#9ec3be]">
+          C
+        </div>
+        <!-- Option text -->
+        <div class="flex-1">
+          <span class="text-[16px] text-[#d0e5e3] font-medium block leading-normal">
+            tiny
+          </span>
+        </div>
+        <!-- Empty Radio Circle -->
+        <div class="w-6 h-6 rounded-full border-2 border-[#33565e] flex items-center justify-center flex-shrink-0 bg-[#0c1a1e]">
+        </div>
+      </button>
+
+      <!-- Option D (Unselected: "colourful") -->
+      <button aria-checked="false" class="w-full text-left bg-[#0f1f24] rounded-2xl p-3.5 tactile-card-dark flex items-center gap-3.5 min-h-[58px]" role="radio" type="button">
+        <!-- Letter Identifier Badge -->
+        <div class="w-8 h-8 rounded-xl bg-[#162e35] border border-[#254340] flex items-center justify-center flex-shrink-0 font-bold text-sm text-[#9ec3be]">
+          D
+        </div>
+        <!-- Option text -->
+        <div class="flex-1">
+          <span class="text-[16px] text-[#d0e5e3] font-medium block leading-normal">
+            colourful
+          </span>
+        </div>
+        <!-- Empty Radio Circle -->
+        <div class="w-6 h-6 rounded-full border-2 border-[#33565e] flex items-center justify-center flex-shrink-0 bg-[#0c1a1e]">
+        </div>
+      </button>
+
+    </div>
+
+    <!-- Teacher Ama's Tip Card -->
+    <section class="bg-[#0c1b1f] rounded-2xl p-3.5 border border-[#1e3b43] shadow-[0_2px_0_0_#13282e] flex items-center gap-3 mt-0.5">
+      <!-- Dashed Teacher Avatar Placeholder -->
+      <div class="w-14 h-14 min-w-[56px] rounded-xl border-2 border-dashed border-[#2f555e] flex flex-col items-center justify-center bg-[#081316] p-1 text-center select-none">
+        <span class="material-symbols-outlined text-[#38d9cb] text-[20px]" data-icon="school">school</span>
+        <span class="text-[9px] leading-tight text-[#9ec3be] font-bold tracking-tighter mt-0.5">[teacher-slot]</span>
+      </div>
+      <!-- Tip content -->
+      <div class="flex-1 flex flex-col justify-center">
+        <div class="flex items-center gap-1.5 mb-1">
+          <span class="material-symbols-outlined text-[#ffb786] text-[16px]" data-icon="lightbulb">lightbulb</span>
+          <span class="text-xs font-bold text-[#e6f4f3]">Ama’s Tip</span>
+        </div>
+        <p class="text-xs text-[#9ec3be] leading-relaxed">
+          Look at the surrounding sentence. <span class="italic text-[#d7ebe8]">“Thrived in damp soil where nutrients were…”</span> hints at a large quantity!
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Sticky Bottom Navigation Bar -->
+  <footer class="fixed bottom-0 left-0 w-full z-50 bg-[#081316]/95 backdrop-blur-md border-t border-[#1b343c] py-3.5 px-4 shadow-[0_-4px_16px_rgba(0,0,0,0.4)]">
+    <div class="max-w-lg mx-auto w-full flex items-center gap-3">
+      <!-- Secondary Back Button -->
+      <button class="min-h-[52px] px-5 rounded-2xl bg-[#102227] text-[#e6f4f3] font-bold text-sm flex items-center justify-center gap-1.5 tactile-btn-neutral" type="button">
+        <span class="material-symbols-outlined text-[18px]" data-icon="arrow_back">arrow_back</span>
+        <span>Back</span>
+      </button>
+
+      <!-- Primary Coral CTA Button -->
+      <button class="flex-1 min-h-[52px] rounded-2xl bg-[#ff6339] text-white font-bold text-sm flex items-center justify-center gap-2 tactile-key-coral" type="button">
+        <span>Check &amp; Next</span>
+        <span class="material-symbols-outlined text-[19px]" data-icon="arrow_forward">arrow_forward</span>
+      </button>
+    </div>
+  </footer>
+
+</body>
+</html>

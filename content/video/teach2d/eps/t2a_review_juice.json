@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_juice",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: juice.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means the liquid from fruit or vegetables.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Fresh orange juice is served with breakfast in the hotel restaurant.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "juice",
+  "ipa": "/dʒuːs/",
+  "mean": "the liquid from fruit or vegetables",
+  "ex": "Fresh orange juice is served with breakfast in the hotel restaurant.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=juice",
+  "link": "https://lexkite.com/app/#/review?w=juice",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.7,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"juice\" mean?",
+  "keyword": "juice",
+  "value": "Juice means the liquid from fruit or vegetables.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=juice",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"juice\" mean?",
+    "description": "Juice means the liquid from fruit or vegetables.\n\nReview your words, free: https://lexkite.com/app/#/review?w=juice\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "juice",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"juice\" mean?\n\nJuice means the liquid from fruit or vegetables.\n\nReview your words, free: https://lexkite.com/app/#/review?w=juice"
+   },
+   "instagram": {
+    "caption": "What does \"juice\" mean?\n\nJuice means the liquid from fruit or vegetables.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"juice\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means the liquid from fruit or vegetables. Juice means the liquid from fruit or vegetables. More practice like this (free): {link}"
+ }
+}

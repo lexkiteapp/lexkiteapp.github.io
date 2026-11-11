@@ -9,7 +9,7 @@ tags: [reading, ielts, true-false-not-given]
 keyword: "ielts reading true false not given 해법"
 cover: reading
 coverAlt: "Lexkite 앱의 IELTS 리딩 지문 목록 화면으로 A2부터 C1까지 다양한 난이도 제공"
-publishAt: ""
+publishAt: 2026-12-01T07:57:00+09:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -106,6 +106,8 @@ IELTS 리딩에서 수험생들이 오답을 내는 가장 큰 원인 중 하나
 
 ### 지문 전체를 먼저 다 읽고 문제를 푸는 것이 좋은가요?
 절대 그렇지 않습니다. 800~900단어에 달하는 빽빽한 아카데믹 지문을 처음부터 끝까지 다 읽고 문제를 보는 것은 시간 관리상 치명적인 실수입니다. 처음 1~2개 문항의 키워드를 먼저 확인한 뒤, 첫 문단부터 단락별로 스캐닝하며 근거를 찾아 즉시 문제를 해결하는 것이 시간을 최소 4분 이상 절약하는 비결입니다.
+
+지문마다 몇 분을 쓸지 정하는 방법은 [아이엘츠 리딩 60분 시간 배분 전략](/ko/blog/ielts-reading-sigan-baebun-jeollyak/)에서 이어서 볼 수 있습니다.
 
 ## 자주 묻는 질문 (FAQ)
 

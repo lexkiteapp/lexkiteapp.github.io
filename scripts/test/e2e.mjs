@@ -16,7 +16,8 @@ const BENIGN = /play\(\) (request|failed)|NotAllowedError|AbortError|autoplay|fa
 const issues = [], add = (kind, lang, view, route, msg) => { const k = `${kind}|${route}|${String(msg).slice(0, 160)}`; const f = issues.find(x => x.k === k); if (f) { f.langs.add(lang); f.views.add(view); } else issues.push({ k, kind, route, msg: String(msg).slice(0, 300), langs: new Set([lang]), views: new Set([view]) }); };
 const browser = await chromium.launch();
 // Máy CI có gọi được dịch máy lúc chạy không? Không → lẫn tiếng chỉ là cảnh báo (người dùng thật vẫn được dịch)
-const gtxOk = await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=vi&tl=en&dt=t&q=xin%20ch%C3%A0o').then(r => r.ok).catch(() => false);
+// Web dịch qua proxy cùng nguồn /api/dictlookup (Google lỗi → 200 null) → hỏi chính proxy của bản đang kiểm
+const gtxOk = await fetch(new URL('/api/dictlookup?src=gtx&sl=vi&tl=en&dt=t&q=xin%20ch%C3%A0o', BASE)).then(r => (r.ok ? r.json() : null)).then(j => !!(j && j[0])).catch(() => false);
 const t0 = Date.now(); let pages = 0, clicks = 0;
 for (const lang of LANGS) for (const [vn, vp] of Object.entries(VIEWS)) {
   if (vn === 'desktop' && !['vi', 'en', 'ar', 'ja'].includes(lang)) continue; // máy tính: 4 ngôn ngữ đại diện (LTR/RTL/CJK) – đủ bắt lỗi bố cục

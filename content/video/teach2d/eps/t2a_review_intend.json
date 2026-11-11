@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_intend",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: intend.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to plan or want to do something.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I intend to finish the report this week.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "intend",
+  "ipa": "/ɪnˈtend/",
+  "mean": "to plan or want to do something",
+  "ex": "I intend to finish the report this week.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=intend",
+  "link": "https://lexkite.com/app/#/review?w=intend",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 25.7,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"intend\" mean?",
+  "keyword": "intend",
+  "value": "Intend means to plan or want to do something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=intend",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"intend\" mean?",
+    "description": "Intend means to plan or want to do something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=intend\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "intend",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"intend\" mean?\n\nIntend means to plan or want to do something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=intend"
+   },
+   "instagram": {
+    "caption": "What does \"intend\" mean?\n\nIntend means to plan or want to do something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"intend\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to plan or want to do something. Intend means to plan or want to do something. More practice like this (free): {link}"
+ }
+}

@@ -902,15 +902,34 @@ export function driveCopies(v) {
 }
 /** Số bản sao cần: bản gốc approved/reserve → 2 (2 Drive khác nhau), reject → 1. */
 export const driveWant = e => (e.status === 'reject' ? 1 : 2);
-export async function putSession(fetcher, url, buf, ct, chunk) {
+const PUT_TRIES = 6;
+/** Phiên resumable của Google: 5xx / 429 / lỗi mạng giữa chừng KHÔNG phải lỗi cuối – hỏi lại offset đã nhận (PUT "bytes *\/total") rồi gửi tiếp từ đó.
+ *  (1/11: code-bundle ~950 MB = ~120 khúc, 1 lần 502 là hỏng cả tuần.) wait: hook cho test. */
+export async function putSession(fetcher, url, buf, ct, chunk, { wait = ms => new Promise(r => setTimeout(r, ms)) } = {}) {
   if (!/^https:\/\/www\.googleapis\.com\/upload\//.test(String(url || ''))) throw new Error('Drive không trả phiên tải lên');
-  let res, off = 0;
-  if (buf.length <= 64 << 20) res = await fetcher(url, { method: 'PUT', headers: { 'Content-Type': ct }, body: buf });
-  else while (off < buf.length) {
+  const transient = s => s === 0 || s === 429 || s >= 500;
+  let res, off = 0, fails = 0;
+  const call = async init => { try { return await fetcher(url, init); } catch (e) { return { status: 0, headers: { get: () => null }, err: e }; } };
+  const backoff = async why => { if (++fails >= PUT_TRIES) throw new Error('PUT khúc ' + why + ' (sau ' + PUT_TRIES + ' lần)'); await wait(Math.min(30000, 1000 * 2 ** fails)); };
+  const resume = async () => { // hỏi Google đã nhận tới đâu
+    const q = await call({ method: 'PUT', headers: { 'Content-Range': `bytes */${buf.length}` } });
+    if (q.status === 200 || q.status === 201) { res = q; return true; }
+    if (q.status === 308) { const rg = q.headers.get('Range'); off = rg && /bytes=0-(\d+)/.test(rg) ? +RegExp.$1 + 1 : 0; return false; }
+    await backoff(q.status); return resume();
+  };
+  if (buf.length <= 64 << 20) {
+    for (;;) {
+      res = await call({ method: 'PUT', headers: { 'Content-Type': ct }, body: buf });
+      if (!transient(res.status)) break;
+      await backoff(res.status);
+    }
+  } else while (off < buf.length) {
     const end = Math.min(buf.length, off + chunk);
-    res = await fetcher(url, { method: 'PUT', headers: { 'Content-Range': `bytes ${off}-${end - 1}/${buf.length}` }, body: buf.subarray(off, end) });
+    res = await call({ method: 'PUT', headers: { 'Content-Range': `bytes ${off}-${end - 1}/${buf.length}` }, body: buf.subarray(off, end) });
     if (res.status === 200 || res.status === 201) break;
+    if (transient(res.status)) { await backoff(res.status); if (await resume()) break; continue; }
     if (res.status !== 308) throw new Error('PUT khúc ' + res.status);
+    fails = 0;
     const rg = res.headers.get('Range'); off = rg && /bytes=0-(\d+)/.test(rg) ? +RegExp.$1 + 1 : end;
   }
   if (!res || (res.status !== 200 && res.status !== 201)) throw new Error('PUT Drive ' + (res && res.status));

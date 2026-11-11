@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_argue",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: argue.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to speak angrily to someone because you disagree.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "My brothers always argue about football.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "argue",
+  "ipa": "/ˈɑːrɡjuː/",
+  "mean": "to speak angrily to someone because you disagree",
+  "ex": "My brothers always argue about football.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=argue",
+  "link": "https://lexkite.com/app/#/review?w=argue",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 41,
+  "seconds": 25.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"argue\" mean?",
+  "keyword": "argue",
+  "value": "Argue means to speak angrily to someone because you disagree.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=argue",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"argue\" mean?",
+    "description": "Argue means to speak angrily to someone because you disagree.\n\nReview your words, free: https://lexkite.com/app/#/review?w=argue\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "argue",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"argue\" mean?\n\nArgue means to speak angrily to someone because you disagree.\n\nReview your words, free: https://lexkite.com/app/#/review?w=argue"
+   },
+   "instagram": {
+    "caption": "What does \"argue\" mean?\n\nArgue means to speak angrily to someone because you disagree.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"argue\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to speak angrily to someone because you disagree. Argue means to speak angrily to someone because you disagree. Try the full lesson and quiz here: {link}"
+ }
+}

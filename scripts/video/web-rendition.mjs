@@ -4,12 +4,14 @@
 //   node scripts/video/web-rendition.mjs build <shorts-checkout>   → ffmpeg 720×1280 H.264 CRF 23 +faststart (~2–3 MB), poster WebP,
 //        phụ đề WebVTT TIẾNG ANH (mốc từng từ – video chỉ tiếng Anh, không phụ đề dịch: chủ 22/10), thẻ, câu đố tiếng Anh → .webvid/<bài>/
 //   node scripts/video/web-rendition.mjs publish                   → GitHub Release 'wv-<bài>' của repo (GITHUB_TOKEN, không secret mới) – phục vụ qua media.lexkite.com/video/
+//   node scripts/video/web-rendition.mjs verify                    → mọi src/poster/vtt_en vừa publish phải 200/206 + CORS qua CDN; thiếu/không CORS → đỏ,
+//        CDN chưa phục vụ (429/5xx sau 3 lần) → hoãn mục (bỏ src khỏi meta, lượt sau làm lại) để trang không trỏ tới tài nguyên chưa kiểm
 //   node scripts/video/web-rendition.mjs manifest                  → web/data/videos.json (+ content/video/web/captions/<bài>.json cho trang /video/<slug>/)
 // Chỉ clip bản tin, QA ≥ 90 và chủ đã duyệt (content/video/web/approved.json "approved") – hoặc mẫu thử ("test": ẩn trên production, chỉ hiện với ?vtest=1).
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process';
 import { fetchFromDrive } from './drive-fetch.mjs';
 import { r2Config, r2Head, r2Put } from '../lib/media-store.mjs';
-import { LANGS as PAGE_LANGS, MANIFEST, CAPTIONS_DIR, APPROVED, CDN, readJSON, sha, eligible, sentences, enCues, vtt, tagLesson, quizFor, titleOf, slugOf, templateOf, validateManifest } from '../lib/video-web.mjs';
+import { LANGS as PAGE_LANGS, MANIFEST, CAPTIONS_DIR, APPROVED, CDN, readJSON, sha, eligible, sentences, enCues, vtt, tagLesson, quizFor, titleOf, slugOf, templateOf, validateManifest, verifyAssets } from '../lib/video-web.mjs';
 
 const [cmd, shortsDir = process.env.SHORTS_DIR || 'shorts-repo'] = process.argv.slice(2);
 const W = '.webvid', NEWS = 'content/video/cine/news';
@@ -115,6 +117,17 @@ if (cmd === 'publish') {
   }
 }
 
+// ---------- verify: tài nguyên vừa publish thật sự tải được khác nguồn (poster <img crossorigin>, <track> phụ đề) ----------
+if (cmd === 'verify') {
+  const metas = fs.readdirSync(W).filter(x => fs.existsSync(`${W}/${x}/meta.json`)).map(id => ({ id, m: readJSON(`${W}/${id}/meta.json`) })).filter(x => x.m && x.m.src);
+  const { bad, down } = await verifyAssets(metas.map(x => ({ ...x.m, id: x.id })));
+  for (const d of down) console.log(`::warning::CDN chưa phục vụ ${d.url} (HTTP ${d.status}) – hoãn ${d.id} sang lượt sau`);
+  const later = new Set(down.map(d => d.id));
+  for (const id of later) { const f = `${W}/${id}/meta.json`, m = readJSON(f); delete m.src; fs.writeFileSync(f, JSON.stringify(m, null, 1)); }
+  if (bad.length) { console.error('✗ tài nguyên video lỗi:\n' + bad.map(b => `  ${b.id} ${b.verdict} HTTP ${b.status} ${b.url}`).join('\n')); process.exit(1); }
+  console.log(`✓ verify: ${metas.length - later.size}/${metas.length} clip đủ src/poster/vtt 200 + CORS`);
+}
+
 // ---------- manifest ----------
 async function ytWeb() {
   if (!process.env.LEXKITE_DRIVE_CLI_KEY) return {};
@@ -126,7 +139,7 @@ if (cmd === 'manifest') {
   const yt = await ytWeb();   // youtube_id chỉ khi video xem được (unlisted, hoặc đã tới publishAt) – functions/api/youtube.js op ids
   for (const x of Object.values(by)) { if (yt[x.id]) x.youtube_id = yt[x.id]; else delete x.youtube_id; }
   const items = Object.values(by).filter(x => el.has(x.id)).sort((a, b) => (a.test - b.test) || String(b.created).localeCompare(String(a.created)));
-  const out = { version: 1, updated: new Date().toISOString().slice(0, 19) + 'Z', items };
+  const out = { version: 1, updated: new Date().toISOString().slice(0, 19) + 'Z', items, ...(Array.isArray(man.embeds) ? { embeds: man.embeds } : {}) };   // video nhúng bài học: giữ nguyên (docs/VIDEO-MOTION.md §Embedded)
   const err = validateManifest(out); if (err.length) { console.error('✗ manifest:\n' + err.join('\n')); process.exit(1); }
   fs.mkdirSync(path.dirname(MANIFEST), { recursive: true }); fs.writeFileSync(MANIFEST, JSON.stringify(out, null, 1) + '\n');
   for (const f of fs.existsSync(CAPTIONS_DIR) ? fs.readdirSync(CAPTIONS_DIR) : []) if (!el.has(f.replace(/\.json$/, ''))) fs.rmSync(`${CAPTIONS_DIR}/${f}`);   // clip bị gỡ duyệt → bỏ trang

@@ -1,0 +1,67 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
+# 🧱 Một khung app: mọi route của app thật (390/1280 × sáng/tối) so với chuẩn biến thể hub/inner/focus (docs/DESIGN-SYSTEM.md §5d)
+# – thanh trên, nút Back/X ≥ 44 + đích, thanh 5 tab, khung nội dung, thẻ, tiêu đề, CTA, màu token, icon cùng khái niệm.
+# Ratchet theo scripts/test/frame-consistency.known.json. Báo cáo: artifact frame-consistency (report.md + raw.json). Hermetic, 0 lượt chạm prod.
+name: Frame consistency
+# Ratchet: đỏ khi có lệch mới/tăng hoặc khi lệch giảm mà frame-consistency.known.json chưa hạ (baseline chỉ đi xuống).
+on:
+  pull_request:
+    paths: ['scripts/test/frame-consistency.known.json', 'web/**', 'extension/app/**', 'scripts/build-web.sh', 'scripts/test/frame-consistency.mjs', 'scripts/test/frame-variants.json', 'scripts/test/lib/learn-samples.mjs', 'scripts/test/today-fold.mjs', '.github/workflows/frame-consistency.yml']
+  push:
+    branches: [main]
+    paths: ['web/**', 'extension/app/**', 'scripts/test/frame-consistency.*', 'scripts/test/today-fold.mjs']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: frame-consistency-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha → go=$go"
+  frame:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - name: Cài + build dist
+        run: |
+          npm ci --no-audit --no-fund
+          bash scripts/build-web.sh >/dev/null
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
+      - name: Cài + build dist (tiếp)
+        run: |
+          echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
+      - name: Quét khung mọi route
+        run: node scripts/test/frame-consistency.mjs --root dist --out out/frame-consistency || { echo '--- known-now.json (baseline hiện tại) ---'; cat out/frame-consistency/known-now.json; echo; exit 1; }
+      - name: Màn đầu Hôm nay 360×640 (CTA trong màn đầu, dải chuỗi·XP·mục tiêu, % tiến độ, CLS)
+        if: ${{ !cancelled() }}
+        run: node scripts/test/today-fold.mjs --root dist
+      - name: Tóm tắt
+        if: always()
+        run: test -f out/frame-consistency/report.md && head -c 60000 out/frame-consistency/report.md >> "$GITHUB_STEP_SUMMARY" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: frame-consistency, path: out/frame-consistency, retention-days: 7 }

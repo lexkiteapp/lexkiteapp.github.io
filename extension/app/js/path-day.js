@@ -267,7 +267,7 @@
         if (!App.inDeck(w.word)) await App.addWord(IX[w.word.toLowerCase()] || w, null, { silent: true });
         await Core.Cards.patch(w.word, c => { if (c.srs && !c.srs.last) c.srs = { ...c.srs, last: now, due: now + 6e5 }; }).catch(() => {});
       }
-      state.cards = await Core.Cards.all();
+      state.cards = await Core.Cards.mine();
     }
     if (det.wait) await det.wait.catch(() => {});
     if (s.k !== 'test') mark(d.key, s.k);

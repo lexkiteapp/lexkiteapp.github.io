@@ -33,6 +33,7 @@ quiz: [
     explain: "'Sorry, I didn't quite catch that' memberitahukan secara santun bahwa Anda belum mendengar dengan jelas tanpa menyalahkan lawan bicara."
   }
 ]
+publishAt: 2026-12-01T19:55:00+07:00
 ---
 
 Bagi sebagian besar pembelajar bahasa Inggris, tujuan akhir dari belajar bahasa bukanlah sekadar menghafal rumus tata bahasa di atas kertas, melainkan kemampuan berbicara secara percaya diri, luwes, dan spontan dalam kehidupan nyata. Mulai dari memesan kopi di kedai yang ramai, menanyakan arah jalan saat bepergian ke luar negeri, hingga mengobrol santai dengan rekan kerja saat istirahat makan siang, menguasai **percakapan bahasa inggris sehari hari** adalah kunci utama yang mengubah pemahaman teori menjadi kefasihan praktis.
@@ -156,6 +157,6 @@ Agar frasa percakapan ini otomatis terlontar tanpa ragu saat Anda berhadapan den
 2. **Pengulangan Berjarak (FSRS)**: Simpan kalimat-kalimat penting ke dalam sistem pengulangan berjarak agar ingatan bertahan kuat dalam memori jangka panjang.
 3. **Bicara sendiri (Self-talk)**: Narasi kegiatan sehari-hari Anda dengan suara pelan dalam bahasa Inggris saat sedang memasak, menyetir, atau merapikan kamar.
 
-Untuk mengasah kemampuan komunikasi Anda lebih jauh, baca ulasan kami tentang [cara lancar berbicara bahasa Inggris](/id/blog/cara-lancar-berbicara-bahasa-inggris/), teknik [berpikir dalam bahasa Inggris tanpa menerjemahkan](/id/blog/cara-berpikir-dalam-bahasa-inggris-tanpa-menerjemahkan/), frasa untuk [meeting kerja bahasa Inggris](/id/blog/frasa-bahasa-inggris-untuk-meeting-kerja/), persiapan [pertanyaan interview bahasa Inggris](/id/blog/pertanyaan-interview-bahasa-inggris/), dan tips [percakapan bahasa Inggris untuk traveling](/id/blog/percakapan-bahasa-inggris-untuk-traveling-ke-luar-negeri/). Lengkapi juga perbendaharaan kata Anda melalui rubrik [/tu-vung/](/tu-vung/).
+Untuk mengasah kemampuan komunikasi Anda lebih jauh, baca ulasan kami tentang [cara lancar berbicara bahasa Inggris](/id/blog/cara-lancar-berbicara-bahasa-inggris/), teknik [berpikir dalam bahasa Inggris tanpa menerjemahkan](/id/blog/cara-berpikir-dalam-bahasa-inggris-tanpa-menerjemahkan/), frasa untuk [meeting kerja bahasa Inggris](/id/blog/frasa-bahasa-inggris-untuk-meeting-kerja/), persiapan [pertanyaan interview bahasa Inggris](/id/blog/pertanyaan-interview-bahasa-inggris/), dan tips [percakapan bahasa Inggris untuk traveling](/id/blog/percakapan-bahasa-inggris-untuk-traveling-ke-luar-negeri/). Lengkapi juga perbendaharaan kata Anda melalui rubrik [/tu-vung/](/en/vocabulary/).
 
 Dengan mempraktikkan 5 hingga 10 frasa baru setiap minggu, rasa percaya diri Anda akan tumbuh pesat dan percakapan bahasa Inggris pun akan mengalir semakin alami.

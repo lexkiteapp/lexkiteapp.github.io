@@ -124,7 +124,7 @@ Ne surchargez jamais une carte avec six synonymes, trois définitions contradict
 Regarder un mot anglais, lire sa traduction française et se dire « oui, je le savais » est un leurre cognitif bien connu : l'illusion de compétence (*Illusion of Knowing*). Seul l'effort conscient de formuler la réponse avant de retourner la carte déclenche la synthèse de nouvelles protéines synaptiques.
 
 ### 3. Toujours associer un contexte authentique
-Un mot isolé sans contexte ne possède aucune racine émotionnelle ou logique dans votre esprit. Associez chaque terme à une phrase d'exemple percutante ou à une situation de votre vie quotidienne. Vous pouvez parcourir notre [Liste de vocabulaire thématique](/tu-vung/) pour enrichir vos cartes d'exemples idiomatiques.
+Un mot isolé sans contexte ne possède aucune racine émotionnelle ou logique dans votre esprit. Associez chaque terme à une phrase d'exemple percutante ou à une situation de votre vie quotidienne. Vous pouvez parcourir notre [Liste de vocabulaire thématique](/en/vocabulary/) pour enrichir vos cartes d'exemples idiomatiques.
 
 ### 4. La franchise absolue lors de l'auto-évaluation
 Après avoir retourné votre carte, choisissez votre appréciation (*À revoir, Difficile, Bon, Facile*) avec une honnêteté totale. Hésiter plus de 4 secondes avant de trouver la réponse ne doit jamais être évalué comme « Facile ». Donnez à l'algorithme des données fiables pour qu'il protège votre mémoire.

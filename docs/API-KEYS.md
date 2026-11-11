@@ -254,3 +254,10 @@ With the upgraded GrabCast: **none for throughput.** Adding 10 Gemini keys adds 
 Gemini keys are still worth adding (2–5 keys, each from its own Google Cloud project, because quota is per project) for **quality and diversity**: a third family for judging, and fallback if GrabCast goes down.
 
 Without GrabCast (the old setup, for reference): 1 key ≈ 57 days, 5 ≈ 11, 10 ≈ 5.7, 20 ≈ 2.8. In that case, about 8–10 keys was the sweet spot.
+
+## 10. Dùng chung giữa các admin (03/11)
+
+Mọi tài nguyên Admin là của **cả nhóm admin**, không của người bấm: khóa API (D1 `api_keys`, mã hóa, last4), Drive (D1 `drives`; token OAuth mã hóa theo **email Google của Drive**, admin nào cũng "Kết nối lại" được), hạn mức, quảng cáo, backlinks, token mạng xã hội — đều ở D1 sau `adminGate`.
+Phần từng nằm theo trình duyệt/email nay ở `functions/api/admin-shared.js` (config `adm_shared:<ns>`: `clipviews` chế độ xem clip, `ytck` danh sách kiểm đăng tay, `socused` bài đã dùng, `alerts` loại/ngưỡng cảnh báo — `admin-prefs` hợp nhất; `workers/mail` đọc bản chung). Chỉ còn riêng từng người: tab mở, ngôn ngữ, giao diện, tự đăng xuất, bộ lọc đang xem, tác vụ hàng loạt dang dở.
+Đồng bộ: `web/js/admin-sync.js` hỏi `stamp` (1 truy vấn nhẹ) mỗi 45 s khi tab hiện; khu vực do admin **khác** sửa → tự làm mới (không khi đang gõ) + thẻ "Vừa cập nhật bởi a***@…". Mọi ghi → `admin_log` (`shared.<op>.<ns>`) + `key_audit`/`drive_audit`/`quota_audit` có sẵn. Test: `scripts/test/admin-share.mjs`.
+`ADMIN_EMAILS` là bí mật Pages (API không đọc lại được): chủ kiểm trong Pages › Variables rằng đủ 3 email admin chính.

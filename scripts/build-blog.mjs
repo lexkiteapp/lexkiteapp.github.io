@@ -6,13 +6,14 @@ import { loadPosts, parse, FAQ_RE, isLive, publishTime, wordCount, config, CATEG
 import { specOf, mediaId, diagramHtml } from './lib/blog-images.mjs';
 import { joinPath } from './lib/url-guard.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
-import { CSS, TAP_CSS, esc, ld, siteHeader, siteFooter, crumbsHtml, crumbsLd as crumbsLdAt, appHref, landingHref, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
+import { CSS, TAP_CSS, esc, ld, themePage, siteHeader, siteFooter, crumbsHtml, crumbsLd as crumbsLdAt, appHref, landingHref, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
 
 import { blogVideoBox, BLOG_VIDEO_CSS, readJSON as readVid, MANIFEST as VID_MANIFEST } from './lib/video-web.mjs';
 import { loadAds, adsOn } from './lib/ads-static.mjs';
 import { adEnd, adHold, withMid, AD_JS as AD_STATIC_JS } from '../workers/lib/ad-slot.mjs';
 import { blogToolBox, TOOL_BOX_CSS } from './lib/tools-links.mjs';
 import { blogDictBox } from './dict/links.mjs'; // blog → trang từ điển (docs/SEO-DICT-PAGES.md §3b)
+import { blogWordsBox, loadBlogWords } from './lib/blog-words.mjs'; // blog → trang từ /<lang>/words/ cho 13 ngôn ngữ còn lại (docs/specs/seo-words-depth.md §3)
 import { editorialNode, blogByline } from './lib/authority-links.mjs'; // tác giả = Lexkite Editorial Team + trang hồ sơ đội (docs/SEO-AUTHORITY.md) // hộp liên kết công cụ miễn phí cùng chủ đề (docs/SEO-TOOLS.md)
 // 💰 Ô quảng cáo (docs/ADS.md §1) – CHỈ khi web/js/ads/config.js bật + có mã ô; mặc định tắt → 0 byte thêm vào trang.
 // 'blog' = cuối bài · 'blog_mid' = 1 ô giữa bài (bài ≥ 1200 từ, sau đoạn văn ở 40–50 %) → tối đa 2 ô / bài
@@ -49,6 +50,8 @@ const OUT = process.env.BLOG_OUT || 'dist';
 const MEDIA = loadMedia(ROOT).items; // media.json (ảnh chung) + media/<lang>.json (ảnh riêng từng bài – CI blog-images)
 let MBASE = C.mediaBase;
 if (process.env.BLOG_MEDIA_LOCAL === '1' && fs.existsSync('.media/out/blog')) { fs.cpSync('.media/out/blog', `${OUT}/blog/media`, { recursive: true }); MBASE = '/blog/media/'; }
+
+await loadBlogWords(); // tập trang /<lang>/words/ index được – cùng hàm chọn với build-seo-pages (chạy sau), hộp từ 13 ngôn ngữ
 
 // ---------- Kiểm tra chất lượng: bài lỗi → build dừng (bài nháp bỏ qua) ----------
 const all = loadPosts();
@@ -189,7 +192,7 @@ function inline(s) {
 }
 // Liên kết nội bộ thương hiệu (chống cào bài, tăng liên kết về app): chỉ lần xuất hiện ĐẦU, tối đa 3 link/bài, không trong tiêu đề/link sẵn có
 const AUTOLINK = {
-  vi: [['flashcard FSRS', '/app/#/review'], ['tiện ích Chrome', '/app/#/settings'], ['ôn thi IELTS', '/'], ['tra từ', '/app/#/dict'], ['luyện phát âm', '/app/#/pron']],
+  vi: [['flashcard FSRS', '/app/#/review'], ['tiện ích Chrome', '/app/#/settings'], ['ôn thi IELTS', '/vi/'], ['tra từ', '/app/#/dict'], ['luyện phát âm', '/app/#/pron']],
   en: [['FSRS flashcards', '/app/?hl=en#/review'], ['Chrome extension', '/app/?hl=en#/settings'], ['IELTS preparation', '/en/'], ['look up words', '/app/?hl=en#/dict'], ['pronunciation practice', '/app/?hl=en#/pron']],
 };
 let LINKED = null;
@@ -271,7 +274,7 @@ const BLOG_LANGS = new Set([DEF, ...all.filter(p => p.status !== 'draft').map(p 
 const parentOf = l => BLOG_LANGS.has(l) ? base(l) : landingHref(l);
 function layout({ lang, title, desc, url, alt = [], to = () => null, img, imgAlt, type = 'website', body, jsonld = [], robots = 'index,follow', extraHead = '', script = '' }) {
   const t = T(lang), b = base(lang), langHref = l => l === lang ? url : (alt.find(a => a.lang === l) || {}).url || to(l) || parentOf(l);
-  return `<!doctype html>
+  return themePage(`<!doctype html>
 <html lang="${lang}" dir="${T(lang).dir || 'ltr'}">
 <head>
 <meta charset="utf-8">
@@ -284,8 +287,8 @@ function layout({ lang, title, desc, url, alt = [], to = () => null, img, imgAlt
 ${alt.map(a => `<link rel="alternate" hreflang="${a.lang}" href="${SITE}${a.url}">`).join('\n')}
 <link rel="alternate" type="application/rss+xml" title="${esc(C.blogName[lang] || C.blogName.en)}" href="${SITE}${b}rss.xml">
 <meta name="theme-color" content="#0F3D3E">
-<link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">
+<link rel="icon" href="/icons/icon.svg?v=3" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=3">
 <meta property="og:type" content="${type}">
 <meta property="og:site_name" content="Lexkite">
 <meta property="og:locale" content="${{ vi: 'vi_VN', en: 'en_US', id: 'id_ID', es: 'es_ES', ja: 'ja_JP', ko: 'ko_KR', th: 'th_TH', zh: 'zh_CN', ar: 'ar_AR' }[lang] || lang}">
@@ -307,7 +310,7 @@ ${body}
 ${siteFooter({ lang, text: t.foot, tm: t.tm, year: new Date(NOW).getFullYear(), extra: [[`${b}rss.xml`, 'RSS']], langHref })}
 ${script}
 </body>
-</html>`;
+</html>`);
 }
 const YT_JS = `<script>document.addEventListener('click',e=>{const b=e.target.closest('.yt button');if(!b)return;const d=b.parentNode,f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+d.dataset.id+'?autoplay=1&rel=0';f.title=b.getAttribute('aria-label');f.allow='accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture;fullscreen';f.allowFullscreen=true;d.replaceChildren(f)})</script>`;
 const QUIZ_JS = `<script>(function(){var q=document.querySelector('.blog-quiz');if(!q)return;var l=function(){if(window._LK_QZ_S)return;window._LK_QZ_S=1;var s=document.createElement('script');s.src='/blog/quiz.js';s.defer=true;document.body.appendChild(s)};if('IntersectionObserver' in window){var o=new IntersectionObserver(function(es){for(var i=0;i<es.length;i++)if(es[i].isIntersecting){o.disconnect();l();break}},{rootMargin:'300px'});o.observe(q)}else{l()}})();</script>`;
@@ -347,7 +350,7 @@ for (const p of posts) {
   const cat = catName(p.category, p.lang), b = base(p.lang), sg = SEG(p.lang);
   const crumbs = [[t.home, landingHref(p.lang)], [t.blog, b], [cat, `${b}${sg.cat}/${p.category}/`], [p.title, postUrl(p)]];
   const jsonld = [
-    { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.description, image: [imgUrl(cv.id)], datePublished: iso(pub), dateModified: iso(upd), inLanguage: p.lang, wordCount: words, keywords: [p.keyword, ...(p.tags || [])].join(', '), articleSection: cat, mainEntityOfPage: SITE + postUrl(p), author: editorialNode(p.lang), publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png?v=2`, width: 512, height: 512 } } },
+    { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.description, image: [imgUrl(cv.id)], datePublished: iso(pub), dateModified: iso(upd), inLanguage: p.lang, wordCount: words, keywords: [p.keyword, ...(p.tags || [])].join(', '), articleSection: cat, mainEntityOfPage: SITE + postUrl(p), author: editorialNode(p.lang), publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png?v=3`, width: 512, height: 512 } } },
     crumbsLd(crumbs),
     ...(faq.length >= 2 ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
   ];
@@ -361,7 +364,7 @@ for (const p of posts) {
 <figure class="cover">${picture(cv.id, cv.alt, { eager: true })}</figure>
 ${toc.length >= 3 ? `<details class="toc" open><summary>${t.toc}</summary><ol>${toc.map(h => `<li><a href="#${h.id}">${inline(h.txt)}</a></li>`).join('')}</ol></details>` : ''}
 ${html}
-${blogVideoBox(p, VIDEOS, esc)}${quizHtml}${blogToolBox(p)}${blogDictBox(p)}${(p.tags || []).some(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2) ? `<div class="tags" aria-label="${t.tags}">${p.tags.filter(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2).map(g => `<a href="${b}${sg.tag}/${g}/">#${esc(g)}</a>`).join('')}</div>` : ''}
+${blogVideoBox(p, VIDEOS, esc)}${quizHtml}${blogToolBox(p)}${blogDictBox(p)}${blogWordsBox(p)}${(p.tags || []).some(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2) ? `<div class="tags" aria-label="${t.tags}">${p.tags.filter(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2).map(g => `<a href="${b}${sg.tag}/${g}/">#${esc(g)}</a>`).join('')}</div>` : ''}
 <p class="copy">© ${new Date(pub).getFullYear()} Lexkite · ${COPY[p.lang] || COPY.en}</p>
 <section class="trybox"><h2>${t.try}</h2><p>${t.tryD}</p><div class="cta-actions"><a class="btn" href="${appHref(p.lang)}">${t.open} ${t.dir === 'rtl' ? '←' : '→'}</a>${topicAction}</div></section>
 ${extBox(p.lang)}
@@ -436,7 +439,7 @@ for (const { lang, data, body, key, u } of PAGES) {
   const crumbs = [[t.home, landingHref(lang)], [t.blog, base(lang)], [data.title, u]];
   write(u, layout({ lang, title: `${data.title} | Lexkite`, desc: data.description, url: u, to: l => (PAGES.find(x => x.key === key && x.lang === l) || {}).u, body: `${crumbsHtml(crumbs)}<article class="post"><h1>${esc(data.title)}</h1>${render(body, lang).html}</article>`,
     script: copyJs(lang),
-    jsonld: [crumbsLd(crumbs), { '@context': 'https://schema.org', '@type': 'AboutPage', name: data.title, description: data.description, url: SITE + u, inLanguage: lang, about: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: `${SITE}/icons/icon-512.png?v=2` } }] }));
+    jsonld: [crumbsLd(crumbs), { '@context': 'https://schema.org', '@type': 'AboutPage', name: data.title, description: data.description, url: SITE + u, inLanguage: lang, about: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: `${SITE}/icons/icon-512.png?v=3` } }] }));
   sm.push({ loc: u, lastmod: iso(NOW) });
 }
 

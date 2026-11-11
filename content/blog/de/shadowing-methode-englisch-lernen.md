@@ -59,6 +59,7 @@ quiz: [
     explain: "Für das Blind Listening empfiehlt der Artikel einen kurzen Abschnitt von 30 bis 60 Sekunden, den Sie ein- bis zweimal aufmerksam hören."
   }
 ]
+publishAt: 2026-12-09T21:32:00+01:00
 ---
 
 Die **Shadowing Methode Englisch** gilt in der modernen Sprachwissenschaft als eines der effektivsten Instrumente, um passives Sprachwissen in aktives, flüssiges und natürliches Sprechen zu verwandeln. Viele Englischlernende kennen das Phänomen: Beim Lesen anspruchsvoller Texte oder beim Schauen von Serien mit Untertiteln versteht man fast jedes Wort mühelos. Sobald man jedoch selbst frei sprechen soll, klingt die eigene Stimme abgehackt, die Zunge stolpert über ungewohnte Lautkombinationen und die Satzmelodie wirkt monoton. Dieser Bruch entsteht nicht durch mangelnden Wortschatz, sondern durch fehlende Muskelautomatisierung im Sprechapparat.

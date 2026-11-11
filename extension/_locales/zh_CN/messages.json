@@ -154,5 +154,26 @@
  },
  "ntMoreSenses": {
   "message": "+{n} 个释义"
+ },
+ "ntQzTag": {
+  "message": "快速小测"
+ },
+ "ntQzQ": {
+  "message": "选出正确的释义"
+ },
+ "ntQzTime": {
+  "message": "{s} 秒"
+ },
+ "ntQzRight": {
+  "message": "答对了！"
+ },
+ "ntQzWrong": {
+  "message": "差一点——这个词很快会再出现"
+ },
+ "ntQzTimeout": {
+  "message": "时间到，没关系"
+ },
+ "ntQzSkip": {
+  "message": "跳过"
  }
 }

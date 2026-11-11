@@ -33,6 +33,7 @@ quiz: [
     explain: "'Sorry, I didn't catch that' sinaliza educadamente que você não ouviu, convidando a pessoa a repetir."
   }
 ]
+publishAt: 2026-12-05T20:56:00-03:00
 ---
 
 Para grande parte dos estudantes de inglês, o maior desafio não é resolver exercícios gramaticais no papel, mas sim conseguir falar com naturalidade, segurança e espontaneidade nas situações do cotidiano. Seja para pedir um café em uma cafeteria movimentada, pedir informações na rua durante uma viagem internacional ou bater papo com colegas de trabalho no intervalo, dominar **frases em ingles para conversacao** é o divisor de águas entre o conhecimento teórico travado e a fluência comunicativa real.
@@ -156,6 +157,6 @@ Para que as expressões sejam incorporadas ao seu vocabulário ativo e saiam esp
 2. **Revisão com Repetição Espaçada (FSRS)**: Armazene as frases completas em sua rotina de estudos para fixá-las na memória de longo prazo.
 3. **Conversar sozinho em inglês (Self-talk)**: Descreva em voz alta o que você está fazendo em casa (cozinhando, limpando, organizando a mesa) para treinar o cérebro a pensar no idioma.
 
-Para continuar aprimorando sua desenvoltura, leia nossos guias sobre [como aprender inglês sozinho](/pt/blog/como-aprender-ingles-sozinho/), técnicas de [small talk em inglês](/pt/blog/small-talk-em-ingles/), frases para [reuniões em inglês](/pt/blog/reunioes-em-ingles-frases-uteis/), dicas para [entrevista de emprego em inglês](/pt/blog/entrevista-de-emprego-em-ingles-perguntas/) e o uso de [orações condicionais em inglês](/pt/blog/oracoes-condicionais-em-ingles-if-clauses/). Explore também o nosso banco de termos em [/tu-vung/](/tu-vung/).
+Para continuar aprimorando sua desenvoltura, leia nossos guias sobre [como aprender inglês sozinho](/pt/blog/como-aprender-ingles-sozinho/), técnicas de [small talk em inglês](/pt/blog/small-talk-em-ingles/), frases para [reuniões em inglês](/pt/blog/reunioes-em-ingles-frases-uteis/), dicas para [entrevista de emprego em inglês](/pt/blog/entrevista-de-emprego-em-ingles-perguntas/) e o uso de [orações condicionais em inglês](/pt/blog/oracoes-condicionais-em-ingles-if-clauses/). Explore também o nosso banco de termos em [/tu-vung/](/en/vocabulary/).
 
 Adotando de 5 a 10 frases novas por semana, você logo sentirá mais segurança para conversar com nativos e desfrutar plenamente do aprendizado da língua.

@@ -65,7 +65,7 @@ for (const l of fs.readdirSync(DIST).filter(d => /^[a-z]{2}$/.test(d) && fs.exis
   for (const m of h.matchAll(/(?:href|data-href|action)="([^"#]*)/g)) check(f.replace(DIST + '/', ''), m[1].replace(/&amp;/g, '&'));
 }
 const first = l => fs.readdirSync(path.join(DIST, l, 'blog'), { withFileTypes: true }).find(e => e.isDirectory() && fs.existsSync(path.join(DIST, l, 'blog', e.name, 'index.html')) && !/^(chu-de|the|category|topic|tag|page|trang|kategorie|tema|categorie)/.test(e.name));
-const pages = [['/', 'index.html'], ['/vi/blog/', 'vi/blog/index.html'], ['/en/blog/', 'en/blog/index.html'], ['/404.html', '404.html']];
+const pages = [['/', 'index.html'], ['/vi/', 'vi/index.html'], ['/vi/blog/', 'vi/blog/index.html'], ['/en/blog/', 'en/blog/index.html'], ['/404.html', '404.html']];
 for (const l of ['vi', 'en']) { const e = first(l); if (e) pages.push([`/${l}/blog/${e.name}/`, `${l}/blog/${e.name}/index.html`]); }
 let nJs = 0;
 for (const [url, file] of pages) {

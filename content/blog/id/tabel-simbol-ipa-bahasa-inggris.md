@@ -33,6 +33,7 @@ quiz: [
     explain: "Bunyi /θ/ (voiceless dental fricative) mewajibkan ujung lidah berada di antara gigi, bukan diganti dengan bunyi 's', 't', atau 'f'."
   }
 ]
+publishAt: 2026-11-19T12:35:00+07:00
 ---
 Pernahkah Anda merasa bingung mengapa tulisan kata dalam bahasa Inggris sering kali sangat berbeda dengan cara membacanya? Kata-kata seperti *through*, *thought*, *though*, dan *tough* memiliki ejaan huruf *-ough* yang sama, tetapi masing-masing dilafalkan dengan bunyi vokal yang sama sekali berbeda.
 
@@ -45,6 +46,8 @@ Dalam panduan praktis ini, Anda akan mempelajari cara membaca 44 simbol IPA, men
 ## Mengapa Penutur Bahasa Indonesia Wajib Menguasai IPA?
 
 Bahasa Indonesia memiliki korespondensi huruf-ke-bunyi yang sangat teratur: huruf 'a' hampir selalu berbunyi [a]. Namun dalam bahasa Inggris, satu huruf bisa menghasilkan belasan variasi bunyi tergantung konteks suku katanya.
+
+Artikel terkait: [panduan latihan pelafalan bahasa Inggris mandiri](/id/blog/cara-latihan-pelafalan-bahasa-inggris/).
 
 Bagi pembelajar asal Indonesia, menguasai IPA mengatasi empat kesalahan umum:
 

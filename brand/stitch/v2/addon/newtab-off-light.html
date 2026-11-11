@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — New Tab (Calm Mode)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            'cream-bg': '#FFF7EA',
+            'card-bg': '#FFFFFF',
+            'card-border': '#EADEC8',
+            'card-ledge': '#D8CFBC',
+            'teal-brand': '#2BA39A',
+            'teal-deep': '#0F3D3E',
+            'teal-dark': '#1F7A75',
+            'coral-accent': '#F2553B',
+            'amber-accent': '#FFB054',
+            'text-dark': '#0F3D3E',
+            'text-muted': '#2C5254',
+            'text-faint': '#2A5153',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    /* Subtle decorative background paper grain / soft air vibe */
+    .calm-pattern {
+      background-image: 
+        radial-gradient(#E8DBC3 1.2px, transparent 1.2px), 
+        radial-gradient(ellipse at 50% 20%, rgba(255, 255, 255, 0.7) 0%, transparent 60%);
+      background-size: 32px 32px, 100% 100%;
+      background-position: 0 0, center center;
+    }
+
+    /* Tactile 3D Button - Secondary Ledge */
+    .tactile-button {
+      position: relative;
+      transition: all 0.12s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 4px 0 #D8CFBC;
+    }
+    .tactile-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 0 #D8CFBC;
+    }
+    .tactile-button:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #D8CFBC;
+    }
+
+    /* Tactile Search Bar Box */
+    .tactile-search-card {
+      box-shadow: 0 6px 0 #2BA39A, 0 16px 32px rgba(15, 61, 62, 0.06);
+      transition: all 0.18s ease;
+    }
+    .tactile-search-card:focus-within {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #1B7A72, 0 20px 40px rgba(43, 163, 154, 0.16);
+      border-color: #1F7A75;
+    }
+
+    /* Tactile Quiet Restore Button */
+    .tactile-quiet-btn {
+      box-shadow: 0 4px 0 #D8CFBC;
+      transition: all 0.12s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .tactile-quiet-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 0 #CFC4B0;
+      border-color: #2BA39A;
+      color: #0D4A45;
+    }
+    .tactile-quiet-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #D8CFBC;
+    }
+
+    /* Small Corner Stat / Setting Chips */
+    .tactile-chip {
+      box-shadow: 0 3px 0 #D8CFBC;
+      transition: all 0.12s ease;
+    }
+    .tactile-chip:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 0 #CFC4B0;
+    }
+    .tactile-chip:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #D8CFBC;
+    }
+  </style>
+</head>
+<body class="calm-pattern relative selection:bg-teal-brand/20 selection:text-teal-deep">
+<!-- Top Discreet Chrome Bar -->
+<header class="w-full max-w-6xl mx-auto px-6 py-6 flex items-center justify-between z-10">
+<!-- Left: Soft Status Indicator -->
+<div class="flex items-center gap-2">
+<div class="tactile-chip bg-white border-2 border-card-border px-3.5 py-1.5 rounded-full flex items-center gap-2 text-xs font-bold">
+<span class="w-2.5 h-2.5 rounded-full bg-[#D97706] ring-2 ring-[#FDE68A]"></span>
+<span class="tracking-wide uppercase text-[11px] font-extrabold text-[#1F3F40]">Calm mode</span>
+</div>
+</div>
+<!-- Right: Minimalist Controls -->
+<div class="flex items-center gap-3">
+<!-- Quick Streak Flame Pill (Lexkite Kit signature token) -->
+<div class="tactile-chip bg-white border-2 border-card-border px-3 py-1.5 rounded-2xl flex items-center gap-1.5 text-xs font-extrabold text-[#143536]" title="Current Study Streak">
+<svg class="w-4 h-4 text-[#E04D14]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C9.5 6 6 8.5 6 13a6 6 0 0 0 12 0c0-2.5-1.5-5-2.5-6.5C14.5 9 13.5 10 12 11c0-2.5 1.5-6.5 0-9z"></path>
+</svg>
+<span class="text-[#1B0B04] font-black text-xs">14</span>
+</div>
+<!-- Settings / Options trigger -->
+<button aria-label="Settings" class="tactile-chip bg-white border-2 border-card-border w-9 h-9 rounded-2xl flex items-center justify-center text-[#1B3F40] hover:text-[#0F3D3E]">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.3" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="3"></circle>
+<path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+</svg>
+</button>
+</div>
+</header>
+<!-- Central Sanctuary: Peaceful, Spacious & Balanced -->
+<main class="w-full max-w-2xl mx-auto px-6 flex flex-col items-center justify-center my-auto py-12 z-10">
+<!-- 1. Small Tactile Kite Emblem (Gentle Mascot Anchor) -->
+<div class="mb-8 flex flex-col items-center group cursor-pointer" onclick="document.getElementById('searchInput').focus()">
+<div class="relative w-16 h-16 mb-3 transition-transform duration-300 ease-out group-hover:scale-105 group-hover:-translate-y-1">
+<!-- Floating Origami Kite Mark with Tact depth -->
+<svg class="w-16 h-16 drop-shadow-[0_8px_16px_rgba(43,163,154,0.18)]" fill="none" viewbox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+<!-- Kite Upper Left Facet -->
+<path d="M40 8L16 40L40 44V8Z" fill="#2BA39A"></path>
+<!-- Kite Upper Right Facet -->
+<path d="M40 8L64 40L40 44V8Z" fill="#1F7A75"></path>
+<!-- Kite Lower Left Facet -->
+<path d="M40 44L16 40L40 72V44Z" fill="#FFB054"></path>
+<!-- Kite Lower Right Facet -->
+<path d="M40 44L64 40L40 72V44Z" fill="#E04D14"></path>
+<!-- Gloss highlight curve -->
+<path d="M40 12L22 40L40 43V12Z" fill="white" fill-opacity="0.25"></path>
+<!-- Subtle Center Star spark -->
+<circle cx="40" cy="40" fill="#FFF7EA" r="3"></circle>
+</svg>
+<!-- Tiny Tactile Shadow -->
+<div class="w-10 h-2 bg-[#D8CFBC] rounded-full mx-auto mt-1 blur-[1px]"></div>
+</div>
+<!-- Clean Wordmark with High Contrast -->
+<span class="text-2xl font-extrabold tracking-tight text-[#0F3D3E] flex items-center gap-1.5">
+        Lexkite
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#E04D14]"></span>
+</span>
+</div>
+<!-- 2. Centered Search Field ('Look up any word') -->
+<div class="w-full">
+<div class="tactile-search-card bg-card-bg border-2 border-teal-brand/70 rounded-3xl p-2.5 sm:p-3 flex items-center gap-3">
+<!-- Search Glass Icon -->
+<div class="w-10 h-10 rounded-2xl bg-[#E6F4F1] flex items-center justify-center text-[#0F3D3E] shrink-0">
+<svg class="w-5 h-5 text-[#134E4A]" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<circle cx="11" cy="11" r="7"></circle>
+<path d="m21 21-4.35-4.35" stroke-linecap="round"></path>
+</svg>
+</div>
+<!-- Text Input -->
+<input autofocus="" class="w-full bg-transparent text-lg sm:text-xl font-bold text-[#0F3D3E] placeholder:text-[#4A7274] placeholder:font-medium outline-none py-1" id="searchInput" placeholder="Look up any word" type="text"/>
+<!-- Clear / Keyboard shortcut helper chip -->
+<div class="shrink-0 flex items-center gap-2 pr-2">
+<span class="hidden sm:inline-flex items-center justify-center px-3 py-1 text-xs font-black text-[#134E4A] bg-[#E6F4F1] border-2 border-[#134E4A] rounded-xl shadow-sm tracking-tight">
+            ↵ Enter
+          </span>
+</div>
+</div>
+<!-- Quick subtle hint below search (Quiet and high-contrast readable) -->
+<div class="flex items-center justify-center gap-2 mt-4 text-xs font-semibold text-[#2C5254]">
+<span>Instant phonetic transcription &amp; Cambridge corpus audio</span>
+</div>
+</div>
+<!-- 3. Quiet Tactile 'Turn learning card back on' Button -->
+<div class="mt-14 sm:mt-16 flex flex-col items-center">
+<button class="tactile-quiet-btn bg-white hover:bg-[#FDFBF7] border-2 border-card-border px-5 py-3 rounded-2xl flex items-center gap-2.5 text-sm font-extrabold text-[#0D4A45] group">
+<!-- Playful Mini Card Spark Icon -->
+<div class="w-5 h-5 rounded-lg bg-[#E6F4F1] border border-[#2BA39A]/40 flex items-center justify-center text-[#0D4A45] group-hover:scale-110 transition-transform">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
+<rect height="18" rx="4" width="18" x="3" y="3"></rect>
+<path d="M12 8v8"></path>
+<path d="M8 12h8"></path>
+</svg>
+</div>
+<span>Turn learning card back on</span>
+</button>
+<span class="mt-2.5 text-[11px] font-extrabold tracking-wider text-[#2B4E50] uppercase">
+        Card paused for focus
+      </span>
+</div>
+</main>
+<!-- Bottom Discreet Footer -->
+<footer class="w-full max-w-6xl mx-auto px-6 py-6 flex items-center justify-between text-xs font-semibold text-[#2A5153] z-10">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#1F7A75]"></span>
+<span class="text-[#2A5153]">Lexkite Add-on</span>
+</div>
+<div class="flex items-center gap-5">
+<a class="text-[#2A5153] hover:text-[#0F3D3E] transition-colors" href="#">Daily deck</a>
+<a class="text-[#2A5153] hover:text-[#0F3D3E] transition-colors" href="#">IELTS Collocations</a>
+<a class="text-[#2A5153] hover:text-[#0F3D3E] transition-colors" href="#">Shortcuts</a>
+</div>
+</footer>
+</body></html>

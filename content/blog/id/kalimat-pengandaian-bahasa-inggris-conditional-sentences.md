@@ -33,6 +33,7 @@ quiz: [
     explain: "Dalam bahasa Inggris formal, 'were' digunakan untuk semua subjek pada Second Conditional: 'If I were you'."
   }
 ]
+publishAt: 2026-11-28T09:11:00+07:00
 ---
 
 Menguasai kalimat pengandaian (*Conditional Sentences* atau *If Clauses*) adalah salah satu tonggak terpenting dalam perjalanan menguasai tata bahasa Inggris tingkat lanjut. Baik saat mendiskusikan fenomena ilmiah, menyusun rencana masa depan yang realistis, maupun mengevaluasi keputusan historis di masa lampau, pemahaman yang mendalam tentang **kalimat pengandaian bahasa inggris conditional sentences** akan mendongkrak skor penulisan esai formal Anda di tes IELTS, TOEFL, maupun korespondensi bisnis.
@@ -141,6 +142,6 @@ Dalam tes IELTS Writing Task 2 yang berdurasi 40 menit, menggunakan kalimat peng
 | **Tipe 3** | Past Perfect (had + V3)| would have + Verb 3 | Memakai *"would have had"* pada klausa *if* |
 | **Mixed** | Past Perfect | would + Verb 1 | Tertukar antara akibat lampau dan kini |
 
-Perkuat pemahaman struktur tulisan Anda dengan membaca panduan [kalimat kompleks di IELTS Writing Task 2](/id/blog/kalimat-kompleks-ielts-writing-task-2/) dan ulasan [kata penghubung bahasa inggris linking words](/id/blog/kata-penghubung-bahasa-inggris-linking-words/). Pelajari juga [perbedaan present perfect dan simple past](/id/blog/perbedaan-present-perfect-dan-simple-past/) serta teknik [cara paraphrase ielts writing](/id/blog/cara-paraphrase-ielts-writing-reading/), sembari memperkaya perbendaharaan kata melalui bank kosakata [/tu-vung/](/tu-vung/).
+Perkuat pemahaman struktur tulisan Anda dengan membaca panduan [kalimat kompleks di IELTS Writing Task 2](/id/blog/kalimat-kompleks-ielts-writing-task-2/) dan ulasan [kata penghubung bahasa inggris linking words](/id/blog/kata-penghubung-bahasa-inggris-linking-words/). Pelajari juga [perbedaan present perfect dan simple past](/id/blog/perbedaan-present-perfect-dan-simple-past/) serta teknik [cara paraphrase ielts writing](/id/blog/cara-paraphrase-ielts-writing-reading/), sembari memperkaya perbendaharaan kata melalui bank kosakata [/tu-vung/](/en/vocabulary/).
 
 Dengan memahami rumus dari nol, melatih kalimat inversi secara teratur, dan menerapkan variasi konjungsi secara disiplin dalam setiap latihan menulis, esai dan kemampuan berbicara bahasa Inggris Anda akan terdengar jauh lebih alami, matang, dan meyakinkan di mata penguji resmi.

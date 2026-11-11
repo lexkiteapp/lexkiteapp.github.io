@@ -229,12 +229,17 @@
   const serial = fn => (cardLock = cardLock.then(fn, fn));
   // Khóa duy nhất cho mỗi từ/cụm: chữ thường, gộp khoảng trắng, dấu nháy thẳng → không trùng lặp
   const keyOf = w => String(w || '').toLowerCase().replace(/[’‘`]/g, "'").replace(/\s+/g, ' ').trim();
+  // Ngôn ngữ đích (web/js/target.js, docs/specs/target-language.md): thẻ tiếng Anh giữ khóa cũ (không di chuyển dữ liệu);
+  // thẻ ngôn ngữ khác có trường tl và khóa '<tl>:' + từ → cùng một chữ ở 2 ngôn ngữ (vd. "a", "come") không đè nhau.
+  const curTl = () => (g.Target && g.Target.cur ? g.Target.cur() : 'en');
+  const tlKey = (w, tl) => (tl && tl !== 'en' ? tl + ':' : '') + keyOf(w);
+  const cardKey = c => tlKey(c && c.word, c && c.tl);
   const activityOf = c => Math.max((c.srs && c.srs.last) || 0, c.mod || 0, c.added || 0);
   function normalize(map) {
     map = Object.assign(Object.create(null), map || {}); // không kế thừa prototype: thẻ "constructor", "toString"… không bị nhầm
     for (const [k, c] of Object.entries(map || {})) {
       if (!c || !c.word) { delete map[k]; continue; }
-      const nk = keyOf(c.word);
+      const nk = cardKey(c);
       if (nk !== k) {
         // gộp bản trùng: giữ bản hoạt động gần nhất, hợp nhất ngữ cảnh
         const other = map[nk];
@@ -282,6 +287,7 @@
         note: '',
         added: Date.now(),
         srs: SRS.newState(),
+        ...(entry.tl && entry.tl !== 'en' ? { tl: entry.tl } : {}), // thẻ tiếng Anh: không thêm trường (giữ nguyên dữ liệu cũ)
         ...extra,
       };
     },
@@ -290,7 +296,7 @@
     add(entry, context) { return serial(() => Cards._add(entry, context)); },
     async _add(entry, context) {
       const map = await Cards.all();
-      const key = keyOf(entry.word);
+      const key = tlKey(entry.word, entry.tl);
       let card = map[key];
       if (!card) card = Cards.make(entry);
       else {
@@ -319,13 +325,14 @@
     /** Câu trên thẻ: câu của người học (ctx/src) → rơi về ví dụ thư viện (own=false) → null */
     ctxOf(c) { const x = c.ctx ? { text: c.ctx, src: c.src } : (c.contexts || [])[0]; return x && x.text ? { text: x.text, src: x.src || '', own: true } : c.ex ? { text: c.ex, src: '', own: false } : null; },
 
-    remove(word) {
+    // tl bỏ trống = ngôn ngữ đích đang học (Sổ từ/Ôn chỉ hiện thẻ của ngôn ngữ đó)
+    remove(word, tl = curTl()) {
       return serial(async () => {
-        const map = await Cards.all();
-        delete map[keyOf(word)];
+        const map = await Cards.all(), k = tlKey(word, tl);
+        delete map[k];
         await Store.set('cards', map);
         // dấu xóa để đồng bộ không khôi phục lại thẻ đã xóa
-        const del = await Store.get('deleted', {}); del[keyOf(word)] = Date.now(); const cut = Date.now() - 90 * DAY; for (const k in del) if (del[k] < cut) delete del[k]; await Store.set('deleted', del);
+        const del = await Store.get('deleted', {}); del[k] = Date.now(); const cut = Date.now() - 90 * DAY; for (const k in del) if (del[k] < cut) delete del[k]; await Store.set('deleted', del);
       });
     },
 
@@ -333,15 +340,15 @@
       return serial(async () => {
         const map = await Cards.all();
         card.mod = Date.now();
-        map[keyOf(card.word)] = card;
+        map[cardKey(card)] = card;
         await Store.set('cards', map);
       });
     },
     // Sửa một phần thẻ theo dữ liệu mới nhất (tránh ghi đè bằng bản cũ)
-    patch(word, fn) {
+    patch(word, fn, tl = curTl()) {
       return serial(async () => {
         const map = await Cards.all();
-        const c = map[keyOf(word)];
+        const c = map[tlKey(word, tl)];
         if (!c) return null;
         fn(c); c.mod = Date.now();
         await Store.set('cards', map);
@@ -349,6 +356,17 @@
       });
     },
 
+
+    /** Thẻ của MỘT ngôn ngữ đích, khóa = keyOf(từ) như cũ (App.state.cards, hàng ôn, Sổ từ). Thẻ không có tl = 'en'.
+     *  'en' và kho không có thẻ ngôn ngữ khác → trả CHÍNH map (hành vi y hệt trước). */
+    view(map, tl = curTl()) {
+      const vals = Object.values(map || {});
+      if (tl === 'en' && !vals.some(c => c && c.tl && c.tl !== 'en')) return map;
+      const out = Object.create(null);
+      for (const c of vals) if (c && (c.tl || 'en') === tl) out[keyOf(c.word)] = c;
+      return out;
+    },
+    async mine(tl) { return Cards.view(await Cards.all(), tl); },
 
     // Định nghĩa duy nhất của thẻ đến hạn hôm nay (practicable: chỉ thẻ có nghĩa như nguồn luyện 'due')
     dueList(map, opts) {
@@ -362,6 +380,14 @@
       const newAvail = list.filter(c => c.srs.reps === 0 && !c.srs.last).length;
       const newCount = Math.min(newAvail, Math.max(0, (settings || DEFAULT_SETTINGS).dailyNew - introduced));
       return { due, newCount, total: due + newCount };
+    },
+    // Thẻ mới đã xem mà chưa chấm (thoát giữa phiên): lần sau xuống cuối hàng, gặp từ chưa xem trước. Lưu theo máy, tối đa 400 từ.
+    seenNew() { try { return JSON.parse(localStorage.getItem('lk.newSeen') || '{}') || {}; } catch (e) { return {}; } },
+    markSeen(word) { try { const m = Cards.seenNew(); m[String(word).toLowerCase()] = Date.now(); const k = Object.keys(m); if (k.length > 400) k.sort((a, b) => m[a] - m[b]).slice(0, k.length - 400).forEach(x => delete m[x]); localStorage.setItem('lk.newSeen', JSON.stringify(m)); } catch (e) { /* bỏ qua */ } },
+    // Thẻ mới vào phiên ôn hôm nay (chưa xem trước, rồi cũ nhất trước, tối đa newCount) – dùng chung cho phiên ôn (study.js) và số liệu màn Ôn (ux1.js)
+    newToday(map, settings, stats) {
+      const n = Cards.dueCount(map, settings, stats).newCount, seen = Cards.seenNew(), at = c => seen[String(c.word).toLowerCase()] || 0;
+      return Object.values(map).filter(c => c.srs.reps === 0 && !c.srs.last).sort((a, b) => at(a) - at(b) || a.added - b.added).slice(0, n);
     },
   };
 
@@ -419,5 +445,5 @@
     freezeInfo(g) { g = g || {}; return { left: +g.freezes || 0, max: 2, used: Object.keys(g.frozen || {}).sort().slice(-7), lastSave: g.freezeSaved || '' }; },
   };
 
-  g.Core = { keyOf, Golden, Store, SRS, Cards, Stats, DEFAULT_SETTINGS, todayKey, startOfToday, endOfToday, DAY, ensurePersist };
+  g.Core = { keyOf, tlKey, cardKey, Golden, Store, SRS, Cards, Stats, DEFAULT_SETTINGS, todayKey, startOfToday, endOfToday, DAY, ensurePersist };
 })(typeof self !== 'undefined' ? self : this);

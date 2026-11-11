@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Grammar Hint Sheet</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0e524d',
+              'teal-dark': '#07322e',
+              'teal-soft': '#e1f4f1',
+              coral: '#f97316',
+              'coral-ledge': '#9a3412',
+            },
+            cream: {
+              bg: '#fcf8f5',
+              surface: '#ffffff',
+              card: '#fff7f2',
+              muted: '#f5ebe3',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-rounded.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Tactile button raised 3D ledge effect */
+    .tactile-btn-primary {
+      background-color: #ea580c;
+      color: #1a0800;
+      box-shadow: 0 4px 0 0 #9a3412;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #9a3412;
+    }
+    .tactile-btn-secondary {
+      background-color: #ffffff;
+      color: #0e524d;
+      box-shadow: 0 4px 0 0 #d9c5b6;
+      border: 2px solid #ecd6c7;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #d9c5b6;
+    }
+  </style>
+</head>
+<body class="bg-stone-900 flex justify-center items-center min-h-screen p-0 m-0 font-sans antialiased text-stone-900 selection:bg-teal-200">
+<!-- Mobile phone viewport container: 390px native width -->
+<div class="relative w-full max-w-[390px] h-[844px] max-h-[844px] bg-[#091518] overflow-hidden flex flex-col justify-between shadow-2xl">
+<!-- BACKGROUND: Dimmed & softly blurred lesson drill under sheet -->
+<div class="absolute inset-0 px-4 pt-3 pb-6 flex flex-col z-0 select-none pointer-events-none opacity-40 filter blur-[1.5px] bg-[#091518]">
+<div class="flex items-center gap-3 w-full mb-3">
+<div class="w-10 h-10 rounded-full bg-[#162427] border border-[#253539] flex items-center justify-center text-[#c4d7d5]">
+<span class="material-symbols-rounded text-xl">close</span>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<div class="flex justify-between items-center text-xs font-semibold text-[#a9bdbb]">
+<span>Drill 6 of 10</span>
+<span>60%</span>
+</div>
+<div class="w-full bg-[#162427] h-2 rounded-full overflow-hidden">
+<div class="bg-[#2ba39a] h-2 w-[60%] rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-[#132d2f] text-[#6bd8ce] border border-[#1d4f4e]">
+          IELTS Band 7.0 Grammar
+        </span>
+</div>
+<div class="text-sm font-bold text-[#c4d7d5] mb-3">
+        Fill in the blank:
+      </div>
+<div class="bg-[#162427] rounded-2xl p-4 border border-[#253539] shadow-sm mb-4">
+<div class="text-base font-semibold text-[#f0fdfa] flex items-center flex-wrap gap-2">
+<span>She has lived here</span>
+<span class="inline-block px-3 py-1 bg-[#102426] border border-dashed border-[#2ba39a] rounded-lg text-[#6bd8ce] font-bold">______</span>
+<span>2019.</span>
+</div>
+</div>
+<div class="space-y-2.5">
+<div class="w-full p-3.5 rounded-2xl bg-[#162427] border border-[#253539] flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-[#2ba39a] text-[#00201e] font-bold text-xs flex items-center justify-center">A</div>
+<span class="text-sm font-bold text-[#f0fdfa]">since</span>
+</div>
+<div class="w-full p-3.5 rounded-2xl bg-[#162427] border border-[#253539] flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-[#203135] text-[#c4d7d5] font-bold text-xs flex items-center justify-center">B</div>
+<span class="text-sm font-bold text-[#f0fdfa]">for</span>
+</div>
+<div class="w-full p-3.5 rounded-2xl bg-[#162427] border border-[#253539] flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-[#203135] text-[#c4d7d5] font-bold text-xs flex items-center justify-center">C</div>
+<span class="text-sm font-bold text-[#f0fdfa]">during</span>
+</div>
+</div>
+</div>
+<!-- Soft Scrim Veil Overlay -->
+<div class="absolute inset-0 bg-[#091518]/85 z-10"></div>
+<!-- Top App Bar (Interactive, undimmed above veil to allow clean dismissal) -->
+<header class="relative z-20 px-4 pt-3 pb-2 flex items-center gap-3 w-full"><button aria-label="Close Hint" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-[#162427] border border-[#253539] shadow-sm flex items-center justify-center text-[#f0fdfa] hover:bg-[#1a2c30] active:scale-95 transition-transform cursor-pointer" type="button">
+<span class="material-symbols-rounded text-2xl font-bold">close</span>
+</button>
+<div class="flex-1 flex flex-col justify-center">
+<div class="flex justify-between items-center text-[11px] font-bold text-[#f0fdfa] drop-shadow-sm mb-1 px-0.5">
+<span class="uppercase tracking-wider">Drill 6 of 10</span>
+<span class="text-[#6bd8ce]">60%</span>
+</div>
+<div class="w-full bg-[#051013] backdrop-blur-sm h-2.5 rounded-full overflow-hidden p-0.5 border border-[#253539]">
+<div class="bg-[#2ba39a] h-1.5 w-[60%] rounded-full shadow-sm"></div>
+</div>
+</div></header>
+<!-- HINT BOTTOM SHEET (Rises from the bottom) -->
+<section class="relative z-30 w-full bg-[#121d20] rounded-t-[32px] border-t-2 border-[#253539] shadow-[0_-8px_30px_rgba(0,0,0,0.6)] flex flex-col max-h-[750px] overflow-hidden">
+<!-- Drag handle bar -->
+<div class="w-full pt-3 pb-1 flex justify-center items-center">
+<div class="w-12 h-1.5 rounded-full bg-[#253539]"></div>
+</div>
+<!-- Sheet Header row -->
+<div class="px-5 pt-1 pb-3 flex items-center justify-between border-b border-[#202c2f]">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-[#2d2200] border border-[#5b4300] flex items-center justify-center text-[#f4bf40]">
+<span class="material-symbols-rounded filled text-lg">lightbulb</span>
+</div>
+<h2 class="text-lg font-extrabold text-[#f0fdfa] tracking-tight">Hint</h2>
+</div>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-[#162427] text-[#a9bdbb] border border-[#253539]">
+          Rule Reference
+        </span>
+</div>
+<!-- Scrollable content area inside sheet -->
+<div class="px-5 py-3.5 space-y-3.5 overflow-y-auto flex-1 max-h-[500px]"><!-- Teacher slot card with Ama prompt in dark mode -->
+<div class="bg-[#162427] rounded-2xl p-3 border-2 border-dashed border-[#2ba39a]/60 flex items-start gap-3">
+<!-- Empty rounded dashed placeholder strictly labelled teacher-slot -->
+<div class="min-w-[56px] w-14 h-14 rounded-xl border-2 border-dashed border-[#2ba39a] bg-[#102426] flex flex-col items-center justify-center text-center p-1 flex-shrink-0" title="teacher-slot">
+<span class="material-symbols-rounded text-[#6bd8ce] text-xl leading-none">school</span>
+<span class="text-[9px] font-extrabold text-[#6bd8ce] tracking-tighter leading-tight mt-0.5">teacher-slot</span>
+</div>
+<!-- Tutor dialog / speech block -->
+<div class="flex-1">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="text-xs font-extrabold text-[#f0fdfa]">Ama</span>
+<span class="text-[11px] font-bold text-[#6bd8ce] bg-[#10292b] border border-[#1f494c] px-1.5 py-0.2 rounded-md">Tutor</span>
+</div>
+<p class="text-sm font-bold text-[#f0fdfa] leading-snug">
+              “Think: a specific point or a length?”
+            </p>
+</div>
+</div>
+<!-- Main Explanation Card: since vs. for -->
+<div class="bg-[#162427] rounded-2xl p-3.5 border-2 border-[#253539] shadow-[0_3px_0_0_#0d1719] space-y-3">
+<!-- Group 1: 'since' breakdown -->
+<div class="p-2.5 rounded-xl bg-[#102426] border border-[#1b4345]">
+<div class="flex items-start gap-2 mb-2">
+<span class="px-2 py-0.5 rounded-md bg-[#2ba39a] text-[#00201e] text-xs font-extrabold tracking-wide uppercase">since</span>
+<span class="text-xs font-bold text-[#f0fdfa] flex-1 leading-snug">
+                Refers to a specific starting point in time:
+              </span>
+</div>
+<!-- Example chips -->
+<div class="flex flex-wrap gap-1.5 pl-1">
+<span class="inline-flex items-center px-2 py-1 rounded-lg bg-[#192f33] border border-[#2b5458] text-xs font-bold text-[#88f5ea] shadow-sm">
+                since 2019
+              </span>
+<span class="inline-flex items-center px-2 py-1 rounded-lg bg-[#192f33] border border-[#2b5458] text-xs font-bold text-[#88f5ea] shadow-sm">
+                since Monday
+              </span>
+<span class="inline-flex items-center px-2 py-1 rounded-lg bg-[#192f33] border border-[#2b5458] text-xs font-bold text-[#88f5ea] shadow-sm">
+                since 8:00 AM
+              </span>
+</div>
+</div>
+<!-- Group 2: 'for' breakdown -->
+<div class="p-2.5 rounded-xl bg-[#2a1c0d] border border-[#523315]">
+<div class="flex items-start gap-2 mb-2">
+<span class="px-2 py-0.5 rounded-md bg-[#f97316] text-[#1a0800] text-xs font-extrabold tracking-wide uppercase">for</span>
+<span class="text-xs font-bold text-[#f0fdfa] flex-1 leading-snug">
+                Refers to a total length or duration of time:
+              </span>
+</div>
+<!-- Example chips -->
+<div class="flex flex-wrap gap-1.5 pl-1">
+<span class="inline-flex items-center px-2 py-1 rounded-lg bg-[#372312] border border-[#6b421d] text-xs font-bold text-[#fed7aa] shadow-sm">
+                for five years
+              </span>
+<span class="inline-flex items-center px-2 py-1 rounded-lg bg-[#372312] border border-[#6b421d] text-xs font-bold text-[#fed7aa] shadow-sm">
+                for two hours
+              </span>
+<span class="inline-flex items-center px-2 py-1 rounded-lg bg-[#372312] border border-[#6b421d] text-xs font-bold text-[#fed7aa] shadow-sm">
+                for a long time
+              </span>
+</div>
+</div>
+<!-- Target Application sentence & conclusion note -->
+<div class="p-2.5 rounded-xl bg-[#101b1e] border border-[#253539] flex items-start gap-2">
+<span class="material-symbols-rounded filled text-[#2ba39a] text-base flex-shrink-0 mt-0.5">check_circle</span>
+<div class="text-xs text-[#c4d7d5] leading-relaxed">
+<span class="font-extrabold text-[#6bd8ce]">Application:</span>
+<span>Because <strong class="text-[#f0fdfa] font-bold underline decoration-[#2ba39a] decoration-2">2019 is a specific year</strong> (a fixed starting point, not a quantity of time), <strong class="text-[#6bd8ce] font-extrabold">since</strong> is the correct answer.</span>
+</div>
+</div>
+</div></div>
+<!-- Action Buttons Footer inside Sheet -->
+<div class="px-5 pt-2 pb-5 bg-[#121d20] border-t border-[#202c2f] flex flex-col gap-2.5">
+<!-- Primary Action: "Got it" with tactile raised 3D ledge -->
+<button class="tactile-btn-primary w-full min-h-[48px] py-3 px-4 rounded-2xl font-extrabold text-base flex items-center justify-center gap-2 cursor-pointer" type="button">
+<span class="font-extrabold tracking-wide">Got it</span>
+<span class="material-symbols-rounded text-lg font-bold">arrow_forward</span>
+</button>
+<!-- Secondary Action: "Show answer" with tactile 3D border ledge -->
+<button class="tactile-btn-secondary w-full min-h-[44px] py-2.5 px-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-1.5 cursor-pointer" type="button">
+<span class="material-symbols-rounded text-lg">visibility</span>
+<span>Show answer</span>
+</button>
+</div>
+</section>
+</div>
+</body>
+</html>

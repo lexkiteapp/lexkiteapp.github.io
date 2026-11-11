@@ -3,13 +3,14 @@
 // reading.js / listening.js gọi NextStep.render sau khi chấm; gói 'nxs' tải lười (không vào khung app); i18n nhóm nextstep.
 // Chạy: node scripts/test/next-step.mjs
 import fs from 'node:fs';
+import { dataFiles } from '../lib/scan-roots.mjs';
 import vm from 'node:vm';
 const J = f => fs.readFileSync('web/js/' + f, 'utf8');
 let n = 0, fails = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const g = { UI: { icon: (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`, addIcons: () => {}, glyph: e => e, esc: s => String(s).replace(/[&<>"]/g, c => '&#' + c.charCodeAt(0) + ';') }, t: (k, v = {}) => k.replace(/\{(\w+)\}/g, (_, x) => v[x]) };
 g.self = g; g.window = g; vm.createContext(g);
-for (const f of ['readings.js', 'readings-more.js', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(k => `listen/test${k}.js`), 'next-step.js']) vm.runInContext(J(f), g, { filename: f });
-for (const f of fs.readdirSync('web/js/toeic').filter(f => /^listening\d+\.js$/.test(f))) vm.runInContext(J('toeic/' + f), g, { filename: f });
+for (const f of ['web/js/readings.js', 'web/cpack/readings/more.js', ...dataFiles('listen', /^test\d+\.js$/), 'web/js/next-step.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), g, { filename: f });
+for (const f of fs.readdirSync('web/js/toeic').filter(f => /^listening\d+\.js$/.test(f)).sort()) vm.runInContext(J('toeic/' + f), g, { filename: f });
 const NS = g.NextStep, R = g.READINGS, L = g.LISTENING, T = (g.TOEIC || {}).listening || [];
 ok(NS && R.length >= 30 && L.length >= 40, `nạp next-step.js + dữ liệu (${R.length} bài đọc, ${L.length} phần nghe IELTS, ${T.length} TOEIC)`);
 const rid = new Set(R.map(x => x.id)), lid = new Set([...L, ...T].map(x => x.id));
@@ -27,5 +28,5 @@ const rd = J('reading.js'), li = J('listening.js'), app = J('app.js');
 ok(/App\.lazy\('nxs'\)\.then\(\(\) => NextStep\.render\(\$\('#qResult \.feedback'\), 'read'/.test(rd), 'reading.js gọi NextStep sau khi chấm');
 ok(/App\.lazy\('nxs'\)\.then\(\(\) => NextStep\.render\(\$\('#lRes \.feedback'\), 'listen'/.test(li), 'listening.js gọi NextStep sau khi chấm');
 ok(/nxs: \['js\/i18n\/en\/nextstep\.js', 'js\/next-step\.js'\]/.test(app) && !/next-step\.js/.test(fs.readFileSync('web/sw.js', 'utf8').match(/const SHELL = \[([\s\S]*?)\];/)[1]), "gói lười 'nxs' (không nằm trong khung app)");
-ok(/LAZY="[^"]*\bnextstep\b/.test(fs.readFileSync('scripts/build-i18n.sh', 'utf8')) && ['es', 'ja', 'ar', 'hi'].every(l => fs.existsSync(`web/js/i18n/${l}/nextstep.js`)), 'i18n: nhóm nextstep có file cho từng ngôn ngữ');
+ok(/LAZY="[^"]*\bnextstep\b/.test(fs.readFileSync('scripts/build-i18n.sh', 'utf8')) && ['es', 'ja', 'ar', 'hi'].every(l => fs.existsSync(`i18n/ui/${l}/nextstep.js`) && fs.existsSync(`web/js/i18n/${l}/nextstep.js`)), 'i18n: nhóm nextstep có file cho từng ngôn ngữ');
 console.log(fails ? `✗ next-step: ${fails}/${n} lỗi` : `✓ next-step: ${n} kiểm tra`); process.exit(fails ? 1 : 0);

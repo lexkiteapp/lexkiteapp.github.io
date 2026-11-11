@@ -1,3 +1,2 @@
-/* UI de – explain (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {"Cấu trúc":"Struktur","Xem giải thích chi tiết":"Ausführliche Erklärung","Vì sao lựa chọn của bạn sai":"Warum deine Wahl falsch ist","Bằng chứng trong bài":"Beleg im Text","Sắc thái nghĩa":"Bedeutungsnuance","Ví dụ thêm":"Weitere Beispiele","Cùng nhóm":"Gleiches Muster","Thêm vào ôn tập":"Zur Wiederholung","Báo lỗi giải thích":"Fehler in dieser Erklärung melden","Nghe ví dụ":"Beispiel anhören"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/de/explain.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.de=Object.assign(D.de||{},{_4gg9:"Struktur",_p76b:"Ausführliche Erklärung",_nktn:"Warum deine Wahl falsch ist",_oh3:"Beleg im Text","Sắc thái nghĩa":"Bedeutungsnuance",_ncyk:"Weitere Beispiele",_zw0g:"Gleiches Muster",_zwdi:"Zur Wiederholung",_euv7:"Fehler in dieser Erklärung melden",_95jp:"Beispiel anhören"});})(typeof self!=='undefined'?self:this);

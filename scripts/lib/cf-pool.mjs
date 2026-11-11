@@ -10,6 +10,13 @@ export function parsePool(raw) {
   return out;
 }
 
+/** giữ chỗ cho pilot ảnh (02/11): biến repo CF_POOL_HOLD = "<n>@<hết hạn ISO>" → n tài khoản CUỐI kho chỉ dành cho job CF_POOL_ROLE=pilot tới khi hết hạn.
+ *  Kho về 0 lúc 00:00 UTC và lexicon-expand (00:17, trần 600k, mọi tài khoản) + fill vét hết trong ~1 giờ → pilot 92 nghĩa (đuôi: 10 giám khảo + phần vẽ) không bao giờ đủ chỗ.
+ *  Hết hạn → tự trả lại (không cần ai xoá biến). Sai định dạng → 0 (không giữ gì). → số tài khoản đang giữ */
+export function poolHold(env = process.env, now = Date.now()) {
+  const m = String(env.CF_POOL_HOLD || '').trim().match(/^(\d{1,3})@(\d{4}-\d{2}-\d{2}T[\d:.]+Z)$/);
+  return m && Date.parse(m[2]) > now ? Math.min(+m[1], 60) : 0;
+}
 /** danh sách tài khoản dùng để vẽ (gộp token trùng tài khoản – token sau dự phòng khi token trước hỏng; không tài khoản chính) */
 export function poolAccounts(env = process.env) {
   const by = new Map();
@@ -18,6 +25,7 @@ export function poolAccounts(env = process.env) {
   [...by].slice(skip).forEach(([a, toks], i) => out.push({ id: 'pool' + (i + skip), acct: a, tok: toks[0], toks }));
   if (env.CF_ACCOUNT_2 && env.CF_AI_TOKEN_2 && env.VIMG_CF_USE_CF2 !== '0') out.push({ id: 'cf2', acct: env.CF_ACCOUNT_2, tok: env.CF_AI_TOKEN_2, toks: [env.CF_AI_TOKEN_2] });
   const main = String(env.CF_ACCOUNT_1 || '').toLowerCase(), seen = new Set();
-  return out.filter(x => x.acct.toLowerCase() !== main && !seen.has(x.acct) && seen.add(x.acct));
+  const all = out.filter(x => x.acct.toLowerCase() !== main && !seen.has(x.acct) && seen.add(x.acct)), hold = env.CF_POOL_ROLE === 'pilot' ? 0 : poolHold(env);
+  return hold ? all.slice(0, Math.max(0, all.length - hold)) : all;   // giữ chỗ pilot: việc khác (fill, lexicon-expand, giám khảo fill) không thấy n tài khoản cuối
 }
 

@@ -16,7 +16,7 @@
 '{n} đề': '{n} prompts',
 '{n} câu nhắc lại': '{n} sentences to repeat',
 '{n} câu hỏi phỏng vấn': '{n} interview questions',
-'{n} câu': '{n} questions',
+
 // ---- overview ----
 'Luyện thi TOEFL iBT': 'TOEFL iBT Prep',
 'Luyện 12 dạng bài của đề TOEFL iBT định dạng mới: Reading, Listening, Writing, Speaking. Đề tự biên soạn, có giải thích tiếng Việt cho từng câu.': 'Practise all 12 task types of the new TOEFL iBT: Reading, Listening, Writing and Speaking. Original practice content with an explanation for every question.',
@@ -25,13 +25,13 @@
 'Điểm mỗi kỹ năng và điểm tổng theo <b>thang band 1–6</b> (bước 0,5); điểm tổng là trung bình 4 kỹ năng, làm tròn tới 0,5 gần nhất.': 'Each skill and the overall score use a <b>1–6 band scale</b> (in 0.5 steps); the overall score is the average of the 4 skills, rounded to the nearest 0.5.',
 'Trong 2 năm đầu (tới tháng 1/2028), phiếu điểm ghi thêm điểm tương đương <b>thang 0–120</b>.': 'For the first 2 years (until January 2028), score reports also show a comparable score on the <b>0–120 scale</b>.',
 'Cấu trúc đề': 'Test structure',
-'Phần': 'Section',
-'Số câu': 'Questions',
-'Thời gian': 'Time',
+
+
+
 'khoảng {m} phút': 'about {m} min',
 'Số câu và thời gian là con số tham khảo do ETS công bố (tổng ~90 phút làm bài, nên dành khoảng 2 giờ cho cả buổi thi); vì Reading và Listening thích ứng nên có thể thay đổi.': 'Question counts and times are reference figures published by ETS (about 90 minutes of testing time in total; allow about 2 hours for the whole session). Because Reading and Listening are adaptive, they may vary.',
-'Đang cập nhật.': 'Coming soon.',
-'Luyện tập': 'Practice',
+
+
 'Về điểm số trong ứng dụng': 'About scores in this app',
 'Sau mỗi bài trắc nghiệm, ứng dụng hiển thị tỉ lệ đúng và một <b>band ước tính</b> (1–6) để bạn theo dõi tiến bộ. Đây là quy đổi tuyến tính trên bộ đề tự biên soạn – <b>không phải</b> thang điểm chính thức và không tương đương điểm thi thật của ETS.': 'After each multiple-choice set, the app shows your percentage and an <b>estimated band</b> (1–6) so you can track progress. It is a simple conversion on our own practice content – <b>not</b> an official scale and not equivalent to a real ETS score.',
 'Writing và Speaking: tự đối chiếu với bài mẫu và checklist; có thể nhờ AI nhận xét bài viết (tùy chọn).': 'Writing and Speaking: compare your work with the model answers and checklists; you can optionally ask AI for feedback on your writing.',
@@ -42,33 +42,37 @@
 '<b>Writing:</b> email cần đủ mọi ý đề yêu cầu; bài thảo luận cần ý MỚI, không chỉ nhắc lại ý bạn khác.': '<b>Writing:</b> an email must cover every required point; a discussion post needs a NEW idea, not just a repeat of classmates’ views.',
 '<b>Speaking:</b> Listen and Repeat chấm độ chính xác; Interview cần trả lời trực tiếp, có lý do và ví dụ.': '<b>Speaking:</b> Listen and Repeat rewards accuracy; in the Interview, answer directly with reasons and examples.',
 // ---- results ----
-'{a}/{b} câu đúng': '{a}/{b} correct',
+
 'band ước tính ≈ {b}': 'estimated band ≈ {b}',
-'câu sai đã vào Sổ lỗi sai': 'wrong answers added to your mistake log',
+
 'Ước tính tham khảo trên đề tự biên soạn, không phải điểm chính thức của ETS.': 'A rough estimate based on our own practice content – not an official ETS score.',
-'(bỏ trống)': '(blank)',
-'(bạn: {a})': '(you: {a})',
-'Đáp án: <b>{a}</b>': 'Answer: <b>{a}</b>',
-'Nộp bài & xem giải thích': 'Submit & see explanations',
+
+
+
+
 // ---- reading / listening ----
 'Ô trống {n}': 'Blank {n}',
-'Nghe': 'Listen',
-'Tạm dừng': 'Pause',
-'Nghe lại': 'Replay',
-'Đã nghe xong': 'Finished',
-'Lời dẫn': 'Narrator',
+
+
+
+
+
 'Bấm Nghe để phát bài (giọng đọc máy). Ở bài thi thật, bạn chỉ được nghe 1 lần.': 'Press Listen to play the audio (synthesised voices). In the real test you hear it only once.',
 'Lời thoại (transcript)': 'Transcript',
 'Trình phát chưa sẵn sàng – hãy tải lại trang.': 'The audio player isn’t ready – please reload the page.',
 // ---- writing ----
 'Bấm cụm từ để đưa vào câu; bấm lại để bỏ ra.': 'Tap a word group to add it to the sentence; tap it again to remove it.',
+
+
+
+'Bấm cụm từ để đưa vào câu, bấm lại để bỏ ra; kéo để chèn vào giữa hoặc đổi chỗ.': 'Tap a word group to add it to the sentence, tap again to remove it; drag to insert it or change the order.',
 'Làm lại': 'Try again',
 'Đề {n}': 'Prompt {n}',
 'Bắt đầu viết bài của bạn…': 'Start writing your essay…',
 'Đồng hồ ({m} phút) chạy khi bạn bắt đầu gõ. Bài nháp được lưu trên trình duyệt này.': 'The timer ({m} min) starts when you begin typing. Your draft is saved in this browser.',
 'Xem bài mẫu & checklist': 'Model answer & checklist',
 'Nhận xét bằng AI': 'AI feedback',
-'{n} từ': '{n} words',
+
 'nên viết ≥ {m} từ': 'aim for ≥ {m} words',
 'Hết giờ': 'Time’s up',
 'Bài mức trung bình': 'Mid-level answer',
@@ -80,32 +84,32 @@
 'AI đang đọc bài (10–30 giây)…': 'AI is reading your response (10–30 seconds)…',
 'Nhận xét của AI': 'AI feedback',
 'Điểm bài: {s}/5': 'Task score: {s}/5',
-'Điểm mạnh': 'Strengths',
-'Cần cải thiện': 'To improve',
-'Lỗi cần sửa': 'Errors to fix',
+
+
+
 'Nhận xét do AI tạo, chỉ để tham khảo – không phải điểm chính thức của ETS.': 'AI-generated feedback for reference only – not an official ETS score.',
-'Nhập khóa': 'Enter key',
+
 // ---- speaking ----
 'Bộ {n}': 'Set {n}',
 'Bấm 🔊 để nghe, rồi 🎙️ để nhắc lại. Câu chữ được che để bạn luyện nghe – bấm 👁 nếu cần xem.': 'Press 🔊 to listen, then 🎙️ to repeat. The text is blurred so you train your ear – press 👁 if you need to see it.',
-'Nghe chậm': 'Play slowly',
+
 'Nhắc lại': 'Repeat',
 'Hiện câu': 'Show sentence',
-'Đang nghe…': 'Listening…',
-'{score}% giống mẫu': '{score}% match',
-'máy nghe: “{heard}”': 'heard: “{heard}”',
+
+
+
 'Hoàn thành · trung bình {pct}% giống mẫu': 'Done · average {pct}% match',
 'Độ giống do máy nhận dạng giọng nói ước tính – chỉ để tham khảo.': 'Match scores are estimated by speech recognition – for reference only.',
-'Không nhận được giọng nói': 'No speech detected',
+
 'Trình duyệt không hỗ trợ ghi âm.': 'This browser doesn’t support audio recording.',
 'Cần cho phép dùng micro để ghi âm.': 'Please allow microphone access to record.',
-'Câu {i}/{n}': 'Question {i}/{n}',
+
 'Nghe câu hỏi': 'Hear the question',
-'Bắt đầu / dừng ghi âm': 'Start / stop recording',
+
 'Bấm micro để trả lời – tối đa {s} giây.': 'Tap the mic to answer – up to {s} seconds.',
 'Câu trả lời mẫu & mẹo': 'Sample answer & tips',
-'xem sau khi đã tự trả lời': 'view it after answering yourself',
-'Câu trước': 'Previous',
+
+
 'Câu hỏi tiếp': 'Next question',
 'Đã ghi âm – nghe lại và so với câu trả lời mẫu.': 'Recorded – play it back and compare it with the sample answer.',
 'Đang ghi âm – bấm lần nữa để dừng': 'Recording – tap again to stop',
