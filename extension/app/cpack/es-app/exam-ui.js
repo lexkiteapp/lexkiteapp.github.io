@@ -3,6 +3,7 @@
  * Khung Stitch có sẵn dùng chung với js/espr.js qua App.esQ / esFoot / esEnd (không CSS mới). Dữ liệu tải lười: cpack/es/x-<cấp>.js + x-ui-<ngôn ngữ>.js (scripts/target/exam-es-lib.mjs). */
 (function () {
   const { $, esc } = UI, App = window.App, view = App.view, KEY = 'lk.es.x', LVS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], PARTS = ['rd', 'ls', 'wr', 'sp'], ACC = 'es-419', XP = App.esX, NEED = { A1: 2, A2: 3, B1: 4, B2: 5, C1: 6, C2: 7 };
+  const XL = { B2: 'cpack/es/x-B2.js', C1: 'cpack/es/x-C1.js', C2: 'cpack/es/x-C2.js' }; // B2–C2 (đợt 2): app.js giữ A1–B1, đường dẫn đợt 2 ở đây để không tăng bundle tải đầu
   const ls = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { /* riêng tư */ } return null; };
   const X = () => (self.ESX = self.ESX || {});
   const fold = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -116,7 +117,7 @@
     view.innerHTML = `<div class="card" role="status">${esc(t('Đang tải…'))}</div>`;
     const bad = () => { view.innerHTML = `<div class="card">${esc(t('Không tải được bài. Kiểm tra mạng rồi thử lại.'))}</div>`; };
     const want = LVS.includes(lv) ? [lv] : LVS;
-    try { await Promise.all([App.need('espr'), ...want.map(l => App.loadScript(XP.lv[l] || 'cpack/es/x-' + l + '.js')), App.loadScript(XP.ui[lang()]), lang() === 'en' ? 0 : App.loadScript(XP.ui.en)]); } catch (er) { if (!App.routeStale(tok)) bad(); return; }
+    try { await Promise.all([App.need('espr'), ...want.map(l => App.loadScript(XP.lv[l] || XL[l])), App.loadScript(XP.ui[lang()]), lang() === 'en' ? 0 : App.loadScript(XP.ui.en)]); } catch (er) { if (!App.routeStale(tok)) bad(); return; }
     if (App.routeStale(tok)) return;
     if (!(X().xl && X().xl[lang()] && want.every(dat))) return bad();
     if (!LVS.includes(lv) || !PARTS.includes(p) || !(+e >= 1 && +e <= dat(lv).e.length)) return hub();
