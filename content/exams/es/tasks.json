@@ -41,7 +41,7 @@
   ],
   "s": [
    {"t": "Habla de un cambio importante en tu vida y explica cómo te afectó.", "min": 80, "g": ["cambi|mude|empece|deje|decidi", "afect|influy|consecuencia|gracias a|debido a", "antes|despues|ahora|desde entonces", "aunque|sin embargo|ya que|por eso"]},
-   {"t": "Defiende tu opinión: ¿deberían las ciudades limitar el uso del coche en el centro? Da argumentos y menciona al menos una objecion.", "min": 80, "g": ["coche|auto|carro|trafico|centro", "contamin|ruido|transporte publico|bicicleta|peaton", "deberian|habria que|seria mejor|creo que|opino", "aunque|sin embargo|a pesar de|por otro lado"]}
+   {"t": "Defiende tu opinión: ¿deberían las ciudades limitar el uso del coche en el centro? Da argumentos y menciona al menos una objeción.", "min": 80, "g": ["coche|auto|carro|trafico|centro", "contamin|ruido|transporte publico|bicicleta|peaton", "deberian|habria que|seria mejor|creo que|opino", "aunque|sin embargo|a pesar de|por otro lado"]}
   ]
  },
  "C1": {
