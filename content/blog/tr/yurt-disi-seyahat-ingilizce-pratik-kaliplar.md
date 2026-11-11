@@ -1,166 +1,167 @@
 ---
-title: "Yurt Dışı Seyahat İngilizce Pratik Kalıplar ve Rehber"
-description: "Yurt dışı seyahat ingilizce pratik kalıplar: havaalanı, otel, ulaşım, restoran ve acil durumlarda hayat kurtaran temel İngilizce cümleler."
+title: "Seyahatte İngilizce Kibar Kalıplar: İstek, Soru ve Anlamadım"
+description: "Seyahatte İngilizce kibar kalıplar: istek bildirme, kibar soru sorma, anlamadığını söyleme ve sorun anlatma kalıpları; Türkçe konuşanların sık hataları."
 slug: yurt-disi-seyahat-ingilizce-pratik-kaliplar
 lang: tr
 translationKey: tieng-anh-du-lich-nuoc-ngoai
 category: ky-nang
 tags: [seyahat, pratik, diyaloglar, speaking]
-keyword: "yurt dışı seyahat ingilizce pratik kalıplar"
+keyword: "seyahatte ingilizce kibar kalıplar"
 cover: phrases
-coverAlt: "Lexkite seyahat konuşma modülünde yurt dışı seyahat İngilizce pratik kalıplar ekranı"
-publishAt: 2027-02-27T12:00:00+03:00
+coverAlt: "Lexkite kalıp defterinde kaydedilen kalıplar ve örnek yapılar"
+publishAt: 2026-12-27T07:41:00+03:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: cheer, icon: chat, chip: Travel English}
 shots: [
-  {id: s1, route: '#/phrases', crop: main},
+  {id: s1, route: '#/practice', crop: main},
   {id: s2, route: '#/listening', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: 'Yurt Dışı Seyahatte Temel İletişim Senaryoları', parts: [{t: '1. Havaalanı & Pasaport', r: 'Giriş amacı, konaklama süresi ve bagaj teslim kalıpları'}, {t: '2. Otel & Konaklama', r: 'Check-in, oda olanakları, Wi-Fi ve arıza bildirimleri'}, {t: '3. Restoran & Acil Durum', r: 'Sipariş verme, alerji uyarısı, hesap isteme ve sağlık yardımı'}]}
+  {id: d1, type: boxes, title: "Seyahatte Kibar Konuşmanın 4 Adımı", parts: [{t: "1. İstek", r: "I want yerine I'd like ya da Could I have ... ile başlayın"}, {t: "2. Soru", r: "Excuse me, could you tell me ... ile sorun; the ve a gibi küçük sözcükleri atmayın"}, {t: "3. Anlamadım", r: "Sorry, could you say that again, more slowly? ile tekrar isteyin"}, {t: "4. Sorun", r: "There's no ... / It isn't working / I've lost ... kalıplarıyla durumu tek cümlede söyleyin"}]}
 ]
 quiz: [
   {
-    q: "Havaalanında pasaport kontrol memuru 'What is the purpose of your visit?' diye sorduğunda en uygun yanıt hangisidir?",
-    options: [
-      "I am here for tourism and vacation for two weeks with my family (seyahat amacını açıklar)",
-      "I want to change my seat to an aisle seat immediately before the long flight departs",
-      "The baggage claim area is located on the ground floor next to the main exit doors",
-      "I would like to order a cup of black coffee without any sugar or cold milk please"
-    ],
-    answer: 0,
-    explain: "Pasaport kontrolünde seyahat amacı sorulduğunda tatil veya turizm amacıyla geldiğinizi net ve kısa şekilde belirtmelisiniz."
+    q: "Bir durak sormak istiyorsunuz: Excuse me, ___ you tell me where the bus stop is? Boşluğa hangisi gelir?",
+    options: ["must", "should", "could", "might"],
+    answer: 2,
+    explain: "Could you ...? yabancıdan kibarca bilgi istemenin standart kalıbıdır. Must baskı gibi, should öğüt gibi duyulur; might ise belirsiz ve gereksiz çekingen duyulur."
   },
   {
-    q: "Bir restoranda hesabı istemek için kullanılan en kibar ve yaygın İngilizce ifade hangisidir?",
+    q: "Aşağıdaki dolaylı sorulardan hangisi hatalıdır?",
     options: [
-      "Where is the nearest currency exchange office around this crowded shopping street?",
-      "Could we have the bill, please? (veya Amerikan İngilizcesinde 'the check, please')",
-      "How much does it take to walk to the historical museum from this busy central square?",
-      "Can you show me the way to the emergency room at the central hospital right now?"
-    ],
-    answer: 1,
-    explain: "Restoranda hesabı istemek için İngiliz İngilizcesinde 'Could we have the bill, please?', Amerikan İngilizcesinde 'the check, please' kullanılır."
-  },
-  {
-    q: "Yolda kaybolduğunuzda birine en yakın metro istasyonunu sormak için hangi kalıp tercih edilmelidir?",
-    options: [
-      "Could you please tell me how to get to the nearest metro station from here?",
-      "What time does the breakfast buffet finish at the international hotel tomorrow?",
-      "Do you have this stylish leather jacket in a slightly smaller size and different color?",
-      "I need to cancel my flight reservation and request a complete refund immediately"
+      "Could you tell me how much is the boat trip?",
+      "Could you tell me where the pier is located?",
+      "Do you know what time the ferry leaves?",
+      "I wonder if there is a cash machine near here."
     ],
     answer: 0,
-    explain: "Yön sorarken kibarca 'Excuse me, could you tell me how to get to...?' kalıbı en doğal ve yaygın ifadedir."
+    explain: "Dolaylı soruda düz cümle sırası korunur: how much the boat trip is."
+  },
+  {
+    q: "Hangi çiftte ilk sayının vurgusu son hecede, ikinci sayının vurgusu ilk hecededir?",
+    options: ["fifty – fifteen", "fifty – fifty", "fifteen – fifteen", "fifteen – fifty"],
+    answer: 3,
+    explain: "-teen ile biten sayıda vurgu sondadır (fifteen), -ty ile biten sayıda ilk hecededir (fifty)."
   }
 ]
 ---
 
-Yurt dışına ilk kez çıkarken veya bilmediğiniz bir ülkeye seyahat ederken en büyük çekincelerden biri dil bariyeridir. Özellikle pasaport kontrolünde, yabancı bir havaalanında aktarma yaparken, otele giriş işlemlerinde veya restoranda sipariş verirken **yurt dışı seyahat ingilizce pratik kalıplar** bilmek seyahatinizi stresten arındırıp keyifli bir maceraya dönüştürür.
+Seyahatte kibar ve anlaşılır olmak için dört kalıp çok durumda işinizi görür: bir şey isterken *I'd like...* ya da *Could I have...?*, bir şey sorarken *Excuse me, could you tell me...?*, anlamadığınızda *Sorry, could you say that again, more slowly?*, bir sorun çıktığında ise *There's no...* ya da *... isn't working.* Bu yazıda **seyahatte İngilizce kibar kalıplar**ı havaalanı ya da otel gibi mekânlara göre değil, ne yapmak istediğinize göre bulacaksınız: istemek, sormak, anlamadığınızı söylemek ve bir sorunu anlatmak.
 
-Seyahat İngilizcesi için ileri düzey gramer kurallarını eksiksiz bilmenize gerek yoktur. Önemli olan, karşılaşacağınız tipik durumlarda meramınızı net, kibar ve doğrudan ifade edebilmek; karşınızdaki görevlinin veya yerlinin size yönelttiği standart soruları ilk seferde anlayabilmektir. Hazır kalıplar sayesinde zihninizde karmaşık cümleler kurmaya çalışmadan rahatça iletişim kurabilirsiniz.
+Mekân mekân hazır diyaloglar için [Yurt dışı seyahat İngilizce diyaloglar](/tr/blog/yurt-disi-seyahat-ingilizce-diyaloglar/) yazımıza bakabilirsiniz. Burada ise Türkçe düşünerek kurulan cümlelerin nerede sert, eksik ya da garip duyulduğunu ve daha doğal karşılıklarını göreceksiniz. Örnekler İngiliz İngilizcesine göre yazılmıştır (*holiday, lift, cloakroom, take away*); Amerikan İngilizcesinde bazı sözcükler farklıdır.
 
-Bu kapsamlı rehberde, havaalanından otel konaklamasına, yön sormadan acil durumlara kadar yurt dışında adım adım hayatınızı kolaylaştıracak pratik kalıpları, telaffuz ipuçlarını ve örnek diyalogları bulacaksınız.
+{{diagram: d1 | Seyahatte Kibar Konuşmanın 4 Adımı}}
 
-## Havaalanında yurt dışı seyahat ingilizce pratik kalıplar ve Pasaport Kontrolü
+## Seyahatte İngilizce Kibar Kalıplar ile İstek Bildirmek
 
-Havaalanı, yurt dışı seyahatinin ilk ve genellikle en resmi aşamasıdır. Görevlilerin sorularına tereddüt etmeden ve kısa cevaplar vermek süreci hızlandırır. Uçuş öncesi işlemlerden pasaport polisine kadar karşılaşacağınız standart durumlar şunlardır:
+Türkçede *Bir çay istiyorum* tamamen kibar bir cümledir. Aynı cümleyi kelime kelime çevirip *I want a tea* dediğinizde İngilizcede daha sert duyulabilir; çünkü *want* isteği çıplak biçimde, hiç yumuşatmadan söyler. Garsonlar, görevliler ve resepsiyonistler daha yumuşak bir kalıp bekler:
 
-### Check-in ve Bagaj Teslimi
-- **"I would like to check in for my flight to London."** (Londra uçuşum için check-in yapmak istiyorum.)
-- **"Could I have a window / aisle seat, please?"** (Pencere kenarı / koridor tarafı bir koltuk alabilir miyim?)
-- **"How many bags can I check in for this flight?"** (Bu uçuş için kaç adet bagaj teslim edebilirim?)
-- **"Is this bag within the cabin baggage weight limit?"** (Bu çanta kabin bagajı ağırlık sınırına uygun mu?)
-- **"What time does the boarding gate close?"** (Uçağa biniş kapısı saat kaçta kapanıyor?)
-- **"Is the flight on time or has it been delayed?"** (Uçuş vaktinde mi kalkıyor yoksa rötar mı yaptı?)
+| Türkçe düşünerek | Daha doğal karşılığı |
+| :--- | :--- |
+| *I want a room for two nights.* | *I'd like a room for two nights, please.* |
+| *I want to change my seat.* | *Would it be possible to change my seat, please?* |
+| *Give me the wifi password.* | *Could I have the wifi password, please?* |
+| *Tell me the check-out time.* | *Could you tell me what time check-out is, please?* |
 
-### Pasaport ve Güvenlik Kontrolü
-Pasaport memurları genellikle üç temel soru sorar: Seyahat amacınız, kalış süreniz ve nerede konaklayacağınız:
-- **Officer:** "What is the purpose of your visit?" (Ziyaretinizin amacı nedir?)
-  - **Siz:** *"I am here on vacation / for holiday with my family."* (Ailemle birlikte tatil için buradayım.)
-  - **Siz:** *"I am here for a business conference and client meetings."* (İş konferansı ve müşteri görüşmeleri için buradayım.)
-- **Officer:** "How long will you be staying in the country?" (Ülkede ne kadar süre kalacaksınız?)
-  - **Siz:** *"For one week / ten days. Here is my return flight ticket."* (Bir hafta / on gün boyunca. İşte dönüş uçak biletim.)
-- **Officer:** "Where will you be staying during your trip?" (Seyahatiniz boyunca nerede konaklayacaksınız?)
-  - **Siz:** *"At the Grand Hotel in the city centre. Here is my hotel reservation document."* (Şehir merkezindeki Grand Hotel'de. İşte otel rezervasyon belgem.)
+*Please* her cümleye eklenebilir; ama asıl yumuşatan *I'd like* ve *Could I...?* kalıplarıdır. Amerikan İngilizcesinde hesap için *the check* denir; İngiltere'de *the bill*.
 
-![Lexkite seyahat kalıpları kütüphanesi](media:@s1 "Lexkite seyahat kalıpları ve günlük konuşma modülü arayüzü")
+Kısa istekleri tek sözcükle de bitirebilirsiniz: *A coffee to take away, please.* ya da *Two scoops of pistachio, please.* Burada *please* ve sakin bir ses tonu yeter.
 
-{{diagram: d1 | Yurt Dışı Seyahatte Temel İletişim Senaryoları}}
+## Soru Sormak: Excuse me ve Küçük Sözcükler
 
-## Otel ve Konaklama Sürecinde Hayat Kurtaran İfadeler
+Bir yabancıya soru sormaya *Excuse me* ile başlamak yaygın bir nezaket kuralıdır. Ardından iki tipik hata görülür.
 
-Otele vardığınızda resepsiyon görevlisiyle iletişim kurarken doğru ifadeleri kullanmak odanıza hızla yerleşmenizi ve olası problemleri kolayca çözmenizi sağlar:
+**Küçük sözcükleri atmak.** Türkçede *the* gibi belirli bir sözcük yoktur, *a* ise (*bir*) çoğu zaman söylenmez; bu yüzden *Where is toilet?* ya da *I need ticket* denebilir. Doğrusu *Where's the toilet?* (İngiltere'de *Where are the toilets?* da sık duyulur) ve *I need a ticket.* şeklindedir. Cümleyi kurmadan önce kendinize sorun: sayılabilen tekil bir isimden önce *a, the* ya da başka bir belirleyici var mı?
 
-### Check-in ve Check-out Diyalogları
-- **"Hello, I have a reservation under the name of Kaya."** (Merhaba, Kaya adına bir rezervasyonum var.)
-- **"What time is check-in / check-out?"** (Giriş / çıkış saati kaçtır?)
-- **"Could we leave our luggage here until our room is ready?"** (Odamız hazır olana kadar valizlerimizi buraya emanete bırakabilir miyiz?)
-- **"Is breakfast included in the room price?"** (Kahvaltı oda fiyatına dahil mi?)
-- **"What is the Wi-Fi password for guests, please?"** (Misafirler için Wi-Fi şifresi nedir acaba?)
-- **"Can we request a late check-out tomorrow morning?"** (Yarın sabah için geç çıkış talebinde bulunabilir miyiz?)
+**Dolaylı soruda sırayı bozmak.** *Where is the station?* doğru bir doğrudan sorudur; ama kibar bir giriş ekleyince sıra değişir:
 
-### Oda İçi Sorun Bildirme ve Talepte Bulunma
-- **"The air conditioning in room 304 isn't working properly."** (304 numaralı odadaki klima düzgün soğutmuyor.)
-- **"There is no hot water running in the bathroom."** (Banyoda sıcak su akmıyor.)
-- **"Could we get some extra towels and pillows, please?"** (Birkaç ekstra havlu ve yastık alabilir miyiz lütfen?)
-- **"Could you call a taxi for us to the airport tomorrow morning?"** (Yarın sabah havaalanına gitmek için bize bir taksi çağırabilir misiniz?)
+- *Excuse me, could you tell me where the station is?* (doğru)
+- *Excuse me, could you tell me where is the station?* (yaygın hata)
 
-## Ulaşım, Yol Tarifi ve Şehir İçi Hareketlilik
+Türkçede soru yapmak için sözcük sırasını değiştirmeyiz, sonuna *mı/mi* ekleriz (*Pul satıyor musunuz?*). Bu yüzden bazı öğrenciler İngilizcede de sırayı korur ve *do*'yu atar: *You sell stamps?* Anlaşılır, ama *Do you sell stamps?* daha doğaldır; soru kurmanın genel kuralları için [İngilizce soru cümlesi kurma kuralları](/tr/blog/ingilizce-soru-cumlesi-kurma-kurallari-5w1h/) yazısına bakın.
 
-Yabancı bir şehirde gezerken metro, otobüs veya taksi kullanırken kibar yön sorma kalıpları öğrenmek kaybolma riskinizi tamamen ortadan kaldırır.
+Birkaç hazır soru:
 
-### Kibar Yön Sorma Cümleleri
-Yabancılara soru sormadan önce mutlaka **"Excuse me"** (Affedersiniz) diyerek başlamak evrensel bir nezaket kuralıdır:
-- **"Excuse me, could you tell me how to get to the museum from here?"** (Affedersiniz, buradan müzeye nasıl gidebileceğimi söyleyebilir misiniz?)
-- **"Is it within walking distance or should I take a bus?"** (Yürüme mesafesinde mi yoksa otobüse mi binmeliyim?)
-- **"Where is the nearest metro / subway station around this street?"** (Bu cadde civarındaki en yakın metro istasyonu nerede?)
-- **"Which platform does the train to Oxford leave from?"** (Oxford treni hangi perondan kalkıyor?)
-- **"How long does it take to get to the airport by taxi?"** (Taksiyle havaalanına gitmek ne kadar sürer?)
+- *Is there a pharmacy near here?* Buraya yakın bir eczane var mı?
+- *How do I get to the museum?* Müzeye nasıl giderim?
+- *Which pier does the ferry to the island leave from?* Adaya giden vapur hangi iskeleden kalkıyor?
+- *How much does the boat trip cost?* Tekne turu ne kadar?
 
-### Toplu Taşıma ve Bilet Gişesi İletişimi
-- **"One single / return ticket to the central station, please."** (Merkez istasyona bir tek yön / gidiş-dönüş bilet lütfen.)
-- **"Does this bus stop near the central square or the cathedral?"** (Bu otobüs merkez meydanın veya katedralin yakınında durur mu?)
-- **"How much is the daily travel pass for unlimited rides?"** (Sınırsız biniş sağlayan günlük ulaşım kartı ne kadar?)
+## Anlamadığınızı Söylemek
 
-![Lexkite dinleme ve konuşma alıştırmaları paneli](media:@s2 "Yurt dışı seyahat İngilizcesinde aksanları anlama ve dinleme egzersizleri")
+Yabancı bir ülkede karşınızdaki kişi hızlı konuşabilir ya da aksanı size yabancı gelebilir. Anlamamak utanılacak bir şey değildir; sorun, hiçbir şey söylemeden başınızı sallamaktır. Şunları kullanın:
 
-## Restoran, Kafe ve Alışverişte Pratik Cümleler
+- *Sorry, could you say that again, more slowly, please?* (Tekrar söyler misiniz, daha yavaş?)
+- *Sorry, I didn't catch that.* (Bunu anlamadım, duyamadım.)
+- *Could you write it down for me?* (Bunu yazabilir misiniz?)
+- *How do you spell that?* (Bunu harf harf söyler misiniz?)
+- *Do you mean the second street on the left?* (İkinci soldaki sokağı mı kastediyorsunuz?)
 
-Yemek yerken rahatça sipariş verebilmek, menüdeki malzemeleri sorabilmek ve alışveriş yaparken fiyat pazarlığı veya beden sormak seyahatin en keyifli anlarını güzelleştirir:
+*What?* tek başına, gündelik konuşmada ters duyulabilir. Kısa ama kibar bir tekrar istemek için *Sorry?* ya da *Pardon?* deyin.
 
-### Restoranda Sipariş ve Hesap
-- **"A table for two, please."** (İki kişilik bir masa lütfen.)
-- **"Could we see the menu and drinks list, please?"** (Menüyü ve içecek listesini görebilir miyiz lütfen?)
-- **"What do you recommend as a local specialty dish?"** (Yerel lezzet olarak ne tavsiye edersiniz?)
-- **"I am allergic to peanuts / gluten. Does this dish contain any nuts?"** (Fıstığa / glütene alerjim var. Bu yemekte kuruyemiş var mı?)
-- **"Could we have the bill / check, please?"** (Hesabı alabilir miyiz lütfen?)
-- **"Can we pay separately by credit card?"** (Kredi kartıyla ayrı ayrı ödeyebilir miyiz?)
-- **"Keep the change, thank you very much."** (Üstü kalsın, çok teşekkürler.)
+### Sayıları ve fiyatları doğrulamak
 
-### Mağaza ve Alışveriş Kalıpları
-- **"How much is this souvenir?"** (Bu hediyelik eşya ne kadar?)
-- **"Do you have this t-shirt in a medium or large size?"** (Bu tişörtün medium veya large bedeni var mı?)
-- **"Can I try this jacket on in the fitting room?"** (Bu ceketi deneme kabininde deneyebilir miyim?)
-- **"Do you offer tax-free shopping for international tourists?"** (Uluslararası turistler için tax-free alışveriş imkanınız var mı?)
+Sayılar sık karışır, özellikle *fifteen* ile *fifty*, *thirteen* ile *thirty* gibi çiftler. Ayrım vurguda ve ünlü uzunluğunda yatar: *-teen* ile biten sayıda vurgu sondadır (`/fɪfˈtiːn/`), *-ty* ile biten sayıda ilk hecededir (`/ˈfɪfti/`). Cümle içinde *fifteen pounds* gibi ifadelerde vurgu kayabilir; bu yüzden emin değilseniz rakamı yine de yazdırın. Karışan sayıyı iki seçenekle de söyleyebilirsiniz: *Sorry, was that fifteen or fifty?* Rakamları telefonunuzda ya da kâğıtta göstermek de iyi bir çözümdür.
 
-## Acil Durumlar, Sağlık ve Kayıp Eşya Senaryoları
+## Sorunu Tek Cümlede Anlatmak
 
-Hiç kimse seyahatinde olumsuz bir durum yaşamak istemez; ancak acil durum kalıplarını bilmek kişisel güvenliğiniz ve sağlığınız için hayati önem taşır:
+Otelde duş bozuksa ya da bir eşyanızı kaybettiyseniz karmaşık cümleye gerek yok. Üç kalıp çoğu durumu karşılar:
 
-- **"I need urgent help, please."** (Acil yardıma ihtiyacım var, lütfen.)
-- **"Where is the nearest pharmacy / hospital in this area?"** (Bu bölgedeki en yakın eczane / hastane nerede?)
-- **"I have lost my passport and wallet. Where is the nearest police station?"** (Pasaportumu ve cüzdanımı kaybettim. En yakın polis karakolu nerede?)
-- **"I feel dizzy and unwell. Could you call an ambulance immediately?"** (Başım dönüyor ve iyi hissetmiyorum. Hemen bir ambulans çağırabilir misiniz?)
-- **"Is there a doctor or nurse who speaks English here?"** (Burada İngilizce konuşabilen bir doktor veya hemşire var mı?)
-- **"My luggage did not arrive at the baggage claim carousel. Where is the lost luggage counter?"** (Valizim bagaj bandına gelmedi. Kayıp bagaj bankosu nerede?)
+- ***There's no ...***: *There's no hot water in the bathroom.* (Banyoda sıcak su yok.)
+- ***... isn't working.***: *The air conditioning in room 12 isn't working.* (12 numaralı odadaki klima çalışmıyor.)
+- ***I've lost ... / I can't find ...***: *I've lost my bus card.* *I can't find my room key.*
 
-## Seyahat Öncesi Pratik Stratejileri
+Acil bir durumda kısa ve net olun: *I need help, please.* ya da *Help!* Gerekirse *Is there a doctor nearby?* diye sorabilirsiniz. Yiyecek konusunda kısıtınız varsa bunu açık söyleyin: *I can't eat dairy. Is there any milk or butter in this soup?* (Süt ürünü yiyemiyorum. Bu çorbada süt ya da tereyağı var mı?)
 
-Yurt dışı seyahatinizden birkaç hafta önce bu hazır kalıpları ezberlemek yerine sesli olarak tekrar etmeye özen gösterin. Aynanın karşısına geçip kendinizi pasaport memuruyla veya otel resepsiyonistiyle konuşurken hayal edin.
+Hangi duruma ait olursa olsun, sorunu anlattıktan sonra çözüm isteyin: *Could you send someone to look at it?* (Birini bakması için gönderebilir misiniz?) *Is there another room available?* (Başka bir oda var mı?)
 
-Örneğin, [İngilizce doğru telaffuz rehberi](/tr/blog/ingilizce-telaffuz-gelistirme-rehberi/) içeriğimizdeki dinleme ve konuşma teknikleriyle farklı aksanları anlamayı kolaylaştırabilirsiniz. Geçmiş zamanlı anılarınızı veya başınıza gelen olayları anlatırken [İngilizce ed ve s takısı telaffuzu](/tr/blog/ingilizce-ed-ve-s-takisi-telaffuzu-kurallari/) kurallarını uygulayın. Cümleler arası akıcı geçişler için [İngilizce bağlaçlar tablosu](/tr/blog/ingilizce-baglaclar-ve-linking-words-tablosu/) ve planlarınızı ifade ederken [İngilizce zamanlar rehberi](/tr/blog/ingilizce-zamanlar-tablosu/) sayfalarımızdan destek alabilirsiniz.
+![](media:@s2 "Lexkite dinleme bölümü: farklı aksanlarda dinleme testleri, ayarlanabilir hız")
 
-Yolculuk esnasında ihtiyaç duyacağınız hazır cümleleri telefonunuzda pratik etmek için [Lexkite kalıp kütüphanesi](/app/#/phrases) ve dinleme reflekslerinizi güçlendiren [Lexkite dinleme modülü](/app/#/listening) araçlarını kullanabilirsiniz. Seviyenize uygun örnek diyalog kalıpları için [İngilizce örnek içerikler](/en/samples/) sayfamızı inceleyin.
+## Teşekkür Etmek, Özür Dilemek, Karşılık Vermek
+
+Türkçedeki bazı sözlerin tek bir İngilizce karşılığı yoktur; durumu düşünerek seçmek gerekir:
+
+- **Rica ederim / bir şey değil:** *You're welcome.* ya da gündelik konuşmada *No problem.* / *Not at all.*
+- **Afedersiniz:** Dikkat çekmek ya da geçmek için *Excuse me*, özür dilemek için *Sorry*. Birinin ayağına bastıysanız *Sorry*, birine seslenecekseniz *Excuse me* kullanın.
+- **Nasılsınız?** sorusu seyahatte çoğu zaman gerçek bir soru değildir. *How are you?* sorusuna uzun cevap vermek gerekmez: *Fine, thank you. And you?* yeter.
+
+Yardım alınca *Thank you* demek yeterlidir; çok teşekkür etmek isterseniz *Thank you so much* ya da *Thanks a lot* deyin. Karşınızdaki size iyi bir gün dilerse *You too* ya da *Thanks, you too* diye karşılık verin. Gündelik sohbette kullanacağınız başka kalıplar için [günlük İngilizce konuşma kalıpları](/tr/blog/gunluk-ingilizce-konusma-kaliplari-cumleler/) yazısına bakabilirsiniz.
+
+## Küçük Bir Diyalog: Hepsi Bir Arada
+
+Bir kafede şu kısa konuşmayı düşünün:
+
+> **Server:** Hi there, what can I get you?
+> **You:** Could I have a tea and a slice of lemon cake, please?
+> **Server:** Sure. Anything else?
+> **You:** Excuse me, could you tell me where the lift is?
+> **Server:** Just past the cloakroom, on your left.
+> **You:** Sorry, could you say that again, more slowly?
+> **Server:** Past the cloakroom, then left.
+> **You:** Thank you very much.
+
+Bu konuşmada istek, soru ve tekrar isteme kalıpları art arda kullanılıyor.
+
+## Yolculuk Öncesi Kontrol
+
+- Yolculuktan önce telefonunuza bu kalıpları bir not olarak kaydedin; internetsiz de açılır.
+- Sık sorulan sorulara (*Is this your first visit? How long are you staying?*) kısa cevapları hazır tutun: *I'm here on holiday for two weeks.* *I'm staying at a hotel in the city centre.*
+- Anlamadığınızda sakin kalın; bir kalıp sizi hemen kurtarır.
+- Ses tonuna dikkat edin: *Could I have a carrier bag, please?* gibi isteklerde cümlenin sonunda sesinizi hafifçe yukarı çıkarırsanız daha yumuşak duyulursunuz. Düz ve alçak bir tonla söylenen aynı cümle, özellikle yorgunken ters algılanabilir.
+- Karşınızdaki sizi anlamasa bile yeniden denemekten çekinmeyin: aynı cümleyi daha yavaş söylemek, çoğu zaman yeni bir cümle kurmaktan iyidir. Gerekirse eşyayı ya da yeri parmakla gösterin, telefonda bir harita ya da fotoğraf açın.
+
+## Dört Adımda Çalışma
+
+1. Bu yazıdaki 8-10 kalıbı seçip İngilizce kısmını kapatın, Türkçesine bakıp yüksek sesle İngilizcesini söyleyin.
+2. Aynı kalıbı kendi durumunuza uyarlayın: *Could I have ... ?* kalıbına beş farklı şey koyun.
+3. Kendinizi kaydedin ve ses tonunuza, özellikle *-teen / -ty* sayılarına dikkat edin; kayıt çalışmasını nasıl düzenleyeceğiniz için [İngilizce telaffuz çalışma planına](/tr/blog/ingilizce-telaffuz-gelistirme-rehberi/) bakın.
+4. Kalıpları [Lexkite kalıp defterine](/app/#/phrases) ekleyip yolculuktan önce sesli tekrar edin; farklı aksanlara kulak alıştırmak için [dinleme bölümündeki](/app/#/listening) farklı aksanlı kayıtlardan yararlanın. Kart ve test türü alıştırmalar için [Lexkite alıştırma bölümünü](/app/#/practice) de açabilirsiniz.
+
+![](media:@s1 "Lexkite alıştırma ekranında akıllı öğrenme, kart eşleştirme, telaffuz çalışması ve test seçenekleri")
+
+{{youtube: | Seyahatte kibar İngilizce kalıplar: istek, soru ve anlamadım}}
+
+{{cta: /app/#/phrases | Seyahat kalıplarını Lexkite kalıp defterine ekle}}

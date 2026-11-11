@@ -1,175 +1,181 @@
 ---
-title: "IELTS Reading Matching Headings Taktikleri: 5 Adımda Başarı"
-description: "ielts reading matching headings taktikleri: başlık eşleştirme sorularında çeldiricileri eleme, 5 adımlı çözüm stratejisi ve 60 dakikalık zaman yönetimi."
+title: "IELTS Reading Matching Headings Taktikleri: 5 Adımlı Çözüm Planı"
+description: "IELTS Reading Matching Headings taktikleri: başlık listesi, zıtlık bağlaçları ve paraphrase eşleştirmesiyle 5 adımlı çözüm planı ve örnek paragraf."
 slug: ielts-reading-matching-headings-taktikleri
 lang: tr
 translationKey: ielts-reading-matching-headings
 category: ielts
 tags: [ielts, ielts-reading, matching-headings, exam-tips]
 keyword: "ielts reading matching headings taktikleri"
-cover: reading
-coverAlt: "Lexkite Reading kütüphanesinde urban farming konulu akademik metin ve matching headings alıştırması"
-publishAt: 2027-02-28T09:00:00+03:00
+cover: mock
+coverAlt: "Lexkite deneme sınavı ekranında Listening, Reading, Writing ve Speaking seçimi, deneme seçimi ve sınav yapısı"
+publishAt: 2026-12-22T20:02:00+03:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 91
+status: ready
 coverArt: {mood: think, icon: book, chip: IELTS Reading}
 shots: [
   {id: s1, route: '#/reading', crop: main},
   {id: s2, route: '#/read/space-debris', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: 'Matching Headings 5 Adımlı Çözüm Stratejisi', parts: [{t: '1. Başlık Listesi Analizi', r: 'Metne geçmeden önce List of Headings bölümündeki anahtar kavramları ve zıtlıkları belirleyin'}, {t: '2. Konu Cümlesi Tespiti', r: 'Her paragrafın ilk ve son cümlelerini dikkatle tarayarak ana fikri (Topic Sentence) yakalayın'}, {t: '3. Paraphrase Eşleştirmesi', r: 'Metindeki ifadelerin başlıklardaki soyut kavramsal karşılıklarını ve eşanlamlılarını bulun'}, {t: '4. Çeldiricileri Eleme', r: 'Yalnızca tek bir örneğe veya detaya odaklanan kelime avı tuzaklarını kararlılıkla eleyin'}, {t: '5. Genel Bütünlük Kontrolü', r: 'Kalan başlıklar ile paragrafların genel mantıksal uyumunu hızlıca teyit edin'}]}
+  {id: d1, type: boxes, title: 'Matching Headings: 5 Adımlı Çözüm Planı', parts: [{t: '1. Başlık Listesini Okuma', r: 'Metne geçmeden önce List of Headings içindeki anahtar kavramları ve aralarındaki farkları belirleyin'}, {t: '2. Konu Cümlesini Bulma', r: 'Her paragrafın ilk cümlelerine ve son cümlesine bakıp ana fikri (topic sentence) yakalayın'}, {t: '3. Zıtlık Bağlaçlarını Tarama', r: 'however, although gibi bağlaçtan sonra gelen asıl fikre dikkat edin'}, {t: '4. Paraphrase Eşleştirmesi', r: 'Metindeki ifadeyle başlıktaki soyut karşılığı yan yana koyup eş anlamlıları bulun'}, {t: '5. Eleme ve Genel Uyum', r: 'Kalan başlıkların paragraflara birlikte uyup uymadığını son bir kez kontrol edin'}]}
 ]
 quiz: [
   {
-    q: "Matching Headings sorularıyla karşılaştığınızda yapmanız gereken ilk stratejik adım nedir?",
+    q: "Bu yazıdaki çözüm planına göre Matching Headings sorusunda ilk adım hangisidir?",
     options: [
-      "Akademik metni baştan sona kelimesi kelimesine sözlük yardımıyla dikkatlice okumak",
-      "Metne girmeden önce başlık listesini (List of Headings) dikkatlice analiz etmek",
-      "Kalan roma rakamlarını paragraflara tahmin yürüterek rastgele şekilde hızlıca dağıtmak",
-      "Bu soru tipini aşırı zor olduğu gerekçesiyle sınavın en sonuna bilinçli ertelemek"
+      "Paragrafları sırayla okuyup her paragrafın ardından başlık listesine geri dönmek",
+      "Her paragrafı bitirdikten sonra başlıkları tek tek paragrafa karşı yeniden okumak",
+      "Paragraflardan önce başlık listesindeki fikirleri ve farkları kavramak",
+      "Paragrafların son cümlelerini okuyup başlıkları o cümlelerden tahmin etmek"
     ],
-    answer: 1,
-    explain: "Başlık listesini önceden incelemek zihinsel bir harita oluşturur ve paragrafları okurken ana fikri çok daha hızlı yakalamanızı sağlar."
+    answer: 2,
+    explain: "Başlıkları önceden okumak, paragrafları okurken aradığınız fikirlerin kabaca bir haritasını çıkarır; böylece ana fikri yakalamak kolaylaşır."
   },
   {
-    q: "Paragraftaki bir kelimenin başlıkta aynen geçmesi neden sıklıkla bir çeldirici tuzaktır?",
+    q: "Paragrafta geçen bir kelimenin başlıkta da aynen geçmesi neden sık görülen bir tuzaktır?",
     options: [
-      "Çünkü IELTS soru hazırlayıcıları dikkatsiz adayları yanıltmak için kelime tuzakları kurar",
-      "Çünkü akademik İngilizcede aynı kelimenin iki kez yazılması kesinlikle gramer hatası sayılır",
-      "Çünkü başlıklar kural gereği yalnızca soyut deyimsel edebi ifadelerden oluşmak zorundadır",
-      "Çünkü doğru başlıkların tamamı devrik cümle yapısıyla kurulmak mecburiyetinde kalır"
+      "Çünkü sınavdaki doğru başlıklar, paragrafta geçen kelimelerin hiçbirini içermez",
+      "Çünkü başlıkta geçen kelime, ilk örnek sorunun cevabını zaten verir",
+      "Çünkü paragrafın son cümlesinden alınan kelime, ana fikir sayılmaz",
+      "Çünkü kelimenin geçmesi, paragrafın bütününü özetlediği anlamına gelmez"
     ],
-    answer: 0,
-    explain: "Sınav yapıcılar yüzeysel kelime eşleştirmesi yapan adayları elemek için metindeki kelimeleri yanlış başlıklara tuzak olarak yerleştirir."
+    answer: 3,
+    explain: "Doğru başlık genellikle paragrafın bütününü eş anlamlı ve daha genel ifadelerle özetler. Birebir kelime eşleşmesi ise çoğu zaman paragrafın yalnızca bir ayrıntısını yakalar."
   },
   {
-    q: "İngilizce akademik paragraflarda ana fikir (Topic Sentence) en sık nerede konumlanır?",
+    q: "Akademik bir paragrafta ana fikri en sık nerede ararsınız?",
     options: [
-      "Paragrafın ilk iki cümlesinde veya en sondaki toparlayıcı cümlede",
-      "Paragrafın tam geometrik ortasında yer alan noktalı virgülün hemen ardındaki kısımda",
-      "Sayfanın en altındaki telif ve kaynakça dipnotlarının bulunduğu özel teknik alanda",
-      "Metin içinde yer alan sayısal istatistiklerin ve karmaşık yüzdelik oranların içinde"
+      "Çoğunlukla ilk ya da son cümlede; yazar görüş değiştiriyorsa ortada da olabilir",
+      "Çoğunlukla ortadaki cümlede; yazar görüş değiştiriyorsa ilk cümlede olabilir",
+      "Çoğunlukla sondan bir önceki cümlede; yazar görüş değiştiriyorsa ilk cümlede olabilir",
+      "Çoğunlukla en uzun cümlede; yazar görüş değiştiriyorsa son cümlede olabilir"
     ],
     answer: 0,
-    explain: "İngiliz akademik yazım geleneğinde paragrafın tezi genellikle ilk cümlede doğrudan ortaya konur veya son cümlede özetlenir."
+    explain: "Ana fikir çoğu zaman paragrafın başında ya da sonunda verilir; ancak yazar önce yaygın bir görüşü anlatıp however gibi bir bağlaçtan sonra kendi görüşünü söyleyebilir. Bu yüzden ortayı da taramak gerekir."
   }
 ]
 ---
 
-IELTS Academic Reading modülüne hazırlanan birçok adayın en çok zaman kaybettiği ve puan kaçırdığı soru tiplerinin başında **ielts reading matching headings taktikleri** gelir. Bu soru formatında, numaralandırılmış paragraflar ile bir liste halinde verilen başlıkları (*List of Headings*) ana fikirlerine (*Main Idea*) göre doğru şekilde eşleştirmeniz istenir.
+Matching Headings sorusunda her paragrafın ana fikrini, "List of Headings" bölümündeki roma rakamlı başlıklardan biriyle eşleştirirsiniz; en işe yarar yol da metne dalmadan önce başlıkları okuyup, sonra her paragraftan yalnızca ana fikri çıkarmaktır. Bu yazıda **IELTS Reading Matching Headings taktikleri** için 5 adımlı bir plan, kısa bir örnek paragraf ve dört haftalık bir çalışma düzeni bulacaksınız.
 
-Bu soru tipinin en zorlayıcı yanı, başlık sayısının her zaman paragraf sayısından 1 ila 3 adet fazla olmasıdır. Bu durum, basit bir eleme yöntemiyle doğru cevaba ulaşmayı imkansız kılar. Dahası, sınavı hazırlayan uzmanlar adayların zafiyetlerini çok iyi bilir: Paragrafın yalnızca tek bir cümlesinde geçen bir kelimeyi alıp başlığa koyarlar. Yüzeysel okuma yapan adaylar bu kelimeyi görür görmez tuzağa düşer ve tüm paragrafın ana fikri yerine önemsiz bir yan detayı seçer.
+Sorunun yapısı şöyledir: Metindeki paragraflar ya da bölümler A, B, C gibi harflerle işaretlenir, başlıklar ise i, ii, iii gibi roma rakamlarıyla sıralanır. Başlık sayısı paragraf sayısından genellikle 2-3 fazladır, yani bazı başlıklar hiçbir paragrafa uymaz. Bazı testlerde ilk paragraf için çözülmüş bir örnek de verilir; o paragrafı yeniden eşleştirmeniz gerekmez. Soru talimatında aksi belirtilmedikçe her başlık yalnızca bir kez kullanılır. Başlıkların paragraflardan fazla olması yüzünden son kalan başlığı "geriye bu kaldı" diye seçmek güvenilir değildir: her paragraf için gerçekten uyan bir başlık bulmanız gerekir.
 
-Bu kapsamlı rehberde, sınavda Band 7.0 ve üzerine ulaşmanızı sağlayacak **ielts reading matching headings taktikleri** sistemini 5 adımda öğrenecek, çeldiricileri anında tespit etmeyi ve her paragrafı maksimum 90 saniye içinde çözmeyi başaracaksınız.
+## Sorunun Yapısı ve İki Klasik Tuzak
 
-## Başlık Eşleştirme Sorularının Anatomisi ve 3 Büyük Tuzak
+Sınav yazarları sizden yalnızca kelime eşleştirmenizi değil, paragrafın ne söylediğini özetleyebilmenizi bekler. Bu yüzden başlık listesine konulan çeldiriciler genellikle şu iki tuzakla karşınıza çıkar:
 
-Cambridge soru hazırlayıcıları, adayların okuma hızını değil, üst düzey anlama ve sentezleme yeteneğini ölçer:
+- **Birebir kelime tuzağı:** Başlık, paragraftaki bir kelimeyi aynen içerir ama paragrafın konusunu anlatmaz.
+- **Ayrıntıyı ana fikir sanma:** Başlık, paragrafta geçen bir örneği ya da yan bilgiyi özetler; paragrafın ana iddiası ise başka bir şeydir.
 
-```
-+-----------------------------------------------------------+
-| Tuzak 1: Birebir Kelime Eşleştirme Tuzağı (Word-matching) |
-| Tuzak 2: Detayı Ana Fikir Sanma Hatası (Detail vs Main Idea)|
-| Tuzak 3: Zıtlık Bağlaçlarını Gözden Kaçırma (However, Yet)  |
-+-----------------------------------------------------------+
-```
+### Birebir kelime tuzağı
 
-### 1. Birebir Kelime Tuzağı (Word-spotting Distractor)
-Metinde *"urban greenhouse emissions"* ifadesi geçiyor diye başlıklardaki *"The rising threat of urban greenhouse emissions"* seçeneğini işaretlemek büyük olasılıkla hatadır. Doğru başlıklar neredeyse hiçbir zaman metindeki kelimelerin aynısını kullanmaz; bunun yerine **eşanlamlı ifadeler ve kavramsal genellemeler (Paraphrase)** tercih edilir (örneğin *"Ecological consequences of modern city living"*).
+Metinde *urban greenhouse emissions* ifadesi geçiyor diye *The rising threat of urban greenhouse emissions* başlığını seçmek çoğu zaman hatadır. Doğru başlık genellikle metindeki sözcükleri aynen kullanmaz; eş anlamlı ve daha genel ifadelerle yazılır, örneğin *Ecological consequences of modern city living* gibi.
 
-### 2. Örnek ile Tezi Birbirine Karıştırma
-Bir paragrafta dikey tarım kulelerinde yetiştirilen domateslerin vitamin değerleri anlatılıyor olabilir. Başlıklarda yer alan *"Nutritional benefits of hydroponic tomatoes"* seçeneği doğru gibi görünse de, domatesler sadece genel bir savı desteklemek için verilmiş bir örnek olabilir. Paragrafın asıl ana fikri *"Economic feasibility of alternative urban farming"* ise, detaya odaklanan başlık yanlış cevaptır.
+### Örneği ana fikir sanma
 
-![Lexkite Reading kütüphanesinde akademik metinler](media:@s1 "Lexkite Reading modülünde çevre, teknoloji ve tarih odaklı akademik metinlerin çözümü")
+Bir paragraf, dikey tarım kulelerinde yetişen domateslerin vitamin değerini anlatıyor olabilir. *Nutritional benefits of hydroponic tomatoes* başlığı doğru gibi görünür; fakat domates burada yalnızca genel bir iddiayı desteklemek için verilmiş bir örnek olabilir. Paragrafın asıl fikri *Economic feasibility of alternative urban farming* ise, ayrıntıya odaklanan başlık yanlış cevaptır.
 
-{{diagram: d1 | Matching Headings 5 Adımlı Çözüm Stratejisi}}
+![](media:@s1 "Lexkite Reading bölümünde The Rise of Urban Farming, The Four-Day Working Week gibi A2-C1 düzeyi okuma metinleri")
 
-## ielts reading matching headings taktikleri : 5 Adımlı Çözüm Planı
+## Türkçe Konuşan Okurlar İçin Dikkat Edilecek Noktalar
 
-Sınav salonunda paniklemeden, sistematik olarak doğru cevaba ulaşmak için şu 5 adımı uygulayın:
+Türkçede bir kelime ekler alıp çok değişse de kökü sayesinde tanınır; bu yüzden gözümüz metinde başlıktaki kelimenin aynısını ya da kökünü arar. İngilizce başlıklar ise çoğu zaman kökü bile farklı bir eş anlamlıyı seçer: metinde *a decline in rural population*, başlıkta *demographic change* gibi. Kelime avına çıkmak yerine, önce "bu paragraf ne söylüyor?" sorusunu kendi cümlenizle, hatta Türkçe olarak cevaplayın; sonra bu cevaba en yakın başlığı arayın.
 
-### Adım 1: Önce Başlık Listesini İnceleyin
-Metni okumaya kesinlikle başlamayın. İlk işiniz *List of Headings* bölümünü dikkatle okumak olmalıdır. Başlıklardaki temel isimleri, fiilleri ve aralarındaki ilişkiyi (nedenler, çözümler, tarihsel gelişim, finansal engeller) gösteren anahtar sözcüklerin altını çizin.
+İkinci alışkanlık, ilk cümleye fazla güvenmektir. Okul yazılarında düşünce genellikle paragrafın başında verilir; ancak İngilizce akademik metinlerde yazar bazen önce yaygın bir görüşü aktarır, asıl iddiasını bir zıtlık bağlacından sonra söyler. Bu yüzden ilk cümle yalnızca bir ipucudur, kanıt değildir.
 
-### Adım 2: Konu Cümlesini (Topic Sentence) Yakalayın
-Paragrafa geçin ve ilk 1-2 cümleyi çok dikkatli okuyun. İngilizce akademik makalelerin %70'inde paragrafın temel savı doğrudan ilk cümlede verilir. Ardından paragrafın en son cümlesine göz atarak yazarın bir sonuca varıp varmadığını kontrol edin.
+{{diagram: d1 | Matching Headings: 5 Adımlı Çözüm Planı}}
 
-### Adım 3: Zıtlık ve Dönüş Bağlaçlarını Tarayın
-Paragrafın gövdesini hızla tarayın (*skimming*). Eğer orta kısımlarda *however, nevertheless, on the other hand, although, despite* gibi zıtlık bildiren bağlaçlar görüyorsanız durun! Yazar ilk cümlede genel kabul gören bir yanılgıyı anlatıp, asıl kendi savını bu bağlaçtan sonra öne sürmüş olabilir.
+## IELTS Reading Matching Headings Taktikleri Beş Adımda
 
-### Adım 4: Paraphrase ve Anlam Eşleştirmesi Yapın
-Metindeki kavram ile başlıktaki kavramın eşanlamlılığını karşılaştırın. Örneğin metindeki *"financially unviable"* ifadesi başlıkta *"economic constraints"* olarak karşınıza çıkacaktır.
+Sınav sırasında telaşa kapılmadan ilerlemek için şu sırayı izleyin.
 
-### Adım 5: Eleme Yapın ve Genel Uyumu Onaylayın
-Doğru başlığı seçtiğinizde üzerini hafifçe çizin ancak tamamen karalamayın. Bir sonraki paragrafta aynı başlık daha uygun görünürse iki paragrafı birbiriyle kıyaslayarak revize edin.
+### Adım 1: Önce başlık listesini okuyun
 
-![Lexkite okuma ekranında metin içi not alma arayüzü](media:@s2 "Lexkite interaktif okuma ekranında önemli cümleleri vurgulama ve anında kelime sorgulama")
+Metni okumaya başlamadan *List of Headings* bölümünü okuyun. Başlıklardaki temel isimlerin, fiillerin ve aralarındaki ilişkinin (neden, çözüm, tarihsel gelişim, maliyet sorunu) altını çizin. Birbirine çok benzeyen iki başlık varsa aradaki farkı kısa bir notla yazın; çünkü çeldirici çoğunlukla o benzer başlıklardan biridir.
 
-## Akademik Paraphrase Kalıplarını Tanıma Rehberi
+### Adım 2: Konu cümlesini yakalayın
 
-Başarılı IELTS adayları metindeki somut detayların başlıklarda nasıl soyutlaştırıldığını çok iyi bilir:
+Paragrafın ilk bir iki cümlesini dikkatle okuyun (hızlı gözatma için [skimming ve scanning taktikleri](/tr/blog/ielts-reading-skimming-scanning-taktikleri/) yazısına bakabilirsiniz). Akademik metinlerde paragrafın temel iddiası çoğu zaman ilk cümlelerde verilir, ama her zaman değil (Adım 3'e bakın). Ardından son cümleye göz atıp yazarın bir sonuca varıp varmadığını kontrol edin.
 
-| Metindeki İfade (Passage) | Başlıktaki Karşılığı (Heading) | Paraphrase Mantığı |
+### Adım 3: Zıtlık bağlaçlarını tarayın
+
+Paragrafın ortasını hızlıca tarayın. *however, nevertheless, on the other hand, although, despite* gibi bağlaçlar görürseniz durun: yazar ilk cümlede yaygın bir görüşü anlatıp asıl kendi fikrini bağlaçtan sonra söylemiş olabilir. Bazı paragraflarda ana fikir tam bu noktada gelir.
+
+### Adım 4: Paraphrase eşleştirmesi yapın
+
+Metindeki kavramla başlıktaki kavramın eş anlamlı olup olmadığına bakın. Örneğin metindeki *The ferry service was withdrawn after passenger numbers fell for three years* cümlesi başlıkta *Decline of river transport* olarak karşınıza çıkabilir. Eşleşmeyi cümlenin bir parçasıyla değil, paragrafın bütünüyle kurun.
+
+### Adım 5: Eleme yapın ve genel uyumu kontrol edin
+
+Bir başlığı bir paragrafa yerleştirdiğinizde onu çizmeyin, yalnızca yanına küçük bir işaret koyun; sonraki paragrafta fikrinizi değiştirirseniz başlığı yeniden okuyabilmeniz gerekir. Eleme, bu işaretlere ve kalan başlıklara bakarak yapılır: işaretsiz kalan başlıklardan hangisi bu paragrafı bütünüyle özetliyor?
+
+![](media:@s2 "Space Debris metninde anahtar kelimeleri renkli görme, dokunup sözlükte bakma")
+
+## Akademik Paraphrase Kalıplarını Tanıma
+
+Metindeki somut ayrıntıların başlıkta nasıl soyutlandığını görmek, Adım 4'ü hızlandırır. Aşağıdaki cümleler bu yazı için hazırlanmış örneklerdir, resmi sınavdan alınmamıştır:
+
+| Metindeki ifade (passage) | Başlıktaki karşılığı (heading) | Paraphrase mantığı |
 | :--- | :--- | :--- |
-| *\"The experiment was repeated 40 times without success.\"* | *\"Early laboratory failures\"* | Sayısal veri $\rightarrow$ Başarısızlık genellemesi |
-| *\"State authorities refused to finance the transport project.\"* | *\"A withdrawal of public funding\"* | Somut eylem $\rightarrow$ Resmi soyutlama |
-| *\"Employees reported extreme levels of anxiety and insomnia.\"* | *\"Psychological fallout in the workplace\"* | Hastalık belirtileri $\rightarrow$ Ruhsal etki şemsiyesi |
-| *\"Engineers invented a novel solar-powered desalinator.\"* | *\"Technological breakthroughs in water supply\"* | Cihaz tanımı $\rightarrow$ Teknolojik buluş kavramı |
+| *"The experiment was repeated 40 times without success."* | *"Early laboratory failures"* | Sayısal veri → Başarısızlık genellemesi |
+| *"State authorities refused to finance the transport project."* | *"Lack of government support for transport"* | Somut ret → Genel destek eksikliği |
+| *"Employees reported extreme levels of anxiety and insomnia."* | *"Psychological fallout in the workplace"* | Hastalık belirtileri → Ruhsal etki şemsiyesi |
+| *"Engineers invented a novel solar-powered desalinator."* | *"Technological breakthroughs in water supply"* | Cihaz tanımı → Teknolojik buluş kavramı |
 
-Bu kavramsal dönüşümleri zihninize yerleştirmek için [Lexkite Reading kütüphanesinde](/app/#/reading) düzenli okumalar yapabilir, [derin okuma modunda](/app/#/read) paragrafların mantıksal omurgasını tek tıkla inceleyebilirsiniz.
+Bu dönüşümleri gözünüze alıştırmak için [Lexkite Reading kütüphanesinde](/app/#/reading) A2-C1 düzeyindeki metinleri okuyabilirsiniz; örneğin [Space Debris metninde](/app/#/read/space-debris) anahtar kelimeleri ve paraphrase'leri kendiniz arayabilirsiniz. Yalnızca başlık sorularını art arda çözmek için de [soru tipine göre okuma alıştırmasını](/app/#/rtype/headings) açıp başlık eşleştirme gruplarını ayrı çalışabilirsiniz.
 
-## Sınavda Zaman Yönetimi: 90 Saniye Kuralı
+## Sınavda Zaman Yönetimi
 
-Reading modülünde 3 uzun metin ve 40 soru için toplam 60 dakikanız vardır. Cevapları optik forma geçirmek için ekstra bir süre verilmez.
+Reading bölümünde 3 uzun metin ve 40 soru için toplam 60 dakikanız vardır; kâğıt tabanlı sınavda cevapları aktarmak için ek süre verilmez. Bu yüzden iki küçük kural işinize yarar (60 dakikayı bölmek için [zaman yönetimi yazısına](/tr/blog/ielts-reading-zaman-yonetimi-60-dakika-stratejisi/) da bakabilirsiniz):
 
-- **Matching Headings sorularını her zaman ilk sırada çözün**: Başlıkları çözerken metnin tamamını taramış olursunuz. Böylece arkasından gelen boşluk doldurma veya True/False/Not Given sorularının nerede olduğunu anında bulursunuz.
-- **Bir paragrafta 90 saniyeden fazla takılmayın**: Eğer iki başlık arasında kaldıysanız, yanına soru işareti koyup bir sonraki paragrafa geçin. Diğer başlıklar elendikçe doğru seçenek kendiliğinden ortaya çıkacaktır.
+- **Bazı adaylar Matching Headings'i önce çözmeyi yararlı bulur.** Başlıkları çözerken metnin büyük kısmını taramış olursunuz; sonra gelen boşluk doldurma ya da [True False Not Given](/tr/blog/ielts-reading-true-false-not-given-taktikleri/) sorularında aradığınız yeri daha kolay bulursunuz. Bu kişisel bir taktiktir, zorunlu bir kural değil.
+- **Bir paragrafta uzun süre takılmayın.** İki başlık arasında kaldıysanız yanına soru işareti koyup sonraki paragrafa geçin. Diğer başlıklar elendikçe karar kolaylaşır.
 
-Okuma becerilerinizi daha da güçlendirmek için [IELTS Reading skimming ve scanning taktikleri](/tr/blog/ielts-reading-skimming-scanning-taktikleri/) ve [IELTS Reading 60 dakika zaman yönetimi](/tr/blog/ielts-reading-zaman-yonetimi-60-dakika-stratejisi/) yazılarımızı mutlaka inceleyin. Ayrıca [IELTS Reading True False Not Given taktikleri](/tr/blog/ielts-reading-true-false-not-given-taktikleri/) ve zenginleştireceğiniz kelime haznesi için [IELTS çevre ve iklim kelimeleri](/tr/blog/ielts-cevre-ve-iklim-kelimeleri-collocations/) makalemiz size rehberlik edecektir. Resmi sınav örneklerine [örnek merkezimizden](/en/samples/) ulaşabilirsiniz.
+## Örnek Bir Paragraf Üzerinde Uygulama
+
+Stratejiyi görmek için kendi yazdığımız (resmi sınavdan alınmamış) kısa bir paragrafı inceleyelim:
+
+> **Örnek paragraf (Lexkite tarafından yazılmıştır):**
+> *"While early supporters of urban vertical farming predicted that multi-storey hydroponic towers would quickly transform food supply in cities, practical results have been disappointing. The high initial cost of artificial lighting, climate control and automated nutrient systems often makes the crops more expensive than those grown on traditional farms. Unless energy costs fall sharply, commercial profit will remain unlikely for most vertical farms."*
+
+Üç aday başlığı sırayla değerlendirelim:
+
+1. *"The history of early vertical farming towers"* — **çeldirici (ayrıntı)**: Erken dönem kuleler yalnızca ilk cümlede arka plan olarak anılmıştır; paragrafın konusu kulelerin tarihi değildir.
+2. *"Financial obstacles to urban farming"* — **doğru başlık**: Paragrafın tamamı maliyet üzerinedir (*high initial cost, more expensive, commercial profit*). Başlık metnin bütününü kapsar. Ayrıca ilk cümledeki *While ... practical results have been disappointing* yapısı, Adım 3'teki zıtlık mantığının güzel bir örneğidir: yazar önce yaygın beklentiyi anlatır, asıl iddiasını bağlaçtan sonra söyler.
+3. *"Renewable energy in cities"* — **çeldirici (yan ayrıntı)**: Enerji maliyeti yalnızca son cümlede bir koşul olarak geçer, ana omurga değildir.
+
+## 4 Haftalık Çalışma Planı
+
+Bu dört haftayı genel [IELTS çalışma planınızın](/tr/blog/ielts-calisma-plani-sifirdan-6-5-seviyesine/) içine yerleştirebilirsiniz.
+
+- **1. Hafta, süre tutmadan analiz:** Günde bir Matching Headings seti çözün. Doğru başlığın metindeki kanıtını işaretleyin, karşılaştığınız paraphrase ikililerini defterinize yazın.
+- **2. Hafta, çeldiricileri sınıflandırma:** Yanlış seçeneklerin neden yanlış olduğunu not edin: fazla dar, fazla geniş, metinle çelişen ya da metinde hiç geçmeyen bir bilgi.
+- **3. Hafta, süre sınırı:** Her paragraf için telefonunuzdan bir geri sayım başlatın. Süre dolunca en güçlü iki adaydan birine işaret koyup sonraki paragrafa geçmeyi alışkanlık hâline getirin.
+- **4. Hafta, tam deneme:** [Lexkite deneme sınavı bölümünde](/app/#/mock) Reading'i seçip tam bir deneme çözün ve cevaplarınızı roma rakamlarıyla yazma alışkanlığı edinin.
+
+## Sınav Günü İçin Kontrol Listesi
+
+- Soru kâğıdında paragrafların yanına kısa kurşun kalem notları almaktan çekinmeyin; sorular sizin çalışma alanınızdır.
+- Boşluk kalmasın: cevap kâğıdına her soru numarası için bir roma rakamı yazın.
+- Cevap kâğıdına roma rakamlarını (i, ii, iii, iv, v, vi, vii, viii, ix, x) okunaklı yazın. iv ile vi birbirine karışırsa cevabınız yanlış değerlendirilebilir.
+
+## Sık Sorulan Sorular
+
+### Bir başlık birden fazla paragraf için kullanılabilir mi?
+
+Hayır; soru talimatında aksi açıkça belirtilmedikçe her başlık yalnızca bir kez kullanılır. İki paragrafın aynı başlığa uyduğunu düşünüyorsanız, bunlardan biri büyük olasılıkla ayrıntı tuzağıdır. Önce talimat satırını okuyun.
+
+### Yalnızca ilk ve son cümleyi okumak yeterli mi?
+
+Birçok paragrafta ipucu olarak işe yarar, ama garanti değildir. Bazı paragraflarda ana fikir ortadaki bir zıtlık bağlacından (*however*) sonra gelir. İlk ve son cümleyi okuduktan sonra ortayı birkaç saniye bağlaçlar için taramak güvenli yoldur.
+
+### Matching Headings sorusu hangi metinde çıkar?
+
+Üç bölümden herhangi birinde çıkabilir; hangisinde çıkacağı sınavdan sınava değişir. Çok paragraflı, bir süreci veya tartışmayı anlatan metinlerde sık görülür.
 
 {{cta: /app/#/reading | Lexkite ile IELTS okuma antrenmanına başla}}
 
 {{youtube: | IELTS Reading Matching Headings taktikleri ve ipuçları}}
-
-
-## Gerçek Bir Sınav Metni Üzerinde Örnek Uygulama ve Vaka Analizi
-
-Stratejimizin mantığını daha somut kavrayabilmek için gerçek bir sınav paragrafını birlikte inceleyelim:
-
-> **Örnek Sınav Paragrafı:**
-> *"While early proponents of urban vertical agriculture predicted that multi-storey hydroponic towers would instantly revolutionize food supply chains in metropolitan zones, practical implementations have encountered severe financial bottlenecks. The immense initial capital expenditure required for artificial LED illumination, automated climate management, and specialized mechanical nutrient delivery systems often renders crop yields economically uncompetitive against traditional rural farms. Unless energy costs drop dramatically through localized renewable grids, commercial profitability will remain elusive for most vertical ventures."*
-
-### Başlık Seçeneklerinin Analizi:
-1. *"The history of early vertical hydroponic towers"* — **Çeldirici Tuzak (Detay)**: Erken dönem kuleler ilk cümlede sadece bir arka plan olarak anılmıştır, paragrafın konusu kulelerin tarihi değildir.
-2. *"Financial hurdles and viability constraints of urban farming"* — **DOĞRU BAŞLIK**: Paragrafın tamamı maliyetler (*financial bottlenecks, capital expenditure, economically uncompetitive, commercial profitability*) üzerinedir. Başlık metnin tamamını şemsiye gibi örter.
-3. *"Revolutionary renewable energy grids in cities"* — **Çeldirici Tuzak (Yan Detay)**: Yenilenebilir enerji sadece son cümlede bir koşul olarak geçmiştir, metnin ana omurgası değildir.
-
-## 4 Haftalık IELTS Reading Başarı Programı
-
-Okuma hızınızı ve başlık eşleştirme isabet oranınızı artırmak için şu haftalık çalışma planını uygulayın:
-
-- **1. Hafta: Kronometresiz Analiz**: Günde 2 adet Matching Headings seti çözün. Doğru seçtiğiniz her başlığın metindeki kanıtını fosforlu kalemle çizin ve karşılaştığınız paraphrase ikililerini defterinize not edin.
-- **2. Hafta: Çeldiricileri Sınıflandırma**: Yanlış seçeneklerin neden yanlış olduğunu inceleyin (aşırı dar, aşırı geniş, metinle çelişen, uydurma bilgi).
-- **3. Hafta: 90 Saniye Sınırı**: Her paragraf için telefonunuzdan 90 saniyelik geri sayım başlatın. Süre dolduğunda en güçlü iki adaydan birine işaret koyup derhal bir sonraki paragrafa geçme disiplinini kazanın.
-- **4. Hafta: 60 Dakikalık Tam Denemeler**: [Lexkite Reading modülü](/app/#/reading) üzerinde 3 metinden oluşan tam akademik denemeler çözün ve optik forma cevap aktarma pratiği yapın.
-
-
-## Sınav Günü İçin Kritik Hatırlatmalar ve Kontrol Listesi
-
-Sınav sabahı zihninizi gereksiz yere yormamak için şu kuralları aklınızda tutun:
-- Başlıkları eşleştirirken metin üzerine küçük kurşun kalem işaretleri koymaktan çekinmeyin; sınav kağıdı sizin çalışma alanınızdır.
-- Seçtiğiniz başlığı List of Headings üzerinden çizerken silik çizin; karalayıp okunmaz hale getirirseniz daha sonra fikir değiştirdiğinizde tekrar okuyamazsınız.
-- Optik cevap kağıdına yazarken Roma rakamlarını (i, ii, iii, iv, v, vi, vii, viii, ix, x) çok dikkatli ve okunaklı yazın; iv ile vi birbirine karışırsa sistem cevabınızı geçersiz sayabilir.
-
-## Sıkça Sorulan Sorular (FAQ)
-
-### Q1. Bir başlık birden fazla paragraf için kullanılabilir mi?
-Hayır, sınav talimatlarında aksi açıkça belirtilmedikçe her başlık yalnızca bir kez kullanılabilir. İki paragrafın aynı başlığa uyduğunu düşünüyorsanız, bir tanesi kesinlikle ayrıntı tuzağıdır.
-
-### Q2. Paragrafın sadece ilk ve son cümlesini okumak yeterli midir?
-Paragrafların çoğunda yeterli olsa da, metinlerin yaklaşık üçte birinde ana fikir orta kısımdaki bir zıtlık bağlacından (*however*) sonra gelir. İlk ve son cümleyi okuduktan sonra orta kısmı 5 saniye boyunca bağlaçlar için göz ucuyla taramak şarttır.
-
-### Q3. Matching Headings soruları hangi pasajlarda daha çok çıkar?
-Genellikle Passage 2 ve Passage 1 bölümlerinde sıklıkla karşımıza çıkar. Özellikle belirli bir tarihsel süreci veya bilimsel raporu anlatan çok paragraflı metinlerde tercih edilir.

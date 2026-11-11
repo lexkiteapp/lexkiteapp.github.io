@@ -1,163 +1,218 @@
 ---
-title: "عبارات إنجليزية للسفر إلى الخارج: دليل عملي شامل"
-description: "عبارات إنجليزية للسفر إلى الخارج: أهم الجمل والمصطلحات في المطار، الفندق، المواصلات، المطاعم وحالات الطوارئ مع نصائح النطق الصحيح."
+title: "قوالب جمل إنجليزية للسفر بدل حفظ العبارات"
+description: "قوالب جمل إنجليزية للسفر، أي جمل جاهزة: ست صيغ تغطي كثيراً من مواقف المطار والفندق والمطعم، مع أدب الطلب وأصوات تربك الناطق بالعربية وتمرين مع مفتاح إجابات."
 slug: injliziyyat-al-safar-ila-al-kharij-ibarat-asasiyyah
 lang: ar
 translationKey: tieng-anh-du-lich-nuoc-ngoai
 category: ky-nang
 tags: [travel, speaking, safar, phrases]
-keyword: "عبارات إنجليزية للسفر إلى الخارج"
-cover: phrases
-coverAlt: "شاشة تدريب عبارات المحادثة في Lexkite: عبارات إنجليزية للسفر إلى الخارج للمطار والفندق"
-publishAt: 2027-02-27T17:00:00+03:00
+keyword: "قوالب جمل إنجليزية للسفر"
+cover: practice-speak
+coverAlt: "شاشة تدريب النطق في Lexkite: عبارة قصيرة وزر الميكروفون للتحدث والتقييم بحسب الصوت"
+publishAt: 2026-12-22T08:54:00+03:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: cheer, icon: chat, chip: Travel English}
 shots: [
   {id: s1, route: '#/phrases', crop: main},
   {id: s2, route: '#/listening', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: 'محطات التواصل الأساسية أثناء السفر إلى الخارج', parts: [{t: '1. المطار وإجراءات الجوازات', r: 'تسجيل الوصول (Check-in)، وزن الأمتعة، وأسئلة ضابط الهجرة حول الغرض ومدة الإقامة'}, {t: '2. الفندق وخدمات الإقامة', r: 'تأكيد الحجز، طلب بطاقة الغرفة، الاستفسار عن الإفطار وكلمة سر الإنترنت'}, {t: '3. التنقل، المطاعم والطوارئ', r: 'شراء تذاكر القطار، طلب الوجبات ودفع الحساب، والتواصل مع الصيدلية والشرطة'}]}
+  {id: d1, type: boxes, title: 'ست صيغ تغطي كثيراً من مواقف السفر', parts: [{t: 'طلب شيء', r: '‎Could I have ... , please?‎'}, {t: 'السؤال عن مكان', r: '‎Is there ... near here?‎'}, {t: 'السؤال عن الطريق', r: '‎How do I get to ... ?‎'}, {t: 'طلب الإعادة', r: '‎Could you say that again?‎'}, {t: 'إبلاغ مشكلة', r: '‎There is a problem with ...‎'}, {t: 'الشكر والتأكد', r: "‎Thank you, that's very helpful‎"}]}
 ]
 quiz: [
   {
-    q: "عند سؤال ضابط الجوازات في المطار 'What is the purpose of your visit?' ما هي الإجابة الأنسب للسائح؟",
+    q: "أكمل الجملة: ‎Excuse me, _____ I use your phone, please?‎",
     options: [
-      "I am here for tourism and sightseeing for two weeks (توضيح هدف السياحة والمدة بوضوح تام)",
-      "I want to change my departure terminal immediately due to unexpected heavy flight delays",
-      "The baggage reclaim hall is located on the second floor right next to the departures gate",
-      "I have to attend five university lectures and find a permanent job in the local city center"
+      "‎should‎",
+      "‎must‎",
+      "‎could‎",
+      "‎did‎"
     ],
-    answer: 0,
-    explain: "في نقطة مراقبة الجوازات، يجب تقديم إجابة مباشرة ودقيقة تبين أن الغرض هو السياحة وقضاء عطلة محددة المدة."
+    answer: 2,
+    explain: "لطلب الإذن بأدب نستعمل ‎could‎ مع ‎please‎. أما ‎should‎ و‎must‎ و‎did‎ فلا تؤدي معنى الاستئذان هنا."
   },
   {
-    q: "ما هي العبارة المهذبة والأكثر شيوعاً لطلب فاتورة الحساب في مطعم أثناء السفر في دولة أجنبية؟",
+    q: "سمعت البائع يقول سعر التذكرة ‎/ˈsɪksti/‎. ما الرقم؟",
     options: [
-      "Could we have the bill, please? (أو 'Could we have the check, please' في الإنجليزية الأمريكية)",
-      "Where is the nearest currency exchange kiosk located in this international airport terminal?",
-      "Can you translate all the dessert ingredients written on the back of this printed menu?",
-      "How much does it cost to hire an official private tourist guide for a full day excursion?"
+      "‎60‎",
+      "‎16‎",
+      "‎66‎",
+      "‎6‎"
     ],
     answer: 0,
-    explain: "لطلب الحساب في المطعم بلباقة، يُستخدم التعبير الشائع 'Could we have the bill, please?' (أو the check في أمريكا)."
+    explain: "النبر على المقطع الأول في ‎sixty‎ ‎/ˈsɪksti/‎، أما ‎sixteen‎ فنبرها الرئيسي في آخرها."
   },
   {
-    q: "إذا ضللت طريقك في مدينة أجنبية، كيف تبدأ بسؤال أحد المارة عن محطة المترو بأقصى درجات اللباقة؟",
+    q: "أكمل الجملة: ‎There is a problem _____ my room key.‎",
     options: [
-      "Excuse me, could you please tell me how to get to the nearest metro station from here?",
-      "What is the exact departure schedule for tomorrow's regional morning commuter train?",
-      "Do you offer free international luggage storage facilities for incoming foreign travelers?",
-      "I would like to cancel my reserved hotel accommodation and request an immediate refund"
+      "‎to‎",
+      "‎of‎",
+      "‎on‎",
+      "‎with‎"
     ],
-    answer: 0,
-    explain: "يبدأ السؤال المهذب عن الاتجاهات دائماً بـ 'Excuse me' متبوعة بـ 'could you tell me how to get to...'."
+    answer: 3,
+    explain: "نقول ‎a problem with‎ عند الإبلاغ عن شيء لا يعمل كما يجب."
   }
 ]
 ---
 
-يُمثل السفر إلى بلد أجنبي تجربة ممتعة ومثرية، لكنه قد يتحول إلى مصدر للقلق والتوتر إذا واجه المسافر حاجزاً لغوياً يحول دون فهم الإرشادات والتواصل مع موظفي المطارات والفنادق. إن التسلح بمجموعة عملية من **عبارات إنجليزية للسفر إلى الخارج** يمنحك الثقة الكاملة للتعامل مع مختلف المواقف الروتينية والطارئة، دون خوف من سوء الفهم أو الارتباك.
+الأنفع في السفر ألا تحفظ مئة عبارة منفصلة، بل أن تتقن ست صيغ تتكرر في مواقف كثيرة: طلب شيء، والسؤال عن مكان، والاستفسار عن طريق، وطلب الإعادة، وإبلاغ مشكلة، وشكر المتحدث. هذه **قوالب جمل إنجليزية للسفر** تكفي في المطار والفندق والمطعم والمواصلات، وتبدّل فيها الكلمة الأخيرة فقط. فإذا حفظت *‎Could I have ... , please?‎* فيمكنك أن تطلب ماءً أو خريطة أو إيصالاً دون أن تتعلم ثلاث جمل منفصلة.
 
-لا يتطلب السفر إتقاناً للقواعد النحوية المعقدة أو امتلاك حصيلة لغوية ضخمة من المفردات الأكاديمية؛ فالهدف الرئيسي هو التواصل الوظيفي الواضح (*Functional Communication*). كل ما تحتاجه هو معرفة القوالب الجاهزة التي يستخدمها المتحدثون الأصليون في المطارات، الفنادق، محطات القطار، المطاعم ومحلات التسوق.
+وهذا المقال لا يقدّم حوارات جاهزة، فقد جمعنا ذلك في مقال [محادثات إنجليزية للسفر](/ar/blog/muhadathat-injliziyyah-li-al-safar/). هنا نشرح الصيغ نفسها، وكيف يختلف أدب الطلب بين العربية والإنجليزية، وأي الأصوات تربك الناطق بالعربية في المطار والفندق.
 
-في هذا الدليل العملي والشامل، جمعنا لك أهم **عبارات إنجليزية للسفر إلى الخارج** مصنفة حسب مواقف الرحلة الواقعية، مع نصائح ذهبية لنطقها بوضوح وفهم اللهجات المختلفة أثناء تجوالك حول العالم.
+## ما أفضل قوالب جمل إنجليزية للسفر؟
 
-## عبارات إنجليزية للسفر إلى الخارج في المطار وإجراءات الجوازات
+القالب هو جملة ثابتة تبدّل فيها كلمة واحدة أو اثنتين. اقرأ كل قالب بصوت مسموع مع ثلاثة أمثلة:
 
-المطار هو البوابة الأولى لرحلتك، وغالباً ما تتسم الإجراءات فيه بالدقة والسرعة، لذا من المهم أن تكون ردودك جاهزة وواضحة:
+### 1. طلب شيء: ‎Could I have ... , please?‎
 
-### 1. تسجيل الوصول وتسليم الحقائب (Check-in Desk)
-- **"Hello, I would like to check in for my flight to London."** (مرحباً، أود تسجيل الوصول لرحلتي إلى لندن.)
-- **"Could I have a window seat / aisle seat, please?"** (هل يمكنني الحصول على مقعد بجانب النافذة / الممر؟)
-- **"How many pieces of luggage can I check in?"** (كم قطعة أمتعة يمكنني شحنها؟)
-- **"Is my hand luggage within the allowed cabin weight limit?"** (هل حقيبتي اليدوية ضمن الوزن المسموح به داخل الكابينة؟)
-- **"What time does boarding start, and which gate should I go to?"** (في أي ساعة يبدأ الصعود للطائرة، وإلى أي بوابة يجب أن أتوجه؟)
+- *‎Could I have a receipt, please?‎* (هل يمكنني الحصول على إيصال؟)
+- *‎Could I have a bag for this, please?‎* (هل يمكنني الحصول على كيس لهذا؟)
+- *‎Could we have a table for two, please?‎* (هل يمكننا الحصول على طاولة لشخصين؟)
 
-### 2. ضابط مراقبة الجوازات (Immigration & Passport Control)
-يطرح ضابط الجوازات أسئلة محددة ومباشرة، وإليك كيف تجيب عليها باحترافية:
-- **Officer:** *"What is the purpose of your visit?"* (ما هو الغرض من زيارتك؟)
-  - **الإجابة:** *"I am here for tourism and holiday for ten days."* (أنا هنا للسياحة وقضاء عطلة لمدة عشرة أيام.)
-- **Officer:** *"Where will you be staying during your trip?"* (أين ستقيم خلال رحلتك؟)
-  - **الإجابة:** *"At the Central Park Hotel. Here is my confirmed booking voucher."* (في فندق سنترال بارك. تفضل هذا إشعار الحجز المؤكد.)
-- **Officer:** *"Do you have a return ticket?"* (هل لديك تذكرة عودة؟)
-  - **الإجابة:** *"Yes, my return flight is on the 25th of this month. Here is the ticket."* (نعم، رحلة عودتي في الخامس والعشرين من هذا الشهر، تفضل التذكرة.)
+وبديله الأكثر رسمية قليلاً *‎I would like ... , please.‎* وقد يبدو *‎I want‎* مباشراً أكثر من اللازم في المواقف التي يخدمك فيها أحد، لذلك يفضّل الناطقون الأصليون *‎I'd like‎*.
 
-![شاشة تدريب العبارات الإنجليزية للسفر في تطبيق ليكسكايت](media:@s1 "Lexkite Phrases: واجهة حفظ العبارات الاصطلاحية وحوارات السفر الدولي")
+### 2. السؤال عن مكان: ‎Is there ... near here?‎
 
-{{diagram: d1 | محطات التواصل الأساسية أثناء السفر إلى الخارج}}
+- *‎Is there a bakery near here?‎* (هل يوجد مخبز قريب من هنا؟)
+- *‎Is there a shuttle near here?‎* (هل توجد حافلة نقل قريبة من هنا؟)
+- *‎Is there a cash machine near here?‎* (هل يوجد جهاز صرف آلي قريب من هنا؟)
 
-## محطة الفندق والإقامة: من تسجيل الوصول إلى المغادرة
+### 3. السؤال عن الطريق: ‎How do I get to ... ?‎
 
-يُعد موظف الاستقبال في الفندق (*receptionist*) نقطة ارتكازك اليومية للحصول على الخدمات والمعلومات السياحية:
+- *‎Excuse me, how do I get to the underground station?‎* (معذرة، كيف أصل إلى محطة المترو؟)
+- *‎How do I get to the airport from here?‎* (كيف أصل إلى المطار من هنا؟)
+- *‎Is it far on foot, or should I take a bus?‎* (هل هو بعيد مشياً أم أستقل حافلة؟)
 
-### 1. تسجيل الوصول (Check-in)
-- **"Hello, I have a reservation under the name of Ahmed."** (مرحباً، لدي حجز مسبق باسم أحمد.)
-- **"What time is check-out tomorrow morning?"** (في أي ساعة يتم تسجيل المغادرة صباح الغد؟)
-- **"Is breakfast included in the room rate?"** (هل وجبة الإفطار مشمولة في سعر الغرفة؟)
-- **"Could you please tell me the Wi-Fi password?"** (هل يمكنك تزويدي بكلمة سر شبكة الإنترنت اللاسلكي؟)
-- **"Could we leave our bags in the luggage room until our room is ready?"** (هل يمكننا ترك حقائبنا في غرفة الأمتعة حتى تجهز غرفتنا؟)
+### 4. طلب الإعادة: ‎Could you say that again?‎
 
-### 2. طلبات الصيانة والخدمات الإضافية
-- **"The air conditioning in room 402 is not working properly."** (جهاز التكييف في الغرفة 402 لا يعمل بشكل جيد.)
-- **"There are no clean towels in the bathroom. Could you send some?"** (لا توجد مناشف نظيفة في الحمام، هل يمكن إرسال البعض؟)
-- **"Could you arrange a taxi to pick us up for the airport at 6 AM?"** (هل يمكنك ترتيب سيارة أجرة لتقلنا إلى المطار في تمام الساعة السادسة صباحاً؟)
+لا تتظاهر بالفهم. هذه الجمل مفيدة عند التحدث مع من يتكلم بسرعة، وبعدها كرر ما فهمته لتتأكد، مثل *‎So the gate is number twelve?‎* فإذا تعذّر الفهم فاطلب أن يكتب لك الرقم أو الاسم:
 
-## محطة التنقل والمواصلات العامة والسؤال عن الاتجاهات
+- *‎Sorry, could you say that again?‎* (آسف، هل يمكنك أن تعيد ذلك؟)
+- *‎Could you speak a little more slowly, please?‎* (هل يمكنك أن تتكلم ببطء أكثر؟)
+- *‎Could you show me on the map?‎* (هل يمكنك أن تريني على الخريطة؟)
 
-التحرك في شوارع وقطارات المدن الكبرى يتطلب معرفة جمل دقيقة ومؤدبة لتجنب الضياع وتوفير الوقت:
+### 5. إبلاغ مشكلة: ‎There is a problem with ...‎
 
-### 1. السؤال عن الطريق والاتجاهات
-ابدأ دائماً بعبارة الاعتذار المهذبة **"Excuse me"**:
-- **"Excuse me, could you tell me how to get to the British Museum from here?"** (معذرة، هل يمكنك إخباري كيف أصل إلى المتحف البريطاني من هنا؟)
-- **"Is it within walking distance, or should I take the subway?"** (هل يمكن الوصول إليه مشياً على الأقدام، أم ينبغي أن أستقل المترو؟)
-- **"Where is the nearest bus stop / metro station?"** (أين أقرب محطة حافلات / محطة مترو؟)
-- **"Am I heading in the right direction for the central train station?"** (هل أسير في الاتجاه الصحيح المؤدي إلى محطة القطارات المركزية؟)
+- *‎There is a problem with my booking.‎* (هناك مشكلة في حجزي.)
+- *‎There is a problem with the air conditioning.‎* (هناك مشكلة في المكيف.)
+- *‎There is a problem with my luggage.‎* (هناك مشكلة في أمتعتي.)
 
-### 2. شراء التذاكر وركوب القطارات
-- **"One round-trip ticket to Oxford, please."** (تذكرة ذهاب وإياب إلى أكسفورد من فضلك.)
-- **"Which platform does the airport express train depart from?"** (من أي رصيف ينطلق قطار المطار السريع؟)
-- **"Does this bus stop near the central square?"** (هل تتوقف هذه الحافلة بالقرب من الساحة المركزية للمدينة؟)
+### 6. الشكر والتأكد: ‎Thank you, that's very helpful‎
 
-![شاشة تدريب الاستماع على اللهجات في تطبيق ليكسكايت](media:@s2 "واجهة تدريب الاستماع وفهم اللهجات الإنجليزية المتنوعة في المطارات عبر تطبيق Lexkite")
+- *‎Thank you, that's very helpful.‎* (شكراً، هذا مفيد جداً.)
+- *‎Just to check, the train leaves at nine?‎* (للتأكد فقط، القطار يغادر في التاسعة؟)
+- *‎Sorry, I didn't catch your name.‎* (آسف، لم أفهم اسمك.)
 
-## محطة المطاعم والمقاهي: الطلب والاستفسار ودفع الحساب
+![](media:@s1)
 
-الاستمتاع بالمأكولات المحلية جزء لا يتجزأ من السفر، وإليك العبارات التي تجعل تجربتك مريحة:
+{{diagram: d1 | ست صيغ تغطي كثيراً من مواقف السفر}}
 
-### 1. حجز الطاولة والطلب
-- **"A table for two by the window, please."** (طاولة لشخصين بجانب النافذة من فضلك.)
-- **"Could we see the menu and the drinks list, please?"** (هل يمكننا الاطلاع على قائمة الطعام وقائمة المشروبات من فضلك؟)
-- **"What do you recommend as a signature local dish?"** (ماذا تقترح كطبق محلي مميز يشتهر به المطعم؟)
-- **"I am allergic to seafood and peanuts. Does this dish contain any?"** (أنا أعاني من حساسية تجاه المأكولات البحرية والفول السوداني، هل يحتوي هذا الطبق على أي منها؟)
-- **"I would like to order the grilled chicken with roasted vegetables, please."** (أود طلب الدجاج المشوي مع الخضار المطهوة من فضلك.)
+## قالب واحد في أربعة أماكن
 
-### 2. طلب الفاتورة والدفع
-- **"Could we have the bill / check, please?"** (هل يمكننا الحصول على الفاتورة من فضلك؟)
-- **"Do you accept credit cards, or is it cash only?"** (هل تقبلون بطاقات الائتمان، أم الدفع نقداً فقط؟)
-- **"Can we split the bill between three people?"** (هل يمكننا تقسيم الفاتورة بين ثلاثة أشخاص بالتساوي؟)
-- **"Keep the change, thank you for the wonderful service."** (احتفظ بالباقي، شكراً جزيلاً على الخدمة الرائعة.)
+لترى كيف يعمل القالب، خذ *‎Could I have ... , please?‎* وضعه في أماكن مختلفة. ستلاحظ أن الجملة نفسها تخدمك في كل مكان:
 
-## محطة الطوارئ والخدمات الصحية والمساعدة العاجلة
+- **في المطار:** *‎Could I have a luggage tag, please?‎* (هل يمكنني الحصول على بطاقة للحقيبة؟)
+- **في الفندق:** *‎Could I have a charger for this phone, please?‎* (هل يمكنني الحصول على شاحن لهذا الهاتف؟)
+- **في المطعم:** *‎Could I have a table by the door, please?‎* (هل يمكنني الحصول على طاولة قرب الباب؟)
+- **في المحطة:** *‎Could I have a day pass, please?‎* (هل يمكنني الحصول على تذكرة يومية؟)
 
-لا أحد يتمنى مواجهة أزمات في السفر، لكن الاستعداد لهذه المواقف بالعبارات الإنجليزية الصحيحة قد ينقذ موقفاً حرجاً:
+وكذلك قالب المشكلة: *‎There is a problem with the key card.‎* و*‎There is a problem with the shower.‎* و*‎There is a problem with my seat.‎* فتبدّل الكلمة الأخيرة ويبقى الباقي ثابتاً.
 
-- **"I need immediate medical assistance, please."** (أحتاج إلى مساعدة طبية عاجلة من فضلك.)
-- **"Where is the nearest 24-hour pharmacy / hospital?"** (أين توجد أقرب صيدلية تعمل على مدار 24 ساعة / مستشفى في هذه المنطقة؟)
-- **"I have lost my passport and wallet. Where is the tourist police station?"** (لقد فقدت جواز سفري ومحفظتي، أين يقع مركز شرطة السياحة؟)
-- **"I feel severe chest pain and dizziness. Please call an ambulance right away."** (أشعر بألم حاد في الصدر ودوار شديد، أرجو استدعاء سيارة إسعاف فوراً.)
-- **"My luggage was lost during transit. Where can I file a missing baggage report?"** (فُقدت أمتعتي أثناء رحلة الترانزيت، أين يمكنني تقديم بلاغ عن الأمتعة المفقودة؟)
+## مفردات تختلف بين البريطانية والأمريكية
 
-## استراتيجيات التدريب والتحدث بطلاقة أثناء الرحلة
+بعض الكلمات التي تُستعمل في السفر تختلف بين اللهجتين، فاختر واحدة واثبت عليها حتى لا تتشتت:
 
-إن مفتاح النجاح في التواصل أثناء السفر هو كسر حاجز الخجل والتردد. تذكر دائماً أن موظفي الفنادق والمطارات معتادون على التعامل مع مسافرين من شتى بقاع الأرض يتحدثون بلكنات ولهجات متعددة ومستويات متفاوتة في الإنجليزية. لا تشغل بالك بالكمال القواعدي أو استخدام مفردات بليغة؛ فالوضوح والتهذيب هما الأساس في كل المعاملات اليومية.
+| المعنى | البريطانية | الأمريكية |
+| :--- | :--- | :--- |
+| مترو الأنفاق | ‎underground‎ أو ‎tube‎ | ‎subway‎ |
+| شقة للإقامة | ‎flat‎ | ‎apartment‎ |
+| سيارة الأجرة | ‎taxi‎ | ‎cab‎ أو ‎taxi‎ |
+| المصعد | ‎lift‎ | ‎elevator‎ |
+| الطابق الأرضي | ‎ground floor‎ | ‎first floor‎ |
 
-## نصائح عملية لتطوير لغة السفر قبل الإقلاع
+ولا تقلق إن سمعت الكلمة الأخرى، فكلاهما مفهوم في أغلب الأحوال. لكن إن كنت ستسافر إلى بلد بعينه فتعلّم كلماته أولاً.
 
-- **التدريب الصوتي المتكرر بصوت مسموع**: لا تكتفِ بالقراءة الصامتة؛ نطق العبارات بصوت عالٍ يمرن لسانك وفكك على مخارج الحروف الإنجليزية بسلاسة.
-- **تنزيل القواميس والتطبيقات التي تعمل دون إنترنت**: قد تواجه انقطاعاً في شبكة الهاتف عند وصولك، لذا احتفظ بملفات صوتية وملاحظات جاهزة.
-- لتعزيز مخارج الأصوات ونبرة الكلام، اطلع على دليلنا حول [قواعد نطق نهايات ed و s في الإنجليزية](/ar/blog/nutq-nihayat-ed-wa-s-fi-al-injliziyyah/) وكذلك مقال [تحسين النطق بالإنجليزية](/ar/blog/tahsin-nutq-al-injliziya/).
-- لتنظيم الأفكار وربط الجمل بطلاقة أثناء الحديث مع الأجانب، راجع [أدوات الربط في اللغة الإنجليزية](/ar/blog/adawat-al-rabt-fi-al-injliziyyah-linking-words/) ودليل [الأفعال الناقصة في الإنجليزية](/ar/blog/al-afal-al-naqisa-can-could-should-must/).
+## أدب الطلب: لماذا لا تنفع الترجمة الحرفية؟
 
-يمكنك التدرب على هذه العبارات وحفظها في بطاقات مراجعة ذكية عبر [مكتبة Lexkite للعبارات الاصطلاحية](/app/#/phrases) والاستماع إلى نطقها السليم بواسطة [تمارين الاستماع التفاعلية في Lexkite](/app/#/listening). وللاطلاع على نماذج محادثات وجمل مترجمة، تفضل بزيارة صفحة [نماذج التعلم في Lexkite](/en/samples/).
+في العربية نخفف الطلب بـ «لو سمحت» أو «ممكن»: «لو سمحت، ممكن المفتاح؟». وقد ينقل المتعلم هذه الصيغة حرفياً فيقول *‎Give me the key, please‎*، وهي في الإنجليزية أمر مجرد يبدو حاداً في مطعم أو فندق حتى مع ‎please‎. ويكفي أن تجعل الجملة سؤالاً مع *‎Could‎* ليبدو الطلب مهذباً. وسبب استعمال ‎Could‎ و‎Would‎ في الطلب يشرحه مقال [الأفعال الناقصة](/ar/blog/al-afal-al-naqisa-can-could-should-must/):
+
+| صيغة مباشرة أكثر من اللازم | الصيغة الأنسب |
+| :--- | :--- |
+| ‎Give me a bottle of water.‎ | ‎Could I have a bottle of water, please?‎ |
+| ‎I want a taxi.‎ | ‎I'd like a taxi, please.‎ |
+| ‎Where is the toilet?‎ | ‎Excuse me, where is the toilet (US: restroom), please?‎ |
+| ‎Show me the ticket.‎ | ‎Could I see the ticket, please?‎ |
+
+ويُستعمل *‎Sir‎* و*‎Madam‎* في المخاطبات الرسمية، لكن لا حاجة إلى المبالغة، فـ *‎please‎* و*‎thank you‎* مع ابتسامة تكفي في أكثر المواقف.
+
+## أصوات تربك الناطق بالعربية أثناء السفر
+
+بعض الكلمات التي تحتاج إليها في المطار فيها أصوات غير موجودة في العربية، لذلك تستحق تدريباً قبل السفر:
+
+- **‎`/p/`‎ و‎`/b/`‎:‎** ليس في العربية صوت ‎`/p/`‎، فيُنطق *‎passport‎* أحياناً كأنها «باسبورت» بباء مجهورة. الصواب أن تنطق الباء المهموسة بنفخة هواء: ‎`/ˈpɑːspɔːt/`‎.
+- **‎`/v/`‎ و‎`/f/`‎:‎** ليس في العربية صوت ‎`/v/`‎ أصيل، لذلك قد تُنطق *‎visa‎* كأنها *‎fisa‎*. الصواب أن تلمس الأسنان العليا الشفة السفلى مع اهتزاز الصوت: ‎`/ˈviːzə/`‎. وفي المقابل *‎flight‎* تبدأ بـ ‎`/f/`‎ دون اهتزاز: ‎`/flaɪt/`‎.
+- **الحركة القصيرة والطويلة:** في *‎ship‎* ‎`/ʃɪp/`‎ و*‎sheep‎* ‎`/ʃiːp/`‎ يختلف الطول والجودة معاً، وقد لا يظهر الفرق عند الإصغاء بوضوح، فتدرب على الزوج بصوت مسموع.
+- **الصوامت المتجاورة:** كلمات مثل *‎asked‎* ‎`/ɑːskt/`‎ و*‎texts‎* ‎`/teksts/`‎ تنتهي بثلاثة صوامت متجاورة أو أكثر، والعربية تقبل صامتين في آخر الكلمة (مثل «وقت») لكنها لا تألف ثلاثة، فقد يُدخل الناطق بها حركة بينها فتطول الكلمة. حاول نطقها بنَفَس واحد.
+- **الأرقام:** *‎thirteen‎* ‎`/ˌθɜːˈtiːn/`‎ و*‎thirty‎* ‎`/ˈθɜːti/`‎ يختلفان بموضع النبر. وهذا مهم حين تسمع رقم غرفة أو بوابة أو سعراً.
+
+ولمزيد من العمل على الأصوات راجع [تحسين النطق بالإنجليزية](/ar/blog/tahsin-nutq-al-injliziya/). وعند تهجئة اسمك بالأحرف، مثل *‎A-H-M-E-D‎*، تدرّب عليها قبل السفر. فإذا نطقت الأحرف بوضوح قلّ احتمال أن يطلب منك الموظف إعادة الاسم.
+
+## جمل قصيرة للمواقف الطارئة
+
+في الطوارئ لا وقت لقالب طويل، فاحفظ جملاً قصيرة تقولها بوضوح وسرعة:
+
+- *‎I need help.‎* (أحتاج إلى مساعدة.)
+- *‎I've missed my connecting flight.‎* (فاتتني رحلة الترانزيت.)
+- *‎Please call a doctor.‎* (من فضلك اتصل بطبيب.)
+- *‎I'm allergic to penicillin.‎* (عندي حساسية من البنسلين.)
+- *‎I feel dizzy; could I sit down?‎* (أشعر بدوار، هل يمكنني الجلوس؟)
+
+وحين تتحدث في موقف كهذا فكّر في كلمة واحدة مفتاحية أولاً (*‎flight‎* أو *‎doctor‎* أو *‎allergic‎*)، فهي التي سيلتقطها المستمع حتى لو أخطأت في بقية الجملة.
+
+## خطة أسبوع قبل الرحلة
+
+لا تحتاج إلى وقت طويل، بل إلى تكرار قصير كل يوم:
+
+1. **اليوم الأول والثاني:** القالبان الأول والثاني مع عشرة أمثلة لكل منهما.
+2. **اليوم الثالث:** قالب الطريق والأصوات الصعبة: *‎passport‎* و*‎visa‎* و*‎thirteen‎*.
+3. **اليوم الرابع:** طلب الإعادة والتوضيح، وتدرب عليه مع صديق يمثل دور الموظف.
+4. **اليوم الخامس:** جمل الطوارئ والمشكلات.
+5. **اليومان الأخيران:** مراجعة سريعة بصوت مسموع، ثم الاستماع إلى لكنات مختلفة.
+
+## كيف تتدرب قبل السفر؟
+
+1. اختر ثلاثة قوالب وبدّل الكلمة الأخيرة بعشر كلمات مختلفة، واكتبها في [دفتر العبارات الشخصي](/app/#/phrases) داخل ‎Lexkite‎ لتجدها في دفتر واحد.
+2. اقرأ كل جملة بصوت مسموع، ثم جرّبها في [تدريب النطق](/app/#/practice/speak) الذي يقيّم نطقك بحسب صوتك.
+3. تعوّد على اللكنات في [تدريب الاستماع](/app/#/listening)، وهو اختبارات استماع بصيغة الآيلتس، لا محادثات سفر، لكن فيها لكنات بريطانية وأمريكية وأسترالية وسرعة قابلة للتعديل.
+4. قد ينقطع الإنترنت عند وصولك، فاحفظ العبارات المهمة مسبقاً في ملاحظات على هاتفك.
+5. وللتوسع في تعلّم الجمل الجاهزة اطّلع على [جمل إنجليزية مستخدمة في الحياة اليومية](/ar/blog/jumal-injliziyyah-mustakhdamah-fi-al-hayat-al-yawmiyyah/).
+
+![](media:@s2)
+
+## تمرين: حوّل الأمر إلى طلب مهذب
+
+حوّل كل جملة إلى طلب مهذب باستعمال *‎Could‎* أو *‎I'd like‎*:
+
+1. ‎Give me a map.‎
+2. ‎I want a room with a view.‎
+3. ‎Tell me the time.‎
+4. ‎Where is the bus stop?‎
+5. ‎Repeat that.‎
+
+**نموذج الإجابات:**
+
+1. ‎Could I have a map, please?‎
+2. ‎I'd like a room with a view, please.‎
+3. ‎Could you tell me the time, please?‎
+4. ‎Excuse me, could you tell me where the bus stop is, please?‎
+5. ‎Sorry, could you say that again?‎
+
+وفي الإنجليزية عدة إجابات صحيحة لكل جملة، المهم أن تحتفظ بالمعنى وتضيف *‎Could‎* أو *‎please‎*. وإذا أردت أن تطبّق القوالب في كلام أطول فاكتب فقرة قصيرة عن رحلة قادمة واقرأها بصوت مسموع.
+
+{{cta: /app/#/phrases | احفظ قوالب السفر في دفتر العبارات في Lexkite}}
+
+{{youtube: | قوالب إنجليزية للسفر: الطلب والسؤال وطلب الإعادة}}

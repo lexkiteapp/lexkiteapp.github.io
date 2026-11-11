@@ -1,178 +1,168 @@
 ---
-title: "IELTS Speaking Part 3 İpuçları: Mantıksal Cevap Genişletme"
-description: "ielts speaking part 3 ipuçları: PEEL yöntemi ile mantıksal cevap geliştirme, ileri düzey akademik bağlaçlar, duraksamayı önleme ve örnek cevap kalıpları."
+title: "IELTS Speaking Part 3 Soru Tipleri ve Örnek Cevaplar"
+description: "IELTS Speaking Part 3 soru tipleri: karşılaştırma, neden-çözüm, gelecek tahmini, görüş ve varsayım sorularını tanıyın; her birine uygun kalıp ve örnek cevap."
 slug: ielts-speaking-part-3-ipuclari-ve-ornekler
 lang: tr
 translationKey: ielts-speaking-part-3
 category: ielts
 tags: [ielts, ielts-speaking, part-3, exam-tips]
-keyword: "ielts speaking part 3 ipuçları"
+keyword: "ielts speaking part 3 soru tipleri"
 cover: speaking
-coverAlt: "Lexkite Speaking çalışma odasında Part 1 ve Part 3 derinlemesine tartışma soruları ve band 7.5 örnek cevaplar"
-publishAt: 2027-03-01T09:00:00+03:00
+coverAlt: "Lexkite Speaking odasında Part 1, 2 ve 3 konuları ve örnek sorular"
+publishAt: 2026-12-23T08:31:00+03:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: think, icon: mic, chip: IELTS Speaking}
 shots: [
-  {id: s1, route: '#/speaking', crop: main},
-  {id: s2, route: '#/mock', crop: main}
-]
-diagrams: [
-  {id: d1, type: boxes, title: 'PEEL Yöntemi ile Part 3 Cevap Yapısı', parts: [{t: 'P: Point (Temel Tez)', r: 'Soruya ilk cümlede doğrudan ve net bir akademik iddia ile yanıt verin'}, {t: 'E: Explanation (Açıklama)', r: 'Neden böyle düşündüğünüzü toplumsal, ekonomik ve kültürel boyutlarıyla açıklayın'}, {t: 'E: Example (Nesnel Örnek)', r: 'Kişisel anılar yerine toplum geneli, haberler veya araştırmalardan somut kanıt sunun'}, {t: 'L: Link (Bağlantı & Sonuç)', r: 'Argümanı toparlayıp sorunun ana eksenine bağlayan bir sonuç cümlesi kurun'}]}
+  {id: s1, route: '#/mock', crop: main},
+  {id: s2, route: '#/practice/speak', crop: main}
 ]
 quiz: [
   {
-    q: "IELTS Speaking Part 3 aşamasında Türk adayların en sık yaptığı stratejik hata nedir?",
+    q: "Görevli şunu soruyor: How has family life changed compared with your grandparents' time? Bu soru cevabınızdan ne bekler?",
     options: [
-      "Toplumsal ve soyut konuları kendi kişisel günlük anılarına indirgeyerek anlatmak",
-      "Cümlelerinde however ve therefore gibi resmi akademik bağlaçları sıkça kullanmak",
-      "Soruyu cevaplarken son derece resmi, mesafeli ve sofistike bir dil üslubu seçmek",
-      "Soru geldikten sonra iki saniye derinlemesine düşünüp ardından konuşmaya başlamak"
+      "Geçmiş ile bugün arasında somut bir fark kurmasını",
+      "Bugünkü bir sorun için tek bir çözüm önermesini",
+      "Gelecekteki bir gelişmeyi olasılıkla tahmin etmesini",
+      "Kişisel bir anıyı ayrıntılı biçimde anlatmasını"
     ],
     answer: 0,
-    explain: "Part 3 kişisel anıları değil (Part 1 ve 2'ye aittir), toplumsal olayları makro düzeyde tartışma yeteneğini ölçer."
+    explain: "Geçmiş ile şimdiyi karşılaştıran sorularda cevabın iki dönemi de somut örnekle yan yana koyması beklenir; çözüm önermek, tahmin yürütmek ya da anı anlatmak başka soru tiplerinin işidir."
   },
   {
-    q: "PEEL formülündeki ikinci 'E' harfi hangi kritik yapı taşını temsil eder?",
+    q: "Görevli şunu soruyor: What would happen if all museums were free? Aşağıdakilerden hangisi bu soruya uygun bir cevap başlangıcıdır?",
     options: [
-      "Emotion (aşırı duygusal tepkiler ve kontrolsüz el kol hareketleri sergilemek)",
-      "Example (toplumu ilgilendiren nesnel ve somut bir örnek sunmak)",
-      "Evaluation (sınav görevlisinin telaffuz ve gramer hatalarını değerlendirmek)",
-      "Elimination (tüm zor ve akademik kelimeleri konuşmadan tamamen dışarı çıkarmak)"
+      "Museums used to be quieter, whereas today many are crowded.",
+      "Part of the problem is that tickets are so expensive.",
+      "More people would probably visit, but queues would grow.",
+      "I mostly agree, as long as the museums are well funded."
     ],
-    answer: 1,
-    explain: "PEEL; Point (Tez), Explanation (Açıklama), Example (Örnek) ve Link (Bağlantı) aşamalarından oluşur."
+    answer: 2,
+    explain: "Would ile kurulan cümle gerçek olmayan bir durumun sonucunu anlatır, yani varsayım sorusuna cevap verir; diğerleri karşılaştırma, neden ve görüş sorularının cevap kalıplarıdır."
   },
   {
-    q: "Sınav görevlisinin sorduğu karmaşık soruyu tam olarak anlayamadığınızda en doğru yaklaşım nedir?",
+    q: "Aşağıdaki Part 3 sorularından hangisi bir gelecek tahmini ister?",
     options: [
-      "Aşırı panikleyip sınav görevlisine hiçbir şey söylemeden sessizce beklemek",
-      "Kibar bir ifadeyle soruyu yeniden ifade etmesini veya açıklamasını rica etmek",
-      "Ezberlediğiniz tamamen ilgisiz başka bir metni çok hızlıca baştan okumak",
-      "Sınav odasından dışarı çıkıp görevlilerden derhal yeni bir randevu talep etmek"
+      "Why do many people avoid public transport?",
+      "What will transport be like in fifty years?",
+      "How was transport different in your grandparents' time?",
+      "What would you do if the buses stopped running?"
     ],
     answer: 1,
-    explain: "'Could you rephrase that question, please?' gibi kibar ricalar doğal bir iletişim stratejisidir ve puan kaybettirmez."
+    explain: "Will ile gelecekteki bir durumu soran soru tahmin sorusudur; neden soran soru neden-çözüm, eski dönemle bugünü karşılaştıran soru karşılaştırma, would ile hayali bir durumu soran soru ise varsayım tipine girer."
+  },
+  {
+    q: "Part 3 için aşağıdakilerden hangisi doğrudur?",
+    options: [
+      "Yaklaşık 2 dakika süren, kart üzerinden yapılan tek taraflı bir konuşmadır",
+      "Yaklaşık 11-14 dakika süren, tüm Speaking sınavını kapsayan bölümdür",
+      "Bir dakikalık hazırlığın ardından yapılan kesintisiz bir monologdur",
+      "Yaklaşık 4-5 dakika süren, görevliyle yapılan iki yönlü bir tartışmadır"
+    ],
+    answer: 3,
+    explain: "Part 3, Part 2'deki konuyla bağlantılı daha soyut ve genel sorulara görevliyle karşılıklı konuştuğunuz, yaklaşık 4-5 dakikalık bölümdür."
   }
 ]
 ---
 
-IELTS sınavında 7.0 ve üzeri yüksek bir puanı hedefleyen adayların önündeki en büyük sınav, mülakatın son aşaması olan **ielts speaking part 3 ipuçları** konusuna ne kadar hakim olduklarıdır. Part 1 aşamasında hobiler, memleket ve günlük alışkanlıklar konuşulurken, Part 2 bölümünde adaya verilen kart üzerinden iki dakikalık kesintisiz bir anlatım beklenir. Ancak Part 3 doğrudan sınav görevlisiyle yapılan çift yönlü entelektüel bir tartışmadır (*Two-way Discussion*).
+Part 3 sorularının çoğu birkaç tanıdık kalıba oturur ve soruyu duyar duymaz hangi kalıp olduğunu anlarsanız cevabın şekli de belli olur: karşılaştırma isteniyorsa iki dönemi ya da grubu yan yana koyarsınız, varsayım isteniyorsa *would* ile kurarsınız, tahmin isteniyorsa yumuşatırsınız. Bu yazıda **IELTS Speaking Part 3 soru tipleri**ni beş grupta topladık; her grup için soruyu tanıtan ipuçlarını, işe yarayan dil kalıplarını, Türkçe konuşanların o tipte takıldığı yeri ve kısa bir örnek cevabı bulacaksınız.
 
-Türk öğrencilerin bu bölümde sıklıkla zorlanmasının temel sebebi, lise veya üniversite hazırlık eğitiminde soyut düşünceleri İngilizce olarak yapılandırma pratiğinin eksikliğidir. Yapay zeka, şehirleşme, çevre politikaları veya eğitim sistemleri gibi derin konular sorulduğunda, adaylar panikleyerek *"I think it is very good because I like it"* gibi çocuksu cümlelere sığınmakta veya konuyu kendi ailesiyle yaşadığı bir hatıraya bağlamaktadır. Oysa sınav görevlisi sizden bir sosyolog gibi olayların neden ve sonuçlarını irdeleyen, karşıt görüşleri tartan ve mantıksal tutarlılık taşıyan konuşmalar bekler.
+Part 3, sınav görevlisiyle yaklaşık 4-5 dakikalık iki yönlü bir tartışmadır. Konular [Part 2](/tr/blog/ielts-speaking-part-2-kaliplari-template/) kartıyla bağlantılıdır ama kişisel deneyimden çıkıp daha genel sorulara geçer. Cevaplarınız dört kriterle değerlendirilir: akıcılık ve tutarlılık, kelime çeşitliliği, dilbilgisi çeşitliliği ve doğruluğu, telaffuz. Aşağıdaki örnek cevaplar bu yazı için hazırlanmıştır, gerçek sınav kaydı değildir; her biri konuşma dilinde, birkaç kısa cümledir.
 
-Bu kapsamlı rehberde, sınav görevlisini etkileyecek **ielts speaking part 3 ipuçları**, dünyaca kabul gören PEEL cevap genişletme formülü, akıcı bağlaçlar ve sınavda zaman kazandıran kurtarıcı kalıpları derinlemesine inceleyeceğiz.
+## IELTS Speaking Part 3 Soru Tipleri ve Soru Cümlesindeki İpuçları
 
-## Değerlendirme Kriterleri ve Part 3'ün Gizli Dinamikleri
+Part 3 sorusunun ilk birkaç kelimesi çoğu zaman cevabın türünü verir. Bu tabloyu bir ipucu listesi olarak düşünün, kural olarak değil:
 
-Sınav görevlilerinin elindeki resmi puanlama tablosu (*Band Descriptors*) şu 4 kriteri eşit ağırlıkla değerlendirir:
+| Sorudaki ipucu | Soru tipi | Cevapta yapılacak iş |
+| :--- | :--- | :--- |
+| *How has ... changed? / Is it different from ...?* | Karşılaştırma | İki dönemi ya da grubu somut örnekle karşılaştır |
+| *Why do ...? / What can be done about ...?* | Neden ve çözüm | Bir neden söyle, sonra bir çözüm öner |
+| *Will ... in the future? / What will ... be like?* | Gelecek tahmini | Olasılıkla konuş, gerekçe ver |
+| *Do you agree that ...? / Is it important to ...?* | Görüş | Taraf seç, bir koşul ya da sınır koy |
+| *What would happen if ...? / If you could ...* | Varsayım | *would* ile kur, sonucu anlat |
 
-1. **Fluency and Coherence (Akıcılık ve Tutarlılık)**: Konuşurken uzun ve yapay sessizlikler yaratmamak, fikirleri mantıklı bir sıra içinde birbirine bağlayabilmek.
-2. **Lexical Resource (Kelime Çeşitliliği)**: Günlük basit kelimelerin ötesine geçip, akademik kavramları, eşanlamlıları ve doğal kelime birlikteliklerini (*collocations*) kullanabilmek.
-3. **Grammatical Range and Accuracy (Gramer Yelpazesi ve Doğruluk)**: Şart cümleleri (*Conditionals*), edilgen yapı (*Passive Voice*), bağlaçlı bileşik cümleler ve zaman uyumlarını doğru sergilemek.
-4. **Pronunciation (Telaffuz ve Tonlama)**: Doğru kelime vurguları, ritim ve anlaşılır bir artikülasyon sergilemek.
+## Karşılaştırma Soruları: Geçmiş ve Bugün, Kuşaklar, Gruplar
 
-```
-+-----------------------------------------------------------+
-| Part 1: Bireysel Alışkanlıklar (Personal Details)         |
-| Part 2: 2 Dakikalık Monolog (Cue Card Speech)            |
-| Part 3: Soyut Toplumsal Tartışma (Two-way Discourse)      |
-+-----------------------------------------------------------+
-```
+*How has family life changed compared with your grandparents' time?* gibi sorularda görevli bir fark görmek ister. Tek tarafı anlatıp bırakırsanız soru yarım kalır. İki tarafı da bir sözcükle bağlayın: *In the past ..., whereas nowadays ...*, *Compared with my grandparents, people today tend to ...*, *The main difference is that ...*.
 
-Part 3'te sınav görevlisi adayın tavanını (*ceiling*) bulmaya çalışır. Siz akıcı konuştukça sorular daha da karmaşıklaşır; bu durum sınavın kötü gittiği anlamına değil, tam aksine Band 8.0 bandını zorladığınız anlamına gelir!
+Türkçede geçmiş alışkanlık *-ırdı* ekiyle kurulur (*Eskiden akrabalar hep aynı sokakta yaşardı*). İngilizcedeki yaygın karşılık *used to* ya da *would*dır: *Relatives used to live on the same street.* Alışkanlık eki fiile eklendiği için ayrı bir sözcük aramak akla gelmeyebilir, bu yüzden *used to* kalıbını önceden hazır tutmak işe yarar.
 
-![Lexkite Speaking pratik odası ekranı](media:@s1 "Lexkite Speaking çalışma odasında IELTS konuları ve yapay zeka destekli konuşma alıştırmaları")
+> **Examiner:** *How has family life changed compared with your grandparents' time?*
 
-{{diagram: d1 | PEEL Yöntemi ile Part 3 Cevap Yapısı}}
+*"The main difference is probably distance. My grandparents' generation used to live a few streets away from their relatives, whereas nowadays many families are spread across different cities. So people keep in touch through video calls instead of Sunday visits, and I think that makes relationships a little thinner, although video calls do keep people in touch."*
 
-## ielts speaking part 3 ipuçları : PEEL Formülü ile Cevap Genişletme
+## Neden ve Çözüm Soruları: Önce Sebep, Sonra Öneri
 
-Karşınıza gelen beklenmedik ve felsefi bir soru karşısında zihninizin kilitlenmesini önleyen en güvenilir pusula PEEL yöntemidir:
+*Why do many people waste food?* ya da *What could be done to reduce it?* gibi sorular tek bir cevap istemez, iki iş ister. Önce nedeni söyleyin, sonra bir önlem ekleyin. Nedenler için *One reason is that ..., Part of the problem is ...*, çözümler için *One way to tackle this would be to ..., It might help if ...* kalıpları uygundur.
 
-- **P — Point (Ana Tez)**: İlk cümlenizde lafı dolandırmadan doğrudan soruya net yanıtınızı verin.
-- **E — Explanation (Gerekçelendirme)**: Neden bu şekilde düşündüğünüzü toplumsal, ekonomik ya da psikolojik dinamiklerle açıklayın.
-- **E — Example (Toplumsal Örnek)**: Kendi kişisel hayatınızdan değil, toplum genelinden, haberlerden ya da bilimsel gelişmelerden bir örnek verin.
-- **L — Link (Sonuç Bağlantısı)**: Argümanınızı toparlayarak ilk cümledeki tezinize geri bağlayın.
+Bu tipte *the reason is because* gibi bir yapı sık duyulur. *The reason is that ...* ya da *This is because ...* denir; *the reason is because* resmî yazıda gereksiz tekrar sayıldığı için ikisini birleştirmemek daha temizdir.
 
-### Örnek Soru ve PEEL Uygulaması:
+> **Examiner:** *Why do so many households throw away food?*
 
-> **Sınav Görevlisi:** *Do you believe automated artificial intelligence will completely replace human professionals in the coming decades?*
+*"Part of the problem is that people buy more than they need, especially when there are special offers. Another reason is that many of us aren't sure what the dates on packages really mean, so we throw things out to be safe. One way to tackle this would be to sell smaller portions, and shops could also make it clearer when food is still fine to eat."*
 
-- **Point:** *\"While artificial intelligence will undoubtedly transform contemporary workplaces, I remain skeptical that it will entirely displace human professionals across all sectors.\"*
-- **Explanation:** *\"This is predominantly because computational algorithms excel at routine data analysis, whereas complex leadership, moral discernment, and profound emotional empathy cannot be replicated by code alone.\"*
-- **Example:** *\"For instance, while software can automatically draft standardized legal paperwork, seasoned trial attorneys are still indispensable when navigating subtle ethical dilemmas in a courtroom.\"*
-- **Link:** *\"Therefore, rather than an outright replacement, we are far more likely to witness a collaborative synergy where intelligent platforms augment human ingenuity.\"*
+## Gelecek Tahmini Soruları: Kesin Konuşmak Yerine Olasılıkla Konuşmak
 
-![Lexkite AI konuşma simülasyonu ekranı](media:@s2 "Gerçek sınav ortamını simüle eden Lexkite AI konuşma modülünde anında telaffuz ve kelime analizi")
+*Will public libraries still be needed in thirty years?* gibi sorularda kimse sizden doğru tahmini beklemez; beklenen, tahmini makul bir gerekçeyle savunmanızdır. Türkçede *-ecek* eki bir tahmini de kesin bir ifadeyle verebilir (*Kütüphaneler kapanacak*). İngilizce konuşmada tahmin çoğu zaman *probably, is likely to, I'd expect, may well* gibi sözcüklerle yumuşatılır; *will* tek başına daha kesin ve iddialı duyulur.
 
-## Band 7.5+ Seviyesine Çıkaran Akademik Bağlaçlar
+> **Examiner:** *Do you think public libraries will still be needed in thirty years?*
 
-Konuşmanızda sürekli *and*, *but*, *so* bağlaçlarına sıkışıp kalmak puanınızı 6.0 seviyesinde tutar. Aşağıdaki sofistike yapıları dağarcığınıza katın:
+*"I'd expect them to change rather than disappear. Fewer people will probably borrow printed books, but libraries are likely to become community spaces where people study, use computers and attend classes, especially those who can't afford a quiet place at home. So I think they'll still be needed, just in a different form."*
 
-### 1. Zıtlık ve Karşıt Görüş Sunma (Contrast & Concession)
-- *\"While one cannot dispute the undeniable economic merits of rapid urban expansion, there are profound downsides regarding social alienation.\"*
-- *\"On the flip side of the coin, rural municipalities frequently suffer from acute underfunding in public healthcare.\"*
+## Görüş Soruları: Taraf Seçin, Sonra Sınır Koyun
 
-### 2. Olasılık ve Gelecek Tahminleri (Speculation)
-- *\"It seems highly plausible that virtual remote learning will supersede traditional lecture halls over the next fifteen years.\"*
-- *\"Were local authorities to subsidize zero-emission transit, citizens would adopt greener commuting habits much faster.\"*
+*Do you agree that everyone should learn a second language at school?* gibi sorularda *Bence evet* tam bir cevap sayılmaz; görevli bir gerekçe bekler. Taraf seçtikten sonra bir koşul ya da sınır eklemek cevabı olgunlaştırır: *I mostly agree, as long as ..., It depends on ..., Up to a point.*
 
-### 3. Zaman Kazandıran Doğal Dolgu Kalıpları (Fillers)
-Soru geldiğinde sessizce tavana bakmak yerine şu profesyonel kalıplarla 3-4 saniye düşünme süresi kazanın:
-- *\"That's a rather multifaceted socio-economic question. I haven't contemplated it in tremendous detail before, but looking at recent trends...\"*
-- *\"To be completely frank, there is no straightforward consensus on this issue. From an administrative viewpoint...\"*
+Türkçede *Bence evet* veya *Katılıyorum* kısa bir cevap olarak yeterlidir; sohbet de oradan devam eder. İngilizce Speaking'de ise aynı cümlenin ardına *because* ya da *although* ile devam eden ikinci bir cümle koymanız gerekir. Cevabınız tek cümleyse kendinize hemen *"Neden?"* diye sorun.
 
-Bu kalıpları refleks haline getirmek için [Lexkite Speaking odasında](/app/#/speaking) düzenli pratik yapabilir, [deneme sınavı modunda](/app/#/mock) kendinizi test edebilirsiniz.
+> **Examiner:** *Do you agree that everyone should learn a second language at school?*
 
+*"I mostly agree, as long as the lessons focus on speaking rather than only grammar. A second language opens up jobs and makes travelling much easier. But I don't think it should replace time for subjects that a student is really good at, so it depends on how the school organises it."*
 
-## Farklı Konularda Örnek Soru ve Band 8.0 Cevap Modelleri
+## Varsayım Soruları: *Would* ile Kurmak
 
-Sınavda karşılaşabileceğiniz farklı temalarda argüman geliştirme pratiği yapalım:
+*What would happen if schools started at 10 a.m.?* gibi sorular gerçek olmayan ya da olasılığı düşük bir durumu hayal etmenizi ister. İngilizcede bu durum iki yerde işaretlenir: koşul kısmında geçmiş zaman (*if schools started later*), sonuç kısmında *would* + fiil. Türkçede koşul tek bir eke sığar (*Okullar saat ona başlasa, gençler daha çok uyurdu*); İngilizcede ise iki yarı ayrı ayrı doğru kurulmalıdır. Konuşurken sık görülen hata, koşula da *would* koymaktır: *If schools would start later...* Doğrusu: *If schools started later, ...*
 
-### 1. Kültür ve Geleneksel Miras
-> **Soru:** *Why is it crucial for younger generations to preserve intangible cultural heritage?*
-- **Model Cevap:**
-  - *"From my perspective, safeguarding intangible cultural practices is fundamental for maintaining societal cohesion and individual identity in an increasingly homogenized world. When ancestral folklore, traditional craftsmanship, and linguistic nuances are forgotten, communities inevitably lose their collective historical anchor. For example, several indigenous communities in Scandinavia have successfully revitalized ancient culinary traditions through modern digital platforms, creating sustainable cultural tourism. Therefore, preserving heritage is not about resisting progress, but rather about anchoring innovation within a rich historical context."*
+> **Examiner:** *What would happen if schools started at 10 a.m.?*
 
-### 2. Çevre ve Bireysel Sorumluluk
-> **Soru:** *Do you think individual lifestyle adjustments can resolve catastrophic climate challenges?*
-- **Model Cevap:**
-  - *"While personal consumer mindfulness is undeniably valuable, I remain convinced that individual actions alone cannot dismantle systemic ecological crises. The vast majority of global greenhouse emissions originate from heavy industrial manufacturing, international shipping, and fossil-fuel power grids. For instance, even if millions of citizens diligently eliminate single-use plastics, global warming will persist unabated unless governments enforce stringent carbon taxes on multinational corporations. Consequently, individual responsibility must serve as a catalyst for binding legislative reform rather than a standalone solution."*
+*"If schools started at ten, teenagers would probably sleep longer and arrive in a better mood. But it would also be harder for parents who have to leave for work early, so schools would have to offer some kind of morning care. I think the school day might finish too late for sports and clubs at the beginning, but I'd expect students to concentrate better in the long run."*
 
-Bu modellerdeki bağlaç çeşitliliğini (*while, undeniably, whereas, consequently*) ve soyut isimleri (*societal cohesion, collective historical anchor, systemic ecological crises*) inceleyerek kendi cümlelerinize uyarlayabilirsiniz.
+## Anlamadığınızda ve Takıldığınızda
 
-## Türk Adayların Sık Yaptığı 3 Ölümcül Hata
+Soruyu anlamadıysanız bunu söylemekte sakınca yok; günlük konuşmada da insanlar böyle yapar. *Sorry, I didn't catch the last part. Could you say it again?* ya da bir ifadeyi tam anlamadıysanız *Could you give me an example of what you mean by "work-life balance"?* diyebilirsiniz. Tahmin edip yanlış yöne konuşmaktansa kısaca sormak daha güvenlidir. Soruyu kendi sözcüklerinizle yeniden kurma alışkanlığı için [paraphrase teknikleri](/tr/blog/ielts-paraphrase-yapma-teknikleri-ornekler/) işe yarar.
 
-Puanınızı düşüren bu tuzaklardan uzak durun:
+Düşünmek için zaman gerekiyorsa sessiz kalmak yerine kısa bir giriş yapın: *That's an interesting question. I'd say...* ya da *Let me think for a second.* Bunları her cevabın başına eklemeyin; her soruda aynı kalıbı duymak yapay görünür.
 
-1. **Özne olarak sadece «I» kullanmak**: Soruyu cevaplarken *"I like shopping"* yerine *"Modern urban consumers demonstrate a growing appetite for retail therapy"* demeyi alışkanlık haline getirin.
-2. **Kalıp cevapları robot gibi ezberden okumak**: Sınav görevlileri ezberlenmiş şablonları saniyeler içinde anlar ve akıcılık puanınızı anında düşürür. Ezberlemeniz gereken cümleler değil, PEEL düşünme algoritmasıdır.
-3. **Anlamadığı kelimeyi tahmin edip saçmalamak**: Soruda geçen bir kelimeyi bilmiyorsanız çekinmeden *"Could you please clarify what you mean by 'sustainable tourism'?"* diye sorun. Bu zayıflık değil, doğal bir dil becerisidir.
+Bir de ezber tuzağı var: tek bir cevabı ezberleyip her soruya uyarlamaya çalışmak. Görevli sorunun içeriğine göre ilerler ve hazır cevap soruyla bağ kurmaz.
 
-Sınava çok yönlü hazırlanmak adına [IELTS çalışma planı rehberimizi](/tr/blog/ielts-calisma-plani-sifirdan-6-5-seviyesine/) ve [IELTS Speaking Part 2 kalıpları yazımızı](/tr/blog/ielts-speaking-part-2-kaliplari-template/) inceleyin. Ayrıca [IELTS paraphrase yapma teknikleri](/tr/blog/ielts-paraphrase-yapma-teknikleri-ornekler/) ve sınavda puan kazandıracak [IELTS teknoloji ve yapay zeka kelimeleri](/tr/blog/ielts-kelimeleri-teknoloji-ve-yapay-zeka/) makalelerimiz konuşmanızı zenginleştirecektir. Gerçek aday örnekleri [örnek kütüphanemizde](/en/samples/) yer almaktadır.
+## Evde Soru Tipine Göre Çalışmak
 
-{{cta: /app/#/speaking | Lexkite ile Speaking Part 3 denemelerine katıl}}
+Bir soru tipini seçin ve bir haftada o tip için üç soru cevaplayıp kaydedin. Kaydı dinlerken şu üç şeye bakın: soru tipinin istediği işi yaptınız mı (fark gösterdiniz mi, çözüm önerdiniz mi), tahminde yumuşatıcı kullandınız mı, varsayımda *would* doğru yerde mi. Sonra ikinci kez kaydedin ve iki kaydı karşılaştırın. Kaydınızı tek tek ifadeler için [Lexkite telaffuz alıştırmasında](/app/#/practice/speak) da deneyebilirsiniz; orada sesinize göre puan alırsınız.
 
-{{youtube: | IELTS Speaking Part 3 taktikleri ve yüksek puanlı örnek cevaplar}}
+![](media:@s2 "Lexkite telaffuz çalışmasında cut down on ifadesi, mikrofon düğmesi ve sesle puanlama")
 
+[Lexkite Speaking odasında](/app/#/speaking) Part 1, 2 ve 3 için konuya göre soruları, örnek cevapları ve işe yarayan kelimeleri görebilirsiniz. Süreli deneme için [Lexkite deneme sınavında](/app/#/mock) Speaking'i seçebilirsiniz.
 
-## Sınava 30 Gün Kala Haftalık Çalışma Takvimi
+![](media:@s1 "Deneme sınavı ekranında Listening, Reading, Writing ve Speaking için deneme seçimi ve sınav yapısı")
 
-Part 3 aşamasında akıcılık kazanmak için son bir ayda şu programı takip edin:
-- **1. Hafta**: Çevre, eğitim, şehir hayatı ve teknoloji temalarında 30 adet ileri seviye collocation ezberleyin.
-- **2. Hafta**: Rastgele seçtiğiniz 5 soruya PEEL formülüyle ses kaydı alarak cevap verin ve hatalarınızı dinleyin.
-- **3. Hafta**: Zaman kazandıran dolgu cümlelerini (*fillers*) konuşmanıza doğal olarak yerleştirme pratiği yapın.
-- **4. Hafta**: [Lexkite Speaking modülünde](/app/#/speaking) süre kısıtlamalı gerçekçi sınav simülasyonları gerçekleştirin.
+Cevabı nasıl genişleteceğinizi ayrıca görmek isterseniz [cevap genişletme stratejileri](/tr/blog/ielts-speaking-part-3-cevap-genisletme-stratejileri/) yazısına, haftalık düzene oturtmak için [IELTS çalışma planına](/tr/blog/ielts-calisma-plani-sifirdan-6-5-seviyesine/) bakabilirsiniz.
 
-## Sıkça Sorulan Sorular (FAQ)
+## Sık Sorulan Sorular
 
-### Q1. Sınav görevlisinin düşüncesine zıt bir fikir savunursam puanım kırılır mı?
-Kesinlikle hayır. IELTS sizin ideolojik, siyasi veya kişisel görüşlerinizi değil; İngilizceyi ne kadar tutarlı, akıcı ve gramatik kurallara uygun kullandığınızı ölçer. Görüşünüzü sağlam gerekçelerle savunduğunuz sürece en uç fikirleri bile dile getirebilirsiniz.
+### Sınav görevlisinin görüşüne zıt bir fikir savunursam puanım düşer mi?
 
-### Q2. Sınav görevlisi sözümü keserse bu kötüye mi işarettir?
-Hayır, tam aksine bu genellikle iyi bir işarettir. Sınav görevlisinin her adaya ayırdığı süre dakikalarla kısıtlıdır. Sizin yeterince akıcı ve zengin konuştuğunuzu gördüğünde diğer soruya geçmek için sözünüzü nazikçe bölebilir.
+Hayır. Konuşma sınavı fikrinizi değil, İngilizceyi ne kadar akıcı, tutarlı ve doğru kullandığınızı değerlendirir. Görüşünüzü gerekçelendirdiğiniz sürece hangi tarafı seçtiğiniz önemli değildir.
 
-### Q3. Bir soruya ne kadar süre konuşmak gerekir?
-PEEL yapısına uygun olarak yaklaşık 4 ila 6 cümle (yaklaşık 40-50 saniye) konuşmak idealdir. 20 saniyenin altı yetersiz sayılır, 1.5 dakikayı aşan konuşmalar ise konudan sapma riski taşır.
+### Sınav görevlisi sözümü keserse bunu kötüye yormalı mıyım?
+
+Hayır. Görevli, bir sonraki soruya geçmek için sizi kesebilir; bu puanınız hakkında bir işaret değildir. Paniklemeyin ve yeni soruya geçin.
+
+### Bir soruya ne kadar konuşmalıyım?
+
+Resmi bir süre sınırı yoktur. Part 3 yaklaşık 4-5 dakika sürer ve görevli soruları cevaplarınıza göre sorar. Çalışırken 3-4 cümlelik, gerekçe ve örnek içeren cevaplar hedefleyin; tek cümlelik cevaplarda görevli sizden devamını isteyebilir.
+
+{{cta: /app/#/speaking | Lexkite Speaking odasında Part 3 sorularını çalış}}
+
+{{youtube: | IELTS Speaking Part 3 soru tipleri ve örnek cevaplar}}

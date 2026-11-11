@@ -1,178 +1,164 @@
 ---
-title: "IELTS Speaking Part 3 советы: как развить развернутый ответ"
-description: "ielts speaking part 3 советы для высокого балла: метод PEEL для структуры ответа, академические коннекторы, типичные ошибки и примеры ответов на band 7.5+."
+title: "Типы вопросов IELTS Speaking Part 3 и как отвечать на каждый"
+description: "Типы вопросов IELTS Speaking Part 3: сравнение, причина и решение, прогноз, мнение, гипотеза. Что говорить в каждом, где ошибаются русскоязычные, образцы."
 slug: ielts-speaking-part-3-sovety-i-primery
 lang: ru
 translationKey: ielts-speaking-part-3
 category: ielts
 tags: [ielts, ielts-speaking, part-3, exam-tips]
-keyword: "ielts speaking part 3 советы"
+keyword: "типы вопросов ielts speaking part 3"
 cover: speaking
-coverAlt: "Экран тренировки Speaking в Lexkite с темами Part 1 и Part 3 и примерами ответов band 7.5"
-publishAt: 2027-02-24T09:00:00+03:00
+coverAlt: "Раздел Speaking в Lexkite: темы Part 1–3, примеры вопросов, образцы ответов и полезная лексика"
+publishAt: 2026-12-22T09:17:00+03:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: think, icon: mic, chip: IELTS Speaking}
 shots: [
-  {id: s1, route: '#/speaking', crop: main},
-  {id: s2, route: '#/mock', crop: main}
+  {id: s1, route: '#/mock', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: 'Структура ответа по методу PEEL в Part 3', parts: [{t: 'P: Point (Тезис)', r: 'Четкий прямой ответ на вопрос экзаменатора в первом предложении'}, {t: 'E: Explanation (Обоснование)', r: 'Глубокий анализ причин, последствий и социальных факторов'}, {t: 'E: Example (Пример)', r: 'Объективный социальный или статистический факт вместо личных историй'}, {t: 'L: Link (Связка / Вывод)', r: 'Возвращение к исходному вопросу и обобщающее заключение'}]}
+  {id: d1, type: compare, title: 'Что делать в Part 3 по типу вопроса', cols: ['Тип вопроса', 'Опорная формула'], rows: [['Сравнение', 'used to, nowadays, whereas'], ['Причина и решение', 'one reason is that..., could'], ['Прогноз', 'is likely to, may, I expect'], ['Мнение', 'I partly agree, however'], ['Гипотеза', 'if + прошедшее, would + глагол']]}
 ]
 quiz: [
   {
-    q: "Какая главная ошибка русскоязычных кандидатов в секции IELTS Speaking Part 3?",
+    q: "Экзаменатор спрашивает: Why do many young people leave small towns for big cities? Какая формула открывает ответ на такой вопрос?",
     options: [
-      "Слишком частое использование вводных слов however и therefore",
-      "Сведение ответа к личным бытовым историям из своей жизни",
-      "Использование формального академического регистра речи",
-      "Пауза в две секунды перед началом размышлений над вопросом"
+      "I used to think that...",
+      "If I were younger...",
+      "One reason is that...",
+      "I expect that..."
     ],
-    answer: 1,
-    explain: "Part 3 требует макро-анализа общественных и глобальных тенденций, а не личных воспоминаний (которые уместны в Part 1 и 2)."
+    answer: 2,
+    explain: "Вопрос с why просит назвать причину, а для этого нужна формула причины. Остальные формулы относятся к сравнению с прошлым, гипотезе и прогнозу."
   },
   {
-    q: "Что обозначает вторая буква 'E' в формуле логического ответа PEEL?",
+    q: "Вы рассуждаете о реальной возможности: If the council _____ the swimming pool, local families will complain.",
     options: [
-      "Emotion (бурное проявление эмоций и мимики)",
-      "Example (объективный социальный пример или тенденция)",
-      "Evaluation (оценка грамматических ошибок экзаменатора)",
-      "Elimination (исключение сложных академических слов)"
+      "closes",
+      "closed",
+      "would close",
+      "will close"
     ],
-    answer: 1,
-    explain: "PEEL расшифровывается как Point (тезис), Explanation (объяснение), Example (пример) и Link (связка с выводом)."
+    answer: 0,
+    explain: "О реальной возможности в части с if ставят настоящее простое, а в главной части will. Прошедшее время и would в части с if относятся к воображаемой ситуации, а will в части с if не ставят."
   },
   {
-    q: "Как правильно поступить, если вы не до конца поняли сложный вопрос экзаменатора?",
+    q: "Вы представляете воображаемую ситуацию в настоящем: If I _____ the mayor, I would build more parks.",
     options: [
-      "Испугаться и сохранять полное молчание на протяжении минуты",
-      "Вежливо попросить экзаменатора перефразировать или пояснить вопрос",
-      "Быстро рассказать наизусть выученный не по теме топик",
-      "Немедленно покинуть аудиторию и записаться на пересдачу"
+      "am",
+      "will be",
+      "would be",
+      "were"
     ],
-    answer: 1,
-    explain: "Просьба пояснить вопрос ('Could you rephrase that, please?') является естественной коммуникативной стратегией и не снижает балл."
+    answer: 3,
+    explain: "Воображаемое условие в настоящем строится с прошедшей формой were в части с if, а в главной части ставят would и инфинитив."
   }
 ]
 ---
 
-Для большинства кандидатов, нацеленных на получение престижного сертификата с оценкой 7.0 и выше, секция **ielts speaking part 3 советы** становится главным рубежом проверки языковой зрелости. Если в Part 1 диалог носит легкий ознакомительный характер, а в Part 2 проверяется умение непрерывно говорить по карточке в течение двух минут, то Part 3 представляет собой полноценную интеллектуальную дискуссию с экзаменатором (*Two-way Discussion*).
+Типы вопросов IELTS Speaking Part 3 различаются речевой задачей: сравнить, назвать причину, предсказать, согласиться или представить ситуацию. Эта часть длится около 4–5 минут и идёт после Part 2: это двусторонний разговор об общих темах, а не монолог. Если узнавать тип вопроса сразу, проще выбрать подходящие слова и грамматику. Ниже пять типов, речевые формулы для каждого и русские привычки, которые на них мешают.
 
-Многие русскоязычные студенты, блестяще справившись с первыми частями, в Part 3 резко сбавляют обороты. Столкнувшись с философскими или социологическими вопросами об искусственном интеллекте, урбанизации или роли искусства в обществе, они скатываются к банальным ответам вроде: *\"I think it is very good because I like it with my friends\"*. Экзаменатор же ждет от вас не бытовых воспоминаний, а умения рассуждать на абстрактном уровне, выдвигать гипотезы, взвешивать аргументы «за» и «против» и формулировать зрелые выводы.
+Общую схему ответа смотрите в статье про [стратегии ответов в Part 3](/ru/blog/ielts-speaking-part-3-strategii-otvetov/). Здесь тип вопроса определяет язык, а не схему: сначала решаем, какая задача стоит, потом берём формулы под неё.
 
-В этом практическом руководстве мы разберем проверенные **ielts speaking part 3 советы**, освоим мощный шаблон логической аргументации PEEL, выучим продвинутые дискурсивные коннекторы и покажем, как звучать убедительно и свободно на реальном собеседовании.
+## Как узнать тип вопроса по первым словам
 
-## ielts speaking part 3 советы : критерии оценки и специфика интервью
+Подсказка почти всегда в начале вопроса или в одном ключевом слове. Эту таблицу полезно просто перечитать перед тренировкой.
 
-Чтобы успешно сдать экзамен, нужно понимать, по каким шкалам выставляется итоговый балл:
+| Тип | Как узнать | Что нужно сделать |
+|---|---|---|
+| Сравнение | *How is... different from...? How has... changed?* | Назвать различие и обозначить время |
+| Причина и решение | *Why do... ? What could be done about...?* | Дать причину, затем способ её устранить |
+| Прогноз | *Will... in the future? Do you think... will...?* | Оценить вероятность и объяснить, почему |
+| Мнение | *Do you agree that...? To what extent...?* | Занять позицию и оговорить её границы |
+| Гипотеза | *What would happen if...? Imagine that...* | Описать последствия воображаемого события |
 
-1. **Fluency and Coherence (Беглость и связность)**: Умение развивать мысль без неестественных затяжных пауз и связывать предложения в единую ткань рассуждения.
-2. **Lexical Resource (Словарный запас)**: Использование точной академической терминологии, коллокаций и избегание примитивных клише.
-3. **Grammatical Range and Accuracy (Грамматический диапазон)**: Применение сложных предложений, инверсий, сослагательного наклонения (*Conditionals*) и пассивного залога.
-4. **Pronunciation (Произношение)**: Интонация, правильное логическое ударение и естественный ритм английской речи.
+Это не официальная классификация экзамена: IELTS ничего подобного не публикует. Это рабочий способ подготовки, и вопросы бывают смешанными: *Why has... changed?* соединяет сравнение и причину.
 
-```
-+-----------------------------------------------------------+
-| Part 1: Личный опыт (Personal experience)                  |
-| Part 2: Связный монолог по теме (2-minute monologue)      |
-| Part 3: Абстрактный общественный дискурс (Societal issues)|
-+-----------------------------------------------------------+
-```
+{{diagram: d1 | Тип вопроса и опорные формулы для ответа}}
 
-В Part 3 экзаменатор проверяет так называемый *ceiling* — потолок ваших возможностей. Если вы отвечаете уверенно, вопросы будут становиться всё более сложными и парадоксальными.
+## Типы вопросов IELTS Speaking Part 3 и образцы ответов
 
-![Экран тренировки Speaking в приложении Lexkite](media:@s1 "Интерфейс модуля Speaking в Lexkite с темами экзамена и аудио-фидбеком")
+Образцы ниже написаны для этой статьи, это не вопросы реального экзамена. Каждый содержит примерно 50–60 слов: так обычно звучит ответ в разговоре, где экзаменатор должен успеть задать следующий вопрос. Не заучивайте их, берите форму.
 
-{{diagram: d1 | Структура ответа по методу PEEL в Part 3}}
+### Сравнение: что изменилось
 
-## Метод PEEL: золотой стандарт развернутого ответа
+*How is the way people spend their weekends different from the way their grandparents did?*
 
-Когда экзаменатор задает абстрактный вопрос, у вас нет времени на долгое составление плана. Метод PEEL дает готовую психологическую опору, позволяющую выстроить структурированный ответ за 40–50 секунд:
+*The biggest difference is that my grandparents' weekends were built around the home, whereas many people now spend them out and about or online. In the past, families used to visit relatives and work in the garden together. Nowadays people tend to book classes or meet friends in cafés, so weekends feel busier but less shared.*
 
-- **P — Point (Прямой тезис)**: Сформулируйте суть вашей позиции в первом же предложении без долгих предисловий.
-- **E — Explanation (Развернутое объяснение)**: Объясните причинно-следственные связи — почему общество устроено именно так, какие экономические или культурные факторы влияют на ситуацию.
-- **E — Example (Объективный пример)**: Приведите пример из новостей, истории или общей практики развитых стран (избегайте рассказов о своей бабушке или друге).
-- **L — Link (Связка с вопросом)**: Сделайте краткое резюме, замкнув рассуждение на исходный вопрос.
+Нужные формулы: *used to* для прошлых привычек, *nowadays*, *whereas*, *the biggest difference is that...*. В русском нет отдельной формы вроде *used to*: прошлые привычки выражает несовершенный вид («мы ездили к родственникам»). Поэтому русскоязычные кандидаты либо ставят простое прошедшее без указания на регулярность, либо начинают каждую фразу с *before*, что звучит однообразно. Варьируйте: *In the past*, *Years ago*, *used to*.
 
-### Пример применения PEEL на практике:
+### Причина и решение: почему так и что с этим делать
 
-> **Вопрос экзаменатора:** *Do you believe automated technology will eventually eliminate traditional white-collar professions?*
+*Why do many people in big cities hardly know their neighbours? What could be done about it?*
 
-- **Point:** *\"While artificial intelligence is certainly reshaping corporate workflows, I am quite doubtful that it will entirely displace human professionals in knowledge-intensive domains.\"*
-- **Explanation:** *\"The rationale behind this is that routine data processing can be automated effortlessly, whereas higher-order problem solving, ethical discernment, and strategic diplomacy necessitate profound human intuition.\"*
-- **Example:** *\"For instance, while algorithmic legal software can draft standardized contracts in seconds, senior courtroom advocates are still indispensable for navigating nuanced moral ambiguities.\"*
-- **Link:** *\"Therefore, rather than outright displacement, we are more likely to observe a collaborative framework where intelligent systems augment human productivity.\"*
+*One reason is that people move so often that there is little time to get to know anyone. Another is that most of us spend the day somewhere else, so we only meet neighbours on the stairs. To change this, residents could organise a yearly street party, or buildings could have a shared space where people naturally meet.*
 
-![Интерфейс симулятора экзамена IELTS в Lexkite](media:@s2 "Интерфейс AI-тренажера Lexkite для отработки экзаменационных вопросов с мгновенной оценкой")
+Здесь два вопроса в одном, и отвечать нужно на оба. Формулы: *one reason is that...*, *another is that...*, *could* для решений (*residents could organise...*). Частая ошибка связана с выбором между *because* и *because of*: после второго ставят целое предложение или, наоборот, после первого одно существительное (*because of people are busy*, *because busy life*). Правило простое: после *because* идёт полное предложение, после *because of* существительное, то есть *because people are busy* или *because of busy schedules*.
 
-## Дискурсивные маркеры и спасительные фразы для паузы
+### Прогноз: что будет
 
-Вместо примитивных *and, but, so* кандидаты с баллом 7.5+ используют гибкие дискурсивные маркеры:
+*Do you think museums will still be popular in fifty years?*
 
-### 1. Сопоставление двух точек зрения (Contrast & Concession)
-- *\"While one cannot deny the conspicuous economic merits of globalization, there are undeniable downsides regarding cultural homogenization.\"*
-- *\"On the flip side of the coin, rural communities frequently suffer from chronic underinvestment in digital infrastructure.\"*
+*I expect they will be, although they'll probably look different. Many museums are already adding digital guides, and that trend is likely to continue. People may visit exhibitions partly on screens, but I doubt a screen can replace standing in front of a real object. So museums should stay popular, if they keep adapting.*
 
-### 2. Предположение и гипотезы (Speculation)
-- *\"It seems highly probable that remote educational models will become increasingly normalized over the next decade.\"*
-- *\"Were municipal authorities to subsidize electric transit more aggressively, we would witness a noticeable reduction in urban carbon footprints.\"*
+Прогноз о будущем нельзя утверждать так же категорично, как факт. По-русски «Музеи исчезнут» звучит нормально, а по-английски в рассуждении такая категоричность звучит слишком самоуверенно. Смягчайте: *probably*, *is likely to*, *I expect*, *may*, *I doubt*. Русскому «наверное» соответствуют *probably* и *perhaps*, *Maybe* чаще стоит в начале фразы (*Maybe people will visit...*), а в середине предложения естественнее *probably* или *perhaps*.
 
-### 3. Фразы-амортизаторы для выигрыша времени (Fillers)
-Если вопрос застал вас врасплох, молчать дольше трех секунд смертельно опасно. Используйте естественные вводные фразы:
-- *\"That is a rather multifaceted socio-economic issue. I haven't contemplated it in great detail before, but looking at contemporary trends...\"*
-- *\"To be perfectly honest, there is no straightforward consensus on this matter. From a sociological standpoint...\"*
+### Мнение: согласны ли вы
 
-Отрабатывать беглость этих конструкций удобно в [разделе Speaking Lexkite](/app/#/speaking), а симулировать реальную атмосферу теста — в режиме [AI-интервью](/app/#/mock).
+*To what extent do you agree that everyone should do some volunteer work?*
 
+*I partly agree. Volunteering teaches people to cooperate and it helps communities, so encouraging it makes sense. However, I wouldn't make it compulsory, because people who are forced to volunteer often do it half-heartedly. A better idea would be to give young people easy, well-organised opportunities and let them choose.*
 
-## Примеры моделирования ответов по популярным экзаменационным темам
+Здесь ждут позиции и её границ. Формулы: *I partly agree*, *I'd say yes, up to a point*, *however*, *a better idea would be*. Ловушка из русского: по-русски «согласен» — краткое прилагательное, отсюда калька *I am agree*. В английском *agree* — глагол: *I agree*. А для частичного согласия русскому «в какой-то мере» соответствует *to some extent* или *up to a point*.
 
-Чтобы почувствовать ритм и баланс академического рассуждения, разберем еще два типичных вопроса, часто встречающихся на реальных экзаменах:
+### Гипотеза: что было бы, если...
 
-### Тема: Роль традиционных ремесел в эпоху индустриализации
-> **Вопрос:** *Why do some consumers still prefer handmade goods over cheap mass-produced alternatives?*
-- **Ответ кандидата:**
-  - *"From my perspective, the ongoing demand for artisanal items stems from a desire for authenticity and personal identity. Mass-manufactured products inevitably lack character, whereas handcrafted goods embody unique cultural provenance and meticulous craftsmanship. For instance, consumers frequently purchase bespoke furniture or handmade ceramics not merely for functional utility, but because these artifacts tell an emotive human story. Consequently, despite the undeniable cost advantages of factory automation, artisanal markets will continue to thrive as high-end lifestyle niches."*
+*What would happen if all public libraries closed?*
 
-### Тема: Экологическая ответственность и индивидуальные привычки
-> **Вопрос:** *To what extent can individual consumer choices mitigate global environmental crises?*
-- **Ответ кандидата:**
-  - *"While grassroots consumer consciousness is commendable, I am skeptical that individual lifestyle modifications alone can reverse catastrophic ecological degradation. The overwhelming share of global greenhouse gas emissions originates from heavy manufacturing, petrochemical industries, and international logistics. For example, even if millions of citizens diligently separate domestic plastics, systemic industrial pollution will persist unabated without binding legislative mandates. Therefore, personal behavioral shifts must be reinforced by rigorous governmental regulations to achieve substantive environmental outcomes."*
+*Many people would lose a quiet place to study, and children from families without many books would be affected most. Some readers might switch to e-books, but not everybody can afford them. If the libraries closed, I think local communities would also lose a free meeting place, which is easy to underestimate.*
 
-Обратите внимание на синтаксическое богатство: каждый ответ содержит уступительные конструкции (*while, whereas*), наречия степени (*substantively, diligently*), а также союзы логического следствия (*consequently, therefore*).
+Модель простая: часть с *if* в прошедшем времени, главная часть с *would* и инфинитивом. В русском и для реального условия в части «если» стоит будущее: «если закроются, будет...». Отсюда калька *If libraries will close, ...*. Для воображаемой ситуации нужно *If libraries closed, people would...*, а для реальной возможности *If libraries close, people will...* Следите, чтобы в части с *if* не оказалось ни *will*, ни *would*.
 
-## 3 фатальные ошибки, снижающие балл в Part 3
+## Что ещё помогает в любом типе
 
-Избегайте этих распространенных промахов:
+Две короткие вещи работают для всех пяти вариантов.
 
-1. **Эгоцентризм ответа**: Переводите личное «я» в обобщенные категории: вместо *\"I like smartphones\"* говорите *\"Contemporary consumers rely heavily on handheld digital devices\"*.
-2. **Заученные наизусть топики**: Экзаменаторы мгновенно распознают монотонный механический пересказ готового текста и резко снижают балл за неестественность. Учите структуры и коллокации, а не чужие тексты.
-3. **Паника при незнакомом слове**: Если в вопросе прозвучало незнакомое понятие, спокойно уточните: *\"Could you please clarify what you mean by 'civic responsibility'?\"*. Это проявление уверенной беглости, а не слабости.
+Во-первых, связки. Они показывают направление мысли: *whereas* и *on the other hand* для сравнения, *so* и *as a result* для следствия, *however* и *that said* для оговорки. Подробнее о них в статье про [слова-связки](/ru/blog/slova-svyazki-v-angliyskom-linking-words/).
 
-Для комплексного роста рекомендуем изучить [стратегии ответов в IELTS Speaking Part 3](/ru/blog/ielts-speaking-part-3-strategii-otvetov/) и статью о [шаблонах для IELTS Speaking Part 2](/ru/blog/ielts-speaking-part-2-shablon-template/). Также обратите внимание на материал о [критериях оценки Band 7 в Speaking](/ru/blog/ielts-speaking-kriterii-band-7/) и практическое руководство о том, [как учить слова для IELTS](/ru/blog/kak-uchit-slova-dlya-ielts-effektivno-metody/). Полноформатные монологи и диалоги представлены в [архиве учебных образцов](/en/samples/).
+Во-вторых, одна фраза, чтобы собраться: *That's an interesting question. Let me think for a moment.* Этого достаточно: растянутое молчание мешает беглости, а цепочка из нескольких вводных фраз превращается в заполнитель.
 
-{{cta: /app/#/speaking | Пройти практическую тренировку Speaking в Lexkite}}
+## Если вы не поняли вопрос или вас прервали
 
-{{youtube: | IELTS Speaking Part 3 стратегии и практические советы видео}}
+Если вы не расслышали вопрос, вежливо попросите повторить: *Sorry, could you say that again?* В Part 3 экзаменатор может повторить или переформулировать вопрос, но значение слов, как правило, не объясняет. Если слово незнакомо, отвечайте так, как поняли вопрос, без паники.
 
+Если экзаменатор остановил вас и перешёл к следующему вопросу, это не сигнал оценки: он следит за временем теста. Спокойно отвечайте на новый вопрос, не пытайтесь договорить прошлую мысль и не извиняйтесь.
 
-## Практический 4-недельный план подготовки к Speaking Part 3
+## Как тренироваться по типам
 
-Для самостоятельного развития беглости придерживайтесь следующего пошагового плана:
-1. **Неделя 1: Освоение тематического словаря**: Выделите четыре основные социологические темы (урбанизация, образование, технологии, окружающая среда) и соберите подборку из 20 сильных коллокаций к каждой из них.
-2. **Неделя 2: Тренировка структуры PEEL на диктофон**: Записывайте ответы на случайные экзаменационные вопросы, строго контролируя наличие тезиса, аргумента и примера.
-3. **Неделя 3: Отработка вводных фраз и пауз-филлеров**: Сосредоточьтесь на том, чтобы исключить паразитические звуки «эээ» и «ммм», заменяя их естественными фразами *"That is an intriguing question..."*.
-4. **Неделя 4: Полноформатные мок-тесты с таймером**: Проходите полноценные симуляции в [Lexkite Speaking](/app/#/speaking) и анализируйте свои записи.
+План на неделю можно собрать так: по одному типу в день, а на шестой день смешанная тренировка.
 
-## Часто задаваемые вопросы (FAQ)
+1. Возьмите по одному вопросу каждого типа из [раздела Speaking в Lexkite](/app/#/speaking): там есть вопросы Part 3 по темам и образцы ответов для сверки. Для каждого типа подберите несколько устойчивых сочетаний, как в статье о [коллокациях для IELTS](/ru/blog/kollokatsii-v-angliyskom-dlya-ielts/).
+2. Сначала определите тип вслух: «это сравнение», «это гипотеза». Потом ответьте, записав себя на диктофон.
+3. Прослушайте запись и проверьте три вещи: узнаваемая формула типа, полное предложение после *because* и правильная форма в условии.
+4. Для плавности речи добавьте [метод shadowing](/ru/blog/metod-shadowing-angliyskiy-yazyk/).
+5. В конце цикла прогоните пробный экзамен в [пробном тесте](/app/#/mock): оценка там предварительная, и произношение она не проверяет, поэтому послушайте себя сами.
 
-### Q1. Снижают ли балл, если моё мнение не совпадает с позицией экзаменатора?
-Ни в коем случае. IELTS проверяет исключительно ваш уровень владения английским языком, а не политические, религиозные или научные взгляды. Вы можете занимать любую позицию, если аргументируете её грамотно и логично.
+![](media:@s1 "Экран пробного экзамена IELTS в Lexkite: выбор навыка и варианта, история попыток")
 
-### Q2. Что делать, если экзаменатор прервал мой ответ на полуслове?
-Не пугайтесь — это отличный знак. Экзаменатор ограничен строгими рамками хронометража. Если он вас перебивает, это означает, что вы уже продемонстрировали достаточный грамматический и лексический уровень, и он хочет успеть задать следующий вопрос.
+## Частые вопросы
 
-### Q3. Сколько предложений должен содержать идеальный ответ в Part 3?
-Оптимальный объем ответа по модели PEEL составляет от 4 до 6 развернутых предложений (примерно 40–50 секунд звучания). Ответ короче 20 секунд считается недостаточно полным, а монолог длиннее полутора минут размывает фокус дискуссии.
+### Снижают ли оценку, если моё мнение отличается от мнения экзаменатора?
+Нет. Оценивается язык: беглость, словарь, грамматика и произношение, а не согласие с экзаменатором. Позиция может быть любой, если вы её объясняете.
+
+### Сколько предложений нужно в одном ответе?
+Практический ориентир: 2–4 связных предложения. Ответ в одно предложение слишком короток, а долгий монолог не оставляет места диалогу. Это совет, а не правило экзамена.
+
+### Что делать, если вопрос не попадает ни в один тип?
+Задайте себе внутренний вопрос: что от меня хотят, объяснить, сравнить, оценить или представить? Начните с прямого ответа в одном предложении и добавьте одну причину.
+
+{{cta: /app/#/speaking | Потренировать Part 3 в разделе Speaking Lexkite}}
+
+{{youtube: | IELTS Speaking Part 3: как отвечать на вопросы разных типов}}

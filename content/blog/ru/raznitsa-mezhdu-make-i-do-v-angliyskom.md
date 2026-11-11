@@ -1,6 +1,6 @@
 ---
-title: "Разница между make и do в английском языке: правила и примеры"
-description: "Разница между make и do в английском языке: ключевые правила выбора глаголов, устойчивые коллокации для работы и учебы, таблицы сравнения и упражнения."
+title: "Разница между make и do в английском: как не перепутать"
+description: "Разница между make и do в английском: как мыслить, чтобы выбрать нужный глагол, частые сочетания, русские ошибки из-за «делать», примеры и задания с ответами."
 slug: raznitsa-mezhdu-make-i-do-v-angliyskom
 lang: ru
 translationKey: diferencia-entre-make-y-do-en-ingles
@@ -8,171 +8,169 @@ category: tu-vung
 tags: [collocations, make-do, vocabulary, english-verbs]
 keyword: "разница между make и do"
 cover: practice-learn
-coverAlt: "Экран smartLearn с карточками flashcard в Lexkite для тренировки коллокаций make и do"
-publishAt: 2027-02-22T09:00:00+03:00
+coverAlt: "Умное обучение в Lexkite: карточка с выражением, значением, примером и подсказкой для запоминания"
+publishAt: 2026-12-26T08:39:00+03:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: think, icon: book, chip: English Vocab}
 shots: [
-  {id: s1, route: '#/vocab', crop: main},
+  {id: s1, route: '#/usage', crop: main},
   {id: s2, route: '#/practice', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: 'Ключевое различие между MAKE и DO', parts: [{t: 'MAKE: Создание и результат', r: 'Создание чего-то нового с нуля, производство, абстрактные решения (make a decision, make coffee, make mistakes)'}, {t: 'DO: Действие и процесс', r: 'Выполнение рутинных задач, обязанностей, неопределенная деятельность (do homework, do business, do your best)'}]}
+  {id: d1, type: compare, title: 'make и do: на что опереться при выборе', cols: ['make', 'do'], rows: [['создаём или производим результат', 'выполняем действие, работу, обязанность'], ['make a cake, make a plan, make a decision', 'do homework, do the dishes, do research'], ['make a mistake, make progress, make money', 'do your best, do well, do business']]}
 ]
 quiz: [
   {
-    q: "Какой глагол следует вставить в пропуск: 'Could you please _____ me a favor?'?",
-    options: [
-      "make (создавать с нуля)",
-      "do (оказать услугу или выполнить действие)",
-      "take (взять в руки)",
-      "give out (раздать окружающим)"
-    ],
+    q: "Какой глагол нужен в предложении: Please _____ sure that the windows are closed.",
+    options: ["do", "make", "take", "have"],
     answer: 1,
-    explain: "В устойчивом выражении 'оказать услугу / сделать одолжение' всегда используется глагол do: do someone a favor."
+    explain: "Устойчивое сочетание make sure означает убедиться. Его нужно запомнить целиком."
   },
   {
-    q: "Какое словосочетание со словом 'ошибка' является грамматически верным?",
-    options: [
-      "do a big mistake in the test",
-      "make a big mistake in the test",
-      "have a big mistake in the test",
-      "act a big mistake in the test"
-    ],
-    answer: 1,
-    explain: "Поскольку ошибка — это порожденный результат действия, в английском языке используется коллокация make a mistake."
+    q: "Какой глагол нужен в предложении: I usually _____ the laundry on Sundays.",
+    options: ["make", "take", "have", "do"],
+    answer: 3,
+    explain: "Названия домашних дел сочетаются с do: do the laundry, do the dishes."
   },
   {
-    q: "Какое выражение описывает ведение бизнеса или коммерческих сделок?",
-    options: [
-      "make business with partners",
-      "do business with partners",
-      "create business with partners",
-      "build business with partners"
-    ],
-    answer: 1,
-    explain: "Для обозначения деловой активности и рабочих процессов используется устойчивое сочетание do business."
+    q: "Какой глагол нужен в предложении: From these figures we can _____ the conclusion that demand is growing.",
+    options: ["make", "do", "draw", "take"],
+    answer: 2,
+    explain: "Вывод по-английски «вытягивают» из данных: draw a conclusion. Русское «сделать вывод» подсказывает make, но здесь он не подходит."
   }
 ]
 ---
 
-Для русскоязычных студентов, изучающих английский язык, **разница между make и do** представляет собой одну из самых коварных ловушек лексической сочетаемости. В русском языке глагол «делать» является универсальным и всеобъемлющим: мы говорим «делать уроки», «делать кофе», «делать ошибки», «делать выбор», «делать уборку», «делать деньги». Пытаясь перевести свои мысли на английский язык дословно, учащиеся интуитивно подставляют глагол *do* во все возможные фразы.
+Разница между make и do в том, что получается в итоге: результат или само действие. *Make* обычно говорят, когда что-то создают или получают в результате: *make a cake*, *make a plan*, *make a mistake*. *Do* говорят о занятии, работе или обязанности: *do homework*, *do the dishes*, *do research*. Но это подсказка, а не закон: многие сочетания придётся запомнить целиком (*make a phone call*, *do a favour*), и у этой подсказки хватает исключений.
 
-Однако для носителя английского языка фраза *"I did a mistake"* звучит режуще и неестественно. Ошибка — это результат, возникший в ходе деятельности, поэтому по законам английской лексики здесь строго требуется глагол *make*: `make a mistake`. С другой стороны, выполнение рутинных обязанностей, таких как домашняя работа, не создает принципиально нового материального объекта, поэтому сказать *"I will make my homework"* — грубая грамматическая ошибка; правильный вариант — `do homework`.
+Эта статья для тех, кто пишет и говорит на английском на уровне A2–B2 и при выборе между *make* и *do* каждый раз замирает. Мы разберём, почему так происходит у русскоязычных, какие сочетания самые частые, и дадим задания с ответами.
 
-В этом подробном практическом руководстве мы разберем глубинную когнитивную логику, лежащую в основе выбора между этими двумя глаголами, сопоставим самые распространенные устойчивые словосочетания (коллокации) и покажем эффективные методы их запоминания.
+## Разница между make и do, если смотреть на результат и действие
 
-## Когнитивная концепция: в чем ключевая разница между make и do
+Хорошо работает простой вопрос: появляется ли что-то новое (предмет, решение, план, звук) или мы просто выполняем действие?
 
-Вместо механического зазубривания сотен изолированных выражений гораздо проще усвоить базовый концептуальный принцип:
+{{diagram: d1 | Подсказка для выбора глагола: результат или действие}}
 
-```
-+-----------------------------------------------------------+
-| [MAKE] = Создание с нуля, производство, видимый результат, |
-|          порождение эмоциональной или физической реакции   |
-| [DO]   = Выполнение обязанностей, рутинный процесс,       |
-|          неопределенное действие без акцента на результате |
-+-----------------------------------------------------------+
-```
+Но правило не всегда срабатывает. *Make the bed* (заправить кровать) звучит как «создать», хотя ничего нового не появляется, а *do damage* (нанести ущерб) похоже на «результат», но глагол *do*. Это просто устойчивые сочетания (коллокации), которые нужно запомнить целиком: *make the bed*, но *do the dishes*.
 
-### 1. Глагол Make: творчество, созидание и результат
-Глагол `make` концентрируется на **конечном результате (Product/Outcome)**. До того как действие было совершено, этого объекта или состояния не существовало:
-- **Приготовление еды и напитков**: *make coffee* (сварить кофе), *make dinner* (приготовить ужин), *make a sandwich* (сделать бутерброд).
-- **Принятие решений и ментальные акты**: *make a decision* (принять решение), *make a choice* (сделать выбор), *make an effort* (приложить усилие).
-- **Звуки и речевые действия**: *make noise* (шуметь), *make a speech* (произнести речь), *make an excuse* (придумать оправдание).
-- **Финансы и результаты бизнеса**: *make money* (зарабатывать деньги), *make a profit* (получать прибыль).
+## Самые частые сочетания
 
-### 2. Глагол Do: процесс, деятельность и обязанности
-Глагол `do` фокусируется на **самом процессе деятельности (Action/Process)**, выполнении возложенных обязанностей или рутинной работе:
-- **Домашние обязанности и быт**: *do the dishes* (мыть посуду), *do the laundry* (стирать белье), *do the cleaning* (делать уборку).
-- **Учеба и профессиональная деятельность**: *do homework* (делать уроки), *do research* (проводить исследование), *do business* (вести бизнес).
-- **Уход за собой и спорт**: *do exercise* (делать упражнения / зарядку), *do one's hair* (делать прическу).
-- **Неопределенные действия (с местоимениями)**: *do something* (сделать что-то), *do nothing* (ничего не делать), *do anything* (сделать хоть что-то).
+Начните с тех, что нужны каждый день.
 
-![Экран тренировки словарного запаса в Lexkite](media:@s1 "Словарный тренажер Lexkite с контекстными примерами употребления глаголов make и do")
+| Группа | make | do |
+|---|---|---|
+| Работа и учёба | *make a plan*, *make progress*, *make notes*, *make an appointment*, *make an effort* | *do homework*, *do research*, *do a course*, *do a job* |
+| Решения и слова | *make a decision*, *make a choice*, *make a suggestion*, *make a mistake* | *do your best*, *do well*, *do nothing* |
+| Дом и быт | *make the bed*, *make a mess*, *make tea*, *make dinner* | *do the dishes*, *do the laundry*, *do the shopping*, *do the washing-up* |
+| Общение | *make friends*, *make a phone call*, *make sure*, *make a promise* | *do someone a favour*, *do business with* |
+| Здоровье и спорт | *make a recovery* | *do exercise*, *do yoga*, *do sport* |
 
-{{diagram: d1 | Ключевое различие между MAKE и DO}}
+Учтите и другие способы выразить то же: для конкретных видов спорта используют *play* (*play tennis*, *play football*), для индивидуальных занятий *go* (*go running*), а *do sport* и *do exercise* говорят о занятиях спортом вообще. Фото делают глаголом *take*: *take a photo*. Экзамен лучше «сдавать» глаголом *take* (*take an exam*), а в британском английском допустимо и *sit an exam*.
 
-## Таблица сравнения: типичные коллокации для работы и жизни
+![](media:@s1 "Раздел о том, как употребляется слово, в Lexkite: пары слов, которые легко перепутать")
 
-Чтобы наглядно зафиксировать устойчивые сочетания, сгруппируем их по ключевым сферам повседневной и деловой жизни:
+## Почему русскоязычные путают make и do из-за слова «делать»
 
-| Сфера применения | Сочетания с MAKE (результат/создание) | Сочетания с DO (процесс/обязанность) |
-| :--- | :--- | :--- |
-| **Офис и бизнес** | `make a presentation` (подготовить доклад)<br>`make an appointment` (назначить встречу)<br>`make a deal` (заключить сделку) | `do paperwork` (заниматься бумажной работой)<br>`do business` (вести дела / торговать)<br>`do a job` (выполнять работу) |
-| **Учеба и развитие** | `make progress` (добиваться прогресса)<br>`make notes` (делать конспекты)<br>`make a mistake` (допустить ошибку) | `do an assignment` (выполнять задание)<br>`do an exam / test` (сдавать экзамен)<br>`do research` (проводить научный анализ) |
-| **Быт и здоровье** | `make the bed` (заправлять постель)<br>`make tea` (заваривать чай)<br>`make a mess` (устроить беспорядок) | `do the shopping` (совершать покупки)<br>`do the ironing` (гладить одежду)<br>`do harm / damage` (причинять вред/ущерб) |
+Корень проблемы в русском глаголе «делать». Он переводит и *make*, и *do*, поэтому в голове срабатывает цепочка «делать = make или do», а выбор кажется случайным. Мы говорим «делать уроки», «делать ошибки», «делать выбор», «делать уборку», «делать деньги», и английский при переводе требует разные глаголы. Отталкиваться нужно не от «делать», а от того, какое сочетание закреплено в английском.
 
-Обратите внимание на классическое исключение: *make the bed* (заправлять постель). Несмотря на то что кровать физически не создается заново, английский язык исторически воспринимает аккуратно заправленную кровать как создание нового, опрятного состояния спального места. С другой стороны, *do damage* (наносить ущерб) использует *do*, подчеркивая разрушительное действие на уже существующий объект.
+Четыре типичных ошибки русскоязычных:
 
-![Интерфейс практических тестов для закрепления коллокаций](media:@s2 "Интерфейс практических тестов в Lexkite для закрепления устойчивых выражений")
+1. **«Сделать ошибку»** → *make a mistake*, а не *do a mistake*.
+2. **«Делать зарядку»** → *do exercises*, а не *make exercises*.
+3. **«Делать выводы»** → *draw conclusions*, а не *make conclusions*; **«сделать перерыв»** → *take a break*, а не *make a pause*.
+4. **«Сделать фото»** → *take a photo*, а не *make a photo*.
 
-## Влияние родного языка: почему русскоязычные ошибаются
+## Что ещё полезно знать
 
-В русском языке приставка «с-» часто превращает несовершенный вид в совершенный: «делать $\rightarrow$ сделать». Студент думает: «Если я сейчас *сделаю* кофе, значит, надо сказать *do coffee*». Но в английском языке эта категория выражается совершенно иными лексическими средствами.
+**Make с прилагательным.** Глагол *make* может задавать результат: *make someone happy*, *make it easier*, *make a room bigger*. Здесь он значит «делать каким-то».
 
-Вот четыре самые опасные ловушки интерференции:
-1. **«Сделай мне одолжение»**: попытка сказать *make me a favor* — классическая ошибка. Единственно правильный вариант: **do me a favor**.
-2. **«Сделать выбор»**: не *do a choice*, а строго **make a choice**.
-3. **«Заниматься спортом»**: не *make sport*, а **do sports** или нейтральное *play sports / work out*.
-4. **«Сделать телефонный звонок»**: не *do a phone call*, а строго **make a phone call**.
+**Do с общими словами.** Когда речь идёт о неопределённом действии, используют *do*: *do something*, *do nothing*, *do anything*, *do everything*, *What are you doing?*
 
-В [словаре Lexkite](/app/#/vocab) каждое слово снабжено списком проверенных коллокаций, а в режиме [практических тренировок](/app/#/practice) вы можете быстро закрепить автоматизм с помощью интервального повторения.
+**Do с названиями домашних дел.** *Do the cooking*, *do the shopping*, *do the cleaning*: после *do* идёт название дела.
 
+**Деловая лексика.** В офисных диалогах встречаются и *make*, и *do*: *make a presentation*, *make a deal*, *do paperwork*, *do business with*. Лучше учить такие сочетания блоками. Также часто используется *make someone redundant* (уволить в связи с сокращением): *The company had to make thirty people redundant.* Другие рабочие выражения собраны в статье про [идиомы для работы и бизнеса](/ru/blog/angliyskie-idiomy-dlya-raboty-i-biznesa/).
 
-## Продвинутые коллокации в деловой переписке и переговорах
+Мини-диалог в офисе:
 
-В профессиональной среде выбор между *make* и *do* напрямую влияет на то, насколько компетентно и весомо звучит ваша речь перед зарубежными коллегами и клиентами:
+> **А:** Have you made any progress on the report?
 
-### Идиоматические обороты с глаголом MAKE
-- **make a concession** (пойти на уступку в ходе переговоров): *"In order to salvage the partnership, our management decided to make a substantial commercial concession."*
-- **make amends** (загладить вину, компенсировать неудобства): *"The supplier offered a 15% discount on the subsequent delivery to make amends for the logistical delay."*
-- **make headway** (добиться заметного прогресса): *"Despite severe budget constraints, our engineering division has made considerable headway on the prototype."*
-- **make redundancy** (сократить должность или штат): *"The merger inevitably forced the corporation to make thirty administrative positions redundant."*
+> **Б:** Yes, I did most of the research yesterday. I made a few notes, too.
 
-### Идиоматические обороты с глаголом DO
-- **do justice to something** (воздать должное, оценить по достоинству): *"A brief summary cannot do justice to the complexity of the architectural proposal."*
-- **do the trick** (сработать, решить проблему): *"A simple restart of the remote database server should do the trick."*
-- **do credit to someone** (делать честь кому-либо): *"Her composed demeanor during the hostile press conference did immense credit to her diplomatic training."*
-- **do one's utmost** (сделать все возможное): *"Our customer support team is doing its utmost to resolve the technical outage before the market opens."*
+> **А:** Could you do me a favour and send me the notes?
 
-Регулярная тренировка таких идиоматических фраз в [Lexkite SmartLearn](/app/#/practice) позволит вам свободно оперировать аутентичным языком без пауз на внутренний перевод.
+> **Б:** Sure. I'll do my best to send them before lunch.
 
-## Методика запоминания: от зубрёжки к языковому чутью
+![](media:@s2 "Игры и тренировки в Lexkite: умное обучение, сопоставление карточек, произношение, тест, вставка слов")
 
-Чтобы перестать запинаться перед выбором глагола во время разговора, применяйте следующие проверенные техники:
+## Формы глаголов и вспомогательное do
 
-- **Учите существительные блоками (Chunks)**: никогда не записывайте в тетрадь изолированное слово *appointment*. Записывайте цельную синтагму: *make an appointment with the doctor*.
-- **Визуализируйте физический результат**: перед тем как сказать слово, представьте, появляется ли в материальном мире новый предмет. Если на столе появляется чашка чая или подписанный договор — это *make*. Если вы просто устали от мытья полов или чтения отчетов — это *do*.
-- **Практикуйте речь с диктофоном**: составляйте мини-рассказы о своем рабочем дне, сознательно внедряя по 3-4 фразы с каждым глаголом.
+Оба глагола неправильные: *make — made — made* и *do — did — done*. Ученики иногда путают *did* и *done*: *I did my homework* (прошедшее простое), но *I have done my homework* (Present Perfect).
 
-Для комплексного развития языковых навыков рекомендуем изучить материалы о [фразовых глаголах в английском языке](/ru/blog/frazeologicheskie-glagoly-v-angliyskom/), ознакомиться со статьей о [деловом письме на английском](/ru/blog/delovoe-pismo-na-angliyskom/) и посмотреть разбор темы [present perfect и past simple](/ru/blog/present-perfect-i-past-simple/). Для тех, кто готовится к международным тестам, полезен материал [коллокации в английском для IELTS](/ru/blog/kollokatsii-v-angliyskom-dlya-ielts/). Практические примеры доступны в [коллекции текстов](/en/samples/).
+Глагол *do* ещё и вспомогательный: он помогает строить вопросы и отрицания (*Do you like tea?*, *I don't know*). Когда он же становится основным, в предложении оказывается два *do* подряд: *What do you do?* («Кем вы работаете?») или *I don't do the cooking at home.* Не пугайтесь такой встречи: первое *do* вспомогательное, второе основное. Когда основным становится *make*, двух *do* подряд не будет: *Do you make coffee in the morning?* (здесь *do* только вспомогательное).
 
-{{cta: /app/#/vocab | Добавить коллокации make и do в словарь Lexkite}}
+## Исправьте ошибки в предложениях
 
-{{youtube: | Разница между make и do в английском языке правила и примеры}}
+Сначала попробуйте найти ошибку сами. Большинство примеров типично для русскоязычных учеников.
 
+| Неверно | Верно | Комментарий |
+|---|---|---|
+| *We did a serious mistake in the budget.* | *We made a serious mistake in the budget.* | ошибка — устойчивое сочетание с *make* |
+| *I make exercises every morning.* | *I do exercises every morning.* | «делать зарядку» — *do exercises* |
+| *I did a lot of progress this year.* | *I made a lot of progress this year.* | «делать успехи» — *make progress* |
+| *We made a conclusion from the results.* | *We drew a conclusion from the results.* | «сделать вывод» — *draw a conclusion* |
+| *Yesterday I made my homework.* | *Yesterday I did my homework.* | «делать уроки» — *do homework* |
 
-## Практический мини-диалог в реальной рабочей обстановке
+Заметьте, что ошибки идут в обе стороны: русский глагол «делать» подсказывает то *do* (*did a mistake*), то *make* (*make exercises*, *make a conclusion*: к «делать выводы» подсказывает именно *make*), хотя правильным оказывается вообще другой глагол (*draw*, *take*, *give*). Если вы вспоминаете сочетание на русском и сразу хотите подставить первый попавшийся глагол, остановитесь и спросите себя, нет ли здесь устойчивого сочетания с другим глаголом.
 
-Посмотрим, как эти выражения естественно переплетаются в живом офисном диалоге:
+## Несколько более редких сочетаний
 
-> **Коллега А:** Have you **made any progress** on the quarterly financial audit?
-> **Коллега Б:** Yes, I spent the entire morning **doing paperwork** and compiling the expense sheets. However, I think the external accountant **made a slight mistake** in section four.
-> **Коллега А:** Could you **do me a favor** and double-check those numbers before we **make an official presentation** to the board?
-> **Коллега Б:** Absolutely. I will **do my best** to reconcile the discrepancies before the afternoon briefing.
+Когда базовый список уже выучен, добавьте сочетания, которые встречаются в письме и деловой речи.
 
-Как видите, в естественной речи носители языка переключаются между *make* и *do* интуитивно, ориентируясь на семантику каждого конкретного понятия.
+- *make a difference* — изменить положение к лучшему: *Small habits can make a big difference.*
+- *make a living* — зарабатывать на жизнь: *She makes a living as a translator.*
+- *make an effort* — приложить усилие: *Please make an effort to arrive on time.*
+- *do justice to* — отдать должное: *The photo doesn't do justice to the view.*
+- *do the trick* — сработать: *A glass of water usually does the trick.*
+- *do someone good* — пойти на пользу: *A walk will do you good.*
 
-## Часто задаваемые вопросы (FAQ)
+## Как запоминать
 
-### Q1. Можно ли сказать do a photo вместо take a photo?
-Нет, для фотосъемки используется глагол *take*: *take a photo / take a picture*. Варианты *do a photo* или *make a photo* являются неграмотными кальками.
+1. **Учите блоками.** Записывайте не *make* отдельно, а *make an appointment with the dentist*. Так глагол запоминается вместе с существительным.
+2. **Собирайте группы по темам.** Заведите две колонки: слева *make*, справа *do*. Пополняйте их по мере чтения.
+3. **Пишите свои примеры.** Для каждого сочетания придумайте одно предложение про себя.
+4. **Повторяйте.** Возвращайтесь к списку через день, через три, через неделю; как строить такие интервалы, описано в статье про [интервальные повторения](/ru/blog/intervalnye-povtoreniya-slov-fsrs/).
 
-### Q2. Почему говорят make a decision, но do an exercise?
-*Decision* — это конечный умозрительный продукт размышлений (новое решение), тогда как *exercise* — это выполнение предписанных физических или учебных действий (процесс выполнения упражнений).
+В Lexkite есть [раздел «употребление слов»](/app/#/usage) с разбором пар слов, которые легко перепутать (в том числе make и do), а в [играх и тренировках](/app/#/practice) можно закрепить сочетания. Больше про привычки запоминания слов читайте в статье [как запоминать английские слова](/ru/blog/kak-zapominat-angliyskie-slova/). О сочетаниях в целом рассказывает статья про [коллокации для IELTS](/ru/blog/kollokatsii-v-angliyskom-dlya-ielts/).
 
-### Q3. Какое выражение правильное: make dinner или cook dinner?
-Оба варианта абсолютно верны и естественны. *Cook dinner* подчеркивает термическую обработку продуктов на кухне, а *make dinner* используется в более широком контексте приготовления ужина (включая нарезку салатов и сервировку).
+## Задания с ответами
+
+Вставьте *make* или *do* в нужной форме.
+
+1. She usually ___ her homework before dinner.
+2. I need to ___ an appointment with the dentist.
+3. Let's ___ the dishes together.
+4. He ___ a lot of money last year.
+5. Can you ___ the shopping tonight?
+6. We ___ great progress last week.
+
+**Ответы.** 1. does. 2. make. 3. do. 4. made. 5. do. 6. made.
+
+Если вы ошиблись больше чем в двух предложениях, вернитесь к таблице выше и выпишите сочетания, в которых запутались.
+
+## Частые вопросы
+
+### Можно ли сказать do a photo вместо take a photo?
+Нет. Для фотографии используют *take*: *take a photo* или *take a picture*.
+
+### Чем отличаются make dinner и cook dinner?
+Оба варианта правильные. *Cook dinner* подчёркивает процесс готовки, а *make dinner* звучит шире и включает всё приготовление ужина.
+
+### Как быстро выучить сочетания с make и do?
+Не заучивайте списки целиком. Возьмите по пять сочетаний в неделю, напишите по предложению с каждым и вернитесь к ним через несколько дней.
+
+{{cta: /app/#/usage | Разобрать пары make и do в Lexkite}}
+
+{{youtube: | Разница между make и do в английском: примеры}}

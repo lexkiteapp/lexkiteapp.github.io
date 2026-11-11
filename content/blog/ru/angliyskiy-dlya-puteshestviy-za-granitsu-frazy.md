@@ -1,175 +1,177 @@
 ---
-title: "Английский для путешествий за границу: нужные фразы"
-description: "Английский для путешествий за границу: нужные фразы для аэропорта, паспортного контроля, отеля, ресторанов, ориентации в городе и экстренных ситуаций."
+title: "Вежливые просьбы на английском за границей и переспрос"
+description: "Вежливые просьбы на английском за границей: формулы вместо «Give me», фразы для билетов, такси, отеля и кафе, а также что говорить, если вас не поняли."
 slug: angliyskiy-dlya-puteshestviy-za-granitsu-frazy
 lang: ru
 translationKey: tieng-anh-du-lich-nuoc-ngoai
 category: tu-vung
 tags: [travel-english, airport-phrases, hotel-english, conversation]
-keyword: "английский для путешествий за границу"
-cover: practice-learn
-coverAlt: "Интерфейс smartLearn с карточками flashcard в Lexkite для фраз путешествий"
-publishAt: 2027-02-26T09:00:00+03:00
+keyword: "вежливые просьбы на английском"
+cover: phrases
+coverAlt: "Блокнот фраз и конструкций в Lexkite: добавление фраз, образцы текстов со структурами, метки"
+publishAt: 2026-12-21T07:16:00+03:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: happy, icon: chat, chip: Travel English}
 shots: [
-  {id: s1, route: '#/topic', crop: main},
-  {id: s2, route: '#/phrases', crop: main}
+  {id: s1, route: '#/topic/travel', crop: main},
+  {id: s2, route: '#/roleplay', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: '5 ключевых этапов туристической поездки', parts: [{t: '1. Аэропорт и контроль', r: 'Регистрация на рейс, сдача багажа, прохождение паспортного контроля и таможни'}, {t: '2. Проживание в отеле', r: 'Заселение, запрос дополнительных полотенец, вызов мастера при поломках'}, {t: '3. Кафе и рестораны', r: 'Бронирование столика, заказ блюд с учетом аллергий, раздельный счет'}, {t: '4. Городской транспорт', r: 'Покупка билетов на метро/автобус, навигация, уточнение маршрута у прохожих'}, {t: '5. Чрезвычайные ситуации', r: 'Обращение в аптеку, заявление об утере багажа или паспорта в полицию'}]}
+  {id: d1, type: compare, title: 'Резко и вежливо: как переделать просьбу', cols: ['Звучит резко', 'Звучит вежливо'], rows: [['Give me a map.', 'Do you have a map of the city, please?'], ['I want a room.', 'I would like a room, please.'], ['Bring me water.', 'Could I have some water, please?'], ['I need a taxi.', 'Could you call me a taxi, please?']]}
 ]
 quiz: [
   {
-    q: "Какой ответ наиболее уместен на паспортном контроле на вопрос: 'What is the purpose of your visit?'?",
+    q: "Вы просите соседа в поезде приоткрыть окно. Какая фраза звучит вежливее всего?",
     options: [
-      "I am traveling for tourism and sightseeing.",
-      "I plan to find an illegal job and stay forever in this country.",
-      "Yes, my flight departure was extremely delayed today.",
-      "I forgot my suitcases inside the airplane cabin."
-    ],
-    answer: 0,
-    explain: "На паспортном контроле цель визита формулируется четко: туризм (tourism/sightseeing) или деловая поездка (business)."
-  },
-  {
-    q: "Как вежливо попросить счет у официанта в ресторане?",
-    options: [
-      "Bring me the money right now, please.",
-      "Could we have the check, please?",
-      "Show me where the kitchen is located.",
-      "I want to cook my meal by myself."
+      "Please open the window for me quickly.",
+      "Would you mind opening the window?",
+      "I want you to open that window, please.",
+      "You need to open the window for me."
     ],
     answer: 1,
-    explain: "Формула 'Could we get/have the check (или bill), please?' является общепринятым стандартом вежливой просьбы."
+    explain: "Would you mind с формой на -ing оставляет собеседнику выбор. Остальные варианты звучат как распоряжение или констатация потребности, а *please* этого не меняет."
   },
   {
-    q: "Как правильно сообщить на стойке регистрации отеля, что кондиционер сломан?",
+    q: "Вы называете на ресепшене фамилию, на которую оформлена бронь: I have a reservation _____ Ivanova.",
     options: [
-      "The air conditioner in my room isn't working properly.",
-      "I do not like hot summer weather in this region.",
-      "Why is your hotel building so extremely large?",
-      "Please prepare breakfast in the lobby immediately."
+      "on",
+      "at",
+      "in",
+      "under"
+    ],
+    answer: 3,
+    explain: "Бронь оформляется «под» фамилией, так закреплено в английском. Остальные предлоги здесь не употребляются, хотя русское «на фамилию» подсказывает on."
+  },
+  {
+    q: "В номере не работает утюг. Как сказать об этом нейтрально, без упрёка?",
+    options: [
+      "The iron in my room isn't working properly.",
+      "Fix the iron in my room right away, please.",
+      "This hotel has terrible irons in the rooms.",
+      "You should check the irons before guests arrive."
     ],
     answer: 0,
-    explain: "Конструкция 'The [устройство] isn't working properly' — универсальный способ сообщить о неисправности любого оборудования."
+    explain: "Описание неисправности как факта сразу переводит разговор к решению. Остальные реплики дают приказ, оценку или совет персоналу."
   }
 ]
 ---
 
-Путешествие в другую страну — это всегда море ярких впечатлений, новых вкусов и культурных открытий. Однако для многих туристов радость поездки омрачается страхом языкового барьера: растерянностью перед офицером пограничного контроля, сложностями при заселении в отель или невозможностью разобраться в меню местного ресторана. Знание базового курса **английский для путешествий за границу** способно превратить стрессовую поездку в комфортное и безопасное приключение.
 
-Вам вовсе не обязательно владеть языком на уровне Шекспира или наизусть знать все грамматические тонкости. Для 95% стандартных ситуаций достаточно освоить пару десятков устойчивых речевых клише с вежливыми модальными глаголами (*Could I have...? / Would you mind...?*) и четко формулировать ключевые запросы. Местные жители и персонал отелей всегда относятся к туристам с пониманием, если видят искреннее стремление к доброжелательному общению.
+Вежливые просьбы на английском за границей строятся по одной схеме: начните с *Could I...?*, *Could you...?* или *I'd like...*, а не с приказа. Этого и нескольких десятков готовых фраз хватит, чтобы вас поняли и не сочли грубым. Ниже фразы сгруппированы по тому, что вы хотите сделать: попросить, уточнить, назвать проблему. А отдельный раздел посвящён тому, что вам ответят и как переспросить, потому что понять ответ часто труднее, чем задать вопрос. Как тренировать понимание на слух, описано в статье про [аудирование за пять шагов](/ru/blog/kak-uluchshit-audirovanie-po-angliyskomu-metod-5-shagov/).
 
-В этом практическом разговорнике мы собрали надежные фразы по курсу **английский для путешествий за границу**, разбив их на пять главных этапов любого путешествия: от посадки в самолет до вызова экстренной помощи.
+Эта статья не пересказывает диалоги целиком. Готовые сцены с паспортным контролем, отелем и кафе ищите в [статье с диалогами для путешествий](/ru/blog/angliyskiy-dlya-puteshestviy-dialogi-frazy/): здесь мы разбираем, как строить просьбу и как реагировать на ответ.
 
-## английский для путешествий за границу : аэропорт и паспортный контроль
+## Почему просьбы по-русски в переводе звучат резко
 
-Зона пограничного контроля — самое строгое место в путешествии, где важно отвечать кратко, спокойно и точно на поставленный вопрос:
+Главная ловушка связана с русским языком. По-русски мы спокойно говорим «Дайте меню», «Принесите воды», «Мне нужен номер», и это нормальная повседневная речь. Дословный перевод даёт *Give me the menu*, *Bring me water*, *I need a room*. Грамматически всё верно, но на английском такие фразы звучат резко или как приказ. Вежливость в английском создаёт не слово *please* в конце, а сама конструкция: вопрос с *could* или формула *I'd like*.
 
-```
-+-----------------------------------------------------------+
-| Вопрос о цели (Purpose): For tourism / sightseeing        |
-| Вопрос о сроке (Duration): For one week / ten days        |
-| Вопрос о жилье (Hotel): At the Grand Hotel in downtown    |
-+-----------------------------------------------------------+
-```
+Мягкую форму легко собрать по схеме. Берёте начало (*Could I have...*, *Could you...*, *I'd like...*), добавляете нужное и ставите *please*. Сравните:
 
-### 1. Диалог на паспортном контроле
-- **Офицер:** *What is the purpose of your visit?* (Какова цель вашего визита?)
-  - **Турист:** *\"I'm here for tourism and vacation.\"* (Я прибыл с туристической целью на отдых.)
-- **Офицер:** *How long do you intend to stay in the country?* (Как долго вы планируете находиться в стране?)
-  - **Турист:** *\"I will be staying for eight days. Here is my return flight ticket.\"* (Я останусь на 8 дней. Вот мой обратный авиабилет.)
-- **Офицер:** *Where will you be staying?* (Где вы остановитесь?)
-  - **Турист:** *\"I have a confirmed reservation at the central Marriott Hotel.\"* (У меня подтверждена бронь в отеле Marriott в центре.)
+{{diagram: d1 | Слева прямые фразы, справа привычные вежливые формулы}}
 
-### 2. Сдача багажа и посадка на рейс
-- *\"Could I have an aisle seat, please?\"* (Можно мне место у прохода, пожалуйста?)
-- *\"Is this flight on schedule, or has the departure gate changed?\"* (Рейс вылетает по расписанию или выход на посадку изменился?)
-- *\"Excuse me, my baggage hasn't arrived at carousel 4. Where is the lost luggage counter?\"* (Простите, мой багаж не появился на ленте 4. Где стойка розыска багажа?)
+Вторая типичная привычка: русский вопрос «У вас есть номер?» легко превращается в *You have a room?*. Обычно вопрос строят со вспомогательным глаголом: *Do you have a room?* Фраза *You have a room?* с восходящей интонацией звучит разговорно и сухо. Третья: слова «извините» и «простите» мы используем и чтобы привлечь внимание, и чтобы извиниться. В английском это разные слова. *Excuse me* — привычный способ обратиться к человеку или пройти мимо, а *sorry* — извиниться или переспросить; в Британии *sorry* нередко говорят и вместо *excuse me*.
 
-![Экран тематического словаря для путешествий в Lexkite](media:@s1 "Тематический словарь Lexkite со списком разговорных выражений для аэропорта и отеля")
+Ещё одна особенность: в английском нет обращения на «вы» и «ты», вежливость достигается формулой, а не местоимением. Поэтому один и тот же *you* годится и для таксиста, и для директора отеля, а разницу создают *could*, *would* и *please*.
 
-{{diagram: d1 | 5 ключевых этапов туристической поездки}}
+## Вежливые просьбы на английском по задачам, а не по ситуациям
 
-## Заселение в отель и решение бытовых проблем
+Одни и те же формулы работают везде, где вам что-то нужно, поэтому удобнее учить их по задаче, а не по месту. В таблице по две-три фразы на каждую задачу, и каждая взята из другой ситуации.
 
-В отеле вежливость открывает любые двери и нередко помогает получить бесплатный апгрейд номера:
+| Задача | Формула | Примеры |
+|---|---|---|
+| Попросить вещь или заказать | *Could I have...?*, *I'd like...* | *Could I have a receipt, please?* / *I'd like the grilled fish, please.* / *Could I have a map of the metro, please?* |
+| Попросить об услуге | *Could you...?*, *Could we...?* | *Could you take me to this address, please?* / *Could we leave our bags here until the room is ready?* |
+| Узнать информацию | *What time...?*, *Which...?*, *Do you know...?* | *What time does boarding start?* / *Which gate does the flight to Berlin leave from?* / *Do you know if breakfast is included?* |
+| Спросить разрешения | *Can I...?*, *Is it OK if...?* | *May I sit here?* / *Can we pay separately?* / *Is it OK if I leave my suitcase here?* |
+| Описать проблему | *The ... isn't working*, *I'm afraid there's a problem with...* | *The hair dryer in my room isn't working.* / *I'm afraid there's a problem with my booking.* |
+| Вежливо отказаться | *No, thanks, I'm fine*, *I'm just looking, thanks* | *No, thanks, I'm fine.* / *No, that's all, thank you.* |
 
-### 1. Регистрация заезда и выезда
-- *\"Good afternoon! I'd like to check in, please. The reservation is under the name of Ivanov.\"* (Добрый день! Я хотел бы заселиться. Бронь оформлена на фамилию Иванов.)
-- *\"Could we request an early check-in or leave our luggage in the storage room?\"* (Можем ли мы заселиться пораньше или оставить сумки в камере хранения?)
-- *\"What time is breakfast served, and where is the breakfast lounge located?\"* (В какие часы подается завтрак и где находится зал?)
+## Как попросить и заказать, не звуча резко
 
-### 2. Устранение неисправностей в номере
-- *\"The air conditioner in room 312 isn't working properly. Could you send someone to inspect it?\"* (В номере 312 неисправен кондиционер. Не могли бы вы прислать мастера?)
-- *\"Could we please have some extra bath towels and additional hangers?\"* (Не могли бы вы принести нам дополнительные банные полотенца и вешалки?)
-- *\"The shower drain seems to be clogged. Could maintenance take a look?\"* (Кажется, слив в душе засорился. Может ли служба ремонта проверить?)
+Самое частое действие в поездке — просьба, и именно здесь русскоязычные чаще всего звучат прямолинейно. Вот несколько живых примеров из разных ситуаций.
 
-![Каталог готовых разговорных фраз в Lexkite](media:@s2 "Интерфейс разговорника Lexkite с возможностью прослушивания произношения туристических фраз")
+- *Two tickets to the city centre, please.* — Два билета до центра, пожалуйста.
+- *Hi, I have a reservation under Petrov.* — Здравствуйте, у меня бронь на фамилию Петров.
+- *Could you stop here, please? Keep the change.* — Остановите здесь, пожалуйста. Сдачи не надо.
+- *Do you have a table for two on the terrace?* — У вас есть столик на двоих на террасе?
+- *Could we get a box for the leftovers, please?* — Можно попросить контейнер для остатков?
+- *Do you have these in half a size bigger?* — Есть ли такие на полразмера больше?
 
-## Кафе и рестораны: выбор столика, заказ и счет
+Обратите внимание на фразу *under Petrov*: бронь указывают «под фамилией». Русскоязычные туристы нередко говорят *on the name of Petrov*, и это калька с «на фамилию». С гостиницей так же: говорите *I have a reservation* или *I booked a room*, а не *I have a booking on my name*.
 
-Посещение ресторанов за границей станет настоящим праздником гастрономии, если вы свободно ориентируетесь в формулах ресторанного этикета:
+## Как уточнить и спросить разрешения
 
-### 1. Выбор столика и заказ
-- *\"Do you have a table for two available outside on the terrace?\"* (У вас есть свободный столик на двоих на открытой террасе?)
-- *\"What is your special signature dish of the house?\"* (Какое у вас фирменное блюдо заведения?)
-- *\"I am severely allergic to peanuts and tree nuts. Does this sauce contain any nut oils?\"* (У меня сильная аллергия на арахис. Содержит ли этот соус ореховые масла?)
+Вопросы о времени, месте и условиях сами по себе не грубы, но привычка строить вопрос без вспомогательного глагола (*You have a room?*, *You can help me?*) делает фразы неуклюжими. Чаще всего выручают *Is there...?*, *Do I need to...?* и косвенный вопрос *Could you tell me where...?*
 
-### 2. Расчет и чаевые
-- *\"Could we have the check, please? Do you accept international credit cards?\"* (Принесите, пожалуйста, счет. Принимаете ли вы международные карты?)
-- *\"Can we split the bill, or do we have to pay as a single total?\"* (Мы можем разделить счет или нужно оплатить всё вместе?)
-- *\"Keep the change, thank you very much for the excellent service!\"* (Оставьте сдачу себе, спасибо за прекрасное обслуживание!)
+- *Do I need to change trains?* — Мне нужна пересадка?
+- *Is this seat taken?* — Это место занято?
+- *Does this bus go to the National Museum?* — Этот автобус идёт до Национального музея?
+- *Excuse me, which platform is it for the airport?* — Простите, с какой платформы поезд в аэропорт?
+- *Does this soup contain meat? I'm vegetarian.* — В супе есть мясо? Я вегетарианец.
+- *Could I try this on? Where are the fitting rooms?* — Можно примерить? Где примерочные?
+- *Is there a tax refund for tourists here?* — У вас можно оформить возврат налога для туристов?
+- *Can I pay by card?* — Можно оплатить картой?
 
-Все эти фразы удобно сохранить в [тематическом словаре Lexkite](/app/#/topic), а перед поездкой повторить их в [разделе разговорных фраз](/app/#/phrases).
+Если продавец спросит *Can I help you?*, а вам пока ничего не нужно, ответьте не коротким «Нет», который может прозвучать неприветливо, а *I'm just looking, thanks.*
 
-## Навигация в городе и экстренные службы
+## Как спокойно назвать проблему
 
-В незнакомом мегаполисе не бойтесь обращаться за помощью к прохожим или сотрудникам метро:
+Когда что-то не так, лучше описать факт, а не обвинять: *The shower in my room isn't draining. Could someone take a look?* («В душе не уходит вода. Не мог бы кто-нибудь посмотреть?»). Схема «предмет + *isn't working*» сообщает о неисправности и сразу ведёт к решению. Так же работают и другие жизненные ситуации:
 
-- *\"Excuse me, could you point me in the direction of the nearest underground station?\"* (Простите, не могли бы вы подсказать, в какой стороне ближайшая станция метро?)
-- *\"Does this local bus stop near the National Museum?\"* (Останавливается ли этот автобус около Национального музея?)
-- *\"How long does it take to walk to the cathedral from here?\"* (Сколько времени займет дойти отсюда до собора пешком?)
-- *\"I've lost my passport and wallet. Could you tell me where the nearest police station is?\"* (Я потерял паспорт и бумажник. Где находится ближайший полицейский участок?)
+- *My suitcase didn't arrive. Where can I report it?* — Мой чемодан не приехал. Куда обратиться?
+- *I left my bag on the train. Who should I talk to?* — Я оставил(а) сумку в поезде. К кому обратиться?
+- *Could you call a doctor, please?* — Можете вызвать врача?
+- *I need some help, please.* — Мне нужна помощь.
 
-Для дальнейшего расширения разговорных навыков изучите статью о [разговорных фразах на каждый день](/ru/blog/angliyskie-frazy-na-kazhdyy-den-razgovornik/) и материалы по [деловому английскому small talk](/ru/blog/angliyskiy-small-talk-na-rabote/). Также рекомендуем прочитать базовое руководство по [английскому для путешествий](/ru/blog/angliyskiy-dlya-puteshestviy-dialogi-frazy/) и полезные советы о [деловых звонках по телефону](/ru/blog/delovye-zvonki-po-telefonu-na-angliyskom/). Примеры туристических диалогов доступны в [каталоге учебных текстов](/en/samples/).
+Эти фразы нужны на крайний случай. При серьёзном недомогании сразу звоните на местный номер экстренной помощи и сообщите оператору, где вы находитесь и на каком языке можете говорить (в странах ЕС это номер 112).
 
-{{cta: /app/#/phrases | Открыть разговорник для путешествий в Lexkite}}
+## Если вас не поняли или вы не поняли: переспрос
 
-{{youtube: | Английский для путешествий полезные фразы и диалоги}}
+Заученные фразы работают, пока вы говорите. Но вам ответят быстро, без пауз и часто сокращённо. Вот что стоит узнавать на слух.
 
+| Вы слышите | Что это значит |
+|---|---|
+| *Can I see your ticket, please?* | Покажите, пожалуйста, билет |
+| *Do you have anything to declare?* | Вам есть что декларировать? |
+| *How long will you be staying?* | На сколько вы приехали? |
+| *Is that for here or to go?* | Здесь или с собой? (чаще в США) |
+| *Will that be all?* | Это всё? |
+| *Anything else I can help you with?* | Могу ещё чем-то помочь? |
+| *I'm afraid it's not available.* | К сожалению, этого нет |
 
-## Шопинг и оформление Tax Free без лишних хлопот
+Фраза *I'm afraid...* не означает страха. Это вежливая форма, которой смягчают неприятную новость: *I'm afraid the room isn't ready yet* («К сожалению, номер ещё не готов»).
 
-Покупки за рубежом — один из приятнейших моментов путешествия. Чтобы процесс прошел гладко, держите наготове следующие фразы:
+Если вы не расслышали, не переспрашивайте словом *What?*, оно резкое. Скажите *Sorry, could you say that again?* или *Could you speak a little more slowly, please?* Слово *sorry* здесь на месте: вы ничего не нарушили, просто не расслышали.
 
-### 1. Подбор размера и примерка
-- *"Excuse me, do you have this wool sweater in a medium size?"* (Простите, есть ли этот шерстяной свитер в размере M?)
-- *"Could I try these sneakers on? Where are the fitting rooms?"* (Могу ли я примерить эти кроссовки? Где находятся примерочные?)
-- *"These shoes are a bit too tight in the toe box. Do you have half a size bigger?"* (Эти туфли немного жмут в носке. Есть ли у вас размер на полразмера больше?)
+## Как подготовиться за пару недель
 
-### 2. Возврат налога (Tax Free)
-- *"Could you please provide a Tax Free form for this purchase? Here is my passport."* (Не могли бы вы оформить чек Tax Free на эту покупку? Вот мой заграничный паспорт.)
-- *"What is the minimum spend required in your shop to qualify for a tax refund?"* (Какова минимальная сумма чека в вашем магазине для оформления возврата налога?)
-- *"Can I pay part of the total bill in cash and the remainder with my credit card?"* (Могу ли я оплатить часть суммы наличными, а остаток списать с банковской карты?)
+Выучить сотню фраз подряд бессмысленно: они забудутся. Надёжнее взять по 4–5 фраз на каждую задачу, проговорить вслух и разыграть диалог. Для интонации полезен [метод shadowing](/ru/blog/metod-shadowing-angliyskiy-yazyk/), а готовые формулы на каждый день собраны в статье о [фразах для повседневного общения](/ru/blog/angliyskie-frazy-na-kazhdyy-den-razgovornik/).
 
-## Аптека и визит к врачу: фразы для экстренных ситуаций
+1. Выпишите задачи, которые вам нужны чаще всего: попросить, уточнить, назвать проблему.
+2. Выучите по пять фраз и проговаривайте их вслух с готовой интонацией вопроса.
+3. Потренируйте фразу *Sorry, could you say that again?* до автоматизма: она выручает, когда вы не расслышали ответ.
+4. Разыграйте диалог вслух, а лучше с партнёром.
 
-В случае внезапного недомогания очень важно уметь точно и без задержки объяснить симптомы фармацевту:
+В Lexkite есть [тематический словарь «Путешествия»](/app/#/topic/travel): слова вроде *destination* и *accommodation* с транскрипцией, переводом и примерами. Разыграть ситуации (заселение в отель, заказ в кафе, вопрос о дороге) можно в [ролевых диалогах](/app/#/roleplay), а свои любимые фразы сохранить в разделе [«Фразы и конструкции»](/app/#/phrases) и повторять перед поездкой.
 
-- *"I have an upset stomach and severe nausea. Do you have an effective antacid or rehydration salts?"* (У меня расстройство желудка и сильная тошнота. Есть ли у вас антацид или регидрон?)
-- *"I twisted my ankle while hiking and it is swelling up rapidly. Do you have a cold compress and an elastic bandage?"* (Я подвернул ногу на прогулке, и она быстро опухает. Есть ли у вас охлаждающий компресс и эластичный бинт?)
-- *"I am experiencing an acute allergic reaction with skin rash. Could you call an ambulance immediately?"* (У меня острая аллергическая реакция с кожной сыпью. Вызовите скорую помощь немедленно!)
+![](media:@s1 "Тематический словарь «Путешествия» в Lexkite: слова с транскрипцией, переводом и примерами")
 
-## Часто задаваемые вопросы (FAQ)
+![](media:@s2 "Ролевые диалоги в Lexkite: выбор ситуации для тренировки разговора")
 
-### Q1. Как правильно спросить про Wi-Fi в кафе?
-Вежливая форма звучит так: *\"Excuse me, could you tell me the Wi-Fi password, please?\"* (Подскажите, пожалуйста, пароль от вайфая).
+## Короткие ответы на частые вопросы
 
-### Q2. Что делать, если официант говорит слишком быстро?
-Не стесняйтесь попросить сбавить темп: *\"Could you please speak a little slower? My English isn't fluent yet.\"* Носители языка всегда с готовностью повторят фразу медленнее и четче.
+### Нужно ли учить много слов, чтобы поехать за границу?
+Нет. В поездке повторяются одни и те же ситуации, поэтому начать можно с нескольких десятков фраз по каждой из них. Важнее научиться просить вежливо и переспрашивать.
 
-### Q3. Как объясниться в аптеке при простуде?
-Используйте простые шаблоны описания симптомов: *\"I have a headache and a sore throat. Could you recommend some pain relief medicine?\"* (У меня болит голова и першит в горле. Посоветуйте обезболивающее).
+### Как переспросить, если я не понял?
+Скажите *Sorry, could you say that again?* или *Could you speak more slowly, please?* Можно добавить *I'm still learning English*, чтобы собеседник говорил проще.
+
+### Чем отличаются bill и check?
+В британском английском счёт в ресторане называют *bill*, в американском чаще *check*. Поймут оба варианта.
+
+{{cta: /app/#/roleplay | Потренировать диалоги в отеле и кафе в Lexkite}}
+
+{{youtube: | Английский в поездке: вежливые просьбы и ответы}}
