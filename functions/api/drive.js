@@ -18,12 +18,13 @@ import { internalDb, d1bMode, d1bReady, restDb } from './_d1b.js';
 import { isD1Limit, D1_LIMIT_BODY } from './_d1limit.js';
 import { limit } from './sync.js';
 import { makeFileOps, serveThumb } from './_drive_files.js';
+import { loadSignals } from './_drive_state.js';
 
 const REDIRECT = 'https://lexkite.com/api/drive/callback';
 const SCOPE = 'https://www.googleapis.com/auth/drive.file openid email';
 const ROOT_FOLDER = 'Lexkite Library';
 const MB = 1048576, HEADROOM_MIN = 256 * MB, STATE_TTL = 600, LINK_TTL = 300, CLI_SKEW = 300;
-const CLI_OPS = new Set(['list', 'upload_session', 'complete', 'refs_sync', 'health', 'where', 'replicas', 'repair', 'rebalance', 'render_link', 'set_want', 'retire', 'footage_alert', 'ext_alert', 'upload_sessions', 'complete_batch', 'd1b_copy', 'd1b_counts', 'backup_export', 'backup_open']);
+const CLI_OPS = new Set(['list', 'upload_session', 'complete', 'refs_sync', 'health', 'where', 'replicas', 'repair', 'rebalance', 'render_link', 'set_want', 'retire', 'footage_alert', 'ext_alert', 'upload_sessions', 'complete_batch', 'd1b_copy', 'd1b_counts', 'backup_export', 'backup_open', 'tidy_run']);
 // Shorts archive (docs/VIDEO-STORAGE.md): masters live under folder shorts/… with cls 'render'. CLI may only touch those (render_link · set_want · retire); retire also takes backups/·releases/ rows.
 const SHORTS_SQL = "f.folder LIKE 'shorts/%' AND f.cls = 'render'", CLIP_BYTES = 10 * 1048576, STOP_PCT = 0.9;
 // Kho footage (docs/VIDEO.md §Kho footage): masters under folder footage/<cảnh>, cls 'original', 2 bản sao/2 Drive. CLI chỉ được ĐỌC (render_link) – không retire/set_want.
@@ -263,7 +264,7 @@ const cookieOf = (req, k) => { const m = (req.headers.get('Cookie') || '').match
 // Ngưỡng: 80 % cảnh báo · 90 % nghiêm trọng + tự ngừng nhận file (weight 0, nhớ auto_weight; < 90 % tự trả lại) · pool còn < 10 GB cảnh báo ·
 // mất kết nối (invalid_grant) / Google không phản hồi 3 lần liên tiếp / tải lên lỗi 3 lần liên tiếp → nghiêm trọng.
 // Thư (lexkite-mail → REPORT_NOTIFY_EMAIL): chỉ mức nghiêm trọng, ≤ 1 thư/loại/24 h; hết lỗi → thư "đã khôi phục".
-export const EXT_KINDS = new Set(['footage', 'gitsize', 'd1', 'ci', 'capacity', 'capacity-src', 'deploy', 'backup_d1', 'backup_code', 'backup_rel', 'ci_hog']); // capacity, capacity-src: functions/api/capacity.js (nâng gói Cloudflare; nguồn đọc D1 vượt ngân sách) // cảnh báo do workflow đặt/gỡ (ext_alert), health không đụng; 'ci' = bản tin CI hằng ngày (ci-triage.yml); 'ci_hog' = workflow tốn runner bất thường (scripts/ci/ci-hog.mjs)
+export const EXT_KINDS = new Set(['footage', 'gitsize', 'd1', 'ci', 'capacity', 'capacity-src', 'deploy', 'backup_d1', 'backup_code', 'backup_rel', 'ci_hog', 'tidy']); // capacity, capacity-src: functions/api/capacity.js (nâng gói Cloudflare; nguồn đọc D1 vượt ngân sách) // cảnh báo do workflow đặt/gỡ (ext_alert), health không đụng; 'ci' = bản tin CI hằng ngày (ci-triage.yml); 'ci_hog' = workflow tốn runner bất thường (scripts/ci/ci-hog.mjs)
 export const CI_MAIL_GAP = 20 * 3600e3; // bản tin CI: ≤ 1 thư / ~ngày
 const pctOf = r => (r.quota_total ? (+r.quota_used || 0) / +r.quota_total : 0);
 /** Danh sách cảnh báo từ trạng thái các Drive (thuần). → [{kind, level: 'warn'|'crit', t, drive_id, p, msg}] */
@@ -654,8 +655,10 @@ const POOL_OPS = {
   /** CLI: luật giữ 30 ngày – master short chưa duyệt/chưa đăng vào thùng rác Google (mọi bản sao; Google tự xoá hẳn sau 30 ngày), công thức vẫn giữ. */
   async retire(db, b, who, env) {
     const shas = (Array.isArray(b.sha256) ? b.sha256 : []).map(x => String(x).toLowerCase()).filter(x => /^[0-9a-f]{64}$/.test(x)).slice(0, 20);
-    const drives = new Map((await all(db, 'SELECT * FROM drives')).map(d => [d.id, d])), done = [], failed = [];
+    const drives = new Map((await all(db, 'SELECT * FROM drives')).map(d => [d.id, d])), done = [], failed = [], sig = shas.length ? await loadSignals(env, shortsManifest) : null;
     for (const sha of shas) {
+      const c = sig && sig.ok ? (sig.link({ id: '' }, '', sha) || {}).clip : null;
+      if (c && (c.posts.length || c.pending.length)) { failed.push({ sha, error: 'locked' }); continue; } // cùng luật khoá với Dọn kho: đã đăng / đang lên lịch không bao giờ rời kho
       const rows = (await all(db, `SELECT ${DF_COLS} FROM drive_files WHERE sha256 = ? AND status = 'ok' AND file_id IS NOT NULL LIMIT 50`, sha)).filter(r => (isShortsRow(r) && (/^video\//.test(String(r.mime || '')) || (r.folder === 'shorts/_ytpack' && r.mime === 'application/zip'))) || isBackupRow(r)); // master, gói đăng tay YouTube đã lên web, hoặc bản sao lưu cũ (backups/·releases/ – giữ N bản mới nhất, docs/ROLLBACK.md)
       for (const r of rows) {
         const d = drives.get(r.drive_id); if (!d || lost(d.status)) { failed.push({ sha, error: 'drive-lost' }); continue; }
@@ -694,7 +697,8 @@ const POOL_OPS = {
 };
 
 // ---------- thao tác ----------
-const FILE_OPS = makeFileOps({ accessToken: (...a) => accessToken(...a), gfetch: (...a) => gfetch(...a), DriveErr, one, all, run, signLink: (...a) => signLink(...a), signThumb: (...a) => signThumb(...a), limit: (...a) => limit(...a),
+const shortsManifest = env => import('./admin-shorts.js').then(m => m.manifest(env)); // nạp lười: admin-shorts.js cũng import drive.js
+const FILE_OPS = makeFileOps({ warnPct: WARN_PCT, manifest: shortsManifest, accessToken: (...a) => accessToken(...a), gfetch: (...a) => gfetch(...a), DriveErr, one, all, run, signLink: (...a) => signLink(...a), signThumb: (...a) => signThumb(...a), limit: (...a) => limit(...a),
   audit: (...a) => logAudit(...a), copiesFor: (...a) => copiesFor(...a) });
 const OPS = {
   ...FILE_OPS,

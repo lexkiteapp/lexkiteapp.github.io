@@ -16,6 +16,7 @@ import { field } from './_clip_logic.js';
 import { gcClient, gcConfigured } from './_grabcast.js';
 import { manifest, signed } from './admin-shorts.js';
 import { once } from './_schema.js';
+import { clipHeld } from './_drive_state.js';
 import { encReady } from './_keys.js';
 import { metaClient, tokenHealth, fbReel, fbStatus, igContainer, igStatus, igQuota, igPublish, fbComment, fbFindComment } from './_meta.js';
 import { firstComment, fcCaption, fcLeft, fcCount, cleanFc, clickStats, FC_DEFAULT } from './_first_comment.js';
@@ -105,7 +106,7 @@ async function clipsFor(env, ids) {
   const rv = new Map((await all(env.DB, `SELECT clip, state, deleted FROM clip_review WHERE clip IN (${qs})`, ...ids).catch(() => [])).map(r => [r.clip, r]));
   const out = new Map();
   for (const [id, it] of by) {
-    const r = rv.get(id) || {}; if (!q.has(id) || r.deleted || ['rejected', 'paused'].includes(r.state) || it.rejected) continue;
+    if (!q.has(id) || clipHeld(it, rv.get(id))) continue;
     out.set(id, { id, title: it.title || it.lesson || id, description: it.description || '', hashtags: [], template: it.template || '', hook: field(it, 'hook'), cefr: field(it, 'diff') || it.cefr || '', duration: +it.duration || 0, video: it.video, cover: it.cover, _it: it });
   }
   return out;
@@ -232,7 +233,7 @@ export async function autoQueue(env, db, cfg, now, max = 30) {
   let n = 0;
   for (const it of cand) {
     if (n >= max) break;
-    const rv = review.get(it.id); if (seen.has(it.id) || (rv && (rv.deleted || ['rejected', 'paused'].includes(rv.state)))) continue;
+    if (seen.has(it.id) || clipHeld(it, review.get(it.id))) continue;
     const r = await run(db, "INSERT INTO yt_queue (clip, lesson, status, privacy, approved_by, approved_at, attempts, updated, title) VALUES (?, ?, 'social', 'unlisted', ?, ?, 0, ?, ?) ON CONFLICT(clip) DO NOTHING", it.id, it.lesson || '', 'autopilot-qc', now, now, String(it.title || '').slice(0, 100));
     n += (r && r.meta && r.meta.changes) || 0;
   }

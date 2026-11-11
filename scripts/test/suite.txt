@@ -129,6 +129,7 @@ node scripts/test/drive.mjs
 node scripts/test/ci-triage.mjs
 node scripts/test/required-gate.mjs
 node scripts/test/drive-ui.mjs
+node scripts/test/drive-state.mjs
 node scripts/test/jobs-check.mjs
 node scripts/test/ci-filler.mjs
 node scripts/test/cron-watch.mjs

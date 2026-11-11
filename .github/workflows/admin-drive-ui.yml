@@ -1,0 +1,46 @@
+# Quản trị › Kho Drive › Kho video (#drive/stock): ảnh TRƯỚC/SAU trên dữ liệu MẪU (sáng/tối × 1280/390 px, kèm hộp Dọn kho), chặn lỗi JS, mạng ra ngoài, tràn ngang, đè, cắt chữ, nút < 44 px, axe.
+# Ảnh: artifact admin-drive-shots (compare-*.png = TRƯỚC | SAU). docs/ASSET-LIBRARY.md §8.6.5
+name: Kho Drive quản trị – giao diện
+on:
+  pull_request:
+    paths: ['web/js/admin-drive.js', 'web/css/admin.css', 'scripts/test/admin-drive-shots.mjs', '.github/workflows/admin-drive-ui.yml']
+  push:
+    branches: [main]
+    paths: ['web/js/admin-drive.js', 'web/css/admin.css', 'scripts/test/admin-drive-shots.mjs', '.github/workflows/admin-drive-ui.yml']
+  workflow_dispatch:
+    inputs:
+      before: { description: 'commit/nhánh để chụp ảnh TRƯỚC (mặc định: điểm rẽ nhánh từ main, hoặc commit trước lần đẩy)', required: false, default: '' }
+permissions:
+  contents: read
+concurrency:   # ci-policy 2/11: push/lịch trùng gộp; chạy tay (mỗi lượt khác input) không bao giờ bị huỷ
+  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  ui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - name: Playwright
+        timeout-minutes: 14
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - name: Ảnh TRƯỚC
+        env: { BEFORE: '${{ inputs.before }}', EV_BEFORE: '${{ github.event.before }}', BASE: '${{ github.event.pull_request.base.sha }}' }
+        run: |
+          B="$BEFORE"; [ -z "$B" ] && B="$BASE"; [ -z "$B" ] && B="$EV_BEFORE"; case "$B" in ''|0000000000000000000000000000000000000000) B=HEAD~1;; esac
+          echo "before = $B"; mkdir -p /tmp/before && git archive "$B" web | tar -x -C /tmp/before
+          node scripts/test/admin-drive-shots.mjs out/admin-drive before /tmp/before/web
+      - name: Ảnh SAU (chặn lỗi)
+        if: ${{ !cancelled() }}
+        run: node scripts/test/admin-drive-shots.mjs out/admin-drive after web
+      - name: Ghép TRƯỚC | SAU
+        if: ${{ !cancelled() }}
+        run: node scripts/test/admin-drive-shots.mjs --compare out/admin-drive
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with: { name: admin-drive-shots, path: out/admin-drive, retention-days: 14 }
