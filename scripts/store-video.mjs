@@ -134,7 +134,11 @@ async function appMode() {
     try { const el = p.locator(sel).first(); await el.waitFor({ state: 'visible', timeout: 8000 }); await el.evaluate(e => e.scrollIntoView({ block: 'center' })); await sleep(250); /* nút nhún (lsnBob) không bao giờ 'đứng yên' → không dùng chờ ổn định của Playwright */ const b = await el.boundingBox(); await p.touchscreen.tap(b.x + b.width / 2, b.y + b.height / 2); return true; }
     catch (e) { if (!h) throw new Error(`✗ không chạm được ${sel}`); console.log(`  ⚠ không chạm được ${sel} → hash ${h}`); await hash(h); return false; }
   };
-  const swipe = async dy => { for (let k = 0; k < 6; k++) { await p.mouse.wheel(0, dy / 6); await sleep(120); } };
+  const swipe = async dy => { // cuộn thật bằng con lăn giữa màn; sau màn focus (bài học) con lăn có thể không ăn → cuộn mượt bằng JS, không để khung đứng yên
+    const vp = p.viewportSize(), y0 = await p.evaluate(() => scrollY); await p.mouse.move(vp.width / 2, vp.height / 2);
+    for (let k = 0; k < 6; k++) { await p.mouse.wheel(0, dy / 6); await sleep(120); }
+    if (await p.evaluate(y0 => scrollY === y0, y0)) await p.evaluate(dy => scrollBy({ top: dy, behavior: 'smooth' }), dy);
+  };
   const norm = x => String(x || '').toLowerCase().replace(/[^a-z0-9' ]+/g, ' ').replace(/\s+/g, ' ').trim();
   // 1. Hôm nay
   M.home = mark(); await sleep(1200); await swipe(260); await sleep(500);
