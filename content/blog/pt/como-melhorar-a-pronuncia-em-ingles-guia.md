@@ -82,7 +82,7 @@ O problema não é o som do "i" em si, e sim o fato de ele criar uma sílaba a m
 
 ## Semana 2: m e n no final da palavra
 
-No português, o *m* no fim de uma sílaba quase não existe como consoante: em *bom* ou *um*, o que se ouve é uma vogal nasalizada, sem que os lábios se fechem. Quando o brasileiro lê *team* ou *time* em inglês e aplica esse hábito, o final sai como uma vogal nasalizada, e a consoante some (algo como "tĩ" para *team*).
+No português, o *m* no fim de uma sílaba quase não existe como consoante: em *bom* ou *um*, o que se ouve é uma vogal nasalizada, sem que os lábios se fechem. Quando o brasileiro lê *team* ou *time* em inglês e aplica esse hábito, o final sai como uma vogal nasalizada, e a consoante some (algo como "tim", com a vogal nasalizada, para *team*).
 
 Em inglês, o /m/ final é uma consoante completa: os lábios se encontram e o ar passa pelo nariz. O /n/ final (*ten*, *green*) pede a ponta da língua tocando a gengiva logo atrás dos dentes de cima. E o /ŋ/ de *sing* ou *morning* usa o fundo da língua, sem nenhum /g/ depois: muitos falantes acrescentam esse /g/ e dizem algo como "sín-gui".
 
