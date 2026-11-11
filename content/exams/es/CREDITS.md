@@ -130,6 +130,7 @@ Câu tiếng Tây Ban Nha lấy từ Tatoeba (https://tatoeba.org), giấy phép
 | 5023371 | don_ramon | A1 |
 | 5127951 | Barra | A1 |
 | 5172290 | adroguense | C2 |
+| 5540561 | Adelpa | C2 |
 | 5898119 | baudelaire | A2 |
 | 6175230 | emigonza | C1 |
 | 6566812 | arh | B1 |
@@ -138,7 +139,6 @@ Câu tiếng Tây Ban Nha lấy từ Tatoeba (https://tatoeba.org), giấy phép
 | 7137457 | arh | C2 |
 | 7192797 | arh | B2 |
 | 7861778 | Seael | B1 |
-| 7952540 | carlosalberto | C2 |
 | 8300605 | GuidoW | C2 |
 | 8379811 | arh | B2 |
 | 8564563 | adaycito | B2 |
