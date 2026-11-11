@@ -76,7 +76,7 @@ async function measureVariant(item, v, target) {
     if (resp && resp.status() >= 400) m.painted.err = true;
     for (const e of await rejections(page)) errs.push(e);
     const shot = `shots/${slug(item.id)}-${v.tag}.jpg`;
-    await page.screenshot({ path: path.join(OUT, shot), type: 'jpeg', quality: 70 });
+    await page.screenshot({ path: path.join(OUT, shot), type: 'jpeg', quality: 70, scale: 'css' });
     m.shot = shot;
     if (v.tag === '390l' && item.kind === 'app') m.cta = await tryCta(page);
     return m;
@@ -209,7 +209,7 @@ async function scanExt(list) { // Add-on thật trong Chromium (cùng cách nạ
           await page.setViewportSize({ width: w, height: 860 });
           await page.goto(base + item.page, { waitUntil: 'load', timeout: 30000 }); await sleep(item.route ? 2200 : 1200);
           const m = { tag, ...await scanNow(page), painted: await painted(page), errs };
-          const shot = `shots/${slug(item.id)}-${tag}.jpg`; await page.screenshot({ path: path.join(OUT, shot), type: 'jpeg', quality: 70 });
+          const shot = `shots/${slug(item.id)}-${tag}.jpg`; await page.screenshot({ path: path.join(OUT, shot), type: 'jpeg', quality: 70, scale: 'css' });
           rec.shots[tag] = shot; rec.variants.push(m);
         } catch (e) { rec.fatal = String(e.message).slice(0, 100); } finally { await page.close(); }
       }
@@ -222,7 +222,7 @@ async function scanExt(list) { // Add-on thật trong Chromium (cùng cách nạ
         await page.goto(`http://127.0.0.1:${(await testPage()).port}/`); await sleep(800); // content script chỉ chạy trên http(s)
         await page.dblclick('p', { position: { x: 60, y: 10 } }); await sleep(3000);
         const t = await page.evaluate(() => { const h = document.querySelector('ielts-lexi-popup'), b = h && h.shadowRoot && h.shadowRoot.querySelector('.box'); return b && !b.hidden ? b.innerText.trim().length : 0; });
-        if (t) { const shot = `shots/${slug(bubble.id)}-${tag}.jpg`; await page.screenshot({ path: path.join(OUT, shot), type: 'jpeg', quality: 70 }); rec.shots[tag] = shot; rec.variants.push({ tag, painted: { viewText: t }, errs, scan: [], axe: [] }); } else rec.fatal = 'bong bóng không mở trong môi trường đo';
+        if (t) { const shot = `shots/${slug(bubble.id)}-${tag}.jpg`; await page.screenshot({ path: path.join(OUT, shot), type: 'jpeg', quality: 70, scale: 'css' }); rec.shots[tag] = shot; rec.variants.push({ tag, painted: { viewText: t }, errs, scan: [], axe: [] }); } else rec.fatal = 'bong bóng không mở trong môi trường đo';
       } catch (e) { rec.fatal = String(e.message).slice(0, 100); } finally { await page.close(); }
     }
     await ctx.close();
