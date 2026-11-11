@@ -71,7 +71,7 @@ Excluded (strength filter, `VIDEO-SERIES.md`): accents/intonation, slang, rolepl
 - `bank.py`: an episode enters `bank.json` only when short AND wide pass every qc.py gate with score ≥ 90 and the mp4 is not a byte copy; videos = artifact `tv-bank-<run>` (90 days); score table `BANK.md`. Committed to main by the main batch run (deploy key, `commit-regen.sh`).
 
 ## L1 clips for native pages (owner 11/11; replaces PRs #377 / #360)
-> Page Facebook bản địa (D1 `yt_chan_cfg.cfg.lang`: vi 11, pt 13, es 14, de 15, fr 16; sắp ru/tr/ar/hi) đăng clip riêng theo ngôn ngữ page, giáo viên vẫn dạy tiếng Anh; page EN và kênh toàn cầu giữ nguyên. Mẫu `l1`, hàng dữ liệu `content/video/teach2d/l1.json`, test `scripts/test/teach2d-l1.mjs`.
+> Page Facebook bản địa (D1 `yt_chan_cfg.cfg.lang`: vi 11, pt 13, es 14, de 15, fr 16, hi 17, ar 18, tr 19, ru 20, + ja/ko/zh) đăng clip riêng theo ngôn ngữ page, giáo viên vẫn dạy tiếng Anh; page EN và kênh toàn cầu giữ nguyên. Mẫu `l1`, hàng dữ liệu `content/video/teach2d/l1.json`, test `scripts/test/teach2d-l1.mjs`.
 > Đọc khi: thêm clip L1, thêm ngôn ngữ page, đổi luật đăng clip bản địa.
 
 ### Đường ống
@@ -84,6 +84,8 @@ mẫu `l1` trong `gen.py`/`build.py`, hàng dữ liệu `content/video/teach2d/l
 
 ### Bản dịch (docs/I18N-PIPELINE.md)
 `en.*` là gốc, `native.*` là bản tay tầng i18n-fixed (thắng dịch máy). `{m:từ}` lấy nghĩa từ kho: vi = kho từ, ngôn ngữ khác = `web/packs/<lang>.json`. `scripts/video/teach2d/native-qa.mjs` (luật chung `scripts/lib/i18n-rules.mjs`, dùng chung với `i18n-qa.mjs`): không lẫn tiếng Việt, không lỗi dịch máy đã biết, giữ câu tiếng Anh mẫu, hashtag, độ dài, bình luận đầu, nghĩa lấy từ kho; `--online` thêm dịch ngược gtx (teach-video preqc luôn chạy; gtx không trả lời thì bỏ riêng cổng này). Kết quả `l1-qa.json` (`--write`).
+
+Chữ không-Latin (ru/hi/ar/ja/ko/zh): Chromium tự lùi phông theo glyph (job render cài `fonts-noto-core` + `fonts-noto-cjk`); `build.py` chỉ ĐO chữ (`tw`, cùng họ Noto, ja/zh xuống dòng theo từng ký tự, ar đặt `rtl` cho dòng bản địa, tiếng Anh vẫn trái→phải); hashtag cho phép chữ Unicode. Hook/tip hi·ar·ja·ko·zh cần người bản ngữ liếc lại ở bài đầu mỗi page.
 
 ### Định tuyến và lịch (đã có ở main, test `scripts/test/teach2d-l1.mjs`)
 `store.py` ghi `lang` vào index → `blockOf`/`implicitSocialRules`: clip `lang=X` chỉ đi page `cfg.lang`=X (page EN chung không nhận). Mỗi page ≤ 2 bài/ngày, khung 09–21 giờ địa phương (`schedule`). Link web gắn UTM + bình luận đầu: phần code phân phối dùng chung (phiên page-kit), clip chỉ mang `first_comment` có `{link}`.

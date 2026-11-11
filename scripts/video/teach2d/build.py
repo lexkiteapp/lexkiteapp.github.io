@@ -11,6 +11,7 @@
 - Writes PUB/voice.wav (-16 LUFS, soft synth ticks mixed after loudnorm), PUB/qr.png, PUB/icon.png, fonts, and OUT.timeline.json (qc.py)."""
 import os, sys, json, re, math, argparse, shutil, subprocess, wave
 import numpy as np
+import glob
 from PIL import ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HERE}/../../..')
 sys.path.insert(0, f'{ROOT}/scripts/video/motion'); import core as C   # noqa: E402  (same maths as Remotion core.mjs)
@@ -52,7 +53,39 @@ def font(sz, ipa=False):
         if not ipa: f.set_variation_by_axes([800])
         _fc[k] = f
     return _fc[k]
-def tw(s, sz, ipa=False): return font(sz, ipa).getlength(s)
+# Native-language lines (clip L1, docs/VIDEO-TEACH2D.md): Cyrillic / Devanagari / Arabic / CJK are not in the two brand fonts. Chromium falls back per glyph through fontconfig
+# (render job installs fonts-noto-core + fonts-noto-cjk); here we only MEASURE, with the same Noto family (system path, else the repo copy, else a width estimate).
+CJK = '\u3040-\u30ff\u3400-\u9fff\uff00-\uffef\u3000-\u303f'; OPEN, CLOSE = '「『（(“‘〈《【', '、。，．！？：；）)」』”’〉》】…'
+def _noto(*pats):
+    for p_ in pats:
+        g = sorted(glob.glob(p_))
+        if g: return g[0]
+FB = dict(cyr=_noto(f'{ROOT}/brand/social/src/fonts/NotoSans-Medium.ttf'), ara=_noto(f'{ROOT}/scripts/cine/fonts/NotoSansArabic.ttf', '/usr/share/fonts/truetype/noto/NotoSansArabic-*.ttf'),
+          dev=_noto('/usr/share/fonts/truetype/noto/NotoSansDevanagari-Bold.ttf', '/usr/share/fonts/truetype/noto/NotoSansDevanagari-*.ttf', '/usr/share/fonts/truetype/noto/NotoSansDevanagari*.ttf')); _fb = {}
+def kind(c):
+    o_ = ord(c)
+    if 0x400 <= o_ <= 0x52f: return 'cyr'
+    if 0x900 <= o_ <= 0x97f: return 'dev'
+    if 0x600 <= o_ <= 0x6ff or 0xfb50 <= o_ <= 0xfeff: return 'ara'
+    if 0xac00 <= o_ <= 0xd7af or 0x1100 <= o_ <= 0x11ff: return 'hangul'
+    if re.match(f'[{CJK}]', c): return 'cjk'
+    return 'lat'
+def tw(s, sz, ipa=False):
+    if s.isascii(): return font(sz, ipa).getlength(s)   # the common path: untouched
+    tot, run, rk = 0, '', 'lat'
+    for c in s + '\0':
+        k = kind(c) if c != '\0' else None
+        if k in ('lat',) or k == rk: run += c; rk = k or rk; continue
+        if run: tot += _seg(run, rk, sz, ipa)
+        run, rk = (c, k) if k else ('', 'lat')
+    return tot
+def _seg(r, k, sz, ipa):
+    if k == 'lat': return font(sz, ipa).getlength(r)
+    if k in ('cjk', 'hangul'): return len(r) * sz * (1.0 if k == 'cjk' else 0.98)   # full-width glyphs
+    if FB.get(k):
+        if (k, sz) not in _fb: _fb[(k, sz)] = ImageFont.truetype(FB[k], sz)
+        return _fb[(k, sz)].getlength(r) * 1.06   # Bold/shaping safety margin
+    return len(r) * sz * 0.62
 
 
 # ---------------- timeline: lines, words, speech, pauses ----------------
@@ -87,6 +120,10 @@ def nid(p): _ID[0] += 1; return f'{p}{_ID[0]}'
 def cue(t_word, k='soft'): return dict(t=round(t_word - C.HALF[k], 4), k=k)
 
 
+IDEO = '\u3040-\u30ff\u3400-\u9fff'
+TOK = re.compile(f'\\s*(?:[{OPEN}]*[{IDEO}][{CLOSE}]*|[^\\s{IDEO}]+)\\s*')   # words; every ideograph / kana is its own break point (ja, zh), closing marks stay with the previous one
+
+
 class Card:
     """A Lexkite Kit card (2 px border, darker bottom ledge, radius 44) stacked in the card region; rows are laid out top-down."""
     def __init__(s, y0, tone='card', x0=None, w=None, badge=None, t_badge=None):
@@ -97,7 +134,7 @@ class Card:
     def inner(s): return s.w - s.lp - PAD
     def wrap(s, runs, sz, width=None, ipa=False):
         """runs [[text, colour token]] -> lines of runs, greedy word wrap at width (balanced when 2 lines)."""
-        width = width or s.inner; toks = [(w, c) for txt, c in runs for w in re.findall(r'\s*\S+\s*', txt)]
+        width = width or s.inner; toks = [(w, c) for txt, c in runs for w in re.findall(TOK, txt)]
         lines, cur, cw = [], [], 0
         for w, c in toks:
             ww = tw(w.rstrip(), sz, ipa)
@@ -110,7 +147,7 @@ class Card:
         out = []
         for ln in s.wrap(runs, sz, ipa=ipa):
             ln[-1][0] = ln[-1][0].rstrip(); lw = sum(tw(x[0], sz, ipa) for x in ln); h = round(sz * 1.22)
-            x = s.lp + (s.inner - lw) / 2 if align == 'c' else s.lp
+            x = s.lp + (s.inner - lw) / 2 if align == 'c' else s.lp + s.inner - lw if align == 'r' else s.lp
             n = dict(id=nid('t'), type='text', runs=ln, size=sz, ipa=ipa, box=[x, s.y, x + lw, s.y + h], **({'in': cue(t_in, k)} if t_in is not None else {}), **(extra or {}))
             s.rows.append(n); out.append(n); s.y += h + 6
             CUES.append(dict(node=n['id'], t=t_in, tag=tag or ''.join(r[0] for r in ln)))
@@ -248,13 +285,13 @@ def top(type_, box, t_in, k='soft', out=None, **kw):   # a free (card-less) elem
     NODES.append(n); return n
 
 
-def title(runs, size, y, t_in, out, hook=False, align='c', x0=RX0, x1=RX1):
+def title(runs, size, y, t_in, out, hook=False, align='c', x0=RX0, x1=RX1, rtl=False):
     """free headline (Stitch frames put the title on the canvas, not in a card): one or more balanced lines, centred."""
     c = Card(y, x0=x0, w=x1 - x0); lines = c.wrap(runs, size, width=x1 - x0); ns = []; yy = y
     for ln in lines:
         ln[-1][0] = ln[-1][0].rstrip(); lw = sum(tw(r[0], size) for r in ln); h = round(size * 1.18)
         xx = x0 + ((x1 - x0) - lw) / 2 if align == 'c' else x0
-        n = top('text', [xx, yy, xx + lw, yy + h], t_in, out=out, runs=ln, size=size, ipa=False)
+        n = top('text', [xx, yy, xx + lw, yy + h], t_in, out=out, runs=ln, size=size, ipa=False, **({'rtl': True} if rtl else {}))
         if hook:
             n['hook'] = True
             if SOCIAL: n['in'] = dict(t=0.0, k='punch')   # hook slams in on frame 0 (fully readable at once)
@@ -347,14 +384,14 @@ def T_mistake():
 def T_l1():
     """Clip L1 (docs/VIDEO-TEACH2D.md): native-language hook slams in on frame 0, then the mistake bubble (✗) -> the right bubble (✓) -> a tip card in the page language + the plain English reason, quiz, save card.
     The teacher and the captions stay English (<= B1); only the hook, the tip and the post text are native (data.native, checked by scripts/rig/native-qa.mjs)."""
-    D = EP['data']; N = D['native']; series_chip(); t_out = start('q') - 0.2; t_h = start('w') - 0.2
-    title([[N['hook'], 'coral']], 84, RY0 + 120, None, t_h, hook=True)
+    D = EP['data']; N = D['native']; series_chip(); t_out = start('q') - 0.2; t_h = start('w') - 0.2; rtl = EP.get('lang') in ('ar', 'he', 'fa', 'ur')   # right-to-left page language: native lines only, the English stays left-to-right
+    title([[N['hook'], 'coral']], 84, RY0 + 120, None, t_h, hook=True, rtl=rtl)
     c = Card(RY0, tone='bubble_bad', w=RW - 70, badge='cross', t_badge=start('w')); c.tail = 'l'   # the hook headline leaves at t_h, so the bubbles reuse its space (as in T_mistake)
     tn = c.text([[D['wrong'], 'onbad']], S['body'], start('w'))[0]; b1 = c.place(start('w'), t_out, 'a')
     strike_on(tn, D['strike'], at('w', D['strike'].split()[0]) + 0.15)
     c = Card(b1[3] + 30, tone='bubble_good', x0=RX0 + 70, w=RW - 70, badge='check', t_badge=at('r', 'better')); c.tail = 'r'
     c.text([[D['right'], 'ongood']], S['body'], at('r', 'better')); b2 = c.place(at('r', 'better'), t_out, 'b')
-    c = Card(b2[3] + 30, tone='card'); c.text([['⚡ ', 'accent'], [N['tip'], 'ink']], S['sub'], start('y')); c.text([[D['why'], 'muted']], S['sub'], start('y')); c.place(start('y'), t_out, 'c')
+    c = Card(b2[3] + 30, tone='card'); c.text([['⚡ ', 'accent'], [N['tip'], 'ink']], S['sub'], start('y'), **(dict(align='r', extra=dict(rtl=True)) if rtl else {})); c.text([[D['why'], 'muted']], S['sub'], start('y')); c.place(start('y'), t_out, 'c')
     q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)
     save_card([[[D['right'], 'good']], [[D['memory'], 'muted']]], start('sh'), start('c') - 0.2)
     end_card()

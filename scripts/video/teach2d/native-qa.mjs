@@ -39,7 +39,7 @@ for (const r of rows) {
     i18n_no_known_bad: ![hook, tip, caption, comment].some(x => BAD.test(x)),
     i18n_english_kept: examples.length > 0 && examples.every(x => has(caption, x)),   // câu tiếng Anh mẫu còn nguyên văn ở bản địa (như i18n-qa missingSegments)
     glosses_from_lexicon: used.every(u => u.gloss) && !/\{m:/.test(hook + tip + caption),
-    hashtags: tags.length >= 3 && tags.length <= 5 && tags.every(t => /^#[a-z0-9]+$/.test(t)) && tags.includes('#lexkite'),
+    hashtags: tags.length >= 3 && tags.length <= 5 && tags.every(t => /^#[\p{L}\p{N}\p{M}_]+$/u.test(t)) && tags.includes('#lexkite'),
     lengths: [...hook].length <= 34 && [...tip].length <= 140 && [...caption].length <= 400 && [...post].length <= 2200,
     comment: (comment.match(/\{link\}/g) || []).length === 1 && !/https?:\/\/|#\w/.test(comment),
     not_english: L !== 'en' && sim(caption, enCap) < 0.6,   // bản địa phải thật sự khác bản tiếng Anh gốc

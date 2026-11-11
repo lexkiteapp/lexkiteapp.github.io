@@ -4,8 +4,8 @@ import fs from 'node:fs';
 import * as D from '../../functions/api/_distribution.js';
 let fails = 0; const ok = (c, m) => { if (!c) { fails++; console.log('✗', m); } };
 const rows = JSON.parse(fs.readFileSync('content/video/teach2d/l1.json', 'utf8')).rows, qa = JSON.parse(fs.readFileSync('content/video/teach2d/l1-qa.json', 'utf8'));
-const TZ = { vi: 'Asia/Ho_Chi_Minh', pt: 'America/Sao_Paulo', es: 'Europe/Madrid', de: 'Europe/Berlin', fr: 'Europe/Paris' };
-// page như D1 yt_chan_cfg (11 vi, 13 pt, 14 es, 15 de, 16 fr) + page EN chung
+const TZ = { vi: 'Asia/Ho_Chi_Minh', pt: 'America/Sao_Paulo', es: 'Europe/Madrid', de: 'Europe/Berlin', fr: 'Europe/Paris', ja: 'Asia/Tokyo', ko: 'Asia/Seoul', zh: 'Asia/Shanghai', hi: 'Asia/Kolkata', ar: 'Asia/Riyadh', tr: 'Europe/Istanbul', ru: 'Europe/Moscow' };
+// page như D1 yt_chan_cfg (11 vi, 13 pt, 14 es, 15 de, 16 fr, 17 hi, 18 ar, 19 tr, 20 ru; ja/ko/zh theo page-kit) + page EN chung
 const cfgs = { 'gc-fb-en': D.normCfg({ lang: 'en' }), ...Object.fromEntries(Object.entries(TZ).map(([l, tz]) => [`gc-fb-${l}`, D.normCfg({ lang: l, tz })])) };
 const rules = D.implicitSocialRules([], cfgs);
 for (const r of rows) {

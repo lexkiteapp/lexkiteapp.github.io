@@ -1,105 +1,965 @@
 {
  "_note": "Clip L1 (docs/specs/social-l1-clips.md, chủ 11/11): giáo viên Ama/Carlos nói tiếng Anh ≤B1 ≤150 wpm; chữ bản địa (native.*) = bản tay tầng i18n-fixed (docs/I18N-PIPELINE.md), {m:từ} lấy nghĩa từ kho từ (vi) / web/packs/<lang>.json, kiểm bằng scripts/rig/native-qa.mjs. lang = cfg.lang của page (D1 yt_chan_cfg): clip lang=X chỉ lên page lang=X.",
  "rows": [
-  {"id": "t2_l1_vi_final_s", "lang": "vi", "teacher": "ama", "theme": "dusk", "in": {
-    "hook_say": "Do you forget this sound?", "wrong": "She like coffee.", "right": "She likes coffee.", "strike": "like",
-    "why": "With he, she, it, add s to the verb.", "memory": "He, she, it: add s.",
-    "quiz": {"stem": "He ___ tea every day.", "options": ["drink", "drinks"], "answer": 1}, "answer_say": "Drinks! He drinks tea every day.",
-    "native": {"hook": "Người Việt hay quên âm “s” này!", "tip": "Với he/she/it, động từ phải thêm -s. Tiếng Việt không chia động từ nên rất dễ quên.",
-      "caption": "Bạn có hay nói “She like coffee” không? 😅 Với he/she/it, động từ phải thêm -s: “She likes coffee”. Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm ngữ pháp trong app Lexkite.",
-      "comment": "Đáp án: “drinks”. Nhớ thêm -s sau he/she/it nhé! Luyện thêm bài ngữ pháp miễn phí tại đây: {link}",
-      "hashtags": ["#hoctienganh", "#nguphaptienganh", "#tienganhgiaotiep", "#lexkite"]},
-    "en": {"hook": "Vietnamese speakers often forget this “s”!", "tip": "With he/she/it, the verb needs -s. Vietnamese verbs do not change, so it is easy to forget.",
-      "caption": "Do you often say “She like coffee”? With he/she/it, the verb needs -s: “She likes coffee”. Listen to Ama read it, then repeat! Practice more grammar in the Lexkite app."}}},
-  {"id": "t2_l1_vi_very_like", "lang": "vi", "teacher": "ama", "theme": "dusk", "in": {
-    "hook_say": "Don't say I very like!", "wrong": "I very like music.", "right": "I like music very much.", "strike": "very",
-    "why": "Very does not go before a verb.", "memory": "Like it very much.",
-    "quiz": {"stem": "I like pizza ___.", "options": ["very", "very much"], "answer": 1}, "answer_say": "Very much! I like pizza very much.",
-    "native": {"hook": "Đừng nói “I very like” nhé!", "tip": "Tiếng Việt nói “rất thích”, nhưng tiếng Anh phải nói “like … very much”.",
-      "caption": "Bạn có nói “I very like music” không? 🙈 Người bản xứ nói “I like music very much”. Nghe Ama đọc rồi lặp lại theo nhé! Luyện thêm cách nói tự nhiên trong app Lexkite.",
-      "comment": "Đáp án: “very much”. Thử đặt một câu về món bạn thích nhất, rồi luyện thêm miễn phí tại đây: {link}",
-      "hashtags": ["#hoctienganh", "#tienganhgiaotiep", "#nguphaptienganh", "#lexkite"]},
-    "en": {"hook": "Don't say “I very like”!", "tip": "In Vietnamese you say “very like”, but in English you must say “like … very much”.",
-      "caption": "Do you say “I very like music”? Native speakers say “I like music very much”. Listen to Ama read it, then repeat after her! Practice more natural phrases in the Lexkite app."}}},
-  {"id": "t2_l1_pt_age", "lang": "pt", "teacher": "carlos", "theme": "dusk", "in": {
-    "hook_say": "Age in English: careful!", "wrong": "I have twenty years.", "right": "I am twenty years old.", "strike": "have",
-    "why": "For age, use am, not have.", "memory": "Age: I am, not I have.",
-    "quiz": {"stem": "She ___ twenty years old.", "options": ["has", "is"], "answer": 1}, "answer_say": "Is! She is twenty years old.",
-    "native": {"hook": "Você diz “I have 20 years”?", "tip": "Em inglês, para falar a idade usamos “I am”, não “I have”.",
-      "caption": "Você também diz “I have twenty years”? 😅 Em inglês o certo é “I am twenty years old”. Ouça o Carlos falar e repita com ele! Treine mais no app Lexkite.",
-      "comment": "Resposta: “is”. Em inglês a idade usa o verbo ser. Treine mais com um quiz grátis aqui: {link}",
-      "hashtags": ["#aprenderingles", "#inglesonline", "#inglesfacil", "#lexkite"]},
-    "en": {"hook": "Do you say “I have 20 years”?", "tip": "In English, to say your age we use “I am”, not “I have”.",
-      "caption": "Do you also say “I have twenty years”? In English the right way is “I am twenty years old”. Listen to Carlos say it and repeat with him! Practice more in the Lexkite app."}}},
-  {"id": "t2_l1_pt_pretend", "lang": "pt", "teacher": "carlos", "theme": "dusk", "in": {
-    "hook_say": "Pretend is a false friend!", "wrong": "I pretend to travel next year.", "right": "I plan to travel next year.", "strike": "pretend",
-    "why": "Pretend means to act like something is true.", "memory": "Plan, not pretend.",
-    "quiz": {"stem": "I ___ to study more.", "options": ["pretend", "plan"], "answer": 1}, "answer_say": "Plan! I plan to study more.",
-    "native": {"hook": "“Pretend” não é “pretender”!", "tip": "“Pretend” em inglês significa fingir. Para dizer que você pretende fazer algo, use “plan”.",
-      "caption": "Cuidado com este falso cognato! 😬 “I pretend to travel” quer dizer que você finge viajar. Para dizer que pretende viajar, diga “I plan to travel”. Ouça o Carlos e repita!",
-      "comment": "Resposta: “plan”. Anote esta frase e treine outros falsos cognatos com um quiz grátis: {link}",
-      "hashtags": ["#aprenderingles", "#inglesfacil", "#inglesonline", "#lexkite"]},
-    "en": {"hook": "“Pretend” does not mean “pretender”!", "tip": "“Pretend” in English means to fake. To say you intend to do something, use “plan”.",
-      "caption": "Watch out for this false friend! “I pretend to travel” means you are faking a trip. To say you intend to travel, say “I plan to travel”. Listen to Carlos and repeat!"}}},
-  {"id": "t2_l1_es_hungry", "lang": "es", "teacher": "ama", "theme": "dusk", "in": {
-    "hook_say": "Hungry? Don't say have!", "wrong": "I have hunger.", "right": "I am hungry.", "strike": "have",
-    "why": "With hungry, thirsty, and cold, use am.", "memory": "I am hungry.",
-    "quiz": {"stem": "I ___ thirsty.", "options": ["have", "am"], "answer": 1}, "answer_say": "Am! I am thirsty.",
-    "native": {"hook": "¿Dices “I have hunger”? ¡No!", "tip": "En inglés no “tenemos” hambre: decimos “I am hungry”. Pasa igual con sed y frío.",
-      "caption": "¿Tú también dices “I have hunger”? 😅 Hambriento se dice {m:hungry} en español, y en inglés usamos “I am hungry”. ¡Escucha a Ama y repite con ella! Practica más en la app Lexkite.",
-      "comment": "Respuesta: “am”. Con hambre, sed y frío usamos el verbo “to be”. Practica más con un quiz gratis aquí: {link}",
-      "hashtags": ["#aprenderingles", "#inglesfacil", "#inglesonline", "#lexkite"]},
-    "en": {"hook": "Do you say “I have hunger”? No!", "tip": "In English we do not “have” hunger: we say “I am hungry”. The same goes for thirst and cold.",
-      "caption": "Do you also say “I have hunger”? Hungry is hambriento in Spanish, and in English we say “I am hungry”. Listen to Ama and repeat with her! Practice more in the Lexkite app."}}},
-  {"id": "t2_l1_es_agree", "lang": "es", "teacher": "ama", "theme": "dusk", "in": {
-    "hook_say": "Don't say I am agree!", "wrong": "I am agree with you.", "right": "I agree with you.", "strike": "am",
-    "why": "Agree is already a verb. Do not add am.", "memory": "I agree.",
-    "quiz": {"stem": "She ___ with me.", "options": ["is agree", "agrees"], "answer": 1}, "answer_say": "Agrees! She agrees with me.",
-    "native": {"hook": "Error típico: “I am agree”", "tip": "“Agree” ya es un verbo, así que no necesitas “am”. Se dice “I agree”.",
-      "caption": "En español decimos “estoy de acuerdo”, pero en inglés no se dice “I am agree”. 🙈 Lo correcto es “I agree with you”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
-      "comment": "Respuesta: “agrees”. Recuerda: sin “am”, solo “agree”. Practica más con un quiz gratis aquí: {link}",
-      "hashtags": ["#aprenderingles", "#inglesfacil", "#inglesonline", "#lexkite"]},
-    "en": {"hook": "Typical mistake: “I am agree”", "tip": "“Agree” is already a verb, so you do not need “am”. You say “I agree”.",
-      "caption": "In Spanish we say “estoy de acuerdo”, but in English you do not say “I am agree”. The right way is “I agree with you”. Listen to Ama and repeat! Practice more in the Lexkite app."}}},
-  {"id": "t2_l1_de_become", "lang": "de", "teacher": "carlos", "theme": "dusk", "in": {
-    "hook_say": "Become is a false friend!", "wrong": "I become a coffee, please.", "right": "I would like a coffee, please.", "strike": "become",
-    "why": "Become means to start to be. It is not get.", "memory": "Say would like.",
-    "quiz": {"stem": "I would ___ a tea, please.", "options": ["become", "like"], "answer": 1}, "answer_say": "Like! I would like a tea, please.",
-    "native": {"hook": "„Become“ heißt nicht „bekommen“!", "tip": "„Become“ bedeutet „werden“. Wenn du etwas bestellen willst, sagst du „I would like“.",
-      "caption": "Vorsicht, falscher Freund! 😬 “Become” heißt auf Deutsch {m:become}, nicht „bekommen“. Beim Bestellen sagst du “I would like a coffee, please”. Hör Carlos zu und sprich nach!",
-      "comment": "Lösung: “like”. Beim Bestellen immer „I would like“ sagen. Mehr falsche Freunde übst du hier kostenlos: {link}",
-      "hashtags": ["#englischlernen", "#englischtipps", "#sprachenlernen", "#lexkite"]},
-    "en": {"hook": "“Become” does not mean “bekommen”!", "tip": "“Become” means “werden”. When you want to order something, you say “I would like”.",
-      "caption": "Careful, false friend! “Become” means werden in German, not “bekommen”. When ordering, you say “I would like a coffee, please”. Listen to Carlos and repeat!"}}},
-  {"id": "t2_l1_de_since", "lang": "de", "teacher": "carlos", "theme": "dusk", "in": {
-    "hook_say": "Careful with since and for!", "wrong": "I live here since two years.", "right": "I have lived here for two years.", "strike": "since",
-    "why": "Use for with a length of time.", "memory": "For two years.",
-    "quiz": {"stem": "I have worked here ___ three years.", "options": ["since", "for"], "answer": 1}, "answer_say": "For! I have worked here for three years.",
-    "native": {"hook": "„Seit“ ist nicht immer „since“!", "tip": "Für eine Zeitdauer wie „zwei Jahre“ nimmst du „for“ und die Zeitform „have lived“.",
-      "caption": "Sagst du auch “I live here since two years”? 🙈 Im Englischen heißt es “I have lived here for two years”. Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.",
-      "comment": "Lösung: “for”. Für eine Zeitdauer nimmst du „for“, für einen Startpunkt „since“. Übe mehr mit einem kostenlosen Quiz: {link}",
-      "hashtags": ["#englischlernen", "#englischtipps", "#sprachenlernen", "#lexkite"]},
-    "en": {"hook": "“Seit” is not always “since”!", "tip": "For a length of time like “two years” you use “for” and the tense “have lived”.",
-      "caption": "Do you also say “I live here since two years”? In English it is “I have lived here for two years”. Listen to Carlos and repeat! Practice more in the Lexkite app."}}},
-  {"id": "t2_l1_fr_library", "lang": "fr", "teacher": "ama", "theme": "dusk", "in": {
-    "hook_say": "Library is a false friend!", "wrong": "I go to the library to buy books.", "right": "I go to the bookstore to buy books.", "strike": "library",
-    "why": "A library lends books. A bookstore sells them.", "memory": "Buy at a bookstore.",
-    "quiz": {"stem": "I buy books at the ___.", "options": ["library", "bookstore"], "answer": 1}, "answer_say": "Bookstore! I buy books at the bookstore.",
-    "native": {"hook": "« Library » ≠ librairie !", "tip": "« Library » veut dire {m:library}. Pour acheter un livre, on va dans « a bookstore ».",
-      "caption": "Attention, faux ami ! 😬 « Library » signifie {m:library}, pas librairie. Pour acheter des livres, dis “I go to the bookstore”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-      "comment": "Réponse : “bookstore”. Une bibliothèque prête des livres, une librairie les vend. Teste d'autres faux amis avec un quiz gratuit : {link}",
-      "hashtags": ["#apprendrelanglais", "#anglaisfacile", "#coursdanglais", "#lexkite"]},
-    "en": {"hook": "“Library” is not librairie!", "tip": "“Library” means bibliothèque. To buy a book, you go to “a bookstore”.",
-      "caption": "Watch out, false friend! “Library” means bibliothèque, not librairie. To buy books, say “I go to the bookstore”. Listen to Ama and repeat with her! More exercises in the Lexkite app."}}},
-  {"id": "t2_l1_fr_age", "lang": "fr", "teacher": "ama", "theme": "dusk", "in": {
-    "hook_say": "How to say your age!", "wrong": "I have twenty years.", "right": "I am twenty years old.", "strike": "have",
-    "why": "For age, use am, not have.", "memory": "Age: I am, not I have.",
-    "quiz": {"stem": "He ___ twenty years old.", "options": ["has", "is"], "answer": 1}, "answer_say": "Is! He is twenty years old.",
-    "native": {"hook": "« I have 20 years » : faux !", "tip": "En anglais, on ne « a » pas un âge : on dit “I am twenty years old”.",
-      "caption": "Tu dis aussi “I have twenty years” ? 🙈 En anglais, le bon réflexe est “I am twenty years old”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-      "comment": "Réponse : “is”. En anglais, l'âge se dit avec le verbe être. Entraîne-toi avec un quiz gratuit : {link}",
-      "hashtags": ["#apprendrelanglais", "#anglaisfacile", "#coursdanglais", "#lexkite"]},
-    "en": {"hook": "“I have 30 years”: wrong!", "tip": "In English, you do not “have” an age: you say “I am twenty years old”.",
-      "caption": "Do you also say “I have twenty years”? In English the right way is “I am twenty years old”. Listen to Ama and repeat with her! More exercises in the Lexkite app."}}}
+  {
+   "id": "t2_l1_vi_final_s",
+   "lang": "vi",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Do you forget this sound?",
+    "wrong": "She like coffee.",
+    "right": "She likes coffee.",
+    "strike": "like",
+    "why": "With he, she, it, add s to the verb.",
+    "memory": "He, she, it: add s.",
+    "quiz": {
+     "stem": "He ___ tea every day.",
+     "options": [
+      "drink",
+      "drinks"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Drinks! He drinks tea every day.",
+    "native": {
+     "hook": "Người Việt hay quên âm “s” này!",
+     "tip": "Với he/she/it, động từ phải thêm -s. Tiếng Việt không chia động từ nên rất dễ quên.",
+     "caption": "Bạn có hay nói “She like coffee” không? 😅 Với he/she/it, động từ phải thêm -s: “She likes coffee”. Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm ngữ pháp trong app Lexkite.",
+     "comment": "Đáp án: “drinks”. Nhớ thêm -s sau he/she/it nhé! Luyện thêm bài ngữ pháp miễn phí tại đây: {link}",
+     "hashtags": [
+      "#hoctienganh",
+      "#nguphaptienganh",
+      "#tienganhgiaotiep",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Vietnamese speakers often forget this “s”!",
+     "tip": "With he/she/it, the verb needs -s. Vietnamese verbs do not change, so it is easy to forget.",
+     "caption": "Do you often say “She like coffee”? With he/she/it, the verb needs -s: “She likes coffee”. Listen to Ama read it, then repeat! Practice more grammar in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_vi_very_like",
+   "lang": "vi",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Don't say I very like!",
+    "wrong": "I very like music.",
+    "right": "I like music very much.",
+    "strike": "very",
+    "why": "Very does not go before a verb.",
+    "memory": "Like it very much.",
+    "quiz": {
+     "stem": "I like pizza ___.",
+     "options": [
+      "very",
+      "very much"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Very much! I like pizza very much.",
+    "native": {
+     "hook": "Đừng nói “I very like” nhé!",
+     "tip": "Tiếng Việt nói “rất thích”, nhưng tiếng Anh phải nói “like … very much”.",
+     "caption": "Bạn có nói “I very like music” không? 🙈 Người bản xứ nói “I like music very much”. Nghe Ama đọc rồi lặp lại theo nhé! Luyện thêm cách nói tự nhiên trong app Lexkite.",
+     "comment": "Đáp án: “very much”. Thử đặt một câu về món bạn thích nhất, rồi luyện thêm miễn phí tại đây: {link}",
+     "hashtags": [
+      "#hoctienganh",
+      "#tienganhgiaotiep",
+      "#nguphaptienganh",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Don't say “I very like”!",
+     "tip": "In Vietnamese you say “very like”, but in English you must say “like … very much”.",
+     "caption": "Do you say “I very like music”? Native speakers say “I like music very much”. Listen to Ama read it, then repeat after her! Practice more natural phrases in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_pt_age",
+   "lang": "pt",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Age in English: careful!",
+    "wrong": "I have twenty years.",
+    "right": "I am twenty years old.",
+    "strike": "have",
+    "why": "For age, use am, not have.",
+    "memory": "Age: I am, not I have.",
+    "quiz": {
+     "stem": "She ___ twenty years old.",
+     "options": [
+      "has",
+      "is"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Is! She is twenty years old.",
+    "native": {
+     "hook": "Você diz “I have 20 years”?",
+     "tip": "Em inglês, para falar a idade usamos “I am”, não “I have”.",
+     "caption": "Você também diz “I have twenty years”? 😅 Em inglês o certo é “I am twenty years old”. Ouça o Carlos falar e repita com ele! Treine mais no app Lexkite.",
+     "comment": "Resposta: “is”. Em inglês a idade usa o verbo ser. Treine mais com um quiz grátis aqui: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesonline",
+      "#inglesfacil",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “I have 20 years”?",
+     "tip": "In English, to say your age we use “I am”, not “I have”.",
+     "caption": "Do you also say “I have twenty years”? In English the right way is “I am twenty years old”. Listen to Carlos say it and repeat with him! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_pt_pretend",
+   "lang": "pt",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Pretend is a false friend!",
+    "wrong": "I pretend to travel next year.",
+    "right": "I plan to travel next year.",
+    "strike": "pretend",
+    "why": "Pretend means to act like something is true.",
+    "memory": "Plan, not pretend.",
+    "quiz": {
+     "stem": "I ___ to study more.",
+     "options": [
+      "pretend",
+      "plan"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Plan! I plan to study more.",
+    "native": {
+     "hook": "“Pretend” não é “pretender”!",
+     "tip": "“Pretend” em inglês significa fingir. Para dizer que você pretende fazer algo, use “plan”.",
+     "caption": "Cuidado com este falso cognato! 😬 “I pretend to travel” quer dizer que você finge viajar. Para dizer que pretende viajar, diga “I plan to travel”. Ouça o Carlos e repita!",
+     "comment": "Resposta: “plan”. Anote esta frase e treine outros falsos cognatos com um quiz grátis: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#inglesonline",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Pretend” does not mean “pretender”!",
+     "tip": "“Pretend” in English means to fake. To say you intend to do something, use “plan”.",
+     "caption": "Watch out for this false friend! “I pretend to travel” means you are faking a trip. To say you intend to travel, say “I plan to travel”. Listen to Carlos and repeat!"
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_hungry",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Hungry? Don't say have!",
+    "wrong": "I have hunger.",
+    "right": "I am hungry.",
+    "strike": "have",
+    "why": "With hungry, thirsty, and cold, use am.",
+    "memory": "I am hungry.",
+    "quiz": {
+     "stem": "I ___ thirsty.",
+     "options": [
+      "have",
+      "am"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Am! I am thirsty.",
+    "native": {
+     "hook": "¿Dices “I have hunger”? ¡No!",
+     "tip": "En inglés no “tenemos” hambre: decimos “I am hungry”. Pasa igual con sed y frío.",
+     "caption": "¿Tú también dices “I have hunger”? 😅 Hambriento se dice {m:hungry} en español, y en inglés usamos “I am hungry”. ¡Escucha a Ama y repite con ella! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “am”. Con hambre, sed y frío usamos el verbo “to be”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#inglesonline",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “I have hunger”? No!",
+     "tip": "In English we do not “have” hunger: we say “I am hungry”. The same goes for thirst and cold.",
+     "caption": "Do you also say “I have hunger”? Hungry is hambriento in Spanish, and in English we say “I am hungry”. Listen to Ama and repeat with her! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_agree",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Don't say I am agree!",
+    "wrong": "I am agree with you.",
+    "right": "I agree with you.",
+    "strike": "am",
+    "why": "Agree is already a verb. Do not add am.",
+    "memory": "I agree.",
+    "quiz": {
+     "stem": "She ___ with me.",
+     "options": [
+      "is agree",
+      "agrees"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Agrees! She agrees with me.",
+    "native": {
+     "hook": "Error típico: “I am agree”",
+     "tip": "“Agree” ya es un verbo, así que no necesitas “am”. Se dice “I agree”.",
+     "caption": "En español decimos “estoy de acuerdo”, pero en inglés no se dice “I am agree”. 🙈 Lo correcto es “I agree with you”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “agrees”. Recuerda: sin “am”, solo “agree”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#inglesonline",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Typical mistake: “I am agree”",
+     "tip": "“Agree” is already a verb, so you do not need “am”. You say “I agree”.",
+     "caption": "In Spanish we say “estoy de acuerdo”, but in English you do not say “I am agree”. The right way is “I agree with you”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_become",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Become is a false friend!",
+    "wrong": "I become a coffee, please.",
+    "right": "I would like a coffee, please.",
+    "strike": "become",
+    "why": "Become means to start to be. It is not get.",
+    "memory": "Say would like.",
+    "quiz": {
+     "stem": "I would ___ a tea, please.",
+     "options": [
+      "become",
+      "like"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Like! I would like a tea, please.",
+    "native": {
+     "hook": "„Become“ heißt nicht „bekommen“!",
+     "tip": "„Become“ bedeutet „werden“. Wenn du etwas bestellen willst, sagst du „I would like“.",
+     "caption": "Vorsicht, falscher Freund! 😬 “Become” heißt auf Deutsch {m:become}, nicht „bekommen“. Beim Bestellen sagst du “I would like a coffee, please”. Hör Carlos zu und sprich nach!",
+     "comment": "Lösung: “like”. Beim Bestellen immer „I would like“ sagen. Mehr falsche Freunde übst du hier kostenlos: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Become” does not mean “bekommen”!",
+     "tip": "“Become” means “werden”. When you want to order something, you say “I would like”.",
+     "caption": "Careful, false friend! “Become” means werden in German, not “bekommen”. When ordering, you say “I would like a coffee, please”. Listen to Carlos and repeat!"
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_since",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Careful with since and for!",
+    "wrong": "I live here since two years.",
+    "right": "I have lived here for two years.",
+    "strike": "since",
+    "why": "Use for with a length of time.",
+    "memory": "For two years.",
+    "quiz": {
+     "stem": "I have worked here ___ three years.",
+     "options": [
+      "since",
+      "for"
+     ],
+     "answer": 1
+    },
+    "answer_say": "For! I have worked here for three years.",
+    "native": {
+     "hook": "„Seit“ ist nicht immer „since“!",
+     "tip": "Für eine Zeitdauer wie „zwei Jahre“ nimmst du „for“ und die Zeitform „have lived“.",
+     "caption": "Sagst du auch “I live here since two years”? 🙈 Im Englischen heißt es “I have lived here for two years”. Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “for”. Für eine Zeitdauer nimmst du „for“, für einen Startpunkt „since“. Übe mehr mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Seit” is not always “since”!",
+     "tip": "For a length of time like “two years” you use “for” and the tense “have lived”.",
+     "caption": "Do you also say “I live here since two years”? In English it is “I have lived here for two years”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_fr_library",
+   "lang": "fr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Library is a false friend!",
+    "wrong": "I go to the library to buy books.",
+    "right": "I go to the bookstore to buy books.",
+    "strike": "library",
+    "why": "A library lends books. A bookstore sells them.",
+    "memory": "Buy at a bookstore.",
+    "quiz": {
+     "stem": "I buy books at the ___.",
+     "options": [
+      "library",
+      "bookstore"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Bookstore! I buy books at the bookstore.",
+    "native": {
+     "hook": "« Library » ≠ librairie !",
+     "tip": "« Library » veut dire {m:library}. Pour acheter un livre, on va dans « a bookstore ».",
+     "caption": "Attention, faux ami ! 😬 « Library » signifie {m:library}, pas librairie. Pour acheter des livres, dis “I go to the bookstore”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
+     "comment": "Réponse : “bookstore”. Une bibliothèque prête des livres, une librairie les vend. Teste d'autres faux amis avec un quiz gratuit : {link}",
+     "hashtags": [
+      "#apprendrelanglais",
+      "#anglaisfacile",
+      "#coursdanglais",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Library” is not librairie!",
+     "tip": "“Library” means bibliothèque. To buy a book, you go to “a bookstore”.",
+     "caption": "Watch out, false friend! “Library” means bibliothèque, not librairie. To buy books, say “I go to the bookstore”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_fr_age",
+   "lang": "fr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "How to say your age!",
+    "wrong": "I have twenty years.",
+    "right": "I am twenty years old.",
+    "strike": "have",
+    "why": "For age, use am, not have.",
+    "memory": "Age: I am, not I have.",
+    "quiz": {
+     "stem": "He ___ twenty years old.",
+     "options": [
+      "has",
+      "is"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Is! He is twenty years old.",
+    "native": {
+     "hook": "« I have 20 years » : faux !",
+     "tip": "En anglais, on ne « a » pas un âge : on dit “I am twenty years old”.",
+     "caption": "Tu dis aussi “I have twenty years” ? 🙈 En anglais, le bon réflexe est “I am twenty years old”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
+     "comment": "Réponse : “is”. En anglais, l'âge se dit avec le verbe être. Entraîne-toi avec un quiz gratuit : {link}",
+     "hashtags": [
+      "#apprendrelanglais",
+      "#anglaisfacile",
+      "#coursdanglais",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“I have 30 years”: wrong!",
+     "tip": "In English, you do not “have” an age: you say “I am twenty years old”.",
+     "caption": "Do you also say “I have twenty years”? In English the right way is “I am twenty years old”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_ja_bored",
+   "lang": "ja",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Bored or boring?",
+    "wrong": "I am boring.",
+    "right": "I am bored.",
+    "strike": "boring",
+    "why": "Bored is how you feel. Boring is how a thing is.",
+    "memory": "I am bored. The movie is boring.",
+    "quiz": {
+     "stem": "The movie is ___.",
+     "options": [
+      "bored",
+      "boring"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Boring! The movie is boring.",
+    "native": {
+     "hook": "「I am boring」と言ってない？",
+     "tip": "「boring」は退屈なもの、「bored」は退屈な気持ち。自分の気持ちは bored！",
+     "caption": "「I am boring」と言っていませんか？😅 これだと「私はつまらない人」という意味になります。気持ちを言うときは “I am bored” が正解。Amaの声を聞いてまねしてみよう！Lexkiteアプリでもっと練習できます。",
+     "comment": "答え：“boring”。映画や物には boring を使います。無料クイズで続きを練習しよう：{link}",
+     "hashtags": [
+      "#英語学習",
+      "#英会話",
+      "#英語勉強",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “I am boring”?",
+     "tip": "“Boring” describes a thing, “bored” describes your feeling. For your feeling, say bored!",
+     "caption": "Do you say “I am boring”? 😅 That means “I am a dull person”. To say how you feel, say “I am bored”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_ja_family",
+   "lang": "ja",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "How many people in your family?",
+    "wrong": "My family is four people.",
+    "right": "There are four people in my family.",
+    "strike": "is",
+    "why": "Use there are, then say the number.",
+    "memory": "There are four people in my family.",
+    "quiz": {
+     "stem": "___ five people in my family.",
+     "options": [
+      "There is",
+      "There are"
+     ],
+     "answer": 1
+    },
+    "answer_say": "There are! There are five people in my family.",
+    "native": {
+     "hook": "家族は4人、英語では？",
+     "tip": "「My family is four people」は不自然。人数は “There are ~ people in my family” と言います。",
+     "caption": "「家族は4人です」を “My family is four people” と言っていませんか？🙈 自然な英語は “There are four people in my family” です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+     "comment": "答え：“There are”。人数を言うときの形を覚えよう。無料クイズで練習：{link}",
+     "hashtags": [
+      "#英語学習",
+      "#英会話",
+      "#英語勉強",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Four people in your family?",
+     "tip": "“My family is four people” sounds odd. Say “There are ~ people in my family”.",
+     "caption": "Do you say “My family is four people”? 🙈 The natural way is “There are four people in my family”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_ko_mistake",
+   "lang": "ko",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Make a mistake, not do!",
+    "wrong": "I did a mistake.",
+    "right": "I made a mistake.",
+    "strike": "did",
+    "why": "We say make a mistake.",
+    "memory": "Make a mistake.",
+    "quiz": {
+     "stem": "She ___ a mistake.",
+     "options": [
+      "did",
+      "made"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Made! She made a mistake.",
+    "native": {
+     "hook": "“I did a mistake” 아니에요!",
+     "tip": "실수는 do가 아니라 make! “I made a mistake”라고 말해요.",
+     "caption": "“I did a mistake”라고 말하고 있진 않나요? 😅 영어에서는 실수를 “do”(하다)가 아니라 “make”(만들다)라고 해서 “I made a mistake”가 맞아요. Carlos 선생님 발음을 듣고 따라 해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “made”. 실수는 make a mistake! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "hashtags": [
+      "#영어공부",
+      "#영어회화",
+      "#영어독학",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “I did a mistake”!",
+     "tip": "For a mistake, use make, not do! Say “I made a mistake”.",
+     "caption": "Do you say “I did a mistake”? 😅 In English you “make” a mistake, so “I made a mistake” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_ko_tohome",
+   "lang": "ko",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Home has no to!",
+    "wrong": "I will go to home.",
+    "right": "I will go home.",
+    "strike": "to",
+    "why": "Do not use to before home.",
+    "memory": "Go home. No to.",
+    "quiz": {
+     "stem": "I want to go ___ now.",
+     "options": [
+      "to home",
+      "home"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Home! I want to go home now.",
+    "native": {
+     "hook": "“go to home” 틀렸어요!",
+     "tip": "home 앞에는 to를 쓰지 않아요. “I will go home”이 맞아요.",
+     "caption": "“I will go to home”이라고 말하고 있나요? 🙈 home 앞에는 to가 필요 없어요. “I will go home”이 자연스러운 문장이에요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “home”. go home처럼 to 없이 써요! 무료 퀴즈로 연습해 보세요: {link}",
+     "hashtags": [
+      "#영어공부",
+      "#영어회화",
+      "#영어독학",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Go to home” is wrong!",
+     "tip": "Do not put “to” before home. “I will go home” is right.",
+     "caption": "Do you say “I will go to home”? 🙈 You do not need “to” before home. “I will go home” sounds natural. Repeat with Ama! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_past",
+   "lang": "zh",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Yesterday means the past!",
+    "wrong": "Yesterday I go to school.",
+    "right": "Yesterday I went to school.",
+    "strike": "go",
+    "why": "Yesterday means the past. Use went.",
+    "memory": "Yesterday: went, not go.",
+    "quiz": {
+     "stem": "Yesterday she ___ to work.",
+     "options": [
+      "go",
+      "went"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Went! Yesterday she went to work.",
+    "native": {
+     "hook": "说“昨天”，动词要变形！",
+     "tip": "英语动词要随时间变化：昨天用 “went”，不是 “go”。",
+     "caption": "你是不是也会说 “Yesterday I go to school”？😅 英语里说过去的事，动词要变成过去式：“Yesterday I went to school”。跟着 Ama 老师读一读吧！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“went”。说昨天的事要用过去式！用免费测验继续练习：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Yesterday” changes the verb!",
+     "tip": "English verbs change with time: after yesterday use “went”, not “go”.",
+     "caption": "Do you say “Yesterday I go to school”? 😅 In English, past events need a past verb: “Yesterday I went to school”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_turnon",
+   "lang": "zh",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Do not open the light!",
+    "wrong": "Please open the light.",
+    "right": "Please turn on the light.",
+    "strike": "open",
+    "why": "Open is for doors. For lights, turn on.",
+    "memory": "Turn on the light.",
+    "quiz": {
+     "stem": "Please ___ the music.",
+     "options": [
+      "open",
+      "turn on"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Turn on! Please turn on the music.",
+    "native": {
+     "hook": "开灯不是 “open the light”！",
+     "tip": "open 用来开门；开灯、开音乐要用 “turn on”。",
+     "caption": "你会说 “Please open the light” 吗？🙈 在英语里 open 是开门、开盖子，开灯要说 “Please turn on the light”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“turn on”。开灯、开音乐都用 turn on！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “open the light”!",
+     "tip": "Open is for doors. For lights and music, use “turn on”.",
+     "caption": "Do you say “Please open the light”? 🙈 In English, open is for doors and lids. For a light, say “Please turn on the light”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_hi_having",
+   "lang": "hi",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Have, not am having!",
+    "wrong": "I am having two brothers.",
+    "right": "I have two brothers.",
+    "strike": "having",
+    "why": "Use have for things you own.",
+    "memory": "I have, not I am having.",
+    "quiz": {
+     "stem": "She ___ a big house.",
+     "options": [
+      "is having",
+      "has"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Has! She has a big house.",
+    "native": {
+     "hook": "“I am having” कब गलत है?",
+     "tip": "अपने पास कुछ होने के लिए “I have” बोलें, “I am having” नहीं।",
+     "caption": "क्या आप भी कहते हैं “I am having two brothers”? 😅 अंग्रेज़ी में “I have two brothers” सही है, क्योंकि have के साथ -ing नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+     "comment": "उत्तर: “has”। अपने पास कुछ होने या रिश्ते बताने के लिए have बोलें। मुफ़्त क्विज़ यहाँ करें: {link}",
+     "hashtags": [
+      "#अंग्रेजीसीखें",
+      "#englishspeaking",
+      "#learnenglish",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "When is “I am having” wrong?",
+     "tip": "To say you own something, say “I have”, not “I am having”.",
+     "caption": "Do you say “I am having two brothers”? 😅 In English “I have two brothers” is right, because have does not take -ing. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_hi_goodname",
+   "lang": "hi",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Name, not good name!",
+    "wrong": "What is your good name?",
+    "right": "What is your name?",
+    "strike": "good",
+    "why": "Just say name. Good name sounds strange.",
+    "memory": "What is your name?",
+    "quiz": {
+     "stem": "What is your ___?",
+     "options": [
+      "good name",
+      "name"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Name! What is your name?",
+    "native": {
+     "hook": "“Your good name” न कहें!",
+     "tip": "हिंदी में “आपका शुभ नाम” चलता है, पर अंग्रेज़ी में बस “What is your name?” बोलें।",
+     "caption": "क्या आप “What is your good name?” पूछते हैं? 🙈 अंग्रेज़ी में “good” नहीं लगता — सीधे “What is your name?” पूछिए। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+     "comment": "उत्तर: “name”। “good name” हटा दें और सीधे पूछें। मुफ़्त क्विज़ यहाँ: {link}",
+     "hashtags": [
+      "#अंग्रेजीसीखें",
+      "#englishspeaking",
+      "#learnenglish",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do not say “your good name”!",
+     "tip": "In Hindi a polite “good name” works, but in English just say “What is your name?”",
+     "caption": "Do you ask “What is your good name?” 🙈 English does not need “good” here — just ask “What is your name?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_ar_amgo",
+   "lang": "ar",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Do not say am go!",
+    "wrong": "I am go to school.",
+    "right": "I go to school.",
+    "strike": "am",
+    "why": "Do not use am before a verb like go.",
+    "memory": "I go. Not I am go.",
+    "quiz": {
+     "stem": "She ___ to work every day.",
+     "options": [
+      "is go",
+      "goes"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Goes! She goes to work every day.",
+    "native": {
+     "hook": "هل تقول “I am go”؟",
+     "tip": "لا نضع am قبل الفعل: نقول “I go to school” وليس “I am go”.",
+     "caption": "هل تقول أحيانًا “I am go to school”؟ 😅 في الإنجليزية لا نستخدم am قبل الفعل، فالجملة الصحيحة “I go to school”. استمع إلى Ama وكرّر معها! تدرّب أكثر في تطبيق Lexkite.",
+     "comment": "الإجابة: “goes”. لا تضع am أو is قبل الفعل العادي. تدرّب مع اختبار مجاني هنا: {link}",
+     "hashtags": [
+      "#تعلم_الانجليزية",
+      "#اللغة_الانجليزية",
+      "#englishlearning",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “I am go”?",
+     "tip": "We do not put am before a verb: say “I go to school”, not “I am go”.",
+     "caption": "Do you sometimes say “I am go to school”? 😅 In English we do not use am before the verb, so the right sentence is “I go to school”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_ar_whereyou",
+   "lang": "ar",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Question order matters!",
+    "wrong": "Where you are going?",
+    "right": "Where are you going?",
+    "strike": "you",
+    "why": "In a question, put are before you.",
+    "memory": "Where are you going?",
+    "quiz": {
+     "stem": "Where ___ from?",
+     "options": [
+      "you are",
+      "are you"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Are you! Where are you from?",
+    "native": {
+     "hook": "ترتيب السؤال بالإنجليزية!",
+     "tip": "في السؤال نضع الفعل قبل الفاعل: “Where are you going?” وليس “Where you are going?”",
+     "caption": "هل تسأل “Where you are going?” 🙈 في الإنجليزية يأتي الفعل are قبل you في السؤال: “Where are you going?” استمع إلى Carlos وكرّر معه! تدرّب أكثر في تطبيق Lexkite.",
+     "comment": "الإجابة: “are you”. تذكّر: الفعل قبل الفاعل في السؤال. اختبار مجاني هنا: {link}",
+     "hashtags": [
+      "#تعلم_الانجليزية",
+      "#اللغة_الانجليزية",
+      "#englishlearning",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "English question order!",
+     "tip": "In a question, the verb comes before the subject: “Where are you going?” not “Where you are going?”",
+     "caption": "Do you ask “Where you are going?” 🙈 In English, are comes before you in a question: “Where are you going?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_sayme",
+   "lang": "tr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Tell me, not say me!",
+    "wrong": "Please say me the way.",
+    "right": "Please tell me the way.",
+    "strike": "say",
+    "why": "Use tell before a person.",
+    "memory": "Tell me, not say me.",
+    "quiz": {
+     "stem": "Can you ___ me the time?",
+     "options": [
+      "say",
+      "tell"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Tell! Can you tell me the time?",
+    "native": {
+     "hook": "“Say me” değil, “tell me”!",
+     "tip": "Bir kişiye bir şey söylerken “tell” kullanılır: “Please tell me the way.”",
+     "caption": "“Please say me the way” mi diyorsun? 😅 İngilizcede kişiden önce “tell” gelir, doğrusu “Please tell me the way”. Ama’yı dinle ve tekrar et! Lexkite uygulamasında daha çok pratik yap.",
+     "comment": "Cevap: “tell”. Bir kişiye bir şey söylerken tell kullan. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “say me”, but “tell me”!",
+     "tip": "Use “tell” before a person: “Please tell me the way.”",
+     "caption": "Do you say “Please say me the way”? 😅 In English “tell” goes before the person, so it is “Please tell me the way”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_exam",
+   "lang": "tr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Exams: take, not give!",
+    "wrong": "I gave the exam yesterday.",
+    "right": "I took the exam yesterday.",
+    "strike": "gave",
+    "why": "You take an exam. Teachers give it.",
+    "memory": "Take an exam.",
+    "quiz": {
+     "stem": "I will ___ an exam next week.",
+     "options": [
+      "give",
+      "take"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Take! I will take an exam next week.",
+    "native": {
+     "hook": "Sınav “give” değil, “take”!",
+     "tip": "Türkçede “sınav vermek” deriz ama İngilizcede sınava “take” ile girilir.",
+     "caption": "“I gave the exam yesterday” mi diyorsun? 🙈 İngilizcede sınavı öğrenci “take” eder, öğretmen “give” eder. Doğrusu “I took the exam yesterday”. Carlos’u dinle ve tekrar et! Lexkite uygulamasında daha çok pratik yap.",
+     "comment": "Cevap: “take”. Sınava giren kişi take der. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Exams: “take”, not “give”!",
+     "tip": "In Turkish you “give” an exam, but in English you “take” it.",
+     "caption": "Do you say “I gave the exam yesterday”? 🙈 In English the student takes an exam, and the teacher gives it. The right sentence is “I took the exam yesterday”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_ru_muchyears",
+   "lang": "ru",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Ask about age the right way!",
+    "wrong": "How much years do you have?",
+    "right": "How old are you?",
+    "strike": "much",
+    "why": "For age, ask how old.",
+    "memory": "How old are you?",
+    "quiz": {
+     "stem": "How ___ is your brother?",
+     "options": [
+      "years",
+      "old"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Old! How old is your brother?",
+    "native": {
+     "hook": "Спрашиваем возраст правильно!",
+     "tip": "По-английски не говорят “how much years”. Спроси: “How old are you?”",
+     "caption": "Ты тоже спрашиваешь “How much years do you have”? 😅 По-английски возраст спрашивают так: “How old are you”. Послушай Ама и повтори за ней! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “old”. Возраст в английском — это how old. Бесплатный тест для практики здесь: {link}",
+     "hashtags": [
+      "#английскийязык",
+      "#английский",
+      "#изучениеанглийского",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Ask about age the right way!",
+     "tip": "In English we do not say “how much years”. Ask: “How old are you?”",
+     "caption": "Do you also ask “How much years do you have”? 😅 In English, we ask about age like this: “How old are you”. Listen to Ama and repeat with her! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_ru_wentin",
+   "lang": "ru",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "“Went in” или “went to”?",
+    "wrong": "I went in the cinema.",
+    "right": "I went to the cinema.",
+    "strike": "in",
+    "why": "Use to for a place you go to.",
+    "memory": "Go to a place.",
+    "quiz": {
+     "stem": "We went ___ the park.",
+     "options": [
+      "in",
+      "to"
+     ],
+     "answer": 1
+    },
+    "answer_say": "To! We went to the park.",
+    "native": {
+     "hook": "“Went in” или “went to”?",
+     "tip": "Идёшь в место — говори “to”: “I went to the cinema”, а не “in”.",
+     "caption": "Ты говоришь “I went in the cinema”? 🙈 По-русски мы говорим «в кино», но по-английски нужно “to”: “I went to the cinema”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “to”. Куда идём — to. Бесплатный тест для практики здесь: {link}",
+     "hashtags": [
+      "#английскийязык",
+      "#английский",
+      "#изучениеанглийского",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Went in” or “went to”?",
+     "tip": "When you go to a place, say “to”: “I went to the cinema”, not “in”.",
+     "caption": "Do you say “I went in the cinema”? 🙈 In Russian we say “v kino”, but in English you need “to”: “I went to the cinema”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  }
  ]
 }
