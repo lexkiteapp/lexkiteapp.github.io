@@ -407,6 +407,8 @@ x I object [to] being treated like a child.
 # Collocation học thuật cao cấp trong IELTS Writing: *stem from socioeconomic factors*. | Highly valued in IELTS Writing: *problems stemming from rapid urbanization*.
 @v subscribe
 + to | đăng ký (theo dõi, mua dài hạn) | pay for or follow regularly | I subscribe [to] a science magazine.
+! I subscribed with this monthly magazine. => I subscribed to this monthly magazine. | Đăng ký theo dõi/đặt mua định kỳ dùng *subscribe to*, không dùng *with*. | To receive a publication or service, use *subscribe to*, not *with*.
+# Rất phổ biến trong công nghệ và truyền thông: *subscribe to a YouTube channel / newsletter*. | Common modern usage: *subscribe to a channel, podcast, or service*.
 @v thank
 + sb for | cảm ơn ai vì | say thanks for | Thank you [for] your help.
 ! Thank you for help me. => Thank you for helping me. | Sau *for* (giới từ) dùng V-ing. | After *for* use -ing.
@@ -416,50 +418,88 @@ x I object [to] being treated like a child.
 @v vote
 + for | bỏ phiếu cho | choose in an election | Who did you vote [for]?
 + against | bỏ phiếu chống | vote to reject | Most members voted [against] the plan.
+! Many citizens voted in the green candidate. => Many citizens voted for the green candidate. | Bỏ phiếu ủng hộ ai dùng *vote for*, bỏ phiếu chống dùng *vote against*. | Cast a ballot in favour of someone using *vote for*, or opposing using *vote against*.
+# Phân biệt: *vote for* (bỏ phiếu thuận), *vote against* (bỏ phiếu chống), *vote on* (biểu quyết về dự luật). | Distinguish *vote for* (support), *vote against* (oppose), *vote on* (decide an issue).
 @v warn
 + about | cảnh báo về | tell of danger | Doctors warn [about] the risks of vaping.
 + against | cảnh báo đừng | advise not to | Experts warn [against] skipping breakfast.
+! The police warned residents from the incoming storm. => The police warned residents about the incoming storm. | Cảnh báo ai về mối nguy hiểm dùng *warn about/of*, cảnh báo không làm gì dùng *warn against*. | Warn someone *about* or *of* a danger; warn *against* taking an action.
+# Cấu trúc: *warn somebody about/of something* hoặc *warn somebody against doing something*. | Pattern: *warn somebody about/of danger*, or *warn against doing something*.
 @v write
 + to | viết cho | send a letter to | I wrote [to] the council about the problem.
 + about | viết về | have as a subject | She writes [about] travel.
+! She wrote with her friend every week. => She wrote to her friend every week. | Viết thư/tin nhắn cho ai dùng *write to somebody*, không dùng *write with*. | To send a letter or note, use *write to somebody*, not *with*.
+# Trong văn phong Anh-Mỹ thường chấp nhận *write somebody*, nhưng chuẩn mực quốc tế là *write to somebody*. | British English strictly requires *write to somebody*; US English often allows *write somebody*.
 @v explain
 + to | giải thích cho (ai) | make clear to | Can you explain the rules [to] me?
 ! Can you explain me this word? => Can you explain this word to me? | *explain sth to sb*, không nói *explain sb sth*. | *explain sth to sb*, not *explain sb sth*.
 @v happen
 + to | xảy ra với | occur to | What happened [to] your phone?
+! What happened with your old laptop? => What happened to your old laptop? | Chuyện gì đã xảy ra với ai/cái gì dùng *happen to*, không dùng *with*. | When asking about someone's fate or status, use *happen to*, never *with*.
+# Thường gặp trong giao tiếp hằng ngày: *What happened to you?* (Có chuyện gì xảy ra với bạn thế?). | Common spoken phrase: *Whatever happened to that proposal?*
 @v suit
 + to | (be suited to) phù hợp với | (be suited to) be right for | She is well suited [to] teaching.
+! This schedule does not suit to our schedule. => This schedule does not suit our schedule. | Động từ *suit* mang nghĩa phù hợp là ngoại động từ, không cần giới từ *to*. | As a transitive verb meaning fit or be acceptable, *suit* takes no preposition.
+# Khi dùng như tính từ, ta mới dùng giới từ: *be suited to/for something*. | When used as a participle adjective: *be well suited to/for the job*.
 @v exchange
 + for | đổi lấy | give and receive in return | Can I exchange this shirt [for] a larger size?
+! I exchanged my currency with euros at the airport. => I exchanged my currency for euros at the airport. | Đổi lấy cái gì khác dùng *exchange A for B*, không dùng *with*. | To trade one item to receive another, use *exchange A for B*, not *with*.
+# Dùng *exchange something with somebody* khi trao đổi qua lại giữa hai người: *exchange ideas with colleagues*. | Use *exchange with somebody* when sharing interactively.
 @v substitute
 + for | thay thế cho | use instead of | You can substitute honey [for] sugar.
+! You can substitute honey by sugar in this recipe. => You can substitute honey for sugar in this recipe. | Thay thế cái mới cho cái cũ dùng *substitute A for B* (dùng A thay cho B). | Use *substitute A for B* (A replaces B); *replace B with A* has the inverse order.
+# Rất dễ nhầm: *substitute A for B* = dùng A thay B; *replace B with A* = thay thế B bằng A. | Watch the order: *substitute A for B* vs *replace B with A*.
 @v long
 + for | khao khát | want very much | After weeks of rain, we longed [for] sunshine.
+! The lonely traveler longed about his homeland. => The lonely traveler longed for his homeland. | Khao khát, ngóng trông điều gì tha thiết luôn dùng *long for*. | To yearn deeply for something, always use *long for*, not *about*.
+# Collocation: *long for peace, long for freedom*; hoặc dùng *long to* + V-bare: *long to return home*. | Common pattern: *long for* + noun, or *long to* + infinitive.
 @v pray
 + for | cầu nguyện cho | ask God or hope strongly for | They prayed [for] rain.
+! The villagers prayed with rain during the drought. => The villagers prayed for rain during the drought. | Cầu nguyện cho điều gì tốt lành dùng *pray for*, cầu nguyện tới ai dùng *pray to*. | Pray *for* a desired outcome; pray *to* a deity or higher power.
+# Mẫu câu: *pray for good health, pray for world peace*. | Standard collocations: *pray for mercy, pray for recovery*.
 @v confess
 + to | thú nhận | admit | She confessed [to] eating the cake.
+! The suspect confessed his crime to the officer. => The suspect confessed to his crime to the officer. | Thú nhận hành vi sai trái dùng *confess to* + danh từ/V-ing. | To admit guilt, use *confess to* followed by a noun or gerund.
+# Cấu trúc: *confess to doing something*: *He confessed to stealing the jewels*. | Pattern: *confess to* + noun/gerund; *to* is a preposition.
 @v consent
 + to | đồng ý, ưng thuận | give permission for | Patients must consent [to] the treatment.
+! The board consented with the new merger proposal. => The board consented to the new merger proposal. | Đồng thuận/chấp thuận điều gì dùng *consent to*, không dùng *with*. | To give formal permission or agreement, use *consent to*, not *with*.
+# Thường gặp trong pháp lý/y tế: *consent to medical treatment, informed consent*. | Highly formal: *consent to surgery / terms of agreement*.
 @v conform
 + to | tuân theo | follow rules | All products must conform [to] safety standards.
+! All products must conform with national safety rules. => All products must conform to national safety rules. | Tuân thủ/phù hợp với quy chuẩn/tiêu chuẩn dùng *conform to* (hoặc *conform with*). | Products or actions conform *to* regulations, standards, or specifications.
+# *conform to* phổ biến và trang trọng hơn *conform with* trong văn phong pháp lý và kỹ thuật. | Both *conform to* and *conform with* exist, but *conform to* is standard in exams.
 @v excel
 + at | xuất sắc về (kỹ năng) | be extremely good at | She excels [at] public speaking.
 + in | xuất sắc trong (lĩnh vực) | be extremely good in | He excelled [in] science.
+! She excels at in foreign languages and music. => She excels in foreign languages and music. | Xuất sắc, vượt trội trong lĩnh vực gì dùng *excel in* hoặc *excel at*. | To be exceptionally good, use *excel in* (field) or *excel at* (skill).
+# Cả *excel in* và *excel at* đều chuẩn; thường gặp: *excel at sports, excel in mathematics*. | Both *excel at* and *excel in* are fully standard.
 @v joke
 + about | đùa về | say funny things about | Don't joke [about] serious things.
+! They joked with the funny incident yesterday. => They joked about the funny incident yesterday. | Đùa cợt/pha trò về chuyện gì dùng *joke about*; đùa vui với ai dùng *joke with*. | Tell jokes *about* an event or topic; jest *with* a friend.
+# Phân biệt: *joke about* + sự việc (chủ đề đùa), *joke with* + con người (người cùng đùa). | Distinguish *joke about something* from *joke with somebody*.
 @v matter
 + to | quan trọng đối với | be important to | Your opinion matters [to] me.
 ! It is not matter. => It doesn't matter. | *matter* là động từ: *It doesn't matter*. | *matter* is a verb: *It doesn't matter*.
 @v supply
 + with | cung cấp cho (ai) | provide | The farm supplies the shop [with] eggs.
+! The charity supplied food to with homeless families. => The charity supplied homeless families with food. | Cung cấp cho ai cái gì: *supply somebody with something*. | Pattern: *supply somebody with something*, or *supply something to somebody*.
+# Hai cấu trúc chuẩn: *supply somebody with something* hoặc *supply something to somebody*. | Use either *supply X with Y* or *supply Y to X*.
 @v prohibit
 + from | cấm (ai) làm gì | officially forbid | Staff are prohibited [from] smoking here.
 ~ formal | Văn bản quy định. | Rules and notices.
+! The law prohibits citizens to smoke in public parks. => The law prohibits citizens from smoking in public parks. | Cấm ai làm việc gì bắt buộc dùng *prohibit somebody from* + V-ing. | To forbid formally, use *prohibit somebody from doing something*, not *to do*.
+# Rất phổ biến trong TOEIC/IELTS: *prohibit from V-ing*, không bao giờ dùng *prohibit to V*. | Key exam rule: *prohibit from doing*, never *prohibit to do*.
 @v suspect
 + sb of | nghi ngờ ai về | think someone is guilty of | Police suspect him [of] lying.
+! Police suspect him for being the mastermind. => Police suspect him of being the mastermind. | Nghi ngờ ai làm việc gì/phạm tội gì dùng *suspect somebody of* + V-ing. | To believe someone is guilty of a deed, use *suspect of*, not *for*.
+# Cấu trúc: *suspect somebody of something / doing something*. | Pattern: *suspect somebody of fraud / theft / lying*.
 @v dedicate
 + to | cống hiến cho | give completely to | She dedicated her life [to] science.
+! She dedicated her entire life for teaching children. => She dedicated her entire life to teaching children. | Cống hiến/dành trọn điều gì cho ai/việc gì dùng *dedicate to* + danh từ/V-ing. | Devote time or effort using *dedicate to* + noun/gerund, not *for*.
+# *to* là giới từ, do đó động từ theo sau phải thêm -ing: *dedicate oneself to helping others*. | Because *to* is a preposition, use gerunds: *dedicate to doing*.
 @v resign
 + from | từ chức khỏi | officially leave a job | He resigned [from] the board.
+! The minister resigned out of his post yesterday. => The minister resigned from his post yesterday. | Từ chức/từ bỏ vị trí công tác dùng *resign from*, không dùng *out of*. | To give up a position or job officially, use *resign from*.
+# Collocations: *resign from the board, resign from office*; thành ngữ: *resign oneself to* (cam chịu). | Idiom: *resign oneself to fate* (accept an unpleasant reality).
 `; })(typeof self !== 'undefined' ? self : this);
