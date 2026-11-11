@@ -24,7 +24,7 @@ jobs:
           bunzip2 -f "$RUNNER_TEMP/spa.tsv.bz2"
           curl -fsSL --retry 5 -o "$RUNNER_TEMP/es_50k.txt" https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt
       - name: Chọn câu → nguồn, ghi công, gói cpack, add-on
-        env: { LEVELS: '${{ github.event.inputs.levels || 'B2,C1,C2' }}' }
+        env: { LEVELS: "${{ github.event.inputs.levels || 'B2,C1,C2' }}" }
         run: |
           TATOEBA="$RUNNER_TEMP/spa.tsv" FREQ="$RUNNER_TEMP/es_50k.txt" node scripts/target/exam-es-lib.mjs
           node scripts/target/exam-es-check.mjs --write-credits
