@@ -1,160 +1,170 @@
 ---
-title: "IELTS Matching Headings: Estrategias y Trampas Comunes"
-description: "Aprende a dominar el IELTS matching headings: método paso a paso, cómo identificar la idea central, evitar trampas de palabras clave y gestionar el tiempo."
+title: "IELTS Matching Headings: método, trampas y práctica"
+description: "IELTS Matching Headings paso a paso: cómo elegir el encabezado de cada párrafo, trampas de vocabulario, falsos amigos y un texto para practicar."
 slug: ielts-reading-matching-headings-estrategias
 lang: es
 translationKey: ielts-reading-matching-headings
 category: ielts
 tags: [ielts, reading, matching-headings, academic, b2]
 keyword: "ielts matching headings"
-cover: reading
-coverAlt: "Biblioteca de lectura IELTS en Lexkite con textos académicos de A2 a C1 y consulta interactiva de vocabulario"
-publishAt: 2027-03-01T13:00:00+01:00
+cover: read-article
+coverAlt: "Lectura de IELTS en Lexkite con palabras clave coloreadas, toque para consultar y guardar, lista de palabras clave a la derecha y preguntas True, False, Not Given"
+publishAt: 2026-12-26T07:37:00-06:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: think, icon: book, chip: IELTS Reading}
 shots: [
   {id: s1, route: '#/reading', crop: main},
   {id: s2, route: '#/practice', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: 'Método de 5 Pasos para Dominar Matching Headings', parts: [{t: '1. Tachar el Ejemplo', r: 'Descarta de inmediato cualquier encabezado utilizado en el ejemplo oficial de la prueba.'}, {t: '2. Lectura Global Rápida', r: 'Lee el párrafo completo a buen ritmo, buscando el propósito general sin frenar en palabras desconocidas.'}, {t: '3. Resumen en 3 a 5 Palabras', r: 'Anota mentalmente o al margen el foco central del párrafo (causa, solución, crítica, contraste).'}, {t: '4. Cotejar con la Lista', r: 'Busca el encabezado que parafrasee la idea completa, desconfiando de palabras idénticas aisladas.'}, {t: '5. Desempate por Eliminación', r: 'Si dudas entre dos opciones, anota ambas, avanza con el texto y decide al final por descarte.'}]},
-  {id: d2, type: compare, title: 'Idea Central vs Trampa de Detalle Específico', cols: ['Encabezado Correcto', 'Distractor (Trampa)'], rows: [['Sintetiza la totalidad del párrafo como una unidad', 'Abarca únicamente una sola frase, dato estadístico o ejemplo'], ['Emplea paráfrasis conceptuales y sinónimos formales', 'Repite literalmente un término llamativo visto en el texto'], ['Responde al objetivo retórico del autor en esa sección', 'Coincide con el tema general pero yerra el enfoque del párrafo']]}
+  {id: d1, type: boxes, title: 'Cómo trabajar un párrafo', parts: [{t: 'Lee el párrafo entero', r: 'Léelo entero, sin pararte en las palabras que no conoces; mira la lista antes o después, según tu método.'}, {t: 'Ponle nombre a su función', r: 'Causa, solución, crítica, contraste o evolución: una etiqueta tuya, en español.'}, {t: 'Prueba cada candidato', r: 'Un encabezado vale si cubre el párrafo de principio a fin, también tras un However.'}, {t: 'Marca y avanza', r: 'Si dudas entre dos, apunta ambos y decide cuando hayas visto otros párrafos.'}]},
+  {id: d2, type: compare, title: 'El reflejo de la raíz latina', cols: ['Lo que hace el ojo hispanohablante', 'Lo que conviene comprobar'], rows: [['Ve una palabra transparente (pollution, population) y enlaza', 'Que el encabezado cubra la idea del párrafo, no solo un término'], ['Lee actually, eventually o sensible como en español', 'Qué significan en inglés antes de descartar el encabezado'], ['Se fía de un encabezado que repite una palabra del texto', 'Si el párrafo la usa solo como apoyo de otra idea']]}
 ]
 quiz: [
   {
-    q: "En el examen IELTS Reading, ¿qué debe reflejar fielmente el encabezado (heading) correcto?",
+    q: "En un encabezado de IELTS aparece A sensible approach to city planning. ¿Qué significa sensible aquí?",
     options: [
-      "El dato numérico más sorprendente o la cita de un científico mencionado en el texto",
-      "La idea principal y el propósito comunicativo del párrafo en su conjunto",
-      "Una transcripción literal de la primera frase con la que abre el párrafo",
-      "Cualquier término técnico inusual que se mencione más de dos veces en la lectura"
+      "emotivo",
+      "sensato",
+      "costoso",
+      "reciente"
     ],
     answer: 1,
-    explain: "El encabezado correcto resume la idea global del párrafo completo. Los datos estadísticos aislados o nombres de expertos son distractores clásicos diseñados por Cambridge."
+    explain: "Sensible en inglés significa sensato, razonable. El falso amigo lleva a leer sensible, emotivo, y a descartar el encabezado correcto."
   },
   {
-    q: "¿Cuál es la trampa más habitual en la que caen los aspirantes al resolver este tipo de ejercicio?",
+    q: "Un párrafo describe cómo tres ciudades redujeron el tráfico de formas distintas. ¿Qué encabezado encaja mejor?",
     options: [
-      "Elegir un encabezado únicamente porque repite una palabra idéntica que leyeron en el párrafo",
-      "Confundir la ortografía de los números romanos al trasladar las respuestas a la hoja oficial",
-      "Leer demasiado rápido la primera línea del texto sin consultar el índice temático",
-      "Dejar las preguntas de encabezados para los últimos tres minutos del examen"
+      "A ban on cars in one city centre",
+      "The rising price of public transport",
+      "Three ways of cutting city traffic",
+      "Mr Lee's proposal for new roads"
+    ],
+    answer: 2,
+    explain: "Recoge la idea que unen los ejemplos; los demás son un detalle, un dato no mencionado o un nombre."
+  },
+  {
+    q: "En el Reading de IELTS, una respuesta incorrecta ...",
+    options: [
+      "no resta puntos",
+      "resta medio punto",
+      "resta un punto",
+      "anula la sección"
     ],
     answer: 0,
-    explain: "La trampa de coincidencia de palabras (word-spotting trap) ocurre cuando el estudiante ve una palabra idéntica tanto en el texto como en el encabezado, sin advertir que el párrafo aborda otro concepto."
-  },
-  {
-    q: "Si dudas entre dos encabezados muy similares para el Párrafo B, ¿cuál es la mejor decisión táctica?",
-    options: [
-      "Dedicar cuatro minutos a releer minuciosamente cada oración hasta resolver la incógnita",
-      "Anotar ambas opciones al margen, continuar con los siguientes párrafos y definir por descarte",
-      "Marcar siempre la alternativa con el número romano menor según criterios de probabilidad",
-      "Dejar el casillero en blanco para evitar penalizaciones por respuesta incorrecta en el examen"
-    ],
-    answer: 1,
-    explain: "En el IELTS no hay penalización por error. Al anotar ambas opciones y avanzar, uno de los encabezados en disputa encajará a la perfección en un párrafo posterior, resolviendo tu duda por eliminación."
+    explain: "El Reading no tiene penalización por error: se puntúan solo las respuestas correctas. Conviene, por tanto, responder todas las preguntas."
   }
 ]
 ---
 
-Entre todas las tareas del examen académico, el ejercicio de **ielts matching headings** es considerado por la gran mayoría de los candidatos hispanohablantes como uno de los más exigentes y consumidores de tiempo. A diferencia de las preguntas de completar espacios (*Sentence Completion*) o de respuesta corta, donde basta con realizar un rastreo visual (*scanning*) para cazar un nombre propio, un año o un porcentaje, emparejar encabezados requiere una comprensión global profunda (*skimming* analítico) sobre la estructura argumentativa de cada párrafo.
+En IELTS Matching Headings recibes una lista de encabezados con números romanos y debes decidir cuál corresponde a cada párrafo de la lectura. Hay más encabezados que párrafos, así que sobran algunos, y el correcto resume el párrafo entero, no una frase suelta. En el Academic Reading hay 60 minutos para tres textos y 40 preguntas, de modo que esta tarea compite por el tiempo con todas las demás.
 
-Muchos estudiantes se sienten frustrados porque invierten hasta 4 minutos en un solo párrafo y terminan cayendo en las trampas deliberadas de los examinadores: seleccionar un título solo porque contiene una palabra llamativa que aparece en la tercera línea del texto. Sin embargo, cuando se asimila la lógica de la redacción académica en inglés y se aplica una técnica rigurosa de síntesis, esta sección se convierte en una de las más metódicas y predecibles de toda la prueba.
+Para el hispanohablante la dificultad tiene un rasgo propio: tantas palabras inglesas se parecen a las nuestras que es fácil enlazar un encabezado con un párrafo solo porque comparten una raíz latina. A veces funciona; con *actually*, *eventually* o *sensible* lleva al error. Esta guía parte de ese reflejo, recorre un párrafo completo como ejemplo y termina con un texto para que practiques.
 
-En esta guía exhaustiva y práctica, desglosaremos el funcionamiento de **ielts matching headings**, te enseñaremos a aplicar un método infalible de 5 pasos, analizaremos las trampas de vocabulario más frecuentes y te mostraremos cómo administrar los 60 minutos del bloque de lectura para alcanzar una calificación Band 7 o superior.
+## Cómo funciona IELTS Matching Headings en la hoja de preguntas
 
-## ¿Cómo funciona la sección de IELTS Matching Headings?
+1. **Una lista de encabezados** (*List of Headings*), numerados con i, ii, iii, iv, v, vi y así sucesivamente.
+2. **Párrafos con letra** (*Paragraph A, B, C...*), y tú escribes el número romano que corresponde a cada uno.
+3. **Cada encabezado se usa una sola vez.** Puede que alguna sección del texto no se pregunte.
 
-En el módulo Academic Reading dispones de 60 minutos para leer tres textos extensos y responder 40 preguntas. Cuando te enfrentas a una tarea de correspondencia de encabezados, el examen te presenta:
+A veces el primer párrafo viene resuelto como ejemplo. Tacha ese encabezado de la lista: ya no puede usarse.
 
-1. **Una lista de encabezados (List of Headings):** Identificados mediante números romanos (i, ii, iii, iv, v, vi, vii...).
-2. **Superávit de opciones:** Siempre hay más encabezados que párrafos (por ejemplo, 8 encabezados para evaluar 5 o 6 párrafos), lo que descarta el éxito mediante conjeturas al azar.
-3. **Instrucciones de asignación:** Debes indicar qué número romano corresponde a la idea medular de cada sección identificada por letras (Paragraph A, B, C, D...).
+{{diagram: d1 | Cómo trabajar un párrafo}}
 
-![Biblioteca de lectura IELTS en Lexkite](media:@s1 "Biblioteca de lectura IELTS en Lexkite con textos académicos de A2 a C1 y consulta interactiva de vocabulario")
+## El reflejo de la raíz latina
 
-{{diagram: d1 | Método de 5 Pasos para Dominar Matching Headings}}
+Cuando lees en tu lengua, el ojo reconoce palabras enteras sin descomponerlas. En inglés académico ese atajo te regala mucho vocabulario (*pollution*, *population*, *conservation*), pero también te engaña. Un encabezado como *The pollution of urban rivers* parece encajar con cualquier párrafo donde aparezca algo parecido a «contaminación», aunque el párrafo hable de la limpieza y no de la causa.
 
-## ¿Por qué resulta tan compleja esta tarea?
+El segundo foco de errores son los falsos amigos, que aparecen tanto en los encabezados como en los párrafos y te pueden hacer descartar la respuesta correcta:
 
-La dificultad radica en la discrepancia entre **comprender detalles locales** y **captar la idea central**:
+| Palabra inglesa | Significa | Se confunde con |
+|---|---|---|
+| *actually* | en realidad | actualmente |
+| *eventually* | al final, con el tiempo | eventualmente (= quizá) |
+| *sensible* | sensato | sensible |
+| *assist* | ayudar | asistir a (= *attend*) |
+| *realize* | darse cuenta | realizar (= *carry out*) |
 
-- **La falsa seguridad del escaneo superficial:** Los candidatos acostumbrados a buscar palabras literales caen fácilmente en trampas semánticas. Los examinadores introducen términos técnicos complejos en párrafos que en realidad discuten un tema completamente distinto.
-- **La ubicación móvil de la oración temática (Topic Sentence):** Si bien en muchos textos formales la tesis aparece en la primera o segunda oración, en textos de divulgación científica la conclusión principal suele presentarse al final, tras exponer datos de contexto.
-- **La presión inexorable del cronómetro:** Dedicar más de 90 segundos a una sola pregunta pone en peligro tu rendimiento en los demás pasajes de la prueba.
+{{diagram: d2 | El reflejo de la raíz latina}}
 
-{{diagram: d2 | Idea Central vs Trampa de Detalle Específico}}
+## ¿Primero el párrafo o primero los encabezados?
 
-## Las 3 grandes trampas diseñadas por los examinadores
+Hay candidatos que leen antes toda la lista para saber qué temas buscar; otros prefieren el párrafo en limpio. La razón para leer primero el párrafo es que los encabezados pueden hacerte buscar ideas que el texto no contiene. La razón contraria es que conocer la lista te prepara el vocabulario. No hay una regla de IELTS al respecto: prueba ambos órdenes en textos de práctica y quédate con el que te haga cometer menos errores. Si lees primero el párrafo, fíjate en la frase inicial, en los conectores y en la frase final.
 
-Para no perder puntos ingenuamente, debes aprender a detectar los señuelos antes de marcar tu respuesta:
+## Un párrafo resuelto paso a paso
 
-### 1. La Trampa del Detalle Aislado (Detail Trap)
-Un encabezado puede ser 100% verídico según lo que afirma el texto —por ejemplo, citar el porcentaje exacto de una especie marina—. No obstante, ese dato es simplemente un ejemplo secundario que respalda el argumento. Un encabezado legítimo debe resumir el párrafo de principio a fin.
+Con el texto de práctica que viene más abajo, esto es lo que se piensa ante el párrafo B:
 
-### 2. La Trampa de la Palabra Idéntica (Word-Match Trap)
-Si el Párrafo D menciona repetidamente el vocablo *urbanization* y el Encabezado vi contiene exactamente *urbanization*, mantente alerta. Con frecuencia, el encabezado correcto utilizará paráfrasis como *growth of metropolitan areas*, *city expansion* o *demographic migration*.
+> **B.** That habit faded as farmers began buying uniform varieties from large suppliers. Yields rose, yet thousands of local varieties stopped being planted and, within a generation, many of them disappeared. Botanists who noticed the trend warned that a narrow range of crops would leave food supplies exposed to a single disease.
 
-### 3. La Trampa del Alcance Inadecuado (Demasiado Amplio o Demasiado Estrecho)
-- **Demasiado amplio:** Un título que describe el tema del artículo completo en lugar del subtema de ese párrafo en particular.
-- **Demasiado estrecho:** Un título que sintetiza a la perfección las primeras dos líneas, ignorando que el resto del párrafo cambia de rumbo mediante conectores de contraste como *However*, *Nonetheless* o *On the contrary*.
+1. **Función.** Primero se cuenta un cambio (los agricultores compran semillas uniformes) y después sus consecuencias: más rendimiento, pero desaparecen variedades. Etiqueta propia: «cambio con una pérdida».
+2. **Candidatos.** Dos encabezados tocan el tema: *A loss of variety that came with higher yields* y *The dangers of relying on a single crop*.
+3. **Descarte.** El segundo solo recoge la última frase, la advertencia de los botánicos; el párrafo entero habla de lo que ocurrió con las variedades. El primero reformula la frase del medio y cubre el cambio y su coste.
+4. **Resultado.** B = *ii*.
 
-## Estrategia Práctica de Resolución: El Método de los 5 Pasos
+Fíjate en que el encabezado correcto reformula: el párrafo habla de *varieties* que *disappeared* y de *yields* que *rose*, y el encabezado lo condensa en *loss of variety* y *higher yields*. Cuando un encabezado copia una palabra llamativa del párrafo, sospecha; cuando abarca solo una parte, como el segundo candidato, también.
 
-### Paso 1: Tacha el ejemplo de inmediato
-Si el examen incluye un párrafo resuelto a modo de muestra (ej.: *Paragraph A = iii*), cruza con una línea firme el número iii en la lista para evitar distracciones visuales.
+## Práctica con un texto propio
 
-### Paso 2: Lee el párrafo antes de mirar los encabezados
-El error más común es leer los 8 encabezados antes del texto. Eso satura tu memoria de trabajo y provoca que proyectes ideas inexistentes. Lee el Párrafo B con atención, enfocándote en la apertura, los conectores lógicos y el cierre.
+El texto siguiente está escrito para este artículo; no es un ejercicio oficial de IELTS ni procede de un examen. El párrafo B ya está resuelto arriba, así que practica con A, C y D, y mira las respuestas al final.
 
-### Paso 3: Resume el párrafo en 3 a 5 palabras propias
-Antes de mirar las opciones oficiales, formula mentalmente el propósito:
-- ¿Explica las causas de un fenómeno?
-- ¿Propone una solución tecnológica alternativa?
-- ¿Critica una política gubernamental obsoleta?
-Apunta una breve nota al margen de tu hoja.
+> **A.** For most of history, saving seed was part of ordinary farming. Each autumn, families kept the best grain for planting and swapped small amounts with neighbours, so a village's crops slowly adapted to its own soil and weather. Nobody thought of this as conservation; it was simply how the next harvest was secured.
+>
+> **B.** That habit faded as farmers began buying uniform varieties from large suppliers. Yields rose, yet thousands of local varieties stopped being planted and, within a generation, many of them disappeared. Botanists who noticed the trend warned that a narrow range of crops would leave food supplies exposed to a single disease.
+>
+> **C.** The response was to collect seed on purpose. Today many countries run seed banks that keep samples in cold, dry rooms, where seeds can stay alive for decades. Samples are tested regularly: some seeds are planted, and if too few seedlings emerge, new seed has to be grown to replace the old.
+>
+> **D.** Stored seed is not only a backup. Breeders use it to look for traits that modern crops lack, such as tolerance to drought or resistance to a new pest. Some farmers' groups have also begun to borrow seed from the banks, planting old varieties again and returning fresh seed to the collection afterwards.
 
-### Paso 4: Compara tu resumen con la lista de encabezados
-Examina ahora la lista oficial y busca la opción que coincida con tu concepto resumido, prestando atención a los sinónimos y reformulaciones.
+**Encabezados** (hay dos de más):
 
-### Paso 5: Desempate por bifurcación
-¿Dudas entre el encabezado ii y el v? No te bloquees. Escribe *ii / v* al lado del párrafo y continúa con el Párrafo C. Casi siempre, uno de esos dos encabezados encajará de forma indiscutible en un párrafo posterior, resolviendo tu dilema por eliminación.
+- i. Farmers' groups borrowing seed from the banks
+- ii. A loss of variety that came with higher yields
+- iii. Fresh purposes for forgotten crops
+- iv. A farming routine that shaped local crops
+- v. How seed collections are maintained
+- vi. The dangers of relying on a single crop
 
-## Ejemplo Práctico con Análisis Paso a Paso
+### Respuestas
 
-Observa el siguiente extracto académico simulado:
+Primero inténtalo tú. Después, comprueba:
 
-> *\"Urban transit networks in developing metropolises face mounting infrastructure deficits. Rather than investing billions in conventional subterranean railways, municipal planners are turning toward high-efficiency bus rapid transit (BRT) corridors, intelligent traffic-signal synchronization, and real-time commuter applications. These cost-effective interventions mitigate gridlock while delivering immediate public mobility benefits within constrained municipal budgets.\"*
+- **A = iv.** Todo el párrafo describe lo que las familias hacían cada año y cómo eso moldeaba los cultivos locales. El texto dice que nadie lo veía como conservación; trata de la rutina de las familias.
+- **B = ii.** Está explicado en el recorrido anterior. El encabezado vi es una trampa de alcance estrecho: toma solo la última frase.
+- **C = v.** El párrafo trata de cómo se conservan y se comprueban las muestras. El encabezado reformula (*keep samples in cold, dry rooms* y *tested regularly* → *maintained*) en lugar de copiar el texto.
+- **D = iii.** La idea es el uso nuevo de variedades antiguas (*old varieties* → *forgotten crops*), sin repetir la expresión del texto. El encabezado i es la trampa del detalle: recoge solo la última frase del párrafo.
 
-### Opciones de Encabezado:
-- *i. The historical financing of underground railway construction*
-- *ii. Innovative and affordable solutions in urban transport management*
-- *iii. Severe budget reductions in municipal administration*
+## Cómo repartir los 60 minutos
 
-### Análisis:
-- La opción *i* menciona el metro subterráneo solo como contraste de lo que *no* se debe hacer.
-- La opción *iii* menciona los presupuestos limitados, pero ese es solo un factor de contexto.
-- La opción *ii* es la respuesta correcta: resume la esencia global del párrafo (*innovative and affordable solutions*).
+Esta es una propuesta de organización personal, no una regla de IELTS:
 
+| Momento | Qué hacer |
+|---|---|
+| Primeros 20 minutos | Primer texto completo, con unos 60–90 segundos por párrafo en la tarea de encabezados |
+| Siguientes 20 minutos | Segundo texto, con el mismo ritmo |
+| Últimos 20 minutos | Tercer texto, que suele ser el más difícil |
+| Si dudas entre dos opciones | Anota ambas, sigue y vuelve al final |
 
-## La Importancia de la Organización Retórica del Párrafo Académico
+No hay tiempo adicional para pasar las respuestas a la hoja, así que conviene anotarlas directamente. Para profundizar, consulta la guía de [gestión del tiempo en IELTS Reading](/es/blog/gestion-del-tiempo-en-ielts-reading-60-minutos/).
 
-Para identificar encabezados con rapidez sobrehumana, resulta muy útil familiarizarse con los patrones retóricos clásicos que los académicos anglosajones emplean al redactar sus investigaciones:
+## Plan de práctica para las próximas semanas
 
-1. **Patrón Problema-Solución:** El párrafo inicia exponiendo una dificultad técnica o social y concluye presentando una intervención viable. El encabezado suele contener palabras como *solution*, *remedy*, *approach* o *addressing*.
-2. **Patrón Causa-Efecto:** Analiza las razones históricas o científicas detrás de un fenómeno contemporáneo. Busca palabras clave en el encabezado como *origins*, *factors*, *consequences* o *impact*.
-3. **Patrón de Tesis y Evidencia:** El autor formula una afirmación categórica al inicio y la sustenta mediante tres experimentos sucesivos. El encabezado resumirá la tesis, no los experimentos individuales.
+1. **Lee un artículo de divulgación cada día** (por ejemplo, de la BBC o de *National Geographic*) y escribe un mini encabezado de cada párrafo.
+2. **Haz sesiones cortas** con un bloque de encabezados completo.
+3. **Lleva un registro de errores:** apunta la palabra que te confundió y la paráfrasis que formaba la respuesta correcta.
+4. **Revisa tus falsos amigos** en la guía de [falsos amigos entre inglés y español](/es/blog/falsos-amigos-ingles-espanol/).
 
-## Plan de Entrenamiento Diario para Alcanzar Band 7+
+En Lexkite puedes leer [textos de IELTS por nivel](/app/#/reading), de A2 a C1, tocando cualquier palabra para consultarla.
 
-1. **Lee Publicaciones de Calidad Diariamente:** Artículos de *The Economist*, *BBC Future* o *National Geographic*. Al finalizar cada párrafo, sintetiza su mensaje principal en un micro-título.
-2. **Entrena con Límite de Tiempo Estricto:** Dedica sesiones cortas de 12 minutos para resolver bloques completos de encabezados.
-3. **Lleva un Registro de Paráfrasis:** Cuando cometas un error, registra qué palabra te confundió y qué sinónimo representaba la respuesta correcta.
+![](media:@s1 "Lecturas de IELTS por nivel, de A2 a C1, donde se puede tocar una palabra para consultarla")
 
-Para potenciar tu rendimiento en el examen, te recomendamos estudiar nuestro artículo sobre [Técnicas de Skimming y Scanning en IELTS Reading](/es/blog/tecnicas-skimming-scanning-ielts-reading/) y aprender a dominar el reloj con [Gestión del Tiempo en IELTS Reading: Estrategia de 60 Minutos](/es/blog/gestion-del-tiempo-en-ielts-reading-60-minutos/). Además, despeja dudas en otro formato exigente consultando [True, False, Not Given en IELTS Reading](/es/blog/true-false-not-given-ielts-reading-estrategias/) y amplía tus recursos léxicos con nuestro análisis sobre [Conectores en Inglés Linking Words](/es/blog/conectores-en-ingles-linking-words-guia/). También puedes revisar el compendio general en la [sección de gramática y exámenes](/en/grammar/).
+También puedes practicar la lectura según el tipo de pregunta en [Reading por tipo de pregunta](/app/#/rtype/headings). Para acostumbrarte al formato completo, está la sección de [simulacros](/app/#/mock) de las cuatro habilidades, y en el [Juegos y ejercicios](/app/#/practice) tienes juegos y ejercicios para repasar las palabras que hayas guardado en tu lista.
 
-Para practicar con lecturas académicas reales, textos graduados por nivel y cronómetro de examen integrado, ingresa ahora a la [Sección de Lectura de Lexkite](/#/reading) y ejercita tus reflejos en el [Centro de Práctica Lexkite](/#/practice).
+![](media:@s2 "Juegos y ejercicios de Lexkite con juegos y ejercicios como aprendizaje inteligente, emparejar tarjetas, pronunciación, prueba de opciones y examen")
 
-{{cta: /#/reading | Practicar textos de IELTS Reading en Lexkite ahora}}
+Otras guías útiles: [técnicas de skimming y scanning](/es/blog/tecnicas-skimming-scanning-ielts-reading/) y [True, False, Not Given](/es/blog/true-false-not-given-ielts-reading-estrategias/). Más vocabulario temático, en las [listas de vocabulario](/en/vocabulary/).
+
+{{cta: /app/#/rtype/headings | Practicar IELTS Reading por tipo de pregunta en Lexkite}}

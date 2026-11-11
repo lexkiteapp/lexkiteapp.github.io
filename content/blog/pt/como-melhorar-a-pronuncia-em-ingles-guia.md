@@ -1,157 +1,154 @@
 ---
-title: "Como Praticar Pronúncia em Inglês: Guia Fonético e IPA"
-description: "Descubra como praticar pronúncia em inglês: alfabeto fonético IPA, pares mínimos, ritmo de frases, técnica de shadowing e correção de erros de brasileiros."
+title: "Plano de estudo de pronúncia em inglês em 4 semanas"
+description: "Plano de estudo de pronúncia em inglês para brasileiros: 4 semanas, 10 minutos por dia, com autogravação para verificar vogal extra, m final, th e h versus r."
 slug: como-melhorar-a-pronuncia-em-ingles-guia
 lang: pt
 translationKey: luyen-phat-am-tieng-anh
 category: phat-am
 tags: [pronunciation, phonetics, ipa, speaking, b1]
-keyword: "praticar pronúncia em inglês"
-cover: pron
-coverAlt: "Biblioteca de pronúncia IPA no Lexkite com vogais, ditongos e consoantes para treino prático"
-publishAt: 2027-03-01T09:00:00-03:00
+keyword: "plano de estudo de pronúncia em inglês"
+cover: practice-speak
+coverAlt: "Tela de pronúncia do Lexkite com a frase cut down on e o botão de microfone"
+publishAt: 2027-01-03T21:16:00-03:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 91
+status: ready
 coverArt: {mood: think, icon: mic, chip: Pronúncia}
 shots: [
   {id: s1, route: '#/pron', crop: main},
   {id: s2, route: '#/practice', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: 'Os Três Pilares da Pronúncia Clara em Inglês', parts: [{t: '1. Fonemas e IPA (Sons Individuais)', r: 'Vogais curtas vs longas e consoantes inexistentes no português (/θ/, /ð/, /v/, /z/).'}, {t: '2. Ritmo e Acentuação (Word & Sentence Stress)', r: 'Acentuar a sílaba tônica correta e reduzir palavras gramaticais com o som schwa (/ə/).'}, {t: '3. Fala Conectada (Connected Speech & Linking)', r: 'Ligar consoantes finais a vogais seguintes e aplicar formas fracas naturais.'}]}
+  {id: d1, type: boxes, title: 'Um problema por semana, com uma gravação para verificar', parts: [{t: 'Semana 1: final das palavras', r: 'Sem vogal extra depois de /p/, /t/, /k/, /b/, /d/, /g/. Grave 5 frases e ouça só o fim de cada palavra.'}, {t: 'Semana 2: m e n finais', r: 'Lábios fechados no m de team, ponta da língua na gengiva no n de ten. Sem vogal nasal no lugar da consoante.'}, {t: 'Semana 3: th', r: 'Língua entre os dentes em think e this. Grave pares como think/sink e they/day para escutar a diferença.'}, {t: 'Semana 4: h e r', r: 'h com ar suave, r sem raspar a garganta. Grave hair/rare, ham/ram e hot/rot.'}]}
 ]
 quiz: [
   {
-    q: "Qual é o objetivo principal do treinamento de pronúncia para comunicação internacional e exames como o IELTS?",
-    options: [
-      "Eliminar totalmente qualquer vestígio de sotaque estrangeiro para soar como um britânico nativo",
-      "Alcançar clareza fonética e inteligibilidade para que o ouvinte compreenda sem esforço",
-      "Falar o mais rápido possível para demonstrar alto domínio de fluência no idioma",
-      "Pronunciar todas as sílabas com a mesma intensidade e volume de voz constante"
-    ],
-    answer: 1,
-    explain: "O objetivo real da comunicação em inglês não é a imitação perfeita de um sotaque local, mas sim a clareza fonética, a acentuação adequada e a inteligibilidade mútua."
-  },
-  {
-    q: "Por que pares mínimos (minimal pairs) como 'ship' e 'sheep' são tão importantes para estudantes brasileiros?",
-    options: [
-      "Porque o português não distingue vogais tensas e relaxadas, gerando confusão entre /ɪ/ e /iː/",
-      "Porque essas palavras pertencem exclusivamente à lista oficial de vocabulário arcaico",
-      "Porque eliminam a necessidade de aprender tempos verbais compostos no futuro",
-      "Porque servem para avaliar a velocidade de digitação em relatórios corporativos"
-    ],
+    q: "Quantas sílabas tem a palavra *desk* quando dita sem vogal extra no final?",
+    options: ["Uma", "Duas", "Três", "Quatro"],
     answer: 0,
-    explain: "Em português, não existe a oposição fonêmica entre a vogal curta relaxada /ɪ/ (em ship) e a vogal longa tensa /iː/ (em sheep), o que leva muitos falantes nativos de português a pronunciar ambas da mesma forma."
+    explain: "Em inglês, desk termina no /k/ e tem uma só sílaba. Ao acrescentar uma vogal depois do /k/, como em 'dés-qui', surge uma segunda sílaba que não existe na palavra."
   },
   {
-    q: "O que caracteriza a técnica de 'Shadowing' no aprimoramento da pronúncia e entonação?",
-    options: [
-      "Ler o texto silenciosamente decorando a grafia das palavras antes de ouvir o áudio",
-      "Escutar um áudio nativo e repetir quase simultaneamente copiando ritmo e melodia",
-      "Gravar a própria voz sem consultar fontes e depois comparar com um dicionário bilíngue",
-      "Traduzir mentalmente cada frase para o português antes de tentar falar em voz alta"
-    ],
-    answer: 1,
-    explain: "A técnica de Shadowing consiste em falar em voz alta quase ao mesmo tempo em que se ouve o locutor nativo, imitando não apenas a pronúncia, mas o ritmo, as pausas e a entonação da frase."
+    q: "No fim de *team*, o que forma o /m/?",
+    options: ["Língua entre os dentes", "Boca aberta e vogal nasal", "Lábios fechados por um instante", "Ponta da língua na gengiva"],
+    answer: 2,
+    explain: "O /m/ é uma consoante bilabial: os lábios se fecham e o ar sai pelo nariz. A vogal nasalizada do português, sem fechar os lábios, deixa a palavra parecida com 'tim'."
+  },
+  {
+    q: "Um brasileiro diz “hice” para *rice*. Qual é a causa mais provável?",
+    options: ["Vogal extra depois do /s/ final", "Vogal nasalizada no meio", "/i/ trocado por /e/ curto", "/h/ no lugar do /r/ inicial"],
+    answer: 3,
+    explain: "Em boa parte do Brasil, o r no início de palavra soa como um sopro parecido com o /h/ inglês. Aplicado a rice, o /r/ vira /h/ e a palavra soa como “hice”."
   }
 ]
 ---
 
-Muitos estudantes buscam saber a melhor forma de **praticar pronúncia em inglês** para superar a insegurança e o medo de falar em público. O medo de cometer deslizes de pronúncia, de ser mal interpretado ou de travar no meio de uma reunião de negócios com estrangeiros faz com que excelentes profissionais se mantenham calados.
+Quem procura um **plano de estudo de pronúncia em inglês** costuma ter o mesmo problema: lê dicas, ouve áudios, mas não sabe se está melhorando. A resposta curta deste texto é um plano de quatro semanas, com dez minutos por dia, em que você trabalha um único problema por semana e grava a própria voz para verificar o resultado. A gravação é o ponto central, porque ninguém percebe sozinho a vogal que acrescenta no fim de uma palavra.
 
-A boa notícia é que aprender **como melhorar a pronúncia em inglês** não exige que você nasça com um dom especial nem que perca a sua identidade cultural. Os critérios internacionais de avaliação, como os da prova de IELTS Speaking, não exigem que você fale com um sotaque britânico da realeza ou novaiorquino. O que realmente importa é a **clareza (clarity)**, o **ritmo das frases (sentence stress)** e a **capacidade de transmitir suas ideias de forma fluida e sem esforço para o interlocutor**.
+Os quatro problemas do plano aparecem com frequência na fala de brasileiros: a vogal extra no final das palavras, o *m* final, o *th* e a troca entre *h* e *r*. Se você prefere um panorama geral antes de começar, as [dicas gerais de pronúncia em inglês](/pt/blog/pronuncia-em-ingles-dicas/) cobrem o assunto de forma mais ampla. Aqui o foco é outro: um calendário curto e uma forma de verificar o seu progresso.
 
-Neste guia prático e aprofundado, você descobrirá a melhor metodologia para **praticar pronúncia em inglês** com rigor técnico, desvendando os símbolos do Alfabeto Fonético Internacional (IPA), os pares mínimos essenciais, o ritmo das orações e a técnica de *Shadowing*.
+## Como funciona o plano de estudo de pronúncia em inglês
 
-## Como praticar pronúncia em inglês: Os Três Pilares da Clareza
+{{diagram: d1 | Um problema por semana, com uma gravação para verificar}}
 
-A pronúncia não é apenas mover a boca para emitir sons isolados; ela é composta por três camadas integradas:
+A rotina diária tem três blocos, sempre com o celular por perto:
 
-![Biblioteca de pronúncia IPA no Lexkite](media:@s1 "Biblioteca de pronúncia IPA no Lexkite com vogais, ditongos e consoantes para treino prático")
+1. **Dois minutos de escuta.** Ouça a palavra-alvo dita por um falante nativo, de preferência duas ou três vezes, antes de falar.
+2. **Cinco minutos de repetição lenta.** Diga a palavra sozinha, depois dentro de uma frase curta. Fale devagar demais, de propósito: o objetivo é mover a boca de um jeito novo, não soar natural ainda.
+3. **Três minutos de gravação.** Grave cinco frases com as palavras da semana e ouça o resultado, prestando atenção a um único detalhe (veja o roteiro de verificação abaixo).
 
-{{diagram: d1 | Os Três Pilares da Pronúncia Clara em Inglês}}
+Duas regras evitam frustração. Primeira: não tente corrigir tudo ao mesmo tempo. Se você vigia o *th*, o *r* e o ritmo na mesma frase, a atenção se divide e nenhum dos três melhora. Segunda: a gravação do primeiro dia é a sua linha de base. Guarde esse arquivo; no último dia do plano, grave as mesmas frases e compare.
 
-### 1. Sons Individuais e o Alfabeto Fonético (IPA)
-O inglês tem 26 letras, mas produz aproximadamente 44 sons distintos (20 vocálicos e 24 consonantais). Compreender os símbolos do IPA liberta você da armadilha da ortografia:
-- Em inglês, letras iguais produzem sons completamente diferentes (compare o som de *o* em *women*, *hot*, *one* e *bone*).
-- O IPA mostra a você a receita fonética exata de cada palavra, permitindo que você consulte qualquer dicionário e saiba pronunciá-la perfeitamente sem nunca tê-la ouvido antes.
+### O roteiro de verificação
 
-### 2. Acentuação de Palavras e Ritmo de Frases (Stress-Timed Language)
-O português é uma língua de ritmo baseado em sílabas (*syllable-timed*), onde cada sílaba tem uma duração relativamente constante. O inglês, por outro lado, é baseado em tempos acentuados (*stress-timed*):
-- As palavras de conteúdo (*content words* como substantivos, verbos principais e adjetivos) são pronunciadas de forma mais longa, alta e nítida.
-- As palavras gramaticais (*function words* como preposições, artigos e pronomes) são drasticamente encurtadas e neutralizadas, geralmente assumindo o som da vogal mais comum do inglês: o **schwa (/ə/)**.
+Depois de cada gravação, faça três perguntas, nesta ordem:
 
-### 3. Fala Conectada (Connected Speech)
-Falantes nativos não pronunciam as palavras em caixas separadas. Quando uma palavra termina em consoante e a seguinte começa com vogal, elas se fundem naturalmente:
-- *turn it on* soa como "tur-ni-ton".
-- Dominar esse encadeamento faz com que você deixe de soar mecânico ou "robótico".
+- Eu ouço o som que queria produzir? (o som da semana)
+- Alguma vogal apareceu onde não devia?
+- Se eu ouvisse essa gravação sem saber quem fala, entenderia a palavra?
 
-## Os 4 Maiores Desafios de Pronúncia para Falantes de Português
+Anote um sim ou não para cada pergunta num caderno. Não é uma nota: é só um registro para você ver, no fim da semana, se os "não" diminuíram.
 
-A interferência da língua materna (L1 transfer) faz com que cometamos erros específicos de articulação. Reconhecê-los é o primeiro passo para corrigi-los:
+## Semana 1: terminar a palavra sem vogal extra
 
-### 1. A Adição da Vogal "I" Fantasma no Final de Palavras (Epêntese)
-Em português, quase todas as palavras terminam em som vocálico. Por isso, brasileiros têm o hábito involuntário de acrescentar um som de "i" no final de palavras em inglês que terminam em consoantes oclusivas (/p/, /t/, /k/, /b/, /d/, /g/):
-- *Facebook* acaba soando como "Face-boo-ki".
-- *Internet* vira "Inter-ne-ti".
-- *Stop* soa como "E-stop-i".
-**Como corrigir:** Treine travar o ar na boca e soltar suavemente sem permitir que suas cordas vocais vibrem para formar um "i". Pratique dizer *cat*, *book*, *like* e *good* com um final seco.
+Em português, a maioria das sílabas termina em vogal. Por isso, o brasileiro tende a completar com um "i" as palavras inglesas que terminam em /p/, /t/, /k/, /b/, /d/ ou /g/. É o mesmo processo que transforma *Facebook* em "Feice-buqui" na fala cotidiana. Os linguistas chamam isso de epêntese: um som que se insere entre ou depois de consoantes para facilitar a pronúncia.
 
-### 2. O Som do "TH" (/θ/ e /ð/)
-Os dois sons do dígrafo TH não existem no português brasileiro. O erro mais comum é substituí-los por F, S ou D:
-- *I think* vira *I fink* ou *I sink*.
-- *This* vira *Dis*.
-**Como corrigir:** Coloque suavemente a ponta da língua entre os dentes superiores e inferiores e sopre o ar:
-- Para o /θ/ de *think*, *three* e *thank you*, apenas solte o ar (sem vibrar a garganta).
-- Para o /ð/ de *this*, *that* e *brother*, faça suas cordas vocais vibrarem enquanto o ar passa.
+O problema não é o som do "i" em si, e sim o fato de ele criar uma sílaba a mais. *Backpack* tem duas sílabas; "béqui-péqui" tem quatro, e o ritmo da frase inteira muda.
 
-### 3. A Diferença Crucial entre Vogais Curtas e Longas
-- *ship* /ʃɪp/ (navio) vs *sheep* /ʃiːp/ (ovelha)
-- *bitch* /bɪtʃ/ (palavrão) vs *beach* /biːtʃ/ (praia)
-- *live* /lɪv/ (morar/viver) vs *leave* /liːv/ (partir/sair)
-Em inglês, a vogal curta /ɪ/ é relaxada e produzida com a boca ligeiramente mais aberta, enquanto o /iː/ é longo e tenso, com os cantos dos lábios esticados como em um sorriso.
+**Como treinar.** Escolha dez palavras com final em consoante oclusiva: *mood*, *rock*, *grab*, *stamp*, *flight*, *bag*, *proud*, *map*, *kept*, *cheap*. Diga cada uma e feche a articulação no último som: lábios fechados em *map*, língua na gengiva em *flight*, fundo da língua no céu da boca em *rock*. Solte o ar sem ligar a voz depois do fim. Uma imagem que ajuda: a palavra termina como uma porta que se fecha, sem eco.
 
-### 4. O Som do "ED" no Passado dos Verbos Regulares
-Nem todo verbo que termina em -ed tem o sufixo pronunciado como "édi". Na verdade, existem três regras definitivas:
-- Após /t/ ou /d/: pronuncia-se /ɪd/ como uma sílaba extra (*wanted*, *needed*).
-- Após sons surdos (/p, k, s, ʃ, tʃ, f/): pronuncia-se apenas um som rápido de /t/ (*worked*, *watched*, *kissed*).
-- Após sons sonoros e vogais: pronuncia-se apenas /d/ (*played*, *lived*, *cleaned*).
+**Verificação na gravação.** Ouça só o final de cada palavra. Se você escutar um "i" ou um "e" depois da consoante, marque a palavra e repita três vezes. Um truque útil é gravar a frase *I packed a book, a bag and a map* e cortar mentalmente o áudio logo depois de cada substantivo: não deve sobrar nenhum resto de vogal.
 
+## Semana 2: m e n no final da palavra
 
-## O Fenômeno do Dark L e as Consoantes Nasais
+No português, o *m* no fim de uma sílaba quase não existe como consoante: em *bom* ou *um*, o que se ouve é uma vogal nasalizada, sem que os lábios se fechem. Quando o brasileiro lê *team* ou *time* em inglês e aplica esse hábito, o final sai como uma vogal nasalizada, e a consoante some (algo como "tĩ" para *team*).
 
-Além dos quatro desafios mais famosos, há dois aspectos sutis que denunciam de imediato o sotaque estrangeiro e podem prejudicar a inteligibilidade em exames de proficiência:
+Em inglês, o /m/ final é uma consoante completa: os lábios se encontram e o ar passa pelo nariz. O /n/ final (*ten*, *green*) pede a ponta da língua tocando a gengiva logo atrás dos dentes de cima. E o /ŋ/ de *sing* ou *morning* usa o fundo da língua, sem nenhum /g/ depois: muitos falantes acrescentam esse /g/ e dizem algo como "sín-gui".
 
-### 1. O Dark L em Posição Final de Sílaba
-Em português brasileiro, a letra L no final de palavras é invariavelmente vocalizada com som de U (por exemplo, Brasil soa como Brasiu, e papel soa como papeu).
-- Ao falar inglês, transferimos esse hábito e pronunciamos milk como miuk, feel como fiu e apple como epu.
-- Ajuste Fonético: Para produzir o Dark L autêntico em inglês, a parte posterior da língua se eleva em direção ao palato mole, enquanto a ponta da língua mantém contato firme com o céu da boca logo atrás dos dentes incisivos superiores.
+**Como treinar.** Faça três grupos de palavras e diga cada um com o gesto exagerado:
 
-### 2. A Nasalização Excessiva de Vogais diante de M e N
-No português, as vogais antes de M e N tornam-se fortemente nasais (como em campo ou canto). Em inglês, a vogal permanece limpa e puramente oral, e a consoante nasal seguinte (/m/, /n/, /ng/) deve ser articulada com fechamento labial ou lingual completo:
-- Ao dizer can /kaen/, certifique-se de que o ar saia pelo nariz apenas no momento em que a ponta da língua bloqueia o palato para o som /n/.
+- /m/: *team*, *home*, *name*, *farm*
+- /n/: *ten*, *green*, *plan*, *phone*
+- /ŋ/: *sing*, *morning*, *long*, *thing*
 
-## A Técnica de Shadowing: Treinando a Memória Muscular
+Diga *team* encostando um dedo nos lábios: eles precisam se fechar de fato. Em *ten*, sinta a língua tocar a gengiva e solte o ar por ali.
 
-A pronúncia é uma habilidade física motora, similar a praticar esportes ou tocar um instrumento musical. Seus músculos faciais, lábios e língua precisam se acostumar com movimentos que não realizam no português.
+**Verificação na gravação.** Grave *I'm at home with the team this morning*. Ouça o final de *home* e *team*: o fechamento dos lábios deve produzir um "mm" curto, quase um zumbido. Em *morning*, confirme que não aparece um /g/ depois do *ng*.
 
-A técnica de **Shadowing** funciona da seguinte forma:
-1. **Escolha um áudio curto (1 a 2 minutos):** Pode ser um trecho de podcast, palestra do TED ou lição com locutor nativo em velocidade confortável.
-2. **Ouça atentamente na primeira vez:** Concentre-se em onde o locutor faz pausas e quais palavras ele enfatiza.
-3. **Fale simultaneamente:** Toque o áudio e fale em voz alta ao mesmo tempo, repetindo o que ouve com uma fração de segundo de atraso, como se fosse a sombra do locutor.
-4. **Grave sua voz e compare:** Escutar a própria gravação ao lado do áudio original é o método mais rápido para identificar desvios de entonação.
+## Semana 3: o th de think e this
 
-## Rotina Prática de 15 Minutos Diários
+Os dois sons do *th* não existem no português brasileiro. O /θ/ de *think* é surdo: só passa ar entre a língua e os dentes. O /ð/ de *this* é sonoro: o mesmo gesto, mas com a voz ligada. A substituição mais comum é por /t/, /d/, /f/ ou /s/, e ela pode mudar a palavra: *thing* vira *sing*, e *think* vira *sink*.
 
-Para obter resultados consistentes, a repetição espaçada e diária é infinitamente mais produtiva do que estudar duas horas apenas no fim de semana:
+**Como treinar.** Coloque a ponta da língua entre os dentes, mal tocando, e sopre. Depois, sem mexer a língua, ligue a voz. Se você sentir uma leve vibração, é o /ð/. Aplique em palavras:
 
-- **Minutos 0–5: Treino de Pares Mínimos e Fonemas Isolados** (Ex.: 10 repetições de *bit/beat*, *pull/pool*, *think/sink* diante do espelho).
-- **Minutos 5–10: Prática de Frases com Sentence Stress** (Identificar palavras-chave e praticar frases rítmicas).
-- **Minutos 10–15: Shadowing de um Parágrafo Real** (Falar junto com o áudio nativo focando na fluidez e conexões).
+- /θ/: *think*, *thank*, *month*, *bath*
+- /ð/: *this*, *that*, *mother*, *breathe*
 
-Para aprofundar seu conhecimento sobre cadência de fala, recomendamos a leitura do artigo sobre [Ritmo e Stress Oracional em Inglês](/pt/blog/ritmo-e-stress-oracional-em-ingles-guia/), domine as regras do passado em [Pronúncia do ed em Inglês](/pt/blog/pronuncia-do-ed-em-ingles/) e confira também as construções verbais no guia sobre a [Diferença entre Make e Do](/pt/blog/diferenca-entre-make-e-do/). Para expandir sua bagagem oral para exames, veja [Frases em Inglês para Conversação do Dia a Dia](/pt/blog/frases-em-ingles-para-conversacao-do-dia-a-dia/) e consulte a base teórica em [artigos de gramática e fonética](/en/grammar/).
+**Verificação na gravação.** Grave os pares *think / sink*, *thing / sing*, *they / day* e ouça com os olhos fechados. A diferença está no ataque da palavra: em *think*, há uma fricção suave, quase sem ponta; em *sink*, o silvo do /s/ é mais agudo e prolongado. Se você não conseguir distinguir os pares ouvindo a si mesmo, peça a outra pessoa para tentar adivinhar qual palavra você disse. Esse teste de "ouvinte cego" é mais confiável que a sua própria impressão.
 
-Para treinar a sua percepção auditiva e avaliar sua articulação com feedback interativo por fonema, acesse agora o [Laboratório de Pronúncia IPA do Lexkite](/#/pron) e fortaleça suas habilidades orais no [Hub de Prática Lexkite](/#/practice).
+Uma observação sobre o ritmo: os dois sons ocorrem muito em palavras curtas e muito frequentes (*the*, *that*, *this*, *they*). Em frases rápidas, o gesto pode ficar menor, mas a língua continua tocando os dentes. Comece exagerando, e só na semana seguinte reduza o gesto.
 
-{{cta: /#/pron | Comece a treinar sua pronúncia no Lexkite agora}}
+## Semana 4: h e r, dois sons que o português troca
+
+Este é o par menos óbvio, porque o /h/ inglês já existe na fala brasileira, mas escrito com a letra r, e o /r/ inglês não tem equivalente direto. Em boa parte do Brasil, o *r* no início de palavra (*rato*, *rua*) é pronunciado como um sopro vindo da garganta, muito parecido com o /h/ inglês. Já a letra *h* em português é muda (*hora*, *hotel*). Resultado: o brasileiro tem duas armadilhas ao mesmo tempo.
+
+1. Em palavras inglesas com *r* no início, como *rice* ou *right*, ele usa o sopro da garganta e produz algo próximo de "hice" e "hight".
+2. Em palavras com *h* audível, como *hotel*, *happy* e *behind*, o brasileiro às vezes omite o som por analogia com o português, em que o *h* é mudo, e diz algo como "otel" ou "apy".
+
+O /r/ inglês se produz sem raspar a garganta: a ponta da língua recua, sem tocar o céu da boca, e os lábios ficam levemente arredondados. O /h/ é só um sopro de ar, sem nenhuma fricção.
+
+**Como treinar.** Alterne pares em que a diferença é só essa:
+
+- *hair / rare*
+- *ham / ram*
+- *hot / rot*
+
+**Verificação na gravação.** Grave os três pares em sequência, três vezes. Ao ouvir, procure raspagem: se o *r* tem um ruído áspero de garganta, ainda está na posição do português. O /r/ inglês é mais "redondo", com um som próximo de uma vogal escura. Depois, grave *happy*, *hotel*, *behind*: o /h/ precisa ser audível, mesmo que breve.
+
+## Como usar o Lexkite durante o plano
+
+A [Biblioteca de pronúncia](/#/pron) reúne os sons do IPA (vogais, ditongos e consoantes) com palavras de exemplo. Para cada semana, você pode ouvir a palavra, dizê-la e ver a nota que o app dá à sua pronúncia da palavra. Isso ajuda como segundo critério, mas não substitui a sua gravação: a nota é só um número e não diz qual gesto falhou (uma vogal no fim, um m sem fechar os lábios). Isso você percebe ao comparar as suas gravações.
+
+![](media:@s1 "Sons do IPA na biblioteca de pronúncia, com palavras de exemplo e prática de cada som")
+
+Na área [Jogos e exercícios](/#/practice), há um treino de pronúncia em que você diz uma expressão em voz alta e recebe uma nota baseada na sua voz. Use-o nos dias de repetição, quando você já sabe qual gesto precisa fazer.
+
+![](media:@s2 "A área Jogos e exercícios do Lexkite, que reúne o treino de pronúncia")
+
+Para conhecer os símbolos que aparecem na biblioteca, vale ler antes a [tabela do alfabeto fonético internacional](/pt/blog/tabela-ipa-alfabeto-fonetico-ingles/).
+
+Se quiser acrescentar repetição simultânea com um áudio, a [técnica de shadowing](/pt/blog/tecnica-shadowing-ingles-falar-fluente/) combina bem com a rotina diária. Quando as quatro semanas terminarem, o passo seguinte é ligar as palavras na frase: o ritmo e a redução das palavras fracas são o assunto do artigo sobre [ritmo e stress em inglês](/pt/blog/ritmo-e-stress-oracional-em-ingles-guia/). E, para praticar falando sobre temas do dia a dia, a página de [speaking](/en/speaking/) do Lexkite (em inglês) reúne perguntas por tema.
+
+## Como medir o resultado no final
+
+No último dia, abra o arquivo gravado na primeira semana e grave de novo as mesmas frases, sem olhar a gravação antiga. Depois, ouça as duas versões em sequência, na mesma ordem, e responda:
+
+- Alguma palavra perdeu a vogal no fim?
+- O *m* e o *n* finais soam como consoantes?
+- O *th* de *think* se distingue do /s/ de *sink*?
+- O *r* e o *h* mudaram de lugar?
+
+Marque o que melhorou e o que ainda não. O que ficou pendente passa para um segundo ciclo de quatro semanas, com o mesmo roteiro. É normal que um hábito de toda uma vida leve mais de um ciclo para mudar; a gravação serve para você enxergar o caminho.
+
+{{cta: /#/pron | Abrir a biblioteca de pronúncia do Lexkite}}

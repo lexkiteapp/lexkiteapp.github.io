@@ -1,162 +1,182 @@
 ---
-title: "Inglés para Viajes al Extranjero: Guía de Conversación Real"
-description: "Inglés para viajes al extranjero: más de 120 frases clave para aeropuertos, aduanas, hoteles, restaurantes, transporte y situaciones de emergencia."
+title: "Inglés para resolver problemas durante un viaje"
+description: "Inglés para resolver problemas durante un viaje: qué decir ante un vuelo retrasado, una maleta perdida, una reserva equivocada o un malestar, y errores típicos."
 slug: ingles-para-viajes-al-extranjero-guia-conversacion
 lang: es
 translationKey: tieng-anh-du-lich-nuoc-ngoai
 category: tu-vung
 tags: [travel, vocabulary, speaking, phrases, b1]
-keyword: "inglés para viajes al extranjero"
-cover: phrases
-coverAlt: "Cuaderno de frases y estructuras de Lexkite con expresiones clave para viajes internacionales"
-publishAt: 2027-03-01T14:00:00+01:00
+keyword: "inglés para resolver problemas durante un viaje"
+cover: practice-speak
+coverAlt: "Práctica de pronunciación con puntuación en Lexkite: la frase cut down on, botón de micrófono para hablar y puntuación según la voz"
+publishAt: 2026-12-27T07:57:00-06:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: cheer, icon: chat, chip: Travel English}
 shots: [
   {id: s1, route: '#/phrases', crop: main},
   {id: s2, route: '#/practice', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: 'Ruta de Comunicación en Viajes Internacionales', parts: [{t: 'Fase 1: Tránsito y Fronteras', r: 'Control migratorio, aduanas, reclamo de equipaje y conexiones de vuelo.'}, {t: 'Fase 2: Hospitalidad y Servicios', r: 'Check-in en hoteles, solicitudes de conserjería, reservas y consultas.'}, {t: 'Fase 3: Movilidad y Ciudad', r: 'Transporte público, compra de billetes, direcciones urbanas y restaurantes.'}, {t: 'Fase 4: Imprevistos y Emergencias', r: 'Pérdida de documentos, farmacias, atención médica y asistencia policial.'}]}
+  {id: d1, type: boxes, title: 'Fórmula para explicar un problema', parts: [{t: '1. Di qué ocurre', r: 'Una frase corta y en presente perfecto o pasado: My suitcase hasn''t arrived. / Our flight has been delayed.'}, {t: '2. Pide una solución', r: 'Con Could you o Would it be possible: Could you check where it is?'}, {t: '3. Confirma lo acordado', r: 'Repite en tus palabras: So you''ll call me when it arrives, right?'}, {t: '4. Pide algo por escrito', r: 'Un número de referencia o un correo: Could I have a reference number?'}]}
 ]
 quiz: [
   {
-    q: "Al pasar por el control de aduanas e inmigración en un aeropuerto internacional, ¿cuál es la respuesta más clara y formal ante la pregunta 'What is the purpose of your visit?'?",
+    q: "Quieres que te cambien de habitación por el ruido. Completa la petición: 'Could you ___ me to another room, please?'",
     options: [
-      "'I am merely exploring foreign territories without any specific legal documentation.'",
-      "'I am here for tourism and sightseeing for two weeks, staying at a hotel.'",
-      "'My personal intention is highly private and does not concern municipal border agents.'",
-      "'I have arrived here by airplane because my domestic calendar permitted vacation.'"
+      "move",
+      "moving",
+      "to move",
+      "moved"
     ],
-    answer: 1,
-    explain: "Declarar de forma directa y concisa el propósito del viaje ('I am here for tourism for two weeks...') y el alojamiento previsto genera confianza y agiliza el trámite migratorio."
+    answer: 0,
+    explain: "Después de Could you va el verbo en forma base, sin to ni -ing: Could you move me to another room, please?"
   },
   {
-    q: "¿Qué expresión es la más adecuada y cortés para pedir la cuenta en un restaurante en un país angloparlante?",
+    q: "Ayer perdiste la billetera en el aeropuerto. Completa: 'I ___ my wallet at the airport yesterday.'",
     options: [
-      "'Bring me the legal financial invoice immediately because I am finished eating.'",
-      "'Could we please have the bill (UK) / the check (US) when you have a moment?'",
-      "'Why is your service taking so long to calculate my restaurant consumption today?'",
-      "'I demand to pay my monetary obligation before leaving this dining establishment.'"
+      "have lost",
+      "had lost",
+      "lost",
+      "was losing"
     ],
-    answer: 1,
-    explain: "'Could we please have the bill?' (inglés británico) o 'Could we have the check?' (inglés americano) es la fórmula estándar de cortesía universal en gastronomía."
+    answer: 2,
+    explain: "Con un momento terminado como yesterday se usa el pasado simple: I lost. El presente perfecto (have lost) no va con yesterday."
   },
   {
-    q: "Si en un hotel extranjero descubres que el aire acondicionado de tu habitación no funciona, ¿cómo formular el reclamo con firmeza y educación?",
+    q: "No entendiste lo que dijo el agente. Completa: 'Sorry, could you ___ that, please?'",
     options: [
-      "'Your hotel establishment has failed completely to provide basic thermal standards.'",
-      "'Excuse me, the air conditioning in room 304 seems to be out of order. Could someone take a look at it?'",
-      "'I will report this room temperature failure to international regulatory authorities right now.'",
-      "'Who designed this defective cooling hardware in my private accommodation quarters?'"
+      "reply",
+      "rewrite",
+      "review",
+      "repeat"
     ],
-    answer: 1,
-    explain: "Usar 'seems to be out of order' (parece estar fuera de servicio) y solicitar asistencia educadamente ('Could someone take a look at it?') resuelve el problema de forma rápida y profesional."
+    answer: 3,
+    explain: "Para pedir que lo vuelvan a decir se usa repeat. Reply, rewrite y review no piden que te lo vuelvan a decir."
   }
 ]
+
 ---
 
-Viajar a un país angloparlante o recorrer destinos globales donde se exige **inglés para viajes al extranjero** es una experiencia fascinante pero llena de retos cotidianos. Muchos viajeros hispanohablantes sienten inseguridad: temen no entender al oficial de aduanas, no saber reclamar una maleta extraviada o no lograr pedir un cambio de habitación en el hotel con cortesía y eficacia.
+El inglés para resolver problemas durante un viaje se apoya en una fórmula de cuatro pasos: decir qué ha pasado, pedir una solución con educación, confirmar lo acordado y pedir algo por escrito. Con ella y un puñado de frases por situación, puedes resolver el retraso de un vuelo, una maleta que no aparece, una reserva equivocada o una visita a la farmacia sin necesidad de un inglés avanzado.
 
-El secreto para desenvolverse con solvencia en el extranjero no radica en memorizar diccionarios completos ni en dominar reglas teóricas complejas de gramática. En los viajes, lo primordial es la **comunicación funcional e inmediata**. Disponer de bloques léxicos completos (*sentence chunks*) y patrones de preguntas de cortesía listos para usar te permite resolver trámites aduaneros, pedir direcciones o solicitar auxilio médico con total seguridad.
+Este artículo trata de los problemas, no del viaje feliz. Si buscas las frases de un viaje normal (facturar, pedir en un restaurante, preguntar por un tren), consulta antes [inglés para viajar: frases esenciales](/es/blog/ingles-para-viajar-frases-esenciales/). Aquí nos centramos en lo que pasa cuando el plan falla y en los errores que cometen los hispanohablantes justo en esos momentos.
 
-En este manual práctico y exhaustivo, aprenderás **inglés para viajes al extranjero** a través de más de 120 expresiones categorizadas para cada etapa de tu itinerario: desde el desembarque en el aeropuerto hasta la resolución de emergencias médicas imprevistas.
+## Inglés para resolver problemas durante un viaje: una fórmula de cuatro pasos
 
-## inglés para viajes al extranjero: Ruta de Comunicación por Etapas
+En situaciones de estrés es mejor tener una estructura fija que improvisar. Prueba esta de cuatro pasos:
 
-Para viajar con serenidad, conviene organizar las necesidades de comunicación en cuatro fases operativas consecutivas:
+{{diagram: d1 | Fórmula para explicar un problema}}
 
-![Cuaderno de frases y estructuras de Lexkite](media:@s1 "Cuaderno de frases y estructuras de Lexkite con expresiones clave para viajes internacionales")
+Por ejemplo, ante una maleta que no llega:
 
-{{diagram: d1 | Ruta de Comunicación en Viajes Internacionales}}
+1. *My suitcase hasn't arrived.* (Mi maleta no ha llegado.)
+2. *Could you check where it is?* (¿Podría comprobar dónde está?)
+3. *So you'll call me when it's found, right?* (O sea, que me llamarán cuando aparezca, ¿verdad?)
+4. *Could I have a reference number?* (¿Podría darme un número de referencia?)
 
-## 1. En el Aeropuerto y Control Fronterizo (Airport & Immigration)
+La petición siempre empieza con *Could you...?*, *Would it be possible to...?* o *I'd like to...*. El español admite el imperativo y el *quiero* con naturalidad; en inglés, *I want a refund* o *Give me another room* suenan a exigencia y pueden endurecer al interlocutor desde el principio.
 
-La interacción con oficiales de aduanas y personal de aerolíneas requiere precisión, serenidad y formalidad:
+## Vuelo retrasado o cancelado
 
-- **What is the purpose of your visit?** (¿Cuál es el motivo de su visita?)
-  - *I am here on vacation / on business.* (Estoy aquí de vacaciones / por negocios.)
-- **How long do you intend to stay?** (¿Cuánto tiempo planea quedarse?)
-  - *I will be staying for ten days. Here is my return flight confirmation.* (Me quedaré diez días. Aquí está la confirmación de mi vuelo de regreso.)
-- **Where will you be staying?** (¿Dónde se hospedará?)
-  - *I have a reservation at the Central Plaza Hotel.* (Tengo una reserva en el Hotel Central Plaza.)
-- **Do you have anything to declare?** (¿Tiene algo que declarar?)
-  - *No, I have nothing to declare.* (No, no tengo nada que declarar.)
-- **Excuse me, where is baggage carousel number 4?** (Disculpe, ¿dónde está la cinta de equipaje número 4?)
-- **My luggage has not arrived. Where can I file a missing baggage report?** (Mi equipaje no ha llegado. ¿Dónde puedo presentar el reporte de extravío?)
+En el mostrador o en la puerta de abordar (de embarque), estas frases te sirven para saber qué ocurre y qué opciones tienes:
 
-## 2. En el Hotel y Alojamientos (Hotel Check-In & Service)
+- *Our flight has been delayed. Do you know how long it will be?* (Nuestro vuelo se ha retrasado. ¿Sabe cuánto tiempo será?)
+- *I'm going to miss my connection. What are my options?* (Voy a perder mi conexión. ¿Qué opciones tengo?)
+- *Will I be put on the next flight?* (¿Me pasarán al siguiente vuelo?)
+- *Does the airline provide a hotel or meal vouchers?* (¿La aerolínea ofrece hotel o vales de comida?)
+- *Could you put it in writing, please?* (¿Podría dármelo por escrito?)
 
-El vocabulario de hospitalidad te garantiza una estancia confortable y sin malentendidos:
+Fíjate en *has been delayed* y *has been cancelled*: en inglés se usa el presente perfecto con pasiva. También se dice *is delayed* (el vuelo está retrasado), igual de correcto. Ojo con «retrasado»: *retarded* existe en inglés, pero es ofensivo; di siempre *delayed*. Pregunta siempre qué ofrecen y no des por hecho que lo cubre la aerolínea; las normas dependen del país y del boleto o pasaje.
 
-- **I have a reservation under the name of Gonzalez.** (Tengo una reserva a nombre de González.)
-- **Could we request a quiet room on a higher floor?** (¿Podríamos solicitar una habitación tranquila en un piso alto?)
-- **What time is breakfast served in the morning?** (¿A qué hora se sirve el desayuno por la mañana?)
-- **Could you please store our luggage until check-in time?** (¿Podrían guardar nuestras maletas hasta la hora del check-in?)
-- **The keycard does not seem to be working.** (La tarjeta de la habitación parece no funcionar.)
-- **Could we arrange a late checkout for tomorrow afternoon?** (¿Podríamos coordinar una salida tardía para mañana por la tarde?)
+## Equipaje perdido o dañado
 
-## 3. En Restaurantes y Gastronomía (Dining Out & Cafés)
+Antes de salir de la zona de recogida, ve al mostrador de equipaje (*the baggage desk* o *lost luggage desk*):
 
-Disfrutar de la cocina local sin sobresaltos requiere fórmulas claras para ordenar y consultar ingredientes:
+- *My suitcase hasn't come out on the belt.* (Mi maleta no ha salido en la cinta.)
+- *I'd like to file a report.* (Quisiera presentar un reclamo.)
+- *I'd like to report a missing bag.* (Quiero reportar una maleta perdida.)
+- *It's a black hard-shell suitcase with a red strap.* (Es una maleta negra rígida con una correa roja.)
+- *Could you deliver it to my hotel?* (¿Podrían entregarla en mi hotel?)
+- *The handle is broken. It wasn't like this when I checked it in.* (El asa está rota. No estaba así cuando la facturé.)
 
-- **A table for two, please. We prefer outdoor seating.** (Una mesa para dos, por favor. Preferimos sentarnos afuera.)
-- **Could you recommend any local house specialties?** (¿Podría recomendarnos alguna especialidad local de la casa?)
-- **I am allergic to peanuts / shellfish. Does this dish contain any nuts?** (Soy alérgico a los cacahuates / mariscos. ¿Este plato contiene frutos secos?)
-- **Could we get the dressing on the side, please?** (¿Nos podría traer el aderezo aparte, por favor?)
-- **Everything was delicious, thank you very much.** (Todo estuvo delicioso, muchas gracias.)
-- **Could we split the bill, or do we pay together?** (¿Podemos dividir la cuenta o pagamos juntos?)
+*Luggage* y *baggage* se entienden en ambas variedades; en el aeropuerto verás *baggage claim* (EE. UU.) o *baggage reclaim* (Reino Unido) sobre las cintas. Conserva el comprobante y pide el número del reclamo.
 
-## 4. Transporte Público y Direcciones Urbanas (Getting Around)
+## Reserva equivocada o cobro de más
 
-Moverse con autonomía por una metrópoli extranjera:
+En el hotel o al alquilar un auto, empieza por los datos y no por la queja:
 
-- **Excuse me, which platform does the express train to the city center depart from?** (Disculpe, ¿de qué andén sale el tren expreso al centro de la ciudad?)
-- **How often do the airport shuttles run?** (¿Con qué frecuencia pasan los autobuses al aeropuerto?)
-- **Could you tell me how to get to the National Museum from here?** (¿Podría indicarme cómo llegar al Museo Nacional desde aquí?)
-- **Is this seat taken?** (¿Está ocupado este asiento?)
-- **Could you please let me know when we arrive at Oxford Circus?** (¿Podría avisarme cuando lleguemos a Oxford Circus?)
-- **How much is the one-day travel pass for all transit zones?** (¿Cuánto cuesta el pase de transporte de un día para todas las zonas?)
+- *I booked a double room, but this one has twin beds.* (Reservé una habitación doble, pero esta tiene dos camas.)
+- *I think there's been a mistake with my reservation. Here's my confirmation email.* (Creo que ha habido un error con mi reserva. Aquí tiene mi correo de confirmación.)
+- *I've been charged twice for the same night.* (Me cobraron dos veces la misma noche.)
+- *The air conditioning isn't working. Could someone take a look?* (El aire acondicionado no funciona. ¿Podría alguien echarle un vistazo?)
+- *Is there another room available?* (¿Hay otra habitación libre?)
 
-## 5. Compras y Transacciones Comerciales (Shopping & Tax Refunds)
+Ojo con el sujeto: en español basta «no funciona», pero en inglés hace falta *It isn't working* o *It doesn't work*; *Is not working* suena incompleto.
 
-- **Do you happen to have this jacket in a smaller size?** (¿Por casualidad tiene esta chaqueta en una talla más pequeña?)
-- **Where are the fitting rooms located?** (¿Dónde están los probadores?)
-- **Do you accept contactless card payments or Apple Pay?** (¿Aceptan pagos con tarjeta sin contacto o Apple Pay?)
-- **Could you provide a tax-free refund form for international visitors?** (¿Podría facilitarme el formulario de devolución de impuestos para visitantes extranjeros?)
-- **I am just looking around for now, thank you!** (Solo estoy mirando por ahora, ¡muchas gracias!)
+![](media:@s1 "Cuaderno de frases y estructuras de Lexkite: añadir frases, textos modelo con estructuras marcadas y etiquetas")
 
-## 6. Emergencias y Asistencia Médica (Emergencies & Medical Assistance)
+## En la farmacia o con un malestar
 
-Frases esenciales que debes tener a mano para resolver imprevistos con rapidez y serenidad:
+Aquí importa ser preciso:
 
-- **I need immediate medical assistance. Please call an ambulance.** (Necesito asistencia médica inmediata. Por favor, llamen a una ambulancia.)
-- **Where is the nearest 24-hour pharmacy?** (¿Dónde está la farmacia de guardia 24 horas más cercana?)
-- **I have lost my passport and travel wallet. Where is the nearest police station?** (He perdido mi pasaporte y mi billetera de viaje. ¿Dónde está la estación de policía más cercana?)
-- **I feel dizzy and have severe abdominal pain.** (Me siento mareado y tengo un fuerte dolor abdominal.)
-- **Could you please contact the Spanish / Mexican consulate for me?** (¿Podría comunicarse con el consulado por mí?)
+- *I've got a sore throat and a bad headache.* (Tengo dolor de garganta y mucho dolor de cabeza.)
+- *I have a bad stomach ache.* (Tengo un fuerte dolor de estómago.)
+- *Do I need a prescription for this?* (¿Necesito receta para esto?)
+- *Do you have anything over the counter for a cold?* (¿Hay algo sin receta para un resfriado?)
+- *I'm allergic to penicillin.* (Soy alérgico a la penicilina.)
 
+Evita *I'm constipated* si quieres decir que estás resfriado: *constipated* significa estreñido. Para el resfriado, di *I have a cold*. Y *I'm embarrassed* significa «me da vergüenza», no «estoy embarazada» (*I'm pregnant*).
 
-## 7. Alquiler de Vehículos y Gasolineras (Car Rental & Gas Stations)
+## Cuando no entiendes lo que te dicen
 
-Si decides conducir durante tus vacaciones en el extranjero, estas expresiones te evitarán contratiempos:
+Al principio es normal no entenderlo todo. Pedir una repetición es más útil que asentir:
 
-- **I would like to pick up the vehicle reserved under Gonzalez.** (Quisiera retirar el vehículo reservado a nombre de González.)
-- **Does the rental rate include comprehensive collision damage insurance?** (¿La tarifa de alquiler incluye seguro a todo riesgo contra colisiones?)
-- **Could you please explain how the electronic highway toll system works?** (¿Podría explicarme cómo funciona el sistema electrónico de peajes en autopista?)
-- **Regular unleaded gasoline, fill it up please.** (Gasolina sin plomo normal, llénelo por favor.)
-- **Where can I return the car keys if the rental office is closed?** (¿Dónde puedo dejar las llaves si la oficina de alquiler está cerrada?)
+- *Sorry, I didn't catch that. Could you say it again?* (Disculpe, no entendí. ¿Podría repetirlo?)
+- *Could you write that down for me?* (¿Podría escribírmelo?)
+- *Do you mean the second floor?* (¿Se refiere al segundo piso?)
 
-## Consejos Prácticos para Hablar con Confianza en el Extranjero
+Confirmar con *So you mean...* o *Do you mean...* evita malentendidos con direcciones, precios y horarios.
 
-1. **Prioriza la Claridad sobre la Perfección:** Los nativos y trabajadores del sector turístico están habituados a interactuar con personas de todo el planeta. Un acento extranjero jamás es un impedimento si hablas con calma.
-2. **Usa Fórmulas de Cortesía Abundantes:** Palabras como *Please*, *Thank you*, *Could you...*, y *Excuse me* abren puertas y predisponen a la gente a ayudarte con una sonrisa.
-3. **Lleva Tus Frases Clave en el Móvil:** Guarda capturas de pantalla de tus reservas y direcciones en inglés por si te quedas sin conexión de datos móviles.
+## Errores típicos del hispanohablante cuando algo sale mal
 
-Para consolidar tu repertorio oral y desenvolverte con naturalidad en cualquier conversación social, te invitamos a consultar nuestra guía sobre [Frases en Inglés para Conversación Diaria](/es/blog/frases-en-ingles-para-conversacion-diaria/) y aprender las claves de la etiqueta social en [Small Talk en Inglés en el Trabajo](/es/blog/small-talk-en-ingles-en-el-trabajo/). Si deseas entrenar tu velocidad mental sin traducir mentalmente, lee [Cómo Pensar en Inglés sin Traducir](/es/blog/como-pensar-en-ingles-sin-traducir/) y perfecciona la cadencia de tus oraciones en [Ritmo y Entonación en Inglés](/es/blog/acento-oracional-en-ingles-guia/). También puedes explorar los bancos de términos en nuestro [repositorio de vocabulario general](/en/vocabulary/).
+| Error | Forma correcta | Por qué |
+|---|---|---|
+| *I have 25 years* | *I'm 25* | Calco de «tengo 25 años» |
+| *I am agree* | *I agree* | Calco de «estoy de acuerdo» |
+| *Is broken* | *It's broken* | El inglés exige sujeto |
+| *I am here since Monday* | *I've been here since Monday* | Duración hasta ahora: presente perfecto |
+| *I want a taxi* | *I'd like a taxi* / *Could I get a taxi?* | Suena más amable |
+| *estation*, *eschool* | *station*, *school* | Se añade una /e/ ante s + consonante |
 
-Para practicar la pronunciación de frases de viaje con reconocimiento de voz y comprobar tu nivel de fluidez en tiempo real, ingresa al [Cuaderno de Frases de Lexkite](/#/phrases) y realiza simulaciones prácticas en el [Centro de Práctica Lexkite](/#/practice).
+La última fila no es de gramática sino de pronunciación: el español no empieza palabras con /s/ + consonante (es-cuela, es-pañol), y por eso muchos hablantes anteponen una /e/ (*especial*, *estation*). Practica *school*, *Spain*, *stop* y *street* sin ese sonido inicial; en [cómo mejorar la pronunciación en inglés](/es/blog/como-mejorar-la-pronunciacion-en-ingles-guia/) hay más ejercicios.
 
-{{cta: /#/phrases | Practicar frases de conversación para viajes en Lexkite}}
+En la guía de [falsos amigos entre inglés y español](/es/blog/falsos-amigos-ingles-espanol/) hay más pares de este tipo.
+
+## Palabras que conviene reconocer cuando algo sale mal
+
+| Español | Inglés | Cuándo lo oirás |
+|---|---|---|
+| objetos perdidos | *lost property* (Reino Unido) / *lost and found* (EE. UU.) | Tras olvidar algo en un tren o un taxi |
+| compensación | *compensation* | Si cancelan el vuelo por culpa de la aerolínea |
+| reembolso | *refund* | Cuando cancelan un servicio que pagaste |
+| vale / cupón | *voucher* | Si la aerolínea ofrece crédito en vez de dinero |
+| depósito (de garantía) | *deposit* | Si el hotel o el auto de alquiler no te lo devuelve |
+
+No necesitas elegir una variedad del inglés; basta con conocer ambas. Con *lost property* o *lost and found* te entenderán igualmente.
+
+## Cómo practicar estas frases antes de salir de viaje
+
+1. **Prepara cinco frases propias** de las secciones anteriores y escríbelas con tus datos reales: hotel, nombre de la aerolínea, tu maleta.
+2. **Léelas en voz alta** y grábate. Si suenan como un calco del español, reformúlalas.
+3. **Guárdalas en un cuaderno.** En Lexkite, la sección [Frases y estructuras](/app/#/phrases) funciona como tu cuaderno personal: anota allí las expresiones que quieres llevar al viaje. Para repasar vocabulario con ejercicios, abre la sección [Juegos y ejercicios](/app/#/practice).
+
+![](media:@s2 "Sección Juegos y ejercicios de Lexkite: aprendizaje inteligente, emparejar tarjetas, pronunciación, opción múltiple, completar palabras, dictado y test")
+
+Para sonar más natural, consulta [frases en inglés para la conversación diaria](/es/blog/frases-en-ingles-para-conversacion-diaria/) y [cómo hacer preguntas en inglés](/es/blog/como-hacer-preguntas-en-ingles-estructura/). Si buscas [vocabulario temático (en inglés)](/en/vocabulary/), tienes listas por temas.
+
+Un acento extranjero casi nunca es un problema. Importan más la calma, la frase corta y la petición cortés.
+
+{{cta: /app/#/phrases | Abrir el cuaderno de frases de Lexkite}}

@@ -1,156 +1,169 @@
 ---
-title: "IELTS Matching Headings: Estratégias e Armadilhas Comuns"
-description: "Aprenda a dominar o IELTS matching headings: método passo a passo, como identificar a ideia central, escapar de pegadinhas e gerenciar o tempo no exame."
+title: "IELTS Matching Headings: método em 5 passos e armadilhas"
+description: "IELTS Matching Headings: como ligar cada parágrafo ao cabeçalho certo, com método em 5 passos, três armadilhas e os falsos cognatos que enganam brasileiros."
 slug: ielts-reading-matching-headings-estrategias
 lang: pt
 translationKey: ielts-reading-matching-headings
 category: ielts
 tags: [ielts, reading, matching-headings, academic, b2]
 keyword: "ielts matching headings"
-cover: reading
-coverAlt: "Biblioteca de leitura IELTS no Lexkite com textos acadêmicos do nível A2 ao C1 e busca de vocabulário"
-publishAt: 2027-03-01T08:00:00-03:00
+cover: read-article
+coverAlt: "Texto de leitura do Lexkite com palavras-chave destacadas e lista de palavras ao lado"
+publishAt: 2027-01-04T19:42:00-03:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 91
+status: ready
 coverArt: {mood: think, icon: book, chip: IELTS Reading}
 shots: [
-  {id: s1, route: '#/reading', crop: main},
-  {id: s2, route: '#/practice', crop: main}
+  {id: s1, route: '#/reading', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: 'Método de 5 Passos para Dominar Matching Headings', parts: [{t: '1. Eliminar o Exemplo', r: 'Risque imediatamente qualquer cabeçalho usado no exemplo oficial para não perder tempo.'}, {t: '2. Leitura Rápida Global', r: 'Leia o parágrafo do início ao fim com foco na ideia principal, sem parar em palavras isoladas.'}, {t: '3. Resumo em 3 a 5 Palavras', r: 'Escreva mentalmente ou na margem o objetivo central do parágrafo (causa, efeito, contraste).'}, {t: '4. Comparar com a Lista', r: 'Procure o cabeçalho que engloba o todo através de paráfrases e sinônimos, não de palavras repetidas.'}, {t: '5. Desempate por Exclusão', r: 'Se houver dúvida entre dois cabeçalhos, passe para o próximo parágrafo e decida no final.'}]},
-  {id: d2, type: compare, title: 'Ideia Central vs Armadilha de Detalhe Específico', cols: ['Cabeçalho Correto', 'Distrator (Armadilha)'], rows: [['Sintetiza o parágrafo inteiro como um todo', 'Cobre apenas uma única frase, dado estatístico ou exemplo'], ['Utiliza paráfrases conceituais e sinônimos', 'Repete literalmente uma palavra chamativa do texto original'], ['Corresponde ao propósito retórico do autor', 'Trata do tema geral, mas erra o foco específico do parágrafo']]}
+  {id: d1, type: boxes, title: 'Método de 5 passos para Matching Headings', parts: [{t: '1. Eliminar o exemplo', r: 'Risque o cabeçalho que a prova já usou como exemplo para não perder tempo com ele.'}, {t: '2. Leitura global', r: 'Leia o parágrafo inteiro atrás da ideia principal, sem parar em palavras isoladas.'}, {t: '3. Resumo em 3 a 5 palavras', r: 'Anote na margem o objetivo do parágrafo (causa, efeito, contraste, solução).'}, {t: '4. Comparar com a lista', r: 'Procure o cabeçalho que cobre o parágrafo todo, por paráfrase e sinônimo, não por palavra repetida.'}, {t: '5. Dúvida: seguir adiante', r: 'Se hesitar entre dois cabeçalhos, anote os dois, passe ao próximo parágrafo e volte no final.'}]},
+  {id: d2, type: compare, title: 'Ideia central ou armadilha de detalhe', cols: ['Cabeçalho correto', 'Distrator'], rows: [['Resume o parágrafo inteiro', 'Cobre só uma frase, um dado ou um exemplo'], ['Usa paráfrase e sinônimos', 'Repete uma palavra chamativa do texto'], ['Combina com o propósito do autor', 'Trata do tema geral, mas erra o foco do parágrafo']]}
 ]
 quiz: [
   {
-    q: "Em uma questão de IELTS Matching Headings, o que um cabeçalho correto realmente deve representar?",
-    options: [
-      "O dado estatístico mais surpreendente ou a citação de especialista presente no texto",
-      "A ideia central que sintetiza o propósito do parágrafo como um todo",
-      "Exatamente a reprodução literal da primeira frase introdutória do parágrafo",
-      "Qualquer palavra técnica incomum que apareça repetida mais de duas vezes"
-    ],
-    answer: 1,
-    explain: "O cabeçalho correto resume a ideia global e o objetivo comunicativo do parágrafo inteiro. Detalhes isolados ou dados estatísticos funcionam como distratores clássicos elaborados pelos examinadores."
+    q: "Leia o parágrafo: 'Honeybee numbers have fallen in many regions. Researchers link the decline to pesticides, habitat loss and disease, and some farms now rent hives to protect their crops.' Qual cabeçalho combina melhor?",
+    options: ["The cost of renting hives for farms", "A history of honey production", "Pesticides banned across Europe", "Causes behind falling bee numbers"],
+    answer: 3,
+    explain: "O parágrafo inteiro trata das causas da queda no número de abelhas. O aluguel de colmeias é só um detalhe no final, e as outras opções falam de assuntos que o texto não aborda."
   },
   {
-    q: "Qual é a principal armadilha (trap) que os candidatos ao IELTS enfrentam nesse tipo de questão?",
-    options: [
-      "Selecionar uma opção que contém sinônimos acadêmicos não previstos no dicionário",
-      "Escolher um cabeçalho apenas porque ele repete exatamente a mesma palavra vista no texto",
-      "Ler o parágrafo rápido demais sem consultar a ordem alfabética das questões",
-      "Deixar para responder as questões de identificação de títulos logo após o término da prova"
-    ],
-    answer: 1,
-    explain: "A armadilha da palavra idêntica (word-spotting trap) ocorre quando o candidato vê uma palavra chamativa no texto e escolhe o cabeçalho que contém essa mesma palavra, ignorando que o contexto do parágrafo trata de outro assunto."
+    q: "Você hesita entre dois cabeçalhos para o parágrafo C, e a lista tem mais cabeçalhos do que parágrafos. O que o método do artigo manda fazer?",
+    options: ["Anotar os dois e seguir adiante", "Marcar um ao acaso e não voltar mais", "Gastar mais três minutos só no parágrafo C", "Deixar o parágrafo C em branco até o fim"],
+    answer: 0,
+    explain: "A lista tem mais cabeçalhos do que parágrafos, e cada um só se encaixa em um. Ao avançar, é comum que um dos dois combine melhor com outro parágrafo, o que resolve a dúvida."
   },
   {
-    q: "Se você estiver em dúvida entre dois cabeçalhos muito semelhantes para o Parágrafo B, qual é a atitude mais inteligente?",
-    options: [
-      "Gastar quatro minutos relendo linha por linha até ter certeza absoluta antes de avançar",
-      "Anotar as duas opções possíveis na margem, avançar para os outros parágrafos e decidir por eliminação",
-      "Escolher sempre a alternativa com o número romano mais baixo por critério probabilístico",
-      "Deixar o cartão de respostas totalmente em branco para não sofrer penalização de pontos"
-    ],
-    answer: 1,
-    explain: "No IELTS Reading, cada questão vale exatamente 1 ponto. Ao anotar as duas opções e resolver os parágrafos restantes, um dos cabeçalhos concorrentes quase certamente se encaixará perfeitamente em outro parágrafo, resolvendo a dúvida por eliminação."
+    q: "Em the eventual closure of the plant, o que significa eventual?",
+    options: ["ocasional", "possível", "final", "repentino"],
+    answer: 2,
+    explain: "Em inglês, eventual indica o que acontece no fim de um processo. O adjetivo português eventual, com sentido de possível ou ocasional, é um falso cognato."
   }
 ]
 ---
 
-Entre todos os tipos de questões do exame acadêmico, o **ielts matching headings** é frequentemente apontado por candidatos brasileiros e lusófonos como o mais desafiador e desgastante. Ao contrário de tarefas como *Sentence Completion* ou *Short Answer Questions*, nas quais você pode simplesmente fazer uma varredura visual (*scanning*) atrás de datas, nomes próprios ou números, os exercícios de correspondência de cabeçalhos exigem uma compreensão global (*skimming* analítico) da mensagem de cada parágrafo.
+Entre os tipos de questão do IELTS Academic Reading, o **IELTS Matching Headings** costuma dar trabalho a quem lê palavra por palavra. A tarefa pede que você ligue cada parágrafo de um texto ao cabeçalho (título) que melhor resume a ideia dele, escolhendo entre uma lista de títulos numerados com algarismos romanos. A resposta curta para acertar mais é esta: em vez de procurar palavras iguais, descubra o assunto central de cada parágrafo e só depois compare com a lista.
 
-Muitos estudantes perdem preciosos minutos relendo o mesmo trecho várias vezes e acabam caindo nas armadilhas clássicas preparadas pelos examinadores de Cambridge: escolher um cabeçalho apenas porque ele contém uma palavra idêntica encontrada na terceira linha do texto. No entanto, quando você compreende a lógica estrutural da escrita acadêmica em inglês e domina técnicas de identificação do tópico central, essa seção torna-se previsível e rápida de resolver.
+Em *Sentence Completion* ou *Short Answer Questions*, dá para ir direto atrás de um nome, uma data ou um número. Aqui não: é preciso entender o parágrafo como um todo. Por isso, quem trata a tarefa como caça-palavras tende a escolher o cabeçalho que repete um termo do texto, justamente a isca que quem elabora a prova prepara.
 
-Neste guia completo e prático, vamos analisar o funcionamento do **ielts matching headings**, apresentar um método eficiente de 5 passos para leitura, desmascarar as pegadinhas mais comuns de vocabulário e demonstrar como gerenciar seu tempo para garantir uma pontuação Band 7+ no IELTS Reading.
+Este texto mostra como a tarefa funciona, um método de cinco passos, as três armadilhas clássicas, um exemplo comentado, um aviso sobre falsos cognatos que atrapalham leitores de português e um jeito de treinar com o Lexkite e por conta própria.
 
-## Como funciona a tarefa de IELTS Matching Headings?
+## Como funciona a tarefa de IELTS Matching Headings
 
-Na prova de Academic Reading, você dispõe de 60 minutos para responder a 40 questões distribuídas em três textos longos. Quando uma questão de correspondência de títulos aparece, você se depara com:
+No Academic Reading, são 60 minutos para 40 questões em três textos. Quando aparece a tarefa de cabeçalhos, você encontra:
 
-1. **Uma lista de cabeçalhos (List of Headings):** Identificados por algarismos romanos (i, ii, iii, iv, v...).
-2. **Excesso de alternativas:** A lista sempre contém mais cabeçalhos do que parágrafos (por exemplo, 8 cabeçalhos para apenas 5 parágrafos), o que impede a resolução por pura adivinhação.
-3. **Instruções para associar cada parágrafo à sua ideia central:** Você deve identificar qual cabeçalho melhor resume cada seção (geralmente identificadas por letras: Paragraph A, B, C, D...).
+1. **Uma lista de cabeçalhos** (*List of Headings*), numerados com algarismos romanos: i, ii, iii, iv, v e assim por diante.
+2. **Mais cabeçalhos do que parágrafos.** Por exemplo, oito títulos para cinco parágrafos, de modo que alguns não serão usados.
+3. **Parágrafos identificados por letras** (A, B, C, D...), cada um para ser ligado a um cabeçalho.
 
-![Biblioteca de leitura IELTS no Lexkite](media:@s1 "Biblioteca de leitura IELTS no Lexkite com textos acadêmicos do nível A2 ao C1 e busca de vocabulário")
+Em muitas provas, um parágrafo já vem resolvido como exemplo. Esse cabeçalho não volta a servir para outro parágrafo.
 
-{{diagram: d1 | Método de 5 Passos para Dominar Matching Headings}}
+{{diagram: d1 | Método de 5 passos para Matching Headings}}
 
-## Por que essa seção parece tão difícil?
+## Por que a tarefa parece tão difícil
 
-A dificuldade dessa tarefa reside na diferença entre **compreensão de detalhes** e **compreensão global**:
+A dificuldade está na diferença entre entender um detalhe e entender o todo:
 
-- **Falsa sensação de segurança com palavras-chave:** Candidatos habituados a apenas caçar palavras idênticas são facilmente enganados. Os examinadores inserem propositalmente termos raros em parágrafos que discutem uma ideia completamente diferente.
-- **Estrutura variável dos parágrafos:** Embora muitos textos acadêmicos coloquem a frase-tópico (*topic sentence*) na primeira linha, artigos analíticos complexos podem apresentar a tese principal no meio ou na conclusão do parágrafo, após apresentar dados de contextualização.
-- **Pressão implacável do cronômetro:** Se você gastar 3 minutos em um único parágrafo, faltará tempo para responder às 13 questões do último texto da prova.
+- **Palavras-chave enganam.** Quem se acostumou a procurar termos idênticos cai fácil: um cabeçalho pode repetir uma palavra do parágrafo e ainda assim tratar de outro assunto.
+- **A frase principal nem sempre está na primeira linha.** Em textos analíticos, o parágrafo pode começar com contexto e só no meio ou no fim apresentar a tese.
+- **O relógio pesa.** Gastar três minutos em um único parágrafo tira tempo das questões que vêm depois.
 
-{{diagram: d2 | Ideia Central vs Armadilha de Detalhe Específico}}
+{{diagram: d2 | Ideia central ou armadilha de detalhe}}
 
-## As 3 grandes armadilhas preparadas pelos examinadores
+## As 3 armadilhas mais comuns
 
-Para obter uma pontuação de excelência, você precisa aprender a enxergar as pegadinhas antes de cair nelas:
+### 1. O detalhe isolado
 
-### 1. A Armadilha do Detalhe Isolado (Detail Trap)
-Um cabeçalho pode descrever com 100% de exatidão algo que está escrito no parágrafo — por exemplo, uma estatística ou o nome de um laboratório. No entanto, esse dado é apenas um suporte secundário (um exemplo), e não o tema central. Um título legítimo deve englobar o parágrafo de ponta a ponta.
+Um cabeçalho pode descrever com exatidão algo escrito no parágrafo, como uma estatística ou o nome de um laboratório, e mesmo assim estar errado. Se o dado é só um exemplo de apoio, ele não é o tema. O cabeçalho certo cobre o parágrafo de ponta a ponta.
 
-### 2. A Armadilha da Palavra Idêntica (Word-Match Trap)
-Se o Parágrafo C contém a palavra *biodiversity* três vezes e o Cabeçalho iv também contém *biodiversity*, desconfie imediatamente. Na vasta maioria das vezes, o cabeçalho correto utilizará paráfrases conceituais como *variety of species*, *ecological richness* ou *wildlife conservation*.
+### 2. A palavra idêntica
 
-### 3. A Armadilha do Escopo Excessivamente Amplo ou Estreito
-- **Amplo demais:** Um cabeçalho que soa como o título do artigo inteiro, e não daquele parágrafo específico.
-- **Estreito demais:** Um cabeçalho que resume com perfeição as primeiras duas linhas, mas ignora a reviravolta conceitual introduzida por conectivos como *However*, *Nevertheless* ou *In contrast*.
+Se o parágrafo C repete *biodiversity* três vezes e o cabeçalho iv também traz *biodiversity*, desconfie. O cabeçalho correto costuma usar uma paráfrase, como *variety of species* ou *wildlife conservation*, justamente para exigir que você entenda o sentido.
 
-## Estratégia Prática Passo a Passo: O Método dos 5 Passos
+### 3. O alcance amplo demais ou restrito demais
 
-### Passo 1: Elimine o exemplo imediatamente
-Se a prova já fornecer uma resposta como exemplo (ex.: *Paragraph A = iv*), passe um traço firme sobre o número iv tanto na lista quanto no texto. Isso evita confusão visual.
+- **Amplo demais:** parece o título do texto inteiro, não do parágrafo.
+- **Restrito demais:** resume bem as duas primeiras linhas, mas ignora a virada anunciada por conectivos como *however*, *nevertheless* ou *in contrast*.
 
-### Passo 2: Leia o parágrafo primeiro, não os cabeçalhos
-Muitos estudantes cometem o erro de ler toda a lista de cabeçalhos antes do texto. Com isso, sua mente fica sobrecarregada com 8 frases parecidas e você começa a projetar ideias que não estão no texto. Leia o Parágrafo A de forma contínua, prestando atenção especial à frase de abertura e ao desfecho.
+## Falsos cognatos que atrapalham o leitor brasileiro
 
-### Passo 3: Sintetize o parágrafo em suas próprias palavras
-Antes de olhar a lista oficial, pergunte a si mesmo: *"Qual é o propósito deste parágrafo?"*
-- Está descrevendo a causa de um problema?
-- Está propondo uma solução tecnológica?
-- Está contrastando duas teorias históricas?
-Anote mentalmente ou escreva 3 a 4 palavras na margem da prova.
+Para quem lê em português, o vocabulário latino da escrita acadêmica em inglês (*infrastructure*, *innovation*, *conservation*) é uma vantagem: você reconhece o tema rápido. O problema são os falsos cognatos, que podem aparecer nos cabeçalhos e nas frases que sinalizam a virada do parágrafo:
 
-### Passo 4: Compare sua síntese com a lista de cabeçalhos
-Agora examine a lista procurando o item que corresponde ao conceito que você formulou. Foque nas relações semânticas e nos sinônimos.
+- ***actually***: significa "na verdade", não "atualmente". *Actually, the figures are lower* corrige uma ideia anterior.
+- ***pretend***: quer dizer "fingir", não "pretender". Um cabeçalho com *pretend* fala de simulação.
+- ***resume***: no sentido de "retomar" (*Services will resume in May*), e não "resumir", que seria *summarise*.
+- ***attend***: é "comparecer a", como em *attend a lecture*, e não "atender" alguém.
+- ***eventually***: indica o fim de um processo, "no fim das contas", e não "eventualmente" no sentido de "de vez em quando".
 
-### Passo 5: Use a técnica da bifurcação em caso de dúvida
-Ficou em dúvida entre os cabeçalhos ii e vi? Não paralise. Anote *ii / vi* ao lado do parágrafo e siga em frente. Ao ler os parágrafos seguintes, é muito comum que um deles seja a correspondência perfeita para a opção ii, eliminando a dúvida retroativamente.
+Um deslize assim pode inverter a leitura de um parágrafo. Se um cabeçalho usa uma palavra que parece conhecida e o sentido não bate com o texto, confira se ela não é um falso cognato antes de descartar a opção.
 
+## O método de 5 passos, passo a passo
 
-## Exemplo Prático com Análise Linha por Linha
+### Passo 1: elimine o exemplo
 
-Para consolidar o método, examine a passagem de teste abaixo e acompanhe o raciocínio detalhado de resolução:
+Se a prova já fornece uma resposta como exemplo (digamos, *Paragraph A = iv*), risque o número iv na lista. Isso evita reler um cabeçalho que não vai servir de novo.
 
-> *"Public transport systems across major metropolitan areas have undergone substantial transformations over the past two decades. Rather than merely expanding existing railway networks, municipal authorities are increasingly deploying digital scheduling algorithms, contactless fare gates, and real-time passenger capacity monitors. These smart mobility initiatives not only alleviate congestion during peak commuting hours but also provide unprecedented operational transparency to urban planners who must allocate finite capital budgets across competing municipal priorities."*
+### Passo 2: leia o parágrafo, não a lista
 
-### Lista de Cabeçalhos Hipotéticos:
-- *i. The historical expansion of suburban railway infrastructure*
-- *ii. Financial difficulties in municipal budget planning*
-- *iii. Modern technological innovations in metropolitan transit management*
-- *iv. The environmental consequences of private vehicle congestion*
+Ler os oito cabeçalhos antes do texto enche a cabeça de frases parecidas e leva você a projetar no parágrafo ideias que não estão lá. Leia o parágrafo A de forma contínua (a leitura em duas velocidades está em [skimming e scanning no IELTS Reading](/pt/blog/tecnicas-skimming-scanning-ielts-reading-pt/)), prestando atenção especial à frase de abertura e ao final. Há quem prefira dar uma olhada rápida na lista antes; se for o seu caso, não procure palavras para casar com o texto, só note os temas.
 
-### Raciocínio de Eliminação:
-1. **O Cabeçalho i é um distrator histórico:** O texto menciona a expansão de ferrovias apenas para dizer o que as autoridades *não* estão priorizando (*Rather than merely expanding...*).
-2. **O Cabeçalho ii é a armadilha do detalhe isolado:** A alocação de orçamentos (*capital budgets*) aparece apenas na última linha como benefício secundário para os planejadores urbanos.
-3. **O Cabeçalho iv trata de um tema correlato não discutido:** Embora o congestionamento seja citado, o parágrafo não analisa impactos ecológicos ou emissões veiculares.
-4. **O Cabeçalho iii é a correspondência ideal:** O parágrafo trata essencialmente de inovações tecnológicas digitais (*digital algorithms, contactless gates, capacity monitors*) gerenciando o transporte público moderno.
+### Passo 3: resuma com as suas palavras
 
-## Como Treinar Matching Headings no Seu Cronograma Diário
+Antes de olhar a lista de novo, pergunte-se: *qual é o propósito deste parágrafo?* Ele descreve a causa de um problema? Propõe uma solução? Contrasta duas teorias? Escreva de 3 a 5 palavras na margem.
 
-1. **Pratique com Artigos de Revistas Científicas:** Leia publicações como *The Economist*, *New Scientist* ou *National Geographic*. Ao final de cada parágrafo, force seu cérebro a sintetizar a mensagem em um micro-título de até cinco palavras.
-2. **Cronometre Blocos de 15 Minutos:** No início, não tente resolver três textos seguidos. Dedique-se exclusivamente a um exercício de cabeçalhos por vez, limitando seu tempo a no máximo 12 minutos.
-3. **Analise seus Erros com um Diário de Vocabulário:** Quando errar uma correspondência, não veja apenas o gabarito. Identifique exatamente qual palavra funcionou como isca para induzi-lo ao erro e anote a paráfrase correta no seu caderno de estudos.
+### Passo 4: compare o resumo com a lista
 
-## Conexão com Outras Competências do Exame
+Agora percorra os cabeçalhos procurando o que corresponde ao conceito que você formulou. Dê atenção às relações de sentido e aos sinônimos, não às palavras repetidas.
 
-O domínio do entendimento global é uma habilidade transferível que melhora todo o seu desempenho no teste de leitura. Para consolidar sua preparação para o exame, recomendamos aprofundar suas técnicas de leitura rápida em [Técnicas de Skimming e Scanning no IELTS Reading](/pt/blog/tecnicas-skimming-scanning-ielts-reading-pt/) e aprender a gerenciar os minutos da prova com precisão em [Gestão do Tempo no IELTS Reading: Estratégia de 60 Minutos](/pt/blog/gestao-do-tempo-no-ielts-reading-estrategia-60-minutos/). Além disso, compreenda a lógica de outro modelo temido de questões em [True, False, Not Given no IELTS Reading](/pt/blog/true-false-not-given-ielts-reading-dicas/) e amplie sua base lexical formal através do nosso [Guia de Collocations em Inglês para IELTS](/pt/blog/collocations-em-ingles-para-ielts/). Você também pode consultar o repositório geral de conteúdos em [artigos de preparação para exames](/en/grammar/).
+### Passo 5: na dúvida, siga adiante
 
-Para colocar em prática o método de identificação de ideias centrais com textos acadêmicos reais e cronômetro integrado, acesse agora a [Área de Leitura do IELTS no Lexkite](/#/reading) e teste sua agilidade cognitiva no [Hub de Prática Lexkite](/#/practice).
+Hesitou entre os cabeçalhos ii e vi? Anote *ii / vi* ao lado do parágrafo e continue. Como cada cabeçalho serve a um único parágrafo, é comum que um deles se encaixe melhor em outro trecho, o que resolve a dúvida por eliminação.
 
-{{cta: /#/reading | Praticar textos de leitura IELTS no Lexkite agora}}
+## Um exemplo comentado
+
+Os textos abaixo são exercícios de treino, escritos para este artigo. Leia os dois parágrafos e depois acompanhe o raciocínio. Primeiro o parágrafo A:
+
+> *"Public transport systems in large cities have changed substantially over the past two decades. Rather than merely expanding existing railway networks, city authorities are increasingly using digital scheduling software, contactless fare gates and real-time passenger counters. These smart mobility projects not only reduce congestion at peak hours but also give urban planners a clear view of operations, which helps them divide limited budgets among competing priorities."*
+
+E agora o parágrafo B:
+
+> *"Many commuters say that a reliable timetable matters more to them than a faster train. A delay of ten minutes can push someone back into the car, while a service that arrives when promised keeps them on board."*
+
+Lista de cabeçalhos para este exercício (seis títulos para dois parágrafos, então quatro sobram):
+
+- *i. The history of suburban railway building*
+- *ii. Financial difficulties in city budget planning*
+- *iii. Modern technology in the management of city transport*
+- *iv. Environmental effects of private cars*
+- *v. Digital scheduling software for rural schools*
+- *vi. Reliability as a reason to choose public transport*
+
+Raciocínio para o parágrafo A, por eliminação:
+
+1. **O cabeçalho i é um distrator histórico.** O texto só cita a expansão das ferrovias para dizer que as autoridades já não se limitam a ela (*Rather than merely expanding...*).
+2. **O cabeçalho ii é o detalhe isolado.** O orçamento aparece apenas na última frase, como benefício secundário para os planejadores.
+3. **O cabeçalho iv trata de um tema vizinho.** O congestionamento é citado, mas o parágrafo não analisa efeitos ambientais.
+4. **O cabeçalho v é a palavra idêntica.** Ele repete *scheduling*, que aparece no parágrafo, mas fala de escolas rurais, um assunto que o texto não menciona.
+5. **O cabeçalho iii é o que cobre tudo.** O parágrafo trata de tecnologia digital (software, catracas sem contato, contadores de passageiros) na gestão do transporte. Resposta: A = iii.
+
+No parágrafo B, o cabeçalho iv volta a ser tentador, porque o texto cita o carro (*car*). Mas o parágrafo não discute efeitos ambientais: ele explica por que a pontualidade faz as pessoas escolherem o transporte público. O cabeçalho vi diz isso com outras palavras (*reliability*, *choose public transport*), e é a resposta: B = vi.
+
+## Como treinar com o Lexkite e por conta própria
+
+Três recursos do Lexkite ajudam nesta tarefa. Na [biblioteca de leitura](/#/reading), você lê textos de IELTS Reading em níveis de A2 a C1 e toca nas palavras desconhecidas para consultá-las. Há também um treino de leitura por tipo de questão, no [treino de questões de cabeçalhos](/#/rtype/headings), que reúne as questões de cabeçalhos dos testes de leitura, corrige as respostas e mostra a sua taxa de acerto nesse tipo. E, para treinar o relógio, os testes completos ficam no [simulado do IELTS](/#/mock).
+
+![](media:@s1 "Lista de textos de leitura do Lexkite por nível, com a possibilidade de tocar numa palavra para consultá-la")
+
+Por conta própria, três hábitos ajudam:
+
+1. **Resuma cada parágrafo.** Ao ler uma revista ou um site em inglês, escreva um micro-título de até cinco palavras para cada parágrafo e compare com o que o autor diz na última frase.
+2. **Cronometre cada tarefa de cabeçalhos.** Resolva uma tarefa por vez, com o relógio ao lado, e anote o tempo gasto em cada parágrafo. Para dividir os 60 minutos entre os três textos, veja a [gestão do tempo no IELTS Reading](/pt/blog/gestao-do-tempo-no-ielts-reading-estrategia-60-minutos/).
+3. **Faça um registro dos erros.** Quando errar, anote qual palavra funcionou como isca e qual era a paráfrase correta.
+
+## Para continuar estudando
+
+Se a tarefa de *True, False, Not Given* também confunde você, veja as [dicas para True, False, Not Given](/pt/blog/true-false-not-given-ielts-reading-dicas/). Ao ler em inglês, o artigo sobre [collocations para o IELTS](/pt/blog/collocations-em-ingles-para-ielts/) ajuda a reconhecer combinações de palavras que aparecem nas paráfrases, e a página de [vocabulário](/en/vocabulary/) do Lexkite (em inglês) amplia o repertório.
+
+{{cta: /#/rtype/headings | Treinar questões de cabeçalhos no Lexkite}}

@@ -1,213 +1,204 @@
 ---
-title: "Aturan Pengucapan ed dan s es dalam Bahasa Inggris: Panduan IPA"
-description: "Aturan pengucapan ed dan s es dalam bahasa Inggris: bedah tuntas bunyi /t/ /d/ /ɪd/ dan /s/ /z/ /ɪz/, aturan pita suara, tabel IPA, dan latihan praktis."
+title: "Pengucapan -ed dan -s/-es dalam Bahasa Inggris"
+description: "Pengucapan -ed dan -s/-es: kapan dibaca /t/, /d/, /ɪd/ atau /s/, /z/, /ɪz/, lengkap dengan aturan pita suara, tabel contoh, dan pengecualian."
 slug: aturan-pengucapan-ed-dan-s-es-bahasa-inggris
 lang: id
 translationKey: cach-phat-am-ed-va-s-es
 category: phat-am
 tags: [pronunciation, phonetics, ipa, speaking, b1]
-keyword: "aturan pengucapan ed dan s es"
-cover: pron
-coverAlt: "Pustaka pelafalan IPA di Lexkite untuk melatih pron vokal tunggal, diftong, konsonan, dan bunyi akhir kata"
-publishAt: 2027-03-01T11:00:00+07:00
+keyword: "pengucapan -ed dan -s/-es"
+cover: practice-speak
+coverAlt: "Latihan pelafalan berskor di Lexkite: satu frasa, tombol mikrofon untuk berbicara, dan penilaian berdasarkan suara"
+publishAt: 2026-12-27T12:39:00+07:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 91
+status: ready
 coverArt: {mood: think, icon: mic, chip: Pelafalan}
 shots: [
   {id: s1, route: '#/pron', crop: main},
   {id: s2, route: '#/practice', crop: main}
 ]
 diagrams: [
-  {id: d1, type: compare, title: 'Aturan Pengucapan Akhiran -ed (3 Kategori Bunyi)', cols: ['Bunyi Akhir', 'Aturan Bunyi Konsonan Terakhir', 'Contoh Kata', 'Contoh Kalimat'], rows: [['/ɪd/ (tambah suku kata)', 'Berakhiran bunyi /t/ atau /d/', 'wanted, needed, decided, visited', 'She decided to pursue her master degree.'], ['/t/ (tanpa suara/voiceless)', 'Berakhiran konsonan tak bersuara: /p, k, f, s, ʃ, tʃ, θ/', 'walked, laughed, watched, kissed', 'We watched an insightful presentation.'], ['/d/ (bersuara/voiced)', 'Berakhiran konsonan bersuara: /b, g, v, z, m, n, l, r/ & vokal', 'played, cleaned, lived, loved', 'He lived in Singapore for three years.']]},
-  {id: d2, type: compare, title: 'Aturan Pengucapan Akhiran -s dan -es (3 Kategori Bunyi)', cols: ['Bunyi Akhir', 'Aturan Bunyi Konsonan Terakhir', 'Contoh Kata', 'Contoh Kalimat'], rows: [['/ɪz/ (tambah suku kata)', 'Berakhiran bunyi mendesis (sibilants): /s, z, ʃ, ʒ, tʃ, dʒ/', 'buses, watches, changes, boxes', 'He teaches international business law.'], ['/s/ (tanpa suara/voiceless)', 'Berakhiran konsonan tak bersuara: /p, t, k, f, θ/', 'stops, cats, books, laughs, months', 'She works for a global tech startup.'], ['/z/ (bersuara/voiced)', 'Berakhiran konsonan bersuara: /b, d, g, v, ð, m, n, ŋ, l, r/ & vokal', 'dogs, reads, loves, calls, plays', 'My colleague always reads market analysis.']]}
+  {id: d1, type: compare, title: 'Akhiran -ed: tiga bunyi', cols: ['Bunyi', 'Muncul setelah', 'Contoh kata', 'Contoh kalimat'], rows: [['/ɪd/ (suku kata baru)', 'bunyi /t/ atau /d/', 'wanted, needed, decided, visited', 'She decided to pursue a master''s degree.'], ['/t/', 'bunyi tak bersuara selain /t/: /p, k, f, s, ʃ, tʃ, θ/', 'walked, laughed, watched, kissed', 'We watched an interesting presentation.'], ['/d/', 'bunyi bersuara selain /d/ (/b, g, v, ð, z, ʒ, dʒ, m, n, ŋ, l, r/) dan semua vokal', 'played, cleaned, lived, changed', 'He lived in Singapore for three years.']]},
+  {id: d2, type: compare, title: 'Akhiran -s/-es: tiga bunyi', cols: ['Bunyi', 'Muncul setelah', 'Contoh kata', 'Contoh kalimat'], rows: [['/ɪz/ (suku kata baru)', 'bunyi desis: /s, z, ʃ, ʒ, tʃ, dʒ/', 'buses, watches, changes, boxes', 'He teaches business law.'], ['/s/', 'bunyi tak bersuara: /p, t, k, f, θ/', 'stops, cats, books, laughs, months', 'She works for a tech startup.'], ['/z/', 'bunyi bersuara selain bunyi desis, dan vokal', 'dogs, reads, loves, calls, plays', 'My colleague always reads market reports.']]}
 ]
 quiz: [
   {
-    q: "Bagaimana cara pengucapan akhiran -ed yang benar pada kata kerja 'developed' menurut standar fonetik internasional (IPA)?",
+    q: "Akhiran -ed pada kata kerja *hoped* dibaca ...",
     options: [
-      "Diucapkan secara alfabetis dengan bunyi vokal /ɪd/ sehingga membentuk suku kata baru yang tidak tepat",
-      "Diucapkan dengan bunyi letup tak bersuara /t/ tanpa menambah suku kata baru",
-      "Diucapkan dengan getaran bunyi bersuara /d/ yang diperpanjang di bagian akhir",
-      "Akhiran -ed tidak perlu diucapkan sama sekali agar tempo berbicara lebih cepat"
-    ],
-    answer: 1,
-    explain: "Karena huruf terakhir dari kata develop berbunyi /p/ yang merupakan konsonan tak bersuara (voiceless), maka akhiran -ed harus dilafalkan sebagai /t/, yaitu /dɪˈvel.əpt/."
-  },
-  {
-    q: "Kata benda jamak manakah di bawah ini yang pengucapan akhiran -es nya menghasilkan bunyi /ɪz/ (menambah satu suku kata)?",
-    options: [
-      "Kata benda jamak cats yang merujuk pada sekumpulan hewan peliharaan jinak di rumah warga",
-      "Kata benda jamak bridges (jembatan-jembatan)",
-      "Kata benda jamak books (buku-buku)",
-      "Kata benda jamak cliffs (tebing-tebing)"
-    ],
-    answer: 1,
-    explain: "Kata bridge berakhir dengan konsonan mendesis bersuara /dʒ/ (sibilant). Ketika diberi akhiran -es, pengucapannya wajib menjadi /ɪz/ (/ˈbrɪdʒ.ɪz/) sehingga jumlah suku katanya bertambah dari satu menjadi dua."
-  },
-  {
-    q: "Apa kekeliruan paling umum yang sering dilakukan penutur bahasa Indonesia saat mengucapkan akhiran kata kerja -ed?",
-    options: [
-      "Melafalkan semua akhiran -ed sebagai suku kata 'ed' (misalnya walked dibaca wok-ed)",
-      "Mengucapkan durasi vokal terlalu panjang sehingga merusak makna gramatikal kalimat secara keseluruhan dalam forum formal",
-      "Tertukar antara posisi lidah untuk vokal tunggal dan vokal rangkap",
-      "Menghilangkan subjek kalimat saat berbicara dalam konteks profesional"
+      "/t/",
+      "/d/",
+      "/ɪd/",
+      "/s/"
     ],
     answer: 0,
-    explain: "Penutur Indonesia terbiasa membaca tulisan secara alfabetis, sehingga sering mengucapkan walked sebagai 'wok-ed' atau helped sebagai 'help-ed'. Padahal, bunyi /ɪd/ hanya digunakan jika kata dasar berakhiran bunyi /t/ atau /d/."
+    explain: "Hope berakhir dengan /p/, bunyi tak bersuara, sehingga -ed ikut tak bersuara dan dibaca /t/: /həʊpt/. Suku katanya tetap satu."
+  },
+  {
+    q: "Akhiran -s pada kata benda jamak *prizes* dibaca ...",
+    options: [
+      "/s/",
+      "/z/",
+      "/ɪz/",
+      "/d/"
+    ],
+    answer: 2,
+    explain: "Prize berakhir dengan bunyi desis /z/. Setelah bunyi desis, akhiran memerlukan vokal pendek agar terdengar, jadi dibaca /ɪz/ dan kata itu menjadi dua suku kata: /ˈpraɪ.zɪz/."
+  },
+  {
+    q: "Dalam frasa manakah akhiran -ed dibaca /ɪd/?",
+    options: [
+      "a talked-about plan",
+      "a washed shirt",
+      "a played game",
+      "a wicked joke"
+    ],
+    answer: 3,
+    explain: "Wicked sebagai kata sifat dibaca /ˈwɪk.ɪd/ (dua suku kata). Pada frasa lain, -ed mengikuti aturan biasa: /t/, /t/, dan /d/."
   }
 ]
 ---
 
-Salah satu rintangan terbesar yang dihadapi penutur bahasa Indonesia saat berbicara bahasa Inggris adalah pelafalan konsonan akhir (*final consonant clusters*). Dalam bahasa Indonesia, struktur fonologi kita tidak mengenal kluster konsonan akhir yang rumit, dan sebagian besar kata berakhir dengan bunyi vokal atau konsonan tunggal yang dilepaskan secara sederhana. Akibatnya, memahami dan menerapkan **aturan pengucapan ed dan s es** sering kali menimbulkan kebingungan besar.
+Pengucapan -ed dan -s/-es ditentukan oleh bunyi terakhir kata dasar. Akhiran -ed dibaca /ɪd/ setelah bunyi /t/ dan /d/, dibaca /t/ setelah bunyi tak bersuara lainnya, dan dibaca /d/ setelah bunyi bersuara lainnya serta setelah vokal. Akhiran -s/-es mengikuti pola yang sama: /ɪz/ setelah bunyi desis, /s/ setelah bunyi tak bersuara, dan /z/ pada sisanya. Yang dihitung adalah bunyinya, bukan huruf terakhirnya.
 
-Banyak pembelajar yang terbiasa membaca kata dalam bahasa Inggris persis seperti ejaannya. Mereka melafalkan *walked* menjadi "wok-ed", *watched* menjadi "woc-ed", atau bahkan menelan bunyi akhir sama sekali sehingga *played* terdengar seperti *play*. Kesalahan ini bukan sekadar masalah aksen, melainkan masalah tata bahasa dan kejelasan pesan: jika Anda tidak mengucapkan akhiran -ed atau -s dengan benar, pendengar tidak dapat membedakan apakah Anda membicarakan masa lalu (*past tense*), kebiasaan sekarang (*present tense*), atau benda jamak (*plural noun*).
+Bagi penutur bahasa Indonesia, aturan ini terasa sulit karena dua hal. Ejaan bahasa Indonesia sangat dekat dengan bunyi, jadi kebiasaan membaca "apa yang tertulis" terbawa ke bahasa Inggris dan *walked* menjadi "wok-ed". Selain itu, kata asli bahasa Indonesia jarang berakhir dengan dua konsonan; kluster akhir seperti pada *teks*, *film*, dan *kompleks* umumnya muncul di kata serapan. Karena itu /kt/ pada *worked*, /pt/ pada *stopped*, dan /nθs/ pada *months* terasa berat di mulut. Bahasa Indonesia juga tidak menandai kala atau jamak dengan akhiran kata, sehingga bunyi akhir yang hilang tidak terasa "mengubah" kalimat, padahal di bahasa Inggris bunyi itulah yang membedakan *work* dari *worked*.
 
-Dalam panduan komprehensif ini, kita akan membedah **aturan pengucapan ed dan s es** secara ilmiah namun praktis, menggunakan prinsip pita suara (*voiced vs voiceless*), panduan simbol International Phonetic Alphabet (IPA), serta latihan khusus untuk melatih otot mulut penutur Indonesia.
+## Prinsip pita suara untuk pengucapan -ed dan -s/-es
 
-## aturan pengucapan ed dan s es: Prinsip Kunci Pita Suara
+Letakkan dua jari di tenggorokan lalu ucapkan /z/ yang panjang, "zzzz". Anda merasakan getaran. Sekarang ucapkan /s/, "ssss": getaran hilang. Itulah beda bunyi **bersuara** (*voiced*) dan **tak bersuara** (*voiceless*).
 
-Sebelum menghafal rumus apa pun, Anda wajib memahami mekanisme dasar kotak suara (*vocal cords*) manusia. Letakkan dua jari Anda di bagian depan leher (tenggorokan):
+- **Bunyi bersuara:** pita suara bergetar. Termasuk /b, d, g, v, ð, z, ʒ, dʒ, m, n, ŋ, l, r, w, j/ dan semua vokal.
+- **Bunyi tak bersuara:** tanpa getaran. Termasuk /p, t, k, f, θ, s, ʃ, tʃ, h/.
 
-```
-+-------------------------------------------------------------+
-| 1. Bunyi Bersuara (Voiced Sounds):                           |
-|    Pita suara bergetar nyata saat bunyi diproduksi.          |
-|    Termasuk: /b, d, g, v, ð, z, ʒ, dʒ, m, n, ŋ, l, r, w, j/  |
-|    Catatan Penting: "Semua bunyi vokal adalah bunyi bersuara" |
-+-------------------------------------------------------------+
-| 2. Bunyi Tak Bersuara (Voiceless Sounds):                    |
-|    Udara mengalir bebas tanpa getaran pada pita suara.       |
-|    Termasuk: /p, t, k, f, θ, s, ʃ, tʃ, h/                    |
-+-------------------------------------------------------------+
-```
+Akhiran mengikuti bunyi di depannya: setelah bunyi bersuara, akhiran ikut bersuara; setelah bunyi tak bersuara, akhiran ikut tak bersuara. Para ahli fonetik menyebut ini asimilasi suara (*voice assimilation*). Vokal tambahan /ɪ/ muncul hanya ketika dua bunyi yang sama atau sangat mirip bertemu (/t/ + /d/, atau desis + /z/).
 
-Organ bicara manusia secara alami menyukai efisiensi energi. Jika bunyi konsonan sebelum akhiran menghasilkan getaran (bersuara), maka bunyi akhiran yang menyertainya juga akan bergetar. Sebaliknya, jika bunyi sebelumnya tidak bergetar (tak bersuara), maka bunyi akhirannya pun berupa hembusan udara tanpa getaran.
+![](media:@s1 "Pustaka pelafalan IPA di Lexkite: vokal tunggal, diftong, dan konsonan dengan contoh kata, latihan per bunyi, dan penilaian")
 
-![Pustaka pelafalan IPA di Lexkite](media:@s1 "Pustaka pelafalan IPA di Lexkite untuk melatih pron vokal tunggal, diftong, konsonan, dan bunyi akhir kata")
+{{diagram: d1 | Akhiran -ed: tiga bunyi}}
 
-{{diagram: d1 | Aturan Pengucapan Akhiran -ed (3 Kategori Bunyi)}}
+## Tiga cara membaca -ed
 
-## Aturan Pengucapan Akhiran -ed: 3 Pola Pasti
+Akhiran ini muncul pada bentuk lampau (*past simple*) dan *past participle* kata kerja beraturan.
 
-Ketika kata kerja beraturan (*regular verbs*) diubah ke bentuk *Past Simple* (V2) atau *Past Participle* (V3) dengan menambahkan -ed, terdapat tiga cara pengucapan yang baku:
+### 1. /ɪd/ setelah /t/ atau /d/
 
-### 1. Dilafalkan sebagai /ɪd/ (atau /əd/) — Menambah 1 Suku Kata
-Aturan ini **hanya berlaku** apabila huruf terakhir dari kata kerja dasar berbunyi **/t/** atau **/d/**:
-- *want* /wɒnt/ (berakhiran /t/) $\rightarrow$ *wanted* /ˈwɒn.tɪd/ (dua suku kata)
-- *need* /niːd/ (berakhiran /d/) $\rightarrow$ *needed* /ˈniː.dɪd/ (dua suku kata)
-- *decide* /dɪˈsaɪd/ $\rightarrow$ *decided* /dɪˈsaɪ.dɪd/
-- *invite* /ɪnˈvaɪt/ $\rightarrow$ *invited* /ɪnˈvaɪ.tɪd/
+Dua bunyi yang sama tidak bisa diucapkan berurutan dengan jelas, sehingga bahasa Inggris menyisipkan vokal pendek. Hasilnya, kata bertambah satu suku kata:
 
-> **Peringatan Penting:** Ini adalah satu-satunya kondisi di mana penambahan -ed menambah jumlah suku kata dari kata aslinya.
+- *want* /wɒnt/ → *wanted* /ˈwɒn.tɪd/
+- *need* /niːd/ → *needed* /ˈniː.dɪd/
+- *decide* /dɪˈsaɪd/ → *decided* /dɪˈsaɪ.dɪd/
+- *invite* /ɪnˈvaɪt/ → *invited* /ɪnˈvaɪ.tɪd/
 
-### 2. Dilafalkan sebagai /t/ (Tak Bersuara) — Tidak Menambah Suku Kata
-Jika kata dasar berakhiran konsonan tak bersuara (kecuali bunyi /t/), yaitu **/p, k, f, s, ʃ, tʃ, θ/**:
-- *work* /wɜːk/ $\rightarrow$ *worked* /wɜːkt/ (bukan wok-ed!)
-- *wash* /wɒʃ/ $\rightarrow$ *washed* /wɒʃt/
-- *watch* /wɒtʃ/ $\rightarrow$ *watched* /wɒtʃt/
-- *laugh* /lɑːf/ $\rightarrow$ *laughed* /lɑːft/
-- *kiss* /kɪs/ $\rightarrow$ *kissed* /kɪst/
+Ini satu-satunya kondisi pada kata kerja beraturan yang menambah suku kata. Sejumlah kata sifat adalah pengecualian dan dibahas di bagian bawah.
 
-### 3. Dilafalkan sebagai /d/ (Bersuara) — Tidak Menambah Suku Kata
-Jika kata dasar berakhiran konsonan bersuara (kecuali bunyi /d/) atau **berakhiran vokal**:
-- *play* /pleɪ/ (berakhiran vokal) $\rightarrow$ *played* /pleɪd/
-- *clean* /kliːn/ (berakhiran /n/) $\rightarrow$ *cleaned* /kliːnd/
-- *call* /kɔːl/ (berakhiran /l/) $\rightarrow$ *called* /kɔːld/
-- *live* /lɪv/ (berakhiran /v/) $\rightarrow$ *lived* /lɪvd/
+### 2. /t/ setelah bunyi tak bersuara lain
 
-{{diagram: d2 | Aturan Pengucapan Akhiran -s dan -es (3 Kategori Bunyi)}}
+- *work* → *worked* /wɜːkt/ (satu suku kata, bukan "wok-ed")
+- *wash* → *washed* /wɒʃt/
+- *watch* → *watched* /wɒtʃt/, dibaca satu suku kata /wɒtʃt/, bukan "wa-ced"
+- *laugh* → *laughed* /lɑːft/
+- *kiss* → *kissed* /kɪst/
 
-## Aturan Pengucapan Akhiran -s dan -es: 3 Pola Standar
+Perhatikan bahwa ejaan -ed tidak membantu di sini. *Kissed* berakhir dengan huruf d, tetapi bunyinya /t/ karena /s/ tak bersuara.
 
-Penambahan akhiran -s atau -es terjadi pada kata benda jamak (*plural nouns*) dan kata kerja orang ketiga tunggal (*He/She/It*) pada *Present Simple*. Aturannya terbagi menjadi 3:
+### 3. /d/ setelah bunyi bersuara dan vokal
 
-### 1. Dilafalkan sebagai /ɪz/ (atau /əz/) — Menambah 1 Suku Kata
-Digunakan jika kata dasar berakhiran **bunyi mendesis (Sibilant sounds)**: **/s, z, ʃ, ʒ, tʃ, dʒ/**:
-- *bus* /bʌs/ $\rightarrow$ *buses* /ˈbʌs.ɪz/ (dua suku kata)
-- *watch* /wɒtʃ/ $\rightarrow$ *watches* /ˈwɒtʃ.ɪz/
-- *box* /bɒks/ (berakhiran bunyi /ks/) $\rightarrow$ *boxes* /ˈbɒk.sɪz/
-- *change* /tʃeɪndʒ/ $\rightarrow$ *changes* /ˈtʃeɪn.dʒɪz/
+- *play* → *played* /pleɪd/ (berakhir vokal)
+- *clean* → *cleaned* /kliːnd/
+- *call* → *called* /kɔːld/
+- *live* → *lived* /lɪvd/
+- *change* → *changed* /tʃeɪndʒd/ (berakhir /dʒ/, bunyi bersuara)
+- *breathe* → *breathed* /briːðd/
+- *bang* → *banged* /bæŋd/
 
-### 2. Dilafalkan sebagai /s/ (Tak Bersuara)
-Digunakan jika kata dasar berakhiran konsonan tak bersuara biasa: **/p, t, k, f, θ/**:
-- *stop* $\rightarrow$ *stops* /stɒps/
-- *cat* $\rightarrow$ *cats* /kæts/
-- *book* $\rightarrow$ *books* /bʊks/
-- *month* $\rightarrow$ *months* /mʌnθs/
+Tiga contoh terakhir sering terlewat dalam daftar aturan karena bunyi /dʒ/, /ð/, dan /ŋ/ juga termasuk bunyi bersuara. Bunyi /ð/ dan /θ/ tidak dimiliki bahasa Indonesia, jadi *breathed* perlu dilatih terpisah.
 
-### 3. Dilafalkan sebagai /z/ (Bersuara)
-Digunakan jika kata dasar berakhiran konsonan bersuara atau vokal (kategori paling banyak):
-- *dog* $\rightarrow$ *dogs* /dɒɡz/
-- *read* $\rightarrow$ *reads* /riːdz/
-- *boy* $\rightarrow$ *boys* /bɔɪz/
-- *car* $\rightarrow$ *cars* /kɑːz/
+## Tiga cara membaca -s/-es
 
+Akhiran ini muncul pada kata benda jamak, pada kata kerja *he/she/it* di *present simple*, dan pada bentuk kepemilikan (*Chris's*).
 
-## Daftar Kata Perbandingan dan Latihan Minimal Pairs
+{{diagram: d2 | Akhiran -s/-es: tiga bunyi}}
 
-Untuk melatih kepekaan artikulatoris dan pendengaran Anda, pelajari tabel pasangan minimal (*minimal pairs*) di bawah ini. Ucapkan secara bergantian di depan cermin untuk memastikan Anda tidak menambahkan suku kata siluman:
+### 1. /ɪz/ setelah bunyi desis
 
-### 1. Latihan Kata Kerja Bentuk Lampau (-ed)
-- **worked vs walked:**
-  - *He worked late yesterday.* /hiː wɜːkt leɪt ˈjes.tə.deɪ/ (bukan wer-ked!)
-  - *We walked along the beach.* /wiː wɔːkt əˈlɒŋ ðə biːtʃ/ (bukan wok-ed!)
-- **missed vs needed:**
-  - *I missed the morning commuter train.* /aɪ mɪst ðə ˈmɔː.nɪŋ kəˈmjuː.tə treɪn/
-  - *The project team needed more technical resources.* /ðə ˈprɒdʒ.ekt tiːm ˈniː.dɪd mɔː ˈtek.nɪ.kəl rɪˈzɔː.sɪz/
-- **laughed vs loved:**
-  - *Everyone laughed at the clever joke.* /ˈev.ri.wʌn lɑːft æt ðə ˈklev.ə dʒəʊk/
-  - *She loved classical literature.* /ʃiː lʌvd ˈklæs.ɪ.kəl ˈlɪt.rə.tʃər/
+Bunyi desis adalah /s, z, ʃ, ʒ, tʃ, dʒ/. Setelah bunyi ini, /s/ atau /z/ tidak terdengar kalau berdiri sendiri, sehingga muncul suku kata tambahan:
 
-### 2. Latihan Kata Benda Jamak dan Kata Kerja Orang Ketiga (-s/-es)
-- **stops vs boxes:**
-  - *The intercity shuttle stops here.* /ðə ˌɪn.təˈsɪt.i ˈʃʌt.əl stɒps hɪər/
-  - *We packed fifteen heavy cardboard boxes.* /wiː pækt ˌfɪfˈtiːn ˈhev.i ˈkɑːd.bɔːd ˈbɒk.sɪz/
-- **cats vs dogs:**
-  - *My neighbor has two cats.* /maɪ ˈneɪ.bər hæz tuː kæts/ (bunyi /s/ kering)
-  - *They adopted three rescue dogs.* /ðeɪ əˈdɒp.tɪd θriː ˈres.kjuː dɒɡz/ (bunyi /z/ bergetar)
-- **watches vs changes:**
-  - *He watches market trends closely.* /hiː ˈwɒtʃ.ɪz ˈmɑː.kɪt trendz ˈkləʊs.li/
-  - *Digital transformation changes traditional business.* /ˈdɪdʒ.ɪ.təl ˌtræns.fəˈmeɪ.ʃən ˈtʃeɪn.dʒɪz trəˈdɪʃ.ən.əl ˈbɪz.nɪs/
+- *bus* → *buses* /ˈbʌs.ɪz/
+- *watch* → *watches* /ˈwɒtʃ.ɪz/
+- *box* → *boxes* /ˈbɒk.sɪz/ (kata dasar berakhir /ks/, bunyi desis /s/ di ujungnya)
+- *change* → *changes* /ˈtʃeɪn.dʒɪz/
 
-## Pengecualian Khusus: Kata Sifat (Adjectives) Berakhiran -ed yang Berbunyi /ɪd/
+### 2. /s/ setelah bunyi tak bersuara
 
-Dalam bahasa Inggris, terdapat sejumlah kata sifat khusus yang meskipun kata dasarnya tidak berakhiran huruf T atau D, akhiran -ed nya tetap wajib diucapkan sebagai suku kata penuh **/ɪd/**. Ini adalah jebakan klasik dalam tes kemampuan bahasa Inggris:
+- *stop* → *stops* /stɒps/
+- *cat* → *cats* /kæts/
+- *book* → *books* /bʊks/
+- *month* → *months* /mʌnθs/
 
-- **naked:** /ˈneɪ.kɪd/ (telanjang, tanpa penutup)
-- **wicked:** /ˈwɪk.ɪd/ (jahat, licik)
-- **crooked:** /ˈkrʊk.ɪd/ (bengkok, tidak jujur)
-- **beloved:** /bɪˈlʌv.ɪd/ (yang terkasih, sangat dicintai)
-- **blessed:** /ˈbles.ɪd/ (diberkati, membawa ketenangan)
-- **wretched:** /ˈretʃ.ɪd/ (malang, menyedihkan)
-- **ragged:** /ˈræɡ.ɪd/ (koyak, compang-camping)
+### 3. /z/ setelah bunyi bersuara dan vokal
 
-Perhatikan perbedaan fungsinya dalam kalimat: ketika *bless* berfungsi sebagai kata kerja lampau, pengucapannya adalah /blest/ (*The priest blessed the congregation*), tetapi ketika berfungsi sebagai kata sifat di depan kata benda, pengucapannya adalah /ˈbles.ɪd/ (*a blessed event*).
+Ini kelompok terbesar:
 
-## 3 Kesalahan Khas Penutur Indonesia dan Solusinya
+- *dog* → *dogs* /dɒɡz/
+- *read* → *reads* /riːdz/
+- *boy* → *boys* /bɔɪz/
+- *car* → *cars* /kɑːz/
 
-1. **Mengeja Tulisan Menjadi Suara ("Spelling Pronunciation"):** Membaca semua kata berakhiran -ed sebagai "ed". Ingat rumus emas: *hanya kata yang berakhiran T atau D yang boleh berbunyi /ɪd/*; kata lainnya hanya mendapat letupan /t/ atau getaran /d/ di ujung kata.
-2. **Menghilangkan Konsonan Akhir Sama Sekali:** Karena lelah atau ragu, banyak orang tidak mengucapkan bunyi /s/ atau /d/ di akhir kalimat. Hal ini membuat tata bahasa Anda dinilai berantakan dalam wawancara kerja atau tes resmi seperti IELTS Speaking.
-3. **Mengucapkan Semua Huruf S sebagai Bunyi Desis Kering /s/:** Kata seperti *friends*, *readers*, atau *plays* terdengar kaku jika dilafalkan dengan /s/. Membiasakan diri dengan bunyi lebah /z/ akan membuat bahasa Inggris Anda terdengar jauh lebih lentur dan natural.
+Bunyi /z/ hanya muncul di kata serapan bahasa Indonesia, misalnya *zaman* atau *izin*, sehingga di akhir kata ia mudah berganti menjadi /s/. Hasilnya *peas* /piːz/ terdengar seperti *peace* /piːs/, dan pendengar bisa salah menangkap kata. Rasakan getaran di tenggorokan pada *peas* dan bandingkan dengan *peace*.
 
+## Pasangan kontras untuk melatih telinga
 
-## Cara Melatih Refleks Pengucapan dalam Percakapan Kerja Nyata
+Berikut pasangan kata yang melatih bunyi akhir dan jumlah suku kata. Ucapkan keduanya bergantian sambil merekam diri sendiri.
 
-Dalam lingkungan kerja profesional multinasional, Anda sering kali tidak memiliki waktu untuk berpikir secara sadar tentang apakah suatu bunyi bersifat bersuara atau tidak bersuara. Kuncinya adalah melatih refleks bawah sadar melalui pengulangan bertarget (*targeted drills*):
+| Pasangan | Perbedaannya | Bunyi |
+|---|---|---|
+| *packed* vs *packet* | -ed /t/ (satu suku kata) lawan -et (dua suku kata) | /pækt/ vs /ˈpæk.ɪt/ |
+| *tried* vs *tired* | /d/ langsung setelah /aɪ/ lawan diftong /aɪə/ + /d/ | /traɪd/ vs /ˈtaɪ.əd/ |
+| *raced* vs *raised* | /t/ setelah /s/ lawan /d/ setelah /z/ | /reɪst/ vs /reɪzd/ |
+| *rained* vs *rain* | -ed /d/ menempel pada kata dasar, tetap satu suku kata | /reɪnd/ vs /reɪn/ |
+| *peace* vs *peas* | /s/ atau /z/ | /piːs/ vs /piːz/ |
+| *seats* vs *seeds* | /s/ atau /z/ | /siːts/ vs /siːdz/ |
+| *face* vs *faces* | satu suku kata atau dua | /feɪs/ vs /ˈfeɪ.sɪz/ |
 
-1. **Gunakan Teknik Pengucapan Berantai (Chaining Drills):** Mulai dari kata dasar, tambahkan akhiran, lalu hubungkan ke kata berikutnya. Contoh: *need* $
-ightarrow$ *needed* $
-ightarrow$ *needed a break* $
-ightarrow$ *She needed a break*.
-2. **Perhatikan Aspek Pelafalan Terhubung (Connected Speech):** Ingat bahwa ketika kata berikutnya dimulai dengan vokal, bunyi /t/ atau /d/ dari akhiran -ed akan menyeberang secara mulus: *worked in* terdengar seperti *work-tin*, dan *lived in* terdengar seperti *live-din*.
-3. **Rekam Diri Sendiri dalam Simulasi Meeting:** Bacakan catatan rapat atau laporan proyek Anda, lalu periksa apakah Anda masih mengucapkan bunyi ed palsu pada kata-kata seperti *managed*, *launched*, atau *reviewed*.
+Membuat satu kalimat untuk tiap pasangan juga membantu, misalnya *I tried hard* lawan *I was tired*. Bandingkan pula *packed* /pækt/ dengan *wanted* /ˈwɒn.tɪd/: yang pertama mengikuti bunyi tak bersuara dan tetap satu suku kata, yang kedua bertemu /t/ dan bertambah satu suku kata.
 
-## Integrasi Latihan Mandiri Harian
+## Kata sifat dengan -ed yang dibaca /ɪd/
 
-Untuk menguasai aturan ini hingga menjadi memori otot (*muscle memory*), luangkan waktu 10 menit setiap hari untuk membaca kalimat pendek dengan konsonan akhir yang bervariasi.
+Beberapa kata sifat tetap memakai /ɪd/ walaupun kata dasarnya tidak berakhir dengan /t/ atau /d/. Daftar ini sebaiknya dihafal, bukan diturunkan dari aturan:
 
-Anda dapat memperdalam keterampilan pelafalan kalimat utuh dengan membaca panduan [Ritme dan Sentence Stress Bahasa Inggris](/id/blog/ritme-dan-sentence-stress-bahasa-inggris/) serta melatih kelancaran lidah lewat [Teknik Shadowing Bahasa Inggris Otodidak](/id/blog/teknik-shadowing-bahasa-inggris-otodidak/). Untuk memperluas pemahaman tata bahasa, simak ulasan kami tentang [Kalimat Pengandaian Conditional Sentences](/id/blog/kalimat-pengandaian-bahasa-inggris-conditional-sentences/) dan tinjau perbedaan kata kerja dalam artikel [Phrasal Verbs Bahasa Inggris Populer](/id/blog/phrasal-verbs-bahasa-inggris-populer/). Jangan lewatkan pula kompilasi referensi lengkap di [pusat pembelajaran fonetik dan tata bahasa](/en/grammar/).
+- *naked* /ˈneɪ.kɪd/ (telanjang)
+- *wicked* /ˈwɪk.ɪd/ (jahat)
+- *crooked* /ˈkrʊk.ɪd/ (bengkok)
+- *beloved* /bɪˈlʌv.ɪd/ (tercinta)
+- *wretched* /ˈretʃ.ɪd/ (malang, menyedihkan)
+- *ragged* /ˈræɡ.ɪd/ (compang-camping)
+- *rugged* /ˈrʌɡ.ɪd/ (terjal, kasar)
+- *aged* /ˈeɪ.dʒɪd/ dalam *an aged man* (lanjut usia)
+- *learned* /ˈlɜː.nɪd/ dalam *a learned professor* (terpelajar)
 
-Untuk menguji ketepatan pelafalan akhiran kata secara interaktif dan mendapatkan umpan balik akurasi suara seketika, buka [Pustaka Pelafalan IPA Lexkite](/#/pron) dan asah ketajaman refleks Anda di [Pusat Latihan Lexkite](/#/practice).
+Bandingkan dengan fungsi kata kerja: *He learned quickly* dibaca /lɜːnd/ atau /lɜːnt/, tetapi *a learned professor* dibaca /ˈlɜː.nɪd/. Kata *blessed* berubah serupa pada pemakaian tertentu, misalnya /blest/ sebagai kata kerja (*The priest blessed them*) dan /ˈbles.ɪd/ sebagai kata sifat di depan kata benda. Kamus akan menunjukkan bunyi yang tepat; periksa kata sifat yang Anda ragukan sebelum menghafalnya.
 
-{{cta: /#/pron | Latih pengucapan ed dan s es di Lexkite sekarang}}
+## Tiga kebiasaan keliru penutur Indonesia
+
+1. **Membaca ejaan apa adanya.** *Walked* menjadi "wok-ed", *helped* menjadi "help-ed". Cara memeriksanya mudah: hitung suku kata. Jika kata dasar tidak berakhir /t/ atau /d/, jumlah suku kata tidak bertambah.
+2. **Menghilangkan konsonan akhir.** *Played* menjadi *play*, *cats* menjadi *cat*. Karena bahasa Indonesia tidak menandai kala dan jamak lewat akhiran, bunyi ini mudah luput. Dalam bahasa Inggris, pendengar bisa mengiranya sebagai kesalahan tata bahasa, padahal masalahnya ada pada pelafalan.
+3. **Mengucapkan semua -s sebagai /s/.** *Friends*, *readers*, dan *plays* seharusnya berakhir /z/. Pembedaan ini jarang menghalangi pemahaman, tetapi membuat ucapan terdengar kaku dan, pada pasangan seperti *peas* dan *peace*, bisa menimbulkan salah dengar.
+
+## Melatih refleks dalam kalimat utuh
+
+Aturan ini baru berguna bila terbawa ke percakapan. Tiga cara melatihnya:
+
+1. **Teknik berantai (*chaining*).** Mulai dari kata dasar, lalu tambahkan bunyi satu per satu: *need* → *needed* → *needed a break* → *She needed a break.*
+2. **Sambungan antarkata.** Bila kata berikutnya diawali vokal, bunyi akhir -ed berpindah ke suku kata berikutnya: *worked in* terdengar seperti *work-tin*, *lived in* seperti *live-din*. Panduan [connected speech](/id/blog/connected-speech-bahasa-inggris-aturan-menyambung-kata/) menjelaskan pola ini lebih jauh.
+3. **Rekam dan dengarkan.** Bacakan lima kalimat dengan kata kerja seperti *managed*, *launched*, *reviewed*, *started*, dan *finished*, lalu periksa apakah ada suku kata tambahan yang tidak seharusnya.
+
+## Latihan di Lexkite
+
+Buka [pustaka pelafalan Lexkite](/app/#/pron) untuk mendengar contoh bunyi dan berlatih per bunyi. Pelajaran tata bahasanya, [cara membaca -ed dan -s](/app/#/grammar/ed-s-endings), cocok dibaca sebelum Anda mulai merekam. Untuk melatih frasa lengkap dengan mikrofon, gunakan [menu Permainan & latihan](/app/#/practice).
+
+![](media:@s2 "Menu Permainan & latihan Lexkite: permainan dan latihan seperti belajar cerdas, mencocokkan kartu, latihan pelafalan, pilihan ganda, mengisi kata, mendengar dan menulis, serta tes")
+
+Untuk memperluas pelafalan, baca juga [ritme dan sentence stress](/id/blog/ritme-dan-sentence-stress-bahasa-inggris/) agar akhiran tidak terdengar terlalu keras, [teknik shadowing](/id/blog/teknik-shadowing-bahasa-inggris-otodidak/) untuk meniru bunyi akhir dari penutur asli, dan [tabel simbol IPA](/id/blog/tabel-simbol-ipa-bahasa-inggris/) untuk membaca transkripsi di kamus. Latihan lain untuk kata kerja dan tata bahasa ada di [halaman tata bahasa Inggris](/en/grammar/).
+
+{{cta: /app/#/pron | Latih pengucapan -ed di Lexkite}}
