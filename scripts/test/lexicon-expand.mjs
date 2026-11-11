@@ -150,7 +150,16 @@ if (REG.todo && Object.keys(REG.todo).length) console.log('⚠ lexicon-expand vi
     ok(f(['thói nghiện'], 'nghiện', '')[0].src.join() === 'wv,a', 'viKey: bỏ "thói" chỉ loại đầu'); }
   { const J = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'); ok(/pass = items\.filter\(x => pend\.items\[x\.k\] && OUT\[x\.k\] && OUT\[x\.k\]\.pass\)\.length/.test(J) && /yield: \+\(pass \//.test(J), 'báo cáo: pass/yield theo LƯỢT (không cộng dồn lô ngày – cầu dao sản lượng phải ngắt được)'); }
   { const { laneEmpty: e } = await import('../lexicon/expand/lib.mjs'), now = Date.parse('2026-11-10T12:00:00Z'), at = '2026-11-10T10:00:00Z', r = n => ({ n, retry: 700, at });
-    ok(e([r(5), r(3)], 700, now) && !e([r(30), r(20)], 700, now) && !e([r(5)], 12000, now) && !e([{ n: 1, retry: 700, at: '2026-11-08T10:00:00Z' }], 700, now) && !e([], 0, now), 'laneEmpty: rỗng mới bỏ, retry tăng hoặc quá 24 h thì chạy lại'); }
+    ok(e([r(5), r(3)], 700, now) && !e([r(30), r(20)], 700, now) && !e([r(5)], 12000, now) && !e([{ n: 1, retry: 700, at: '2026-11-08T10:00:00Z' }], 700, now) && !e([], 0, now), 'laneEmpty: rỗng mới bỏ, retry tăng hoặc quá 24 h thì chạy lại');
+  // 11/11: chỉ cộng các shard CÙNG lượt (run) – s0 lượt mới (37) + s1–s3 lượt cũ (6+11+10) không được tính chung; tổng một lượt ≥ EMPTY_RUN thì chạy
+  { const q = (n, run, h) => ({ n, retry: 700, run, at: `2026-11-10T${h}:00:00Z` });
+    ok(e([q(10, 'A', '09'), q(12, 'A', '09'), q(9, 'A', '09'), q(40, 'B', '11')], 700, now), 'laneEmpty: lượt B (40) rỗng dù tổng cộng lượt A ≥ 64 – nhóm theo run');
+    ok(!e([q(30, 'B', '11'), q(30, 'B', '11'), q(30, 'B', '11'), q(30, 'B', '11')], 700, now), 'laneEmpty: 4 shard × 30 = 120 ≥ EMPTY_RUN → chạy');
+    ok(e([{ n: 37, retry: 700, at: '2026-11-10T11:00:00Z' }, { n: 27, retry: 700, at: '2026-11-10T09:00:00Z' }], 700, now), 'laneEmpty: tệp cũ chưa có run gộp một nhóm (tương thích)'); }
+  const W = fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8'), L = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/left.mjs'), 'utf8'), JB = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8');
+  ok(/left\.mjs --idle/.test(W) && /expand:\n    needs: plan\n    if: \$\{\{ needs\.plan\.outputs\.idle != '1' \}\}/.test(W), 'workflow: plan chạy left.mjs --idle, expand bỏ khi idle=1');
+  ok(/force != '1'/.test(W) && /words == '' && github\.event\.inputs\.audit == ''/.test(W), 'workflow: soát/mẫu cố định/force=1 không bị cổng rỗng');
+  ok(/GITHUB_RUN_ID/.test(JB) && L.indexOf("laneEmpty(runs") < L.indexOf('loadAll()'), 'job.mjs ghi run; left.mjs kiểm rỗng TRƯỚC khi tải kho'); }
   { const py = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/viwikt.py'), 'utf8'), J = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'), Y = fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8');
     ok(/wv: WV\[x\.k\]/.test(J) && /--viwk/.test(Y) && /viwiktionary\/raw-wiktextract-data\.jsonl\.gz/.test(Y) && /CC BY-SA 4\.0/.test(py) && /Wiktionary en \+ vi CC BY-SA 4\.0/.test(J), 'viwikt: nối vào job + workflow, ghi giấy phép'); }
   { const R = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/requeue.mjs'), 'utf8'), Y = fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8');
