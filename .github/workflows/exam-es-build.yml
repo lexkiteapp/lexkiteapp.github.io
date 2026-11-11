@@ -1,0 +1,35 @@
+# Dựng nguồn câu đề luyện DELE/SIELE es (docs/specs/spanish-exam-w5.md): tải Tatoeba (CC BY 2.0 FR) + FrequencyWords trên runner (KHÔNG chạy trên Mac),
+# chạy scripts/target/exam-es-lib.mjs cho các cấp chỉ định, sinh CREDITS + gói cpack, rồi trả kết quả qua artifact bot-output-exam-es
+# (lấy về: bash scripts/ci/bot-output.sh exam-es <nhánh>; tự commit – không đẩy vào nhánh PR). Chạy tay: workflow_dispatch ref=<nhánh>.
+name: exam-es-build
+on:
+  push: { branches: ['ci/es-exam-build'] }   # nhánh tạm để chạy lần đầu khi workflow chưa có trên main (dispatch cần file ở main)
+  workflow_dispatch:
+    inputs:
+      levels: { description: 'Cấp dựng lại nguồn (cách nhau dấu phẩy; cấp khác giữ nguyên)', default: 'B2,C1,C2' }
+permissions: { contents: read }
+concurrency: { group: 'exam-es-build-${{ github.ref }}', cancel-in-progress: true }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env: { NODE_OPTIONS: '--max-old-space-size=6000' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Tải Tatoeba (es) + FrequencyWords (chỉ làm thứ hạng)
+        run: |
+          curl -fsSL --retry 5 -o "$RUNNER_TEMP/spa.tsv.bz2" https://downloads.tatoeba.org/exports/per_language/spa/spa_sentences_detailed.tsv.bz2
+          bunzip2 -f "$RUNNER_TEMP/spa.tsv.bz2"
+          curl -fsSL --retry 5 -o "$RUNNER_TEMP/es_50k.txt" https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt
+      - name: Chọn câu → nguồn, ghi công, gói cpack, add-on
+        env: { LEVELS: '${{ github.event.inputs.levels || 'B2,C1,C2' }}' }
+        run: |
+          TATOEBA="$RUNNER_TEMP/spa.tsv" FREQ="$RUNNER_TEMP/es_50k.txt" node scripts/target/exam-es-lib.mjs
+          node scripts/target/exam-es-check.mjs --write-credits
+          node scripts/target/drill-pack.mjs
+          bash scripts/build-extension.sh >/dev/null
+      - id: bo
+        uses: ./.github/actions/bot-output
+        with: { name: exam-es, paths: 'content/exams/es web/cpack/es extension' }

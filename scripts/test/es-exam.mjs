@@ -25,9 +25,9 @@ const spoken = [], rewards = []; UI.tts = t => { spoken.push(t); }; App.reward =
 ok(typeof App.esexam === 'function' && App.esX && App.esQ && App.esFoot && App.esEnd, 'App.esexam + phần dùng chung với espr.js có');
 
 await App.esexam(); await tick(60);
-ok($$('section.card').length === 3 && $$('a.btn[href*="p=rd"]').length === 6 && $$('a.btn[href*="p=sp"]').length === 6, 'danh sách: 3 cấp × 2 đề × 4 phần');
+ok($$('section.card').length === 6 && $$('a.btn[href*="p=rd"]').length === 12 && $$('a.btn[href*="p=sp"]').length === 12, 'danh sách: 6 cấp × 2 đề × 4 phần');
 ok(/Tatoeba/.test($('#x-A1').textContent) && /45/.test($('#x-A1').textContent), 'có dòng ghi công Tatoeba + định dạng chính thức đã xác minh (A1 đọc 45′)');
-ok(loaded.some(s => /x-ui-/.test(s)) && !loaded.some(s => /x-C/.test(s)), 'gói nhãn theo ngôn ngữ đã tải, chỉ cấp có đề');
+ok(loaded.some(s => /x-ui-/.test(s)) && loaded.some(s => /x-C2/.test(s)), 'gói nhãn theo ngôn ngữ đã tải + gói từng cấp A1–C2');
 
 // Đọc: 10 câu điền từ; chọn đúng / sai
 await App.esexam('A1', 1, 'rd'); await tick(60);
@@ -62,6 +62,14 @@ $('#exTxt').value = 'Estimados señores, quiero estudiar español en su escuela 
 const hi = +/(\d+)%/.exec($('#exRes').textContent)[1]; ok(hi >= 80 && hi > lo, `wr: bài đủ ý, từ nối, độ dài điểm cao (${hi}%)`);
 ok(/SIELE/.test($('#exRes').textContent) && /250/.test($('#exRes').textContent), 'wr: hiện ước lượng thang SIELE 0–250');
 st = JSON.parse(w.localStorage.getItem('lk.es.x')); ok(st.B1[1].wr === hi, 'wr: điểm lưu');
+
+// B2–C2 (đợt 2): định dạng đã xác minh hiện, chỗ chưa xác minh (min = null) không in "null"
+await App.esexam('C2', 2, 'wr'); await tick(60);
+ok(!!$('#exTxt') && /C2/.test(App.view.textContent), 'C2 wr: consigna + ô viết');
+await App.esexam('B2', 1, 'rd'); await tick(60);
+ok(!!$('#lsnBub') && levels.B2.e[0].c.length === 10, 'B2 rd: mở được đề điền từ');
+await App.esexam(); await tick(60);
+ok(/105/.test($('#x-C2').textContent) && !/null/.test($('#x-C1').textContent + $('#x-C2').textContent), 'C1/C2: hiện định dạng đã xác minh, không in null');
 
 // Nói: micro giả điền văn bản; không micro → báo, vẫn gõ được
 let mode = 'ok'; UI.recognize = (t0, acc, cb) => { setTimeout(() => { if (mode === 'ok') cb.result({ heard: 'vivo en una casa grande y pequeña cerca de la ciudad', alts: [] }); else cb.error('unsupported'); cb.end(); }, 5); return { stop() {} }; };
