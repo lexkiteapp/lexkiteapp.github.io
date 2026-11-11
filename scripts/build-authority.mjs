@@ -78,7 +78,8 @@ ${siteFooter({ lang, text: `Lexkite – ${esc(s.nav.hub)}`, langHref: l => alts.
 const crumbsLd = items => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([name, u], i) => ({ '@type': 'ListItem', position: i + 1, name, item: SITE + u })) });
 const KINDS = ['hub', 'team', 'policy', 'corrections', 'sources', 'research', 'embed'];
 const related = (lang, cur) => { const s = authStrings(lang); return `<nav aria-label="${esc(s.related)}"><h2>${esc(s.related)}</h2><ul class="rel">${KINDS.filter(k => k !== 'hub').map(k => `<li><a href="${authPath(lang, k)}"${k === cur ? ' aria-current="page"' : ''}>${esc(s.nav[k])}</a></li>`).join('')}</ul></nav>`; };
-const secs = list => list.map(([h, p]) => `<section><h2>${esc(h)}</h2><p>${esc(p).replace(/support@lexkite\.com/g, '<a href="mailto:support@lexkite.com">support@lexkite.com</a>')}</p></section>`).join('\n');
+// Mục có email hỗ trợ = mục Liên hệ (#contact – đích của link "Liên hệ" ở chân trang mọi trang tĩnh, site-layout footGroups)
+const secs = list => list.map(([h, p]) => `<section${p.includes('support@lexkite.com') ? ' id="contact"' : ''}><h2>${esc(h)}</h2><p>${esc(p).replace(/support@lexkite\.com/g, '<a href="mailto:support@lexkite.com">support@lexkite.com</a>')}</p></section>`).join('\n');
 const webPage = (lang, kind, type, name, desc, extra = {}) => ({ '@context': 'https://schema.org', '@type': type, '@id': `${url(authPath(lang, kind))}#page`, name, description: desc, url: url(authPath(lang, kind)), inLanguage: lang, isPartOf: { '@type': 'WebSite', '@id': `${SITE}/#website`, name: 'Lexkite', url: `${SITE}/` }, publisher: { '@id': `${SITE}/#org` }, datePublished: PUBLISHED, dateModified: lastmod, ...extra });
 let lastmod = today;
 

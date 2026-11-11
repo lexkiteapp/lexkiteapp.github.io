@@ -28,6 +28,8 @@ assert.match(FOOT_CSS, /\.fbtn\{[^}]*min-height:44px/);
 // web-sweep đo cả tiêu đề nhóm (summary) trên desktop và bề ngang link pháp lý ngắn ("Terms") trên điện thoại
 assert.match(FOOT_CSS, /\.fg summary\{[^}]*min-height:44px/);
 assert.match(FOOT_CSS, /\.flegal a\{[^}]*min-width:44px/);
+// Điện thoại: .fbrand xếp dọc → flex-basis 260px của khối 1024px thành CHIỀU CAO đoạn mô tả (chân trang 793–841 px > trần 760): phải huỷ trong khối 720px
+assert.match(FOOT_CSS, /max-width:720px\).*\.fbrand\{flex-direction:column[^}]*\}\.fbrand p\{flex:none\}/s);
 assert.match(FOOT_CSS, /@media \(max-width:720px\)\{.*\.site-foot \.fg a,\.flegal a\{min-height:48px\}/s);
 assert.match(FOOT_CSS, /@media \(max-width:720px\)\{.*\.fg summary\{[^}]*pointer-events:auto/s);
 assert.match(TAP_CSS, /\.site-foot li a,\.flangs a\{display:inline-flex[^}]*min-height:44px/);
