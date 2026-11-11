@@ -18,7 +18,6 @@
 'Hiện tại tiếp diễn': 'Present continuous',
 'Quá khứ tiếp diễn': 'Past continuous',
 'Hay nhầm với': 'Often confused with',
-'Mọi thì, bị động, cách đọc -ed/-s': 'All tenses, the passive, -ed/-s pronunciation',
 'Sửa ngữ pháp': 'Grammar fixer',
 'Dán đoạn văn – gạch chân lỗi, sửa 1 chạm': 'Paste a text – see mistakes underlined, fix them in one tap',
 'Hoàn tác': 'Undo',
@@ -87,7 +86,6 @@
 'Chia động từ': 'Verb forms',
 'Điền từ': 'Fill in the blank',
 'Viết lại câu': 'Rewrite the sentence',
-'Học từng bước': 'Step by step',
 'Hình dung': 'Visualize',
 'Cách dùng': 'Usage',
 'Quay lại': 'Back',
@@ -135,7 +133,6 @@
 'Cần tải mô hình khoảng 40 MB một lần (nên dùng Wi-Fi).': 'It needs a one-time ~40 MB model download (Wi-Fi recommended).',
 'Tải & bật': 'Download & turn on', 'Đang chuẩn bị… bấm micro lần nữa để nói': 'Getting ready… tap the mic again to speak',
 // ---------- từ en/goal.js + en/remind.js: nhãn trợ năng viên đầu trang Stitch chung (web/js/st/v2/shell.js) – màn Ôn/Lộ trình/Tôi… cần ngay, không chờ gói lười (thiếu → dịch máy gọi mạng) ----------
-'Mức sẵn sàng thi': 'Exam readiness', 'Mục tiêu hôm nay': "Today's goal",
 // ⏱️ Thử thách 60 giây – ô chế độ (app.js modeTiles, khung app)
 "Thử thách 60 giây": "60-second challenge",
 "Ôn từ đến hạn, combo, thách đấu bạn bè": "Review due words, build combos, challenge friends",

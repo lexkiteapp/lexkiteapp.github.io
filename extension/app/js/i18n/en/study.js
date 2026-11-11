@@ -211,7 +211,6 @@
 '1 bài ngữ pháp': '1 grammar lesson',
 'Nghe 1 phần': 'Listen to 1 part',
 'Luyện Speaking': 'Practice Speaking',
-'Ghép thẻ tính giờ': 'Timed matching',
 '{n} từ đang sắp quên': '{n} words fading',
 'Đọc bài': 'Read',
 

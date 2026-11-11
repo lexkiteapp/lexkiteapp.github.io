@@ -6,7 +6,6 @@
 'Biểu đồ tròn': 'Pie chart',
 'Quy trình': 'Process',
 'Bản đồ': 'Map',
-'Bấm giờ': 'Start timer',
 'Tiếp tục': 'Resume',
 'Tạm dừng': 'Pause',
 'Số từ': 'Words',
