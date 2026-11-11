@@ -1,188 +1,179 @@
 ---
-title: "Relative Clauses ในภาษาอังกฤษ: สรุปหลักการใช้และเครื่องหมายจุลภาค"
-description: "Relative Clauses ในภาษาอังกฤษ: สรุปหลักการใช้ who, which, that, whose, whom และ where เปรียบเทียบ Defining vs Non-defining และการละสรรพนาม"
+title: "Relative Clauses ในภาษาอังกฤษ: who which that และจุลภาค"
+description: "relative clauses ในภาษาอังกฤษ: เลือก who, which, that, whose ให้ถูก แยก defining กับ non-defining ที่ต่างกันด้วยจุลภาค ละสรรพนามเมื่อไร และจุดที่คนไทยมักพลาด"
 slug: relative-clauses-phasa-angkrit-khrongsang
 lang: th
 translationKey: relative-clauses
 category: ngu-phap
 tags: [grammar, relative-clauses, writing, b1]
 keyword: "relative clauses ในภาษาอังกฤษ"
-cover: grammar
-coverAlt: "Lexkite grammar หน้าจอฝึกไวยากรณ์ 12 tense และ relative clauses ในภาษาอังกฤษ"
-publishAt: 2027-02-28T22:00:00+07:00
+cover: phrases
+coverAlt: "สมุดวลีและโครงสร้างใน Lexkite เพิ่มวลีหรือประโยค ดูบทความตัวอย่างที่ชี้โครงสร้าง และติดป้าย Task หรือ band"
+publishAt: 2026-12-26T21:30:00+07:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: think, icon: blocks, chip: B1}
 shots: [
   {id: s1, route: '#/grammar/relative-clauses', crop: main}
 ]
 diagrams: [
-  {id: d1, type: compare, title: 'การเลือกใช้ Relative Pronouns ในภาษาอังกฤษ', cols: ['คำสรรพนาม', 'ใช้แทน (Refers to)', 'ตัวอย่างประโยค'], rows: [['who', 'คน (ทำหน้าที่เป็นประธานหรือกรรม)', 'The lecturer who taught economic policy'], ['which', 'สัตว์ สิ่งของ หรือข้อความทั้งประโยค', 'The smartphone which I purchased recently'], ['that', 'คนหรือสิ่งของ (เฉพาะ Defining เท่านั้น)', 'The software that streamlined our workflow'], ['whose', 'แสดงความเป็นเจ้าของ (คนหรือสัตว์สิ่งของ)', 'The architect whose design won the competition'], ['where / when', 'สถานที่ (Places) / เวลา (Times)', 'The university where she pursued her degree']]},
-  {id: d2, type: compare, title: 'ข้อแตกต่างระหว่าง Defining กับ Non-defining Clauses', cols: ['ประเด็นเปรียบเทียบ', 'Defining Clauses', 'Non-defining Clauses'], rows: [['หน้าที่สำคัญ', 'ระบุเฉพาะเจาะจงว่าคือคน/สิ่งไหน (ขาดไม่ได้)', 'ให้ข้อมูลเสริมเพิ่มเติม (ตัดทิ้งได้ ความหมายหลักไม่เสีย)'], ['เครื่องหมายจุลภาค (Comma)', 'ห้ามใส่เครื่องหมายจุลภาคเด็ดขาด', 'ต้องใส่เครื่องหมายจุลภาคคั่นหน้า-หลังเสมอ'], ['การใช้ that', 'ใช้แทน who และ which ได้อย่างสมบูรณ์', 'ห้ามใช้ that เด็ดขาด (ต้องใช้ who หรือ which)'], ['การละสรรพนาม (Omission)', 'ละได้เมื่อสรรพนามทำหน้าที่เป็นกรรม', 'ห้ามละคำสรรพนามในทุกกรณี']]}
+  {id: d1, type: compare, title: 'เลือก relative pronoun ให้ถูก', cols: ['คำเชื่อม', 'ใช้แทน', 'ตัวอย่าง'], rows: [['who', 'คน (เป็นประธาน หรือเป็นกรรมในภาษาพูด)', 'The lecturer who taught economics'], ['which', 'สิ่งของ สัตว์ หรือเนื้อความทั้งประโยค', 'The phone which I bought recently'], ['that', 'คนหรือสิ่งของ ใช้ใน defining clause เท่านั้น', 'The software that saved us time'], ['whose', 'ความเป็นเจ้าของ วางหน้าคำนามที่ครอบครอง', 'The architect whose design won'], ['where / when / why', 'สถานที่ / เวลา / เหตุผล', 'The university where she studied']]},
+  {id: d2, type: compare, title: 'defining กับ non-defining clause ต่างกันอย่างไร', cols: ['ประเด็น', 'Defining clause', 'Non-defining clause'], rows: [['หน้าที่', 'ระบุว่าหมายถึงคนหรือสิ่งไหน ตัดออกแล้วความหมายเปลี่ยน', 'เพิ่มข้อมูลเสริม ตัดออกแล้วใจความหลักยังอยู่'], ['เครื่องหมายจุลภาค', 'ไม่ใส่', 'ใส่คั่นหน้าและหลัง'], ['การใช้ that', 'ใช้แทน who หรือ which ได้ ยกเว้นหลังบุพบท', 'ใช้ไม่ได้ ต้องใช้ who หรือ which'], ['การละสรรพนาม', 'ละได้เมื่อสรรพนามเป็นกรรม', 'ละไม่ได้']]}
 ]
 quiz: [
   {
-    q: "ประโยคใดต่อไปนี้ถูกต้องตามหลักไวยากรณ์ภาษาอังกฤษและการใช้เครื่องหมายวรรคตอนอย่างสมบูรณ์?",
+    q: "ประโยคใดที่ห้ามใช้ that แทน which?",
     options: [
-      "My eldest sister, that lives in London, is working as an environmental economist for a global NGO.",
-      "My eldest sister, who lives in London, is working as an environmental economist for a global NGO.",
-      "My eldest sister, which lives in London, is working as an environmental economist for a global NGO.",
-      "My eldest sister, whom lives in London, is working as an environmental economist for a global NGO."
+      "Bangkok, which is a busy city, is very large.",
+      "The rules which apply to new members are on the website.",
+      "The tickets which she reserved have arrived.",
+      "The rooms which we booked were very clean."
     ],
-    answer: 1,
-    explain: "เมื่อมีเครื่องหมายจุลภาค (comma) ประโยคย่อยนี้จะเป็น Non-defining clause ซึ่งให้ข้อมูลเสริม จึงห้ามใช้ 'that' และประธานที่เป็นบุคคลต้องใช้ 'who'"
+    answer: 0,
+    explain: "ประโยคที่มีจุลภาคคั่นเป็น non-defining clause จึงห้ามใช้ that ส่วนประโยคอื่นเป็น defining clause ใช้ that แทนได้"
   },
   {
-    q: "ในประโยคใดต่อไปนี้สามารถ 'ละ' คำสรรพนามเชื่อม (Relative Pronoun) ออกได้โดยที่ประโยคยังคงถูกต้องตามหลักไวยากรณ์?",
-    options: [
-      "The dedicated civil engineer who supervised the expressway construction project was promoted.",
-      "The academic research paper that we reviewed during yesterday's meeting was extremely insightful.",
-      "Bangkok, which is the vibrant capital city of Thailand, attracts millions of international travelers.",
-      "The promising medical student whose doctoral scholarship was fully approved celebrated with family."
-    ],
-    answer: 1,
-    explain: "ในประโยค Defining clause เมื่อ relative pronoun ทำหน้าที่เป็นกรรม (object) ของกริยาในอนุประโยค (we reviewed the paper) เราสามารถละ that ทิ้งได้: 'The academic research paper we reviewed...'"
+    q: "เติมสรรพนามเชื่อม: 'I met a writer _____ novels have been translated into Thai.'",
+    options: ["who", "which", "that", "whose"],
+    answer: 3,
+    explain: "novels เป็นของนักเขียน จึงใช้ whose ซึ่งวางก่อนคำนามที่ถูกครอบครองเสมอ"
   },
   {
-    q: "ในประโยค 'He passed the rigorous bar exam on his first attempt, which astonished everyone' คำว่า 'which' ทำหน้าที่อ้างอิงถึงสิ่งใด?",
+    q: "ข้อใดละสรรพนามเชื่อมออกได้โดยประโยคยังถูกต้อง?",
     options: [
-      "อ้างอิงถึงตัวข้อสอบเนติบัณฑิตอันเข้มงวดเพียงอย่างเดียว",
-      "อ้างอิงถึงกลุ่มเพื่อนร่วมชั้นและคณาจารย์ทุกคนที่ประหลาดใจ",
-      "อ้างอิงถึงข้อเท็จจริงทั้งหมดในประโยคหน้าว่าเขาสอบผ่านตั้งแต่ครั้งแรก",
-      "ประโยคนี้ผิดหลักไวยากรณ์เพราะ which ไม่สามารถอยู่หลัง comma ได้"
+      "The woman who lives next door speaks Thai.",
+      "The film that we watched was too long.",
+      "My brother, who works in Phuket, called today.",
+      "The student whose bag was stolen filed a report."
     ],
-    answer: 2,
-    explain: "ใน Non-defining clause การใช้ comma + which สามารถทำหน้าที่เป็น Sentential Relative Clause เพื่ออ้างอิงถึงเหตุการณ์หรือข้อความทั้งหมดของประโยคหลักที่อยู่ข้างหน้าได้"
+    answer: 1,
+    explain: "that ใน defining clause ทำหน้าที่เป็นกรรมของ watched จึงละได้ ส่วน who ที่เป็นประธาน whose และสรรพนามใน non-defining clause ละไม่ได้"
   }
 ]
 ---
 
-ในการเขียนและการพูดภาษาอังกฤษระดับกลางถึงระดับสูง หนึ่งในเครื่องมือทางไวยากรณ์ที่ทรงพลังที่สุดในการยกระดับประโยคความเดียวสั้นๆ ให้กลายเป็นประโยคความซ้อนที่เชื่อมโยงและสละสลวยคือ **relative clauses ในภาษาอังกฤษ** (อนุประโยคที่ทำหน้าที่ขยายคำนาม) หากคุณพูดประโยคสั้นๆ แยกกันว่า "*I met an engineer. She designed this bridge.*" ภาษาของคุณจะดูเหมือนผู้เรียนระดับเริ่มต้น แต่เมื่อคุณเชื่อมประโยคเข้าด้วยกันเป็น "*I met the engineer **who** designed this bridge.*" ประโยคของคุณจะมีความลื่นไหลและดูเป็นมืออาชีพขึ้นมาทันที
+Relative clauses ในภาษาอังกฤษคืออนุประโยคที่วางหลังคำนามเพื่อบอกว่าหมายถึงคนหรือสิ่งไหน หรือเพื่อเพิ่มข้อมูลเกี่ยวกับคำนามนั้น ขึ้นต้นด้วย who, which, that, whose หรือ where เช่น *The woman who lives next door speaks Thai.* คำที่ผู้เรียนมักพลาดมี 2 เรื่อง คือเลือกคำเชื่อมไม่ถูก และใส่หรือไม่ใส่จุลภาค ซึ่งเปลี่ยนความหมายของประโยคได้จริง
 
-ในภาษาไทย เรามักใช้คำเชื่อมเช่น "ที่", "ซึ่ง", "อัน", "ผู้ซึ่ง" เพื่อทำหน้าที่ขยายคำนามอย่างสะดวกสบายโดยไม่ต้องคำนึงถึงกาลเวลาหรือชนิดของคำนามมากนัก แต่ในภาษาอังกฤษ ระบบของ **relative clauses ในภาษาอังกฤษ** มีกฎเกณฑ์ที่เข้มงวดทั้งในเรื่องการเลือกใช้ Relative Pronoun (*who, which, that, whose, whom*), การจำแนกประเภทระหว่าง Defining และ Non-defining ตลอดจนกฎการใส่เครื่องหมายจุลภาค (Comma) ที่ส่งผลต่อความหมายของประโยคอย่างมีนัยสำคัญ
+ภาษาไทยใช้ "ที่" คำเดียวขยายคำนามได้ทั้งคน สิ่งของ และทั้งอนุประโยคที่ระบุตัวและอนุประโยคที่เสริมข้อมูล ภาษาอังกฤษต้องเลือกระหว่าง who, which, that, whose แล้วยังต้องตัดสินใจเรื่องจุลภาค แม้ภาษาไทยมี "ซึ่ง" ใช้ในหน้าที่คล้ายกัน แต่ไม่มีเครื่องหมายคั่นเหมือนจุลภาค นั่นคือที่มาของข้อผิดพลาดส่วนใหญ่ที่จะอธิบายในบทความนี้
 
-บทความนี้จะสรุปภาพรวมของ **relative clauses ในภาษาอังกฤษ** อย่างละเอียดและเป็นระบบ พร้อมตารางเปรียบเทียบ เทคนิคการละสรรพนาม ข้อผิดพลาดที่คนไทยมักทำ และแนวทางการนำไปประยุกต์ใช้เพื่อเพิ่มคะแนนในข้อสอบ IELTS Writing และการสื่อสารระดับสากล
+## Relative clauses ในภาษาอังกฤษขยายคำนามอย่างไร
 
-## relative clauses ในภาษาอังกฤษ: บทบาทและโครงสร้างพื้นฐาน
+อนุประโยคแบบนี้ไม่อิสระ ต้องอยู่หลังคำนามที่มันขยาย และขึ้นต้นด้วยคำเชื่อมสองกลุ่ม
 
-**relative clauses ในภาษาอังกฤษ** หรือที่ตำราไวยากรณ์บางเล่มเรียกว่า *Adjective Clause* คืออนุประโยคไม่อิสระ (Dependent Clause) ที่วางอยู่หลังคำนามหรือสรรพนาม เพื่อทำหน้าที่ให้ข้อมูลเพิ่มเติม ขยายความ หรือช่วยระบุตัวตนของคำนามนั้นๆ ให้ชัดเจนยิ่งขึ้น
+**Relative pronouns**
 
-อนุประโยคประเภทนี้เริ่มต้นด้วยคำเชื่อม 2 กลุ่มหลัก:
+- **who:** แทนคน ทำหน้าที่ประธาน (ในภาษาพูดใช้เป็นกรรมได้)
+- **whom:** แทนคนที่เป็นกรรม ใช้ในภาษาเป็นทางการ
+- **which:** แทนสิ่งของ สัตว์ หรือเนื้อความทั้งประโยค
+- **that:** แทนคนหรือสิ่งของ ใช้ใน defining clause เท่านั้น
+- **whose:** บอกความเป็นเจ้าของ
 
-1. **Relative Pronouns (สรรพนามเชื่อม):**
-   - **who:** ใช้แทนคน เมื่อคนนั้นทำหน้าที่เป็นประธาน (หรือกรรมในภาษาพูด)
-   - **whom:** ใช้แทนคน เมื่อทำหน้าที่เป็นกรรมอย่างเป็นทางการ
-   - **which:** ใช้แทนสิ่งของ สัตว์ หรือข้อความทั้งประโยค
-   - **that:** ใช้แทนคนหรือสิ่งของ (เฉพาะใน Defining Clause เท่านั้น)
-   - **whose:** แสดงความเป็นเจ้าของ (ของใคร / ของสิ่งใด)
-2. **Relative Adverbs (กริยาวิเศษณ์เชื่อม):**
-   - **where:** ขยายสถานที่ (*the city where I grew up*)
-   - **when:** ขยายเวลา (*the day when we first met*)
-   - **why:** ขยายเหตุผล (*the reason why he resigned*)
+**Relative adverbs**
 
-![Lexkite grammar](media:@s1 "Lexkite grammar หน้าจอฝึกไวยากรณ์ 12 tense และ relative clauses ในภาษาอังกฤษ")
+- **where:** ขยายสถานที่ *the city where I grew up*
+- **when:** ขยายเวลา *the day when we first met*
+- **why:** ขยายเหตุผล *the reason why he resigned*
 
-{{diagram: d1 | การเลือกใช้ Relative Pronouns ในภาษาอังกฤษ}}
+![](media:@s1 "บทเรียนเรื่องอนุประโยคขยายนามในหน้าไวยากรณ์ของ Lexkite")
 
-## การเลือกใช้ Relative Pronoun อย่างแม่นยำ
+{{diagram: d1 | เลือก relative pronoun ให้ถูก}}
 
-### 1. Who ปะทะ Which: คน ปะทะ สิ่งของ
+## เลือกระหว่าง who, which, that และ whose
 
-- **Who:** ใช้กับมนุษย์เท่านั้น
-  - *The doctor **who** performed the surgery is internationally recognized.*
-  - *Students **who** manage their study schedules effectively score higher.*
-- **Which:** ใช้กับสิ่งของ สัตว์ หรือแนวคิดนามธรรม
-  - *The proposal **which** you submitted outlines innovative solutions.*
-  - *The stray dog **which** barked all night has been rescued.*
+**who กับ which** แยกตามชนิดของคำนาม who ใช้กับคน ส่วน which ใช้กับสิ่งของและสัตว์
 
-### 2. การใช้ That: พระเอกของ Defining Clause
+- *The doctor who performed the surgery is well known.*
+- *The proposal which you submitted is clear and practical.*
 
-*That* เป็นคำเชื่อมที่ยืดหยุ่นมาก สามารถใช้แทนได้ทั้ง *who* และ *which* ในประโยคภาษาอังกฤษทั่วไป ทั้งการพูดและการเขียน แต่มีข้อห้ามสำคัญที่สุดในระดับสากล:
-- ห้ามใช้ *that* หลังเครื่องหมายจุลภาค (Comma) เด็ดขาด
-- ห้ามใช้ *that* ตามหลังคำบุพบท (Preposition) โดยตรง เช่น ห้ามพูดว่า *the room in that I slept* (ต้องใช้ *the room in which I slept* หรือ *the room that I slept in*)
+**that** ยืดหยุ่นกว่า ใช้แทนทั้ง who และ which ได้ใน defining clause และยังเป็นตัวเลือกที่ดีหลัง all, everything, nothing, the only และ superlative เช่น *It was the best film that I have seen.* แต่มีข้อห้ามสองข้อ คือห้ามใช้ that หลังเครื่องหมายจุลภาค และห้ามใช้ that ตามหลังบุพบทโดยตรง ต้องเป็น *the room in which I slept* หรือย้ายบุพบทไปท้ายเป็น *the room that I slept in*
 
-### 3. Whose: การแสดงความเป็นเจ้าของที่คนไทยมักมองข้าม
+**whose** ทำหน้าที่แทน his, her, their, its และวางก่อนคำนามที่ถูกครอบครอง
 
-*Whose* ทำหน้าที่แทนคำแสดงความเป็นเจ้าของ (เช่น *his, her, their, its*) โดยจะวางอยู่ข้างหน้าคำนามที่ถูกครอบครองเสมอ:
-- *I assisted a colleague **whose** presentation file was accidentally deleted.* (ฉันช่วยเพื่อนร่วมงานที่ไฟล์พรีเซนต์ของเขาถูกลบไปโดยบังเอิญ)
-- *The corporate committee reviewed several start-ups **whose** business models focus on green energy.*
+- *I helped a colleague whose presentation file was deleted.*
+- *The committee reviewed several start-ups whose business models focus on green energy.*
 
-{{diagram: d2 | ข้อแตกต่างระหว่าง Defining กับ Non-defining Clauses}}
+ภาษาไทยไม่มีคำที่ตรงกับ whose โดยตรง เรามักพูดว่า "นักเขียนที่หนังสือของเขาถูกแปลเป็นไทย" ซึ่งมีสรรพนามอยู่ในประโยค ส่วนภาษาอังกฤษรวมความเป็นเจ้าของไว้ใน whose คำเดียว จึงไม่ต้องมี *his* หรือ *her* ซ้ำอีก
 
-## Defining ปะทะ Non-defining Clauses: จุดตัดคะแนน IELTS และงานเขียน
+## Defining และ non-defining clause: จุลภาคเปลี่ยนความหมาย
 
-ความเข้าใจผิดเรื่องเครื่องหมายจุลภาค (Comma) ใน Relative Clause เป็นหนึ่งในจุดที่กรรมการสอบ IELTS และ TOEFL หักคะแนนผู้เรียนชาวไทยบ่อยที่สุด:
+{{diagram: d2 | defining กับ non-defining clause ต่างกันอย่างไร}}
 
-### 1. Defining Relative Clause (อนุประโยคชี้เฉพาะ / ขาดไม่ได้)
+**Defining clause** บอกว่าหมายถึงใครหรืออะไร ถ้าตัดออกประโยคจะเปลี่ยนความหมาย
 
-อนุประโยคประเภทนี้ทำหน้าที่ระบุชี้เฉพาะว่าเรากำลังพูดถึง "คนไหน" หรือ "สิ่งไหน" หากตัดอนุประโยคนี้ทิ้งไป ประโยคหลักจะขาดใจความสำคัญหรือไม่สามารถระบุตัวตนของประธานได้:
-- *The passengers **who had valid boarding passes** boarded the aircraft.*
-- หากตัดอนุประโยคออก ประโยคจะเหลือเพียง *The passengers boarded the aircraft* ซึ่งเปลี่ยนความหมายไปเป็นผู้โดยสารทุกคนได้ขึ้นเครื่อง
-- **กฎสำคัญ:** **ห้ามใส่ Comma เด็ดขาด** และสามารถใช้ *that* แทน *who/which* ได้
+- *The passengers who had valid tickets boarded the plane.* ผู้โดยสารเฉพาะกลุ่มที่มีตั๋วที่ถูกต้อง
+- ถ้าตัดอนุประโยคออกเหลือ *The passengers boarded the plane* จะหมายถึงผู้โดยสารทุกคน
 
-### 2. Non-defining Relative Clause (อนุประโยคเสริมข้อมูล / ตัดทิ้งได้)
+**Non-defining clause** เพิ่มข้อมูลให้คำนามที่ผู้ฟังรู้จักตัวตนอยู่แล้ว เช่นชื่อเฉพาะหรือคนที่มีเพียงคนเดียว ต้องมีจุลภาคคั่นทั้งหน้าและหลัง และใช้ that ไม่ได้
 
-อนุประโยคประเภทนี้ทำหน้าที่เพียงแค่ "แถม" ข้อมูลเสริมให้แก่คำนามที่ผู้ฟังรู้จักตัวตนที่แน่นอนอยู่แล้ว (เช่น ชื่อเฉพาะ บุคคลที่มีคนเดียว หรือสิ่งของที่มีสิ่งเดียวในโลก):
-- *Professor Smith, **who teaches quantum mechanics**, published a new monograph.*
-- เรารู้จักตัวตนของ *Professor Smith* อยู่แล้ว ข้อมูลที่ว่าเขาสอนกลศาสตร์ควอนตัมเป็นเพียงการบอกเล่าเพิ่มเติม
-- **กฎสำคัญ:** **ต้องใส่ Comma คั่นหัวท้ายเสมอ** และ **ห้ามใช้ that เด็ดขาด** (ต้องใช้ *who* หรือ *which* เท่านั้น)
+- *Professor Smith, who teaches physics, published a new book.*
+- *My brother, who works in Phuket, called today.* ประโยคนี้บอกเป็นนัยว่าผู้พูดมีพี่ชายหรือน้องชายคนเดียว
 
-## การละ Relative Pronoun (Omission Rules)
+ลองเปรียบเทียบสองประโยค *My sister who lives in Chiang Mai is a nurse* กับ *My sister, who lives in Chiang Mai, is a nurse* ประโยคแรกบอกว่าผู้พูดมีพี่สาวหรือน้องสาวมากกว่าหนึ่งคน และกำลังพูดถึงคนที่อยู่เชียงใหม่ ส่วนประโยคหลังบอกว่ามีคนเดียว และแถมว่าเธออยู่เชียงใหม่ จุลภาคจึงเปลี่ยนจำนวนคนที่ผู้ฟังเข้าใจ
 
-ในภาษาอังกฤษที่เป็นธรรมชาติ เจ้าของภาษามักจะ "ตัด" คำสรรพนามเชื่อมทิ้งไปเมื่อทำหน้าที่เป็น **กรรม (Object)** ของประโยคย่อย:
+### which ที่อ้างถึงทั้งประโยค
 
-```
-เมื่อเป็นประธาน (ห้ามตัดทิ้ง):
-The man [who called you] is waiting in the lobby.
-✗ The man called you is waiting in the lobby. (ผิดไวยากรณ์อย่างรุนแรง)
+หลังจุลภาค which อ้างถึงเนื้อความทั้งประโยคก่อนหน้าได้ ภาษาไทยใช้ "ซึ่ง" ในหน้าที่นี้ได้ตรงกัน
 
-เมื่อเป็นกรรม (ตัดทิ้งได้อย่างสง่างาม):
-The report [that you drafted yesterday] was approved.
-✓ The report [you drafted yesterday] was approved. (ถูกต้องและฟังดูเป็นธรรมชาติมาก)
-```
+- *He passed the exam on his first try, which surprised everyone.* การที่เขาสอบผ่านครั้งแรกทำให้ทุกคนแปลกใจ
+- *She spoke for ten minutes without notes, which impressed the audience.*
 
-วิธีสังเกตง่ายๆ: หากหลัง Relative Pronoun มีประธานตัวใหม่ตามมาทันที (เช่น *I, you, we, he, they, the manager*) แสดงว่าคำเชื่อมนั้นทำหน้าที่เป็นกรรม และคุณสามารถละทิ้งได้ทันที
+## ละสรรพนามได้เมื่อไร
 
+ในภาษาที่เป็นธรรมชาติ ผู้พูดมักตัดสรรพนามออกเมื่อมันเป็น **กรรม** ของอนุประโยค แต่ตัดไม่ได้เมื่อเป็น **ประธาน**
 
-## การลดรูป Relative Clauses (Reduced Relative Clauses) สู่ระดับ Advanced
+- **เมื่อเป็นประธาน (ละไม่ได้):** *The man who called you is waiting in the lobby.* ถ้าตัดเป็น *The man called you is waiting in the lobby* ประโยคจะผิด
+- **เมื่อเป็นกรรม (ละได้):** *The report that you drafted yesterday was approved.* → *The report you drafted yesterday was approved.*
 
-เมื่อคุณก้าวสู่การเขียนเชิงวิชาการ รายงานวิจัย หรือข้อสอบ IELTS ระดับ 7.5 ขึ้นไป การลดรูปอนุประโยค (Reduction) ถือเป็นเทคนิคชั้นสูงที่ช่วยให้ประโยคกระชับและมีความเป็นมืออาชีพอย่างยิ่ง:
+วิธีสังเกตง่าย ๆ คือถ้าหลังสรรพนามมีประธานใหม่ตามมาทันที เช่น I, you, we, they หรือชื่อคน แปลว่าสรรพนามนั้นเป็นกรรม ตัดได้ ส่วน non-defining clause ตัดสรรพนามไม่ได้ในทุกกรณี
 
-### 1. การลดรูปด้วย Present Participle (-ing) สำหรับประโยคที่ประธานกระทำเอง (Active Voice)
-หากอนุประโยคเป็น Active Voice คุณสามารถตัด Relative Pronoun และกริยาช่วย (Verb to be) ออก แล้วเปลี่ยนกริยาหลักเป็นรูป -ing:
-- *Full clause:* The candidates **who are applying** for the senior managerial role must submit three letters of recommendation.
-- *Reduced clause:* The candidates **applying** for the senior managerial role must submit three letters of recommendation.
-- *Full clause:* Passengers **who arrive** after 9 PM should proceed directly to the night transfer terminal.
-- *Reduced clause:* Passengers **arriving** after 9 PM should proceed directly to the night transfer terminal.
+## where, when และ why ใช้แทนคำเชื่อมอื่นได้
 
-### 2. การลดรูปด้วย Past Participle (-ed / V.3) สำหรับประโยคที่ประธานถูกกระทำ (Passive Voice)
-หากอนุประโยคเป็น Passive Voice คุณสามารถตัด Relative Pronoun และกริยาช่วย (is/am/are/was/were) ออก โดยคงเหลือไว้เฉพาะกริยาช่อง 3:
-- *Full clause:* The financial audit report **which was published** by the external regulatory agency revealed significant discrepancies.
-- *Reduced clause:* The financial audit report **published** by the external regulatory agency revealed significant discrepancies.
-- *Full clause:* All historical artifacts **that were discovered** during the archaeological excavation will be preserved in the national museum.
-- *Reduced clause:* All historical artifacts **discovered** during the archaeological excavation will be preserved in the national museum.
+relative adverb มักแทนวลีบุพบท ถ้าอนุประโยคพูดถึงสถานที่ ใช้ *where* แทน *in which* หรือ *at which* ได้
 
-### 3. การลดรูปด้วยคำคุณศัพท์และบุพบทวลี (Adjective & Prepositional Phrases)
-ในกรณีที่ Relative Clause ประกอบด้วย Verb to be ตามด้วยคำคุณศัพท์หรือบุพบทวลี คุณสามารถตัดทั้งสรรพนามและ Verb to be ออกได้ทันที:
-- *Full clause:* The prototype **which is available** in the laboratory demonstrated outstanding thermal efficiency.
-- *Reduced clause:* The prototype **available** in the laboratory demonstrated outstanding thermal efficiency.
-- *Full clause:* The reference manuals **that are on the third shelf** provide comprehensive documentation.
-- *Reduced clause:* The reference manuals **on the third shelf** provide comprehensive documentation.
+- *This is the café where we first met.* = *This is the café in which we first met.*
+- *I remember the year when the bridge opened.*
+- *Nobody knows the reason why the meeting was cancelled.* ในภาษาพูดมักตัด why ออกเหลือ *the reason the meeting was cancelled*
 
-## 4 ข้อผิดพลาดประจำตัวของคนไทยและแนวทางแก้ไข
+ภาษาไทยใช้ "ที่" กับสถานที่ ("ร้านกาแฟที่เราเจอกันครั้งแรก") ได้ตรง ๆ เหมือนกัน ผู้เรียนจึงมักไม่พลาดตรงนี้ แต่จะพลาดตอนที่ลืมว่าถ้าใช้ *which* ต้องมีบุพบทกำกับ ไม่อย่างนั้นประโยคขาดส่วนที่หายไป เช่น *the café which we first met* ผิด ต้องเป็น *the café which we first met in* หรือใช้ where แทน
 
-1. **การใส่สรรพนามซ้ำซ้อน (Resumptive Pronoun):** คนไทยแปลตรงตัวว่า "คนที่ฉันเจอเขา" จึงเผลอเขียนว่า *The manager who I met him yesterday* ซึ่งผิดไวยากรณ์ ต้องตัด *him* ทิ้งเป็น **The manager who I met yesterday**
-2. **การใส่ that หลัง comma:** ผู้เรียนมักเขียน *Bangkok, that is the capital of Thailand...* ซึ่งเป็นข้อผิดพลาดร้ายแรง ต้องแก้เป็น **Bangkok, which is the capital of Thailand...**
-3. **การลืมใส่ comma ใน Non-defining clause:** เมื่อพูดถึงชื่อคนหรือสิ่งเฉพาะเจาะจง ต้องไม่ลืมใส่เครื่องหมายจุลภาคคั่นทั้งหน้าและหลังอนุประโยคเสมอ
-4. **ความสับสนเรื่อง Subject-Verb Agreement:** กริยาใน Relative Clause ต้องผันตามคำนามที่มันขยาย เช่น *He is one of the candidates who **have** passed* (ไม่ใช่ has เพราะ who ขยาย candidates)
+## ลองรวมประโยคเอง 4 ข้อ
 
-## สรุปและการนำไปใช้เพื่อยกระดับทักษะภาษาอังกฤษ
+รวมสองประโยคเป็นหนึ่งประโยคด้วย relative clause แล้วดูเฉลยด้านล่าง
 
-การเชี่ยวชาญ Relative Clauses จะช่วยให้การเขียนเชิงวิชาการและการสื่อสารทางธุรกิจของคุณมีความกระชับ ลื่นไหล และน่าเชื่อถืออย่างยิ่ง
+1. I have a neighbour. Her dog barks all night. (ใช้ whose)
+2. The book was very long. I borrowed it from the library. (ละสรรพนาม)
+3. Nok is my cousin. She works in Chiang Mai. (non-defining)
+4. The hotel was clean. We stayed there. (ใช้ where)
 
-คุณสามารถทบทวนโครงสร้างประโยคความซ้อนเพิ่มเติมได้ที่ [โครงสร้าง Complex Sentences ใน IELTS Writing](/th/blog/khrongsang-prayok-complex-sentences-ielts-writing/) และศึกษาภาพรวมของ [ไวยากรณ์ภาษาอังกฤษพื้นฐาน](/th/blog/waiyakon-phasa-angkrit-phuenthan/) พร้อมพัฒนาคำเชื่อมประโยคใน [Linking Words ภาษาอังกฤษ](/th/blog/kham-chueam-phasa-angkrit-linking-words/) และดูข้อแตกต่างของกริยาสำคัญใน [ความแตกต่างระหว่าง make กับ do](/th/blog/khwam-taek-tang-make-kap-do-phasa-angkrit/) หรือตรวจสอบหลักสูตรไวยากรณ์ทั้งหมดได้ที่ [หน้าภาพรวมไวยากรณ์ภาษาอังกฤษ](/en/grammar/)
+**เฉลยตัวอย่าง:** 1. I have a neighbour whose dog barks all night. 2. The book I borrowed from the library was very long. 3. Nok, who works in Chiang Mai, is my cousin. 4. The hotel where we stayed was clean.
 
-เพื่อทดสอบความแม่นยำและฝึกประกอบประโยค Relative Clauses แบบอินเทอร์แอคทีฟ ขอเชิญเข้าไปฝึกทำโจทย์ได้ที่ [บทเรียน Relative Clauses ใน Lexkite Grammar](/#/grammar/relative-clauses) และทำแบบทดสอบรวมใน [ศูนย์รวมแบบฝึกหัด Lexkite](/#/practice) วันนี้
+ข้อ 3 ต้องมีจุลภาคเพราะชื่อเฉพาะรู้จักตัวตนอยู่แล้ว ส่วนข้อ 2 ละ that ได้เพราะ the book เป็นกรรมของ borrowed
 
-{{cta: /#/grammar/relative-clauses | เริ่มฝึก Relative Clauses ใน Lexkite Grammar ทันที}}
+## ลดรูป relative clause ให้กระชับ
+
+ในงานเขียนทางการ มักลดรูปอนุประโยคโดยตัดสรรพนามและกริยา be ออก
+
+- **ใช้ -ing เมื่อเป็น active:** *The candidates who are applying for the post* → *The candidates applying for the post*
+- **ใช้ V3 เมื่อเป็น passive** (ทบทวนรูป passive ในบทความ[passive voice ภาษาอังกฤษ](/th/blog/passive-voice-phasa-angkrit-khrongsang-withi-chai/)): *The report which was published by the agency* → *The report published by the agency*
+- **คุณศัพท์หรือบุพบทวลี:** *The manuals that are on the third shelf* → *The manuals on the third shelf*
+
+ภาษาไทยก็ละ "ที่" ได้เมื่อมันเป็นกรรม เช่น "หนังสือที่ฉันยืมมา" เป็น "หนังสือฉันยืมมา" ซึ่งตรงกับ *the book I borrowed* แต่ถ้าเป็นประธาน ภาษาอังกฤษละ who ไม่ได้ ต้องเปลี่ยนเป็นรูป -ing เป็น *the applicants waiting outside* หรือคงไว้เป็น *the applicants who are waiting outside*
+
+## 4 ข้อผิดพลาดที่คนไทยพบบ่อย
+
+1. **ใส่สรรพนามซ้ำ:** ผู้เรียนบางคนมองอนุประโยคเป็นประโยคใหม่ จึงเติมสรรพนามซ้ำ เขียนว่า *The manager who I met him yesterday* ต้องตัด him ออกเป็น *The manager who I met yesterday* อีกตัวอย่างคือ *the man that he is my friend* ซึ่งต้องเป็น *the man who is my friend*
+2. **ใช้ that หลังจุลภาค:** *Bangkok, that is the capital of Thailand* ต้องเป็น *Bangkok, which is the capital of Thailand*
+3. **ลืมใส่จุลภาคใน non-defining clause:** ชื่อเฉพาะและคนที่มีเพียงคนเดียว ต้องมีจุลภาคทั้งหน้าและหลังอนุประโยค *Nok who works in Chiang Mai is my cousin* ผิด ต้องเป็น *Nok, who works in Chiang Mai, is my cousin*
+4. **กริยาไม่ตรงกับคำนามที่ขยาย:** *He is one of the candidates who has passed* ผิด ต้องเป็น *who have passed* เพราะ who ขยาย candidates ซึ่งเป็นพหูพจน์
+
+ความเข้าใจผิดเรื่องเครื่องหมายจุลภาคใน relative clause เป็นจุดที่ผู้เรียนระดับ B1 มักพลาด การตรวจงานตัวเองโดยถามว่า "ตัดอนุประโยคนี้แล้วความหมายเปลี่ยนไหม" ช่วยได้มากกว่าการท่องกฎ
+
+## ฝึกต่อและเชื่อมกับเรื่องอื่น
+
+relative clause ช่วยรวมสองประโยคสั้นเป็นประโยคเดียวที่ลื่นขึ้น ดูตัวอย่างการวางโครงสร้างประโยคที่ซับซ้อนในบทความ[โครงสร้าง complex sentences ใน IELTS Writing](/th/blog/khrongsang-prayok-complex-sentences-ielts-writing/) และถ้าอยากเชื่อมความคิดระหว่างประโยคด้วยคำอื่นนอกจากสรรพนาม ดู[linking words ภาษาอังกฤษ](/th/blog/kham-chueam-phasa-angkrit-linking-words/) ส่วนใครที่ยังไม่มั่นใจเรื่องโครงสร้างประโยคพื้นฐาน เริ่มที่[ไวยากรณ์ภาษาอังกฤษพื้นฐาน](/th/blog/waiyakon-phasa-angkrit-phuenthan/)
+
+ถ้าอยากทำแบบฝึกหัด เปิดหน้า[ไวยากรณ์ใน Lexkite](/#/grammar) ซึ่งแบ่งเป็นบทและระดับ A1–B2 แล้วเลือกบทเรียน[Relative Clauses ในหน้าไวยากรณ์ของ Lexkite](/#/grammar/relative-clauses) และดูหัวข้อไวยากรณ์เพิ่มเติมได้ที่[หน้าไวยากรณ์ภาษาอังกฤษ](/en/grammar/)
+
+{{cta: /#/grammar/relative-clauses | ฝึก Relative Clauses ในบทเรียนไวยากรณ์ของ Lexkite}}

@@ -1,6 +1,6 @@
 ---
-title: "Reported Speech ในภาษาอังกฤษ: สรุปกฎการเปลี่ยน Tense ครบถ้วน"
-description: "Reported Speech ในภาษาอังกฤษ: สรุปกฎการเปลี่ยน Direct เป็น Indirect Speech ตารางถอย Tense การเปลี่ยนสรรพนาม คำบอกเวลา และประโยคคำถาม"
+title: "Reported Speech ในภาษาอังกฤษ: ถอยกาลและเปลี่ยนคำให้ถูก"
+description: "Reported speech ในภาษาอังกฤษ: เล่าคำพูดคนอื่นต่อโดยถอยกาล เปลี่ยนสรรพนามและคำบอกเวลา พร้อมประโยคคำถาม คำสั่ง ข้อยกเว้น และจุดที่คนไทยพลาดระหว่าง said กับ told"
 slug: reported-speech-phasa-angkrit-khrongsang
 lang: th
 translationKey: reported-speech
@@ -8,178 +8,186 @@ category: ngu-phap
 tags: [grammar, reported-speech, tenses, b1]
 keyword: "reported speech ในภาษาอังกฤษ"
 cover: grammar
-coverAlt: "Lexkite grammar หน้าจอฝึกไวยากรณ์ 12 tense และ reported speech ในภาษาอังกฤษ"
-publishAt: 2027-02-28T23:00:00+07:00
+coverAlt: "หน้าไวยากรณ์ใน Lexkite แสดงเส้นทางบทเรียนเป็นบท 12 tense ระดับ A1 ถึง B2 และแบบฝึกหัดรวม"
+publishAt: 2026-12-27T07:11:00+07:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 91
+status: ready
 coverArt: {mood: think, icon: chat, chip: B1}
 shots: [
-  {id: s1, route: '#/grammar', crop: main},
-  {id: s2, route: '#/practice', crop: main}
+  {id: s1, route: '#/grammar/reported-speech', crop: main}
 ]
 diagrams: [
-  {id: d1, type: compare, title: 'ตารางการถอยกาลเวลา (Tense Backshift) ใน Reported Speech', cols: ['Direct Speech (คำพูดตรง)', 'Indirect Speech (การนำมาเล่าต่อ)', 'ตัวอย่างการเปลี่ยนประโยค'], rows: [['Present Simple', 'Past Simple', '"I love music" → She said that she loved music'], ['Present Continuous', 'Past Continuous', '"I am reading" → He said that he was reading'], ['Present Perfect', 'Past Perfect', '"I have finished" → She said that she had finished'], ['Past Simple', 'Past Perfect', '"I bought a car" → He said that he had bought a car'], ['Will / Can / May', 'Would / Could / Might', '"I will call you" → She said that she would call me']]},
-  {id: d2, type: compare, title: 'ตารางการเปลี่ยนคำบอกเวลาและสถานที่ (Time & Place Shifts)', cols: ['คำเดิมใน Direct Speech', 'คำที่เปลี่ยนใน Indirect Speech', 'คำอธิบายเชิงไวยากรณ์'], rows: [['now', 'then', 'เปลี่ยนจากเวลาปัจจุบันขณะพูดเป็นเวลาในอดีต'], ['today / tonight', 'that day / that night', 'เปลี่ยนการอ้างอิงของวันและคืนที่เกิดเหตุการณ์'], ['yesterday', 'the day before / the previous day', 'เปลี่ยนจากเมื่อวานเป็นวันก่อนหน้า'], ['tomorrow', 'the next day / the following day', 'เปลี่ยนจากวันพรุ่งนี้เป็นวันถัดไป'], ['here / this / these', 'there / that / those', 'เปลี่ยนจากระยะใกล้เป็นระยะไกล']]},
-  {id: d3, type: boxes, title: 'ขั้นตอน 4 สเต็ปในการแปลงประโยคคำพูดสู่ Reported Speech', parts: [{t: 'สเต็ป 1: เลือก Reporting Verb ให้เหมาะสม', r: 'เลือกคำกริยานำ เช่น said, told, asked, explained หรือ warned ตามเจตนาของผู้พูด'}, {t: 'สเต็ป 2: ถอย Tense ตามกฎ Backshift', r: 'หากกริยานำเป็น Past Tense ให้ถอย Tense ในอนุประโยคลงไปหนึ่งระดับในอดีต'}, {t: 'สเต็ป 3: ปรับสรรพนาม (Pronouns) ตามมุมมอง', r: 'ปรับ I, you, we, my ให้สอดคล้องกับบุคคลที่ถูกอ้างถึงและผู้เล่าเรื่อง'}, {t: 'สเต็ป 4: ปรับคำบอกเวลาและสถานที่', r: 'เปลี่ยน now → then, here → there, tomorrow → the next day เพื่อสะท้อนบริบทใหม่'}]}
+  {id: d1, type: compare, title: 'ถอยกาลใน reported speech', cols: ['คำพูดตรง', 'คำพูดที่เล่าต่อ', 'ตัวอย่าง'], rows: [['Present Simple', 'Past Simple', '"I love music" → She said that she loved music'], ['Present Continuous', 'Past Continuous', '"I am reading" → He said that he was reading'], ['Present Perfect', 'Past Perfect', '"I have finished" → She said that she had finished'], ['Past Simple', 'Past Perfect (ภาษาพูดมักคง Past Simple)', '"I bought a car" → He said that he had bought a car'], ['will / can / may', 'would / could / might', '"I will call you" → She said that she would call me']]},
+  {id: d2, type: compare, title: 'เปลี่ยนคำบอกเวลาและสถานที่', cols: ['คำเดิม', 'คำที่ใช้เมื่อเล่าต่อ', 'เหตุผล'], rows: [['now', 'then', 'เวลาขณะพูดผ่านไปแล้ว'], ['today / tonight', 'that day / that night', 'ชี้วันที่เป็นต้นเรื่อง'], ['yesterday', 'the day before', 'นับจากวันที่ถูกพูด'], ['tomorrow', 'the next day / the following day', 'นับจากวันที่ถูกพูด'], ['here / this', 'there / that', 'ผู้เล่าอยู่คนละที่กับผู้พูดเดิม']]},
+  {id: d3, type: boxes, title: 'แปลงเป็น reported speech 4 ขั้น', parts: [{t: 'ขั้นที่ 1: เลือกกริยาที่ใช้รายงาน', r: 'said, told, asked, explained ตามสิ่งที่ผู้พูดทำ และจำว่า told ตามด้วยผู้ฟังเสมอ'}, {t: 'ขั้นที่ 2: ถอยกาล', r: 'ถ้า reporting verb เป็นอดีต ให้ถอยกาลในส่วนที่เล่าลงหนึ่งขั้น เว้นแต่เข้าข้อยกเว้น'}, {t: 'ขั้นที่ 3: ปรับสรรพนาม', r: 'I, you, we, my ปรับให้ตรงกับผู้พูดและผู้ฟังในมุมมองของผู้เล่า'}, {t: 'ขั้นที่ 4: ปรับคำบอกเวลาและสถานที่', r: 'now → then, here → there, tomorrow → the next day'}]}
 ]
 quiz: [
   {
-    q: "ประโยคใดคือการแปลงประโยคคำพูด 'I am preparing my research proposal' เข้าสู่ Indirect Speech ได้อย่างถูกต้อง?",
+    q: "ข้อใดเล่าประโยค 'We are moving to Chiang Mai next month,' they said ได้ถูกต้อง (เล่าหลังจากนั้นหนึ่งปี)?",
     options: [
-      "She said that she is preparing her research proposal with great dedication.",
-      "She said that she was preparing her research proposal.",
-      "She told that she had been preparing her research proposal for months.",
-      "She says that she would prepare her research proposal very soon."
-    ],
-    answer: 1,
-    explain: "เมื่อ Reporting Verb เป็น Past ('said') กาล Present Continuous ('am preparing') ต้องถอยลงหนึ่งระดับกลายเป็น Past Continuous ('was preparing') และ my เปลี่ยนเป็น her"
-  },
-  {
-    q: "ประโยคคำถาม 'Where do you live?' เมื่อแปลงเป็น Reported Speech ข้อใดถูกต้องตามหลักไวยากรณ์?",
-    options: [
-      "He asked me that where did I live in this bustling metropolis.",
-      "He asked me where I lived.",
-      "He asked me where do I live currently with my family.",
-      "He questioned me where had I lived during my college years."
-    ],
-    answer: 1,
-    explain: "ในคำถาม Wh-questions จะไม่ใช้ that หรือ if คำ Wh- จะทำหน้าที่เป็นคำเชื่อมทันที และต้องเรียงลำดับประโยคแบบประโยคบอกเล่า (Subject + Verb) คือ 'where I lived' ไม่ใช่ 'where did I live'"
-  },
-  {
-    q: "กรณีใดต่อไปนี้ที่แม้ Reporting Verb จะเป็น Past Tense แต่เรา 'ไม่ต้องถอย Tense' ใน Reported Speech?",
-    options: [
-      "เมื่อข้อความที่พูดเป็นความจริงสากล (Universal Truth) หรือข้อเท็จจริงทางวิทยาศาสตร์ที่ไม่มีวันเปลี่ยนแปลง",
-      "เมื่อผู้พูดเป็นเพื่อนสนิทหรือคนในครอบครัวที่เราพูดคุยด้วยเป็นประจำทุกวัน",
-      "เมื่อประโยคหลักใช้คำกริยานำว่า told แทนที่จะใช้คำกริยาว่า said",
-      "เมื่อประโยคคำพูดเดิมมีตัวเลขและสถิติเชิงปริมาณระบุไว้อย่างชัดเจน"
+      "They said that they were moving to Chiang Mai the following month.",
+      "They said that they are moving to Chiang Mai next month.",
+      "They said that we were moving to Chiang Mai the following month.",
+      "They said that they had been moving to Chiang Mai the following month."
     ],
     answer: 0,
-    explain: "ความจริงสากล (Universal Truths) เช่น โลกหมุนรอบดวงอาทิตย์ หรือ พระอาทิตย์ขึ้นทางทิศตะวันออก รวมถึงข้อเท็จจริงที่ยังคงเป็นจริงอยู่ในปัจจุบัน ไม่จำเป็นต้องถอย Tense"
+    explain: "ถอย Present Continuous เป็น Past Continuous เปลี่ยน we เป็น they และเปลี่ยน next month เป็น the following month"
+  },
+  {
+    q: "'Did you enjoy the floating market?' Nok asked me. ข้อใดเล่าต่อได้ถูกต้อง?",
+    options: [
+      "Nok asked me whether she had enjoyed the floating market.",
+      "Nok asked me whether had I enjoyed the floating market.",
+      "Nok asked me whether I had enjoyed the floating market.",
+      "Nok asked me that I had enjoyed the floating market."
+    ],
+    answer: 2,
+    explain: "คำถาม yes/no ใช้ whether หรือ if ตามด้วยประธานและกริยาในลำดับประโยคบอกเล่า ถอย did enjoy เป็น had enjoyed และ you (ผู้ถูกถามคือผู้เล่า) เปลี่ยนเป็น I ส่วน that ใช้กับประโยคบอกเล่า ไม่ใช้กับคำถาม"
+  },
+  {
+    q: "ข้อใดเล่าต่อโดยคงกาลปัจจุบันไว้ได้ เพราะสิ่งที่พูดเป็นจริงเสมอ?",
+    options: [
+      "Mina said, 'I am waiting outside the temple.'",
+      "The guide said, 'This temple opens at eight daily.'",
+      "He said, 'I am feeling dizzy this morning.'",
+      "She said, 'We are leaving in ten minutes.'"
+    ],
+    answer: 1,
+    explain: "ตารางเปิดวัดเป็นสิ่งที่ยังเป็นจริงอยู่ ส่วนข้ออื่นเป็นสถานการณ์เฉพาะเวลานั้นที่เปลี่ยนไปแล้ว"
   }
 ]
 ---
 
-ในการสื่อสารภาษาอังกฤษ ทั้งในการทำงาน การประชุม การรายงานข่าว และการสอบระดับสากล ทักษะการนำคำพูดของผู้อื่นมาเล่าต่ออย่างถูกต้องและสละสลวยมีความสำคัญอย่างยิ่ง โครงสร้างนี้เรียกว่า **reported speech ในภาษาอังกฤษ** (หรือ Indirect Speech) ซึ่งเป็นศิลปะในการถ่ายทอดสารโดยไม่ต้องยกเครื่องหมายคำพูด ("...") มาวางแบบตรงๆ
+Reported speech ในภาษาอังกฤษคือการเล่าคำพูดของคนอื่นโดยไม่ยกคำพูดตรง ๆ เช่น เปลี่ยน *"I am tired," she said* เป็น *She said that she was tired.* เมื่อกริยาที่ใช้รายงาน (reporting verb เช่น said, told) เป็นอดีต ส่วนที่เล่าต่อมักถอยกาลลงหนึ่งขั้น และต้องปรับสรรพนามกับคำบอกเวลาให้ตรงกับมุมมองของคนเล่า ส่วนที่ภาษาไทยไม่มีให้เทียบคือการเปลี่ยนรูปกริยาตามกาล
 
-ในภาษาไทย เมื่อเราต้องการเล่าคำพูดของใครสักคน เรามักจะพูดง่ายๆ ว่า "เขาบอกว่าเขากำลังยุ่ง" หรือ "อาจารย์บอกว่าพรุ่งนี้มีสอบ" โดยที่เราแทบไม่ต้องเปลี่ยนโครงสร้างกาลเวลา (Tense) ของคำกริยาเลย แต่ในภาษาอังกฤษ ไวยากรณ์มีกฎเกณฑ์ที่เข้มงวดมาก: เมื่อกริยานำ (Reporting Verb) อยู่ในรูปอดีต เช่น *said* หรือ *told* กาลเวลาในประโยคที่ถูกเล่าจะต้องถูก "ถอยหลังไปหนึ่งสเต็ปในอดีต" (Tense Backshift) พร้อมทั้งปรับเปลี่ยนสรรพนามและคำบอกเวลาให้สอดคล้องกับความเป็นจริง ณ เวลาที่เล่า
+ภาษาไทยไม่เปลี่ยนรูปกริยาตามกาล "เขาบอกว่าเขายุ่ง" เล่าได้ทั้งตอนที่เขายุ่งอยู่และตอนที่เหตุการณ์ผ่านไปแล้ว ภาษาอังกฤษต้องเลือกรูปกริยาให้ชัด (ถ้ายังไม่แม่นกาลพื้นฐาน อ่าน[ไวยากรณ์ภาษาอังกฤษพื้นฐาน](/th/blog/waiyakon-phasa-angkrit-phuenthan/)ก่อนได้) จึงเกิดปัญหาสองข้อที่คนไทยพลาดบ่อย ข้อแรกคือลืมถอยกาล ข้อสองคือคำว่า "บอก" ที่ใช้ได้ทั้ง "บอกว่า" และ "บอกให้ทำ" ซึ่งภาษาอังกฤษแยกเป็น said, told, asked และใช้โครงสร้างต่างกัน
 
-บทความนี้จะสรุปเจาะลึก **reported speech ในภาษาอังกฤษ** ครอบคลุมตั้งแต่กฎการถอย Tense ทุกรูปแบบ การเปลี่ยนประโยคบอกเล่า คำถาม ประโยคคำสั่ง ข้อยกเว้นที่ไม่ต้องถอย Tense และข้อผิดพลาดที่คนไทยมักตกม้าตายบ่อยที่สุด
+## Reported speech ในภาษาอังกฤษคือการเล่าคำพูดโดยไม่ยกอ้าง
 
-## reported speech ในภาษาอังกฤษ: บทบาทและโครงสร้างพื้นฐาน
+คำพูดตรงใส่เครื่องหมายคำพูดไว้ ส่วนคำพูดที่เล่าต่อเรียบเรียงใหม่จากมุมมองของผู้เล่า
 
-การถ่ายทอดคำพูดของบุคคลอื่นในภาษาอังกฤษแบ่งออกเป็น 2 วิธีหลัก:
+- *Mali said, "I want to open a small cafe in Chiang Rai."* คำพูดตรง
+- *Mali said that she wanted to open a small cafe in Chiang Rai.* เล่าต่อ
 
-1. **Direct Speech (คำพูดตรง):** การยกคำพูดเดิมของผู้พูดมาวางทุกคำโดยใส่ไว้ในเครื่องหมายคำพูด (*Quotation Marks*):
-   - *Emma said, "I want to study abroad."* (เอ็มม่าพูดว่า "ฉันอยากไปเรียนต่อต่างประเทศ")
-2. **Indirect Speech หรือ Reported Speech (คำพูดทางอ้อม):** การนำสาระสำคัญของคำพูดนั้นมาเรียบเรียงเล่าใหม่ด้วยมุมมองของผู้เล่า โดยถอดเครื่องหมายคำพูดออก:
-   - *Emma said that she wanted to study abroad.* (เอ็มม่าบอกว่าเธออยากไปเรียนต่อต่างประเทศ)
+ใช้ที่ไหนบ้าง: เล่าให้เพื่อนฟังว่าหัวหน้าพูดอะไรในที่ประชุม เขียนอีเมลสรุปการประชุม หรือแจ้งว่าลูกค้าขออะไร ในงานเขียนวิชาการมักเป็นการอ้างความคิดคนอื่นด้วยกริยาอย่าง *argued that* มากกว่าการเล่าบทสนทนา
 
-![Lexkite grammar](media:@s1 "Lexkite grammar หน้าจอฝึกไวยากรณ์ 12 tense และ reported speech ในภาษาอังกฤษ")
+![](media:@s1 "บทเรียน Reported Speech: ตัวอย่างการถอยกาลและเปลี่ยนคำบอกเวลา")
 
-{{diagram: d3 | ขั้นตอน 4 สเต็ปในการแปลงประโยคคำพูดสู่ Reported Speech}}
+{{diagram: d3 | แปลงเป็น reported speech 4 ขั้น}}
 
-## กฎเหล็กที่ 1: การถอยกาลเวลา (Tense Backshift)
+## ขั้นที่ 1: เลือก said หรือ told
 
-เมื่อกริยานำ (Reporting Verb) อยู่ในรูป **Past Tense (เช่น said, told, asked, explained)** กริยาในส่วน Reported Speech จะต้องถอยหลังลง 1 ลำดับเสมอ:
+reporting verb ที่พบบ่อยที่สุดคือ said และ told แต่ใช้ต่างกัน
 
-{{diagram: d1 | ตารางการถอยกาลเวลา (Tense Backshift) ใน Reported Speech}}
+- **said** ตามด้วย that-clause ได้เลย *She said that she was busy.* ถ้าต้องบอกผู้ฟังให้ใช้ *said to me*
+- **told** ต้องมีผู้ฟังตามหลังทันที *She told me that she was busy.*
 
-### 1. จากกลุ่ม Present สู่กลุ่ม Past
-- **Present Simple $\rightarrow$ Past Simple:**
-  - *Direct:* "I work in Bangkok," said Tan.
-  - *Indirect:* Tan said that he worked in Bangkok.
-- **Present Continuous $\rightarrow$ Past Continuous:**
-  - *Direct:* "We are launching a new marketing campaign," they explained.
-  - *Indirect:* They explained that they were launching a new marketing campaign.
-- **Present Perfect $\rightarrow$ Past Perfect:**
-  - *Direct:* "I have finalized the contract," said the lawyer.
-  - *Indirect:* The lawyer said that she had finalized the contract.
+คำว่า "บอก" ในภาษาไทยครอบคลุมทั้งสองคำ ผู้เรียนจึงมักเขียน *He said me* หรือ *He told that he would come* ทั้งสองประโยคผิด ต้องเป็น *He told me that he would come* หรือ *He said that he would come*
 
-### 2. จากกลุ่ม Past สู่ Past Perfect
-- **Past Simple $\rightarrow$ Past Perfect:**
-  - *Direct:* "I saw the documentary yesterday," said Peter.
-  - *Indirect:* Peter said that he had seen the documentary the day before.
-- **Past Continuous $\rightarrow$ Past Perfect Continuous:**
-  - *Direct:* "We were discussing the budget," said the manager.
-  - *Indirect:* The manager said that they had been discussing the budget.
-- **Past Perfect:** ไม่ต้องเปลี่ยนรูปอีกแล้วเพราะถือเป็นอดีตขั้นสุด (*No Change*).
+## ขั้นที่ 2: ถอยกาล
 
-### 3. การเปลี่ยน Modal Verbs
-- **will $\rightarrow$ would:** *"I will attend the seminar" $\rightarrow$ He said that he would attend the seminar.*
-- **can $\rightarrow$ could:** *"She can manage this software" $\rightarrow$ They said that she could manage that software.*
-- **may $\rightarrow$ might:** *"It may rain tonight" $\rightarrow$ He noted that it might rain that night.*
-- **must $\rightarrow$ had to:** เมื่อหมายถึงความจำเป็นตามหน้าที่ (*He said he had to leave.*)
-- **Modal ที่ไม่ต้องเปลี่ยน:** *would, could, should, might, ought to* คงรูปเดิมเสมอ
+เมื่อ reporting verb เป็นอดีต กริยาในส่วนที่เล่ามักถอยหลังลงหนึ่งขั้น ยังมีข้อยกเว้นอยู่ด้านล่าง
 
-## กฎเหล็กที่ 2: การเปลี่ยนคำสรรพนาม (Pronoun Shifts)
+{{diagram: d1 | ถอยกาลใน reported speech}}
 
-คำสรรพนามต้องเปลี่ยนไปตาม "ผู้พูด" และ "ผู้ฟัง" ในบริบทใหม่:
-- *Direct:* Tom said to me, "**I** can help **you** with **your** report."
-- *Indirect:* Tom told me that **he** could help **me** with **my** report.
-- สรรพนามบุรุษที่ 1 (*I, we, my*) เปลี่ยนตามประธานผู้พูด
-- สรรพนามบุรุษที่ 2 (*you, your*) เปลี่ยนตามผู้ฟัง
-- สรรพนามบุรุษที่ 3 (*he, she, they, it*) มักคงเดิมไม่ต้องเปลี่ยน
+**จากกลุ่ม present**
 
-## กฎเหล็กที่ 3: การเปลี่ยนคำบอกเวลาและสถานที่ (Time & Place Shifts)
+- Present Simple → Past Simple: *"I work in Bangkok," said Tan.* → *Tan said that he worked in Bangkok.*
+- Present Continuous → Past Continuous: *"We are launching a campaign."* → *They said that they were launching a campaign.*
+- Present Perfect → Past Perfect: *"I have signed the contract."* → *The lawyer said that she had signed the contract.*
 
-เนื่องจากเวลาและสถานที่ในการเล่าเรื่องได้เปลี่ยนไปจากช่วงเวลาที่ประโยคถูกพูดขึ้นมา คำระบุความใกล้จึงต้องเปลี่ยนเป็นระยะไกล:
+**จากกลุ่ม past**
 
-{{diagram: d2 | ตารางการเปลี่ยนคำบอกเวลาและสถานที่ (Time & Place Shifts)}}
+- Past Simple → Past Perfect: *"I saw the film yesterday."* → *Peter said that he had seen the film the day before.* ในภาษาพูดหลายคนคง Past Simple ไว้ได้ถ้าบริบทบอกเวลาอยู่แล้ว
+- Past Continuous → Past Perfect Continuous ในทางทฤษฎี แต่ภาษาพูดมักคง Past Continuous ไว้ *"We were discussing the budget," the manager said.* → *The manager said they were discussing the budget* (หรือ *had been discussing*)
+- Past Perfect ไม่ต้องเปลี่ยน เพราะไม่มีกาลที่ไกลกว่านี้
 
-- *now $\rightarrow$ then / at that moment*
-- *today $\rightarrow$ that day*
-- *tonight $\rightarrow$ that night*
-- *yesterday $\rightarrow$ the day before / the previous day*
-- *tomorrow $\rightarrow$ the following day / the next day*
-- *ago $\rightarrow$ before*
-- *this / these $\rightarrow$ that / those*
-- *here $\rightarrow$ there*
+**modal verbs**
 
-## การแปลงประโยคคำถาม (Reported Questions)
+- will → would: *"I will attend."* → *He said that he would attend.*
+- can → could และ may → might
+- must → had to เมื่อหมายถึงความจำเป็นตามหน้าที่ *He said he had to pick up his daughter.* แต่ must ที่เป็นการคาดเดาไม่เปลี่ยน *He said it must be a mistake.*
+- would, could, should, might ไม่เปลี่ยนรูป
 
-การเปลี่ยนประโยคคำถามเป็น Reported Speech มีจุดที่ต้องระวังเป็นพิเศษ 3 ประการ:
+ผู้เรียนทบทวนรูปของแต่ละกาลได้ในบทความ[Present Perfect กับ Past Simple](/th/blog/present-perfect-kap-past-simple/) และดูรายละเอียดของ modal ใน[modal verbs ภาษาอังกฤษ](/th/blog/modal-verbs-can-could-should-must-phasa-angkrit/)
 
-1. **เปลี่ยน Reporting Verb เป็น asked, inquired หรือ wanted to know:**
-   - ห้ามใช้ *said that* หรือ *told that* เด็ดขาด
-2. **Yes/No Questions ให้เชื่อมด้วย if หรือ whether:**
-   - *Direct:* "Do you speak fluent English?" asked the interviewer.
-   - *Indirect:* The interviewer asked me **if** I spoke fluent English. (ห้ามมี that)
-3. **Wh- Questions ให้ใช้คำ Wh- เป็นตัวเชื่อมได้เลย:**
-   - *Direct:* "Where did you purchase this laptop?" she asked.
-   - *Indirect:* She asked me **where I had purchased** that laptop.
-4. **เรียงโครงสร้างแบบประโยคบอกเล่า (Subject + Verb):**
-   - ในประโยคคำถามตรงกริยาจะนำหน้าประธาน แต่ใน Reported Speech ประธานต้องกลับมาอยู่ข้างหน้ากริยาเสมอ:
-   - ✗ *He asked where was the station.* (ผิด)
-   - ✓ *He asked where the station was.* (ถูกต้อง)
+## ขั้นที่ 3: ปรับสรรพนาม
 
-## ข้อยกเว้นสำคัญ: กรณีที่ไม่ต้องถอย Tense
+สรรพนามต้องเปลี่ยนตามตำแหน่งของผู้เล่า
 
-แม้ว่า Reporting Verb จะเป็นอดีต (*said*) แต่เราไม่ต้องถอยกาลเวลาในกรณีเหล่านี้:
+- *Tom said to me, "I can help you with your report."*
+- *Tom told me that he could help me with my report.*
 
-1. **ความจริงสากลหรือกฎธรรมชาติ (Universal Truths & Scientific Facts):**
-   - *Direct:* The science teacher said, "The earth orbits the sun."
-   - *Indirect:* The science teacher said that the earth orbits the sun. (ไม่ใช้ orbited)
-2. **สิ่งที่พูดไปยังคงเป็นจริงอยู่ในขณะที่เล่า (Still True in the Present):**
-   - *Direct:* "My name is Somchai and I live in Chiang Mai," he said.
-   - *Indirect:* He said that his name is Somchai and he lives in Chiang Mai. (หากเขายังคงชื่อสมชายและยังอาศัยอยู่ที่เดิม)
-3. **เมื่อ Reporting Verb เป็น Present Tense (says, tells):**
-   - *Direct:* The weather forecast says, "It will be sunny today."
-   - *Indirect:* The weather forecast says that it will be sunny today.
+วิธีคิดที่ใช้ได้เสมอคือถามว่าตอนนี้ใครพูดกับใคร I ของผู้พูดเดิมเปลี่ยนเป็น he หรือ she ส่วน you เปลี่ยนเป็น me, us หรือชื่อคนฟัง สิ่งที่ภาษาไทยทำให้พลาดคือ "เขา" ไม่บอกเพศ ผู้เรียนจึงต้องเลือก he หรือ she ให้ตรงกับคนที่พูดถึงทุกครั้ง
 
-## 4 ข้อผิดพลาดประจำตัวของคนไทย
+## ขั้นที่ 4: ปรับคำบอกเวลาและสถานที่
 
-1. **ใช้ told ซ้อน to หรือไม่มีกรรม:** คนไทยชอบพูด *He told to me* ซึ่งผิด เพราะ *told* ต้องตามด้วยกรรมทันที: **He told me** (หรือถ้าจะใช้ to ต้องเป็น *He said to me*)
-2. **ใส่ that ในประโยคคำถาม:** เช่นเขียนว่า *She asked that where I was going* ซึ่งผิดอย่างรุนแรง ในคำถามห้ามใส่ *that*
-3. **ลืมเรียงประธานนำหน้ากริยาในคำถาม:** เผลอเขียน *She asked what was my name* แทนที่จะเป็น **She asked what my name was**
-4. **ลืมถอย Tense ในข้อสอบ:** บ่อยครั้งที่แปลจากภาษาไทยแล้วคิดว่า "เขากำลังทำ" จึงใส่ is doing แทนที่จะเป็น was doing
+{{diagram: d2 | เปลี่ยนคำบอกเวลาและสถานที่}}
 
-## สรุปและการนำไปใช้ในชีวิตจริง
+- now → then
+- today → that day, tonight → that night
+- yesterday → the day before
+- tomorrow → the next day หรือ the following day
+- ago → before
+- this, these → that, those
+- here → there
 
-Reported Speech เป็นไวยากรณ์ที่สะท้อนถึงวุฒิภาวะทางภาษาในการสื่อสารระดับสากล ไม่ว่าจะเป็นการเขียนอีเมลสรุปการประชุม การจัดทำรายงานธุรกิจ หรือการทำข้อสอบ IELTS Writing Task 2
+ถ้าเล่าในวันเดียวกับที่ถูกพูด และยังอยู่ในที่เดิม ไม่จำเป็นต้องเปลี่ยน เช่น เล่า "I'm leaving tomorrow" ตอนบ่ายวันเดียวกัน ใช้ *tomorrow* ต่อได้
 
-คุณสามารถศึกษาการวางโครงสร้างประโยคอื่นๆ เพิ่มเติมได้ใน [Relative Clauses ในภาษาอังกฤษ](/th/blog/relative-clauses-phasa-angkrit-khrongsang/) และดูข้อแตกต่างของกริยาสำคัญใน [ความแตกต่างระหว่าง make กับ do](/th/blog/khwam-taek-tang-make-kap-do-phasa-angkrit/) รวมทั้งเสริมความมั่นใจใน [ไวยากรณ์ภาษาอังกฤษพื้นฐาน](/th/blog/waiyakon-phasa-angkrit-phuenthan/) และดูหลักการออกเสียงท้ายคำใน [หลักการออกเสียง ed และ s es ในภาษาอังกฤษ](/th/blog/lak-kan-ok-siang-ed-lae-s-es-phasa-angkrit/) หรือตรวจสอบหลักสูตรไวยากรณ์ทั้งหมดได้ที่ [หน้าหลักสูตรไวยากรณ์สากล](/en/grammar/)
+## การเล่าคำถาม (Reported Questions)
 
-เพื่อทดสอบความแม่นยำและสร้างความชำนาญในการเปลี่ยนรูปประโยค Reported Speech ขอเชิญเข้าไปฝึกทำแบบทดสอบได้ที่ [ระบบแบบฝึกหัดไวยากรณ์ Lexkite Grammar](/#/grammar) และทบทวนคำศัพท์ใน [คลังแบบฝึกหัดภาพรวม Lexkite Practice](/#/practice) ได้ทันที
+คำถามเล่าต่อไม่ใช้ said that และไม่ย้ายกริยาขึ้นหน้าประธานเหมือนตอนถาม
 
-{{cta: /#/grammar | ฝึกทำโจทย์ Reported Speech ใน Lexkite Grammar วันนี้}}
+1. ใช้ reporting verb อย่าง asked, wanted to know หรือ inquired
+2. คำถาม yes/no เชื่อมด้วย if หรือ whether: *"Do you speak English?"* → *The interviewer asked me if I spoke English.*
+3. คำถาม wh- ใช้คำ wh- เป็นตัวเชื่อม: *"Where did you buy this laptop?"* → *She asked me where I had bought that laptop.*
+4. เรียงเป็นประธานตามด้วยกริยา: ✗ *He asked where was the station.* ✓ *He asked where the station was.*
+
+## การเล่าคำสั่งและคำขอ (Reported Commands)
+
+ใช้ told, asked หรือ ordered + ผู้ฟัง + to + กริยาช่อง 1 และใช้ not to เมื่อเป็นปฏิเสธ
+
+- *"Close the window," she said to me.* → *She told me to close the window.*
+- *"Please don't park here," the guard said.* → *The guard asked us not to park there.*
+
+เรื่อง "บอก" ที่ขั้นที่ 1 แยกไว้แล้ว ในคำสั่งหรือคำขอให้ใช้ *told me to wait* ถ้าเป็นข้อความทั่วไปใช้ *said that* ส่วนรูป to-infinitive ที่ตามหลัง told อธิบายเพิ่มในเรื่อง[gerund และ infinitive](/th/blog/kan-chai-gerund-lae-infinitive-phasa-angkrit/)
+
+## เมื่อไม่ต้องถอยกาล
+
+ไม่ต้องถอยกาลในกรณีต่อไปนี้
+
+1. **ข้อเท็จจริงทั่วไป (แม้ reporting verb เป็นอดีต):** *The teacher said that water boils at 100 degrees Celsius.*
+2. **สิ่งที่ยังเป็นจริงขณะเล่า (แม้ reporting verb เป็นอดีต):** *He said that he lives in Chiang Mai.* ถ้าเขายังอยู่เชียงใหม่ตอนเล่า
+3. **reporting verb เป็น present:** *The forecast says that it will be sunny today.*
+
+การถอยกาลจึงเป็นแนวโน้มปกติ ไม่ใช่กฎตายตัว เมื่อสิ่งที่พูดยังจริงอยู่หรือเพิ่งพูดไปเมื่อกี้ เจ้าของภาษามักคงกาลเดิมได้ แต่ถ้าสอบหรือเขียนอย่างเป็นทางการ การถอยกาลตามปกติปลอดภัยกว่า
+
+## ลองแปลงเอง 4 ข้อ
+
+แปลงคำพูดตรงเป็นประโยคเล่าต่อ สมมติว่าเล่าหลังจากนั้นหนึ่งสัปดาห์ แล้วดูเฉลยด้านล่าง
+
+1. "I am waiting for the bus at Siam," Pim said.
+2. "Have you ever tried som tam?" my guest asked me.
+3. "Please keep your seats until the show ends," the usher said to us.
+4. "We visited Ayutthaya yesterday," they told me.
+
+**เฉลย:** 1. Pim said that she was waiting for the bus at Siam. 2. My guest asked me if I had ever tried som tam. 3. The usher asked us to keep our seats until the show ended. 4. They told me that they had visited Ayutthaya the day before.
+
+ข้อ 2 ต้องถอย Present Perfect เป็น Past Perfect และใช้ if แทน that ส่วนข้อ 3 เป็นคำขอสุภาพ ใช้ asked ... to แทน said that และต้องไม่มีเครื่องหมายคำพูด ข้อ 4 มีทั้งการถอยกาล เปลี่ยน yesterday เป็น the day before และมี told ที่ตามด้วยผู้ฟัง (me) ตามที่เรียนไปในขั้นที่ 1
+
+## 4 ข้อผิดพลาดที่คนไทยพบบ่อย
+
+1. **told ไม่มีผู้ฟัง หรือใช้ to ซ้อน:** ✗ *He told that he was late.* ✗ *He told to me* ผิด ต้องเป็น *He told me* หรือ *He said to me*
+2. **ใส่ that ในประโยคคำถาม:** *She asked that where I was going* ผิด ต้องเป็น *She asked where I was going* ภาษาไทย "ถามว่า..." ทำให้ผู้เรียนเผลอเติม that ตามหลัง asked เหมือนกับ "บอกว่า"
+3. **ลำดับในคำถามยังเหมือนตอนถาม:** *She asked what was my name* ต้องเป็น *She asked what my name was* ข้อนี้ไม่ได้มาจากภาษาไทย เพราะภาษาไทยไม่สลับตำแหน่งกริยาเวลาถาม แต่เกิดจากการลอกลำดับคำของคำถามตรงในภาษาอังกฤษ (*What is your name?*) มาใช้ทั้งประโยค เมื่อเล่าต่อให้กลับไปเรียงแบบประโยคบอกเล่า: ประธาน + กริยา
+4. **ลืมถอยกาล:** เขียน *She said she is busy* ทั้งที่เล่าเหตุการณ์ที่จบแล้ว ควรเป็น *She said she was busy*
+
+## เอาไปใช้ในงานจริง
+
+Reported speech ใช้บ่อยตอนเขียนอีเมลสรุปการประชุมหรือรายงานธุรกิจ เช่น *The client said that the deadline had moved to Friday.* อ่านวิธีเขียนอีเมลทางการต่อได้ในบทความ[เขียนอีเมลภาษาอังกฤษทางการ](/th/blog/khian-email-phasa-angkrit-thang-kan/)
+
+[บทเรียน Reported Speech](/#/grammar/reported-speech)ใน Lexkite อยู่ในส่วน[ไวยากรณ์](/#/grammar)ระดับ B1 ลองทำแบบฝึกหลังอ่านบทความนี้ แล้วเก็บประโยคที่ตัวเองพลาดไว้ทบทวน
+
+{{cta: /#/grammar/reported-speech | ฝึกโจทย์ Reported Speech ในบทเรียน B1}}

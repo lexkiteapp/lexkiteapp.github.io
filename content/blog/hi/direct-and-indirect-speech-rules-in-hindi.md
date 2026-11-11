@@ -1,6 +1,6 @@
 ---
-title: "Direct and Indirect Speech in Hindi: नियम और Tense बदलाव"
-description: "Direct and Indirect Speech in Hindi: Narration के मूल नियम, Tense और Pronoun बदलाव तालिका, प्रश्नवाचक वाक्यों का रूपांतरण और हिंदी भाषियों की गलतियाँ।"
+title: "Direct and Indirect Speech in Hindi: Tense और Pronoun नियम"
+description: "Direct and indirect speech in Hindi: tense एक कदम पीछे क्यों जाता है, pronoun और समय-शब्द कैसे बदलते हैं, सवाल व आदेश की reporting, चार आम गलतियाँ।"
 slug: direct-and-indirect-speech-rules-in-hindi
 lang: hi
 translationKey: reported-speech
@@ -8,188 +8,168 @@ category: ngu-phap
 tags: [grammar, reported-speech, narration, tenses, b1]
 keyword: "direct and indirect speech in hindi"
 cover: grammar
-coverAlt: "Lexkite grammar मॉड्यूल में IELTS 12 tense और direct and indirect speech व्याकरण अभ्यास"
-publishAt: 2027-02-28T18:00:00+05:30
+coverAlt: "Lexkite व्याकरण मॉड्यूल: IELTS व्याकरण के अध्याय, 12 tense और मिश्रित अभ्यास"
+publishAt: 2026-12-21T21:31:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 91
+status: ready
 coverArt: {mood: think, icon: chat, chip: B1}
 shots: [
-  {id: s1, route: '#/grammar', crop: main}
+  {id: s1, route: '#/grammar/reported-speech', crop: main}
 ]
 diagrams: [
-  {id: d1, type: compare, title: 'Direct Speech से Indirect Speech में Tense बदलाव (Backshift)', cols: ['Direct Speech (प्रत्यक्ष कथन)', 'Indirect Speech (अप्रत्यक्ष कथन)', 'उदाहरण (Direct → Indirect)'], rows: [['Simple Present', 'Simple Past', '"I work hard" → He said that he worked hard'], ['Present Continuous', 'Past Continuous', '"I am reading" → She said that she was reading'], ['Present Perfect', 'Past Perfect', '"I have finished" → He said that he had finished'], ['Simple Past', 'Past Perfect', '"I bought a car" → She said that she had bought a car'], ['Will / Can / May', 'Would / Could / Might', '"I will call" → He said that he would call']]},
-  {id: d2, type: compare, title: 'समय और स्थान सूचक शब्दों में बदलाव (Time and Place Shifts)', cols: ['Direct Speech', 'Indirect Speech', 'महत्वपूर्ण नियम'], rows: [['now', 'then', 'तत्काल समय से अतीत के समय में परिवर्तन'], ['today / tonight', 'that day / that night', 'कथन के दिन का संदर्भ बदल जाता है'], ['yesterday', 'the day before / previous day', 'बीते हुए कल के लिए'], ['tomorrow', 'the next day / following day', 'आने वाले कल के लिए'], ['here / this / these', 'there / that / those', 'स्थान और निकटता दूरी में बदल जाती है']]}
+  {id: d1, type: compare, title: 'Direct Speech से Indirect Speech में Tense बदलाव (Backshift)', cols: ['Direct Speech', 'Indirect Speech', 'उदाहरण (Direct → Indirect)'], rows: [['Simple Present', 'Simple Past', '"I work hard" → He said that he worked hard'], ['Present Continuous', 'Past Continuous', '"I am reading" → She said that she was reading'], ['Present Perfect', 'Past Perfect', '"I have finished" → He said that he had finished'], ['Simple Past', 'Past Perfect', '"I bought a car" → She said that she had bought a car'], ['Will / Can / May', 'Would / Could / Might', '"I will call" → He said that he would call']]},
+  {id: d2, type: compare, title: 'समय और स्थान के शब्दों में बदलाव', cols: ['Direct Speech', 'Indirect Speech', 'ध्यान रखने की बात'], rows: [['now', 'then', 'बात कहने का क्षण अब बीत चुका है'], ['today / tonight', 'that day / that night', 'रिपोर्ट किसी और दिन की जा रही हो तब'], ['yesterday', 'the day before / the previous day', 'कहने वाले का "कल" और आपका "कल" अलग हैं'], ['tomorrow', 'the next day / the following day', 'आने वाला दिन, अब बीता हुआ भी हो सकता है'], ['here / this / these', 'there / that / those', 'जगह बदल गई हो तब']]}
 ]
 quiz: [
   {
-    q: "निम्नलिखित वाक्य का सही Indirect Speech रूपांतरण चुनें: He said, 'I am preparing for the civil services examination.'",
+    q: "He said to me, “I met your sister two days ago.” इसका Indirect रूप: He told me that he ___ my sister two days before.",
     options: [
-      "He said that he is preparing for the civil services examination with dedication.",
-      "He said that he was preparing for the civil services examination.",
-      "He told that he had prepared for the civil services examination last year.",
-      "He says that he would prepare for the civil services examination soon."
+      "meets",
+      "has met",
+      "had met",
+      "will meet"
     ],
-    answer: 1,
-    explain: "क्योंकि Reporting Verb भूतकाल ('said') में है, इसलिए Present Continuous ('am preparing') बदलकर Past Continuous ('was preparing') हो जाता है।"
+    answer: 2,
+    explain: "Reporting verb past में है और मूल वाक्य Simple Past में है, इसलिए रिपोर्ट में Past Perfect (had met) आता है; ago बदलकर before हो जाता है।"
   },
   {
-    q: "प्रश्नवाचक वाक्य: She asked me, 'Where do you live?' का सही Indirect रूप क्या होगा?",
+    q: "She asked Ravi, “Are you coming to the party?” इसका Indirect रूप: She asked Ravi ___ he was coming to the party.",
     options: [
-      "She asked me that where did I live in this big city.",
-      "She asked me where I lived.",
-      "She asked me where do I live currently with family.",
-      "She questioned me where had I lived during childhood."
+      "that",
+      "what",
+      "why",
+      "if"
     ],
-    answer: 1,
-    explain: "Wh- प्रश्नों के Indirect Speech में कोई conjunction (जैसे that) नहीं लगता, Wh- शब्द स्वयं योजक बनता है और वाक्य का क्रम प्रश्नवाचक (V-S) से बदलकर साधारण (S-V) हो जाता है: 'where I lived'।"
+    answer: 3,
+    explain: "हाँ या ना में उत्तर वाले सवाल की reporting if या whether से जुड़ती है; that इन सवालों के साथ नहीं आता।"
   },
   {
-    q: "किस परिस्थिति में Reporting Verb भूतकाल में होने पर भी Reported Speech का Tense नहीं बदलता?",
+    q: "The teacher said to us, “Don't talk in class.” इसका Indirect रूप: The teacher told us ___ in class.",
     options: [
-      "जब वाक्य में किसी सार्वभौमिक सत्य (Universal Truth) या वैज्ञानिक तथ्य का उल्लेख हो",
-      "जब बोलने वाला व्यक्ति अपने किसी पुराने मित्र या रिश्तेदार से बात कर रहा हो",
-      "जब वाक्य में Reporting Verb के रूप में केवल told शब्द का औपचारिक प्रयोग किया गया हो",
-      "जब मूल वाक्य में Future Indefinite Tense का प्रयोग सक्रिय रूप से हुआ हो"
+      "not to talk",
+      "don't to talk",
+      "do not talk",
+      "to talk not"
     ],
     answer: 0,
-    explain: "सार्वभौमिक सत्य (Universal Truths), वैज्ञानिक नियमों और स्थायी आदतों का Tense कभी नहीं बदलता (जैसे: 'The teacher said that the sun rises in the east')।"
+    explain: "मना करने वाले आदेश की reporting told + व्यक्ति + not to + क्रिया के रूप में होती है।"
   }
 ]
 ---
 
-अंग्रेजी व्याकरण और प्रतियोगी परीक्षाओं (जैसे SSC, Banking, NDA, CDS और IELTS) की तैयारी करने वाले हर भारतीय छात्र के लिए **direct and indirect speech in hindi** (कथन या Narration) को समझना सबसे महत्वपूर्ण चरणों में से एक है। दैनिक जीवन में जब हम किसी दूसरे व्यक्ति की बात को किसी तीसरे व्यक्ति तक पहुँचाते हैं, तो हमारे पास दो विकल्प होते हैं: या तो हम उसके शब्दों को ज्यों का त्यों उद्धरण चिह्नों ("...") में दोहरा दें (Direct Speech), या फिर उसके आशय को अपने शब्दों में व्यक्त करें (Indirect Speech या Reported Speech)।
+किसी की कही बात आगे पहुँचाने के दो तरीके हैं। या तो आप उसके शब्द उद्धरण चिह्नों में ज्यों के त्यों रख दें (Direct Speech), या उसका भाव अपने वाक्य में बताएँ (Indirect Speech, जिसे Reported Speech भी कहते हैं)। Direct and indirect speech in Hindi खोजने वाले ज़्यादातर छात्रों को असली दिक्कत दूसरे तरीके में आती है, क्योंकि उसमें तीन चीज़ें एक साथ बदलती हैं: tense, pronoun और समय-स्थान के शब्द। सबसे बड़ा नियम एक ही है: अगर कहने वाली क्रिया भूतकाल में है (said, told, asked), तो रिपोर्ट की गई बात का tense आम तौर पर एक कदम पीछे चला जाता है।
 
-हिंदी भाषा में हम किसी की बात को दोहराते समय अक्सर कहते हैं: "उसने कहा कि वह व्यस्त है" या "उसने मुझसे पूछा कि तुम कहाँ जा रहे हो"। हिंदी में हम काल (Tense) में उतना कड़ा परिवर्तन नहीं करते जितना अंग्रेजी में अनिवार्य होता है। यही कारण है कि भारतीय छात्र अंग्रेजी में बात करते या लिखते समय सबसे आम गलती यह करते हैं कि वे Reporting Verb भूतकाल में होने पर भी क्रिया का Tense बदलना भूल जाते हैं, जैसे: "*He said that he is busy*" (जो कि व्याकरण की दृष्टि से अशुद्ध है; सही वाक्य है: "*He said that he was busy*")।
+हिंदी में ऐसा कोई दबाव नहीं है। हम कहते हैं "उसने कहा कि वह व्यस्त है", और कहने वाली क्रिया भूतकाल में होने पर भी "है" वैसा ही रहता है। इसलिए अंग्रेज़ी में *He said that he is busy* लिखना लगभग स्वाभाविक लगता है, जबकि सामान्य नियम के अनुसार यहाँ *was busy* चाहिए। इस लेख में हम वही बदलाव एक-एक करके देखेंगे जो हिंदी सोच में अपने आप नहीं होते, और अंत में चार वाक्यों का अभ्यास भी करेंगे।
 
-इस विस्तृत और व्यापक मार्गदर्शिका में हम **direct and indirect speech in hindi** के सभी नियमों, Tense और Pronoun बदलाव की संपूर्ण तालिका, समय व स्थान के परिवर्तन, प्रश्नवाचक और आज्ञासूचक वाक्यों के रूपांतरण और परीक्षा में पूरे अंक प्राप्त करने की प्रमाणित रणनीतियों का अध्ययन करेंगे।
+## Direct and Indirect Speech in Hindi समझने का बुनियादी ढाँचा
 
-## direct and indirect speech in hindi: मूल अंतर और संरचना
+**Direct Speech** में बोलने वाले के असली शब्द उद्धरण चिह्नों के अंदर होते हैं। कहने वाला हिस्सा *Reporting Verb* कहलाता है और उद्धरण के अंदर वाला हिस्सा *Reported Speech*।
 
-किसी भी संवाद को प्रस्तुत करने के दो तरीके होते हैं:
+- *Rohan said, "I am reading a novel."*
 
-1. **Direct Speech (प्रत्यक्ष कथन):** वक्ता (Speaker) द्वारा कहे गए वास्तविक शब्दों को बिना किसी परिवर्तन के inverted commas ("...") के भीतर लिखा जाता है।
-   - *Rohan said, "I am reading a novel."* (रोहन ने कहा, "मैं एक उपन्यास पढ़ रहा हूँ।")
-   - यहाँ *said* को **Reporting Verb** कहा जाता है, और उद्धरण चिह्नों के अंदर वाले भाग (*"I am reading a novel"*) को **Reported Speech** कहा जाता है।
+**Indirect Speech** में उद्धरण चिह्न हट जाते हैं, बात *that* (या सवाल में *if / wh-word*) से जुड़ती है और क्रिया का रूप बदलता है। जो वाक्य-रचना यहाँ दिखे, उसकी बड़ी तस्वीर [English Grammar Rules in Hindi](/hi/blog/english-grammar-rules-in-hindi/) में है।
 
-2. **Indirect Speech (अप्रत्यक्ष कथन):** वक्ता के कथन का सार अपने शब्दों में व्यक्त किया जाता है। इसमें उद्धरण चिह्नों को हटा दिया जाता है और उपयुक्त Conjunction (जैसे *that*, *if*, *whether*) का प्रयोग किया जाता है।
-   - *Rohan said that he was reading a novel.* (रोहन ने कहा कि वह एक उपन्यास पढ़ रहा था।)
+- *Rohan said that he was reading a novel.*
 
-![Lexkite grammar](media:@s1 "Lexkite grammar मॉड्यूल में IELTS 12 tense और direct and indirect speech व्याकरण अभ्यास")
+*that* बोलचाल में छोड़ा भी जा सकता है (*Rohan said he was reading a novel*), पर लिखित अंग्रेज़ी में उसे रखना सुरक्षित है। नीचे की तस्वीर में Lexkite का Reported Speech वाला पाठ दिखता है, जहाँ यही नियम अभ्यास सहित दिए गए हैं।
+
+![](media:@s1 "Lexkite के व्याकरण में Reported Speech का पाठ")
+
+## Tense एक कदम पीछे क्यों जाता है
+
+अंग्रेज़ी में रिपोर्ट करते समय मान लिया जाता है कि वह बात अब बीत चुकी है, इसलिए क्रिया भी "बीते हुए" रूप में आती है। इसे *backshift* कहते हैं। हिंदी में रिपोर्ट के अंदर की क्रिया अपना मूल काल रखती है (वह कहता है कि वह आएगा; उसने कहा कि वह आएगा), इसलिए यह कदम हमारी आदत में नहीं है और इसे जान-बूझकर याद करना पड़ता है।
 
 {{diagram: d1 | Direct Speech से Indirect Speech में Tense बदलाव (Backshift)}}
 
-## प्रत्यक्ष से अप्रत्यक्ष कथन में Tense परिवर्तन के नियम (Rules of Backshift)
+तालिका के अलावा तीन बातें काम की हैं।
 
-जब **Reporting Verb भूतकाल (Past Tense - যেমন said, told, asked)** में होती है, तो Reported Speech के Tense को एक चरण अतीत में ले जाया जाता है (इसे भाषाविज्ञान में *Backshift* कहते हैं)।
+- **Past Continuous** आम तौर पर Past Perfect Continuous में जाता है: *"We were playing cricket," they said → They said that they had been playing cricket.* रोज़ की बातचीत में कई लोग यहाँ Past Continuous ही रखते हैं, और वह भी सुनने में ठीक लगता है।
+- **Past Perfect** पहले से सबसे पीछे है, इसलिए वह नहीं बदलता। Present Perfect और Past Perfect का फर्क पक्का करना हो तो [Present Perfect Tense](/hi/blog/present-perfect-tense-hindi/) का लेख देखें।
+- **Modals:** *will → would, can → could, may → might*। *Would, could, should, might, ought to* वैसे ही रहते हैं। *must* को जब बाध्यता बतानी हो तो *had to* कर देते हैं (*"I must leave," she said → She said she had to leave*)।
 
-यदि Reporting Verb वर्तमान काल (*says*) या भविष्य काल (*will say*) में हो, तो Reported Speech का Tense कभी नहीं बदलता। उदाहरण: *He says, "I am fine" → He says that he is fine.*
+### जब tense नहीं बदलता
 
-लेकिन जब Reporting Verb Past Tense में हो, तो निम्नलिखित परिवर्तन अनिवार्य हैं:
+अगर कही गई बात आज भी सच है या कोई स्थायी तथ्य है, तो बदलाव ज़रूरी नहीं रहता: *The teacher said that the earth goes round the sun.* यही बात आदतों और वैज्ञानिक नियमों पर लागू होती है। यही कारण है कि *She said that she lives in Pune* भी सही हो सकता है, अगर वह अब भी वहीं रहती है। यहाँ बदलाव अनिवार्य नहीं, चुनाव है। इसलिए पहले देखें कि बात सार्वभौमिक सत्य है या नहीं।
 
-### 1. Present Tense का Past Tense में रूपांतरण
+## Pronoun, समय और स्थान के शब्द
 
-- **Simple Present → Simple Past:**
-  - *Direct:* She said, "I like classical music."
-  - *Indirect:* She said that she liked classical music.
-- **Present Continuous → Past Continuous:**
-  - *Direct:* Aman said, "I am preparing dinner."
-  - *Indirect:* Aman said that he was preparing dinner.
-- **Present Perfect → Past Perfect:**
-  - *Direct:* Neha said, "I have completed the project."
-  - *Indirect:* Neha said that she had completed the project.
-- **Present Perfect Continuous → Past Perfect Continuous:**
-  - *Direct:* He said, "I have been working here for two years."
-  - *Indirect:* He said that he had been working there for two years.
+### Pronoun कैसे बदलें
 
-### 2. Past Tense का और गहरे Past में रूपांतरण
+सबसे आसान तरीका यह है कि खुद से पूछें, "अब यह शब्द किस पर इशारा करेगा?"
 
-- **Simple Past → Past Perfect:**
-  - *Direct:* "I visited Jaipur last month," said Priya.
-  - *Indirect:* Priya said that she had visited Jaipur the previous month.
-- **Past Continuous → Past Perfect Continuous:**
-  - *Direct:* "We were playing cricket," they said.
-  - *Indirect:* They said that they had been playing cricket.
-- **Past Perfect और Past Perfect Continuous:** इनमें कोई परिवर्तन नहीं होता (No Change)।
+- **पहला पुरुष (I, we, my, me):** कहने वाले (Subject) के अनुसार बदलता है। *He said to me, "I respect you." → He told me that he respected me.*
+- **दूसरा पुरुष (you, your):** जिससे बात की जा रही है (Object) के अनुसार बदलता है। *She said to Rohan, "You are talented." → She told Rohan that he was talented.*
+- **तीसरा पुरुष (he, she, they):** आम तौर पर वही रहता है। *I said, "She is sleeping." → I said that she was sleeping.*
 
-### 3. Modal Verbs में परिवर्तन
+हिंदी की बोलचाल में लोग रिपोर्ट करते हुए भी अक्सर मूल "मैं" रख लेते हैं ("उसने कहा कि मैं कल आऊँगा"), और संदर्भ से समझ आ जाता है कि "मैं" कौन है। अंग्रेज़ी में यह सुविधा नहीं है, वहाँ pronoun सुनने वाले के नज़रिए से बदलना ही पड़ता है।
 
-- **Will → Would:** *He said, "I will help you" → He said that he would help me.*
-- **Can → Could:** *She said, "I can solve this puzzle" → She said that she could solve that puzzle.*
-- **May → Might:** *The teacher said, "It may rain" → The teacher said that it might rain.*
-- **Must:** सामान्यतः *had to* में बदलता है (बाध्यता के लिए) या *must* ही रहता है (स्थायी नैतिक कर्तव्य के लिए)।
-- **Would, Could, Should, Might, Ought to:** इनमें कोई बदलाव नहीं होता।
+### समय और जगह के शब्द
 
-### अपवाद: जब Tense में कोई बदलाव नहीं होता (Exceptions)
+{{diagram: d2 | समय और स्थान के शब्दों में बदलाव}}
 
-यदि Reported Speech में कोई **सार्वभौमिक सत्य (Universal Truth)**, **ऐतिहासिक तथ्य (Historical Fact)**, **वैज्ञानिक नियम** या **दैनिक आदत (Habitual Action)** व्यक्त की गई हो, तो Reporting Verb Past में होने पर भी काल नहीं बदलता:
+ये बदलाव तभी चाहिए जब रिपोर्ट करते समय दिन या जगह बदल चुकी हो। अगर आप उसी दिन उसी जगह बात दोहरा रहे हैं, तो *today* और *here* वैसे ही रह सकते हैं। यह फर्क अक्सर छूट जाता है, क्योंकि छात्र तालिका को यांत्रिक नियम की तरह रट लेते हैं।
 
-- *Direct:* The teacher said, "The earth revolves around the sun."
-- *Indirect:* The teacher said that the earth revolves around the sun. (revolved नहीं होगा)
-- *Direct:* My grandfather said, "Honesty is the best policy."
-- *Indirect:* My grandfather said that honesty is the best policy.
+## सवाल की reporting
 
-## सर्वनाम (Pronoun) बदलने का स्वर्णिम सूत्र: SON Formula
+सवाल को Indirect बनाते समय दो चीज़ें याद रखें।
 
-Reported Speech के pronouns को बदलते समय भारतीय छात्र अक्सर असमंजस में पड़ जाते हैं। इसके लिए सबसे सरल और प्रमाणित नियम है **SON Formula**:
+1. **Conjunction:** हाँ या ना वाले सवाल (*Do you…? Are you…?*) *if* या *whether* से जुड़ते हैं। Wh- सवाल (*where, why, how*) में wh-शब्द खुद जोड़ने का काम करता है, अलग से *that* नहीं लगता। (किसी संज्ञा के बारे में जानकारी जोड़ने वाले *who / which* की बात [relative clauses](/hi/blog/english-relative-clauses-rules-in-hindi/) में है; सवाल के wh-शब्द उनसे अलग काम करते हैं।)
+2. **शब्द-क्रम:** रिपोर्ट के अंदर सवाल का उलटा क्रम (do, is आगे आना) खत्म हो जाता है और वाक्य सामान्य कथन जैसा बन जाता है।
 
-```
-+-------------------------------------------------------------+
-| 1st Person (I, we, my, our, me, us)    → Subject के अनुसार  |
-| 2nd Person (you, your, yours)          → Object के अनुसार   |
-| 3rd Person (he, she, it, they, his...) → No Change (कोई नहीं) |
-+-------------------------------------------------------------+
-```
+- *"Do you know English?" he asked me. → He asked me if I knew English.*
+- *"Where are you going?" she asked him. → She asked him where he was going.*
+- *"What is your name?" the clerk asked. → The clerk asked what my name was.*
 
-1. **1st Person:** Reporting Verb के कर्ता (Subject) के अनुसार बदलेगा:
-   - *He said to me, "I respect you." → He told me that he respected me.* (यहाँ 'I' बदलकर 'he' हो गया)।
-2. **2nd Person:** Reporting Verb के कर्म (Object) के अनुसार बदलेगा:
-   - *She said to Rohan, "You are talented." → She told Rohan that he was talented.* (यहाँ 'You' रोहन के अनुसार 'he' बना)।
-3. **3rd Person:** इसमें कोई बदलाव नहीं होता:
-   - *I said, "She is sleeping." → I said that she was sleeping.*
+हिंदी में wh-शब्द अपनी जगह पर रहते हैं और do-जैसी कोई सहायक क्रिया नहीं लगती ("तुम कहाँ रहते हो?"), इसलिए सवाल बनाते समय अंग्रेज़ी का उलटा क्रम हम अलग से रटकर सीखते हैं। रिपोर्ट करते समय वही रटा हुआ क्रम बेवजह साथ आ जाता है और *She asked where do I live* जैसा वाक्य बन जाता है।
 
-## समय और स्थान सूचक शब्दों का रूपांतरण (Time & Place Changes)
+## आदेश, अनुरोध और सुझाव
 
-चूँकि बात बीते हुए समय और किसी अन्य स्थान पर कही जा रही है, इसलिए निकटता दर्शाने वाले शब्द दूरी दर्शाने वाले शब्दों में बदल जाते हैं।
+आदेश और अनुरोध को रिपोर्ट करने के लिए अलग ढाँचा चलता है: *told / asked + व्यक्ति + to + क्रिया*। यहाँ कोई *that* नहीं आता और tense का बदलाव भी नहीं होता, क्योंकि क्रिया *to* वाले रूप में है।
 
-{{diagram: d2 | समय और स्थान सूचक शब्दों में बदलाव (Time and Place Shifts)}}
+- *He said to me, "Close the door." → He told me to close the door.*
+- *"Please help me," she said to us. → She asked us to help her.*
+- *"Don't be late," she said to us. → She told us not to be late.*
+- *"Let's go for a walk," he said. → He suggested going for a walk.*
 
-- **Now** बदलकर **then** हो जाता है।
-- **Today** बदलकर **that day** हो जाता है।
-- **Tonight** बदलकर **that night** हो जाता है।
-- **Yesterday** बदलकर **the day before** या **the previous day** हो जाता है।
-- **Tomorrow** बदलकर **the next day** या **the following day** हो जाता है।
-- **Here** बदलकर **there** हो जाता है।
-- **This / These** बदलकर **that / those** हो जाते हैं।
-- **Ago** बदलकर **before** हो जाता है।
+ध्यान दें कि कहने वाली क्रिया भी बदल जाती है। आदेश की reporting में कभी-कभी passive रूप भी आता है (*He ordered the door to be closed*); उसके लिए [Passive Voice के नियम](/hi/blog/passive-voice-rules-in-english-hindi/) देखें। *said to* वाले आदेश में *told* या *ordered* आता है, "please" वाले में *asked* या *requested*, और सलाह में *advised*।
 
-## प्रश्नवाचक वाक्यों का रूपांतरण (Interrogative Sentences)
+## हिंदी भाषियों की चार गलतियाँ
 
-जब Reported Speech में कोई प्रश्न पूछा गया हो, तो Indirect बनाते समय निम्नलिखित 3 नियम लागू होते हैं:
+1. **Tense न बदलना।** *He said that he is busy.* हिंदी में "है" रखना स्वाभाविक है, पर यहाँ *was* चाहिए, जब तक बात अब भी सच न हो और आप जान-बूझकर वर्तमान रखना चाहें।
+2. **told to me।** हिंदी का "मुझसे कहा" सुनकर *said to me* बनता है, और वही आदत *told to me* तक पहुँच जाती है। *tell* के बाद सीधे व्यक्ति आता है: *told me*। *say* के साथ *to* लगता है: *said to me*।
+3. **सवाल में that और उलटा क्रम।** *He asked me that where I was going* और *She asked what was my name* दोनों गलत हैं। सही रूप: *He asked me where I was going* और *She asked what my name was*।
+4. **Pronoun को वैसा ही छोड़ देना।** "उसने मुझसे कहा कि मैं थका हूँ" के असर से *He told me that I am tired* लिख दिया जाता है, जबकि यहाँ बात *he* की है: *He told me that he was tired*।
 
-1. Reporting Verb (*said/said to*) को बदलकर **asked**, **inquired of**, या **demanded** किया जाता है।
-2. Conjunction के नियम:
-   - **Yes/No वाले प्रश्न (जिनकी शुरुआत Helping Verb जैसे is, are, do, have, can से हो):** योजक के रूप में **if** या **whether** का प्रयोग होता है (*that* का प्रयोग कभी न करें)।
-   - **Wh- प्रश्न (what, where, when, why, who, how):** किसी अतिरिक्त conjunction की आवश्यकता नहीं होती; Wh- शब्द स्वयं योजक का कार्य करता है।
-3. **वाक्य विन्यास:** प्रश्नवाचक वाक्य को साधारण स्वीकारात्मक वाक्य (Assertive Sentence) में बदल दिया जाता है, यानी क्रिया कर्ता के बाद आती है और अंत में प्रश्नवाचक चिह्न (?) की जगह पूर्णविराम (.) लगता है।
+## खुद जाँचें: चार वाक्य
 
-**उदाहरण:**
-- *Direct:* He said to me, "Do you know English?"
-- *Indirect:* He asked me **if** I knew English. (did I know नहीं होगा)
-- *Direct:* She said to him, "Where are you going?"
-- *Indirect:* She asked him **where he was going**. (where was he going अशुद्ध है)
+इन्हें Indirect में बदलिए, फिर नीचे के उत्तर से मिलाइए।
 
-## भारतीय छात्रों की 4 सबसे घातक गलतियाँ
+1. *Meena said, "I have lost my phone."*
+2. *Arun said to me, "Where did you buy this bag?"*
+3. *The doctor said to him, "Don't skip your medicine."*
+4. *"I will call you tomorrow," Sana said to me.*
 
-1. **Said to को गलत तरीके से बदलना:** *said to me* बदलकर *told me* होता है। कभी भी *told to me* न लिखें (told के साथ 'to' का प्रयोग वर्जित है)।
-2. **प्रश्नवाचक में That लगाना:** *He asked me that where I was going* - यह पूरी तरह अशुद्ध है। Wh- शब्दों या if के साथ *that* कभी नहीं आता।
-3. **वाक्य का क्रम उलटना:** *She asked what was my name* के स्थान पर सही वाक्य *She asked what my name was* है।
-4. **Tense बदलना भूल जाना:** जब Reporting Verb past में हो, तो वर्तमान काल की क्रिया को अतीत में बदलना न भूलें।
+**उत्तर:**
 
-## निष्कर्ष और निरंतर अभ्यास
+1. *Meena said that she had lost her phone.*
+2. *Arun asked me where I had bought that bag.* (this → that; Simple Past → Past Perfect; सीधा क्रम)
+3. *The doctor told him not to skip his medicine.*
+4. *Sana told me that she would call me the next day.* (tomorrow → the next day, अगर रिपोर्ट किसी और दिन हो रही हो)
 
-Direct and Indirect Speech में महारत हासिल करने के लिए निरंतर अभ्यास और वाक्य विन्यास की स्पष्ट समझ होना अनिवार्य है। अपनी बुनियादी व्याकरण को और सशक्त बनाने के लिए हमारा विस्तृत आलेख [English Grammar Rules in Hindi](/hi/blog/english-grammar-rules-in-hindi/) पढ़ें। इसके अलावा अन्य उन्नत संरचनाओं के लिए [अंग्रेजी में relative clauses के नियम](/hi/blog/english-relative-clauses-rules-in-hindi/), [Passive Voice Rules in English](/hi/blog/passive-voice-rules-in-english-hindi/) और [अंग्रेजी में make और do में अंतर](/hi/blog/english-me-make-aur-do-me-antar-collocations-hindi/) का अध्ययन करें। संपूर्ण व्याकरण पाठों की सूची के लिए आप [व्याकरण संदर्भ पृष्ठ](/en/grammar/) भी देख सकते हैं।
+## अक्सर पूछे जाने वाले सवाल
 
-अपनी समझ को परखने के लिए आज ही [Lexkite Grammar Practice Lab](/#/grammar) पर जाएँ और साथ ही [अभ्यास हब Lexkite](/#/practice) में विभिन्न प्रतियोगी परीक्षाओं के अनुरूप तैयार किए गए वास्तविक प्रश्नों को हल करें।
+### क्या हर बार tense बदलना ज़रूरी है?
 
-{{cta: /#/grammar | Lexkite में Narration और व्याकरण का सीधा अभ्यास करें}}
+नहीं। अगर कहने वाली क्रिया वर्तमान या भविष्य में है (*He says that…*), या बात स्थायी तथ्य है, तो वह वैसी रह सकती है। नियम तब सबसे सख्त है जब कही गई बात बीत चुकी हो और कोई ऐसा तथ्य न हो जो आज भी लागू हो।
+
+### सवाल में whether और if में क्या फर्क है?
+
+दोनों हाँ-ना वाले सवाल को जोड़ते हैं। *whether* थोड़ा औपचारिक है और *or not* के साथ अच्छा चलता है, जबकि *if* रोज़ की भाषा में ज़्यादा आम है।
+
+### अभ्यास के लिए आगे क्या करूँ?
+
+Lexkite के [व्याकरण वाले हिस्से](/#/grammar) में Reported Speech का पाठ और मिश्रित अभ्यास दोनों हैं। ऊपर के चार वाक्य हल करने के बाद वहीं से कुछ और सवाल आज़माएँ, और फिर [खेल और अभ्यास](/#/practice) में शब्दों का अभ्यास करें। और भी पाठ [अंग्रेज़ी व्याकरण पेज](/en/grammar/) पर हैं।
+
+{{cta: /#/grammar/reported-speech | Lexkite में Reported Speech का पाठ खोलें}}

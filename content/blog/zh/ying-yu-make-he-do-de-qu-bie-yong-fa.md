@@ -1,177 +1,186 @@
 ---
-title: "英语make和do的区别与用法深度解析：高频固定搭配与常见误区纠正"
-description: "英语make和do的区别与用法深度全面精讲指南：系统剖析创造产出与行为流程的底层语义逻辑差异，分类整理日常生活与商务职场高频核心搭配词清单，纠正中国学生常见的中式直译失误，配合精选例句与实战互动练习，助你彻底扫清词汇搭配盲区并脱口而出地道英文。"
+title: "英语make和do的区别：为什么汉语的“做”到了英语里要分成两个动词"
+description: "英语make和do的区别，可以先用一个思路判断：make 多指做出新东西或造成某种结果，do 多指完成任务、从事活动；再配合固定搭配记忆。文中结合汉语“做”的用法，分析中文母语者的常见错误，附对照表和自测，方便你查漏补缺。"
 slug: ying-yu-make-he-do-de-qu-bie-yong-fa
 lang: zh
 translationKey: diferencia-entre-make-y-do-en-ingles
 category: ngu-phap
 tags: [grammar, collocations, vocabulary, verbs]
 keyword: "英语make和do的区别"
-cover: grammar
-coverAlt: "Lexkite 智能语法练习室：英语make和do的区别与核心固定搭配解析界面"
-publishAt: 2027-02-28T10:00:00+08:00
+cover: practice-match
+coverAlt: "Lexkite 配对页面：计时，把英文单词与词义配对"
+publishAt: 2026-12-29T09:17:00+08:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: think, icon: pen, chip: Grammar Guide}
 shots: [
-  {id: s1, route: '#/grammar', crop: main},
-  {id: s2, route: '#/practice', crop: main}
+  {id: s1, route: '#/usage/make', crop: main},
+  {id: s2, route: '#/usage/do', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: '英语 make 与 do 的本质语义模型', parts: [{t: 'DO 核心逻辑：履行职责与执行流程', r: '强调动作过程本身、日常例行差事与非特定行为（do homework, do business, do nothing）'}, {t: 'MAKE 核心逻辑：创造产物与引发改变', r: '强调从无到有的生成、做出决策规划与造成具体物理或心理结果（make a cake, make a decision, make a mistake）'}]}
+  {id: d1, type: compare, title: 'make 和 do 的大致分工', cols: ['do：做事、完成活动', 'make：做出东西、造成结果'], rows: [['do homework / do the dishes', 'make a cake / make coffee'], ['do business / do research', 'make a decision / make a plan'], ['do something / do nothing', 'make a mistake / make noise'], ['do your best / do a favour', 'make progress / make a difference']]}
 ]
 quiz: [
   {
-    q: "在以下句子中填入哪个动词最为地道正确：'I need to _____ an urgent phone call right now'？",
-    options: [
-      "动词 make（因为拨打电话属于发起沟通并创建新的语音连接）",
-      "动词 do（因为在现代职场中拨打电话被归为日常例行业务事项的范畴之中）",
-      "动词 take（因为在传统英式英语中拨打接听电话均习惯性选用该动词进行表达）",
-      "两个动词完全通用且在任何学术会议与商务正式谈判语境中均不产生任何细微差别"
-    ],
-    answer: 0,
-    explain: "英语固定搭配为 'make a phone call'，属于发起交流与创造事件，不能用 do。"
-  },
-  {
-    q: "在句子 'She always _____ her best in English examinations' 中，横线处应填入：",
-    options: [
-      "动词 makes（因为在考场上展现顶尖水准属于创造卓越个人学术成就的行为）",
-      "动词 creates（因为该词在正式书面语中能够更加生动地体现主动进取精神）",
-      "动词 does（固定习语 do one's best 表示竭尽全力）",
-      "动词 performs（根据牛津英语搭配词典的高阶用法规范必须采用此类派生形态）"
-    ],
+    q: "My lawyer is away, so I need to _____ an urgent phone call to her assistant.",
+    options: ["do", "take", "make", "have"],
     answer: 2,
-    explain: "竭尽全力的固定英文短语是 'do one's best'，侧重于付诸行动的努力过程。"
+    explain: "打出去的电话用 make a phone call；take a call 是接听别人打来的电话。"
   },
   {
-    q: "中国学生将中文的'犯错误'翻译为英语时，最常见的负迁移搭配失误是：",
-    options: [
-      "受中文'做'的字面思维影响错说成 'do a mistake'，正确表达必须是 'make a mistake'",
-      "在日常口语与书面正式邮件中强制采用被动语态而完全忽略主动句的简洁性原则",
-      "在表达该词汇短语时错误地将不定冠词 a 遗漏造成不可数名词语法层面的低级失误",
-      "将过去时态下的动词形态与过去完成时态下的助动词结构进行毫无逻辑的机械拼凑"
-    ],
-    answer: 0,
-    explain: "在英语中，错误被视为行为产生的结果，因此固定搭配必须使用 'make a mistake' 而非 do。"
+    q: "She always _____ careful research before she buys a laptop.",
+    options: ["makes", "gets", "takes", "does"],
+    answer: 3,
+    explain: "research 是一项需要花时间进行的调查活动，搭配是 do research。"
+  },
+  {
+    q: "The children _____ so much noise that the neighbours complained.",
+    options: ["took", "made", "did", "held"],
+    answer: 1,
+    explain: "噪音是被“制造”出来的结果，固定搭配是 make noise。"
   }
 ]
 ---
 
-在学习英语词汇搭配的过程中，**英语make和do的区别**是许多中国学生挥之不去的“绊脚石”。在汉语的思维体系中，“做作业”、“做蛋糕”、“做决定”、“做生意”都可以统一使用一个“做”字来囊括。然而在英语里，*make* 和 *do* 却有着分工严谨、互不相通的语义领地。
+英语make和do的区别，可以先用一个粗略的判断：*make* 多指做出一样原本没有的东西，或者造成某种结果（*make a cake*、*make a mistake*）；*do* 多指完成一项任务、从事一项活动（*do homework*、*do the dishes*）。这个判断能解决大部分情况，剩下的一部分就是固定搭配，只能连同整句话一起记住。
 
-许多英语水平不错的学习者，在雅思写作或外企商务沟通中，依然会冷不防冒出一句“*I did a mistake*”或“*We need to make research*”。虽然母语者或许能勉强推测出你的意图，但这会瞬间暴露非地道的“翻译腔”，甚至让语言考官给你的词汇丰富度与准确度（Lexical Resource）打上扣分标记。
+本文先从汉语的“做”说起，解释为什么我们会选错（相近的词还可以参考 [英语易混词辨析](/zh/blog/ying-yu-yi-hun-ci-bian-xi-confusing-words/)），再分类整理常用搭配、中文母语者的典型错误，最后给出一个可以每天用的记忆方法。
 
-其实，区分这两个高频核心动词并不需要死记硬背数百条零散短语。只要把握住它们背后的**底层认知图式**，你就能像英语母语者一样，凭语感自然而然地脱口而出正确搭配。
+## 从汉语的“做”说起：为什么会选错
 
-本文将为你深度拆解**英语make和do的区别**，从造词造句的根本哲学、四大高频应用场景、中英思维陷阱到实战记忆法，带你一次性彻底扫清这块搭配盲区。
+汉语里的“做”用途很广：做作业、做蛋糕、做决定、做生意、做研究、做计划、做错事，全都可以用一个字。英语把这些分给了 *do* 和 *make*：
 
-## 底层逻辑：剖析英语make和do的区别与核心认知模型
+- 做作业、做研究、做生意 → *do homework*、*do research*、*do business*
+- 做蛋糕、做决定、做计划 → *make a cake*、*make a decision*、*make a plan*
 
-要理解 *make* 和 *do*，最好的方式是观察动作执行者的重心所在：
+所以单从“做”这个字出发，分不清哪边该用哪个。更麻烦的是，另一半情况汉语根本不用“做”：打电话 → *make a phone call*，犯错误 → *make a mistake*，交朋友 → *make friends*，取得进步 → *make progress*，发表演讲 → *make a speech*。这些在汉语里分别用“打”“犯”“交”“取得”“发表”，学习者没有“做”这个线索，就容易凭印象选成 *do*。这类“靠搭配而不是靠字面”的选择，在介词上也一样，见 [英语介词 in、on、at 的用法](/zh/blog/ying-yu-jie-ci-in-on-at-yong-fa/)。
 
-```
-+-----------------------------------------------------------+
-| MAKE: 创造、生产、建造、引发结果 (强调从无到有的产物)         |
-| DO:   执行、操作、履行职责、进行活动 (强调过程本身与行为的展开) |
-+-----------------------------------------------------------+
-```
+这就是为什么 *I did a mistake* 和 *We need to make research* 是中文母语者常见的错误：前一句的汉语是“犯错误”，没有“做”这个字提示，学习者就拿最常见的 do 顶上；后一句则把“做研究”里的“做”直接对应成 make。
 
-简而言之：**MAKE 关注结果，DO 关注过程**。当你使用 *make* 时，通常在动作结束的瞬间，世界上多了一样原本不存在的东西（无论是有形的蛋糕、房屋，还是无形的决定、承诺、噪音、错误）。而当你使用 *do* 时，你只是在按部就班地消耗时间与精力去完成某项既存的任务、差事或泛指的活动。
+{{diagram: d1 | make 和 do 的大致分工：左边是活动与任务，右边是做出的东西与造成的结果}}
 
-![Lexkite智能语法练习室](media:@s1 "Lexkite 智能语法练习室：英语make和do的区别与核心固定搭配解析界面")
+## 英语make和do的区别怎么判断，先问做完以后多了什么
 
-{{diagram: d1 | 英语 make 与 do 的本质语义模型}}
+可以问自己一个问题：这个动作做完以后，世界上多了什么东西吗？
 
-## DO 的核心领地：任务、工作与泛指行为
+- 多了一个蛋糕、一个决定、一个计划、一点噪音、一个错误：用 *make*。
+- 只是完成了一件事、投入了一段时间：用 *do*。
 
-*do* 的发音简短有力，它在英语中通常充当“万能行动动词”，主要统辖以下三大维度：
+这条判断有例外，例如 *do research* 也会产出结论，却仍用 do。所以下面的分类只能作为入门，真正遇到的时候还是以搭配本身为准。
 
-### 1. 家务杂务与日常例行公事（Chores and Housework）
-对于那些每天都在重复、不需要发挥特殊创造力的日常杂务，英语一律使用 *do*：
-- **do homework:** 做家庭作业（*The teacher told us to do our homework diligently.*）
-- **do housework:** 做家务活（*I spent the entire Saturday morning doing housework.*）
-- **do the dishes / do the washing up:** 洗碗（*It is your turn to do the dishes tonight.*）
-- **do the laundry:** 洗衣服（*He usually does the laundry on Sunday afternoons.*）
-- **do the shopping:** 采购日常用品（*We need to do the grocery shopping before the storm hits.*）
-- **do the ironing:** 熨烫衣物（*She was listening to a podcast while doing the ironing.*）
+## do 常见的三类搭配
 
-### 2. 泛指工作、商务与学术研究（Work, Business, and Study）
-当谈及职业职责、严肃学术调查或商业活动时，*do* 体现出严谨的流程属性：
-- **do business:** 开展商业往来（*It has been an absolute pleasure doing business with you.*）
-- **do research:** 进行科学研究（*Scholars are doing extensive research on climate change.*）
-- **do a job:** 完成一项具体工作（*You did a wonderful job on the quarterly report.*）
-- **do an experiment:** 做科学实验（*Students did a chemistry experiment in the lab.*）
-- **do a course:** 修读一门课程（*She decided to do a master's course in international finance.*）
+### 1. 家务和日常杂事
 
-### 3. 不定代词与宽泛行动（Indefinite Actions）
-当不指明具体的动作名称，仅使用 *something, nothing, anything, everything* 等代词时代替动作时，必须选用 *do*：
-- **do something:** 做点什么（*Don't just stand there; do something to help them!*）
-- **do nothing:** 闲坐什么都不做（*On lazy weekends, I love doing nothing at all.*）
-- **do your best:** 尽最大努力（*Just stay calm and do your best in the upcoming exam.*）
-- **do a favour:** 帮一个忙（*Could you please do me a huge favour this afternoon?*）
+- *do the dishes / do the washing-up*（洗碗）：*It's your turn to do the dishes tonight.*
+- *do the laundry*（洗衣服）：*My roommate does the laundry every Saturday morning.*
+- *do the shopping*（采购日用品）：*We need to do the shopping before the weekend.*
+- *do the cooking*（做饭）：*Who does the cooking in your house?*
 
-![Lexkite语法搭配练习界面](media:@s2 "Lexkite 核心词汇搭配实战模块：make与do交互式填空训练")
+注意最后一句：做饭可以说 *do the cooking*，指承担这项家务；如果指做出某一道菜，就用 *make dinner*。
 
-## MAKE 的核心领地：创造、决策与引发反响
+### 2. 工作、学习与研究
 
-*make* 蕴含着强烈的能动性与生成性，常见于以下四大核心场景：
+- *do business*（做生意）：*It's a pleasure to do business with you.*
+- *do research*（做研究）：*Scientists are doing research on sleep.*
+- *do a course*（修一门课，英国英语较常见）：*She is doing a course in design.*
+- *do an experiment*（做实验）：*We did an experiment in the lab.*
 
-### 1. 烹饪饮食与实物制作（Food, Drinks, and Physical Creation）
-将原始食材通过加工转化成一道全新的菜肴或饮品：
-- **make breakfast / lunch / dinner:** 准备一日三餐（*I will make a delicious dinner for us tonight.*）
-- **make coffee / tea:** 冲泡咖啡或沏茶（*Would you like me to make you a cup of hot green tea?*）
-- **make a cake / make bread:** 烘焙蛋糕或面包（*She made a chocolate cake for her daughter's birthday.*）
-- **make a salad:** 拌沙拉（*He made a fresh Greek salad with olive oil and cheese.*）
+### 3. 固定搭配：do your best、do a favour、do good / harm
 
-### 2. 思考推导、决策与规划（Decisions, Plans, and Arrangements）
-在头脑中构建出新的方案、规划或人生走向：
-- **make a decision:** 做出决定（*It is never easy to make a major life-changing decision.*）
-- **make a choice:** 做出选择（*You have to make a rational choice between the two careers.*）
-- **make plans:** 制订计划（*They are making ambitious travel plans for the upcoming summer.*）
-- **make an appointment:** 预约会面（*I called the dental clinic to make an urgent appointment.*）
-- **make an effort:** 做出努力（*Every candidate must make an effort to improve their fluency.*）
+下面这些并不是靠“做”的意思推出来的，请当作固定说法来记：
 
-### 3. 声音传播与言语交互（Communication and Sounds）
-通过发声器官发出声响，或者启动新的社交对话：
-- **make a phone call:** 打电话（*Excuse me, I have to step out to make a phone call.*）
-- **make a speech:** 发表演讲（*The keynote speaker made a brilliant speech on artificial intelligence.*）
-- **make a promise:** 做出承诺（*Never make a promise that you cannot realistically keep.*）
-- **make noise:** 发出噪音（*The children were making so much noise in the backyard.*）
-- **make a suggestion:** 提出建议（*May I make a small suggestion regarding the layout?*）
+- *do your best*（尽力）：*Just do your best in the exam.*
+- *do someone a favour*（帮个忙）：*Could you do me a favour?*
+- *do good / do harm*（有益 / 有害）：*A short walk will do you good.*
+- *do something / do nothing / do anything*（泛指的动作）：*Don't just stand there. Do something!*
 
-### 4. 商业盈利与财务变动（Money and Finance）
-- **make money:** 赚钱（*He made a substantial fortune in software development.*）
-- **make a profit / make a loss:** 盈利 / 亏损（*The tech company made a massive profit last quarter.*）
-- **make a payment:** 支付款项（*Please make your payment via bank transfer by Friday.*）
+## make 常见的四类搭配
 
-## 经典搭配对比一览表：避开模糊地带
+### 1. 做出实物：食物和饮品
 
-| 搭配类别 | DO 经典搭配及释义 | MAKE 经典搭配及释义 |
+- *make breakfast / lunch / dinner*（做饭）：*I'll make dinner tonight.*
+- *make coffee / tea*（冲咖啡、泡茶）：*Shall I make you a cup of tea?*
+- *make a cake / make bread*（烤蛋糕、面包）：*She made a cake for his birthday.*
+
+### 2. 做出决定、计划与安排
+
+- *make a decision / make a choice*：*It isn't easy to make a big decision quickly.*
+- *make a plan / make plans*：*They're making plans for the summer.*
+- *make an appointment*（预约）：*I need to make an appointment with the dentist.*
+- *make an effort*（努力）：*Please make an effort to arrive on time.*
+
+### 3. 说话、声音与沟通
+
+- *make a phone call*（打电话）、*make a speech*（发表演讲）、*make a promise*（许下承诺）、*make a suggestion*（提建议）
+- *make noise*（发出噪音）：*Please don't make any noise after ten.*
+
+### 4. 金钱与结果
+
+- *make money*（赚钱）、*make a profit*（盈利）、*make a payment*（付款）
+- *make progress*（取得进步）、*make a difference*（产生影响）、*make sense*（说得通）
+
+此外，*make* 还有“使……”的用法：*make + 宾语 + 动词原形*，如 *The film made me cry.*（这部电影让我哭了。）这里的 *make* 表示“造成某种结果”，也是 *do* 不具备的功能。
+
+## 对照一览：容易放在一起记的配对
+
+| 场景 | do | make |
 | :--- | :--- | :--- |
-| **日常杂务** | **do the dishes**（洗碗刷锅） | **make the bed**（整理被褥铺床） |
-| **人际社交** | **do someone a favour**（帮某人个忙） | **make friends with**（与某人交朋友） |
-| **工作学习** | **do homework**（做学校作业） | **make progress**（在学业上取得进步） |
-| **身体仪表** | **do your hair / nails**（打理发型做美甲） | **make a gesture**（做出手势表态） |
-| **抽象逻辑** | **do justice to**（公平对待/展现魅力） | **make sense**（讲得通/合情合理） |
-| **结果成效** | **do harm / do good**（造成损害/带来好处） | **make a difference**（产生重大积极影响） |
+| 家务 | *do the dishes*（洗碗） | *make the bed*（铺床） |
+| 饮食 | *do the cooking*（负责做饭） | *make a cup of tea*（泡一杯茶） |
+| 工作 | *do business*（做生意） | *make a deal*（谈成一笔交易） |
+| 学习 | *do research*（做研究） | *make progress*（取得进步） |
+| 帮助 | *do someone a favour*（帮个忙） | *make a suggestion*（提个建议） |
+| 结果 | *do harm / do good*（有害 / 有益） | *make a difference*（产生影响） |
 
-特别需要指出的是：**make the bed**（铺床）为何不用 *do*？因为在西方文化语境中，乱糟糟的床铺经过拉扯被角、摆正枕头后，重新呈现出整齐如新的“形态产物”，因此被赋予了 *make* 的创造属性。
+*make the bed* 和 *do the dishes* 都不必从 *make* 和 *do* 的含义去推导，直接记下来就行。
 
-## 中国英语学习者最常踩的四大搭配雷区
+## 中国学习者最常踩的几个坑
 
-1. **“犯错误”错用 do**：中文说“做错事”，学生常脱口而出“*I did a mistake*”。请牢记，错误是一个被制造出来的产物，正确表达永远是 **make a mistake**。
-2. **“做研究”错用 make**：受汉语“做”的诱导误写为“*make research*”。学术探究是一个严谨的探索流程，必须用 **do research**。
-3. **“做笔记”的动词选择**：在听课或阅读时记笔记，通常使用 **take notes** 或 **make notes**（提炼整理成专属笔记），但绝不能说成 *do notes*。
-4. **“做生意”与“做买卖”**：长期稳定的商业往来用 **do business**（*We do business with overseas clients*），而敲定具体的单笔交易协议则用 **make a deal**。
+1. **犯错误：** *I did a mistake* 应说 *I made a mistake*。汉语里是“犯”，英语用 *make*。
+2. **做研究：** *make research* 应说 *do research*，也可以说 *carry out research*。
+3. **做决定、做计划：** 汉语都用“做”，所以 *do a decision*、*do a plan* 也会出现，应说 *make a decision*、*make a plan*。
+4. **记笔记：** 说 *take notes*，不说 *do notes*；*make notes* 主要见于英国英语，意思也是“做笔记”。
+5. **做生意与成交：** 长期的业务往来用 *do business*，谈成一笔具体交易用 *make a deal*。
 
-## 科学内化：如何建立牢固的地道搭配直觉？
+## 还有几个值得单独记的搭配
 
-想要摆脱做题时的犹豫不决，切记不要孤立地背诵动词本身，而要将“动词+名词”作为一个整体词块（Collocation Chunk）打包输入大脑记忆库：
+下面这些搭配不属于上面任何一类，但日常里很常用：
 
-- 每天挑选 3 个核心搭配，结合自己的真实生活造句。例如：“*I made a plan to do my homework before dinner.*”
-- 在进行英文阅读与听力训练时，拿出一支荧光笔专门标出原汁原味的动词搭配词组。
-- 更多系统搭配词汇积累可结合阅读我们的 [雅思核心词汇搭配Collocations高分指南](/zh/blog/ya-si-da-pei-collocations-ti-fen-zhi-nan/) 以及 [英语易混词辨析全手册](/zh/blog/ying-yu-yi-hun-ci-bian-xi-confusing-words/)。
-- 想要进一步夯实语法逻辑框架，建议研读 [英语复合句复杂从句写作指南](/zh/blog/ya-si-xie-zuo-fu-he-ju-complex-sentences/) 与 [英语连接词逻辑分类总结](/zh/blog/ying-yu-lian-jie-ci-linking-words-fen-lei-zong-jie/)。
+- *make a living*（谋生）：*She makes a living by teaching online.*
+- *make up your mind*（下定决心）：*I can't make up my mind between the two jobs.*
+- *make a mess*（弄得一团糟）：*The kids made a mess in the kitchen.*
+- *do your hair / do your nails*（梳头发、做指甲）：*She did her hair before the party.*
+- *do a degree*（读一个学位，英国英语常见）：*He did a degree in physics.*
+- *do the right thing*（做正确的事）：*It was hard, but she did the right thing.*
 
-你可以进入 [Lexkite智能语法练习室](/#/grammar) 进行专项语法辨析闯关，利用 [交互式练习模块](/#/practice) 强化词块自动提取速度。如需获取更多丰富的双语学习语料，欢迎随时浏览 [Lexkite精选双语学习范例库](/en/samples/)，让地道英语表达自然融入你的日常交流！
+遇到这种“没有道理可讲”的搭配，办法只有一个：遇见一次，记一次，连同整句话一起存下来。想继续积累搭配，可以读 [雅思高分学术搭配词 Collocations 指南](/zh/blog/ya-si-da-pei-collocations-ti-fen-zhi-nan/)，词汇方面的入口见 [英语词汇页面](/en/vocabulary/)。
+
+## 自测：填入 make 或 do
+
+先自己填，再看答案。
+
+1. She has to ____ the washing-up before she goes out.
+2. I'd like to ____ an appointment for Thursday morning.
+3. Could you ____ me a favour and carry this bag?
+4. Last year he ____ a lot of money selling second-hand books.
+5. Please don't ____ a mistake on the form; they won't accept corrections.
+6. Our company hopes to ____ business with several firms in Spain.
+
+答案：1 do，2 make，3 do，4 made，5 make，6 do。第 4 句 *made a lot of money* 是赚钱的搭配，第 6 句 *hopes to* 后面接动词原形，*do business* 是固定搭配。做错的题，不要只看答案，请把整个搭配抄进自己的笔记，下次复习时连同例句读一遍。
+
+## 怎样把搭配变成自己的东西
+
+不要孤立地背 *make* 或 *do*，而是把“动词 + 名词”当作一个整体来记。具体可以这样做：
+
+- 每天挑三个搭配，用自己的生活写句子，如 *I made a plan to do my homework before dinner.*
+- 读英文文章时，把动词搭配用颜色标出来，而不是只标生词。
+- 遇到分不清时，不要只看汉语用了什么动词：“打电话、犯错误、交朋友、取得进步”这几个说法对应 make，而“做作业、做研究”对应 do；同样是“做饭”，承担家务用 *do the cooking*，做出一餐饭用 *make dinner*。所以最终还是要按搭配整块记。长远看，要少依赖逐字翻译，可以读 [如何用英语思维，不再先翻译](/zh/blog/ru-he-yong-ying-yu-si-wei-bu-fan-yi/)。
+
+![](media:@s1 "make 的用法页面：查看这个词的常见搭配，写作时可以回头核对")
+
+在 Lexkite 的 [make 的词语用法页](/#/usage/make) 和 [do 的词语用法页](/#/usage/do) 可以查看这两个词的常见搭配；遇到的搭配连同整句话，可以存进 [短语与句型本](/#/phrases)，隔几天再读一遍。更多语法内容见 [英语语法页面](/en/grammar/)。
+
+![](media:@s2 "do 的用法页面：和 make 对照着看，更容易分清两者的搭配")

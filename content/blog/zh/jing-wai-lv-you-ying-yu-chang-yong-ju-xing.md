@@ -1,170 +1,162 @@
 ---
-title: "海外境外旅游英语常用句型全方位指南：机场海关酒店交通与紧急求助"
-description: "海外境外旅游英语常用句型全方位深度生存指南：系统收录涵盖国际机场柜台值机、入境边检海关查问、涉外酒店入住退房、城市公共交通问路、西餐点餐礼仪及突发紧急求助等真实场景高频地道表达，附带发音技巧与实战自测，助你出国自由行从容畅游全球。"
+title: "出国遇到麻烦英语怎么说：航班延误、酒店投诉、商品退款与租车划痕"
+description: "出国遇到麻烦英语怎么说？航班延误、房型不对、账单多收、商品退换、租车有划痕，都可按“说事实、提请求、做确认”三步开口；文中附常用句型与中文释义，按场景分组，并分析中文母语者最容易说得太直、用错时态或答反否定疑问句的地方。"
 slug: jing-wai-lv-you-ying-yu-chang-yong-ju-xing
 lang: zh
 translationKey: tieng-anh-du-lich-nuoc-ngoai
 category: ky-nang
 tags: [travel, speaking, tourism, phrases]
-keyword: "境外旅游英语常用句型"
-cover: phrases
-coverAlt: "Lexkite 境外旅游英语常用句型与出国情景口语听力实战训练界面"
-publishAt: 2027-02-28T14:00:00+08:00
+keyword: "出国遇到麻烦英语怎么说"
+cover: practice-learn
+coverAlt: "Lexkite 智能学习页面：短语的释义、英文定义、例句、记忆提示与常见错误"
+publishAt: 2026-12-25T20:53:00+08:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 91
+status: ready
 coverArt: {mood: cheer, icon: chat, chip: Travel English}
 shots: [
   {id: s1, route: '#/phrases', crop: main},
   {id: s2, route: '#/listening', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: '境外旅游英语五大核心沟通场景模型', parts: [{t: '1. 机场值机与入境海关', r: '柜台行李托运、安检登机口确认，应对移民官员核验停留时间与酒店预订单'}, {t: '2. 涉外酒店与城市交通', r: '办理Check-in入住、询问Wi-Fi与早餐时间，地铁购票与礼貌问路指引'}, {t: '3. 餐厅就餐与紧急救援', r: '看懂菜单点餐、说明食物过敏、核对账单买单，突发疾病就医与报警报案'}]}
+  {id: d1, type: boxes, title: '说清问题的三步句式', parts: [{t: '1. 先说事实', r: '用一句话交代发生了什么：Our flight has been cancelled. / We booked a twin room.'}, {t: '2. 再提请求', r: '用 Could you … / Would it be possible to … 说出你想要的结果'}, {t: '3. 最后确认', r: '复述对方的答复：So the next flight leaves at nine, is that right?'}]}
 ]
 quiz: [
   {
-    q: "在国际机场入境海关柜台，当移民官员询问 'What is the purpose of your visit?' 时，最恰当地道的回答是：",
-    options: [
-      "I am here for tourism and vacation for two weeks with my family（清晰说明旅游目的与停留时长）",
-      "I need to change my flight departure gate immediately because of unexpected air traffic control",
-      "The baggage claim area is situated on the lower level right beside the primary terminal exit",
-      "I would like to order two cups of hot black coffee without sugar or cold milk from the flight attendant"
-    ],
+    q: "前台问你：“Don't you have a booking?” 其实你订过房，最合适的回答是：",
+    options: ["Yes, I do.", "No, I do.", "Yes, I don't.", "No, I do not."],
     answer: 0,
-    explain: "海关官员询问来访目的，游客应当简洁明确地回答是来度假旅游（tourism and vacation），并主动出示回程机票及酒店订单。"
+    explain: "英语的 yes 或 no 只看你自己的答案：有订房就是 Yes, I do；汉语里常见的“不，我有”在英语里会让对方听反。"
   },
   {
-    q: "在西餐厅用餐完毕准备结账付款时，向服务员索取账单最得体礼貌的英文说法是：",
-    options: [
-      "Where is the foreign currency exchange kiosk located along this crowded shopping promenade?",
-      "Could we have the bill, please?（在美式英语中亦可说 'Could we have the check, please?'）",
-      "How long does it take to walk from this restaurant to the central national history museum?",
-      "Can you immediately escort me to the emergency treatment room at the municipal general hospital?"
-    ],
+    q: "房间里的水壶不能用，你对前台说：There's something wrong _____ the kettle in our room.",
+    options: ["of", "with", "on", "at"],
     answer: 1,
-    explain: "在英式英语中索取账单说 'Could we have the bill, please?'，美式英语常用 'the check'。"
+    explain: "表示“某物出了毛病”固定用 something wrong with，介词不能随意替换。"
   },
   {
-    q: "在异国街头迷路向当地路人询问最近的地铁站在哪里，最自然礼貌的开场与提问句式是：",
-    options: [
-      "Excuse me, could you please tell me how to get to the nearest metro station from here?",
-      "What time does the breakfast buffet officially close at your downtown boutique hotel tomorrow?",
-      "Do you stock this stylish waterproof winter coat in a slightly smaller size and different color?",
-      "I want to immediately cancel my airline ticket reservation and demand an unconditional full refund"
-    ],
-    answer: 0,
-    explain: "在英语国家向陌生人问路，务必以礼貌的 'Excuse me' 起头，随后使用 'could you please tell me how to get to...' 委婉句式。"
+    q: "接你的酒店班车迟迟没来，你打电话说：The shuttle bus _____ yet, and we have been waiting for half an hour.",
+    options: ["hadn't come", "doesn't come", "hasn't come", "wouldn't come"],
+    answer: 2,
+    explain: "yet 和“已经等了半小时”都把过去的情况连到现在，要用现在完成时 hasn't come。"
   }
 ]
 ---
 
-随着国际旅行和跨境自由行的日益普及，走出国门探索大千世界已成为许多人的生活方式。然而，对于许多英语基础相对薄弱或久未开口的学习者而言，语言隔阂往往是旅途中最大的心理包袱：担心在机场听不懂广播迷失登机口、害怕在入境海关处被盘问卡关、在酒店前台面对突发问题手足无措，或者在餐厅面对全英文菜单只能盲目指图。
+出国遇到麻烦英语怎么说？最常见的情形是：航班晚点或取消，酒店给错了房型，账单上多出一笔，买的东西要退，租来的车有划痕。这时先说清事实，再用 *Could you* 或 *Would it be possible to* 提出请求，最后复述一遍对方的答复，通常就能把事情谈下来。本文按这个顺序整理常用句型，并说明中文母语者最容易在哪里说得太直、说错时态。
 
-其实，出国旅行所需的英语绝非高深莫测的学术理论，你完全不需要在出发前突击背诵厚重的高考语法书，也不需要掌握成千上万个生僻的文学词汇。旅行英语的本质是**功能性情景沟通（Functional Communication）**——只要熟练掌握一套精准高效的**境外旅游英语常用句型**，你就能从容应对从起飞到返程的每一个关键节点。
+如果你想先看机场、酒店、餐厅这类顺利情况下的日常用语，可以先读 [出国旅游英语常用口语](/zh/blog/chu-jing-lv-you-ying-yu-chang-yong-kou-yu/)。本文只处理“事情不对劲”的时候。
 
-本文将为你系统梳理**境外旅游英语常用句型**在机场值机、海关边检、酒店住宿、交通出行、餐饮点餐以及紧急自救六大黄金场景中的经典表达，结合文化礼仪与发音贴士，助你自信畅行天下！
+## 出国遇到麻烦英语怎么说，其实只有三步
 
-## 场景一：国际机场值机、安检与转机沟通
+大多数麻烦都可以套进同一个结构，下面的表格和图示是全文的骨架：
 
-机场往往是境外旅程的第一站，各类柜台与安检通道指令繁多，掌握核心句型能大幅减少误机风险：
+| 步骤 | 做什么 | 例句 |
+| :--- | :--- | :--- |
+| 说事实 | 一句话交代问题，不带情绪 | *Our flight has been cancelled.* |
+| 提请求 | 说出你想要的结果 | *Could you put us on the next flight?* |
+| 做确认 | 复述答复，避免误会 | *So the next one leaves at nine, is that right?* |
 
-### 1. 柜台值机与行李托运（Check-in and Luggage）
-- **"Hello, I would like to check in for my flight to Sydney."**（您好，我想办理前往悉尼航班的值机手续。）
-- **"Could I possibly have a window seat / an aisle seat, please?"**（请问能否帮我安排一个靠窗/靠过道的座位？）
-- **"How many pieces of checked luggage am I allowed on this ticket?"**（我的机票允许免费托运几件行李？）
-- **"Is my carry-on bag within the allowed cabin size and weight limit?"**（我的随身手提行李符合客舱尺寸和重量限制吗？）
-- **"Which gate does my flight board from, and what time does boarding commence?"**（我的航班在哪个登机口登机？什么时候开始登机？）
+{{diagram: d1 | 说清问题的三步句式：先说事实，再提请求，最后确认}}
 
-### 2. 国际中转与行李直挂（Transit and Transfers）
-- **"I have a connecting flight to London. Will my luggage be checked all the way through?"**（我有一趟转机去伦敦的航班，行李是直挂到最终目的地吗？）
-- **"Could you tell me how to get to Terminal 3 for international connections?"**（请问去3号航站楼转机国际航班该怎么走？）
+中文里我们习惯直接说结果：“我要退款”“给我换一间”。照字面译成 *I want a refund* 或 *Give me another room* 并不算语法错误，但在服务台前听起来像命令。换成 *I'd like a refund, please* 或 *Could we change to another room?*，意思不变，语气就缓和很多。更重要的是，工作人员往往没有决定权，礼貌的请求更容易让他们愿意替你想办法。
 
-![Lexkite旅游情景口语卡片界面](media:@s1 "Lexkite 境外旅游英语常用句型与出国情景口语听力实战训练界面")
+### 三个中文母语者容易掉进去的坑
 
-{{diagram: d1 | 境外旅游英语五大核心沟通场景模型}}
+第一，汉语动词不变形，所以常常漏掉时态和被动。把“航班取消了”说成 *My flight cancel* 是典型错误，应说 *My flight has been cancelled*。事情刚发生、影响还在，就用现在完成时；已经结束的单个事件才用一般过去时。
 
-## 场景二：海关边检（Immigration）从容应对高频三问
+第二，否定疑问句的回答方向相反。别人问“你没有订房吗？”，汉语可以答“不，我订了”，因为“不”是在否定对方的假设。英语的 *yes* 和 *no* 只对应你自己的情况：订了就是 *Yes, I do*，没订才是 *No, I don't*。
 
-对于许多第一次出国的人来说，入境边检（Border Control）往往是最令人紧张的环节。其实移民官员的提问具有高度的模式化特征，主要围绕三大核心问题展开：
+第三，*sorry* 说得太多。汉语里“不好意思”几乎可以开启任何请求，但英语里连续道歉会让人觉得错在你。想引起注意用 *Excuse me*，真正打扰了对方才说 *Sorry to bother you*。
 
-### 1. 询问来访目的（Purpose of Visit）
-- **Officer:** *"What is the purpose of your visit to our country?"*（您入境的目的是什么？）
-  - **模范回答:** *"I am here purely for tourism and sightseeing for twelve days."*（我纯粹是来观光旅游十二天的。）
-  - **商务出差:** *"I am here to attend an international academic conference."*（我是来参加一场国际学术会议的。）
+## 航班延误、取消与错过转机
 
-### 2. 询问停留时间（Duration of Stay）
-- **Officer:** *"How long do you intend to stay here?"*（您打算在这里停留多久？）
-  - **模范回答:** *"I will be staying for two weeks. Here is my confirmed return flight ticket."*（我停留两周，这是我已确认的返程机票。）
+机场广播听不清、屏幕上写着 *Delayed* 的时候，不要先慌，先弄清三件事：新的时间、谁来负责、你下一步去哪里。
 
-### 3. 询问住宿地点（Accommodation）
-- **Officer:** *"Where will you be staying during your vacation?"*（您在度假期间住在哪里？）
-  - **模范回答:** *"At the Hilton Downtown Hotel. Here is my printed hotel reservation voucher."*（住在市中心的希尔顿酒店，这是我的纸质预订确认单。）
+- *Is there any update on the flight to Lisbon?*（去里斯本的航班有新消息吗？）
+- *Do you know roughly how long the delay will be?*（您知道大概会延误多久吗？）
+- *Our first flight landed late and we missed the connection. Could you rebook us on the next available flight?*（第一程晚点，我们没赶上转机，能帮我们改签到最近的一班吗？）
+- *Would it be possible to get a seat together? We're travelling as a family.*（能安排在一起的座位吗？我们是一家人。）
+- *Will the airline arrange a hotel for tonight, or should we find one ourselves?*（航空公司今晚会安排住宿吗，还是我们自己找？）
+- *Could you give me something in writing about the delay?*（能给我一份关于延误的书面说明吗？）
 
-**通关黄金法则**：回答海关提问时神态自然从容，答案务必简明扼要、实话实说，切忌长篇大论或顾左右而言他；提前将往返机票、酒店确认单和旅游行程单打印成纸质版夹在护照里备查，通常两分钟内即可顺利通关盖章。
+最后一句很实用：回国后如果要向保险公司或航空公司索赔，书面说明比口头答复管用得多。具体赔偿规则因国家、航司和票种而异，所以现场只需问清楚、拿到凭证，不要在柜台前争论条款。
 
-## 场景三：涉外酒店入住、设施问询与退房服务
+另一种情况是行李没出现。转盘停了，你的箱子还没来，可以说：*My suitcase hasn't come out yet, and the belt has stopped.*（我的箱子还没出来，传送带已经停了。）然后问：*Where can I report a missing bag?* 记得拿到一张写有编号的登记单，之后用它查询。
 
-酒店是你在异国他乡的避风港，掌握地道前台用语能让住宿体验舒适顺畅：
+## 酒店：房型不对、噪音与账单
 
-### 1. 办理入住与行李寄存（Check-in and Luggage Storage）
-- **"Good afternoon, I have a room reservation under the name of Wang."**（下午好，我预订了房间，登记姓名是王。）
-- **"Our room is not ready yet. Could we leave our bags in the luggage room?"**（我们的房间还没准备好，能先把行李寄存在行李房吗？）
-- **"Is continental breakfast included in our room rate?"**（我们的房费里包含欧式早餐吗？）
-- **"Could you please let me know the Wi-Fi password for guest rooms?"**（请问客房无线网络的密码是多少？）
+酒店问题的关键是尽早、当面、平和地提。离店时才说，对方就很难处理了。
 
-### 2. 报修与客房服务请求（Housekeeping and Requests）
-- **"The thermostat in room 408 seems to be malfunctioning; it is too cold."**（408号房间的温控空调好像坏了，房间里非常冷。）
-- **"Could we please have some extra clean bath towels and two pillows?"**（请问能否为我们额外提供几条干净的浴巾和两个枕头？）
-- **"Could you assist us in booking a taxi to the international airport tomorrow at 6 AM?"**（明天早上6点能帮我们预约一辆去国际机场的出租车吗？）
+### 房间和预订对不上
 
-![Lexkite口语与听力辨音实战界面](media:@s2 "Lexkite 境外旅游英语常用句型：听力理解与多国口音实操训练界面")
+- *We booked a twin room, but this one has a double bed.*（我们订的是双床房，这间是大床房。）
+- *Could we be moved to a quieter room? The street is very noisy at night.*（能换到安静一点的房间吗？晚上街上很吵。）
+- *The room hasn't been cleaned yet. Could someone come up now?*（房间还没打扫，能现在派人上来吗？）
+- *There's something wrong with the hot water in the shower.*（淋浴的热水有问题。）
 
-## 场景四：境外旅游英语常用句型在公共交通与礼貌问路
+注意第一句只陈述事实，没有指责“你们弄错了”。听完之后，前台通常会自己说出解决办法。如果对方说 *We're fully booked tonight*（今晚客满），你可以接着问：*Is there anything else you can offer us?*
 
-在异国街头探寻城市脉络，学会得体礼貌地问路不仅能避免绕弯路，更是融入当地文化的绝佳机会：
+### 账单上多出来的一笔
 
-### 1. 礼貌问路五步法
-在向当地陌生人问路时，千万不要直接生硬地冒出一句“*Where is the subway?*”。遵循英美文化礼仪，必须以温和的 **"Excuse me"** 开场：
-- **"Excuse me, could you please tell me how to get to the Metropolitan Museum from here?"**（打扰一下，请问从这里怎么去大都会艺术博物馆？）
-- **"Is it within comfortable walking distance, or would you advise taking the bus?"**（走路过去近吗，还是您建议我乘公交车？）
-- **"Could you point me in the right direction for the nearest underground station?"**（能麻烦您帮我指一下去最近地铁站的方向吗？）
+- *There's a charge on my bill that I don't recognise. Could you check it for me?*（账单上有一笔我不认识的费用，能帮我核实吗？）
+- *I think I've been charged twice for the city tax.*（我觉得城市税被收了两次。）
+- *Could you print an itemised bill, please?*（能打印一份明细账单吗？）
 
-### 2. 购买车票与搭乘公交（Public Transit）
-- **"One standard single ticket / round-trip ticket to Oxford, please."**（请给我一张去牛津的普通单程票/往返票。）
-- **"Does this commuter train stop at the central cathedral square?"**（这趟市郊列车会在市中心大教堂广场停靠吗？）
-- **"Which platform does the airport express train depart from?"**（机场特快列车在几号站台发车？）
+*itemised bill* 就是逐项列出的账单。很多酒店的预授权款（deposit hold）退还要几个工作日，如果你想确认，可以问：*When will the deposit be released from my card?*
 
-## 场景五：西餐厅品尝美食与结账礼仪
+## 商店里的退货、换货与退款
 
-去当地餐馆体验异国美食是旅行的灵魂，掌握这些点餐句型能让你告别指手画脚的尴尬：
+在国外买东西，退换的规则差别很大，有的店只给店内积分，有的要求吊牌完好。所以先问规则，再提要求：
 
-### 1. 预约与点餐（Ordering Food）
-- **"A table for two near the outdoor terrace, please."**（请给我们安排一张靠室外露台的双人桌。）
-- **"Could we please see the dinner menu and the specialty drinks list?"**（能否请我们看一下晚餐菜单和特色饮品单？）
-- **"What would you personally recommend as your signature regional dish?"**（您个人会推荐哪道菜作为你们的招牌地方特色菜？）
-- **"I am severely allergic to peanuts and shellfish. Does this sauce contain any nuts?"**（我对花生和贝类严重过敏，请问这个酱汁里含有坚果成分吗？）
-- **"I would like to order the medium-rare grilled sirloin steak, please."**（我想点一份五分熟的香煎西冷牛排，谢谢。）
+- *Does this shop have a return policy?*（这家店有退货政策吗？）
+- *The zip broke after one day. I'd like to return it.*（拉链用一天就坏了，我想退货。）
+- *Could I exchange it for a medium instead?*（我能换成中号吗？）
+- *Would it be possible to get the money back on my card?*（能把钱退回我的卡上吗？）
+- *I don't have the receipt, but I have the confirmation email. Would that work?*（我没有小票，但有确认邮件，可以吗？）
 
-### 2. 买单与小费文化（Bill and Tipping）
-- **"Could we have the bill / check, please?"**（服务员，请帮我们拿一下账单结账。）
-- **"Do you accept international credit cards, or is it strictly cash only?"**（你们接受国际信用卡吗，还是只能付现金？）
-- **"Can we split the bill evenly between three people?"**（我们三个人可以把账单均摊分开付吗？）
-- **"Keep the change, thank you very much for your outstanding service tonight."**（不用找零了，非常感谢您今晚出色的周到服务。）
+店员常会问：*Don't you have the original packaging?* 这就是前面说的否定疑问句，有就答 *Yes, I do*，没有就答 *No, I don't*，再补一句解释。
 
-## 场景六：突发状况、疾病就医与紧急自救
+## 租车与打车：把话说在前面
 
-旅途中难免遇到突发意外，关键时刻掌握这些求救表达至关重要：
+租车最容易产生纠纷的是取车时没记录的旧损伤和还车时的油量。取车前多花两分钟，比还车时争论有效得多：
 
-- **"I need urgent medical assistance immediately, please."**（我需要紧急医疗救助，拜托了。）
-- **"Could you direct me to the nearest 24-hour pharmacy or medical clinic?"**（能告诉我去最近的24小时药房或诊所怎么走吗？）
-- **"I seem to have lost my passport, wallet, and credit cards. Where is the tourist police station?"**（我的护照、钱包和信用卡好像丢了，请问旅游警察局在哪里？）
-- **"My checked luggage did not arrive at the baggage carousel. Where is the lost luggage service desk?"**（我的托运行李没有出现在行李转盘上，请问行李遗失申报柜台在哪里？）
-- **"Please call an ambulance right away; this gentleman has collapsed."**（请立刻拨打急救电话叫救护车，这位先生晕倒了。）
+- *Before I drive away, could we go round the car together? There's a long scratch on the left door.*（开走之前，能一起绕车检查一圈吗？左边车门有一道长划痕。）
+- *Could you mark it on the form, please?*（能在表格上标出来吗？）
+- *Does the price include insurance?*（价格包含保险吗？）
+- *Do I have to return the car with a full tank?*（还车时需要加满油吗？）
+- *Where should I drop the car off, and what time is the latest return?*（我该把车还到哪里，最晚几点还？）
 
-## 行前科学备战：如何将旅游口语练到脱口而出？
+打车时，如果司机走了你不熟悉的路线，可以礼貌地问：*Is this the usual way?* 或者 *Could you take the main road, please?* 到了想下车，说 *Could you stop here? I'll get out at the corner.* 比单说 *Stop here* 自然。
 
-- **大声朗读模拟演练**：把上述核心例句存在手机里，每天对着镜子模仿机场地勤或海关官员的角色扮演对话，激活口腔肌肉记忆。
-- 想要打牢发音连贯度并听懂老外快速吞音，推荐结合研读 [英语连读规则全场景深度解析](/zh/blog/ying-yu-lian-du-connected-speech-fa-yin-gui-ze/) 与 [英语ed和s发音规则全面精讲](/zh/blog/ying-yu-ed-he-s-fa-yin-gui-ze/)。
-- 更多实用句型与词汇拓展，欢迎参阅我们的 [英语短语动词用法深度指南](/zh/blog/ying-yu-duan-yu-dong-ci-yong-fa-zhi-nan/) 以及 [英语疑问句构造与提问技巧基础](/zh/blog/ying-yu-yi-wen-ju-gou-zao-ji-chu/)。
+## 听不懂时，怎样让对方说得慢一点
 
-你可以进入 [Lexkite情景短语学习室](/#/phrases) 按照旅游、商务与日常生活分类系统积累地道词块，并打开 [听力实战训练模块](/#/listening) 磨炼对各国真实口音的适应力。更多精选地道英汉双语范例，欢迎随时访问 [Lexkite精选双语学习范例文库](/en/samples/)，自信开口，开启一段畅通无阻的精彩环球旅程！
+事情一复杂，对方语速就快，你很容易漏掉关键信息。几个现成的办法：
+
+- *Sorry, could you say that again more slowly?*（抱歉，能再慢一点说一遍吗？）
+- *Could you write it down for me?*（能写给我吗？）
+- *Let me check I've understood. You're saying we need to come back at six?*（我确认一下：您是说我们需要六点再来？）
+- *Do you mean the bus or the train?*（您指的是公交还是火车？）
+
+最后一类句子，也就是复述确认，是三步句式里最容易被忽略的一步。它不仅避免误解，还让对方知道你在认真听。口音听不懂时，复述并加上疑问语调就够了，不需要为英语不够好而道歉。
+
+## 出发前怎样把这些句子练熟
+
+光读一遍记不住，下面是三个可以直接做的练习：
+
+1. 挑出和自己行程最相关的五到六句，自己写成一小段对话：你说事实，对方回答，你确认。
+2. 对着手机录音朗读，重点听 *has been cancelled* 这类带时态的部分是否读完整。把词尾 /d/、/t/ 读完整，细节可以参考 [英语 -ed 和 -s 的发音规则](/zh/blog/ying-yu-ed-he-s-fa-yin-gui-ze/)。
+3. 练习礼貌度的变化：同一个请求用 *Can you*、*Could you*、*Would it be possible to* 各说一遍，体会语气差别，更详细的区别见 [情态动词 can、could、should、must 的用法](/zh/blog/ying-yu-qing-tai-dong-ci-can-could-should-must/)。
+
+如果你对提问的语序还不稳，可以回头看 [英语疑问句构造基础](/zh/blog/ying-yu-yi-wen-ju-gou-zao-ji-chu/)。
+
+## 用 Lexkite 做行前准备
+
+![](media:@s1 "短语与句型页面：可以添加短语和句子，并配有带结构标注的范文")
+
+在 Lexkite 的 [短语与句型](/#/phrases) 页面，你可以添加自己的短语和句子。建议把上面和你行程相关的几句存进去，每次出发前翻一遍。
+
+![](media:@s2 "听力页面：英、美、澳口音和可调语速，出发前可以多听几遍")
+
+再用 [听力](/#/listening) 练习适应不同口音：这里有英、美、澳三种口音，语速可以调整，还有听写模式，适合练习抓住数字、时间和地点这类关键信息。把前面“复述确认”的习惯带进去：听完一段，先用自己的话说一遍，再对照原文。想练习更多口语话题，也可以看 [英语口语页面](/en/speaking/)。

@@ -1,160 +1,203 @@
 ---
-title: "रोजमर्रा की अंग्रेजी बातचीत: 120+ जरूरी वाक्य और फ्रेज"
-description: "रोजमर्रा की अंग्रेजी बातचीत सीखें: सुबह से शाम तक, ऑफिस, सामाजिक मेलजोल, फोन कॉल, भावनाएं व्यक्त करने के 120+ वाक्य और बोलने की सटीक तकनीक।"
+title: "अंग्रेज़ी में जवाब कैसे दें: रोज़ के 8 छोटे संवाद"
+description: "अंग्रेज़ी में जवाब कैसे दें: जवाब देने, सहमत होने, माफ़ी माँगने, फ़ोन और दुकान पर काम आने वाले 8 दो-पंक्ति के संवाद और हर एक में हिंदी भाषियों की आम चूक।"
 slug: rozmarra-ki-angrezi-bolchal-sentences
 lang: hi
 translationKey: tieng-anh-giao-tiep-hang-ngay
 category: tu-vung
 tags: [vocabulary, speaking, phrases, daily-life, b1]
-keyword: "रोजमर्रा की अंग्रेजी बातचीत"
-cover: phrases
-coverAlt: "Lexkite phrases वाक्यांश और संरचना नोटबुक: दैनिक बातचीत के उपयोगी वाक्य"
-publishAt: 2027-02-28T19:00:00+05:30
+keyword: "अंग्रेज़ी में जवाब कैसे दें"
+cover: speaking
+coverAlt: "Lexkite का Speaking कक्ष: Part 1, 2 और 3 के विषय, नमूना सवाल और उपयोगी शब्दावली"
+publishAt: 2026-12-25T09:04:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 90
+status: ready
 coverArt: {mood: cheer, icon: chat, chip: Everyday English}
 shots: [
-  {id: s1, route: '#/phrases', crop: main},
-  {id: s2, route: '#/practice', crop: main}
+  {id: s1, route: '#/practice/test', crop: main},
+  {id: s2, route: '#/practice/speak', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: 'दैनिक बातचीत में धाराप्रवाह बोलने का 3-स्तरीय मॉडल', parts: [{t: 'स्तर 1: तैयार वाक्य खंड (Sentence Chunks)', r: 'पूरे वाक्य एक साथ बोलना, शब्द-दर-शब्द अनुवाद की आदत को रोकना (जैसे: How have you been?, Could you do me a favor?)'}, {t: 'स्तर 2: प्राकृतिक प्रतिक्रियाएं (Reactive Responses)', r: 'सहमति, असहमति और सहानुभूति प्रकट करने वाले स्वाभाविक वाक्यांश (That makes sense, Exactly my point, I see what you mean)'}, {t: 'स्तर 3: प्रवाह नियंत्रक (Conversation Fillers & Bridges)', r: 'सोचते समय विराम भरने वाले स्वाभाविक अंग्रेजी शब्द (To be honest, As far as I know, By the way)'}]}
+  {id: d1, type: boxes, title: 'जवाब देने का तीन कदम वाला ढाँचा', parts: [{t: 'कदम 1: सीधा जवाब', r: 'पहले सवाल का जवाब दें, एक छोटे वाक्य में (Pretty good, thanks. / Not really. / Sure.)'}, {t: 'कदम 2: एक छोटी जानकारी', r: 'जवाब के साथ एक वजह या ब्योरा जोड़ें (Busy week, though. / I just stayed home.)'}, {t: 'कदम 3: सवाल लौटाएँ', r: 'बात आगे बढ़ाने के लिए सामने वाले से वही पूछें (How about you? / You?)'}]}
 ]
 quiz: [
   {
-    q: "जब कोई व्यक्ति आपसे पूछे 'How have you been lately?', तो दैनिक बातचीत में सबसे स्वाभाविक और उपयुक्त उत्तर क्या होगा?",
+    q: "A colleague asks, “Can you cover my shift on Saturday?” आप नहीं कर सकते। सबसे स्वाभाविक जवाब कौन-सा है?",
     options: [
-      "'I am existing very well according to the calendar month of this year.'",
-      "'Pretty good, thanks! Just keeping busy with work. How about you?'",
-      "'My life is currently moving forward in a highly formal trajectory.'",
-      "'I have been being fine in English grammar without any problems.'"
+      "I don't want to do it.",
+      "It is not possible for me.",
+      "No, I will not cover it.",
+      "Sorry, I'm not free on Saturday."
     ],
-    answer: 1,
-    explain: "'Pretty good, thanks! Just keeping busy with work. How about you?' एक अत्यंत स्वाभाविक, मैत्रीपूर्ण और बातचीत को आगे बढ़ाने वाला उत्तर है।"
+    answer: 3,
+    explain: "Sorry और कारण के साथ छोटा इनकार स्वाभाविक है; बाकी विकल्प रूखे या सीधे अनुवाद जैसे हैं।"
   },
   {
-    q: "कार्यस्थल पर किसी सहकर्मी से किसी बात को दोबारा समझाने का विनम्र अनुरोध करने के लिए कौन सा वाक्य सबसे श्रेष्ठ है?",
+    q: "A friend says, “Thanks for lending me your charger.” रोज़ की बातचीत में सबसे सहज जवाब कौन-सा है?",
     options: [
-      "'Repeat your sentence immediately because I did not hear properly.'",
-      "'Could you please walk me through that last point once more?'",
-      "'Why did you speak so fast during the team explanation session?'",
-      "'Your voice was not clear enough so tell everything from start.'"
+      "No problem, happy to help.",
+      "Yes, I did lend you one.",
+      "No thanks, I don't need it.",
+      "Sorry, I forgot to bring it."
     ],
-    answer: 1,
-    explain: "'Could you please walk me through that last point once more?' पेशेवर और विनम्र अंग्रेजी का एक मानक उदाहरण है।"
+    answer: 0,
+    explain: "धन्यवाद के जवाब में हल्का “कोई बात नहीं, खुशी हुई” कहा जाता है। बाकी विकल्प या तो जवाब का काम नहीं करते या अटपटे लगते हैं।"
   },
   {
-    q: "किसी मित्र की बात से पूरी तरह सहमत होने पर अनौपचारिक अंग्रेजी में क्या कहना सबसे उपयुक्त है?",
+    q: "लिफ़्ट में आपका पैर किसी के पैर पर पड़ गया। आप क्या कहेंगे?",
     options: [
-      "'I am approving your philosophical thought with complete legal agreement.'",
-      "'I could not agree more! That is exactly what I was thinking.'",
-      "'Your brain has generated the right sentence according to dictionary.'",
-      "'My vocal opinion is perfectly parallel to your spoken words today.'"
+      "Oh, sorry! Why are you standing there?",
+      "Oh, sorry! Are you okay?",
+      "Oh, thanks! You are okay?",
+      "Oh, I am sorry, your foot is okay?"
     ],
     answer: 1,
-    explain: "'I could not agree more!' (मैं आपसे शत-प्रतिशत सहमत हूँ) सहमति व्यक्त करने का एक बेहद सशक्त और स्वाभाविक मुहावरेदार तरीका है।"
+    explain: "गलती आपकी है, इसलिए पहले माफ़ी और फिर सामने वाले का हाल पूछना स्वाभाविक है; बाकी में सवाल अनुचित है या वाक्य अटपटा।"
   }
 ]
 ---
 
-अंग्रेजी बोलना सीखने के सफर में भारतीय छात्रों की सबसे बड़ी व्यावहारिक चुनौती यह होती है कि वे किताबों में व्याकरण के कड़े नियम तो पढ़ लेते हैं, लेकिन जब किसी से आमने-सामने बात करने का अवसर आता है, तो जुबान लड़खड़ाने लगती है। इसका मुख्य कारण यह है कि हमारा दिमाग पहले हर हिंदी विचार का शब्द-दर-शब्द अंग्रेजी में अनुवाद करने की कोशिश करता है। जब आप "क्या आप मेरी एक मदद कर सकते हैं?" का अनुवाद सोचते हैं, तो दिमाग *Can you make my one help?* जैसा अटपटा वाक्य बना देता है, जबकि स्वाभाविक अंग्रेजी अभिव्यक्ति *Could you do me a favor?* है।
+अंग्रेज़ी में जवाब कैसे दें, इसका सबसे आसान ढाँचा तीन कदम का है: पहले सवाल का सीधा छोटा जवाब, फिर एक छोटी-सी जानकारी, और अंत में वही सवाल सामने वाले की तरफ़ लौटा देना। *"How's it going?" — "Pretty good, thanks. Busy week, though. How about you?"* बस इतना हो जाए, तो बातचीत खुद चल पड़ती है। हिंदी भाषी अक्सर पहले कदम पर रुक जाते हैं ("Fine.") या सीधे हिंदी वाक्य का अनुवाद करने लगते हैं, और वहाँ से अटपटे वाक्य निकलते हैं।
 
-इसी झिझक और अनुवाद की मानसिक बाधा को तोड़ने के लिए **रोजमर्रा की अंग्रेजी बातचीत** के तैयार वाक्य और मुहावरेदार खंड (Sentence Chunks) सबसे अचूक औषधि हैं। जब आप पूरे वाक्य और उनके संदर्भ को एक इकाई की तरह याद कर लेते हैं, तो बोलते समय आपको व्याकरण के नियमों के बारे में सोचने की आवश्यकता नहीं होती। आपकी प्रतिक्रिया बिल्कुल स्वाभाविक और त्वरित होती है।
+इस लेख में लंबी सूची नहीं है। यहाँ आठ छोटे संवाद हैं, हर एक में दो पंक्तियाँ, एक असली स्थिति, और वह चूक जो हिंदी सोच से आती है। रोज़ की दिनचर्या के वाक्यों की लंबी सूची चाहिए तो हमारा [दैनिक वाक्यों वाला लेख](/hi/blog/daily-routine-english-sentences/) देखें; यहाँ बात दूसरी है: जवाब देना और बात को आगे बढ़ाना।
 
-इस संपूर्ण और व्यावहारिक गाइड में हम **रोजमर्रा की अंग्रेजी बातचीत** के 120 से अधिक अति-उपयोगी वाक्यों को विभिन्न वास्तविक जीवन की परिस्थितियों (सुबह की शुरुआत, ऑफिस का माहौल, सामाजिक बातचीत, फोन पर संवाद और असहमति व्यक्त करना) में वर्गीकृत करके सीखेंगे, ताकि आप किसी भी परिस्थिति में आत्मविश्वास के साथ अंग्रेजी बोल सकें।
+## अंग्रेज़ी में जवाब कैसे दें, इसका तीन कदम वाला ढाँचा
 
-## रोजमर्रा की अंग्रेजी बातचीत: प्रवाह हासिल करने का 3-स्तरीय मॉडल
+{{diagram: d1 | जवाब देने का तीन कदम वाला ढाँचा}}
 
-स्वाभाविक रूप से अंग्रेजी बोलने के लिए केवल शब्दों को जानना पर्याप्त नहीं है; आपको बातचीत की गतिशीलता (Conversational Dynamics) को समझना होगा।
+हिंदी में हम "ठीक हूँ" कहकर रुक जाएँ तो भी बात अटपटी नहीं लगती, क्योंकि सामने वाला पूछ लेता है। अंग्रेज़ी की छोटी बातचीत में उम्मीद रहती है कि जवाब देने वाला कुछ जोड़े और फिर सवाल लौटाए। इसलिए नीचे के कई संवादों में जवाब इसी ढाँचे पर बना है; जहाँ सिर्फ़ सीधा जवाब काफी है (सहमति, दोबारा पूछना, माफ़ी), वहाँ संवाद छोटा रखा गया है।
 
-![Lexkite phrases](media:@s1 "Lexkite phrases वाक्यांश और संरचना नोटबुक: दैनिक बातचीत के उपयोगी वाक्य")
+## जवाब में जानकारी जोड़ने के छोटे साँचे
 
-{{diagram: d1 | दैनिक बातचीत में धाराप्रवाह बोलने का 3-स्तरीय मॉडल}}
+दूसरा कदम सबसे मुश्किल लगता है, क्योंकि हिंदी में हम "वैसे तो... पर", "बस", "थोड़ा-बहुत" जैसे शब्दों से यही काम लेते हैं। अंग्रेज़ी में इनके लिए कुछ तैयार साँचे हैं, जिन्हें जवाब के बीच में रखा जा सकता है।
 
-जब आप तैयार वाक्य खंडों, प्राकृतिक प्रतिक्रियाओं और कन्वर्सेशन फिलर्स को संयोजित करते हैं, तो आपकी बातचीत में अवांछित ठहराव नहीं आता और सामने वाले को आपकी भाषाई दक्षता का सुखद अहसास होता है।
+- **"वैसे तो ठीक, पर..." → *..., though.*** *Work's fine, though it's been hectic.* *though* वाक्य के अंत में भी आ सकता है: *It's been a good week. Tiring, though.*
+- **"असल में..." → *Actually, ...*** *Actually, I'm still deciding. I might take the evening train.*
+- **"ज़्यादातर..." → *Mostly...*** *Mostly revising for exams, and a bit of cooking.*
+- **"खास नहीं" → *Not really / Not much.*** *Not much, just a quiet weekend.*
+- **"थोड़ा-बहुत" → *A bit / Kind of.*** *Kind of busy, but I can't complain.*
 
-## 1. सामाजिक मुलाकातों और अभिवादन के वाक्य (Greetings & Catching Up)
+इन साँचों को पहले अपनी असली स्थिति के साथ भरिए, फिर संवाद बोलिए। "आज क्या किया?" के जवाब में *I did a lot of work* से बेहतर *Mostly meetings, and I finally cleared my inbox* सुनाई देता है, क्योंकि उसमें एक ठोस चीज़ है जिस पर सामने वाला सवाल पूछ सकता है।
 
-पारंपरिक *How are you? - I am fine, thank you* अब बहुत पुराना और यांत्रिक लगता है। आधुनिक संदर्भों में इन स्वाभाविक वाक्यों का प्रयोग करें:
+## दफ़्तर और रोज़ की बातचीत: चार संवाद
 
-- **How's everything going?** (सब कुछ कैसा चल रहा है?)
-- **Long time no see! What have you been up to?** (बहुत दिनों बाद मिले! आजकल क्या चल रहा है?)
-- **Can't complain, things are moving along smoothly.** (कोई शिकायत नहीं, सब कुछ बढ़िया चल रहा है।)
-- **It's great to bump into you here!** (यहाँ आपसे अचानक मिलकर बहुत खुशी हुई!)
-- **Give my regards to your family.** (घर पर सभी को मेरा नमस्ते कहिएगा।)
-- **Catch you later, I need to dash!** (बाद में मिलता हूँ, मुझे थोड़ा जल्दी निकलना है!)
+### 1. हाल पूछने पर
 
-## 2. रोजमर्रा के घरेलू और व्यक्तिगत काम (Daily Routine & Chores)
+> **A:** Hey, how's it going?
+>
+> **B:** Pretty good, thanks. Busy week, though. How about you?
 
-सुबह जागने से लेकर रात को सोने तक के घरेलू संवादों के लिए ये वाक्य अत्यंत उपयोगी हैं:
+"क्या हाल है?" का शब्द-दर-शब्द अनुवाद करने पर *What is your condition?* जैसा वाक्य बन सकता है और सामने वाला चौंक सकता है। *How's it going?* या *How are things?* पूछिए, और जवाब में सिर्फ़ *Fine* पर न रुकें।
 
-- **I think I overslept this morning.** (मुझे लगता है आज सुबह मेरी आँख देर से खुली।)
-- **Could you please pass the salt?** (क्या आप कृपया नमक आगे बढ़ा देंगे?)
-- **I need to run a few errands this afternoon.** (मुझे आज दोपहर बाज़ार के कुछ जरूरी काम निपटाने हैं।)
-- **Let's order takeout tonight, I am too exhausted to cook.** (आज रात बाहर से खाना मँगवा लेते हैं, मैं खाना बनाने के लिए बहुत थका हुआ हूँ।)
-- **I am going to hit the hay early tonight.** (मैं आज रात जल्दी सोने जा रहा हूँ - *hit the hay* का अर्थ सोने जाना है।)
-- **Don't forget to lock the front door.** (मुख्य दरवाज़ा बंद करना मत भूलिएगा।)
+### 2. सहमत होना
 
-## 3. ऑफिस और कार्यस्थल पर पेशेवर बातचीत (Workplace & Collaboration)
+> **A:** I think we should start earlier tomorrow.
+>
+> **B:** Yeah, that makes sense. Eight o'clock?
 
-कॉर्पोरेट और ऑफिस के माहौल में विनम्र और स्पष्ट भाषा का प्रयोग आपकी पेशेवर छवि को निखारता है:
+हिंदी का "आप सही बोल रहे हैं" कई लोगों से *You are speaking right* बुलवा देता है। अंग्रेज़ी में सहमति के छोटे रूप हैं: *That makes sense, Good point, Fair enough, I agree*।
 
-- **Let's touch base on this project tomorrow morning.** (आइए कल सुबह इस प्रोजेक्ट पर संक्षिप्त चर्चा करते हैं।)
-- **Could you please keep me in the loop?** (क्या आप मुझे इस बारे में लगातार अपडेट रखेंगे?)
-- **I am currently tied up with urgent deliverables.** (मैं इस समय कुछ अत्यावश्यक काम में काफी व्यस्त हूँ।)
-- **Let's table this discussion until we have more concrete data.** (जब तक हमारे पास ठोस डेटा न आ जाए, तब तक इस चर्चा को टाल देते हैं।)
-- **Thank you for turning this report around so quickly.** (इस रिपोर्ट को इतनी जल्दी तैयार करने के लिए आपका बहुत धन्यवाद।)
-- **I have a hard stop at 4 PM for another client call.** (शाम 4 बजे मेरी एक अन्य क्लाइंट मीटिंग है, इसलिए मुझे ठीक 4 बजे निकलना होगा।)
+### 3. दोबारा कहने को कहना
 
-## 4. विनम्रतापूर्वक राय, सहमति और असहमति जताना (Expressing Opinions Politely)
+> **A:** The meeting got moved to three-thirty, in room twelve.
+>
+> **B:** Sorry, could you say that again?
 
-अक्सर भारतीय छात्र अंग्रेजी में असहमति जताते समय कठोर प्रतीत होने से डरते हैं। इन संतुलित वाक्यों से आप अपनी बात गरिमा के साथ रख सकते हैं:
+"फिर से बोलिए" का अनुवाद *Speak again* या सिर्फ़ *What?* अटपटा या रूखा लगता है। शुरू में *Sorry* या *Pardon* जोड़ें और *could you* से पूछें।
 
-- **I see where you're coming from, but look at it from this angle.** (मैं समझता हूँ कि आप ऐसा क्यों कह रहे हैं, लेकिन इसे इस दृष्टिकोण से भी देखें।)
-- **I couldn't agree more with your assessment.** (मैं आपके विश्लेषण से शत-प्रतिशत सहमत हूँ।)
-- **To be completely honest, I have mixed feelings about this.** (ईमानदारी से कहूँ तो, इस बारे में मेरे मन में मिश्रित विचार हैं।)
-- **That sounds reasonable enough.** (यह बात काफी हद तक तर्कसंगत लगती है।)
-- **Let's agree to disagree on this specific point.** (आइए इस विशेष बिंदु पर अपने-अपने मतभेद को स्वीकार करते हुए आगे बढ़ें।)
+### 4. माफ़ी माँगना
 
-## 5. फोन पर बातचीत और तकनीकी संवाद (Phone Calls & Tech Situations)
+> **A:** Sorry I'm late!
+>
+> **B:** No worries. We've only just started.
 
-- **You're breaking up a bit, could you repeat that?** (आपकी आवाज़ थोड़ी कट-कट कर आ रही है, क्या आप दोहरा सकते हैं?)
-- **Sorry, I was on mute! Can you hear me now?** (माफ कीजिएगा, मेरा माइक म्यूट पर था! क्या अब मेरी आवाज़ आ रही है?)
-- **Hold on a second, let me pull up that document.** (एक सेकंड रुकिए, मैं वह दस्तावेज़ खोल लेता हूँ।)
-- **I'll call you back as soon as I wrap up this meeting.** (जैसे ही यह मीटिंग समाप्त होती है, मैं आपको तुरंत कॉल करता हूँ।)
+"देर के लिए माफ़ी" से *Sorry for late* बनता है। अंग्रेज़ी में *Sorry I'm late* या *Sorry for being late* या *Sorry for the delay* कहा जाता है। जवाब में *No worries* या *It's fine* चलता है, और ज़रूरी हो तो जानकारी जोड़ दें।
 
+## दुकान, फ़ोन और मेलजोल: चार संवाद
 
+### 5. दुकान पर
 
-## 6. खरीदारी और रेस्तरां में बातचीत (Shopping & Dining Out)
+> **A:** Hi, can I help you with anything?
+>
+> **B:** Just looking, thanks. Actually, do you have this in a medium?
 
-बाजार में खरीदारी करते समय या किसी रेस्तरां में खाना ऑर्डर करते समय आत्मविश्वास के साथ संवाद करने के लिए ये वाक्य बहुत सहायक होते हैं:
+"बस देख रहा हूँ" से *I am only seeing* जैसा वाक्य बन सकता है, जबकि अंग्रेज़ी में *Just looking* कहा जाता है। "दूसरा दिखाइए" से *Show another* की जगह *Could you show me another one?* ज़्यादा विनम्र है।
 
-- **Do you happen to have this in a larger size?** (क्या आपके पास यह पोशाक किसी बड़े आकार में उपलब्ध है?)
-- **Could we get the bill, please?** (क्या हमें बिल मिल सकता है, कृपया?)
-- **Is this dish spicy, or is it suitable for mild taste?** (क्या यह व्यंजन अधिक तीखा है, या इसका स्वाद हल्का है?)
-- **Could you pack the leftovers for takeout?** (क्या आप बचे हुए भोजन को पार्सल कर सकते हैं?)
-- **Do you accept digital payments or credit cards here?** (क्या आप यहाँ डिजिटल भुगतान या क्रेडिट कार्ड स्वीकार करते हैं?)
-- **I am just browsing around, thank you!** (दुकानदार के पूछने पर: मैं बस ऐसे ही देख रहा हूँ, धन्यवाद!)
+### 6. फ़ोन पर अपना परिचय
 
-## 7. यात्रा और दिशा-निर्देश पूछना (Travel & Asking for Directions)
+> **A:** Hello, Priya speaking.
+>
+> **B:** Hi Priya, this is Rahul from the office. Is this a good time?
 
-सड़क पर या यात्रा के दौरान किसी अजनबी से रास्ता पूछने के लिए शिष्टाचार से भरे ये वाक्य याद रखें:
+"मैं राहुल बोल रहा हूँ" से *I am Rahul speaking* निकल आता है। अंग्रेज़ी में फ़ोन पर *This is Rahul* कहा जाता है। सामने वाले से पहचान पूछनी हो तो "आप कौन?" का अनुवाद *Who are you?* नहीं, *Who's calling?* या *Who's this?* है। फ़ोन पर और बातचीत के लिए [फ़ोन कॉल वाला लेख](/hi/blog/office-me-english-phone-call-kaise-kare/) देखें।
 
-- **Excuse me, could you point me in the direction of the metro station?** (माफ कीजिएगा, क्या आप मुझे मेट्रो स्टेशन की दिशा बता सकते हैं?)
-- **How far is the domestic airport from here by taxi?** (यहाँ से टैक्सी द्वारा घरेलू हवाई अड्डा कितनी दूरी पर है?)
-- **Is this the platform for the express train to Delhi?** (क्या दिल्ली जाने वाली एक्सप्रेस ट्रेन इसी प्लेटफॉर्म पर आएगी?)
-- **Could you please tell me where the nearest pharmacy is located?** (क्या आप बता सकते हैं कि सबसे नजदीकी दवा की दुकान कहाँ स्थित है?)
+### 7. हफ़्ते के अंत की बात
 
-## भारतीय छात्रों के लिए बोलने के 4 स्वर्णिम अभ्यास नियम
+> **A:** Did you do anything fun this weekend?
+>
+> **B:** Not really, I just stayed home and relaxed. You?
 
-1. **वाक्यों को टुकड़ों (Chunks) में याद करें:** कभी भी अलग-अलग शब्दों की रटंत सूची न बनाएं। हमेशा पूरे वाक्य को एक संगीत की धुन की तरह याद करें।
-2. **शैडोइंग तकनीक (Shadowing) का उपयोग करें:** किसी भी मूल अंग्रेजी वक्ता (Native Speaker) की ऑडियो या पॉडकास्ट सुनें और उनके बोलने के तुरंत पीछे-पीछे उसी लय और उतार-चढ़ाव में दोहराएं।
-3. **मन में अनुवाद बंद करें:** जब आप सीधे अंग्रेजी वाक्यों को याद कर लेते हैं, तो अनुवाद की आवश्यकता स्वतः समाप्त हो जाती है।
-4. **गलतियों से न डरें:** धाराप्रवाह बोलने का अर्थ व्याकरण की पूर्णता नहीं बल्कि विचारों का स्पष्ट संप्रेषण है।
+हिंदी का "टाइम पास किया" कई बार *I did timepass* बनकर अंग्रेज़ी में आ जाता है, और सुनने वाले को मतलब समझाना पड़ता है। *I just relaxed* या *I didn't do much* से बात पूरी हो जाती है। यही चीज़ दफ़्तर की गपशप में भी काम आती है, जिसके लिए [Small Talk गाइड](/hi/blog/office-me-english-small-talk-guide/) है।
 
-अपनी दैनिक शब्दावली और व्याकरण की नींव को मजबूत करने के लिए हमारा लेख [English Grammar Rules in Hindi](/hi/blog/english-grammar-rules-in-hindi/) पढ़ें। इसके अलावा अन्य व्यावहारिक संदर्भों के लिए [दैनिक जीवन के सामान्य वाक्य](/hi/blog/daily-routine-english-sentences/), [अंग्रेजी में relative clauses के नियम](/hi/blog/english-relative-clauses-rules-in-hindi/) और [Direct and Indirect Speech in Hindi](/hi/blog/direct-and-indirect-speech-rules-in-hindi/) का अध्ययन करें। अंग्रेजी की प्रमाणित शब्दावली सूचियों के लिए आप हमारे [शब्दावली संदर्भ पृष्ठ](/en/vocabulary/) पर भी जा सकते हैं।
+### 8. विनम्र इनकार
 
-अपने दैनिक वाक्यों का उच्चारण और बोलने की गति जांचने के लिए आज ही [Lexkite Phrases Practice Tool](/#/phrases) खोलें और साथ ही [व्यावहारिक अभ्यास केंद्र](/#/practice) में वास्तविक परिदृश्यों के साथ अपने आत्मविश्वास को नई ऊँचाइयों पर ले जाएँ।
+> **A:** We're all going out for dinner tonight. Want to join?
+>
+> **B:** I'd love to, but I can't make it tonight. Have fun!
 
-{{cta: /#/phrases | Lexkite में दैनिक बोलचाल के वाक्यों का अभ्यास शुरू करें}}
+"नहीं हो पाएगा" का सीधा अनुवाद *It will not happen* है, और यह रूखा या अजीब सुनाई देता है। *I'm afraid I can't* या *I can't make it* बोलें, और अंत में एक भला-सा वाक्य जोड़ें।
+
+## बातचीत चलाने वाले छोटे शब्द
+
+हिंदी का "अच्छा" बहुत काम करता है: हैरानी, "समझ गया", "ठीक है", सब एक शब्द में। अंग्रेज़ी में ये अलग-अलग हैं:
+
+- हैरानी: *Really? Oh wow, I didn't know that.*
+- "समझ गया": *I see. Right. Got it.*
+- "ठीक है": *Sounds good. Okay, great.*
+- सहानुभूति: *Oh no, I'm sorry to hear that.*
+
+इन्हें हर जवाब से पहले एक बार बोलकर देखिए, ताकि बात रुके नहीं। हिंदी वाक्य को शब्द-दर-शब्द न बदलने की आदत यहाँ मदद करती है; उसके लिए [अनुवाद के बिना सोचने वाला लेख](/hi/blog/english-me-kaise-soche-without-translation/) पढ़ें।
+
+## खुद जाँचें: पाँच स्थितियाँ
+
+हर स्थिति में छोटा, स्वाभाविक जवाब बनाइए; जहाँ सवाल पूछा गया हो वहाँ तीन कदम (जवाब, जानकारी, सवाल) लगाइए।
+
+1. कोई पूछता है: *How was your day?*
+2. सहकर्मी कहता है: *Let's finish this by Friday.* आप सहमत हैं।
+3. कोई कहता है: *Thanks for waiting.*
+4. फ़ोन पर आवाज़ कट रही है।
+5. आप दुकान में हैं और कपड़े की साइज़ बदलवाना चाहते हैं।
+
+**संभावित उत्तर:**
+
+1. *Pretty good, thanks. A bit tiring, though. How was yours?*
+2. *Yeah, that works. I'll send my part by Wednesday.*
+3. *No problem at all. It wasn't long. Shall we start?*
+4. *Sorry, you're breaking up a little. Could you say that again?*
+5. *Hi, could I exchange this for a larger size, please?*
+
+## इन्हें अपनी आदत कैसे बनाएँ
+
+संवादों को सिर्फ़ पढ़ने से बात नहीं बनती, बोलकर दोहराना ज़रूरी है। पूरे जवाब बोलकर दोहराने के लिए फ़ोन पर अपनी आवाज़ रिकॉर्ड करें और ऊपर के संवाद से मिलाएँ। अपने पसंदीदा वाक्य Lexkite के [वाक्यांश और संरचनाएँ](/#/phrases) में जोड़ सकते हैं। [बोलकर अभ्यास वाले हिस्से](/#/practice/speak) में चुने हुए शब्द या वाक्यांश बोलने पर स्कोर मिलता है, इसलिए वह किसी एक मुश्किल वाक्यांश (जैसे *I'm afraid I can't*) के उच्चारण के लिए काम आता है।
+
+![](media:@s2 "Lexkite का उच्चारण अभ्यास: एक चुना हुआ शब्द या वाक्यांश बोलना और आवाज़ से स्कोर पाना")
+
+जवाबों में आए शब्दों (जैसे *exchange* या *free*) का अर्थ पक्का करना हो तो [खेल और अभ्यास](/#/practice/test) में 4 विकल्प वाला क्विज़ है।
+
+![](media:@s1 "Lexkite के खेल और अभ्यास में 4 विकल्प वाला क्विज़")
+
+जवाब देने की आदत को पूरी बातचीत तक ले जाना हो तो [English Bolna Kaise Sikhe](/hi/blog/english-bolna-kaise-sikhe/) पढ़ें। शब्द-सूचियाँ [अंग्रेज़ी शब्दावली पेज](/en/vocabulary/) पर हैं।
+
+## अक्सर पूछे जाने वाले सवाल
+
+### क्या हर बार सामने वाले से सवाल लौटाना ज़रूरी है?
+
+नहीं। पर छोटी बातचीत में उम्मीद रहती है, खासकर जब सामने वाले ने पहले आपका हाल पूछा हो। गहरी या औपचारिक बातचीत में हर बार ज़रूरी नहीं।
+
+### क्या इन संवादों को रट लेना काफी है?
+
+रटना शुरुआत है, पर जोड़ना और बदलना ज़्यादा काम आता है। हर संवाद में एक शब्द बदलकर अपनी स्थिति के अनुसार नया वाक्य बनाइए।
+
+{{cta: /#/phrases | Lexkite के वाक्यांश और संरचनाएँ में अपने जवाब सहेजें}}

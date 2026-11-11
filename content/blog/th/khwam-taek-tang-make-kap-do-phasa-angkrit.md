@@ -1,189 +1,183 @@
 ---
-title: "ความแตกต่างระหว่าง make กับ do: กฎการใช้และ Collocations"
-description: "ความแตกต่างระหว่าง make กับ do ในภาษาอังกฤษ: สรุปหลักการจำ สร้างสรรค์ผลงาน vs ปฏิบัติหน้าที่ พร้อมรวม Collocations ที่ใช้บ่อยและแบบฝึกหัด"
+title: "ความแตกต่างระหว่าง make กับ do และวลีที่ต้องท่องเป็นก้อน"
+description: "ความแตกต่างระหว่าง make กับ do สำหรับคนไทย: หลักคร่าว ๆ เรื่องผลลัพธ์กับกิจกรรม สำนวนข้อยกเว้นที่ต้องจำ และวิธีแปล ทำ กับ ทำให้ เป็นภาษาอังกฤษให้ถูก"
 slug: khwam-taek-tang-make-kap-do-phasa-angkrit
 lang: th
 translationKey: diferencia-entre-make-y-do-en-ingles
 category: ngu-phap
 tags: [grammar, collocations, vocabulary, verbs, b1]
 keyword: "ความแตกต่างระหว่าง make กับ do"
-cover: grammar
-coverAlt: "Lexkite grammar หน้าจอฝึกไวยากรณ์ 12 tense และข้อแตกต่างของ make และ do"
-publishAt: 2027-02-28T21:00:00+07:00
+cover: dict
+coverAlt: "หน้าพจนานุกรมใน Lexkite แสดงคำเดียว พร้อมการออกเสียง ความหมาย ประโยคตัวอย่าง คำเหมือน และ collocation"
+publishAt: 2026-12-24T21:33:00+07:00
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 91
+status: ready
 coverArt: {mood: think, icon: pen, chip: Grammar Guide}
 shots: [
-  {id: s1, route: '#/grammar', crop: main},
-  {id: s2, route: '#/practice', crop: main}
+  {id: s1, route: '#/phrases', crop: main}
 ]
 diagrams: [
-  {id: d1, type: boxes, title: 'กรอบแนวคิดหลัก: การเลือกใช้ MAKE ปะทะ DO', parts: [{t: 'MAKE = การสร้างสรรค์และผลลัพธ์ (Creation & Result)', r: 'เน้นการผลิตสิ่งใหม่ขึ้นมา อาหาร สิ่งของ การตัดสินใจ ข้อตกลง หรือปฏิกิริยาทางอารมณ์ (make dinner, make a mistake, make a decision)'}, {t: 'DO = การกระทำและกระบวนการ (Action & Process)', r: 'เน้นกิจกรรมหน้าที่ กิจวัตรประจำวัน งานบ้าน งานที่ไม่เจาะจงผลลัพธ์ใหม่ (do homework, do business, do chores, do your best)'}]}
+  {id: d1, type: boxes, title: 'หลักคร่าว ๆ ในการเลือก make หรือ do', parts: [{t: 'make: มีสิ่งใหม่หรือผลลัพธ์เกิดขึ้น', r: 'อาหาร สิ่งของ แผน การตัดสินใจ เสียง ความรู้สึกที่เกิดกับคนอื่น (make a cake, make a plan, make a decision, make noise, make someone happy)'}, {t: 'do: ทำกิจกรรม งาน หรือหน้าที่', r: 'งานบ้าน งานเรียน งานทั่วไปที่ไม่ได้ระบุว่าทำอะไร (do the dishes, do homework, do research, do something)'}, {t: 'ที่เหลือต้องท่องเป็นก้อนวลี', r: 'make a living, make a difference, make sure, do business ไม่มีกฎที่ครอบคลุมทุกคำ จึงควรจำทั้งวลี'}]}
 ]
 quiz: [
   {
-    q: "ควรเติมคำกริยาใดลงในช่องว่าง: 'I have to _____ an important phone call before the team meeting'?",
-    options: [
-      "คำกริยา do (เพราะผู้เรียนมักมองว่าการโทรศัพท์คือการปฏิบัติหน้าที่และภารกิจประจำวันของพนักงานในองค์กร)",
-      "คำกริยา make (การโทรศัพท์ถือเป็นการสร้างการสื่อสารใหม่)",
-      "คำกริยา take (เพราะเป็นสำนวนที่ใช้ในงานเขียนเชิงวิชาการและหนังสือสัญญาทางราชการในยุคศตวรรษก่อน)",
-      "สามารถใช้กริยาทั้งสองตัวแทนกันได้อย่างอิสระโดยไม่มีความแตกต่างด้านความหมายและบริบททางภาษาแต่อย่างใด"
-    ],
-    answer: 1,
-    explain: "ในภาษาอังกฤษ การโทรศัพท์สร้างการสื่อสารขึ้นมาใช้ collocation ว่า 'make a phone call' เสมอ ไม่ใช้ do a phone call"
-  },
-  {
-    q: "ข้อใดคือการใช้คำกริยาที่ถูกต้องตามหลัก Collocations มาตรฐานสากล?",
-    options: [
-      "She did a very serious calculation mistake in her comprehensive quarterly financial audit report.",
-      "She made a serious mistake in her financial calculation report.",
-      "She performed an unintentional procedural mistake during the laboratory quality assurance check.",
-      "She created a catastrophic calculation mistake while balancing the internal corporate account books."
-    ],
-    answer: 1,
-    explain: "ความผิดพลาด (mistake) ถือเป็นผลลัพธ์ที่เกิดขึ้น จึงต้องใช้คู่กับกริยา make กลายเป็น 'make a mistake' เสมอ การใช้ do a mistake เป็นข้อผิดพลาดที่เกิดจากการแปลตรงตัวจากภาษาไทย"
-  },
-  {
-    q: "ประโยค 'Let us _____ business together' ควรเติมคำกริยาใดจึงจะถูกต้องตามหลัก Business English?",
-    options: [
-      "กริยา make (เพื่อสื่อถึงการริเริ่มสร้างเครือข่ายความร่วมมือทางธุรกิจและการลงทุนเชิงพาณิชย์ใหม่)",
-      "กริยา build (เพื่อเน้นการวางรากฐานและสร้างความมั่นคงแข็งแกร่งของโครงสร้างพื้นฐานในระยะยาว)",
-      "กริยา do (การดำเนินธุรกิจถือเป็นกิจกรรม)",
-      "กริยา take (เพื่อแสดงถึงการยอมรับความเสี่ยงในตลาดการค้าเสรีระหว่างประเทศตามหลักเศรษฐศาสตร์สากล)"
-    ],
+    q: "เติมกริยาที่ถูกต้อง: 'My father likes to _____ the gardening on Sunday mornings.'",
+    options: ["make", "take", "do", "give"],
     answer: 2,
-    explain: "การทำธุรกิจถือเป็นกิจกรรมและการดำเนินการอย่างต่อเนื่อง จึงใช้ collocation ว่า 'do business' เสมอ (เช่น do business with someone) การพูดว่า make business ถือว่าผิดไวยากรณ์"
+    explain: "งานบ้านและงานประจำที่ไม่ได้สร้างสิ่งใหม่ใช้ do เช่น do the gardening, do the ironing"
+  },
+  {
+    q: "เติมกริยาที่ถูกต้อง: 'He hopes to _____ a good living as a freelance translator.'",
+    options: ["do", "take", "get", "make"],
+    answer: 3,
+    explain: "make a living เป็นสำนวนตายตัว หมายถึงหารายได้เลี้ยงชีพ ไม่ใช้ do a living"
+  },
+  {
+    q: "เติมกริยาที่ถูกต้อง: 'It does not _____ any difference which day we meet.'",
+    options: ["make", "do", "take", "have"],
+    answer: 0,
+    explain: "make a difference เป็นสำนวนตายตัว หมายถึงมีผลต่างออกไป"
   }
 ]
 ---
 
-หนึ่งในปัญหาที่สร้างความสับสนและทำให้ผู้เรียนชาวไทยใช้ภาษาอังกฤษผิดพลาดบ่อยที่สุดคือ **ความแตกต่างระหว่าง make กับ do** เนื่องจากในภาษาไทยเรามีคำว่า "ทำ" เพียงคำเดียวที่ครอบคลุมการกระทำแทบทุกมิติ ไม่ว่าจะเป็น "ทำการบ้าน" (do homework), "ทำอาหาร" (make food), "ทำความสะอาด" (do cleaning), "ทำธุรกิจ" (do business) หรือ "ทำผิดพลาด" (make a mistake) เมื่อคนไทยคิดเป็นภาษาไทยแล้วแปลตรงตัวเป็นภาษาอังกฤษ จึงเผลอพูดว่า *I did a mistake* หรือ *Let's make business* ซึ่งฟังดูขัดหูและไม่เป็นธรรมชาติในสายตาของเจ้าของภาษา
+ถ้าถามว่า **ความแตกต่างระหว่าง make กับ do** คืออะไร คำตอบสั้นที่สุดคือ make มักใช้เมื่อมีสิ่งใหม่หรือผลลัพธ์เกิดขึ้น เช่น make a cake, make a plan ส่วน do มักใช้กับงาน กิจกรรม และหน้าที่ เช่น do the dishes, do homework แต่นี่เป็นหลักคร่าว ๆ ที่ใช้ได้กับส่วนใหญ่ ไม่ใช่กฎที่ไม่มีข้อยกเว้น หลายสำนวนต้องท่องเป็นก้อน และบทความนี้จะแยกให้เห็นว่าอะไรอธิบายด้วยหลักได้ อะไรต้องท่อง
 
-แท้จริงแล้ว ทั้ง *make* และ *do* มีแบบจำลองทางความคิด (Cognitive Model) ที่แยกออกจากกันอย่างชัดเจนและมีตรรกะเบื้องหลังที่เข้าใจได้ง่าย หากคุณจับหลักการสำคัญนี้ได้ คุณจะไม่จำเป็นต้องท่องจำตารางคำศัพท์นับร้อยคำอย่างไร้ทิศทางอีกต่อไป
+ปัญหาของคนไทยเริ่มจากคำว่า "ทำ" ซึ่งใช้ได้ทั้งทำการบ้าน ทำอาหาร ทำงาน ทำผิด ทำเงิน และทำให้ใครรู้สึกอย่างไร ภาษาอังกฤษแยกความหมายเหล่านี้ไปใช้กริยาคนละตัว เมื่อเราแปลคำว่า "ทำ" ตรง ๆ จึงได้ประโยคอย่าง *I did a mistake* ที่เจ้าของภาษาฟังแล้วรู้ทันทีว่าผิด ทั้งที่ความหมายชัดเจน คู่คำแบบนี้อยู่ในกลุ่มเดียวกับ[คำศัพท์ที่คนไทยมักสับสน](/th/blog/kham-saps-phasa-angkrit-thi-mak-cha-sap-son-confusing-words/) และถ้ายังไม่มั่นใจพื้นฐาน กลับไปดู[ไวยากรณ์ภาษาอังกฤษพื้นฐาน](/th/blog/waiyakon-phasa-angkrit-phuenthan/) ก่อนได้
 
-บทความนี้จะเจาะลึก **ความแตกต่างระหว่าง make กับ do** อธิบายแนวคิดเรื่อง "ผลลัพธ์ (Result)" ปะทะ "กระบวนการ (Process)" พร้อมรวบรวมกลุ่มคำ Collocations ยอดนิยมในชีวิตประจำวัน ที่ทำงาน การสอบ IELTS และข้อควรระวังสำหรับผู้เรียนชาวไทยโดยเฉพาะ
+## ความแตกต่างระหว่าง make กับ do ดูได้จากผลลัพธ์และกิจกรรม
 
-## ความแตกต่างระหว่าง make กับ do: กฎพื้นฐานผลลัพธ์ปะทะกระบวนการ
+ลองถามตัวเองก่อนว่า หลังทำเสร็จแล้วมีอะไรที่ไม่เคยมีมาก่อนเกิดขึ้นหรือเปล่า ถ้ามี มักเป็น make ถ้าเป็นเพียงการลงมือทำงานหรือกิจกรรมต่อเนื่อง มักเป็น do
 
-วิธีที่ง่ายและทรงพลังที่สุดในการแยกแยะการใช้กริยาสองคำนี้คือการสังเกตว่า **สิ่งที่เกิดขึ้นนั้นเป็นสิ่งใหม่ที่เพิ่งถูกสร้างขึ้น หรือเป็นเพียงการดำเนินกิจกรรม**:
+เมื่อคุณ *make a cake* คุณได้เค้กหนึ่งก้อนที่ก่อนหน้านี้ยังไม่มี แต่เมื่อคุณ *do the dishes* คุณไม่ได้สร้างจานใบใหม่ เพียงทำงานล้างจานตามหน้าที่ เช่นเดียวกับ *make a plan* ที่ได้แผนขึ้นมาหนึ่งแผน กับ *do your homework* ที่เป็นงานที่ถูกมอบหมายมาให้ทำ
 
-```
-+-------------------------------------------------------------+
-| MAKE = ผลลัพธ์, การผลิต, การสร้างสิ่งใหม่ (Focus on Result)     |
-|        เน้นว่ามี "สิ่งใหม่" เกิดขึ้นหลังจากทำ ไม่ว่าจะเป็นสิ่งของ  |
-|        อาหาร แผนงาน ความสัมพันธ์ หรือผลกระทบทางจิตใจ          |
-+-------------------------------------------------------------+
-| DO   = กระบวนการ, การปฏิบัติหน้าที่, กิจกรรม (Focus on Process)  |
-|        เน้นตัว "การกระทำ" งานประจำ หน้าที่ โดยไม่ได้มีสิ่งของใหม่  |
-|        ถูกประดิษฐ์ขึ้นมา มักใช้กับงานบ้าน งานประจำ และคำกริยาทั่วไป |
-+-------------------------------------------------------------+
-```
+![](media:@s1 "หน้าสมุดวลีของฉันใน Lexkite ที่ใช้เก็บวลีและโครงสร้างประโยคที่อยากจำ เช่น วลีที่ต้องท่องเป็นก้อน")
 
-ลองเปรียบเทียบตัวอย่างง่ายๆ: เมื่อคุณ *make a cake* (ทำเค้ก) ผลลัพธ์ที่จับต้องได้คือเค้กหนึ่งก้อนที่เพิ่งถูกอบเสร็จขึ้นมาใหม่ แต่เมื่อคุณ *do the dishes* (ล้างจาน) คุณไม่ได้ประดิษฐ์จานใบใหม่ขึ้นมา คุณเพียงแค่ล้างทำความสะอาดจานที่มีอยู่แล้วตามหน้าที่
+{{diagram: d1 | หลักคร่าว ๆ ในการเลือก make หรือ do}}
 
-![Lexkite grammar](media:@s1 "Lexkite grammar หน้าจอฝึกไวยากรณ์ 12 tense และข้อแตกต่างของ make และ do")
+หลักนี้ใช้อธิบายคำจำนวนมากได้ดี แต่ไม่ครอบคลุมทุกคำ *make a decision* กับ *make an effort* ไม่ได้ให้ "วัตถุใหม่" ที่จับต้องได้ ส่วน *do damage* กับ *do wonders* ก็เป็นผลลัพธ์ที่ใช้ do อยู่ดี จึงเป็นข้อยกเว้น ใช้หลักนี้เป็นจุดเริ่มต้นเดา แล้วตรวจกับรายการด้านล่างหรือพจนานุกรมทุกครั้งที่ไม่แน่ใจ
 
-{{diagram: d1 | กรอบแนวคิดหลัก: การเลือกใช้ MAKE ปะทะ DO}}
+## do ใช้กับงาน หน้าที่ และสิ่งที่ไม่ระบุชัด
 
-## เจาะลึกการใช้คำกริยา DO: กิจวัตร หน้าที่ และการกระทำทั่วไป
+### งานบ้านและงานประจำ
 
-คำกริยา *do* มักปรากฏในบริบทที่เกี่ยวข้องกับภาระหน้าที่ การงาน และกิจกรรมที่ต้องใช้แรงกายหรือแรงสมองในการทำให้เสร็จสิ้น:
-
-### 1. งานบ้านและกิจวัตรประจำวัน (Housework & Chores)
-- **do the laundry:** ซักผ้า (*I usually do the laundry on Sunday mornings.*)
+- **do the laundry:** ซักผ้า *I usually do the laundry on Sunday mornings.*
 - **do the dishes / do the ironing:** ล้างจาน / รีดผ้า
-- **do the shopping:** ไปซื้อของใช้เข้าบ้าน (เน้นกิจกรรมการเดินซื้อ)
-- **do the housework:** ทำงานบ้านทั่วไป
+- **do the shopping:** ไปซื้อของเข้าบ้าน
+- **do the gardening:** ทำสวน ดูแลต้นไม้
 
-### 2. หน้าที่ การทำงาน และการศึกษา (Work & Study)
-- **do homework / do assignments:** ทำการบ้าน / ทำรายงาน
-- **do research:** ทำการวิจัยค้นคว้าข้อมูล
-- **do business:** ทำธุรกิจ ค้าขาย (*It is a genuine pleasure to do business with your company.*)
+### งานเรียน งานทำงาน และการออกกำลังกาย
+
+- **do homework / do an assignment:** ทำการบ้าน / ทำงานที่ได้รับมอบหมาย
+- **do research:** ทำวิจัย ค้นคว้าข้อมูล ไม่ใช้ a นำหน้า
 - **do paperwork:** จัดการงานเอกสาร
+- **do a course / do a degree:** เรียนหลักสูตร / เรียนปริญญา ใช้พูดแบบอังกฤษ
+- **do exercise:** ออกกำลังกาย (*I try to do exercise three times a week.*)
 
-### 3. การกระทำที่ไม่เจาะจง (Non-specific Actions)
-เมื่อใช้คู่กับคำสรรพนามที่ไม่เจาะจง เช่น *something, anything, nothing, everything*:
-- *Are you doing anything special tonight?* (คืนนี้คุณทำอะไรพิเศษหรือเปล่า?)
-- *He did nothing all afternoon.* (เขาไม่ได้ทำอะไรเลยตลอดช่วงบ่าย)
-- *Do something about it!* (ลงมือทำอะไรสักอย่างเกี่ยวกับเรื่องนี้สิ!)
+### do + สิ่งที่ไม่ระบุ
 
-### 4. สำนวนประจำตัว (Idiomatic Expressions with DO)
-- **do your best:** พยายามอย่างเต็มที่ (*Just do your best in the examination.*)
-- **do someone a favor:** ช่วยเหลือใครบางคน (*Could you do me a favor?*)
-- **do damage / do harm:** ก่อให้เกิดความเสียหายหรืออันตราย
+เมื่อไม่ได้บอกว่าทำอะไรโดยเฉพาะ ใช้ do กับคำอย่าง something, anything, nothing, everything:
 
-## เจาะลึกการใช้คำกริยา MAKE: การสร้างสรรค์ แผนการ และผลลัพธ์
+- *Are you doing anything special tonight?* คืนนี้มีแผนอะไรพิเศษไหม
+- *He did nothing all afternoon.* เขาไม่ได้ทำอะไรเลยทั้งบ่าย
+- *We must do something about the noise.* เราต้องทำอะไรสักอย่างกับเรื่องเสียงดังนี้
 
-คำกริยา *make* มักใช้เมื่อเกิดสิ่งใหม่ขึ้นมา ทั้งสิ่งของที่จับต้องได้และการตัดสินใจหรือปฏิกิริยาที่เป็นนามธรรม:
+### สำนวนกับ do
 
-### 1. อาหาร เครื่องดื่ม และการปรุงอาหาร (Food & Drink)
-- **make breakfast / lunch / dinner:** ทำอาหารเช้า/กลางวัน/เย็น
-- **make coffee / tea:** ชงกาแฟ / ชงชา
-- **make a reservation:** จองโต๊ะอาหาร หรือจองที่พัก (สร้างการจองขึ้นมาใหม่)
+- **do your best:** พยายามอย่างเต็มที่
+- **do someone a favour:** ช่วยใครสักอย่าง (*Could you do me a favour?*)
+- **do damage / do harm / do good:** ก่อความเสียหาย / เป็นอันตราย / เป็นประโยชน์
+- **do your hair / do your make-up:** จัดผม / แต่งหน้า (ตรงกับ "ทำผม" ของไทย)
 
-### 2. การสื่อสาร เสียง และการแสดงความคิดเห็น (Communication & Sounds)
-- **make a phone call:** โทรศัพท์ติดต่อสื่อสาร
-- **make a decision:** ตัดสินใจ (*We need to make a final decision by Friday.*)
-- **make a suggestion / make a proposal:** ให้ข้อเสนอแนะ / ยื่นข้อเสนอ
-- **make an excuse:** แก้ตัว สร้างข้อแก้ตัว
-- **make noise:** ส่งเสียงดัง ทำเสียงรบกวน
+## make ใช้กับสิ่งที่เกิดขึ้นใหม่ ทั้งที่จับต้องได้และไม่ได้
 
-### 3. ความสัมพันธ์ ผลลัพธ์ และการเงิน (Relationships & Money)
-- **make friends:** ผูกมิตร สร้างเพื่อนใหม่ (*It is easy to make friends when traveling.*)
-- **make money / make a profit:** ทำเงิน สร้างรายได้ / ทำกำไร
-- **make an effort:** ทุ่มเทความพยายาม
-- **make a mistake:** ทำผิดพลาด (*Everyone makes mistakes when learning a new language.*)
+### อาหารและเครื่องดื่ม
 
+- **make breakfast / lunch / dinner:** ทำอาหารเช้า กลางวัน เย็น
+- **make coffee / make tea:** ชงกาแฟ ชงชา
+- **make a reservation:** จองโต๊ะหรือที่พัก
 
-## ตารางเปรียบเทียบคู่สับสนยอดนิยม (Head-to-Head Comparisons)
+### การพูด เสียง และการเสนอความคิด
 
-เพื่อให้เห็นภาพที่ชัดเจนที่สุด ตารางด้านล่างนี้เปรียบเทียบการใช้งาน make และ do ในบริบทที่ใกล้เคียงกันแต่ให้ความหมายและโครงสร้างที่แตกต่างกันอย่างสิ้นเชิง:
+- **make a phone call:** โทรศัพท์
+- **make a suggestion / make a proposal:** เสนอแนะ / ยื่นข้อเสนอ
+- **make an excuse:** หาข้ออ้าง
+- **make noise:** ส่งเสียงดัง
 
-### 1. หมวดงานบ้านและการจัดการชีวิตส่วนตัว
+### การตัดสินใจ ความสัมพันธ์ และเงิน
 
-- **make the bed vs do the housework:**
-  - *make the bed* หมายถึง การจัดที่นอนให้เรียบร้อยหลังตื่นนอน (จัดผ้าปูที่นอนและหมอนให้เป็นระเบียบ เป็นการสร้างสภาพใหม่)
-  - *do the housework* หมายถึง การทำงานบ้านทั่วไปตามหน้าที่ เช่น กวาดบ้าน ถูพื้น ล้างห้องน้ำ
-- **make dinner vs do the dishes:**
-  - *make dinner* หมายถึง การปรุงอาหารเย็นขึ้นมาใหม่จากวัตถุดิบดิบ
-  - *do the dishes* หมายถึง การล้างทำความสะอาดจานชามที่ใช้แล้ว
+- **make a decision:** ตัดสินใจ (*We need to make a decision by Friday.*)
+- **make a plan:** วางแผน
+- **make friends:** ผูกมิตร (*It is easy to make friends when you travel.*)
+- **make money / make a profit:** หาเงิน / ทำกำไร
+- **make an effort:** พยายาม ลงแรง
+- **make a mistake:** ทำผิดพลาด (*Everyone makes mistakes when learning a language.*)
 
-### 2. หมวดการงาน การเรียน และการพัฒนาตนเอง
+## ข้อยกเว้นที่ต้องท่องเป็นวลีสำเร็จรูป
 
-- **make a plan vs do a project:**
-  - *make a plan* หมายถึง การคิดค้นวางแผนกลยุทธ์ใหม่ขึ้นมา (สร้าง roadmap)
-  - *do a project* หมายถึง การลงมือปฏิบัติงานโครงการตามแผนการที่กำหนดไว้
-- **make progress vs do well:**
-  - *make progress* หมายถึง การสร้างความก้าวหน้าที่มีพัฒนาการชัดเจนจับต้องได้
-  - *do well* หมายถึง การทำผลงานได้ดีในการสอบหรือการทำงาน (*She did well on the exam.*)
-- **make a suggestion vs do an analysis:**
-  - *make a suggestion* หมายถึง การเสนอแนะแนวทางความคิดเห็นใหม่
-  - *do an analysis* หมายถึง การลงมือปฏิบัติการวิเคราะห์ข้อมูลทางสถิติหรือเอกสาร
+บางสำนวนหลักผลลัพธ์กับกิจกรรมช่วยไม่ได้ ควรจำทั้งวลีและเก็บไว้ในสมุดของตัวเอง
 
-## แบบฝึกหัดประยุกต์ใช้ในชีวิตประจำวัน (Real-World Sentence Practice)
+- **make a living:** หาเลี้ยงชีพ ไม่ใช่ do a living
+- **make a difference:** ทำให้เกิดความต่าง มีผลจริง
+- **make sure:** ตรวจให้แน่ใจ (*Please make sure the door is locked.*)
+- **make progress:** ก้าวหน้า
+- **make the bed:** จัดเตียง ทั้งที่ไม่ได้สร้างเตียงใหม่
+- **do business:** ทำธุรกิจ ค้าขาย (*We do business with several suppliers in Japan.*)
+- **do well / do badly:** ทำได้ดี / ไม่ดี (*She did well in the interview.*)
 
-ลองศึกษาประโยคตัวอย่างด้านล่างนี้และสังเกตว่าทำไมเจ้าของภาษาจึงเลือกใช้ make หรือ do ในแต่ละสถานการณ์:
+ให้จำทั้งวลีเป็นก้อนพร้อมประโยคของตัวเอง แล้วเก็บไว้ใน[สมุดวลีใน Lexkite](/#/phrases) ถ้าอยากเห็นคู่คำในหัวข้อสอบเพิ่ม ลองอ่าน[collocations ภาษาอังกฤษสำหรับ IELTS](/th/blog/collocations-phasa-angkrit-ielts/) และดูวิธีจำวลีให้อยู่นานใน[วิธีท่องคำศัพท์ภาษาอังกฤษ](/th/blog/withi-thong-sap-phasa-angkrit/)
 
-1. *The marketing team **made an outstanding presentation** that impressed all board members.* (ทีมการตลาดจัดทำและนำเสนอผลงานได้อย่างยอดเยี่ยมจนสร้างความประทับใจให้คณะกรรมการ)
-2. *Before signing any commercial agreement, international corporations must **do thorough due diligence**.* (ก่อนลงนามในสัญญาทางการค้า บริษัทระหว่างประเทศต้องดำเนินการตรวจสอบสถานะทางธุรกิจอย่างละเอียดถี่ถ้วน)
-3. *Could you please stop **making so much noise**? I am trying to **do my research**.* (ช่วยหยุดส่งเสียงดังได้ไหม? ฉันกำลังพยายามทำงานวิจัยอยู่)
-4. *We need to **make up our minds** quickly before the discount offer expires.* (เราต้องรีบตัดสินใจให้เด็ดขาดก่อนที่ข้อเสนอส่วนลดจะหมดอายุ)
-5. *Exercise and daily meditation can **do wonders** for your mental health.* (การออกกำลังกายและการทำสมาธิเป็นประจำสามารถส่งผลลัพธ์อันมหัศจรรย์ต่อสุขภาพจิตของคุณ)
+## ทำให้... ไม่ใช่ do: จุดที่คนไทยพลาดโดยไม่รู้ตัว
 
-## 4 ข้อผิดพลาดที่คนไทยเผลอพูดผิดบ่อยที่สุด
+ภาษาไทยใช้ "ทำให้" บอกสาเหตุ เช่น "ข่าวนี้ทำให้เขาดีใจ" ภาษาอังกฤษใช้ **make + คน + คำคุณศัพท์หรือกริยาช่อง 1** ซึ่งต่างจาก do ที่คนไทยมักหยิบมาใช้ตามสัญชาตญาณของคำว่า "ทำ"
 
-1. **"ทำผิด" $\rightarrow$ พูดว่า *do a mistake* (ผิด):** คนไทยแปล "ทำ" ตรงตัวว่า do แต่ในภาษาอังกฤษ ความผิดถือเป็นผลลัพธ์ที่เกิดขึ้น จึงต้องพูดว่า **make a mistake** เท่านั้น
-2. **"ทำวิจัย" $\rightarrow$ พูดว่า *make research* (ผิด):** การวิจัยคือกิจกรรมการสืบค้นข้อมูล ต้องใช้ว่า **do research** (ห้ามมี a และห้ามใช้ make)
-3. **"ทำธุรกิจ" $\rightarrow$ พูดว่า *make business* (ผิด):** การค้าขายดำเนินธุรกิจเป็นกระบวนการ ต้องใช้ว่า **do business** (เช่น *do business with global partners*)
-4. **"ทำการบ้าน" $\rightarrow$ พูดว่า *make homework* (ผิด):** ต้องใช้ **do homework** เพราะเป็นการปฏิบัติหน้าที่ตามที่ได้รับมอบหมาย
+- ทำให้เขาดีใจ → *The news made him happy.* ไม่ใช่ *did him happy*
+- ทำให้ฉันหัวเราะ → *He made me laugh.* ไม่ต้องมี to หลัง me
+- ทำให้เธอรอ → *Sorry to make you wait.*
+- ทำให้เรื่องง่ายขึ้น → *The app makes learning easier.*
 
-## การประยุกต์ใช้ในการสอบ IELTS และการทำงานระดับมืออาชีพ
+ผู้เรียนจำนวนหนึ่งยังเติม to โดยตรงจาก "ให้" ในภาษาไทย เขียนว่า *made me to laugh* แต่ในรูปที่ใช้ make ตรง ๆ ไม่มี to ถ้าเป็นรูป passive ต้องใช้ to: *I was made to wait.*
 
-ในการสอบ IELTS Writing Task 2 และ Speaking การใช้ Collocations ได้อย่างถูกต้องตรงตามเจ้าของภาษาเป็นเกณฑ์สำคัญในหมวด Lexical Resource ที่ช่วยดันคะแนนสู่ Band 7 ขึ้นไป การสับสนระหว่าง *make* กับ *do* เพียงจุดเดียวอาจทำให้ผู้ตรวจลดทอนคะแนนความคล่องแคล่วและความแม่นยำทางภาษาของคุณได้ทันที
+อีกกลุ่มคือคำว่า "ทำงาน" ที่หมายถึงมีอาชีพหรือไปทำงาน ภาษาอังกฤษใช้ **work** ไม่ใช่ do work: *She works at a hospital.* ส่วน do some work หมายถึงทำงานบางอย่างให้เสร็จ เช่น *I need to do some work tonight.* สองความหมายนี้ต่างกัน
 
-คุณสามารถศึกษาการวางโครงสร้างประโยคระดับสูงเพิ่มเติมได้ที่ [โครงสร้าง Complex Sentences ใน IELTS Writing](/th/blog/khrongsang-prayok-complex-sentences-ielts-writing/) และทบทวนหมวดคำศัพท์ที่มักใช้ร่วมกันใน [Collocations ภาษาอังกฤษสำหรับการสอบ IELTS](/th/blog/collocations-phasa-angkrit-ielts/) รวมทั้งเสริมความมั่นใจใน [ไวยากรณ์ภาษาอังกฤษพื้นฐาน](/th/blog/waiyakon-phasa-angkrit-phuenthan/) และดูหลักการออกเสียงท้ายคำใน [หลักการออกเสียง ed และ s es ในภาษาอังกฤษ](/th/blog/lak-kan-ok-siang-ed-lae-s-es-phasa-angkrit/) หรือตรวจสอบหลักไวยากรณ์ทั้งหมดที่ [หน้าหลักสูตรไวยากรณ์สากล](/en/grammar/)
+## 4 ข้อผิดพลาดจากการแปล "ทำ" ตรง ๆ
 
-เพื่อทดสอบความแม่นยำและสร้างความเคยชินในการใช้ make และ do อย่างเป็นธรรมชาติ ขอเชิญเข้าไปฝึกทำแบบทดสอบเฉพาะทางได้ที่ [ระบบแบบฝึกหัดไวยากรณ์ Lexkite Grammar](/#/grammar) และทบทวนคำศัพท์ใน [คลังแบบฝึกหัดภาพรวม Lexkite Practice](/#/practice) ได้ทันที
+1. **ทำผิด → *do a mistake*:** ภาษาอังกฤษใช้ **make a mistake** ส่วน "ทำผิดกฎหมาย" ใช้ break the law
+2. **ทำวิจัย → *make research*:** ต้องเป็น **do research** และใช้เป็นคำนามนับไม่ได้ ไม่เติม a
+3. **ทำให้ใครดีใจ → *do someone happy*:** ต้องเป็น **make someone happy** ตามที่อธิบายข้างต้น
+4. **ทำธุรกิจ → *make business*:** ใช้ **do business** เช่น *do business with a partner* แต่ make a deal, make a profit เป็น make
 
-{{cta: /#/grammar | ฝึกแยกแยะการใช้ make และ do ใน Lexkite Grammar}}
+## ตัวอย่างประโยคสำหรับอ่านเทียบ
+
+สังเกตว่าเมื่ออ่านทีละประโยค คำกริยาเดียวกันเปลี่ยนความหมายไปตามคำนามที่ตามมา:
+
+1. *The marketing team made a presentation that impressed the board.* ทีมการตลาดนำเสนอจนคณะกรรมการประทับใจ
+2. *Could you stop making so much noise? I am trying to do my research.* ช่วยเบาเสียงหน่อย ฉันกำลังทำวิจัยอยู่
+3. *We need to make up our minds before the offer ends.* เราต้องตัดสินใจก่อนข้อเสนอหมดเวลา
+4. *Regular exercise can do wonders for your sleep.* การออกกำลังกายสม่ำเสมอช่วยเรื่องการนอนได้มาก
+5. *I made a few mistakes, but I did my best.* ฉันพลาดไปบ้าง แต่ก็ทำเต็มที่แล้ว
+
+## ลองเติมเอง 6 ข้อ
+
+เติม make หรือ do ในรูปที่เหมาะสม แล้วดูเฉลยด้านล่าง
+
+1. She is _____ a degree in nursing at the moment.
+2. Please _____ sure you have your passport.
+3. I will _____ the shopping on my way home.
+4. The delay _____ us late for the meeting.
+5. He _____ a lot of money last year.
+6. Could you _____ me a favour?
+
+**เฉลย:** 1. doing 2. make 3. do 4. made 5. made 6. do
+
+ข้อ 4 ใช้ made เพราะเป็นรูป "ทำให้ + คน + คุณศัพท์" ตามหัวข้อก่อนหน้า ส่วนข้อ 1 ใช้ doing เพราะ do a degree หมายถึงเรียนปริญญา
+
+## ใช้ใน IELTS และงานจริง
+
+ใน IELTS Writing และ Speaking เกณฑ์ Lexical Resource ดูการใช้ collocation ที่ถูกต้องและเป็นธรรมชาติ การพูดว่า do a mistake ซ้ำ ๆ จึงทำให้ภาพรวมการใช้คำดูไม่แม่น ส่วนการเลือกวลีที่ถูกตั้งแต่ต้นช่วยให้ประโยคฟังเป็นธรรมชาติขึ้นโดยไม่ต้องใช้คำยาก
+
+ส่วนไวยากรณ์เรื่องอื่น ลองเดินตามบทเรียนในหน้า[ไวยากรณ์ของ Lexkite](/#/grammar) ซึ่งแบ่งเป็นบทและระดับ A1–B2 หรือดูภาพรวมหัวข้อที่[หน้าไวยากรณ์ภาษาอังกฤษ](/en/grammar/)
+
+{{cta: /#/phrases | เก็บวลีที่ต้องท่องเป็นก้อนไว้ในสมุดวลีของ Lexkite}}

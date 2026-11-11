@@ -1,198 +1,167 @@
 ---
-title: "अंग्रेजी में relative clauses के नियम: Who, Which, That"
-description: "अंग्रेजी में relative clauses के नियम: who, which, that, whose का सटीक प्रयोग, defining बनाम non-defining का अंतर, कॉमा के नियम और हिंदी भाषियों की गलतियाँ।"
+title: "अंग्रेज़ी में relative clauses के नियम: who, which, that"
+description: "अंग्रेज़ी में relative clauses के नियम: हिंदी के जो-वह से अंतर, who/which/that/whose का चुनाव, defining और non-defining में कॉमा, pronoun हटाना और चार गलतियाँ।"
 slug: english-relative-clauses-rules-in-hindi
 lang: hi
 translationKey: relative-clauses
 category: ngu-phap
 tags: [grammar, relative-clauses, writing, b1]
 keyword: "relative clauses"
-cover: grammar
-coverAlt: "Lexkite grammar मॉड्यूल में IELTS 12 tense और relative clauses व्याकरण अभ्यास"
-publishAt: 2027-02-28T17:00:00+05:30
+cover: write
+coverAlt: "Lexkite का IELTS Task 2 लेखन कक्ष: विषय, विचारों के सुझाव, शब्द सुझाव और लेखन ढाँचा"
+publishAt: 2026-12-24T07:15:00+05:30
 factChecked: 2026-11-11
 author: Lexkite
-status: draft
+qualityScore: 91
+status: ready
 coverArt: {mood: think, icon: blocks, chip: B1}
 shots: [
   {id: s1, route: '#/grammar/relative-clauses', crop: main}
 ]
 diagrams: [
-  {id: d1, type: compare, title: 'अंग्रेजी Relative Pronouns का चयन और उपयोग', cols: ['Pronoun', 'संदर्भ (Refers to)', 'उदाहरण'], rows: [['who', 'व्यक्ति (People - कर्ता/कर्म)', 'The teacher who taught us English'], ['which', 'वस्तुएँ, जानवर या पूरा विचार', 'The mobile app which I use daily'], ['that', 'व्यक्ति या वस्तु (केवल Defining में)', 'The book that changed my perspective'], ['whose', 'स्वामित्व (Possession)', 'The student whose project won first prize'], ['where / when', 'स्थान (Places) / समय (Times)', 'The library where we used to study']]},
-  {id: d2, type: compare, title: 'Defining बनाम Non-defining Relative Clauses में अंतर', cols: ['विशेषता', 'Defining Clauses', 'Non-defining Clauses'], rows: [['उद्देश्य', 'संज्ञा की सटीक पहचान बताता है (अनिवार्य)', 'संज्ञा के बारे में अतिरिक्त जानकारी देता है'], ['कॉमा (,)', 'कॉमा का प्रयोग कभी नहीं होता', 'दोनों तरफ कॉमा का प्रयोग अनिवार्य है'], ['that का प्रयोग', 'who/which के स्थान पर that मान्य है', 'that का प्रयोग वर्जित है (who/which ही आएगा)'], ['सर्वनाम लोप', 'Object pronoun को हटाया जा सकता है', 'सर्वनाम को कभी नहीं हटाया जा सकता']]}
+  {id: d1, type: compare, title: 'Relative pronouns का चुनाव', cols: ['Pronoun', 'किसके लिए', 'उदाहरण'], rows: [['who', 'व्यक्ति (क्रिया करने वाला)', 'The nurse who helped us was patient'], ['which', 'वस्तु, जानवर या पूरा विचार', 'The bus which leaves at six is full'], ['that', 'व्यक्ति या वस्तु, सिर्फ़ defining में', 'The shop that sells maps has closed'], ['whose', 'स्वामित्व', 'The girl whose bag was stolen cried'], ['where / when', 'जगह / समय', 'The park where we met is closed']]},
+  {id: d2, type: compare, title: 'Defining और non-defining relative clauses', cols: ['पहलू', 'Defining', 'Non-defining'], rows: [['काम', 'बताता है कि कौन-सा (पहचान)', 'अतिरिक्त जानकारी जोड़ता है'], ['कॉमा', 'नहीं लगता', 'दोनों तरफ़ लगता है'], ['that', 'चलता है', 'नहीं चलता (who / which)'], ['pronoun हटाना', 'object हो तो हट सकता है', 'नहीं हटता']]}
 ]
 quiz: [
   {
-    q: "निम्नलिखित में से व्याकरण की दृष्टि से कौन सा वाक्य पूरी तरह से शुद्ध है?",
+    q: "The laptop ___ I bought last month already needs repair.",
     options: [
-      "My elder brother, that lives in Bengaluru, is a software engineer.",
-      "My elder brother, who lives in Bengaluru, is a software engineer.",
-      "My elder brother, which lives in Bengaluru, is a software engineer.",
-      "My elder brother, whom lives in Bengaluru, is a software engineer."
+      "which",
+      "who",
+      "whose",
+      "whom"
     ],
-    answer: 1,
-    explain: "यहाँ कॉमा का प्रयोग हुआ है, जिसका अर्थ है कि यह non-defining clause है। Non-defining clauses में 'that' का प्रयोग वर्जित है और व्यक्तियों के लिए कर्ता कारक में 'who' ही सही विकल्प है।"
+    answer: 0,
+    explain: "laptop एक वस्तु है, इसलिए which आता है। who और whom व्यक्तियों के लिए हैं और whose स्वामित्व के लिए।"
   },
   {
-    q: "किस वाक्य में से relative pronoun (संबंधवाचक सर्वनाम) को बिना अर्थ बदले हटाया जा सकता है?",
+    q: "She is the writer ___ novel won the award.",
     options: [
-      "The scientist who discovered this revolutionary vaccine received a Nobel Prize.",
-      "The informative book that we read together in college was exceptionally long.",
-      "New Delhi, which is the bustling capital of India, attracts global travelers.",
-      "The ambitious candidate whose final interview went well received the offer letter."
-    ],
-    answer: 1,
-    explain: "यहाँ 'that' क्रिया read का object (कर्म) है (we read the book)। Defining clause में जब pronoun कर्म के रूप में हो, तो उसे हटाया जा सकता है: 'The book we read together...'।"
-  },
-  {
-    q: "वाक्य 'He passed the civil services examination, which surprised everyone' में 'which' किस बात की ओर संकेत करता है?",
-    options: [
-      "केवल उस कठिन सिविल सेवा परीक्षा की ओर संकेत करता है",
-      "सभी आश्चर्यचकित होने वाले मित्रों और परिवारजनों की ओर",
-      "उस संपूर्ण घटना की ओर कि उसने सिविल सेवा परीक्षा उत्तीर्ण कर ली",
-      "यह वाक्य व्याकरण की दृष्टि से त्रुटिपूर्ण है और which अमान्य है"
+      "who",
+      "which",
+      "whose",
+      "whom"
     ],
     answer: 2,
-    explain: "Non-defining clause में कॉमा के बाद आने वाला 'which' पूरे पिछले उपवाक्य (उसके परीक्षा पास करने के तथ्य) को संदर्भित करता है।"
+    explain: "यहाँ “जिसका उपन्यास” यानी स्वामित्व का भाव है, और उसके लिए whose आता है।"
+  },
+  {
+    q: "इनमें से कौन-सा वाक्य सही है?",
+    options: [
+      "The bag who I left on the train was blue.",
+      "The bag, that I left on the train, was blue.",
+      "The bag I left it on the train was blue.",
+      "The bag I left on the train was blue."
+    ],
+    answer: 3,
+    explain: "सही रूप 'The bag I left on the train was blue' है: defining उपवाक्य में object वाला pronoun हटाया जा सकता है। 'The bag who …' में who वस्तु के लिए गलत है, 'The bag, that …' में कॉमा के बाद that नहीं आता, और 'The bag I left it …' में it का दोहराव है।"
   }
 ]
 ---
 
-अंग्रेजी भाषा में लिखते और बोलते समय दो छोटे-छोटे वाक्यों को जोड़कर एक परिपक्व और प्रवाहपूर्ण वाक्य बनाने के लिए **relative clauses** सबसे शक्तिशाली व्याकरण उपकरण हैं। जब आप कहते हैं: "*I met a teacher. The teacher helped me crack IELTS.*", तो यह सुनने में बहुत साधारण और प्राथमिक स्तर का लगता है। लेकिन जब आप relative clauses का उपयोग करते हुए कहते हैं: "*I met the teacher **who** helped me crack IELTS.*", तो आपकी भाषा में स्वाभाविक प्रवाह और उच्च स्तरीय दक्षता झलकती है।
+**Relative clauses** वे उपवाक्य हैं जो किसी संज्ञा के ठीक बाद आकर बताते हैं कि "कौन-सा", या उसके बारे में एक और जानकारी देते हैं। *who* व्यक्ति के लिए है, *which* वस्तु के लिए, *that* दोनों के लिए (सिर्फ़ पहचान बताने वाले उपवाक्य में), *whose* स्वामित्व के लिए और *where* जगह के लिए। इसके दो और नियम हैं: दो अलग तरह के उपवाक्यों में कॉमा अर्थ बदल देता है, और कुछ जगहों पर pronoun पूरी तरह हट सकता है।
 
-हिंदी भाषा में हम संबंधवाचक सर्वनामों जैसे "जो", "जिसने", "जिसका", "जहाँ" का प्रयोग बड़ी सहजता से करते हैं (जैसे: "वह लड़का **जो** कल आया था" या "वह किताब **जिसे** मैंने खरीदा था")। लेकिन जब भारतीय छात्र अंग्रेजी में **relative clauses** का निर्माण करते हैं, तो वे अक्सर हिंदी के वाक्य विन्यास का हूबहू अनुवाद करने लगते हैं। इसके कारण "*The man who he called me*" (सर्वनाम का दोहराव) या कॉमा के बाद "*that*" लगाने जैसी गंभीर व्याकरणिक त्रुटियाँ हो जाती हैं।
+हिंदी भाषियों के लिए इसमें एक चौंकाने वाली बात है। हम बोलते हैं "जो लड़का कल आया था, वह मेरा दोस्त है", यानी पहले "जो" वाला हिस्सा और फिर मुख्य वाक्य में "वह" से उसी व्यक्ति को दोबारा पकड़ना। अंग्रेज़ी में यह जोड़ी नहीं चलती (वाक्य-रचना का बाकी ढाँचा [English Grammar Rules in Hindi](/hi/blog/english-grammar-rules-in-hindi/) में है): *The boy who came yesterday is my friend.* संज्ञा के बाद सीधे उपवाक्य आता है और बीच में कोई दोहराया हुआ "वह" नहीं बैठता। इस लेख में हम इसी अंतर से शुरू करेंगे और फिर चार बातें (pronoun का चुनाव, कॉमा, pronoun हटाना, preposition) और चार गलतियाँ देखेंगे।
 
-इस विस्तृत और व्यावहारिक गाइड में हम **relative clauses** के सभी नियमों, *who*, *which*, *that*, *whose*, *whom* के सही चयन, Defining बनाम Non-defining उपवाक्यों के अंतर, कॉमा के सख्त नियमों और भारतीय छात्रों की आम गलतियों का गहराई से विश्लेषण करेंगे।
+## हिंदी का जो-वह और अंग्रेज़ी के relative clauses
 
-## Relative Clauses क्या हैं और इनका वाक्य में क्या कार्य है?
+हिंदी में "जो" वाला उपवाक्य अक्सर पहले आता है और मुख्य उपवाक्य में "वह / वो" उसे वापस पकड़ लेता है (संज्ञा के बाद वाला रूप भी बनता है: "वह लड़का जो कल आया था")। अंग्रेज़ी में ये चीज़ें अलग हैं:
 
-एक **relative clause** (संबंधवाचक उपवाक्य) एक आश्रित उपवाक्य (dependent clause) होता है जो अपने से ठीक पहले आने वाली संज्ञा (noun) या सर्वनाम (pronoun) के बारे में अतिरिक्त या आवश्यक जानकारी प्रदान करता है। यह वाक्य में एक विशेषण (adjective) की तरह कार्य करता है, इसलिए भाषाविद् इसे कभी-कभी *adjective clause* भी कहते हैं।
+| हिंदी | अंग्रेज़ी | ध्यान दें |
+| :--- | :--- | :--- |
+| जो (लड़का / किताब) | who / which / that | हिंदी का "जो" व्यक्ति और वस्तु दोनों के लिए है, अंग्रेज़ी दो में बाँटती है |
+| जिसने, जिसे, जिसका | who, whom, whose | हिंदी में कारक चिह्न जुड़ते हैं, अंग्रेज़ी में अलग शब्द |
+| जहाँ | where | जगह के लिए |
+| वह (दोहराव) | कुछ नहीं | अंग्रेज़ी में दूसरा pronoun नहीं लगता |
 
-अंग्रेजी में relative clauses की शुरुआत मुख्य रूप से इन Relative Pronouns (संबंधवाचक सर्वनाम) या Relative Adverbs से होती है:
+इसलिए अंग्रेज़ी में *The man who I saw yesterday is my teacher* सही है, और *The man who I saw him yesterday* गलत: "who" पहले ही "him" का काम कर चुका है। हिंदी के "जो ... वह" वाले ढाँचे की आदत से कई छात्र संज्ञा को pronoun से दोबारा पकड़ लेते हैं और उपवाक्य के अंदर *him* या *it* जोड़ देते हैं।
 
-- **Who:** केवल व्यक्तियों के लिए (जब व्यक्ति कर्ता यानी Subject के स्थान पर हो)।
-- **Which:** केवल वस्तुओं, विचारों या जानवरों के लिए।
-- **That:** व्यक्तियों या वस्तुओं दोनों के लिए (केवल आवश्यक जानकारी यानी Defining उपवाक्य में)।
-- **Whose:** व्यक्तियों या वस्तुओं के स्वामित्व (possession - जिसका/जिसकी) को दर्शाने के लिए।
-- **Whom:** औपचारिक अंग्रेजी में व्यक्तियों के लिए जब वे क्रिया या Preposition के कर्म (Object) हों।
-- **Where / When:** स्थान (places) या समय (times) के संदर्भ को जोड़ने के लिए।
+![](media:@s1 "Lexkite के व्याकरण में relative clauses का पाठ: नियम और अभ्यास")
 
-![Lexkite grammar](media:@s1 "Lexkite grammar मॉड्यूल में IELTS 12 tense और relative clauses अभ्यास स्क्रीन")
+## who, which, that, whose और whom का चुनाव
 
-{{diagram: d1 | अंग्रेजी Relative Pronouns का चयन और उपयोग}}
+{{diagram: d1 | Relative pronouns का चुनाव}}
 
-## Relative Pronouns का सही चयन: Who, Which, That, Whose और Whom
+**who** व्यक्ति के लिए, जब वह उपवाक्य का कर्ता हो: *The nurse who helped us was patient.*
 
-सही सर्वनाम का चुनाव करते समय आपको दो मुख्य बातों का ध्यान रखना होता है: पहला, वह सर्वनाम किस संज्ञा (व्यक्ति या वस्तु) को संदर्भित कर रहा है; और दूसरा, उस उपवाक्य में उसकी व्याकरणिक भूमिका (Subject या Object) क्या है।
+**which** वस्तु, जानवर या पूरी बात के लिए: *The bus which leaves at six is full.* *which* पूरे पिछले वाक्यांश को भी पकड़ सकता है: *She fixed the bug in an hour, which impressed everyone.* यहाँ "जिसने सबको प्रभावित किया" पूरे घटनाक्रम के बारे में है।
 
-### 1. Who का प्रयोग (व्यक्तियों के लिए कर्ता रूप)
+**that** बोलचाल और सामान्य लेखन में who या which की जगह चल जाता है, पर सिर्फ़ पहचान बताने वाले उपवाक्य में: *The shop that sells maps has closed.* कॉमा के बाद या preposition के ठीक बाद *that* नहीं आता।
 
-जब उपवाक्य में क्रिया को करने वाला कोई व्यक्ति हो, तो *who* का प्रयोग किया जाता है:
+**whose** "जिसका / जिसकी" के लिए है और व्यक्ति तथा संस्था दोनों के साथ चलता है: *The girl whose bag was stolen cried.* *I work for a company whose office is in Pune.*
 
-- *The doctor **who** treated my father was extremely kind.* (डॉक्टर जिन्होंने मेरे पिता का इलाज किया, बहुत दयालु थे।)
-- *Students **who** prepare consistently achieve band 8 in IELTS.* (जो छात्र निरंतर तैयारी करते हैं, वे IELTS में बैंड 8 हासिल करते हैं।)
+**whom** औपचारिक अंग्रेज़ी में व्यक्ति के object की जगह: *The manager whom you met is leading this.* रोज़ की बातचीत में लोग *who* या कुछ भी नहीं बोलते: *The manager you met…*। पर जब preposition सामने आ जाए, तो *whom* पक्का है: *the client to whom you sent the proposal*।
 
-### 2. Which का प्रयोग (वस्तुओं, जानवरों और अमूर्त विचारों के लिए)
+*where* जगह के बाद आता है (*The park where we met is closed*) और *when* समय के बाद (*the day when it rained*)।
 
-निर्जीव वस्तुओं, पशु-पक्षियों या किसी संपूर्ण विचार के लिए *which* का उपयोग किया जाता है:
+## Defining और non-defining: कॉमा से बदलता अर्थ
 
-- *The laptop **which** I bought last week has outstanding battery life.* (जो लैपटॉप मैंने पिछले सप्ताह खरीदा था, उसकी बैटरी लाइफ उत्कृष्ट है।)
-- *She solved the critical server bug, **which** impressed the entire engineering team.* (उसने सर्वर की गंभीर खराबी को ठीक किया, जिसने पूरी इंजीनियरिंग टीम को प्रभावित किया - यहाँ *which* पूरे वाक्य की घटना को संदर्भित करता है।)
+{{diagram: d2 | Defining और non-defining relative clauses}}
 
-### 3. That का प्रयोग (व्यक्तियों और वस्तुओं के लिए व्यावहारिक विकल्प)
+**Defining** उपवाक्य बताता है कि कौन-सा। इसे हटाने पर वाक्य का अर्थ बदल जाता है, और इसमें कॉमा नहीं लगता।
 
-दैनिक बोलचाल और अनौपचारिक से लेकर सामान्य औपचारिक लेखन में *that* का प्रयोग *who* या *which* के स्थान पर Defining clauses में बहुत व्यापक रूप से होता है:
+- *The passengers who had valid tickets were allowed in.* (सिर्फ़ वही, जिनके पास टिकट थे)
 
-- *The train **that** departs at 6 AM goes directly to Mumbai.* (ट्रेन जो सुबह 6 बजे रवाना होती है, सीधे मुंबई जाती है।)
-- *The mentor **that** guided our startup was a seasoned entrepreneur.* (वह मेंटर जिन्होंने हमारे स्टार्टअप का मार्गदर्शन किया, एक अनुभवी उद्यमी थे।)
+**Non-defining** उपवाक्य बस एक अतिरिक्त जानकारी देता है। संज्ञा की पहचान पहले से साफ़ है, इसलिए इसके दोनों तरफ़ कॉमा लगते हैं और *that* नहीं चलता।
 
-> **अत्यंत महत्वपूर्ण नियम:** *That* का प्रयोग कभी भी कॉमा (,) के बाद या किसी Preposition (जैसे in, at, with) के तुरंत बाद नहीं किया जा सकता।
+- *My aunt, who teaches maths, lives in Indore.*
 
-### 4. Whose का प्रयोग (स्वामित्व या अधिकार दर्शाने के लिए)
+कॉमा का फ़र्क बारीक पर असली है। *My aunt who teaches maths lives in Indore* (बिना कॉमा) सुनकर लगता है कि आपकी और भी बुआ-मौसियाँ हैं और आप गणित पढ़ाने वाली की बात कर रहे हैं। कॉमा के साथ वाले वाक्य में यह संकेत नहीं है। हिंदी लेखन में कॉमा से यह भेद आम तौर पर नहीं किया जाता, इसलिए इसे जान-बूझकर सीखना पड़ता है।
 
-हिंदी के "जिसका", "जिसकी" या "जिनके" के लिए *whose* का उपयोग किया जाता है। इसका प्रयोग व्यक्तियों और संस्थाओं दोनों के लिए हो सकता है:
+## Pronoun कब हटा सकते हैं
 
-- *The candidate **whose** resume was shortlisted will be interviewed today.* (जिस उम्मीदवार का बायोडाटा शॉर्टलिस्ट हुआ था, उसका आज साक्षात्कार होगा।)
-- *I work for a multinational company **whose** headquarters are located in Bengaluru.* (मैं एक ऐसी बहुराष्ट्रीय कंपनी में काम करता हूँ जिसका मुख्यालय बेंगलुरु में स्थित है।)
+अगर pronoun उपवाक्य का object है और उपवाक्य defining है, तो उसे हटाया जा सकता है।
 
-### 5. Whom का प्रयोग (औपचारिक अंग्रेजी में कर्म कारक)
+- **Object:** *The presentation that you gave was clear.* → *The presentation you gave was clear.* (pronoun के बाद "you" जैसा कर्ता आ रहा है, तो वह object है)
+- **Subject:** *The driver who called me is waiting outside.* को *The driver called me is waiting outside* नहीं बनाया जा सकता।
 
-पारंपरिक व्याकरण में जब व्यक्ति क्रिया या प्रीपोजिशन का कर्म हो, तो *whom* का प्रयोग होता है:
+कुछ और संक्षिप्त रूप भी चलते हैं, जिन्हें हिंदी के "वहाँ खड़ा आदमी" जैसे वाक्यांश से जोड़कर समझा जा सकता है:
 
-- *The manager **whom** you met yesterday is leading this initiative.* (औपचारिक)
-- आधुनिक बोलचाल की अंग्रेजी में लोग अक्सर *whom* की जगह *who* का ही उपयोग करते हैं: *The manager who you met yesterday...* लेकिन यदि प्रीपोजिशन पहले आए, तो *whom* अनिवार्य है: *The client **to whom** you sent the proposal.*
+- *The man **standing** there is my uncle.* ("वहाँ खड़ा आदमी")
+- *The books **written** by her are popular.* ("उनकी लिखी किताबें")
 
-## Defining बनाम Non-defining Relative Clauses: सबसे बड़ा भेद
+यहाँ *who is standing* और *that were written* से "who is / that were" हटा दिया गया है। जब हटाया गया हिस्सा passive हो (*books that were written*), तो उसका आधार [Passive Voice](/hi/blog/passive-voice-rules-in-english-hindi/) वाले लेख में मिलता है।
 
-अंग्रेजी व्याकरण और विशेषकर IELTS / TOEFL राइटिंग में अंक कटने का एक सबसे प्रमुख कारण Defining और Non-defining उपवाक्यों के बीच भ्रम होना है।
+## Preposition वाले relative clauses
 
-{{diagram: d2 | Defining बनाम Non-defining Relative Clauses में अंतर}}
+हिंदी में कारक चिह्न ("से, में, को") संज्ञा के बाद आते हैं और "जिससे, जिसमें, जिसको" बन जाते हैं। अंग्रेज़ी में preposition दो जगह बैठ सकता है, और दोनों सही हैं, बस रजिस्टर अलग है।
 
-### 1. Defining Relative Clauses (आवश्यक / पहचान बताने वाले उपवाक्य)
+- **बोलचाल:** *The university that I graduated from is well known.* (preposition अंत में, *that* या कुछ नहीं)
+- **औपचारिक लेखन:** *The university from which I graduated is well known.* (preposition पहले, तब *which* या *whom* ज़रूरी)
 
-ये उपवाक्य वाक्य के मुख्य अर्थ के लिए अपरिहार्य होते हैं। यदि आप इस उपवाक्य को वाक्य से हटा दें, तो यह स्पष्ट नहीं होगा कि आप किस व्यक्ति या वस्तु की बात कर रहे हैं।
+सबसे आम चूक इन्हें मिला देना है: ✗ *the university from that I graduated*। preposition को आगे लाया है तो *that* नहीं चलेगा, *which / whom* लगाइए। यही बात लोगों के लिए है: *the colleague with whom I work*, या बोलचाल में *the colleague I work with*।
 
-- *The passengers **who had valid boarding passes** were allowed to enter.*
-- यदि आप "who had valid boarding passes" हटा दें, तो वाक्य बचेगा "The passengers were allowed to enter", जिसका अर्थ बिल्कुल बदल जाएगा (ऐसा लगेगा कि सभी यात्रियों को जाने दिया गया)।
-- **नियम:** इसमें **कॉमा का प्रयोग कभी नहीं होता**। इसमें *who/which* की जगह *that* का प्रयोग पूरी तरह मान्य है।
+## हिंदी भाषियों की चार गलतियाँ
 
-### 2. Non-defining Relative Clauses (अतिरिक्त जानकारी देने वाले उपवाक्य)
+1. **pronoun का दोहराव।** ✗ *The film which I watched it was long.* ✓ *The film which I watched was long.* ऊपर बताई गई दोहराने की आदत।
+2. **कॉमा के बाद that।** ✗ *The Taj Mahal, that is in Agra, is old.* ✓ *The Taj Mahal, which is in Agra, is old.*
+3. **who और which का मेल।** हिंदी का "जो" एक है, इसलिए ✗ *The teacher which taught us* जैसे वाक्य बन जाते हैं। व्यक्ति के लिए *who* (या *that*), वस्तु के लिए *which* (या *that*)।
+4. **क्रिया का मेल।** ✗ *He is one of those people who works late.* ✓ *…who work late.* क्योंकि *who* का संदर्भ बहुवचन *people* है।
 
-ये उपवाक्य उस संज्ञा के बारे में केवल पूरक या अतिरिक्त जानकारी देते हैं जिसकी पहचान पहले से ही पूरी तरह स्पष्ट और अद्वितीय है (जैसे किसी का नाम, अकेला रिश्ता या प्रसिद्ध स्थान)।
+## खुद जाँचें: पाँच वाक्य जोड़िए
 
-- *Dr. APJ Abdul Kalam, **who was the 11th President of India**, inspired millions of youth.*
-- यहाँ कलाम साहब की पहचान पहले से ही स्पष्ट है। "who was the 11th President of India" केवल एक अतिरिक्त सम्मानजनक तथ्य जोड़ रहा है। यदि इसे हटा भी दिया जाए, तो भी मूल वाक्य का मुख्य अर्थ स्पष्ट रहेगा।
-- **नियम:** इसमें **दोनों तरफ कॉमा (,) लगाना अनिवार्य है**। इसमें *that* का प्रयोग **सख्त वर्जित** है; केवल *who* या *which* ही आ सकता है।
+इन्हें relative clause से एक वाक्य में जोड़िए, फिर उत्तर देखिए।
 
-## सर्वनाम कब छोड़ा जा सकता है? (Omitting the Relative Pronoun)
+1. *I met a woman. She runs a bakery.*
+2. *This is the house. We lived in it for ten years.*
+3. *My cousin lives in Jaipur. He is a pilot.*
+4. *The teacher was strict. I joined her class.*
+5. *Rain stopped the match. It disappointed the crowd.*
 
-कई बार अंग्रेजी में relative pronoun को पूरी तरह से हटा दिया जाता है और वाक्य बिल्कुल प्राकृतिक लगता है। इसे व्याकरण में *Contact Clause* या *Zero Relative Pronoun* कहा जाता है।
+**संभावित उत्तर:** 1 *I met a woman who runs a bakery.* 2 *This is the house where we lived for ten years.* 3 *My cousin, who lives in Jaipur, is a pilot.* 4 *The teacher whose class I joined was strict.* 5 *Rain stopped the match, which disappointed the crowd.*
 
-आप सर्वनाम को केवल तभी छोड़ सकते हैं जब वह अपने उपवाक्य में **Object (कर्म)** की भूमिका निभा रहा हो और वह उपवाक्य **Defining** हो:
+## अक्सर पूछे जाने वाले सवाल
 
-```
-Subject रूप (हटाना गलत है):
-The man [who called you] is waiting outside.
-✗ The man called you is waiting outside. (सर्वथा अशुद्ध)
+### क्या हमेशा who या which की जगह that लिख सकते हैं?
 
-Object रूप (हटाना पूरी तरह मान्य और स्वाभाविक):
-The presentation [that you delivered today] was brilliant.
-✓ The presentation [you delivered today] was brilliant. (पूरी तरह शुद्ध और धाराप्रवाह)
-```
+सिर्फ़ defining उपवाक्य में। non-defining में नहीं, और preposition के ठीक बाद भी नहीं।
 
-यदि pronoun के तुरंत बाद कोई Subject (I, you, he, she, they, we या कोई संज्ञा) आ रही हो, तो समझ लीजिए कि वह pronoun Object है और उसे आसानी से हटाया जा सकता है।
+### क्या लिखने में relative clauses ज़रूरी हैं?
 
-## भारतीय छात्रों की 4 सबसे आम गलतियाँ और उनके समाधान
+ज़रूरी नहीं, पर Task 2 में वे छोटे वाक्यों को जोड़कर एक ही वाक्य में अतिरिक्त जानकारी देना आसान बनाते हैं; हर वाक्य में ज़बरदस्ती न डालें। इस तरह के लेखन के लिए [जटिल वाक्य बनाने वाला लेख](/hi/blog/complex-sentences-for-ielts-writing-task-2-hindi/) देखें।
 
-### 1. Pronoun का दोहराव (Resumptive Pronoun Error)
+### क्या reported questions के wh-शब्द relative pronouns जैसे हैं?
 
-हिंदी में हम कहते हैं: "वह आदमी **जिसे** मैंने कल देखा था, **वह** मेरा शिक्षक है।" इसी सोच से भारतीय छात्र अंग्रेजी में लिखते हैं:
-- ✗ *The man who I saw him yesterday is my teacher.* (अशुद्ध - *who* और *him* दोनों लगा दिए)
-- ✓ *The man **who** I saw yesterday is my teacher.* (शुद्ध)
+नहीं, वे अलग काम करते हैं; उसके लिए [Direct and Indirect Speech](/hi/blog/direct-and-indirect-speech-rules-in-hindi/) देखें। और भी पाठ [अंग्रेज़ी व्याकरण पेज](/en/grammar/) पर हैं। Lexkite में [Relative Clauses का पाठ](/#/grammar/relative-clauses) अलग से मौजूद है, और [व्याकरण के मिश्रित अभ्यास](/#/grammar/mix) में आप कई संरचनाओं को साथ आज़मा सकते हैं।
 
-### 2. कॉमा के बाद That का प्रयोग करना
-
-- ✗ *Taj Mahal, that is situated in Agra, is an architectural marvel.* (अशुद्ध)
-- ✓ *Taj Mahal, **which** is situated in Agra, is an architectural marvel.* (शुद्ध - Non-defining में केवल which आएगा)
-
-### 3. Preposition की गलत स्थिति
-
-- बोलचाल की अंग्रेजी: *The university **that** I graduated **from** is globally renowned.*
-- औपचारिक अकादमिक अंग्रेजी: *The university **from which** I graduated is globally renowned.*
-- कभी भी Preposition के बाद *that* न लगाएँ: ✗ *from that I graduated*.
-
-### 4. Subject-Verb Agreement में भूल
-
-Relative clause के अंदर आने वाली क्रिया हमेशा उस पूर्ववर्ती संज्ञा (antecedent) के अनुसार होनी चाहिए जिसे वह संदर्भित करती है:
-- ✗ *He is one of those professionals who works late.* (अशुद्ध)
-- ✓ *He is one of those professionals who **work** late.* (शुद्ध - क्योंकि *who* का संदर्भ बहुवचन 'professionals' से है)
-
-## व्यावहारिक अभ्यास और परीक्षा में उपयोग
-
-IELTS Writing Task 2 और औपचारिक रिपोर्ट्स में विविधता (Variety of Complex Structures) दिखाने के लिए relative clauses का संतुलित प्रयोग अत्यंत आवश्यक है। यह परीक्षक को संकेत देता है कि आप केवल साधारण वाक्यों तक सीमित नहीं हैं बल्कि विचारों को संश्लेषित करने की क्षमता रखते हैं।
-
-व्याकरण के बुनियादी नियमों को मजबूत करने के लिए हमारा व्यापक लेख [English Grammar Rules in Hindi](/hi/blog/english-grammar-rules-in-hindi/) देखें। इसके अलावा अपनी वाक्य रचना में निपुणता के लिए [कंडीशनल सेंटेंस नियम](/hi/blog/conditional-sentences-in-english-rules-hindi/), [Passive Voice Rules in English](/hi/blog/passive-voice-rules-in-english-hindi/) और [अंग्रेजी में make और do में अंतर](/hi/blog/english-me-make-aur-do-me-antar-collocations-hindi/) का अध्ययन करें। व्याकरण के संपूर्ण नियमों और संरचनाओं की सूची आप [व्याकरण संदर्भ पृष्ठ](/en/grammar/) पर देख सकते हैं।
-
-अपने ज्ञान को व्यावहारिक स्तर पर परखने के लिए आज ही [Lexkite Grammar Relative Clauses](/#/grammar/relative-clauses) खोलें और साथ ही [व्याकरण समग्र अभ्यास](/#/grammar) सत्र में वास्तविक प्रश्नों के साथ इन संरचनाओं का सीधा अभ्यास करें।
-
-{{cta: /#/grammar/relative-clauses | Lexkite में Relative Clauses का सीधा अभ्यास करें}}
+{{cta: /#/grammar/relative-clauses | Lexkite में Relative Clauses का पाठ खोलें}}
