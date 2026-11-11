@@ -59890,8 +59890,17 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "oscilloscope#n": {
-   "e4bad": 2,
-   "badAt": "2026-11-10T20:33:12.306Z"
+   "ex": "A good example is a common modern oscilloscope.",
+   "ps": "a black rectangular oscilloscope with many knobs, a large curved glass tube displaying a bright sine wave",
+   "sc": "a black rectangular oscilloscope with many knobs, a large curved glass tube displaying a bright sine wave",
+   "check": "Is there a device that shows electrical signals as a moving line graph?",
+   "cap": "a black box with knobs and a glowing curved tube",
+   "key": "a large curved glass tube displaying a bright sine wave; many knobs on the front panel",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3
   },
   "ostensibly#adv": {
    "ex": "The road was ostensibly built for farmers, but mainly served the army.",
