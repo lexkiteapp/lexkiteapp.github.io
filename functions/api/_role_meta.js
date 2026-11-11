@@ -3,6 +3,7 @@
  *   socialMeta(clip, platform) → public, viral-optimised: hook-first title ≤ 60 with the keyword first, description whose first 2 lines are hook + value
  *                                then the lesson deep link, 3–5 hashtags, tags, A/B title variants and an SEO score (seoScore).
  * clip: {id, title, point, keyword?, topic, sub, skill, cefr, exam, hook, slug?, url?}. Used by distribution.js (op meta / social_due) and scripts/video/yt-pack.mjs. */
+import { clipLang } from './_first_comment.js';
 export const SITE = 'https://lexkite.com';
 export const PLATFORMS = {
   youtube: { title: 100, caption: 5000, marker: true },
@@ -17,7 +18,7 @@ const cap = s => (s ? s[0].toUpperCase() + s.slice(1) : s);
 export function fit(s, n) { s = clean(s, 400); if (s.length <= n) return s; const c = s.slice(0, n + 1).replace(/\s+\S*$/, '').replace(/[\s,:;–-]+$/, ''); return c || s.slice(0, n); }
 /** Search keyword = what the lesson teaches ("look for"), not the hook. */
 export const keywordOf = c => clean(c.keyword || c.point || String(c.title || '').split(/[:|–—?!.]/)[0] || c.id, 60).replace(/^["“']|["”']$/g, '');
-export const lessonUrl = (c, platform) => { const full = /^https:\/\/lexkite\.com\//.test(String(c.url || '')) ? c.url : c.slug ? `${SITE}/video/${encodeURIComponent(c.slug)}/` : `${SITE}/app/`, i = full.indexOf('#'), base = i < 0 ? full : full.slice(0, i), frag = i < 0 ? '' : full.slice(i); /* clip chưa có trang: /video/<id>/ là 404 → về app */ return platform ? `${base}${base.includes('?') ? '&' : '?'}utm_source=${platform}&utm_medium=social&utm_campaign=${encodeURIComponent(c.id)}${frag}` : base; };
+export const lessonUrl = (c, platform) => { const full = /^https:\/\/lexkite\.com\//.test(String(c.url || '')) ? c.url : c.slug ? `${SITE}/video/${encodeURIComponent(c.slug)}/` : `${SITE}/app/`, i = full.indexOf('#'), base = i < 0 ? full : full.slice(0, i), frag = i < 0 ? '' : full.slice(i); /* clip chưa có trang: /video/<id>/ là 404 → về app */ return platform ? `${base}${base.includes('?') ? '&' : '?'}utm_source=${platform}&utm_medium=social&utm_campaign=${encodeURIComponent(c.id)}&utm_term=${clipLang(c.id, c.lang)}${frag}` : base; };
 export const markerLine = id => 'lk:' + id;
 export const BIO_ONLY = ['instagram', 'tiktok'];
 export const BIO_CTA = 'Free full lesson + quiz: link in bio 👆';

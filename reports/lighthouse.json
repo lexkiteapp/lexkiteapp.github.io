@@ -1,16 +1,16 @@
 {
  "home": {
   "url": "https://lexkite.com/en/",
-  "at": "2026-11-10T07:38:58.398Z",
+  "at": "2026-11-10T11:26:15.921Z",
   "scores": {
-   "performance": 97,
+   "performance": 98,
    "accessibility": 100,
    "best-practices": 100,
    "seo": 100
   },
   "metrics": {
    "first-contentful-paint": "1.9 s",
-   "largest-contentful-paint": "2.3 s",
+   "largest-contentful-paint": "2.1 s",
    "total-blocking-time": "0 ms",
    "cumulative-layout-shift": "0.014",
    "speed-index": "1.9 s"
@@ -33,11 +33,11 @@
     "div.kh > div.ra > span.yb > img.of <img class=\"of ra te\" src=\"/teach/ama/idle-poster.webp\" alt=\"Ama\" width=\"260\" height=\"225\" decoding=\"async\" fetchpriority=\"high\">"
    ]
   },
-  "lcp": "largest-contentful-paint=\"2.3 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+  "lcp": "largest-contentful-paint=\"2.1 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
  },
  "vi/blog/": {
   "url": "https://lexkite.com/vi/blog/",
-  "at": "2026-11-10T07:40:58.917Z",
+  "at": "2026-11-10T11:28:23.386Z",
   "scores": {
    "performance": 99,
    "accessibility": 100,
@@ -45,11 +45,11 @@
    "seo": 100
   },
   "metrics": {
-   "first-contentful-paint": "1.6 s",
+   "first-contentful-paint": "0.9 s",
    "largest-contentful-paint": "2.0 s",
-   "total-blocking-time": "0 ms",
+   "total-blocking-time": "20 ms",
    "cumulative-layout-shift": "0",
-   "speed-index": "1.6 s"
+   "speed-index": "0.9 s"
   },
   "fails": [
    "Serve static assets with an efficient cache policy – 1 resource found",
@@ -69,22 +69,21 @@
  },
  "en/": {
   "url": "https://lexkite.com/en/",
-  "at": "2026-11-10T07:39:48.346Z",
+  "at": "2026-11-10T11:26:41.258Z",
   "scores": {
-   "performance": 96,
+   "performance": 99,
    "accessibility": 100,
    "best-practices": 100,
    "seo": 100
   },
   "metrics": {
-   "first-contentful-paint": "2.0 s",
-   "largest-contentful-paint": "2.3 s",
+   "first-contentful-paint": "1.8 s",
+   "largest-contentful-paint": "1.9 s",
    "total-blocking-time": "0 ms",
    "cumulative-layout-shift": "0.014",
-   "speed-index": "2.0 s"
+   "speed-index": "1.8 s"
   },
   "fails": [
-   "First Contentful Paint – 2.0 s",
    "Serve static assets with an efficient cache policy – 1 resource found",
    "Properly size images – Potential savings of 8 KiB"
   ],
@@ -96,32 +95,31 @@
     "div.kh > div.ra > span.yb > img.of <img class=\"of ra te\" src=\"/teach/ama/idle-poster.webp\" alt=\"Ama\" width=\"260\" height=\"225\" decoding=\"async\" fetchpriority=\"high\">"
    ]
   },
-  "lcp": "largest-contentful-paint=\"2.3 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+  "lcp": "largest-contentful-paint=\"1.9 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
  },
  "app/": {
   "url": "https://lexkite.com/app/#/welcome",
-  "at": "2026-11-10T07:40:14.468Z",
+  "at": "2026-11-10T11:27:33.028Z",
   "scores": {
-   "performance": 97,
+   "performance": 98,
    "accessibility": 98,
    "best-practices": 100,
    "seo": 92
   },
   "metrics": {
-   "first-contentful-paint": "2.0 s",
-   "largest-contentful-paint": "2.1 s",
-   "total-blocking-time": "80 ms",
+   "first-contentful-paint": "1.9 s",
+   "largest-contentful-paint": "1.9 s",
+   "total-blocking-time": "50 ms",
    "cumulative-layout-shift": "0.011",
-   "speed-index": "2.0 s"
+   "speed-index": "1.9 s"
   },
   "fails": [
-   "First Contentful Paint – 2.0 s",
-   "Time to Interactive – 7.5 s",
-   "Minimize main-thread work – 2.1 s",
+   "First Contentful Paint – 1.9 s",
+   "Time to Interactive – 5.8 s",
    "Heading elements are not in a sequentially-descending order",
    "Serve static assets with an efficient cache policy – 2 resources found",
    "Reduce unused CSS – Potential savings of 25 KiB",
-   "Reduce unused JavaScript – Potential savings of 50 KiB",
+   "Reduce unused JavaScript – Potential savings of 49 KiB",
    "Properly size images – Potential savings of 27 KiB",
    "Remove duplicate modules in JavaScript bundles – Potential savings of 2 KiB",
    "Avoid serving legacy JavaScript to modern browsers – Potential savings of 9 KiB",
@@ -129,12 +127,6 @@
    "Document does not have a valid `rel=canonical`"
   ],
   "failItems": {
-   "mainthread-work-breakdown": [
-    "{\"group\":\"scriptEvaluation\",\"groupLabel\":\"Script Evaluation\",\"duration\":702.4519999999982}",
-    "{\"group\":\"other\",\"groupLabel\":\"Other\",\"duration\":685.571999999993}",
-    "{\"group\":\"styleLayout\",\"groupLabel\":\"Style & Layout\",\"duration\":479.71200000000005}",
-    "{\"group\":\"scriptParseCompile\",\"groupLabel\":\"Script Parsing & Compilation\",\"duration\":95.152}"
-   ],
    "heading-order": [
     "div.[border-radius:16px] > div.p-3 > div.flex > h4.text-sm <h4 class=\"text-sm font-bold leading-snug lt:text-[#162124] dk:text-[#EAF2F2]\">"
    ],
@@ -147,7 +139,7 @@
    ],
    "unused-javascript": [
     "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js",
-    "https://lexkite.com/h/js/app.10969a85a8.js"
+    "https://lexkite.com/h/js/app.f5bf91d1b0.js"
    ],
    "uses-responsive-images": [
     "div#wKit > span.tslot > span.tslot-fig > img.tslot-img <img class=\"tslot-img\" src=\"https://lexkite.com/teach/ama/still-happy.webp\" alt=\"\" width=\"152\" height=\"132\" decoding=\"async\" loading=\"lazy\">"
@@ -164,23 +156,23 @@
     "body.bare > svg#lk-sprite <svg id=\"lk-sprite\" width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\" focusable=\"false\">"
    ]
   },
-  "lcp": "largest-contentful-paint=\"2.1 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+  "lcp": "largest-contentful-paint=\"1.9 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
  },
  "es/words/acquire": {
   "url": "https://lexkite.com/es/words/acquire",
-  "at": "2026-11-10T07:42:56.349Z",
+  "at": "2026-11-10T11:30:22.715Z",
   "scores": {
-   "performance": 97,
+   "performance": 98,
    "accessibility": 100,
    "best-practices": 100,
    "seo": 100
   },
   "metrics": {
-   "first-contentful-paint": "1.8 s",
+   "first-contentful-paint": "1.0 s",
    "largest-contentful-paint": "2.4 s",
-   "total-blocking-time": "0 ms",
+   "total-blocking-time": "10 ms",
    "cumulative-layout-shift": "0",
-   "speed-index": "1.8 s"
+   "speed-index": "1.0 s"
   },
   "fails": [
    "Serve static assets with an efficient cache policy – 1 resource found"
@@ -194,39 +186,19 @@
  },
  "en/conversations/cafe": {
   "url": "https://lexkite.com/en/conversations/cafe",
-  "at": "2026-11-10T07:43:27.667Z",
+  "at": "2026-11-10T11:30:58.042Z",
   "scores": {
-   "performance": 0,
-   "accessibility": 100,
-   "best-practices": 0,
-   "seo": 100
-  },
-  "metrics": {},
-  "fails": [
-   "Serve static assets with an efficient cache policy – 1 resource found"
-  ],
-  "failItems": {
-   "uses-long-cache-ttl": [
-    "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092"
-   ]
-  },
-  "lcp": "largest-contentful-paint=\"\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
- },
- "en/grammar/past-continuous": {
-  "url": "https://lexkite.com/en/grammar/past-continuous",
-  "at": "2026-11-10T07:43:47.550Z",
-  "scores": {
-   "performance": 99,
+   "performance": 100,
    "accessibility": 100,
    "best-practices": 100,
    "seo": 100
   },
   "metrics": {
-   "first-contentful-paint": "1.8 s",
-   "largest-contentful-paint": "1.9 s",
+   "first-contentful-paint": "1.1 s",
+   "largest-contentful-paint": "1.1 s",
    "total-blocking-time": "0 ms",
    "cumulative-layout-shift": "0",
-   "speed-index": "1.8 s"
+   "speed-index": "1.1 s"
   },
   "fails": [
    "Serve static assets with an efficient cache policy – 1 resource found"
@@ -236,11 +208,11 @@
     "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092"
    ]
   },
-  "lcp": "largest-contentful-paint=\"1.9 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+  "lcp": "largest-contentful-paint=\"1.1 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
  },
- "en/pronunciation/long-ee-sound": {
-  "url": "https://lexkite.com/en/pronunciation/long-ee-sound",
-  "at": "2026-11-10T07:44:33.942Z",
+ "en/grammar/past-continuous": {
+  "url": "https://lexkite.com/en/grammar/past-continuous",
+  "at": "2026-11-10T11:31:44.967Z",
   "scores": {
    "performance": 99,
    "accessibility": 100,
@@ -264,21 +236,21 @@
   },
   "lcp": "largest-contentful-paint=\"1.8 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
  },
- "vi/blog/gerund-va-to-infinitive/": {
-  "url": "https://lexkite.com/vi/blog/gerund-va-to-infinitive/",
-  "at": "2026-11-10T07:41:34.156Z",
+ "en/pronunciation/long-ee-sound": {
+  "url": "https://lexkite.com/en/pronunciation/long-ee-sound",
+  "at": "2026-11-10T11:32:08.521Z",
   "scores": {
-   "performance": 99,
+   "performance": 100,
    "accessibility": 100,
    "best-practices": 100,
    "seo": 100
   },
   "metrics": {
-   "first-contentful-paint": "1.7 s",
-   "largest-contentful-paint": "1.9 s",
-   "total-blocking-time": "0 ms",
+   "first-contentful-paint": "1.1 s",
+   "largest-contentful-paint": "1.5 s",
+   "total-blocking-time": "10 ms",
    "cumulative-layout-shift": "0",
-   "speed-index": "1.7 s"
+   "speed-index": "1.1 s"
   },
   "fails": [
    "Serve static assets with an efficient cache policy – 1 resource found"
@@ -288,11 +260,37 @@
     "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092"
    ]
   },
-  "lcp": "largest-contentful-paint=\"1.9 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+  "lcp": "largest-contentful-paint=\"1.5 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+ },
+ "vi/blog/gerund-va-to-infinitive/": {
+  "url": "https://lexkite.com/vi/blog/gerund-va-to-infinitive/",
+  "at": "2026-11-10T11:28:47.056Z",
+  "scores": {
+   "performance": 99,
+   "accessibility": 100,
+   "best-practices": 100,
+   "seo": 100
+  },
+  "metrics": {
+   "first-contentful-paint": "1.1 s",
+   "largest-contentful-paint": "2.0 s",
+   "total-blocking-time": "30 ms",
+   "cumulative-layout-shift": "0",
+   "speed-index": "1.1 s"
+  },
+  "fails": [
+   "Serve static assets with an efficient cache policy – 1 resource found"
+  ],
+  "failItems": {
+   "uses-long-cache-ttl": [
+    "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092"
+   ]
+  },
+  "lcp": "largest-contentful-paint=\"2.0 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
  },
  "vi/words/": {
   "url": "https://lexkite.com/vi/words/",
-  "at": "2026-11-10T07:42:13.099Z",
+  "at": "2026-11-10T11:29:39.129Z",
   "scores": {
    "performance": 98,
    "accessibility": 100,
@@ -325,7 +323,7 @@
  },
  "desktop:home": {
   "url": "https://lexkite.com/en/",
-  "at": "2026-11-10T07:45:09.849Z",
+  "at": "2026-11-10T11:32:44.736Z",
   "scores": {
    "performance": 100,
    "accessibility": 100,
@@ -334,13 +332,13 @@
   },
   "metrics": {
    "first-contentful-paint": "0.6 s",
-   "largest-contentful-paint": "0.7 s",
+   "largest-contentful-paint": "0.6 s",
    "total-blocking-time": "0 ms",
-   "cumulative-layout-shift": "0",
+   "cumulative-layout-shift": "0.006",
    "speed-index": "0.6 s"
   },
   "fails": [
-   "Avoid multiple page redirects – Potential savings of 230 ms",
+   "Avoid multiple page redirects – Potential savings of 240 ms",
    "Serve static assets with an efficient cache policy – 1 resource found",
    "Properly size images – Potential savings of 28 KiB"
   ],
@@ -357,11 +355,11 @@
     "div.kh > div.ra > span.yb > img.of <img class=\"of ra te\" src=\"/teach/ama/idle-poster.webp\" alt=\"Ama\" width=\"260\" height=\"225\" decoding=\"async\" fetchpriority=\"high\">"
    ]
   },
-  "lcp": "largest-contentful-paint=\"0.7 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+  "lcp": "largest-contentful-paint=\"0.6 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
  },
  "desktop:app/": {
   "url": "https://lexkite.com/app/#/welcome",
-  "at": "2026-11-10T07:45:35.149Z",
+  "at": "2026-11-10T11:33:24.291Z",
   "scores": {
    "performance": 94,
    "accessibility": 98,
@@ -370,13 +368,13 @@
   },
   "metrics": {
    "first-contentful-paint": "0.5 s",
-   "largest-contentful-paint": "1.6 s",
+   "largest-contentful-paint": "1.7 s",
    "total-blocking-time": "0 ms",
    "cumulative-layout-shift": "0",
    "speed-index": "0.7 s"
   },
   "fails": [
-   "Largest Contentful Paint – 1.6 s",
+   "Largest Contentful Paint – 1.7 s",
    "Heading elements are not in a sequentially-descending order",
    "Serve static assets with an efficient cache policy – 1 resource found",
    "Reduce unused CSS – Potential savings of 25 KiB",
@@ -398,7 +396,7 @@
    ],
    "unused-javascript": [
     "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js",
-    "https://lexkite.com/h/js/app.10969a85a8.js"
+    "https://lexkite.com/h/js/app.f5bf91d1b0.js"
    ],
    "uses-responsive-images": [
     "div#wKit > span.tslot > span.tslot-fig > img.tslot-img <img class=\"tslot-img\" src=\"https://lexkite.com/teach/ama/still-happy.webp\" alt=\"\" width=\"208\" height=\"181\" decoding=\"async\" loading=\"lazy\">"
@@ -412,11 +410,11 @@
     "body.bare > svg#lk-sprite <svg id=\"lk-sprite\" width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\" focusable=\"false\">"
    ]
   },
-  "lcp": "largest-contentful-paint=\"1.6 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+  "lcp": "largest-contentful-paint=\"1.7 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
  },
  "desktop:vi/blog/gerund-va-to-infinitive/": {
   "url": "https://lexkite.com/vi/blog/gerund-va-to-infinitive/",
-  "at": "2026-11-10T07:46:28.142Z",
+  "at": "2026-11-10T11:34:04.532Z",
   "scores": {
    "performance": 100,
    "accessibility": 100,
@@ -425,7 +423,7 @@
   },
   "metrics": {
    "first-contentful-paint": "0.5 s",
-   "largest-contentful-paint": "0.7 s",
+   "largest-contentful-paint": "0.5 s",
    "total-blocking-time": "0 ms",
    "cumulative-layout-shift": "0",
    "speed-index": "0.5 s"
@@ -438,11 +436,11 @@
     "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092"
    ]
   },
-  "lcp": "largest-contentful-paint=\"0.7 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+  "lcp": "largest-contentful-paint=\"0.5 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
  },
  "desktop:es/words/acquire": {
   "url": "https://lexkite.com/es/words/acquire",
-  "at": "2026-11-10T07:47:03.377Z",
+  "at": "2026-11-10T11:34:40.605Z",
   "scores": {
    "performance": 100,
    "accessibility": 100,

@@ -10,9 +10,9 @@ on:
   # Nguồn = các file scripts/sentence-audio/corpus.mjs đọc (đổi corpus → sửa danh sách này cùng PR).
   push:
     branches: [main]
-    paths: ['scripts/sentence-audio/corpus.mjs', 'web/js/listen/kvoice.js', 'web/js/listen/test*.js', 'web/cpack/listen/**', 'web/js/toeic/**', 'web/cpack/toefl/**', 'web/cpack/cambridge/**', 'web/cpack/lesson/stories.js', 'web/cpack/lesson/gold.js', 'web/js/call/calls*.js',
+    paths: ['scripts/sentence-audio/corpus.mjs', 'web/js/listen/kvoice.js', 'web/js/listen/test*.js', 'web/cpack/listen/**', 'web/js/toeic/**', 'web/cpack/toefl/**', 'web/cpack/cambridge/**', 'web/cpack/mediation/**', 'web/js/mediate-core.js', 'web/cpack/lesson/stories.js', 'web/cpack/lesson/gold.js', 'web/js/call/calls*.js',
       'web/js/speaking.js', 'web/js/speak/**', 'web/js/readings*.js', 'web/cpack/readings/**', 'web/js/confidence/**', 'web/js/roleplay/**', 'web/js/pron/**', 'web/js/models*.js', 'web/cpack/write/ideas.js', 'web/cpack/speak/**',
-      'web/js/grammar/**', 'web/js/data.js', 'web/js/lib/**', 'web/data/say.json', 'web/audio/w/s3.tsv']
+      'web/js/grammar/**', 'web/cpack/grammar/**', 'web/js/data.js', 'web/js/lib/**', 'web/data/say.json', 'web/audio/w/s3.tsv']
   schedule:
     - cron: '0 19 * * *'   # 02:00 giờ Việt Nam
   workflow_dispatch:

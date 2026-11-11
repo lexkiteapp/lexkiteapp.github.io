@@ -9,11 +9,13 @@ node scripts/native/gen.mjs >/dev/null && node scripts/native/gen.mjs --check | 
 node scripts/test/json-dupkeys.mjs | tail -1   # khoá JSON trùng sau khi gộp tay (bind Stitch…): JSON.parse lặng lẽ lấy khoá sau
 node scripts/ci/required-gate.mjs --check  # gate = bộ canh lịch, không quay lại workflow_run (docs/CI-RUNNERS.md)
 node scripts/path/build-mix.mjs          # sửa ngữ pháp/phát âm → web/js/path-mix.js
+node scripts/grammar/build-lazy-idx.mjs --write >/dev/null   # sửa starter2.js/mastery.js → web/js/grammar/lazy-a1.js, lazy-c2.js (mục lục gói ngữ pháp A1/C2 tải lười)
 node scripts/confidence/build.mjs        # sửa content/confidence → web/js/confidence/data.js
 node scripts/speak/build.mjs --write    # sửa content/situations → web/js/speak/data.js + s/ (Play & Speak, tải lười theo tình huống × ngôn ngữ)
 node scripts/lesson/build-gold.mjs       # sửa gold bank → web/cpack/lesson/gold.js (Giải thích của #/lesson)
 node scripts/lesson/build-stories.mjs    # sửa content/lesson/stories.json → web/cpack/lesson/stories.js (Truyện + Radio)
 node scripts/framework/build-functions.mjs --write   # sửa content/framework/functions.json → web/cpack/framework/functions.js + en-src (Sổ mẫu câu theo chức năng, #/phrases)
+node scripts/mediation/build.mjs         # sửa content/mediation/*.json → web/cpack/mediation (màn #/mediate)
 node scripts/lesson/build-path-nodes.mjs   # sửa content/lesson/path-nodes.json → web/cpack/lesson/path-nodes.js (nội dung nút Lộ trình)
 bash scripts/build-extension.sh >/dev/null && git checkout -q -- extension/academic.json 2>/dev/null || true   # web/ → extension/app (bỏ thay đổi phụ academic.json)
 node scripts/test/ext-sync.mjs

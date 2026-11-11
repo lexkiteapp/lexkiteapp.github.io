@@ -1,0 +1,125 @@
+{
+ "_note": "Danh sách bài còn thiếu (điều phối 11/11). Phần 1 = cụm CPM cao bản en (2027-01-cpm-clusters.json) chưa có bài. Phần 2 = bài phổ biến (có ở ≥8 ngôn ngữ) mà ngôn ngữ này chưa có, viết theo translationKey, bản địa hoá thật (không dịch máy). Thứ tự: phần 1 trước, phần 2 ưu tiên fr, de, ko, ja (CPM cao) rồi ru, tr, ar, zh, hi, th, pt, id, es.",
+ "generated": "2026-11-11",
+ "cpm_en": [
+  "ielts-general-vs-academic-immigration",
+  "ielts-score-australia-pr",
+  "ielts-ukvi-explained",
+  "ielts-new-zealand-skilled-migrant",
+  "ielts-general-letter-newcomers",
+  "pte-vs-ielts-australia",
+  "pte-academic-vocabulary-list",
+  "pte-read-aloud-pronunciation",
+  "celpip-vs-ielts-canada",
+  "celpip-speaking-everyday-phrases",
+  "english-for-newcomers-doctor",
+  "english-for-newcomers-bank",
+  "job-interview-english-newcomers",
+  "salary-negotiation-english-phrases",
+  "confusing-words-affect-effect-meaning",
+  "academic-word-list-meanings",
+  "phrasal-verbs-for-work-meanings"
+ ],
+ "lang_gaps": {
+  "ar": [
+   "cach-phat-am-ed-va-s-es",
+   "diferencia-entre-make-y-do-en-ingles",
+   "relative-clauses",
+   "reported-speech",
+   "tieng-anh-du-lich-nuoc-ngoai"
+  ],
+  "de": [
+   "ielts-reading-matching-headings",
+   "ielts-speaking-part-3",
+   "luyen-phat-am-tieng-anh",
+   "phrasal-verb-thong-dung"
+  ],
+  "es": [
+   "ielts-reading-matching-headings",
+   "tieng-anh-du-lich-nuoc-ngoai"
+  ],
+  "fr": [
+   "ielts-reading-matching-headings",
+   "ielts-speaking-part-3",
+   "luyen-phat-am-tieng-anh",
+   "phrasal-verb-thong-dung",
+   "relative-clauses",
+   "tieng-anh-du-lich-nuoc-ngoai"
+  ],
+  "hi": [
+   "cach-phat-am-ed-va-s-es",
+   "diferencia-entre-make-y-do-en-ingles",
+   "relative-clauses",
+   "reported-speech",
+   "tieng-anh-giao-tiep-hang-ngay"
+  ],
+  "id": [
+   "cach-phat-am-ed-va-s-es",
+   "relative-clauses"
+  ],
+  "ja": [
+   "ielts-reading-matching-headings",
+   "ielts-speaking-part-3"
+  ],
+  "ko": [
+   "diferencia-entre-make-y-do-en-ingles",
+   "ielts-speaking-part-3",
+   "reported-speech",
+   "tieng-anh-du-lich-nuoc-ngoai"
+  ],
+  "pt": [
+   "ielts-reading-matching-headings",
+   "luyen-phat-am-tieng-anh",
+   "small-talk-tieng-anh",
+   "toefl-ibt-dinh-dang-moi-2026"
+  ],
+  "ru": [
+   "cach-phat-am-ed-va-s-es",
+   "diferencia-entre-make-y-do-en-ingles",
+   "ielts-reading-matching-headings",
+   "ielts-speaking-part-3",
+   "luyen-phat-am-tieng-anh",
+   "tieng-anh-du-lich-nuoc-ngoai"
+  ],
+  "th": [
+   "cach-phat-am-ed-va-s-es",
+   "diferencia-entre-make-y-do-en-ingles",
+   "luyen-phat-am-tieng-anh",
+   "relative-clauses",
+   "reported-speech"
+  ],
+  "tr": [
+   "cach-phat-am-ed-va-s-es",
+   "ielts-reading-matching-headings",
+   "ielts-speaking-part-3",
+   "luyen-phat-am-tieng-anh",
+   "phrasal-verb-thong-dung",
+   "tieng-anh-du-lich-nuoc-ngoai"
+  ],
+  "zh": [
+   "cach-phat-am-ed-va-s-es",
+   "diferencia-entre-make-y-do-en-ingles",
+   "phrasal-verb-thong-dung",
+   "relative-clauses",
+   "reported-speech",
+   "tieng-anh-du-lich-nuoc-ngoai"
+  ]
+ },
+ "counts": {
+  "ar": 67,
+  "de": 71,
+  "en": 97,
+  "es": 74,
+  "fr": 69,
+  "hi": 68,
+  "id": 71,
+  "ja": 79,
+  "ko": 68,
+  "pt": 79,
+  "ru": 67,
+  "th": 69,
+  "tr": 68,
+  "vi": 117,
+  "zh": 68
+ }
+}
