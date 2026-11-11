@@ -27,7 +27,7 @@ jobs:
           bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund playwright@1.48.2 sharp@0.33.5
           bash scripts/ci/pw-install.sh --with-deps chromium
       - uses: ./.github/actions/apt
-        with: { packages: fonts-noto-core }   # Noto Sans Devanagari/Cyrillic đậm cho bìa hi/ru (Ả Rập dùng scripts/cine/fonts)
+        with: { packages: fonts-noto-core fonts-noto-cjk }   # Devanagari/Cyrillic đậm (hi/ru) + CJK (ja/ko/zh); Ả Rập dùng scripts/cine/fonts
       - name: Dựng + QC
         run: node scripts/social/build-channel-kit.mjs
       - name: Kiểm file vừa dựng (như npm test)
