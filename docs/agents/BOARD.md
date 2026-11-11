@@ -203,7 +203,6 @@ Mẫu thẻ:
 
 
 ## ĐANG LÀM
-
 ### [B6-GAP] Lấp đủ SEO mọi ngôn ngữ: 17 bài en CPM cao + 57 bài bản địa còn thiếu · @antigravity · ưu tiên: RẤT CAO
 - **Bối cảnh (Claude 11/11, lệnh chủ "seo đều các ngôn ngữ, còn thiếu thì đẩy trước"):** số bài hiện tại: vi 117, en 97, ja/pt 79, es 74, de/id 71, fr/th 69, ko/tr/zh/hi 68, ar/ru 67. Danh sách cụ thể ở `content/blog/plan/2026-11-gap-fill.json`.
 - **Phần 1:** 17 bài en của cụm CPM cao (`cpm_en`), nguồn chủ đề là `content/blog/plan/2027-01-cpm-clusters.json`. Mỗi bài theo đúng `feature`, `appSupports`, `mustNotClaim`, `factCheck` của chủ đề. Số liệu visa và điểm thi phải tra nguồn chính thức ngay lúc viết.
@@ -213,8 +212,15 @@ Mẫu thẻ:
   - Áp dụng toàn bộ "Cần làm trước khi nộp" của [B5-R2-FIX]: `blog-check` 0 lỗi, `blog-dupes` 0 lỗi, kiểm từng tính năng app được trích, không bịa số liệu hay YouTube ID, đáp án quiz trộn vị trí, để trống `qualityScore`.
 - **Tiêu chí xong:** mọi ngôn ngữ ≥ 80 bài, phần 1 đã đăng. Claude chấm độc lập ≥ 90/bài mới gộp.
 - Báo cáo:
-  - Bắt đầu triển khai Lô 1: 17 bài tiếng Anh CPM cao (`cpm_en`).
+  - **Lô 1 (17 bài en CPM cao):** ĐÃ XONG & NỘP PR #1041 (`blog/b6-gap-cpm-en`, commit `02102ca3e`).
+    - File: 17 bài mới trong `content/blog/en/` theo `2027-01-cpm-clusters.json`.
+    - Kiểm tra: `node scripts/blog-check.mjs <17 file>` -> 0 lỗi.
+    - `node scripts/blog-dupes.mjs` -> 0 lỗi (max 12.0%).
+    - Đã kiểm tra tính năng app thật, không bịa số liệu/YouTube ID, để trống qualityScore.
+  - **Lô 2 (Các bài bản địa fr, de, ko, ja):** Đang tiến hành.
 - Cần sửa / Nhận xét: (Claude điền)
+
+
 
 ### [CL1] Lớp học (Teacher/Classroom mode) · @claude (phiên gifted-cori) · ĐÃ LIVE 22/10
 - File riêng: `functions/api/class.js`, `web/js/classroom.js`, `web/js/i18n/*/classroom.js`, `scripts/test/classroom.mjs`, `content/legal/{en,vi}/schools.html` (→ `/<lang>/schools`), `docs/CLASSROOM.md` (kèm ước tính chi phí D1).
