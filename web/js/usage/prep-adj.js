@@ -601,8 +601,12 @@ x I feel sorry [for] him.
 @a vulnerable
 + to | dễ bị tổn thương bởi | easily harmed by | Older people are more vulnerable [to] heat.
 ~ academic | Writing: *particularly vulnerable to*, *the most vulnerable groups*. | Writing: *particularly vulnerable to*, *the most vulnerable groups*.
+! Elderly people are vulnerable with seasonal flu. => Elderly people are vulnerable to seasonal flu. | Dễ bị tổn thương/dễ nhiễm bệnh dùng *vulnerable to*, không dùng *with*. | Susceptible to harm takes *vulnerable to*, never *with*.
+# Collocations học thuật: *vulnerable to cyberattacks, highly vulnerable to climate change*. | Academic collocations: *vulnerable to disease, economically vulnerable*.
 @a worthy
 + of | xứng đáng | deserving | His effort is worthy [of] praise.
+! His brave action was worthy for high praise. => His brave action was worthy of high praise. | Xứng đáng với điều gì dùng *worthy of*, không dùng *for*. | Deserving respect or attention takes *worthy of*, not *for*.
+# Thường gặp trong văn phong trang trọng: *worthy of note* (đáng chú ý), *worthy of respect*. | Formal phrase: *a cause worthy of support, worthy of consideration*.
 @a due
 + to | do, bởi vì | caused by | The delay was due [to] bad weather.
 + on | đến hạn vào (ngày) | must be paid on (a date) | The rent is due [on] the first of the month.
@@ -610,39 +614,73 @@ x I feel sorry [for] him.
 > reason-contrast
 @a equivalent
 + to | tương đương với | equal in value to | A score of 7 is roughly equivalent [to] C1.
+! A master's degree is roughly equivalent with years of work. => A master's degree is roughly equivalent to years of work. | Tương đương với cái gì dùng *equivalent to*, không dùng *with*. | Equal in value or function takes *equivalent to*, not *with*.
+# Rất phổ biến khi quy đổi bằng cấp/tiền tệ: *equivalent to IELTS 7.0*. | Essential for exam conversions: *roughly equivalent to, the equivalent of*.
 @a specific
 + to | đặc thù của | relating only to | This problem is specific [to] older models.
+! This treatment is specific with this rare mutation. => This treatment is specific to this rare mutation. | Đặc thù/chỉ dành riêng cho cái gì dùng *specific to*, không dùng *with*. | Unique or restricted to one entity takes *specific to*, not *with*.
+# Collocations khoa học: *culture-specific, specific to humans, age-specific*. | Scientific terms: *specific to certain cell types, species-specific*.
 @a unique
 + to | chỉ có ở | belonging only to | These birds are unique [to] the island.
+! This custom is unique with this remote island. => This custom is unique to this remote island. | Độc nhất/chỉ có ở nơi nào dùng *unique to*, không dùng *with*. | Existing only in one place takes *unique to*, not *with*.
+# Cấu trúc: *unique to somebody/something*. Tuyệt đối không dùng *more unique*. | Pattern: *unique to a region*; note that *unique* cannot take *more*.
 @a central
 + to | trọng tâm của | most important to | Trust is central [to] any relationship.
+! Technology is central with modern communication. => Technology is central to modern communication. | Giữ vai trò trọng tâm/then chốt đối với điều gì dùng *central to*. | Of greatest importance takes *central to*, not *with*.
+# Collocations học thuật: *central to our understanding, play a central role in*. | Academic staple: *central to the debate, central to the economy*.
 @a crucial
 + to | then chốt đối với | extremely important to | Early diagnosis is crucial [to] recovery.
 + for | then chốt cho | extremely important for | Funding is crucial [for] the project's success.
+! Regular practice is crucial with language fluency. => Regular practice is crucial to language fluency. | Mang tính quyết định/cốt yếu đối với cái gì dùng *crucial to* hoặc *crucial for*. | Decisive or critical takes *crucial to* or *crucial for*, not *with*.
+# Cả *crucial to* và *crucial for* đều chuẩn; *crucial to* phổ biến hơn trong bài học thuật. | Both *crucial to* and *crucial for* are accepted in formal writing.
 @a fundamental
 + to | cơ bản, nền tảng đối với | forming the base of | Education is fundamental [to] development.
+! Freedom of speech is fundamental with democracy. => Freedom of speech is fundamental to democracy. | Là nền tảng cơ bản/cốt lõi đối với cái gì dùng *fundamental to*. | Forming a necessary base takes *fundamental to*, not *with*.
+# Rất hay gặp trong IELTS Writing: *fundamental to human development*. | Academic essential: *fundamental to success, fundamental principles*.
 @a appropriate
 + for | phù hợp với | suitable for | This dress isn't appropriate [for] a job interview.
+! Jeans are not appropriate with a formal banquet. => Jeans are not appropriate for a formal banquet. | Thích hợp/phù hợp cho dịp nào dùng *appropriate for*, phù hợp với ai dùng *appropriate to*. | Suitable or proper takes *appropriate for* (occasion) or *appropriate to* (context).
+# Dùng *appropriate for* (cho mục đích/dịp), *appropriate to* (phù hợp hoàn cảnh). | Use *appropriate for* + event/purpose; *appropriate to* + circumstances.
 @a sympathetic
 + to | thông cảm với; ủng hộ | showing understanding towards | The boss was sympathetic [to] my situation.
+! She was very sympathetic with my difficult situation. => She was very sympathetic to my difficult situation. | Cảm thông/đồng cảm với hoàn cảnh/người khác dùng *sympathetic to* hoặc *sympathetic towards*. | Showing approval or pity takes *sympathetic to* or *towards*, not *with*.
+# Trong tiếng Anh chuẩn, *sympathetic to/towards* là phổ biến nhất. | Standard pattern: *sympathetic to the workers' demands*.
 @a respectful
 + of | tôn trọng | showing respect for | Tourists should be respectful [of] local customs.
+! Visitors must be respectful with local sacred customs. => Visitors must be respectful of local sacred customs. | Tôn trọng/kính trọng điều gì dùng *respectful of*, không dùng *with*. | Showing deference or regard takes *respectful of*, not *with*.
+# Cấu trúc: *respectful of somebody's privacy / wishes*. Trái nghĩa: *disrespectful of*. | Pattern: *respectful of authority*. Antonym: *disrespectful of*.
 @a absent
 + from | vắng mặt khỏi | not present at | He was absent [from] school for a week.
+! Three students were absent at class this morning. => Three students were absent from class this morning. | Vắng mặt khỏi buổi học/nơi nào dùng *absent from*, không dùng *at*. | Not present in a place takes *absent from*, never *at*.
+# Collocations: *absent from work, absent from school, absent from the meeting*. | Standard phrase: *conspicuously absent from the discussion*.
 @a fed up
 + with | chán ngấy | bored and annoyed with | I'm fed up [with] this rain.
 ~ informal | Văn nói Anh–Anh. | Informal British English.
+! Residents are completely fed up of the endless roadworks. => Residents are completely fed up with the endless roadworks. | Chán ngấy/bực mình về điều gì luôn dùng *fed up with*, không dùng *fed up of*. | Exasperated by a recurring annoyance takes *fed up with*, not *of*.
+# Thành ngữ thân mật: *fed up with waiting, fed up to the back teeth*. | Informal British idiom: *fed up with excuses*.
 @a amazed
 + at | kinh ngạc về | very surprised at | We were amazed [at] the view.
 + by | kinh ngạc bởi | very surprised by | She was amazed [by] his kindness.
+! Spectators were amazed of the magician's illusions. => Spectators were amazed at the magician's illusions. | Kinh ngạc/kinh ngạc tột độ về điều gì dùng *amazed at* hoặc *amazed by*. | Filled with wonder takes *amazed at* or *amazed by*, not *of*.
+# Cả *amazed at* và *amazed by* đều chuẩn và phổ biến trong giao tiếp. | Both *amazed at* and *amazed by* are completely natural.
 @a shocked
 + by | bị sốc bởi | very upset or surprised by | Everyone was shocked [by] the news.
+! The public was shocked with the sudden price increase. => The public was shocked by the sudden price increase. | Bị sốc/bàng hoàng trước tin tức dùng *shocked by* hoặc *shocked at*. | Deeply surprised or upset takes *shocked by* or *shocked at*, not *with*.
+# Dùng *shocked by/at* trước tin xấu: *shocked by the news, shocked at the cost*. | Common collocations: *shocked by his death, shocked at the brutality*.
 @a embarrassed
 + about | ngượng về | ashamed or shy about | He was embarrassed [about] his mistake.
+! He felt embarrassed with his poor spelling. => He felt embarrassed about his poor spelling. | Ngượng ngùng/xấu hổ về điều gì dùng *embarrassed about* hoặc *embarrassed by*. | Feeling awkward or self-conscious takes *embarrassed about* or *by*.
+# Phân biệt: *embarrassed about something* (sự việc), *embarrassed by somebody* (bởi ai). | Use *embarrassed about* + issue, *embarrassed by* + agent.
 @a confused
 + about | bối rối về | unable to understand | I'm confused [about] the instructions.
+! Users are often confused with the complicated settings. => Users are often confused by the complicated settings. | Bối rối/khó hiểu vì điều gì dùng *confused by* hoặc *confused about*. | Unable to understand takes *confused by* or *confused about*, rarely *with*.
+# Dùng *confused about* (về chủ đề), *confused by* (bởi tác nhân gây rối). | Distinguish *confused about a topic* from *confused by instructions*.
 @a disgusted
 + with | ghê tởm, bất bình với | very disapproving of | She was disgusted [with] the way he behaved.
+! She was disgusted about his terrible hygiene habits. => She was disgusted by his terrible hygiene habits. | Ghê tởm/bất bình trước điều gì dùng *disgusted by* hoặc *disgusted with/at*. | Feeling intense revulsion takes *disgusted by* or *disgusted with*, not *about*.
+# Cấu trúc: *disgusted by his behaviour, disgusted at the sight of waste*. | Collocations: *disgusted with oneself, thoroughly disgusted by*.
 @a puzzled
 + by | bối rối vì | confused by | I was puzzled [by] her reply.
+! Detectives were puzzled with the mysterious clues. => Detectives were puzzled by the mysterious clues. | Bối rối/không lý giải nổi điều gì dùng *puzzled by* hoặc *puzzled about*. | Perplexed or baffled takes *puzzled by*, not *with*.
+# Cả *puzzled by* và *puzzled about* đều đúng: *puzzled by her strange reaction*. | Standard: *puzzled by the result, puzzled about what to do*.
 `; })(typeof self !== 'undefined' ? self : this);
