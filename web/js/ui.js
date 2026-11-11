@@ -437,7 +437,7 @@
     if (cb.setup) try { cb.setup(r); } catch (e) { /* thuộc tính mới (processLocally, phrases) chưa có */ }
     // Ghi âm giọng người học song song để nghe lại so với giọng mẫu
     let media = null, chunks = [], stream = null, audioP = null;
-    if (navigator.mediaDevices && g.MediaRecorder) {
+    if (navigator.mediaDevices && g.MediaRecorder && micParallel(SR)) {
       navigator.mediaDevices.getUserMedia(MIC).then(st => {
         if (r._stale || r._ended) { st.getTracks().forEach(t => t.stop()); return; }
         stream = st;
@@ -472,6 +472,36 @@
     try { r.start(); } catch (e) { clearTimeout(guard); cb.error && cb.error('busy'); return null; }
     cb.start && cb.start();
     return { stop: () => { try { r.stop(); } catch (e) { /* đã dừng */ } } };
+  }
+  /* LX-1003 – Android Chrome/iOS Safari cấp mic cho một bên: mở getUserMedia/MediaRecorder song song khiến SpeechRecognition chỉ nhận im lặng (no-speech, không lỗi console).
+   * Không có API dò được xung đột → dò theo nền tảng; ở đó ưu tiên nhận dạng (nghe lại bản ghi: chế độ Whisper trên máy). Không có SR thì không có gì để tranh, vẫn ghi âm. */
+  const micExclusive = () => { const n = g.navigator || {}, ua = n.userAgent || ''; return /Android|iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && n.maxTouchPoints > 1); };
+  const micParallel = SR => !(SR && micExclusive());
+  const SR_FATAL = { 'not-allowed': 1, 'service-not-allowed': 1, 'audio-capture': 1, 'language-not-supported': 1, network: 1 };
+  /** Phiên nói dài (ghi âm + chuyển chữ) dùng chung. Mic bị từ chối/không có gì để thu → onError(mã) rồi null. Trả { stream, stop():Promise<{text,audio}>, cancel() }. */
+  async function speechSession({ lang, slot = 'rec', onText, onError } = {}) {
+    const SR = g.SpeechRecognition || g.webkitSpeechRecognition, fail = c => { if (onError) onError(c); };
+    let stream = null, media = null, sr = null, on = true, text = '', interim = ''; const chunks = [];
+    if (micParallel(SR) && navigator.mediaDevices) {
+      try { stream = await navigator.mediaDevices.getUserMedia(MIC); } catch (e) { fail('not-allowed'); return null; }
+      try { media = new MediaRecorder(stream); media.ondataavailable = e => e.data.size && chunks.push(e.data); media.start(); } catch (e) { media = null; }
+    }
+    if (!stream && !SR) { fail('unsupported'); return null; }
+    if (SR) {
+      sr = new SR(); sr.lang = lang; sr.continuous = true; sr.interimResults = true;
+      sr.onresult = e => { interim = ''; for (let i = e.resultIndex; i < e.results.length; i++) { const r = e.results[i]; if (r.isFinal) text += r[0].transcript + ' '; else interim += r[0].transcript; } if (onText) onText(text + interim); };
+      sr.onerror = e => { if (on && SR_FATAL[e.error]) { sr = null; fail(e.error); } }; // lỗi không tự hết: dừng khởi động lại, báo người học thay vì im lặng
+      sr.onend = () => { if (on && sr) try { sr.start(); } catch (e) { /* đang chạy */ } }; // Chrome tự dừng khi im lặng lâu
+      try { sr.start(); } catch (e) { /* đã chạy */ }
+    }
+    const release = () => { if (stream) stream.getTracks().forEach(x => x.stop()); };
+    const stop = () => new Promise(res => {
+      on = false; try { if (sr) sr.stop(); } catch (e) { /* đã dừng */ }
+      const done = () => { release(); res({ text: (text + ' ' + interim).trim(), audio: chunks.length ? recUrl(new Blob(chunks, { type: (media && media.mimeType) || 'audio/webm' }), slot) : '' }); };
+      if (media && media.state !== 'inactive') { media.onstop = () => setTimeout(done, 250); media.stop(); } else setTimeout(done, 250);
+    });
+    const cancel = () => { on = false; try { if (sr) sr.abort(); } catch (e) { /* đã dừng */ } try { if (media && media.state !== 'inactive') media.stop(); } catch (e) { /* đã dừng */ } release(); };
+    return { stream, stop, cancel };
   }
   const stopRecognize = () => { if (activeRec) { activeRec._stale = true; try { activeRec.abort(); } catch (e) { /* đã dừng */ } activeRec = null; } };
 
@@ -646,5 +676,5 @@
     e.preventDefault(); const st = prefs();
     if (b.dataset.speak != null) speak(b.dataset.speak, b.dataset.accent || st.accent, b.dataset.url || ''); else speak(b.dataset.speakText, st.accent);
   });
-  g.UI = { whisperModel, sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, ttsClean, stopSpeak, recognize, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
+  g.UI = { whisperModel, sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, ttsClean, stopSpeak, recognize, speechSession, micParallel, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
 })(typeof self !== 'undefined' ? self : this);
