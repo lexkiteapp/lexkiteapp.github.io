@@ -23,6 +23,8 @@ That rule is easy to state and surprisingly hard to apply under time pressure. T
 
 The question type appears in the Reading test, which lasts 60 minutes and contains 40 questions across three passages in the Academic version. A related type, Yes/No/Not Given, asks about the writer's views or claims rather than facts; the logic is the same. Other task types, such as [matching headings](/en/blog/ielts-reading-matching-headings/), test the main idea instead.
 
+Related reading: [IELTS Reading time management](/en/blog/ielts-reading-time-management-strategies/).
+
 These questions are not testing what you know about the topic. They test whether you can compare two pieces of language precisely. Three things make that hard:
 
 - **Background knowledge interferes.** If a statement sounds true in real life, you are tempted to mark True, even if the passage never says it.

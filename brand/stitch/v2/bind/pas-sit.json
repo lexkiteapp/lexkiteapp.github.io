@@ -99,6 +99,16 @@
   },
   ":scope > div > main > div:nth-child(6) > button:nth-child(1) > svg": {
    "dk:hidden": "''"
+  },
+  ":scope > div > main > div:nth-child(1) > div:nth-child(1)": {
+   "border-2": "''",
+   "border-dashed": "''",
+   "justify-center": "'justify-end'",
+   "lt:border-[#136B66]/70": "''",
+   "lt:p-2": "''",
+   "dk:border-[#14b8a6]/40": "''",
+   "dk:p-3": "''",
+   "dk:shadow-[0_3px_0_#061013]": "''"
   }
  },
  "remove": [

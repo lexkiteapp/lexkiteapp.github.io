@@ -1,0 +1,36 @@
+# Nội dung server-driven cho app native (spec docs/specs/native-apps.md §4 "Cập nhật không cần duyệt lại store"):
+# ký native/shared/content/*.json bằng OTA_SIGNING_KEY (ECDSA P-256, cùng khoá web/js/ota-key.js) → web/native/content/<type>.json
+# → commit vào main [CF-Pages-Skip] → pages-deploy.yml (gom) → Cloudflare Pages phục vụ tại https://lexkite.com/native/content/<type>.json. Deploy không cần khoá.
+# Chỉ commit khi nội dung ký đổi. Không có khoá → bỏ qua (app dùng gói khởi động), không đỏ.
+name: Native content (ký + đăng)
+on:
+  push:
+    branches: [main]
+    paths: ['native/shared/content/**', 'scripts/native/content-*.mjs', 'web/js/ota-key.js', '.github/workflows/native-content.yml']
+  workflow_dispatch:
+concurrency: { group: native-content, cancel-in-progress: false }
+permissions: { contents: write, actions: write }   # actions: gọi pages-deploy.yml
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env: { OTA_SIGNING_KEY: '${{ secrets.OTA_SIGNING_KEY }}' }
+    steps:
+      - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset), như codemap.yml
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Ký nội dung
+        run: |
+          [ -n "$OTA_SIGNING_KEY" ] || { echo "::notice::Chưa có OTA_SIGNING_KEY – bỏ qua ký nội dung native"; exit 0; }
+          node scripts/native/content-publish.mjs sign
+          node scripts/native/content-publish.mjs check
+      - name: Ghi vào main nếu đổi
+        id: push
+        run: |
+          [ -n "$(git status --porcelain web/native/content)" ] || { echo "nội dung ký không đổi"; exit 0; }
+          bash scripts/ci/push-main.sh "native-content #${{ github.run_number }}: ký + đăng nội dung app native" web/native/content && echo "pushed=1" >> "$GITHUB_OUTPUT"
+      - name: Yêu cầu deploy Pages (gom qua pages-deploy.yml – docs/FREE-TIER.md §7)
+        if: steps.push.outputs.pushed == '1'
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: bash scripts/ci/gh-retry.sh gh workflow run pages-deploy.yml --ref main -f quiet=15 -f reason="native-content" && echo "✓ đã yêu cầu deploy"

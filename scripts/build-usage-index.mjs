@@ -16,7 +16,7 @@ for (const k of U.KINDS) for (const e of U.load(k)) {
 }
 // Tên bài ngữ pháp được dẫn tới (id → [tên Việt, tên Anh]) – để nút "📐 …" có tên bài mà không phải tải cả gói ngữ pháp
 globalThis.t = x => x;
-const GR = {}; for (const f of fs.readdirSync('web/js/grammar')) if (f.endsWith('.js')) { try { new Function('self', fs.readFileSync('web/js/grammar/' + f, 'utf8'))(GR); } catch (e) { /* bỏ qua */ } }
+const GR = {}; for (const d of ['web/js/grammar', 'web/cpack/grammar']) for (const f of fs.readdirSync(d)) if (f.endsWith('.js')) { try { new Function('self', fs.readFileSync(d + '/' + f, 'utf8'))(GR); } catch (e) { /* bỏ qua */ } }
 const TITLES = Object.fromEntries((GR.GRAMMAR || []).map(x => [x.id, [x.title, x.en]]));
 const l = {}, missing = [];
 for (const k of U.KINDS) for (const e of U.load(k)) for (const id of e.lessons) { if (TITLES[id]) l[id] = TITLES[id]; else missing.push(`${k}:${e.key} → ${id}`); }

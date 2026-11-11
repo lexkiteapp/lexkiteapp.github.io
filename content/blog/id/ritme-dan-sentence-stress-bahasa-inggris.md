@@ -26,6 +26,8 @@ Melanjutkan fondasi dari panduan [cara lancar berbicara bahasa inggris](/id/blog
 
 Untuk memahami musikalitas percakapan bahasa Inggris, kita perlu membandingkan dua arsitektur ritme bicara utama di dunia:
 
+Untuk pembahasan lebih lengkap, baca juga [panduan latihan pelafalan bahasa Inggris mandiri](/id/blog/cara-latihan-pelafalan-bahasa-inggris/).
+
 - **Bahasa berbasis suku kata (Syllable-timed languages)** seperti bahasa Indonesia, bahasa Spanyol, dan bahasa Prancis: Setiap suku kata mendapat alokasi durasi waktu yang relatif setara. Kalimat dengan sepuluh suku kata membutuhkan waktu pengucapan sekitar dua kali lipat dibanding kalimat dengan lima suku kata.
 - **Bahasa berbasis tekanan (Stress-timed languages)** seperti bahasa Inggris dan bahasa Jerman: Interval waktu antar-ketukan suku kata bertekanan utama relatif konstan, terlepas dari berapa banyak suku kata tanpa tekanan yang berada di antaranya.
 

@@ -1,0 +1,21 @@
+# Cài gói apt có cache .deb + trần thời gian + thử lại/đổi mirror (scripts/ci/apt-install.sh – một nguồn, test scripts/test/apt-install.mjs).
+# Gốc 10/11 (#983 ux1): apt-get install imagemagick fonts-noto-* treo mirror > 10 phút → "Cài" hết 14 phút. Cache: khoá = ảnh runner
+# (ImageOS + ImageVersion) + danh sách gói đã sắp xếp → lượt sau chỉ giải nén .deb có sẵn, không tải lại từ mirror.
+name: apt
+description: Cài gói apt (cache .deb, --no-install-recommends, trần + thử lại)
+inputs:
+  packages:
+    description: Danh sách gói (cách nhau dấu cách)
+    required: true
+runs:
+  using: composite
+  steps:
+    - id: k
+      shell: bash
+      env: { P: '${{ inputs.packages }}' }
+      run: echo "key=apt-${ImageOS:-x}-${ImageVersion:-x}-$(printf '%s\n' $P | sort -u | sha1sum | cut -c1-16)" >> "$GITHUB_OUTPUT"
+    - uses: actions/cache@v4
+      with: { path: ~/.cache/apt-debs, key: '${{ steps.k.outputs.key }}' }
+    - shell: bash
+      env: { P: '${{ inputs.packages }}' }
+      run: APT_CACHE_DIR="$HOME/.cache/apt-debs" bash "$GITHUB_WORKSPACE/scripts/ci/apt-install.sh" $P

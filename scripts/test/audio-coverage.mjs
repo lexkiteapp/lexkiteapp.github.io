@@ -10,7 +10,15 @@ assert.equal(verdict({}, f).length, 1, 'nhóm biến mất → đỏ');
 assert.equal(verdict({ a: { pct: 90, missing: 10 }, b: { pct: 1, missing: 9 } }, f).length, 1, 'nhóm mới phải có sàn');
 const up = ratchet({ a: { pct: 95, missing: 5 } }, f), down = ratchet({ a: { pct: 80, missing: 30 } }, f);
 assert.deepEqual([up.groups.a.pct, up.groups.a.missing, down.groups.a.pct, down.groups.a.missing], [95, 5, 90, 10], 'sàn chỉ lên');
-const m = await measure(), bad = verdict(m, readFloor());
+// Cổng giọng khi xuất lô lexicon-expand (06/11: 54 từ xuất khi chưa có giọng → words-uk/us 99,39 % → npm test đỏ mọi PR)
+{
+  const { wordsWithoutAudio } = await import('../audio/coverage.mjs'); const { pendingWords } = await import('../word-audio/lib.mjs');
+  assert.deepEqual(wordsWithoutAudio(['zzqxvwnotaword', 'house']).filter(w => w === 'zzqxvwnotaword'), ['zzqxvwnotaword'], 'từ chưa render → báo thiếu giọng');
+  assert.ok(Array.isArray(pendingWords()), 'pendingWords đọc lô chờ');
+  const pr = fs.readFileSync('scripts/lexicon/expand/promote.mjs', 'utf8'), wa = fs.readFileSync('.github/workflows/word-audio.yml', 'utf8'), lib = fs.readFileSync('scripts/word-audio/lib.mjs', 'utf8');
+  assert.ok(/wordsWithoutAudio/.test(pr) && /process\.exit\(4\)/.test(pr) && /LX_AUDIO_MAX/.test(pr), 'promote.mjs chặn xuất lô khi nhiều từ chưa có giọng');
+  assert.ok(/WORD_AUDIO_PENDING: '1'/.test(wa) && /WORD_AUDIO_PENDING === '1'/.test(lib), 'word-audio render từ của lô chờ trước khi xuất');
+}const m = await measure(), bad = verdict(m, readFloor());
 const miss = Object.values(m).reduce((s, x) => s + x.missing, 0);
 if (bad.length) { console.error('✗ audio-coverage:\n  ' + bad.join('\n  ')); process.exit(1); }
 console.log(`✓ audio-coverage: ${Object.keys(m).length} nhóm không tụt dưới sàn · còn ${miss} câu/từ tĩnh rơi về giọng máy`);

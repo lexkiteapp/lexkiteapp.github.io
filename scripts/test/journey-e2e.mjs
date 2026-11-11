@@ -151,8 +151,8 @@ async function toLast(h) { for (let i = 0; i < 8 && !(await h.has('#go')); i++) 
 async function setup(h, { test = false } = {}) {
   await h.boot('/welcome/setup', h.q);
   if (await h.has('#noAcct')) await h.click('#noAcct');
-  await h.click('button.trk-opt'); await h.click('#obNext', { wait: 250 });
-  await h.click(test ? '[data-lv="test"]' : '.trk-lv [data-lv]:not([data-lv="test"])');
+  await h.click('[data-track]'); await h.click('#obNext', { wait: 250 });
+  await h.click(test ? '[data-lv="test"]' : '[data-lv]:not([data-lv="test"])');
   await toLast(h);
   await h.click('#go', { wait: 1500 });
 }
@@ -181,7 +181,7 @@ async function j1(h) {
   h.ok(!(await softAskShown(h)), 'KHÔNG hỏi nhắc học lúc mở app lần đầu');
   await h.audit('first-load');
   if (await h.has('#noAcct')) await h.click('#noAcct');
-  await h.click('button.trk-opt'); await h.click('#obNext', { wait: 250 }); await h.click('[data-lv="test"]'); await toLast(h); await h.click('#go', { wait: 1500 });
+  await h.click('[data-track]'); await h.click('#obNext', { wait: 250 }); await h.click('[data-lv="test"]'); await toLast(h); await h.click('#go', { wait: 1500 });
   h.ok(/#\/placement/.test(page.url()), 'chọn "kiểm tra đầu vào" → #/placement');
   await h.click('#go', { wait: 600 });
   for (let i = 0; i < 26 && !(await h.has('.pl-result')); i++) { const o = page.locator('.pl-wrap .option[data-k]:not([data-k="-1"])'); if (await o.count()) { await o.nth(i % 2).click().catch(() => {}); } await sleep(520); }
@@ -387,13 +387,13 @@ async function j4(h) {
 // ---------- 5. Cài đặt nhắc học → tải lại → còn; cờ quảng cáo TẮT → không ô quảng cáo ở đâu cả ----------
 async function j5(h) {
   const { page } = h;
-  await h.boot('/settings');
+  await h.boot('/settings/remind'); // Cài đặt = mục lục + trang con (docs/specs/me-settings-ux.md): ô nhắc học ở #/settings/remind
   if (!(await page.locator('#sRem').isChecked())) await page.locator('#sRem').check();
   const set = async (sel, v) => { await page.locator(sel).fill(v); await page.locator(sel).dispatchEvent('change'); await sleep(250); };
   await set('#sTime', '07:30'); await set('#sQ1', '23:00'); await set('#sQ2', '06:30');
   if (await page.locator('#sTy_week').isChecked()) { await page.locator('#sTy_week').uncheck(); await sleep(250); }
   await h.audit('settings');
-  await h.reload(); await h.go('#/settings');
+  await h.reload(); await h.go('#/settings/remind');
   const v = await page.evaluate(() => ({ t: document.querySelector('#sTime').value, a: document.querySelector('#sQ1').value, b: document.querySelector('#sQ2').value, w: document.querySelector('#sTy_week').checked, d: document.querySelector('#sTy_due').checked, on: document.querySelector('#sRem').checked }));
   h.ok(v.on && v.t === '07:30' && v.a === '23:00' && v.b === '06:30' && !v.w && v.d, 'cài đặt nhắc học còn sau tải lại: ' + JSON.stringify(v));
   const plan = await page.evaluate(() => (JSON.parse(localStorage.getItem('lk.remp') || '[]')).length);
@@ -452,7 +452,14 @@ async function j7(lang) {
     const pg = await ctx.newPage(); await pg.goto('https://news.example.test/article'); await sleep(1200);
     // boot.js chạy lúc document_idle rồi mới nhờ SW chèn content.js → chờ ĐIỀU KIỆN (bảng tra hiện), nhấp đúp lại nếu lần trước rơi vào lúc mồi chưa gắn
     const popUp = () => pg.waitForFunction(() => { const b = document.querySelector('ielts-lexi-popup')?.shadowRoot?.querySelector('.box'); return !!(b && !b.hidden && b.getBoundingClientRect().height > 0); }, null, { timeout: 8000 }).then(() => true, () => false);
-    for (let i = 0; i < 4; i++) { await pg.locator('#w').dblclick(); if (await popUp()) break; }
+    let shown = false; for (let i = 0; i < 4 && !shown; i++) { await pg.locator('#w').dblclick(); shown = await popUp(); }
+    // Đỏ ngẫu nhiên (1 lần ở #760, ar): bảng tra không hiện mà không pageerror → ghi trạng thái từng khâu để lần sau chỉ thẳng gốc
+    // (mồi boot.js có chạy/tự gỡ không · content.js đã chèn chưa · SW còn trả lkInject · phần tử bảng tra có trong DOM không)
+    if (!shown) {
+      const dom = await pg.evaluate(() => ({ el: !!document.querySelector('ielts-lexi-popup'), sr: !!document.querySelector('ielts-lexi-popup')?.shadowRoot, sel: String(getSelection() || '') })).catch(e => ({ err: e.message }));
+      const iso = await sw.evaluate(async () => { const [t] = await chrome.tabs.query({ url: 'https://news.example.test/*' }); if (!t) return { tab: 0 }; const [r] = await chrome.scripting.executeScript({ target: { tabId: t.id }, func: () => ({ boot: !!window.__lkBoot, off: !!(window.__lkBoot && window.__lkBoot.off), cs: !!window.__lkCS }) }); return { tab: t.id, ...(r && r.result) }; }).catch(e => ({ err: String(e.message || e).slice(0, 120) }));
+      fail('chẩn đoán bảng tra không hiện: ' + JSON.stringify({ dom, iso }));
+    }
     await pg.waitForFunction(() => { const r = document.querySelector('ielts-lexi-popup')?.shadowRoot; return !!(r && r.querySelector('#save') && /\S/.test((r.querySelector('.ctx') || {}).innerText || '')); }, null, { timeout: 15000 }).catch(() => {});
     const pop = () => pg.evaluate(() => { const r = document.querySelector('ielts-lexi-popup')?.shadowRoot; return r ? { box: !!(r.querySelector('.box') && !r.querySelector('.box').hidden), ctx: (r.querySelector('.ctx') || {}).innerText || '', save: !!r.querySelector('#save'), saved: !!(r.querySelector('#save') || {}).disabled } : null; });
     const p1 = await pop();

@@ -40,7 +40,7 @@ for (const it of items) {
     const html = themePage(`<!doctype html><html lang="${lang}"${RTL.has(lang) ? ' dir="rtl"' : ''}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(it.title)} – ${esc(dsc)} | Lexkite</title><meta name="description" content="${esc(desc)}">${it.test ? '<meta name="robots" content="noindex">' : ''}
 <link rel="canonical" href="${url}">${alts}<meta property="og:type" content="video.other"><meta property="og:title" content="${esc(it.title)}"><meta property="og:image" content="${esc(it.poster)}"><meta property="og:video" content="${esc(it.src)}">
-<link rel="icon" href="/icons/icon.svg?v=3" type="image/svg+xml">${ld(vo)}<style>${CSS}
+<link rel="icon" href="/icons/icon.svg?v=3" type="image/svg+xml"><link rel="preconnect" href="https://media.lexkite.com"><link rel="preload" as="image" href="${esc(it.poster)}" fetchpriority="high">${ld(vo)}<style>${CSS}
 .vp{max-width:760px;margin:0 auto;padding:16px}.vp video{display:block;width:100%;max-width:360px;aspect-ratio:9/16;margin:16px auto;border-radius:16px;background:#000}.vp ol{padding-inline-start:1.2em;line-height:1.6}.vp li{margin:.4em 0}.vp .btn{display:inline-block}.top a{font-weight:700}</style></head>
 <body><header class="top" style="padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px"><a href="${landingHref(lang)}" style="display:inline-flex;align-items:center;min-height:44px">Lexkite</a>${themeSwitch(lang)}</header><main id="nd" class="vp">
 <h1 lang="en">${esc(it.title)}</h1><p>${esc(dsc)} · ${Math.round(it.duration)}s${it.tags.cefr ? ' · CEFR ' + esc(it.tags.cefr) : ''}</p>

@@ -64,6 +64,8 @@ Artikel ini akan mengupas tuntas cara mengombinasikan skimming dan scanning seca
 
 Kesalahan paling fatal yang sering dilakukan pemula adalah mencoba memahami setiap kalimat secara merata dari paragraf pertama hingga terakhir. Penguji IELTS tidak menguji apakah Anda memahami 100% kosakata di dalam teks, melainkan menguji kemampuan Anda menyaring informasi yang relevan dengan cepat.
 
+Untuk pembahasan lebih lengkap, baca juga [strategi manajemen waktu IELTS Reading 60 menit](/id/blog/manajemen-waktu-ielts-reading-strategi-60-menit/).
+
 Dua senjata utama dalam **skimming dan scanning ielts reading** memiliki fungsi yang berbeda namun saling melengkapi dalam alur kerja pemecahan soal.
 
 ### 1. Skimming: Membangun Peta Mental Teks dalam 2 Menit

@@ -1,0 +1,37 @@
+{
+ "_doc": "B\u1ea3ng t\u1ed1i cho roleplay-list (9/11, P07, Lexkite Kit Tactile Night): vai m\u00e0u x\u1ebfp theo \u0111\u1ed9 s\u00e1ng/s\u1eafc \u0111\u1ed9, c\u1eb7p ch\u1eef-n\u1ec1n ki\u1ec3m t\u01b0\u01a1ng ph\u1ea3n \u22654.5; khai b\u00e1o CSS trong <style> \u0111\u1ed5i theo t\u1eebng d\u00f2ng.",
+ "config": {},
+ "hex": {
+  " background-color: #f2553b": " background-color: #C94731",
+  " box-shadow: 0 4px 0 #b3321d": " box-shadow: 0 4px 0 #7D2C1E",
+  " box-shadow: 0 1px 0 #b3321d": " box-shadow: 0 1px 0 #0E1618",
+  " box-shadow: 0 3px 0 #eadfc8": " box-shadow: 0 3px 0 #0E1618",
+  " border: 2px solid #eadfc8": " border: 2px solid #4A6870",
+  " box-shadow: 0 1px 0 #eadfc8": " box-shadow: 0 1px 0 #0E1618",
+  " box-shadow: 0 2px 0 #001718": " box-shadow: 0 2px 0 #0E1618"
+ },
+ "cls": {
+  "bg-secondary": "bg-[#12514D]",
+  "bg-surface-container-high": "bg-[#2A3F45]",
+  "hover:bg-surface-container": "hover:bg-[#2A3F45]",
+  "hover:bg-secondary-container": "hover:bg-[#1F4A4E]",
+  "bg-surface-container-lowest": "bg-[#172427]",
+  "selection:bg-secondary-container": "selection:bg-[#1F4A4E]",
+  "bg-surface-container": "bg-[#2A3F45]",
+  "bg-surface": "bg-[#1E2F33]",
+  "bg-primary-container": "bg-[#12514D]",
+  "hover:bg-primary": "hover:bg-[#12514D]",
+  "bg-surface/95": "bg-[#1E2F33]/95",
+  "border-surface-variant/20": "border-[#37525A]/20",
+  "sm:border-surface-variant/40": "sm:border-[#37525A]/40",
+  "border-[#eadfc8]": "border-[#4A6870]",
+  "border-surface-variant/30": "border-[#37525A]/30",
+  "hover:text-primary": "hover:text-[#5EEAD4]",
+  "text-secondary": "text-[#5EEAD4]",
+  "text-primary": "text-[#5EEAD4]",
+  "border-surface-variant/40": "border-[#37525A]/40",
+  "text-on-surface": "text-[#E8F1F0]",
+  "border-surface-variant": "border-[#37525A]",
+  "text-on-surface-variant": "text-[#E8F1F0]"
+ }
+}

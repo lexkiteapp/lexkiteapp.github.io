@@ -6,7 +6,8 @@ on:
   pull_request:
     paths: ['brand/stitch/v2q/**', 'brand/stitch/v3/**', 'scripts/test/stitch-quality-qc.mjs', 'scripts/lib/pixel-contrast.mjs', '.github/workflows/stitch-quality-qc.yml']
   push:
-    branches: [stitch-quality]
+    branches: [main, stitch-quality]   # canh cả main (trước đây 0 lượt trên main)
+    paths: ['brand/stitch/v2q/**', 'brand/stitch/v3/**', 'scripts/test/stitch-quality-qc.mjs', 'scripts/lib/pixel-contrast.mjs', '.github/workflows/stitch-quality-qc.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -23,8 +24,10 @@ jobs:
         with: { node-version: 22 }
       - run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 pngjs@7.0.0
-          npx playwright install --with-deps chromium >/dev/null
-          sudo apt-get install -y -qq imagemagick fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji >/dev/null || true
+          bash scripts/ci/pw-install.sh --with-deps chromium
+        timeout-minutes: 12
+      - uses: ./.github/actions/apt
+        with: { packages: imagemagick fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji }
       - name: Vẽ + chấm từng mẫu (sáng/tối)
         run: node scripts/test/stitch-quality-qc.mjs brand/stitch/v2q out/stitch-quality-qc
       # Kho v3 (scripts/stitch/batch.mjs): chấm MỌI màn (--all) + tràn ngang/chạm ≥44px (--strict-layout); chỉ màn PASS/PICK gác đỏ.

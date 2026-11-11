@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"drop\" mean?",
+  "keyword": "drop",
+  "value": "Drop means to let something fall from your hand.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=drop",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"drop\" mean?",
+    "description": "Drop means to let something fall from your hand.\n\nReview your words, free: https://lexkite.com/app/#/review?w=drop\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "drop",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"drop\" mean?\n\nDrop means to let something fall from your hand.\n\nReview your words, free: https://lexkite.com/app/#/review?w=drop"
+   },
+   "instagram": {
+    "caption": "What does \"drop\" mean?\n\nDrop means to let something fall from your hand.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"drop\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to let something fall from your hand. Drop means to let something fall from your hand. Practice it with a free quiz: {link}"
  }
 }

@@ -1,0 +1,362 @@
+{
+ "_note": "Teach2D episodes that passed QC (bank.py). Videos: CI artifact tv-bank-<run> (90 days). Do not edit by hand.",
+ "eps": {
+  "t2a_review_access": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "59309e7a7254d4e0",
+    "wide": "557aa948cc00a7b1"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_accounting": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "6e373ae0f2397f38",
+    "wide": "e2f7246e905270e4"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_adapter": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "823b05988f8520f5",
+    "wide": "a7405eede1b129c9"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_admire": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "d8269eb2207aaa93",
+    "wide": "64ede6c09c8b2cfe"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_afford": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "a1f09695959d5bcc",
+    "wide": "428ee03b230a7807"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_amaze": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "0880c0460692c6b5",
+    "wide": "b90c7faeaccad034"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_analyze": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "b848e43067de6739",
+    "wide": "318fd2ae2f284ef3"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_stress_artistic": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "fd52ab89fd33c05e",
+    "wide": "16e9ef53eba73a44"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_stress_athletic": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "a8b477f1015481ea",
+    "wide": "97bd194c398cee59"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_stress_attendee": {
+   "run": "42534524390",
+   "at": "2026-11-09T00:56Z",
+   "score": {
+    "wide": 100.0
+   },
+   "sha": {
+    "wide": "4b6f6eb7a59624bf"
+   },
+   "why": [
+    "short: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_stress_historic": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "114ef4e5a56c7cd2",
+    "wide": "52cec9c0399f3b39"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_stress_objective": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "041f0db59a7a8897",
+    "wide": "90e7c5356849e520"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_stress_organic": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "79404ce6d6e14175",
+    "wide": "cf68563b3f4008ca"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_stress_presenter": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "21ffe4857e54123d",
+    "wide": "9921dcbd90b171ca"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_stress_progressive": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "9a01317ae07f6b37",
+    "wide": "2cd303f5e7a008e5"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_usuk_apartment": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "1896cc5da9382ec7",
+    "wide": "461a0614ef7fd5ad"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_usuk_cookie": {
+   "run": "42534524390",
+   "at": "2026-11-09T00:56Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_usuk_gas": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "c6a865303c160a85",
+    "wide": "dc0176dcb203b83b"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_usuk_line": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "1bc2f07284bb830a",
+    "wide": "d085f50f2b5613be"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_usuk_mail": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "fa0ca97aa14b8ecc",
+    "wide": "b234179580297053"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_usuk_movie": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "9c58b54eca5b7b32",
+    "wide": "10fd79ba84bb6bab"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_usuk_vacation": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "a032c7349b803dfa",
+    "wide": "64c3d9439183e721"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_verbs_make": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "0f800a100fbdae58",
+    "wide": "45c126d3dad9d349"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_verbs_say": {
+   "run": "42534524390",
+   "at": "2026-11-08T23:51Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "fe763964440dc8b6",
+    "wide": "6322395a750421bb"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  }
+ }
+}

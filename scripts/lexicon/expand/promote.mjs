@@ -23,6 +23,10 @@ if (arg('--sample')) { const s = keys.slice().sort((a, b) => crypto.createHash('
 // cổng lại lúc XUẤT (descend#v 31/10: lô chờ có mục trượt cổng ở dạng lưu → main đỏ): mục trượt về hàng duyệt, không bao giờ xuất
 const regate = keys.map(k => [k, gateEntry(P.items[k])]).filter(([, r]) => !r.ok);
 if (regate.length) console.error(regate.map(([k, r]) => `✗ ${k}: trượt cổng – về hàng duyệt (${r.why.join(' · ')})`).join('\n'));
+// cổng giọng (06/11: lô 54 từ xuất khi chưa render → audio-coverage 99,39 % < sàn → npm test đỏ mọi PR): quá AUDIO_MAX từ chưa có giọng Kokoro → CHƯA xuất (lô nằm chờ; word-audio.yml render từ pending bằng WORD_AUDIO_PENDING=1)
+const AUDIO_MAX = +(process.env.LX_AUDIO_MAX || 10);
+if (!process.argv.includes('--no-audio-gate')) { const { wordsWithoutAudio } = await import('../../audio/coverage.mjs'); const no = wordsWithoutAudio([...new Set(keys.map(k => k.split('#')[0].trim()))].filter(w => /^[A-Za-z][A-Za-z' -]*$/.test(w) && w.split(/\s+/).length <= 3));
+  if (no.length > AUDIO_MAX) { console.error(`⏳ chờ giọng: lô ${id} còn ${no.length} từ chưa có giọng Kokoro (> ${AUDIO_MAX}) – chưa xuất, word-audio sẽ render rồi lượt sau xuất (vd ${no.slice(0, 5).join(', ')})`); process.exit(4); } }
 const checked = JSON.parse(fs.readFileSync(arg('--checked'), 'utf8')), b = { id, source: 'lexicon-expand', n: keys.length, checked, at: new Date().toISOString().slice(0, 10) };
 const s = spot(b); b.status = s.ok ? 'published' : 'rejected'; if (!s.ok) b.why = s.why;
 fs.mkdirSync(new URL('content/qa/batches/', ROOT), { recursive: true });

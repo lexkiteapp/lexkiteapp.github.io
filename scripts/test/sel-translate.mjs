@@ -14,7 +14,7 @@ const WEB = 'web';
 let n = 0, fails = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8');
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
-const css = fs.readFileSync(path.join(WEB, 'css/style.css'), 'utf8');
+const css = (fs.readFileSync(path.join(WEB, 'css/style.css'), 'utf8') + fs.readFileSync(path.join(WEB, 'css/lazy-ui.css'), 'utf8'));
 const vc = new jsdom.VirtualConsole(); vc.on('jsdomError', e => { if (!/Not implemented|Could not parse CSS/.test(e.message)) console.error(e.message); });
 const dom = new JSDOM(html.replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '').replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, '').replace('</head>', `<style>${css}</style></head>`), { url: 'http://localhost/app/#/home', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
 const w = dom.window, errors = [];

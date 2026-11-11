@@ -32,12 +32,11 @@ jobs:
           L="$LANGS_IN"; [ -z "$L" ] && L="vi $(grep -v '^#' scripts/i18n-langs.txt | tr '\n' ' ')"
           for l in $L; do
             node scripts/gen-sent-packs.mjs "$l" || echo "lỗi $l"
-            git add -A web/packs/sent
-            git diff --cached --quiet && continue
-            git commit -q -m "Bản dịch câu bài học: $l [CF-Pages-Skip] [skip ci]"
-            [ "$GITHUB_REF" = refs/heads/main ] || continue   # nhánh khác: giữ cục bộ → artifact ở bước cuối
-            ok=0; for i in 1 2 3 4 5; do git pull -q --rebase --autostash -X theirs origin main && git push -q origin HEAD:main && { ok=1; break; }; sleep $((i * 7)); done
-            [ "$ok" = 1 ] || { echo "::error::không đẩy được lên main (BOT_DEPLOY_KEY / ruleset?)"; exit 1; }
+            if [ "$GITHUB_REF" = refs/heads/main ]; then
+              bash scripts/ci/push-main.sh "Bản dịch câu bài học: $l" web/packs/sent || exit 1
+            else   # nhánh khác: giữ cục bộ → artifact ở bước cuối
+              git add -A web/packs/sent; git diff --cached --quiet || git commit -q -m "Bản dịch câu bài học: $l [CF-Pages-Skip] [skip ci]"
+            fi
           done
       - name: Độ phủ
         run: for d in web/packs/sent/*/; do echo "$d $(cat $d*.json | grep -o '":\["' | wc -l)"; done

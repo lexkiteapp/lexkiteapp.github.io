@@ -58,7 +58,7 @@ quiz: [
 
 कई छात्र इस चरण में इसलिए अंक खो देते हैं क्योंकि वे अत्यधिक संक्षिप्त उत्तर देते हैं या अपने व्यक्तिगत अनुभवों तक ही सीमित रह जाते हैं। बैंड 7 या 8 प्राप्त करने के लिए आपको व्यक्तिगत दायरे से बाहर निकलकर सामान्य सामाजिक स्तर पर सोचना और तर्क देना सीखना होगा। इसके लिए समृद्ध शब्दावली और सही वाक्य विन्यास आवश्यक है। यदि आप [ielts speaking band 7](/hi/blog/ielts-speaking-band-7-hindi/) की तैयारी कर रहे हैं, तो विश्लेषणात्मक गहराई का निर्माण करना आपकी सर्वोच्च प्राथमिकता होनी चाहिए।
 
-इसके अलावा, विचारों के प्रवाह को बनाए रखने के लिए [ielts collocations in hindi](/hi/blog/ielts-collocations-in-hindi-guide/) का सटीक उपयोग और [ielts vocabulary environment](/hi/blog/ielts-vocabulary-environment-climate-change-hindi/) जैसे विशिष्ट अकादमिक शब्दों का ज्ञान अनिवार्य हो जाता है। आप [vocabulary list](/tu-vung/) से आवश्यक शब्दावली देख सकते हैं और दैनिक अभ्यास जारी रख सकते हैं।
+इसके अलावा, विचारों के प्रवाह को बनाए रखने के लिए [ielts collocations in hindi](/hi/blog/ielts-collocations-in-hindi-guide/) का सटीक उपयोग और [ielts vocabulary environment](/hi/blog/ielts-vocabulary-environment-climate-change-hindi/) जैसे विशिष्ट अकादमिक शब्दों का ज्ञान अनिवार्य हो जाता है। आप [vocabulary list](/en/vocabulary/) से आवश्यक शब्दावली देख सकते हैं और दैनिक अभ्यास जारी रख सकते हैं।
 
 ![Lexkite शब्दकोश में resilient शब्द का अर्थ और IPA ध्वन्यात्मक प्रतीक](media:dict "Lexkite शब्दकोश में resilient शब्द का अर्थ और IPA ध्वन्यात्मक प्रतीक देखकर अकादमिक शब्दावली को समृद्ध करें")
 

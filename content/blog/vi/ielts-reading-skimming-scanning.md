@@ -120,6 +120,8 @@ Kỹ thuật giúp bạn tiết kiệm thời gian, nhưng **vốn từ** mới 
 - **Ôn lại từ đúng lúc sắp quên:** dùng [flashcard có lập lịch](/#/review) thay vì đọc lại danh sách.
 - **Đọc lại bài cũ sau một tuần:** bạn sẽ thấy mình đọc nhanh hơn rõ rệt, đó là động lực tốt.
 
+Khi đã nắm kỹ thuật đọc lướt, hãy xem thêm [cách phân bổ thời gian IELTS Reading 60 phút](/vi/blog/cach-phan-bo-thoi-gian-ielts-reading-60-phut/) để chia thời gian cho từng passage.
+
 ## Câu hỏi thường gặp
 
 ### Skimming có làm mình bỏ sót thông tin quan trọng không?

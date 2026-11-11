@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite YouTube Video Thumbnail Template (16:9)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            teal: {
+              950: '#071618',
+              900: '#0a1d20',
+              850: '#0e262a',
+              800: '#14363c',
+            },
+            coral: {
+              DEFAULT: '#FF6433',
+              dark: '#E04A1B',
+            },
+            sun: {
+              DEFAULT: '#FFB800',
+              bright: '#FFCA28',
+            },
+            cream: {
+              DEFAULT: '#FFF7EE',
+              soft: '#F4ECE1',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #050d0e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow: hidden;
+    }
+
+    /* 16:9 container at standard 1280x720 canvas dimensions */
+    .thumbnail-canvas {
+      width: 1280px;
+      height: 720px;
+      position: relative;
+      background: radial-gradient(circle at 25% 35%, #102d33 0%, #0a1f23 50%, #061417 100%);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+    }
+
+    /* Tactile graphic accents & subtle depth grids */
+    .grid-pattern {
+      background-image: radial-gradient(rgba(43, 163, 154, 0.12) 1.5px, transparent 1.5px);
+      background-size: 32px 32px;
+    }
+
+    .giant-number-shadow {
+      text-shadow: 0 16px 0 #D48800, 0 24px 30px rgba(0, 0, 0, 0.55);
+    }
+
+    .title-shadow {
+      text-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 16:9 Master Viewport (1280x720) -->
+  <div class="thumbnail-canvas flex flex-col justify-between p-16 select-none relative">
+    
+    <!-- Background Texture & Ambient Lights -->
+    <div class="absolute inset-0 grid-pattern pointer-events-none opacity-40"></div>
+    
+    <!-- Soft architectural glow circles behind elements for high contrast -->
+    <div class="absolute -top-32 -left-32 w-[540px] h-[540px] rounded-full bg-teal-500/10 blur-[90px] pointer-events-none"></div>
+    <div class="absolute bottom-0 right-1/4 w-[460px] h-[460px] rounded-full bg-sun/10 blur-[110px] pointer-events-none"></div>
+    
+    <!-- TOP BAR ROW -->
+    <div class="relative z-20 flex items-center justify-between w-full">
+      <!-- Tag Pill: Small coral tag "Band 7+" -->
+      <div class="flex items-center gap-3">
+        <div class="inline-flex items-center gap-2 bg-coral px-5 py-2.5 rounded-full shadow-[0_4px_0_0_#C53F14] border-2 border-[#FFA382]">
+          <span class="w-2.5 h-2.5 rounded-full bg-cream animate-pulse"></span>
+          <span class="text-cream text-xl font-extrabold tracking-wider uppercase font-sans">Band 7+</span>
+        </div>
+        <div class="bg-teal-900/80 backdrop-blur-md px-4 py-2 rounded-full border border-teal-700/40 text-teal-300 text-sm font-bold tracking-wide">
+          IELTS MASTERCLASS
+        </div>
+      </div>
+
+      <!-- Small kite logo mark with "lexkite" wordmark at top right -->
+      <div class="flex items-center gap-3 bg-teal-950/70 backdrop-blur-md px-5 py-2.5 rounded-2xl border border-teal-800/60 shadow-lg">
+        <!-- Kite Diamond Icon -->
+        <svg class="w-8 h-8 text-teal-400 drop-shadow-[0_2px_8px_rgba(43,163,154,0.4)]" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 2L29 16L16 30L3 16L16 2Z" fill="#2BA39A"/>
+          <path d="M16 2L29 16L16 19L3 16L16 2Z" fill="#3DCEBF"/>
+          <circle cx="16" cy="16" r="3.5" fill="#FFF7EE"/>
+        </svg>
+        <span class="text-cream text-2xl font-black tracking-tight lowercase">lexkite</span>
+      </div>
+    </div>
+
+    <!-- MAIN BODY CONTENT (Left Text Stack + Giant Number) -->
+    <div class="relative z-20 flex items-center gap-8 my-auto">
+      
+      <!-- Huge Yellow Number "10" with physical tactile ledge -->
+      <div class="flex flex-col items-center justify-center">
+        <div class="text-[250px] leading-[0.78] font-black text-sun tracking-tighter giant-number-shadow font-sans select-none scale-105 origin-left">
+          10
+        </div>
+      </div>
+
+      <!-- Bold Two-Line Title: "IELTS WORDS / for travel" -->
+      <div class="flex flex-col justify-center gap-2 pl-4">
+        <!-- Line 1: IELTS WORDS -->
+        <h1 class="text-7xl font-extrabold text-cream uppercase tracking-tight title-shadow leading-none">
+          IELTS WORDS
+        </h1>
+        
+        <!-- Line 2: for travel (Highlighted with contrasting tactile pill or warm sunny tone) -->
+        <div class="flex items-center gap-4 mt-1">
+          <span class="text-6xl font-black text-sun-bright lowercase tracking-normal">
+            for travel
+          </span>
+          <!-- Mini vocabulary badge -->
+          <span class="bg-[#143c42] text-teal-300 text-base font-bold px-3.5 py-1.5 rounded-lg border border-teal-600/40 uppercase tracking-widest">
+            High-Yield
+          </span>
+        </div>
+
+        <!-- High-contrast supporting prompt chip -->
+        <div class="flex items-center gap-3 mt-4 text-cream-soft/80 text-xl font-semibold">
+          <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-coral text-cream text-xs font-black">✓</span>
+          <span>Collocations &amp; Topic Vocabulary</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM ROW / FOOTER CONSTRAINTS -->
+    <div class="relative z-20 flex items-end justify-between w-full h-12">
+      <!-- Left subtle branding/topic note -->
+      <div class="flex items-center gap-3 text-teal-400/80 font-bold text-sm tracking-widest uppercase">
+        <span class="w-8 h-1 bg-coral rounded-full"></span>
+        <span>Daily Academic Vocabulary Boost</span>
+      </div>
+
+      <!-- Keep bottom-right corner empty (standard YouTube duration timestamp badge safe zone: 160px x 60px) -->
+      <div class="w-44 h-14 pointer-events-none opacity-0">
+        <!-- Safe margin area preserved -->
+      </div>
+    </div>
+
+    <!-- FLAT 2D ILLUSTRATED TEACHER (Waist-up, standing on bottom edge, on the right side pointing left towards title) -->
+    <!-- Positioned to the right, touching the bottom, avoiding outline or halo, leaving bottom-right safe for video badge -->
+    <div class="absolute right-[85px] bottom-0 z-10 w-[420px] h-[580px] pointer-events-none flex items-end justify-center">
+      <svg viewBox="0 0 420 580" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full drop-shadow-2xl">
+        <!-- Shadow base on bottom edge -->
+        <ellipse cx="210" cy="570" rx="160" ry="12" fill="#040e10" fill-opacity="0.6" />
+
+        <!-- Flat 2D Body / Torso (Waist up, standing cleanly on bottom edge) -->
+        <!-- Navy/Teal Suit / Jacket with Tactile Cut -->
+        <path d="M90 580C88 470 120 370 160 330C170 320 250 320 260 330C300 370 332 470 330 580H90Z" fill="#18434B"/>
+        
+        <!-- Shirt / Collar -->
+        <path d="M175 325L210 395L245 325C230 315 190 315 175 325Z" fill="#FFF7EE"/>
+        <!-- Coral Tie -->
+        <path d="M204 350L216 350L220 460L210 480L200 460L204 350Z" fill="#FF6433"/>
+        <path d="M203 345H217L214 362H206L203 345Z" fill="#E04A1B"/>
+
+        <!-- Jacket Lapels -->
+        <path d="M160 330L202 460L185 460L145 355C150 345 155 336 160 330Z" fill="#113238"/>
+        <path d="M260 330L218 460L235 460L275 355C270 345 265 336 260 330Z" fill="#113238"/>
+
+        <!-- Neck -->
+        <path d="M190 270H230V330H190V270Z" fill="#E8A87C"/>
+        <!-- Neck shadow under chin -->
+        <path d="M190 270C202 285 218 285 230 270V288C218 298 202 298 190 288V270Z" fill="#D38B5F"/>
+
+        <!-- Head / Face -->
+        <path d="M165 190C165 130 255 130 255 190C255 245 235 278 210 278C185 278 165 245 165 190Z" fill="#F5B88F"/>
+
+        <!-- Ears -->
+        <path d="M160 195C160 185 165 180 168 185V210C165 215 160 210 160 195Z" fill="#E8A87C"/>
+        <path d="M260 195C260 185 255 180 252 185V210C255 215 260 210 260 195Z" fill="#E8A87C"/>
+
+        <!-- Modern Flat Haircut (Dark Brown / Espresso) -->
+        <path d="M160 185C158 130 180 95 210 95C245 95 268 120 264 175C255 170 248 165 238 168C222 172 208 160 190 165C175 169 168 178 160 185Z" fill="#241814"/>
+
+        <!-- Friendly Smile & Facial Features -->
+        <!-- Eyebrows -->
+        <path d="M182 176C188 173 196 175 198 178" stroke="#241814" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M222 178C224 175 232 173 238 176" stroke="#241814" stroke-width="3.5" stroke-linecap="round"/>
+        
+        <!-- Eyes (Happy open arcs / friendly pupils) -->
+        <circle cx="190" cy="190" r="4.5" fill="#241814"/>
+        <circle cx="230" cy="190" r="4.5" fill="#241814"/>
+        <circle cx="191.5" cy="188.5" r="1.5" fill="#FFF7EE"/>
+        <circle cx="231.5" cy="188.5" r="1.5" fill="#FFF7EE"/>
+
+        <!-- Nose -->
+        <path d="M210 192V208C210 212 214 214 217 212" stroke="#D38B5F" stroke-width="3" stroke-linecap="round"/>
+
+        <!-- Warm Friendly Smile -->
+        <path d="M195 228C202 242 218 242 225 228" stroke="#A94A28" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M196 230C203 241 217 241 224 230Z" fill="#FFFFFF"/>
+
+        <!-- Flat Spectacles / Glasses (Modern Rounded Teal Frame for Teacher Authority) -->
+        <circle cx="190" cy="190" r="14" stroke="#2BA39A" stroke-width="3" fill="none"/>
+        <circle cx="230" cy="190" r="14" stroke="#2BA39A" stroke-width="3" fill="none"/>
+        <path d="M204 190H216" stroke="#2BA39A" stroke-width="3"/>
+        <path d="M176 190L165 186" stroke="#2BA39A" stroke-width="3"/>
+        <path d="M244 190L255 186" stroke="#2BA39A" stroke-width="3"/>
+
+        <!-- LEFT ARM / HAND POINTING TOWARD THE TITLE (Towards viewer's left side) -->
+        <!-- Arm extended gracefully towards the left title "IELTS WORDS" -->
+        <path d="M135 375L35 315C28 310 25 298 32 290C38 284 48 284 55 288L148 340L135 375Z" fill="#18434B"/>
+        <!-- Hand with clear, flat index finger pointing leftward -->
+        <!-- Wrist -->
+        <path d="M35 305L18 295L25 280L42 290L35 305Z" fill="#F5B88F"/>
+        <!-- Index finger pointing directly to the title -->
+        <path d="M22 284L-25 284C-32 284 -36 276 -30 270C-26 266 -18 266 -12 266L20 270L22 284Z" fill="#F5B88F"/>
+        <!-- Curled other fingers -->
+        <rect x="5" y="272" width="16" height="24" rx="7" fill="#E8A87C"/>
+        <!-- Thumb -->
+        <path d="M14 268C14 258 8 252 0 255C-4 257 -2 265 5 268L14 268Z" fill="#E8A87C"/>
+
+        <!-- Right Arm resting naturally at side (leaving bottom right spacious) -->
+        <path d="M285 365C310 400 325 450 330 510L300 520C295 470 280 430 260 380L285 365Z" fill="#13383E"/>
+      </svg>
+    </div>
+
+  </div>
+
+</body>
+</html>

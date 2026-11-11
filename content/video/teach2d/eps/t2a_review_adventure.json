@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"adventure\" mean?",
+  "keyword": "adventure",
+  "value": "Adventure means an exciting and often dangerous experience.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=adventure",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"adventure\" mean?",
+    "description": "Adventure means an exciting and often dangerous experience.\n\nReview your words, free: https://lexkite.com/app/#/review?w=adventure\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "adventure",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"adventure\" mean?\n\nAdventure means an exciting and often dangerous experience.\n\nReview your words, free: https://lexkite.com/app/#/review?w=adventure"
+   },
+   "instagram": {
+    "caption": "What does \"adventure\" mean?\n\nAdventure means an exciting and often dangerous experience.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"adventure\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means an exciting and often dangerous experience. Adventure means an exciting and often dangerous experience. Practice it with a free quiz: {link}"
  }
 }

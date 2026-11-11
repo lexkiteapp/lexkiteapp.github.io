@@ -16,7 +16,7 @@ Cập nhật 15/10/2026. Không chứa mật khẩu/khóa bí mật. Chi tiết 
 | Ảnh RIÊNG từng bài | Cloudflare R2 `lexkite-blog-media` → https://media.lexkite.com/blog/p/… (Worker `lexkite-media`, binding `BLOG_MEDIA`); dự phòng repo `lexkite-media/blog/p/` | Ảnh bìa + ảnh chụp app theo từng bài – xem § Ảnh riêng từng bài |
 | Google Search Console | Thuộc tính miền `lexkite.com` (tài khoản vintagezulilyjewelry@gmail.com), xác minh TXT qua Cloudflare | Đã gửi https://lexkite.com/sitemap.xml |
 | IndexNow (Bing, Yandex…) | Khóa công khai `web/24d0ecfb2b8806b6577efab517b6b28d.txt` + `content/blog/config.json` | `scripts/indexnow.mjs`, tự chạy sau mỗi lần đăng |
-| Video | Kênh YouTube Lexkite (chưa có) | Điền ID vào `{{youtube: ID | …}}` trong bài |
+| Video | Kênh YouTube Lexkite (chưa có) | Điền ID vào `{{youtube: ID | …}}` – chỉ ID trong `content/blog/youtube.json` (thêm bằng `node scripts/blog-youtube.mjs add <ID>`: oEmbed có thật + cho nhúng; tự xem đúng chủ đề). Không có video phù hợp → để trống ID |
 | Lịch viết bài | Claude desktop → Scheduled → "Lexkite: viết lô bài blog hằng tuần" (thứ Hai 9h) | ~15 bài/tuần, hỏi anh trước khi gộp/đẩy |
 
 

@@ -1,0 +1,33 @@
+{
+ "_doc": "B\u1ea3ng t\u1ed1i cho reflex-run (9/11, P07, Lexkite Kit Tactile Night): vai m\u00e0u x\u1ebfp theo \u0111\u1ed9 s\u00e1ng/s\u1eafc \u0111\u1ed9, c\u1eb7p ch\u1eef-n\u1ec1n ki\u1ec3m t\u01b0\u01a1ng ph\u1ea3n \u22654.5; khai b\u00e1o CSS trong <style> \u0111\u1ed5i theo t\u1eebng d\u00f2ng.",
+ "config": {},
+ "hex": {},
+ "cls": {
+  "hover:bg-cream-well": "hover:bg-[#2A3F45]",
+  "bg-secondary-container/30": "bg-[#C7482C]/30",
+  "bg-secondary-container": "bg-[#C7482C]",
+  "bg-mint-correct-fill": "bg-[#2A3F45]",
+  "bg-[#ECE4D7]": "bg-[#2A3F45]",
+  "bg-surface-container-lowest": "bg-[#172427]",
+  "bg-[#42cfbe]/40": "bg-[#287E74]/40",
+  "bg-surface-container": "bg-[#2A3F45]",
+  "bg-cream-well": "bg-[#2A3F45]",
+  "bg-surface": "bg-[#1E2F33]",
+  "bg-surface-container-low/70": "bg-[#2A3F45]/70",
+  "bg-secondary-container/20": "bg-[#C7482C]/20",
+  "bg-primary-container": "bg-[#12514D]",
+  "border-mint-correct-border": "border-[#0B574E]",
+  "border-tactile-border/80": "border-[#4A6870]/80",
+  "text-mint-correct-border": "text-[#5EEAD4]",
+  "border-teal-deep": "border-[#12514D]",
+  "text-text-charcoal": "text-[#E8F1F0]",
+  "border-tactile-border/60": "border-[#4A6870]/60",
+  "border-tactile-border-dark": "border-[#4A6870]",
+  "text-text-muted": "text-[#E8F1F0]",
+  "text-primary": "text-[#5EEAD4]",
+  "border-coral-bevel": "border-[#9D321B]",
+  "hover:text-mint-correct-border": "hover:text-[#5EEAD4]",
+  "border-tactile-border": "border-[#4A6870]",
+  "text-primary-container": "text-[#5EEAD4]"
+ }
+}

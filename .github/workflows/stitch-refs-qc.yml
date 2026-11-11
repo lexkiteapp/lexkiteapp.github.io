@@ -21,8 +21,10 @@ jobs:
         with: { node-version: 22 }
       - run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 pngjs@7.0.0
-          npx playwright install --with-deps chromium >/dev/null
-          sudo apt-get install -y -qq imagemagick fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji >/dev/null || true
+          bash scripts/ci/pw-install.sh --with-deps chromium
+        timeout-minutes: 12
+      - uses: ./.github/actions/apt
+        with: { packages: imagemagick fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji }
       - name: Vẽ + chấm từng mẫu (sáng/tối)
         run: node scripts/test/stitch-refs-qc.mjs brand/stitch/v2 out/stitch-refs-qc
       - if: always()

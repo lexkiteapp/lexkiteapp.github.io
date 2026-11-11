@@ -182,6 +182,8 @@ IELTS 라이팅 채점관은 수험생이 상황에 맞는 적절한 레지스�
 
 ---
 
+연결어를 단락 구성 속에서 연습하려면 [IELTS Writing Task 2 4단락 에세이 템플릿](/ko/blog/ielts-writing-task-2-template-4danrak/)을 함께 참고하세요.
+
 ## 자주 묻는 질문 (FAQ)
 
 ### 에세이에 접속부사를 많이 쓸수록 점수가 올라가나요?

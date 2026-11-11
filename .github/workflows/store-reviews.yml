@@ -1,0 +1,38 @@
+# ⭐ Đánh giá App Store + Google Play → artifact (reviews.json, REVIEWS.md) + tóm tắt lượt chạy. Chỉ đọc, không trả lời đánh giá.
+# App Store: App Store Connect API (ASC_KEY_ID/ASC_ISSUER_ID/ASC_KEY_P8 – khoá Admin đang dùng cho TestFlight). Google Play: secret PLAY_SERVICE_ACCOUNT_JSON (chưa có → bỏ qua, có ghi chú).
+# Script + test: scripts/store/reviews.mjs, scripts/test/store-reviews.mjs. Không in bí mật.
+name: Store reviews
+on:
+  pull_request:
+    branches: [main]
+    paths: ['scripts/store/reviews.mjs', '.github/workflows/store-reviews.yml']
+  schedule:
+    - cron: '20 1 * * 1'   # thứ Hai 08:20 giờ Việt Nam
+  workflow_dispatch:
+    inputs:
+      days: { description: 'Số ngày App Store (Play API chỉ có ~7 ngày)', required: false, default: '30' }
+permissions:
+  contents: read
+concurrency:
+  group: store-reviews
+  cancel-in-progress: true
+jobs:
+  reviews:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: scripts, fetch-depth: 1 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Kéo đánh giá
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+          PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          DAYS: ${{ inputs.days || '30' }}
+        run: node scripts/store/reviews.mjs out/reviews --days "$DAYS"
+      - if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with: { name: store-reviews, path: out/reviews, retention-days: 30, if-no-files-found: ignore }

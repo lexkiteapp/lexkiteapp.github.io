@@ -77,5 +77,46 @@
   "words": 44,
   "seconds": 26.9,
   "wpm": 98
+ },
+ "publish": {
+  "title": "TOEIC question. Ten seconds!",
+  "keyword": "will open",
+  "value": "TOEIC Part 5: the answer is \"will open\", because of \"next spring\".",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#toeic",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/toeic",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "TOEIC question. Ten seconds!",
+    "description": "TOEIC Part 5: the answer is \"will open\", because of \"next spring\".\n\nPractice TOEIC free, free: https://lexkite.com/app/#/toeic\n\nSeries: TOEIC Word · Teacher: Carlos\n\n#learnenglish #englishtips #toeic #englishteacher",
+    "tags": [
+     "will open",
+     "TOEIC Word",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "TOEIC question. Ten seconds!\n\nTOEIC Part 5: the answer is \"will open\", because of \"next spring\".\n\nPractice TOEIC free, free: https://lexkite.com/app/#/toeic"
+   },
+   "instagram": {
+    "caption": "TOEIC question. Ten seconds!\n\nTOEIC Part 5: the answer is \"will open\", because of \"next spring\".\n\nPractice TOEIC free: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#toeic",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "TOEIC question. Ten seconds! #learnenglish #englishtips #toeic"
+   }
+  },
+  "first_comment": "Answer: Will open! Next spring is the future. TOEIC Part 5: the answer is \"will open\", because of \"next spring\". Try the full lesson and quiz here: {link}"
  }
 }

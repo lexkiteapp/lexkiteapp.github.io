@@ -117,6 +117,8 @@ Cümlelerinizi birbirine bağlarken "also" veya "because" gibi basit sözcükler
 - **Tarih belirsizliklerini önleme**: *04/05/2026* gibi tamamen rakamdan oluşan tarihler İngiltere'de 4 Mayıs, ABD'de ise 5 Nisan anlamına gelir. Metin içinde ayı daima harfle yazın (*May 4, 2026* veya *4 May 2026*).
 - **Başlıklarda büyük harf kuralı (*Title Case*)**: İngilizce raporlarda ara başlıkların ana kelimeleri büyük harfle başlar, bu da dokümana resmi bir yayın ciddiyeti kazandırır.
 
+Raporlarda kısaltma kullanırken okuyucunun bilip bilmediğini düşünün; sık kullanılanlar [iş hayatında İngilizce kısaltmalar rehberinde](/tr/blog/is-hayatinda-ingilizce-kisaltmalar-email-rehberi/) derlendi.
+
 ## Lexkite ile iş İngilizcesi becerilerinizi geliştirin
 
 İngilizce rapor yazma ustalığı, kelimeleri Türkçe düşünmeden doğrudan doğru bağlamda zihinde canlandırabilmekle kazanılır:

@@ -7,6 +7,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { retry5xx } from '../lib/retry5xx.mjs';
 import { fill, loadTemplate, loadCtx, preflight, failed } from './template.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -46,7 +47,7 @@ async function studio(body) {
 async function dispatch(jobId) {
   const tok = process.env.GITHUB_TOKEN, repo = process.env.GITHUB_REPOSITORY;
   if (!tok || !repo) throw new Error('thiếu GITHUB_TOKEN/GITHUB_REPOSITORY để gọi video.yml');
-  const r = await fetch(`https://api.github.com/repos/${repo}/actions/workflows/video.yml/dispatches`, { method: 'POST', headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json', 'User-Agent': 'lexkite-auto' }, body: JSON.stringify({ ref: process.env.AUTO_REF || 'main', inputs: { job_id: jobId } }) });
+  const r = await retry5xx(() => fetch(`https://api.github.com/repos/${repo}/actions/workflows/video.yml/dispatches`, { method: 'POST', headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json', 'User-Agent': 'lexkite-auto' }, body: JSON.stringify({ ref: process.env.AUTO_REF || 'main', inputs: { job_id: jobId } }) }));
   if (r.status !== 204) throw new Error(`gọi video.yml lỗi HTTP ${r.status}: ${(await r.text()).slice(0, 200)}`);
 }
 const summary = s => { console.log(s); if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, s + '\n'); };

@@ -1,0 +1,138 @@
+{
+ "id": "m20",
+ "level": "C1",
+ "lo": "M.C1.01",
+ "activity": "summarise",
+ "title": "Should short-term lets be capped?",
+ "scenario": "Councillor Varga is preparing for a housing committee and has asked you for a precise summary of this opinion essay. She needs the argument with its distinctions, not a list of headlines.",
+ "source": {
+  "kind": "text",
+  "text": [
+   "When I rented a flat for a fortnight last summer, the owner proudly told me that it had changed her life. I mention it only because stories like hers dominate the debate over short-term holiday lets, and they tell us little about what a city should do.",
+   "Advocates of strict limits point to a clear pattern: neighbourhoods with many holiday lets have seen rents rise faster than elsewhere. The trouble is that this is a correlation. Popular districts attract both tourists and higher rents, so we cannot yet say which causes which. The best studies, which compare similar districts before and after new rules, suggest a real but modest effect, and one concentrated in a handful of central streets rather than across the whole city.",
+   "This matters because blanket bans are sold as a way of returning homes to long-term tenants. Evidence from cities that have tried them is discouraging: many of the properties were sold, left empty or converted to other commercial uses, and few reappeared on the rental market. A ban can therefore remove a nuisance without delivering the benefit that justified it.",
+   "None of this means that nothing should be done. A mandatory register of every listing would give the council data it currently lacks, and an annual cap on the number of nights a whole home can be let, set more tightly in the most affected streets, would target the problem where it exists. Such a system is harder to design than a ban, but it is likelier to achieve what voters actually want.",
+   "Where hosts rent a spare room in their own home, the harm is much smaller and the rules should be lighter still."
+  ]
+ },
+ "task": {
+  "mode": "write",
+  "audience": "a city councillor preparing for a committee",
+  "prompt": "Write a summary for Councillor Varga (95–150 words). Keep the writer's distinctions (what is proven and what is not) and the policy conclusion.",
+  "min_words": 95,
+  "max_words": 150
+ },
+ "points": [
+  {
+   "id": "corr",
+   "idea": "Rents rose faster where there are many lets, but this is a correlation, so causation is unproven.",
+   "checks": [
+    [
+     "rent"
+    ],
+    [
+     "correlat",
+     "association",
+     "link",
+     "cannot say",
+     "unproven",
+     "not clear",
+     "causal"
+    ]
+   ]
+  },
+  {
+   "id": "uneven",
+   "idea": "The effect is modest and concentrated in a few central areas.",
+   "checks": [
+    [
+     "modest",
+     "small",
+     "limited"
+    ],
+    [
+     "central",
+     "few streets",
+     "handful",
+     "concentrated"
+    ]
+   ]
+  },
+  {
+   "id": "ban",
+   "idea": "Bans often fail because the homes do not return to the long-term rental market.",
+   "checks": [
+    [
+     "ban"
+    ],
+    [
+     "not return",
+     "don't return",
+     "rarely return",
+     "few",
+     "did not",
+     "sold",
+     "empty"
+    ]
+   ]
+  },
+  {
+   "id": "alt",
+   "idea": "The writer prefers a register and a cap on nights, tighter in affected streets.",
+   "checks": [
+    [
+     "regist",
+     "licen"
+    ],
+    [
+     "cap",
+     "limit"
+    ]
+   ]
+  },
+  {
+   "id": "room",
+   "idea": "Renting a spare room does little harm and should face lighter rules.",
+   "checks": [
+    [
+     "spare room",
+     "room in",
+     "own home"
+    ],
+    [
+     "lighter",
+     "less strict",
+     "little harm",
+     "smaller",
+     "fewer rules"
+    ]
+   ]
+  }
+ ],
+ "leave_out": [
+  {
+   "idea": "The opening anecdote about the writer's holiday.",
+   "checks": [
+    [
+     "holiday",
+     "fortnight",
+     "anecdote",
+     "last summer"
+    ]
+   ]
+  }
+ ],
+ "model": "Councillor, the writer argues against blanket bans on short-term lets and for a targeted system. The evidence is weaker than campaigners claim: rents did rise faster where lets are common, but this is only a correlation, as popular districts draw both tourists and higher rents. The better studies find a real but modest effect, concentrated in a few central streets. Bans are also disappointing in practice, because the homes concerned were mostly sold, left empty or put to other commercial uses instead of returning to long-term tenants. The writer therefore favours a compulsory register and an annual cap on nights, stricter in the worst-affected streets. Renting a spare room in one's own home does little harm and should be regulated more lightly.",
+ "useful": [
+  "The writer argues against … and for …",
+  "The evidence is weaker than … claim",
+  "this is only a correlation, as …",
+  "a real but modest effect",
+  "… instead of returning to …"
+ ],
+ "tips": [
+  "Accurate summaries of demanding texts keep the writer's qualifications. \"A real but modest effect\" is not the same claim as \"a big effect\".",
+  "Separate three layers for the reader: what the evidence shows, what it does not show, and what the writer recommends."
+ ],
+ "explain": "The councillor needs the correlation-versus-cause distinction, the limited and local effect, why bans disappoint, the alternative policy and the lighter rule for spare rooms. The holiday anecdote is only a hook."
+}

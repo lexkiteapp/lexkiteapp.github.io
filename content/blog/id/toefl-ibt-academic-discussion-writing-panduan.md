@@ -66,6 +66,8 @@ Artikel ini menyajikan panduan komprehensif penulisan diskusi akademik TOEFL, fo
 
 Dengan batas waktu yang hanya 600 detik, Anda tidak memiliki ruang untuk merenung terlalu lama memikirkan struktur tulisan yang rumit. Anda memerlukan formula baku yang bisa langsung diterapkan pada topik apa pun.
 
+Untuk pembahasan lebih lengkap, baca juga [panduan format baru TOEFL iBT 2026](/id/blog/format-baru-toefl-ibt-2026-panduan/).
+
 Formula 4 langkah berikut memastikan respons Anda memenuhi semua ekspektasi rubrik ETS dalam rentang 120 hingga 150 kata:
 
 ```text

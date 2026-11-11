@@ -155,5 +155,13 @@ const popOnly = async (E, h) => { E.w.History.prototype.replaceState.call(E.w.hi
   E.App.ux1On = () => false;
   ok(G.isLearn('review', '', 'hub=1'), 'isLearn: ux1 tắt → study.js mở phiên ôn ngay cả với ?hub=1 → vẫn là màn học');
 }
+{ // 10) đua điều hướng (route-race, #743): URL đã sang trang khác nhưng `cur` còn là màn học cũ (App.afterRoute chưa chạy) → #view đổi nội dung KHÔNG được chèn thanh thoát vào trang mới
+  const E = await boot(); await toQuick(E);
+  ok(E.d.body.classList.contains('lk-learn'), 'quick là màn học (đua điều hướng)');
+  E.w.History.prototype.replaceState.call(E.w.history, null, '', '#/me'); // URL đổi, afterRoute chưa chạy
+  E.d.getElementById('view').innerHTML = '<h1>Me</h1>'; await tick(80);
+  ok(!E.d.querySelector('#view [data-exit], #view .lk-exitbar'), 'trang đã sang #/me: không bị chèn thanh thoát của màn học cũ');
+  ok(!E.errors.length, 'không lỗi JS: ' + E.errors.join(' | '));
+}
 console.log(fails ? `✗ exit-guard: ${fails}/${n} lỗi` : `✓ exit-guard: ${n} kiểm tra`);
 process.exit(fails ? 1 : 0);

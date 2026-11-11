@@ -72,5 +72,46 @@
   "words": 37,
   "seconds": 23.3,
   "wpm": 95
+ },
+ "publish": {
+  "title": "What does \"communicate\" mean?",
+  "keyword": "communicate",
+  "value": "Communicate means to give and exchange information.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=communicate",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"communicate\" mean?",
+    "description": "Communicate means to give and exchange information.\n\nReview your words, free: https://lexkite.com/app/#/review?w=communicate\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "communicate",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"communicate\" mean?\n\nCommunicate means to give and exchange information.\n\nReview your words, free: https://lexkite.com/app/#/review?w=communicate"
+   },
+   "instagram": {
+    "caption": "What does \"communicate\" mean?\n\nCommunicate means to give and exchange information.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"communicate\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to give and exchange information. Communicate means to give and exchange information. More practice like this (free): {link}"
  }
 }
