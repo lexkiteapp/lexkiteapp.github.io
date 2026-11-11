@@ -1,6 +1,18 @@
 {
  "_note": "Teach2D episodes that passed QC (bank.py). Videos: CI artifact tv-bank-<run> (90 days). Do not edit by hand.",
  "eps": {
+  "t2_l1_*": {
+   "run": "43028189144",
+   "at": "2026-11-11T13:23Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 1
+  },
   "t2a_review_access": {
    "run": "42534524390",
    "at": "2026-11-08T23:51Z",
