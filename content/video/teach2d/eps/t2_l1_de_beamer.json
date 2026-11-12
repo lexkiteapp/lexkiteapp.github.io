@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_beamer",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Beamer is not a projector!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please turn on the beamer.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please turn on the projector.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "A projector shows pictures on a wall.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Projector! Please turn on the projector.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please turn on the beamer.",
+  "right": "Please turn on the projector.",
+  "strike": "beamer",
+  "why": "A projector shows pictures on a wall.",
+  "memory": "Projector shows it.",
+  "quiz": {
+   "stem": "Please turn on the ___.",
+   "options": [
+    "beamer",
+    "projector"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Der „Beamer“ ist kein „beamer“!",
+   "tip": "Im Englischen heißt der Beamer „projector“. „Beamer“ kennt dort kaum jemand.",
+   "caption": "Bist du im Meeting und brauchst den Beamer? 📽️ Falsch: “Please turn on the beamer.” Richtig: “Please turn on the projector.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “projector”. Richtig heißt es: “Please turn on the projector.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Are you in a meeting and need the Beamer?",
+   "tip": "In English a Beamer is a “projector”. Hardly anyone knows “beamer”.",
+   "caption": "Are you in a meeting and need the Beamer? Wrong: “Please turn on the beamer.” Right: “Please turn on the projector.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Der „Beamer“ ist kein „beamer“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Der „Beamer“ ist kein „beamer“!",
+  "keyword": "Please turn on the projector.",
+  "value": "Im Englischen heißt der Beamer „projector“. „Beamer“ kennt dort kaum jemand.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "Der „Beamer“ ist kein „beamer“!",
+    "description": "Bist du im Meeting und brauchst den Beamer? 📽️ Falsch: “Please turn on the beamer.” Richtig: “Please turn on the projector.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "Please turn on the projector.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Bist du im Meeting und brauchst den Beamer? 📽️ Falsch: “Please turn on the beamer.” Richtig: “Please turn on the projector.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Bist du im Meeting und brauchst den Beamer? 📽️ Falsch: “Please turn on the beamer.” Richtig: “Please turn on the projector.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Der „Beamer“ ist kein „beamer“! #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “projector”. Richtig heißt es: “Please turn on the projector.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

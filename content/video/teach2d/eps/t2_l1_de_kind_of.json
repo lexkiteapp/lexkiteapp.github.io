@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_kind_of",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Art is not art here!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: What art of music do you like?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What kind of music do you like?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say kind of, not art of.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Kind! What kind of food do you like?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "What art of music do you like?",
+  "right": "What kind of music do you like?",
+  "strike": "art",
+  "why": "Say kind of, not art of.",
+  "memory": "Kind of music.",
+  "quiz": {
+   "stem": "What ___ of food do you like?",
+   "options": [
+    "art",
+    "kind"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Fragst du nach der „Art“ Musik?",
+   "tip": "„Welche Art von Musik“ sagst du auf Englisch mit „kind of“. „Art“ ist Kunst.",
+   "caption": "Fragst du nach der Art von Musik? 🎵 Falsch: “What art of music do you like?” Richtig: “What kind of music do you like?” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “kind”. Richtig heißt es: “What kind of music do you like?” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Are you asking about the Art of music?",
+   "tip": "For “Art von” say “kind of”. “Art” means Kunst.",
+   "caption": "Are you asking about the Art of music? Wrong: “What art of music do you like?” Right: “What kind of music do you like?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Fragst du nach der „Art“ Musik?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "Fragst du nach der „Art“ Musik?",
+  "keyword": "What kind of music do you like?",
+  "value": "„Welche Art von Musik“ sagst du auf Englisch mit „kind of“. „Art“ ist Kunst.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "Fragst du nach der „Art“ Musik?",
+    "description": "Fragst du nach der Art von Musik? 🎵 Falsch: “What art of music do you like?” Richtig: “What kind of music do you like?” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "What kind of music do you like?",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Fragst du nach der Art von Musik? 🎵 Falsch: “What art of music do you like?” Richtig: “What kind of music do you like?” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Fragst du nach der Art von Musik? 🎵 Falsch: “What art of music do you like?” Richtig: “What kind of music do you like?” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Fragst du nach der „Art“ Musik? #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “kind”. Richtig heißt es: “What kind of music do you like?” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

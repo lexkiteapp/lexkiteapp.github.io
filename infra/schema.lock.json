@@ -60,9 +60,15 @@
   },
   "ddl": "bf29f22f85da6dac"
  },
+ "duel.js": {
+  "vers": {
+   "duel": 1
+  },
+  "ddl": "35dde094bd4c77b1"
+ },
  "hit.js": {
   "vers": {
-   "hit": 1
+   "hit": 2
   },
   "ddl": "f9ae6e8740886f73"
  },

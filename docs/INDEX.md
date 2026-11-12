@@ -6,6 +6,7 @@
 ## Tài liệu hiện hành (docs/)
 - [ADMIN-SECURITY.md](ADMIN-SECURITY.md) — Các lớp bảo vệ trang /admin: adminGate ở API (Origin, rate-limit, Firebase token + email_verified + ADMIN_EMAILS), cổng whoami ở trình duyệt; đọc khi: sửa trang/API quản trị hoặc bật Cloudflare Access
 - [ADS.md](ADS.md) — Thiết kế quảng cáo một lần, mọi cờ TẮT: AdMob (app), AdSense (web), add-on Chrome không bao giờ; chỉ đặt ở điểm nghỉ của bài học; đọc khi: đụng tới quảng cáo, đồng ý, hoặc bật nền tảng quảng cáo mới
+- [ADSENSE-READY.md](ADSENSE-READY.md) — Checklist sẵn sàng duyệt AdSense/AdMob kèm bằng chứng và 3 cú bấm của chủ; đọc khi: gửi lại duyệt quảng cáo hoặc đổi trang bắt buộc/ads.txt
 - [API-KEYS.md](API-KEYS.md) — Bộ quản lý khóa API (Gemini, Groq, OpenRouter, Anthropic, OpenAI, Resend, Brevo, Cloudflare) trong một kho mã hóa, tự xoay vòng và báo sức khỏe; đọc khi: thêm/xoay khóa hoặc sửa _keys.js
 - [ACCOUNTS-LEDGER.md](ACCOUNTS-LEDGER.md) — Sổ tài khoản & khóa trong Admin: dịch vụ/khóa thuộc email nào, giữ ở đâu (chỉ tên), hạn + nhắc 14 ngày, có/thiếu secret. Đọc khi thêm secret hoặc gia hạn token.
 - [ASSET-LIBRARY.md](ASSET-LIBRARY.md) — Kho tài nguyên hình ảnh mô-đun (nhân vật, biểu cảm, phòng, đạo cụ…) để ghép tổ hợp vô hạn cho video, Call Mia, roleplay, bài học; đọc khi: sản xuất hoặc ghép tài nguyên ảnh/nhân vật
@@ -17,14 +18,18 @@
 - [BRAND-RULES.md](BRAND-RULES.md) — Nguồn thương hiệu duy nhất cho Lexkite: bảng màu (Kit chỉ từ web/js/kit.js, teal), thứ đã bỏ (xanh cũ #2F62C0), đổi tên thương hiệu, watermark video; đọc khi: đụng logo, màu, tên, watermark
 - [CHARACTERS.md](CHARACTERS.md) — 1 bộ nhân vật duy nhất: 2 giáo viên 2D Ama/Carlos cho app, add-on, social, video; registry web/teach/characters.json + cổng; đọc khi: đụng bất cứ chỗ nào hiện giáo viên
 - [samples-visual](specs/samples-visual.md) — thư viện công khai lướt bằng mắt (huy hiệu, bento, thẻ, cổng SEO); đọc khi sửa /samples/ và các tab cùng họ
+- [specs/retention-1211.md](specs/retention-1211.md) — baseline giữ chân 12/11 (D1/D7, 5 điểm rơi) + cách đo ở Quản trị; đọc khi: làm vòng thói quen/nhắc/quay lại
+- [specs/backlog-1211.md](specs/backlog-1211.md) — đối chiếu spec ↔ main 12/11: hạng mục #1–#12 xong/dở/chưa; đọc khi: chọn việc tiếp theo trong backlog nâng cấp
 - [SYNC-NOTES.md](SYNC-NOTES.md) — ghi chú giải thích web/js/sync.js; đọc khi: sửa đồng bộ tài khoản
 - [specs/learnability.md](specs/learnability.md) — Spec P0-H Dễ học – dễ nhớ: 12 tiêu chí sư phạm → luật máy đo tầng 0, trọng số, điểm sàn; đọc khi: sửa bộ chấm learnability.mjs hoặc nội dung bài để tăng điểm
 - [specs/home-upgrade.md](specs/home-upgrade.md) — Spec nâng cấp Home 3/11: so 5 app lớn, lát L1–L5 (cô giáo vòng nghỉ mắt mở, Home v2, lưới màn học, thử thách, lộ trình nhiều chặng), cổng CI; đọc khi: sửa Home/#/home hoặc giáo viên trên Home
+- [specs/daily-reels.md](specs/daily-reels.md) — Spec reels hằng ngày tự động 12/11: 6 định dạng, chọn chủ đề → dựng → QC → lịch → số liệu; đọc khi: thêm template reels, đổi lịch đăng hằng ngày
 - [specs/upgrade-2026-11.md](specs/upgrade-2026-11.md) — Spec nâng cấp toàn diện 11/2026: 12 hạng mục chủ gửi 04/11 (top bar, linh vật, nhập tài liệu, Tab mới, đầu vào, shadowing, sổ lỗi, lượt AI, 1v1, kho cộng đồng) so main, 3 đợt; đọc khi: làm bất kỳ hạng mục nào trong đó
 - [specs/import-to-deck.md](specs/import-to-deck.md) — Spec nhập PDF/ePub/link/phụ đề thành bộ thẻ FSRS riêng (đợt 3 upgrade-2026-11); đọc khi sửa anki.js, watch.js, api/ai.js hoặc bộ thẻ riêng
 - [specs/cambridge.md](specs/cambridge.md) — Định dạng đề Cambridge A2–C2 (web/cpack/cambridge/<cấp>/t<N>.js), màn #/cambridge, cổng exam-format-check + cambridge.mjs; đọc khi: viết/soát lô S-CAM hoặc sửa màn Cambridge
 - [specs/content-upgrade-2.md](specs/content-upgrade-2.md) — Nâng cấp nội dung Đợt 2 (05/11): 3 làn gộp/mở khoá/viết, cổng QC, thứ tự O2→O5→O3→O4→O6; đọc khi: mở phiên content-lead hoặc Sonnet viết lô
 - [specs/teach-assets-cdn.md](specs/teach-assets-cdn.md) — Spec kho riêng ảnh/clip giáo viên teach.lexkite.com (Pages tĩnh, băm sha256, CORS, dự phòng /teach/); đọc khi: đổi nơi tải ảnh/clip giáo viên
+- [specs/merge-queue.md](specs/merge-queue.md) — Merge queue + chống xung đột PR, việc chủ bấm ở ruleset; đọc khi: PR kẹt hàng, sửa pr-unconflict
 - [specs/native-apps.md](specs/native-apps.md) — Spec app iOS (SwiftUI) + Android (Compose) native thay bản Capacitor: 29 mục parity (native/shared/parity.json), một nguồn sinh tokens/chuỗi 15 ngôn ngữ/khung/luật chấm điểm (scripts/native/gen.mjs), MVVM + SwiftData/Room, CI native-ios/native-android, lộ trình M0–M6; đọc khi: sửa native/, thêm route web, thay app trên store
 - [specs/native-m2-vectors.md](specs/native-m2-vectors.md) — Lược đồ vector M2 (bài học, rig giáo viên, âm thanh) + ảnh giáo viên đóng gói cho bản port Swift/Kotlin; đọc khi: port/sửa trình học bài, giáo viên, âm thanh native
 - [specs/native-m3-vectors.md](specs/native-m3-vectors.md) — Lược đồ vector M3 `vocab.json` (P04/P05) và kiểm kê màn từ vựng
@@ -37,6 +42,7 @@
 - [specs/kokoro-on-device.md](specs/kokoro-on-device.md) — Kokoro chạy trên máy (kokoro-js, Web Worker) cho chữ chưa có file dựng sẵn: cấp máy, tải lười, R2, cờ kl/kl_pct, lùi giọng máy; đọc khi: sửa web/js/klocal*.js, bật/tắt từ xa
 - [specs/community.md](specs/community.md) — Spec Cộng đồng người học 3/11: phòng học, chat, phòng nói WebRTC, mời bạn/bạn học, học chung, an toàn + tuổi, $0 (DO/D1/TURN), 7 đợt sau cờ `community`; đọc khi: làm bất kỳ phần nào của #/community
 - [specs/play-learn.md](specs/play-learn.md) — Spec vừa chơi vừa học 3/11: benchmark 6 app, lớp phản hồi (âm −16 LUFS, rung, reduced-motion), Thử thách 60 giây trên SRS thật + thách đấu bạn, mốc M1–M3, gate CI; đọc khi: thêm mini-game/âm thanh/hiệu ứng phản hồi
+- [specs/play-community-1211.md](specs/play-community-1211.md) — Chơi + cộng đồng 12/11: đối chuẩn Duolingo/Quizlet/Kahoot/Memrise/ELSA/Busuu/HelloTalk, 7 khoảng trống xếp theo D1/D7/D30; đọc khi làm đấu bóng ma, mini-game, bạn bè, kho bộ thẻ, sửa bài cộng đồng
 - [specs/outcomes-3-6m.md](specs/outcomes-3-6m.md) — Đầu ra 3–6 tháng: vòng ngày nói + viết, lộ trình 12/24 tuần, lỗi → SRS, bài đo 4 tuần/lần #/outcome (mốc 1); đọc khi: làm lộ trình/nhiệm vụ nói-viết/đo tiến bộ/phần thưởng
 - [CAPACITY.md](CAPACITY.md) — Chi phí Cloudflare theo người dùng (đo bằng Miniflare, không dội production), kiến trúc mở rộng; đọc khi: lập kế hoạch tải/chi phí hoặc thêm endpoint đọc/ghi D1
 - [CODEMAP.md](CODEMAP.md) — Bản đồ mã nguồn tự sinh (khu vực, god node, route, workflow, test, sửa-ở-đâu; json đầy đủ docs/codemap.json); đọc khi: ĐẦU MỖI PHIÊN, trước khi tìm code
@@ -100,6 +106,8 @@
 - [REMINDERS.md](REMINDERS.md) — Nhắc học thông minh: một nguồn lập lịch, máy chủ push.js (D1 nội bộ), hỏi quyền không dark pattern, cờ, FCM, test; đọc khi: sửa nhắc học/push
 - [specs/tutor-daily.md](specs/tutor-daily.md) — Gia sư 1-1 hằng ngày Ama/Carlos: buổi 5–15 phút, lời gia sư, nhắc giọng gia sư, báo cáo tuần, $0 ở 1M DAU; đọc khi: sửa Buổi học hôm nay/thẻ gia sư
 - [specs/landing.md](specs/landing.md) — Spec landing lexkite.com (?home=1): so 5 app lớn, section, CTA, Stitch + port, tiêu chí xong; đọc khi: sửa build-landing.mjs, vẽ lại landing.
+- [specs/go-landing.md](specs/go-landing.md) — Trang đích /go/<lang>/ học thử không đăng ký, UTM sạch, đếm go_*; đọc khi: sửa build-go.mjs, content/go, phễu kênh.
+- [specs/funnel.md](specs/funnel.md) — Phễu kênh UTM → /go → app → bài đầu → D1/D7+, bảng Quản trị Kênh & mã bài; đọc khi: sửa _funnel.js, beacon at/fl, admin-channels.js.
 - [specs/seo-words-depth.md](specs/seo-words-depth.md) — Spec độ dày trang từ /<lang>/words/: khối nội dung từ dữ liệu thật 15 ngôn ngữ, cổng DEPTH_MIN (noindex dưới ngưỡng), ảnh trước/sau, hộp blog → /words/ 13 ngôn ngữ (lib seo-words/blog-words); đọc khi: sửa build-seo-pages.mjs, seo-words.mjs, word-depth.mjs, blog-words.mjs
 - [specs/words-off-pages.md](specs/words-off-pages.md) — Spec chuyển trang từ 13 ngôn ngữ sang R2 + Pages Function (giữ URL) để nâng 650 → 1.000 trong ngân sách file; đọc khi: làm SEO-ARCH § Ngân sách file
 - [specs/notifications.md](specs/notifications.md) — Chuẩn mọi thông báo (push, nhắc học, toast, banner, báo lỗi): hỏi quyền sau giá trị, tắt dễ, ≤1/ngày, giọng không dọa, toast một-cái có nút sửa, 15 ngôn ngữ; bảng chỗ lệch; đọc khi: thêm/sửa thông báo/toast

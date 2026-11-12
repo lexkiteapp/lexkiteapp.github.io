@@ -32,12 +32,21 @@ print(json.dumps(dict(
   fcvi=fcv('Đáp án: discuss the plan. Luyện tập miễn phí với bài quiz ở đây: {link}', 'vi'),
   fcen_vi=fcv('Đáp án: discuss the plan. Luyện tập miễn phí với bài quiz ở đây: {link}', 'en'),
   fcja=fcv('答えは discuss the plan です。無料クイズで練習しよう: {link}', 'ja'),
+  bait=P.validate({**good, 'first_comment': 'Answer: discuss the plan. Tag a friend who needs this, practice here: {link}'}),
+  click=P.validate({**good, 'title': 'You won\\'t believe this trick'}),
+  ailabel=P.validate({**good, 'ai_content': True}),
+  dup=P.dup_errors([('vi', good), ('pt', good), ('vi', good)]),
+  nodup=P.dup_errors([('vi', good), ('vi', good)]),
   badlang=P.validate({**good, 'lang': 'english'}),
   longhook=P.from_bank(dict(hook='h' * 70, wrong='I am agree.', why='Agree is a verb, not an adjective.', memory='agree', topic='x', cefr='B1')),
 )))`;
 const r = JSON.parse(execFileSync('python3', ['-c', py], { encoding: 'utf8' }));
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 ok(!r.good.length, 'khối đúng đạt');
+ok(r.bait.includes('policy-engagement-bait'), 'chặn câu mồi tag/share');
+ok(r.click.includes('policy-misleading-title'), 'chặn tiêu đề giật gân');
+ok(r.ailabel.includes('policy-ai-label'), 'thiếu nhãn AI bị chặn');
+ok(r.dup.length === 2 && !r.nodup.length, 'trùng tiêu đề/bình luận giữa kênh bị chặn');
 ok(r.missing.join() === 'missing', 'thiếu khối → chặn');
 ok(r.cut.includes('title-cut'), 'tiêu đề cụt → chặn');
 ok(r.tpl.includes('title-template') && r.idt.includes('title-template') && r.glue.includes('title-template'), 'tiêu đề mẫu, id, ghép gượng → chặn');

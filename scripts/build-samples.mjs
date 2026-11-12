@@ -4,7 +4,7 @@
 // Bản tiếng Anh: build-samples-en.mjs (chạy sau, tự gắn hreflang vi↔en).
 import fs from 'node:fs'; import { execFileSync } from 'node:child_process';
 import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L, FIND_I18N } from './lib/site-layout.mjs';
-import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar, loadLetters, loadPron } from './lib/seo-data.mjs';
+import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, relatedPron, loadGrammar, loadLetters, loadPron } from './lib/seo-data.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail } from './lib/samples-ui.mjs';
 import { art, typeArt, topicArt, toneArt, task1Art, vocabArt, unitArt, pronArt, t2Key, t1Key, catNav } from './lib/samples-visual.mjs';
@@ -222,7 +222,7 @@ ${(x.sentences || []).length ? `<h2>Câu luyện tập</h2><ul class="uses">${x.
 ${qs.length ? `<h2>Kiểm tra nhanh</h2><ol class="uses">${qs.map(q => `<li><p><b>${esc(q.q)}</b></p><ol type="a">${q.options.map(o => `<li>${esc(o)}</li>`).join('')}</ol><details><summary>Xem đáp án</summary><p>✅ <b>${esc(q.options[q.answer])}</b>${q.explain ? ` – ${esc(q.explain)}` : ''}</p></details></li>`).join('')}</ol>` : ''}
 ${ctaBox(href, `🗣️ Tự ghi âm các từ có ${esc(x.ipa)}`, 'Luyện trong app')}
 <nav class="pager" aria-label="Bài trước / bài sau">${prev ? `<a rel="prev" href="/phat-am/${slugP(prev)}">← ${esc(prev.title)}</a>` : '<span></span>'}${next ? `<a rel="next" href="/phat-am/${slugP(next)}">${esc(next.title)} →</a>` : ''}</nav>
-${related(relatedOf(P, x, y => y.group === x.group, 4), pCard)}
+${related(relatedPron(P, x), pCard)}
 ${extBox('vi', 'pron')}
 ${pwaBox('vi', 'pron')}</article>`;
     const ex3 = ws.slice(0, 3).map(w => w.w).join(', ');
