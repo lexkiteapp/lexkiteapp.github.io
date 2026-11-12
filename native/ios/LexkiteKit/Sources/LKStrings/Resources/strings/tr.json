@@ -816,6 +816,8 @@
   "model.commonMistakes": "Sık hatalar",
   "model.band6EssayFor": "Karşılaştırma için band 6 makale",
   "model.whyItOnlyReaches": "Neden yalnızca band 6 alıyor",
+  "model.band7EssayFor": "Karşılaştırma için Band 7 makalesi",
+  "model.whyItHasntReached": "Neden daha yüksek bir banda ulaşamadı",
   "model.savedPhrasesToYour": "{n} kelime öbeği Deyimler Sözlüğünüze kaydedildi",
   "model.selectTextInThe2": "Vurgulamak için makaledeki metni seçin",
   "model.highlightingOff": "Vurgulama kapalı",

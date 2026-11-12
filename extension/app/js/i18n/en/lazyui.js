@@ -565,6 +565,8 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Về đề bài': 'Back to the task',
 'Bài band 6 để so sánh': 'Band 6 essay for comparison',
 'Vì sao chỉ đạt band 6': 'Why it only reaches band 6',
+'Bài band 7 để so sánh': 'Band 7 essay for comparison',
+'Vì sao chưa lên band trên': 'Why it hasn’t reached a higher band',
 'Bài mẫu có phân tích': 'Annotated model answer',
 'Nghe bài': 'Listen to essay',
 'Tự viết đề này': 'Write this task yourself',

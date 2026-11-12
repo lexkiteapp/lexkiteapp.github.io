@@ -816,6 +816,8 @@
   "model.commonMistakes": "ข้อผิดพลาดบ่อย",
   "model.band6EssayFor": "เรียงความระดับ band 6 เพื่อเปรียบเทียบ",
   "model.whyItOnlyReaches": "ทำไมได้แค่ band 6",
+  "model.band7EssayFor": "เรียงความแบนด์ 7 เพื่อการเปรียบเทียบ",
+  "model.whyItHasntReached": "เหตุใดจึงยังไม่ถึงแบนด์ที่สูงกว่า",
   "model.savedPhrasesToYour": "บันทึก {n} วลีลงในสมุดวลีของคุณแล้ว",
   "model.selectTextInThe2": "เลือกข้อความในเรียงความเพื่อเน้นข้อความ",
   "model.highlightingOff": "ปิดไฮไลต์แล้ว",

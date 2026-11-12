@@ -818,6 +818,8 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case modelCommonMistakes = "model.commonMistakes"
     case modelBand6EssayFor = "model.band6EssayFor"
     case modelWhyItOnlyReaches = "model.whyItOnlyReaches"
+    case modelBand7EssayFor = "model.band7EssayFor"
+    case modelWhyItHasntReached = "model.whyItHasntReached"
     case modelSavedPhrasesToYour = "model.savedPhrasesToYour"
     case modelSelectTextInThe2 = "model.selectTextInThe2"
     case modelHighlightingOff = "model.highlightingOff"
