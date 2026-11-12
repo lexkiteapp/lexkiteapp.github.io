@@ -63,7 +63,7 @@ def fc_from_bank(b):
 
 
 # Cổng chính sách (YPP + Meta, kế hoạch tăng trưởng 12/11): chặn câu mồi tương tác, tiêu đề/ảnh bìa gây hiểu lầm, nhãn AI thiếu.
-BAIT = re.compile(r'\b(like|share|comment|tag|subscribe|follow)\b.{0,25}\b(to (win|get|unlock|see)|or else|if you|for part)|\b(tag a friend|share (this )?(with|if)|comment (yes|below|your|"?\w+"?)|1m views|hack(s)? the system)\b|\b(guaranteed|100% fluent|fluent in \d+ (days|hours|weeks)|secret (that )?teachers? (won.t|don.t))\b', re.I)
+BAIT = re.compile(r'\b(like|share|comment|tag|subscribe|follow)\b.{0,25}\b(to (win|get|unlock|see)|or else|if you|for part)|\b(tag a friend|share (this |it |us )?if|share (this|it) with|comment (yes|below|your|"?\w+"?)|1m views|hack(s)? the system)\b|\b(guaranteed|100% fluent|fluent in \d+ (days|hours|weeks)|secret (that )?teachers? (won.t|don.t))\b', re.I)
 CLICKBAIT = re.compile(r'you won.t believe|shocking|gone wrong|\bscam\b|free (iphone|money|cash)|doctors hate|before it.s deleted|\bviral\b', re.I)
 
 
