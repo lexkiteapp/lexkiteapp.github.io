@@ -813,6 +813,8 @@
   "model.commonMistakes": "Lỗi hay gặp",
   "model.band6EssayFor": "Bài band 6 để so sánh",
   "model.whyItOnlyReaches": "Vì sao chỉ đạt band 6",
+  "model.band7EssayFor": "Bài band 7 để so sánh",
+  "model.whyItHasntReached": "Vì sao chưa lên band trên",
   "model.savedPhrasesToYour": "Đã lưu {n} cụm từ vào Sổ cụm từ",
   "model.selectTextInThe2": "Bôi đen chữ trong bài để tô sáng",
   "model.highlightingOff": "Đã tắt tô sáng",

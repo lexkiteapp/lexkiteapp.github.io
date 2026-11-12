@@ -813,6 +813,8 @@
   "model.commonMistakes": "常见错误",
   "model.band6EssayFor": "6 分作文对比",
   "model.whyItOnlyReaches": "为何只得 6 分",
+  "model.band7EssayFor": "用于对比的 7 分范文",
+  "model.whyItHasntReached": "为何未能达到更高分数段",
   "model.savedPhrasesToYour": "已将 {n} 个短语保存到您的短语手册",
   "model.selectTextInThe2": "选择文章中的文本以突出显示它",
   "model.highlightingOff": "已关闭高亮",

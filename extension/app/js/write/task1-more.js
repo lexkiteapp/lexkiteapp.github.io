@@ -61,7 +61,25 @@
 
 <<Thân bài 1>> In 1990, residents of City A used 180 litres a day, [[considerably more than|nhiều hơn đáng kể so với]] those in City B, at 120 litres. Consumption in City A increased to [[a high of|mức cao nhất là]] 210 litres in 2000, {{but}} it then [[went into a steady decline|bắt đầu giảm đều]], dropping to 170 litres in 2015 and 150 litres in 2020. {{By contrast}}, the figure for City B [[rose continuously|tăng liên tục]], reaching 165 litres in 2010 and 175 litres in 2015, when it [[surpassed|vượt qua]] City A for the first time.
 
-<<Thân bài 2>> City B [[ended the period at|kết thúc giai đoạn ở mức]] 180 litres, [[exactly the same as|bằng đúng]] City A's starting point. {{Meanwhile}}, water use in City C [[remained relatively stable|tương đối ổn định]], [[edging up|nhích lên]] from 90 litres in 1990 to a peak of 100 litres in 2005 {{before}} [[dipping slightly|giảm nhẹ]] to 95 litres in 2020. {{As a result}}, it [[stayed well below|luôn thấp hơn nhiều so với]] the other two cities at every point.` },
+<<Thân bài 2>> City B [[ended the period at|kết thúc giai đoạn ở mức]] 180 litres, [[exactly the same as|bằng đúng]] City A's starting point. {{Meanwhile}}, water use in City C [[remained relatively stable|tương đối ổn định]], [[edging up|nhích lên]] from 90 litres in 1990 to a peak of 100 litres in 2005 {{before}} [[dipping slightly|giảm nhẹ]] to 95 litres in 2020. {{As a result}}, it [[stayed well below|luôn thấp hơn nhiều so với]] the other two cities at every point.`,
+      band7: {
+        text: "The line graph illustrates daily per capita water consumption in litres across three distinct cities from 1990 to 2020.\nOverall, City A experienced an initial rise followed by a prolonged decline, whereas City B demonstrated consistent growth and ultimately surpassed City A by the end of the period. In contrast, City C recorded the lowest figures throughout with minimal fluctuation.\nIn 1990, City A was the largest consumer, with individuals using an average of 180 litres per day, notably higher than City B at 120 litres and City C at 90 litres. Daily consumption in City A peaked at 210 litres in 2000, before entering a sustained downward trajectory that brought the figure down to 170 litres in 2015 and 150 litres in 2020.\nConversely, City B showed a steady increase across the three decades. Usage climbed from 120 litres in 1990 to 165 litres in 2010, before overtaking City A in 2015 at 175 litres and culminating at 180 litres in 2020. Meanwhile, consumption in City C hovered narrowly between 90 and 100 litres, concluding the period at 95 litres per person.",
+        notes: {
+          "TA": "Tổng quan so sánh sắc sảo sự hoán đổi vị trí giữa City A và City B; nêu bật tính chất bình ổn của City C với số liệu then chốt.",
+          "CC": "Tổ chức các đoạn thân bài logic, sử dụng linh hoạt các liên từ và trạng từ (Conversely, Meanwhile, notably higher than).",
+          "LR": "Vốn từ chỉ mức tiêu thụ và xu hướng rất chuẩn mực (per capita water consumption, prolonged decline, sustained downward trajectory, culminated at).",
+          "GRA": "Vận dụng thuần thục các mệnh đề quan hệ và cấu trúc phân từ hoàn thành/hiện tại; độ chính xác ngữ pháp tuyệt đối."
+}
+      },
+      band6: {
+        text: "The line graph compares daily water use per person in litres across three cities between 1990 and 2020.\nOverall, water consumption per person in City A increased at first and then fell steadily, while City B experienced continuous growth and surpassed City A at the end. City C had the lowest water consumption throughout the thirty years.\nIn 1990, City A had the highest figure with 180 litres per person, compared to 120 litres in City B and only 90 litres in City C. Water use in City A reached a peak of 210 litres in 2000, but after that it dropped constantly to 170 litres in 2015 and finished at 150 litres in 2020.\nOn the other hand, City B saw a steady upward trend. Starting at 120 litres in 1990, its consumption climbed to 150 litres in 2005 and 175 litres in 2015, which overtook City A. By 2020, City B reached 180 litres per day. Finally, City C remained quite stable between 90 and 100 litres during the whole period, finishing at 95 litres in 2020.",
+        notes: {
+          "TA": "Có đoạn tổng quan và đủ số liệu của cả 3 thành phố, nhưng diễn giải còn liệt kê mốc thời gian một cách cơ học; ít phân tích tốc độ biến động.",
+          "CC": "Phân đoạn 4 phần chuẩn mực nhưng nối ý giữa các câu còn mang tính công thức (In 1990, On the other hand, Finally).",
+          "LR": "Từ vựng ở mức cơ bản (water use, highest figure, dropped constantly, finished at); còn thiếu các cụm học thuật thay thế cho water consumption.",
+          "GRA": "Cấu trúc câu chủ yếu là câu đơn ghép lại; mệnh đề quan hệ còn đơn giản (which overtook City A)."
+}
+      } },
 
     { id: 't1-onlineshop', task: 1, ref: 'onlineshop', band: '8.0', words: 179,
       text: `<<Mở bài>> The line graph [[shows the proportion of|cho thấy tỉ lệ]] adults in one country who [[purchased|mua]] clothing, electronics and groceries online between 2008 and 2023.
@@ -70,7 +88,25 @@
 
 <<Thân bài 1>> In 2008, 20% of adults bought electronics online, {{compared with}} 12% for clothing. Both figures [[grew at a similar pace|tăng với tốc độ tương tự]] over the next nine years, reaching 38% and 35% [[respectively|lần lượt]] in 2017. Clothing then [[surged to|tăng vọt lên]] 52% in 2020, [[briefly overtaking|tạm thời vượt qua]] electronics, which stood at 49%. {{However}}, by 2023 the positions [[had been reversed again|lại bị đảo ngược]], {{as}} clothing [[fell back slightly to|giảm nhẹ trở lại còn]] 48% {{whereas}} electronics [[edged up to|nhích lên]] 51%.
 
-<<Thân bài 2>> Groceries, {{by contrast}}, [[were rarely bought online|hiếm khi được mua trực tuyến]] for most of the period, with the proportion rising only from 3% to 9% between 2008 and 2017. {{Nevertheless}}, the figure [[tripled to|tăng gấp ba lên]] 27% in 2020 {{before}} [[dipping to|giảm xuống]] 24% in the final year, [[still far higher than|vẫn cao hơn nhiều so với]] its initial level. {{Even so}}, [[fewer than a quarter of|chưa đến một phần tư]] adults bought groceries online at the end of the period, exactly half the figure for clothing.` },
+<<Thân bài 2>> Groceries, {{by contrast}}, [[were rarely bought online|hiếm khi được mua trực tuyến]] for most of the period, with the proportion rising only from 3% to 9% between 2008 and 2017. {{Nevertheless}}, the figure [[tripled to|tăng gấp ba lên]] 27% in 2020 {{before}} [[dipping to|giảm xuống]] 24% in the final year, [[still far higher than|vẫn cao hơn nhiều so với]] its initial level. {{Even so}}, [[fewer than a quarter of|chưa đến một phần tư]] adults bought groceries online at the end of the period, exactly half the figure for clothing.`,
+      band7: {
+        text: "The line graph details the percentage of adults in a particular nation who bought clothing, electronics and groceries via online platforms between 2008 and 2023.\nOverall, internet shopping witnessed substantial expansion across all three retail sectors, with a pronounced surge taking place in 2020. Electronics remained the predominant online purchase for most of the period, whereas groceries consistently recorded the lowest share.\nIn 2008, electronics was the leading category at 20%, compared to 12% for clothing and merely 3% for groceries. Both electronics and clothing followed similar upward trends over the subsequent decade, reaching 38% and 35% respectively in 2017. A sharp spike occurred in 2020, when clothing purchases surged to 52%, briefly surpassing electronics at 49%. Nevertheless, by 2023 electronics regained its top ranking at 51%, while clothing declined marginally to 48%.\nThroughout the entire period, online grocery purchases lagged significantly behind. After creeping up from 3% in 2008 to 9% in 2017, the proportion of adults buying food online tripled to 27% in 2020 before dropping slightly to 24% in 2023, representing half the rate for clothing.",
+        notes: {
+          "TA": "Nêu bật được sự tăng vọt vào năm 2020 và cuộc cạnh tranh thứ hạng giữa đồ điện tử và quần áo; làm rõ khoảng cách vượt trội so với thực phẩm.",
+          "CC": "Mạch văn trôi chảy, phân chia hợp lý giữa hai nhóm mặt hàng chủ lực và nhóm thực phẩm mua online.",
+          "LR": "Từ vựng đa dạng về thương mại điện tử và biến động số liệu (substantial expansion, pronounced surge, predominant online purchase, lagged significantly behind).",
+          "GRA": "Sử dụng chuẩn xác mệnh đề trạng ngữ chỉ thời gian (when clothing purchases surged to...) và cấu trúc phân từ hiện tại (representing half the rate)."
+}
+      },
+      band6: {
+        text: "The line graph shows the percentage of adults who purchased clothing, electronics and groceries on the internet in one country from 2008 to 2023.\nOverall, online purchasing became much more popular in all three categories, especially with a sharp increase in 2020. Electronics was the most purchased item at the start and end of the period, while groceries remained the least common item.\nIn 2008, 20% of adults bought electronics online, while clothing was 12% and groceries was only 3%. Over the next nine years, the figures for electronics and clothing rose steadily, reaching 38% and 35% in 2017. In 2020, clothing jumped to 52%, which was higher than electronics at 49%. However, in 2023 electronics climbed to 51% and became the leader again, while clothing dropped slightly to 48%.\nIn contrast, groceries started at 3% in 2008 and grew slowly to 9% in 2017. During the pandemic in 2020, it spiked to 27%, before falling slightly to 24% in 2023. Even with this increase, groceries remained much lower than the other two goods.",
+        notes: {
+          "TA": "Trình bày đủ 3 danh mục hàng hóa và các mốc chính nhưng phân tích chưa đào sâu vào sự đảo chiều vị trí ngắn hạn năm 2020.",
+          "CC": "Các câu chuyển ý còn đơn điệu (In 2008, Over the next nine years, In 2020, However, In contrast).",
+          "LR": "Từ vựng thông dụng, lặp lại nhiều lần các động từ mua sắm và cụm chỉ sự tăng giảm (bought, purchased, rose steadily, dropped slightly).",
+          "GRA": "Cấu trúc câu tương đối ngắn và đơn giản; có lỗi dùng từ mang tính võ đoán văn cảnh đời sống ngoài biểu đồ (During the pandemic in 2020)."
+}
+      } },
 
     { id: 't1-resorts', task: 1, ref: 'resorts', band: '8.0', words: 178,
       text: `<<Mở bài>> The line graph [[compares the monthly number of visitors|so sánh số lượng du khách theo tháng]] to a mountain resort and a beach resort [[over the course of|trong suốt]] 2023.

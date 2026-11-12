@@ -813,6 +813,8 @@
   "model.commonMistakes": "Erreurs fréquentes",
   "model.band6EssayFor": "Essai de niveau 6 pour comparaison",
   "model.whyItOnlyReaches": "Pourquoi il n'atteint que le niveau 6",
+  "model.band7EssayFor": "Dissertation de bande 7 pour comparaison",
+  "model.whyItHasntReached": "Pourquoi elle n’atteint pas une bande supérieure",
   "model.savedPhrasesToYour": "{n} phrases enregistrées dans votre guide de conversation",
   "model.selectTextInThe2": "Sélectionnez le texte dans l'essai pour le mettre en surbrillance",
   "model.highlightingOff": "Surlignage désactivé",

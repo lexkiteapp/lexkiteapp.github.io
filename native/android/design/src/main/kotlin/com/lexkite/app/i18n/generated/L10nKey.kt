@@ -817,6 +817,8 @@ enum class L10nKey(val id: String) {
     modelCommonMistakes("model.commonMistakes"),
     modelBand6EssayFor("model.band6EssayFor"),
     modelWhyItOnlyReaches("model.whyItOnlyReaches"),
+    modelBand7EssayFor("model.band7EssayFor"),
+    modelWhyItHasntReached("model.whyItHasntReached"),
     modelSavedPhrasesToYour("model.savedPhrasesToYour"),
     modelSelectTextInThe2("model.selectTextInThe2"),
     modelHighlightingOff("model.highlightingOff"),

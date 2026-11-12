@@ -813,6 +813,8 @@
   "model.commonMistakes": "أخطاء شائعة",
   "model.band6EssayFor": "مقال بمستوى 6 للمقارنة",
   "model.whyItOnlyReaches": "لماذا يصل إلى المستوى 6 فقط",
+  "model.band7EssayFor": "مقال الفرقة 7 للمقارنة",
+  "model.whyItHasntReached": "لماذا لم يصل إلى الفرقة الأعلى",
   "model.savedPhrasesToYour": "تم حفظ {n} من العبارات في كتاب العبارات الخاص بك",
   "model.selectTextInThe2": "حدد النص في المقالة لتسليط الضوء عليه",
   "model.highlightingOff": "تم إيقاف التمييز",

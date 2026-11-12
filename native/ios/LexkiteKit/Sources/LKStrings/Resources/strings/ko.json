@@ -813,6 +813,8 @@
   "model.commonMistakes": "흔한 실수",
   "model.band6EssayFor": "비교용 밴드 6 에세이",
   "model.whyItOnlyReaches": "밴드 6에 그치는 이유",
+  "model.band7EssayFor": "비교를 위한 밴드 7 에세이",
+  "model.whyItHasntReached": "더 높은 밴드에 도달하지 못한 이유",
   "model.savedPhrasesToYour": "{n}개의 구문을 회화집에 저장했습니다.",
   "model.selectTextInThe2": "강조 표시하려면 에세이에서 텍스트를 선택하세요.",
   "model.highlightingOff": "강조 끔",

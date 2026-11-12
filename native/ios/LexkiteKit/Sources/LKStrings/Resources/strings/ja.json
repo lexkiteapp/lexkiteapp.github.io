@@ -813,6 +813,8 @@
   "model.commonMistakes": "よくある誤り",
   "model.band6EssayFor": "比較用のバンド6エッセイ",
   "model.whyItOnlyReaches": "バンド6にとどまる理由",
+  "model.band7EssayFor": "比較用のバンド7エッセイ",
+  "model.whyItHasntReached": "より高いバンドに達していない理由",
   "model.savedPhrasesToYour": "{n} 個のフレーズをフレーズブックに保存しました",
   "model.selectTextInThe2": "エッセイ内のテキストを選択して強調表示します",
   "model.highlightingOff": "ハイライトをオフにしました",
