@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/ja/rhythm.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ja=Object.assign(D.ja||{},{_zznp:"ミュート解除",_544l:"タップ",_f5bt:"ぴったり！",_ixbl:"強勢語をタップ",_l102:"強勢語 {a}/{b} 個を的中",_i6ql:"{a}/{b} 文目",_nm5t:"スペースキーか大きなボタンをタップ。全 {n} 文、だんだん速くなります。",_lyc0:"リズムがずれた",_v0sh:"ミュート",_cs92:"いいね",_bj4m:"強勢語（大きく太字で ● 付き）は拍に合わせてタップ。弱い語（a, the, to…）はタップしない。",_at4r:"逃した強勢語",_6o81:"弱い語はタップしない",_3mdh:"正確率 {n}%"});})(typeof self!=='undefined'?self:this);

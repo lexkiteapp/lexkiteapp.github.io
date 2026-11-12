@@ -396,4 +396,7 @@ node scripts/test/go-landing.mjs
 node scripts/test/mistake-variant.mjs
 node scripts/test/adsense-hygiene.mjs
 node scripts/test/play-duel.mjs
+node scripts/test/play-rhythm.mjs
+node scripts/test/play-rhythm-run.mjs
 node scripts/test/funnel.mjs
+node scripts/test/share-link.mjs

@@ -9630,6 +9630,29 @@ adroitly	ok	cut_wordis: câu mang: "The word is a-drightly." · dot100:"Edge rig
 transoceanic	ok	ok
 unaccountably	ok	ok
 intertribal	ok	ok
+grandparent	ok	ok
+stopwatch	ok	ok
+divination	ok	ok
+happenstance	cut_wordis:"Tap instance." 1.09s · cut_wordis:"Tap Instance" 1.08s · dot100:"Hap Instancy" 1.06s · cut_wordis100:"Tap Instance" 0.99s · cut_next: câu mang: "Next word, hap-instancy." · plain095:"A half instance." 0.99s · dot090:"Hap Instancy" 1.12s	ok
+courtroom	ok	ok
+warlord	ok	ok
+pituitary	ok	ok
+beltway	ok	ok
+grandstand	ok	ok
+firehouse	ok	ok
+jawbone	ok	ok
+mucosa	ok	ok
+cardiomyopathy	ok	ok
+aromatherapy	ok	ok
+microtubule	ok	ok
+thruway	ok	ok
+taxiway	ok	ok
+tonsillectomy	ok	ok
+leatherback	ok	ok
+bronc	cut_wordis: câu mang: "The word is bronchi." · dot100:"Bronch." 0.64s · cut_wordis100: câu mang: "The word is bronchi." · cut_next: câu mang: "Next word, bronchi." · plain095:"Brunk." 0.61s · dot090:"The Bronch." 0.72s	ok
+roundworm	ok	ok
+desalinization	ok	ok
+metalworker	ok	ok
 retaliate	ok	ok
 alimony	ok	ok
 incoherent	ok	ok
@@ -9652,32 +9675,3 @@ gasification	ok	ok
 anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
 porpoise	ok	ok
 systematics	ok	ok
-grandparent	ok	ok
-stopwatch	ok	ok
-divination	ok	ok
-happenstance	cut_wordis:"Tap instance." 1.09s · cut_wordis:"Tap Instance" 1.08s · dot100:"Hap Instancy" 1.06s · cut_wordis100:"Tap Instance" 0.99s · cut_next: câu mang: "Next word, hap-instancy." · plain095:"A half instance." 0.99s · dot090:"Hap Instancy" 1.12s	ok
-courtroom	ok	ok
-shootout	ok	ok
-warlord	ok	ok
-pituitary	ok	ok
-nutritionist	ok	ok
-beltway	ok	ok
-grandstand	ok	ok
-firehouse	ok	ok
-hypoglycemia	ok	ok
-jawbone	ok	ok
-mucosa	ok	ok
-reenactment	ok	ok
-cardiomyopathy	ok	ok
-aromatherapy	ok	ok
-microtubule	ok	ok
-thruway	ok	ok
-ferryboat	ok	cut_wordis: câu mang: "The word is, fairy boat." · dot100:"Fairy boat" 0.77s · cut_wordis100: câu mang: "The word is, fairy boat." · cut_next: câu mang: "Next word, fairy boat." · plain095:"Faribout" 0.77s · dot090:"Fairy boat" 0.80s
-taxiway	ok	ok
-bradycardia	ok	ok
-tonsillectomy	ok	ok
-leatherback	ok	ok
-bronc	cut_wordis: câu mang: "The word is bronchi." · dot100:"Bronch." 0.64s · cut_wordis100: câu mang: "The word is bronchi." · cut_next: câu mang: "Next word, bronchi." · plain095:"Brunk." 0.61s · dot090:"The Bronch." 0.72s	ok
-roundworm	ok	ok
-desalinization	ok	ok
-metalworker	ok	ok

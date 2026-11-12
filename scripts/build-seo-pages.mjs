@@ -54,7 +54,7 @@ const crumbsLd = items => ({ '@context': 'https://schema.org', '@type': 'Breadcr
 
 // ---------- Trang từ ----------
 // Độ dày (docs/specs/seo-words-depth.md): khối nào có dữ liệu thật mới hiện; trang dưới DEPTH_MIN → noindex,follow (vẫn sinh, vẫn được liên kết).
-const lmW = gitDate('web/js/data.js', 'web/js/lib', 'web/packs', 'web/js/notes', 'web/js/usage', 'content/dict/wordnet.json', 'web/js/models.js', 'web/cpack/speak/samples.js', 'scripts/dict/build.mjs', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-words.mjs', 'scripts/lib/seo-pages-i18n.mjs', 'scripts/lib/word-depth.mjs');
+const lmW = gitDate('web/js/data.js', 'web/js/lib', 'web/packs', 'web/js/notes', 'web/js/usage', 'content/dict/wordnet.json', 'web/cpack/write/models.js', 'web/cpack/speak/samples.js', 'scripts/dict/build.mjs', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-words.mjs', 'scripts/lib/seo-pages-i18n.mjs', 'scripts/lib/word-depth.mjs');
 const twins = { v: 1, w: {}, c: {}, t: {} };
 const built = {}; // l → Map(mục → { body, faq, m }) – dựng ở scripts/lib/seo-words.mjs (bodyOf), cùng nguồn với hộp từ của blog
 let nW = 0, nWthin = 0, nWshallow = 0;
