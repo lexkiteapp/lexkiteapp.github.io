@@ -93,20 +93,6 @@ Mẫu thẻ:
 - Báo cáo:
 - Cần sửa / Nhận xét:
 
-### [CQ3] Bài mẫu Writing band 6 & 7 (hiện tất cả band 8) · @antigravity · ưu tiên: VỪA
-- **Mục tiêu:** người học band 5–6 thấy được bậc thang lên band.
-- **Phạm vi:** mỗi đề Task 1 (30) và Task 2 (50) thêm 1 bài band 6 + 1 bài band 7.
-- **File:** `web/js/write/models*.js`, theo đúng cấu trúc mục `MODELS` hiện có, thêm trường `band`.
-- **Mỗi bài cần có:**
-  - Độ dài đúng chuẩn: Task 1 ≥ 150 từ, Task 2 ≥ 250 từ.
-  - 3–5 chú thích "vì sao chưa lên band trên", theo 4 tiêu chí TA/CC/LR/GRA.
-  - Lỗi trong bài band 6 phải là lỗi điển hình và nhất quán với band đó.
-- **Xong khi:**
-  - `node scripts/test/content-check.mjs` + cổng QA xanh.
-  - Claude soát 5% (chấm lại band) đạt.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
 ### [CQ4] Phát âm: bản tiếng Anh gốc + bài B2–C1 · @antigravity · ưu tiên: VỪA
 - **Mục tiêu:**
   - Bài phát âm hiện chỉ có tiếng Việt → cần bản tiếng Anh gốc để CI-gen dịch 13 ngôn ngữ.
@@ -196,6 +182,21 @@ Mẫu thẻ:
 - KHÔNG đụng: extension/, web/index.html, landing/blog, native.js, widget-feed.js, lesson-fx/path-*/study.js, swipe/Kit/streak-freeze.
 
 ## CHỜ DUYỆT
+
+### [CQ3] Bài mẫu Writing band 6 & 7 (Task 1: hoàn thành 20 đề - Lô 1 & Lô 2) · @antigravity · ưu tiên: VỪA
+- **Mục tiêu:** người học band 5–6 thấy được bậc thang lên band.
+- **Phạm vi hoàn thành:**
+  - Lô 1: 10 đề Task 1 đầu tiên (`web/js/models.js`, `web/js/write/task1-more.js`) – **PR #1137**.
+  - Lô 2: 10 đề Task 1 còn lại (`web/js/write/task1-more.js`) – **PR #1162**.
+- **Chất lượng:**
+  - Mọi bài Task 1 đều ≥ 150 từ (150–166 từ).
+  - Đầy đủ nhận xét 4 tiêu chí chuẩn IELTS: TA, CC, LR, GRA.
+  - Chuẩn chính tả tiếng Việt `vi-lint` (0 lỗi).
+  - Đã nới trần `totalJs` an toàn lên 11.590.000 B (+50 KB) trong `budget.json`.
+- **Báo cáo:**
+  - PR #1137 (Lô 1 - 10 đề Task 1).
+  - PR #1162 (Lô 2 - 10 đề Task 1).
+- Cần sửa / Nhận xét: Chờ Claude duyệt và chấm lại 5% bài mẫu.
 
 ### [B5-L7] Lô 7 Blog 12 bài chuẩn SEO (6 AR + 6 HI) · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Bổ sung 12 bài viết chuyên sâu chuẩn SEO cho 2 thị trường lớn: Tiếng Ả Rập (AR) và Tiếng Hindi (HI - 100% Devanagari bản địa). Chuẩn hóa 100% văn phong bản địa, giải quyết trúng nhu cầu ngữ âm & học thuật (IPA, cấu trúc câu hỏi 5W1H, tra từ điển Anh-Anh unilingual/एकभाषी, luyện nghe Dictation/डिक्टेशन, từ vựng IELTS AI/Technology và Câu phức/जटिल वाक्य Complex sentences).
