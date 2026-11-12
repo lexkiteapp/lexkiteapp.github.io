@@ -79,7 +79,11 @@
     "planTop": "如何继续提升",
     "you": "你的测试结果：{lv}",
     "takeTest": "测测你的水平——免费 15 分钟测试",
-    "otherLevels": "所有 CEFR 等级"
+    "otherLevels": "所有 CEFR 等级",
+    "wordsH": "{lv} 级别应掌握的单词",
+    "wordsLead": "Lexkite 词典中标为 {lv} 级别的单词，每个都附有释义和例句。点开单词可查看发音、常见搭配和易错用法。",
+    "sampleH": "{lv} 级别样题",
+    "answer": "查看答案"
   },
   "toeic": {
     "title": "TOEIC Part 5 在线练习题——免费，附详细解析",

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_become",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Become is a false friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I become a coffee, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I would like a coffee, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Become means to start to be. It is not get.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Like! I would like a tea, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I become a coffee, please.",
+  "right": "I would like a coffee, please.",
+  "strike": "become",
+  "why": "Become means to start to be. It is not get.",
+  "memory": "Say would like.",
+  "quiz": {
+   "stem": "I would ___ a tea, please.",
+   "options": [
+    "become",
+    "like"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "„Become“ heißt nicht „bekommen“!",
+   "tip": "„Become“ bedeutet „werden“. Wenn du etwas bestellen willst, sagst du „I would like“.",
+   "caption": "Vorsicht, falscher Freund! 😬 “Become” heißt auf Deutsch {m:become}, nicht „bekommen“. Beim Bestellen sagst du “I would like a coffee, please”. Hör Carlos zu und sprich nach!",
+   "comment": "Lösung: “like”. Beim Bestellen immer „I would like“ sagen. Mehr falsche Freunde übst du hier kostenlos: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Become” does not mean “bekommen”!",
+   "tip": "“Become” means “werden”. When you want to order something, you say “I would like”.",
+   "caption": "Careful, false friend! “Become” means werden in German, not “bekommen”. When ordering, you say “I would like a coffee, please”. Listen to Carlos and repeat!"
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Become“ heißt nicht „bekommen“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "„Become“ heißt nicht „bekommen“!",
+  "keyword": "I would like a coffee, please.",
+  "value": "„Become“ bedeutet „werden“. Wenn du etwas bestellen willst, sagst du „I would like“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "„Become“ heißt nicht „bekommen“!",
+    "description": "Vorsicht, falscher Freund! 😬 “Become” heißt auf Deutsch {m:become}, nicht „bekommen“. Beim Bestellen sagst du “I would like a coffee, please”. Hör Carlos zu und sprich nach!\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I would like a coffee, please.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Vorsicht, falscher Freund! 😬 “Become” heißt auf Deutsch {m:become}, nicht „bekommen“. Beim Bestellen sagst du “I would like a coffee, please”. Hör Carlos zu und sprich nach!\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Vorsicht, falscher Freund! 😬 “Become” heißt auf Deutsch {m:become}, nicht „bekommen“. Beim Bestellen sagst du “I would like a coffee, please”. Hör Carlos zu und sprich nach!\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Become“ heißt nicht „bekommen“! #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “like”. Beim Bestellen immer „I would like“ sagen. Mehr falsche Freunde übst du hier kostenlos: {link}",
+  "lang": "de"
+ }
+}
