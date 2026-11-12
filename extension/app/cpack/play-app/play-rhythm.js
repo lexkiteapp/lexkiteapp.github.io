@@ -74,7 +74,7 @@
 .rh-w{position:relative;display:inline-flex;flex-direction:column;align-items:center;min-width:2.2rem;padding:.45rem .6rem .3rem;border-radius:12px;background:var(--surface-2,rgba(127,127,127,.12));border:2px solid transparent;font-size:1.15rem}
 .rh-w i{font-style:normal;font-size:.8rem;line-height:1;min-height:.9rem}.rh-w.on{border-color:var(--primary);background:var(--primary-soft)}.rh-w.on::before{content:'▼';position:absolute;top:-.95rem;left:50%;transform:translateX(-50%);font-size:.7rem;line-height:1}
 .rh-w.perfect,.rh-w.good{background:var(--good-soft);color:var(--good-text);border-color:var(--good-text)}.rh-w.miss{border-style:dashed;border-color:var(--again-text,currentColor);background:var(--again-soft)}.rh-w.wrong{background:var(--again-soft);border-color:var(--again-text,currentColor);text-decoration:line-through}
-.rh-w.st b{font-weight:800}.rh-w.wk{font-size:.95rem}#rhM{min-width:44px;min-height:44px}.rh-c[hidden]{display:inline-flex;visibility:hidden}.rh-tap{width:100%;min-height:96px;font-size:1.4rem;touch-action:manipulation;user-select:none;-webkit-user-select:none}
+.rh-w.st b{font-weight:800}.rh-w.wk{font-size:.95rem}#rhM{min-width:44px;min-height:44px}.rh-c[hidden]{display:inline-flex;visibility:hidden}.rh-tap{width:100%;margin-top:.9rem;min-height:96px;font-size:1.4rem;touch-action:manipulation;user-select:none;-webkit-user-select:none}
 .rh-tap:active,.rh-tap.hit{transform:scale(.97)}.rh-tap.hit{box-shadow:0 0 0 4px var(--primary-soft)}.rh-cue{min-height:1.6rem;font-weight:700;text-align:center}@media(prefers-reduced-motion:reduce){.rh-tap:active,.rh-tap.hit{transform:none}}`;
       document.head.appendChild(st);
     }
@@ -107,7 +107,7 @@
         <div class="card empty"><div class="em">🥁</div><p>${t('Từ NHẤN (to, đậm, có chấm ●) thì chạm đúng nhịp; từ yếu (a, the, to…) thì để im.')}</p>
         <div class="rh-s" aria-hidden="true">${chips(demo)}</div>
         <p class="small muted">${t('Gõ phím Cách (Space) hoặc chạm nút to. Có {n} câu, nhịp nhanh dần.', { n: sents.length })}${best ? ' · ' + t('Kỷ lục của bạn: {best}', { best }) : ''}</p>
-        <button class="btn primary" id="rhGo">${t('Bắt đầu')}</button></div></div>`;
+        <button class="btn primary" id="rhGo" style="margin-top:1rem">${t('Bắt đầu')}</button></div></div>`;
       const x = view.querySelector('.study-top a.icon-btn'); if (x) { x.style.width = x.style.height = '44px'; x.setAttribute('aria-label', t('Thoát')); }
       wireMute(); $('#rhGo').onclick = () => { const c = ac(); if (c && c.resume) c.resume().catch(() => {}); sentence(); };
     }
@@ -117,7 +117,7 @@
       Object.assign(S, { plan, beat, taps: [], used: new Set(), T0: performance.now() + LEAD * beat, live: true });
       view.innerHTML = `<div class="study-wrap rh">${head(`🥁 ${t('Câu số {a}/{b}', { a: S.i + 1, b: sents.length })}`, S.i, sents.length, muteBtn())}
         <div class="row between nowrap" style="margin-bottom:.6rem"><b id="rhS" aria-live="off">${S.score}</b><span class="chip rh-c" id="rhC" ${S.combo < 3 ? 'hidden' : ''}>${t('COMBO ×{n}', { n: mult(S.combo) })}</span></div>
-        <div class="card q-card"><span class="rh-b" id="rhB" aria-hidden="true"></span><div class="rh-s" id="rhW" role="list" aria-label="${esc(x.s)}">${chips(plan)}</div><div class="rh-cue" id="rhQ" aria-hidden="true">…</div></div>
+        <div class="card q-card"><span class="rh-b" id="rhB" aria-hidden="true"></span><div class="rh-s" id="rhW" role="list" aria-label="${esc(x.s)}">${chips(plan)}</div><div class="rh-cue" id="rhQ" dir="auto" aria-hidden="true">…</div></div>
         <button class="btn primary rh-tap" id="rhT" aria-label="${esc(t('Chạm vào từ nhấn'))}">${t('CHẠM')} <span class="kbd">␣</span></button></div>`;
       const q = view.querySelector('.study-top a.icon-btn'); if (q) { q.style.width = q.style.height = '44px'; q.setAttribute('aria-label', t('Thoát')); }
       wireMute(); const b = $('#rhT'); b.onpointerdown = e => { e.preventDefault(); if (e.button > 0 || e.isPrimary === false) return; tap(); }; /* chỉ chạm chính (không chuột phải / ngón thứ hai) */ b.onkeydown = e => { if (e.key === ' ' || e.key === 'Enter') e.preventDefault(); }; /* phím xử lý ở keys (tránh chạm hai lần) */
