@@ -8,7 +8,7 @@
   const App = g.App, { state } = App, { esc } = UI;
   const BASE = ['goal', 'level', 'target', 'pace', 'ready'], STEPS = BASE.slice(), KEY = 'lk.onbPick'; // + 'lang' ở đầu khi có ≥ 2 ngôn ngữ chọn được (Target.avail, cờ W7)
   const readPick = () => { try { const p = JSON.parse(sessionStorage.getItem(KEY) || 'null'); return p && typeof p === 'object' ? p : null; } catch (e) { return null; } };
-  const savePick = p => { try { sessionStorage.setItem(KEY, JSON.stringify({ exam: p.exam, target: p.target, pace: p.pace, topics: [...p.topics], v: p.v, lv: p.lv, track: p.track, sn: STEPS[p.step], tl: p.tl, said: p.said, w: p.w })); } catch (e) { /* riêng tư/đầy: vẫn học bình thường */ } };
+  const savePick = p => { try { sessionStorage.setItem(KEY, JSON.stringify({ exam: p.exam, target: p.target, pace: p.pace, topics: [...p.topics], v: p.v, lv: p.lv, track: p.track, step: p.step, sn: STEPS[p.step], tl: p.tl, said: p.said, w: p.w })); } catch (e) { /* riêng tư/đầy: vẫn học bình thường */ } };
   const hashOf = i => '#/welcome/setup?s=' + STEPS[i];
   const urlOf = i => location.pathname + location.search + hashOf(i); // <base href="/">: đường dẫn tương đối sẽ ra khỏi /app/
   let live = null, runs = 0;
