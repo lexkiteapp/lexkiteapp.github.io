@@ -133,7 +133,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cafe/zones/cafe_p_2.zones.json"
+     }
     },
     {
      "id": "cafe_pn_1",
@@ -143,7 +152,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8125,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cafe/zones/cafe_pn_1.zones.json"
+     }
     },
     {
      "id": "cafe_pn_4",
@@ -153,7 +171,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8438,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/cafe/zones/cafe_pn_4.zones.json"
+     }
     },
     {
      "id": "cafe_v_1",
@@ -163,7 +198,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.586,
+      "horizon_src": "depth",
+      "floor_top": 0.6979,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cafe/zones/cafe_v_1.zones.json"
+     }
     },
     {
      "id": "cafe_vn_1",
@@ -173,7 +217,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4375,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6562,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/cafe/zones/cafe_vn_1.zones.json"
+     }
     },
     {
      "id": "cafe_vn_4",
@@ -183,7 +244,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6771,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/cafe/zones/cafe_vn_4.zones.json"
+     }
     }
    ],
    "inserts": [
@@ -352,7 +430,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.65,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8229,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/restaurant-order/zones/restaurant-order_p_1.zones.json"
+     }
     },
     {
      "id": "restaurant-order_pn_2",
@@ -362,7 +449,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.65,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8229,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/restaurant-order/zones/restaurant-order_pn_2.zones.json"
+     }
     },
     {
      "id": "restaurant-order_v_4",
@@ -372,7 +468,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3044,
+      "horizon_src": "depth",
+      "floor_top": 0.6562,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/restaurant-order/zones/restaurant-order_v_4.zones.json"
+     }
     },
     {
      "id": "restaurant-order_vn_1",
@@ -382,7 +495,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/restaurant-order/zones/restaurant-order_vn_1.zones.json"
+     }
     }
    ],
    "inserts": [
@@ -549,7 +671,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3958,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7604,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/airport-checkin/zones/airport-checkin_p_2.zones.json"
+     }
     },
     {
      "id": "airport-checkin_pn_2",
@@ -559,7 +698,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3958,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7604,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/airport-checkin/zones/airport-checkin_pn_2.zones.json"
+     }
     },
     {
      "id": "airport-checkin_pn_4",
@@ -569,7 +725,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7292,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/airport-checkin/zones/airport-checkin_pn_4.zones.json"
+     }
     },
     {
      "id": "airport-checkin_v_4",
@@ -579,7 +744,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.325,
+      "horizon_src": "depth",
+      "floor_top": 0.8333,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/airport-checkin/zones/airport-checkin_v_4.zones.json"
+     }
     },
     {
      "id": "airport-checkin_vn_2",
@@ -589,7 +771,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4375,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6979,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/airport-checkin/zones/airport-checkin_vn_2.zones.json"
+     }
     }
    ],
    "inserts": [
@@ -756,7 +955,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5729,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/ask-directions/zones/ask-directions_p_1.zones.json"
+     }
     },
     {
      "id": "ask-directions_pn_1",
@@ -766,7 +982,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3929,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.5729,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/ask-directions/zones/ask-directions_pn_1.zones.json"
+     }
     },
     {
      "id": "ask-directions_pn_4",
@@ -776,7 +1009,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6042,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/ask-directions/zones/ask-directions_pn_4.zones.json"
+     }
     },
     {
      "id": "ask-directions_v_3",
@@ -786,7 +1028,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4242,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.6042,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/ask-directions/zones/ask-directions_v_3.zones.json"
+     }
     },
     {
      "id": "ask-directions_vn_1",
@@ -796,7 +1055,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4138,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.5938,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/ask-directions/zones/ask-directions_vn_1.zones.json"
+     }
     },
     {
      "id": "ask-directions_vn_4",
@@ -806,7 +1082,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.445,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.625,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/ask-directions/zones/ask-directions_vn_4.zones.json"
+     }
     }
    ],
    "inserts": [
@@ -957,7 +1250,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3893,
+      "horizon_src": "depth",
+      "floor_top": 0.7604,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/train-station/zones/train-station_p_2.zones.json"
+     }
     },
     {
      "id": "train-station_pn_1",
@@ -967,7 +1277,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.75,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/train-station/zones/train-station_pn_1.zones.json"
+     }
     },
     {
      "id": "train-station_pn_4",
@@ -977,7 +1304,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3281,
+      "horizon_src": "depth",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/train-station/zones/train-station_pn_4.zones.json"
+     }
     },
     {
      "id": "train-station_v_2",
@@ -987,7 +1331,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5324,
+      "horizon_src": "depth",
+      "floor_top": 0.6875,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/train-station/zones/train-station_v_2.zones.json"
+     }
     },
     {
      "id": "train-station_vn_4",
@@ -997,7 +1358,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5096,
+      "horizon_src": "depth",
+      "floor_top": 0.5833,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/train-station/zones/train-station_vn_4.zones.json"
+     }
     }
    ],
    "inserts": [
@@ -1164,7 +1542,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6354,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/taxi/zones/taxi_p_2.zones.json"
+     }
     },
     {
      "id": "taxi_pn_2",
@@ -1174,7 +1569,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5208,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/taxi/zones/taxi_pn_2.zones.json"
+     }
     },
     {
      "id": "taxi_pn_3",
@@ -1184,7 +1596,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6771,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/taxi/zones/taxi_pn_3.zones.json"
+     }
     },
     {
      "id": "taxi_v_1",
@@ -1194,7 +1623,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3958,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5521,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/taxi/zones/taxi_v_1.zones.json"
+     }
     },
     {
      "id": "taxi_vn_2",
@@ -1204,7 +1650,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6771,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/taxi/zones/taxi_vn_2.zones.json"
+     }
     }
    ],
    "inserts": [
@@ -1354,7 +1817,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3125,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/supermarket/zones/supermarket_p_2.zones.json"
+     }
     },
     {
      "id": "supermarket_v_2",
@@ -1364,7 +1844,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.5625,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/supermarket/zones/supermarket_v_2.zones.json"
+     }
     },
     {
      "id": "supermarket_vn_1",
@@ -1374,7 +1863,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.4375,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/supermarket/zones/supermarket_vn_1.zones.json"
+     }
     },
     {
      "id": "supermarket_vn_4",
@@ -1384,7 +1882,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3125,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/supermarket/zones/supermarket_vn_4.zones.json"
+     }
     }
    ],
    "inserts": [
@@ -1533,7 +2048,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3802,
+      "horizon_src": "depth",
+      "floor_top": 0.7917,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/shop-return/zones/shop-return_p_1.zones.json"
+     }
     },
     {
      "id": "shop-return_pn_1",
@@ -1543,7 +2075,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.362,
+      "horizon_src": "depth",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/shop-return/zones/shop-return_pn_1.zones.json"
+     }
     },
     {
      "id": "shop-return_pn_4",
@@ -1553,7 +2102,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3932,
+      "horizon_src": "depth",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/shop-return/zones/shop-return_pn_4.zones.json"
+     }
     },
     {
      "id": "shop-return_v_2",
@@ -1563,7 +2129,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4294,
+      "horizon_src": "depth",
+      "floor_top": 0.8229,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/shop-return/zones/shop-return_v_2.zones.json"
+     }
     },
     {
      "id": "shop-return_vn_4",
@@ -1573,7 +2156,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3408,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.5208,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/shop-return/zones/shop-return_vn_4.zones.json"
+     }
     }
    ],
    "inserts": [
@@ -1723,7 +2323,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/pharmacy/zones/pharmacy_p_2.zones.json"
+     }
     },
     {
      "id": "pharmacy_pn_3",
@@ -1733,7 +2342,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.8125,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/pharmacy/zones/pharmacy_pn_3.zones.json"
+     }
     },
     {
      "id": "pharmacy_v_2",
@@ -1743,7 +2361,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5632,
+      "horizon_src": "depth",
+      "floor_top": 0.9479,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/pharmacy/zones/pharmacy_v_2.zones.json"
+     }
     },
     {
      "id": "pharmacy_vn_4",
@@ -1753,7 +2380,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4066,
+      "horizon_src": "depth",
+      "floor_top": 0.7188,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/pharmacy/zones/pharmacy_vn_4.zones.json"
+     }
     }
    ],
    "inserts": [
@@ -1904,7 +2548,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7604,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/dentist/zones/dentist_p_4.zones.json"
+     }
     },
     {
      "id": "dentist_pn_2",
@@ -1914,7 +2567,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8021,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/dentist/zones/dentist_pn_2.zones.json"
+     }
     },
     {
      "id": "dentist_pn_4",
@@ -1924,7 +2594,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7708,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/dentist/zones/dentist_pn_4.zones.json"
+     }
     },
     {
      "id": "dentist_v_2",
@@ -1934,7 +2621,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6458,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/dentist/zones/dentist_v_2.zones.json"
+     }
     },
     {
      "id": "dentist_vn_2",
@@ -1944,7 +2648,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6771,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/dentist/zones/dentist_vn_2.zones.json"
+     }
     }
    ],
    "inserts": [
@@ -2095,7 +2816,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.65,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8021,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/bank/zones/bank_p_2.zones.json"
+     }
     },
     {
      "id": "bank_pn_2",
@@ -2105,7 +2835,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7917,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/bank/zones/bank_pn_2.zones.json"
+     }
     },
     {
      "id": "bank_pn_4",
@@ -2115,7 +2854,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.65,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8229,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/bank/zones/bank_pn_4.zones.json"
+     }
     },
     {
      "id": "bank_v_4",
@@ -2125,7 +2873,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4743,
+      "horizon_src": "depth",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/bank/zones/bank_v_4.zones.json"
+     }
     },
     {
      "id": "bank_vn_3",
@@ -2135,7 +2892,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4625,
+      "horizon_src": "depth",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/bank/zones/bank_vn_3.zones.json"
+     }
     }
    ],
    "inserts": [
@@ -2287,7 +3061,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/job-interview/zones/job-interview_p_1.zones.json"
+     }
     },
     {
      "id": "job-interview_pn_1",
@@ -2297,7 +3088,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/job-interview/zones/job-interview_pn_1.zones.json"
+     }
     },
     {
      "id": "job-interview_pn_2",
@@ -2307,7 +3115,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/job-interview/zones/job-interview_pn_2.zones.json"
+     }
     },
     {
      "id": "job-interview_v_4",
@@ -2317,7 +3142,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6146,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/job-interview/zones/job-interview_v_4.zones.json"
+     }
     },
     {
      "id": "job-interview_vn_1",
@@ -2327,7 +3169,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/job-interview/zones/job-interview_vn_1.zones.json"
+     }
     },
     {
      "id": "job-interview_vn_3",
@@ -2337,7 +3188,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/job-interview/zones/job-interview_vn_3.zones.json"
+     }
     }
    ],
    "inserts": [
@@ -2487,7 +3347,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5312,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/office-intro/zones/office-intro_p_1.zones.json"
+     }
     },
     {
      "id": "office-intro_pn_3",
@@ -2497,7 +3374,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5312,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/office-intro/zones/office-intro_pn_3.zones.json"
+     }
     },
     {
      "id": "office-intro_pn_4",
@@ -2507,7 +3401,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5312,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/office-intro/zones/office-intro_pn_4.zones.json"
+     }
     },
     {
      "id": "office-intro_v_1",
@@ -2517,7 +3428,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.2396,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/office-intro/zones/office-intro_v_1.zones.json"
+     }
     },
     {
      "id": "office-intro_v_4",
@@ -2527,7 +3447,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3958,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8229,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/office-intro/zones/office-intro_v_4.zones.json"
+     }
     },
     {
      "id": "office-intro_vn_1",
@@ -2537,7 +3474,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.3021,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/office-intro/zones/office-intro_vn_1.zones.json"
+     }
     },
     {
      "id": "office-intro_vn_3",
@@ -2547,7 +3493,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5729,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/office-intro/zones/office-intro_vn_3.zones.json"
+     }
     }
    ]
   },
@@ -2682,7 +3645,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6458,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/team-meeting/zones/team-meeting_p_2.zones.json"
+     }
     },
     {
      "id": "team-meeting_pn_1",
@@ -2692,7 +3664,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6042,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/team-meeting/zones/team-meeting_pn_1.zones.json"
+     }
     },
     {
      "id": "team-meeting_pn_4",
@@ -2702,7 +3683,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6458,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.9167,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/team-meeting/zones/team-meeting_pn_4.zones.json"
+     }
     },
     {
      "id": "team-meeting_vn_1",
@@ -2712,7 +3702,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4658,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.6458,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/team-meeting/zones/team-meeting_vn_1.zones.json"
+     }
     },
     {
      "id": "team-meeting_vn_3",
@@ -2722,7 +3729,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4138,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.5938,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/team-meeting/zones/team-meeting_vn_3.zones.json"
+     }
     }
    ],
    "inserts": [
@@ -2874,7 +3898,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7292,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_p_1.zones.json"
+     }
     },
     {
      "id": "flat-viewing_p_3",
@@ -2884,7 +3925,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7292,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_p_3.zones.json"
+     }
     },
     {
      "id": "flat-viewing_pn_2",
@@ -2894,7 +3952,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7292,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_pn_2.zones.json"
+     }
     },
     {
      "id": "flat-viewing_pn_4",
@@ -2904,7 +3979,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7292,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_pn_4.zones.json"
+     }
     },
     {
      "id": "flat-viewing_v_1",
@@ -2914,7 +4006,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7188,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_v_1.zones.json"
+     }
     },
     {
      "id": "flat-viewing_v_2",
@@ -2924,7 +4033,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4375,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5312,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_v_2.zones.json"
+     }
     },
     {
      "id": "flat-viewing_vn_2",
@@ -2934,7 +4060,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3081,
+      "horizon_src": "depth",
+      "floor_top": 0.7604,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_vn_2.zones.json"
+     }
     }
    ],
    "inserts": [
@@ -3084,7 +4227,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5378,
+      "horizon_src": "depth",
+      "floor_top": 0.875,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/phone-plan/zones/phone-plan_p_1.zones.json"
+     }
     },
     {
      "id": "phone-plan_pn_3",
@@ -3094,7 +4254,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5599,
+      "horizon_src": "depth",
+      "floor_top": 0.875,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/phone-plan/zones/phone-plan_pn_3.zones.json"
+     }
     },
     {
      "id": "phone-plan_v_1",
@@ -3104,7 +4273,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.7708,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/phone-plan/zones/phone-plan_v_1.zones.json"
+     }
     },
     {
      "id": "phone-plan_v_3",
@@ -3114,7 +4292,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5283,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.7083,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/phone-plan/zones/phone-plan_v_3.zones.json"
+     }
     },
     {
      "id": "phone-plan_vn_2",
@@ -3124,7 +4319,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6042,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6458,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/phone-plan/zones/phone-plan_vn_2.zones.json"
+     }
     }
    ],
    "inserts": [
@@ -3274,7 +4478,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.875,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_p_1.zones.json"
+     }
     },
     {
      "id": "lost-luggage_pn_2",
@@ -3284,7 +4505,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.875,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_pn_2.zones.json"
+     }
     },
     {
      "id": "lost-luggage_pn_4",
@@ -3294,7 +4524,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_pn_4.zones.json"
+     }
     },
     {
      "id": "lost-luggage_v_2",
@@ -3304,7 +4543,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.625,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_v_2.zones.json"
+     }
     },
     {
      "id": "lost-luggage_v_4",
@@ -3314,7 +4562,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_v_4.zones.json"
+     }
     },
     {
      "id": "lost-luggage_vn_2",
@@ -3324,7 +4589,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7604,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_vn_2.zones.json"
+     }
     },
     {
      "id": "lost-luggage_vn_3",
@@ -3334,7 +4616,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6354,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_vn_3.zones.json"
+     }
     }
    ],
    "inserts": [
@@ -3483,7 +4774,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3125,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8542,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_p_1.zones.json"
+     }
     },
     {
      "id": "cinema-tickets_p_3",
@@ -3493,7 +4801,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8646,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_p_3.zones.json"
+     }
     },
     {
      "id": "cinema-tickets_pn_2",
@@ -3503,7 +4820,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6042,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8542,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_pn_2.zones.json"
+     }
     },
     {
      "id": "cinema-tickets_pn_3",
@@ -3513,7 +4839,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3125,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_pn_3.zones.json"
+     }
     },
     {
      "id": "cinema-tickets_v_1",
@@ -3523,7 +4858,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6042,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6562,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_v_1.zones.json"
+     }
     },
     {
      "id": "cinema-tickets_v_3",
@@ -3533,7 +4877,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4375,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.625,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_v_3.zones.json"
+     }
     },
     {
      "id": "cinema-tickets_vn_1",
@@ -3543,7 +4904,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_vn_1.zones.json"
+     }
     },
     {
      "id": "cinema-tickets_vn_4",
@@ -3553,7 +4923,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6042,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_vn_4.zones.json"
+     }
     }
    ],
    "inserts": [
@@ -3701,7 +5088,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4219,
+      "horizon_src": "depth",
+      "floor_top": 0.8542,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/party-invite/zones/party-invite_p_4.zones.json"
+     }
     },
     {
      "id": "party-invite_pn_1",
@@ -3711,7 +5115,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.9271,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/party-invite/zones/party-invite_pn_1.zones.json"
+     }
     },
     {
      "id": "party-invite_pn_2",
@@ -3721,7 +5134,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.8438,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/party-invite/zones/party-invite_pn_2.zones.json"
+     }
     },
     {
      "id": "party-invite_v_3",
@@ -3731,7 +5153,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.6146,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/party-invite/zones/party-invite_v_3.zones.json"
+     }
     }
    ],
    "inserts": [
@@ -3882,7 +5313,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.7917,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/post-office/zones/post-office_p_1.zones.json"
+     }
     },
     {
      "id": "post-office_pn_1",
@@ -3892,7 +5332,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.7917,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/post-office/zones/post-office_pn_1.zones.json"
+     }
     },
     {
      "id": "post-office_pn_4",
@@ -3902,7 +5351,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7917,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/post-office/zones/post-office_pn_4.zones.json"
+     }
     },
     {
      "id": "post-office_v_1",
@@ -3912,7 +5378,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4213,
+      "horizon_src": "depth",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/post-office/zones/post-office_v_1.zones.json"
+     }
     },
     {
      "id": "post-office_v_4",
@@ -3922,7 +5405,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.4792,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/post-office/zones/post-office_v_4.zones.json"
+     }
     },
     {
      "id": "post-office_vn_1",
@@ -3932,7 +5424,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.6875,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/post-office/zones/post-office_vn_1.zones.json"
+     }
     },
     {
      "id": "post-office_vn_3",

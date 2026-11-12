@@ -101,7 +101,7 @@ def slots(zones_dir, bank):
         for p in sit.get('plates', []):
             zf = f"{zones_dir}/{p['id']}.zones.json"
             if not os.path.exists(zf): continue
-            z = json.load(open(zf)); hz = z['horizon']; ok = bool(z['valid'] and HZ_OK[0] <= hz <= HZ_OK[1])
+            z = json.load(open(zf)); hz = z['horizon']; ok = bool(z['valid'] and HZ_OK[0] < hz <= HZ_OK[1])   # hz == 0.30 = bg_zones clip floor (true horizon unknown) -> no host
             p['fit'] = dict(horizon=hz, horizon_src=z.get('horizon_src'), floor_top=z['floor_top'], valid=z['valid'], host_ok=ok,
                             slots={str(k): v for k, v in SLOT_X.items()} if ok else {}, zones=f"cine/scenes/{p['src'].rsplit('/plates/', 1)[0]}/zones/{p['id']}.zones.json")
             n += 1
