@@ -149,6 +149,9 @@ if (REG.todo && Object.keys(REG.todo).length) console.log('⚠ lexicon-expand vi
     ok(f(['lòng bàn tay'], 'bàn tay', '').length === 0 && f(['dãy núi lởm chởm cao vút'], 'dãy núi', '').length === 0, 'viAgreeSources: KHÔNG khớp đuôi (lòng bàn tay ≠ bàn tay), không quá 2 âm tiết');
     ok(f(['thói nghiện'], 'nghiện', '')[0].src.join() === 'wv,a', 'viKey: bỏ "thói" chỉ loại đầu'); }
   { const J = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'); ok(/pass = items\.filter\(x => pend\.items\[x\.k\] && OUT\[x\.k\] && OUT\[x\.k\]\.pass\)\.length/.test(J) && /yield: \+\(pass \//.test(J), 'báo cáo: pass/yield theo LƯỢT (không cộng dồn lô ngày – cầu dao sản lượng phải ngắt được)'); }
+  { const { mergeViSources: m } = await import('../lexicon/expand/lib.mjs'), W = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/lexicon/expand/wikidata-vi.json'), 'utf8'));
+    ok(m({ 'a#n': ['x', 'y'] }, { 'a#n': ['y', 'z'], 'b#n': ['q'] })['a#n'].join() === 'x,y,z' && m({}, { 'b#n': ['q'] })['b#n'][0] === 'q', 'wikidata-vi: gộp nguồn không trùng');
+    ok(Object.keys(W).length > 10000 && Object.entries(W).every(([k, v]) => /#(n|v|adj|adv)$/.test(k) && v.length && v.every(l => /[^\x00-\x7f]/.test(l))), 'wikidata-vi: khóa word#pos, nhãn có dấu tiếng Việt'); }
   { const { laneEmpty: e } = await import('../lexicon/expand/lib.mjs'), now = Date.parse('2026-11-10T12:00:00Z'), at = '2026-11-10T10:00:00Z', r = n => ({ n, retry: 700, at });
     ok(e([r(5), r(3)], 700, now) && !e([r(60), r(50)], 700, now) && !e([r(5)], 12000, now) && !e([{ n: 1, retry: 700, at: '2026-11-08T10:00:00Z' }], 700, now) && !e([], 0, now), 'laneEmpty: rỗng mới bỏ, retry tăng hoặc quá 24 h thì chạy lại');
   // 11/11: chỉ cộng các shard CÙNG lượt (run) – s0 lượt mới (37) + s1–s3 lượt cũ (6+11+10) không được tính chung; tổng một lượt ≥ EMPTY_RUN thì chạy
@@ -423,7 +426,7 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   { const { execFileSync } = await import('node:child_process'), os = await import('node:os'), d = fs.mkdtempSync(path.join(os.tmpdir(), 'lxex-')), f = path.join(d, 'existing.json');
     execFileSync('node', [path.join(ROOT, 'scripts/lexicon/expand/existing.mjs'), f], { cwd: ROOT, stdio: 'pipe' });
     const all = Object.keys(JSON.parse(fs.readFileSync(f, 'utf8'))).filter(k => k.includes('#')).length, live = JSON.parse(fs.readFileSync(path.join(d, 'existing.live.json'), 'utf8'));
-    const failed = [...doneWords()].filter(k => !doneWords({ queue: false }).has(k)).length;
+    const liveDone = doneWords({ queue: false }), failed = [...doneWords()].filter(k => !liveDone.has(k)).length;
     ok(live.wp > 0 && live.wp <= all - failed + 1 && live.w <= live.wp + 1, `existing.mjs: mục sống ${live.wp} ≤ bỏ trùng ${all} − trượt ${failed}`);
     fs.rmSync(d, { recursive: true, force: true }); }
   const job = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8');
