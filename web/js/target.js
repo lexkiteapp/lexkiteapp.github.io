@@ -19,18 +19,19 @@
   const LANGS = Object.keys(TABLE), KEY = 'lk.tl';
   const ls = (k, v) => { try { if (v === undefined) return g.localStorage ? g.localStorage.getItem(k) : null; if (v === null) g.localStorage.removeItem(k); else g.localStorage.setItem(k, v); } catch (e) { /* chế độ riêng tư */ } return null; };
   // enabled(tl) = cờ của RIÊNG ngôn ngữ đó; enabled() = có ít nhất một ngôn ngữ đích ngoài 'en' đang bật (hiện hàng chọn ở Cài đặt)
-  // BẬT THEO BẬC (W7): cờ riêng (true/1) = tất cả · `pct` (0–100) = nhóm thiết bị cố định lk.tb (ngẫu nhiên 1 lần, cùng kiểu vocab_img_pct) ·
+  // BẬT THEO BẬC (W7): cờ riêng (true/1) = tất cả · `pct` (0–100) = nhóm thiết bị cố định lk.esb (ngẫu nhiên 1 lần, kiểu vocab-img.js lk.vb; KHÔNG dùng lk.tb của teacher-bubble) ·
   // `kill`=1 = CÔNG TẮC KHẨN, tắt mọi đường (kể cả lk.es) · lk.es=1 = người thử. Cờ `flag` đặt rõ 0/false vẫn tắt nhóm theo %.
   const cfgv = k => { try { const c = JSON.parse(ls('lk.cfg') || 'null'); return c && c.v ? c.v[k] : undefined; } catch (e) { return undefined; } };
   const yes = v => v === true || v === 1 || v === '1' || v === 'true', no = v => v === false || v === 0 || v === '0' || v === 'false';
-  function bucket() { let b = ls('lk.tb'); if (b == null || isNaN(+b)) { b = String(Math.floor(Math.random() * 100)); ls('lk.tb', b); } return +b; }
+  let mem = null; // chế độ riêng tư (không ghi được): giữ nhóm trong bộ nhớ để không đổi qua lại giữa các lần gọi
+  function bucket() { const b = ls('lk.esb'); if (/^\d{1,2}$/.test(b || '')) return +b; if (mem === null) mem = Math.floor(Math.random() * 100); ls('lk.esb', String(mem)); return mem; }
   function on(tl) {
     const r = TABLE[tl]; if (!r || !r.flag) return false;
     if (r.kill && yes(cfgv(r.kill))) return false;
     if (ls(r.ls) === '1') return true;
     const v = cfgv(r.flag); if (yes(v)) return true; if (no(v)) return false;
-    const p = r.pct ? cfgv(r.pct) : undefined;
-    return p !== undefined && p !== null && p !== '' && !isNaN(+p) && +p > 0 && bucket() < Math.min(100, +p);
+    const p = r.pct ? cfgv(r.pct) : undefined, n = typeof p === 'string' || typeof p === 'number' ? parseFloat(p) : NaN;
+    return n > 0 && bucket() < Math.min(100, n);
   }
   const enabled = tl => (tl ? on(tl) : LANGS.some(on));
   const avail = () => LANGS.filter(k => k === 'en' || on(k)); // ngôn ngữ chọn được lúc này
