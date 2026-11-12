@@ -21,7 +21,7 @@
     '🔁 Giữ chân theo nền tảng & quốc gia': '🔁 Retention by platform & country', 'Chạm thật ngày đầu': 'Engaged on day 1', 'Phiên/người/tuần': 'Sessions/user/week',
     'D1 / D7 / D30 chính xác: có phiên đúng ngày +1 / +7 / +30 kể từ ngày đầu; chỉ tính nhóm đã đủ tuổi. Chạm thật = ≥ 2 trang hoặc ≥ 60 giây. Phiên/người/tuần tính trên 28 ngày gần nhất. Nhóm < 5 người gộp vào “khác”.': 'Exact D1 / D7 / D30: a session exactly +1 / +7 / +30 days after the first day; only mature cohorts count. Engaged = ≥ 2 pages or ≥ 60 s. Sessions/user/week over the last 28 days. Groups under 5 people are merged into “other”.', 'khác': 'other', 'Quốc gia': 'Country', 'Tổng': 'All',
     'Thấy kế hoạch Hôm nay': 'Saw Today plan', 'máy·ngày, 7 ngày': 'device-days, 7 days', 'Bấm bắt đầu': 'Tapped start', '% số đã thấy': '% of those who saw it', 'Xong kế hoạch': 'Finished plan', 'Bấm “Tiếp tục”': 'Tapped “Continue”', '% số đã thấy nút': '% of those who saw it',
-    'Tổng kết tuần': 'Weekly recap cards', 'bấm xem': 'tapped see',
+    'Tổng kết tuần': 'Weekly recap cards', 'bấm xem': 'tapped see', 'Chào mừng quay lại': 'Welcome-back cards', 'bấm ôn nhanh': 'tapped review',
     '🧩 Add-on Chrome': '🧩 Chrome add-on', 'Cài đặt 30 ngày': 'Installs (30 days)', 'Gỡ 30 ngày': 'Uninstalls (30 days)', 'Đang dùng hôm nay': 'Active today', 'Đang dùng 7 ngày': 'Active (7 days)',
     'Tra từ hôm nay': 'Lookups today', 'Lưu thẻ hôm nay': 'Cards saved today', '{n} trong 14 ngày': '{n} in 14 days', 'mới': 'new', 'cập nhật: {n}': 'updates: {n}',
     'Cài / gỡ theo ngày (30 ngày)': 'Installs / uninstalls per day (30 days)', 'Cài': 'Installs', 'Gỡ': 'Uninstalls', 'Máy dùng add-on theo ngày (14 ngày)': 'Active add-on devices per day (14 days)',
