@@ -206,10 +206,10 @@ class WordEnv(
     /** Ideas, letters, paraphrase pairs, annotated models, prompts, Task 1 sets: the writing scripts of the web, read as data. */
     suspend fun writing(): WritingData = lock.withLock {
         writingV ?: run {
-            val m = listOf("js/models.js", "cpack/write/models2.js", "cpack/write/models3.js", "cpack/write/models4.js", "cpack/write/models5.js", "js/write/gt-letters.js", "cpack/write/task2-more.js", "js/write/task1-more.js", "js/write/task1-more2.js").map { script(it) }
+            val m = listOf("js/models.js", "cpack/write/models2.js", "cpack/write/models3.js", "cpack/write/models4.js", "cpack/write/models5.js", "js/write/gt-letters.js", "cpack/write/task2-more.js", "cpack/write/task1-more.js", "js/write/task1-more2.js").map { script(it) }
             val w = WritingData.fromScripts(
                 script("cpack/write/ideas.js"), script("js/lib/paraphrase-data.js"), m, script("js/write.js"), listOf(script("cpack/write/task2-more.js")),
-                script("js/task1.js"), listOf(script("js/write/task1-more.js"), script("js/write/task1-more2.js")),
+                script("js/task1.js"), listOf(script("cpack/write/task1-more.js"), script("js/write/task1-more2.js")),
             )
             if (w.models.isNotEmpty() || w.ideas.isNotEmpty()) writingV = w
             w
