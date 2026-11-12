@@ -105,7 +105,9 @@
    "seed": 305230,
    "stills": [
     "thumbs_up",
-    "clap"
+    "clap",
+    "hold_card",
+    "count"
    ],
    "poses": [
     "talk",
@@ -122,7 +124,9 @@
     "point",
     "empathy",
     "thumbs_up",
-    "clap"
+    "clap",
+    "hold_card",
+    "count"
    ],
    "bundledPoses": [
     "happy",
@@ -265,20 +269,20 @@
     },
     "count": {
      "kind": "pose",
-     "wanted": "explain",
-     "pose": "explain",
-     "file": "teach/ama/still-explain.webp",
+     "wanted": "count",
+     "pose": "count",
+     "file": "teach/ama/still-count.webp",
      "hold": 1.6,
      "emo": "explain",
-     "pending": true,
-     "alt": null,
+     "pending": false,
+     "alt": "explain",
      "bundled": false
     },
     "hold_card": {
      "kind": "pose",
      "wanted": "hold_card",
-     "pose": "explain",
-     "file": "teach/ama/still-explain.webp",
+     "pose": "hold_card",
+     "file": "teach/ama/still-hold_card.webp",
      "hold": 2,
      "emo": "explain",
      "pending": false,
@@ -295,7 +299,9 @@
    "seed": 9139896771,
    "stills": [
     "thumbs_up",
-    "hold_card"
+    "hold_card",
+    "clap",
+    "count"
    ],
    "poses": [
     "talk",
@@ -312,7 +318,9 @@
     "point",
     "empathy",
     "thumbs_up",
-    "hold_card"
+    "hold_card",
+    "clap",
+    "count"
    ],
    "bundledPoses": [
     "happy",
@@ -445,23 +453,23 @@
     "clap": {
      "kind": "pose",
      "wanted": "clap",
-     "pose": "cheer",
-     "file": "teach/carlos/still-cheer.webp",
+     "pose": "clap",
+     "file": "teach/carlos/still-clap.webp",
      "hold": 1.2,
      "emo": "praise",
      "pending": false,
      "alt": "cheer",
-     "bundled": true
+     "bundled": false
     },
     "count": {
      "kind": "pose",
-     "wanted": "explain",
-     "pose": "explain",
-     "file": "teach/carlos/still-explain.webp",
+     "wanted": "count",
+     "pose": "count",
+     "file": "teach/carlos/still-count.webp",
      "hold": 1.6,
      "emo": "explain",
-     "pending": true,
-     "alt": null,
+     "pending": false,
+     "alt": "explain",
      "bundled": false
     },
     "hold_card": {

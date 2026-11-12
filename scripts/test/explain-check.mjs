@@ -3,7 +3,7 @@
 // < 90% = pipeline dịch hỏng thật → chặn. Thiếu lời giải tiếng Việt (nguồn) luôn chặn.
 import fs from 'fs'; import path from 'path'; import { fileURLToPath } from 'url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..'), g = {};
-for (const d of ['listen', '../cpack/listen', 'readtest', 'toeic', '../cpack/toefl']) for (const f of fs.readdirSync(path.join(ROOT, 'web/js', d)).sort()) if (f.endsWith('.js')) try { new Function('self', fs.readFileSync(path.join(ROOT, 'web/js', d, f), 'utf8'))(g); } catch (e) { /* bỏ qua */ }
+for (const d of ['listen', '../cpack/listen', 'readtest', '../cpack/readtest', 'toeic', '../cpack/toefl']) for (const f of fs.readdirSync(path.join(ROOT, 'web/js', d)).sort()) if (f.endsWith('.js')) try { new Function('self', fs.readFileSync(path.join(ROOT, 'web/js', d, f), 'utf8'))(g); } catch (e) { /* bỏ qua */ }
 const src = new Set(); JSON.stringify([g.LISTENING, g.READ_EXPLAIN, g.TOEIC, g.TOEFL], (k, v) => { if ((k === 'why' || k === 'explain') && typeof v === 'string' && v.trim()) src.add(v); return v; });
 const hash = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0).toString(36); };
 const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;

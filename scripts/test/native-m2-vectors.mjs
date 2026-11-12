@@ -77,7 +77,7 @@ const RV = T1.vectorJson, RD = T1.rigJson;
   }
   ok(bad.length === 0 && RV.scenarios.length === 24, `machine reference: ${RV.scenarios.length} scenarios (idle · emotions · gestures · speak cues/queue/live · listen, normal + reduced motion), inside LIMITS, calm = neck/breath still${bad.length ? ' – ' + bad.slice(0, 3).join('; ') : ''}`);
   const posesOf = who => new Set(RV.scenarios.find(s => s.who === who && s.id === 'gestures').rows.map(r => r[col('pose')]).filter(Boolean));
-  ok(['cheer', 'thumbs_up', 'clap', 'explain'].every(p => posesOf('ama').has(p)) && ['cheer', 'thumbs_up', 'hold_card'].every(p => posesOf('carlos').has(p)), 'gestures scenario: Ama clap + hold_card→explain (alt), Carlos hold_card + clap→cheer (alt)');
+  ok(['cheer', 'thumbs_up', 'clap', 'hold_card'].every(p => posesOf('ama').has(p)) && ['cheer', 'thumbs_up', 'hold_card', 'clap'].every(p => posesOf('carlos').has(p)), 'gestures scenario: both teachers show their own thumbs_up, clap and hold_card stills (gesture bank 12/11 – no alt left)');
   const rigid = RV.matrix.every(({ m }) => Math.abs(m[0] - m[3]) < 1e-5 && Math.abs(m[1] + m[2]) < 1e-5);
   ok(rigid && RV.matrix.length === 12, 'matrix vectors are rigid (rotation + uniform scale + translation, no shear)');
   ok(RV.paint.length === 2 * 14 && RV.paint.every(p => p.parts.length === 5 && p.parts[3].length > 3) && RV.paint.filter(p => p.who === 'ama').every(p => p.parts[4].length === 0) && RV.paint.filter(p => p.who === 'carlos').every(p => p.parts[4].length > 0), 'face paint ops: 5 layers per state (eyes×2, brows, mouth, moustache only for Carlos)');
