@@ -17,7 +17,7 @@ w.console.error = (...a) => errors.push(a.join(' '));
 w.scrollTo = () => {}; w.HTMLElement.prototype.scrollIntoView = () => {}; w.matchMedia = () => ({ matches: false, addEventListener() {} });
 w.CSS = { escape: s => s };
 w.fetch = async url => {
-  const m = /^cpack\/irv\/([a-z]+)\.json$/.exec(String(url)), f = m && path.join(WEB, 'cpack/irv', m[1] + '.json');
+  const m = /^js\/irv\/([a-z]+)\.json$/.exec(String(url)), f = m && path.join(WEB, 'js/irv', m[1] + '.json');
   if (f && fs.existsSync(f)) { const j = JSON.parse(fs.readFileSync(f, 'utf8')); return { ok: true, status: 200, json: async () => j, text: async () => '' }; }
   return { ok: false, status: 404, json: async () => ({}), text: async () => '' };
 };

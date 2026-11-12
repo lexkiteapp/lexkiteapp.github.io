@@ -234,7 +234,7 @@ ok(V.suggest('ca').some(x => x.base === 'can'), 'gợi ý có cả động từ 
 ok(V.suggest('be', 50).length <= 50, 'gợi ý giới hạn số lượng');
 V.addKnown(['zoomify']); eq(V.resolve('zoomified').base, 'zoomify', 'nạp thêm động từ từ kho từ (addKnown)');
 
-// bảng bất quy tắc (web/cpack/irv/*) khớp LK_VERBS + hợp đồng dữ liệu: scripts/verbs/build-irregular.mjs --check
+// bảng bất quy tắc (web/js/irv/*) khớp LK_VERBS + hợp đồng dữ liệu: scripts/verbs/build-irregular.mjs --check
 { const { spawnSync } = await import('node:child_process'), r = spawnSync(process.execPath, ['scripts/verbs/build-irregular.mjs', '--check'], { encoding: 'utf8' }); ok(r.status === 0, 'build-irregular --check: ' + ((r.stdout || '') + (r.stderr || '')).trim().split('\n').slice(-3).join(' | ')); }
 
 if (fails) { console.log(`✗ verbs: ${fails}/${n} sai`); process.exit(1); }

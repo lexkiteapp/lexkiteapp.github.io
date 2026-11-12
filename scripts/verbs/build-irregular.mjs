@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Bảng động từ bất quy tắc (#/irregular, docs/LEXICON.md). Dạng V1/V2/V3 chỉ có MỘT nguồn: IRR trong web/js/verbs-core.js.
 // Nguồn nội dung: content/verbs/irregular.json (CEFR, IPA Anh/Mỹ, nghĩa en, 2 câu ví dụ) + content/verbs/i18n/<lang>.json (nghĩa + ví dụ bản ngữ).
-// Đối chiếu: content/verbs/sources/{wordnet-forms,cmudict-forms}.json. Ra: web/cpack/irv/core.json + web/cpack/irv/<lang>.json (tải lười).
+// Đối chiếu: content/verbs/sources/{wordnet-forms,cmudict-forms}.json. Ra: web/js/irv/core.json + web/js/irv/<lang>.json (tải lười).
 // Dùng: node scripts/verbs/build-irregular.mjs        → kiểm + ghi · --check → kiểm + đỏ khi bản đã commit lệch (npm test)
 import fs from 'node:fs'; import vm from 'node:vm';
 const J = f => JSON.parse(fs.readFileSync(f, 'utf8')), CHECK = process.argv.includes('--check');
@@ -42,7 +42,7 @@ for (const v of list) {
   core.push([v.base, e.cefr, FREQ(rank.get(v.base)), v.pattern, e.ipa, e.p, e.pp, e.g, e.n || '', e.ipaB || '', `${v.base}, ${P}, ${PP}.`]); // cột cuối = chuỗi 3 dạng để đọc liền (giọng Kokoro, corpus.mjs)
 }
 for (const b of Object.keys(src)) if (!list.some(v => v.base === b)) err(`${b}: thừa trong irregular.json`);
-const out = { 'web/cpack/irv/core.json': JSON.stringify({ v: 1, rows: core }) };
+const out = { 'web/js/irv/core.json': JSON.stringify({ v: 1, rows: core }) };
 for (const l of LANGS) {
   const f = `content/verbs/i18n/${l}.json`; if (!fs.existsSync(f)) { err(`${l}: thiếu tệp dịch`); continue; }
   const d = J(f), rows = {};
@@ -52,10 +52,10 @@ for (const l of LANGS) {
     if (!!x.n !== !!e.n) err(`${l}/${v.base}: ghi chú lệch nguồn`);
     rows[v.base] = x.n ? [x.g, x.p, x.pp, x.n] : [x.g, x.p, x.pp];
   }
-  out[`web/cpack/irv/${l}.json`] = JSON.stringify({ v: 1, rows });
+  out[`web/js/irv/${l}.json`] = JSON.stringify({ v: 1, rows });
 }
 if (errs.length) { console.error(`✗ ${errs.length} lỗi dữ liệu động từ bất quy tắc:\n` + errs.slice(0, 60).join('\n')); process.exit(1); }
 let drift = 0;
-for (const [f, s] of Object.entries(out)) { if (CHECK) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== s) { console.error('✗ lệch: ' + f + ' → node scripts/verbs/build-irregular.mjs'); drift++; } } else { fs.mkdirSync('web/cpack/irv', { recursive: true }); fs.writeFileSync(f, s); } }
+for (const [f, s] of Object.entries(out)) { if (CHECK) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== s) { console.error('✗ lệch: ' + f + ' → node scripts/verbs/build-irregular.mjs'); drift++; } } else { fs.mkdirSync('web/js/irv', { recursive: true }); fs.writeFileSync(f, s); } }
 if (drift) process.exit(1);
 console.log(`✓ ${core.length} động từ bất quy tắc, ${LANGS.length} ngôn ngữ`);

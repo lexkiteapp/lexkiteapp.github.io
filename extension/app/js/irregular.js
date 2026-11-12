@@ -1,5 +1,5 @@
 /* 🔤 Động từ bất quy tắc – #/irregular (bảng) · #/irregular/<động từ> (bảng + tờ chi tiết, link sâu) · #/irregular/practice (luyện điền chỗ trống).
- * Dạng chia: LK_VERBS.irregularList() (một nguồn). Dữ liệu phụ: web/cpack/irv/core.json (+ <ngôn ngữ>.json), scripts/verbs/build-irregular.mjs.
+ * Dạng chia: LK_VERBS.irregularList() (một nguồn). Dữ liệu phụ: web/js/irv/core.json (+ <ngôn ngữ>.json), scripts/verbs/build-irregular.mjs.
  * Giao diện = Stitch brand/stitch/v2/irv-{table,detail,drill}-{light,dark}.html, port tay (lt:/dk:, như say.js) → css/st-v2-irregular.css.
  * Nạp lười: App.need('irregular') (BUNDLES.irregular trong app.js); chuỗi = nhóm i18n lười 'verbs' (i18nl). */
 (function (g) {
@@ -13,8 +13,8 @@
   const built = {};
   async function load() {
     const l = learn(); if (built[l]) return built[l];
-    const core = await got('cpack/irv/core.json'); let loc = {};
-    if (l !== 'en') { try { loc = (await got('cpack/irv/' + l + '.json')).rows || {}; } catch (e) { loc = {}; } } // thiếu bản dịch → nghĩa tiếng Anh
+    const core = await got('js/irv/core.json'); let loc = {};
+    if (l !== 'en') { try { loc = (await got('js/irv/' + l + '.json')).rows || {}; } catch (e) { loc = {}; } } // thiếu bản dịch → nghĩa tiếng Anh
     const list = {}; for (const x of g.LK_VERBS.irregularList()) list[x.base] = x;
     const rows = [], map = {};
     for (const c of core.rows) {
