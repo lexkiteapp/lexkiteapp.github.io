@@ -8,6 +8,7 @@
   const d = document, URL_ = 'https://lexkite.com';
   const C = { teal: '#0F3D3E', teal2: '#17595A', coral: '#E5502F', orange: '#FFB054', gold: '#FFC94A', cream: '#FFF7EA', green: '#2FBF71' };
   const T = (k, v) => g.t(k, v);
+  const XP_IN = 50, XP_OUT = 100; // thưởng: người được mời / người mời (mỗi bạn)
   // Liên kết đo được (docs/specs/funnel.md): trang đích /go/<ngôn ngữ>/ + UTM (nguồn share · phương tiện qr|link · chiến dịch = loại thẻ); không dữ liệu cá nhân
   const kindOf = S => (S.streak >= 3 ? 'streak' : S.acc ? 'result' : S.today >= S.goal ? 'goal' : 'day');
   // QR: bộ sinh qr.js chỉ chứa ≤ 62 byte → nguồn 'qr' + chiến dịch (không phương tiện/mã); liên kết chia sẻ: nguồn 'share' + phương tiện + mã giới thiệu tùy chọn
@@ -26,7 +27,8 @@
 .sc-tabs button{border:0;background:none;padding:.5rem 1rem;border-radius:999px;font:inherit;font-weight:700;color:var(--muted);cursor:pointer;min-height:40px}
 .sc-tabs button[aria-selected=true]{background:var(--surface);color:var(--text);box-shadow:0 2px 8px rgba(0,0,0,.1)}
 .sc canvas{display:block;width:auto;max-width:100%;height:auto;max-height:min(56vh,520px);border-radius:16px;box-shadow:0 14px 34px rgba(15,61,62,.25);background:${C.teal}}
-.sc-act{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}.sc-act .btn{min-height:44px}`;
+.sc-act{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}.sc-act .btn{min-height:44px}
+.sc-inv{display:grid;gap:.4rem;justify-items:center}.sc-inv .btn{min-height:44px}.sc-inv p{margin:0;max-width:36ch}`;
     d.head.appendChild(st);
   };
 
@@ -114,7 +116,8 @@
     const box = modal(`<div class="sc"><h2 id="scTitle">✨ ${T('Khoe thành tích')}</h2>
       <div class="sc-tabs" role="tablist"><button type="button" role="tab" data-f="story" aria-selected="true">📱 ${T('Story 9:16')}</button><button type="button" role="tab" data-f="sq" aria-selected="false">🖼️ ${T('Bài đăng 1:1')}</button></div>
       <canvas id="scCv" width="1080" height="1920" role="img" aria-label="${T('Thẻ thành tích')}"></canvas>
-      <div class="sc-act"><button type="button" class="btn primary" id="scShare">📤 ${T('Chia sẻ')}</button><button type="button" class="btn" id="scDl">⬇️ ${T('Tải ảnh')}</button><button type="button" class="btn ghost" data-close>${T('Đóng')}</button></div></div>`);
+      <div class="sc-act"><button type="button" class="btn primary" id="scShare">📤 ${T('Chia sẻ')}</button><button type="button" class="btn" id="scDl">⬇️ ${T('Tải ảnh')}</button><button type="button" class="btn ghost" data-close>${T('Đóng')}</button></div>
+      <div class="sc-inv"><button type="button" class="btn" id="scInv">🎁 ${T('Mời bạn học cùng')}</button><p class="muted small">${T('Bạn và bạn bè cùng nhận +{xp} XP và 1 lượt đóng băng chuỗi khi bạn ấy học xong bài đầu', { xp: XP_OUT })}</p></div></div>`);
     box.setAttribute('aria-labelledby', 'scTitle');
     const cv = box.querySelector('#scCv'), name = f => `lexkite-${f === 'story' ? 'story' : 'post'}-${new Date().toISOString().slice(0, 10)}.png`;
     let fmt = 'story', blob = null, seq = 0;
@@ -123,6 +126,7 @@
     box.querySelectorAll('[data-f]').forEach(b => b.onclick = () => { if (fmt === b.dataset.f) return; fmt = b.dataset.f; box.querySelectorAll('[data-f]').forEach(x => x.setAttribute('aria-selected', String(x === b))); draw(); });
     const save = async () => { const b = blob || await toBlob(cv); if (b) download(b, name(fmt)); else toast(T('Không tải được – thử lại sau')); };
     box.querySelector('#scDl').onclick = save;
+    box.querySelector('#scInv').onclick = invite;
     // Web: navigator.share({files}) → không được thì tải ảnh + chép link. App gốc: bảng chia sẻ hệ điều hành (js/lib/save-file.js)
     box.querySelector('#scShare').onclick = async () => {
       const b = blob || await toBlob(cv); if (!b || !g.LKFile) return save();
@@ -134,5 +138,30 @@
     draw();
   }
 
-  g.ShareCard = { open, render, stats, link, kindOf };
+  // ===== Vòng giới thiệu (docs/specs/referral.md): link mời /go/<lang>/?utm_source=ref&c=<mã> → bạn mới học xong bài đầu → cả hai nhận XP + 1 lượt đóng băng ($0, chỉ trong app) =====
+  const LS = (() => { try { return localStorage; } catch (e) { return null; } })(), BASE = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : URL_;
+  const code = () => { let c = LS && LS.getItem('lk.rc'); if (!c || !/^[a-z0-9]{8}$/.test(c)) { c = Array.from(crypto.getRandomValues(new Uint8Array(8)), x => 'abcdefghijklmnopqrstuvwxyz0123456789'[x % 36]).join(''); try { LS.setItem('lk.rc', c); } catch (e) { /* bỏ qua */ } } return c; };
+  const inviteLink = () => `${URL_}/go/${(g.I18N && I18N.lang && I18N.lang()) || 'en'}/?utm_source=ref&utm_medium=invite&c=${code()}`;
+  async function invite() {
+    const url = inviteLink(), text = T('Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}', { url });
+    try { if (navigator.share) { await navigator.share({ title: 'Lexkite', text, url }); return; } } catch (e) { if (e && e.name === 'AbortError') return; }
+    try { await navigator.clipboard.writeText(text); g.UI.toast(T('Link mời đã được chép – dán gửi bạn nhé')); } catch (e) { g.UI.toast(url); }
+  }
+  // Thưởng trong app: XP + 1 lượt đóng băng (tối đa 2 – như chuỗi 7 ngày, js/core.js freezeInfo). Gọi 1 lần ~20 giây sau khi mở app, nếu máy có mã mời hoặc đến từ link mời; không thông báo đẩy.
+  const reward = (xp, fz) => g.Game.mutate(gs => { gs.xp = (gs.xp || 0) + xp; if (fz) gs.freezes = Math.min(2, (gs.freezes || 0) + 1); });
+  async function refSync() {
+    if (!LS || !g.Game || !g.UI) return;
+    try { // người được mời: 1 lần/máy, không tự thưởng bằng link của chính mình
+      const at = JSON.parse(LS.getItem('lk.at') || 'null');
+      if (at && at.s === 'ref' && /^[a-z0-9]{8}$/.test(at.k || '') && at.k !== LS.getItem('lk.rc') && !LS.getItem('lk.refIn')) { LS.setItem('lk.refIn', '1'); await reward(XP_IN, 1); g.UI.toast(T('🎁 Bạn được bạn bè mời! Nhận +{xp} XP và 1 lượt đóng băng chuỗi', { xp: XP_IN })); }
+    } catch (e) { /* bỏ qua */ }
+    const c = LS.getItem('lk.rc'); if (!c) return; // người mời: máy chủ đếm bạn mới đã học xong bài đầu (≤ 3/ngày, ≤ 10 tổng)
+    try {
+      const r = await fetch(BASE + '/api/ref?c=' + c); if (!r.ok) return;
+      const n = Math.min(10, +(await r.json()).n || 0), paid = +LS.getItem('lk.refPaid') || 0;
+      if (n > paid) { LS.setItem('lk.refPaid', String(n)); await reward((n - paid) * XP_OUT, 1); g.UI.toast(T('🎉 {n} bạn bè bạn mời đã học xong bài đầu – bạn nhận +{xp} XP và 1 lượt đóng băng chuỗi', { n: n - paid, xp: (n - paid) * XP_OUT })); }
+    } catch (e) { /* bỏ qua */ }
+  }
+
+  g.ShareCard = { open, render, stats, link, kindOf, refSync, inviteLink };
 })(typeof self !== 'undefined' ? self : this);

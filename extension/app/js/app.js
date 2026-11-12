@@ -1585,6 +1585,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       }, 2500);
     }
     setTimeout(() => idle(refreshIPA), 15000);
+    try { if (localStorage.getItem('lk.rc') || /"s":"ref"/.test(localStorage.getItem('lk.at') || '')) setTimeout(() => idle(() => App.need('share').then(() => ShareCard.refSync()).catch(() => {})), 20000); } catch (e) { /* bỏ qua */ }
     if (isIOS()) setTimeout(() => App.installNudge && App.installNudge(), 25000);
     if (!Store.isExtension && !isStandalone()) setTimeout(() => idle(() => App.getApp().then(() => showInstallBtn())), 3000); // menu "Tải app" + nút cài Android → Google Play
   };

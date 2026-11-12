@@ -124,7 +124,7 @@ const NOT_ROUTE = new Set(['admin']); // trang quản trị không phải "trang
 
 export async function setup(db) {
   if (ready) return;
-  await once(db, 'hit', 2, async () => { // lược đồ: chỉ chạy khi đổi phiên bản (_schema.js) – sửa CREATE/ALTER ở đây thì TĂNG số 1
+  await once(db, 'hit', 3, async () => { // lược đồ: chỉ chạy khi đổi phiên bản (_schema.js) – sửa CREATE/ALTER ở đây thì TĂNG số 1
     await db.batch([
       db.prepare('CREATE TABLE IF NOT EXISTS sessions (sid TEXT PRIMARY KEY, vid TEXT, day TEXT NOT NULL, at INTEGER NOT NULL, country TEXT, ref TEXT, dev TEXT, lang TEXT, plat TEXT, path TEXT, dur INTEGER, pages INTEGER, ret INTEGER) WITHOUT ROWID'),
       db.prepare('CREATE INDEX IF NOT EXISTS sessions_day ON sessions (day)'),
