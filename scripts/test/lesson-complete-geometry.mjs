@@ -36,7 +36,7 @@ const MEASURE = () => {
   const icons = el => el ? [...el.querySelectorAll('.material-symbols-outlined')].map(i => i.textContent.trim()) : [];
   const cs = el => getComputedStyle(el), s = App._lsn && App._lsn.sess, picks = (App._lsn && App._lsn.picks) || [];
   return {
-    text: root ? root.innerText : '', chip: (q('#lsnX2').nextElementSibling || {}).innerText || '',
+    text: root ? root.innerText : '', chip: (q('#lsnX2').nextElementSibling || {}).innerText || '', chipCut: (() => { const c = q('#lsnX2').nextElementSibling, e = c && [...c.querySelectorAll('span')].pop(); return e ? e.scrollWidth - e.clientWidth : 0; })(),
     tiles: [...tiles.children].map(c => ({ ...r(c), txt: c.innerText.replace(/\s+/g, ' ').trim(), over: c.scrollWidth > c.clientWidth + 1 })),
     legend: q('.lsn-legend') ? [...q('.lsn-legend').children].map(c => ({ txt: c.innerText.replace(/\s+/g, ' ').trim(), hidden: c.hidden || c.offsetParent === null })) : null,
     rings: [...document.querySelectorAll('.v2-lesson-complete circle[stroke-dashoffset]')].map(c => +c.getAttribute('stroke-dashoffset')),
@@ -82,6 +82,7 @@ for (const [name, vp, scheme, lang, wrongEvery, kbd] of CASES) {
 
   // 1 · chip = chặng + số bài thật, KHÔNG phải chip kỳ thi (hạt giống: IELTS)
   ok(/\d+\s*\/\s*\d+/.test(m.chip) && !/^\s*IELTS\s*$/i.test(m.chip) && m.chip.length > 5, `${tag}: chip đúng chặng/bài (“${m.chip.replace(/\s+/g, ' ')}”), không phải nhãn kỳ thi`);
+  ok(m.chipCut <= 1, `${tag}: chip KHÔNG bị cắt “…” (số bài luôn đọc được; dư ${m.chipCut}px)`);
   // 2 · không ký hiệu phút ′
   ok(!/[′″]/.test(m.text) && !/\d\s*['’]/.test(m.text), `${tag}: không còn ký hiệu phút ′ / dấu phẩy trên`);
   // 3 · focus: nút chính nhận focus; chuột/chạm → KHÔNG vòng; bàn phím → vòng được giữ
